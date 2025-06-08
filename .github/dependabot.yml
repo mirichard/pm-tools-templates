@@ -1,0 +1,51 @@
+# Dependabot configuration for PM Tools & Templates
+# Monitors for security vulnerabilities and keeps dependencies updated
+
+version: 2
+updates:
+  # Monitor GitHub Actions for security updates
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+    open-pull-requests-limit: 5
+    labels:
+      - "dependencies"
+      - "security"
+    commit-message:
+      prefix: "Security"
+      include: "scope"
+
+  # Monitor npm packages if any JavaScript tools are added
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+    open-pull-requests-limit: 5
+    labels:
+      - "dependencies"
+      - "security"
+    commit-message:
+      prefix: "Security"
+      include: "scope"
+    ignore:
+      # Ignore patch updates for now, focus on security
+      - dependency-name: "*"
+        update-types: ["version-update:semver-patch"]
+
+  # Monitor Python packages if any automation tools are added
+  - package-ecosystem: "pip"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+    open-pull-requests-limit: 5
+    labels:
+      - "dependencies"
+      - "security"
+    commit-message:
+      prefix: "Security"
+      include: "scope"
+

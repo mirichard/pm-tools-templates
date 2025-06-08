@@ -1,0 +1,210 @@
+name: 📝 Template Request
+description: Request a new template or improvement to existing template
+labels: ["enhancement", "template-request"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for requesting a new template! Your input helps us prioritize development.
+        
+        Please provide as much detail as possible to help us understand your needs.
+
+  - type: input
+    id: template-name
+    attributes:
+      label: Template Name
+      description: What would you call this template?
+      placeholder: e.g., "SAFe Program Increment Planning Template"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: template-type
+    attributes:
+      label: Template Type
+      description: What type of template is this?
+      options:
+        - Project Management Template
+        - Process Documentation
+        - Dashboard/Report
+        - Checklist/Guide
+        - Integration Guide
+        - Training Material
+        - Other
+    validations:
+      required: true
+
+  - type: dropdown
+    id: methodology
+    attributes:
+      label: Methodology
+      description: Which methodology does this relate to?
+      options:
+        - Universal (methodology-agnostic)
+        - PMBOK/Traditional
+        - Agile/Scrum
+        - Hybrid
+        - SAFe
+        - Kanban
+        - Lean
+        - DevOps
+        - Other
+    validations:
+      required: true
+
+  - type: dropdown
+    id: target-role
+    attributes:
+      label: Target Role
+      description: Who would primarily use this template?
+      options:
+        - Project Manager
+        - Program Manager
+        - Scrum Master
+        - Product Owner
+        - Executive/Sponsor
+        - Team Member
+        - Business Analyst
+        - DevOps Engineer
+        - Multiple Roles
+        - Other
+    validations:
+      required: true
+
+  - type: dropdown
+    id: industry
+    attributes:
+      label: Industry
+      description: Is this specific to an industry?
+      options:
+        - Universal (all industries)
+        - Information Technology
+        - Healthcare & Pharmaceutical
+        - Financial Services
+        - Construction & Engineering
+        - Manufacturing
+        - Government
+        - Education
+        - Other
+    validations:
+      required: true
+
+  - type: dropdown
+    id: complexity
+    attributes:
+      label: Complexity Level
+      description: What complexity level should this template target?
+      options:
+        - Beginner (simple, quick start)
+        - Intermediate (professional practice)
+        - Advanced (enterprise grade)
+        - Multiple Levels
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem-description
+    attributes:
+      label: Problem Description
+      description: What problem would this template solve?
+      placeholder: Describe the current challenge or gap that this template would address
+    validations:
+      required: true
+
+  - type: textarea
+    id: solution-description
+    attributes:
+      label: Proposed Solution
+      description: How would this template solve the problem?
+      placeholder: Describe what the template would include and how it would be used
+    validations:
+      required: true
+
+  - type: textarea
+    id: key-features
+    attributes:
+      label: Key Features
+      description: What are the essential features this template should have?
+      placeholder: |
+        List the key features, for example:
+        - Stakeholder mapping section
+        - Risk assessment matrix
+        - Automated calculations
+        - Integration with other templates
+    validations:
+      required: true
+
+  - type: input
+    id: software-requirements
+    attributes:
+      label: Software Requirements
+      description: What software should this template work with?
+      placeholder: e.g., "Excel 2016+", "PowerPoint", "Web-based", "Universal"
+    validations:
+      required: true
+
+  - type: textarea
+    id: use-case
+    attributes:
+      label: Use Case Example
+      description: Provide a specific example of how this template would be used
+      placeholder: |
+        Describe a realistic scenario where someone would use this template:
+        - Who would use it?
+        - When in the project lifecycle?
+        - What would they accomplish?
+        - What would the output be?
+    validations:
+      required: true
+
+  - type: textarea
+    id: existing-alternatives
+    attributes:
+      label: Existing Alternatives
+      description: Are there existing solutions? How would this be different/better?
+      placeholder: Describe any existing templates or tools and how this request would improve upon them
+    validations:
+      required: false
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Priority Level
+      description: How urgent is this need?
+      options:
+        - High (critical for current project)
+        - Medium (would significantly help)
+        - Low (nice to have)
+    validations:
+      required: true
+
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: Additional Context
+      description: Any other information that would help us understand this request?
+      placeholder: Links to resources, examples, or additional requirements
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: contribution-interest
+    attributes:
+      label: Contribution Interest
+      options:
+        - label: I would be interested in contributing to this template development
+        - label: I would be willing to test/review this template when available
+        - label: I have subject matter expertise in this area
+
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Terms
+      options:
+        - label: I have searched existing issues and this request is not a duplicate
+          required: true
+        - label: I understand this request will be prioritized based on community needs
+          required: true
+        - label: I agree to provide feedback and testing when the template is developed
+          required: true
+
