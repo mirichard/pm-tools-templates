@@ -28,7 +28,7 @@ This library provides proven templates, tools, and guidance for project managers
 
 This library is organized around **how project managers actually work**, not just methodology theory:
 
-### 🚀 [Project Lifecycle](project-lifecycle/) - "Universal Project Phases"
+### 🚀 [Project Lifecycle](project-lifecycle/) - Universal Project Phases
 **Templates organized by project phase, adaptable to any methodology**
 - [01-Initiation](project-lifecycle/01-initiation/) - Getting started right
 - [02-Planning](project-lifecycle/02-planning/) - Setting up for success
@@ -36,7 +36,7 @@ This library is organized around **how project managers actually work**, not jus
 - [04-Monitoring & Control](project-lifecycle/04-monitoring-control/) - Staying on track
 - [05-Closure](project-lifecycle/05-closure/) - Finishing strong
 
-### 🎭 [Role-Based Toolkits](role-based-toolkits/) - "Tools for Your Job"
+### 🎭 [Role-Based Toolkits](role-based-toolkits/) - Tools for Your Job
 **Curated collections for specific PM roles**
 - [Project Manager](role-based-toolkits/project-manager/) - The orchestrator
 - [Program Manager](role-based-toolkits/program-manager/) - The strategist
@@ -44,14 +44,14 @@ This library is organized around **how project managers actually work**, not jus
 - [Product Owner](role-based-toolkits/product-owner/) - The visionary
 - [Executive Sponsor](role-based-toolkits/executive-sponsor/) - The champion
 
-### 🏢 [Business Stakeholder Suite](business-stakeholder-suite/) - "Executive-Ready Tools"
+### 🏢 [Business Stakeholder Suite](business-stakeholder-suite/) - Executive-Ready Tools
 **Professional dashboards and governance for business stakeholders**
 - [Executive Dashboards](business-stakeholder-suite/executive-dashboards/) - PowerPoint, Excel, and reports
 - [Communication Automation](business-stakeholder-suite/communication-automation/) - Email and meeting templates
 - [Financial Governance](business-stakeholder-suite/financial-governance/) - Budget and ROI tracking
 - [Strategic Alignment](business-stakeholder-suite/strategic-alignment/) - Business case management
 
-### 🔄 [Methodology Frameworks](methodology-frameworks/) - "Pure Methodology Practice"
+### 🔄 [Methodology Frameworks](methodology-frameworks/) - Pure Methodology Practice
 **Deep-dive resources for methodology experts**
 - [PMBOK/Waterfall](methodology-frameworks/pmbok-waterfall/) - Traditional project management
 - [Agile/Scrum](methodology-frameworks/agile-scrum/) - Iterative and adaptive
