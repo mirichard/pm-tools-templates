@@ -2,6 +2,8 @@
 
 **Comprehensive project management resources organized for modern PM practice**
 
+> 🚧 **IMPORTANT**: This repository is currently being reorganized for better user experience. **[Click here for current template locations →](REPOSITORY_STATUS.md)**
+
 This library provides proven templates, tools, and guidance for project managers across all methodologies and experience levels. Designed following industry best practices from PMI, Scrum Alliance, and SAFe.
 
 ---
