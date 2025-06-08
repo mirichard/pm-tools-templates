@@ -1,4 +1,4 @@
-# PM Tools \u0026 Templates Library
+# PM Tools & Templates Library
 
 [![GitHub stars](https://img.shields.io/github/stars/mirichard/pm-tools-templates?style=social)](https://github.com/mirichard/pm-tools-templates/stargazers)
 [![GitHub forks](https://img.shields.io/github/forks/mirichard/pm-tools-templates?style=social)](https://github.com/mirichard/pm-tools-templates/network)
