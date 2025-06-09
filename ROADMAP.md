@@ -313,6 +313,42 @@ gantt
 - Reduced support ticket volume
 - Faster contributor onboarding
 
+#### 1.6 Program Management Template Suite
+**Timeline:** June 15 - October 30, 2025  
+**Priority:** High  
+**Effort:** 16 weeks (3 phases)  
+
+**Phase 1: Core Foundation (June 15 - July 30, 2025)**
+- Program Manager Toolkit completion
+- Program Charter and Management Plan templates
+- Program Governance Framework
+- Program Risk Register and Management Plan
+- Program Communications Strategy
+- Program Steering Committee Charter
+
+**Phase 2: Portfolio and Benefits Management (August 1 - September 15, 2025)**
+- Portfolio Management Suite
+- Benefits Realization Management templates
+- Multi-Project Coordination tools
+- Resource Allocation and Capacity Planning
+- Investment Decision Framework
+- Cross-Project Integration templates
+
+**Phase 3: Advanced Capabilities (September 16 - October 30, 2025)**
+- Program Stakeholder Management enhancement
+- Program Financial Management suite
+- Methodology-specific program templates (SAFe, Hybrid, Traditional)
+- Program Integration and Dependencies framework
+- Program Lifecycle templates
+
+**Success Criteria:**
+- Complete Program Manager toolkit with 25+ templates
+- Portfolio oversight dashboard integration
+- Benefits realization tracking suite
+- Cross-methodology program template support
+- 90% user satisfaction for program management needs
+- Integration with existing business-stakeholder-suite
+
 ### 📊 Phase 1 Success Metrics
 - **Adoption:** 1,000+ active users
 - **Automation:** 50% of projects using automated workflows
