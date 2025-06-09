@@ -51,12 +51,12 @@ This library is organized around **how project managers actually work**, not jus
 - [Financial Governance](business-stakeholder-suite/financial-governance/) - Budget and ROI tracking
 - [Strategic Alignment](business-stakeholder-suite/strategic-alignment/) - Business case management
 
-### 🔄 [Methodology Frameworks](methodology-frameworks/) - Pure Methodology Practice
+### 🔄 [Methodology Frameworks](.) - Pure Methodology Practice
 **Deep-dive resources for methodology experts**
-- [PMBOK/Waterfall](methodology-frameworks/pmbok-waterfall/) - Traditional project management
-- [Agile/Scrum](methodology-frameworks/agile-scrum/) - Iterative and adaptive
-- [Hybrid Approaches](methodology-frameworks/hybrid-approaches/) - Best of both worlds
-- [Emerging Methods](methodology-frameworks/emerging-methods/) - Latest innovations
+- [PMBOK/Waterfall](Waterfall/) - Traditional project management
+- [Agile/Scrum](Agile/) - Iterative and adaptive
+- [Hybrid Approaches](Hybrid/) - Best of both worlds
+- [Emerging Methods](docs/) - Latest innovations
 
 ---
 
@@ -73,8 +73,8 @@ This library is organized around **how project managers actually work**, not jus
 **🔥 Experienced PM**
 1. Browse [Role-Based Toolkits](role-based-toolkits/) for advanced templates
 2. Explore [Business Stakeholder Suite](business-stakeholder-suite/) for executive communication
-3. Check [Industry Specializations](industry-specializations/) for your field
-4. Use [Integration Toolkits](integration-toolkits/) for tool automation
+3. Check [Industry Specializations](industry_templates/) for your field
+4. Use [Integration Guides](integration_guides/) for tool automation
 
 **🎯 Executive/Sponsor**
 1. Go directly to [Business Stakeholder Suite](business-stakeholder-suite/)
@@ -111,16 +111,16 @@ This library is organized around **how project managers actually work**, not jus
 5. **[Status Reports](role-based-toolkits/project-manager/reporting-dashboards/)** - Regular progress updates
 
 ### 🔧 Ready-to-Use Kits
-- **[New Project Starter Kit](quick-start-kits/new-project-starter/)** - Everything for project kickoff
+- **[First-Time PM Starter Kit](quick-start-kits/first-time-pm-starter/)** - Everything for new project managers
 - **[Agile Transformation Kit](quick-start-kits/agile-transformation/)** - Change management + templates
-- **[Executive Reporting Kit](quick-start-kits/executive-reporting/)** - Business stakeholder tools
-- **[Remote Team Kit](quick-start-kits/remote-team-setup/)** - Distributed team management
+- **[Business Stakeholder Suite](business-stakeholder-suite/)** - Executive communication tools
+- **[Integration Guides](integration_guides/)** - Tool-specific templates
 
 ### 🏭 Industry Specializations
-- **[Information Technology](industry-specializations/information-technology/)** - Software and systems
-- **[Healthcare & Pharmaceutical](industry-specializations/healthcare-pharmaceutical/)** - Regulated environments
-- **[Financial Services](industry-specializations/financial-services/)** - Banking and fintech
-- **[Construction & Engineering](industry-specializations/construction-engineering/)** - Physical projects
+- **[Information Technology](industry_templates/information_technology/)** - Software and systems
+- **[Healthcare & Pharmaceutical](industry_templates/healthcare_pharmaceutical/)** - Regulated environments
+- **[Financial Services](industry_templates/financial_services/)** - Banking and fintech
+- **[Construction & Engineering](industry_templates/construction/)** - Physical projects
 
 ---
 
@@ -135,38 +135,38 @@ This library is organized around **how project managers actually work**, not jus
 4. [Stakeholder Management](role-based-toolkits/project-manager/stakeholder-engagement/)
 
 **Advanced PM Practice**
-1. [Program Management](role-based-toolkits/program-manager/)
-2. [Hybrid Methodologies](methodology-frameworks/hybrid-approaches/)
+1. [Program Management](role-based-toolkits/)
+2. [Hybrid Methodologies](Hybrid/)
 3. [Executive Communication](business-stakeholder-suite/)
-4. [Organizational Frameworks](organizational-frameworks/)
+4. [Organizational Change Management](organizational_change_management_framework.md)
 
 **Agile Specialization**
-1. [Scrum Master Skills](role-based-toolkits/scrum-master/)
-2. [Product Owner Practice](role-based-toolkits/product-owner/)
-3. [Agile Scaling](methodology-frameworks/agile-scrum/scaling-frameworks/)
-4. [Agile Metrics](role-based-toolkits/scrum-master/agile-metrics/)
+1. [Scrum Master Skills](role-based-toolkits/)
+2. [Product Owner Practice](role-based-toolkits/)
+3. [Agile Templates](Agile/)
+4. [Agile Tools](Agile/Tools/)
 
 ### Implementation Support
-- **[Change Management](organizational-frameworks/change-management/)** - Rolling out new practices
-- **[Training Programs](organizational-frameworks/training-programs/)** - Skill development
-- **[Maturity Assessment](organizational-frameworks/maturity-assessments/)** - Current state analysis
-- **[PMO Establishment](organizational-frameworks/pmo-establishment/)** - Building PM capability
+- **[Change Management](organizational_change_management_framework.md)** - Rolling out new practices
+- **[Training Programs](docs/implementation/)** - Skill development
+- **[Repository Status](REPOSITORY_STATUS.md)** - Current implementation status
+- **[Implementation Guide](IMPLEMENTATION_STATUS.md)** - Building PM capability
 
 ---
 
 ## 🔗 Integration & Tools
 
 ### Popular Tool Integrations
-- **[Microsoft Project](integration-toolkits/project-management-tools/microsoft-project/)** - Traditional planning
-- **[Jira & Confluence](integration-toolkits/project-management-tools/jira-confluence/)** - Agile delivery
-- **[Microsoft 365](integration-toolkits/collaboration-platforms/microsoft-365/)** - Communication and collaboration
-- **[Power BI](integration-toolkits/reporting-analytics/power-bi/)** - Advanced analytics
+- **[Microsoft Project](integration_guides/microsoft_project_integration/)** - Traditional planning
+- **[Jira & Confluence](integration_guides/jira_integration/)** - Agile delivery
+- **[GitHub Projects](integration_guides/github_projects_integration/)** - Development workflows
+- **[Trello Integration](integration_guides/trello_integration/)** - Simple project tracking
 
 ### Automation Options
-- **[Excel Automation](integration-toolkits/reporting-analytics/excel-automation/)** - Automated dashboards
-- **[Email Templates](business-stakeholder-suite/communication-automation/email-templates/)** - Stakeholder updates
-- **[CI/CD Integration](integration-toolkits/development-tools/ci-cd-pipelines/)** - Development workflows
-- **[Custom Dashboards](integration-toolkits/reporting-analytics/custom-dashboards/)** - Tailored reporting
+- **[GitHub Integration Templates](integration_guides/github_integration/)** - Development workflows
+- **[Email Templates](business-stakeholder-suite/communication-automation/email-templates/)** - Stakeholder updates (coming soon)
+- **[Automated Reporting](integration_guides/)** - Dashboard automation
+- **[Custom Templates](docs/implementation/)** - Tailored solutions
 
 ---
 
@@ -179,9 +179,9 @@ This library is organized around **how project managers actually work**, not jus
 4. **Iterate and improve** - Adapt templates to your organization
 
 ### For Organizations
-1. **Assess current state** - Use [Maturity Assessments](organizational-frameworks/maturity-assessments/)
-2. **Plan the change** - Implement [Change Management](organizational-frameworks/change-management/)
-3. **Train your people** - Use [Training Programs](organizational-frameworks/training-programs/)
+1. **Assess current state** - Use [Repository Status](REPOSITORY_STATUS.md)
+2. **Plan the change** - Implement [Change Management](organizational_change_management_framework.md)
+3. **Train your people** - Use [Implementation Guide](IMPLEMENTATION_STATUS.md)
 4. **Measure and improve** - Track template usage and effectiveness
 
 ### Template Customization
@@ -204,7 +204,7 @@ This library is organized around **how project managers actually work**, not jus
 - [📚 Full Documentation](docs/)
 - [🎯 Template Index](docs/getting-started/template-selector.md#template-index)
 - [📊 Examples & Case Studies](examples-case-studies/)
-- [🔧 Tool Integration Guides](integration-toolkits/)
+- [🔧 Tool Integration Guides](integration_guides/)
 
 ---
 
