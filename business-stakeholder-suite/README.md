@@ -30,7 +30,7 @@ These tools work regardless of project methodology:
 **Purpose:** Real-time visibility into project status, risks, and financial performance
 
 **What's Included:**
-- **[PowerPoint Templates](executive-dashboards/powerpoint-templates/)** - Executive presentation slides
+- **[PowerPoint Templates](executive-dashboards/PowerPoint/)** - Executive presentation slides
 - **[Excel Workbooks](executive-dashboards/excel-workbooks/)** - Interactive financial dashboards
 - **[Executive Reports](executive-dashboards/executive-reports/)** - Formal status documentation
 - **[Board Presentations](executive-dashboards/board-presentations/)** - Quarterly governance updates
@@ -88,7 +88,7 @@ These tools work regardless of project methodology:
 - Key decisions required and timing
 
 **Recommended Tools:**
-- [PowerPoint Executive Dashboard](executive-dashboards/powerpoint-templates/) (weekly)
+- [PowerPoint Executive Dashboard](executive-dashboards/PowerPoint/) (weekly)
 - [Executive Status Reports](executive-dashboards/executive-reports/) (monthly)
 - [Email Automation](communication-automation/email-templates/) (ongoing)
 
@@ -189,7 +189,7 @@ These tools work regardless of project methodology:
 
 **Tools to Use:**
 1. **[Business Case Management](strategic-alignment/business-case-management/)** - Document investment justification
-2. **[Executive Dashboard](executive-dashboards/powerpoint-templates/)** - Set up weekly status reporting
+2. **[Executive Dashboard](executive-dashboards/PowerPoint/)** - Set up weekly status reporting
 3. **[Budget Tracking](financial-governance/budget-tracking/)** - Monitor financial performance
 4. **[Communication Automation](communication-automation/email-templates/)** - Keep stakeholders informed
 

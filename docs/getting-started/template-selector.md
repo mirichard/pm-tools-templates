@@ -388,7 +388,7 @@ This guide helps you identify and download the specific templates you need based
 ### 📊 **Dashboard Suite** (Business Stakeholders)
 | Template | Update Frequency | Audience | Purpose |
 |----------|------------------|----------|----------|
-| **[PowerPoint Executive Dashboard](../../business-stakeholder-suite/executive-dashboards/powerpoint-templates/)** | Weekly/Monthly | C-Suite | High-level status |
+| **[PowerPoint Executive Dashboard](../../business-stakeholder-suite/executive-dashboards/PowerPoint/)** | Weekly/Monthly | C-Suite | High-level status |
 | **[Excel Executive Workbook](../../business-stakeholder-suite/executive-dashboards/excel-workbooks/)** | Real-time | CFO/PMO | Financial tracking |
 | **[Executive Status Report](../../business-stakeholder-suite/executive-dashboards/executive-reports/)** | Monthly | Board/Executives | Formal documentation |
 | **[Board Presentation](../../business-stakeholder-suite/executive-dashboards/board-presentations/)** | Quarterly | Board of Directors | Strategic oversight |

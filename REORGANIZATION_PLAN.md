@@ -128,7 +128,7 @@ pm-tools-templates/
 │
 ├── 🏢 business-stakeholder-suite/        # Executive & business tools
 │   ├── executive-dashboards/
-│   │   ├── powerpoint-templates/
+│   │   ├── PowerPoint/
 │   │   ├── excel-workbooks/
 │   │   ├── executive-reports/
 │   │   └── board-presentations/
