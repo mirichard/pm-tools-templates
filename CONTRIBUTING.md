@@ -129,7 +129,7 @@ pm-tools-templates/
 ├── project-lifecycle/          # Universal project phases
 ├── role-based-toolkits/        # Curated collections by role
 ├── business-stakeholder-suite/ # Executive-ready tools
-├── methodology-frameworks/     # PMBOK, Agile, Hybrid approaches
+├── methodology-frameworks/     # Traditional, Agile, Hybrid approaches
 ├── industry-specializations/   # Industry-specific adaptations
 ├── integration-toolkits/       # Tool integration guides
 ├── organizational-frameworks/  # Change management and training
@@ -144,12 +144,57 @@ pm-tools-templates/
 | **Universal Template** | `project-lifecycle/` | Methodology-agnostic |
 | **Role-Specific Template** | `role-based-toolkits/` | For specific PM roles |
 | **Executive Template** | `business-stakeholder-suite/` | Business stakeholder focus |
-| **Methodology Template** | `methodology-frameworks/` | Specific to PMBOK/Agile/Hybrid |
+| **Methodology Template** | `methodology-frameworks/` | Specific to Traditional/Agile/Hybrid |
 | **Industry Template** | `industry-specializations/` | Industry-specific adaptations |
 | **Integration Guide** | `integration-toolkits/` | Tool integration instructions |
 | **Process Guide** | `organizational-frameworks/` | Change management, training |
-| **Documentation** | `docs/` | Guides, tutorials, references |
 
+## 🔒 Intellectual Property Compliance
+
+**IMPORTANT**: All contributions must comply with intellectual property laws.
+
+### Required Legal Compliance
+1. **Original Work Only**: Submit only your original work or properly licensed content
+2. **No PMI IP**: Do not copy content directly from PMI® publications (PMBOK® Guide, etc.)
+3. **Add Disclaimers**: Include appropriate legal disclaimers in templates
+4. **Proper Attribution**: Reference industry frameworks appropriately
+5. **Fair Use**: Educational references to methodologies must follow fair use guidelines
+
+### Legal Disclaimer Requirements
+All templates must include one of these disclaimers at the top:
+
+**Standard Disclaimer:**
+```markdown
+---
+**Legal Notice**: This template is independently developed and not affiliated with PMI®. 
+References to industry practices are for educational purposes under fair use.
+PMI®, PMBOK®, and PMP® are registered trademarks of the Project Management Institute, Inc.
+---
+```
+
+**For Templates with Framework References:**
+```markdown
+---
+**Legal Notice**: This template incorporates widely-accepted project management principles, 
+including those described in various industry frameworks. This is independent work not 
+affiliated with PMI®. PMI®, PMBOK®, and PMP® are registered trademarks of the 
+Project Management Institute, Inc. For official PMI resources, visit www.pmi.org.
+---
+```
+
+### Terminology Guidelines
+**Use Industry-Standard Terms:**
+- "Traditional methodology" instead of "PMBOK methodology"
+- "Project lifecycle phases" instead of "PMBOK process groups"
+- "Functional areas" instead of "PMBOK knowledge areas"
+- "Industry best practices" instead of "PMI best practices"
+
+**Acceptable References:**
+- "...following industry standards, including those referenced in PMI publications"
+- "...based on widely-accepted project management principles"
+- "...aligned with traditional project management approaches"
+
+### File Naming Conventions
 ---
 
 ## 🔧 Development Setup

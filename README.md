@@ -1,4 +1,4 @@
-# PM Tools \u0026 Templates Library
+# PM Tools & Templates Library
 
 [![GitHub stars](https://img.shields.io/github/stars/mirichard/pm-tools-templates?style=social)](https://github.com/mirichard/pm-tools-templates/stargazers)
 [![GitHub forks](https://img.shields.io/github/forks/mirichard/pm-tools-templates?style=social)](https://github.com/mirichard/pm-tools-templates/network)
@@ -6,13 +6,33 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
 
+## ⚖️ Legal Notice and Disclaimers
+
+**🚨 IMPORTANT LEGAL NOTICE**
+
+**Intellectual Property Notice:**
+This repository contains project management templates and tools that are independently developed and **NOT affiliated with, endorsed by, or sponsored by the Project Management Institute (PMI)**. PMI®, PMBOK®, PMP®, and other PMI marks are registered trademarks of the Project Management Institute, Inc.
+
+**Educational and Reference Use:**
+While some templates reference industry-standard practices that may align with methodologies described in various project management frameworks including the PMBOK® Guide, all content in this repository represents independent work and interpretation of general project management principles.
+
+**No Official Endorsement:**
+The templates and tools provided here do not constitute official PMI materials, training, or certification preparation. Users seeking official PMI resources should visit [www.pmi.org](https://www.pmi.org).
+
+**Fair Use and Attribution:**
+Any references to PMI frameworks are made under fair use for educational and reference purposes. All original PMI intellectual property rights are acknowledged and respected.
+
+📋 **[Complete Legal Notices →](LEGAL_NOTICES.md)**
+
+---
+
 **🚀 Comprehensive project management resources organized for modern PM practice**
 
 ⭐ **Star this repo** to help other project managers discover these resources!
 
-\u003e 🚧 **IMPORTANT**: This repository is currently being reorganized for better user experience. **[Click here for current template locations →](REPOSITORY_STATUS.md)**
+> 🚧 **IMPORTANT**: This repository is currently being reorganized for better user experience and legal compliance. **[Click here for current template locations →](REPOSITORY_STATUS.md)**
 
-This library provides proven templates, tools, and guidance for project managers across all methodologies and experience levels. Designed following industry best practices from PMI, Scrum Alliance, and SAFe.
+This library provides proven templates, tools, and guidance for project managers across all methodologies and experience levels. Content is based on widely-accepted industry best practices and standards.
 
 ---
 
@@ -81,8 +101,8 @@ This library is organized around **how project managers actually work**, not jus
 **🔥 Experienced PM**
 1. Browse [Role-Based Toolkits](role-based-toolkits/) for advanced templates
 2. Explore [Business Stakeholder Suite](business-stakeholder-suite/) for executive communication
-3. Check [Industry Specializations](industry-specializations/) for your field
-4. Use [Integration Toolkits](integration-toolkits/) for tool automation
+3. Check [Industry Specializations](industry_templates/) for your field
+4. Use [Integration Guides](integration_guides/) for tool automation
 
 **🎯 Executive/Sponsor**
 1. Go directly to [Business Stakeholder Suite](business-stakeholder-suite/)
@@ -119,16 +139,16 @@ This library is organized around **how project managers actually work**, not jus
 5. **[Status Reports](role-based-toolkits/project-manager/reporting-dashboards/)** - Regular progress updates
 
 ### 🔧 Ready-to-Use Kits
-- **[New Project Starter Kit](quick-start-kits/new-project-starter/)** - Everything for project kickoff
+- **[First-Time PM Starter Kit](quick-start-kits/first-time-pm-starter/)** - Everything for project kickoff
 - **[Agile Transformation Kit](quick-start-kits/agile-transformation/)** - Change management + templates
-- **[Executive Reporting Kit](quick-start-kits/executive-reporting/)** - Business stakeholder tools
-- **[Remote Team Kit](quick-start-kits/remote-team-setup/)** - Distributed team management
+- **Executive Reporting Kit** - Business stakeholder tools (see [Business Stakeholder Suite](business-stakeholder-suite/))
+- **Remote Team Kit** - Distributed team management (coming soon)
 
 ### 🏭 Industry Specializations
-- **[Information Technology](industry-specializations/information-technology/)** - Software and systems
-- **[Healthcare & Pharmaceutical](industry-specializations/healthcare-pharmaceutical/)** - Regulated environments
-- **[Financial Services](industry-specializations/financial-services/)** - Banking and fintech
-- **[Construction & Engineering](industry-specializations/construction-engineering/)** - Physical projects
+- **[Information Technology](industry_templates/information_technology/)** - Software and systems
+- **[Healthcare & Pharmaceutical](industry_templates/healthcare_pharmaceutical/)** - Regulated environments
+- **[Financial Services](industry_templates/financial_services/)** - Banking and fintech
+- **[Construction & Engineering](industry_templates/construction/)** - Physical projects
 
 ---
 
@@ -165,16 +185,16 @@ This library is organized around **how project managers actually work**, not jus
 ## 🔗 Integration & Tools
 
 ### Popular Tool Integrations
-- **[Microsoft Project](integration-toolkits/project-management-tools/microsoft-project/)** - Traditional planning
-- **[Jira & Confluence](integration-toolkits/project-management-tools/jira-confluence/)** - Agile delivery
-- **[Microsoft 365](integration-toolkits/collaboration-platforms/microsoft-365/)** - Communication and collaboration
-- **[Power BI](integration-toolkits/reporting-analytics/power-bi/)** - Advanced analytics
+- **[Microsoft Project](integration_guides/microsoft_project_integration/)** - Traditional planning
+- **[Jira & Confluence](integration_guides/jira_integration/)** - Agile delivery
+- **[GitHub Projects](integration_guides/github_projects_integration/)** - Development workflows
+- **[Trello](integration_guides/trello_integration/)** - Simple project tracking
 
 ### Automation Options
-- **[Excel Automation](integration-toolkits/reporting-analytics/excel-automation/)** - Automated dashboards
-- **[Email Templates](business-stakeholder-suite/communication-automation/email-templates/)** - Stakeholder updates
-- **[CI/CD Integration](integration-toolkits/development-tools/ci-cd-pipelines/)** - Development workflows
-- **[Custom Dashboards](integration-toolkits/reporting-analytics/custom-dashboards/)** - Tailored reporting
+- **Email Templates** - Stakeholder update automation
+- **CI/CD Integration** - Development workflow integration
+- **Custom Dashboards** - Tailored reporting solutions
+- **Project Tracking** - Automated status reporting
 
 ---
 
@@ -212,7 +232,7 @@ This library is organized around **how project managers actually work**, not jus
 - [📚 Full Documentation](docs/)
 - [🎯 Template Index](docs/getting-started/template-selector.md#template-index)
 - [📊 Examples & Case Studies](examples-case-studies/)
-- [🔧 Tool Integration Guides](integration-toolkits/)
+- [🔧 Tool Integration Guides](integration_guides/)
 
 ---
 
