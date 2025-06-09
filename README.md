@@ -24,6 +24,12 @@ Any references to PMI frameworks are made under fair use for educational and ref
 
 📋 **[Complete Legal Notices →](LEGAL_NOTICES.md)**
 
+### ⚠️ LIABILITY DISCLAIMER
+**CRITICAL: Templates provided "AS-IS" without warranty. Users accept full responsibility for professional judgment, compliance verification, and risk management. Repository maintainers have ZERO liability for outcomes. See [LIABILITY_DISCLAIMER.md](LIABILITY_DISCLAIMER.md) for complete terms.**
+
+### 📝 REQUIRED: User Agreement
+**Before using any templates, you must read and acknowledge the [TEMPLATE_USAGE_AGREEMENT.md](TEMPLATE_USAGE_AGREEMENT.md)**
+
 ---
 
 **🚀 Comprehensive project management resources organized for modern PM practice**

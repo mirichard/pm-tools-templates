@@ -42,7 +42,7 @@ Project Management Institute, Inc. For official PMI resources, visit www.pmi.org
 - Any template with PMI trademark usage
 
 ### Phase 2 (Week 2-3)
-- All templates in `Waterfall/` folder
+- All templates in `Traditional/` folder (formerly Waterfall/)
 - Templates in methodology-specific folders
 - Documentation files with framework references
 
@@ -50,4 +50,17 @@ Project Management Institute, Inc. For official PMI resources, visit www.pmi.org
 - All remaining templates
 - Supporting documentation
 - README files in subdirectories
+
+## Enhanced Liability Protection
+
+For templates requiring additional liability protection, use:
+
+```markdown
+---
+**PROFESSIONAL LIABILITY NOTICE**: This template requires professional judgment and expertise.
+Users must verify compliance with applicable laws, regulations, and professional standards.
+Template provided "AS-IS" without warranty. See LIABILITY_DISCLAIMER.md for complete terms.
+Users accept full responsibility for outcomes and agree to indemnify repository maintainers.
+---
+```
 
