@@ -69,10 +69,13 @@ This library follows a **methodology-focused structure** as preferred for profes
 ### 🎭 [Role-Based Toolkits](role-based-toolkits/) - Curated for Your Job Function
 **Specialized collections for specific PM roles**
 - [Project Manager](role-based-toolkits/project-manager/) - Core PM competencies and tools
-- [Essential Templates](role-based-toolkits/project-manager/essential-templates/) - Must-have documents
-- [Reporting Dashboards](role-based-toolkits/project-manager/reporting-dashboards/) - Status and progress reporting
-- [Stakeholder Engagement](role-based-toolkits/project-manager/stakeholder-engagement/) - Communication and buy-in
-- [Governance Tools](role-based-toolkits/project-manager/governance-tools/) - Oversight and control
+  - [Essential Templates](role-based-toolkits/project-manager/essential-templates/) - Must-have documents
+  - [Reporting Dashboards](role-based-toolkits/project-manager/reporting-dashboards/) - Status and progress reporting
+  - [Stakeholder Engagement](role-based-toolkits/project-manager/stakeholder-engagement/) - Communication and buy-in
+  - [Governance Tools](role-based-toolkits/project-manager/governance-tools/) - Oversight and control
+- [Scrum Master](role-based-toolkits/scrum-master/) - Agile team facilitation
+- [Product Owner](role-based-toolkits/product-owner/) - Product vision and backlog management
+- [Executive Sponsor](role-based-toolkits/executive-sponsor/) - Strategic oversight and governance
 
 ### 💼 [Business Stakeholder Suite](business-stakeholder-suite/) - Executive-Ready Tools
 **Professional dashboards and communication for business leaders**
@@ -110,7 +113,7 @@ This library follows a **methodology-focused structure** as preferred for profes
 5. **Build**: [Project Charter Simple Template](quick-start-kits/first-time-pm-starter/project-charter-simple.md)
 
 ### 🔥 **Experienced PM (2+ years experience)**
-1. **Explore**: [Advanced Role-Based Toolkits](role-based-toolkits/)
+1. **Explore**: [Role-Based Toolkits](role-based-toolkits/) for advanced capabilities
 2. **Specialize**: [Industry-Specific Templates](industry_templates/) for your domain
 3. **Communicate**: [Business Stakeholder Suite](business-stakeholder-suite/) for executive reporting
 4. **Integrate**: [Tool Integration Guides](integration_guides/) for workflow automation
