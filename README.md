@@ -106,7 +106,7 @@ This library is organized around **methodology-focused document management**, pr
 ### 🎭 [Role-Based Toolkits](role-based-toolkits/) - "Tools for Your Job"
 **Curated collections for specific PM roles**
 - [Project Manager](role-based-toolkits/project-manager/) - The orchestrator
-- [Program Manager](role-based-toolkits/program-manager/) - The strategist
+- [Program Manager](role-based-toolkits/program-manager/README.md) - The strategist
 - [Scrum Master](role-based-toolkits/scrum-master/) - The facilitator
 - [Product Owner](role-based-toolkits/product-owner/) - The visionary
 - [Executive Sponsor](role-based-toolkits/executive-sponsor/) - The champion
@@ -156,7 +156,7 @@ This library is organized around **methodology-focused document management**, pr
 
 **🔄 Hybrid/Complex Project**
 - Start: [Methodology Selector](docs/getting-started/methodology-selector.md) → Hybrid
-- Templates: [Program Manager Toolkit](role-based-toolkits/program-manager/) + [Hybrid Frameworks](methodology-frameworks/hybrid-approaches/)
+- Templates: [Program Manager Toolkit](role-based-toolkits/program-manager/README.md) + [Hybrid Frameworks](methodology-frameworks/hybrid-approaches/)
 - Oversight: [Full Business Stakeholder Suite](business-stakeholder-suite/)
 
 ---
@@ -195,7 +195,7 @@ This library is organized around **methodology-focused document management**, pr
 4. [Stakeholder Management](role-based-toolkits/project-manager/stakeholder-engagement/)
 
 **Advanced PM Practice**
-1. [Program Management](role-based-toolkits/program-manager/)
+1. [Program Management](role-based-toolkits/program-manager/README.md)
 2. [Hybrid Methodologies](methodology-frameworks/hybrid-approaches/)
 3. [Executive Communication](business-stakeholder-suite/)
 4. [Organizational Frameworks](organizational-frameworks/)
