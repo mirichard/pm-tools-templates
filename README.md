@@ -76,6 +76,10 @@ This library is organized around **methodology-focused document management**, pr
   - [Closing](Traditional/Process_Groups/Closing/) - Project closure
 - [Knowledge Areas](Traditional/Knowledge_Areas/) - PMBOK knowledge domains
 - [Templates](Traditional/Templates/) - Ready-to-use traditional templates
+  - **[Program Charter](Traditional/Templates/program_charter_template.md)** - Strategic program authorization and governance
+  - **[Program Management Plan](Traditional/Templates/program_management_plan_template.md)** - Comprehensive program execution framework
+  - **[Project Roadmap](Traditional/Templates/project_roadmap_template.md)** - High-level project lifecycle roadmap
+  - **[Change Management Plan](Traditional/Templates/change_management_plan_template.md)** - Organizational change planning
 - [Tools](Traditional/Tools/) - Traditional PM tools and techniques
 
 ### 🌀 [Agile](Agile/) - "Adaptive Project Management"
