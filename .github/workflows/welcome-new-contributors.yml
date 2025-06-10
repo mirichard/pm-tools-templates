@@ -32,21 +32,21 @@ jobs:
           if (issues.length === 1) {
             const welcomeMessage = `👋 Welcome to the PM Tools & Templates community, @${author}!
             
-🎉 **Thank you for opening your first issue!** We're excited to have you contribute to making project management better for everyone.
-
-📋 **What happens next:**
-- Our team will review your issue within 2-3 business days
-- If you're reporting a bug, we may ask for additional details
-- If you're suggesting an enhancement, we'll discuss the best approach
-
-🚀 **Want to contribute more?**
-- Check out our [Contributing Guide](https://github.com/mirichard/pm-tools-templates/blob/main/CONTRIBUTING.md)
-- Browse our [Good First Issues](https://github.com/mirichard/pm-tools-templates/labels/good%20first%20issue)
-- Join our [Discussions](https://github.com/mirichard/pm-tools-templates/discussions) for community chat
-
-💡 **Pro tip:** If you're interested in contributing templates, we'd love to see examples from your real project experience!
-
-Thanks for helping make this the best PM template library! 🌟`;
+            🎉 **Thank you for opening your first issue!** We're excited to have you contribute to making project management better for everyone.
+            
+            📋 **What happens next:**
+            - Our team will review your issue within 2-3 business days
+            - If you're reporting a bug, we may ask for additional details
+            - If you're suggesting an enhancement, we'll discuss the best approach
+            
+            🚀 **Want to contribute more?**
+            - Check out our [Contributing Guide](https://github.com/mirichard/pm-tools-templates/blob/main/CONTRIBUTING.md)
+            - Browse our [Good First Issues](https://github.com/mirichard/pm-tools-templates/labels/good%20first%20issue)
+            - Join our [Discussions](https://github.com/mirichard/pm-tools-templates/discussions) for community chat
+            
+            💡 **Pro tip:** If you're interested in contributing templates, we'd love to see examples from your real project experience!
+            
+            Thanks for helping make this the best PM template library! 🌟`;
             
             await github.rest.issues.createComment({
               owner: context.repo.owner,
@@ -75,31 +75,31 @@ Thanks for helping make this the best PM template library! 🌟`;
           if (prs.length === 1) {
             const welcomeMessage = `🎉 Welcome to the PM Tools & Templates community, @${author}!
             
-🚀 **Thank you for your first pull request!** This is awesome - you're helping thousands of project managers worldwide!
-
-📋 **What happens next:**
-- Our automated quality checks will run (you can see them above)
-- A maintainer will review your contribution within 5-7 days
-- We may suggest improvements or ask questions
-- Once approved, your contribution becomes part of the library!
-
-✅ **Review checklist** (for your reference):
-- [ ] New templates include clear usage instructions
-- [ ] All example data uses placeholders (no real/sensitive information)
-- [ ] Templates have been tested in their target software
-- [ ] Documentation follows our style guide
-
-🌟 **Recognition:**
-- Contributors are listed in our [Contributors page](https://github.com/mirichard/pm-tools-templates/graphs/contributors)
-- Quality contributions earn community recognition
-- Regular contributors may be invited to join our review team
-
-📚 **Resources:**
-- [Contributing Guide](https://github.com/mirichard/pm-tools-templates/blob/main/CONTRIBUTING.md)
-- [Code of Conduct](https://github.com/mirichard/pm-tools-templates/blob/main/CODE_OF_CONDUCT.md)
-- [Community Discussions](https://github.com/mirichard/pm-tools-templates/discussions)
-
-Thank you for making project management better for everyone! 🙌`;
+            🚀 **Thank you for your first pull request!** This is awesome - you're helping thousands of project managers worldwide!
+            
+            📋 **What happens next:**
+            - Our automated quality checks will run (you can see them above)
+            - A maintainer will review your contribution within 5-7 days
+            - We may suggest improvements or ask questions
+            - Once approved, your contribution becomes part of the library!
+            
+            ✅ **Review checklist** (for your reference):
+            - [ ] New templates include clear usage instructions
+            - [ ] All example data uses placeholders (no real/sensitive information)
+            - [ ] Templates have been tested in their target software
+            - [ ] Documentation follows our style guide
+            
+            🌟 **Recognition:**
+            - Contributors are listed in our [Contributors page](https://github.com/mirichard/pm-tools-templates/graphs/contributors)
+            - Quality contributions earn community recognition
+            - Regular contributors may be invited to join our review team
+            
+            📚 **Resources:**
+            - [Contributing Guide](https://github.com/mirichard/pm-tools-templates/blob/main/CONTRIBUTING.md)
+            - [Code of Conduct](https://github.com/mirichard/pm-tools-templates/blob/main/CODE_OF_CONDUCT.md)
+            - [Community Discussions](https://github.com/mirichard/pm-tools-templates/discussions)
+            
+            Thank you for making project management better for everyone! 🙌`;
             
             await github.rest.issues.createComment({
               owner: context.repo.owner,
