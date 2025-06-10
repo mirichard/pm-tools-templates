@@ -1,0 +1,113 @@
+name: Template Metrics
+
+# Run monthly to track repository growth
+on:
+  schedule:
+    - cron: '0 0 1 * *'  # First day of each month
+  workflow_dispatch:  # Allow manual trigger
+
+jobs:
+  collect-metrics:
+    name: Collect Repository Metrics
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0  # Get full history for accurate metrics
+      
+    - name: Calculate metrics
+      run: |
+        echo "📊 PM Tools & Templates Repository Metrics"
+        echo "========================================="
+        echo "Date: $(date)"
+        echo ""
+        
+        # File counts by type
+        echo "📁 File Statistics:"
+        echo "- Total Markdown files: $(find . -name '*.md' | wc -l)"
+        echo "- Total Word templates: $(find . -name '*.docx' | wc -l)"
+        echo "- Total Excel templates: $(find . -name '*.xlsx' | wc -l)"
+        echo "- Total PowerPoint templates: $(find . -name '*.pptx' | wc -l)"
+        echo "- Total PDF files: $(find . -name '*.pdf' | wc -l)"
+        echo ""
+        
+        # Directory structure analysis
+        echo "🏗️ Structure Analysis:"
+        echo "- Project Lifecycle templates: $(find ./project-lifecycle -name '*.md' 2>/dev/null | wc -l)"
+        echo "- Role-based toolkit items: $(find ./role-based-toolkits -name '*.md' 2>/dev/null | wc -l)"
+        echo "- Business stakeholder tools: $(find ./business-stakeholder-suite -name '*.md' 2>/dev/null | wc -l)"
+        echo "- Methodology frameworks: $(find ./methodology-frameworks -name '*.md' 2>/dev/null | wc -l)"
+        echo ""
+        
+        # Git statistics
+        echo "📈 Development Activity:"
+        echo "- Total commits: $(git rev-list --all --count)"
+        echo "- Contributors: $(git log --format='%an' | sort -u | wc -l)"
+        echo "- Commits this month: $(git log --since='1 month ago' --oneline | wc -l)"
+        echo "- Files changed this month: $(git log --since='1 month ago' --name-only --pretty=format: | sort -u | wc -l)"
+        echo ""
+        
+        # Template quality metrics
+        echo "📋 Template Quality:"
+        readme_count=$(find . -name 'README.md' | wc -l)
+        dir_count=$(find . -type d | wc -l)
+        if [ $dir_count -gt 0 ]; then
+          documentation_ratio=$(echo "scale=2; $readme_count / $dir_count * 100" | bc -l 2>/dev/null || echo "N/A")
+          echo "- Documentation ratio: $documentation_ratio% (README files per directory)"
+        fi
+        
+        # Check for templates with examples
+        example_files=$(find . -name '*example*' -o -name '*sample*' | wc -l)
+        echo "- Templates with examples: $example_files"
+        
+        # Security check summary
+        echo ""
+        echo "🔒 Security Overview:"
+        # Look for potential placeholder usage (good security practice)
+        placeholder_usage=$(grep -r "\[.*\]" --include="*.md" . | wc -l)
+        echo "- Placeholder usage instances: $placeholder_usage"
+        
+        # Recent activity summary
+        echo ""
+        echo "⏰ Recent Activity Summary:"
+        echo "- Last commit: $(git log -1 --format='%cr by %an')"
+        echo "- Last file added: $(git log --diff-filter=A --name-only --pretty=format: | head -1)"
+        
+        echo ""
+        echo "🎯 Growth Opportunities:"
+        
+        # Suggest areas for improvement
+        waterfall_count=$(find . -path '*/waterfall/*' -name '*.md' | wc -l)
+        agile_count=$(find . -path '*/agile/*' -name '*.md' | wc -l)
+        
+        if [ $waterfall_count -gt $agile_count ]; then
+          echo "- Consider adding more Agile/Scrum templates"
+        elif [ $agile_count -gt $waterfall_count ]; then
+          echo "- Consider adding more Traditional/Waterfall templates"
+        fi
+        
+        # Check for industry coverage
+        industry_dirs=$(find . -path '*/industry*' -type d | wc -l)
+        echo "- Industry specializations available: $industry_dirs"
+        
+        if [ $industry_dirs -lt 5 ]; then
+          echo "- Opportunity: Add more industry-specific adaptations"
+        fi
+        
+        echo ""
+        echo "📈 Repository Health: Strong"
+        echo "🎉 Keep up the great work building the PM community!"
+    
+    - name: Archive metrics
+      run: |
+        # Create metrics directory if it doesn't exist
+        mkdir -p .github/metrics
+        
+        # Save metrics with timestamp
+        DATE=$(date +"%Y-%m-%d")
+        echo "Metrics collected on $DATE" > ".github/metrics/metrics-$DATE.txt"
+        
+        echo "📊 Metrics archived for future reference"
+

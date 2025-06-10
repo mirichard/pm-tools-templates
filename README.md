@@ -1,8 +1,16 @@
-# PM Tools & Templates Library
+# PM Tools \u0026 Templates Library
 
-**Comprehensive project management resources organized for modern PM practice**
+[![GitHub stars](https://img.shields.io/github/stars/mirichard/pm-tools-templates?style=social)](https://github.com/mirichard/pm-tools-templates/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/mirichard/pm-tools-templates?style=social)](https://github.com/mirichard/pm-tools-templates/network)
+[![GitHub issues](https://img.shields.io/github/issues/mirichard/pm-tools-templates)](https://github.com/mirichard/pm-tools-templates/issues)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
 
-> 🚧 **IMPORTANT**: This repository is currently being reorganized for better user experience. **[Click here for current template locations →](REPOSITORY_STATUS.md)**
+**🚀 Comprehensive project management resources organized for modern PM practice**
+
+⭐ **Star this repo** to help other project managers discover these resources!
+
+\u003e 🚧 **IMPORTANT**: This repository is currently being reorganized for better user experience. **[Click here for current template locations →](REPOSITORY_STATUS.md)**
 
 This library provides proven templates, tools, and guidance for project managers across all methodologies and experience levels. Designed following industry best practices from PMI, Scrum Alliance, and SAFe.
 
