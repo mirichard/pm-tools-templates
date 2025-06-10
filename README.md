@@ -62,6 +62,35 @@ This library provides proven templates, tools, and guidance for project managers
 
 This library is organized around **how project managers actually work**, not just methodology theory:
 
+## 📚 Library Organization
+
+This library is organized around **methodology-focused document management**, providing structured access to templates and tools by approach:
+
+### 📋 [PMBOK/Traditional](Traditional/) - "Structured Project Management"
+**Comprehensive traditional project management framework**
+- [Process Groups](Traditional/Process_Groups/) - PMBOK process-based organization
+  - [Initiating](Traditional/Process_Groups/Initiating/) - Project startup
+  - [Planning](Traditional/Process_Groups/Planning/) - Detailed project planning
+  - [Executing](Traditional/Process_Groups/Executing/) - Work execution
+  - [Monitoring and Controlling](Traditional/Process_Groups/Monitoring_and_Controlling/) - Progress oversight
+  - [Closing](Traditional/Process_Groups/Closing/) - Project closure
+- [Knowledge Areas](Traditional/Knowledge_Areas/) - PMBOK knowledge domains
+- [Templates](Traditional/Templates/) - Ready-to-use traditional templates
+- [Tools](Traditional/Tools/) - Traditional PM tools and techniques
+
+### 🌀 [Agile](Agile/) - "Adaptive Project Management"
+**Agile and iterative project management approaches**
+- [Scrum](Agile/Scrum/) - Scrum framework implementation
+- [Templates](Agile/Templates/) - Agile-specific templates
+- [Tools](Agile/Tools/) - Agile tools and techniques
+
+### 🔄 [Hybrid](Hybrid/) - "Blended Approaches"
+**Hybrid methodologies combining traditional and agile practices**
+- [Frameworks](Hybrid/Frameworks/) - Hybrid methodology frameworks
+- [Templates](Hybrid/Templates/) - Hybrid approach templates
+- [Tools](Hybrid/Tools/) - Hybrid methodology tools
+- [MPP-Jira Integration](Hybrid/MPP-Jira-Integration/) - Microsoft Project and Jira integration
+
 ### 🚀 [Project Lifecycle](project-lifecycle/) - "Universal Project Phases"
 **Templates organized by project phase, adaptable to any methodology**
 - [01-Initiation](project-lifecycle/01-initiation/) - Getting started right
@@ -84,13 +113,6 @@ This library is organized around **how project managers actually work**, not jus
 - [Communication Automation](business-stakeholder-suite/communication-automation/) - Email and meeting templates
 - [Financial Governance](business-stakeholder-suite/financial-governance/) - Budget and ROI tracking
 - [Strategic Alignment](business-stakeholder-suite/strategic-alignment/) - Business case management
-
-### 🔄 [Methodology Frameworks](methodology-frameworks/) - "Pure Methodology Practice"
-**Deep-dive resources for methodology experts**
-- [PMBOK/Waterfall](methodology-frameworks/pmbok-waterfall/) - Traditional project management
-- [Agile/Scrum](methodology-frameworks/agile-scrum/) - Iterative and adaptive
-- [Hybrid Approaches](methodology-frameworks/hybrid-approaches/) - Best of both worlds
-- [Emerging Methods](methodology-frameworks/emerging-methods/) - Latest innovations
 
 ---
 
