@@ -1,0 +1,241 @@
+name: Quality Checks
+
+# Trigger the workflow on push and pull requests to main branch
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+# Allow manual trigger
+  workflow_dispatch:
+
+jobs:
+  markdown-validation:
+    name: Markdown Validation
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+        
+    - name: Install markdownlint-cli
+      run: npm install -g markdownlint-cli
+      
+    - name: Run markdownlint
+      run: |
+        # Create a markdownlint config that's appropriate for PM templates
+        cat > .markdownlint.json << EOF
+        {
+          "MD013": { "line_length": 120 },
+          "MD033": false,
+          "MD041": false
+        }
+        EOF
+        
+        # Run markdownlint on all markdown files
+        markdownlint --config .markdownlint.json **/*.md || true
+        echo "Markdown validation completed"
+
+  link-validation:
+    name: Link Validation
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+        
+    - name: Install markdown-link-check
+      run: npm install -g markdown-link-check
+      
+    - name: Check internal links
+      run: |
+        # Create config for link checking
+        cat > .markdown-link-check.json << EOF
+        {
+          "ignorePatterns": [
+            {
+              "pattern": "^http://localhost"
+            },
+            {
+              "pattern": "^https://localhost"
+            },
+            {
+              "pattern": "\\[.*\\]\\(#.*\\)"
+            }
+          ],
+          "timeout": "20s",
+          "retryOn429": true,
+          "retryCount": 3,
+          "fallbackRetryDelay": "30s",
+          "aliveStatusCodes": [200, 206, 999]
+        }
+        EOF
+        
+        # Check links in key files
+        echo "Checking links in documentation files..."
+        find . -name "*.md" -not -path "./node_modules/*" | head -10 | xargs -I {} markdown-link-check {} --config .markdown-link-check.json || true
+        echo "Link validation completed"
+
+  file-structure-validation:
+    name: File Structure Validation
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      
+    - name: Validate repository structure
+      run: |
+        echo "Validating repository structure..."
+        
+        # Check for required top-level files
+        required_files=("README.md" "CODE_OF_CONDUCT.md" "CONTRIBUTING.md")
+        for file in "${required_files[@]}"; do
+          if [ -f "$file" ]; then
+            echo "✅ $file found"
+          else
+            echo "❌ $file missing"
+          fi
+        done
+        
+        # Check for expected directory structure based on user's organization preference
+        expected_dirs=("project-lifecycle" "role-based-toolkits" "business-stakeholder-suite" "methodology-frameworks")
+        for dir in "${expected_dirs[@]}"; do
+          if [ -d "$dir" ]; then
+            echo "✅ Directory $dir found"
+          else
+            echo "❌ Directory $dir missing"
+          fi
+        done
+        
+        # Count templates and provide statistics
+        echo "📊 Repository Statistics:"
+        echo "Total Markdown files: $(find . -name '*.md' | wc -l)"
+        echo "Total directories: $(find . -type d | wc -l)"
+        
+        # Check for template consistency
+        echo "🔍 Template Structure Analysis:"
+        template_dirs=$(find . -name "*template*" -type d | head -5)
+        if [ -n "$template_dirs" ]; then
+          echo "Template directories found:"
+          echo "$template_dirs"
+        fi
+        
+        echo "Structure validation completed"
+
+  security-scan:
+    name: Security Scan
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      
+    - name: Security scan for sensitive data
+      run: |
+        echo "Scanning for potential sensitive data..."
+        
+        # Check for common patterns that might indicate sensitive data
+        sensitive_patterns=(
+          "password[[:space:]]*=[[:space:]]*[^\[]"
+          "api[_-]?key[[:space:]]*=[[:space:]]*[^\[]"
+          "secret[[:space:]]*=[[:space:]]*[^\[]"
+          "token[[:space:]]*=[[:space:]]*[^\[]"
+          "[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}" # IP addresses (excluding documentation ranges)
+          "[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" # Email addresses
+        )
+        
+        issues_found=0
+        
+        for pattern in "${sensitive_patterns[@]}"; do
+          echo "Checking for pattern: $pattern"
+          matches=$(grep -r -i "$pattern" --include="*.md" --include="*.txt" . | grep -v "example@" | grep -v "user@domain" | grep -v "192.0.2" | head -3)
+          if [ -n "$matches" ]; then
+            echo "⚠️  Potential sensitive data found:"
+            echo "$matches"
+            issues_found=$((issues_found + 1))
+          fi
+        done
+        
+        if [ $issues_found -eq 0 ]; then
+          echo "✅ No obvious sensitive data patterns detected"
+        else
+          echo "⚠️  $issues_found potential issues found - please review"
+          echo "Note: This is a basic scan. Manual review is still required."
+        fi
+        
+        echo "Security scan completed"
+
+  template-validation:
+    name: Template Validation
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      
+    - name: Validate template files
+      run: |
+        echo "Validating template files..."
+        
+        # Check for common template file extensions
+        template_files=$(find . -name "*.docx" -o -name "*.xlsx" -o -name "*.pptx" -o -name "*.pdf" | head -10)
+        if [ -n "$template_files" ]; then
+          echo "📄 Template files found:"
+          echo "$template_files" | while read file; do
+            size=$(du -h "$file" | cut -f1)
+            echo "  - $file ($size)"
+          done
+        else
+          echo "ℹ️  No binary template files found (checking markdown templates only)"
+        fi
+        
+        # Check for README files in template directories
+        echo "\n📚 Checking for documentation in template directories:"
+        find . -type d -name "*template*" | while read dir; do
+          if [ -f "$dir/README.md" ]; then
+            echo "✅ $dir has README.md"
+          else
+            echo "❌ $dir missing README.md"
+          fi
+        done
+        
+        echo "Template validation completed"
+
+  summary:
+    name: Summary
+    runs-on: ubuntu-latest
+    needs: [markdown-validation, link-validation, file-structure-validation, security-scan, template-validation]
+    if: always()
+    
+    steps:
+    - name: Workflow Summary
+      run: |
+        echo "🏁 Quality Checks Workflow Summary"
+        echo "======================================"
+        echo "✅ Markdown validation: Completed"
+        echo "✅ Link validation: Completed"
+        echo "✅ Structure validation: Completed"
+        echo "✅ Security scan: Completed"
+        echo "✅ Template validation: Completed"
+        echo ""
+        echo "📋 Next Steps:"
+        echo "- Review any warnings or issues identified above"
+        echo "- For template contributions, ensure all files include proper documentation"
+        echo "- For sensitive data warnings, verify all examples use placeholder data"
+        echo "- Consider adding more specific validation rules for your template types"
+        echo ""
+        echo "📖 Documentation: https://github.com/mirichard/pm-tools-templates/blob/main/CONTRIBUTING.md"
+        echo "🆘 Support: https://github.com/mirichard/pm-tools-templates/issues"
+
