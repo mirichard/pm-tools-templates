@@ -1,586 +1,306 @@
-# Contributing to PM Tools & Templates
+# Contributing to PM Tools & Templates Library
 
-**Welcome to the PM Tools & Templates community!** 🎉
+🎉 **Thank you for your interest in contributing to the PM Tools & Templates Library!** 
 
-We're excited to have you contribute to the leading open-source project management template library. This guide will help you contribute safely and effectively.
+This repository serves project managers worldwide, and your contributions help improve project success rates across industries. Whether you're sharing a template that saved your project, suggesting improvements, or reporting issues, every contribution matters.
 
-## 🔒 Security First
+## 🤝 Ways to Contribute
 
-**Before contributing, please read our [Security Policy](SECURITY.md) and [Code of Conduct](CODE_OF_CONDUCT.md)**
+### 📝 Template Contributions
+- **New Templates**: Share proven templates from your projects
+- **Template Improvements**: Enhance existing templates with real-world experience
+- **Industry Adaptations**: Customize templates for specific industries
+- **Tool Integrations**: Add automation or tool-specific versions
 
-### Security Checklist for Contributors
+### 📚 Documentation
+- **Usage Examples**: Add case studies or implementation stories
+- **How-to Guides**: Create step-by-step implementation guides
+- **Best Practices**: Share lessons learned and success patterns
+- **Translation**: Help make templates accessible in other languages
 
-- [ ] ✅ No real credentials, API keys, or sensitive data included
-- [ ] ✅ All example data uses placeholders (e.g., `[YOUR_API_KEY]`)
-- [ ] ✅ No personal information in templates or examples
-- [ ] ✅ External links verified as safe and appropriate
-- [ ] ✅ Content appropriate for professional environments
-- [ ] ✅ Templates tested before submission
+### 🐛 Quality Improvements
+- **Bug Reports**: Report broken links, formatting issues, or unclear instructions
+- **Accessibility**: Improve template accessibility and usability
+- **Testing**: Help validate templates in different project contexts
 
----
+## 📋 Before You Start
 
-## 🚀 Quick Start
+### 1. Check Existing Content
+- Browse the [Template Index](docs/getting-started/template-selector.md) to avoid duplicates
+- Review open [Issues](https://github.com/mirichard/pm-tools-templates/issues) and [Pull Requests](https://github.com/mirichard/pm-tools-templates/pulls)
+- Check our [Repository Status](REPOSITORY_STATUS.md) for ongoing reorganization
 
-### For First-Time Contributors
+### 2. Understand Our Organization
+We organize content around **how PMs actually work**:
+- **[Project Lifecycle](project-lifecycle/)**: Universal phases, methodology-agnostic
+- **[Role-Based Toolkits](role-based-toolkits/)**: Curated for specific PM roles
+- **[Business Stakeholder Suite](business-stakeholder-suite/)**: Executive-ready tools
+- **[Methodology Frameworks](methodology-frameworks/)**: Deep methodology-specific content
 
-1. **Fork the repository** on GitHub
-2. **Clone your fork** locally
-3. **Create a branch** for your contribution
-4. **Review our templates** and [Progressive Complexity Guide](docs/getting-started/progressive-complexity.md)
-5. **Make your changes** following our guidelines
-6. **Test your templates** thoroughly
-7. **Submit a pull request** with clear description
+### 3. Follow Our Principles
+- **Practical over Perfect**: Templates should work in real projects
+- **User-Centric**: Organized by user needs, not theoretical frameworks
+- **Methodology-Agnostic**: Core templates work across Agile, Waterfall, and Hybrid
+- **Immediately Useful**: No extensive setup or learning curve required
 
-### For Experienced Contributors
+## 📝 Template Contribution Guidelines
 
-- Check our [Strategic Issues List](docs/implementation/strategic-issues-list.md) for priority items
-- Review [Template Feedback](docs/feedback/template-feedback.md) for improvement opportunities
-- Consider contributing to [Community Programs](#community-programs)
+### Template Quality Standards
 
----
+**✅ Good Templates:**
+- ✅ **Proven in Practice**: Used successfully in real projects
+- ✅ **Clear Purpose**: Obvious when and why to use it
+- ✅ **Complete**: All necessary sections and guidance included
+- ✅ **Adaptable**: Easy to customize for different contexts
+- ✅ **Professional**: Business-ready formatting and language
 
-## 📋 Types of Contributions
+**❌ Avoid:**
+- ❌ **Theoretical Only**: Never tested in real projects
+- ❌ **Tool-Specific**: Locked to one specific software platform
+- ❌ **Overly Complex**: Requires extensive training to use
+- ❌ **Incomplete**: Missing key sections or instructions
+- ❌ **Copy-Paste**: Direct copies from other sources without permission
 
-### 1. Template Contributions
+### File Structure Requirements
 
-#### New Templates
-- **Original templates** you've created and tested in real projects
-- **Industry-specific adaptations** of existing templates
-- **Methodology-specific versions** (Agile, Traditional, Hybrid)
-- **Role-based specializations** (PM, Scrum Master, Product Owner, etc.)
-
-#### Template Improvements
-- **Enhanced existing templates** with additional features
-- **Better examples and explanations**
-- **Improved formatting and usability**
-- **Bug fixes and corrections**
-
-#### Quality Standards for Templates
-
-✅ **Must Have:**
-- Clear purpose and usage instructions
-- Placeholder data only (no real/sensitive information)
-- Professional formatting and appearance
-- Tested in real project scenarios
-- Compatible with stated software versions
-- Proper licensing and attribution
-
-✅ **Should Have:**
-- Examples demonstrating usage
-- Customization guidance
-- Integration instructions with other templates
-- Success metrics or validation criteria
-
-✅ **Could Have:**
-- Multiple format versions (Excel, Word, PowerPoint)
-- Automation features (macros, formulas)
-- Advanced customization options
-- Industry-specific variations
-
-### 2. Documentation Contributions
-
-#### Getting Started Guides
-- **Methodology selection help**
-- **Template usage tutorials**
-- **Best practice guides**
-- **Common pitfalls and solutions**
-
-#### Process Documentation
-- **Implementation guides**
-- **Integration instructions**
-- **Troubleshooting guides**
-- **FAQ updates**
-
-#### Examples and Case Studies
-- **Success stories** (anonymized)
-- **Before/after comparisons**
-- **Industry-specific examples**
-- **Lessons learned**
-
-### 3. Community Contributions
-
-#### Content Review and Testing
-- **Template testing and validation**
-- **Documentation review**
-- **Quality assurance**
-- **Accessibility testing**
-
-#### Community Support
-- **Answering questions** in discussions
-- **Helping new contributors**
-- **Mentoring and guidance**
-- **Community event participation**
-
-#### Translation and Localization
-- **Template translations**
-- **Documentation translations**
-- **Cultural adaptations**
-- **Regional compliance guidance**
-
----
-
-## 📁 Repository Structure
-
-Understand our organization following user preference rules for methodology-focused structure:
+Each template should include:
 
 ```
-pm-tools-templates/
-├── quick-start-kits/           # Beginner-friendly template bundles
-├── project-lifecycle/          # Universal project phases
-├── role-based-toolkits/        # Curated collections by role
-├── business-stakeholder-suite/ # Executive-ready tools
-├── methodology-frameworks/     # PMBOK, Agile, Hybrid approaches
-├── industry-specializations/   # Industry-specific adaptations
-├── integration-toolkits/       # Tool integration guides
-├── organizational-frameworks/  # Change management and training
-└── docs/                      # Documentation and guides
+template-name/
+├── README.md              # Template overview and instructions
+├── template.docx          # Main template file (if applicable)
+├── template.xlsx          # Excel version (if applicable)
+├── example-filled.pdf     # Completed example (anonymized)
+└── customization-guide.md # How to adapt for different contexts
 ```
 
-### Where to Add Your Contribution
+### Content Requirements
 
-| Contribution Type | Location | Notes |
-|-------------------|----------|-------|
-| **Beginner Template** | `quick-start-kits/` | Simple, easy-to-use templates |
-| **Universal Template** | `project-lifecycle/` | Methodology-agnostic |
-| **Role-Specific Template** | `role-based-toolkits/` | For specific PM roles |
-| **Executive Template** | `business-stakeholder-suite/` | Business stakeholder focus |
-| **Methodology Template** | `methodology-frameworks/` | Specific to PMBOK/Agile/Hybrid |
-| **Industry Template** | `industry-specializations/` | Industry-specific adaptations |
-| **Integration Guide** | `integration-toolkits/` | Tool integration instructions |
-| **Process Guide** | `organizational-frameworks/` | Change management, training |
-| **Documentation** | `docs/` | Guides, tutorials, references |
+**README.md Structure:**
+```markdown
+# [Template Name]
 
----
+## Purpose
+[What this template accomplishes]
+
+## When to Use
+[Project phase, methodology, team size, etc.]
+
+## How to Use
+[Step-by-step instructions]
+
+## Customization Options
+[How to adapt for different contexts]
+
+## Related Templates
+[Links to complementary templates]
+
+## Success Metrics
+[How to measure template effectiveness]
+```
+
+## 🚀 Submission Process
+
+### Step 1: Prepare Your Contribution
+
+1. **Fork the Repository**
+   ```bash
+   gh repo fork mirichard/pm-tools-templates
+   cd pm-tools-templates
+   ```
+
+2. **Create a Feature Branch**
+   ```bash
+   git checkout -b feature/your-template-name
+   ```
+
+3. **Choose the Right Location**
+   - **New PM Role?** → `role-based-toolkits/[role-name]/`
+   - **Project Phase Template?** → `project-lifecycle/[phase]/`
+   - **Executive Tool?** → `business-stakeholder-suite/`
+   - **Methodology-Specific?** → `methodology-frameworks/[methodology]/`
+
+### Step 2: Create Your Content
+
+1. **Follow Naming Conventions**
+   - Use lowercase with hyphens: `risk-register-template`
+   - Be descriptive but concise: `stakeholder-communication-plan`
+   - Include template type: `project-charter-template`
+
+2. **Test Your Template**
+   - Use it in a real or simulated project scenario
+   - Get feedback from colleagues or team members
+   - Ensure all links and references work
+
+3. **Document Everything**
+   - Include clear usage instructions
+   - Provide context for when to use the template
+   - Add customization guidance
+   - Include a filled example (with sensitive data removed)
+
+### Step 3: Submit Your Pull Request
+
+1. **Commit Your Changes**
+   ```bash
+   git add .
+   git commit -m "Add [template name] for [use case]"
+   git push origin feature/your-template-name
+   ```
+
+2. **Create Pull Request**
+   ```bash
+   gh pr create --title "Add [Template Name]" --body "Brief description of the template and its value"
+   ```
+
+3. **Include in PR Description:**
+   - Template purpose and target audience
+   - How you've tested it
+   - Any industry-specific considerations
+   - Links to related templates or documentation
+
+## 📋 Review Process
+
+### What We Review
+
+**Content Quality:**
+- ✅ Clear purpose and usage instructions
+- ✅ Professional formatting and language
+- ✅ Complete and actionable content
+- ✅ Appropriate for target audience
+
+**Technical Quality:**
+- ✅ Proper file structure and naming
+- ✅ Working links and references
+- ✅ Consistent formatting with existing templates
+- ✅ No sensitive or proprietary information
+
+**Community Value:**
+- ✅ Fills a gap in existing templates
+- ✅ Applicable to multiple organizations
+- ✅ Follows established best practices
+- ✅ Enhances overall library value
+
+### Review Timeline
+- **Simple Updates**: 2-3 days
+- **New Templates**: 5-7 days
+- **Major Additions**: 1-2 weeks
+
+### Feedback and Iteration
+We may request changes to:
+- Improve clarity or completeness
+- Better align with library organization
+- Enhance universal applicability
+- Fix technical or formatting issues
+
+## 🎯 High-Priority Contribution Areas
+
+### Currently Needed:
+
+**Templates:**
+- [ ] Remote team management templates
+- [ ] DevOps integration for PM workflows
+- [ ] Vendor management and procurement
+- [ ] Change management for digital transformation
+- [ ] AI/ML project management adaptations
+
+**Documentation:**
+- [ ] Industry-specific implementation guides
+- [ ] Tool integration tutorials
+- [ ] Template combination workflows
+- [ ] Scaling guidance for enterprise adoption
+
+**Examples:**
+- [ ] Case studies from successful implementations
+- [ ] Before/after template effectiveness stories
+- [ ] Cross-industry adaptation examples
+- [ ] Integration with popular PM tools
 
 ## 🔧 Development Setup
 
-### Prerequisites
-
-- **Git** installed and configured
-- **GitHub account** with 2FA enabled
-- **Text editor** with Markdown support
-- **Office software** (for template testing)
-
-### Local Development
+### For Documentation Contributors
 
 ```bash
-# 1. Fork the repository on GitHub
-
-# 2. Clone your fork
-git clone https://github.com/YOUR_USERNAME/pm-tools-templates.git
+# Clone the repository
+git clone https://github.com/mirichard/pm-tools-templates.git
 cd pm-tools-templates
 
-# 3. Add upstream remote
-git remote add upstream https://github.com/mirichard/pm-tools-templates.git
+# Install markdown linting (optional)
+npm install -g markdownlint-cli
 
-# 4. Create a feature branch
-git checkout -b feature/your-contribution-name
-
-# 5. Make your changes
-# (Edit files, add templates, update documentation)
-
-# 6. Test your changes
-# (Open templates, verify formatting, test functionality)
-
-# 7. Commit your changes
-git add .
-git commit -m "Add: Description of your contribution"
-
-# 8. Push to your fork
-git push origin feature/your-contribution-name
-
-# 9. Create a Pull Request on GitHub
+# Validate your changes
+markdownlint .
 ```
 
-### Branch Naming Conventions
-
-- **feature/template-name** - New templates
-- **improvement/existing-template** - Template improvements
-- **docs/section-name** - Documentation updates
-- **fix/issue-description** - Bug fixes
-- **security/vulnerability-fix** - Security-related fixes
-
----
-
-## 📝 Submission Guidelines
-
-### Pull Request Process
-
-#### 1. Pre-Submission Checklist
-
-- [ ] **Security Review**: No sensitive data included
-- [ ] **Quality Check**: Template meets our standards
-- [ ] **Testing**: Template tested in target software
-- [ ] **Documentation**: Clear usage instructions provided
-- [ ] **Formatting**: Consistent with repository style
-- [ ] **Licensing**: Proper attribution and licensing
-- [ ] **Links**: All external links verified
-
-#### 2. Pull Request Template
-
-When creating a pull request, include:
-
-```markdown
-## Description
-[Brief description of your contribution]
-
-## Type of Contribution
-- [ ] New template
-- [ ] Template improvement
-- [ ] Documentation update
-- [ ] Bug fix
-- [ ] Security fix
-
-## Template Information (if applicable)
-- **Template Name**: 
-- **Target Role**: 
-- **Methodology**: 
-- **Industry**: 
-- **Complexity Level**: Beginner/Intermediate/Advanced
-- **Software Requirements**: 
-
-## Testing Performed
-- [ ] Template opens correctly in target software
-- [ ] All formulas/macros function properly
-- [ ] Examples are clear and helpful
-- [ ] No sensitive data included
-- [ ] Links verified and appropriate
-
-## Documentation
-- [ ] Usage instructions provided
-- [ ] Examples included
-- [ ] Integration guidance (if applicable)
-- [ ] Customization notes
-
-## Security Verification
-- [ ] No real credentials or API keys
-- [ ] All example data uses placeholders
-- [ ] No personal information included
-- [ ] External links verified as safe
-- [ ] Content appropriate for professional use
-
-## Additional Notes
-[Any additional information reviewers should know]
-```
-
-#### 3. Review Process
-
-1. **Automated Checks**: Security scanning and format validation
-2. **Community Review**: Fellow contributors provide feedback
-3. **Maintainer Review**: Core team technical and security review
-4. **Testing**: Independent testing of templates and instructions
-5. **Approval**: Final approval and merge
-
-**Timeline**: Most pull requests are reviewed within 7 days
-
-### Commit Message Guidelines
-
-Use clear, descriptive commit messages:
-
-```
-# Format
-<type>: <short description>
-
-<longer description if needed>
-
-# Types
-Add: New template or feature
-Improve: Enhancement to existing template
-Fix: Bug fix or correction
-Docs: Documentation update
-Security: Security-related change
-Style: Formatting or style change
-Refactor: Code reorganization
-Test: Adding or updating tests
-```
-
-**Examples:**
-```
-Add: SAFe Program Increment planning template
-
-Improve: Enhanced stakeholder register with RACI matrix
-
-Fix: Corrected formula error in budget tracking template
-
-Docs: Updated getting started guide with security checklist
-
-Security: Removed example API keys from integration guide
-```
-
----
-
-## 🛡️ Security Guidelines
-
-### Template Security
-
-#### ✅ Safe Practices
-- Use placeholder text: `[YOUR_API_KEY]`, `[PROJECT_NAME]`
-- Example emails: `example@company.com`, `user@domain.com`
-- Generic company names: `Acme Corp`, `Example Industries`
-- Fake phone numbers: `(555) 123-4567`
-- Test IP addresses: `192.0.2.1` (reserved for documentation)
-
-#### ❌ Unsafe Practices
-- Real API keys or credentials
-- Actual email addresses or phone numbers
-- Real company or personal names
-- Proprietary information or trade secrets
-- Copyrighted content without permission
-
-### Content Security
-
-#### External Links
-- **Verify all URLs** before including
-- **Use HTTPS** when available
-- **Avoid shortened URLs** (bit.ly, tinyurl)
-- **Link to official sources** when possible
-- **Include link descriptions** for context
-
-#### File Security
-- **Scan files** for malware before submission
-- **Remove metadata** from Office documents
-- **Avoid macros** unless absolutely necessary
-- **Test in sandbox** environment first
-
-### Privacy Protection
-
-#### Personal Information
-- **Never include** real personal data
-- **Use fictional names** consistently
-- **Avoid identifying information**
-- **Respect contributor privacy**
-
-#### Organizational Information
-- **No proprietary methods** or trade secrets
-- **Generic examples** only
-- **Avoid competitor references**
-- **Respect NDAs** and confidentiality
-
----
-
-## 🎯 Quality Standards
-
-### Template Quality Criteria
-
-#### Technical Quality
-- **Functionality**: All features work as intended
-- **Compatibility**: Works in stated software versions
-- **Performance**: Loads quickly and responds well
-- **Reliability**: Consistent behavior across uses
-- **Maintainability**: Easy to update and modify
-
-#### Content Quality
-- **Accuracy**: Information is correct and current
-- **Completeness**: All necessary elements included
-- **Clarity**: Easy to understand and follow
-- **Relevance**: Meets stated purpose and audience
-- **Professionalism**: Appropriate tone and presentation
-
-#### Usability
-- **Ease of Use**: Intuitive interface and workflow
-- **Documentation**: Clear instructions and examples
-- **Accessibility**: Usable by people with disabilities
-- **Customization**: Easy to adapt for specific needs
-- **Integration**: Works well with other templates
-
-### Review Criteria
-
-Templates are evaluated on:
-
-| Criteria | Weight | Description |
-|----------|--------|-------------|
-| **Functionality** | 25% | Does it work correctly? |
-| **Security** | 25% | Is it safe to use and share? |
-| **Usability** | 20% | Is it easy to use and understand? |
-| **Quality** | 15% | Is it professionally presented? |
-| **Documentation** | 10% | Are instructions clear and complete? |
-| **Innovation** | 5% | Does it offer unique value? |
-
-**Minimum Score**: 80% for acceptance
-
----
-
-## 🤝 Community Programs
-
-### Recognition Programs
-
-#### Contributor Levels
-- **Newcomer**: First contribution
-- **Regular**: 5+ accepted contributions
-- **Expert**: 15+ contributions + community involvement
-- **Maintainer**: Core team member with administrative access
-
-#### Recognition Benefits
-- **GitHub badges** and profile recognition
-- **Contributor highlights** in release notes
-- **Early access** to new features and templates
-- **Speaking opportunities** at community events
-- **Mentorship opportunities** with newcomers
-
-### Expert Programs
-
-#### Template Reviewers
-- **Responsibility**: Review and test submitted templates
-- **Requirements**: Proven expertise and 10+ contributions
-- **Benefits**: Early access, recognition, influence on roadmap
-
-#### Community Moderators
-- **Responsibility**: Help maintain community standards
-- **Requirements**: Strong community involvement and judgment
-- **Benefits**: Moderation tools, direct communication with maintainers
-
-#### Methodology Experts
-- **Responsibility**: Provide expertise on specific methodologies
-- **Requirements**: Professional certification and practical experience
-- **Benefits**: Input on methodology-specific developments
-
-### Mentorship Program
-
-#### For New Contributors
-- **Pairing** with experienced contributors
-- **Guidance** on contribution process
-- **Support** with first submissions
-- **Community integration** assistance
-
-#### For Experienced Contributors
-- **Leadership development** opportunities
-- **Skill sharing** with others
-- **Recognition** for mentoring contributions
-- **Network building** within community
-
----
-
-## 📞 Getting Help
-
-### Support Channels
-
-#### Questions and Discussion
-- **GitHub Discussions**: General questions and community chat
-- **GitHub Issues**: Bug reports and feature requests
-- **Documentation**: Check [docs/](docs/) for guides and FAQs
-
-#### Direct Support
-- **Community Help**: [help@pm-tools-templates.org]
-- **Security Issues**: [security@pm-tools-templates.org] (private)
-- **Code of Conduct**: [conduct@pm-tools-templates.org]
-
-### Common Questions
-
-#### "Where should I put my template?"
-Use our [Template Selector](docs/getting-started/template-selector.md) or check the [Repository Structure](#repository-structure) guide.
-
-#### "How do I test my template?"
-1. Open in target software (Excel, Word, PowerPoint)
-2. Test all functionality (formulas, formatting, etc.)
-3. Have someone else try using it
-4. Check for any error messages or issues
-
-#### "What if my template uses proprietary software?"
-That's fine! Just clearly document:
-- Required software and versions
-- License requirements
-- Alternative open-source options (if available)
-
-#### "Can I contribute templates from my workplace?"
-Only if:
-- You have explicit permission from your employer
-- Templates contain no proprietary information
-- Content is appropriate for public sharing
-- You comply with any relevant NDAs or policies
-
-#### "How do I handle feedback on my contribution?"
-- **Be responsive** to reviewer comments
-- **Ask questions** if feedback is unclear
-- **Make requested changes** promptly
-- **Thank reviewers** for their time and input
-
----
+### For Template Contributors
+
+**Required Tools:**
+- Microsoft Office or compatible suite (for .docx/.xlsx templates)
+- PDF editor for example creation
+- Markdown editor for documentation
+
+**Recommended Tools:**
+- [Pandoc](https://pandoc.org/) for format conversion
+- [Draw.io](https://draw.io/) for diagrams
+- [Canva](https://canva.com/) for visual templates
 
 ## 📜 Legal and Licensing
 
-### License Agreement
-
-By contributing to this repository, you agree that:
-
-1. **Your contributions** are your original work or you have rights to share them
-2. **You grant** the project a perpetual, irrevocable license to use your contributions
-3. **You understand** contributions become part of the open-source project
-4. **You comply** with all applicable laws and regulations
-
 ### Intellectual Property
+- **Original Work**: Contribute only content you've created or have rights to share
+- **Attribution**: Credit sources for adapted content (where legally permissible)
+- **No Proprietary Content**: Don't include company-specific or confidential information
+- **Open Source**: All contributions become part of the MIT-licensed repository
 
-#### What You Can Contribute
-- **Original work** you created
-- **Modifications** of existing open-source templates
-- **Public domain** content
-- **Properly licensed** third-party content
+### Content Guidelines
+- **Professional Language**: Business-appropriate tone and terminology
+- **Inclusive Content**: Accessible to diverse audiences and organizations
+- **No Personal Information**: Remove all personal, company, or project-specific data
+- **Universal Applicability**: Avoid region-specific legal or regulatory content
 
-#### What You Cannot Contribute
-- **Copyrighted material** without permission
-- **Proprietary templates** from employers
-- **Trade secrets** or confidential information
-- **Patented methods** without proper licensing
+## 🆘 Getting Help
 
-### Attribution
+### Questions About Contributing?
 
-- **Original authors** will be credited in template documentation
-- **Significant contributors** recognized in project acknowledgments
-- **Modification history** maintained in version control
-- **License information** preserved with all content
+1. **Check Documentation**: Start with this guide and [Repository Status](REPOSITORY_STATUS.md)
+2. **Search Issues**: Look for similar questions in [existing issues](https://github.com/mirichard/pm-tools-templates/issues)
+3. **Create an Issue**: Ask questions using our [Question template](https://github.com/mirichard/pm-tools-templates/issues/new/choose)
+4. **Join Discussions**: Participate in [GitHub Discussions](https://github.com/mirichard/pm-tools-templates/discussions)
 
----
+### Support Channels
 
-## 🔄 Maintenance and Updates
+- **🐛 Bug Reports**: [Create an Issue](https://github.com/mirichard/pm-tools-templates/issues/new)
+- **💡 Feature Requests**: [Discussion Board](https://github.com/mirichard/pm-tools-templates/discussions)
+- **❓ Questions**: [Q&A Discussions](https://github.com/mirichard/pm-tools-templates/discussions/categories/q-a)
+- **🚀 Show and Tell**: [Share Your Success](https://github.com/mirichard/pm-tools-templates/discussions/categories/show-and-tell)
 
-### Template Lifecycle
+## 🏆 Recognition
 
-1. **Submission**: Initial contribution and review
-2. **Acceptance**: Merged into repository
-3. **Maintenance**: Regular updates and improvements
-4. **Evolution**: Enhanced based on user feedback
-5. **Retirement**: Deprecated if no longer relevant
+### Contributor Recognition
 
-### Update Process
+We celebrate contributors through:
+- **[Contributors Page](docs/contributors.md)**: Highlighting community members
+- **Template Attribution**: Crediting template creators
+- **GitHub Stars**: Recommending active contributors for profile recognition
+- **Community Spotlights**: Featuring successful implementations
 
-#### Regular Updates
-- **Bug fixes** as discovered
-- **Feature enhancements** based on feedback
-- **Compatibility updates** for new software versions
-- **Security improvements** as needed
+### Hall of Fame
 
-#### Community Involvement
-- **Feedback collection** through various channels
-- **User testing** of updates
-- **Community voting** on major changes
-- **Contributor input** on roadmap priorities
-
----
-
-## 🎉 Welcome to the Community!
-
-Thank you for your interest in contributing to the PM Tools & Templates project! Your contributions help thousands of project managers worldwide improve their practice and deliver better outcomes.
-
-### Next Steps
-
-1. **Read** our [Security Policy](SECURITY.md) and [Code of Conduct](CODE_OF_CONDUCT.md)
-2. **Explore** the repository and understand our structure
-3. **Choose** your first contribution opportunity
-4. **Join** our community discussions
-5. **Start contributing** and help build the future of project management!
-
-### Stay Connected
-
-- **GitHub**: Watch this repository for updates
-- **Discussions**: Participate in community conversations
-- **Issues**: Help solve problems and add features
-- **Reviews**: Provide feedback on contributions
-
-**Happy contributing!** 🚀
+Significant contributors earn recognition for:
+- **Template Pioneer**: First to contribute in a new category
+- **Quality Champion**: Consistently high-quality submissions
+- **Community Helper**: Active in discussions and reviews
+- **Documentation Master**: Exceptional documentation contributions
 
 ---
 
-*This contributing guide is a living document. If you have suggestions for improvement, please let us know!*
+## 🎉 Thank You!
 
-**Last Updated**: June 2025  
-**Next Review**: December 2025
+Every contribution helps project managers worldwide deliver better outcomes. Whether you're sharing a single template or becoming a regular contributor, you're making a difference in how projects succeed.
 
+**Together, we're building the most comprehensive, practical project management resource library available.**
+
+---
+
+*For questions about this contributing guide, please [create an issue](https://github.com/mirichard/pm-tools-templates/issues/new) or start a [discussion](https://github.com/mirichard/pm-tools-templates/discussions).*
+
+**Happy Contributing! 🚀**
