@@ -7,10 +7,10 @@
 This document provides a complete view of all issues in the PM Tools Templates repository, organized by type and priority. All strategic issues are tagged with the `strategic` label for easy filtering.
 
 ### 📊 Remote Repository Status (GitHub)
-- **Total Issues:** 30 issues
+- **Total Issues:** 47 issues
 - **Open Issues:** 28 
-- **Closed Issues:** 2
-- **Strategic Issues:** 29 (97% of total)
+- **Closed Issues:** 19
+- **Strategic Issues:** 29 (62% of total)
 - **Last Updated:** June 17, 2025
 
 ---
@@ -194,9 +194,9 @@ gh issue list --search "SECURITY" --state all
 ## 📈 Progress Tracking
 
 ### Completion Statistics
-- **Total Issues:** 30 (28 open + 2 closed)
+- **Total Issues:** 47 (28 open + 19 closed)
 - **Open Issues:** 28
-- **Closed Issues:** 2
+- **Closed Issues:** 19
 - **Strategic Issues:** 29 total (28 open + 1 closed)
 - **Strategic Completion Rate:** 3% (1/29)
 
