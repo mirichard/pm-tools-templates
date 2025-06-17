@@ -1,0 +1,42 @@
+{
+  "name": "pm-template-generator",
+  "version": "1.0.0",
+  "description": "Interactive CLI tool for intelligent PM template generation and project setup",
+  "main": "src/index.js",
+  "bin": {
+    "pm-template": "./src/index.js"
+  },
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "node src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "project-management",
+    "templates",
+    "cli",
+    "automation",
+    "pmbok",
+    "agile",
+    "hybrid"
+  ],
+  "author": "PM Tools Templates Team",
+  "license": "MIT",
+  "dependencies": {
+    "inquirer": "^9.0.0",
+    "chalk": "^5.0.0",
+    "ora": "^6.0.0",
+    "fs-extra": "^11.0.0",
+    "path": "^0.12.7",
+    "commander": "^11.0.0"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mirichard/pm-tools-templates.git",
+    "directory": "tools/template-generator-cli"
+  }
+}
+
