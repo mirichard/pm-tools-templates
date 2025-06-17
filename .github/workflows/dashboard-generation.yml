@@ -1,0 +1,393 @@
+name: 📊 Project Health Dashboard Generator
+
+on:
+  schedule:
+    # Update dashboard every 6 hours
+    - cron: '0 */6 * * *'
+  issues:
+    types: [opened, closed, labeled]
+  pull_request:
+    types: [opened, merged, closed]
+  workflow_dispatch:
+    inputs:
+      dashboard_type:
+        description: 'Type of dashboard to generate'
+        required: true
+        default: 'comprehensive'
+        type: choice
+        options:
+          - comprehensive
+          - executive
+          - technical
+          - stakeholder
+
+env:
+  DASHBOARD_TITLE: "PM Tools Templates - Project Health Dashboard"
+
+jobs:
+  dashboard-generation:
+    name: Generate Project Dashboard
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      issues: read
+      pull-requests: read
+
+    steps:
+      - name: 📥 Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: 📊 Collect Dashboard Metrics
+        id: metrics
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          # Comprehensive metrics collection for dashboard
+          
+          # Basic project metrics
+          TOTAL_ISSUES=$(gh issue list --state all --json number | jq length)
+          OPEN_ISSUES=$(gh issue list --state open --json number | jq length)
+          CLOSED_ISSUES=$(gh issue list --state closed --json number | jq length)
+          
+          # Time-based metrics
+          ISSUES_OPENED_WEEK=$(gh issue list --json number,createdAt --jq '[.[] | select(.createdAt | fromdateiso8601 > (now - 604800))] | length')
+          ISSUES_CLOSED_WEEK=$(gh issue list --state closed --json number,closedAt --jq '[.[] | select(.closedAt | fromdateiso8601 > (now - 604800))] | length')
+          ISSUES_OPENED_MONTH=$(gh issue list --json number,createdAt --jq '[.[] | select(.createdAt | fromdateiso8601 > (now - 2592000))] | length')
+          ISSUES_CLOSED_MONTH=$(gh issue list --state closed --json number,closedAt --jq '[.[] | select(.closedAt | fromdateiso8601 > (now - 2592000))] | length')
+          
+          # Priority and type breakdown
+          CRITICAL_ISSUES=$(gh issue list --label "critical" --state open --json number | jq length)
+          HIGH_PRIORITY=$(gh issue list --label "high-priority" --state open --json number | jq length)
+          MEDIUM_PRIORITY=$(gh issue list --label "medium-priority" --state open --json number | jq length)
+          BUGS=$(gh issue list --label "bug" --state open --json number | jq length)
+          ENHANCEMENTS=$(gh issue list --label "enhancement" --state open --json number | jq length)
+          
+          # Strategic metrics
+          STRATEGIC_ISSUES=$(gh issue list --label "strategic" --state all --json number | jq length)
+          STRATEGIC_OPEN=$(gh issue list --label "strategic" --state open --json number | jq length)
+          STRATEGIC_COMPLETED=$(( STRATEGIC_ISSUES - STRATEGIC_OPEN ))
+          
+          # Phase breakdown
+          PHASE1_ISSUES=$(gh issue list --label "phase-1" --state all --json number | jq length)
+          PHASE1_OPEN=$(gh issue list --label "phase-1" --state open --json number | jq length)
+          PHASE2_ISSUES=$(gh issue list --label "phase-2" --state all --json number | jq length)
+          PHASE2_OPEN=$(gh issue list --label "phase-2" --state open --json number | jq length)
+          PHASE3_ISSUES=$(gh issue list --label "phase-3" --state all --json number | jq length)
+          PHASE3_OPEN=$(gh issue list --label "phase-3" --state open --json number | jq length)
+          
+          # Calculate percentages
+          if [ $TOTAL_ISSUES -gt 0 ]; then
+            COMPLETION_RATE=$(( CLOSED_ISSUES * 100 / TOTAL_ISSUES ))
+          else
+            COMPLETION_RATE=0
+          fi
+          
+          if [ $STRATEGIC_ISSUES -gt 0 ]; then
+            STRATEGIC_PROGRESS=$(( STRATEGIC_COMPLETED * 100 / STRATEGIC_ISSUES ))
+          else
+            STRATEGIC_PROGRESS=0
+          fi
+          
+          # Velocity calculation (issues closed per week)
+          VELOCITY=$(( ISSUES_CLOSED_WEEK ))
+          
+          # Risk assessment
+          RISK_SCORE=$(( CRITICAL_ISSUES * 25 + HIGH_PRIORITY * 15 + BUGS * 5 ))
+          
+          # Health indicators
+          if [ $COMPLETION_RATE -ge 80 ] && [ $RISK_SCORE -lt 20 ]; then
+            HEALTH_STATUS="excellent"
+            HEALTH_COLOR="green"
+            HEALTH_ICON="🟢"
+          elif [ $COMPLETION_RATE -ge 60 ] && [ $RISK_SCORE -lt 30 ]; then
+            HEALTH_STATUS="good"
+            HEALTH_COLOR="lightgreen"
+            HEALTH_ICON="🟡"
+          elif [ $COMPLETION_RATE -ge 40 ] || [ $RISK_SCORE -lt 50 ]; then
+            HEALTH_STATUS="fair"
+            HEALTH_COLOR="yellow"
+            HEALTH_ICON="🟠"
+          else
+            HEALTH_STATUS="poor"
+            HEALTH_COLOR="red"
+            HEALTH_ICON="🔴"
+          fi
+          
+          # Store all metrics
+          echo "total_issues=$TOTAL_ISSUES" >> $GITHUB_OUTPUT
+          echo "open_issues=$OPEN_ISSUES" >> $GITHUB_OUTPUT
+          echo "closed_issues=$CLOSED_ISSUES" >> $GITHUB_OUTPUT
+          echo "completion_rate=$COMPLETION_RATE" >> $GITHUB_OUTPUT
+          echo "issues_opened_week=$ISSUES_OPENED_WEEK" >> $GITHUB_OUTPUT
+          echo "issues_closed_week=$ISSUES_CLOSED_WEEK" >> $GITHUB_OUTPUT
+          echo "issues_opened_month=$ISSUES_OPENED_MONTH" >> $GITHUB_OUTPUT
+          echo "issues_closed_month=$ISSUES_CLOSED_MONTH" >> $GITHUB_OUTPUT
+          echo "critical_issues=$CRITICAL_ISSUES" >> $GITHUB_OUTPUT
+          echo "high_priority=$HIGH_PRIORITY" >> $GITHUB_OUTPUT
+          echo "medium_priority=$MEDIUM_PRIORITY" >> $GITHUB_OUTPUT
+          echo "bugs=$BUGS" >> $GITHUB_OUTPUT
+          echo "enhancements=$ENHANCEMENTS" >> $GITHUB_OUTPUT
+          echo "strategic_issues=$STRATEGIC_ISSUES" >> $GITHUB_OUTPUT
+          echo "strategic_progress=$STRATEGIC_PROGRESS" >> $GITHUB_OUTPUT
+          echo "phase1_issues=$PHASE1_ISSUES" >> $GITHUB_OUTPUT
+          echo "phase1_open=$PHASE1_OPEN" >> $GITHUB_OUTPUT
+          echo "phase2_issues=$PHASE2_ISSUES" >> $GITHUB_OUTPUT
+          echo "phase2_open=$PHASE2_OPEN" >> $GITHUB_OUTPUT
+          echo "phase3_issues=$PHASE3_ISSUES" >> $GITHUB_OUTPUT
+          echo "phase3_open=$PHASE3_OPEN" >> $GITHUB_OUTPUT
+          echo "velocity=$VELOCITY" >> $GITHUB_OUTPUT
+          echo "risk_score=$RISK_SCORE" >> $GITHUB_OUTPUT
+          echo "health_status=$HEALTH_STATUS" >> $GITHUB_OUTPUT
+          echo "health_color=$HEALTH_COLOR" >> $GITHUB_OUTPUT
+          echo "health_icon=$HEALTH_ICON" >> $GITHUB_OUTPUT
+
+      - name: 📊 Generate Comprehensive Dashboard
+        if: github.event.inputs.dashboard_type == 'comprehensive' || github.event_name != 'workflow_dispatch'
+        run: |
+          # Create comprehensive project dashboard
+          mkdir -p dashboards
+          
+          cat > dashboards/project-health-dashboard.md << EOF
+          # ${{ env.DASHBOARD_TITLE }}
+          
+          **Last Updated:** $(date)  
+          **Project Health:** ${{ steps.metrics.outputs.health_icon }} ${{ steps.metrics.outputs.health_status }}  
+          **Overall Progress:** ${{ steps.metrics.outputs.completion_rate }}%
+          
+          ---
+          
+          ## 📊 Executive Summary
+          
+          | 🎯 Key Metric | Value | Trend | Status |
+          |---------------|-------|-------|--------|
+          | **Project Completion** | ${{ steps.metrics.outputs.completion_rate }}% | $([ ${{ steps.metrics.outputs.issues_closed_week }} -gt ${{ steps.metrics.outputs.issues_opened_week }} ] && echo "📈 Positive" || echo "📉 Needs Attention") | ${{ steps.metrics.outputs.health_icon }} |
+          | **Strategic Progress** | ${{ steps.metrics.outputs.strategic_progress }}% | $([ ${{ steps.metrics.outputs.strategic_progress }} -ge 50 ] && echo "📈 On Track" || echo "📉 Behind") | $([ ${{ steps.metrics.outputs.strategic_progress }} -ge 50 ] && echo "🟢" || echo "🔴") |
+          | **Weekly Velocity** | ${{ steps.metrics.outputs.velocity }} issues/week | $([ ${{ steps.metrics.outputs.velocity }} -ge 5 ] && echo "📈 Strong" || echo "📉 Slow") | $([ ${{ steps.metrics.outputs.velocity }} -ge 5 ] && echo "🟢" || echo "🟡") |
+          | **Risk Score** | ${{ steps.metrics.outputs.risk_score }} points | $([ ${{ steps.metrics.outputs.risk_score }} -lt 20 ] && echo "📉 Decreasing" || echo "📈 Elevated") | $([ ${{ steps.metrics.outputs.risk_score }} -lt 20 ] && echo "🟢" || echo "🔴") |
+          
+          ## 📈 Progress Overview
+          
+          ### Issue Statistics
+          - **Total Issues:** ${{ steps.metrics.outputs.total_issues }}
+          - **Completed:** ${{ steps.metrics.outputs.closed_issues }} (${{ steps.metrics.outputs.completion_rate }}%)
+          - **In Progress:** ${{ steps.metrics.outputs.open_issues }}
+          - **Completion Rate:** ${{ steps.metrics.outputs.completion_rate }}%
+          
+          ### Recent Activity (Last 7 Days)
+          - **Issues Opened:** ${{ steps.metrics.outputs.issues_opened_week }}
+          - **Issues Closed:** ${{ steps.metrics.outputs.issues_closed_week }}
+          - **Net Progress:** $(( ${{ steps.metrics.outputs.issues_closed_week }} - ${{ steps.metrics.outputs.issues_opened_week }} )) issues
+          
+          ## 🎯 Strategic Roadmap Progress
+          
+          ### Phase Completion Status
+          
+          | Phase | Total Issues | Completed | Progress | Status |
+          |-------|--------------|-----------|----------|--------|
+          | **Phase 1** | ${{ steps.metrics.outputs.phase1_issues }} | $(( ${{ steps.metrics.outputs.phase1_issues }} - ${{ steps.metrics.outputs.phase1_open }} )) | $([ ${{ steps.metrics.outputs.phase1_issues }} -gt 0 ] && echo "$(( (${{ steps.metrics.outputs.phase1_issues }} - ${{ steps.metrics.outputs.phase1_open }}) * 100 / ${{ steps.metrics.outputs.phase1_issues }} ))%" || echo "0%") | $([ ${{ steps.metrics.outputs.phase1_open }} -eq 0 ] && echo "✅ Complete" || echo "🔄 In Progress") |
+          | **Phase 2** | ${{ steps.metrics.outputs.phase2_issues }} | $(( ${{ steps.metrics.outputs.phase2_issues }} - ${{ steps.metrics.outputs.phase2_open }} )) | $([ ${{ steps.metrics.outputs.phase2_issues }} -gt 0 ] && echo "$(( (${{ steps.metrics.outputs.phase2_issues }} - ${{ steps.metrics.outputs.phase2_open }}) * 100 / ${{ steps.metrics.outputs.phase2_issues }} ))%" || echo "0%") | $([ ${{ steps.metrics.outputs.phase2_open }} -eq 0 ] && echo "✅ Complete" || echo "🔄 In Progress") |
+          | **Phase 3** | ${{ steps.metrics.outputs.phase3_issues }} | $(( ${{ steps.metrics.outputs.phase3_issues }} - ${{ steps.metrics.outputs.phase3_open }} )) | $([ ${{ steps.metrics.outputs.phase3_issues }} -gt 0 ] && echo "$(( (${{ steps.metrics.outputs.phase3_issues }} - ${{ steps.metrics.outputs.phase3_open }}) * 100 / ${{ steps.metrics.outputs.phase3_issues }} ))%" || echo "0%") | $([ ${{ steps.metrics.outputs.phase3_open }} -eq 0 ] && echo "✅ Complete" || echo "📅 Planned") |
+          
+          ## ⚠️ Risk Assessment
+          
+          ### Current Risk Factors
+          - **Critical Issues:** ${{ steps.metrics.outputs.critical_issues }} (25 points each)
+          - **High Priority Issues:** ${{ steps.metrics.outputs.high_priority }} (15 points each)
+          - **Open Bugs:** ${{ steps.metrics.outputs.bugs }} (5 points each)
+          - **Total Risk Score:** ${{ steps.metrics.outputs.risk_score }} points
+          
+          ### Risk Level: $([ ${{ steps.metrics.outputs.risk_score }} -lt 15 ] && echo "🟢 LOW" || [ ${{ steps.metrics.outputs.risk_score }} -lt 30 ] && echo "🟡 MEDIUM" || echo "🔴 HIGH")
+          
+          $(if [ ${{ steps.metrics.outputs.risk_score }} -ge 30 ]; then
+            echo "**⚠️ HIGH RISK ALERT:** Immediate attention required!"
+            echo "- Schedule risk mitigation meeting"
+            echo "- Review critical issues and assign owners"
+            echo "- Consider additional resource allocation"
+          elif [ ${{ steps.metrics.outputs.risk_score }} -ge 15 ]; then
+            echo "**🟡 MEDIUM RISK:** Monitor closely"
+            echo "- Review high priority items weekly"
+            echo "- Ensure adequate resources for critical path"
+            echo "- Update risk register regularly"
+          else
+            echo "**🟢 LOW RISK:** Continue current approach"
+            echo "- Maintain regular monitoring"
+            echo "- Focus on maintaining velocity"
+          fi)
+          
+          ## 📊 Issue Type Breakdown
+          
+          | Type | Count | Percentage |
+          |------|-------|------------|
+          | Enhancement | ${{ steps.metrics.outputs.enhancements }} | $([ ${{ steps.metrics.outputs.open_issues }} -gt 0 ] && echo "$(( ${{ steps.metrics.outputs.enhancements }} * 100 / ${{ steps.metrics.outputs.open_issues }} ))%" || echo "0%") |
+          | Bug | ${{ steps.metrics.outputs.bugs }} | $([ ${{ steps.metrics.outputs.open_issues }} -gt 0 ] && echo "$(( ${{ steps.metrics.outputs.bugs }} * 100 / ${{ steps.metrics.outputs.open_issues }} ))%" || echo "0%") |
+          | Critical | ${{ steps.metrics.outputs.critical_issues }} | $([ ${{ steps.metrics.outputs.open_issues }} -gt 0 ] && echo "$(( ${{ steps.metrics.outputs.critical_issues }} * 100 / ${{ steps.metrics.outputs.open_issues }} ))%" || echo "0%") |
+          | High Priority | ${{ steps.metrics.outputs.high_priority }} | $([ ${{ steps.metrics.outputs.open_issues }} -gt 0 ] && echo "$(( ${{ steps.metrics.outputs.high_priority }} * 100 / ${{ steps.metrics.outputs.open_issues }} ))%" || echo "0%") |
+          
+          ## 🎯 Performance Indicators
+          
+          ### Velocity Metrics
+          - **Weekly Velocity:** ${{ steps.metrics.outputs.velocity }} issues/week
+          - **Monthly Throughput:** ${{ steps.metrics.outputs.issues_closed_month }} issues
+          - **Velocity Trend:** $([ ${{ steps.metrics.outputs.velocity }} -ge 5 ] && echo "📈 Above Target" || echo "📉 Below Target")
+          
+          ### Quality Metrics
+          - **Bug Rate:** $([ ${{ steps.metrics.outputs.open_issues }} -gt 0 ] && echo "$(( ${{ steps.metrics.outputs.bugs }} * 100 / ${{ steps.metrics.outputs.open_issues }} ))%" || echo "0%") of open issues
+          - **Critical Issue Rate:** $([ ${{ steps.metrics.outputs.open_issues }} -gt 0 ] && echo "$(( ${{ steps.metrics.outputs.critical_issues }} * 100 / ${{ steps.metrics.outputs.open_issues }} ))%" || echo "0%") of open issues
+          
+          ## 📅 Upcoming Focus Areas
+          
+          EOF
+          
+          # Add high priority items for upcoming week
+          echo "### High Priority Items (Next 7 Days)" >> dashboards/project-health-dashboard.md
+          gh issue list --label "high-priority" --state open --json number,title --jq '.[] | "- 🔥 #\(.number): \(.title)"' >> dashboards/project-health-dashboard.md || echo "- ✅ No high priority items scheduled" >> dashboards/project-health-dashboard.md
+          
+          cat >> dashboards/project-health-dashboard.md << EOF
+          
+          ### Critical Path Items
+          EOF
+          
+          # Add critical issues
+          gh issue list --label "critical" --state open --json number,title --jq '.[] | "- 🚨 #\(.number): \(.title)"' >> dashboards/project-health-dashboard.md || echo "- ✅ No critical issues blocking progress" >> dashboards/project-health-dashboard.md
+          
+          cat >> dashboards/project-health-dashboard.md << EOF
+          
+          ---
+          
+          ## 📊 Dashboard Information
+          
+          - **Auto-generated:** Every 6 hours
+          - **Last Update:** $(date)
+          - **Next Update:** $(date -d "+6 hours" +%H:%M\ %Z)
+          - **Data Source:** GitHub Issues API
+          - **Methodology:** Automated metric collection and analysis
+          
+          ### 🔄 Dashboard Actions
+          - [📊 View Live Issues](https://github.com/${{ github.repository }}/issues)
+          - [📈 Project Board](https://github.com/${{ github.repository }}/projects)
+          - [📋 Milestones](https://github.com/${{ github.repository }}/milestones)
+          - [🚨 Risk Register](docs/risk-management/risk-register.md)
+          EOF
+
+      - name: 📊 Generate Executive Dashboard
+        if: github.event.inputs.dashboard_type == 'executive'
+        run: |
+          # Create executive-focused dashboard
+          mkdir -p dashboards/executive
+          
+          cat > dashboards/executive/executive-dashboard.md << EOF
+          # Executive Project Dashboard
+          
+          **Date:** $(date +%B\ %d,\ %Y)  
+          **Status:** ${{ steps.metrics.outputs.health_icon }} ${{ steps.metrics.outputs.health_status }}  
+          **Completion:** ${{ steps.metrics.outputs.completion_rate }}%
+          
+          ## 🎯 Executive Summary
+          
+          | KPI | Current | Target | Status |
+          |-----|---------|--------|--------|
+          | Project Completion | ${{ steps.metrics.outputs.completion_rate }}% | 85% | $([ ${{ steps.metrics.outputs.completion_rate }} -ge 75 ] && echo "🟢 On Track" || echo "🔴 Behind") |
+          | Strategic Progress | ${{ steps.metrics.outputs.strategic_progress }}% | 70% | $([ ${{ steps.metrics.outputs.strategic_progress }} -ge 60 ] && echo "🟢 On Track" || echo "🔴 Behind") |
+          | Risk Level | ${{ steps.metrics.outputs.risk_score }} | <20 | $([ ${{ steps.metrics.outputs.risk_score }} -lt 20 ] && echo "🟢 Acceptable" || echo "🔴 High") |
+          | Weekly Delivery | ${{ steps.metrics.outputs.velocity }} | 5+ | $([ ${{ steps.metrics.outputs.velocity }} -ge 5 ] && echo "🟢 Strong" || echo "🔴 Weak") |
+          
+          ## 💼 Executive Actions Required
+          
+          $(if [ ${{ steps.metrics.outputs.risk_score }} -ge 25 ]; then
+            echo "### 🚨 URGENT: High Risk Situation"
+            echo "- **Risk Score:** ${{ steps.metrics.outputs.risk_score }} (Critical Threshold: 25)"
+            echo "- **Action:** Schedule immediate risk review meeting"
+            echo "- **Timeline:** Within 24 hours"
+          elif [ ${{ steps.metrics.outputs.completion_rate }} -lt 50 ]; then
+            echo "### ⚠️ ATTENTION: Progress Behind Schedule"
+            echo "- **Completion:** ${{ steps.metrics.outputs.completion_rate }}% (Target: 75%)"
+            echo "- **Action:** Review resource allocation and timeline"
+            echo "- **Timeline:** Within 1 week"
+          else
+            echo "### ✅ CONTINUE: Project on Track"
+            echo "- **Status:** Performing within acceptable parameters"
+            echo "- **Action:** Maintain current oversight level"
+            echo "- **Next Review:** Scheduled weekly update"
+          fi)
+          
+          ---
+          
+          **Next Executive Review:** $(date -d "+7 days" +%B\ %d,\ %Y)
+          EOF
+
+      - name: 💾 Commit Dashboard Updates
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "Dashboard Generator"
+          
+          # Add dashboard files
+          git add dashboards/ || echo "No dashboard files to add"
+          
+          # Commit if there are changes
+          if git diff --staged --quiet; then
+            echo "No dashboard changes to commit"
+          else
+            git commit -m "📊 Update project health dashboard - $(date +%Y-%m-%d\ %H:%M)"
+            git push
+          fi
+
+      - name: 📊 Generate Dashboard JSON
+        run: |
+          # Create machine-readable dashboard data
+          mkdir -p dashboards/data
+          
+          cat > dashboards/data/metrics-$(date +%Y-%m-%d).json << EOF
+          {
+            "generated_at": "$(date -Iseconds)",
+            "dashboard_type": "${{ github.event.inputs.dashboard_type || 'comprehensive' }}",
+            "project_health": {
+              "status": "${{ steps.metrics.outputs.health_status }}",
+              "completion_rate": ${{ steps.metrics.outputs.completion_rate }},
+              "risk_score": ${{ steps.metrics.outputs.risk_score }},
+              "velocity": ${{ steps.metrics.outputs.velocity }}
+            },
+            "metrics": {
+              "total_issues": ${{ steps.metrics.outputs.total_issues }},
+              "open_issues": ${{ steps.metrics.outputs.open_issues }},
+              "closed_issues": ${{ steps.metrics.outputs.closed_issues }},
+              "critical_issues": ${{ steps.metrics.outputs.critical_issues }},
+              "high_priority": ${{ steps.metrics.outputs.high_priority }},
+              "bugs": ${{ steps.metrics.outputs.bugs }},
+              "enhancements": ${{ steps.metrics.outputs.enhancements }}
+            },
+            "strategic": {
+              "total_strategic": ${{ steps.metrics.outputs.strategic_issues }},
+              "strategic_progress": ${{ steps.metrics.outputs.strategic_progress }},
+              "phase1_progress": $([ ${{ steps.metrics.outputs.phase1_issues }} -gt 0 ] && echo "$(( (${{ steps.metrics.outputs.phase1_issues }} - ${{ steps.metrics.outputs.phase1_open }}) * 100 / ${{ steps.metrics.outputs.phase1_issues }} ))" || echo "0"),
+              "phase2_progress": $([ ${{ steps.metrics.outputs.phase2_issues }} -gt 0 ] && echo "$(( (${{ steps.metrics.outputs.phase2_issues }} - ${{ steps.metrics.outputs.phase2_open }}) * 100 / ${{ steps.metrics.outputs.phase2_issues }} ))" || echo "0"),
+              "phase3_progress": $([ ${{ steps.metrics.outputs.phase3_issues }} -gt 0 ] && echo "$(( (${{ steps.metrics.outputs.phase3_issues }} - ${{ steps.metrics.outputs.phase3_open }}) * 100 / ${{ steps.metrics.outputs.phase3_issues }} ))" || echo "0")
+            },
+            "recent_activity": {
+              "issues_opened_week": ${{ steps.metrics.outputs.issues_opened_week }},
+              "issues_closed_week": ${{ steps.metrics.outputs.issues_closed_week }},
+              "issues_opened_month": ${{ steps.metrics.outputs.issues_opened_month }},
+              "issues_closed_month": ${{ steps.metrics.outputs.issues_closed_month }}
+            }
+          }
+          EOF
+
+      - name: 🎯 Dashboard Summary
+        run: |
+          echo "📊 Dashboard Generation Complete"
+          echo "================================"
+          echo "Dashboard Type: ${{ github.event.inputs.dashboard_type || 'comprehensive' }}"
+          echo "Project Health: ${{ steps.metrics.outputs.health_icon }} ${{ steps.metrics.outputs.health_status }}"
+          echo "Completion Rate: ${{ steps.metrics.outputs.completion_rate }}%"
+          echo "Strategic Progress: ${{ steps.metrics.outputs.strategic_progress }}%"
+          echo "Risk Score: ${{ steps.metrics.outputs.risk_score }}"
+          echo "Weekly Velocity: ${{ steps.metrics.outputs.velocity }} issues"
+          echo ""
+          echo "Files Generated:"
+          echo "- dashboards/project-health-dashboard.md"
+          echo "- dashboards/data/metrics-$(date +%Y-%m-%d).json"
+          if [ "${{ github.event.inputs.dashboard_type }}" = "executive" ]; then
+            echo "- dashboards/executive/executive-dashboard.md"
+          fi
+          echo ""
+          echo "Next Update: $(date -d "+6 hours" +%H:%M\ %Z)"
+
