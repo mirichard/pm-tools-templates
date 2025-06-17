@@ -100,6 +100,35 @@ Professionally curated templates, tools, and frameworks for project managers acr
 - [Jira Automation](Hybrid/MPP-Jira-Integration/jira-automation/README.md) - Automated workflows
 - [MPP Templates](Hybrid/MPP-Jira-Integration/mpp-template/README.md) - Microsoft Project integration
 
+### 🚀 Methodology Frameworks
+**Advanced frameworks for scaling project management methodologies**
+
+#### [Agile Scaling Frameworks](methodology-frameworks/agile-scrum/README.md)
+**Large-scale agile implementation patterns**
+
+**SAFe (Scaled Agile Framework):**
+- [SAFe Program Increment Planning](methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_program_increment_planning_template.md) - PI planning and coordination
+- [SAFe Portfolio Kanban](methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_portfolio_kanban_template.md) - Portfolio-level management
+- [SAFe ART Coordination](methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_art_coordination_template.md) - Agile Release Train management
+- [SAFe Metrics Dashboard](methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_metrics_reporting_template.md) - Scaled metrics and reporting
+
+**LeSS (Large-Scale Scrum):**
+- [LeSS Sprint Planning](methodology-frameworks/agile-scrum/scaling-frameworks/less/less_sprint_planning_template.md) - Multi-team sprint planning
+- [Overall Product Backlog Management](methodology-frameworks/agile-scrum/scaling-frameworks/less/overall_product_backlog_management_template.md) - Large-scale backlog coordination
+- [LeSS Retrospective](methodology-frameworks/agile-scrum/scaling-frameworks/less/less_retrospective_template.md) - Organization-wide improvement
+- [Cross-Team Coordination](methodology-frameworks/agile-scrum/scaling-frameworks/less/cross_team_coordination_template.md) - Team synchronization
+- [LeSS Adoption Roadmap](methodology-frameworks/agile-scrum/scaling-frameworks/less/less_adoption_roadmap_template.md) - Transformation planning
+
+#### [DevOps Integration](methodology-frameworks/emerging-methods/devops/README.md)
+**Modern software delivery and operations practices**
+
+**Core DevOps Templates:**
+- [CI/CD Pipeline Planning](methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md) - Automated delivery pipelines
+- [Release Management Workflow](methodology-frameworks/emerging-methods/devops/release_management_template.md) - Release orchestration and coordination
+- [DevOps Monitoring and Alerting](methodology-frameworks/emerging-methods/devops/monitoring_alerting_template.md) - Observability and incident response
+- [Infrastructure as Code](methodology-frameworks/emerging-methods/devops/infrastructure_as_code_template.md) - Infrastructure automation and management
+- [DevSecOps Integration](methodology-frameworks/emerging-methods/devops/devsecops_template.md) - Security-first development practices
+
 ---
 
 ## 🎯 Specialized Collections
