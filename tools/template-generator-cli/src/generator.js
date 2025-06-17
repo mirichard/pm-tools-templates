@@ -3,6 +3,7 @@ const path = require('path');
 const chalk = require('chalk');
 const ora = require('ora');
 const inquirer = require('inquirer');
+const IntegrationManager = require('./integrations');
 
 class TemplateGenerator {
   constructor() {
@@ -37,9 +38,14 @@ class TemplateGenerator {
     // Generate setup instructions
     await this.generateSetupInstructions(projectPath, assessment, recommendation);
     
-    console.log(chalk.green('\\n✅ Project setup complete!'));
+    // Setup integrations
+    const integrationManager = new IntegrationManager();
+    await integrationManager.setupIntegrations(projectPath, assessment, recommendation);
+    
+    console.log(chalk.green('\n✅ Project setup complete!'));
     console.log(chalk.white(`📁 Project created at: ${projectPath}`));
     console.log(chalk.white(`📋 See ${path.join(outputDir, 'README.md')} for next steps`));
+    console.log(chalk.white(`🔗 Check integrations/ folder for tool setup guides`));
   }
 
   async createProjectStructure(projectPath, assessment, recommendation) {

@@ -9,7 +9,11 @@
   "scripts": {
     "start": "node src/index.js",
     "dev": "node src/index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node tests/test-runner.js",
+    "test:quick": "node tests/test-runner.js --quick",
+    "validate": "npm test && echo 'CLI validation complete'",
+    "prepublishOnly": "npm test",
+    "postinstall": "echo 'PM Template Generator CLI installed successfully!'"
   },
   "keywords": [
     "project-management",
@@ -33,6 +37,12 @@
   "engines": {
     "node": ">=16.0.0"
   },
+  "files": [
+    "src/**/*",
+    "README.md",
+    "package.json"
+  ],
+  "preferGlobal": true,
   "repository": {
     "type": "git",
     "url": "https://github.com/mirichard/pm-tools-templates.git",
