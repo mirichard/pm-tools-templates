@@ -1,6 +1,6 @@
 # PM Tools Templates - Project Health Dashboard
 
-**Last Updated:** Wed Jun 18 12:05:12 UTC 2025  
+**Last Updated:** Wed Jun 18 12:06:51 UTC 2025  
 **Project Health:** 🟠 fair  
 **Overall Progress:** 80%
 
@@ -20,13 +20,13 @@
 ### Issue Statistics
 - **Total Issues:** 30
 - **Completed:** 24 (80%)
-- **In Progress:** 28
+- **In Progress:** 29
 - **Completion Rate:** 80%
 
 ### Recent Activity (Last 7 Days)
-- **Issues Opened:** 15
+- **Issues Opened:** 16
 - **Issues Closed:** 5
-- **Net Progress:** -10 issues
+- **Net Progress:** -11 issues
 
 ## 🎯 Strategic Roadmap Progress
 
@@ -57,10 +57,10 @@
 
 | Type | Count | Percentage |
 |------|-------|------------|
-| Enhancement | 25 | 89% |
-| Bug | 2 | 7% |
+| Enhancement | 25 | 86% |
+| Bug | 2 | 6% |
 | Critical | 0 | 0% |
-| High Priority | 13 | 46% |
+| High Priority | 13 | 44% |
 
 ## 🎯 Performance Indicators
 
@@ -70,7 +70,7 @@
 - **Velocity Trend:** 📈 Above Target
 
 ### Quality Metrics
-- **Bug Rate:** 7% of open issues
+- **Bug Rate:** 6% of open issues
 - **Critical Issue Rate:** 0% of open issues
 
 ## 📅 Upcoming Focus Areas
@@ -86,8 +86,8 @@
 ## 📊 Dashboard Information
 
 - **Auto-generated:** Every 6 hours
-- **Last Update:** Wed Jun 18 12:05:12 UTC 2025
-- **Next Update:** 18:05 UTC
+- **Last Update:** Wed Jun 18 12:06:51 UTC 2025
+- **Next Update:** 18:06 UTC
 - **Data Source:** GitHub Issues API
 - **Methodology:** Automated metric collection and analysis
 
