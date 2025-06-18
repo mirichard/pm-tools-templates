@@ -136,7 +136,7 @@ jobs:
           
           # Add completed issues to report
           gh issue list --milestone "Sprint $SPRINT_NUM" --state closed --json number,title,labels \
-            --jq '.[] | "- #\(.number): \(.title)"' >> reports/sprints/sprint-${SPRINT_NUM}-report.md
+            --jq '.[] | "- #" + (.number | tostring) + ": " + .title' >> reports/sprints/sprint-${SPRINT_NUM}-report.md
           
           # Commit the report
           git config --local user.email "action@github.com"
