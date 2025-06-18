@@ -1,0 +1,558 @@
+{
+  "id": "agile-sprint-planning-v1.0",
+  "name": "Agile Sprint Planning",
+  "methodology": "Agile",
+  "version": "1.0.0",
+  "fields": [
+    {
+      "name": "sprint_name",
+      "type": "text",
+      "required": true,
+      "defaultValue": "",
+      "validation": {
+        "min": 3,
+        "max": 50,
+        "required": true
+      }
+    },
+    {
+      "name": "sprint_goal",
+      "type": "text",
+      "required": true,
+      "defaultValue": "",
+      "validation": {
+        "min": 10,
+        "max": 200,
+        "required": true
+      }
+    },
+    {
+      "name": "scrum_master",
+      "type": "user",
+      "required": true,
+      "defaultValue": null
+    },
+    {
+      "name": "product_owner",
+      "type": "user",
+      "required": true,
+      "defaultValue": null
+    },
+    {
+      "name": "sprint_start_date",
+      "type": "date",
+      "required": true,
+      "defaultValue": null
+    },
+    {
+      "name": "sprint_end_date",
+      "type": "date",
+      "required": true,
+      "defaultValue": null
+    },
+    {
+      "name": "sprint_duration_weeks",
+      "type": "enum",
+      "required": true,
+      "defaultValue": "2",
+      "options": ["1", "2", "3", "4"]
+    },
+    {
+      "name": "team_capacity",
+      "type": "number",
+      "required": true,
+      "defaultValue": 0,
+      "validation": {
+        "min": 0,
+        "max": 200
+      }
+    },
+    {
+      "name": "story_points_committed",
+      "type": "number",
+      "required": false,
+      "defaultValue": 0,
+      "validation": {
+        "min": 0
+      }
+    },
+    {
+      "name": "sprint_status",
+      "type": "enum",
+      "required": true,
+      "defaultValue": "Planning",
+      "options": ["Planning", "Active", "In Review", "Completed", "Cancelled"]
+    },
+    {
+      "name": "retrospective_completed",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": false
+    },
+    {
+      "name": "demo_scheduled",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": false
+    }
+  ],
+  "tasks": [
+    {
+      "id": "sprint-001",
+      "name": "Sprint Planning Meeting - Part 1",
+      "description": "Review and select user stories from the product backlog for the upcoming sprint",
+      "estimatedHours": 4,
+      "dependencies": [],
+      "assigneeRole": "Scrum Master",
+      "priority": "Critical",
+      "tags": ["sprint-planning", "backlog", "user-stories"],
+      "customFields": {
+        "sprint_status": "Planning",
+        "meeting_type": "Sprint Planning",
+        "timeboxed_hours": 4
+      },
+      "subtasks": [
+        {
+          "id": "sprint-001-1",
+          "name": "Review sprint goal",
+          "description": "Collaborate with Product Owner to define clear sprint goal",
+          "estimatedHours": 0.5,
+          "assigneeRole": "Product Owner",
+          "priority": "Critical"
+        },
+        {
+          "id": "sprint-001-2",
+          "name": "Review product backlog",
+          "description": "Review prioritized user stories in the product backlog",
+          "estimatedHours": 1,
+          "assigneeRole": "Product Owner",
+          "priority": "High"
+        },
+        {
+          "id": "sprint-001-3",
+          "name": "Estimate story points",
+          "description": "Collaborate with development team to estimate story points",
+          "estimatedHours": 1.5,
+          "assigneeRole": "Development Team",
+          "priority": "High"
+        },
+        {
+          "id": "sprint-001-4",
+          "name": "Select stories for sprint",
+          "description": "Choose user stories that fit within team capacity",
+          "estimatedHours": 1,
+          "assigneeRole": "Development Team",
+          "priority": "High"
+        }
+      ]
+    },
+    {
+      "id": "sprint-002",
+      "name": "Sprint Planning Meeting - Part 2",
+      "description": "Break down selected user stories into specific tasks and plan the sprint work",
+      "estimatedHours": 4,
+      "dependencies": ["sprint-001"],
+      "assigneeRole": "Development Team",
+      "priority": "Critical",
+      "tags": ["sprint-planning", "task-breakdown", "estimation"],
+      "customFields": {
+        "sprint_status": "Planning",
+        "meeting_type": "Sprint Planning",
+        "timeboxed_hours": 4
+      },
+      "subtasks": [
+        {
+          "id": "sprint-002-1",
+          "name": "Break down user stories",
+          "description": "Decompose selected user stories into specific development tasks",
+          "estimatedHours": 2,
+          "assigneeRole": "Development Team",
+          "priority": "Critical"
+        },
+        {
+          "id": "sprint-002-2",
+          "name": "Estimate task effort",
+          "description": "Estimate time required for each development task",
+          "estimatedHours": 1,
+          "assigneeRole": "Development Team",
+          "priority": "High"
+        },
+        {
+          "id": "sprint-002-3",
+          "name": "Assign tasks to team members",
+          "description": "Distribute tasks among development team members",
+          "estimatedHours": 0.5,
+          "assigneeRole": "Scrum Master",
+          "priority": "High"
+        },
+        {
+          "id": "sprint-002-4",
+          "name": "Finalize sprint backlog",
+          "description": "Create final sprint backlog with all tasks and assignments",
+          "estimatedHours": 0.5,
+          "assigneeRole": "Scrum Master",
+          "priority": "High"
+        }
+      ]
+    },
+    {
+      "id": "sprint-003",
+      "name": "Set Up Sprint Board",
+      "description": "Configure and organize the sprint task board with appropriate columns and workflows",
+      "estimatedHours": 2,
+      "dependencies": ["sprint-002"],
+      "assigneeRole": "Scrum Master",
+      "priority": "High",
+      "tags": ["sprint-board", "kanban", "workflow"],
+      "customFields": {
+        "sprint_status": "Planning",
+        "board_type": "Kanban",
+        "workflow_states": "To Do, In Progress, Review, Done"
+      },
+      "subtasks": [
+        {
+          "id": "sprint-003-1",
+          "name": "Create sprint board columns",
+          "description": "Set up To Do, In Progress, Review, and Done columns",
+          "estimatedHours": 0.5,
+          "assigneeRole": "Scrum Master",
+          "priority": "High"
+        },
+        {
+          "id": "sprint-003-2",
+          "name": "Add user stories and tasks",
+          "description": "Populate sprint board with selected user stories and tasks",
+          "estimatedHours": 1,
+          "assigneeRole": "Scrum Master",
+          "priority": "High"
+        },
+        {
+          "id": "sprint-003-3",
+          "name": "Configure workflow rules",
+          "description": "Set up board rules and automation for task transitions",
+          "estimatedHours": 0.5,
+          "assigneeRole": "Scrum Master",
+          "priority": "Medium"
+        }
+      ]
+    },
+    {
+      "id": "sprint-004",
+      "name": "Daily Standup Planning",
+      "description": "Schedule and prepare for daily standup meetings throughout the sprint",
+      "estimatedHours": 2,
+      "dependencies": ["sprint-003"],
+      "assigneeRole": "Scrum Master",
+      "priority": "High",
+      "tags": ["daily-standup", "scheduling", "communication"],
+      "customFields": {
+        "sprint_status": "Planning",
+        "meeting_frequency": "Daily",
+        "meeting_duration": "15 minutes"
+      },
+      "subtasks": [
+        {
+          "id": "sprint-004-1",
+          "name": "Schedule daily standups",
+          "description": "Set up recurring calendar invites for daily standup meetings",
+          "estimatedHours": 0.5,
+          "assigneeRole": "Scrum Master",
+          "priority": "High"
+        },
+        {
+          "id": "sprint-004-2",
+          "name": "Prepare standup format",
+          "description": "Define structure and questions for daily standup meetings",
+          "estimatedHours": 0.5,
+          "assigneeRole": "Scrum Master",
+          "priority": "Medium"
+        },
+        {
+          "id": "sprint-004-3",
+          "name": "Set up impediment tracking",
+          "description": "Create system for tracking and resolving impediments",
+          "estimatedHours": 1,
+          "assigneeRole": "Scrum Master",
+          "priority": "Medium"
+        }
+      ]
+    },
+    {
+      "id": "sprint-005",
+      "name": "Sprint Review Preparation",
+      "description": "Plan and prepare for the sprint review/demo session",
+      "estimatedHours": 3,
+      "dependencies": ["sprint-002"],
+      "assigneeRole": "Product Owner",
+      "priority": "Medium",
+      "tags": ["sprint-review", "demo", "stakeholders"],
+      "customFields": {
+        "sprint_status": "Planning",
+        "meeting_type": "Sprint Review",
+        "stakeholder_involvement": "High"
+      },
+      "subtasks": [
+        {
+          "id": "sprint-005-1",
+          "name": "Identify stakeholders",
+          "description": "Determine which stakeholders should attend the sprint review",
+          "estimatedHours": 0.5,
+          "assigneeRole": "Product Owner",
+          "priority": "Medium"
+        },
+        {
+          "id": "sprint-005-2",
+          "name": "Schedule sprint review",
+          "description": "Set up calendar invite for sprint review meeting",
+          "estimatedHours": 0.5,
+          "assigneeRole": "Product Owner",
+          "priority": "Medium"
+        },
+        {
+          "id": "sprint-005-3",
+          "name": "Prepare demo environment",
+          "description": "Ensure demo environment is ready for sprint review",
+          "estimatedHours": 1,
+          "assigneeRole": "Development Team",
+          "priority": "Medium"
+        },
+        {
+          "id": "sprint-005-4",
+          "name": "Plan demo script",
+          "description": "Outline what will be demonstrated in the sprint review",
+          "estimatedHours": 1,
+          "assigneeRole": "Product Owner",
+          "priority": "Low"
+        }
+      ]
+    },
+    {
+      "id": "sprint-006",
+      "name": "Sprint Retrospective Planning",
+      "description": "Plan the sprint retrospective meeting format and activities",
+      "estimatedHours": 2,
+      "dependencies": ["sprint-002"],
+      "assigneeRole": "Scrum Master",
+      "priority": "Medium",
+      "tags": ["retrospective", "continuous-improvement", "team-building"],
+      "customFields": {
+        "sprint_status": "Planning",
+        "meeting_type": "Sprint Retrospective",
+        "improvement_focus": "Team Process"
+      },
+      "subtasks": [
+        {
+          "id": "sprint-006-1",
+          "name": "Choose retrospective format",
+          "description": "Select appropriate retrospective format (Start/Stop/Continue, etc.)",
+          "estimatedHours": 0.5,
+          "assigneeRole": "Scrum Master",
+          "priority": "Medium"
+        },
+        {
+          "id": "sprint-006-2",
+          "name": "Schedule retrospective",
+          "description": "Set up calendar invite for sprint retrospective meeting",
+          "estimatedHours": 0.5,
+          "assigneeRole": "Scrum Master",
+          "priority": "Medium"
+        },
+        {
+          "id": "sprint-006-3",
+          "name": "Prepare retrospective activities",
+          "description": "Plan specific activities and exercises for the retrospective",
+          "estimatedHours": 1,
+          "assigneeRole": "Scrum Master",
+          "priority": "Low"
+        }
+      ]
+    },
+    {
+      "id": "sprint-007",
+      "name": "Definition of Done Review",
+      "description": "Review and confirm the Definition of Done criteria with the team",
+      "estimatedHours": 1,
+      "dependencies": ["sprint-001"],
+      "assigneeRole": "Scrum Master",
+      "priority": "High",
+      "tags": ["definition-of-done", "quality", "standards"],
+      "customFields": {
+        "sprint_status": "Planning",
+        "quality_gate": "Definition of Done",
+        "team_agreement": "Required"
+      },
+      "subtasks": [
+        {
+          "id": "sprint-007-1",
+          "name": "Review current DoD",
+          "description": "Review existing Definition of Done criteria with team",
+          "estimatedHours": 0.5,
+          "assigneeRole": "Scrum Master",
+          "priority": "High"
+        },
+        {
+          "id": "sprint-007-2",
+          "name": "Update DoD if needed",
+          "description": "Make any necessary updates to Definition of Done",
+          "estimatedHours": 0.5,
+          "assigneeRole": "Development Team",
+          "priority": "Medium"
+        }
+      ]
+    },
+    {
+      "id": "sprint-008",
+      "name": "Team Capacity Planning",
+      "description": "Calculate and document team capacity for the sprint considering holidays, PTO, and other commitments",
+      "estimatedHours": 2,
+      "dependencies": [],
+      "assigneeRole": "Scrum Master",
+      "priority": "High",
+      "tags": ["capacity-planning", "resource-management", "availability"],
+      "customFields": {
+        "sprint_status": "Planning",
+        "capacity_factors": "PTO, Holidays, Meetings",
+        "availability_percentage": "80%"
+      },
+      "subtasks": [
+        {
+          "id": "sprint-008-1",
+          "name": "Check team availability",
+          "description": "Verify team member availability during sprint period",
+          "estimatedHours": 0.5,
+          "assigneeRole": "Scrum Master",
+          "priority": "High"
+        },
+        {
+          "id": "sprint-008-2",
+          "name": "Calculate working hours",
+          "description": "Calculate total available working hours for the sprint",
+          "estimatedHours": 0.5,
+          "assigneeRole": "Scrum Master",
+          "priority": "High"
+        },
+        {
+          "id": "sprint-008-3",
+          "name": "Account for overhead",
+          "description": "Factor in meetings, support, and other non-development activities",
+          "estimatedHours": 0.5,
+          "assigneeRole": "Scrum Master",
+          "priority": "Medium"
+        },
+        {
+          "id": "sprint-008-4",
+          "name": "Document final capacity",
+          "description": "Record final sprint capacity and share with team",
+          "estimatedHours": 0.5,
+          "assigneeRole": "Scrum Master",
+          "priority": "Medium"
+        }
+      ]
+    },
+    {
+      "id": "sprint-009",
+      "name": "Sprint Kickoff",
+      "description": "Officially start the sprint with team alignment and commitment",
+      "estimatedHours": 1,
+      "dependencies": ["sprint-002", "sprint-003", "sprint-007", "sprint-008"],
+      "assigneeRole": "Scrum Master",
+      "priority": "Critical",
+      "tags": ["kickoff", "team-alignment", "commitment"],
+      "customFields": {
+        "sprint_status": "Active",
+        "team_commitment": "Required",
+        "sprint_start": "Official"
+      },
+      "subtasks": [
+        {
+          "id": "sprint-009-1",
+          "name": "Team commitment ceremony",
+          "description": "Get formal commitment from team on sprint backlog",
+          "estimatedHours": 0.5,
+          "assigneeRole": "Scrum Master",
+          "priority": "Critical"
+        },
+        {
+          "id": "sprint-009-2",
+          "name": "Communicate sprint start",
+          "description": "Announce sprint start to stakeholders and organization",
+          "estimatedHours": 0.5,
+          "assigneeRole": "Scrum Master",
+          "priority": "Medium"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "from": "sprint-001",
+      "to": "sprint-002",
+      "type": "finish_to_start",
+      "lag": 0
+    },
+    {
+      "from": "sprint-002",
+      "to": "sprint-003",
+      "type": "finish_to_start",
+      "lag": 0
+    },
+    {
+      "from": "sprint-003",
+      "to": "sprint-004",
+      "type": "finish_to_start",
+      "lag": 0
+    },
+    {
+      "from": "sprint-002",
+      "to": "sprint-005",
+      "type": "finish_to_start",
+      "lag": 0
+    },
+    {
+      "from": "sprint-002",
+      "to": "sprint-006",
+      "type": "finish_to_start",
+      "lag": 0
+    },
+    {
+      "from": "sprint-001",
+      "to": "sprint-007",
+      "type": "finish_to_start",
+      "lag": 0
+    },
+    {
+      "from": "sprint-002",
+      "to": "sprint-009",
+      "type": "finish_to_start",
+      "lag": 0
+    },
+    {
+      "from": "sprint-003",
+      "to": "sprint-009",
+      "type": "finish_to_start",
+      "lag": 0
+    },
+    {
+      "from": "sprint-007",
+      "to": "sprint-009",
+      "type": "finish_to_start",
+      "lag": 0
+    },
+    {
+      "from": "sprint-008",
+      "to": "sprint-009",
+      "type": "finish_to_start",
+      "lag": 0
+    }
+  ],
+  "metadata": {
+    "category": "Agile Development",
+    "tags": ["Agile", "Sprint Planning", "Scrum", "Team Management"],
+    "complexity": "Intermediate",
+    "estimatedDuration": "2-3 days",
+    "description": "Comprehensive Agile sprint planning template following Scrum methodology for effective sprint preparation, team alignment, and successful sprint execution.",
+    "author": "PM Tools Templates",
+    "lastModified": "2025-06-18T18:50:15Z"
+  }
+}
+

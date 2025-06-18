@@ -1,0 +1,529 @@
+{
+  "id": "pmbok-project-charter-v1.0",
+  "name": "PMBOK Project Charter",
+  "methodology": "PMBOK",
+  "version": "1.0.0",
+  "fields": [
+    {
+      "name": "project_name",
+      "type": "text",
+      "required": true,
+      "defaultValue": "",
+      "validation": {
+        "min": 3,
+        "max": 100,
+        "required": true
+      }
+    },
+    {
+      "name": "project_manager",
+      "type": "user",
+      "required": true,
+      "defaultValue": null
+    },
+    {
+      "name": "sponsor",
+      "type": "user", 
+      "required": true,
+      "defaultValue": null
+    },
+    {
+      "name": "start_date",
+      "type": "date",
+      "required": true,
+      "defaultValue": null
+    },
+    {
+      "name": "target_end_date",
+      "type": "date",
+      "required": true,
+      "defaultValue": null
+    },
+    {
+      "name": "budget",
+      "type": "number",
+      "required": false,
+      "defaultValue": 0,
+      "validation": {
+        "min": 0
+      }
+    },
+    {
+      "name": "project_phase",
+      "type": "enum",
+      "required": true,
+      "defaultValue": "Initiation",
+      "options": ["Initiation", "Planning", "Execution", "Monitoring & Controlling", "Closing"]
+    },
+    {
+      "name": "priority",
+      "type": "enum",
+      "required": true,
+      "defaultValue": "Medium",
+      "options": ["Low", "Medium", "High", "Critical"]
+    },
+    {
+      "name": "risk_level",
+      "type": "enum",
+      "required": true,
+      "defaultValue": "Medium",
+      "options": ["Low", "Medium", "High"]
+    },
+    {
+      "name": "business_case_approved",
+      "type": "boolean",
+      "required": true,
+      "defaultValue": false
+    },
+    {
+      "name": "stakeholder_approval",
+      "type": "boolean",
+      "required": true,
+      "defaultValue": false
+    }
+  ],
+  "tasks": [
+    {
+      "id": "charter-001",
+      "name": "Define Project Purpose and Justification",
+      "description": "Document the business need, opportunity, or requirement that the project will address",
+      "estimatedHours": 8,
+      "dependencies": [],
+      "assigneeRole": "Project Manager",
+      "priority": "High",
+      "tags": ["charter", "business-case", "initiation"],
+      "customFields": {
+        "project_phase": "Initiation",
+        "deliverable": "Project Purpose Statement"
+      },
+      "subtasks": [
+        {
+          "id": "charter-001-1",
+          "name": "Research business drivers",
+          "description": "Identify and document the business drivers behind the project",
+          "estimatedHours": 3,
+          "assigneeRole": "Business Analyst",
+          "priority": "High"
+        },
+        {
+          "id": "charter-001-2", 
+          "name": "Document project justification",
+          "description": "Write clear justification for why this project should be undertaken",
+          "estimatedHours": 3,
+          "assigneeRole": "Project Manager",
+          "priority": "High"
+        },
+        {
+          "id": "charter-001-3",
+          "name": "Align with strategic objectives",
+          "description": "Ensure project aligns with organizational strategic goals",
+          "estimatedHours": 2,
+          "assigneeRole": "Project Sponsor",
+          "priority": "Medium"
+        }
+      ]
+    },
+    {
+      "id": "charter-002",
+      "name": "Identify Project Objectives and Success Criteria",
+      "description": "Define measurable project objectives and success criteria",
+      "estimatedHours": 12,
+      "dependencies": ["charter-001"],
+      "assigneeRole": "Project Manager",
+      "priority": "High",
+      "tags": ["charter", "objectives", "success-criteria"],
+      "customFields": {
+        "project_phase": "Initiation",
+        "deliverable": "Project Objectives Document"
+      },
+      "subtasks": [
+        {
+          "id": "charter-002-1",
+          "name": "Define SMART objectives",
+          "description": "Create Specific, Measurable, Achievable, Relevant, Time-bound objectives",
+          "estimatedHours": 4,
+          "assigneeRole": "Project Manager",
+          "priority": "High"
+        },
+        {
+          "id": "charter-002-2",
+          "name": "Establish success criteria",
+          "description": "Define clear criteria for project success and acceptance",
+          "estimatedHours": 4,
+          "assigneeRole": "Project Manager",
+          "priority": "High"
+        },
+        {
+          "id": "charter-002-3",
+          "name": "Define key performance indicators",
+          "description": "Identify KPIs to measure project progress and success",
+          "estimatedHours": 4,
+          "assigneeRole": "Business Analyst",
+          "priority": "Medium"
+        }
+      ]
+    },
+    {
+      "id": "charter-003",
+      "name": "Document High-Level Requirements",
+      "description": "Capture high-level project requirements and constraints",
+      "estimatedHours": 16,
+      "dependencies": ["charter-002"],
+      "assigneeRole": "Business Analyst",
+      "priority": "High",
+      "tags": ["charter", "requirements", "constraints"],
+      "customFields": {
+        "project_phase": "Initiation",
+        "deliverable": "High-Level Requirements Document"
+      },
+      "subtasks": [
+        {
+          "id": "charter-003-1",
+          "name": "Gather stakeholder requirements",
+          "description": "Collect requirements from key stakeholders",
+          "estimatedHours": 6,
+          "assigneeRole": "Business Analyst",
+          "priority": "High"
+        },
+        {
+          "id": "charter-003-2",
+          "name": "Document functional requirements",
+          "description": "Capture high-level functional requirements",
+          "estimatedHours": 4,
+          "assigneeRole": "Business Analyst",
+          "priority": "High"
+        },
+        {
+          "id": "charter-003-3",
+          "name": "Identify constraints and assumptions",
+          "description": "Document project constraints, assumptions, and dependencies",
+          "estimatedHours": 3,
+          "assigneeRole": "Project Manager",
+          "priority": "Medium"
+        },
+        {
+          "id": "charter-003-4",
+          "name": "Define acceptance criteria",
+          "description": "Establish criteria for requirement acceptance",
+          "estimatedHours": 3,
+          "assigneeRole": "Business Analyst",
+          "priority": "Medium"
+        }
+      ]
+    },
+    {
+      "id": "charter-004",
+      "name": "Identify Key Stakeholders",
+      "description": "Identify and document all project stakeholders and their roles",
+      "estimatedHours": 8,
+      "dependencies": ["charter-001"],
+      "assigneeRole": "Project Manager",
+      "priority": "High",
+      "tags": ["charter", "stakeholders", "roles"],
+      "customFields": {
+        "project_phase": "Initiation",
+        "deliverable": "Stakeholder Register"
+      },
+      "subtasks": [
+        {
+          "id": "charter-004-1",
+          "name": "Map stakeholder landscape",
+          "description": "Identify all internal and external stakeholders",
+          "estimatedHours": 3,
+          "assigneeRole": "Project Manager",
+          "priority": "High"
+        },
+        {
+          "id": "charter-004-2",
+          "name": "Define stakeholder roles",
+          "description": "Document roles and responsibilities for each stakeholder",
+          "estimatedHours": 3,
+          "assigneeRole": "Project Manager",
+          "priority": "High"
+        },
+        {
+          "id": "charter-004-3",
+          "name": "Assess stakeholder influence",
+          "description": "Analyze stakeholder power, interest, and influence",
+          "estimatedHours": 2,
+          "assigneeRole": "Project Manager",
+          "priority": "Medium"
+        }
+      ]
+    },
+    {
+      "id": "charter-005",
+      "name": "Define Project Scope Boundaries",
+      "description": "Establish what is included and excluded from the project scope",
+      "estimatedHours": 10,
+      "dependencies": ["charter-003"],
+      "assigneeRole": "Project Manager",
+      "priority": "High",
+      "tags": ["charter", "scope", "boundaries"],
+      "customFields": {
+        "project_phase": "Initiation",
+        "deliverable": "Scope Statement"
+      },
+      "subtasks": [
+        {
+          "id": "charter-005-1",
+          "name": "Define project scope",
+          "description": "Clearly define what the project will deliver",
+          "estimatedHours": 4,
+          "assigneeRole": "Project Manager",
+          "priority": "High"
+        },
+        {
+          "id": "charter-005-2",
+          "name": "Document exclusions",
+          "description": "Explicitly state what is out of scope",
+          "estimatedHours": 3,
+          "assigneeRole": "Project Manager",
+          "priority": "High"
+        },
+        {
+          "id": "charter-005-3",
+          "name": "Validate scope boundaries",
+          "description": "Review scope with stakeholders for agreement",
+          "estimatedHours": 3,
+          "assigneeRole": "Project Sponsor",
+          "priority": "Medium"
+        }
+      ]
+    },
+    {
+      "id": "charter-006",
+      "name": "Establish Project Timeline and Milestones",
+      "description": "Create high-level project timeline with key milestones",
+      "estimatedHours": 12,
+      "dependencies": ["charter-005"],
+      "assigneeRole": "Project Manager",
+      "priority": "High",
+      "tags": ["charter", "timeline", "milestones"],
+      "customFields": {
+        "project_phase": "Initiation",
+        "deliverable": "High-Level Schedule"
+      },
+      "subtasks": [
+        {
+          "id": "charter-006-1",
+          "name": "Define project phases",
+          "description": "Break project into logical phases",
+          "estimatedHours": 3,
+          "assigneeRole": "Project Manager",
+          "priority": "High"
+        },
+        {
+          "id": "charter-006-2",
+          "name": "Identify key milestones",
+          "description": "Define major project milestones and deliverables",
+          "estimatedHours": 4,
+          "assigneeRole": "Project Manager",
+          "priority": "High"
+        },
+        {
+          "id": "charter-006-3",
+          "name": "Estimate timeline",
+          "description": "Provide high-level duration estimates for each phase",
+          "estimatedHours": 3,
+          "assigneeRole": "Project Manager",
+          "priority": "Medium"
+        },
+        {
+          "id": "charter-006-4",
+          "name": "Validate timeline feasibility",
+          "description": "Review timeline with stakeholders and subject matter experts",
+          "estimatedHours": 2,
+          "assigneeRole": "Project Manager",
+          "priority": "Medium"
+        }
+      ]
+    },
+    {
+      "id": "charter-007",
+      "name": "Define Budget and Resource Requirements",
+      "description": "Establish project budget and resource needs",
+      "estimatedHours": 10,
+      "dependencies": ["charter-006"],
+      "assigneeRole": "Project Manager",
+      "priority": "High",
+      "tags": ["charter", "budget", "resources"],
+      "customFields": {
+        "project_phase": "Initiation",
+        "deliverable": "Budget Estimate"
+      },
+      "subtasks": [
+        {
+          "id": "charter-007-1",
+          "name": "Estimate project costs",
+          "description": "Develop high-level cost estimates for the project",
+          "estimatedHours": 4,
+          "assigneeRole": "Project Manager",
+          "priority": "High"
+        },
+        {
+          "id": "charter-007-2",
+          "name": "Identify resource requirements",
+          "description": "Define human and material resource needs",
+          "estimatedHours": 3,
+          "assigneeRole": "Project Manager",
+          "priority": "High"
+        },
+        {
+          "id": "charter-007-3",
+          "name": "Validate budget assumptions",
+          "description": "Review budget estimates with finance and stakeholders",
+          "estimatedHours": 3,
+          "assigneeRole": "Project Sponsor",
+          "priority": "Medium"
+        }
+      ]
+    },
+    {
+      "id": "charter-008",
+      "name": "Conduct Risk Assessment",
+      "description": "Identify and assess high-level project risks",
+      "estimatedHours": 8,
+      "dependencies": ["charter-004"],
+      "assigneeRole": "Project Manager",
+      "priority": "Medium",
+      "tags": ["charter", "risk", "assessment"],
+      "customFields": {
+        "project_phase": "Initiation",
+        "deliverable": "Risk Register"
+      },
+      "subtasks": [
+        {
+          "id": "charter-008-1",
+          "name": "Identify potential risks",
+          "description": "Brainstorm and document potential project risks",
+          "estimatedHours": 3,
+          "assigneeRole": "Project Manager",
+          "priority": "Medium"
+        },
+        {
+          "id": "charter-008-2",
+          "name": "Assess risk probability and impact",
+          "description": "Evaluate likelihood and potential impact of identified risks",
+          "estimatedHours": 3,
+          "assigneeRole": "Project Manager",
+          "priority": "Medium"
+        },
+        {
+          "id": "charter-008-3",
+          "name": "Develop mitigation strategies",
+          "description": "Create high-level strategies for managing key risks",
+          "estimatedHours": 2,
+          "assigneeRole": "Project Manager",
+          "priority": "Low"
+        }
+      ]
+    },
+    {
+      "id": "charter-009",
+      "name": "Obtain Formal Authorization",
+      "description": "Secure formal project authorization and sign-off",
+      "estimatedHours": 6,
+      "dependencies": ["charter-007", "charter-008"],
+      "assigneeRole": "Project Sponsor",
+      "priority": "Critical",
+      "tags": ["charter", "authorization", "approval"],
+      "customFields": {
+        "project_phase": "Initiation",
+        "deliverable": "Signed Project Charter"
+      },
+      "subtasks": [
+        {
+          "id": "charter-009-1",
+          "name": "Prepare charter document",
+          "description": "Compile all charter components into final document",
+          "estimatedHours": 2,
+          "assigneeRole": "Project Manager",
+          "priority": "High"
+        },
+        {
+          "id": "charter-009-2",
+          "name": "Present to stakeholders",
+          "description": "Present project charter to key stakeholders",
+          "estimatedHours": 2,
+          "assigneeRole": "Project Manager",
+          "priority": "High"
+        },
+        {
+          "id": "charter-009-3",
+          "name": "Obtain formal approval",
+          "description": "Secure signatures and formal authorization",
+          "estimatedHours": 2,
+          "assigneeRole": "Project Sponsor",
+          "priority": "Critical"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "from": "charter-001",
+      "to": "charter-002",
+      "type": "finish_to_start",
+      "lag": 0
+    },
+    {
+      "from": "charter-002",
+      "to": "charter-003",
+      "type": "finish_to_start",
+      "lag": 0
+    },
+    {
+      "from": "charter-001",
+      "to": "charter-004",
+      "type": "finish_to_start",
+      "lag": 0
+    },
+    {
+      "from": "charter-003",
+      "to": "charter-005",
+      "type": "finish_to_start",
+      "lag": 0
+    },
+    {
+      "from": "charter-005",
+      "to": "charter-006",
+      "type": "finish_to_start",
+      "lag": 0
+    },
+    {
+      "from": "charter-006",
+      "to": "charter-007",
+      "type": "finish_to_start",
+      "lag": 0
+    },
+    {
+      "from": "charter-004",
+      "to": "charter-008",
+      "type": "finish_to_start",
+      "lag": 0
+    },
+    {
+      "from": "charter-007",
+      "to": "charter-009",
+      "type": "finish_to_start",
+      "lag": 0
+    },
+    {
+      "from": "charter-008",
+      "to": "charter-009",
+      "type": "finish_to_start",
+      "lag": 0
+    }
+  ],
+  "metadata": {
+    "category": "Project Management",
+    "tags": ["PMBOK", "Project Charter", "Initiation", "Planning"],
+    "complexity": "Intermediate",
+    "estimatedDuration": "2-4 weeks",
+    "description": "Comprehensive PMBOK-aligned project charter template for initiating projects with proper documentation, stakeholder alignment, and formal authorization.",
+    "author": "PM Tools Templates",
+    "lastModified": "2025-06-18T18:50:15Z"
+  }
+}
+
