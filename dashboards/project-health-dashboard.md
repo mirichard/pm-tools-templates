@@ -1,8 +1,8 @@
 # PM Tools Templates - Project Health Dashboard
 
-**Last Updated:** Wed Jun 18 01:25:03 UTC 2025  
+**Last Updated:** Wed Jun 18 03:07:50 UTC 2025  
 **Project Health:** 🟠 fair  
-**Overall Progress:** 73%
+**Overall Progress:** 76%
 
 ---
 
@@ -10,23 +10,23 @@
 
 | 🎯 Key Metric | Value | Trend | Status |
 |---------------|-------|-------|--------|
-| **Project Completion** | 73% | 📉 Needs Attention | 🟠 |
-| **Strategic Progress** | 13% | 📉 Behind | 🔴 |
-| **Weekly Velocity** | 3 issues/week | 📉 Slow | 🟡 |
-| **Risk Score** | 235 points | 📈 Elevated | 🔴 |
+| **Project Completion** | 76% | 📉 Needs Attention | 🟠 |
+| **Strategic Progress** | 17% | 📉 Behind | 🔴 |
+| **Weekly Velocity** | 4 issues/week | 📉 Slow | 🟡 |
+| **Risk Score** | 220 points | 📈 Elevated | 🔴 |
 
 ## 📈 Progress Overview
 
 ### Issue Statistics
 - **Total Issues:** 30
-- **Completed:** 22 (73%)
-- **In Progress:** 25
-- **Completion Rate:** 73%
+- **Completed:** 23 (76%)
+- **In Progress:** 24
+- **Completion Rate:** 76%
 
 ### Recent Activity (Last 7 Days)
 - **Issues Opened:** 10
-- **Issues Closed:** 3
-- **Net Progress:** -7 issues
+- **Issues Closed:** 4
+- **Net Progress:** -6 issues
 
 ## 🎯 Strategic Roadmap Progress
 
@@ -35,16 +35,16 @@
 | Phase | Total Issues | Completed | Progress | Status |
 |-------|--------------|-----------|----------|--------|
 | **Phase 1** | 12 | 3 | 25% | 🔄 In Progress |
-| **Phase 2** | 12 | 0 | 0% | 🔄 In Progress |
+| **Phase 2** | 12 | 1 | 8% | 🔄 In Progress |
 | **Phase 3** | 2 | 1 | 50% | 📅 Planned |
 
 ## ⚠️ Risk Assessment
 
 ### Current Risk Factors
 - **Critical Issues:** 0 (25 points each)
-- **High Priority Issues:** 15 (15 points each)
+- **High Priority Issues:** 14 (15 points each)
 - **Open Bugs:** 2 (5 points each)
-- **Total Risk Score:** 235 points
+- **Total Risk Score:** 220 points
 
 ### Risk Level: 🔴 HIGH
 
@@ -57,16 +57,16 @@
 
 | Type | Count | Percentage |
 |------|-------|------------|
-| Enhancement | 22 | 88% |
+| Enhancement | 21 | 87% |
 | Bug | 2 | 8% |
 | Critical | 0 | 0% |
-| High Priority | 15 | 60% |
+| High Priority | 14 | 58% |
 
 ## 🎯 Performance Indicators
 
 ### Velocity Metrics
-- **Weekly Velocity:** 3 issues/week
-- **Monthly Throughput:** 21 issues
+- **Weekly Velocity:** 4 issues/week
+- **Monthly Throughput:** 22 issues
 - **Velocity Trend:** 📉 Below Target
 
 ### Quality Metrics
@@ -86,8 +86,8 @@
 ## 📊 Dashboard Information
 
 - **Auto-generated:** Every 6 hours
-- **Last Update:** Wed Jun 18 01:25:03 UTC 2025
-- **Next Update:** 07:25 UTC
+- **Last Update:** Wed Jun 18 03:07:50 UTC 2025
+- **Next Update:** 09:07 UTC
 - **Data Source:** GitHub Issues API
 - **Methodology:** Automated metric collection and analysis
 
