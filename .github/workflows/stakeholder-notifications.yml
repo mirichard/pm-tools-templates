@@ -31,8 +31,8 @@ jobs:
     name: Stakeholder Notifications
     runs-on: ubuntu-latest
     permissions:
-      contents: read
-      issues: read
+      contents: write
+      issues: write
       pull-requests: read
 
     steps:
