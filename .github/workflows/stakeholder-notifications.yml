@@ -51,10 +51,10 @@ jobs:
           OPEN_ISSUES=$(gh issue list --state open --json number | jq length)
           CLOSED_THIS_WEEK=$(gh issue list --state closed --json number,closedAt --jq '[.[] | select(.closedAt | fromdateiso8601 > (now - 604800))] | length')
           
-          # Critical items requiring attention
-          CRITICAL_ISSUES=$(gh issue list --label "critical" --state open --json number | jq length)
-          HIGH_PRIORITY=$(gh issue list --label "high-priority" --state open --json number | jq length)
-          BLOCKERS=$(gh issue list --label "blocker" --state open --json number | jq length)
+          # Critical items requiring attention (excluding alert issues to prevent self-reinforcement)
+          CRITICAL_ISSUES=$(gh issue list --label "critical" --state open --json number,labels | jq '[.[] | select(.labels | map(.name) | any(. == "alert") | not)] | length')
+          HIGH_PRIORITY=$(gh issue list --label "high-priority,priority-high" --state open --json number,labels | jq '[.[] | select(.labels | map(.name) | any(. == "alert") | not)] | length')
+          BLOCKERS=$(gh issue list --label "blocker" --state open --json number,labels | jq '[.[] | select(.labels | map(.name) | any(. == "alert") | not)] | length')
           
           # Progress metrics
           if [ $TOTAL_ISSUES -gt 0 ]; then
@@ -63,8 +63,8 @@ jobs:
             COMPLETION_RATE=0
           fi
           
-          # Risk assessment
-          RISK_SCORE=$(( CRITICAL_ISSUES * 25 + HIGH_PRIORITY * 15 + BLOCKERS * 10 ))
+          # Risk assessment with updated thresholds
+          RISK_SCORE=$(( CRITICAL_ISSUES * 30 + HIGH_PRIORITY * 10 + BLOCKERS * 15 ))
           
           # Milestone progress
           UPCOMING_MILESTONES=$(gh api repos/${{ github.repository }}/milestones --jq '[.[] | select(.state == "open")] | length')
@@ -128,9 +128,9 @@ jobs:
           
           EOF
           
-          # Add critical and high priority items
+          # Add critical and high priority items (excluding alert issues)
           if [ ${{ steps.stakeholder-data.outputs.critical_issues }} -gt 0 ] || [ ${{ steps.stakeholder-data.outputs.high_priority }} -gt 5 ]; then
-            gh issue list --label "critical,high-priority" --state open --json number,title,labels --jq '.[] | "- 🚨 #\(.number): \(.title)"' >> notifications/executive/weekly-digest-$(date +%Y-%m-%d).md
+            gh issue list --label "critical,high-priority,priority-high" --state open --json number,title,labels --jq '[.[] | select(.labels | map(.name) | any(. == "alert") | not)] | .[] | "- 🚨 #\(.number): \(.title)"' >> notifications/executive/weekly-digest-$(date +%Y-%m-%d).md
           else
             echo "- ✅ No items requiring immediate executive attention" >> notifications/executive/weekly-digest-$(date +%Y-%m-%d).md
           fi
@@ -190,8 +190,8 @@ jobs:
           ### High Priority Items Requiring Attention
           EOF
           
-          # Add high priority open issues
-          gh issue list --label "high-priority" --state open --json number,title,assignees --jq '.[] | "- 🔥 #\(.number): \(.title) (Assigned: \(.assignees[].login // "Unassigned"))"' >> notifications/team-leads/team-summary-$(date +%Y-%m-%d).md || echo "- ✅ No high priority items" >> notifications/team-leads/team-summary-$(date +%Y-%m-%d).md
+          # Add high priority open issues (excluding alert issues)
+          gh issue list --label "high-priority,priority-high" --state open --json number,title,assignees,labels --jq '[.[] | select(.labels | map(.name) | any(. == "alert") | not)] | .[] | "- 🔥 #\(.number): \(.title) (Assigned: \(.assignees[].login // "Unassigned"))"' >> notifications/team-leads/team-summary-$(date +%Y-%m-%d).md || echo "- ✅ No high priority items" >> notifications/team-leads/team-summary-$(date +%Y-%m-%d).md
           
           cat >> notifications/team-leads/team-summary-$(date +%Y-%m-%d).md << EOF
           
@@ -221,7 +221,7 @@ jobs:
           EOF
 
       - name: 🚨 Generate Critical Alert
-        if: github.event.inputs.notification_type == 'critical-alert' || steps.stakeholder-data.outputs.risk_score >= 25
+        if: github.event.inputs.notification_type == 'critical-alert' || steps.stakeholder-data.outputs.risk_score >= 50
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
