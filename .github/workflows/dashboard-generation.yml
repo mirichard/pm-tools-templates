@@ -328,10 +328,13 @@ jobs:
             echo "No dashboard changes to commit"
           else
             git commit -m "📊 Update project health dashboard - $(date +%Y-%m-%d\ %H:%M)"
+            git pull --rebase
             git push
           fi
 
-      - name: 📊 Generate Dashboard JSON
+      - name: 📊 Generate Dashboard
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           # Create machine-readable dashboard data
           mkdir -p dashboards/data
