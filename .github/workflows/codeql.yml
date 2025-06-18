@@ -71,18 +71,11 @@ jobs:
       uses: github/codeql-action/analyze@v3
       with:
         category: "/language:${{matrix.language}}"
-        # Upload results to GitHub Security tab
+        # Upload results to GitHub Security tab automatically
         upload: always
-        # Optionally specify output format
+        # Output SARIF files for artifact upload
         output: sarif-results
         
-    - name: Upload CodeQL results to GitHub Security tab
-      uses: github/codeql-action/upload-sarif@v3
-      if: always()
-      with:
-        sarif_file: sarif-results/${{ matrix.language }}.sarif
-        category: "/language:${{matrix.language}}"
-
     # Optional: Upload results as artifacts for manual review
     - name: Upload analysis results
       uses: actions/upload-artifact@v4
@@ -91,4 +84,6 @@ jobs:
         name: codeql-results-${{ matrix.language }}
         path: sarif-results/${{ matrix.language }}.sarif
         retention-days: 30
+        # Continue even if SARIF file doesn't exist
+        if-no-files-found: warn
 
