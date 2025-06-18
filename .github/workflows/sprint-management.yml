@@ -63,7 +63,11 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          SPRINT_NUM=${{ github.event.inputs.sprint_number || steps.dates.outputs.sprint_number }}
+          if [ -n "${{ github.event.inputs.sprint_number }}" ]; then
+            SPRINT_NUM="${{ github.event.inputs.sprint_number }}"
+          else
+            SPRINT_NUM="${{ steps.dates.outputs.sprint_number }}"
+          fi
           
           # Create issue body in a temporary file
           cat > /tmp/sprint_body.md << EOF
@@ -114,7 +118,11 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          SPRINT_NUM=${{ github.event.inputs.sprint_number || steps.dates.outputs.sprint_number }}
+          if [ -n "${{ github.event.inputs.sprint_number }}" ]; then
+            SPRINT_NUM="${{ github.event.inputs.sprint_number }}"
+          else
+            SPRINT_NUM="${{ steps.dates.outputs.sprint_number }}"
+          fi
           
           # Get sprint statistics
           COMPLETED_ISSUES=$(gh issue list --milestone "Sprint $SPRINT_NUM" --state closed --json number | jq length)
@@ -155,7 +163,11 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          SPRINT_NUM=${{ github.event.inputs.sprint_number || steps.dates.outputs.sprint_number }}
+          if [ -n "${{ github.event.inputs.sprint_number }}" ]; then
+            SPRINT_NUM="${{ github.event.inputs.sprint_number }}"
+          else
+            SPRINT_NUM="${{ steps.dates.outputs.sprint_number }}"
+          fi
           
           # Create retrospective body in a temporary file
           cat > /tmp/retrospective_body.md << EOF
@@ -206,7 +218,11 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          SPRINT_NUM=${{ github.event.inputs.sprint_number || steps.dates.outputs.sprint_number }}
+          if [ -n "${{ github.event.inputs.sprint_number }}" ]; then
+            SPRINT_NUM="${{ github.event.inputs.sprint_number }}"
+          else
+            SPRINT_NUM="${{ steps.dates.outputs.sprint_number }}"
+          fi
           
           # Create metrics directory
           mkdir -p metrics/sprint-data
@@ -237,9 +253,15 @@ jobs:
       - name: 📧 Send Sprint Notifications
         if: always()
         run: |
+          if [ -n "${{ github.event.inputs.sprint_number }}" ]; then
+            SPRINT_NUM="${{ github.event.inputs.sprint_number }}"
+          else
+            SPRINT_NUM="${{ steps.dates.outputs.sprint_number }}"
+          fi
+          
           echo "🚀 Sprint management workflow completed"
           echo "Action: ${{ github.event.inputs.action || 'scheduled' }}"
-          echo "Sprint: ${{ github.event.inputs.sprint_number || steps.dates.outputs.sprint_number }}"
+          echo "Sprint: $SPRINT_NUM"
           echo "Date: ${{ steps.dates.outputs.current_date }}"
           echo "Status: Success"
 
