@@ -259,8 +259,13 @@ jobs:
             SPRINT_NUM="${{ steps.dates.outputs.sprint_number }}"
           fi
           
+          ACTION="${{ github.event.inputs.action }}"
+          if [ -z "$ACTION" ]; then
+            ACTION="scheduled"
+          fi
+          
           echo "🚀 Sprint management workflow completed"
-          echo "Action: ${{ github.event.inputs.action || 'scheduled' }}"
+          echo "Action: $ACTION"
           echo "Sprint: $SPRINT_NUM"
           echo "Date: ${{ steps.dates.outputs.current_date }}"
           echo "Status: Success"
