@@ -28,6 +28,9 @@ Professionally curated templates, tools, and frameworks for project managers acr
 ### 📊 Executive Communication?
 **[💼 Business Stakeholder Suite](business-stakeholder-suite/README.md)** - Professional dashboards and reports
 
+### 🧠 Need AI-Powered Insights?
+**[🤖 AI-Powered Project Intelligence](ai-insights/README.md)** - Advanced project analytics and predictive insights
+
 ---
 
 ## 📚 Core Template Collections
@@ -133,16 +136,39 @@ Professionally curated templates, tools, and frameworks for project managers acr
 
 ## 🎯 Specialized Collections
 
-### 💼 Executive & Business Stakeholder Tools
+### 💼 Executive & Business Stakeholder Tools
 **Professional dashboards and communication for leadership**
 
 [**Business Stakeholder Suite Overview**](business-stakeholder-suite/README.md)
 
 #### Ready-to-Use Executive Templates:
-- [Excel Executive Dashboard Workbook](business-stakeholder-suite/executive-dashboards/Excel/Executive-Dashboard-Workbook.md) - Financial & project tracking
+- [Excel Executive Dashboard Workbook](business-stakeholder-suite/executive-dashboards/Excel/Executive-Dashboard-Workbook.md) - Financial & project tracking
 - [PowerPoint Executive Presentation Templates](business-stakeholder-suite/executive-dashboards/PowerPoint/Executive-Dashboard-Slides.md) - Professional slides
 - [Word Executive Report Templates](business-stakeholder-suite/executive-dashboards/Word/Executive-Report-Templates.md) - Formal reports
 - [Outlook Communication Automation](business-stakeholder-suite/executive-dashboards/Outlook/Executive-Communication-Automation.md) - Automated emails
+
+### 🧠 AI-Powered Project Intelligence
+**Advanced AI-driven project insights and predictive analytics**
+
+[**AI-Powered Project Insights System**](ai-insights/README.md)
+
+#### AI-Driven Capabilities:
+- **Project Health Monitoring** - Automated health scoring and risk detection
+- **Predictive Analytics** - Quality, schedule, and resource optimization predictions
+- **Technical Debt Analysis** - Code quality metrics and dependency security assessment
+- **Business Impact Evaluation** - Market opportunities and competitive analysis
+- **Sentiment Analysis** - Team morale and stakeholder satisfaction tracking
+- **Risk Intelligence** - Multi-dimensional risk identification and mitigation strategies
+- **Automated Reporting** - AI-generated insights with actionable recommendations
+- **RESTful API Integration** - Seamless integration with existing PM tools
+
+#### Key Features:
+✅ **Multi-dimensional Analysis** - Technical, business, operational, and strategic insights
+✅ **Machine Learning Models** - Predictive models for quality, risk, and resource optimization
+✅ **Real-time Monitoring** - Continuous project health assessment and alerts
+✅ **Visual Intelligence** - Advanced charts, trends, and performance indicators
+✅ **Scalable Architecture** - Docker containerization and MongoDB integration
+✅ **Enterprise Ready** - Production deployment guides and security best practices
 
 ### 🏭 Industry-Specific Templates
 **Specialized templates for industry requirements**
@@ -281,6 +307,8 @@ Professionally curated templates, tools, and frameworks for project managers acr
 - **3 Major Methodologies** (PMBOK, Agile, Hybrid) with complete coverage
 - **5 Industry Specializations** with domain-specific adaptations
 - **4 Major Tool Integrations** for popular PM software platforms
+- **AI-Powered Intelligence System** with predictive analytics and automated insights
+- **Advanced Machine Learning Models** for quality, risk, and resource optimization
 - **Real-World Examples** with practical implementations
 - **Battle-Tested** templates from actual project use
 
