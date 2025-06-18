@@ -1,0 +1,94 @@
+name: "CodeQL Security Analysis"
+
+on:
+  push:
+    branches: [ "main", "develop" ]
+  pull_request:
+    branches: [ "main" ]
+  schedule:
+    # Run CodeQL analysis weekly on Sundays at 6:00 AM UTC
+    - cron: '0 6 * * 0'
+  workflow_dispatch:
+    # Allow manual triggering
+
+jobs:
+  analyze:
+    name: Analyze Code
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    permissions:
+      # Required for all workflows
+      security-events: write
+      # Required to fetch internal or private CodeQL packs
+      packages: read
+      # Only required for workflows in private repositories
+      actions: read
+      contents: read
+
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+        - language: javascript-typescript
+          build-mode: none
+        # Add other languages as needed:
+        # - language: python
+        #   build-mode: none
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Initialize CodeQL
+      uses: github/codeql-action/init@v3
+      with:
+        languages: ${{ matrix.language }}
+        build-mode: ${{ matrix.build-mode }}
+        # Override language selection by uncommenting this and choosing your languages
+        # languages: javascript, python, go, java, csharp, ruby, cpp
+        
+        # Configure CodeQL queries to run
+        queries: +security-and-quality
+        
+        # Use custom configuration
+        config-file: ./.github/codeql/codeql-config.yml
+
+    # If the analyze step fails for one of the languages you are analyzing with
+    # "We were unable to automatically build your code", modify the matrix above
+    # to set the build-mode to "manual" and uncomment the following three steps.
+    
+    # - if: matrix.build-mode == 'manual'
+    #   shell: bash
+    #   run: |
+    #     echo 'If you are using a "manual" build mode for one or more of the' \
+    #          'languages you are analyzing, replace this with the commands to build' \
+    #          'your code, for example:'
+    #     echo '  make bootstrap'
+    #     echo '  make release'
+    #     exit 1
+
+    - name: Perform CodeQL Analysis
+      uses: github/codeql-action/analyze@v3
+      with:
+        category: "/language:${{matrix.language}}"
+        # Upload results to GitHub Security tab
+        upload: always
+        # Optionally specify output format
+        output: sarif-results
+        
+    - name: Upload CodeQL results to GitHub Security tab
+      uses: github/codeql-action/upload-sarif@v3
+      if: always()
+      with:
+        sarif_file: sarif-results/${{ matrix.language }}.sarif
+        category: "/language:${{matrix.language}}"
+
+    # Optional: Upload results as artifacts for manual review
+    - name: Upload analysis results
+      uses: actions/upload-artifact@v4
+      if: always()
+      with:
+        name: codeql-results-${{ matrix.language }}
+        path: sarif-results/${{ matrix.language }}.sarif
+        retention-days: 30
+

@@ -1,0 +1,45 @@
+name: "PM Tools Templates CodeQL Config"
+
+# Disable the default security-extended query suite.
+disable-default-queries: false
+
+# Include additional query suites and queries
+queries:
+  - name: security-and-quality
+    uses: security-and-quality
+  - name: security-extended
+    uses: security-extended
+
+# Paths to include in analysis
+paths:
+  - src
+  - ai-insights
+  - dashboard-mvp
+  - tools
+  - workflow-orchestration
+
+# Paths to ignore during analysis
+paths-ignore:
+  - node_modules
+  - "**/*.min.js"
+  - "**/*.bundle.js"
+  - "**/*.generated.js"
+  - "**/vendor/**"
+  - "**/dist/**"
+  - "**/build/**"
+  - "**/__tests__/**"
+  - "**/test/**"
+  - "**/tests/**"
+  - "**/*.test.js"
+  - "**/*.test.ts"
+  - "**/*.spec.js"
+  - "**/*.spec.ts"
+
+# Language-specific configurations
+packs:
+  javascript:
+    # Include community packs for enhanced analysis
+    - "codeql/javascript-queries"
+    # Add custom packs if available
+    # - "my-org/my-custom-pack"
+
