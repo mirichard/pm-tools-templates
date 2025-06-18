@@ -281,6 +281,8 @@ jobs:
 
       - name: 📄 Generate Project Summary
         if: github.event.inputs.notification_type == 'project-summary'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           # Create comprehensive project summary
           mkdir -p notifications/summary
