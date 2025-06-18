@@ -1,0 +1,60 @@
+{
+  "name": "workflow-orchestration",
+  "version": "1.0.0",
+  "description": "Advanced Workflow Orchestration System for PM Tools Templates",
+  "main": "src/index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/index.js",
+    "start:api": "node src/api/server.js",
+    "start:prod": "NODE_ENV=production node src/api/server.js",
+    "dev": "nodemon src/index.js",
+    "dev:api": "nodemon src/api/server.js",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:integration": "jest tests/integration --testTimeout=60000",
+    "test:coverage": "jest --coverage",
+    "test:workflow": "node scripts/test-workflows.js",
+    "build": "node scripts/build.js",
+    "lint": "eslint src/**/*.js",
+    "validate": "node scripts/validate-workflows.js",
+    "migrate": "node scripts/migrate-workflows.js",
+    "docs": "node scripts/generate-docs.js",
+    "demo": "node demo.js"
+  },
+  "keywords": [
+    "workflow",
+    "orchestration",
+    "automation",
+    "project-management",
+    "visual-designer",
+    "conditional-logic",
+    "cross-platform"
+  ],
+  "author": "PM Tools Templates",
+  "license": "MIT",
+  "dependencies": {
+    "uuid": "^9.0.0"
+  },
+  "devDependencies": {
+    "jest": "^29.6.1",
+    "nodemon": "^3.0.1",
+    "eslint": "^8.44.0",
+    "supertest": "^6.3.3",
+    "@types/jest": "^29.5.3"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=8.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mirichard/pm-tools-templates.git",
+    "directory": "workflow-orchestration"
+  },
+  "bugs": {
+    "url": "https://github.com/mirichard/pm-tools-templates/issues"
+  },
+  "homepage": "https://github.com/mirichard/pm-tools-templates/tree/main/workflow-orchestration"
+}
+
