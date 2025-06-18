@@ -231,4 +231,5 @@ jobs:
           echo "Action: ${{ github.event.inputs.action || 'scheduled' }}"
           echo "Sprint: ${{ github.event.inputs.sprint_number || steps.dates.outputs.sprint_number }}"
           echo "Date: ${{ steps.dates.outputs.current_date }}"
+          echo "Status: Success"
 
