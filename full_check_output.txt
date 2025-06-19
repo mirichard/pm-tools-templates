@@ -1,4 +1,4 @@
-Checking 341 README files...
+Checking 342 README files...
 Checking: README.md
 Checking: role-based-toolkits/README.md
 Checking: role-based-toolkits/release-train-engineer/README.md
@@ -15,6 +15,8 @@ Checking: role-based-toolkits/project-manager/essential-templates/README.md
 Checking: role-based-toolkits/project-manager/reporting-dashboards/README.md
 Checking: role-based-toolkits/project-manager/stakeholder-engagement/README.md
 Checking: role-based-toolkits/project-manager/governance-tools/README.md
+Checking: project-assessment-suite/README.md
+  ✅ Auto-fixed project-assessment-suite/README.md
 Checking: integrations/asana/README.md
 Checking: workflow-orchestration/README.md
 Checking: workflow-orchestration/node_modules/isexe/README.md
@@ -344,7 +346,7 @@ Checking: ai-insights/README.md
 ============================================================
 ANCHOR LINK CHECK REPORT
 ============================================================
-Files checked: 341
+Files checked: 342
 Total issues: 47
 Broken links: 47
 Suggestions: 0
