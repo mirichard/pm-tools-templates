@@ -43,7 +43,7 @@ This guide helps you quickly get oriented and find the resources you need, wheth
 **[→ Browse: Role-Based Toolkits](../../role-based-toolkits/)**
 - **Project Manager:** [Essential Templates](../../role-based-toolkits/project-manager/essential-templates/)
 - **Scrum Master:** [Agile Ceremonies](../../role-based-toolkits/scrum-master/agile-ceremonies/)
-- **Product Owner:** [Backlog Management](../../role-based-toolkits/product-owner/backlog-management/)
+- **Product Owner:** [Product Owner Toolkit](../../role-based-toolkits/product-owner/)
 
 ---
 
@@ -52,7 +52,7 @@ This guide helps you quickly get oriented and find the resources you need, wheth
 ### Immediate Actions (Week 1)
 1. **[Create Project Charter](../../project-lifecycle/01-initiation/project-charter/)**
 2. **[Analyze Stakeholders](../../project-lifecycle/01-initiation/stakeholder-analysis/)**
-3. **[Set Up Communication Plan](../../project-lifecycle/02-planning/communication-planning/)**
+3. **[Set Up Communication Plan](../../project-lifecycle/02-planning/)**
 
 ### Planning Phase (Week 2-3)
 1. **[Develop Project Management Plan](../../project-lifecycle/02-planning/project-management-plan/)**
@@ -69,19 +69,19 @@ This guide helps you quickly get oriented and find the resources you need, wheth
 ## 🔄 Methodology Transition
 
 ### From Traditional to Agile
-**[→ Read: Agile Transformation Guide](../methodology-guides/agile-scrum-guide.md)**
+**[→ Use: Agile Transformation Kit](../../quick-start-kits/agile-transformation/)**
 - Understanding the mindset shift
 - Template mapping: Waterfall → Agile equivalents
 - Change management strategies
 
 ### From Agile to Scaled/Enterprise
-**[→ Read: Hybrid Approaches Guide](../methodology-guides/hybrid-approaches-guide.md)**
+**[→ Use: Scaling Frameworks](../../methodology-frameworks/agile-scrum/scaling-frameworks/)**
 - When pure Agile isn't enough
 - Scaling frameworks (SAFe, LeSS, Nexus)
 - Governance without losing agility
 
 ### Custom Hybrid Approach
-**[→ Use: Methodology Frameworks](../../methodology-frameworks/hybrid-approaches/)**
+**[→ Use: Hybrid Approaches](../../methodology-frameworks/hybrid-approaches/)**
 - Design your own hybrid approach
 - Balance predictability with adaptability
 - Templates for mixed methodology projects
@@ -121,14 +121,14 @@ This guide helps you quickly get oriented and find the resources you need, wheth
 3. **Monthly:** [Executive Dashboards](../../business-stakeholder-suite/executive-dashboards/) | [Stakeholder Updates](../../business-stakeholder-suite/communication-automation/)
 
 ### Templates by Project Size
-- **Small Projects (< 6 months):** [Quick Start Kit](../../quick-start-kits/small-team-toolkit/)
-- **Large Projects (> 1 year):** [Enterprise Implementation Kit](../../quick-start-kits/enterprise-implementation/)
-- **Complex Programs:** [Program Manager Toolkit](../../role-based-toolkits/program-manager/)
+- **Small Projects (< 6 months):** [First Time PM Starter](../../quick-start-kits/first-time-pm-starter/)
+- **Large Projects (> 1 year):** [Enterprise Templates](../../role-based-toolkits/project-manager/)
+- **Complex Programs:** [Release Train Engineer Toolkit](../../role-based-toolkits/release-train-engineer/)
 
 ### Industry-Specific Starting Points
-- **[IT Projects](../../industry-specializations/information-technology/)**
-- **[Healthcare Projects](../../industry-specializations/healthcare-pharmaceutical/)**
-- **[Financial Services Projects](../../industry-specializations/financial-services/)**
+- **IT Projects:** [Project Lifecycle Templates](../../project-lifecycle/)
+- **Agile Projects:** [Agile-Scrum Framework](../../methodology-frameworks/agile-scrum/)
+- **Enterprise Projects:** [Business Stakeholder Suite](../../business-stakeholder-suite/)
 
 ---
 
@@ -141,8 +141,8 @@ This guide helps you quickly get oriented and find the resources you need, wheth
 
 ### For Experienced PMs
 1. **Explore hybrid approaches** - Combine the best of multiple methodologies
-2. **Leverage automation** - Use [tool integrations](../../integration-toolkits/) to reduce manual work
-3. **Scale your practices** - Use [organizational frameworks](../../organizational-frameworks/) for consistency
+2. **Leverage automation** - Use available templates to reduce manual work
+3. **Scale your practices** - Use [methodology frameworks](../../methodology-frameworks/) for consistency
 
 ### For Organizations
 1. **Customize thoughtfully** - Adapt templates but maintain core structure
@@ -151,5 +151,5 @@ This guide helps you quickly get oriented and find the resources you need, wheth
 
 ---
 
-*Need specific help? Check our [Template Selector](template-selector.md) or browse the [Methodology Guides](../methodology-guides/) for detailed guidance.*
+*Need specific help? Check our [Template Selector](template-selector.md) or browse the [Methodology Frameworks](../../methodology-frameworks/) for detailed guidance.*
 
