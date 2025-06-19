@@ -1,0 +1,494 @@
+{
+  "summary": {
+    "total_files_checked": 340,
+    "total_issues": 47,
+    "broken_links": 47,
+    "suggestions": 0,
+    "auto_fixable": 0
+  },
+  "issues": [
+    {
+      "file_path": "workflow-orchestration/node_modules/jest-each/README.md",
+      "line_number": 56,
+      "issue_type": "broken_link",
+      "description": "Broken anchor link: #usage-1",
+      "anchor_link": "usage-1",
+      "target_header": null,
+      "suggested_fix": null,
+      "auto_fixable": false
+    },
+    {
+      "file_path": "workflow-orchestration/node_modules/braces/README.md",
+      "line_number": 33,
+      "issue_type": "broken_link",
+      "description": "Broken anchor link: #steps",
+      "anchor_link": "steps",
+      "target_header": null,
+      "suggested_fix": null,
+      "auto_fixable": false
+    },
+    {
+      "file_path": "workflow-orchestration/node_modules/braces/README.md",
+      "line_number": 67,
+      "issue_type": "broken_link",
+      "description": "Broken anchor link: #expand",
+      "anchor_link": "expand",
+      "target_header": null,
+      "suggested_fix": null,
+      "auto_fixable": false
+    },
+    {
+      "file_path": "workflow-orchestration/node_modules/braces/README.md",
+      "line_number": 118,
+      "issue_type": "broken_link",
+      "description": "Broken anchor link: #optimize",
+      "anchor_link": "optimize",
+      "target_header": null,
+      "suggested_fix": null,
+      "auto_fixable": false
+    },
+    {
+      "file_path": "workflow-orchestration/node_modules/braces/README.md",
+      "line_number": 118,
+      "issue_type": "broken_link",
+      "description": "Broken anchor link: #optionsoptimize",
+      "anchor_link": "optionsoptimize",
+      "target_header": null,
+      "suggested_fix": null,
+      "auto_fixable": false
+    },
+    {
+      "file_path": "workflow-orchestration/node_modules/ignore/README.md",
+      "line_number": 418,
+      "issue_type": "broken_link",
+      "description": "Broken anchor link: #addignorefilepath",
+      "anchor_link": "addignorefilepath",
+      "target_header": null,
+      "suggested_fix": null,
+      "auto_fixable": false
+    },
+    {
+      "file_path": "workflow-orchestration/node_modules/json-parse-even-better-errors/README.md",
+      "line_number": 19,
+      "issue_type": "broken_link",
+      "description": "Broken anchor link: #contributing",
+      "anchor_link": "contributing",
+      "target_header": null,
+      "suggested_fix": null,
+      "auto_fixable": false
+    },
+    {
+      "file_path": "workflow-orchestration/node_modules/json-parse-even-better-errors/README.md",
+      "line_number": 21,
+      "issue_type": "broken_link",
+      "description": "Broken anchor link: #parse",
+      "anchor_link": "parse",
+      "target_header": null,
+      "suggested_fix": null,
+      "auto_fixable": false
+    },
+    {
+      "file_path": "workflow-orchestration/node_modules/micromatch/README.md",
+      "line_number": 15,
+      "issue_type": "broken_link",
+      "description": "Broken anchor link: #gold-sponsors",
+      "anchor_link": "gold-sponsors",
+      "target_header": null,
+      "suggested_fix": null,
+      "auto_fixable": false
+    },
+    {
+      "file_path": "workflow-orchestration/node_modules/micromatch/README.md",
+      "line_number": 81,
+      "issue_type": "broken_link",
+      "description": "Broken anchor link: #micromatch",
+      "anchor_link": "micromatch",
+      "target_header": null,
+      "suggested_fix": null,
+      "auto_fixable": false
+    },
+    {
+      "file_path": "workflow-orchestration/node_modules/micromatch/README.md",
+      "line_number": 88,
+      "issue_type": "broken_link",
+      "description": "Broken anchor link: #ismatch",
+      "anchor_link": "ismatch",
+      "target_header": null,
+      "suggested_fix": null,
+      "auto_fixable": false
+    },
+    {
+      "file_path": "workflow-orchestration/node_modules/micromatch/README.md",
+      "line_number": 108,
+      "issue_type": "broken_link",
+      "description": "Broken anchor link: #braces-1",
+      "anchor_link": "braces-1",
+      "target_header": null,
+      "suggested_fix": null,
+      "auto_fixable": false
+    },
+    {
+      "file_path": "workflow-orchestration/node_modules/micromatch/README.md",
+      "line_number": 133,
+      "issue_type": "broken_link",
+      "description": "Broken anchor link: #ismatch",
+      "anchor_link": "ismatch",
+      "target_header": null,
+      "suggested_fix": null,
+      "auto_fixable": false
+    },
+    {
+      "file_path": "workflow-orchestration/node_modules/micromatch/README.md",
+      "line_number": 139,
+      "issue_type": "broken_link",
+      "description": "Broken anchor link: #match",
+      "anchor_link": "match",
+      "target_header": null,
+      "suggested_fix": null,
+      "auto_fixable": false
+    },
+    {
+      "file_path": "workflow-orchestration/node_modules/micromatch/README.md",
+      "line_number": 241,
+      "issue_type": "broken_link",
+      "description": "Broken anchor link: #isMatch",
+      "anchor_link": "isMatch",
+      "target_header": null,
+      "suggested_fix": null,
+      "auto_fixable": false
+    },
+    {
+      "file_path": "workflow-orchestration/node_modules/micromatch/README.md",
+      "line_number": 416,
+      "issue_type": "broken_link",
+      "description": "Broken anchor link: #split",
+      "anchor_link": "split",
+      "target_header": null,
+      "suggested_fix": null,
+      "auto_fixable": false
+    },
+    {
+      "file_path": "workflow-orchestration/node_modules/micromatch/README.md",
+      "line_number": 623,
+      "issue_type": "broken_link",
+      "description": "Broken anchor link: #options-basename",
+      "anchor_link": "options-basename",
+      "target_header": null,
+      "suggested_fix": null,
+      "auto_fixable": false
+    },
+    {
+      "file_path": "workflow-orchestration/node_modules/micromatch/README.md",
+      "line_number": 673,
+      "issue_type": "broken_link",
+      "description": "Broken anchor link: #options-nullglob",
+      "anchor_link": "options-nullglob",
+      "target_header": null,
+      "suggested_fix": null,
+      "auto_fixable": false
+    },
+    {
+      "file_path": "workflow-orchestration/node_modules/picomatch/README.md",
+      "line_number": 51,
+      "issue_type": "broken_link",
+      "description": "Broken anchor link: #picomatch",
+      "anchor_link": "picomatch",
+      "target_header": null,
+      "suggested_fix": null,
+      "auto_fixable": false
+    },
+    {
+      "file_path": "workflow-orchestration/node_modules/picomatch/README.md",
+      "line_number": 52,
+      "issue_type": "broken_link",
+      "description": "Broken anchor link: #test",
+      "anchor_link": "test",
+      "target_header": null,
+      "suggested_fix": null,
+      "auto_fixable": false
+    },
+    {
+      "file_path": "workflow-orchestration/node_modules/picomatch/README.md",
+      "line_number": 53,
+      "issue_type": "broken_link",
+      "description": "Broken anchor link: #matchbase",
+      "anchor_link": "matchbase",
+      "target_header": null,
+      "suggested_fix": null,
+      "auto_fixable": false
+    },
+    {
+      "file_path": "workflow-orchestration/node_modules/picomatch/README.md",
+      "line_number": 54,
+      "issue_type": "broken_link",
+      "description": "Broken anchor link: #ismatch",
+      "anchor_link": "ismatch",
+      "target_header": null,
+      "suggested_fix": null,
+      "auto_fixable": false
+    },
+    {
+      "file_path": "workflow-orchestration/node_modules/picomatch/README.md",
+      "line_number": 55,
+      "issue_type": "broken_link",
+      "description": "Broken anchor link: #parse",
+      "anchor_link": "parse",
+      "target_header": null,
+      "suggested_fix": null,
+      "auto_fixable": false
+    },
+    {
+      "file_path": "workflow-orchestration/node_modules/picomatch/README.md",
+      "line_number": 56,
+      "issue_type": "broken_link",
+      "description": "Broken anchor link: #scan",
+      "anchor_link": "scan",
+      "target_header": null,
+      "suggested_fix": null,
+      "auto_fixable": false
+    },
+    {
+      "file_path": "workflow-orchestration/node_modules/picomatch/README.md",
+      "line_number": 57,
+      "issue_type": "broken_link",
+      "description": "Broken anchor link: #compilere",
+      "anchor_link": "compilere",
+      "target_header": null,
+      "suggested_fix": null,
+      "auto_fixable": false
+    },
+    {
+      "file_path": "workflow-orchestration/node_modules/picomatch/README.md",
+      "line_number": 58,
+      "issue_type": "broken_link",
+      "description": "Broken anchor link: #makere",
+      "anchor_link": "makere",
+      "target_header": null,
+      "suggested_fix": null,
+      "auto_fixable": false
+    },
+    {
+      "file_path": "workflow-orchestration/node_modules/picomatch/README.md",
+      "line_number": 59,
+      "issue_type": "broken_link",
+      "description": "Broken anchor link: #toregex",
+      "anchor_link": "toregex",
+      "target_header": null,
+      "suggested_fix": null,
+      "auto_fixable": false
+    },
+    {
+      "file_path": "workflow-orchestration/node_modules/picomatch/README.md",
+      "line_number": 162,
+      "issue_type": "broken_link",
+      "description": "Broken anchor link: #makeRe",
+      "anchor_link": "makeRe",
+      "target_header": null,
+      "suggested_fix": null,
+      "auto_fixable": false
+    },
+    {
+      "file_path": "workflow-orchestration/node_modules/picomatch/README.md",
+      "line_number": 249,
+      "issue_type": "broken_link",
+      "description": "Broken anchor link: #parse",
+      "anchor_link": "parse",
+      "target_header": null,
+      "suggested_fix": null,
+      "auto_fixable": false
+    },
+    {
+      "file_path": "workflow-orchestration/node_modules/picomatch/README.md",
+      "line_number": 357,
+      "issue_type": "broken_link",
+      "description": "Broken anchor link: #scan",
+      "anchor_link": "scan",
+      "target_header": null,
+      "suggested_fix": null,
+      "auto_fixable": false
+    },
+    {
+      "file_path": "workflow-orchestration/node_modules/picomatch/README.md",
+      "line_number": 520,
+      "issue_type": "broken_link",
+      "description": "Broken anchor link: #brace-expansion",
+      "anchor_link": "brace-expansion",
+      "target_header": null,
+      "suggested_fix": null,
+      "auto_fixable": false
+    },
+    {
+      "file_path": "workflow-orchestration/node_modules/ajv/README.md",
+      "line_number": 112,
+      "issue_type": "broken_link",
+      "description": "Broken anchor link: #getting-started",
+      "anchor_link": "getting-started",
+      "target_header": null,
+      "suggested_fix": null,
+      "auto_fixable": false
+    },
+    {
+      "file_path": "workflow-orchestration/node_modules/ajv/README.md",
+      "line_number": 121,
+      "issue_type": "broken_link",
+      "description": "Broken anchor link: #ref",
+      "anchor_link": "ref",
+      "target_header": null,
+      "suggested_fix": null,
+      "auto_fixable": false
+    },
+    {
+      "file_path": "workflow-orchestration/node_modules/ajv/README.md",
+      "line_number": 173,
+      "issue_type": "broken_link",
+      "description": "Broken anchor link: #api-validateschema",
+      "anchor_link": "api-validateschema",
+      "target_header": null,
+      "suggested_fix": null,
+      "auto_fixable": false
+    },
+    {
+      "file_path": "workflow-orchestration/node_modules/ajv/README.md",
+      "line_number": 361,
+      "issue_type": "broken_link",
+      "description": "Broken anchor link: #api-addformat",
+      "anchor_link": "api-addformat",
+      "target_header": null,
+      "suggested_fix": null,
+      "auto_fixable": false
+    },
+    {
+      "file_path": "workflow-orchestration/node_modules/ajv/README.md",
+      "line_number": 553,
+      "issue_type": "broken_link",
+      "description": "Broken anchor link: #api-addkeyword",
+      "anchor_link": "api-addkeyword",
+      "target_header": null,
+      "suggested_fix": null,
+      "auto_fixable": false
+    },
+    {
+      "file_path": "workflow-orchestration/node_modules/ajv/README.md",
+      "line_number": 591,
+      "issue_type": "broken_link",
+      "description": "Broken anchor link: #api-compileAsync",
+      "anchor_link": "api-compileAsync",
+      "target_header": null,
+      "suggested_fix": null,
+      "auto_fixable": false
+    },
+    {
+      "file_path": "workflow-orchestration/node_modules/ajv/README.md",
+      "line_number": 619,
+      "issue_type": "broken_link",
+      "description": "Broken anchor link: #api-addformat",
+      "anchor_link": "api-addformat",
+      "target_header": null,
+      "suggested_fix": null,
+      "auto_fixable": false
+    },
+    {
+      "file_path": "workflow-orchestration/node_modules/ajv/README.md",
+      "line_number": 619,
+      "issue_type": "broken_link",
+      "description": "Broken anchor link: #api-addkeyword",
+      "anchor_link": "api-addkeyword",
+      "target_header": null,
+      "suggested_fix": null,
+      "auto_fixable": false
+    },
+    {
+      "file_path": "workflow-orchestration/node_modules/ajv/README.md",
+      "line_number": 785,
+      "issue_type": "broken_link",
+      "description": "Broken anchor link: #api-addformat",
+      "anchor_link": "api-addformat",
+      "target_header": null,
+      "suggested_fix": null,
+      "auto_fixable": false
+    },
+    {
+      "file_path": "workflow-orchestration/node_modules/ajv/README.md",
+      "line_number": 1287,
+      "issue_type": "broken_link",
+      "description": "Broken anchor link: #api-compileAsync",
+      "anchor_link": "api-compileAsync",
+      "target_header": null,
+      "suggested_fix": null,
+      "auto_fixable": false
+    },
+    {
+      "file_path": "workflow-orchestration/node_modules/fastq/README.md",
+      "line_number": 293,
+      "issue_type": "broken_link",
+      "description": "Broken anchor link: #fastqueue",
+      "anchor_link": "fastqueue",
+      "target_header": null,
+      "suggested_fix": null,
+      "auto_fixable": false
+    },
+    {
+      "file_path": "workflow-orchestration/node_modules/fastq/README.md",
+      "line_number": 294,
+      "issue_type": "broken_link",
+      "description": "Broken anchor link: #pushPromise",
+      "anchor_link": "pushPromise",
+      "target_header": null,
+      "suggested_fix": null,
+      "auto_fixable": false
+    },
+    {
+      "file_path": "workflow-orchestration/node_modules/fastq/README.md",
+      "line_number": 294,
+      "issue_type": "broken_link",
+      "description": "Broken anchor link: #unshiftPromise",
+      "anchor_link": "unshiftPromise",
+      "target_header": null,
+      "suggested_fix": null,
+      "auto_fixable": false
+    },
+    {
+      "file_path": "workflow-orchestration/node_modules/@noble/hashes/README.md",
+      "line_number": 70,
+      "issue_type": "broken_link",
+      "description": "Broken anchor link: #blake2b-blake2s-blake3",
+      "anchor_link": "blake2b-blake2s-blake3",
+      "target_header": null,
+      "suggested_fix": null,
+      "auto_fixable": false
+    },
+    {
+      "file_path": "workflow-orchestration/node_modules/@nodelib/fs.walk/README.md",
+      "line_number": 78,
+      "issue_type": "broken_link",
+      "description": "Broken anchor link: #settings",
+      "anchor_link": "settings",
+      "target_header": null,
+      "suggested_fix": null,
+      "auto_fixable": false
+    },
+    {
+      "file_path": "workflow-orchestration/node_modules/@nodelib/fs.stat/README.md",
+      "line_number": 65,
+      "issue_type": "broken_link",
+      "description": "Broken anchor link: #settings",
+      "anchor_link": "settings",
+      "target_header": null,
+      "suggested_fix": null,
+      "auto_fixable": false
+    }
+  ],
+  "files_with_issues": [
+    "workflow-orchestration/node_modules/picomatch/README.md",
+    "workflow-orchestration/node_modules/jest-each/README.md",
+    "workflow-orchestration/node_modules/json-parse-even-better-errors/README.md",
+    "workflow-orchestration/node_modules/@nodelib/fs.walk/README.md",
+    "workflow-orchestration/node_modules/fastq/README.md",
+    "workflow-orchestration/node_modules/ignore/README.md",
+    "workflow-orchestration/node_modules/braces/README.md",
+    "workflow-orchestration/node_modules/ajv/README.md",
+    "workflow-orchestration/node_modules/micromatch/README.md",
+    "workflow-orchestration/node_modules/@nodelib/fs.stat/README.md",
+    "workflow-orchestration/node_modules/@noble/hashes/README.md"
+  ]
+}

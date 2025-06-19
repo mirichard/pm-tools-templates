@@ -70,6 +70,7 @@ cp .env.example .env.local
 
 <a id="architecture"></a>
 # Update with your configuration
+<a id="nextpublicapibaseurlyour-api-endpoint"></a>
 # NEXT_PUBLIC_API_BASE_URL=your-api-endpoint
 ```
 

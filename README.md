@@ -210,11 +210,13 @@
 ### 🏭 Industry-Specific Templates
 **Specialized templates for industry requirements**
 
+<a id="information-technologyindustrytemplatesinformationtechnologyreadmemd"></a>
 #### [Information Technology](industry_templates/information_technology/README.md)
 - [IT Project Charter](industry_templates/information_technology/it_project_charter.md)
 - [IT Risk Register](industry_templates/information_technology/it_risk_register.md)
 <a id="github-integration-templates"></a>
 
+<a id="healthcare-pharmaceuticalindustrytemplateshealthcarepharmaceuticalreadmemd"></a>
 #### [Healthcare & Pharmaceutical](industry_templates/healthcare_pharmaceutical/README.md)
 - [Clinical Trial Project Charter](industry_templates/healthcare_pharmaceutical/clinical_trial_project_charter.md)
 - [GxP Compliance Checklist](industry_templates/healthcare_pharmaceutical/gxp_compliance_checklist.md)
@@ -223,9 +225,11 @@
 - [Validation Master Plan](industry_templates/healthcare_pharmaceutical/validation_master_plan.md)
 
 <a id="first-time-pm-starter-kitquick-start-kitsfirst-time-pm-starterreadmemd"></a>
+<a id="financial-servicesindustrytemplatesfinancialservicesreadmemd"></a>
 #### [Financial Services](industry_templates/financial_services/README.md)
 - [Financial Services Project Charter](industry_templates/financial_services/financial_services_project_charter.md)
 
+<a id="constructionindustrytemplatesconstructionreadmemd"></a>
 #### [Construction](industry_templates/construction/README.md)
 <a id="agile-transformation-kitquick-start-kitsagile-transformationreadmemd"></a>
 - [Construction Project Charter](industry_templates/construction/construction_project_charter.md)
@@ -233,6 +237,7 @@
 - [Construction Risk Register](industry_templates/construction/construction_risk_register.md)
 - [Construction Work Breakdown Structure](industry_templates/construction/construction_wbs.md)
 
+<a id="software-developmentindustrytemplatessoftwaredevelopmentreadmemd"></a>
 #### [Software Development](industry_templates/software_development/README.md)
 - [Software Project Charter](industry_templates/software_development/software_project_charter.md)
 - [Software Risk Register](industry_templates/software_development/software_risk_register.md)
