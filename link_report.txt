@@ -9,8 +9,8 @@
 ========================
 📁 Files processed: 65
 🔗 Total links found: 942
-✅ Working internal links: 404
-❌ Broken internal links: 425
+✅ Working internal links: 420
+❌ Broken internal links: 409
 🔗 Anchor links (skipped): 80
 🌐 External links (skipped): 33
 
@@ -18,7 +18,7 @@
 =====================
 📝 Missing README.md files: 0
 📁 Missing directories: 72
-📄 Other missing files: 353
+📄 Other missing files: 337
 
 🔧 SPECIFIC BROKEN LINKS:
 =========================
@@ -330,11 +330,11 @@
    → Resolves to: ./docs/../integration-toolkits/
    💡 RECOMMENDATION: Create missing file or fix link
 
-❌ ./docs/getting-started/README.md (line 55): ../../project-lifecycle/02-planning/communication-planning/
+❌ ./docs/getting-started/README.md (line 57): ../../project-lifecycle/02-planning/communication-planning/
    → Resolves to: ./docs/getting-started/../../project-lifecycle/02-planning/communication-planning/
    💡 RECOMMENDATION: Create missing file or fix link
 
-❌ ./docs/getting-started/README.md (line 84): ../../methodology-frameworks/hybrid-approaches/
+❌ ./docs/getting-started/README.md (line 87): ../../methodology-frameworks/hybrid-approaches/
    → Resolves to: ./docs/getting-started/../../methodology-frameworks/hybrid-approaches/
    💡 RECOMMENDATION: Create missing file or fix link
 
@@ -1146,16 +1146,8 @@
    → Resolves to: ./role-based-toolkits/project-manager/../../docs/community/
    💡 RECOMMENDATION: Create missing file or fix link
 
-❌ ./role-based-toolkits/project-manager/essential-templates/README.md (line 12): project-charter.md
-   → Resolves to: ./role-based-toolkits/project-manager/essential-templates/project-charter.md
-   💡 RECOMMENDATION: Create missing file or fix link
-
 ❌ ./role-based-toolkits/project-manager/essential-templates/README.md (line 13): business-case.md
    → Resolves to: ./role-based-toolkits/project-manager/essential-templates/business-case.md
-   💡 RECOMMENDATION: Create missing file or fix link
-
-❌ ./role-based-toolkits/project-manager/essential-templates/README.md (line 14): stakeholder-register.md
-   → Resolves to: ./role-based-toolkits/project-manager/essential-templates/stakeholder-register.md
    💡 RECOMMENDATION: Create missing file or fix link
 
 ❌ ./role-based-toolkits/project-manager/essential-templates/README.md (line 15): scope-statement.md
@@ -1178,14 +1170,6 @@
    → Resolves to: ./role-based-toolkits/project-manager/essential-templates/budget-template.md
    💡 RECOMMENDATION: Create missing file or fix link
 
-❌ ./role-based-toolkits/project-manager/essential-templates/README.md (line 22): risk-register.md
-   → Resolves to: ./role-based-toolkits/project-manager/essential-templates/risk-register.md
-   💡 RECOMMENDATION: Create missing file or fix link
-
-❌ ./role-based-toolkits/project-manager/essential-templates/README.md (line 23): communication-plan.md
-   → Resolves to: ./role-based-toolkits/project-manager/essential-templates/communication-plan.md
-   💡 RECOMMENDATION: Create missing file or fix link
-
 ❌ ./role-based-toolkits/project-manager/essential-templates/README.md (line 26): team-charter.md
    → Resolves to: ./role-based-toolkits/project-manager/essential-templates/team-charter.md
    💡 RECOMMENDATION: Create missing file or fix link
@@ -1204,10 +1188,6 @@
 
 ❌ ./role-based-toolkits/project-manager/essential-templates/README.md (line 30): change-request.md
    → Resolves to: ./role-based-toolkits/project-manager/essential-templates/change-request.md
-   💡 RECOMMENDATION: Create missing file or fix link
-
-❌ ./role-based-toolkits/project-manager/essential-templates/README.md (line 33): status-report.md
-   → Resolves to: ./role-based-toolkits/project-manager/essential-templates/status-report.md
    💡 RECOMMENDATION: Create missing file or fix link
 
 ❌ ./role-based-toolkits/project-manager/essential-templates/README.md (line 34): performance-dashboard.md
@@ -1238,28 +1218,12 @@
    → Resolves to: ./role-based-toolkits/project-manager/essential-templates/handover-template.md
    💡 RECOMMENDATION: Create missing file or fix link
 
-❌ ./role-based-toolkits/project-manager/essential-templates/README.md (line 62): project-charter.md
-   → Resolves to: ./role-based-toolkits/project-manager/essential-templates/project-charter.md
-   💡 RECOMMENDATION: Create missing file or fix link
-
-❌ ./role-based-toolkits/project-manager/essential-templates/README.md (line 63): stakeholder-register.md
-   → Resolves to: ./role-based-toolkits/project-manager/essential-templates/stakeholder-register.md
-   💡 RECOMMENDATION: Create missing file or fix link
-
-❌ ./role-based-toolkits/project-manager/essential-templates/README.md (line 64): communication-plan.md
-   → Resolves to: ./role-based-toolkits/project-manager/essential-templates/communication-plan.md
-   💡 RECOMMENDATION: Create missing file or fix link
-
 ❌ ./role-based-toolkits/project-manager/essential-templates/README.md (line 67): work-breakdown-structure.md
    → Resolves to: ./role-based-toolkits/project-manager/essential-templates/work-breakdown-structure.md
    💡 RECOMMENDATION: Create missing file or fix link
 
 ❌ ./role-based-toolkits/project-manager/essential-templates/README.md (line 68): project-schedule.md
    → Resolves to: ./role-based-toolkits/project-manager/essential-templates/project-schedule.md
-   💡 RECOMMENDATION: Create missing file or fix link
-
-❌ ./role-based-toolkits/project-manager/essential-templates/README.md (line 69): risk-register.md
-   → Resolves to: ./role-based-toolkits/project-manager/essential-templates/risk-register.md
    💡 RECOMMENDATION: Create missing file or fix link
 
 ❌ ./role-based-toolkits/project-manager/essential-templates/README.md (line 72): team-charter.md
@@ -1272,10 +1236,6 @@
 
 ❌ ./role-based-toolkits/project-manager/essential-templates/README.md (line 74): budget-template.md
    → Resolves to: ./role-based-toolkits/project-manager/essential-templates/budget-template.md
-   💡 RECOMMENDATION: Create missing file or fix link
-
-❌ ./role-based-toolkits/project-manager/essential-templates/README.md (line 77): status-report.md
-   → Resolves to: ./role-based-toolkits/project-manager/essential-templates/status-report.md
    💡 RECOMMENDATION: Create missing file or fix link
 
 ❌ ./role-based-toolkits/project-manager/essential-templates/README.md (line 78): issue-log.md
@@ -1434,10 +1394,6 @@
    → Resolves to: ./role-based-toolkits/project-manager/governance-tools/governance-framework.md
    💡 RECOMMENDATION: Create missing file or fix link
 
-❌ ./role-based-toolkits/project-manager/reporting-dashboards/README.md (line 12): executive-dashboard.md
-   → Resolves to: ./role-based-toolkits/project-manager/reporting-dashboards/executive-dashboard.md
-   💡 RECOMMENDATION: Create missing file or fix link
-
 ❌ ./role-based-toolkits/project-manager/reporting-dashboards/README.md (line 13): executive-status-report.md
    → Resolves to: ./role-based-toolkits/project-manager/reporting-dashboards/executive-status-report.md
    💡 RECOMMENDATION: Create missing file or fix link
@@ -1448,10 +1404,6 @@
 
 ❌ ./role-based-toolkits/project-manager/reporting-dashboards/README.md (line 15): steering-committee-report.md
    → Resolves to: ./role-based-toolkits/project-manager/reporting-dashboards/steering-committee-report.md
-   💡 RECOMMENDATION: Create missing file or fix link
-
-❌ ./role-based-toolkits/project-manager/reporting-dashboards/README.md (line 18): team-dashboard.md
-   → Resolves to: ./role-based-toolkits/project-manager/reporting-dashboards/team-dashboard.md
    💡 RECOMMENDATION: Create missing file or fix link
 
 ❌ ./role-based-toolkits/project-manager/reporting-dashboards/README.md (line 19): sprint-report.md
@@ -1514,24 +1466,8 @@
    → Resolves to: ./role-based-toolkits/project-manager/reporting-dashboards/lessons-learned-dashboard.md
    💡 RECOMMENDATION: Create missing file or fix link
 
-❌ ./role-based-toolkits/project-manager/reporting-dashboards/README.md (line 75): executive-dashboard.md
-   → Resolves to: ./role-based-toolkits/project-manager/reporting-dashboards/executive-dashboard.md
-   💡 RECOMMENDATION: Create missing file or fix link
-
-❌ ./role-based-toolkits/project-manager/reporting-dashboards/README.md (line 76): team-dashboard.md
-   → Resolves to: ./role-based-toolkits/project-manager/reporting-dashboards/team-dashboard.md
-   💡 RECOMMENDATION: Create missing file or fix link
-
 ❌ ./role-based-toolkits/project-manager/reporting-dashboards/README.md (line 77): stakeholder-update.md
    → Resolves to: ./role-based-toolkits/project-manager/reporting-dashboards/stakeholder-update.md
-   💡 RECOMMENDATION: Create missing file or fix link
-
-❌ ./role-based-toolkits/project-manager/reporting-dashboards/README.md (line 251): executive-dashboard.md
-   → Resolves to: ./role-based-toolkits/project-manager/reporting-dashboards/executive-dashboard.md
-   💡 RECOMMENDATION: Create missing file or fix link
-
-❌ ./role-based-toolkits/project-manager/reporting-dashboards/README.md (line 251): team-dashboard.md
-   → Resolves to: ./role-based-toolkits/project-manager/reporting-dashboards/team-dashboard.md
    💡 RECOMMENDATION: Create missing file or fix link
 
 ❌ ./role-based-toolkits/project-manager/stakeholder-engagement/README.md (line 12): stakeholder-mapping.md
@@ -1726,6 +1662,6 @@
 =====================
 The following README.md files should be created in existing directories:
 
-📈 Link Health Score: 48% (404/829 internal links working)
+📈 Link Health Score: 50% (420/829 internal links working)
 
 ✨ Analysis complete!

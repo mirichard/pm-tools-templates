@@ -1,0 +1,133 @@
+name: Anchor Link Checker
+
+on:
+  pull_request:
+    paths:
+      - '**/*.md'
+      - '.github/workflows/anchor-link-check.yml'
+  push:
+    branches: [ main ]
+    paths:
+      - '**/*.md'
+      - '.github/workflows/anchor-link-check.yml'
+  workflow_dispatch:
+
+jobs:
+  check-anchor-links:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+        
+    - name: Make scripts executable
+      run: |
+        chmod +x scripts/quick_anchor_check.sh
+        chmod +x scripts/check_anchor_links.py
+        
+    - name: Run quick anchor link check
+      run: |
+        echo "🔍 Running quick anchor link check..."
+        ./scripts/quick_anchor_check.sh
+        
+    - name: Run comprehensive anchor link check
+      run: |
+        echo "🔍 Running comprehensive anchor link check..."
+        python3 scripts/check_anchor_links.py --verbose
+        
+    - name: Check for anchor link issues
+      id: anchor-check
+      run: |
+        echo "🔍 Checking for anchor link issues that need attention..."
+        
+        # Run the Python checker and capture output
+        if python3 scripts/check_anchor_links.py > anchor_check_results.txt 2>&1; then
+          echo "anchor_issues=false" >> $GITHUB_OUTPUT
+        else
+          echo "anchor_issues=true" >> $GITHUB_OUTPUT
+        fi
+        
+        # Always show the results
+        cat anchor_check_results.txt
+        
+        # Count issues
+        ISSUE_COUNT=$(grep -c "❌.*:" anchor_check_results.txt || echo "0")
+        SUGGESTION_COUNT=$(grep -c "💡.*:" anchor_check_results.txt || echo "0")
+        
+        echo "issue_count=$ISSUE_COUNT" >> $GITHUB_OUTPUT
+        echo "suggestion_count=$SUGGESTION_COUNT" >> $GITHUB_OUTPUT
+        
+    - name: Upload anchor check results
+      if: always()
+      uses: actions/upload-artifact@v3
+      with:
+        name: anchor-check-results
+        path: anchor_check_results.txt
+        
+    - name: Comment on PR with anchor link issues
+      if: github.event_name == 'pull_request' && (steps.anchor-check.outputs.issue_count != '0' || steps.anchor-check.outputs.suggestion_count != '0')
+      uses: actions/github-script@v6
+      with:
+        script: |
+          const fs = require('fs');
+          
+          try {
+            const results = fs.readFileSync('anchor_check_results.txt', 'utf8');
+            const issueCount = '${{ steps.anchor-check.outputs.issue_count }}';
+            const suggestionCount = '${{ steps.anchor-check.outputs.suggestion_count }}';
+            
+            const body = `## 🔗 Anchor Link Check Results
+            
+            **Issues Found:** ${issueCount}
+            **Suggestions:** ${suggestionCount}
+            
+            ### Details:
+            \`\`\`
+            ${results}
+            \`\`\`
+            
+            ### How to Fix:
+            1. **For broken anchor links:** Update the anchor to match an existing header or add the missing header
+            2. **For headers with emojis/special characters:** Add explicit HTML anchor tags like \`<a id="anchor-name"></a>\`
+            3. **Run locally:** \`python3 scripts/check_anchor_links.py --fix\` to auto-fix common issues
+            
+            ### Quick Fix Commands:
+            \`\`\`bash
+            # Check what needs fixing
+            python3 scripts/check_anchor_links.py --verbose
+            
+            # Auto-fix common issues
+            python3 scripts/check_anchor_links.py --fix
+            
+            # Quick check
+            ./scripts/quick_anchor_check.sh
+            \`\`\`
+            `;
+            
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: body
+            });
+          } catch (error) {
+            console.log('Error reading anchor check results:', error);
+          }
+          
+    - name: Fail on critical anchor link issues
+      if: steps.anchor-check.outputs.issue_count != '0'
+      run: |
+        echo "❌ Found ${{ steps.anchor-check.outputs.issue_count }} critical anchor link issues"
+        echo "Please fix these issues before merging"
+        echo ""
+        echo "To fix:"
+        echo "1. Run: python3 scripts/check_anchor_links.py --verbose"
+        echo "2. Fix the reported issues"
+        echo "3. Optionally run: python3 scripts/check_anchor_links.py --fix"
+        exit 1
+
