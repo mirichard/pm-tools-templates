@@ -1,0 +1,1855 @@
+🔍 PM Tools Templates - Comprehensive Link Analysis
+==================================================
+📂 Found 57 README files to analyze
+
+🔍 Analyzing links...
+.........................................................
+
+📊 LINK ANALYSIS SUMMARY
+========================
+📁 Files processed: 57
+🔗 Total links found: 942
+✅ Working internal links: 373
+❌ Broken internal links: 456
+🔗 Anchor links (skipped): 80
+🌐 External links (skipped): 33
+
+❌ BROKEN LINKS FOUND
+=====================
+📝 Missing README.md files: 0
+📁 Missing directories: 84
+📄 Other missing files: 372
+
+🔧 SPECIFIC BROKEN LINKS:
+=========================
+❌ ./README.md (line 118): methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_program_increment_planning_template.md
+   → Resolves to: ./methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_program_increment_planning_template.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./README.md (line 119): methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_portfolio_kanban_template.md
+   → Resolves to: ./methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_portfolio_kanban_template.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./README.md (line 120): methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_art_coordination_template.md
+   → Resolves to: ./methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_art_coordination_template.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./README.md (line 121): methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_metrics_reporting_template.md
+   → Resolves to: ./methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_metrics_reporting_template.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./README.md (line 125): methodology-frameworks/agile-scrum/scaling-frameworks/less/overall_product_backlog_management_template.md
+   → Resolves to: ./methodology-frameworks/agile-scrum/scaling-frameworks/less/overall_product_backlog_management_template.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./README.md (line 128): methodology-frameworks/agile-scrum/scaling-frameworks/less/less_adoption_roadmap_template.md
+   → Resolves to: ./methodology-frameworks/agile-scrum/scaling-frameworks/less/less_adoption_roadmap_template.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./ai-insights/README.md (line 258): ./docs/api/risk-prediction.md
+   → Resolves to: ./ai-insights/./docs/api/risk-prediction.md
+   💡 RECOMMENDATION: Create directory structure or fix link path
+
+❌ ./ai-insights/README.md (line 259): ./docs/api/resource-optimization.md
+   → Resolves to: ./ai-insights/./docs/api/resource-optimization.md
+   💡 RECOMMENDATION: Create directory structure or fix link path
+
+❌ ./ai-insights/README.md (line 260): ./docs/api/schedule-intelligence.md
+   → Resolves to: ./ai-insights/./docs/api/schedule-intelligence.md
+   💡 RECOMMENDATION: Create directory structure or fix link path
+
+❌ ./ai-insights/README.md (line 261): ./docs/api/quality-prediction.md
+   → Resolves to: ./ai-insights/./docs/api/quality-prediction.md
+   💡 RECOMMENDATION: Create directory structure or fix link path
+
+❌ ./ai-insights/README.md (line 264): ./docs/models/architecture.md
+   → Resolves to: ./ai-insights/./docs/models/architecture.md
+   💡 RECOMMENDATION: Create directory structure or fix link path
+
+❌ ./ai-insights/README.md (line 265): ./docs/models/training.md
+   → Resolves to: ./ai-insights/./docs/models/training.md
+   💡 RECOMMENDATION: Create directory structure or fix link path
+
+❌ ./ai-insights/README.md (line 266): ./docs/models/performance.md
+   → Resolves to: ./ai-insights/./docs/models/performance.md
+   💡 RECOMMENDATION: Create directory structure or fix link path
+
+❌ ./analytics-platform/README.md (line 131): ./docs/development.md
+   → Resolves to: ./analytics-platform/./docs/development.md
+   💡 RECOMMENDATION: Create directory structure or fix link path
+
+❌ ./analytics-platform/README.md (line 135): ./docs/api.md
+   → Resolves to: ./analytics-platform/./docs/api.md
+   💡 RECOMMENDATION: Create directory structure or fix link path
+
+❌ ./analytics-platform/README.md (line 136): ./docs/privacy.md
+   → Resolves to: ./analytics-platform/./docs/privacy.md
+   💡 RECOMMENDATION: Create directory structure or fix link path
+
+❌ ./analytics-platform/README.md (line 137): ./docs/consent.md
+   → Resolves to: ./analytics-platform/./docs/consent.md
+   💡 RECOMMENDATION: Create directory structure or fix link path
+
+❌ ./analytics-platform/README.md (line 138): ./docs/dashboard.md
+   → Resolves to: ./analytics-platform/./docs/dashboard.md
+   💡 RECOMMENDATION: Create directory structure or fix link path
+
+❌ ./business-stakeholder-suite/README.md (line 34): executive-dashboards/excel-workbooks/
+   → Resolves to: ./business-stakeholder-suite/executive-dashboards/excel-workbooks/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./business-stakeholder-suite/README.md (line 35): executive-dashboards/executive-reports/
+   → Resolves to: ./business-stakeholder-suite/executive-dashboards/executive-reports/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./business-stakeholder-suite/README.md (line 36): executive-dashboards/board-presentations/
+   → Resolves to: ./business-stakeholder-suite/executive-dashboards/board-presentations/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./business-stakeholder-suite/README.md (line 42): communication-automation/
+   → Resolves to: ./business-stakeholder-suite/communication-automation/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./business-stakeholder-suite/README.md (line 46): communication-automation/email-templates/
+   → Resolves to: ./business-stakeholder-suite/communication-automation/email-templates/
+   💡 RECOMMENDATION: Create directory structure or fix link path
+
+❌ ./business-stakeholder-suite/README.md (line 47): communication-automation/meeting-management/
+   → Resolves to: ./business-stakeholder-suite/communication-automation/meeting-management/
+   💡 RECOMMENDATION: Create directory structure or fix link path
+
+❌ ./business-stakeholder-suite/README.md (line 48): communication-automation/notification-systems/
+   → Resolves to: ./business-stakeholder-suite/communication-automation/notification-systems/
+   💡 RECOMMENDATION: Create directory structure or fix link path
+
+❌ ./business-stakeholder-suite/README.md (line 49): communication-automation/stakeholder-updates/
+   → Resolves to: ./business-stakeholder-suite/communication-automation/stakeholder-updates/
+   💡 RECOMMENDATION: Create directory structure or fix link path
+
+❌ ./business-stakeholder-suite/README.md (line 55): financial-governance/
+   → Resolves to: ./business-stakeholder-suite/financial-governance/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./business-stakeholder-suite/README.md (line 59): financial-governance/budget-tracking/
+   → Resolves to: ./business-stakeholder-suite/financial-governance/budget-tracking/
+   💡 RECOMMENDATION: Create directory structure or fix link path
+
+❌ ./business-stakeholder-suite/README.md (line 60): financial-governance/roi-measurement/
+   → Resolves to: ./business-stakeholder-suite/financial-governance/roi-measurement/
+   💡 RECOMMENDATION: Create directory structure or fix link path
+
+❌ ./business-stakeholder-suite/README.md (line 61): financial-governance/cost-management/
+   → Resolves to: ./business-stakeholder-suite/financial-governance/cost-management/
+   💡 RECOMMENDATION: Create directory structure or fix link path
+
+❌ ./business-stakeholder-suite/README.md (line 62): financial-governance/investment-approval/
+   → Resolves to: ./business-stakeholder-suite/financial-governance/investment-approval/
+   💡 RECOMMENDATION: Create directory structure or fix link path
+
+❌ ./business-stakeholder-suite/README.md (line 68): strategic-alignment/
+   → Resolves to: ./business-stakeholder-suite/strategic-alignment/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./business-stakeholder-suite/README.md (line 72): strategic-alignment/business-case-management/
+   → Resolves to: ./business-stakeholder-suite/strategic-alignment/business-case-management/
+   💡 RECOMMENDATION: Create directory structure or fix link path
+
+❌ ./business-stakeholder-suite/README.md (line 73): strategic-alignment/value-realization/
+   → Resolves to: ./business-stakeholder-suite/strategic-alignment/value-realization/
+   💡 RECOMMENDATION: Create directory structure or fix link path
+
+❌ ./business-stakeholder-suite/README.md (line 74): strategic-alignment/portfolio-oversight/
+   → Resolves to: ./business-stakeholder-suite/strategic-alignment/portfolio-oversight/
+   💡 RECOMMENDATION: Create directory structure or fix link path
+
+❌ ./business-stakeholder-suite/README.md (line 75): strategic-alignment/governance-frameworks/
+   → Resolves to: ./business-stakeholder-suite/strategic-alignment/governance-frameworks/
+   💡 RECOMMENDATION: Create directory structure or fix link path
+
+❌ ./business-stakeholder-suite/README.md (line 92): executive-dashboards/executive-reports/
+   → Resolves to: ./business-stakeholder-suite/executive-dashboards/executive-reports/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./business-stakeholder-suite/README.md (line 93): communication-automation/email-templates/
+   → Resolves to: ./business-stakeholder-suite/communication-automation/email-templates/
+   💡 RECOMMENDATION: Create directory structure or fix link path
+
+❌ ./business-stakeholder-suite/README.md (line 105): executive-dashboards/excel-workbooks/
+   → Resolves to: ./business-stakeholder-suite/executive-dashboards/excel-workbooks/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./business-stakeholder-suite/README.md (line 106): financial-governance/budget-tracking/
+   → Resolves to: ./business-stakeholder-suite/financial-governance/budget-tracking/
+   💡 RECOMMENDATION: Create directory structure or fix link path
+
+❌ ./business-stakeholder-suite/README.md (line 107): financial-governance/roi-measurement/
+   → Resolves to: ./business-stakeholder-suite/financial-governance/roi-measurement/
+   💡 RECOMMENDATION: Create directory structure or fix link path
+
+❌ ./business-stakeholder-suite/README.md (line 119): executive-dashboards/board-presentations/
+   → Resolves to: ./business-stakeholder-suite/executive-dashboards/board-presentations/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./business-stakeholder-suite/README.md (line 120): strategic-alignment/portfolio-oversight/
+   → Resolves to: ./business-stakeholder-suite/strategic-alignment/portfolio-oversight/
+   💡 RECOMMENDATION: Create directory structure or fix link path
+
+❌ ./business-stakeholder-suite/README.md (line 121): strategic-alignment/governance-frameworks/
+   → Resolves to: ./business-stakeholder-suite/strategic-alignment/governance-frameworks/
+   💡 RECOMMENDATION: Create directory structure or fix link path
+
+❌ ./business-stakeholder-suite/README.md (line 133): strategic-alignment/portfolio-oversight/
+   → Resolves to: ./business-stakeholder-suite/strategic-alignment/portfolio-oversight/
+   💡 RECOMMENDATION: Create directory structure or fix link path
+
+❌ ./business-stakeholder-suite/README.md (line 134): financial-governance/cost-management/
+   → Resolves to: ./business-stakeholder-suite/financial-governance/cost-management/
+   💡 RECOMMENDATION: Create directory structure or fix link path
+
+❌ ./business-stakeholder-suite/README.md (line 135): communication-automation/stakeholder-updates/
+   → Resolves to: ./business-stakeholder-suite/communication-automation/stakeholder-updates/
+   💡 RECOMMENDATION: Create directory structure or fix link path
+
+❌ ./business-stakeholder-suite/README.md (line 151): communication-automation/
+   → Resolves to: ./business-stakeholder-suite/communication-automation/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./business-stakeholder-suite/README.md (line 161): financial-governance/budget-tracking/
+   → Resolves to: ./business-stakeholder-suite/financial-governance/budget-tracking/
+   💡 RECOMMENDATION: Create directory structure or fix link path
+
+❌ ./business-stakeholder-suite/README.md (line 162): financial-governance/roi-measurement/
+   → Resolves to: ./business-stakeholder-suite/financial-governance/roi-measurement/
+   💡 RECOMMENDATION: Create directory structure or fix link path
+
+❌ ./business-stakeholder-suite/README.md (line 166): communication-automation/email-templates/
+   → Resolves to: ./business-stakeholder-suite/communication-automation/email-templates/
+   💡 RECOMMENDATION: Create directory structure or fix link path
+
+❌ ./business-stakeholder-suite/README.md (line 167): communication-automation/meeting-management/
+   → Resolves to: ./business-stakeholder-suite/communication-automation/meeting-management/
+   💡 RECOMMENDATION: Create directory structure or fix link path
+
+❌ ./business-stakeholder-suite/README.md (line 168): communication-automation/notification-systems/
+   → Resolves to: ./business-stakeholder-suite/communication-automation/notification-systems/
+   💡 RECOMMENDATION: Create directory structure or fix link path
+
+❌ ./business-stakeholder-suite/README.md (line 171): strategic-alignment/business-case-management/
+   → Resolves to: ./business-stakeholder-suite/strategic-alignment/business-case-management/
+   💡 RECOMMENDATION: Create directory structure or fix link path
+
+❌ ./business-stakeholder-suite/README.md (line 172): strategic-alignment/value-realization/
+   → Resolves to: ./business-stakeholder-suite/strategic-alignment/value-realization/
+   💡 RECOMMENDATION: Create directory structure or fix link path
+
+❌ ./business-stakeholder-suite/README.md (line 173): strategic-alignment/governance-frameworks/
+   → Resolves to: ./business-stakeholder-suite/strategic-alignment/governance-frameworks/
+   💡 RECOMMENDATION: Create directory structure or fix link path
+
+❌ ./business-stakeholder-suite/README.md (line 191): strategic-alignment/business-case-management/
+   → Resolves to: ./business-stakeholder-suite/strategic-alignment/business-case-management/
+   💡 RECOMMENDATION: Create directory structure or fix link path
+
+❌ ./business-stakeholder-suite/README.md (line 193): financial-governance/budget-tracking/
+   → Resolves to: ./business-stakeholder-suite/financial-governance/budget-tracking/
+   💡 RECOMMENDATION: Create directory structure or fix link path
+
+❌ ./business-stakeholder-suite/README.md (line 194): communication-automation/email-templates/
+   → Resolves to: ./business-stakeholder-suite/communication-automation/email-templates/
+   💡 RECOMMENDATION: Create directory structure or fix link path
+
+❌ ./business-stakeholder-suite/README.md (line 204): executive-dashboards/executive-reports/
+   → Resolves to: ./business-stakeholder-suite/executive-dashboards/executive-reports/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./business-stakeholder-suite/README.md (line 205): communication-automation/notification-systems/
+   → Resolves to: ./business-stakeholder-suite/communication-automation/notification-systems/
+   💡 RECOMMENDATION: Create directory structure or fix link path
+
+❌ ./business-stakeholder-suite/README.md (line 206): financial-governance/roi-measurement/
+   → Resolves to: ./business-stakeholder-suite/financial-governance/roi-measurement/
+   💡 RECOMMENDATION: Create directory structure or fix link path
+
+❌ ./business-stakeholder-suite/README.md (line 207): strategic-alignment/governance-frameworks/
+   → Resolves to: ./business-stakeholder-suite/strategic-alignment/governance-frameworks/
+   💡 RECOMMENDATION: Create directory structure or fix link path
+
+❌ ./business-stakeholder-suite/README.md (line 217): executive-dashboards/board-presentations/
+   → Resolves to: ./business-stakeholder-suite/executive-dashboards/board-presentations/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./business-stakeholder-suite/README.md (line 218): strategic-alignment/portfolio-oversight/
+   → Resolves to: ./business-stakeholder-suite/strategic-alignment/portfolio-oversight/
+   💡 RECOMMENDATION: Create directory structure or fix link path
+
+❌ ./business-stakeholder-suite/README.md (line 219): financial-governance/roi-measurement/
+   → Resolves to: ./business-stakeholder-suite/financial-governance/roi-measurement/
+   💡 RECOMMENDATION: Create directory structure or fix link path
+
+❌ ./business-stakeholder-suite/README.md (line 220): strategic-alignment/value-realization/
+   → Resolves to: ./business-stakeholder-suite/strategic-alignment/value-realization/
+   💡 RECOMMENDATION: Create directory structure or fix link path
+
+❌ ./business-stakeholder-suite/README.md (line 230): executive-dashboards/excel-workbooks/
+   → Resolves to: ./business-stakeholder-suite/executive-dashboards/excel-workbooks/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./business-stakeholder-suite/README.md (line 231): strategic-alignment/value-realization/
+   → Resolves to: ./business-stakeholder-suite/strategic-alignment/value-realization/
+   💡 RECOMMENDATION: Create directory structure or fix link path
+
+❌ ./business-stakeholder-suite/README.md (line 232): communication-automation/stakeholder-updates/
+   → Resolves to: ./business-stakeholder-suite/communication-automation/stakeholder-updates/
+   💡 RECOMMENDATION: Create directory structure or fix link path
+
+❌ ./business-stakeholder-suite/README.md (line 233): financial-governance/budget-tracking/
+   → Resolves to: ./business-stakeholder-suite/financial-governance/budget-tracking/
+   💡 RECOMMENDATION: Create directory structure or fix link path
+
+❌ ./business-stakeholder-suite/README.md (line 242): strategic-alignment/business-case-management/
+   → Resolves to: ./business-stakeholder-suite/strategic-alignment/business-case-management/
+   💡 RECOMMENDATION: Create directory structure or fix link path
+
+❌ ./business-stakeholder-suite/README.md (line 243): financial-governance/budget-tracking/
+   → Resolves to: ./business-stakeholder-suite/financial-governance/budget-tracking/
+   💡 RECOMMENDATION: Create directory structure or fix link path
+
+❌ ./business-stakeholder-suite/README.md (line 245): financial-governance/roi-measurement/
+   → Resolves to: ./business-stakeholder-suite/financial-governance/roi-measurement/
+   💡 RECOMMENDATION: Create directory structure or fix link path
+
+❌ ./business-stakeholder-suite/README.md (line 246): strategic-alignment/value-realization/
+   → Resolves to: ./business-stakeholder-suite/strategic-alignment/value-realization/
+   💡 RECOMMENDATION: Create directory structure or fix link path
+
+❌ ./business-stakeholder-suite/executive-dashboards/README.md (line 11): excel-workbooks/
+   → Resolves to: ./business-stakeholder-suite/executive-dashboards/excel-workbooks/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./business-stakeholder-suite/executive-dashboards/README.md (line 12): executive-reports/
+   → Resolves to: ./business-stakeholder-suite/executive-dashboards/executive-reports/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./business-stakeholder-suite/executive-dashboards/README.md (line 13): board-presentations/
+   → Resolves to: ./business-stakeholder-suite/executive-dashboards/board-presentations/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./business-stakeholder-suite/executive-dashboards/README.md (line 14): real-time-dashboards/
+   → Resolves to: ./business-stakeholder-suite/executive-dashboards/real-time-dashboards/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./business-stakeholder-suite/executive-dashboards/README.md (line 145): ../financial-governance/
+   → Resolves to: ./business-stakeholder-suite/executive-dashboards/../financial-governance/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./business-stakeholder-suite/executive-dashboards/README.md (line 146): ../strategic-alignment/
+   → Resolves to: ./business-stakeholder-suite/executive-dashboards/../strategic-alignment/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./business-stakeholder-suite/executive-dashboards/README.md (line 147): ../communication-automation/
+   → Resolves to: ./business-stakeholder-suite/executive-dashboards/../communication-automation/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./business-stakeholder-suite/safe-executive-dashboards/README.md (line 406): ../../Waterfall/Templates/business_case_template.md
+   → Resolves to: ./business-stakeholder-suite/safe-executive-dashboards/../../Waterfall/Templates/business_case_template.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./business-stakeholder-suite/safe-executive-dashboards/README.md (line 407): ../../PMBOK/Knowledge_Areas/Project_Cost_Management/roi_tracking_template.md
+   → Resolves to: ./business-stakeholder-suite/safe-executive-dashboards/../../PMBOK/Knowledge_Areas/Project_Cost_Management/roi_tracking_template.md
+   💡 RECOMMENDATION: Create directory structure or fix link path
+
+❌ ./docs/README.md (line 27): methodology-guides/
+   → Resolves to: ./docs/methodology-guides/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./docs/README.md (line 30): implementation/
+   → Resolves to: ./docs/implementation/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./docs/README.md (line 48): ../industry-specializations/information-technology/
+   → Resolves to: ./docs/../industry-specializations/information-technology/
+   💡 RECOMMENDATION: Create directory structure or fix link path
+
+❌ ./docs/README.md (line 49): ../industry-specializations/healthcare-pharmaceutical/
+   → Resolves to: ./docs/../industry-specializations/healthcare-pharmaceutical/
+   💡 RECOMMENDATION: Create directory structure or fix link path
+
+❌ ./docs/README.md (line 50): ../industry-specializations/financial-services/
+   → Resolves to: ./docs/../industry-specializations/financial-services/
+   💡 RECOMMENDATION: Create directory structure or fix link path
+
+❌ ./docs/README.md (line 59): implementation/
+   → Resolves to: ./docs/implementation/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./docs/README.md (line 63): methodology-guides/methodology-comparison.md
+   → Resolves to: ./docs/methodology-guides/methodology-comparison.md
+   💡 RECOMMENDATION: Create directory structure or fix link path
+
+❌ ./docs/README.md (line 64): ../integration-toolkits/
+   → Resolves to: ./docs/../integration-toolkits/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./docs/getting-started/README.md (line 55): ../../project-lifecycle/02-planning/communication-planning/
+   → Resolves to: ./docs/getting-started/../../project-lifecycle/02-planning/communication-planning/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./docs/getting-started/README.md (line 84): ../../methodology-frameworks/hybrid-approaches/
+   → Resolves to: ./docs/getting-started/../../methodology-frameworks/hybrid-approaches/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./docs/getting-started/README.md (line 121): ../../business-stakeholder-suite/communication-automation/
+   → Resolves to: ./docs/getting-started/../../business-stakeholder-suite/communication-automation/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./integrations/asana/README.md (line 281): ./docs/setup.md
+   → Resolves to: ./integrations/asana/./docs/setup.md
+   💡 RECOMMENDATION: Create directory structure or fix link path
+
+❌ ./integrations/asana/README.md (line 282): ./docs/field-mapping.md
+   → Resolves to: ./integrations/asana/./docs/field-mapping.md
+   💡 RECOMMENDATION: Create directory structure or fix link path
+
+❌ ./integrations/asana/README.md (line 283): ./docs/troubleshooting.md
+   → Resolves to: ./integrations/asana/./docs/troubleshooting.md
+   💡 RECOMMENDATION: Create directory structure or fix link path
+
+❌ ./integrations/asana/README.md (line 284): ./docs/best-practices.md
+   → Resolves to: ./integrations/asana/./docs/best-practices.md
+   💡 RECOMMENDATION: Create directory structure or fix link path
+
+❌ ./integrations/asana/README.md (line 287): ./docs/api.md
+   → Resolves to: ./integrations/asana/./docs/api.md
+   💡 RECOMMENDATION: Create directory structure or fix link path
+
+❌ ./integrations/asana/README.md (line 288): ./docs/webhooks.md
+   → Resolves to: ./integrations/asana/./docs/webhooks.md
+   💡 RECOMMENDATION: Create directory structure or fix link path
+
+❌ ./integrations/asana/README.md (line 289): ./docs/errors.md
+   → Resolves to: ./integrations/asana/./docs/errors.md
+   💡 RECOMMENDATION: Create directory structure or fix link path
+
+❌ ./integrations/asana/README.md (line 290): ./docs/rate-limits.md
+   → Resolves to: ./integrations/asana/./docs/rate-limits.md
+   💡 RECOMMENDATION: Create directory structure or fix link path
+
+❌ ./methodology-frameworks/agile-scrum/README.md (line 11): core-framework/
+   → Resolves to: ./methodology-frameworks/agile-scrum/core-framework/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./methodology-frameworks/agile-scrum/README.md (line 13): team-practices/
+   → Resolves to: ./methodology-frameworks/agile-scrum/team-practices/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./methodology-frameworks/agile-scrum/README.md (line 14): metrics-measurement/
+   → Resolves to: ./methodology-frameworks/agile-scrum/metrics-measurement/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./methodology-frameworks/agile-scrum/README.md (line 15): transition-support/
+   → Resolves to: ./methodology-frameworks/agile-scrum/transition-support/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./methodology-frameworks/agile-scrum/README.md (line 237): ../hybrid-approaches/
+   → Resolves to: ./methodology-frameworks/agile-scrum/../hybrid-approaches/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./methodology-frameworks/emerging-methods/devops/README.md (line 11): culture-collaboration/
+   → Resolves to: ./methodology-frameworks/emerging-methods/devops/culture-collaboration/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./methodology-frameworks/emerging-methods/devops/README.md (line 12): cicd-pipelines/
+   → Resolves to: ./methodology-frameworks/emerging-methods/devops/cicd-pipelines/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./methodology-frameworks/emerging-methods/devops/README.md (line 13): infrastructure-as-code/
+   → Resolves to: ./methodology-frameworks/emerging-methods/devops/infrastructure-as-code/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./methodology-frameworks/emerging-methods/devops/README.md (line 14): monitoring-observability/
+   → Resolves to: ./methodology-frameworks/emerging-methods/devops/monitoring-observability/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./methodology-frameworks/emerging-methods/devops/README.md (line 15): security-integration/
+   → Resolves to: ./methodology-frameworks/emerging-methods/devops/security-integration/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./methodology-frameworks/emerging-methods/devops/README.md (line 288): ../../../organizational-frameworks/change-management/
+   → Resolves to: ./methodology-frameworks/emerging-methods/devops/../../../organizational-frameworks/change-management/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./project-lifecycle/01-initiation/README.md (line 13): feasibility-study/
+   → Resolves to: ./project-lifecycle/01-initiation/feasibility-study/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./project-lifecycle/01-initiation/README.md (line 14): business-case/
+   → Resolves to: ./project-lifecycle/01-initiation/business-case/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./project-lifecycle/01-initiation/README.md (line 199): ../../business-stakeholder-suite/portfolio-oversight/
+   → Resolves to: ./project-lifecycle/01-initiation/../../business-stakeholder-suite/portfolio-oversight/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./project-lifecycle/01-initiation/README.md (line 200): ../../organizational-frameworks/change-management/
+   → Resolves to: ./project-lifecycle/01-initiation/../../organizational-frameworks/change-management/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./project-lifecycle/01-initiation/README.md (line 203): ../../methodology-frameworks/pmbok/
+   → Resolves to: ./project-lifecycle/01-initiation/../../methodology-frameworks/pmbok/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./project-lifecycle/01-initiation/README.md (line 205): ../../methodology-frameworks/emerging-methods/lean-startup/
+   → Resolves to: ./project-lifecycle/01-initiation/../../methodology-frameworks/emerging-methods/lean-startup/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./project-lifecycle/01-initiation/README.md (line 208): ../02-planning/scope-management/
+   → Resolves to: ./project-lifecycle/01-initiation/../02-planning/scope-management/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./project-lifecycle/01-initiation/README.md (line 209): ../02-planning/schedule-planning/
+   → Resolves to: ./project-lifecycle/01-initiation/../02-planning/schedule-planning/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./project-lifecycle/01-initiation/project-charter/README.md (line 186): ../../02-planning/communication-planning/
+   → Resolves to: ./project-lifecycle/01-initiation/project-charter/../../02-planning/communication-planning/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./project-lifecycle/01-initiation/project-charter/README.md (line 189): ../business-case/
+   → Resolves to: ./project-lifecycle/01-initiation/project-charter/../business-case/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./project-lifecycle/01-initiation/project-charter/README.md (line 191): ../../03-execution/team-coordination/
+   → Resolves to: ./project-lifecycle/01-initiation/project-charter/../../03-execution/team-coordination/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./project-lifecycle/01-initiation/stakeholder-analysis/README.md (line 22): stakeholder-register-template.md
+   → Resolves to: ./project-lifecycle/01-initiation/stakeholder-analysis/stakeholder-register-template.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./project-lifecycle/01-initiation/stakeholder-analysis/README.md (line 29): agile-stakeholder-map-template.md
+   → Resolves to: ./project-lifecycle/01-initiation/stakeholder-analysis/agile-stakeholder-map-template.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./project-lifecycle/01-initiation/stakeholder-analysis/README.md (line 36): enterprise-stakeholder-analysis-template.md
+   → Resolves to: ./project-lifecycle/01-initiation/stakeholder-analysis/enterprise-stakeholder-analysis-template.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./project-lifecycle/01-initiation/stakeholder-analysis/README.md (line 275): ../../02-planning/communication-planning/
+   → Resolves to: ./project-lifecycle/01-initiation/stakeholder-analysis/../../02-planning/communication-planning/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./project-lifecycle/01-initiation/stakeholder-analysis/README.md (line 280): ../../02-planning/communication-planning/
+   → Resolves to: ./project-lifecycle/01-initiation/stakeholder-analysis/../../02-planning/communication-planning/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./project-lifecycle/01-initiation/stakeholder-analysis/README.md (line 281): ../../03-execution/team-coordination/
+   → Resolves to: ./project-lifecycle/01-initiation/stakeholder-analysis/../../03-execution/team-coordination/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./project-lifecycle/01-initiation/stakeholder-analysis/README.md (line 282): ../../organizational-change/
+   → Resolves to: ./project-lifecycle/01-initiation/stakeholder-analysis/../../organizational-change/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./project-lifecycle/02-planning/README.md (line 11): scope-management/
+   → Resolves to: ./project-lifecycle/02-planning/scope-management/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./project-lifecycle/02-planning/README.md (line 12): schedule-planning/
+   → Resolves to: ./project-lifecycle/02-planning/schedule-planning/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./project-lifecycle/02-planning/README.md (line 13): communication-planning/
+   → Resolves to: ./project-lifecycle/02-planning/communication-planning/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./project-lifecycle/02-planning/README.md (line 198): ../01-initiation/business-case/
+   → Resolves to: ./project-lifecycle/02-planning/../01-initiation/business-case/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./project-lifecycle/02-planning/README.md (line 201): ../03-execution/work-management/
+   → Resolves to: ./project-lifecycle/02-planning/../03-execution/work-management/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./project-lifecycle/02-planning/README.md (line 202): ../03-execution/team-coordination/
+   → Resolves to: ./project-lifecycle/02-planning/../03-execution/team-coordination/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./project-lifecycle/02-planning/README.md (line 203): ../03-execution/quality-assurance/
+   → Resolves to: ./project-lifecycle/02-planning/../03-execution/quality-assurance/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./project-lifecycle/02-planning/README.md (line 206): ../../methodology-frameworks/pmbok/
+   → Resolves to: ./project-lifecycle/02-planning/../../methodology-frameworks/pmbok/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./project-lifecycle/02-planning/README.md (line 208): ../../methodology-frameworks/emerging-methods/lean-startup/
+   → Resolves to: ./project-lifecycle/02-planning/../../methodology-frameworks/emerging-methods/lean-startup/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./project-lifecycle/02-planning/project-management-plan/README.md (line 22): traditional-project-management-plan-template.md
+   → Resolves to: ./project-lifecycle/02-planning/project-management-plan/traditional-project-management-plan-template.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./project-lifecycle/02-planning/project-management-plan/README.md (line 29): agile-release-plan-template.md
+   → Resolves to: ./project-lifecycle/02-planning/project-management-plan/agile-release-plan-template.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./project-lifecycle/02-planning/project-management-plan/README.md (line 36): hybrid-project-management-plan-template.md
+   → Resolves to: ./project-lifecycle/02-planning/project-management-plan/hybrid-project-management-plan-template.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./project-lifecycle/02-planning/project-management-plan/README.md (line 43): lightweight-project-plan-template.md
+   → Resolves to: ./project-lifecycle/02-planning/project-management-plan/lightweight-project-plan-template.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./project-lifecycle/02-planning/project-management-plan/README.md (line 307): ../../01-initiation/business-case/
+   → Resolves to: ./project-lifecycle/02-planning/project-management-plan/../../01-initiation/business-case/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./project-lifecycle/02-planning/project-management-plan/README.md (line 312): ../communication-planning/
+   → Resolves to: ./project-lifecycle/02-planning/project-management-plan/../communication-planning/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./project-lifecycle/02-planning/project-management-plan/README.md (line 315): ../../03-execution/work-management/
+   → Resolves to: ./project-lifecycle/02-planning/project-management-plan/../../03-execution/work-management/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./project-lifecycle/02-planning/project-management-plan/README.md (line 317): ../../04-monitoring-control/change-control/
+   → Resolves to: ./project-lifecycle/02-planning/project-management-plan/../../04-monitoring-control/change-control/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./project-lifecycle/02-planning/resource-planning/README.md (line 22): resource-management-plan-template.md
+   → Resolves to: ./project-lifecycle/02-planning/resource-planning/resource-management-plan-template.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./project-lifecycle/02-planning/resource-planning/README.md (line 29): team-charter-template.md
+   → Resolves to: ./project-lifecycle/02-planning/resource-planning/team-charter-template.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./project-lifecycle/02-planning/resource-planning/README.md (line 36): agile-team-structure-template.md
+   → Resolves to: ./project-lifecycle/02-planning/resource-planning/agile-team-structure-template.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./project-lifecycle/02-planning/resource-planning/README.md (line 43): resource-forecast-template.md
+   → Resolves to: ./project-lifecycle/02-planning/resource-planning/resource-forecast-template.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./project-lifecycle/02-planning/resource-planning/README.md (line 50): skills-matrix-template.md
+   → Resolves to: ./project-lifecycle/02-planning/resource-planning/skills-matrix-template.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./project-lifecycle/02-planning/resource-planning/README.md (line 399): ../communication-planning/
+   → Resolves to: ./project-lifecycle/02-planning/resource-planning/../communication-planning/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./project-lifecycle/02-planning/resource-planning/README.md (line 400): ../schedule-planning/
+   → Resolves to: ./project-lifecycle/02-planning/resource-planning/../schedule-planning/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./project-lifecycle/02-planning/resource-planning/README.md (line 404): ../../03-execution/team-coordination/
+   → Resolves to: ./project-lifecycle/02-planning/resource-planning/../../03-execution/team-coordination/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./project-lifecycle/02-planning/resource-planning/README.md (line 405): ../../04-monitoring-control/performance-measurement/
+   → Resolves to: ./project-lifecycle/02-planning/resource-planning/../../04-monitoring-control/performance-measurement/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./project-lifecycle/02-planning/resource-planning/README.md (line 406): ../../04-monitoring-control/change-control/
+   → Resolves to: ./project-lifecycle/02-planning/resource-planning/../../04-monitoring-control/change-control/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./project-lifecycle/02-planning/risk-management/README.md (line 22): risk-register-template.md
+   → Resolves to: ./project-lifecycle/02-planning/risk-management/risk-register-template.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./project-lifecycle/02-planning/risk-management/README.md (line 29): agile-risk-board-template.md
+   → Resolves to: ./project-lifecycle/02-planning/risk-management/agile-risk-board-template.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./project-lifecycle/02-planning/risk-management/README.md (line 36): enterprise-risk-assessment-template.md
+   → Resolves to: ./project-lifecycle/02-planning/risk-management/enterprise-risk-assessment-template.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./project-lifecycle/02-planning/risk-management/README.md (line 43): risk-management-plan-template.md
+   → Resolves to: ./project-lifecycle/02-planning/risk-management/risk-management-plan-template.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./project-lifecycle/02-planning/risk-management/README.md (line 368): ../communication-planning/
+   → Resolves to: ./project-lifecycle/02-planning/risk-management/../communication-planning/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./project-lifecycle/02-planning/risk-management/README.md (line 369): ../schedule-planning/
+   → Resolves to: ./project-lifecycle/02-planning/risk-management/../schedule-planning/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./project-lifecycle/02-planning/risk-management/README.md (line 373): ../../04-monitoring-control/change-control/
+   → Resolves to: ./project-lifecycle/02-planning/risk-management/../../04-monitoring-control/change-control/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./project-lifecycle/03-execution/README.md (line 11): work-management/
+   → Resolves to: ./project-lifecycle/03-execution/work-management/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./project-lifecycle/03-execution/README.md (line 12): team-coordination/
+   → Resolves to: ./project-lifecycle/03-execution/team-coordination/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./project-lifecycle/03-execution/README.md (line 13): vendor-management/
+   → Resolves to: ./project-lifecycle/03-execution/vendor-management/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./project-lifecycle/03-execution/README.md (line 14): quality-assurance/
+   → Resolves to: ./project-lifecycle/03-execution/quality-assurance/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./project-lifecycle/03-execution/README.md (line 198): ../02-planning/scope-management/
+   → Resolves to: ./project-lifecycle/03-execution/../02-planning/scope-management/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./project-lifecycle/03-execution/README.md (line 199): ../02-planning/schedule-planning/
+   → Resolves to: ./project-lifecycle/03-execution/../02-planning/schedule-planning/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./project-lifecycle/03-execution/README.md (line 205): ../04-monitoring-control/change-control/
+   → Resolves to: ./project-lifecycle/03-execution/../04-monitoring-control/change-control/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./project-lifecycle/03-execution/README.md (line 209): ../../methodology-frameworks/pmbok/
+   → Resolves to: ./project-lifecycle/03-execution/../../methodology-frameworks/pmbok/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./project-lifecycle/04-monitoring-control/README.md (line 13): performance-measurement/
+   → Resolves to: ./project-lifecycle/04-monitoring-control/performance-measurement/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./project-lifecycle/04-monitoring-control/README.md (line 14): change-control/
+   → Resolves to: ./project-lifecycle/04-monitoring-control/change-control/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./project-lifecycle/04-monitoring-control/README.md (line 198): ../03-execution/work-management/
+   → Resolves to: ./project-lifecycle/04-monitoring-control/../03-execution/work-management/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./project-lifecycle/04-monitoring-control/README.md (line 199): ../03-execution/team-coordination/
+   → Resolves to: ./project-lifecycle/04-monitoring-control/../03-execution/team-coordination/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./project-lifecycle/04-monitoring-control/README.md (line 200): ../03-execution/quality-assurance/
+   → Resolves to: ./project-lifecycle/04-monitoring-control/../03-execution/quality-assurance/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./project-lifecycle/04-monitoring-control/README.md (line 203): ../02-planning/scope-management/
+   → Resolves to: ./project-lifecycle/04-monitoring-control/../02-planning/scope-management/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./project-lifecycle/04-monitoring-control/README.md (line 204): ../02-planning/schedule-planning/
+   → Resolves to: ./project-lifecycle/04-monitoring-control/../02-planning/schedule-planning/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./project-lifecycle/04-monitoring-control/README.md (line 208): ../../methodology-frameworks/pmbok/
+   → Resolves to: ./project-lifecycle/04-monitoring-control/../../methodology-frameworks/pmbok/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./project-lifecycle/04-monitoring-control/README.md (line 210): ../../organizational-frameworks/change-management/
+   → Resolves to: ./project-lifecycle/04-monitoring-control/../../organizational-frameworks/change-management/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./project-lifecycle/04-monitoring-control/issue-management/README.md (line 22): issue-log-template.md
+   → Resolves to: ./project-lifecycle/04-monitoring-control/issue-management/issue-log-template.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./project-lifecycle/04-monitoring-control/issue-management/README.md (line 28): agile-issue-board-template.md
+   → Resolves to: ./project-lifecycle/04-monitoring-control/issue-management/agile-issue-board-template.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./project-lifecycle/04-monitoring-control/issue-management/README.md (line 35): risk-issue-integration-template.md
+   → Resolves to: ./project-lifecycle/04-monitoring-control/issue-management/risk-issue-integration-template.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./project-lifecycle/04-monitoring-control/issue-management/README.md (line 196): ../change-control/
+   → Resolves to: ./project-lifecycle/04-monitoring-control/issue-management/../change-control/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./project-lifecycle/04-monitoring-control/issue-management/README.md (line 197): ../../02-planning/communication-planning/
+   → Resolves to: ./project-lifecycle/04-monitoring-control/issue-management/../../02-planning/communication-planning/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./project-lifecycle/04-monitoring-control/issue-management/README.md (line 201): ../../03-execution/team-coordination/
+   → Resolves to: ./project-lifecycle/04-monitoring-control/issue-management/../../03-execution/team-coordination/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./project-lifecycle/04-monitoring-control/progress-tracking/README.md (line 22): project-dashboard-template.md
+   → Resolves to: ./project-lifecycle/04-monitoring-control/progress-tracking/project-dashboard-template.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./project-lifecycle/04-monitoring-control/progress-tracking/README.md (line 29): evm-tracker-template.md
+   → Resolves to: ./project-lifecycle/04-monitoring-control/progress-tracking/evm-tracker-template.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./project-lifecycle/04-monitoring-control/progress-tracking/README.md (line 36): sprint-tracking-template.md
+   → Resolves to: ./project-lifecycle/04-monitoring-control/progress-tracking/sprint-tracking-template.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./project-lifecycle/04-monitoring-control/progress-tracking/README.md (line 43): hybrid-dashboard-template.md
+   → Resolves to: ./project-lifecycle/04-monitoring-control/progress-tracking/hybrid-dashboard-template.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./project-lifecycle/04-monitoring-control/progress-tracking/README.md (line 50): status-report-template.md
+   → Resolves to: ./project-lifecycle/04-monitoring-control/progress-tracking/status-report-template.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./project-lifecycle/04-monitoring-control/progress-tracking/README.md (line 416): ../change-control/
+   → Resolves to: ./project-lifecycle/04-monitoring-control/progress-tracking/../change-control/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./project-lifecycle/04-monitoring-control/progress-tracking/README.md (line 417): ../performance-measurement/
+   → Resolves to: ./project-lifecycle/04-monitoring-control/progress-tracking/../performance-measurement/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./project-lifecycle/04-monitoring-control/progress-tracking/README.md (line 420): ../../02-planning/communication-planning/
+   → Resolves to: ./project-lifecycle/04-monitoring-control/progress-tracking/../../02-planning/communication-planning/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./project-lifecycle/04-monitoring-control/progress-tracking/README.md (line 422): ../../03-execution/team-coordination/
+   → Resolves to: ./project-lifecycle/04-monitoring-control/progress-tracking/../../03-execution/team-coordination/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./project-lifecycle/05-closure/README.md (line 11): project-closure/
+   → Resolves to: ./project-lifecycle/05-closure/project-closure/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./project-lifecycle/05-closure/README.md (line 12): transition-to-operations/
+   → Resolves to: ./project-lifecycle/05-closure/transition-to-operations/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./project-lifecycle/05-closure/README.md (line 13): lessons-learned/
+   → Resolves to: ./project-lifecycle/05-closure/lessons-learned/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./project-lifecycle/05-closure/README.md (line 14): knowledge-transfer/
+   → Resolves to: ./project-lifecycle/05-closure/knowledge-transfer/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./project-lifecycle/05-closure/README.md (line 211): ../03-execution/work-management/
+   → Resolves to: ./project-lifecycle/05-closure/../03-execution/work-management/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./project-lifecycle/05-closure/README.md (line 212): ../03-execution/team-coordination/
+   → Resolves to: ./project-lifecycle/05-closure/../03-execution/team-coordination/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./project-lifecycle/05-closure/README.md (line 213): ../03-execution/quality-assurance/
+   → Resolves to: ./project-lifecycle/05-closure/../03-execution/quality-assurance/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./project-lifecycle/05-closure/README.md (line 218): ../04-monitoring-control/change-control/
+   → Resolves to: ./project-lifecycle/05-closure/../04-monitoring-control/change-control/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./project-lifecycle/05-closure/README.md (line 221): ../../business-stakeholder-suite/portfolio-oversight/
+   → Resolves to: ./project-lifecycle/05-closure/../../business-stakeholder-suite/portfolio-oversight/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./project-lifecycle/05-closure/README.md (line 222): ../../organizational-frameworks/change-management/
+   → Resolves to: ./project-lifecycle/05-closure/../../organizational-frameworks/change-management/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./project-lifecycle/05-closure/README.md (line 223): ../../methodology-frameworks/emerging-methods/lean-startup/
+   → Resolves to: ./project-lifecycle/05-closure/../../methodology-frameworks/emerging-methods/lean-startup/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./project-lifecycle/README.md (line 35): 01-initiation/business-case/
+   → Resolves to: ./project-lifecycle/01-initiation/business-case/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./project-lifecycle/README.md (line 36): 01-initiation/feasibility-study/
+   → Resolves to: ./project-lifecycle/01-initiation/feasibility-study/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./project-lifecycle/README.md (line 47): 02-planning/scope-management/
+   → Resolves to: ./project-lifecycle/02-planning/scope-management/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./project-lifecycle/README.md (line 48): 02-planning/schedule-planning/
+   → Resolves to: ./project-lifecycle/02-planning/schedule-planning/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./project-lifecycle/README.md (line 51): 02-planning/communication-planning/
+   → Resolves to: ./project-lifecycle/02-planning/communication-planning/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./project-lifecycle/README.md (line 61): 03-execution/work-management/
+   → Resolves to: ./project-lifecycle/03-execution/work-management/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./project-lifecycle/README.md (line 62): 03-execution/team-coordination/
+   → Resolves to: ./project-lifecycle/03-execution/team-coordination/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./project-lifecycle/README.md (line 63): 03-execution/quality-assurance/
+   → Resolves to: ./project-lifecycle/03-execution/quality-assurance/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./project-lifecycle/README.md (line 64): 03-execution/vendor-management/
+   → Resolves to: ./project-lifecycle/03-execution/vendor-management/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./project-lifecycle/README.md (line 75): 04-monitoring-control/performance-measurement/
+   → Resolves to: ./project-lifecycle/04-monitoring-control/performance-measurement/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./project-lifecycle/README.md (line 76): 04-monitoring-control/change-control/
+   → Resolves to: ./project-lifecycle/04-monitoring-control/change-control/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./project-lifecycle/README.md (line 87): 05-closure/project-closure/
+   → Resolves to: ./project-lifecycle/05-closure/project-closure/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./project-lifecycle/README.md (line 88): 05-closure/lessons-learned/
+   → Resolves to: ./project-lifecycle/05-closure/lessons-learned/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./project-lifecycle/README.md (line 89): 05-closure/knowledge-transfer/
+   → Resolves to: ./project-lifecycle/05-closure/knowledge-transfer/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./project-lifecycle/README.md (line 90): 05-closure/transition-to-operations/
+   → Resolves to: ./project-lifecycle/05-closure/transition-to-operations/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./project-lifecycle/README.md (line 122): 02-planning/communication-planning/
+   → Resolves to: ./project-lifecycle/02-planning/communication-planning/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./project-lifecycle/README.md (line 124): 03-execution/work-management/
+   → Resolves to: ./project-lifecycle/03-execution/work-management/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./project-lifecycle/README.md (line 128): 02-planning/communication-planning/
+   → Resolves to: ./project-lifecycle/02-planning/communication-planning/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./project-lifecycle/README.md (line 134): 03-execution/work-management/
+   → Resolves to: ./project-lifecycle/03-execution/work-management/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./project-lifecycle/README.md (line 135): 04-monitoring-control/performance-measurement/
+   → Resolves to: ./project-lifecycle/04-monitoring-control/performance-measurement/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./project-lifecycle/README.md (line 135): 05-closure/lessons-learned/
+   → Resolves to: ./project-lifecycle/05-closure/lessons-learned/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./project-lifecycle/README.md (line 136): 05-closure/knowledge-transfer/
+   → Resolves to: ./project-lifecycle/05-closure/knowledge-transfer/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./project-lifecycle/README.md (line 136): 05-closure/transition-to-operations/
+   → Resolves to: ./project-lifecycle/05-closure/transition-to-operations/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./project-lifecycle/README.md (line 149): ../business-stakeholder-suite/communication-automation/
+   → Resolves to: ./project-lifecycle/../business-stakeholder-suite/communication-automation/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./project-lifecycle/README.md (line 152): ../methodology-frameworks/pmbok-waterfall/
+   → Resolves to: ./project-lifecycle/../methodology-frameworks/pmbok-waterfall/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./project-lifecycle/README.md (line 154): ../methodology-frameworks/hybrid-approaches/
+   → Resolves to: ./project-lifecycle/../methodology-frameworks/hybrid-approaches/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./quick-start-kits/agile-transformation/README.md (line 19): transformation-roadmap.md
+   → Resolves to: ./quick-start-kits/agile-transformation/transformation-roadmap.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./quick-start-kits/agile-transformation/README.md (line 20): readiness-assessment.md
+   → Resolves to: ./quick-start-kits/agile-transformation/readiness-assessment.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./quick-start-kits/agile-transformation/README.md (line 21): change-management-plan.md
+   → Resolves to: ./quick-start-kits/agile-transformation/change-management-plan.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./quick-start-kits/agile-transformation/README.md (line 22): success-metrics.md
+   → Resolves to: ./quick-start-kits/agile-transformation/success-metrics.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./quick-start-kits/agile-transformation/README.md (line 25): hybrid-project-charter.md
+   → Resolves to: ./quick-start-kits/agile-transformation/hybrid-project-charter.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./quick-start-kits/agile-transformation/README.md (line 26): transition-timeline.md
+   → Resolves to: ./quick-start-kits/agile-transformation/transition-timeline.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./quick-start-kits/agile-transformation/README.md (line 27): team-formation-guide.md
+   → Resolves to: ./quick-start-kits/agile-transformation/team-formation-guide.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./quick-start-kits/agile-transformation/README.md (line 28): stakeholder-communication.md
+   → Resolves to: ./quick-start-kits/agile-transformation/stakeholder-communication.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./quick-start-kits/agile-transformation/README.md (line 31): training/agile-101-workshop.md
+   → Resolves to: ./quick-start-kits/agile-transformation/training/agile-101-workshop.md
+   💡 RECOMMENDATION: Create directory structure or fix link path
+
+❌ ./quick-start-kits/agile-transformation/README.md (line 32): training/scrum-training-plan.md
+   → Resolves to: ./quick-start-kits/agile-transformation/training/scrum-training-plan.md
+   💡 RECOMMENDATION: Create directory structure or fix link path
+
+❌ ./quick-start-kits/agile-transformation/README.md (line 33): training/role-transition-guides/
+   → Resolves to: ./quick-start-kits/agile-transformation/training/role-transition-guides/
+   💡 RECOMMENDATION: Create directory structure or fix link path
+
+❌ ./quick-start-kits/agile-transformation/README.md (line 34): training/coaching-templates/
+   → Resolves to: ./quick-start-kits/agile-transformation/training/coaching-templates/
+   💡 RECOMMENDATION: Create directory structure or fix link path
+
+❌ ./quick-start-kits/agile-transformation/README.md (line 37): quick-reference/agile-vs-traditional.md
+   → Resolves to: ./quick-start-kits/agile-transformation/quick-reference/agile-vs-traditional.md
+   💡 RECOMMENDATION: Create directory structure or fix link path
+
+❌ ./quick-start-kits/agile-transformation/README.md (line 38): quick-reference/terminology-translation.md
+   → Resolves to: ./quick-start-kits/agile-transformation/quick-reference/terminology-translation.md
+   💡 RECOMMENDATION: Create directory structure or fix link path
+
+❌ ./quick-start-kits/agile-transformation/README.md (line 39): quick-reference/common-pitfalls.md
+   → Resolves to: ./quick-start-kits/agile-transformation/quick-reference/common-pitfalls.md
+   💡 RECOMMENDATION: Create directory structure or fix link path
+
+❌ ./quick-start-kits/agile-transformation/README.md (line 40): quick-reference/quick-wins.md
+   → Resolves to: ./quick-start-kits/agile-transformation/quick-reference/quick-wins.md
+   💡 RECOMMENDATION: Create directory structure or fix link path
+
+❌ ./quick-start-kits/agile-transformation/README.md (line 45): readiness-assessment.md
+   → Resolves to: ./quick-start-kits/agile-transformation/readiness-assessment.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./quick-start-kits/agile-transformation/README.md (line 50): transformation-roadmap.md
+   → Resolves to: ./quick-start-kits/agile-transformation/transformation-roadmap.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./quick-start-kits/agile-transformation/README.md (line 55): stakeholder-communication.md
+   → Resolves to: ./quick-start-kits/agile-transformation/stakeholder-communication.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./quick-start-kits/agile-transformation/README.md (line 181): ../../integration-toolkits/development-tools/
+   → Resolves to: ./quick-start-kits/agile-transformation/../../integration-toolkits/development-tools/
+   💡 RECOMMENDATION: Create directory structure or fix link path
+
+❌ ./quick-start-kits/agile-transformation/README.md (line 187): change-management-plan.md
+   → Resolves to: ./quick-start-kits/agile-transformation/change-management-plan.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./quick-start-kits/agile-transformation/README.md (line 188): training/
+   → Resolves to: ./quick-start-kits/agile-transformation/training/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./quick-start-kits/agile-transformation/README.md (line 189): success-metrics.md
+   → Resolves to: ./quick-start-kits/agile-transformation/success-metrics.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./quick-start-kits/agile-transformation/README.md (line 194): ../../methodology-frameworks/hybrid-approaches/
+   → Resolves to: ./quick-start-kits/agile-transformation/../../methodology-frameworks/hybrid-approaches/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./quick-start-kits/agile-transformation/README.md (line 195): ../../organizational-frameworks/change-management/
+   → Resolves to: ./quick-start-kits/agile-transformation/../../organizational-frameworks/change-management/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./quick-start-kits/agile-transformation/README.md (line 201): readiness-assessment.md
+   → Resolves to: ./quick-start-kits/agile-transformation/readiness-assessment.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./quick-start-kits/first-time-pm-starter/README.md (line 14): communication-plan-simple.md
+   → Resolves to: ./quick-start-kits/first-time-pm-starter/communication-plan-simple.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./quick-start-kits/first-time-pm-starter/README.md (line 15): risk-register-simple.md
+   → Resolves to: ./quick-start-kits/first-time-pm-starter/risk-register-simple.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./quick-start-kits/first-time-pm-starter/README.md (line 16): status-report-simple.md
+   → Resolves to: ./quick-start-kits/first-time-pm-starter/status-report-simple.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./quick-start-kits/first-time-pm-starter/README.md (line 20): common-pitfalls.md
+   → Resolves to: ./quick-start-kits/first-time-pm-starter/common-pitfalls.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./quick-start-kits/first-time-pm-starter/README.md (line 21): quick-wins.md
+   → Resolves to: ./quick-start-kits/first-time-pm-starter/quick-wins.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./quick-start-kits/first-time-pm-starter/README.md (line 44): ../executive-reporting/
+   → Resolves to: ./quick-start-kits/first-time-pm-starter/../executive-reporting/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/README.md (line 60): program-manager/program-governance/
+   → Resolves to: ./role-based-toolkits/program-manager/program-governance/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/README.md (line 61): program-manager/portfolio-alignment/
+   → Resolves to: ./role-based-toolkits/program-manager/portfolio-alignment/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/README.md (line 62): program-manager/cross-project-coordination/
+   → Resolves to: ./role-based-toolkits/program-manager/cross-project-coordination/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/README.md (line 63): program-manager/strategic-reporting/
+   → Resolves to: ./role-based-toolkits/program-manager/strategic-reporting/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/README.md (line 81): scrum-master/team-facilitation/
+   → Resolves to: ./role-based-toolkits/scrum-master/team-facilitation/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/README.md (line 82): scrum-master/impediment-removal/
+   → Resolves to: ./role-based-toolkits/scrum-master/impediment-removal/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/README.md (line 83): scrum-master/agile-metrics/
+   → Resolves to: ./role-based-toolkits/scrum-master/agile-metrics/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/README.md (line 100): product-owner/product-strategy/
+   → Resolves to: ./role-based-toolkits/product-owner/product-strategy/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/README.md (line 101): product-owner/backlog-management/
+   → Resolves to: ./role-based-toolkits/product-owner/backlog-management/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/README.md (line 102): product-owner/stakeholder-collaboration/
+   → Resolves to: ./role-based-toolkits/product-owner/stakeholder-collaboration/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/README.md (line 103): product-owner/value-measurement/
+   → Resolves to: ./role-based-toolkits/product-owner/value-measurement/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/README.md (line 109): executive-sponsor/
+   → Resolves to: ./role-based-toolkits/executive-sponsor/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/README.md (line 120): executive-sponsor/governance-oversight/
+   → Resolves to: ./role-based-toolkits/executive-sponsor/governance-oversight/
+   💡 RECOMMENDATION: Create directory structure or fix link path
+
+❌ ./role-based-toolkits/README.md (line 121): executive-sponsor/strategic-alignment/
+   → Resolves to: ./role-based-toolkits/executive-sponsor/strategic-alignment/
+   💡 RECOMMENDATION: Create directory structure or fix link path
+
+❌ ./role-based-toolkits/README.md (line 122): executive-sponsor/investment-tracking/
+   → Resolves to: ./role-based-toolkits/executive-sponsor/investment-tracking/
+   💡 RECOMMENDATION: Create directory structure or fix link path
+
+❌ ./role-based-toolkits/README.md (line 123): executive-sponsor/decision-frameworks/
+   → Resolves to: ./role-based-toolkits/executive-sponsor/decision-frameworks/
+   💡 RECOMMENDATION: Create directory structure or fix link path
+
+❌ ./role-based-toolkits/README.md (line 153): executive-sponsor/
+   → Resolves to: ./role-based-toolkits/executive-sponsor/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/README.md (line 162): scrum-master/agile-metrics/
+   → Resolves to: ./role-based-toolkits/scrum-master/agile-metrics/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/README.md (line 165): product-owner/product-strategy/
+   → Resolves to: ./role-based-toolkits/product-owner/product-strategy/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/README.md (line 167): product-owner/backlog-management/
+   → Resolves to: ./role-based-toolkits/product-owner/backlog-management/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/README.md (line 170): executive-sponsor/strategic-alignment/
+   → Resolves to: ./role-based-toolkits/executive-sponsor/strategic-alignment/
+   💡 RECOMMENDATION: Create directory structure or fix link path
+
+❌ ./role-based-toolkits/README.md (line 171): program-manager/cross-project-coordination/
+   → Resolves to: ./role-based-toolkits/program-manager/cross-project-coordination/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/README.md (line 172): executive-sponsor/investment-tracking/
+   → Resolves to: ./role-based-toolkits/executive-sponsor/investment-tracking/
+   💡 RECOMMENDATION: Create directory structure or fix link path
+
+❌ ./role-based-toolkits/README.md (line 172): program-manager/strategic-reporting/
+   → Resolves to: ./role-based-toolkits/program-manager/strategic-reporting/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/README.md (line 188): program-manager/program-governance/
+   → Resolves to: ./role-based-toolkits/program-manager/program-governance/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/README.md (line 189): program-manager/portfolio-alignment/
+   → Resolves to: ./role-based-toolkits/program-manager/portfolio-alignment/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/README.md (line 190): program-manager/strategic-reporting/
+   → Resolves to: ./role-based-toolkits/program-manager/strategic-reporting/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/README.md (line 193): product-owner/backlog-management/
+   → Resolves to: ./role-based-toolkits/product-owner/backlog-management/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/README.md (line 194): product-owner/stakeholder-collaboration/
+   → Resolves to: ./role-based-toolkits/product-owner/stakeholder-collaboration/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/README.md (line 195): product-owner/product-strategy/
+   → Resolves to: ./role-based-toolkits/product-owner/product-strategy/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/README.md (line 196): product-owner/value-measurement/
+   → Resolves to: ./role-based-toolkits/product-owner/value-measurement/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/README.md (line 199): scrum-master/team-facilitation/
+   → Resolves to: ./role-based-toolkits/scrum-master/team-facilitation/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/README.md (line 201): scrum-master/impediment-removal/
+   → Resolves to: ./role-based-toolkits/scrum-master/impediment-removal/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/README.md (line 202): scrum-master/agile-metrics/
+   → Resolves to: ./role-based-toolkits/scrum-master/agile-metrics/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/product-owner/README.md (line 24): product-vision-template.md
+   → Resolves to: ./role-based-toolkits/product-owner/product-vision-template.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/product-owner/README.md (line 43): product-strategy-canvas.md
+   → Resolves to: ./role-based-toolkits/product-owner/product-strategy-canvas.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/product-owner/README.md (line 61): backlog-management-template.md
+   → Resolves to: ./role-based-toolkits/product-owner/backlog-management-template.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/product-owner/README.md (line 99): prioritization-framework-guide.md
+   → Resolves to: ./role-based-toolkits/product-owner/prioritization-framework-guide.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/product-owner/README.md (line 125): user-story-template.md
+   → Resolves to: ./role-based-toolkits/product-owner/user-story-template.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/product-owner/README.md (line 170): story-writing-checklist.md
+   → Resolves to: ./role-based-toolkits/product-owner/story-writing-checklist.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/product-owner/README.md (line 191): stakeholder-collaboration-framework.md
+   → Resolves to: ./role-based-toolkits/product-owner/stakeholder-collaboration-framework.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/product-owner/README.md (line 234): product-metrics-dashboard.md
+   → Resolves to: ./role-based-toolkits/product-owner/product-metrics-dashboard.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/product-owner/README.md (line 270): okr-template.md
+   → Resolves to: ./role-based-toolkits/product-owner/okr-template.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/project-manager/README.md (line 127): ../executive-sponsor/
+   → Resolves to: ./role-based-toolkits/project-manager/../executive-sponsor/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/project-manager/README.md (line 292): ../../docs/community/
+   → Resolves to: ./role-based-toolkits/project-manager/../../docs/community/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/project-manager/essential-templates/README.md (line 12): project-charter.md
+   → Resolves to: ./role-based-toolkits/project-manager/essential-templates/project-charter.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/project-manager/essential-templates/README.md (line 13): business-case.md
+   → Resolves to: ./role-based-toolkits/project-manager/essential-templates/business-case.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/project-manager/essential-templates/README.md (line 14): stakeholder-register.md
+   → Resolves to: ./role-based-toolkits/project-manager/essential-templates/stakeholder-register.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/project-manager/essential-templates/README.md (line 15): scope-statement.md
+   → Resolves to: ./role-based-toolkits/project-manager/essential-templates/scope-statement.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/project-manager/essential-templates/README.md (line 18): work-breakdown-structure.md
+   → Resolves to: ./role-based-toolkits/project-manager/essential-templates/work-breakdown-structure.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/project-manager/essential-templates/README.md (line 19): project-schedule.md
+   → Resolves to: ./role-based-toolkits/project-manager/essential-templates/project-schedule.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/project-manager/essential-templates/README.md (line 20): resource-planning.md
+   → Resolves to: ./role-based-toolkits/project-manager/essential-templates/resource-planning.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/project-manager/essential-templates/README.md (line 21): budget-template.md
+   → Resolves to: ./role-based-toolkits/project-manager/essential-templates/budget-template.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/project-manager/essential-templates/README.md (line 22): risk-register.md
+   → Resolves to: ./role-based-toolkits/project-manager/essential-templates/risk-register.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/project-manager/essential-templates/README.md (line 23): communication-plan.md
+   → Resolves to: ./role-based-toolkits/project-manager/essential-templates/communication-plan.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/project-manager/essential-templates/README.md (line 26): team-charter.md
+   → Resolves to: ./role-based-toolkits/project-manager/essential-templates/team-charter.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/project-manager/essential-templates/README.md (line 27): meeting-templates.md
+   → Resolves to: ./role-based-toolkits/project-manager/essential-templates/meeting-templates.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/project-manager/essential-templates/README.md (line 28): decision-log.md
+   → Resolves to: ./role-based-toolkits/project-manager/essential-templates/decision-log.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/project-manager/essential-templates/README.md (line 29): issue-log.md
+   → Resolves to: ./role-based-toolkits/project-manager/essential-templates/issue-log.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/project-manager/essential-templates/README.md (line 30): change-request.md
+   → Resolves to: ./role-based-toolkits/project-manager/essential-templates/change-request.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/project-manager/essential-templates/README.md (line 33): status-report.md
+   → Resolves to: ./role-based-toolkits/project-manager/essential-templates/status-report.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/project-manager/essential-templates/README.md (line 34): performance-dashboard.md
+   → Resolves to: ./role-based-toolkits/project-manager/essential-templates/performance-dashboard.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/project-manager/essential-templates/README.md (line 35): quality-checklist.md
+   → Resolves to: ./role-based-toolkits/project-manager/essential-templates/quality-checklist.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/project-manager/essential-templates/README.md (line 36): milestone-review.md
+   → Resolves to: ./role-based-toolkits/project-manager/essential-templates/milestone-review.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/project-manager/essential-templates/README.md (line 39): closure-checklist.md
+   → Resolves to: ./role-based-toolkits/project-manager/essential-templates/closure-checklist.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/project-manager/essential-templates/README.md (line 40): lessons-learned.md
+   → Resolves to: ./role-based-toolkits/project-manager/essential-templates/lessons-learned.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/project-manager/essential-templates/README.md (line 41): final-report.md
+   → Resolves to: ./role-based-toolkits/project-manager/essential-templates/final-report.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/project-manager/essential-templates/README.md (line 42): handover-template.md
+   → Resolves to: ./role-based-toolkits/project-manager/essential-templates/handover-template.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/project-manager/essential-templates/README.md (line 62): project-charter.md
+   → Resolves to: ./role-based-toolkits/project-manager/essential-templates/project-charter.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/project-manager/essential-templates/README.md (line 63): stakeholder-register.md
+   → Resolves to: ./role-based-toolkits/project-manager/essential-templates/stakeholder-register.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/project-manager/essential-templates/README.md (line 64): communication-plan.md
+   → Resolves to: ./role-based-toolkits/project-manager/essential-templates/communication-plan.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/project-manager/essential-templates/README.md (line 67): work-breakdown-structure.md
+   → Resolves to: ./role-based-toolkits/project-manager/essential-templates/work-breakdown-structure.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/project-manager/essential-templates/README.md (line 68): project-schedule.md
+   → Resolves to: ./role-based-toolkits/project-manager/essential-templates/project-schedule.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/project-manager/essential-templates/README.md (line 69): risk-register.md
+   → Resolves to: ./role-based-toolkits/project-manager/essential-templates/risk-register.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/project-manager/essential-templates/README.md (line 72): team-charter.md
+   → Resolves to: ./role-based-toolkits/project-manager/essential-templates/team-charter.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/project-manager/essential-templates/README.md (line 73): resource-planning.md
+   → Resolves to: ./role-based-toolkits/project-manager/essential-templates/resource-planning.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/project-manager/essential-templates/README.md (line 74): budget-template.md
+   → Resolves to: ./role-based-toolkits/project-manager/essential-templates/budget-template.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/project-manager/essential-templates/README.md (line 77): status-report.md
+   → Resolves to: ./role-based-toolkits/project-manager/essential-templates/status-report.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/project-manager/essential-templates/README.md (line 78): issue-log.md
+   → Resolves to: ./role-based-toolkits/project-manager/essential-templates/issue-log.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/project-manager/essential-templates/README.md (line 79): performance-dashboard.md
+   → Resolves to: ./role-based-toolkits/project-manager/essential-templates/performance-dashboard.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/project-manager/governance-tools/README.md (line 12): governance-charter.md
+   → Resolves to: ./role-based-toolkits/project-manager/governance-tools/governance-charter.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/project-manager/governance-tools/README.md (line 13): governance-framework.md
+   → Resolves to: ./role-based-toolkits/project-manager/governance-tools/governance-framework.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/project-manager/governance-tools/README.md (line 14): decision-authority.md
+   → Resolves to: ./role-based-toolkits/project-manager/governance-tools/decision-authority.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/project-manager/governance-tools/README.md (line 15): governance-roles.md
+   → Resolves to: ./role-based-toolkits/project-manager/governance-tools/governance-roles.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/project-manager/governance-tools/README.md (line 18): decision-log.md
+   → Resolves to: ./role-based-toolkits/project-manager/governance-tools/decision-log.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/project-manager/governance-tools/README.md (line 19): decision-framework.md
+   → Resolves to: ./role-based-toolkits/project-manager/governance-tools/decision-framework.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/project-manager/governance-tools/README.md (line 20): raci-decisions.md
+   → Resolves to: ./role-based-toolkits/project-manager/governance-tools/raci-decisions.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/project-manager/governance-tools/README.md (line 21): decision-review.md
+   → Resolves to: ./role-based-toolkits/project-manager/governance-tools/decision-review.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/project-manager/governance-tools/README.md (line 24): change-control-process.md
+   → Resolves to: ./role-based-toolkits/project-manager/governance-tools/change-control-process.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/project-manager/governance-tools/README.md (line 25): change-request-template.md
+   → Resolves to: ./role-based-toolkits/project-manager/governance-tools/change-request-template.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/project-manager/governance-tools/README.md (line 26): change-impact-assessment.md
+   → Resolves to: ./role-based-toolkits/project-manager/governance-tools/change-impact-assessment.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/project-manager/governance-tools/README.md (line 27): change-control-board.md
+   → Resolves to: ./role-based-toolkits/project-manager/governance-tools/change-control-board.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/project-manager/governance-tools/README.md (line 30): quality-gates.md
+   → Resolves to: ./role-based-toolkits/project-manager/governance-tools/quality-gates.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/project-manager/governance-tools/README.md (line 31): project-review.md
+   → Resolves to: ./role-based-toolkits/project-manager/governance-tools/project-review.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/project-manager/governance-tools/README.md (line 32): gate-review-checklist.md
+   → Resolves to: ./role-based-toolkits/project-manager/governance-tools/gate-review-checklist.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/project-manager/governance-tools/README.md (line 33): quality-assurance.md
+   → Resolves to: ./role-based-toolkits/project-manager/governance-tools/quality-assurance.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/project-manager/governance-tools/README.md (line 36): compliance-checklist.md
+   → Resolves to: ./role-based-toolkits/project-manager/governance-tools/compliance-checklist.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/project-manager/governance-tools/README.md (line 37): audit-preparation.md
+   → Resolves to: ./role-based-toolkits/project-manager/governance-tools/audit-preparation.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/project-manager/governance-tools/README.md (line 38): document-control.md
+   → Resolves to: ./role-based-toolkits/project-manager/governance-tools/document-control.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/project-manager/governance-tools/README.md (line 39): approval-workflow.md
+   → Resolves to: ./role-based-toolkits/project-manager/governance-tools/approval-workflow.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/project-manager/governance-tools/README.md (line 42): risk-governance.md
+   → Resolves to: ./role-based-toolkits/project-manager/governance-tools/risk-governance.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/project-manager/governance-tools/README.md (line 43): escalation-matrix.md
+   → Resolves to: ./role-based-toolkits/project-manager/governance-tools/escalation-matrix.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/project-manager/governance-tools/README.md (line 44): issue-resolution.md
+   → Resolves to: ./role-based-toolkits/project-manager/governance-tools/issue-resolution.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/project-manager/governance-tools/README.md (line 45): exception-handling.md
+   → Resolves to: ./role-based-toolkits/project-manager/governance-tools/exception-handling.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/project-manager/governance-tools/README.md (line 74): governance-charter.md
+   → Resolves to: ./role-based-toolkits/project-manager/governance-tools/governance-charter.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/project-manager/governance-tools/README.md (line 75): decision-authority.md
+   → Resolves to: ./role-based-toolkits/project-manager/governance-tools/decision-authority.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/project-manager/governance-tools/README.md (line 76): governance-roles.md
+   → Resolves to: ./role-based-toolkits/project-manager/governance-tools/governance-roles.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/project-manager/governance-tools/README.md (line 79): change-control-process.md
+   → Resolves to: ./role-based-toolkits/project-manager/governance-tools/change-control-process.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/project-manager/governance-tools/README.md (line 80): quality-gates.md
+   → Resolves to: ./role-based-toolkits/project-manager/governance-tools/quality-gates.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/project-manager/governance-tools/README.md (line 81): escalation-matrix.md
+   → Resolves to: ./role-based-toolkits/project-manager/governance-tools/escalation-matrix.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/project-manager/governance-tools/README.md (line 84): decision-log.md
+   → Resolves to: ./role-based-toolkits/project-manager/governance-tools/decision-log.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/project-manager/governance-tools/README.md (line 85): change-request-template.md
+   → Resolves to: ./role-based-toolkits/project-manager/governance-tools/change-request-template.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/project-manager/governance-tools/README.md (line 86): gate-review-checklist.md
+   → Resolves to: ./role-based-toolkits/project-manager/governance-tools/gate-review-checklist.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/project-manager/governance-tools/README.md (line 89): project-review.md
+   → Resolves to: ./role-based-toolkits/project-manager/governance-tools/project-review.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/project-manager/governance-tools/README.md (line 90): compliance-checklist.md
+   → Resolves to: ./role-based-toolkits/project-manager/governance-tools/compliance-checklist.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/project-manager/governance-tools/README.md (line 91): decision-review.md
+   → Resolves to: ./role-based-toolkits/project-manager/governance-tools/decision-review.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/project-manager/governance-tools/README.md (line 235): governance-framework.md
+   → Resolves to: ./role-based-toolkits/project-manager/governance-tools/governance-framework.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/project-manager/reporting-dashboards/README.md (line 12): executive-dashboard.md
+   → Resolves to: ./role-based-toolkits/project-manager/reporting-dashboards/executive-dashboard.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/project-manager/reporting-dashboards/README.md (line 13): executive-status-report.md
+   → Resolves to: ./role-based-toolkits/project-manager/reporting-dashboards/executive-status-report.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/project-manager/reporting-dashboards/README.md (line 14): portfolio-dashboard.md
+   → Resolves to: ./role-based-toolkits/project-manager/reporting-dashboards/portfolio-dashboard.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/project-manager/reporting-dashboards/README.md (line 15): steering-committee-report.md
+   → Resolves to: ./role-based-toolkits/project-manager/reporting-dashboards/steering-committee-report.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/project-manager/reporting-dashboards/README.md (line 18): team-dashboard.md
+   → Resolves to: ./role-based-toolkits/project-manager/reporting-dashboards/team-dashboard.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/project-manager/reporting-dashboards/README.md (line 19): sprint-report.md
+   → Resolves to: ./role-based-toolkits/project-manager/reporting-dashboards/sprint-report.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/project-manager/reporting-dashboards/README.md (line 20): milestone-dashboard.md
+   → Resolves to: ./role-based-toolkits/project-manager/reporting-dashboards/milestone-dashboard.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/project-manager/reporting-dashboards/README.md (line 21): deliverable-report.md
+   → Resolves to: ./role-based-toolkits/project-manager/reporting-dashboards/deliverable-report.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/project-manager/reporting-dashboards/README.md (line 24): budget-dashboard.md
+   → Resolves to: ./role-based-toolkits/project-manager/reporting-dashboards/budget-dashboard.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/project-manager/reporting-dashboards/README.md (line 25): cost-performance.md
+   → Resolves to: ./role-based-toolkits/project-manager/reporting-dashboards/cost-performance.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/project-manager/reporting-dashboards/README.md (line 26): resource-utilization.md
+   → Resolves to: ./role-based-toolkits/project-manager/reporting-dashboards/resource-utilization.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/project-manager/reporting-dashboards/README.md (line 27): financial-forecast.md
+   → Resolves to: ./role-based-toolkits/project-manager/reporting-dashboards/financial-forecast.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/project-manager/reporting-dashboards/README.md (line 30): risk-dashboard.md
+   → Resolves to: ./role-based-toolkits/project-manager/reporting-dashboards/risk-dashboard.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/project-manager/reporting-dashboards/README.md (line 31): issue-tracking.md
+   → Resolves to: ./role-based-toolkits/project-manager/reporting-dashboards/issue-tracking.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/project-manager/reporting-dashboards/README.md (line 32): quality-dashboard.md
+   → Resolves to: ./role-based-toolkits/project-manager/reporting-dashboards/quality-dashboard.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/project-manager/reporting-dashboards/README.md (line 33): compliance-report.md
+   → Resolves to: ./role-based-toolkits/project-manager/reporting-dashboards/compliance-report.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/project-manager/reporting-dashboards/README.md (line 36): stakeholder-update.md
+   → Resolves to: ./role-based-toolkits/project-manager/reporting-dashboards/stakeholder-update.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/project-manager/reporting-dashboards/README.md (line 37): project-newsletter.md
+   → Resolves to: ./role-based-toolkits/project-manager/reporting-dashboards/project-newsletter.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/project-manager/reporting-dashboards/README.md (line 38): change-impact-report.md
+   → Resolves to: ./role-based-toolkits/project-manager/reporting-dashboards/change-impact-report.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/project-manager/reporting-dashboards/README.md (line 39): lessons-learned-dashboard.md
+   → Resolves to: ./role-based-toolkits/project-manager/reporting-dashboards/lessons-learned-dashboard.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/project-manager/reporting-dashboards/README.md (line 75): executive-dashboard.md
+   → Resolves to: ./role-based-toolkits/project-manager/reporting-dashboards/executive-dashboard.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/project-manager/reporting-dashboards/README.md (line 76): team-dashboard.md
+   → Resolves to: ./role-based-toolkits/project-manager/reporting-dashboards/team-dashboard.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/project-manager/reporting-dashboards/README.md (line 77): stakeholder-update.md
+   → Resolves to: ./role-based-toolkits/project-manager/reporting-dashboards/stakeholder-update.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/project-manager/reporting-dashboards/README.md (line 251): executive-dashboard.md
+   → Resolves to: ./role-based-toolkits/project-manager/reporting-dashboards/executive-dashboard.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/project-manager/reporting-dashboards/README.md (line 251): team-dashboard.md
+   → Resolves to: ./role-based-toolkits/project-manager/reporting-dashboards/team-dashboard.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/project-manager/stakeholder-engagement/README.md (line 12): stakeholder-mapping.md
+   → Resolves to: ./role-based-toolkits/project-manager/stakeholder-engagement/stakeholder-mapping.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/project-manager/stakeholder-engagement/README.md (line 13): stakeholder-analysis.md
+   → Resolves to: ./role-based-toolkits/project-manager/stakeholder-engagement/stakeholder-analysis.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/project-manager/stakeholder-engagement/README.md (line 14): raci-matrix.md
+   → Resolves to: ./role-based-toolkits/project-manager/stakeholder-engagement/raci-matrix.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/project-manager/stakeholder-engagement/README.md (line 15): stakeholder-personas.md
+   → Resolves to: ./role-based-toolkits/project-manager/stakeholder-engagement/stakeholder-personas.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/project-manager/stakeholder-engagement/README.md (line 18): communication-matrix.md
+   → Resolves to: ./role-based-toolkits/project-manager/stakeholder-engagement/communication-matrix.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/project-manager/stakeholder-engagement/README.md (line 19): engagement-plan.md
+   → Resolves to: ./role-based-toolkits/project-manager/stakeholder-engagement/engagement-plan.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/project-manager/stakeholder-engagement/README.md (line 20): communication-calendar.md
+   → Resolves to: ./role-based-toolkits/project-manager/stakeholder-engagement/communication-calendar.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/project-manager/stakeholder-engagement/README.md (line 21): message-templates.md
+   → Resolves to: ./role-based-toolkits/project-manager/stakeholder-engagement/message-templates.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/project-manager/stakeholder-engagement/README.md (line 24): meeting-agendas.md
+   → Resolves to: ./role-based-toolkits/project-manager/stakeholder-engagement/meeting-agendas.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/project-manager/stakeholder-engagement/README.md (line 25): kickoff-meeting.md
+   → Resolves to: ./role-based-toolkits/project-manager/stakeholder-engagement/kickoff-meeting.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/project-manager/stakeholder-engagement/README.md (line 26): review-meeting.md
+   → Resolves to: ./role-based-toolkits/project-manager/stakeholder-engagement/review-meeting.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/project-manager/stakeholder-engagement/README.md (line 27): decision-meeting.md
+   → Resolves to: ./role-based-toolkits/project-manager/stakeholder-engagement/decision-meeting.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/project-manager/stakeholder-engagement/README.md (line 30): feedback-tools.md
+   → Resolves to: ./role-based-toolkits/project-manager/stakeholder-engagement/feedback-tools.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/project-manager/stakeholder-engagement/README.md (line 31): stakeholder-surveys.md
+   → Resolves to: ./role-based-toolkits/project-manager/stakeholder-engagement/stakeholder-surveys.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/project-manager/stakeholder-engagement/README.md (line 32): conflict-resolution.md
+   → Resolves to: ./role-based-toolkits/project-manager/stakeholder-engagement/conflict-resolution.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/project-manager/stakeholder-engagement/README.md (line 33): escalation-procedures.md
+   → Resolves to: ./role-based-toolkits/project-manager/stakeholder-engagement/escalation-procedures.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/project-manager/stakeholder-engagement/README.md (line 36): executive-summary.md
+   → Resolves to: ./role-based-toolkits/project-manager/stakeholder-engagement/executive-summary.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/project-manager/stakeholder-engagement/README.md (line 37): executive-presentation.md
+   → Resolves to: ./role-based-toolkits/project-manager/stakeholder-engagement/executive-presentation.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/project-manager/stakeholder-engagement/README.md (line 38): steering-committee.md
+   → Resolves to: ./role-based-toolkits/project-manager/stakeholder-engagement/steering-committee.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/project-manager/stakeholder-engagement/README.md (line 39): business-update.md
+   → Resolves to: ./role-based-toolkits/project-manager/stakeholder-engagement/business-update.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/project-manager/stakeholder-engagement/README.md (line 65): stakeholder-mapping.md
+   → Resolves to: ./role-based-toolkits/project-manager/stakeholder-engagement/stakeholder-mapping.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/project-manager/stakeholder-engagement/README.md (line 66): stakeholder-analysis.md
+   → Resolves to: ./role-based-toolkits/project-manager/stakeholder-engagement/stakeholder-analysis.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/project-manager/stakeholder-engagement/README.md (line 67): raci-matrix.md
+   → Resolves to: ./role-based-toolkits/project-manager/stakeholder-engagement/raci-matrix.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/project-manager/stakeholder-engagement/README.md (line 70): engagement-plan.md
+   → Resolves to: ./role-based-toolkits/project-manager/stakeholder-engagement/engagement-plan.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/project-manager/stakeholder-engagement/README.md (line 71): communication-matrix.md
+   → Resolves to: ./role-based-toolkits/project-manager/stakeholder-engagement/communication-matrix.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/project-manager/stakeholder-engagement/README.md (line 72): communication-calendar.md
+   → Resolves to: ./role-based-toolkits/project-manager/stakeholder-engagement/communication-calendar.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/project-manager/stakeholder-engagement/README.md (line 75): meeting-agendas.md
+   → Resolves to: ./role-based-toolkits/project-manager/stakeholder-engagement/meeting-agendas.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/project-manager/stakeholder-engagement/README.md (line 76): feedback-tools.md
+   → Resolves to: ./role-based-toolkits/project-manager/stakeholder-engagement/feedback-tools.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/project-manager/stakeholder-engagement/README.md (line 77): business-update.md
+   → Resolves to: ./role-based-toolkits/project-manager/stakeholder-engagement/business-update.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/project-manager/stakeholder-engagement/README.md (line 80): stakeholder-surveys.md
+   → Resolves to: ./role-based-toolkits/project-manager/stakeholder-engagement/stakeholder-surveys.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/project-manager/stakeholder-engagement/README.md (line 81): conflict-resolution.md
+   → Resolves to: ./role-based-toolkits/project-manager/stakeholder-engagement/conflict-resolution.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/project-manager/stakeholder-engagement/README.md (line 82): escalation-procedures.md
+   → Resolves to: ./role-based-toolkits/project-manager/stakeholder-engagement/escalation-procedures.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/project-manager/stakeholder-engagement/README.md (line 201): conflict-resolution.md
+   → Resolves to: ./role-based-toolkits/project-manager/stakeholder-engagement/conflict-resolution.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/project-manager/stakeholder-engagement/README.md (line 201): escalation-procedures.md
+   → Resolves to: ./role-based-toolkits/project-manager/stakeholder-engagement/escalation-procedures.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/scrum-master/README.md (line 19): agile-metrics/
+   → Resolves to: ./role-based-toolkits/scrum-master/agile-metrics/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/scrum-master/README.md (line 27): impediment-removal/
+   → Resolves to: ./role-based-toolkits/scrum-master/impediment-removal/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/scrum-master/README.md (line 35): team-facilitation/
+   → Resolves to: ./role-based-toolkits/scrum-master/team-facilitation/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/scrum-master/agile-ceremonies/README.md (line 30): sprint-planning-template.md
+   → Resolves to: ./role-based-toolkits/scrum-master/agile-ceremonies/sprint-planning-template.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/scrum-master/agile-ceremonies/README.md (line 74): daily-standup-template.md
+   → Resolves to: ./role-based-toolkits/scrum-master/agile-ceremonies/daily-standup-template.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/scrum-master/agile-ceremonies/README.md (line 118): sprint-review-template.md
+   → Resolves to: ./role-based-toolkits/scrum-master/agile-ceremonies/sprint-review-template.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/scrum-master/agile-ceremonies/README.md (line 164): sprint-retrospective-template.md
+   → Resolves to: ./role-based-toolkits/scrum-master/agile-ceremonies/sprint-retrospective-template.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/scrum-master/agile-ceremonies/README.md (line 215): backlog-refinement-template.md
+   → Resolves to: ./role-based-toolkits/scrum-master/agile-ceremonies/backlog-refinement-template.md
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/scrum-master/agile-ceremonies/README.md (line 323): ../agile-metrics/
+   → Resolves to: ./role-based-toolkits/scrum-master/agile-ceremonies/../agile-metrics/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/scrum-master/agile-ceremonies/README.md (line 324): ../agile-metrics/
+   → Resolves to: ./role-based-toolkits/scrum-master/agile-ceremonies/../agile-metrics/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/scrum-master/agile-ceremonies/README.md (line 325): ../impediment-removal/
+   → Resolves to: ./role-based-toolkits/scrum-master/agile-ceremonies/../impediment-removal/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./role-based-toolkits/scrum-master/agile-ceremonies/README.md (line 326): ../team-facilitation/
+   → Resolves to: ./role-based-toolkits/scrum-master/agile-ceremonies/../team-facilitation/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+❌ ./workflow-orchestration/README.md (line 608): ../dashboard/
+   → Resolves to: ./workflow-orchestration/../dashboard/
+   💡 RECOMMENDATION: Create missing file or fix link
+
+🎯 TOP PRIORITY FIXES:
+=====================
+The following README.md files should be created in existing directories:
+
+📈 Link Health Score: 44% (373/829 internal links working)
+
+✨ Analysis complete!
