@@ -22,6 +22,7 @@ This guide helps you quickly get oriented and find the resources you need, wheth
 
 ---
 
+<a id="new-pm-quick-start"></a>
 ## New PM Quick Start
 
 ### Step 1: Understand Your Options
@@ -47,6 +48,7 @@ This guide helps you quickly get oriented and find the resources you need, wheth
 
 ---
 
+<a id="project-kickoff-kit"></a>
 ## Project Kickoff Kit
 
 ### Immediate Actions (Week 1)
@@ -66,6 +68,7 @@ This guide helps you quickly get oriented and find the resources you need, wheth
 
 ---
 
+<a id="methodology-transition"></a>
 ## Methodology Transition
 
 ### From Traditional to Agile
