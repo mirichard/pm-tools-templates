@@ -9,13 +9,13 @@ This guide helps you quickly get oriented and find the resources you need, wheth
 ## 🎯 What's Your Situation?
 
 ### I'm New to Project Management
-👋 **Start here:** [New PM Quick Start](#new-pm-quick-start)
+👋 **Start here:** [New PM Quick Start](#-new-pm-quick-start)
 
 ### I Have a Project Starting Soon
-🚀 **Start here:** [Project Kickoff Kit](#project-kickoff-kit)
+🚀 **Start here:** [Project Kickoff Kit](#-project-kickoff-kit)
 
 ### I'm Transitioning Methodologies
-🔄 **Start here:** [Methodology Transition Guide](#methodology-transition)
+🔄 **Start here:** [Methodology Transition Guide](#-methodology-transition)
 
 ### I Need Executive Reporting
 📊 **Start here:** [Business Stakeholder Suite](../../business-stakeholder-suite/)
