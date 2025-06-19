@@ -4,6 +4,7 @@ A comprehensive, real-time project health monitoring dashboard built with Next.j
 
 ![Dashboard Preview](https://via.placeholder.com/800x400/3B82F6/FFFFFF?text=Dashboard+Preview)
 
+<a id="features"></a>
 ## 🚀 Features
 
 ### Core Functionality
@@ -29,6 +30,7 @@ A comprehensive, real-time project health monitoring dashboard built with Next.j
 - **Recharts**: Professional data visualizations
 - **Lucide Icons**: Modern icon library
 - **API Integration**: Ready for real data sources
+<a id="success-criteria-achievement"></a>
 
 ## 📊 Success Criteria Achievement
 
@@ -36,6 +38,7 @@ A comprehensive, real-time project health monitoring dashboard built with Next.j
 ✅ **12+ key metrics**: Comprehensive project health tracking  
 ✅ **Mobile-responsive**: Professional design across all devices  
 ✅ **Integration ready**: API layer for PM tools  
+<a id="quick-start"></a>
 ✅ **User satisfaction**: Intuitive UX with customization options
 
 ## 🛠 Quick Start
@@ -62,8 +65,10 @@ Visit [http://localhost:3000](http://localhost:3000) to view the dashboard.
 ### Environment Setup
 ```bash
 # Copy environment template
+<a id="next_public_api_base_urlyour-api-endpoint"></a>
 cp .env.example .env.local
 
+<a id="architecture"></a>
 # Update with your configuration
 # NEXT_PUBLIC_API_BASE_URL=your-api-endpoint
 ```
@@ -94,6 +99,7 @@ dashboard-mvp/
 
 ### API Integration
 The dashboard includes a flexible API layer (`src/lib/api.ts`) that:
+<a id="customization"></a>
 - Supports real API integration with fallback to mock data
 - Provides TypeScript interfaces for all data structures
 - Includes auto-refresh capabilities
@@ -110,6 +116,7 @@ The dashboard includes a flexible API layer (`src/lib/api.ts`) that:
 - **Light Theme**: Professional light mode
 - **Dark Theme**: Eye-friendly dark mode  
 - **Auto Theme**: System preference detection
+<a id="metrics-tracked"></a>
 
 ### Export Formats
 - **PDF**: Professional reports with charts
@@ -135,6 +142,7 @@ The dashboard includes a flexible API layer (`src/lib/api.ts`) that:
 - Risk trend analysis
 - Mitigation status tracking
 - Impact/probability matrix
+<a id="deployment"></a>
 
 ### Team Performance
 - Resource utilization (78% avg)
@@ -149,6 +157,7 @@ The dashboard includes a flexible API layer (`src/lib/api.ts`) that:
 npm run dev      # Start development server
 npm run build    # Build for production
 npm run start    # Start production server
+<a id="deploy-to-vercel-recommended"></a>
 npm run lint     # Run ESLint
 ```
 
@@ -162,6 +171,7 @@ npx vercel --prod
 
 # Or deploy to your preferred platform
 npm run start
+<a id="api-integration"></a>
 ```
 
 ### Environment Variables
@@ -176,6 +186,7 @@ See `.env.example` for complete configuration options including:
 Replace mock data with real APIs by updating `src/lib/api.ts`:
 
 ```typescript
+<a id="mobile-support"></a>
 // Update base URL
 const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL;
 
@@ -183,6 +194,7 @@ const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL;
 async fetchDashboardData(): Promise<DashboardData> {
   const response = await fetch(`${baseUrl}/dashboard`);
   return await response.json();
+<a id="security"></a>
 }
 ```
 
@@ -190,6 +202,7 @@ async fetchDashboardData(): Promise<DashboardData> {
 
 The dashboard is fully responsive with:
 - Mobile-optimized layouts
+<a id="performance"></a>
 - Touch-friendly interactions  
 - Adaptive grid systems
 - Condensed navigation
@@ -198,11 +211,13 @@ The dashboard is fully responsive with:
 
 Production-ready security features:
 - Content Security Policy headers
+<a id="documentation"></a>
 - XSS protection
 - CSRF prevention
 - Secure environment handling
 
 ## 🎯 Performance
+<a id="contributing"></a>
 
 Optimized for speed:
 - Next.js 15 with Turbopack
@@ -210,9 +225,11 @@ Optimized for speed:
 - Image optimization
 - Efficient re-rendering
 - Local state management
+<a id="license"></a>
 
 ## 📚 Documentation
 
+<a id="acknowledgments"></a>
 - **Component Documentation**: TypeScript interfaces provide full API docs
 - **API Documentation**: See `src/lib/api.ts` for data structures
 - **Customization Guide**: Settings panel provides UI-based configuration

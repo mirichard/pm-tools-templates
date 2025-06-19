@@ -2,6 +2,7 @@
 
 A powerful, flexible workflow orchestration engine for Node.js that enables you to define, execute, and manage complex multi-step workflows with conditional logic, parallel execution, and robust error handling.
 
+<a id="features"></a>
 ## 🚀 Features
 
 - **Multi-step Workflows**: Define complex workflows with sequential, parallel, and conditional steps
@@ -14,12 +15,14 @@ A powerful, flexible workflow orchestration engine for Node.js that enables you 
 - **Performance Monitoring**: Built-in metrics and execution tracking
 - **Workflow Validation**: Validate workflow definitions before execution
 - **Pause/Resume/Cancel**: Full control over workflow execution lifecycle
+<a id="installation"></a>
 
 ## 📦 Installation
 
 ```bash
 cd workflow-orchestration
 npm install
+<a id="quick-start"></a>
 ```
 
 ## 🎯 Quick Start
@@ -64,6 +67,7 @@ await engine.shutdown();
 ### Running the Demo
 
 ```bash
+<a id="workflow-definition"></a>
 npm run demo
 ```
 
@@ -117,6 +121,7 @@ const workflow = new WorkflowBuilder()
   .addLogMessage('log-result', {
     message: 'Received {{apiData.data.length}} records',
     level: 'info'
+<a id="built-in-actions"></a>
   })
   .build();
 ```
@@ -171,6 +176,7 @@ const workflow = new WorkflowBuilder()
     data: {
       itemCount: '{{items.length}}',
       timestamp: '{{timestamp}}'
+<a id="conditional-logic"></a>
     }
   }
 }
@@ -233,6 +239,7 @@ const workflow = new WorkflowBuilder()
 ### Supported Operators
 
 - **Comparison**: `==`, `===`, `!=`, `!==`, `>`, `>=`, `<`, `<=`
+<a id="parallel-execution"></a>
 - **Logical**: `&&`, `||`, `!`
 - **String**: `contains`, `startsWith`, `endsWith`, `matches`
 - **Array**: `in`, `notIn`
@@ -264,6 +271,7 @@ const workflow = new WorkflowBuilder()
       name: 'task-3',
       type: 'log-message',
       parameters: {
+<a id="branching"></a>
         message: 'Processing in parallel'
       }
     }
@@ -308,6 +316,7 @@ const workflow = new WorkflowBuilder()
           type: 'log-message',
           parameters: {
             message: 'Running development steps'
+<a id="variable-interpolation"></a>
           }
         }
       ]
@@ -341,6 +350,7 @@ const context = {
   }
 }
 ```
+<a id="custom-actions"></a>
 
 ### Built-in Variables
 
@@ -383,6 +393,7 @@ class CustomAction {
     // Validation logic here
     return {
       valid: errors.length === 0,
+<a id="monitoring-and-metrics"></a>
       errors,
       warnings: []
     };
@@ -403,6 +414,7 @@ const status = engine.getExecutionStatus(executionId);
 const metrics = engine.getMetrics();
 console.log(metrics);
 // Output:
+<a id="execution-control"></a>
 // {
 //   totalExecutions: 15,
 //   successfulExecutions: 13,
@@ -418,6 +430,7 @@ console.log(metrics);
 
 ```javascript
 // Execute workflow
+<a id="validation"></a>
 const result = await engine.executeWorkflow(workflow, context);
 
 // Pause workflow
@@ -431,6 +444,7 @@ await engine.cancelWorkflow(executionId);
 ```
 
 ## ✅ Validation
+<a id="architecture"></a>
 
 ```javascript
 import { WorkflowUtils } from './src/index.js';
@@ -441,6 +455,7 @@ const validation = await WorkflowUtils.validateWorkflow(workflow);
 if (!validation.valid) {
   console.error('Validation errors:', validation.errors);
   console.warn('Validation warnings:', validation.warnings);
+<a id="examples"></a>
 }
 ```
 
@@ -552,6 +567,7 @@ const healthCheckWorkflow = new WorkflowBuilder()
     left: '{{healthStatus.status}}',
     right: 200
   })
+<a id="testing"></a>
   .addLogMessage('unhealthy', {
     message: 'Service {{serviceName}} is unhealthy',
     level: 'error',
@@ -565,6 +581,7 @@ const healthCheckWorkflow = new WorkflowBuilder()
     right: 200
   })
   .build();
+<a id="deployment"></a>
 ```
 
 ## 🧪 Testing
@@ -573,6 +590,7 @@ const healthCheckWorkflow = new WorkflowBuilder()
 # Run demo to test functionality
 npm run demo
 
+<a id="contributing"></a>
 # Test with custom workflows
 node -e "
 import('./demo.js').then(module => {
@@ -580,14 +598,17 @@ import('./demo.js').then(module => {
 });
 "
 ```
+<a id="license"></a>
 
 ## 🚀 Deployment
 
+<a id="related-components"></a>
 The workflow orchestration engine can be deployed in various environments:
 
 1. **Standalone Service**: Run as a dedicated microservice
 2. **Embedded Library**: Integrate into existing applications
 3. **Serverless Functions**: Use in AWS Lambda, Azure Functions, etc.
+<a id="support"></a>
 4. **Container Deployment**: Deploy using Docker containers
 
 ## 🤝 Contributing

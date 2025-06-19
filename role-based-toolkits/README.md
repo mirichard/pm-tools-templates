@@ -6,6 +6,7 @@ This section provides curated template collections specific to different PM role
 
 ---
 
+<a id="how-role-based-toolkits-work"></a>
 ## 🎭 How Role-Based Toolkits Work
 
 ### Focused Collections
@@ -23,7 +24,9 @@ Toolkits are designed to work together:
 - **Escalation paths** between roles
 
 ---
+<a id="available-toolkits"></a>
 
+<a id="project-managerproject-manager-the-orchestrator"></a>
 ## 👥 Available Toolkits
 
 ### [Project Manager](project-manager/) - "The Orchestrator"
@@ -43,6 +46,7 @@ Toolkits are designed to work together:
 - **[Governance Tools](project-manager/governance-tools/)** - Control and oversight frameworks
 
 **Team Size:** 5-50 people | **Project Duration:** 3 months - 2 years
+<a id="program-managerprogram-manager-the-strategist"></a>
 
 ---
 
@@ -62,6 +66,7 @@ Toolkits are designed to work together:
 - **[Cross-Project Coordination](program-manager/cross-project-coordination/)** - Integration and dependency management
 - **[Strategic Reporting](program-manager/strategic-reporting/)** - Executive-level communication
 
+<a id="scrum-masterscrum-master-the-facilitator"></a>
 **Team Size:** 50-200+ people | **Program Duration:** 1-5 years
 
 ---
@@ -81,6 +86,7 @@ Toolkits are designed to work together:
 - **[Team Facilitation](scrum-master/team-facilitation/)** - Meeting management and collaboration tools
 - **[Impediment Removal](scrum-master/impediment-removal/)** - Issue identification and resolution
 - **[Agile Metrics](scrum-master/agile-metrics/)** - Team performance and health tracking
+<a id="product-ownerproduct-owner-the-visionary"></a>
 
 **Team Size:** 5-9 people | **Sprint Duration:** 1-4 weeks
 
@@ -100,6 +106,7 @@ Toolkits are designed to work together:
 - **[Product Strategy](product-owner/product-strategy/)** - Vision, roadmap, and strategic planning
 - **[Backlog Management](product-owner/backlog-management/)** - User stories, prioritization, and grooming
 - **[Stakeholder Collaboration](product-owner/stakeholder-collaboration/)** - Feedback collection and integration
+<a id="executive-sponsorexecutive-sponsor-the-champion"></a>
 - **[Value Measurement](product-owner/value-measurement/)** - ROI tracking and optimization
 
 **Stakeholder Groups:** 5-20 groups | **Product Lifecycle:** 6 months - ongoing
@@ -119,6 +126,7 @@ Toolkits are designed to work together:
 **Toolkit Includes:**
 - **[Governance Oversight](executive-sponsor/governance-oversight/)** - Strategic control frameworks
 - **[Strategic Alignment](executive-sponsor/strategic-alignment/)** - Business case and portfolio management
+<a id="role-interaction-matrix"></a>
 - **[Investment Tracking](executive-sponsor/investment-tracking/)** - ROI and value realization
 - **[Decision Frameworks](executive-sponsor/decision-frameworks/)** - Executive decision support tools
 
@@ -130,6 +138,7 @@ Toolkits are designed to work together:
 
 | From → To | Project Manager | Program Manager | Scrum Master | Product Owner | Executive Sponsor |
 |------------|----------------|----------------|--------------|---------------|------------------|
+<a id="getting-started-guide"></a>
 | **Project Manager** | - | Reports status, escalates issues | Coordinates delivery, shares resources | Aligns on scope, manages expectations | Reports progress, requests decisions |
 | **Program Manager** | Provides direction, allocates resources | - | Sets strategic context | Aligns product strategy | Reports portfolio status |
 | **Scrum Master** | Reports team health, escalates impediments | Coordinates across teams | - | Facilitates collaboration | Escalates organizational impediments |
@@ -147,38 +156,46 @@ Toolkits are designed to work together:
 **I coordinate multiple projects** → [Program Manager Toolkit](program-manager/)
 
 **I facilitate agile teams** → [Scrum Master Toolkit](scrum-master/)
+<a id="project-manager-scrum-master"></a>
 
 **I define product requirements** → [Product Owner Toolkit](product-owner/)
 
 **I provide executive oversight** → [Executive Sponsor Toolkit](executive-sponsor/)
+<a id="product-owner-project-manager"></a>
 
 ### Multi-Role Scenarios
 
 Many professionals wear multiple hats. Here are common combinations:
+<a id="program-manager-executive-sponsor"></a>
 
 #### **Project Manager + Scrum Master**
 - Use [Project Manager Essential Templates](project-manager/essential-templates/) for planning
 - Use [Scrum Master Agile Ceremonies](scrum-master/agile-ceremonies/) for execution
 - Blend [Reporting Dashboards](project-manager/reporting-dashboards/) with [Agile Metrics](scrum-master/agile-metrics/)
 
+<a id="career-development-paths"></a>
 #### **Product Owner + Project Manager**
 - Start with [Product Strategy](product-owner/product-strategy/) for vision
 - Use [Project Manager Planning](project-manager/essential-templates/) for execution
+<a id="new-to-pm-project-manager"></a>
 - Combine [Backlog Management](product-owner/backlog-management/) with [Stakeholder Engagement](project-manager/stakeholder-engagement/)
 
 #### **Program Manager + Executive Sponsor**
 - Use [Executive Sponsor Strategic Alignment](executive-sponsor/strategic-alignment/) for direction
 - Apply [Program Manager Coordination](program-manager/cross-project-coordination/) for execution
+<a id="project-manager-program-manager"></a>
 - Blend [Investment Tracking](executive-sponsor/investment-tracking/) with [Strategic Reporting](program-manager/strategic-reporting/)
 
 ---
 
 ## 🗺️ Career Development Paths
+<a id="individual-contributor-product-owner"></a>
 
 ### Progressive Skill Building
 
 #### **New to PM** → **Project Manager**
 1. Start with [Essential Templates](project-manager/essential-templates/)
+<a id="team-lead-scrum-master"></a>
 2. Add [Stakeholder Engagement](project-manager/stakeholder-engagement/)
 3. Master [Reporting Dashboards](project-manager/reporting-dashboards/)
 4. Learn [Governance Tools](project-manager/governance-tools/)
@@ -186,6 +203,7 @@ Many professionals wear multiple hats. Here are common combinations:
 #### **Project Manager** → **Program Manager**
 1. Master all [Project Manager](project-manager/) toolkit
 2. Add [Program Governance](program-manager/program-governance/)
+<a id="integration-points"></a>
 3. Learn [Portfolio Alignment](program-manager/portfolio-alignment/)
 4. Develop [Strategic Reporting](program-manager/strategic-reporting/) skills
 
@@ -210,6 +228,7 @@ Each role uses [Project Lifecycle](../project-lifecycle/) templates differently:
 - **Project Managers:** Use all phases comprehensively
 - **Scrum Masters:** Adapt for iterative delivery
 - **Product Owners:** Focus on initiation and closure phases
+<a id="success-tips"></a>
 - **Program Managers:** Coordinate across multiple project lifecycles
 - **Executive Sponsors:** Engage primarily at phase gates
 

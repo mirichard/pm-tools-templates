@@ -1,3 +1,4 @@
+<a id="getting-started-with-pm-tools-templates"></a>
 # Getting Started with PM Tools & Templates
 
 **Your journey to effective project management starts here**
@@ -5,12 +6,15 @@
 This guide helps you quickly get oriented and find the resources you need, whether you're new to project management or looking to improve your current practices.
 
 ---
+<a id="whats-your-situation"></a>
 
+<a id="im-new-to-project-management"></a>
 ## 🎯 What's Your Situation?
 
 ### I'm New to Project Management
 👋 **Start here:** [New PM Quick Start](#new-pm-quick-start)
 
+<a id="im-transitioning-methodologies"></a>
 ### I Have a Project Starting Soon
 🚀 **Start here:** [Project Kickoff Kit](#project-kickoff-kit)
 
@@ -21,18 +25,22 @@ This guide helps you quickly get oriented and find the resources you need, wheth
 📊 **Start here:** [Business Stakeholder Suite](../../business-stakeholder-suite/)
 
 ---
+<a id="step-1-understand-your-options"></a>
 
 <a id="new-pm-quick-start"></a>
 ## New PM Quick Start
 
+<a id="step-2-get-essential-templates"></a>
 ### Step 1: Understand Your Options
 **[→ Read: Methodology Selector](methodology-selector.md)**
 - Learn when to use PMBOK/Waterfall vs Agile vs Hybrid approaches
 - 5-minute decision tree to guide your choice
+<a id="step-3-set-up-your-project"></a>
 
 ### Step 2: Get Essential Templates
 **[→ Use: Template Selector](template-selector.md)**
 - Find templates based on your project type and methodology
+<a id="step-4-choose-your-role-toolkit"></a>
 - Download starter kits for common scenarios
 
 ### Step 3: Set Up Your Project
@@ -43,10 +51,12 @@ This guide helps you quickly get oriented and find the resources you need, wheth
 ### Step 4: Choose Your Role Toolkit
 **[→ Browse: Role-Based Toolkits](../../role-based-toolkits/)**
 - **Project Manager:** [Essential Templates](../../role-based-toolkits/project-manager/essential-templates/)
+<a id="immediate-actions-week-1"></a>
 - **Scrum Master:** [Agile Ceremonies](../../role-based-toolkits/scrum-master/agile-ceremonies/)
 - **Product Owner:** [Product Owner Toolkit](../../role-based-toolkits/product-owner/)
 
 ---
+<a id="planning-phase-week-2-3"></a>
 
 <a id="project-kickoff-kit"></a>
 ## Project Kickoff Kit
@@ -67,6 +77,7 @@ This guide helps you quickly get oriented and find the resources you need, wheth
 3. **[Report Status](../../role-based-toolkits/project-manager/reporting-dashboards/)**
 
 ---
+<a id="from-agile-to-scaledenterprise"></a>
 
 <a id="methodology-transition"></a>
 ## Methodology Transition
@@ -80,6 +91,7 @@ This guide helps you quickly get oriented and find the resources you need, wheth
 ### From Agile to Scaled/Enterprise
 **[→ Use: Scaling Frameworks](../../methodology-frameworks/agile-scrum/scaling-frameworks/)**
 - When pure Agile isn't enough
+<a id="essential-checklists"></a>
 - Scaling frameworks (SAFe, LeSS, Nexus)
 - Governance without losing agility
 
@@ -104,6 +116,7 @@ This guide helps you quickly get oriented and find the resources you need, wheth
 - [ ] Scope clearly defined
 - [ ] Schedule developed with realistic timelines
 - [ ] Resources identified and allocated
+<a id="quick-links"></a>
 - [ ] Risks assessed and mitigation plans created
 - [ ] Quality standards established
 
@@ -122,6 +135,7 @@ This guide helps you quickly get oriented and find the resources you need, wheth
 1. **Daily:** [Daily Standup Notes](../../role-based-toolkits/scrum-master/agile-ceremonies/) | [Issue Log](../../project-lifecycle/04-monitoring-control/issue-management/)
 2. **Weekly:** [Status Reports](../../role-based-toolkits/project-manager/reporting-dashboards/) | [Risk Reviews](../../project-lifecycle/02-planning/risk-management/)
 3. **Monthly:** [Executive Dashboards](../../business-stakeholder-suite/executive-dashboards/) | [Stakeholder Updates](../../business-stakeholder-suite/communication-automation/)
+<a id="pro-tips"></a>
 
 ### Templates by Project Size
 - **Small Projects (< 6 months):** [First Time PM Starter](../../quick-start-kits/first-time-pm-starter/)

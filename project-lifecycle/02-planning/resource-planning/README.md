@@ -1,3 +1,4 @@
+<a id="resource-planning-templates-guidance"></a>
 # Resource Planning Templates & Guidance
 
 **Build the right team with the right skills at the right time**
@@ -5,6 +6,7 @@
 Resource planning is about ensuring your project has the people, skills, and capabilities needed to deliver successfully. This guide helps you identify resource needs, build effective teams, and manage resource allocation across all methodologies.
 
 ---
+<a id="what-youll-find-here"></a>
 
 ## 📋 What You'll Find Here
 
@@ -14,6 +16,7 @@ Resource planning is about ensuring your project has the people, skills, and cap
 - **[Capacity Planning](#capacity-planning)** - Match work to available capacity
 - **[Resource Management](#resource-management)** - Ongoing resource optimization
 
+<a id="quick-start-templates"></a>
 ---
 
 ## 🚀 Quick Start Templates
@@ -22,6 +25,7 @@ Resource planning is about ensuring your project has the people, skills, and cap
 **[→ Download: Resource Management Plan Template](resource-management-plan-template.md)**
 - Complete framework for resource planning and management
 - Roles, responsibilities, and reporting relationships
+<a id="team-charter-raci-matrix"></a>
 - Resource acquisition and release processes
 - Perfect for all project types and methodologies
 
@@ -35,12 +39,14 @@ Resource planning is about ensuring your project has the people, skills, and cap
 ### Agile Team Structure
 **[→ Download: Agile Team Structure Template](agile-team-structure-template.md)**
 - Scrum team roles and responsibilities
+<a id="resource-forecast-budget"></a>
 - Cross-functional team design
 - Sprint capacity planning
 - Ideal for software development and iterative projects
 
 ### Resource Forecast & Budget
 **[→ Download: Resource Forecast Template](resource-forecast-template.md)**
+<a id="skills-matrix-development-plan"></a>
 - Resource loading and capacity planning
 - Budget estimation and tracking
 - Resource utilization metrics
@@ -49,7 +55,9 @@ Resource planning is about ensuring your project has the people, skills, and cap
 ### Skills Matrix & Development Plan
 **[→ Download: Skills Matrix Template](skills-matrix-template.md)**
 - Team skills assessment and gap analysis
+<a id="team-structure-design"></a>
 - Training and development planning
+<a id="traditionalpmbok-team-structure"></a>
 - Succession planning for key roles
 - Great for capability building and risk mitigation
 
@@ -132,6 +140,7 @@ Project Manager (Overall Coordination)
 - Specialized functions support multiple teams
 - Scaled coordination mechanisms
 
+<a id="resource-identification"></a>
 **When to Use:**
 - Large digital transformation projects
 - Organizations transitioning to Agile
@@ -181,6 +190,7 @@ Project Manager (Overall Coordination)
 
 **Example: Senior Software Developer**
 - **Purpose:** Design and implement core application features
+<a id="capacity-planning"></a>
 - **Key Responsibilities:** Code development, technical design, code reviews
 - **Required Skills:** 5+ years experience, specific programming languages, design patterns
 - **Preferred Experience:** Domain knowledge, similar project experience
@@ -245,6 +255,7 @@ Project Manager (Overall Coordination)
 - Sprint-level capacity planning based on team velocity
 - Story point capacity adjusted for team availability
 - Continuous replanning based on actual performance
+<a id="resource-management"></a>
 - Self-organization within capacity constraints
 
 **Hybrid Capacity Planning:**
@@ -311,6 +322,7 @@ Project Manager (Overall Coordination)
 - **Quality:** Low defect rates, high customer satisfaction
 - **Predictability:** Reliable estimation and delivery
 - **Improvement:** Increasing velocity, decreasing cycle time
+<a id="common-resource-planning-pitfalls"></a>
 - **Collaboration:** Cross-functional cooperation, knowledge sharing
 
 **Performance Improvement Actions:**
@@ -344,6 +356,7 @@ Project Manager (Overall Coordination)
 ❌ **Not accounting for ramp-up time** for new team members
 ✅ **Plan 2-4 weeks reduced productivity** for onboarding and learning
 
+<a id="resource-planning-quality-checklist"></a>
 ### Resource Management Failures
 ❌ **Late identification of resource needs** leading to rushed hiring
 ✅ **Plan resource needs early** and start acquisition processes in advance
@@ -375,6 +388,7 @@ Project Manager (Overall Coordination)
 ### Capacity Planning Quality
 - [ ] Work effort estimated using appropriate techniques
 - [ ] Resource availability calendars created
+<a id="related-resources"></a>
 - [ ] Resource loading and leveling completed
 - [ ] Capacity buffers included for uncertainty
 - [ ] Critical resource dependencies identified
@@ -393,6 +407,7 @@ Project Manager (Overall Coordination)
 ### Resource Planning Inputs
 1. **[Project Charter](../../01-initiation/project-charter/)** - High-level resource requirements and constraints
 2. **[Project Management Plan](../project-management-plan/)** - Integration with overall project planning
+<a id="pro-tips"></a>
 3. **[Risk Management](../risk-management/)** - Resource-related risks and mitigation strategies
 
 ### Resource Planning Outputs

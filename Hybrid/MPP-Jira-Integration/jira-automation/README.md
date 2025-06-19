@@ -5,6 +5,7 @@ This directory contains Jira automation rules and configurations to process MPP 
 
 ## Automation Rules
 
+<a id="1-mpp-import-processor"></a>
 ### 1. MPP Import Processor
 **Purpose**: Processes CSV/JSON imports from MPP exports
 
@@ -18,6 +19,7 @@ This directory contains Jira automation rules and configurations to process MPP 
   - Create/update Epics, Stories, Tasks
   - Set field mappings
   - Maintain hierarchy
+<a id="2-epic-creation-rule"></a>
 
 ### 2. Epic Creation Rule
 **Purpose**: Automatically creates Epics from MPP data
@@ -53,6 +55,7 @@ This directory contains Jira automation rules and configurations to process MPP 
     }
   ]
 }
+<a id="3-story-linking-rule"></a>
 ```
 
 ### 3. Story Linking Rule
@@ -91,6 +94,7 @@ This directory contains Jira automation rules and configurations to process MPP 
       "value": "mpp-sync"
     }
   ]
+<a id="4-task-hierarchy-rule"></a>
 }
 ```
 
@@ -125,6 +129,7 @@ This directory contains Jira automation rules and configurations to process MPP 
       "type": "add_label",
       "value": "mpp-sync"
     }
+<a id="5-status-synchronization-rule"></a>
   ]
 }
 ```
@@ -157,6 +162,7 @@ This directory contains Jira automation rules and configurations to process MPP 
         "progress": "{{issue.progress}}",
         "updated_date": "{{now}}"
       }
+<a id="6-field-update-synchronization"></a>
     }
   ]
 }
@@ -194,11 +200,13 @@ This directory contains Jira automation rules and configurations to process MPP 
         "updated_by": "{{issue.updated_by}}"
       }
     }
+<a id="1-prerequisites"></a>
   ]
 }
 ```
 
 ## Setup Instructions
+<a id="2-custom-field-configuration"></a>
 
 ### 1. Prerequisites
 - Jira Administrator access
@@ -210,6 +218,7 @@ This directory contains Jira automation rules and configurations to process MPP 
 Create these custom fields in your Jira project:
 
 | Field Name | Type | Context |
+<a id="3-import-automation-rules"></a>
 |------------|------|--------|
 | External ID | Text | All issue types |
 | Epic Link | Epic Link | Stories, Tasks |
@@ -218,6 +227,7 @@ Create these custom fields in your Jira project:
 | Progress | Number (%) | All issue types |
 | MPP Duration | Text | All issue types |
 
+<a id="4-webhook-configuration"></a>
 ### 3. Import Automation Rules
 
 1. Navigate to **Project Settings > Automation**

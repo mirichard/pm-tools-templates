@@ -2,6 +2,7 @@
 
 **Interactive CLI tool for intelligent PM template generation and project setup**
 
+<a id="features"></a>
 ## 🚀 Features
 
 - **Interactive Project Assessment** - Intelligent questionnaire to understand your project needs
@@ -10,17 +11,21 @@
 - **Project Structure Generation** - Creates organized directory structure for your methodology
 - **Industry-Specific Guidance** - Tailored recommendations for different industries
 - **Multi-Platform Support** - Works on Windows, macOS, and Linux
+<a id="business-value"></a>
 
 ## 🎯 Business Value
 
 - **70% reduction** in project setup time
 - **Standardized template** application across teams
 - **Easier adoption** for non-technical users
+<a id="prerequisites"></a>
 - **Intelligent recommendations** based on project characteristics
 
 ## 📋 Prerequisites
 
+<a id="installation"></a>
 - **Node.js** 16.0.0 or higher
+<a id="option-1-local-development"></a>
 - **npm** or **yarn** package manager
 
 ## 🔧 Installation
@@ -33,13 +38,16 @@ cd pm-tools-templates/tools/template-generator-cli
 
 # Install dependencies
 npm install
+<a id="option-2-global-installation-future"></a>
 
 # Run the CLI
 npm start
 ```
 
 ### Option 2: Global Installation (Future)
+<a id="usage"></a>
 ```bash
+<a id="interactive-mode-recommended"></a>
 # Will be available when published to npm
 npm install -g pm-template-generator
 pm-template generate
@@ -53,7 +61,9 @@ pm-template generate
 npm start
 
 # Or specify the command explicitly
+<a id="how-it-works"></a>
 npm start generate
+<a id="1-project-assessment"></a>
 ```
 
 ### List Available Templates
@@ -61,6 +71,7 @@ npm start generate
 npm start list
 ```
 
+<a id="2-ai-powered-recommendation"></a>
 ## 🧠 How It Works
 
 ### 1. Project Assessment
@@ -68,13 +79,16 @@ The CLI asks intelligent questions about:
 - Project name and industry
 - Team size and experience level
 - Project duration and complexity
+<a id="3-template-generation"></a>
 - Expected change frequency
 - Stakeholder types involved
 
 ### 2. AI-Powered Recommendation
 The recommendation engine analyzes your answers using weighted scoring:
 - **Change Frequency** (30% weight) - How often requirements change
+<a id="supported-methodologies"></a>
 - **Complexity** (25% weight) - Project complexity level
+<a id="agilescrum"></a>
 - **Team Size** (20% weight) - Size of your team
 - **Duration** (15% weight) - Project timeline
 - **Industry** (10% weight) - Industry-specific factors
@@ -87,6 +101,7 @@ Based on the recommendation, the CLI:
 - Generates setup instructions and README
 
 ## 📊 Supported Methodologies
+<a id="traditionalwaterfall-pmbok"></a>
 
 ### Agile/Scrum
 **Best for:**
@@ -112,6 +127,7 @@ Based on the recommendation, the CLI:
 - Project charter template
 - Project management plan template
 - Work breakdown structure template
+<a id="industry-support"></a>
 - Status report template
 
 ### Hybrid
@@ -122,6 +138,7 @@ Based on the recommendation, the CLI:
 - Organizations transitioning between methodologies
 
 **Templates included:**
+<a id="generated-project-structure"></a>
 - Hybrid project charter template
 - Hybrid release planning template
 - Integrated change strategy template
@@ -134,6 +151,7 @@ The CLI provides specialized recommendations for:
 - **🏗️ Construction** - Regulatory compliance, inspection checkpoints
 - **💰 Financial Services** - SOX compliance, security requirements
 - **🏥 Healthcare/Pharmaceutical** - FDA compliance, validation activities
+<a id="example-output"></a>
 - **💻 Information Technology** - System integration, cybersecurity
 - **⚡ Software Development** - CI/CD, agile practices
 - **🌐 General/Other** - Universal best practices
@@ -164,6 +182,7 @@ your-project/
 ? What is your project name? E-commerce Platform
 ? What industry is this project for? Software Development
 ? What is your team size? Medium (6-20 people)
+<a id="development"></a>
 ? What is your project duration? Medium (3-12 months)
 ? How complex is your project? Complex - Many unknowns, high risk
 
@@ -210,6 +229,7 @@ tools/template-generator-cli/
 3. **Template Generator (`generator.js`)**
    - Project structure creation
    - Template copying and customization
+<a id="testing"></a>
    - Documentation generation
 
 ### Adding New Features
@@ -221,6 +241,7 @@ tools/template-generator-cli/
 
 2. **New Industry Support:**
    - Add industry scoring in recommendation engine
+<a id="success-metrics"></a>
    - Add industry-specific instructions in generator
    - Create industry template variants
 
@@ -237,6 +258,7 @@ npm run dev
 
 # Test with different project scenarios
 # - Small agile software project
+<a id="contributing"></a>
 # - Large traditional construction project
 # - Medium hybrid IT project
 ```
@@ -246,9 +268,11 @@ npm run dev
 ### Target Goals
 - **70% reduction** in project setup time
 - **Support for 5+ industries** with specialized templates
+<a id="license"></a>
 - **95% user satisfaction** in beta testing
 - **1000+ downloads** in first month after npm publication
 
+<a id="support"></a>
 ### Current Status
 - ✅ Interactive assessment questionnaire
 - ✅ AI-powered methodology recommendation engine

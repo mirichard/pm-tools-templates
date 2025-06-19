@@ -6,6 +6,7 @@ Good governance ensures projects stay aligned with organizational objectives, fo
 
 ---
 
+<a id="whats-included"></a>
 ## 📋 What's Included
 
 ### Governance Framework
@@ -25,16 +26,19 @@ Good governance ensures projects stay aligned with organizational objectives, fo
 - **[Change Request Template](change-request-template.md)** - Standard change request format
 - **[Change Impact Assessment](change-impact-assessment.md)** - Analyze change implications
 - **[Change Control Board Template](change-control-board.md)** - Governance body for changes
+<a id="quality-reviews"></a>
 
 ### Quality & Reviews
 - **[Quality Gates Template](quality-gates.md)** - Define quality checkpoints
 - **[Project Review Framework](project-review.md)** - Structured project assessments
 - **[Gate Review Checklist](gate-review-checklist.md)** - Phase gate review criteria
+<a id="compliance-audit"></a>
 - **[Quality Assurance Plan](quality-assurance.md)** - Ensure deliverable quality
 
 ### Compliance & Audit
 - **[Compliance Checklist](compliance-checklist.md)** - Ensure regulatory compliance
 - **[Audit Preparation Template](audit-preparation.md)** - Prepare for project audits
+<a id="risk-issue-governance"></a>
 - **[Document Control Framework](document-control.md)** - Manage project documentation
 - **[Approval Workflow Template](approval-workflow.md)** - Define approval processes
 
@@ -42,6 +46,7 @@ Good governance ensures projects stay aligned with organizational objectives, fo
 - **[Risk Governance Framework](risk-governance.md)** - Risk management oversight
 - **[Escalation Matrix](escalation-matrix.md)** - Issue escalation procedures
 - **[Issue Resolution Process](issue-resolution.md)** - Systematic issue handling
+<a id="when-to-use"></a>
 - **[Exception Handling Template](exception-handling.md)** - Manage project exceptions
 
 ---
@@ -49,6 +54,7 @@ Good governance ensures projects stay aligned with organizational objectives, fo
 ## 🎯 When to Use
 
 ### Project Initiation
+<a id="complexhigh-risk-projects"></a>
 - Establish governance structure and authority
 - Define decision-making processes
 - Set up change control procedures
@@ -62,38 +68,47 @@ Good governance ensures projects stay aligned with organizational objectives, fo
 
 ### Organizational Requirements
 - PMO governance standards
+<a id="quick-start-guide"></a>
 - Audit and compliance requirements
+<a id="step-1-establish-governance-week-1"></a>
 - Executive oversight needs
 - Quality assurance mandates
 
 ---
+<a id="step-2-set-up-processes-week-1-2"></a>
 
 ## 🚀 Quick Start Guide
 
 ### Step 1: Establish Governance (Week 1)
+<a id="step-3-implement-controls-ongoing"></a>
 1. **[Governance Charter](governance-charter.md)** - Define governance approach
 2. **[Decision Authority](decision-authority.md)** - Clarify decision rights
 3. **[Governance Roles](governance-roles.md)** - Assign governance responsibilities
 
+<a id="step-4-monitor-improve-ongoing"></a>
 ### Step 2: Set Up Processes (Week 1-2)
 1. **[Change Control Process](change-control-process.md)** - Establish change management
 2. **[Quality Gates](quality-gates.md)** - Define quality checkpoints
 3. **[Escalation Matrix](escalation-matrix.md)** - Set up issue escalation
 
 ### Step 3: Implement Controls (Ongoing)
+<a id="governance-by-project-type"></a>
 1. **[Decision Log](decision-log.md)** - Track all major decisions
+<a id="smallsimple-projects"></a>
 2. **[Change Requests](change-request-template.md)** - Manage changes formally
 3. **[Gate Reviews](gate-review-checklist.md)** - Conduct regular reviews
 
 ### Step 4: Monitor & Improve (Ongoing)
 1. **[Project Reviews](project-review.md)** - Regular governance assessment
 2. **[Compliance Checks](compliance-checklist.md)** - Ensure ongoing compliance
+<a id="mediummoderate-projects"></a>
 3. **[Process Improvement](decision-review.md)** - Refine governance processes
 
 ---
 
 ## 🎓 Governance by Project Type
 
+<a id="largecomplex-projects"></a>
 ### Small/Simple Projects
 **Light Governance:**
 - Simple decision log
@@ -103,6 +118,7 @@ Good governance ensures projects stay aligned with organizational objectives, fo
 
 ### Medium/Moderate Projects
 **Balanced Governance:**
+<a id="governance-by-industry"></a>
 - Structured decision processes
 - Formal change control board
 - Defined quality gates
@@ -110,6 +126,7 @@ Good governance ensures projects stay aligned with organizational objectives, fo
 
 ### Large/Complex Projects
 **Comprehensive Governance:**
+<a id="healthcare-pharmaceutical"></a>
 - Full governance framework
 - Multiple decision authorities
 - Rigorous change control
@@ -121,6 +138,7 @@ Good governance ensures projects stay aligned with organizational objectives, fo
 ## 🏢 Governance by Industry
 
 ### Information Technology
+<a id="construction-engineering"></a>
 - **Security governance** - Data protection and cybersecurity
 - **Architecture reviews** - Technical design approvals
 - **Change advisory boards** - IT change management
@@ -128,6 +146,7 @@ Good governance ensures projects stay aligned with organizational objectives, fo
 
 ### Healthcare & Pharmaceutical
 - **Regulatory compliance** - FDA, HIPAA, GxP requirements
+<a id="governance-effectiveness-metrics"></a>
 - **Clinical governance** - Patient safety protocols
 - **Quality assurance** - Validation and verification
 - **Ethics oversight** - IRB and ethics committee reviews
@@ -145,6 +164,7 @@ Good governance ensures projects stay aligned with organizational objectives, fo
 - **Regulatory approvals** - Permits and regulatory compliance
 
 ---
+<a id="customization-guidelines"></a>
 
 ## 📊 Governance Effectiveness Metrics
 
@@ -166,6 +186,7 @@ Good governance ensures projects stay aligned with organizational objectives, fo
 
 ## 🔧 Customization Guidelines
 
+<a id="best-practices"></a>
 ### Organizational Alignment
 1. **Map to corporate governance** structures and processes
 2. **Align with PMO standards** and methodologies
@@ -187,6 +208,7 @@ Good governance ensures projects stay aligned with organizational objectives, fo
 ---
 
 ## 💡 Best Practices
+<a id="common-governance-pitfalls"></a>
 
 ### Governance Design
 1. **Right-size governance** to project complexity and risk

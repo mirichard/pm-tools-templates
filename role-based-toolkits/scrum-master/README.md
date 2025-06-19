@@ -8,6 +8,7 @@ This toolkit provides Scrum Masters with practical resources to support their te
 
 ## Toolkit Components
 
+<a id="agile-ceremoniesagile-ceremonies"></a>
 ### 📋 [Agile Ceremonies](agile-ceremonies/)
 Templates and guides for facilitating effective Scrum ceremonies:
 - Sprint Planning facilitation guides
@@ -15,6 +16,7 @@ Templates and guides for facilitating effective Scrum ceremonies:
 - Sprint Review presentation templates  
 - Sprint Retrospective techniques and formats
 - Backlog Refinement session guides
+<a id="agile-metricsagile-metrics"></a>
 
 ### 📊 [Agile Metrics](agile-metrics/)
 Tools for tracking and reporting team performance:
@@ -22,6 +24,7 @@ Tools for tracking and reporting team performance:
 - Burndown and burnup charts
 - Team health assessments
 - Impediment tracking and resolution metrics
+<a id="impediment-removalimpediment-removal"></a>
 - Cycle time and lead time analysis
 
 ### 🚧 [Impediment Removal](impediment-removal/)
@@ -29,6 +32,7 @@ Resources for identifying and resolving team blockers:
 - Impediment identification techniques
 - Escalation procedures and templates
 - Root cause analysis frameworks
+<a id="team-facilitationteam-facilitation"></a>
 - Stakeholder communication for impediment resolution
 - Process improvement recommendations
 

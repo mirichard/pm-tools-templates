@@ -6,6 +6,7 @@ These templates provide the fundamental documents and tools required for effecti
 
 ---
 
+<a id="whats-included"></a>
 ## 📋 What's Included
 
 ### Project Initiation
@@ -42,6 +43,7 @@ These templates provide the fundamental documents and tools required for effecti
 - **[Handover Template](handover-template.md)** - Transfer deliverables to operations
 
 ---
+<a id="when-to-use"></a>
 
 ## 🎯 When to Use
 
@@ -54,31 +56,39 @@ These templates provide the fundamental documents and tools required for effecti
 ### All Project Types
 **Universal Application** - Adapt these templates for Traditional, Agile, or Hybrid projects
 
+<a id="quick-start-guide"></a>
 ---
+<a id="week-1-project-foundation"></a>
 
 ## 🚀 Quick Start Guide
 
 ### Week 1: Project Foundation
+<a id="week-2-detailed-planning"></a>
 1. **[Project Charter](project-charter.md)** - Get project authorized
 2. **[Stakeholder Register](stakeholder-register.md)** - Map your stakeholders
 3. **[Communication Plan](communication-plan.md)** - Establish communication rhythm
 
+<a id="week-3-team-setup"></a>
 ### Week 2: Detailed Planning
 1. **[Work Breakdown Structure](work-breakdown-structure.md)** - Break down the work
 2. **[Project Schedule](project-schedule.md)** - Plan timeline and dependencies
 3. **[Risk Register](risk-register.md)** - Identify and plan for risks
+<a id="week-4-execution-readiness"></a>
 
 ### Week 3: Team Setup
 1. **[Team Charter](team-charter.md)** - Establish team agreements
 2. **[Resource Planning](resource-planning.md)** - Confirm team and resources
 3. **[Budget Template](budget-template.md)** - Finalize budget and approvals
 
+<a id="methodology-adaptations"></a>
 ### Week 4: Execution Readiness
+<a id="traditionalpmbok-approach"></a>
 1. **[Status Report](status-report.md)** - Set up regular reporting
 2. **[Issue Log](issue-log.md)** - Prepare issue tracking
 3. **[Performance Dashboard](performance-dashboard.md)** - Establish metrics tracking
 
 ---
+<a id="agilescrum-approach"></a>
 
 ## 🎓 Methodology Adaptations
 
@@ -92,7 +102,9 @@ These templates provide the fundamental documents and tools required for effecti
 - Use lightweight versions of templates
 - Iterate and refine throughout project
 - Focus on working deliverables over documentation
+<a id="template-selection-guide"></a>
 - Adapt and respond to change
+<a id="small-projects-3-months-5-people"></a>
 
 ### Hybrid Approach
 - Select templates based on project component risk
@@ -100,6 +112,7 @@ These templates provide the fundamental documents and tools required for effecti
 - Scale documentation to project complexity
 - Flexible governance and control
 
+<a id="medium-projects-3-12-months-5-15-people"></a>
 ---
 
 ## 💡 Template Selection Guide
@@ -107,6 +120,7 @@ These templates provide the fundamental documents and tools required for effecti
 ### Small Projects (< 3 months, < 5 people)
 **Essential Only:**
 - Project Charter
+<a id="large-projects-12-months-15-people"></a>
 - Stakeholder Register
 - Simple Schedule
 - Status Report
@@ -115,6 +129,7 @@ These templates provide the fundamental documents and tools required for effecti
 ### Medium Projects (3-12 months, 5-15 people)
 **Core Set:**
 - All Essential Templates
+<a id="customization-tips"></a>
 - Work Breakdown Structure
 - Risk Register
 - Communication Plan

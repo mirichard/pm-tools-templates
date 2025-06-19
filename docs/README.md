@@ -1,3 +1,4 @@
+<a id="pm-tools-templates-documentation"></a>
 # PM Tools & Templates Documentation
 
 **Welcome to the Project Management Tools & Templates Library**
@@ -5,24 +6,33 @@
 This documentation helps you navigate and effectively use our comprehensive collection of project management resources.
 
 ---
+<a id="quick-start"></a>
 
+<a id="new-to-project-management"></a>
 ## 🚀 Quick Start
 
+<a id="need-templates-now"></a>
 ### New to Project Management?
 👉 **[Getting Started Guide](getting-started/README.md)** - Essential concepts and first steps
+<a id="choosing-your-approach"></a>
 
 ### Need Templates Now?
 👉 **[Template Selector](getting-started/template-selector.md)** - Find the right templates for your situation
 
+<a id="documentation-sections"></a>
 ### Choosing Your Approach?
+<a id="getting-startedgetting-started"></a>
 👉 **[Methodology Selector](getting-started/methodology-selector.md)** - PMBOK vs Agile vs Hybrid guidance
 
+<a id="methodology-guidesmethodology-guides"></a>
 ---
 
+<a id="implementationimplementation"></a>
 ## 📚 Documentation Sections
 
 ### [Getting Started](getting-started/)
 Essential guides for new users and quick template selection
+<a id="popular-resources"></a>
 
 ### [Methodology Guides](methodology-guides/)
 In-depth guidance on PMBOK, Agile, and Hybrid approaches
@@ -41,6 +51,7 @@ Change management, tool integration, and scaling practices
 
 ### By Project Phase
 - **[Project Initiation](../project-lifecycle/01-initiation/)** - Charters, stakeholder analysis, business cases
+<a id="need-help"></a>
 - **[Project Planning](../project-lifecycle/02-planning/)** - Comprehensive planning templates
 - **[Project Execution](../project-lifecycle/03-execution/)** - Work management and team coordination
 

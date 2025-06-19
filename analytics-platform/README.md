@@ -1,3 +1,4 @@
+<a id="usage-analytics-feedback-loop-platform"></a>
 # Usage Analytics & Feedback Loop Platform
 
 **Status:** 🚧 In Development (Phase 2.4)  
@@ -11,15 +12,18 @@ Privacy-first analytics platform that tracks template usage, collects user feedb
 ## Architecture
 
 ### Core Components
+<a id="1-telemetry-collection-privacy-first"></a>
 
 #### 1. Telemetry Collection (Privacy-First)
 - **Opt-in Only:** No tracking without explicit user consent
 - **Granular Controls:** Users select specific data types to share
 - **Data Minimization:** Collect only necessary data for insights
+<a id="2-data-pipeline"></a>
 - **Anonymization:** Personal data anonymization and aggregation
 
 #### 2. Data Pipeline
 ```
+<a id="3-analytics-dashboard"></a>
 User Interactions → Collection SDK → Processing → Analytics DB → Dashboard
 ```
 
@@ -38,6 +42,7 @@ User Interactions → Collection SDK → Processing → Analytics DB → Dashboa
 
 ### Backend  
 - **API:** Node.js + Express + TypeScript
+<a id="privacy-compliance"></a>
 - **Database:** ClickHouse (analytics), PostgreSQL (user data)
 - **Processing:** Apache Kafka + Node.js streams
 - **Cache:** Redis for real-time metrics
@@ -45,16 +50,19 @@ User Interactions → Collection SDK → Processing → Analytics DB → Dashboa
 ### Privacy & Compliance
 - **Consent Management:** GDPR/CCPA compliant consent system
 - **Data Storage:** Encrypted at rest and in transit
+<a id="phase-1-foundation-july-2025"></a>
 - **Retention:** Configurable data retention policies
 - **Export/Delete:** User data export and deletion APIs
 
 ## Features
 
+<a id="phase-2-enhanced-analytics-august-2025"></a>
 ### Phase 1: Foundation (July 2025)
 - [ ] Privacy-first collection SDK
 - [ ] Basic template usage tracking
 - [ ] Consent management system
 - [ ] Simple analytics dashboard
+<a id="phase-3-intelligence-september-2025"></a>
 
 ### Phase 2: Enhanced Analytics (August 2025) 
 - [ ] User journey tracking
@@ -94,21 +102,25 @@ User Interactions → Collection SDK → Processing → Analytics DB → Dashboa
 - Data-driven decisions for 80% of enhancement priorities
 - 25% improvement in template completion rates
 - 15% user satisfaction improvement
+<a id="week-1-2-foundation"></a>
 
 ### Technical Targets
 - <2 second dashboard load times
 - 99.9% data processing uptime
 - <5% performance impact from tracking
+<a id="week-3-4-collection"></a>
 
 ## Implementation Plan
 
 ### Week 1-2: Foundation
 - Set up development environment
+<a id="week-5-8-enhancement"></a>
 - Implement consent management system
 - Create basic collection SDK
 - Design database schema
 
 ### Week 3-4: Collection
+<a id="week-9-12-polish"></a>
 - Implement template usage tracking
 - Add feedback collection APIs
 - Create data processing pipeline

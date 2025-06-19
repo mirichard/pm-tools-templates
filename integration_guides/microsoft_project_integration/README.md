@@ -118,6 +118,7 @@ Microsoft Project can represent our template WBS structure as follows:
 
 ### Importing Templates into Microsoft Project
 
+<a id="method-1-manual-task-creation"></a>
 #### Method 1: Manual Task Creation
 
 1. **Create a New Project**
@@ -134,6 +135,7 @@ Microsoft Project can represent our template WBS structure as follows:
    - Set durations, dependencies, and constraints
    - Add resources and assignments
    - Input custom field values
+<a id="method-2-import-from-excel"></a>
 
 #### Method 2: Import from Excel
 
@@ -145,6 +147,7 @@ Microsoft Project can represent our template WBS structure as follows:
    - In MS Project, select File > Open
    - Select Excel Workbook (*.xlsx)
    - Follow the Import Wizard to map columns
+<a id="method-3-use-template-mpt-files"></a>
    - Verify and adjust task structure after import
 
 #### Method 3: Use Template MPT Files
@@ -169,6 +172,7 @@ Microsoft Project can represent our template WBS structure as follows:
 
 2. **Format for Template Compatibility**
    - Adjust column headers to match template format
+<a id="export-to-pdfhtml-for-sharing"></a>
    - Format dates and durations consistently
    - Save as template-compatible spreadsheet
 
@@ -399,6 +403,7 @@ Microsoft Project can represent our template WBS structure as follows:
    - Earned Value Management reports
 
 4. **Baseline Management**
+<a id="agile-implementation-hybrid"></a>
    - Set multiple baselines at key approval points
    - Track schedule, cost, and scope baselines
    - Report variances per PMBOK guidelines

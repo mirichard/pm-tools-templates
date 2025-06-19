@@ -6,6 +6,7 @@ The Agile-Scrum framework provides a structured yet flexible approach to project
 
 ---
 
+<a id="what-youll-find-here"></a>
 ## 📋 What You'll Find Here
 
 - **[Core Framework](core-framework/)** - Essential Scrum components and practices
@@ -15,6 +16,7 @@ The Agile-Scrum framework provides a structured yet flexible approach to project
 - **[Transition Support](transition-support/)** - Moving from traditional to Agile
 
 ---
+<a id="framework-overview"></a>
 
 ## 🎯 Framework Overview
 
@@ -44,6 +46,7 @@ The Agile-Scrum framework provides a structured yet flexible approach to project
 - **Sprint Backlog** - Work committed for current sprint
 - **Product Increment** - Potentially shippable product at sprint end
 
+<a id="getting-started-with-scrum"></a>
 ---
 
 ## 🚀 Getting Started with Scrum
@@ -78,6 +81,7 @@ The Agile-Scrum framework provides a structured yet flexible approach to project
 3. **Organizational Integration** - Align with enterprise processes
 4. **Performance Optimization** - Focus on delivery speed and quality
 5. **Cultural Embedding** - Agile becomes "how we work"
+<a id="key-performance-indicators"></a>
 
 ---
 
@@ -102,6 +106,7 @@ The Agile-Scrum framework provides a structured yet flexible approach to project
 - **Retrospective Actions** - Implementation of improvement items
 - **Impediment Resolution** - Speed of blockers removal
 - **Definition of Done** - Quality standard compliance
+<a id="framework-adaptation"></a>
 - **Stakeholder Engagement** - Participation in reviews and feedback
 
 ---
@@ -151,13 +156,16 @@ The Agile-Scrum framework provides a structured yet flexible approach to project
 **Large Teams (10+ people):**
 - Team decomposition strategies
 - Scrum of Scrums coordination
+<a id="scaling-approaches"></a>
 - Scaled framework consideration
+<a id="safe-scaled-agile-framework"></a>
 - Enhanced communication protocols
 
 ---
 
 ## 🔄 Scaling Approaches
 
+<a id="less-large-scale-scrum"></a>
 ### SAFe (Scaled Agile Framework)
 **Best for:** Large enterprises with complex dependencies
 - **Program Increment** planning for coordination
@@ -180,6 +188,7 @@ The Agile-Scrum framework provides a structured yet flexible approach to project
 - **Nexus Sprint Review** for integrated demonstration
 
 ### Custom Hybrid Approaches
+<a id="common-implementation-challenges"></a>
 **Best for:** Unique organizational contexts
 - **Phase-gate integration** with traditional governance
 - **Portfolio coordination** with enterprise processes
@@ -215,6 +224,7 @@ The Agile-Scrum framework provides a structured yet flexible approach to project
 - Provide clear feedback mechanisms
 
 ### Technical Debt
+<a id="related-resources"></a>
 **Challenge:** Quality compromises for speed
 **Solutions:**
 - Strong Definition of Done
@@ -226,12 +236,14 @@ The Agile-Scrum framework provides a structured yet flexible approach to project
 
 ## 🔗 Related Resources
 
+<a id="measurement-improvement"></a>
 ### Implementation Support
 1. **[Quick Start Kits](../../quick-start-kits/agile-transformation/)** - Transformation roadmap and tools
 2. **[Role-Based Toolkits](../../role-based-toolkits/)** - Specific guidance for Scrum roles
 3. **[Project Lifecycle](../../project-lifecycle/)** - Integration with traditional project phases
 
 ### Advanced Topics
+<a id="success-factors"></a>
 1. **[Scaling Frameworks](scaling-frameworks/)** - Enterprise Agile approaches
 2. **[DevOps Integration](../emerging-methods/devops/)** - Technical excellence practices
 3. **[Hybrid Approaches](../hybrid-approaches/)** - Combining Agile with traditional methods

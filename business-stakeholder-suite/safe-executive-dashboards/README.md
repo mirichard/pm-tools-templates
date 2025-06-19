@@ -179,6 +179,7 @@ Theme 4: Technology Modernization
 └── Risk Level: Red
 ```
 
+<a id="okr-objectives-and-key-results-tracking"></a>
 ### OKR (Objectives and Key Results) Tracking
 | Objective | Owner | Progress | Key Results Achieved | Status |
 |-----------|-------|----------|---------------------|---------|
@@ -232,6 +233,7 @@ Overall Compliance Score: 92% (Target: 90%+)
 ---
 
 ## Executive Meeting Templates
+<a id="monthly-executive-review-60-minutes"></a>
 
 ### Monthly Executive Review (60 minutes)
 
@@ -278,6 +280,7 @@ Overall Compliance Score: 92% (Target: 90%+)
 
 **Investment Recommendations:**
 - [Recommendation 1]: [Business case]
+<a id="quarterly-business-review-3-hours"></a>
 - [Recommendation 2]: [Business case]
 
 ### Quarterly Business Review (3 hours)
@@ -353,16 +356,19 @@ Source Systems     │ Integration Layer │ Analytics Layer  │ Presentation
 ---
 
 ## Customization Guidelines
+<a id="small-organization-1-3-arts"></a>
 
 ### Organization Size Adaptations
 
 #### Small Organization (1-3 ARTs)
 - **Simplified Metrics:** Focus on essential KPIs only
+<a id="medium-organization-4-10-arts"></a>
 - **Manual Updates:** Weekly/monthly manual data entry acceptable
 - **Basic Visualization:** Simple charts and tables
 - **Combined Dashboards:** Merge program and portfolio views
 
 #### Medium Organization (4-10 ARTs)
+<a id="large-organization-10-arts"></a>
 - **Standard Implementation:** Full dashboard suite
 - **Semi-automated:** Mix of automated and manual data
 - **Role-based Views:** Different dashboards by role
@@ -380,6 +386,7 @@ Source Systems     │ Integration Layer │ Analytics Layer  │ Presentation
 - **Technical Metrics:** Code quality, deployment frequency, MTTR
 - **Innovation Tracking:** R&D investment, patent applications
 - **Market Metrics:** User growth, feature adoption, churn
+<a id="healthcarelife-sciences"></a>
 
 #### Financial Services
 - **Regulatory Metrics:** Compliance scores, audit readiness

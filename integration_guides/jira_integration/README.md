@@ -95,6 +95,7 @@ Create custom fields in Jira to track project management metadata:
 
 ## Implementation Guide
 
+<a id="step-1-prepare-your-jira-instance"></a>
 ### Step 1: Prepare Your Jira Instance
 
 1. **Assess Current Setup**
@@ -106,6 +107,7 @@ Create custom fields in Jira to track project management metadata:
    - Decide on project structure (single project vs. multiple)
    - Select appropriate project types for your methodology
    - Determine required custom fields and issue types
+<a id="step-2-configure-issue-types"></a>
 
 ### Step 2: Configure Issue Types
 
@@ -119,6 +121,7 @@ Create custom fields in Jira to track project management metadata:
 2. **Configure Issue Type Scheme**
    - Create scheme associating issue types with your project
    - Navigate to Administration > Issues > Issue Type Schemes
+<a id="step-3-create-custom-fields"></a>
    - Associate with your project(s)
 
 ### Step 3: Create Custom Fields
@@ -130,6 +133,7 @@ Create custom fields in Jira to track project management metadata:
 
 2. **Create Field Configurations**
    - Configure which fields are required vs. optional
+<a id="step-4-configure-screens-and-field-layout"></a>
    - Set default values where appropriate
    - Group related fields
 
@@ -141,6 +145,7 @@ Create custom fields in Jira to track project management metadata:
    - Configure create/edit/view screens
 
 2. **Associate Screens with Issue Types**
+<a id="step-5-define-workflows"></a>
    - Link screens to issue operations
    - Configure screen scheme
    - Associate with your project
@@ -158,6 +163,7 @@ Create custom fields in Jira to track project management metadata:
    - Add validation conditions
    - Configure post-functions
 
+<a id="step-6-set-up-project-and-boards"></a>
 3. **Associate Workflows with Project**
    - Create workflow scheme
    - Map issue types to workflows
@@ -170,6 +176,7 @@ Create custom fields in Jira to track project management metadata:
    - Configure project details
    - Apply configured schemes
 
+<a id="step-7-import-template-content"></a>
 2. **Set Up Boards**
    - Create Scrum or Kanban board
    - Configure columns to match workflow

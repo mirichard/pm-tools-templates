@@ -217,16 +217,19 @@ await syncEngine.startBidirectionalSync(
 
 ## Development Timeline
 
+<a id="phase-1-foundation-july-2025"></a>
 ### Phase 1: Foundation (July 2025)
 - [ ] **Week 1-2:** Asana API client setup and authentication
 - [ ] **Week 3-4:** Basic project creation from templates
 - [ ] **Week 5-6:** Task and subtask synchronization
 - [ ] **Week 7-8:** Custom field mapping system
+<a id="phase-2-enhancement-august-2025"></a>
 
 ### Phase 2: Enhancement (August 2025)
 - [ ] **Week 9-10:** Bi-directional sync engine
 - [ ] **Week 11-12:** Webhook handling and real-time updates
 - [ ] **Week 13-14:** Conflict resolution and error handling
+<a id="phase-3-polish-september-2025"></a>
 - [ ] **Week 15-16:** Portfolio and goal integration
 
 ### Phase 3: Polish (September 2025)
@@ -272,6 +275,7 @@ await syncEngine.startBidirectionalSync(
 ### User Acceptance Tests
 - Template creation workflows
 - Real-time sync verification
+<a id="support-documentation"></a>
 - Multi-workspace scenarios
 - Error recovery flows
 

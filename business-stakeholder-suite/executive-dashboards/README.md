@@ -6,6 +6,7 @@ Executive dashboards provide high-level, strategic views of project portfolios, 
 
 ---
 
+<a id="what-youll-find-here"></a>
 ## 📋 What You'll Find Here
 
 - **[Excel Workbooks](excel-workbooks/)** - Ready-to-use Excel-based dashboards
@@ -14,6 +15,7 @@ Executive dashboards provide high-level, strategic views of project portfolios, 
 - **[Real-time Dashboards](real-time-dashboards/)** - Digital dashboard solutions
 
 ---
+<a id="dashboard-types"></a>
 
 ## 🎯 Dashboard Types
 
@@ -36,6 +38,7 @@ Executive dashboards provide high-level, strategic views of project portfolios, 
 - **Budget vs. actual** spending across portfolios
 - **ROI tracking** for major initiatives
 - **Cost center performance** and variance analysis
+<a id="innovation-growth-dashboards"></a>
 - **Funding pipeline** and investment priorities
 
 ### Innovation & Growth Dashboards
@@ -44,6 +47,7 @@ Executive dashboards provide high-level, strategic views of project portfolios, 
 - **Market expansion** initiatives and results
 - **Digital transformation** progress indicators
 - **Competitive positioning** and market share
+<a id="key-performance-indicators"></a>
 
 ---
 
@@ -51,6 +55,7 @@ Executive dashboards provide high-level, strategic views of project portfolios, 
 
 ### Portfolio Health Metrics
 - **Project Success Rate:** % of projects delivered on time/budget/scope
+<a id="risk-governance-metrics"></a>
 - **Portfolio ROI:** Average return on investment across initiatives
 - **Strategic Alignment:** % of projects aligned with business strategy
 - **Resource Efficiency:** Utilization rates across business units
@@ -64,6 +69,7 @@ Executive dashboards provide high-level, strategic views of project portfolios, 
 ### Financial Health Indicators
 - **Budget Variance:** Planned vs. actual spending
 - **Forecast Accuracy:** Variance between forecasts and actuals
+<a id="dashboard-design-principles"></a>
 - **Cost per Outcome:** Efficiency of value delivery
 - **Funding Utilization:** % of approved budgets actively deployed
 
@@ -85,6 +91,7 @@ Executive dashboards provide high-level, strategic views of project portfolios, 
 
 ### Update Frequency
 - **Real-time dashboards:** Updated continuously
+<a id="implementation-approaches"></a>
 - **Daily dashboards:** Morning executive briefings
 - **Weekly dashboards:** Board meetings and strategic reviews
 - **Monthly dashboards:** Comprehensive portfolio reviews
@@ -116,6 +123,7 @@ Executive dashboards provide high-level, strategic views of project portfolios, 
 
 ### Hybrid Approaches
 **Best for:** Large organizations with diverse needs
+<a id="success-metrics"></a>
 - Core templates in Excel for broad distribution
 - Key metrics dashboards in BI tools
 - Executive mobile apps for on-the-go access
@@ -131,6 +139,7 @@ Executive dashboards provide high-level, strategic views of project portfolios, 
 - **Update Timeliness:** Data freshness and accuracy
 - **User Satisfaction:** Executive feedback and preference
 
+<a id="related-resources"></a>
 ### Business Impact
 - **Decision Speed:** Time from data to decision
 - **Strategic Alignment:** % decisions aligned with strategy
@@ -144,6 +153,7 @@ Executive dashboards provide high-level, strategic views of project portfolios, 
 ### Supporting Documentation
 1. **[Financial Governance](../financial-governance/)** - Budget and ROI tracking
 2. **[Strategic Alignment](../strategic-alignment/)** - Business case and value management
+<a id="getting-started"></a>
 3. **[Communication Automation](../communication-automation/)** - Stakeholder updates
 
 ### Integration Points
