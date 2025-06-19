@@ -22,7 +22,7 @@ This guide helps you quickly get oriented and find the resources you need, wheth
 
 ---
 
-## 🎓 New PM Quick Start
+## New PM Quick Start
 
 ### Step 1: Understand Your Options
 **[→ Read: Methodology Selector](methodology-selector.md)**
@@ -47,7 +47,7 @@ This guide helps you quickly get oriented and find the resources you need, wheth
 
 ---
 
-## 🚀 Project Kickoff Kit
+## Project Kickoff Kit
 
 ### Immediate Actions (Week 1)
 1. **[Create Project Charter](../../project-lifecycle/01-initiation/project-charter/)**
@@ -66,7 +66,7 @@ This guide helps you quickly get oriented and find the resources you need, wheth
 
 ---
 
-## 🔄 Methodology Transition
+## Methodology Transition
 
 ### From Traditional to Agile
 **[→ Use: Agile Transformation Kit](../../quick-start-kits/agile-transformation/)**
