@@ -16,7 +16,6 @@ Checking: role-based-toolkits/project-manager/reporting-dashboards/README.md
 Checking: role-based-toolkits/project-manager/stakeholder-engagement/README.md
 Checking: role-based-toolkits/project-manager/governance-tools/README.md
 Checking: project-assessment-suite/README.md
-  ✅ Auto-fixed project-assessment-suite/README.md
 Checking: integrations/asana/README.md
 Checking: workflow-orchestration/README.md
 Checking: workflow-orchestration/node_modules/isexe/README.md
