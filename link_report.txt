@@ -1,24 +1,24 @@
 🔍 PM Tools Templates - Comprehensive Link Analysis
 ==================================================
-📂 Found 57 README files to analyze
+📂 Found 65 README files to analyze
 
 🔍 Analyzing links...
-.........................................................
+.................................................................
 
 📊 LINK ANALYSIS SUMMARY
 ========================
-📁 Files processed: 57
+📁 Files processed: 65
 🔗 Total links found: 942
-✅ Working internal links: 373
-❌ Broken internal links: 456
+✅ Working internal links: 404
+❌ Broken internal links: 425
 🔗 Anchor links (skipped): 80
 🌐 External links (skipped): 33
 
 ❌ BROKEN LINKS FOUND
 =====================
 📝 Missing README.md files: 0
-📁 Missing directories: 84
-📄 Other missing files: 372
+📁 Missing directories: 72
+📄 Other missing files: 353
 
 🔧 SPECIFIC BROKEN LINKS:
 =========================
@@ -94,37 +94,21 @@
    → Resolves to: ./analytics-platform/./docs/dashboard.md
    💡 RECOMMENDATION: Create directory structure or fix link path
 
-❌ ./business-stakeholder-suite/README.md (line 34): executive-dashboards/excel-workbooks/
-   → Resolves to: ./business-stakeholder-suite/executive-dashboards/excel-workbooks/
-   💡 RECOMMENDATION: Create missing file or fix link
-
-❌ ./business-stakeholder-suite/README.md (line 35): executive-dashboards/executive-reports/
-   → Resolves to: ./business-stakeholder-suite/executive-dashboards/executive-reports/
-   💡 RECOMMENDATION: Create missing file or fix link
-
-❌ ./business-stakeholder-suite/README.md (line 36): executive-dashboards/board-presentations/
-   → Resolves to: ./business-stakeholder-suite/executive-dashboards/board-presentations/
-   💡 RECOMMENDATION: Create missing file or fix link
-
-❌ ./business-stakeholder-suite/README.md (line 42): communication-automation/
-   → Resolves to: ./business-stakeholder-suite/communication-automation/
-   💡 RECOMMENDATION: Create missing file or fix link
-
 ❌ ./business-stakeholder-suite/README.md (line 46): communication-automation/email-templates/
    → Resolves to: ./business-stakeholder-suite/communication-automation/email-templates/
-   💡 RECOMMENDATION: Create directory structure or fix link path
+   💡 RECOMMENDATION: Create missing file or fix link
 
 ❌ ./business-stakeholder-suite/README.md (line 47): communication-automation/meeting-management/
    → Resolves to: ./business-stakeholder-suite/communication-automation/meeting-management/
-   💡 RECOMMENDATION: Create directory structure or fix link path
+   💡 RECOMMENDATION: Create missing file or fix link
 
 ❌ ./business-stakeholder-suite/README.md (line 48): communication-automation/notification-systems/
    → Resolves to: ./business-stakeholder-suite/communication-automation/notification-systems/
-   💡 RECOMMENDATION: Create directory structure or fix link path
+   💡 RECOMMENDATION: Create missing file or fix link
 
 ❌ ./business-stakeholder-suite/README.md (line 49): communication-automation/stakeholder-updates/
    → Resolves to: ./business-stakeholder-suite/communication-automation/stakeholder-updates/
-   💡 RECOMMENDATION: Create directory structure or fix link path
+   💡 RECOMMENDATION: Create missing file or fix link
 
 ❌ ./business-stakeholder-suite/README.md (line 55): financial-governance/
    → Resolves to: ./business-stakeholder-suite/financial-governance/
@@ -166,16 +150,8 @@
    → Resolves to: ./business-stakeholder-suite/strategic-alignment/governance-frameworks/
    💡 RECOMMENDATION: Create directory structure or fix link path
 
-❌ ./business-stakeholder-suite/README.md (line 92): executive-dashboards/executive-reports/
-   → Resolves to: ./business-stakeholder-suite/executive-dashboards/executive-reports/
-   💡 RECOMMENDATION: Create missing file or fix link
-
 ❌ ./business-stakeholder-suite/README.md (line 93): communication-automation/email-templates/
    → Resolves to: ./business-stakeholder-suite/communication-automation/email-templates/
-   💡 RECOMMENDATION: Create directory structure or fix link path
-
-❌ ./business-stakeholder-suite/README.md (line 105): executive-dashboards/excel-workbooks/
-   → Resolves to: ./business-stakeholder-suite/executive-dashboards/excel-workbooks/
    💡 RECOMMENDATION: Create missing file or fix link
 
 ❌ ./business-stakeholder-suite/README.md (line 106): financial-governance/budget-tracking/
@@ -185,10 +161,6 @@
 ❌ ./business-stakeholder-suite/README.md (line 107): financial-governance/roi-measurement/
    → Resolves to: ./business-stakeholder-suite/financial-governance/roi-measurement/
    💡 RECOMMENDATION: Create directory structure or fix link path
-
-❌ ./business-stakeholder-suite/README.md (line 119): executive-dashboards/board-presentations/
-   → Resolves to: ./business-stakeholder-suite/executive-dashboards/board-presentations/
-   💡 RECOMMENDATION: Create missing file or fix link
 
 ❌ ./business-stakeholder-suite/README.md (line 120): strategic-alignment/portfolio-oversight/
    → Resolves to: ./business-stakeholder-suite/strategic-alignment/portfolio-oversight/
@@ -208,10 +180,6 @@
 
 ❌ ./business-stakeholder-suite/README.md (line 135): communication-automation/stakeholder-updates/
    → Resolves to: ./business-stakeholder-suite/communication-automation/stakeholder-updates/
-   💡 RECOMMENDATION: Create directory structure or fix link path
-
-❌ ./business-stakeholder-suite/README.md (line 151): communication-automation/
-   → Resolves to: ./business-stakeholder-suite/communication-automation/
    💡 RECOMMENDATION: Create missing file or fix link
 
 ❌ ./business-stakeholder-suite/README.md (line 161): financial-governance/budget-tracking/
@@ -224,15 +192,15 @@
 
 ❌ ./business-stakeholder-suite/README.md (line 166): communication-automation/email-templates/
    → Resolves to: ./business-stakeholder-suite/communication-automation/email-templates/
-   💡 RECOMMENDATION: Create directory structure or fix link path
+   💡 RECOMMENDATION: Create missing file or fix link
 
 ❌ ./business-stakeholder-suite/README.md (line 167): communication-automation/meeting-management/
    → Resolves to: ./business-stakeholder-suite/communication-automation/meeting-management/
-   💡 RECOMMENDATION: Create directory structure or fix link path
+   💡 RECOMMENDATION: Create missing file or fix link
 
 ❌ ./business-stakeholder-suite/README.md (line 168): communication-automation/notification-systems/
    → Resolves to: ./business-stakeholder-suite/communication-automation/notification-systems/
-   💡 RECOMMENDATION: Create directory structure or fix link path
+   💡 RECOMMENDATION: Create missing file or fix link
 
 ❌ ./business-stakeholder-suite/README.md (line 171): strategic-alignment/business-case-management/
    → Resolves to: ./business-stakeholder-suite/strategic-alignment/business-case-management/
@@ -256,15 +224,11 @@
 
 ❌ ./business-stakeholder-suite/README.md (line 194): communication-automation/email-templates/
    → Resolves to: ./business-stakeholder-suite/communication-automation/email-templates/
-   💡 RECOMMENDATION: Create directory structure or fix link path
-
-❌ ./business-stakeholder-suite/README.md (line 204): executive-dashboards/executive-reports/
-   → Resolves to: ./business-stakeholder-suite/executive-dashboards/executive-reports/
    💡 RECOMMENDATION: Create missing file or fix link
 
 ❌ ./business-stakeholder-suite/README.md (line 205): communication-automation/notification-systems/
    → Resolves to: ./business-stakeholder-suite/communication-automation/notification-systems/
-   💡 RECOMMENDATION: Create directory structure or fix link path
+   💡 RECOMMENDATION: Create missing file or fix link
 
 ❌ ./business-stakeholder-suite/README.md (line 206): financial-governance/roi-measurement/
    → Resolves to: ./business-stakeholder-suite/financial-governance/roi-measurement/
@@ -273,10 +237,6 @@
 ❌ ./business-stakeholder-suite/README.md (line 207): strategic-alignment/governance-frameworks/
    → Resolves to: ./business-stakeholder-suite/strategic-alignment/governance-frameworks/
    💡 RECOMMENDATION: Create directory structure or fix link path
-
-❌ ./business-stakeholder-suite/README.md (line 217): executive-dashboards/board-presentations/
-   → Resolves to: ./business-stakeholder-suite/executive-dashboards/board-presentations/
-   💡 RECOMMENDATION: Create missing file or fix link
 
 ❌ ./business-stakeholder-suite/README.md (line 218): strategic-alignment/portfolio-oversight/
    → Resolves to: ./business-stakeholder-suite/strategic-alignment/portfolio-oversight/
@@ -290,17 +250,13 @@
    → Resolves to: ./business-stakeholder-suite/strategic-alignment/value-realization/
    💡 RECOMMENDATION: Create directory structure or fix link path
 
-❌ ./business-stakeholder-suite/README.md (line 230): executive-dashboards/excel-workbooks/
-   → Resolves to: ./business-stakeholder-suite/executive-dashboards/excel-workbooks/
-   💡 RECOMMENDATION: Create missing file or fix link
-
 ❌ ./business-stakeholder-suite/README.md (line 231): strategic-alignment/value-realization/
    → Resolves to: ./business-stakeholder-suite/strategic-alignment/value-realization/
    💡 RECOMMENDATION: Create directory structure or fix link path
 
 ❌ ./business-stakeholder-suite/README.md (line 232): communication-automation/stakeholder-updates/
    → Resolves to: ./business-stakeholder-suite/communication-automation/stakeholder-updates/
-   💡 RECOMMENDATION: Create directory structure or fix link path
+   💡 RECOMMENDATION: Create missing file or fix link
 
 ❌ ./business-stakeholder-suite/README.md (line 233): financial-governance/budget-tracking/
    → Resolves to: ./business-stakeholder-suite/financial-governance/budget-tracking/
@@ -322,18 +278,6 @@
    → Resolves to: ./business-stakeholder-suite/strategic-alignment/value-realization/
    💡 RECOMMENDATION: Create directory structure or fix link path
 
-❌ ./business-stakeholder-suite/executive-dashboards/README.md (line 11): excel-workbooks/
-   → Resolves to: ./business-stakeholder-suite/executive-dashboards/excel-workbooks/
-   💡 RECOMMENDATION: Create missing file or fix link
-
-❌ ./business-stakeholder-suite/executive-dashboards/README.md (line 12): executive-reports/
-   → Resolves to: ./business-stakeholder-suite/executive-dashboards/executive-reports/
-   💡 RECOMMENDATION: Create missing file or fix link
-
-❌ ./business-stakeholder-suite/executive-dashboards/README.md (line 13): board-presentations/
-   → Resolves to: ./business-stakeholder-suite/executive-dashboards/board-presentations/
-   💡 RECOMMENDATION: Create missing file or fix link
-
 ❌ ./business-stakeholder-suite/executive-dashboards/README.md (line 14): real-time-dashboards/
    → Resolves to: ./business-stakeholder-suite/executive-dashboards/real-time-dashboards/
    💡 RECOMMENDATION: Create missing file or fix link
@@ -344,10 +288,6 @@
 
 ❌ ./business-stakeholder-suite/executive-dashboards/README.md (line 146): ../strategic-alignment/
    → Resolves to: ./business-stakeholder-suite/executive-dashboards/../strategic-alignment/
-   💡 RECOMMENDATION: Create missing file or fix link
-
-❌ ./business-stakeholder-suite/executive-dashboards/README.md (line 147): ../communication-automation/
-   → Resolves to: ./business-stakeholder-suite/executive-dashboards/../communication-automation/
    💡 RECOMMENDATION: Create missing file or fix link
 
 ❌ ./business-stakeholder-suite/safe-executive-dashboards/README.md (line 406): ../../Waterfall/Templates/business_case_template.md
@@ -396,10 +336,6 @@
 
 ❌ ./docs/getting-started/README.md (line 84): ../../methodology-frameworks/hybrid-approaches/
    → Resolves to: ./docs/getting-started/../../methodology-frameworks/hybrid-approaches/
-   💡 RECOMMENDATION: Create missing file or fix link
-
-❌ ./docs/getting-started/README.md (line 121): ../../business-stakeholder-suite/communication-automation/
-   → Resolves to: ./docs/getting-started/../../business-stakeholder-suite/communication-automation/
    💡 RECOMMENDATION: Create missing file or fix link
 
 ❌ ./integrations/asana/README.md (line 281): ./docs/setup.md
@@ -520,10 +456,6 @@
 
 ❌ ./project-lifecycle/01-initiation/project-charter/README.md (line 191): ../../03-execution/team-coordination/
    → Resolves to: ./project-lifecycle/01-initiation/project-charter/../../03-execution/team-coordination/
-   💡 RECOMMENDATION: Create missing file or fix link
-
-❌ ./project-lifecycle/01-initiation/stakeholder-analysis/README.md (line 22): stakeholder-register-template.md
-   → Resolves to: ./project-lifecycle/01-initiation/stakeholder-analysis/stakeholder-register-template.md
    💡 RECOMMENDATION: Create missing file or fix link
 
 ❌ ./project-lifecycle/01-initiation/stakeholder-analysis/README.md (line 29): agile-stakeholder-map-template.md
@@ -658,10 +590,6 @@
    → Resolves to: ./project-lifecycle/02-planning/resource-planning/../../04-monitoring-control/change-control/
    💡 RECOMMENDATION: Create missing file or fix link
 
-❌ ./project-lifecycle/02-planning/risk-management/README.md (line 22): risk-register-template.md
-   → Resolves to: ./project-lifecycle/02-planning/risk-management/risk-register-template.md
-   💡 RECOMMENDATION: Create missing file or fix link
-
 ❌ ./project-lifecycle/02-planning/risk-management/README.md (line 29): agile-risk-board-template.md
    → Resolves to: ./project-lifecycle/02-planning/risk-management/agile-risk-board-template.md
    💡 RECOMMENDATION: Create missing file or fix link
@@ -754,10 +682,6 @@
    → Resolves to: ./project-lifecycle/04-monitoring-control/../../organizational-frameworks/change-management/
    💡 RECOMMENDATION: Create missing file or fix link
 
-❌ ./project-lifecycle/04-monitoring-control/issue-management/README.md (line 22): issue-log-template.md
-   → Resolves to: ./project-lifecycle/04-monitoring-control/issue-management/issue-log-template.md
-   💡 RECOMMENDATION: Create missing file or fix link
-
 ❌ ./project-lifecycle/04-monitoring-control/issue-management/README.md (line 28): agile-issue-board-template.md
    → Resolves to: ./project-lifecycle/04-monitoring-control/issue-management/agile-issue-board-template.md
    💡 RECOMMENDATION: Create missing file or fix link
@@ -776,10 +700,6 @@
 
 ❌ ./project-lifecycle/04-monitoring-control/issue-management/README.md (line 201): ../../03-execution/team-coordination/
    → Resolves to: ./project-lifecycle/04-monitoring-control/issue-management/../../03-execution/team-coordination/
-   💡 RECOMMENDATION: Create missing file or fix link
-
-❌ ./project-lifecycle/04-monitoring-control/progress-tracking/README.md (line 22): project-dashboard-template.md
-   → Resolves to: ./project-lifecycle/04-monitoring-control/progress-tracking/project-dashboard-template.md
    💡 RECOMMENDATION: Create missing file or fix link
 
 ❌ ./project-lifecycle/04-monitoring-control/progress-tracking/README.md (line 29): evm-tracker-template.md
@@ -950,10 +870,6 @@
    → Resolves to: ./project-lifecycle/05-closure/transition-to-operations/
    💡 RECOMMENDATION: Create missing file or fix link
 
-❌ ./project-lifecycle/README.md (line 149): ../business-stakeholder-suite/communication-automation/
-   → Resolves to: ./project-lifecycle/../business-stakeholder-suite/communication-automation/
-   💡 RECOMMENDATION: Create missing file or fix link
-
 ❌ ./project-lifecycle/README.md (line 152): ../methodology-frameworks/pmbok-waterfall/
    → Resolves to: ./project-lifecycle/../methodology-frameworks/pmbok-waterfall/
    💡 RECOMMENDATION: Create missing file or fix link
@@ -1118,22 +1034,6 @@
    → Resolves to: ./role-based-toolkits/scrum-master/agile-metrics/
    💡 RECOMMENDATION: Create missing file or fix link
 
-❌ ./role-based-toolkits/README.md (line 100): product-owner/product-strategy/
-   → Resolves to: ./role-based-toolkits/product-owner/product-strategy/
-   💡 RECOMMENDATION: Create missing file or fix link
-
-❌ ./role-based-toolkits/README.md (line 101): product-owner/backlog-management/
-   → Resolves to: ./role-based-toolkits/product-owner/backlog-management/
-   💡 RECOMMENDATION: Create missing file or fix link
-
-❌ ./role-based-toolkits/README.md (line 102): product-owner/stakeholder-collaboration/
-   → Resolves to: ./role-based-toolkits/product-owner/stakeholder-collaboration/
-   💡 RECOMMENDATION: Create missing file or fix link
-
-❌ ./role-based-toolkits/README.md (line 103): product-owner/value-measurement/
-   → Resolves to: ./role-based-toolkits/product-owner/value-measurement/
-   💡 RECOMMENDATION: Create missing file or fix link
-
 ❌ ./role-based-toolkits/README.md (line 109): executive-sponsor/
    → Resolves to: ./role-based-toolkits/executive-sponsor/
    💡 RECOMMENDATION: Create missing file or fix link
@@ -1162,14 +1062,6 @@
    → Resolves to: ./role-based-toolkits/scrum-master/agile-metrics/
    💡 RECOMMENDATION: Create missing file or fix link
 
-❌ ./role-based-toolkits/README.md (line 165): product-owner/product-strategy/
-   → Resolves to: ./role-based-toolkits/product-owner/product-strategy/
-   💡 RECOMMENDATION: Create missing file or fix link
-
-❌ ./role-based-toolkits/README.md (line 167): product-owner/backlog-management/
-   → Resolves to: ./role-based-toolkits/product-owner/backlog-management/
-   💡 RECOMMENDATION: Create missing file or fix link
-
 ❌ ./role-based-toolkits/README.md (line 170): executive-sponsor/strategic-alignment/
    → Resolves to: ./role-based-toolkits/executive-sponsor/strategic-alignment/
    💡 RECOMMENDATION: Create directory structure or fix link path
@@ -1196,22 +1088,6 @@
 
 ❌ ./role-based-toolkits/README.md (line 190): program-manager/strategic-reporting/
    → Resolves to: ./role-based-toolkits/program-manager/strategic-reporting/
-   💡 RECOMMENDATION: Create missing file or fix link
-
-❌ ./role-based-toolkits/README.md (line 193): product-owner/backlog-management/
-   → Resolves to: ./role-based-toolkits/product-owner/backlog-management/
-   💡 RECOMMENDATION: Create missing file or fix link
-
-❌ ./role-based-toolkits/README.md (line 194): product-owner/stakeholder-collaboration/
-   → Resolves to: ./role-based-toolkits/product-owner/stakeholder-collaboration/
-   💡 RECOMMENDATION: Create missing file or fix link
-
-❌ ./role-based-toolkits/README.md (line 195): product-owner/product-strategy/
-   → Resolves to: ./role-based-toolkits/product-owner/product-strategy/
-   💡 RECOMMENDATION: Create missing file or fix link
-
-❌ ./role-based-toolkits/README.md (line 196): product-owner/value-measurement/
-   → Resolves to: ./role-based-toolkits/product-owner/value-measurement/
    💡 RECOMMENDATION: Create missing file or fix link
 
 ❌ ./role-based-toolkits/README.md (line 199): scrum-master/team-facilitation/
@@ -1850,6 +1726,6 @@
 =====================
 The following README.md files should be created in existing directories:
 
-📈 Link Health Score: 44% (373/829 internal links working)
+📈 Link Health Score: 48% (404/829 internal links working)
 
 ✨ Analysis complete!
