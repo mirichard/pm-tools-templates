@@ -1,6 +1,6 @@
 # PM Tools Templates - Project Health Dashboard
 
-**Last Updated:** Thu Jun 19 12:11:50 UTC 2025  
+**Last Updated:** Thu Jun 19 15:49:37 UTC 2025  
 **Project Health:** 🟠 fair  
 **Overall Progress:** 86%
 
@@ -13,7 +13,7 @@
 | **Project Completion** | 86% | 📉 Needs Attention | 🟠 |
 | **Strategic Progress** | 20% | 📉 Behind | 🔴 |
 | **Weekly Velocity** | 7 issues/week | 📈 Strong | 🟢 |
-| **Risk Score** | 205 points | 📈 Elevated | 🔴 |
+| **Risk Score** | 210 points | 📈 Elevated | 🔴 |
 
 ## 📈 Progress Overview
 
@@ -43,8 +43,8 @@
 ### Current Risk Factors
 - **Critical Issues:** 0 (25 points each)
 - **High Priority Issues:** 13 (15 points each)
-- **Open Bugs:** 2 (5 points each)
-- **Total Risk Score:** 205 points
+- **Open Bugs:** 3 (5 points each)
+- **Total Risk Score:** 210 points
 
 ### Risk Level: 🔴 HIGH
 
@@ -58,7 +58,7 @@
 | Type | Count | Percentage |
 |------|-------|------------|
 | Enhancement | 30 | 100% |
-| Bug | 2 | 6% |
+| Bug | 3 | 10% |
 | Critical | 0 | 0% |
 | High Priority | 13 | 43% |
 
@@ -70,7 +70,7 @@
 - **Velocity Trend:** 📈 Above Target
 
 ### Quality Metrics
-- **Bug Rate:** 6% of open issues
+- **Bug Rate:** 10% of open issues
 - **Critical Issue Rate:** 0% of open issues
 
 ## 📅 Upcoming Focus Areas
@@ -86,8 +86,8 @@
 ## 📊 Dashboard Information
 
 - **Auto-generated:** Every 6 hours
-- **Last Update:** Thu Jun 19 12:11:50 UTC 2025
-- **Next Update:** 18:11 UTC
+- **Last Update:** Thu Jun 19 15:49:37 UTC 2025
+- **Next Update:** 21:49 UTC
 - **Data Source:** GitHub Issues API
 - **Methodology:** Automated metric collection and analysis
 
