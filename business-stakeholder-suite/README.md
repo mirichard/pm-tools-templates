@@ -57,17 +57,18 @@ These tools work regardless of project methodology:
 
 ---
 
-### [Financial Governance](financial-governance/) - "Budget Control and ROI Tracking"
-**Purpose:** Comprehensive financial oversight and investment protection
+### [Financial Governance](financial-governance/) - "Enterprise Financial Control & Value Optimization"
+**Purpose:** Comprehensive financial oversight, advanced business case analysis, and investment protection
 
 **What's Included:**
-- **[Budget Tracking](financial-governance/budget-tracking/)** - Real-time financial monitoring
-- **[ROI Measurement](financial-governance/roi-measurement/)** - Value realization tracking
-- **[Cost Management](financial-governance/cost-management/)** - Expense control and forecasting
-- **[Investment Approval](financial-governance/investment-approval/)** - Decision support frameworks
-<a id="strategic-alignmentstrategic-alignment-connecting-projects-to-strategy"></a>
+- **[Enhanced Business Cases](financial-governance/enhanced-business-cases/)** - Enterprise-grade financial analysis with advanced ROI modeling
+- **[EVM Dashboard](financial-governance/enhanced-business-cases/evm-dashboard-template.md)** - Professional Earned Value Management tracking
+- **[Value Analysis Framework](financial-governance/enhanced-business-cases/value-analysis-framework.md)** - Systematic value engineering and optimization
+- **[Financial Performance Tracker](financial-governance/enhanced-business-cases/financial-performance-tracker.md)** - Comprehensive monitoring and control
+- **[Budget Tracking & Controls](financial-governance/budget-dashboard-template.md)** - Real-time financial monitoring
+- **[ROI Measurement](financial-governance/roi-tracking-dashboard.md)** - Value realization tracking and reporting
 
-**Financial Impact:** Typical 15-25% improvement in budget accuracy
+**Financial Impact:** Typical 15-25% improvement in budget accuracy, 20-30% better ROI realization
 
 ---
 
