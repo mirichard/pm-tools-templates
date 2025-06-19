@@ -328,8 +328,44 @@ jobs:
             echo "No dashboard changes to commit"
           else
             git commit -m "📊 Update project health dashboard - $(date +%Y-%m-%d\ %H:%M)"
-            git pull --rebase
-            git push
+            
+            # Try to push with retry logic for conflicts
+            MAX_RETRIES=3
+            RETRY_COUNT=0
+            
+            while [ $RETRY_COUNT -lt $MAX_RETRIES ]; do
+              if git push; then
+                echo "✅ Dashboard update pushed successfully"
+                break
+              else
+                echo "⚠️ Push failed, attempting to resolve conflicts (attempt $((RETRY_COUNT + 1))/$MAX_RETRIES)"
+                
+                # Fetch latest changes
+                git fetch origin main
+                
+                # Try to rebase, handling conflicts automatically
+                if git rebase origin/main; then
+                  echo "✅ Rebase successful"
+                else
+                  echo "🔧 Resolving conflicts automatically"
+                  # For dashboard files, always use our version (latest generated data)
+                  git checkout --ours dashboards/
+                  git add dashboards/
+                  git rebase --continue
+                fi
+                
+                RETRY_COUNT=$((RETRY_COUNT + 1))
+                
+                if [ $RETRY_COUNT -eq $MAX_RETRIES ]; then
+                  echo "❌ Failed to push after $MAX_RETRIES attempts"
+                  echo "📋 Manual intervention may be required"
+                  exit 1
+                fi
+                
+                # Wait a moment before retrying
+                sleep 2
+              fi
+            done
           fi
 
       - name: 📊 Generate Dashboard
