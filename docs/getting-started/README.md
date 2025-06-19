@@ -52,7 +52,7 @@ This guide helps you quickly get oriented and find the resources you need, wheth
 ### Immediate Actions (Week 1)
 1. **[Create Project Charter](../../project-lifecycle/01-initiation/project-charter/)**
 2. **[Analyze Stakeholders](../../project-lifecycle/01-initiation/stakeholder-analysis/)**
-3. **[Set Up Communication Plan](../../project-lifecycle/02-planning/)**
+3. **[Set Up Communication Plan](../../project-lifecycle/02-planning/communication-planning/)**
 
 ### Planning Phase (Week 2-3)
 1. **[Develop Project Management Plan](../../project-lifecycle/02-planning/project-management-plan/)**
