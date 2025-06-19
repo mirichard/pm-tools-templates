@@ -302,7 +302,6 @@ Checking: docs/getting-started/README.md
 Checking: methodology-frameworks/agile-scrum/README.md
 Checking: methodology-frameworks/emerging-methods/devops/README.md
 Checking: business-stakeholder-suite/README.md
-  ✅ Auto-fixed business-stakeholder-suite/README.md
 Checking: business-stakeholder-suite/safe-executive-dashboards/README.md
 Checking: business-stakeholder-suite/communication-automation/README.md
 Checking: business-stakeholder-suite/executive-dashboards/README.md
@@ -310,7 +309,6 @@ Checking: business-stakeholder-suite/executive-dashboards/excel-workbooks/README
 Checking: business-stakeholder-suite/executive-dashboards/executive-reports/README.md
 Checking: business-stakeholder-suite/executive-dashboards/board-presentations/README.md
 Checking: business-stakeholder-suite/financial-governance/README.md
-  ✅ Auto-fixed business-stakeholder-suite/financial-governance/README.md
 Checking: business-stakeholder-suite/financial-governance/enhanced-business-cases/README.md
 Checking: dashboard-mvp/README.md
 Checking: project-lifecycle/README.md
