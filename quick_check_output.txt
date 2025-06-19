@@ -2,7 +2,7 @@
 ==========================
 Checking directory: .
 
-📄 Found 341 README.md files
+📄 Found 342 README.md files
 
 Checking: ./role-based-toolkits/release-train-engineer/README.md ... [0;32mOK[0m
 Checking: ./role-based-toolkits/program-manager/README.md ... [0;32mOK[0m
@@ -19,6 +19,7 @@ Checking: ./role-based-toolkits/project-manager/stakeholder-engagement/README.md
 Checking: ./role-based-toolkits/project-manager/README.md ... [0;32mOK[0m
 Checking: ./role-based-toolkits/project-manager/governance-tools/README.md ... [0;32mOK[0m
 Checking: ./role-based-toolkits/README.md ... [0;32mOK[0m
+Checking: ./project-assessment-suite/README.md ... [0;32mOK[0m
 Checking: ./integrations/asana/README.md ... [0;32mOK[0m
 Checking: ./workflow-orchestration/README.md ... [0;32mOK[0m
 Checking: ./workflow-orchestration/node_modules/isexe/README.md ... [0;32mOK[0m
@@ -348,9 +349,9 @@ Checking: ./ai-insights/README.md ... [0;32mOK[0m
 
 📊 SUMMARY
 ==========
-Files checked: 341
+Files checked: 342
 Files with errors: [0;31m0[0m
 Files with warnings: [1;33m0[0m
-Files OK: [0;32m341[0m
+Files OK: [0;32m342[0m
 
 ✅ All anchor links look good!
