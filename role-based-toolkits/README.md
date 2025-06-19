@@ -61,6 +61,7 @@ Toolkits are designed to work together:
 - Benefits realization tracking
 
 **Toolkit Includes:**
+- **[Project Assessment Suite](../project-assessment-suite/README.md)** - Systematic project health monitoring and corrective action
 - **[Program Governance](program-manager/program-governance/)** - Strategic oversight frameworks
 - **[Portfolio Alignment](program-manager/portfolio-alignment/)** - Strategic planning and prioritization
 - **[Cross-Project Coordination](program-manager/cross-project-coordination/)** - Integration and dependency management

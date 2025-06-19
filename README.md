@@ -207,6 +207,28 @@
 ✅ **Enterprise Ready** - Production deployment guides and security best practices
 <a id="tool-integration-guides"></a>
 
+### 🔍 Project Assessment Suite
+**Systematic project health monitoring and corrective action framework**
+
+[**Project Assessment Suite Overview**](project-assessment-suite/README.md)
+
+**For Program Managers assessing projects in motion:**
+- [Project Health Assessment Template](project-assessment-suite/project-health-assessment-template.md) - Comprehensive 10-dimension project evaluation
+- [Gap Analysis Matrix](project-assessment-suite/gap-analysis-matrix-template.md) - Current vs. future state analysis with prioritization
+- [Remediation Action Plan](project-assessment-suite/remediation-action-plan-template.md) - Structured improvement planning and tracking
+- [Assessment Planning Guide](project-assessment-suite/assessment-planning-guide.md) - Step-by-step assessment methodology
+- [Executive Summary Template](project-assessment-suite/executive-summary-template.md) - Leadership reporting format
+
+**Key Features:**
+✅ **Systematic Assessment Framework** - 5-phase methodology from current state to remediation tracking  
+✅ **Leading Practice Integration** - Built on PMI, Agile, and industry best practices  
+✅ **Evidence-Based Evaluation** - Structured scoring and gap prioritization  
+✅ **Actionable Outcomes** - Prioritized improvement plans with resource requirements  
+✅ **Executive Communication** - Professional reporting for all stakeholder levels  
+✅ **Methodology Agnostic** - Works with Agile, Waterfall, or Hybrid approaches  
+
+*Ideal for program managers conducting health checks, investigating issues, or implementing systematic improvements across project portfolios.*
+
 ### 🏭 Industry-Specific Templates
 **Specialized templates for industry requirements**
 

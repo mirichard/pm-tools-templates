@@ -8,25 +8,42 @@ This toolkit provides Program Managers with specialized resources for coordinati
 
 ## Toolkit Components
 
-### Program Governance
+### 🔍 Project Assessment and Health Monitoring
+**[→ Project Assessment Suite](../../project-assessment-suite/README.md)**
+- **[Project Health Assessment](../../project-assessment-suite/project-health-assessment-template.md)** - Comprehensive 10-dimension project evaluation
+- **[Gap Analysis Matrix](../../project-assessment-suite/gap-analysis-matrix-template.md)** - Current vs. future state analysis with prioritization
+- **[Remediation Action Plan](../../project-assessment-suite/remediation-action-plan-template.md)** - Structured improvement planning and tracking
+- **[Assessment Planning Guide](../../project-assessment-suite/assessment-planning-guide.md)** - Step-by-step assessment methodology
+- **[Executive Summary](../../project-assessment-suite/executive-summary-template.md)** - Leadership reporting format
+
+*Essential for program managers to systematically assess project health, identify issues early, and implement corrective actions using leading practices.*
+
+**Program Manager Usage Guide:**
+- **Multi-Project Health Monitoring**: Use health assessments across all program projects for comparative analysis
+- **Portfolio Risk Management**: Aggregate assessment findings to identify program-level risks and dependencies
+- **Resource Optimization**: Use gap analysis to identify resource reallocation opportunities across projects
+- **Stakeholder Reporting**: Leverage executive summaries for program steering committee communications
+- **Corrective Action Coordination**: Coordinate remediation plans across multiple projects to optimize program outcomes
+
+### 📋 Program Governance
 - Program charter templates
 - Program governance frameworks
 - Steering committee management
 - Program-level decision frameworks
 
-### Portfolio Alignment
+### 🎯 Portfolio Alignment
 - Strategic alignment assessments
 - Benefits realization tracking
 - Investment prioritization tools
 - Portfolio reporting dashboards
 
-### Cross-Project Coordination
+### 🔗 Cross-Project Coordination
 - Dependency management tools
 - Resource allocation frameworks
 - Integration planning templates
 - Risk aggregation methods
 
-### Strategic Reporting
+### 📊 Strategic Reporting
 - Executive dashboard templates
 - Program status reporting
 - Benefits tracking tools
