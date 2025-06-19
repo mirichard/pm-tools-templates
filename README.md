@@ -207,6 +207,7 @@
 ✅ **Enterprise Ready** - Production deployment guides and security best practices
 <a id="tool-integration-guides"></a>
 
+<a id="project-assessment-suite"></a>
 ### 🔍 Project Assessment Suite
 **Systematic project health monitoring and corrective action framework**
 

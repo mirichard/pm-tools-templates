@@ -1,8 +1,10 @@
 Checking 342 README files...
 Checking: README.md
+  ✅ Auto-fixed README.md
 Checking: role-based-toolkits/README.md
 Checking: role-based-toolkits/release-train-engineer/README.md
 Checking: role-based-toolkits/program-manager/README.md
+  ✅ Auto-fixed role-based-toolkits/program-manager/README.md
 Checking: role-based-toolkits/scrum-master/README.md
 Checking: role-based-toolkits/scrum-master/agile-ceremonies/README.md
 Checking: role-based-toolkits/product-owner/README.md

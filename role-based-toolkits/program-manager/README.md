@@ -8,6 +8,7 @@ This toolkit provides Program Managers with specialized resources for coordinati
 
 ## Toolkit Components
 
+<a id="project-assessment-and-health-monitoring"></a>
 ### 🔍 Project Assessment and Health Monitoring
 **[→ Project Assessment Suite](../../project-assessment-suite/README.md)**
 - **[Project Health Assessment](../../project-assessment-suite/project-health-assessment-template.md)** - Comprehensive 10-dimension project evaluation
@@ -25,24 +26,28 @@ This toolkit provides Program Managers with specialized resources for coordinati
 - **Stakeholder Reporting**: Leverage executive summaries for program steering committee communications
 - **Corrective Action Coordination**: Coordinate remediation plans across multiple projects to optimize program outcomes
 
+<a id="program-governance"></a>
 ### 📋 Program Governance
 - Program charter templates
 - Program governance frameworks
 - Steering committee management
 - Program-level decision frameworks
 
+<a id="portfolio-alignment"></a>
 ### 🎯 Portfolio Alignment
 - Strategic alignment assessments
 - Benefits realization tracking
 - Investment prioritization tools
 - Portfolio reporting dashboards
 
+<a id="cross-project-coordination"></a>
 ### 🔗 Cross-Project Coordination
 - Dependency management tools
 - Resource allocation frameworks
 - Integration planning templates
 - Risk aggregation methods
 
+<a id="strategic-reporting"></a>
 ### 📊 Strategic Reporting
 - Executive dashboard templates
 - Program status reporting
