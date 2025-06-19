@@ -182,7 +182,8 @@ Checking: ./workflow-orchestration/node_modules/@sinonjs/commons/lib/prototypes/
 Checking: ./workflow-orchestration/node_modules/@sinonjs/commons/README.md ... [0;32mOK[0m
 Checking: ./workflow-orchestration/node_modules/json-buffer/README.md ... [0;32mOK[0m
 Checking: ./workflow-orchestration/node_modules/babel-plugin-istanbul/README.md ... [0;32mOK[0m
-Checking: ./workflow-orchestration/node_modules/babel-plugin-istanbul/node_modules/istanbul-lib-instrument/README.md ... [0;32mOK[0m
+Checking: ./workflow-orchestration/node_modules/babel-plugin-istanbul/node_modules/istanbul-lib-instrument/README.md ... ./quick_anchor_check.sh: line 64: echo: write error: Broken pipe
+[0;32mOK[0m
 Checking: ./workflow-orchestration/node_modules/exit/README.md ... [0;32mOK[0m
 Checking: ./workflow-orchestration/node_modules/write-file-atomic/README.md ... [0;32mOK[0m
 Checking: ./workflow-orchestration/node_modules/merge-stream/README.md ... [0;32mOK[0m
