@@ -12,7 +12,7 @@ Effective progress tracking is essential for successful project delivery. This g
 
 - **[Quick Start Templates](#quick-start-templates)** - Ready-to-use tracking tools and dashboards
 - **[Tracking Methodologies](#tracking-methodologies)** - PMBOK, Agile, and Hybrid approaches
-- **[Key Performance Indicators](#key-performance-indicators)** - What to measure and why
+- **[Key Performance Indicators](#key-performance-indicators-kpis)** - What to measure and why
 - **[Reporting Framework](#reporting-framework)** - Communicate progress effectively
 - **[Corrective Actions](#corrective-actions)** - Respond to performance issues
 

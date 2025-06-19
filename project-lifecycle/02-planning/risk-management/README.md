@@ -14,7 +14,7 @@ Effective risk management is the difference between projects that succeed despit
 - **[Risk Identification](#risk-identification-techniques)** - Systematic approaches to find risks
 - **[Risk Analysis](#risk-analysis-methods)** - Assess probability and impact
 - **[Response Strategies](#response-strategies)** - How to handle different types of risks
-- **[Monitoring & Control](#monitoring--control)** - Keep risks under management
+- **[Monitoring & Control](#monitoring-control)** - Keep risks under management
 
 <a id="quick-start-templates"></a>
 ---

@@ -9,7 +9,7 @@ The Product Owner is the bridge between business value and development execution
 <a id="what-youll-find-here"></a>
 ## 📋 What You'll Find Here
 
-- **[Product Vision & Strategy](#product-vision--strategy)** - Define product direction
+- **[Product Vision & Strategy](#product-vision-strategy)** - Define product direction
 - **[Backlog Management](#backlog-management)** - Prioritize and organize work
 - **[User Story Writing](#user-story-writing)** - Capture requirements effectively
 - **[Stakeholder Collaboration](#stakeholder-collaboration)** - Balance competing demands

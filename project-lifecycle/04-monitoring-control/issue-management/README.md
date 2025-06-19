@@ -14,7 +14,7 @@ Effective issue management ensures that problems are identified, analyzed, and r
 - **[Issue Identification](#issue-identification-phases)** - Systematic approaches to capture issues
 - **[Analysis and Tracking](#analysis-and-tracking-methods)** - Assess and manage impact
 - **[Resolution Framework](#resolution-framework)** - Structured problem-solving techniques
-- **[Monitoring & Escalation](#monitoring--escalation)** - Keep issues from escalating
+- **[Monitoring & Escalation](#monitoring-escalation)** - Keep issues from escalating
 
 <a id="quick-start-templates"></a>
 ---

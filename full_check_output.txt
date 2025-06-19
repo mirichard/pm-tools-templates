@@ -1,0 +1,635 @@
+Checking 340 README files...
+Checking: README.md
+  ✅ Auto-fixed README.md
+Checking: role-based-toolkits/README.md
+Checking: role-based-toolkits/release-train-engineer/README.md
+Checking: role-based-toolkits/program-manager/README.md
+Checking: role-based-toolkits/scrum-master/README.md
+Checking: role-based-toolkits/scrum-master/agile-ceremonies/README.md
+Checking: role-based-toolkits/product-owner/README.md
+  ✅ Auto-fixed role-based-toolkits/product-owner/README.md
+Checking: role-based-toolkits/product-owner/stakeholder-collaboration/README.md
+Checking: role-based-toolkits/product-owner/value-measurement/README.md
+Checking: role-based-toolkits/product-owner/backlog-management/README.md
+Checking: role-based-toolkits/product-owner/product-strategy/README.md
+Checking: role-based-toolkits/project-manager/README.md
+Checking: role-based-toolkits/project-manager/essential-templates/README.md
+Checking: role-based-toolkits/project-manager/reporting-dashboards/README.md
+Checking: role-based-toolkits/project-manager/stakeholder-engagement/README.md
+Checking: role-based-toolkits/project-manager/governance-tools/README.md
+Checking: integrations/asana/README.md
+Checking: workflow-orchestration/README.md
+Checking: workflow-orchestration/node_modules/isexe/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/isexe/README.md
+Checking: workflow-orchestration/node_modules/fast-json-stable-stringify/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/fast-json-stable-stringify/README.md
+Checking: workflow-orchestration/node_modules/uri-js/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/uri-js/README.md
+Checking: workflow-orchestration/node_modules/jest-mock/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/jest-mock/README.md
+Checking: workflow-orchestration/node_modules/jest-diff/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/jest-diff/README.md
+Checking: workflow-orchestration/node_modules/@ampproject/remapping/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/@ampproject/remapping/README.md
+Checking: workflow-orchestration/node_modules/math-intrinsics/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/math-intrinsics/README.md
+Checking: workflow-orchestration/node_modules/balanced-match/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/balanced-match/README.md
+Checking: workflow-orchestration/node_modules/acorn-jsx/README.md
+Checking: workflow-orchestration/node_modules/esrecurse/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/esrecurse/README.md
+Checking: workflow-orchestration/node_modules/lines-and-columns/README.md
+Checking: workflow-orchestration/node_modules/graceful-fs/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/graceful-fs/README.md
+Checking: workflow-orchestration/node_modules/yargs-parser/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/yargs-parser/README.md
+Checking: workflow-orchestration/node_modules/fast-deep-equal/README.md
+Checking: workflow-orchestration/node_modules/chokidar/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/chokidar/README.md
+Checking: workflow-orchestration/node_modules/chokidar/node_modules/glob-parent/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/chokidar/node_modules/glob-parent/README.md
+Checking: workflow-orchestration/node_modules/formidable/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/formidable/README.md
+Checking: workflow-orchestration/node_modules/@paralleldrive/cuid2/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/@paralleldrive/cuid2/README.md
+Checking: workflow-orchestration/node_modules/test-exclude/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/test-exclude/README.md
+Checking: workflow-orchestration/node_modules/flatted/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/flatted/README.md
+Checking: workflow-orchestration/node_modules/browserslist/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/browserslist/README.md
+Checking: workflow-orchestration/node_modules/@eslint/js/README.md
+Checking: workflow-orchestration/node_modules/@eslint/eslintrc/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/@eslint/eslintrc/README.md
+Checking: workflow-orchestration/node_modules/eslint/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/eslint/README.md
+Checking: workflow-orchestration/node_modules/punycode/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/punycode/README.md
+Checking: workflow-orchestration/node_modules/undefsafe/README.md
+Checking: workflow-orchestration/node_modules/eslint-visitor-keys/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/eslint-visitor-keys/README.md
+Checking: workflow-orchestration/node_modules/istanbul-lib-report/README.md
+Checking: workflow-orchestration/node_modules/istanbul-lib-coverage/README.md
+Checking: workflow-orchestration/node_modules/es-errors/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/es-errors/README.md
+Checking: workflow-orchestration/node_modules/@istanbuljs/schema/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/@istanbuljs/schema/README.md
+Checking: workflow-orchestration/node_modules/@istanbuljs/load-nyc-config/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/@istanbuljs/load-nyc-config/README.md
+Checking: workflow-orchestration/node_modules/@istanbuljs/load-nyc-config/node_modules/argparse/README.md
+Checking: workflow-orchestration/node_modules/@istanbuljs/load-nyc-config/node_modules/js-yaml/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/@istanbuljs/load-nyc-config/node_modules/js-yaml/README.md
+Checking: workflow-orchestration/node_modules/brace-expansion/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/brace-expansion/README.md
+Checking: workflow-orchestration/node_modules/once/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/once/README.md
+Checking: workflow-orchestration/node_modules/jest-validate/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/jest-validate/README.md
+Checking: workflow-orchestration/node_modules/argparse/README.md
+Checking: workflow-orchestration/node_modules/istanbul-reports/README.md
+Checking: workflow-orchestration/node_modules/debug/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/debug/README.md
+Checking: workflow-orchestration/node_modules/readdirp/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/readdirp/README.md
+Checking: workflow-orchestration/node_modules/anymatch/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/anymatch/README.md
+Checking: workflow-orchestration/node_modules/jest-each/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/jest-each/README.md
+Checking: workflow-orchestration/node_modules/esquery/README.md
+Checking: workflow-orchestration/node_modules/semver/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/semver/README.md
+Checking: workflow-orchestration/node_modules/signal-exit/README.md
+Checking: workflow-orchestration/node_modules/convert-source-map/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/convert-source-map/README.md
+Checking: workflow-orchestration/node_modules/babel-jest/README.md
+Checking: workflow-orchestration/node_modules/get-proto/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/get-proto/README.md
+Checking: workflow-orchestration/node_modules/get-intrinsic/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/get-intrinsic/README.md
+Checking: workflow-orchestration/node_modules/dezalgo/README.md
+Checking: workflow-orchestration/node_modules/@eslint-community/regexpp/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/@eslint-community/regexpp/README.md
+Checking: workflow-orchestration/node_modules/@eslint-community/eslint-utils/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/@eslint-community/eslint-utils/README.md
+Checking: workflow-orchestration/node_modules/yargs/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/yargs/README.md
+Checking: workflow-orchestration/node_modules/side-channel-map/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/side-channel-map/README.md
+Checking: workflow-orchestration/node_modules/pirates/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/pirates/README.md
+Checking: workflow-orchestration/node_modules/imurmurhash/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/imurmurhash/README.md
+Checking: workflow-orchestration/node_modules/has-symbols/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/has-symbols/README.md
+Checking: workflow-orchestration/node_modules/gensync/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/gensync/README.md
+Checking: workflow-orchestration/node_modules/lru-cache/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/lru-cache/README.md
+Checking: workflow-orchestration/node_modules/make-dir/node_modules/semver/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/make-dir/node_modules/semver/README.md
+Checking: workflow-orchestration/node_modules/y18n/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/y18n/README.md
+Checking: workflow-orchestration/node_modules/pretty-format/README.md
+Checking: workflow-orchestration/node_modules/electron-to-chromium/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/electron-to-chromium/README.md
+Checking: workflow-orchestration/node_modules/is-glob/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/is-glob/README.md
+Checking: workflow-orchestration/node_modules/braces/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/braces/README.md
+Checking: workflow-orchestration/node_modules/ignore/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/ignore/README.md
+Checking: workflow-orchestration/node_modules/cliui/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/cliui/README.md
+Checking: workflow-orchestration/node_modules/create-jest/README.md
+Checking: workflow-orchestration/node_modules/wrappy/README.md
+Checking: workflow-orchestration/node_modules/js-yaml/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/js-yaml/README.md
+Checking: workflow-orchestration/node_modules/is-number/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/is-number/README.md
+Checking: workflow-orchestration/node_modules/is-extglob/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/is-extglob/README.md
+Checking: workflow-orchestration/node_modules/diff-sequences/README.md
+Checking: workflow-orchestration/node_modules/json-parse-even-better-errors/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/json-parse-even-better-errors/README.md
+Checking: workflow-orchestration/node_modules/html-escaper/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/html-escaper/README.md
+Checking: workflow-orchestration/node_modules/micromatch/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/micromatch/README.md
+Checking: workflow-orchestration/node_modules/picomatch/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/picomatch/README.md
+Checking: workflow-orchestration/node_modules/inflight/README.md
+Checking: workflow-orchestration/node_modules/@humanwhocodes/config-array/README.md
+Checking: workflow-orchestration/node_modules/@humanwhocodes/object-schema/README.md
+Checking: workflow-orchestration/node_modules/@humanwhocodes/module-importer/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/@humanwhocodes/module-importer/README.md
+Checking: workflow-orchestration/node_modules/jest-worker/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/jest-worker/README.md
+Checking: workflow-orchestration/node_modules/@babel/plugin-syntax-bigint/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/@babel/plugin-syntax-bigint/README.md
+Checking: workflow-orchestration/node_modules/@babel/plugin-syntax-nullish-coalescing-operator/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/@babel/plugin-syntax-nullish-coalescing-operator/README.md
+Checking: workflow-orchestration/node_modules/@babel/types/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/@babel/types/README.md
+Checking: workflow-orchestration/node_modules/@babel/template/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/@babel/template/README.md
+Checking: workflow-orchestration/node_modules/@babel/helpers/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/@babel/helpers/README.md
+Checking: workflow-orchestration/node_modules/@babel/plugin-syntax-numeric-separator/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/@babel/plugin-syntax-numeric-separator/README.md
+Checking: workflow-orchestration/node_modules/@babel/helper-validator-option/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/@babel/helper-validator-option/README.md
+Checking: workflow-orchestration/node_modules/@babel/plugin-syntax-jsx/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/@babel/plugin-syntax-jsx/README.md
+Checking: workflow-orchestration/node_modules/@babel/code-frame/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/@babel/code-frame/README.md
+Checking: workflow-orchestration/node_modules/@babel/generator/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/@babel/generator/README.md
+Checking: workflow-orchestration/node_modules/@babel/plugin-syntax-class-properties/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/@babel/plugin-syntax-class-properties/README.md
+Checking: workflow-orchestration/node_modules/@babel/plugin-syntax-optional-catch-binding/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/@babel/plugin-syntax-optional-catch-binding/README.md
+Checking: workflow-orchestration/node_modules/@babel/core/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/@babel/core/README.md
+Checking: workflow-orchestration/node_modules/@babel/traverse/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/@babel/traverse/README.md
+Checking: workflow-orchestration/node_modules/@babel/plugin-syntax-logical-assignment-operators/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/@babel/plugin-syntax-logical-assignment-operators/README.md
+Checking: workflow-orchestration/node_modules/@babel/helper-module-imports/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/@babel/helper-module-imports/README.md
+Checking: workflow-orchestration/node_modules/@babel/plugin-syntax-class-static-block/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/@babel/plugin-syntax-class-static-block/README.md
+Checking: workflow-orchestration/node_modules/@babel/plugin-syntax-typescript/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/@babel/plugin-syntax-typescript/README.md
+Checking: workflow-orchestration/node_modules/@babel/plugin-syntax-optional-chaining/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/@babel/plugin-syntax-optional-chaining/README.md
+Checking: workflow-orchestration/node_modules/@babel/compat-data/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/@babel/compat-data/README.md
+Checking: workflow-orchestration/node_modules/@babel/plugin-syntax-async-generators/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/@babel/plugin-syntax-async-generators/README.md
+Checking: workflow-orchestration/node_modules/@babel/helper-compilation-targets/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/@babel/helper-compilation-targets/README.md
+Checking: workflow-orchestration/node_modules/@babel/parser/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/@babel/parser/README.md
+Checking: workflow-orchestration/node_modules/@babel/plugin-syntax-import-attributes/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/@babel/plugin-syntax-import-attributes/README.md
+Checking: workflow-orchestration/node_modules/@babel/plugin-syntax-private-property-in-object/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/@babel/plugin-syntax-private-property-in-object/README.md
+Checking: workflow-orchestration/node_modules/@babel/plugin-syntax-object-rest-spread/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/@babel/plugin-syntax-object-rest-spread/README.md
+Checking: workflow-orchestration/node_modules/@babel/helper-string-parser/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/@babel/helper-string-parser/README.md
+Checking: workflow-orchestration/node_modules/@babel/plugin-syntax-top-level-await/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/@babel/plugin-syntax-top-level-await/README.md
+Checking: workflow-orchestration/node_modules/@babel/plugin-syntax-json-strings/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/@babel/plugin-syntax-json-strings/README.md
+Checking: workflow-orchestration/node_modules/@babel/plugin-syntax-import-meta/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/@babel/plugin-syntax-import-meta/README.md
+Checking: workflow-orchestration/node_modules/@babel/helper-validator-identifier/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/@babel/helper-validator-identifier/README.md
+Checking: workflow-orchestration/node_modules/@babel/helper-module-transforms/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/@babel/helper-module-transforms/README.md
+Checking: workflow-orchestration/node_modules/@babel/helper-plugin-utils/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/@babel/helper-plugin-utils/README.md
+Checking: workflow-orchestration/node_modules/inherits/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/inherits/README.md
+Checking: workflow-orchestration/node_modules/caniuse-lite/README.md
+Checking: workflow-orchestration/node_modules/cjs-module-lexer/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/cjs-module-lexer/README.md
+Checking: workflow-orchestration/node_modules/word-wrap/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/word-wrap/README.md
+Checking: workflow-orchestration/node_modules/flat-cache/README.md
+Checking: workflow-orchestration/node_modules/color-name/README.md
+Checking: workflow-orchestration/node_modules/source-map/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/source-map/README.md
+Checking: workflow-orchestration/node_modules/babel-preset-jest/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/babel-preset-jest/README.md
+Checking: workflow-orchestration/node_modules/esprima/README.md
+Checking: workflow-orchestration/node_modules/fb-watchman/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/fb-watchman/README.md
+Checking: workflow-orchestration/node_modules/sprintf-js/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/sprintf-js/README.md
+Checking: workflow-orchestration/node_modules/keyv/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/keyv/README.md
+Checking: workflow-orchestration/node_modules/type-detect/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/type-detect/README.md
+Checking: workflow-orchestration/node_modules/char-regex/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/char-regex/README.md
+Checking: workflow-orchestration/node_modules/esutils/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/esutils/README.md
+Checking: workflow-orchestration/node_modules/picocolors/README.md
+Checking: workflow-orchestration/node_modules/minimatch/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/minimatch/README.md
+Checking: workflow-orchestration/node_modules/ajv/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/ajv/README.md
+Checking: workflow-orchestration/node_modules/ajv/lib/dotjs/README.md
+Checking: workflow-orchestration/node_modules/yallist/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/yallist/README.md
+Checking: workflow-orchestration/node_modules/nodemon/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/nodemon/README.md
+Checking: workflow-orchestration/node_modules/nodemon/node_modules/semver/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/nodemon/node_modules/semver/README.md
+Checking: workflow-orchestration/node_modules/mime-types/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/mime-types/README.md
+Checking: workflow-orchestration/node_modules/jest-leak-detector/README.md
+Checking: workflow-orchestration/node_modules/es-object-atoms/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/es-object-atoms/README.md
+Checking: workflow-orchestration/node_modules/babel-plugin-jest-hoist/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/babel-plugin-jest-hoist/README.md
+Checking: workflow-orchestration/node_modules/simple-update-notifier/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/simple-update-notifier/README.md
+Checking: workflow-orchestration/node_modules/simple-update-notifier/node_modules/semver/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/simple-update-notifier/node_modules/semver/README.md
+Checking: workflow-orchestration/node_modules/fastq/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/fastq/README.md
+Checking: workflow-orchestration/node_modules/get-caller-file/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/get-caller-file/README.md
+Checking: workflow-orchestration/node_modules/jest-pnp-resolver/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/jest-pnp-resolver/README.md
+Checking: workflow-orchestration/node_modules/side-channel-weakmap/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/side-channel-weakmap/README.md
+Checking: workflow-orchestration/node_modules/estraverse/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/estraverse/README.md
+Checking: workflow-orchestration/node_modules/jest-snapshot/node_modules/semver/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/jest-snapshot/node_modules/semver/README.md
+Checking: workflow-orchestration/node_modules/@noble/hashes/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/@noble/hashes/README.md
+Checking: workflow-orchestration/node_modules/natural-compare/README.md
+Checking: workflow-orchestration/node_modules/methods/README.md
+Checking: workflow-orchestration/node_modules/jest-circus/README.md
+Checking: workflow-orchestration/node_modules/qs/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/qs/README.md
+Checking: workflow-orchestration/node_modules/mime-db/README.md
+Checking: workflow-orchestration/node_modules/@sinonjs/fake-timers/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/@sinonjs/fake-timers/README.md
+Checking: workflow-orchestration/node_modules/@sinonjs/commons/README.md
+Checking: workflow-orchestration/node_modules/@sinonjs/commons/lib/prototypes/README.md
+Checking: workflow-orchestration/node_modules/json-buffer/README.md
+Checking: workflow-orchestration/node_modules/babel-plugin-istanbul/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/babel-plugin-istanbul/README.md
+Checking: workflow-orchestration/node_modules/babel-plugin-istanbul/node_modules/istanbul-lib-instrument/README.md
+Checking: workflow-orchestration/node_modules/exit/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/exit/README.md
+Checking: workflow-orchestration/node_modules/write-file-atomic/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/write-file-atomic/README.md
+Checking: workflow-orchestration/node_modules/merge-stream/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/merge-stream/README.md
+Checking: workflow-orchestration/node_modules/espree/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/espree/README.md
+Checking: workflow-orchestration/node_modules/prelude-ls/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/prelude-ls/README.md
+Checking: workflow-orchestration/node_modules/jest-matcher-utils/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/jest-matcher-utils/README.md
+Checking: workflow-orchestration/node_modules/which/README.md
+Checking: workflow-orchestration/node_modules/@jridgewell/resolve-uri/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/@jridgewell/resolve-uri/README.md
+Checking: workflow-orchestration/node_modules/@jridgewell/sourcemap-codec/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/@jridgewell/sourcemap-codec/README.md
+Checking: workflow-orchestration/node_modules/@jridgewell/trace-mapping/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/@jridgewell/trace-mapping/README.md
+Checking: workflow-orchestration/node_modules/@jridgewell/set-array/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/@jridgewell/set-array/README.md
+Checking: workflow-orchestration/node_modules/@jridgewell/gen-mapping/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/@jridgewell/gen-mapping/README.md
+Checking: workflow-orchestration/node_modules/jsesc/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/jsesc/README.md
+Checking: workflow-orchestration/node_modules/file-entry-cache/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/file-entry-cache/README.md
+Checking: workflow-orchestration/node_modules/normalize-path/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/normalize-path/README.md
+Checking: workflow-orchestration/node_modules/dunder-proto/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/dunder-proto/README.md
+Checking: workflow-orchestration/node_modules/run-parallel/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/run-parallel/README.md
+Checking: workflow-orchestration/node_modules/optionator/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/optionator/README.md
+Checking: workflow-orchestration/node_modules/queue-microtask/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/queue-microtask/README.md
+Checking: workflow-orchestration/node_modules/type-check/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/type-check/README.md
+Checking: workflow-orchestration/node_modules/has-tostringtag/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/has-tostringtag/README.md
+Checking: workflow-orchestration/node_modules/@bcoe/v8-coverage/README.md
+Checking: workflow-orchestration/node_modules/@bcoe/v8-coverage/dist/lib/README.md
+Checking: workflow-orchestration/node_modules/json-schema-traverse/README.md
+Checking: workflow-orchestration/node_modules/glob-parent/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/glob-parent/README.md
+Checking: workflow-orchestration/node_modules/ignore-by-default/README.md
+Checking: workflow-orchestration/node_modules/istanbul-lib-source-maps/README.md
+Checking: workflow-orchestration/node_modules/jest/README.md
+Checking: workflow-orchestration/node_modules/pure-rand/README.md
+Checking: workflow-orchestration/node_modules/@nodelib/fs.scandir/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/@nodelib/fs.scandir/README.md
+Checking: workflow-orchestration/node_modules/@nodelib/fs.walk/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/@nodelib/fs.walk/README.md
+Checking: workflow-orchestration/node_modules/@nodelib/fs.stat/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/@nodelib/fs.stat/README.md
+Checking: workflow-orchestration/node_modules/call-bind-apply-helpers/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/call-bind-apply-helpers/README.md
+Checking: workflow-orchestration/node_modules/@ungap/structured-clone/README.md
+Checking: workflow-orchestration/node_modules/fill-range/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/fill-range/README.md
+Checking: workflow-orchestration/node_modules/color-convert/README.md
+Checking: workflow-orchestration/node_modules/get-package-type/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/get-package-type/README.md
+Checking: workflow-orchestration/node_modules/path-parse/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/path-parse/README.md
+Checking: workflow-orchestration/node_modules/is-arrayish/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/is-arrayish/README.md
+Checking: workflow-orchestration/node_modules/json5/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/json5/README.md
+Checking: workflow-orchestration/node_modules/jest-docblock/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/jest-docblock/README.md
+Checking: workflow-orchestration/node_modules/doctrine/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/doctrine/README.md
+Checking: workflow-orchestration/node_modules/js-tokens/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/js-tokens/README.md
+Checking: workflow-orchestration/node_modules/gopd/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/gopd/README.md
+Checking: workflow-orchestration/node_modules/function-bind/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/function-bind/README.md
+Checking: workflow-orchestration/node_modules/is-core-module/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/is-core-module/README.md
+Checking: workflow-orchestration/node_modules/update-browserslist-db/README.md
+Checking: workflow-orchestration/node_modules/dedent/README.md
+Checking: workflow-orchestration/node_modules/eslint-scope/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/eslint-scope/README.md
+Checking: workflow-orchestration/node_modules/hasown/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/hasown/README.md
+Checking: workflow-orchestration/node_modules/collect-v8-coverage/README.md
+Checking: workflow-orchestration/node_modules/mime/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/mime/README.md
+Checking: workflow-orchestration/node_modules/supports-preserve-symlinks-flag/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/supports-preserve-symlinks-flag/README.md
+Checking: workflow-orchestration/node_modules/error-ex/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/error-ex/README.md
+Checking: workflow-orchestration/node_modules/fs.realpath/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/fs.realpath/README.md
+Checking: workflow-orchestration/node_modules/side-channel-list/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/side-channel-list/README.md
+Checking: workflow-orchestration/node_modules/call-bound/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/call-bound/README.md
+Checking: workflow-orchestration/node_modules/es-define-property/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/es-define-property/README.md
+Checking: workflow-orchestration/node_modules/asynckit/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/asynckit/README.md
+Checking: workflow-orchestration/node_modules/node-releases/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/node-releases/README.md
+Checking: workflow-orchestration/node_modules/touch/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/touch/README.md
+Checking: workflow-orchestration/node_modules/to-regex-range/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/to-regex-range/README.md
+Checking: workflow-orchestration/node_modules/bser/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/bser/README.md
+Checking: workflow-orchestration/node_modules/@jest/types/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/@jest/types/README.md
+Checking: workflow-orchestration/node_modules/@jest/schemas/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/@jest/schemas/README.md
+Checking: workflow-orchestration/node_modules/@jest/expect-utils/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/@jest/expect-utils/README.md
+Checking: workflow-orchestration/node_modules/@jest/core/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/@jest/core/README.md
+Checking: workflow-orchestration/node_modules/@jest/expect/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/@jest/expect/README.md
+Checking: workflow-orchestration/node_modules/cross-spawn/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/cross-spawn/README.md
+Checking: workflow-orchestration/node_modules/human-signals/README.md
+Checking: workflow-orchestration/node_modules/superagent/README.md
+Checking: workflow-orchestration/node_modules/superagent/node_modules/semver/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/superagent/node_modules/semver/README.md
+Checking: workflow-orchestration/node_modules/graphemer/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/graphemer/README.md
+Checking: workflow-orchestration/node_modules/react-is/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/react-is/README.md
+Checking: workflow-orchestration/node_modules/source-map-support/README.md
+Checking: workflow-orchestration/node_modules/undici-types/README.md
+Checking: workflow-orchestration/node_modules/babel-preset-current-node-syntax/README.md
+Checking: workflow-orchestration/node_modules/es-set-tostringtag/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/es-set-tostringtag/README.md
+Checking: workflow-orchestration/node_modules/ci-info/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/ci-info/README.md
+Checking: workflow-orchestration/node_modules/uuid/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/uuid/README.md
+Checking: workflow-orchestration/node_modules/@types/graceful-fs/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/@types/graceful-fs/README.md
+Checking: workflow-orchestration/node_modules/@types/yargs-parser/README.md
+Checking: workflow-orchestration/node_modules/@types/istanbul-lib-report/README.md
+Checking: workflow-orchestration/node_modules/@types/node/README.md
+Checking: workflow-orchestration/node_modules/@types/istanbul-lib-coverage/README.md
+Checking: workflow-orchestration/node_modules/@types/istanbul-reports/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/@types/istanbul-reports/README.md
+Checking: workflow-orchestration/node_modules/@types/yargs/README.md
+Checking: workflow-orchestration/node_modules/@types/babel__template/README.md
+Checking: workflow-orchestration/node_modules/@types/stack-utils/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/@types/stack-utils/README.md
+Checking: workflow-orchestration/node_modules/@types/babel__traverse/README.md
+Checking: workflow-orchestration/node_modules/@types/jest/README.md
+Checking: workflow-orchestration/node_modules/@types/babel__generator/README.md
+Checking: workflow-orchestration/node_modules/@types/babel__core/README.md
+Checking: workflow-orchestration/node_modules/expect/README.md
+Checking: workflow-orchestration/node_modules/acorn/README.md
+Checking: workflow-orchestration/node_modules/pstree.remy/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/pstree.remy/README.md
+Checking: workflow-orchestration/node_modules/rimraf/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/rimraf/README.md
+Checking: workflow-orchestration/node_modules/glob/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/glob/README.md
+Checking: workflow-orchestration/node_modules/jest-cli/README.md
+Checking: workflow-orchestration/node_modules/reusify/README.md
+Checking: workflow-orchestration/node_modules/v8-to-istanbul/README.md
+Checking: workflow-orchestration/node_modules/lodash.merge/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/lodash.merge/README.md
+Checking: workflow-orchestration/node_modules/jest-changed-files/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/jest-changed-files/README.md
+Checking: workflow-orchestration/node_modules/node-int64/README.md
+Checking: workflow-orchestration/node_modules/asap/README.md
+Checking: workflow-orchestration/node_modules/fast-levenshtein/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/fast-levenshtein/README.md
+Checking: workflow-orchestration/node_modules/emoji-regex/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/emoji-regex/README.md
+Checking: workflow-orchestration/node_modules/side-channel/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/side-channel/README.md
+Checking: workflow-orchestration/node_modules/istanbul-lib-instrument/README.md
+Checking: workflow-orchestration/node_modules/istanbul-lib-instrument/node_modules/semver/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/istanbul-lib-instrument/node_modules/semver/README.md
+Checking: workflow-orchestration/node_modules/supertest/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/supertest/README.md
+Checking: workflow-orchestration/node_modules/levn/README.md
+  ✅ Auto-fixed workflow-orchestration/node_modules/levn/README.md
+Checking: quick-start-kits/first-time-pm-starter/README.md
+Checking: quick-start-kits/less-adoption/README.md
+Checking: quick-start-kits/agile-transformation/README.md
+Checking: Hybrid/MPP-Jira-Integration/README.md
+Checking: Hybrid/MPP-Jira-Integration/mpp-template/README.md
+Checking: Hybrid/MPP-Jira-Integration/jira-automation/README.md
+Checking: docs/README.md
+Checking: docs/getting-started/README.md
+Checking: methodology-frameworks/agile-scrum/README.md
+Checking: methodology-frameworks/emerging-methods/devops/README.md
+Checking: business-stakeholder-suite/README.md
+Checking: business-stakeholder-suite/safe-executive-dashboards/README.md
+Checking: business-stakeholder-suite/communication-automation/README.md
+Checking: business-stakeholder-suite/executive-dashboards/README.md
+Checking: business-stakeholder-suite/executive-dashboards/excel-workbooks/README.md
+Checking: business-stakeholder-suite/executive-dashboards/executive-reports/README.md
+Checking: business-stakeholder-suite/executive-dashboards/board-presentations/README.md
+Checking: business-stakeholder-suite/financial-governance/enhanced-business-cases/README.md
+  ✅ Auto-fixed business-stakeholder-suite/financial-governance/enhanced-business-cases/README.md
+Checking: dashboard-mvp/README.md
+  ✅ Auto-fixed dashboard-mvp/README.md
+Checking: project-lifecycle/README.md
+Checking: project-lifecycle/04-monitoring-control/README.md
+Checking: project-lifecycle/04-monitoring-control/issue-management/README.md
+  ✅ Auto-fixed project-lifecycle/04-monitoring-control/issue-management/README.md
+Checking: project-lifecycle/04-monitoring-control/decision-making/README.md
+Checking: project-lifecycle/04-monitoring-control/progress-tracking/README.md
+  ✅ Auto-fixed project-lifecycle/04-monitoring-control/progress-tracking/README.md
+Checking: project-lifecycle/02-planning/README.md
+Checking: project-lifecycle/02-planning/cost-management/README.md
+Checking: project-lifecycle/02-planning/quality-management/README.md
+Checking: project-lifecycle/02-planning/project-management-plan/README.md
+Checking: project-lifecycle/02-planning/risk-management/README.md
+  ✅ Auto-fixed project-lifecycle/02-planning/risk-management/README.md
+Checking: project-lifecycle/02-planning/resource-planning/README.md
+Checking: project-lifecycle/01-initiation/README.md
+Checking: project-lifecycle/01-initiation/stakeholder-analysis/README.md
+Checking: project-lifecycle/01-initiation/project-charter/README.md
+Checking: project-lifecycle/03-execution/README.md
+Checking: project-lifecycle/03-execution/change-management/README.md
+Checking: project-lifecycle/05-closure/README.md
+Checking: industry_templates/information_technology/README.md
+Checking: industry_templates/financial_services/README.md
+Checking: industry_templates/construction/README.md
+Checking: industry_templates/software_development/README.md
+Checking: industry_templates/healthcare_pharmaceutical/README.md
+Checking: integration_guides/microsoft_project_integration/README.md
+Checking: integration_guides/github_projects_integration/README.md
+Checking: integration_guides/trello_integration/README.md
+Checking: integration_guides/jira_integration/README.md
+Checking: tools/template-generator-cli/README.md
+Checking: analytics-platform/README.md
+Checking: ai-insights/README.md
+
+============================================================
+ANCHOR LINK CHECK REPORT
+============================================================
+Files checked: 340
+Total issues: 47
+Broken links: 47
+Suggestions: 0
+Auto-fixable: 0
+
+ISSUES BY FILE:
+----------------------------------------
+
+📁 workflow-orchestration/node_modules/jest-each/README.md
+  🔗 Line 56: Broken anchor link: #usage-1
+
+📁 workflow-orchestration/node_modules/braces/README.md
+  🔗 Line 33: Broken anchor link: #steps
+  🔗 Line 67: Broken anchor link: #expand
+  🔗 Line 118: Broken anchor link: #optimize
+  🔗 Line 118: Broken anchor link: #optionsoptimize
+
+📁 workflow-orchestration/node_modules/ignore/README.md
+  🔗 Line 418: Broken anchor link: #addignorefilepath
+
+📁 workflow-orchestration/node_modules/json-parse-even-better-errors/README.md
+  🔗 Line 19: Broken anchor link: #contributing
+  🔗 Line 21: Broken anchor link: #parse
+
+📁 workflow-orchestration/node_modules/micromatch/README.md
+  🔗 Line 15: Broken anchor link: #gold-sponsors
+  🔗 Line 81: Broken anchor link: #micromatch
+  🔗 Line 88: Broken anchor link: #ismatch
+  🔗 Line 108: Broken anchor link: #braces-1
+  🔗 Line 133: Broken anchor link: #ismatch
+  🔗 Line 139: Broken anchor link: #match
+  🔗 Line 241: Broken anchor link: #isMatch
+  🔗 Line 416: Broken anchor link: #split
+  🔗 Line 623: Broken anchor link: #options-basename
+  🔗 Line 673: Broken anchor link: #options-nullglob
+
+📁 workflow-orchestration/node_modules/picomatch/README.md
+  🔗 Line 51: Broken anchor link: #picomatch
+  🔗 Line 52: Broken anchor link: #test
+  🔗 Line 53: Broken anchor link: #matchbase
+  🔗 Line 54: Broken anchor link: #ismatch
+  🔗 Line 55: Broken anchor link: #parse
+  🔗 Line 56: Broken anchor link: #scan
+  🔗 Line 57: Broken anchor link: #compilere
+  🔗 Line 58: Broken anchor link: #makere
+  🔗 Line 59: Broken anchor link: #toregex
+  🔗 Line 162: Broken anchor link: #makeRe
+  🔗 Line 249: Broken anchor link: #parse
+  🔗 Line 357: Broken anchor link: #scan
+  🔗 Line 520: Broken anchor link: #brace-expansion
+
+📁 workflow-orchestration/node_modules/ajv/README.md
+  🔗 Line 112: Broken anchor link: #getting-started
+  🔗 Line 121: Broken anchor link: #ref
+  🔗 Line 173: Broken anchor link: #api-validateschema
+  🔗 Line 361: Broken anchor link: #api-addformat
+  🔗 Line 553: Broken anchor link: #api-addkeyword
+  🔗 Line 591: Broken anchor link: #api-compileAsync
+  🔗 Line 619: Broken anchor link: #api-addformat
+  🔗 Line 619: Broken anchor link: #api-addkeyword
+  🔗 Line 785: Broken anchor link: #api-addformat
+  🔗 Line 1287: Broken anchor link: #api-compileAsync
+
+📁 workflow-orchestration/node_modules/fastq/README.md
+  🔗 Line 293: Broken anchor link: #fastqueue
+  🔗 Line 294: Broken anchor link: #pushPromise
+  🔗 Line 294: Broken anchor link: #unshiftPromise
+
+📁 workflow-orchestration/node_modules/@noble/hashes/README.md
+  🔗 Line 70: Broken anchor link: #blake2b-blake2s-blake3
+
+📁 workflow-orchestration/node_modules/@nodelib/fs.walk/README.md
+  🔗 Line 78: Broken anchor link: #settings
+
+📁 workflow-orchestration/node_modules/@nodelib/fs.stat/README.md
+  🔗 Line 65: Broken anchor link: #settings
+
+📄 Report saved to anchor_report.json
+
+❌ Found 47 broken anchor links!
