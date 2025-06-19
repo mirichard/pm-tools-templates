@@ -1,0 +1,122 @@
+name: Link Health Check
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+  schedule:
+    # Run daily at 2 AM UTC
+    - cron: '0 2 * * *'
+
+jobs:
+  link-check:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      
+    - name: Make link checker executable
+      run: chmod +x ./analyze-all-links.sh
+      
+    - name: Run comprehensive link analysis
+      id: link_check
+      run: |
+        echo "Running link health check..."
+        ./analyze-all-links.sh > link_report.txt 2>&1
+        HEALTH_SCORE=$(grep "Link Health Score" link_report.txt | grep -o '[0-9]*%' | tr -d '%' || echo "0")
+        echo "health_score=$HEALTH_SCORE" >> $GITHUB_OUTPUT
+        echo "Link Health Score: ${HEALTH_SCORE}%"
+        
+    - name: Upload link report
+      uses: actions/upload-artifact@v3
+      with:
+        name: link-health-report
+        path: link_report.txt
+        
+    - name: Comment on PR with link health
+      if: github.event_name == 'pull_request'
+      uses: actions/github-script@v6
+      with:
+        script: |
+          const fs = require('fs');
+          const report = fs.readFileSync('link_report.txt', 'utf8');
+          const healthScore = '${{ steps.link_check.outputs.health_score }}';
+          
+          const summary = report.split('📊 LINK ANALYSIS SUMMARY')[1]?.split('❌ BROKEN LINKS FOUND')[0] || '';
+          
+          let status = '✅ Excellent';
+          if (healthScore < 95) status = '⚠️ Needs Attention';
+          if (healthScore < 85) status = '❌ Poor';
+          
+          const body = `## 🔗 Link Health Check Results
+          
+          **Status:** ${status}  
+          **Health Score:** ${healthScore}%
+          
+          ### Summary
+          \`\`\`
+          ${summary.trim()}
+          \`\`\`
+          
+          ${healthScore < 95 ? '⚠️ **Action Required:** Link health is below target (95%). Please review and fix broken links.' : '✅ **All Good:** Link health meets quality standards.'}
+          
+          📄 [View Full Report](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }})
+          `;
+          
+          github.rest.issues.createComment({
+            issue_number: context.issue.number,
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            body: body
+          });
+          
+    - name: Check link health threshold
+      run: |
+        HEALTH_SCORE=${{ steps.link_check.outputs.health_score }}
+        if [ "$HEALTH_SCORE" -lt 85 ]; then
+          echo "❌ Link health score ($HEALTH_SCORE%) is below minimum threshold (85%)"
+          echo "Please fix broken links before merging"
+          exit 1
+        elif [ "$HEALTH_SCORE" -lt 95 ]; then
+          echo "⚠️ Link health score ($HEALTH_SCORE%) is below target (95%)"
+          echo "Consider fixing broken links to improve quality"
+        else
+          echo "✅ Link health score ($HEALTH_SCORE%) meets quality standards"
+        fi
+        
+    - name: Create issue on low link health (scheduled runs only)
+      if: github.event_name == 'schedule' && steps.link_check.outputs.health_score < 90
+      uses: actions/github-script@v6
+      with:
+        script: |
+          const healthScore = '${{ steps.link_check.outputs.health_score }}';
+          
+          github.rest.issues.create({
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            title: `🔗 Link Health Alert: Score dropped to ${healthScore}%`,
+            body: `## Link Health Alert
+            
+            The automated link health check has detected a significant drop in link quality.
+            
+            **Current Score:** ${healthScore}%  
+            **Target Score:** 95%  
+            **Minimum Threshold:** 85%
+            
+            ### Action Required
+            1. Review the [link health report](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }})
+            2. Fix broken links according to priority
+            3. Run \`./analyze-all-links.sh\` locally to verify fixes
+            
+            ### Priority Areas
+            - Missing README.md files in existing directories
+            - Broken template file references
+            - Invalid external links
+            
+            This issue was created automatically by the link health monitoring system.
+            `,
+            labels: ['maintenance', 'documentation', 'link-health']
+          });
+
