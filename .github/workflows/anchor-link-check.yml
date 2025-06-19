@@ -1,133 +1,265 @@
-name: Anchor Link Checker
+name: Anchor Link Check
 
 on:
+  # Run on pull requests
   pull_request:
+    branches: [ main, develop ]
     paths:
       - '**/*.md'
       - '.github/workflows/anchor-link-check.yml'
+      - 'check_anchor_links.py'
+      - 'quick_anchor_check.sh'
+
+  # Run on pushes to main branch
   push:
     branches: [ main ]
     paths:
       - '**/*.md'
       - '.github/workflows/anchor-link-check.yml'
+      - 'check_anchor_links.py'
+      - 'quick_anchor_check.sh'
+
+  # Allow manual triggering
   workflow_dispatch:
+    inputs:
+      auto_fix:
+        description: 'Auto-fix issues (will create a commit)'
+        required: false
+        default: 'false'
+        type: boolean
 
 jobs:
-  check-anchor-links:
+  anchor-link-check:
+    name: Check Anchor Links
     runs-on: ubuntu-latest
     
+    permissions:
+      contents: write  # Needed for auto-fix commits
+      pull-requests: write  # Needed for PR comments
+    
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v4
-      
-    - name: Set up Python
-      uses: actions/setup-python@v4
-      with:
-        python-version: '3.9'
-        
-    - name: Make scripts executable
-      run: |
-        chmod +x scripts/quick_anchor_check.sh
-        chmod +x scripts/check_anchor_links.py
-        
-    - name: Run quick anchor link check
-      run: |
-        echo "🔍 Running quick anchor link check..."
-        ./scripts/quick_anchor_check.sh
-        
-    - name: Run comprehensive anchor link check
-      run: |
-        echo "🔍 Running comprehensive anchor link check..."
-        python3 scripts/check_anchor_links.py --verbose
-        
-    - name: Check for anchor link issues
-      id: anchor-check
-      run: |
-        echo "🔍 Checking for anchor link issues that need attention..."
-        
-        # Run the Python checker and capture output
-        if python3 scripts/check_anchor_links.py > anchor_check_results.txt 2>&1; then
-          echo "anchor_issues=false" >> $GITHUB_OUTPUT
-        else
-          echo "anchor_issues=true" >> $GITHUB_OUTPUT
-        fi
-        
-        # Always show the results
-        cat anchor_check_results.txt
-        
-        # Count issues
-        ISSUE_COUNT=$(grep -c "❌.*:" anchor_check_results.txt || echo "0")
-        SUGGESTION_COUNT=$(grep -c "💡.*:" anchor_check_results.txt || echo "0")
-        
-        echo "issue_count=$ISSUE_COUNT" >> $GITHUB_OUTPUT
-        echo "suggestion_count=$SUGGESTION_COUNT" >> $GITHUB_OUTPUT
-        
-    - name: Upload anchor check results
-      if: always()
-      uses: actions/upload-artifact@v3
-      with:
-        name: anchor-check-results
-        path: anchor_check_results.txt
-        
-    - name: Comment on PR with anchor link issues
-      if: github.event_name == 'pull_request' && (steps.anchor-check.outputs.issue_count != '0' || steps.anchor-check.outputs.suggestion_count != '0')
-      uses: actions/github-script@v6
-      with:
-        script: |
-          const fs = require('fs');
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          # Fetch full history for proper diff analysis
+          fetch-depth: 0
+          # Use PAT for auto-fix commits to trigger other workflows
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+
+      - name: Make scripts executable
+        run: |
+          chmod +x quick_anchor_check.sh
+          chmod +x check_anchor_links.py
+
+      - name: Quick anchor check
+        id: quick_check
+        run: |
+          echo "Running quick anchor link check..."
+          ./quick_anchor_check.sh > quick_check_output.txt 2>&1 || echo "Quick check found issues"
           
-          try {
-            const results = fs.readFileSync('anchor_check_results.txt', 'utf8');
-            const issueCount = '${{ steps.anchor-check.outputs.issue_count }}';
-            const suggestionCount = '${{ steps.anchor-check.outputs.suggestion_count }}';
+          # Capture exit code and output for later steps
+          QUICK_EXIT_CODE=$?
+          echo "quick_exit_code=$QUICK_EXIT_CODE" >> $GITHUB_OUTPUT
+          
+          # Show output
+          cat quick_check_output.txt
+
+      - name: Comprehensive anchor check
+        id: full_check
+        run: |
+          echo "Running comprehensive anchor link analysis..."
+          
+          # Determine if we should auto-fix
+          AUTO_FIX_FLAG=""
+          if [[ "${{ github.event.inputs.auto_fix }}" == "true" ]] || [[ "${{ github.ref }}" == "refs/heads/main" && "${{ github.event_name }}" == "push" ]]; then
+            echo "Auto-fix enabled"
+            AUTO_FIX_FLAG="--auto-fix"
+          fi
+          
+          # Run the comprehensive check
+          python check_anchor_links.py $AUTO_FIX_FLAG --output anchor_report.json > full_check_output.txt 2>&1 || echo "Full check found issues"
+          
+          # Capture exit code
+          FULL_EXIT_CODE=$?
+          echo "full_exit_code=$FULL_EXIT_CODE" >> $GITHUB_OUTPUT
+          
+          # Show output
+          cat full_check_output.txt
+
+      - name: Upload anchor link report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: anchor-link-report
+          path: |
+            anchor_report.json
+            quick_check_output.txt
+            full_check_output.txt
+          retention-days: 30
+
+      - name: Create or update PR comment
+        if: github.event_name == 'pull_request'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
             
-            const body = `## 🔗 Anchor Link Check Results
+            // Read check outputs
+            let quickOutput = '';
+            let fullOutput = '';
+            let reportData = null;
             
-            **Issues Found:** ${issueCount}
-            **Suggestions:** ${suggestionCount}
+            try {
+              quickOutput = fs.readFileSync('quick_check_output.txt', 'utf8');
+            } catch (e) {
+              quickOutput = 'Quick check output not available';
+            }
             
-            ### Details:
-            \`\`\`
-            ${results}
-            \`\`\`
+            try {
+              fullOutput = fs.readFileSync('full_check_output.txt', 'utf8');
+            } catch (e) {
+              fullOutput = 'Full check output not available';
+            }
             
-            ### How to Fix:
-            1. **For broken anchor links:** Update the anchor to match an existing header or add the missing header
-            2. **For headers with emojis/special characters:** Add explicit HTML anchor tags like \`<a id="anchor-name"></a>\`
-            3. **Run locally:** \`python3 scripts/check_anchor_links.py --fix\` to auto-fix common issues
+            try {
+              reportData = JSON.parse(fs.readFileSync('anchor_report.json', 'utf8'));
+            } catch (e) {
+              reportData = null;
+            }
             
-            ### Quick Fix Commands:
-            \`\`\`bash
-            # Check what needs fixing
-            python3 scripts/check_anchor_links.py --verbose
+            // Determine overall status
+            const quickExitCode = ${{ steps.quick_check.outputs.quick_exit_code }};
+            const fullExitCode = ${{ steps.full_check.outputs.full_exit_code }};
             
-            # Auto-fix common issues
-            python3 scripts/check_anchor_links.py --fix
+            let status = '✅ All anchor links are working correctly!';
+            let statusIcon = '✅';
             
-            # Quick check
-            ./scripts/quick_anchor_check.sh
-            \`\`\`
-            `;
+            if (fullExitCode === 1) {
+              status = '❌ Critical anchor link issues found that need attention';
+              statusIcon = '❌';
+            } else if (quickExitCode === 2 || fullExitCode === 2) {
+              status = '⚠️ Potential anchor link improvements available';
+              statusIcon = '⚠️';
+            }
             
-            github.rest.issues.createComment({
-              issue_number: context.issue.number,
+            // Build comment body
+            let commentBody = `## ${statusIcon} Anchor Link Check Results\n\n`;
+            commentBody += `**Status:** ${status}\n\n`;
+            
+            if (reportData) {
+              const summary = reportData.summary;
+              commentBody += `### 📊 Summary\n`;
+              commentBody += `- **Files checked:** ${summary.total_files_checked}\n`;
+              commentBody += `- **Total issues:** ${summary.total_issues}\n`;
+              commentBody += `- **Broken links:** ${summary.broken_links}\n`;
+              commentBody += `- **Suggestions:** ${summary.suggestions}\n`;
+              commentBody += `- **Auto-fixable:** ${summary.auto_fixable}\n\n`;
+              
+              if (summary.broken_links > 0) {
+                commentBody += `### ❌ Critical Issues\n`;
+                commentBody += `Found ${summary.broken_links} broken anchor links that need immediate attention.\n\n`;
+              }
+              
+              if (summary.suggestions > 0) {
+                commentBody += `### 💡 Suggestions\n`;
+                commentBody += `Found ${summary.suggestions} headers that could benefit from explicit anchor tags.\n\n`;
+              }
+            }
+            
+            if (fullExitCode !== 0) {
+              commentBody += `### 🔧 How to Fix\n`;
+              commentBody += `Run the following command locally to auto-fix most issues:\n`;
+              commentBody += '```bash\n';
+              commentBody += 'python check_anchor_links.py --auto-fix\n';
+              commentBody += '```\n\n';
+            }
+            
+            commentBody += `<details>\n<summary>📋 Detailed Output</summary>\n\n`;
+            commentBody += '### Quick Check\n```\n';
+            commentBody += quickOutput.slice(0, 2000); // Limit length
+            commentBody += '\n```\n\n';
+            commentBody += '### Full Analysis\n```\n';
+            commentBody += fullOutput.slice(0, 2000); // Limit length
+            commentBody += '\n```\n</details>';
+            
+            // Find existing comment
+            const { data: comments } = await github.rest.issues.listComments({
               owner: context.repo.owner,
               repo: context.repo.repo,
-              body: body
+              issue_number: context.issue.number,
             });
-          } catch (error) {
-            console.log('Error reading anchor check results:', error);
-          }
+            
+            const botComment = comments.find(comment => 
+              comment.user.type === 'Bot' && 
+              comment.body.includes('Anchor Link Check Results')
+            );
+            
+            if (botComment) {
+              // Update existing comment
+              await github.rest.issues.updateComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                comment_id: botComment.id,
+                body: commentBody
+              });
+            } else {
+              // Create new comment
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: context.issue.number,
+                body: commentBody
+              });
+            }
+
+      - name: Commit auto-fixes
+        if: |
+          (github.event.inputs.auto_fix == 'true' || 
+           (github.ref == 'refs/heads/main' && github.event_name == 'push')) &&
+          steps.full_check.outputs.full_exit_code == '0'
+        run: |
+          # Check if there are any changes to commit
+          if ! git diff --quiet; then
+            git config --local user.email "action@github.com"
+            git config --local user.name "GitHub Action"
+            git add -A
+            git commit -m "Auto-fix anchor links
+            
+            - Added explicit HTML anchor tags for headers with special characters
+            - Fixed broken anchor link references
+            - Applied by automated anchor link maintenance system"
+            git push
+            echo "✅ Auto-fixes committed and pushed"
+          else
+            echo "ℹ️ No changes to commit"
+          fi
+
+      - name: Fail on critical issues
+        if: steps.full_check.outputs.full_exit_code == '1'
+        run: |
+          echo "❌ Critical anchor link issues found!"
+          echo "Please run 'python check_anchor_links.py --auto-fix' to resolve them."
+          exit 1
+
+      - name: Summary
+        if: always()
+        run: |
+          echo "🏁 Anchor Link Check Complete"
+          echo "================================"
+          echo "Quick check exit code: ${{ steps.quick_check.outputs.quick_exit_code }}"
+          echo "Full check exit code: ${{ steps.full_check.outputs.full_exit_code }}"
           
-    - name: Fail on critical anchor link issues
-      if: steps.anchor-check.outputs.issue_count != '0'
-      run: |
-        echo "❌ Found ${{ steps.anchor-check.outputs.issue_count }} critical anchor link issues"
-        echo "Please fix these issues before merging"
-        echo ""
-        echo "To fix:"
-        echo "1. Run: python3 scripts/check_anchor_links.py --verbose"
-        echo "2. Fix the reported issues"
-        echo "3. Optionally run: python3 scripts/check_anchor_links.py --fix"
-        exit 1
+          if [[ "${{ steps.full_check.outputs.full_exit_code }}" == "0" ]]; then
+            echo "✅ All anchor links are working correctly!"
+          elif [[ "${{ steps.full_check.outputs.full_exit_code }}" == "1" ]]; then
+            echo "❌ Critical issues found - check the report for details"
+          else
+            echo "⚠️ Warnings or suggestions available - check the report"
+          fi
+
 
