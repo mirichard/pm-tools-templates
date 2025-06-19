@@ -57,6 +57,7 @@ These tools work regardless of project methodology:
 
 ---
 
+<a id="financial-governancefinancial-governance-enterprise-financial-control-value-optimization"></a>
 ### [Financial Governance](financial-governance/) - "Enterprise Financial Control & Value Optimization"
 **Purpose:** Comprehensive financial oversight, advanced business case analysis, and investment protection
 
@@ -72,6 +73,7 @@ These tools work regardless of project methodology:
 
 ---
 
+<a id="strategic-alignmentstrategic-alignment-connecting-projects-to-strategy"></a>
 ### [Strategic Alignment](strategic-alignment/) - "Connecting Projects to Strategy"
 **Purpose:** Ensure projects deliver on strategic objectives and business goals
 
