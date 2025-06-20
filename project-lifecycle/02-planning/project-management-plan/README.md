@@ -22,6 +22,7 @@ The project management plan is your project's master document that defines how t
 
 ## 🚀 Quick Start Templates
 
+<a id="traditionaltraditional-project-management-plan"></a>
 ### Traditional/Traditional Project Management Plan
 **[→ Download: Traditional Project Management Plan Template](traditional-project-management-plan-template.md)**
 - Comprehensive plan following Traditional standards
@@ -90,6 +91,7 @@ The project management plan is your project's master document that defines how t
 
 ## 🎯 Methodology-Specific Guidance
 
+<a id="traditionaltraditional-approach"></a>
 ### Traditional/Traditional Approach
 **Focus: Comprehensive Upfront Planning**
 

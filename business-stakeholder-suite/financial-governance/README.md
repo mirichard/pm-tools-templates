@@ -139,6 +139,7 @@ This section provides robust financial governance frameworks, advanced business 
 ## 🎓 Methodology Integration
 
 <a id="traditionalpmbok-projects"></a>
+<a id="traditionaltraditional-projects"></a>
 ### Traditional/Traditional Projects
 - **Comprehensive financial planning** with detailed baselines
 - **Formal earned value management** with variance analysis
