@@ -1,4 +1,4 @@
-Checking 345 README files...
+Checking 348 README files...
 Checking: README.md
 Checking: role-based-toolkits/README.md
 Checking: role-based-toolkits/release-train-engineer/README.md
@@ -292,6 +292,8 @@ Checking: workflow-orchestration/node_modules/istanbul-lib-instrument/README.md
 Checking: workflow-orchestration/node_modules/istanbul-lib-instrument/node_modules/semver/README.md
 Checking: workflow-orchestration/node_modules/supertest/README.md
 Checking: workflow-orchestration/node_modules/levn/README.md
+Checking: quick-start-kits/remote-team-setup/README.md
+Checking: quick-start-kits/executive-reporting/README.md
 Checking: quick-start-kits/first-time-pm-starter/README.md
 Checking: quick-start-kits/less-adoption/README.md
 Checking: quick-start-kits/agile-transformation/README.md
@@ -302,6 +304,7 @@ Checking: docs/README.md
 Checking: docs/getting-started/README.md
 Checking: methodology-frameworks/agile-scrum/README.md
 Checking: methodology-frameworks/emerging-methods/devops/README.md
+Checking: methodology-frameworks/emerging-methods/devops/infrastructure-as-code/README.md
 Checking: business-stakeholder-suite/README.md
 Checking: business-stakeholder-suite/safe-executive-dashboards/README.md
 Checking: business-stakeholder-suite/communication-automation/README.md
@@ -348,7 +351,7 @@ Checking: ai-insights/README.md
 ============================================================
 ANCHOR LINK CHECK REPORT
 ============================================================
-Files checked: 345
+Files checked: 348
 Total issues: 47
 Broken links: 47
 Suggestions: 0
