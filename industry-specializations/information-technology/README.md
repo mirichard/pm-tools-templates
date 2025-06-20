@@ -6,6 +6,7 @@ This directory contains specialized templates, tools, and frameworks for managin
 
 ## IT Project Management Domains
 
+<a id="1-software-development-projects"></a>
 ### 1. Software Development Projects
 
 Software development projects require specialized approaches to manage requirements, development cycles, testing, and deployment processes.
@@ -31,6 +32,7 @@ Software development projects require specialized approaches to manage requireme
 - **DevOps**: For projects focused on continuous delivery and operational integration
 - **Hybrid**: Combines elements of agile and waterfall for complex projects requiring documentation and flexibility
 
+<a id="2-it-infrastructure-projects"></a>
 ### 2. IT Infrastructure Projects
 
 Infrastructure projects focus on designing, implementing, and managing the hardware, software, and network components that support IT services.
@@ -56,6 +58,7 @@ Infrastructure projects focus on designing, implementing, and managing the hardw
 - **Pilot-to-Production**: For projects benefiting from small-scale testing before full deployment
 - **Big Bang**: For implementations that require a complete cutover at once
 
+<a id="3-cybersecurity-projects"></a>
 ### 3. Cybersecurity Projects
 
 Cybersecurity projects focus on protecting systems, networks, and data from digital attacks and unauthorized access.
@@ -81,6 +84,7 @@ Cybersecurity projects focus on protecting systems, networks, and data from digi
 - **CIS Controls**: Prioritized set of actions to mitigate common attacks
 - **COBIT**: For enterprises with complex governance requirements
 
+<a id="4-digital-transformation-projects"></a>
 ### 4. Digital Transformation Projects
 
 Digital transformation projects involve reimagining business processes through the adoption of digital technologies.

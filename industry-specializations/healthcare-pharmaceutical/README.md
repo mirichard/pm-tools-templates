@@ -1,3 +1,4 @@
+<a id="healthcare-pharmaceutical-project-management"></a>
 # Healthcare & Pharmaceutical Project Management
 
 This directory contains templates, tools, and resources specifically designed for project management in the healthcare and pharmaceutical industries. These materials address the unique challenges faced in these highly regulated sectors, including compliance requirements, patient safety considerations, and specialized development lifecycles.
