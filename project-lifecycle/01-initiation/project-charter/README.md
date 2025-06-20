@@ -22,6 +22,7 @@ The project charter is your project's "birth certificate" - it formally authoriz
 
 ## 🚀 Quick Start Templates
 
+<a id="traditionaltraditional-project-charter"></a>
 ### Traditional/Traditional Project Charter
 **[→ Download: Traditional Project Charter Template](traditional-project-charter-template.md)**
 <a id="agile-project-charter-team-charter"></a>
@@ -47,6 +48,7 @@ The project charter is your project's "birth certificate" - it formally authoriz
 
 ## 🎯 Methodology-Specific Guidance
 
+<a id="traditionaltraditional-approach"></a>
 ### Traditional/Traditional Approach
 **Focus: Comprehensive Definition & Authority**
 

@@ -63,6 +63,7 @@ Effective progress tracking is essential for successful project delivery. This g
 
 ## 🎯 Tracking Methodologies
 
+<a id="traditionaltraditional-progress-tracking"></a>
 ### Traditional/Traditional Progress Tracking
 **Focus: Baseline Variance Analysis**
 

@@ -50,6 +50,7 @@
 
 ## 📚 Core Template Collections
 
+<a id="traditionaltraditional-templates"></a>
 ### 📋 Traditional/Traditional Templates
 **Structured project management with predictive planning**
 
@@ -326,6 +327,7 @@
 - [Sprint Retrospective Example](examples/agile/sprint_retrospective_example.md)
 
 <a id="documentation-reference"></a>
+<a id="traditional-examples"></a>
 ### Traditional Examples:
 - [Project Charter Example](examples/pmbok/project_charter_example.md)
 - [Project Management Plan Example](examples/pmbok/project_management_plan_example.md)

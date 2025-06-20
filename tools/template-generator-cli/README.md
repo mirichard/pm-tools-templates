@@ -116,6 +116,7 @@ Based on the recommendation, the CLI:
 - Sprint retrospective template
 - User story template
 
+<a id="traditionalwaterfall-traditional"></a>
 ### Traditional/Waterfall (Traditional)
 **Best for:**
 - Stable, well-defined requirements

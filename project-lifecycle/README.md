@@ -104,6 +104,7 @@ Each phase builds on the previous one:
 
 ## 🎓 Usage Guidance
 
+<a id="for-traditionaltraditional-projects"></a>
 ### For Traditional/Traditional Projects
 ✅ **Use all phases sequentially**
 ✅ **Complete each phase before moving to next**

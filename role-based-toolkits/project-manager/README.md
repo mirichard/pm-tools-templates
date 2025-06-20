@@ -97,6 +97,7 @@ A Project Manager is responsible for planning, executing, and closing projects w
 ## 🎓 Methodology Alignment
 
 <a id="agilescrum-project-management"></a>
+<a id="traditionaltraditional-project-management"></a>
 ### Traditional/Traditional Project Management
 - **Predictive Planning**: Comprehensive upfront planning and documentation
 - **Phase Gates**: Formal reviews and approvals at each phase

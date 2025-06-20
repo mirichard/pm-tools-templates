@@ -139,6 +139,7 @@ Effective reporting provides stakeholders with timely, accurate, and actionable 
 
 ## 🎓 Reporting by Methodology
 
+<a id="traditionaltraditional-reporting"></a>
 ### Traditional/Traditional Reporting
 - **Comprehensive documentation** with detailed variance analysis
 - **Formal reporting cycles** aligned with project phases
