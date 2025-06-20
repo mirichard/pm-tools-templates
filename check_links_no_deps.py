@@ -51,6 +51,19 @@ def extract_headers_and_anchors(file_path):
                 'anchor': anchor_id
             })
     
+    # Find HTML anchor tags
+    html_anchor_pattern = r'<a id="([^"]+)"'
+    for i, line in enumerate(lines, 1):
+        matches = re.finditer(html_anchor_pattern, line)
+        for match in matches:
+            anchor_id = match.group(1)
+            headers.append({
+                'line': i,
+                'level': 0,  # HTML anchors don't have levels
+                'title': f'HTML Anchor: {anchor_id}',
+                'anchor': anchor_id
+            })
+    
     # Find anchor links [text](#anchor)
     anchor_link_pattern = r'\[([^\]]*)\]\(#([^)]+)\)'
     anchor_links = []
