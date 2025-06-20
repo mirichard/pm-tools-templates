@@ -8,7 +8,7 @@
 | Version       | 1.0 |
 | Status        | [Draft/In Review/Approved] |
 | Date Created  | [YYYY-MM-DD] |
-| Last Updated  | [YYYY-MM-DD] |
+| Last Updated  | 2025-06-20 |
 
 ### Document Revision History
 

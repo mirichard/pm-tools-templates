@@ -1,5 +1,366 @@
 # Cleaning Validation Protocol Template
 
+## Document Control
+
+| Document Information | Details |
+|--|--|
+| **Document Title** | Cleaning Validation Protocol for [EQUIPMENT/PROCESS/FACILITY] |
+| **Document Number** | CVP-[SYSTEM ID]-[SEQUENTIAL NUMBER] |
+| **Version** | 1.0 |
+| **Effective Date** | [EFFECTIVE DATE] |
+| **Next Review Date** | [REVIEW DATE] |
+| **Supersedes** | N/A (Initial Version) |
+
+### Version History
+
+| Version | Date | Description of Changes | Author |
+|--|--|--|--|
+| 1.0 | [DATE] | Initial Release | [NAME] |
+
+### Approvals
+
+| Role | Name | Signature | Date |
+|--|--|--|--|
+| **Protocol Author** | | | |
+| **Quality Assurance** | | | |
+| **Validation Lead** | | | |
+| **Manufacturing/Operations** | | | |
+| **Quality Control** | | | |
+
+## 1. Purpose
+
+This protocol defines the methodology, acceptance criteria, and procedures required to validate the cleaning process for [EQUIPMENT/SYSTEM] to ensure that residues are removed to acceptable levels, preventing cross-contamination between product manufacturing campaigns.
+
+## 2. Scope
+
+This protocol applies to the cleaning validation of [EQUIPMENT/SYSTEM] used in the manufacturing of [PRODUCTS]. The protocol covers:
+
+- Establishment of acceptance limits based on scientific rationale
+- Sampling methods and locations
+- Analytical methods and their suitability
+- Recovery studies
+- Testing for product residues, cleaning agent residues, and bioburden
+- Evaluation of results against predefined acceptance criteria
+
+## 3. Responsibilities
+
+| Role | Responsibilities |
+|--|--|
+| **Validation Team** | Planning and execution of protocol, sample collection, documentation of results |
+| **Quality Control** | Sample analysis, method validation, analytical support |
+| **Quality Assurance** | Protocol review and approval, oversight of validation activities, final report approval |
+| **Production/Operations** | Execution of cleaning procedures according to SOPs |
+| **Validation Manager** | Overall responsibility for validation program, final approval of validation documentation |
+
+## 4. References
+
+### 4.1 Regulatory Guidelines
+
+- FDA Guidance for Industry: "Process Validation: General Principles and Practices" 
+- EMA Guideline on setting health-based exposure limits (HBEL)
+- PIC/S PI 006: "Recommendations on Validation Master Plan, Installation and Operational Qualification, Non-Sterile Process Validation, Cleaning Validation"
+- ICH Q7: "Good Manufacturing Practice Guide for Active Pharmaceutical Ingredients"
+- EU GMP Guidelines, Annex 15: "Qualification and Validation"
+
+### 4.2 Internal Documents
+
+- SOP [NUMBER]: Cleaning Procedure for [EQUIPMENT]
+- SOP [NUMBER]: Sampling Methods for Cleaning Validation
+- SOP [NUMBER]: Analytical Method for [RESIDUE TYPE] Detection
+- [EQUIPMENT] User Manual and Drawings
+- Risk Assessment Report [NUMBER]
+
+## 5. Equipment/System Description
+
+### 5.1 Equipment Identification
+
+| Item | Description | Material of Construction | ID Number |
+|--|--|--|--|
+| [ITEM 1] | [DESCRIPTION] | [MATERIAL] | [ID] |
+| [ITEM 2] | [DESCRIPTION] | [MATERIAL] | [ID] |
+
+### 5.2 Cleaning Procedure Summary
+
+Provide a brief description of the cleaning procedure to be validated, including:
+
+- Manual vs. automated cleaning
+- Cleaning agents used and concentrations
+- Temperature and time parameters
+- Rinsing steps
+- Drying procedures
+
+## 6. Health-Based Exposure Limits and Acceptance Criteria
+
+### 6.1 Maximum Allowable Carryover (MACO) Calculation
+
+The MACO will be calculated using the following formula:
+
+```
+MACO = (ADE or PDE × MBS) / (MDD × SF)
+```
+
+Where:
+- ADE = Acceptable Daily Exposure (mg/day)
+- PDE = Permitted Daily Exposure (mg/day)
+- MBS = Minimum Batch Size of next product (kg)
+- MDD = Maximum Daily Dose of next product (kg/day)
+- SF = Safety Factor (typically 1-10)
+
+Example calculation:
+```
+Given:
+- ADE for Product A = 0.1 mg/day
+- Minimum Batch Size of next product (Product B) = 100 kg
+- Maximum Daily Dose of Product B = 0.5 g/day
+- Safety Factor = 1
+
+MACO = (0.1 mg/day × 100 kg) / (0.5 g/day × 1)
+MACO = 10 mg/kg or 10 ppm
+```
+
+### 6.2 Surface Area Calculation
+
+Surface residue limits will be calculated as:
+
+```
+Residue Limit (µg/cm²) = MACO (mg) / Total Shared Surface Area (cm²)
+```
+
+### 6.3 Acceptance Criteria
+
+#### 6.3.1 Product Residue Limits
+
+| Product | Calculated MACO (ppm) | Surface Limit (µg/cm²) | Swab Limit (µg/swab) | Rinse Limit (µg/mL) |
+|--|--|--|--|--|
+| [PRODUCT A] | [VALUE] | [VALUE] | [VALUE] | [VALUE] |
+| [PRODUCT B] | [VALUE] | [VALUE] | [VALUE] | [VALUE] |
+
+#### 6.3.2 Cleaning Agent Residue Limits
+
+| Cleaning Agent | Limit (µg/cm²) | Swab Limit (µg/swab) | Rinse Limit (µg/mL) |
+|--|--|--|--|
+| [AGENT A] | [VALUE] | [VALUE] | [VALUE] |
+
+#### 6.3.3 Microbiological Limits
+
+| Parameter | Acceptance Criterion |
+|--|--|
+| Bioburden | ≤ [VALUE] CFU/100cm² |
+| Endotoxin (if applicable) | ≤ [VALUE] EU/device |
+
+#### 6.3.4 Visual Inspection
+
+Equipment must be visually clean when inspected under appropriate lighting conditions.
+
+## 7. Sampling Plan
+
+### 7.1 Sampling Locations
+
+Sampling locations have been determined based on:
+- Risk assessment results
+- Equipment design and construction materials
+- Product contact surfaces
+- Hard-to-clean areas
+- Worst-case conditions
+
+### 7.2 Sampling Locations Map
+
+[INSERT EQUIPMENT DIAGRAM WITH NUMBERED SAMPLING POINTS]
+
+### 7.3 Sampling Locations Table
+
+| Location ID | Description | Rationale | Sampling Method |
+|--|--|--|--|
+| L1 | [DESCRIPTION] | [RATIONALE] | Swab |
+| L2 | [DESCRIPTION] | [RATIONALE] | Swab |
+| L3 | [DESCRIPTION] | [RATIONALE] | Rinse |
+
+### 7.4 Control Samples
+
+The following control samples will be collected:
+- Negative controls: Unused swabs/rinse solutions
+- Positive controls: Known concentration of target residue
+
+## 8. Sampling Methods
+
+### 8.1 Swab Sampling Procedure
+
+1. Use [SWAB TYPE] swabs pre-wetted with [SOLVENT]
+2. Swab area of [SIZE] cm² (typically 25 cm²) using the following pattern:
+   - Horizontal strokes with one side of swab
+   - Vertical strokes with the other side
+   - Diagonal strokes with swab edge
+3. Place swab in sample container with [VOLUME] mL of [RECOVERY SOLUTION]
+4. Seal, label, and transport to laboratory under controlled conditions
+
+### 8.2 Rinse Sampling Procedure
+
+1. Collect [VOLUME] mL of final rinse solution in sterile containers
+2. Ensure rinse solution contacts all product contact surfaces
+3. Seal, label, and transport to laboratory under controlled conditions
+
+## 9. Analytical Methods
+
+### 9.1 Product Residue Analysis
+
+| Product | Analytical Method | Method ID | LOD | LOQ | Specificity |
+|--|--|--|--|--|--|
+| [PRODUCT A] | [METHOD] | [ID] | [VALUE] | [VALUE] | [DETAILS] |
+| [PRODUCT B] | [METHOD] | [ID] | [VALUE] | [VALUE] | [DETAILS] |
+
+### 9.2 Cleaning Agent Analysis
+
+| Cleaning Agent | Analytical Method | Method ID | LOD | LOQ |
+|--|--|--|--|--|
+| [AGENT A] | [METHOD] | [ID] | [VALUE] | [VALUE] |
+
+### 9.3 Bioburden Analysis
+
+| Test | Method | Method ID |
+|--|--|--|
+| Bioburden | [METHOD] | [ID] |
+| Endotoxin (if applicable) | [METHOD] | [ID] |
+
+### 9.4 Method Validation Reference
+
+All analytical methods used in this protocol have been validated according to [REFERENCE DOCUMENT]. Validation parameters include:
+- Specificity/selectivity
+- Linearity
+- Range
+- Accuracy
+- Precision
+- Limit of detection (LOD)
+- Limit of quantitation (LOQ)
+- Robustness
+
+## 10. Recovery Studies
+
+### 10.1 Recovery Study Design
+
+Recovery studies will be performed to determine the efficiency of the sampling method to recover residues from equipment surfaces:
+
+1. Apply known amounts of each target residue to coupons of the same material as the equipment
+2. Allow to dry under controlled conditions
+3. Sample using the same swab/rinse procedures as described in Section 8
+4. Analyze using validated methods
+5. Calculate recovery factor as:
+   ```
+   Recovery Factor = (Amount Recovered / Amount Applied) × 100%
+   ```
+
+### 10.2 Recovery Acceptance Criteria
+
+- Recovery factor must be ≥ [VALUE]% (typically ≥70%)
+- Relative standard deviation (RSD) ≤ [VALUE]% (typically ≤15%)
+
+### 10.3 Correction Factor Application
+
+If recovery is less than 100%, a correction factor will be applied to all sample results:
+```
+Corrected Result = Analytical Result / Recovery Factor
+```
+
+## 11. Validation Strategy
+
+### 11.1 Worst-Case Conditions
+
+Cleaning validation will be performed under worst-case conditions:
+- Most difficult-to-clean product
+- Maximum soil load conditions
+- Maximum time between end of production and cleaning
+- Minimum cleaning parameters (time, temperature, concentration)
+
+### 11.2 Number of Validation Runs
+
+[NUMBER] consecutive successful cleaning validation runs will be performed to demonstrate consistency and reproducibility of the cleaning process.
+
+## 12. Execution Procedure
+
+### 12.1 Pre-Validation Requirements
+
+- Equipment is in qualified state
+- Cleaning procedure is approved and in effect
+- Analytical methods are validated
+- Recovery studies are completed
+- Personnel are trained on protocol requirements
+
+### 12.2 Validation Execution Steps
+
+1. Manufacture [PRODUCT] according to standard procedures
+2. Allow equipment to stand for [TIME] (worst-case dirty hold time)
+3. Clean equipment according to SOP [NUMBER]
+4. Perform visual inspection
+5. Collect samples according to sampling plan
+6. Analyze samples using validated methods
+7. Document results
+
+## 13. Data Analysis and Evaluation
+
+### 13.1 Data Review
+
+All data will be reviewed for:
+- Completeness
+- Accuracy
+- Compliance with acceptance criteria
+- Trends or patterns
+
+### 13.2 Statistical Analysis
+
+The following statistical analyses will be performed:
+- Mean, standard deviation, and RSD for each sampling location across runs
+- Evaluation of data distribution
+- Confidence intervals
+
+## 14. Acceptance Criteria for Validation
+
+The cleaning validation will be considered successful if:
+
+1. All visual inspections confirm equipment is visually clean
+2. All residue levels are below established limits after correction for recovery
+3. All bioburden/endotoxin levels meet acceptance criteria
+4. All [NUMBER] consecutive runs meet criteria consistently
+
+## 15. Deviations and Investigations
+
+Any deviations from this protocol or failure to meet acceptance criteria will be documented and investigated according to SOP [NUMBER]. Corrective and preventive actions will be implemented as needed.
+
+## 16. Revalidation Criteria
+
+Cleaning validation will be repeated under the following circumstances:
+- Significant changes to equipment
+- Changes in cleaning procedure or agents
+- Changes in products manufactured
+- Based on ongoing monitoring results
+- Per periodic review requirements (at least every [NUMBER] years)
+
+## 17. Documentation and Reporting
+
+The following documentation will be generated:
+- Completed protocol with all data
+- Analytical test results
+- Deviation reports (if applicable)
+- Validation summary report
+
+## 18. Attachments
+
+- Attachment 1: Equipment Drawings with Sampling Locations
+- Attachment 2: Analytical Method Summaries
+- Attachment 3: Recovery Study Results
+- Attachment 4: Sampling Forms
+- Attachment 5: MACO Calculation Worksheet
+
+## 19. Glossary
+
+| Term | Definition |
+|--|--|
+| ADE | Acceptable Daily Exposure |
+| MACO | Maximum Allowable Carryover |
+| PDE | Permitted Daily Exposure |
+| LOD | Limit of Detection |
+| LOQ | Limit of Quantitation |
+
+# Cleaning Validation Protocol Template
+
 **Protocol Number:** [CV-XXXX]  
 **Version:** [1.0]  
 **Effective Date:** [YYYY-MM-DD]  

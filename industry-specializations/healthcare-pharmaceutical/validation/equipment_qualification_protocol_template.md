@@ -4,8 +4,8 @@
 
 **Document ID:** [EQ-PROTOCOL-XXX]  
 **Version:** [1.0]  
-**Effective Date:** [YYYY-MM-DD]  
-**Review Date:** [YYYY-MM-DD]  
+**Effective Date:** [2025-06-20]  
+**Review Date:** [2026-06-20]  
 **Supersedes:** [Previous version, if applicable]
 
 ### Document History
@@ -331,7 +331,29 @@ Low Setpoint (5°C):
 | 25 min | | | | |
 | 30 min | | | | |
 
-[Repeat tables for Mid and High setpoints]
+Mid Setpoint (25°C):
+
+| Time | Equipment Display (°C) | Independent Measurement (°C) | Difference (°C) | Within Tolerance (Y/N) |
+|------|------------------------|------------------------------|-----------------|------------------------|
+| 0 min | | | | |
+| 5 min | | | | |
+| 10 min | | | | |
+| 15 min | | | | |
+| 20 min | | | | |
+| 25 min | | | | |
+| 30 min | | | | |
+
+High Setpoint (40°C):
+
+| Time | Equipment Display (°C) | Independent Measurement (°C) | Difference (°C) | Within Tolerance (Y/N) |
+|------|------------------------|------------------------------|-----------------|------------------------|
+| 0 min | | | | |
+| 5 min | | | | |
+| 10 min | | | | |
+| 15 min | | | | |
+| 20 min | | | | |
+| 25 min | | | | |
+| 30 min | | | | |
 
 **Results:** [Pass/Fail]
 
@@ -471,9 +493,42 @@ The following data integrity controls have been implemented as part of this qual
    - All raw data collected during qualification is retained
    - Second person verification of critical data entries
    - Clear identification of any corrections to recorded data
+   - Any manual data recording follows the format: correction made, reason for correction, initials, and date
+   - All printed records from equipment attached as raw data with appropriate identification
 
 3. **Computerized System Controls** (if applicable)
    - User access controls
    - Audit trail functionality
    - Backup and recovery procedures
    - System validation status
+
+### Appendix G: Periodic Review and Maintenance Strategy
+
+Equipment qualification status shall be maintained through a structured review and maintenance program:
+
+1. **Periodic Review Frequency**
+   - Annual review of equipment performance against qualification parameters
+   - Requalification assessment every 3 years or after significant changes
+   - Review following any significant maintenance or repair activities
+
+2. **Periodic Review Scope**
+   - Equipment performance trend analysis
+   - Evaluation of preventative maintenance records
+   - Review of calibration data
+   - Assessment of deviations and corrective actions
+   - Change control review
+   - Review of software updates or patches (if applicable)
+
+3. **Maintenance Strategy**
+   - Preventive maintenance schedule based on manufacturer recommendations and usage
+   - Calibration program for all critical measuring devices
+   - Spare parts inventory management
+   - Documentation of all maintenance activities
+   - Equipment status labeling system
+   - Requalification determination criteria following maintenance
+
+4. **Performance Monitoring**
+   - Key performance indicators for equipment reliability
+   - Critical parameter monitoring frequency
+   - Alert and action limits for performance metrics
+   - Periodic performance tests between requalification cycles
