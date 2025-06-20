@@ -98,6 +98,8 @@ The CAPA system described in this template is designed to comply with:
 | ICH Q10 Section 3.2 | Corrective Action and Preventive Action (CAPA) System |
 | ISO 13485 Section 8.5.2 and 8.5.3 | Corrective Action and Preventive Action requirements |
 | EU GMP Chapter 1 | Continuous improvement through quality risk management |
+| EMA GMP Annex 20 | Quality Risk Management |
+| ICH Q9 | Quality Risk Management principles applied to CAPA processes |
 
 Organizations should ensure their CAPA procedures align with the specific regulations applicable to their operations and geographic regions.
 
@@ -427,13 +429,15 @@ Monitor the effectiveness of the CAPA system using metrics such as:
 | CAPA Distribution | % of CAPAs by source category | N/A (tracking metric) | Quarterly |
 | CAPA by Risk Level | % of CAPAs by risk level category | N/A (tracking metric) | Quarterly |
 
-#### Metric Visualization
+#### Metric Visualization and Dashboards
 
 Visualize CAPA metrics using:
 - Trend charts showing metrics over time
 - Pareto charts of CAPA distribution by category
 - Pie charts showing CAPA status distribution
 - Bar charts comparing current metrics to targets
+- Control charts for monitoring process stability
+- Radar charts for comparing multiple metrics across departments
 
 ### Status Reporting
 
@@ -483,6 +487,26 @@ Conduct comprehensive trend analysis:
 - Annually as part of the quality system review
 - Ad-hoc when significant patterns emerge
 
+**Example Dashboard Layout:**
+
+```
+CAPA METRICS DASHBOARD
+
+Status Overview                            | Trending & Aging
+------------------------------------------|------------------------------------------
+[Pie Chart: CAPA Status]                  | [Line Chart: Open CAPAs over Time]
+Open: XX  In Progress: XX  Closed: XX     | [Bar Chart: Aging of Open CAPAs]
+
+Root Cause Analysis                        | CAPA Effectiveness
+------------------------------------------|------------------------------------------
+[Pareto Chart: Root Causes]               | [Bar Chart: Effectiveness Check Results]
+                                          | Effective: XX%  Partially: XX%  Not: XX%
+
+CAPA by Department                         | CAPA by Risk Level
+------------------------------------------|------------------------------------------
+[Bar Chart: CAPAs by Department]          | [Pie Chart: CAPAs by Risk Level]
+                                          | Critical: XX  High: XX  Medium: XX  Low: XX
+```
 ## 5. Appendices
 
 ### Appendix A: CAPA Request Form
@@ -744,6 +768,9 @@ Quality Assurance: ___________________   Date: ______________
 5. EU GMP Chapter 1 - Pharmaceutical Quality System
 6. PIC/S GMP Guide PE 009-14
 7. WHO Good Manufacturing Practices for Pharmaceutical Products
+8. ICH Q9 - Quality Risk Management
+9. EMA GMP Annex 20 - Quality Risk Management
+10. FDA Guidance for Industry - Quality Systems Approach to Pharmaceutical CGMP Regulations
 
 ---
 
