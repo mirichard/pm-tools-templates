@@ -5,8 +5,9 @@
 | Document Name | Quality Management Review Template |
 | ------------- | ---------------------------------- |
 | Document ID   | QMR-TEMP-001                       |
-| Version       | 1.0                                |
+| Version       | 1.1                                |
 | Date Created  | YYYY-MM-DD                         |
+| Last Updated  | 2025-06-20                         |
 | Author        | [Author Name]                      |
 | Approved By   | [Quality Management Representative] |
 
