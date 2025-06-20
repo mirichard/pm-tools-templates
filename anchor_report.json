@@ -479,16 +479,16 @@
     }
   ],
   "files_with_issues": [
-    "workflow-orchestration/node_modules/micromatch/README.md",
-    "workflow-orchestration/node_modules/json-parse-even-better-errors/README.md",
-    "workflow-orchestration/node_modules/@noble/hashes/README.md",
     "workflow-orchestration/node_modules/braces/README.md",
-    "workflow-orchestration/node_modules/ajv/README.md",
+    "workflow-orchestration/node_modules/@nodelib/fs.stat/README.md",
     "workflow-orchestration/node_modules/fastq/README.md",
-    "workflow-orchestration/node_modules/ignore/README.md",
-    "workflow-orchestration/node_modules/picomatch/README.md",
     "workflow-orchestration/node_modules/jest-each/README.md",
+    "workflow-orchestration/node_modules/@noble/hashes/README.md",
     "workflow-orchestration/node_modules/@nodelib/fs.walk/README.md",
-    "workflow-orchestration/node_modules/@nodelib/fs.stat/README.md"
+    "workflow-orchestration/node_modules/json-parse-even-better-errors/README.md",
+    "workflow-orchestration/node_modules/ignore/README.md",
+    "workflow-orchestration/node_modules/ajv/README.md",
+    "workflow-orchestration/node_modules/picomatch/README.md",
+    "workflow-orchestration/node_modules/micromatch/README.md"
   ]
 }
