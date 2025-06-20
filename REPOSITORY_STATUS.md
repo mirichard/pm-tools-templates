@@ -6,9 +6,9 @@
 
 ### ✅ **READY TO USE** - Full Content Available
 
-**Traditional/Waterfall Templates:**
-- [Waterfall Process Groups](Waterfall/Process_Groups/) - Complete Traditional-aligned templates
-- [Waterfall Templates](Waterfall/Templates/) - Ready-to-use documents
+**Traditional Templates:**
+- [Traditional Process Groups](Traditional/Process_Groups/) - Complete Traditional-aligned templates
+- [Traditional Templates](Traditional/Templates/) - Ready-to-use documents
 
 **Agile/Scrum Templates:**
 - [Agile Frameworks](Agile/) - Scrum, Kanban, and scaled agile templates
@@ -35,9 +35,9 @@
 
 ### For Immediate Template Needs:
 
-**1. Traditional/Waterfall Projects:**
+**1. Traditional Projects:**
 ```
-📁 Waterfall/Process_Groups/
+📁 Traditional/Process_Groups/
    ├── Initiating/ → Project Charter, Stakeholder Analysis
    ├── Planning/ → Project Management Plan, Risk Register
    ├── Executing/ → Status Reports, Change Requests
@@ -76,18 +76,18 @@
 **Start here:**
 1. Read [First-Time PM Guide](quick-start-kits/first-time-pm-starter/README.md)
 2. Download [Simple Project Charter](quick-start-kits/first-time-pm-starter/project-charter-simple.md)
-3. Use [Basic Templates](Waterfall/Templates/) for common needs
+3. Use [Basic Templates](Traditional/Templates/) for common needs
 
 ### Experienced PM?
 **Start here:**
-1. Browse [Waterfall Process Groups](Waterfall/Process_Groups/) for comprehensive templates
+1. Browse [Traditional Process Groups](Traditional/Process_Groups/) for comprehensive templates
 2. Check [Industry Templates](industry_templates/) for your sector
 3. Explore [Hybrid Approaches](Hybrid/) for advanced methodologies
 
 ### Executive/Stakeholder?
 **Start here:**
 1. Review [Business Stakeholder Templates](business-stakeholder-suite/) **(Note: Under construction)**
-2. Use [Executive Dashboards](Waterfall/Templates/) for reporting
+2. Use [Executive Dashboards](Traditional/Templates/) for reporting
 3. Access [Strategic Planning Templates](industry_templates/) for governance
 
 ## 📋 **Template Inventory** - *What's Actually Available*
@@ -150,7 +150,7 @@
 
 **Can't find what you need?**
 1. Check [Template Selector](docs/getting-started/template-selector.md)
-2. Browse [existing templates](Waterfall/Templates/) for alternatives
+2. Browse [existing templates](Traditional/Templates/) for alternatives
 3. Create an issue with your specific need
 
 **Found broken links?**

@@ -7,7 +7,7 @@
 ### 🟢 **GREEN** - Ready to Use (Reliable Content)
 
 ```
-📁 Waterfall/
+📁 Traditional/
    ├── 🟢 Process_Groups/         # Traditional-aligned templates
    └── 🟢 Templates/             # Quick-use templates
 
@@ -54,7 +54,7 @@
 
 ### 💆 **"I Need Templates NOW"**
 ```
-1️⃣ Go to: Waterfall/Templates/
+1️⃣ Go to: Traditional/Templates/
 2️⃣ Find: [template_name]_template.md
 3️⃣ Download and customize
 ```
@@ -68,14 +68,14 @@
 
 ### 🏆 **"I'm an Experienced PM"**
 ```
-1️⃣ Browse: Waterfall/Process_Groups/
+1️⃣ Browse: Traditional/Process_Groups/
 2️⃣ Check: industry_templates/[your_industry]/
 3️⃣ Explore: Hybrid/ for advanced approaches
 ```
 
 ### 💼 **"I Need Executive Reporting"**
 ```
-1️⃣ Check: Waterfall/Templates/ (for now)
+1️⃣ Check: Traditional/Templates/
 2️⃣ Look for: *dashboard*, *report*, *executive*
 3️⃣ Wait for: business-stakeholder-suite/ (coming soon)
 ```
@@ -93,7 +93,7 @@ Stakeholder Matrix → Search: "stakeholder"
 
 ### By Methodology
 ```
-Traditional/Waterfall  → Waterfall/Process_Groups/
+Traditional  → Traditional/Process_Groups/
 Agile/Scrum      → Agile/Framework_Templates/
 Hybrid           → Hybrid/Templates/
 Industry-Specific → industry_templates/
@@ -101,11 +101,11 @@ Industry-Specific → industry_templates/
 
 ### By Project Phase
 ```
-Starting Project  → Waterfall/Process_Groups/Initiating/
-Planning Phase    → Waterfall/Process_Groups/Planning/
-Execution Phase   → Waterfall/Process_Groups/Executing/
-Monitoring        → Waterfall/Process_Groups/Monitoring_and_Controlling/
-Closing Project   → Waterfall/Process_Groups/Closing/
+Starting Project  → Traditional/Process_Groups/Initiating/
+Planning Phase    → Traditional/Process_Groups/Planning/
+Execution Phase   → Traditional/Process_Groups/Executing/
+Monitoring        → Traditional/Process_Groups/Monitoring_and_Controlling/
+Closing Project   → Traditional/Process_Groups/Closing/
 ```
 
 ## 🚫 **Common Mistakes to Avoid**
@@ -116,7 +116,7 @@ Closing Project   → Waterfall/Process_Groups/Closing/
 - `integration-toolkits/` folders - Doesn't exist yet!
 
 ### ✅ **DO** go here instead:
-- `Waterfall/` for traditional PM templates
+- `Traditional/` for traditional PM templates
 - `Agile/` for agile/scrum templates
 - `industry_templates/` for specialized needs
 - `quick-start-kits/first-time-pm-starter/` for beginners
@@ -125,7 +125,7 @@ Closing Project   → Waterfall/Process_Groups/Closing/
 
 ### Most Useful Right Now
 1. **[REPOSITORY_STATUS.md](REPOSITORY_STATUS.md)** - Current status of everything
-2. **[Waterfall/Templates/](Waterfall/Templates/)** - Ready-to-use templates
+2. **[Traditional/Templates/](Traditional/Templates/)** - Ready-to-use templates
 3. **[docs/getting-started/template-selector.md](docs/getting-started/template-selector.md)** - Find specific templates
 4. **[GUIDE.md](GUIDE.md)** - Comprehensive template listing
 
@@ -137,7 +137,7 @@ Closing Project   → Waterfall/Process_Groups/Closing/
 
 | Section | Status | Use Now? | ETA |
 |---------|--------|----------|-----|
-| Waterfall/ | 🟢 Complete | ✅ Yes | Ready |
+| Traditional/ | 🟢 Complete | ✅ Yes | Ready |
 | Agile/ | 🟢 Complete | ✅ Yes | Ready |
 | Hybrid/ | 🟢 Complete | ✅ Yes | Ready |
 | industry_templates/ | 🟢 Complete | ✅ Yes | Ready |
@@ -149,7 +149,7 @@ Closing Project   → Waterfall/Process_Groups/Closing/
 ## 🆘 **Need Immediate Help?**
 
 ### Can't Find a Template?
-1. Search the existing templates: `Waterfall/Templates/`
+1. Search the existing templates: `Traditional/Templates/`
 2. Check industry-specific: `industry_templates/`
 3. Use the template selector: `docs/getting-started/template-selector.md`
 4. Create an issue if still not found

@@ -51,44 +51,43 @@
 ## 📚 Core Template Collections
 
 <a id="traditionaltraditional-templates"></a>
-### 📋 Traditional/Traditional Templates
+### 📋 Traditional Templates
 **Structured project management with predictive planning**
 
 #### Process Groups & Key Templates:
 
 **Initiating**
-- [Project Charter Template](Waterfall/Process_Groups/Initiating/project_charter_template.md) - Professional project authorization
+- [Project Charter Template](Traditional/Process_Groups/Initiating/project_charter_template.md) - Professional project authorization
 - [Stakeholder Register](Traditional/Process_Groups/Initiating/stakeholder_register_template.md) - Stakeholder identification & analysis
 
 **Planning**
 - [Work Breakdown Structure](Traditional/Process_Groups/Planning/work_breakdown_structure_template.md) - Project decomposition
 - [Project Schedule Template](Traditional/Process_Groups/Planning/project_schedule_template.md) - Timeline & milestone planning
-- [Project Management Plan](Waterfall/Process_Groups/Planning/project_management_plan_template.md) - Comprehensive planning document
-- [Stakeholder Communication Planning](Waterfall/Process_Groups/Planning/stakeholder_communication_planning.md) - Communication strategy
+- [Project Management Plan](Traditional/Process_Groups/Planning/project_management_plan_template.md) - Comprehensive planning document
+- [Stakeholder Communication Planning](Traditional/Process_Groups/Planning/stakeholder_communication_planning.md) - Communication strategy
 
 **Executing**
-- [Project Execution Status Report](Waterfall/Process_Groups/Executing/project_execution_status_report_template.md) - Execution tracking
-- [Requirements Traceability Matrix](Waterfall/Process_Groups/Executing/requirements_traceability_matrix_template.md) - Requirements tracking
+- [Project Execution Status Report](Traditional/Process_Groups/Executing/project_execution_status_report_template.md) - Execution tracking
+- [Requirements Traceability Matrix](Traditional/Process_Groups/Executing/requirements_traceability_matrix_template.md) - Requirements tracking
 - [Team Performance Assessment](Traditional/Process_Groups/Executing/team_performance_assessment_template.md) - Team evaluation
 
 **Monitoring & Controlling**
-- [Project Performance Monitoring](Waterfall/Process_Groups/Monitoring_and_Controlling/project_performance_monitoring_template.md) - Performance tracking
-- [Status Report Template](Waterfall/Templates/status_report_template.md) - Progress reporting
-- [Change Request Template](Waterfall/Templates/change_request_template.md) - Change management
-- [Issue Log Template](Waterfall/Templates/issue_log_template.md) - Issue tracking
+- [Project Performance Monitoring](Traditional/Process_Groups/Monitoring_and_Controlling/project_performance_monitoring_template.md) - Performance tracking
+- [Status Report Template](Traditional/Templates/status_report_template.md) - Progress reporting
+- [Change Request Template](Traditional/Templates/change_request_template.md) - Change management
+- [Issue Log Template](Traditional/Templates/issue_log_template.md) - Issue tracking
 
 <a id="agile-templates"></a>
 **Closing**
-- [Project Closure Report](Waterfall/Process_Groups/Closing/project_closure_report_template.md) - Project finalization
-<a id="sprint-scrum-templates"></a>
+- [Project Closure Report](Traditional/Process_Groups/Closing/project_closure_report_template.md) - Project finalization
 
 **Additional Templates**
-- [Risk Register](Waterfall/Templates/risk_register_template.md) - Risk management
-- [Communication Plan](Waterfall/Templates/communication_plan_template.md) - Communication strategy
-- [Change Management Plan](Waterfall/Templates/change_management_plan_template.md) - Change strategy
-- [UAT Plan](Waterfall/Templates/uat_plan_template.md) - User acceptance testing
+- [Risk Register](Traditional/Templates/risk_register_template.md) - Risk management
+- [Communication Plan](Traditional/Templates/communication_plan_template.md) - Communication strategy
+- [Change Management Plan](Traditional/Templates/change_management_plan_template.md) - Change strategy
+- [UAT Plan](Traditional/Templates/uat_plan_template.md) - User acceptance testing
+- [Project Roadmap](Traditional/Templates/project_roadmap_template.md) - High-level timeline
 <a id="agile-tools"></a>
-- [Project Roadmap](Waterfall/Templates/project_roadmap_template.md) - High-level timeline
 
 ### 🌀 Agile Templates
 <a id="hybrid-templates"></a>
