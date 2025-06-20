@@ -65,7 +65,7 @@
 - [ ] **Pure Agile** → [Agile Framework](methodology-frameworks/agile-scrum/)
 - [ ] **Traditional/Waterfall** → [Traditional Framework](methodology-frameworks/traditional-waterfall/)
 - [ ] **Hybrid Approach** → [Hybrid Methods](methodology-frameworks/hybrid-approaches/)
-- [ ] **Not Sure** → [Methodology Selector](docs/getting-started/methodology-selector.md)
+- [ ] **Not Sure** → [Methodology Selector](./docs/getting-started/methodology-selector.md)
 
 ---
 
@@ -200,7 +200,7 @@
 
 ### Get Help
 
-1. **Take the Assessment**: [Methodology Selector](docs/getting-started/methodology-selector.md)
+1. **Take the Assessment**: [Methodology Selector](./docs/getting-started/methodology-selector.md)
 2. **Browse Examples**: [Case Studies](examples-case-studies/)
 3. **Ask the Community**: [GitHub Discussions](https://github.com/mirichard/pm-tools-templates/discussions)
 4. **Start Simple**: Pick 3 templates, try them, iterate
@@ -219,7 +219,7 @@
 
 - [Getting Started Guide](docs/getting-started/README.md)
 - [Template Selector Tool](docs/getting-started/template-selector.md)
-- [Methodology Comparison](docs/getting-started/methodology-selector.md)
+- [Methodology Comparison](./docs/getting-started/methodology-selector.md)
 - [Implementation Guide](docs/implementation/)
 - [Contributing Templates](CONTRIBUTING.md)
 
