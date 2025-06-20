@@ -1,6 +1,5 @@
 Checking 345 README files...
 Checking: README.md
-  ✅ Auto-fixed README.md
 Checking: role-based-toolkits/README.md
 Checking: role-based-toolkits/release-train-engineer/README.md
 Checking: role-based-toolkits/program-manager/README.md
@@ -12,13 +11,9 @@ Checking: role-based-toolkits/product-owner/value-measurement/README.md
 Checking: role-based-toolkits/product-owner/backlog-management/README.md
 Checking: role-based-toolkits/product-owner/product-strategy/README.md
 Checking: role-based-toolkits/project-manager/README.md
-  ✅ Auto-fixed role-based-toolkits/project-manager/README.md
 Checking: role-based-toolkits/project-manager/essential-templates/README.md
-  ✅ Auto-fixed role-based-toolkits/project-manager/essential-templates/README.md
 Checking: role-based-toolkits/project-manager/reporting-dashboards/README.md
-  ✅ Auto-fixed role-based-toolkits/project-manager/reporting-dashboards/README.md
 Checking: role-based-toolkits/project-manager/stakeholder-engagement/README.md
-  ✅ Auto-fixed role-based-toolkits/project-manager/stakeholder-engagement/README.md
 Checking: role-based-toolkits/project-manager/governance-tools/README.md
 Checking: project-assessment-suite/README.md
 Checking: integrations/asana/README.md
@@ -315,29 +310,22 @@ Checking: business-stakeholder-suite/executive-dashboards/excel-workbooks/README
 Checking: business-stakeholder-suite/executive-dashboards/executive-reports/README.md
 Checking: business-stakeholder-suite/executive-dashboards/board-presentations/README.md
 Checking: business-stakeholder-suite/financial-governance/README.md
-  ✅ Auto-fixed business-stakeholder-suite/financial-governance/README.md
 Checking: business-stakeholder-suite/financial-governance/enhanced-business-cases/README.md
-  ✅ Auto-fixed business-stakeholder-suite/financial-governance/enhanced-business-cases/README.md
 Checking: dashboard-mvp/README.md
 Checking: project-lifecycle/README.md
-  ✅ Auto-fixed project-lifecycle/README.md
 Checking: project-lifecycle/04-monitoring-control/README.md
 Checking: project-lifecycle/04-monitoring-control/issue-management/README.md
 Checking: project-lifecycle/04-monitoring-control/decision-making/README.md
 Checking: project-lifecycle/04-monitoring-control/progress-tracking/README.md
-  ✅ Auto-fixed project-lifecycle/04-monitoring-control/progress-tracking/README.md
 Checking: project-lifecycle/02-planning/README.md
 Checking: project-lifecycle/02-planning/cost-management/README.md
 Checking: project-lifecycle/02-planning/quality-management/README.md
 Checking: project-lifecycle/02-planning/project-management-plan/README.md
-  ✅ Auto-fixed project-lifecycle/02-planning/project-management-plan/README.md
 Checking: project-lifecycle/02-planning/risk-management/README.md
 Checking: project-lifecycle/02-planning/resource-planning/README.md
-  ✅ Auto-fixed project-lifecycle/02-planning/resource-planning/README.md
 Checking: project-lifecycle/01-initiation/README.md
 Checking: project-lifecycle/01-initiation/stakeholder-analysis/README.md
 Checking: project-lifecycle/01-initiation/project-charter/README.md
-  ✅ Auto-fixed project-lifecycle/01-initiation/project-charter/README.md
 Checking: project-lifecycle/03-execution/README.md
 Checking: project-lifecycle/03-execution/change-management/README.md
 Checking: project-lifecycle/05-closure/README.md
@@ -354,7 +342,6 @@ Checking: integration_guides/github_projects_integration/README.md
 Checking: integration_guides/trello_integration/README.md
 Checking: integration_guides/jira_integration/README.md
 Checking: tools/template-generator-cli/README.md
-  ✅ Auto-fixed tools/template-generator-cli/README.md
 Checking: analytics-platform/README.md
 Checking: ai-insights/README.md
 
