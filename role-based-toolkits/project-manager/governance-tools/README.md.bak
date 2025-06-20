@@ -16,14 +16,14 @@ Good governance ensures projects stay aligned with organizational objectives, fo
 - **[Governance Roles & Responsibilities](governance-roles.md)** - Define governance team roles
 
 ### Decision Management
-- **[Decision Log Template](../essential-templates/decision-log.md)** - Track important project decisions
+- **[Decision Log Template](decision-log.md)** - Track important project decisions
 - **[Decision Making Framework](decision-framework.md)** - Structured approach to decisions
 - **[RACI Decision Matrix](raci-decisions.md)** - Decision roles and accountability
 - **[Decision Review Template](decision-review.md)** - Review and validate decisions
 
 ### Change Control
 - **[Change Control Process](change-control-process.md)** - Manage scope, schedule, and budget changes
-- **[Change Request Template](../essential-templates/change-request.md)** - Standard change request format
+- **[Change Request Template](change-request-template.md)** - Standard change request format
 - **[Change Impact Assessment](change-impact-assessment.md)** - Analyze change implications
 - **[Change Control Board Template](change-control-board.md)** - Governance body for changes
 <a id="quality-reviews"></a>
@@ -93,9 +93,9 @@ Good governance ensures projects stay aligned with organizational objectives, fo
 
 ### Step 3: Implement Controls (Ongoing)
 <a id="governance-by-project-type"></a>
-1. **[Decision Log](../essential-templates/decision-log.md)** - Track all major decisions
+1. **[Decision Log](decision-log.md)** - Track all major decisions
 <a id="smallsimple-projects"></a>
-2. **[Change Requests](../essential-templates/change-request.md)** - Manage changes formally
+2. **[Change Requests](change-request-template.md)** - Manage changes formally
 3. **[Gate Reviews](gate-review-checklist.md)** - Conduct regular reviews
 
 ### Step 4: Monitor & Improve (Ongoing)

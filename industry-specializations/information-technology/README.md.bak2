@@ -23,7 +23,7 @@ Software development projects require specialized approaches to manage requireme
 - [User Story Mapping Template](./software-development/user_story_mapping_template.md)
 - [Sprint Planning Template](../../methodology-frameworks/agile-scrum/sprint-planning/sprint_planning_template.md)
 - [Software Test Plan Template](./software-development/test_plan_template.md)
-- [Release Management Plan Template](./../../methodology-frameworks/emerging-methods/devops/release_management_template.md)
+- [Release Management Plan Template](./software-development/release_management_template.md)
 - [CI/CD Pipeline Setup Guide](./software-development/ci_cd_pipeline_guide.md)
 
 #### Methodology Selection Guide
@@ -97,7 +97,7 @@ Digital transformation projects involve reimagining business processes through t
 - Sustaining momentum through multi-year initiatives
 
 #### Recommended Templates
-- [Digital Transformation Strategy Template](./digital-transformation/digital_transformation_strategy_template.md)
+- [Digital Transformation Strategy Template](./digital-transformation/transformation_strategy_template.md)
 - [Process Digitization Workflow](./digital-transformation/process_digitization_workflow.md)
 - [Technology Adoption Roadmap](./digital-transformation/technology_adoption_roadmap.md)
 - [Digital Maturity Assessment](./digital-transformation/digital_maturity_assessment.md)

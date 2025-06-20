@@ -1,0 +1,16 @@
+./ai-insights/node_modules/natural/README.md:[![CII Best Practices](https://bestpractices.coreinfrastructure.org/projects/4651/badge)](https://bestpractices.coreinfrastructure.org/projects/4651)
+./ai-insights/node_modules/qs/README.md:[![CII Best Practices](https://bestpractices.coreinfrastructure.org/projects/9058/badge)](https://bestpractices.coreinfrastructure.org/projects/9058)
+./industry-specializations/information-technology/README.md:- [Infrastructure Assessment Template](./infrastructure/infrastructure_assessment_template.md)
+./industry-specializations/information-technology/README.md:- [Capacity Planning Worksheet](./infrastructure/capacity_planning_worksheet.md)
+./industry-specializations/information-technology/README.md:- [Migration Plan Template](./infrastructure/migration_plan_template.md)
+./industry-specializations/information-technology/README.md:- [Data Center Design Template](./infrastructure/data_center_design_template.md)
+./industry-specializations/information-technology/README.md:- [Infrastructure Deployment Checklist](./infrastructure/deployment_checklist.md)
+./industry-specializations/information-technology/README.md:- [Disaster Recovery Plan Template](./infrastructure/disaster_recovery_template.md)
+./docs/methodology-guides/methodology-comparison.md:- [Infrastructure as Code Template](../../methodology-frameworks/emerging-methods/devops/infrastructure_as_code_template.md)
+./README.md:- [Infrastructure as Code](methodology-frameworks/emerging-methods/devops/infrastructure_as_code_template.md) - Infrastructure automation and management
+./methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md:- [Infrastructure as Code Template](./infrastructure_as_code_template.md)
+./methodology-frameworks/emerging-methods/devops/devsecops_template.md:- [Infrastructure as Code](./infrastructure_as_code_template.md)
+./methodology-frameworks/emerging-methods/devops/README.md:- **[Infrastructure as Code](infrastructure-as-code/)** - Automated infrastructure management
+./methodology-frameworks/emerging-methods/devops/release_management_template.md:- [Infrastructure as Code](./infrastructure_as_code_template.md)
+./methodology-frameworks/emerging-methods/devops/monitoring_alerting_template.md:- [Infrastructure as Code](./infrastructure_as_code_template.md)
+./workflow-orchestration/node_modules/qs/README.md:[![CII Best Practices](https://bestpractices.coreinfrastructure.org/projects/9058/badge)](https://bestpractices.coreinfrastructure.org/projects/9058)

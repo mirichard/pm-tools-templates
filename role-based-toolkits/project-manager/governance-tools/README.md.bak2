@@ -23,7 +23,7 @@ Good governance ensures projects stay aligned with organizational objectives, fo
 
 ### Change Control
 - **[Change Control Process](change-control-process.md)** - Manage scope, schedule, and budget changes
-- **[Change Request Template](../essential-templates/change-request.md)** - Standard change request format
+- **[Change Request Template](change-request-template.md)** - Standard change request format
 - **[Change Impact Assessment](change-impact-assessment.md)** - Analyze change implications
 - **[Change Control Board Template](change-control-board.md)** - Governance body for changes
 <a id="quality-reviews"></a>
@@ -95,7 +95,7 @@ Good governance ensures projects stay aligned with organizational objectives, fo
 <a id="governance-by-project-type"></a>
 1. **[Decision Log](../essential-templates/decision-log.md)** - Track all major decisions
 <a id="smallsimple-projects"></a>
-2. **[Change Requests](../essential-templates/change-request.md)** - Manage changes formally
+2. **[Change Requests](change-request-template.md)** - Manage changes formally
 3. **[Gate Reviews](gate-review-checklist.md)** - Conduct regular reviews
 
 ### Step 4: Monitor & Improve (Ongoing)
