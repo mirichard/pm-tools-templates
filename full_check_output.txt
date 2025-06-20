@@ -330,11 +330,8 @@ Checking: project-lifecycle/03-execution/README.md
 Checking: project-lifecycle/03-execution/change-management/README.md
 Checking: project-lifecycle/05-closure/README.md
 Checking: industry-specializations/healthcare-pharmaceutical/README.md
-  ✅ Auto-fixed industry-specializations/healthcare-pharmaceutical/README.md
 Checking: industry-specializations/information-technology/README.md
-  ✅ Auto-fixed industry-specializations/information-technology/README.md
 Checking: industry-specializations/financial-services/README.md
-  ✅ Auto-fixed industry-specializations/financial-services/README.md
 Checking: industry_templates/information_technology/README.md
 Checking: industry_templates/financial_services/README.md
 Checking: industry_templates/construction/README.md
