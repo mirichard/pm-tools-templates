@@ -44,6 +44,7 @@ Financial services projects operate under extensive regulatory oversight that va
 
 ## Common Project Types
 
+<a id="1-digital-transformation-initiatives"></a>
 ### 1. Digital Transformation Initiatives
 - Core banking system modernization
 - Digital banking platform implementation
@@ -52,6 +53,7 @@ Financial services projects operate under extensive regulatory oversight that va
 - Cloud migration and adoption
 - Data warehousing and analytics implementation
 
+<a id="2-regulatory-compliance-projects"></a>
 ### 2. Regulatory Compliance Projects
 - Regulatory change management
 - Compliance remediation programs
@@ -60,6 +62,7 @@ Financial services projects operate under extensive regulatory oversight that va
 - Stress testing frameworks implementation
 - Model risk management systems
 
+<a id="3-trading-and-capital-markets-projects"></a>
 ### 3. Trading and Capital Markets Projects
 - Trading platform implementation
 - Market data systems deployment
@@ -68,6 +71,7 @@ Financial services projects operate under extensive regulatory oversight that va
 - Post-trade processing automation
 - Collateral management systems
 
+<a id="4-payment-and-transaction-processing"></a>
 ### 4. Payment and Transaction Processing
 - Payment system modernization
 - Real-time payment implementation
@@ -76,6 +80,7 @@ Financial services projects operate under extensive regulatory oversight that va
 - Payment fraud detection systems
 - Payment card industry (PCI) compliance
 
+<a id="5-fintech-integration"></a>
 ### 5. Fintech Integration
 - API and open banking implementation
 - Blockchain and distributed ledger technology

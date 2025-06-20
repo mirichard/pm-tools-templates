@@ -2,7 +2,7 @@
 ==========================
 Checking directory: .
 
-📄 Found 342 README.md files
+📄 Found 345 README.md files
 
 Checking: ./role-based-toolkits/release-train-engineer/README.md ... [0;32mOK[0m
 Checking: ./role-based-toolkits/program-manager/README.md ... [0;32mOK[0m
@@ -333,6 +333,9 @@ Checking: ./project-lifecycle/03-execution/change-management/README.md ... [0;3
 Checking: ./project-lifecycle/03-execution/README.md ... [0;32mOK[0m
 Checking: ./project-lifecycle/05-closure/README.md ... [0;32mOK[0m
 Checking: ./project-lifecycle/README.md ... [0;32mOK[0m
+Checking: ./industry-specializations/healthcare-pharmaceutical/README.md ... [0;32mOK[0m
+Checking: ./industry-specializations/information-technology/README.md ... [0;32mOK[0m
+Checking: ./industry-specializations/financial-services/README.md ... [0;32mOK[0m
 Checking: ./industry_templates/information_technology/README.md ... [0;32mOK[0m
 Checking: ./industry_templates/financial_services/README.md ... [0;32mOK[0m
 Checking: ./industry_templates/construction/README.md ... [0;32mOK[0m
@@ -349,9 +352,9 @@ Checking: ./ai-insights/README.md ... [0;32mOK[0m
 
 📊 SUMMARY
 ==========
-Files checked: 342
+Files checked: 345
 Files with errors: [0;31m0[0m
 Files with warnings: [1;33m0[0m
-Files OK: [0;32m342[0m
+Files OK: [0;32m345[0m
 
 ✅ All anchor links look good!
