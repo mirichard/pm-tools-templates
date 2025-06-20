@@ -10,11 +10,11 @@ The project charter is your project's "birth certificate" - it formally authoriz
 
 ## 📋 What You'll Find Here
 
-- **[Quick Start Templates](#quick-start-templates)** - Get started immediately
-- **[Methodology-Specific Guidance](#methodology-specific-guidance)** - Traditional, Agile, and Hybrid approaches
-- **[Charter Components](#essential-charter-components)** - What every charter needs
-- **[Approval Process](#approval-process)** - Getting sign-off efficiently
-- **[Common Pitfalls](#common-pitfalls-to-avoid)** - Learn from others' mistakes
+- **[Quick Start Templates](#-quick-start-templates)** - Get started immediately
+- **[Methodology-Specific Guidance](#-methodology-specific-guidance)** - Traditional, Agile, and Hybrid approaches
+- **[Charter Components](#-essential-charter-components)** - What every charter needs
+- **[Approval Process](#-approval-process)** - Getting sign-off efficiently
+- **[Common Pitfalls](#-common-pitfalls-to-avoid)** - Learn from others' mistakes
 
 <a id="quick-start-templates"></a>
 ---
