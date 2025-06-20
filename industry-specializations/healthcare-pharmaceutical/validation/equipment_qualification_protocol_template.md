@@ -72,6 +72,8 @@ The following aspects are not included in this qualification:
 - ICH Q10 - Pharmaceutical Quality System
 - ISPE Baseline Guide Vol. 5: Commissioning and Qualification
 - ASTM E2500 - Standard Guide for Specification, Design, and Verification of Pharmaceutical and Biopharmaceutical Manufacturing Systems and Equipment
+- PIC/S PI 006 - Validation Master Plan, Installation and Operational Qualification
+- WHO Technical Report Series No. 992, Annex 3 - Qualification of systems and equipment
 - [Company-specific validation policies]
 
 ### 3.2 Equipment References
@@ -489,6 +491,14 @@ The following data integrity controls have been implemented as part of this qual
    - Enduring: Data is recorded in a durable medium
    - Available: Data is readily available for review during the equipment lifecycle
 
+2. **Equipment-Specific Data Integrity Controls**
+   - Secure audit trails for electronic data capture systems
+   - Verification of raw data printouts against display readings
+   - Independent cross-checks for critical measurements
+   - Use of calibrated instruments with NIST/equivalent traceability
+   - Clear procedure for handling data discrepancies or anomalies
+   - Data backup and retention strategy that complies with 21 CFR Part 11
+
 2. **Data Recording and Review**
    - All raw data collected during qualification is retained
    - Second person verification of critical data entries
@@ -532,3 +542,26 @@ Equipment qualification status shall be maintained through a structured review a
    - Critical parameter monitoring frequency
    - Alert and action limits for performance metrics
    - Periodic performance tests between requalification cycles
+   - Instrument calibration verification program
+
+### Appendix H: Design Qualification (DQ) Summary
+The Design Qualification phase, which occurred prior to this protocol execution, evaluated the following:
+
+1. **User Requirements Fulfillment**
+   - Verification that vendor specifications meet all user requirements
+   - Gap analysis of user requirements versus equipment capabilities
+   - Documentation of any workarounds or procedural controls for gaps
+
+2. **GMP Design Assessment**
+   - Equipment materials of construction compatibility assessment
+   - Cleanability and sanitization capability review
+   - Maintenance accessibility evaluation
+   - Containment and cross-contamination prevention features
+
+3. **Vendor Qualification**
+   - Vendor quality management system assessment
+   - Vendor manufacturing and testing capabilities
+   - Vendor documentation quality review
+   - Vendor support capabilities assessment
+
+The Design Qualification documentation is maintained as a separate document [insert document reference number].

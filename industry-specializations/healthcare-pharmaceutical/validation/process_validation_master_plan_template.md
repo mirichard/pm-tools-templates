@@ -7,17 +7,17 @@
 | Document ID   | PVMP-[Product/Process ID]-[Version] |
 | Version       | 1.0 |
 | Status        | [Draft/In Review/Approved] |
-| Date Created  | [YYYY-MM-DD] |
+| Date Created  | 2025-06-20 |
 | Last Updated  | 2025-06-20 |
-| Next Review   | [YYYY-MM-DD] |
-| Classification| [Confidential/Restricted/Internal Use] |
+| Next Review   | 2026-06-20 |
+| Classification| Confidential |
 
 ### Document Revision History
 
 | Version | Date | Description of Change | Author | Reviewer |
 |---------|------|------------------------|--------|----------|
-| 0.1 | [YYYY-MM-DD] | Initial draft | [Name] | [Name] |
-| 1.0 | [YYYY-MM-DD] | Released version | [Name] | [Name] |
+| 0.1 | 2025-06-10 | Initial draft | [Name] | [Name] |
+| 1.0 | 2025-06-20 | Released version | [Name] | [Name] |
 
 ### Approvals
 
@@ -545,33 +545,40 @@ The data review process will include:
 
 | Process Parameter | Acceptance Criteria | Rationale |
 |-------------------|---------------------|-----------|
-| [Parameter 1] | [Criteria] | [Rationale] |
-| [Parameter 2] | [Criteria] | [Rationale] |
-| [Parameter 3] | [Criteria] | [Rationale] |
+| Temperature | [Target ± X°C] | Critical for reaction kinetics and product quality |
+| Pressure | [Target ± X bar] | Ensures proper mixing and prevents degradation |
+| pH | [Target ± X] | Critical for product stability and purity |
+| Mixing Speed | [Target ± X rpm] | Ensures homogeneity and consistent quality |
+| Hold Time | [Target time range] | Ensures complete reaction while preventing degradation |
 
 ### 10.2 In-Process Control Acceptance Criteria
 
 | In-Process Control | Acceptance Criteria | Rationale |
 |-------------------|---------------------|-----------|
-| [Control 1] | [Criteria] | [Rationale] |
-| [Control 2] | [Criteria] | [Rationale] |
-| [Control 3] | [Criteria] | [Rationale] |
+| Blend Uniformity | RSD ≤ X% | Ensures content uniformity in final product |
+| Moisture Content | X-Y% w/w | Critical for product stability and processing |
+| Particle Size Distribution | X-Y µm (D90) | Affects dissolution rate and bioavailability |
+| Weight Variation | Target ± X% | Ensures consistent dosing |
+| Dissolution (if applicable) | ≥ X% in Y minutes | Indicator of drug release performance |
 
 ### 10.3 Final Product Acceptance Criteria
 
 | Quality Attribute | Acceptance Criteria | Rationale |
 |-------------------|---------------------|-----------|
-| [Attribute 1] | [Criteria] | [Rationale] |
-| [Attribute 2] | [Criteria] | [Rationale] |
-| [Attribute 3] | [Criteria] | [Rationale] |
+| Assay | 95.0-105.0% | Ensures potency and therapeutic efficacy |
+| Impurities | Individual: ≤ 0.2%, Total: ≤ 1.0% | Safety and quality requirement |
+| Content Uniformity | AV ≤ 15.0 | Ensures consistent dosing across units |
+| Dissolution | Q = 80% in 30 minutes | Ensures consistent drug release |
+| Microbial Limits | TAMC ≤ 1000 CFU/g, TYMC ≤ 100 CFU/g | Product safety requirement |
 
 ### 10.4 Process Capability Requirements
 
 Process capability indices targets:
-- Cp ≥ [value] (typically 1.33)
-- Cpk ≥ [value] (typically 1.33)
+- Cp ≥ 1.33 for critical parameters
+- Cpk ≥ 1.33 for critical parameters
 - Process capability will be assessed for critical parameters and quality attributes
 - Parameters not meeting capability targets will require enhanced control strategy or process improvements
+- For high-risk parameters, enhanced targets (Cp/Cpk ≥ 1.50) may be established
 
 ## 11. Validation Schedule and Timeline
 
@@ -579,17 +586,17 @@ Process capability indices targets:
 
 | Milestone | Planned Date | Responsible Party | Dependencies |
 |-----------|--------------|-------------------|--------------|
-| Process Development Completion | [Date] | [Responsible] | [Dependencies] |
-| Risk Assessment Completion | [Date] | [Responsible] | [Dependencies] |
-| PPQ Protocol Approval | [Date] | [Responsible] | [Dependencies] |
-| Equipment Qualification Completion | [Date] | [Responsible] | [Dependencies] |
-| PPQ Batch 1 Execution | [Date] | [Responsible] | [Dependencies] |
-| PPQ Batch 2 Execution | [Date] | [Responsible] | [Dependencies] |
-| PPQ Batch 3 Execution | [Date] | [Responsible] | [Dependencies] |
-| Testing Completion | [Date] | [Responsible] | [Dependencies] |
-| Data Analysis Completion | [Date] | [Responsible] | [Dependencies] |
-| Validation Report Approval | [Date] | [Responsible] | [Dependencies] |
-| CPV Plan Implementation | [Date] | [Responsible] | [Dependencies] |
+| Process Development Completion | 2025-07-15 | R&D Lead | None |
+| Risk Assessment Completion | 2025-07-30 | Validation Lead | Process Development Completion |
+| PPQ Protocol Approval | 2025-08-15 | QA Lead | Risk Assessment Completion |
+| Equipment Qualification Completion | 2025-09-01 | Engineering Lead | None |
+| PPQ Batch 1 Execution | 2025-09-15 | Manufacturing Lead | Equipment Qualification, Protocol Approval |
+| PPQ Batch 2 Execution | 2025-09-22 | Manufacturing Lead | PPQ Batch 1 Execution |
+| PPQ Batch 3 Execution | 2025-09-29 | Manufacturing Lead | PPQ Batch 2 Execution |
+| Testing Completion | 2025-10-20 | QC Lead | PPQ Batch 3 Execution |
+| Data Analysis Completion | 2025-11-01 | Validation Lead | Testing Completion |
+| Validation Report Approval | 2025-11-15 | QA Lead | Data Analysis Completion |
+| CPV Plan Implementation | 2025-11-30 | Manufacturing Lead | Validation Report Approval |
 
 ### 11.2 Gantt Chart
 
@@ -847,9 +854,47 @@ Team Members: [Names]
 4. ICH Q9 Quality Risk Management (2005)
 5. ICH Q10 Pharmaceutical Quality System (2008)
 6. ICH Q11 Development and Manufacture of Drug Substances (2012)
-7. ISPE Baseline Guide: Process Validation (Latest Edition)
-8. PDA Technical Report No. 60: Process Validation – A Lifecycle Approach
-9. ASTM E2500 Standard Guide for Specification, Design, and Verification of Pharmaceutical and Biopharmaceutical Manufacturing Systems and Equipment
-10. [Company] SOP: [Number] - Process Validation
-11. [Company] SOP: [Number] - Change Control
-12. [Company] SOP: [Number] - Deviation Management
+7. ICH Q12 Technical and Regulatory Considerations for Pharmaceutical Product Lifecycle Management (2019)
+8. ISPE Baseline Guide: Process Validation (Latest Edition)
+9. PDA Technical Report No. 60: Process Validation – A Lifecycle Approach
+10. ASTM E2500 Standard Guide for Specification, Design, and Verification of Pharmaceutical and Biopharmaceutical Manufacturing Systems and Equipment
+11. [Company] SOP: [Number] - Process Validation
+12. [Company] SOP: [Number] - Change Control
+13. [Company] SOP: [Number] - Deviation Management
+14. [Company] SOP: [Number] - Continued Process Verification
+
+### Appendix D: Critical Process Parameter Assessment Template
+
+#### Critical Process Parameter (CPP) Identification Form
+
+| Parameter Information | Details |
+|----------------------|---------|
+| Parameter Name | [Name] |
+| Process Step | [Step] |
+| Normal Operating Range | [Range with units] |
+| Proven Acceptable Range | [Range with units] |
+
+#### Risk Assessment
+
+| CQA Impacted | Impact Mechanism | Severity (1-5) | Probability (1-5) | Detectability (1-5) | RPN | Criticality (Yes/No) |
+|--------------|------------------|----------------|-------------------|---------------------|-----|----------------------|
+| [CQA 1] | [Description] | [1-5] | [1-5] | [1-5] | [S×P×D] | [Yes/No] |
+| [CQA 2] | [Description] | [1-5] | [1-5] | [1-5] | [S×P×D] | [Yes/No] |
+| [CQA 3] | [Description] | [1-5] | [1-5] | [1-5] | [S×P×D] | [Yes/No] |
+
+#### Control Strategy
+
+| Control Element | Description | Monitoring Frequency | Responsible Role |
+|-----------------|-------------|----------------------|------------------|
+| Process Controls | [Description] | [Frequency] | [Role] |
+| Analytical Controls | [Description] | [Frequency] | [Role] |
+| Automation Controls | [Description] | [Frequency] | [Role] |
+| Procedural Controls | [Description] | [Frequency] | [Role] |
+
+#### Supporting Data
+
+| Study/Data Source | Key Findings | Report Reference |
+|-------------------|--------------|------------------|
+| [Study 1] | [Findings] | [Reference] |
+| [Study 2] | [Findings] | [Reference] |
+| [Study 3] | [Findings] | [Reference] |
