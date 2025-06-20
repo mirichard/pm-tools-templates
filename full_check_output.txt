@@ -1,5 +1,6 @@
 Checking 348 README files...
 Checking: README.md
+  ✅ Auto-fixed README.md
 Checking: role-based-toolkits/README.md
 Checking: role-based-toolkits/release-train-engineer/README.md
 Checking: role-based-toolkits/program-manager/README.md
@@ -329,7 +330,6 @@ Checking: project-lifecycle/02-planning/resource-planning/README.md
 Checking: project-lifecycle/01-initiation/README.md
 Checking: project-lifecycle/01-initiation/stakeholder-analysis/README.md
 Checking: project-lifecycle/01-initiation/project-charter/README.md
-  ✅ Auto-fixed project-lifecycle/01-initiation/project-charter/README.md
 Checking: project-lifecycle/03-execution/README.md
 Checking: project-lifecycle/03-execution/change-management/README.md
 Checking: project-lifecycle/05-closure/README.md
