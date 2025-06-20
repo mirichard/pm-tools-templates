@@ -22,7 +22,7 @@ This documentation helps you navigate and effectively use our comprehensive coll
 <a id="documentation-sections"></a>
 ### Choosing Your Approach?
 <a id="getting-startedgetting-started"></a>
-👉 **[Methodology Selector](getting-started/methodology-selector.md)** - PMBOK vs Agile vs Hybrid guidance
+👉 **[Methodology Selector](getting-started/methodology-selector.md)** - Traditional vs Agile vs Hybrid guidance
 
 <a id="methodology-guidesmethodology-guides"></a>
 ---
@@ -35,7 +35,7 @@ Essential guides for new users and quick template selection
 <a id="popular-resources"></a>
 
 ### [Methodology Guides](methodology-guides/)
-In-depth guidance on PMBOK, Agile, and Hybrid approaches
+In-depth guidance on Traditional, Agile, and Hybrid approaches
 
 ### [Implementation](implementation/)
 Change management, tool integration, and scaling practices

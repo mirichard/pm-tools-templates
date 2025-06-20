@@ -13,7 +13,7 @@
 ### Issues Identified
 
 1. **Mixed Organization Patterns**
-   - Methodology-first (PMBOK/Agile/Hybrid) at top level
+   - Methodology-first (Traditional/Agile/Hybrid) at top level
    - Process-based structure within methodologies
    - Inconsistent depth and content organization
 
@@ -246,7 +246,7 @@ pm-tools-templates/
 
 1. **High-Priority Migrations**
    - Move Business_Stakeholder_Templates → business-stakeholder-suite/
-   - Migrate core PMBOK templates → project-lifecycle/
+   - Migrate core Traditional templates → project-lifecycle/
    - Reorganize Agile templates → role-based-toolkits/scrum-master/
 
 2. **Template Enhancement**
@@ -293,12 +293,12 @@ pm-tools-templates/
 
 | Current Location | New Location | Migration Notes |
 |------------------|--------------|----------------|
-| `PMBOK/Process_Groups/Initiating/` | `project-lifecycle/01-initiation/` | Enhance with cross-methodology alternatives |
-| `PMBOK/Process_Groups/Planning/` | `project-lifecycle/02-planning/` | Add agile planning templates |
-| `PMBOK/Process_Groups/Executing/` | `project-lifecycle/03-execution/` | Include agile execution practices |
-| `PMBOK/Process_Groups/Monitoring_and_Controlling/` | `project-lifecycle/04-monitoring-control/` | Add agile metrics and ceremonies |
-| `PMBOK/Process_Groups/Closing/` | `project-lifecycle/05-closure/` | Include agile retrospectives |
-| `PMBOK/Templates/` | `role-based-toolkits/project-manager/essential-templates/` | Reorganize by frequency of use |
+| `Traditional/Process_Groups/Initiating/` | `project-lifecycle/01-initiation/` | Enhance with cross-methodology alternatives |
+| `Traditional/Process_Groups/Planning/` | `project-lifecycle/02-planning/` | Add agile planning templates |
+| `Traditional/Process_Groups/Executing/` | `project-lifecycle/03-execution/` | Include agile execution practices |
+| `Traditional/Process_Groups/Monitoring_and_Controlling/` | `project-lifecycle/04-monitoring-control/` | Add agile metrics and ceremonies |
+| `Traditional/Process_Groups/Closing/` | `project-lifecycle/05-closure/` | Include agile retrospectives |
+| `Traditional/Templates/` | `role-based-toolkits/project-manager/essential-templates/` | Reorganize by frequency of use |
 | `Agile/Scrum/` | `role-based-toolkits/scrum-master/` | Enhance with scaling guidance |
 | `Agile/Templates/` | `role-based-toolkits/scrum-master/agile-ceremonies/` | Add facilitation guidance |
 | `Hybrid/` | `methodology-frameworks/hybrid-approaches/` | Expand with more frameworks |
@@ -334,7 +334,7 @@ pm-tools-templates/
    
    **Purpose:** Clear, one-sentence description
    **Audience:** Primary and secondary users
-   **Methodology:** PMBOK/Agile/Hybrid/Universal
+   **Methodology:** Traditional/Agile/Hybrid/Universal
    **Complexity:** Beginner/Intermediate/Advanced
    **Time to Complete:** Estimated effort
    **Prerequisites:** Required prior work or knowledge

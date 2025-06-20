@@ -15,7 +15,7 @@ Cost management during project planning establishes financial baselines, budgets
 
 ## Methodology Integration
 
-Supports PMBOK, Agile, and Hybrid approaches to project cost management.
+Supports Traditional, Agile, and Hybrid approaches to project cost management.
 
 ---
 

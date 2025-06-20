@@ -918,11 +918,11 @@ dt_agile_integration:
     continuous_improvement: "Refine DT integration approach"
 ```
 
-### Design Thinking + PMBOK Integration
+### Design Thinking + Traditional Integration
 
 #### Project Phase Integration
 ```
-PMBOK Phase Integration with Design Thinking
+Traditional Phase Integration with Design Thinking
 
 Initiating Phase:
 ├── Traditional: Project Charter, Stakeholder Register

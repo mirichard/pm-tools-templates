@@ -24,7 +24,7 @@ export interface AnalyticsEvent {
 export interface UserMetadata {
   role?: string;               // PM, Product Owner, Developer, etc.
   industry?: string;           // IT, Construction, Healthcare, etc.
-  methodology?: string;        // Agile, PMBOK, Hybrid
+  methodology?: string;        // Agile, Traditional, Hybrid
   teamSize?: string;          // 1-5, 6-20, 21-50, 50+
   experience?: string;        // Beginner, Intermediate, Advanced
 }

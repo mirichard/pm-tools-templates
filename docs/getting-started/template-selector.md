@@ -49,7 +49,7 @@ Once comfortable with basics:
 - Specialization: [IT Templates](../../industry_templates/information_technology/)
 
 **🏗️ Traditional Project** (Construction, Manufacturing, etc.)
-- Methodology: [PMBOK/Waterfall](methodology-selector.md#traditional-waterfall)
+- Methodology: [Traditional/Waterfall](methodology-selector.md#traditional-waterfall)
 - Templates: [Project Manager Toolkit](../../role-based-toolkits/project-manager/)
 - Industry: [Construction & Engineering](../../industry_templates/construction_engineering/)
 
@@ -215,7 +215,7 @@ Regulated Industry? ──Yes──> Industry Templates + Hybrid
    No
    │
    v
-Traditional Project ──> PMBOK/Waterfall Templates
+Traditional Project ──> Traditional/Waterfall Templates
 ```
 
 ---
@@ -519,7 +519,7 @@ What do you need?
 - [Strategic Alignment](../../business-stakeholder-suite/strategic-alignment/)
 
 #### Methodology Frameworks
-- [PMBOK/Waterfall](../../methodology-frameworks/pmbok-waterfall/)
+- [Traditional/Waterfall](../../methodology-frameworks/pmbok-waterfall/)
 - [Agile/Scrum](../../methodology-frameworks/agile-scrum/)
 - [Hybrid Approaches](../../methodology-frameworks/hybrid-approaches/)
 - [Emerging Methods](../../methodology-frameworks/emerging-methods/)

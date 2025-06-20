@@ -412,7 +412,7 @@ The README lists 80+ templates in a flat structure, making it hard to locate spe
 
 **Features:**
 - Collapsible menu sections in README and GitHub Pages site
-- Hierarchical organization by methodology (PMBOK, Agile, Hybrid)
+- Hierarchical organization by methodology (Traditional, Agile, Hybrid)
 - Role-based template grouping (PM, Product Owner, Scrum Master, etc.)
 - Industry-specific collections with clear visual separation
 - Quick navigation table of contents with anchor links

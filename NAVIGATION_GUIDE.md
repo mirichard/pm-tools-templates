@@ -8,7 +8,7 @@
 
 ```
 📁 Waterfall/
-   ├── 🟢 Process_Groups/         # PMBOK-aligned templates
+   ├── 🟢 Process_Groups/         # Traditional-aligned templates
    └── 🟢 Templates/             # Quick-use templates
 
 📁 Agile/
@@ -93,7 +93,7 @@ Stakeholder Matrix → Search: "stakeholder"
 
 ### By Methodology
 ```
-PMBOK/Waterfall  → Waterfall/Process_Groups/
+Traditional/Waterfall  → Waterfall/Process_Groups/
 Agile/Scrum      → Agile/Framework_Templates/
 Hybrid           → Hybrid/Templates/
 Industry-Specific → industry_templates/

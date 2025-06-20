@@ -35,7 +35,7 @@ program
   .description('List available templates')
   .action(() => {
     console.log(chalk.yellow('Available Template Categories:'));
-    console.log('• Traditional/Waterfall (PMBOK-aligned)');
+    console.log('• Traditional/Waterfall (Traditional-aligned)');
     console.log('• Agile/Scrum');
     console.log('• Hybrid Methodologies');
     console.log('• Industry-Specific Templates');

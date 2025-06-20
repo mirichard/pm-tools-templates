@@ -1,4 +1,4 @@
-# PMBOK GITHUB TEMPLATES
+# Traditional GITHUB TEMPLATES
 
 ## Repository Setup Templates
 
@@ -164,7 +164,7 @@ assignees: ''
 **WBS Code:** [1.2.3.4]
 **Related Work Package:** #[work_package_issue]
 **Process Group:** [Initiating/Planning/Executing/Monitoring/Closing]
-**Knowledge Area:** [Relevant PMBOK knowledge area]
+**Knowledge Area:** [Relevant Traditional knowledge area]
 
 ## Deliverable Description
 [Comprehensive description of what the deliverable is and its purpose within the project]
@@ -304,7 +304,7 @@ assignees: ''
 **Risk ID:** [Unique identifier, e.g., R001]
 **Risk Title:** [Concise risk description]
 **Risk Category:** [Technical/Schedule/Cost/Quality/Resource/External/Organizational]
-**Knowledge Area:** [PMBOK knowledge area most affected]
+**Knowledge Area:** [Traditional knowledge area most affected]
 **Risk Source:** [How was this risk identified?]
 **Date Identified:** [Date]
 **Identified By:** [Person/role who identified the risk]
@@ -927,9 +927,9 @@ jobs:
 
 ## Project Board Configuration
 
-### PMBOK Project Board Setup
+### Traditional Project Board Setup
 ```yaml
-Board Name: "PMBOK Traditional Project Management"
+Board Name: "Traditional Traditional Project Management"
 Board Type: "Feature Planning"
 
 Custom Fields:
@@ -999,5 +999,5 @@ Automation Rules:
 
 ---
 
-*These PMBOK GitHub templates provide a structured approach to traditional project management using GitHub's features. The templates support the full PMBOK framework with proper work breakdown, risk management, and formal approval processes.*
+*These Traditional GitHub templates provide a structured approach to traditional project management using GitHub's features. The templates support the full Traditional framework with proper work breakdown, risk management, and formal approval processes.*
 

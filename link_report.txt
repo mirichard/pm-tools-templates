@@ -294,8 +294,8 @@
    → Resolves to: ./business-stakeholder-suite/safe-executive-dashboards/../../Waterfall/Templates/business_case_template.md
    💡 RECOMMENDATION: Create missing file or fix link
 
-❌ ./business-stakeholder-suite/safe-executive-dashboards/README.md (line 407): ../../PMBOK/Knowledge_Areas/Project_Cost_Management/roi_tracking_template.md
-   → Resolves to: ./business-stakeholder-suite/safe-executive-dashboards/../../PMBOK/Knowledge_Areas/Project_Cost_Management/roi_tracking_template.md
+❌ ./business-stakeholder-suite/safe-executive-dashboards/README.md (line 407): ../../Traditional/Knowledge_Areas/Project_Cost_Management/roi_tracking_template.md
+   → Resolves to: ./business-stakeholder-suite/safe-executive-dashboards/../../Traditional/Knowledge_Areas/Project_Cost_Management/roi_tracking_template.md
    💡 RECOMMENDATION: Create directory structure or fix link path
 
 ❌ ./docs/README.md (line 27): methodology-guides/

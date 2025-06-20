@@ -3,7 +3,7 @@
  * 
  * Main entry point for the Asana integration module providing:
  * - Bi-directional synchronization between templates and Asana
- * - Project creation from methodology templates (PMBOK, Agile, Hybrid)
+ * - Project creation from methodology templates (Traditional, Agile, Hybrid)
  * - Real-time webhook integration for instant updates
  * - CLI tools for easy management and automation
  * 
@@ -178,7 +178,7 @@ export const AsanaIntegrationUtils = {
 
 // Version and metadata
 export const VERSION = '1.0.0';
-export const SUPPORTED_METHODOLOGIES = ['PMBOK', 'Agile', 'Hybrid'] as const;
+export const SUPPORTED_METHODOLOGIES = ['Traditional', 'Agile', 'Hybrid'] as const;
 export const DEFAULT_SYNC_FIELDS = ['name', 'completed', 'due_date', 'assignee', 'priority'] as const;
 
 /**

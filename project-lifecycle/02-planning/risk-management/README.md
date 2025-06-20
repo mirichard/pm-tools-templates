@@ -279,7 +279,7 @@ Legend: L=Low, M=Medium, H=High, E=Extreme
 
 ### Integration with Project Methodology
 
-**Traditional/PMBOK Integration:**
+**Traditional/Traditional Integration:**
 - Risk register integrated with work breakdown structure
 - Risk responses included in project schedule and budget
 - Risk reviews at phase gates and major milestones

@@ -25,7 +25,7 @@
 
 ### Methodology Integration Model
 
-#### Predictive Components (PMBOK)
+#### Predictive Components (Traditional)
 | Component | Application | Rationale |
 |-----------|-------------|----------|
 | Governance Structure | | |
@@ -371,10 +371,10 @@ Operational Level → Tactical Level → Strategic Level
 2. Adjust the balance of predictive vs. adaptive elements based on organizational readiness
 3. Ensure alignment with overall program management approach
 4. Regular reviews and updates as the change evolves
-5. Use in conjunction with both PMBOK and Agile planning documents
+5. Use in conjunction with both Traditional and Agile planning documents
 
 **Related Templates:**
-- [Change Management Plan (PMBOK)](../../PMBOK/Templates/change_management_plan_template.md)
+- [Change Management Plan (Traditional)](../../Traditional/Templates/change_management_plan_template.md)
 - [Change Vision Canvas (Agile)](../../Agile/Tools/change_vision_canvas.md)
 - [Progressive Change Roadmap](progressive_change_roadmap_template.md)
 - [Change Governance Framework](change_governance_framework_template.md)

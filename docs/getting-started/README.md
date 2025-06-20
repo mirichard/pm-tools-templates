@@ -33,7 +33,7 @@ This guide helps you quickly get oriented and find the resources you need, wheth
 <a id="step-2-get-essential-templates"></a>
 ### Step 1: Understand Your Options
 **[→ Read: Methodology Selector](methodology-selector.md)**
-- Learn when to use PMBOK/Waterfall vs Agile vs Hybrid approaches
+- Learn when to use Traditional/Waterfall vs Agile vs Hybrid approaches
 - 5-minute decision tree to guide your choice
 <a id="step-3-set-up-your-project"></a>
 

@@ -92,7 +92,7 @@ These templates provide the fundamental documents and tools required for effecti
 
 ## 🎓 Methodology Adaptations
 
-### Traditional/PMBOK Approach
+### Traditional/Traditional Approach
 - Use all templates with comprehensive detail
 - Complete planning phase before execution
 - Formal approvals at each milestone

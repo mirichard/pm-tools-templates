@@ -11,7 +11,7 @@ Effective progress tracking is essential for successful project delivery. This g
 ## 📋 What You'll Find Here
 
 - **[Quick Start Templates](#quick-start-templates)** - Ready-to-use tracking tools and dashboards
-- **[Tracking Methodologies](#tracking-methodologies)** - PMBOK, Agile, and Hybrid approaches
+- **[Tracking Methodologies](#tracking-methodologies)** - Traditional, Agile, and Hybrid approaches
 - **[Key Performance Indicators](#key-performance-indicators-kpis)** - What to measure and why
 - **[Reporting Framework](#reporting-framework)** - Communicate progress effectively
 - **[Corrective Actions](#corrective-actions)** - Respond to performance issues
@@ -34,7 +34,7 @@ Effective progress tracking is essential for successful project delivery. This g
 - Complete earned value analysis
 - Schedule and cost performance indices
 - Forecasting and trend analysis
-- Essential for traditional/PMBOK projects
+- Essential for traditional/Traditional projects
 
 ### Agile Sprint Tracking
 **[→ Download: Sprint Tracking Template](sprint-tracking-template.md)**
@@ -63,7 +63,7 @@ Effective progress tracking is essential for successful project delivery. This g
 
 ## 🎯 Tracking Methodologies
 
-### Traditional/PMBOK Progress Tracking
+### Traditional/Traditional Progress Tracking
 **Focus: Baseline Variance Analysis**
 
 **Core Measurement Approaches:**

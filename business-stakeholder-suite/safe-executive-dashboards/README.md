@@ -411,7 +411,7 @@ Source Systems     │ Integration Layer │ Analytics Layer  │ Presentation
 ### Business Stakeholder Resources
 - [Executive Communication Templates](../executive-dashboards/README.md)
 - [Business Case Templates](../../Waterfall/Templates/business_case_template.md)
-- [ROI Tracking Templates](../../PMBOK/Knowledge_Areas/Project_Cost_Management/roi_tracking_template.md)
+- [ROI Tracking Templates](../../Traditional/Knowledge_Areas/Project_Cost_Management/roi_tracking_template.md)
 
 ### External Resources
 - [SAFe Measurement Guide](https://scaledagile.com/guidance/measure/)

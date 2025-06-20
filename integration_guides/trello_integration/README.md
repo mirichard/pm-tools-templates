@@ -76,8 +76,8 @@ Create custom fields in Trello to track project management metadata:
 | Risk Probability | Dropdown | Track risk likelihood | Values: 1-5 scale |
 | Risk Impact | Dropdown | Track risk consequence | Values: 1-5 scale |
 | Risk Score | Calculated (via automation) | Calculate Risk Priority Number | Formula: Probability × Impact |
-| Process Group | Dropdown | PMBOK process group | For traditional projects |
-| Knowledge Area | Dropdown | PMBOK knowledge area | For traditional projects |
+| Process Group | Dropdown | Traditional process group | For traditional projects |
+| Knowledge Area | Dropdown | Traditional knowledge area | For traditional projects |
 | Epic | Dropdown | Group user stories | For Agile implementations |
 | Phase | Dropdown | Project lifecycle phase | For traditional/hybrid projects |
 
@@ -297,7 +297,7 @@ For effective information organization within cards:
    - Use Card Repeater to create ceremony cards automatically
    - Document outcomes in card comments or attachments
 
-### PMBOK Implementation
+### Traditional Implementation
 
 1. **Board Structure**
    - Organize main board by Process Groups:
@@ -447,7 +447,7 @@ For effective information organization within cards:
    - Clear ownership of cards
    - Transparent impediment resolution
 
-### PMBOK Best Practices
+### Traditional Best Practices
 
 1. **Process Compliance**
    - Create templates for required documents

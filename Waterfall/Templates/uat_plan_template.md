@@ -509,7 +509,7 @@
 3. Remove sections not applicable to your project
 4. Ensure alignment with overall project management plan
 5. Regular updates throughout the UAT lifecycle
-6. Use in conjunction with other PMBOK testing and quality documents
+6. Use in conjunction with other Traditional testing and quality documents
 
 **Related Templates:**
 - [UAT Test Case Template](uat_test_case_template.md)

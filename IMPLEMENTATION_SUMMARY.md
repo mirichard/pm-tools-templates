@@ -123,7 +123,7 @@ quick-start-kits/agile-transformation/
 - **References Fixed**: 50+ template references now working
 
 ### Qualitative Results
-- **Methodology Alignment**: Created structure aligned with user's preferences (PMBOK, Agile, Hybrid) <citations>
+- **Methodology Alignment**: Created structure aligned with user's preferences (Traditional, Agile, Hybrid) <citations>
   <document>
     <document_type>RULE</document_type>
     <document_id>F3VXU0DlwfuDs7OJgaCMh8</document_id>
@@ -138,7 +138,7 @@ quick-start-kits/agile-transformation/
 - **Integration Support**: Framework for tool integrations and AI capabilities
 
 ### Templates Created Follow Best Practices:
-- **PMBOK Standards**: Traditional PM Plan follows PMI guidelines
+- **Traditional Standards**: Traditional PM Plan follows PMI guidelines
 - **Agile Methodology**: Release plan incorporates Scrum/SAFe practices
 - **Risk Management**: PMI Risk Management standards compliance
 - **Stakeholder Engagement**: Comprehensive stakeholder analysis framework

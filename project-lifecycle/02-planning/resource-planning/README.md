@@ -65,7 +65,7 @@ Resource planning is about ensuring your project has the people, skills, and cap
 
 ## 🎯 Team Structure Design
 
-### Traditional/PMBOK Team Structure
+### Traditional/Traditional Team Structure
 **Hierarchical Organization**
 
 ```

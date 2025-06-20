@@ -2,7 +2,7 @@
 
 **Choose the right project management approach for your situation**
 
-This guide helps you select between PMBOK/Waterfall, Agile, and Hybrid methodologies based on your specific project characteristics.
+This guide helps you select between Traditional/Waterfall, Agile, and Hybrid methodologies based on your specific project characteristics.
 
 ---
 
@@ -39,7 +39,7 @@ This guide helps you select between PMBOK/Waterfall, Agile, and Hybrid methodolo
 
 ## 🎯 Your Results
 
-### Mostly 🟢 Green = Traditional/PMBOK Approach
+### Mostly 🟢 Green = Traditional/Traditional Approach
 
 **Your project characteristics:**
 - Well-defined, stable requirements
@@ -48,7 +48,7 @@ This guide helps you select between PMBOK/Waterfall, Agile, and Hybrid methodolo
 - Milestone-based stakeholder engagement
 - Linear, sequential delivery expected
 
-**Recommended methodology:** **PMBOK/Waterfall**
+**Recommended methodology:** **Traditional/Waterfall**
 
 **Your starting toolkit:**
 1. **[Project Charter Template](../../project-lifecycle/01-initiation/project-charter/)**
@@ -121,7 +121,7 @@ Start Here
     │
     ├── Requirements well-defined and stable?
     │   ├── YES → High compliance/documentation needs?
-    │   │         ├── YES → 🟢 TRADITIONAL/PMBOK
+    │   │         ├── YES → 🟢 TRADITIONAL/Traditional
     │   │         └── NO → Need rapid delivery?
     │   │                  ├── YES → 🟡 HYBRID
     │   │                  └── NO → 🟢 TRADITIONAL
@@ -144,7 +144,7 @@ Start Here
 
 ---
 
-## 🏢 Traditional/PMBOK: When to Choose
+## 🏢 Traditional/Traditional: When to Choose
 
 ### ✅ Ideal Situations
 - **Construction projects** - Physical deliverables with known specifications
@@ -224,7 +224,7 @@ Start Here
 
 ## 📈 Methodology Comparison Matrix
 
-| Factor | Traditional/PMBOK | Agile | Hybrid |
+| Factor | Traditional/Traditional | Agile | Hybrid |
 |--------|------------------|-------|--------|
 | **Requirements** | Stable, well-defined | Evolving, emergent | Mixed stability |
 | **Planning** | Comprehensive upfront | Adaptive, just-in-time | Layered planning |

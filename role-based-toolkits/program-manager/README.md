@@ -56,7 +56,7 @@ This toolkit provides Program Managers with specialized resources for coordinati
 
 ## Methodology Integration
 
-### PMBOK Program Management
+### Traditional Program Management
 - Aligns with Program Management Standard
 - Emphasizes benefits realization
 - Structured governance approach

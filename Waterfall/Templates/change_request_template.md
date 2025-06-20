@@ -441,7 +441,7 @@
 
 ---
 
-*Note: This Change Request Form template aligns with PMI® PMBOK® Guide best practices for integrated change control. Organizations should adapt this template to their specific needs and governance processes.*
+*Note: This Change Request Form template aligns with PMI® Traditional® Guide best practices for integrated change control. Organizations should adapt this template to their specific needs and governance processes.*
 
-*PMI and PMBOK are registered marks of the Project Management Institute, Inc.*
+*PMI and Traditional are registered marks of the Project Management Institute, Inc.*
 

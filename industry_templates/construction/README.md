@@ -39,7 +39,7 @@ The construction industry encompasses commercial, residential, and infrastructur
   - Transportation facilities
   - Environmental projects
 
-These templates build upon the traditional PMBOK methodology, which is well-suited for construction projects due to their predictive nature, while incorporating essential industry-specific elements.
+These templates build upon the traditional Traditional methodology, which is well-suited for construction projects due to their predictive nature, while incorporating essential industry-specific elements.
 
 ## Included Templates
 
@@ -47,15 +47,15 @@ The following templates have been customized for construction project management
 
 | Template | Description | Base Methodology |
 |----------|-------------|------------------|
-| `construction_project_charter.md` | Formal project authorization with construction-specific elements | PMBOK |
-| `construction_wbs.md` | Work Breakdown Structure with standard construction phases | PMBOK |
-| `construction_schedule_template.md` | Gantt chart template with typical construction milestones | PMBOK |
-| `construction_risk_register.md` | Risk management with common construction risk categories | PMBOK |
-| `site_safety_plan.md` | Construction-specific safety management | PMBOK |
-| `material_procurement_plan.md` | Specialized procurement for construction materials | PMBOK |
-| `inspection_checklist.md` | Quality control inspections | PMBOK |
-| `change_order_template.md` | Construction-specific change management | PMBOK |
-| `daily_construction_report.md` | Site progress documentation | PMBOK |
+| `construction_project_charter.md` | Formal project authorization with construction-specific elements | Traditional |
+| `construction_wbs.md` | Work Breakdown Structure with standard construction phases | Traditional |
+| `construction_schedule_template.md` | Gantt chart template with typical construction milestones | Traditional |
+| `construction_risk_register.md` | Risk management with common construction risk categories | Traditional |
+| `site_safety_plan.md` | Construction-specific safety management | Traditional |
+| `material_procurement_plan.md` | Specialized procurement for construction materials | Traditional |
+| `inspection_checklist.md` | Quality control inspections | Traditional |
+| `change_order_template.md` | Construction-specific change management | Traditional |
+| `daily_construction_report.md` | Site progress documentation | Traditional |
 | `subcontractor_management_plan.md` | Framework for managing multiple subcontractors | Hybrid |
 
 ## Industry-Specific Considerations

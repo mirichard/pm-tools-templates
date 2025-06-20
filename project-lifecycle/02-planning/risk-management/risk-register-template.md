@@ -29,5 +29,5 @@
 - **Low (L)**: Minor impact, minimal effect
 
 ---
-*PMBOK-aligned risk management template*
+*Traditional-aligned risk management template*
 

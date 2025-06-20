@@ -11,7 +11,7 @@ The project charter is your project's "birth certificate" - it formally authoriz
 ## 📋 What You'll Find Here
 
 - **[Quick Start Templates](#quick-start-templates)** - Get started immediately
-- **[Methodology-Specific Guidance](#methodology-specific-guidance)** - PMBOK, Agile, and Hybrid approaches
+- **[Methodology-Specific Guidance](#methodology-specific-guidance)** - Traditional, Agile, and Hybrid approaches
 - **[Charter Components](#essential-charter-components)** - What every charter needs
 - **[Approval Process](#approval-process)** - Getting sign-off efficiently
 - **[Common Pitfalls](#common-pitfalls-to-avoid)** - Learn from others' mistakes
@@ -22,7 +22,7 @@ The project charter is your project's "birth certificate" - it formally authoriz
 
 ## 🚀 Quick Start Templates
 
-### PMBOK/Traditional Project Charter
+### Traditional/Traditional Project Charter
 **[→ Download: Traditional Project Charter Template](traditional-project-charter-template.md)**
 <a id="agile-project-charter-team-charter"></a>
 - Comprehensive charter for waterfall/traditional projects
@@ -47,7 +47,7 @@ The project charter is your project's "birth certificate" - it formally authoriz
 
 ## 🎯 Methodology-Specific Guidance
 
-### PMBOK/Traditional Approach
+### Traditional/Traditional Approach
 **Focus: Comprehensive Definition & Authority**
 
 Key Elements:

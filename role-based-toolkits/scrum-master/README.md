@@ -60,8 +60,8 @@ Tools for building high-performing teams:
 
 ## Integration with Other Methodologies
 
-### PMBOK Integration
-- Aligns with PMBOK's emphasis on stakeholder management and communication
+### Traditional Integration
+- Aligns with Traditional's emphasis on stakeholder management and communication
 - Supports project monitoring and controlling processes
 - Provides structured approach to risk and issue management
 

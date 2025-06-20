@@ -109,7 +109,7 @@ The assessment follows a structured approach:
 
 This assessment suite is designed to integrate with the existing repository structure:
 
-- **Methodology Alignment**: Use with [PMBOK](../PMBOK/), [Agile](../Agile/), or [Hybrid](../Hybrid/) frameworks
+- **Methodology Alignment**: Use with [Traditional](../Traditional/), [Agile](../Agile/), or [Hybrid](../Hybrid/) frameworks
 - **Lifecycle Integration**: Connect with [Project Lifecycle](../project-lifecycle/) templates
 - **Role-Based Tools**: Complement [Role-Based Toolkits](../role-based-toolkits/)
 - **Organizational Framework**: Align with [Organizational Frameworks](../organizational-frameworks/)

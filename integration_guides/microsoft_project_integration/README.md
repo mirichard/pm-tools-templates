@@ -84,8 +84,8 @@ Create custom fields in Microsoft Project to track project management metadata:
 | Priority | Priority (built-in) | Number | 1-1000 scale by default |
 | Risk Level | Text1 | Text | Set values: Low, Medium, High |
 | Risk Category | Text2 | Text | Site, Technical, Resource, etc. |
-| Process Group | Text3 | Text | PMBOK process groups |
-| Knowledge Area | Text4 | Text | PMBOK knowledge areas |
+| Process Group | Text3 | Text | Traditional process groups |
+| Knowledge Area | Text4 | Text | Traditional knowledge areas |
 | Acceptance Criteria | Notes | RTF | Add to task notes |
 | Change Request ID | Text5 | Text | Reference to change request |
 | Phase | Outline Level or Text6 | Number/Text | Group tasks by project phase |
@@ -384,11 +384,11 @@ Microsoft Project can represent our template WBS structure as follows:
 
 ## Methodology-Specific Guidance
 
-### PMBOK Implementation
+### Traditional Implementation
 
 1. **Project Structure**
    - Organize by Process Groups and Knowledge Areas
-   - Use WBS as defined in PMBOK
+   - Use WBS as defined in Traditional
    - Set up phases according to project lifecycle
 
 2. **Custom Fields**
@@ -406,7 +406,7 @@ Microsoft Project can represent our template WBS structure as follows:
 <a id="agile-implementation-hybrid"></a>
    - Set multiple baselines at key approval points
    - Track schedule, cost, and scope baselines
-   - Report variances per PMBOK guidelines
+   - Report variances per Traditional guidelines
 
 ### Agile Implementation (Hybrid)
 
@@ -519,7 +519,7 @@ Microsoft Project can represent our template WBS structure as follows:
 
 ### Methodology-Specific Best Practices
 
-#### PMBOK Best Practices
+#### Traditional Best Practices
 
 1. **Integration with Knowledge Areas**
    - Link schedule to other management plans

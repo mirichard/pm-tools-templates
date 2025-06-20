@@ -450,7 +450,7 @@
 
 ## Related Templates
 
-- [ROI Tracking Template](../../PMBOK/Knowledge_Areas/Project_Cost_Management/roi_tracking_template.md)
+- [ROI Tracking Template](../../Traditional/Knowledge_Areas/Project_Cost_Management/roi_tracking_template.md)
 - [Project Charter Template](./project_charter_template.md)
 - [Requirements Specification Template](./requirements_specification_template.md)
 - [Project Plan Template](./project_plan_template.md)

@@ -210,7 +210,7 @@ The initiation phase is where project ideas transform into formal, authorized en
 3. **[Change Management](../../organizational-frameworks/change-management/)** - Organizational readiness assessment
 
 ### Methodology Integration
-1. **[PMBOK Framework](../../methodology-frameworks/pmbok/)** - Standard initiation processes
+1. **[Traditional Framework](../../methodology-frameworks/pmbok/)** - Standard initiation processes
 <a id="best-practices"></a>
 2. **[Agile Approaches](../../methodology-frameworks/agile-scrum/)** - Iterative initiation and discovery
 3. **[Lean Startup](../../methodology-frameworks/emerging-methods/lean-startup/)** - Validated learning and experimentation

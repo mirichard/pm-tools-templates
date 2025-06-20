@@ -218,7 +218,7 @@ The monitoring and control phase runs parallel to execution, providing the essen
 3. **[Risk Management](../02-planning/risk-management/)** - Risk identification and response plans
 
 ### Organizational Frameworks
-1. **[PMBOK Methodology](../../methodology-frameworks/pmbok/)** - Standard monitoring procedures
+1. **[Traditional Methodology](../../methodology-frameworks/pmbok/)** - Standard monitoring procedures
 2. **[Agile-Scrum](../../methodology-frameworks/agile-scrum/)** - Sprint reviews and retrospectives
 3. **[Change Management](../../organizational-frameworks/change-management/)** - Organizational change integration
 

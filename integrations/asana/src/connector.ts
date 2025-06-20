@@ -5,7 +5,7 @@ import { EventEmitter } from 'events';
 export interface PMTemplate {
   id: string;
   name: string;
-  methodology: 'PMBOK' | 'Agile' | 'Hybrid';
+  methodology: 'Traditional' | 'Agile' | 'Hybrid';
   version: string;
   fields: TemplateField[];
   tasks: TemplateTask[];

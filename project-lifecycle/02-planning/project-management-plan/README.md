@@ -12,7 +12,7 @@ The project management plan is your project's master document that defines how t
 
 - **[Quick Start Templates](#quick-start-templates)** - Complete plan templates by methodology
 - **[Plan Components](#essential-plan-components)** - What every plan needs
-- **[Methodology Guidance](#methodology-specific-guidance)** - PMBOK, Agile, and Hybrid approaches
+- **[Methodology Guidance](#methodology-specific-guidance)** - Traditional, Agile, and Hybrid approaches
 - **[Integration Strategies](#integration-strategies)** - Bringing all pieces together
 - **[Approval & Baseline](#approval-baseline-process)** - Formal plan approval and baseline establishment
 
@@ -22,9 +22,9 @@ The project management plan is your project's master document that defines how t
 
 ## 🚀 Quick Start Templates
 
-### PMBOK/Traditional Project Management Plan
+### Traditional/Traditional Project Management Plan
 **[→ Download: Traditional Project Management Plan Template](traditional-project-management-plan-template.md)**
-- Comprehensive plan following PMBOK standards
+- Comprehensive plan following Traditional standards
 <a id="agile-project-plan-release-plan"></a>
 - All 10 knowledge areas integrated
 - Detailed subsidiary plans and processes
@@ -90,7 +90,7 @@ The project management plan is your project's master document that defines how t
 
 ## 🎯 Methodology-Specific Guidance
 
-### PMBOK/Traditional Approach
+### Traditional/Traditional Approach
 **Focus: Comprehensive Upfront Planning**
 
 **Planning Approach:**

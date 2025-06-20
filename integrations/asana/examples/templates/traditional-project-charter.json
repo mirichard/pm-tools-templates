@@ -1,7 +1,7 @@
 {
   "id": "pmbok-project-charter-v1.0",
-  "name": "PMBOK Project Charter",
-  "methodology": "PMBOK",
+  "name": "Traditional Project Charter",
+  "methodology": "Traditional",
   "version": "1.0.0",
   "fields": [
     {
@@ -518,10 +518,10 @@
   ],
   "metadata": {
     "category": "Project Management",
-    "tags": ["PMBOK", "Project Charter", "Initiation", "Planning"],
+    "tags": ["Traditional", "Project Charter", "Initiation", "Planning"],
     "complexity": "Intermediate",
     "estimatedDuration": "2-4 weeks",
-    "description": "Comprehensive PMBOK-aligned project charter template for initiating projects with proper documentation, stakeholder alignment, and formal authorization.",
+    "description": "Comprehensive Traditional-aligned project charter template for initiating projects with proper documentation, stakeholder alignment, and formal authorization.",
     "author": "PM Tools Templates",
     "lastModified": "2025-06-18T18:50:15Z"
   }

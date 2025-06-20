@@ -42,7 +42,7 @@ PM Templates ↔ Template Engine ↔ Asana API ↔ Asana Workspace
 
 ## Supported Templates
 
-### PMBOK Templates
+### Traditional Templates
 - [ ] Project Charter → Asana Project Brief
 - [ ] Work Breakdown Structure → Asana Task Hierarchy
 - [ ] Project Schedule → Asana Timeline
@@ -177,7 +177,7 @@ const asana = new AsanaConnector({
   accessToken: process.env.ASANA_ACCESS_TOKEN
 });
 
-// Create project from PMBOK template
+// Create project from Traditional template
 const project = await asana.createProjectFromTemplate({
   templateId: 'pmbok-project-charter',
   workspaceId: 'workspace_123',

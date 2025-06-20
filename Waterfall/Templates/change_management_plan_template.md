@@ -269,7 +269,7 @@
 3. Remove sections that are not applicable to your project
 4. Ensure alignment with overall project management plan
 5. Regular updates throughout the project lifecycle
-6. Use this template in conjunction with other PMBOK planning documents
+6. Use this template in conjunction with other Traditional planning documents
 
 **Related Templates:**
 - [Stakeholder Register Template](../Process_Groups/Initiating/stakeholder_register_template.md)

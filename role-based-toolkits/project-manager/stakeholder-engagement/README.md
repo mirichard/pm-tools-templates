@@ -96,7 +96,7 @@ Effective stakeholder engagement is critical to project success. These templates
 
 ## 🎓 Stakeholder Engagement by Methodology
 
-### Traditional/PMBOK Approach
+### Traditional/Traditional Approach
 - **Formal Stakeholder Register** with detailed analysis
 - **Structured Communication Plans** with defined frequencies
 - **Formal Review Meetings** with documented outcomes

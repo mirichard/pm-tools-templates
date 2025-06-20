@@ -481,6 +481,6 @@ ATTENDEES:
 * *Organization Communication Standards v2.3*
 * *Project Management Plan v1.0*
 * *Stakeholder Management Plan v1.0*
-* *PMI PMBOK Guide - Sixth Edition*
+* *PMI Traditional Guide - Sixth Edition*
 * *Organizational Process Assets: Communication Templates*
 

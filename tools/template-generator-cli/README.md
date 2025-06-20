@@ -116,7 +116,7 @@ Based on the recommendation, the CLI:
 - Sprint retrospective template
 - User story template
 
-### Traditional/Waterfall (PMBOK)
+### Traditional/Waterfall (Traditional)
 **Best for:**
 - Stable, well-defined requirements
 - Large teams (20+ people)

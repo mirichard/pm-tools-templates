@@ -2,7 +2,7 @@
 
 ## Overview
 
-This document provides comprehensive guidance on implementing and utilizing schedule management metrics within the PMBOK framework, with particular focus on Earned Value Management (EVM) and Critical Path Analysis. These metrics are essential for effective project monitoring and controlling, enabling project managers to make data-driven decisions about schedule performance and corrective actions.
+This document provides comprehensive guidance on implementing and utilizing schedule management metrics within the Traditional framework, with particular focus on Earned Value Management (EVM) and Critical Path Analysis. These metrics are essential for effective project monitoring and controlling, enabling project managers to make data-driven decisions about schedule performance and corrective actions.
 
 ## Table of Contents
 
@@ -721,5 +721,5 @@ By implementing the practices and procedures outlined in this guide, project man
 
 ---
 
-*This document is part of the PM Tools and Templates PMBOK methodology collection. For integration with other project management processes, refer to the complete PMBOK process group documentation.*
+*This document is part of the PM Tools and Templates Traditional methodology collection. For integration with other project management processes, refer to the complete Traditional process group documentation.*
 

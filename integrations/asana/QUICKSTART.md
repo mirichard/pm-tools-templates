@@ -49,7 +49,7 @@ npx ts-node src/cli.ts teams
 npx ts-node src/cli.ts create-project
 
 # Choose from available templates:
-# 1. PMBOK Project Charter
+# 1. Traditional Project Charter
 # 2. Agile Sprint Planning  
 # 3. Hybrid Project Plan
 ```
@@ -108,7 +108,7 @@ npx ts-node src/cli.ts webhook-server
 
 | Template | Methodology | Complexity | Duration |
 |----------|-------------|------------|----------|
-| **PMBOK Project Charter** | PMBOK | Intermediate | 2-4 weeks |
+| **Traditional Project Charter** | Traditional | Intermediate | 2-4 weeks |
 | **Agile Sprint Planning** | Agile | Intermediate | 2-3 days |
 | **Hybrid Project Plan** | Hybrid | Advanced | 4-6 months |
 

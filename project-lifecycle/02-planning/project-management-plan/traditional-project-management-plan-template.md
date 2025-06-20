@@ -227,5 +227,5 @@
 | Business Owner | [Name] | | |
 
 ---
-*This template follows PMBOK Guide standards and best practices for traditional project management planning.*
+*This template follows Traditional Guide standards and best practices for traditional project management planning.*
 

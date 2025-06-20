@@ -432,7 +432,7 @@ class AsanaCLI {
         type: 'list',
         name: 'methodology',
         message: 'Methodology:',
-        choices: ['PMBOK', 'Agile', 'Hybrid']
+        choices: ['Traditional', 'Agile', 'Hybrid']
       },
       {
         type: 'list',

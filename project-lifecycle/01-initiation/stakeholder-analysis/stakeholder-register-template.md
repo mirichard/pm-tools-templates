@@ -50,5 +50,5 @@
 
 ---
 
-*Template follows PMBOK Guide stakeholder management best practices*
+*Template follows Traditional Guide stakeholder management best practices*
 

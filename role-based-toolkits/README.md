@@ -242,7 +242,7 @@ Role-specific connections to [Business Stakeholder Suite](../business-stakeholde
 
 ### With Methodology Frameworks
 Roles align with different [Methodology Frameworks](../methodology-frameworks/):
-- **Traditional/PMBOK:** Project Manager + Executive Sponsor primary
+- **Traditional/Traditional:** Project Manager + Executive Sponsor primary
 - **Agile/Scrum:** Scrum Master + Product Owner primary
 - **Hybrid:** Program Manager coordinates across methodologies
 

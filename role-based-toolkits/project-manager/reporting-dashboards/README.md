@@ -139,7 +139,7 @@ Effective reporting provides stakeholders with timely, accurate, and actionable 
 
 ## 🎓 Reporting by Methodology
 
-### Traditional/PMBOK Reporting
+### Traditional/Traditional Reporting
 - **Comprehensive documentation** with detailed variance analysis
 - **Formal reporting cycles** aligned with project phases
 - **Earned Value Management** for cost and schedule performance

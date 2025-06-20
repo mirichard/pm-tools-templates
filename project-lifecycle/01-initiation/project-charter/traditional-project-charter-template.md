@@ -72,5 +72,5 @@
 
 ---
 
-*Template follows PMBOK Guide project charter best practices*
+*Template follows Traditional Guide project charter best practices*
 

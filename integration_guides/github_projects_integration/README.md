@@ -71,7 +71,7 @@ Create custom fields in GitHub Projects to track project management metadata:
 | Status | Single select (Not Started, In Progress, Blocked, Complete) | Track progress status | All methodologies |
 | Effort/Story Points | Number | Track estimated effort | Agile templates |
 | Sprint | Iteration | Group items into sprints | Agile templates |
-| Phase | Single select | Group by project phase | PMBOK templates |
+| Phase | Single select | Group by project phase | Traditional templates |
 | Risk Level | Single select | Risk classification | Risk register |
 | Due Date | Date | Deadline for completion | All methodologies |
 | Department | Single select | Organizational ownership | All methodologies |
@@ -122,7 +122,7 @@ Create custom fields in GitHub Projects to track project management metadata:
 2. **Add Methodology-Specific Fields**
    - For Agile: Sprint, Story Points, Epic
 <a id="step-4-configure-views"></a>
-   - For PMBOK: Phase, Process Group, Knowledge Area
+   - For Traditional: Phase, Process Group, Knowledge Area
    - For Hybrid: Methodology Type, Delivery Increment
 
 ### Step 4: Configure Views
@@ -203,7 +203,7 @@ Create custom fields in GitHub Projects to track project management metadata:
    - Create a board view filtered by current sprint iteration
    - Group by assignee or status
 
-### Implementing a PMBOK Risk Register
+### Implementing a Traditional Risk Register
 
 1. **Create Risk Issue Template**
    ```
@@ -433,7 +433,7 @@ jobs:
    - Use issue templates for capturing meeting outcomes
    - Link ceremony discussions to sprint issues
 
-#### PMBOK Implementation
+#### Traditional Implementation
 
 1. **Process Groups**
    - Use custom field for process groups

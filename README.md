@@ -35,7 +35,7 @@
 
 <a id="need-ai-powered-insights"></a>
 ### 🤔 Which Methodology?
-**[⚖️ Methodology Decision Guide](docs/getting-started/methodology-selector.md)** - PMBOK vs Agile vs Hybrid comparison
+**[⚖️ Methodology Decision Guide](docs/getting-started/methodology-selector.md)** - Traditional vs Agile vs Hybrid comparison
 
 ### 📊 Executive Communication?
 <a id="core-template-collections"></a>
@@ -50,25 +50,25 @@
 
 ## 📚 Core Template Collections
 
-### 📋 Traditional/PMBOK Templates
+### 📋 Traditional/Traditional Templates
 **Structured project management with predictive planning**
 
 #### Process Groups & Key Templates:
 
 **Initiating**
 - [Project Charter Template](Waterfall/Process_Groups/Initiating/project_charter_template.md) - Professional project authorization
-- [Stakeholder Register](PMBOK/Process_Groups/Initiating/stakeholder_register_template.md) - Stakeholder identification & analysis
+- [Stakeholder Register](Traditional/Process_Groups/Initiating/stakeholder_register_template.md) - Stakeholder identification & analysis
 
 **Planning**
-- [Work Breakdown Structure](PMBOK/Process_Groups/Planning/work_breakdown_structure_template.md) - Project decomposition
-- [Project Schedule Template](PMBOK/Process_Groups/Planning/project_schedule_template.md) - Timeline & milestone planning
+- [Work Breakdown Structure](Traditional/Process_Groups/Planning/work_breakdown_structure_template.md) - Project decomposition
+- [Project Schedule Template](Traditional/Process_Groups/Planning/project_schedule_template.md) - Timeline & milestone planning
 - [Project Management Plan](Waterfall/Process_Groups/Planning/project_management_plan_template.md) - Comprehensive planning document
 - [Stakeholder Communication Planning](Waterfall/Process_Groups/Planning/stakeholder_communication_planning.md) - Communication strategy
 
 **Executing**
 - [Project Execution Status Report](Waterfall/Process_Groups/Executing/project_execution_status_report_template.md) - Execution tracking
 - [Requirements Traceability Matrix](Waterfall/Process_Groups/Executing/requirements_traceability_matrix_template.md) - Requirements tracking
-- [Team Performance Assessment](PMBOK/Process_Groups/Executing/team_performance_assessment_template.md) - Team evaluation
+- [Team Performance Assessment](Traditional/Process_Groups/Executing/team_performance_assessment_template.md) - Team evaluation
 
 **Monitoring & Controlling**
 - [Project Performance Monitoring](Waterfall/Process_Groups/Monitoring_and_Controlling/project_performance_monitoring_template.md) - Performance tracking
@@ -283,7 +283,7 @@
 
 #### GitHub Integration Templates:
 - [Agile GitHub Templates](integration_guides/github_integration/agile_github_templates.md)
-- [PMBOK GitHub Templates](integration_guides/github_integration/pmbok_github_templates.md)
+- [Traditional GitHub Templates](integration_guides/github_integration/pmbok_github_templates.md)
 - [Hybrid GitHub Templates](integration_guides/github_integration/hybrid_github_templates.md)
 <a id="learning-paths"></a>
 - [GitHub Project Management Integration](integration_guides/github_integration/github_project_management_integration.md)
@@ -326,7 +326,7 @@
 - [Sprint Retrospective Example](examples/agile/sprint_retrospective_example.md)
 
 <a id="documentation-reference"></a>
-### PMBOK Examples:
+### Traditional Examples:
 - [Project Charter Example](examples/pmbok/project_charter_example.md)
 - [Project Management Plan Example](examples/pmbok/project_management_plan_example.md)
 - [Status Report Example](examples/pmbok/status_report_example.md)
@@ -391,7 +391,7 @@
 ## 📈 Repository Statistics
 
 - **80+ Professional Templates** across all methodologies
-- **3 Major Methodologies** (PMBOK, Agile, Hybrid) with complete coverage
+- **3 Major Methodologies** (Traditional, Agile, Hybrid) with complete coverage
 <a id="business-model-innovation"></a>
 - **5 Industry Specializations** with domain-specific adaptations
 - **4 Major Tool Integrations** for popular PM software platforms

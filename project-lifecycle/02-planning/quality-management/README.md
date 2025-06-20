@@ -28,8 +28,8 @@ Quality management during project planning establishes the foundation for succes
 
 ## Methodology Integration
 
-### PMBOK Approach
-- Follows PMBOK Guide quality management knowledge area
+### Traditional Approach
+- Follows Traditional Guide quality management knowledge area
 - Emphasizes plan-driven quality assurance
 - Structured quality control processes
 

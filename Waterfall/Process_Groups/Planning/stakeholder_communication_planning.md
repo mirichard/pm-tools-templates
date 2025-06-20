@@ -3,14 +3,14 @@
 **Document Purpose:** Comprehensive stakeholder segmentation and communication strategy for traditional project management approaches  
 **Process Group:** Planning  
 **Knowledge Area:** Project Communications Management  
-**PMBOK Reference:** Section 10.1 - Plan Communications Management  
+**Traditional Reference:** Section 10.1 - Plan Communications Management  
 
 ---
 
 ## 📋 Document Overview
 
 ### Scope and Objectives
-This document provides a structured approach to stakeholder identification, segmentation, and communication planning specifically tailored for traditional/waterfall project management methodologies. It aligns with PMBOK best practices while incorporating modern communication technologies and business stakeholder needs.
+This document provides a structured approach to stakeholder identification, segmentation, and communication planning specifically tailored for traditional/waterfall project management methodologies. It aligns with Traditional best practices while incorporating modern communication technologies and business stakeholder needs.
 
 ### Key Deliverables
 - Comprehensive stakeholder segmentation framework
@@ -557,7 +557,7 @@ This document provides a structured approach to stakeholder identification, segm
 
 ## 📚 References and Standards
 
-### PMBOK Guide References
+### Traditional Guide References
 - **Section 10.1:** Plan Communications Management
 - **Section 10.2:** Manage Communications
 - **Section 10.3:** Monitor Communications
