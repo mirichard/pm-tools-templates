@@ -126,7 +126,7 @@ Effective reporting provides stakeholders with timely, accurate, and actionable 
 - **Team Satisfaction:** Team morale and engagement scores
 <a id="reporting-by-methodology"></a>
 - **Productivity Trends:** Output per team member over time
-<a id="traditionalpmbok-reporting"></a>
+<a id="traditionaltraditional-reporting"></a>
 
 ### Risk & Issues
 - **Risk Exposure:** Total risk impact × probability

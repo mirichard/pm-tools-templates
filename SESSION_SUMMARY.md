@@ -27,7 +27,7 @@ Based on user's methodology preferences (Traditional, Agile, Hybrid):
 
 ```
 methodology-frameworks/
-├── pmbok/ ✅
+├── traditional/ ✅
 ├── agile-scrum/
 │   ├── core-framework/ ✅
 │   ├── team-practices/ ✅  

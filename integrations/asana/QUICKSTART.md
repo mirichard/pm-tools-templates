@@ -66,7 +66,7 @@ async function createProject() {
   });
 
   // Load a template
-  const template = await loadTemplate('./examples/templates/pmbok-project-charter.json');
+  const template = await loadTemplate('./examples/templates/traditional-project-charter.json');
 
   // Create project
   const project = await connector.createProjectFromTemplate(

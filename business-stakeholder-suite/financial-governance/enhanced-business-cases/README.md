@@ -146,7 +146,6 @@ This section provides advanced business case development and financial analysis 
 <a id="methodology-integration"></a>
 ## 🎓 Methodology Integration
 
-<a id="traditionalpmbok-projects"></a>
 <a id="traditionaltraditional-projects"></a>
 ### Traditional/Traditional Projects
 - **Comprehensive upfront planning** with detailed financial baselines

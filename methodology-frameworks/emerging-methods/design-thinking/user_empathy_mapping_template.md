@@ -943,7 +943,7 @@ long_term_impact_metrics:
 - [Design Thinking Workshop Template](./design_thinking_workshop_template.md) - Complete workshop framework
 - [Innovation Project Template](../../organizational-frameworks/innovation-management/innovation_project_template.md) - Innovation project management
 - [User Story Templates](../../agile/templates/user_story_template.md) - Agile user story integration
-- [Stakeholder Analysis Templates](../../pmbok/process_groups/initiating/stakeholder_register_template.md) - Stakeholder management
+- [Stakeholder Analysis Templates](../../traditional/process_groups/initiating/stakeholder_register_template.md) - Stakeholder management
 
 ### Tool Integration Guides
 - [Miro Empathy Mapping Setup](../../integration_guides/collaboration_tools/miro_setup.md) - Digital tool configuration

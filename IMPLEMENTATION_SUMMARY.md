@@ -29,7 +29,7 @@
 ### Methodology Frameworks Structure
 ```
 methodology-frameworks/
-├── pmbok/                          ✅ CREATED
+├── traditional/                          ✅ CREATED
 ├── agile-scrum/                    ✅ EXISTING
 │   ├── core-framework/             ✅ CREATED
 │   ├── team-practices/             ✅ CREATED

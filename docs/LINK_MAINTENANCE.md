@@ -21,8 +21,8 @@ This document outlines the practices for maintaining links in the PM Tools Templ
 
 ### External Links
 ```markdown
-✅ Good: [Traditional Guide 7th Edition (2021)](https://www.pmi.org/pmbok-guide-standards)
-❌ Avoid: [Traditional Guide](https://www.pmi.org/pmbok-guide-standards)
+✅ Good: [Traditional Guide 7th Edition (2021)](https://www.pmi.org/traditional-guide-standards)
+❌ Avoid: [Traditional Guide](https://www.pmi.org/traditional-guide-standards)
 ```
 
 ## Directory Structure Rules

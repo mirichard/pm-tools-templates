@@ -11,7 +11,7 @@
 ### Methodology Frameworks (Core Structure)
 ```
 methodology-frameworks/
-├── pmbok/
+├── traditional/
 ├── agile-scrum/
 │   ├── core-framework/
 │   ├── team-practices/

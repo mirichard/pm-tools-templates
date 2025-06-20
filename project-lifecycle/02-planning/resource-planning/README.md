@@ -57,7 +57,7 @@ Resource planning is about ensuring your project has the people, skills, and cap
 - Team skills assessment and gap analysis
 <a id="team-structure-design"></a>
 - Training and development planning
-<a id="traditionalpmbok-team-structure"></a>
+<a id="traditionaltraditional-team-structure"></a>
 - Succession planning for key roles
 - Great for capability building and risk mitigation
 

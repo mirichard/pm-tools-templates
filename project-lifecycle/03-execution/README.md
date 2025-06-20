@@ -218,7 +218,7 @@ The execution phase is where project plans come to life through coordinated team
 
 ### Methodology Integration
 1. **[Agile-Scrum](../../methodology-frameworks/agile-scrum/)** - Sprint execution and reviews
-2. **[Traditional Processes](../../methodology-frameworks/pmbok/)** - Standard execution procedures
+2. **[Traditional Processes](../../methodology-frameworks/traditional/)** - Standard execution procedures
 3. **[DevOps Practices](../../methodology-frameworks/emerging-methods/devops/)** - Continuous integration and delivery
 
 ---

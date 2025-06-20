@@ -122,11 +122,11 @@ Columns:
 **Traditional Labels:**
 ```
 Process Groups:
-- pmbok: initiating
-- pmbok: planning
-- pmbok: executing
-- pmbok: monitoring
-- pmbok: closing
+- traditional: initiating
+- traditional: planning
+- traditional: executing
+- traditional: monitoring
+- traditional: closing
 
 Knowledge Areas:
 - ka: integration
@@ -464,7 +464,7 @@ jobs:
               repo: context.repo.repo,
               title: `Gate Review: ${milestone.title}`,
               body: reportBody,
-              labels: ['gate-review', 'pmbok:monitoring']
+              labels: ['gate-review', 'traditional:monitoring']
             });
 ```
 

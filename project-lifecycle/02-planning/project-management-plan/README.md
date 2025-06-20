@@ -18,7 +18,7 @@ The project management plan is your project's master document that defines how t
 
 <a id="quick-start-templates"></a>
 ---
-<a id="pmboktraditional-project-management-plan"></a>
+<a id="traditionaltraditional-project-management-plan"></a>
 
 ## 🚀 Quick Start Templates
 
@@ -82,7 +82,7 @@ The project management plan is your project's master document that defines how t
 - [ ] **Release Plan** - Feature delivery schedule by release
 <a id="methodology-specific-guidance"></a>
 - [ ] **Definition of Done** - Quality and completion criteria
-<a id="pmboktraditional-approach"></a>
+<a id="traditionaltraditional-approach"></a>
 - [ ] **Team Working Agreements** - Collaboration and process agreements
 - [ ] **Sprint Planning Framework** - Iteration planning approach
 - [ ] **Retrospective Process** - Continuous improvement framework

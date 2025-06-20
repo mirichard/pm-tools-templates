@@ -18,7 +18,7 @@ The project charter is your project's "birth certificate" - it formally authoriz
 
 <a id="quick-start-templates"></a>
 ---
-<a id="pmboktraditional-project-charter"></a>
+<a id="traditionaltraditional-project-charter"></a>
 
 ## 🚀 Quick Start Templates
 
@@ -41,7 +41,7 @@ The project charter is your project's "birth certificate" - it formally authoriz
 - Balances structure with flexibility
 <a id="methodology-specific-guidance"></a>
 - Adapts to projects with both predictable and adaptive phases
-<a id="pmboktraditional-approach"></a>
+<a id="traditionaltraditional-approach"></a>
 - Great for digital transformation initiatives
 
 ---

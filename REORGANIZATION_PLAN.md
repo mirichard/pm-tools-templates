@@ -61,7 +61,7 @@ pm-tools-templates/
 │   │   ├── methodology-selector.md       # Which approach to use
 │   │   └── template-selector.md          # Which templates to use
 │   ├── methodology-guides/
-│   │   ├── pmbok-waterfall-guide.md
+│   │   ├── traditional-waterfall-guide.md
 │   │   ├── agile-scrum-guide.md
 │   │   ├── hybrid-approaches-guide.md
 │   │   └── methodology-comparison.md
@@ -149,7 +149,7 @@ pm-tools-templates/
 │       └── governance-frameworks/
 │
 ├── 🔄 methodology-frameworks/            # Pure methodology implementations
-│   ├── pmbok-waterfall/
+│   ├── traditional-waterfall/
 │   │   ├── process-groups/
 │   │   ├── knowledge-areas/
 │   │   ├── tool-techniques/

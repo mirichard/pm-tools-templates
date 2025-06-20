@@ -138,7 +138,6 @@ This section provides robust financial governance frameworks, advanced business 
 <a id="methodology-integration"></a>
 ## 🎓 Methodology Integration
 
-<a id="traditionalpmbok-projects"></a>
 <a id="traditionaltraditional-projects"></a>
 ### Traditional/Traditional Projects
 - **Comprehensive financial planning** with detailed baselines

@@ -15,7 +15,7 @@
 - [ ] **Experienced PM** → Go to [Role-Based Toolkits](role-based-toolkits/)
 - [ ] **Executive/Sponsor** → Use [Business Stakeholder Suite](business-stakeholder-suite/)
 - [ ] **Team Lead/Scrum Master** → Check [Agile Templates](methodology-frameworks/agile-scrum/)
-- [ ] **Traditional/Waterfall** → Explore [Traditional Templates](methodology-frameworks/pmbok-waterfall/)
+- [ ] **Traditional/Waterfall** → Explore [Traditional Templates](methodology-frameworks/traditional-waterfall/)
 
 ### Step 2: Project Phase
 **Where are you in the project lifecycle?**
@@ -63,7 +63,7 @@
 
 #### Methodology Preference
 - [ ] **Pure Agile** → [Agile Framework](methodology-frameworks/agile-scrum/)
-- [ ] **Traditional/Waterfall** → [Traditional Framework](methodology-frameworks/pmbok-waterfall/)
+- [ ] **Traditional/Waterfall** → [Traditional Framework](methodology-frameworks/traditional-waterfall/)
 - [ ] **Hybrid Approach** → [Hybrid Methods](methodology-frameworks/hybrid-approaches/)
 - [ ] **Not Sure** → [Methodology Selector](docs/getting-started/methodology-selector.md)
 

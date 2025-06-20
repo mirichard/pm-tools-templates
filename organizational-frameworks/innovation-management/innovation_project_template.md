@@ -778,7 +778,7 @@ innovation_roi_framework:
 - [Design Thinking Workshop Template](../../methodology-frameworks/emerging-methods/design-thinking/design_thinking_workshop_template.md) - Design thinking integration
 - [User Empathy Mapping Template](../../methodology-frameworks/emerging-methods/design-thinking/user_empathy_mapping_template.md) - User research synthesis
 - [Agile Templates](../../agile/templates/) - Agile development integration
-- [Project Charter Templates](../../pmbok/process_groups/initiating/project_charter_template.md) - Traditional PM integration
+- [Project Charter Templates](../../traditional/process_groups/initiating/project_charter_template.md) - Traditional PM integration
 
 ### Tool Integration Guides
 - [Innovation Management Tools](../../integration_guides/innovation_tools/) - Tool setup and workflows

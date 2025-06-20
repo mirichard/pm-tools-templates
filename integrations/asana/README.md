@@ -179,7 +179,7 @@ const asana = new AsanaConnector({
 
 // Create project from Traditional template
 const project = await asana.createProjectFromTemplate({
-  templateId: 'pmbok-project-charter',
+  templateId: 'traditional-project-charter',
   workspaceId: 'workspace_123',
   teamId: 'team_456',
   projectData: {

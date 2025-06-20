@@ -82,7 +82,7 @@ These templates provide the fundamental documents and tools required for effecti
 
 <a id="methodology-adaptations"></a>
 ### Week 4: Execution Readiness
-<a id="traditionalpmbok-approach"></a>
+<a id="traditionaltraditional-approach"></a>
 1. **[Status Report](status-report.md)** - Set up regular reporting
 2. **[Issue Log](issue-log.md)** - Prepare issue tracking
 3. **[Performance Dashboard](performance-dashboard.md)** - Establish metrics tracking

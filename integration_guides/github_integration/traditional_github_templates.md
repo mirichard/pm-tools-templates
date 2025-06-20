@@ -762,7 +762,7 @@ jobs:
               repo: context.repo.repo,
               title: `Gate Review: ${milestone.title} - ${gateStatus.split(' ')[1]}`,
               body: reportBody,
-              labels: ['gate-review', 'pmbok:monitoring', 
+              labels: ['gate-review', 'traditional:monitoring', 
                        completionRate >= 95 ? 'approved' : 
                        completionRate >= 80 ? 'conditional' : 'rejected'
                       ]

@@ -85,7 +85,7 @@ Effective stakeholder engagement is critical to project success. These templates
 3. **[Status Updates](business-update.md)** - Provide regular project updates
 <a id="stakeholder-engagement-by-methodology"></a>
 
-<a id="traditionalpmbok-approach"></a>
+<a id="traditionaltraditional-approach"></a>
 ### Step 4: Monitor & Adjust (Ongoing)
 1. **[Stakeholder Surveys](stakeholder-surveys.md)** - Assess satisfaction regularly
 2. **[Conflict Resolution](conflict-resolution.md)** - Address issues proactively

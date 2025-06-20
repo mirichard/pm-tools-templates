@@ -57,7 +57,7 @@ Effective progress tracking is essential for successful project delivery. This g
 - Stakeholder-specific formats
 <a id="tracking-methodologies"></a>
 - Essential for regular reporting
-<a id="traditionalpmbok-progress-tracking"></a>
+<a id="traditionaltraditional-progress-tracking"></a>
 
 ---
 

@@ -34,7 +34,8 @@ The purpose of this protocol is to:
 - Define acceptance criteria that must be met for the equipment to be considered qualified
 - Ensure the equipment is suitable for its intended use in a GMP/GLP environment
 - Establish a documented evidence that the equipment consistently operates within defined parameters
-- Comply with applicable regulatory requirements including [list relevant regulations: FDA 21 CFR Part 211/11, EU GMP Annex 15, etc.]
+- Comply with applicable regulatory requirements including [list relevant regulations: FDA 21 CFR Part 211/11, EU GMP Annex 15, ICH Q9, ISPE Baseline Guide, etc.]
+- Establish a documented evidence-based approach that demonstrates equipment fitness for intended use
 
 ---
 
@@ -63,9 +64,14 @@ The following aspects are not included in this qualification:
 ## 3. References
 
 ### 3.1 Regulatory References
-- [Regulatory standard 1, e.g., 21 CFR Part 211 - Current Good Manufacturing Practice for Finished Pharmaceuticals]
-- [Regulatory standard 2, e.g., EU GMP Annex 15 - Qualification and Validation]
-- [Regulatory standard 3, e.g., ICH Q9 - Quality Risk Management]
+- FDA 21 CFR Part 211 - Current Good Manufacturing Practice for Finished Pharmaceuticals
+- FDA 21 CFR Part 11 - Electronic Records; Electronic Signatures (if applicable)
+- EU GMP Annex 15 - Qualification and Validation
+- EU GMP Chapter 3 - Premises and Equipment
+- ICH Q9 - Quality Risk Management
+- ICH Q10 - Pharmaceutical Quality System
+- ISPE Baseline Guide Vol. 5: Commissioning and Qualification
+- ASTM E2500 - Standard Guide for Specification, Design, and Verification of Pharmaceutical and Biopharmaceutical Manufacturing Systems and Equipment
 - [Company-specific validation policies]
 
 ### 3.2 Equipment References
@@ -131,7 +137,7 @@ The following aspects are not included in this qualification:
 
 ---
 
-## 6. Pre-requisites & Acceptance Criteria
+## 6. Pre-requisites & Risk Assessment
 
 ### 6.1 Pre-requisites
 The following conditions must be met before qualification activities can begin:
@@ -144,7 +150,16 @@ The following conditions must be met before qualification activities can begin:
 - [ ] Risk assessment completed and approved
 - [ ] Change control documentation approved (if applicable)
 
-### 6.2 General Acceptance Criteria
+### 6.2 Risk Assessment Summary
+The risk assessment for this equipment qualification was performed according to [reference risk assessment document]. Key findings that impact this qualification protocol include:
+
+| Risk ID | Risk Description | Risk Level | Mitigation Strategy | Implementation in Protocol |
+|---------|------------------|------------|---------------------|----------------------------|
+| RISK-001 | [Description of risk] | [High/Medium/Low] | [Mitigation strategy] | [Reference to specific test case] |
+| RISK-002 | [Description of risk] | [High/Medium/Low] | [Mitigation strategy] | [Reference to specific test case] |
+| RISK-003 | [Description of risk] | [High/Medium/Low] | [Mitigation strategy] | [Reference to specific test case] |
+
+### 6.3 General Acceptance Criteria
 For the equipment to be considered successfully qualified:
 - All test cases must meet their individual acceptance criteria
 - Any deviations must be documented, investigated, and resolved
@@ -417,3 +432,48 @@ Each deviation must be assessed for its impact on the qualification status of th
 
 ### Appendix D: Calibration Certificates
 [Copies or references to calibration certificates for test equipment used]
+
+### Appendix E: Qualification Lifecycle Strategy
+This qualification protocol follows a lifecycle approach aligned with ASTM E2500 and current regulatory expectations:
+
+#### Design Phase
+1. User Requirements Specification (URS) development
+2. Equipment specification and selection based on URS
+3. Risk assessment to identify critical aspects for qualification
+4. Vendor assessment and qualification
+
+#### Qualification Phase
+1. Installation Qualification - Verifies proper installation
+2. Operational Qualification - Verifies functional operation
+3. Performance Qualification - Verifies consistent performance in actual or simulated production conditions
+
+#### Lifecycle Management
+1. Change control for equipment modifications
+2. Periodic review of equipment performance
+3. Preventive maintenance program
+4. Requalification assessment following significant changes
+
+### Appendix F: Data Integrity Considerations
+The following data integrity controls have been implemented as part of this qualification:
+
+1. **ALCOA+ Principles**
+   - Attributable: All data is attributable to the person generating the data
+   - Legible: All data is recorded in a permanent and legible manner
+   - Contemporaneous: Data is recorded at the time of activity
+   - Original: Original data is preserved and available
+   - Accurate: Data is free from errors and follows protocols
+   - Complete: All data is complete including metadata
+   - Consistent: Data collection processes are consistent
+   - Enduring: Data is recorded in a durable medium
+   - Available: Data is readily available for review during the equipment lifecycle
+
+2. **Data Recording and Review**
+   - All raw data collected during qualification is retained
+   - Second person verification of critical data entries
+   - Clear identification of any corrections to recorded data
+
+3. **Computerized System Controls** (if applicable)
+   - User access controls
+   - Audit trail functionality
+   - Backup and recovery procedures
+   - System validation status

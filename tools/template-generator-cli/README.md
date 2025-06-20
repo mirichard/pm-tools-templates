@@ -101,7 +101,7 @@ Based on the recommendation, the CLI:
 - Generates setup instructions and README
 
 ## 📊 Supported Methodologies
-<a id="traditionalwaterfall-pmbok"></a>
+<a id="traditionalwaterfall-traditional"></a>
 
 ### Agile/Scrum
 **Best for:**

@@ -714,7 +714,7 @@ By implementing the practices and procedures outlined in this guide, project man
 
 ### Additional Resources
 
-- [PMI Practice Standard for Earned Value Management](https://www.pmi.org/pmbok-guide-standards/foundational/practice-standard-evm)
+- [PMI Practice Standard for Earned Value Management](https://www.pmi.org/traditional-guide-standards/foundational/practice-standard-evm)
 - [Microsoft Project EVM Configuration Guide](https://docs.microsoft.com/en-us/project/)
 - [Critical Path Method Best Practices](https://www.aacei.org/)
 - [Schedule Risk Analysis Guidelines](https://www.gao.gov/products/gao-16-89g)

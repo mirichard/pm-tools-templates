@@ -87,7 +87,7 @@ A Project Manager is responsible for planning, executing, and closing projects w
 1. **Choose Your Approach**: Traditional, Agile, or Hybrid
 <a id="methodology-alignment"></a>
 2. **Select Templates**: Pick based on project complexity and risk
-<a id="traditionalpmbok-project-management"></a>
+<a id="traditionaltraditional-project-management"></a>
 3. **Customize**: Adapt templates to organizational standards
 4. **Integrate Tools**: Connect with your PM software platforms
 5. **Scale**: Add advanced templates as project needs grow

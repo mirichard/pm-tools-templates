@@ -429,6 +429,7 @@ Real-time Metrics Infrastructure
 │- PR/MR Actions │     │  Event Hub     │     │  Processing    │
 │- CI/CD Events  │     │- Message Queue │     │- Aggregation   │
 │- Story Updates │     │- Event Router  │     │- Calculations  │
+│- Test Results  │     │                │     │- ML Analysis   │
 └────────────────┘     └────────────────┘     └────────────────┘
                                                       │
 ┌────────────────┐     ┌────────────────┐            ▼
@@ -505,6 +506,12 @@ Sources:          Integration:       Analytics:        Presentation:
 - **Trend Indicators:** Arrows and sparklines for quick trend identification
 - **Drill-Down Capability:** Click through from summary to detail
 - **Mobile Responsive:** Accessible on tablets and phones
+
+#### Accessibility Considerations
+- **Color Blindness:** Use patterns in addition to colors for status indication
+- **Screen Readers:** Include alt text for all charts and visualizations
+- **Typography:** Use readable fonts with sufficient contrast ratios
+- **Navigation:** Ensure keyboard navigability for all dashboard elements
 
 ---
 
@@ -667,6 +674,12 @@ All metrics must include:
 - **Efficiency Metrics:** Production throughput, waste reduction
 - **Safety Metrics:** Incident rates, safety compliance
 
+#### Healthcare & Life Sciences
+- **Regulatory Metrics:** Compliance with FDA/EMA requirements, validation status
+- **Patient/User Safety Metrics:** Adverse events, risk mitigation effectiveness
+- **Value Delivery Metrics:** Patient outcomes, time-to-market for regulated products
+- **Quality System Metrics:** CAPA effectiveness, audit findings resolution
+
 ---
 
 ## Version History
@@ -674,6 +687,7 @@ All metrics must include:
 |---------|------|---------|--------|
 | 1.0 | [Date] | Initial template creation | [Author] |
 | 1.1 | 2025-06-19 | Enhanced visualizations and added data collection best practices | [Contributor] |
+| 1.2 | 2025-06-20 | Added detailed guidance for metrics visualization and updated industry customizations | [Michael] |
 
 ---
 

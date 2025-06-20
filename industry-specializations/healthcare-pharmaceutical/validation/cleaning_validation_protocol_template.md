@@ -542,6 +542,37 @@ We, the undersigned, have reviewed the cleaning validation data and results and:
 | SOP-XXX-YYY | Analytical Method for Cleaning Agent | | |
 | SOP-XXX-YYY | Visual Inspection Procedure | | |
 
+### Appendix F: Revalidation Requirements
+
+The cleaning process shall be revalidated under the following circumstances:
+
+1. **Changes to the Cleaning Process:**
+   - Modification of cleaning procedures
+   - Changes in cleaning agent type or concentration
+   - Significant changes in cleaning parameters (time, temperature, pressure)
+   - Changes in cleaning equipment
+
+2. **Changes to the Product:**
+   - Introduction of new products on the same equipment
+   - Significant formulation changes to existing products
+   - Changes in product dosage strength
+
+3. **Equipment Changes:**
+   - Major equipment repairs or modifications
+   - Replacement of critical components that contact product
+   - Relocation of equipment to a different facility
+
+4. **Periodic Revalidation:**
+   - Annual review of cleaning validation status
+   - Full revalidation every [X] years
+   - After [X] number of cleaning cycles
+
+5. **After Cleaning Failures:**
+   - Following repeated cleaning failures
+   - After investigation of product quality issues related to cleaning
+
+The scope of revalidation may be limited to specific aspects affected by the change, based on a documented risk assessment approved by Quality Assurance.
+
 ---
 
 **End of Cleaning Validation Protocol**

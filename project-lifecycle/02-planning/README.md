@@ -217,7 +217,7 @@ The planning phase bridges the gap between project authorization and execution b
 3. **[Quality Assurance](../03-execution/quality-assurance/)** - Quality standards and procedures
 
 ### Methodology Integration
-1. **[Traditional Processes](../../methodology-frameworks/pmbok/)** - Standard planning procedures
+1. **[Traditional Processes](../../methodology-frameworks/traditional/)** - Standard planning procedures
 2. **[Agile Planning](../../methodology-frameworks/agile-scrum/)** - Iterative planning and backlog management
 3. **[Lean Planning](../../methodology-frameworks/emerging-methods/lean-startup/)** - Validated learning and experimentation
 

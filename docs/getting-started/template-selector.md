@@ -148,14 +148,14 @@ Once comfortable with basics:
 
 ### Traditional/Waterfall Projects
 **Planning Phase:**
-- [Project Management Plan](../../methodology-frameworks/pmbok-waterfall/project-management-plan.md)
-- [Work Breakdown Structure](../../methodology-frameworks/pmbok-waterfall/wbs-template.md)
-- [Resource Planning](../../methodology-frameworks/pmbok-waterfall/resource-planning.md)
+- [Project Management Plan](../../methodology-frameworks/traditional-waterfall/project-management-plan.md)
+- [Work Breakdown Structure](../../methodology-frameworks/traditional-waterfall/wbs-template.md)
+- [Resource Planning](../../methodology-frameworks/traditional-waterfall/resource-planning.md)
 
 **Execution & Control:**
-- [Change Management](../../methodology-frameworks/pmbok-waterfall/change-management.md)
-- [Quality Management](../../methodology-frameworks/pmbok-waterfall/quality-management.md)
-- [Risk Management](../../methodology-frameworks/pmbok-waterfall/risk-management.md)
+- [Change Management](../../methodology-frameworks/traditional-waterfall/change-management.md)
+- [Quality Management](../../methodology-frameworks/traditional-waterfall/quality-management.md)
+- [Risk Management](../../methodology-frameworks/traditional-waterfall/risk-management.md)
 
 ### Hybrid Approaches
 **Combination Templates:**
@@ -225,7 +225,7 @@ Traditional Project ──> Traditional/Waterfall Templates
 ### A-C
 - [Acceptance Criteria](../../methodology-frameworks/agile-scrum/acceptance-criteria-template.md)
 - [Budget Tracking](../../business-stakeholder-suite/financial-governance/budget-tracking.md)
-- [Change Request](../../methodology-frameworks/pmbok-waterfall/change-request-template.md)
+- [Change Request](../../methodology-frameworks/traditional-waterfall/change-request-template.md)
 - [Communication Plan](../../project-lifecycle/02-planning/communication-planning/communication-plan-template.md)
 
 ### D-F
@@ -234,7 +234,7 @@ Traditional Project ──> Traditional/Waterfall Templates
 - [Financial Governance](../../business-stakeholder-suite/financial-governance/)
 
 ### G-I
-- [Gantt Chart](../../methodology-frameworks/pmbok-waterfall/gantt-chart-template.md)
+- [Gantt Chart](../../methodology-frameworks/traditional-waterfall/gantt-chart-template.md)
 - [Issue Log](../../project-lifecycle/03-execution/issue-tracking/issue-log-template.md)
 
 ### J-L
@@ -259,7 +259,7 @@ Traditional Project ──> Traditional/Waterfall Templates
 - [User Stories](../../methodology-frameworks/agile-scrum/user-story-template.md)
 
 ### V-Z
-- [Work Breakdown Structure](../../methodology-frameworks/pmbok-waterfall/wbs-template.md)
+- [Work Breakdown Structure](../../methodology-frameworks/traditional-waterfall/wbs-template.md)
 
 ---
 
@@ -519,7 +519,7 @@ What do you need?
 - [Strategic Alignment](../../business-stakeholder-suite/strategic-alignment/)
 
 #### Methodology Frameworks
-- [Traditional/Waterfall](../../methodology-frameworks/pmbok-waterfall/)
+- [Traditional/Waterfall](../../methodology-frameworks/traditional-waterfall/)
 - [Agile/Scrum](../../methodology-frameworks/agile-scrum/)
 - [Hybrid Approaches](../../methodology-frameworks/hybrid-approaches/)
 - [Emerging Methods](../../methodology-frameworks/emerging-methods/)

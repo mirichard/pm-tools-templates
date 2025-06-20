@@ -11,7 +11,7 @@ This section provides templates organized by the traditional project lifecycle p
 
 ### Universal Approach
 These templates are **methodology-agnostic** - they can be adapted for:
-- **Traditional/Traditional projects** - Use as comprehensive planning documents
+- **Traditional projects** - Use as comprehensive planning documents
 - **Agile projects** - Use as lightweight, iterative guides
 - **Hybrid projects** - Mix and match based on project needs
 
@@ -95,7 +95,7 @@ Each phase builds on the previous one:
 - **[Lessons Learned](05-closure/lessons-learned/)** - Capture knowledge for future projects
 <a id="usage-guidance"></a>
 - **[Knowledge Transfer](05-closure/knowledge-transfer/)** - Hand over to operations
-<a id="for-traditionalpmbok-projects"></a>
+<a id="for-traditionaltraditional-projects"></a>
 - **[Transition to Operations](05-closure/transition-to-operations/)** - Ensure ongoing success
 
 **Deliverables:** Closure report, lessons learned document, operational handover
@@ -104,8 +104,7 @@ Each phase builds on the previous one:
 
 ## 🎓 Usage Guidance
 
-<a id="for-traditionaltraditional-projects"></a>
-### For Traditional/Traditional Projects
+### For Traditional Projects
 ✅ **Use all phases sequentially**
 ✅ **Complete each phase before moving to next**
 ✅ **Use comprehensive versions of templates**
@@ -164,7 +163,7 @@ Each phase builds on the previous one:
 - **[Communication Automation](../business-stakeholder-suite/communication-automation/)** - Automates lifecycle updates
 
 ### Methodology Frameworks
-- **[Traditional/Waterfall](../methodology-frameworks/pmbok-waterfall/)** - Traditional interpretation of lifecycle
+- **[Traditional](../methodology-frameworks/traditional/)** - Traditional interpretation of lifecycle
 - **[Agile/Scrum](../methodology-frameworks/agile-scrum/)** - Iterative adaptation of lifecycle
 - **[Hybrid Approaches](../methodology-frameworks/hybrid-approaches/)** - Custom lifecycle combinations
 

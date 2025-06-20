@@ -40,7 +40,7 @@
 ### 📊 Executive Communication?
 <a id="core-template-collections"></a>
 **[💼 Business Stakeholder Suite](business-stakeholder-suite/README.md)** - Professional dashboards and reports
-<a id="traditionalpmbok-templates"></a>
+<a id="traditionaltraditional-templates"></a>
 
 ### 🧠 Need AI-Powered Insights?
 <a id="process-groups-key-templates"></a>
@@ -279,12 +279,12 @@
 - [Microsoft Project Integration](integration_guides/microsoft_project_integration/README.md)
 - [Jira Integration](integration_guides/jira_integration/README.md)
 - [GitHub Projects Integration](integration_guides/github_projects_integration/README.md)
-<a id="pmbok-examples"></a>
+<a id="traditional-examples"></a>
 - [Trello Integration](integration_guides/trello_integration/README.md)
 
 #### GitHub Integration Templates:
 - [Agile GitHub Templates](integration_guides/github_integration/agile_github_templates.md)
-- [Traditional GitHub Templates](integration_guides/github_integration/pmbok_github_templates.md)
+- [Traditional GitHub Templates](integration_guides/github_integration/traditional_github_templates.md)
 - [Hybrid GitHub Templates](integration_guides/github_integration/hybrid_github_templates.md)
 <a id="learning-paths"></a>
 - [GitHub Project Management Integration](integration_guides/github_integration/github_project_management_integration.md)
@@ -329,9 +329,9 @@
 <a id="documentation-reference"></a>
 <a id="traditional-examples"></a>
 ### Traditional Examples:
-- [Project Charter Example](examples/pmbok/project_charter_example.md)
-- [Project Management Plan Example](examples/pmbok/project_management_plan_example.md)
-- [Status Report Example](examples/pmbok/status_report_example.md)
+- [Project Charter Example](examples/traditional/project_charter_example.md)
+- [Project Management Plan Example](examples/traditional/project_management_plan_example.md)
+- [Status Report Example](examples/traditional/status_report_example.md)
 
 ---
 
