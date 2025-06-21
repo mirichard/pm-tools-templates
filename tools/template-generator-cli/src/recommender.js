@@ -141,35 +141,44 @@ class MethodologyRecommender {
   }
 
   calculateHybridScore(assessment) {
-    // Hybrid methodology gets a baseline score and bonuses for mixed conditions
-    let score = 0.6; // Base score
+    // Hybrid methodology gets a moderate baseline score
+    let score = 0.5; // Reduced base score to be less dominant
 
-    // Bonus for medium complexity projects
+    // Calculate agile and traditional scores to determine if hybrid is truly needed
+    const agileScore = this.calculateAgileScore(assessment);
+    const traditionalScore = this.calculateTraditionalScore(assessment);
+    
+    // Hybrid is most valuable when agile and traditional scores are close
+    const scoreDifference = Math.abs(agileScore - traditionalScore);
+    
+    // If scores are very close (within 0.15), hybrid gets a bonus
+    if (scoreDifference <= 0.15) {
+      score += 0.2; // Bonus for balanced characteristics
+    }
+    
+    // Small bonus for truly mixed conditions (but not excessive)
     if (assessment.complexity === 'moderate' || assessment.complexity === 'complex') {
-      score += 0.1;
+      score += 0.05;
     }
 
-    // Bonus for medium team sizes
     if (assessment.teamSize === 'medium' || assessment.teamSize === 'large') {
-      score += 0.1;
+      score += 0.05;
     }
 
-    // Bonus for medium change frequency
-    if (assessment.changeFrequency === 'occasionally' || assessment.changeFrequency === 'frequently') {
-      score += 0.1;
+    if (assessment.changeFrequency === 'occasionally') {
+      score += 0.1; // Only for truly middle-ground change frequency
     }
 
-    // Bonus for medium duration projects
     if (assessment.duration === 'medium' || assessment.duration === 'long') {
+      score += 0.05;
+    }
+
+    // Bonus for genuinely mixed stakeholder types (4+ types suggests hybrid need)
+    if (assessment.stakeholderTypes && assessment.stakeholderTypes.length >= 4) {
       score += 0.1;
     }
 
-    // Bonus for mixed stakeholder types (indicates complexity requiring hybrid approach)
-    if (assessment.stakeholderTypes && assessment.stakeholderTypes.length >= 3) {
-      score += 0.1;
-    }
-
-    return Math.min(score, 1.0);
+    return Math.min(score, 0.85); // Cap at 85% to avoid always winning
   }
 
   generateReasoning(assessment, methodology, scores) {
