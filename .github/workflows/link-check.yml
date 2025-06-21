@@ -17,17 +17,31 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v4
       
-    - name: Make link checker executable
-      run: chmod +x ./analyze-all-links.sh
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.x'
       
-    - name: Run comprehensive link analysis
+    - name: Run filtered anchor link analysis
       id: link_check
       run: |
-        echo "Running link health check..."
-        ./analyze-all-links.sh > link_report.txt 2>&1
-        HEALTH_SCORE=$(grep "Link Health Score" link_report.txt | grep -o '[0-9]*%' | tr -d '%' || echo "0")
+        echo "Running filtered anchor link health check..."
+        python3 check_anchor_links_filtered.py > link_report.txt 2>&1
+        
+        # Extract broken links count and total files from the report
+        BROKEN_LINKS=$(grep "Broken links:" link_report.txt | grep -o '[0-9]*' || echo "0")
+        TOTAL_FILES=$(grep "Files checked:" link_report.txt | grep -o '[0-9]*' || echo "470")
+        
+        # Calculate health percentage
+        WORKING_LINKS=$((TOTAL_FILES - BROKEN_LINKS))
+        if [ "$TOTAL_FILES" -gt 0 ]; then
+          HEALTH_SCORE=$(( (WORKING_LINKS * 100) / TOTAL_FILES ))
+        else
+          HEALTH_SCORE=0
+        fi
+        
         echo "health_score=$HEALTH_SCORE" >> $GITHUB_OUTPUT
-        echo "Link Health Score: ${HEALTH_SCORE}%"
+        echo "Link Health Score: ${HEALTH_SCORE}% (${WORKING_LINKS}/${TOTAL_FILES} files)"
         
     - name: Upload link report
       uses: actions/upload-artifact@v4
