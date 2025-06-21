@@ -2,10 +2,10 @@
 ============================================================
 FILTERED ANCHOR LINK CHECK REPORT (Main Project Files Only)
 ============================================================
-Files checked: 446
-Total issues: 10149
+Files checked: 448
+Total issues: 10174
 Broken links: 13
-Suggestions: 10136
+Suggestions: 10161
 
 ISSUES BY CATEGORY:
 ----------------------------------------
@@ -46,7 +46,7 @@ ISSUES BY CATEGORY:
 
 📁 docs/ANCHOR_LINK_MAINTENANCE.md
   🔗 Line 11: Broken anchor link: #system-components
-     Suggested fix: common-problems
+     Suggested fix: local-development
 
 📁 docs/ANCHOR_LINK_MAINTENANCE.md
   🔗 Line 82: Broken anchor link: #system-components-name
@@ -411,6 +411,19 @@ ISSUES BY CATEGORY:
      Suggested fix: <a id="yellow-under-development-structure-complete-content-migrating"></a>
   💡 Line 43: Header with special characters could benefit from explicit anchor
      Suggested fix: <a id="red-avoid-for-now-placeholder-structure"></a>
+  ... and 15 more suggestions
+
+📁 PHASE3-VALIDATION-RESULTS.md
+  💡 Line 1: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="phase-3-advanced-quality-validation-results"></a>
+  💡 Line 3: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="implementation-status"></a>
+  💡 Line 5: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="completed-components"></a>
+  💡 Line 28: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="technical-validation"></a>
+  💡 Line 49: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="testing-methodology"></a>
   ... and 15 more suggestions
 
 📁 README-security-workflows.md
@@ -4662,6 +4675,18 @@ ISSUES BY CATEGORY:
   💡 Line 16: Header with special characters could benefit from explicit anchor
      Suggested fix: <a id="directory-structure"></a>
   ... and 8 more suggestions
+
+📁 test-commands.md
+  💡 Line 14: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="1-enhanced-template-validation"></a>
+  💡 Line 32: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="2-api-integration-testing"></a>
+  💡 Line 34: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="health-checks-only-safe-for-testing"></a>
+  💡 Line 47: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="3-visual-regression-testing"></a>
+  💡 Line 74: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="local-testing-syntax-validation"></a>
 
 📁 tools/template-generator-cli/ECOSYSTEM.md
   💡 Line 3: Header with special characters could benefit from explicit anchor
