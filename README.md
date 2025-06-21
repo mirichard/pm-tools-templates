@@ -51,6 +51,7 @@
 ## 📚 Core Template Collections
 
 <a id="traditionaltraditional-templates"></a>
+<a id="traditional-templates"></a>
 ### 📋 Traditional Templates
 **Structured project management with predictive planning**
 
@@ -94,6 +95,7 @@
 **Iterative and adaptive project management**
 
 <a id="hybrid-project-templates"></a>
+<a id="sprint-scrum-templates"></a>
 #### Sprint & Scrum Templates:
 - [Product Backlog Template](Agile/Templates/product_backlog_template.md) - Feature & requirement management
 - [Sprint Planning Template](Agile/Templates/sprint_planning_template.md) - Sprint initiation & goal setting
