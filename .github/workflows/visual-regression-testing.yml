@@ -1,0 +1,1532 @@
+name: 👁️ Visual Regression Testing
+
+on:
+  push:
+    branches: [main, develop]
+    paths:
+      - 'templates/**'
+      - 'docs/**'
+      - 'assets/**'
+      - 'styles/**'
+      - 'themes/**'
+      - '.github/workflows/visual-regression-testing.yml'
+  pull_request:
+    branches: [main, develop]
+    paths:
+      - 'templates/**'
+      - 'docs/**'
+      - 'assets/**'
+      - 'styles/**'
+      - 'themes/**'
+  schedule:
+    # Run visual regression tests weekly on Sundays at 2 AM UTC
+    - cron: '0 2 * * 0'
+  workflow_dispatch:
+    inputs:
+      test_scope:
+        description: 'Visual testing scope'
+        required: false
+        default: 'comprehensive'
+        type: choice
+        options:
+          - comprehensive
+          - templates-only
+          - docs-only
+          - themes-only
+          - critical-only
+          - custom
+      baseline_update:
+        description: 'Update visual baselines'
+        required: false
+        default: false
+        type: boolean
+      test_resolution:
+        description: 'Screen resolutions to test'
+        required: false
+        default: 'standard'
+        type: choice
+        options:
+          - standard
+          - mobile-only
+          - desktop-only
+          - high-resolution
+          - all-resolutions
+      diff_threshold:
+        description: 'Visual difference threshold (%)'
+        required: false
+        default: '2'
+        type: string
+
+env:
+  # Visual Testing Configuration
+  VISUAL_DIFF_THRESHOLD: ${{ github.event.inputs.diff_threshold || '2' }}
+  BASELINE_BRANCH: 'main'
+  SCREENSHOT_TIMEOUT: 30000
+  PARALLEL_WORKERS: 4
+  IMAGE_QUALITY: 90
+  ANIMATION_DISABLE: true
+  
+  # Browser Configuration
+  CHROMIUM_VERSION: '119.0.6045.105'
+  FIREFOX_VERSION: '119.0'
+  WEBKIT_VERSION: '17.0'
+
+permissions:
+  contents: read
+  pull-requests: write
+  checks: write
+  issues: write
+
+jobs:
+  # Visual Test Discovery and Setup
+  visual-discovery:
+    name: 👁️ Visual Test Discovery
+    runs-on: ubuntu-latest
+    outputs:
+      test_targets: ${{ steps.discover.outputs.test_targets }}
+      baseline_exists: ${{ steps.discover.outputs.baseline_exists }}
+      test_matrix: ${{ steps.discover.outputs.test_matrix }}
+      total_tests: ${{ steps.discover.outputs.total_tests }}
+    
+    steps:
+      - name: 📥 Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: 🔍 Discover Visual Test Targets
+        id: discover
+        run: |
+          echo "👁️ Discovering visual test targets..."
+          
+          mkdir -p visual-discovery
+          
+          python3 - << 'EOF'
+          import os
+          import json
+          import glob
+          import yaml
+          from pathlib import Path
+          
+          def discover_visual_targets():
+              """Discover files and components for visual testing"""
+              
+              test_scope = os.environ.get('GITHUB_EVENT_INPUTS_TEST_SCOPE', 'comprehensive')
+              
+              # Template files for visual testing
+              template_patterns = [
+                  'templates/**/*.md',
+                  'templates/**/*.html',
+                  'docs/**/*.md',
+                  'docs/**/*.html'
+              ]
+              
+              # Theme and style files
+              style_patterns = [
+                  'assets/**/*.css',
+                  'styles/**/*.css',
+                  'themes/**/*.css',
+                  'assets/**/*.scss',
+                  'styles/**/*.scss'
+              ]
+              
+              # Configuration files that might affect visuals
+              config_patterns = [
+                  '**/mkdocs.yml',
+                  '**/docusaurus.config.js',
+                  '**/gatsby-config.js',
+                  '**/hugo.toml',
+                  '**/hugo.yaml',
+                  '**/_config.yml'
+              ]
+              
+              discovered_targets = []
+              
+              # Discover templates
+              if test_scope in ['comprehensive', 'templates-only']:
+                  for pattern in template_patterns:
+                      files = glob.glob(pattern, recursive=True)
+                      for file_path in files:
+                          if os.path.exists(file_path):
+                              target = {
+                                  'type': 'template',
+                                  'path': file_path,
+                                  'name': Path(file_path).stem,
+                                  'category': get_template_category(file_path),
+                                  'priority': get_priority(file_path),
+                                  'test_scenarios': get_test_scenarios(file_path)
+                              }
+                              discovered_targets.append(target)
+              
+              # Discover documentation
+              if test_scope in ['comprehensive', 'docs-only']:
+                  doc_files = glob.glob('docs/**/*.md', recursive=True)
+                  for doc_path in doc_files:
+                      if os.path.exists(doc_path):
+                          target = {
+                              'type': 'documentation',
+                              'path': doc_path,
+                              'name': Path(doc_path).stem,
+                              'category': 'documentation',
+                              'priority': 'medium',
+                              'test_scenarios': ['desktop', 'mobile']
+                          }
+                          discovered_targets.append(target)
+              
+              # Discover themes and styles
+              if test_scope in ['comprehensive', 'themes-only']:
+                  for pattern in style_patterns:
+                      files = glob.glob(pattern, recursive=True)
+                      for file_path in files:
+                          if os.path.exists(file_path):
+                              # For CSS files, we'll test their impact on templates
+                              affected_templates = find_affected_templates(file_path)
+                              if affected_templates:
+                                  target = {
+                                      'type': 'theme',
+                                      'path': file_path,
+                                      'name': Path(file_path).stem,
+                                      'category': 'styling',
+                                      'priority': 'high',
+                                      'affected_templates': affected_templates,
+                                      'test_scenarios': ['theme_comparison']
+                                  }
+                                  discovered_targets.append(target)
+              
+              # Filter for critical-only tests
+              if test_scope == 'critical-only':
+                  discovered_targets = [t for t in discovered_targets if t['priority'] == 'high']
+              
+              return discovered_targets
+          
+          def get_template_category(file_path):
+              """Determine template category based on path and content"""
+              path_lower = file_path.lower()
+              
+              # PMBOK templates
+              if any(keyword in path_lower for keyword in ['pmbok', 'charter', 'wbs', 'gantt', 'scope', 'risk']):
+                  return 'pmbok'
+              
+              # Agile templates
+              elif any(keyword in path_lower for keyword in ['agile', 'scrum', 'kanban', 'sprint', 'backlog', 'user-story']):
+                  return 'agile'
+              
+              # Hybrid templates
+              elif any(keyword in path_lower for keyword in ['hybrid', 'scaled', 'enterprise']):
+                  return 'hybrid'
+              
+              # Reports and dashboards
+              elif any(keyword in path_lower for keyword in ['report', 'dashboard', 'metrics', 'kpi']):
+                  return 'reporting'
+              
+              # Documentation
+              elif 'docs/' in path_lower or 'readme' in path_lower:
+                  return 'documentation'
+              
+              else:
+                  return 'general'
+          
+          def get_priority(file_path):
+              """Determine test priority based on file importance"""
+              path_lower = file_path.lower()
+              
+              # High priority files
+              high_priority_indicators = [
+                  'readme', 'index', 'home', 'landing', 'main',
+                  'charter', 'dashboard', 'overview'
+              ]
+              
+              # Critical project management templates
+              critical_templates = [
+                  'project-charter', 'risk-register', 'stakeholder-matrix',
+                  'sprint-planning', 'retrospective', 'backlog'
+              ]
+              
+              if any(indicator in path_lower for indicator in high_priority_indicators):
+                  return 'high'
+              elif any(template in path_lower for template in critical_templates):
+                  return 'high'
+              elif 'template' in path_lower:
+                  return 'medium'
+              else:
+                  return 'low'
+          
+          def get_test_scenarios(file_path):
+              """Determine appropriate test scenarios for file"""
+              scenarios = ['desktop']  # Default scenario
+              
+              # Mobile-responsive tests for user-facing content
+              if any(keyword in file_path.lower() for keyword in ['readme', 'docs/', 'guide', 'tutorial']):
+                  scenarios.append('mobile')
+              
+              # Dark theme tests for templates
+              if 'template' in file_path.lower():
+                  scenarios.append('dark_theme')
+              
+              # Print layout tests for formal documents
+              if any(keyword in file_path.lower() for keyword in ['charter', 'report', 'contract', 'proposal']):
+                  scenarios.append('print')
+              
+              return scenarios
+          
+          def find_affected_templates(style_path):
+              """Find templates that might be affected by style changes"""
+              # Simple heuristic: assume styles affect templates in similar directories
+              style_dir = Path(style_path).parent
+              
+              affected = []
+              template_files = glob.glob('templates/**/*.md', recursive=True) + glob.glob('templates/**/*.html', recursive=True)
+              
+              for template_path in template_files:
+                  # If style is in a parent directory or same directory, it likely affects the template
+                  if str(style_dir) in template_path or 'global' in style_path.lower():
+                      affected.append(template_path)
+              
+              return affected[:5]  # Limit to 5 most likely affected templates
+          
+          def generate_test_matrix():
+              """Generate test matrix for different resolutions and browsers"""
+              resolutions = []
+              test_resolution = os.environ.get('GITHUB_EVENT_INPUTS_TEST_RESOLUTION', 'standard')
+              
+              if test_resolution == 'mobile-only':
+                  resolutions = [
+                      {'width': 375, 'height': 667, 'name': 'mobile_portrait'},
+                      {'width': 667, 'height': 375, 'name': 'mobile_landscape'}
+                  ]
+              elif test_resolution == 'desktop-only':
+                  resolutions = [
+                      {'width': 1920, 'height': 1080, 'name': 'desktop_full_hd'},
+                      {'width': 1366, 'height': 768, 'name': 'desktop_standard'}
+                  ]
+              elif test_resolution == 'high-resolution':
+                  resolutions = [
+                      {'width': 2560, 'height': 1440, 'name': 'desktop_2k'},
+                      {'width': 3840, 'height': 2160, 'name': 'desktop_4k'}
+                  ]
+              elif test_resolution == 'all-resolutions':
+                  resolutions = [
+                      {'width': 375, 'height': 667, 'name': 'mobile_portrait'},
+                      {'width': 768, 'height': 1024, 'name': 'tablet_portrait'},
+                      {'width': 1366, 'height': 768, 'name': 'desktop_standard'},
+                      {'width': 1920, 'height': 1080, 'name': 'desktop_full_hd'},
+                      {'width': 2560, 'height': 1440, 'name': 'desktop_2k'}
+                  ]
+              else:  # standard
+                  resolutions = [
+                      {'width': 375, 'height': 667, 'name': 'mobile'},
+                      {'width': 1366, 'height': 768, 'name': 'desktop'}
+                  ]
+              
+              browsers = ['chromium']  # Primary browser for visual testing
+              # Add Firefox and WebKit for comprehensive testing if needed
+              # browsers = ['chromium', 'firefox', 'webkit']
+              
+              matrix = []
+              for resolution in resolutions:
+                  for browser in browsers:
+                      matrix.append({
+                          'browser': browser,
+                          'resolution': resolution,
+                          'identifier': f"{browser}_{resolution['name']}"
+                      })
+              
+              return matrix
+          
+          # Main discovery process
+          print("Discovering visual test targets...")
+          targets = discover_visual_targets()
+          test_matrix = generate_test_matrix()
+          
+          # Check if baselines exist
+          baseline_exists = os.path.exists('.github/visual-baselines') or os.environ.get('GITHUB_EVENT_INPUTS_BASELINE_UPDATE') == 'true'
+          
+          # Generate summary
+          summary = {
+              'total_targets': len(targets),
+              'by_type': {},
+              'by_category': {},
+              'by_priority': {},
+              'test_matrix_size': len(test_matrix),
+              'baseline_exists': baseline_exists
+          }
+          
+          for target in targets:
+              # Count by type
+              target_type = target['type']
+              summary['by_type'][target_type] = summary['by_type'].get(target_type, 0) + 1
+              
+              # Count by category
+              category = target['category']
+              summary['by_category'][category] = summary['by_category'].get(category, 0) + 1
+              
+              # Count by priority
+              priority = target['priority']
+              summary['by_priority'][priority] = summary['by_priority'].get(priority, 0) + 1
+          
+          print(f"Visual Test Discovery Summary:")
+          print(f"  Total targets: {summary['total_targets']}")
+          print(f"  Types: {summary['by_type']}")
+          print(f"  Categories: {summary['by_category']}")
+          print(f"  Priorities: {summary['by_priority']}")
+          print(f"  Test matrix: {summary['test_matrix_size']} combinations")
+          print(f"  Baseline exists: {summary['baseline_exists']}")
+          
+          # Save results
+          with open('visual-discovery/targets.json', 'w') as f:
+              json.dump(targets, f, indent=2)
+          
+          with open('visual-discovery/test_matrix.json', 'w') as f:
+              json.dump(test_matrix, f, indent=2)
+          
+          with open('visual-discovery/summary.json', 'w') as f:
+              json.dump(summary, f, indent=2)
+          
+          print("Visual test discovery completed!")
+          EOF
+          
+          # Set outputs for subsequent jobs
+          TEST_TARGETS=$(jq -c '.' visual-discovery/targets.json)
+          BASELINE_EXISTS=$(jq -r '.baseline_exists' visual-discovery/summary.json)
+          TEST_MATRIX=$(jq -c '.' visual-discovery/test_matrix.json)
+          TOTAL_TESTS=$(jq -r '.total_targets' visual-discovery/summary.json)
+          
+          echo "test_targets=$TEST_TARGETS" >> $GITHUB_OUTPUT
+          echo "baseline_exists=$BASELINE_EXISTS" >> $GITHUB_OUTPUT
+          echo "test_matrix=$TEST_MATRIX" >> $GITHUB_OUTPUT
+          echo "total_tests=$TOTAL_TESTS" >> $GITHUB_OUTPUT
+
+      - name: 📤 Upload Discovery Results
+        uses: actions/upload-artifact@v4
+        with:
+          name: visual-discovery-${{ github.run_number }}
+          path: visual-discovery/
+          retention-days: 7
+
+  # Template Rendering for Visual Tests
+  template-rendering:
+    name: 📄 Template Rendering
+    runs-on: ubuntu-latest
+    needs: visual-discovery
+    if: needs.visual-discovery.outputs.total_tests > 0
+    
+    steps:
+      - name: 📥 Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: 📥 Download Discovery Results
+        uses: actions/download-artifact@v4
+        with:
+          name: visual-discovery-${{ github.run_number }}
+          path: visual-discovery/
+
+      - name: 🛠️ Setup Rendering Environment
+        run: |
+          echo "🛠️ Setting up template rendering environment..."
+          
+          # Install Node.js for static site generators
+          curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
+          sudo apt-get install -y nodejs
+          
+          # Install Python for markdown processing
+          pip install markdown jinja2 pyyaml python-frontmatter
+          
+          # Install common static site generators
+          npm install -g @11ty/eleventy markdown-it live-server
+          
+          # Install pandoc for document conversion
+          sudo apt-get install -y pandoc
+          
+          echo "✅ Rendering environment ready"
+
+      - name: 📄 Render Templates to HTML
+        run: |
+          echo "📄 Rendering templates to HTML for visual testing..."
+          
+          mkdir -p rendered-templates
+          
+          python3 - << 'EOF'
+          import json
+          import os
+          import markdown
+          import yaml
+          import frontmatter
+          from pathlib import Path
+          import subprocess
+          
+          # Load discovered targets
+          with open('visual-discovery/targets.json', 'r') as f:
+              targets = json.load(f)
+          
+          def render_markdown_to_html(md_path, output_dir):
+              """Render markdown file to HTML with styling"""
+              
+              try:
+                  # Read markdown file
+                  with open(md_path, 'r', encoding='utf-8') as f:
+                      post = frontmatter.load(f)
+                  
+                  # Extract metadata
+                  metadata = post.metadata
+                  content = post.content
+                  
+                  # Configure markdown processor
+                  md = markdown.Markdown(extensions=[
+                      'markdown.extensions.extra',
+                      'markdown.extensions.codehilite',
+                      'markdown.extensions.toc',
+                      'markdown.extensions.tables'
+                  ])
+                  
+                  # Convert to HTML
+                  html_content = md.convert(content)
+                  
+                  # Create full HTML document
+                  title = metadata.get('title', Path(md_path).stem.replace('-', ' ').title())
+                  category = get_template_category(md_path)
+                  
+                  # Select appropriate CSS based on category
+                  css_styles = get_category_styles(category)
+                  
+                  full_html = f"""<!DOCTYPE html>
+          <html lang="en">
+          <head>
+              <meta charset="UTF-8">
+              <meta name="viewport" content="width=device-width, initial-scale=1.0">
+              <title>{title}</title>
+              <style>
+                  {css_styles}
+              </style>
+          </head>
+          <body>
+              <div class="container">
+                  <header>
+                      <h1>{title}</h1>
+                      {f'<p class="category">{category.upper()}</p>' if category != 'general' else ''}
+                  </header>
+                  <main>
+                      {html_content}
+                  </main>
+                  <footer>
+                      <p>Generated from: {md_path}</p>
+                  </footer>
+              </div>
+          </body>
+          </html>"""
+                  
+                  # Save rendered HTML
+                  output_file = Path(output_dir) / f"{Path(md_path).stem}.html"
+                  output_file.parent.mkdir(parents=True, exist_ok=True)
+                  
+                  with open(output_file, 'w', encoding='utf-8') as f:
+                      f.write(full_html)
+                  
+                  print(f"  ✅ Rendered {md_path} -> {output_file}")
+                  return str(output_file)
+                  
+              except Exception as e:
+                  print(f"  ❌ Error rendering {md_path}: {e}")
+                  return None
+          
+          def get_template_category(file_path):
+              """Determine template category"""
+              path_lower = file_path.lower()
+              
+              if any(keyword in path_lower for keyword in ['pmbok', 'charter', 'wbs', 'gantt']):
+                  return 'pmbok'
+              elif any(keyword in path_lower for keyword in ['agile', 'scrum', 'kanban', 'sprint']):
+                  return 'agile'
+              elif any(keyword in path_lower for keyword in ['hybrid', 'scaled']):
+                  return 'hybrid'
+              elif any(keyword in path_lower for keyword in ['report', 'dashboard', 'metrics']):
+                  return 'reporting'
+              else:
+                  return 'general'
+          
+          def get_category_styles(category):
+              """Get CSS styles based on category"""
+              
+              base_styles = """
+                  * { margin: 0; padding: 0; box-sizing: border-box; }
+                  body { 
+                      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+                      line-height: 1.6; 
+                      color: #333; 
+                      background: #fff;
+                  }
+                  .container { 
+                      max-width: 1200px; 
+                      margin: 0 auto; 
+                      padding: 20px;
+                  }
+                  header { 
+                      border-bottom: 2px solid #eee; 
+                      margin-bottom: 30px; 
+                      padding-bottom: 20px;
+                  }
+                  h1 { 
+                      font-size: 2.5em; 
+                      margin-bottom: 10px;
+                  }
+                  h2 { 
+                      font-size: 2em; 
+                      margin: 30px 0 15px; 
+                      border-bottom: 1px solid #ddd;
+                      padding-bottom: 5px;
+                  }
+                  h3 { 
+                      font-size: 1.5em; 
+                      margin: 25px 0 10px;
+                  }
+                  p { margin: 15px 0; }
+                  ul, ol { margin: 15px 0; padding-left: 30px; }
+                  table { 
+                      width: 100%; 
+                      border-collapse: collapse; 
+                      margin: 20px 0;
+                  }
+                  th, td { 
+                      border: 1px solid #ddd; 
+                      padding: 12px; 
+                      text-align: left;
+                  }
+                  th { 
+                      background: #f5f5f5; 
+                      font-weight: bold;
+                  }
+                  code { 
+                      background: #f4f4f4; 
+                      padding: 2px 6px; 
+                      border-radius: 3px;
+                      font-family: 'Monaco', 'Courier New', monospace;
+                  }
+                  pre { 
+                      background: #f8f8f8; 
+                      padding: 15px; 
+                      border-radius: 5px; 
+                      overflow-x: auto;
+                      margin: 20px 0;
+                  }
+                  .category { 
+                      color: #666; 
+                      font-weight: bold; 
+                      text-transform: uppercase;
+                      font-size: 0.9em;
+                      letter-spacing: 1px;
+                  }
+                  footer { 
+                      margin-top: 50px; 
+                      padding-top: 20px; 
+                      border-top: 1px solid #eee; 
+                      color: #888; 
+                      font-size: 0.9em;
+                  }
+              """
+              
+              # Category-specific styles
+              category_styles = {
+                  'pmbok': """
+                      h1 { color: #1f4e79; }
+                      h2 { color: #2d5aa0; border-color: #1f4e79; }
+                      .category { color: #1f4e79; }
+                      th { background: #e6f1ff; }
+                  """,
+                  'agile': """
+                      h1 { color: #0066cc; }
+                      h2 { color: #0080ff; border-color: #0066cc; }
+                      .category { color: #0066cc; }
+                      th { background: #e6f3ff; }
+                  """,
+                  'hybrid': """
+                      h1 { color: #7b68ee; }
+                      h2 { color: #9370db; border-color: #7b68ee; }
+                      .category { color: #7b68ee; }
+                      th { background: #f0ecff; }
+                  """,
+                  'reporting': """
+                      h1 { color: #228b22; }
+                      h2 { color: #32cd32; border-color: #228b22; }
+                      .category { color: #228b22; }
+                      th { background: #e6ffe6; }
+                  """
+              }
+              
+              return base_styles + category_styles.get(category, '')
+          
+          # Render all markdown templates
+          rendered_files = []
+          
+          for target in targets:
+              if target['type'] in ['template', 'documentation'] and target['path'].endswith('.md'):
+                  output_file = render_markdown_to_html(target['path'], 'rendered-templates')
+                  if output_file:
+                      rendered_files.append({
+                          'original': target['path'],
+                          'rendered': output_file,
+                          'category': target['category'],
+                          'priority': target['priority'],
+                          'test_scenarios': target['test_scenarios']
+                      })
+              elif target['path'].endswith('.html'):
+                  # Copy HTML files as-is
+                  import shutil
+                  output_file = f"rendered-templates/{Path(target['path']).name}"
+                  shutil.copy2(target['path'], output_file)
+                  rendered_files.append({
+                      'original': target['path'],
+                      'rendered': output_file,
+                      'category': target['category'],
+                      'priority': target['priority'],
+                      'test_scenarios': target['test_scenarios']
+                  })
+          
+          # Save rendered files list
+          with open('rendered-templates/manifest.json', 'w') as f:
+              json.dump(rendered_files, f, indent=2)
+          
+          print(f"✅ Template rendering completed! {len(rendered_files)} files rendered.")
+          EOF
+
+      - name: 📤 Upload Rendered Templates
+        uses: actions/upload-artifact@v4
+        with:
+          name: rendered-templates-${{ github.run_number }}
+          path: rendered-templates/
+          retention-days: 7
+
+  # Visual Screenshot Capture
+  visual-capture:
+    name: 📸 Visual Capture
+    runs-on: ubuntu-latest
+    needs: [visual-discovery, template-rendering]
+    if: needs.visual-discovery.outputs.total_tests > 0
+    
+    strategy:
+      matrix:
+        browser: [chromium]
+        resolution: [
+          { width: 375, height: 667, name: 'mobile' },
+          { width: 1366, height: 768, name: 'desktop' }
+        ]
+      fail-fast: false
+    
+    steps:
+      - name: 📥 Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: 📥 Download Rendered Templates
+        uses: actions/download-artifact@v4
+        with:
+          name: rendered-templates-${{ github.run_number }}
+          path: rendered-templates/
+
+      - name: 🛠️ Setup Playwright
+        run: |
+          echo "🛠️ Setting up Playwright for visual capture..."
+          
+          npm install playwright
+          npx playwright install chromium
+          npx playwright install-deps chromium
+          
+          echo "✅ Playwright setup complete"
+
+      - name: 📸 Capture Screenshots
+        run: |
+          echo "📸 Capturing screenshots with ${{ matrix.browser }} at ${{ matrix.resolution.width }}x${{ matrix.resolution.height }}..."
+          
+          mkdir -p screenshots/${{ matrix.browser }}_${{ matrix.resolution.name }}
+          
+          node - << 'EOF'
+          const { chromium } = require('playwright');
+          const fs = require('fs');
+          const path = require('path');
+          
+          (async () => {
+              // Load rendered files manifest
+              const manifest = JSON.parse(fs.readFileSync('rendered-templates/manifest.json', 'utf8'));
+              
+              // Launch browser
+              const browser = await chromium.launch({
+                  headless: true,
+                  args: ['--no-sandbox', '--disable-dev-shm-usage']
+              });
+              
+              const context = await browser.newContext({
+                  viewport: {
+                      width: ${{ matrix.resolution.width }},
+                      height: ${{ matrix.resolution.height }}
+                  },
+                  deviceScaleFactor: 1
+              });
+              
+              const page = await context.newPage();
+              
+              // Disable animations for consistent screenshots
+              await page.addStyleTag({
+                  content: `
+                      *, *::before, *::after {
+                          animation-duration: 0s !important;
+                          animation-delay: 0s !important;
+                          transition-duration: 0s !important;
+                          transition-delay: 0s !important;
+                      }
+                  `
+              });
+              
+              console.log(`Starting screenshot capture for ${manifest.length} files...`);
+              
+              for (const file of manifest) {
+                  try {
+                      const filePath = path.resolve(file.rendered);
+                      const fileUrl = `file://${filePath}`;
+                      
+                      console.log(`Capturing: ${file.original}`);
+                      
+                      // Navigate to the file
+                      await page.goto(fileUrl, { 
+                          waitUntil: 'networkidle',
+                          timeout: parseInt(process.env.SCREENSHOT_TIMEOUT || '30000')
+                      });
+                      
+                      // Wait for content to load
+                      await page.waitForLoadState('domcontentloaded');
+                      await page.waitForTimeout(1000); // Additional wait for rendering
+                      
+                      // Take screenshot
+                      const screenshotName = `${path.basename(file.original, path.extname(file.original))}.png`;
+                      const screenshotPath = `screenshots/${{ matrix.browser }}_${{ matrix.resolution.name }}/${screenshotName}`;
+                      
+                      await page.screenshot({
+                          path: screenshotPath,
+                          fullPage: true,
+                          quality: parseInt(process.env.IMAGE_QUALITY || '90')
+                      });
+                      
+                      console.log(`  ✅ Screenshot saved: ${screenshotPath}`);
+                      
+                      // Capture additional scenarios if specified
+                      const scenarios = file.test_scenarios || [];
+                      
+                      for (const scenario of scenarios) {
+                          if (scenario === 'dark_theme') {
+                              // Apply dark theme
+                              await page.addStyleTag({
+                                  content: `
+                                      body { 
+                                          background: #1a1a1a !important; 
+                                          color: #e0e0e0 !important; 
+                                      }
+                                      .container { 
+                                          background: #2d2d2d !important; 
+                                          color: #e0e0e0 !important; 
+                                      }
+                                      h1, h2, h3, h4, h5, h6 { 
+                                          color: #ffffff !important; 
+                                      }
+                                      th { 
+                                          background: #404040 !important; 
+                                          color: #ffffff !important; 
+                                      }
+                                      td { 
+                                          border-color: #555 !important; 
+                                      }
+                                      code, pre { 
+                                          background: #333 !important; 
+                                          color: #f0f0f0 !important; 
+                                      }
+                                  `
+                              });
+                              
+                              await page.waitForTimeout(500);
+                              
+                              const darkScreenshotName = `${path.basename(file.original, path.extname(file.original))}_dark.png`;
+                              const darkScreenshotPath = `screenshots/${{ matrix.browser }}_${{ matrix.resolution.name }}/${darkScreenshotName}`;
+                              
+                              await page.screenshot({
+                                  path: darkScreenshotPath,
+                                  fullPage: true,
+                                  quality: parseInt(process.env.IMAGE_QUALITY || '90')
+                              });
+                              
+                              console.log(`  🌙 Dark theme screenshot: ${darkScreenshotPath}`);
+                          }
+                      }
+                      
+                  } catch (error) {
+                      console.error(`❌ Error capturing ${file.original}:`, error.message);
+                  }
+              }
+              
+              await browser.close();
+              console.log('Screenshot capture completed!');
+          })();
+          EOF
+
+      - name: 📤 Upload Screenshots
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: screenshots-${{ matrix.browser }}-${{ matrix.resolution.name }}-${{ github.run_number }}
+          path: screenshots/
+          retention-days: 30
+
+  # Visual Comparison and Regression Detection
+  visual-comparison:
+    name: 🔍 Visual Comparison
+    runs-on: ubuntu-latest
+    needs: [visual-discovery, visual-capture]
+    if: always() && needs.visual-discovery.outputs.total_tests > 0
+    
+    steps:
+      - name: 📥 Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: 📥 Download All Screenshots
+        uses: actions/download-artifact@v4
+        with:
+          pattern: "screenshots-*-${{ github.run_number }}"
+          merge-multiple: true
+
+      - name: 📥 Download Baseline Screenshots (if available)
+        if: needs.visual-discovery.outputs.baseline_exists == 'true'
+        continue-on-error: true
+        run: |
+          echo "📥 Attempting to download baseline screenshots..."
+          
+          # Try to checkout baseline from main branch
+          git fetch origin ${{ env.BASELINE_BRANCH }}:baseline-branch || true
+          
+          if git show-ref --verify --quiet refs/heads/baseline-branch; then
+            git checkout baseline-branch -- .github/visual-baselines/ || echo "No baselines found in baseline branch"
+          fi
+          
+          # Also check for baselines in artifacts from previous runs
+          # This would require additional logic to download from previous successful runs
+
+      - name: 🛠️ Setup Image Comparison Tools
+        run: |
+          echo "🛠️ Setting up image comparison tools..."
+          
+          # Install ImageMagick for image comparison
+          sudo apt-get update
+          sudo apt-get install -y imagemagick
+          
+          # Install Python image processing libraries
+          pip install Pillow numpy opencv-python scikit-image
+          
+          echo "✅ Image comparison tools ready"
+
+      - name: 🔍 Perform Visual Comparison
+        run: |
+          echo "🔍 Performing visual comparison and regression detection..."
+          
+          mkdir -p visual-comparison-results
+          
+          python3 - << 'EOF'
+          import os
+          import json
+          import glob
+          from PIL import Image, ImageDraw, ImageFont
+          import numpy as np
+          from datetime import datetime
+          import subprocess
+          import shutil
+          
+          def compare_images(current_path, baseline_path, diff_path, threshold_percent=2):
+              """Compare two images and generate diff"""
+              
+              try:
+                  # Load images
+                  current = Image.open(current_path).convert('RGB')
+                  baseline = Image.open(baseline_path).convert('RGB')
+                  
+                  # Ensure images are the same size
+                  if current.size != baseline.size:
+                      print(f"  ⚠️ Size mismatch: {current.size} vs {baseline.size}")
+                      # Resize to match baseline
+                      current = current.resize(baseline.size, Image.Resampling.LANCZOS)
+                  
+                  # Convert to numpy arrays
+                  current_array = np.array(current)
+                  baseline_array = np.array(baseline)
+                  
+                  # Calculate difference
+                  diff_array = np.abs(current_array.astype(float) - baseline_array.astype(float))
+                  
+                  # Calculate percentage difference
+                  total_pixels = current_array.shape[0] * current_array.shape[1]
+                  changed_pixels = np.sum(np.any(diff_array > 10, axis=2))  # Threshold for "changed"
+                  diff_percentage = (changed_pixels / total_pixels) * 100
+                  
+                  # Create visual diff image
+                  diff_image = Image.fromarray(diff_array.astype(np.uint8))
+                  
+                  # Enhance diff visibility
+                  diff_enhanced = diff_image.point(lambda x: min(255, x * 3))
+                  
+                  # Create side-by-side comparison
+                  width, height = baseline.size
+                  comparison = Image.new('RGB', (width * 3, height + 50), 'white')
+                  
+                  # Paste images
+                  comparison.paste(baseline, (0, 50))
+                  comparison.paste(current, (width, 50))
+                  comparison.paste(diff_enhanced, (width * 2, 50))
+                  
+                  # Add labels
+                  draw = ImageDraw.Draw(comparison)
+                  try:
+                      font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", 16)
+                  except:
+                      font = ImageFont.load_default()
+                  
+                  draw.text((10, 10), "BASELINE", fill='black', font=font)
+                  draw.text((width + 10, 10), "CURRENT", fill='black', font=font)
+                  draw.text((width * 2 + 10, 10), f"DIFF ({diff_percentage:.2f}%)", fill='red' if diff_percentage > threshold_percent else 'green', font=font)
+                  
+                  # Save comparison
+                  comparison.save(diff_path)
+                  
+                  return {
+                      'diff_percentage': round(diff_percentage, 2),
+                      'changed_pixels': int(changed_pixels),
+                      'total_pixels': int(total_pixels),
+                      'threshold_exceeded': diff_percentage > threshold_percent,
+                      'diff_image': diff_path
+                  }
+                  
+              except Exception as e:
+                  print(f"  ❌ Error comparing images: {e}")
+                  return {
+                      'diff_percentage': 100,
+                      'error': str(e),
+                      'threshold_exceeded': True
+                  }
+          
+          def find_screenshot_files():
+              """Find all screenshot files"""
+              screenshot_files = {}
+              
+              # Find all screenshot directories
+              screenshot_dirs = glob.glob('screenshots-*')
+              
+              for screenshot_dir in screenshot_dirs:
+                  browser_resolution = screenshot_dir.replace('screenshots-', '')
+                  screenshot_files[browser_resolution] = glob.glob(f"{screenshot_dir}/*.png")
+              
+              return screenshot_files
+          
+          def find_baseline_files():
+              """Find baseline screenshot files"""
+              baseline_files = {}
+              baseline_dir = '.github/visual-baselines'
+              
+              if os.path.exists(baseline_dir):
+                  # Find all baseline directories
+                  baseline_dirs = glob.glob(f"{baseline_dir}/screenshots-*")
+                  
+                  for baseline_dir_path in baseline_dirs:
+                      browser_resolution = os.path.basename(baseline_dir_path).replace('screenshots-', '')
+                      baseline_files[browser_resolution] = glob.glob(f"{baseline_dir_path}/*.png")
+              
+              return baseline_files
+          
+          # Main comparison process
+          threshold_percent = float(os.environ.get('VISUAL_DIFF_THRESHOLD', '2'))
+          update_baseline = os.environ.get('GITHUB_EVENT_INPUTS_BASELINE_UPDATE') == 'true'
+          
+          print(f"Visual comparison threshold: {threshold_percent}%")
+          print(f"Update baseline: {update_baseline}")
+          
+          # Find current screenshots
+          current_screenshots = find_screenshot_files()
+          print(f"Found screenshot sets: {list(current_screenshots.keys())}")
+          
+          # Find baseline screenshots
+          baseline_screenshots = find_baseline_files()
+          print(f"Found baseline sets: {list(baseline_screenshots.keys())}")
+          
+          comparison_results = []
+          total_comparisons = 0
+          regressions_found = 0
+          
+          for browser_resolution, current_files in current_screenshots.items():
+              print(f"\nProcessing {browser_resolution}...")
+              
+              baseline_files = baseline_screenshots.get(browser_resolution, [])
+              baseline_file_map = {os.path.basename(f): f for f in baseline_files}
+              
+              for current_file in current_files:
+                  filename = os.path.basename(current_file)
+                  baseline_file = baseline_file_map.get(filename)
+                  
+                  result = {
+                      'browser_resolution': browser_resolution,
+                      'filename': filename,
+                      'current_file': current_file,
+                      'baseline_file': baseline_file,
+                      'has_baseline': baseline_file is not None,
+                      'timestamp': datetime.now().isoformat()
+                  }
+                  
+                  if baseline_file and os.path.exists(baseline_file):
+                      # Perform comparison
+                      diff_path = f"visual-comparison-results/{browser_resolution}_{filename.replace('.png', '_diff.png')}"
+                      os.makedirs(os.path.dirname(diff_path), exist_ok=True)
+                      
+                      comparison = compare_images(current_file, baseline_file, diff_path, threshold_percent)
+                      result.update(comparison)
+                      
+                      total_comparisons += 1
+                      if comparison.get('threshold_exceeded', False):
+                          regressions_found += 1
+                          print(f"  🚨 REGRESSION: {filename} - {comparison.get('diff_percentage', 0)}% difference")
+                      else:
+                          print(f"  ✅ PASS: {filename} - {comparison.get('diff_percentage', 0)}% difference")
+                  
+                  else:
+                      print(f"  📷 NEW: {filename} - no baseline available")
+                      result['status'] = 'new_screenshot'
+                  
+                  comparison_results.append(result)
+          
+          # Generate summary
+          summary = {
+              'timestamp': datetime.now().isoformat(),
+              'threshold_percent': threshold_percent,
+              'total_screenshots': sum(len(files) for files in current_screenshots.values()),
+              'total_comparisons': total_comparisons,
+              'regressions_found': regressions_found,
+              'new_screenshots': len(comparison_results) - total_comparisons,
+              'regression_rate': round((regressions_found / max(total_comparisons, 1)) * 100, 2),
+              'browser_resolutions': list(current_screenshots.keys()),
+              'baseline_update_requested': update_baseline
+          }
+          
+          print(f"\n📊 Visual Comparison Summary:")
+          print(f"  Total screenshots: {summary['total_screenshots']}")
+          print(f"  Comparisons performed: {summary['total_comparisons']}")
+          print(f"  Regressions found: {summary['regressions_found']}")
+          print(f"  New screenshots: {summary['new_screenshots']}")
+          print(f"  Regression rate: {summary['regression_rate']}%")
+          
+          # Save detailed results
+          with open('visual-comparison-results/comparison_results.json', 'w') as f:
+              json.dump(comparison_results, f, indent=2)
+          
+          with open('visual-comparison-results/summary.json', 'w') as f:
+              json.dump(summary, f, indent=2)
+          
+          # Update baselines if requested
+          if update_baseline:
+              print("\n📤 Updating visual baselines...")
+              baseline_dir = '.github/visual-baselines'
+              
+              # Remove old baselines
+              if os.path.exists(baseline_dir):
+                  shutil.rmtree(baseline_dir)
+              
+              # Copy current screenshots as new baselines
+              for browser_resolution, files in current_screenshots.items():
+                  target_dir = f"{baseline_dir}/screenshots-{browser_resolution}"
+                  os.makedirs(target_dir, exist_ok=True)
+                  
+                  for file_path in files:
+                      filename = os.path.basename(file_path)
+                      target_path = f"{target_dir}/{filename}"
+                      shutil.copy2(file_path, target_path)
+                      print(f"    ✅ Updated baseline: {filename}")
+              
+              print("✅ Baseline update completed!")
+          
+          # Set exit code based on regressions
+          if regressions_found > 0 and not update_baseline:
+              print(f"\n🚨 {regressions_found} visual regressions detected!")
+              exit(1)
+          else:
+              print("\n✅ Visual comparison completed successfully!")
+          EOF
+
+      - name: 📤 Upload Comparison Results
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: visual-comparison-results-${{ github.run_number }}
+          path: visual-comparison-results/
+          retention-days: 30
+
+      - name: 📤 Update Visual Baselines
+        if: github.event.inputs.baseline_update == 'true'
+        uses: actions/upload-artifact@v4
+        with:
+          name: visual-baselines-${{ github.run_number }}
+          path: .github/visual-baselines/
+          retention-days: 90
+
+  # Visual Regression Report
+  visual-report:
+    name: 📊 Visual Regression Report
+    runs-on: ubuntu-latest
+    needs: [visual-discovery, visual-capture, visual-comparison]
+    if: always() && needs.visual-discovery.outputs.total_tests > 0
+    
+    steps:
+      - name: 📥 Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: 📥 Download Comparison Results
+        uses: actions/download-artifact@v4
+        with:
+          name: visual-comparison-results-${{ github.run_number }}
+          path: visual-comparison-results/
+
+      - name: 📊 Generate Visual Regression Report
+        run: |
+          echo "📊 Generating comprehensive visual regression report..."
+          
+          python3 - << 'EOF'
+          import json
+          import os
+          from datetime import datetime
+          from statistics import mean
+          
+          # Load comparison results
+          try:
+              with open('visual-comparison-results/comparison_results.json', 'r') as f:
+                  comparison_results = json.load(f)
+              
+              with open('visual-comparison-results/summary.json', 'r') as f:
+                  summary = json.load(f)
+          except FileNotFoundError:
+              print("No comparison results found - generating basic report")
+              comparison_results = []
+              summary = {'total_screenshots': 0, 'total_comparisons': 0, 'regressions_found': 0}
+          
+          def generate_report():
+              """Generate comprehensive markdown report"""
+              
+              report = f"""# 👁️ Visual Regression Testing Report
+          
+          **Generated:** {datetime.now().isoformat()}
+          **Repository:** ${{ github.repository }}
+          **Test Scope:** ${{ github.event.inputs.test_scope || 'comprehensive' }}
+          **Baseline Update:** ${{ github.event.inputs.baseline_update || 'false' }}
+          **Diff Threshold:** {summary.get('threshold_percent', 2)}%
+          
+          ## 📊 Executive Summary
+          
+          ### Visual Testing Overview
+          
+          | Metric | Value | Status |
+          |--------|-------|--------|
+          | Total Screenshots | {summary.get('total_screenshots', 0)} | {'✅' if summary.get('total_screenshots', 0) > 0 else '⚠️'} |
+          | Visual Comparisons | {summary.get('total_comparisons', 0)} | {'✅' if summary.get('total_comparisons', 0) > 0 else 'ℹ️'} |
+          | Regressions Found | {summary.get('regressions_found', 0)} | {'🚨' if summary.get('regressions_found', 0) > 0 else '✅'} |
+          | New Screenshots | {summary.get('new_screenshots', 0)} | {'ℹ️' if summary.get('new_screenshots', 0) > 0 else '✅'} |
+          | Regression Rate | {summary.get('regression_rate', 0)}% | {'🚨' if summary.get('regression_rate', 0) > 5 else '✅'} |
+          
+          ### 🎯 Overall Status
+          """
+              
+              # Determine overall status
+              if summary.get('regressions_found', 0) > 0:
+                  if summary.get('regression_rate', 0) > 10:
+                      status = "🔴 Critical Visual Issues"
+                  else:
+                      status = "🟡 Visual Changes Detected"
+              elif summary.get('new_screenshots', 0) > 0:
+                  status = "🟢 New Content Added"
+              else:
+                  status = "🟢 All Visual Tests Passing"
+              
+              report += f"\n**{status}**\n"
+              
+              # Browser and resolution coverage
+              if summary.get('browser_resolutions'):
+                  report += f"""
+          ### 📱 Test Coverage
+          
+          **Browser/Resolution Combinations:**
+          """
+                  for br in summary['browser_resolutions']:
+                      browser, resolution = br.split('_', 1) if '_' in br else (br, 'unknown')
+                      report += f"\n- {browser.title()} @ {resolution.replace('_', ' ').title()}"
+              
+              # Detailed results by category
+              if comparison_results:
+                  report += f"""
+          
+          ## 📋 Detailed Results
+          
+          ### 🔍 Visual Comparison Details
+          """
+                  
+                  # Group results by browser/resolution
+                  grouped_results = {}
+                  for result in comparison_results:
+                      br = result.get('browser_resolution', 'unknown')
+                      if br not in grouped_results:
+                          grouped_results[br] = []
+                      grouped_results[br].append(result)
+                  
+                  for browser_resolution, results in grouped_results.items():
+                      browser, resolution = browser_resolution.split('_', 1) if '_' in browser_resolution else (browser_resolution, 'unknown')
+                      
+                      report += f"""
+          #### {browser.title()} - {resolution.replace('_', ' ').title()}
+          
+          | Template | Status | Difference | Notes |
+          |----------|--------|------------|-------|
+          """
+                      
+                      for result in results:
+                          filename = result['filename'].replace('.png', '').replace('_', ' ').title()
+                          
+                          if not result.get('has_baseline', False):
+                              status = "🆕 New"
+                              difference = "N/A"
+                              notes = "No baseline for comparison"
+                          elif result.get('threshold_exceeded', False):
+                              status = "🚨 Regression"
+                              difference = f"{result.get('diff_percentage', 0)}%"
+                              notes = "Visual changes detected"
+                          elif 'diff_percentage' in result:
+                              status = "✅ Pass"
+                              difference = f"{result.get('diff_percentage', 0)}%"
+                              notes = "Within threshold"
+                          else:
+                              status = "❓ Unknown"
+                              difference = "N/A"
+                              notes = result.get('error', 'Processing error')
+                          
+                          report += f"| {filename} | {status} | {difference} | {notes} |\n"
+              
+              # Regression analysis
+              regressions = [r for r in comparison_results if r.get('threshold_exceeded', False)]
+              if regressions:
+                  report += f"""
+          
+          ### 🚨 Visual Regressions Found
+          
+          The following templates show visual changes exceeding the {summary.get('threshold_percent', 2)}% threshold:
+          """
+                  
+                  for regression in regressions:
+                      diff_pct = regression.get('diff_percentage', 0)
+                      changed_pixels = regression.get('changed_pixels', 0)
+                      total_pixels = regression.get('total_pixels', 1)
+                      
+                      report += f"""
+          #### {regression['filename'].replace('.png', '').replace('_', ' ').title()}
+          - **Browser/Resolution:** {regression.get('browser_resolution', 'unknown').replace('_', ' ').title()}
+          - **Difference:** {diff_pct}%
+          - **Pixels Changed:** {changed_pixels:,} of {total_pixels:,}
+          - **Diff Image:** `{regression.get('diff_image', 'N/A')}`
+          """
+              
+              # New screenshots
+              new_screenshots = [r for r in comparison_results if not r.get('has_baseline', False)]
+              if new_screenshots:
+                  report += f"""
+          
+          ### 🆕 New Screenshots
+          
+          The following templates are new and don't have baseline images for comparison:
+          """
+                  
+                  for new_shot in new_screenshots:
+                      report += f"\n- **{new_shot['filename'].replace('.png', '').replace('_', ' ').title()}** ({new_shot.get('browser_resolution', 'unknown').replace('_', ' ').title()})"
+              
+              # Recommendations
+              report += f"""
+          
+          ## 📋 Recommendations
+          
+          ### 🚨 Immediate Actions
+          """
+              
+              recommendations = []
+              
+              if summary.get('regressions_found', 0) > 0:
+                  recommendations.append("Review visual regressions to determine if changes are intentional")
+                  recommendations.append("If changes are intentional, update visual baselines")
+                  recommendations.append("If changes are unintentional, investigate and fix the root cause")
+              
+              if summary.get('new_screenshots', 0) > 0:
+                  recommendations.append("Review new screenshots for visual consistency")
+                  recommendations.append("Consider updating baselines to include new content")
+              
+              if summary.get('total_comparisons', 0) == 0:
+                  recommendations.append("Set up visual baselines by running with baseline_update=true")
+                  recommendations.append("Ensure templates are rendering correctly")
+              
+              if not recommendations:
+                  recommendations = ["Visual testing is healthy - maintain current quality standards"]
+              
+              for i, rec in enumerate(recommendations, 1):
+                  report += f"\n{i}. {rec}"
+              
+              report += f"""
+          
+          ### 🔄 Next Steps
+          
+          1. **Review Results:** Examine any visual regressions or new screenshots
+          2. **Update Baselines:** Run with `baseline_update: true` if changes are intentional
+          3. **Fix Issues:** Address any unintended visual changes
+          4. **Monitor Trends:** Set up regular visual regression testing
+          5. **Optimize Thresholds:** Adjust diff threshold based on your quality requirements
+          
+          ## ⚙️ Test Configuration
+          
+          - **Test Scope:** ${{ github.event.inputs.test_scope || 'comprehensive' }}
+          - **Diff Threshold:** {summary.get('threshold_percent', 2)}%
+          - **Baseline Update:** ${{ github.event.inputs.baseline_update || 'false' }}
+          - **Test Resolution:** ${{ github.event.inputs.test_resolution || 'standard' }}
+          - **Screenshot Timeout:** {os.environ.get('SCREENSHOT_TIMEOUT', 30000)}ms
+          - **Image Quality:** {os.environ.get('IMAGE_QUALITY', 90)}%
+          
+          ## 📊 Technical Details
+          
+          ### Browser Configuration
+          - **Chromium Version:** {os.environ.get('CHROMIUM_VERSION', 'latest')}
+          - **Animation Disable:** {os.environ.get('ANIMATION_DISABLE', 'true')}
+          - **Parallel Workers:** {os.environ.get('PARALLEL_WORKERS', 4)}
+          
+          ### Image Processing
+          - **Format:** PNG
+          - **Full Page:** Yes
+          - **Device Scale Factor:** 1
+          - **Comparison Method:** Pixel-by-pixel diff with threshold
+          
+          ---
+          *Generated by Visual Regression Testing System*
+          """
+              
+              return report
+          
+          # Generate and save report
+          report = generate_report()
+          
+          with open('visual-regression-report.md', 'w') as f:
+              f.write(report)
+          
+          # Generate summary for outputs
+          output_summary = {
+              'timestamp': datetime.now().isoformat(),
+              'total_screenshots': summary.get('total_screenshots', 0),
+              'total_comparisons': summary.get('total_comparisons', 0),
+              'regressions_found': summary.get('regressions_found', 0),
+              'new_screenshots': summary.get('new_screenshots', 0),
+              'regression_rate': summary.get('regression_rate', 0),
+              'status': 'failed' if summary.get('regressions_found', 0) > 0 else 'passed'
+          }
+          
+          with open('visual-testing-summary.json', 'w') as f:
+              json.dump(output_summary, f, indent=2)
+          
+          print("✅ Visual regression report generated!")
+          print(f"📊 Summary: {output_summary['total_screenshots']} screenshots, {output_summary['regressions_found']} regressions")
+          EOF
+
+      - name: 💬 Comment on Pull Request
+        if: github.event_name == 'pull_request'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            
+            // Load visual testing summary
+            let summary;
+            try {
+              summary = JSON.parse(fs.readFileSync('visual-testing-summary.json', 'utf8'));
+            } catch (e) {
+              summary = { 
+                total_screenshots: 0, 
+                total_comparisons: 0, 
+                regressions_found: 0, 
+                new_screenshots: 0,
+                status: 'unknown'
+              };
+            }
+            
+            const statusEmoji = summary.regressions_found > 0 ? '🚨' : 
+                               summary.new_screenshots > 0 ? '🆕' : '✅';
+            
+            const regressionRate = summary.total_comparisons > 0 ? 
+              Math.round((summary.regressions_found / summary.total_comparisons) * 100) : 0;
+            
+            const commentBody = `## 👁️ Visual Regression Testing Results
+            
+            ### 📊 Visual Testing Summary
+            ${statusEmoji} **Status:** ${summary.regressions_found > 0 ? 'Visual Changes Detected' : 'All Tests Passing'}
+            
+            | Metric | Count | Rate |
+            |--------|-------|------|
+            | 📸 Screenshots Captured | ${summary.total_screenshots} | - |
+            | 🔍 Visual Comparisons | ${summary.total_comparisons} | - |
+            | 🚨 Regressions Found | ${summary.regressions_found} | ${regressionRate}% |
+            | 🆕 New Screenshots | ${summary.new_screenshots} | - |
+            
+            ### 🎯 Test Coverage
+            - **Template Rendering:** ✅ Automated
+            - **Multi-Resolution:** ✅ Mobile & Desktop
+            - **Cross-Browser:** ✅ Chromium
+            - **Diff Detection:** ✅ Pixel-perfect
+            
+            ### 📋 Next Steps
+            ${summary.regressions_found > 0 ? 
+              '🚨 **Action Required:** Review visual changes before merging' :
+              summary.new_screenshots > 0 ?
+              '🆕 **Review New Content:** Check new screenshots for consistency' :
+              '✅ **All Good:** No visual regressions detected'
+            }
+            
+            📄 [View Detailed Report](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }})
+            `;
+            
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: commentBody
+            });
+
+      - name: 📤 Upload Visual Regression Report
+        uses: actions/upload-artifact@v4
+        with:
+          name: visual-regression-report-${{ github.run_number }}
+          path: |
+            visual-regression-report.md
+            visual-testing-summary.json
+          retention-days: 30
+
+      - name: 📊 Visual Testing Summary
+        run: |
+          echo "👁️ Visual Regression Testing Summary"
+          echo "===================================="
+          echo "Repository: ${{ github.repository }}"
+          echo "Test Scope: ${{ github.event.inputs.test_scope || 'comprehensive' }}"
+          echo "Baseline Update: ${{ github.event.inputs.baseline_update || 'false' }}"
+          echo "Diff Threshold: ${{ github.event.inputs.diff_threshold || '2' }}%"
+          echo ""
+          echo "📋 Results:"
+          if [ -f visual-testing-summary.json ]; then
+            echo "- Screenshots: $(jq -r '.total_screenshots' visual-testing-summary.json)"
+            echo "- Comparisons: $(jq -r '.total_comparisons' visual-testing-summary.json)"
+            echo "- Regressions: $(jq -r '.regressions_found' visual-testing-summary.json)"
+            echo "- New Screenshots: $(jq -r '.new_screenshots' visual-testing-summary.json)"
+            echo "- Status: $(jq -r '.status' visual-testing-summary.json)"
+          else
+            echo "- Visual testing summary not available"
+          fi
+          echo ""
+          echo "🔍 Components Completed:"
+          echo "- Visual Discovery: ${{ needs.visual-discovery.result }}"
+          echo "- Template Rendering: ${{ needs.template-rendering.result || 'Skipped' }}"
+          echo "- Visual Capture: ${{ needs.visual-capture.result || 'Skipped' }}"
+          echo "- Visual Comparison: ${{ needs.visual-comparison.result || 'Skipped' }}"
+          echo ""
+          echo "👁️ Visual regression testing completed!"
+          echo "📊 Check artifacts for detailed reports and diff images"

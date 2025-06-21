@@ -1,0 +1,1237 @@
+name: 📦 Artifact Lifecycle Manager
+
+on:
+  schedule:
+    # Daily cleanup at 1 AM UTC
+    - cron: '0 1 * * *'
+    # Weekly comprehensive analysis on Sunday at 2 AM UTC
+    - cron: '0 2 * * 0'
+  workflow_dispatch:
+    inputs:
+      cleanup_scope:
+        description: 'Scope of artifact cleanup'
+        required: false
+        default: 'comprehensive'
+        type: choice
+        options:
+          - comprehensive
+          - expired-only
+          - large-artifacts
+          - security-artifacts
+          - test-artifacts
+          - analysis-only
+      retention_days:
+        description: 'Override default retention days'
+        required: false
+        type: string
+      force_cleanup:
+        description: 'Force cleanup without confirmation'
+        required: false
+        default: false
+        type: boolean
+      storage_limit_gb:
+        description: 'Storage limit in GB for cleanup threshold'
+        required: false
+        default: '5'
+        type: string
+
+env:
+  # Artifact Lifecycle Configuration
+  DEFAULT_RETENTION_DAYS: 30
+  CRITICAL_RETENTION_DAYS: 90    # Security artifacts, compliance reports
+  TEST_RETENTION_DAYS: 7         # Test results, temporary artifacts
+  CACHE_RETENTION_DAYS: 14       # Cache-related artifacts
+  STORAGE_WARNING_THRESHOLD_GB: 4
+  STORAGE_CRITICAL_THRESHOLD_GB: 5
+  MAX_ARTIFACTS_PER_WORKFLOW: 50
+
+permissions:
+  contents: read
+  actions: write
+  issues: write
+
+jobs:
+  # Artifact Discovery and Analysis
+  artifact-discovery:
+    name: 🔍 Artifact Discovery
+    runs-on: ubuntu-latest
+    outputs:
+      total_artifacts: ${{ steps.analyze.outputs.total_artifacts }}
+      total_size_gb: ${{ steps.analyze.outputs.total_size_gb }}
+      cleanup_candidates: ${{ steps.analyze.outputs.cleanup_candidates }}
+      retention_summary: ${{ steps.analyze.outputs.retention_summary }}
+    
+    steps:
+      - name: 📥 Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: 🔍 Discover Repository Artifacts
+        id: discover
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          echo "🔍 Discovering repository artifacts..."
+          
+          # Get all artifacts with detailed information
+          gh api repos/${{ github.repository }}/actions/artifacts \
+            --paginate \
+            --jq '.artifacts[] | {
+              id: .id,
+              name: .name,
+              size_in_bytes: .size_in_bytes,
+              created_at: .created_at,
+              updated_at: .updated_at,
+              expires_at: .expires_at,
+              workflow_run: .workflow_run.id,
+              workflow_name: .workflow_run.name
+            }' > all_artifacts.json
+          
+          echo "📊 Artifact discovery completed"
+          echo "Total artifacts found: $(cat all_artifacts.json | wc -l)"
+
+      - name: 📊 Analyze Artifact Data
+        id: analyze
+        run: |
+          echo "📊 Analyzing artifact data..."
+          
+          python3 - << 'EOF'
+          import json
+          import sys
+          from datetime import datetime, timedelta
+          from collections import defaultdict
+          
+          # Load artifacts data
+          artifacts = []
+          try:
+              with open('all_artifacts.json', 'r') as f:
+                  for line in f:
+                      if line.strip():
+                          artifacts.append(json.loads(line))
+          except:
+              artifacts = []
+          
+          print(f"Loaded {len(artifacts)} artifacts for analysis")
+          
+          # Categorize artifacts by type and workflow
+          artifact_categories = {
+              'security': ['security', 'scan', 'vulnerability', 'dependency', 'sast', 'infrastructure'],
+              'performance': ['performance', 'cache', 'benchmark', 'timing'],
+              'quality': ['test', 'coverage', 'lint', 'validation', 'report'],
+              'documentation': ['docs', 'documentation', 'readme', 'guide'],
+              'build': ['build', 'compile', 'package', 'dist'],
+              'other': []
+          }
+          
+          categorized_artifacts = defaultdict(list)
+          workflow_artifacts = defaultdict(list)
+          size_by_category = defaultdict(int)
+          total_size = 0
+          cleanup_candidates = []
+          
+          # Current time for age calculations
+          now = datetime.now()
+          
+          for artifact in artifacts:
+              try:
+                  # Calculate artifact age
+                  created = datetime.fromisoformat(artifact['created_at'].replace('Z', '+00:00'))
+                  age_days = (now - created.replace(tzinfo=None)).days
+                  
+                  # Categorize artifact
+                  category = 'other'
+                  artifact_name_lower = artifact['name'].lower()
+                  for cat, keywords in artifact_categories.items():
+                      if any(keyword in artifact_name_lower for keyword in keywords):
+                          category = cat
+                          break
+                  
+                  # Size in MB for easier handling
+                  size_mb = artifact['size_in_bytes'] / (1024 * 1024)
+                  total_size += size_mb
+                  size_by_category[category] += size_mb
+                  
+                  # Enhanced artifact info
+                  enhanced_artifact = {
+                      **artifact,
+                      'category': category,
+                      'age_days': age_days,
+                      'size_mb': round(size_mb, 2),
+                      'workflow_name': artifact.get('workflow_name', 'unknown')
+                  }
+                  
+                  categorized_artifacts[category].append(enhanced_artifact)
+                  workflow_artifacts[artifact.get('workflow_name', 'unknown')].append(enhanced_artifact)
+                  
+                  # Determine cleanup eligibility
+                  cleanup_eligible = False
+                  cleanup_reason = ""
+                  
+                  # Age-based cleanup
+                  if category == 'security' and age_days > 90:
+                      cleanup_eligible = True
+                      cleanup_reason = "Security artifact older than 90 days"
+                  elif category in ['performance', 'quality'] and age_days > 30:
+                      cleanup_eligible = True
+                      cleanup_reason = f"{category.title()} artifact older than 30 days"
+                  elif category in ['build', 'other'] and age_days > 14:
+                      cleanup_eligible = True
+                      cleanup_reason = f"{category.title()} artifact older than 14 days"
+                  
+                  # Size-based cleanup (artifacts > 100MB and > 7 days old)
+                  if size_mb > 100 and age_days > 7:
+                      cleanup_eligible = True
+                      cleanup_reason = f"Large artifact ({size_mb:.1f}MB) older than 7 days"
+                  
+                  if cleanup_eligible:
+                      cleanup_candidates.append({
+                          **enhanced_artifact,
+                          'cleanup_reason': cleanup_reason
+                      })
+                      
+              except Exception as e:
+                  print(f"Error processing artifact {artifact.get('id', 'unknown')}: {e}")
+          
+          # Generate summary statistics
+          total_size_gb = round(total_size / 1024, 2)
+          
+          summary_stats = {
+              'total_artifacts': len(artifacts),
+              'total_size_gb': total_size_gb,
+              'total_size_mb': round(total_size, 2),
+              'cleanup_candidates_count': len(cleanup_candidates),
+              'cleanup_size_mb': round(sum(a['size_mb'] for a in cleanup_candidates), 2),
+              'categories': {cat: len(arts) for cat, arts in categorized_artifacts.items()},
+              'size_by_category_mb': {cat: round(size, 2) for cat, size in size_by_category.items()},
+              'workflow_counts': {wf: len(arts) for wf, arts in workflow_artifacts.items()}
+          }
+          
+          # Retention policy summary
+          retention_summary = {
+              'security_artifacts': len(categorized_artifacts['security']),
+              'performance_artifacts': len(categorized_artifacts['performance']),
+              'quality_artifacts': len(categorized_artifacts['quality']),
+              'build_artifacts': len(categorized_artifacts['build']),
+              'other_artifacts': len(categorized_artifacts['other']),
+              'total_cleanup_candidates': len(cleanup_candidates),
+              'potential_savings_mb': round(sum(a['size_mb'] for a in cleanup_candidates), 2)
+          }
+          
+          # Save analysis results
+          with open('artifact_analysis.json', 'w') as f:
+              json.dump({
+                  'summary_stats': summary_stats,
+                  'categorized_artifacts': dict(categorized_artifacts),
+                  'cleanup_candidates': cleanup_candidates,
+                  'retention_summary': retention_summary
+              }, f, indent=2, default=str)
+          
+          # Set GitHub outputs
+          print(f"Total artifacts: {summary_stats['total_artifacts']}")
+          print(f"Total size: {total_size_gb} GB")
+          print(f"Cleanup candidates: {len(cleanup_candidates)}")
+          print(f"Potential savings: {round(sum(a['size_mb'] for a in cleanup_candidates) / 1024, 2)} GB")
+          EOF
+          
+          # Extract outputs from analysis
+          TOTAL_ARTIFACTS=$(jq -r '.summary_stats.total_artifacts' artifact_analysis.json)
+          TOTAL_SIZE_GB=$(jq -r '.summary_stats.total_size_gb' artifact_analysis.json)
+          CLEANUP_CANDIDATES=$(jq -r '.summary_stats.cleanup_candidates_count' artifact_analysis.json)
+          RETENTION_SUMMARY=$(jq -c '.retention_summary' artifact_analysis.json)
+          
+          echo "total_artifacts=$TOTAL_ARTIFACTS" >> $GITHUB_OUTPUT
+          echo "total_size_gb=$TOTAL_SIZE_GB" >> $GITHUB_OUTPUT
+          echo "cleanup_candidates=$CLEANUP_CANDIDATES" >> $GITHUB_OUTPUT
+          echo "retention_summary=$RETENTION_SUMMARY" >> $GITHUB_OUTPUT
+
+      - name: 📤 Upload Discovery Results
+        uses: actions/upload-artifact@v4
+        with:
+          name: artifact-discovery-${{ github.run_number }}
+          path: |
+            all_artifacts.json
+            artifact_analysis.json
+          retention-days: ${{ env.DEFAULT_RETENTION_DAYS }}
+
+  # Storage Analysis and Optimization
+  storage-analysis:
+    name: 💾 Storage Analysis
+    runs-on: ubuntu-latest
+    needs: artifact-discovery
+    
+    steps:
+      - name: 📥 Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: 📥 Download Discovery Results
+        uses: actions/download-artifact@v4
+        with:
+          name: artifact-discovery-${{ github.run_number }}
+
+      - name: 💾 Analyze Storage Usage
+        run: |
+          echo "💾 Analyzing storage usage patterns..."
+          
+          TOTAL_SIZE_GB="${{ needs.artifact-discovery.outputs.total_size_gb }}"
+          WARNING_THRESHOLD=${{ env.STORAGE_WARNING_THRESHOLD_GB }}
+          CRITICAL_THRESHOLD=${{ env.STORAGE_CRITICAL_THRESHOLD_GB }}
+          
+          echo "Current storage usage: ${TOTAL_SIZE_GB} GB"
+          echo "Warning threshold: ${WARNING_THRESHOLD} GB"
+          echo "Critical threshold: ${CRITICAL_THRESHOLD} GB"
+          
+          # Storage status assessment
+          if (( $(echo "$TOTAL_SIZE_GB >= $CRITICAL_THRESHOLD" | bc -l) )); then
+            STORAGE_STATUS="critical"
+            STORAGE_EMOJI="🔴"
+            STORAGE_MESSAGE="Storage usage is critical (${TOTAL_SIZE_GB}GB >= ${CRITICAL_THRESHOLD}GB)"
+          elif (( $(echo "$TOTAL_SIZE_GB >= $WARNING_THRESHOLD" | bc -l) )); then
+            STORAGE_STATUS="warning"
+            STORAGE_EMOJI="🟡"
+            STORAGE_MESSAGE="Storage usage is above warning threshold (${TOTAL_SIZE_GB}GB >= ${WARNING_THRESHOLD}GB)"
+          else
+            STORAGE_STATUS="normal"
+            STORAGE_EMOJI="🟢"
+            STORAGE_MESSAGE="Storage usage is within normal limits (${TOTAL_SIZE_GB}GB)"
+          fi
+          
+          echo "Storage Status: $STORAGE_EMOJI $STORAGE_STATUS"
+          echo "Storage Message: $STORAGE_MESSAGE"
+          
+          # Generate storage optimization recommendations
+          python3 - << 'EOF'
+          import json
+          import os
+          
+          # Load analysis data
+          with open('artifact_analysis.json', 'r') as f:
+              analysis = json.load(f)
+          
+          total_size = analysis['summary_stats']['total_size_gb']
+          cleanup_candidates = analysis['cleanup_candidates']
+          size_by_category = analysis['summary_stats']['size_by_category_mb']
+          
+          # Generate optimization recommendations
+          recommendations = []
+          
+          # Size-based recommendations
+          if total_size > 4:
+              recommendations.append("🔴 URGENT: Storage usage is high - immediate cleanup recommended")
+          elif total_size > 2:
+              recommendations.append("🟡 WARNING: Monitor storage usage and consider cleanup")
+          else:
+              recommendations.append("🟢 NORMAL: Storage usage is within acceptable limits")
+          
+          # Category-specific recommendations
+          for category, size_mb in size_by_category.items():
+              if size_mb > 500:  # > 500MB in category
+                  recommendations.append(f"📦 {category.title()} artifacts using {size_mb:.1f}MB - review retention policy")
+          
+          # Cleanup potential
+          potential_savings = sum(a['size_mb'] for a in cleanup_candidates) / 1024
+          if potential_savings > 1:
+              recommendations.append(f"🧹 Cleanup can free {potential_savings:.2f}GB of storage")
+          
+          # Top storage consumers
+          workflow_sizes = {}
+          for artifact in cleanup_candidates:
+              workflow = artifact.get('workflow_name', 'unknown')
+              workflow_sizes[workflow] = workflow_sizes.get(workflow, 0) + artifact['size_mb']
+          
+          if workflow_sizes:
+              top_workflow = max(workflow_sizes.items(), key=lambda x: x[1])
+              if top_workflow[1] > 200:  # > 200MB
+                  recommendations.append(f"🎯 '{top_workflow[0]}' workflow has {top_workflow[1]:.1f}MB in cleanup candidates")
+          
+          # Save recommendations
+          optimization_report = {
+              'storage_status': os.environ.get('STORAGE_STATUS', 'unknown'),
+              'storage_message': os.environ.get('STORAGE_MESSAGE', ''),
+              'total_size_gb': total_size,
+              'potential_savings_gb': potential_savings,
+              'recommendations': recommendations,
+              'top_storage_workflows': sorted(workflow_sizes.items(), key=lambda x: x[1], reverse=True)[:5]
+          }
+          
+          with open('storage_optimization.json', 'w') as f:
+              json.dump(optimization_report, f, indent=2)
+          
+          print("Storage optimization analysis completed")
+          for rec in recommendations:
+              print(f"  {rec}")
+          EOF
+
+      - name: 📊 Generate Storage Report
+        run: |
+          echo "📊 Generating comprehensive storage report..."
+          
+          python3 - << 'EOF'
+          import json
+          from datetime import datetime
+          
+          # Load data
+          with open('artifact_analysis.json', 'r') as f:
+              analysis = json.load(f)
+          
+          with open('storage_optimization.json', 'r') as f:
+              optimization = json.load(f)
+          
+          # Generate storage report
+          report = f"""# 💾 Artifact Storage Analysis Report
+          
+          **Generated:** {datetime.now().isoformat()}
+          **Repository:** ${{ github.repository }}
+          **Analysis Scope:** ${{ github.event.inputs.cleanup_scope || 'comprehensive' }}
+          
+          ## 📊 Storage Overview
+          
+          ### Current Usage
+          - **Total Artifacts:** {analysis['summary_stats']['total_artifacts']}
+          - **Total Storage:** {analysis['summary_stats']['total_size_gb']} GB
+          - **Cleanup Candidates:** {analysis['summary_stats']['cleanup_candidates_count']}
+          - **Potential Savings:** {optimization['potential_savings_gb']:.2f} GB
+          
+          ### Storage Status
+          {optimization['storage_message']}
+          
+          ## 📦 Artifact Categories
+          
+          | Category | Count | Size (MB) | Avg Size (MB) |
+          |----------|-------|-----------|---------------|
+          """
+          
+          categories = analysis['summary_stats']['categories']
+          sizes = analysis['summary_stats']['size_by_category_mb']
+          
+          for category, count in categories.items():
+              if count > 0:
+                  size_mb = sizes.get(category, 0)
+                  avg_size = size_mb / count if count > 0 else 0
+                  report += f"| {category.title()} | {count} | {size_mb:.1f} | {avg_size:.1f} |\n"
+          
+          report += f"""
+          
+          ## 🧹 Cleanup Analysis
+          
+          ### Cleanup Candidates by Reason
+          """
+          
+          # Group cleanup candidates by reason
+          cleanup_reasons = {}
+          for candidate in analysis['cleanup_candidates']:
+              reason = candidate.get('cleanup_reason', 'Unknown')
+              if reason not in cleanup_reasons:
+                  cleanup_reasons[reason] = {'count': 0, 'size_mb': 0}
+              cleanup_reasons[reason]['count'] += 1
+              cleanup_reasons[reason]['size_mb'] += candidate['size_mb']
+          
+          if cleanup_reasons:
+              report += "\n| Cleanup Reason | Count | Size (MB) |\n"
+              report += "|----------------|-------|-----------|\\n"
+              for reason, data in cleanup_reasons.items():
+                  report += f"| {reason} | {data['count']} | {data['size_mb']:.1f} |\\n"
+          else:
+              report += "\n*No cleanup candidates identified*\\n"
+          
+          report += f"""
+          
+          ## 🎯 Top Storage Consumers
+          
+          | Workflow | Cleanup Size (MB) |
+          |----------|-------------------|
+          """
+          
+          for workflow, size_mb in optimization['top_storage_workflows'][:10]:
+              report += f"| {workflow} | {size_mb:.1f} |\n"
+          
+          report += f"""
+          
+          ## 📋 Optimization Recommendations
+          
+          """
+          
+          for i, rec in enumerate(optimization['recommendations'], 1):
+              report += f"{i}. {rec}\n"
+          
+          report += f"""
+          
+          ## 🔧 Retention Policies
+          
+          ### Current Policies
+          - **Security Artifacts:** {os.environ.get('CRITICAL_RETENTION_DAYS', 90)} days
+          - **Performance/Quality:** {os.environ.get('DEFAULT_RETENTION_DAYS', 30)} days
+          - **Test Artifacts:** {os.environ.get('TEST_RETENTION_DAYS', 7)} days
+          - **Cache Artifacts:** {os.environ.get('CACHE_RETENTION_DAYS', 14)} days
+          
+          ### Policy Effectiveness
+          - **Security artifacts:** {analysis['retention_summary']['security_artifacts']} total
+          - **Performance artifacts:** {analysis['retention_summary']['performance_artifacts']} total
+          - **Quality artifacts:** {analysis['retention_summary']['quality_artifacts']} total
+          - **Build artifacts:** {analysis['retention_summary']['build_artifacts']} total
+          - **Other artifacts:** {analysis['retention_summary']['other_artifacts']} total
+          
+          ## 🚀 Action Plan
+          
+          ### Immediate Actions (Today)
+          - Review cleanup candidates list
+          - Execute cleanup for expired artifacts
+          - Verify critical artifacts are protected
+          
+          ### Short-term Actions (This Week)
+          - Optimize workflow artifact generation
+          - Review and adjust retention policies
+          - Implement size-based cleanup rules
+          
+          ### Long-term Actions (This Month)
+          - Establish automated cleanup workflows
+          - Implement storage monitoring and alerting
+          - Regular policy review and optimization
+          
+          ---
+          *Generated by Artifact Lifecycle Manager*
+          """
+          
+          with open('storage-report.md', 'w') as f:
+              f.write(report)
+          
+          print("Storage report generated")
+          EOF
+
+      - name: 📤 Upload Storage Analysis
+        uses: actions/upload-artifact@v4
+        with:
+          name: storage-analysis-${{ github.run_number }}
+          path: |
+            storage_optimization.json
+            storage-report.md
+          retention-days: ${{ env.DEFAULT_RETENTION_DAYS }}
+
+  # Automated Cleanup Execution
+  automated-cleanup:
+    name: 🧹 Automated Cleanup
+    runs-on: ubuntu-latest
+    needs: [artifact-discovery, storage-analysis]
+    if: >
+      (github.event.inputs.force_cleanup == 'true' || 
+       needs.artifact-discovery.outputs.total_size_gb > 4 ||
+       github.event_name == 'schedule')
+    
+    steps:
+      - name: 📥 Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: 📥 Download Analysis Results
+        uses: actions/download-artifact@v4
+        with:
+          name: artifact-discovery-${{ github.run_number }}
+
+      - name: 🧹 Execute Artifact Cleanup
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          echo "🧹 Executing automated artifact cleanup..."
+          
+          CLEANUP_SCOPE="${{ github.event.inputs.cleanup_scope || 'comprehensive' }}"
+          FORCE_CLEANUP="${{ github.event.inputs.force_cleanup }}"
+          RETENTION_OVERRIDE="${{ github.event.inputs.retention_days }}"
+          STORAGE_LIMIT="${{ github.event.inputs.storage_limit_gb || '5' }}"
+          
+          echo "Cleanup scope: $CLEANUP_SCOPE"
+          echo "Force cleanup: $FORCE_CLEANUP"
+          echo "Storage limit: ${STORAGE_LIMIT}GB"
+          
+          python3 - << 'EOF'
+          import json
+          import subprocess
+          import os
+          from datetime import datetime, timedelta
+          
+          # Load cleanup candidates
+          with open('artifact_analysis.json', 'r') as f:
+              analysis = json.load(f)
+          
+          cleanup_candidates = analysis['cleanup_candidates']
+          cleanup_scope = os.environ.get('CLEANUP_SCOPE', 'comprehensive')
+          force_cleanup = os.environ.get('FORCE_CLEANUP', 'false').lower() == 'true'
+          
+          print(f"Found {len(cleanup_candidates)} cleanup candidates")
+          print(f"Cleanup scope: {cleanup_scope}")
+          print(f"Force cleanup: {force_cleanup}")
+          
+          # Filter candidates based on scope
+          filtered_candidates = []
+          
+          for candidate in cleanup_candidates:
+              include = False
+              
+              if cleanup_scope == 'comprehensive':
+                  include = True
+              elif cleanup_scope == 'expired-only':
+                  # Only include artifacts past their retention period
+                  category = candidate.get('category', 'other')
+                  age_days = candidate.get('age_days', 0)
+                  
+                  if category == 'security' and age_days > 90:
+                      include = True
+                  elif category in ['performance', 'quality'] and age_days > 30:
+                      include = True
+                  elif category in ['build', 'other'] and age_days > 14:
+                      include = True
+              elif cleanup_scope == 'large-artifacts':
+                  # Only include artifacts > 50MB
+                  if candidate.get('size_mb', 0) > 50:
+                      include = True
+              elif cleanup_scope == 'security-artifacts':
+                  if candidate.get('category') == 'security' and candidate.get('age_days', 0) > 90:
+                      include = True
+              elif cleanup_scope == 'test-artifacts':
+                  if candidate.get('category') in ['quality', 'build'] and candidate.get('age_days', 0) > 7:
+                      include = True
+              
+              if include:
+                  filtered_candidates.append(candidate)
+          
+          print(f"Filtered to {len(filtered_candidates)} candidates for cleanup")
+          
+          # Execute cleanup (dry run unless forced)
+          cleanup_results = {
+              'attempted': 0,
+              'successful': 0,
+              'failed': 0,
+              'skipped': 0,
+              'total_size_cleaned_mb': 0,
+              'errors': []
+          }
+          
+          if not force_cleanup and cleanup_scope != 'analysis-only':
+              print("🔍 DRY RUN MODE - No artifacts will be deleted")
+              print("Use force_cleanup=true to execute actual cleanup")
+          
+          for candidate in filtered_candidates[:20]:  # Limit to 20 for safety
+              artifact_id = candidate['id']
+              artifact_name = candidate['name']
+              size_mb = candidate.get('size_mb', 0)
+              
+              print(f"Processing artifact: {artifact_name} (ID: {artifact_id}, Size: {size_mb:.1f}MB)")
+              
+              cleanup_results['attempted'] += 1
+              
+              if force_cleanup and cleanup_scope != 'analysis-only':
+                  try:
+                      # Delete the artifact
+                      result = subprocess.run([
+                          'gh', 'api', 
+                          f'repos/${{ github.repository }}/actions/artifacts/{artifact_id}',
+                          '--method', 'DELETE'
+                      ], capture_output=True, text=True)
+                      
+                      if result.returncode == 0:
+                          cleanup_results['successful'] += 1
+                          cleanup_results['total_size_cleaned_mb'] += size_mb
+                          print(f"  ✅ Successfully deleted {artifact_name}")
+                      else:
+                          cleanup_results['failed'] += 1
+                          error_msg = f"Failed to delete {artifact_name}: {result.stderr}"
+                          cleanup_results['errors'].append(error_msg)
+                          print(f"  ❌ {error_msg}")
+                  
+                  except Exception as e:
+                      cleanup_results['failed'] += 1
+                      error_msg = f"Exception deleting {artifact_name}: {str(e)}"
+                      cleanup_results['errors'].append(error_msg)
+                      print(f"  ❌ {error_msg}")
+              else:
+                  cleanup_results['skipped'] += 1
+                  print(f"  ⏭️ Would delete {artifact_name} (DRY RUN)")
+          
+          # Save cleanup results
+          cleanup_results['total_size_cleaned_gb'] = round(cleanup_results['total_size_cleaned_mb'] / 1024, 3)
+          cleanup_results['timestamp'] = datetime.now().isoformat()
+          cleanup_results['cleanup_scope'] = cleanup_scope
+          cleanup_results['force_cleanup'] = force_cleanup
+          
+          with open('cleanup_results.json', 'w') as f:
+              json.dump(cleanup_results, f, indent=2)
+          
+          # Print summary
+          print(f"\n🧹 Cleanup Summary:")
+          print(f"  Attempted: {cleanup_results['attempted']}")
+          print(f"  Successful: {cleanup_results['successful']}")
+          print(f"  Failed: {cleanup_results['failed']}")
+          print(f"  Skipped: {cleanup_results['skipped']}")
+          print(f"  Size cleaned: {cleanup_results['total_size_cleaned_gb']:.3f} GB")
+          
+          if cleanup_results['errors']:
+              print(f"  Errors: {len(cleanup_results['errors'])}")
+              for error in cleanup_results['errors'][:5]:  # Show first 5 errors
+                  print(f"    - {error}")
+          EOF
+
+      - name: 📊 Generate Cleanup Report
+        run: |
+          echo "📊 Generating cleanup execution report..."
+          
+          python3 - << 'EOF'
+          import json
+          from datetime import datetime
+          
+          # Load cleanup results
+          try:
+              with open('cleanup_results.json', 'r') as f:
+                  results = json.load(f)
+          except:
+              results = {'error': 'No cleanup results available'}
+          
+          # Generate cleanup report
+          report = f"""# 🧹 Artifact Cleanup Execution Report
+          
+          **Generated:** {datetime.now().isoformat()}
+          **Repository:** ${{ github.repository }}
+          **Cleanup Scope:** {results.get('cleanup_scope', 'unknown')}
+          **Force Cleanup:** {results.get('force_cleanup', False)}
+          
+          ## 📊 Cleanup Summary
+          
+          | Metric | Count | Size |
+          |--------|-------|------|
+          | Attempted | {results.get('attempted', 0)} | - |
+          | Successful | {results.get('successful', 0)} | {results.get('total_size_cleaned_gb', 0):.3f} GB |
+          | Failed | {results.get('failed', 0)} | - |
+          | Skipped | {results.get('skipped', 0)} | - |
+          
+          ## ✅ Results Analysis
+          
+          """
+          
+          success_rate = 0
+          if results.get('attempted', 0) > 0:
+              success_rate = (results.get('successful', 0) / results.get('attempted', 1)) * 100
+          
+          if success_rate >= 90:
+              report += "🟢 **Excellent**: Cleanup executed successfully with minimal issues\n"
+          elif success_rate >= 75:
+              report += "🟡 **Good**: Cleanup mostly successful with some minor issues\n"
+          elif success_rate >= 50:
+              report += "🟠 **Fair**: Cleanup partially successful, review errors\n"
+          else:
+              report += "🔴 **Poor**: Cleanup had significant issues, investigation needed\n"
+          
+          if results.get('force_cleanup'):
+              report += "\n### 🔥 Actual Cleanup Performed\n"
+              report += f"- **{results.get('successful', 0)}** artifacts deleted\n"
+              report += f"- **{results.get('total_size_cleaned_gb', 0):.3f} GB** storage freed\n"
+          else:
+              report += "\n### 🔍 Dry Run Analysis\n"
+              report += f"- **{results.get('skipped', 0)}** artifacts would be deleted\n"
+              report += "- Use `force_cleanup=true` to execute actual cleanup\n"
+          
+          # Add error details if any
+          if results.get('errors'):
+              report += f"\n## ❌ Errors Encountered ({len(results['errors'])})\n\n"
+              for i, error in enumerate(results['errors'][:10], 1):  # Show first 10 errors
+                  report += f"{i}. {error}\n"
+              
+              if len(results['errors']) > 10:
+                  report += f"\n*... and {len(results['errors']) - 10} more errors*\n"
+          
+          report += """
+          
+          ## 📋 Next Steps
+          
+          ### If Cleanup Was Successful
+          1. Monitor storage usage reduction
+          2. Verify critical artifacts remain available
+          3. Update retention policies if needed
+          
+          ### If Cleanup Had Issues
+          1. Review error messages above
+          2. Check artifact permissions and access
+          3. Retry with adjusted scope or parameters
+          4. Contact support if issues persist
+          
+          ### Ongoing Maintenance
+          1. Schedule regular cleanup execution
+          2. Monitor artifact growth patterns
+          3. Adjust retention policies based on usage
+          4. Set up automated alerting for storage limits
+          
+          ---
+          *Generated by Artifact Lifecycle Manager*
+          """
+          
+          with open('cleanup-report.md', 'w') as f:
+              f.write(report)
+          
+          print("Cleanup report generated")
+          EOF
+
+      - name: 📤 Upload Cleanup Results
+        uses: actions/upload-artifact@v4
+        with:
+          name: cleanup-results-${{ github.run_number }}
+          path: |
+            cleanup_results.json
+            cleanup-report.md
+          retention-days: ${{ env.CRITICAL_RETENTION_DAYS }}
+
+  # Retention Policy Management
+  retention-policy-manager:
+    name: 📋 Retention Policy Manager
+    runs-on: ubuntu-latest
+    needs: [artifact-discovery, automated-cleanup]
+    if: always()
+    
+    steps:
+      - name: 📥 Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: 📋 Analyze Retention Policy Effectiveness
+        run: |
+          echo "📋 Analyzing retention policy effectiveness..."
+          
+          TOTAL_ARTIFACTS="${{ needs.artifact-discovery.outputs.total_artifacts }}"
+          TOTAL_SIZE_GB="${{ needs.artifact-discovery.outputs.total_size_gb }}"
+          RETENTION_SUMMARY='${{ needs.artifact-discovery.outputs.retention_summary }}'
+          
+          python3 - << 'EOF'
+          import json
+          import os
+          from datetime import datetime
+          
+          # Parse retention summary
+          retention_data = json.loads(os.environ['RETENTION_SUMMARY'])
+          total_artifacts = int(os.environ.get('TOTAL_ARTIFACTS', 0))
+          total_size_gb = float(os.environ.get('TOTAL_SIZE_GB', 0))
+          
+          # Analyze policy effectiveness
+          policy_analysis = {
+              'timestamp': datetime.now().isoformat(),
+              'total_artifacts': total_artifacts,
+              'total_size_gb': total_size_gb,
+              'retention_breakdown': retention_data,
+              'policy_recommendations': []
+          }
+          
+          # Generate policy recommendations
+          recommendations = []
+          
+          # Security artifacts analysis
+          security_count = retention_data.get('security_artifacts', 0)
+          if security_count > 50:
+              recommendations.append({
+                  'category': 'security',
+                  'issue': f'High number of security artifacts ({security_count})',
+                  'recommendation': 'Consider implementing tiered retention (30/60/90 days)',
+                  'priority': 'medium'
+              })
+          
+          # Performance artifacts analysis
+          perf_count = retention_data.get('performance_artifacts', 0)
+          if perf_count > 30:
+              recommendations.append({
+                  'category': 'performance',
+                  'issue': f'High number of performance artifacts ({perf_count})',
+                  'recommendation': 'Reduce retention to 14 days for non-critical performance data',
+                  'priority': 'low'
+              })
+          
+          # Quality artifacts analysis
+          quality_count = retention_data.get('quality_artifacts', 0)
+          if quality_count > 40:
+              recommendations.append({
+                  'category': 'quality',
+                  'issue': f'High number of quality artifacts ({quality_count})',
+                  'recommendation': 'Keep only latest test results, reduce retention to 7 days',
+                  'priority': 'medium'
+              })
+          
+          # Overall storage analysis
+          if total_size_gb > 3:
+              recommendations.append({
+                  'category': 'storage',
+                  'issue': f'High storage usage ({total_size_gb:.1f}GB)',
+                  'recommendation': 'Implement aggressive cleanup policies and size limits',
+                  'priority': 'high'
+              })
+          
+          # Cleanup potential analysis
+          cleanup_potential = retention_data.get('potential_savings_mb', 0) / 1024
+          if cleanup_potential > 1:
+              recommendations.append({
+                  'category': 'cleanup',
+                  'issue': f'Large cleanup potential ({cleanup_potential:.1f}GB)',
+                  'recommendation': 'Schedule immediate cleanup and review retention policies',
+                  'priority': 'high'
+              })
+          
+          policy_analysis['policy_recommendations'] = recommendations
+          
+          # Save policy analysis
+          with open('retention_policy_analysis.json', 'w') as f:
+              json.dump(policy_analysis, f, indent=2)
+          
+          print(f"Policy analysis completed with {len(recommendations)} recommendations")
+          for rec in recommendations:
+              priority_emoji = "🔴" if rec['priority'] == 'high' else "🟡" if rec['priority'] == 'medium' else "🟢"
+              print(f"  {priority_emoji} {rec['category']}: {rec['recommendation']}")
+          EOF
+
+      - name: 📊 Generate Retention Policy Report
+        run: |
+          echo "📊 Generating retention policy management report..."
+          
+          python3 - << 'EOF'
+          import json
+          from datetime import datetime
+          
+          # Load policy analysis
+          with open('retention_policy_analysis.json', 'r') as f:
+              analysis = json.load(f)
+          
+          # Generate policy report
+          report = f"""# 📋 Retention Policy Management Report
+          
+          **Generated:** {datetime.now().isoformat()}
+          **Repository:** ${{ github.repository }}
+          **Analysis Period:** Current snapshot
+          
+          ## 📊 Current State
+          
+          ### Artifact Distribution
+          - **Security Artifacts:** {analysis['retention_breakdown'].get('security_artifacts', 0)}
+          - **Performance Artifacts:** {analysis['retention_breakdown'].get('performance_artifacts', 0)}
+          - **Quality Artifacts:** {analysis['retention_breakdown'].get('quality_artifacts', 0)}
+          - **Build Artifacts:** {analysis['retention_breakdown'].get('build_artifacts', 0)}
+          - **Other Artifacts:** {analysis['retention_breakdown'].get('other_artifacts', 0)}
+          
+          ### Storage Impact
+          - **Total Artifacts:** {analysis['total_artifacts']}
+          - **Total Storage:** {analysis['total_size_gb']:.2f} GB
+          - **Cleanup Potential:** {analysis['retention_breakdown'].get('potential_savings_mb', 0) / 1024:.2f} GB
+          
+          ## 📋 Current Retention Policies
+          
+          | Category | Current Retention | Rationale |
+          |----------|------------------|-----------|
+          | Security | 90 days | Compliance and audit requirements |
+          | Performance | 30 days | Trend analysis and optimization |
+          | Quality | 30 days | Test result tracking and debugging |
+          | Build | 14 days | Short-term deployment needs |
+          | Cache | 14 days | Performance optimization |
+          | Test | 7 days | Immediate feedback only |
+          
+          ## 🎯 Policy Recommendations
+          
+          """
+          
+          recommendations = analysis.get('policy_recommendations', [])
+          
+          if not recommendations:
+              report += "*No policy changes recommended at this time*\n"
+          else:
+              # Group by priority
+              high_priority = [r for r in recommendations if r['priority'] == 'high']
+              medium_priority = [r for r in recommendations if r['priority'] == 'medium']
+              low_priority = [r for r in recommendations if r['priority'] == 'low']
+              
+              if high_priority:
+                  report += "### 🔴 High Priority\n\n"
+                  for rec in high_priority:
+                      report += f"**{rec['category'].title()}**: {rec['recommendation']}\n"
+                      report += f"*Issue*: {rec['issue']}\n\n"
+              
+              if medium_priority:
+                  report += "### 🟡 Medium Priority\n\n"
+                  for rec in medium_priority:
+                      report += f"**{rec['category'].title()}**: {rec['recommendation']}\n"
+                      report += f"*Issue*: {rec['issue']}\n\n"
+              
+              if low_priority:
+                  report += "### 🟢 Low Priority\n\n"
+                  for rec in low_priority:
+                      report += f"**{rec['category'].title()}**: {rec['recommendation']}\n"
+                      report += f"*Issue*: {rec['issue']}\n\n"
+          
+          report += f"""
+          ## 🔄 Proposed Policy Updates
+          
+          ### Tiered Retention Strategy
+          
+          #### Security Artifacts
+          - **Critical**: 90 days (compliance reports, vulnerability scans)
+          - **Standard**: 60 days (SAST results, dependency scans)
+          - **Operational**: 30 days (health checks, monitoring)
+          
+          #### Performance Artifacts
+          - **Benchmarks**: 60 days (baseline comparisons)
+          - **Cache Reports**: 14 days (optimization data)
+          - **Metrics**: 7 days (real-time monitoring)
+          
+          #### Quality Artifacts
+          - **Release Tests**: 90 days (deployment verification)
+          - **PR Tests**: 14 days (code review support)
+          - **Development Tests**: 7 days (immediate feedback)
+          
+          ## 🛠️ Implementation Plan
+          
+          ### Phase 1: Immediate (This Week)
+          1. **Review high-priority recommendations**
+          2. **Implement emergency cleanup** if storage critical
+          3. **Update workflow retention settings** for new artifacts
+          
+          ### Phase 2: Short-term (Next Month)
+          1. **Implement tiered retention policies**
+          2. **Set up automated cleanup schedules**
+          3. **Create policy documentation**
+          
+          ### Phase 3: Long-term (Next Quarter)
+          1. **Monitor policy effectiveness**
+          2. **Adjust based on usage patterns**
+          3. **Implement cost optimization measures**
+          
+          ## 📈 Success Metrics
+          
+          ### Storage Efficiency
+          - Target: < 3GB total storage
+          - Current: {analysis['total_size_gb']:.2f}GB
+          - Improvement needed: {max(0, analysis['total_size_gb'] - 3):.2f}GB
+          
+          ### Cleanup Effectiveness
+          - Target: < 500MB cleanup potential
+          - Current: {analysis['retention_breakdown'].get('potential_savings_mb', 0):.0f}MB
+          - Status: {'✅ Good' if analysis['retention_breakdown'].get('potential_savings_mb', 0) < 500 else '⚠️ Needs improvement'}
+          
+          ### Policy Compliance
+          - Automated cleanup execution
+          - Regular policy review cycles
+          - Exception handling procedures
+          
+          ---
+          *Generated by Artifact Lifecycle Manager*
+          """
+          
+          with open('retention-policy-report.md', 'w') as f:
+              f.write(report)
+          
+          print("Retention policy report generated")
+          EOF
+
+      - name: 📤 Upload Policy Reports
+        uses: actions/upload-artifact@v4
+        with:
+          name: retention-policy-reports-${{ github.run_number }}
+          path: |
+            retention_policy_analysis.json
+            retention-policy-report.md
+          retention-days: ${{ env.CRITICAL_RETENTION_DAYS }}
+
+  # Lifecycle Summary and Alerting
+  lifecycle-summary:
+    name: 📊 Lifecycle Summary
+    runs-on: ubuntu-latest
+    needs: [artifact-discovery, storage-analysis, automated-cleanup, retention-policy-manager]
+    if: always()
+    
+    steps:
+      - name: 📊 Generate Lifecycle Summary
+        run: |
+          echo "📊 Generating artifact lifecycle management summary..."
+          
+          TOTAL_ARTIFACTS="${{ needs.artifact-discovery.outputs.total_artifacts }}"
+          TOTAL_SIZE_GB="${{ needs.artifact-discovery.outputs.total_size_gb }}"
+          CLEANUP_CANDIDATES="${{ needs.artifact-discovery.outputs.cleanup_candidates }}"
+          
+          # Determine overall status
+          if (( $(echo "$TOTAL_SIZE_GB >= 5" | bc -l) )); then
+            LIFECYCLE_STATUS="critical"
+            STATUS_EMOJI="🔴"
+            STATUS_MESSAGE="Critical: Storage usage exceeds limits"
+          elif (( $(echo "$TOTAL_SIZE_GB >= 4" | bc -l) )); then
+            LIFECYCLE_STATUS="warning"
+            STATUS_EMOJI="🟡"
+            STATUS_MESSAGE="Warning: Storage usage approaching limits"
+          elif [ "$CLEANUP_CANDIDATES" -gt 20 ]; then
+            LIFECYCLE_STATUS="attention"
+            STATUS_EMOJI="🟠"
+            STATUS_MESSAGE="Attention: High number of cleanup candidates"
+          else
+            LIFECYCLE_STATUS="healthy"
+            STATUS_EMOJI="🟢"
+            STATUS_MESSAGE="Healthy: Artifact lifecycle well managed"
+          fi
+          
+          cat > lifecycle-summary.md << EOF
+          # 📦 Artifact Lifecycle Management Summary
+          
+          **Generated:** $(date -u +"%Y-%m-%d %H:%M:%S UTC")
+          **Repository:** ${{ github.repository }}
+          **Management Run:** [${{ github.run_id }}](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }})
+          
+          ## 🎯 Overall Status
+          
+          $STATUS_EMOJI **$STATUS_MESSAGE**
+          
+          ## 📊 Key Metrics
+          
+          | Metric | Value | Status |
+          |--------|-------|--------|
+          | Total Artifacts | $TOTAL_ARTIFACTS | $([ "$TOTAL_ARTIFACTS" -lt 100 ] && echo "✅ Good" || echo "⚠️ High") |
+          | Storage Usage | ${TOTAL_SIZE_GB}GB | $([ "$(echo "$TOTAL_SIZE_GB < 3" | bc -l)" -eq 1 ] && echo "✅ Good" || [ "$(echo "$TOTAL_SIZE_GB < 4" | bc -l)" -eq 1 ] && echo "🟡 Moderate" || echo "🔴 High") |
+          | Cleanup Candidates | $CLEANUP_CANDIDATES | $([ "$CLEANUP_CANDIDATES" -lt 10 ] && echo "✅ Good" || [ "$CLEANUP_CANDIDATES" -lt 20 ] && echo "🟡 Moderate" || echo "🔴 High") |
+          
+          ## 🔧 Management Components Status
+          
+          | Component | Status | Result |
+          |-----------|--------|--------|
+          | Artifact Discovery | ${{ needs.artifact-discovery.result }} | ✅ |
+          | Storage Analysis | ${{ needs.storage-analysis.result }} | ✅ |
+          | Automated Cleanup | ${{ needs.automated-cleanup.result || 'Skipped' }} | $([ "${{ needs.automated-cleanup.result }}" = "success" ] && echo "✅" || [ "${{ needs.automated-cleanup.result }}" = "skipped" ] && echo "⏭️" || echo "❌") |
+          | Policy Management | ${{ needs.retention-policy-manager.result }} | ✅ |
+          
+          ## 📋 Available Reports
+          
+          - **Discovery Report**: Comprehensive artifact inventory and analysis
+          - **Storage Report**: Usage patterns and optimization recommendations
+          - **Cleanup Report**: Execution results and freed storage
+          - **Policy Report**: Retention policy effectiveness and recommendations
+          
+          ## 🚨 Alert Thresholds
+          
+          - **Critical**: ≥ 5GB storage OR ≥ 50 cleanup candidates
+          - **Warning**: ≥ 4GB storage OR ≥ 20 cleanup candidates
+          - **Attention**: High artifact count OR policy violations
+          - **Healthy**: All metrics within acceptable ranges
+          
+          ## 📋 Recommended Actions
+          
+          EOF
+          
+          # Add status-specific recommendations
+          if [ "$LIFECYCLE_STATUS" = "critical" ]; then
+            cat >> lifecycle-summary.md << 'EOF'
+          ### 🔴 CRITICAL - Immediate Action Required
+          1. **Execute emergency cleanup** with force_cleanup=true
+          2. **Review and reduce retention periods** for non-critical artifacts
+          3. **Implement size limits** on new artifact generation
+          4. **Consider workflow optimization** to reduce artifact size
+          EOF
+          elif [ "$LIFECYCLE_STATUS" = "warning" ]; then
+            cat >> lifecycle-summary.md << 'EOF'
+          ### 🟡 WARNING - Action Needed Soon
+          1. **Schedule cleanup execution** within 24 hours
+          2. **Review artifact generation patterns** and optimize
+          3. **Update retention policies** for better efficiency
+          4. **Monitor storage growth** trends
+          EOF
+          elif [ "$LIFECYCLE_STATUS" = "attention" ]; then
+            cat >> lifecycle-summary.md << 'EOF'
+          ### 🟠 ATTENTION - Monitoring Recommended
+          1. **Review cleanup candidates** and execute if beneficial
+          2. **Monitor artifact growth** patterns
+          3. **Consider policy adjustments** for optimization
+          4. **Schedule regular reviews** of lifecycle management
+          EOF
+          else
+            cat >> lifecycle-summary.md << 'EOF'
+          ### ✅ HEALTHY - Maintenance Mode
+          1. **Continue regular monitoring** and cleanup schedules
+          2. **Review policies quarterly** for optimization opportunities
+          3. **Monitor for changes** in artifact generation patterns
+          4. **Maintain current** retention and cleanup practices
+          EOF
+          fi
+          
+          cat >> lifecycle-summary.md << 'EOF'
+          
+          ---
+          *Artifact lifecycle management helps optimize storage costs and maintain repository performance*
+          EOF
+          
+          echo "Lifecycle summary generated with status: $LIFECYCLE_STATUS"
+
+      - name: 🔔 Create Lifecycle Alert (if needed)
+        if: needs.artifact-discovery.outputs.total_size_gb > 4
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          echo "🔔 Creating lifecycle management alert..."
+          
+          TOTAL_SIZE_GB="${{ needs.artifact-discovery.outputs.total_size_gb }}"
+          TOTAL_ARTIFACTS="${{ needs.artifact-discovery.outputs.total_artifacts }}"
+          CLEANUP_CANDIDATES="${{ needs.artifact-discovery.outputs.cleanup_candidates }}"
+          
+          ISSUE_TITLE="🚨 Artifact Lifecycle Alert: High Storage Usage (${TOTAL_SIZE_GB}GB)"
+          
+          ISSUE_BODY=$(cat << 'EOF'
+          ## 📦 Artifact Lifecycle Management Alert
+          
+          **Alert Triggered:** $(date -u +"%Y-%m-%d %H:%M:%S UTC")
+          **Storage Usage:** ${{ needs.artifact-discovery.outputs.total_size_gb }}GB
+          **Total Artifacts:** ${{ needs.artifact-discovery.outputs.total_artifacts }}
+          **Cleanup Candidates:** ${{ needs.artifact-discovery.outputs.cleanup_candidates }}
+          **Management Run:** [View Details](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }})
+          
+          ### 🚨 Alert Details
+          
+          Storage usage has exceeded acceptable thresholds and requires immediate attention.
+          
+          ### 📊 Current Metrics
+          
+          - **Storage Threshold**: 4GB (Warning) / 5GB (Critical)
+          - **Current Usage**: ${{ needs.artifact-discovery.outputs.total_size_gb }}GB
+          - **Cleanup Potential**: Significant artifacts eligible for removal
+          
+          ### 🔧 Immediate Actions Required
+          
+          - [ ] Review artifact cleanup candidates
+          - [ ] Execute emergency cleanup if storage > 5GB
+          - [ ] Update retention policies for high-volume workflows
+          - [ ] Investigate artifact growth patterns
+          - [ ] Optimize workflow artifact generation
+          
+          ### 📋 Investigation Steps
+          
+          1. **Download Reports**: Check workflow artifacts for detailed analysis
+          2. **Review Cleanup Candidates**: Identify safe artifacts for removal
+          3. **Execute Cleanup**: Use `force_cleanup=true` for immediate action
+          4. **Monitor Impact**: Verify storage reduction after cleanup
+          
+          ### 📈 Reports Available
+          
+          - Comprehensive storage analysis in workflow artifacts
+          - Cleanup execution results and recommendations
+          - Retention policy effectiveness analysis
+          
+          ---
+          *This alert was automatically created by the Artifact Lifecycle Manager*
+          EOF
+          )
+          
+          gh issue create \
+            --title "$ISSUE_TITLE" \
+            --body "$ISSUE_BODY" \
+            --label "artifact-lifecycle,storage,alert"
+
+      - name: 📤 Upload Lifecycle Summary
+        uses: actions/upload-artifact@v4
+        with:
+          name: lifecycle-summary-${{ github.run_number }}
+          path: lifecycle-summary.md
+          retention-days: ${{ env.CRITICAL_RETENTION_DAYS }}
+
+      - name: 📊 Final Summary
+        run: |
+          echo "📊 Artifact Lifecycle Management Summary"
+          echo "========================================"
+          echo "Repository: ${{ github.repository }}"
+          echo "Total Artifacts: ${{ needs.artifact-discovery.outputs.total_artifacts }}"
+          echo "Storage Usage: ${{ needs.artifact-discovery.outputs.total_size_gb }}GB"
+          echo "Cleanup Candidates: ${{ needs.artifact-discovery.outputs.cleanup_candidates }}"
+          echo ""
+          echo "Management Components:"
+          echo "- Discovery: ${{ needs.artifact-discovery.result }}"
+          echo "- Analysis: ${{ needs.storage-analysis.result }}"
+          echo "- Cleanup: ${{ needs.automated-cleanup.result || 'Skipped' }}"
+          echo "- Policy: ${{ needs.retention-policy-manager.result }}"
+          echo ""
+          echo "📋 Artifact lifecycle management completed!"
+          echo "🔍 Check artifacts for detailed reports and recommendations"

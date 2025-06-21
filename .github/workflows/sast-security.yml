@@ -1,0 +1,729 @@
+name: 🔍 Static Application Security Testing (SAST)
+
+on:
+  schedule:
+    # Daily at 2 AM UTC for comprehensive analysis
+    - cron: '0 2 * * *'
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main, develop]
+    types: [opened, synchronize, reopened]
+  workflow_dispatch:
+    inputs:
+      analysis_depth:
+        description: 'SAST Analysis Depth'
+        required: true
+        default: 'comprehensive'
+        type: choice
+        options:
+          - quick
+          - comprehensive
+          - deep
+          - custom
+      include_experimental:
+        description: 'Include experimental security rules'
+        required: false
+        default: false
+        type: boolean
+      target_languages:
+        description: 'Target languages (comma-separated, leave empty for auto-detect)'
+        required: false
+        type: string
+
+env:
+  # SAST Configuration
+  SEMGREP_TIMEOUT: 1800  # 30 minutes
+  CODEQL_TIMEOUT: 3600   # 60 minutes
+  SONAR_TIMEOUT: 1800    # 30 minutes
+  SECURITY_SEVERITY_THRESHOLD: 'medium'  # low, medium, high, critical
+
+permissions:
+  contents: read
+  security-events: write
+  actions: read
+  pull-requests: write
+  checks: write
+
+jobs:
+  # Language and Framework Detection
+  detect-languages:
+    name: 🔍 Detect Languages & Frameworks
+    runs-on: ubuntu-latest
+    outputs:
+      languages: ${{ steps.detection.outputs.languages }}
+      frameworks: ${{ steps.detection.outputs.frameworks }}
+      has_javascript: ${{ steps.detection.outputs.has_javascript }}
+      has_typescript: ${{ steps.detection.outputs.has_typescript }}
+      has_python: ${{ steps.detection.outputs.has_python }}
+      has_java: ${{ steps.detection.outputs.has_java }}
+      has_csharp: ${{ steps.detection.outputs.has_csharp }}
+      has_go: ${{ steps.detection.outputs.has_go }}
+      has_rust: ${{ steps.detection.outputs.has_rust }}
+      has_php: ${{ steps.detection.outputs.has_php }}
+      has_ruby: ${{ steps.detection.outputs.has_ruby }}
+      matrix_languages: ${{ steps.detection.outputs.matrix_languages }}
+
+    steps:
+      - name: 📥 Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: 🔍 Comprehensive Language Detection
+        id: detection
+        run: |
+          echo "🔍 Detecting languages and frameworks..."
+          
+          # Initialize arrays
+          LANGUAGES=()
+          FRAMEWORKS=()
+          MATRIX_LANGS=()
+          
+          # JavaScript/TypeScript Detection
+          HAS_JS="false"
+          HAS_TS="false"
+          if find . -name "*.js" -o -name "package.json" | head -1 | grep -q .; then
+            HAS_JS="true"
+            LANGUAGES+=("javascript")
+            MATRIX_LANGS+=("javascript")
+          fi
+          if find . -name "*.ts" -o -name "tsconfig.json" | head -1 | grep -q .; then
+            HAS_TS="true"
+            LANGUAGES+=("typescript")
+            MATRIX_LANGS+=("javascript")  # CodeQL uses javascript for TypeScript
+          fi
+          
+          # Framework Detection for JS/TS
+          if [[ "$HAS_JS" == "true" || "$HAS_TS" == "true" ]]; then
+            if find . -name "package.json" -exec grep -l "react" {} \;; then
+              FRAMEWORKS+=("react")
+            fi
+            if find . -name "package.json" -exec grep -l "vue" {} \;; then
+              FRAMEWORKS+=("vue")
+            fi
+            if find . -name "package.json" -exec grep -l "angular" {} \;; then
+              FRAMEWORKS+=("angular")
+            fi
+            if find . -name "package.json" -exec grep -l "express" {} \;; then
+              FRAMEWORKS+=("express")
+            fi
+            if find . -name "next.config.js" -o -name "package.json" -exec grep -l "next" {} \;; then
+              FRAMEWORKS+=("nextjs")
+            fi
+          fi
+          
+          # Python Detection
+          HAS_PYTHON="false"
+          if find . -name "*.py" -o -name "requirements.txt" -o -name "pyproject.toml" -o -name "Pipfile" | head -1 | grep -q .; then
+            HAS_PYTHON="true"
+            LANGUAGES+=("python")
+            MATRIX_LANGS+=("python")
+            
+            # Python Framework Detection
+            if find . -name "manage.py" -o -name "settings.py" | head -1 | grep -q .; then
+              FRAMEWORKS+=("django")
+            fi
+            if find . -name "app.py" -o -name "requirements.txt" -exec grep -l "flask" {} \;; then
+              FRAMEWORKS+=("flask")
+            fi
+            if find . -name "requirements.txt" -exec grep -l "fastapi" {} \;; then
+              FRAMEWORKS+=("fastapi")
+            fi
+          fi
+          
+          # Java Detection
+          HAS_JAVA="false"
+          if find . -name "*.java" -o -name "pom.xml" -o -name "build.gradle" | head -1 | grep -q .; then
+            HAS_JAVA="true"
+            LANGUAGES+=("java")
+            MATRIX_LANGS+=("java")
+            
+            # Java Framework Detection
+            if find . -name "pom.xml" -exec grep -l "spring" {} \;; then
+              FRAMEWORKS+=("spring")
+            fi
+            if find . -name "pom.xml" -exec grep -l "struts" {} \;; then
+              FRAMEWORKS+=("struts")
+            fi
+          fi
+          
+          # C# Detection
+          HAS_CSHARP="false"
+          if find . -name "*.cs" -o -name "*.csproj" -o -name "*.sln" | head -1 | grep -q .; then
+            HAS_CSHARP="true"
+            LANGUAGES+=("csharp")
+            MATRIX_LANGS+=("csharp")
+            
+            # .NET Framework Detection
+            if find . -name "*.csproj" -exec grep -l "Microsoft.AspNetCore" {} \;; then
+              FRAMEWORKS+=("aspnetcore")
+            fi
+          fi
+          
+          # Go Detection
+          HAS_GO="false"
+          if find . -name "*.go" -o -name "go.mod" | head -1 | grep -q .; then
+            HAS_GO="true"
+            LANGUAGES+=("go")
+            MATRIX_LANGS+=("go")
+            
+            # Go Framework Detection
+            if find . -name "go.mod" -exec grep -l "gin-gonic" {} \;; then
+              FRAMEWORKS+=("gin")
+            fi
+            if find . -name "go.mod" -exec grep -l "echo" {} \;; then
+              FRAMEWORKS+=("echo")
+            fi
+          fi
+          
+          # Rust Detection
+          HAS_RUST="false"
+          if find . -name "*.rs" -o -name "Cargo.toml" | head -1 | grep -q .; then
+            HAS_RUST="true"
+            LANGUAGES+=("rust")
+            # Note: CodeQL doesn't support Rust yet, but Semgrep does
+          fi
+          
+          # PHP Detection
+          HAS_PHP="false"
+          if find . -name "*.php" -o -name "composer.json" | head -1 | grep -q .; then
+            HAS_PHP="true"
+            LANGUAGES+=("php")
+            # Note: CodeQL doesn't support PHP, but Semgrep does
+            
+            # PHP Framework Detection
+            if find . -name "composer.json" -exec grep -l "laravel" {} \;; then
+              FRAMEWORKS+=("laravel")
+            fi
+            if find . -name "composer.json" -exec grep -l "symfony" {} \;; then
+              FRAMEWORKS+=("symfony")
+            fi
+          fi
+          
+          # Ruby Detection
+          HAS_RUBY="false"
+          if find . -name "*.rb" -o -name "Gemfile" | head -1 | grep -q .; then
+            HAS_RUBY="true"
+            LANGUAGES+=("ruby")
+            MATRIX_LANGS+=("ruby")
+            
+            # Ruby Framework Detection
+            if find . -name "Gemfile" -exec grep -l "rails" {} \;; then
+              FRAMEWORKS+=("rails")
+            fi
+          fi
+          
+          # Convert arrays to JSON for outputs
+          LANGUAGES_JSON=$(printf '%s\n' "${LANGUAGES[@]}" | jq -R . | jq -s .)
+          FRAMEWORKS_JSON=$(printf '%s\n' "${FRAMEWORKS[@]}" | jq -R . | jq -s .)
+          MATRIX_JSON=$(printf '%s\n' "${MATRIX_LANGS[@]}" | sort -u | jq -R . | jq -s .)
+          
+          # Set outputs
+          echo "languages=$LANGUAGES_JSON" >> $GITHUB_OUTPUT
+          echo "frameworks=$FRAMEWORKS_JSON" >> $GITHUB_OUTPUT
+          echo "has_javascript=$HAS_JS" >> $GITHUB_OUTPUT
+          echo "has_typescript=$HAS_TS" >> $GITHUB_OUTPUT
+          echo "has_python=$HAS_PYTHON" >> $GITHUB_OUTPUT
+          echo "has_java=$HAS_JAVA" >> $GITHUB_OUTPUT
+          echo "has_csharp=$HAS_CSHARP" >> $GITHUB_OUTPUT
+          echo "has_go=$HAS_GO" >> $GITHUB_OUTPUT
+          echo "has_rust=$HAS_RUST" >> $GITHUB_OUTPUT
+          echo "has_php=$HAS_PHP" >> $GITHUB_OUTPUT
+          echo "has_ruby=$HAS_RUBY" >> $GITHUB_OUTPUT
+          echo "matrix_languages=$MATRIX_JSON" >> $GITHUB_OUTPUT
+          
+          echo "🔍 Detection Results:"
+          echo "Languages: ${LANGUAGES[*]}"
+          echo "Frameworks: ${FRAMEWORKS[*]}"
+          echo "CodeQL Matrix: ${MATRIX_LANGS[*]}"
+
+  # CodeQL Analysis (GitHub's semantic analysis)
+  codeql-analysis:
+    name: 🔎 CodeQL Analysis
+    runs-on: ubuntu-latest
+    needs: detect-languages
+    if: ${{ fromJson(needs.detect-languages.outputs.matrix_languages)[0] != null }}
+    
+    strategy:
+      fail-fast: false
+      matrix:
+        language: ${{ fromJson(needs.detect-languages.outputs.matrix_languages) }}
+    
+    steps:
+      - name: 📥 Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: 🚀 Initialize CodeQL
+        uses: github/codeql-action/init@v3
+        with:
+          languages: ${{ matrix.language }}
+          config: |
+            name: "Advanced Security Analysis"
+            
+            disable-default-queries: false
+            
+            queries:
+              - name: security-and-quality
+                uses: security-and-quality
+              - name: security-experimental
+                uses: security-experimental
+            
+            query-filters:
+              - exclude:
+                  kind: path-problem
+                  tags: ["maintainability"]
+                  
+            paths-ignore:
+              - "**/*.test.*"
+              - "**/*.spec.*"
+              - "**/test/**"
+              - "**/tests/**"
+              - "**/node_modules/**"
+              - "**/vendor/**"
+              - "**/__pycache__/**"
+              - "**/target/**"
+              - "**/bin/**"
+              - "**/obj/**"
+
+      - name: 🏗️ Setup Language Environment
+        run: |
+          case "${{ matrix.language }}" in
+            "javascript")
+              echo "Setting up Node.js environment..."
+              if [ -f package.json ]; then
+                npm ci --ignore-scripts 2>/dev/null || npm install --ignore-scripts 2>/dev/null || true
+              fi
+              ;;
+            "python")
+              echo "Setting up Python environment..."
+              if [ -f requirements.txt ]; then
+                pip install -r requirements.txt 2>/dev/null || true
+              fi
+              ;;
+            "java")
+              echo "Setting up Java environment..."
+              if [ -f pom.xml ]; then
+                mvn compile -DskipTests 2>/dev/null || true
+              elif [ -f build.gradle ]; then
+                ./gradlew compileJava -x test 2>/dev/null || true
+              fi
+              ;;
+            "csharp")
+              echo "Setting up C# environment..."
+              if [ -f *.sln ]; then
+                dotnet build --no-restore 2>/dev/null || true
+              fi
+              ;;
+            "go")
+              echo "Setting up Go environment..."
+              if [ -f go.mod ]; then
+                go mod download 2>/dev/null || true
+              fi
+              ;;
+            "ruby")
+              echo "Setting up Ruby environment..."
+              if [ -f Gemfile ]; then
+                bundle install 2>/dev/null || true
+              fi
+              ;;
+          esac
+
+      - name: 🔎 Perform CodeQL Analysis
+        uses: github/codeql-action/analyze@v3
+        with:
+          category: "/language:${{ matrix.language }}"
+          upload: true
+          output: codeql-results
+          
+      - name: 📊 Process CodeQL Results
+        run: |
+          echo "📊 CodeQL Analysis completed for ${{ matrix.language }}"
+          echo "Results uploaded to GitHub Security tab"
+
+  # Semgrep SAST Analysis
+  semgrep-analysis:
+    name: 🛡️ Semgrep SAST Analysis
+    runs-on: ubuntu-latest
+    needs: detect-languages
+    
+    steps:
+      - name: 📥 Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: 🛡️ Configure Semgrep Rules
+        id: configure
+        run: |
+          echo "🛡️ Configuring Semgrep rules based on detected languages..."
+          
+          RULES=()
+          
+          # Base security rules (always included)
+          RULES+=("p/security-audit")
+          RULES+=("p/secrets")
+          RULES+=("p/owasp-top-ten")
+          
+          # Language-specific rules
+          if [[ "${{ needs.detect-languages.outputs.has_javascript }}" == "true" || "${{ needs.detect-languages.outputs.has_typescript }}" == "true" ]]; then
+            RULES+=("p/javascript")
+            RULES+=("p/typescript")
+            RULES+=("p/react")
+            RULES+=("p/nodejs")
+          fi
+          
+          if [[ "${{ needs.detect-languages.outputs.has_python }}" == "true" ]]; then
+            RULES+=("p/python")
+            RULES+=("p/django")
+            RULES+=("p/flask")
+          fi
+          
+          if [[ "${{ needs.detect-languages.outputs.has_java }}" == "true" ]]; then
+            RULES+=("p/java")
+            RULES+=("p/spring")
+          fi
+          
+          if [[ "${{ needs.detect-languages.outputs.has_csharp }}" == "true" ]]; then
+            RULES+=("p/csharp")
+          fi
+          
+          if [[ "${{ needs.detect-languages.outputs.has_go }}" == "true" ]]; then
+            RULES+=("p/golang")
+          fi
+          
+          if [[ "${{ needs.detect-languages.outputs.has_rust }}" == "true" ]]; then
+            RULES+=("p/rust")
+          fi
+          
+          if [[ "${{ needs.detect-languages.outputs.has_php }}" == "true" ]]; then
+            RULES+=("p/php")
+          fi
+          
+          if [[ "${{ needs.detect-languages.outputs.has_ruby }}" == "true" ]]; then
+            RULES+=("p/ruby")
+          fi
+          
+          # Add experimental rules if requested
+          if [[ "${{ github.event.inputs.include_experimental }}" == "true" ]]; then
+            RULES+=("p/experimental")
+          fi
+          
+          # Convert to space-separated string
+          RULES_STRING=$(IFS=' '; echo "${RULES[*]}")
+          echo "rules=$RULES_STRING" >> $GITHUB_OUTPUT
+          
+          echo "🛡️ Configured rules: $RULES_STRING"
+
+      - name: 🛡️ Run Semgrep SAST
+        uses: returntocorp/semgrep-action@v1
+        with:
+          config: ${{ steps.configure.outputs.rules }}
+          generateSarif: "1"
+        env:
+          SEMGREP_TIMEOUT: ${{ env.SEMGREP_TIMEOUT }}
+          SEMGREP_RULES: ${{ steps.configure.outputs.rules }}
+
+      - name: 📤 Upload Semgrep SARIF
+        if: always()
+        uses: github/codeql-action/upload-sarif@v3
+        with:
+          sarif_file: semgrep.sarif
+          category: semgrep
+
+  # Advanced Security Analysis
+  advanced-security:
+    name: 🔒 Advanced Security Analysis
+    runs-on: ubuntu-latest
+    needs: [detect-languages]
+    
+    steps:
+      - name: 📥 Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: 🔍 Secrets Scanning with TruffleHog
+        uses: trufflesecurity/trufflehog@main
+        with:
+          path: ./
+          base: ${{ github.event.repository.default_branch }}
+          head: HEAD
+          extra_args: --debug --only-verified --json --output=trufflehog-results.json
+
+      - name: 🔐 Git-secrets Analysis
+        run: |
+          echo "🔐 Installing and running git-secrets..."
+          
+          # Install git-secrets
+          git clone https://github.com/awslabs/git-secrets.git
+          cd git-secrets && sudo make install && cd ..
+          
+          # Initialize git-secrets
+          git secrets --register-aws
+          git secrets --install
+          
+          # Scan entire repository history
+          git secrets --scan-history > git-secrets-results.txt 2>&1 || true
+          
+          echo "✅ Git-secrets scan completed"
+
+      - name: 🔍 Container Security (if Dockerfile present)
+        if: hashFiles('**/Dockerfile*') != ''
+        run: |
+          echo "🐳 Container security analysis..."
+          
+          # Install Hadolint for Dockerfile linting
+          wget -O hadolint https://github.com/hadolint/hadolint/releases/download/v2.12.0/hadolint-Linux-x86_64
+          chmod +x hadolint
+          
+          # Scan all Dockerfiles
+          find . -name "Dockerfile*" -type f | while read -r dockerfile; do
+            echo "🔍 Scanning $dockerfile..."
+            ./hadolint "$dockerfile" --format json > "hadolint-$(basename "$dockerfile").json" || true
+          done
+
+      - name: 🔍 Infrastructure as Code Security
+        if: hashFiles('**/*.tf', '**/*.yaml', '**/*.yml') != ''
+        run: |
+          echo "🏗️ Infrastructure security analysis..."
+          
+          # Install Checkov for IaC scanning
+          pip install checkov
+          
+          # Scan for various IaC files
+          checkov --framework terraform --output json --output-file terraform-security.json . || true
+          checkov --framework kubernetes --output json --output-file k8s-security.json . || true
+          checkov --framework github_actions --output json --output-file actions-security.json . || true
+
+      - name: 📊 Generate Comprehensive Security Report
+        if: always()
+        run: |
+          mkdir -p security-reports
+          
+          cat > security-reports/sast-comprehensive-report.md << 'EOF'
+          # 🔍 Comprehensive SAST Security Report
+          
+          **Generated:** $(date)
+          **Repository:** ${{ github.repository }}
+          **Analysis Depth:** ${{ github.event.inputs.analysis_depth || 'comprehensive' }}
+          **Branch:** ${{ github.ref_name }}
+          
+          ## 📊 Analysis Overview
+          
+          ### 🔍 Languages Detected
+          | Language | Detected | Analysis Coverage |
+          |----------|----------|-------------------|
+          | JavaScript | ${{ needs.detect-languages.outputs.has_javascript }} | CodeQL + Semgrep |
+          | TypeScript | ${{ needs.detect-languages.outputs.has_typescript }} | CodeQL + Semgrep |
+          | Python | ${{ needs.detect-languages.outputs.has_python }} | CodeQL + Semgrep |
+          | Java | ${{ needs.detect-languages.outputs.has_java }} | CodeQL + Semgrep |
+          | C# | ${{ needs.detect-languages.outputs.has_csharp }} | CodeQL + Semgrep |
+          | Go | ${{ needs.detect-languages.outputs.has_go }} | CodeQL + Semgrep |
+          | Rust | ${{ needs.detect-languages.outputs.has_rust }} | Semgrep |
+          | PHP | ${{ needs.detect-languages.outputs.has_php }} | Semgrep |
+          | Ruby | ${{ needs.detect-languages.outputs.has_ruby }} | CodeQL + Semgrep |
+          
+          ### 🛡️ Analysis Tools Used
+          - ✅ **GitHub CodeQL** - Semantic analysis and vulnerability detection
+          - ✅ **Semgrep** - Rule-based static analysis
+          - ✅ **TruffleHog** - Secrets detection
+          - ✅ **Git-secrets** - AWS credentials scanning
+          - $([ -f hadolint-Dockerfile.json ] && echo "✅ **Hadolint** - Dockerfile security" || echo "⏭️ **Hadolint** - No Dockerfiles found")
+          - $([ -f terraform-security.json ] && echo "✅ **Checkov** - Infrastructure as Code" || echo "⏭️ **Checkov** - No IaC files found")
+          
+          ## 🔍 Security Findings Summary
+          
+          ### CodeQL Results
+          📄 View detailed CodeQL results in the [Security tab](https://github.com/${{ github.repository }}/security/code-scanning)
+          
+          ### Semgrep Results
+          📄 View Semgrep findings in the [Security tab](https://github.com/${{ github.repository }}/security/code-scanning)
+          
+          ### Secrets Detection
+          EOF
+          
+          # Add secrets detection results
+          if [ -f trufflehog-results.json ] && [ -s trufflehog-results.json ]; then
+            echo "⚠️ **TruffleHog found potential secrets** - Review trufflehog-results.json" >> security-reports/sast-comprehensive-report.md
+          else
+            echo "✅ **No secrets detected by TruffleHog**" >> security-reports/sast-comprehensive-report.md
+          fi
+          
+          # Add git-secrets results
+          if [ -f git-secrets-results.txt ] && grep -q "ERROR" git-secrets-results.txt; then
+            echo "⚠️ **Git-secrets found potential AWS credentials** - Review git-secrets-results.txt" >> security-reports/sast-comprehensive-report.md
+          else
+            echo "✅ **No AWS credentials detected by git-secrets**" >> security-reports/sast-comprehensive-report.md
+          fi
+          
+          cat >> security-reports/sast-comprehensive-report.md << 'EOF'
+          
+          ## 🔧 Remediation Guidelines
+          
+          ### High Priority Actions
+          1. **Review CodeQL Alerts** - Address any high/critical severity findings
+          2. **Fix Semgrep Issues** - Resolve security rule violations
+          3. **Secure Secrets** - Remove any exposed credentials or API keys
+          4. **Update Dependencies** - Ensure all dependencies are up-to-date
+          
+          ### Security Best Practices
+          - **Input Validation** - Validate and sanitize all user inputs
+          - **Authentication** - Implement strong authentication mechanisms
+          - **Authorization** - Use principle of least privilege
+          - **Encryption** - Encrypt sensitive data at rest and in transit
+          - **Error Handling** - Avoid exposing sensitive information in errors
+          
+          ## 📋 Continuous Security
+          
+          - **Automated Scanning** - This SAST analysis runs on every push/PR
+          - **Dependency Scanning** - Complement with dependency vulnerability scanning
+          - **Runtime Protection** - Consider RASP (Runtime Application Self-Protection)
+          - **Security Training** - Keep development team updated on security practices
+          
+          ---
+          *Generated by SAST Security Workflow*
+          EOF
+
+      - name: 📤 Upload Security Analysis Artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: sast-security-results-${{ github.run_number }}
+          path: |
+            security-reports/
+            trufflehog-results.json
+            git-secrets-results.txt
+            hadolint-*.json
+            *-security.json
+          retention-days: 30
+          if-no-files-found: warn
+
+  # Security Summary and Notification
+  security-summary:
+    name: 📋 Security Summary & Notification
+    runs-on: ubuntu-latest
+    needs: [detect-languages, codeql-analysis, semgrep-analysis, advanced-security]
+    if: always()
+    
+    steps:
+      - name: 📥 Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: 📊 Generate Security Summary
+        run: |
+          echo "📋 SAST Security Analysis Summary"
+          echo "================================="
+          echo "Repository: ${{ github.repository }}"
+          echo "Branch: ${{ github.ref_name }}"
+          echo "Analysis Depth: ${{ github.event.inputs.analysis_depth || 'comprehensive' }}"
+          echo "Timestamp: $(date)"
+          echo ""
+          echo "🔍 Analysis Jobs Status:"
+          echo "- Language Detection: ✅ Completed"
+          echo "- CodeQL Analysis: ${{ needs.codeql-analysis.result }}"
+          echo "- Semgrep Analysis: ${{ needs.semgrep-analysis.result }}"
+          echo "- Advanced Security: ${{ needs.advanced-security.result }}"
+          echo ""
+          echo "📊 Languages Analyzed:"
+          echo "${{ needs.detect-languages.outputs.languages }}"
+          echo ""
+          echo "🛡️ Security Tools Coverage:"
+          echo "- Semantic Analysis (CodeQL)"
+          echo "- Rule-based Analysis (Semgrep)"
+          echo "- Secrets Detection (TruffleHog + Git-secrets)"
+          echo "- Container Security (Hadolint)"
+          echo "- Infrastructure Security (Checkov)"
+
+      - name: 💬 Comment on Pull Request
+        if: github.event_name == 'pull_request'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const languages = ${{ needs.detect-languages.outputs.languages }};
+            const codeqlStatus = '${{ needs.codeql-analysis.result }}';
+            const semgrepStatus = '${{ needs.semgrep-analysis.result }}';
+            const advancedStatus = '${{ needs.advanced-security.result }}';
+            
+            const statusIcon = (status) => {
+              switch(status) {
+                case 'success': return '✅';
+                case 'failure': return '❌';
+                case 'cancelled': return '⏹️';
+                case 'skipped': return '⏭️';
+                default: return '🔄';
+              }
+            };
+            
+            const commentBody = `## 🔍 SAST Security Analysis Results
+            
+            ### 📊 Analysis Overview
+            - **Languages Detected:** ${languages.join(', ')}
+            - **Analysis Depth:** ${{ github.event.inputs.analysis_depth || 'comprehensive' }}
+            - **Security Threshold:** ${{ env.SECURITY_SEVERITY_THRESHOLD }}
+            
+            ### 🛡️ Security Analysis Status
+            | Tool | Status | Coverage |
+            |------|--------|----------|
+            | CodeQL | ${statusIcon(codeqlStatus)} ${codeqlStatus} | Semantic Analysis |
+            | Semgrep | ${statusIcon(semgrepStatus)} ${semgrepStatus} | Rule-based SAST |
+            | Advanced Security | ${statusIcon(advancedStatus)} ${advancedStatus} | Secrets, Containers, IaC |
+            
+            ### 🔍 Next Steps
+            1. **Review Security Tab** - Check [Security alerts](https://github.com/${{ github.repository }}/security/code-scanning) for findings
+            2. **Address High Priority Issues** - Focus on critical and high severity vulnerabilities
+            3. **Verify Fixes** - Re-run analysis after implementing fixes
+            
+            📄 [View Full SAST Report](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }})
+            `;
+            
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: commentBody
+            });
+
+      - name: 🚨 Create Security Issue for Critical Findings
+        if: failure() && (github.event_name == 'schedule' || github.event_name == 'push')
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh issue create \
+            --title "🚨 Critical SAST Security Findings Detected" \
+            --label "security,critical,sast" \
+            --body "## 🔍 SAST Security Alert
+          
+          **Detection Date:** $(date)
+          **Repository:** ${{ github.repository }}
+          **Branch:** ${{ github.ref_name }}
+          **Analysis Type:** Static Application Security Testing (SAST)
+          
+          ### 🚨 Critical Security Issues Detected
+          
+          Our automated SAST analysis has identified critical security vulnerabilities in the codebase.
+          
+          ### 🔍 Analysis Coverage
+          - **CodeQL:** Semantic code analysis
+          - **Semgrep:** Rule-based security patterns
+          - **Secrets Detection:** Credential and API key scanning
+          - **Container Security:** Dockerfile analysis
+          - **Infrastructure Security:** IaC security review
+          
+          ### 📋 Immediate Actions Required
+          
+          1. **Review Security Alerts** - Check the [Security tab](https://github.com/${{ github.repository }}/security/code-scanning)
+          2. **Prioritize Critical Issues** - Address high/critical severity findings first
+          3. **Implement Fixes** - Apply recommended security patches
+          4. **Verify Resolution** - Re-run SAST analysis to confirm fixes
+          5. **Security Review** - Conduct thorough security review before deployment
+          
+          ### 📊 Analysis Details
+          - **Workflow Run:** [View Details](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }})
+          - **Languages Analyzed:** ${{ needs.detect-languages.outputs.languages }}
+          - **Security Threshold:** ${{ env.SECURITY_SEVERITY_THRESHOLD }}
+          
+          ---
+          *Auto-generated by SAST Security Workflow*"

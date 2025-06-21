@@ -1,0 +1,1020 @@
+name: 🏥 Workflow Health Monitor
+
+on:
+  schedule:
+    # Monitor workflow health every 6 hours
+    - cron: '0 */6 * * *'
+  workflow_run:
+    workflows: ["🔒 Dependency Security Scan", "🔍 Static Application Security Testing (SAST)", "🏗️ Infrastructure Security Analysis"]
+    types: [completed]
+  workflow_dispatch:
+    inputs:
+      monitoring_scope:
+        description: 'Scope of health monitoring'
+        required: false
+        default: 'comprehensive'
+        type: choice
+        options:
+          - comprehensive
+          - security-workflows
+          - performance-only
+          - critical-only
+      alert_threshold:
+        description: 'Health score threshold for alerts'
+        required: false
+        default: '75'
+        type: string
+      include_historical:
+        description: 'Include historical trend analysis'
+        required: false
+        default: true
+        type: boolean
+
+env:
+  HEALTH_THRESHOLD_CRITICAL: 60
+  HEALTH_THRESHOLD_WARNING: 75
+  HEALTH_THRESHOLD_GOOD: 85
+  MONITORING_RETENTION_DAYS: 30
+
+permissions:
+  contents: read
+  actions: read
+  issues: write
+  pull-requests: write
+
+jobs:
+  # Workflow Status Collection
+  collect-workflow-status:
+    name: 📊 Collect Workflow Status
+    runs-on: ubuntu-latest
+    outputs:
+      workflow_data: ${{ steps.collect.outputs.workflow_data }}
+      health_score: ${{ steps.analyze.outputs.health_score }}
+      status_summary: ${{ steps.analyze.outputs.status_summary }}
+    
+    steps:
+      - name: 📥 Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: 📊 Collect Workflow Data
+        id: collect
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          echo "📊 Collecting workflow status data..."
+          
+          # Get recent workflow runs (last 50 runs)
+          gh api repos/${{ github.repository }}/actions/runs \
+            --paginate \
+            --jq '.workflow_runs[] | select(.created_at > (now - 7*24*3600 | strftime("%Y-%m-%dT%H:%M:%SZ"))) | {
+              id: .id,
+              name: .name,
+              status: .status,
+              conclusion: .conclusion,
+              created_at: .created_at,
+              updated_at: .updated_at,
+              run_started_at: .run_started_at,
+              head_branch: .head_branch,
+              event: .event,
+              run_attempt: .run_attempt
+            }' > workflow_runs.json
+          
+          # Get workflow files for analysis
+          find .github/workflows -name "*.yml" -o -name "*.yaml" | while read workflow_file; do
+            echo "Found workflow: $workflow_file"
+          done > workflow_files.txt
+          
+          # Analyze workflow runs by type
+          echo "🔍 Analyzing workflow data..."
+          
+          python3 - << 'EOF'
+          import json
+          import sys
+          from datetime import datetime, timedelta
+          from collections import defaultdict
+          
+          # Load workflow runs
+          try:
+              with open('workflow_runs.json', 'r') as f:
+                  runs = [json.loads(line) for line in f if line.strip()]
+          except:
+              runs = []
+          
+          # Categorize workflows
+          security_workflows = ['Dependency Security Scan', 'Static Application Security Testing', 'Infrastructure Security Analysis']
+          performance_workflows = ['Performance Caching System']
+          quality_workflows = ['Template Validation', 'API Integration Testing']
+          
+          # Calculate metrics by category
+          metrics = {
+              'security': {'total': 0, 'success': 0, 'failure': 0, 'cancelled': 0},
+              'performance': {'total': 0, 'success': 0, 'failure': 0, 'cancelled': 0},
+              'quality': {'total': 0, 'success': 0, 'failure': 0, 'cancelled': 0},
+              'other': {'total': 0, 'success': 0, 'failure': 0, 'cancelled': 0}
+          }
+          
+          duration_stats = defaultdict(list)
+          
+          for run in runs:
+              # Categorize workflow
+              category = 'other'
+              if any(sec in run['name'] for sec in security_workflows):
+                  category = 'security'
+              elif any(perf in run['name'] for perf in performance_workflows):
+                  category = 'performance'
+              elif any(qual in run['name'] for qual in quality_workflows):
+                  category = 'quality'
+              
+              # Update metrics
+              metrics[category]['total'] += 1
+              if run['conclusion'] == 'success':
+                  metrics[category]['success'] += 1
+              elif run['conclusion'] == 'failure':
+                  metrics[category]['failure'] += 1
+              elif run['conclusion'] == 'cancelled':
+                  metrics[category]['cancelled'] += 1
+              
+              # Calculate duration if available
+              if run.get('run_started_at') and run.get('updated_at'):
+                  try:
+                      start = datetime.fromisoformat(run['run_started_at'].replace('Z', '+00:00'))
+                      end = datetime.fromisoformat(run['updated_at'].replace('Z', '+00:00'))
+                      duration = (end - start).total_seconds() / 60  # in minutes
+                      duration_stats[category].append(duration)
+                  except:
+                      pass
+          
+          # Calculate success rates and averages
+          summary = {}
+          for category, data in metrics.items():
+              if data['total'] > 0:
+                  success_rate = (data['success'] / data['total']) * 100
+                  avg_duration = sum(duration_stats[category]) / len(duration_stats[category]) if duration_stats[category] else 0
+                  summary[category] = {
+                      'total_runs': data['total'],
+                      'success_rate': round(success_rate, 2),
+                      'failure_count': data['failure'],
+                      'cancelled_count': data['cancelled'],
+                      'avg_duration_minutes': round(avg_duration, 2)
+                  }
+          
+          # Save results
+          with open('workflow_summary.json', 'w') as f:
+              json.dump(summary, f, indent=2)
+          
+          print(f"Analyzed {len(runs)} workflow runs")
+          print(json.dumps(summary, indent=2))
+          EOF
+          
+          # Set output
+          WORKFLOW_DATA=$(cat workflow_summary.json | jq -c .)
+          echo "workflow_data=$WORKFLOW_DATA" >> $GITHUB_OUTPUT
+          
+          echo "📊 Workflow data collection completed"
+
+      - name: 🔍 Health Score Analysis
+        id: analyze
+        run: |
+          echo "🔍 Calculating overall health score..."
+          
+          python3 - << 'EOF'
+          import json
+          import sys
+          
+          # Load workflow summary
+          try:
+              with open('workflow_summary.json', 'r') as f:
+                  summary = json.load(f)
+          except:
+              summary = {}
+          
+          # Calculate health score
+          total_score = 0
+          category_count = 0
+          health_details = {}
+          
+          for category, data in summary.items():
+              if data['total_runs'] > 0:
+                  # Base score from success rate
+                  success_score = data['success_rate']
+                  
+                  # Penalty for failures
+                  failure_penalty = min(data['failure_count'] * 5, 20)
+                  
+                  # Penalty for long durations (over 30 minutes)
+                  duration_penalty = max(0, (data['avg_duration_minutes'] - 30) * 0.5)
+                  duration_penalty = min(duration_penalty, 15)
+                  
+                  # Calculate category score
+                  category_score = max(0, success_score - failure_penalty - duration_penalty)
+                  
+                  health_details[category] = {
+                      'score': round(category_score, 2),
+                      'success_rate': data['success_rate'],
+                      'failure_penalty': failure_penalty,
+                      'duration_penalty': round(duration_penalty, 2),
+                      'avg_duration': data['avg_duration_minutes']
+                  }
+                  
+                  total_score += category_score
+                  category_count += 1
+          
+          # Overall health score
+          overall_health = round(total_score / category_count, 2) if category_count > 0 else 100
+          
+          # Determine status
+          if overall_health >= 85:
+              status = "excellent"
+              status_emoji = "🟢"
+          elif overall_health >= 75:
+              status = "good"
+              status_emoji = "🟡"
+          elif overall_health >= 60:
+              status = "degraded"
+              status_emoji = "🟠"
+          else:
+              status = "critical"
+              status_emoji = "🔴"
+          
+          # Create status summary
+          status_summary = {
+              'overall_health': overall_health,
+              'status': status,
+              'status_emoji': status_emoji,
+              'category_details': health_details,
+              'total_categories': category_count
+          }
+          
+          with open('health_analysis.json', 'w') as f:
+              json.dump(status_summary, f, indent=2)
+          
+          print(f"Overall Health Score: {overall_health}")
+          print(f"Status: {status_emoji} {status}")
+          EOF
+          
+          # Set outputs
+          HEALTH_SCORE=$(jq -r '.overall_health' health_analysis.json)
+          STATUS_SUMMARY=$(cat health_analysis.json | jq -c .)
+          
+          echo "health_score=$HEALTH_SCORE" >> $GITHUB_OUTPUT
+          echo "status_summary=$STATUS_SUMMARY" >> $GITHUB_OUTPUT
+
+      - name: 📤 Upload Analysis Data
+        uses: actions/upload-artifact@v4
+        with:
+          name: workflow-analysis-data-${{ github.run_number }}
+          path: |
+            workflow_runs.json
+            workflow_summary.json
+            health_analysis.json
+          retention-days: ${{ env.MONITORING_RETENTION_DAYS }}
+
+  # Performance Metrics Analysis
+  performance-analysis:
+    name: ⚡ Performance Analysis
+    runs-on: ubuntu-latest
+    needs: collect-workflow-status
+    
+    steps:
+      - name: 📥 Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: ⚡ Analyze Performance Metrics
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          echo "⚡ Analyzing workflow performance metrics..."
+          
+          # Get detailed timing data
+          gh api repos/${{ github.repository }}/actions/runs \
+            --paginate \
+            --jq '.workflow_runs[] | select(.created_at > (now - 24*3600 | strftime("%Y-%m-%dT%H:%M:%SZ"))) | {
+              id: .id,
+              name: .name,
+              status: .status,
+              conclusion: .conclusion,
+              created_at: .created_at,
+              run_started_at: .run_started_at,
+              updated_at: .updated_at
+            }' > recent_runs.json
+          
+          python3 - << 'EOF'
+          import json
+          import statistics
+          from datetime import datetime
+          from collections import defaultdict
+          
+          # Load recent runs
+          try:
+              with open('recent_runs.json', 'r') as f:
+                  runs = [json.loads(line) for line in f if line.strip()]
+          except:
+              runs = []
+          
+          # Performance analysis
+          performance_data = defaultdict(list)
+          queue_times = []
+          execution_times = []
+          
+          for run in runs:
+              if run.get('created_at') and run.get('run_started_at') and run.get('updated_at'):
+                  try:
+                      created = datetime.fromisoformat(run['created_at'].replace('Z', '+00:00'))
+                      started = datetime.fromisoformat(run['run_started_at'].replace('Z', '+00:00'))
+                      completed = datetime.fromisoformat(run['updated_at'].replace('Z', '+00:00'))
+                      
+                      # Queue time (time waiting to start)
+                      queue_time = (started - created).total_seconds() / 60
+                      queue_times.append(queue_time)
+                      
+                      # Execution time
+                      exec_time = (completed - started).total_seconds() / 60
+                      execution_times.append(exec_time)
+                      
+                      performance_data[run['name']].append({
+                          'queue_time': queue_time,
+                          'execution_time': exec_time,
+                          'total_time': queue_time + exec_time
+                      })
+                  except:
+                      pass
+          
+          # Calculate statistics
+          perf_stats = {
+              'overall': {
+                  'avg_queue_time': round(statistics.mean(queue_times), 2) if queue_times else 0,
+                  'avg_execution_time': round(statistics.mean(execution_times), 2) if execution_times else 0,
+                  'max_queue_time': round(max(queue_times), 2) if queue_times else 0,
+                  'max_execution_time': round(max(execution_times), 2) if execution_times else 0,
+                  'total_runs_analyzed': len(runs)
+              },
+              'by_workflow': {}
+          }
+          
+          # Per-workflow statistics
+          for workflow_name, times in performance_data.items():
+              if times:
+                  queue_times_wf = [t['queue_time'] for t in times]
+                  exec_times_wf = [t['execution_time'] for t in times]
+                  
+                  perf_stats['by_workflow'][workflow_name] = {
+                      'avg_queue_time': round(statistics.mean(queue_times_wf), 2),
+                      'avg_execution_time': round(statistics.mean(exec_times_wf), 2),
+                      'run_count': len(times)
+                  }
+          
+          # Performance score calculation
+          # Good performance: queue < 2 min, execution varies by workflow type
+          queue_score = max(0, 100 - (perf_stats['overall']['avg_queue_time'] * 10))
+          
+          # Execution score based on reasonable thresholds
+          avg_exec = perf_stats['overall']['avg_execution_time']
+          if avg_exec <= 10:
+              exec_score = 100
+          elif avg_exec <= 20:
+              exec_score = 80
+          elif avg_exec <= 30:
+              exec_score = 60
+          else:
+              exec_score = max(0, 100 - (avg_exec - 30) * 2)
+          
+          performance_score = round((queue_score + exec_score) / 2, 2)
+          
+          perf_stats['performance_score'] = performance_score
+          perf_stats['queue_score'] = round(queue_score, 2)
+          perf_stats['execution_score'] = round(exec_score, 2)
+          
+          # Save performance data
+          with open('performance_analysis.json', 'w') as f:
+              json.dump(perf_stats, f, indent=2)
+          
+          print(f"Performance Score: {performance_score}")
+          print(f"Average Queue Time: {perf_stats['overall']['avg_queue_time']} minutes")
+          print(f"Average Execution Time: {perf_stats['overall']['avg_execution_time']} minutes")
+          EOF
+
+      - name: 📊 Generate Performance Report
+        run: |
+          echo "📊 Generating performance report..."
+          
+          cat > performance-report.md << 'EOF'
+          # ⚡ Workflow Performance Report
+          
+          EOF
+          
+          python3 - << 'EOF'
+          import json
+          from datetime import datetime
+          
+          # Load performance data
+          with open('performance_analysis.json', 'r') as f:
+              perf_data = json.load(f)
+          
+          # Generate report
+          report = f"""
+          **Generated:** {datetime.now().isoformat()}
+          **Repository:** ${{ github.repository }}
+          **Analysis Period:** Last 24 hours
+          
+          ## 📊 Performance Summary
+          
+          | Metric | Value | Score | Status |
+          |--------|-------|-------|--------|
+          | Overall Performance | {perf_data['performance_score']}/100 | {perf_data['performance_score']} | {'🟢 Good' if perf_data['performance_score'] >= 80 else '🟡 Fair' if perf_data['performance_score'] >= 60 else '🔴 Poor'} |
+          | Queue Performance | {perf_data['queue_score']}/100 | {perf_data['queue_score']} | {'🟢 Fast' if perf_data['queue_score'] >= 80 else '🟡 Moderate' if perf_data['queue_score'] >= 60 else '🔴 Slow'} |
+          | Execution Performance | {perf_data['execution_score']}/100 | {perf_data['execution_score']} | {'🟢 Efficient' if perf_data['execution_score'] >= 80 else '🟡 Acceptable' if perf_data['execution_score'] >= 60 else '🔴 Slow'} |
+          
+          ## ⏱️ Timing Analysis
+          
+          - **Average Queue Time:** {perf_data['overall']['avg_queue_time']} minutes
+          - **Average Execution Time:** {perf_data['overall']['avg_execution_time']} minutes
+          - **Maximum Queue Time:** {perf_data['overall']['max_queue_time']} minutes
+          - **Maximum Execution Time:** {perf_data['overall']['max_execution_time']} minutes
+          - **Total Runs Analyzed:** {perf_data['overall']['total_runs_analyzed']}
+          
+          ## 🔍 Per-Workflow Performance
+          
+          """
+          
+          if perf_data['by_workflow']:
+              report += "| Workflow | Avg Queue Time | Avg Execution Time | Runs |\n"
+              report += "|----------|----------------|-------------------|------|\n"
+              
+              for workflow, stats in perf_data['by_workflow'].items():
+                  report += f"| {workflow} | {stats['avg_queue_time']} min | {stats['avg_execution_time']} min | {stats['run_count']} |\n"
+          else:
+              report += "No workflow-specific data available for this period.\n"
+          
+          report += """
+          
+          ## 🎯 Performance Recommendations
+          
+          ### Queue Time Optimization
+          - **Good (< 2 min):** Workflows start quickly
+          - **Fair (2-5 min):** Acceptable queue times
+          - **Poor (> 5 min):** Consider runner scaling or peak time scheduling
+          
+          ### Execution Time Optimization
+          - **Monitor long-running workflows** for optimization opportunities
+          - **Implement caching** for dependency installations
+          - **Use parallel jobs** where possible
+          - **Consider workflow splitting** for complex pipelines
+          
+          ### Infrastructure Recommendations
+          - **Runner Scaling:** Increase concurrent runners during peak times
+          - **Caching Strategy:** Implement comprehensive caching for all workflows
+          - **Dependency Optimization:** Use lock files and cached installations
+          - **Resource Allocation:** Monitor resource usage patterns
+          
+          """
+          
+          with open('performance-report.md', 'a') as f:
+              f.write(report)
+          
+          print("Performance report generated")
+          EOF
+
+      - name: 📤 Upload Performance Reports
+        uses: actions/upload-artifact@v4
+        with:
+          name: performance-analysis-${{ github.run_number }}
+          path: |
+            performance_analysis.json
+            performance-report.md
+          retention-days: ${{ env.MONITORING_RETENTION_DAYS }}
+
+  # Health Alerting System
+  health-alerting:
+    name: 🚨 Health Alerting
+    runs-on: ubuntu-latest
+    needs: [collect-workflow-status, performance-analysis]
+    if: always()
+    
+    steps:
+      - name: 📥 Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: 🚨 Evaluate Health Alerts
+        id: alerts
+        run: |
+          echo "🚨 Evaluating health alerts..."
+          
+          HEALTH_SCORE="${{ needs.collect-workflow-status.outputs.health_score }}"
+          ALERT_THRESHOLD="${{ github.event.inputs.alert_threshold || '75' }}"
+          
+          echo "Current Health Score: $HEALTH_SCORE"
+          echo "Alert Threshold: $ALERT_THRESHOLD"
+          
+          ALERT_NEEDED="false"
+          ALERT_LEVEL="info"
+          ALERT_MESSAGE=""
+          
+          if (( $(echo "$HEALTH_SCORE < ${{ env.HEALTH_THRESHOLD_CRITICAL }}" | bc -l) )); then
+            ALERT_NEEDED="true"
+            ALERT_LEVEL="critical"
+            ALERT_MESSAGE="🔴 CRITICAL: Workflow health is severely degraded (Score: $HEALTH_SCORE/100)"
+          elif (( $(echo "$HEALTH_SCORE < ${{ env.HEALTH_THRESHOLD_WARNING }}" | bc -l) )); then
+            ALERT_NEEDED="true"
+            ALERT_LEVEL="warning"
+            ALERT_MESSAGE="🟡 WARNING: Workflow health is below acceptable levels (Score: $HEALTH_SCORE/100)"
+          elif (( $(echo "$HEALTH_SCORE < ${{ env.HEALTH_THRESHOLD_GOOD }}" | bc -l) )); then
+            ALERT_NEEDED="true"
+            ALERT_LEVEL="notice"
+            ALERT_MESSAGE="🟠 NOTICE: Workflow health could be improved (Score: $HEALTH_SCORE/100)"
+          else
+            ALERT_MESSAGE="✅ Workflow health is good (Score: $HEALTH_SCORE/100)"
+          fi
+          
+          echo "alert_needed=$ALERT_NEEDED" >> $GITHUB_OUTPUT
+          echo "alert_level=$ALERT_LEVEL" >> $GITHUB_OUTPUT
+          echo "alert_message=$ALERT_MESSAGE" >> $GITHUB_OUTPUT
+          
+          echo "$ALERT_MESSAGE"
+
+      - name: 📋 Generate Health Report
+        run: |
+          echo "📋 Generating comprehensive health report..."
+          
+          STATUS_SUMMARY='${{ needs.collect-workflow-status.outputs.status_summary }}'
+          
+          python3 - << 'EOF'
+          import json
+          import os
+          from datetime import datetime
+          
+          # Load status summary
+          status_data = json.loads(os.environ['STATUS_SUMMARY'])
+          
+          # Generate comprehensive health report
+          report = f"""# 🏥 Workflow Health Report
+          
+          **Generated:** {datetime.now().isoformat()}
+          **Repository:** ${{ github.repository }}
+          **Monitoring Scope:** ${{ github.event.inputs.monitoring_scope || 'comprehensive' }}
+          
+          ## 🎯 Health Summary
+          
+          {status_data['status_emoji']} **Overall Health Score:** {status_data['overall_health']}/100
+          
+          **Status:** {status_data['status'].title()}
+          
+          ## 📊 Category Breakdown
+          
+          | Category | Score | Success Rate | Avg Duration | Status |
+          |----------|-------|--------------|-------------|--------|
+          """
+          
+          for category, details in status_data.get('category_details', {}).items():
+              status_emoji = "🟢" if details['score'] >= 85 else "🟡" if details['score'] >= 75 else "🟠" if details['score'] >= 60 else "🔴"
+              report += f"| {category.title()} | {details['score']}/100 | {details['success_rate']}% | {details['avg_duration']} min | {status_emoji} |\n"
+          
+          report += f"""
+          
+          ## 🚨 Alert Status
+          
+          - **Alert Level:** ${{ steps.alerts.outputs.alert_level }}
+          - **Alert Message:** ${{ steps.alerts.outputs.alert_message }}
+          - **Alert Needed:** ${{ steps.alerts.outputs.alert_needed }}
+          
+          ## 🔍 Detailed Analysis
+          
+          ### Health Factors
+          """
+          
+          for category, details in status_data.get('category_details', {}).items():
+              report += f"""
+          #### {category.title()} Workflows
+          - **Base Score:** {details['success_rate']}% success rate
+          - **Failure Penalty:** -{details['failure_penalty']} points
+          - **Duration Penalty:** -{details['duration_penalty']} points
+          - **Final Score:** {details['score']}/100
+          """
+          
+          report += """
+          
+          ## 📋 Recommendations
+          
+          ### Immediate Actions
+          """
+          
+          if status_data['overall_health'] < 60:
+              report += """
+          - 🔴 **CRITICAL**: Immediate attention required
+          - Review failed workflows and address root causes
+          - Consider temporary workflow disabling if blocking releases
+          - Escalate to engineering leadership
+          """
+          elif status_data['overall_health'] < 75:
+              report += """
+          - 🟡 **WARNING**: Investigation and optimization needed
+          - Review recent workflow failures
+          - Optimize slow-running workflows
+          - Update dependencies and tools
+          """
+          elif status_data['overall_health'] < 85:
+              report += """
+          - 🟠 **NOTICE**: Minor improvements recommended
+          - Monitor trends for degradation
+          - Optimize workflow performance
+          - Review caching strategies
+          """
+          else:
+              report += """
+          - ✅ **GOOD**: Maintain current performance levels
+          - Continue monitoring for any degradation
+          - Consider further optimizations for excellence
+          """
+          
+          report += """
+          
+          ### Long-term Improvements
+          - Implement comprehensive caching strategies
+          - Set up proactive monitoring and alerting
+          - Regular workflow optimization reviews
+          - Performance benchmarking and tracking
+          
+          ## 📈 Trending
+          
+          *Historical trend analysis requires multiple data points over time*
+          
+          ---
+          *Generated by Workflow Health Monitor*
+          """
+          
+          with open('health-report.md', 'w') as f:
+              f.write(report)
+          
+          print("Health report generated")
+          EOF
+
+      - name: 🔔 Create Health Issue (if needed)
+        if: steps.alerts.outputs.alert_needed == 'true' && (steps.alerts.outputs.alert_level == 'critical' || steps.alerts.outputs.alert_level == 'warning')
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          echo "🔔 Creating health issue for ${{ steps.alerts.outputs.alert_level }} alert..."
+          
+          ISSUE_TITLE="🚨 Workflow Health Alert: ${{ steps.alerts.outputs.alert_level }} (Score: ${{ needs.collect-workflow-status.outputs.health_score }}/100)"
+          
+          ISSUE_BODY=$(cat << 'EOF'
+          ## 🏥 Workflow Health Alert
+          
+          **Alert Level:** ${{ steps.alerts.outputs.alert_level }}
+          **Health Score:** ${{ needs.collect-workflow-status.outputs.health_score }}/100
+          **Detection Time:** $(date -u +"%Y-%m-%d %H:%M:%S UTC")
+          **Monitoring Run:** [View Details](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }})
+          
+          ### 📊 Alert Details
+          
+          ${{ steps.alerts.outputs.alert_message }}
+          
+          ### 🔍 Investigation Steps
+          
+          1. **Review Workflow Runs**: Check recent workflow execution patterns
+          2. **Identify Failures**: Look for patterns in failed workflows
+          3. **Performance Analysis**: Review execution times and queue delays
+          4. **Resource Check**: Verify runner availability and performance
+          
+          ### 📋 Immediate Actions Required
+          
+          - [ ] Review workflow failure patterns
+          - [ ] Check for infrastructure issues
+          - [ ] Optimize slow-running workflows
+          - [ ] Update dependencies if needed
+          - [ ] Monitor for continued degradation
+          
+          ### 📈 Reports Available
+          
+          - Comprehensive health report available in workflow artifacts
+          - Performance analysis with timing details
+          - Category-specific breakdown and recommendations
+          
+          ---
+          *This issue was automatically created by the Workflow Health Monitor*
+          EOF
+          )
+          
+          gh issue create \
+            --title "$ISSUE_TITLE" \
+            --body "$ISSUE_BODY" \
+            --label "workflow-health,monitoring,${{ steps.alerts.outputs.alert_level }}"
+
+      - name: 📤 Upload Health Reports
+        uses: actions/upload-artifact@v4
+        with:
+          name: health-monitoring-reports-${{ github.run_number }}
+          path: |
+            health-report.md
+          retention-days: ${{ env.MONITORING_RETENTION_DAYS }}
+
+  # Historical Trend Analysis
+  trend-analysis:
+    name: 📈 Trend Analysis
+    runs-on: ubuntu-latest
+    needs: [collect-workflow-status]
+    if: github.event.inputs.include_historical == 'true'
+    
+    steps:
+      - name: 📥 Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: 📈 Historical Trend Analysis
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          echo "📈 Performing historical trend analysis..."
+          
+          # Get extended historical data (last 30 days)
+          gh api repos/${{ github.repository }}/actions/runs \
+            --paginate \
+            --jq '.workflow_runs[] | select(.created_at > (now - 30*24*3600 | strftime("%Y-%m-%dT%H:%M:%SZ"))) | {
+              id: .id,
+              name: .name,
+              status: .status,
+              conclusion: .conclusion,
+              created_at: .created_at,
+              updated_at: .updated_at,
+              run_started_at: .run_started_at
+            }' > historical_runs.json
+          
+          python3 - << 'EOF'
+          import json
+          from datetime import datetime, timedelta
+          from collections import defaultdict
+          
+          # Load historical data
+          try:
+              with open('historical_runs.json', 'r') as f:
+                  runs = [json.loads(line) for line in f if line.strip()]
+          except:
+              runs = []
+          
+          # Group by week for trend analysis
+          weekly_data = defaultdict(lambda: {'total': 0, 'success': 0, 'failure': 0})
+          
+          for run in runs:
+              try:
+                  created = datetime.fromisoformat(run['created_at'].replace('Z', '+00:00'))
+                  # Get week start (Monday)
+                  week_start = created - timedelta(days=created.weekday())
+                  week_key = week_start.strftime('%Y-%m-%d')
+                  
+                  weekly_data[week_key]['total'] += 1
+                  if run['conclusion'] == 'success':
+                      weekly_data[week_key]['success'] += 1
+                  elif run['conclusion'] == 'failure':
+                      weekly_data[week_key]['failure'] += 1
+              except:
+                  pass
+          
+          # Calculate weekly success rates
+          trend_data = {}
+          for week, data in sorted(weekly_data.items()):
+              if data['total'] > 0:
+                  success_rate = (data['success'] / data['total']) * 100
+                  trend_data[week] = {
+                      'success_rate': round(success_rate, 2),
+                      'total_runs': data['total'],
+                      'failures': data['failure']
+                  }
+          
+          # Calculate trend direction
+          if len(trend_data) >= 2:
+              recent_weeks = list(trend_data.values())[-2:]
+              if len(recent_weeks) == 2:
+                  trend_direction = recent_weeks[1]['success_rate'] - recent_weeks[0]['success_rate']
+                  if trend_direction > 5:
+                      trend_status = "improving"
+                      trend_emoji = "📈"
+                  elif trend_direction < -5:
+                      trend_status = "declining"
+                      trend_emoji = "📉"
+                  else:
+                      trend_status = "stable"
+                      trend_emoji = "➡️"
+              else:
+                  trend_status = "insufficient_data"
+                  trend_emoji = "❓"
+          else:
+              trend_status = "insufficient_data"
+              trend_emoji = "❓"
+          
+          # Save trend analysis
+          trend_analysis = {
+              'trend_direction': trend_status,
+              'trend_emoji': trend_emoji,
+              'weekly_data': trend_data,
+              'analysis_period_days': 30,
+              'total_weeks_analyzed': len(trend_data)
+          }
+          
+          with open('trend_analysis.json', 'w') as f:
+              json.dump(trend_analysis, f, indent=2)
+          
+          print(f"Trend Analysis: {trend_emoji} {trend_status}")
+          print(f"Analyzed {len(trend_data)} weeks of data")
+          EOF
+
+      - name: 📊 Generate Trend Report
+        run: |
+          echo "📊 Generating trend analysis report..."
+          
+          python3 - << 'EOF'
+          import json
+          from datetime import datetime
+          
+          # Load trend data
+          with open('trend_analysis.json', 'r') as f:
+              trend_data = json.load(f)
+          
+          # Generate trend report
+          report = f"""# 📈 Workflow Health Trend Analysis
+          
+          **Generated:** {datetime.now().isoformat()}
+          **Analysis Period:** {trend_data['analysis_period_days']} days
+          **Weeks Analyzed:** {trend_data['total_weeks_analyzed']}
+          
+          ## 📊 Trend Summary
+          
+          {trend_data['trend_emoji']} **Trend Direction:** {trend_data['trend_direction'].replace('_', ' ').title()}
+          
+          ## 📈 Weekly Performance
+          
+          | Week Starting | Success Rate | Total Runs | Failures | Trend |
+          |---------------|--------------|------------|----------|-------|
+          """
+          
+          weekly_data = trend_data['weekly_data']
+          prev_rate = None
+          
+          for week, data in sorted(weekly_data.items()):
+              if prev_rate is not None:
+                  change = data['success_rate'] - prev_rate
+                  if change > 2:
+                      trend_icon = "📈"
+                  elif change < -2:
+                      trend_icon = "📉"
+                  else:
+                      trend_icon = "➡️"
+              else:
+                  trend_icon = "➡️"
+              
+              report += f"| {week} | {data['success_rate']}% | {data['total_runs']} | {data['failures']} | {trend_icon} |\n"
+              prev_rate = data['success_rate']
+          
+          report += """
+          
+          ## 🔍 Trend Insights
+          
+          """
+          
+          if trend_data['trend_direction'] == 'improving':
+              report += """
+          ✅ **Positive Trend**: Workflow health is improving over time
+          - Continue current optimization efforts
+          - Monitor for sustained improvement
+          - Share successful practices across teams
+          """
+          elif trend_data['trend_direction'] == 'declining':
+              report += """
+          ⚠️ **Negative Trend**: Workflow health is declining
+          - Investigate root causes of increased failures
+          - Review recent changes that may impact stability
+          - Implement corrective measures immediately
+          """
+          elif trend_data['trend_direction'] == 'stable':
+              report += """
+          ➡️ **Stable Trend**: Workflow health is consistent
+          - Maintain current practices
+          - Look for optimization opportunities
+          - Prepare for future scalability needs
+          """
+          else:
+              report += """
+          ❓ **Insufficient Data**: More data needed for trend analysis
+          - Continue monitoring to establish baseline
+          - Implement consistent measurement practices
+          """
+          
+          report += """
+          
+          ## 📋 Recommendations Based on Trends
+          
+          ### Short-term Actions
+          - Monitor weekly performance metrics
+          - Address any declining trend patterns
+          - Optimize workflows showing consistent issues
+          
+          ### Long-term Strategy
+          - Establish performance baselines
+          - Implement proactive monitoring
+          - Create automated response to trend changes
+          
+          ---
+          *Trend analysis helps identify patterns and predict future performance*
+          """
+          
+          with open('trend-report.md', 'w') as f:
+              f.write(report)
+          
+          print("Trend report generated")
+          EOF
+
+      - name: 📤 Upload Trend Analysis
+        uses: actions/upload-artifact@v4
+        with:
+          name: trend-analysis-${{ github.run_number }}
+          path: |
+            trend_analysis.json
+            trend-report.md
+          retention-days: ${{ env.MONITORING_RETENTION_DAYS }}
+
+  # Summary Dashboard
+  monitoring-summary:
+    name: 📋 Monitoring Summary
+    runs-on: ubuntu-latest
+    needs: [collect-workflow-status, performance-analysis, health-alerting, trend-analysis]
+    if: always()
+    
+    steps:
+      - name: 📋 Generate Monitoring Dashboard
+        run: |
+          echo "📋 Generating comprehensive monitoring dashboard..."
+          
+          HEALTH_SCORE="${{ needs.collect-workflow-status.outputs.health_score }}"
+          ALERT_LEVEL="${{ needs.health-alerting.outputs.alert_level }}"
+          ALERT_MESSAGE="${{ needs.health-alerting.outputs.alert_message }}"
+          
+          cat > monitoring-dashboard.md << EOF
+          # 🏥 Workflow Health Monitoring Dashboard
+          
+          **Last Updated:** $(date -u +"%Y-%m-%d %H:%M:%S UTC")
+          **Repository:** ${{ github.repository }}
+          **Monitoring Run:** [${{ github.run_id }}](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }})
+          
+          ## 🎯 Current Status
+          
+          ### Overall Health Score: ${HEALTH_SCORE}/100
+          
+          $ALERT_MESSAGE
+          
+          ## 📊 Monitoring Jobs Status
+          
+          | Component | Status | Result |
+          |-----------|--------|--------|
+          | Workflow Status Collection | ${{ needs.collect-workflow-status.result }} | ✅ |
+          | Performance Analysis | ${{ needs.performance-analysis.result }} | ✅ |
+          | Health Alerting | ${{ needs.health-alerting.result }} | ✅ |
+          | Trend Analysis | ${{ needs.trend-analysis.result || 'Skipped' }} | $([ "${{ needs.trend-analysis.result }}" = "success" ] && echo "✅" || echo "⏭️") |
+          
+          ## 🔍 Available Reports
+          
+          - **Health Analysis Report**: Comprehensive workflow health breakdown
+          - **Performance Report**: Timing and efficiency metrics
+          - **Trend Analysis**: Historical performance patterns
+          - **Alert Status**: Current alert level and recommendations
+          
+          ## 🚨 Alert Configuration
+          
+          - **Critical Threshold**: < ${{ env.HEALTH_THRESHOLD_CRITICAL }}
+          - **Warning Threshold**: < ${{ env.HEALTH_THRESHOLD_WARNING }}
+          - **Good Threshold**: < ${{ env.HEALTH_THRESHOLD_GOOD }}
+          - **Current Alert Level**: $ALERT_LEVEL
+          
+          ## 📋 Next Steps
+          
+          1. **Review detailed reports** in workflow artifacts
+          2. **Address any alerts** based on severity level
+          3. **Monitor trends** for proactive optimization
+          4. **Schedule regular** health check reviews
+          
+          ---
+          *Automated monitoring helps maintain workflow reliability and performance*
+          EOF
+          
+          echo "📋 Monitoring dashboard generated"
+
+      - name: 📤 Upload Monitoring Dashboard
+        uses: actions/upload-artifact@v4
+        with:
+          name: monitoring-dashboard-${{ github.run_number }}
+          path: monitoring-dashboard.md
+          retention-days: ${{ env.MONITORING_RETENTION_DAYS }}
+
+      - name: 📊 Monitoring Summary
+        run: |
+          echo "📊 Workflow Health Monitoring Summary"
+          echo "====================================="
+          echo "Repository: ${{ github.repository }}"
+          echo "Health Score: ${{ needs.collect-workflow-status.outputs.health_score }}/100"
+          echo "Alert Level: ${{ needs.health-alerting.outputs.alert_level }}"
+          echo "Status: ${{ needs.health-alerting.outputs.alert_message }}"
+          echo ""
+          echo "Monitoring Components:"
+          echo "- Status Collection: ${{ needs.collect-workflow-status.result }}"
+          echo "- Performance Analysis: ${{ needs.performance-analysis.result }}"
+          echo "- Health Alerting: ${{ needs.health-alerting.result }}"
+          echo "- Trend Analysis: ${{ needs.trend-analysis.result || 'Skipped' }}"
+          echo ""
+          echo "📋 Workflow health monitoring completed!"
+          echo "🔍 Check artifacts for detailed reports and analysis"

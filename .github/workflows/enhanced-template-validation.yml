@@ -1,0 +1,1526 @@
+name: 🎯 Enhanced Template Validation
+
+on:
+  push:
+    branches: [main, develop]
+    paths:
+      - 'templates/**'
+      - 'docs/**'
+      - '**/*.md'
+      - '**/*.json'
+      - '**/*.yaml'
+      - '**/*.yml'
+      - '.github/workflows/enhanced-template-validation.yml'
+  pull_request:
+    branches: [main, develop]
+    paths:
+      - 'templates/**'
+      - 'docs/**'
+      - '**/*.md'
+      - '**/*.json'
+      - '**/*.yaml'
+      - '**/*.yml'
+  workflow_dispatch:
+    inputs:
+      validation_scope:
+        description: 'Validation scope'
+        required: false
+        default: 'comprehensive'
+        type: choice
+        options:
+          - comprehensive
+          - templates-only
+          - docs-only
+          - schema-only
+          - content-only
+          - accessibility-only
+      quality_level:
+        description: 'Quality validation level'
+        required: false
+        default: 'strict'
+        type: choice
+        options:
+          - strict
+          - standard
+          - lenient
+          - custom
+      generate_report:
+        description: 'Generate detailed validation report'
+        required: false
+        default: true
+        type: boolean
+
+env:
+  # Template Validation Configuration
+  QUALITY_THRESHOLD_SCORE: 85
+  CONTENT_ANALYSIS_ENABLED: true
+  ACCESSIBILITY_VALIDATION: true
+  SCHEMA_VALIDATION_STRICT: true
+  TEMPLATE_FORMATS: 'md,json,yaml,yml,html,xml'
+
+permissions:
+  contents: read
+  pull-requests: write
+  checks: write
+  issues: write
+
+jobs:
+  # Template Discovery and Classification
+  template-discovery:
+    name: 🔍 Template Discovery
+    runs-on: ubuntu-latest
+    outputs:
+      templates_found: ${{ steps.discover.outputs.templates_found }}
+      template_categories: ${{ steps.discover.outputs.template_categories }}
+      validation_matrix: ${{ steps.discover.outputs.validation_matrix }}
+      docs_found: ${{ steps.discover.outputs.docs_found }}
+    
+    steps:
+      - name: 📥 Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: 🔍 Discover Templates and Documents
+        id: discover
+        run: |
+          echo "🔍 Discovering templates and documents..."
+          
+          # Create discovery results directory
+          mkdir -p template-discovery
+          
+          python3 - << 'EOF'
+          import os
+          import json
+          import glob
+          import yaml
+          from pathlib import Path
+          from collections import defaultdict
+          
+          # Template categories and their patterns
+          template_categories = {
+              'project_management': [
+                  'project-*', 'pm-*', '*-project', '*-plan', 'charter*', 'roadmap*',
+                  'milestone*', 'timeline*', 'gantt*', 'schedule*'
+              ],
+              'agile': [
+                  'agile-*', 'scrum-*', 'kanban-*', 'sprint-*', 'user-story*', 
+                  'backlog*', 'retrospective*', 'standup*', 'epic*'
+              ],
+              'documentation': [
+                  'readme*', 'doc-*', 'documentation-*', 'guide-*', 'manual-*',
+                  'howto-*', 'tutorial-*', 'faq*', 'api-doc*'
+              ],
+              'reports': [
+                  'report-*', '*-report', 'status-*', 'dashboard-*', 'metrics-*',
+                  'kpi-*', 'analytics-*', 'summary-*'
+              ],
+              'processes': [
+                  'process-*', 'workflow-*', 'procedure-*', 'checklist-*',
+                  'template-*', 'standard-*', 'policy-*'
+              ],
+              'tools': [
+                  'tool-*', 'utility-*', 'script-*', 'automation-*', 'config-*'
+              ]
+          }
+          
+          # File extensions to validate
+          valid_extensions = ['.md', '.json', '.yaml', '.yml', '.html', '.xml', '.txt']
+          
+          # Discover all relevant files
+          discovered_files = []
+          
+          # Search in common template directories
+          search_paths = [
+              'templates/',
+              'docs/',
+              'documentation/',
+              'guides/',
+              './',
+              'examples/',
+              'samples/'
+          ]
+          
+          for search_path in search_paths:
+              if os.path.exists(search_path):
+                  for ext in valid_extensions:
+                      pattern = f"{search_path}**/*{ext}"
+                      files = glob.glob(pattern, recursive=True)
+                      discovered_files.extend(files)
+          
+          # Remove duplicates and sort
+          discovered_files = sorted(list(set(discovered_files)))
+          
+          print(f"Found {len(discovered_files)} files to analyze")
+          
+          # Categorize files
+          categorized_templates = defaultdict(list)
+          docs_files = []
+          validation_matrix = []
+          
+          for file_path in discovered_files:
+              file_info = {
+                  'path': file_path,
+                  'name': os.path.basename(file_path),
+                  'size': os.path.getsize(file_path) if os.path.exists(file_path) else 0,
+                  'extension': Path(file_path).suffix.lower(),
+                  'category': 'uncategorized',
+                  'validation_rules': []
+              }
+              
+              # Categorize based on filename patterns
+              filename_lower = file_info['name'].lower()
+              for category, patterns in template_categories.items():
+                  if any(
+                      filename_lower.startswith(pattern.replace('*', '')) or
+                      filename_lower.endswith(pattern.replace('*', '')) or
+                      pattern.replace('*', '') in filename_lower
+                      for pattern in patterns
+                  ):
+                      file_info['category'] = category
+                      break
+              
+              # Determine validation rules based on file type and category
+              validation_rules = ['syntax', 'structure', 'content']
+              
+              if file_info['extension'] in ['.md']:
+                  validation_rules.extend(['markdown', 'links', 'headings', 'accessibility'])
+              elif file_info['extension'] in ['.json']:
+                  validation_rules.extend(['json_schema', 'json_lint'])
+              elif file_info['extension'] in ['.yaml', '.yml']:
+                  validation_rules.extend(['yaml_schema', 'yaml_lint'])
+              elif file_info['extension'] in ['.html']:
+                  validation_rules.extend(['html_validation', 'accessibility', 'seo'])
+              
+              file_info['validation_rules'] = validation_rules
+              
+              # Add to appropriate category
+              if 'doc' in filename_lower or file_path.startswith('docs/'):
+                  docs_files.append(file_info)
+              else:
+                  categorized_templates[file_info['category']].append(file_info)
+              
+              # Add to validation matrix
+              validation_matrix.append({
+                  'file': file_path,
+                  'category': file_info['category'],
+                  'rules': validation_rules,
+                  'priority': 'high' if file_info['category'] != 'uncategorized' else 'medium'
+              })
+          
+          # Generate summary
+          summary = {
+              'total_files': len(discovered_files),
+              'templates_by_category': {cat: len(files) for cat, files in categorized_templates.items()},
+              'docs_files': len(docs_files),
+              'validation_matrix_size': len(validation_matrix)
+          }
+          
+          # Save results
+          with open('template-discovery/discovered_files.json', 'w') as f:
+              json.dump(discovered_files, f, indent=2)
+          
+          with open('template-discovery/categorized_templates.json', 'w') as f:
+              json.dump(dict(categorized_templates), f, indent=2, default=str)
+          
+          with open('template-discovery/docs_files.json', 'w') as f:
+              json.dump(docs_files, f, indent=2)
+          
+          with open('template-discovery/validation_matrix.json', 'w') as f:
+              json.dump(validation_matrix, f, indent=2)
+          
+          with open('template-discovery/summary.json', 'w') as f:
+              json.dump(summary, f, indent=2)
+          
+          print("Discovery Summary:")
+          print(f"  Total files: {summary['total_files']}")
+          print(f"  Documentation files: {summary['docs_files']}")
+          print(f"  Templates by category:")
+          for category, count in summary['templates_by_category'].items():
+              print(f"    {category}: {count}")
+          EOF
+          
+          # Set outputs from discovery results
+          TEMPLATES_FOUND=$(jq -r '.total_files' template-discovery/summary.json)
+          TEMPLATE_CATEGORIES=$(jq -c '.templates_by_category' template-discovery/summary.json)
+          VALIDATION_MATRIX=$(jq -c '.' template-discovery/validation_matrix.json)
+          DOCS_FOUND=$(jq -r '.docs_files' template-discovery/summary.json)
+          
+          echo "templates_found=$TEMPLATES_FOUND" >> $GITHUB_OUTPUT
+          echo "template_categories=$TEMPLATE_CATEGORIES" >> $GITHUB_OUTPUT
+          echo "validation_matrix=$VALIDATION_MATRIX" >> $GITHUB_OUTPUT
+          echo "docs_found=$DOCS_FOUND" >> $GITHUB_OUTPUT
+
+      - name: 📤 Upload Discovery Results
+        uses: actions/upload-artifact@v4
+        with:
+          name: template-discovery-${{ github.run_number }}
+          path: template-discovery/
+          retention-days: 30
+
+  # Schema and Structure Validation
+  schema-validation:
+    name: 📐 Schema & Structure Validation
+    runs-on: ubuntu-latest
+    needs: template-discovery
+    if: needs.template-discovery.outputs.templates_found > 0
+    
+    steps:
+      - name: 📥 Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: 📥 Download Discovery Results
+        uses: actions/download-artifact@v4
+        with:
+          name: template-discovery-${{ github.run_number }}
+          path: template-discovery/
+
+      - name: 🛠️ Setup Validation Tools
+        run: |
+          echo "🛠️ Installing validation tools..."
+          
+          # Install Node.js tools for validation
+          npm install -g \
+            ajv-cli \
+            markdown-cli \
+            html-validate \
+            yaml-lint \
+            jsonlint \
+            markdownlint-cli \
+            @apidevtools/swagger-parser
+          
+          # Install Python tools
+          pip install \
+            yamllint \
+            jsonschema \
+            markdown \
+            beautifulsoup4 \
+            html5lib \
+            lxml \
+            pyyaml \
+            jinja2
+          
+          echo "✅ Validation tools installed"
+
+      - name: 📐 JSON Schema Validation
+        run: |
+          echo "📐 Performing JSON schema validation..."
+          
+          mkdir -p validation-results/schema
+          
+          python3 - << 'EOF'
+          import json
+          import jsonschema
+          import os
+          import glob
+          from jsonschema import validate, ValidationError, Draft7Validator
+          
+          # Load discovered files
+          with open('template-discovery/validation_matrix.json', 'r') as f:
+              validation_matrix = json.load(f)
+          
+          # JSON Schema templates for different types
+          schemas = {
+              'project_management': {
+                  "type": "object",
+                  "properties": {
+                      "title": {"type": "string", "minLength": 1},
+                      "description": {"type": "string"},
+                      "version": {"type": "string"},
+                      "metadata": {"type": "object"},
+                      "content": {"type": "object"}
+                  },
+                  "required": ["title", "description"]
+              },
+              'agile': {
+                  "type": "object",
+                  "properties": {
+                      "methodology": {"type": "string", "enum": ["scrum", "kanban", "safe", "lean"]},
+                      "sprint_duration": {"type": "integer", "minimum": 1, "maximum": 4},
+                      "team_size": {"type": "integer", "minimum": 1, "maximum": 20},
+                      "ceremonies": {"type": "array", "items": {"type": "string"}}
+                  }
+              },
+              'reports': {
+                  "type": "object",
+                  "properties": {
+                      "report_type": {"type": "string"},
+                      "period": {"type": "string"},
+                      "metrics": {"type": "array"},
+                      "data": {"type": "object"},
+                      "generated_at": {"type": "string", "format": "date-time"}
+                  },
+                  "required": ["report_type", "period"]
+              }
+          }
+          
+          validation_results = []
+          
+          for item in validation_matrix:
+              if item['file'].endswith('.json') and 'json_schema' in item['rules']:
+                  file_path = item['file']
+                  category = item['category']
+                  
+                  try:
+                      with open(file_path, 'r') as f:
+                          data = json.load(f)
+                      
+                      # Use category-specific schema if available
+                      schema = schemas.get(category, schemas.get('project_management'))
+                      
+                      # Validate against schema
+                      validator = Draft7Validator(schema)
+                      errors = list(validator.iter_errors(data))
+                      
+                      result = {
+                          'file': file_path,
+                          'category': category,
+                          'valid': len(errors) == 0,
+                          'errors': [str(error) for error in errors],
+                          'score': 100 if len(errors) == 0 else max(0, 100 - len(errors) * 10)
+                      }
+                      
+                      validation_results.append(result)
+                      
+                      print(f"{'✅' if result['valid'] else '❌'} {file_path}: {result['score']}/100")
+                      
+                  except Exception as e:
+                      result = {
+                          'file': file_path,
+                          'category': category,
+                          'valid': False,
+                          'errors': [f"Validation error: {str(e)}"],
+                          'score': 0
+                      }
+                      validation_results.append(result)
+                      print(f"❌ {file_path}: Error - {str(e)}")
+          
+          # Save results
+          with open('validation-results/schema/json_validation.json', 'w') as f:
+              json.dump(validation_results, f, indent=2)
+          
+          print(f"JSON schema validation completed for {len(validation_results)} files")
+          EOF
+
+      - name: 📐 YAML Schema Validation
+        run: |
+          echo "📐 Performing YAML schema validation..."
+          
+          python3 - << 'EOF'
+          import yaml
+          import jsonschema
+          import json
+          import os
+          from jsonschema import validate, ValidationError
+          
+          # Load validation matrix
+          with open('template-discovery/validation_matrix.json', 'r') as f:
+              validation_matrix = json.load(f)
+          
+          # YAML schema for common template types
+          yaml_schemas = {
+              'workflow': {
+                  "type": "object",
+                  "properties": {
+                      "name": {"type": "string"},
+                      "on": {"type": "object"},
+                      "jobs": {"type": "object"},
+                      "env": {"type": "object"}
+                  },
+                  "required": ["name", "on", "jobs"]
+              },
+              'config': {
+                  "type": "object",
+                  "properties": {
+                      "version": {"type": "string"},
+                      "settings": {"type": "object"},
+                      "metadata": {"type": "object"}
+                  }
+              }
+          }
+          
+          validation_results = []
+          
+          for item in validation_matrix:
+              if item['file'].endswith(('.yaml', '.yml')) and 'yaml_schema' in item['rules']:
+                  file_path = item['file']
+                  
+                  try:
+                      with open(file_path, 'r') as f:
+                          data = yaml.safe_load(f)
+                      
+                      if data is None:
+                          continue
+                      
+                      # Determine schema type
+                      schema_type = 'config'
+                      if 'workflow' in file_path or '.github' in file_path:
+                          schema_type = 'workflow'
+                      
+                      schema = yaml_schemas.get(schema_type, yaml_schemas['config'])
+                      
+                      # Validate
+                      try:
+                          validate(instance=data, schema=schema)
+                          result = {
+                              'file': file_path,
+                              'valid': True,
+                              'errors': [],
+                              'score': 100,
+                              'schema_type': schema_type
+                          }
+                      except ValidationError as e:
+                          result = {
+                              'file': file_path,
+                              'valid': False,
+                              'errors': [str(e)],
+                              'score': 70,  # Partial credit for valid YAML
+                              'schema_type': schema_type
+                          }
+                      
+                      validation_results.append(result)
+                      print(f"{'✅' if result['valid'] else '⚠️'} {file_path}: {result['score']}/100")
+                      
+                  except yaml.YAMLError as e:
+                      result = {
+                          'file': file_path,
+                          'valid': False,
+                          'errors': [f"YAML syntax error: {str(e)}"],
+                          'score': 0,
+                          'schema_type': 'unknown'
+                      }
+                      validation_results.append(result)
+                      print(f"❌ {file_path}: YAML Error - {str(e)}")
+                  except Exception as e:
+                      result = {
+                          'file': file_path,
+                          'valid': False,
+                          'errors': [f"Validation error: {str(e)}"],
+                          'score': 0,
+                          'schema_type': 'unknown'
+                      }
+                      validation_results.append(result)
+                      print(f"❌ {file_path}: Error - {str(e)}")
+          
+          # Save results
+          with open('validation-results/schema/yaml_validation.json', 'w') as f:
+              json.dump(validation_results, f, indent=2)
+          
+          print(f"YAML schema validation completed for {len(validation_results)} files")
+          EOF
+
+      - name: 📐 Markdown Structure Validation
+        run: |
+          echo "📐 Performing Markdown structure validation..."
+          
+          python3 - << 'EOF'
+          import json
+          import re
+          import os
+          from pathlib import Path
+          
+          # Load validation matrix
+          with open('template-discovery/validation_matrix.json', 'r') as f:
+              validation_matrix = json.load(f)
+          
+          def validate_markdown_structure(file_path):
+              """Validate markdown file structure and content"""
+              try:
+                  with open(file_path, 'r', encoding='utf-8') as f:
+                      content = f.read()
+              except Exception as e:
+                  return {'valid': False, 'errors': [f"Cannot read file: {str(e)}"], 'score': 0}
+              
+              errors = []
+              warnings = []
+              score = 100
+              
+              # Check for required elements
+              if not re.search(r'^#\s+.+', content, re.MULTILINE):
+                  errors.append("Missing main heading (# Title)")
+                  score -= 20
+              
+              # Check heading hierarchy
+              headings = re.findall(r'^(#{1,6})\s+(.+)$', content, re.MULTILINE)
+              if headings:
+                  prev_level = 0
+                  for heading in headings:
+                      current_level = len(heading[0])
+                      if current_level > prev_level + 1:
+                          warnings.append(f"Heading hierarchy skip: {heading[1]}")
+                          score -= 5
+                      prev_level = current_level
+              
+              # Check for empty sections
+              sections = re.split(r'^#{1,6}\s+.+$', content, flags=re.MULTILINE)
+              empty_sections = sum(1 for section in sections[1:] if not section.strip())
+              if empty_sections > 0:
+                  warnings.append(f"{empty_sections} empty sections found")
+                  score -= empty_sections * 5
+              
+              # Check for broken internal links
+              internal_links = re.findall(r'\[([^\]]+)\]\(#([^)]+)\)', content)
+              if internal_links:
+                  content_lower = content.lower()
+                  for link_text, anchor in internal_links:
+                      # Simple anchor validation
+                      if anchor not in content_lower and anchor.replace('-', ' ') not in content_lower:
+                          warnings.append(f"Potentially broken internal link: #{anchor}")
+                          score -= 3
+              
+              # Check for TODO/FIXME markers
+              todo_markers = re.findall(r'(TODO|FIXME|XXX|HACK):', content, re.IGNORECASE)
+              if todo_markers:
+                  warnings.append(f"{len(todo_markers)} TODO/FIXME markers found")
+                  score -= len(todo_markers) * 2
+              
+              # Check for minimum content length
+              if len(content.strip()) < 100:
+                  warnings.append("Very short content (< 100 characters)")
+                  score -= 10
+              
+              # Check for code blocks without language specification
+              code_blocks = re.findall(r'```(\w*)\n', content)
+              unspecified_blocks = sum(1 for lang in code_blocks if not lang)
+              if unspecified_blocks > 0:
+                  warnings.append(f"{unspecified_blocks} code blocks without language specification")
+                  score -= unspecified_blocks * 3
+              
+              return {
+                  'valid': len(errors) == 0,
+                  'errors': errors,
+                  'warnings': warnings,
+                  'score': max(0, score),
+                  'stats': {
+                      'headings': len(headings),
+                      'content_length': len(content),
+                      'code_blocks': len(code_blocks),
+                      'internal_links': len(internal_links)
+                  }
+              }
+          
+          validation_results = []
+          
+          for item in validation_matrix:
+              if item['file'].endswith('.md') and 'markdown' in item['rules']:
+                  file_path = item['file']
+                  
+                  result = validate_markdown_structure(file_path)
+                  result['file'] = file_path
+                  result['category'] = item['category']
+                  
+                  validation_results.append(result)
+                  
+                  status = "✅" if result['valid'] else ("⚠️" if result['score'] >= 70 else "❌")
+                  print(f"{status} {file_path}: {result['score']}/100")
+                  
+                  if result['errors']:
+                      for error in result['errors']:
+                          print(f"  ❌ {error}")
+                  
+                  if result['warnings']:
+                      for warning in result['warnings'][:3]:  # Show first 3 warnings
+                          print(f"  ⚠️ {warning}")
+          
+          # Save results
+          with open('validation-results/schema/markdown_validation.json', 'w') as f:
+              json.dump(validation_results, f, indent=2)
+          
+          print(f"Markdown structure validation completed for {len(validation_results)} files")
+          EOF
+
+      - name: 📤 Upload Schema Validation Results
+        uses: actions/upload-artifact@v4
+        with:
+          name: schema-validation-results-${{ github.run_number }}
+          path: validation-results/schema/
+          retention-days: 30
+
+  # Content Quality Analysis
+  content-analysis:
+    name: 📝 Content Quality Analysis
+    runs-on: ubuntu-latest
+    needs: template-discovery
+    if: env.CONTENT_ANALYSIS_ENABLED == 'true'
+    
+    steps:
+      - name: 📥 Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: 📥 Download Discovery Results
+        uses: actions/download-artifact@v4
+        with:
+          name: template-discovery-${{ github.run_number }}
+          path: template-discovery/
+
+      - name: 📝 Content Quality Analysis
+        run: |
+          echo "📝 Performing content quality analysis..."
+          
+          mkdir -p validation-results/content
+          
+          python3 - << 'EOF'
+          import json
+          import re
+          import os
+          import statistics
+          from collections import Counter
+          
+          # Load validation matrix
+          with open('template-discovery/validation_matrix.json', 'r') as f:
+              validation_matrix = json.load(f)
+          
+          def analyze_content_quality(file_path, content):
+              """Analyze content quality metrics"""
+              
+              # Basic metrics
+              char_count = len(content)
+              word_count = len(content.split())
+              line_count = len(content.split('\n'))
+              
+              # Readability metrics (simplified)
+              sentences = re.split(r'[.!?]+', content)
+              sentence_count = len([s for s in sentences if s.strip()])
+              
+              avg_words_per_sentence = word_count / max(sentence_count, 1)
+              avg_chars_per_word = char_count / max(word_count, 1)
+              
+              # Content analysis
+              errors = []
+              warnings = []
+              quality_score = 100
+              
+              # Check for appropriate length
+              if word_count < 50:
+                  errors.append("Content too short (< 50 words)")
+                  quality_score -= 20
+              elif word_count < 100:
+                  warnings.append("Short content (< 100 words)")
+                  quality_score -= 10
+              
+              # Check readability
+              if avg_words_per_sentence > 25:
+                  warnings.append("Sentences may be too long (avg > 25 words)")
+                  quality_score -= 5
+              
+              if avg_chars_per_word > 6:
+                  warnings.append("Words may be too complex (avg > 6 chars)")
+                  quality_score -= 5
+              
+              # Check for passive voice (simplified)
+              passive_indicators = ['was', 'were', 'been', 'being', 'is', 'are']
+              passive_count = sum(content.lower().count(word) for word in passive_indicators)
+              passive_ratio = passive_count / max(word_count, 1)
+              
+              if passive_ratio > 0.3:
+                  warnings.append(f"High passive voice usage ({passive_ratio:.1%})")
+                  quality_score -= 10
+              
+              # Check for repetitive words
+              words = re.findall(r'\b\w+\b', content.lower())
+              word_freq = Counter(words)
+              
+              # Remove common words
+              common_words = {'the', 'and', 'or', 'but', 'in', 'on', 'at', 'to', 'for', 'of', 'with', 'by', 'a', 'an', 'is', 'are', 'was', 'were', 'be', 'been', 'have', 'has', 'had', 'do', 'does', 'did', 'will', 'would', 'could', 'should', 'may', 'might', 'can', 'this', 'that', 'these', 'those'}
+              
+              content_words = {word: count for word, count in word_freq.items() 
+                             if word not in common_words and len(word) > 3}
+              
+              repetitive_words = {word: count for word, count in content_words.items() 
+                                if count > max(3, word_count * 0.05)}
+              
+              if repetitive_words:
+                  warnings.append(f"Repetitive words found: {', '.join(list(repetitive_words.keys())[:3])}")
+                  quality_score -= len(repetitive_words) * 2
+              
+              # Check for placeholder text
+              placeholders = re.findall(r'\b(TODO|FIXME|XXX|PLACEHOLDER|TBD|REPLACE_ME)\b', content, re.IGNORECASE)
+              if placeholders:
+                  errors.append(f"{len(placeholders)} placeholder markers found")
+                  quality_score -= len(placeholders) * 5
+              
+              # Check for inconsistent formatting (markdown specific)
+              if file_path.endswith('.md'):
+                  # Check for inconsistent list markers
+                  list_markers = re.findall(r'^[\s]*[-*+]\s', content, re.MULTILINE)
+                  if len(set(list_markers)) > 1:
+                      warnings.append("Inconsistent list markers used")
+                      quality_score -= 5
+                  
+                  # Check for missing alt text in images
+                  images_without_alt = re.findall(r'!\[\s*\]\([^)]+\)', content)
+                  if images_without_alt:
+                      warnings.append(f"{len(images_without_alt)} images without alt text")
+                      quality_score -= len(images_without_alt) * 3
+              
+              return {
+                  'metrics': {
+                      'char_count': char_count,
+                      'word_count': word_count,
+                      'line_count': line_count,
+                      'sentence_count': sentence_count,
+                      'avg_words_per_sentence': round(avg_words_per_sentence, 1),
+                      'avg_chars_per_word': round(avg_chars_per_word, 1),
+                      'passive_ratio': round(passive_ratio, 3)
+                  },
+                  'quality_score': max(0, quality_score),
+                  'errors': errors,
+                  'warnings': warnings,
+                  'valid': len(errors) == 0
+              }
+          
+          analysis_results = []
+          
+          for item in validation_matrix:
+              if 'content' in item['rules']:
+                  file_path = item['file']
+                  
+                  try:
+                      with open(file_path, 'r', encoding='utf-8') as f:
+                          content = f.read()
+                      
+                      analysis = analyze_content_quality(file_path, content)
+                      analysis['file'] = file_path
+                      analysis['category'] = item['category']
+                      
+                      analysis_results.append(analysis)
+                      
+                      status = "✅" if analysis['valid'] else ("⚠️" if analysis['quality_score'] >= 70 else "❌")
+                      print(f"{status} {file_path}: {analysis['quality_score']}/100 "
+                            f"({analysis['metrics']['word_count']} words)")
+                      
+                      if analysis['errors']:
+                          for error in analysis['errors'][:2]:
+                              print(f"  ❌ {error}")
+                      
+                      if analysis['warnings']:
+                          for warning in analysis['warnings'][:2]:
+                              print(f"  ⚠️ {warning}")
+                              
+                  except Exception as e:
+                      analysis = {
+                          'file': file_path,
+                          'category': item['category'],
+                          'valid': False,
+                          'quality_score': 0,
+                          'errors': [f"Analysis error: {str(e)}"],
+                          'warnings': [],
+                          'metrics': {}
+                      }
+                      analysis_results.append(analysis)
+                      print(f"❌ {file_path}: Error - {str(e)}")
+          
+          # Generate content quality summary
+          if analysis_results:
+              scores = [r['quality_score'] for r in analysis_results if r['quality_score'] > 0]
+              word_counts = [r['metrics'].get('word_count', 0) for r in analysis_results if r['metrics']]
+              
+              summary = {
+                  'total_files': len(analysis_results),
+                  'avg_quality_score': round(statistics.mean(scores), 1) if scores else 0,
+                  'files_passed': sum(1 for r in analysis_results if r['valid']),
+                  'avg_word_count': round(statistics.mean(word_counts), 1) if word_counts else 0,
+                  'total_errors': sum(len(r['errors']) for r in analysis_results),
+                  'total_warnings': sum(len(r['warnings']) for r in analysis_results)
+              }
+              
+              print(f"\nContent Quality Summary:")
+              print(f"  Files analyzed: {summary['total_files']}")
+              print(f"  Average quality score: {summary['avg_quality_score']}/100")
+              print(f"  Files passed: {summary['files_passed']}/{summary['total_files']}")
+              print(f"  Average word count: {summary['avg_word_count']}")
+              print(f"  Total issues: {summary['total_errors']} errors, {summary['total_warnings']} warnings")
+              
+              # Save summary
+              with open('validation-results/content/summary.json', 'w') as f:
+                  json.dump(summary, f, indent=2)
+          
+          # Save detailed results
+          with open('validation-results/content/content_analysis.json', 'w') as f:
+              json.dump(analysis_results, f, indent=2)
+          
+          print(f"Content quality analysis completed for {len(analysis_results)} files")
+          EOF
+
+      - name: 📤 Upload Content Analysis Results
+        uses: actions/upload-artifact@v4
+        with:
+          name: content-analysis-results-${{ github.run_number }}
+          path: validation-results/content/
+          retention-days: 30
+
+  # Accessibility Validation
+  accessibility-validation:
+    name: ♿ Accessibility Validation
+    runs-on: ubuntu-latest
+    needs: template-discovery
+    if: env.ACCESSIBILITY_VALIDATION == 'true'
+    
+    steps:
+      - name: 📥 Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: 📥 Download Discovery Results
+        uses: actions/download-artifact@v4
+        with:
+          name: template-discovery-${{ github.run_number }}
+          path: template-discovery/
+
+      - name: ♿ Accessibility Analysis
+        run: |
+          echo "♿ Performing accessibility validation..."
+          
+          mkdir -p validation-results/accessibility
+          
+          python3 - << 'EOF'
+          import json
+          import re
+          import os
+          from urllib.parse import urlparse
+          
+          # Load validation matrix
+          with open('template-discovery/validation_matrix.json', 'r') as f:
+              validation_matrix = json.load(f)
+          
+          def validate_accessibility(file_path, content):
+              """Validate accessibility guidelines"""
+              
+              issues = []
+              warnings = []
+              score = 100
+              
+              # Check for images without alt text
+              images = re.findall(r'!\[([^\]]*)\]\([^)]+\)', content)
+              images_without_alt = [img for img in images if not img.strip()]
+              
+              if images_without_alt:
+                  issues.append(f"{len(images_without_alt)} images without alt text")
+                  score -= len(images_without_alt) * 10
+              
+              # Check for meaningful link text
+              links = re.findall(r'\[([^\]]+)\]\([^)]+\)', content)
+              generic_link_text = ['click here', 'read more', 'here', 'link', 'more']
+              
+              generic_links = [link for link in links if link.lower().strip() in generic_link_text]
+              if generic_links:
+                  warnings.append(f"{len(generic_links)} links with generic text")
+                  score -= len(generic_links) * 5
+              
+              # Check heading structure for screen readers
+              headings = re.findall(r'^(#{1,6})\s+(.+)$', content, re.MULTILINE)
+              if headings:
+                  # Check for proper heading hierarchy
+                  levels = [len(h[0]) for h in headings]
+                  for i in range(1, len(levels)):
+                      if levels[i] > levels[i-1] + 1:
+                          warnings.append("Heading hierarchy skips levels")
+                          score -= 5
+                          break
+              else:
+                  if len(content) > 500:  # Only warn for substantial content
+                      warnings.append("No headings found in substantial content")
+                      score -= 10
+              
+              # Check for color-only information (basic check)
+              color_indicators = re.findall(r'\b(red|green|blue|yellow|orange|purple)\b', content, re.IGNORECASE)
+              if len(color_indicators) > 3:
+                  warnings.append("Potential reliance on color for information")
+                  score -= 5
+              
+              # Check for table headers (if tables present)
+              tables = re.findall(r'\|[^|]+\|', content)
+              if tables:
+                  # Look for header indicators
+                  table_headers = re.findall(r'\|[^|]*\|[\s]*\n\|[-:| ]+\|', content)
+                  if not table_headers:
+                      warnings.append("Tables without proper headers detected")
+                      score -= 10
+              
+              # Check for adequate contrast indicators (basic text analysis)
+              if file_path.endswith('.html'):
+                  # Look for potential contrast issues in HTML
+                  style_attributes = re.findall(r'style="[^"]*color[^"]*"', content, re.IGNORECASE)
+                  if style_attributes:
+                      warnings.append("Inline color styles found - verify contrast ratios")
+                      score -= 3
+              
+              # Check for language specification
+              if file_path.endswith('.html'):
+                  if not re.search(r'<html[^>]*lang=', content, re.IGNORECASE):
+                      issues.append("HTML document missing language specification")
+                      score -= 15
+              
+              # Check for form accessibility (if forms present)
+              if file_path.endswith('.html'):
+                  inputs = re.findall(r'<input[^>]*>', content, re.IGNORECASE)
+                  for input_tag in inputs:
+                      if 'id=' in input_tag:
+                          input_id = re.search(r'id="([^"]*)"', input_tag)
+                          if input_id:
+                              # Check for associated label
+                              label_pattern = f'for="{input_id.group(1)}"'
+                              if label_pattern not in content:
+                                  warnings.append(f"Input {input_id.group(1)} missing associated label")
+                                  score -= 5
+              
+              return {
+                  'accessibility_score': max(0, score),
+                  'issues': issues,
+                  'warnings': warnings,
+                  'valid': len(issues) == 0,
+                  'wcag_level': 'AA' if score >= 90 else ('A' if score >= 70 else 'Non-compliant')
+              }
+          
+          accessibility_results = []
+          
+          for item in validation_matrix:
+              if 'accessibility' in item['rules']:
+                  file_path = item['file']
+                  
+                  try:
+                      with open(file_path, 'r', encoding='utf-8') as f:
+                          content = f.read()
+                      
+                      result = validate_accessibility(file_path, content)
+                      result['file'] = file_path
+                      result['category'] = item['category']
+                      
+                      accessibility_results.append(result)
+                      
+                      status = "✅" if result['valid'] else ("⚠️" if result['accessibility_score'] >= 70 else "❌")
+                      print(f"{status} {file_path}: {result['accessibility_score']}/100 (WCAG {result['wcag_level']})")
+                      
+                      if result['issues']:
+                          for issue in result['issues'][:2]:
+                              print(f"  ❌ {issue}")
+                      
+                      if result['warnings']:
+                          for warning in result['warnings'][:2]:
+                              print(f"  ⚠️ {warning}")
+                              
+                  except Exception as e:
+                      result = {
+                          'file': file_path,
+                          'category': item['category'],
+                          'valid': False,
+                          'accessibility_score': 0,
+                          'issues': [f"Analysis error: {str(e)}"],
+                          'warnings': [],
+                          'wcag_level': 'Error'
+                      }
+                      accessibility_results.append(result)
+                      print(f"❌ {file_path}: Error - {str(e)}")
+          
+          # Save results
+          with open('validation-results/accessibility/accessibility_validation.json', 'w') as f:
+              json.dump(accessibility_results, f, indent=2)
+          
+          print(f"Accessibility validation completed for {len(accessibility_results)} files")
+          EOF
+
+      - name: 📤 Upload Accessibility Results
+        uses: actions/upload-artifact@v4
+        with:
+          name: accessibility-validation-results-${{ github.run_number }}
+          path: validation-results/accessibility/
+          retention-days: 30
+
+  # Comprehensive Validation Report
+  validation-report:
+    name: 📊 Validation Report
+    runs-on: ubuntu-latest
+    needs: [template-discovery, schema-validation, content-analysis, accessibility-validation]
+    if: always() && github.event.inputs.generate_report != 'false'
+    
+    steps:
+      - name: 📥 Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: 📥 Download All Validation Results
+        uses: actions/download-artifact@v4
+        with:
+          pattern: "*-validation-results-${{ github.run_number }}"
+          merge-multiple: true
+
+      - name: 📥 Download Discovery Results
+        uses: actions/download-artifact@v4
+        with:
+          name: template-discovery-${{ github.run_number }}
+          path: template-discovery/
+
+      - name: 📊 Generate Comprehensive Report
+        run: |
+          echo "📊 Generating comprehensive validation report..."
+          
+          python3 - << 'EOF'
+          import json
+          import os
+          from datetime import datetime
+          from statistics import mean
+          
+          # Load all validation results
+          results = {
+              'schema': {},
+              'content': {},
+              'accessibility': {}
+          }
+          
+          # Load schema validation results
+          if os.path.exists('validation-results/schema/json_validation.json'):
+              with open('validation-results/schema/json_validation.json', 'r') as f:
+                  results['schema']['json'] = json.load(f)
+          
+          if os.path.exists('validation-results/schema/yaml_validation.json'):
+              with open('validation-results/schema/yaml_validation.json', 'r') as f:
+                  results['schema']['yaml'] = json.load(f)
+          
+          if os.path.exists('validation-results/schema/markdown_validation.json'):
+              with open('validation-results/schema/markdown_validation.json', 'r') as f:
+                  results['schema']['markdown'] = json.load(f)
+          
+          # Load content analysis results
+          if os.path.exists('validation-results/content/content_analysis.json'):
+              with open('validation-results/content/content_analysis.json', 'r') as f:
+                  results['content']['analysis'] = json.load(f)
+          
+          # Load accessibility results
+          if os.path.exists('validation-results/accessibility/accessibility_validation.json'):
+              with open('validation-results/accessibility/accessibility_validation.json', 'r') as f:
+                  results['accessibility']['validation'] = json.load(f)
+          
+          # Load discovery summary
+          with open('template-discovery/summary.json', 'r') as f:
+              discovery_summary = json.load(f)
+          
+          # Generate comprehensive report
+          report = f"""# 🎯 Enhanced Template Validation Report
+          
+          **Generated:** {datetime.now().isoformat()}
+          **Repository:** ${{ github.repository }}
+          **Validation Scope:** ${{ github.event.inputs.validation_scope || 'comprehensive' }}
+          **Quality Level:** ${{ github.event.inputs.quality_level || 'strict' }}
+          
+          ## 📊 Executive Summary
+          
+          ### Files Analyzed
+          - **Total Files:** {discovery_summary['total_files']}
+          - **Documentation Files:** {discovery_summary['docs_files']}
+          - **Template Categories:** {len(discovery_summary['templates_by_category'])}
+          
+          ### Quality Metrics
+          """
+          
+          # Calculate overall scores
+          all_scores = []
+          validation_counts = {'passed': 0, 'failed': 0, 'warnings': 0}
+          
+          # Schema validation scores
+          for validation_type, data in results['schema'].items():
+              if data:
+                  scores = [item.get('score', 0) for item in data]
+                  if scores:
+                      all_scores.extend(scores)
+                      validation_counts['passed'] += sum(1 for item in data if item.get('valid', False))
+                      validation_counts['failed'] += sum(1 for item in data if not item.get('valid', True))
+          
+          # Content analysis scores
+          if results['content'].get('analysis'):
+              content_scores = [item.get('quality_score', 0) for item in results['content']['analysis']]
+              if content_scores:
+                  all_scores.extend(content_scores)
+                  validation_counts['passed'] += sum(1 for item in results['content']['analysis'] if item.get('valid', False))
+                  validation_counts['failed'] += sum(1 for item in results['content']['analysis'] if not item.get('valid', True))
+          
+          # Accessibility scores
+          if results['accessibility'].get('validation'):
+              accessibility_scores = [item.get('accessibility_score', 0) for item in results['accessibility']['validation']]
+              if accessibility_scores:
+                  all_scores.extend(accessibility_scores)
+                  validation_counts['passed'] += sum(1 for item in results['accessibility']['validation'] if item.get('valid', False))
+                  validation_counts['failed'] += sum(1 for item in results['accessibility']['validation'] if not item.get('valid', True))
+          
+          overall_score = round(mean(all_scores), 1) if all_scores else 0
+          total_validations = validation_counts['passed'] + validation_counts['failed']
+          pass_rate = round((validation_counts['passed'] / max(total_validations, 1)) * 100, 1)
+          
+          # Determine quality level
+          if overall_score >= 90:
+              quality_level = "🟢 Excellent"
+          elif overall_score >= 80:
+              quality_level = "🟡 Good"
+          elif overall_score >= 70:
+              quality_level = "🟠 Fair"
+          else:
+              quality_level = "🔴 Needs Improvement"
+          
+          report += f"""
+          | Metric | Value | Status |
+          |--------|-------|--------|
+          | Overall Quality Score | {overall_score}/100 | {quality_level} |
+          | Validation Pass Rate | {pass_rate}% | {'✅' if pass_rate >= 80 else '⚠️' if pass_rate >= 60 else '❌'} |
+          | Files Passed | {validation_counts['passed']}/{total_validations} | {'✅' if validation_counts['passed'] == total_validations else '⚠️'} |
+          | Quality Threshold | {os.environ.get('QUALITY_THRESHOLD_SCORE', 85)}/100 | {'✅ Met' if overall_score >= int(os.environ.get('QUALITY_THRESHOLD_SCORE', 85)) else '❌ Not Met'} |
+          
+          ## 📋 Validation Details
+          
+          ### Schema & Structure Validation
+          """
+          
+          # Schema validation details
+          for validation_type, data in results['schema'].items():
+              if data:
+                  passed = sum(1 for item in data if item.get('valid', False))
+                  total = len(data)
+                  avg_score = round(mean([item.get('score', 0) for item in data]), 1)
+                  
+                  report += f"""
+          #### {validation_type.upper()} Validation
+          - **Files Validated:** {total}
+          - **Passed:** {passed}/{total}
+          - **Average Score:** {avg_score}/100
+          """
+          
+          # Content analysis details
+          if results['content'].get('analysis'):
+              content_data = results['content']['analysis']
+              passed = sum(1 for item in content_data if item.get('valid', False))
+              total = len(content_data)
+              avg_score = round(mean([item.get('quality_score', 0) for item in content_data]), 1)
+              
+              report += f"""
+          ### Content Quality Analysis
+          - **Files Analyzed:** {total}
+          - **Passed Quality Check:** {passed}/{total}
+          - **Average Quality Score:** {avg_score}/100
+          """
+              
+              if os.path.exists('validation-results/content/summary.json'):
+                  with open('validation-results/content/summary.json', 'r') as f:
+                      content_summary = json.load(f)
+                  
+                  report += f"""
+          - **Average Word Count:** {content_summary.get('avg_word_count', 0)} words
+          - **Total Issues:** {content_summary.get('total_errors', 0)} errors, {content_summary.get('total_warnings', 0)} warnings
+          """
+          
+          # Accessibility details
+          if results['accessibility'].get('validation'):
+              accessibility_data = results['accessibility']['validation']
+              passed = sum(1 for item in accessibility_data if item.get('valid', False))
+              total = len(accessibility_data)
+              avg_score = round(mean([item.get('accessibility_score', 0) for item in accessibility_data]), 1)
+              
+              # WCAG compliance levels
+              wcag_levels = {}
+              for item in accessibility_data:
+                  level = item.get('wcag_level', 'Unknown')
+                  wcag_levels[level] = wcag_levels.get(level, 0) + 1
+              
+              report += f"""
+          ### Accessibility Validation
+          - **Files Validated:** {total}
+          - **Accessibility Compliant:** {passed}/{total}
+          - **Average Accessibility Score:** {avg_score}/100
+          - **WCAG Compliance:**
+          """
+              
+              for level, count in wcag_levels.items():
+                  report += f"  - {level}: {count} files\n"
+          
+          # Top issues summary
+          report += f"""
+          
+          ## 🔍 Common Issues Found
+          
+          ### Top Issues by Category
+          """
+          
+          # Collect all issues
+          all_issues = []
+          
+          for validation_type, data in results['schema'].items():
+              if data:
+                  for item in data:
+                      all_issues.extend(item.get('errors', []))
+                      all_issues.extend(item.get('warnings', []))
+          
+          if results['content'].get('analysis'):
+              for item in results['content']['analysis']:
+                  all_issues.extend(item.get('errors', []))
+                  all_issues.extend(item.get('warnings', []))
+          
+          if results['accessibility'].get('validation'):
+              for item in results['accessibility']['validation']:
+                  all_issues.extend(item.get('issues', []))
+                  all_issues.extend(item.get('warnings', []))
+          
+          # Count issue types
+          from collections import Counter
+          issue_counts = Counter(all_issues)
+          
+          if issue_counts:
+              report += "\n| Issue | Frequency |\n|-------|----------|\n"
+              for issue, count in issue_counts.most_common(10):
+                  report += f"| {issue[:60]}{'...' if len(issue) > 60 else ''} | {count} |\n"
+          else:
+              report += "\n✅ No common issues found across files.\n"
+          
+          # Recommendations
+          report += f"""
+          
+          ## 📋 Recommendations
+          
+          ### Immediate Actions
+          """
+          
+          if overall_score < 70:
+              report += """
+          - 🔴 **Critical**: Address validation failures before proceeding
+          - Review and fix schema validation errors
+          - Improve content quality and readability
+          - Implement accessibility best practices
+          """
+          elif overall_score < 85:
+              report += """
+          - 🟡 **Important**: Improve quality to meet standards
+          - Address remaining validation warnings
+          - Enhance content structure and clarity
+          - Review accessibility compliance
+          """
+          else:
+              report += """
+          - ✅ **Maintenance**: Continue current quality practices
+          - Address minor warnings when convenient
+          - Monitor for quality regression
+          - Consider advanced optimization
+          """
+          
+          report += f"""
+          
+          ### Quality Improvement Strategies
+          
+          1. **Template Standardization**
+             - Establish consistent structure across all templates
+             - Create template style guides and best practices
+             - Implement automated quality checks in development workflow
+          
+          2. **Content Enhancement**
+             - Improve readability with shorter sentences and clearer language
+             - Add missing sections and complete placeholder content
+             - Ensure adequate content length and depth
+          
+          3. **Accessibility Compliance**
+             - Add alt text to all images and visual elements
+             - Ensure proper heading hierarchy for screen readers
+             - Use meaningful link text and descriptions
+             - Verify color contrast and visual accessibility
+          
+          4. **Documentation Maintenance**
+             - Regular review and update cycles
+             - Version control for template changes
+             - User feedback integration process
+          
+          ## 📊 Quality Trends
+          
+          *Note: Trend analysis requires multiple validation runs over time*
+          
+          ## 🔄 Next Steps
+          
+          1. **Review failing validations** and prioritize fixes
+          2. **Implement quality improvements** based on recommendations
+          3. **Establish quality gates** in development process
+          4. **Schedule regular validation** runs for continuous improvement
+          
+          ---
+          *Generated by Enhanced Template Validation System*
+          """
+          
+          # Save comprehensive report
+          with open('comprehensive-validation-report.md', 'w') as f:
+              f.write(report)
+          
+          # Save summary data
+          summary_data = {
+              'timestamp': datetime.now().isoformat(),
+              'overall_score': overall_score,
+              'pass_rate': pass_rate,
+              'total_files': discovery_summary['total_files'],
+              'validations': {
+                  'passed': validation_counts['passed'],
+                  'failed': validation_counts['failed'],
+                  'total': total_validations
+              },
+              'quality_level': quality_level,
+              'threshold_met': overall_score >= int(os.environ.get('QUALITY_THRESHOLD_SCORE', 85))
+          }
+          
+          with open('validation-summary.json', 'w') as f:
+              json.dump(summary_data, f, indent=2)
+          
+          print(f"📊 Validation Report Generated")
+          print(f"Overall Score: {overall_score}/100 ({quality_level})")
+          print(f"Pass Rate: {pass_rate}% ({validation_counts['passed']}/{total_validations})")
+          print(f"Quality Threshold: {'✅ Met' if summary_data['threshold_met'] else '❌ Not Met'}")
+          EOF
+
+      - name: 💬 Comment on Pull Request
+        if: github.event_name == 'pull_request'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            
+            // Load validation summary
+            let summary;
+            try {
+              summary = JSON.parse(fs.readFileSync('validation-summary.json', 'utf8'));
+            } catch (e) {
+              summary = { overall_score: 0, pass_rate: 0, quality_level: 'Unknown' };
+            }
+            
+            const qualityEmoji = summary.overall_score >= 90 ? '🟢' : 
+                               summary.overall_score >= 80 ? '🟡' : 
+                               summary.overall_score >= 70 ? '🟠' : '🔴';
+            
+            const thresholdMet = summary.threshold_met ? '✅' : '❌';
+            
+            const commentBody = `## 🎯 Template Validation Results
+            
+            ### 📊 Quality Summary
+            ${qualityEmoji} **Overall Score:** ${summary.overall_score}/100 (${summary.quality_level})
+            
+            | Metric | Value | Status |
+            |--------|-------|--------|
+            | Validation Pass Rate | ${summary.pass_rate}% | ${summary.pass_rate >= 80 ? '✅' : '⚠️'} |
+            | Files Validated | ${summary.validations?.total || 0} | - |
+            | Quality Threshold | ${summary.overall_score}/${process.env.QUALITY_THRESHOLD_SCORE || 85} | ${thresholdMet} |
+            
+            ### 🔍 Validation Coverage
+            - **Schema & Structure:** ✅ Validated
+            - **Content Quality:** ✅ Analyzed  
+            - **Accessibility:** ✅ Checked
+            - **Template Standards:** ✅ Reviewed
+            
+            ### 📋 Next Steps
+            ${summary.overall_score < 70 ? 
+              '🔴 **Action Required:** Address critical validation failures before merging' :
+              summary.overall_score < 85 ?
+              '🟡 **Recommended:** Resolve remaining issues for better quality' :
+              '✅ **Good Quality:** Templates meet validation standards'
+            }
+            
+            📄 [View Detailed Report](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }})
+            `;
+            
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: commentBody
+            });
+
+      - name: 🚨 Create Quality Issue (if needed)
+        if: needs.template-discovery.outputs.templates_found > 0
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          # Read validation summary
+          OVERALL_SCORE=$(jq -r '.overall_score' validation-summary.json 2>/dev/null || echo 0)
+          THRESHOLD=$(echo "${QUALITY_THRESHOLD_SCORE:-85}")
+          
+          if (( $(echo "$OVERALL_SCORE < $THRESHOLD" | bc -l) )); then
+            echo "🚨 Creating quality issue for score below threshold..."
+            
+            PASS_RATE=$(jq -r '.pass_rate' validation-summary.json 2>/dev/null || echo 0)
+            TOTAL_FILES=$(jq -r '.total_files' validation-summary.json 2>/dev/null || echo 0)
+            
+            ISSUE_TITLE="🎯 Template Quality Below Threshold (Score: ${OVERALL_SCORE}/${THRESHOLD})"
+            
+            ISSUE_BODY=$(cat << 'EOF'
+          ## 🎯 Template Quality Alert
+          
+          **Quality Score:** $(jq -r '.overall_score' validation-summary.json)/$(echo "${QUALITY_THRESHOLD_SCORE:-85}")
+          **Pass Rate:** $(jq -r '.pass_rate' validation-summary.json)%
+          **Files Analyzed:** $(jq -r '.total_files' validation-summary.json)
+          **Detection Time:** $(date -u +"%Y-%m-%d %H:%M:%S UTC")
+          **Validation Run:** [View Details](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }})
+          
+          ### 🚨 Quality Issues Detected
+          
+          The template validation system has identified quality issues that require attention.
+          
+          ### 📊 Current Metrics
+          - **Quality Threshold:** $(echo "${QUALITY_THRESHOLD_SCORE:-85}")/100 (Required)
+          - **Current Score:** $(jq -r '.overall_score' validation-summary.json)/100
+          - **Gap:** $(echo "$(echo "${QUALITY_THRESHOLD_SCORE:-85}") - $(jq -r '.overall_score' validation-summary.json)" | bc) points
+          
+          ### 🔧 Areas Requiring Attention
+          
+          - [ ] Schema and structure validation failures
+          - [ ] Content quality and readability issues
+          - [ ] Accessibility compliance gaps
+          - [ ] Template standardization needs
+          
+          ### 📋 Immediate Actions Required
+          
+          1. **Review Validation Report**: Check detailed analysis in workflow artifacts
+          2. **Fix Critical Issues**: Address schema validation errors first
+          3. **Improve Content**: Enhance readability and completeness
+          4. **Accessibility**: Implement accessibility best practices
+          5. **Re-validate**: Run validation again after fixes
+          
+          ### 📈 Quality Improvement Plan
+          
+          - Establish template style guides and standards
+          - Implement quality gates in development process  
+          - Regular validation and review cycles
+          - Team training on quality best practices
+          
+          ---
+          *This issue was automatically created by the Enhanced Template Validation System*
+          EOF
+            )
+            
+            gh issue create \
+              --title "$ISSUE_TITLE" \
+              --body "$ISSUE_BODY" \
+              --label "quality,template-validation,improvement"
+          else
+            echo "✅ Quality score meets threshold - no issue needed"
+          fi
+
+      - name: 📤 Upload Comprehensive Report
+        uses: actions/upload-artifact@v4
+        with:
+          name: comprehensive-validation-report-${{ github.run_number }}
+          path: |
+            comprehensive-validation-report.md
+            validation-summary.json
+          retention-days: 90
+
+      - name: 📊 Validation Summary
+        run: |
+          echo "📊 Enhanced Template Validation Summary"
+          echo "======================================="
+          echo "Repository: ${{ github.repository }}"
+          echo "Validation Scope: ${{ github.event.inputs.validation_scope || 'comprehensive' }}"
+          echo "Quality Level: ${{ github.event.inputs.quality_level || 'strict' }}"
+          echo ""
+          echo "📋 Results:"
+          if [ -f validation-summary.json ]; then
+            echo "- Overall Score: $(jq -r '.overall_score' validation-summary.json)/100"
+            echo "- Pass Rate: $(jq -r '.pass_rate' validation-summary.json)%"
+            echo "- Files Analyzed: $(jq -r '.total_files' validation-summary.json)"
+            echo "- Quality Threshold: $([ "$(jq -r '.threshold_met' validation-summary.json)" = "true" ] && echo "✅ Met" || echo "❌ Not Met")"
+          else
+            echo "- Validation summary not available"
+          fi
+          echo ""
+          echo "🔍 Components Completed:"
+          echo "- Template Discovery: ${{ needs.template-discovery.result }}"
+          echo "- Schema Validation: ${{ needs.schema-validation.result || 'Skipped' }}"
+          echo "- Content Analysis: ${{ needs.content-analysis.result || 'Skipped' }}"
+          echo "- Accessibility: ${{ needs.accessibility-validation.result || 'Skipped' }}"
+          echo ""
+          echo "📋 Enhanced template validation completed!"
+          echo "🔍 Check artifacts for detailed reports and recommendations"

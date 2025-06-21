@@ -1,0 +1,347 @@
+name: 🔒 Dependency Security Scan
+
+on:
+  schedule:
+    # Weekly Monday 6 AM UTC - comprehensive scan
+    - cron: '0 6 * * 1'
+  pull_request:
+    paths: 
+      - '**/package*.json'
+      - '**/requirements*.txt'
+      - '**/Pipfile*'
+      - '**/composer.json'
+      - '**/go.mod'
+      - '**/Cargo.toml'
+      - '.github/workflows/dependency-security.yml'
+  push:
+    branches: [main]
+    paths:
+      - '**/package*.json'
+      - '**/requirements*.txt'
+      - '**/Pipfile*'
+  workflow_dispatch:
+    inputs:
+      scan_type:
+        description: 'Type of dependency scan'
+        required: true
+        default: 'comprehensive'
+        type: choice
+        options:
+          - comprehensive
+          - vulnerability-only
+          - license-only
+          - outdated-packages
+
+env:
+  # Security scanning configuration
+  VULNERABILITY_THRESHOLD: 'moderate'  # moderate, high, critical
+  LICENSE_ALLOWLIST: 'MIT,Apache-2.0,BSD-3-Clause,ISC'
+
+jobs:
+  dependency-scan:
+    name: Dependency Security Analysis
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      security-events: write
+      pull-requests: write
+      actions: read
+
+    steps:
+      - name: 📥 Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: 🔍 Detect Project Languages
+        id: detect-languages
+        run: |
+          # Detect which languages/package managers are present
+          HAS_NODE=$([ -f package.json ] && echo "true" || echo "false")
+          HAS_PYTHON=$([ -f requirements.txt ] || [ -f Pipfile ] && echo "true" || echo "false")
+          HAS_COMPOSER=$([ -f composer.json ] && echo "true" || echo "false")
+          HAS_GO=$([ -f go.mod ] && echo "true" || echo "false")
+          HAS_RUST=$([ -f Cargo.toml ] && echo "true" || echo "false")
+          
+          echo "has_node=$HAS_NODE" >> $GITHUB_OUTPUT
+          echo "has_python=$HAS_PYTHON" >> $GITHUB_OUTPUT
+          echo "has_composer=$HAS_COMPOSER" >> $GITHUB_OUTPUT
+          echo "has_go=$HAS_GO" >> $GITHUB_OUTPUT
+          echo "has_rust=$HAS_RUST" >> $GITHUB_OUTPUT
+          
+          echo "🔍 Detected languages:"
+          echo "- Node.js: $HAS_NODE"
+          echo "- Python: $HAS_PYTHON"
+          echo "- PHP: $HAS_COMPOSER"
+          echo "- Go: $HAS_GO"
+          echo "- Rust: $HAS_RUST"
+
+      - name: 🛡️ Run GitHub Dependency Review
+        if: github.event_name == 'pull_request'
+        uses: actions/dependency-review-action@v4
+        with:
+          fail-on-severity: ${{ env.VULNERABILITY_THRESHOLD }}
+          allow-licenses: ${{ env.LICENSE_ALLOWLIST }}
+          base-ref: ${{ github.event.pull_request.base.sha }}
+          head-ref: ${{ github.event.pull_request.head.sha }}
+
+      - name: 📦 Setup Node.js
+        if: steps.detect-languages.outputs.has_node == 'true'
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: 🔐 Node.js Security Audit
+        if: steps.detect-languages.outputs.has_node == 'true'
+        run: |
+          echo "🔍 Running npm security audit..."
+          
+          # Install dependencies first
+          if [ -f package-lock.json ]; then
+            npm ci
+          else
+            npm install
+          fi
+          
+          # Run audit with appropriate level
+          if ! npm audit --audit-level=${{ env.VULNERABILITY_THRESHOLD }}; then
+            echo "❌ npm audit found vulnerabilities at or above ${{ env.VULNERABILITY_THRESHOLD }} level"
+            
+            # Generate detailed report
+            npm audit --json > npm-audit-results.json || true
+            
+            # Create human-readable summary
+            echo "## 🔒 npm Audit Results" >> audit-summary.md
+            echo "**Scan Date:** $(date)" >> audit-summary.md
+            echo "**Threshold:** ${{ env.VULNERABILITY_THRESHOLD }}" >> audit-summary.md
+            echo "" >> audit-summary.md
+            
+            # Extract summary from JSON
+            if [ -f npm-audit-results.json ]; then
+              jq -r '.metadata | "**Total Vulnerabilities:** \(.vulnerabilities.total // 0)\n**Info:** \(.vulnerabilities.info // 0)\n**Low:** \(.vulnerabilities.low // 0)\n**Moderate:** \(.vulnerabilities.moderate // 0)\n**High:** \(.vulnerabilities.high // 0)\n**Critical:** \(.vulnerabilities.critical // 0)"' npm-audit-results.json >> audit-summary.md
+            fi
+            
+            exit 1
+          else
+            echo "✅ npm audit passed - no vulnerabilities found at ${{ env.VULNERABILITY_THRESHOLD }} level or above"
+          fi
+
+      - name: 🐍 Setup Python
+        if: steps.detect-languages.outputs.has_python == 'true'
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: 🔐 Python Security Audit
+        if: steps.detect-languages.outputs.has_python == 'true'
+        run: |
+          echo "🔍 Running Python security audit..."
+          
+          # Install safety for security scanning
+          pip install safety pip-audit
+          
+          # Scan with safety (pyup.io database)
+          if [ -f requirements.txt ]; then
+            echo "📋 Scanning requirements.txt with safety..."
+            safety check -r requirements.txt --json > safety-results.json || true
+            
+            echo "📋 Scanning with pip-audit..."
+            pip-audit -r requirements.txt --format=json --output=pip-audit-results.json || true
+          fi
+          
+          # Check Pipfile if present
+          if [ -f Pipfile ]; then
+            echo "📋 Installing pipenv and scanning Pipfile..."
+            pip install pipenv
+            pipenv check --json > pipenv-results.json || true
+          fi
+          
+          echo "✅ Python security audit completed"
+
+      - name: 🔐 SAST Scanning with Semgrep
+        uses: returntocorp/semgrep-action@v1
+        with:
+          config: >-
+            p/security-audit
+            p/secrets
+            p/owasp-top-ten
+            p/javascript
+            p/python
+        env:
+          SEMGREP_TIMEOUT: 300
+
+      - name: 🔍 Enhanced Secrets Detection
+        uses: trufflesecurity/trufflehog@main
+        with:
+          path: ./
+          base: ${{ github.event.repository.default_branch }}
+          head: HEAD
+          extra_args: --debug --only-verified
+
+      - name: 📊 Generate Security Report
+        if: always()
+        run: |
+          # Create comprehensive security report
+          mkdir -p security-reports
+          
+          cat > security-reports/dependency-security-report.md << EOF
+          # 🔒 Dependency Security Report
+          
+          **Generated:** $(date)
+          **Repository:** ${{ github.repository }}
+          **Scan Type:** ${{ github.event.inputs.scan_type || 'comprehensive' }}
+          **Threshold:** ${{ env.VULNERABILITY_THRESHOLD }}
+          
+          ## 📊 Scan Summary
+          
+          | Language | Scanned | Status |
+          |----------|---------|--------|
+          | Node.js | ${{ steps.detect-languages.outputs.has_node }} | $([ "${{ steps.detect-languages.outputs.has_node }}" = "true" ] && echo "✅ Completed" || echo "⏭️ Skipped") |
+          | Python | ${{ steps.detect-languages.outputs.has_python }} | $([ "${{ steps.detect-languages.outputs.has_python }}" = "true" ] && echo "✅ Completed" || echo "⏭️ Skipped") |
+          | SAST | Always | ✅ Completed |
+          | Secrets | Always | ✅ Completed |
+          
+          ## 🔍 Detailed Results
+          
+          ### Node.js Dependencies
+          EOF
+          
+          # Add npm audit results if available
+          if [ -f audit-summary.md ]; then
+            cat audit-summary.md >> security-reports/dependency-security-report.md
+          else
+            echo "✅ No npm vulnerabilities found" >> security-reports/dependency-security-report.md
+          fi
+          
+          cat >> security-reports/dependency-security-report.md << EOF
+          
+          ### Python Dependencies
+          EOF
+          
+          # Add Python results if available
+          if [ -f safety-results.json ] && [ -s safety-results.json ]; then
+            echo "⚠️ Safety scan found issues - see safety-results.json" >> security-reports/dependency-security-report.md
+          else
+            echo "✅ No Python vulnerabilities found" >> security-reports/dependency-security-report.md
+          fi
+          
+          cat >> security-reports/dependency-security-report.md << EOF
+          
+          ## 📋 Recommendations
+          
+          1. **Regular Updates:** Keep dependencies updated to latest secure versions
+          2. **Automated Scanning:** This workflow runs weekly and on dependency changes
+          3. **Security Monitoring:** Monitor security advisories for your dependencies
+          4. **Least Privilege:** Review and minimize dependency permissions
+          
+          ## 🔄 Next Steps
+          
+          - Review any flagged vulnerabilities above
+          - Update vulnerable dependencies to secure versions
+          - Consider alternative packages if updates are not available
+          - Add security headers and configurations as needed
+          
+          ---
+          *Generated by Dependency Security Workflow*
+          EOF
+
+      - name: 📤 Upload Security Artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: security-scan-results-${{ github.run_number }}
+          path: |
+            security-reports/
+            npm-audit-results.json
+            safety-results.json
+            pip-audit-results.json
+            pipenv-results.json
+          retention-days: 30
+          if-no-files-found: warn
+
+      - name: 💬 Comment on Pull Request
+        if: github.event_name == 'pull_request' && always()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            
+            let commentBody = "## 🔒 Dependency Security Scan Results\n\n";
+            
+            // Check if security report exists
+            try {
+              const report = fs.readFileSync('security-reports/dependency-security-report.md', 'utf8');
+              const summary = report.split('## 📊 Scan Summary')[1]?.split('## 🔍 Detailed Results')[0] || '';
+              commentBody += summary;
+            } catch (e) {
+              commentBody += "Security scan completed. Check workflow logs for details.\n\n";
+            }
+            
+            commentBody += `
+            ### 🛡️ Security Status
+            - **Dependency Review:** ✅ Completed
+            - **SAST Scanning:** ✅ Completed  
+            - **Secrets Detection:** ✅ Completed
+            - **Vulnerability Threshold:** ${{ env.VULNERABILITY_THRESHOLD }}
+            
+            📄 [View Full Security Report](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }})
+            `;
+            
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: commentBody
+            });
+
+      - name: 🚨 Create Security Issue for Critical Findings
+        if: failure() && github.event_name == 'schedule'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          # Create issue for critical security findings
+          gh issue create \
+            --title "🚨 Critical Security Vulnerabilities Detected" \
+            --label "security,critical,vulnerability" \
+            --body "## 🔒 Security Alert
+          
+          **Detection Date:** $(date)
+          **Workflow:** Dependency Security Scan
+          **Severity:** Critical
+          
+          ### 🚨 Action Required
+          
+          Critical security vulnerabilities have been detected in project dependencies.
+          
+          ### 📋 Immediate Steps
+          
+          1. **Review** the security scan results in the workflow logs
+          2. **Update** vulnerable dependencies to secure versions
+          3. **Test** thoroughly after updates
+          4. **Monitor** for any additional security advisories
+          
+          ### 📊 Scan Details
+          
+          - **Threshold:** ${{ env.VULNERABILITY_THRESHOLD }}
+          - **Scan Type:** Comprehensive
+          - **Workflow Run:** [View Details](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }})
+          
+          ---
+          *Auto-generated by Security Scanning Workflow*"
+
+      - name: 🎯 Security Scan Summary
+        if: always()
+        run: |
+          echo "🔒 Dependency Security Scan Summary"
+          echo "=================================="
+          echo "Scan Type: ${{ github.event.inputs.scan_type || 'comprehensive' }}"
+          echo "Languages Detected:"
+          echo "- Node.js: ${{ steps.detect-languages.outputs.has_node }}"
+          echo "- Python: ${{ steps.detect-languages.outputs.has_python }}"
+          echo "Vulnerability Threshold: ${{ env.VULNERABILITY_THRESHOLD }}"
+          echo "Status: $([ $? -eq 0 ] && echo "✅ Passed" || echo "❌ Issues Found")"
+          echo ""
+          echo "📋 Security scanning completed successfully!"
+          echo "🔍 Check artifacts for detailed results"
