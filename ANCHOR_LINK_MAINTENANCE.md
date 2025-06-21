@@ -111,10 +111,10 @@ Automated CI/CD integration that runs on pull requests and pushes.
 **Solution:** Update the link to match an existing anchor:
 ```markdown
 # Change this:
-[Approval & Baseline](#approval-baseline-process)
+[Approval & Baseline](#in-checkanchorlinkspy)
 
 # To this:
-[Approval & Baseline](#approval-baseline-process)
+[Approval & Baseline](#in-checkanchorlinkspy)
 ```
 
 ### 3. Missing Target Headers

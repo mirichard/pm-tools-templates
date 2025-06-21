@@ -438,7 +438,8 @@ jobs:
         run: |
           echo "📊 Dashboard Generation Complete"
           echo "================================"
-          echo "Dashboard Type: ${{ github.event.inputs.dashboard_type || 'comprehensive' }}"
+          DASHBOARD_TYPE="${{ github.event.inputs.dashboard_type || 'comprehensive' }}"
+          echo "Dashboard Type: $DASHBOARD_TYPE"
           echo "Project Health: ${{ steps.metrics.outputs.health_icon }} ${{ steps.metrics.outputs.health_status }}"
           echo "Completion Rate: ${{ steps.metrics.outputs.completion_rate }}%"
           echo "Strategic Progress: ${{ steps.metrics.outputs.strategic_progress }}%"

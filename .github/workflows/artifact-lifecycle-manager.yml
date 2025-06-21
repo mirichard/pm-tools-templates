@@ -1225,7 +1225,8 @@ jobs:
         run: |
           echo "📊 Artifact Lifecycle Management Summary"
           echo "========================================"
-          echo "Repository: ${{ github.repository }}"
+          GITHUB_REPO="${{ github.repository }}"
+          echo "Repository: $GITHUB_REPO"
           echo "Total Artifacts: ${{ needs.artifact-discovery.outputs.total_artifacts }}"
           echo "Storage Usage: ${{ needs.artifact-discovery.outputs.total_size_gb }}GB"
           echo "Cleanup Candidates: ${{ needs.artifact-discovery.outputs.cleanup_candidates }}"

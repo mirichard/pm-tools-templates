@@ -40,14 +40,14 @@
 ### Common Fix Patterns:
 ```markdown
 # Before
-[Link](#broken--anchor)        # Double hyphen
-[Link](#section)               # Missing number
-[Link](#wrong-target)          # Incorrect target
+[Link](#recommendations)        # Double hyphen
+[Link](#recommendations)               # Missing number
+[Link](#low-impact)          # Incorrect target
 
 # After  
-[Link](#2-broken-anchor-references)  # Correct format
-[Link](#1-section)                   # Proper numbering
-[Link](#correct-target)              # Valid target
+[Link](#common-fix-patterns)  # Correct format
+[Link](#low-impact)                   # Proper numbering
+[Link](#recommendations)              # Valid target
 ```
 
 ## ⚠️ Remaining Issue

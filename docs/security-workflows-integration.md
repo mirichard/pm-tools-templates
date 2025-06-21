@@ -9,7 +9,7 @@ Complete integration documentation for the three-phase enterprise security workf
 - [Phase-by-Phase Setup](#phase-by-phase-setup)
 - [Configuration](#configuration)
 - [Integration Patterns](#integration-patterns)
-- [Monitoring & Alerting](#monitoring--alerting)
+- [Monitoring & Alerting](#monitoring-alerting)
 - [Troubleshooting](#troubleshooting)
 - [Best Practices](#best-practices)
 - [Advanced Configuration](#advanced-configuration)

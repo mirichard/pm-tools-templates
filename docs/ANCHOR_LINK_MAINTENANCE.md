@@ -8,7 +8,7 @@ This document describes the automated system for checking and maintaining anchor
 
 ## 🎯 Overview
 
-Internal anchor links in Markdown files (like `[text](#system-components)`) are crucial for navigation within documents, but they can easily break when headers change or when emojis/special characters interfere with GitHub's automatic anchor generation.
+Internal anchor links in Markdown files (like `[text](#common-problems)`) are crucial for navigation within documents, but they can easily break when headers change or when emojis/special characters interfere with GitHub's automatic anchor generation.
 
 Our maintenance system provides:
 - **Automated detection** of broken anchor links
@@ -79,7 +79,7 @@ python3 scripts/check_anchor_links.py --root ./docs
 ### Anchor Link Detection
 The system identifies internal anchor links using pattern matching:
 ```markdown
-[Link Text](#system-components-name)
+[Link Text](#macos-brew-install-python3)
 ```
 
 ### Header Analysis

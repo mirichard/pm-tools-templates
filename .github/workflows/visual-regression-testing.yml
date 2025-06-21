@@ -1510,8 +1510,10 @@ jobs:
           TEST_SCOPE="${{ github.event.inputs.test_scope || 'comprehensive' }}"
           echo "Repository: $GITHUB_REPO"
           echo "Test Scope: $TEST_SCOPE"
-          echo "Baseline Update: ${{ github.event.inputs.baseline_update || 'false' }}"
-          echo "Diff Threshold: ${{ github.event.inputs.diff_threshold || '2' }}%"
+          BASELINE_UPDATE="${{ github.event.inputs.baseline_update || 'false' }}"
+          DIFF_THRESHOLD="${{ github.event.inputs.diff_threshold || '2' }}"
+          echo "Baseline Update: $BASELINE_UPDATE"
+          echo "Diff Threshold: $DIFF_THRESHOLD%"
           echo ""
           echo "📋 Results:"
           if [ -f visual-testing-summary.json ]; then

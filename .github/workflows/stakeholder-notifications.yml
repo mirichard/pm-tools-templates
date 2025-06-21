@@ -337,7 +337,8 @@ jobs:
         run: |
           echo "📧 Stakeholder Notification Summary"
           echo "=================================="
-          echo "Notification Type: ${{ github.event.inputs.notification_type || 'weekly-digest' }}"
+          NOTIFICATION_TYPE="${{ github.event.inputs.notification_type || 'weekly-digest' }}"
+          echo "Notification Type: $NOTIFICATION_TYPE"
           echo "Project Health: $([ ${{ steps.stakeholder-data.outputs.completion_rate }} -ge 75 ] && echo "🟢 Healthy" || echo "🟡 Monitor")"
           echo "Completion Rate: ${{ steps.stakeholder-data.outputs.completion_rate }}%"
           echo "Risk Score: ${{ steps.stakeholder-data.outputs.risk_score }}"

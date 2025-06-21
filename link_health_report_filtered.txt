@@ -3,13 +3,19 @@
 FILTERED ANCHOR LINK CHECK REPORT (Main Project Files Only)
 ============================================================
 Files checked: 470
+<<<<<<< HEAD
 Total issues: 10311
 Broken links: 13
+=======
+Total issues: 10298
+Broken links: 0
+>>>>>>> e2cf2a8b (🔗 Fix all remaining broken anchor links)
 Suggestions: 10298
 
 ISSUES BY CATEGORY:
 ----------------------------------------
 
+<<<<<<< HEAD
 🔗 BROKEN ANCHOR LINKS:
 
 📁 ANCHOR_LINK_CRITICAL_ISSUES_SUMMARY.md
@@ -63,6 +69,8 @@ ISSUES BY CATEGORY:
 📁 industry_templates/software_development/user_story_template.md
   🔗 Line 227: Broken anchor link: #story-splitting-if-needed
 
+=======
+>>>>>>> e2cf2a8b (🔗 Fix all remaining broken anchor links)
 💡 HEADERS NEEDING EXPLICIT ANCHORS:
 
 📁 ANCHOR_LINK_CRITICAL_ISSUES_SUMMARY.md

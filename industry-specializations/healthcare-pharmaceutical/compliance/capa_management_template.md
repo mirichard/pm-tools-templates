@@ -29,7 +29,7 @@
 2. [Corrective Action Plan](#2-corrective-action-plan)
    - [Immediate Actions](#immediate-actions)
    - [Long-term Solutions](#long-term-solutions)
-   - [Implementation Timeline](#4-implementation-timeline)
+   - [Implementation Timeline](#4-implementation)
    - [Resource Requirements](#resource-requirements)
 
 3. [Preventive Action Plan](#3-preventive-action-plan)
