@@ -361,6 +361,9 @@ jobs:
           EOF
 
       - name: 📊 Generate Storage Report
+        env:
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          CLEANUP_SCOPE: ${{ github.event.inputs.cleanup_scope || 'comprehensive' }}
         run: |
           echo "📊 Generating comprehensive storage report..."
           
@@ -379,8 +382,8 @@ jobs:
           report = f"""# 💾 Artifact Storage Analysis Report
           
           **Generated:** {datetime.now().isoformat()}
-          **Repository:** ${{ github.repository }}
-          **Analysis Scope:** ${{ github.event.inputs.cleanup_scope || 'comprehensive' }}
+          **Repository:** $(echo "$GITHUB_REPOSITORY")
+          **Analysis Scope:** $(echo "$CLEANUP_SCOPE")
           
           ## 📊 Storage Overview
           

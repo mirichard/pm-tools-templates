@@ -274,8 +274,9 @@ jobs:
           EOF
           
           # Create urgent issue for tracking
+          RISK_SCORE="${{ steps.stakeholder-data.outputs.risk_score }}"
           gh issue create \
-            --title "🚨 CRITICAL ALERT: Risk Score ${{ steps.stakeholder-data.outputs.risk_score }} - Immediate Action Required" \
+            --title "🚨 CRITICAL ALERT: Risk Score $RISK_SCORE - Immediate Action Required" \
             --label "critical,alert,high-priority" \
             --body "$(cat notifications/alerts/critical-alert-$(date +%Y-%m-%d-%H%M).md)"
 
