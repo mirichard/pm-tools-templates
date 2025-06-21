@@ -2,10 +2,10 @@
 ============================================================
 FILTERED ANCHOR LINK CHECK REPORT (Main Project Files Only)
 ============================================================
-Files checked: 440
-Total issues: 10037
-Broken links: 12
-Suggestions: 10025
+Files checked: 446
+Total issues: 10149
+Broken links: 13
+Suggestions: 10136
 
 ISSUES BY CATEGORY:
 ----------------------------------------
@@ -30,19 +30,19 @@ ISSUES BY CATEGORY:
 
 📁 ANCHOR_LINK_CRITICAL_ISSUES_SUMMARY.md
   🔗 Line 49: Broken anchor link: #1-section
-     Suggested fix: low-impact
+     Suggested fix: next-steps
 
 📁 ANCHOR_LINK_CRITICAL_ISSUES_SUMMARY.md
   🔗 Line 50: Broken anchor link: #correct-target
-     Suggested fix: scripts-created
+     Suggested fix: recommendations
 
 📁 ANCHOR_LINK_MAINTENANCE.md
   🔗 Line 114: Broken anchor link: #approval-baseline-process
-     Suggested fix: adjusting-ci-behavior
+     Suggested fix: reporting-and-analytics
 
 📁 ANCHOR_LINK_MAINTENANCE.md
   🔗 Line 117: Broken anchor link: #approval-baseline-process
-     Suggested fix: adjusting-ci-behavior
+     Suggested fix: reporting-and-analytics
 
 📁 docs/ANCHOR_LINK_MAINTENANCE.md
   🔗 Line 11: Broken anchor link: #system-components
@@ -51,6 +51,10 @@ ISSUES BY CATEGORY:
 📁 docs/ANCHOR_LINK_MAINTENANCE.md
   🔗 Line 82: Broken anchor link: #system-components-name
      Suggested fix: macos-brew-install-python3
+
+📁 docs/security-workflows-integration.md
+  🔗 Line 12: Broken anchor link: #monitoring--alerting
+     Suggested fix: compliance-reporting
 
 📁 industry-specializations/healthcare-pharmaceutical/compliance/capa_management_template.md
   🔗 Line 32: Broken anchor link: #4-implementation-timeline
@@ -408,6 +412,19 @@ ISSUES BY CATEGORY:
   💡 Line 43: Header with special characters could benefit from explicit anchor
      Suggested fix: <a id="red-avoid-for-now-placeholder-structure"></a>
   ... and 15 more suggestions
+
+📁 README-security-workflows.md
+  💡 Line 1: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="enterprise-security-workflows"></a>
+  💡 Line 7: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="overview"></a>
+  💡 Line 17: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="key-features"></a>
+  💡 Line 19: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="comprehensive-security-coverage"></a>
+  💡 Line 25: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="smart-automation"></a>
+  ... and 28 more suggestions
 
 📁 README.md
   💡 Line 2: Header with special characters could benefit from explicit anchor
@@ -1515,6 +1532,32 @@ ISSUES BY CATEGORY:
      Suggested fix: <a id="for-critical-risks-score-20"></a>
   💡 Line 47: Header with special characters could benefit from explicit anchor
      Suggested fix: <a id="for-high-risks-score-15"></a>
+
+📁 docs/security-workflows-integration.md
+  💡 Line 1: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="security-workflows-integration-guide"></a>
+  💡 Line 5: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="table-of-contents"></a>
+  💡 Line 17: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="overview"></a>
+  💡 Line 21: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="phase-1-dependency-security-scanning"></a>
+  💡 Line 27: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="phase-2-static-application-security-testing-sast"></a>
+  ... and 34 more suggestions
+
+📁 docs/security-workflows-quick-reference.md
+  💡 Line 1: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="security-workflows-quick-reference"></a>
+  💡 Line 5: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="quick-setup-checklist"></a>
+  💡 Line 7: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="installation-5-minutes"></a>
+  💡 Line 9: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="1-copy-workflow-files"></a>
+  💡 Line 13: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="2-commit-and-push"></a>
+  ... and 32 more suggestions
 
 📁 essential-templates/infrastructure/infrastructure-requirements-template.md
   💡 Line 158: Header with special characters could benefit from explicit anchor
@@ -4600,6 +4643,12 @@ ISSUES BY CATEGORY:
   💡 Line 31: Header with special characters could benefit from explicit anchor
      Suggested fix: <a id="action-items"></a>
   ... and 14 more suggestions
+
+📁 templates/agile/sprint-planning-template.md
+  💡 Line 59: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="story-1-title"></a>
+  💡 Line 72: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="story-2-title"></a>
 
 📁 terminology_standardization_plan.md
   💡 Line 1: Header with special characters could benefit from explicit anchor
