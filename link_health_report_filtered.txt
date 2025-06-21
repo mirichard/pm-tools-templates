@@ -2,10 +2,10 @@
 ============================================================
 FILTERED ANCHOR LINK CHECK REPORT (Main Project Files Only)
 ============================================================
-Files checked: 469
-Total issues: 10299
+Files checked: 470
+Total issues: 10311
 Broken links: 13
-Suggestions: 10286
+Suggestions: 10298
 
 ISSUES BY CATEGORY:
 ----------------------------------------
@@ -38,11 +38,11 @@ ISSUES BY CATEGORY:
 
 📁 ANCHOR_LINK_MAINTENANCE.md
   🔗 Line 114: Broken anchor link: #approval-baseline-process
-     Suggested fix: adjusting-ci-behavior
+     Suggested fix: in-checkanchorlinkspy
 
 📁 ANCHOR_LINK_MAINTENANCE.md
   🔗 Line 117: Broken anchor link: #approval-baseline-process
-     Suggested fix: adjusting-ci-behavior
+     Suggested fix: in-checkanchorlinkspy
 
 📁 docs/ANCHOR_LINK_MAINTENANCE.md
   🔗 Line 11: Broken anchor link: #system-components
@@ -54,7 +54,7 @@ ISSUES BY CATEGORY:
 
 📁 docs/security-workflows-integration.md
   🔗 Line 12: Broken anchor link: #monitoring--alerting
-     Suggested fix: compliance-reporting
+     Suggested fix: monitoring-alerting
 
 📁 industry-specializations/healthcare-pharmaceutical/compliance/capa_management_template.md
   🔗 Line 32: Broken anchor link: #4-implementation-timeline
@@ -807,6 +807,19 @@ ISSUES BY CATEGORY:
   💡 Line 57: Header with special characters could benefit from explicit anchor
      Suggested fix: <a id="phase-4-configuration-issues"></a>
   ... and 3 more suggestions
+
+📁 WORKFLOW_TEST_SUMMARY.md
+  💡 Line 1: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="workflow-testing-summary-report"></a>
+  💡 Line 3: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="executive-summary"></a>
+  💡 Line 10: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="yaml-syntax-validation-results"></a>
+  💡 Line 14: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="validated-workflows-2222"></a>
+  💡 Line 39: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="security-remediation-completed"></a>
+  ... and 7 more suggestions
 
 📁 ai-insights/DEPLOYMENT.md
   💡 Line 3: Header with special characters could benefit from explicit anchor
