@@ -2,10 +2,10 @@
 ============================================================
 FILTERED ANCHOR LINK CHECK REPORT (Main Project Files Only)
 ============================================================
-Files checked: 450
-Total issues: 10218
+Files checked: 451
+Total issues: 10226
 Broken links: 13
-Suggestions: 10205
+Suggestions: 10213
 
 ISSUES BY CATEGORY:
 ----------------------------------------
@@ -38,15 +38,15 @@ ISSUES BY CATEGORY:
 
 📁 ANCHOR_LINK_MAINTENANCE.md
   🔗 Line 114: Broken anchor link: #approval-baseline-process
-     Suggested fix: adjusting-ci-behavior
+     Suggested fix: in-checkanchorlinkspy
 
 📁 ANCHOR_LINK_MAINTENANCE.md
   🔗 Line 117: Broken anchor link: #approval-baseline-process
-     Suggested fix: adjusting-ci-behavior
+     Suggested fix: in-checkanchorlinkspy
 
 📁 docs/ANCHOR_LINK_MAINTENANCE.md
   🔗 Line 11: Broken anchor link: #system-components
-     Suggested fix: local-development
+     Suggested fix: common-problems
 
 📁 docs/ANCHOR_LINK_MAINTENANCE.md
   🔗 Line 82: Broken anchor link: #system-components-name
@@ -781,6 +781,19 @@ ISSUES BY CATEGORY:
   💡 Line 489: Header with special characters could benefit from explicit anchor
      Suggested fix: <a id="appendix-b-test-data-specifications"></a>
   ... and 4 more suggestions
+
+📁 WORKFLOW_FIXES_SUMMARY.md
+  💡 Line 8: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="critical-issues-blocking"></a>
+  💡 Line 37: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="phase-1-critical-startup-failures"></a>
+  💡 Line 44: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="phase-2-dependency-issues"></a>
+  💡 Line 51: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="phase-3-error-handling"></a>
+  💡 Line 57: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="phase-4-configuration-issues"></a>
+  ... and 3 more suggestions
 
 📁 ai-insights/DEPLOYMENT.md
   💡 Line 3: Header with special characters could benefit from explicit anchor
