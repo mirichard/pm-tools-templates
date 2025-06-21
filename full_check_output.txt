@@ -1,4 +1,4 @@
-Checking 451 markdown files (excluding node_modules)...
+Checking 468 markdown files (excluding node_modules)...
 Checking: ANCHOR_LINK_CRITICAL_ISSUES_SUMMARY.md
 Checking: ANCHOR_LINK_MAINTENANCE.md
 Checking: Agile/Templates/product_backlog_template.md
@@ -117,6 +117,7 @@ Checking: docs/README.md
 Checking: docs/SECURITY_SETUP.md
 Checking: docs/archive/README-20250610.md
 Checking: docs/archive/README-20250611.md
+Checking: docs/community/README.md
 Checking: docs/feedback/template-feedback.md
 Checking: docs/getting-started/README.md
 Checking: docs/getting-started/methodology-selector.md
@@ -249,6 +250,7 @@ Checking: industry_templates/software_development/software_risk_register.md
 Checking: industry_templates/software_development/software_test_plan.md
 Checking: industry_templates/software_development/technical_debt_log.md
 Checking: industry_templates/software_development/user_story_template.md
+Checking: integration-toolkits/development-tools/README.md
 Checking: integration_guides/github_integration/agile_github_templates.md
 Checking: integration_guides/github_integration/github_project_management_integration.md
 Checking: integration_guides/github_integration/hybrid_github_templates.md
@@ -304,6 +306,7 @@ Checking: phase4-completion-summary.md
 Checking: project-assessment-suite/README.md
 Checking: project-assessment-suite/agile-project-assessment-template.md
 Checking: project-assessment-suite/assessment-planning-guide.md
+Checking: project-assessment-suite/assessment-report-template.md
 Checking: project-assessment-suite/current-state-analysis-template.md
 Checking: project-assessment-suite/executive-summary-template.md
 Checking: project-assessment-suite/future-state-blueprint-template.md
@@ -315,6 +318,7 @@ Checking: project-assessment-suite/project-health-assessment-template.md
 Checking: project-assessment-suite/remediation-action-plan-template.md
 Checking: project-assessment-suite/resource-management-assessment-template.md
 Checking: project-assessment-suite/risk-management-assessment-template.md
+Checking: project-assessment-suite/scoring-rating-guide.md
 Checking: project-assessment-suite/stakeholder-engagement-assessment-template.md
 Checking: project-assessment-suite/waterfall-project-assessment-template.md
 Checking: project-lifecycle/01-initiation/README.md
@@ -331,6 +335,7 @@ Checking: project-lifecycle/02-planning/business-requirements/business_requireme
 Checking: project-lifecycle/02-planning/cost-management/README.md
 Checking: project-lifecycle/02-planning/project-management-plan/README.md
 Checking: project-lifecycle/02-planning/project-management-plan/agile-release-plan-template.md
+Checking: project-lifecycle/02-planning/project-management-plan/hybrid-project-management-plan-template.md
 Checking: project-lifecycle/02-planning/project-management-plan/traditional-project-management-plan-template.md
 Checking: project-lifecycle/02-planning/quality-management/README.md
 Checking: project-lifecycle/02-planning/resource-planning/README.md
@@ -339,6 +344,7 @@ Checking: project-lifecycle/02-planning/resource-planning/skills-matrix-template
 Checking: project-lifecycle/02-planning/resource-planning/team-charter-template.md
 Checking: project-lifecycle/02-planning/risk-management/README.md
 Checking: project-lifecycle/02-planning/risk-management/agile-risk-board-template.md
+Checking: project-lifecycle/02-planning/risk-management/enterprise-risk-assessment-template.md
 Checking: project-lifecycle/02-planning/risk-management/risk-management-plan-template.md
 Checking: project-lifecycle/02-planning/risk-management/risk-register-template.md
 Checking: project-lifecycle/03-execution/README.md
@@ -354,6 +360,9 @@ Checking: project-lifecycle/05-closure/README.md
 Checking: project-lifecycle/README.md
 Checking: quick-start-kits/30-day-quick-start.md
 Checking: quick-start-kits/agile-transformation/README.md
+Checking: quick-start-kits/agile-transformation/change-management-plan.md
+Checking: quick-start-kits/agile-transformation/readiness-assessment.md
+Checking: quick-start-kits/agile-transformation/success-metrics.md
 Checking: quick-start-kits/agile-transformation/transformation-roadmap.md
 Checking: quick-start-kits/executive-reporting/README.md
 Checking: quick-start-kits/first-time-pm-starter/README.md
@@ -416,15 +425,23 @@ Checking: role-based-toolkits/project-manager/essential-templates/status-report.
 Checking: role-based-toolkits/project-manager/essential-templates/team-charter.md
 Checking: role-based-toolkits/project-manager/essential-templates/work-breakdown-structure.md
 Checking: role-based-toolkits/project-manager/governance-tools/README.md
+Checking: role-based-toolkits/project-manager/governance-tools/change-control-process.md
 Checking: role-based-toolkits/project-manager/governance-tools/decision-authority.md
+Checking: role-based-toolkits/project-manager/governance-tools/decision-framework.md
 Checking: role-based-toolkits/project-manager/governance-tools/escalation-matrix.md
 Checking: role-based-toolkits/project-manager/governance-tools/governance-charter.md
 Checking: role-based-toolkits/project-manager/governance-tools/governance-framework.md
+Checking: role-based-toolkits/project-manager/governance-tools/governance-roles.md
+Checking: role-based-toolkits/project-manager/governance-tools/quality-gates.md
 Checking: role-based-toolkits/project-manager/reporting-dashboards/README.md
 Checking: role-based-toolkits/project-manager/reporting-dashboards/executive-dashboard.md
+Checking: role-based-toolkits/project-manager/reporting-dashboards/executive-status-report.md
+Checking: role-based-toolkits/project-manager/reporting-dashboards/stakeholder-update.md
 Checking: role-based-toolkits/project-manager/reporting-dashboards/team-dashboard.md
 Checking: role-based-toolkits/project-manager/stakeholder-engagement/README.md
+Checking: role-based-toolkits/project-manager/stakeholder-engagement/communication-calendar.md
 Checking: role-based-toolkits/project-manager/stakeholder-engagement/communication-matrix.md
+Checking: role-based-toolkits/project-manager/stakeholder-engagement/engagement-plan.md
 Checking: role-based-toolkits/project-manager/stakeholder-engagement/raci-matrix.md
 Checking: role-based-toolkits/project-manager/stakeholder-engagement/stakeholder-analysis.md
 Checking: role-based-toolkits/project-manager/stakeholder-engagement/stakeholder-mapping.md
@@ -454,10 +471,10 @@ Checking: workflow-orchestration/README.md
 ============================================================
 FILTERED ANCHOR LINK CHECK REPORT (Main Project Files Only)
 ============================================================
-Files checked: 451
-Total issues: 10226
+Files checked: 468
+Total issues: 10286
 Broken links: 13
-Suggestions: 10213
+Suggestions: 10273
 
 ISSUES BY CATEGORY:
 ----------------------------------------
@@ -506,7 +523,7 @@ ISSUES BY CATEGORY:
 
 📁 docs/security-workflows-integration.md
   🔗 Line 12: Broken anchor link: #monitoring--alerting
-     Suggested fix: monitoring-alerting
+     Suggested fix: compliance-reporting
 
 📁 industry-specializations/healthcare-pharmaceutical/compliance/capa_management_template.md
   🔗 Line 32: Broken anchor link: #4-implementation-timeline
@@ -3899,6 +3916,16 @@ ISSUES BY CATEGORY:
      Suggested fix: <a id="3-assessment-team-formation"></a>
   ... and 7 more suggestions
 
+📁 project-assessment-suite/assessment-report-template.md
+  💡 Line 11: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="1-introduction"></a>
+  💡 Line 14: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="2-key-components"></a>
+  💡 Line 17: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="3-implementation-guidelines"></a>
+  💡 Line 20: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="4-best-practices"></a>
+
 📁 project-assessment-suite/current-state-analysis-template.md
   💡 Line 22: Header with special characters could benefit from explicit anchor
      Suggested fix: <a id="1-organizational-assessment"></a>
@@ -4022,6 +4049,16 @@ ISSUES BY CATEGORY:
      Suggested fix: <a id="3-risk-response-planning"></a>
   💡 Line 43: Header with special characters could benefit from explicit anchor
      Suggested fix: <a id="4-risk-monitoring-and-control"></a>
+
+📁 project-assessment-suite/scoring-rating-guide.md
+  💡 Line 11: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="1-introduction"></a>
+  💡 Line 14: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="2-key-components"></a>
+  💡 Line 17: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="3-implementation-guidelines"></a>
+  💡 Line 20: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="4-best-practices"></a>
 
 📁 project-assessment-suite/stakeholder-engagement-assessment-template.md
   💡 Line 14: Header with special characters could benefit from explicit anchor
@@ -4169,6 +4206,16 @@ ISSUES BY CATEGORY:
      Suggested fix: <a id="2-release-scope"></a>
   ... and 41 more suggestions
 
+📁 project-lifecycle/02-planning/project-management-plan/hybrid-project-management-plan-template.md
+  💡 Line 11: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="1-introduction"></a>
+  💡 Line 14: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="2-key-components"></a>
+  💡 Line 17: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="3-implementation-guidelines"></a>
+  💡 Line 20: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="4-best-practices"></a>
+
 📁 project-lifecycle/02-planning/project-management-plan/traditional-project-management-plan-template.md
   💡 Line 10: Header with special characters could benefit from explicit anchor
      Suggested fix: <a id="1-executive-summary"></a>
@@ -4259,6 +4306,16 @@ ISSUES BY CATEGORY:
   💡 Line 30: Header with special characters could benefit from explicit anchor
      Suggested fix: <a id="2-risk-board-structure"></a>
   ... and 35 more suggestions
+
+📁 project-lifecycle/02-planning/risk-management/enterprise-risk-assessment-template.md
+  💡 Line 11: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="1-introduction"></a>
+  💡 Line 14: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="2-key-components"></a>
+  💡 Line 17: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="3-implementation-guidelines"></a>
+  💡 Line 20: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="4-best-practices"></a>
 
 📁 project-lifecycle/02-planning/risk-management/risk-management-plan-template.md
   💡 Line 11: Header with special characters could benefit from explicit anchor
@@ -4389,6 +4446,36 @@ ISSUES BY CATEGORY:
   💡 Line 41: Header with special characters could benefit from explicit anchor
      Suggested fix: <a id="4-quick-reference"></a>
   ... and 19 more suggestions
+
+📁 quick-start-kits/agile-transformation/change-management-plan.md
+  💡 Line 11: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="1-introduction"></a>
+  💡 Line 14: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="2-key-components"></a>
+  💡 Line 17: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="3-implementation-guidelines"></a>
+  💡 Line 20: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="4-best-practices"></a>
+
+📁 quick-start-kits/agile-transformation/readiness-assessment.md
+  💡 Line 11: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="1-introduction"></a>
+  💡 Line 14: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="2-key-components"></a>
+  💡 Line 17: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="3-implementation-guidelines"></a>
+  💡 Line 20: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="4-best-practices"></a>
+
+📁 quick-start-kits/agile-transformation/success-metrics.md
+  💡 Line 11: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="1-introduction"></a>
+  💡 Line 14: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="2-key-components"></a>
+  💡 Line 17: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="3-implementation-guidelines"></a>
+  💡 Line 20: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="4-best-practices"></a>
 
 📁 quick-start-kits/agile-transformation/transformation-roadmap.md
   💡 Line 49: Header with special characters could benefit from explicit anchor
@@ -4904,6 +4991,16 @@ ISSUES BY CATEGORY:
      Suggested fix: <a id="when-to-use"></a>
   ... and 17 more suggestions
 
+📁 role-based-toolkits/project-manager/governance-tools/change-control-process.md
+  💡 Line 11: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="1-introduction"></a>
+  💡 Line 14: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="2-key-components"></a>
+  💡 Line 17: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="3-implementation-guidelines"></a>
+  💡 Line 20: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="4-best-practices"></a>
+
 📁 role-based-toolkits/project-manager/governance-tools/decision-authority.md
   💡 Line 18: Header with special characters could benefit from explicit anchor
      Suggested fix: <a id="level-1-inform-only"></a>
@@ -4916,6 +5013,16 @@ ISSUES BY CATEGORY:
   💡 Line 38: Header with special characters could benefit from explicit anchor
      Suggested fix: <a id="level-5-accountable"></a>
   ... and 10 more suggestions
+
+📁 role-based-toolkits/project-manager/governance-tools/decision-framework.md
+  💡 Line 11: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="1-introduction"></a>
+  💡 Line 14: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="2-key-components"></a>
+  💡 Line 17: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="3-implementation-guidelines"></a>
+  💡 Line 20: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="4-best-practices"></a>
 
 📁 role-based-toolkits/project-manager/governance-tools/escalation-matrix.md
   💡 Line 37: Header with special characters could benefit from explicit anchor
@@ -4956,6 +5063,26 @@ ISSUES BY CATEGORY:
      Suggested fix: <a id="decision-authority-matrix-raci"></a>
   ... and 9 more suggestions
 
+📁 role-based-toolkits/project-manager/governance-tools/governance-roles.md
+  💡 Line 11: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="1-introduction"></a>
+  💡 Line 14: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="2-key-components"></a>
+  💡 Line 17: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="3-implementation-guidelines"></a>
+  💡 Line 20: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="4-best-practices"></a>
+
+📁 role-based-toolkits/project-manager/governance-tools/quality-gates.md
+  💡 Line 11: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="1-introduction"></a>
+  💡 Line 14: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="2-key-components"></a>
+  💡 Line 17: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="3-implementation-guidelines"></a>
+  💡 Line 20: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="4-best-practices"></a>
+
 📁 role-based-toolkits/project-manager/reporting-dashboards/README.md
   💡 Line 10: Header with special characters could benefit from explicit anchor
      Suggested fix: <a id="whats-included"></a>
@@ -4968,6 +5095,26 @@ ISSUES BY CATEGORY:
   💡 Line 73: Header with special characters could benefit from explicit anchor
      Suggested fix: <a id="step-1-define-reporting-requirements-week-1"></a>
   ... and 12 more suggestions
+
+📁 role-based-toolkits/project-manager/reporting-dashboards/executive-status-report.md
+  💡 Line 11: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="1-introduction"></a>
+  💡 Line 14: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="2-key-components"></a>
+  💡 Line 17: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="3-implementation-guidelines"></a>
+  💡 Line 20: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="4-best-practices"></a>
+
+📁 role-based-toolkits/project-manager/reporting-dashboards/stakeholder-update.md
+  💡 Line 11: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="1-introduction"></a>
+  💡 Line 14: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="2-key-components"></a>
+  💡 Line 17: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="3-implementation-guidelines"></a>
+  💡 Line 20: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="4-best-practices"></a>
 
 📁 role-based-toolkits/project-manager/reporting-dashboards/team-dashboard.md
   💡 Line 113: Header with special characters could benefit from explicit anchor
@@ -4986,6 +5133,16 @@ ISSUES BY CATEGORY:
      Suggested fix: <a id="step-1-identify-stakeholders-week-1"></a>
   ... and 13 more suggestions
 
+📁 role-based-toolkits/project-manager/stakeholder-engagement/communication-calendar.md
+  💡 Line 11: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="1-introduction"></a>
+  💡 Line 14: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="2-key-components"></a>
+  💡 Line 17: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="3-implementation-guidelines"></a>
+  💡 Line 20: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="4-best-practices"></a>
+
 📁 role-based-toolkits/project-manager/stakeholder-engagement/communication-matrix.md
   💡 Line 11: Header with special characters could benefit from explicit anchor
      Suggested fix: <a id="1-communication-matrix-overview"></a>
@@ -4998,6 +5155,16 @@ ISSUES BY CATEGORY:
   💡 Line 31: Header with special characters could benefit from explicit anchor
      Suggested fix: <a id="2-communication-matrix-framework"></a>
   ... and 34 more suggestions
+
+📁 role-based-toolkits/project-manager/stakeholder-engagement/engagement-plan.md
+  💡 Line 11: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="1-introduction"></a>
+  💡 Line 14: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="2-key-components"></a>
+  💡 Line 17: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="3-implementation-guidelines"></a>
+  💡 Line 20: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="4-best-practices"></a>
 
 📁 role-based-toolkits/project-manager/stakeholder-engagement/raci-matrix.md
   💡 Line 10: Header with special characters could benefit from explicit anchor
