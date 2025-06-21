@@ -1,4 +1,4 @@
-Checking 448 markdown files (excluding node_modules)...
+Checking 450 markdown files (excluding node_modules)...
 Checking: ANCHOR_LINK_CRITICAL_ISSUES_SUMMARY.md
 Checking: ANCHOR_LINK_MAINTENANCE.md
 Checking: Agile/Templates/product_backlog_template.md
@@ -445,16 +445,18 @@ Checking: tools/template-generator-cli/IMPLEMENTATION_REPORT.md
 Checking: tools/template-generator-cli/README.md
 Checking: transition_to_operations_framework.md
 Checking: user_acceptance_testing_framework.md
+Checking: workflow-analysis-logs/workflow-analysis-20250621_153536.md
+Checking: workflow-fix-plan.md
 Checking: workflow-orchestration/IMPLEMENTATION.md
 Checking: workflow-orchestration/README.md
 
 ============================================================
 FILTERED ANCHOR LINK CHECK REPORT (Main Project Files Only)
 ============================================================
-Files checked: 448
-Total issues: 10174
+Files checked: 450
+Total issues: 10218
 Broken links: 13
-Suggestions: 10161
+Suggestions: 10205
 
 ISSUES BY CATEGORY:
 ----------------------------------------
@@ -483,15 +485,15 @@ ISSUES BY CATEGORY:
 
 📁 ANCHOR_LINK_CRITICAL_ISSUES_SUMMARY.md
   🔗 Line 50: Broken anchor link: #correct-target
-     Suggested fix: recommendations
+     Suggested fix: scripts-created
 
 📁 ANCHOR_LINK_MAINTENANCE.md
   🔗 Line 114: Broken anchor link: #approval-baseline-process
-     Suggested fix: reporting-and-analytics
+     Suggested fix: adjusting-ci-behavior
 
 📁 ANCHOR_LINK_MAINTENANCE.md
   🔗 Line 117: Broken anchor link: #approval-baseline-process
-     Suggested fix: reporting-and-analytics
+     Suggested fix: adjusting-ci-behavior
 
 📁 docs/ANCHOR_LINK_MAINTENANCE.md
   🔗 Line 11: Broken anchor link: #system-components
@@ -503,7 +505,7 @@ ISSUES BY CATEGORY:
 
 📁 docs/security-workflows-integration.md
   🔗 Line 12: Broken anchor link: #monitoring--alerting
-     Suggested fix: compliance-reporting
+     Suggested fix: monitoring-alerting
 
 📁 industry-specializations/healthcare-pharmaceutical/compliance/capa_management_template.md
   🔗 Line 32: Broken anchor link: #4-implementation-timeline
@@ -5201,6 +5203,32 @@ ISSUES BY CATEGORY:
   💡 Line 39: Header with special characters could benefit from explicit anchor
      Suggested fix: <a id="planningpreparation"></a>
   ... and 5 more suggestions
+
+📁 workflow-analysis-logs/workflow-analysis-20250621_153536.md
+  💡 Line 38: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="recent-workflow-runs-last-30"></a>
+  💡 Line 45: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="workflow-health-monitor"></a>
+  💡 Line 1350: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="githubworkflowsinfrastructure-securityyml"></a>
+  💡 Line 1360: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="static-application-security-testing-sast"></a>
+  💡 Line 2144: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="workflow-health-monitor"></a>
+  ... and 24 more suggestions
+
+📁 workflow-fix-plan.md
+  💡 Line 8: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="failed-workflows-priority-order"></a>
+  💡 Line 15: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="successful-workflows"></a>
+  💡 Line 21: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="phase-1-error-collection-and-analysis"></a>
+  💡 Line 23: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="step-11-collect-error-logs"></a>
+  💡 Line 28: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="step-12-workflow-validation"></a>
+  ... and 10 more suggestions
 
 📁 workflow-orchestration/IMPLEMENTATION.md
   💡 Line 3: Header with special characters could benefit from explicit anchor
