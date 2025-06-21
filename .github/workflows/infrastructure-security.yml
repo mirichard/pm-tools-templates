@@ -604,7 +604,7 @@ jobs:
               --output "container-security-results/trivy-compose-$FILENAME.json" || true
             
             # Check for security best practices using simplified approach
-            python3 -c "import json; result = {'file': '\"$compose_file\"', 'security_issues': [], 'total_issues': 0}; print(json.dumps(result, indent=2))" > "container-security-results/compose-security-$FILENAME.json"
+            python3 -c "import json; result = {'file': '$compose_file', 'security_issues': [], 'total_issues': 0}; print(json.dumps(result, indent=2))" > "container-security-results/compose-security-$FILENAME.json"
           done
 
       - name: 📊 Generate Container Security Report
