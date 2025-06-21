@@ -537,13 +537,31 @@ jobs:
           
           STATUS_SUMMARY='${{ needs.collect-workflow-status.outputs.status_summary }}'
           
+          # Debug: Check if STATUS_SUMMARY is available
+          if [ -z "$STATUS_SUMMARY" ]; then
+            echo "⚠️ STATUS_SUMMARY is empty, creating default data..."
+            STATUS_SUMMARY='{"overall_health":0,"status":"unknown","status_emoji":"❓","category_details":{},"total_categories":0}'
+          fi
+          
+          echo "📊 Status Summary: $STATUS_SUMMARY"
+          
           python3 - << 'EOF'
           import json
           import os
           from datetime import datetime
           
-          # Load status summary
-          status_data = json.loads(os.environ['STATUS_SUMMARY'])
+          # Load status summary with error handling
+          try:
+              status_data = json.loads(os.environ['STATUS_SUMMARY'])
+          except (KeyError, json.JSONDecodeError) as e:
+              print(f"⚠️ Error loading STATUS_SUMMARY: {e}")
+              status_data = {
+                  'overall_health': 0,
+                  'status': 'unknown',
+                  'status_emoji': '❓',
+                  'category_details': {},
+                  'total_categories': 0
+              }
           
           # Generate comprehensive health report
           report = f"""# 🏥 Workflow Health Report
