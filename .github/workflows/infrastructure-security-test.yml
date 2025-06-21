@@ -1,0 +1,22 @@
+name: Infrastructure Security Test
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  test-basic:
+    name: Basic Infrastructure Test
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        
+      - name: Simple Test
+        run: |
+          echo "Testing infrastructure security workflow..."
+          echo "Repository: ${{ github.repository }}"
+          echo "Branch: ${{ github.ref_name }}"
+          echo "Test completed successfully!"
