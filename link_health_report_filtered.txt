@@ -30,7 +30,7 @@ ISSUES BY CATEGORY:
 
 📁 ANCHOR_LINK_CRITICAL_ISSUES_SUMMARY.md
   🔗 Line 49: Broken anchor link: #1-section
-     Suggested fix: next-steps
+     Suggested fix: low-impact
 
 📁 ANCHOR_LINK_CRITICAL_ISSUES_SUMMARY.md
   🔗 Line 50: Broken anchor link: #correct-target
@@ -38,11 +38,11 @@ ISSUES BY CATEGORY:
 
 📁 ANCHOR_LINK_MAINTENANCE.md
   🔗 Line 114: Broken anchor link: #approval-baseline-process
-     Suggested fix: reporting-and-analytics
+     Suggested fix: adjusting-ci-behavior
 
 📁 ANCHOR_LINK_MAINTENANCE.md
   🔗 Line 117: Broken anchor link: #approval-baseline-process
-     Suggested fix: reporting-and-analytics
+     Suggested fix: adjusting-ci-behavior
 
 📁 docs/ANCHOR_LINK_MAINTENANCE.md
   🔗 Line 11: Broken anchor link: #system-components
