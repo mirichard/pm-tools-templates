@@ -215,9 +215,35 @@ jobs:
           fi
           
           # Convert arrays to JSON for outputs
-          LANGUAGES_JSON=$(printf '%s\n' "${LANGUAGES[@]}" | jq -R . | jq -s .)
-          FRAMEWORKS_JSON=$(printf '%s\n' "${FRAMEWORKS[@]}" | jq -R . | jq -s .)
-          MATRIX_JSON=$(printf '%s\n' "${MATRIX_LANGS[@]}" | sort -u | jq -R . | jq -s .)
+          # Handle empty arrays properly
+          if [ ${#LANGUAGES[@]} -eq 0 ]; then
+            LANGUAGES_JSON="[]"
+          else
+            LANGUAGES_JSON=$(printf '%s\n' "${LANGUAGES[@]}" | jq -R . | jq -s .)
+          fi
+          
+          if [ ${#FRAMEWORKS[@]} -eq 0 ]; then
+            FRAMEWORKS_JSON="[]"
+          else
+            FRAMEWORKS_JSON=$(printf '%s\n' "${FRAMEWORKS[@]}" | jq -R . | jq -s .)
+          fi
+          
+          # Remove duplicates from matrix languages and handle empty array
+          if [ ${#MATRIX_LANGS[@]} -eq 0 ]; then
+            MATRIX_JSON="[]"
+          else
+            # Use associative array to remove duplicates
+            declare -A unique_langs
+            for lang in "${MATRIX_LANGS[@]}"; do
+              unique_langs["$lang"]=1
+            done
+            # Convert back to regular array
+            UNIQUE_MATRIX_LANGS=()
+            for lang in "${!unique_langs[@]}"; do
+              UNIQUE_MATRIX_LANGS+=("$lang")
+            done
+            MATRIX_JSON=$(printf '%s\n' "${UNIQUE_MATRIX_LANGS[@]}" | jq -R . | jq -s .)
+          fi
           
           # Set outputs
           echo "languages=$LANGUAGES_JSON" >> $GITHUB_OUTPUT
