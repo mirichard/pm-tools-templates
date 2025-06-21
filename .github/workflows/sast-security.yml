@@ -232,15 +232,20 @@ jobs:
           if [ ${#MATRIX_LANGS[@]} -eq 0 ]; then
             MATRIX_JSON="[]"
           else
-            # Create sorted unique array using simple approach
-            SORTED_UNIQUE=($(printf '%s\n' "${MATRIX_LANGS[@]}" | sort -u))
-            
-            # Generate JSON safely
-            if [ ${#SORTED_UNIQUE[@]} -eq 0 ]; then
-              MATRIX_JSON="[]"
-            else
-              MATRIX_JSON=$(printf '%s\n' "${SORTED_UNIQUE[@]}" | jq -R . | jq -s .)
-            fi
+            # Use a much simpler approach to avoid issues
+            MATRIX_JSON="["
+            UNIQUE_ADDED=()
+            for lang in "${MATRIX_LANGS[@]}"; do
+              # Check if already added
+              if [[ ! " ${UNIQUE_ADDED[*]} " =~ " ${lang} " ]]; then
+                if [ ${#UNIQUE_ADDED[@]} -gt 0 ]; then
+                  MATRIX_JSON="$MATRIX_JSON,"
+                fi
+                MATRIX_JSON="$MATRIX_JSON\"$lang\""
+                UNIQUE_ADDED+=("$lang")
+              fi
+            done
+            MATRIX_JSON="$MATRIX_JSON]"
           fi
           
           # Set outputs
