@@ -1023,7 +1023,8 @@ jobs:
         run: |
           echo "📊 Workflow Health Monitoring Summary"
           echo "====================================="
-          echo "Repository: ${{ github.repository }}"
+          GITHUB_REPO="${{ github.repository }}"
+          echo "Repository: $GITHUB_REPO"
           echo "Health Score: ${{ needs.collect-workflow-status.outputs.health_score }}/100"
           echo "Alert Level: ${{ needs.health-alerting.outputs.alert_level }}"
           echo "Status: ${{ needs.health-alerting.outputs.alert_message }}"

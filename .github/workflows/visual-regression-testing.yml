@@ -1506,8 +1506,10 @@ jobs:
         run: |
           echo "👁️ Visual Regression Testing Summary"
           echo "===================================="
-          echo "Repository: ${{ github.repository }}"
-          echo "Test Scope: ${{ github.event.inputs.test_scope || 'comprehensive' }}"
+          GITHUB_REPO="${{ github.repository }}"
+          TEST_SCOPE="${{ github.event.inputs.test_scope || 'comprehensive' }}"
+          echo "Repository: $GITHUB_REPO"
+          echo "Test Scope: $TEST_SCOPE"
           echo "Baseline Update: ${{ github.event.inputs.baseline_update || 'false' }}"
           echo "Diff Threshold: ${{ github.event.inputs.diff_threshold || '2' }}%"
           echo ""

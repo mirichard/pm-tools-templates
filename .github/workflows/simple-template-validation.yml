@@ -93,7 +93,8 @@ jobs:
           
           template_count=$(find templates -name "*.md" 2>/dev/null | wc -l)
           echo "- Templates found: $template_count" >> validation-report.md
-          echo "- Validation scope: ${{ github.event.inputs.validation_scope }}" >> validation-report.md
+          VALIDATION_SCOPE="${{ github.event.inputs.validation_scope }}"
+          echo "- Validation scope: $VALIDATION_SCOPE" >> validation-report.md
           echo "- Status: ✅ Completed" >> validation-report.md
           
           echo "✅ Report generated"
