@@ -1160,7 +1160,7 @@ EOF
         uses: actions/github-script@v7
         with:
           script: |
-            const infraDiscovery = ${{ toJson(needs.infrastructure-discovery.outputs) }};
+            const infraDiscovery = ${{ toJSON(needs.infrastructure-discovery.outputs) }};
             const terraformStatus = '${{ needs.terraform-security.result || 'skipped' }}';
             const containerStatus = '${{ needs.container-security.result || 'skipped' }}';
             const kubernetesStatus = '${{ needs.kubernetes-security.result || 'skipped' }}';
