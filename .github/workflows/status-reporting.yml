@@ -94,10 +94,13 @@ jobs:
           echo "blockers=$BLOCKERS" >> $GITHUB_OUTPUT
           echo "recent_closed=$RECENT_CLOSED" >> $GITHUB_OUTPUT
 
-      - name: 📋 Generate Status Report
+      - name: 📊 Generate Status Report
+        env:
+          REPORT_TYPE: ${{ github.event.inputs.report_type || 'weekly' }}
+          METHODOLOGY: ${{ github.event.inputs.methodology || 'agile' }}
         run: |
-          REPORT_TYPE="${{ github.event.inputs.report_type || 'weekly' }}"
-          METHODOLOGY="${{ github.event.inputs.methodology || 'agile' }}"
+          REPORT_TYPE="$REPORT_TYPE"
+          METHODOLOGY="$METHODOLOGY"
           
           # Create reports directory
           mkdir -p reports/status
@@ -284,16 +287,24 @@ jobs:
             git push
           fi
 
-      - name: 🔔 Status Summary
+      - name: 📋 Status Summary
+        env:
+          REPORT_TYPE: ${{ github.event.inputs.report_type || 'weekly' }}
+          METHODOLOGY: ${{ github.event.inputs.methodology || 'agile' }}
+          COMPLETION_RATE: ${{ steps.metrics.outputs.completion_rate }}
+          STRATEGIC_PROGRESS: ${{ steps.metrics.outputs.strategic_progress }}
+          OPEN_ISSUES: ${{ steps.metrics.outputs.open_issues }}
+          HIGH_PRIORITY: ${{ steps.metrics.outputs.high_priority }}
+          CRITICAL_RISKS: ${{ steps.metrics.outputs.critical_risks }}
         run: |
           echo "📊 Status Report Generated"
           echo "========================"
-          echo "Report Type: ${{ github.event.inputs.report_type || 'weekly' }}"
-          echo "Methodology: ${{ github.event.inputs.methodology || 'agile' }}"
-          echo "Completion Rate: ${{ steps.metrics.outputs.completion_rate }}%"
-          echo "Strategic Progress: ${{ steps.metrics.outputs.strategic_progress }}%"
-          echo "Open Issues: ${{ steps.metrics.outputs.open_issues }}"
-          echo "High Priority: ${{ steps.metrics.outputs.high_priority }}"
-          echo "Critical Risks: ${{ steps.metrics.outputs.critical_risks }}"
+          echo "Report Type: $REPORT_TYPE"
+          echo "Methodology: $METHODOLOGY"
+          echo "Completion Rate: $COMPLETION_RATE%"
+          echo "Strategic Progress: $STRATEGIC_PROGRESS%"
+          echo "Open Issues: $OPEN_ISSUES"
+          echo "High Priority: $HIGH_PRIORITY"
+          echo "Critical Risks: $CRITICAL_RISKS"
           echo "Recent Completions: ${{ steps.metrics.outputs.recent_closed }}"
 
