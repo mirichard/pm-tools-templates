@@ -257,7 +257,7 @@ jobs:
           STATUS_SUMMARY=$(cat health_analysis.json | jq -c .)
           
           echo "health_score=$HEALTH_SCORE" >> $GITHUB_OUTPUT
-          echo "status_summary=${STATUS_SUMMARY:-"{}"}" >> $GITHUB_OUTPUT
+          echo "status_summary=$STATUS_SUMMARY" >> $GITHUB_OUTPUT
 
       - name: 📤 Upload Analysis Data
         uses: actions/upload-artifact@v4
@@ -538,12 +538,12 @@ jobs:
           STATUS_SUMMARY='${{ needs.collect-workflow-status.outputs.status_summary }}'
           
           # Debug: Check if STATUS_SUMMARY is available
-          if [ -z "${STATUS_SUMMARY:-"{}"}" ]; then
+          if [ -z "$STATUS_SUMMARY" ]; then
             echo "⚠️ STATUS_SUMMARY is empty, creating default data..."
             STATUS_SUMMARY='{"overall_health":0,"status":"unknown","status_emoji":"❓","category_details":{},"total_categories":0}'
           fi
           
-          echo "📊 Status Summary: ${STATUS_SUMMARY:-"{}"}"
+          echo "📊 Status Summary: $STATUS_SUMMARY"
           
           python3 - << 'EOF'
           import json

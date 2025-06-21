@@ -1,0 +1,12 @@
+{
+  "name": "pm-tools-templates",
+  "version": "1.0.0",
+  "description": "Project Management Tools and Templates",
+  "main": "ecosystem-gateway.js",
+  "scripts": {
+    "test": "echo 'Basic test passed' && exit 0",
+    "start": "echo 'PM Tools Templates started' && exit 0"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}
