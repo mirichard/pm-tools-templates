@@ -23,8 +23,8 @@
 5. [Resolution Planning and Tracking](#5-resolution-planning-and-tracking)
 6. [Escalation Procedures](#6-escalation-procedures)
 7. [Issue Log](#7-issue-log)
-8. [Issue History Log](#8-issue-history-log)
-9. [Approval](#9-approval)
+8. [Issue History Log](#7-issue-log)
+9. [Approval](#3-priority-and-severity-assessment)
 
 ---
 

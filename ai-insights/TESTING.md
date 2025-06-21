@@ -10,9 +10,9 @@
 
 1. [Testing Overview](#testing-overview)
 2. [Quick Start Testing](#quick-start-testing)
-3. [Test Types & Strategies](#test-types--strategies)
+3. [Test Types & Strategies](#test-types-strategies)
 4. [Running Tests](#running-tests)
-5. [Test Data & Scenarios](#test-data--scenarios)
+5. [Test Data & Scenarios](#test-data-scenarios)
 6. [Performance Testing](#performance-testing)
 7. [AI Model Validation](#ai-model-validation)
 8. [Manual Testing Checklist](#manual-testing-checklist)

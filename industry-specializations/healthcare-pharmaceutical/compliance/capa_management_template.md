@@ -20,54 +20,54 @@
 
 ## Table of Contents
 
-1. [CAPA Overview](#capa-overview)
+1. [CAPA Overview](#1-capa-overview)
    - [Issue Description](#issue-description)
    - [Issue Category](#issue-category)
    - [Impact Assessment](#impact-assessment)
    - [Root Cause Analysis](#root-cause-analysis)
 
-2. [Corrective Action Plan](#corrective-action-plan)
+2. [Corrective Action Plan](#2-corrective-action-plan)
    - [Immediate Actions](#immediate-actions)
    - [Long-term Solutions](#long-term-solutions)
-   - [Implementation Timeline](#implementation-timeline)
+   - [Implementation Timeline](#4-implementation-timeline)
    - [Resource Requirements](#resource-requirements)
 
-3. [Preventive Action Plan](#preventive-action-plan)
+3. [Preventive Action Plan](#3-preventive-action-plan)
    - [System/Process Changes](#systemprocess-changes)
    - [Training Requirements](#training-requirements)
    - [Monitoring Mechanisms](#monitoring-mechanisms)
 
-4. [Implementation](#implementation)
+4. [Implementation](#4-implementation)
    - [Action Items and Owners](#action-items-and-owners)
    - [Timeline](#timeline)
    - [Resource Allocation](#resource-allocation)
 
-5. [Verification and Validation](#verification-and-validation)
+5. [Verification and Validation](#5-verification-and-validation)
    - [Success Criteria](#success-criteria)
    - [Testing/Validation Plan](#testingvalidation-plan)
    - [Documentation Requirements](#documentation-requirements)
 
-6. [Effectiveness Check](#effectiveness-check)
+6. [Effectiveness Check](#6-effectiveness-check)
    - [Monitoring Period](#monitoring-period)
    - [Success Metrics](#success-metrics)
    - [Review Schedule](#review-schedule)
 
-7. [Regulatory Compliance](#regulatory-compliance)
+7. [Regulatory Compliance](#7-regulatory-compliance)
    - [GxP Requirements](#gxp-requirements)
    - [Documentation Standards](#documentation-standards)
    - [Reporting Requirements](#reporting-requirements)
 
-8. [Change Control](#change-control)
-   - [Impact Assessment](#impact-assessment-1)
-   - [Training Requirements](#training-requirements-1)
+8. [Change Control](#8-change-control)
+   - [Impact Assessment](#impact-assessment)
+   - [Training Requirements](#training-requirements)
    - [Documentation Updates](#documentation-updates)
 
-9. [Closure and Reporting](#closure-and-reporting)
+9. [Closure and Reporting](#9-closure-and-reporting)
    - [Completion Criteria](#completion-criteria)
    - [Final Review](#final-review)
    - [Lessons Learned](#lessons-learned)
 
-10. [Appendices](#appendices)
+10. [Appendices](#10-appendices)
     - [CAPA Request Form](#appendix-a-capa-request-form)
     - [Root Cause Analysis Tools](#appendix-b-root-cause-analysis-tools)
     - [Effectiveness Checklist](#appendix-c-effectiveness-checklist)

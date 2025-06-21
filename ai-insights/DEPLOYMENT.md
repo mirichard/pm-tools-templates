@@ -28,8 +28,8 @@ curl http://localhost:3001/health
 2. [Local Development](#local-development)
 3. [Docker Deployment](#docker-deployment)
 4. [Production Deployment](#production-deployment)
-5. [Monitoring & Maintenance](#monitoring--maintenance)
-6. [Scaling & Performance](#scaling--performance)
+5. [Monitoring & Maintenance](#monitoring-maintenance)
+6. [Scaling & Performance](#scaling-performance)
 7. [Troubleshooting](#troubleshooting)
 8. [Security](#security)
 

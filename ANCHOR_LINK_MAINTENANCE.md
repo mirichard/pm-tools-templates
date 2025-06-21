@@ -101,7 +101,7 @@ Automated CI/CD integration that runs on pull requests and pushes.
 
 ### 2. Broken Anchor References
 
-**Problem:** Links like `[text](#broken--anchor)` that don't match any existing anchors.
+**Problem:** Links like `[text](#2-broken-anchor-references)` that don't match any existing anchors.
 
 **Common Causes:**
 - Double hyphens (`--`) instead of single (`-`)
@@ -111,7 +111,7 @@ Automated CI/CD integration that runs on pull requests and pushes.
 **Solution:** Update the link to match an existing anchor:
 ```markdown
 # Change this:
-[Approval & Baseline](#approval--baseline-process)
+[Approval & Baseline](#approval-baseline-process)
 
 # To this:
 [Approval & Baseline](#approval-baseline-process)

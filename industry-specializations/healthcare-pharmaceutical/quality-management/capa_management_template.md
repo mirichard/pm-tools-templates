@@ -20,12 +20,12 @@
 
 ## Table of Contents
 
-1. [CAPA Overview](#capa-overview)
+1. [CAPA Overview](#1-capa-overview)
    - [Purpose and Scope](#purpose-and-scope)
    - [Definitions](#definitions)
    - [Regulatory Framework](#regulatory-framework)
 
-2. [CAPA Process](#capa-process)
+2. [CAPA Process](#2-capa-process)
    - [Issue Identification](#issue-identification)
    - [Root Cause Analysis](#root-cause-analysis)
    - [CAPA Plan Development](#capa-plan-development)
@@ -33,18 +33,18 @@
    - [Effectiveness Check](#effectiveness-check)
    - [Closure](#closure)
 
-3. [Documentation Requirements](#documentation-requirements)
+3. [Documentation Requirements](#3-documentation-requirements)
    - [CAPA Forms](#capa-forms)
    - [Supporting Evidence](#supporting-evidence)
    - [Review and Approval Process](#review-and-approval-process)
 
-4. [Monitoring and Reporting](#monitoring-and-reporting)
+4. [Monitoring and Reporting](#4-monitoring-and-reporting)
    - [CAPA Tracking System](#capa-tracking-system)
    - [Metrics and KPIs](#metrics-and-kpis)
    - [Status Reporting](#status-reporting)
    - [Trend Analysis](#trend-analysis)
 
-5. [Appendices](#appendices)
+5. [Appendices](#5-appendices)
    - [CAPA Request Form](#appendix-a-capa-request-form)
    - [Root Cause Analysis Tools](#appendix-b-root-cause-analysis-tools)
    - [CAPA Plan Template](#appendix-c-capa-plan-template)

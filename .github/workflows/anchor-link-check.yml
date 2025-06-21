@@ -81,8 +81,8 @@ jobs:
             AUTO_FIX_FLAG="--auto-fix"
           fi
           
-          # Run the comprehensive check
-          python check_anchor_links.py $AUTO_FIX_FLAG --output anchor_report.json > full_check_output.txt 2>&1 || echo "Full check found issues"
+          # Run the filtered comprehensive check (excludes node_modules)
+          python check_anchor_links_filtered.py > full_check_output.txt 2>&1 || echo "Full check found issues"
           
           # Capture exit code
           FULL_EXIT_CODE=$?

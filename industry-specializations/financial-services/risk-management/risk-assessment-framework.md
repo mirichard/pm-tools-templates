@@ -22,7 +22,7 @@
    - [Impact Levels](#impact-levels)
    - [Probability Ratings](#probability-ratings)
    - [Risk Scoring Methodology](#risk-scoring-methodology)
-3. [Risk Categories](#risk-categories-1)
+3. [Risk Categories](#risk-categories)
    - [Regulatory/Compliance Risks](#regulatorycompliance-risks)
    - [Operational Risks](#operational-risks)
    - [Technology Risks](#technology-risks)
