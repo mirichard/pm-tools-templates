@@ -94,6 +94,8 @@ jobs:
 
       - name: 🔐 Node.js Security Audit
         if: steps.detect-languages.outputs.has_node == 'true'
+        env:
+          VULN_THRESHOLD: ${{ env.VULNERABILITY_THRESHOLD }}
         run: |
           echo "🔍 Running npm security audit..."
           
@@ -105,8 +107,8 @@ jobs:
           fi
           
           # Run audit with appropriate level
-          if ! npm audit --audit-level=${{ env.VULNERABILITY_THRESHOLD }}; then
-            echo "❌ npm audit found vulnerabilities at or above ${{ env.VULNERABILITY_THRESHOLD }} level"
+          if ! npm audit --audit-level="$VULN_THRESHOLD"; then
+            echo "❌ npm audit found vulnerabilities at or above $VULN_THRESHOLD level"
             
             # Generate detailed report
             npm audit --json > npm-audit-results.json || true
@@ -114,7 +116,7 @@ jobs:
             # Create human-readable summary
             echo "## 🔒 npm Audit Results" >> audit-summary.md
             echo "**Scan Date:** $(date)" >> audit-summary.md
-            echo "**Threshold:** ${{ env.VULNERABILITY_THRESHOLD }}" >> audit-summary.md
+            echo "**Threshold:** $VULN_THRESHOLD" >> audit-summary.md
             echo "" >> audit-summary.md
             
             # Extract summary from JSON
@@ -124,7 +126,7 @@ jobs:
             
             exit 1
           else
-            echo "✅ npm audit passed - no vulnerabilities found at ${{ env.VULNERABILITY_THRESHOLD }} level or above"
+            echo "✅ npm audit passed - no vulnerabilities found at $VULN_THRESHOLD level or above"
           fi
 
       - name: 🐍 Setup Python
@@ -182,6 +184,10 @@ jobs:
 
       - name: 📊 Generate Security Report
         if: always()
+        env:
+          GITHUB_REPO: ${{ github.repository }}
+          SCAN_TYPE: ${{ github.event.inputs.scan_type || 'comprehensive' }}
+          VULN_THRESHOLD: ${{ env.VULNERABILITY_THRESHOLD }}
         run: |
           # Create comprehensive security report
           mkdir -p security-reports
@@ -190,9 +196,9 @@ jobs:
           # 🔒 Dependency Security Report
           
           **Generated:** $(date)
-          **Repository:** ${{ github.repository }}
-          **Scan Type:** ${{ github.event.inputs.scan_type || 'comprehensive' }}
-          **Threshold:** ${{ env.VULNERABILITY_THRESHOLD }}
+          **Repository:** $GITHUB_REPO
+          **Scan Type:** $SCAN_TYPE
+          **Threshold:** $VULN_THRESHOLD
           
           ## 📊 Scan Summary
           
@@ -333,14 +339,19 @@ jobs:
 
       - name: 🎯 Security Scan Summary
         if: always()
+        env:
+          SCAN_TYPE: ${{ github.event.inputs.scan_type || 'comprehensive' }}
+          HAS_NODE: ${{ steps.detect-languages.outputs.has_node }}
+          HAS_PYTHON: ${{ steps.detect-languages.outputs.has_python }}
+          VULN_THRESHOLD: ${{ env.VULNERABILITY_THRESHOLD }}
         run: |
           echo "🔒 Dependency Security Scan Summary"
           echo "=================================="
-          echo "Scan Type: ${{ github.event.inputs.scan_type || 'comprehensive' }}"
+          echo "Scan Type: $SCAN_TYPE"
           echo "Languages Detected:"
-          echo "- Node.js: ${{ steps.detect-languages.outputs.has_node }}"
-          echo "- Python: ${{ steps.detect-languages.outputs.has_python }}"
-          echo "Vulnerability Threshold: ${{ env.VULNERABILITY_THRESHOLD }}"
+          echo "- Node.js: $HAS_NODE"
+          echo "- Python: $HAS_PYTHON"
+          echo "Vulnerability Threshold: $VULN_THRESHOLD"
           echo "Status: $([ $? -eq 0 ] && echo "✅ Passed" || echo "❌ Issues Found")"
           echo ""
           echo "📋 Security scanning completed successfully!"

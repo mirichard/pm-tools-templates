@@ -69,10 +69,19 @@ const TEST_SUITES = {
 
 // Test execution functions
 async function runCommand(command, args = [], options = {}) {
+  // Validate command to prevent injection
+  const allowedCommands = ['npm', 'node', 'npx'];
+  if (!allowedCommands.includes(command)) {
+    throw new Error(`Command not allowed: ${command}`);
+  }
+  
+  // Validate args to prevent injection
+  const safeArgs = args.filter(arg => typeof arg === 'string' && !arg.includes(';') && !arg.includes('|'));
+  
   return new Promise((resolve, reject) => {
-    const child = spawn(command, args, {
+    const child = spawn(command, safeArgs, {
       stdio: 'inherit',
-      shell: true,
+      shell: false, // Disable shell to prevent command injection
       ...options
     });
 

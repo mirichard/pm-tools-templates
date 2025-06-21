@@ -171,10 +171,27 @@ class EcosystemManager {
     return new Promise((resolve) => {
       console.log(chalk[config.color](`${config.icon} Starting ${config.name}...`));
       
-      const service = spawn(config.command, config.args, {
+      // Validate command and args to prevent injection
+      const allowedCommands = ['node', 'npm', 'npx', 'python3', 'python'];
+      if (!allowedCommands.includes(config.command)) {
+        console.error(chalk.red(`Command not allowed: ${config.command}`));
+        resolve();
+        return;
+      }
+      
+      // Validate args
+      const safeArgs = config.args.filter(arg => 
+        typeof arg === 'string' && 
+        !arg.includes(';') && 
+        !arg.includes('|') &&
+        !arg.includes('&&')
+      );
+      
+      const service = spawn(config.command, safeArgs, {
         cwd: __dirname,
         stdio: ['pipe', 'pipe', 'pipe'],
-        detached: false
+        detached: false,
+        shell: false // Disable shell to prevent command injection
       });
       
       service.stdout.on('data', (data) => {

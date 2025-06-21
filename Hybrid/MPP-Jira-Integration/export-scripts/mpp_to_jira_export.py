@@ -17,7 +17,13 @@ Usage:
 import argparse
 import csv
 import json
-import xml.etree.ElementTree as ET
+try:
+    import defusedxml.etree.ElementTree as ET
+except ImportError:
+    # Fallback to standard library with warning
+    import xml.etree.ElementTree as ET
+    import warnings
+    warnings.warn("defusedxml not available, using standard xml library. Install defusedxml for security.")
 from datetime import datetime
 from pathlib import Path
 import logging
@@ -54,6 +60,7 @@ class MPPToJiraExporter:
         Parse Microsoft Project XML export file
         """
         try:
+            # Use defusedxml for secure XML parsing
             tree = ET.parse(xml_file)
             root = tree.getroot()
             
