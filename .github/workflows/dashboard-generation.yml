@@ -371,6 +371,30 @@ jobs:
       - name: 📊 Generate Dashboard
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          DASHBOARD_TYPE: ${{ github.event.inputs.dashboard_type || 'comprehensive' }}
+          HEALTH_STATUS: ${{ steps.metrics.outputs.health_status }}
+          COMPLETION_RATE: ${{ steps.metrics.outputs.completion_rate }}
+          RISK_SCORE: ${{ steps.metrics.outputs.risk_score }}
+          VELOCITY: ${{ steps.metrics.outputs.velocity }}
+          TOTAL_ISSUES: ${{ steps.metrics.outputs.total_issues }}
+          OPEN_ISSUES: ${{ steps.metrics.outputs.open_issues }}
+          CLOSED_ISSUES: ${{ steps.metrics.outputs.closed_issues }}
+          CRITICAL_ISSUES: ${{ steps.metrics.outputs.critical_issues }}
+          HIGH_PRIORITY: ${{ steps.metrics.outputs.high_priority }}
+          BUGS: ${{ steps.metrics.outputs.bugs }}
+          ENHANCEMENTS: ${{ steps.metrics.outputs.enhancements }}
+          STRATEGIC_ISSUES: ${{ steps.metrics.outputs.strategic_issues }}
+          STRATEGIC_PROGRESS: ${{ steps.metrics.outputs.strategic_progress }}
+          PHASE1_ISSUES: ${{ steps.metrics.outputs.phase1_issues }}
+          PHASE1_OPEN: ${{ steps.metrics.outputs.phase1_open }}
+          PHASE2_ISSUES: ${{ steps.metrics.outputs.phase2_issues }}
+          PHASE2_OPEN: ${{ steps.metrics.outputs.phase2_open }}
+          PHASE3_ISSUES: ${{ steps.metrics.outputs.phase3_issues }}
+          PHASE3_OPEN: ${{ steps.metrics.outputs.phase3_open }}
+          ISSUES_OPENED_WEEK: ${{ steps.metrics.outputs.issues_opened_week }}
+          ISSUES_CLOSED_WEEK: ${{ steps.metrics.outputs.issues_closed_week }}
+          ISSUES_OPENED_MONTH: ${{ steps.metrics.outputs.issues_opened_month }}
+          ISSUES_CLOSED_MONTH: ${{ steps.metrics.outputs.issues_closed_month }}
         run: |
           # Create machine-readable dashboard data
           mkdir -p dashboards/data
@@ -378,34 +402,34 @@ jobs:
           cat > dashboards/data/metrics-$(date +%Y-%m-%d).json << EOF
           {
             "generated_at": "$(date -Iseconds)",
-            "dashboard_type": "${{ github.event.inputs.dashboard_type || 'comprehensive' }}",
+            "dashboard_type": "$DASHBOARD_TYPE",
             "project_health": {
-              "status": "${{ steps.metrics.outputs.health_status }}",
-              "completion_rate": ${{ steps.metrics.outputs.completion_rate }},
-              "risk_score": ${{ steps.metrics.outputs.risk_score }},
-              "velocity": ${{ steps.metrics.outputs.velocity }}
+              "status": "$HEALTH_STATUS",
+              "completion_rate": $COMPLETION_RATE,
+              "risk_score": $RISK_SCORE,
+              "velocity": $VELOCITY
             },
             "metrics": {
-              "total_issues": ${{ steps.metrics.outputs.total_issues }},
-              "open_issues": ${{ steps.metrics.outputs.open_issues }},
-              "closed_issues": ${{ steps.metrics.outputs.closed_issues }},
-              "critical_issues": ${{ steps.metrics.outputs.critical_issues }},
-              "high_priority": ${{ steps.metrics.outputs.high_priority }},
-              "bugs": ${{ steps.metrics.outputs.bugs }},
-              "enhancements": ${{ steps.metrics.outputs.enhancements }}
+              "total_issues": $TOTAL_ISSUES,
+              "open_issues": $OPEN_ISSUES,
+              "closed_issues": $CLOSED_ISSUES,
+              "critical_issues": $CRITICAL_ISSUES,
+              "high_priority": $HIGH_PRIORITY,
+              "bugs": $BUGS,
+              "enhancements": $ENHANCEMENTS
             },
             "strategic": {
-              "total_strategic": ${{ steps.metrics.outputs.strategic_issues }},
-              "strategic_progress": ${{ steps.metrics.outputs.strategic_progress }},
-              "phase1_progress": $([ ${{ steps.metrics.outputs.phase1_issues }} -gt 0 ] && echo "$(( (${{ steps.metrics.outputs.phase1_issues }} - ${{ steps.metrics.outputs.phase1_open }}) * 100 / ${{ steps.metrics.outputs.phase1_issues }} ))" || echo "0"),
-              "phase2_progress": $([ ${{ steps.metrics.outputs.phase2_issues }} -gt 0 ] && echo "$(( (${{ steps.metrics.outputs.phase2_issues }} - ${{ steps.metrics.outputs.phase2_open }}) * 100 / ${{ steps.metrics.outputs.phase2_issues }} ))" || echo "0"),
-              "phase3_progress": $([ ${{ steps.metrics.outputs.phase3_issues }} -gt 0 ] && echo "$(( (${{ steps.metrics.outputs.phase3_issues }} - ${{ steps.metrics.outputs.phase3_open }}) * 100 / ${{ steps.metrics.outputs.phase3_issues }} ))" || echo "0")
+              "total_strategic": $STRATEGIC_ISSUES,
+              "strategic_progress": $STRATEGIC_PROGRESS,
+              "phase1_progress": $([ $PHASE1_ISSUES -gt 0 ] && echo "$(( ($PHASE1_ISSUES - $PHASE1_OPEN) * 100 / $PHASE1_ISSUES ))" || echo "0"),
+              "phase2_progress": $([ $PHASE2_ISSUES -gt 0 ] && echo "$(( ($PHASE2_ISSUES - $PHASE2_OPEN) * 100 / $PHASE2_ISSUES ))" || echo "0"),
+              "phase3_progress": $([ $PHASE3_ISSUES -gt 0 ] && echo "$(( ($PHASE3_ISSUES - $PHASE3_OPEN) * 100 / $PHASE3_ISSUES ))" || echo "0")
             },
             "recent_activity": {
-              "issues_opened_week": ${{ steps.metrics.outputs.issues_opened_week }},
-              "issues_closed_week": ${{ steps.metrics.outputs.issues_closed_week }},
-              "issues_opened_month": ${{ steps.metrics.outputs.issues_opened_month }},
-              "issues_closed_month": ${{ steps.metrics.outputs.issues_closed_month }}
+              "issues_opened_week": $ISSUES_OPENED_WEEK,
+              "issues_closed_week": $ISSUES_CLOSED_WEEK,
+              "issues_opened_month": $ISSUES_OPENED_MONTH,
+              "issues_closed_month": $ISSUES_CLOSED_MONTH
             }
           }
           EOF

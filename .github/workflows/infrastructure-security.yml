@@ -396,6 +396,10 @@ jobs:
 
       - name: 📊 Generate Terraform Security Report
         if: always()
+        env:
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          TF_VERSIONS: ${{ needs.infrastructure-discovery.outputs.terraform_versions }}
+          SEVERITY_THRESHOLD: ${{ env.SEVERITY_THRESHOLD }}
         run: |
           mkdir -p security-reports
           
@@ -403,9 +407,9 @@ jobs:
           # 🏗️ Terraform Security Analysis Report
           
           **Generated:** $(date)
-          **Repository:** ${{ github.repository }}
-          **Terraform Versions:** ${{ needs.infrastructure-discovery.outputs.terraform_versions }}
-          **Severity Threshold:** ${{ env.SEVERITY_THRESHOLD }}
+          **Repository:** $(echo "$GITHUB_REPOSITORY")
+          **Terraform Versions:** $(echo "$TF_VERSIONS")
+          **Severity Threshold:** $(echo "$SEVERITY_THRESHOLD")
           
           ## 📊 Analysis Overview
           
@@ -645,6 +649,10 @@ EOF
 
       - name: 📊 Generate Container Security Report
         if: always()
+        env:
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          DOCKER_IMAGES: ${{ needs.infrastructure-discovery.outputs.docker_images }}
+          SEVERITY_THRESHOLD: ${{ env.SEVERITY_THRESHOLD }}
         run: |
           mkdir -p security-reports
           
@@ -652,9 +660,9 @@ EOF
           # 🐳 Container Security Analysis Report
           
           **Generated:** $(date)
-          **Repository:** ${{ github.repository }}
-          **Base Images:** ${{ needs.infrastructure-discovery.outputs.docker_images }}
-          **Severity Threshold:** ${{ env.SEVERITY_THRESHOLD }}
+          **Repository:** $(echo "$GITHUB_REPOSITORY")
+          **Base Images:** $(echo "$DOCKER_IMAGES")
+          **Severity Threshold:** $(echo "$SEVERITY_THRESHOLD")
           
           ## 📊 Analysis Overview
           
@@ -1048,18 +1056,35 @@ EOF
         uses: actions/checkout@v4
 
       - name: 📊 Generate Comprehensive Infrastructure Report
+        env:
+          GITHUB_REPO: ${{ github.repository }}
+          GITHUB_BRANCH: ${{ github.ref_name }}
+          SCAN_SCOPE: ${{ github.event.inputs.scan_scope || 'comprehensive' }}
+          SEVERITY_THRESHOLD: ${{ env.SEVERITY_THRESHOLD }}
+          COMPLIANCE_FRAMEWORKS: ${{ env.COMPLIANCE_FRAMEWORKS }}
+          TERRAFORM_RESULT: ${{ needs.terraform-security.result || 'Skipped' }}
+          KUBERNETES_RESULT: ${{ needs.kubernetes-security.result || 'Skipped' }}
+          CONTAINER_RESULT: ${{ needs.container-security.result || 'Skipped' }}
+          HAS_TERRAFORM: ${{ needs.infrastructure-discovery.outputs.has_terraform }}
+          HAS_KUBERNETES: ${{ needs.infrastructure-discovery.outputs.has_kubernetes }}
+          HAS_DOCKER: ${{ needs.infrastructure-discovery.outputs.has_docker }}
+          HAS_HELM: ${{ needs.infrastructure-discovery.outputs.has_helm }}
+          HAS_CLOUDFORMATION: ${{ needs.infrastructure-discovery.outputs.has_cloudformation }}
+          HAS_ARM_TEMPLATES: ${{ needs.infrastructure-discovery.outputs.has_arm_templates }}
+          HAS_GITHUB_ACTIONS: ${{ needs.infrastructure-discovery.outputs.has_github_actions }}
+          HAS_DOCKER_COMPOSE: ${{ needs.infrastructure-discovery.outputs.has_docker_compose }}
         run: |
           mkdir -p security-reports
           
-          cat > security-reports/infrastructure-comprehensive-report.md << 'EOF'
+          cat > security-reports/infrastructure-comprehensive-report.md << EOF
           # 🏗️ Infrastructure Security Comprehensive Report
           
           **Generated:** $(date)
-          **Repository:** ${{ github.repository }}
-          **Branch:** ${{ github.ref_name }}
-          **Scan Scope:** ${{ github.event.inputs.scan_scope || 'comprehensive' }}
-          **Severity Threshold:** ${{ env.SEVERITY_THRESHOLD }}
-          **Compliance Frameworks:** ${{ env.COMPLIANCE_FRAMEWORKS }}
+          **Repository:** $GITHUB_REPO
+          **Branch:** $GITHUB_BRANCH
+          **Scan Scope:** $SCAN_SCOPE
+          **Severity Threshold:** $SEVERITY_THRESHOLD
+          **Compliance Frameworks:** $COMPLIANCE_FRAMEWORKS
           
           ## 📊 Infrastructure Overview
           
@@ -1290,25 +1315,38 @@ EOF
 
       - name: 🎯 Infrastructure Security Summary
         if: always()
+        env:
+          GITHUB_REPO: ${{ github.repository }}
+          GITHUB_BRANCH: ${{ github.ref_name }}
+          SCAN_SCOPE: ${{ github.event.inputs.scan_scope || 'comprehensive' }}
+          SEVERITY_THRESHOLD: ${{ env.SEVERITY_THRESHOLD }}
+          HAS_TERRAFORM: ${{ needs.infrastructure-discovery.outputs.has_terraform }}
+          HAS_KUBERNETES: ${{ needs.infrastructure-discovery.outputs.has_kubernetes }}
+          HAS_DOCKER: ${{ needs.infrastructure-discovery.outputs.has_docker }}
+          HAS_HELM: ${{ needs.infrastructure-discovery.outputs.has_helm }}
+          HAS_CLOUDFORMATION: ${{ needs.infrastructure-discovery.outputs.has_cloudformation }}
+          TERRAFORM_RESULT: ${{ needs.terraform-security.result || 'Skipped' }}
+          CONTAINER_RESULT: ${{ needs.container-security.result || 'Skipped' }}
+          KUBERNETES_RESULT: ${{ needs.kubernetes-security.result || 'Skipped' }}
         run: |
           echo "🏗️ Infrastructure Security Analysis Summary"
           echo "==========================================="
-          echo "Repository: ${{ github.repository }}"
-          echo "Branch: ${{ github.ref_name }}"
-          echo "Scan Scope: ${{ github.event.inputs.scan_scope || 'comprehensive' }}"
-          echo "Severity Threshold: ${{ env.SEVERITY_THRESHOLD }}"
+          echo "Repository: $GITHUB_REPO"
+          echo "Branch: $GITHUB_BRANCH"
+          echo "Scan Scope: $SCAN_SCOPE"
+          echo "Severity Threshold: $SEVERITY_THRESHOLD"
           echo ""
           echo "🔍 Infrastructure Components:"
-          echo "- Terraform: ${{ needs.infrastructure-discovery.outputs.has_terraform }}"
-          echo "- Kubernetes: ${{ needs.infrastructure-discovery.outputs.has_kubernetes }}"
-          echo "- Docker: ${{ needs.infrastructure-discovery.outputs.has_docker }}"
-          echo "- Helm: ${{ needs.infrastructure-discovery.outputs.has_helm }}"
-          echo "- CloudFormation: ${{ needs.infrastructure-discovery.outputs.has_cloudformation }}"
+          echo "- Terraform: $HAS_TERRAFORM"
+          echo "- Kubernetes: $HAS_KUBERNETES"
+          echo "- Docker: $HAS_DOCKER"
+          echo "- Helm: $HAS_HELM"
+          echo "- CloudFormation: $HAS_CLOUDFORMATION"
           echo ""
           echo "🛡️ Security Analysis Results:"
-          echo "- Terraform Security: ${{ needs.terraform-security.result || 'Skipped' }}"
-          echo "- Container Security: ${{ needs.container-security.result || 'Skipped' }}"
-          echo "- Kubernetes Security: ${{ needs.kubernetes-security.result || 'Skipped' }}"
+          echo "- Terraform Security: $TERRAFORM_RESULT"
+          echo "- Container Security: $CONTAINER_RESULT"
+          echo "- Kubernetes Security: $KUBERNETES_RESULT"
           echo ""
           echo "📋 Infrastructure security analysis completed!"
           echo "🔍 Check artifacts for detailed security reports"
