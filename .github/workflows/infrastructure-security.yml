@@ -430,7 +430,7 @@ jobs:
             CHECKOV_FAILED=$(jq -r '.summary.failed // 0' terraform-checkov-results.json)
             CHECKOV_SKIPPED=$(jq -r '.summary.skipped // 0' terraform-checkov-results.json)
             
-            cat >> security-reports/terraform-security-report.md << EOF
+            cat >> security-reports/terraform-security-report.md << 'EOF'
           - **Passed Checks:** $CHECKOV_PASSED
           - **Failed Checks:** $CHECKOV_FAILED
           - **Skipped Checks:** $CHECKOV_SKIPPED
@@ -941,7 +941,7 @@ EOF
             KICS_MEDIUM=$(jq '.severity_counters.MEDIUM // 0' k8s-security-results/kics-k8s-results.json)
             KICS_LOW=$(jq '.severity_counters.LOW // 0' k8s-security-results/kics-k8s-results.json)
             
-            cat >> security-reports/kubernetes-security-report.md << EOF
+            cat >> security-reports/kubernetes-security-report.md << 'EOF'
           - **High Severity:** $KICS_HIGH
           - **Medium Severity:** $KICS_MEDIUM
           - **Low Severity:** $KICS_LOW
@@ -961,7 +961,7 @@ EOF
             TOTAL_RECOMMENDATIONS=$(jq '.total_recommendations // 0' k8s-security-results/k8s-best-practices.json)
             FILES_ANALYZED=$(jq '.files_analyzed | length' k8s-security-results/k8s-best-practices.json)
             
-            cat >> security-reports/kubernetes-security-report.md << EOF
+            cat >> security-reports/kubernetes-security-report.md << 'EOF'
           - **Files Analyzed:** $FILES_ANALYZED
           - **Security Issues:** $TOTAL_ISSUES
           - **Recommendations:** $TOTAL_RECOMMENDATIONS
