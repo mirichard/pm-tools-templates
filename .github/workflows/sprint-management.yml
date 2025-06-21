@@ -62,11 +62,17 @@ jobs:
         if: github.event.inputs.action == 'start-sprint' || github.event_name == 'schedule'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SPRINT_INPUT: ${{ github.event.inputs.sprint_number }}
+          SPRINT_CALCULATED: ${{ steps.dates.outputs.sprint_number }}
+          SPRINT_START: ${{ steps.dates.outputs.sprint_start }}
+          SPRINT_END: ${{ steps.dates.outputs.sprint_end }}
+          TEAM_VELOCITY: ${{ env.TEAM_VELOCITY_TARGET }}
+          GITHUB_REPO: ${{ github.repository }}
         run: |
-          if [ -n "${{ github.event.inputs.sprint_number }}" ]; then
-            SPRINT_NUM="${{ github.event.inputs.sprint_number }}"
+          if [ -n "$SPRINT_INPUT" ]; then
+            SPRINT_NUM="$SPRINT_INPUT"
           else
-            SPRINT_NUM="${{ steps.dates.outputs.sprint_number }}"
+            SPRINT_NUM="$SPRINT_CALCULATED"
           fi
           
           # Create issue body in a temporary file

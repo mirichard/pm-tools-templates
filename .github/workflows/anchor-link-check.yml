@@ -71,12 +71,16 @@ jobs:
 
       - name: Comprehensive anchor check
         id: full_check
+        env:
+          AUTO_FIX_INPUT: ${{ github.event.inputs.auto_fix }}
+          GITHUB_REF: ${{ github.ref }}
+          GITHUB_EVENT_NAME: ${{ github.event_name }}
         run: |
           echo "Running comprehensive anchor link analysis..."
           
           # Determine if we should auto-fix
           AUTO_FIX_FLAG=""
-          if [[ "${{ github.event.inputs.auto_fix }}" == "true" ]] || [[ "${{ github.ref }}" == "refs/heads/main" && "${{ github.event_name }}" == "push" ]]; then
+          if [[ "$AUTO_FIX_INPUT" == "true" ]] || [[ "$GITHUB_REF" == "refs/heads/main" && "$GITHUB_EVENT_NAME" == "push" ]]; then
             echo "Auto-fix enabled"
             AUTO_FIX_FLAG="--auto-fix"
           fi

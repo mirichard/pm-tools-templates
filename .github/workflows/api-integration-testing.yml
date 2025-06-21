@@ -1455,6 +1455,14 @@ jobs:
           merge-multiple: true
 
       - name: 📊 Generate Comprehensive Test Report
+        env:
+          GITHUB_REPO: ${{ github.repository }}
+          TEST_SCOPE: ${{ github.event.inputs.test_scope || 'comprehensive' }}
+          TEST_ENVIRONMENT: ${{ github.event.inputs.test_environment || 'staging' }}
+          PARALLEL_EXECUTION: ${{ github.event.inputs.parallel_execution || 'true' }}
+          PERFORMANCE_THRESHOLD_MS: ${{ env.PERFORMANCE_THRESHOLD_MS }}
+          API_TIMEOUT_SECONDS: ${{ env.API_TIMEOUT_SECONDS }}
+          MAX_RETRY_ATTEMPTS: ${{ env.MAX_RETRY_ATTEMPTS }}
         run: |
           echo "📊 Generating comprehensive API testing report..."
           
@@ -1528,12 +1536,17 @@ jobs:
           def generate_report(results):
               """Generate comprehensive markdown report"""
               
+              # Get values from environment variables
+              github_repo = os.environ.get('GITHUB_REPO', 'unknown')
+              test_scope = os.environ.get('TEST_SCOPE', 'comprehensive')
+              test_environment = os.environ.get('TEST_ENVIRONMENT', 'staging')
+              
               report = f"""# 🔌 API Integration Testing Report
           
           **Generated:** {datetime.now().isoformat()}
-          **Repository:** ${{ github.repository }}
-          **Test Scope:** ${{ github.event.inputs.test_scope || 'comprehensive' }}
-          **Test Environment:** ${{ github.event.inputs.test_environment || 'staging' }}
+          **Repository:** {github_repo}
+          **Test Scope:** {test_scope}
+          **Test Environment:** {test_environment}"
           
           ## 📊 Executive Summary
           
@@ -1905,12 +1918,21 @@ jobs:
           retention-days: 30
 
       - name: 📊 API Testing Summary
+        env:
+          GITHUB_REPO: ${{ github.repository }}
+          TEST_SCOPE: ${{ github.event.inputs.test_scope || 'comprehensive' }}
+          TEST_ENVIRONMENT: ${{ github.event.inputs.test_environment || 'staging' }}
+          API_DISCOVERY_RESULT: ${{ needs.api-discovery.result }}
+          HEALTH_CHECKS_RESULT: ${{ needs.api-health-checks.result || 'Skipped' }}
+          INTEGRATION_RESULT: ${{ needs.integration-testing.result || 'Skipped' }}
+          PERFORMANCE_RESULT: ${{ needs.performance-testing.result || 'Skipped' }}
+          SECURITY_RESULT: ${{ needs.security-testing.result || 'Skipped' }}
         run: |
           echo "📊 API Integration Testing Summary"
           echo "=================================="
-          echo "Repository: ${{ github.repository }}"
-          echo "Test Scope: ${{ github.event.inputs.test_scope || 'comprehensive' }}"
-          echo "Environment: ${{ github.event.inputs.test_environment || 'staging' }}"
+          echo "Repository: $GITHUB_REPO"
+          echo "Test Scope: $TEST_SCOPE"
+          echo "Environment: $TEST_ENVIRONMENT"
           echo ""
           echo "📋 Results:"
           if [ -f api-testing-summary.json ]; then
@@ -1929,11 +1951,11 @@ jobs:
           fi
           echo ""
           echo "🔍 Components Completed:"
-          echo "- API Discovery: ${{ needs.api-discovery.result }}"
-          echo "- Health Checks: ${{ needs.api-health-checks.result || 'Skipped' }}"
-          echo "- Integration Tests: ${{ needs.integration-testing.result || 'Skipped' }}"
-          echo "- Performance Tests: ${{ needs.performance-testing.result || 'Skipped' }}"
-          echo "- Security Tests: ${{ needs.security-testing.result || 'Skipped' }}"
+          echo "- API Discovery: $API_DISCOVERY_RESULT"
+          echo "- Health Checks: $HEALTH_CHECKS_RESULT"
+          echo "- Integration Tests: $INTEGRATION_RESULT"
+          echo "- Performance Tests: $PERFORMANCE_RESULT"
+          echo "- Security Tests: $SECURITY_RESULT"
           echo ""
           echo "🔌 API integration testing completed!"
           echo "📊 Check artifacts for detailed reports and recommendations"
