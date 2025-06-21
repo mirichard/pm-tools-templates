@@ -3,74 +3,13 @@
 FILTERED ANCHOR LINK CHECK REPORT (Main Project Files Only)
 ============================================================
 Files checked: 470
-<<<<<<< HEAD
-Total issues: 10311
-Broken links: 13
-=======
 Total issues: 10298
 Broken links: 0
->>>>>>> e2cf2a8b (🔗 Fix all remaining broken anchor links)
 Suggestions: 10298
 
 ISSUES BY CATEGORY:
 ----------------------------------------
 
-<<<<<<< HEAD
-🔗 BROKEN ANCHOR LINKS:
-
-📁 ANCHOR_LINK_CRITICAL_ISSUES_SUMMARY.md
-  🔗 Line 43: Broken anchor link: #broken--anchor
-     Suggested fix: recommendations
-
-📁 ANCHOR_LINK_CRITICAL_ISSUES_SUMMARY.md
-  🔗 Line 44: Broken anchor link: #section
-     Suggested fix: recommendations
-
-📁 ANCHOR_LINK_CRITICAL_ISSUES_SUMMARY.md
-  🔗 Line 45: Broken anchor link: #wrong-target
-     Suggested fix: low-impact
-
-📁 ANCHOR_LINK_CRITICAL_ISSUES_SUMMARY.md
-  🔗 Line 48: Broken anchor link: #2-broken-anchor-references
-     Suggested fix: common-fix-patterns
-
-📁 ANCHOR_LINK_CRITICAL_ISSUES_SUMMARY.md
-  🔗 Line 49: Broken anchor link: #1-section
-     Suggested fix: low-impact
-
-📁 ANCHOR_LINK_CRITICAL_ISSUES_SUMMARY.md
-  🔗 Line 50: Broken anchor link: #correct-target
-     Suggested fix: scripts-created
-
-📁 ANCHOR_LINK_MAINTENANCE.md
-  🔗 Line 114: Broken anchor link: #approval-baseline-process
-     Suggested fix: in-checkanchorlinkspy
-
-📁 ANCHOR_LINK_MAINTENANCE.md
-  🔗 Line 117: Broken anchor link: #approval-baseline-process
-     Suggested fix: in-checkanchorlinkspy
-
-📁 docs/ANCHOR_LINK_MAINTENANCE.md
-  🔗 Line 11: Broken anchor link: #system-components
-     Suggested fix: common-problems
-
-📁 docs/ANCHOR_LINK_MAINTENANCE.md
-  🔗 Line 82: Broken anchor link: #system-components-name
-     Suggested fix: macos-brew-install-python3
-
-📁 docs/security-workflows-integration.md
-  🔗 Line 12: Broken anchor link: #monitoring--alerting
-     Suggested fix: monitoring-alerting
-
-📁 industry-specializations/healthcare-pharmaceutical/compliance/capa_management_template.md
-  🔗 Line 32: Broken anchor link: #4-implementation-timeline
-     Suggested fix: 4-implementation
-
-📁 industry_templates/software_development/user_story_template.md
-  🔗 Line 227: Broken anchor link: #story-splitting-if-needed
-
-=======
->>>>>>> e2cf2a8b (🔗 Fix all remaining broken anchor links)
 💡 HEADERS NEEDING EXPLICIT ANCHORS:
 
 📁 ANCHOR_LINK_CRITICAL_ISSUES_SUMMARY.md
