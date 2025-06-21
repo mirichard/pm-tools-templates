@@ -13,7 +13,11 @@
     "test:quick": "node tests/test-runner.js --quick",
     "validate": "npm test && echo 'CLI validation complete'",
     "prepublishOnly": "npm test",
-    "postinstall": "echo 'PM Template Generator CLI installed successfully!'"
+    "postinstall": "echo 'PM Template Generator CLI installed successfully!'",
+    "dashboard": "node src/dashboard-server.js",
+    "ai-service": "node src/ai-service.js",
+    "monitor": "node src/health-monitor.js",
+    "analytics": "node src/analytics-engine.js"
   },
   "keywords": [
     "project-management",
@@ -27,12 +31,19 @@
   "author": "PM Tools Templates Team",
   "license": "MIT",
   "dependencies": {
-    "inquirer": "^9.0.0",
-    "chalk": "^5.0.0",
-    "ora": "^6.0.0",
+    "chalk": "^4.1.2",
+    "commander": "^11.0.0",
     "fs-extra": "^11.0.0",
+    "inquirer": "^8.2.6",
+    "ora": "^5.4.1",
     "path": "^0.12.7",
-    "commander": "^11.0.0"
+    "axios": "^1.6.0",
+    "dotenv": "^16.3.0",
+    "express": "^4.18.2",
+    "ws": "^8.14.0",
+    "node-cron": "^3.0.3",
+    "csv-parser": "^3.0.0",
+    "json2csv": "^5.0.7"
   },
   "engines": {
     "node": ">=16.0.0"
@@ -49,4 +60,3 @@
     "directory": "tools/template-generator-cli"
   }
 }
-

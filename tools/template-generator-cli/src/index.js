@@ -9,12 +9,13 @@ const path = require('path');
 
 const MethodologyRecommender = require('./recommender');
 const TemplateGenerator = require('./generator');
+const { EcosystemGateway } = require('./ecosystem-gateway');
 
-// CLI Header
+// CLI Header - Updated for Ecosystem Gateway
 console.log(chalk.blue.bold(`
 ┌─────────────────────────────────────────────────────────────┐
-│               PM Template Generator CLI                     │
-│         Intelligent Project Setup Automation               │
+│         Project Intelligence CLI Gateway                   │
+│      AI-Powered Project Management Ecosystem               │
 └─────────────────────────────────────────────────────────────┘
 `));
 
@@ -43,7 +44,7 @@ program
   });
 
 async function runInteractiveAssessment() {
-  console.log(chalk.green('🚀 Let\\'s set up your project with the perfect templates!\\n'));
+  console.log(chalk.green('🚀 Let\'s set up your project with the perfect templates!\n'));
   
   const assessment = await inquirer.prompt([
     {
@@ -169,10 +170,100 @@ async function runInteractiveAssessment() {
   ]);
   
   if (confirmed) {
+    // Initialize Ecosystem Gateway
+    const ecosystemGateway = new EcosystemGateway();
+    
+    // Discover ecosystem capabilities
+    console.log(chalk.blue('\n🔍 Discovering ecosystem capabilities...'));
+    const capabilities = await ecosystemGateway.discoverEcosystemCapabilities();
+    
+    // Display available ecosystem features
+    console.log(chalk.cyan('\n🌐 Available Ecosystem Features:'));
+    if (capabilities.aiInsights.available) {
+      console.log(chalk.green('  ✅ AI Project Intelligence'));
+    } else {
+      console.log(chalk.dim('  ⏳ AI Project Intelligence (coming soon)'));
+    }
+    
+    if (capabilities.businessDashboards.available) {
+      console.log(chalk.green('  ✅ Executive Business Dashboards'));
+    } else {
+      console.log(chalk.dim('  ⏳ Executive Business Dashboards (coming soon)'));
+    }
+    
+    console.log(chalk.green(`  ✅ Methodology Frameworks (${capabilities.methodologySupport.count} available)`));
+    console.log(chalk.green(`  ✅ Tool Integrations (${capabilities.toolIntegrations.count} available)`));
+    
+    // Create intelligent project ecosystem instead of just templates
+    const ecosystem = await ecosystemGateway.createProjectEcosystem(assessment, recommendation);
+    
+    // Display ecosystem summary
+    console.log(chalk.green('\n✨ Your Intelligent Project Ecosystem:'));
+    
+    // AI Insights Summary
+    if (ecosystem.projectIntelligence) {
+      console.log(chalk.cyan('\n🧠 AI Project Intelligence:'));
+      console.log(chalk.white(`  Methodology: ${ecosystem.projectIntelligence.overview.methodology}`));
+      console.log(chalk.white(`  AI Confidence: ${Math.round(ecosystem.projectIntelligence.overview.aiConfidence * 100)}%`));
+      
+      if (ecosystem.projectIntelligence.predictions.risks.length > 0) {
+        console.log(chalk.yellow(`  ⚠️  Predicted Risks: ${ecosystem.projectIntelligence.predictions.risks.length} identified`));
+        ecosystem.projectIntelligence.predictions.risks.slice(0, 2).forEach(risk => {
+          console.log(chalk.dim(`    • ${risk.type}: ${Math.round(risk.probability * 100)}% probability`));
+        });
+      }
+      
+      if (ecosystem.projectIntelligence.predictions.schedule) {
+        console.log(chalk.blue(`  📅 Schedule Forecast: ${ecosystem.projectIntelligence.predictions.schedule.estimatedDuration}`));
+      }
+    }
+    
+    // Business Dashboards Summary
+    if (ecosystem.businessDashboards) {
+      console.log(chalk.cyan('\n📊 Business Dashboards Configured:'));
+      Object.keys(ecosystem.businessDashboards).forEach(dashboardType => {
+        console.log(chalk.green(`  ✅ ${dashboardType.charAt(0).toUpperCase() + dashboardType.slice(1)} Dashboard`));
+      });
+    }
+    
+    // Tool Integrations Summary
+    if (ecosystem.toolIntegrations) {
+      console.log(chalk.cyan('\n🔗 Recommended Tools:'));
+      ecosystem.toolIntegrations.recommended.slice(0, 3).forEach(tool => {
+        console.log(chalk.white(`  • ${tool}`));
+      });
+    }
+    
+    // Community Connections
+    if (ecosystem.communityConnections) {
+      console.log(chalk.cyan('\n👥 Community Resources:'));
+      console.log(chalk.green(`  ✅ ${ecosystem.communityConnections.learningPaths.length} learning paths available`));
+      console.log(chalk.green(`  ✅ ${ecosystem.communityConnections.communityResources.length} community resources`));
+    }
+    
+    // Legacy template generation (still functional)
+    console.log(chalk.blue('\n📁 Generating traditional templates...'));
     const generator = new TemplateGenerator();
     await generator.generateTemplates(assessment, recommendation);
+    
+    // Final ecosystem summary
+    console.log(chalk.green.bold('\n🎉 Project Ecosystem Complete!'));
+    console.log(chalk.white('Your project now includes:'));
+    console.log(chalk.white('  • AI-powered project insights and risk predictions'));
+    console.log(chalk.white('  • Executive and operational dashboards'));
+    console.log(chalk.white('  • Methodology-specific templates and practices'));
+    console.log(chalk.white('  • Tool integration guides'));
+    console.log(chalk.white('  • Community resources and learning paths'));
+    console.log(chalk.white('  • Traditional templates (for immediate use)'));
+    
+    console.log(chalk.cyan('\n📈 Next Steps:'));
+    console.log(chalk.white('1. Review the generated project structure'));
+    console.log(chalk.white('2. Set up recommended tool integrations'));
+    console.log(chalk.white('3. Configure dashboards for stakeholders'));
+    console.log(chalk.white('4. Monitor AI insights for project optimization'));
+    
   } else {
-    console.log(chalk.yellow('Template generation cancelled. Run the command again to restart.'));
+    console.log(chalk.yellow('Ecosystem setup cancelled. Run the command again to restart.'));
   }
 }
 
