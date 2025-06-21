@@ -93,6 +93,11 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: 🐍 Setup Python Dependencies
+        run: |
+          echo "🐍 Installing Python dependencies..."
+          pip install PyYAML
+
       - name: 🔍 Discover API Configurations
         id: discover
         run: |
@@ -103,9 +108,16 @@ jobs:
           python3 - << 'EOF'
           import os
           import json
-          import yaml
           import glob
           from pathlib import Path
+          
+          # Try to import yaml, use fallback if not available
+          try:
+              import yaml
+              YAML_AVAILABLE = True
+          except ImportError:
+              print("Warning: PyYAML not available, skipping YAML file parsing")
+              YAML_AVAILABLE = False
           
           # Common PM tool API patterns and endpoints
           pm_tool_apis = {
