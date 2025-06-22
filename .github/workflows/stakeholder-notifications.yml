@@ -72,7 +72,7 @@ jobs:
           echo "EOF" >> $GITHUB_OUTPUT
 
       - name: 📧 Send Weekly Notification
-        if: github.event_name == 'schedule'
+        if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
         uses: dawidd6/action-send-mail@v3
         with:
           server_address: smtp.gmail.com  # Gmail SMTP server
