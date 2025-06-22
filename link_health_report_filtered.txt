@@ -2,10 +2,10 @@
 ============================================================
 FILTERED ANCHOR LINK CHECK REPORT (Main Project Files Only)
 ============================================================
-Files checked: 482
-Total issues: 10491
+Files checked: 486
+Total issues: 10514
 Broken links: 0
-Suggestions: 10491
+Suggestions: 10514
 
 ISSUES BY CATEGORY:
 ----------------------------------------
@@ -1715,6 +1715,19 @@ ISSUES BY CATEGORY:
      Suggested fix: <a id="4-scope-status"></a>
   ... and 6 more suggestions
 
+📁 health-monitoring-reports-61/health-report.md
+  💡 Line 1: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="workflow-health-report"></a>
+  💡 Line 7: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="health-summary"></a>
+  💡 Line 13: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="category-breakdown"></a>
+  💡 Line 19: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="alert-status"></a>
+  💡 Line 25: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="detailed-analysis"></a>
+  ... and 2 more suggestions
+
 📁 industry-specializations/financial-services/README.md
   💡 Line 48: Header with special characters could benefit from explicit anchor
      Suggested fix: <a id="1-digital-transformation-initiatives"></a>
@@ -3361,6 +3374,19 @@ ISSUES BY CATEGORY:
      Suggested fix: <a id="cicd-pipeline"></a>
   ... and 12 more suggestions
 
+📁 monitoring-dashboard-61/monitoring-dashboard.md
+  💡 Line 1: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="workflow-health-monitoring-dashboard"></a>
+  💡 Line 7: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="current-status"></a>
+  💡 Line 9: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="overall-health-score-3448100"></a>
+  💡 Line 13: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="monitoring-jobs-status"></a>
+  💡 Line 22: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="available-reports"></a>
+  ... and 2 more suggestions
+
 📁 notifications/alerts/critical-alert-2025-06-18-1527.md
   💡 Line 1: Header with special characters could benefit from explicit anchor
      Suggested fix: <a id="critical-project-alert"></a>
@@ -3392,6 +3418,16 @@ ISSUES BY CATEGORY:
      Suggested fix: <a id="escalation-contacts"></a>
 
 📁 notifications/alerts/critical-alert-2025-06-22-1453.md
+  💡 Line 1: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="critical-project-alert"></a>
+  💡 Line 7: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="critical-issues-requiring-immediate-attention"></a>
+  💡 Line 10: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="immediate-actions-required"></a>
+  💡 Line 27: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="escalation-contacts"></a>
+
+📁 notifications/alerts/critical-alert-2025-06-22-1858.md
   💡 Line 1: Header with special characters could benefit from explicit anchor
      Suggested fix: <a id="critical-project-alert"></a>
   💡 Line 7: Header with special characters could benefit from explicit anchor
@@ -3463,6 +3499,18 @@ ISSUES BY CATEGORY:
   💡 Line 39: Header with special characters could benefit from explicit anchor
      Suggested fix: <a id="initiationvision"></a>
   ... and 4 more suggestions
+
+📁 performance-analysis-61/performance-report.md
+  💡 Line 1: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="workflow-performance-report"></a>
+  💡 Line 8: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="performance-summary"></a>
+  💡 Line 16: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="timing-analysis"></a>
+  💡 Line 24: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="per-workflow-performance"></a>
+  💡 Line 54: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="performance-recommendations"></a>
 
 📁 phase-1-2-completion-summary.md
   💡 Line 1: Header with special characters could benefit from explicit anchor
