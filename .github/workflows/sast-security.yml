@@ -258,24 +258,19 @@ jobs:
             MATRIX_LIST=$(IFS=' '; echo "${UNIQUE_LANGS[*]}")
           fi
           
-          # Set outputs using simple values and heredoc for JSON
-          {
-            echo "languages=$LANGUAGES_JSON"
-            echo "frameworks=$FRAMEWORKS_JSON" 
-            echo "has_javascript=$HAS_JS"
-            echo "has_typescript=$HAS_TS"
-            echo "has_python=$HAS_PYTHON"
-            echo "has_java=$HAS_JAVA"
-            echo "has_csharp=$HAS_CSHARP"
-            echo "has_go=$HAS_GO"
-            echo "has_rust=$HAS_RUST"
-            echo "has_php=$HAS_PHP"
-            echo "has_ruby=$HAS_RUBY"
-            echo "matrix_languages_list=$MATRIX_LIST"
-            echo "matrix_languages<<EOF"
-            echo "$MATRIX_JSON"
-            echo "EOF"
-          } >> $GITHUB_OUTPUT
+          # Set outputs using simple values only
+          echo "languages=$LANGUAGES_JSON" >> $GITHUB_OUTPUT
+          echo "frameworks=$FRAMEWORKS_JSON" >> $GITHUB_OUTPUT
+          echo "has_javascript=$HAS_JS" >> $GITHUB_OUTPUT
+          echo "has_typescript=$HAS_TS" >> $GITHUB_OUTPUT
+          echo "has_python=$HAS_PYTHON" >> $GITHUB_OUTPUT
+          echo "has_java=$HAS_JAVA" >> $GITHUB_OUTPUT
+          echo "has_csharp=$HAS_CSHARP" >> $GITHUB_OUTPUT
+          echo "has_go=$HAS_GO" >> $GITHUB_OUTPUT
+          echo "has_rust=$HAS_RUST" >> $GITHUB_OUTPUT
+          echo "has_php=$HAS_PHP" >> $GITHUB_OUTPUT
+          echo "has_ruby=$HAS_RUBY" >> $GITHUB_OUTPUT
+          echo "matrix_languages_list=$MATRIX_LIST" >> $GITHUB_OUTPUT
           
           echo "🔍 Detection Results:"
           echo "Languages: ${LANGUAGES[*]}"
