@@ -36,12 +36,12 @@ ENV NODE_ENV=production \
     LOG_LEVEL=info \
     TENSORFLOW_BACKEND=cpu
 
+# Switch to non-root user
+USER aiinsights
+
 # Health check
 HEALTHCHECK --interval=30s --timeout=10s --start-period=60s --retries=3 \
   CMD curl -f http://localhost:3001/health || exit 1
-
-# Switch to non-root user
-USER aiinsights
 
 # Expose port
 EXPOSE 3001

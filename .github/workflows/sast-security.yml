@@ -445,7 +445,6 @@ jobs:
         continue-on-error: true
         with:
           config: ${{ steps.configure.outputs.rules }}
-          generateSarif: "1"
         env:
           SEMGREP_TIMEOUT: ${{ env.SEMGREP_TIMEOUT }}
           SEMGREP_RULES: ${{ steps.configure.outputs.rules }}

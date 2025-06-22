@@ -172,7 +172,6 @@ jobs:
             p/owasp-top-ten
             p/javascript
             p/python
-          generateSarif: "1"
         env:
           SEMGREP_TIMEOUT: 300
           SEMGREP_APP_TOKEN: ${{ secrets.SEMGREP_APP_TOKEN }}
