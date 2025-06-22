@@ -8,8 +8,8 @@ on:
   pull_request:
     types: [opened, merged, closed]
   schedule:
-    # Weekly stakeholder digest every Friday at 5 PM UTC
-    - cron: '0 17 * * 5'
+    # Weekly roadmap updates every Monday at 7AM Eastern (11AM UTC)
+    - cron: '0 11 * * 1'
   workflow_dispatch:
     inputs:
       notification_type:
@@ -44,312 +44,63 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          # Collect key metrics for stakeholder communication
+          # Collect "in-progress" items and "next" roadmap items
+          IN_PROGRESS=$(gh issue list --label "in-progress" --state open --json number,title --jq '.[] | "- #\(.number): \(.title)"')
+          NEXT_ROADMAP=$(gh issue list --label "next-on-roadmap" --state open --json number,title --jq '.[] | "- #\(.number): \(.title)"')
           
-          # Project health metrics
-          TOTAL_ISSUES=$(gh issue list --state all --json number | jq length)
-          OPEN_ISSUES=$(gh issue list --state open --json number | jq length)
-          CLOSED_THIS_WEEK=$(gh issue list --state closed --json number,closedAt --jq '[.[] | select(.closedAt | fromdateiso8601 > (now - 604800))] | length')
-          
-          # Critical items requiring attention (excluding alert issues to prevent self-reinforcement)
-          CRITICAL_ISSUES=$(gh issue list --label "critical" --state open --json number,labels | jq '[.[] | select(.labels | map(.name) | any(. == "alert") | not)] | length')
-          HIGH_PRIORITY=$(gh issue list --label "high-priority,priority-high" --state open --json number,labels | jq '[.[] | select(.labels | map(.name) | any(. == "alert") | not)] | length')
-          BLOCKERS=$(gh issue list --label "blocker" --state open --json number,labels | jq '[.[] | select(.labels | map(.name) | any(. == "alert") | not)] | length')
-          
-          # Progress metrics
-          if [ $TOTAL_ISSUES -gt 0 ]; then
-            COMPLETION_RATE=$(( (TOTAL_ISSUES - OPEN_ISSUES) * 100 / TOTAL_ISSUES ))
-          else
-            COMPLETION_RATE=0
+          # Also collect priority items if no specific roadmap items are labeled
+          if [ -z "$NEXT_ROADMAP" ]; then
+            NEXT_ROADMAP=$(gh issue list --label "priority-high" --state open --json number,title --jq 'limit(5; .[]) | "- #\(.number): \(.title)"')
           fi
           
-          # Risk assessment with updated thresholds
-          RISK_SCORE=$(( CRITICAL_ISSUES * 30 + HIGH_PRIORITY * 10 + BLOCKERS * 15 ))
-          
-          # Milestone progress
-          UPCOMING_MILESTONES=$(gh api repos/${{ github.repository }}/milestones --jq '[.[] | select(.state == "open")] | length')
-          
-          # Store metrics
-          echo "total_issues=$TOTAL_ISSUES" >> $GITHUB_OUTPUT
-          echo "open_issues=$OPEN_ISSUES" >> $GITHUB_OUTPUT
-          echo "closed_this_week=$CLOSED_THIS_WEEK" >> $GITHUB_OUTPUT
-          echo "critical_issues=$CRITICAL_ISSUES" >> $GITHUB_OUTPUT
-          echo "high_priority=$HIGH_PRIORITY" >> $GITHUB_OUTPUT
-          echo "blockers=$BLOCKERS" >> $GITHUB_OUTPUT
-          echo "completion_rate=$COMPLETION_RATE" >> $GITHUB_OUTPUT
-          echo "risk_score=$RISK_SCORE" >> $GITHUB_OUTPUT
-          echo "upcoming_milestones=$UPCOMING_MILESTONES" >> $GITHUB_OUTPUT
-
-      - name: 📈 Generate Executive Summary
-        if: github.event.inputs.notification_type == 'weekly-digest' || github.event_name == 'schedule'
-        run: |
-          # Create executive summary for leadership
-          mkdir -p notifications/executive
-          
-          # Determine project health status
-          if [ ${{ steps.stakeholder-data.outputs.risk_score }} -ge 20 ]; then
-            HEALTH_STATUS="🔴 ATTENTION REQUIRED"
-            HEALTH_COLOR="red"
-          elif [ ${{ steps.stakeholder-data.outputs.completion_rate }} -ge 75 ]; then
-            HEALTH_STATUS="🟢 ON TRACK"
-            HEALTH_COLOR="green"
-          else
-            HEALTH_STATUS="🟡 MONITOR CLOSELY"
-            HEALTH_COLOR="yellow"
+          # Fallback messaging if no items found
+          if [ -z "$IN_PROGRESS" ]; then
+            IN_PROGRESS="- No items currently in progress"
           fi
           
-          cat > notifications/executive/weekly-digest-$(date +%Y-%m-%d).md << EOF
-          # Executive Project Summary
-          
-          **Week Ending:** $(date +%B\ %d,\ %Y)
-          **Project Health:** $HEALTH_STATUS
-          **Overall Completion:** ${{ steps.stakeholder-data.outputs.completion_rate }}%
-          
-          ## 📊 Key Metrics
-          
-          | Metric | Value | Status |
-          |--------|-------|--------|
-          | Project Completion | ${{ steps.stakeholder-data.outputs.completion_rate }}% | $([ ${{ steps.stakeholder-data.outputs.completion_rate }} -ge 75 ] && echo "🟢 On Target" || echo "🟡 Needs Focus") |
-          | Items Completed This Week | ${{ steps.stakeholder-data.outputs.closed_this_week }} | $([ ${{ steps.stakeholder-data.outputs.closed_this_week }} -gt 5 ] && echo "🟢 Good Velocity" || echo "🟡 Low Velocity") |
-          | Critical Issues | ${{ steps.stakeholder-data.outputs.critical_issues }} | $([ ${{ steps.stakeholder-data.outputs.critical_issues }} -eq 0 ] && echo "🟢 None" || echo "🔴 Requires Action") |
-          | Active Blockers | ${{ steps.stakeholder-data.outputs.blockers }} | $([ ${{ steps.stakeholder-data.outputs.blockers }} -eq 0 ] && echo "🟢 Clear Path" || echo "🛑 Blocked") |
-          | Risk Score | ${{ steps.stakeholder-data.outputs.risk_score }} | $([ ${{ steps.stakeholder-data.outputs.risk_score }} -lt 15 ] && echo "🟢 Low Risk" || echo "🔴 High Risk") |
-          
-          ## 🎯 This Week's Accomplishments
-          
-          EOF
-          
-          # Add completed items from this week
-          gh issue list --state closed --json number,title,closedAt --jq '[.[] | select(.closedAt | fromdateiso8601 > (now - 604800))] | .[] | "- ✅ #\(.number): \(.title)"' >> notifications/executive/weekly-digest-$(date +%Y-%m-%d).md || echo "- No items completed this week" >> notifications/executive/weekly-digest-$(date +%Y-%m-%d).md
-          
-          cat >> notifications/executive/weekly-digest-$(date +%Y-%m-%d).md << EOF
-          
-          ## ⚠️ Items Requiring Executive Attention
-          
-          EOF
-          
-          # Add critical and high priority items (excluding alert issues)
-          if [ ${{ steps.stakeholder-data.outputs.critical_issues }} -gt 0 ] || [ ${{ steps.stakeholder-data.outputs.high_priority }} -gt 5 ]; then
-            gh issue list --label "critical,high-priority,priority-high" --state open --json number,title,labels --jq '[.[] | select(.labels | map(.name) | any(. == "alert") | not)] | .[] | "- 🚨 #\(.number): \(.title)"' >> notifications/executive/weekly-digest-$(date +%Y-%m-%d).md
-          else
-            echo "- ✅ No items requiring immediate executive attention" >> notifications/executive/weekly-digest-$(date +%Y-%m-%d).md
+          if [ -z "$NEXT_ROADMAP" ]; then
+            NEXT_ROADMAP="- No items currently prioritized for next sprint"
           fi
-          
-          cat >> notifications/executive/weekly-digest-$(date +%Y-%m-%d).md << EOF
-          
-          ## 🔮 Next Week Outlook
-          
-          - **Target Completion Rate:** $(( ${{ steps.stakeholder-data.outputs.completion_rate }} + 5 ))%
-          - **Planned Deliverables:** ${{ steps.stakeholder-data.outputs.upcoming_milestones }} milestones approaching
-          - **Focus Areas:** $([ ${{ steps.stakeholder-data.outputs.high_priority }} -gt 0 ] && echo "High priority items" || echo "Maintain current momentum")
-          
-          ## 💼 Recommended Executive Actions
-          
-          $(if [ ${{ steps.stakeholder-data.outputs.risk_score }} -ge 20 ]; then
-            echo "- 🚨 **URGENT:** Schedule risk mitigation meeting"
-            echo "- 📞 Consider additional resource allocation"
-            echo "- 🔄 Review project timeline and scope"
-          elif [ ${{ steps.stakeholder-data.outputs.completion_rate }} -lt 50 ]; then
-            echo "- 📊 Review project progress with team leads"
-            echo "- 🎯 Consider adjusting priorities or timeline"
-            echo "- 💬 Increase stakeholder communication frequency"
-          else
-            echo "- ✅ Continue current approach"
-            echo "- 👀 Monitor critical path items"
-            echo "- 🎉 Recognize team achievements"
-          fi)
-          
-          ---
-          
-          **Report Generated:** $(date)  
-          **Next Report:** $(date -d "+7 days" +%B\ %d,\ %Y)  
-          **Contact:** Project Management Office
-          EOF
 
-      - name: 👥 Generate Team Lead Summary
-        if: github.event.inputs.notification_type == 'weekly-digest' || github.event_name == 'schedule'
-        run: |
-          # Create detailed summary for team leads
-          mkdir -p notifications/team-leads
+          # Store data
+          echo "in_progress<<EOF" >> $GITHUB_OUTPUT
+          echo "$IN_PROGRESS" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
           
-          cat > notifications/team-leads/team-summary-$(date +%Y-%m-%d).md << EOF
-          # Team Lead Weekly Summary
-          
-          **Week Ending:** $(date +%B\ %d,\ %Y)
-          **Team Performance:** $([ ${{ steps.stakeholder-data.outputs.closed_this_week }} -gt 3 ] && echo "🟢 Strong" || echo "🟡 Needs Improvement")
-          
-          ## 📈 Team Performance Metrics
-          
-          - **Issues Closed This Week:** ${{ steps.stakeholder-data.outputs.closed_this_week }}
-          - **Open Issues:** ${{ steps.stakeholder-data.outputs.open_issues }}
-          - **High Priority Items:** ${{ steps.stakeholder-data.outputs.high_priority }}
-          - **Blocked Items:** ${{ steps.stakeholder-data.outputs.blockers }}
-          
-          ## 🎯 Focus Areas for Next Week
-          
-          ### High Priority Items Requiring Attention
-          EOF
-          
-          # Add high priority open issues (excluding alert issues)
-          gh issue list --label "high-priority,priority-high" --state open --json number,title,assignees,labels --jq '[.[] | select(.labels | map(.name) | any(. == "alert") | not)] | .[] | "- 🔥 #\(.number): \(.title) (Assigned: \(.assignees[].login // "Unassigned"))"' >> notifications/team-leads/team-summary-$(date +%Y-%m-%d).md || echo "- ✅ No high priority items" >> notifications/team-leads/team-summary-$(date +%Y-%m-%d).md
-          
-          cat >> notifications/team-leads/team-summary-$(date +%Y-%m-%d).md << EOF
-          
-          ### Blocked Items Needing Resolution
-          EOF
-          
-          # Add blocked issues
-          gh issue list --label "blocker" --state open --json number,title,assignees --jq '.[] | "- 🛑 #\(.number): \(.title) (Assigned: \(.assignees[].login // "Unassigned"))"' >> notifications/team-leads/team-summary-$(date +%Y-%m-%d).md || echo "- ✅ No blocked items" >> notifications/team-leads/team-summary-$(date +%Y-%m-%d).md
-          
-          cat >> notifications/team-leads/team-summary-$(date +%Y-%m-%d).md << EOF
-          
-          ## 📅 Upcoming Deadlines
-          EOF
-          
-          # Add upcoming milestones
-          gh api repos/${{ github.repository }}/milestones --jq '[.[] | select(.state == "open")] | sort_by(.due_on) | .[] | "- 📅 **\(.title):** \(.due_on | split("T")[0]) (\(.open_issues) open issues)"' >> notifications/team-leads/team-summary-$(date +%Y-%m-%d).md || echo "- No upcoming milestones" >> notifications/team-leads/team-summary-$(date +%Y-%m-%d).md
-          
-          cat >> notifications/team-leads/team-summary-$(date +%Y-%m-%d).md << EOF
-          
-          ---
-          
-          **Action Items:**
-          - Review high priority assignments
-          - Address any blocked items
-          - Update progress on assigned issues
-          - Escalate any concerns to project management
-          EOF
+          echo "next_roadmap<<EOF" >> $GITHUB_OUTPUT
+          echo "$NEXT_ROADMAP" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
 
-      - name: 🚨 Generate Critical Alert
-        if: github.event.inputs.notification_type == 'critical-alert' || steps.stakeholder-data.outputs.risk_score >= 50
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          # Create critical alert notification
-          mkdir -p notifications/alerts
-          
-          cat > notifications/alerts/critical-alert-$(date +%Y-%m-%d-%H%M).md << EOF
-          # 🚨 CRITICAL PROJECT ALERT
-          
-          **Alert Time:** $(date)
-          **Risk Score:** ${{ steps.stakeholder-data.outputs.risk_score }}
-          **Severity:** $([ ${{ steps.stakeholder-data.outputs.risk_score }} -ge 30 ] && echo "SEVERE" || echo "HIGH")
-          
-          ## 🔴 Critical Issues Requiring Immediate Attention
-          
-          EOF
-          
-          # List all critical and blocking issues
-          gh issue list --label "critical,blocker" --state open --json number,title,labels,createdAt --jq '.[] | "- 🚨 **#\(.number):** \(.title) (Created: \(.createdAt | split("T")[0]))"' >> notifications/alerts/critical-alert-$(date +%Y-%m-%d-%H%M).md
-          
-          cat >> notifications/alerts/critical-alert-$(date +%Y-%m-%d-%H%M).md << EOF
-          
-          ## ⚡ Immediate Actions Required
-          
-          1. **Within 2 Hours:**
-             - Acknowledge this alert
-             - Assess impact on project timeline
-             - Assign owners to critical issues
-          
-          2. **Within 24 Hours:**
-             - Develop mitigation plans
-             - Allocate additional resources if needed
-             - Update stakeholders on status
-          
-          3. **Ongoing:**
-             - Daily check-ins until resolved
-             - Risk register updates
-             - Escalation path activation
-          
-          ## 📞 Escalation Contacts
-          
-          - **Project Manager:** Immediate notification required
-          - **Executive Sponsor:** If risk score > 30
-          - **Technical Lead:** For technical blockers
-          - **PMO:** For process and resource issues
-          
-          ---
-          
-          **This is an automated alert. Please respond within 2 hours.**
-          EOF
-          
-          # Create urgent issue for tracking
-          RISK_SCORE="${{ steps.stakeholder-data.outputs.risk_score }}"
-          gh issue create \
-            --title "🚨 CRITICAL ALERT: Risk Score $RISK_SCORE - Immediate Action Required" \
-            --label "critical,alert,high-priority" \
-            --body "$(cat notifications/alerts/critical-alert-$(date +%Y-%m-%d-%H%M).md)"
+      - name: 📧 Send Weekly Notification
+        if: github.event_name == 'schedule'
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.example.com # Replace with your SMTP server
+          server_port: 587
+          username: ${{ secrets.SMTP_USERNAME }}
+          password: ${{ secrets.SMTP_PASSWORD }}
+          subject: "Weekly Project Update"
+          from: "you@example.com"
+          to: "you@example.com"
+          body: |
+            **In-Progress Items:**
+            ${{ steps.stakeholder-data.outputs.in_progress }}
 
-      - name: 📄 Generate Project Summary
-        if: github.event.inputs.notification_type == 'project-summary'
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          # Create comprehensive project summary
-          mkdir -p notifications/summary
-          
-          cat > notifications/summary/project-summary-$(date +%Y-%m-%d).md << EOF
-          # Comprehensive Project Summary
-          
-          **Generated:** $(date)
-          **Project Health:** $([ ${{ steps.stakeholder-data.outputs.completion_rate }} -ge 75 ] && echo "🟢 Healthy" || echo "🟡 Needs Attention")
-          
-          ## 📊 Overall Project Status
-          
-          - **Total Issues:** ${{ steps.stakeholder-data.outputs.total_issues }}
-          - **Completion Rate:** ${{ steps.stakeholder-data.outputs.completion_rate }}%
-          - **Open Items:** ${{ steps.stakeholder-data.outputs.open_issues }}
-          - **Risk Score:** ${{ steps.stakeholder-data.outputs.risk_score }}
-          
-          ## 🎯 Recent Progress (Last 7 Days)
-          
-          EOF
-          
-          # Add recent activity
-          gh issue list --state closed --json number,title,closedAt --jq '[.[] | select(.closedAt | fromdateiso8601 > (now - 604800))] | .[] | "- ✅ #\(.number): \(.title)"' >> notifications/summary/project-summary-$(date +%Y-%m-%d).md
-          
-          cat >> notifications/summary/project-summary-$(date +%Y-%m-%d).md << EOF
-          
-          ## 🔄 Current Active Work
-          
-          EOF
-          
-          # Add in-progress items
-          gh issue list --label "in-progress" --state open --json number,title --jq '.[] | "- 🔄 #\(.number): \(.title)"' >> notifications/summary/project-summary-$(date +%Y-%m-%d).md || echo "- No items currently in progress" >> notifications/summary/project-summary-$(date +%Y-%m-%d).md
+            **Next on Roadmap:**
+            ${{ steps.stakeholder-data.outputs.next_roadmap }}
 
-      - name: 💾 Commit Notifications
-        run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "Stakeholder Notification System"
-          
-          # Add all notification files
-          git add notifications/ || echo "No notification files to add"
-          
-          # Commit if there are changes
-          if git diff --staged --quiet; then
-            echo "No notification changes to commit"
-          else
-            git commit -m "📧 Generate stakeholder notifications - $(date +%Y-%m-%d)"
-            git push
-          fi
+
+
+
 
       - name: 📧 Notification Summary
         run: |
-          echo "📧 Stakeholder Notification Summary"
-          echo "=================================="
-          NOTIFICATION_TYPE="${{ github.event.inputs.notification_type || 'weekly-digest' }}"
-          echo "Notification Type: $NOTIFICATION_TYPE"
-          echo "Project Health: $([ ${{ steps.stakeholder-data.outputs.completion_rate }} -ge 75 ] && echo "🟢 Healthy" || echo "🟡 Monitor")"
-          echo "Completion Rate: ${{ steps.stakeholder-data.outputs.completion_rate }}%"
-          echo "Risk Score: ${{ steps.stakeholder-data.outputs.risk_score }}"
-          echo "Critical Issues: ${{ steps.stakeholder-data.outputs.critical_issues }}"
-          echo "Items Closed This Week: ${{ steps.stakeholder-data.outputs.closed_this_week }}"
+          echo "📧 Weekly Email Notification Summary"
+          echo "===================================="
+          echo "Scheduled: Every Monday at 7AM Eastern (11AM UTC)"
+          echo "Email will include:"
+          echo "- In-Progress Items"
+          echo "- Next on Roadmap Items"
           echo ""
-          if [ ${{ steps.stakeholder-data.outputs.risk_score }} -ge 25 ]; then
-            echo "🚨 CRITICAL ALERT GENERATED - Immediate attention required!"
-          elif [ ${{ steps.stakeholder-data.outputs.completion_rate }} -lt 50 ]; then
-            echo "⚠️ Project health requires attention"
-          else
-            echo "✅ Standard notifications generated successfully"
-          fi
+          echo "✅ Workflow configured successfully"
 
