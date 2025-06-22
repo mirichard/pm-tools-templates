@@ -1,34 +1,10 @@
 name: 🔌 API Integration Testing
 
-# TEMPORARILY DISABLED - Debugging startup failure
-# on:
-#   push:
-#     branches: [main, develop]
-#     paths:
-#       - 'api/**'
-#       - 'integrations/**'
-#       - 'templates/**'
-#       - 'config/**'
-#       - 'ai-insights/**'
-#       - 'analytics-platform/**'
-#       - 'workflow-orchestration/**'
-#       - 'tools/**'
-#       - '.github/workflows/api-integration-testing.yml'
-#   pull_request:
-#     branches: [main, develop]
-#     paths:
-#       - 'api/**'
-#       - 'integrations/**'
-#       - 'templates/**'
-#       - 'config/**'
-#       - 'ai-insights/**'
-#       - 'analytics-platform/**'
-#       - 'workflow-orchestration/**'
-#       - 'tools/**'
-#   schedule:
-#     # Run API health checks daily at 6 AM UTC
-#     - cron: '0 6 * * *'
-#   workflow_dispatch:
+on:
+  schedule:
+    # Run API health checks daily at 6 AM UTC
+    - cron: '0 6 * * *'
+  workflow_dispatch:
     inputs:
       test_scope:
         description: 'API testing scope'

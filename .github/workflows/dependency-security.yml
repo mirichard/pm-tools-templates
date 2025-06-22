@@ -163,7 +163,7 @@ jobs:
           echo "✅ Python security audit completed"
 
       - name: 🔐 SAST Scanning with Semgrep
-        uses: returntocorp/semgrep-action@v1
+        uses: semgrep/semgrep-action@v1
         with:
           config: >-
             p/security-audit
@@ -171,8 +171,10 @@ jobs:
             p/owasp-top-ten
             p/javascript
             p/python
+          generateSarif: "1"
         env:
           SEMGREP_TIMEOUT: 300
+          SEMGREP_APP_TOKEN: ${{ secrets.SEMGREP_APP_TOKEN }}
 
       - name: 🔍 Enhanced Secrets Detection
         uses: trufflesecurity/trufflehog@main

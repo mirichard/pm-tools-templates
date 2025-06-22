@@ -441,12 +441,14 @@ jobs:
           echo "🛡️ Configured rules: $RULES_STRING"
 
       - name: 🛡️ Run Semgrep SAST
-        uses: returntocorp/semgrep-action@v1
+        uses: semgrep/semgrep-action@v1
         with:
           config: ${{ steps.configure.outputs.rules }}
+          generateSarif: "1"
         env:
           SEMGREP_TIMEOUT: ${{ env.SEMGREP_TIMEOUT }}
           SEMGREP_RULES: ${{ steps.configure.outputs.rules }}
+          SEMGREP_APP_TOKEN: ${{ secrets.SEMGREP_APP_TOKEN }}
 
       - name: 📤 Upload Semgrep SARIF
         if: always() && hashFiles('semgrep.sarif') != ''
