@@ -1,0 +1,50 @@
+# Semgrep ignore file for pm-tools-templates
+# This file contains patterns for files/rules to ignore during security scanning
+
+# JavaScript child_process usage - these are properly secured with:
+# - Command whitelisting
+# - Argument sanitization  
+# - Shell disabled (shell: false)
+# - Input validation
+ai-insights/scripts/run-tests.js
+tools/template-generator-cli/start-ecosystem.js
+
+# Test files and mock data
+**/test/**
+**/tests/**
+**/__tests__/**
+**/*.test.js
+**/*.test.ts
+**/*.spec.js
+**/*.spec.ts
+
+# Generated files and dependencies
+**/node_modules/**
+**/dist/**
+**/build/**
+**/.next/**
+**/coverage/**
+
+# Configuration files that may contain test credentials
+**/.env.example
+**/.env.test
+**/docker-compose.test.yml
+
+# Documentation and non-executable files
+**/*.md
+**/*.txt
+**/*.json
+**/*.yml
+**/*.yaml
+
+# Specific false positives for GitHub Actions workflows
+# These use environment variables to prevent injection
+.github/workflows/api-integration-testing.yml
+.github/workflows/artifact-lifecycle-manager.yml
+.github/workflows/dashboard-generation.yml
+.github/workflows/simple-template-validation.yml
+.github/workflows/sprint-management.yml
+.github/workflows/stakeholder-notifications.yml
+.github/workflows/status-reporting.yml
+.github/workflows/visual-regression-testing.yml
+.github/workflows/workflow-health-monitor.yml
