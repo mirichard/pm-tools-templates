@@ -98,7 +98,7 @@ jobs:
           # Fetch recent workflow runs with enhanced data
           gh run list \
             --limit 200 \
-            --json status,conclusion,name,workflowName,createdAt,updatedAt,url,runNumber,attempt \
+            --json status,conclusion,name,workflowName,createdAt,updatedAt,url,number,attempt \
             --jq '.[] | select(.createdAt >= "'$START_DATE'")' \
             > analysis/raw-data/workflow_runs.json
           
