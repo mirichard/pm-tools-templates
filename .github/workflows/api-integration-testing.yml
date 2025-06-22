@@ -93,9 +93,15 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: 🐍 Setup Python Dependencies
+      - name: 🐍 Setup Python Environment
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: 🐍 Install Python Dependencies
         run: |
           echo "🐍 Installing Python dependencies..."
+          pip install --upgrade pip
           pip install PyYAML
 
       - name: 🔍 Discover API Configurations
