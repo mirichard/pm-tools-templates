@@ -2,10 +2,10 @@
 ============================================================
 FILTERED ANCHOR LINK CHECK REPORT (Main Project Files Only)
 ============================================================
-Files checked: 471
-Total issues: 10314
+Files checked: 474
+Total issues: 10340
 Broken links: 0
-Suggestions: 10314
+Suggestions: 10340
 
 ISSUES BY CATEGORY:
 ----------------------------------------
@@ -3154,6 +3154,19 @@ ISSUES BY CATEGORY:
      Suggested fix: <a id="iterationsprint-flow-metrics"></a>
   ... and 9 more suggestions
 
+📁 methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_metrics_reporting_template.md
+  💡 Line 12: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="executive-summary"></a>
+  💡 Line 31: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="portfolio-level-metrics-report"></a>
+  💡 Line 85: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="large-solution-level-report"></a>
+  💡 Line 139: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="program-art-level-reports"></a>
+  💡 Line 217: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="quality-and-technical-metrics-report"></a>
+  ... and 13 more suggestions
+
 📁 methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_portfolio_kanban_template.md
   💡 Line 9: Header with special characters could benefit from explicit anchor
      Suggested fix: <a id="portfolio-kanban-overview"></a>
@@ -3297,6 +3310,26 @@ ISSUES BY CATEGORY:
   ... and 12 more suggestions
 
 📁 notifications/alerts/critical-alert-2025-06-18-1527.md
+  💡 Line 1: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="critical-project-alert"></a>
+  💡 Line 7: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="critical-issues-requiring-immediate-attention"></a>
+  💡 Line 10: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="immediate-actions-required"></a>
+  💡 Line 27: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="escalation-contacts"></a>
+
+📁 notifications/alerts/critical-alert-2025-06-22-0104.md
+  💡 Line 1: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="critical-project-alert"></a>
+  💡 Line 7: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="critical-issues-requiring-immediate-attention"></a>
+  💡 Line 10: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="immediate-actions-required"></a>
+  💡 Line 27: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="escalation-contacts"></a>
+
+📁 notifications/alerts/critical-alert-2025-06-22-0105.md
   💡 Line 1: Header with special characters could benefit from explicit anchor
      Suggested fix: <a id="critical-project-alert"></a>
   💡 Line 7: Header with special characters could benefit from explicit anchor
