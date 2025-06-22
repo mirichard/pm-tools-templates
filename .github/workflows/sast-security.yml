@@ -245,6 +245,11 @@ jobs:
             MATRIX_JSON=$(printf '%s\n' "${UNIQUE_LANGS[@]}" | jq -R . | jq -s -c .)
           fi
           
+          # Debug output before setting outputs
+          echo "🔧 Debug: MATRIX_JSON content: '$MATRIX_JSON'"
+          echo "🔧 Debug: MATRIX_JSON length: ${#MATRIX_JSON}"
+          echo "🔧 Debug: First few chars: ${MATRIX_JSON:0:50}"
+          
           # Set outputs
           echo "languages=$LANGUAGES_JSON" >> $GITHUB_OUTPUT
           echo "frameworks=$FRAMEWORKS_JSON" >> $GITHUB_OUTPUT
