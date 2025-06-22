@@ -232,20 +232,17 @@ jobs:
           if [ ${#MATRIX_LANGS[@]} -eq 0 ]; then
             MATRIX_JSON="[]"
           else
-            # Use a much simpler approach to avoid issues
-            MATRIX_JSON="["
-            UNIQUE_ADDED=()
+            # Use printf and jq for most reliable JSON generation
+            # First create unique array
+            UNIQUE_LANGS=()
             for lang in "${MATRIX_LANGS[@]}"; do
-              # Check if already added
-              if [[ ! " ${UNIQUE_ADDED[*]} " =~ " ${lang} " ]]; then
-                if [ ${#UNIQUE_ADDED[@]} -gt 0 ]; then
-                  MATRIX_JSON="$MATRIX_JSON,"
-                fi
-                MATRIX_JSON="$MATRIX_JSON\"$lang\""
-                UNIQUE_ADDED+=("$lang")
+              if [[ ! " ${UNIQUE_LANGS[*]} " =~ " ${lang} " ]]; then
+                UNIQUE_LANGS+=("$lang")
               fi
             done
-            MATRIX_JSON="$MATRIX_JSON]"
+            
+            # Generate JSON using printf and jq (most reliable method)
+            MATRIX_JSON=$(printf '%s\n' "${UNIQUE_LANGS[@]}" | jq -R . | jq -s -c .)
           fi
           
           # Set outputs
