@@ -1,0 +1,58 @@
+name: SAST Security Test
+
+on:
+  workflow_dispatch:
+
+jobs:
+  test-json-generation:
+    name: Test JSON Generation
+    runs-on: ubuntu-latest
+    outputs:
+      test_matrix: ${{ steps.generate.outputs.test_matrix }}
+    
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        
+      - name: Generate Test Matrix
+        id: generate
+        run: |
+          echo "Testing matrix generation..."
+          
+          # Simulate the issue
+          MATRIX_LANGS=("javascript" "javascript" "python")
+          echo "Original array: ${MATRIX_LANGS[*]}"
+          
+          # Test our fix
+          if [ ${#MATRIX_LANGS[@]} -eq 0 ]; then
+            MATRIX_JSON="[]"
+          else
+            # Use printf and jq for most reliable JSON generation
+            UNIQUE_LANGS=()
+            for lang in "${MATRIX_LANGS[@]}"; do
+              if [[ ! " ${UNIQUE_LANGS[*]} " =~ " ${lang} " ]]; then
+                UNIQUE_LANGS+=("$lang")
+              fi
+            done
+            
+            echo "Unique languages: ${UNIQUE_LANGS[*]}"
+            MATRIX_JSON=$(printf '%s\n' "${UNIQUE_LANGS[@]}" | jq -R . | jq -s -c .)
+          fi
+          
+          echo "Generated JSON: $MATRIX_JSON"
+          echo "test_matrix=$MATRIX_JSON" >> $GITHUB_OUTPUT
+          
+  test-matrix-usage:
+    name: Test Matrix Usage
+    runs-on: ubuntu-latest
+    needs: test-json-generation
+    if: ${{ fromJson(needs.test-json-generation.outputs.test_matrix)[0] != null }}
+    
+    strategy:
+      matrix:
+        language: ${{ fromJson(needs.test-json-generation.outputs.test_matrix) }}
+    
+    steps:
+      - name: Test Matrix Item
+        run: |
+          echo "Processing language: ${{ matrix.language }}"
