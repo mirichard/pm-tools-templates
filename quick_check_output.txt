@@ -2,7 +2,7 @@
 ==========================
 Checking directory: .
 
-📄 Found 350 README.md files
+📄 Found 352 README.md files
 
 Checking: ./role-based-toolkits/release-train-engineer/README.md ... [0;32mOK[0m
 Checking: ./role-based-toolkits/program-manager/README.md ... [0;32mOK[0m
@@ -304,9 +304,11 @@ Checking: ./quick-start-kits/agile-transformation/README.md ... [0;32mOK[0m
 Checking: ./Hybrid/MPP-Jira-Integration/mpp-template/README.md ... [0;32mOK[0m
 Checking: ./Hybrid/MPP-Jira-Integration/README.md ... [0;32mOK[0m
 Checking: ./Hybrid/MPP-Jira-Integration/jira-automation/README.md ... [0;32mOK[0m
+Checking: ./onboarding/README.md ... [0;32mOK[0m
 Checking: ./docs/community/README.md ... [0;32mOK[0m
 Checking: ./docs/getting-started/README.md ... [0;32mOK[0m
 Checking: ./docs/README.md ... [0;32mOK[0m
+Checking: ./test-project-structure/README.md ... [0;32mOK[0m
 Checking: ./methodology-frameworks/agile-scrum/README.md ... [0;32mOK[0m
 Checking: ./methodology-frameworks/emerging-methods/devops/infrastructure-as-code/README.md ... [0;32mOK[0m
 Checking: ./methodology-frameworks/emerging-methods/devops/README.md ... [0;32mOK[0m
@@ -357,9 +359,9 @@ Checking: ./ai-insights/README.md ... [0;32mOK[0m
 
 📊 SUMMARY
 ==========
-Files checked: 350
+Files checked: 352
 Files with errors: [0;31m0[0m
 Files with warnings: [1;33m0[0m
-Files OK: [0;32m350[0m
+Files OK: [0;32m352[0m
 
 ✅ All anchor links look good!
