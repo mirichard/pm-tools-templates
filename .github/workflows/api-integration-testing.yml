@@ -8,6 +8,10 @@ on:
       - 'integrations/**'
       - 'templates/**'
       - 'config/**'
+      - 'ai-insights/**'
+      - 'analytics-platform/**'
+      - 'workflow-orchestration/**'
+      - 'tools/**'
       - '.github/workflows/api-integration-testing.yml'
   pull_request:
     branches: [main, develop]
@@ -16,6 +20,10 @@ on:
       - 'integrations/**'
       - 'templates/**'
       - 'config/**'
+      - 'ai-insights/**'
+      - 'analytics-platform/**'
+      - 'workflow-orchestration/**'
+      - 'tools/**'
   schedule:
     # Run API health checks daily at 6 AM UTC
     - cron: '0 6 * * *'

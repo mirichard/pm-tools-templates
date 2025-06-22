@@ -1,12 +1,11 @@
 name: 🚨 Risk Management Automation
 
-# TEMPORARILY DISABLED to prevent alert spam while debugging
-# on:
-#   issues:
-#     types: [opened, edited, labeled]
-#   schedule:
-#     # Run risk assessment every Tuesday and Friday at 10 AM UTC
-#     - cron: '0 10 * * 2,5'
+on:
+  issues:
+    types: [opened, edited, labeled]
+  schedule:
+    # Run risk assessment every Tuesday and Friday at 10 AM UTC
+    - cron: '0 10 * * 2,5'
   workflow_dispatch:
     inputs:
       action:
