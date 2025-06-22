@@ -1,0 +1,104 @@
+name: 'Retry Command'
+description: 'Retries a command with exponential backoff for improved reliability'
+inputs:
+  command:
+    description: 'Command to execute'
+    required: true
+  max_attempts:
+    description: 'Maximum number of retry attempts'
+    required: false
+    default: '3'
+  delay:
+    description: 'Initial delay between retries in seconds'
+    required: false
+    default: '30'
+  exponential_backoff:
+    description: 'Whether to use exponential backoff'
+    required: false
+    default: 'true'
+  shell:
+    description: 'Shell to use for command execution'
+    required: false
+    default: 'bash'
+outputs:
+  success:
+    description: 'Whether the command succeeded'
+    value: ${{ steps.retry.outputs.success }}
+  attempts:
+    description: 'Number of attempts made'
+    value: ${{ steps.retry.outputs.attempts }}
+
+runs:
+  using: 'composite'
+  steps:
+    - name: Execute Command with Retry
+      id: retry
+      shell: ${{ inputs.shell }}
+      run: |
+        #!/bin/bash
+        set -e
+        
+        # Configuration
+        COMMAND="${{ inputs.command }}"
+        MAX_ATTEMPTS="${{ inputs.max_attempts }}"
+        INITIAL_DELAY="${{ inputs.delay }}"
+        USE_EXPONENTIAL="${{ inputs.exponential_backoff }}"
+        
+        # Validation
+        if [[ -z "$COMMAND" ]]; then
+          echo "Error: Command is required"
+          exit 1
+        fi
+        
+        if [[ ! "$MAX_ATTEMPTS" =~ ^[1-9][0-9]*$ ]] || [[ "$MAX_ATTEMPTS" -lt 1 ]]; then
+          echo "Error: max_attempts must be a positive integer"
+          exit 1
+        fi
+        
+        if [[ ! "$INITIAL_DELAY" =~ ^[0-9]+$ ]] || [[ "$INITIAL_DELAY" -lt 0 ]]; then
+          echo "Error: delay must be a non-negative integer"
+          exit 1
+        fi
+        
+        # Retry logic
+        attempt=1
+        delay=$INITIAL_DELAY
+        
+        echo "🔄 Starting command execution with retry logic"
+        echo "Command: $COMMAND"
+        echo "Max attempts: $MAX_ATTEMPTS"
+        echo "Initial delay: ${INITIAL_DELAY}s"
+        echo "Exponential backoff: $USE_EXPONENTIAL"
+        echo ""
+        
+        while [[ $attempt -le $MAX_ATTEMPTS ]]; do
+          echo "🚀 Attempt $attempt of $MAX_ATTEMPTS..."
+          
+          # Execute command
+          if eval "$COMMAND"; then
+            echo "✅ Command succeeded on attempt $attempt"
+            echo "success=true" >> $GITHUB_OUTPUT
+            echo "attempts=$attempt" >> $GITHUB_OUTPUT
+            exit 0
+          else
+            echo "❌ Command failed on attempt $attempt"
+            
+            # Check if we should retry
+            if [[ $attempt -lt $MAX_ATTEMPTS ]]; then
+              echo "⏱️ Waiting ${delay}s before retry..."
+              sleep $delay
+              
+              # Exponential backoff
+              if [[ "$USE_EXPONENTIAL" == "true" ]]; then
+                delay=$((delay * 2))
+              fi
+              
+              ((attempt++))
+            else
+              echo "💥 All $MAX_ATTEMPTS attempts failed"
+              echo "success=false" >> $GITHUB_OUTPUT
+              echo "attempts=$attempt" >> $GITHUB_OUTPUT
+              exit 1
+            fi
+          fi
+        done

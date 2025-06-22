@@ -1,5 +1,10 @@
 name: 🔒 Dependency Security Scan
 
+# Concurrency control to prevent multiple dependency scans
+concurrency:
+  group: dependency-security-${{ github.ref }}
+  cancel-in-progress: true
+
 on:
   schedule:
     # Weekly Monday 6 AM UTC - comprehensive scan
@@ -91,6 +96,19 @@ jobs:
         with:
           node-version: '20'
           cache: 'npm'
+
+      - name: 🗂️ Cache Node Dependencies
+        if: steps.detect-languages.outputs.has_node == 'true'
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.npm
+            node_modules
+            .cache/npm
+          key: npm-cache-${{ runner.os }}-${{ hashFiles('**/package-lock.json', '**/package.json') }}
+          restore-keys: |
+            npm-cache-${{ runner.os }}-
+            npm-cache-
 
       - name: 🔐 Node.js Security Audit
         if: steps.detect-languages.outputs.has_node == 'true'

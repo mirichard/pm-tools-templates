@@ -1,5 +1,10 @@
 name: 🔍 Static Application Security Testing (SAST)
 
+# Concurrency control to prevent multiple SAST runs
+concurrency:
+  group: sast-security-${{ github.ref }}
+  cancel-in-progress: true
+
 on:
   schedule:
     # Daily at 2 AM UTC for comprehensive analysis
@@ -377,6 +382,18 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
+
+      - name: 🗂️ Cache Security Tools
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cache/semgrep
+            ~/.local/bin/semgrep
+            ~/.trivy
+          key: security-tools-${{ runner.os }}-v1
+          restore-keys: |
+            security-tools-${{ runner.os }}-
+            security-tools-
 
       - name: 🛡️ Configure Semgrep Rules
         id: configure
