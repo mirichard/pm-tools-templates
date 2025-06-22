@@ -75,19 +75,25 @@ jobs:
         if: github.event_name == 'schedule'
         uses: dawidd6/action-send-mail@v3
         with:
-          server_address: smtp.example.com # Replace with your SMTP server
+          server_address: smtp.gmail.com  # Gmail SMTP server
           server_port: 587
-          username: ${{ secrets.SMTP_USERNAME }}
-          password: ${{ secrets.SMTP_PASSWORD }}
-          subject: "Weekly Project Update"
-          from: "you@example.com"
-          to: "you@example.com"
-          body: |
-            **In-Progress Items:**
-            ${{ steps.stakeholder-data.outputs.in_progress }}
-
-            **Next on Roadmap:**
-            ${{ steps.stakeholder-data.outputs.next_roadmap }}
+          username: ${{ secrets.SMTP_USERNAME }}  # Your Gmail address
+          password: ${{ secrets.SMTP_PASSWORD }}   # Your Gmail App Password
+          subject: "📊 PM Tools Templates - Weekly Project Update"
+          from: ${{ secrets.SMTP_USERNAME }}
+          to: ${{ secrets.SMTP_USERNAME }}  # Sending to yourself as product owner
+          html: |
+            <h2>📊 Weekly Project Update</h2>
+            <p><strong>Week of:</strong> $(date +"%B %d, %Y")</p>
+            
+            <h3>🔄 In-Progress Items:</h3>
+            <pre>${{ steps.stakeholder-data.outputs.in_progress }}</pre>
+            
+            <h3>🎯 Next on Roadmap:</h3>
+            <pre>${{ steps.stakeholder-data.outputs.next_roadmap }}</pre>
+            
+            <hr>
+            <p><em>Generated automatically every Monday at 7AM Eastern</em></p>
 
 
 
