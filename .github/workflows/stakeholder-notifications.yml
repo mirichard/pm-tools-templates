@@ -82,18 +82,19 @@ jobs:
           subject: "📊 PM Tools Templates - Weekly Project Update"
           from: ${{ secrets.SMTP_USERNAME }}
           to: ${{ secrets.SMTP_USERNAME }}  # Sending to yourself as product owner
-          html: |
-            <h2>📊 Weekly Project Update</h2>
-            <p><strong>Week of:</strong> $(date +"%B %d, %Y")</p>
+          body: |
+            📊 PM Tools Templates - Weekly Project Update
             
-            <h3>🔄 In-Progress Items:</h3>
-            <pre>${{ steps.stakeholder-data.outputs.in_progress }}</pre>
+            Week of: $(date +"%B %d, %Y")
             
-            <h3>🎯 Next on Roadmap:</h3>
-            <pre>${{ steps.stakeholder-data.outputs.next_roadmap }}</pre>
+            🔄 In-Progress Items:
+            ${{ steps.stakeholder-data.outputs.in_progress }}
             
-            <hr>
-            <p><em>Generated automatically every Monday at 7AM Eastern</em></p>
+            🎯 Next on Roadmap:
+            ${{ steps.stakeholder-data.outputs.next_roadmap }}
+            
+            ---
+            Generated automatically every Monday at 7AM Eastern
 
 
 
