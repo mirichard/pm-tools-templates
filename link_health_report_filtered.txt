@@ -2,10 +2,10 @@
 ============================================================
 FILTERED ANCHOR LINK CHECK REPORT (Main Project Files Only)
 ============================================================
-Files checked: 490
-Total issues: 10566
+Files checked: 491
+Total issues: 10601
 Broken links: 0
-Suggestions: 10566
+Suggestions: 10601
 
 ISSUES BY CATEGORY:
 ----------------------------------------
@@ -137,6 +137,19 @@ ISSUES BY CATEGORY:
      Suggested fix: <a id="3-temporary-ban"></a>
   💡 Line 163: Header with special characters could benefit from explicit anchor
      Suggested fix: <a id="4-permanent-ban"></a>
+
+📁 COMMUNITY_FEEDBACK.md
+  💡 Line 1: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="community-feedback-contribution-guide"></a>
+  💡 Line 3: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="help-shape-the-future-of-pm-tools-templates"></a>
+  💡 Line 7: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="how-to-provide-feedback"></a>
+  💡 Line 9: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="primary-feedback-hub"></a>
+  💡 Line 16: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="alternative-feedback-channels"></a>
+  ... and 28 more suggestions
 
 📁 CONTRIBUTING.md
   💡 Line 1: Header with special characters could benefit from explicit anchor
@@ -428,15 +441,15 @@ ISSUES BY CATEGORY:
 📁 README.md
   💡 Line 2: Header with special characters could benefit from explicit anchor
      Suggested fix: <a id="project-management-tools-templates-library"></a>
-  💡 Line 25: Header with special characters could benefit from explicit anchor
+  💡 Line 23: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="community-feedback-contribution"></a>
+  💡 Line 27: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="share-your-thoughts"></a>
+  💡 Line 39: Header with special characters could benefit from explicit anchor
      Suggested fix: <a id="quick-start-guide"></a>
-  💡 Line 28: Header with special characters could benefit from explicit anchor
+  💡 Line 42: Header with special characters could benefit from explicit anchor
      Suggested fix: <a id="new-to-project-management"></a>
-  💡 Line 32: Header with special characters could benefit from explicit anchor
-     Suggested fix: <a id="need-templates-now"></a>
-  💡 Line 37: Header with special characters could benefit from explicit anchor
-     Suggested fix: <a id="which-methodology"></a>
-  ... and 55 more suggestions
+  ... and 57 more suggestions
 
 📁 REORGANIZATION_PLAN.md
   💡 Line 11: Header with special characters could benefit from explicit anchor
