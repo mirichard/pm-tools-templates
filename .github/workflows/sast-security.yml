@@ -274,7 +274,7 @@ jobs:
     name: 🔎 CodeQL Analysis
     runs-on: ubuntu-latest
     needs: detect-languages
-    if: ${{ fromJson(needs.detect-languages.outputs.matrix_languages)[0] != null }}
+    if: ${{ needs.detect-languages.outputs.matrix_languages != '[]' && needs.detect-languages.outputs.matrix_languages != '' }}
     
     strategy:
       fail-fast: false
