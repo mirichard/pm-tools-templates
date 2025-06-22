@@ -19,6 +19,20 @@
 🌟 **Target:** Complete ecosystem transformation by 2027 with next-generation PM intelligence
 
 ---
+
+## 💬 **Community Feedback & Contribution**
+
+**🎯 Help Shape Our Future!** Your feedback directly influences our roadmap and improvements.
+
+### 📋 **Share Your Thoughts**
+- **[🗣️ Main Feedback Hub](https://github.com/mirichard/pm-tools-templates/issues/198)** - Join the conversation
+- **[📚 Detailed Feedback Guide](COMMUNITY_FEEDBACK.md)** - Multiple ways to contribute
+- **[🐛 Report Issues](https://github.com/mirichard/pm-tools-templates/issues/new?labels=bug)** - Found a problem?
+- **[💡 Request Features](https://github.com/mirichard/pm-tools-templates/issues/new?labels=enhancement)** - Have an idea?
+
+**What we're looking for:** Template suggestions, workflow improvements, integration ideas, documentation feedback, and user experience insights.
+
+---
 <a id="quick-start-guide"></a>
 
 <a id="new-to-project-management"></a>

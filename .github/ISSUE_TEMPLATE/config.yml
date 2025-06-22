@@ -1,0 +1,14 @@
+blank_issues_enabled: true
+contact_links:
+  - name: 💬 Main Community Feedback Hub
+    url: https://github.com/mirichard/pm-tools-templates/issues/198
+    about: Join our main feedback discussion with templates and examples
+  - name: 📚 Detailed Feedback Guide
+    url: https://github.com/mirichard/pm-tools-templates/blob/main/COMMUNITY_FEEDBACK.md
+    about: Comprehensive guide with multiple feedback channels and templates
+  - name: 🔍 Browse Templates
+    url: https://github.com/mirichard/pm-tools-templates/tree/main
+    about: Explore our collection of project management tools and templates
+  - name: 📈 View Workflow Health
+    url: https://github.com/mirichard/pm-tools-templates/actions
+    about: See our automated monitoring and health tracking in action
