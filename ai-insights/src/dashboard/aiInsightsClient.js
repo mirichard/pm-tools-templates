@@ -233,8 +233,40 @@ class AIInsightsClient {
  */
 class AIInsightsResult {
   constructor(data) {
-    this.data = data;
+    this.data = this.sanitizeData(data);
     this.timestamp = new Date().toISOString();
+  }
+
+  /**
+   * Sanitize data to prevent XSS attacks
+   */
+  sanitizeData(data) {
+    if (typeof data === 'string') {
+      return data.replace(/[<>\"'&]/g, (match) => {
+        const escapeMap = {
+          '<': '&lt;',
+          '>': '&gt;',
+          '"': '&quot;',
+          "'": '&#x27;',
+          '&': '&amp;'
+        };
+        return escapeMap[match];
+      });
+    }
+    
+    if (Array.isArray(data)) {
+      return data.map(item => this.sanitizeData(item));
+    }
+    
+    if (data && typeof data === 'object') {
+      const sanitized = {};
+      for (const [key, value] of Object.entries(data)) {
+        sanitized[this.sanitizeData(key)] = this.sanitizeData(value);
+      }
+      return sanitized;
+    }
+    
+    return data;
   }
 
   /**

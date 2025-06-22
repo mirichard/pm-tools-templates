@@ -18,7 +18,6 @@ import re
 import argparse
 from pathlib import Path
 from typing import List, Dict, Tuple, Set
-from urllib.parse import unquote
 
 def find_readme_files(root_dir: str) -> List[Path]:
     """Find all README.md files in the repository."""
@@ -65,12 +64,11 @@ def extract_headers(content: str) -> List[Tuple[str, str, int]]:
     for line_num, line in enumerate(lines, 1):
         match = header_pattern.match(line.strip())
         if match:
-            level = len(match.group(1))
-            header_text = match.group(2).strip()
+            text = match.group(2).strip()
             
             # Generate predicted anchor based on GitHub's rules
-            predicted_anchor = generate_github_anchor(header_text)
-            headers.append((header_text, predicted_anchor, line_num))
+            predicted_anchor = generate_github_anchor(text)
+            headers.append((text, predicted_anchor, line_num))
     
     return headers
 

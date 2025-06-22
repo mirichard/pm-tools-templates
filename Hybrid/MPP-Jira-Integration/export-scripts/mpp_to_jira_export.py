@@ -20,10 +20,11 @@ import json
 try:
     import defusedxml.etree.ElementTree as ET
 except ImportError:
-    # Fallback to standard library with warning
-    import xml.etree.ElementTree as ET
-    import warnings
-    warnings.warn("defusedxml not available, using standard xml library. Install defusedxml for security.")
+    # Require defusedxml for security - don't allow fallback to unsafe xml library
+    raise ImportError(
+        "defusedxml is required for secure XML parsing. "
+        "Install it with: pip install defusedxml"
+    )
 from datetime import datetime
 from pathlib import Path
 import logging
@@ -166,7 +167,7 @@ class MPPToJiraExporter:
             # Parse MPP date format and convert to Jira format
             dt = datetime.fromisoformat(date_str.replace('Z', '+00:00'))
             return dt.strftime('%Y-%m-%d')
-        except:
+        except (ValueError, TypeError):
             return date_str
     
     def format_duration(self, duration_str):
@@ -181,7 +182,7 @@ class MPPToJiraExporter:
             # Assume duration is in hours
             hours = float(duration_str.replace('PT', '').replace('H', ''))
             return f"{int(hours)}h"
-        except:
+        except (ValueError, TypeError, AttributeError):
             return duration_str
     
     def determine_parent(self, task):

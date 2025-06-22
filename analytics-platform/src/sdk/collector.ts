@@ -5,6 +5,8 @@
  * All data collection requires explicit user consent and follows GDPR/CCPA guidelines.
  */
 
+import { randomBytes } from 'crypto';
+
 export interface ConsentOptions {
   usageAnalytics: boolean;      // Template downloads, completion rates
   featureAdoption: boolean;     // CLI usage, integration adoption  
@@ -230,7 +232,9 @@ export class AnalyticsCollector {
   // Private methods
 
   private generateSessionId(): string {
-    return `sess_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
+    // Use crypto.randomBytes for cryptographically secure random values
+    const randomPart = randomBytes(6).toString('hex');
+    return `sess_${Date.now()}_${randomPart}`;
   }
 
   private hasConsent(eventType: string): boolean {

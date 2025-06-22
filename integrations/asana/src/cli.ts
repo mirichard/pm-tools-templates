@@ -124,7 +124,7 @@ class AsanaCLI {
 
     // Test connection
     try {
-      const connector = await this.initializeConnector();
+      await this.initializeConnector();
       console.log(chalk.green('✓ Configuration saved and connection verified'));
     } catch (error) {
       console.error(chalk.red('✗ Failed to verify connection:'), error instanceof Error ? error.message : error);
@@ -133,7 +133,7 @@ class AsanaCLI {
 
   async listWorkspaces(): Promise<void> {
     try {
-      const connector = await this.initializeConnector();
+      await this.initializeConnector();
       const client = Client.create().useAccessToken(this.config.asanaAccessToken!);
       
       console.log(chalk.blue('📋 Available Workspaces:'));
@@ -386,7 +386,8 @@ class AsanaCLI {
 
       // Set up event listeners
       this.webhookServer.on('webhook_processed', (event) => {
-        console.log(chalk.green('✓ Webhook processed:'), event.webhookEvent.gid);
+        const sanitizedGid = this.sanitizeLogInput(event.webhookEvent.gid);
+        console.log(chalk.green('✓ Webhook processed:'), sanitizedGid);
       });
 
       this.webhookServer.on('webhook_error', (event) => {
@@ -416,6 +417,18 @@ class AsanaCLI {
       case 'error': return chalk.red;
       default: return chalk.gray;
     }
+  }
+
+  /**
+   * Sanitize input for log output to prevent log injection attacks
+   */
+  private sanitizeLogInput(input: any): string {
+    if (typeof input !== 'string') {
+      input = String(input);
+    }
+    
+    // Remove control characters and newlines that could be used for log injection
+    return input.replace(/[\r\n\x00-\x1f\x7f-\x9f]/g, '');
   }
 
   async generateTemplate(): Promise<void> {

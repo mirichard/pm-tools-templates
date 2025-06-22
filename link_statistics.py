@@ -5,7 +5,6 @@ Comprehensive link statistics analysis for README files
 
 import os
 import re
-from pathlib import Path
 
 def find_readme_files(root_dir, exclude_dirs=None):
     """Find all README.md files, excluding specified directories"""
@@ -199,4 +198,4 @@ def main():
     return total_broken_anchor_links
 
 if __name__ == "__main__":
-    broken_count = main()
+    main()

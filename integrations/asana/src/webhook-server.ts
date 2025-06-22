@@ -201,8 +201,8 @@ export class AsanaWebhookServer extends EventEmitter {
       });
     });
 
-    // Webhook endpoint for Asana
-    this.app.post('/webhooks/asana', this.handleAsanaWebhook.bind(this));
+    // Webhook endpoint for Asana with additional rate limiting
+    this.app.post('/webhooks/asana', this.webhookRateLimit.bind(this), this.handleAsanaWebhook.bind(this));
 
     // Subscription management endpoints
     this.app.post('/subscriptions', this.createSubscription.bind(this));
@@ -218,6 +218,48 @@ export class AsanaWebhookServer extends EventEmitter {
     this.app.use('*', (req: Request, res: Response) => {
       res.status(404).json({ error: 'Endpoint not found' });
     });
+  }
+
+  /**
+   * Additional rate limiting specifically for webhook endpoint
+   */
+  private webhookRateLimit(req: Request, res: Response, next: NextFunction): void {
+    const clientIp = req.ip || req.connection.remoteAddress || 'unknown';
+    const webhookKey = `webhook:${clientIp}`;
+    const now = Date.now();
+    const windowMs = 60000; // 1 minute window
+    const maxWebhookRequests = 10; // Max 10 webhook requests per minute per IP
+    
+    // Get or create rate limit data for this IP
+    const rateLimitData = this.eventStats.get(webhookKey) || 0;
+    const requestCount = rateLimitData;
+    
+    // Reset counter if window expired
+    const lastReset = this.eventStats.get(`${webhookKey}:reset`) || 0;
+    if (now - lastReset > windowMs) {
+      this.eventStats.set(webhookKey, 1);
+      this.eventStats.set(`${webhookKey}:reset`, now);
+      next();
+      return;
+    }
+    
+    // Check if limit exceeded
+    if (requestCount >= maxWebhookRequests) {
+      this.logger.warn('Webhook rate limit exceeded', { 
+        ip: clientIp, 
+        requestCount, 
+        maxAllowed: maxWebhookRequests 
+      });
+      res.status(429).json({ 
+        error: 'Webhook rate limit exceeded. Please slow down.',
+        retryAfter: Math.ceil((windowMs - (now - lastReset)) / 1000)
+      });
+      return;
+    }
+    
+    // Increment counter and proceed
+    this.eventStats.set(webhookKey, requestCount + 1);
+    next();
   }
 
   /**

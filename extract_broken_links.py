@@ -3,10 +3,11 @@
 Extract broken links from link checker for focused analysis
 """
 
+import csv
+import json
 import os
 import re
 import sys
-from pathlib import Path
 
 def find_readme_files(root_dir, exclude_dirs=None):
     """Find all README.md files, excluding specified directories"""
@@ -138,5 +139,5 @@ def main():
     return len(broken_links)
 
 if __name__ == "__main__":
-    count = main()
+    main()
     sys.exit(0)

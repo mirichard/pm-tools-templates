@@ -1,9 +1,5 @@
 #!/usr/bin/env python3
 
-import os
-import re
-import subprocess
-
 def fix_broken_link(file_path, line_number, broken_anchor, suggested_fix):
     """Fix a single broken anchor link"""
     try:
@@ -21,6 +17,9 @@ def fix_broken_link(file_path, line_number, broken_anchor, suggested_fix):
             
             print(f"✅ Fixed {file_path}:{line_number} - {broken_anchor} → #{suggested_fix}")
             return True
+        else:
+            print(f"❌ Line number {line_number} out of range in {file_path}")
+            return False
     except Exception as e:
         print(f"❌ Error fixing {file_path}:{line_number} - {e}")
         return False

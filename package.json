@@ -1,12 +1,39 @@
 {
   "name": "pm-tools-templates",
-  "version": "1.0.0",
-  "description": "Project Management Tools and Templates",
+  "version": "2.0.0",
+  "description": "AI-Powered Project Management Templates with Interactive Onboarding",
   "main": "ecosystem-gateway.js",
   "scripts": {
+    "start": "node ecosystem-gateway.js",
+    "onboard": "node onboarding/interactive-onboarding.js",
     "test": "echo 'Basic test passed' && exit 0",
-    "start": "echo 'PM Tools Templates started' && exit 0"
+    "gateway": "node ecosystem-gateway.js",
+    "quick-start": "node onboarding/interactive-onboarding.js"
   },
+  "keywords": [
+    "project-management",
+    "templates",
+    "agile",
+    "scrum",
+    "waterfall",
+    "hybrid",
+    "onboarding",
+    "ai-powered",
+    "interactive"
+  ],
+  "author": "PM Tools Templates Team",
+  "license": "MIT",
   "dependencies": {},
-  "devDependencies": {}
+  "devDependencies": {},
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mirichard/pm-tools-templates.git"
+  },
+  "homepage": "https://github.com/mirichard/pm-tools-templates#readme",
+  "bugs": {
+    "url": "https://github.com/mirichard/pm-tools-templates/issues"
+  }
 }

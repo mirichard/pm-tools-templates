@@ -1,11 +1,8 @@
 #!/usr/bin/env python3
 
-import os
 import re
-import glob
-from pathlib import Path
-from urllib.parse import urlparse, unquote
 import sys
+from pathlib import Path
 
 class LinkHealthChecker:
     def __init__(self, root_dir="."):

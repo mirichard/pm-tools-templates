@@ -537,8 +537,8 @@ export class AsanaConnector extends EventEmitter {
         lastSyncTime: new Date()
       };
 
-      // Get Asana project tasks
-      const asanaTasks = await this.client.tasks.getTasksForProject(asanaProjectId, {
+      // Get Asana project tasks for future sync implementation
+      await this.client.tasks.getTasksForProject(asanaProjectId, {
         opt_fields: 'name,completed,assignee,due_date,custom_fields,modified_at'
       });
 

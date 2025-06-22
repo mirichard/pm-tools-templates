@@ -4,8 +4,6 @@ Fix Broken Anchor Links Script
 Automatically fixes all 32 identified broken anchor links in the repository.
 """
 
-import os
-import re
 import sys
 from pathlib import Path
 

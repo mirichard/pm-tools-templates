@@ -16,7 +16,6 @@ Examples:
     python check_anchor_links.py --output report.json  # Save report
 """
 
-import os
 import re
 import json
 import argparse

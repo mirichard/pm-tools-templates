@@ -5,12 +5,9 @@ import { createHash } from 'crypto';
 import { 
   SyncOptions, 
   SyncResult, 
-  SyncError, 
   SyncConflict,
   AsanaTask,
-  PMTemplate,
-  TemplateTask,
-  FieldMapping
+  TemplateTask
 } from './connector';
 
 export interface SyncJob {

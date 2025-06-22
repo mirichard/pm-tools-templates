@@ -6,7 +6,6 @@
  */
 
 const fs = require('fs');
-const path = require('path');
 
 console.log('🧪 PM Tools Templates - Test Runner');
 console.log('==================================');

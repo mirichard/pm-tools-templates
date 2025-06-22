@@ -6,8 +6,6 @@ Check anchor links in README files, excluding dependency directories
 import os
 import re
 import sys
-from collections import defaultdict
-from pathlib import Path
 
 def find_readme_files(root_dir, exclude_dirs=None):
     """Find all README.md files, excluding specified directories"""
