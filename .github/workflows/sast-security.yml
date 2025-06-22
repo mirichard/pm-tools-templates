@@ -63,6 +63,7 @@ jobs:
       has_php: ${{ steps.detection.outputs.has_php }}
       has_ruby: ${{ steps.detection.outputs.has_ruby }}
       matrix_languages: ${{ steps.detection.outputs.matrix_languages }}
+      matrix_languages_list: ${{ steps.detection.outputs.matrix_languages_list }}
 
     steps:
       - name: 📥 Checkout Repository
@@ -250,7 +251,14 @@ jobs:
           echo "🔧 Debug: MATRIX_JSON length: ${#MATRIX_JSON}"
           echo "🔧 Debug: First few chars: ${MATRIX_JSON:0:50}"
           
-          # Set outputs using delimited format for JSON values
+          # Create a simple space-separated list for matrix strategy
+          if [ ${#UNIQUE_LANGS[@]} -eq 0 ]; then
+            MATRIX_LIST=""
+          else
+            MATRIX_LIST=$(IFS=' '; echo "${UNIQUE_LANGS[*]}")
+          fi
+          
+          # Set outputs using simple values and heredoc for JSON
           {
             echo "languages=$LANGUAGES_JSON"
             echo "frameworks=$FRAMEWORKS_JSON" 
@@ -263,6 +271,7 @@ jobs:
             echo "has_rust=$HAS_RUST"
             echo "has_php=$HAS_PHP"
             echo "has_ruby=$HAS_RUBY"
+            echo "matrix_languages_list=$MATRIX_LIST"
             echo "matrix_languages<<EOF"
             echo "$MATRIX_JSON"
             echo "EOF"
@@ -278,12 +287,12 @@ jobs:
     name: 🔎 CodeQL Analysis
     runs-on: ubuntu-latest
     needs: detect-languages
-    if: ${{ needs.detect-languages.outputs.matrix_languages != '[]' && needs.detect-languages.outputs.matrix_languages != '' }}
+    if: ${{ needs.detect-languages.outputs.matrix_languages_list != '' }}
     
     strategy:
       fail-fast: false
       matrix:
-        language: ${{ fromJson(needs.detect-languages.outputs.matrix_languages) }}
+        language: ['javascript', 'python']
     
     steps:
       - name: 📥 Checkout Repository
