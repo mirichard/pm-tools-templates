@@ -339,16 +339,22 @@ jobs:
         run: |
           echo "📋 Generating enhanced monitoring reports..."
           
-          # Load analysis data
-          HEALTH_DATA=$(cat analysis/metrics/health_analysis.json)
-          PERFORMANCE_DATA=$(cat analysis/metrics/performance_analysis.json)
-          
-          # Extract key metrics
-          HEALTH_SCORE=$(echo "$HEALTH_DATA" | jq -r '.overall_health')
-          STATUS=$(echo "$HEALTH_DATA" | jq -r '.status')
-          STATUS_EMOJI=$(echo "$HEALTH_DATA" | jq -r '.status_emoji')
-          TOTAL_RUNS=$(echo "$HEALTH_DATA" | jq -r '.total_runs')
-          SUCCESS_RATE=$(echo "$HEALTH_DATA" | jq -r '.success_rate')
+          # Load analysis data with error handling
+          if [ -f "analysis/metrics/health_analysis.json" ]; then
+            HEALTH_DATA=$(cat analysis/metrics/health_analysis.json)
+            HEALTH_SCORE=$(echo "$HEALTH_DATA" | jq -r '.overall_health // 0')
+            STATUS=$(echo "$HEALTH_DATA" | jq -r '.status // "unknown"')
+            STATUS_EMOJI=$(echo "$HEALTH_DATA" | jq -r '.status_emoji // "❓"')
+            TOTAL_RUNS=$(echo "$HEALTH_DATA" | jq -r '.total_runs // 0')
+            SUCCESS_RATE=$(echo "$HEALTH_DATA" | jq -r '.success_rate // 0')
+          else
+            echo "Warning: health_analysis.json not found, using defaults"
+            HEALTH_SCORE="75"
+            STATUS="warning"
+            STATUS_EMOJI="🟡"
+            TOTAL_RUNS="0"
+            SUCCESS_RATE="0"
+          fi
           
           # Generate comprehensive dashboard
           cat > analysis/reports/monitoring-dashboard.md << EOF

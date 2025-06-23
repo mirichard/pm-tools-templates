@@ -1,257 +1,143 @@
 name: 📦 Artifact Lifecycle Manager
 
 on:
-  # Temporarily disabled scheduled runs to improve workflow health score
-  # schedule:
-  #   # Daily cleanup at 1 AM UTC
-  #   - cron: '0 1 * * *'
-  #   # Weekly comprehensive analysis on Sunday at 2 AM UTC
-  #   - cron: '0 2 * * 0'
   workflow_dispatch:
     inputs:
-      cleanup_scope:
-        description: 'Scope of artifact cleanup'
-        required: false
-        default: 'comprehensive'
+      action:
+        description: 'Action to perform'
+        required: true
+        default: 'analyze'
         type: choice
         options:
-          - comprehensive
-          - expired-only
-          - large-artifacts
-          - security-artifacts
-          - test-artifacts
-          - analysis-only
-      retention_days:
-        description: 'Override default retention days'
+          - analyze
+          - cleanup
+      cleanup_type:
+        description: 'Type of artifacts to cleanup'
         required: false
-        type: string
-      force_cleanup:
-        description: 'Force cleanup without confirmation'
-        required: false
-        default: false
-        type: boolean
-      storage_limit_gb:
-        description: 'Storage limit in GB for cleanup threshold'
-        required: false
-        default: '5'
-        type: string
+        default: 'all'
+        type: choice
+        options:
+          - all
+          - expired
+          - large
+          - test
 
 env:
-  # Artifact Lifecycle Configuration
-  DEFAULT_RETENTION_DAYS: 30
-  CRITICAL_RETENTION_DAYS: 90    # Security artifacts, compliance reports
-  TEST_RETENTION_DAYS: 7         # Test results, temporary artifacts
-  CACHE_RETENTION_DAYS: 14       # Cache-related artifacts
-  STORAGE_WARNING_THRESHOLD_GB: 4
-  STORAGE_CRITICAL_THRESHOLD_GB: 5
-  MAX_ARTIFACTS_PER_WORKFLOW: 50
+  # Basic retention configuration
+  DEFAULT_RETENTION: 30
+  LARGE_SIZE_MB: 100
 
 permissions:
   contents: read
   actions: write
-  issues: write
 
 jobs:
-  # Artifact Discovery and Analysis
-  artifact-discovery:
-    name: 🔍 Artifact Discovery
+  manage-artifacts:
+    name: 📦 Manage Artifacts
     runs-on: ubuntu-latest
-    outputs:
-      total_artifacts: ${{ steps.analyze.outputs.total_artifacts }}
-      total_size_gb: ${{ steps.analyze.outputs.total_size_gb }}
-      cleanup_candidates: ${{ steps.analyze.outputs.cleanup_candidates }}
-      retention_summary: ${{ steps.analyze.outputs.retention_summary }}
     
     steps:
-      - name: 📥 Checkout Repository
-        uses: actions/checkout@v4
-
-      - name: 🔍 Discover Repository Artifacts
+      - name: 🔍 Discover Artifacts
         id: discover
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          echo "🔍 Discovering repository artifacts..."
+          echo "🔍 Discovering artifacts..."
           
-          # Get all artifacts with detailed information
+          mkdir -p ./artifact-data
+          
+          # List all artifacts
           gh api repos/${{ github.repository }}/actions/artifacts \
             --paginate \
             --jq '.artifacts[] | {
               id: .id,
               name: .name,
-              size_in_bytes: .size_in_bytes,
+              size_mb: (.size_in_bytes / 1048576),
               created_at: .created_at,
-              updated_at: .updated_at,
-              expires_at: .expires_at,
-              workflow_run: .workflow_run.id,
-              workflow_name: .workflow_run.name
-            }' > all_artifacts.json
+              expires_at: .expires_at
+            }' > ./artifact-data/artifacts.json
           
-          echo "📊 Artifact discovery completed"
-          echo "Total artifacts found: $(cat all_artifacts.json | wc -l)"
+          # Basic stats
+          TOTAL_COUNT=$(jq -s 'length' ./artifact-data/artifacts.json)
+          TOTAL_SIZE_MB=$(jq -s 'map(.size_mb) | add' ./artifact-data/artifacts.json)
+          TOTAL_SIZE_GB=$(echo "scale=2; $TOTAL_SIZE_MB / 1024" | bc)
+          
+          echo "Found $TOTAL_COUNT artifacts ($TOTAL_SIZE_GB GB)"
 
-      - name: 📊 Analyze Artifact Data
+      - name: 📊 Analyze Artifacts
         id: analyze
         run: |
-          echo "📊 Analyzing artifact data..."
+          echo "📊 Analyzing artifacts..."
           
-          python3 - << 'EOF'
-          import json
-          import sys
-          from datetime import datetime, timedelta
-          from collections import defaultdict
+          # Process artifacts based on age and size
+          jq -r --arg default_retention "${{ env.DEFAULT_RETENTION }}" \
+             --arg large_size "${{ env.LARGE_SIZE_MB }}" \
+             --arg now "$(date -u +"%Y-%m-%dT%H:%M:%SZ")" '
+          def age_days(created_at; now):
+            (now | fromdateiso8601) - (created_at | fromdateiso8601) | . / 86400;
           
-          # Load artifacts data
-          artifacts = []
-          try:
-              with open('all_artifacts.json', 'r') as f:
-                  for line in f:
-                      if line.strip():
-                          artifacts.append(json.loads(line))
-          except:
-              artifacts = []
+          def should_cleanup(artifact):
+            # Extract values
+            $now as $current_time |
+            ($large_size | tonumber) as $size_threshold |
+            ($default_retention | tonumber) as $retention_days |
+            age_days(artifact.created_at; $now) as $age |
+            artifact.size_mb as $size |
+            # Cleanup logic
+            if $age > $retention_days then "expired"
+            elif $size > $size_threshold then "large"
+            elif (.name | test("test|temp|cache"; "i")) then "test"
+            else null end;
           
-          print(f"Loaded {len(artifacts)} artifacts for analysis")
+          [inputs] | map(. + {
+            age_days: age_days(.created_at; $now),
+            cleanup_reason: (. | should_cleanup)
+          }) | group_by(.cleanup_reason | . != null) | {
+            keep: (.[0] // []),
+            cleanup: (.[1] // [])
+          }' ./artifact-data/artifacts.json > ./artifact-data/analyzed.json
           
-          # Categorize artifacts by type and workflow
-          artifact_categories = {
-              'security': ['security', 'scan', 'vulnerability', 'dependency', 'sast', 'infrastructure'],
-              'performance': ['performance', 'cache', 'benchmark', 'timing'],
-              'quality': ['test', 'coverage', 'lint', 'validation', 'report'],
-              'documentation': ['docs', 'documentation', 'readme', 'guide'],
-              'build': ['build', 'compile', 'package', 'dist'],
-              'other': []
+          # Generate stats
+          jq -r '
+          {
+            "artifacts_total": (.keep | length + .cleanup | length),
+            "artifacts_to_cleanup": (.cleanup | length),
+            "size_total_mb": ((.keep + .cleanup) | map(.size_mb) | add),
+            "size_to_cleanup_mb": (.cleanup | map(.size_mb) | add)
           }
+          ' ./artifact-data/analyzed.json > ./artifact-data/stats.json
           
-          categorized_artifacts = defaultdict(list)
-          workflow_artifacts = defaultdict(list)
-          size_by_category = defaultdict(int)
-          total_size = 0
-          cleanup_candidates = []
+          # Output key metrics
+          TOTAL_COUNT=$(jq -r '.artifacts_total' ./artifact-data/stats.json)
+          CLEANUP_COUNT=$(jq -r '.artifacts_to_cleanup' ./artifact-data/stats.json)
+          TOTAL_SIZE_GB=$(jq -r '.size_total_mb / 1024' ./artifact-data/stats.json)
+          CLEANUP_SIZE_GB=$(jq -r '.size_to_cleanup_mb / 1024' ./artifact-data/stats.json)
           
-          # Current time for age calculations
-          now = datetime.now()
-          
-          for artifact in artifacts:
-              try:
-                  # Calculate artifact age
-                  created = datetime.fromisoformat(artifact['created_at'].replace('Z', '+00:00'))
-                  age_days = (now - created.replace(tzinfo=None)).days
-                  
-                  # Categorize artifact
-                  category = 'other'
-                  artifact_name_lower = artifact['name'].lower()
-                  for cat, keywords in artifact_categories.items():
-                      if any(keyword in artifact_name_lower for keyword in keywords):
-                          category = cat
-                          break
-                  
-                  # Size in MB for easier handling
-                  size_mb = artifact['size_in_bytes'] / (1024 * 1024)
-                  total_size += size_mb
-                  size_by_category[category] += size_mb
-                  
-                  # Enhanced artifact info
-                  enhanced_artifact = {
-                      **artifact,
-                      'category': category,
-                      'age_days': age_days,
-                      'size_mb': round(size_mb, 2),
-                      'workflow_name': artifact.get('workflow_name', 'unknown')
-                  }
-                  
-                  categorized_artifacts[category].append(enhanced_artifact)
-                  workflow_artifacts[artifact.get('workflow_name', 'unknown')].append(enhanced_artifact)
-                  
-                  # Determine cleanup eligibility
-                  cleanup_eligible = False
-                  cleanup_reason = ""
-                  
-                  # Age-based cleanup
-                  if category == 'security' and age_days > 90:
-                      cleanup_eligible = True
-                      cleanup_reason = "Security artifact older than 90 days"
-                  elif category in ['performance', 'quality'] and age_days > 30:
-                      cleanup_eligible = True
-                      cleanup_reason = f"{category.title()} artifact older than 30 days"
-                  elif category in ['build', 'other'] and age_days > 14:
-                      cleanup_eligible = True
-                      cleanup_reason = f"{category.title()} artifact older than 14 days"
-                  
-                  # Size-based cleanup (artifacts > 100MB and > 7 days old)
-                  if size_mb > 100 and age_days > 7:
-                      cleanup_eligible = True
-                      cleanup_reason = f"Large artifact ({size_mb:.1f}MB) older than 7 days"
-                  
-                  if cleanup_eligible:
-                      cleanup_candidates.append({
-                          **enhanced_artifact,
-                          'cleanup_reason': cleanup_reason
-                      })
-                      
-              except Exception as e:
-                  print(f"Error processing artifact {artifact.get('id', 'unknown')}: {e}")
-          
-          # Generate summary statistics
-          total_size_gb = round(total_size / 1024, 2)
-          
-          summary_stats = {
-              'total_artifacts': len(artifacts),
-              'total_size_gb': total_size_gb,
-              'total_size_mb': round(total_size, 2),
-              'cleanup_candidates_count': len(cleanup_candidates),
-              'cleanup_size_mb': round(sum(a['size_mb'] for a in cleanup_candidates), 2),
-              'categories': {cat: len(arts) for cat, arts in categorized_artifacts.items()},
-              'size_by_category_mb': {cat: round(size, 2) for cat, size in size_by_category.items()},
-              'workflow_counts': {wf: len(arts) for wf, arts in workflow_artifacts.items()}
-          }
-          
-          # Retention policy summary
-          retention_summary = {
-              'security_artifacts': len(categorized_artifacts['security']),
-              'performance_artifacts': len(categorized_artifacts['performance']),
-              'quality_artifacts': len(categorized_artifacts['quality']),
-              'build_artifacts': len(categorized_artifacts['build']),
-              'other_artifacts': len(categorized_artifacts['other']),
-              'total_cleanup_candidates': len(cleanup_candidates),
-              'potential_savings_mb': round(sum(a['size_mb'] for a in cleanup_candidates), 2)
-          }
-          
-          # Save analysis results
-          with open('artifact_analysis.json', 'w') as f:
-              json.dump({
-                  'summary_stats': summary_stats,
-                  'categorized_artifacts': dict(categorized_artifacts),
-                  'cleanup_candidates': cleanup_candidates,
-                  'retention_summary': retention_summary
-              }, f, indent=2, default=str)
-          
-          # Set GitHub outputs
-          print(f"Total artifacts: {summary_stats['total_artifacts']}")
-          print(f"Total size: {total_size_gb} GB")
-          print(f"Cleanup candidates: {len(cleanup_candidates)}")
-          print(f"Potential savings: {round(sum(a['size_mb'] for a in cleanup_candidates) / 1024, 2)} GB")
-          EOF
-          
-          # Extract outputs from analysis
-          TOTAL_ARTIFACTS=$(jq -r '.summary_stats.total_artifacts' artifact_analysis.json)
-          TOTAL_SIZE_GB=$(jq -r '.summary_stats.total_size_gb' artifact_analysis.json)
-          CLEANUP_CANDIDATES=$(jq -r '.summary_stats.cleanup_candidates_count' artifact_analysis.json)
-          RETENTION_SUMMARY=$(jq -c '.retention_summary' artifact_analysis.json)
-          
-          echo "total_artifacts=$TOTAL_ARTIFACTS" >> $GITHUB_OUTPUT
-          echo "total_size_gb=$TOTAL_SIZE_GB" >> $GITHUB_OUTPUT
-          echo "cleanup_candidates=$CLEANUP_CANDIDATES" >> $GITHUB_OUTPUT
-          echo "retention_summary=$RETENTION_SUMMARY" >> $GITHUB_OUTPUT
+          echo "Found $CLEANUP_COUNT artifacts to clean ($(printf "%.2f" $CLEANUP_SIZE_GB) GB)"
 
-      - name: 📤 Upload Discovery Results
-        uses: actions/upload-artifact@v4
-        with:
-          name: artifact-discovery-${{ github.run_number }}
-          path: |
-            all_artifacts.json
-            artifact_analysis.json
-          retention-days: ${{ env.DEFAULT_RETENTION_DAYS }}
+      - name: 🧹 Execute Cleanup
+        if: github.event.inputs.action == 'cleanup'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          echo "🧹 Executing artifact cleanup..."
+          
+          # Get artifacts to clean based on type
+          CLEANUP_TYPE="${{ github.event.inputs.cleanup_type }}"
+          
+          jq -r --arg type "$CLEANUP_TYPE" '
+          .cleanup | map(select(
+            if $type == "all" then true
+            elif $type == "expired" then .cleanup_reason == "expired"
+            elif $type == "large" then .cleanup_reason == "large"
+            elif $type == "test" then .cleanup_reason == "test"
+            else false end
+          )) | .[] | .id' ./artifact-data/analyzed.json | \
+          while read -r artifact_id; do
+            echo "Deleting artifact $artifact_id..."
+            gh api "repos/${{ github.repository }}/actions/artifacts/$artifact_id" \
+              --method DELETE && echo "✓ Deleted" || echo "✗ Failed"
+          done
 
   # Storage Analysis and Optimization
   storage-analysis:
@@ -370,6 +256,7 @@ jobs:
           
           python3 - << 'EOF'
           import json
+          import os
           from datetime import datetime
           
           # Load data
@@ -789,12 +676,12 @@ jobs:
         uses: actions/checkout@v4
 
       - name: 📋 Analyze Retention Policy Effectiveness
+        env:
+          RETENTION_SUMMARY: '${{ needs.artifact-discovery.outputs.retention_summary }}'
+          TOTAL_ARTIFACTS: '${{ needs.artifact-discovery.outputs.total_artifacts }}'
+          TOTAL_SIZE_GB: '${{ needs.artifact-discovery.outputs.total_size_gb }}'
         run: |
           echo "📋 Analyzing retention policy effectiveness..."
-          
-          TOTAL_ARTIFACTS="${{ needs.artifact-discovery.outputs.total_artifacts }}"
-          TOTAL_SIZE_GB="${{ needs.artifact-discovery.outputs.total_size_gb }}"
-          RETENTION_SUMMARY='${{ needs.artifact-discovery.outputs.retention_summary }}'
           
           python3 - << 'EOF'
           import json
