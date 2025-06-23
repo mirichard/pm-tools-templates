@@ -4,6 +4,8 @@ on:
   schedule:
     # Generate weekly status reports every Friday at 4 PM UTC
     - cron: '0 16 * * 5'
+    # Send Monday morning status emails at 7 AM UTC
+    - cron: '0 7 * * 1'
   workflow_dispatch:
     inputs:
       report_type:
@@ -28,9 +30,17 @@ on:
 
 env:
   REPORT_DATE: $(date +%Y-%m-%d)
+  MAIL_RECIPIENTS: project-team@example.com, stakeholders@example.com
+  MAIL_FROM: project-status@example.com
 
 jobs:
   status-reporting:
+    outputs:
+      report_file: ${{ steps.report_path.outputs.path }}
+      completion_rate: ${{ steps.metrics.outputs.completion_rate }}
+      strategic_progress: ${{ steps.metrics.outputs.strategic_progress }}
+      critical_risks: ${{ steps.metrics.outputs.critical_risks }}
+      high_priority: ${{ steps.metrics.outputs.high_priority }}
     name: Generate Status Report
     runs-on: ubuntu-latest
     permissions:
@@ -307,4 +317,121 @@ jobs:
           echo "High Priority: $HIGH_PRIORITY"
           echo "Critical Risks: $CRITICAL_RISKS"
           echo "Recent Completions: ${{ steps.metrics.outputs.recent_closed }}"
+
+      - name: 📝 Set Report Path
+        id: report_path
+        run: |
+          REPORT_FILE="reports/status/${REPORT_TYPE}-status-$(date +%Y-%m-%d).md"
+          echo "path=$REPORT_FILE" >> $GITHUB_OUTPUT
+
+  monday-email:
+    name: 📧 Send Monday Morning Email
+    needs: status-reporting
+    if: github.event.schedule == '0 7 * * 1'
+    runs-on: ubuntu-latest
+    env:
+      COMPLETION_RATE: ${{ needs.status-reporting.outputs.completion_rate }}
+      STRATEGIC_PROGRESS: ${{ needs.status-reporting.outputs.strategic_progress }}
+      CRITICAL_RISKS: ${{ needs.status-reporting.outputs.critical_risks }}
+      HIGH_PRIORITY: ${{ needs.status-reporting.outputs.high_priority }}
+    
+    steps:
+      - name: 📥 Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: 📧 Generate Email Content
+        run: |
+          # Create email directory
+          mkdir -p ./email
+          
+          # Generate HTML email content
+          cat > ./email/monday-status.html << EOF
+          <!DOCTYPE html>
+          <html>
+          <head>
+            <meta charset="utf-8">
+            <style>
+              body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; max-width: 800px; margin: 0 auto; }
+              .header { background: #f8f9fa; padding: 20px; margin-bottom: 20px; border-radius: 5px; }
+              .metrics { display: flex; justify-content: space-between; margin: 20px 0; }
+              .metric-card { background: white; padding: 15px; border-radius: 5px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); width: 23%; }
+              .metric-value { font-size: 24px; font-weight: bold; margin: 10px 0; }
+              .status-good { color: #28a745; }
+              .status-warning { color: #ffc107; }
+              .status-danger { color: #dc3545; }
+              .highlights { margin: 20px 0; }
+              .action-items { background: #f8f9fa; padding: 20px; border-radius: 5px; margin: 20px 0; }
+              .footer { font-size: 12px; color: #666; margin-top: 20px; text-align: center; }
+            </style>
+          </head>
+          <body>
+            <div class="header">
+              <h1>📊 Monday Morning Project Status</h1>
+              <p>Key metrics and updates for week starting $(date +"%B %d, %Y")</p>
+            </div>
+            
+            <div class="metrics">
+              <div class="metric-card">
+                <h3>Completion</h3>
+                <div class="metric-value $([ $COMPLETION_RATE -ge 75 ] && echo 'status-good' || echo 'status-warning')">$COMPLETION_RATE%</div>
+                <p>Overall Progress</p>
+              </div>
+              
+              <div class="metric-card">
+                <h3>Strategic</h3>
+                <div class="metric-value $([ $STRATEGIC_PROGRESS -ge 50 ] && echo 'status-good' || echo 'status-danger')">$STRATEGIC_PROGRESS%</div>
+                <p>Strategic Goals</p>
+              </div>
+              
+              <div class="metric-card">
+                <h3>Priorities</h3>
+                <div class="metric-value $([ $HIGH_PRIORITY -le 5 ] && echo 'status-good' || echo 'status-warning')">$HIGH_PRIORITY</div>
+                <p>High Priority Items</p>
+              </div>
+              
+              <div class="metric-card">
+                <h3>Risks</h3>
+                <div class="metric-value $([ $CRITICAL_RISKS -eq 0 ] && echo 'status-good' || echo 'status-danger')">$CRITICAL_RISKS</div>
+                <p>Critical Issues</p>
+              </div>
+            </div>
+            
+            <div class="highlights">
+              <h2>🎯 Weekly Focus</h2>
+              <ul>
+                $([ $HIGH_PRIORITY -gt 0 ] && echo "<li>Address $HIGH_PRIORITY high-priority items</li>" || echo "<li>Maintain current priorities</li>")
+                $([ $CRITICAL_RISKS -gt 0 ] && echo "<li>Resolve $CRITICAL_RISKS critical risk(s)</li>" || echo "<li>Continue risk prevention</li>")
+                <li>Drive strategic progress (current: $STRATEGIC_PROGRESS%)</li>
+              </ul>
+            </div>
+            
+            <div class="action-items">
+              <h2>📋 This Week's Action Items</h2>
+              <ol>
+                <li>Review detailed metrics in the <a href="https://github.com/${{ github.repository }}/blob/main/${{ needs.status-reporting.outputs.report_file }}">full status report</a></li>
+                <li>Join the daily standup at 10 AM for detailed updates</li>
+                <li>Update your task status before EOD</li>
+              </ol>
+            </div>
+            
+            <div class="footer">
+              <p>Generated by PM Tools Automation • <a href="https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}">View Workflow Run</a></p>
+              <p>Reply to this email with any questions or schedule a meeting with the PM team.</p>
+            </div>
+          </body>
+          </html>
+          EOF
+
+      - name: 📧 Send Status Email
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.gmail.com
+          server_port: 465
+          username: ${{ secrets.EMAIL_USERNAME }}
+          password: ${{ secrets.EMAIL_PASSWORD }}
+          subject: "📊 Monday Morning Status Update - $(date +"%B %d, %Y")"
+          html_body: file://./email/monday-status.html
+          to: ${{ env.MAIL_RECIPIENTS }}
+          from: ${{ env.MAIL_FROM }}
+          content_type: text/html
 
