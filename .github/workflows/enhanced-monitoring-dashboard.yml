@@ -34,11 +34,17 @@ on:
         type: boolean
 
 env:
-  # Monitoring Configuration
+  # Enhanced monitoring configuration
   HEALTH_THRESHOLD_WARNING: 75
   HEALTH_THRESHOLD_CRITICAL: 50
   PERFORMANCE_THRESHOLD_MS: 120000  # 2 minutes
   RETENTION_DAYS: 90
+  
+  # Monitoring resilience settings
+  MAX_RETRIES: 3
+  RETRY_DELAY_SECONDS: 5
+  API_TIMEOUT_SECONDS: 30
+  CACHE_TTL_MINUTES: 60
 
 permissions:
   contents: read

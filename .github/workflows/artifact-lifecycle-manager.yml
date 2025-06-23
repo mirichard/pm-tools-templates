@@ -23,9 +23,16 @@ on:
           - test
 
 env:
-  # Basic retention configuration
+  # Enhanced lifecycle configuration
   DEFAULT_RETENTION: 30
   LARGE_SIZE_MB: 100
+  
+  # Lifecycle resilience settings
+  MAX_RETRIES: 3
+  RETRY_DELAY_SECONDS: 5
+  BATCH_SIZE: 20
+  PARALLEL_OPERATIONS: 2
+  API_TIMEOUT_SECONDS: 30
 
 permissions:
   contents: read

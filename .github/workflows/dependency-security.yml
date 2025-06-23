@@ -23,9 +23,15 @@ on:
           - ruby
 
 env:
-  # Basic scanning configuration
+  # Enhanced scanning configuration
   SEVERITY_THRESHOLD: medium
   TIMEOUT_MINUTES: 5
+  
+  # Scan resilience settings
+  MAX_RETRIES: 3
+  RETRY_DELAY_SECONDS: 5
+  SCAN_BATCH_SIZE: 50
+  PARALLEL_SCANS: 2
 
 jobs:
   security-scan:
