@@ -1,4 +1,4 @@
-name: 📊 Automated Status Reporting
+name: 📊 Project Status Report
 
 on:
   schedule:
