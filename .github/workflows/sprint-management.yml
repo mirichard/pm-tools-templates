@@ -21,10 +21,6 @@ on:
         required: false
         type: string
 
-env:
-  SPRINT_DURATION: 14 # days
-  TEAM_VELOCITY_TARGET: 20 # story points
-
 jobs:
   sprint-automation:
     name: Sprint Management
@@ -41,22 +37,23 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: 📊 Calculate Sprint Dates
+      - name: 📊 Calculate Sprint Information
         id: dates
         run: |
           current_date=$(date +%Y-%m-%d)
           sprint_start=$(date +%Y-%m-%d)
-          # Use GNU date syntax that works on Ubuntu runners
-          sprint_end=$(date -d "$current_date + 14 days" +%Y-%m-%d)
+          # Use simple date arithmetic that works on Ubuntu
+          sprint_end=$(date -d "+14 days" +%Y-%m-%d)
           
           echo "current_date=$current_date" >> $GITHUB_OUTPUT
           echo "sprint_start=$sprint_start" >> $GITHUB_OUTPUT
           echo "sprint_end=$sprint_end" >> $GITHUB_OUTPUT
           
-          # Calculate sprint number based on weeks since project start
-          project_start="2025-06-17"
-          days_diff=$(( ($(date -d "$current_date" +%s) - $(date -d "$project_start" +%s)) / 86400 ))
-          sprint_number=$(( days_diff / 14 + 1 ))
+          # Simple sprint number calculation
+          sprint_number=1
+          if [ -n "${{ github.event.inputs.sprint_number }}" ]; then
+            sprint_number="${{ github.event.inputs.sprint_number }}"
+          fi
           echo "sprint_number=$sprint_number" >> $GITHUB_OUTPUT
 
       - name: 🎯 Start New Sprint
