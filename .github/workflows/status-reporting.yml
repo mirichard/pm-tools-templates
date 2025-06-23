@@ -10,12 +10,10 @@ on:
   workflow_dispatch:
     inputs:
       test_mode:
-        description: 'Run in test mode (skips email sending)'
+        description: 'Run in test mode'
         required: false
         default: 'true'
         type: boolean
-  workflow_dispatch:
-    inputs:
       report_type:
         description: 'Type of status report'
         required: true
