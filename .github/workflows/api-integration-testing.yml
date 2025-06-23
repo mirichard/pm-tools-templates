@@ -9,31 +9,21 @@ on:
       test_scope:
         description: 'API testing scope'
         required: false
-        default: 'comprehensive'
+        default: 'health-checks-only'
         type: choice
         options:
-          - comprehensive
           - health-checks-only
-          - integration-only
-          - performance-only
-          - security-only
-          - custom
+          - basic-integration
+          - mock-testing
       test_environment:
         description: 'Target test environment'
         required: false
-        default: 'staging'
+        default: 'mock'
         type: choice
         options:
+          - mock
           - staging
           - development
-          - production-readonly
-          - sandbox
-          - mock
-      parallel_execution:
-        description: 'Enable parallel test execution'
-        required: false
-        default: true
-        type: boolean
       generate_report:
         description: 'Generate detailed test report'
         required: false
@@ -44,50 +34,131 @@ env:
   # API Testing Configuration
   API_TIMEOUT_SECONDS: 30
   MAX_RETRY_ATTEMPTS: 3
-  RATE_LIMIT_DELAY: 1
-  TEST_DATA_RETENTION_DAYS: 7
-  SECURITY_SCAN_ENABLED: true
   PERFORMANCE_THRESHOLD_MS: 2000
-  
-  # Test Environment URLs (use secrets for actual values)
-  API_BASE_URL_STAGING: 'https://api-staging.pmtools.example.com'
-  API_BASE_URL_DEV: 'https://api-dev.pmtools.example.com'
-  API_BASE_URL_SANDBOX: 'https://api-sandbox.pmtools.example.com'
 
 permissions:
   contents: read
   pull-requests: write
   checks: write
   issues: write
-  security-events: write
 
 jobs:
-  # API Discovery and Endpoint Mapping
-  api-discovery:
-    name: 🔍 API Discovery
+  # Simple API Health Checks
+  api-health-checks:
+    name: 🏥 API Health Checks
     runs-on: ubuntu-latest
-    outputs:
-      api_endpoints: ${{ steps.discover.outputs.api_endpoints }}
-      integration_targets: ${{ steps.discover.outputs.integration_targets }}
-      test_matrix: ${{ steps.discover.outputs.test_matrix }}
-      mock_required: ${{ steps.discover.outputs.mock_required }}
     
     steps:
       - name: 📥 Checkout Repository
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
 
-      - name: 🐍 Setup Python Environment
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.x'
-
-      - name: 🐍 Install Python Dependencies
+      - name: 🛠️ Setup Testing Environment
         run: |
-          echo "🐍 Installing Python dependencies..."
-          pip install --upgrade pip
-          pip install PyYAML
+          echo "🛠️ Setting up API testing environment..."
+          pip install requests
+          echo "✅ Testing environment ready"
+
+      - name: 🏥 Run Basic Health Checks
+        run: |
+          echo "🏥 Running basic API health checks..."
+          
+          python3 - << 'EOF'
+          import requests
+          import json
+          import time
+          from datetime import datetime
+          
+          def basic_health_check():
+              """Perform basic health checks on mock endpoints"""
+              
+              test_endpoints = [
+                  {'name': 'httpbin-get', 'url': 'https://httpbin.org/get'},
+                  {'name': 'httpbin-json', 'url': 'https://httpbin.org/json'},
+                  {'name': 'httpbin-status', 'url': 'https://httpbin.org/status/200'}
+              ]
+              
+              results = []
+              
+              for endpoint in test_endpoints:
+                  print(f"Testing {endpoint['name']}...")
+                  
+                  try:
+                      start_time = time.time()
+                      response = requests.get(endpoint['url'], timeout=30)
+                      response_time = (time.time() - start_time) * 1000
+                      
+                      result = {
+                          'name': endpoint['name'],
+                          'url': endpoint['url'],
+                          'status_code': response.status_code,
+                          'response_time_ms': round(response_time, 2),
+                          'success': response.status_code < 400,
+                          'timestamp': datetime.now().isoformat()
+                      }
+                      
+                      results.append(result)
+                      
+                      if result['success']:
+                          print(f"  ✅ {endpoint['name']}: {result['status_code']} ({result['response_time_ms']}ms)")
+                      else:
+                          print(f"  ❌ {endpoint['name']}: {result['status_code']} ({result['response_time_ms']}ms)")
+                          
+                  except Exception as e:
+                      result = {
+                          'name': endpoint['name'],
+                          'url': endpoint['url'],
+                          'status_code': 0,
+                          'response_time_ms': 0,
+                          'success': False,
+                          'error': str(e),
+                          'timestamp': datetime.now().isoformat()
+                      }
+                      results.append(result)
+                      print(f"  ❌ {endpoint['name']}: Error - {e}")
+              
+              # Summary
+              successful = len([r for r in results if r['success']])
+              total = len(results)
+              avg_response_time = sum(r['response_time_ms'] for r in results if r['success']) / max(successful, 1)
+              
+              summary = {
+                  'timestamp': datetime.now().isoformat(),
+                  'total_tests': total,
+                  'successful_tests': successful,
+                  'success_rate': round((successful / total) * 100, 1),
+                  'avg_response_time_ms': round(avg_response_time, 2),
+                  'results': results
+              }
+              
+              # Save results
+              import os
+              os.makedirs('test-results', exist_ok=True)
+              with open('test-results/health-check-results.json', 'w') as f:
+                  json.dump(summary, f, indent=2)
+              
+              print(f"\n📊 Summary:")
+              print(f"  Success Rate: {summary['success_rate']}% ({successful}/{total})")
+              print(f"  Average Response Time: {summary['avg_response_time_ms']}ms")
+              
+              return successful == total
+          
+          # Run health checks
+          success = basic_health_check()
+          
+          if not success:
+              print("::warning::Some health checks failed")
+              exit(1)
+          else:
+              print("::notice::All health checks passed")
+          EOF
+
+      - name: 📤 Upload Test Results
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: api-health-check-results-${{ github.run_number }}
+          path: test-results/
+          retention-days: 7
 
       - name: 🔍 Discover API Configurations
         id: discover

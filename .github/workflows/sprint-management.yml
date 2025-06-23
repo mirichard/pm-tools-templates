@@ -47,7 +47,7 @@ jobs:
           current_date=$(date +%Y-%m-%d)
           sprint_start=$(date +%Y-%m-%d)
           # Use GNU date syntax that works on Ubuntu runners
-          sprint_end=$(date -d "$current_date + ${{ env.SPRINT_DURATION }} days" +%Y-%m-%d)
+          sprint_end=$(date -d "$current_date + 14 days" +%Y-%m-%d)
           
           echo "current_date=$current_date" >> $GITHUB_OUTPUT
           echo "sprint_start=$sprint_start" >> $GITHUB_OUTPUT
@@ -56,7 +56,7 @@ jobs:
           # Calculate sprint number based on weeks since project start
           project_start="2025-06-17"
           days_diff=$(( ($(date -d "$current_date" +%s) - $(date -d "$project_start" +%s)) / 86400 ))
-          sprint_number=$(( days_diff / ${{ env.SPRINT_DURATION }} + 1 ))
+          sprint_number=$(( days_diff / 14 + 1 ))
           echo "sprint_number=$sprint_number" >> $GITHUB_OUTPUT
 
       - name: 🎯 Start New Sprint
