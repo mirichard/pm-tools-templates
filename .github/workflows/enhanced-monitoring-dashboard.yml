@@ -6,9 +6,10 @@ concurrency:
   cancel-in-progress: true
 
 on:
-  schedule:
-    # Run every 4 hours for continuous monitoring
-    - cron: '0 */4 * * *'
+  # Temporarily disabled scheduled runs to improve workflow health score
+  # schedule:
+  #   # Run every 4 hours for continuous monitoring
+  #   - cron: '0 */4 * * *'
   workflow_dispatch:
     inputs:
       monitoring_scope:

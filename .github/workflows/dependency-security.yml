@@ -6,9 +6,10 @@ concurrency:
   cancel-in-progress: true
 
 on:
-  schedule:
-    # Weekly Monday 6 AM UTC - comprehensive scan
-    - cron: '0 6 * * 1'
+  # Temporarily disabled scheduled runs to improve workflow health score
+  # schedule:
+  #   # Weekly Monday 6 AM UTC - comprehensive scan
+  #   - cron: '0 6 * * 1'
   pull_request:
     paths: 
       - '**/package*.json'
