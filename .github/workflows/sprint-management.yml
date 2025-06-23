@@ -46,7 +46,8 @@ jobs:
         run: |
           current_date=$(date +%Y-%m-%d)
           sprint_start=$(date +%Y-%m-%d)
-          sprint_end=$(date -d "+${{ env.SPRINT_DURATION }} days" +%Y-%m-%d)
+          # Use GNU date syntax that works on Ubuntu runners
+          sprint_end=$(date -d "$current_date + ${{ env.SPRINT_DURATION }} days" +%Y-%m-%d)
           
           echo "current_date=$current_date" >> $GITHUB_OUTPUT
           echo "sprint_start=$sprint_start" >> $GITHUB_OUTPUT
