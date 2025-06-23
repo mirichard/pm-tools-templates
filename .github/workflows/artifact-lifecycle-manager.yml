@@ -46,16 +46,45 @@ jobs:
           
           mkdir -p ./artifact-data
           
-          # List all artifacts
-          gh api repos/${{ github.repository }}/actions/artifacts \
-            --paginate \
-            --jq '.artifacts[] | {
-              id: .id,
-              name: .name,
-              size_mb: (.size_in_bytes / 1048576),
-              created_at: .created_at,
-              expires_at: .expires_at
-            }' > ./artifact-data/artifacts.json
+          # List all artifacts with error handling and retry logic
+          MAX_RETRIES=3
+          RETRY_COUNT=0
+          SUCCESS=false
+          
+          while [ $RETRY_COUNT -lt $MAX_RETRIES ] && [ "$SUCCESS" != "true" ]; do
+            echo "Attempt $((RETRY_COUNT + 1)) of $MAX_RETRIES to fetch artifacts..."
+            
+            if gh api repos/${{ github.repository }}/actions/artifacts \
+              --paginate \
+              --jq '.artifacts[] | {
+                id: .id,
+                name: .name,
+                size_mb: (.size_in_bytes / 1048576),
+                created_at: .created_at,
+                expires_at: .expires_at
+              }' > ./artifact-data/artifacts.json; then
+              
+              # Verify the output is valid JSON
+              if jq -e '.' ./artifact-data/artifacts.json > /dev/null 2>&1; then
+                SUCCESS=true
+                echo "Successfully fetched and validated artifact data"
+              else
+                echo "Warning: Invalid JSON output"
+              fi
+            else
+              echo "Warning: Failed to fetch artifacts"
+            fi
+            
+            if [ "$SUCCESS" != "true" ]; then
+              RETRY_COUNT=$((RETRY_COUNT + 1))
+              [ $RETRY_COUNT -lt $MAX_RETRIES ] && sleep 5
+            fi
+          done
+          
+          if [ "$SUCCESS" != "true" ]; then
+            echo "Error: Failed to fetch artifacts after $MAX_RETRIES attempts"
+            echo '[]' > ./artifact-data/artifacts.json
+          fi
           
           # Basic stats
           TOTAL_COUNT=$(jq -s 'length' ./artifact-data/artifacts.json)
