@@ -340,9 +340,40 @@ jobs:
         uses: actions/checkout@v4
 
       - name: 📧 Generate Email Content
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           # Create email directory
           mkdir -p ./email
+
+          # Fetch high priority issues
+          echo "Fetching high priority issues..."
+          gh issue list \
+            --label "high-priority" \
+            --state open \
+            --json number,title,createdAt,milestone,assignees,labels \
+            --jq 'map({number, title, created_at: .createdAt, milestone: .milestone.title, due_date: .milestone.dueOn, assignee: (.assignees[0].login // "unassigned"), labels: [.labels[].name]})' \
+            > ./email/high-priority.json
+
+          # Calculate milestone progress
+          echo "Calculating milestone progress..."
+          gh api graphql -f query='
+            query($owner:String!, $repo:String!) {
+              repository(owner:$owner, name:$repo) {
+                milestones(first:10, states:[OPEN], orderBy:{field:DUE_DATE, direction:ASC}) {
+                  nodes {
+                    title
+                    dueOn
+                    progressPercentage
+                    closed: issues(states:[CLOSED]) { totalCount }
+                    total: issues { totalCount }
+                  }
+                }
+              }
+            }' \
+            -f owner="$GITHUB_REPOSITORY_OWNER" \
+            -f repo="$(echo $GITHUB_REPOSITORY | cut -d'/' -f2)" \
+            > ./email/milestones.json
           
           # Generate HTML email content
           cat > ./email/monday-status.html << EOF
@@ -362,6 +393,19 @@ jobs:
               .highlights { margin: 20px 0; }
               .action-items { background: #f8f9fa; padding: 20px; border-radius: 5px; margin: 20px 0; }
               .footer { font-size: 12px; color: #666; margin-top: 20px; text-align: center; }
+              .milestone-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 15px; margin: 20px 0; }
+              .milestone-card { background: white; padding: 15px; border-radius: 5px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+              .milestone-title { font-weight: bold; margin-bottom: 10px; }
+              .milestone-date { color: #666; font-size: 12px; }
+              .progress-bar { background: #f0f0f0; height: 10px; border-radius: 5px; margin: 10px 0; }
+              .progress-fill { background: #28a745; height: 100%; border-radius: 5px; }
+              .issue-list { margin: 20px 0; }
+              .issue-item { background: white; padding: 10px; border-radius: 5px; margin-bottom: 10px; border-left: 4px solid #dc3545; }
+              .issue-meta { color: #666; font-size: 12px; margin-top: 5px; }
+              .label { display: inline-block; padding: 2px 6px; border-radius: 3px; font-size: 12px; margin-right: 5px; }
+              .label-high { background: #dc3545; color: white; }
+              .label-bug { background: #d73a4a; color: white; }
+              .label-feature { background: #0075ca; color: white; }
             </style>
           </head>
           <body>
@@ -393,6 +437,38 @@ jobs:
                 <h3>Risks</h3>
                 <div class="metric-value $([ $CRITICAL_RISKS -eq 0 ] && echo 'status-good' || echo 'status-danger')">$CRITICAL_RISKS</div>
                 <p>Critical Issues</p>
+              </div>
+            </div>
+            
+            <div class="highlights">
+              <h2>🎯 Active Milestones</h2>
+              <div class="milestone-grid">
+                $(jq -r '.data.repository.milestones.nodes[] | select(.dueOn != null) | "
+                  <div class=\"milestone-card\">
+                    <div class=\"milestone-title\">\(.title)</div>
+                    <div class=\"milestone-date\">Due: \(.dueOn | fromdateiso8601 | strftime("%B %d, %Y"))</div>
+                    <div class=\"progress-bar\">
+                      <div class=\"progress-fill\" style=\"width: \(.progressPercentage)%\"></div>
+                    </div>
+                    <div>\(.closed.totalCount)/\(.total.totalCount) issues completed (\(.progressPercentage | floor)%)</div>
+                  </div>"' ./email/milestones.json)
+              </div>
+            </div>
+            
+            <div class="highlights">
+              <h2>🗓️ High Priority Issues</h2>
+              <div class="issue-list">
+                $(jq -r '.[] | "
+                  <div class=\"issue-item\">
+                    <div><strong>#\(.number)</strong>: \(.title)</div>
+                    <div class=\"issue-meta\">
+                      <span>Created: \(.created_at | fromdateiso8601 | strftime("%B %d"))</span>
+                      \(.labels | map("<span class=\"label label-\(.)\">\(. | ascii_upcase)</span>") | join(" "))
+                      \(if .milestone then "| Milestone: \(.milestone)" else "" end)
+                      \(if .due_date then "| Due: \(.due_date | fromdateiso8601 | strftime("%B %d"))" else "" end)
+                      | Assigned: \(.assignee)
+                    </div>
+                  </div>"' ./email/high-priority.json || echo "<div class=\"issue-item\"><div>No high priority issues</div></div>")
               </div>
             </div>
             
