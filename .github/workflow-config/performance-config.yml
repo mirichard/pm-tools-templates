@@ -1,0 +1,93 @@
+# Workflow Performance Optimization Configuration
+# This file contains shared caching and performance settings for all workflows
+
+# Cache Configuration
+cache:
+  # Node.js caching
+  node:
+    paths:
+      - ~/.npm
+      - node_modules
+      - .cache/npm
+    key_files:
+      - package-lock.json
+      - package.json
+    restore_keys:
+      - npm-cache-
+      - node-modules-
+
+  # Python caching  
+  python:
+    paths:
+      - ~/.cache/pip
+      - ~/.cache/pipenv
+      - __pycache__
+    key_files:
+      - requirements.txt
+      - Pipfile.lock
+      - pyproject.toml
+    restore_keys:
+      - pip-cache-
+      - python-deps-
+
+  # Security tools caching
+  security_tools:
+    paths:
+      - ~/.cache/semgrep
+      - ~/.trivy
+      - ~/.local/bin/semgrep
+      - ~/.local/bin/trivy
+    key: security-tools-v1
+    restore_keys:
+      - security-tools-
+
+  # CodeQL caching
+  codeql:
+    paths:
+      - ~/.cache/codeql
+      - ~/.codeql
+    key: codeql-v1
+    restore_keys:
+      - codeql-
+
+# Performance Settings
+performance:
+  # Timeout configurations (in seconds)
+  timeouts:
+    workflow_timeout: 3600      # 1 hour max for entire workflow
+    job_timeout: 1800          # 30 minutes max for individual jobs
+    semgrep_timeout: 1200      # 20 minutes for Semgrep
+    codeql_timeout: 2400       # 40 minutes for CodeQL
+    dependency_scan: 900       # 15 minutes for dependency scanning
+
+  # Concurrency settings
+  concurrency:
+    max_parallel_jobs: 4       # Maximum parallel jobs
+    cancel_in_progress: true   # Cancel previous runs on new push
+
+  # Resource optimization
+  resources:
+    runner_type: ubuntu-latest
+    enable_docker_cache: true
+    cleanup_artifacts: true
+    artifact_retention_days: 30
+
+# Reliability Settings
+reliability:
+  # Retry configuration
+  retry:
+    max_attempts: 3
+    delay_seconds: 30
+    exponential_backoff: true
+
+  # Error handling
+  error_handling:
+    continue_on_error: false
+    fail_fast: false
+    collect_logs: true
+
+  # Health checks
+  health_checks:
+    enable_pre_checks: true
+    validate_environment: true
+    check_dependencies: true

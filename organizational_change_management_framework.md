@@ -1,7 +1,7 @@
 # Organizational Change Management Framework
 
 ## Overview
-This framework provides a comprehensive approach to managing organizational change across PMBOK, Agile, and Hybrid project management methodologies. It addresses the people side of change to achieve desired project outcomes and ensure successful adoption of project deliverables.
+This framework provides a comprehensive approach to managing organizational change across Traditional, Agile, and Hybrid project management methodologies. It addresses the people side of change to achieve desired project outcomes and ensure successful adoption of project deliverables.
 
 ## Framework Components
 
@@ -13,7 +13,7 @@ This framework provides a comprehensive approach to managing organizational chan
 
 ### 2. Methodology-Specific Approaches
 
-#### PMBOK/Waterfall Change Management
+#### Traditional/Waterfall Change Management
 - Formal change control processes
 - Structured communication plans
 - Phase-gate approvals for change initiatives
@@ -37,27 +37,27 @@ This framework provides a comprehensive approach to managing organizational chan
 ### 3. Key Activities by Project Phase
 
 #### Initiation/Vision
-- **PMBOK**: Formal change charter and stakeholder register
+- **Traditional**: Formal change charter and stakeholder register
 - **Agile**: Change vision and impact story mapping
 - **Hybrid**: Integrated change strategy with adaptive elements
 
 #### Planning/Preparation
-- **PMBOK**: Detailed change management plan and training curriculum
+- **Traditional**: Detailed change management plan and training curriculum
 - **Agile**: Change backlog and sprint planning for adoption activities
 - **Hybrid**: Phased change roadmap with iterative feedback loops
 
 #### Execution/Implementation
-- **PMBOK**: Controlled rollout according to plan
+- **Traditional**: Controlled rollout according to plan
 - **Agile**: Sprint-based change delivery and user feedback
 - **Hybrid**: Balanced implementation with course corrections
 
 #### Monitoring & Control/Inspection
-- **PMBOK**: Formal change metrics and variance analysis
+- **Traditional**: Formal change metrics and variance analysis
 - **Agile**: Daily standups and sprint reviews for change adoption
 - **Hybrid**: Multi-level monitoring with adaptive responses
 
 #### Closing/Sustainment
-- **PMBOK**: Formal transition to operations and lessons learned
+- **Traditional**: Formal transition to operations and lessons learned
 - **Agile**: Retrospectives and continuous improvement planning
 - **Hybrid**: Structured closure with ongoing adaptation mechanisms
 
@@ -72,12 +72,12 @@ This framework provides a comprehensive approach to managing organizational chan
 
 ## Templates and Tools
 
-### PMBOK Templates
-- [Change Readiness Assessment](PMBOK/Tools/change_readiness_assessment.md)
-- [Stakeholder Impact Analysis](PMBOK/Tools/stakeholder_impact_analysis.md)
-- [Change Management Plan](PMBOK/Templates/change_management_plan_template.md)
-- [Training Plan Template](PMBOK/Templates/training_plan_template.md)
-- [Change Communication Plan](PMBOK/Templates/change_communication_plan_template.md)
+### Traditional Templates
+- [Change Readiness Assessment](Traditional/Tools/change_readiness_assessment.md)
+- [Stakeholder Impact Analysis](Traditional/Tools/stakeholder_impact_analysis.md)
+- [Change Management Plan](Traditional/Templates/change_management_plan_template.md)
+- [Training Plan Template](Traditional/Templates/training_plan_template.md)
+- [Change Communication Plan](Traditional/Templates/change_communication_plan_template.md)
 
 ### Agile Templates
 - [Change Vision Canvas](Agile/Tools/change_vision_canvas.md)
@@ -97,7 +97,7 @@ This framework provides a comprehensive approach to managing organizational chan
 
 ### Selecting the Right Approach
 
-**Use PMBOK Change Management When:**
+**Use Traditional Change Management When:**
 - High-risk, high-impact organizational changes
 - Regulatory or compliance-driven changes
 - Large-scale enterprise transformations
@@ -130,7 +130,7 @@ This framework provides a comprehensive approach to managing organizational chan
 
 This framework integrates seamlessly with existing project management processes:
 
-- **PMBOK**: Aligns with change control processes and stakeholder management
+- **Traditional**: Aligns with change control processes and stakeholder management
 - **Agile**: Complements sprint cycles and retrospective practices
 - **Hybrid**: Supports balanced governance and adaptive execution
 

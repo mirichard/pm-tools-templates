@@ -84,8 +84,8 @@ Create custom fields in Jira to track project management metadata:
 | Risk Probability | Number Field or Select List | Track risk likelihood | 1-5 scale |
 | Risk Impact | Number Field or Select List | Track risk consequence | 1-5 scale |
 | Risk Score | Calculated Number (ScriptRunner) | Calculate Risk Priority Number | Formula: Probability × Impact |
-| Process Group | Select List | PMBOK process group | For traditional projects |
-| Knowledge Area | Select List | PMBOK knowledge area | For traditional projects |
+| Process Group | Select List | Traditional process group | For traditional projects |
+| Knowledge Area | Select List | Traditional knowledge area | For traditional projects |
 | Story Points | Story Points (native field) | Track estimated effort | For Agile projects |
 | Acceptance Criteria | Text Field (multi-line) | Define completion criteria | For all issues |
 | Business Value | Number Field | Prioritization metric | For value-based prioritization |
@@ -95,6 +95,7 @@ Create custom fields in Jira to track project management metadata:
 
 ## Implementation Guide
 
+<a id="step-1-prepare-your-jira-instance"></a>
 ### Step 1: Prepare Your Jira Instance
 
 1. **Assess Current Setup**
@@ -106,19 +107,21 @@ Create custom fields in Jira to track project management metadata:
    - Decide on project structure (single project vs. multiple)
    - Select appropriate project types for your methodology
    - Determine required custom fields and issue types
+<a id="step-2-configure-issue-types"></a>
 
 ### Step 2: Configure Issue Types
 
 1. **Create Standard Issue Types**
    - Navigate to Administration > Issues > Issue Types
    - Create issue types to match template requirements:
-     - For PMBOK: Task, Deliverable, Milestone, Risk, Issue, Change Request, Decision
+     - For Traditional: Task, Deliverable, Milestone, Risk, Issue, Change Request, Decision
      - For Agile: Epic, Story, Task, Bug, Impediment
      - For Hybrid: Appropriate combination based on needs
 
 2. **Configure Issue Type Scheme**
    - Create scheme associating issue types with your project
    - Navigate to Administration > Issues > Issue Type Schemes
+<a id="step-3-create-custom-fields"></a>
    - Associate with your project(s)
 
 ### Step 3: Create Custom Fields
@@ -130,6 +133,7 @@ Create custom fields in Jira to track project management metadata:
 
 2. **Create Field Configurations**
    - Configure which fields are required vs. optional
+<a id="step-4-configure-screens-and-field-layout"></a>
    - Set default values where appropriate
    - Group related fields
 
@@ -141,6 +145,7 @@ Create custom fields in Jira to track project management metadata:
    - Configure create/edit/view screens
 
 2. **Associate Screens with Issue Types**
+<a id="step-5-define-workflows"></a>
    - Link screens to issue operations
    - Configure screen scheme
    - Associate with your project
@@ -149,7 +154,7 @@ Create custom fields in Jira to track project management metadata:
 
 1. **Create Status Workflows**
    - Design workflows for each issue type
-   - For PMBOK: Align with process groups
+   - For Traditional: Align with process groups
    - For Agile: To Do, In Progress, Review, Done
    - For Hybrid: Appropriate combination
 
@@ -158,6 +163,7 @@ Create custom fields in Jira to track project management metadata:
    - Add validation conditions
    - Configure post-functions
 
+<a id="step-6-set-up-project-and-boards"></a>
 3. **Associate Workflows with Project**
    - Create workflow scheme
    - Map issue types to workflows
@@ -170,6 +176,7 @@ Create custom fields in Jira to track project management metadata:
    - Configure project details
    - Apply configured schemes
 
+<a id="step-7-import-template-content"></a>
 2. **Set Up Boards**
    - Create Scrum or Kanban board
    - Configure columns to match workflow
@@ -216,7 +223,7 @@ Configure automatic transitions and actions based on issue events:
 
 ### Advanced Workflow Examples
 
-#### PMBOK Change Request Workflow
+#### Traditional Change Request Workflow
 
 ```
 1. Draft → Submitted
@@ -296,7 +303,7 @@ Create Jira automation rules to streamline processes:
 
 ## Methodology-Specific Configurations
 
-### PMBOK Configuration
+### Traditional Configuration
 
 1. **Project Structure**
    - Use a single Jira project for the entire project
@@ -369,12 +376,12 @@ Create Jira automation rules to streamline processes:
 
 1. **Project Structure**
    - Use combination of Scrum and traditional approaches
-   - Plan phases using PMBOK approach
+   - Plan phases using Traditional approach
    - Execute work using Agile sprints
    - Track both deadlines and velocity
 
 2. **Issue Types**
-   - Combination of PMBOK and Agile issue types
+   - Combination of Traditional and Agile issue types
    - Clear distinction between planning vs. execution items
 
 3. **Custom Fields**
@@ -405,7 +412,7 @@ Create Jira automation rules to streamline processes:
 
 2. **Progress Tracking**
    - Sprint burndown (Agile)
-   - Version burndown (PMBOK)
+   - Version burndown (Traditional)
    - Cumulative flow diagram
    - Resolution time
 
@@ -421,7 +428,7 @@ Create Jira automation rules to streamline processes:
 
 ### Key Reports
 
-1. **PMBOK Reports**
+1. **Traditional Reports**
    - WBS Report (hierarchical issue list)
    - Schedule variance report (custom JQL)
    - Risk register report
@@ -445,7 +452,7 @@ Create Jira automation rules to streamline processes:
    project = "ProjectName" AND issuetype = Risk AND priority in (Highest, High) AND resolution = Unresolved ORDER BY created DESC
    ```
 
-2. **PMBOK Status Reporting**
+2. **Traditional Status Reporting**
    ```sql
    project = "ProjectName" AND "Process Group" = "Executing" AND status != Done AND duedate < startOfWeek(1) ORDER BY duedate ASC
    ```
@@ -526,10 +533,10 @@ Create Jira automation rules to streamline processes:
    - Design dashboards for different user roles
    - Provide training and documentation for users
 
-### PMBOK Implementation Best Practices
+### Traditional Implementation Best Practices
 
 1. **Process Group Alignment**
-   - Structure workflows to match PMBOK process groups
+   - Structure workflows to match Traditional process groups
    - Use status categories to represent process progression
    - Create dashboards showing process group distribution
 

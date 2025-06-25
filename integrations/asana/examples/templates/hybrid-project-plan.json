@@ -1,0 +1,784 @@
+{
+  "id": "hybrid-project-plan-v1.0",
+  "name": "Hybrid Project Plan",
+  "methodology": "Hybrid",
+  "version": "1.0.0",
+  "fields": [
+    {
+      "name": "project_name",
+      "type": "text",
+      "required": true,
+      "defaultValue": "",
+      "validation": {
+        "min": 3,
+        "max": 100,
+        "required": true
+      }
+    },
+    {
+      "name": "project_manager",
+      "type": "user",
+      "required": true,
+      "defaultValue": null
+    },
+    {
+      "name": "product_owner",
+      "type": "user",
+      "required": false,
+      "defaultValue": null
+    },
+    {
+      "name": "project_start_date",
+      "type": "date",
+      "required": true,
+      "defaultValue": null
+    },
+    {
+      "name": "project_end_date",
+      "type": "date",
+      "required": true,
+      "defaultValue": null
+    },
+    {
+      "name": "methodology_mix",
+      "type": "enum",
+      "required": true,
+      "defaultValue": "Waterfall-Agile",
+      "options": ["Waterfall-Agile", "Agile-Waterfall", "Concurrent", "Iterative-Incremental"]
+    },
+    {
+      "name": "project_phase",
+      "type": "enum",
+      "required": true,
+      "defaultValue": "Initiation",
+      "options": ["Initiation", "Planning", "Execution", "Monitoring", "Closing"]
+    },
+    {
+      "name": "agile_components",
+      "type": "multi_enum",
+      "required": false,
+      "defaultValue": [],
+      "options": ["Sprints", "Daily Standups", "User Stories", "Retrospectives", "Demos"]
+    },
+    {
+      "name": "waterfall_components",
+      "type": "multi_enum",
+      "required": false,
+      "defaultValue": [],
+      "options": ["Formal Requirements", "Detailed Planning", "Phase Gates", "Documentation", "Risk Management"]
+    },
+    {
+      "name": "project_complexity",
+      "type": "enum",
+      "required": true,
+      "defaultValue": "Medium",
+      "options": ["Low", "Medium", "High", "Very High"]
+    },
+    {
+      "name": "team_size",
+      "type": "number",
+      "required": true,
+      "defaultValue": 5,
+      "validation": {
+        "min": 2,
+        "max": 50
+      }
+    },
+    {
+      "name": "risk_tolerance",
+      "type": "enum",
+      "required": true,
+      "defaultValue": "Medium",
+      "options": ["Low", "Medium", "High"]
+    },
+    {
+      "name": "stakeholder_involvement",
+      "type": "enum",
+      "required": true,
+      "defaultValue": "High",
+      "options": ["Low", "Medium", "High", "Very High"]
+    }
+  ],
+  "tasks": [
+    {
+      "id": "hybrid-001",
+      "name": "Project Initiation and Charter",
+      "description": "Establish project foundation using traditional project management approaches",
+      "estimatedHours": 24,
+      "dependencies": [],
+      "assigneeRole": "Project Manager",
+      "priority": "Critical",
+      "tags": ["initiation", "waterfall", "charter"],
+      "customFields": {
+        "project_phase": "Initiation",
+        "methodology_component": "Waterfall",
+        "deliverable": "Project Charter"
+      },
+      "subtasks": [
+        {
+          "id": "hybrid-001-1",
+          "name": "Define project purpose and objectives",
+          "description": "Document business case and project objectives",
+          "estimatedHours": 6,
+          "assigneeRole": "Project Manager",
+          "priority": "Critical"
+        },
+        {
+          "id": "hybrid-001-2",
+          "name": "Identify stakeholders and form project team",
+          "description": "Map stakeholders and assemble cross-functional team",
+          "estimatedHours": 8,
+          "assigneeRole": "Project Manager",
+          "priority": "High"
+        },
+        {
+          "id": "hybrid-001-3",
+          "name": "Create project charter",
+          "description": "Formalize project authorization and high-level scope",
+          "estimatedHours": 6,
+          "assigneeRole": "Project Manager",
+          "priority": "High"
+        },
+        {
+          "id": "hybrid-001-4",
+          "name": "Obtain stakeholder approval",
+          "description": "Secure formal project authorization from sponsors",
+          "estimatedHours": 4,
+          "assigneeRole": "Project Manager",
+          "priority": "Critical"
+        }
+      ]
+    },
+    {
+      "id": "hybrid-002",
+      "name": "Hybrid Methodology Planning",
+      "description": "Design the hybrid approach combining waterfall and agile elements",
+      "estimatedHours": 16,
+      "dependencies": ["hybrid-001"],
+      "assigneeRole": "Project Manager",
+      "priority": "Critical",
+      "tags": ["planning", "hybrid", "methodology"],
+      "customFields": {
+        "project_phase": "Planning",
+        "methodology_component": "Hybrid",
+        "deliverable": "Methodology Framework"
+      },
+      "subtasks": [
+        {
+          "id": "hybrid-002-1",
+          "name": "Assess project characteristics",
+          "description": "Analyze complexity, risk, and team factors to determine optimal mix",
+          "estimatedHours": 4,
+          "assigneeRole": "Project Manager",
+          "priority": "Critical"
+        },
+        {
+          "id": "hybrid-002-2",
+          "name": "Design phase structure",
+          "description": "Define which phases use waterfall vs agile approaches",
+          "estimatedHours": 6,
+          "assigneeRole": "Project Manager",
+          "priority": "High"
+        },
+        {
+          "id": "hybrid-002-3",
+          "name": "Establish governance model",
+          "description": "Define decision-making processes and checkpoints",
+          "estimatedHours": 4,
+          "assigneeRole": "Project Manager",
+          "priority": "High"
+        },
+        {
+          "id": "hybrid-002-4",
+          "name": "Create methodology guide",
+          "description": "Document the hybrid approach for team reference",
+          "estimatedHours": 2,
+          "assigneeRole": "Project Manager",
+          "priority": "Medium"
+        }
+      ]
+    },
+    {
+      "id": "hybrid-003",
+      "name": "Requirements Analysis (Waterfall)",
+      "description": "Conduct comprehensive requirements gathering using traditional waterfall methods",
+      "estimatedHours": 32,
+      "dependencies": ["hybrid-002"],
+      "assigneeRole": "Business Analyst",
+      "priority": "High",
+      "tags": ["requirements", "waterfall", "analysis"],
+      "customFields": {
+        "project_phase": "Planning",
+        "methodology_component": "Waterfall",
+        "deliverable": "Requirements Specification"
+      },
+      "subtasks": [
+        {
+          "id": "hybrid-003-1",
+          "name": "Stakeholder interviews",
+          "description": "Conduct formal interviews with key stakeholders",
+          "estimatedHours": 12,
+          "assigneeRole": "Business Analyst",
+          "priority": "High"
+        },
+        {
+          "id": "hybrid-003-2",
+          "name": "Document functional requirements",
+          "description": "Create detailed functional requirements specification",
+          "estimatedHours": 10,
+          "assigneeRole": "Business Analyst",
+          "priority": "High"
+        },
+        {
+          "id": "hybrid-003-3",
+          "name": "Define non-functional requirements",
+          "description": "Specify performance, security, and technical requirements",
+          "estimatedHours": 6,
+          "assigneeRole": "Technical Lead",
+          "priority": "Medium"
+        },
+        {
+          "id": "hybrid-003-4",
+          "name": "Requirements review and approval",
+          "description": "Formal review and sign-off on requirements",
+          "estimatedHours": 4,
+          "assigneeRole": "Product Owner",
+          "priority": "High"
+        }
+      ]
+    },
+    {
+      "id": "hybrid-004",
+      "name": "User Story Creation (Agile)",
+      "description": "Convert requirements into user stories for agile development phases",
+      "estimatedHours": 20,
+      "dependencies": ["hybrid-003"],
+      "assigneeRole": "Product Owner",
+      "priority": "High",
+      "tags": ["user-stories", "agile", "backlog"],
+      "customFields": {
+        "project_phase": "Planning",
+        "methodology_component": "Agile",
+        "deliverable": "Product Backlog"
+      },
+      "subtasks": [
+        {
+          "id": "hybrid-004-1",
+          "name": "Write user stories",
+          "description": "Convert requirements into user story format",
+          "estimatedHours": 10,
+          "assigneeRole": "Product Owner",
+          "priority": "High"
+        },
+        {
+          "id": "hybrid-004-2",
+          "name": "Define acceptance criteria",
+          "description": "Create clear acceptance criteria for each user story",
+          "estimatedHours": 6,
+          "assigneeRole": "Product Owner",
+          "priority": "High"
+        },
+        {
+          "id": "hybrid-004-3",
+          "name": "Prioritize product backlog",
+          "description": "Rank user stories by business value and dependencies",
+          "estimatedHours": 3,
+          "assigneeRole": "Product Owner",
+          "priority": "Medium"
+        },
+        {
+          "id": "hybrid-004-4",
+          "name": "Estimate story points",
+          "description": "Collaborate with team to estimate effort using story points",
+          "estimatedHours": 1,
+          "assigneeRole": "Development Team",
+          "priority": "Medium"
+        }
+      ]
+    },
+    {
+      "id": "hybrid-005",
+      "name": "Architecture and Design (Waterfall)",
+      "description": "Create detailed system architecture and design using waterfall approach",
+      "estimatedHours": 40,
+      "dependencies": ["hybrid-003"],
+      "assigneeRole": "Technical Lead",
+      "priority": "High",
+      "tags": ["architecture", "design", "waterfall"],
+      "customFields": {
+        "project_phase": "Planning",
+        "methodology_component": "Waterfall",
+        "deliverable": "System Architecture"
+      },
+      "subtasks": [
+        {
+          "id": "hybrid-005-1",
+          "name": "High-level architecture design",
+          "description": "Create overall system architecture and component design",
+          "estimatedHours": 12,
+          "assigneeRole": "Technical Lead",
+          "priority": "High"
+        },
+        {
+          "id": "hybrid-005-2",
+          "name": "Database design",
+          "description": "Design database schema and data models",
+          "estimatedHours": 10,
+          "assigneeRole": "Database Architect",
+          "priority": "High"
+        },
+        {
+          "id": "hybrid-005-3",
+          "name": "API specifications",
+          "description": "Define API contracts and integration points",
+          "estimatedHours": 8,
+          "assigneeRole": "Technical Lead",
+          "priority": "Medium"
+        },
+        {
+          "id": "hybrid-005-4",
+          "name": "Security and performance planning",
+          "description": "Plan security measures and performance optimization",
+          "estimatedHours": 6,
+          "assigneeRole": "Security Architect",
+          "priority": "Medium"
+        },
+        {
+          "id": "hybrid-005-5",
+          "name": "Architecture review",
+          "description": "Formal architecture review and approval",
+          "estimatedHours": 4,
+          "assigneeRole": "Technical Lead",
+          "priority": "High"
+        }
+      ]
+    },
+    {
+      "id": "hybrid-006",
+      "name": "Sprint 1 Planning and Execution",
+      "description": "First agile sprint focusing on core functionality",
+      "estimatedHours": 80,
+      "dependencies": ["hybrid-004", "hybrid-005"],
+      "assigneeRole": "Scrum Master",
+      "priority": "High",
+      "tags": ["sprint", "agile", "development"],
+      "customFields": {
+        "project_phase": "Execution",
+        "methodology_component": "Agile",
+        "sprint_number": 1
+      },
+      "subtasks": [
+        {
+          "id": "hybrid-006-1",
+          "name": "Sprint planning meeting",
+          "description": "Plan first sprint with team commitment",
+          "estimatedHours": 4,
+          "assigneeRole": "Scrum Master",
+          "priority": "Critical"
+        },
+        {
+          "id": "hybrid-006-2",
+          "name": "Daily standups",
+          "description": "Conduct daily standup meetings throughout sprint",
+          "estimatedHours": 5,
+          "assigneeRole": "Scrum Master",
+          "priority": "High"
+        },
+        {
+          "id": "hybrid-006-3",
+          "name": "Development work",
+          "description": "Execute development tasks for committed user stories",
+          "estimatedHours": 64,
+          "assigneeRole": "Development Team",
+          "priority": "High"
+        },
+        {
+          "id": "hybrid-006-4",
+          "name": "Sprint review and demo",
+          "description": "Demonstrate completed functionality to stakeholders",
+          "estimatedHours": 3,
+          "assigneeRole": "Product Owner",
+          "priority": "High"
+        },
+        {
+          "id": "hybrid-006-5",
+          "name": "Sprint retrospective",
+          "description": "Team retrospective for continuous improvement",
+          "estimatedHours": 2,
+          "assigneeRole": "Scrum Master",
+          "priority": "Medium"
+        },
+        {
+          "id": "hybrid-006-6",
+          "name": "Increment testing",
+          "description": "Test completed increment against acceptance criteria",
+          "estimatedHours": 2,
+          "assigneeRole": "QA Engineer",
+          "priority": "High"
+        }
+      ]
+    },
+    {
+      "id": "hybrid-007",
+      "name": "Phase Gate Review 1",
+      "description": "Formal waterfall-style phase gate review after first sprint",
+      "estimatedHours": 8,
+      "dependencies": ["hybrid-006"],
+      "assigneeRole": "Project Manager",
+      "priority": "High",
+      "tags": ["phase-gate", "waterfall", "review"],
+      "customFields": {
+        "project_phase": "Monitoring",
+        "methodology_component": "Waterfall",
+        "gate_type": "Development Phase Gate"
+      },
+      "subtasks": [
+        {
+          "id": "hybrid-007-1",
+          "name": "Prepare gate review materials",
+          "description": "Compile deliverables and metrics for review",
+          "estimatedHours": 3,
+          "assigneeRole": "Project Manager",
+          "priority": "High"
+        },
+        {
+          "id": "hybrid-007-2",
+          "name": "Conduct formal review",
+          "description": "Present progress to steering committee",
+          "estimatedHours": 2,
+          "assigneeRole": "Project Manager",
+          "priority": "Critical"
+        },
+        {
+          "id": "hybrid-007-3",
+          "name": "Address review feedback",
+          "description": "Incorporate feedback and update plans",
+          "estimatedHours": 2,
+          "assigneeRole": "Project Manager",
+          "priority": "High"
+        },
+        {
+          "id": "hybrid-007-4",
+          "name": "Obtain go/no-go decision",
+          "description": "Secure approval to proceed to next phase",
+          "estimatedHours": 1,
+          "assigneeRole": "Project Sponsor",
+          "priority": "Critical"
+        }
+      ]
+    },
+    {
+      "id": "hybrid-008",
+      "name": "Sprint 2-3 Execution",
+      "description": "Continue agile development with additional sprints",
+      "estimatedHours": 160,
+      "dependencies": ["hybrid-007"],
+      "assigneeRole": "Development Team",
+      "priority": "High",
+      "tags": ["sprint", "agile", "development"],
+      "customFields": {
+        "project_phase": "Execution",
+        "methodology_component": "Agile",
+        "sprint_number": "2-3"
+      },
+      "subtasks": [
+        {
+          "id": "hybrid-008-1",
+          "name": "Sprint 2 planning and execution",
+          "description": "Complete second sprint with planning, development, and review",
+          "estimatedHours": 80,
+          "assigneeRole": "Development Team",
+          "priority": "High"
+        },
+        {
+          "id": "hybrid-008-2",
+          "name": "Sprint 3 planning and execution",
+          "description": "Complete third sprint with planning, development, and review",
+          "estimatedHours": 80,
+          "assigneeRole": "Development Team",
+          "priority": "High"
+        }
+      ]
+    },
+    {
+      "id": "hybrid-009",
+      "name": "Integration and System Testing (Waterfall)",
+      "description": "Comprehensive testing using traditional waterfall approach",
+      "estimatedHours": 32,
+      "dependencies": ["hybrid-008"],
+      "assigneeRole": "QA Engineer",
+      "priority": "High",
+      "tags": ["testing", "waterfall", "integration"],
+      "customFields": {
+        "project_phase": "Execution",
+        "methodology_component": "Waterfall",
+        "deliverable": "Test Results"
+      },
+      "subtasks": [
+        {
+          "id": "hybrid-009-1",
+          "name": "Integration testing",
+          "description": "Test integration between all system components",
+          "estimatedHours": 12,
+          "assigneeRole": "QA Engineer",
+          "priority": "High"
+        },
+        {
+          "id": "hybrid-009-2",
+          "name": "System testing",
+          "description": "Comprehensive end-to-end system testing",
+          "estimatedHours": 12,
+          "assigneeRole": "QA Engineer",
+          "priority": "High"
+        },
+        {
+          "id": "hybrid-009-3",
+          "name": "Performance testing",
+          "description": "Test system performance against requirements",
+          "estimatedHours": 4,
+          "assigneeRole": "Performance Engineer",
+          "priority": "Medium"
+        },
+        {
+          "id": "hybrid-009-4",
+          "name": "Security testing",
+          "description": "Conduct security vulnerability assessment",
+          "estimatedHours": 4,
+          "assigneeRole": "Security Engineer",
+          "priority": "Medium"
+        }
+      ]
+    },
+    {
+      "id": "hybrid-010",
+      "name": "User Acceptance Testing (Agile)",
+      "description": "Collaborative UAT with stakeholder involvement",
+      "estimatedHours": 24,
+      "dependencies": ["hybrid-009"],
+      "assigneeRole": "Product Owner",
+      "priority": "High",
+      "tags": ["uat", "agile", "acceptance"],
+      "customFields": {
+        "project_phase": "Execution",
+        "methodology_component": "Agile",
+        "deliverable": "UAT Sign-off"
+      },
+      "subtasks": [
+        {
+          "id": "hybrid-010-1",
+          "name": "Prepare UAT environment",
+          "description": "Set up production-like environment for UAT",
+          "estimatedHours": 4,
+          "assigneeRole": "DevOps Engineer",
+          "priority": "High"
+        },
+        {
+          "id": "hybrid-010-2",
+          "name": "Conduct UAT sessions",
+          "description": "Guide stakeholders through acceptance testing",
+          "estimatedHours": 16,
+          "assigneeRole": "Product Owner",
+          "priority": "Critical"
+        },
+        {
+          "id": "hybrid-010-3",
+          "name": "Address UAT feedback",
+          "description": "Fix issues identified during UAT",
+          "estimatedHours": 3,
+          "assigneeRole": "Development Team",
+          "priority": "High"
+        },
+        {
+          "id": "hybrid-010-4",
+          "name": "Obtain formal acceptance",
+          "description": "Secure stakeholder sign-off on deliverables",
+          "estimatedHours": 1,
+          "assigneeRole": "Product Owner",
+          "priority": "Critical"
+        }
+      ]
+    },
+    {
+      "id": "hybrid-011",
+      "name": "Deployment and Go-Live (Waterfall)",
+      "description": "Formal deployment process using waterfall approach",
+      "estimatedHours": 16,
+      "dependencies": ["hybrid-010"],
+      "assigneeRole": "DevOps Engineer",
+      "priority": "Critical",
+      "tags": ["deployment", "waterfall", "go-live"],
+      "customFields": {
+        "project_phase": "Execution",
+        "methodology_component": "Waterfall",
+        "deliverable": "Production System"
+      },
+      "subtasks": [
+        {
+          "id": "hybrid-011-1",
+          "name": "Deployment planning",
+          "description": "Create detailed deployment plan and rollback procedures",
+          "estimatedHours": 4,
+          "assigneeRole": "DevOps Engineer",
+          "priority": "High"
+        },
+        {
+          "id": "hybrid-011-2",
+          "name": "Production deployment",
+          "description": "Execute deployment to production environment",
+          "estimatedHours": 6,
+          "assigneeRole": "DevOps Engineer",
+          "priority": "Critical"
+        },
+        {
+          "id": "hybrid-011-3",
+          "name": "Post-deployment verification",
+          "description": "Verify system functionality in production",
+          "estimatedHours": 4,
+          "assigneeRole": "QA Engineer",
+          "priority": "Critical"
+        },
+        {
+          "id": "hybrid-011-4",
+          "name": "Go-live announcement",
+          "description": "Communicate successful go-live to stakeholders",
+          "estimatedHours": 2,
+          "assigneeRole": "Project Manager",
+          "priority": "Medium"
+        }
+      ]
+    },
+    {
+      "id": "hybrid-012",
+      "name": "Post-Implementation Review",
+      "description": "Combined retrospective and lessons learned session",
+      "estimatedHours": 8,
+      "dependencies": ["hybrid-011"],
+      "assigneeRole": "Project Manager",
+      "priority": "Medium",
+      "tags": ["review", "hybrid", "lessons-learned"],
+      "customFields": {
+        "project_phase": "Closing",
+        "methodology_component": "Hybrid",
+        "deliverable": "Lessons Learned"
+      },
+      "subtasks": [
+        {
+          "id": "hybrid-012-1",
+          "name": "Project retrospective",
+          "description": "Agile-style retrospective on overall project",
+          "estimatedHours": 3,
+          "assigneeRole": "Scrum Master",
+          "priority": "Medium"
+        },
+        {
+          "id": "hybrid-012-2",
+          "name": "Methodology effectiveness review",
+          "description": "Evaluate effectiveness of hybrid approach",
+          "estimatedHours": 2,
+          "assigneeRole": "Project Manager",
+          "priority": "Medium"
+        },
+        {
+          "id": "hybrid-012-3",
+          "name": "Document lessons learned",
+          "description": "Formal documentation of lessons learned",
+          "estimatedHours": 2,
+          "assigneeRole": "Project Manager",
+          "priority": "Low"
+        },
+        {
+          "id": "hybrid-012-4",
+          "name": "Share insights with organization",
+          "description": "Present findings to PMO and other project teams",
+          "estimatedHours": 1,
+          "assigneeRole": "Project Manager",
+          "priority": "Low"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "from": "hybrid-001",
+      "to": "hybrid-002",
+      "type": "finish_to_start",
+      "lag": 0
+    },
+    {
+      "from": "hybrid-002",
+      "to": "hybrid-003",
+      "type": "finish_to_start",
+      "lag": 0
+    },
+    {
+      "from": "hybrid-003",
+      "to": "hybrid-004",
+      "type": "finish_to_start",
+      "lag": 0
+    },
+    {
+      "from": "hybrid-003",
+      "to": "hybrid-005",
+      "type": "finish_to_start",
+      "lag": 0
+    },
+    {
+      "from": "hybrid-004",
+      "to": "hybrid-006",
+      "type": "finish_to_start",
+      "lag": 0
+    },
+    {
+      "from": "hybrid-005",
+      "to": "hybrid-006",
+      "type": "finish_to_start",
+      "lag": 0
+    },
+    {
+      "from": "hybrid-006",
+      "to": "hybrid-007",
+      "type": "finish_to_start",
+      "lag": 0
+    },
+    {
+      "from": "hybrid-007",
+      "to": "hybrid-008",
+      "type": "finish_to_start",
+      "lag": 0
+    },
+    {
+      "from": "hybrid-008",
+      "to": "hybrid-009",
+      "type": "finish_to_start",
+      "lag": 0
+    },
+    {
+      "from": "hybrid-009",
+      "to": "hybrid-010",
+      "type": "finish_to_start",
+      "lag": 0
+    },
+    {
+      "from": "hybrid-010",
+      "to": "hybrid-011",
+      "type": "finish_to_start",
+      "lag": 0
+    },
+    {
+      "from": "hybrid-011",
+      "to": "hybrid-012",
+      "type": "finish_to_start",
+      "lag": 0
+    }
+  ],
+  "metadata": {
+    "category": "Hybrid Project Management",
+    "tags": ["Hybrid", "Agile", "Waterfall", "Adaptive", "Flexible"],
+    "complexity": "Advanced",
+    "estimatedDuration": "4-6 months",
+    "description": "Comprehensive hybrid project template combining waterfall structure with agile execution, ideal for complex projects requiring both predictability and adaptability.",
+    "author": "PM Tools Templates",
+    "lastModified": "2025-06-18T18:50:15Z"
+  }
+}
+

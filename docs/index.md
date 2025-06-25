@@ -35,7 +35,7 @@ This library provides proven templates, tools, and guidance for project managers
 ### ✅ **READY TO USE** - Full Content Available
 
 **Traditional/Waterfall Templates:**
-- [Waterfall Process Groups](../Waterfall/Process_Groups/) - Complete PMBOK-aligned templates
+- [Waterfall Process Groups](../Waterfall/Process_Groups/) - Complete Traditional-aligned templates
 - [Waterfall Templates](../Waterfall/Templates/) - Ready-to-use documents
 
 **Agile/Scrum Templates:**
@@ -69,6 +69,7 @@ This library provides proven templates, tools, and guidance for project managers
 - **[Clone Repository]({{ site.github.clone_url }})**
 - **[Repository Status](../REPOSITORY_STATUS.md)**
 - **[Navigation Guide](../NAVIGATION_GUIDE.md)**
+- **[Issues Management](issues-management.md)** - Track project progress
 
 ---
 

@@ -3,6 +3,7 @@
 ## Overview
 This framework provides a hybrid approach to project management by integrating Microsoft Project (MPP) plans with Jira projects. It enables project managers to maintain detailed project schedules in MPP while leveraging Jira's agile capabilities for execution and tracking.
 
+<a id="use-case-operations-quarterly-planning"></a>
 ## Use Case: Operations Quarterly Planning
 This integration is particularly valuable for operations teams that work in quarterly cycles:
 - PM maintains a detailed MPP with tasks, resources, and dependencies
@@ -11,18 +12,22 @@ This integration is particularly valuable for operations teams that work in quar
 - Teams execute work in Jira while maintaining alignment with the overall schedule
 
 ## Components
+<a id="1-mpp-template-mpp-template"></a>
 
 ### 1. MPP Template (`mpp-template/`)
 - Pre-configured Microsoft Project template with custom fields
 - Includes Epic and Story fields for Jira mapping
+<a id="2-export-scripts-export-scripts"></a>
 - Standard project management fields (dates, duration, status, resources)
 
 ### 2. Export Scripts (`export-scripts/`)
 - Python scripts to export MPP data to standardized formats
+<a id="3-jira-automation-jira-automation"></a>
 - Handles field mapping and data validation
 - Supports incremental updates
 
 ### 3. Jira Automation (`jira-automation/`)
+<a id="4-documentation-docs"></a>
 - Jira automation rules for importing MPP data
 - Creates and updates Epics and Stories based on MPP structure
 - Maintains bidirectional synchronization

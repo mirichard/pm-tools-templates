@@ -1,0 +1,16 @@
+PM Tools Templates - Link Check Report
+Generated: Thu Jun 19 10:27:46 EDT 2025
+
+SUMMARY:
+========
+README files processed: 43
+Total links checked: 0
+Working links: 0
+Broken links: 0
+
+BROKEN LINKS:
+=============
+
+RECOMMENDATIONS:
+================
+

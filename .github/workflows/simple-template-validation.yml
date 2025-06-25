@@ -1,0 +1,114 @@
+name: 🧪 Simple Template Validation
+
+on:
+  workflow_dispatch:
+    inputs:
+      validation_scope:
+        description: 'Validation scope'
+        required: false
+        default: 'templates-only'
+        type: choice
+        options:
+          - templates-only
+          - comprehensive
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  simple-validation:
+    name: 📋 Simple Template Check
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: 📥 Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: 🔍 Find Templates
+        run: |
+          echo "🔍 Finding template files..."
+          
+          # Find all markdown templates
+          templates=$(find templates -name "*.md" 2>/dev/null || echo "No templates directory found")
+          
+          if [ "$templates" != "No templates directory found" ]; then
+            echo "📄 Found templates:"
+            echo "$templates"
+            
+            template_count=$(echo "$templates" | wc -l)
+            echo "Total templates: $template_count"
+          else
+            echo "❌ No templates directory found"
+            exit 1
+          fi
+
+      - name: 📝 Basic Validation
+        run: |
+          echo "📝 Running basic validation..."
+          
+          # Check each template
+          for template in $(find templates -name "*.md" 2>/dev/null); do
+            echo "Checking: $template"
+            
+            # Check if file has frontmatter
+            if head -1 "$template" | grep -q "^---$"; then
+              echo "  ✅ Has frontmatter"
+            else
+              echo "  ⚠️  No frontmatter detected"
+            fi
+            
+            # Check file size
+            size=$(wc -c < "$template")
+            if [ "$size" -gt 100 ]; then
+              echo "  ✅ Adequate content ($size bytes)"
+            else
+              echo "  ⚠️  Very short content ($size bytes)"
+            fi
+            
+            # Check for placeholder content
+            if grep -q "TODO\|FIXME\|XXX" "$template"; then
+              echo "  ⚠️  Contains TODO markers"
+            else
+              echo "  ✅ No TODO markers"
+            fi
+            
+            echo ""
+          done
+
+      - name: 📊 Generate Report
+        run: |
+          echo "📊 Generating validation report..."
+          
+          # Create simple report
+          cat > validation-report.md << 'EOF'
+          # Simple Template Validation Report
+          
+          **Generated:** $(date -u +"%Y-%m-%d %H:%M:%S UTC")
+          **Scope:** ${{ github.event.inputs.validation_scope }}
+          
+          ## Summary
+          
+          EOF
+          
+          template_count=$(find templates -name "*.md" 2>/dev/null | wc -l)
+          echo "- Templates found: $template_count" >> validation-report.md
+          VALIDATION_SCOPE="${{ github.event.inputs.validation_scope }}"
+          echo "- Validation scope: $VALIDATION_SCOPE" >> validation-report.md
+          echo "- Status: ✅ Completed" >> validation-report.md
+          
+          echo "✅ Report generated"
+          cat validation-report.md
+
+      - name: 📤 Upload Report
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: simple-validation-report-${{ github.run_number }}
+          path: validation-report.md
+          retention-days: 7
+
+      - name: 📋 Summary
+        run: |
+          echo "🎉 Simple template validation completed!"
+          echo "Check the artifacts for the detailed report."

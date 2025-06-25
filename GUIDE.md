@@ -4,7 +4,7 @@
 
 Welcome to the Project Management Tools & Templates repository! This guide will help you navigate the available templates and select the most appropriate ones for your project needs. Our repository is organized around three key methodologies:
 
-- **PMBOK (Traditional/Waterfall)**: Structured, predictive approach with detailed planning upfront
+- **Traditional (Traditional/Waterfall)**: Structured, predictive approach with detailed planning upfront
 - **Agile**: Iterative, adaptive approach focused on incremental delivery and customer feedback
 - **Hybrid**: Combined approach that leverages elements of both traditional and agile methodologies
 
@@ -16,7 +16,7 @@ This guide will help you understand:
 
 ## Methodology Overview
 
-### PMBOK/Traditional Approach
+### Traditional/Traditional Approach
 
 **Best suited for projects with**:
 - Well-defined, stable requirements
@@ -90,18 +90,18 @@ This guide will help you understand:
 
 ## Template Catalog
 
-### PMBOK/Traditional Templates
+### Traditional/Traditional Templates
 
 | Template | Description | When to Use | Path |
 |----------|-------------|-------------|------|
-| **Project Charter** | Formal document authorizing project and defining high-level requirements and success criteria | Project initiation, formal authorization | `PMBOK/Process_Groups/Initiating/project_charter_template.md` |
-| **Project Management Plan** | Comprehensive plan defining how project will be executed, monitored, and controlled | After charter approval, before execution | `PMBOK/Process_Groups/Planning/project_management_plan_template.md` |
-| **Status Report** | Regular communication of project progress, issues, and achievements | Weekly/monthly stakeholder updates | `PMBOK/Templates/status_report_template.md` |
-| **Project Roadmap** | Visual timeline of project deliverables and milestones | Strategic planning, executive communication | `PMBOK/Templates/project_roadmap_template.md` |
-| **Communication Plan** | Framework for project communications with stakeholders | Early planning stages | `PMBOK/Templates/communication_plan_template.md` |
-| **Risk Register** | Documentation and management of project risks | Throughout project lifecycle | `PMBOK/Templates/risk_register_template.md` |
-| **Issue Log** | Tracking and resolution of project issues | During project execution | `PMBOK/Templates/issue_log_template.md` |
-| **Change Request Form** | Formal documentation and approval of project changes | When changes to baseline are needed | `PMBOK/Templates/change_request_template.md` |
+| **Project Charter** | Formal document authorizing project and defining high-level requirements and success criteria | Project initiation, formal authorization | `Traditional/Process_Groups/Initiating/project_charter_template.md` |
+| **Project Management Plan** | Comprehensive plan defining how project will be executed, monitored, and controlled | After charter approval, before execution | `Traditional/Process_Groups/Planning/project_management_plan_template.md` |
+| **Status Report** | Regular communication of project progress, issues, and achievements | Weekly/monthly stakeholder updates | `Traditional/Templates/status_report_template.md` |
+| **Project Roadmap** | Visual timeline of project deliverables and milestones | Strategic planning, executive communication | `Traditional/Templates/project_roadmap_template.md` |
+| **Communication Plan** | Framework for project communications with stakeholders | Early planning stages | `Traditional/Templates/communication_plan_template.md` |
+| **Risk Register** | Documentation and management of project risks | Throughout project lifecycle | `Traditional/Templates/risk_register_template.md` |
+| **Issue Log** | Tracking and resolution of project issues | During project execution | `Traditional/Templates/issue_log_template.md` |
+| **Change Request Form** | Formal documentation and approval of project changes | When changes to baseline are needed | `Traditional/Templates/change_request_template.md` |
 
 ### Agile Templates
 
@@ -200,12 +200,12 @@ Start
 Start
  |
  ├── Which methodology are you using?
- |   ├── Traditional → Project Charter (PMBOK)
+ |   ├── Traditional → Project Charter (Traditional)
  |   ├── Agile → Product Backlog + Sprint Planning
  |   └── Hybrid → Hybrid Project Charter
  |
  └── What level of planning detail is needed?
-     ├── High → Project Management Plan (PMBOK)
+     ├── High → Project Management Plan (Traditional)
      ├── Medium → Hybrid Release Planning
      └── Low → Product Backlog + Sprint Planning
 ```
@@ -216,12 +216,12 @@ Start
 Start
  |
  ├── What's your reporting need?
- |   ├── Formal status updates → Status Report (PMBOK)
+ |   ├── Formal status updates → Status Report (Traditional)
  |   ├── Feature progress → Sprint Review (Agile)
  |   └── Mixed reporting → Hybrid templates + Status Reports
  |
  └── How do you track issues and risks?
-     ├── Formal tracking → Risk Register + Issue Log (PMBOK)
+     ├── Formal tracking → Risk Register + Issue Log (Traditional)
      ├── Team-managed → Sprint Retrospective items
      └── Mixed approach → Risk Register + Sprint Retrospective
 ```
@@ -232,12 +232,12 @@ Start
 Start
  |
  ├── How is the team organized?
- |   ├── Traditional roles → Project Management Plan (PMBOK)
+ |   ├── Traditional roles → Project Management Plan (Traditional)
  |   ├── Agile roles → Sprint Planning/Retrospective (Agile)
  |   └── Mixed roles → Hybrid Team Management
  |
  └── What communication approach is needed?
-     ├── Formal, planned → Communication Plan (PMBOK)
+     ├── Formal, planned → Communication Plan (Traditional)
      ├── Frequent, informal → Agile ceremonies
      └── Mixed → Hybrid Team Management + Communication Plan
 ```
@@ -253,8 +253,8 @@ Start
 **Template combination**:
 1. **Hybrid Project Charter** - Define project goals, approach, and governance
 2. **Hybrid Release Planning** - Plan phased implementation with iterative enhancements
-3. **Communication Plan** (PMBOK) - Ensure stakeholder engagement across organization
-4. **Risk Register** (PMBOK) - Track implementation risks formally
+3. **Communication Plan** (Traditional) - Ensure stakeholder engagement across organization
+4. **Risk Register** (Traditional) - Track implementation risks formally
 5. **Sprint Planning & Review** (Agile) - Manage iterative configuration and testing
 6. **Hybrid Team Management** - Coordinate technical and business teams
 
@@ -262,15 +262,15 @@ Start
 
 **Context**: Building a physical structure with well-defined specs and regulatory requirements.
 
-**Recommended methodology**: Traditional/PMBOK
+**Recommended methodology**: Traditional/Traditional
 
 **Template combination**:
-1. **Project Charter** (PMBOK) - Formally authorize project
-2. **Project Management Plan** (PMBOK) - Comprehensive planning
-3. **Project Roadmap** (PMBOK) - Visualize construction phases
-4. **Risk Register** (PMBOK) - Track construction and safety risks
-5. **Change Request Form** (PMBOK) - Manage scope changes
-6. **Status Report** (PMBOK) - Regular updates to stakeholders
+1. **Project Charter** (Traditional) - Formally authorize project
+2. **Project Management Plan** (Traditional) - Comprehensive planning
+3. **Project Roadmap** (Traditional) - Visualize construction phases
+4. **Risk Register** (Traditional) - Track construction and safety risks
+5. **Change Request Form** (Traditional) - Manage scope changes
+6. **Status Report** (Traditional) - Regular updates to stakeholders
 
 ### New Product Development
 
@@ -283,7 +283,7 @@ Start
 2. **Sprint Planning** (Agile) - Plan each development iteration
 3. **Sprint Review** (Agile) - Demo progress and gather feedback
 4. **Sprint Retrospective** (Agile) - Continuously improve process
-5. **Project Roadmap** (PMBOK) - High-level release planning (adapted)
+5. **Project Roadmap** (Traditional) - High-level release planning (adapted)
 
 ### Regulatory Compliance Project
 
@@ -293,8 +293,8 @@ Start
 
 **Template combination**:
 1. **Hybrid Project Charter** - Define compliance goals with flexible implementation
-2. **Project Management Plan** (PMBOK) - Detailed compliance requirements
-3. **Risk Register** (PMBOK) - Track compliance risks
+2. **Project Management Plan** (Traditional) - Detailed compliance requirements
+3. **Risk Register** (Traditional) - Track compliance risks
 4. **Sprint Planning** (Agile) - Iterative implementation approach
 5. **Hybrid Team Management** - Coordinate legal/compliance and implementation teams
 
@@ -308,7 +308,7 @@ Start
 4. **Involve the team** - Get input from team members when creating and adapting templates
 5. **Evolve over time** - Regularly review and improve your templates based on lessons learned
 
-### PMBOK/Traditional Template Tips
+### Traditional/Traditional Template Tips
 
 1. **Scale appropriately** - Adjust detail level based on project size and complexity
 2. **Focus on critical elements** - Don't get lost in excessive documentation
@@ -347,14 +347,14 @@ Start
 
 1. Begin with pure **Agile templates** for team-level execution
 2. Add **Hybrid Project Charter** to satisfy organizational governance needs
-3. Incorporate selected **PMBOK templates** for regulatory documentation
+3. Incorporate selected **Traditional templates** for regulatory documentation
 4. Use **Hybrid Team Management** to coordinate with traditional project elements
 5. Implement **Communication Plan** to manage diverse stakeholder expectations
 
 ### For a PMO Director Standardizing Practices
 
 1. Start with **Methodology Selection Guidance** to categorize projects
-2. Implement **PMBOK templates** for highly regulated or traditional projects
+2. Implement **Traditional templates** for highly regulated or traditional projects
 3. Use **Agile templates** for innovative, customer-focused initiatives
 4. Apply **Hybrid templates** for complex projects with mixed characteristics
 5. Develop customized **Template Selection Decision Trees** for your organization

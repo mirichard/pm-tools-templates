@@ -100,7 +100,7 @@ pm-tools-templates/
 ## 📅 Next Phase Preview (Phase 2: Content Migration)
 
 ### Priority Content Migrations
-1. **Move existing PMBOK templates** → project-lifecycle/ and role-based-toolkits/
+1. **Move existing Traditional templates** → project-lifecycle/ and role-based-toolkits/
 2. **Migrate Agile templates** → role-based-toolkits/scrum-master/ and product-owner/
 3. **Reorganize Hybrid content** → methodology-frameworks/hybrid-approaches/
 4. **Enhance industry templates** → industry-specializations/

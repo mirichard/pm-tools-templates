@@ -1,7 +1,7 @@
 # User Acceptance Testing Framework
 
 ## Overview
-This framework provides a comprehensive approach to User Acceptance Testing (UAT) across PMBOK, Agile, and Hybrid project management methodologies. It ensures that project deliverables meet user requirements and business objectives before deployment or go-live.
+This framework provides a comprehensive approach to User Acceptance Testing (UAT) across Traditional, Agile, and Hybrid project management methodologies. It ensures that project deliverables meet user requirements and business objectives before deployment or go-live.
 
 ## Framework Components
 
@@ -13,7 +13,7 @@ This framework provides a comprehensive approach to User Acceptance Testing (UAT
 
 ### 2. Methodology-Specific Approaches
 
-#### PMBOK/Waterfall UAT
+#### Traditional/Waterfall UAT
 - Formal UAT phase after system testing completion
 - Structured test plans and detailed test scripts
 - Formal sign-off processes and documentation
@@ -37,17 +37,17 @@ This framework provides a comprehensive approach to User Acceptance Testing (UAT
 ### 3. UAT Process by Project Phase
 
 #### Planning/Preparation
-- **PMBOK**: Detailed UAT plan, test environment setup, user training
+- **Traditional**: Detailed UAT plan, test environment setup, user training
 - **Agile**: Acceptance criteria definition, user story refinement
 - **Hybrid**: Strategic UAT roadmap with sprint-level acceptance planning
 
 #### Execution/Testing
-- **PMBOK**: Formal test execution, defect logging, progress tracking
+- **Traditional**: Formal test execution, defect logging, progress tracking
 - **Agile**: Sprint review testing, continuous feedback integration
 - **Hybrid**: Structured testing cycles with rapid feedback loops
 
 #### Evaluation/Decision
-- **PMBOK**: Formal acceptance decision based on criteria fulfillment
+- **Traditional**: Formal acceptance decision based on criteria fulfillment
 - **Agile**: Sprint acceptance and backlog refinement
 - **Hybrid**: Multi-level acceptance with phase and feature approvals
 
@@ -62,12 +62,12 @@ This framework provides a comprehensive approach to User Acceptance Testing (UAT
 
 ## Templates and Tools
 
-### PMBOK Templates
-- [UAT Plan Template](PMBOK/Templates/uat_plan_template.md)
-- [UAT Test Case Template](PMBOK/Templates/uat_test_case_template.md)
-- [UAT Execution Report](PMBOK/Templates/uat_execution_report_template.md)
-- [UAT Sign-off Template](PMBOK/Templates/uat_signoff_template.md)
-- [UAT Defect Log](PMBOK/Tools/uat_defect_log_template.md)
+### Traditional Templates
+- [UAT Plan Template](Traditional/Templates/uat_plan_template.md)
+- [UAT Test Case Template](Traditional/Templates/uat_test_case_template.md)
+- [UAT Execution Report](Traditional/Templates/uat_execution_report_template.md)
+- [UAT Sign-off Template](Traditional/Templates/uat_signoff_template.md)
+- [UAT Defect Log](Traditional/Tools/uat_defect_log_template.md)
 
 ### Agile Templates
 - [User Story Acceptance Criteria](Agile/Templates/user_story_acceptance_criteria_template.md)
@@ -87,7 +87,7 @@ This framework provides a comprehensive approach to User Acceptance Testing (UAT
 
 ### Selecting the Right Approach
 
-**Use PMBOK UAT When:**
+**Use Traditional UAT When:**
 - Regulatory or compliance requirements demand formal testing
 - Large-scale enterprise systems with complex integrations
 - High-risk systems where comprehensive testing is critical
@@ -121,7 +121,7 @@ This framework provides a comprehensive approach to User Acceptance Testing (UAT
 
 ### Common Roles Across Methodologies
 
-| Role | PMBOK Responsibilities | Agile Responsibilities | Hybrid Responsibilities |
+| Role | Traditional Responsibilities | Agile Responsibilities | Hybrid Responsibilities |
 |------|----------------------|----------------------|------------------------|
 | **Business Sponsor** | Final acceptance authority | Product vision alignment | Strategic acceptance oversight |
 | **Product Owner/BA** | Requirements validation | Story acceptance | Progressive requirements validation |
@@ -131,7 +131,7 @@ This framework provides a comprehensive approach to User Acceptance Testing (UAT
 
 ### Methodology-Specific Roles
 
-#### PMBOK Additional Roles
+#### Traditional Additional Roles
 - **UAT Lead**: Overall UAT phase management
 - **Test Coordinator**: Test execution logistics
 - **Quality Assurance**: Test process compliance
@@ -151,7 +151,7 @@ This framework provides a comprehensive approach to User Acceptance Testing (UAT
 
 ### Environment Requirements by Methodology
 
-#### PMBOK Environment
+#### Traditional Environment
 - **Production-like**: Mirrors production environment closely
 - **Stable**: Locked down during UAT phase
 - **Documented**: Comprehensive environment documentation
@@ -190,7 +190,7 @@ This framework provides a comprehensive approach to User Acceptance Testing (UAT
 - **Security**: What protection it must provide
 - **Accessibility**: Who must be able to use it
 
-#### System Level (PMBOK/Hybrid)
+#### System Level (Traditional/Hybrid)
 - **Integration**: How components work together
 - **Scalability**: Volume and growth handling
 - **Reliability**: Uptime and error recovery
@@ -206,7 +206,7 @@ This framework provides a comprehensive approach to User Acceptance Testing (UAT
 
 ## Quality Gates and Decision Points
 
-### PMBOK Quality Gates
+### Traditional Quality Gates
 1. **UAT Entry Gate**: Ready for user testing
 2. **UAT Milestone Gate**: Testing progress checkpoint
 3. **UAT Exit Gate**: Acceptance decision point
@@ -228,7 +228,7 @@ This framework provides a comprehensive approach to User Acceptance Testing (UAT
 
 ### UAT Effectiveness Metrics
 
-| Metric | PMBOK Measurement | Agile Measurement | Hybrid Measurement |
+| Metric | Traditional Measurement | Agile Measurement | Hybrid Measurement |
 |--------|-------------------|-------------------|--------------------|
 | **Test Coverage** | % requirements tested | % stories accepted | % features/requirements tested |
 | **Defect Rate** | Defects per test case | Defects per story | Defects per feature/sprint |
@@ -256,7 +256,7 @@ This framework provides a comprehensive approach to User Acceptance Testing (UAT
 
 ### Common UAT Risks
 
-| Risk | Probability | Impact | PMBOK Mitigation | Agile Mitigation | Hybrid Mitigation |
+| Risk | Probability | Impact | Traditional Mitigation | Agile Mitigation | Hybrid Mitigation |
 |------|-------------|--------|------------------|------------------|-------------------|
 | **User Unavailability** | Medium | High | Backup user plan | Flexible scheduling | Multi-level user engagement |
 | **Incomplete Requirements** | Medium | High | Formal review process | Story refinement | Progressive clarification |
@@ -286,7 +286,7 @@ This framework provides a comprehensive approach to User Acceptance Testing (UAT
 
 ## Integration with Project Lifecycle
 
-### PMBOK Integration
+### Traditional Integration
 - **Initiating**: UAT scope and objectives definition
 - **Planning**: Detailed UAT planning and preparation
 - **Executing**: UAT test execution and management
@@ -311,7 +311,7 @@ This framework provides a comprehensive approach to User Acceptance Testing (UAT
 
 ### Learning and Adaptation
 
-#### PMBOK Approach
+#### Traditional Approach
 - Post-project lessons learned capture
 - UAT process documentation updates
 - Template and tool refinements

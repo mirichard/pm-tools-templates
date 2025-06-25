@@ -1,0 +1,338 @@
+name: ✅ Quality Gate Enforcement
+
+on:
+  pull_request:
+    types: [opened, synchronize, labeled]
+  issues:
+    types: [opened, edited, labeled]
+  workflow_dispatch:
+    inputs:
+      check_type:
+        description: 'Quality check type'
+        required: true
+        default: 'comprehensive'
+        type: choice
+        options:
+          - comprehensive
+          - template-validation
+          - documentation-check
+          - compliance-review
+
+env:
+  MIN_TEMPLATE_SIZE: 500 # Minimum characters for a valid template
+  REQUIRED_SECTIONS: "overview,purpose,usage,examples" # Required template sections
+
+jobs:
+  quality-enforcement:
+    name: Quality Gate Enforcement
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+      issues: write
+      checks: write
+
+    steps:
+      - name: 📥 Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: 🔍 Analyze Changes
+        id: analysis
+        if: github.event_name == 'pull_request'
+        run: |
+          # Analyze changed files
+          CHANGED_FILES=$(git diff --name-only ${{ github.event.pull_request.base.sha }} ${{ github.event.pull_request.head.sha }})
+          echo "changed_files<<EOF" >> $GITHUB_OUTPUT
+          echo "$CHANGED_FILES" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+          
+          # Count different types of changes
+          TEMPLATE_CHANGES=$(echo "$CHANGED_FILES" | grep -E '\.(md|yml|yaml)$' | wc -l)
+          WORKFLOW_CHANGES=$(echo "$CHANGED_FILES" | grep '.github/workflows' | wc -l)
+          DOC_CHANGES=$(echo "$CHANGED_FILES" | grep -E '(README|CONTRIBUTING|docs/)' | wc -l)
+          
+          echo "template_changes=$TEMPLATE_CHANGES" >> $GITHUB_OUTPUT
+          echo "workflow_changes=$WORKFLOW_CHANGES" >> $GITHUB_OUTPUT
+          echo "doc_changes=$DOC_CHANGES" >> $GITHUB_OUTPUT
+
+      - name: 📋 Template Validation
+        id: template-validation
+        if: github.event.inputs.check_type == 'template-validation' || github.event.inputs.check_type == 'comprehensive' || github.event_name == 'pull_request'
+        run: |
+          # Initialize validation results
+          VALIDATION_ERRORS=0
+          VALIDATION_WARNINGS=0
+          VALIDATION_REPORT=""
+          
+          # Find all template files
+          TEMPLATE_FILES=$(find . -name "*.md" -path "*/Templates/*" -o -name "*template*.md" | head -20)
+          
+          # Validate each template
+          for file in $TEMPLATE_FILES; do
+            if [ -f "$file" ]; then
+              echo "Validating: $file"
+              
+              # Check file size
+              FILE_SIZE=$(wc -c < "$file")
+              if [ $FILE_SIZE -lt ${{ env.MIN_TEMPLATE_SIZE }} ]; then
+                VALIDATION_ERRORS=$((VALIDATION_ERRORS + 1))
+                VALIDATION_REPORT="$VALIDATION_REPORT\n❌ $file: File too small ($FILE_SIZE chars, minimum ${{ env.MIN_TEMPLATE_SIZE }})"
+              fi
+              
+              # Check for required sections (basic check)
+              CONTENT=$(cat "$file" | tr '[:upper:]' '[:lower:]')
+              
+              if ! echo "$CONTENT" | grep -q "purpose\|overview\|description"; then
+                VALIDATION_WARNINGS=$((VALIDATION_WARNINGS + 1))
+                VALIDATION_REPORT="$VALIDATION_REPORT\n⚠️ $file: Missing purpose/overview section"
+              fi
+              
+              if ! echo "$CONTENT" | grep -q "usage\|how to\|instructions"; then
+                VALIDATION_WARNINGS=$((VALIDATION_WARNINGS + 1))
+                VALIDATION_REPORT="$VALIDATION_REPORT\n⚠️ $file: Missing usage instructions"
+              fi
+              
+              # Check for placeholder content
+              if grep -q "TODO\|TBD\|FIXME\|XXX" "$file"; then
+                VALIDATION_WARNINGS=$((VALIDATION_WARNINGS + 1))
+                VALIDATION_REPORT="$VALIDATION_REPORT\n⚠️ $file: Contains placeholder content (TODO/TBD/FIXME)"
+              fi
+              
+              # Check for proper markdown formatting
+              if ! grep -q "^# " "$file"; then
+                VALIDATION_WARNINGS=$((VALIDATION_WARNINGS + 1))
+                VALIDATION_REPORT="$VALIDATION_REPORT\n⚠️ $file: Missing main heading (# Title)"
+              fi
+            fi
+          done
+          
+          echo "validation_errors=$VALIDATION_ERRORS" >> $GITHUB_OUTPUT
+          echo "validation_warnings=$VALIDATION_WARNINGS" >> $GITHUB_OUTPUT
+          echo "validation_report<<EOF" >> $GITHUB_OUTPUT
+          echo -e "$VALIDATION_REPORT" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+
+      - name: 📚 Documentation Quality Check
+        id: documentation-check
+        if: github.event.inputs.check_type == 'documentation-check' || github.event.inputs.check_type == 'comprehensive'
+        run: |
+          DOC_ERRORS=0
+          DOC_WARNINGS=0
+          DOC_REPORT=""
+          
+          # Check main documentation files
+          for doc in README.md CONTRIBUTING.md docs/index.md; do
+            if [ -f "$doc" ]; then
+              # Check for broken internal links
+              BROKEN_LINKS=$(grep -o '\[.*\]([^)]*\.md[^)]*)' "$doc" | sed 's/.*(\([^)]*\)).*/\1/' | while read link; do
+                if [ ! -f "$link" ] && [ ! -f "$(dirname "$doc")/$link" ]; then
+                  echo "$link"
+                fi
+              done)
+              
+              if [ -n "$BROKEN_LINKS" ]; then
+                DOC_ERRORS=$((DOC_ERRORS + 1))
+                DOC_REPORT="$DOC_REPORT\n❌ $doc: Broken internal links: $BROKEN_LINKS"
+              fi
+              
+              # Check for outdated information
+              if grep -qi "2024\|TODO\|DRAFT" "$doc"; then
+                DOC_WARNINGS=$((DOC_WARNINGS + 1))
+                DOC_REPORT="$DOC_REPORT\n⚠️ $doc: May contain outdated information"
+              fi
+            else
+              DOC_ERRORS=$((DOC_ERRORS + 1))
+              DOC_REPORT="$DOC_REPORT\n❌ Missing required documentation: $doc"
+            fi
+          done
+          
+          echo "doc_errors=$DOC_ERRORS" >> $GITHUB_OUTPUT
+          echo "doc_warnings=$DOC_WARNINGS" >> $GITHUB_OUTPUT
+          echo "doc_report<<EOF" >> $GITHUB_OUTPUT
+          echo -e "$DOC_REPORT" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+
+      - name: 🛡️ Security and Compliance Check
+        id: compliance-check
+        if: github.event.inputs.check_type == 'compliance-review' || github.event.inputs.check_type == 'comprehensive'
+        run: |
+          SECURITY_ISSUES=0
+          COMPLIANCE_ISSUES=0
+          SECURITY_REPORT=""
+          
+          # Check for sensitive information in templates
+          SENSITIVE_FILES=$(grep -r -l "password\|secret\|api[_-]key\|token" --include="*.md" --include="*.yml" . | head -10)
+          
+          if [ -n "$SENSITIVE_FILES" ]; then
+            for file in $SENSITIVE_FILES; do
+              # Check if it's just in examples or documentation context
+              if ! grep -qi "example\|placeholder\|template\|sample" "$file"; then
+                SECURITY_ISSUES=$((SECURITY_ISSUES + 1))
+                SECURITY_REPORT="$SECURITY_REPORT\n🔒 $file: Potential sensitive information detected"
+              fi
+            done
+          fi
+          
+          # Check for proper file permissions in workflows
+          WORKFLOW_FILES=$(find .github/workflows -name "*.yml" -o -name "*.yaml" 2>/dev/null)
+          for workflow in $WORKFLOW_FILES; do
+            if [ -f "$workflow" ]; then
+              # Check for overly permissive permissions
+              if grep -q "permissions:.*write-all" "$workflow"; then
+                SECURITY_ISSUES=$((SECURITY_ISSUES + 1))
+                SECURITY_REPORT="$SECURITY_REPORT\n🔒 $workflow: Overly permissive permissions (write-all)"
+              fi
+              
+              # Check for hardcoded secrets
+              if grep -q "password:\|secret:\|token:" "$workflow" && ! grep -q "secrets\." "$workflow"; then
+                SECURITY_ISSUES=$((SECURITY_ISSUES + 1))
+                SECURITY_REPORT="$SECURITY_REPORT\n🔒 $workflow: Potential hardcoded secret"
+              fi
+            fi
+          done
+          
+          echo "security_issues=$SECURITY_ISSUES" >> $GITHUB_OUTPUT
+          echo "compliance_issues=$COMPLIANCE_ISSUES" >> $GITHUB_OUTPUT
+          echo "security_report<<EOF" >> $GITHUB_OUTPUT
+          echo -e "$SECURITY_REPORT" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+
+      - name: 📊 Generate Quality Report
+        id: quality-report
+        run: |
+          TOTAL_ERRORS=$(( ${{ steps.template-validation.outputs.validation_errors || 0 }} + ${{ steps.documentation-check.outputs.doc_errors || 0 }} + ${{ steps.compliance-check.outputs.security_issues || 0 }} ))
+          TOTAL_WARNINGS=$(( ${{ steps.template-validation.outputs.validation_warnings || 0 }} + ${{ steps.documentation-check.outputs.doc_warnings || 0 }} ))
+          
+          # Determine quality gate status
+          if [ $TOTAL_ERRORS -eq 0 ] && [ $TOTAL_WARNINGS -le 3 ]; then
+            QUALITY_STATUS="PASSED"
+            QUALITY_ICON="✅"
+          elif [ $TOTAL_ERRORS -eq 0 ] && [ $TOTAL_WARNINGS -le 10 ]; then
+            QUALITY_STATUS="PASSED_WITH_WARNINGS"
+            QUALITY_ICON="⚠️"
+          else
+            QUALITY_STATUS="FAILED"
+            QUALITY_ICON="❌"
+          fi
+          
+          echo "total_errors=$TOTAL_ERRORS" >> $GITHUB_OUTPUT
+          echo "total_warnings=$TOTAL_WARNINGS" >> $GITHUB_OUTPUT
+          echo "quality_status=$QUALITY_STATUS" >> $GITHUB_OUTPUT
+          echo "quality_icon=$QUALITY_ICON" >> $GITHUB_OUTPUT
+
+      - name: 💬 Comment on Pull Request
+        if: github.event_name == 'pull_request'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          # Generate comprehensive quality report comment
+          cat > quality_report.md << EOF
+          ## ${{ steps.quality-report.outputs.quality_icon }} Quality Gate Report
+          
+          **Status:** ${{ steps.quality-report.outputs.quality_status }}
+          **Total Errors:** ${{ steps.quality-report.outputs.total_errors }}
+          **Total Warnings:** ${{ steps.quality-report.outputs.total_warnings }}
+          
+          ### 📊 Summary
+          - **Template Changes:** ${{ steps.analysis.outputs.template_changes }}
+          - **Workflow Changes:** ${{ steps.analysis.outputs.workflow_changes }}
+          - **Documentation Changes:** ${{ steps.analysis.outputs.doc_changes }}
+          
+          ### 📋 Template Validation
+          - **Errors:** ${{ steps.template-validation.outputs.validation_errors || 0 }}
+          - **Warnings:** ${{ steps.template-validation.outputs.validation_warnings || 0 }}
+          
+          ${{ steps.template-validation.outputs.validation_report }}
+          
+          ### 📚 Documentation Check
+          - **Errors:** ${{ steps.documentation-check.outputs.doc_errors || 0 }}
+          - **Warnings:** ${{ steps.documentation-check.outputs.doc_warnings || 0 }}
+          
+          ${{ steps.documentation-check.outputs.doc_report }}
+          
+          ### 🛡️ Security & Compliance
+          - **Security Issues:** ${{ steps.compliance-check.outputs.security_issues || 0 }}
+          - **Compliance Issues:** ${{ steps.compliance-check.outputs.compliance_issues || 0 }}
+          
+          ${{ steps.compliance-check.outputs.security_report }}
+          
+          ### ✅ Quality Gate Criteria
+          - **PASS:** 0 errors, ≤3 warnings
+          - **PASS WITH WARNINGS:** 0 errors, ≤10 warnings  
+          - **FAIL:** >0 errors or >10 warnings
+          
+          ---
+          
+          $(if [ "${{ steps.quality-report.outputs.quality_status }}" = "FAILED" ]; then
+            echo "❌ **Quality gate FAILED.** Please address the errors before merging."
+          elif [ "${{ steps.quality-report.outputs.quality_status }}" = "PASSED_WITH_WARNINGS" ]; then
+            echo "⚠️ **Quality gate PASSED with warnings.** Consider addressing warnings for better quality."
+          else
+            echo "✅ **Quality gate PASSED.** All checks successful!"
+          fi)
+          
+          *Quality check completed by GitHub Actions*
+          EOF
+          
+          # Post comment on PR
+          gh pr comment ${{ github.event.pull_request.number }} --body-file quality_report.md
+
+      - name: ❌ Fail Check if Quality Gate Failed
+        if: steps.quality-report.outputs.quality_status == 'FAILED'
+        run: |
+          echo "Quality gate failed with ${{ steps.quality-report.outputs.total_errors }} errors"
+          echo "Please fix all errors before proceeding"
+          exit 1
+
+      - name: 📝 Create Quality Issues for Failures
+        if: steps.quality-report.outputs.total_errors > 0 && github.event_name != 'pull_request'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          # Create issue for quality failures
+          gh issue create \
+            --title "🔍 Quality Gate Failures Detected" \
+            --label "quality,bug,high-priority" \
+            --body "## Quality Gate Failures
+
+          **Detection Date:** $(date)
+          **Total Errors:** ${{ steps.quality-report.outputs.total_errors }}
+          **Total Warnings:** ${{ steps.quality-report.outputs.total_warnings }}
+
+          ### Template Validation Issues
+          ${{ steps.template-validation.outputs.validation_report }}
+
+          ### Documentation Issues  
+          ${{ steps.documentation-check.outputs.doc_report }}
+
+          ### Security & Compliance Issues
+          ${{ steps.compliance-check.outputs.security_report }}
+
+          ## Action Required
+          - [ ] Fix all validation errors
+          - [ ] Address security issues
+          - [ ] Update documentation as needed
+          - [ ] Re-run quality checks
+
+          ---
+          *Auto-generated by Quality Gate Enforcement*"
+
+      - name: 🎯 Summary
+        if: always()
+        run: |
+          echo "🔍 Quality Gate Summary"
+          echo "====================="
+          echo "Status: ${{ steps.quality-report.outputs.quality_status }}"
+          echo "Errors: ${{ steps.quality-report.outputs.total_errors }}"
+          echo "Warnings: ${{ steps.quality-report.outputs.total_warnings }}"
+          echo ""
+          if [ "${{ steps.quality-report.outputs.quality_status }}" = "PASSED" ]; then
+            echo "✅ All quality checks passed!"
+          elif [ "${{ steps.quality-report.outputs.quality_status }}" = "PASSED_WITH_WARNINGS" ]; then
+            echo "⚠️ Quality checks passed with warnings"
+          else
+            echo "❌ Quality gate failed - action required"
+          fi
+

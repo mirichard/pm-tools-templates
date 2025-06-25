@@ -3,3 +3,11 @@
 *.log
 ~*
 ._*
+
+# Node.js dependencies
+node_modules/
+# Allow package-lock.json for security scanning
+# package-lock.json
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*

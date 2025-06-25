@@ -215,7 +215,7 @@ So that [benefit]
 **Work Package Details:**
 - **WBS Code:** [1.2.3.4]
 - **Process Group:** [Initiating/Planning/Executing/Monitoring/Closing]
-- **Knowledge Area:** [PMBOK knowledge area]
+- **Knowledge Area:** [Traditional knowledge area]
 - **Deliverable:** [Specific output expected]
 
 **Effort Estimation:**

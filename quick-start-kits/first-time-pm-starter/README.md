@@ -6,26 +6,33 @@
 
 This starter kit contains 5-7 essential templates that every new project manager needs, regardless of methodology. These templates are simplified versions of our comprehensive library, designed for immediate use with clear guidance.
 
+<a id="whats-included"></a>
 ## What's Included
+<a id="core-templates-always-needed"></a>
 
 ### 📋 Core Templates (Always Needed)
 1. **[Project Charter](project-charter-simple.md)** - Define what you're building and why
 2. **[Stakeholder Register](stakeholder-register-simple.md)** - Know who matters to your project
 3. **[Communication Plan](communication-plan-simple.md)** - Keep everyone informed
 4. **[Risk Register](risk-register-simple.md)** - Identify what could go wrong
+<a id="quick-reference"></a>
 5. **[Status Report](status-report-simple.md)** - Regular progress updates
 
 ### 📊 Quick Reference
 - **[PM Checklist](pm-checklist.md)** - Don't forget the essentials
+<a id="getting-started-10-minutes"></a>
 - **[Common Pitfalls](common-pitfalls.md)** - Learn from others' mistakes
+<a id="step-1-project-charter-5-minutes"></a>
 - **[Quick Wins](quick-wins.md)** - Build credibility early
 
 ## Getting Started (10 Minutes)
 
+<a id="step-2-stakeholder-register-3-minutes"></a>
 ### Step 1: Project Charter (5 minutes)
 1. Open `project-charter-simple.md`
 2. Fill in the basic project information
 3. Get stakeholder approval on the charter
+<a id="step-3-communication-plan-2-minutes"></a>
 
 ### Step 2: Stakeholder Register (3 minutes)
 1. List everyone who cares about your project

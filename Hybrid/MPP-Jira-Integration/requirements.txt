@@ -1,0 +1,4 @@
+# Python dependencies for MPP-Jira Integration
+defusedxml>=0.7.1
+python-docx>=0.8.11
+xlsxwriter>=3.0.3

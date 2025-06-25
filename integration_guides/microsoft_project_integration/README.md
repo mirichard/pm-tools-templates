@@ -84,8 +84,8 @@ Create custom fields in Microsoft Project to track project management metadata:
 | Priority | Priority (built-in) | Number | 1-1000 scale by default |
 | Risk Level | Text1 | Text | Set values: Low, Medium, High |
 | Risk Category | Text2 | Text | Site, Technical, Resource, etc. |
-| Process Group | Text3 | Text | PMBOK process groups |
-| Knowledge Area | Text4 | Text | PMBOK knowledge areas |
+| Process Group | Text3 | Text | Traditional process groups |
+| Knowledge Area | Text4 | Text | Traditional knowledge areas |
 | Acceptance Criteria | Notes | RTF | Add to task notes |
 | Change Request ID | Text5 | Text | Reference to change request |
 | Phase | Outline Level or Text6 | Number/Text | Group tasks by project phase |
@@ -118,6 +118,7 @@ Microsoft Project can represent our template WBS structure as follows:
 
 ### Importing Templates into Microsoft Project
 
+<a id="method-1-manual-task-creation"></a>
 #### Method 1: Manual Task Creation
 
 1. **Create a New Project**
@@ -134,6 +135,7 @@ Microsoft Project can represent our template WBS structure as follows:
    - Set durations, dependencies, and constraints
    - Add resources and assignments
    - Input custom field values
+<a id="method-2-import-from-excel"></a>
 
 #### Method 2: Import from Excel
 
@@ -145,6 +147,7 @@ Microsoft Project can represent our template WBS structure as follows:
    - In MS Project, select File > Open
    - Select Excel Workbook (*.xlsx)
    - Follow the Import Wizard to map columns
+<a id="method-3-use-template-mpt-files"></a>
    - Verify and adjust task structure after import
 
 #### Method 3: Use Template MPT Files
@@ -169,6 +172,7 @@ Microsoft Project can represent our template WBS structure as follows:
 
 2. **Format for Template Compatibility**
    - Adjust column headers to match template format
+<a id="export-to-pdfhtml-for-sharing"></a>
    - Format dates and durations consistently
    - Save as template-compatible spreadsheet
 
@@ -380,11 +384,11 @@ Microsoft Project can represent our template WBS structure as follows:
 
 ## Methodology-Specific Guidance
 
-### PMBOK Implementation
+### Traditional Implementation
 
 1. **Project Structure**
    - Organize by Process Groups and Knowledge Areas
-   - Use WBS as defined in PMBOK
+   - Use WBS as defined in Traditional
    - Set up phases according to project lifecycle
 
 2. **Custom Fields**
@@ -399,9 +403,10 @@ Microsoft Project can represent our template WBS structure as follows:
    - Earned Value Management reports
 
 4. **Baseline Management**
+<a id="agile-implementation-hybrid"></a>
    - Set multiple baselines at key approval points
    - Track schedule, cost, and scope baselines
-   - Report variances per PMBOK guidelines
+   - Report variances per Traditional guidelines
 
 ### Agile Implementation (Hybrid)
 
@@ -514,7 +519,7 @@ Microsoft Project can represent our template WBS structure as follows:
 
 ### Methodology-Specific Best Practices
 
-#### PMBOK Best Practices
+#### Traditional Best Practices
 
 1. **Integration with Knowledge Areas**
    - Link schedule to other management plans

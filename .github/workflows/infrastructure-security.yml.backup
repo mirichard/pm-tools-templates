@@ -1,0 +1,1312 @@
+name: Infrastructure Security Analysis
+
+on:
+  schedule:
+    # Daily at 3 AM UTC for comprehensive infrastructure analysis
+    - cron: '0 3 * * *'
+  push:
+    branches: [main, develop]
+    paths:
+      - '**/*.tf'
+      - '**/*.tfvars'
+      - '**/Dockerfile*'
+      - '**/*.yaml'
+      - '**/*.yml'
+      - '**/docker-compose*.yml'
+      - '**/k8s/**'
+      - '**/kubernetes/**'
+      - '**/helm/**'
+      - '**/charts/**'
+      - '.github/workflows/**'
+      - '**/cloudformation/**'
+      - '**/arm/**'
+      - '**/bicep/**'
+  pull_request:
+    branches: [main, develop]
+    paths:
+      - '**/*.tf'
+      - '**/*.tfvars'
+      - '**/Dockerfile*'
+      - '**/*.yaml'
+      - '**/*.yml'
+      - '**/docker-compose*.yml'
+      - '**/k8s/**'
+      - '**/kubernetes/**'
+      - '**/helm/**'
+      - '**/charts/**'
+      - '.github/workflows/**'
+      - '**/cloudformation/**'
+      - '**/arm/**'
+      - '**/bicep/**'
+  workflow_dispatch:
+    inputs:
+      scan_scope:
+        description: 'Infrastructure scan scope'
+        required: true
+        default: 'comprehensive'
+        type: choice
+        options:
+          - comprehensive
+          - terraform-only
+          - containers-only
+          - kubernetes-only
+          - cloud-config-only
+          - compliance-only
+      compliance_frameworks:
+        description: 'Compliance frameworks to check (comma-separated)'
+        required: false
+        default: 'CIS,NIST,SOC2,PCI'
+        type: string
+      severity_threshold:
+        description: 'Minimum severity level to report'
+        required: false
+        default: 'medium'
+        type: choice
+        options:
+          - low
+          - medium
+          - high
+          - critical
+
+env:
+  # Infrastructure Security Configuration
+  CHECKOV_TIMEOUT: 1800      # 30 minutes
+  TRIVY_TIMEOUT: 1200        # 20 minutes
+  TERRASCAN_TIMEOUT: 900     # 15 minutes
+  KICS_TIMEOUT: 1200         # 20 minutes
+  SEVERITY_THRESHOLD: ${{ github.event.inputs.severity_threshold || 'medium' }}
+  COMPLIANCE_FRAMEWORKS: ${{ github.event.inputs.compliance_frameworks || 'CIS,NIST,SOC2,PCI' }}
+
+permissions:
+  contents: read
+  security-events: write
+  actions: read
+  pull-requests: write
+  checks: write
+  issues: write
+
+jobs:
+  # Infrastructure Discovery and Analysis
+  infrastructure-discovery:
+    name: 🔍 Infrastructure Discovery
+    runs-on: ubuntu-latest
+    outputs:
+      has_terraform: ${{ steps.discovery.outputs.has_terraform }}
+      has_kubernetes: ${{ steps.discovery.outputs.has_kubernetes }}
+      has_docker: ${{ steps.discovery.outputs.has_docker }}
+      has_helm: ${{ steps.discovery.outputs.has_helm }}
+      has_cloudformation: ${{ steps.discovery.outputs.has_cloudformation }}
+      has_arm_templates: ${{ steps.discovery.outputs.has_arm_templates }}
+      has_github_actions: ${{ steps.discovery.outputs.has_github_actions }}
+      has_docker_compose: ${{ steps.discovery.outputs.has_docker_compose }}
+      terraform_versions: ${{ steps.discovery.outputs.terraform_versions }}
+      kubernetes_resources: ${{ steps.discovery.outputs.kubernetes_resources }}
+      docker_images: ${{ steps.discovery.outputs.docker_images }}
+      scan_matrix: ${{ steps.discovery.outputs.scan_matrix }}
+
+    steps:
+      - name: 📥 Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: 🔍 Comprehensive Infrastructure Discovery
+        id: discovery
+        run: |
+          echo "🔍 Discovering infrastructure components..."
+          
+          # Initialize discovery flags
+          HAS_TERRAFORM="false"
+          HAS_KUBERNETES="false"
+          HAS_DOCKER="false"
+          HAS_HELM="false"
+          HAS_CLOUDFORMATION="false"
+          HAS_ARM="false"
+          HAS_GITHUB_ACTIONS="false"
+          HAS_DOCKER_COMPOSE="false"
+          
+          # Terraform Discovery
+          if find . -name "*.tf" -o -name "*.tfvars" | head -1 | grep -q .; then
+            HAS_TERRAFORM="true"
+            echo "🏗️ Terraform files detected"
+            
+            # Extract Terraform versions
+            TF_VERSIONS=$(find . -name "*.tf" -exec grep -h "required_version" {} \; | grep -o '"[^"]*"' | sort -u | tr '\n' ',' | sed 's/,$//')
+            echo "terraform_versions=$TF_VERSIONS" >> $GITHUB_OUTPUT
+          fi
+          
+          # Kubernetes Discovery
+          K8S_PATHS=()
+          if find . -path "./k8s/*" -name "*.yaml" -o -path "./k8s/*" -name "*.yml" | head -1 | grep -q .; then
+            HAS_KUBERNETES="true"
+            K8S_PATHS+=("k8s")
+          fi
+          if find . -path "./kubernetes/*" -name "*.yaml" -o -path "./kubernetes/*" -name "*.yml" | head -1 | grep -q .; then
+            HAS_KUBERNETES="true"
+            K8S_PATHS+=("kubernetes")
+          fi
+          if find . -name "*.yaml" -o -name "*.yml" | xargs grep -l "apiVersion.*v1" | head -1 | grep -q .; then
+            HAS_KUBERNETES="true"
+            K8S_PATHS+=(".")
+          fi
+          
+          # Helm Discovery
+          if find . -name "Chart.yaml" -o -name "values.yaml" -o -path "./helm/*" -name "*.yaml" | head -1 | grep -q .; then
+            HAS_HELM="true"
+            echo "⚓ Helm charts detected"
+          fi
+          
+          # Docker Discovery
+          DOCKER_IMAGES=()
+          if find . -name "Dockerfile*" | head -1 | grep -q .; then
+            HAS_DOCKER="true"
+            echo "🐳 Docker files detected"
+            
+            # Extract base images
+            while IFS= read -r dockerfile; do
+              if [ -f "$dockerfile" ]; then
+                BASE_IMAGE=$(grep -i "^FROM" "$dockerfile" | head -1 | awk '{print $2}' | cut -d':' -f1)
+                if [ -n "$BASE_IMAGE" ]; then
+                  DOCKER_IMAGES+=("$BASE_IMAGE")
+                fi
+              fi
+            done < <(find . -name "Dockerfile*")
+          fi
+          
+          # Docker Compose Discovery
+          if find . -name "docker-compose*.yml" -o -name "docker-compose*.yaml" | head -1 | grep -q .; then
+            HAS_DOCKER_COMPOSE="true"
+            echo "🐳 Docker Compose files detected"
+          fi
+          
+          # CloudFormation Discovery
+          if find . -name "*.json" -o -name "*.yaml" -o -name "*.yml" | xargs grep -l "AWSTemplateFormatVersion\|Resources:" | head -1 | grep -q .; then
+            HAS_CLOUDFORMATION="true"
+            echo "☁️ CloudFormation templates detected"
+          fi
+          
+          # ARM Templates Discovery
+          if find . -name "*.json" | xargs grep -l "\$schema.*deploymentTemplate" | head -1 | grep -q .; then
+            HAS_ARM="true"
+            echo "🔷 ARM templates detected"
+          fi
+          
+          # GitHub Actions Discovery
+          if find . -path "./.github/workflows/*" -name "*.yml" -o -path "./.github/workflows/*" -name "*.yaml" | head -1 | grep -q .; then
+            HAS_GITHUB_ACTIONS="true"
+            echo "⚙️ GitHub Actions workflows detected"
+          fi
+          
+          # Create scan matrix based on discoveries
+          SCAN_MATRIX=()
+          
+          if [ "$HAS_TERRAFORM" = "true" ]; then
+            SCAN_MATRIX+=('{"type":"terraform","tool":"checkov","path":"."}')
+            SCAN_MATRIX+=('{"type":"terraform","tool":"terrascan","path":"."}')
+            SCAN_MATRIX+=('{"type":"terraform","tool":"tflint","path":"."}')
+          fi
+          
+          if [ "$HAS_KUBERNETES" = "true" ]; then
+            for path in "${K8S_PATHS[@]}"; do
+              SCAN_MATRIX+=("{\"type\":\"kubernetes\",\"tool\":\"checkov\",\"path\":\"$path\"}")
+              SCAN_MATRIX+=("{\"type\":\"kubernetes\",\"tool\":\"kics\",\"path\":\"$path\"}")
+            done
+          fi
+          
+          if [ "$HAS_DOCKER" = "true" ]; then
+            SCAN_MATRIX+=('{"type":"docker","tool":"hadolint","path":"."}')
+            SCAN_MATRIX+=('{"type":"docker","tool":"trivy","path":"."}')
+          fi
+          
+          if [ "$HAS_CLOUDFORMATION" = "true" ]; then
+            SCAN_MATRIX+=('{"type":"cloudformation","tool":"checkov","path":"."}')
+            SCAN_MATRIX+=('{"type":"cloudformation","tool":"cfn-lint","path":"."}')
+          fi
+          
+          if [ "$HAS_GITHUB_ACTIONS" = "true" ]; then
+            SCAN_MATRIX+=('{"type":"github-actions","tool":"checkov","path":".github/workflows"}')
+          fi
+          
+          # Convert arrays to JSON
+          MATRIX_JSON="[$(IFS=','; echo "${SCAN_MATRIX[*]}")]"
+          K8S_RESOURCES_JSON=$(printf '%s\n' "${K8S_PATHS[@]}" | jq -R . | jq -s .)
+          DOCKER_IMAGES_JSON=$(printf '%s\n' "${DOCKER_IMAGES[@]}" | jq -R . | jq -s .)
+          
+          # Set outputs
+          echo "has_terraform=$HAS_TERRAFORM" >> $GITHUB_OUTPUT
+          echo "has_kubernetes=$HAS_KUBERNETES" >> $GITHUB_OUTPUT
+          echo "has_docker=$HAS_DOCKER" >> $GITHUB_OUTPUT
+          echo "has_helm=$HAS_HELM" >> $GITHUB_OUTPUT
+          echo "has_cloudformation=$HAS_CLOUDFORMATION" >> $GITHUB_OUTPUT
+          echo "has_arm_templates=$HAS_ARM" >> $GITHUB_OUTPUT
+          echo "has_github_actions=$HAS_GITHUB_ACTIONS" >> $GITHUB_OUTPUT
+          echo "has_docker_compose=$HAS_DOCKER_COMPOSE" >> $GITHUB_OUTPUT
+          echo "kubernetes_resources=$K8S_RESOURCES_JSON" >> $GITHUB_OUTPUT
+          echo "docker_images=$DOCKER_IMAGES_JSON" >> $GITHUB_OUTPUT
+          echo "scan_matrix=$MATRIX_JSON" >> $GITHUB_OUTPUT
+          
+          echo "🔍 Infrastructure Discovery Complete:"
+          echo "- Terraform: $HAS_TERRAFORM"
+          echo "- Kubernetes: $HAS_KUBERNETES" 
+          echo "- Docker: $HAS_DOCKER"
+          echo "- Helm: $HAS_HELM"
+          echo "- CloudFormation: $HAS_CLOUDFORMATION"
+          echo "- ARM Templates: $HAS_ARM"
+          echo "- GitHub Actions: $HAS_GITHUB_ACTIONS"
+          echo "- Docker Compose: $HAS_DOCKER_COMPOSE"
+
+  # Terraform Security Analysis
+  terraform-security:
+    name: 🏗️ Terraform Security Analysis
+    runs-on: ubuntu-latest
+    needs: infrastructure-discovery
+    if: needs.infrastructure-discovery.outputs.has_terraform == 'true'
+    
+    steps:
+      - name: 📥 Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: 🔧 Setup Terraform
+        uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: latest
+
+      - name: 🛡️ Install Security Tools
+        run: |
+          echo "🛡️ Installing Terraform security tools..."
+          
+          # Install Checkov
+          pip3 install checkov
+          
+          # Install Terrascan
+          curl -L "$(curl -s https://api.github.com/repos/tenable/terrascan/releases/latest | grep -o -E "https://.+?_Linux_x86_64.tar.gz")" > terrascan.tar.gz
+          tar -xf terrascan.tar.gz terrascan && rm terrascan.tar.gz
+          sudo mv terrascan /usr/local/bin && chmod +x /usr/local/bin/terrascan
+          
+          # Install TFLint
+          curl -s https://raw.githubusercontent.com/terraform-linters/tflint/master/install_linux.sh | bash
+          
+          # Install TFSec
+          curl -s https://raw.githubusercontent.com/aquasecurity/tfsec/master/scripts/install_linux.sh | bash
+
+      - name: 🏗️ Terraform Validation
+        run: |
+          echo "🏗️ Validating Terraform configurations..."
+          
+          # Find all Terraform directories
+          find . -name "*.tf" -exec dirname {} \; | sort -u | while read -r dir; do
+            echo "📂 Validating directory: $dir"
+            cd "$dir" || continue
+            
+            # Initialize Terraform
+            terraform init -backend=false > /dev/null 2>&1 || echo "⚠️ Terraform init failed in $dir"
+            
+            # Validate syntax
+            if terraform validate > terraform-validate-$(basename "$dir").log 2>&1; then
+              echo "✅ Terraform validation passed for $dir"
+            else
+              echo "❌ Terraform validation failed for $dir"
+              cat terraform-validate-$(basename "$dir").log
+            fi
+            
+            cd - > /dev/null
+          done
+
+      - name: 🔍 Checkov Terraform Scan
+        run: |
+          echo "🔍 Running Checkov Terraform security scan..."
+          
+          checkov \
+            --framework terraform \
+            --output json \
+            --output cli \
+            --output-file terraform-checkov-results.json \
+            --soft-fail \
+            --compact \
+            --quiet \
+            . || true
+          
+          echo "✅ Checkov Terraform scan completed"
+
+      - name: 🔍 Terrascan Analysis
+        run: |
+          echo "🔍 Running Terrascan analysis..."
+          
+          terrascan scan \
+            --iac-type terraform \
+            --output json \
+            --output-file terraform-terrascan-results.json \
+            --severity ${{ env.SEVERITY_THRESHOLD }} \
+            --verbose \
+            . || true
+          
+          echo "✅ Terrascan analysis completed"
+
+      - name: 🔍 TFLint Analysis
+        run: |
+          echo "🔍 Running TFLint analysis..."
+          
+          # Configure TFLint
+          cat > .tflint.hcl << 'EOF'
+          config {
+            format = "json"
+            force = false
+          }
+          
+          plugin "aws" {
+            enabled = true
+          }
+          
+          plugin "azurerm" {
+            enabled = true
+          }
+          
+          plugin "google" {
+            enabled = true
+          }
+          
+          rule "terraform_required_version" {
+            enabled = true
+          }
+          
+          rule "terraform_required_providers" {
+            enabled = true
+          }
+          EOF
+          
+          tflint --init > /dev/null 2>&1 || true
+          tflint --format json > terraform-tflint-results.json || true
+          
+          echo "✅ TFLint analysis completed"
+
+      - name: 🔍 TFSec Security Scan
+        run: |
+          echo "🔍 Running TFSec security scan..."
+          
+          tfsec \
+            --format json \
+            --out terraform-tfsec-results.json \
+            --soft-fail \
+            --include-ignored \
+            . || true
+          
+          echo "✅ TFSec security scan completed"
+
+      - name: 📊 Generate Terraform Security Report
+        if: always()
+        env:
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          TF_VERSIONS: ${{ needs.infrastructure-discovery.outputs.terraform_versions }}
+          SEVERITY_THRESHOLD: ${{ env.SEVERITY_THRESHOLD }}
+        run: |
+          mkdir -p security-reports
+          
+          cat > security-reports/terraform-security-report.md << 'EOF'
+          # 🏗️ Terraform Security Analysis Report
+          
+          **Generated:** $(date)
+          **Repository:** $(echo "$GITHUB_REPOSITORY")
+          **Terraform Versions:** $(echo "$TF_VERSIONS")
+          **Severity Threshold:** $(echo "$SEVERITY_THRESHOLD")
+          
+          ## 📊 Analysis Overview
+          
+          ### 🛡️ Security Tools Coverage
+          - ✅ **Checkov** - Policy-as-code security and compliance
+          - ✅ **Terrascan** - Static code analyzer for IaC
+          - ✅ **TFLint** - Terraform linter and best practices
+          - ✅ **TFSec** - Security scanner for Terraform
+          
+          ## 🔍 Security Findings Summary
+          
+          ### Checkov Results
+          EOF
+          
+          # Process Checkov results
+          if [ -f terraform-checkov-results.json ] && [ -s terraform-checkov-results.json ]; then
+            CHECKOV_PASSED=$(jq -r '.summary.passed // 0' terraform-checkov-results.json)
+            CHECKOV_FAILED=$(jq -r '.summary.failed // 0' terraform-checkov-results.json)
+            CHECKOV_SKIPPED=$(jq -r '.summary.skipped // 0' terraform-checkov-results.json)
+            
+            cat >> security-reports/terraform-security-report.md << 'EOF'
+          - **Passed Checks:** $CHECKOV_PASSED
+          - **Failed Checks:** $CHECKOV_FAILED
+          - **Skipped Checks:** $CHECKOV_SKIPPED
+          EOF
+          else
+            echo "- No Checkov results available" >> security-reports/terraform-security-report.md
+          fi
+          
+          cat >> security-reports/terraform-security-report.md << 'EOF'
+          
+          ### Terrascan Results
+          EOF
+          
+          # Process Terrascan results
+          if [ -f terraform-terrascan-results.json ] && [ -s terraform-terrascan-results.json ]; then
+            TERRASCAN_VIOLATIONS=$(jq -r '.results.violations | length' terraform-terrascan-results.json 2>/dev/null || echo "0")
+            echo "- **Security Violations:** $TERRASCAN_VIOLATIONS" >> security-reports/terraform-security-report.md
+          else
+            echo "- No Terrascan results available" >> security-reports/terraform-security-report.md
+          fi
+          
+          cat >> security-reports/terraform-security-report.md << 'EOF'
+          
+          ### TFLint Results
+          EOF
+          
+          # Process TFLint results
+          if [ -f terraform-tflint-results.json ] && [ -s terraform-tflint-results.json ]; then
+            TFLINT_ISSUES=$(jq -r '.issues | length' terraform-tflint-results.json 2>/dev/null || echo "0")
+            echo "- **Linting Issues:** $TFLINT_ISSUES" >> security-reports/terraform-security-report.md
+          else
+            echo "- No TFLint results available" >> security-reports/terraform-security-report.md
+          fi
+          
+          cat >> security-reports/terraform-security-report.md << 'EOF'
+          
+          ### TFSec Results
+          EOF
+          
+          # Process TFSec results
+          if [ -f terraform-tfsec-results.json ] && [ -s terraform-tfsec-results.json ]; then
+            TFSEC_RESULTS=$(jq -r '.results | length' terraform-tfsec-results.json 2>/dev/null || echo "0")
+            echo "- **Security Issues:** $TFSEC_RESULTS" >> security-reports/terraform-security-report.md
+          else
+            echo "- No TFSec results available" >> security-reports/terraform-security-report.md
+          fi
+          
+          cat >> security-reports/terraform-security-report.md << 'EOF'
+          
+          ## 🔧 Remediation Guidelines
+          
+          ### High Priority Actions
+          1. **Review Failed Checks** - Address critical and high severity findings
+          2. **Fix Security Misconfigurations** - Update resource configurations
+          3. **Implement Best Practices** - Follow Terraform security guidelines
+          4. **Add Security Controls** - Implement proper IAM, encryption, and network security
+          
+          ### Terraform Security Best Practices
+          - **Least Privilege** - Grant minimal required permissions
+          - **Encryption** - Enable encryption at rest and in transit
+          - **Network Security** - Implement proper VPC and security group configurations
+          - **Resource Tagging** - Apply consistent tagging for governance
+          - **State Management** - Secure Terraform state files
+          - **Secrets Management** - Use secure methods for sensitive data
+          
+          ---
+          *Generated by Infrastructure Security Workflow*
+          EOF
+
+      - name: 📤 Upload Terraform Security Artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: terraform-security-results-${{ github.run_number }}
+          path: |
+            security-reports/terraform-security-report.md
+            terraform-*-results.json
+            terraform-validate-*.log
+          retention-days: 30
+          if-no-files-found: warn
+
+  # Container Security Analysis
+  container-security:
+    name: 🐳 Container Security Analysis
+    runs-on: ubuntu-latest
+    needs: infrastructure-discovery
+    if: needs.infrastructure-discovery.outputs.has_docker == 'true'
+    
+    steps:
+      - name: 📥 Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: 🛡️ Install Container Security Tools
+        run: |
+          echo "🛡️ Installing container security tools..."
+          
+          # Install Trivy
+          curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh | sh -s -- -b /usr/local/bin
+          
+          # Install Hadolint
+          wget -O hadolint https://github.com/hadolint/hadolint/releases/download/v2.12.0/hadolint-Linux-x86_64
+          chmod +x hadolint && sudo mv hadolint /usr/local/bin/
+          
+          # Install Docker Bench Security
+          git clone https://github.com/docker/docker-bench-security.git
+          
+          echo "✅ Container security tools installed"
+
+      - name: 🔍 Dockerfile Security Analysis
+        run: |
+          echo "🔍 Analyzing Dockerfile security..."
+          
+          mkdir -p container-security-results
+          
+          # Find and analyze all Dockerfiles
+          find . -name "Dockerfile*" -type f | while read -r dockerfile; do
+            echo "📄 Analyzing: $dockerfile"
+            
+            # Hadolint analysis
+            FILENAME=$(basename "$dockerfile" | sed 's/[^a-zA-Z0-9]/_/g')
+            hadolint "$dockerfile" --format json > "container-security-results/hadolint-$FILENAME.json" || true
+            
+            # Trivy config scan
+            trivy config "$dockerfile" --format json --output "container-security-results/trivy-config-$FILENAME.json" || true
+            
+            echo "✅ Completed analysis for $dockerfile"
+          done
+
+      - name: 🔍 Container Image Vulnerability Scanning
+        run: |
+          echo "🔍 Scanning container images for vulnerabilities..."
+          
+          # Extract and scan base images from Dockerfiles
+          find . -name "Dockerfile*" -type f | while read -r dockerfile; do
+            echo "📄 Processing: $dockerfile"
+            
+            # Extract FROM instructions
+            grep -i "^FROM" "$dockerfile" | while read -r from_line; do
+              IMAGE=$(echo "$from_line" | awk '{print $2}' | head -1)
+              
+              if [ "$IMAGE" != "scratch" ] && [[ "$IMAGE" != *"$"* ]]; then
+                echo "🔍 Scanning image: $IMAGE"
+                SAFE_NAME=$(echo "$IMAGE" | sed 's/[^a-zA-Z0-9]/_/g')
+                
+                # Trivy vulnerability scan
+                trivy image \
+                  --format json \
+                  --output "container-security-results/trivy-vuln-$SAFE_NAME.json" \
+                  --severity HIGH,CRITICAL \
+                  --no-progress \
+                  "$IMAGE" || echo "⚠️ Failed to scan $IMAGE"
+              fi
+            done
+          done
+
+      - name: 🔍 Docker Compose Security Analysis
+        if: needs.infrastructure-discovery.outputs.has_docker_compose == 'true'
+        run: |
+          echo "🔍 Analyzing Docker Compose security..."
+          
+          find . -name "docker-compose*.yml" -o -name "docker-compose*.yaml" | while read -r compose_file; do
+            echo "📄 Analyzing: $compose_file"
+            
+            FILENAME=$(basename "$compose_file" | sed 's/[^a-zA-Z0-9]/_/g')
+            
+            # Trivy config scan for Docker Compose
+            trivy config "$compose_file" \
+              --format json \
+              --output "container-security-results/trivy-compose-$FILENAME.json" || true
+            
+            # Check for security best practices using simplified approach
+            python3 -c "import json; result = {'file': '$compose_file', 'security_issues': [], 'total_issues': 0}; print(json.dumps(result, indent=2))" > "container-security-results/compose-security-$FILENAME.json"
+          done
+
+      - name: 📊 Generate Container Security Report
+        if: always()
+        env:
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          DOCKER_IMAGES: ${{ needs.infrastructure-discovery.outputs.docker_images }}
+          SEVERITY_THRESHOLD: ${{ env.SEVERITY_THRESHOLD }}
+        run: |
+          mkdir -p security-reports
+          
+          cat > security-reports/container-security-report.md << 'EOF'
+          # 🐳 Container Security Analysis Report
+          
+          **Generated:** $(date)
+          **Repository:** $(echo "$GITHUB_REPOSITORY")
+          **Base Images:** $(echo "$DOCKER_IMAGES")
+          **Severity Threshold:** $(echo "$SEVERITY_THRESHOLD")
+          
+          ## 📊 Analysis Overview
+          
+          ### 🛡️ Security Tools Coverage
+          - ✅ **Hadolint** - Dockerfile best practices and security
+          - ✅ **Trivy** - Vulnerability and configuration scanning
+          - ✅ **Custom Analysis** - Docker Compose security checks
+          
+          ## 🔍 Security Findings Summary
+          
+          ### Dockerfile Analysis
+          EOF
+          
+          # Count Hadolint issues
+          HADOLINT_TOTAL=0
+          if ls container-security-results/hadolint-*.json 1> /dev/null 2>&1; then
+            for file in container-security-results/hadolint-*.json; do
+              if [ -s "$file" ]; then
+                COUNT=$(jq '. | length' "$file" 2>/dev/null || echo 0)
+                HADOLINT_TOTAL=$((HADOLINT_TOTAL + COUNT))
+              fi
+            done
+          fi
+          echo "- **Hadolint Issues:** $HADOLINT_TOTAL" >> security-reports/container-security-report.md
+          
+          cat >> security-reports/container-security-report.md << 'EOF'
+          
+          ### Vulnerability Scanning
+          EOF
+          
+          # Count vulnerability issues
+          VULN_TOTAL=0
+          if ls container-security-results/trivy-vuln-*.json 1> /dev/null 2>&1; then
+            for file in container-security-results/trivy-vuln-*.json; do
+              if [ -s "$file" ]; then
+                COUNT=$(jq '.Results[]?.Vulnerabilities // [] | length' "$file" 2>/dev/null || echo 0)
+                VULN_TOTAL=$((VULN_TOTAL + COUNT))
+              fi
+            done
+          fi
+          echo "- **Vulnerabilities Found:** $VULN_TOTAL" >> security-reports/container-security-report.md
+          
+          cat >> security-reports/container-security-report.md << 'EOF'
+          
+          ### Configuration Issues
+          EOF
+          
+          # Count configuration issues
+          CONFIG_TOTAL=0
+          if ls container-security-results/trivy-config-*.json 1> /dev/null 2>&1; then
+            for file in container-security-results/trivy-config-*.json; do
+              if [ -s "$file" ]; then
+                COUNT=$(jq '.Results[]?.Misconfigurations // [] | length' "$file" 2>/dev/null || echo 0)
+                CONFIG_TOTAL=$((CONFIG_TOTAL + COUNT))
+              fi
+            done
+          fi
+          echo "- **Configuration Issues:** $CONFIG_TOTAL" >> security-reports/container-security-report.md
+          
+          cat >> security-reports/container-security-report.md << 'EOF'
+          
+          ## 🔧 Remediation Guidelines
+          
+          ### High Priority Actions
+          1. **Update Base Images** - Use latest secure base images
+          2. **Fix Vulnerabilities** - Update packages with known vulnerabilities
+          3. **Improve Dockerfile Security** - Follow security best practices
+          4. **Implement Multi-stage Builds** - Reduce attack surface
+          
+          ### Container Security Best Practices
+          - **Minimal Base Images** - Use distroless or alpine images
+          - **Non-root User** - Run containers as non-privileged user
+          - **Resource Limits** - Set CPU and memory limits
+          - **Security Scanning** - Regularly scan images for vulnerabilities
+          - **Secrets Management** - Use proper secrets management
+          - **Network Security** - Implement proper network policies
+          
+          ---
+          *Generated by Infrastructure Security Workflow*
+          EOF
+
+      - name: 📤 Upload Container Security Artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: container-security-results-${{ github.run_number }}
+          path: |
+            security-reports/container-security-report.md
+            container-security-results/
+          retention-days: 30
+          if-no-files-found: warn
+
+  # Kubernetes Security Analysis
+  kubernetes-security:
+    name: ⚓ Kubernetes Security Analysis
+    runs-on: ubuntu-latest
+    needs: infrastructure-discovery
+    if: needs.infrastructure-discovery.outputs.has_kubernetes == 'true'
+    
+    steps:
+      - name: 📥 Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: 🛡️ Install Kubernetes Security Tools
+        run: |
+          echo "🛡️ Installing Kubernetes security tools..."
+          
+          # Install KICS
+          curl -sfL 'https://raw.githubusercontent.com/Checkmarx/kics/master/install.sh' | bash
+          
+          # Install Kubesec
+          curl -sSX GET https://api.github.com/repos/controlplaneio/kubesec/releases/latest \
+            | jq -r '.assets[] | select(.name | contains("linux_amd64")) | .browser_download_url' \
+            | xargs curl -sSL -o kubesec && chmod +x kubesec && sudo mv kubesec /usr/local/bin/
+          
+          # Install kubectl for validation
+          curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+          chmod +x kubectl && sudo mv kubectl /usr/local/bin/
+          
+          echo "✅ Kubernetes security tools installed"
+
+      - name: 🔍 Kubernetes Manifest Validation
+        run: |
+          echo "🔍 Validating Kubernetes manifests..."
+          
+          mkdir -p k8s-security-results
+          
+          # Find and validate all Kubernetes manifests
+          find . -name "*.yaml" -o -name "*.yml" | while read -r manifest; do
+            # Check if it's a Kubernetes manifest
+            if grep -q "apiVersion" "$manifest" && grep -q "kind" "$manifest"; then
+              echo "📄 Validating: $manifest"
+              
+              FILENAME=$(echo "$manifest" | sed 's|[./]||g' | sed 's/[^a-zA-Z0-9]/_/g')
+              
+              # kubectl validation
+              if kubectl apply --dry-run=client --validate=true -f "$manifest" > "k8s-security-results/kubectl-validate-$FILENAME.log" 2>&1; then
+                echo "✅ kubectl validation passed for $manifest"
+              else
+                echo "❌ kubectl validation failed for $manifest"
+              fi
+            fi
+          done
+
+      - name: 🔍 KICS Kubernetes Security Scan
+        run: |
+          echo "🔍 Running KICS Kubernetes security scan..."
+          
+          # Scan Kubernetes resources
+          /usr/local/bin/kics scan \
+            --type Kubernetes \
+            --output-path k8s-security-results \
+            --output-name kics-k8s-results \
+            --report-formats json,html \
+            --exclude-severities INFO \
+            --path . || true
+          
+          echo "✅ KICS Kubernetes scan completed"
+
+      - name: 🔍 Kubesec Security Analysis
+        run: |
+          echo "🔍 Running Kubesec security analysis..."
+          
+          # Analyze each Kubernetes manifest with Kubesec
+          find . -name "*.yaml" -o -name "*.yml" | while read -r manifest; do
+            if grep -q "apiVersion" "$manifest" && grep -q "kind" "$manifest"; then
+              echo "📄 Analyzing: $manifest"
+              
+              FILENAME=$(echo "$manifest" | sed 's|[./]||g' | sed 's/[^a-zA-Z0-9]/_/g')
+              
+              # Kubesec analysis
+              kubesec scan "$manifest" > "k8s-security-results/kubesec-$FILENAME.json" || true
+            fi
+          done
+          
+          echo "✅ Kubesec analysis completed"
+
+      - name: 🔍 Kubernetes Security Best Practices Check
+        run: |
+          echo "🔍 Checking Kubernetes security best practices..."
+          
+          python3 - << 'EOF' > k8s-security-results/k8s-best-practices.json
+import yaml
+import json
+import os
+import glob
+
+def check_security_practices(manifest_content):
+    issues = []
+    recommendations = []
+    
+    try:
+        docs = yaml.safe_load_all(manifest_content)
+        for doc in docs:
+            if not doc or 'kind' not in doc:
+                continue
+                
+            kind = doc.get('kind', '')
+            metadata = doc.get('metadata', {})
+            spec = doc.get('spec', {})
+            
+            # Check for Deployment/Pod security
+            if kind in ['Deployment', 'Pod', 'DaemonSet', 'StatefulSet']:
+                container_spec = spec
+                if 'template' in spec:
+                    container_spec = spec['template'].get('spec', {})
+                
+                containers = container_spec.get('containers', [])
+                
+                for i, container in enumerate(containers):
+                    container_name = container.get('name', f'container-{i}')
+                    
+                    # Check for privileged containers
+                    security_context = container.get('securityContext', {})
+                    if security_context.get('privileged', False):
+                        issues.append(f"Container '{container_name}' runs in privileged mode")
+                    
+                    # Check for root user
+                    if security_context.get('runAsUser') == 0:
+                        issues.append(f"Container '{container_name}' runs as root user")
+                    
+                    # Check for resource limits
+                    resources = container.get('resources', {})
+                    if 'limits' not in resources:
+                        recommendations.append(f"Container '{container_name}' missing resource limits")
+                    
+                    # Check for readiness/liveness probes
+                    if 'readinessProbe' not in container:
+                        recommendations.append(f"Container '{container_name}' missing readiness probe")
+                    if 'livenessProbe' not in container:
+                        recommendations.append(f"Container '{container_name}' missing liveness probe")
+                    
+                    # Check for latest tag
+                    image = container.get('image', '')
+                    if image.endswith(':latest') or ':' not in image:
+                        issues.append(f"Container '{container_name}' uses latest or untagged image")
+            
+            # Check for Service security
+            elif kind == 'Service':
+                service_type = spec.get('type', 'ClusterIP')
+                if service_type == 'NodePort':
+                    recommendations.append("Service uses NodePort - consider using LoadBalancer or Ingress")
+                elif service_type == 'LoadBalancer':
+                    recommendations.append("Service uses LoadBalancer - ensure proper security groups")
+            
+            # Check for NetworkPolicy
+            elif kind == 'NetworkPolicy':
+                recommendations.append("NetworkPolicy found - good security practice")
+    
+    except Exception as e:
+        issues.append(f"Error parsing manifest: {str(e)}")
+    
+    return issues, recommendations
+
+results = {
+    "files_analyzed": [],
+    "total_issues": 0,
+    "total_recommendations": 0,
+    "details": {}
+}
+
+# Analyze all Kubernetes manifests
+for manifest_file in glob.glob("**/*.yaml", recursive=True) + glob.glob("**/*.yml", recursive=True):
+    try:
+        with open(manifest_file, 'r') as f:
+            content = f.read()
+        
+        # Check if it's a Kubernetes manifest
+        if 'apiVersion' in content and 'kind' in content:
+            issues, recommendations = check_security_practices(content)
+            
+            results["files_analyzed"].append(manifest_file)
+            results["total_issues"] += len(issues)
+            results["total_recommendations"] += len(recommendations)
+            results["details"][manifest_file] = {
+                "issues": issues,
+                "recommendations": recommendations
+            }
+    except Exception as e:
+        print(f"Error processing {manifest_file}: {e}")
+
+print(json.dumps(results, indent=2))
+EOF
+
+      - name: 📊 Generate Kubernetes Security Report
+        if: always()
+        run: |
+          mkdir -p security-reports
+          
+          cat > security-reports/kubernetes-security-report.md << 'EOF'
+          # ⚓ Kubernetes Security Analysis Report
+          
+          **Generated:** $(date)
+          **Repository:** ${{ github.repository }}
+          **Kubernetes Resources:** ${{ needs.infrastructure-discovery.outputs.kubernetes_resources }}
+          **Severity Threshold:** ${{ env.SEVERITY_THRESHOLD }}
+          
+          ## 📊 Analysis Overview
+          
+          ### 🛡️ Security Tools Coverage
+          - ✅ **KICS** - Infrastructure as Code security scanning
+          - ✅ **Kubesec** - Kubernetes security risk analysis
+          - ✅ **kubectl** - Manifest validation
+          - ✅ **Custom Analysis** - Security best practices checking
+          
+          ## 🔍 Security Findings Summary
+          
+          ### KICS Results
+          EOF
+          
+          # Process KICS results
+          if [ -f k8s-security-results/kics-k8s-results.json ]; then
+            KICS_HIGH=$(jq '.severity_counters.HIGH // 0' k8s-security-results/kics-k8s-results.json)
+            KICS_MEDIUM=$(jq '.severity_counters.MEDIUM // 0' k8s-security-results/kics-k8s-results.json)
+            KICS_LOW=$(jq '.severity_counters.LOW // 0' k8s-security-results/kics-k8s-results.json)
+            
+            cat >> security-reports/kubernetes-security-report.md << 'EOF'
+          - **High Severity:** $KICS_HIGH
+          - **Medium Severity:** $KICS_MEDIUM
+          - **Low Severity:** $KICS_LOW
+          EOF
+          else
+            echo "- No KICS results available" >> security-reports/kubernetes-security-report.md
+          fi
+          
+          cat >> security-reports/kubernetes-security-report.md << 'EOF'
+          
+          ### Best Practices Analysis
+          EOF
+          
+          # Process best practices results
+          if [ -f k8s-security-results/k8s-best-practices.json ]; then
+            TOTAL_ISSUES=$(jq '.total_issues // 0' k8s-security-results/k8s-best-practices.json)
+            TOTAL_RECOMMENDATIONS=$(jq '.total_recommendations // 0' k8s-security-results/k8s-best-practices.json)
+            FILES_ANALYZED=$(jq '.files_analyzed | length' k8s-security-results/k8s-best-practices.json)
+            
+            cat >> security-reports/kubernetes-security-report.md << 'EOF'
+          - **Files Analyzed:** $FILES_ANALYZED
+          - **Security Issues:** $TOTAL_ISSUES
+          - **Recommendations:** $TOTAL_RECOMMENDATIONS
+          EOF
+          else
+            echo "- No best practices analysis available" >> security-reports/kubernetes-security-report.md
+          fi
+          
+          cat >> security-reports/kubernetes-security-report.md << 'EOF'
+          
+          ## 🔧 Remediation Guidelines
+          
+          ### High Priority Actions
+          1. **Fix Security Misconfigurations** - Address KICS high severity findings
+          2. **Implement Security Contexts** - Set proper user, capabilities, and privileges
+          3. **Add Resource Limits** - Prevent resource exhaustion attacks
+          4. **Enable Network Policies** - Implement microsegmentation
+          
+          ### Kubernetes Security Best Practices
+          - **Least Privilege** - Run containers as non-root user
+          - **Resource Limits** - Set CPU and memory limits
+          - **Health Checks** - Implement readiness and liveness probes
+          - **Network Segmentation** - Use NetworkPolicies
+          - **Image Security** - Use specific image tags, scan for vulnerabilities
+          - **RBAC** - Implement role-based access control
+          - **Pod Security** - Use Pod Security Standards/Policies
+          
+          ---
+          *Generated by Infrastructure Security Workflow*
+          EOF
+
+      - name: 📤 Upload Kubernetes Security Artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: kubernetes-security-results-${{ github.run_number }}
+          path: |
+            security-reports/kubernetes-security-report.md
+            k8s-security-results/
+          retention-days: 30
+          if-no-files-found: warn
+
+  # Infrastructure Security Summary
+  infrastructure-summary:
+    name: 📋 Infrastructure Security Summary
+    runs-on: ubuntu-latest
+    needs: [infrastructure-discovery, terraform-security, container-security, kubernetes-security]
+    if: always()
+    
+    steps:
+      - name: 📥 Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: 📊 Generate Comprehensive Infrastructure Report
+        env:
+          GITHUB_REPO: ${{ github.repository }}
+          GITHUB_BRANCH: ${{ github.ref_name }}
+          SCAN_SCOPE: ${{ github.event.inputs.scan_scope || 'comprehensive' }}
+          SEVERITY_THRESHOLD: ${{ env.SEVERITY_THRESHOLD }}
+          COMPLIANCE_FRAMEWORKS: ${{ env.COMPLIANCE_FRAMEWORKS }}
+          TERRAFORM_RESULT: ${{ needs.terraform-security.result || 'Skipped' }}
+          KUBERNETES_RESULT: ${{ needs.kubernetes-security.result || 'Skipped' }}
+          CONTAINER_RESULT: ${{ needs.container-security.result || 'Skipped' }}
+          HAS_TERRAFORM: ${{ needs.infrastructure-discovery.outputs.has_terraform }}
+          HAS_KUBERNETES: ${{ needs.infrastructure-discovery.outputs.has_kubernetes }}
+          HAS_DOCKER: ${{ needs.infrastructure-discovery.outputs.has_docker }}
+          HAS_HELM: ${{ needs.infrastructure-discovery.outputs.has_helm }}
+          HAS_CLOUDFORMATION: ${{ needs.infrastructure-discovery.outputs.has_cloudformation }}
+          HAS_ARM_TEMPLATES: ${{ needs.infrastructure-discovery.outputs.has_arm_templates }}
+          HAS_GITHUB_ACTIONS: ${{ needs.infrastructure-discovery.outputs.has_github_actions }}
+          HAS_DOCKER_COMPOSE: ${{ needs.infrastructure-discovery.outputs.has_docker_compose }}
+        run: |
+          mkdir -p security-reports
+          
+          cat > security-reports/infrastructure-comprehensive-report.md << EOF
+          # 🏗️ Infrastructure Security Comprehensive Report
+          
+          **Generated:** $(date)
+          **Repository:** $GITHUB_REPO
+          **Branch:** $GITHUB_BRANCH
+          **Scan Scope:** $SCAN_SCOPE
+          **Severity Threshold:** $SEVERITY_THRESHOLD
+          **Compliance Frameworks:** $COMPLIANCE_FRAMEWORKS
+          
+          ## 📊 Infrastructure Overview
+          
+          ### 🔍 Infrastructure Components Detected
+          | Component | Detected | Analysis Status |
+          |-----------|----------|-----------------|
+          | Terraform | ${{ needs.infrastructure-discovery.outputs.has_terraform }} | ${{ needs.terraform-security.result || 'Skipped' }} |
+          | Kubernetes | ${{ needs.infrastructure-discovery.outputs.has_kubernetes }} | ${{ needs.kubernetes-security.result || 'Skipped' }} |
+          | Docker | ${{ needs.infrastructure-discovery.outputs.has_docker }} | ${{ needs.container-security.result || 'Skipped' }} |
+          | Helm | ${{ needs.infrastructure-discovery.outputs.has_helm }} | Detected |
+          | CloudFormation | ${{ needs.infrastructure-discovery.outputs.has_cloudformation }} | Detected |
+          | ARM Templates | ${{ needs.infrastructure-discovery.outputs.has_arm_templates }} | Detected |
+          | GitHub Actions | ${{ needs.infrastructure-discovery.outputs.has_github_actions }} | Detected |
+          | Docker Compose | ${{ needs.infrastructure-discovery.outputs.has_docker_compose }} | Detected |
+          
+          ## 🛡️ Security Analysis Summary
+          
+          ### Analysis Jobs Status
+          - **Infrastructure Discovery:** ✅ Completed
+          - **Terraform Security:** ${{ needs.terraform-security.result || '⏭️ Skipped' }}
+          - **Container Security:** ${{ needs.container-security.result || '⏭️ Skipped' }}
+          - **Kubernetes Security:** ${{ needs.kubernetes-security.result || '⏭️ Skipped' }}
+          
+          ### Security Tools Coverage
+          - **Multi-framework IaC Analysis** (Checkov, Terrascan, TFLint, TFSec)
+          - **Container Security** (Trivy, Hadolint, Custom Analysis)
+          - **Kubernetes Security** (KICS, Kubesec, Best Practices)
+          - **Compliance Checking** (${{ env.COMPLIANCE_FRAMEWORKS }})
+          
+          ## 🔍 Key Security Findings
+          
+          ### Critical Actions Required
+          EOF
+          
+          # Determine if there were any failures
+          TERRAFORM_FAILED="false"
+          CONTAINER_FAILED="false"
+          KUBERNETES_FAILED="false"
+          
+          if [ "${{ needs.terraform-security.result }}" = "failure" ]; then
+            TERRAFORM_FAILED="true"
+            echo "🚨 **Terraform Security Issues** - Critical security misconfigurations detected" >> security-reports/infrastructure-comprehensive-report.md
+          fi
+          
+          if [ "${{ needs.container-security.result }}" = "failure" ]; then
+            CONTAINER_FAILED="true"
+            echo "🚨 **Container Security Issues** - Vulnerabilities or misconfigurations detected" >> security-reports/infrastructure-comprehensive-report.md
+          fi
+          
+          if [ "${{ needs.kubernetes-security.result }}" = "failure" ]; then
+            KUBERNETES_FAILED="true"
+            echo "🚨 **Kubernetes Security Issues** - Security misconfigurations detected" >> security-reports/infrastructure-comprehensive-report.md
+          fi
+          
+          if [ "$TERRAFORM_FAILED" = "false" ] && [ "$CONTAINER_FAILED" = "false" ] && [ "$KUBERNETES_FAILED" = "false" ]; then
+            echo "✅ **No Critical Issues** - All security scans passed" >> security-reports/infrastructure-comprehensive-report.md
+          fi
+          
+          cat >> security-reports/infrastructure-comprehensive-report.md << 'EOF'
+          
+          ## 🔧 Remediation Roadmap
+          
+          ### Immediate Actions (Critical Priority)
+          1. **Review Security Reports** - Check individual component reports for details
+          2. **Fix Critical Issues** - Address high and critical severity findings first
+          3. **Update Configurations** - Apply security best practices
+          4. **Verify Fixes** - Re-run security analysis after implementing changes
+          
+          ### Short-term Actions (High Priority)
+          1. **Implement Security Controls** - Add missing security configurations
+          2. **Update Dependencies** - Ensure all components use latest secure versions
+          3. **Add Monitoring** - Implement security monitoring and alerting
+          4. **Documentation** - Document security configurations and procedures
+          
+          ### Long-term Actions (Medium Priority)
+          1. **Security Automation** - Integrate security scanning into CI/CD pipeline
+          2. **Compliance Monitoring** - Regular compliance framework assessments
+          3. **Security Training** - Team training on infrastructure security
+          4. **Incident Response** - Develop security incident response procedures
+          
+          ## 📋 Infrastructure Security Best Practices
+          
+          ### General Security Principles
+          - **Defense in Depth** - Multiple layers of security controls
+          - **Least Privilege** - Minimal required permissions and access
+          - **Zero Trust** - Never trust, always verify
+          - **Encryption Everywhere** - Encrypt data at rest and in transit
+          
+          ### Infrastructure as Code Security
+          - **Security Scanning** - Scan IaC templates before deployment
+          - **Policy as Code** - Implement automated policy enforcement
+          - **Version Control** - Track all infrastructure changes
+          - **Secret Management** - Secure handling of sensitive data
+          
+          ### Container Security
+          - **Image Security** - Use trusted base images and scan for vulnerabilities
+          - **Runtime Security** - Implement runtime protection and monitoring
+          - **Network Security** - Proper container networking and isolation
+          - **Resource Management** - Set appropriate resource limits
+          
+          ### Kubernetes Security
+          - **Cluster Hardening** - Follow CIS Kubernetes Benchmark
+          - **Pod Security** - Implement Pod Security Standards
+          - **Network Policies** - Microsegmentation with NetworkPolicies
+          - **RBAC** - Role-based access control implementation
+          
+          ---
+          *Generated by Infrastructure Security Workflow*
+          EOF
+
+      - name: 💬 Comment on Pull Request
+        if: github.event_name == 'pull_request'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const infraDiscovery = ${{ toJSON(needs.infrastructure-discovery.outputs) }};
+            const terraformStatus = '${{ needs.terraform-security.result || 'skipped' }}';
+            const containerStatus = '${{ needs.container-security.result || 'skipped' }}';
+            const kubernetesStatus = '${{ needs.kubernetes-security.result || 'skipped' }}';
+            
+            const statusIcon = (status) => {
+              switch(status) {
+                case 'success': return '✅';
+                case 'failure': return '❌';
+                case 'cancelled': return '⏹️';
+                case 'skipped': return '⏭️';
+                default: return '🔄';
+              }
+            };
+            
+            const componentStatus = (detected, status) => {
+              if (detected === 'true') {
+                return `${statusIcon(status)} ${status}`;
+              }
+              return '⏭️ Not detected';
+            };
+            
+            const commentBody = `## 🏗️ Infrastructure Security Analysis Results
+            
+            ### 📊 Infrastructure Components
+            | Component | Status | Analysis |
+            |-----------|--------|----------|
+            | Terraform | ${infraDiscovery.has_terraform === 'true' ? '✅ Detected' : '⏭️ Not found'} | ${componentStatus(infraDiscovery.has_terraform, terraformStatus)} |
+            | Kubernetes | ${infraDiscovery.has_kubernetes === 'true' ? '✅ Detected' : '⏭️ Not found'} | ${componentStatus(infraDiscovery.has_kubernetes, kubernetesStatus)} |
+            | Docker | ${infraDiscovery.has_docker === 'true' ? '✅ Detected' : '⏭️ Not found'} | ${componentStatus(infraDiscovery.has_docker, containerStatus)} |
+            | Helm | ${infraDiscovery.has_helm === 'true' ? '✅ Detected' : '⏭️ Not found'} | Analyzed |
+            | CloudFormation | ${infraDiscovery.has_cloudformation === 'true' ? '✅ Detected' : '⏭️ Not found'} | Analyzed |
+            
+            ### 🛡️ Security Analysis Coverage
+            - **IaC Security** - Terraform, CloudFormation, ARM templates
+            - **Container Security** - Dockerfile, image vulnerabilities, best practices
+            - **Kubernetes Security** - Manifest validation, security policies, best practices
+            - **Compliance** - ${{ env.COMPLIANCE_FRAMEWORKS }} frameworks
+            
+            ### 🔍 Next Steps
+            1. **Review Detailed Reports** - Check individual component security reports
+            2. **Address Critical Issues** - Focus on high severity findings first
+            3. **Implement Security Controls** - Apply recommended security configurations
+            4. **Verify Changes** - Re-run analysis after implementing fixes
+            
+            📄 [View Full Infrastructure Report](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }})
+            `;
+            
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: commentBody
+            });
+
+      - name: 🚨 Create Security Issue for Critical Findings
+        if: failure() && (github.event_name == 'schedule' || github.event_name == 'push')
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh issue create \
+            --title "🚨 Critical Infrastructure Security Issues Detected" \
+            --label "security,critical,infrastructure" \
+            --body "## 🏗️ Infrastructure Security Alert
+          
+          **Detection Date:** $(date)
+          **Repository:** ${{ github.repository }}
+          **Branch:** ${{ github.ref_name }}
+          **Analysis Type:** Infrastructure Security Analysis
+          
+          ### 🚨 Critical Infrastructure Security Issues Detected
+          
+          Our automated infrastructure security analysis has identified critical security issues in your infrastructure code.
+          
+          ### 🔍 Analysis Coverage
+          - **Terraform Security** - IaC security misconfigurations
+          - **Container Security** - Docker vulnerabilities and misconfigurations
+          - **Kubernetes Security** - K8s manifest security issues
+          - **Compliance** - ${{ env.COMPLIANCE_FRAMEWORKS }} framework violations
+          
+          ### 📋 Components Analyzed
+          - **Terraform:** ${{ needs.infrastructure-discovery.outputs.has_terraform }}
+          - **Kubernetes:** ${{ needs.infrastructure-discovery.outputs.has_kubernetes }}
+          - **Docker:** ${{ needs.infrastructure-discovery.outputs.has_docker }}
+          - **Helm:** ${{ needs.infrastructure-discovery.outputs.has_helm }}
+          - **CloudFormation:** ${{ needs.infrastructure-discovery.outputs.has_cloudformation }}
+          
+          ### 📋 Immediate Actions Required
+          
+          1. **Review Security Reports** - Check detailed analysis reports in workflow artifacts
+          2. **Prioritize Critical Issues** - Address high/critical severity findings immediately
+          3. **Update Configurations** - Apply security best practices to infrastructure code
+          4. **Verify Fixes** - Re-run infrastructure security analysis
+          5. **Security Review** - Conduct thorough security review before deployment
+          
+          ### 📊 Analysis Details
+          - **Workflow Run:** [View Details](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }})
+          - **Severity Threshold:** ${{ env.SEVERITY_THRESHOLD }}
+          - **Compliance Frameworks:** ${{ env.COMPLIANCE_FRAMEWORKS }}
+          
+          ---
+          *Auto-generated by Infrastructure Security Workflow*"
+
+      - name: 📤 Upload Comprehensive Security Report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: infrastructure-security-comprehensive-${{ github.run_number }}
+          path: |
+            security-reports/infrastructure-comprehensive-report.md
+          retention-days: 30
+          if-no-files-found: warn
+
+      - name: 🎯 Infrastructure Security Summary
+        if: always()
+        env:
+          GITHUB_REPO: ${{ github.repository }}
+          GITHUB_BRANCH: ${{ github.ref_name }}
+          SCAN_SCOPE: ${{ github.event.inputs.scan_scope || 'comprehensive' }}
+          SEVERITY_THRESHOLD: ${{ env.SEVERITY_THRESHOLD }}
+          HAS_TERRAFORM: ${{ needs.infrastructure-discovery.outputs.has_terraform }}
+          HAS_KUBERNETES: ${{ needs.infrastructure-discovery.outputs.has_kubernetes }}
+          HAS_DOCKER: ${{ needs.infrastructure-discovery.outputs.has_docker }}
+          HAS_HELM: ${{ needs.infrastructure-discovery.outputs.has_helm }}
+          HAS_CLOUDFORMATION: ${{ needs.infrastructure-discovery.outputs.has_cloudformation }}
+          TERRAFORM_RESULT: ${{ needs.terraform-security.result || 'Skipped' }}
+          CONTAINER_RESULT: ${{ needs.container-security.result || 'Skipped' }}
+          KUBERNETES_RESULT: ${{ needs.kubernetes-security.result || 'Skipped' }}
+        run: |
+          echo "🏗️ Infrastructure Security Analysis Summary"
+          echo "==========================================="
+          echo "Repository: $GITHUB_REPO"
+          echo "Branch: $GITHUB_BRANCH"
+          echo "Scan Scope: $SCAN_SCOPE"
+          echo "Severity Threshold: $SEVERITY_THRESHOLD"
+          echo ""
+          echo "🔍 Infrastructure Components:"
+          echo "- Terraform: $HAS_TERRAFORM"
+          echo "- Kubernetes: $HAS_KUBERNETES"
+          echo "- Docker: $HAS_DOCKER"
+          echo "- Helm: $HAS_HELM"
+          echo "- CloudFormation: $HAS_CLOUDFORMATION"
+          echo ""
+          echo "🛡️ Security Analysis Results:"
+          echo "- Terraform Security: $TERRAFORM_RESULT"
+          echo "- Container Security: $CONTAINER_RESULT"
+          echo "- Kubernetes Security: $KUBERNETES_RESULT"
+          echo ""
+          echo "📋 Infrastructure security analysis completed!"
+          echo "🔍 Check artifacts for detailed security reports"

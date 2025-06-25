@@ -581,7 +581,7 @@ This framework should be customized based on:
 
 ### Appendix D: Integration with Other Frameworks
 - ITIL service transition alignment
-- PMBOK closure process integration
+- Traditional closure process integration
 - Agile delivery considerations
 - DevOps pipeline integration
 

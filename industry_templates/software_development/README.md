@@ -96,6 +96,7 @@ The templates can be adapted to work with any of these methodologies, with speci
 
 The templates support various software development lifecycle (SDLC) models:
 
+<a id="agilescrum-implementation"></a>
 ### Agile/Scrum Implementation
 
 Focuses on iterative development with regular deliverables:
@@ -128,6 +129,7 @@ Combines elements of Agile and traditional approaches:
 3. **Formal Documentation**: Key documents for compliance and knowledge transfer
 4. **Flexible Change Management**: Structured but responsive to change
 5. **Risk-Based Governance**: More oversight for high-risk components
+<a id="traditionalwaterfall-implementation"></a>
 
 ### Traditional/Waterfall Implementation
 
@@ -154,6 +156,7 @@ These templates are designed to integrate with common software development tools
 
 - **Popular Tools**: Jira, Azure DevOps, GitHub Issues
 - **Integration Points**: Link requirements to issues, track progress
+<a id="cicd-pipelines"></a>
 - **Implementation Tips**: Create custom issue templates based on provided templates
 
 ### CI/CD Pipelines

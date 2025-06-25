@@ -1,0 +1,62 @@
+{
+  "name": "pm-template-generator",
+  "version": "1.0.0",
+  "description": "Interactive CLI tool for intelligent PM template generation and project setup",
+  "main": "src/index.js",
+  "bin": {
+    "pm-template": "./src/index.js"
+  },
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "node src/index.js",
+    "test": "node tests/test-runner.js",
+    "test:quick": "node tests/test-runner.js --quick",
+    "validate": "npm test && echo 'CLI validation complete'",
+    "prepublishOnly": "npm test",
+    "postinstall": "echo 'PM Template Generator CLI installed successfully!'",
+    "dashboard": "node src/dashboard-server.js",
+    "ai-service": "node src/ai-service.js",
+    "monitor": "node src/health-monitor.js",
+    "analytics": "node src/analytics-engine.js"
+  },
+  "keywords": [
+    "project-management",
+    "templates",
+    "cli",
+    "automation",
+    "traditional",
+    "agile",
+    "hybrid"
+  ],
+  "author": "PM Tools Templates Team",
+  "license": "MIT",
+  "dependencies": {
+    "chalk": "^4.1.2",
+    "commander": "^11.0.0",
+    "fs-extra": "^11.0.0",
+    "inquirer": "^8.2.6",
+    "ora": "^5.4.1",
+    "path": "^0.12.7",
+    "axios": "^1.6.0",
+    "dotenv": "^16.3.0",
+    "express": "^4.18.2",
+    "ws": "^8.14.0",
+    "node-cron": "^3.0.3",
+    "csv-parser": "^3.0.0",
+    "json2csv": "^5.0.7"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "files": [
+    "src/**/*",
+    "README.md",
+    "package.json"
+  ],
+  "preferGlobal": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mirichard/pm-tools-templates.git",
+    "directory": "tools/template-generator-cli"
+  }
+}

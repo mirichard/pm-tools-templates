@@ -17,7 +17,14 @@ Usage:
 import argparse
 import csv
 import json
-import xml.etree.ElementTree as ET
+try:
+    import defusedxml.etree.ElementTree as ET
+except ImportError:
+    # Require defusedxml for security - don't allow fallback to unsafe xml library
+    raise ImportError(
+        "defusedxml is required for secure XML parsing. "
+        "Install it with: pip install defusedxml"
+    )
 from datetime import datetime
 from pathlib import Path
 import logging
@@ -54,6 +61,7 @@ class MPPToJiraExporter:
         Parse Microsoft Project XML export file
         """
         try:
+            # Use defusedxml for secure XML parsing
             tree = ET.parse(xml_file)
             root = tree.getroot()
             
@@ -159,7 +167,7 @@ class MPPToJiraExporter:
             # Parse MPP date format and convert to Jira format
             dt = datetime.fromisoformat(date_str.replace('Z', '+00:00'))
             return dt.strftime('%Y-%m-%d')
-        except:
+        except (ValueError, TypeError):
             return date_str
     
     def format_duration(self, duration_str):
@@ -174,7 +182,7 @@ class MPPToJiraExporter:
             # Assume duration is in hours
             hours = float(duration_str.replace('PT', '').replace('H', ''))
             return f"{int(hours)}h"
-        except:
+        except (ValueError, TypeError, AttributeError):
             return duration_str
     
     def determine_parent(self, task):

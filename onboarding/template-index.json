@@ -1,0 +1,413 @@
+{
+  "templates": {
+    "essential": {
+      "beginner": [
+        {
+          "name": "Project Charter (Simple)",
+          "description": "Essential project definition document for new PMs",
+          "path": "quick-start-kits/first-time-pm-starter/project-charter-simple.md",
+          "category": "initiation",
+          "methodology": ["traditional", "agile", "hybrid"],
+          "projectTypes": ["all"],
+          "teamSizes": ["solo", "small", "medium"],
+          "complexity": "beginner",
+          "estimatedTime": "30 minutes"
+        },
+        {
+          "name": "Stakeholder Register (Simple)",
+          "description": "Track project stakeholders with simplified approach",
+          "path": "quick-start-kits/first-time-pm-starter/stakeholder-register-simple.md",
+          "category": "initiation",
+          "methodology": ["traditional", "agile", "hybrid"],
+          "projectTypes": ["all"],
+          "teamSizes": ["solo", "small", "medium"],
+          "complexity": "beginner",
+          "estimatedTime": "20 minutes"
+        },
+        {
+          "name": "Communication Plan (Simple)",
+          "description": "Manage project communications effectively",
+          "path": "quick-start-kits/first-time-pm-starter/communication-plan-simple.md",
+          "category": "planning",
+          "methodology": ["traditional", "agile", "hybrid"],
+          "projectTypes": ["all"],
+          "teamSizes": ["all"],
+          "complexity": "beginner",
+          "estimatedTime": "25 minutes"
+        },
+        {
+          "name": "Risk Register (Simple)",
+          "description": "Identify and manage basic project risks",
+          "path": "quick-start-kits/first-time-pm-starter/risk-register-simple.md",
+          "category": "planning",
+          "methodology": ["traditional", "agile", "hybrid"],
+          "projectTypes": ["all"],
+          "teamSizes": ["all"],
+          "complexity": "beginner",
+          "estimatedTime": "35 minutes"
+        }
+      ],
+      "intermediate": [
+        {
+          "name": "Project Charter",
+          "description": "Comprehensive project definition and authorization",
+          "path": "project-lifecycle/01-initiation/project-charter/project-charter-template.md",
+          "category": "initiation",
+          "methodology": ["traditional", "hybrid"],
+          "projectTypes": ["all"],
+          "teamSizes": ["medium", "large", "enterprise"],
+          "complexity": "intermediate",
+          "estimatedTime": "60 minutes"
+        },
+        {
+          "name": "Stakeholder Analysis",
+          "description": "Detailed stakeholder identification and management strategy",
+          "path": "project-lifecycle/01-initiation/stakeholder-analysis/stakeholder-register-template.md",
+          "category": "initiation",
+          "methodology": ["traditional", "agile", "hybrid"],
+          "projectTypes": ["all"],
+          "teamSizes": ["medium", "large", "enterprise"],
+          "complexity": "intermediate",
+          "estimatedTime": "45 minutes"
+        },
+        {
+          "name": "Risk Management Plan",
+          "description": "Comprehensive risk identification and mitigation strategy",
+          "path": "project-lifecycle/02-planning/risk-management/risk-management-plan-template.md",
+          "category": "planning",
+          "methodology": ["traditional", "hybrid"],
+          "projectTypes": ["all"],
+          "teamSizes": ["medium", "large", "enterprise"],
+          "complexity": "intermediate",
+          "estimatedTime": "90 minutes"
+        }
+      ],
+      "advanced": [
+        {
+          "name": "Program Charter",
+          "description": "Multi-project program definition and governance",
+          "path": "role-based-toolkits/program-manager/program-charter-template.md",
+          "category": "initiation",
+          "methodology": ["traditional", "hybrid"],
+          "projectTypes": ["all"],
+          "teamSizes": ["large", "enterprise"],
+          "complexity": "advanced",
+          "estimatedTime": "120 minutes"
+        },
+        {
+          "name": "Enterprise Risk Framework",
+          "description": "Organization-wide risk management framework",
+          "path": "business-stakeholder-suite/risk-governance/enterprise-risk-framework.md",
+          "category": "governance",
+          "methodology": ["traditional", "hybrid"],
+          "projectTypes": ["organizational-change", "business-process"],
+          "teamSizes": ["large", "enterprise"],
+          "complexity": "advanced",
+          "estimatedTime": "180 minutes"
+        }
+      ]
+    },
+    "methodology_specific": {
+      "agile": [
+        {
+          "name": "Sprint Planning Template",
+          "description": "Plan agile sprints effectively with team collaboration",
+          "path": "methodology-frameworks/agile-scrum/sprint-planning/sprint-planning-template.md",
+          "category": "planning",
+          "methodology": ["agile"],
+          "projectTypes": ["software", "product-launch"],
+          "teamSizes": ["small", "medium"],
+          "complexity": "intermediate",
+          "estimatedTime": "45 minutes"
+        },
+        {
+          "name": "Daily Standup Template",
+          "description": "Track daily progress and remove impediments",
+          "path": "role-based-toolkits/scrum-master/daily-standup-template.md",
+          "category": "execution",
+          "methodology": ["agile"],
+          "projectTypes": ["software", "product-launch"],
+          "teamSizes": ["small", "medium"],
+          "complexity": "beginner",
+          "estimatedTime": "15 minutes"
+        },
+        {
+          "name": "Sprint Retrospective Guide",
+          "description": "Continuous improvement through team reflection",
+          "path": "methodology-frameworks/agile-scrum/retrospectives/retrospective-template.md",
+          "category": "monitoring",
+          "methodology": ["agile"],
+          "projectTypes": ["software", "product-launch"],
+          "teamSizes": ["small", "medium"],
+          "complexity": "intermediate",
+          "estimatedTime": "60 minutes"
+        }
+      ],
+      "traditional": [
+        {
+          "name": "Work Breakdown Structure",
+          "description": "Decompose project work into manageable components",
+          "path": "project-lifecycle/02-planning/work-breakdown-structure/wbs-template.md",
+          "category": "planning",
+          "methodology": ["traditional"],
+          "projectTypes": ["construction", "business-process"],
+          "teamSizes": ["medium", "large", "enterprise"],
+          "complexity": "intermediate",
+          "estimatedTime": "90 minutes"
+        },
+        {
+          "name": "Gantt Chart Template",
+          "description": "Visual project timeline with dependencies",
+          "path": "project-lifecycle/02-planning/schedule-planning/gantt-template.md",
+          "category": "planning",
+          "methodology": ["traditional"],
+          "projectTypes": ["construction", "business-process"],
+          "teamSizes": ["medium", "large"],
+          "complexity": "intermediate",
+          "estimatedTime": "120 minutes"
+        },
+        {
+          "name": "Change Control Process",
+          "description": "Formal change management and approval process",
+          "path": "project-lifecycle/04-monitoring-control/change-management/change-control-template.md",
+          "category": "monitoring",
+          "methodology": ["traditional"],
+          "projectTypes": ["all"],
+          "teamSizes": ["medium", "large", "enterprise"],
+          "complexity": "intermediate",
+          "estimatedTime": "60 minutes"
+        }
+      ],
+      "hybrid": [
+        {
+          "name": "Hybrid Project Framework",
+          "description": "Combine traditional and agile approaches effectively",
+          "path": "methodology-frameworks/hybrid-approaches/hybrid-framework-template.md",
+          "category": "planning",
+          "methodology": ["hybrid"],
+          "projectTypes": ["all"],
+          "teamSizes": ["medium", "large"],
+          "complexity": "advanced",
+          "estimatedTime": "150 minutes"
+        },
+        {
+          "name": "Stage-Gate with Agile",
+          "description": "Traditional gates with agile execution",
+          "path": "methodology-frameworks/hybrid-approaches/stage-gate-agile-template.md",
+          "category": "planning",
+          "methodology": ["hybrid"],
+          "projectTypes": ["product-launch", "business-process"],
+          "teamSizes": ["medium", "large"],
+          "complexity": "advanced",
+          "estimatedTime": "120 minutes"
+        }
+      ]
+    },
+    "project_type_specific": {
+      "software": [
+        {
+          "name": "DevOps Integration Guide",
+          "description": "Integrate project management with development processes",
+          "path": "integration_guides/devops-integration.md",
+          "category": "integration",
+          "methodology": ["agile", "hybrid"],
+          "projectTypes": ["software"],
+          "teamSizes": ["small", "medium", "large"],
+          "complexity": "intermediate",
+          "estimatedTime": "90 minutes"
+        },
+        {
+          "name": "Technical Documentation Template",
+          "description": "Document technical decisions and architecture",
+          "path": "role-based-toolkits/technical-lead/technical-documentation-template.md",
+          "category": "documentation",
+          "methodology": ["agile", "traditional"],
+          "projectTypes": ["software"],
+          "teamSizes": ["all"],
+          "complexity": "intermediate",
+          "estimatedTime": "60 minutes"
+        }
+      ],
+      "business-process": [
+        {
+          "name": "Process Mapping Template",
+          "description": "Map current and future state business processes",
+          "path": "business-stakeholder-suite/process-improvement/process-mapping-template.md",
+          "category": "analysis",
+          "methodology": ["traditional", "hybrid"],
+          "projectTypes": ["business-process"],
+          "teamSizes": ["medium", "large"],
+          "complexity": "intermediate",
+          "estimatedTime": "120 minutes"
+        },
+        {
+          "name": "Change Management Plan",
+          "description": "Manage organizational change and adoption",
+          "path": "quick-start-kits/agile-transformation/change-management-plan.md",
+          "category": "planning",
+          "methodology": ["traditional", "hybrid"],
+          "projectTypes": ["business-process", "organizational-change"],
+          "teamSizes": ["medium", "large", "enterprise"],
+          "complexity": "advanced",
+          "estimatedTime": "180 minutes"
+        }
+      ],
+      "product-launch": [
+        {
+          "name": "Go-to-Market Strategy",
+          "description": "Plan product launch and market entry strategy",
+          "path": "role-based-toolkits/product-manager/go-to-market-template.md",
+          "category": "planning",
+          "methodology": ["agile", "hybrid"],
+          "projectTypes": ["product-launch", "marketing"],
+          "teamSizes": ["medium", "large"],
+          "complexity": "advanced",
+          "estimatedTime": "150 minutes"
+        },
+        {
+          "name": "Product Roadmap Template",
+          "description": "Visual product development and feature roadmap",
+          "path": "role-based-toolkits/product-owner/product-roadmap-template.md",
+          "category": "planning",
+          "methodology": ["agile"],
+          "projectTypes": ["product-launch", "software"],
+          "teamSizes": ["small", "medium"],
+          "complexity": "intermediate",
+          "estimatedTime": "90 minutes"
+        }
+      ]
+    },
+    "team_size_specific": {
+      "enterprise": [
+        {
+          "name": "Scaled Agile Framework (SAFe) Template",
+          "description": "Implement agile at enterprise scale",
+          "path": "methodology-frameworks/agile-scrum/scaling-frameworks/safe-implementation-template.md",
+          "category": "framework",
+          "methodology": ["agile", "hybrid"],
+          "projectTypes": ["software", "organizational-change"],
+          "teamSizes": ["enterprise"],
+          "complexity": "advanced",
+          "estimatedTime": "240 minutes"
+        },
+        {
+          "name": "Portfolio Management Framework",
+          "description": "Manage multiple projects and programs",
+          "path": "role-based-toolkits/portfolio-manager/portfolio-framework-template.md",
+          "category": "governance",
+          "methodology": ["traditional", "hybrid"],
+          "projectTypes": ["all"],
+          "teamSizes": ["enterprise"],
+          "complexity": "advanced",
+          "estimatedTime": "180 minutes"
+        }
+      ]
+    },
+    "role_based": {
+      "scrum-master": [
+        {
+          "name": "Agile Ceremonies Guide",
+          "description": "Complete guide to scrum ceremonies and facilitation",
+          "path": "role-based-toolkits/scrum-master/agile-ceremonies/ceremonies-guide.md",
+          "category": "framework",
+          "methodology": ["agile"],
+          "projectTypes": ["software", "product-launch"],
+          "teamSizes": ["small", "medium"],
+          "complexity": "intermediate",
+          "estimatedTime": "60 minutes"
+        }
+      ],
+      "product-owner": [
+        {
+          "name": "User Story Template",
+          "description": "Write effective user stories with acceptance criteria",
+          "path": "role-based-toolkits/product-owner/user-story-template.md",
+          "category": "requirements",
+          "methodology": ["agile"],
+          "projectTypes": ["software", "product-launch"],
+          "teamSizes": ["small", "medium"],
+          "complexity": "beginner",
+          "estimatedTime": "30 minutes"
+        }
+      ]
+    }
+  },
+  "recommendations": {
+    "experience_mappings": {
+      "new": {
+        "max_templates": 5,
+        "complexity_filter": ["beginner"],
+        "essential_categories": ["initiation", "planning"]
+      },
+      "some": {
+        "max_templates": 8,
+        "complexity_filter": ["beginner", "intermediate"],
+        "essential_categories": ["initiation", "planning", "execution"]
+      },
+      "experienced": {
+        "max_templates": 10,
+        "complexity_filter": ["intermediate", "advanced"],
+        "essential_categories": ["initiation", "planning", "execution", "monitoring"]
+      },
+      "expert": {
+        "max_templates": 12,
+        "complexity_filter": ["intermediate", "advanced"],
+        "essential_categories": ["initiation", "planning", "execution", "monitoring", "governance"]
+      }
+    },
+    "methodology_priorities": {
+      "agile": {
+        "essential": ["sprint-planning", "daily-standup", "retrospective"],
+        "suggested": ["user-stories", "backlog-management"]
+      },
+      "traditional": {
+        "essential": ["project-charter", "wbs", "gantt-chart"],
+        "suggested": ["change-control", "quality-plan"]
+      },
+      "hybrid": {
+        "essential": ["hybrid-framework", "stage-gate"],
+        "suggested": ["agile-ceremonies", "traditional-governance"]
+      }
+    },
+    "project_type_priorities": {
+      "software": {
+        "essential": ["technical-docs", "devops-integration"],
+        "suggested": ["user-stories", "retrospectives"]
+      },
+      "business-process": {
+        "essential": ["process-mapping", "change-management"],
+        "suggested": ["stakeholder-analysis", "training-plan"]
+      },
+      "product-launch": {
+        "essential": ["go-to-market", "product-roadmap"],
+        "suggested": ["marketing-plan", "launch-checklist"]
+      }
+    }
+  },
+  "metadata": {
+    "version": "1.0.0",
+    "last_updated": "2025-06-22",
+    "total_templates": 25,
+    "categories": [
+      "initiation",
+      "planning", 
+      "execution",
+      "monitoring",
+      "closure",
+      "governance",
+      "integration",
+      "documentation"
+    ],
+    "methodologies": [
+      "traditional",
+      "agile", 
+      "hybrid",
+      "lean"
+    ],
+    "complexity_levels": [
+      "beginner",
+      "intermediate", 
+      "advanced"
+    ]
+  }
+}
