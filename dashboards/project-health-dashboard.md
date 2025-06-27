@@ -1,6 +1,6 @@
 # PM Tools Templates - Project Health Dashboard
 
-**Last Updated:** Fri Jun 27 12:11:43 UTC 2025  
+**Last Updated:** Fri Jun 27 12:25:11 UTC 2025  
 **Project Health:** 🟠 fair  
 **Overall Progress:** 100%
 
@@ -13,7 +13,7 @@
 | **Project Completion** | 100% | 📈 Positive | 🟠 |
 | **Strategic Progress** | 20% | 📉 Behind | 🔴 |
 | **Weekly Velocity** | 30 issues/week | 📈 Strong | 🟢 |
-| **Risk Score** | 305 points | 📈 Elevated | 🔴 |
+| **Risk Score** | 280 points | 📈 Elevated | 🔴 |
 
 ## 📈 Progress Overview
 
@@ -24,9 +24,9 @@
 - **Completion Rate:** 100%
 
 ### Recent Activity (Last 7 Days)
-- **Issues Opened:** 5
+- **Issues Opened:** 4
 - **Issues Closed:** 30
-- **Net Progress:** 25 issues
+- **Net Progress:** 26 issues
 
 ## 🎯 Strategic Roadmap Progress
 
@@ -41,10 +41,10 @@
 ## ⚠️ Risk Assessment
 
 ### Current Risk Factors
-- **Critical Issues:** 4 (25 points each)
+- **Critical Issues:** 3 (25 points each)
 - **High Priority Issues:** 13 (15 points each)
 - **Open Bugs:** 2 (5 points each)
-- **Total Risk Score:** 305 points
+- **Total Risk Score:** 280 points
 
 ### Risk Level: 🔴 HIGH
 
@@ -59,7 +59,7 @@
 |------|-------|------------|
 | Enhancement | 30 | 100% |
 | Bug | 2 | 6% |
-| Critical | 4 | 13% |
+| Critical | 3 | 10% |
 | High Priority | 13 | 43% |
 
 ## 🎯 Performance Indicators
@@ -71,7 +71,7 @@
 
 ### Quality Metrics
 - **Bug Rate:** 6% of open issues
-- **Critical Issue Rate:** 13% of open issues
+- **Critical Issue Rate:** 10% of open issues
 
 ## 📅 Upcoming Focus Areas
 
@@ -86,8 +86,8 @@
 ## 📊 Dashboard Information
 
 - **Auto-generated:** Every 6 hours
-- **Last Update:** Fri Jun 27 12:11:43 UTC 2025
-- **Next Update:** 18:11 UTC
+- **Last Update:** Fri Jun 27 12:25:11 UTC 2025
+- **Next Update:** 18:25 UTC
 - **Data Source:** GitHub Issues API
 - **Methodology:** Automated metric collection and analysis
 
