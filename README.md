@@ -159,11 +159,11 @@
 **LeSS (Large-Scale Scrum):**
 <a id="executive-business-stakeholder-tools"></a>
 - [LeSS Sprint Planning](methodology-frameworks/agile-scrum/scaling-frameworks/less/less_sprint_planning_template.md) - Multi-team sprint planning
-- [Overall Product Backlog Management](methodology-frameworks/agile-scrum/scaling-frameworks/less/overall_product_backlog_management_template.md) - Large-scale backlog coordination
+- [Overall Product Backlog Management](methodology-frameworks/agile-scrum/scaling-frameworks/less/overall_product_backlog_template.md) - Large-scale backlog coordination
 - [LeSS Retrospective](methodology-frameworks/agile-scrum/scaling-frameworks/less/less_retrospective_template.md) - Organization-wide improvement
 - [Cross-Team Coordination](methodology-frameworks/agile-scrum/scaling-frameworks/less/cross_team_coordination_template.md) - Team synchronization
 <a id="ready-to-use-executive-templates"></a>
-- [LeSS Adoption Roadmap](methodology-frameworks/agile-scrum/scaling-frameworks/less/less_adoption_roadmap_template.md) - Transformation planning
+- [LeSS Adoption Roadmap](quick-start-kits/less-adoption/README.md) - Transformation planning
 
 #### [DevOps Integration](methodology-frameworks/emerging-methods/devops/README.md)
 **Modern software delivery and operations practices**
