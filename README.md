@@ -113,29 +113,29 @@ Maintained by **Michael Richard**, PMP, with 15+ years of enterprise project man
 #### Process Groups & Key Templates:
 
 **Initiating**
-- [Project Charter Template](methodology-frameworks/traditional/process-groups/Initiating/project_charter_template.md) - Professional project authorization
-- [Stakeholder Register](methodology-frameworks/traditional/process-groups/Initiating/stakeholder_register_template.md) - Stakeholder identification & analysis
+ - [Project Charter Template](Traditional/Process_Groups/Initiating/project_charter_template.md) - Professional project authorization
+ - [Stakeholder Register](project-lifecycle/01-initiation/stakeholder-analysis/stakeholder-register-template.md) - Stakeholder identification & analysis
 
 **Planning**
-- [Work Breakdown Structure](methodology-frameworks/traditional/process-groups/Planning/work_breakdown_structure_template.md) - Project decomposition
-- [Project Schedule Template](methodology-frameworks/traditional/process-groups/Planning/project_schedule_template.md) - Timeline & milestone planning
-- [Project Management Plan](methodology-frameworks/traditional/process-groups/Planning/project_management_plan_template.md) - Comprehensive planning document
-- [Stakeholder Communication Planning](methodology-frameworks/traditional/process-groups/Planning/stakeholder_communication_planning.md) - Communication strategy
+ - [Work Breakdown Structure](Traditional/Process_Groups/Planning/work_breakdown_structure_template.md) - Project decomposition
+ - [Project Schedule Template](Traditional/Process_Groups/Planning/project_schedule_template.md) - Timeline & milestone planning
+ - [Project Management Plan](Traditional/Process_Groups/Planning/project_management_plan_template.md) - Comprehensive planning document
+ - [Stakeholder Communication Planning](Traditional/Process_Groups/Planning/stakeholder_communication_planning.md) - Communication strategy
 
 **Executing**
-- [Project Execution Status Report](methodology-frameworks/traditional/process-groups/Executing/project_execution_status_report_template.md) - Execution tracking
-- [Requirements Traceability Matrix](methodology-frameworks/traditional/process-groups/Executing/requirements_traceability_matrix_template.md) - Requirements tracking
+ - [Project Execution Status Report](Traditional/Process_Groups/Executing/project_execution_status_report_template.md) - Execution tracking
+ - [Requirements Traceability Matrix](Traditional/Process_Groups/Executing/requirements_traceability_matrix_template.md) - Requirements tracking
 - [Team Performance Assessment](Traditional/Process_Groups/Executing/team_performance_assessment_template.md) - Team evaluation
 
 **Monitoring & Controlling**
-- [Project Performance Monitoring](methodology-frameworks/traditional/process-groups/Monitoring_and_Controlling/project_performance_monitoring_template.md) - Performance tracking
+ - [Project Performance Monitoring](Traditional/Process_Groups/Monitoring_and_Controlling/project_performance_monitoring_template.md) - Performance tracking
 - [Status Report Template](Traditional/Templates/status_report_template.md) - Progress reporting
 - [Change Request Template](Traditional/Templates/change_request_template.md) - Change management
 - [Issue Log Template](Traditional/Templates/issue_log_template.md) - Issue tracking
 
 <a id="agile-templates"></a>
 **Closing**
-- [Project Closure Report](methodology-frameworks/traditional/process-groups/Closing/project_closure_report_template.md) - Project finalization
+ - [Project Closure Report](Traditional/Process_Groups/Closing/project_closure_report_template.md) - Project finalization
 
 **Additional Templates**
 - [Risk Register](Traditional/Templates/risk_register_template.md) - Risk management
@@ -440,6 +440,7 @@ Maintained by **Michael Richard**, PMP, with 15+ years of enterprise project man
 
 ---
 
+<a id="help--support"></a>
 ## 🆘 Help & Support
 
 <a id="platform-integration-evolution"></a>
@@ -556,6 +557,7 @@ Maintained by **Michael Richard**, PMP, with 15+ years of enterprise project man
 
 ---
 
+<a id="community--contributions"></a>
 ## 🤝 Community & Contributions
 
 ### 📝 **Contributing**
