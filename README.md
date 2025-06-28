@@ -9,7 +9,6 @@
 
 🌌 The world's most intelligent project management ecosystem 
 
-⭐ **Star this repository** to be part of the project management revolution!
 
 **From Templates to Revolutionary Intelligence:** We're transforming from a simple template library into a comprehensive project management platform that combines 80+ proven templates with cutting-edge AI, machine learning, blockchain technology, digital twins, knowledge graphs, and immersive AR/VR experiences.
 
@@ -72,29 +71,32 @@
 #### Process Groups & Key Templates:
 
 **Initiating**
+
 - [Project Charter Template](methodology-frameworks/traditional/process-groups/Initiating/project_charter_template.md) - Professional project authorization
 - [Stakeholder Register](project-lifecycle/01-initiation/stakeholder-analysis/stakeholder-register-template.md) - Stakeholder identification & analysis
+- [Project Charter Template](Traditional/Process_Groups/Initiating/project_charter_template.md) - Professional project authorization
+- [Stakeholder Register](Traditional/Process_Groups/Initiating/stakeholder_register_template.md) - Stakeholder identification & analysis
 
 **Planning**
-- [Work Breakdown Structure](methodology-frameworks/traditional/process-groups/Planning/work_breakdown_structure_template.md) - Project decomposition
-- [Project Schedule Template](methodology-frameworks/traditional/process-groups/Planning/project_schedule_template.md) - Timeline & milestone planning
-- [Project Management Plan](methodology-frameworks/traditional/process-groups/Planning/project_management_plan_template.md) - Comprehensive planning document
-- [Stakeholder Communication Planning](methodology-frameworks/traditional/process-groups/Planning/stakeholder_communication_planning.md) - Communication strategy
+- [Work Breakdown Structure](Traditional/Process_Groups/Planning/work_breakdown_structure_template.md) - Project decomposition
+- [Project Schedule Template](Traditional/Process_Groups/Planning/project_schedule_template.md) - Timeline & milestone planning
+- [Project Management Plan](Traditional/Process_Groups/Planning/project_management_plan_template.md) - Comprehensive planning document
+- [Stakeholder Communication Planning](Traditional/Process_Groups/Planning/stakeholder_communication_planning.md) - Communication strategy
 
 **Executing**
-- [Project Execution Status Report](methodology-frameworks/traditional/process-groups/Executing/project_execution_status_report_template.md) - Execution tracking
-- [Requirements Traceability Matrix](methodology-frameworks/traditional/process-groups/Executing/requirements_traceability_matrix_template.md) - Requirements tracking
-- [Team Performance Assessment](methodology-frameworks/traditional/process-groups/Executing/team_performance_assessment_template.md) - Team evaluation
+- [Project Execution Status Report](Traditional/Process_Groups/Executing/project_execution_status_report_template.md) - Execution tracking
+- [Requirements Traceability Matrix](Traditional/Process_Groups/Executing/requirements_traceability_matrix_template.md) - Requirements tracking
+- [Team Performance Assessment](Traditional/Process_Groups/Executing/team_performance_assessment_template.md) - Team evaluation
 
 **Monitoring & Controlling**
-- [Project Performance Monitoring](methodology-frameworks/traditional/process-groups/Monitoring_and_Controlling/project_performance_monitoring_template.md) - Performance tracking
+- [Project Performance Monitoring](Traditional/Process_Groups/Monitoring_and_Controlling/project_performance_monitoring_template.md) - Performance tracking
 - [Status Report Template](Traditional/Templates/status_report_template.md) - Progress reporting
 - [Change Request Template](Traditional/Templates/change_request_template.md) - Change management
 - [Issue Log Template](Traditional/Templates/issue_log_template.md) - Issue tracking
 
 <a id="agile-templates"></a>
 **Closing**
-- [Project Closure Report](methodology-frameworks/traditional/process-groups/Closing/project_closure_report_template.md) - Project finalization
+- [Project Closure Report](Traditional/Process_Groups/Closing/project_closure_report_template.md) - Project finalization
 
 **Additional Templates**
 - [Risk Register](Traditional/Templates/risk_register_template.md) - Risk management
@@ -159,11 +161,11 @@
 **LeSS (Large-Scale Scrum):**
 <a id="executive-business-stakeholder-tools"></a>
 - [LeSS Sprint Planning](methodology-frameworks/agile-scrum/scaling-frameworks/less/less_sprint_planning_template.md) - Multi-team sprint planning
-- [Overall Product Backlog Management](methodology-frameworks/agile-scrum/scaling-frameworks/less/overall_product_backlog_management_template.md) - Large-scale backlog coordination
+- [Overall Product Backlog Management](methodology-frameworks/agile-scrum/scaling-frameworks/less/overall_product_backlog_template.md) - Large-scale backlog coordination
 - [LeSS Retrospective](methodology-frameworks/agile-scrum/scaling-frameworks/less/less_retrospective_template.md) - Organization-wide improvement
 - [Cross-Team Coordination](methodology-frameworks/agile-scrum/scaling-frameworks/less/cross_team_coordination_template.md) - Team synchronization
 <a id="ready-to-use-executive-templates"></a>
-- [LeSS Adoption Roadmap](methodology-frameworks/agile-scrum/scaling-frameworks/less/less_adoption_roadmap_template.md) - Transformation planning
+- [LeSS Adoption Roadmap](quick-start-kits/less-adoption/README.md) - Transformation planning
 
 #### [DevOps Integration](methodology-frameworks/emerging-methods/devops/README.md)
 **Modern software delivery and operations practices**
