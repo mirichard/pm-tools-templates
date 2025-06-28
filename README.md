@@ -9,7 +9,6 @@
 
 🌌 The world's most intelligent project management ecosystem 
 
-⭐ **Star this repository** to be part of the project management revolution!
 
 **From Templates to Revolutionary Intelligence:** We're transforming from a simple template library into a comprehensive project management platform that combines 80+ proven templates with cutting-edge AI, machine learning, blockchain technology, digital twins, knowledge graphs, and immersive AR/VR experiences.
 
@@ -72,6 +71,9 @@
 #### Process Groups & Key Templates:
 
 **Initiating**
+
+- [Project Charter Template](methodology-frameworks/traditional/process-groups/Initiating/project_charter_template.md) - Professional project authorization
+- [Stakeholder Register](project-lifecycle/01-initiation/stakeholder-analysis/stakeholder-register-template.md) - Stakeholder identification & analysis
 - [Project Charter Template](Traditional/Process_Groups/Initiating/project_charter_template.md) - Professional project authorization
 - [Stakeholder Register](Traditional/Process_Groups/Initiating/stakeholder_register_template.md) - Stakeholder identification & analysis
 
