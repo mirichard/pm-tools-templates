@@ -73,7 +73,7 @@
 
 **Initiating**
 - [Project Charter Template](methodology-frameworks/traditional/process-groups/Initiating/project_charter_template.md) - Professional project authorization
-- [Stakeholder Register](methodology-frameworks/traditional/process-groups/Initiating/stakeholder_register_template.md) - Stakeholder identification & analysis
+- [Stakeholder Register](project-lifecycle/01-initiation/stakeholder-analysis/stakeholder-register-template.md) - Stakeholder identification & analysis
 
 **Planning**
 - [Work Breakdown Structure](methodology-frameworks/traditional/process-groups/Planning/work_breakdown_structure_template.md) - Project decomposition
