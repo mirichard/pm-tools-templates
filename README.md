@@ -4,6 +4,18 @@
 
 Maintained by **Michael Richard**, PMP, with 15+ years of enterprise project management experience.
 
+## Why Use This Repository?
+- Vendor-agnostic templates for any PM tool.
+- Open-source and MIT licensed for full ownership.
+- CLI project scaffolding for quick setup.
+- Role and industry starter kits.
+- Transparent roadmap & community governance.
+- Completed example artifacts for guidance.
+- Zero-cost, self-hosted resources.
+
+[Full differentiators](Key Differentiators)
+
+
 [![GitHub stars](https://img.shields.io/github/stars/mirichard/pm-tools-templates?style=social)](https://github.com/mirichard/pm-tools-templates/stargazers)
 [![GitHub forks](https://img.shields.io/github/forks/mirichard/pm-tools-templates?style=social)](https://github.com/mirichard/pm-tools-templates/network)
 [![GitHub issues](https://img.shields.io/github/issues/mirichard/pm-tools-templates)](https://github.com/mirichard/pm-tools-templates/issues)
@@ -22,6 +34,7 @@ Maintained by **Michael Richard**, PMP, with 15+ years of enterprise project man
 - [Getting Started](#getting-started)
 - [Core Template Collections](#core-template-collections)
 - [Specialized Collections](#specialized-collections)
+- [Template Index](TEMPLATE_INDEX.md)
 - [Help & Support](#help--support)
 - [Repository Statistics](#repository-statistics)
 - [Next-Generation Features & Roadmap](#next-generation-features-roadmap)
@@ -38,8 +51,17 @@ Maintained by **Michael Richard**, PMP, with 15+ years of enterprise project man
 | [CI/CD Pipeline Planning](methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md) | Design automated delivery pipeline (DevOps) | Planning | Advanced |
 [**Start Here**](#getting-started)
 | [Executive Dashboard Workbook](business-stakeholder-suite/executive-dashboards/Excel/Executive-Dashboard-Workbook.md) | Report progress to leadership | Monitoring & Controlling | Intermediate |
+```mermaid
+flowchart TD
+    A(Start) --> B{Choose Methodology}
+    B --> C[Traditional]
+    B --> D[Agile]
+    B --> E[Hybrid]
+    A --> F[Onboarding Guide]
+```
 | [Risk Register](Traditional/Templates/risk_register_template.md) | Track and mitigate risks | Planning | Intermediate |
 
+See the [Template Index](TEMPLATE_INDEX.md) for a full alphabetical list of templates.
 🌌 The world's most intelligent project management ecosystem 
 
 
@@ -95,6 +117,7 @@ Maintained by **Michael Richard**, PMP, with 15+ years of enterprise project man
 4. **Download All Templates** - [Download ZIP](https://github.com/mirichard/pm-tools-templates/archive/refs/heads/main.zip) or `git clone` for the latest.
 5. **Customize & Use** - Edit templates to fit your project. See the [Getting Started Guide](docs/getting-started/README.md).
 6. **Expert Workflow** - Automate with GitHub Actions or integrate with your toolchain.
+7. **Export to Word/Excel/PowerPoint** - See [Exporting Templates](docs/exporting-templates.md).
 
 ### 🧠 Need AI-Powered Insights?
 <a id="process-groups-key-templates"></a>
@@ -351,6 +374,7 @@ Maintained by **Michael Richard**, PMP, with 15+ years of enterprise project man
 - [GitHub Projects Integration](integration_guides/github_projects_integration/README.md)
 <a id="traditional-examples"></a>
 - [Trello Integration](integration_guides/trello_integration/README.md)
+- [Integration Examples](integration-examples/README.md)
 
 #### GitHub Integration Templates:
 - [Agile GitHub Templates](integration_guides/github_integration/agile_github_templates.md)

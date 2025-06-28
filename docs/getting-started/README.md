@@ -130,6 +130,9 @@ This guide helps you quickly get oriented and find the resources you need, wheth
 ---
 
 ## 🔗 Quick Links
+- [Template Index](../../TEMPLATE_INDEX.md)
+- [Integration Examples](../../integration-examples/README.md)
+- [Exporting Templates](../exporting-templates.md)
 
 ### Templates by Frequency of Use
 1. **Daily:** [Daily Standup Notes](../../role-based-toolkits/scrum-master/agile-ceremonies/) | [Issue Log](../../project-lifecycle/04-monitoring-control/issue-management/)
