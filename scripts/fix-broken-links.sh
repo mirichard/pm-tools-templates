@@ -74,10 +74,10 @@ EOF
 # Fix 1: Traditional vs Waterfall references in main README
 echo -e "${YELLOW}🔄 Fixing Traditional/Waterfall references...${NC}"
 
-if grep -q "Traditional/Process_Groups" README.md; then
-    # Update references in main README
-    sed -i '' 's|Traditional/Process_Groups|methodology-frameworks/traditional/process-groups|g' README.md 2>/dev/null || \
-    sed -i 's|Traditional/Process_Groups|methodology-frameworks/traditional/process-groups|g' README.md
+if grep -q "methodology-frameworks/traditional/process-groups" README.md; then
+    # Update references in main README to current paths
+    sed -i '' 's|methodology-frameworks/traditional/process-groups|Traditional/Process_Groups|g' README.md 2>/dev/null || \
+    sed -i 's|methodology-frameworks/traditional/process-groups|Traditional/Process_Groups|g' README.md
     echo -e "${GREEN}✅ Fixed Traditional references in README.md${NC}"
     ((FIXES_APPLIED++))
 fi
