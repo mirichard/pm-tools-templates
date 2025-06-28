@@ -84,7 +84,7 @@
 **Executing**
 - [Project Execution Status Report](methodology-frameworks/traditional/process-groups/Executing/project_execution_status_report_template.md) - Execution tracking
 - [Requirements Traceability Matrix](methodology-frameworks/traditional/process-groups/Executing/requirements_traceability_matrix_template.md) - Requirements tracking
-- [Team Performance Assessment](methodology-frameworks/traditional/process-groups/Executing/team_performance_assessment_template.md) - Team evaluation
+- [Team Performance Assessment](Traditional/Process_Groups/Executing/team_performance_assessment_template.md) - Team evaluation
 
 **Monitoring & Controlling**
 - [Project Performance Monitoring](methodology-frameworks/traditional/process-groups/Monitoring_and_Controlling/project_performance_monitoring_template.md) - Performance tracking
