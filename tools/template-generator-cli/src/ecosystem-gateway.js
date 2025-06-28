@@ -11,7 +11,8 @@ const ora = require('ora');
  */
 class EcosystemGateway {
   constructor() {
-    this.rootPath = path.resolve(__dirname, '../../..');
+    // Resolve to repository root
+    this.rootPath = path.resolve(__dirname, '../..');
     this.ecosystemConnections = {
       aiInsights: path.join(this.rootPath, 'ai-insights'),
       businessSuite: path.join(this.rootPath, 'business-stakeholder-suite'),

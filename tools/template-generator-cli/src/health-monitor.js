@@ -240,7 +240,8 @@ class HealthMonitor {
   async checkRepositoryHealth() {
     console.log(chalk.dim('  📁 Checking repository integrity...'));
     
-    const repoPath = path.resolve(__dirname, '../../..');
+    // Repository root two levels up from src directory
+    const repoPath = path.resolve(__dirname, '../..');
     
     const health = {
       gitStatus: await this.checkGitStatus(repoPath),
@@ -534,7 +535,7 @@ class HealthMonitor {
     
     try {
       // Measure template access time
-      const templatesPath = path.resolve(__dirname, '../../..');
+      const templatesPath = path.resolve(__dirname, '../..');
       const files = await fs.readdir(templatesPath, { recursive: true });
       const mdFiles = files.filter(f => f.endsWith('.md')).slice(0, 5);
       

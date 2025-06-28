@@ -7,7 +7,8 @@ const IntegrationManager = require('./integrations');
 
 class TemplateGenerator {
   constructor() {
-    this.rootPath = path.resolve(__dirname, '../../..');
+    // Resolve to repository root (two levels up from src directory)
+    this.rootPath = path.resolve(__dirname, '../..');
     this.outputPath = process.cwd();
   }
 
