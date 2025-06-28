@@ -24,7 +24,7 @@ Maintained by **Michael Richard**, PMP, with 15+ years of enterprise project man
 - [Specialized Collections](#specialized-collections)
 - [Help & Support](#help--support)
 - [Repository Statistics](#repository-statistics)
-- [Next-Generation Features & Roadmap](#next-generation-features--roadmap)
+- [Next-Generation Features & Roadmap](#next-generation-features-roadmap)
 - [Community & Contributions](#community--contributions)
 
 ## Quick Reference
@@ -419,7 +419,6 @@ Maintained by **Michael Richard**, PMP, with 15+ years of enterprise project man
 2. [Business Stakeholder Suite](business-stakeholder-suite/README.md)
 3. [Industry-Specific Templates](industry_templates/)
 4. [Role-Based Toolkits](role-based-toolkits/README.md)
-<a id="next-generation-features-roadmap"></a>
 
 <a id="ai-machine-learning-intelligence"></a>
 ### 🎯 **Executive/Sponsor**
@@ -479,6 +478,7 @@ Maintained by **Michael Richard**, PMP, with 15+ years of enterprise project man
 ---
 
 <a id="implementation-timeline"></a>
+<a id="next-generation-features-roadmap"></a>
 ## 🚀 Next-Generation Features & Roadmap
 
 ### 🧠 AI & Machine Learning Intelligence
