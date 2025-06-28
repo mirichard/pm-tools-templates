@@ -17,7 +17,7 @@ This documentation helps you navigate and effectively use our comprehensive coll
 <a id="choosing-your-approach"></a>
 
 ### Need Templates Now?
-👉 **[Template Selector](getting-started/template-selector.md)** - Find the right templates for your situation
+👉 **[Template Selector](../TEMPLATE_INDEX.md)** - Find the right templates for your situation
 
 <a id="documentation-sections"></a>
 ### Choosing Your Approach?
@@ -66,13 +66,15 @@ Change management, tool integration, and scaling practices
 
 ### Common Questions
 1. **"Which methodology should I use?"** → [Methodology Selector](getting-started/methodology-selector.md)
-2. **"What templates do I need for my project?"** → [Template Selector](getting-started/template-selector.md)
+2. **"What templates do I need for my project?"** → [Template Selector](../TEMPLATE_INDEX.md)
 3. **"How do I implement these in my organization?"** → [Implementation Guide](implementation/)
 
 ### Quick Links
-- [Template Index](getting-started/template-selector.md#template-index)
+- [Template Index](../TEMPLATE_INDEX.md)
 - [Methodology Comparison](methodology-guides/methodology-comparison.md)
 - [Tool Integration Guides](../integration-toolkits/)
+- [Integration Examples](../integration-examples/README.md)
+- [Exporting Templates](exporting-templates.md)
 
 ---
 
