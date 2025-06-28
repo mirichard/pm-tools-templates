@@ -29,7 +29,8 @@ class DashboardServer {
     // Data repositories
     this.analyticsPath = path.resolve(__dirname, '../analytics');
     this.dashboardDataPath = path.resolve(__dirname, '../dashboard-data');
-    this.templatesPath = path.resolve(__dirname, '../../..');
+    // Path to templates in repository root
+    this.templatesPath = path.resolve(__dirname, '../..');
     
     // Dashboard state
     this.clients = new Set();
