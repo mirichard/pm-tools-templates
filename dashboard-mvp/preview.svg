@@ -1,0 +1,25 @@
+<svg width="800" height="400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400">
+  <style>
+    .title { font: bold 24px sans-serif; fill: #1e293b; }
+    .subtitle { font: 16px sans-serif; fill: #334155; }
+    .box { fill: #e5e7eb; stroke: #94a3b8; stroke-width: 2; }
+  </style>
+  <rect width="800" height="400" fill="#f8fafc" />
+  <text x="20" y="40" class="title">Project Health Dashboard</text>
+  <g transform="translate(20,60)">
+    <rect class="box" width="230" height="140" />
+    <text x="10" y="25" class="subtitle">KPI Chart</text>
+  </g>
+  <g transform="translate(285,60)">
+    <rect class="box" width="230" height="140" />
+    <text x="10" y="25" class="subtitle">Risk Heatmap</text>
+  </g>
+  <g transform="translate(550,60)">
+    <rect class="box" width="230" height="140" />
+    <text x="10" y="25" class="subtitle">Team Velocity</text>
+  </g>
+  <g transform="translate(20,220)">
+    <rect class="box" width="760" height="150" />
+    <text x="10" y="25" class="subtitle">Milestone Timeline</text>
+  </g>
+</svg>

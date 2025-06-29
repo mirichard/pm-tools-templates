@@ -2,7 +2,21 @@
 
 A comprehensive, real-time project health monitoring dashboard built with Next.js 15, TypeScript, and Tailwind CSS. This dashboard provides instant visibility into project KPIs, risks, team performance, and quality metrics.
 
-![Dashboard Preview](https://via.placeholder.com/800x400/3B82F6/FFFFFF?text=Dashboard+Preview)
+[![Dashboard Preview](preview.svg)](preview.svg)
+
+## Demo Quick Start
+
+Run the dashboard locally with one of the following commands from the repository root:
+
+```bash
+npm run dashboard-demo
+# or
+./scripts/start-dashboard-demo.sh
+```
+
+These scripts install dependencies on first run and then launch the Next.js development server at [http://localhost:3000](http://localhost:3000).
+
+For more details, see [dashboard-mvp-demo instructions](../docs/dashboard-mvp-demo.md).
 
 <a id="features"></a>
 ## 🚀 Features
