@@ -20,6 +20,9 @@ The `dashboard-mvp` project provides a production-ready Next.js dashboard for mo
    ```bash
    git clone https://github.com/mirichard/pm-tools-templates.git
 
+=======
+
+
    cd pm-tools-templates
    ```
 2. **Start the demo** using the provided script or npm command
@@ -35,6 +38,8 @@ The `dashboard-mvp` project provides a production-ready Next.js dashboard for mo
 Run these commands inside the `dashboard-mvp` folder:
 ```bash
 cd dashboard-mvp
+
+=======
 =======
    cd pm-tools-templates/dashboard-mvp
    ```
@@ -59,6 +64,7 @@ cd dashboard-mvp
 
 ### Production build
 ```bash
+
 
 npm run build
 npm start
