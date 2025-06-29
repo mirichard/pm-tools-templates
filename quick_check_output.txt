@@ -2,7 +2,7 @@
 ==========================
 Checking directory: .
 
-📄 Found 352 README.md files
+📄 Found 354 README.md files
 
 Checking: ./methodology-frameworks/emerging-methods/devops/infrastructure-as-code/README.md ... [0;32mOK[0m
 Checking: ./methodology-frameworks/emerging-methods/devops/README.md ... [0;32mOK[0m
@@ -297,8 +297,7 @@ Checking: ./workflow-orchestration/node_modules/is-number/README.md ... [0;32mO
 Checking: ./workflow-orchestration/node_modules/espree/README.md ... [0;32mOK[0m
 Checking: ./workflow-orchestration/node_modules/electron-to-chromium/README.md ... [0;32mOK[0m
 Checking: ./workflow-orchestration/node_modules/convert-source-map/README.md ... [0;32mOK[0m
-Checking: ./workflow-orchestration/node_modules/chokidar/node_modules/glob-parent/README.md ... ./quick_anchor_check.sh: line 71: echo: write error: Broken pipe
-[0;32mOK[0m
+Checking: ./workflow-orchestration/node_modules/chokidar/node_modules/glob-parent/README.md ... [0;32mOK[0m
 Checking: ./workflow-orchestration/node_modules/chokidar/README.md ... [0;32mOK[0m
 Checking: ./workflow-orchestration/node_modules/gensync/README.md ... [0;32mOK[0m
 Checking: ./workflow-orchestration/node_modules/babel-preset-current-node-syntax/README.md ... [0;32mOK[0m
@@ -334,6 +333,7 @@ Checking: ./role-based-toolkits/project-manager/README.md ... [0;32mOK[0m
 Checking: ./role-based-toolkits/project-manager/reporting-dashboards/README.md ... [0;32mOK[0m
 Checking: ./role-based-toolkits/project-manager/essential-templates/README.md ... [0;32mOK[0m
 Checking: ./role-based-toolkits/project-manager/governance-tools/README.md ... [0;32mOK[0m
+Checking: ./integration-examples/README.md ... [0;32mOK[0m
 Checking: ./quick-start-kits/executive-reporting/README.md ... [0;32mOK[0m
 Checking: ./quick-start-kits/remote-team-setup/README.md ... [0;32mOK[0m
 Checking: ./quick-start-kits/first-time-pm-starter/README.md ... [0;32mOK[0m
@@ -348,6 +348,7 @@ Checking: ./ai-insights/README.md ... [0;32mOK[0m
 Checking: ./industry-specializations/information-technology/README.md ... [0;32mOK[0m
 Checking: ./industry-specializations/healthcare-pharmaceutical/README.md ... [0;32mOK[0m
 Checking: ./industry-specializations/financial-services/README.md ... [0;32mOK[0m
+Checking: ./project-docs/README.md ... [0;32mOK[0m
 Checking: ./business-stakeholder-suite/README.md ... [0;32mOK[0m
 Checking: ./business-stakeholder-suite/executive-dashboards/excel-workbooks/README.md ... [0;32mOK[0m
 Checking: ./business-stakeholder-suite/executive-dashboards/README.md ... [0;32mOK[0m
@@ -360,9 +361,9 @@ Checking: ./business-stakeholder-suite/safe-executive-dashboards/README.md ... 
 
 📊 SUMMARY
 ==========
-Files checked: 352
+Files checked: 354
 Files with errors: [0;31m0[0m
 Files with warnings: [1;33m0[0m
-Files OK: [0;32m352[0m
+Files OK: [0;32m354[0m
 
 ✅ All anchor links look good!

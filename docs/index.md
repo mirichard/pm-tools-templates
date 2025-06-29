@@ -72,6 +72,11 @@ This library provides proven templates, tools, and guidance for project managers
 - **[Issues Management](issues-management.md)** - Track project progress
 - **[Dashboard MVP Demo](dashboard-mvp-demo.md)** - Interactive project health dashboard (`npm run dashboard-demo`)
 
+- **[Dashboard MVP Demo](dashboard-mvp-demo.md)** - Interactive project health dashboard (`npm run dashboard-demo`)
+=======
+- **[Dashboard MVP Demo](dashboard-mvp-demo.md)** - Interactive project health dashboard
+
+
 ---
 
 **Ready to get started?** 👆 Choose your path above or **[browse all templates]({{ site.github.repository_url }})**
