@@ -2,7 +2,7 @@
 
 A comprehensive, real-time project health monitoring dashboard built with Next.js 15, TypeScript, and Tailwind CSS. This dashboard provides instant visibility into project KPIs, risks, team performance, and quality metrics.
 
-![Dashboard Preview](https://via.placeholder.com/800x400/3B82F6/FFFFFF?text=Dashboard+Preview)
+![Dashboard Preview](preview.svg)
 
 <a id="features"></a>
 ## 🚀 Features
