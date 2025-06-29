@@ -1,49 +1,81 @@
----
-title: Quality Test Template
-methodology: hybrid
-category: testing
-version: 
-tags: [test, quality]
-priority: medium
----
-
-# Quality Test Template
+# Quality Test Plan Template
 
 ## Overview
+This document outlines the strategy and activities to verify that the product or solution meets defined quality standards before release. It supports informed decision-making regarding readiness and ensures alignment between stakeholders, testers, and delivery teams.
 
-This template has intentional quality issues for testing validation.
+## Test Objectives
+- Validate that critical functionality performs as expected under defined conditions
+- Detect and document defects early in the delivery cycle
+- Provide data for go/no-go decisions
+- Support compliance, audit, or regulatory requirements (if applicable)
 
-TODO: Add more content here
+## Scope
+### In Scope
+- Core system functionality
+- APIs and integrations
+- User interface flows
+- Security and access controls
 
-### Missing Alt Text Image
-![](https://example.com/image.jpg)
+### Out of Scope
+- Legacy system regression outside core workflows
+- Performance testing beyond baseline metrics
 
-### Empty Section
+## Test Items
+- Application modules or features (list specific components)
+- Data sets (e.g., sample patient data, product SKUs)
+- Interfaces or third-party tools
 
-### Very Short Content
-Short.
+## Types of Testing
+- **Functional Testing:** Verify individual feature behavior against requirements
+- **Regression Testing:** Confirm existing functionality is unaffected by changes
+- **Integration Testing:** Validate data and process flow between components
+- **User Acceptance Testing (UAT):** End-user validation against business scenarios
+- **Non-Functional Testing:** Optional—performance, usability, security
 
-## Issues to Test
+## Entry Criteria
+- Development complete and code committed
+- Environments deployed and accessible
+- Test data prepared
+- All critical defects from prior test cycles resolved
 
-- Missing version in frontmatter
-- TODO markers present  
-- Empty sections
-- Image without alt text
-- Very short content
-- No proper table headers
+## Exit Criteria
+- All planned test cases executed
+- No critical or high-severity defects remain open
+- UAT sign-off obtained from business stakeholders
 
-| Column1 | Column2
-|---------|--------
-| Data | Data
+## Test Approach
+- Manual test execution with supporting test scripts
+- Use of test case management tools (e.g., TestRail, Zephyr)
+- Daily triage meetings for defect resolution
+- Agile teams to test during sprint (if applicable)
 
-FIXME: This needs fixing
+## Environment & Tools
+- Test Environment: [Environment Name/URL]
+- Tools: [Jira for defect tracking, GitHub for source control, CI/CD pipeline name]
 
-### Long Sentence Test
-This is an extremely long sentence that goes on and on without proper structure and contains way too many words for good readability and should be broken down into smaller more digestible pieces for better user experience and comprehension but instead just keeps going.
+## Risks & Mitigation
+| Risk | Likelihood | Impact | Mitigation |
+|------|------------|--------|------------|
+| Environment instability | Medium | High | Schedule buffer; early validation |
+| Unclear requirements | High | Medium | Review sessions with BAs; traceability matrix |
+| Test data unavailability | Medium | Medium | Create mocks; request from upstream teams early |
 
-### Repetitive Content
-The quality quality quality of this template template template is intentionally poor poor poor for testing testing testing purposes purposes purposes.
+## Roles & Responsibilities
+| Role | Responsibility |
+|------|----------------|
+| QA Lead | Owns test plan, reporting, coordination |
+| Testers | Execute cases, log defects, verify fixes |
+| Business SME | Provide UAT feedback, validate results |
+| Dev Lead | Triage and fix defects, support testers |
 
-### Missing Required Sections
+## Approval & Sign-Off
+| Name | Role | Signature | Date |
+|------|------|-----------|------|
+|      |      |           |      |
+|      |      |           |      |
 
-## No Conclusion
+---
+
+**Instructions for Use:**
+- Replace bracketed placeholders with project-specific information
+- Add or remove sections as needed based on project size and methodology
