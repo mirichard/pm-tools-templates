@@ -27,6 +27,21 @@ Transform the pm-tools-templates repository into **the world's most intelligent 
 
 ---
 
+## 🔒 THEME 0: Security & Maintenance
+
+### EPIC 0.1: Baseline Security Controls
+**Business Value:** Protect repository integrity and enable trustworthy collaboration
+**Timeline:** Q3 2025
+**Status:** Planned
+
+#### User Stories:
+
+| ID | User Story | Acceptance Criteria | Story Points | Priority |
+|----|------------|---------------------|--------------|----------|
+| SEC-65 | As a maintainer, I want signed commits enforced so that we ensure provenance of contributions | - Require GPG-signed commits<br>- Document signing setup<br>- CI check for unsigned commits | 3 | Must Have |
+| SEC-66 | As a security engineer, I want automated monitoring and dependency management so that vulnerabilities are promptly identified | - Enable GitHub security alerts<br>- Add dependency scanning workflow<br>- Weekly security report | 5 | Must Have |
+
+---
 ## 🎯 THEME 1: User Experience & Community Enhancement
 
 ### EPIC 1.1: Interactive Onboarding Experience
