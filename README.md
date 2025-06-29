@@ -108,6 +108,7 @@ See the [Template Index](TEMPLATE_INDEX.md) for a full alphabetical list of temp
 ### 📊 Executive Communication?
 <a id="core-template-collections"></a>
 **[💼 Business Stakeholder Suite](business-stakeholder-suite/README.md)** - Professional dashboards and reports
+**[Dashboard MVP Demo](docs/dashboard-mvp-demo.md)** - Run the interactive project health dashboard (`npm run dashboard-demo`)
 <a id="traditionaltraditional-templates"></a>
 
 ## Getting Started

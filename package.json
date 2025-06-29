@@ -8,7 +8,8 @@
     "onboard": "node onboarding/interactive-onboarding.js",
     "test": "echo 'Basic test passed' && exit 0",
     "gateway": "node ecosystem-gateway.js",
-    "quick-start": "node onboarding/interactive-onboarding.js"
+    "quick-start": "node onboarding/interactive-onboarding.js",
+    "dashboard-demo": "npm --prefix dashboard-mvp run dev"
   },
   "keywords": [
     "project-management",
