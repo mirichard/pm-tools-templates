@@ -19,6 +19,13 @@ The `dashboard-mvp` project provides a production-ready Next.js dashboard for mo
 1. **Clone the repository**
    ```bash
    git clone https://github.com/mirichard/pm-tools-templates.git
+
+=======
+
+=======
+
+
+
    cd pm-tools-templates
    ```
 2. **Start the demo** using the provided script or npm command
