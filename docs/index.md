@@ -70,6 +70,7 @@ This library provides proven templates, tools, and guidance for project managers
 - **[Repository Status](../REPOSITORY_STATUS.md)**
 - **[Navigation Guide](../NAVIGATION_GUIDE.md)**
 - **[Issues Management](issues-management.md)** - Track project progress
+- **[Dashboard MVP Demo](dashboard-mvp-demo.md)** - Interactive project health dashboard
 
 ---
 
