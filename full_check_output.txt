@@ -1,4 +1,4 @@
-Checking 492 markdown files (excluding node_modules)...
+Checking 510 markdown files (excluding node_modules)...
 Checking: ANCHOR_LINK_CRITICAL_ISSUES_SUMMARY.md
 Checking: ANCHOR_LINK_MAINTENANCE.md
 Checking: Agile/Templates/product_backlog_template.md
@@ -41,6 +41,7 @@ Checking: ROADMAP.md
 Checking: SECURITY.md
 Checking: SESSION_SUMMARY.md
 Checking: STRATEGIC_GAP_ANALYSIS.md
+Checking: TEMPLATE_INDEX.md
 Checking: TEMPLATE_SELECTION_CHECKLIST.md
 Checking: Traditional/Knowledge_Areas/Project_Cost_Management/roi_tracking_template.md
 Checking: Traditional/Process_Groups/Closing/project_closure_report_template.md
@@ -116,6 +117,7 @@ Checking: business-stakeholder-suite/financial-governance/portfolio-financial-ov
 Checking: business-stakeholder-suite/financial-governance/roi-tracking-dashboard.md
 Checking: business-stakeholder-suite/financial-governance/value-stream-analysis.md
 Checking: business-stakeholder-suite/safe-executive-dashboards/README.md
+Checking: codex_project_plan.md
 Checking: dashboard-mvp/README.md
 Checking: dashboards/project-health-dashboard.md
 Checking: docs/ANCHOR_LINK_MAINTENANCE.md
@@ -125,6 +127,8 @@ Checking: docs/SECURITY_SETUP.md
 Checking: docs/archive/README-20250610.md
 Checking: docs/archive/README-20250611.md
 Checking: docs/community/README.md
+Checking: docs/dashboard-mvp-demo.md
+Checking: docs/exporting-templates.md
 Checking: docs/feedback/template-feedback.md
 Checking: docs/getting-started/README.md
 Checking: docs/getting-started/methodology-selector.md
@@ -262,6 +266,11 @@ Checking: industry_templates/software_development/software_risk_register.md
 Checking: industry_templates/software_development/software_test_plan.md
 Checking: industry_templates/software_development/technical_debt_log.md
 Checking: industry_templates/software_development/user_story_template.md
+Checking: integration-examples/README.md
+Checking: integration-examples/asana.md
+Checking: integration-examples/jira.md
+Checking: integration-examples/microsoft-project.md
+Checking: integration-examples/smartsheet.md
 Checking: integration-toolkits/development-tools/README.md
 Checking: integration_guides/github_integration/agile_github_templates.md
 Checking: integration_guides/github_integration/github_project_management_integration.md
@@ -343,6 +352,15 @@ Checking: project-assessment-suite/risk-management-assessment-template.md
 Checking: project-assessment-suite/scoring-rating-guide.md
 Checking: project-assessment-suite/stakeholder-engagement-assessment-template.md
 Checking: project-assessment-suite/waterfall-project-assessment-template.md
+Checking: project-docs/README.md
+Checking: project-docs/hybrid_project_charter.md
+Checking: project-docs/hybrid_project_management_plan.md
+Checking: project-docs/hybrid_release_plan.md
+Checking: project-docs/progressive_acceptance_plan.md
+Checking: project-docs/project_initiation_checklist.md
+Checking: project-docs/sprint1_planning.md
+Checking: project-docs/sprint1_retrospective.md
+Checking: project-docs/sprint1_review.md
 Checking: project-lifecycle/01-initiation/README.md
 Checking: project-lifecycle/01-initiation/project-charter/README.md
 Checking: project-lifecycle/01-initiation/project-charter/agile-team-charter-template.md
@@ -495,10 +513,10 @@ Checking: workflow-orchestration/README.md
 ============================================================
 FILTERED ANCHOR LINK CHECK REPORT (Main Project Files Only)
 ============================================================
-Files checked: 492
-Total issues: 10622
-Broken links: 3
-Suggestions: 10619
+Files checked: 510
+Total issues: 10784
+Broken links: 2
+Suggestions: 10782
 
 ISSUES BY CATEGORY:
 ----------------------------------------
@@ -506,15 +524,11 @@ ISSUES BY CATEGORY:
 🔗 BROKEN ANCHOR LINKS:
 
 📁 README.md
-  🔗 Line 25: Broken anchor link: #help--support
+  🔗 Line 38: Broken anchor link: #help--support
      Suggested fix: help-support
 
 📁 README.md
-  🔗 Line 27: Broken anchor link: #next-generation-features--roadmap
-     Suggested fix: next-generation-features-roadmap
-
-📁 README.md
-  🔗 Line 28: Broken anchor link: #community--contributions
+  🔗 Line 41: Broken anchor link: #community--contributions
      Suggested fix: community-contributions
 
 💡 HEADERS NEEDING EXPLICIT ANCHORS:
@@ -948,15 +962,15 @@ ISSUES BY CATEGORY:
 📁 README.md
   💡 Line 2: Header with special characters could benefit from explicit anchor
      Suggested fix: <a id="project-management-tools-templates-library"></a>
-  💡 Line 55: Header with special characters could benefit from explicit anchor
+  💡 Line 7: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="why-use-this-repository"></a>
+  💡 Line 77: Header with special characters could benefit from explicit anchor
      Suggested fix: <a id="community-feedback-contribution"></a>
-  💡 Line 59: Header with special characters could benefit from explicit anchor
+  💡 Line 81: Header with special characters could benefit from explicit anchor
      Suggested fix: <a id="share-your-thoughts"></a>
-  💡 Line 71: Header with special characters could benefit from explicit anchor
+  💡 Line 93: Header with special characters could benefit from explicit anchor
      Suggested fix: <a id="quick-start-guide"></a>
-  💡 Line 74: Header with special characters could benefit from explicit anchor
-     Suggested fix: <a id="new-to-project-management"></a>
-  ... and 55 more suggestions
+  ... and 56 more suggestions
 
 📁 REORGANIZATION_PLAN.md
   💡 Line 11: Header with special characters could benefit from explicit anchor
@@ -1534,10 +1548,10 @@ ISSUES BY CATEGORY:
   💡 Line 17: Header with special characters could benefit from explicit anchor
      Suggested fix: <a id="35-revolutionary-enhancements-across-6-strategic-themes"></a>
   💡 Line 30: Header with special characters could benefit from explicit anchor
-     Suggested fix: <a id="theme-1-user-experience-community-enhancement"></a>
+     Suggested fix: <a id="theme-0-security-maintenance"></a>
   💡 Line 32: Header with special characters could benefit from explicit anchor
-     Suggested fix: <a id="epic-11-interactive-onboarding-experience"></a>
-  ... and 82 more suggestions
+     Suggested fix: <a id="epic-01-baseline-security-controls"></a>
+  ... and 85 more suggestions
 
 📁 backlog/sprint-planning-template.md
   💡 Line 34: Header with special characters could benefit from explicit anchor
@@ -1876,6 +1890,19 @@ ISSUES BY CATEGORY:
      Suggested fix: <a id="medium-organization-4-10-arts"></a>
   ... and 2 more suggestions
 
+📁 codex_project_plan.md
+  💡 Line 5: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="1-establish-the-project-foundation"></a>
+  💡 Line 10: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="2-prepare-the-backlog"></a>
+  💡 Line 14: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="3-plan-sprints"></a>
+  💡 Line 22: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="4-execution-and-review"></a>
+  💡 Line 27: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="5-security-implementation"></a>
+  ... and 2 more suggestions
+
 📁 dashboard-mvp/README.md
   💡 Line 8: Header with special characters could benefit from explicit anchor
      Suggested fix: <a id="features"></a>
@@ -1979,6 +2006,18 @@ ISSUES BY CATEGORY:
   💡 Line 25: Header with special characters could benefit from explicit anchor
      Suggested fix: <a id="which-methodology-to-choose"></a>
   ... and 40 more suggestions
+
+📁 docs/dashboard-mvp-demo.md
+  💡 Line 7: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="features"></a>
+  💡 Line 12: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="running-the-demo"></a>
+
+📁 docs/exporting-templates.md
+  💡 Line 8: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="macos-homebrew"></a>
+  💡 Line 11: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="ubuntudebian"></a>
 
 📁 docs/feedback/template-feedback.md
   💡 Line 5: Header with special characters could benefit from explicit anchor
@@ -4333,6 +4372,96 @@ ISSUES BY CATEGORY:
      Suggested fix: <a id="3-implementation-management"></a>
   💡 Line 40: Header with special characters could benefit from explicit anchor
      Suggested fix: <a id="4-testing-and-quality"></a>
+
+📁 project-docs/hybrid_project_charter.md
+  💡 Line 126: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="minimum-viable-product-mvp-and-value-streams"></a>
+
+📁 project-docs/hybrid_project_management_plan.md
+  💡 Line 20: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="1-introduction"></a>
+  💡 Line 23: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="2-key-components"></a>
+  💡 Line 26: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="3-implementation-guidelines"></a>
+  💡 Line 29: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="4-best-practices"></a>
+
+📁 project-docs/hybrid_release_plan.md
+  💡 Line 311: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="gono-go-decision-framework"></a>
+  💡 Line 372: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="product-name-release-xy-notes"></a>
+  💡 Line 377: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="whats-new"></a>
+  💡 Line 518: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="appendix-a-release-planning-checklist"></a>
+  💡 Line 550: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="appendix-b-hybrid-release-planning-meeting-agenda"></a>
+
+📁 project-docs/progressive_acceptance_plan.md
+  💡 Line 90: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="level-1-strategic-criteria-program"></a>
+  💡 Line 97: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="level-2-tactical-criteria-phaserelease"></a>
+  💡 Line 104: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="level-3-operational-criteria-featurestory"></a>
+  💡 Line 129: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="executive-level-strategic"></a>
+  💡 Line 136: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="management-level-tactical"></a>
+  ... and 23 more suggestions
+
+📁 project-docs/project_initiation_checklist.md
+  💡 Line 33: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="success-criteria-metrics"></a>
+  💡 Line 49: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="authorization-approval"></a>
+  💡 Line 72: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="infrastructure-environment"></a>
+  💡 Line 104: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="quality-compliance"></a>
+  💡 Line 113: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="compliance-governance"></a>
+  ... and 7 more suggestions
+
+📁 project-docs/sprint1_planning.md
+  💡 Line 32: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="1-sprint-planning-meeting-structure"></a>
+  💡 Line 34: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="11-meeting-logistics"></a>
+  💡 Line 40: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="12-two-part-structure"></a>
+  💡 Line 42: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="part-1-what-1st-half"></a>
+  💡 Line 51: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="part-2-how-2nd-half"></a>
+  ... and 42 more suggestions
+
+📁 project-docs/sprint1_retrospective.md
+  💡 Line 86: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="1-start-stop-continue"></a>
+  💡 Line 102: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="2-the-4-ls-liked-learned-lacked-longed-for"></a>
+  💡 Line 122: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="3-mad-sad-glad"></a>
+  💡 Line 138: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="4-sailboat-retrospective"></a>
+  💡 Line 158: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="5-kalm-keep-add-less-more"></a>
+
+📁 project-docs/sprint1_review.md
+  💡 Line 34: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="1-sprint-review-meeting-structure"></a>
+  💡 Line 36: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="11-meeting-logistics"></a>
+  💡 Line 42: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="12-attendees"></a>
+  💡 Line 44: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="core-team-required"></a>
+  💡 Line 49: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="key-stakeholders-invited"></a>
+  ... and 41 more suggestions
 
 📁 project-lifecycle/01-initiation/README.md
   💡 Line 10: Header with special characters could benefit from explicit anchor
