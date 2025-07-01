@@ -495,7 +495,7 @@ Checking: role-based-toolkits/scrum-master/agile-ceremonies/sprint-retrospective
 Checking: role-based-toolkits/scrum-master/agile-ceremonies/sprint-review-template.md
 Checking: templates/agile/sprint-planning-template.md
 Checking: templates/pmbok/project-charter-template.md
-Checking: templates/test-samples/quality-test-template.md
+Checking: templates/test-samples/quality-test-plan-template.md
 Checking: terminology_standardization_plan.md
 Checking: test-commands.md
 Checking: test-project-structure/README.md
@@ -514,9 +514,9 @@ Checking: workflow-orchestration/README.md
 FILTERED ANCHOR LINK CHECK REPORT (Main Project Files Only)
 ============================================================
 Files checked: 510
-Total issues: 10784
+Total issues: 10788
 Broken links: 2
-Suggestions: 10782
+Suggestions: 10786
 
 ISSUES BY CATEGORY:
 ----------------------------------------
@@ -5677,6 +5677,16 @@ ISSUES BY CATEGORY:
      Suggested fix: <a id="story-1-title"></a>
   💡 Line 72: Header with special characters could benefit from explicit anchor
      Suggested fix: <a id="story-2-title"></a>
+
+📁 templates/test-samples/quality-test-plan-template.md
+  💡 Line 52: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="environment-tools"></a>
+  💡 Line 56: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="risks-mitigation"></a>
+  💡 Line 63: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="roles-responsibilities"></a>
+  💡 Line 71: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="approval-sign-off"></a>
 
 📁 terminology_standardization_plan.md
   💡 Line 1: Header with special characters could benefit from explicit anchor
