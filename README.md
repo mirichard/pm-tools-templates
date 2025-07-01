@@ -116,6 +116,7 @@ See the [Template Index](TEMPLATE_INDEX.md) for a full alphabetical list of temp
 =======
 **[Dashboard MVP Demo](docs/dashboard-mvp-demo.md)** - Run the interactive project health dashboard
 
+
 <a id="traditionaltraditional-templates"></a>
 
 ## Getting Started
