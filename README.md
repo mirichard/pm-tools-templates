@@ -172,7 +172,8 @@ See the [Template Index](TEMPLATE_INDEX.md) for a full alphabetical list of temp
 - [Risk Register](Traditional/Templates/risk_register_template.md) - Risk management
 - [Communication Plan](Traditional/Templates/communication_plan_template.md) - Communication strategy
 - [Change Management Plan](Traditional/Templates/change_management_plan_template.md) - Change strategy
-- [UAT Plan](Traditional/Templates/uat_plan_template.md) - User acceptance testing
+- [UAT Strategy Template](/Traditional/Templates/uat_strategy_template.md) | Strategy Development | Advanced | Strategic planning framework for large programs |
+- [UAT Plan Template](/Traditional/Templates/uat_plan_template.md) | Tactical Planning | Intermediate | Detailed execution planning for UAT implementation |
 - [Project Roadmap](Traditional/Templates/project_roadmap_template.md) - High-level timeline
 =======
 | Template | Phase | Complexity | Summary |
