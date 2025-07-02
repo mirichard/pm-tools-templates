@@ -13,7 +13,7 @@ Maintained by **Michael Richard**, PMP, with 15+ years of enterprise project man
 - Completed example artifacts for guidance.
 - Zero-cost, self-hosted resources.
 
-[Full differentiators](Key Differentiators)
+
 
 
 [![GitHub stars](https://img.shields.io/github/stars/mirichard/pm-tools-templates?style=social)](https://github.com/mirichard/pm-tools-templates/stargazers)
@@ -49,7 +49,6 @@ Maintained by **Michael Richard**, PMP, with 15+ years of enterprise project man
 | [Sprint Planning Template](Agile/Templates/sprint_planning_template.md) | Plan sprint goals and backlog (Agile) | Executing | Beginner |
 | [Hybrid Project Charter](Hybrid/Templates/hybrid_project_charter_template.md) | Kick off a hybrid project (Hybrid) | Initiating | Intermediate |
 | [CI/CD Pipeline Planning](methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md) | Design automated delivery pipeline (DevOps) | Planning | Advanced |
-[**Start Here**](#getting-started)
 | [Executive Dashboard Workbook](business-stakeholder-suite/executive-dashboards/Excel/Executive-Dashboard-Workbook.md) | Report progress to leadership | Monitoring & Controlling | Intermediate |
 ```mermaid
 flowchart TD
