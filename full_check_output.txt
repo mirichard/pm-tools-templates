@@ -964,11 +964,11 @@ ISSUES BY CATEGORY:
      Suggested fix: <a id="project-management-tools-templates-library"></a>
   💡 Line 7: Header with special characters could benefit from explicit anchor
      Suggested fix: <a id="why-use-this-repository"></a>
-  💡 Line 77: Header with special characters could benefit from explicit anchor
+  💡 Line 76: Header with special characters could benefit from explicit anchor
      Suggested fix: <a id="community-feedback-contribution"></a>
-  💡 Line 81: Header with special characters could benefit from explicit anchor
+  💡 Line 80: Header with special characters could benefit from explicit anchor
      Suggested fix: <a id="share-your-thoughts"></a>
-  💡 Line 93: Header with special characters could benefit from explicit anchor
+  💡 Line 92: Header with special characters could benefit from explicit anchor
      Suggested fix: <a id="quick-start-guide"></a>
   ... and 56 more suggestions
 
