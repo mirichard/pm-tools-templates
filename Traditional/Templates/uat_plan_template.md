@@ -10,6 +10,15 @@
 | **Approved By** | [Project Manager/Sponsor name] |
 | **Next Review Date** | [Date for next review] |
 
+## Template Usage Guide
+
+**For Large/Complex Programs**: First complete the [UAT Strategy Template](uat_strategy_template.md) to establish strategic framework and stakeholder management approach, then use this template for detailed execution planning.
+
+**For Standard Projects**: This template provides comprehensive planning for straightforward UAT implementations.
+
+**Template Relationship**: [Strategy](uat_strategy_template.md) → Plan (this template) → Execution
+
+---
 ## Executive Summary
 
 ### Purpose
