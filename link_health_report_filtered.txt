@@ -794,13 +794,13 @@ ISSUES BY CATEGORY:
 📁 Traditional/Templates/uat_plan_template.md
   💡 Line 1: Header with special characters could benefit from explicit anchor
      Suggested fix: <a id="user-acceptance-testing-uat-plan-template"></a>
-  💡 Line 36: Header with special characters could benefit from explicit anchor
+  💡 Line 45: Header with special characters could benefit from explicit anchor
      Suggested fix: <a id="systemsolution-overview"></a>
-  💡 Line 419: Header with special characters could benefit from explicit anchor
+  💡 Line 428: Header with special characters could benefit from explicit anchor
      Suggested fix: <a id="gono-go-criteria"></a>
-  💡 Line 486: Header with special characters could benefit from explicit anchor
+  💡 Line 495: Header with special characters could benefit from explicit anchor
      Suggested fix: <a id="appendix-a-test-case-repository"></a>
-  💡 Line 489: Header with special characters could benefit from explicit anchor
+  💡 Line 498: Header with special characters could benefit from explicit anchor
      Suggested fix: <a id="appendix-b-test-data-specifications"></a>
   ... and 4 more suggestions
 
