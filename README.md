@@ -1,6 +1,6 @@
 <a id="project-management-tools-templates-library"></a>
 # Project Management Tools & Templates Library
-**For project & program managers: practical templates for Agile, Waterfall, Risk, and more.**
+**For Project & Program managers: practical templates for Agile, Waterfall, Risk, and more.**
 
 Maintained by **Michael Richard**, PMP, with 15+ years of enterprise project management experience.
 
