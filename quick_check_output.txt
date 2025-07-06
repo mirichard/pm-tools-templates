@@ -2,7 +2,7 @@
 ==========================
 Checking directory: .
 
-📄 Found 354 README.md files
+📄 Found 356 README.md files
 
 Checking: ./methodology-frameworks/emerging-methods/devops/infrastructure-as-code/README.md ... [0;32mOK[0m
 Checking: ./methodology-frameworks/emerging-methods/devops/README.md ... [0;32mOK[0m
@@ -328,6 +328,7 @@ Checking: ./role-based-toolkits/README.md ... [0;32mOK[0m
 Checking: ./role-based-toolkits/scrum-master/README.md ... [0;32mOK[0m
 Checking: ./role-based-toolkits/scrum-master/agile-ceremonies/README.md ... [0;32mOK[0m
 Checking: ./role-based-toolkits/program-manager/README.md ... [0;32mOK[0m
+Checking: ./role-based-toolkits/program-manager/program-charter/README.md ... [0;32mOK[0m
 Checking: ./role-based-toolkits/project-manager/stakeholder-engagement/README.md ... [0;32mOK[0m
 Checking: ./role-based-toolkits/project-manager/README.md ... [0;32mOK[0m
 Checking: ./role-based-toolkits/project-manager/reporting-dashboards/README.md ... [0;32mOK[0m
@@ -342,6 +343,7 @@ Checking: ./quick-start-kits/less-adoption/README.md ... [0;32mOK[0m
 Checking: ./onboarding/README.md ... [0;32mOK[0m
 Checking: ./test-project-structure/README.md ... [0;32mOK[0m
 Checking: ./docs/README.md ... [0;32mOK[0m
+Checking: ./docs/legal/README.md ... [0;32mOK[0m
 Checking: ./docs/community/README.md ... [0;32mOK[0m
 Checking: ./docs/getting-started/README.md ... [0;32mOK[0m
 Checking: ./ai-insights/README.md ... [0;32mOK[0m
@@ -361,9 +363,9 @@ Checking: ./business-stakeholder-suite/safe-executive-dashboards/README.md ... 
 
 📊 SUMMARY
 ==========
-Files checked: 354
+Files checked: 356
 Files with errors: [0;31m0[0m
 Files with warnings: [1;33m0[0m
-Files OK: [0;32m354[0m
+Files OK: [0;32m356[0m
 
 ✅ All anchor links look good!
