@@ -2,10 +2,10 @@
 ============================================================
 FILTERED ANCHOR LINK CHECK REPORT (Main Project Files Only)
 ============================================================
-Files checked: 535
-Total issues: 11280
+Files checked: 540
+Total issues: 11407
 Broken links: 5
-Suggestions: 11275
+Suggestions: 11402
 
 ISSUES BY CATEGORY:
 ----------------------------------------
@@ -526,6 +526,58 @@ ISSUES BY CATEGORY:
      Suggested fix: <a id="1-feedback-api"></a>
   ... and 21 more suggestions
 
+📁 PM Tools Templates - Q3 2025 Delivery Cycle/Agile/Documentation/TemplateSelector/Technical/api-specs.md
+  💡 Line 1: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="api-specification-template-selector"></a>
+  💡 Line 20: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="1-list-templates"></a>
+  💡 Line 62: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="2-search-templates"></a>
+  💡 Line 106: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="3-get-template-details"></a>
+  💡 Line 145: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="4-get-template-preview"></a>
+  ... and 19 more suggestions
+
+📁 PM Tools Templates - Q3 2025 Delivery Cycle/Agile/Documentation/TemplateSelector/Technical/architecture.md
+  💡 Line 4: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="1-system-overview"></a>
+  💡 Line 6: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="11-purpose"></a>
+  💡 Line 9: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="12-architecture-goals"></a>
+  💡 Line 16: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="13-key-technical-decisions"></a>
+  💡 Line 23: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="2-system-architecture"></a>
+  ... and 34 more suggestions
+
+📁 PM Tools Templates - Q3 2025 Delivery Cycle/Agile/Documentation/TemplateSelector/UX/DesignDoc.md
+  💡 Line 1: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="ux-design-document-template-selector"></a>
+  💡 Line 56: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="1-quick-selection-flow"></a>
+  💡 Line 66: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="2-search-flow"></a>
+  💡 Line 76: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="3-browse-flow"></a>
+  💡 Line 88: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="1-navigation-bar"></a>
+  ... and 24 more suggestions
+
+📁 PM Tools Templates - Q3 2025 Delivery Cycle/Agile/Documentation/TemplateSelector/UX/wireframes/TemplateSelector.md
+  💡 Line 4: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="1-main-layout"></a>
+  💡 Line 25: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="2-template-card"></a>
+  💡 Line 39: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="3-search-filter-bar"></a>
+  💡 Line 49: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="4-filter-panel"></a>
+  💡 Line 71: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="5-template-preview"></a>
+  ... and 14 more suggestions
+
 📁 PM Tools Templates - Q3 2025 Delivery Cycle/Agile/Documentation/TestPlan.md
   💡 Line 4: Header with special characters could benefit from explicit anchor
      Suggested fix: <a id="1-introduction"></a>
@@ -538,6 +590,19 @@ ISSUES BY CATEGORY:
   💡 Line 23: Header with special characters could benefit from explicit anchor
      Suggested fix: <a id="2-test-strategy"></a>
   ... and 46 more suggestions
+
+📁 PM Tools Templates - Q3 2025 Delivery Cycle/Agile/Planning/TaskTracking.md
+  💡 Line 1: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="task-tracking-template-selector-implementation"></a>
+  💡 Line 6: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="1-ux-documentation"></a>
+  💡 Line 13: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="2-technical-documentation"></a>
+  💡 Line 20: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="3-project-documentation"></a>
+  💡 Line 29: Header with special characters could benefit from explicit anchor
+     Suggested fix: <a id="1-frontend-components"></a>
+  ... and 11 more suggestions
 
 📁 PMI_IP_RISK_MITIGATION_PLAN.md
   💡 Line 13: Header with special characters could benefit from explicit anchor
