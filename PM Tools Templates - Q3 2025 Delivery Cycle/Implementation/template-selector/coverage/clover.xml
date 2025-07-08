@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1751998277103" clover="3.2.0">
-  <project timestamp="1751998277103" name="All files">
-    <metrics statements="482" coveredstatements="235" conditionals="211" coveredconditionals="100" methods="134" coveredmethods="54" elements="827" coveredelements="389" complexity="0" loc="482" ncloc="482" packages="8" files="18" classes="18"/>
+<coverage generated="1752002364346" clover="3.2.0">
+  <project timestamp="1752002364346" name="All files">
+    <metrics statements="482" coveredstatements="265" conditionals="211" coveredconditionals="113" methods="134" coveredmethods="65" elements="827" coveredelements="443" complexity="0" loc="482" ncloc="482" packages="8" files="18" classes="18"/>
     <package name="src">
       <metrics statements="7" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
       <file name="main.tsx" path="/Users/michael/pm-tools-templates/PM Tools Templates - Q3 2025 Delivery Cycle/Implementation/template-selector/src/main.tsx">
@@ -16,13 +16,13 @@
       </file>
     </package>
     <package name="src.components">
-      <metrics statements="331" coveredstatements="187" conditionals="171" coveredconditionals="78" methods="100" coveredmethods="40"/>
+      <metrics statements="331" coveredstatements="217" conditionals="171" coveredconditionals="91" methods="100" coveredmethods="51"/>
       <file name="CommandPalette.tsx" path="/Users/michael/pm-tools-templates/PM Tools Templates - Q3 2025 Delivery Cycle/Implementation/template-selector/src/components/CommandPalette.tsx">
         <metrics statements="44" coveredstatements="42" conditionals="21" coveredconditionals="18" methods="11" coveredmethods="10"/>
-        <line num="1" count="3" type="stmt"/>
-        <line num="2" count="3" type="stmt"/>
-        <line num="3" count="3" type="stmt"/>
-        <line num="9" count="3" type="stmt"/>
+        <line num="1" count="4" type="stmt"/>
+        <line num="2" count="4" type="stmt"/>
+        <line num="3" count="4" type="stmt"/>
+        <line num="9" count="4" type="stmt"/>
         <line num="10" count="17" type="stmt"/>
         <line num="11" count="17" type="stmt"/>
         <line num="12" count="17" type="stmt"/>
@@ -65,22 +65,22 @@
         <line num="119" count="0" type="stmt"/>
       </file>
       <file name="ErrorBoundary.tsx" path="/Users/michael/pm-tools-templates/PM Tools Templates - Q3 2025 Delivery Cycle/Implementation/template-selector/src/components/ErrorBoundary.tsx">
-        <metrics statements="9" coveredstatements="0" conditionals="2" coveredconditionals="0" methods="4" coveredmethods="0"/>
-        <line num="1" count="0" type="stmt"/>
-        <line num="13" count="0" type="stmt"/>
-        <line num="14" count="0" type="stmt"/>
-        <line num="18" count="0" type="stmt"/>
-        <line num="22" count="0" type="stmt"/>
-        <line num="26" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="27" count="0" type="stmt"/>
-        <line num="30" count="0" type="stmt"/>
-        <line num="34" count="0" type="stmt"/>
+        <metrics statements="9" coveredstatements="9" conditionals="2" coveredconditionals="2" methods="4" coveredmethods="4"/>
+        <line num="1" count="2" type="stmt"/>
+        <line num="13" count="30" type="stmt"/>
+        <line num="14" count="29" type="stmt"/>
+        <line num="18" count="14" type="stmt"/>
+        <line num="22" count="7" type="stmt"/>
+        <line num="26" count="44" type="cond" truecount="2" falsecount="0"/>
+        <line num="27" count="15" type="stmt"/>
+        <line num="30" count="29" type="stmt"/>
+        <line num="34" count="2" type="stmt"/>
       </file>
       <file name="FilterPanel.tsx" path="/Users/michael/pm-tools-templates/PM Tools Templates - Q3 2025 Delivery Cycle/Implementation/template-selector/src/components/FilterPanel.tsx">
         <metrics statements="16" coveredstatements="9" conditionals="10" coveredconditionals="7" methods="8" coveredmethods="3"/>
-        <line num="1" count="2" type="stmt"/>
-        <line num="2" count="2" type="stmt"/>
-        <line num="16" count="2" type="stmt"/>
+        <line num="1" count="3" type="stmt"/>
+        <line num="2" count="3" type="stmt"/>
+        <line num="16" count="3" type="stmt"/>
         <line num="25" count="1" type="stmt"/>
         <line num="26" count="1" type="stmt"/>
         <line num="27" count="1" type="stmt"/>
@@ -97,39 +97,39 @@
       </file>
       <file name="Header.tsx" path="/Users/michael/pm-tools-templates/PM Tools Templates - Q3 2025 Delivery Cycle/Implementation/template-selector/src/components/Header.tsx">
         <metrics statements="28" coveredstatements="16" conditionals="13" coveredconditionals="8" methods="9" coveredmethods="5"/>
-        <line num="1" count="2" type="stmt"/>
-        <line num="2" count="2" type="stmt"/>
-        <line num="12" count="2" type="stmt"/>
-        <line num="19" count="44" type="stmt"/>
-        <line num="20" count="44" type="stmt"/>
-        <line num="21" count="44" type="stmt"/>
-        <line num="24" count="44" type="stmt"/>
-        <line num="25" count="17" type="stmt"/>
+        <line num="1" count="3" type="stmt"/>
+        <line num="2" count="3" type="stmt"/>
+        <line num="12" count="3" type="stmt"/>
+        <line num="19" count="70" type="stmt"/>
+        <line num="20" count="70" type="stmt"/>
+        <line num="21" count="70" type="stmt"/>
+        <line num="24" count="70" type="stmt"/>
+        <line num="25" count="27" type="stmt"/>
         <line num="27" count="1" type="cond" truecount="3" falsecount="2"/>
         <line num="28" count="0" type="stmt"/>
         <line num="29" count="0" type="stmt"/>
-        <line num="33" count="17" type="stmt"/>
-        <line num="34" count="17" type="stmt"/>
-        <line num="37" count="44" type="stmt"/>
+        <line num="33" count="27" type="stmt"/>
+        <line num="34" count="27" type="stmt"/>
+        <line num="37" count="70" type="stmt"/>
         <line num="38" count="0" type="stmt"/>
         <line num="39" count="0" type="stmt"/>
         <line num="40" count="0" type="stmt"/>
-        <line num="43" count="44" type="stmt"/>
+        <line num="43" count="70" type="stmt"/>
         <line num="44" count="0" type="stmt"/>
         <line num="45" count="0" type="stmt"/>
         <line num="46" count="0" type="stmt"/>
-        <line num="49" count="44" type="stmt"/>
+        <line num="49" count="70" type="stmt"/>
         <line num="50" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="51" count="0" type="stmt"/>
         <line num="54" count="0" type="stmt"/>
-        <line num="58" count="44" type="stmt"/>
+        <line num="58" count="70" type="stmt"/>
         <line num="69" count="2" type="stmt"/>
         <line num="70" count="0" type="stmt"/>
       </file>
       <file name="HighlightText.tsx" path="/Users/michael/pm-tools-templates/PM Tools Templates - Q3 2025 Delivery Cycle/Implementation/template-selector/src/components/HighlightText.tsx">
         <metrics statements="8" coveredstatements="8" conditionals="4" coveredconditionals="4" methods="2" coveredmethods="2"/>
-        <line num="1" count="3" type="stmt"/>
-        <line num="8" count="3" type="stmt"/>
+        <line num="1" count="4" type="stmt"/>
+        <line num="8" count="4" type="stmt"/>
         <line num="9" count="121" type="cond" truecount="2" falsecount="0"/>
         <line num="10" count="120" type="stmt"/>
         <line num="13" count="1" type="stmt"/>
@@ -139,9 +139,9 @@
       </file>
       <file name="Modal.tsx" path="/Users/michael/pm-tools-templates/PM Tools Templates - Q3 2025 Delivery Cycle/Implementation/template-selector/src/components/Modal.tsx">
         <metrics statements="15" coveredstatements="13" conditionals="6" coveredconditionals="2" methods="4" coveredmethods="3"/>
-        <line num="1" count="2" type="stmt"/>
-        <line num="2" count="2" type="stmt"/>
-        <line num="10" count="2" type="stmt"/>
+        <line num="1" count="3" type="stmt"/>
+        <line num="2" count="3" type="stmt"/>
+        <line num="10" count="3" type="stmt"/>
         <line num="11" count="2" type="stmt"/>
         <line num="12" count="2" type="stmt"/>
         <line num="13" count="0" type="cond" truecount="0" falsecount="2"/>
@@ -156,51 +156,51 @@
         <line num="31" count="2" type="stmt"/>
       </file>
       <file name="Pagination.tsx" path="/Users/michael/pm-tools-templates/PM Tools Templates - Q3 2025 Delivery Cycle/Implementation/template-selector/src/components/Pagination.tsx">
-        <metrics statements="31" coveredstatements="3" conditionals="14" coveredconditionals="0" methods="6" coveredmethods="0"/>
-        <line num="1" count="2" type="stmt"/>
-        <line num="2" count="2" type="stmt"/>
-        <line num="10" count="2" type="stmt"/>
-        <line num="15" count="0" type="stmt"/>
-        <line num="16" count="0" type="stmt"/>
-        <line num="17" count="0" type="stmt"/>
-        <line num="19" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="20" count="0" type="stmt"/>
-        <line num="21" count="0" type="stmt"/>
-        <line num="24" count="0" type="cond" truecount="0" falsecount="2"/>
+        <metrics statements="31" coveredstatements="23" conditionals="14" coveredconditionals="11" methods="6" coveredmethods="6"/>
+        <line num="1" count="4" type="stmt"/>
+        <line num="2" count="4" type="stmt"/>
+        <line num="10" count="4" type="stmt"/>
+        <line num="15" count="21" type="stmt"/>
+        <line num="16" count="21" type="stmt"/>
+        <line num="17" count="21" type="stmt"/>
+        <line num="19" count="21" type="cond" truecount="2" falsecount="0"/>
+        <line num="20" count="18" type="stmt"/>
+        <line num="21" count="78" type="stmt"/>
+        <line num="24" count="3" type="cond" truecount="1" falsecount="1"/>
         <line num="25" count="0" type="stmt"/>
         <line num="26" count="0" type="stmt"/>
         <line num="28" count="0" type="stmt"/>
         <line num="29" count="0" type="stmt"/>
-        <line num="30" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="30" count="3" type="cond" truecount="1" falsecount="1"/>
         <line num="31" count="0" type="stmt"/>
         <line num="32" count="0" type="stmt"/>
         <line num="33" count="0" type="stmt"/>
         <line num="34" count="0" type="stmt"/>
-        <line num="37" count="0" type="stmt"/>
-        <line num="38" count="0" type="stmt"/>
-        <line num="39" count="0" type="stmt"/>
-        <line num="40" count="0" type="stmt"/>
-        <line num="42" count="0" type="stmt"/>
-        <line num="43" count="0" type="stmt"/>
-        <line num="47" count="0" type="stmt"/>
-        <line num="50" count="0" type="stmt"/>
-        <line num="54" count="0" type="stmt"/>
-        <line num="61" count="0" type="stmt"/>
-        <line num="66" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="75" count="0" type="stmt"/>
+        <line num="37" count="3" type="stmt"/>
+        <line num="38" count="3" type="stmt"/>
+        <line num="39" count="3" type="stmt"/>
+        <line num="40" count="9" type="stmt"/>
+        <line num="42" count="3" type="stmt"/>
+        <line num="43" count="3" type="stmt"/>
+        <line num="47" count="21" type="stmt"/>
+        <line num="50" count="21" type="stmt"/>
+        <line num="54" count="1" type="stmt"/>
+        <line num="61" count="99" type="stmt"/>
+        <line num="66" count="4" type="cond" truecount="1" falsecount="1"/>
+        <line num="75" count="1" type="stmt"/>
       </file>
       <file name="TemplateCardSkeleton.tsx" path="/Users/michael/pm-tools-templates/PM Tools Templates - Q3 2025 Delivery Cycle/Implementation/template-selector/src/components/TemplateCardSkeleton.tsx">
         <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <line num="1" count="2" type="stmt"/>
-        <line num="2" count="2" type="stmt"/>
-        <line num="8" count="2" type="stmt"/>
-        <line num="9" count="84" type="stmt"/>
+        <line num="1" count="3" type="stmt"/>
+        <line num="2" count="3" type="stmt"/>
+        <line num="8" count="3" type="stmt"/>
+        <line num="9" count="144" type="stmt"/>
       </file>
       <file name="TemplatePreview.tsx" path="/Users/michael/pm-tools-templates/PM Tools Templates - Q3 2025 Delivery Cycle/Implementation/template-selector/src/components/TemplatePreview.tsx">
         <metrics statements="8" coveredstatements="4" conditionals="16" coveredconditionals="4" methods="5" coveredmethods="1"/>
-        <line num="1" count="2" type="stmt"/>
-        <line num="2" count="2" type="stmt"/>
-        <line num="35" count="2" type="stmt"/>
+        <line num="1" count="3" type="stmt"/>
+        <line num="2" count="3" type="stmt"/>
+        <line num="35" count="3" type="stmt"/>
         <line num="42" count="2" type="stmt"/>
         <line num="95" count="0" type="stmt"/>
         <line num="103" count="0" type="stmt"/>
@@ -208,70 +208,70 @@
         <line num="118" count="0" type="stmt"/>
       </file>
       <file name="TemplateSelector.tsx" path="/Users/michael/pm-tools-templates/PM Tools Templates - Q3 2025 Delivery Cycle/Implementation/template-selector/src/components/TemplateSelector.tsx">
-        <metrics statements="168" coveredstatements="88" conditionals="85" coveredconditionals="35" methods="50" coveredmethods="15"/>
-        <line num="1" count="2" type="stmt"/>
-        <line num="3" count="2" type="stmt"/>
-        <line num="4" count="2" type="stmt"/>
-        <line num="5" count="2" type="stmt"/>
-        <line num="6" count="2" type="stmt"/>
-        <line num="7" count="2" type="stmt"/>
-        <line num="9" count="2" type="stmt"/>
-        <line num="10" count="2" type="stmt"/>
-        <line num="11" count="2" type="stmt"/>
-        <line num="12" count="2" type="stmt"/>
-        <line num="20" count="2" type="stmt"/>
-        <line num="21" count="40" type="stmt"/>
-        <line num="22" count="40" type="stmt"/>
-        <line num="23" count="40" type="stmt"/>
-        <line num="24" count="40" type="stmt"/>
-        <line num="25" count="40" type="stmt"/>
-        <line num="26" count="40" type="stmt"/>
-        <line num="27" count="40" type="stmt"/>
-        <line num="28" count="40" type="stmt"/>
-        <line num="29" count="40" type="stmt"/>
-        <line num="30" count="40" type="stmt"/>
-        <line num="31" count="40" type="stmt"/>
-        <line num="32" count="40" type="stmt"/>
-        <line num="33" count="40" type="stmt"/>
-        <line num="34" count="40" type="stmt"/>
-        <line num="35" count="40" type="stmt"/>
-        <line num="36" count="40" type="stmt"/>
-        <line num="37" count="40" type="stmt"/>
-        <line num="38" count="40" type="stmt"/>
-        <line num="39" count="40" type="stmt"/>
-        <line num="43" count="40" type="stmt"/>
+        <metrics statements="168" coveredstatements="89" conditionals="85" coveredconditionals="35" methods="50" coveredmethods="16"/>
+        <line num="1" count="3" type="stmt"/>
+        <line num="3" count="3" type="stmt"/>
+        <line num="4" count="3" type="stmt"/>
+        <line num="5" count="3" type="stmt"/>
+        <line num="6" count="3" type="stmt"/>
+        <line num="7" count="3" type="stmt"/>
+        <line num="9" count="3" type="stmt"/>
+        <line num="10" count="3" type="stmt"/>
+        <line num="11" count="3" type="stmt"/>
+        <line num="12" count="3" type="stmt"/>
+        <line num="20" count="3" type="stmt"/>
+        <line num="21" count="66" type="stmt"/>
+        <line num="22" count="66" type="stmt"/>
+        <line num="23" count="66" type="stmt"/>
+        <line num="24" count="66" type="stmt"/>
+        <line num="25" count="66" type="stmt"/>
+        <line num="26" count="66" type="stmt"/>
+        <line num="27" count="66" type="stmt"/>
+        <line num="28" count="66" type="stmt"/>
+        <line num="29" count="66" type="stmt"/>
+        <line num="30" count="66" type="stmt"/>
+        <line num="31" count="66" type="stmt"/>
+        <line num="32" count="66" type="stmt"/>
+        <line num="33" count="66" type="stmt"/>
+        <line num="34" count="66" type="stmt"/>
+        <line num="35" count="66" type="stmt"/>
+        <line num="36" count="66" type="stmt"/>
+        <line num="37" count="66" type="stmt"/>
+        <line num="38" count="66" type="stmt"/>
+        <line num="39" count="66" type="stmt"/>
+        <line num="43" count="66" type="stmt"/>
         <line num="44" count="0" type="stmt"/>
         <line num="45" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="46" count="0" type="stmt"/>
         <line num="47" count="0" type="stmt"/>
-        <line num="51" count="40" type="stmt"/>
+        <line num="51" count="66" type="stmt"/>
         <line num="52" count="0" type="stmt"/>
         <line num="53" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="54" count="0" type="stmt"/>
         <line num="55" count="0" type="stmt"/>
-        <line num="59" count="40" type="stmt"/>
+        <line num="59" count="66" type="stmt"/>
         <line num="60" count="0" type="stmt"/>
         <line num="61" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="62" count="0" type="stmt"/>
         <line num="63" count="0" type="stmt"/>
-        <line num="67" count="40" type="stmt"/>
+        <line num="67" count="66" type="stmt"/>
         <line num="68" count="0" type="stmt"/>
         <line num="69" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="70" count="0" type="stmt"/>
         <line num="71" count="0" type="stmt"/>
-        <line num="75" count="40" type="stmt"/>
+        <line num="75" count="66" type="stmt"/>
         <line num="76" count="0" type="stmt"/>
         <line num="77" count="0" type="stmt"/>
-        <line num="80" count="40" type="stmt"/>
+        <line num="80" count="66" type="stmt"/>
         <line num="81" count="0" type="stmt"/>
         <line num="82" count="0" type="stmt"/>
         <line num="83" count="0" type="stmt"/>
-        <line num="86" count="40" type="stmt"/>
+        <line num="86" count="66" type="stmt"/>
         <line num="87" count="1" type="cond" truecount="3" falsecount="1"/>
         <line num="88" count="1" type="stmt"/>
-        <line num="92" count="40" type="stmt"/>
-        <line num="93" count="40" type="stmt"/>
-        <line num="95" count="40" type="stmt"/>
+        <line num="92" count="66" type="stmt"/>
+        <line num="93" count="66" type="stmt"/>
+        <line num="95" count="66" type="stmt"/>
         <line num="96" count="0" type="cond" truecount="0" falsecount="9"/>
         <line num="99" count="0" type="stmt"/>
         <line num="100" count="0" type="cond" truecount="0" falsecount="2"/>
@@ -304,59 +304,59 @@
         <line num="140" count="0" type="stmt"/>
         <line num="141" count="0" type="stmt"/>
         <line num="143" count="0" type="stmt"/>
-        <line num="148" count="40" type="stmt"/>
-        <line num="149" count="14" type="stmt"/>
-        <line num="150" count="0" type="stmt"/>
-        <line num="153" count="14" type="stmt"/>
-        <line num="156" count="40" type="stmt"/>
-        <line num="157" count="14" type="cond" truecount="1" falsecount="1"/>
-        <line num="159" count="14" type="stmt"/>
+        <line num="148" count="66" type="stmt"/>
+        <line num="149" count="24" type="stmt"/>
+        <line num="150" count="1" type="stmt"/>
+        <line num="153" count="24" type="stmt"/>
+        <line num="156" count="66" type="stmt"/>
+        <line num="157" count="24" type="cond" truecount="1" falsecount="1"/>
+        <line num="159" count="24" type="stmt"/>
         <line num="160" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="161" count="0" type="stmt"/>
         <line num="162" count="0" type="stmt"/>
         <line num="163" count="0" type="stmt"/>
         <line num="164" count="0" type="stmt"/>
-        <line num="167" count="14" type="stmt"/>
-        <line num="168" count="14" type="stmt"/>
-        <line num="170" count="14" type="stmt"/>
-        <line num="171" count="14" type="stmt"/>
-        <line num="175" count="40" type="stmt"/>
-        <line num="176" count="14" type="stmt"/>
-        <line num="177" count="14" type="stmt"/>
-        <line num="178" count="14" type="stmt"/>
-        <line num="179" count="14" type="stmt"/>
-        <line num="181" count="14" type="cond" truecount="4" falsecount="0"/>
-        <line num="183" count="14" type="cond" truecount="1" falsecount="1"/>
+        <line num="167" count="24" type="stmt"/>
+        <line num="168" count="24" type="stmt"/>
+        <line num="170" count="24" type="stmt"/>
+        <line num="171" count="24" type="stmt"/>
+        <line num="175" count="66" type="stmt"/>
+        <line num="176" count="24" type="stmt"/>
+        <line num="177" count="24" type="stmt"/>
+        <line num="178" count="24" type="stmt"/>
+        <line num="179" count="24" type="stmt"/>
+        <line num="181" count="24" type="cond" truecount="4" falsecount="0"/>
+        <line num="183" count="24" type="cond" truecount="1" falsecount="1"/>
         <line num="185" count="0" type="stmt"/>
         <line num="200" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="201" count="0" type="stmt"/>
         <line num="204" count="0" type="stmt"/>
         <line num="205" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="208" count="14" type="stmt"/>
-        <line num="210" count="14" type="cond" truecount="2" falsecount="0"/>
+        <line num="208" count="24" type="stmt"/>
+        <line num="210" count="24" type="cond" truecount="2" falsecount="0"/>
         <line num="211" count="1" type="stmt"/>
-        <line num="214" count="13" type="stmt"/>
-        <line num="215" count="13" type="cond" truecount="1" falsecount="1"/>
+        <line num="214" count="23" type="stmt"/>
+        <line num="215" count="23" type="cond" truecount="1" falsecount="1"/>
         <line num="218" count="1" type="stmt"/>
         <line num="219" count="1" type="cond" truecount="1" falsecount="1"/>
         <line num="220" count="1" type="stmt"/>
-        <line num="222" count="14" type="stmt"/>
-        <line num="226" count="14" type="stmt"/>
-        <line num="229" count="40" type="stmt"/>
+        <line num="222" count="24" type="stmt"/>
+        <line num="226" count="24" type="stmt"/>
+        <line num="229" count="66" type="stmt"/>
         <line num="230" count="3" type="stmt"/>
         <line num="231" count="3" type="stmt"/>
         <line num="232" count="3" type="stmt"/>
         <line num="233" count="3" type="stmt"/>
-        <line num="236" count="40" type="cond" truecount="2" falsecount="0"/>
-        <line num="237" count="14" type="stmt"/>
+        <line num="236" count="66" type="cond" truecount="2" falsecount="0"/>
+        <line num="237" count="24" type="stmt"/>
         <line num="240" count="0" type="stmt"/>
         <line num="241" count="0" type="stmt"/>
         <line num="242" count="0" type="stmt"/>
         <line num="243" count="0" type="stmt"/>
-        <line num="250" count="84" type="stmt"/>
-        <line num="258" count="26" type="cond" truecount="2" falsecount="0"/>
+        <line num="250" count="144" type="stmt"/>
+        <line num="258" count="42" type="cond" truecount="2" falsecount="0"/>
         <line num="259" count="1" type="stmt"/>
-        <line num="262" count="25" type="stmt"/>
+        <line num="262" count="41" type="stmt"/>
         <line num="265" count="0" type="stmt"/>
         <line num="266" count="0" type="stmt"/>
         <line num="267" count="0" type="stmt"/>
@@ -376,7 +376,7 @@
         <line num="343" count="0" type="stmt"/>
         <line num="348" count="0" type="stmt"/>
         <line num="351" count="0" type="stmt"/>
-        <line num="360" count="2" type="stmt"/>
+        <line num="360" count="3" type="stmt"/>
       </file>
     </package>
     <package name="src.components.__tests__">
@@ -438,22 +438,22 @@
       <metrics statements="16" coveredstatements="16" conditionals="7" coveredconditionals="7" methods="5" coveredmethods="5"/>
       <file name="useHotkeys.ts" path="/Users/michael/pm-tools-templates/PM Tools Templates - Q3 2025 Delivery Cycle/Implementation/template-selector/src/hooks/useHotkeys.ts">
         <metrics statements="16" coveredstatements="16" conditionals="7" coveredconditionals="7" methods="5" coveredmethods="5"/>
-        <line num="1" count="2" type="stmt"/>
-        <line num="6" count="2" type="stmt"/>
-        <line num="7" count="360" type="stmt"/>
-        <line num="8" count="360" type="stmt"/>
-        <line num="15" count="2" type="stmt"/>
-        <line num="16" count="360" type="stmt"/>
-        <line num="17" count="360" type="stmt"/>
-        <line num="19" count="360" type="stmt"/>
+        <line num="1" count="3" type="stmt"/>
+        <line num="6" count="3" type="stmt"/>
+        <line num="7" count="522" type="stmt"/>
+        <line num="8" count="522" type="stmt"/>
+        <line num="15" count="3" type="stmt"/>
+        <line num="16" count="594" type="stmt"/>
+        <line num="17" count="522" type="stmt"/>
+        <line num="19" count="522" type="stmt"/>
         <line num="20" count="9" type="stmt"/>
         <line num="21" count="9" type="stmt"/>
         <line num="22" count="9" type="stmt"/>
         <line num="24" count="9" type="cond" truecount="2" falsecount="0"/>
         <line num="29" count="1" type="stmt"/>
         <line num="30" count="1" type="stmt"/>
-        <line num="34" count="360" type="stmt"/>
-        <line num="35" count="360" type="stmt"/>
+        <line num="34" count="522" type="stmt"/>
+        <line num="35" count="522" type="stmt"/>
       </file>
     </package>
     <package name="src.mocks">

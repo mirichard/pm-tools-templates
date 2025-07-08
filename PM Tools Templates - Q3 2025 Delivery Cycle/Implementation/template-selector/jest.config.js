@@ -10,8 +10,13 @@ module.exports = {
   ],
   transform: {
     '^.+\\.(ts|tsx)$': 'ts-jest',
-    '^.+\\.js$': 'babel-jest',
+    '^.+\\.(js|jsx)$': 'babel-jest',
   },
+  moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json'],
+  preset: 'ts-jest',
+  transformIgnorePatterns: [
+    'node_modules/(?!(.*\\.mjs$))',
+  ],
   collectCoverageFrom: [
     'src/**/*.{ts,tsx}',
     'backend/**/*.{js}',

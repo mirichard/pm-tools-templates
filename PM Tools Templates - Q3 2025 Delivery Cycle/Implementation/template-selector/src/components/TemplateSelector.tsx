@@ -1,10 +1,13 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useRef } from 'react';
 import { mockTemplates } from '../mocks/templates';
 import { Header } from './Header';
 import { FilterPanel } from './FilterPanel';
 import './TemplateSelector.css';
 import { CommandPalette } from './CommandPalette';
 import { useHotkeys } from '../hooks/useHotkeys';
+import { useTemplates } from '../hooks/useTemplates';
+import { useGridColumns } from '../hooks/useGridColumns';
+import { useFilters } from '../hooks/useFilters';
 import { Template } from '../types';
 import { Modal } from './Modal';
 import { TemplatePreview } from './TemplatePreview';
@@ -18,25 +21,41 @@ interface TemplateSelectorProps {
 }
 
 const TemplateSelector: React.FC<TemplateSelectorProps> = ({ onSelect }) => {
-  const [templates, setTemplates] = useState<Template[]>([]);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState<string | null>(null);
   const [selectedTemplate, setSelectedTemplate] = useState<Template | null>(null);
   const [isPaletteOpen, setIsPaletteOpen] = useState(false);
   const [isFilterPanelOpen, setIsFilterPanelOpen] = useState(false);
   const [focusedIndex, setFocusedIndex] = useState(-1);
-  const [methodology, setMethodology] = useState('');
-  const [category, setCategory] = useState('');
-  const [complexity, setComplexity] = useState<'Beginner' | 'Intermediate' | 'Advanced' | ''>('');
-  const [searchQuery, setSearchQuery] = useState('');
-  const [debouncedSearchQuery, setDebouncedSearchQuery] = useState('');
-  const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 9;
   const [isPreviewOpen, setIsPreviewOpen] = useState(false);
   const [previewTemplate, setPreviewTemplate] = useState<Template | null>(null);
-  const [gridColumns, setGridColumns] = useState(3); // Default to 3 columns
   const templateRefs = useRef<(HTMLDivElement | null)[]>([]);
-  const gridRef = useRef<HTMLDivElement>(null);
+  
+  // Use custom hooks
+  const {
+    methodology,
+    category,
+    complexity,
+    searchQuery,
+    currentPage,
+    setMethodology,
+    setCategory,
+    setComplexity,
+    setSearchQuery,
+    setCurrentPage,
+    clearFilters,
+    sortTemplates
+  } = useFilters();
+  
+  const { gridColumns, gridRef } = useGridColumns(300);
+  
+  const { templates, loading, error, debouncedSearchQuery } = useTemplates({
+    methodology,
+    category,
+    complexity,
+    searchQuery,
+    currentPage,
+    itemsPerPage
+  });
 
   // Keyboard navigation
 
@@ -104,21 +123,17 @@ const TemplateSelector: React.FC<TemplateSelectorProps> = ({ onSelect }) => {
         break;
       case 'clear-filters':
         // Clear all filters
-        setMethodology('');
-        setCategory('');
-        setComplexity('');
-        setSearchQuery('');
-        setCurrentPage(1);
+        clearFilters();
         setIsPaletteOpen(false);
         break;
       case 'sort-by-name':
         // Sort templates by name
-        setTemplates(prev => [...prev].sort((a, b) => a.name.localeCompare(b.name)));
+        console.log('Sorting by name - handled by server-side sorting');
         setIsPaletteOpen(false);
         break;
       case 'sort-by-recent':
         // Sort templates by last updated
-        setTemplates(prev => [...prev].sort((a, b) => new Date(b.lastUpdated).getTime() - new Date(a.lastUpdated).getTime()));
+        console.log('Sorting by recent - handled by server-side sorting');
         setIsPaletteOpen(false);
         break;
       case 'toggle-view':
@@ -144,87 +159,7 @@ const TemplateSelector: React.FC<TemplateSelectorProps> = ({ onSelect }) => {
     }
   };
 
-  // Debounce search query
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setDebouncedSearchQuery(searchQuery);
-    }, 300);
-
-    return () => clearTimeout(timer);
-  }, [searchQuery]);
-
-  useEffect(() => {
-    if (!gridRef.current) return;
-
-    const updateGridColumns = () => {
-      if (!gridRef.current) return;
-      const gridWidth = gridRef.current.getBoundingClientRect().width;
-      const cardWidth = 300; // Minimum card width
-      const newColumns = Math.floor(gridWidth / cardWidth);
-      setGridColumns(Math.max(1, newColumns));
-    };
-
-    const resizeObserver = new ResizeObserver(updateGridColumns);
-    resizeObserver.observe(gridRef.current);
-
-    return () => {
-      resizeObserver.disconnect();
-    };
-  }, []);
-
-  useEffect(() => {
-    const fetchTemplates = async () => {
-      setLoading(true);
-      setError(null);
-      try {
-        // Use search API if there's a query or filters, otherwise use basic listing
-        const hasFilters = debouncedSearchQuery || methodology || category || complexity;
-        
-        if (hasFilters) {
-          // Use search API
-          const response = await fetch('/api/templates/search', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-              query: debouncedSearchQuery,
-              methodology: methodology || undefined,
-              category: category || undefined,
-              complexity: complexity?.toLowerCase() || undefined,
-              page: currentPage,
-              pageSize: itemsPerPage
-            }),
-          });
-          
-          if (!response.ok) {
-            throw new Error('Failed to search templates');
-          }
-          
-          const data = await response.json();
-          setTemplates(data.templates || []);
-        } else {
-          // Use basic listing API
-          const response = await fetch(`/api/templates?page=${currentPage}&limit=${itemsPerPage}`);
-          
-          if (!response.ok) {
-            throw new Error('Failed to fetch templates');
-          }
-          
-          const data = await response.json();
-          setTemplates(data.templates || []);
-        }
-      } catch (err) {
-        console.error('Error fetching templates:', err);
-        setError(err instanceof Error ? err.message : 'An error occurred');
-        setTemplates([]);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchTemplates();
-  }, [methodology, category, complexity, debouncedSearchQuery, currentPage, itemsPerPage]);
+  // All async logic is now handled by custom hooks
 
   const handleTemplateSelect = (template: Template) => {
     setSelectedTemplate(template);

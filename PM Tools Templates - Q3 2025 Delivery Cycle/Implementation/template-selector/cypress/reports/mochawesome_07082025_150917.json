@@ -1,0 +1,558 @@
+{
+  "stats": {
+    "suites": 2,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2025-07-08T19:08:45.508Z",
+    "end": "2025-07-08T19:09:17.174Z",
+    "duration": 31666,
+    "testsRegistered": 15,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 14,
+    "hasSkipped": true
+  },
+  "results": [
+    {
+      "uuid": "361640ea-65d5-44df-a72b-8e7e75d1d22a",
+      "title": "",
+      "fullFile": "cypress/e2e/cross-browser.cy.js",
+      "file": "cypress/e2e/cross-browser.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "3a401b4a-7284-4d99-bc26-1c4f1f618ff0",
+          "title": "Cross-Browser Compatibility Tests",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [],
+          "suites": [
+            {
+              "uuid": "d58f0744-616e-48a6-8417-079e534c867f",
+              "title": "Chrome Browser Tests",
+              "fullFile": "",
+              "file": "",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "should load and function correctly in Chrome",
+                  "fullTitle": "Cross-Browser Compatibility Tests Chrome Browser Tests should load and function correctly in Chrome",
+                  "timedOut": null,
+                  "duration": 10305,
+                  "state": "failed",
+                  "speed": null,
+                  "pass": false,
+                  "fail": true,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.measurePerformance('chrome-load-test');\n// Test basic functionality\ncy.testCrossBrowserCompatibility();\n// Test Chrome-specific features\ncy.get('[data-testid=\"search-input\"]').should('be.visible');\ncy.searchTemplates('project');\ncy.get('[data-testid=\"template-card\"]').should('have.length.greaterThan', 0);\n// Test performance in Chrome\ncy.window().then(win => {\n  const navigation = win.performance.getEntriesByType('navigation')[0];\n  expect(navigation.loadEventEnd - navigation.loadEventStart).to.be.lessThan(3000);\n});\ncy.endPerformanceMeasurement('chrome-load-test');",
+                  "err": {
+                    "message": "CypressError: `cy.visit()` failed trying to load:\n\nhttp://localhost:3000/\n\nWe attempted to make an http request to this URL but the request failed without a response.\n\nWe received this error at the network level:\n\n  > Error: ESOCKETTIMEDOUT\n\nCommon situations why this would fail:\n  - you don't have internet access\n  - you forgot to run / boot your web server\n  - your web server isn't accessible\n  - you have weird network configuration settings on your computer\n\nBecause this error occurred during a `before each` hook we are skipping the remaining tests in the current suite: `Cross-Browser Compatibility...`",
+                    "estack": "CypressError: `cy.visit()` failed trying to load:\n\nhttp://localhost:3000/\n\nWe attempted to make an http request to this URL but the request failed without a response.\n\nWe received this error at the network level:\n\n  > Error: ESOCKETTIMEDOUT\n\nCommon situations why this would fail:\n  - you don't have internet access\n  - you forgot to run / boot your web server\n  - your web server isn't accessible\n  - you have weird network configuration settings on your computer\n\nBecause this error occurred during a `before each` hook we are skipping the remaining tests in the current suite: `Cross-Browser Compatibility...`\n    at <unknown> (http://localhost:3000/__cypress/runner/cypress_runner.js:131607:74)\n    at visitFailedByErr (http://localhost:3000/__cypress/runner/cypress_runner.js:131006:12)\n    at <unknown> (http://localhost:3000/__cypress/runner/cypress_runner.js:131606:11)\n    at tryCatcher (http://localhost:3000/__cypress/runner/cypress_runner.js:1830:23)\n    at Promise._settlePromiseFromHandler (http://localhost:3000/__cypress/runner/cypress_runner.js:1542:31)\n    at Promise._settlePromise (http://localhost:3000/__cypress/runner/cypress_runner.js:1599:18)\n    at Promise._settlePromise0 (http://localhost:3000/__cypress/runner/cypress_runner.js:1644:10)\n    at Promise._settlePromises (http://localhost:3000/__cypress/runner/cypress_runner.js:1720:18)\n    at _drainQueueStep (http://localhost:3000/__cypress/runner/cypress_runner.js:2430:12)\n    at _drainQueue (http://localhost:3000/__cypress/runner/cypress_runner.js:2423:9)\n    at Async._drainQueues (http://localhost:3000/__cypress/runner/cypress_runner.js:2439:5)\n    at Async.drainQueues (http://localhost:3000/__cypress/runner/cypress_runner.js:2309:14)\nFrom Your Spec Code:\n    at Context.eval (webpack://template-selector/./cypress/e2e/cross-browser.cy.js:3:7)\n\nFrom Node.js Internals:\n  Error: ESOCKETTIMEDOUT\n      at ClientRequest.<anonymous> (<embedded>:290:108477)\n      at Object.onceWrapper (node:events:628:28)\n      at ClientRequest.emit (node:events:514:28)\n      at Socket.emitRequestTimeout (node:_http_client:847:9)\n      at Object.onceWrapper (node:events:628:28)\n      at Socket.emit (node:events:526:35)\n      at Socket._onTimeout (node:net:571:8)\n      at listOnTimeout (node:internal/timers:569:17)\n      at process.processTimers (node:internal/timers:512:7)",
+                    "diff": null
+                  },
+                  "uuid": "b1f17265-a4f7-4860-9722-68761fa0f0c8",
+                  "parentUUID": "d58f0744-616e-48a6-8417-079e534c867f",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "should handle Chrome-specific CSS features",
+                  "fullTitle": "Cross-Browser Compatibility Tests Chrome Browser Tests should handle Chrome-specific CSS features",
+                  "timedOut": null,
+                  "duration": 0,
+                  "state": "skipped",
+                  "speed": null,
+                  "pass": false,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.waitForTemplateSelector();\n// Test CSS Grid support\ncy.get('[data-testid=\"template-grid\"]').should('have.css', 'display', 'grid');\n// Test CSS custom properties\ncy.get('[data-testid=\"template-card\"]').first().should('have.css', 'border-radius');\n// Test flexbox support\ncy.get('[data-testid=\"filter-panel\"]').should('have.css', 'display', 'flex');",
+                  "err": {},
+                  "uuid": "83930e68-04b6-4896-86d3-6f83f52395ce",
+                  "parentUUID": "d58f0744-616e-48a6-8417-079e534c867f",
+                  "isHook": false,
+                  "skipped": true
+                }
+              ],
+              "suites": [],
+              "passes": [],
+              "failures": [
+                "b1f17265-a4f7-4860-9722-68761fa0f0c8"
+              ],
+              "pending": [],
+              "skipped": [
+                "83930e68-04b6-4896-86d3-6f83f52395ce"
+              ],
+              "duration": 10305,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            },
+            {
+              "uuid": "cc9807d1-5ee4-4476-9b22-87f92d69edd6",
+              "title": "Firefox Browser Tests",
+              "fullFile": "",
+              "file": "",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "should load and function correctly in Firefox",
+                  "fullTitle": "Cross-Browser Compatibility Tests Firefox Browser Tests should load and function correctly in Firefox",
+                  "timedOut": null,
+                  "duration": 0,
+                  "state": "skipped",
+                  "speed": null,
+                  "pass": false,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.measurePerformance('firefox-load-test');\n// Test basic functionality\ncy.testCrossBrowserCompatibility();\n// Test Firefox-specific behavior\ncy.get('[data-testid=\"search-input\"]').should('be.visible');\ncy.searchTemplates('agile');\ncy.get('[data-testid=\"template-card\"]').should('have.length.greaterThan', 0);\n// Test keyboard navigation (Firefox has different behavior)\ncy.get('[data-testid=\"search-input\"]').focus().type('{tab}');\ncy.focused().should('have.attr', 'data-testid');\ncy.endPerformanceMeasurement('firefox-load-test');",
+                  "err": {},
+                  "uuid": "98fc1c91-4539-4daa-bd30-971e4cf21ec1",
+                  "parentUUID": null,
+                  "isHook": false,
+                  "skipped": true
+                },
+                {
+                  "title": "should handle Firefox-specific features",
+                  "fullTitle": "Cross-Browser Compatibility Tests Firefox Browser Tests should handle Firefox-specific features",
+                  "timedOut": null,
+                  "duration": 0,
+                  "state": "skipped",
+                  "speed": null,
+                  "pass": false,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.waitForTemplateSelector();\n// Test scrollbar behavior\ncy.get('[data-testid=\"template-list\"]').scrollTo('bottom');\ncy.get('[data-testid=\"template-card\"]').should('be.visible');\n// Test right-click context menu\ncy.get('[data-testid=\"template-card\"]').first().rightclick();",
+                  "err": {},
+                  "uuid": "158097f5-1488-4aec-8172-cb05e01f793a",
+                  "parentUUID": null,
+                  "isHook": false,
+                  "skipped": true
+                }
+              ],
+              "suites": [],
+              "passes": [],
+              "failures": [],
+              "pending": [],
+              "skipped": [
+                "98fc1c91-4539-4daa-bd30-971e4cf21ec1",
+                "158097f5-1488-4aec-8172-cb05e01f793a"
+              ],
+              "duration": 0,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            },
+            {
+              "uuid": "3d2ebc20-0490-4a89-88d4-a4cb86cab4e0",
+              "title": "Safari Browser Tests",
+              "fullFile": "",
+              "file": "",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "should load and function correctly in Safari",
+                  "fullTitle": "Cross-Browser Compatibility Tests Safari Browser Tests should load and function correctly in Safari",
+                  "timedOut": null,
+                  "duration": 0,
+                  "state": "skipped",
+                  "speed": null,
+                  "pass": false,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.measurePerformance('safari-load-test');\n// Test basic functionality\ncy.testCrossBrowserCompatibility();\n// Test Safari-specific behavior\ncy.get('[data-testid=\"search-input\"]').should('be.visible');\ncy.searchTemplates('traditional');\ncy.get('[data-testid=\"template-card\"]').should('have.length.greaterThan', 0);\n// Test Safari's unique handling of form elements\ncy.get('[data-testid=\"search-input\"]').clear().type('test');\ncy.get('[data-testid=\"search-input\"]').should('have.value', 'test');\ncy.endPerformanceMeasurement('safari-load-test');",
+                  "err": {},
+                  "uuid": "e9d52cbc-5732-4daa-abd1-1fa2f86caed2",
+                  "parentUUID": null,
+                  "isHook": false,
+                  "skipped": true
+                },
+                {
+                  "title": "should handle Safari-specific CSS and JavaScript features",
+                  "fullTitle": "Cross-Browser Compatibility Tests Safari Browser Tests should handle Safari-specific CSS and JavaScript features",
+                  "timedOut": null,
+                  "duration": 0,
+                  "state": "skipped",
+                  "speed": null,
+                  "pass": false,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.waitForTemplateSelector();\n// Test Safari's handling of CSS transforms\ncy.get('[data-testid=\"template-card\"]').first().trigger('mouseover');\ncy.get('[data-testid=\"template-card\"]').first().should('have.css', 'transform');\n// Test Safari's date handling\ncy.window().then(win => {\n  const date = new Date();\n  expect(date.toISOString()).to.be.a('string');\n});",
+                  "err": {},
+                  "uuid": "2938f156-7a60-466a-a59e-e81785425682",
+                  "parentUUID": null,
+                  "isHook": false,
+                  "skipped": true
+                }
+              ],
+              "suites": [],
+              "passes": [],
+              "failures": [],
+              "pending": [],
+              "skipped": [
+                "e9d52cbc-5732-4daa-abd1-1fa2f86caed2",
+                "2938f156-7a60-466a-a59e-e81785425682"
+              ],
+              "duration": 0,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            },
+            {
+              "uuid": "aba47c33-2437-48be-aa95-91da7b09f199",
+              "title": "Mobile Browser Tests",
+              "fullFile": "",
+              "file": "",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "should work on mobile Chrome",
+                  "fullTitle": "Cross-Browser Compatibility Tests Mobile Browser Tests should work on mobile Chrome",
+                  "timedOut": null,
+                  "duration": 0,
+                  "state": "skipped",
+                  "speed": null,
+                  "pass": false,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.viewport('iphone-x');\ncy.measurePerformance('mobile-chrome-test');\ncy.testMobileResponsiveness();\n// Test touch interactions\ncy.get('[data-testid=\"template-card\"]').first().trigger('touchstart');\ncy.get('[data-testid=\"template-card\"]').first().trigger('touchend');\ncy.endPerformanceMeasurement('mobile-chrome-test');",
+                  "err": {},
+                  "uuid": "6e617f43-4772-4f4b-953a-eec122ccec9b",
+                  "parentUUID": null,
+                  "isHook": false,
+                  "skipped": true
+                },
+                {
+                  "title": "should work on mobile Safari",
+                  "fullTitle": "Cross-Browser Compatibility Tests Mobile Browser Tests should work on mobile Safari",
+                  "timedOut": null,
+                  "duration": 0,
+                  "state": "skipped",
+                  "speed": null,
+                  "pass": false,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.viewport('iphone-x');\ncy.measurePerformance('mobile-safari-test');\ncy.testMobileResponsiveness();\n// Test iOS-specific behavior\ncy.get('[data-testid=\"search-input\"]').focus();\ncy.get('[data-testid=\"search-input\"]').should('be.focused');\ncy.endPerformanceMeasurement('mobile-safari-test');",
+                  "err": {},
+                  "uuid": "4600b22d-384d-4042-9d69-e96230417099",
+                  "parentUUID": null,
+                  "isHook": false,
+                  "skipped": true
+                }
+              ],
+              "suites": [],
+              "passes": [],
+              "failures": [],
+              "pending": [],
+              "skipped": [
+                "6e617f43-4772-4f4b-953a-eec122ccec9b",
+                "4600b22d-384d-4042-9d69-e96230417099"
+              ],
+              "duration": 0,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            },
+            {
+              "uuid": "863ac840-1c49-4c2e-8695-eae5f7fd4660",
+              "title": "Edge Browser Tests",
+              "fullFile": "",
+              "file": "",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "should load and function correctly in Edge",
+                  "fullTitle": "Cross-Browser Compatibility Tests Edge Browser Tests should load and function correctly in Edge",
+                  "timedOut": null,
+                  "duration": 0,
+                  "state": "skipped",
+                  "speed": null,
+                  "pass": false,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.measurePerformance('edge-load-test');\n// Test basic functionality\ncy.testCrossBrowserCompatibility();\n// Test Edge-specific features\ncy.get('[data-testid=\"search-input\"]').should('be.visible');\ncy.searchTemplates('hybrid');\ncy.get('[data-testid=\"template-card\"]').should('have.length.greaterThan', 0);\n// Test Edge's unique JavaScript features\ncy.window().then(win => {\n  expect(win.navigator.userAgent).to.include('Edge');\n});\ncy.endPerformanceMeasurement('edge-load-test');",
+                  "err": {},
+                  "uuid": "33a4f9d7-284f-4289-9891-bedbfcf43ccf",
+                  "parentUUID": null,
+                  "isHook": false,
+                  "skipped": true
+                }
+              ],
+              "suites": [],
+              "passes": [],
+              "failures": [],
+              "pending": [],
+              "skipped": [
+                "33a4f9d7-284f-4289-9891-bedbfcf43ccf"
+              ],
+              "duration": 0,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            },
+            {
+              "uuid": "75b40549-4c4f-469e-8193-ee54dde48678",
+              "title": "Cross-Browser Performance Tests",
+              "fullFile": "",
+              "file": "",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "should meet performance benchmarks across browsers",
+                  "fullTitle": "Cross-Browser Compatibility Tests Cross-Browser Performance Tests should meet performance benchmarks across browsers",
+                  "timedOut": null,
+                  "duration": 0,
+                  "state": "skipped",
+                  "speed": null,
+                  "pass": false,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "const browsers = ['chrome', 'firefox', 'safari', 'edge'];\nbrowsers.forEach(browser => {\n  cy.measurePerformance(`${browser}-performance-test`);\n  // Test load time\n  cy.waitForTemplateSelector();\n  // Test search performance\n  cy.searchTemplates('project');\n  cy.get('[data-testid=\"template-card\"]').should('have.length.greaterThan', 0);\n  // Test filtering performance\n  cy.filterByMethodology('traditional');\n  cy.get('[data-testid=\"template-card\"]').should('have.length.greaterThan', 0);\n  cy.endPerformanceMeasurement(`${browser}-performance-test`);\n});",
+                  "err": {},
+                  "uuid": "38428450-4181-4715-88af-71cba91ab785",
+                  "parentUUID": null,
+                  "isHook": false,
+                  "skipped": true
+                }
+              ],
+              "suites": [],
+              "passes": [],
+              "failures": [],
+              "pending": [],
+              "skipped": [
+                "38428450-4181-4715-88af-71cba91ab785"
+              ],
+              "duration": 0,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            },
+            {
+              "uuid": "8939dab5-e6ef-4ddc-895b-48fb57d92fd3",
+              "title": "Browser Storage Tests",
+              "fullFile": "",
+              "file": "",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "should handle localStorage across browsers",
+                  "fullTitle": "Cross-Browser Compatibility Tests Browser Storage Tests should handle localStorage across browsers",
+                  "timedOut": null,
+                  "duration": 0,
+                  "state": "skipped",
+                  "speed": null,
+                  "pass": false,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.searchTemplates('project');\n// Test localStorage persistence\ncy.window().then(win => {\n  win.localStorage.setItem('test-key', 'test-value');\n  expect(win.localStorage.getItem('test-key')).to.equal('test-value');\n});\ncy.reload();\ncy.window().then(win => {\n  expect(win.localStorage.getItem('test-key')).to.equal('test-value');\n});",
+                  "err": {},
+                  "uuid": "65e5b5d3-3ffa-49d7-b254-f5ab0b61b9a4",
+                  "parentUUID": null,
+                  "isHook": false,
+                  "skipped": true
+                },
+                {
+                  "title": "should handle sessionStorage across browsers",
+                  "fullTitle": "Cross-Browser Compatibility Tests Browser Storage Tests should handle sessionStorage across browsers",
+                  "timedOut": null,
+                  "duration": 0,
+                  "state": "skipped",
+                  "speed": null,
+                  "pass": false,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.searchTemplates('agile');\n// Test sessionStorage persistence\ncy.window().then(win => {\n  win.sessionStorage.setItem('session-key', 'session-value');\n  expect(win.sessionStorage.getItem('session-key')).to.equal('session-value');\n});\ncy.reload();\ncy.window().then(win => {\n  expect(win.sessionStorage.getItem('session-key')).to.equal('session-value');\n});",
+                  "err": {},
+                  "uuid": "802984d8-b6a7-407d-8535-484cebfe22e9",
+                  "parentUUID": null,
+                  "isHook": false,
+                  "skipped": true
+                }
+              ],
+              "suites": [],
+              "passes": [],
+              "failures": [],
+              "pending": [],
+              "skipped": [
+                "65e5b5d3-3ffa-49d7-b254-f5ab0b61b9a4",
+                "802984d8-b6a7-407d-8535-484cebfe22e9"
+              ],
+              "duration": 0,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            },
+            {
+              "uuid": "28a18bf1-54fc-46a5-80cf-ca0597e8be8a",
+              "title": "Network Condition Tests",
+              "fullFile": "",
+              "file": "",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "should handle slow network conditions",
+                  "fullTitle": "Cross-Browser Compatibility Tests Network Condition Tests should handle slow network conditions",
+                  "timedOut": null,
+                  "duration": 0,
+                  "state": "skipped",
+                  "speed": null,
+                  "pass": false,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.simulateSlowNetwork();\ncy.visit('/');\n// Should show loading state\ncy.get('[data-testid=\"loading-spinner\"]').should('be.visible');\n// Should eventually load\ncy.waitForTemplateSelector();\ncy.get('[data-testid=\"template-card\"]').should('have.length.greaterThan', 0);",
+                  "err": {},
+                  "uuid": "22c77260-df92-49eb-bc31-a04729ad6dd8",
+                  "parentUUID": null,
+                  "isHook": false,
+                  "skipped": true
+                },
+                {
+                  "title": "should handle network errors gracefully",
+                  "fullTitle": "Cross-Browser Compatibility Tests Network Condition Tests should handle network errors gracefully",
+                  "timedOut": null,
+                  "duration": 0,
+                  "state": "skipped",
+                  "speed": null,
+                  "pass": false,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.testErrorHandling();\n// Should show error message\ncy.get('[data-testid=\"error-message\"]').should('contain', 'Failed to load templates');\n// Should have retry button\ncy.get('[data-testid=\"retry-button\"]').should('be.visible');",
+                  "err": {},
+                  "uuid": "30e76c99-e115-4dd0-b8e7-cb00fd758a5f",
+                  "parentUUID": null,
+                  "isHook": false,
+                  "skipped": true
+                }
+              ],
+              "suites": [],
+              "passes": [],
+              "failures": [],
+              "pending": [],
+              "skipped": [
+                "22c77260-df92-49eb-bc31-a04729ad6dd8",
+                "30e76c99-e115-4dd0-b8e7-cb00fd758a5f"
+              ],
+              "duration": 0,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            },
+            {
+              "uuid": "3da46986-36cf-4b95-877b-3df2ddb2fcbe",
+              "title": "Accessibility Tests",
+              "fullFile": "",
+              "file": "",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "should be accessible across all browsers",
+                  "fullTitle": "Cross-Browser Compatibility Tests Accessibility Tests should be accessible across all browsers",
+                  "timedOut": null,
+                  "duration": 0,
+                  "state": "skipped",
+                  "speed": null,
+                  "pass": false,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.waitForTemplateSelector();\ncy.checkA11y();\n// Test keyboard navigation\ncy.get('[data-testid=\"search-input\"]').focus();\ncy.get('[data-testid=\"search-input\"]').type('{tab}');\ncy.focused().should('be.visible');\n// Test screen reader support\ncy.get('[data-testid=\"template-card\"]').first().should('have.attr', 'aria-label');",
+                  "err": {},
+                  "uuid": "f7470d2c-633b-4f7e-83a9-21be00fb0a64",
+                  "parentUUID": null,
+                  "isHook": false,
+                  "skipped": true
+                }
+              ],
+              "suites": [],
+              "passes": [],
+              "failures": [],
+              "pending": [],
+              "skipped": [
+                "f7470d2c-633b-4f7e-83a9-21be00fb0a64"
+              ],
+              "duration": 0,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            }
+          ],
+          "passes": [],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 0,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "id": "default",
+        "reportDir": "cypress/reports",
+        "quite": true,
+        "overwrite": false,
+        "html": true,
+        "json": true,
+        "timestamp": "mmddyyyy_HHMMss"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

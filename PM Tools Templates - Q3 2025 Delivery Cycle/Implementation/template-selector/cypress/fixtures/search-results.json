@@ -1,0 +1,21 @@
+{
+  "templates": [
+    {
+      "id": "traditional-project-charter",
+      "name": "Project Charter",
+      "description": "A comprehensive project charter template for traditional project management",
+      "methodology": "Traditional",
+      "category": "Initiation",
+      "tags": ["charter", "initiation", "traditional"],
+      "rating": 4.5,
+      "downloadCount": 1250,
+      "lastUpdated": "2024-01-15T10:00:00Z",
+      "relevanceScore": 0.95
+    }
+  ],
+  "totalCount": 1,
+  "page": 1,
+  "pageSize": 10,
+  "searchQuery": "project",
+  "searchTime": 45
+}

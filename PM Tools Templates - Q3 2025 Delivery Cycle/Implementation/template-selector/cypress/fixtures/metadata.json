@@ -1,0 +1,26 @@
+{
+  "methodologies": [
+    "Traditional",
+    "Agile",
+    "Hybrid"
+  ],
+  "categories": [
+    "Initiation",
+    "Planning",
+    "Execution",
+    "Monitoring",
+    "Closing",
+    "Risk Management"
+  ],
+  "tags": [
+    "charter",
+    "initiation",
+    "traditional",
+    "user-stories",
+    "agile",
+    "planning",
+    "risk",
+    "hybrid",
+    "management"
+  ]
+}

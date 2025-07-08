@@ -1,0 +1,40 @@
+{
+  "templates": [
+    {
+      "id": "traditional-project-charter",
+      "name": "Project Charter",
+      "description": "A comprehensive project charter template for traditional project management",
+      "methodology": "Traditional",
+      "category": "Initiation",
+      "tags": ["charter", "initiation", "traditional"],
+      "rating": 4.5,
+      "downloadCount": 1250,
+      "lastUpdated": "2024-01-15T10:00:00Z"
+    },
+    {
+      "id": "agile-user-stories",
+      "name": "User Stories Template",
+      "description": "Template for creating and managing user stories in agile projects",
+      "methodology": "Agile",
+      "category": "Planning",
+      "tags": ["user-stories", "agile", "planning"],
+      "rating": 4.8,
+      "downloadCount": 2100,
+      "lastUpdated": "2024-01-20T14:30:00Z"
+    },
+    {
+      "id": "hybrid-risk-register",
+      "name": "Risk Register",
+      "description": "A hybrid approach to risk management for modern projects",
+      "methodology": "Hybrid",
+      "category": "Risk Management",
+      "tags": ["risk", "hybrid", "management"],
+      "rating": 4.3,
+      "downloadCount": 890,
+      "lastUpdated": "2024-01-10T09:15:00Z"
+    }
+  ],
+  "totalCount": 3,
+  "page": 1,
+  "pageSize": 10
+}

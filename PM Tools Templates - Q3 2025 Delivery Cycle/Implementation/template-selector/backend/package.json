@@ -8,6 +8,7 @@
     "dev": "nodemon server.js",
     "test": "jest",
     "test:watch": "jest --watch",
+    "test:load": "k6 run --vus 10 --duration 30s tests/load-test.js",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix"
   },

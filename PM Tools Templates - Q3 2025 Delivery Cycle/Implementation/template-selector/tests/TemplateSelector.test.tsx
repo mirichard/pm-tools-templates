@@ -3,6 +3,18 @@ import { render, screen, fireEvent, waitFor, act } from '@testing-library/react'
 import TemplateSelector from '../src/components/TemplateSelector';
 import { Template } from '../src/types';
 
+/*
+ * KNOWN ISSUE: React act() warnings
+ * 
+ * Some tests may show warnings about state updates not wrapped in act().
+ * These warnings are related to async operations in useEffect hooks within
+ * TemplateSelector (debounced search, fetchTemplates async calls).
+ * 
+ * Status: Acceptable for pre-release - tests pass correctly
+ * Monitoring: Watch for new/critical failures in CI
+ * Future: Planned incremental refactoring to extract async logic
+ */
+
 const mockTemplates: Template[] = [{
   id: '1',
   name: 'Test Template',
@@ -21,6 +33,7 @@ describe('TemplateSelector', () => {
   const mockOnSelect = jest.fn();
 
   beforeEach(() => {
+    jest.useFakeTimers();
     global.fetch = jest.fn().mockImplementation((url, options) => {
       if (url.includes('/api/templates/search')) {
         return Promise.resolve({
@@ -56,6 +69,7 @@ describe('TemplateSelector', () => {
 
   afterEach(() => {
     jest.clearAllMocks();
+    jest.useRealTimers();
   });
 
   it('renders loading skeleton initially', async () => {
@@ -84,17 +98,22 @@ describe('TemplateSelector', () => {
           category="Planning"
         />
       );
+      
+      // Fast-forward all timers to trigger debounced search
+      jest.runAllTimers();
     });
 
-    // Wait for templates to load and replace skeletons
-    await waitFor(() => {
-      const templateGrid = screen.getByRole('list', { name: 'Template grid' });
-      expect(templateGrid).toBeInTheDocument();
-      
-      // Look for actual template cards (not loading skeletons)
-      const templateCards = screen.getAllByRole('listitem');
-      const nonBusyCards = templateCards.filter(card => card.getAttribute('aria-busy') !== 'true');
-      expect(nonBusyCards.length).toBeGreaterThan(0);
+    // Act to wait for templates to load and replace skeletons
+    await act(async () => {
+      await waitFor(() => {
+        const templateGrid = screen.getByRole('list', { name: 'Template grid' });
+        expect(templateGrid).toBeInTheDocument();
+
+        // Look for actual template cards (not loading skeletons)
+        const templateCards = screen.getAllByRole('listitem');
+        const nonBusyCards = templateCards.filter(card => card.getAttribute('aria-busy') !== 'true');
+        expect(nonBusyCards.length).toBeGreaterThan(0);
+      });
     });
   });
 
@@ -107,13 +126,18 @@ describe('TemplateSelector', () => {
           category="Planning"
         />
       );
+
+      // Fast-forward all timers to trigger debounced search
+      jest.runAllTimers();
     });
 
     // Wait for templates to load and skeletons to be replaced
-    await waitFor(() => {
-      const templateCards = screen.getAllByRole('listitem');
-      const nonBusyCards = templateCards.filter(card => card.getAttribute('aria-busy') !== 'true');
-      expect(nonBusyCards.length).toBeGreaterThan(0);
+    await act(async () => {
+      await waitFor(() => {
+        const templateCards = screen.getAllByRole('listitem');
+        const nonBusyCards = templateCards.filter(card => card.getAttribute('aria-busy') !== 'true');
+        expect(nonBusyCards.length).toBeGreaterThan(0);
+      });
     });
 
     // Click the first non-busy template card
@@ -147,15 +171,22 @@ describe('TemplateSelector', () => {
           category="Planning"
         />
       );
+      
+      // Fast-forward all timers to trigger debounced search
+      jest.runAllTimers();
     });
 
     // Initially should show loading state
-    expect(screen.queryAllByRole('listitem').length).toBeGreaterThanOrEqual(0); // Check list items or error
+    await act(async () => {
+      expect(screen.queryAllByRole('listitem').length).toBeGreaterThanOrEqual(0); // Check list items or error
+    });
 
     // Then should show error message
-    await waitFor(() => {
-      const errorMessage = screen.getByRole('alert');
-      expect(errorMessage).toHaveTextContent(/error/i);
+    await act(async () => {
+      await waitFor(() => {
+        const errorMessage = screen.getByRole('alert');
+        expect(errorMessage).toHaveTextContent(/error/i);
+      });
     });
   });
 });
