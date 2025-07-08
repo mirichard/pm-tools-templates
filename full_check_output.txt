@@ -1,4 +1,4 @@
-Checking 540 markdown files (excluding node_modules)...
+Checking 541 markdown files (excluding node_modules)...
 Checking: .compliance_scripts/README.md
 Checking: ANCHOR_LINK_CRITICAL_ISSUES_SUMMARY.md
 Checking: ANCHOR_LINK_MAINTENANCE.md
@@ -49,6 +49,7 @@ Checking: PM Tools Templates - Q3 2025 Delivery Cycle/Agile/Documentation/Templa
 Checking: PM Tools Templates - Q3 2025 Delivery Cycle/Agile/Documentation/TestPlan.md
 Checking: PM Tools Templates - Q3 2025 Delivery Cycle/Agile/Planning/ProjectCharter.md
 Checking: PM Tools Templates - Q3 2025 Delivery Cycle/Agile/Planning/TaskTracking.md
+Checking: PM Tools Templates - Q3 2025 Delivery Cycle/Implementation/template-selector/README.md
 Checking: PMI_IP_RISK_MITIGATION_PLAN.md
 Checking: PROFESSIONAL_STANDARDS.md
 Checking: README-security-workflows.md
@@ -543,7 +544,7 @@ Checking: workflow-orchestration/README.md
 ============================================================
 FILTERED ANCHOR LINK CHECK REPORT (Main Project Files Only)
 ============================================================
-Files checked: 540
+Files checked: 541
 Total issues: 11407
 Broken links: 5
 Suggestions: 11402
@@ -567,7 +568,7 @@ ISSUES BY CATEGORY:
 
 📁 README.md
   🔗 Line 39: Broken anchor link: #repository-statistics
-     Suggested fix: share-your-experience
+     Suggested fix: choose-your-path
 
 📁 README.md
   🔗 Line 41: Broken anchor link: #community--contributions
