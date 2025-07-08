@@ -3,9 +3,9 @@
 FILTERED ANCHOR LINK CHECK REPORT (Main Project Files Only)
 ============================================================
 Files checked: 542
-Total issues: 11407
+Total issues: 11410
 Broken links: 5
-Suggestions: 11402
+Suggestions: 11405
 
 ISSUES BY CATEGORY:
 ----------------------------------------
@@ -568,15 +568,15 @@ ISSUES BY CATEGORY:
 📁 PM Tools Templates - Q3 2025 Delivery Cycle/Agile/Documentation/TemplateSelector/UX/wireframes/TemplateSelector.md
   💡 Line 4: Header with special characters could benefit from explicit anchor
      Suggested fix: <a id="1-main-layout"></a>
-  💡 Line 25: Header with special characters could benefit from explicit anchor
+  💡 Line 29: Header with special characters could benefit from explicit anchor
      Suggested fix: <a id="2-template-card"></a>
-  💡 Line 39: Header with special characters could benefit from explicit anchor
+  💡 Line 43: Header with special characters could benefit from explicit anchor
      Suggested fix: <a id="3-search-filter-bar"></a>
-  💡 Line 49: Header with special characters could benefit from explicit anchor
+  💡 Line 55: Header with special characters could benefit from explicit anchor
      Suggested fix: <a id="4-filter-panel"></a>
-  💡 Line 71: Header with special characters could benefit from explicit anchor
+  💡 Line 76: Header with special characters could benefit from explicit anchor
      Suggested fix: <a id="5-template-preview"></a>
-  ... and 14 more suggestions
+  ... and 17 more suggestions
 
 📁 PM Tools Templates - Q3 2025 Delivery Cycle/Agile/Documentation/TestPlan.md
   💡 Line 4: Header with special characters could benefit from explicit anchor
