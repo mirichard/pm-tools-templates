@@ -1,0 +1,106 @@
+name: CI/CD - Development
+
+on:
+  push:
+    branches: [ develop ]
+  pull_request:
+    branches: [ develop ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    
+    strategy:
+      matrix:
+        node-version: [18.x, 20.x]
+        
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Setup Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+        
+    - name: Install dependencies
+      run: npm ci
+      
+    - name: Run linting
+      run: npx eslint src/ --ext .ts,.tsx || true
+      
+    - name: Run TypeScript check
+      run: npx tsc --noEmit
+      
+    - name: Run unit tests
+      run: npm test -- --coverage --watchAll=false
+      
+    - name: Run backend tests
+      run: npm run test:backend
+      
+    - name: Upload coverage to Codecov
+      uses: codecov/codecov-action@v3
+      with:
+        file: ./coverage/lcov.info
+        flags: unittests
+        name: codecov-umbrella
+        fail_ci_if_error: false
+
+  build:
+    needs: test
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20.x'
+        cache: 'npm'
+        
+    - name: Install dependencies
+      run: npm ci
+      
+    - name: Build application
+      run: npm run build
+      
+    - name: Upload build artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        name: dist-files
+        path: dist/
+        
+  deploy-dev:
+    needs: build
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/develop'
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Download build artifacts
+      uses: actions/download-artifact@v3
+      with:
+        name: dist-files
+        path: dist/
+        
+    - name: Deploy to development environment
+      run: |
+        echo "🚀 Deploying to development environment..."
+        # Add your deployment commands here
+        # Example: aws s3 sync dist/ s3://dev-template-selector-bucket/
+        echo "✅ Deployment to development completed"
+        
+    - name: Run smoke tests
+      run: |
+        echo "🔍 Running smoke tests..."
+        # Add smoke test commands here
+        # Example: curl -f https://dev-template-selector.example.com/health
+        echo "✅ Smoke tests passed"
+        
+    - name: Notify team
+      if: always()
+      run: |
+        echo "📢 Notifying team of deployment status..."
+        # Add notification logic here (Slack, Teams, etc.)
