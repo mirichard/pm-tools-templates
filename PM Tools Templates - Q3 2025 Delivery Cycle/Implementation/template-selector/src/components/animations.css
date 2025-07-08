@@ -1,0 +1,125 @@
+/* Fade in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Scale animation */
+@keyframes scaleIn {
+  from {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Slide animation */
+@keyframes slideIn {
+  from {
+    transform: translateX(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Pulse animation for focus */
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(9, 105, 218, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(9, 105, 218, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(9, 105, 218, 0);
+  }
+}
+
+/* Apply animations */
+.template-card {
+  animation: fadeIn 0.3s ease-out;
+}
+
+.command-palette {
+  animation: scaleIn 0.2s ease-out;
+}
+
+.command-item {
+  animation: slideIn 0.2s ease-out;
+}
+
+.template-card:focus {
+  animation: pulse 1.5s infinite;
+}
+
+/* Highlight animation */
+.highlight {
+  background-color: #fff8c5;
+  padding: 0 2px;
+  border-radius: 2px;
+  animation: highlightFade 0.3s ease-out;
+}
+
+@keyframes highlightFade {
+  from {
+    background-color: #fff8c5;
+    color: transparent;
+  }
+  to {
+    background-color: #fff8c5;
+    color: inherit;
+  }
+}
+
+/* Loading state animations */
+.loading-skeleton {
+  background: linear-gradient(
+    90deg,
+    #f0f0f0 25%,
+    #f8f8f8 50%,
+    #f0f0f0 75%
+  );
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+  from {
+    background-position: 200% 0;
+  }
+  to {
+    background-position: -200% 0;
+  }
+}
+
+/* Error state animation */
+.error-shake {
+  animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+}
+
+@keyframes shake {
+  10%, 90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+  20%, 80% {
+    transform: translate3d(2px, 0, 0);
+  }
+  30%, 50%, 70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+  40%, 60% {
+    transform: translate3d(4px, 0, 0);
+  }
+}

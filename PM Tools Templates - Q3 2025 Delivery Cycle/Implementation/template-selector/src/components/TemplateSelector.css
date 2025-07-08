@@ -1,4 +1,134 @@
 .template-selector {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.active-filters {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.filter-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 4px 8px;
+  background: #f6f8fa;
+  border-radius: 12px;
+  font-size: 0.9rem;
+  color: #1F2328;
+}
+
+.filter-tag button {
+  background: none;
+  border: none;
+  color: #57606a;
+  cursor: pointer;
+  padding: 0;
+  font-size: 1.2rem;
+  line-height: 1;
+}
+
+.filter-tag button:hover {
+  color: #1F2328;
+}
+
+.template-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 1rem;
+}
+
+.template-card {
+  background: white;
+  border: 1px solid #e1e4e8;
+  border-radius: 8px;
+  padding: 1.5rem;
+  cursor: pointer;
+  transition: all 0.2s ease-out;
+  display: flex;
+  flex-direction: column;
+  height: 200px;
+}
+
+.template-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.template-card.selected {
+  border-color: #0969da;
+  box-shadow: 0 0 0 2px rgba(9, 105, 218, 0.2);
+}
+
+.template-card.focused {
+  outline: 2px solid #0969da;
+  outline-offset: 2px;
+}
+
+.template-card h3 {
+  margin: 0 0 0.5rem 0;
+  color: #1F2328;
+  font-size: 1.1rem;
+}
+
+.template-card p {
+  color: #57606a;
+  margin: 0 0 1rem 0;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  flex-grow: 1;
+}
+
+.template-metadata {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: auto;
+}
+
+.methodology,
+.category {
+  font-size: 0.8rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  background: #f6f8fa;
+  color: #57606a;
+}
+
+.loading {
+  text-align: center;
+  padding: 2rem;
+  color: #57606a;
+}
+
+.error {
+  text-align: center;
+  padding: 2rem;
+  color: #cf222e;
+  background: #ffebe9;
+  border-radius: 6px;
+  margin: 2rem;
+}
+
+@media (max-width: 768px) {
+  .template-selector {
+    padding: 1rem;
+  }
+
+  .template-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .template-card {
+    height: auto;
+    min-height: 180px;
+  }
+}
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
@@ -31,6 +161,20 @@
 .template-card.selected {
   border-color: #2ea44f;
   box-shadow: 0 0 0 2px #2ea44f;
+}
+
+.template-card.focused {
+  outline: 2px solid #0969da;
+  outline-offset: 2px;
+}
+
+.template-card:focus {
+  outline: 2px solid #0969da;
+  outline-offset: 2px;
+}
+
+.template-card:focus:not(:focus-visible) {
+  outline: none;
 }
 
 .template-card h3 {

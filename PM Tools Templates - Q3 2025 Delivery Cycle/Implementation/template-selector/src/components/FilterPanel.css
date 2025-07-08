@@ -1,0 +1,87 @@
+.filter-panel {
+  position: fixed;
+  top: 10%;
+  right: 0;
+  width: 300px;
+  max-height: 80vh;
+  overflow-y: auto;
+  background: #ffffff;
+  border: 1px solid #e1e4e8;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px 0 0 8px;
+  padding: 1rem;
+}
+
+.filter-panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.close-button {
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.filter-section {
+  margin-top: 1rem;
+}
+
+.category-list {
+  margin: 0.5rem 0 1rem 1rem;
+}
+
+.category-option input {
+  margin-right: 0.5rem;
+}
+
+.methodology-button {
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  background: #f6f8fa;
+  border: 1px solid #d0d7de;
+  display: block;
+  margin-bottom: 0.5rem;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.methodology-button.selected,
+.methodology-button:hover {
+  background: #d0ebff;
+}
+
+.filter-actions {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.clear-filters {
+  padding: 0.5rem 1rem;
+  background: #e63946;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.clear-filters:hover {
+  background: #d62839;
+}
+
+@media (max-width: 768px) {
+  .filter-panel {
+    width: 100%;
+    max-height: 50vh;
+    border-radius: 8px 8px 0 0;
+  }
+
+  .close-button {
+    font-size: 1.5rem;
+  }
+}
