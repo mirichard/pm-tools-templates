@@ -1,11 +1,15 @@
 import React from 'react';
 import './FilterPanel.css';
 
+type Complexity = 'Beginner' | 'Intermediate' | 'Advanced';
+
 interface FilterPanelProps {
   onMethodologyChange: (methodology: string) => void;
   onCategoryChange: (category: string) => void;
+  onComplexityChange: (complexity: Complexity) => void;
   selectedMethodology?: string;
   selectedCategory?: string;
+  selectedComplexity?: Complexity;
   onClose: () => void;
 }
 
@@ -17,6 +21,7 @@ export const FilterPanel: React.FC<FilterPanelProps> = ({
   onClose,
 }) => {
   const methodologies = ['Agile', 'Waterfall', 'Hybrid'];
+  const complexityLevels: Complexity[] = ['Beginner', 'Intermediate', 'Advanced'];
   const categories = {
     Agile: ['Planning', 'Execution', 'Monitoring'],
     Waterfall: ['Planning', 'Execution', 'Monitoring'],
@@ -36,8 +41,9 @@ export const FilterPanel: React.FC<FilterPanelProps> = ({
         </button>
       </div>
 
-      <div className="filter-section">
-        <h3>Methodology</h3>
+      <div className="filter-sections">
+        <div className="filter-section">
+          <h3>Methodology</h3>
         {methodologies.map((methodology) => (
           <div key={methodology} className="methodology-group">
             <button
@@ -65,6 +71,30 @@ export const FilterPanel: React.FC<FilterPanelProps> = ({
             )}
           </div>
         ))}
+        </div>
+
+        <div className="filter-section">
+          <h3>Complexity</h3>
+          <div className="complexity-options">
+            {complexityLevels.map((complexity) => (
+              <button
+                key={complexity}
+                className={`complexity-button ${
+                  selectedComplexity === complexity ? 'selected' : ''
+                }`}
+                onClick={() => onComplexityChange(complexity)}
+                aria-pressed={selectedComplexity === complexity}
+              >
+                {complexity}
+                <span className="complexity-indicator">
+                  {Array(complexity === 'Beginner' ? 1 : complexity === 'Intermediate' ? 2 : 3)
+                    .fill('●')
+                    .join(' ')}
+                </span>
+              </button>
+            ))}
+          </div>
+        </div>
       </div>
 
       <div className="filter-actions">
@@ -72,6 +102,7 @@ export const FilterPanel: React.FC<FilterPanelProps> = ({
           onClick={() => {
             onMethodologyChange('');
             onCategoryChange('');
+            onComplexityChange('' as Complexity);
           }}
           className="clear-filters"
         >

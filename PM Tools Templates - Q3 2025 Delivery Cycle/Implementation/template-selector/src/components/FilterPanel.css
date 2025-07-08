@@ -1,3 +1,25 @@
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideOut {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
 .filter-panel {
   position: fixed;
   top: 10%;
@@ -9,7 +31,8 @@
   border: 1px solid #e1e4e8;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   border-radius: 8px 0 0 8px;
-  padding: 1rem;
+  padding: 1.5rem;
+  animation: slideIn 0.3s ease-out;
 }
 
 .filter-panel-header {
@@ -25,7 +48,11 @@
   cursor: pointer;
 }
 
-.filter-section {
+.filter-panel.closing {
+  animation: slideOut 0.3s ease-in forwards;
+}
+
+.filter-sections {
   margin-top: 1rem;
 }
 
@@ -72,6 +99,40 @@
 
 .clear-filters:hover {
   background: #d62839;
+}
+
+.complexity-options {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  padding: 0.5rem 0;
+}
+
+.complexity-button {
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  border: 1px solid #d0d7de;
+  background: #f6f8fa;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  color: #24292f;
+}
+
+.complexity-button.selected,
+.complexity-button:hover {
+  background: #d7ebff;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.complexity-indicator {
+  color: #0969da;
+  font-size: 0.75rem;
+  letter-spacing: 2px;
 }
 
 @media (max-width: 768px) {

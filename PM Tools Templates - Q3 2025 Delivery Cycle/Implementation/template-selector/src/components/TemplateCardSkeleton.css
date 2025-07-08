@@ -13,12 +13,13 @@
   height: 24px;
   background: linear-gradient(
     90deg,
-    #f0f0f0 25%,
-    #e0e0e0 50%,
-    #f0f0f0 75%
+    #f6f8fa 0%,
+    #eaecef 20%,
+    #f6f8fa 40%,
+    #f6f8fa 100%
   );
-  background-size: 200% 100%;
-  animation: loading 1.5s infinite;
+  background-size: 1000px 100%;
+  animation: shimmer 2s infinite linear;
   border-radius: 4px;
   margin-bottom: 1rem;
 }
@@ -69,11 +70,11 @@
   border-radius: 4px;
 }
 
-@keyframes loading {
+@keyframes shimmer {
   0% {
-    background-position: 200% 0;
+    background-position: -1000px 0;
   }
   100% {
-    background-position: -200% 0;
+    background-position: 1000px 0;
   }
 }

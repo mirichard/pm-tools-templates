@@ -53,13 +53,21 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({ onCommand }) => 
     switch (e.key) {
       case 'ArrowDown':
         e.preventDefault();
-        setSelectedIndex((prev) =>
-          prev < filteredCommands.length - 1 ? prev + 1 : prev
-        );
+        setSelectedIndex((prev) => {
+          const nextIndex = prev + 1;
+          if (nextIndex >= filteredCommands.length) return prev;
+          if ('type' in filteredCommands[nextIndex]) return nextIndex + 1;
+          return nextIndex;
+        });
         break;
       case 'ArrowUp':
         e.preventDefault();
-        setSelectedIndex((prev) => (prev > 0 ? prev - 1 : prev));
+        setSelectedIndex((prev) => {
+          const nextIndex = prev - 1;
+          if (nextIndex < 0) return prev;
+          if ('type' in filteredCommands[nextIndex]) return nextIndex - 1;
+          return nextIndex;
+        });
         break;
       case 'Enter':
         e.preventDefault();
@@ -88,7 +96,11 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({ onCommand }) => 
           aria-label="Search commands"
         />
       </div>
-      <div className="command-palette-results" role="listbox">
+      <div 
+        className="command-palette-results" 
+        role="listbox"
+        aria-label="Command search results"
+      >
         {filteredCommands.map((command, index) => (
           'type' in command ? (
             <div

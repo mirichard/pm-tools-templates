@@ -1,7 +1,7 @@
 .template-selector {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: clamp(1rem, 5vw, 2rem);
 }
 
 .active-filters {
@@ -38,8 +38,14 @@
 
 .template-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+  gap: clamp(1rem, 3vw, 2rem);
+  width: 100%;
+  min-height: 200px;
+  align-items: stretch;
+  transition: grid-template-columns 0.3s ease-in-out;
+  margin: 0 auto;
+  max-width: 1600px;
   margin-top: 1rem;
 }
 
@@ -50,6 +56,7 @@
   padding: 1.5rem;
   cursor: pointer;
   transition: all 0.2s ease-out;
+  will-change: transform, box-shadow;
   display: flex;
   flex-direction: column;
   height: 200px;
@@ -194,6 +201,7 @@
   display: flex;
   gap: 8px;
   margin-top: auto;
+  flex-wrap: wrap;
 }
 
 .template-metadata span {
@@ -204,14 +212,22 @@
   color: #586069;
 }
 
-.template-metadata .methodology {
+.methodology {
   background: #ddf4ff;
   color: #0969da;
+  font-size: 0.8rem;
+  padding: 4px 8px;
+  border-radius: 12px;
+  white-space: nowrap;
 }
 
-.template-metadata .category {
+.category {
   background: #fff8c5;
   color: #9a6700;
+  font-size: 0.8rem;
+  padding: 4px 8px;
+  border-radius: 12px;
+  white-space: nowrap;
 }
 
 .loading {

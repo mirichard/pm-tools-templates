@@ -1,9 +1,18 @@
 import React from 'react';
 import './TemplateCardSkeleton.css';
 
-export const TemplateCardSkeleton: React.FC = () => {
+interface TemplateCardSkeletonProps {
+  index: number;
+}
+
+export const TemplateCardSkeleton: React.FC<TemplateCardSkeletonProps> = ({ index }) => {
   return (
-    <div className="template-card-skeleton" aria-hidden="true">
+    <div 
+      className="template-card-skeleton" 
+      role="gridcell"
+      aria-label={`Loading template ${index + 1}`}
+      aria-busy="true"
+    >
       <div className="skeleton-title" />
       <div className="skeleton-description">
         <div className="skeleton-line" />

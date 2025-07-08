@@ -1,7 +1,11 @@
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
-import { axe } from 'jest-axe';
+import '@testing-library/jest-dom';
+import { axe, toHaveNoViolations } from 'jest-axe';
 import { CommandPalette } from '../src/components/CommandPalette';
+import { commandPaletteUtils } from '../src/test-utils/commandPalette';
+
+expect.extend(toHaveNoViolations);
 
 describe('CommandPalette', () => {
   const mockOnCommand = jest.fn();
@@ -18,11 +22,9 @@ describe('CommandPalette', () => {
 
   it('should filter commands based on search input', () => {
     render(<CommandPalette onCommand={mockOnCommand} />);
-    const input = screen.getByRole('textbox');
-    
-    fireEvent.change(input, { target: { value: 'search' } });
-    expect(screen.getByText('Search Templates')).toBeInTheDocument();
-    expect(screen.queryByText('Clear All Filters')).not.toBeInTheDocument();
+    const { visibleCommands } = commandPaletteUtils.searchCommand('search');
+    expect(visibleCommands).toContain('Search Templates');
+    expect(visibleCommands).not.toContain('Clear All Filters');
   });
 
   it('should handle keyboard navigation', () => {
@@ -30,10 +32,13 @@ describe('CommandPalette', () => {
     const input = screen.getByRole('textbox');
     
     fireEvent.keyDown(input, { key: 'ArrowDown' });
-    expect(screen.getByText('Search Templates').parentElement).toHaveClass('selected');
+    const commands = screen.getAllByRole('option');
+    expect(commands[0]).toHaveClass('selected');
+    expect(commands[0].querySelector('.command-label')?.textContent).toContain('Search Templates');
     
     fireEvent.keyDown(input, { key: 'ArrowDown' });
-    expect(screen.getByText('Clear All Filters').parentElement).toHaveClass('selected');
+    expect(commands[1]).toHaveClass('selected');
+    expect(commands[1].querySelector('.command-label')?.textContent).toContain('Clear All Filters');
   });
 
   it('should execute command on Enter', () => {

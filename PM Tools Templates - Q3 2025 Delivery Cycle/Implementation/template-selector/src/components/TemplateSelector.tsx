@@ -27,14 +27,34 @@ const TemplateSelector: React.FC<TemplateSelectorProps> = ({ onSelect }) => {
   const [focusedIndex, setFocusedIndex] = useState(-1);
   const [methodology, setMethodology] = useState('');
   const [category, setCategory] = useState('');
+  const [complexity, setComplexity] = useState<'Beginner' | 'Intermediate' | 'Advanced' | ''>('');
   const [searchQuery, setSearchQuery] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 9;
   const [isPreviewOpen, setIsPreviewOpen] = useState(false);
   const [previewTemplate, setPreviewTemplate] = useState<Template | null>(null);
+  const [gridColumns, setGridColumns] = useState(3); // Default to 3 columns
   const templateRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const gridRef = useRef<HTMLDivElement>(null);
 
   // Keyboard navigation
+
+  useHotkeys('arrowup', () => {
+    setFocusedIndex(prev => {
+      const newIndex = prev >= gridColumns ? prev - gridColumns : prev;
+      templateRefs.current[newIndex]?.focus();
+      return newIndex;
+    });
+  });
+
+  useHotkeys('arrowdown', () => {
+    setFocusedIndex(prev => {
+      const newIndex = prev + gridColumns < templates.length ? prev + gridColumns : prev;
+      templateRefs.current[newIndex]?.focus();
+      return newIndex;
+    });
+  });
+
   useHotkeys('arrowleft', () => {
     setFocusedIndex(prev => {
       const newIndex = prev > 0 ? prev - 1 : templates.length - 1;
@@ -49,6 +69,17 @@ const TemplateSelector: React.FC<TemplateSelectorProps> = ({ onSelect }) => {
       templateRefs.current[newIndex]?.focus();
       return newIndex;
     });
+  });
+
+  useHotkeys('home', () => {
+    setFocusedIndex(0);
+    templateRefs.current[0]?.focus();
+  });
+
+  useHotkeys('end', () => {
+    const lastIndex = templates.length - 1;
+    setFocusedIndex(lastIndex);
+    templateRefs.current[lastIndex]?.focus();
   });
 
   useHotkeys('enter', () => {
@@ -72,13 +103,37 @@ const TemplateSelector: React.FC<TemplateSelectorProps> = ({ onSelect }) => {
   };
 
   useEffect(() => {
+    if (!gridRef.current) return;
+
+    const updateGridColumns = () => {
+      if (!gridRef.current) return;
+      const gridWidth = gridRef.current.getBoundingClientRect().width;
+      const cardWidth = 300; // Minimum card width
+      const newColumns = Math.floor(gridWidth / cardWidth);
+      setGridColumns(Math.max(1, newColumns));
+    };
+
+    const resizeObserver = new ResizeObserver(updateGridColumns);
+    resizeObserver.observe(gridRef.current);
+
+    return () => {
+      resizeObserver.disconnect();
+    };
+  }, []);
+
+  useEffect(() => {
     const fetchTemplates = async () => {
       setLoading(true);
       try {
-        // Filter mock templates based on methodology and category
-        const filteredTemplates = mockTemplates.filter(template => {
+        const response = await fetch('/api/templates');
+        if (!response.ok) {
+          throw new Error('Failed to fetch templates');
+        }
+        const data = await response.json();
+        const filteredTemplates = data.filter(template => {
           if (methodology && template.methodology !== methodology) return false;
           if (category && template.category !== category) return false;
+          if (complexity && template.complexity !== complexity.toLowerCase()) return false;
           return true;
         });
         setTemplates(filteredTemplates);
@@ -90,12 +145,13 @@ const TemplateSelector: React.FC<TemplateSelectorProps> = ({ onSelect }) => {
     };
 
     fetchTemplates();
-  }, [methodology, category]);
+  }, [methodology, category, complexity]);
 
   const handleTemplateSelect = (template: Template) => {
     setSelectedTemplate(template);
     setPreviewTemplate(template);
     setIsPreviewOpen(true);
+    onSelect(template);
   };
 
   if (loading) {
@@ -108,11 +164,11 @@ const TemplateSelector: React.FC<TemplateSelectorProps> = ({ onSelect }) => {
           onSort={() => console.log('Sort templates')}
         />
         <div className="template-selector">
-          <div className="template-grid">
-            {Array(9)
+          <div ref={gridRef} className="template-grid" role="grid" aria-busy="true" aria-label="Loading templates">
+            {Array(6)
               .fill(0)
               .map((_, index) => (
-                <TemplateCardSkeleton key={`skeleton-${index}`} />
+                <TemplateCardSkeleton key={`skeleton-${index}`} index={index} />
               ))}
           </div>
         </div>
@@ -121,7 +177,7 @@ const TemplateSelector: React.FC<TemplateSelectorProps> = ({ onSelect }) => {
   }
 
   if (error) {
-    return <div className="error">Error: {error}</div>;
+    return <div className="error" role="alert">Error: {error}</div>;
   }
 
   return (
@@ -133,8 +189,8 @@ const TemplateSelector: React.FC<TemplateSelectorProps> = ({ onSelect }) => {
         onSort={() => console.log('Sort templates')}
       />
       <div className="template-selector">
-        {(methodology || category) && (
-          <div className="active-filters">
+        {(methodology || category || complexity) && (
+          <div className="active-filters" role="status" aria-label="Active filters">
             {methodology && (
               <span className="filter-tag">
                 {methodology} <button onClick={() => setMethodology('')}>×</button>
@@ -145,9 +201,14 @@ const TemplateSelector: React.FC<TemplateSelectorProps> = ({ onSelect }) => {
                 {category} <button onClick={() => setCategory('')}>×</button>
               </span>
             )}
+            {complexity && (
+              <span className="filter-tag">
+                {complexity} <button onClick={() => setComplexity('')}>×</button>
+              </span>
+            )}
           </div>
         )}
-        <div className="template-grid">
+        <div ref={gridRef} className="template-grid" role="grid" aria-label="Template grid">
           {templates
             .slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage)
             .map((template, index) => (
@@ -158,12 +219,18 @@ const TemplateSelector: React.FC<TemplateSelectorProps> = ({ onSelect }) => {
                 selectedTemplate?.id === template.id ? 'selected' : ''
               } ${focusedIndex === index ? 'focused' : ''}`}
               onClick={() => handleTemplateSelect(template)}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  e.preventDefault();
+                  handleTemplateSelect(template);
+                }
+              }}
+              role="gridcell"
+              tabIndex={0}
               onFocus={() => setFocusedIndex(index)}
               onBlur={() => setFocusedIndex(-1)}
-              tabIndex={0}
-              role="button"
-              aria-pressed={selectedTemplate?.id === template.id}
-              aria-label={`Select ${template.name} template`}
+              aria-selected={selectedTemplate?.id === template.id}
+              aria-label={`${template.name} template. ${template.description}`}
             >
               <h3>{template.name}</h3>
               <p>{template.description}</p>
@@ -187,6 +254,8 @@ const TemplateSelector: React.FC<TemplateSelectorProps> = ({ onSelect }) => {
             onCategoryChange={setCategory}
             selectedMethodology={methodology}
             selectedCategory={category}
+            selectedComplexity={complexity as 'Beginner' | 'Intermediate' | 'Advanced'}
+            onComplexityChange={setComplexity}
             onClose={() => setIsFilterPanelOpen(false)}
           />
         )}
