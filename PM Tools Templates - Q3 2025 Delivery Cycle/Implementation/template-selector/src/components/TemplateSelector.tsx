@@ -313,8 +313,8 @@ const TemplateSelector: React.FC<TemplateSelectorProps> = ({ onSelect }) => {
               tabIndex={0}
               onFocus={() => setFocusedIndex(index)}
               onBlur={() => setFocusedIndex(-1)}
-              aria-selected={selectedTemplate?.id === template.id}
               aria-label={`${template.name} template. ${template.description}`}
+              aria-current={selectedTemplate?.id === template.id ? 'true' : 'false'}
             >
               <h3>{template.name}</h3>
               <p>{template.description}</p>

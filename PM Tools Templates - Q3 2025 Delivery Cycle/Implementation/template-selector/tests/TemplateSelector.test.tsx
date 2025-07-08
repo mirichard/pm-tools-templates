@@ -59,27 +59,32 @@ describe('TemplateSelector', () => {
   });
 
   it('renders loading skeleton initially', async () => {
-    const { container } = render(
+    let container: any;
+    const result = render(
       <TemplateSelector
         onSelect={mockOnSelect}
         methodology="Agile"
         category="Planning"
       />
     );
+    container = result.container;
     
     // Check for loading skeletons by looking for aria-busy="true" grid cells
+    // The component should start in loading state before fetching data
     const busyElements = container.querySelectorAll('[aria-busy="true"]');
     expect(busyElements.length).toBeGreaterThan(0);
   });
 
   it('renders template grid after loading', async () => {
-    render(
-      <TemplateSelector
-        onSelect={mockOnSelect}
-        methodology="Agile"
-        category="Planning"
-      />
-    );
+    await act(async () => {
+      render(
+        <TemplateSelector
+          onSelect={mockOnSelect}
+          methodology="Agile"
+          category="Planning"
+        />
+      );
+    });
 
     // Wait for templates to load and replace skeletons
     await waitFor(() => {
@@ -94,13 +99,15 @@ describe('TemplateSelector', () => {
   });
 
   it('calls onSelect when template is clicked', async () => {
-    render(
-      <TemplateSelector
-        onSelect={mockOnSelect}
-        methodology="Agile"
-        category="Planning"
-      />
-    );
+    await act(async () => {
+      render(
+        <TemplateSelector
+          onSelect={mockOnSelect}
+          methodology="Agile"
+          category="Planning"
+        />
+      );
+    });
 
     // Wait for templates to load and skeletons to be replaced
     await waitFor(() => {
