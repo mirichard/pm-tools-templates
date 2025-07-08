@@ -2,7 +2,7 @@
 ============================================================
 FILTERED ANCHOR LINK CHECK REPORT (Main Project Files Only)
 ============================================================
-Files checked: 541
+Files checked: 542
 Total issues: 11407
 Broken links: 5
 Suggestions: 11402
@@ -26,7 +26,7 @@ ISSUES BY CATEGORY:
 
 📁 README.md
   🔗 Line 39: Broken anchor link: #repository-statistics
-     Suggested fix: choose-your-path
+     Suggested fix: share-your-experience
 
 📁 README.md
   🔗 Line 41: Broken anchor link: #community--contributions
