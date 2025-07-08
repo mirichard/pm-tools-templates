@@ -197,7 +197,7 @@ This comprehensive project initiation checklist ensures all critical activities 
 
 ### Methodology-Specific Initiation:
 - [Agile Project Initiation](../methodology-frameworks/agile-scrum/sprint-zero/)
-- [Waterfall Project Initiation](../methodology-frameworks/pmbok/project-charter/)
+- [Waterfall Project Initiation](../methodology-frameworks/traditional/project-charter/)
 - [Hybrid Approach Initiation](../methodology-frameworks/hybrid/)
 
 ---

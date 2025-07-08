@@ -53,5 +53,5 @@ This template provides assessment criteria specifically for traditional waterfal
 
 ---
 Related Resources:
-- [Traditional Framework](../methodology-frameworks/pmbok/)
+- [Traditional Framework](../methodology-frameworks/traditional/)
 - [Project Lifecycle](../project-lifecycle/)
