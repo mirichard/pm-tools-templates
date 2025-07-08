@@ -5,7 +5,7 @@ export const mockTemplates: Template[] = [
     id: '1',
     name: 'Project Charter',
     description: 'Standard template for initiating a project and defining high-level project details',
-    methodology: 'PMBOK',
+      methodology: 'Traditional',
     category: 'Initiation'
   },
   {
@@ -26,7 +26,7 @@ export const mockTemplates: Template[] = [
     id: '4',
     name: 'Stakeholder Register',
     description: 'Template for documenting and analyzing stakeholder information',
-    methodology: 'PMBOK',
+      methodology: 'Traditional',
     category: 'Stakeholder Management'
   },
   {

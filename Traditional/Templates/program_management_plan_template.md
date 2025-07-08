@@ -102,7 +102,7 @@
 **Framework:** PMI Program Management Standard (Fourth Edition)
 **Approach:** Integrated program management combining traditional and agile methodologies
 **Supporting Methodologies:**
-- PMBOK Guide for traditional project management components
+- Traditional Guide for traditional project management components
 - Agile/Scrum for software development components
 - ITIL for technology service management
 - COBIT for IT governance
@@ -1280,7 +1280,7 @@ Low Influence, Low Interest: External Partners, Media
 
 **Training and Development:**
 - Technical skills training
-- Methodology training (Agile, PMBOK)
+- Methodology training (Agile, Traditional)
 - Leadership and soft skills development
 - Certification support
 - Cross-training and job rotation

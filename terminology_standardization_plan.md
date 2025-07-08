@@ -6,9 +6,9 @@ The repository has inconsistent terminology using both "Traditional" and "Waterf
 ## Recommended Standard: "Traditional"
 
 ### Rationale:
-1. **Professional Terminology**: "Traditional" is the term used in PMBOK Guide and PMI standards
+1. **Professional Terminology**: "Traditional" is the term used in Traditional Guide and PMI standards
 2. **Inclusive Scope**: Encompasses Waterfall, Prince2, and other sequential methodologies  
-3. **User Preference Alignment**: Matches the user's methodology-focused organization (PMBOK, Agile, Hybrid)
+3. **User Preference Alignment**: Matches the user's methodology-focused organization (Traditional, Agile, Hybrid)
 4. **Industry Standard**: More widely accepted in enterprise environments
 
 ## Current Inconsistencies Found:

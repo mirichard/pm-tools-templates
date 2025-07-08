@@ -35,7 +35,7 @@ Guide to help project managers select the most appropriate methodology for their
 - Experienced traditional teams
 
 **Templates:**
-- [PMBOK Framework](../methodology-frameworks/pmbok/)
+- [Traditional Framework](../methodology-frameworks/traditional/)
 - [Project Charter](../project-lifecycle/01-initiation/project-charter/)
 - [Work Breakdown Structure](../project-lifecycle/02-planning/scope-management/)
 

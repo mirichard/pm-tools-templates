@@ -1,14 +1,14 @@
 ---
 title: "Project Charter Template"
-methodology: "PMBOK"
+methodology: "Traditional"
 category: "project_management"
 version: "1.0.0"
 last_updated: "2025-06-21"
-tags: ["pmbok", "charter", "initiation"]
+tags: ["traditional", "charter", "initiation"]
 priority: "high"
 ---
 
-# Project Charter Template
+# Project Charter Template (Traditional-Based)
 
 ## Project Overview
 
