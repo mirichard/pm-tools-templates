@@ -89,7 +89,7 @@ Copy and paste these templates when providing feedback:
 ## 🎯 **Specific Feedback Areas**
 
 ### 📁 **Template Organization**
-Based on our document-focused library with PMBOK, Agile, and Hybrid methodologies:
+Based on our document-focused library with Traditional, Agile, and Hybrid methodologies:
 - Is our folder structure intuitive?
 - Are templates easy to find and use?
 - Should we add more methodology-specific folders?

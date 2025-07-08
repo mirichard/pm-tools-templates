@@ -175,7 +175,7 @@ Briefly describe your contribution and its purpose.
 
 - **Template Name**: 
 - **Target Role**: (PM/Scrum Master/Product Owner/Executive/etc.)
-- **Methodology**: (PMBOK/Agile/Hybrid/Universal)
+- **Methodology**: (Traditional/Agile/Hybrid/Universal)
 - **Industry**: (IT/Healthcare/Finance/Construction/Universal/etc.)
 - **Complexity Level**: (Beginner/Intermediate/Advanced)
 - **Software Requirements**: (Excel 2016+/Word/PowerPoint/etc.)

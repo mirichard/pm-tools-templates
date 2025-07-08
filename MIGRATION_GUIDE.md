@@ -47,7 +47,7 @@ NEW: Traditional/Functional_Areas/
 | Traditional Templates | Traditional Templates | IP compliance |
 | Process Groups | Project Phases | Industry standard |
 | Knowledge Areas | Functional Areas | Avoid PMI-specific terms |
-| PMBOK-compliant | Industry-standard | Neutral positioning |
+| Traditional-compliant | Industry-standard | Neutral positioning |
 
 ## Migration Steps for Users
 

@@ -174,7 +174,7 @@ describe('Backend API Integration Tests', () => {
       
       // Check that expected methodologies are present
       expect(response.body.methodologies).toContain('Agile');
-      expect(response.body.methodologies).toContain('PMBOK');
+      expect(response.body.methodologies).toContain('Traditional');
       expect(response.body.methodologies).toContain('Hybrid');
     });
   });

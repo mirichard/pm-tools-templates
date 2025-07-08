@@ -67,5 +67,5 @@ If the application doesn't load:
 ## Notes
 
 - The application uses mock data for templates
-- All templates are grouped by methodology (PMBOK, Agile, Hybrid)
+- All templates are grouped by methodology (Traditional, Agile, Hybrid)
 - The UI follows the wireframe specifications provided in the project documentation

@@ -203,7 +203,7 @@ jobs:
               """Determine template category based on path and content"""
               path_lower = file_path.lower()
               
-              # PMBOK templates
+              # Traditional templates
               if any(keyword in path_lower for keyword in ['pmbok', 'charter', 'wbs', 'gantt', 'scope', 'risk']):
                   return 'pmbok'
               

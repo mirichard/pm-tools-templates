@@ -41,7 +41,7 @@ body:
       description: Which methodology does this relate to?
       options:
         - Universal (methodology-agnostic)
-        - PMBOK/Traditional
+        - Traditional/Traditional
         - Agile/Scrum
         - Hybrid
         - SAFe

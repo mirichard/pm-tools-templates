@@ -28,7 +28,7 @@ const mockTemplates: Template[] = [
     id: '2',
     name: 'Another Template',
     description: 'Another test template',
-    methodology: 'PMBOK',
+    methodology: 'Traditional',
     category: 'Execution',
     complexity: 'intermediate',
     tags: ['test', 'example'],
