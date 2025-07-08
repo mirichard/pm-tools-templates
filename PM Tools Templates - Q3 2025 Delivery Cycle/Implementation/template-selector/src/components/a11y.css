@@ -1,0 +1,83 @@
+/* Focus Management */
+:focus {
+  outline: 2px solid #0969da;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Focus visible only when using keyboard */
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+:focus-visible {
+  outline: 2px solid #0969da;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Skip Navigation */
+.skip-nav {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: #0969da;
+  color: white;
+  padding: 8px;
+  z-index: 100;
+  transition: top 0.2s;
+}
+
+.skip-nav:focus {
+  top: 0;
+}
+
+/* High Contrast Mode Support */
+@media (forced-colors: active) {
+  .template-card {
+    border: 2px solid ButtonText;
+  }
+
+  .template-card:focus {
+    outline: 2px solid ButtonText;
+  }
+
+  .methodology,
+  .category {
+    border: 1px solid ButtonText;
+  }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Color Contrast Enhancement */
+.error {
+  color: #cf222e;
+  background-color: #ffebe9;
+}
+
+.success {
+  color: #1a7f37;
+  background-color: #dafbe1;
+}
+
+/* Screen Reader Only Text */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
