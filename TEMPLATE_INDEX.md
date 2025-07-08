@@ -148,5 +148,5 @@ List of all template files with their paths.
 - [role-based-toolkits/scrum-master/agile-ceremonies/sprint-retrospective-template.md](role-based-toolkits/scrum-master/agile-ceremonies/sprint-retrospective-template.md)
 - [role-based-toolkits/scrum-master/agile-ceremonies/sprint-review-template.md](role-based-toolkits/scrum-master/agile-ceremonies/sprint-review-template.md)
 - [templates/agile/sprint-planning-template.md](templates/agile/sprint-planning-template.md)
-- [templates/pmbok/project-charter-template.md](templates/pmbok/project-charter-template.md)
+- [templates/traditional/project-charter-template.md](templates/traditional/project-charter-template.md)
 - [templates/test-samples/quality-test-template.md](templates/test-samples/quality-test-template.md)

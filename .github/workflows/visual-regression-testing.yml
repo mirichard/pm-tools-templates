@@ -204,8 +204,8 @@ jobs:
               path_lower = file_path.lower()
               
               # Traditional templates
-              if any(keyword in path_lower for keyword in ['pmbok', 'charter', 'wbs', 'gantt', 'scope', 'risk']):
-                  return 'pmbok'
+              if any(keyword in path_lower for keyword in ['traditional', 'charter', 'wbs', 'gantt', 'scope', 'risk']):
+                  return 'traditional'
               
               # Agile templates
               elif any(keyword in path_lower for keyword in ['agile', 'scrum', 'kanban', 'sprint', 'backlog', 'user-story']):
@@ -532,8 +532,8 @@ jobs:
               """Determine template category"""
               path_lower = file_path.lower()
               
-              if any(keyword in path_lower for keyword in ['pmbok', 'charter', 'wbs', 'gantt']):
-                  return 'pmbok'
+              if any(keyword in path_lower for keyword in ['traditional', 'charter', 'wbs', 'gantt']):
+                  return 'traditional'
               elif any(keyword in path_lower for keyword in ['agile', 'scrum', 'kanban', 'sprint']):
                   return 'agile'
               elif any(keyword in path_lower for keyword in ['hybrid', 'scaled']):
@@ -625,7 +625,7 @@ jobs:
               
               # Category-specific styles
               category_styles = {
-                  'pmbok': """
+                  'traditional': """
                       h1 { color: #1f4e79; }
                       h2 { color: #2d5aa0; border-color: #1f4e79; }
                       .category { color: #1f4e79; }
