@@ -104,7 +104,7 @@ describe('Accessibility Tests', () => {
         
         actualCards.forEach(card => {
           expect(card).toHaveAttribute('aria-label');
-          expect(card).toHaveAttribute('aria-selected');
+          expect(card).toHaveAttribute('aria-current');
           expect(card).toHaveAttribute('tabIndex', '0');
         });
       });
