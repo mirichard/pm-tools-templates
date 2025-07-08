@@ -84,14 +84,9 @@ export const useTemplates = ({
           
           const data = await response.json();
           if (!isCancelled) {
-            // In test environment, use flushSync to ensure synchronous updates
-            if (isTestEnvironment()) {
-              setTemplates(data.templates || []);
-              setLoading(false);
-            } else {
-              setTemplates(data.templates || []);
-              setLoading(false);
-            }
+            // Batch state updates to avoid React warnings
+            setTemplates(data.templates || []);
+            setLoading(false);
           }
         } else {
           // Use basic listing API
@@ -103,28 +98,17 @@ export const useTemplates = ({
           
           const data = await response.json();
           if (!isCancelled) {
-            // In test environment, use flushSync to ensure synchronous updates
-            if (isTestEnvironment()) {
-              setTemplates(data.templates || []);
-              setLoading(false);
-            } else {
-              setTemplates(data.templates || []);
-              setLoading(false);
-            }
+            // Batch state updates to avoid React warnings
+            setTemplates(data.templates || []);
+            setLoading(false);
           }
         }
       } catch (err) {
         console.error('Error fetching templates:', err);
         if (!isCancelled) {
-          if (isTestEnvironment()) {
-            setError(err instanceof Error ? err.message : 'An error occurred');
-            setTemplates([]);
-            setLoading(false);
-          } else {
-            setError(err instanceof Error ? err.message : 'An error occurred');
-            setTemplates([]);
-            setLoading(false);
-          }
+          setError(err instanceof Error ? err.message : 'An error occurred');
+          setTemplates([]);
+          setLoading(false);
         }
       }
     };
