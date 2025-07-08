@@ -9,7 +9,7 @@ export const TemplateCardSkeleton: React.FC<TemplateCardSkeletonProps> = ({ inde
   return (
     <div 
       className="template-card-skeleton" 
-      role="gridcell"
+      role="listitem"
       aria-label={`Loading template ${index + 1}`}
       aria-busy="true"
     >

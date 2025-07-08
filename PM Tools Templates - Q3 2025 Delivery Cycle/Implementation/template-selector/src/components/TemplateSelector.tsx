@@ -29,6 +29,7 @@ const TemplateSelector: React.FC<TemplateSelectorProps> = ({ onSelect }) => {
   const [category, setCategory] = useState('');
   const [complexity, setComplexity] = useState<'Beginner' | 'Intermediate' | 'Advanced' | ''>('');
   const [searchQuery, setSearchQuery] = useState('');
+  const [debouncedSearchQuery, setDebouncedSearchQuery] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 9;
   const [isPreviewOpen, setIsPreviewOpen] = useState(false);
@@ -94,13 +95,63 @@ const TemplateSelector: React.FC<TemplateSelectorProps> = ({ onSelect }) => {
   const handleCommand = (command: string) => {
     switch (command) {
       case 'open-search':
-        // focus search input
+        // Focus search input in header
+        const searchInput = document.querySelector('.search-input') as HTMLInputElement;
+        if (searchInput) {
+          searchInput.focus();
+        }
+        setIsPaletteOpen(false);
         break;
       case 'clear-filters':
-        // clear filters logic
+        // Clear all filters
+        setMethodology('');
+        setCategory('');
+        setComplexity('');
+        setSearchQuery('');
+        setCurrentPage(1);
+        setIsPaletteOpen(false);
         break;
+      case 'sort-by-name':
+        // Sort templates by name
+        setTemplates(prev => [...prev].sort((a, b) => a.name.localeCompare(b.name)));
+        setIsPaletteOpen(false);
+        break;
+      case 'sort-by-recent':
+        // Sort templates by last updated
+        setTemplates(prev => [...prev].sort((a, b) => new Date(b.lastUpdated).getTime() - new Date(a.lastUpdated).getTime()));
+        setIsPaletteOpen(false);
+        break;
+      case 'toggle-view':
+        // Toggle between grid and list view (future implementation)
+        console.log('Toggle view mode');
+        setIsPaletteOpen(false);
+        break;
+      case 'filter-methodology':
+        setIsFilterPanelOpen(true);
+        setIsPaletteOpen(false);
+        break;
+      case 'filter-category':
+        setIsFilterPanelOpen(true);
+        setIsPaletteOpen(false);
+        break;
+      case 'show-shortcuts':
+        // Show keyboard shortcuts modal (future implementation)
+        console.log('Show keyboard shortcuts');
+        setIsPaletteOpen(false);
+        break;
+      default:
+        console.log(`Unknown command: ${command}`);
     }
   };
+
+  // Debounce search query
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setDebouncedSearchQuery(searchQuery);
+    }, 300);
+
+    return () => clearTimeout(timer);
+  }, [searchQuery]);
 
   useEffect(() => {
     if (!gridRef.current) return;
@@ -124,28 +175,56 @@ const TemplateSelector: React.FC<TemplateSelectorProps> = ({ onSelect }) => {
   useEffect(() => {
     const fetchTemplates = async () => {
       setLoading(true);
+      setError(null);
       try {
-        const response = await fetch('/api/templates');
-        if (!response.ok) {
-          throw new Error('Failed to fetch templates');
+        // Use search API if there's a query or filters, otherwise use basic listing
+        const hasFilters = debouncedSearchQuery || methodology || category || complexity;
+        
+        if (hasFilters) {
+          // Use search API
+          const response = await fetch('/api/templates/search', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              query: debouncedSearchQuery,
+              methodology: methodology || undefined,
+              category: category || undefined,
+              complexity: complexity?.toLowerCase() || undefined,
+              page: currentPage,
+              pageSize: itemsPerPage
+            }),
+          });
+          
+          if (!response.ok) {
+            throw new Error('Failed to search templates');
+          }
+          
+          const data = await response.json();
+          setTemplates(data.templates || []);
+        } else {
+          // Use basic listing API
+          const response = await fetch(`/api/templates?page=${currentPage}&limit=${itemsPerPage}`);
+          
+          if (!response.ok) {
+            throw new Error('Failed to fetch templates');
+          }
+          
+          const data = await response.json();
+          setTemplates(data.templates || []);
         }
-        const data = await response.json();
-        const filteredTemplates = data.filter(template => {
-          if (methodology && template.methodology !== methodology) return false;
-          if (category && template.category !== category) return false;
-          if (complexity && template.complexity !== complexity.toLowerCase()) return false;
-          return true;
-        });
-        setTemplates(filteredTemplates);
       } catch (err) {
+        console.error('Error fetching templates:', err);
         setError(err instanceof Error ? err.message : 'An error occurred');
+        setTemplates([]);
       } finally {
         setLoading(false);
       }
     };
 
     fetchTemplates();
-  }, [methodology, category, complexity]);
+  }, [methodology, category, complexity, debouncedSearchQuery, currentPage, itemsPerPage]);
 
   const handleTemplateSelect = (template: Template) => {
     setSelectedTemplate(template);
@@ -164,7 +243,7 @@ const TemplateSelector: React.FC<TemplateSelectorProps> = ({ onSelect }) => {
           onSort={() => console.log('Sort templates')}
         />
         <div className="template-selector">
-          <div ref={gridRef} className="template-grid" role="grid" aria-busy="true" aria-label="Loading templates">
+        <div ref={gridRef} className="template-grid" role="list" aria-busy="true" aria-label="Loading templates">
             {Array(6)
               .fill(0)
               .map((_, index) => (
@@ -189,8 +268,13 @@ const TemplateSelector: React.FC<TemplateSelectorProps> = ({ onSelect }) => {
         onSort={() => console.log('Sort templates')}
       />
       <div className="template-selector">
-        {(methodology || category || complexity) && (
+        {(methodology || category || complexity || searchQuery) && (
           <div className="active-filters" role="status" aria-label="Active filters">
+            {searchQuery && (
+              <span className="filter-tag">
+                Search: "{searchQuery}" <button onClick={() => setSearchQuery('')}>×</button>
+              </span>
+            )}
             {methodology && (
               <span className="filter-tag">
                 {methodology} <button onClick={() => setMethodology('')}>×</button>
@@ -208,7 +292,7 @@ const TemplateSelector: React.FC<TemplateSelectorProps> = ({ onSelect }) => {
             )}
           </div>
         )}
-        <div ref={gridRef} className="template-grid" role="grid" aria-label="Template grid">
+        <div ref={gridRef} className="template-grid" role="list" aria-label="Template grid">
           {templates
             .slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage)
             .map((template, index) => (
@@ -225,7 +309,7 @@ const TemplateSelector: React.FC<TemplateSelectorProps> = ({ onSelect }) => {
                   handleTemplateSelect(template);
                 }
               }}
-              role="gridcell"
+              role="listitem"
               tabIndex={0}
               onFocus={() => setFocusedIndex(index)}
               onBlur={() => setFocusedIndex(-1)}

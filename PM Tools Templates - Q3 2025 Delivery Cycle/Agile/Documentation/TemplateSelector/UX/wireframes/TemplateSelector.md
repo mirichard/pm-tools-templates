@@ -6,16 +6,20 @@
 +------------------------------------------+
 |             Header Navigation             |
 +------------------------------------------+
-|  Search  | Filters | View | Sort | Help   |
+|  Search  | Filters | Find | Sort | Help   |
++------------------------------------------+
+|            Filters applied: Agile ×       |
 +------------------------------------------+
 |                                          |
-|   +--------+  +--------+  +--------+     |
-|   | Card 1 |  | Card 2 |  | Card 3 |     |
-|   +--------+  +--------+  +--------+     |
+|   +──────────+  +──────────+  +──────────+   |
+|   | Card 1   |  | Card 2   |  | Card 3   |   |
+|   | Loading... | Loading... | Loading... |   |
+|   +──────────+  +──────────+  +──────────+   |
 |                                          |
-|   +--------+  +--------+  +--------+     |
-|   | Card 4 |  | Card 5 |  | Card 6 |     |
-|   +--------+  +--------+  +--------+     |
+|   +──────────+  +──────────+  +──────────+   |
+|   | Card 4   |  | Card 5   |  | Card 6   |   |
+|   | Loading... | Loading... | Loading... |   |
+|   +──────────+  +──────────+  +──────────+   |
 |                                          |
 +------------------------------------------+
 |           Pagination / Load More          |
@@ -39,34 +43,35 @@
 ### 3. Search & Filter Bar
 ```
 +------------------------------------------+
-| 🔍 Search...  | 🔽 Filters | ⚡ Quick Find |
+| 🔍 Search | Filters | Quick Find | ℹ Info |
 +------------------------------------------+
-| Active Filters:                          |
-| [Agile ×] [Planning ×] [Beginner ×]     |
+| Active Filters: Agile ×, Planning ×        |
+|------------------------------------------|
+| Filters applied (3)                      |
 +------------------------------------------+
 ```
+*Filter status and quick information are clearly displayed.
 
 ### 4. Filter Panel
 ```
-+------------------------------------------+
-| Filters                          [Clear] |
-|------------------------------------------|
-| Methodology                              |
-| ☐ Agile                                 |
-| ☐ Waterfall                             |
-| ☐ Hybrid                                |
-|------------------------------------------|
-| Category                                 |
-| ☐ Planning                              |
-| ☐ Execution                             |
-| ☐ Monitoring                            |
-|------------------------------------------|
-| Complexity                               |
-| ☐ Beginner                              |
-| ☐ Intermediate                          |
-| ☐ Advanced                              |
-+------------------------------------------+
++-------------------------------------------+
+| Filters                           [?]Help |
+|-------------------------------------------|
+| Methodology                               |
+| ▼ Agile                                   |
+|   ☐ Planning                              |
+|   ☐ Execution                             |
+|   ☐ Monitoring                            |
+|                                           |
+| ▼ Waterfall                               |
+|   ☐ Planning                              |
+|   ☐ Execution                             |
+|   ☐ Monitoring                            |
+|                                           |
+| ➤ More...                                 |
++-------------------------------------------+
 ```
+*Note: Only the top three categories are expanded, with icons explained in tooltips.
 
 ### 5. Template Preview
 ```
@@ -88,13 +93,22 @@
 +------------------------------------------+
 | 🔍 Search...                    [Filters] |
 +------------------------------------------+
-| [Card 1]                                 |
-|------------------------------------------|
-| [Card 2]                                 |
-|------------------------------------------|
-| [Card 3]                                 |
+|  Recommended for you                     |
+| +-------------------------------------+  |
+| | [Card 1]   Project Charter          |  |
+| | [Used 2.3k times]                   |  |
+| +-------------------------------------+  |
+| +-------------------------------------+  |
+| | [Card 2]   Risk Register            |  |
+| | [Starred]                           |  |
+| +-------------------------------------+  |
+| +-------------------------------------+  |
+| | [Card 3]   Schedule Management      |  |
+| | [Frequently Used]                   |  |
+| +-------------------------------------+  |
 +------------------------------------------+
 ```
+*Smart suggestions based on user behavior.
 
 ### 7. Progressive Disclosure Flow
 ```
@@ -133,6 +147,19 @@ Step 3: Template Grid
 
 ### 9. Component Specifications
 
+#### Color Palette & Contrast
+- Primary Text: #1F2328 on #FFFFFF (contrast ratio 13.5:1)
+- Secondary Text: #57606A on #FFFFFF (contrast ratio 7:1)
+- Link Color: #0969DA on #FFFFFF (contrast ratio 5:1)
+- Error Text: #CF222E on #FFFFFF (contrast ratio 5.5:1)
+- Focus Outline: #0969DA with 2px stroke (meets WCAG 2.1 AA)
+
+#### Icon System
+- All icons must have visible text labels
+- Tooltip appears on hover with extended description
+- Minimum tap target size: 44x44px
+- Icon color matches text for proper contrast
+
 #### Template Card
 - Height: 200px
 - Width: 300px
@@ -159,7 +186,42 @@ Step 3: Template Grid
 - Border Radius: 8px
 - Padding: 24px
 
-### 10. Interaction States
+### 10. Keyboard Shortcuts
+
+```
+Global:
+⌘/Ctrl + K: Open command palette
+⌘/Ctrl + F: Focus search
+⌘/Ctrl + /: Show keyboard shortcuts
+
+Navigation:
+→ ←: Move between cards
+↑ ↓: Move between sections
+Space/Enter: Select card
+Esc: Close modals
+
+Filters:
+⌘/Ctrl + 1-9: Quick select category
+⌘/Ctrl + 0: Clear all filters
+```
+
+### 11. Command Palette
+```
++------------------------------------------+
+|  🔍 Search templates, actions, and docs    |
+|------------------------------------------|
+|  Recent                                  |
+|  > Create Project Charter                |
+|  > Risk Register Template                |
+|------------------------------------------|
+|  Actions                                 |
+|  > Clear all filters                     |
+|  > Switch to list view                   |
+|  > Show keyboard shortcuts               |
++------------------------------------------+
+```
+
+### 12. Interaction States
 
 #### Template Card
 ```
@@ -199,7 +261,7 @@ Expanded: [Filters ▴]
           [Filter Panel]
 ```
 
-### 11. Responsive Breakpoints
+### 13. Responsive Breakpoints
 
 #### Desktop (1200px+)
 - 4 cards per row
@@ -216,7 +278,7 @@ Expanded: [Filters ▴]
 - Modal filters
 - Full-width search
 
-### 12. Animation Specifications
+### 14. Animation Specifications
 
 #### Card Hover
 - Transform: translateY(-2px)
@@ -236,7 +298,7 @@ Expanded: [Filters ▴]
 - Duration: 250ms
 - Easing: ease-in-out
 
-### 13. Accessibility Features
+### 15. Accessibility Features
 
 #### Keyboard Navigation
 ```
@@ -268,7 +330,7 @@ Template Card:
 }
 ```
 
-### 14. Loading States
+### 16. Loading States
 
 #### Initial Load
 ```
@@ -295,7 +357,7 @@ Template Card:
 +------------------+
 ```
 
-### 15. Error States
+### 17. Error States
 
 #### Search Error
 ```
@@ -316,7 +378,7 @@ Template Card:
 +------------------+
 ```
 
-### 16. Success States
+### 18. Success States
 
 #### Selection Complete
 ```

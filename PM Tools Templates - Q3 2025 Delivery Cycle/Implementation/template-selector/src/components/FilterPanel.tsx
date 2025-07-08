@@ -16,8 +16,10 @@ interface FilterPanelProps {
 export const FilterPanel: React.FC<FilterPanelProps> = ({
   onMethodologyChange,
   onCategoryChange,
+  onComplexityChange,
   selectedMethodology,
   selectedCategory,
+  selectedComplexity,
   onClose,
 }) => {
   const methodologies = ['Agile', 'Waterfall', 'Hybrid'];

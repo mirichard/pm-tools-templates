@@ -24,8 +24,12 @@
   ],
   "author": "PM Tools Templates Team",
   "license": "MIT",
-  "dependencies": {},
-  "devDependencies": {},
+  "devDependencies": {
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.3.0",
+    "identity-obj-proxy": "^3.0.0",
+    "jest-axe": "^10.0.0"
+  },
   "engines": {
     "node": ">=14.0.0"
   },

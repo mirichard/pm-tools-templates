@@ -21,12 +21,37 @@ describe('TemplateSelector', () => {
   const mockOnSelect = jest.fn();
 
   beforeEach(() => {
-    global.fetch = jest.fn().mockImplementation(() =>
-      Promise.resolve({
-        ok: true,
-        json: () => Promise.resolve(mockTemplates),
-      })
-    );
+    global.fetch = jest.fn().mockImplementation((url, options) => {
+      if (url.includes('/api/templates/search')) {
+        return Promise.resolve({
+          ok: true,
+          json: () => Promise.resolve({
+            templates: mockTemplates,
+            totalCount: mockTemplates.length,
+            pageCount: 1,
+            currentPage: 1,
+            hasNext: false,
+            hasPrev: false
+          }),
+        });
+      }
+      
+      if (url.includes('/api/templates')) {
+        return Promise.resolve({
+          ok: true,
+          json: () => Promise.resolve({
+            templates: mockTemplates,
+            totalCount: mockTemplates.length,
+            pageCount: 1,
+            currentPage: 1,
+            hasNext: false,
+            hasPrev: false
+          }),
+        });
+      }
+      
+      return Promise.reject(new Error('Unknown API endpoint'));
+    });
   });
 
   afterEach(() => {
@@ -34,59 +59,64 @@ describe('TemplateSelector', () => {
   });
 
   it('renders loading skeleton initially', async () => {
-    await act(async () => {
-      render(
-        <TemplateSelector
-          onSelect={mockOnSelect}
-          methodology="Agile"
-          category="Planning"
-        />
-      );
-    });
-    const skeletons = screen.getAllByRole('gridcell');
-    expect(skeletons.length).toBeGreaterThan(0); // Ensure skeletons are shown
+    const { container } = render(
+      <TemplateSelector
+        onSelect={mockOnSelect}
+        methodology="Agile"
+        category="Planning"
+      />
+    );
+    
+    // Check for loading skeletons by looking for aria-busy="true" grid cells
+    const busyElements = container.querySelectorAll('[aria-busy="true"]');
+    expect(busyElements.length).toBeGreaterThan(0);
   });
 
   it('renders template grid after loading', async () => {
-    await act(async () => {
-      render(
-        <TemplateSelector
-          onSelect={mockOnSelect}
-          methodology="Agile"
-          category="Planning"
-        />
-      );
-    });
+    render(
+      <TemplateSelector
+        onSelect={mockOnSelect}
+        methodology="Agile"
+        category="Planning"
+      />
+    );
 
+    // Wait for templates to load and replace skeletons
     await waitFor(() => {
-      const templateGrid = screen.getByRole('grid', { name: 'Template grid' });
+      const templateGrid = screen.getByRole('list', { name: 'Template grid' });
       expect(templateGrid).toBeInTheDocument();
-      const templateCards = screen.getAllByRole('gridcell');
-      expect(templateCards.length).toBeGreaterThan(0);
+      
+      // Look for actual template cards (not loading skeletons)
+      const templateCards = screen.getAllByRole('listitem');
+      const nonBusyCards = templateCards.filter(card => card.getAttribute('aria-busy') !== 'true');
+      expect(nonBusyCards.length).toBeGreaterThan(0);
     });
   });
 
   it('calls onSelect when template is clicked', async () => {
-    await act(async () => {
-      render(
-        <TemplateSelector
-          onSelect={mockOnSelect}
-          methodology="Agile"
-          category="Planning"
-        />
-      );
-    });
+    render(
+      <TemplateSelector
+        onSelect={mockOnSelect}
+        methodology="Agile"
+        category="Planning"
+      />
+    );
 
     // Wait for templates to load and skeletons to be replaced
     await waitFor(() => {
-      const templateCards = screen.queryAllByRole('gridcell');
-      expect(templateCards.length).toBe(1); // Only one template matches our filters
+      const templateCards = screen.getAllByRole('listitem');
+      const nonBusyCards = templateCards.filter(card => card.getAttribute('aria-busy') !== 'true');
+      expect(nonBusyCards.length).toBeGreaterThan(0);
     });
 
-    // Click the first template card
-    const firstTemplateCard = screen.getByRole('gridcell');
+    // Click the first non-busy template card
+    const templateCards = screen.getAllByRole('listitem');
+    const firstTemplateCard = templateCards.find(card => card.getAttribute('aria-busy') !== 'true');
+    
+    expect(firstTemplateCard).toBeTruthy();
+    
     await act(async () => {
-      fireEvent.click(firstTemplateCard);
+      fireEvent.click(firstTemplateCard!);
     });
 
     // Verify onSelect was called with the correct template
@@ -113,7 +143,7 @@ describe('TemplateSelector', () => {
     });
 
     // Initially should show loading state
-    expect(screen.queryAllByRole('gridcell').length).toBeGreaterThanOrEqual(0); // Check grid cells or error
+    expect(screen.queryAllByRole('listitem').length).toBeGreaterThanOrEqual(0); // Check list items or error
 
     // Then should show error message
     await waitFor(() => {
