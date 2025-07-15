@@ -11,6 +11,8 @@ import { useFilters } from '../hooks/useFilters';
 import { Template } from '../types';
 import { Modal } from './Modal';
 import { TemplatePreview } from './TemplatePreview';
+import { EnhancedTemplatePreview } from './EnhancedTemplatePreview';
+import { GuidedNavigationWizard } from './GuidedNavigationWizard';
 import { TemplateCardSkeleton } from './TemplateCardSkeleton';
 import { Pagination } from './Pagination';
 
@@ -28,6 +30,9 @@ const TemplateSelector: React.FC<TemplateSelectorProps> = ({ onSelect }) => {
   const itemsPerPage = 9;
   const [isPreviewOpen, setIsPreviewOpen] = useState(false);
   const [previewTemplate, setPreviewTemplate] = useState<Template | null>(null);
+  const [isWizardOpen, setIsWizardOpen] = useState(false);
+  const [favoriteTemplates, setFavoriteTemplates] = useState<Set<string>>(new Set());
+  const [useEnhancedPreview, setUseEnhancedPreview] = useState(true);
   const templateRefs = useRef<(HTMLDivElement | null)[]>([]);
   
   // Use custom hooks
@@ -154,6 +159,10 @@ const TemplateSelector: React.FC<TemplateSelectorProps> = ({ onSelect }) => {
         console.log('Show keyboard shortcuts');
         setIsPaletteOpen(false);
         break;
+      case 'open-wizard':
+        setIsWizardOpen(true);
+        setIsPaletteOpen(false);
+        break;
       default:
         console.log(`Unknown command: ${command}`);
     }
@@ -166,6 +175,38 @@ const TemplateSelector: React.FC<TemplateSelectorProps> = ({ onSelect }) => {
     setPreviewTemplate(template);
     setIsPreviewOpen(true);
     onSelect(template);
+  };
+
+  const handleWizardComplete = (recommendations: Template[]) => {
+    setIsWizardOpen(false);
+    // Apply wizard recommendations as filters or display them
+    if (recommendations.length > 0) {
+      setSelectedTemplate(recommendations[0]);
+      setPreviewTemplate(recommendations[0]);
+      setIsPreviewOpen(true);
+    }
+  };
+
+  const handleFavoriteToggle = (templateId: string) => {
+    setFavoriteTemplates(prev => {
+      const newFavorites = new Set(prev);
+      if (newFavorites.has(templateId)) {
+        newFavorites.delete(templateId);
+      } else {
+        newFavorites.add(templateId);
+      }
+      return newFavorites;
+    });
+  };
+
+  const handleDownload = (templateId: string) => {
+    // Implementation for downloading template
+    console.log('Downloading template:', templateId);
+  };
+
+  const handleShare = (templateId: string) => {
+    // Implementation for sharing template
+    console.log('Sharing template:', templateId);
   };
 
   if (loading) {
@@ -201,7 +242,15 @@ const TemplateSelector: React.FC<TemplateSelectorProps> = ({ onSelect }) => {
         onToggleFilters={() => setIsFilterPanelOpen(!isFilterPanelOpen)}
         onToggleHelp={() => setIsPaletteOpen(true)}
         onSort={() => console.log('Sort templates')}
-      />
+      </>
+      <div className="wizard-trigger">
+        <button 
+          onClick={() => setIsWizardOpen(true)}
+          className="wizard-button"
+        >
+          🧙‍♂️ Need Help Choosing? Try Our Wizard
+        </button>
+      </div>
       <div className="template-selector">
         {(methodology || category || complexity || searchQuery) && (
           <div className="active-filters" role="status" aria-label="Active filters">
@@ -281,12 +330,35 @@ const TemplateSelector: React.FC<TemplateSelectorProps> = ({ onSelect }) => {
         {isPaletteOpen && <CommandPalette onCommand={handleCommand} />}
         {isPreviewOpen && previewTemplate && (
           <Modal isOpen={isPreviewOpen} onClose={() => setIsPreviewOpen(false)}>
-            <TemplatePreview
-              template={previewTemplate}
-              onClose={() => setIsPreviewOpen(false)}
-            />
+            {useEnhancedPreview ? (
+              <EnhancedTemplatePreview
+                template={previewTemplate}
+                onClose={() => setIsPreviewOpen(false)}
+                onUse={(templateId) => {
+                  console.log('Using template:', templateId);
+                  setIsPreviewOpen(false);
+                }}
+                onDownload={handleDownload}
+                onShare={handleShare}
+                onFavorite={handleFavoriteToggle}
+                isFavorite={favoriteTemplates.has(previewTemplate.id)}
+                showAnalytics={true}
+              />
+            ) : (
+              <TemplatePreview
+                template={previewTemplate}
+                onClose={() => setIsPreviewOpen(false)}
+              />
+            )}
           </Modal>
         )}
+        
+        <GuidedNavigationWizard
+          isOpen={isWizardOpen}
+          templates={templates}
+          onComplete={handleWizardComplete}
+          onCancel={() => setIsWizardOpen(false)}
+        />
       </div>
     </>
   );
