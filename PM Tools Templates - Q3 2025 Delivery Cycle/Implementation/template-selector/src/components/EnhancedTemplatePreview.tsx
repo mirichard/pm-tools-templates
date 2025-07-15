@@ -6,7 +6,7 @@ interface PreviewCache {
   [key: string]: {
     renderedContent: string;
     timestamp: number;
-    metadata: any;
+    metadata: unknown;
   };
 }
 
@@ -62,7 +62,7 @@ export const EnhancedTemplatePreview: React.FC<EnhancedTemplatePreviewProps> = (
     return null;
   }, [previewCache]);
 
-  const setCachedContent = useCallback((templateId: string, content: string, metadata: any) => {
+const setCachedContent = useCallback((templateId: string, content: string, metadata: unknown) => {
     setPreviewCache(prev => ({
       ...prev,
       [templateId]: {
@@ -130,7 +130,8 @@ export const EnhancedTemplatePreview: React.FC<EnhancedTemplatePreviewProps> = (
   }, [getCachedContent, setCachedContent]);
 
   // Fetch analytics data
-  const fetchAnalytics = useCallback(async (templateId: string) => {
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const fetchAnalytics = useCallback(async (_templateId: string) => {
     try {
       // Simulate analytics API call
       await new Promise(resolve => setTimeout(resolve, 500));

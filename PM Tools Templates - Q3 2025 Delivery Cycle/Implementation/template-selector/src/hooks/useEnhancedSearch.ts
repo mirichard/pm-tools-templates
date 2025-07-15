@@ -163,7 +163,7 @@ export class EnhancedSearchEngine {
     });
   }
 
-  searchAndFilter(query: string, filters: any, options: any = {}): Template[] {
+searchAndFilter(query: string, filters: unknown, options: unknown = {}): Template[] {
     let results = this.templates;
     
     // Apply filters first

@@ -9,7 +9,8 @@
     "test": "echo 'Basic test passed' && exit 0",
     "gateway": "node ecosystem-gateway.js",
     "quick-start": "node onboarding/interactive-onboarding.js",
-    "dashboard-demo": "npm --prefix dashboard-mvp run dev"
+    "dashboard-demo": "npm --prefix dashboard-mvp run dev",
+"lint": "eslint src --ext .js,.ts,.tsx"
   },
   "keywords": [
     "project-management",
@@ -25,8 +26,14 @@
   "author": "PM Tools Templates Team",
   "license": "MIT",
   "devDependencies": {
+    "@eslint/js": "^9.31.0",
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.3.0",
+    "@typescript-eslint/eslint-plugin": "^8.37.0",
+    "@typescript-eslint/parser": "^8.37.0",
+    "eslint": "^9.31.0",
+    "eslint-plugin-react": "^7.37.5",
+    "globals": "^16.3.0",
     "identity-obj-proxy": "^3.0.0",
     "jest-axe": "^10.0.0"
   },
