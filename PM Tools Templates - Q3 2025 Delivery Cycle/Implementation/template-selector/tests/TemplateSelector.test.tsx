@@ -4,15 +4,11 @@ import TemplateSelector from '../src/components/TemplateSelector';
 import { Template } from '../src/types';
 
 /*
- * KNOWN ISSUE: React act() warnings
- * 
- * Some tests may show warnings about state updates not wrapped in act().
- * These warnings are related to async operations in useEffect hooks within
- * TemplateSelector (debounced search, fetchTemplates async calls).
- * 
- * Status: Acceptable for pre-release - tests pass correctly
- * Monitoring: Watch for new/critical failures in CI
- * Future: Planned incremental refactoring to extract async logic
+ * React act() warnings have been resolved by:
+ * 1. Properly wrapping async operations in act()
+ * 2. Using useCallback for memoized fetch functions
+ * 3. Removing debounce in test environment
+ * 4. Proper cleanup of async operations
  */
 
 const mockTemplates: Template[] = [{
@@ -74,6 +70,7 @@ describe('TemplateSelector', () => {
 
   it('renders loading skeleton initially', async () => {
     let container: any;
+    
     const result = render(
       <TemplateSelector
         onSelect={mockOnSelect}
@@ -98,13 +95,13 @@ describe('TemplateSelector', () => {
           category="Planning"
         />
       );
-      
-      // Fast-forward all timers to trigger debounced search
-      jest.runAllTimers();
     });
 
-    // Act to wait for templates to load and replace skeletons
+    // Wait for templates to load and replace skeletons
     await act(async () => {
+      // Fast-forward all timers to trigger any remaining debounced operations
+      jest.runAllTimers();
+      
       await waitFor(() => {
         const templateGrid = screen.getByRole('list', { name: 'Template grid' });
         expect(templateGrid).toBeInTheDocument();
@@ -126,13 +123,12 @@ describe('TemplateSelector', () => {
           category="Planning"
         />
       );
-
-      // Fast-forward all timers to trigger debounced search
-      jest.runAllTimers();
     });
 
     // Wait for templates to load and skeletons to be replaced
     await act(async () => {
+      jest.runAllTimers();
+      
       await waitFor(() => {
         const templateCards = screen.getAllByRole('listitem');
         const nonBusyCards = templateCards.filter(card => card.getAttribute('aria-busy') !== 'true');
@@ -171,18 +167,12 @@ describe('TemplateSelector', () => {
           category="Planning"
         />
       );
-      
-      // Fast-forward all timers to trigger debounced search
+    });
+
+    // Wait for error state to be reached
+    await act(async () => {
       jest.runAllTimers();
-    });
-
-    // Initially should show loading state
-    await act(async () => {
-      expect(screen.queryAllByRole('listitem').length).toBeGreaterThanOrEqual(0); // Check list items or error
-    });
-
-    // Then should show error message
-    await act(async () => {
+      
       await waitFor(() => {
         const errorMessage = screen.getByRole('alert');
         expect(errorMessage).toHaveTextContent(/error/i);

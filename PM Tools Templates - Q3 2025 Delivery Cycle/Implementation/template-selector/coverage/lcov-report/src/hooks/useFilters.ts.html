@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for src/components/Pagination.tsx</title>
+    <title>Code coverage report for src/hooks/useFilters.ts</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../prettify.css" />
     <link rel="stylesheet" href="../../base.css" />
@@ -19,34 +19,34 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../../index.html">All files</a> / <a href="index.html">src/components</a> Pagination.tsx</h1>
+        <h1><a href="../../index.html">All files</a> / <a href="index.html">src/hooks</a> useFilters.ts</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">72.22% </span>
+                <span class="strong">47.82% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>26/36</span>
+                <span class='fraction'>11/23</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">78.57% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>11/14</span>
+                <span class='fraction'>0/3</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">20% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>6/6</span>
+                <span class='fraction'>1/5</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">74.19% </span>
+                <span class="strong">47.61% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>23/31</span>
+                <span class='fraction'>10/21</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line medium'></div>
+    <div class='status-line low'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -126,28 +126,7 @@
 <a name='L61'></a><a href='#L61'>61</a>
 <a name='L62'></a><a href='#L62'>62</a>
 <a name='L63'></a><a href='#L63'>63</a>
-<a name='L64'></a><a href='#L64'>64</a>
-<a name='L65'></a><a href='#L65'>65</a>
-<a name='L66'></a><a href='#L66'>66</a>
-<a name='L67'></a><a href='#L67'>67</a>
-<a name='L68'></a><a href='#L68'>68</a>
-<a name='L69'></a><a href='#L69'>69</a>
-<a name='L70'></a><a href='#L70'>70</a>
-<a name='L71'></a><a href='#L71'>71</a>
-<a name='L72'></a><a href='#L72'>72</a>
-<a name='L73'></a><a href='#L73'>73</a>
-<a name='L74'></a><a href='#L74'>74</a>
-<a name='L75'></a><a href='#L75'>75</a>
-<a name='L76'></a><a href='#L76'>76</a>
-<a name='L77'></a><a href='#L77'>77</a>
-<a name='L78'></a><a href='#L78'>78</a>
-<a name='L79'></a><a href='#L79'>79</a>
-<a name='L80'></a><a href='#L80'>80</a>
-<a name='L81'></a><a href='#L81'>81</a>
-<a name='L82'></a><a href='#L82'>82</a>
-<a name='L83'></a><a href='#L83'>83</a>
-<a name='L84'></a><a href='#L84'>84</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
+<a name='L64'></a><a href='#L64'>64</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -155,63 +134,47 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">21x</span>
-<span class="cline-any cline-yes">21x</span>
-<span class="cline-any cline-yes">21x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">21x</span>
-<span class="cline-any cline-yes">18x</span>
-<span class="cline-any cline-yes">78x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">43x</span>
+<span class="cline-any cline-yes">43x</span>
+<span class="cline-any cline-yes">43x</span>
+<span class="cline-any cline-yes">43x</span>
+<span class="cline-any cline-yes">43x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">43x</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">43x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">21x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">21x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">99x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">43x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -220,97 +183,74 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React from 'react';
-import './Pagination.css';
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { useState, useCallback } from 'react';
+import { Template } from '../types';
 &nbsp;
-interface PaginationProps {
+interface UseFiltersReturn {
+  methodology: string;
+  category: string;
+  complexity: 'Beginner' | 'Intermediate' | 'Advanced' | '';
+  searchQuery: string;
   currentPage: number;
-  totalPages: number;
-  onPageChange: (page: number) =&gt; void;
+  setMethodology: (methodology: string) =&gt; void;
+  setCategory: (category: string) =&gt; void;
+  setComplexity: (complexity: 'Beginner' | 'Intermediate' | 'Advanced' | '') =&gt; void;
+  setSearchQuery: (query: string) =&gt; void;
+  setCurrentPage: (page: number) =&gt; void;
+  clearFilters: () =&gt; void;
+  sortTemplates: (templates: Template[], sortBy: 'name' | 'recent') =&gt; Template[];
 }
 &nbsp;
-export const Pagination: React.FC&lt;PaginationProps&gt; = ({
-  currentPage,
-  totalPages,
-  onPageChange,
-}) =&gt; {
-  const renderPageNumbers = () =&gt; {
-    const pages = [];
-    const maxVisiblePages = 5;
+export const useFilters = (): UseFiltersReturn =&gt; {
+  const [methodology, setMethodology] = useState('');
+  const [category, setCategory] = useState('');
+  const [complexity, setComplexity] = useState&lt;'Beginner' | 'Intermediate' | 'Advanced' | ''&gt;('');
+  const [searchQuery, setSearchQuery] = useState('');
+  const [currentPage, setCurrentPage] = useState(1);
 &nbsp;
-    if (totalPages &lt;= maxVisiblePages) {
-      for (let i = 1; i &lt;= totalPages; i++) {
-        pages.push(i);
-      }
-    } else {
-      <span class="missing-if-branch" title="if path not taken" >I</span>if (currentPage &lt;= 3) {
-<span class="cstat-no" title="statement not covered" >        for (let i = <span class="cstat-no" title="statement not covered" >1;</span> i &lt;= 4; i++) {</span>
-<span class="cstat-no" title="statement not covered" >          pages.push(i);</span>
-        }
-<span class="cstat-no" title="statement not covered" >        pages.push('...');</span>
-<span class="cstat-no" title="statement not covered" >        pages.push(totalPages);</span>
-      } else <span class="missing-if-branch" title="if path not taken" >I</span>if (currentPage &gt;= totalPages - 2) {
-<span class="cstat-no" title="statement not covered" >        pages.push(1);</span>
-<span class="cstat-no" title="statement not covered" >        pages.push('...');</span>
-<span class="cstat-no" title="statement not covered" >        for (let i = <span class="cstat-no" title="statement not covered" >totalPages - 3;</span> i &lt;= totalPages; i++) {</span>
-<span class="cstat-no" title="statement not covered" >          pages.push(i);</span>
-        }
-      } else {
-        pages.push(1);
-        pages.push('...');
-        for (let i = currentPage - 1; i &lt;= currentPage + 1; i++) {
-          pages.push(i);
-        }
-        pages.push('...');
-        pages.push(totalPages);
-      }
+  const clearFilters = useCallback(<span class="fstat-no" title="function not covered" >() =</span>&gt; {
+<span class="cstat-no" title="statement not covered" >    setMethodology('');</span>
+<span class="cstat-no" title="statement not covered" >    setCategory('');</span>
+<span class="cstat-no" title="statement not covered" >    setComplexity('');</span>
+<span class="cstat-no" title="statement not covered" >    setSearchQuery('');</span>
+<span class="cstat-no" title="statement not covered" >    setCurrentPage(1);</span>
+  }, []);
+&nbsp;
+  const sortTemplates = useCallback(<span class="fstat-no" title="function not covered" >(t</span>emplates: Template[], sortBy: 'name' | 'recent') =&gt; {
+    const sortedTemplates = <span class="cstat-no" title="statement not covered" >[...templates];</span>
+    
+<span class="cstat-no" title="statement not covered" >    switch (sortBy) {</span>
+      case 'name':
+<span class="cstat-no" title="statement not covered" >        return sortedTemplates.sort(<span class="fstat-no" title="function not covered" >(a</span>, b) =&gt; <span class="cstat-no" title="statement not covered" >a.name.localeCompare(b.name))</span>;</span>
+      case 'recent':
+<span class="cstat-no" title="statement not covered" >        return sortedTemplates.sort(<span class="fstat-no" title="function not covered" >(a</span>, b) =&gt; </span>
+<span class="cstat-no" title="statement not covered" >          new Date(b.lastUpdated).getTime() - new Date(a.lastUpdated).getTime()</span>
+        );
+      default:
+<span class="cstat-no" title="statement not covered" >        return sortedTemplates;</span>
     }
+  }, []);
 &nbsp;
-    return pages;
+  return {
+    methodology,
+    category,
+    complexity,
+    searchQuery,
+    currentPage,
+    setMethodology,
+    setCategory,
+    setComplexity,
+    setSearchQuery,
+    setCurrentPage,
+    clearFilters,
+    sortTemplates
   };
-&nbsp;
-  return (
-    &lt;nav className="pagination" role="navigation" aria-label="Pagination"&gt;
-      &lt;button
-        className="pagination-button"
-        onClick={() =&gt; onPageChange(currentPage - 1)}
-        disabled={currentPage === 1}
-        aria-label="Previous page"
-      &gt;
-        ←
-      &lt;/button&gt;
-      {renderPageNumbers().map((page, index) =&gt; (
-        &lt;button
-          key={`${page}-${index}`}
-          className={`pagination-button ${
-            page === currentPage ? 'active' : ''
-          } ${page === '...' ? 'dots' : ''}`}
-          onClick={() =&gt; (typeof page === 'number' ? onPageChange(page) : <span class="branch-1 cbranch-no" title="branch not covered" >null)</span>}
-          disabled={page === '...'}
-          aria-current={page === currentPage ? 'page' : undefined}
-        &gt;
-          {page}
-        &lt;/button&gt;
-      ))}
-      &lt;button
-        className="pagination-button"
-        onClick={() =&gt; onPageChange(currentPage + 1)}
-        disabled={currentPage === totalPages}
-        aria-label="Next page"
-      &gt;
-        →
-      &lt;/button&gt;
-    &lt;/nav&gt;
-  );
 };
 &nbsp;</pre></td></tr></table></pre>
 

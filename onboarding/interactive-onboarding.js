@@ -29,6 +29,24 @@ class InteractiveOnboarding {
         };
         
         this.templates = this.loadTemplateIndex();
+        
+        // Progress tracking for UX-101 acceptance criteria
+        this.progressSteps = [
+            { id: 'welcome', name: 'Welcome & Overview', completed: false },
+            { id: 'profile', name: 'Profile Collection', completed: false },
+            { id: 'templates', name: 'Template Selection', completed: false },
+            { id: 'setup', name: 'Project Setup', completed: false },
+            { id: 'completion', name: 'Completion & Resources', completed: false }
+        ];
+        
+        this.currentStep = 0;
+        this.startTime = Date.now();
+        this.tutorialMetrics = {
+            timeSpent: 0,
+            stepsCompleted: 0,
+            templatesSelected: 0,
+            completionRate: 0
+        };
     }
 
     async start() {
