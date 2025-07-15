@@ -231,7 +231,7 @@ const TemplateSelector: React.FC<TemplateSelectorProps> = ({ onSelect }) => {
     );
   }
 
-  if (error) {
+if (error) {
     return <div className="error" role="alert">Error: {error}</div>;
   }
 
@@ -242,7 +242,15 @@ const TemplateSelector: React.FC<TemplateSelectorProps> = ({ onSelect }) => {
         onToggleFilters={() => setIsFilterPanelOpen(!isFilterPanelOpen)}
         onToggleHelp={() => setIsPaletteOpen(true)}
         onSort={() => console.log('Sort templates')}
-      </>
+      />
+  <>
+<>
+    <Header
+      onSearch={(query) => setSearchQuery(query)}
+      onToggleFilters={() => setIsFilterPanelOpen(!isFilterPanelOpen)}
+      onToggleHelp={() => setIsPaletteOpen(true)}
+      onSort={() => console.log('Sort templates')}
+    />
       <div className="wizard-trigger">
         <button 
           onClick={() => setIsWizardOpen(true)}
