@@ -9,7 +9,7 @@ export default [
 
   // 2) Apply all rules only to your TS/JSX sources
   {
-    files: ['PM Tools Templates - Q3 2025 Delivery Cycle/Implementation/template-selector/src/**/*.{js,jsx,ts,tsx}'],
+files: ['src/**/*.{js,jsx,ts,tsx}'],
     languageOptions: {
       parser: tsParser,
       parserOptions: {
