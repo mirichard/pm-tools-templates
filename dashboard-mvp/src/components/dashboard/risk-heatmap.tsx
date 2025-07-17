@@ -1,6 +1,7 @@
 'use client'
 
-import { AlertTriangle, Shield, Target, Clock } from 'lucide-react'
+import { useState } from 'react'
+import { AlertTriangle, Shield, Target, Clock, Info } from 'lucide-react'
 
 const defaultRiskData = [
   { id: '1', title: 'API Integration', category: 'Technical', severity: 'high' as const, probability: 0.8, impact: 0.9, status: 'open' as const, owner: 'Tech Lead', dueDate: '2025-07-01' },
@@ -48,9 +49,23 @@ const getRiskIcon = (category: string) => {
 
 export function RiskHeatmap({ risks }: RiskHeatmapProps = {}) {
   const riskData = risks || defaultRiskData;
+  const [hoveredRisk, setHoveredRisk] = useState<string | null>(null);
+  const [hoveredCell, setHoveredCell] = useState<{row: number, col: number} | null>(null);
+  const [selectedRisk, setSelectedRisk] = useState<string | null>(null);
+  
   const highRisks = riskData.filter(risk => risk.severity === 'high' || risk.severity === 'critical').length
   const mediumRisks = riskData.filter(risk => risk.severity === 'medium').length
   const lowRisks = riskData.filter(risk => risk.severity === 'low').length
+  
+  const getCellTooltip = (row: number, col: number) => {
+    const probabilityLabels = ['Low', 'Medium', 'High'];
+    const impactLabels = ['Low', 'Medium', 'High'];
+    return `${probabilityLabels[2-row]} Probability, ${impactLabels[col-1]} Impact`;
+  };
+  
+  const handleRiskClick = (riskId: string) => {
+    setSelectedRisk(selectedRisk === riskId ? null : riskId);
+  };
 
   return (
     <div className="bg-white rounded-lg shadow-sm border p-6">

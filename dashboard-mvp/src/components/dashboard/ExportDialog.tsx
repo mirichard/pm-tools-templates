@@ -92,19 +92,32 @@ export function ExportDialog({ isOpen, onClose }: ExportDialogProps) {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               {(['pdf', 'csv', 'json'] as const).map((format) => {
                 const Icon = formatIcons[format];
+                const isSelected = selectedFormat === format;
                 return (
                   <button
                     key={format}
                     onClick={() => setSelectedFormat(format)}
-                    className={`p-4 border rounded-lg text-left transition-all ${
-                      selectedFormat === format
-                        ? 'border-blue-500 bg-blue-50 text-blue-700'
-                        : 'border-gray-200 hover:border-gray-300 text-gray-700'
+                    aria-label={`Select ${format.toUpperCase()} format`}
+                    className={`relative p-6 border-2 rounded-xl text-left transition-all duration-200 transform hover:scale-105 ${
+                      isSelected
+                        ? 'border-blue-500 bg-blue-50 text-blue-700 shadow-lg ring-2 ring-blue-200'
+                        : 'border-gray-200 hover:border-blue-300 text-gray-700 hover:bg-gray-50 hover:shadow-md'
                     }`}
                   >
-                    <Icon className="w-8 h-8 mb-2" />
-                    <div className="font-medium uppercase">{format}</div>
-                    <div className="text-sm opacity-75 mt-1">
+                    {isSelected && (
+                      <div className="absolute -top-2 -right-2 w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center">
+                        <CheckCircle className="w-4 h-4 text-white" />
+                      </div>
+                    )}
+                    <Icon className={`w-10 h-10 mb-3 ${
+                      isSelected ? 'text-blue-600' : 'text-gray-500'
+                    }`} />
+                    <div className={`font-bold text-lg uppercase mb-2 ${
+                      isSelected ? 'text-blue-800' : 'text-gray-800'
+                    }`}>{format}</div>
+                    <div className={`text-sm leading-relaxed ${
+                      isSelected ? 'text-blue-600' : 'text-gray-600'
+                    }`}>
                       {formatDescriptions[format]}
                     </div>
                   </button>
@@ -226,4 +239,3 @@ export function ExportDialog({ isOpen, onClose }: ExportDialogProps) {
     </div>
   );
 }
-
