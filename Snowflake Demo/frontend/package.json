@@ -5,11 +5,11 @@
   "dependencies": {
     "axios": "1.8.2",
     "lucide-react": "^0.525.0",
-    "plotly.js": "2.24.1",
+    "plotly.js": "^2.35.3",
     "react": "18.3.1",
     "react-dom": "18.3.1",
     "react-plotly.js": "2.5.1",
-    "react-scripts": "5.0.1",
+    "react-scripts": "^0.0.0",
     "recharts": "^3.1.0"
   },
   "scripts": {
