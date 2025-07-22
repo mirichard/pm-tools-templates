@@ -333,7 +333,7 @@ jobs:
   monday-email:
     name: 📧 Send Monday Morning Email
     needs: status-reporting
-    if: github.event.schedule == '0 7 * * 1'
+    if: github.event_name == 'schedule'
     runs-on: ubuntu-latest
     env:
       COMPLETION_RATE: ${{ needs.status-reporting.outputs.completion_rate }}
