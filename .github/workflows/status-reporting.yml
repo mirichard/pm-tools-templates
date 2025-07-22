@@ -40,6 +40,8 @@ env:
 
 jobs:
   status-reporting:
+    # Run on schedule events and manual workflow_dispatch
+    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
     outputs:
       report_file: ${{ steps.report_path.outputs.path }}
       completion_rate: ${{ steps.metrics.outputs.completion_rate }}
@@ -334,7 +336,8 @@ jobs:
   monday-email:
     name: 📧 Send Monday Morning Email
     needs: status-reporting
-    if: github.event_name == 'schedule'
+    # Run on schedule events and manual workflow_dispatch (when status-reporting succeeds)
+    if: always() && needs.status-reporting.result == 'success' && (github.event_name == 'schedule' || github.event_name == 'workflow_dispatch')
     runs-on: ubuntu-latest
     env:
       COMPLETION_RATE: ${{ needs.status-reporting.outputs.completion_rate }}
