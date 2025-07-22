@@ -7,8 +7,8 @@ on:
     paths:
       - '**/*.md'
       - '.github/workflows/anchor-link-check.yml'
-      - 'check_anchor_links.py'
-      - 'quick_anchor_check.sh'
+      - 'scripts/check_anchor_links*.py'
+      - 'scripts/quick_anchor_check.sh'
 
   # Run on pushes to main branch
   push:
@@ -16,8 +16,8 @@ on:
     paths:
       - '**/*.md'
       - '.github/workflows/anchor-link-check.yml'
-      - 'check_anchor_links.py'
-      - 'quick_anchor_check.sh'
+      - 'scripts/check_anchor_links*.py'
+      - 'scripts/quick_anchor_check.sh'
 
   # Allow manual triggering
   workflow_dispatch:
@@ -53,14 +53,14 @@ jobs:
 
       - name: Make scripts executable
         run: |
-          chmod +x quick_anchor_check.sh
-          chmod +x check_anchor_links.py
+          chmod +x scripts/quick_anchor_check.sh
+          chmod +x scripts/check_anchor_links_filtered.py
 
       - name: Quick anchor check
         id: quick_check
         run: |
           echo "Running quick anchor link check..."
-          ./quick_anchor_check.sh > quick_check_output.txt 2>&1 || echo "Quick check found issues"
+          ./scripts/quick_anchor_check.sh > quick_check_output.txt 2>&1 || echo "Quick check found issues"
           
           # Capture exit code and output for later steps
           QUICK_EXIT_CODE=$?
@@ -86,7 +86,7 @@ jobs:
           fi
           
           # Run the filtered comprehensive check (excludes node_modules)
-          python check_anchor_links_filtered.py > full_check_output.txt 2>&1 || echo "Full check found issues"
+          python scripts/check_anchor_links_filtered.py > full_check_output.txt 2>&1 || echo "Full check found issues"
           
           # Capture exit code
           FULL_EXIT_CODE=$?
