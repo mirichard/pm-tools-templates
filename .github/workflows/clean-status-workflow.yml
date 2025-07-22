@@ -209,3 +209,244 @@ jobs:
         run: |
           REPORT_FILE="reports/status/${REPORT_TYPE}-status-$(date +%Y-%m-%d).md"
           echo "path=$REPORT_FILE" >> $GITHUB_OUTPUT
+
+  send-email:
+    name: Send Status Email
+    needs: status-reporting
+    if: success()
+    runs-on: ubuntu-latest
+    env:
+      COMPLETION_RATE: ${{ needs.status-reporting.outputs.completion_rate }}
+      STRATEGIC_PROGRESS: ${{ needs.status-reporting.outputs.strategic_progress }}
+      CRITICAL_RISKS: ${{ needs.status-reporting.outputs.critical_risks }}
+      HIGH_PRIORITY: ${{ needs.status-reporting.outputs.high_priority }}
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Pull Latest Changes
+        run: git pull origin main
+
+      - name: Generate Email Content
+        env:
+          REPORT_TYPE: ${{ github.event.inputs.report_type || 'weekly' }}
+        run: |
+          mkdir -p ./email
+          
+          # Get the latest status report content
+          REPORT_FILE="reports/status/${REPORT_TYPE}-status-$(date +%Y-%m-%d).md"
+          
+          # Convert Markdown content to HTML
+          cat > ./email/status-email.html << EOF
+          <!DOCTYPE html>
+          <html>
+          <head>
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Project Status Update - $(date +"%B %d, %Y")</title>
+            <style>
+              body { 
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+                line-height: 1.6; 
+                color: #333; 
+                max-width: 900px; 
+                margin: 0 auto; 
+                padding: 20px; 
+                background-color: #f5f5f5;
+              }
+              .container {
+                background: white;
+                padding: 30px;
+                border-radius: 8px;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+              }
+              .header { 
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                color: white;
+                padding: 25px; 
+                margin: -30px -30px 30px -30px;
+                border-radius: 8px 8px 0 0;
+                text-align: center;
+              }
+              .header h1 { margin: 0; font-size: 28px; }
+              .header p { margin: 10px 0 0 0; opacity: 0.9; }
+              .metrics { 
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                gap: 15px;
+                margin: 25px 0;
+              }
+              .metric-card { 
+                background: #f8f9fa;
+                padding: 20px;
+                border-radius: 8px;
+                border-left: 4px solid #007bff;
+                text-align: center;
+              }
+              .metric-card h3 { 
+                margin: 0 0 10px 0;
+                color: #495057;
+                font-size: 14px;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+              }
+              .metric-value { 
+                font-size: 32px; 
+                font-weight: bold; 
+                margin: 10px 0;
+              }
+              .status-good { color: #28a745; }
+              .status-warning { color: #ffc107; }
+              .status-danger { color: #dc3545; }
+              .status-info { color: #17a2b8; }
+              .content-section {
+                margin: 25px 0;
+                padding: 20px;
+                background: #f8f9fa;
+                border-radius: 8px;
+              }
+              .content-section h2 {
+                color: #495057;
+                border-bottom: 2px solid #007bff;
+                padding-bottom: 10px;
+                margin-bottom: 15px;
+              }
+              .content-section h3 {
+                color: #6c757d;
+                margin-top: 20px;
+              }
+              .status-table {
+                width: 100%;
+                border-collapse: collapse;
+                margin: 15px 0;
+              }
+              .status-table th,
+              .status-table td {
+                padding: 12px;
+                text-align: left;
+                border-bottom: 1px solid #dee2e6;
+              }
+              .status-table th {
+                background-color: #e9ecef;
+                font-weight: 600;
+              }
+              .footer { 
+                margin-top: 30px;
+                padding-top: 20px;
+                border-top: 1px solid #dee2e6;
+                text-align: center;
+                color: #6c757d;
+                font-size: 12px;
+              }
+              ul {
+                padding-left: 20px;
+              }
+              li {
+                margin-bottom: 5px;
+              }
+            </style>
+          </head>
+          <body>
+            <div class="container">
+              <div class="header">
+                <h1>🎯 Project Status Update</h1>
+                <p>Weekly Report - $(date +"%B %d, %Y")</p>
+              </div>
+              
+              <div class="metrics">
+                <div class="metric-card">
+                  <h3>📊 Completion</h3>
+                  <div class="metric-value status-good">${COMPLETION_RATE}%</div>
+                  <p>Overall Progress</p>
+                </div>
+                <div class="metric-card">
+                  <h3>🎯 Strategic</h3>
+                  <div class="metric-value status-danger">${STRATEGIC_PROGRESS}%</div>
+                  <p>Strategic Goals</p>
+                </div>
+                <div class="metric-card">
+                  <h3>⚠️ Priorities</h3>
+                  <div class="metric-value status-warning">${HIGH_PRIORITY}</div>
+                  <p>High Priority Items</p>
+                </div>
+                <div class="metric-card">
+                  <h3>🚨 Risks</h3>
+                  <div class="metric-value status-good">${CRITICAL_RISKS}</div>
+                  <p>Critical Issues</p>
+                </div>
+              </div>
+          EOF
+          
+          # Add the full report content
+          if [ -f "$REPORT_FILE" ]; then
+            echo '              <div class="content-section">' >> ./email/status-email.html
+            echo '                <h2>📋 Full Status Report</h2>' >> ./email/status-email.html
+            
+            # Convert markdown sections to HTML
+            sed -n '/## Executive Summary/,/## Key Highlights/p' "$REPORT_FILE" | \
+            sed 's/## \(.*\)/<h3>\1<\/h3>/g' | \
+            sed 's/| \(.*\) |/<tr><td>\1<\/td><\/tr>/g' | \
+            sed 's/|--------|-------|--------|/<\/thead><tbody>/g' | \
+            sed 's/| Metric | Value | Status |/<table class="status-table"><thead><tr><th>Metric<\/th><th>Value<\/th><th>Status<\/th><\/tr>/g' | \
+            sed 's/^- /<li>/g' | \
+            sed 's/^\*\*\(.*\):\*\* /<strong>\1:<\/strong> /g' >> ./email/status-email.html
+            
+            echo '                </tbody></table>' >> ./email/status-email.html
+            echo '              </div>' >> ./email/status-email.html
+            
+            # Add Key Highlights section
+            echo '              <div class="content-section">' >> ./email/status-email.html
+            echo '                <h2>✨ Key Highlights</h2>' >> ./email/status-email.html
+            sed -n '/### Accomplishments This Period/,/### Current Focus Areas/p' "$REPORT_FILE" | \
+            sed 's/### \(.*\)/<h3>\1<\/h3>/g' | \
+            sed 's/^- /<li>/g' | \
+            sed 's/<li>\(.*\)/<ul><li>\1<\/li><\/ul>/g' >> ./email/status-email.html
+            echo '              </div>' >> ./email/status-email.html
+            
+            # Add Current Focus section
+            echo '              <div class="content-section">' >> ./email/status-email.html
+            echo '                <h2>🎯 Current Focus Areas</h2>' >> ./email/status-email.html
+            sed -n '/### Current Focus Areas/,/### Risks and Issues/p' "$REPORT_FILE" | \
+            sed 's/### \(.*\)/<h3>\1<\/h3>/g' | \
+            sed 's/^- /<li>/g' | \
+            sed 's/<li>\(.*\)/<ul><li>\1<\/li><\/ul>/g' >> ./email/status-email.html
+            echo '              </div>' >> ./email/status-email.html
+          else
+            echo '              <div class="content-section">' >> ./email/status-email.html
+            echo '                <h2>⚠️ Report Status</h2>' >> ./email/status-email.html
+            echo '                <p>Status report file not found. Please check the workflow execution.</p>' >> ./email/status-email.html
+            echo '              </div>' >> ./email/status-email.html
+          fi
+          
+          # Close the HTML
+          cat >> ./email/status-email.html << 'EOF'
+              <div class="footer">
+                <p>🤖 Generated by PM Tools Clean Status Workflow</p>
+                <p>📧 This is an automated status report from your project management system</p>
+                <p>📊 For detailed metrics and analysis, visit your project dashboard</p>
+              </div>
+            </div>
+          </body>
+          </html>
+          EOF
+
+      - name: Send Status Email
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.gmail.com
+          server_port: 465
+          username: ${{ secrets.EMAIL_USERNAME }}
+          password: ${{ secrets.EMAIL_PASSWORD }}
+          subject: "Weekly Project Status - $(date +'%B %d, %Y')"
+          html_body: file://./email/status-email.html
+          to: ${{ secrets.EMAIL_RECIPIENTS || env.MAIL_RECIPIENTS }}
+          from: ${{ secrets.EMAIL_FROM || env.MAIL_FROM }}
+          content_type: text/html
+
+      - name: Email Status
+        run: |
+          if [ "${{ secrets.EMAIL_USERNAME }}" != "" ]; then
+            echo "✅ Email sent successfully!"
+          else
+            echo "❌ Email not sent - configure EMAIL_USERNAME, EMAIL_PASSWORD secrets."
+          fi
