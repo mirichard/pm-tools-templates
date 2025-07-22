@@ -441,7 +441,6 @@ jobs:
           html_body: file://./email/status-email.html
           to: ${{ secrets.EMAIL_RECIPIENTS || env.MAIL_RECIPIENTS }}
           from: ${{ secrets.EMAIL_FROM || env.MAIL_FROM }}
-          content_type: text/html
 
       - name: Email Status
         run: |
