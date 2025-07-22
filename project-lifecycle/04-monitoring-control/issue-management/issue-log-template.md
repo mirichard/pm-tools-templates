@@ -1,6 +1,18 @@
 # Issue Log Template
 
-## Project Information  
+## Purpose/Overview
+This template provides a systematic approach to identifying, tracking, and resolving project issues. It serves as a centralized repository for all project problems, enabling effective issue management and ensuring nothing falls through the cracks. The template supports continuous monitoring and resolution of impediments that could impact project success.
+
+## Usage Instructions
+1. **Setup**: Replace all bracketed placeholders with actual project information
+2. **Issue Logging**: Add new issues to the tracking table with unique IDs
+3. **Regular Updates**: Review and update issue status during team meetings
+4. **Priority Assignment**: Use the priority levels to focus on critical issues first
+5. **Resolution Tracking**: Follow the 5-step resolution process for each issue
+6. **Reporting**: Use this log for status reports and stakeholder communication
+7. **Archiving**: Move resolved issues to a separate section or archive document
+
+## Project Information
 - **Project Name**: [Project Name]
 - **Date**: [Date]
 - **Issue Manager**: [Name]

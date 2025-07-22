@@ -1,5 +1,17 @@
 # Hybrid Project Charter Template
 
+## Purpose/Overview
+This hybrid project charter template outlines the foundational elements of a project, integrating both traditional and agile practices. It serves as a guiding document that defines project vision, objectives, scope, and governance. The template helps ensure all stakeholders have a shared understanding and agreement on project direction.
+
+## Usage Instructions
+1. **Collaborative Creation**: Involve key stakeholders in drafting the charter
+2. **Methodology Selection**: Clearly define the balance between traditional and agile elements
+3. **Scope Clarity**: Detail what is and isn’t included in the project scope
+4. **Approval Process**: Ensure all necessary approvals are obtained before project initiation
+5. **Regular Updates**: Update the charter as project phases progress or changes occur
+6. **Team Alignment**: Use the charter to align the team and stakeholders on project goals
+7. **Reference Document**: Keep the charter accessible to all team members for ongoing reference
+
 ## Project Information
 - **Project Name**: [Project Name]
 - **Project Manager**: [Name]

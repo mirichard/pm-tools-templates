@@ -1,5 +1,18 @@
 # Traditional Project Charter Template
 
+## Purpose/Overview
+This traditional project charter template provides a comprehensive framework for project initiation following established project management practices. It serves as the formal authorization document that defines project scope, objectives, and governance structure. The charter establishes clear boundaries and expectations for all stakeholders.
+
+## Usage Instructions
+1. **Stakeholder Input**: Gather requirements and expectations from key stakeholders
+2. **Business Case**: Ensure the project charter aligns with the business case and strategic objectives
+3. **Detailed Planning**: Use the charter as the foundation for detailed project planning
+4. **Approval Process**: Obtain formal approval signatures before proceeding with project execution
+5. **Baseline Document**: Treat the approved charter as a baseline for scope and change control
+6. **Communication Tool**: Share the charter with all team members and stakeholders
+7. **Reference Guide**: Use throughout the project for decision-making and scope clarification
+8. **Change Management**: Update the charter through formal change control processes
+
 ## Project Information
 - **Project Name**: [Project Name]
 - **Project Manager**: [Name]

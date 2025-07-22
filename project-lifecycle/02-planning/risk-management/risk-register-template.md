@@ -1,5 +1,18 @@
 # Risk Register Template
 
+## Purpose/Overview
+This risk register template provides a systematic approach to identifying, assessing, and managing project risks throughout the project lifecycle. It serves as a central repository for all project risks, enabling proactive risk management and supporting informed decision-making. The template follows traditional project management best practices for comprehensive risk management.
+
+## Usage Instructions
+1. **Risk Identification**: Regularly brainstorm and identify potential risks with the team
+2. **Assessment**: Evaluate each risk using the probability and impact scales provided
+3. **Risk Scoring**: Calculate risk scores to prioritize management attention
+4. **Mitigation Planning**: Develop appropriate response strategies for each significant risk
+5. **Ownership Assignment**: Assign specific individuals to monitor and manage each risk
+6. **Regular Reviews**: Update the register weekly during project meetings
+7. **Status Tracking**: Monitor risk status and effectiveness of mitigation strategies
+8. **Communication**: Share key risks with stakeholders through status reports
+
 ## Project Information
 - **Project Name**: [Project Name]
 - **Date**: [Date]

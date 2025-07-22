@@ -1,5 +1,18 @@
 # Agile Team Charter Template
 
+## Purpose/Overview
+This agile team charter template establishes the foundation for effective agile teams by defining mission, values, and working agreements. It serves as a living document that guides team behavior, decision-making, and collaboration within the Scrum framework. The charter promotes team self-organization and continuous improvement.
+
+## Usage Instructions
+1. **Team Workshop**: Create the charter collaboratively during a team formation workshop
+2. **Living Document**: Regularly review and update based on team retrospectives
+3. **Daily Reference**: Use working agreements to guide daily interactions and decisions
+4. **Onboarding**: Share with new team members as part of their orientation
+5. **Conflict Resolution**: Reference values and agreements when resolving team conflicts
+6. **Continuous Improvement**: Update the charter based on team learning and growth
+7. **Visibility**: Keep the charter visible and accessible to all team members
+8. **Alignment**: Ensure the charter aligns with organizational values and project goals
+
 ## Team Information
 - **Team Name**: [Team Name]
 - **Product Owner**: [Name]

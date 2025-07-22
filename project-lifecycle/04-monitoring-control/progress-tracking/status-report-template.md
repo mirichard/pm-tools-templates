@@ -1,5 +1,18 @@
 # Project Status Report Template
 
+## Purpose/Overview
+This comprehensive status report template provides a structured format for communicating project progress, health, and key information to stakeholders. It combines executive summaries with detailed metrics to serve multiple audiences, from senior leadership to project team members. The template ensures consistent, professional reporting while highlighting critical issues and decisions requiring attention.
+
+## Usage Instructions
+1. **Frequency**: Customize reporting frequency (weekly/bi-weekly/monthly) based on project needs
+2. **Audience**: Use full template for comprehensive reports, or variants for specific audiences
+3. **Status Colors**: Use red/yellow/green indicators consistently throughout
+4. **Data Collection**: Gather metrics from project management tools before filling template
+5. **Review Process**: Have team leads review their sections before finalizing
+6. **Distribution**: Send to all stakeholders listed in distribution section
+7. **Follow-up**: Track action items and decisions from previous reports
+8. **Customization**: Remove/modify sections that don't apply to your project type
+
 ## Document Information
 - **Project Name**: [Enter Project Name]
 - **Report Period**: [Start Date] - [End Date]
