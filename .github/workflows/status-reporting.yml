@@ -334,7 +334,7 @@ jobs:
           echo "path=$REPORT_FILE" >> $GITHUB_OUTPUT
 
   monday-email:
-    name: 📧 Send Monday Morning Email
+    name: 📧 Generate Email Content (Test)
     needs: status-reporting
     # Run on schedule events and manual workflow_dispatch (when status-reporting succeeds)
     if: always() && needs.status-reporting.result == 'success' && (github.event_name == 'schedule' || github.event_name == 'workflow_dispatch')
@@ -508,16 +508,33 @@ jobs:
           </html>
           EOF
 
-      - name: 📧 Send Status Email
-        uses: dawidd6/action-send-mail@v3
-        with:
-          server_address: smtp.gmail.com
-          server_port: 465
-          username: ${{ secrets.EMAIL_USERNAME }}
-          password: ${{ secrets.EMAIL_PASSWORD }}
-          subject: "📊 Monday Morning Status Update - $(date +"%B %d, %Y")"
-          html_body: file://./email/monday-status.html
-          to: ${{ env.MAIL_RECIPIENTS }}
-          from: ${{ env.MAIL_FROM }}
-          content_type: text/html
+      - name: 💾 Commit Email Content (Test Mode)
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "Email Test Automation"
+          
+          # Add the generated email content
+          git add email/
+          
+          # Commit if there are changes
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "📧 Generate test email content - $(date +"%B %d, %Y")"
+            git push
+          fi
+
+      # Email sending step commented out for testing
+      # - name: 📧 Send Status Email
+      #   uses: dawidd6/action-send-mail@v3
+      #   with:
+      #     server_address: smtp.gmail.com
+      #     server_port: 465
+      #     username: ${{ secrets.EMAIL_USERNAME }}
+      #     password: ${{ secrets.EMAIL_PASSWORD }}
+      #     subject: "📊 Monday Morning Status Update - $(date +"%B %d, %Y")"
+      #     html_body: file://./email/monday-status.html
+      #     to: ${{ env.MAIL_RECIPIENTS }}
+      #     from: ${{ env.MAIL_FROM }}
+      #     content_type: text/html
 
