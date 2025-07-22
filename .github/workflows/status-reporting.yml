@@ -524,17 +524,31 @@ jobs:
             git push
           fi
 
-      # Email sending step commented out for testing
-      # - name: 📧 Send Status Email
-      #   uses: dawidd6/action-send-mail@v3
-      #   with:
-      #     server_address: smtp.gmail.com
-      #     server_port: 465
-      #     username: ${{ secrets.EMAIL_USERNAME }}
-      #     password: ${{ secrets.EMAIL_PASSWORD }}
-      #     subject: "📊 Monday Morning Status Update - $(date +"%B %d, %Y")"
-      #     html_body: file://./email/monday-status.html
-      #     to: ${{ env.MAIL_RECIPIENTS }}
-      #     from: ${{ env.MAIL_FROM }}
-      #     content_type: text/html
+      - name: 📧 Send Status Email
+        # Only send email if EMAIL_USERNAME secret is configured
+        if: ${{ secrets.EMAIL_USERNAME != '' }}
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.gmail.com
+          server_port: 465
+          username: ${{ secrets.EMAIL_USERNAME }}
+          password: ${{ secrets.EMAIL_PASSWORD }}
+          subject: "📊 Weekly Project Status Update - $(date +"%B %d, %Y")"
+          html_body: file://./email/monday-status.html
+          to: ${{ secrets.EMAIL_RECIPIENTS || env.MAIL_RECIPIENTS }}
+          from: ${{ secrets.EMAIL_FROM || env.MAIL_FROM }}
+          content_type: text/html
+          
+      - name: 📧 Email Status Summary
+        run: |
+          if [ "${{ secrets.EMAIL_USERNAME }}" != "" ]; then
+            echo "📧 Email sent successfully to: ${{ secrets.EMAIL_RECIPIENTS || env.MAIL_RECIPIENTS }}"
+          else
+            echo "⚠️  Email not sent - EMAIL_USERNAME secret not configured"
+            echo "To enable email delivery, add these GitHub secrets:"
+            echo "  - EMAIL_USERNAME (your email address)"
+            echo "  - EMAIL_PASSWORD (your email app password)"
+            echo "  - EMAIL_RECIPIENTS (comma-separated recipient emails)"
+            echo "  - EMAIL_FROM (optional - sender email address)"
+          fi
 
