@@ -1,0 +1,23 @@
+{
+  "report_date": "2025-07-22T17:19:04+00:00",
+  "report_type": "weekly",
+  "methodology": "agile",
+  "metrics": {
+    "total_issues": 30,
+    "open_issues": 30,
+    "closed_issues": 30,
+    "completion_rate": 100,
+    "high_priority": 19,
+    "bugs": 2,
+    "strategic_open": 23,
+    "strategic_progress": 20,
+    "critical_risks": 0,
+    "blockers": 0,
+    "recent_closed": 0
+  },
+  "health_indicators": {
+    "overall_health": "green",
+    "risk_level": "low",
+    "progress_trend": "stagnant"
+  }
+}
