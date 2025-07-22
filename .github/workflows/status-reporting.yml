@@ -1,16 +1,11 @@
 name: 📊 Project Status Report
 
 on:
-  # TEMPORARY: Add push trigger for testing - REMOVE AFTER TESTING
-  push:
-    branches: [ fix/status-reporting-20250722-125719 ]
   schedule:
     # Generate weekly status reports every Friday at 4 PM UTC
     - cron: '0 16 * * 5'
     # Send Monday morning status emails at 7 AM UTC
     - cron: '0 7 * * 1'
-    # TEMPORARY: Test cron every 2 minutes - REMOVE AFTER TESTING
-    - cron: '*/2 * * * *'
   # Allow manual triggering for testing
   workflow_dispatch:
     inputs:
@@ -45,8 +40,8 @@ env:
 
 jobs:
   status-reporting:
-    # Run on schedule events, manual workflow_dispatch, and push (for testing)
-    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch' || github.event_name == 'push'
+    # Run on schedule events and manual workflow_dispatch
+    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
     outputs:
       report_file: ${{ steps.report_path.outputs.path }}
       completion_rate: ${{ steps.metrics.outputs.completion_rate }}
@@ -355,8 +350,8 @@ jobs:
   monday-email:
     name: 📧 Send Monday Morning Email
     needs: status-reporting
-    # Run on schedule events, manual workflow_dispatch, and push (when status-reporting succeeds)
-    if: always() && needs.status-reporting.result == 'success' && (github.event_name == 'schedule' || github.event_name == 'workflow_dispatch' || github.event_name == 'push')
+    # Run on schedule events and manual workflow_dispatch (when status-reporting succeeds)
+    if: always() && needs.status-reporting.result == 'success' && (github.event_name == 'schedule' || github.event_name == 'workflow_dispatch')
     runs-on: ubuntu-latest
     env:
       COMPLETION_RATE: ${{ needs.status-reporting.outputs.completion_rate }}
