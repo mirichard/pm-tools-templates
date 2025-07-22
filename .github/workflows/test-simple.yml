@@ -1,0 +1,17 @@
+name: Test Simple Workflow
+
+on:
+  push:
+    branches: [ fix/status-reporting-20250722-125719 ]
+  workflow_dispatch:
+
+jobs:
+  test:
+    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch' || github.event_name == 'push'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Test step
+        run: |
+          echo "Event: ${{ github.event_name }}"
+          echo "Ref: ${{ github.ref }}"
+          echo "Workflow test successful!"
