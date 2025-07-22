@@ -1,7 +1,7 @@
 {
-  "report_date": "2025-07-22T17:19:04+00:00",
-  "report_type": "weekly",
-  "methodology": "agile",
+  "report_date": "2025-07-22T17:21:14+00:00",
+  "report_type": "monthly",
+  "methodology": "hybrid",
   "metrics": {
     "total_issues": 30,
     "open_issues": 30,
