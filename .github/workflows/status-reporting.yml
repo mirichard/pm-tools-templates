@@ -40,6 +40,8 @@ env:
 
 jobs:
   status-reporting:
+    # Run on schedule events and manual workflow_dispatch
+    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
     outputs:
       report_file: ${{ steps.report_path.outputs.path }}
       completion_rate: ${{ steps.metrics.outputs.completion_rate }}
@@ -109,10 +111,26 @@ jobs:
           echo "blockers=$BLOCKERS" >> $GITHUB_OUTPUT
           echo "recent_closed=$RECENT_CLOSED" >> $GITHUB_OUTPUT
 
+      - name: 📊 Set Dynamic Variables
+        id: vars
+        run: |
+          # Set report type - use input if workflow_dispatch, else default to weekly
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            REPORT_TYPE="${{ github.event.inputs.report_type }}"
+            METHODOLOGY="${{ github.event.inputs.methodology }}"
+          else
+            REPORT_TYPE="weekly"
+            METHODOLOGY="agile"
+          fi
+          
+          echo "report_type=$REPORT_TYPE" >> $GITHUB_OUTPUT
+          echo "methodology=$METHODOLOGY" >> $GITHUB_OUTPUT
+          echo "date_stamp=$(date +%Y-%m-%d)" >> $GITHUB_OUTPUT
+          
       - name: 📊 Generate Status Report
         env:
-          REPORT_TYPE: ${{ github.event.inputs.report_type || 'weekly' }}
-          METHODOLOGY: ${{ github.event.inputs.methodology || 'agile' }}
+          REPORT_TYPE: ${{ steps.vars.outputs.report_type }}
+          METHODOLOGY: ${{ steps.vars.outputs.methodology }}
         run: |
           REPORT_TYPE="$REPORT_TYPE"
           METHODOLOGY="$METHODOLOGY"
@@ -121,7 +139,7 @@ jobs:
           mkdir -p reports/status
           
           # Generate comprehensive status report
-          cat > reports/status/${REPORT_TYPE}-status-$(date +%Y-%m-%d).md << EOF
+          cat > reports/status/${REPORT_TYPE}-status-${{ steps.vars.outputs.date_stamp }}.md << EOF
           # ${REPORT_TYPE^} Status Report
           
           **Report Date:** $(date)
@@ -168,7 +186,7 @@ jobs:
           
           # Add methodology-specific sections
           if [ "$METHODOLOGY" = "agile" ]; then
-            cat >> reports/status/${REPORT_TYPE}-status-$(date +%Y-%m-%d).md << EOF
+            cat >> reports/status/${REPORT_TYPE}-status-${{ steps.vars.outputs.date_stamp }}.md << EOF
           
           ## 🚀 Agile Metrics
           
@@ -183,7 +201,7 @@ jobs:
           - Retrospective action items: TBD active
           EOF
           elif [ "$METHODOLOGY" = "traditional" ]; then
-            cat >> reports/status/${REPORT_TYPE}-status-$(date +%Y-%m-%d).md << EOF
+            cat >> reports/status/${REPORT_TYPE}-status-${{ steps.vars.outputs.date_stamp }}.md << EOF
           
           ## 📋 Traditional PM Metrics
           
@@ -198,7 +216,7 @@ jobs:
           - Deliverables at risk: TBD
           EOF
           else
-            cat >> reports/status/${REPORT_TYPE}-status-$(date +%Y-%m-%d).md << EOF
+            cat >> reports/status/${REPORT_TYPE}-status-${{ steps.vars.outputs.date_stamp }}.md << EOF
           
           ## 🔄 Hybrid Methodology Metrics
           
@@ -213,7 +231,7 @@ jobs:
           fi
           
           # Add recent activity section
-          cat >> reports/status/${REPORT_TYPE}-status-$(date +%Y-%m-%d).md << EOF
+          cat >> reports/status/${REPORT_TYPE}-status-${{ steps.vars.outputs.date_stamp }}.md << EOF
           
           ## 📅 Recent Activity (Last 7 Days)
           
@@ -221,19 +239,19 @@ jobs:
           EOF
           
           # Add recently closed issues
-          gh issue list --state closed --json number,title,closedAt --jq '[.[] | select(.closedAt | fromdateiso8601 > (now - 604800))] | .[] | "- #\(.number): \(.title) (Closed: \(.closedAt | split("T")[0]))"' >> reports/status/${REPORT_TYPE}-status-$(date +%Y-%m-%d).md || echo "- No items completed in the last 7 days" >> reports/status/${REPORT_TYPE}-status-$(date +%Y-%m-%d).md
+          gh issue list --state closed --json number,title,closedAt --jq '[.[] | select(.closedAt | fromdateiso8601 > (now - 604800))] | .[] | "- #\(.number): \(.title) (Closed: \(.closedAt | split("T")[0]))"' >> reports/status/${REPORT_TYPE}-status-${{ steps.vars.outputs.date_stamp }}.md || echo "- No items completed in the last 7 days" >> reports/status/${REPORT_TYPE}-status-${{ steps.vars.outputs.date_stamp }}.md
           
           # Add upcoming items section
-          cat >> reports/status/${REPORT_TYPE}-status-$(date +%Y-%m-%d).md << EOF
+          cat >> reports/status/${REPORT_TYPE}-status-${{ steps.vars.outputs.date_stamp }}.md << EOF
           
           ### Upcoming Priorities
           EOF
           
           # Add high-priority open issues
-          gh issue list --label "high-priority" --state open --json number,title --jq '.[] | "- #\(.number): \(.title)"' >> reports/status/${REPORT_TYPE}-status-$(date +%Y-%m-%d).md || echo "- No high-priority items currently open" >> reports/status/${REPORT_TYPE}-status-$(date +%Y-%m-%d).md
+          gh issue list --label "high-priority" --state open --json number,title --jq '.[] | "- #\(.number): \(.title)"' >> reports/status/${REPORT_TYPE}-status-${{ steps.vars.outputs.date_stamp }}.md || echo "- No high-priority items currently open" >> reports/status/${REPORT_TYPE}-status-${{ steps.vars.outputs.date_stamp }}.md
           
           # Add footer
-          cat >> reports/status/${REPORT_TYPE}-status-$(date +%Y-%m-%d).md << EOF
+          cat >> reports/status/${REPORT_TYPE}-status-${{ steps.vars.outputs.date_stamp }}.md << EOF
           
           ## 🔮 Next Period Outlook
           
@@ -260,11 +278,11 @@ jobs:
           # Create metrics data file
           mkdir -p metrics/status-data
           
-          cat > metrics/status-data/status-metrics-$(date +%Y-%m-%d).json << EOF
+          cat > metrics/status-data/status-metrics-${{ steps.vars.outputs.date_stamp }}.json << EOF
           {
             "report_date": "$(date -Iseconds)",
-            "report_type": "${{ github.event.inputs.report_type || 'weekly' }}",
-            "methodology": "${{ github.event.inputs.methodology || 'agile' }}",
+            "report_type": "${{ steps.vars.outputs.report_type }}",
+            "methodology": "${{ steps.vars.outputs.methodology }}",
             "metrics": {
               "total_issues": ${{ steps.metrics.outputs.total_issues }},
               "open_issues": ${{ steps.metrics.outputs.open_issues }},
@@ -298,14 +316,14 @@ jobs:
           if git diff --staged --quiet; then
             echo "No changes to commit"
           else
-            git commit -m "📊 Generate ${{ github.event.inputs.report_type || 'weekly' }} status report - ${{ steps.metrics.outputs.completion_rate }}% complete"
+            git commit -m "📊 Generate ${{ steps.vars.outputs.report_type }} status report - ${{ steps.metrics.outputs.completion_rate }}% complete"
             git push
           fi
 
       - name: 📋 Status Summary
         env:
-          REPORT_TYPE: ${{ github.event.inputs.report_type || 'weekly' }}
-          METHODOLOGY: ${{ github.event.inputs.methodology || 'agile' }}
+          REPORT_TYPE: ${{ steps.vars.outputs.report_type }}
+          METHODOLOGY: ${{ steps.vars.outputs.methodology }}
           COMPLETION_RATE: ${{ steps.metrics.outputs.completion_rate }}
           STRATEGIC_PROGRESS: ${{ steps.metrics.outputs.strategic_progress }}
           OPEN_ISSUES: ${{ steps.metrics.outputs.open_issues }}
@@ -325,16 +343,15 @@ jobs:
 
       - name: 📝 Set Report Path
         id: report_path
-        env:
-          REPORT_TYPE: ${{ github.event.inputs.report_type || 'weekly' }}
         run: |
-          REPORT_FILE="reports/status/${REPORT_TYPE}-status-$(date +%Y-%m-%d).md"
+          REPORT_FILE="reports/status/${{ steps.vars.outputs.report_type }}-status-${{ steps.vars.outputs.date_stamp }}.md"
           echo "path=$REPORT_FILE" >> $GITHUB_OUTPUT
 
   monday-email:
     name: 📧 Send Monday Morning Email
     needs: status-reporting
-    if: github.event_name == 'schedule'
+    # Run on schedule events and manual workflow_dispatch (when status-reporting succeeds)
+    if: always() && needs.status-reporting.result == 'success' && (github.event_name == 'schedule' || github.event_name == 'workflow_dispatch')
     runs-on: ubuntu-latest
     env:
       COMPLETION_RATE: ${{ needs.status-reporting.outputs.completion_rate }}
