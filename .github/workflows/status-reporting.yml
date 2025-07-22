@@ -35,7 +35,6 @@ on:
           - hybrid
 
 env:
-  REPORT_DATE: $(date +%Y-%m-%d)
   MAIL_RECIPIENTS: project-team@example.com, stakeholders@example.com
   MAIL_FROM: project-status@example.com
 
@@ -326,6 +325,8 @@ jobs:
 
       - name: 📝 Set Report Path
         id: report_path
+        env:
+          REPORT_TYPE: ${{ github.event.inputs.report_type || 'weekly' }}
         run: |
           REPORT_FILE="reports/status/${REPORT_TYPE}-status-$(date +%Y-%m-%d).md"
           echo "path=$REPORT_FILE" >> $GITHUB_OUTPUT
