@@ -1,4 +1,7 @@
-name: Clean Status Workflow
+name: 📊 Enhanced Clean Status Workflow - Issue #314
+
+# This workflow addresses Issue #314: Make Clean Status Workflow a production-ready template
+# for generating program-level weekly status emails with executive-friendly formatting
 
 on:
   workflow_dispatch:
@@ -29,8 +32,11 @@ on:
           - hybrid
 
 env:
-  MAIL_RECIPIENTS: project-team@example.com, stakeholders@example.com
-  MAIL_FROM: project-status@example.com
+  # Configure these in your repository secrets for production use
+  MAIL_RECIPIENTS: ${{ secrets.PROGRAM_STAKEHOLDERS_EMAIL || 'program-stakeholders@company.com' }}
+  MAIL_FROM: ${{ secrets.PROGRAM_EMAIL_FROM || 'program-manager@company.com' }}
+  PROGRAM_DASHBOARD_URL: ${{ secrets.PROGRAM_DASHBOARD_URL || 'https://company.sharepoint.com/program-dashboard' }}
+  DETAILED_REPORTS_URL: ${{ secrets.DETAILED_REPORTS_URL || 'https://company.sharepoint.com/program-reports' }}
 
 jobs:
   status-reporting:
@@ -236,14 +242,14 @@ jobs:
           # Get the latest status report content
           REPORT_FILE="reports/status/${REPORT_TYPE}-status-$(date +%Y-%m-%d).md"
           
-          # Convert Markdown content to HTML
+          # Generate Issue #314 compliant program-level email
           cat > ./email/status-email.html << EOF
           <!DOCTYPE html>
           <html>
           <head>
             <meta charset="utf-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>Project Status Update - $(date +"%B %d, %Y")</title>
+            <title>📊 Program Status Update - $(date +"%B %d, %Y")</title>
             <style>
               body { 
                 font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
@@ -349,8 +355,64 @@ jobs:
           <body>
             <div class="container">
               <div class="header">
-                <h1>🎯 Project Status Update</h1>
-                <p>Weekly Report - $(date +"%B %d, %Y")</p>
+                <h1>📊 Program Status Update</h1>
+                <p>Weekly Executive Report - $(date +"%B %d, %Y")</p>
+                <p style="font-size: 14px;">Enhanced Clean Status Workflow - Issue #314</p>
+              </div>
+              
+              <!-- Executive Summary (1-3 min read) -->
+              <div style="padding: 25px 20px; background: #f8f9fa; border-bottom: 1px solid #e9ecef;">
+                <h2 style="margin: 0 0 15px 0; color: #495057; font-size: 18px;">🎯 Executive Summary</h2>
+                <div style="font-size: 16px; line-height: 1.7; color: #495057;">
+                  Program completion at <strong>${COMPLETION_RATE}%</strong> with <strong>${HIGH_PRIORITY}</strong> high-priority items requiring attention.
+                  Strategic progress at <strong>${STRATEGIC_PROGRESS}%</strong> - $([ ${STRATEGIC_PROGRESS} -ge 50 ] && echo "on track" || echo "behind schedule").
+                  $([ ${CRITICAL_RISKS} -gt 0 ] && echo "<span style='color: #dc3545;'><strong>${CRITICAL_RISKS} critical risks</strong></span> need immediate executive action." || echo "No critical risks identified.")
+                </div>
+              </div>
+              
+              <!-- Project Status Table with RAG and Trends -->
+              <div style="padding: 20px;">
+                <h3 style="margin: 0 0 15px 0; color: #495057;">📋 Program Status Overview</h3>
+                <table style="width: 100%; border-collapse: collapse; font-size: 14px;">
+                  <thead>
+                    <tr style="background: #e9ecef;">
+                      <th style="padding: 12px 8px; text-align: left; font-weight: 600; color: #495057;">Component</th>
+                      <th style="padding: 12px 8px; text-align: left; font-weight: 600; color: #495057;">RAG Status</th>
+                      <th style="padding: 12px 8px; text-align: left; font-weight: 600; color: #495057;">Schedule Trend</th>
+                      <th style="padding: 12px 8px; text-align: left; font-weight: 600; color: #495057;">Key Notes</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td style="padding: 12px 8px; border-bottom: 1px solid #e9ecef;"><strong>Overall Program</strong></td>
+                      <td style="padding: 12px 8px; border-bottom: 1px solid #e9ecef;">$([ ${COMPLETION_RATE} -ge 75 ] && echo "🟢 Green" || echo "🟡 Amber")</td>
+                      <td style="padding: 12px 8px; border-bottom: 1px solid #e9ecef;">$([ ${COMPLETION_RATE} -ge 80 ] && echo "▲ Ahead" || echo "► On Track")</td>
+                      <td style="padding: 12px 8px; border-bottom: 1px solid #e9ecef;">${COMPLETION_RATE}% complete, ${HIGH_PRIORITY} items need attention</td>
+                    </tr>
+                    <tr>
+                      <td style="padding: 12px 8px; border-bottom: 1px solid #e9ecef;"><strong>Strategic Initiatives</strong></td>
+                      <td style="padding: 12px 8px; border-bottom: 1px solid #e9ecef;">$([ ${STRATEGIC_PROGRESS} -ge 50 ] && echo "🟢 Green" || echo "🔴 Red")</td>
+                      <td style="padding: 12px 8px; border-bottom: 1px solid #e9ecef;">$([ ${STRATEGIC_PROGRESS} -ge 50 ] && echo "► On Track" || echo "▼ Behind")</td>
+                      <td style="padding: 12px 8px; border-bottom: 1px solid #e9ecef;">${STRATEGIC_PROGRESS}% strategic milestone completion</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              
+              <!-- Critical Actions with Owners and Due Dates -->
+              <div style="padding: 20px; background: #fff5f5; border-left: 4px solid #dc3545; margin: 20px 0;">
+                <h3 style="margin: 0 0 15px 0; color: #721c24; font-size: 16px;">🚨 Critical Actions Required</h3>
+                $([ ${HIGH_PRIORITY} -gt 10 ] && echo "<div style='padding: 8px 0; border-bottom: 1px solid #f5c6cb;'><div>• Prioritize resource allocation for ${HIGH_PRIORITY} high-priority items</div><div><span style='font-weight: 600; color: #495057;'>Owner: Program Manager</span> | <span style='color: #dc3545; font-weight: 600;'>Due: $(date -d '+3 days' '+%B %d')</span></div></div>" || echo "<div>• No critical actions at this time</div>")
+                $([ ${STRATEGIC_PROGRESS} -lt 50 ] && echo "<div style='padding: 8px 0; border-bottom: 1px solid #f5c6cb;'><div>• Review strategic initiative blockers and resource constraints</div><div><span style='font-weight: 600; color: #495057;'>Owner: Executive Sponsor</span> | <span style='color: #dc3545; font-weight: 600;'>Due: $(date -d '+2 days' '+%B %d')</span></div></div>" || "")
+                $([ ${CRITICAL_RISKS} -gt 0 ] && echo "<div style='padding: 8px 0;'><div>• Address ${CRITICAL_RISKS} critical program risks immediately</div><div><span style='font-weight: 600; color: #495057;'>Owner: Risk Manager</span> | <span style='color: #dc3545; font-weight: 600;'>Due: $(date -d '+1 day' '+%B %d')</span></div></div>" || "")
+              </div>
+              
+              <!-- Dashboard Links -->
+              <div style="padding: 20px; background: #e7f3ff; border-left: 4px solid #007bff;">
+                <h3 style="margin: 0 0 15px 0; color: #004085; font-size: 16px;">🔗 Detailed Reports & Dashboards</h3>
+                <div style="margin: 8px 0;"><a href="${PROGRAM_DASHBOARD_URL}" style="color: #007bff; text-decoration: none; font-weight: 500;">📊 Program Dashboard (Real-time)</a></div>
+                <div style="margin: 8px 0;"><a href="${DETAILED_REPORTS_URL}" style="color: #007bff; text-decoration: none; font-weight: 500;">📈 Individual Project Reports</a></div>
+                <div style="margin: 8px 0;"><a href="https://github.com/${{ github.repository }}/issues?q=is%3Aissue+is%3Aopen+label%3Acritical" style="color: #007bff; text-decoration: none; font-weight: 500;">⚠️ Critical Issues Tracker</a></div>
               </div>
               
               <div class="metrics">
