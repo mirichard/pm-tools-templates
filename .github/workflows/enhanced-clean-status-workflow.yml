@@ -1,0 +1,301 @@
+name: 📊 Enhanced Clean Status Workflow - Issue #314
+
+on:
+  workflow_dispatch:
+    inputs:
+      test_mode:
+        description: 'Run in test mode'
+        required: false
+        default: 'false'
+        type: boolean
+
+env:
+  MAIL_RECIPIENTS: ${{ secrets.EMAIL_RECIPIENTS || 'program-stakeholders@company.com' }}
+  MAIL_FROM: ${{ secrets.EMAIL_USERNAME || 'program-manager@company.com' }}
+
+jobs:
+  enhanced-clean-status:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: 📋 Checkout Code
+      uses: actions/checkout@v4
+    
+    - name: 📊 Collect Project Metrics
+      id: metrics
+      env:
+        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        echo "Collecting project metrics..."
+        
+        # Issue metrics
+        TOTAL_ISSUES=$(gh issue list --state all --json number | jq length)
+        OPEN_ISSUES=$(gh issue list --state open --json number | jq length)
+        CLOSED_ISSUES=$(gh issue list --state closed --json number | jq length)
+        HIGH_PRIORITY=$(gh issue list --label "high-priority" --state open --json number | jq length)
+        CRITICAL_RISKS=$(gh issue list --label "critical" --state open --json number | jq length)
+        
+        # Strategic metrics
+        STRATEGIC_OPEN=$(gh issue list --label "strategic" --state open --json number | jq length)
+        STRATEGIC_TOTAL=$(gh issue list --label "strategic" --state all --json number | jq length)
+        
+        # Calculate completion rate
+        if [ $TOTAL_ISSUES -gt 0 ]; then
+          COMPLETION_RATE=$(( CLOSED_ISSUES * 100 / TOTAL_ISSUES ))
+        else
+          COMPLETION_RATE=100
+        fi
+        
+        # Calculate strategic progress
+        if [ $STRATEGIC_TOTAL -gt 0 ]; then
+          STRATEGIC_PROGRESS=$(( (STRATEGIC_TOTAL - STRATEGIC_OPEN) * 100 / STRATEGIC_TOTAL ))
+        else
+          STRATEGIC_PROGRESS=0
+        fi
+        
+        # Export for email template
+        echo "TOTAL_ISSUES=$TOTAL_ISSUES" >> $GITHUB_ENV
+        echo "OPEN_ISSUES=$OPEN_ISSUES" >> $GITHUB_ENV
+        echo "CLOSED_ISSUES=$CLOSED_ISSUES" >> $GITHUB_ENV
+        echo "COMPLETION_RATE=$COMPLETION_RATE" >> $GITHUB_ENV
+        echo "HIGH_PRIORITY=$HIGH_PRIORITY" >> $GITHUB_ENV
+        echo "CRITICAL_RISKS=$CRITICAL_RISKS" >> $GITHUB_ENV
+        echo "STRATEGIC_PROGRESS=$STRATEGIC_PROGRESS" >> $GITHUB_ENV
+        echo "CURRENT_DATE=$(date '+%Y-%m-%d')" >> $GITHUB_ENV
+        
+        echo "✅ Metrics collected: $TOTAL_ISSUES total, $OPEN_ISSUES open, $COMPLETION_RATE% complete"
+    
+    - name: 📧 Generate Issue #314 Compliant Email
+      run: |
+        mkdir -p ./email
+        
+        # Generate comprehensive Issue #314 compliant program-level email
+        cat > ./email/status-email.html << 'EOF'
+        <!DOCTYPE html>
+        <html>
+        <head>
+          <meta charset="utf-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>📊 Program Status Update - Issue #314</title>
+          <style>
+            body { 
+              font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+              line-height: 1.6; 
+              color: #333; 
+              max-width: 900px; 
+              margin: 0 auto; 
+              padding: 20px; 
+              background-color: #f5f5f5;
+            }
+            .container {
+              background: white;
+              padding: 30px;
+              border-radius: 8px;
+              box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            }
+            .header { 
+              background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+              color: white;
+              padding: 25px; 
+              margin: -30px -30px 30px -30px;
+              border-radius: 8px 8px 0 0;
+              text-align: center;
+            }
+            .header h1 { margin: 0; font-size: 28px; }
+            .header p { margin: 10px 0 0 0; opacity: 0.9; }
+            .metrics { 
+              display: grid;
+              grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+              gap: 15px;
+              margin: 25px 0;
+            }
+            .metric-card { 
+              background: #f8f9fa;
+              padding: 20px;
+              border-radius: 8px;
+              border-left: 4px solid #007bff;
+              text-align: center;
+            }
+            .metric-card h3 { 
+              margin: 0 0 10px 0;
+              color: #495057;
+              font-size: 14px;
+              text-transform: uppercase;
+              letter-spacing: 1px;
+            }
+            .metric-value { 
+              font-size: 32px; 
+              font-weight: bold; 
+              margin: 10px 0;
+              color: #28a745;
+            }
+            .footer { 
+              margin-top: 30px;
+              padding-top: 20px;
+              border-top: 1px solid #dee2e6;
+              text-align: center;
+              color: #6c757d;
+              font-size: 12px;
+            }
+          </style>
+        </head>
+        <body>
+          <div class="container">
+            <div class="header">
+              <h1>📊 Program Status Update</h1>
+              <p>Weekly Executive Report - Enhanced Clean Status Workflow</p>
+              <p style="font-size: 14px;">Issue #314 Compliant Template</p>
+            </div>
+            
+            <!-- Executive Summary (1-3 min read) -->
+            <div style="padding: 25px 20px; background: #f8f9fa; border-bottom: 1px solid #e9ecef;">
+              <h2 style="margin: 0 0 15px 0; color: #495057; font-size: 18px;">🎯 Executive Summary</h2>
+              <div style="font-size: 16px; line-height: 1.7; color: #495057;">
+                Program completion at <strong>${COMPLETION_RATE}%</strong> with <strong>${HIGH_PRIORITY}</strong> high-priority items requiring attention.
+                Strategic progress at <strong>${STRATEGIC_PROGRESS}%</strong>.
+                <strong>${CRITICAL_RISKS}</strong> critical risks identified.
+              </div>
+            </div>
+            
+            <!-- Program-Level Component Overview with RAG Status -->
+            <div style="padding: 20px;">
+              <h3 style="margin: 0 0 15px 0; color: #495057;">📋 PM Tools Templates Program Overview</h3>
+              <div style="background: #f8f9fa; padding: 15px; border-radius: 8px; margin-bottom: 20px;">
+                <p style="margin: 0; color: #495057; font-size: 14px; line-height: 1.6;">
+                  <strong>Program Mission:</strong> Transform from static template library into the world's most intelligent project management ecosystem through AI, blockchain, and data science innovations.
+                </p>
+              </div>
+              
+              <table style="width: 100%; border-collapse: collapse; font-size: 14px;">
+                <thead>
+                  <tr style="background: #e9ecef;">
+                    <th style="padding: 12px 8px; text-align: left; font-weight: 600; color: #495057;">Program Component</th>
+                    <th style="padding: 12px 8px; text-align: left; font-weight: 600; color: #495057;">Status</th>
+                    <th style="padding: 12px 8px; text-align: left; font-weight: 600; color: #495057;">Progress</th>
+                    <th style="padding: 12px 8px; text-align: left; font-weight: 600; color: #495057;">Key Focus</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td style="padding: 12px 8px; border-bottom: 1px solid #e9ecef;"><strong>📊 Overall Program</strong></td>
+                    <td style="padding: 12px 8px; border-bottom: 1px solid #e9ecef;">🟢 On Track</td>
+                    <td style="padding: 12px 8px; border-bottom: 1px solid #e9ecef;">${COMPLETION_RATE}%</td>
+                    <td style="padding: 12px 8px; border-bottom: 1px solid #e9ecef;">35 revolutionary enhancements across 5 phases</td>
+                  </tr>
+                  <tr>
+                    <td style="padding: 12px 8px; border-bottom: 1px solid #e9ecef;"><strong>🎯 Phase 1: Foundation</strong></td>
+                    <td style="padding: 12px 8px; border-bottom: 1px solid #e9ecef;">✅ Complete</td>
+                    <td style="padding: 12px 8px; border-bottom: 1px solid #e9ecef;">100%</td>
+                    <td style="padding: 12px 8px; border-bottom: 1px solid #e9ecef;">Quick Start Kits, Template Selector, Complexity Framework</td>
+                  </tr>
+                  <tr>
+                    <td style="padding: 12px 8px; border-bottom: 1px solid #e9ecef;"><strong>🚀 Q3 2025 Delivery Cycle</strong></td>
+                    <td style="padding: 12px 8px; border-bottom: 1px solid #e9ecef;">🔴 Behind</td>
+                    <td style="padding: 12px 8px; border-bottom: 1px solid #e9ecef;">${STRATEGIC_PROGRESS}%</td>
+                    <td style="padding: 12px 8px; border-bottom: 1px solid #e9ecef;">Executive Dashboards, Template Selector, Community Platform</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            
+            <!-- Critical Actions with Owners and Due Dates -->
+            <div style="padding: 20px; background: #fff5f5; border-left: 4px solid #dc3545; margin: 20px 0;">
+              <h3 style="margin: 0 0 15px 0; color: #721c24; font-size: 16px;">🚨 Critical Actions Required</h3>
+              <div style="padding: 8px 0; border-bottom: 1px solid #f5c6cb;">
+                <div>• Prioritize resource allocation for ${HIGH_PRIORITY} high-priority items</div>
+                <div><span style="font-weight: 600; color: #495057;">Owner: Program Manager</span> | <span style="color: #dc3545; font-weight: 600;">Due: July 26</span></div>
+              </div>
+              <div style="padding: 8px 0; border-bottom: 1px solid #f5c6cb;">
+                <div>• Review strategic initiative blockers and resource constraints</div>
+                <div><span style="font-weight: 600; color: #495057;">Owner: Executive Sponsor</span> | <span style="color: #dc3545; font-weight: 600;">Due: July 25</span></div>
+              </div>
+            </div>
+            
+            <!-- Dashboard Links -->
+            <div style="padding: 20px; background: #e7f3ff; border-left: 4px solid #007bff;">
+              <h3 style="margin: 0 0 15px 0; color: #004085; font-size: 16px;">🔗 Detailed Reports & Dashboards</h3>
+              <div style="margin: 8px 0;"><a href="https://company.sharepoint.com/program-dashboard" style="color: #007bff; text-decoration: none; font-weight: 500;">📊 Program Dashboard (Real-time)</a></div>
+              <div style="margin: 8px 0;"><a href="https://company.sharepoint.com/program-reports" style="color: #007bff; text-decoration: none; font-weight: 500;">📈 Individual Project Reports</a></div>
+              <div style="margin: 8px 0;"><a href="https://github.com/mirichard/pm-tools-templates/issues?q=is%3Aissue+is%3Aopen+label%3Acritical" style="color: #007bff; text-decoration: none; font-weight: 500;">⚠️ Critical Issues Tracker</a></div>
+            </div>
+            
+            <div class="metrics">
+              <div class="metric-card">
+                <h3>📊 Completion</h3>
+                <div class="metric-value">${COMPLETION_RATE}%</div>
+                <p>Overall Progress</p>
+              </div>
+              <div class="metric-card">
+                <h3>🎯 Strategic</h3>
+                <div class="metric-value" style="color: #dc3545;">${STRATEGIC_PROGRESS}%</div>
+                <p>Strategic Goals</p>
+              </div>
+              <div class="metric-card">
+                <h3>⚠️ Priorities</h3>
+                <div class="metric-value" style="color: #ffc107;">${HIGH_PRIORITY}</div>
+                <p>High Priority Items</p>
+              </div>
+              <div class="metric-card">
+                <h3>🚨 Risks</h3>
+                <div class="metric-value">${CRITICAL_RISKS}</div>
+                <p>Critical Issues</p>
+              </div>
+            </div>
+            
+            <div class="footer">
+              <p>🤖 Generated by PM Tools Enhanced Clean Status Workflow</p>
+              <p>📧 This demonstrates Issue #314 compliant email template</p>
+              <p>📊 For detailed metrics and analysis, visit your project dashboard</p>
+            </div>
+          </div>
+        </body>
+        </html>
+        EOF
+        
+        # Replace variables in the HTML
+        sed -i.bak "s/\${COMPLETION_RATE}/$COMPLETION_RATE/g" ./email/status-email.html
+        sed -i.bak "s/\${HIGH_PRIORITY}/$HIGH_PRIORITY/g" ./email/status-email.html
+        sed -i.bak "s/\${STRATEGIC_PROGRESS}/$STRATEGIC_PROGRESS/g" ./email/status-email.html
+        sed -i.bak "s/\${CRITICAL_RISKS}/$CRITICAL_RISKS/g" ./email/status-email.html
+        rm ./email/status-email.html.bak
+    
+    - name: 📧 Send Enhanced Status Email
+      if: ${{ secrets.EMAIL_USERNAME != '' }}
+      uses: dawidd6/action-send-mail@v3
+      with:
+        server_address: smtp.gmail.com
+        server_port: 465
+        username: ${{ secrets.EMAIL_USERNAME }}
+        password: ${{ secrets.EMAIL_PASSWORD }}
+        subject: "📊 Enhanced Program Status - Issue #314 (${{ env.CURRENT_DATE }})"
+        html_body: file://./email/status-email.html
+        to: ${{ secrets.EMAIL_RECIPIENTS || env.MAIL_RECIPIENTS }}
+        from: ${{ secrets.EMAIL_USERNAME || env.MAIL_FROM }}
+
+    - name: ✅ Completion Summary
+      env:
+        COMPLETION_RATE: ${{ env.COMPLETION_RATE }}
+        HIGH_PRIORITY: ${{ env.HIGH_PRIORITY }}
+        CRITICAL_RISKS: ${{ env.CRITICAL_RISKS }}
+        STRATEGIC_PROGRESS: ${{ env.STRATEGIC_PROGRESS }}
+      run: |
+        echo "📊 Enhanced Clean Status Workflow - Issue #314 Complete"
+        echo "======================================================="
+        echo "✅ Program completion: $COMPLETION_RATE%"
+        echo "⚠️  High priority items: $HIGH_PRIORITY"
+        echo "🎯 Strategic progress: $STRATEGIC_PROGRESS%"
+        echo "🚨 Critical risks: $CRITICAL_RISKS"
+        echo ""
+        if [ "${{ secrets.EMAIL_USERNAME }}" != "" ]; then
+          echo "📧 Issue #314 compliant email sent successfully!"
+          echo "   - Executive-friendly formatting ✅"
+          echo "   - Program-level status metrics ✅"
+          echo "   - Mobile-responsive design ✅"
+          echo "   - Dashboard integration links ✅"
+          echo "   - Critical actions with owners ✅"
+        else
+          echo "📧 Email secrets not configured - email not sent"
+          echo "   Configure EMAIL_USERNAME and EMAIL_PASSWORD secrets to enable email delivery"
+        fi
+        echo ""
+        echo "🎉 Issue #314 Enhanced Clean Status Workflow is now operational!"
