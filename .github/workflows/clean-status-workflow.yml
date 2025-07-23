@@ -596,7 +596,7 @@ jobs:
                     <div class="small-chart-title">Priority Items</div>
                     <div class="small-chart-value $([ ${HIGH_PRIORITY} -le 5 ] && echo "status-good" || echo "status-warning")">${HIGH_PRIORITY}</div>
                     <div class="progress-bar">
-                      <div class="progress-fill $([ ${HIGH_PRIORITY} -le 5 ] && echo "good" || echo "warning")" style="width: $(( ${HIGH_PRIORITY} > 25 ? 100 : ${HIGH_PRIORITY} * 4 ))%;"></div>
+                      <div class="progress-fill $([ ${HIGH_PRIORITY} -le 5 ] && echo "good" || echo "warning")" style="width: $([ ${HIGH_PRIORITY} -gt 25 ] && echo "100" || echo "$(( ${HIGH_PRIORITY} * 4 ))")%;"></div>
                     </div>
                     <div class="small-chart-trend">$([ ${HIGH_PRIORITY} -le 5 ] && echo "▲ Good" || echo "▼ High Volume")</div>
                   </div>
