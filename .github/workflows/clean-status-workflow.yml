@@ -360,53 +360,13 @@ jobs:
                 <p style="font-size: 14px;">Enhanced Clean Status Workflow - Issue #314</p>
               </div>
               
-              <!-- Executive Summary with Tufte-inspired small multiples -->
+              <!-- Executive Summary (1-3 min read) -->
               <div style="padding: 25px 20px; background: #f8f9fa; border-bottom: 1px solid #e9ecef;">
-                <h2 style="margin: 0 0 20px 0; color: #495057; font-size: 18px;">🎯 Executive Summary</h2>
-                
-                <!-- Small multiples dashboard -->
-                <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; margin: 20px 0;">
-                  <div style="text-align: center; padding: 15px 10px; background: white; border-radius: 6px; border: 1px solid #e9ecef;">
-                    <div style="font-size: 11px; color: #6c757d; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.5px;">Overall Progress</div>
-                    <div style="font-size: 24px; font-weight: 700; margin-bottom: 6px; color: #28a745;">${COMPLETION_RATE}%</div>
-                    <div style="width: 100%; height: 4px; background: #e9ecef; border-radius: 2px; margin: 8px 0; overflow: hidden;">
-                      <div style="height: 100%; background: #28a745; width: ${COMPLETION_RATE}%; transition: width 0.3s ease;"></div>
-                    </div>
-                    <div style="font-size: 10px; color: #6c757d;">$([ ${COMPLETION_RATE} -ge 75 ] && echo "▲ On Track" || echo "▼ Needs Attention")</div>
-                  </div>
-                  
-                  <div style="text-align: center; padding: 15px 10px; background: white; border-radius: 6px; border: 1px solid #e9ecef;">
-                    <div style="font-size: 11px; color: #6c757d; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.5px;">Strategic Goals</div>
-                    <div style="font-size: 24px; font-weight: 700; margin-bottom: 6px; color: $([ ${STRATEGIC_PROGRESS} -ge 50 ] && echo "#28a745" || echo "#dc3545");">${STRATEGIC_PROGRESS}%</div>
-                    <div style="width: 100%; height: 4px; background: #e9ecef; border-radius: 2px; margin: 8px 0; overflow: hidden;">
-                      <div style="height: 100%; background: $([ ${STRATEGIC_PROGRESS} -ge 50 ] && echo "#28a745" || echo "#dc3545"); width: ${STRATEGIC_PROGRESS}%; transition: width 0.3s ease;"></div>
-                    </div>
-                    <div style="font-size: 10px; color: #6c757d;">$([ ${STRATEGIC_PROGRESS} -ge 50 ] && echo "▲ On Track" || echo "▼ Behind")</div>
-                  </div>
-                  
-                  <div style="text-align: center; padding: 15px 10px; background: white; border-radius: 6px; border: 1px solid #e9ecef;">
-                    <div style="font-size: 11px; color: #6c757d; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.5px;">Priority Items</div>
-                    <div style="font-size: 24px; font-weight: 700; margin-bottom: 6px; color: $([ ${HIGH_PRIORITY} -le 5 ] && echo "#28a745" || echo "#ffc107");">${HIGH_PRIORITY}</div>
-                    <div style="width: 100%; height: 4px; background: #e9ecef; border-radius: 2px; margin: 8px 0; overflow: hidden;">
-                      <div style="height: 100%; background: $([ ${HIGH_PRIORITY} -le 5 ] && echo "#28a745" || echo "#ffc107"); width: 80%; transition: width 0.3s ease;"></div>
-                    </div>
-                    <div style="font-size: 10px; color: #6c757d;">$([ ${HIGH_PRIORITY} -le 5 ] && echo "▲ Good" || echo "▼ High Volume")</div>
-                  </div>
-                  
-                  <div style="text-align: center; padding: 15px 10px; background: white; border-radius: 6px; border: 1px solid #e9ecef;">
-                    <div style="font-size: 11px; color: #6c757d; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.5px;">Critical Risks</div>
-                    <div style="font-size: 24px; font-weight: 700; margin-bottom: 6px; color: $([ ${CRITICAL_RISKS} -eq 0 ] && echo "#28a745" || echo "#dc3545");">${CRITICAL_RISKS}</div>
-                    <div style="width: 100%; height: 4px; background: #e9ecef; border-radius: 2px; margin: 8px 0; overflow: hidden;">
-                      <div style="height: 100%; background: $([ ${CRITICAL_RISKS} -eq 0 ] && echo "#28a745" || echo "#dc3545"); width: $([ ${CRITICAL_RISKS} -eq 0 ] && echo "100" || echo "0")%; transition: width 0.3s ease;"></div>
-                    </div>
-                    <div style="font-size: 10px; color: #6c757d;">$([ ${CRITICAL_RISKS} -eq 0 ] && echo "▲ No Risks" || echo "▼ Action Needed")</div>
-                  </div>
-                </div>
-                
-                <div style="font-size: 14px; line-height: 1.6; color: #495057; margin-top: 15px; padding: 15px; background: white; border-radius: 6px; border-left: 3px solid #007bff;">
-                  <strong>Key Insight:</strong> Program shows <strong>${COMPLETION_RATE}% overall completion</strong> with strategic initiatives at <strong>${STRATEGIC_PROGRESS}%</strong>. 
-                  $([ ${HIGH_PRIORITY} -gt 10 ] && echo "Priority queue requires immediate attention with <strong>${HIGH_PRIORITY} items</strong>." || echo "Priority workload is manageable.")
-                  $([ ${CRITICAL_RISKS} -gt 0 ] && echo " <span style='color: #dc3545;'><strong>${CRITICAL_RISKS} critical risks</strong></span> demand executive intervention." || echo " No critical program risks identified.")
+                <h2 style="margin: 0 0 15px 0; color: #495057; font-size: 18px;">🎯 Executive Summary</h2>
+                <div style="font-size: 16px; line-height: 1.7; color: #495057;">
+                  Program completion at <strong>${COMPLETION_RATE}%</strong> with <strong>${HIGH_PRIORITY}</strong> high-priority items requiring attention.
+                  Strategic progress at <strong>${STRATEGIC_PROGRESS}%</strong> - $([ ${STRATEGIC_PROGRESS} -ge 50 ] && echo "on track" || echo "behind schedule").
+                  $([ ${CRITICAL_RISKS} -gt 0 ] && echo "<span style='color: #dc3545;'><strong>${CRITICAL_RISKS} critical risks</strong></span> need immediate executive action." || echo "No critical risks identified.")
                 </div>
               </div>
               
@@ -463,108 +423,30 @@ jobs:
                 </table>
               </div>
               
-              <!-- Q3 2025 Delivery Timeline -->
+              <!-- Active Epics/Projects Section -->
               <div style="padding: 20px; background: #e7f3ff; border-left: 4px solid #007bff; margin: 20px 0;">
-                <h3 style="margin: 0 0 20px 0; color: #004085; font-size: 16px;">📅 Q3 2025 Delivery Timeline</h3>
-                
-                <!-- Timeline visualization -->
-                <div style="position: relative; padding: 20px 0; margin: 20px 0;">
-                  <div style="position: absolute; left: 50px; top: 0; bottom: 0; width: 2px; background: #e9ecef;"></div>
-                  
-                  <div style="position: relative; margin: 15px 0; padding-left: 80px;">
-                    <div style="position: absolute; left: 41px; top: 8px; width: 18px; height: 18px; border-radius: 50%; background: #28a745; border: 3px solid #fff; box-shadow: 0 0 0 2px #28a745;"></div>
-                    <div style="background: #f8f9fa; padding: 12px 15px; border-radius: 6px; border-left: 3px solid #28a745;">
-                      <div style="font-size: 11px; color: #6c757d; margin-bottom: 4px; text-transform: uppercase; letter-spacing: 0.5px;">Jul 1-15, 2025</div>
-                      <div style="font-weight: 600; margin: 0 0 4px 0; font-size: 14px;">✅ Foundation Phase Complete</div>
-                      <div style="font-size: 12px; color: #6c757d; margin: 0; line-height: 1.4;">Template selector framework, complexity assessment tools, and quick-start kits delivered.</div>
-                    </div>
+                <h3 style="margin: 0 0 15px 0; color: #004085; font-size: 16px;">🎯 Active Epics & Strategic Initiatives</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px;">
+                  <div style="background: white; padding: 15px; border-radius: 8px; border-left: 3px solid #28a745;">
+                    <div style="font-weight: 600; color: #155724; margin-bottom: 5px;">💼 Executive Dashboard Suite</div>
+                    <div style="font-size: 12px; color: #6c757d;">High Priority • Q3 2025</div>
+                    <div style="font-size: 13px; margin-top: 8px;">Enterprise-grade reporting & analytics</div>
                   </div>
-                  
-                  <div style="position: relative; margin: 15px 0; padding-left: 80px;">
-                    <div style="position: absolute; left: 41px; top: 8px; width: 18px; height: 18px; border-radius: 50%; background: #007bff; border: 3px solid #fff; box-shadow: 0 0 0 2px #007bff;"></div>
-                    <div style="background: #e7f3ff; padding: 12px 15px; border-radius: 6px; border-left: 3px solid #007bff;">
-                      <div style="font-size: 11px; color: #6c757d; margin-bottom: 4px; text-transform: uppercase; letter-spacing: 0.5px;">Jul 16-31, 2025</div>
-                      <div style="font-weight: 600; margin: 0 0 4px 0; font-size: 14px;">🚀 Executive Dashboard Development</div>
-                      <div style="font-size: 12px; color: #6c757d; margin: 0; line-height: 1.4;">Enterprise reporting suite, advanced analytics, and stakeholder communication tools. <strong>In Progress: 65%</strong></div>
-                    </div>
+                  <div style="background: white; padding: 15px; border-radius: 8px; border-left: 3px solid #ffc107;">
+                    <div style="font-weight: 600; color: #856404; margin-bottom: 5px;">🎨 Template Selector Enhancement</div>
+                    <div style="font-size: 12px; color: #6c757d;">High Priority • Q3 2025</div>
+                    <div style="font-size: 13px; margin-top: 8px;">Interactive onboarding & UX improvements</div>
                   </div>
-                  
-                  <div style="position: relative; margin: 15px 0; padding-left: 80px;">
-                    <div style="position: absolute; left: 41px; top: 8px; width: 18px; height: 18px; border-radius: 50%; background: #f8f9fa; border: 3px solid #fff; box-shadow: 0 0 0 2px #dee2e6;"></div>
-                    <div style="background: #f8f9fa; padding: 12px 15px; border-radius: 6px; border-left: 3px solid #dee2e6;">
-                      <div style="font-size: 11px; color: #6c757d; margin-bottom: 4px; text-transform: uppercase; letter-spacing: 0.5px;">Aug 1-20, 2025</div>
-                      <div style="font-weight: 600; margin: 0 0 4px 0; font-size: 14px;">🎨 Template Selector Enhancement</div>
-                      <div style="font-size: 12px; color: #6c757d; margin: 0; line-height: 1.4;">Interactive onboarding, guided template selection, and UX improvements. <strong>Starting Soon</strong></div>
-                    </div>
+                  <div style="background: white; padding: 15px; border-radius: 8px; border-left: 3px solid #17a2b8;">
+                    <div style="font-weight: 600; color: #0c5460; margin-bottom: 5px;">🤝 Community Platform</div>
+                    <div style="font-size: 12px; color: #6c757d;">Medium Priority • Q3 2025</div>
+                    <div style="font-size: 13px; margin-top: 8px;">Feedback integration & engagement tools</div>
                   </div>
-                  
-                  <div style="position: relative; margin: 15px 0; padding-left: 80px;">
-                    <div style="position: absolute; left: 41px; top: 8px; width: 18px; height: 18px; border-radius: 50%; background: #f8f9fa; border: 3px solid #fff; box-shadow: 0 0 0 2px #dee2e6;"></div>
-                    <div style="background: #f8f9fa; padding: 12px 15px; border-radius: 6px; border-left: 3px solid #dee2e6;">
-                      <div style="font-size: 11px; color: #6c757d; margin-bottom: 4px; text-transform: uppercase; letter-spacing: 0.5px;">Aug 21-31, 2025</div>
-                      <div style="font-weight: 600; margin: 0 0 4px 0; font-size: 14px;">🤝 Community Platform Integration</div>
-                      <div style="font-size: 12px; color: #6c757d; margin: 0; line-height: 1.4;">User feedback systems, community engagement tools, and collaborative features.</div>
-                    </div>
+                  <div style="background: white; padding: 15px; border-radius: 8px; border-left: 3px solid #dc3545;">
+                    <div style="font-weight: 600; color: #721c24; margin-bottom: 5px;">📊 Analytics & Recommendations</div>
+                    <div style="font-size: 12px; color: #6c757d;">Medium Priority • Closed</div>
+                    <div style="font-size: 13px; margin-top: 8px;">AI-powered usage insights</div>
                   </div>
-                  
-                  <div style="position: relative; margin: 15px 0; padding-left: 80px;">
-                    <div style="position: absolute; left: 41px; top: 8px; width: 18px; height: 18px; border-radius: 50%; background: #f8f9fa; border: 3px solid #fff; box-shadow: 0 0 0 2px #dee2e6;"></div>
-                    <div style="background: #f8f9fa; padding: 12px 15px; border-radius: 6px; border-left: 3px solid #dee2e6;">
-                      <div style="font-size: 11px; color: #6c757d; margin-bottom: 4px; text-transform: uppercase; letter-spacing: 0.5px;">Sep 1-15, 2025</div>
-                      <div style="font-weight: 600; margin: 0 0 4px 0; font-size: 14px;">🧪 Beta Testing & Refinement</div>
-                      <div style="font-size: 12px; color: #6c757d; margin: 0; line-height: 1.4;">User acceptance testing, performance optimization, and final preparations for launch.</div>
-                    </div>
-                  </div>
-                  
-                  <div style="position: relative; margin: 15px 0; padding-left: 80px;">
-                    <div style="position: absolute; left: 41px; top: 8px; width: 18px; height: 18px; border-radius: 50%; background: #f8f9fa; border: 3px solid #fff; box-shadow: 0 0 0 2px #dee2e6;"></div>
-                    <div style="background: #f8f9fa; padding: 12px 15px; border-radius: 6px; border-left: 3px solid #dee2e6;">
-                      <div style="font-size: 11px; color: #6c757d; margin-bottom: 4px; text-transform: uppercase; letter-spacing: 0.5px;">Sep 16-30, 2025</div>
-                      <div style="font-weight: 600; margin: 0 0 4px 0; font-size: 14px;">🎉 Q3 Launch & Documentation</div>
-                      <div style="font-size: 12px; color: #6c757d; margin: 0; line-height: 1.4;">Public release, comprehensive documentation, and transition to Phase 2 planning.</div>
-                    </div>
-                  </div>
-                </div>
-                
-                <!-- Data-dense delivery metrics table -->
-                <div style="margin-top: 25px; padding: 15px; background: white; border-radius: 6px;">
-                  <h4 style="margin: 0 0 12px 0; font-size: 14px; color: #495057;">Q3 2025 Delivery Metrics</h4>
-                  <table style="width: 100%; border-collapse: collapse; font-size: 12px; margin: 15px 0;">
-                    <thead>
-                      <tr>
-                        <th style="background: none; border: none; border-bottom: 1px solid #333; padding: 8px 12px 6px 0; text-align: left; font-weight: 600; color: #333;">Milestone</th>
-                        <th style="background: none; border: none; border-bottom: 1px solid #333; padding: 8px 12px 6px 0; text-align: left; font-weight: 600; color: #333;">Progress</th>
-                        <th style="background: none; border: none; border-bottom: 1px solid #333; padding: 8px 12px 6px 0; text-align: left; font-weight: 600; color: #333;">Risk</th>
-                        <th style="background: none; border: none; border-bottom: 1px solid #333; padding: 8px 12px 6px 0; text-align: left; font-weight: 600; color: #333;">Est. Completion</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td style="border: none; padding: 6px 12px 6px 0; border-bottom: 1px solid #f0f0f0;">Executive Dashboards</td>
-                        <td style="border: none; padding: 6px 12px 6px 0; border-bottom: 1px solid #f0f0f0;">65% <div style="width: 60px; height: 3px; margin: 2px 0; background: #e9ecef; border-radius: 2px; overflow: hidden;"><div style="height: 100%; background: #28a745; width: 65%;"></div></div></td>
-                        <td style="border: none; padding: 6px 12px 6px 0; border-bottom: 1px solid #f0f0f0;"><span style="color: #28a745;">●</span> Low</td>
-                        <td style="border: none; padding: 6px 12px 6px 0; border-bottom: 1px solid #f0f0f0;">Jul 31</td>
-                      </tr>
-                      <tr>
-                        <td style="border: none; padding: 6px 12px 6px 0; border-bottom: 1px solid #f0f0f0;">Template Selector</td>
-                        <td style="border: none; padding: 6px 12px 6px 0; border-bottom: 1px solid #f0f0f0;">15% <div style="width: 60px; height: 3px; margin: 2px 0; background: #e9ecef; border-radius: 2px; overflow: hidden;"><div style="height: 100%; background: #ffc107; width: 15%;"></div></div></td>
-                        <td style="border: none; padding: 6px 12px 6px 0; border-bottom: 1px solid #f0f0f0;"><span style="color: #ffc107;">●</span> Med</td>
-                        <td style="border: none; padding: 6px 12px 6px 0; border-bottom: 1px solid #f0f0f0;">Aug 20</td>
-                      </tr>
-                      <tr>
-                        <td style="border: none; padding: 6px 12px 6px 0; border-bottom: 1px solid #f0f0f0;">Community Platform</td>
-                        <td style="border: none; padding: 6px 12px 6px 0; border-bottom: 1px solid #f0f0f0;">5% <div style="width: 60px; height: 3px; margin: 2px 0; background: #e9ecef; border-radius: 2px; overflow: hidden;"><div style="height: 100%; background: #dc3545; width: 5%;"></div></div></td>
-                        <td style="border: none; padding: 6px 12px 6px 0; border-bottom: 1px solid #f0f0f0;"><span style="color: #dc3545;">●</span> High</td>
-                        <td style="border: none; padding: 6px 12px 6px 0; border-bottom: 1px solid #f0f0f0;">Aug 31</td>
-                      </tr>
-                      <tr>
-                        <td style="border: none; padding: 6px 12px 6px 0;">Beta Testing</td>
-                        <td style="border: none; padding: 6px 12px 6px 0;">0% <div style="width: 60px; height: 3px; margin: 2px 0; background: #e9ecef; border-radius: 2px; overflow: hidden;"><div style="height: 100%; background: #e9ecef; width: 0%;"></div></div></td>
-                        <td style="border: none; padding: 6px 12px 6px 0;"><span style="color: #6c757d;">●</span> TBD</td>
-                        <td style="border: none; padding: 6px 12px 6px 0;">Sep 15</td>
-                      </tr>
-                    </tbody>
-                  </table>
                 </div>
               </div>
               
