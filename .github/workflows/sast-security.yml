@@ -492,7 +492,7 @@ jobs:
         uses: trufflesecurity/trufflehog@main
         with:
           path: ./
-          extra_args: --debug --only-verified --json --output=trufflehog-results.json
+          extra_args: --debug --only-verified --json
 
       - name: 🔐 Git-secrets Analysis
         run: |
