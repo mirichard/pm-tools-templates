@@ -350,212 +350,6 @@ jobs:
               li {
                 margin-bottom: 5px;
               }
-              /* Tooltip Styles */
-              .tooltip {
-                position: relative;
-                display: inline-block;
-                cursor: help;
-                border-bottom: 1px dotted #6c757d;
-              }
-              .tooltip .tooltiptext {
-                visibility: hidden;
-                width: 280px;
-                background-color: #2c3e50;
-                color: #fff;
-                text-align: left;
-                border-radius: 6px;
-                padding: 10px;
-                position: absolute;
-                z-index: 1;
-                bottom: 125%;
-                left: 50%;
-                margin-left: -140px;
-                opacity: 0;
-                transition: opacity 0.3s;
-                font-size: 13px;
-                line-height: 1.4;
-                box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-              }
-              .tooltip .tooltiptext::after {
-                content: "";
-                position: absolute;
-                top: 100%;
-                left: 50%;
-                margin-left: -5px;
-                border-width: 5px;
-                border-style: solid;
-                border-color: #2c3e50 transparent transparent transparent;
-              }
-              .tooltip:hover .tooltiptext {
-                visibility: visible;
-                opacity: 1;
-              }
-              /* Tooltip variants for different contexts */
-              .tooltip-metric .tooltiptext {
-                width: 320px;
-                margin-left: -160px;
-                background-color: #007bff;
-              }
-              .tooltip-metric .tooltiptext::after {
-                border-color: #007bff transparent transparent transparent;
-              }
-              .tooltip-warning .tooltiptext {
-                background-color: #856404;
-              }
-              .tooltip .tooltiptext::after {
-                border-color: #856404 transparent transparent transparent;
-              }
-              
-              /* Tufte-inspired visualizations */
-              .sparkline {
-                display: inline-block;
-                width: 60px;
-                height: 20px;
-                margin: 0 8px;
-                vertical-align: middle;
-              }
-              .progress-bar {
-                width: 100%;
-                height: 4px;
-                background-color: #e9ecef;
-                border-radius: 2px;
-                margin: 8px 0;
-                position: relative;
-                overflow: hidden;
-              }
-              .progress-fill {
-                height: 100%;
-                border-radius: 2px;
-                transition: width 0.3s ease;
-              }
-              .progress-fill.good { background-color: #28a745; }
-              .progress-fill.warning { background-color: #ffc107; }
-              .progress-fill.danger { background-color: #dc3545; }
-              .progress-label {
-                position: absolute;
-                right: 0;
-                top: -20px;
-                font-size: 11px;
-                color: #6c757d;
-                font-weight: 500;
-              }
-              
-              /* Timeline visualization */
-              .timeline {
-                position: relative;
-                padding: 20px 0;
-                margin: 20px 0;
-              }
-              .timeline::before {
-                content: '';
-                position: absolute;
-                left: 50px;
-                top: 0;
-                bottom: 0;
-                width: 2px;
-                background: #e9ecef;
-              }
-              .timeline-item {
-                position: relative;
-                margin: 15px 0;
-                padding-left: 80px;
-              }
-              .timeline-marker {
-                position: absolute;
-                left: 41px;
-                top: 8px;
-                width: 18px;
-                height: 18px;
-                border-radius: 50%;
-                border: 3px solid #fff;
-                box-shadow: 0 0 0 2px #e9ecef;
-              }
-              .timeline-marker.completed { background-color: #28a745; box-shadow: 0 0 0 2px #28a745; }
-              .timeline-marker.active { background-color: #007bff; box-shadow: 0 0 0 2px #007bff; }
-              .timeline-marker.upcoming { background-color: #f8f9fa; box-shadow: 0 0 0 2px #dee2e6; }
-              .timeline-content {
-                background: #f8f9fa;
-                padding: 12px 15px;
-                border-radius: 6px;
-                border-left: 3px solid #dee2e6;
-              }
-              .timeline-content.completed { border-left-color: #28a745; }
-              .timeline-content.active { border-left-color: #007bff; background: #e7f3ff; }
-              .timeline-content.upcoming { border-left-color: #dee2e6; }
-              .timeline-date {
-                font-size: 11px;
-                color: #6c757d;
-                margin-bottom: 4px;
-                text-transform: uppercase;
-                letter-spacing: 0.5px;
-              }
-              .timeline-title {
-                font-weight: 600;
-                margin: 0 0 4px 0;
-                font-size: 14px;
-              }
-              .timeline-desc {
-                font-size: 12px;
-                color: #6c757d;
-                margin: 0;
-                line-height: 1.4;
-              }
-              
-              /* Small multiples for key metrics */
-              .small-multiples {
-                display: grid;
-                grid-template-columns: repeat(4, 1fr);
-                gap: 15px;
-                margin: 20px 0;
-              }
-              .small-chart {
-                text-align: center;
-                padding: 15px 10px;
-                background: #f8f9fa;
-                border-radius: 6px;
-                border: 1px solid #e9ecef;
-              }
-              .small-chart-title {
-                font-size: 11px;
-                color: #6c757d;
-                margin-bottom: 8px;
-                text-transform: uppercase;
-                letter-spacing: 0.5px;
-              }
-              .small-chart-value {
-                font-size: 24px;
-                font-weight: 700;
-                margin-bottom: 6px;
-              }
-              .small-chart-trend {
-                font-size: 10px;
-                color: #6c757d;
-              }
-              
-              /* Data-dense table styling */
-              .data-table {
-                width: 100%;
-                border-collapse: collapse;
-                font-size: 12px;
-                margin: 15px 0;
-              }
-              .data-table th {
-                background: none;
-                border: none;
-                border-bottom: 1px solid #333;
-                padding: 8px 12px 6px 0;
-                text-align: left;
-                font-weight: 600;
-                color: #333;
-              }
-              .data-table td {
-                border: none;
-                padding: 6px 12px 6px 0;
-                border-bottom: 1px solid #f0f0f0;
-              }
-              .data-table tr:last-child td {
-                border-bottom: none;
-              }
             </style>
           </head>
           <body>
@@ -566,48 +360,46 @@ jobs:
                 <p style="font-size: 14px;">Enhanced Clean Status Workflow - Issue #314</p>
               </div>
               
-              <!-- Executive Summary with Tufte-inspired visualizations -->
+              <!-- Executive Summary with Tufte-inspired small multiples -->
               <div style="padding: 25px 20px; background: #f8f9fa; border-bottom: 1px solid #e9ecef;">
                 <h2 style="margin: 0 0 20px 0; color: #495057; font-size: 18px;">🎯 Executive Summary</h2>
                 
-                <!-- Small multiples for key metrics -->
-                <div class="small-multiples">
-                  <div class="small-chart">
-                    <div class="small-chart-title">Overall Progress</div>
-                    <div class="small-chart-value status-good">${COMPLETION_RATE}%</div>
-                    <div class="progress-bar">
-                      <div class="progress-fill good" style="width: ${COMPLETION_RATE}%;"></div>
-                      <div class="progress-label">${COMPLETION_RATE}%</div>
+                <!-- Small multiples dashboard -->
+                <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; margin: 20px 0;">
+                  <div style="text-align: center; padding: 15px 10px; background: white; border-radius: 6px; border: 1px solid #e9ecef;">
+                    <div style="font-size: 11px; color: #6c757d; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.5px;">Overall Progress</div>
+                    <div style="font-size: 24px; font-weight: 700; margin-bottom: 6px; color: #28a745;">${COMPLETION_RATE}%</div>
+                    <div style="width: 100%; height: 4px; background: #e9ecef; border-radius: 2px; margin: 8px 0; overflow: hidden;">
+                      <div style="height: 100%; background: #28a745; width: ${COMPLETION_RATE}%; transition: width 0.3s ease;"></div>
                     </div>
-                    <div class="small-chart-trend">$([ ${COMPLETION_RATE} -ge 75 ] && echo "▲ On Track" || echo "▼ Needs Attention")</div>
+                    <div style="font-size: 10px; color: #6c757d;">$([ ${COMPLETION_RATE} -ge 75 ] && echo "▲ On Track" || echo "▼ Needs Attention")</div>
                   </div>
                   
-                  <div class="small-chart">
-                    <div class="small-chart-title">Strategic Goals</div>
-                    <div class="small-chart-value $([ ${STRATEGIC_PROGRESS} -ge 50 ] && echo "status-good" || echo "status-danger")">${STRATEGIC_PROGRESS}%</div>
-                    <div class="progress-bar">
-                      <div class="progress-fill $([ ${STRATEGIC_PROGRESS} -ge 50 ] && echo "good" || echo "danger")" style="width: ${STRATEGIC_PROGRESS}%;"></div>
-                      <div class="progress-label">${STRATEGIC_PROGRESS}%</div>
+                  <div style="text-align: center; padding: 15px 10px; background: white; border-radius: 6px; border: 1px solid #e9ecef;">
+                    <div style="font-size: 11px; color: #6c757d; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.5px;">Strategic Goals</div>
+                    <div style="font-size: 24px; font-weight: 700; margin-bottom: 6px; color: $([ ${STRATEGIC_PROGRESS} -ge 50 ] && echo "#28a745" || echo "#dc3545");">${STRATEGIC_PROGRESS}%</div>
+                    <div style="width: 100%; height: 4px; background: #e9ecef; border-radius: 2px; margin: 8px 0; overflow: hidden;">
+                      <div style="height: 100%; background: $([ ${STRATEGIC_PROGRESS} -ge 50 ] && echo "#28a745" || echo "#dc3545"); width: ${STRATEGIC_PROGRESS}%; transition: width 0.3s ease;"></div>
                     </div>
-                    <div class="small-chart-trend">$([ ${STRATEGIC_PROGRESS} -ge 50 ] && echo "▲ On Track" || echo "▼ Behind")</div>
+                    <div style="font-size: 10px; color: #6c757d;">$([ ${STRATEGIC_PROGRESS} -ge 50 ] && echo "▲ On Track" || echo "▼ Behind")</div>
                   </div>
                   
-                  <div class="small-chart">
-                    <div class="small-chart-title">Priority Items</div>
-                    <div class="small-chart-value $([ ${HIGH_PRIORITY} -le 5 ] && echo "status-good" || echo "status-warning")">${HIGH_PRIORITY}</div>
-                    <div class="progress-bar">
-                      <div class="progress-fill $([ ${HIGH_PRIORITY} -le 5 ] && echo "good" || echo "warning")" style="width: ${HIGH_PRIORITY}%;"></div>
+                  <div style="text-align: center; padding: 15px 10px; background: white; border-radius: 6px; border: 1px solid #e9ecef;">
+                    <div style="font-size: 11px; color: #6c757d; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.5px;">Priority Items</div>
+                    <div style="font-size: 24px; font-weight: 700; margin-bottom: 6px; color: $([ ${HIGH_PRIORITY} -le 5 ] && echo "#28a745" || echo "#ffc107");">${HIGH_PRIORITY}</div>
+                    <div style="width: 100%; height: 4px; background: #e9ecef; border-radius: 2px; margin: 8px 0; overflow: hidden;">
+                      <div style="height: 100%; background: $([ ${HIGH_PRIORITY} -le 5 ] && echo "#28a745" || echo "#ffc107"); width: 80%; transition: width 0.3s ease;"></div>
                     </div>
-                    <div class="small-chart-trend">$([ ${HIGH_PRIORITY} -le 5 ] && echo "▲ Good" || echo "▼ High Volume")</div>
+                    <div style="font-size: 10px; color: #6c757d;">$([ ${HIGH_PRIORITY} -le 5 ] && echo "▲ Good" || echo "▼ High Volume")</div>
                   </div>
                   
-                  <div class="small-chart">
-                    <div class="small-chart-title">Critical Risks</div>
-                    <div class="small-chart-value $([ ${CRITICAL_RISKS} -eq 0 ] && echo "status-good" || echo "status-danger")">${CRITICAL_RISKS}</div>
-                    <div class="progress-bar">
-                      <div class="progress-fill $([ ${CRITICAL_RISKS} -eq 0 ] && echo "good" || echo "danger")" style="width: $([ ${CRITICAL_RISKS} -eq 0 ] && echo "100" || echo "0")%;"></div>
+                  <div style="text-align: center; padding: 15px 10px; background: white; border-radius: 6px; border: 1px solid #e9ecef;">
+                    <div style="font-size: 11px; color: #6c757d; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.5px;">Critical Risks</div>
+                    <div style="font-size: 24px; font-weight: 700; margin-bottom: 6px; color: $([ ${CRITICAL_RISKS} -eq 0 ] && echo "#28a745" || echo "#dc3545");">${CRITICAL_RISKS}</div>
+                    <div style="width: 100%; height: 4px; background: #e9ecef; border-radius: 2px; margin: 8px 0; overflow: hidden;">
+                      <div style="height: 100%; background: $([ ${CRITICAL_RISKS} -eq 0 ] && echo "#28a745" || echo "#dc3545"); width: $([ ${CRITICAL_RISKS} -eq 0 ] && echo "100" || echo "0")%; transition: width 0.3s ease;"></div>
                     </div>
-                    <div class="small-chart-trend">$([ ${CRITICAL_RISKS} -eq 0 ] && echo "▲ No Risks" || echo "▼ Action Needed")</div>
+                    <div style="font-size: 10px; color: #6c757d;">$([ ${CRITICAL_RISKS} -eq 0 ] && echo "▲ No Risks" || echo "▼ Action Needed")</div>
                   </div>
                 </div>
                 
@@ -640,12 +432,7 @@ jobs:
                     <tr>
                       <td style="padding: 12px 8px; border-bottom: 1px solid #e9ecef;"><strong>📊 Overall Program</strong></td>
                       <td style="padding: 12px 8px; border-bottom: 1px solid #e9ecef;">$([ ${COMPLETION_RATE} -ge 75 ] && echo "🟢 On Track" || echo "🟡 Attention")</td>
-                      <td style="padding: 12px 8px; border-bottom: 1px solid #e9ecef;">
-                        <div class="tooltip tooltip-metric">
-                          <span class="tooltiptext"><strong>Completion Calculation:</strong><br>• Based on GitHub Issues: ${COMPLETION_RATE}% = (Closed Issues ÷ Total Issues) × 100<br>• Current: Closed Issues ÷ Total Issues<br>• Note: This metric tracks issue resolution, not actual program completion<br>• Strategic progress measured separately</span>
-                          ${COMPLETION_RATE}%
-                        </div>
-                      </td>
+                      <td style="padding: 12px 8px; border-bottom: 1px solid #e9ecef;">${COMPLETION_RATE}%</td>
                       <td style="padding: 12px 8px; border-bottom: 1px solid #e9ecef;">35 revolutionary enhancements across 5 phases</td>
                     </tr>
                     <tr>
@@ -657,12 +444,7 @@ jobs:
                     <tr>
                       <td style="padding: 12px 8px; border-bottom: 1px solid #e9ecef;"><strong>🚀 Q3 2025 Delivery Cycle</strong></td>
                       <td style="padding: 12px 8px; border-bottom: 1px solid #e9ecef;">$([ ${STRATEGIC_PROGRESS} -ge 50 ] && echo "🟢 Active" || echo "🔴 Behind")</td>
-                      <td style="padding: 12px 8px; border-bottom: 1px solid #e9ecef;">
-                        <div class="tooltip tooltip-warning">
-                          <span class="tooltiptext"><strong>Strategic Progress:</strong><br>• Based on GitHub Issues with "strategic" label<br>• Formula: (Strategic Closed ÷ Strategic Total) × 100<br>• Tracks high-impact initiatives and roadmap milestones<br>• Separate from overall issue completion rate</span>
-                          ${STRATEGIC_PROGRESS}%
-                        </div>
-                      </td>
+                      <td style="padding: 12px 8px; border-bottom: 1px solid #e9ecef;">${STRATEGIC_PROGRESS}%</td>
                       <td style="padding: 12px 8px; border-bottom: 1px solid #e9ecef;">Executive Dashboards, Template Selector, Community Platform</td>
                     </tr>
                     <tr>
@@ -685,98 +467,101 @@ jobs:
               <div style="padding: 20px; background: #e7f3ff; border-left: 4px solid #007bff; margin: 20px 0;">
                 <h3 style="margin: 0 0 20px 0; color: #004085; font-size: 16px;">📅 Q3 2025 Delivery Timeline</h3>
                 
-                <div class="timeline">
-                  <div class="timeline-item">
-                    <div class="timeline-marker completed"></div>
-                    <div class="timeline-content completed">
-                      <div class="timeline-date">Jul 1-15, 2025</div>
-                      <div class="timeline-title">✅ Foundation Phase Complete</div>
-                      <div class="timeline-desc">Template selector framework, complexity assessment tools, and quick-start kits delivered.</div>
+                <!-- Timeline visualization -->
+                <div style="position: relative; padding: 20px 0; margin: 20px 0;">
+                  <div style="position: absolute; left: 50px; top: 0; bottom: 0; width: 2px; background: #e9ecef;"></div>
+                  
+                  <div style="position: relative; margin: 15px 0; padding-left: 80px;">
+                    <div style="position: absolute; left: 41px; top: 8px; width: 18px; height: 18px; border-radius: 50%; background: #28a745; border: 3px solid #fff; box-shadow: 0 0 0 2px #28a745;"></div>
+                    <div style="background: #f8f9fa; padding: 12px 15px; border-radius: 6px; border-left: 3px solid #28a745;">
+                      <div style="font-size: 11px; color: #6c757d; margin-bottom: 4px; text-transform: uppercase; letter-spacing: 0.5px;">Jul 1-15, 2025</div>
+                      <div style="font-weight: 600; margin: 0 0 4px 0; font-size: 14px;">✅ Foundation Phase Complete</div>
+                      <div style="font-size: 12px; color: #6c757d; margin: 0; line-height: 1.4;">Template selector framework, complexity assessment tools, and quick-start kits delivered.</div>
                     </div>
                   </div>
                   
-                  <div class="timeline-item">
-                    <div class="timeline-marker active"></div>
-                    <div class="timeline-content active">
-                      <div class="timeline-date">Jul 16-31, 2025</div>
-                      <div class="timeline-title">🚀 Executive Dashboard Development</div>
-                      <div class="timeline-desc">Enterprise reporting suite, advanced analytics, and stakeholder communication tools. <strong>In Progress: 65%</strong></div>
+                  <div style="position: relative; margin: 15px 0; padding-left: 80px;">
+                    <div style="position: absolute; left: 41px; top: 8px; width: 18px; height: 18px; border-radius: 50%; background: #007bff; border: 3px solid #fff; box-shadow: 0 0 0 2px #007bff;"></div>
+                    <div style="background: #e7f3ff; padding: 12px 15px; border-radius: 6px; border-left: 3px solid #007bff;">
+                      <div style="font-size: 11px; color: #6c757d; margin-bottom: 4px; text-transform: uppercase; letter-spacing: 0.5px;">Jul 16-31, 2025</div>
+                      <div style="font-weight: 600; margin: 0 0 4px 0; font-size: 14px;">🚀 Executive Dashboard Development</div>
+                      <div style="font-size: 12px; color: #6c757d; margin: 0; line-height: 1.4;">Enterprise reporting suite, advanced analytics, and stakeholder communication tools. <strong>In Progress: 65%</strong></div>
                     </div>
                   </div>
                   
-                  <div class="timeline-item">
-                    <div class="timeline-marker active"></div>
-                    <div class="timeline-content active">
-                      <div class="timeline-date">Aug 1-20, 2025</div>
-                      <div class="timeline-title">🎨 Template Selector Enhancement</div>
-                      <div class="timeline-desc">Interactive onboarding, guided template selection, and UX improvements. <strong>Starting Soon</strong></div>
+                  <div style="position: relative; margin: 15px 0; padding-left: 80px;">
+                    <div style="position: absolute; left: 41px; top: 8px; width: 18px; height: 18px; border-radius: 50%; background: #f8f9fa; border: 3px solid #fff; box-shadow: 0 0 0 2px #dee2e6;"></div>
+                    <div style="background: #f8f9fa; padding: 12px 15px; border-radius: 6px; border-left: 3px solid #dee2e6;">
+                      <div style="font-size: 11px; color: #6c757d; margin-bottom: 4px; text-transform: uppercase; letter-spacing: 0.5px;">Aug 1-20, 2025</div>
+                      <div style="font-weight: 600; margin: 0 0 4px 0; font-size: 14px;">🎨 Template Selector Enhancement</div>
+                      <div style="font-size: 12px; color: #6c757d; margin: 0; line-height: 1.4;">Interactive onboarding, guided template selection, and UX improvements. <strong>Starting Soon</strong></div>
                     </div>
                   </div>
                   
-                  <div class="timeline-item">
-                    <div class="timeline-marker upcoming"></div>
-                    <div class="timeline-content upcoming">
-                      <div class="timeline-date">Aug 21-31, 2025</div>
-                      <div class="timeline-title">🤝 Community Platform Integration</div>
-                      <div class="timeline-desc">User feedback systems, community engagement tools, and collaborative features.</div>
+                  <div style="position: relative; margin: 15px 0; padding-left: 80px;">
+                    <div style="position: absolute; left: 41px; top: 8px; width: 18px; height: 18px; border-radius: 50%; background: #f8f9fa; border: 3px solid #fff; box-shadow: 0 0 0 2px #dee2e6;"></div>
+                    <div style="background: #f8f9fa; padding: 12px 15px; border-radius: 6px; border-left: 3px solid #dee2e6;">
+                      <div style="font-size: 11px; color: #6c757d; margin-bottom: 4px; text-transform: uppercase; letter-spacing: 0.5px;">Aug 21-31, 2025</div>
+                      <div style="font-weight: 600; margin: 0 0 4px 0; font-size: 14px;">🤝 Community Platform Integration</div>
+                      <div style="font-size: 12px; color: #6c757d; margin: 0; line-height: 1.4;">User feedback systems, community engagement tools, and collaborative features.</div>
                     </div>
                   </div>
                   
-                  <div class="timeline-item">
-                    <div class="timeline-marker upcoming"></div>
-                    <div class="timeline-content upcoming">
-                      <div class="timeline-date">Sep 1-15, 2025</div>
-                      <div class="timeline-title">🧪 Beta Testing & Refinement</div>
-                      <div class="timeline-desc">User acceptance testing, performance optimization, and final preparations for launch.</div>
+                  <div style="position: relative; margin: 15px 0; padding-left: 80px;">
+                    <div style="position: absolute; left: 41px; top: 8px; width: 18px; height: 18px; border-radius: 50%; background: #f8f9fa; border: 3px solid #fff; box-shadow: 0 0 0 2px #dee2e6;"></div>
+                    <div style="background: #f8f9fa; padding: 12px 15px; border-radius: 6px; border-left: 3px solid #dee2e6;">
+                      <div style="font-size: 11px; color: #6c757d; margin-bottom: 4px; text-transform: uppercase; letter-spacing: 0.5px;">Sep 1-15, 2025</div>
+                      <div style="font-weight: 600; margin: 0 0 4px 0; font-size: 14px;">🧪 Beta Testing & Refinement</div>
+                      <div style="font-size: 12px; color: #6c757d; margin: 0; line-height: 1.4;">User acceptance testing, performance optimization, and final preparations for launch.</div>
                     </div>
                   </div>
                   
-                  <div class="timeline-item">
-                    <div class="timeline-marker upcoming"></div>
-                    <div class="timeline-content upcoming">
-                      <div class="timeline-date">Sep 16-30, 2025</div>
-                      <div class="timeline-title">🎉 Q3 Launch & Documentation</div>
-                      <div class="timeline-desc">Public release, comprehensive documentation, and transition to Phase 2 planning.</div>
+                  <div style="position: relative; margin: 15px 0; padding-left: 80px;">
+                    <div style="position: absolute; left: 41px; top: 8px; width: 18px; height: 18px; border-radius: 50%; background: #f8f9fa; border: 3px solid #fff; box-shadow: 0 0 0 2px #dee2e6;"></div>
+                    <div style="background: #f8f9fa; padding: 12px 15px; border-radius: 6px; border-left: 3px solid #dee2e6;">
+                      <div style="font-size: 11px; color: #6c757d; margin-bottom: 4px; text-transform: uppercase; letter-spacing: 0.5px;">Sep 16-30, 2025</div>
+                      <div style="font-weight: 600; margin: 0 0 4px 0; font-size: 14px;">🎉 Q3 Launch & Documentation</div>
+                      <div style="font-size: 12px; color: #6c757d; margin: 0; line-height: 1.4;">Public release, comprehensive documentation, and transition to Phase 2 planning.</div>
                     </div>
                   </div>
                 </div>
                 
-                <!-- Timeline summary with data-dense table -->
+                <!-- Data-dense delivery metrics table -->
                 <div style="margin-top: 25px; padding: 15px; background: white; border-radius: 6px;">
                   <h4 style="margin: 0 0 12px 0; font-size: 14px; color: #495057;">Q3 2025 Delivery Metrics</h4>
-                  <table class="data-table">
+                  <table style="width: 100%; border-collapse: collapse; font-size: 12px; margin: 15px 0;">
                     <thead>
                       <tr>
-                        <th>Milestone</th>
-                        <th>Progress</th>
-                        <th>Risk</th>
-                        <th>Est. Completion</th>
+                        <th style="background: none; border: none; border-bottom: 1px solid #333; padding: 8px 12px 6px 0; text-align: left; font-weight: 600; color: #333;">Milestone</th>
+                        <th style="background: none; border: none; border-bottom: 1px solid #333; padding: 8px 12px 6px 0; text-align: left; font-weight: 600; color: #333;">Progress</th>
+                        <th style="background: none; border: none; border-bottom: 1px solid #333; padding: 8px 12px 6px 0; text-align: left; font-weight: 600; color: #333;">Risk</th>
+                        <th style="background: none; border: none; border-bottom: 1px solid #333; padding: 8px 12px 6px 0; text-align: left; font-weight: 600; color: #333;">Est. Completion</th>
                       </tr>
                     </thead>
                     <tbody>
                       <tr>
-                        <td>Executive Dashboards</td>
-                        <td>65% <div class="progress-bar" style="width: 60px; height: 3px; margin: 2px 0;"><div class="progress-fill good" style="width: 65%;"></div></div></td>
-                        <td><span style="color: #28a745;">●</span> Low</td>
-                        <td>Jul 31</td>
+                        <td style="border: none; padding: 6px 12px 6px 0; border-bottom: 1px solid #f0f0f0;">Executive Dashboards</td>
+                        <td style="border: none; padding: 6px 12px 6px 0; border-bottom: 1px solid #f0f0f0;">65% <div style="width: 60px; height: 3px; margin: 2px 0; background: #e9ecef; border-radius: 2px; overflow: hidden;"><div style="height: 100%; background: #28a745; width: 65%;"></div></div></td>
+                        <td style="border: none; padding: 6px 12px 6px 0; border-bottom: 1px solid #f0f0f0;"><span style="color: #28a745;">●</span> Low</td>
+                        <td style="border: none; padding: 6px 12px 6px 0; border-bottom: 1px solid #f0f0f0;">Jul 31</td>
                       </tr>
                       <tr>
-                        <td>Template Selector</td>
-                        <td>15% <div class="progress-bar" style="width: 60px; height: 3px; margin: 2px 0;"><div class="progress-fill warning" style="width: 15%;"></div></div></td>
-                        <td><span style="color: #ffc107;">●</span> Med</td>
-                        <td>Aug 20</td>
+                        <td style="border: none; padding: 6px 12px 6px 0; border-bottom: 1px solid #f0f0f0;">Template Selector</td>
+                        <td style="border: none; padding: 6px 12px 6px 0; border-bottom: 1px solid #f0f0f0;">15% <div style="width: 60px; height: 3px; margin: 2px 0; background: #e9ecef; border-radius: 2px; overflow: hidden;"><div style="height: 100%; background: #ffc107; width: 15%;"></div></div></td>
+                        <td style="border: none; padding: 6px 12px 6px 0; border-bottom: 1px solid #f0f0f0;"><span style="color: #ffc107;">●</span> Med</td>
+                        <td style="border: none; padding: 6px 12px 6px 0; border-bottom: 1px solid #f0f0f0;">Aug 20</td>
                       </tr>
                       <tr>
-                        <td>Community Platform</td>
-                        <td>5% <div class="progress-bar" style="width: 60px; height: 3px; margin: 2px 0;"><div class="progress-fill danger" style="width: 5%;"></div></div></td>
-                        <td><span style="color: #dc3545;">●</span> High</td>
-                        <td>Aug 31</td>
+                        <td style="border: none; padding: 6px 12px 6px 0; border-bottom: 1px solid #f0f0f0;">Community Platform</td>
+                        <td style="border: none; padding: 6px 12px 6px 0; border-bottom: 1px solid #f0f0f0;">5% <div style="width: 60px; height: 3px; margin: 2px 0; background: #e9ecef; border-radius: 2px; overflow: hidden;"><div style="height: 100%; background: #dc3545; width: 5%;"></div></div></td>
+                        <td style="border: none; padding: 6px 12px 6px 0; border-bottom: 1px solid #f0f0f0;"><span style="color: #dc3545;">●</span> High</td>
+                        <td style="border: none; padding: 6px 12px 6px 0; border-bottom: 1px solid #f0f0f0;">Aug 31</td>
                       </tr>
                       <tr>
-                        <td>Beta Testing</td>
-                        <td>0% <div class="progress-bar" style="width: 60px; height: 3px; margin: 2px 0;"><div class="progress-fill" style="width: 0%; background: #e9ecef;"></div></div></td>
-                        <td><span style="color: #6c757d;">●</span> TBD</td>
-                        <td>Sep 15</td>
+                        <td style="border: none; padding: 6px 12px 6px 0;">Beta Testing</td>
+                        <td style="border: none; padding: 6px 12px 6px 0;">0% <div style="width: 60px; height: 3px; margin: 2px 0; background: #e9ecef; border-radius: 2px; overflow: hidden;"><div style="height: 100%; background: #e9ecef; width: 0%;"></div></div></td>
+                        <td style="border: none; padding: 6px 12px 6px 0;"><span style="color: #6c757d;">●</span> TBD</td>
+                        <td style="border: none; padding: 6px 12px 6px 0;">Sep 15</td>
                       </tr>
                     </tbody>
                   </table>
@@ -802,34 +587,22 @@ jobs:
               <div class="metrics">
                 <div class="metric-card">
                   <h3>📊 Completion</h3>
-                  <div class="tooltip tooltip-metric">
-                    <span class="tooltiptext"><strong>Overall Completion Rate:</strong><br>• Tracks all GitHub issues (open + closed)<br>• Formula: (Closed ÷ Total) × 100<br>• Currently: ${COMPLETION_RATE}%<br>• Note: Issue-based metric, not actual program work completion</span>
-                    <div class="metric-value status-good">${COMPLETION_RATE}%</div>
-                  </div>
+                  <div class="metric-value status-good">${COMPLETION_RATE}%</div>
                   <p>Overall Progress</p>
                 </div>
                 <div class="metric-card">
                   <h3>🎯 Strategic</h3>
-                  <div class="tooltip tooltip-warning">
-                    <span class="tooltiptext"><strong>Strategic Progress:</strong><br>• Issues labeled as "strategic"<br>• High-impact roadmap milestones<br>• Current: ${STRATEGIC_PROGRESS}%<br>• Tracked separately from general issues</span>
-                    <div class="metric-value status-danger">${STRATEGIC_PROGRESS}%</div>
-                  </div>
+                  <div class="metric-value status-danger">${STRATEGIC_PROGRESS}%</div>
                   <p>Strategic Goals</p>
                 </div>
                 <div class="metric-card">
                   <h3>⚠️ Priorities</h3>
-                  <div class="tooltip">
-                    <span class="tooltiptext"><strong>High Priority Items:</strong><br>• Open issues labeled "high-priority"<br>• Require immediate attention<br>• Current count: ${HIGH_PRIORITY}<br>• Target: Keep under 5 items</span>
-                    <div class="metric-value status-warning">${HIGH_PRIORITY}</div>
-                  </div>
+                  <div class="metric-value status-warning">${HIGH_PRIORITY}</div>
                   <p>High Priority Items</p>
                 </div>
                 <div class="metric-card">
                   <h3>🚨 Risks</h3>
-                  <div class="tooltip">
-                    <span class="tooltiptext"><strong>Critical Issues:</strong><br>• Open issues labeled "critical"<br>• Program-blocking risks<br>• Current count: ${CRITICAL_RISKS}<br>• Target: 0 critical issues</span>
-                    <div class="metric-value status-good">${CRITICAL_RISKS}</div>
-                  </div>
+                  <div class="metric-value status-good">${CRITICAL_RISKS}</div>
                   <p>Critical Issues</p>
                 </div>
               </div>
