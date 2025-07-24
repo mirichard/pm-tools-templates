@@ -1,0 +1,292 @@
+name: 📦 Epic Size Monitor
+
+on:
+  issues:
+    types: [opened, edited, labeled, unlabeled]
+  schedule:
+    # Daily check at 9 AM EST (14:00 UTC)
+    - cron: '0 14 * * *'
+  workflow_dispatch:
+
+permissions:
+  issues: write
+  contents: read
+
+jobs:
+  monitor-epic-sizes:
+    runs-on: ubuntu-latest
+    name: Monitor Epic Sizes
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Monitor epic sizes
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const { owner, repo } = context.repo;
+            
+            // Fetch all open epics
+            const epics = await github.rest.issues.listForRepo({
+              owner,
+              repo,
+              state: 'open',
+              labels: 'epic',
+              per_page: 100
+            });
+            
+            console.log(`Found ${epics.data.length} open epics to monitor`);
+            
+            const oversizedEpics = [];
+            const nearLimitEpics = [];
+            
+            for (const epic of epics.data) {
+              try {
+                // Count related issues by searching for epic references
+                const relatedIssues = await github.rest.search.issuesAndPullRequests({
+                  q: `repo:${owner}/${repo} is:open is:issue "#${epic.number}" -label:epic`
+                });
+                
+                const issueCount = relatedIssues.data.total_count;
+                console.log(`Epic #${epic.number}: ${issueCount} related issues`);
+                
+                // PMI PMBOK® 5.4.2.1 - Work packages should be manageable and measurable
+                // Scrum Alliance - Large backlog items should be broken down for Sprint Planning
+                if (issueCount > 20) {
+                  oversizedEpics.push({
+                    number: epic.number,
+                    title: epic.title,
+                    count: issueCount,
+                    url: epic.html_url
+                  });
+                } else if (issueCount >= 15 && issueCount <= 20) {
+                  nearLimitEpics.push({
+                    number: epic.number,
+                    title: epic.title,
+                    count: issueCount,
+                    url: epic.html_url
+                  });
+                }
+                
+                // Add size label to epic for easy identification
+                const sizeLabel = issueCount > 20 ? 'epic-oversized' : 
+                                 issueCount >= 15 ? 'epic-large' : 
+                                 issueCount >= 8 ? 'epic-medium' : 'epic-small';
+                
+                // Remove existing size labels
+                const currentLabels = epic.labels.map(label => label.name);
+                const sizeLabelsToRemove = currentLabels.filter(label => 
+                  label.startsWith('epic-') && ['epic-oversized', 'epic-large', 'epic-medium', 'epic-small'].includes(label)
+                );
+                
+                for (const labelToRemove of sizeLabelsToRemove) {
+                  if (labelToRemove !== sizeLabel) {
+                    try {
+                      await github.rest.issues.removeLabel({
+                        owner,
+                        repo,
+                        issue_number: epic.number,
+                        name: labelToRemove
+                      });
+                    } catch (error) {
+                      console.log(`Label ${labelToRemove} not found on epic #${epic.number}`);
+                    }
+                  }
+                }
+                
+                // Add current size label
+                if (!currentLabels.includes(sizeLabel)) {
+                  await github.rest.issues.addLabels({
+                    owner,
+                    repo,
+                    issue_number: epic.number,
+                    labels: [sizeLabel]
+                  });
+                }
+                
+              } catch (error) {
+                console.error(`Error processing epic #${epic.number}:`, error.message);
+              }
+            }
+            
+            // Handle oversized epics
+            for (const epic of oversizedEpics) {
+              console.log(`Processing oversized epic #${epic.number} with ${epic.count} issues`);
+              
+              // Check if we already have a breakdown issue for this epic
+              const existingBreakdownIssues = await github.rest.search.issuesAndPullRequests({
+                q: `repo:${owner}/${repo} is:open is:issue "Epic Breakdown Required" "#${epic.number}"`
+              });
+              
+              if (existingBreakdownIssues.data.total_count === 0) {
+                // Create epic breakdown issue
+                const breakdownBody = `# 📦 Epic Breakdown Required
+                
+                **Epic:** #${epic.number} - ${epic.title}
+                **Current Size:** ${epic.count} issues (Exceeds limit of 20)
+                **Status:** 🔴 Action Required
+                
+                ## PMI/Scrum Guidance
+                **PMI PMBOK® 5.4.2.1:** Work packages should be manageable and measurable
+                **Scrum Alliance:** Large backlog items should be broken down for effective Sprint Planning
+                
+                ## Recommended Actions
+                
+                ### Option 1: Split into Multiple Epics
+                - [ ] Identify logical groupings within the epic
+                - [ ] Create 2-3 smaller epics (10-15 issues each)
+                - [ ] Reassign related issues to new epics
+                - [ ] Update epic descriptions and acceptance criteria
+                
+                ### Option 2: Prioritize and Close Low-Value Issues
+                - [ ] Review all related issues for current relevance
+                - [ ] Close outdated or duplicate issues
+                - [ ] Move nice-to-have features to separate epic
+                - [ ] Focus epic on core value delivery
+                
+                ### Option 3: Convert to Theme
+                - [ ] Consider if this epic is actually a theme
+                - [ ] Create smaller epics under this theme
+                - [ ] Relabel as 'theme' instead of 'epic'
+                
+                ## Analysis Required
+                - [ ] **Product Owner Review:** Validate epic scope and business value
+                - [ ] **Technical Review:** Assess implementation dependencies
+                - [ ] **Stakeholder Input:** Confirm priority of epic components
+                
+                ## Related Issues
+                Use GitHub search to find all related issues:
+                \`\`\`
+                repo:${owner}/${repo} is:open is:issue "#${epic.number}" -label:epic
+                \`\`\`
+                
+                ## Success Criteria
+                - [ ] Epic contains ≤20 related issues
+                - [ ] All child issues have clear acceptance criteria
+                - [ ] Epic scope is well-defined and achievable
+                - [ ] Sprint planning can effectively use epic issues
+                
+                ---
+                
+                **Due Date:** Within 1 week of creation
+                **Assigned:** Product Owner
+                **Process Reference:** [Backlog Management Process](docs/processes/backlog-management-process.md)
+                
+                *This issue was automatically generated by the Epic Size Monitor workflow.*`;
+                
+                const breakdownIssue = await github.rest.issues.create({
+                  owner,
+                  repo,
+                  title: `📦 Epic Breakdown Required: #${epic.number} - ${epic.title}`,
+                  body: breakdownBody,
+                  labels: ['epic-breakdown-required', 'high-priority', 'process', 'automation'],
+                  assignees: [] // Add product owner username if known
+                });
+                
+                // Add comment to the oversized epic
+                await github.rest.issues.createComment({
+                  owner,
+                  repo,
+                  issue_number: epic.number,
+                  body: `🚨 **Epic Size Limit Exceeded**
+                  
+                  This epic currently has **${epic.count} related issues**, which exceeds our limit of 20 issues per epic.
+                  
+                  **Why this matters:**
+                  - **PMI PMBOK® 5.4.2.1**: Work packages should be manageable and measurable
+                  - **Scrum Alliance**: Large backlog items should be broken down for effective Sprint Planning
+                  
+                  **Action Required:**
+                  A breakdown issue has been created: ${breakdownIssue.data.html_url}
+                  
+                  **Options:**
+                  1. Split into multiple smaller epics (10-15 issues each)
+                  2. Prioritize and close low-value issues
+                  3. Convert to a theme with smaller child epics
+                  
+                  Please address this within 1 week to maintain backlog health.`
+                });
+                
+                console.log(`Created breakdown issue for epic #${epic.number}`);
+              }
+            }
+            
+            // Handle near-limit epics (warning)
+            for (const epic of nearLimitEpics) {
+              // Check if we already warned about this epic recently
+              const recentComments = await github.rest.issues.listComments({
+                owner,
+                repo,
+                issue_number: epic.number,
+                per_page: 10
+              });
+              
+              const hasRecentWarning = recentComments.data.some(comment => {
+                const commentAge = Date.now() - new Date(comment.created_at).getTime();
+                const daysSinceComment = commentAge / (1000 * 60 * 60 * 24);
+                return comment.body.includes('approaching size limit') && daysSinceComment < 7;
+              });
+              
+              if (!hasRecentWarning) {
+                await github.rest.issues.createComment({
+                  owner,
+                  repo,
+                  issue_number: epic.number,
+                  body: `⚠️ **Epic Size Warning**
+                  
+                  This epic currently has **${epic.count} related issues** and is approaching our limit of 20 issues per epic.
+                  
+                  **Consider:**
+                  - Reviewing the scope to ensure it remains focused
+                  - Planning for potential breakdown if it grows further
+                  - Prioritizing the most valuable issues within this epic
+                  
+                  **Reference:** [Epic Size Guidelines](docs/processes/backlog-management-process.md#epic-size-guidelines)`
+                });
+                
+                console.log(`Added warning comment to epic #${epic.number}`);
+              }
+            }
+            
+            // Create labels if they don't exist
+            const requiredLabels = [
+              { name: 'epic-oversized', color: 'B60205', description: 'Epic exceeds 20 issue limit' },
+              { name: 'epic-large', color: 'D93F0B', description: 'Epic has 15-20 issues' },
+              { name: 'epic-medium', color: 'FBCA04', description: 'Epic has 8-14 issues' },
+              { name: 'epic-small', color: '0E8A16', description: 'Epic has fewer than 8 issues' },
+              { name: 'epic-breakdown-required', color: 'B60205', description: 'Epic needs to be broken down' }
+            ];
+            
+            for (const labelDef of requiredLabels) {
+              try {
+                await github.rest.issues.createLabel({
+                  owner,
+                  repo,
+                  name: labelDef.name,
+                  color: labelDef.color,
+                  description: labelDef.description
+                });
+              } catch (error) {
+                if (error.status !== 422) { // 422 means label already exists
+                  console.error(`Error creating label ${labelDef.name}:`, error.message);
+                }
+              }
+            }
+            
+            // Summary
+            console.log(`Epic size monitoring complete:`);
+            console.log(`- Total epics monitored: ${epics.data.length}`);
+            console.log(`- Oversized epics (>20 issues): ${oversizedEpics.length}`);
+            console.log(`- Near-limit epics (15-20 issues): ${nearLimitEpics.length}`);
+            
+            if (oversizedEpics.length > 0) {
+              core.setFailed(`Found ${oversizedEpics.length} oversized epic(s) requiring immediate attention`);
+            }
+            
+            return {
+              totalEpics: epics.data.length,
+              oversizedCount: oversizedEpics.length,
+              nearLimitCount: nearLimitEpics.length,
+              oversizedEpics: oversizedEpics
+            };

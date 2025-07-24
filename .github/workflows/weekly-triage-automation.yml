@@ -1,0 +1,228 @@
+name: 📋 Weekly Backlog Triage Automation
+
+on:
+  schedule:
+    # Every Tuesday at 9:00 AM EST (14:00 UTC) - 1 hour before triage meeting
+    - cron: '0 14 * * 2'
+  workflow_dispatch: # Allow manual trigger
+
+permissions:
+  issues: write
+  contents: read
+
+jobs:
+  prepare-triage:
+    runs-on: ubuntu-latest
+    name: Prepare Weekly Triage
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Get current date
+        id: date
+        run: echo "date=$(date +'%Y-%m-%d')" >> $GITHUB_OUTPUT
+
+      - name: Gather triage data
+        id: triage-data
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const { owner, repo } = context.repo;
+            
+            // Get issues created since last Tuesday
+            const lastWeek = new Date();
+            lastWeek.setDate(lastWeek.getDate() - 7);
+            const lastWeekISO = lastWeek.toISOString();
+            
+            // Fetch new issues
+            const newIssues = await github.rest.issues.listForRepo({
+              owner,
+              repo,
+              state: 'open',
+              since: lastWeekISO,
+              per_page: 100
+            });
+            
+            // Fetch issues without triage labels
+            const untriagedIssues = await github.rest.issues.listForRepo({
+              owner,
+              repo,
+              state: 'open',
+              labels: 'needs-triage',
+              per_page: 100
+            });
+            
+            // Fetch stale issues (>30 days old)
+            const thirtyDaysAgo = new Date();
+            thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 30);
+            
+            const allIssues = await github.rest.issues.listForRepo({
+              owner,
+              repo,
+              state: 'open',
+              per_page: 100
+            });
+            
+            const staleIssues = allIssues.data.filter(issue => {
+              const updatedDate = new Date(issue.updated_at);
+              return updatedDate < thirtyDaysAgo;
+            });
+            
+            // Fetch oversized epics
+            const epics = await github.rest.issues.listForRepo({
+              owner,
+              repo,
+              state: 'open',
+              labels: 'epic',
+              per_page: 100
+            });
+            
+            let oversizedEpics = [];
+            for (const epic of epics.data) {
+              // Count related issues by searching for epic number in issue bodies
+              const relatedIssues = await github.rest.search.issuesAndPullRequests({
+                q: `repo:${owner}/${repo} is:open is:issue "#${epic.number}" -label:epic`
+              });
+              
+              if (relatedIssues.data.total_count > 20) {
+                oversizedEpics.push({
+                  number: epic.number,
+                  title: epic.title,
+                  count: relatedIssues.data.total_count
+                });
+              }
+            }
+            
+            return {
+              newIssues: newIssues.data.length,
+              newIssuesList: newIssues.data.slice(0, 10), // First 10 for summary
+              untriagedCount: untriagedIssues.data.length,
+              untriagedList: untriagedIssues.data.slice(0, 10),
+              staleCount: staleIssues.length,
+              staleList: staleIssues.slice(0, 10),
+              oversizedEpics: oversizedEpics
+            };
+
+      - name: Create triage preparation issue
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const triageData = ${{ steps.triage-data.outputs.result }};
+            const date = '${{ steps.date.outputs.date }}';
+            
+            const body = `# 📋 Weekly Triage Preparation - ${date}
+            
+            **Triage Meeting:** Tuesday 10:00 AM EST
+            **Process Reference:** [Backlog Management Process](docs/processes/backlog-management-process.md)
+            
+            ## 📊 Backlog Health Summary
+            
+            | Metric | Count | Status |
+            |--------|-------|--------|
+            | New Issues (7 days) | ${triageData.newIssues} | ${triageData.newIssues > 10 ? '🔴 High' : triageData.newIssues > 5 ? '🟡 Medium' : '🟢 Normal'} |
+            | Needs Triage | ${triageData.untriagedCount} | ${triageData.untriagedCount > 15 ? '🔴 High' : triageData.untriagedCount > 8 ? '🟡 Medium' : '🟢 Normal'} |
+            | Stale Issues (>30 days) | ${triageData.staleCount} | ${triageData.staleCount > 20 ? '🔴 High' : triageData.staleCount > 10 ? '🟡 Medium' : '🟢 Normal'} |
+            | Oversized Epics (>20 issues) | ${triageData.oversizedEpics.length} | ${triageData.oversizedEpics.length > 2 ? '🔴 Action Required' : triageData.oversizedEpics.length > 0 ? '🟡 Monitor' : '🟢 Good'} |
+            
+            ## 🆕 New Issues Requiring Triage
+            ${triageData.newIssuesList.map(issue => 
+              `- [ ] #${issue.number} - ${issue.title}`
+            ).join('\n')}
+            ${triageData.newIssues > 10 ? `\n*... and ${triageData.newIssues - 10} more*` : ''}
+            
+            ## 🏷️ Issues Needing Triage Labels
+            ${triageData.untriagedList.map(issue => 
+              `- [ ] #${issue.number} - ${issue.title}`
+            ).join('\n')}
+            ${triageData.untriagedCount > 10 ? `\n*... and ${triageData.untriagedCount - 10} more*` : ''}
+            
+            ## ⏰ Stale Issues (>30 days)
+            ${triageData.staleList.map(issue => 
+              `- [ ] #${issue.number} - ${issue.title} (Updated: ${new Date(issue.updated_at).toLocaleDateString()})`
+            ).join('\n')}
+            ${triageData.staleCount > 10 ? `\n*... and ${triageData.staleCount - 10} more*` : ''}
+            
+            ## 📦 Oversized Epics Requiring Breakdown
+            ${triageData.oversizedEpics.length > 0 ? 
+              triageData.oversizedEpics.map(epic => 
+                `- [ ] #${epic.number} - ${epic.title} (${epic.count} issues)`
+              ).join('\n') : 
+              '*No oversized epics found - Good job! 🎉*'
+            }
+            
+            ## 📋 Triage Meeting Agenda
+            
+            ### Phase 1: Health Check (10 min)
+            - [ ] Review metrics above
+            - [ ] Identify any blockers or process issues
+            - [ ] Confirm meeting priorities
+            
+            ### Phase 2: New Issue Triage (20 min)
+            - [ ] Apply Definition of Ready criteria to new issues
+            - [ ] Assign appropriate themes/epics
+            - [ ] Set priority levels
+            
+            ### Phase 3: Epic Size Review (10 min)
+            - [ ] Address oversized epics listed above
+            - [ ] Plan breakdown or closure
+            - [ ] Validate epic scope alignment
+            
+            ### Phase 4: Priority Adjustment (5 min)
+            - [ ] Reorder high-priority items
+            - [ ] Confirm next sprint candidates
+            - [ ] Address urgent escalations
+            
+            ## 📝 Post-Meeting Actions Checklist
+            - [ ] Update issue labels based on triage decisions
+            - [ ] Create child issues for epic breakdowns
+            - [ ] Notify stakeholders of priority changes
+            - [ ] Update project boards and milestones
+            - [ ] Close this preparation issue
+            
+            ---
+            
+            **PMI Reference:** PMBOK® 4.5 Monitor and Control Project Work
+            **Scrum Reference:** Product Backlog refinement (Scrum Guide)
+            
+            *This issue was automatically generated by the Weekly Triage Automation workflow.*`;
+            
+            await github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: `📋 Weekly Triage Preparation - ${date}`,
+              body: body,
+              labels: ['triage-preparation', 'process', 'weekly-automation']
+            });
+
+      - name: Send notification to team
+        if: success()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            // This could be extended to send notifications via Slack, email, etc.
+            console.log('Triage preparation issue created successfully');
+            console.log('Team notification: Weekly triage meeting tomorrow at 10:00 AM EST');
+
+      - name: Label stale issues
+        if: success()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const triageData = ${{ steps.triage-data.outputs.result }};
+            
+            for (const issue of triageData.staleList) {
+              await github.rest.issues.addLabels({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: issue.number,
+                labels: ['stale']
+              });
+            }
+            
+            console.log(`Labeled ${triageData.staleList.length} stale issues`);
