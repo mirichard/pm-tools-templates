@@ -1,6 +1,6 @@
 # PM Tools Templates - Project Health Dashboard
 
-**Last Updated:** Thu Jul 24 18:09:17 UTC 2025  
+**Last Updated:** Thu Jul 24 18:09:58 UTC 2025  
 **Project Health:** 🟠 fair  
 **Overall Progress:** 100%
 
@@ -12,8 +12,8 @@
 |---------------|-------|-------|--------|
 | **Project Completion** | 100% | 📉 Needs Attention | 🟠 |
 | **Strategic Progress** | 20% | 📉 Behind | 🔴 |
-| **Weekly Velocity** | 0 issues/week | 📉 Slow | 🟡 |
-| **Risk Score** | 310 points | 📈 Elevated | 🔴 |
+| **Weekly Velocity** | 1 issues/week | 📉 Slow | 🟡 |
+| **Risk Score** | 295 points | 📈 Elevated | 🔴 |
 
 ## 📈 Progress Overview
 
@@ -25,8 +25,8 @@
 
 ### Recent Activity (Last 7 Days)
 - **Issues Opened:** 15
-- **Issues Closed:** 0
-- **Net Progress:** -15 issues
+- **Issues Closed:** 1
+- **Net Progress:** -14 issues
 
 ## 🎯 Strategic Roadmap Progress
 
@@ -42,9 +42,9 @@
 
 ### Current Risk Factors
 - **Critical Issues:** 0 (25 points each)
-- **High Priority Issues:** 20 (15 points each)
+- **High Priority Issues:** 19 (15 points each)
 - **Open Bugs:** 2 (5 points each)
-- **Total Risk Score:** 310 points
+- **Total Risk Score:** 295 points
 
 ### Risk Level: 🔴 HIGH
 
@@ -60,12 +60,12 @@
 | Enhancement | 30 | 100% |
 | Bug | 2 | 6% |
 | Critical | 0 | 0% |
-| High Priority | 20 | 66% |
+| High Priority | 19 | 63% |
 
 ## 🎯 Performance Indicators
 
 ### Velocity Metrics
-- **Weekly Velocity:** 0 issues/week
+- **Weekly Velocity:** 1 issues/week
 - **Monthly Throughput:** 30 issues
 - **Velocity Trend:** 📉 Below Target
 
@@ -86,7 +86,7 @@
 ## 📊 Dashboard Information
 
 - **Auto-generated:** Every 6 hours
-- **Last Update:** Thu Jul 24 18:09:17 UTC 2025
+- **Last Update:** Thu Jul 24 18:09:58 UTC 2025
 - **Next Update:** 00:09 UTC
 - **Data Source:** GitHub Issues API
 - **Methodology:** Automated metric collection and analysis
