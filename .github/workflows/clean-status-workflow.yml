@@ -9,7 +9,7 @@ on:
       test_mode:
         description: 'Run in test mode'
         required: false
-        default: 'true'
+        default: 'false'
         type: boolean
       report_type:
         description: 'Type of status report'
@@ -24,7 +24,7 @@ on:
       methodology:
         description: 'Project methodology'
         required: false
-        default: 'agile'
+        default: 'hybrid'
         type: choice
         options:
           - agile
@@ -33,21 +33,14 @@ on:
 
 env:
   # Configure these in your repository secrets for production use
-  MAIL_RECIPIENTS: ${{ secrets.PROGRAM_STAKEHOLDERS_EMAIL || 'program-stakeholders@company.com' }}
-  MAIL_FROM: ${{ secrets.PROGRAM_EMAIL_FROM || 'program-manager@company.com' }}
+  MAIL_RECIPIENTS: ${{ secrets.EMAIL_RECIPIENTS || 'program-stakeholders@company.com' }}
+  MAIL_FROM: ${{ secrets.EMAIL_USERNAME || 'program-manager@company.com' }}
   PROGRAM_DASHBOARD_URL: ${{ secrets.PROGRAM_DASHBOARD_URL || 'https://company.sharepoint.com/program-dashboard' }}
   DETAILED_REPORTS_URL: ${{ secrets.DETAILED_REPORTS_URL || 'https://company.sharepoint.com/program-reports' }}
 
 jobs:
-  status-reporting:
-    if: github.event_name == 'workflow_dispatch'
-    outputs:
-      report_file: ${{ steps.report_path.outputs.path }}
-      completion_rate: ${{ steps.metrics.outputs.completion_rate }}
-      strategic_progress: ${{ steps.metrics.outputs.strategic_progress }}
-      critical_risks: ${{ steps.metrics.outputs.critical_risks }}
-      high_priority: ${{ steps.metrics.outputs.high_priority }}
-    name: Generate Status Report
+  enhanced-clean-status:
+    name: Enhanced Clean Status Report
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -208,34 +201,13 @@ jobs:
           echo "Critical Risks: $CRITICAL_RISKS"
           echo "Recent Completions: ${{ steps.metrics.outputs.recent_closed }}"
 
-      - name: Set Report Path
-        id: report_path
-        env:
-          REPORT_TYPE: ${{ github.event.inputs.report_type || 'weekly' }}
-        run: |
-          REPORT_FILE="reports/status/${REPORT_TYPE}-status-$(date +%Y-%m-%d).md"
-          echo "path=$REPORT_FILE" >> $GITHUB_OUTPUT
-
-  send-email:
-    name: Send Status Email
-    needs: status-reporting
-    if: success()
-    runs-on: ubuntu-latest
-    env:
-      COMPLETION_RATE: ${{ needs.status-reporting.outputs.completion_rate }}
-      STRATEGIC_PROGRESS: ${{ needs.status-reporting.outputs.strategic_progress }}
-      CRITICAL_RISKS: ${{ needs.status-reporting.outputs.critical_risks }}
-      HIGH_PRIORITY: ${{ needs.status-reporting.outputs.high_priority }}
-    steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v4
-
-      - name: Pull Latest Changes
-        run: git pull origin main
-
       - name: Generate Email Content
         env:
           REPORT_TYPE: ${{ github.event.inputs.report_type || 'weekly' }}
+          COMPLETION_RATE: ${{ steps.metrics.outputs.completion_rate }}
+          STRATEGIC_PROGRESS: ${{ steps.metrics.outputs.strategic_progress }}
+          CRITICAL_RISKS: ${{ steps.metrics.outputs.critical_risks }}
+          HIGH_PRIORITY: ${{ steps.metrics.outputs.high_priority }}
         run: |
           mkdir -p ./email
           

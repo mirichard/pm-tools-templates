@@ -1,0 +1,82 @@
+name: 🚀 Feature Enhancement Request
+description: Request a new feature or enhancement to existing functionality
+title: "[FEATURE] "
+labels: ["enhancement", "needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **Before submitting:** Please search existing issues to avoid duplicates. Check our [current themes and epics](https://github.com/mirichard/pm-tools-templates/issues?q=is%3Aopen+label%3Aepic) first.
+
+  - type: dropdown
+    id: theme-area
+    attributes:
+      label: Related Theme Area
+      description: Which theme area does this enhancement relate to?
+      options:
+        - "🎯 User Experience & Interface (#316)"
+        - "🧠 AI & Data Science Intelligence (#317)"
+        - "🔗 Integration & Automation Platform (#318)"
+        - "🤝 Community & Feedback Ecosystem (#319)"
+        - "💼 Executive & Enterprise Platform (#320)"
+        - "⛓️ Blockchain & Revolutionary Technologies (#321)"
+        - "🔧 Quality & Operations Excellence (#322)"
+        - "📝 Documentation & Guides"
+        - "🔒 Security & Compliance"
+        - "❓ Not sure / Other"
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: existing-check
+    attributes:
+      label: Duplicate Check
+      description: Confirm you've checked for duplicates
+      options:
+        - label: I have searched existing open issues for similar requests
+          required: true
+        - label: I have reviewed the current [themes and epics](https://github.com/mirichard/pm-tools-templates/issues?q=is%3Aopen+label%3Aepic)
+          required: true
+
+  - type: textarea
+    id: feature-description
+    attributes:
+      label: Feature Description
+      description: Describe the feature or enhancement you'd like to see
+      placeholder: A clear and concise description of what you want to happen...
+    validations:
+      required: true
+
+  - type: textarea
+    id: use-case
+    attributes:
+      label: Use Case / Problem Statement
+      description: Explain the problem this feature would solve
+      placeholder: As a [type of user], I want [some goal] so that [some reason]...
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposed-solution
+    attributes:
+      label: Proposed Solution
+      description: How do you envision this feature working?
+      placeholder: Describe your proposed solution...
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Priority Level
+      description: How important is this feature?
+      options:
+        - "🔴 High - Critical for project success"
+        - "🟡 Medium - Important but not blocking"
+        - "🟢 Low - Nice to have enhancement"
+    validations:
+      required: true
+
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: Additional Context
+      description: Add any other context, screenshots, or examples
