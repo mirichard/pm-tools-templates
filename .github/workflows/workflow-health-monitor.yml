@@ -64,20 +64,23 @@ jobs:
           echo "📊 Collecting workflow status data..."
           
           # Get recent workflow runs (last 50 runs)
-          gh api repos/${{ github.repository }}/actions/runs \
-            --paginate \
-            --jq '.workflow_runs[] | select(.created_at > (now - 7*24*3600 | strftime("%Y-%m-%dT%H:%M:%SZ"))) | {
-              id: .id,
-              name: .name,
-              status: .status,
-              conclusion: .conclusion,
-              created_at: .created_at,
-              updated_at: .updated_at,
-              run_started_at: .run_started_at,
-              head_branch: .head_branch,
-              event: .event,
-              run_attempt: .run_attempt
-            }' > workflow_runs.json
+          RESPONSE=$(gh api repos/${{ github.repository }}/actions/runs --paginate --jq '.workflow_runs[] | select(.created_at > (now - 7*24*3600 | strftime("%Y-%m-%dT%H:%M:%SZ"))) | {
+            id: .id,
+            name: .name,
+            status: .status,
+            conclusion: .conclusion,
+            created_at: .created_at,
+            updated_at: .updated_at,
+            run_started_at: .run_started_at,
+            head_branch: .head_branch,
+            event: .event,
+            run_attempt: .run_attempt
+          }')
+          echo "$RESPONSE" > workflow_runs.json
+          if grep -q '<html' workflow_runs.json; then
+            echo "Error: Received HTML response. Possibly rate limited or authentication issue." >&2
+            exit 1
+          fi
           
           # Get workflow files for analysis
           find .github/workflows -name "*.yml" -o -name "*.yaml" | while read workflow_file; do
@@ -286,17 +289,20 @@ jobs:
           echo "⚡ Analyzing workflow performance metrics..."
           
           # Get detailed timing data
-          gh api repos/${{ github.repository }}/actions/runs \
-            --paginate \
-            --jq '.workflow_runs[] | select(.created_at > (now - 24*3600 | strftime("%Y-%m-%dT%H:%M:%SZ"))) | {
-              id: .id,
-              name: .name,
-              status: .status,
-              conclusion: .conclusion,
-              created_at: .created_at,
-              run_started_at: .run_started_at,
-              updated_at: .updated_at
-            }' > recent_runs.json
+          PERF_RESPONSE=$(gh api repos/${{ github.repository }}/actions/runs --paginate --jq '.workflow_runs[] | select(.created_at > (now - 24*3600 | strftime("%Y-%m-%dT%H:%M:%SZ"))) | {
+            id: .id,
+            name: .name,
+            status: .status,
+            conclusion: .conclusion,
+            created_at: .created_at,
+            run_started_at: .run_started_at,
+            updated_at: .updated_at
+          }')
+          echo "$PERF_RESPONSE" > recent_runs.json
+          if grep -q '<html' recent_runs.json; then
+            echo "Warning: Received HTML response in performance analysis. Creating empty dataset." >&2
+            echo "[]" > recent_runs.json
+          fi
           
           python3 - << 'EOF'
           import json
