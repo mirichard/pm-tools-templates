@@ -272,13 +272,227 @@
 
 ---
 
-## 🔄 Integration & Automation
+## 🔄 Advanced Integration & Automation
 
-### Data Connections
-- **Project Management Tools:** Power Query connections to Jira, Azure DevOps
-- **Financial Systems:** Direct links to budget tracking systems
-- **Time Tracking:** Integration with resource management tools
-- **Survey Data:** Automated import from stakeholder satisfaction surveys
+### 🚀 NEW: Power Query Data Connections
+
+#### Jira Integration (Power Query)
+```M
+// Power Query M Language - Jira Connection
+let
+    Source = Web.Contents(
+        "https://your-company.atlassian.net/rest/api/3/search",
+        [
+            Headers = [
+                #"Authorization" = "Basic " & Binary.ToText(
+                    Text.ToBinary("username:api-token"), 
+                    BinaryEncoding.Base64
+                ),
+                #"Content-Type" = "application/json"
+            ],
+            Content = Text.ToBinary(
+                "{\"jql\":\"project = 'EXEC' AND updated >= -7d\",\"fields\":[\"key\",\"summary\",\"status\",\"assignee\",\"created\",\"updated\"]}"
+            )
+        ]
+    ),
+    JsonResponse = Json.Document(Source),
+    Issues = JsonResponse[issues],
+    ConvertToTable = Table.FromList(Issues, Splitter.SplitByNothing(), null, null, ExtraValues.Error),
+    ExpandRecords = Table.ExpandRecordColumn(ConvertToTable, "Column1", 
+        {"key", "fields"}, 
+        {"IssueKey", "Fields"}
+    ),
+    ExpandFields = Table.ExpandRecordColumn(ExpandRecords, "Fields",
+        {"summary", "status", "assignee", "created", "updated"},
+        {"Summary", "Status", "Assignee", "Created", "Updated"}
+    )
+in
+    ExpandFields
+```
+
+#### Azure DevOps Integration (Power Query)
+```M
+// Power Query M Language - Azure DevOps Connection
+let
+    Source = Web.Contents(
+        "https://dev.azure.com/your-org/your-project/_apis/wit/wiql",
+        [
+            Headers = [
+                #"Authorization" = "Basic " & Binary.ToText(
+                    Text.ToBinary(":" & "your-pat-token"), 
+                    BinaryEncoding.Base64
+                ),
+                #"Content-Type" = "application/json"
+            ],
+            Content = Text.ToBinary(
+                "{\"query\":\"SELECT [System.Id], [System.Title], [System.State], [System.AssignedTo] FROM WorkItems WHERE [System.TeamProject] = 'ExecutiveDashboard' AND [System.ChangedDate] >= @today - 7\"}"
+            )
+        ]
+    ),
+    JsonResponse = Json.Document(Source),
+    WorkItems = JsonResponse[workItems],
+    ConvertToTable = Table.FromList(WorkItems, Splitter.SplitByNothing(), null, null, ExtraValues.Error),
+    ExpandWorkItems = Table.ExpandRecordColumn(ConvertToTable, "Column1", 
+        {"id", "url"}, 
+        {"WorkItemId", "WorkItemUrl"}
+    )
+in
+    ExpandWorkItems
+```
+
+#### Financial ERP Integration (Power Query)
+```M
+// Power Query M Language - ERP System Connection
+let
+    Source = Sql.Database(
+        "your-erp-server.company.com", 
+        "FinancialDB",
+        [
+            Query = "
+                SELECT 
+                    ProjectCode,
+                    BudgetCategory,
+                    PlannedAmount,
+                    ActualAmount,
+                    ForecastAmount,
+                    PeriodDate,
+                    LastUpdated
+                FROM ProjectFinancials 
+                WHERE ProjectCode IN ('EXEC-001', 'EXEC-002') 
+                    AND PeriodDate >= DATEADD(month, -6, GETDATE())
+                ORDER BY PeriodDate DESC
+            "
+        ]
+    )
+in
+    Source
+```
+
+### 📊 Advanced Excel Formulas for Financial Modeling
+
+#### Dynamic Budget Variance Analysis
+```excel
+// Advanced Budget Health Score
+=LET(
+    variance_pct, (ActualCost - PlannedCost) / PlannedCost,
+    trend_factor, IF(VarianceTrend="Improving", 1.1, IF(VarianceTrend="Worsening", 0.9, 1)),
+    base_score, MAX(0, 100 - (ABS(variance_pct) * 100)),
+    adjusted_score, base_score * trend_factor,
+    MIN(100, adjusted_score)
+)
+
+// Predictive Forecast Model
+=FORECAST.ETS(
+    DATE(2024,12,31),
+    MonthlyActuals,
+    MonthlyDates,
+    1,
+    1,
+    1
+)
+
+// Risk-Adjusted ROI Calculation
+=LET(
+    base_roi, (ProjectValue - ProjectCost) / ProjectCost,
+    risk_factor, 1 - (RiskScore / 100 * 0.3),
+    risk_adjusted_roi, base_roi * risk_factor,
+    risk_adjusted_roi
+)
+```
+
+### 🎨 Interactive Charts with Drill-Down Capabilities
+
+#### Executive Summary Interactive Dashboard
+```vba
+' VBA Code for Interactive Chart Functionality
+Private Sub Chart_SeriesClick(ByVal SeriesIndex As Long, ByVal PointIndex As Long, Cancel As Boolean)
+    Dim selectedCategory As String
+    Dim detailSheet As Worksheet
+    
+    ' Get clicked category
+    selectedCategory = ActiveChart.SeriesCollection(SeriesIndex).Points(PointIndex).DataLabel.Text
+    
+    ' Navigate to detail view
+    Select Case selectedCategory
+        Case "Budget"
+            Set detailSheet = Worksheets("Financial Dashboard")
+        Case "Schedule"
+            Set detailSheet = Worksheets("Schedule Tracking")
+        Case "Risks"
+            Set detailSheet = Worksheets("Risk Register")
+        Case "Team"
+            Set detailSheet = Worksheets("Team Performance")
+    End Select
+    
+    ' Activate detail sheet and highlight relevant section
+    detailSheet.Activate
+    detailSheet.Range("A1:F20").Select
+End Sub
+
+' Auto-refresh data connections
+Private Sub Workbook_Open()
+    ' Refresh all Power Query connections
+    ActiveWorkbook.Connections.RefreshAll
+    
+    ' Schedule next auto-refresh
+    Application.OnTime Now + TimeValue("00:15:00"), "RefreshDashboard"
+End Sub
+
+Sub RefreshDashboard()
+    ' Refresh all data connections
+    ActiveWorkbook.Connections.RefreshAll
+    
+    ' Update last refresh timestamp
+    Range("LastRefresh").Value = Now()
+    
+    ' Schedule next refresh (15 minutes)
+    Application.OnTime Now + TimeValue("00:15:00"), "RefreshDashboard"
+End Sub
+```
+
+### 🚨 Automated Variance Analysis and Alerting
+
+#### Alert Threshold Configuration
+```excel
+// Budget Alert Formula (Conditional Formatting)
+=AND(
+    ABS((Actual-Budget)/Budget) > AlertThreshold,
+    AlertsEnabled = TRUE
+)
+
+// Email Alert Trigger (VBA)
+Sub CheckBudgetAlerts()
+    Dim i As Long
+    Dim alertMessage As String
+    Dim criticalAlerts As String
+    
+    For i = 5 To 20 ' Budget rows
+        If Cells(i, 7).Value > 0.1 Then ' 10% variance threshold
+            criticalAlerts = criticalAlerts & "\n• " & Cells(i, 1).Value & ": " & Format(Cells(i, 7).Value, "0.0%") & " over budget"
+        End If
+    Next i
+    
+    If criticalAlerts <> "" Then
+        alertMessage = "🚨 BUDGET ALERTS for " & Range("ProjectName").Value & ":" & criticalAlerts
+        Call SendEmailAlert(alertMessage)
+    End If
+End Sub
+
+Sub SendEmailAlert(message As String)
+    Dim outlookApp As Object
+    Dim mailItem As Object
+    
+    Set outlookApp = CreateObject("Outlook.Application")
+    Set mailItem = outlookApp.CreateItem(0)
+    
+    With mailItem
+        .To = Range("AlertEmailList").Value
+        .Subject = "Executive Dashboard Alert - " & Range("ProjectName").Value
+        .Body = message & "\n\nDashboard: " & ThisWorkbook.FullName
+        .Send
+    End With
+End Sub
+```
 
 ### Refresh Schedule
 - **Daily:** Team metrics, budget actuals
