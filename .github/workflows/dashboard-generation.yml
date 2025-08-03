@@ -31,7 +31,7 @@ jobs:
     permissions:
       contents: write
       issues: read
-      pull-requests: read
+      pull-requests: write
 
     steps:
       - name: 📥 Checkout Repository
@@ -143,6 +143,8 @@ jobs:
 
       - name: 📊 Generate Comprehensive Dashboard
         if: github.event.inputs.dashboard_type == 'comprehensive' || github.event_name != 'workflow_dispatch'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           # Create comprehensive project dashboard
           mkdir -p dashboards
@@ -316,9 +318,17 @@ jobs:
           EOF
 
       - name: 💾 Commit Dashboard Updates
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "Dashboard Generator"
+          
+          # Skip commits on pull request events to avoid conflicts
+          if [ "${{ github.event_name }}" = "pull_request" ]; then
+            echo "⚠️ Skipping dashboard commit for pull request events"
+            exit 0
+          fi
           
           # Add dashboard files
           git add dashboards/ || echo "No dashboard files to add"
@@ -329,43 +339,37 @@ jobs:
           else
             git commit -m "📊 Update project health dashboard - $(date +%Y-%m-%d\ %H:%M)"
             
-            # Try to push with retry logic for conflicts
-            MAX_RETRIES=3
-            RETRY_COUNT=0
+            # Create a new branch for the dashboard update
+            BRANCH_NAME="dashboard-update-$(date +%Y%m%d-%H%M%S)"
+            git checkout -b "$BRANCH_NAME"
             
-            while [ $RETRY_COUNT -lt $MAX_RETRIES ]; do
-              if git push; then
-                echo "✅ Dashboard update pushed successfully"
-                break
-              else
-                echo "⚠️ Push failed, attempting to resolve conflicts (attempt $((RETRY_COUNT + 1))/$MAX_RETRIES)"
-                
-                # Fetch latest changes
-                git fetch origin main
-                
-                # Try to rebase, handling conflicts automatically
-                if git rebase origin/main; then
-                  echo "✅ Rebase successful"
-                else
-                  echo "🔧 Resolving conflicts automatically"
-                  # For dashboard files, always use our version (latest generated data)
-                  git checkout --ours dashboards/
-                  git add dashboards/
-                  git rebase --continue
-                fi
-                
-                RETRY_COUNT=$((RETRY_COUNT + 1))
-                
-                if [ $RETRY_COUNT -eq $MAX_RETRIES ]; then
-                  echo "❌ Failed to push after $MAX_RETRIES attempts"
-                  echo "📋 Manual intervention may be required"
-                  exit 1
-                fi
-                
-                # Wait a moment before retrying
-                sleep 2
-              fi
-            done
+            # Push the branch
+            git push origin "$BRANCH_NAME"
+            
+            # Create a pull request
+            gh pr create \
+              --title "📊 Update project health dashboard - $(date '+%Y-%m-%d %H:%M')" \
+              --body "## 📊 Automated Dashboard Update
+              
+              This is an automated update to the project health dashboard.
+              
+              ### Changes:
+              - Updated project metrics and health indicators
+              - Refreshed issue statistics and progress tracking
+              - Updated risk assessment and priority breakdowns
+              
+              ### Generated At:
+              $(date)
+              
+              ### Auto-merge:
+              This PR will be automatically merged if all checks pass." \
+              --base main \
+              --head "$BRANCH_NAME" \
+              --assignee "@me"
+            
+            # Enable auto-merge
+            gh pr merge "$BRANCH_NAME" --auto --squash
+            echo "✅ Dashboard update PR created and set to auto-merge"
           fi
 
       - name: 📊 Generate Dashboard
