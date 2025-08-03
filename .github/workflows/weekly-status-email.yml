@@ -40,8 +40,8 @@ env:
 
 jobs:
   status-reporting:
-    # Run on schedule events and manual workflow_dispatch
-    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+    # Run on schedule events, manual workflow_dispatch, and push events
+    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch' || github.event_name == 'push'
     outputs:
       report_file: ${{ steps.report_path.outputs.path }}
       completion_rate: ${{ steps.metrics.outputs.completion_rate }}
