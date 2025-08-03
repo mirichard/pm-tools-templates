@@ -1,0 +1,39 @@
+name: 🔍 Basic Security Scan
+
+on:
+  workflow_dispatch:
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Run npm audit
+      run: |
+        if [ -f package.json ]; then
+          npm audit
+        else
+          echo "No package.json found"
+        fi
+
+    - name: Run safety check
+      run: |
+        if [ -f requirements.txt ]; then
+          pip install safety
+          safety check -r requirements.txt
+        else
+          echo "No requirements.txt found"
+        fi
+
+    - name: Run bundler-audit
+      run: |
+        if [ -f Gemfile ]; then
+          gem install bundler-audit
+          bundler-audit check
+        else
+          echo "No Gemfile found"
+        fi
+

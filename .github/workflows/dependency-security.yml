@@ -1,40 +1,24 @@
-name: 🔒 Dependency Security
+name: 🔒 Dependency Security Scan
 
 on:
   workflow_dispatch:
     inputs:
       scan_type:
         description: 'Type of security scan'
-        required: true
         default: 'basic'
         type: choice
         options:
           - basic
           - comprehensive
-      scan_scope:
-        description: 'Dependencies to scan'
-        required: false
-        default: 'all'
-        type: choice
-        options:
-          - all
-          - javascript
-          - python
-          - ruby
   schedule:
     # Run weekly security scans on Sundays at 2 AM UTC
     - cron: '0 2 * * 0'
-
-env:
-  # Enhanced scanning configuration
-  SEVERITY_THRESHOLD: medium
-  TIMEOUT_MINUTES: 15
 
 jobs:
   security-scan:
     name: 🔒 Security Analysis
     runs-on: ubuntu-latest
-    timeout-minutes: ${{ env.TIMEOUT_MINUTES }}
+    timeout-minutes: 15
     
     steps:
       - name: 📥 Checkout Repository
