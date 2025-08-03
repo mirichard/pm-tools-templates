@@ -42,6 +42,8 @@ jobs:
   enhanced-clean-status:
     name: Enhanced Clean Status Report
     runs-on: ubuntu-latest
+    # Only run on manual dispatch - prevent automatic triggering
+    if: github.event_name == 'workflow_dispatch'
     permissions:
       contents: write
       issues: read

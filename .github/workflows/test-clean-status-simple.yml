@@ -19,6 +19,8 @@ jobs:
   test-status:
     name: Test Status Generation
     runs-on: ubuntu-latest
+    # Only run on manual dispatch - this is a test workflow
+    if: github.event_name == 'workflow_dispatch'
     permissions:
       contents: write
       issues: read

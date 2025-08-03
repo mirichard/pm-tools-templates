@@ -8,6 +8,14 @@ on:
         required: false
         default: 'false'
         type: boolean
+      force_run:
+        description: 'Force run even if no changes'
+        required: false
+        default: 'false'
+        type: boolean
+  schedule:
+    # Run weekly on Mondays at 9 AM UTC (only if there are updates)
+    - cron: '0 9 * * 1'
 
 env:
   MAIL_RECIPIENTS: ${{ secrets.EMAIL_RECIPIENTS || 'program-stakeholders@company.com' }}
@@ -16,6 +24,8 @@ env:
 jobs:
   enhanced-clean-status:
     runs-on: ubuntu-latest
+    # Only run on scheduled events or manual dispatch, never on push/PR events
+    if: github.event_name == 'workflow_dispatch' || github.event_name == 'schedule'
     
     steps:
     - name: 📋 Checkout Code
