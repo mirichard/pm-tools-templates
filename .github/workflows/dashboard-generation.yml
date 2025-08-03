@@ -364,8 +364,7 @@ jobs:
               ### Auto-merge:
               This PR will be automatically merged if all checks pass." \
               --base main \
-              --head "$BRANCH_NAME" \
-              --assignee "@me"
+              --head "$BRANCH_NAME"
             
             # Enable auto-merge
             gh pr merge "$BRANCH_NAME" --auto --squash
