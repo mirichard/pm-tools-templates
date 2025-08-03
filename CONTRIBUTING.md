@@ -99,6 +99,18 @@ template-name/
 [How to measure template effectiveness]
 ```
 
+## 🌿 Branching Strategy
+
+### Branch Creation
+- Create branches from `development`
+- Use naming convention: `feat/<ticket-id>-slug`, `fix/<ticket-id>-slug`, or `chore/<task>`
+
+### Workflow
+1. Push immediately and open a Draft PR to `development`
+2. Ensure CI passes
+3. Squash-merge; branch auto-deletes
+4. Nightly job promotes `development` → `staging` → `main`
+
 ## 🚀 Submission Process
 
 ### Step 1: Prepare Your Contribution
@@ -109,9 +121,11 @@ template-name/
    cd pm-tools-templates
    ```
 
-2. **Create a Feature Branch**
+2. **Create a Feature Branch from Development**
    ```bash
-   git checkout -b feature/your-template-name
+   git checkout development
+   git pull origin development
+   git checkout -b feat/your-template-name
    ```
 
 3. **Choose the Right Location**
