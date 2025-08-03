@@ -318,6 +318,8 @@ jobs:
           EOF
 
       - name: 💾 Commit Dashboard Updates
+        # Only run on main branch and scheduled events, not PRs
+        if: github.ref == 'refs/heads/main' || github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
