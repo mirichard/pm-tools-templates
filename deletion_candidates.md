@@ -1,6 +1,6 @@
 # Branch Deletion Candidates - pm-tools-templates
 
-**Generated:** 2025-08-03T14:00:19Z  
+**Generated:** 2025-08-03T15:48:00Z (Resolved conflict between reports)  
 **⚠️ REQUIRES EXPLICIT APPROVAL BEFORE ANY DELETIONS**
 
 ## Safe for Deletion (No Unique Commits)
@@ -18,6 +18,8 @@
 | Branch | Status | Reason | Command |
 |--------|--------|--------|---------|
 | `origin/mirichard-patch-1` | SAFE | Quick README update, superseded | `git push origin --delete mirichard-patch-1` |
+| `origin/codex/review-roadmap.md-and-suggest-themes` | SAFE | All automated dashboard updates already merged | `git push origin --delete codex/review-roadmap.md-and-suggest-themes` |
+| `origin/codex/test-mvp-dashboard` | SAFE | Experimental dashboard work, already integrated | `git push origin --delete codex/test-mvp-dashboard` |
 
 ## Archive Before Deletion (Historical Value)
 
@@ -88,6 +90,19 @@ Before any deletion, verify:
 - [ ] Team notification sent (if applicable)
 - [ ] Backup created if branch has experimental value
 
+## Verification Commands
+
+Before deletion, double-check each branch:
+
+```bash
+# Verify no unique commits exist
+git cherry -v origin/main origin/codex/review-roadmap.md-and-suggest-themes
+git cherry -v origin/main origin/codex/test-mvp-dashboard  
+git cherry -v origin/main origin/feature/add-contributing-guide
+```
+
+Expected output: *empty* (no lines) indicating no unique commits.
+
 ## Zip Archive Fallback
 
 For maximum safety, create zip archives of important branches:
@@ -102,12 +117,12 @@ git archive --format=zip --output=backup-executive-dashboard-$(date +%Y%m%d).zip
 ## Deletion Statistics
 
 - **Total Branches:** 24
-- **Safe for Immediate Deletion:** 6
+- **Safe for Immediate Deletion:** 8
 - **Archive Then Delete:** 3  
 - **Must Merge First:** 8
-- **Keep Active:** 7
+- **Keep Active:** 5
 
-**Branch Reduction:** 24 → 7 active branches (70% reduction)
+**Branch Reduction:** 24 → 5 active branches (79% reduction)
 
 ## ⚠️ CRITICAL WARNINGS
 
