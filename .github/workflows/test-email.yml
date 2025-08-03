@@ -1,0 +1,60 @@
+name: Test Email Sending
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ main ]
+
+jobs:
+  test-email:
+    name: Test Email Send
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Generate Test Email
+        run: |
+          mkdir -p ./email
+          
+          cat > ./email/test-email.html << 'EOF'
+          <!DOCTYPE html>
+          <html>
+          <head>
+            <meta charset="utf-8">
+            <title>Test Email</title>
+          </head>
+          <body style="font-family: Arial, sans-serif; margin: 20px;">
+            <h1>Test Email from GitHub Actions</h1>
+            <p>Generated on $(date)</p>
+            <p>This is a simple test email to verify the workflow is working.</p>
+          </body>
+          </html>
+          EOF
+
+      - name: Send Test Email
+        if: ${{ secrets.EMAIL_USERNAME != '' }}
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.gmail.com
+          server_port: 465
+          username: ${{ secrets.EMAIL_USERNAME }}
+          password: ${{ secrets.EMAIL_PASSWORD }}
+          subject: "Test Email from GitHub Actions"
+          html_body: file://./email/test-email.html
+          to: ${{ secrets.EMAIL_RECIPIENTS }}
+          from: ${{ secrets.EMAIL_FROM }}
+          content_type: text/html
+          
+      - name: Report Status
+        run: |
+          if [ "${{ secrets.EMAIL_USERNAME }}" != "" ]; then
+            echo "✅ Test email sent successfully!"
+            echo "📧 Sent to: ${{ secrets.EMAIL_RECIPIENTS }}"
+          else
+            echo "❌ EMAIL_USERNAME secret not configured - email not sent"
+          fi
+          
+          echo "Email content preview:"
+          cat ./email/test-email.html
