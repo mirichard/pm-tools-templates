@@ -12,7 +12,7 @@ jobs:
         run: |
           git fetch --all -p
           printf "| Branch | Last Commit | Author | Ahead of main |\n|-------|------------|--------|--------------|\n" > report.md
-          for br in $(git branch -r | grep -vE 'main|staging|development'); do
+          for br in $(git branch -r | grep -vE 'main|staging|develop'); do
             last=$(git log -1 --pretty="%h (%cr)" $br)
             author=$(git log -1 --pretty="%an" $br)
             ahead=$(git cherry -v origin/main $br | wc -l)

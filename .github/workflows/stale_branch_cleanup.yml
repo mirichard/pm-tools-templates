@@ -13,6 +13,6 @@ jobs:
           ignore: |
             main
             staging
-            development
+            develop
             chore/branch-governance-setup
 
