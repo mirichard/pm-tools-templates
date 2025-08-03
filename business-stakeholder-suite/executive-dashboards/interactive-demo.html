@@ -1,0 +1,1002 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enterprise Executive Dashboard Suite - Interactive Demo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+        }
+
+        .demo-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        .header h1 {
+            color: #2c3e50;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            color: #7f8c8d;
+            font-size: 1.2em;
+        }
+
+        .dashboard-tabs {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .tab-button {
+            background: rgba(255, 255, 255, 0.9);
+            border: none;
+            padding: 15px 25px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .tab-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .tab-button.active {
+            background: #3498db;
+            color: white;
+        }
+
+        .dashboard-panel {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            display: none;
+        }
+
+        .dashboard-panel.active {
+            display: block;
+            animation: fadeIn 0.5s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .metric-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+
+        .metric-card {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 12px;
+            padding: 25px;
+            border-left: 5px solid #3498db;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .metric-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .metric-title {
+            font-size: 14px;
+            color: #7f8c8d;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        .metric-value {
+            font-size: 2.5em;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .metric-trend {
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .trend-up { color: #27ae60; }
+        .trend-down { color: #e74c3c; }
+        .trend-stable { color: #f39c12; }
+
+        .health-score {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .health-circle {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: conic-gradient(#e74c3c 0deg, #f39c12 50deg, #27ae60 180deg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            position: relative;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .health-circle:hover {
+            transform: scale(1.05);
+        }
+
+        .health-inner {
+            width: 150px;
+            height: 150px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .health-number {
+            font-size: 3em;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+
+        .health-status {
+            font-size: 14px;
+            color: #7f8c8d;
+            text-transform: uppercase;
+        }
+
+        .risk-list {
+            list-style: none;
+        }
+
+        .risk-item {
+            background: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-left: 5px solid #e74c3c;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .risk-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 5px 15px rgba(231, 76, 60, 0.2);
+        }
+
+        .risk-title {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+
+        .risk-description {
+            color: #7f8c8d;
+            font-size: 14px;
+        }
+
+        .decision-cards {
+            display: grid;
+            gap: 20px;
+        }
+
+        .decision-card {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+            color: white;
+            border-radius: 12px;
+            padding: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .decision-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(238, 90, 36, 0.4);
+        }
+
+        .decision-title {
+            font-size: 1.3em;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .decision-deadline {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+
+        .interactive-chart {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .interactive-chart:hover {
+            background: #e9ecef;
+            transform: translateY(-2px);
+        }
+
+        .chart-placeholder {
+            height: 200px;
+            background: linear-gradient(45deg, #3498db, #2980b9);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .notification-badge {
+            background: #e74c3c;
+            color: white;
+            border-radius: 50%;
+            width: 25px;
+            height: 25px;
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            top: -5px;
+            right: -5px;
+        }
+
+        .mobile-toggle {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: #3498db;
+            border: none;
+            border-radius: 50%;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            box-shadow: 0 5px 20px rgba(52, 152, 219, 0.4);
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .mobile-toggle:hover {
+            transform: scale(1.1);
+            background: #2980b9;
+        }
+
+        .mobile-view {
+            display: none;
+        }
+
+        .mobile-view.active {
+            display: block;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.98);
+            z-index: 999;
+            padding: 20px;
+            overflow-y: auto;
+        }
+
+        .mobile-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .mobile-metric {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .refresh-indicator {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #27ae60;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 14px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .refresh-indicator.show {
+            opacity: 1;
+        }
+
+        @media (max-width: 768px) {
+            .demo-container {
+                padding: 10px;
+            }
+            
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .dashboard-tabs {
+                flex-direction: column;
+            }
+            
+            .tab-button {
+                width: 100%;
+            }
+            
+            .metric-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .tooltip {
+            position: absolute;
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 8px 12px;
+            border-radius: 5px;
+            font-size: 12px;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 1000;
+        }
+
+        .ai-insights {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 20px;
+        }
+
+        .ai-insights h3 {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .prediction-timeline {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+            gap: 10px;
+        }
+
+        .prediction-week {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 15px;
+            text-align: center;
+            flex: 1;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .prediction-week:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-3px);
+        }
+    </style>
+</head>
+<body>
+    <div class="demo-container">
+        <div class="header">
+            <h1>🎭 Executive Dashboard Demo</h1>
+            <p>Interactive Enterprise-Grade Project Intelligence</p>
+            <div style="margin-top: 15px;">
+                <span style="background: #27ae60; color: white; padding: 5px 15px; border-radius: 20px; font-size: 14px;">
+                    🔴 LIVE DEMO • Click anywhere to interact
+                </span>
+            </div>
+        </div>
+
+        <div class="dashboard-tabs">
+            <button class="tab-button active" onclick="showPanel('overview')">📊 Executive Overview</button>
+            <button class="tab-button" onclick="showPanel('financial')">💰 Financial Dashboard</button>
+            <button class="tab-button" onclick="showPanel('risks')">🚨 Risk Management</button>
+            <button class="tab-button" onclick="showPanel('decisions')">⚡ Decision Center</button>
+            <button class="tab-button" onclick="showPanel('ai-insights')">🤖 AI Insights</button>
+        </div>
+
+        <!-- Executive Overview Panel -->
+        <div id="overview" class="dashboard-panel active">
+            <div class="health-score">
+                <div class="health-circle" onclick="showHealthBreakdown()">
+                    <div class="health-inner">
+                        <div class="health-number" id="healthScore">73</div>
+                        <div class="health-status">CAUTION</div>
+                    </div>
+                </div>
+                <h2>FlowFoundry Digital Transformation</h2>
+                <p>Q3-Q4 2025 • Last updated: <span id="lastUpdate">2 minutes ago</span></p>
+            </div>
+
+            <div class="metric-grid">
+                <div class="metric-card" onclick="drillDown('budget')">
+                    <div class="metric-title">Budget Status</div>
+                    <div class="metric-value">$2.4M</div>
+                    <div class="metric-trend trend-down">
+                        ↘️ +$400K over forecast (12.5%)
+                    </div>
+                </div>
+
+                <div class="metric-card" onclick="drillDown('schedule')">
+                    <div class="metric-title">Schedule Performance</div>
+                    <div class="metric-value">87%</div>
+                    <div class="metric-trend trend-down">
+                        ↘️ 3 days behind critical path
+                    </div>
+                </div>
+
+                <div class="metric-card" onclick="drillDown('risks')">
+                    <div class="metric-title">Critical Risks</div>
+                    <div class="metric-value">5</div>
+                    <div class="metric-trend trend-up">
+                        ↗️ 2 new risks this week
+                    </div>
+                    <div class="notification-badge">!</div>
+                </div>
+
+                <div class="metric-card" onclick="drillDown('team')">
+                    <div class="metric-title">Team Performance</div>
+                    <div class="metric-value">92%</div>
+                    <div class="metric-trend trend-up">
+                        ↗️ Above target velocity
+                    </div>
+                </div>
+
+                <div class="metric-card" onclick="drillDown('quality')">
+                    <div class="metric-title">Quality Score</div>
+                    <div class="metric-value">94%</div>
+                    <div class="metric-trend trend-stable">
+                        → Maintaining excellence
+                    </div>
+                </div>
+
+                <div class="metric-card" onclick="drillDown('roi')">
+                    <div class="metric-title">ROI Performance</div>
+                    <div class="metric-value">28%</div>
+                    <div class="metric-trend trend-up">
+                        ↗️ +3% above target
+                    </div>
+                </div>
+            </div>
+
+            <div class="interactive-chart" onclick="showChart('timeline')">
+                <h3>📅 Project Timeline & Milestones</h3>
+                <div class="chart-placeholder">
+                    Click to view interactive Gantt chart
+                </div>
+            </div>
+        </div>
+
+        <!-- Financial Dashboard Panel -->
+        <div id="financial" class="dashboard-panel">
+            <h2>💰 Financial Performance Dashboard</h2>
+            
+            <div class="metric-grid">
+                <div class="metric-card" onclick="showDetail('budget-breakdown')">
+                    <div class="metric-title">Approved Budget</div>
+                    <div class="metric-value">$3.2M</div>
+                    <div class="metric-trend trend-stable">Original allocation</div>
+                </div>
+
+                <div class="metric-card" onclick="showDetail('actual-spend')">
+                    <div class="metric-title">Actual Spend</div>
+                    <div class="metric-value">$2.4M</div>
+                    <div class="metric-trend trend-down">75% utilized</div>
+                </div>
+
+                <div class="metric-card" onclick="showDetail('forecast')">
+                    <div class="metric-title">Forecast Total</div>
+                    <div class="metric-value">$3.6M</div>
+                    <div class="metric-trend trend-down">$400K over budget</div>
+                </div>
+
+                <div class="metric-card" onclick="showDetail('burn-rate')">
+                    <div class="metric-title">Weekly Burn Rate</div>
+                    <div class="metric-value">$180K</div>
+                    <div class="metric-trend trend-down">Above $150K target</div>
+                </div>
+            </div>
+
+            <div class="interactive-chart" onclick="showChart('budget-variance')">
+                <h3>📊 Budget Variance Analysis</h3>
+                <div class="chart-placeholder">
+                    Click to view waterfall chart breakdown
+                </div>
+            </div>
+
+            <div class="interactive-chart" onclick="showChart('burn-trend')">
+                <h3>📈 Burn Rate Trend</h3>
+                <div class="chart-placeholder">
+                    Click to view spending trend analysis
+                </div>
+            </div>
+        </div>
+
+        <!-- Risk Management Panel -->
+        <div id="risks" class="dashboard-panel">
+            <h2>🚨 Risk Management Dashboard</h2>
+            
+            <ul class="risk-list">
+                <li class="risk-item" onclick="showRiskDetail('db-migration')">
+                    <div class="risk-title">🔴 Database Migration Complexity (Score: 25)</div>
+                    <div class="risk-description">
+                        Impact: 4-week delay, potential data loss, $500K additional cost
+                    </div>
+                </li>
+
+                <li class="risk-item" onclick="showRiskDetail('vendor-delays')">
+                    <div class="risk-title">🔴 Vendor Integration Delays (Score: 20)</div>
+                    <div class="risk-description">
+                        Impact: 2-week delay, $200K penalty costs, Q4 revenue impact
+                    </div>
+                </li>
+
+                <li class="risk-item" onclick="showRiskDetail('compliance-gap')">
+                    <div class="risk-title">🟡 Regulatory Compliance Gap (Score: 18)</div>
+                    <div class="risk-description">
+                        Impact: Go-live delay, compliance audit failure, $150K remediation
+                    </div>
+                </li>
+
+                <li class="risk-item" onclick="showRiskDetail('team-capacity')">
+                    <div class="risk-title">🟡 Team Capacity Overload (Score: 16)</div>
+                    <div class="risk-description">
+                        Impact: Quality degradation, team burnout, key person risk
+                    </div>
+                </li>
+
+                <li class="risk-item" onclick="showRiskDetail('budget-cascade')">
+                    <div class="risk-title">🟡 Budget Overrun Cascade (Score: 15)</div>
+                    <div class="risk-description">
+                        Impact: Project scope reduction, stakeholder confidence loss
+                    </div>
+                </li>
+            </ul>
+
+            <div class="interactive-chart" onclick="showChart('risk-heatmap')">
+                <h3>🗺️ Risk Heat Map</h3>
+                <div class="chart-placeholder">
+                    Click to view probability vs impact matrix
+                </div>
+            </div>
+        </div>
+
+        <!-- Decision Center Panel -->
+        <div id="decisions" class="dashboard-panel">
+            <h2>⚡ Executive Decision Center</h2>
+            
+            <div class="decision-cards">
+                <div class="decision-card" onclick="makeDecision('budget-approval')">
+                    <div class="decision-title">💰 Budget Increase Approval: $400K</div>
+                    <div class="decision-deadline">⏰ Deadline: August 5, 2025 (3 days)</div>
+                    <div>Decision Maker: CFO + Executive Sponsor</div>
+                    <div style="margin-top: 10px; font-size: 14px;">
+                        Impact: 6-week delay + vendor penalties if not approved
+                    </div>
+                </div>
+
+                <div class="decision-card" onclick="makeDecision('db-expert')">
+                    <div class="decision-title">🚨 Database Migration: Expert Consultant</div>
+                    <div class="decision-deadline">⏰ Deadline: August 5, 2025 (3 days)</div>
+                    <div>Decision Maker: CTO + Technical Lead</div>
+                    <div style="margin-top: 10px; font-size: 14px;">
+                        Impact: Data loss risk if not addressed immediately
+                    </div>
+                </div>
+
+                <div class="decision-card" onclick="makeDecision('go-live-strategy')">
+                    <div class="decision-title">🎯 Q4 Go-Live Strategy</div>
+                    <div class="decision-deadline">⏰ Decision by: August 15, 2025 (13 days)</div>
+                    <div>Decision Maker: CEO + Product Owner</div>
+                    <div style="margin-top: 10px; font-size: 14px;">
+                        Options: Full launch vs Phased rollout vs Pilot + iterate
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- AI Insights Panel -->
+        <div id="ai-insights" class="dashboard-panel">
+            <div class="ai-insights">
+                <h3>🤖 AI Executive Insights & Predictions</h3>
+                <p><strong>ML Model Confidence:</strong> 87%</p>
+                
+                <div class="prediction-timeline">
+                    <div class="prediction-week" onclick="showPrediction(1)">
+                        <div>Week 1</div>
+                        <div style="font-size: 1.5em; margin: 10px 0;">71</div>
+                        <div>🟡 Current trajectory</div>
+                    </div>
+                    <div class="prediction-week" onclick="showPrediction(2)">
+                        <div>Week 2</div>
+                        <div style="font-size: 1.5em; margin: 10px 0;">68</div>
+                        <div>🔴 Risks materialize</div>
+                    </div>
+                    <div class="prediction-week" onclick="showPrediction(3)">
+                        <div>Week 3</div>
+                        <div style="font-size: 1.5em; margin: 10px 0;">72</div>
+                        <div>🟡 With interventions</div>
+                    </div>
+                    <div class="prediction-week" onclick="showPrediction(4)">
+                        <div>Week 4</div>
+                        <div style="font-size: 1.5em; margin: 10px 0;">76</div>
+                        <div>🟡 Recovery trend</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="interactive-chart" onclick="showChart('success-probability')">
+                <h3>📊 Success Probability Scenarios</h3>
+                <div class="chart-placeholder">
+                    Current path: 58% • With budget approval: 74% • With all recommendations: 89%
+                </div>
+            </div>
+
+            <div class="metric-grid">
+                <div class="metric-card" onclick="showAIDetail('recommendations')">
+                    <div class="metric-title">High Impact Actions</div>
+                    <div class="metric-value">3</div>
+                    <div class="metric-trend trend-up">
+                        💡 Implement immediately
+                    </div>
+                </div>
+
+                <div class="metric-card" onclick="showAIDetail('patterns')">
+                    <div class="metric-title">Pattern Recognition</div>
+                    <div class="metric-value">89%</div>
+                    <div class="metric-trend trend-up">
+                        📈 Success rate with recommendations
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile Toggle Button -->
+    <button class="mobile-toggle" onclick="toggleMobileView()">📱</button>
+
+    <!-- Mobile View -->
+    <div class="mobile-view" id="mobileView">
+        <div class="mobile-header">
+            <h2>📱 Executive Mobile Dashboard</h2>
+            <button onclick="toggleMobileView()" style="float: right; background: none; border: none; font-size: 24px;">✕</button>
+        </div>
+        
+        <div class="mobile-metric">
+            <h3>🎯 Digital Transformation</h3>
+            <div>📊 Health: 🟡 73/100</div>
+            <div>💰 Budget: 🔴 +$400K over</div>
+            <div>📅 Schedule: 🟡 3 days behind</div>
+            <div>🚨 Decisions: 3 urgent</div>
+        </div>
+
+        <div class="mobile-metric">
+            <h4>Top Issues:</h4>
+            <div>🔴 Database migration risk</div>
+            <div>🔴 Vendor delays</div>
+            <div>🟡 Budget approval needed</div>
+        </div>
+
+        <div style="text-align: center; margin-top: 20px;">
+            <button onclick="callPM()" style="background: #3498db; color: white; border: none; padding: 15px 30px; border-radius: 25px; margin: 5px;">📞 Call PM</button>
+            <button onclick="sendStatusEmail()" style="background: #27ae60; color: white; border: none; padding: 15px 30px; border-radius: 25px; margin: 5px;">📧 Status Email</button>
+        </div>
+    </div>
+
+    <!-- Refresh Indicator -->
+    <div class="refresh-indicator" id="refreshIndicator">
+        🔄 Dashboard updated with live data
+    </div>
+
+    <!-- Tooltip -->
+    <div class="tooltip" id="tooltip"></div>
+
+    <script>
+        // Global demo state
+        let currentPanel = 'overview';
+        let healthScore = 73;
+        let lastUpdateTime = new Date();
+
+        // Show panel function
+        function showPanel(panelId) {
+            // Hide all panels
+            document.querySelectorAll('.dashboard-panel').forEach(panel => {
+                panel.classList.remove('active');
+            });
+
+            // Remove active class from all tabs
+            document.querySelectorAll('.tab-button').forEach(button => {
+                button.classList.remove('active');
+            });
+
+            // Show selected panel
+            document.getElementById(panelId).classList.add('active');
+            
+            // Add active class to clicked tab
+            event.target.classList.add('active');
+            
+            currentPanel = panelId;
+            
+            // Simulate data refresh
+            showRefreshIndicator();
+        }
+
+        // Drill down functions
+        function drillDown(metric) {
+            const messages = {
+                'budget': 'Budget Analysis:\n• Labor: +$150K (18%) - Additional testing resources\n• Vendor: +$200K (25%) - Integration complexity\n• Infrastructure: -$30K savings from cloud optimization',
+                'schedule': 'Schedule Details:\n• Integration Testing: 85% complete\n• User Acceptance: Starting next week\n• Critical Path: 2 days buffer remaining',
+                'risks': 'Risk Breakdown:\n• 2 Critical risks need immediate action\n• 3 High risks under active management\n• Total financial exposure: $1.2M',
+                'team': 'Team Metrics:\n• Velocity: 92% of target\n• Satisfaction: 4.2/5\n• Utilization: 87% (optimal range)\n• Turnover: 0% (excellent)',
+                'quality': 'Quality Metrics:\n• Defect density: 1.2 per KLOC\n• Test coverage: 89%\n• Customer satisfaction: 4.3/5\n• System uptime: 99.7%',
+                'roi': 'ROI Analysis:\n• Current ROI: 28% (vs 25% target)\n• Investment: $3.2M\n• Current value: $4.1M\n• Payback: 18 months (6 months ahead of target)'
+            };
+            
+            alert(messages[metric] || 'Detailed analytics would appear here in the full system.');
+            animateMetricCard(event.target);
+        }
+
+        // Show detailed information
+        function showDetail(type) {
+            const details = {
+                'budget-breakdown': 'Budget Breakdown:\n• Development: $1.2M (38%)\n• Infrastructure: $800K (25%)\n• Vendor services: $600K (19%)\n• Training & Change: $400K (13%)\n• Contingency: $200K (6%)',
+                'actual-spend': 'Spending Analysis:\n• Q1: $600K\n• Q2: $900K\n• Q3 (partial): $900K\n• Burn rate trend: Increasing\n• Forecast accuracy: ±5.2%',
+                'forecast': 'Forecast Details:\n• Base estimate: $3.2M\n• Risk adjustments: +$300K\n• Scope additions: +$100K\n• Confidence level: 78%\n• Review date: Weekly',
+                'burn-rate': 'Burn Rate Analysis:\n• Target: $150K/week\n• Actual: $180K/week\n• Variance: +20%\n• Trend: Increasing\n• Runway: 4.4 weeks at current rate'
+            };
+            
+            alert(details[type] || 'Detailed financial data would appear here.');
+            animateMetricCard(event.target);
+        }
+
+        // Risk detail function
+        function showRiskDetail(riskId) {
+            const riskDetails = {
+                'db-migration': 'Database Migration Risk:\n• Probability: 90%\n• Impact: Severe\n• Cost: $500K\n• Timeline: 4-week delay\n• Mitigation: Hire expert consultant\n• Decision deadline: 3 days',
+                'vendor-delays': 'Vendor Integration Risk:\n• Probability: 75%\n• Impact: High\n• Cost: $200K penalties\n• Timeline: 2-week delay\n• Mitigation: Executive escalation\n• Status: Legal review in progress',
+                'compliance-gap': 'Compliance Risk:\n• Probability: 60%\n• Impact: High\n• Cost: $150K remediation\n• Timeline: Go-live delay\n• Mitigation: Compliance team engaged\n• Status: Gap analysis in progress',
+                'team-capacity': 'Team Capacity Risk:\n• Probability: 70%\n• Impact: Medium\n• Effect: Quality degradation\n• Timeline: Ongoing\n• Mitigation: Additional resources\n• Status: Onboarding in progress',
+                'budget-cascade': 'Budget Cascade Risk:\n• Probability: 50%\n• Impact: High\n• Effect: Scope reduction\n• Timeline: Immediate\n• Mitigation: CFO approval\n• Status: Cost reduction plan prepared'
+            };
+            
+            alert(riskDetails[riskId] || 'Risk details would appear here.');
+            animateRiskItem(event.target);
+        }
+
+        // Decision making function
+        function makeDecision(decisionId) {
+            const decisions = {
+                'budget-approval': 'Budget Approval Decision:\n\nOptions:\nA) Approve $400K increase\nB) Reduce project scope\nC) Extend timeline\n\nRecommendation: Approve increase\nSuccess probability with approval: 74%',
+                'db-expert': 'Database Expert Decision:\n\nOptions:\nA) Hire expert consultant ($150K)\nB) Delay 4 weeks\nC) Simplify approach\n\nRecommendation: Hire expert\nSuccess rate: 82% risk mitigation',
+                'go-live-strategy': 'Go-Live Strategy Decision:\n\nOptions:\nA) Full launch Q4\nB) Phased rollout\nC) Pilot program first\n\nRecommendation: Phased rollout\nRisk reduction: 45%'
+            };
+            
+            if (confirm(decisions[decisionId] + '\n\nWould you like to proceed with the recommendation?')) {
+                alert('Decision logged and stakeholders notified. Executive dashboard will be updated in real-time.');
+                updateHealthScore();
+            }
+        }
+
+        // Show chart function
+        function showChart(chartType) {
+            const chartInfo = {
+                'timeline': 'Interactive Gantt Chart:\n• Real-time milestone tracking\n• Critical path highlighting\n• Resource allocation view\n• Dependency mapping',
+                'budget-variance': 'Budget Variance Chart:\n• Waterfall analysis\n• Category breakdown\n• Trend analysis\n• Forecast scenarios',
+                'burn-trend': 'Burn Rate Trend:\n• Weekly spending pattern\n• Forecast projection\n• Budget runway analysis\n• Alert thresholds',
+                'risk-heatmap': 'Risk Heat Map:\n• Probability vs Impact matrix\n• Risk scoring visualization\n• Trend indicators\n• Mitigation status',
+                'success-probability': 'Success Probability:\n• Monte Carlo simulation\n• Scenario analysis\n• Confidence intervals\n• Sensitivity analysis'
+            };
+            
+            alert(chartInfo[chartType] + '\n\nFull interactive charts would open in the production system.');
+            animateChart(event.target);
+        }
+
+        // Show health breakdown
+        function showHealthBreakdown() {
+            alert('Health Score Breakdown:\n\n📅 Schedule: 12/20 (60%)\n💰 Budget: 11/20 (55%)\n⚖️ Scope: 13/15 (87%)\n🎯 Quality: 14/15 (93%)\n🚨 Risk: 8/15 (53%)\n👥 Team: 9/10 (90%)\n🤝 Stakeholder: 4/5 (80%)\n\nOverall: 73/100 (CAUTION)\nTrend: Declining (-5 pts this week)');
+            animateHealthCircle();
+        }
+
+        // Show prediction details
+        function showPrediction(week) {
+            const predictions = {
+                1: 'Week 1 Forecast (71/100):\n• Current trajectory continues\n• Budget variance impact\n• Risk materialization beginning\n• Confidence: 89%',
+                2: 'Week 2 Forecast (68/100):\n• Database risk materializes\n• Vendor delays compound\n• Team stress increases\n• Confidence: 82%',
+                3: 'Week 3 Forecast (72/100):\n• Interventions take effect\n• Expert consultant engaged\n• Budget approval helps\n• Confidence: 78%',
+                4: 'Week 4 Forecast (76/100):\n• Recovery trend established\n• Risks under control\n• Team morale improved\n• Confidence: 74%'
+            };
+            
+            alert(predictions[week]);
+            animatePrediction(event.target);
+        }
+
+        // Show AI detail
+        function showAIDetail(type) {
+            const aiDetails = {
+                'recommendations': 'AI High Impact Recommendations:\n\n1) Approve budget increase (89% correlation with success)\n2) Escalate vendor to C-level (76% faster resolution)\n3) Add database expert (82% risk mitigation)\n\nBased on analysis of 500+ similar projects',
+                'patterns': 'Pattern Recognition Insights:\n\n• Similar database complexity: 67% needed expert help\n• Vendor delays at this stage: 84% recovered in 2 weeks if escalated\n• Budget increases <15%: 91% approval rate\n• Team burnout signals detected early'
+            };
+            
+            alert(aiDetails[type]);
+            animateMetricCard(event.target);
+        }
+
+        // Mobile view toggle
+        function toggleMobileView() {
+            const mobileView = document.getElementById('mobileView');
+            mobileView.classList.toggle('active');
+        }
+
+        // Mobile actions
+        function callPM() {
+            alert('📞 Calling Project Manager Sarah Chen...\n\nIn production: Direct dial integration with enterprise phone system');
+        }
+
+        function sendStatusEmail() {
+            alert('📧 Status email sent to executive team!\n\nIncludes:\n• Current health score\n• Critical issues summary\n• Required decisions\n• Next steps');
+        }
+
+        // Animation functions
+        function animateMetricCard(element) {
+            element.style.transform = 'scale(1.05)';
+            setTimeout(() => {
+                element.style.transform = 'scale(1)';
+            }, 200);
+        }
+
+        function animateRiskItem(element) {
+            element.style.transform = 'translateX(15px)';
+            setTimeout(() => {
+                element.style.transform = 'translateX(0)';
+            }, 300);
+        }
+
+        function animateChart(element) {
+            element.style.backgroundColor = '#e3f2fd';
+            setTimeout(() => {
+                element.style.backgroundColor = '#f8f9fa';
+            }, 500);
+        }
+
+        function animateHealthCircle() {
+            const circle = document.querySelector('.health-circle');
+            circle.style.transform = 'rotate(360deg) scale(1.1)';
+            setTimeout(() => {
+                circle.style.transform = 'rotate(0deg) scale(1)';
+            }, 600);
+        }
+
+        function animatePrediction(element) {
+            element.style.backgroundColor = 'rgba(255, 255, 255, 0.3)';
+            setTimeout(() => {
+                element.style.backgroundColor = 'rgba(255, 255, 255, 0.1)';
+            }, 400);
+        }
+
+        // Update health score (simulated)
+        function updateHealthScore() {
+            const newScore = Math.min(100, healthScore + Math.floor(Math.random() * 10) - 3);
+            document.getElementById('healthScore').textContent = newScore;
+            healthScore = newScore;
+            
+            // Update health status
+            const statusElement = document.querySelector('.health-status');
+            if (newScore >= 80) {
+                statusElement.textContent = 'HEALTHY';
+                statusElement.style.color = '#27ae60';
+            } else if (newScore >= 60) {
+                statusElement.textContent = 'CAUTION';
+                statusElement.style.color = '#f39c12';
+            } else {
+                statusElement.textContent = 'CRITICAL';
+                statusElement.style.color = '#e74c3c';
+            }
+        }
+
+        // Show refresh indicator
+        function showRefreshIndicator() {
+            const indicator = document.getElementById('refreshIndicator');
+            indicator.classList.add('show');
+            setTimeout(() => {
+                indicator.classList.remove('show');
+            }, 2000);
+            
+            // Update last update time
+            document.getElementById('lastUpdate').textContent = 'Just now';
+        }
+
+        // Auto-refresh simulation
+        setInterval(() => {
+            showRefreshIndicator();
+            // Simulate minor data changes
+            if (Math.random() > 0.7) {
+                updateHealthScore();
+            }
+        }, 60000); // Every minute
+
+        // Initialize tooltips (simplified)
+        document.addEventListener('mouseover', function(e) {
+            if (e.target.classList.contains('metric-card') || e.target.classList.contains('risk-item')) {
+                const tooltip = document.getElementById('tooltip');
+                tooltip.textContent = 'Click for detailed analysis';
+                tooltip.style.opacity = '1';
+                tooltip.style.left = e.pageX + 10 + 'px';
+                tooltip.style.top = e.pageY - 30 + 'px';
+            }
+        });
+
+        document.addEventListener('mouseout', function(e) {
+            if (e.target.classList.contains('metric-card') || e.target.classList.contains('risk-item')) {
+                document.getElementById('tooltip').style.opacity = '0';
+            }
+        });
+
+        // Welcome message
+        setTimeout(() => {
+            if (confirm('🎭 Welcome to the Interactive Executive Dashboard Demo!\n\nThis fully functional demo showcases:\n• Real-time health scoring\n• Interactive financial tracking\n• AI-powered insights\n• Executive decision support\n• Mobile-responsive design\n\nClick anywhere to explore. Would you like a quick tour?')) {
+                alert('🎯 Quick Tour:\n\n1) Click any metric card for detailed drill-down\n2) Switch between dashboard tabs at the top\n3) Try the mobile view (📱 button)\n4) Click charts and risk items for analysis\n5) Use the Decision Center for action items\n\nEverything is interactive - explore freely!');
+            }
+        }, 1000);
+
+        console.log('🎭 Enterprise Executive Dashboard Demo Loaded');
+        console.log('📊 All interactive features active');
+        console.log('🚀 Production-ready dashboard suite');
+    </script>
+</body>
+</html>
