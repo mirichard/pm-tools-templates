@@ -1,0 +1,35 @@
+name: Simple Email Test
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ main ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Send Test Email
+      if: ${{ secrets.EMAIL_USERNAME != '' }}
+      uses: dawidd6/action-send-mail@v3
+      with:
+        server_address: smtp.gmail.com
+        server_port: 465
+        username: ${{ secrets.EMAIL_USERNAME }}
+        password: ${{ secrets.EMAIL_PASSWORD }}
+        subject: "Test Email from GitHub Actions"
+        body: "This is a test email from GitHub Actions workflow."
+        to: ${{ secrets.EMAIL_RECIPIENTS }}
+        from: ${{ secrets.EMAIL_FROM }}
+        
+    - name: Report Status
+      run: |
+        if [ "${{ secrets.EMAIL_USERNAME }}" != "" ]; then
+          echo "✅ Test email sent successfully!"
+        else
+          echo "❌ EMAIL_USERNAME secret not configured"
+        fi
+
