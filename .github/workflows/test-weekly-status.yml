@@ -1,0 +1,38 @@
+name: 🧪 Test Weekly Status Email
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+    inputs:
+      test_mode:
+        description: 'Run in test mode'
+        required: false
+        default: 'true'
+        type: boolean
+
+jobs:
+  test-status:
+    name: Test Status Report Generation
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      issues: read
+    
+    steps:
+      - name: 📥 Checkout Repository
+        uses: actions/checkout@v4
+      
+      - name: 🧪 Test Basic Functionality
+        run: |
+          echo "Testing workflow dispatch functionality"
+          echo "Event: ${{ github.event_name }}"
+          echo "Test mode: ${{ github.event.inputs.test_mode }}"
+          
+      - name: 📊 Quick Metrics Test
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          echo "Testing GitHub CLI access"
+          TOTAL_ISSUES=$(gh issue list --state all --json number | jq length)
+          echo "Total issues found: $TOTAL_ISSUES"
