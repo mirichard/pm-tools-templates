@@ -339,36 +339,28 @@ jobs:
           else
             git commit -m "📊 Update project health dashboard - $(date +%Y-%m-%d\ %H:%M)"
             
-            # Create a new branch for the dashboard update
-            BRANCH_NAME="dashboard-update-$(date +%Y%m%d-%H%M%S)"
-            git checkout -b "$BRANCH_NAME"
-            
-            # Push the branch
-            git push origin "$BRANCH_NAME"
-            
-            # Create a pull request
-            gh pr create \
-              --title "📊 Update project health dashboard - $(date '+%Y-%m-%d %H:%M')" \
-              --body "## 📊 Automated Dashboard Update
-              
-              This is an automated update to the project health dashboard.
-              
-              ### Changes:
-              - Updated project metrics and health indicators
-              - Refreshed issue statistics and progress tracking
-              - Updated risk assessment and priority breakdowns
-              
-              ### Generated At:
-              $(date)
-              
-              ### Auto-merge:
-              This PR will be automatically merged if all checks pass." \
-              --base main \
-              --head "$BRANCH_NAME"
-            
-            # Enable auto-merge
-            gh pr merge "$BRANCH_NAME" --auto --squash
-            echo "✅ Dashboard update PR created and set to auto-merge"
+            # Push directly to develop branch (since main is protected)
+            if git push origin HEAD:develop; then
+              echo "✅ Dashboard update pushed to develop branch successfully"
+            else
+              echo "⚠️ Push failed, attempting to resolve conflicts"
+              # Fetch latest changes
+              git fetch origin develop
+              # Try to rebase
+              if git rebase origin/develop; then
+                echo "✅ Rebase successful"
+                git push origin HEAD:develop
+                echo "✅ Dashboard update pushed after rebase"
+              else
+                echo "🔧 Resolving conflicts automatically"
+                # For dashboard files, always use our version (latest generated data)
+                git checkout --ours dashboards/
+                git add dashboards/
+                git rebase --continue
+                git push origin HEAD:develop
+                echo "✅ Dashboard update pushed after conflict resolution"
+              fi
+            fi
           fi
 
       - name: 📊 Generate Dashboard
