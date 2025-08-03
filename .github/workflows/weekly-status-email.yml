@@ -132,18 +132,32 @@ jobs:
           </html>
           EOF
 
-      - name: Email Status Check
+      - name: Send Status Email
+        if: ${{ secrets.EMAIL_USERNAME != '' }}
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.gmail.com
+          server_port: 465
+          username: ${{ secrets.EMAIL_USERNAME }}
+          password: ${{ secrets.EMAIL_PASSWORD }}
+          subject: "Weekly Project Status Update - $(date +\"%B %d, %Y\")"
+          html_body: file://./email/status-email.html
+          to: ${{ secrets.EMAIL_RECIPIENTS || env.MAIL_RECIPIENTS }}
+          from: ${{ secrets.EMAIL_FROM || env.MAIL_FROM }}
+          content_type: text/html
+          
+      - name: Email Status Report
         run: |
           if [ "${{ secrets.EMAIL_USERNAME }}" != "" ]; then
-            echo "EMAIL_USERNAME is configured - email sending would be enabled"
+            echo "✅ Weekly status email sent successfully!"
+            echo "📧 Sent to: ${{ secrets.EMAIL_RECIPIENTS || env.MAIL_RECIPIENTS }}"
+            echo "📊 Content: Project metrics and status report"
+            echo "📈 Completion Rate: ${COMPLETION_RATE}%"
+            echo "🎯 High Priority Items: ${HIGH_PRIORITY}"
+            echo "⚠️  Critical Risks: ${CRITICAL_RISKS}"
           else
-            echo "EMAIL_USERNAME is not configured - email sending is disabled"
-            echo "To enable email functionality, configure these repository secrets:"
-            echo "- EMAIL_USERNAME: Your SMTP username"
-            echo "- EMAIL_PASSWORD: Your SMTP password"
-            echo "- EMAIL_RECIPIENTS: Recipient email addresses"
-            echo "- EMAIL_FROM: Sender email address"
+            echo "❌ EMAIL_USERNAME secret not configured - email not sent"
           fi
           
-          echo "Email content preview:"
+          echo "\nEmail content preview:"
           cat ./email/status-email.html
