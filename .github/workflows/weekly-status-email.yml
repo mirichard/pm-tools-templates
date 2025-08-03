@@ -92,7 +92,7 @@ jobs:
   send-email:
     name: Send Status Email
     needs: status-reporting
-    if: always() && needs.status-reporting.result == 'success' && (github.event_name == 'schedule' || github.event_name == 'workflow_dispatch')
+    if: always() && needs.status-reporting.result == 'success'
     runs-on: ubuntu-latest
     env:
       COMPLETION_RATE: ${{ needs.status-reporting.outputs.completion_rate }}
