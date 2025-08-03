@@ -1,0 +1,17 @@
+# Jira Integration Test
+
+This file was created to test the GitHub-Jira integration.
+
+- Issue Key: SCRUM-1
+- Branch: SCRUM-1-test-integration
+- Timestamp: 2025-07-26 18:54:36
+- Repository: https://github.com/mirichard/pm-tools-templates.git
+
+If the integration is working, this commit should appear in the Jira issue.
+
+## Expected Results:
+1. This commit should be linked to SCRUM-1
+2. The branch should appear in the Development panel
+3. Repository should be linked to the issue
+
+## Test Status: ✅ ACTIVE

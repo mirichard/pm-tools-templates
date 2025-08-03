@@ -1,5 +1,18 @@
 # Team Charter Template
 
+## Purpose/Overview
+This team charter template establishes clear expectations, roles, and working agreements for project teams. It serves as a foundational document that aligns team members on goals, responsibilities, communication protocols, and performance standards. The charter promotes team cohesion, reduces conflicts, and provides a reference for decision-making and accountability.
+
+## Usage Instructions
+1. **Team Workshop**: Create the charter collaboratively with all team members present
+2. **Leadership Review**: Involve project sponsors and stakeholders in goal-setting sections
+3. **Regular Updates**: Review and revise the charter at project milestones
+4. **Reference Document**: Use during team meetings to resolve conflicts and clarify expectations
+5. **New Member Onboarding**: Share with new team members as part of orientation
+6. **Performance Management**: Reference working agreements during performance discussions
+7. **Continuous Improvement**: Update based on retrospective feedback and lessons learned
+8. **Visibility**: Keep the charter accessible to all team members and stakeholders
+
 ## Team Information
 - **Project Name**: [Enter Project Name]
 - **Team Name**: [Enter Team Name]

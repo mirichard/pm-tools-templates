@@ -1,7 +1,8 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { Settings, Layout, Bell, Download, Save, RotateCcw } from 'lucide-react';
+import { Settings, Layout, Bell, Download, Save, RotateCcw, Badge } from 'lucide-react';
+import { useToast } from '@/components/ui/toast';
 
 interface DashboardSettingsProps {
   isOpen: boolean;
@@ -70,6 +71,7 @@ const DEFAULT_SETTINGS: DashboardSettings = {
 export function DashboardSettings({ isOpen, onClose, onSettingsChange }: DashboardSettingsProps) {
   const [settings, setSettings] = useState<DashboardSettings>(DEFAULT_SETTINGS);
   const [activeTab, setActiveTab] = useState<'general' | 'layout' | 'notifications' | 'export'>('general');
+  const { addToast } = useToast();
 
   useEffect(() => {
     // Load settings from localStorage on component mount
@@ -85,14 +87,38 @@ export function DashboardSettings({ isOpen, onClose, onSettingsChange }: Dashboa
   }, []);
 
   const handleSaveSettings = () => {
-    localStorage.setItem('dashboardSettings', JSON.stringify(settings));
-    onSettingsChange(settings);
-    onClose();
+    try {
+      localStorage.setItem('dashboardSettings', JSON.stringify(settings));
+      onSettingsChange(settings);
+      
+      addToast({
+        type: 'success',
+        title: 'Settings saved',
+        description: 'Your dashboard settings have been updated successfully',
+        duration: 3000
+      });
+      
+      onClose();
+    } catch (error) {
+      addToast({
+        type: 'error',
+        title: 'Failed to save settings',
+        description: 'Unable to save your settings. Please try again.',
+        duration: 5000
+      });
+    }
   };
 
   const handleResetSettings = () => {
     setSettings(DEFAULT_SETTINGS);
     localStorage.removeItem('dashboardSettings');
+    
+    addToast({
+      type: 'info',
+      title: 'Settings reset',
+      description: 'All settings have been reset to default values',
+      duration: 3000
+    });
   };
 
   const updateSettings = (updates: Partial<DashboardSettings>) => {

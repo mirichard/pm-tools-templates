@@ -158,8 +158,10 @@ The dashboard includes a flexible API layer (`src/lib/api.ts`) that:
 npm run dev      # Start development server
 npm run build    # Build for production
 npm run start    # Start production server
-<a id="deploy-to-vercel-recommended"></a>
 npm run lint     # Run ESLint
+npm test         # Run tests
+npm run test:watch    # Run tests in watch mode
+npm run test:coverage # Run tests with coverage
 ```
 
 ### Production

@@ -1,5 +1,18 @@
 # Agile Stakeholder Map Template
 
+## Purpose/Overview
+This agile stakeholder map template is designed specifically for agile and iterative project environments. It focuses on collaborative stakeholder engagement, continuous feedback loops, and adaptive communication strategies. The template emphasizes user-centric approaches and supports the dynamic nature of agile projects where stakeholder needs and project requirements evolve continuously.
+
+## Usage Instructions
+1. **Core Team Setup**: Start by identifying your core agile team roles and responsibilities
+2. **Stakeholder Mapping**: Map all product stakeholders using the influence/interest matrix
+3. **Ceremony Planning**: Define who participates in which agile ceremonies and their roles
+4. **Communication Rhythms**: Establish regular touchpoints and communication frequencies
+5. **User Representation**: Ensure strong user personas and feedback channels are established
+6. **Decision Rights**: Clarify decision-making authority to avoid delays and conflicts
+7. **Feedback Mechanisms**: Set up continuous and structured feedback loops
+8. **Regular Updates**: Review and adapt the stakeholder map each sprint or release cycle
+
 ## Project Information
 - **Project/Product Name**: [Name]
 - **Product Owner**: [Name]

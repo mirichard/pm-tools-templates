@@ -1,5 +1,18 @@
 # Skills Matrix Template
 
+## Purpose/Overview
+This comprehensive skills matrix template enables project managers and resource managers to assess team capabilities, identify skill gaps, and plan for optimal resource allocation. It provides a structured approach to evaluating technical, business, and soft skills across team members, supporting strategic decisions about training, hiring, and project assignments.
+
+## Usage Instructions
+1. **Initial Assessment**: Work with team members to honestly assess current skill levels
+2. **Rating Consistency**: Use the 1-5 star rating system consistently across all evaluations
+3. **Regular Updates**: Review and update the matrix quarterly or after major projects
+4. **Gap Analysis**: Use the skills gap section to identify critical training needs
+5. **Resource Planning**: Reference the matrix for project staffing and role assignments
+6. **Career Development**: Use individual profiles for performance reviews and career planning
+7. **Risk Management**: Monitor single points of expertise and cross-train as needed
+8. **Customization**: Adapt skill categories to match your organization's needs
+
 ## Document Information
 - **Project Name**: [Enter Project Name]
 - **Project Manager**: [Name]

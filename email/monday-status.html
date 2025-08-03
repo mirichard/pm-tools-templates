@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+    body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; max-width: 800px; margin: 0 auto; }
+    .header { background: #f8f9fa; padding: 20px; margin-bottom: 20px; border-radius: 5px; }
+    .metrics { display: flex; justify-content: space-between; margin: 20px 0; flex-wrap: wrap; }
+    .metric-card { background: white; padding: 15px; border-radius: 5px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); width: 23%; min-width: 150px; margin-bottom: 10px; }
+    .metric-value { font-size: 24px; font-weight: bold; margin: 10px 0; }
+    .status-good { color: #28a745; }
+    .status-warning { color: #ffc107; }
+    .status-danger { color: #dc3545; }
+    .highlights { margin: 20px 0; }
+    .action-items { background: #f8f9fa; padding: 20px; border-radius: 5px; margin: 20px 0; }
+    .footer { font-size: 12px; color: #666; margin-top: 20px; text-align: center; }
+    .milestone-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 15px; margin: 20px 0; }
+    .milestone-card { background: white; padding: 15px; border-radius: 5px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+    .milestone-title { font-weight: bold; margin-bottom: 10px; }
+    .milestone-date { color: #666; font-size: 12px; }
+    .progress-bar { background: #f0f0f0; height: 10px; border-radius: 5px; margin: 10px 0; }
+    .progress-fill { background: #28a745; height: 100%; border-radius: 5px; }
+    .issue-list { margin: 20px 0; }
+    .issue-item { background: white; padding: 10px; border-radius: 5px; margin-bottom: 10px; border-left: 4px solid #dc3545; }
+    .issue-meta { color: #666; font-size: 12px; margin-top: 5px; }
+    .label { display: inline-block; padding: 2px 6px; border-radius: 3px; font-size: 12px; margin-right: 5px; }
+    .label-high { background: #dc3545; color: white; }
+    .label-bug { background: #d73a4a; color: white; }
+    .label-feature { background: #0075ca; color: white; }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>📊 Monday Morning Project Status</h1>
+    <p>Key metrics and updates for week starting July 22, 2025</p>
+  </div>
+  
+  <div class="metrics">
+    <div class="metric-card">
+      <h3>Completion</h3>
+      <div class="metric-value status-good">100%</div>
+      <p>Overall Progress</p>
+    </div>
+    
+    <div class="metric-card">
+      <h3>Strategic</h3>
+      <div class="metric-value status-danger">20%</div>
+      <p>Strategic Goals</p>
+    </div>
+    
+    <div class="metric-card">
+      <h3>Priorities</h3>
+      <div class="metric-value status-warning">19</div>
+      <p>High Priority Items</p>
+    </div>
+    
+    <div class="metric-card">
+      <h3>Risks</h3>
+      <div class="metric-value status-good">0</div>
+      <p>Critical Issues</p>
+    </div>
+  </div>
+  
+  <div class="highlights">
+    <h2>🎯 Active Milestones</h2>
+    <div class="milestone-grid">
+
+      <div class="milestone-card">
+        <div class="milestone-title">M1: Foundation</div>
+        <div class="milestone-date">Due: September 15, 2025</div>
+        <div class="progress-bar">
+          <div class="progress-fill" style="width: 0.0%"></div>
+        </div>
+        <div>0/1 issues completed (0%)</div>
+      </div>
+
+      <div class="milestone-card">
+        <div class="milestone-title">M1.1: Foundation Strengthening</div>
+        <div class="milestone-date">Due: September 28, 2025</div>
+        <div class="progress-bar">
+          <div class="progress-fill" style="width: 18.75%"></div>
+        </div>
+        <div>3/16 issues completed (18%)</div>
+      </div>
+
+      <div class="milestone-card">
+        <div class="milestone-title">Q3 2025 Security Updates</div>
+        <div class="milestone-date">Due: September 29, 2025</div>
+        <div class="progress-bar">
+          <div class="progress-fill" style="width: 100.0%"></div>
+        </div>
+        <div>3/3 issues completed (100%)</div>
+      </div>
+
+      <div class="milestone-card">
+        <div class="milestone-title">Q3 2025 Performance</div>
+        <div class="milestone-date">Due: September 29, 2025</div>
+        <div class="progress-bar">
+          <div class="progress-fill" style="width: 100.0%"></div>
+        </div>
+        <div>2/2 issues completed (100%)</div>
+      </div>
+
+      <div class="milestone-card">
+        <div class="milestone-title">M2: Feature Enhancement (Oct 15, 2025)</div>
+        <div class="milestone-date">Due: October 14, 2025</div>
+        <div class="progress-bar">
+          <div class="progress-fill" style="width: 9.090909090909092%"></div>
+        </div>
+        <div>1/11 issues completed (9%)</div>
+      </div>
+
+      <div class="milestone-card">
+        <div class="milestone-title">M3: Extended Ecosystem Integration</div>
+        <div class="milestone-date">Due: November 14, 2025</div>
+        <div class="progress-bar">
+          <div class="progress-fill" style="width: 66.66666666666666%"></div>
+        </div>
+        <div>2/3 issues completed (66%)</div>
+      </div>
+
+      <div class="milestone-card">
+        <div class="milestone-title">Phase 2: Capability Expansion</div>
+        <div class="milestone-date">Due: December 31, 2025</div>
+        <div class="progress-bar">
+          <div class="progress-fill" style="width: 16.666666666666664%"></div>
+        </div>
+        <div>2/12 issues completed (16%)</div>
+      </div>
+
+      <div class="milestone-card">
+        <div class="milestone-title">Security & Maintenance</div>
+        <div class="milestone-date">Due: December 31, 2025</div>
+        <div class="progress-bar">
+          <div class="progress-fill" style="width: 0.0%"></div>
+        </div>
+        <div>0/2 issues completed (0%)</div>
+      </div>
+
+      <div class="milestone-card">
+        <div class="milestone-title">Phase 3: Ecosystem</div>
+        <div class="milestone-date">Due: June 30, 2026</div>
+        <div class="progress-bar">
+          <div class="progress-fill" style="width: 50.0%"></div>
+        </div>
+        <div>1/2 issues completed (50%)</div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="highlights">
+    <h2>🗓️ High Priority Issues</h2>
+    <div class="issue-list">
+
+      <div class="issue-item">
+        <div><strong>#300</strong>: 🔍 STORY: Search & Filter Enhancement</div>
+        <div class="issue-meta">
+          <span>Created: July 07</span>
+          <span class="label label-high-priority">HIGH-PRIORITY</span> <span class="label label-ui-ux">UI-UX</span> <span class="label label-q3-2025">Q3-2025</span>
+          | Milestone: M1.1: Foundation Strengthening
+          | Due: September 28
+          | Assigned: mirichard
+        </div>
+      </div>
+
+      <div class="issue-item">
+        <div><strong>#299</strong>: 🧙‍♂️ STORY: Guided Navigation Wizard</div>
+        <div class="issue-meta">
+          <span>Created: July 07</span>
+          <span class="label label-high-priority">HIGH-PRIORITY</span> <span class="label label-ui-ux">UI-UX</span> <span class="label label-q3-2025">Q3-2025</span>
+          | Milestone: M1.1: Foundation Strengthening
+          | Due: September 28
+          | Assigned: mirichard
+        </div>
+      </div>
+
+      <div class="issue-item">
+        <div><strong>#298</strong>: 👁️ STORY: Template Preview System</div>
+        <div class="issue-meta">
+          <span>Created: July 07</span>
+          <span class="label label-high-priority">HIGH-PRIORITY</span> <span class="label label-ui-ux">UI-UX</span> <span class="label label-q3-2025">Q3-2025</span>
+          | Milestone: M1.1: Foundation Strengthening
+          | Due: September 28
+          | Assigned: mirichard
+        </div>
+      </div>
+
+      <div class="issue-item">
+        <div><strong>#297</strong>: 🎨 STORY: Enhanced Template Selector Tool</div>
+        <div class="issue-meta">
+          <span>Created: July 07</span>
+          <span class="label label-enhancement">ENHANCEMENT</span> <span class="label label-high-priority">HIGH-PRIORITY</span> <span class="label label-community">COMMUNITY</span> <span class="label label-ui-ux">UI-UX</span> <span class="label label-q3-2025">Q3-2025</span>
+          | Milestone: M2: Feature Enhancement (Oct 15, 2025)
+          | Due: October 14
+          | Assigned: mirichard
+        </div>
+      </div>
+
+      <div class="issue-item">
+        <div><strong>#285</strong>: 💼 EPIC: Executive Dashboard Enhancement Suite</div>
+        <div class="issue-meta">
+          <span>Created: July 01</span>
+          <span class="label label-high-priority">HIGH-PRIORITY</span> <span class="label label-epic">EPIC</span> <span class="label label-priority-high">PRIORITY-HIGH</span> <span class="label label-q3-2025">Q3-2025</span> <span class="label label-executive">EXECUTIVE</span> <span class="label label-enterprise">ENTERPRISE</span> <span class="label label-business value">BUSINESS VALUE</span>
+          | Milestone: M2: Feature Enhancement (Oct 15, 2025)
+          | Due: October 14
+          | Assigned: mirichard
+        </div>
+      </div>
+
+      <div class="issue-item">
+        <div><strong>#283</strong>: 🎯 THEME: Template Discovery & Navigation Overhaul</div>
+        <div class="issue-meta">
+          <span>Created: July 01</span>
+          <span class="label label-high-priority">HIGH-PRIORITY</span> <span class="label label-community">COMMUNITY</span> <span class="label label-theme-1-ux">THEME-1-UX</span> <span class="label label-ui-ux">UI-UX</span> <span class="label label-q3-2025">Q3-2025</span> <span class="label label-🟢 On Track">🟢 ON TRACK</span>
+          | Milestone: M1.1: Foundation Strengthening
+          | Due: September 28
+          | Assigned: mirichard
+        </div>
+      </div>
+
+      <div class="issue-item">
+        <div><strong>#66</strong>: 🔐 SECURITY: Implement Security Monitoring and Dependency Management</div>
+        <div class="issue-meta">
+          <span>Created: June 17</span>
+          <span class="label label-bug">BUG</span> <span class="label label-high-priority">HIGH-PRIORITY</span> <span class="label label-strategic">STRATEGIC</span> <span class="label label-theme-1-ux">THEME-1-UX</span>
+          | Milestone: Security & Maintenance
+          | Due: December 31
+          | Assigned: unassigned
+        </div>
+      </div>
+
+      <div class="issue-item">
+        <div><strong>#65</strong>: 🔐 SECURITY: Enable Signed Commits for Team Members</div>
+        <div class="issue-meta">
+          <span>Created: June 17</span>
+          <span class="label label-bug">BUG</span> <span class="label label-high-priority">HIGH-PRIORITY</span> <span class="label label-strategic">STRATEGIC</span> <span class="label label-theme-1-ux">THEME-1-UX</span>
+          | Milestone: Security & Maintenance
+          | Due: December 31
+          | Assigned: unassigned
+        </div>
+      </div>
+
+      <div class="issue-item">
+        <div><strong>#63</strong>: Community Contribution Platform</div>
+        <div class="issue-meta">
+          <span>Created: June 17</span>
+          <span class="label label-enhancement">ENHANCEMENT</span> <span class="label label-phase-2">PHASE-2</span> <span class="label label-high-priority">HIGH-PRIORITY</span> <span class="label label-strategic">STRATEGIC</span>
+          | Milestone: Phase 2: Capability Expansion
+          | Due: December 31
+          | Assigned: unassigned
+        </div>
+      </div>
+
+      <div class="issue-item">
+        <div><strong>#61</strong>: API Framework for Template Connectivity</div>
+        <div class="issue-meta">
+          <span>Created: June 17</span>
+          <span class="label label-enhancement">ENHANCEMENT</span> <span class="label label-phase-2">PHASE-2</span> <span class="label label-high-priority">HIGH-PRIORITY</span> <span class="label label-strategic">STRATEGIC</span>
+          | Milestone: Phase 2: Capability Expansion
+          | Due: December 31
+          | Assigned: unassigned
+        </div>
+      </div>
+
+      <div class="issue-item">
+        <div><strong>#59</strong>: Power Automate Integration Templates</div>
+        <div class="issue-meta">
+          <span>Created: June 17</span>
+          <span class="label label-enhancement">ENHANCEMENT</span> <span class="label label-phase-2">PHASE-2</span> <span class="label label-automation">AUTOMATION</span> <span class="label label-high-priority">HIGH-PRIORITY</span> <span class="label label-strategic">STRATEGIC</span>
+          | Milestone: Phase 2: Capability Expansion
+          | Due: December 31
+          | Assigned: unassigned
+        </div>
+      </div>
+
+      <div class="issue-item">
+        <div><strong>#50</strong>: 🚀 EPIC 1.12: Release Manager Role Template Suite</div>
+        <div class="issue-meta">
+          <span>Created: June 10</span>
+          <span class="label label-enhancement">ENHANCEMENT</span> <span class="label label-phase-2">PHASE-2</span> <span class="label label-high-priority">HIGH-PRIORITY</span> <span class="label label-epic">EPIC</span> <span class="label label-roadmap">ROADMAP</span> <span class="label label-strategic">STRATEGIC</span> <span class="label label-theme-1-ux">THEME-1-UX</span> <span class="label label-user-story">USER-STORY</span>
+          | Milestone: Phase 2: Capability Expansion
+          | Due: December 31
+          | Assigned: unassigned
+        </div>
+      </div>
+
+      <div class="issue-item">
+        <div><strong>#49</strong>: 👤 EPIC 1.11: Product Owner Role Template Suite</div>
+        <div class="issue-meta">
+          <span>Created: June 10</span>
+          <span class="label label-enhancement">ENHANCEMENT</span> <span class="label label-phase-2">PHASE-2</span> <span class="label label-high-priority">HIGH-PRIORITY</span> <span class="label label-epic">EPIC</span> <span class="label label-roadmap">ROADMAP</span> <span class="label label-strategic">STRATEGIC</span> <span class="label label-theme-1-ux">THEME-1-UX</span> <span class="label label-user-story">USER-STORY</span>
+          | Milestone: Phase 2: Capability Expansion
+          | Due: December 31
+          | Assigned: unassigned
+        </div>
+      </div>
+
+      <div class="issue-item">
+        <div><strong>#47</strong>: 📋 EPIC 1.10: Program Management Template Suite Implementation</div>
+        <div class="issue-meta">
+          <span>Created: June 09</span>
+          <span class="label label-enhancement">ENHANCEMENT</span> <span class="label label-phase-1">PHASE-1</span> <span class="label label-high-priority">HIGH-PRIORITY</span> <span class="label label-epic">EPIC</span> <span class="label label-roadmap">ROADMAP</span> <span class="label label-strategic">STRATEGIC</span> <span class="label label-theme-1-ux">THEME-1-UX</span>
+          | Milestone: M1.1: Foundation Strengthening
+          | Due: September 28
+          | Assigned: mirichard
+        </div>
+      </div>
+
+      <div class="issue-item">
+        <div><strong>#43</strong>: Benefits Realization Management Suite</div>
+        <div class="issue-meta">
+          <span>Created: June 09</span>
+          <span class="label label-enhancement">ENHANCEMENT</span> <span class="label label-phase-1">PHASE-1</span> <span class="label label-high-priority">HIGH-PRIORITY</span> <span class="label label-roadmap">ROADMAP</span> <span class="label label-strategic">STRATEGIC</span>
+          | Milestone: M1.1: Foundation Strengthening
+          | Due: September 28
+          | Assigned: mirichard
+        </div>
+      </div>
+
+      <div class="issue-item">
+        <div><strong>#42</strong>: Portfolio Management Suite</div>
+        <div class="issue-meta">
+          <span>Created: June 09</span>
+          <span class="label label-enhancement">ENHANCEMENT</span> <span class="label label-phase-1">PHASE-1</span> <span class="label label-high-priority">HIGH-PRIORITY</span> <span class="label label-roadmap">ROADMAP</span> <span class="label label-strategic">STRATEGIC</span>
+          | Milestone: M1.1: Foundation Strengthening
+          | Due: September 28
+          | Assigned: mirichard
+        </div>
+      </div>
+
+      <div class="issue-item">
+        <div><strong>#41</strong>: Core Program Manager Toolkit Development</div>
+        <div class="issue-meta">
+          <span>Created: June 09</span>
+          <span class="label label-enhancement">ENHANCEMENT</span> <span class="label label-phase-1">PHASE-1</span> <span class="label label-high-priority">HIGH-PRIORITY</span> <span class="label label-roadmap">ROADMAP</span> <span class="label label-strategic">STRATEGIC</span>
+          | Milestone: M1.1: Foundation Strengthening
+          | Due: September 28
+          | Assigned: mirichard
+        </div>
+      </div>
+
+      <div class="issue-item">
+        <div><strong>#23</strong>: 🚀 EPIC 0: PM Tools Templates Enhancement Roadmap (Master Epic)</div>
+        <div class="issue-meta">
+          <span>Created: June 08</span>
+          <span class="label label-high-priority">HIGH-PRIORITY</span> <span class="label label-epic">EPIC</span> <span class="label label-roadmap">ROADMAP</span> <span class="label label-strategic">STRATEGIC</span>
+          
+          
+          | Assigned: unassigned
+        </div>
+      </div>
+
+      <div class="issue-item">
+        <div><strong>#21</strong>: 🏪 [Phase 3.1] Template Marketplace</div>
+        <div class="issue-meta">
+          <span>Created: June 08</span>
+          <span class="label label-enhancement">ENHANCEMENT</span> <span class="label label-phase-3">PHASE-3</span> <span class="label label-high-priority">HIGH-PRIORITY</span> <span class="label label-strategic">STRATEGIC</span>
+          | Milestone: Phase 3: Ecosystem
+          | Due: June 30
+          | Assigned: unassigned
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="highlights">
+    <h2>🎯 Weekly Focus</h2>
+    <ul>
+      <li>Address 19 high-priority items</li>
+      <li>Continue risk prevention</li>
+      <li>Drive strategic progress (current: 20%)</li>
+    </ul>
+  </div>
+  
+  <div class="action-items">
+    <h2>📋 This Week's Action Items</h2>
+    <ol>
+      <li>Review detailed metrics in the <a href="https://github.com/mirichard/pm-tools-templates/blob/main/reports/status/weekly-status-2025-07-22.md">full status report</a></li>
+      <li>Join the daily standup at 10 AM for detailed updates</li>
+      <li>Update your task status before EOD</li>
+    </ol>
+  </div>
+  
+  <div class="footer">
+    <p>Generated by PM Tools Automation • <a href="https://github.com/mirichard/pm-tools-templates/actions/runs/16451294018">View Workflow Run</a></p>
+    <p>Reply to this email with any questions or schedule a meeting with the PM team.</p>
+  </div>
+</body>
+</html>

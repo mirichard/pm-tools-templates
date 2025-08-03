@@ -35,12 +35,13 @@ on:
           - hybrid
 
 env:
-  REPORT_DATE: $(date +%Y-%m-%d)
   MAIL_RECIPIENTS: project-team@example.com, stakeholders@example.com
   MAIL_FROM: project-status@example.com
 
 jobs:
   status-reporting:
+    # Run on schedule events and manual workflow_dispatch
+    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
     outputs:
       report_file: ${{ steps.report_path.outputs.path }}
       completion_rate: ${{ steps.metrics.outputs.completion_rate }}
@@ -326,14 +327,17 @@ jobs:
 
       - name: 📝 Set Report Path
         id: report_path
+        env:
+          REPORT_TYPE: ${{ github.event.inputs.report_type || 'weekly' }}
         run: |
           REPORT_FILE="reports/status/${REPORT_TYPE}-status-$(date +%Y-%m-%d).md"
           echo "path=$REPORT_FILE" >> $GITHUB_OUTPUT
 
   monday-email:
-    name: 📧 Send Monday Morning Email
+    name: 📧 Generate Email Content (Test)
     needs: status-reporting
-    if: github.event.schedule == '0 7 * * 1'
+    # Run on schedule events and manual workflow_dispatch (when status-reporting succeeds)
+    if: always() && needs.status-reporting.result == 'success' && (github.event_name == 'schedule' || github.event_name == 'workflow_dispatch')
     runs-on: ubuntu-latest
     env:
       COMPLETION_RATE: ${{ needs.status-reporting.outputs.completion_rate }}
@@ -504,16 +508,47 @@ jobs:
           </html>
           EOF
 
+      - name: 💾 Commit Email Content (Test Mode)
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "Email Test Automation"
+          
+          # Add the generated email content
+          git add email/
+          
+          # Commit if there are changes
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "📧 Generate test email content - $(date +"%B %d, %Y")"
+            git push
+          fi
+
       - name: 📧 Send Status Email
+        # Only send email if EMAIL_USERNAME secret is configured
+        if: ${{ secrets.EMAIL_USERNAME != '' }}
         uses: dawidd6/action-send-mail@v3
         with:
           server_address: smtp.gmail.com
           server_port: 465
           username: ${{ secrets.EMAIL_USERNAME }}
           password: ${{ secrets.EMAIL_PASSWORD }}
-          subject: "📊 Monday Morning Status Update - $(date +"%B %d, %Y")"
+          subject: "📊 Weekly Project Status Update - $(date +"%B %d, %Y")"
           html_body: file://./email/monday-status.html
-          to: ${{ env.MAIL_RECIPIENTS }}
-          from: ${{ env.MAIL_FROM }}
+          to: ${{ secrets.EMAIL_RECIPIENTS || env.MAIL_RECIPIENTS }}
+          from: ${{ secrets.EMAIL_FROM || env.MAIL_FROM }}
           content_type: text/html
+          
+      - name: 📧 Email Status Summary
+        run: |
+          if [ "${{ secrets.EMAIL_USERNAME }}" != "" ]; then
+            echo "📧 Email sent successfully to: ${{ secrets.EMAIL_RECIPIENTS || env.MAIL_RECIPIENTS }}"
+          else
+            echo "⚠️  Email not sent - EMAIL_USERNAME secret not configured"
+            echo "To enable email delivery, add these GitHub secrets:"
+            echo "  - EMAIL_USERNAME (your email address)"
+            echo "  - EMAIL_PASSWORD (your email app password)"
+            echo "  - EMAIL_RECIPIENTS (comma-separated recipient emails)"
+            echo "  - EMAIL_FROM (optional - sender email address)"
+          fi
 
