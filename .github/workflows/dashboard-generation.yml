@@ -316,9 +316,17 @@ jobs:
           EOF
 
       - name: 💾 Commit Dashboard Updates
+        # Only run on main branch and scheduled events, not PRs
+        if: github.ref == 'refs/heads/main' || github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "Dashboard Generator"
+          
+          # Ensure we're on the right branch
+          if [ "${{ github.event_name }}" = "pull_request" ]; then
+            echo "⚠️ Skipping dashboard commit for pull request events"
+            exit 0
+          fi
           
           # Add dashboard files
           git add dashboards/ || echo "No dashboard files to add"
@@ -329,43 +337,14 @@ jobs:
           else
             git commit -m "📊 Update project health dashboard - $(date +%Y-%m-%d\ %H:%M)"
             
-            # Try to push with retry logic for conflicts
-            MAX_RETRIES=3
-            RETRY_COUNT=0
-            
-            while [ $RETRY_COUNT -lt $MAX_RETRIES ]; do
-              if git push; then
-                echo "✅ Dashboard update pushed successfully"
-                break
-              else
-                echo "⚠️ Push failed, attempting to resolve conflicts (attempt $((RETRY_COUNT + 1))/$MAX_RETRIES)"
-                
-                # Fetch latest changes
-                git fetch origin main
-                
-                # Try to rebase, handling conflicts automatically
-                if git rebase origin/main; then
-                  echo "✅ Rebase successful"
-                else
-                  echo "🔧 Resolving conflicts automatically"
-                  # For dashboard files, always use our version (latest generated data)
-                  git checkout --ours dashboards/
-                  git add dashboards/
-                  git rebase --continue
-                fi
-                
-                RETRY_COUNT=$((RETRY_COUNT + 1))
-                
-                if [ $RETRY_COUNT -eq $MAX_RETRIES ]; then
-                  echo "❌ Failed to push after $MAX_RETRIES attempts"
-                  echo "📋 Manual intervention may be required"
-                  exit 1
-                fi
-                
-                # Wait a moment before retrying
-                sleep 2
-              fi
-            done
+            # Push directly to main (we're already on main for scheduled/manual runs)
+            if git push origin HEAD:main; then
+              echo "✅ Dashboard update pushed successfully"
+            else
+              echo "⚠️ Push failed, attempting to pull and retry"
+              git pull --rebase origin main
+              git push origin HEAD:main
+            fi
           fi
 
       - name: 📊 Generate Dashboard
