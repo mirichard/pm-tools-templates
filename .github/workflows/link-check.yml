@@ -9,6 +9,11 @@ on:
     # Run daily at 2 AM UTC
     - cron: '0 2 * * *'
 
+permissions:
+  contents: read
+  issues: write
+  pull-requests: write
+
 jobs:
   link-check:
     runs-on: ubuntu-latest
@@ -52,39 +57,47 @@ jobs:
     - name: Comment on PR with link health
       if: github.event_name == 'pull_request'
       uses: actions/github-script@v6
+      continue-on-error: true
       with:
         script: |
-          const fs = require('fs');
-          const report = fs.readFileSync('link_report.txt', 'utf8');
-          const healthScore = '${{ steps.link_check.outputs.health_score }}';
-          
-          const summary = report.split('📊 LINK ANALYSIS SUMMARY')[1]?.split('❌ BROKEN LINKS FOUND')[0] || '';
-          
-          let status = '✅ Excellent';
-          if (healthScore < 95) status = '⚠️ Needs Attention';
-          if (healthScore < 85) status = '❌ Poor';
-          
-          const body = `## 🔗 Link Health Check Results
-          
-          **Status:** ${status}  
-          **Health Score:** ${healthScore}%
-          
-          ### Summary
-          \`\`\`
-          ${summary.trim()}
-          \`\`\`
-          
-          ${healthScore < 95 ? '⚠️ **Action Required:** Link health is below target (95%). Please review and fix broken links.' : '✅ **All Good:** Link health meets quality standards.'}
-          
-          📄 [View Full Report](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }})
-          `;
-          
-          github.rest.issues.createComment({
-            issue_number: context.issue.number,
-            owner: context.repo.owner,
-            repo: context.repo.repo,
-            body: body
-          });
+          try {
+            const fs = require('fs');
+            const report = fs.readFileSync('link_report.txt', 'utf8');
+            const healthScore = '${{ steps.link_check.outputs.health_score }}';
+            
+            const summary = report.split('📊 LINK ANALYSIS SUMMARY')[1]?.split('❌ BROKEN LINKS FOUND')[0] || '';
+            
+            let status = '✅ Excellent';
+            if (healthScore < 95) status = '⚠️ Needs Attention';
+            if (healthScore < 85) status = '❌ Poor';
+            
+            const body = `## 🔗 Link Health Check Results
+            
+            **Status:** ${status}  
+            **Health Score:** ${healthScore}%
+            
+            ### Summary
+            \`\`\`
+            ${summary.trim()}
+            \`\`\`
+            
+            ${healthScore < 95 ? '⚠️ **Action Required:** Link health is below target (95%). Please review and fix broken links.' : '✅ **All Good:** Link health meets quality standards.'}
+            
+            📄 [View Full Report](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }})
+            `;
+            
+            await github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: body
+            });
+            
+            console.log('✅ Successfully commented on PR');
+          } catch (error) {
+            console.log('⚠️ Could not comment on PR:', error.message);
+            console.log('This is non-critical - the link health check still passed');
+          }
           
     - name: Check link health threshold
       run: |

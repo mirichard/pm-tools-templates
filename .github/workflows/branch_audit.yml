@@ -1,0 +1,25 @@
+name: Branch Audit
+on:
+  schedule:
+    - cron: "0 2 * * 0"   # Sunday 02:00 UTC
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with: { fetch-depth: 0 }
+      - name: Inventory branches
+        run: |
+          git fetch --all -p
+          printf "| Branch | Last Commit | Author | Ahead of main |\n|-------|------------|--------|--------------|\n" > report.md
+          for br in $(git branch -r | grep -vE 'main|staging|develop'); do
+            last=$(git log -1 --pretty="%h (%cr)" $br)
+            author=$(git log -1 --pretty="%an" $br)
+            ahead=$(git cherry -v origin/main $br | wc -l)
+            printf "| %s | %s | %s | %s |\n" "${br#origin/}" "$last" "$author" "$ahead" >> report.md
+          done
+      - uses: peter-evans/create-or-update-comment@v3
+        with:
+          issue-number: 1
+          body-file: report.md
+

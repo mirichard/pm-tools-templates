@@ -1,0 +1,18 @@
+name: Stale Branch Cleanup
+on:
+  schedule:
+    - cron: "0 3 * * *"   # Daily 03:00 UTC
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: phpdroid/remove-stale-branches@v3
+        with:
+          days-before-stale: 30
+          days-before-delete: 14
+          ignore: |
+            main
+            staging
+            develop
+            chore/branch-governance-setup
+

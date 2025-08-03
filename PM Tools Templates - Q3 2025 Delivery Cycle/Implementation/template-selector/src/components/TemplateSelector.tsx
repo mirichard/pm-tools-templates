@@ -243,14 +243,6 @@ if (error) {
         onToggleHelp={() => setIsPaletteOpen(true)}
         onSort={() => console.log('Sort templates')}
       />
-  <>
-<>
-    <Header
-      onSearch={(query) => setSearchQuery(query)}
-      onToggleFilters={() => setIsFilterPanelOpen(!isFilterPanelOpen)}
-      onToggleHelp={() => setIsPaletteOpen(true)}
-      onSort={() => console.log('Sort templates')}
-    />
       <div className="wizard-trigger">
         <button 
           onClick={() => setIsWizardOpen(true)}
