@@ -31,7 +31,7 @@ jobs:
     permissions:
       contents: write
       issues: read
-      pull-requests: read
+      pull-requests: write
 
     steps:
       - name: 📥 Checkout Repository
@@ -143,6 +143,8 @@ jobs:
 
       - name: 📊 Generate Comprehensive Dashboard
         if: github.event.inputs.dashboard_type == 'comprehensive' || github.event_name != 'workflow_dispatch'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           # Create comprehensive project dashboard
           mkdir -p dashboards
@@ -318,11 +320,13 @@ jobs:
       - name: 💾 Commit Dashboard Updates
         # Only run on main branch and scheduled events, not PRs
         if: github.ref == 'refs/heads/main' || github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "Dashboard Generator"
           
-          # Ensure we're on the right branch
+          # Skip commits on pull request events to avoid conflicts
           if [ "${{ github.event_name }}" = "pull_request" ]; then
             echo "⚠️ Skipping dashboard commit for pull request events"
             exit 0
@@ -337,13 +341,27 @@ jobs:
           else
             git commit -m "📊 Update project health dashboard - $(date +%Y-%m-%d\ %H:%M)"
             
-            # Push directly to main (we're already on main for scheduled/manual runs)
-            if git push origin HEAD:main; then
-              echo "✅ Dashboard update pushed successfully"
+            # Push directly to develop branch (since main is protected)
+            if git push origin HEAD:develop; then
+              echo "✅ Dashboard update pushed to develop branch successfully"
             else
-              echo "⚠️ Push failed, attempting to pull and retry"
-              git pull --rebase origin main
-              git push origin HEAD:main
+              echo "⚠️ Push failed, attempting to resolve conflicts"
+              # Fetch latest changes
+              git fetch origin develop
+              # Try to rebase
+              if git rebase origin/develop; then
+                echo "✅ Rebase successful"
+                git push origin HEAD:develop
+                echo "✅ Dashboard update pushed after rebase"
+              else
+                echo "🔧 Resolving conflicts automatically"
+                # For dashboard files, always use our version (latest generated data)
+                git checkout --ours dashboards/
+                git add dashboards/
+                git rebase --continue
+                git push origin HEAD:develop
+                echo "✅ Dashboard update pushed after conflict resolution"
+              fi
             fi
           fi
 

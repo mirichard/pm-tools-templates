@@ -7,7 +7,7 @@
 
 ### Local Branches
 | Branch | Status | Reason | Command |
-|--------|--------|--------|---------|
+|--------|---------|---------|---------|
 | `feature/add-contributing-guide` | SAFE | No unique commits, already in main | `git branch -d feature/add-contributing-guide` |
 | `feature/add-template-checklist` | SAFE | No unique commits, superseded | `git branch -d feature/add-template-checklist` |
 | `feature/enhance-readme-badges` | SAFE | Changes integrated via other branches | `git branch -d feature/enhance-readme-badges` |
