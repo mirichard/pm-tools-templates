@@ -179,7 +179,7 @@ jobs:
   storage-analysis:
     name: 💾 Storage Analysis
     runs-on: ubuntu-latest
-    needs: artifact-discovery
+    needs: manage-artifacts
     
     steps:
       - name: 📥 Checkout Repository
