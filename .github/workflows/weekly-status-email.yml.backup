@@ -1,0 +1,504 @@
+name: 📧 Weekly Status Email
+
+on:
+  schedule:
+    # Generate weekly status reports every Friday at 4 PM UTC
+    - cron: '0 16 * * 5'
+    # Send Monday morning status emails at 7 AM UTC
+    - cron: '0 7 * * 1'
+  push:
+    branches: [ main ]
+  # Allow manual triggering for testing
+  workflow_dispatch:
+    inputs:
+      test_mode:
+        description: 'Run in test mode'
+        required: false
+        default: 'true'
+        type: boolean
+      report_type:
+        description: 'Type of status report'
+        required: true
+        default: 'weekly'
+        type: choice
+        options:
+          - weekly
+          - monthly
+          - sprint
+          - milestone
+      methodology:
+        description: 'Project methodology'
+        required: false
+        default: 'agile'
+        type: choice
+        options:
+          - agile
+          - traditional
+          - hybrid
+
+env:
+  MAIL_RECIPIENTS: project-team@example.com, stakeholders@example.com
+  MAIL_FROM: project-status@example.com
+
+jobs:
+  status-reporting:
+    # Run on schedule events, manual workflow_dispatch, and push events
+    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch' || github.event_name == 'push'
+    outputs:
+      report_file: ${{ steps.report_path.outputs.path }}
+      completion_rate: ${{ steps.metrics.outputs.completion_rate }}
+      strategic_progress: ${{ steps.metrics.outputs.strategic_progress }}
+      critical_risks: ${{ steps.metrics.outputs.critical_risks }}
+      high_priority: ${{ steps.metrics.outputs.high_priority }}
+    name: Generate Status Report
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      issues: read
+      pull-requests: read
+      actions: read
+
+    steps:
+      - name: 📥 Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: 📊 Collect Project Metrics
+        id: metrics
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          # Collect comprehensive project metrics
+          
+          # Issue metrics
+          TOTAL_ISSUES=$(gh issue list --state all --json number | jq length)
+          OPEN_ISSUES=$(gh issue list --state open --json number | jq length)
+          CLOSED_ISSUES=$(gh issue list --state closed --json number | jq length)
+          HIGH_PRIORITY=$(gh issue list --label "high-priority" --state open --json number | jq length)
+          BUGS=$(gh issue list --label "bug" --state open --json number | jq length)
+          
+          # Calculate completion rate
+          if [ $TOTAL_ISSUES -gt 0 ]; then
+            COMPLETION_RATE=$(( CLOSED_ISSUES * 100 / TOTAL_ISSUES ))
+          else
+            COMPLETION_RATE=0
+          fi
+          
+          # Strategic issues metrics
+          STRATEGIC_OPEN=$(gh issue list --label "strategic" --state open --json number | jq length)
+          STRATEGIC_TOTAL=$(gh issue list --label "strategic" --state all --json number | jq length)
+          
+          if [ $STRATEGIC_TOTAL -gt 0 ]; then
+            STRATEGIC_PROGRESS=$(( (STRATEGIC_TOTAL - STRATEGIC_OPEN) * 100 / STRATEGIC_TOTAL ))
+          else
+            STRATEGIC_PROGRESS=0
+          fi
+          
+          # Risk assessment
+          CRITICAL_RISKS=$(gh issue list --label "critical" --state open --json number | jq length)
+          BLOCKERS=$(gh issue list --label "blocker" --state open --json number | jq length)
+          
+          # Recently completed work
+          RECENT_CLOSED=$(gh issue list --state closed --json number,title,closedAt --jq '[.[] | select(.closedAt | fromdateiso8601 > (now - 604800))] | length')
+          
+          # Store metrics
+          echo "total_issues=$TOTAL_ISSUES" >> $GITHUB_OUTPUT
+          echo "open_issues=$OPEN_ISSUES" >> $GITHUB_OUTPUT
+          echo "closed_issues=$CLOSED_ISSUES" >> $GITHUB_OUTPUT
+          echo "completion_rate=$COMPLETION_RATE" >> $GITHUB_OUTPUT
+          echo "high_priority=$HIGH_PRIORITY" >> $GITHUB_OUTPUT
+          echo "bugs=$BUGS" >> $GITHUB_OUTPUT
+          echo "strategic_open=$STRATEGIC_OPEN" >> $GITHUB_OUTPUT
+          echo "strategic_progress=$STRATEGIC_PROGRESS" >> $GITHUB_OUTPUT
+          echo "critical_risks=$CRITICAL_RISKS" >> $GITHUB_OUTPUT
+          echo "blockers=$BLOCKERS" >> $GITHUB_OUTPUT
+          echo "recent_closed=$RECENT_CLOSED" >> $GITHUB_OUTPUT
+
+      - name: 📊 Generate Status Report
+        env:
+          REPORT_TYPE: ${{ github.event.inputs.report_type || 'weekly' }}
+          METHODOLOGY: ${{ github.event.inputs.methodology || 'agile' }}
+        run: |
+          REPORT_TYPE="$REPORT_TYPE"
+          METHODOLOGY="$METHODOLOGY"
+          
+          # Create reports directory
+          mkdir -p reports/status
+          
+          # Generate comprehensive status report
+          cat > reports/status/${REPORT_TYPE}-status-$(date +%Y-%m-%d).md << EOF
+          # ${REPORT_TYPE^} Status Report
+          
+          **Report Date:** $(date)
+          **Report Type:** ${REPORT_TYPE^}
+          **Methodology:** ${METHODOLOGY^}
+          **Generated By:** Weekly Status Email Workflow
+          
+          ## 📊 Executive Summary
+          
+          | Metric | Value | Trend |
+          |--------|-------|-------|
+          | **Overall Completion** | ${{ steps.metrics.outputs.completion_rate }}% | $([ ${{ steps.metrics.outputs.completion_rate }} -ge 75 ] && echo "🟢 On Track" || echo "🟡 Needs Attention") |
+          | **Strategic Progress** | ${{ steps.metrics.outputs.strategic_progress }}% | $([ ${{ steps.metrics.outputs.strategic_progress }} -ge 50 ] && echo "🟢 Good" || echo "🔴 Behind") |
+          | **Open Issues** | ${{ steps.metrics.outputs.open_issues }} | $([ ${{ steps.metrics.outputs.open_issues }} -le 20 ] && echo "🟢 Manageable" || echo "🟡 High Volume") |
+          | **High Priority Items** | ${{ steps.metrics.outputs.high_priority }} | $([ ${{ steps.metrics.outputs.high_priority }} -le 5 ] && echo "🟢 Good" || echo "🔴 Attention Needed") |
+          | **Active Risks** | ${{ steps.metrics.outputs.critical_risks }} | $([ ${{ steps.metrics.outputs.critical_risks }} -eq 0 ] && echo "🟢 No Critical Risks" || echo "🚨 Critical Issues") |
+          
+          ## 🎯 Key Highlights
+          
+          ### ✅ Accomplishments This Period
+          - Completed ${{ steps.metrics.outputs.recent_closed }} issues in the last 7 days
+          - Overall project completion: ${{ steps.metrics.outputs.completion_rate }}%
+          - Strategic milestone progress: ${{ steps.metrics.outputs.strategic_progress }}%
+          
+          ### 🎯 Current Focus Areas
+          - ${{ steps.metrics.outputs.high_priority }} high-priority items requiring attention
+          - ${{ steps.metrics.outputs.bugs }} active bugs to be resolved
+          $([ ${{ steps.metrics.outputs.blockers }} -gt 0 ] && echo "- ${{ steps.metrics.outputs.blockers }} blocking issues preventing progress" || echo "- No current blockers")
+          
+          ### ⚠️ Risks and Issues
+          $([ ${{ steps.metrics.outputs.critical_risks }} -gt 0 ] && echo "- 🚨 ${{ steps.metrics.outputs.critical_risks }} critical risks requiring immediate attention" || echo "- ✅ No critical risks identified")
+          $([ ${{ steps.metrics.outputs.blockers }} -gt 0 ] && echo "- 🛑 ${{ steps.metrics.outputs.blockers }} blockers impeding progress" || echo "- ✅ No blockers currently active")
+          
+          ## 📈 Detailed Metrics
+          
+          ### Issue Summary
+          - **Total Issues:** ${{ steps.metrics.outputs.total_issues }}
+          - **Open Issues:** ${{ steps.metrics.outputs.open_issues }}
+          - **Closed Issues:** ${{ steps.metrics.outputs.closed_issues }}
+          - **Completion Rate:** ${{ steps.metrics.outputs.completion_rate }}%
+          
+          ### Priority Breakdown
+          EOF
+          
+          # Add methodology-specific sections
+          if [ "$METHODOLOGY" = "agile" ]; then
+            cat >> reports/status/${REPORT_TYPE}-status-$(date +%Y-%m-%d).md << EOF
+          
+          ## 🚀 Agile Metrics
+          
+          ### Current Sprint Status
+          - Sprint completion rate: TBD%
+          - Velocity trend: TBD story points
+          - Sprint burndown: On track / Behind schedule
+          
+          ### Team Performance
+          - Daily standup attendance: TBD%
+          - Sprint review completion: TBD
+          - Retrospective action items: TBD active
+          EOF
+          elif [ "$METHODOLOGY" = "traditional" ]; then
+            cat >> reports/status/${REPORT_TYPE}-status-$(date +%Y-%m-%d).md << EOF
+          
+          ## 📋 Traditional PM Metrics
+          
+          ### Project Phase Status
+          - Current Phase: TBD
+          - Phase completion: TBD%
+          - Milestone adherence: On track / Behind schedule
+          
+          ### Deliverable Status
+          - Planned deliverables: TBD
+          - Completed deliverables: TBD
+          - Deliverables at risk: TBD
+          EOF
+          else
+            cat >> reports/status/${REPORT_TYPE}-status-$(date +%Y-%m-%d).md << EOF
+          
+          ## 🔄 Hybrid Methodology Metrics
+          
+          ### Waterfall Phase Progress
+          - Current phase completion: TBD%
+          - Next milestone: TBD
+          
+          ### Agile Iteration Status
+          - Current iteration: TBD
+          - Iteration velocity: TBD
+          EOF
+          fi
+          
+          # Add recent activity section
+          cat >> reports/status/${REPORT_TYPE}-status-$(date +%Y-%m-%d).md << EOF
+          
+          ## 📅 Recent Activity (Last 7 Days)
+          
+          ### Completed Items
+          EOF
+          
+          # Add recently closed issues
+          gh issue list --state closed --json number,title,closedAt --jq '[.[] | select(.closedAt | fromdateiso8601 > (now - 604800))] | .[] | "- #\(.number): \(.title) (Closed: \(.closedAt | split("T")[0]))"' >> reports/status/${REPORT_TYPE}-status-$(date +%Y-%m-%d).md || echo "- No items completed in the last 7 days" >> reports/status/${REPORT_TYPE}-status-$(date +%Y-%m-%d).md
+          
+          # Add upcoming items section
+          cat >> reports/status/${REPORT_TYPE}-status-$(date +%Y-%m-%d).md << EOF
+          
+          ### Upcoming Priorities
+          EOF
+          
+          # Add high-priority open issues
+          gh issue list --label "high-priority" --state open --json number,title --jq '.[] | "- #\(.number): \(.title)"' >> reports/status/${REPORT_TYPE}-status-$(date +%Y-%m-%d).md || echo "- No high-priority items currently open" >> reports/status/${REPORT_TYPE}-status-$(date +%Y-%m-%d).md
+          
+          # Add footer
+          cat >> reports/status/${REPORT_TYPE}-status-$(date +%Y-%m-%d).md << EOF
+          
+          ## 🔮 Next Period Outlook
+          
+          ### Planned Activities
+          - Continue progress on high-priority items
+          - Address any identified risks or blockers
+          - Maintain current completion velocity
+          
+          ### Success Metrics
+          - Target completion rate: $(( ${{ steps.metrics.outputs.completion_rate }} + 5 ))%
+          - Reduce open high-priority items by 20%
+          - Maintain zero critical risks
+          
+          ---
+          
+          **Report Generated:** $(date)  
+          **Next Report:** $(date -d "+7 days" +%Y-%m-%d)  
+          **Automation:** Weekly Status Email Workflow  
+          **Contact:** Project Management Team
+          EOF
+
+      - name: 📊 Generate Metrics JSON
+        run: |
+          # Create metrics data file
+          mkdir -p metrics/status-data
+          
+          cat > metrics/status-data/status-metrics-$(date +%Y-%m-%d).json << EOF
+          {
+            "report_date": "$(date -Iseconds)",
+            "report_type": "${{ github.event.inputs.report_type || 'weekly' }}",
+            "methodology": "${{ github.event.inputs.methodology || 'agile' }}",
+            "metrics": {
+              "total_issues": ${{ steps.metrics.outputs.total_issues }},
+              "open_issues": ${{ steps.metrics.outputs.open_issues }},
+              "closed_issues": ${{ steps.metrics.outputs.closed_issues }},
+              "completion_rate": ${{ steps.metrics.outputs.completion_rate }},
+              "high_priority": ${{ steps.metrics.outputs.high_priority }},
+              "bugs": ${{ steps.metrics.outputs.bugs }},
+              "strategic_open": ${{ steps.metrics.outputs.strategic_open }},
+              "strategic_progress": ${{ steps.metrics.outputs.strategic_progress }},
+              "critical_risks": ${{ steps.metrics.outputs.critical_risks }},
+              "blockers": ${{ steps.metrics.outputs.blockers }},
+              "recent_closed": ${{ steps.metrics.outputs.recent_closed }}
+            },
+            "health_indicators": {
+              "overall_health": "$([ ${{ steps.metrics.outputs.completion_rate }} -ge 75 ] && echo "green" || echo "yellow")",
+              "risk_level": "$([ ${{ steps.metrics.outputs.critical_risks }} -eq 0 ] && echo "low" || echo "high")",
+              "progress_trend": "$([ ${{ steps.metrics.outputs.recent_closed }} -gt 0 ] && echo "positive" || echo "stagnant")"
+            }
+          }
+          EOF
+
+      - name: 💾 Commit Status Report
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "Weekly Status Automation"
+          
+          # Add the generated reports
+          git add reports/status/ metrics/status-data/
+          
+          # Commit if there are changes
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "📧 Generate ${{ github.event.inputs.report_type || 'weekly' }} status report - ${{ steps.metrics.outputs.completion_rate }}% complete"
+            git push
+          fi
+
+      - name: 📋 Status Summary
+        env:
+          REPORT_TYPE: ${{ github.event.inputs.report_type || 'weekly' }}
+          METHODOLOGY: ${{ github.event.inputs.methodology || 'agile' }}
+          COMPLETION_RATE: ${{ steps.metrics.outputs.completion_rate }}
+          STRATEGIC_PROGRESS: ${{ steps.metrics.outputs.strategic_progress }}
+          OPEN_ISSUES: ${{ steps.metrics.outputs.open_issues }}
+          HIGH_PRIORITY: ${{ steps.metrics.outputs.high_priority }}
+          CRITICAL_RISKS: ${{ steps.metrics.outputs.critical_risks }}
+        run: |
+          echo "📧 Weekly Status Report Generated"
+          echo "================================="
+          echo "Report Type: $REPORT_TYPE"
+          echo "Methodology: $METHODOLOGY"
+          echo "Completion Rate: $COMPLETION_RATE%"
+          echo "Strategic Progress: $STRATEGIC_PROGRESS%"
+          echo "Open Issues: $OPEN_ISSUES"
+          echo "High Priority: $HIGH_PRIORITY"
+          echo "Critical Risks: $CRITICAL_RISKS"
+          echo "Recent Completions: ${{ steps.metrics.outputs.recent_closed }}"
+
+      - name: 📝 Set Report Path
+        id: report_path
+        env:
+          REPORT_TYPE: ${{ github.event.inputs.report_type || 'weekly' }}
+        run: |
+          REPORT_FILE="reports/status/${REPORT_TYPE}-status-$(date +%Y-%m-%d).md"
+          echo "path=$REPORT_FILE" >> $GITHUB_OUTPUT
+
+  send-email:
+    name: 📧 Send Status Email
+    needs: status-reporting
+    # Only run if status-reporting succeeds and EMAIL_USERNAME is configured
+    if: always() && needs.status-reporting.result == 'success' && (github.event_name == 'schedule' || github.event_name == 'workflow_dispatch')
+    runs-on: ubuntu-latest
+    env:
+      COMPLETION_RATE: ${{ needs.status-reporting.outputs.completion_rate }}
+      STRATEGIC_PROGRESS: ${{ needs.status-reporting.outputs.strategic_progress }}
+      CRITICAL_RISKS: ${{ needs.status-reporting.outputs.critical_risks }}
+      HIGH_PRIORITY: ${{ needs.status-reporting.outputs.high_priority }}
+    
+    steps:
+      - name: 📥 Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: 📧 Generate Email Content
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          mkdir -p ./email
+          
+          # Fetch high priority issues
+          gh issue list \
+            --label "high-priority" \
+            --state open \
+            --json number,title,createdAt,milestone,assignees,labels \
+            --jq 'map({number, title, created_at: .createdAt, milestone: .milestone.title, due_date: .milestone.dueOn, assignee: (.assignees[0].login // "unassigned"), labels: [.labels[].name]})' \
+            > ./email/high-priority.json
+
+          # Generate HTML email
+          cat > ./email/status-email.html << 'EOF'
+          <!DOCTYPE html>
+          <html>
+          <head>
+            <meta charset="utf-8">
+            <style>
+              body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; max-width: 800px; margin: 0 auto; padding: 20px; }
+              .header { background: #f8f9fa; padding: 20px; margin-bottom: 20px; border-radius: 5px; }
+              .metrics { display: flex; justify-content: space-between; margin: 20px 0; flex-wrap: wrap; }
+              .metric-card { background: white; padding: 15px; border-radius: 5px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); width: 23%; min-width: 150px; margin-bottom: 10px; }
+              .metric-value { font-size: 24px; font-weight: bold; margin: 10px 0; }
+              .status-good { color: #28a745; }
+              .status-warning { color: #ffc107; }
+              .status-danger { color: #dc3545; }
+              .highlights { margin: 20px 0; }
+              .action-items { background: #f8f9fa; padding: 20px; border-radius: 5px; margin: 20px 0; }
+              .footer { font-size: 12px; color: #666; margin-top: 20px; text-align: center; }
+            </style>
+          </head>
+          <body>
+            <div class="header">
+              <h1>📊 Weekly Project Status Update</h1>
+              <p>Generated on $(date +"%B %d, %Y at %H:%M UTC")</p>
+            </div>
+            
+            <div class="metrics">
+              <div class="metric-card">
+                <h3>Completion</h3>
+                <div class="metric-value status-good">${COMPLETION_RATE}%</div>
+                <p>Overall Progress</p>
+              </div>
+              <div class="metric-card">
+                <h3>Strategic</h3>
+                <div class="metric-value status-danger">${STRATEGIC_PROGRESS}%</div>
+                <p>Strategic Goals</p>
+              </div>
+              <div class="metric-card">
+                <h3>Priorities</h3>
+                <div class="metric-value status-warning">${HIGH_PRIORITY}</div>
+                <p>High Priority Items</p>
+              </div>
+              <div class="metric-card">
+                <h3>Risks</h3>
+                <div class="metric-value status-good">${CRITICAL_RISKS}</div>
+                <p>Critical Issues</p>
+              </div>
+            </div>
+            
+            <div class="highlights">
+              <h2>🎯 Weekly Focus</h2>
+              <ul>
+                <li>Address ${HIGH_PRIORITY} high-priority items</li>
+                <li>Drive strategic progress (current: ${STRATEGIC_PROGRESS}%)</li>
+                <li>Maintain zero critical risks</li>
+              </ul>
+            </div>
+            
+            <div class="action-items">
+              <h2>📋 Action Items</h2>
+              <ol>
+                <li>Review high-priority issues in GitHub</li>
+                <li>Update task status before EOD Friday</li>
+                <li>Join Monday standup for detailed updates</li>
+              </ol>
+            </div>
+            
+            <div class="footer">
+              <p>Generated by PM Tools Automation</p>
+              <p>This is a test email from your GitHub Actions workflow</p>
+            </div>
+          </body>
+          </html>
+          EOF
+
+      - name: 📧 Send Status Email
+        if: ${{ secrets.EMAIL_USERNAME != '' }}
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.gmail.com
+          server_port: 465
+          username: ${{ secrets.EMAIL_USERNAME }}
+          password: ${{ secrets.EMAIL_PASSWORD }}
+          subject: "📊 Test: Weekly Project Status - $(date +"%B %d, %Y")"
+          html_body: file://./email/status-email.html
+          to: ${{ secrets.EMAIL_RECIPIENTS || env.MAIL_RECIPIENTS }}
+          from: ${{ secrets.EMAIL_FROM || env.MAIL_FROM }}
+          content_type: text/html
+          
+      - name: 📧 Email Status
+        run: |
+          if [ "${{ secrets.EMAIL_USERNAME }}" != "" ]; then
+            echo "✅ Test email sent successfully!"
+            echo "📧 Sent to: ${{ secrets.EMAIL_RECIPIENTS || env.MAIL_RECIPIENTS }}"
+            echo "📊 Content: Weekly status report with project metrics"
+          else
+            echo "❌ Email not sent - EMAIL_USERNAME secret not configured"
+          fi
+
+  # monday-email:
+  #   name: 📧 Send Monday Morning Email
+  #   needs: status-reporting
+  #   # Run on schedule events and manual workflow_dispatch (when status-reporting succeeds)
+  #   if: always() && needs.status-reporting.result == 'success' && (github.event_name == 'schedule' || github.event_name == 'workflow_dispatch')
+  #   runs-on: ubuntu-latest
+  #   env:
+  #     COMPLETION_RATE: ${{ needs.status-reporting.outputs.completion_rate }}
+  #     STRATEGIC_PROGRESS: ${{ needs.status-reporting.outputs.strategic_progress }}
+  #     CRITICAL_RISKS: ${{ needs.status-reporting.outputs.critical_risks }}
+  #     HIGH_PRIORITY: ${{ needs.status-reporting.outputs.high_priority }}
+  #   
+  #   steps:
+  #     - name: 📥 Checkout Repository
+  #       uses: actions/checkout@v4
+  #
+  #     - name: 📧 Generate Email Content
+  #       env:
+  #         GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  #       run: |
+  #         # Create email directory
+  #         mkdir -p ./email
+  #
+  #         # Generate HTML email content (see original workflow for full implementation)
+  #         echo "Email generation would happen here in production"
+  #
+  #     - name: 📧 Send Status Email
+  #       uses: dawidd6/action-send-mail@v3
+  #       with:
+  #         server_address: smtp.gmail.com
+  #         server_port: 465
+  #         username: ${{ secrets.EMAIL_USERNAME }}
+  #         password: ${{ secrets.EMAIL_PASSWORD }}
+  #         subject: "📧 Weekly Status Update - $(date +"%B %d, %Y")"
+  #         html_body: file://./email/monday-status.html
+  #         to: ${{ env.MAIL_RECIPIENTS }}
+  #         from: ${{ env.MAIL_FROM }}
+  #         content_type: text/html
