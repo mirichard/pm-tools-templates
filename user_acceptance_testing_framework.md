@@ -63,25 +63,25 @@ This framework provides a comprehensive approach to User Acceptance Testing (UAT
 ## Templates and Tools
 
 ### Traditional Templates
-- [UAT Plan Template](Traditional/Templates/uat_plan_template.md)
-- [UAT Test Case Template](Traditional/Templates/uat_test_case_template.md)
-- [UAT Execution Report](Traditional/Templates/uat_execution_report_template.md)
-- [UAT Sign-off Template](Traditional/Templates/uat_signoff_template.md)
-- [UAT Defect Log](Traditional/Tools/uat_defect_log_template.md)
+- [UAT Plan Template](/templates/traditional/Templates/uat_plan_template.md)
+- [UAT Test Case Template](/templates/traditional/Templates/uat_test_case_template.md)
+- [UAT Execution Report](/templates/traditional/Templates/uat_execution_report_template.md)
+- [UAT Sign-off Template](/templates/traditional/Templates/uat_signoff_template.md)
+- [UAT Defect Log](/templates/traditional/Tools/uat_defect_log_template.md)
 
 ### Agile Templates
-- [User Story Acceptance Criteria](Agile/Templates/user_story_acceptance_criteria_template.md)
-- [Sprint Demo Checklist](Agile/Tools/sprint_demo_checklist.md)
-- [Definition of Done for UAT](Agile/Tools/definition_of_done_uat.md)
-- [UAT Feedback Canvas](Agile/Tools/uat_feedback_canvas.md)
-- [Acceptance Test Automation](Agile/Tools/acceptance_test_automation_guide.md)
+- [User Story Acceptance Criteria](/templates/agile/Templates/user_story_acceptance_criteria_template.md)
+- [Sprint Demo Checklist](/templates/agile/Tools/sprint_demo_checklist.md)
+- [Definition of Done for UAT](/templates/agile/Tools/definition_of_done_uat.md)
+- [UAT Feedback Canvas](/templates/agile/Tools/uat_feedback_canvas.md)
+- [Acceptance Test Automation](/templates/agile/Tools/acceptance_test_automation_guide.md)
 
 ### Hybrid Templates
-- [Hybrid UAT Strategy](Hybrid/Templates/hybrid_uat_strategy_template.md)
-- [Progressive Acceptance Plan](Hybrid/Templates/progressive_acceptance_plan_template.md)
-- [Multi-level Acceptance Criteria](Hybrid/Tools/multi_level_acceptance_criteria.md)
-- [UAT Governance Framework](Hybrid/Templates/uat_governance_framework_template.md)
-- [Acceptance Gate Reviews](Hybrid/Tools/acceptance_gate_review_template.md)
+- [Hybrid UAT Strategy](/templates/hybrid/Templates/hybrid_uat_strategy_template.md)
+- [Progressive Acceptance Plan](/templates/hybrid/Templates/progressive_acceptance_plan_template.md)
+- [Multi-level Acceptance Criteria](/templates/hybrid/Tools/multi_level_acceptance_criteria.md)
+- [UAT Governance Framework](/templates/hybrid/Templates/uat_governance_framework_template.md)
+- [Acceptance Gate Reviews](/templates/hybrid/Tools/acceptance_gate_review_template.md)
 
 ## Implementation Guidelines
 

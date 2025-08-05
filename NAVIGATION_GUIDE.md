@@ -125,7 +125,7 @@ Closing Project   → Traditional/Process_Groups/Closing/
 
 ### Most Useful Right Now
 1. **[REPOSITORY_STATUS.md](REPOSITORY_STATUS.md)** - Current status of everything
-2. **[Traditional/Templates/](Traditional/Templates/)** - Ready-to-use templates
+2. **[Traditional/Templates/](/templates/traditional/Templates/)** - Ready-to-use templates
 3. **[docs/getting-started/template-selector.md](docs/getting-started/template-selector.md)** - Find specific templates
 4. **[GUIDE.md](GUIDE.md)** - Comprehensive template listing
 

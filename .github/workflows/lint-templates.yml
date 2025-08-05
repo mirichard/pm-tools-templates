@@ -1,0 +1,141 @@
+name: Template Metadata Linter
+
+on:
+  pull_request:
+    paths:
+      - 'templates/**/*.md'
+      - 'templates/**/*.xlsx'
+      - 'templates/**/*.pptx'
+      - 'templates/**/*.docx'
+  push:
+    branches: [main]
+    paths:
+      - 'templates/**/*.md'
+      - 'templates/**/*.xlsx'
+      - 'templates/**/*.pptx'
+      - 'templates/**/*.docx'
+
+jobs:
+  lint-metadata:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          
+      - name: Install dependencies
+        run: |
+          npm init -y
+          npm install js-yaml glob
+          
+      - name: Create linter script
+        run: |
+          cat > lint-templates.js << 'EOF'
+          const fs = require('fs');
+          const path = require('path');
+          const yaml = require('js-yaml');
+          const { glob } = require('glob');
+          
+          const REQUIRED_FIELDS = ['title', 'methodology', 'complexity', 'owner', 'updated'];
+          const VALID_METHODOLOGY = ['traditional', 'agile', 'hybrid'];
+          const VALID_COMPLEXITY = ['starter', 'intermediate', 'advanced'];
+          const MAX_DAYS_OLD = 365;
+          
+          async function lintTemplates() {
+            const patterns = [
+              'templates/**/*.md',
+              'templates/**/*.xlsx', 
+              'templates/**/*.pptx',
+              'templates/**/*.docx'
+            ];
+            
+            let errors = [];
+            let warnings = [];
+            
+            for (const pattern of patterns) {
+              const files = await glob(pattern);
+              
+              for (const file of files) {
+                console.log(`Checking ${file}...`);
+                
+                // Only check markdown files for YAML front matter
+                if (path.extname(file) === '.md') {
+                  const content = fs.readFileSync(file, 'utf8');
+                  
+                  // Check if file starts with YAML front matter
+                  if (!content.startsWith('---\n')) {
+                    warnings.push(`${file}: Missing YAML front matter (Phase 1 transition)`);
+                    continue;
+                  }
+                  
+                  // Extract YAML front matter
+                  const yamlEnd = content.indexOf('\n---\n', 4);
+                  if (yamlEnd === -1) {
+                    errors.push(`${file}: Invalid YAML front matter format`);
+                    continue;
+                  }
+                  
+                  const yamlContent = content.substring(4, yamlEnd);
+                  
+                  try {
+                    const metadata = yaml.load(yamlContent);
+                    
+                    // Check required fields
+                    for (const field of REQUIRED_FIELDS) {
+                      if (!metadata[field]) {
+                        errors.push(`${file}: Missing required field '${field}'`);
+                      }
+                    }
+                    
+                    // Validate methodology
+                    if (metadata.methodology && !VALID_METHODOLOGY.includes(metadata.methodology)) {
+                      errors.push(`${file}: Invalid methodology '${metadata.methodology}'. Must be one of: ${VALID_METHODOLOGY.join(', ')}`);
+                    }
+                    
+                    // Validate complexity
+                    if (metadata.complexity && !VALID_COMPLEXITY.includes(metadata.complexity)) {
+                      errors.push(`${file}: Invalid complexity '${metadata.complexity}'. Must be one of: ${VALID_COMPLEXITY.join(', ')}`);
+                    }
+                    
+                    // Check if updated date is too old
+                    if (metadata.updated) {
+                      const updatedDate = new Date(metadata.updated);
+                      const daysDiff = (new Date() - updatedDate) / (1000 * 60 * 60 * 24);
+                      
+                      if (daysDiff > MAX_DAYS_OLD) {
+                        warnings.push(`${file}: Template hasn't been updated in ${Math.floor(daysDiff)} days`);
+                      }
+                    }
+                    
+                  } catch (e) {
+                    errors.push(`${file}: Invalid YAML syntax - ${e.message}`);
+                  }
+                }
+              }
+            }
+            
+            // Report results
+            if (warnings.length > 0) {
+              console.log('\n⚠️  WARNINGS:');
+              warnings.forEach(warning => console.log(`  ${warning}`));
+            }
+            
+            if (errors.length > 0) {
+              console.log('\n❌ ERRORS:');
+              errors.forEach(error => console.log(`  ${error}`));
+              process.exit(1);
+            } else {
+              console.log('\n✅ All templates pass metadata validation!');
+            }
+          }
+          
+          lintTemplates().catch(console.error);
+          EOF
+          
+      - name: Run template linter
+        run: node lint-templates.js

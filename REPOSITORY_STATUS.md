@@ -23,14 +23,14 @@
 ### ✅ **READY TO USE** - Full Content Available
 
 **Traditional Templates:**
-- [Traditional Process Groups](Traditional/Process_Groups/) - Complete Traditional-aligned templates
-- [Traditional Templates](Traditional/Templates/) - Ready-to-use documents
+- [Traditional Process Groups](/templates/traditional/Process_Groups/) - Complete Traditional-aligned templates
+- [Traditional Templates](/templates/traditional/Templates/) - Ready-to-use documents
 
 **Agile/Scrum Templates:**
-- [Agile Frameworks](Agile/) - Scrum, Kanban, and scaled agile templates
+- [Agile Frameworks](/templates/agile/) - Scrum, Kanban, and scaled agile templates
 
 **Hybrid Approaches:**
-- [Hybrid Templates](Hybrid/) - Mixed methodology resources
+- [Hybrid Templates](/templates/hybrid/) - Mixed methodology resources
 
 **Industry-Specific Templates:**
 - [Industry Templates](industry_templates/) - Customized for specific sectors
@@ -92,18 +92,18 @@
 **Start here:**
 1. Read [First-Time PM Guide](quick-start-kits/first-time-pm-starter/README.md)
 2. Download [Simple Project Charter](quick-start-kits/first-time-pm-starter/project-charter-simple.md)
-3. Use [Basic Templates](Traditional/Templates/) for common needs
+3. Use [Basic Templates](/templates/traditional/Templates/) for common needs
 
 ### Experienced PM?
 **Start here:**
-1. Browse [Traditional Process Groups](Traditional/Process_Groups/) for comprehensive templates
+1. Browse [Traditional Process Groups](/templates/traditional/Process_Groups/) for comprehensive templates
 2. Check [Industry Templates](industry_templates/) for your sector
-3. Explore [Hybrid Approaches](Hybrid/) for advanced methodologies
+3. Explore [Hybrid Approaches](/templates/hybrid/) for advanced methodologies
 
 ### Executive/Stakeholder?
 **Start here:**
 1. Review [Business Stakeholder Templates](business-stakeholder-suite/) **(Note: Under construction)**
-2. Use [Executive Dashboards](Traditional/Templates/) for reporting
+2. Use [Executive Dashboards](/templates/traditional/Templates/) for reporting
 3. Access [Strategic Planning Templates](industry_templates/) for governance
 
 ## 📋 **Template Inventory** - *What's Actually Available*
@@ -166,7 +166,7 @@
 
 **Can't find what you need?**
 1. Check [Template Selector](docs/getting-started/template-selector.md)
-2. Browse [existing templates](Traditional/Templates/) for alternatives
+2. Browse [existing templates](/templates/traditional/Templates/) for alternatives
 3. Create an issue with your specific need
 
 **Found broken links?**
