@@ -40,7 +40,7 @@ jobs:
         run: npm install
 
       - name: Generate changelogs
-        run: node scripts/generate-changelogs.js
+        run: node scripts/generate-changelogs.mjs
 
       - name: Build site
         working-directory: ./docs/site

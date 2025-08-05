@@ -3,6 +3,7 @@
   "version": "2.0.0",
   "description": "AI-Powered Project Management Templates with Interactive Onboarding",
   "main": "ecosystem-gateway.js",
+  "type": "module",
   "scripts": {
     "start": "node ecosystem-gateway.js",
     "onboard": "node onboarding/interactive-onboarding.js",
@@ -10,7 +11,7 @@
     "gateway": "node ecosystem-gateway.js",
     "quick-start": "node onboarding/interactive-onboarding.js",
     "dashboard-demo": "npm --prefix dashboard-mvp run dev",
-    "generate-changelogs": "node scripts/generate-changelogs.js",
+    "generate-changelogs": "node scripts/generate-changelogs.mjs",
     "build-site": "npm run generate-changelogs && npm --prefix docs/site run build",
     "dev-site": "npm --prefix docs/site run dev",
     "preview-site": "npm --prefix docs/site run preview"
