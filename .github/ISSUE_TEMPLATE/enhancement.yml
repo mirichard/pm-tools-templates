@@ -1,0 +1,69 @@
+name: Enhancement Request
+description: Suggest an improvement to existing templates
+title: "[Enhancement]: "
+labels: ["enhancement", "needs-review"]
+assignees:
+  - mirichard
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for suggesting an improvement!
+
+  - type: input
+    id: template
+    attributes:
+      label: Template Name
+      description: Which template would you like to enhance?
+      placeholder: e.g., Risk Register Template
+    validations:
+      required: true
+
+  - type: textarea
+    id: current-behavior
+    attributes:
+      label: Current behavior
+      description: What does the template currently do?
+      placeholder: Describe the current state
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposed-enhancement
+    attributes:
+      label: Proposed enhancement
+      description: What improvement would you like to see?
+      placeholder: Describe your enhancement idea
+    validations:
+      required: true
+
+  - type: textarea
+    id: use-case
+    attributes:
+      label: Use case
+      description: How would this enhancement help project managers?
+      placeholder: Explain the business value
+    validations:
+      required: true
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Priority
+      description: How important is this enhancement?
+      options:
+        - Low - Nice to have
+        - Medium - Would improve usability
+        - High - Critical for effectiveness
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: metadata-check
+    attributes:
+      label: Metadata Maintenance
+      description: For template modifications
+      options:
+        - label: I understand that YAML metadata must be updated when templates are modified
+          required: false

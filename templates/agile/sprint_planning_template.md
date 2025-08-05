@@ -1,3 +1,11 @@
+---
+title: "Sprint Planning Template"
+methodology: "agile"
+complexity: "intermediate"
+owner: "mirichard"
+updated: "2025-08-05"
+---
+
 # SPRINT PLANNING
 
 ## Document Information
