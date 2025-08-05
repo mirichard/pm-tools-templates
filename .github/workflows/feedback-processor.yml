@@ -1,0 +1,275 @@
+name: Community Feedback Processor
+on:
+  issue_comment:
+    types: [created]
+  issues:
+    types: [opened, labeled]
+
+jobs:
+  process-feedback:
+    if: >
+      (github.event.issue.number == 198) || 
+      (contains(github.event.issue.labels.*.name, 'community-feedback')) ||
+      (github.event.action == 'opened' && contains(github.event.issue.body, '## 🎉 Positive Feedback')) ||
+      (github.event.action == 'opened' && contains(github.event.issue.body, '## 🔧 Improvement Suggestion')) ||
+      (github.event.action == 'opened' && contains(github.event.issue.body, '## 💡 Feature Request'))
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Parse Feedback Content
+        id: parse
+        uses: actions/github-script@v7
+        with:
+          script: |
+            // Extract feedback data from comment or issue
+            let feedbackContent = '';
+            let feedbackAuthor = '';
+            let feedbackUrl = '';
+            
+            if (context.eventName === 'issue_comment') {
+              feedbackContent = context.payload.comment.body;
+              feedbackAuthor = context.payload.comment.user.login;
+              feedbackUrl = context.payload.comment.html_url;
+            } else if (context.eventName === 'issues') {
+              feedbackContent = context.payload.issue.body;
+              feedbackAuthor = context.payload.issue.user.login;
+              feedbackUrl = context.payload.issue.html_url;
+            }
+
+            // Parse structured feedback templates
+            const feedbackTypes = {
+              'positive': /## 🎉 Positive Feedback/i,
+              'improvement': /## 🔧 Improvement Suggestion/i,
+              'feature': /## 💡 Feature Request/i,
+              'bug': /## 🐛 Issues & Bugs/i,
+              'documentation': /## 📚 Documentation Feedback/i
+            };
+
+            let detectedType = 'general';
+            for (const [type, regex] of Object.entries(feedbackTypes)) {
+              if (regex.test(feedbackContent)) {
+                detectedType = type;
+                break;
+              }
+            }
+
+            const feedbackData = {
+              id: `feedback-${Date.now()}`,
+              type: detectedType,
+              author: feedbackAuthor,
+              content: feedbackContent,
+              url: feedbackUrl,
+              timestamp: new Date().toISOString(),
+              issue_number: context.payload.issue.number
+            };
+
+            console.log('Parsed feedback:', JSON.stringify(feedbackData, null, 2));
+            return feedbackData;
+
+      - name: AI Classification
+        id: classify
+        uses: actions/github-script@v7
+        with:
+          result-encoding: string
+          script: |
+            const feedbackData = ${{ steps.parse.outputs.result }};
+            
+            // Classification logic based on content analysis
+            const content = feedbackData.content.toLowerCase();
+            let category = 'general';
+            let priority = 'S3';
+
+            // Category classification
+            if (content.includes('template') || content.includes('example')) {
+              category = 'template-requests';
+            } else if (content.includes('bug') || content.includes('error') || content.includes('broken')) {
+              category = 'bug-reports';
+              priority = 'S2';
+            } else if (content.includes('integration') || content.includes('jira') || content.includes('asana')) {
+              category = 'integration-requests';
+            } else if (content.includes('documentation') || content.includes('guide') || content.includes('readme')) {
+              category = 'documentation-issues';
+            } else if (content.includes('performance') || content.includes('slow') || content.includes('automation')) {
+              category = 'performance-automation';
+            } else if (content.includes('ui') || content.includes('ux') || content.includes('design') || content.includes('usability')) {
+              category = 'ux-usability';
+            } else if (feedbackData.type === 'feature') {
+              category = 'feature-ideas';
+            } else if (feedbackData.type === 'improvement') {
+              category = 'process-improvements';
+            }
+
+            // Priority scoring based on keywords
+            if (content.includes('critical') || content.includes('urgent') || content.includes('blocking')) {
+              priority = 'S1';
+            } else if (content.includes('important') || content.includes('needed') || feedbackData.type === 'bug') {
+              priority = 'S2';
+            } else if (content.includes('nice to have') || content.includes('suggestion')) {
+              priority = 'S4';
+            }
+
+            const classification = {
+              category: category,
+              priority: priority,
+              confidence: 0.8
+            };
+
+            console.log('Classification result:', JSON.stringify(classification, null, 2));
+            return JSON.stringify(classification);
+
+      - name: Route to Epic
+        id: route
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const feedbackData = ${{ steps.parse.outputs.result }};
+            const classification = JSON.parse(`${{ steps.classify.outputs.result }}`);
+            
+            // Epic mapping based on categories
+            const epicMapping = {
+              'template-requests': { epic: 323, theme: 'User Experience & Interface Enhancement' },
+              'bug-reports': { epic: 307, theme: 'Technical Debt & Quality' },
+              'integration-requests': { epic: 325, theme: 'Integration & Automation Platform' },
+              'documentation-issues': { epic: 323, theme: 'User Experience & Interface Enhancement' },
+              'performance-automation': { epic: 329, theme: 'Quality & Operations Excellence' },
+              'ux-usability': { epic: 323, theme: 'User Experience & Interface Enhancement' },
+              'feature-ideas': { epic: 317, theme: 'AI & Data Science Intelligence' },
+              'process-improvements': { epic: 322, theme: 'Quality & Operations Excellence' }
+            };
+
+            const routing = epicMapping[classification.category] || { epic: 198, theme: 'General Feedback' };
+            
+            // Create comment with routing information
+            const routingComment = `
+            ## 🤖 Automated Feedback Processing
+            
+            **Feedback Classification:**
+            - **Type:** ${feedbackData.type}
+            - **Category:** ${classification.category}
+            - **Priority:** ${classification.priority}
+            - **Confidence:** ${(classification.confidence * 100).toFixed(0)}%
+            
+            **Routing Decision:**
+            - **Epic:** #${routing.epic} - ${routing.theme}
+            - **Processing Time:** ${new Date().toISOString()}
+            - **Status:** Routed for review
+            
+            **Next Steps:**
+            1. Epic owner will be notified
+            2. Feedback will be considered for upcoming sprint planning
+            3. Updates will be provided on resolution progress
+            
+            *This is an automated response from the Community Feedback Processing System.*
+            `;
+
+            // Add comment to the issue
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: feedbackData.issue_number,
+              body: routingComment
+            });
+
+            // Add labels based on classification
+            const labels = [
+              'community-feedback',
+              `category:${classification.category}`,
+              `priority:${classification.priority}`,
+              `epic:${routing.epic}`
+            ];
+
+            await github.rest.issues.addLabels({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: feedbackData.issue_number,
+              labels: labels
+            });
+
+            return {
+              routing: routing,
+              classification: classification,
+              labels: labels
+            };
+
+      - name: Notify Stakeholders
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const routingResult = ${{ steps.route.outputs.result }};
+            const feedbackData = ${{ steps.parse.outputs.result }};
+            
+            // Create notification comment on the relevant epic
+            if (routingResult.routing.epic !== 198) {
+              const notificationComment = `
+              ## 📬 New Community Feedback Routed Here
+              
+              **Feedback Summary:**
+              - **Author:** @${feedbackData.author}
+              - **Type:** ${feedbackData.type}
+              - **Priority:** ${routingResult.classification.priority}
+              - **Source:** [Feedback #${feedbackData.issue_number}](${feedbackData.url})
+              
+              **Action Required:**
+              Epic owner please review and consider for sprint planning.
+              
+              *Automated notification from Community Feedback Processing System*
+              `;
+
+              try {
+                await github.rest.issues.createComment({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  issue_number: routingResult.routing.epic,
+                  body: notificationComment
+                });
+                console.log(`Notification sent to epic #${routingResult.routing.epic}`);
+              } catch (error) {
+                console.log(`Could not notify epic #${routingResult.routing.epic}: ${error.message}`);
+              }
+            }
+
+      - name: Update Analytics
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const feedbackData = ${{ steps.parse.outputs.result }};
+            const classification = JSON.parse(`${{ steps.classify.outputs.result }}`);
+            
+            // Log analytics data (in a real implementation, this would go to a database)
+            const analyticsEntry = {
+              timestamp: new Date().toISOString(),
+              type: feedbackData.type,
+              category: classification.category,
+              priority: classification.priority,
+              author: feedbackData.author,
+              processing_time: Date.now() - new Date(feedbackData.timestamp).getTime()
+            };
+            
+            console.log('Analytics entry:', JSON.stringify(analyticsEntry, null, 2));
+            
+            // Store in artifact for later analysis
+            const fs = require('fs');
+            const analyticsFile = 'feedback-analytics.jsonl';
+            const entry = JSON.stringify(analyticsEntry) + '\n';
+            
+            if (fs.existsSync(analyticsFile)) {
+              fs.appendFileSync(analyticsFile, entry);
+            } else {
+              fs.writeFileSync(analyticsFile, entry);
+            }
+
+      - name: Upload Analytics Data
+        uses: actions/upload-artifact@v4
+        with:
+          name: feedback-analytics-${{ github.run_id }}
+          path: feedback-analytics.jsonl
+          retention-days: 30
