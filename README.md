@@ -4,7 +4,6 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/mirichard/pm-tools-templates/blob/main/CONTRIBUTING.md)
-[![OpenSSF Scorecard](https://api.securityscorecards.dev/projects/github.com/mirichard/pm-tools-templates/badge)](https://securityscorecards.dev/viewer/?uri=github.com/mirichard/pm-tools-templates)
 
 ---
 
