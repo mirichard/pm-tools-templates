@@ -58,11 +58,11 @@
 ## Quick Reference
 | Template | Scenario / Methodology | Phase | Complexity |
 | --- | --- | --- | --- |
-| [Project Charter Template](Traditional/Process_Groups/Initiating/project_charter_template.md) | Formal project initiation (Traditional) | Initiating | Beginner |
+| [Project Charter Template](/templates/traditional/Process_Groups/Initiating/project_charter_template.md) | Formal project initiation (Traditional) | Initiating | Beginner |
 | [Stakeholder Register](project-lifecycle/01-initiation/stakeholder-analysis/stakeholder-register-template.md) | Identify and analyze stakeholders (Traditional) | Initiating | Beginner |
-| [Work Breakdown Structure](Traditional/Process_Groups/Planning/work_breakdown_structure_template.md) | Decompose deliverables into tasks (Traditional) | Planning | Intermediate |
-| [Sprint Planning Template](Agile/Templates/sprint_planning_template.md) | Plan sprint goals and backlog (Agile) | Executing | Beginner |
-| [Hybrid Project Charter](Hybrid/Templates/hybrid_project_charter_template.md) | Kick off a hybrid project (Hybrid) | Initiating | Intermediate |
+| [Work Breakdown Structure](/templates/traditional/Process_Groups/Planning/work_breakdown_structure_template.md) | Decompose deliverables into tasks (Traditional) | Planning | Intermediate |
+| [Sprint Planning Template](/templates/agile/Templates/sprint_planning_template.md) | Plan sprint goals and backlog (Agile) | Executing | Beginner |
+| [Hybrid Project Charter](/templates/hybrid/Templates/hybrid_project_charter_template.md) | Kick off a hybrid project (Hybrid) | Initiating | Intermediate |
 | [CI/CD Pipeline Planning](methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md) | Design automated delivery pipeline (DevOps) | Planning | Advanced |
 | [Executive Dashboard Workbook](business-stakeholder-suite/executive-dashboards/Excel/Executive-Dashboard-Workbook.md) | Report progress to leadership | Monitoring & Controlling | Intermediate |
 ```mermaid
@@ -73,7 +73,7 @@ flowchart TD
     B --> E[Hybrid]
     A --> F[Onboarding Guide]
 ```
-| [Risk Register](Traditional/Templates/risk_register_template.md) | Track and mitigate risks | Planning | Intermediate |
+| [Risk Register](/templates/traditional/Templates/risk_register_template.md) | Track and mitigate risks | Planning | Intermediate |
 
 See the [Template Index](TEMPLATE_INDEX.md) for a full alphabetical list of templates.
 🌌 The world's most intelligent project management ecosystem 
@@ -151,58 +151,58 @@ This library is organized around **how project managers actually work**, not jus
 #### Process Groups & Key Templates:
 
 **Initiating**
- - [Project Charter Template](Traditional/Process_Groups/Initiating/project_charter_template.md) - Professional project authorization
+ - [Project Charter Template](/templates/traditional/Process_Groups/Initiating/project_charter_template.md) - Professional project authorization
  - [Stakeholder Register](project-lifecycle/01-initiation/stakeholder-analysis/stakeholder-register-template.md) - Stakeholder identification & analysis
 
 **Planning**
- - [Work Breakdown Structure](Traditional/Process_Groups/Planning/work_breakdown_structure_template.md) - Project decomposition
- - [Project Schedule Template](Traditional/Process_Groups/Planning/project_schedule_template.md) - Timeline & milestone planning
- - [Project Management Plan](Traditional/Process_Groups/Planning/project_management_plan_template.md) - Comprehensive planning document
- - [Stakeholder Communication Planning](Traditional/Process_Groups/Planning/stakeholder_communication_planning.md) - Communication strategy
+ - [Work Breakdown Structure](/templates/traditional/Process_Groups/Planning/work_breakdown_structure_template.md) - Project decomposition
+ - [Project Schedule Template](/templates/traditional/Process_Groups/Planning/project_schedule_template.md) - Timeline & milestone planning
+ - [Project Management Plan](/templates/traditional/Process_Groups/Planning/project_management_plan_template.md) - Comprehensive planning document
+ - [Stakeholder Communication Planning](/templates/traditional/Process_Groups/Planning/stakeholder_communication_planning.md) - Communication strategy
 
 **Executing**
- - [Project Execution Status Report](Traditional/Process_Groups/Executing/project_execution_status_report_template.md) - Execution tracking
- - [Requirements Traceability Matrix](Traditional/Process_Groups/Executing/requirements_traceability_matrix_template.md) - Requirements tracking
-- [Team Performance Assessment](Traditional/Process_Groups/Executing/team_performance_assessment_template.md) - Team evaluation
+ - [Project Execution Status Report](/templates/traditional/Process_Groups/Executing/project_execution_status_report_template.md) - Execution tracking
+ - [Requirements Traceability Matrix](/templates/traditional/Process_Groups/Executing/requirements_traceability_matrix_template.md) - Requirements tracking
+- [Team Performance Assessment](/templates/traditional/Process_Groups/Executing/team_performance_assessment_template.md) - Team evaluation
 
 **Monitoring & Controlling**
- - [Project Performance Monitoring](Traditional/Process_Groups/Monitoring_and_Controlling/project_performance_monitoring_template.md) - Performance tracking
-- [Status Report Template](Traditional/Templates/status_report_template.md) - Progress reporting
-- [Change Request Template](Traditional/Templates/change_request_template.md) - Change management
-- [Issue Log Template](Traditional/Templates/issue_log_template.md) - Issue tracking
+ - [Project Performance Monitoring](/templates/traditional/Process_Groups/Monitoring_and_Controlling/project_performance_monitoring_template.md) - Performance tracking
+- [Status Report Template](/templates/traditional/Templates/status_report_template.md) - Progress reporting
+- [Change Request Template](/templates/traditional/Templates/change_request_template.md) - Change management
+- [Issue Log Template](/templates/traditional/Templates/issue_log_template.md) - Issue tracking
 
 <a id="agile-templates"></a>
 **Closing**
- - [Project Closure Report](Traditional/Process_Groups/Closing/project_closure_report_template.md) - Project finalization
+ - [Project Closure Report](/templates/traditional/Process_Groups/Closing/project_closure_report_template.md) - Project finalization
 
 **Additional Templates**
-- [Risk Register](Traditional/Templates/risk_register_template.md) - Risk management
-- [Communication Plan](Traditional/Templates/communication_plan_template.md) - Communication strategy
-- [Change Management Plan](Traditional/Templates/change_management_plan_template.md) - Change strategy
+- [Risk Register](/templates/traditional/Templates/risk_register_template.md) - Risk management
+- [Communication Plan](/templates/traditional/Templates/communication_plan_template.md) - Communication strategy
+- [Change Management Plan](/templates/traditional/Templates/change_management_plan_template.md) - Change strategy
 - [UAT Strategy Template](/Traditional/Templates/uat_strategy_template.md) | Strategy Development | Advanced | Strategic planning framework for large programs |
 - [UAT Plan Template](/Traditional/Templates/uat_plan_template.md) | Tactical Planning | Intermediate | Detailed execution planning for UAT implementation |
-- [Project Roadmap](Traditional/Templates/project_roadmap_template.md) - High-level timeline
+- [Project Roadmap](/templates/traditional/Templates/project_roadmap_template.md) - High-level timeline
 =======
 | Template | Phase | Complexity | Summary |
 | --- | --- | --- | --- |
-| [Project Charter Template](Traditional/Process_Groups/Initiating/project_charter_template.md) | Initiating | Beginner | Formal project authorization |
+| [Project Charter Template](/templates/traditional/Process_Groups/Initiating/project_charter_template.md) | Initiating | Beginner | Formal project authorization |
 | [Stakeholder Register](project-lifecycle/01-initiation/stakeholder-analysis/stakeholder-register-template.md) | Initiating | Beginner | Stakeholder identification & analysis |
-| [Work Breakdown Structure](Traditional/Process_Groups/Planning/work_breakdown_structure_template.md) | Planning | Intermediate | Project decomposition |
-| [Project Schedule Template](Traditional/Process_Groups/Planning/project_schedule_template.md) | Planning | Intermediate | Timeline & milestone planning |
-| [Project Management Plan](Traditional/Process_Groups/Planning/project_management_plan_template.md) | Planning | Advanced | Comprehensive planning document |
-| [Stakeholder Communication Planning](Traditional/Process_Groups/Planning/stakeholder_communication_planning.md) | Planning | Intermediate | Communication strategy |
-| [Project Execution Status Report](Traditional/Process_Groups/Executing/project_execution_status_report_template.md) | Executing | Intermediate | Execution tracking |
-| [Requirements Traceability Matrix](Traditional/Process_Groups/Executing/requirements_traceability_matrix_template.md) | Executing | Advanced | Requirements tracking |
-| [Project Performance Monitoring](Traditional/Process_Groups/Monitoring_and_Controlling/project_performance_monitoring_template.md) | Monitoring & Controlling | Advanced | Performance tracking |
-| [Status Report Template](Traditional/Templates/status_report_template.md) | Monitoring & Controlling | Beginner | Progress reporting |
-| [Change Request Template](Traditional/Templates/change_request_template.md) | Monitoring & Controlling | Intermediate | Change management |
-| [Issue Log Template](Traditional/Templates/issue_log_template.md) | Monitoring & Controlling | Beginner | Issue tracking |
-| [Project Closure Report](Traditional/Process_Groups/Closing/project_closure_report_template.md) | Closing | Intermediate | Project finalization |
-| [Risk Register](Traditional/Templates/risk_register_template.md) | Planning | Intermediate | Risk management |
-| [Communication Plan](Traditional/Templates/communication_plan_template.md) | Planning | Intermediate | Communication strategy |
-| [Change Management Plan](Traditional/Templates/change_management_plan_template.md) | Planning | Advanced | Change strategy |
-| [UAT Plan](Traditional/Templates/uat_plan_template.md) | Executing | Intermediate | User acceptance testing |
-| [Project Roadmap](Traditional/Templates/project_roadmap_template.md) | Planning | Beginner | High-level timeline |
+| [Work Breakdown Structure](/templates/traditional/Process_Groups/Planning/work_breakdown_structure_template.md) | Planning | Intermediate | Project decomposition |
+| [Project Schedule Template](/templates/traditional/Process_Groups/Planning/project_schedule_template.md) | Planning | Intermediate | Timeline & milestone planning |
+| [Project Management Plan](/templates/traditional/Process_Groups/Planning/project_management_plan_template.md) | Planning | Advanced | Comprehensive planning document |
+| [Stakeholder Communication Planning](/templates/traditional/Process_Groups/Planning/stakeholder_communication_planning.md) | Planning | Intermediate | Communication strategy |
+| [Project Execution Status Report](/templates/traditional/Process_Groups/Executing/project_execution_status_report_template.md) | Executing | Intermediate | Execution tracking |
+| [Requirements Traceability Matrix](/templates/traditional/Process_Groups/Executing/requirements_traceability_matrix_template.md) | Executing | Advanced | Requirements tracking |
+| [Project Performance Monitoring](/templates/traditional/Process_Groups/Monitoring_and_Controlling/project_performance_monitoring_template.md) | Monitoring & Controlling | Advanced | Performance tracking |
+| [Status Report Template](/templates/traditional/Templates/status_report_template.md) | Monitoring & Controlling | Beginner | Progress reporting |
+| [Change Request Template](/templates/traditional/Templates/change_request_template.md) | Monitoring & Controlling | Intermediate | Change management |
+| [Issue Log Template](/templates/traditional/Templates/issue_log_template.md) | Monitoring & Controlling | Beginner | Issue tracking |
+| [Project Closure Report](/templates/traditional/Process_Groups/Closing/project_closure_report_template.md) | Closing | Intermediate | Project finalization |
+| [Risk Register](/templates/traditional/Templates/risk_register_template.md) | Planning | Intermediate | Risk management |
+| [Communication Plan](/templates/traditional/Templates/communication_plan_template.md) | Planning | Intermediate | Communication strategy |
+| [Change Management Plan](/templates/traditional/Templates/change_management_plan_template.md) | Planning | Advanced | Change strategy |
+| [UAT Plan](/templates/traditional/Templates/uat_plan_template.md) | Executing | Intermediate | User acceptance testing |
+| [Project Roadmap](/templates/traditional/Templates/project_roadmap_template.md) | Planning | Beginner | High-level timeline |
 
 
 <a id="agile-tools"></a>
@@ -216,13 +216,13 @@ This library is organized around **how project managers actually work**, not jus
 
 | Template | Phase | Complexity | Summary |
 | --- | --- | --- | --- |
-| [Product Backlog Template](Agile/Templates/product_backlog_template.md) | Planning | Beginner | Feature & requirement management |
-| [Sprint Planning Template](Agile/Templates/sprint_planning_template.md) | Executing | Beginner | Sprint initiation & goal setting |
-| [Sprint Review Template](Agile/Templates/sprint_review_template.md) | Executing | Beginner | Sprint demonstration & feedback |
-| [Sprint Retrospective Template](Agile/Templates/sprint_retrospective_template.md) | Monitoring & Controlling | Beginner | Team improvement |
-| [Stakeholder Communication Planning](Agile/Templates/stakeholder_communication_planning.md) | Planning | Intermediate | Agile communication |
-| [Change Vision Canvas](Agile/Tools/change_vision_canvas.md) | Initiating | Intermediate | Organizational change visualization |
-| [UAT Feedback Canvas](Agile/Tools/uat_feedback_canvas.md) | Monitoring & Controlling | Intermediate | User acceptance feedback |
+| [Product Backlog Template](/templates/agile/Templates/product_backlog_template.md) | Planning | Beginner | Feature & requirement management |
+| [Sprint Planning Template](/templates/agile/Templates/sprint_planning_template.md) | Executing | Beginner | Sprint initiation & goal setting |
+| [Sprint Review Template](/templates/agile/Templates/sprint_review_template.md) | Executing | Beginner | Sprint demonstration & feedback |
+| [Sprint Retrospective Template](/templates/agile/Templates/sprint_retrospective_template.md) | Monitoring & Controlling | Beginner | Team improvement |
+| [Stakeholder Communication Planning](/templates/agile/Templates/stakeholder_communication_planning.md) | Planning | Intermediate | Agile communication |
+| [Change Vision Canvas](/templates/agile/Tools/change_vision_canvas.md) | Initiating | Intermediate | Organizational change visualization |
+| [UAT Feedback Canvas](/templates/agile/Tools/uat_feedback_canvas.md) | Monitoring & Controlling | Intermediate | User acceptance feedback |
 ### 🔄 Hybrid Templates
 **Combined traditional and agile approaches**
 <a id="methodology-frameworks"></a>
@@ -231,13 +231,13 @@ This library is organized around **how project managers actually work**, not jus
 <a id="agile-scaling-frameworksmethodology-frameworksagile-scrumreadmemd"></a>
 | Template | Phase | Complexity | Summary |
 | --- | --- | --- | --- |
-| [Hybrid Project Charter](Hybrid/Templates/hybrid_project_charter_template.md) | Initiating | Intermediate | Flexible project initiation |
-| [Hybrid Release Planning](Hybrid/Templates/hybrid_release_planning_template.md) | Planning | Intermediate | Multi-methodology release planning |
-| [Hybrid Team Management](Hybrid/Templates/hybrid_team_management_template.md) | Executing | Intermediate | Cross-methodology team leadership |
-| [Hybrid Quality Management](Hybrid/Templates/hybrid_quality_management_template.md) | Executing | Intermediate | Quality across methodologies |
-| [Integrated Change Strategy](Hybrid/Templates/integrated_change_strategy_template.md) | Executing | Advanced | Change management |
-| [Progressive Acceptance Plan](Hybrid/Templates/progressive_acceptance_plan_template.md) | Closing | Intermediate | Iterative acceptance |
-| [Stakeholder Communication Planning](Hybrid/Templates/stakeholder_communication_planning.md) | Planning | Intermediate | Hybrid communication |
+| [Hybrid Project Charter](/templates/hybrid/Templates/hybrid_project_charter_template.md) | Initiating | Intermediate | Flexible project initiation |
+| [Hybrid Release Planning](/templates/hybrid/Templates/hybrid_release_planning_template.md) | Planning | Intermediate | Multi-methodology release planning |
+| [Hybrid Team Management](/templates/hybrid/Templates/hybrid_team_management_template.md) | Executing | Intermediate | Cross-methodology team leadership |
+| [Hybrid Quality Management](/templates/hybrid/Templates/hybrid_quality_management_template.md) | Executing | Intermediate | Quality across methodologies |
+| [Integrated Change Strategy](/templates/hybrid/Templates/integrated_change_strategy_template.md) | Executing | Advanced | Change management |
+| [Progressive Acceptance Plan](/templates/hybrid/Templates/progressive_acceptance_plan_template.md) | Closing | Intermediate | Iterative acceptance |
+| [Stakeholder Communication Planning](/templates/hybrid/Templates/stakeholder_communication_planning.md) | Planning | Intermediate | Hybrid communication |
 
 #### Tool Integration:
 #### [Agile Scaling Frameworks](methodology-frameworks/agile-scrum/README.md)
@@ -304,7 +304,7 @@ This library is organized around **how project managers actually work**, not jus
 
 **🌀 Agile/Scrum Project**
 - Start: [Methodology Selector](docs/getting-started/methodology-selector.md) → Agile
-- Templates: [Agile Templates](Agile/) + [Scrum Resources](role-based-toolkits/)
+- Templates: [Agile Templates](/templates/agile/) + [Scrum Resources](role-based-toolkits/)
 - Metrics: [Agile-Adapted Dashboards](business-stakeholder-suite/executive-dashboards/)
 
 <a id="project-assessment-suite"></a>
@@ -450,15 +450,15 @@ This library is organized around **how project managers actually work**, not jus
 
 **Advanced PM Practice**
 1. [Program Management](role-based-toolkits/)
-2. [Hybrid Methodologies](Hybrid/)
+2. [Hybrid Methodologies](/templates/hybrid/)
 3. [Executive Communication](business-stakeholder-suite/)
 4. [Organizational Change Management](organizational_change_management_framework.md)
 
 **Agile Specialization**
 1. [Scrum Master Skills](role-based-toolkits/)
 2. [Product Owner Practice](role-based-toolkits/)
-3. [Agile Templates](Agile/)
-4. [Agile Tools](Agile/Tools/)
+3. [Agile Templates](/templates/agile/)
+4. [Agile Tools](/templates/agile/Tools/)
 
 ### Implementation Support
 - **[Change Management](organizational_change_management_framework.md)** - Rolling out new practices

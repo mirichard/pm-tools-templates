@@ -73,25 +73,25 @@ This framework provides a comprehensive approach to managing organizational chan
 ## Templates and Tools
 
 ### Traditional Templates
-- [Change Readiness Assessment](Traditional/Tools/change_readiness_assessment.md)
-- [Stakeholder Impact Analysis](Traditional/Tools/stakeholder_impact_analysis.md)
-- [Change Management Plan](Traditional/Templates/change_management_plan_template.md)
-- [Training Plan Template](Traditional/Templates/training_plan_template.md)
-- [Change Communication Plan](Traditional/Templates/change_communication_plan_template.md)
+- [Change Readiness Assessment](/templates/traditional/Tools/change_readiness_assessment.md)
+- [Stakeholder Impact Analysis](/templates/traditional/Tools/stakeholder_impact_analysis.md)
+- [Change Management Plan](/templates/traditional/Templates/change_management_plan_template.md)
+- [Training Plan Template](/templates/traditional/Templates/training_plan_template.md)
+- [Change Communication Plan](/templates/traditional/Templates/change_communication_plan_template.md)
 
 ### Agile Templates
-- [Change Vision Canvas](Agile/Tools/change_vision_canvas.md)
-- [Change Story Map](Agile/Tools/change_story_map.md)
-- [Change Sprint Planning](Agile/Templates/change_sprint_planning_template.md)
-- [Change Retrospective](Agile/Templates/change_retrospective_template.md)
-- [Adoption User Stories](Agile/Templates/adoption_user_stories_template.md)
+- [Change Vision Canvas](/templates/agile/Tools/change_vision_canvas.md)
+- [Change Story Map](/templates/agile/Tools/change_story_map.md)
+- [Change Sprint Planning](/templates/agile/Templates/change_sprint_planning_template.md)
+- [Change Retrospective](/templates/agile/Templates/change_retrospective_template.md)
+- [Adoption User Stories](/templates/agile/Templates/adoption_user_stories_template.md)
 
 ### Hybrid Templates
-- [Integrated Change Strategy](Hybrid/Templates/integrated_change_strategy_template.md)
-- [Change Governance Framework](Hybrid/Templates/change_governance_framework_template.md)
-- [Progressive Change Roadmap](Hybrid/Templates/progressive_change_roadmap_template.md)
-- [Multi-level Change Metrics](Hybrid/Tools/multi_level_change_metrics.md)
-- [Adaptive Change Response Plan](Hybrid/Templates/adaptive_change_response_template.md)
+- [Integrated Change Strategy](/templates/hybrid/Templates/integrated_change_strategy_template.md)
+- [Change Governance Framework](/templates/hybrid/Templates/change_governance_framework_template.md)
+- [Progressive Change Roadmap](/templates/hybrid/Templates/progressive_change_roadmap_template.md)
+- [Multi-level Change Metrics](/templates/hybrid/Tools/multi_level_change_metrics.md)
+- [Adaptive Change Response Plan](/templates/hybrid/Templates/adaptive_change_response_template.md)
 
 ## Implementation Guidelines
 

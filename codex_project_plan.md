@@ -8,11 +8,11 @@ This plan outlines how ChatGPT Codex should coordinate implementation of the rec
 - **Hybrid Project Management Plan** – Build a detailed plan based on the [Hybrid Project Management Plan Template](project-lifecycle/02-planning/project-management-plan/hybrid-project-management-plan-template.md). Integrate communication, risk, and change management.
 
 ## 2. Prepare the Backlog
-- **Product Backlog** – Document UX and AI stories as well as security tasks (#65, #66) using the [Product Backlog Template](Agile/Templates/product_backlog_template.md). Follow the user story format and acceptance criteria guidelines.
+- **Product Backlog** – Document UX and AI stories as well as security tasks (#65, #66) using the [Product Backlog Template](/templates/agile/Templates/product_backlog_template.md). Follow the user story format and acceptance criteria guidelines.
 - **Epic Alignment** – Organize stories under their epics (1.2, 1.5, 1.8, 2.1, 2.2). Prioritize with business value and dependencies as described in [roadmap-product-backlog.md](backlog/roadmap-product-backlog.md).
 
 ## 3. Plan Sprints
-- Use the [Sprint Planning Template](Agile/Templates/sprint_planning_template.md) to create sprint goals and tasks. Focus on:
+- Use the [Sprint Planning Template](/templates/agile/Templates/sprint_planning_template.md) to create sprint goals and tasks. Focus on:
   1. **UX-103** – Guided template selection wizard
   2. **UX-104** – Quick-start GIFs for common workflows
   3. **AI-105** – Forecast accuracy tracking engine
@@ -21,8 +21,8 @@ This plan outlines how ChatGPT Codex should coordinate implementation of the rec
 
 ## 4. Execution and Review
 - Track work in the sprint backlog portion of the sprint planning template. Break stories into tasks and update status regularly.
-- Conduct sprint reviews and retrospectives using the [Sprint Review Template](Agile/Templates/sprint_review_template.md) and [Sprint Retrospective Template](Agile/Templates/sprint_retrospective_template.md).
-- For release planning across epics, apply the [Hybrid Release Planning Template](Hybrid/Templates/hybrid_release_planning_template.md).
+- Conduct sprint reviews and retrospectives using the [Sprint Review Template](/templates/agile/Templates/sprint_review_template.md) and [Sprint Retrospective Template](/templates/agile/Templates/sprint_retrospective_template.md).
+- For release planning across epics, apply the [Hybrid Release Planning Template](/templates/hybrid/Templates/hybrid_release_planning_template.md).
 
 ## 5. Security Implementation
 - Follow guidance in [README-security-workflows.md](README-security-workflows.md) to enable dependency, source code, and infrastructure scanning.
@@ -32,7 +32,7 @@ This plan outlines how ChatGPT Codex should coordinate implementation of the rec
 - Reference [Usage Analytics & Feedback Loop Platform](analytics-platform/README.md) to begin capturing anonymous template usage and feedback for Epic 1.8.
 
 ## 7. Continuous Improvement
-- Maintain a progressive acceptance approach using the [Progressive Acceptance Plan Template](Hybrid/Templates/progressive_acceptance_plan_template.md) to validate deliverables.
+- Maintain a progressive acceptance approach using the [Progressive Acceptance Plan Template](/templates/hybrid/Templates/progressive_acceptance_plan_template.md) to validate deliverables.
 - Update the project management plan as new information is learned, following the approval and baseline process in the project management plan guidance.
 
 ---

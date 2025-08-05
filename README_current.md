@@ -27,11 +27,11 @@ This is a curated list of the most frequently used templates.
 
 | Template | Purpose & Methodology | Complexity |
 | :--- | :--- | :--- |
-| [Project Charter](Traditional/Process_Groups/Initiating/project_charter_template.md) | Formally authorize a project (Traditional) | Beginner |
-| [Work Breakdown Structure](Traditional/Process_Groups/Planning/work_breakdown_structure_template.md) | Decompose deliverables into tasks (Traditional) | Intermediate |
-| [Risk Register](Traditional/Templates/risk_register_template.md) | Track and mitigate project risks (All) | Intermediate |
-| [Sprint Planning](Agile/Templates/sprint_planning_template.md) | Plan sprint goals and backlog (Agile) | Beginner |
-| [Hybrid Project Charter](Hybrid/Templates/hybrid_project_charter_template.md) | Kick off a project with mixed methodologies (Hybrid) | Intermediate |
+| [Project Charter](/templates/traditional/Process_Groups/Initiating/project_charter_template.md) | Formally authorize a project (Traditional) | Beginner |
+| [Work Breakdown Structure](/templates/traditional/Process_Groups/Planning/work_breakdown_structure_template.md) | Decompose deliverables into tasks (Traditional) | Intermediate |
+| [Risk Register](/templates/traditional/Templates/risk_register_template.md) | Track and mitigate project risks (All) | Intermediate |
+| [Sprint Planning](/templates/agile/Templates/sprint_planning_template.md) | Plan sprint goals and backlog (Agile) | Beginner |
+| [Hybrid Project Charter](/templates/hybrid/Templates/hybrid_project_charter_template.md) | Kick off a project with mixed methodologies (Hybrid) | Intermediate |
 | [Executive Dashboard](business-stakeholder-suite/executive-dashboards/Excel/Executive-Dashboard-Workbook.md) | Report project progress to leadership (All) | Intermediate |
 
 ---
