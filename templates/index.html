@@ -17,7 +17,17 @@
     .card p { margin: 0 0 15px; color: #666; }
     .tags { margin-bottom: 15px; }
     .tag { display: inline-block; background: #eee; padding: 5px 10px; border-radius: 12px; font-size: 0.8rem; margin-right: 5px; }
+    .quality-score { display: inline-block; padding: 5px 10px; border-radius: 12px; font-size: 0.8rem; margin-right: 5px; font-weight: bold; }
+    .quality-excellent { background: #28a745; color: white; }
+    .quality-good { background: #ffc107; color: black; }
+    .quality-fair { background: #fd7e14; color: white; }
+    .quality-poor { background: #dc3545; color: white; }
     .card a { background: #007bff; color: #fff; text-decoration: none; padding: 10px 15px; border-radius: 4px; display: inline-block; }
+    .related-templates { margin-top: 15px; padding-top: 15px; border-top: 1px solid #eee; }
+    .related-templates h4 { font-size: 0.9rem; margin: 0 0 8px; color: #666; }
+    .related-templates ul { list-style: none; padding: 0; margin: 0; }
+    .related-templates li { margin-bottom: 5px; }
+    .related-templates a { background: none; color: #007bff; padding: 0; font-size: 0.8rem; text-decoration: underline; }
   </style>
 </head>
 <body>
@@ -34,6 +44,7 @@
       <select id="sort-by">
         <option value="title">Sort by Title</option>
         <option value="updated">Sort by Updated</option>
+        <option value="quality">Sort by Quality Score</option>
       </select>
     </div>
     <div id="card-container"></div>
@@ -68,22 +79,39 @@
       }
     }
 
+    function getQualityScoreClass(score) {
+      if (score >= 85) return 'quality-excellent';
+      if (score >= 70) return 'quality-good';
+      if (score >= 50) return 'quality-fair';
+      return 'quality-poor';
+    }
+
     function renderTemplates(templates) {
       const container = document.getElementById('card-container');
       container.innerHTML = '';
       templates.forEach(template => {
         const card = document.createElement('div');
         card.className = 'card';
+        const qualityScore = template.qualityScore || 0;
+        const qualityClass = getQualityScoreClass(qualityScore);
         card.innerHTML = `
           <h2>${template.title}</h2>
           <p>${template.description}</p>
           <div class="tags">
+            <span class="quality-score ${qualityClass}">Quality: ${qualityScore}/100</span>
             <span class="tag">${template.methodology}</span>
             <span class="tag">${template.complexity}</span>
             ${template.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
           </div>
           <a href="/${template.path}" target="_blank">View Template</a>
           <p style="font-size: 0.8rem; color: #999; margin-top: 10px;">Updated: ${template.updated}</p>
+
+          <div class="related-templates">
+            <h4>Related Templates</h4>
+            <ul>
+              ${(template.relatedTemplates || []).map(related => `<li><a href="/${related.path}">${related.title}</a> (${related.similarity}%)</li>`).join('')}
+            </ul>
+          </div>
         `;
         container.appendChild(card);
       });
@@ -104,6 +132,8 @@
       filtered.sort((a, b) => {
         if (sortBy === 'updated') {
           return new Date(b.updated) - new Date(a.updated);
+        } else if (sortBy === 'quality') {
+          return (b.qualityScore || 0) - (a.qualityScore || 0);
         }
         return a.title.localeCompare(b.title);
       });
