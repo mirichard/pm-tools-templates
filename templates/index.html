@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Advanced Template Browser</title>
+  <style>
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; line-height: 1.6; color: #333; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+    h1 { text-align: center; color: #1a1a1a; }
+    .filters { display: flex; justify-content: space-between; margin-bottom: 20px; background: #f9f9f9; padding: 15px; border-radius: 8px; }
+    .filters input, .filters select { padding: 10px; font-size: 16px; border: 1px solid #ddd; border-radius: 4px; }
+    .card-container { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
+    .card { background: #fff; border: 1px solid #ddd; border-radius: 8px; padding: 20px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); transition: transform 0.2s; }
+    .card:hover { transform: translateY(-5px); }
+    .card h2 { font-size: 1.2rem; margin: 0 0 10px; }
+    .card p { margin: 0 0 15px; color: #666; }
+    .tags { margin-bottom: 15px; }
+    .tag { display: inline-block; background: #eee; padding: 5px 10px; border-radius: 12px; font-size: 0.8rem; margin-right: 5px; }
+    .card a { background: #007bff; color: #fff; text-decoration: none; padding: 10px 15px; border-radius: 4px; display: inline-block; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Advanced Template Browser</h1>
+    <div class="filters">
+      <input type="text" id="search-input" placeholder="Search by keyword...">
+      <select id="methodology-filter">
+        <option value="all">All Methodologies</option>
+      </select>
+      <select id="complexity-filter">
+        <option value="all">All Complexities</option>
+      </select>
+      <select id="sort-by">
+        <option value="title">Sort by Title</option>
+        <option value="updated">Sort by Updated</option>
+      </select>
+    </div>
+    <div id="card-container"></div>
+  </div>
+
+  <script>
+    let allTemplates = [];
+
+    async function fetchTemplates() {
+      const response = await fetch('templates.json');
+      const data = await response.json();
+      allTemplates = data.templates;
+      populateFilters(data.statistics);
+      renderTemplates(allTemplates);
+    }
+
+    function populateFilters(stats) {
+      const methodologyFilter = document.getElementById('methodology-filter');
+      for (const methodology in stats.byMethodology) {
+        const option = document.createElement('option');
+        option.value = methodology;
+        option.textContent = `${methodology.charAt(0).toUpperCase() + methodology.slice(1)} (${stats.byMethodology[methodology]})`;
+        methodologyFilter.appendChild(option);
+      }
+
+      const complexityFilter = document.getElementById('complexity-filter');
+      for (const complexity in stats.byComplexity) {
+        const option = document.createElement('option');
+        option.value = complexity;
+        option.textContent = `${complexity.charAt(0).toUpperCase() + complexity.slice(1)} (${stats.byComplexity[complexity]})`;
+        complexityFilter.appendChild(option);
+      }
+    }
+
+    function renderTemplates(templates) {
+      const container = document.getElementById('card-container');
+      container.innerHTML = '';
+      templates.forEach(template => {
+        const card = document.createElement('div');
+        card.className = 'card';
+        card.innerHTML = `
+          <h2>${template.title}</h2>
+          <p>${template.description}</p>
+          <div class="tags">
+            <span class="tag">${template.methodology}</span>
+            <span class="tag">${template.complexity}</span>
+            ${template.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
+          </div>
+          <a href="/${template.path}" target="_blank">View Template</a>
+          <p style="font-size: 0.8rem; color: #999; margin-top: 10px;">Updated: ${template.updated}</p>
+        `;
+        container.appendChild(card);
+      });
+    }
+
+    function filterAndSort() {
+      const searchTerm = document.getElementById('search-input').value.toLowerCase();
+      const methodology = document.getElementById('methodology-filter').value;
+      const complexity = document.getElementById('complexity-filter').value;
+      const sortBy = document.getElementById('sort-by').value;
+
+      let filtered = allTemplates.filter(t => 
+        (t.title.toLowerCase().includes(searchTerm) || t.description.toLowerCase().includes(searchTerm)) &&
+        (methodology === 'all' || t.methodology === methodology) &&
+        (complexity === 'all' || t.complexity === complexity)
+      );
+
+      filtered.sort((a, b) => {
+        if (sortBy === 'updated') {
+          return new Date(b.updated) - new Date(a.updated);
+        }
+        return a.title.localeCompare(b.title);
+      });
+
+      renderTemplates(filtered);
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      fetchTemplates();
+      document.getElementById('search-input').addEventListener('input', filterAndSort);
+      document.getElementById('methodology-filter').addEventListener('change', filterAndSort);
+      document.getElementById('complexity-filter').addEventListener('change', filterAndSort);
+      document.getElementById('sort-by').addEventListener('change', filterAndSort);
+    });
+  </script>
+</body>
+</html>
