@@ -1,6 +1,11 @@
 # Project Management Tools & Templates
 
-> A curated collection of battle-tested, open-source templates for project and program managers. Practical, vendor-agnostic, and ready to customize.
+> A curated collection of 154+ battle-tested, open-source templates for project and program managers. Practical, vendor-agnostic, and ready to customize.
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
+[![Templates](https://img.shields.io/badge/Templates-154-blue.svg)](TEMPLATE_INDEX.md)
+[![Interactive Browser](https://img.shields.io/badge/Browse-Interactive-green.svg)](templates/index.html)
 
 ---
 
@@ -38,6 +43,16 @@
 - [Risk Register Template](templates/traditional/Traditional/Templates/risk_register_template.md) - Manage project risks
 - [Status Report Template](project-lifecycle/04-monitoring-control/progress-tracking/status-report-template.md) - Report progress
 - [Stakeholder Register Template](project-lifecycle/01-initiation/stakeholder-analysis/stakeholder-register-template.md) - Manage stakeholders
+
+### Popular Tags
+
+- [Risk Management (126)](templates/index.html?search=risk-management)
+- [Stakeholder Management (116)](templates/index.html?search=stakeholder-management)
+- [Planning (102)](templates/index.html?search=planning)
+- [Communication (101)](templates/index.html?search=communication)
+- [Quality (110)](templates/index.html?search=quality)
+- [Monitoring (89)](templates/index.html?search=monitoring)
+- [Technology (85)](templates/index.html?search=technology)
 
 ---
 
