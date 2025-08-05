@@ -44,78 +44,138 @@ const TemplateViewer: React.FC<Props> = ({ templateId, filePath, title }) => {
 
   const renderPreview = () => {
     const extension = getFileExtension(filePath);
+    const fileName = filePath.split('/').pop() || 'template';
+    const fileSize = '~2.5KB'; // This could be dynamic if we track file sizes
 
     switch (extension) {
       case 'md':
         return (
-          <iframe 
-            src={`/pm-tools-templates/preview/markdown?file=${encodeURIComponent(filePath)}`}
-            style={{ width: '100%', height: '600px', border: '1px solid var(--border-color)' }}
-            title={`Preview of ${title}`}
-          />
-        );
-      case 'docx':
-        return renderOfficeDoc('docx');
-      case 'xlsx':
-        return renderOfficeDoc('xlsx');
-      case 'pptx':
-        return renderOfficeDoc('pptx');
-      default:
-        return (
-          <div style={{ 
-            padding: '2rem', 
-            textAlign: 'center', 
-            background: 'var(--code-bg)', 
-            borderRadius: '8px',
-            border: '1px solid var(--border-color)'
-          }}>
-            <p>Preview not available for this file type.</p>
-            <a 
-              href={`/pm-tools-templates/${filePath}`} 
-              download
+          <div style={{ background: 'var(--bg-primary)', borderRadius: 'var(--radius-lg)' }}>
+            <div style={{ 
+              padding: '1rem 1.5rem',
+              borderBottom: '1px solid var(--border-light)',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+              background: 'var(--bg-secondary)',
+              borderRadius: 'var(--radius-lg) var(--radius-lg) 0 0'
+            }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                <span style={{ fontSize: '1.5rem' }}>📄</span>
+                <div>
+                  <div style={{ fontWeight: '600', color: 'var(--text-primary)' }}>{fileName}</div>
+                  <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>Markdown • {fileSize}</div>
+                </div>
+              </div>
+              <a 
+                href={`/pm-tools-templates/${filePath}`} 
+                download
+                className="btn btn-secondary"
+                style={{ fontSize: '0.75rem', padding: '0.5rem 0.75rem' }}
+              >
+                💾 Download
+              </a>
+            </div>
+            <iframe 
+              src={`/pm-tools-templates/preview/markdown?file=${encodeURIComponent(filePath)}`}
               style={{ 
-                background: 'var(--accent-color)', 
-                color: 'white', 
-                padding: '0.5rem 1rem', 
-                borderRadius: '4px',
-                textDecoration: 'none',
-                display: 'inline-block',
-                marginTop: '1rem'
+                width: '100%', 
+                height: '600px', 
+                border: 'none',
+                borderRadius: '0 0 var(--radius-lg) var(--radius-lg)'
               }}
-            >
-              Download Original
-            </a>
+              title={`Preview of ${title}`}
+            />
           </div>
         );
+      case 'docx':
+        return renderOfficeDoc('docx', '📄', 'Word Document');
+      case 'xlsx':
+        return renderOfficeDoc('xlsx', '📊', 'Excel Spreadsheet');
+      case 'pptx':
+        return renderOfficeDoc('pptx', '📎', 'PowerPoint Presentation');
+      default:
+        return renderOfficeDoc('file', '📁', 'File');
     }
   };
 
-  const renderOfficeDoc = (type: string) => {
+  const renderOfficeDoc = (type: string, icon: string, typeName: string) => {
+    const fileName = filePath.split('/').pop() || 'template';
+    const fileSize = '~156KB'; // This could be dynamic
+    
     return (
       <div style={{ 
-        padding: '2rem', 
-        textAlign: 'center', 
-        background: 'var(--code-bg)', 
-        borderRadius: '8px',
-        border: '1px solid var(--border-color)'
+        background: 'var(--bg-primary)',
+        borderRadius: 'var(--radius-lg)',
+        border: '1px solid var(--border-light)',
+        overflow: 'hidden'
       }}>
-        <p>Office document preview will be available soon.</p>
-        <p>For now, please download the file to view it locally.</p>
-        <a 
-          href={`/pm-tools-templates/${filePath}`} 
-          download
-          style={{ 
-            background: 'var(--accent-color)', 
-            color: 'white', 
-            padding: '0.5rem 1rem', 
-            borderRadius: '4px',
-            textDecoration: 'none',
-            display: 'inline-block',
-            marginTop: '1rem'
-          }}
-        >
-          Download {type.toUpperCase()} File
-        </a>
+        <div style={{ 
+          padding: '2rem',
+          textAlign: 'center',
+          background: 'linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%)'
+        }}>
+          <div style={{ fontSize: '4rem', marginBottom: '1rem' }}>{icon}</div>
+          <h3 style={{ 
+            color: 'var(--text-primary)', 
+            marginBottom: '0.5rem',
+            fontSize: '1.25rem',
+            fontWeight: '600'
+          }}>
+            {fileName}
+          </h3>
+          <p style={{ 
+            color: 'var(--text-secondary)', 
+            marginBottom: '2rem',
+            fontSize: '0.875rem'
+          }}>
+            {typeName} • {fileSize}
+          </p>
+          
+          <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
+            <a 
+              href={`/pm-tools-templates/${filePath}`} 
+              download
+              className="btn btn-primary"
+              style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}
+            >
+              💾 Download {type.toUpperCase()}
+            </a>
+            <button 
+              className="btn btn-secondary"
+              onClick={() => navigator.clipboard.writeText(window.location.origin + `/pm-tools-templates/${filePath}`)}
+              style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}
+            >
+              🔗 Copy Link
+            </button>
+          </div>
+        </div>
+        
+        <div style={{ 
+          padding: '1.5rem',
+          borderTop: '1px solid var(--border-light)',
+          background: 'var(--bg-secondary)'
+        }}>
+          <h4 style={{ 
+            color: 'var(--text-primary)',
+            marginBottom: '0.75rem',
+            fontSize: '0.875rem',
+            fontWeight: '600'
+          }}>
+            📝 Quick Start Tips
+          </h4>
+          <ul style={{ 
+            color: 'var(--text-secondary)',
+            fontSize: '0.8125rem',
+            paddingLeft: '1.25rem',
+            lineHeight: '1.6'
+          }}>
+            <li>Download the template to get started immediately</li>
+            <li>Customize the content for your specific project needs</li>
+            <li>Check the changelog tab to see recent updates</li>
+            <li>Save to favorites for quick access later</li>
+          </ul>
+        </div>
       </div>
     );
   };
