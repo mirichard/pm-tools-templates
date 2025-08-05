@@ -1,0 +1,199 @@
+name: Community Roadmap Voting
+
+on:
+  issues:
+    types: [opened, labeled]
+  issue_comment:
+    types: [created]
+  workflow_dispatch:
+
+jobs:
+  setup-voting:
+    if: >
+      (github.event.action == 'opened' && contains(github.event.issue.labels.*.name, 'roadmap-voting')) ||
+      (github.event.action == 'labeled' && github.event.label.name == 'roadmap-voting')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup Community Voting
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const issueNumber = context.payload.issue.number;
+            
+            // Add voting reactions
+            const votingComment = `
+            ## 🗳️ Community Roadmap Voting
+            
+            This feature/improvement is now open for community voting!
+            
+            **How to Vote:**
+            - 👍 **Support** - I want this feature/improvement
+            - 🎯 **High Priority** - This should be implemented soon
+            - ⭐ **Nice to Have** - Good idea but not urgent
+            - 👀 **Watching** - Interested but not actively needed
+            
+            **Voting Period:** 2 weeks from today
+            **Decision Criteria:** Items with 10+ 👍 votes will be considered for the next development cycle
+            
+            **Community Guidelines:**
+            - Please only vote if you would actually use this feature
+            - Consider the benefit to the broader PM community
+            - Feel free to add comments with your use case or suggestions
+            
+            ---
+            *Voting closes on ${new Date(Date.now() + 14 * 24 * 60 * 60 * 1000).toDateString()}*
+            `;
+            
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: issueNumber,
+              body: votingComment
+            });
+            
+            // Add voting labels
+            await github.rest.issues.addLabels({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: issueNumber,
+              labels: ['voting-active', 'community-input']
+            });
+            
+            console.log(`Voting setup complete for issue #${issueNumber}`);
+
+  process-votes:
+    if: github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Process Community Votes
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            // Get all issues with voting-active label
+            const votingIssues = await github.rest.issues.listForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              labels: 'voting-active',
+              state: 'open'
+            });
+            
+            console.log(`Found ${votingIssues.data.length} active voting issues`);
+            
+            const votingResults = [];
+            
+            for (const issue of votingIssues.data) {
+              // Get reactions for the issue
+              const reactions = await github.rest.reactions.listForIssue({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: issue.number
+              });
+              
+              const voteCount = {
+                support: reactions.data.filter(r => r.content === '+1').length,
+                priority: reactions.data.filter(r => r.content === 'rocket').length,
+                nice_to_have: reactions.data.filter(r => r.content === 'heart').length,
+                watching: reactions.data.filter(r => r.content === 'eyes').length
+              };
+              
+              const totalVotes = voteCount.support + voteCount.priority + voteCount.nice_to_have + voteCount.watching;
+              const supportScore = voteCount.support + (voteCount.priority * 2) + (voteCount.nice_to_have * 0.5);
+              
+              votingResults.push({
+                issue_number: issue.number,
+                title: issue.title,
+                votes: voteCount,
+                total_votes: totalVotes,
+                support_score: supportScore,
+                created_at: issue.created_at,
+                url: issue.html_url
+              });
+              
+              // Check if voting period has ended (2 weeks)
+              const twoWeeksAgo = new Date(Date.now() - 14 * 24 * 60 * 60 * 1000);
+              const issueCreated = new Date(issue.created_at);
+              
+              if (issueCreated < twoWeeksAgo) {
+                // Close voting
+                let resultComment = `## 🗳️ Voting Results\n\n`;
+                resultComment += `**Final Vote Count:**\n`;
+                resultComment += `- 👍 Support: ${voteCount.support}\n`;
+                resultComment += `- 🎯 High Priority: ${voteCount.priority}\n`;
+                resultComment += `- ⭐ Nice to Have: ${voteCount.nice_to_have}\n`;
+                resultComment += `- 👀 Watching: ${voteCount.watching}\n`;
+                resultComment += `\n**Total Engagement:** ${totalVotes} community members\n`;
+                resultComment += `**Support Score:** ${supportScore.toFixed(1)}\n\n`;
+                
+                if (voteCount.support >= 10) {
+                  resultComment += `✅ **APPROVED FOR DEVELOPMENT** - This item has reached the threshold for implementation consideration!\n\n`;
+                  resultComment += `This feature/improvement will be added to our development backlog and prioritized based on capacity and strategic alignment.\n`;
+                  
+                  // Add to development backlog
+                  await github.rest.issues.addLabels({
+                    owner: context.repo.owner,
+                    repo: context.repo.repo,
+                    issue_number: issue.number,
+                    labels: ['approved-by-community', 'development-backlog']
+                  });
+                } else {
+                  resultComment += `📊 **COMMUNITY FEEDBACK RECEIVED** - Thank you for the input!\n\n`;
+                  resultComment += `While this didn't reach the 10+ vote threshold, the feedback is valuable and will be considered for future planning.\n`;
+                }
+                
+                resultComment += `\n---\n*Voting period closed. Thank you to everyone who participated!*`;
+                
+                await github.rest.issues.createComment({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  issue_number: issue.number,
+                  body: resultComment
+                });
+                
+                // Remove voting-active label and add voting-closed
+                await github.rest.issues.removeLabel({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  issue_number: issue.number,
+                  name: 'voting-active'
+                });
+                
+                await github.rest.issues.addLabels({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  issue_number: issue.number,
+                  labels: ['voting-closed']
+                });
+              }
+            }
+            
+            // Generate voting summary
+            if (votingResults.length > 0) {
+              votingResults.sort((a, b) => b.support_score - a.support_score);
+              
+              let summary = `## 📊 Community Voting Summary\n\n`;
+              summary += `**Active Voting Items:** ${votingResults.filter(r => !r.closed).length}\n\n`;
+              
+              summary += `### Top Voted Items\n\n`;
+              votingResults.slice(0, 10).forEach((item, index) => {
+                summary += `${index + 1}. [${item.title}](${item.url}) - Score: ${item.support_score.toFixed(1)} (${item.total_votes} votes)\n`;
+              });
+              
+              console.log(summary);
+            }
+
+  monthly-voting-report:
+    if: github.event_name == 'schedule'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Generate Monthly Voting Report
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            // Generate monthly report of community voting activity
+            console.log('Generating monthly community voting report...');
+            
+            // This would contain similar logic to process-votes but generate a comprehensive report
+            // and post it to a dedicated tracking issue

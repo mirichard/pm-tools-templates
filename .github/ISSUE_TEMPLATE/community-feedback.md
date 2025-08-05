@@ -7,6 +7,10 @@ assignees: ''
 
 ---
 
+> **Discussion Link:** [Join our GitHub Discussions Forum](https://github.com/mirichard/pm-tools-templates/discussions)
+
+---
+
 # 💬 Community Feedback
 
 Thank you for taking the time to share your feedback! Your input directly shapes our roadmap and improvements.

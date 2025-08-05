@@ -1,0 +1,210 @@
+name: Expert Review Process
+
+on:
+  issues:
+    types: [opened, labeled]
+  issue_comment:
+    types: [created]
+
+jobs:
+  expert-review-assignment:
+    if: >
+      (github.event.action == 'opened' && (
+        contains(github.event.issue.labels.*.name, 'template-improvement') ||
+        contains(github.event.issue.labels.*.name, 'expert-review-needed')
+      )) ||
+      (github.event.action == 'labeled' && github.event.label.name == 'expert-review-needed')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Assign Expert Reviewers
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const issueNumber = context.payload.issue.number;
+            const issueBody = context.payload.issue.body || '';
+            const issueTitle = context.payload.issue.title || '';
+            
+            // Define expert categories and their GitHub usernames
+            const expertCategories = {
+              'Agile/Scrum Templates': ['@mirichard'],
+              'Traditional/Waterfall Templates': ['@mirichard'],
+              'Hybrid Methodology Templates': ['@mirichard'],
+              'Industry-Specific Templates': ['@mirichard'],
+              'Role-Based Toolkits': ['@mirichard'],
+              'Integration Templates': ['@mirichard']
+            };
+            
+            // Determine category from issue content
+            let assignedCategory = 'General';
+            let experts = ['@mirichard']; // Default expert
+            
+            for (const [category, categoryExperts] of Object.entries(expertCategories)) {
+              if (issueBody.includes(category) || issueTitle.includes(category)) {
+                assignedCategory = category;
+                experts = categoryExperts;
+                break;
+              }
+            }
+            
+            // Create expert review comment
+            const reviewComment = `
+            ## 👨‍💼 Expert Review Assignment
+            
+            This ${context.payload.issue.labels.some(l => l.name === 'template-improvement') ? 'template improvement' : 'feedback item'} has been assigned for expert review.
+            
+            **Category:** ${assignedCategory}
+            **Assigned Experts:** ${experts.join(', ')}
+            
+            ### Expert Review Process
+            
+            **Phase 1: Technical Review (3-5 days)**
+            - ✅ Feasibility assessment
+            - ✅ Technical implementation review
+            - ✅ Resource requirements analysis
+            
+            **Phase 2: Community Impact Review (2-3 days)**
+            - ✅ Benefit analysis for PM community
+            - ✅ Priority scoring based on impact
+            - ✅ Implementation timeline estimation
+            
+            **Phase 3: Final Recommendation (1-2 days)**
+            - ✅ Go/No-go recommendation
+            - ✅ Alternative solutions (if applicable)
+            - ✅ Next steps planning
+            
+            ### Expert Guidelines
+            
+            **Experts, please evaluate:**
+            1. **Technical Feasibility** - Can this be implemented effectively?
+            2. **Community Value** - How many PMs would benefit from this?
+            3. **Resource Investment** - What's the effort vs. impact ratio?
+            4. **Strategic Alignment** - Does this align with our roadmap?
+            5. **Maintenance Burden** - What are the long-term implications?
+            
+            **Review Format:**
+            Please use the following template in your review comment:
+            
+            \`\`\`
+            ## Expert Review: [Expert Name]
+            
+            **Technical Feasibility:** [High/Medium/Low] - [Explanation]
+            **Community Value:** [High/Medium/Low] - [Explanation]  
+            **Resource Investment:** [High/Medium/Low] - [Explanation]
+            **Strategic Alignment:** [Excellent/Good/Poor] - [Explanation]
+            **Maintenance Burden:** [High/Medium/Low] - [Explanation]
+            
+            **Overall Recommendation:** [Approve/Conditional/Reject]
+            **Priority Level:** [P1-Critical/P2-High/P3-Medium/P4-Low]
+            **Estimated Timeline:** [X weeks/months]
+            
+            **Additional Notes:** [Any specific comments or suggestions]
+            \`\`\`
+            
+            ---
+            *Expert review requested on ${new Date().toDateString()}*
+            `;
+            
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: issueNumber,
+              body: reviewComment
+            });
+            
+            // Add expert review labels
+            await github.rest.issues.addLabels({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: issueNumber,
+              labels: ['expert-review-active', 'needs-expert-input']
+            });
+            
+            console.log(`Expert review assigned for issue #${issueNumber} in category: ${assignedCategory}`);
+
+  process-expert-reviews:
+    if: >
+      github.event_name == 'issue_comment' && 
+      contains(github.event.issue.labels.*.name, 'expert-review-active')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Process Expert Review Comment
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const comment = context.payload.comment.body;
+            const issueNumber = context.payload.issue.number;
+            
+            // Check if this is an expert review comment
+            if (comment.includes('## Expert Review:')) {
+              console.log(`Expert review detected for issue #${issueNumber}`);
+              
+              // Extract review data using regex
+              const extractField = (field) => {
+                const regex = new RegExp(`\\*\\*${field}:\\*\\*\\s*([^\\n]+)`, 'i');
+                const match = comment.match(regex);
+                return match ? match[1].trim() : null;
+              };
+              
+              const reviewData = {
+                technical_feasibility: extractField('Technical Feasibility'),
+                community_value: extractField('Community Value'),
+                resource_investment: extractField('Resource Investment'),
+                strategic_alignment: extractField('Strategic Alignment'),
+                maintenance_burden: extractField('Maintenance Burden'),
+                recommendation: extractField('Overall Recommendation'),
+                priority: extractField('Priority Level'),
+                timeline: extractField('Estimated Timeline')
+              };
+              
+              console.log('Extracted review data:', JSON.stringify(reviewData, null, 2));
+              
+              // Check if recommendation is Approve
+              if (reviewData.recommendation && reviewData.recommendation.toLowerCase().includes('approve')) {
+                // Add approved label and remove review-active
+                await github.rest.issues.addLabels({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  issue_number: issueNumber,
+                  labels: ['expert-approved', 'ready-for-development']
+                });
+                
+                // Post approval comment
+                const approvalComment = `
+                ## ✅ Expert Approval Received
+                
+                This item has been approved by expert review and is now ready for development planning.
+                
+                **Next Steps:**
+                1. Add to development backlog
+                2. Assign to appropriate development cycle
+                3. Create implementation tasks
+                
+                **Priority Level:** ${reviewData.priority || 'To be determined'}
+                **Estimated Timeline:** ${reviewData.timeline || 'To be determined'}
+                
+                ---
+                *Automatically processed expert approval*
+                `;
+                
+                await github.rest.issues.createComment({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  issue_number: issueNumber,
+                  body: approvalComment
+                });
+              }
+              
+              // Remove needs-expert-input label
+              try {
+                await github.rest.issues.removeLabel({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  issue_number: issueNumber,
+                  name: 'needs-expert-input'
+                });
+              } catch (error) {
+                console.log('Label removal failed (may not exist):', error.message);
+              }
+            }
