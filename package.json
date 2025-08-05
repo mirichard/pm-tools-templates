@@ -40,5 +40,9 @@
   "homepage": "https://github.com/mirichard/pm-tools-templates#readme",
   "bugs": {
     "url": "https://github.com/mirichard/pm-tools-templates/issues"
+  },
+  "dependencies": {
+    "glob": "^11.0.3",
+    "js-yaml": "^4.1.0"
   }
 }
