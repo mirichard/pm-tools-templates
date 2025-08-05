@@ -141,8 +141,7 @@ jobs:
             
             // Check if we already have a processing comment
             const hasProcessingComment = comments.data.some(comment => 
-              comment.body.includes('🤖 Automated Feedback Processing') &&
-              comment.user.type === 'Bot'
+              comment.body.includes('🤖 Automated Feedback Processing')
             );
             
             if (hasProcessingComment) {
