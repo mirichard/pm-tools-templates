@@ -3,7 +3,6 @@
   "version": "2.0.0",
   "description": "AI-Powered Project Management Templates with Interactive Onboarding",
   "main": "ecosystem-gateway.js",
-  "type": "module",
   "scripts": {
     "start": "node ecosystem-gateway.js",
     "onboard": "node onboarding/interactive-onboarding.js",
