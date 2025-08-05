@@ -1,3 +1,11 @@
+---
+title: "Stakeholder Register Template"
+methodology: "universal"
+complexity: "intermediate"
+owner: "mirichard"
+updated: "2025-08-05"
+---
+
 # Stakeholder Register Template
 
 ## Purpose/Overview

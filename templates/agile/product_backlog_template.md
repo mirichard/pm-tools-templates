@@ -1,3 +1,11 @@
+---
+title: "Product Backlog Template"
+methodology: "agile"
+complexity: "advanced"
+owner: "mirichard"
+updated: "2025-08-05"
+---
+
 # PRODUCT BACKLOG
 
 ## Document Information

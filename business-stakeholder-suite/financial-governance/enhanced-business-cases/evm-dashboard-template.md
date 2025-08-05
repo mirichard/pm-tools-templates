@@ -1,3 +1,11 @@
+---
+title: "Evm Dashboard Template"
+methodology: "universal"
+complexity: "advanced"
+owner: "mirichard"
+updated: "2025-08-05"
+---
+
 # Earned Value Management (EVM) Dashboard Template
 
 **Professional EVM tracking with advanced performance analytics and executive reporting**

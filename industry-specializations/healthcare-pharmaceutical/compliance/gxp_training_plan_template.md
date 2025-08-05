@@ -1,3 +1,11 @@
+---
+title: "Gxp Training Plan Template"
+methodology: "universal"
+complexity: "advanced"
+owner: "mirichard"
+updated: "2025-08-05"
+---
+
 # GxP Training Plan Template
 
 ## Document Control

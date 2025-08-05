@@ -1,3 +1,11 @@
+---
+title: "Project Closure Report Template"
+methodology: "traditional"
+complexity: "advanced"
+owner: "mirichard"
+updated: "2025-08-05"
+---
+
 # PROJECT CLOSURE REPORT
 
 ## Document Control Information

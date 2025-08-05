@@ -1,3 +1,11 @@
+---
+title: "Advanced Business Case Template"
+methodology: "universal"
+complexity: "advanced"
+owner: "mirichard"
+updated: "2025-08-05"
+---
+
 # Advanced Business Case Template
 
 **Comprehensive investment justification with enterprise-grade financial analysis**

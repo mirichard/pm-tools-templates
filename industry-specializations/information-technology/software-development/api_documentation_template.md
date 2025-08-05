@@ -1,3 +1,11 @@
+---
+title: "Api Documentation Template"
+methodology: "universal"
+complexity: "advanced"
+owner: "mirichard"
+updated: "2025-08-05"
+---
+
 # API Documentation Template
 
 **API Name:** [API Name]  

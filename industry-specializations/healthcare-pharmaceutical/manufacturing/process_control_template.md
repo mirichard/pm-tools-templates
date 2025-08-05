@@ -1,3 +1,11 @@
+---
+title: "Process Control Template"
+methodology: "universal"
+complexity: "advanced"
+owner: "mirichard"
+updated: "2025-08-05"
+---
+
 # Process Control Template
 
 ## Document Control

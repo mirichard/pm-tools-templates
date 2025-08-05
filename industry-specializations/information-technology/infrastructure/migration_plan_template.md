@@ -1,3 +1,11 @@
+---
+title: "Migration Plan Template"
+methodology: "universal"
+complexity: "starter"
+owner: "mirichard"
+updated: "2025-08-05"
+---
+
 # IT Infrastructure Migration Plan Template
 
 ## Executive Summary

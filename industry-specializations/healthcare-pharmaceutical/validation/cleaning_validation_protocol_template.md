@@ -1,3 +1,11 @@
+---
+title: "Cleaning Validation Protocol Template"
+methodology: "universal"
+complexity: "advanced"
+owner: "mirichard"
+updated: "2025-08-05"
+---
+
 # Cleaning Validation Protocol Template
 
 **Protocol Number:** [CV-XXXX]  

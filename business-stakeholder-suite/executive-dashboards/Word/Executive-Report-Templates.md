@@ -1,3 +1,11 @@
+---
+title: "Executive Report Templates"
+methodology: "universal"
+complexity: "advanced"
+owner: "mirichard"
+updated: "2025-08-05"
+---
+
 # Word Executive Report Templates
 
 **Purpose:** Formal Word document templates for executive communication  

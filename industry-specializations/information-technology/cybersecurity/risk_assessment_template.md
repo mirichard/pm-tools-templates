@@ -1,3 +1,11 @@
+---
+title: "Risk Assessment Template"
+methodology: "universal"
+complexity: "advanced"
+owner: "mirichard"
+updated: "2025-08-05"
+---
+
 # Cybersecurity Risk Assessment Template
 
 **Version:** 1.0  

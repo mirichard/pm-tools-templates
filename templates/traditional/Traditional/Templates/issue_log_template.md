@@ -1,3 +1,11 @@
+---
+title: "Issue Log Template"
+methodology: "traditional"
+complexity: "advanced"
+owner: "mirichard"
+updated: "2025-08-05"
+---
+
 # PROJECT ISSUE LOG
 
 ## Document Control Information

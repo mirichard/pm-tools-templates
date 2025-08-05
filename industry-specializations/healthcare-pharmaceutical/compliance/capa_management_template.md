@@ -1,3 +1,11 @@
+---
+title: "Capa Management Template"
+methodology: "universal"
+complexity: "advanced"
+owner: "mirichard"
+updated: "2025-08-05"
+---
+
 # Corrective and Preventive Action (CAPA) Management Template
 
 **Document Control**

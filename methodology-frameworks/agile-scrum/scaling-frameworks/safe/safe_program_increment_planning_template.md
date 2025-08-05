@@ -1,3 +1,11 @@
+---
+title: "Safe Program Increment Planning Template"
+methodology: "agile"
+complexity: "advanced"
+owner: "mirichard"
+updated: "2025-08-05"
+---
+
 # SAFe Program Increment Planning Template
 
 **Agile Release Train:** [ART Name]  

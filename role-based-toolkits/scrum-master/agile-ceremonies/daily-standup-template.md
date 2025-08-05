@@ -1,3 +1,11 @@
+---
+title: "Daily Standup Template"
+methodology: "agile"
+complexity: "intermediate"
+owner: "mirichard"
+updated: "2025-08-05"
+---
+
 # Daily Standup Template
 
 ## Meeting Information

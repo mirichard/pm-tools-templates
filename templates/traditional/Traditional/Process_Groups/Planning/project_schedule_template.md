@@ -1,3 +1,11 @@
+---
+title: "Project Schedule Template"
+methodology: "traditional"
+complexity: "advanced"
+owner: "mirichard"
+updated: "2025-08-05"
+---
+
 # PROJECT SCHEDULE
 
 ## Document Control Information

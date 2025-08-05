@@ -1,3 +1,11 @@
+---
+title: "Program Management Plan Template"
+methodology: "traditional"
+complexity: "advanced"
+owner: "mirichard"
+updated: "2025-08-05"
+---
+
 # PROGRAM MANAGEMENT PLAN TEMPLATE
 
 ## Document Control Information

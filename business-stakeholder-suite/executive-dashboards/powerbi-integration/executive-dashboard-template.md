@@ -1,3 +1,11 @@
+---
+title: "Executive Dashboard Template"
+methodology: "universal"
+complexity: "advanced"
+owner: "mirichard"
+updated: "2025-08-05"
+---
+
 # Power BI Executive Dashboard Template
 
 ## 📊 Overview

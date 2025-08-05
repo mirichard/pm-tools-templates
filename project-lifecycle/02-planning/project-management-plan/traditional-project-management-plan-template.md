@@ -1,3 +1,11 @@
+---
+title: "Traditional Project Management Plan Template"
+methodology: "universal"
+complexity: "intermediate"
+owner: "mirichard"
+updated: "2025-08-05"
+---
+
 # Traditional Project Management Plan Template
 
 ## Project Information

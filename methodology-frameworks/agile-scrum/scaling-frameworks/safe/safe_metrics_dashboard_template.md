@@ -1,3 +1,11 @@
+---
+title: "Safe Metrics Dashboard Template"
+methodology: "agile"
+complexity: "advanced"
+owner: "mirichard"
+updated: "2025-08-05"
+---
+
 # SAFe Metrics Dashboard Template
 
 **Enterprise:** [Enterprise Name]  

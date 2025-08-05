@@ -1,3 +1,11 @@
+---
+title: "Operational Qualification Protocol Template"
+methodology: "universal"
+complexity: "advanced"
+owner: "mirichard"
+updated: "2025-08-05"
+---
+
 # Operational Qualification (OQ) Protocol Template
 
 ## Document Control

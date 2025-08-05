@@ -1,3 +1,11 @@
+---
+title: "Project Performance Monitoring Template"
+methodology: "traditional"
+complexity: "advanced"
+owner: "mirichard"
+updated: "2025-08-05"
+---
+
 # PROJECT PERFORMANCE MONITORING REPORT
 
 ## Document Control Information

@@ -1,3 +1,11 @@
+---
+title: "Hybrid Team Management Template"
+methodology: "hybrid"
+complexity: "advanced"
+owner: "mirichard"
+updated: "2025-08-05"
+---
+
 # Hybrid Team Management Template
 
 ## Overview

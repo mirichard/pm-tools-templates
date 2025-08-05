@@ -1,3 +1,11 @@
+---
+title: "Less Sprint Planning Template"
+methodology: "agile"
+complexity: "advanced"
+owner: "mirichard"
+updated: "2025-08-05"
+---
+
 # LeSS Sprint Planning Template
 
 ## Overview

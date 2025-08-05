@@ -1,3 +1,11 @@
+---
+title: "Pi Planning Template"
+methodology: "agile"
+complexity: "advanced"
+owner: "mirichard"
+updated: "2025-08-05"
+---
+
 # SAFe Program Increment (PI) Planning Template
 
 ## Overview

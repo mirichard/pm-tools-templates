@@ -1,3 +1,11 @@
+---
+title: "Regulatory Strategy Plan Template"
+methodology: "universal"
+complexity: "intermediate"
+owner: "mirichard"
+updated: "2025-08-05"
+---
+
 # Regulatory Strategy Plan
 
 ## Document Control

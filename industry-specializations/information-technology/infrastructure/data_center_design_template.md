@@ -1,3 +1,11 @@
+---
+title: "Data Center Design Template"
+methodology: "universal"
+complexity: "starter"
+owner: "mirichard"
+updated: "2025-08-05"
+---
+
 # Data Center Design Template
 
 ## Executive Summary

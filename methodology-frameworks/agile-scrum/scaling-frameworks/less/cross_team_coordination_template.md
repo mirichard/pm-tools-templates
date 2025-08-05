@@ -1,3 +1,11 @@
+---
+title: "Cross Team Coordination Template"
+methodology: "agile"
+complexity: "advanced"
+owner: "mirichard"
+updated: "2025-08-05"
+---
+
 # LeSS Cross-Team Coordination Template
 
 ## Overview

@@ -1,3 +1,11 @@
+---
+title: "Problem Management Process Template"
+methodology: "universal"
+complexity: "advanced"
+owner: "mirichard"
+updated: "2025-08-05"
+---
+
 # Problem Management Process Template
 
 ## Document Control

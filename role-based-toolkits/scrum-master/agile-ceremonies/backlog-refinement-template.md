@@ -1,3 +1,11 @@
+---
+title: "Backlog Refinement Template"
+methodology: "agile"
+complexity: "advanced"
+owner: "mirichard"
+updated: "2025-08-05"
+---
+
 # Backlog Refinement Template
 
 ## Meeting Information

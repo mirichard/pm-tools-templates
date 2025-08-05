@@ -1,3 +1,11 @@
+---
+title: "Sprint Review Template"
+methodology: "agile"
+complexity: "advanced"
+owner: "mirichard"
+updated: "2025-08-05"
+---
+
 # Sprint Review Template
 
 ## Meeting Information

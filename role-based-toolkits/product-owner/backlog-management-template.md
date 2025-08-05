@@ -1,3 +1,11 @@
+---
+title: "Backlog Management Template"
+methodology: "universal"
+complexity: "advanced"
+owner: "mirichard"
+updated: "2025-08-05"
+---
+
 # Backlog Management Template
 
 ## Product Information

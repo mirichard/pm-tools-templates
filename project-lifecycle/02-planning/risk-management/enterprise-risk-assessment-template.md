@@ -1,3 +1,11 @@
+---
+title: "Enterprise Risk Assessment Template"
+methodology: "universal"
+complexity: "starter"
+owner: "mirichard"
+updated: "2025-08-05"
+---
+
 # Enterprise Risk Assessment
 
 ## Overview

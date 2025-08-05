@@ -1,3 +1,11 @@
+---
+title: "Communication Plan Template"
+methodology: "traditional"
+complexity: "advanced"
+owner: "mirichard"
+updated: "2025-08-05"
+---
+
 # PROJECT COMMUNICATION PLAN
 
 ## Document Control Information

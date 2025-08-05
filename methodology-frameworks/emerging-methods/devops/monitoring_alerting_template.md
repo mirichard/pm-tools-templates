@@ -1,3 +1,11 @@
+---
+title: "Monitoring Alerting Template"
+methodology: "universal"
+complexity: "advanced"
+owner: "mirichard"
+updated: "2025-08-05"
+---
+
 # DevOps Monitoring and Alerting Strategy Template
 
 ## Overview

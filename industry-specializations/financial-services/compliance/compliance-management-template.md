@@ -1,3 +1,11 @@
+---
+title: "Compliance Management Template"
+methodology: "universal"
+complexity: "advanced"
+owner: "mirichard"
+updated: "2025-08-05"
+---
+
 # Financial Services Compliance Management Template
 
 ## Document Control

@@ -1,3 +1,11 @@
+---
+title: "Hybrid Quality Management Template"
+methodology: "hybrid"
+complexity: "advanced"
+owner: "mirichard"
+updated: "2025-08-05"
+---
+
 
 # Hybrid Quality Management Template
 

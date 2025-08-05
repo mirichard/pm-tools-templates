@@ -1,3 +1,11 @@
+---
+title: "Performance Qualification Protocol Template"
+methodology: "universal"
+complexity: "advanced"
+owner: "mirichard"
+updated: "2025-08-05"
+---
+
 # Performance Qualification (PQ) Protocol Template
 
 ## Document Control

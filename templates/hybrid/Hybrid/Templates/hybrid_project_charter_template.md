@@ -1,3 +1,11 @@
+---
+title: "Hybrid Project Charter Template"
+methodology: "hybrid"
+complexity: "advanced"
+owner: "mirichard"
+updated: "2025-08-05"
+---
+
 # Hybrid Project Charter Template
 
 ## Overview

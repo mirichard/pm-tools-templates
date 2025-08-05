@@ -1,3 +1,11 @@
+---
+title: "Cybersecurity Assessment Template"
+methodology: "universal"
+complexity: "advanced"
+owner: "mirichard"
+updated: "2025-08-05"
+---
+
 # Cybersecurity Assessment Template
 
 ## Document Control

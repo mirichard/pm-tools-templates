@@ -1,3 +1,11 @@
+---
+title: "Equipment Qualification Protocol Template"
+methodology: "universal"
+complexity: "advanced"
+owner: "mirichard"
+updated: "2025-08-05"
+---
+
 # Equipment Qualification Protocol Template
 
 ## Document Control

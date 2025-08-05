@@ -1,3 +1,11 @@
+---
+title: "Overall Product Backlog Template"
+methodology: "agile"
+complexity: "advanced"
+owner: "mirichard"
+updated: "2025-08-05"
+---
+
 # LeSS Overall Product Backlog Management Template
 
 ## Overview

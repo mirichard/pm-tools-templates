@@ -1,3 +1,11 @@
+---
+title: "Future State Blueprint Template"
+methodology: "universal"
+complexity: "advanced"
+owner: "mirichard"
+updated: "2025-08-05"
+---
+
 # Future State Blueprint Template
 
 ## Overview

@@ -1,3 +1,11 @@
+---
+title: "Cicd Pipeline Planning Template"
+methodology: "universal"
+complexity: "advanced"
+owner: "mirichard"
+updated: "2025-08-05"
+---
+
 # CI/CD Pipeline Planning Template
 
 ## Overview

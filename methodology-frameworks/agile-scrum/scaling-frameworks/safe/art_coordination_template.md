@@ -1,3 +1,11 @@
+---
+title: "Art Coordination Template"
+methodology: "agile"
+complexity: "advanced"
+owner: "mirichard"
+updated: "2025-08-05"
+---
+
 # SAFe Agile Release Train (ART) Coordination Template
 
 ## Overview

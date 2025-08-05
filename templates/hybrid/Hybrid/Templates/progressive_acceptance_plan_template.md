@@ -1,3 +1,11 @@
+---
+title: "Progressive Acceptance Plan Template"
+methodology: "hybrid"
+complexity: "advanced"
+owner: "mirichard"
+updated: "2025-08-05"
+---
+
 # Progressive Acceptance Plan Template
 
 ## Document Information

@@ -1,3 +1,11 @@
+---
+title: "Stakeholder Engagement Assessment Template"
+methodology: "universal"
+complexity: "starter"
+owner: "mirichard"
+updated: "2025-08-05"
+---
+
 # Stakeholder Engagement Assessment Template
 
 ## Executive Summary

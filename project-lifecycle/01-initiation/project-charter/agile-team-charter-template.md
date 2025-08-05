@@ -1,3 +1,11 @@
+---
+title: "Agile Team Charter Template"
+methodology: "universal"
+complexity: "intermediate"
+owner: "mirichard"
+updated: "2025-08-05"
+---
+
 # Agile Team Charter Template
 
 ## Purpose/Overview

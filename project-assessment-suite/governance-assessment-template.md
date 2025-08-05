@@ -1,3 +1,11 @@
+---
+title: "Governance Assessment Template"
+methodology: "universal"
+complexity: "starter"
+owner: "mirichard"
+updated: "2025-08-05"
+---
+
 # Project Governance Assessment Template
 
 ## Executive Summary

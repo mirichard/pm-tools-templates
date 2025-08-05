@@ -1,3 +1,11 @@
+---
+title: "Sprint Planning Template"
+methodology: "agile"
+complexity: "advanced"
+owner: "mirichard"
+updated: "2025-08-05"
+---
+
 # Sprint Planning Template
 
 ## Executive Summary

@@ -1,3 +1,11 @@
+---
+title: "Incident Response Template"
+methodology: "universal"
+complexity: "advanced"
+owner: "mirichard"
+updated: "2025-08-05"
+---
+
 # Cybersecurity Incident Response Template
 
 **Version:** 1.0  

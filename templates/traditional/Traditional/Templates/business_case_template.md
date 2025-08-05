@@ -1,3 +1,11 @@
+---
+title: "Business Case Template"
+methodology: "traditional"
+complexity: "advanced"
+owner: "mirichard"
+updated: "2025-08-05"
+---
+
 # Business Case Template - Waterfall Methodology
 
 ## Executive Summary

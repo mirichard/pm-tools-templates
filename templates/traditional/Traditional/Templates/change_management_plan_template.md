@@ -1,3 +1,11 @@
+---
+title: "Change Management Plan Template"
+methodology: "traditional"
+complexity: "advanced"
+owner: "mirichard"
+updated: "2025-08-05"
+---
+
 # Change Management Plan Template
 
 ## Document Information

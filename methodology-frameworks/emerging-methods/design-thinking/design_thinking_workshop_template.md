@@ -1,3 +1,11 @@
+---
+title: "Design Thinking Workshop Template"
+methodology: "universal"
+complexity: "advanced"
+owner: "mirichard"
+updated: "2025-08-05"
+---
+
 # Design Thinking Workshop Template
 
 ## Overview

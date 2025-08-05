@@ -1,3 +1,11 @@
+---
+title: "Safe Metrics Reporting Template"
+methodology: "agile"
+complexity: "advanced"
+owner: "mirichard"
+updated: "2025-08-05"
+---
+
 # SAFe Metrics Reporting Template
 
 **Enterprise:** [Enterprise Name]  

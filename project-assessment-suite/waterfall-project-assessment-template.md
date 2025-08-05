@@ -1,3 +1,11 @@
+---
+title: "Waterfall Project Assessment Template"
+methodology: "traditional"
+complexity: "starter"
+owner: "mirichard"
+updated: "2025-08-05"
+---
+
 # Waterfall Project Assessment Template
 
 ## Executive Summary

@@ -1,3 +1,11 @@
+---
+title: "User Story Mapping Template"
+methodology: "universal"
+complexity: "advanced"
+owner: "mirichard"
+updated: "2025-08-05"
+---
+
 # User Story Mapping Template
 
 ## Executive Summary

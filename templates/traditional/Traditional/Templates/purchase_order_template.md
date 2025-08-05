@@ -1,3 +1,11 @@
+---
+title: "Purchase Order Template"
+methodology: "traditional"
+complexity: "intermediate"
+owner: "mirichard"
+updated: "2025-08-05"
+---
+
 # Purchase Order Template
 
 ## Purchase Order Information

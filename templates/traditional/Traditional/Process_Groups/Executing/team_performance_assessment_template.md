@@ -1,3 +1,11 @@
+---
+title: "Team Performance Assessment Template"
+methodology: "traditional"
+complexity: "intermediate"
+owner: "mirichard"
+updated: "2025-08-05"
+---
+
 # TEAM PERFORMANCE ASSESSMENT
 
 ## Document Control Information

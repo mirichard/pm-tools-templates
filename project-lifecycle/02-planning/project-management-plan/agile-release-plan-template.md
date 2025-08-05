@@ -1,3 +1,11 @@
+---
+title: "Agile Release Plan Template"
+methodology: "universal"
+complexity: "advanced"
+owner: "mirichard"
+updated: "2025-08-05"
+---
+
 # Agile Release Plan Template
 
 ## Release Information

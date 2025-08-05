@@ -1,3 +1,11 @@
+---
+title: "Project Charter Template"
+methodology: "traditional"
+complexity: "advanced"
+owner: "mirichard"
+updated: "2025-08-05"
+---
+
 # PROJECT CHARTER
 
 ## Document Control Information

@@ -1,3 +1,11 @@
+---
+title: "Requirements Specification Template"
+methodology: "universal"
+complexity: "advanced"
+owner: "mirichard"
+updated: "2025-08-05"
+---
+
 # Software Requirements Specification (SRS)
 
 **Document ID:** [SRS-PROJ-VERSION]  

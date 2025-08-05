@@ -1,3 +1,11 @@
+---
+title: "Uat Plan Template"
+methodology: "traditional"
+complexity: "advanced"
+owner: "mirichard"
+updated: "2025-08-05"
+---
+
 # User Acceptance Testing (UAT) Plan Template
 
 ## Document Information

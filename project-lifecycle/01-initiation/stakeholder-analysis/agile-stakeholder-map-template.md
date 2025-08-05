@@ -1,3 +1,11 @@
+---
+title: "Agile Stakeholder Map Template"
+methodology: "universal"
+complexity: "intermediate"
+owner: "mirichard"
+updated: "2025-08-05"
+---
+
 # Agile Stakeholder Map Template
 
 ## Purpose/Overview

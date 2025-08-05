@@ -1,3 +1,11 @@
+---
+title: "Business Requirements Document Template"
+methodology: "universal"
+complexity: "advanced"
+owner: "mirichard"
+updated: "2025-08-05"
+---
+
 # Business Requirements Document (BRD) Template
 
 ## Document Control

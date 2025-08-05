@@ -1,3 +1,11 @@
+---
+title: "Health Authority Communication Plan Template"
+methodology: "universal"
+complexity: "advanced"
+owner: "mirichard"
+updated: "2025-08-05"
+---
+
 # Health Authority Communication Plan
 
 ## Document Control

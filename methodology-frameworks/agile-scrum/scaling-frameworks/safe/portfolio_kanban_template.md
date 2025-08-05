@@ -1,3 +1,11 @@
+---
+title: "Portfolio Kanban Template"
+methodology: "agile"
+complexity: "advanced"
+owner: "mirichard"
+updated: "2025-08-05"
+---
+
 # SAFe Portfolio Kanban Template
 
 ## Overview

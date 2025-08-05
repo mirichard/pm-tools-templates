@@ -1,3 +1,11 @@
+---
+title: "Requirements Traceability Matrix Template"
+methodology: "traditional"
+complexity: "advanced"
+owner: "mirichard"
+updated: "2025-08-05"
+---
+
 # REQUIREMENTS TRACEABILITY MATRIX (RTM)
 
 ## Document Control Information

@@ -1,3 +1,11 @@
+---
+title: "Status Report Template"
+methodology: "traditional"
+complexity: "advanced"
+owner: "mirichard"
+updated: "2025-08-05"
+---
+
 # PROJECT/PROGRAM STATUS REPORT
 
 ## Report Information

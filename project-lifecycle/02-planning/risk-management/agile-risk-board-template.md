@@ -1,3 +1,11 @@
+---
+title: "Agile Risk Board Template"
+methodology: "universal"
+complexity: "advanced"
+owner: "mirichard"
+updated: "2025-08-05"
+---
+
 # Agile Risk Board Template
 
 ## Document Information

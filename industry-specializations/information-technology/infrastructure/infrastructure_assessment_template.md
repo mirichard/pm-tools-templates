@@ -1,3 +1,11 @@
+---
+title: "Infrastructure Assessment Template"
+methodology: "universal"
+complexity: "advanced"
+owner: "mirichard"
+updated: "2025-08-05"
+---
+
 # Infrastructure Assessment Template
 
 ## Document Control

@@ -1,3 +1,11 @@
+---
+title: "Clinical Trial Protocol Template"
+methodology: "universal"
+complexity: "advanced"
+owner: "mirichard"
+updated: "2025-08-05"
+---
+
 # Clinical Trial Protocol Template
 
 *This template is designed in accordance with ICH E6(R2) GCP guidelines and international regulatory requirements for clinical trials. It provides a standardized framework for developing comprehensive clinical trial protocols.*

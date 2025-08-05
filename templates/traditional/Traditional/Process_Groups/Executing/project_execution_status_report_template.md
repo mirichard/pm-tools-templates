@@ -1,3 +1,11 @@
+---
+title: "Project Execution Status Report Template"
+methodology: "traditional"
+complexity: "advanced"
+owner: "mirichard"
+updated: "2025-08-05"
+---
+
 # PROJECT EXECUTION REPORT
 
 ## Document Control Information

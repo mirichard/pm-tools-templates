@@ -1,3 +1,11 @@
+---
+title: "Risk Register Template"
+methodology: "traditional"
+complexity: "advanced"
+owner: "mirichard"
+updated: "2025-08-05"
+---
+
 # PROJECT RISK REGISTER
 
 ## Document Control Information

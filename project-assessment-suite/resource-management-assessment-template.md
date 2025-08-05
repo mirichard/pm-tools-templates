@@ -1,3 +1,11 @@
+---
+title: "Resource Management Assessment Template"
+methodology: "universal"
+complexity: "starter"
+owner: "mirichard"
+updated: "2025-08-05"
+---
+
 # Resource Management Assessment Template
 
 ## Executive Summary

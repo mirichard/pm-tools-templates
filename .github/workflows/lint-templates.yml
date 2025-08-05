@@ -69,7 +69,7 @@ jobs:
                   
                   // Check if file starts with YAML front matter
                   if (!content.startsWith('---\n')) {
-                    warnings.push(`${file}: Missing YAML front matter (Phase 1 transition)`);
+                    errors.push(`${file}: Missing YAML front matter`);
                     continue;
                   }
                   
