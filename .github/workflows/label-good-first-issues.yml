@@ -1,0 +1,114 @@
+name: Label Good First Issues
+
+on:
+  issues:
+    types: [opened]
+
+jobs:
+  label-good-first-issues:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Analyze Issue for Good First Issue
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const issue = context.payload.issue;
+            const issueBody = issue.body || '';
+            const issueTitle = issue.title || '';
+            const issueAuthor = issue.user.login;
+            
+            // Check if user is a new contributor
+            const { data: userContributions } = await github.rest.search.issuesAndPullRequests({
+              q: `author:${issueAuthor} repo:${context.repo.owner}/${context.repo.repo} type:pr is:merged`
+            });
+            
+            const isNewContributor = userContributions.total_count === 0;
+            
+            // Criteria for good first issues
+            const goodFirstIssueIndicators = [
+              // Documentation issues
+              /documentation|readme|typo|spelling|grammar/i.test(issueTitle + ' ' + issueBody),
+              // Template requests
+              /template.*request|new.*template|missing.*template/i.test(issueTitle + ' ' + issueBody),
+              // Simple fixes
+              /broken.*link|dead.*link|link.*not.*work|fix.*link/i.test(issueTitle + ' ' + issueBody),
+              // UI/UX improvements
+              /ui|ux|interface|design|styling|css/i.test(issueTitle + ' ' + issueBody),
+              // Testing related
+              /test|testing|unit.*test|integration.*test/i.test(issueTitle + ' ' + issueBody)
+            ];
+            
+            // Criteria that disqualify from being good first issue
+            const complexIssueIndicators = [
+              /security|vulnerability|exploit/i.test(issueTitle + ' ' + issueBody),
+              /architecture|infrastructure|database|deployment/i.test(issueTitle + ' ' + issueBody),
+              /performance|optimization|scalability/i.test(issueTitle + ' ' + issueBody),
+              /breaking.*change|major.*refactor/i.test(issueTitle + ' ' + issueBody)
+            ];
+            
+            const hasGoodFirstIssueIndicators = goodFirstIssueIndicators.some(indicator => indicator);
+            const hasComplexIndicators = complexIssueIndicators.some(indicator => indicator);
+            
+            // Determine if this should be labeled as good first issue
+            const shouldLabelAsGoodFirstIssue = hasGoodFirstIssueIndicators && !hasComplexIndicators;
+            
+            if (shouldLabelAsGoodFirstIssue) {
+              // Add good-first-issue label
+              await github.rest.issues.addLabels({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: issue.number,
+                labels: ['good first issue']
+              });
+              
+              // Add helpful comment
+              let welcomeMessage = `🎉 **This looks like a great first issue!**\n\n`;
+              
+              if (isNewContributor) {
+                welcomeMessage += `👋 Welcome to the project, @${issueAuthor}! This issue has been automatically labeled as a "good first issue" because it appears to be well-suited for newcomers.\n\n`;
+              }
+              
+              welcomeMessage += `Here are some resources to help you get started:\n`;
+              welcomeMessage += `- 📖 [Contributing Guidelines](https://github.com/${context.repo.owner}/${context.repo.repo}/blob/main/CONTRIBUTING.md)\n`;
+              welcomeMessage += `- 🤝 [Code of Conduct](https://github.com/${context.repo.owner}/${context.repo.repo}/blob/main/CODE_OF_CONDUCT.md)\n`;
+              welcomeMessage += `- 💬 Feel free to ask questions in the comments if you need help!\n\n`;
+              welcomeMessage += `If you'd like to work on this issue, please comment below to let others know. Happy contributing! 🚀`;
+              
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: issue.number,
+                body: welcomeMessage
+              });
+              
+              console.log(`Labeled issue #${issue.number} as good first issue`);
+            }
+            
+            // Also add labels based on content
+            const labels = [];
+            
+            if (/template/i.test(issueTitle + ' ' + issueBody)) {
+              labels.push('template-related');
+            }
+            
+            if (/documentation|readme/i.test(issueTitle + ' ' + issueBody)) {
+              labels.push('documentation');
+            }
+            
+            if (/bug|error|broken|not.*work/i.test(issueTitle + ' ' + issueBody)) {
+              labels.push('bug');
+            }
+            
+            if (/feature.*request|enhancement|improve/i.test(issueTitle + ' ' + issueBody)) {
+              labels.push('enhancement');
+            }
+            
+            if (labels.length > 0) {
+              await github.rest.issues.addLabels({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: issue.number,
+                labels: labels
+              });
+            }

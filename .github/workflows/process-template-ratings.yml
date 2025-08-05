@@ -1,0 +1,91 @@
+name: Process Template Ratings
+
+on:
+  issues:
+    types: [closed]
+
+jobs:
+  process-ratings:
+    if: "contains(github.event.issue.labels.*.name, 'template-rating')"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Create rating processor script
+        run: |
+          cat > process-rating.js << 'EOF'
+          const fs = require('fs');
+          
+          const issueBody = process.env.ISSUE_BODY;
+          const issueTitle = process.env.ISSUE_TITLE;
+          
+          // Extract data from issue body
+          const getFieldValue = (fieldName) => {
+            const regex = new RegExp(`### ${fieldName}[\\s\\S]*?([\\s\\S]*?)(?=\\n###|$)`);
+            const match = issueBody.match(regex);
+            return match ? match[1].trim() : null;
+          };
+          
+          const templateName = getFieldValue('Template Name');
+          const ratingText = getFieldValue('Overall Rating');
+          
+          if (!templateName || !ratingText) {
+            console.error('Could not extract template name or rating');
+            process.exit(1);
+          }
+          
+          // Extract star rating from text (e.g., "⭐⭐⭐⭐⭐ (5 stars)" -> 5)
+          const ratingMatch = ratingText.match(/(\d+)\s*star/);
+          const rating = ratingMatch ? parseInt(ratingMatch[1]) : null;
+          
+          if (!rating) {
+            console.error('Could not parse rating value');
+            process.exit(1);
+          }
+          
+          // Update template database
+          const dbPath = 'templates/templates.json';
+          const db = JSON.parse(fs.readFileSync(dbPath, 'utf8'));
+          
+          const template = db.templates.find(t => t.title === templateName || t.title.includes(templateName));
+          if (template) {
+            if (!template.ratings) {
+              template.ratings = [];
+            }
+            template.ratings.push({ 
+              rating: rating,
+              date: new Date().toISOString().split('T')[0]
+            });
+            
+            // Recalculate average rating
+            const totalRatings = template.ratings.reduce((sum, r) => sum + r.rating, 0);
+            template.averageRating = Math.round((totalRatings / template.ratings.length) * 10) / 10;
+            template.ratingCount = template.ratings.length;
+            
+            fs.writeFileSync(dbPath, JSON.stringify(db, null, 2));
+            console.log(`Rating ${rating}/5 added to "${template.title}" (Average: ${template.averageRating})`);
+          } else {
+            console.warn(`Could not find template: ${templateName}`);
+            console.log('Available templates:', db.templates.map(t => t.title).slice(0, 10));
+          }
+          EOF
+
+      - name: Process Rating
+        env:
+          ISSUE_BODY: ${{ github.event.issue.body }}
+          ISSUE_TITLE: ${{ github.event.issue.title }}
+        run: node process-rating.js
+
+      - name: Commit updated ratings
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add templates/templates.json
+          git commit -m "chore: Update template ratings from community feedback" || exit 0
+          git push

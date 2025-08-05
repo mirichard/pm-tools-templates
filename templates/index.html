@@ -28,6 +28,15 @@
     .related-templates ul { list-style: none; padding: 0; margin: 0; }
     .related-templates li { margin-bottom: 5px; }
     .related-templates a { background: none; color: #007bff; padding: 0; font-size: 0.8rem; text-decoration: underline; }
+    .feedback-widget { background: #f8f9fa; border: 1px solid #e9ecef; border-radius: 4px; padding: 10px; margin-top: 10px; }
+    .feedback-widget h5 { margin: 0 0 8px; font-size: 0.9rem; color: #495057; }
+    .rating-stars { display: flex; gap: 2px; margin-bottom: 8px; }
+    .star { cursor: pointer; color: #ccc; font-size: 1.2rem; transition: color 0.2s; }
+    .star:hover, .star.active { color: #ffc107; }
+    .feedback-form { display: none; margin-top: 10px; }
+    .feedback-form textarea { width: 100%; height: 60px; padding: 5px; border: 1px solid #ddd; border-radius: 3px; font-size: 0.8rem; }
+    .feedback-form button { background: #28a745; color: white; border: none; padding: 5px 10px; border-radius: 3px; font-size: 0.8rem; cursor: pointer; margin-top: 5px; }
+    .feedback-form button:hover { background: #218838; }
   </style>
 </head>
 <body>
@@ -112,6 +121,21 @@
               ${(template.relatedTemplates || []).map(related => `<li><a href="/${related.path}">${related.title}</a> (${related.similarity}%)</li>`).join('')}
             </ul>
           </div>
+
+          <div class="feedback-widget">
+            <h5>💬 Quick Feedback</h5>
+            <div class="rating-stars" data-template="${template.title}">
+              <span class="star" data-rating="1">⭐</span>
+              <span class="star" data-rating="2">⭐</span>
+              <span class="star" data-rating="3">⭐</span>
+              <span class="star" data-rating="4">⭐</span>
+              <span class="star" data-rating="5">⭐</span>
+            </div>
+            <div class="feedback-form">
+              <textarea placeholder="What did you think of this template? (optional)"></textarea>
+              <button onclick="submitFeedback(this)">Submit Feedback</button>
+            </div>
+          </div>
         `;
         container.appendChild(card);
       });
@@ -147,7 +171,44 @@
       document.getElementById('methodology-filter').addEventListener('change', filterAndSort);
       document.getElementById('complexity-filter').addEventListener('change', filterAndSort);
       document.getElementById('sort-by').addEventListener('change', filterAndSort);
+
+      // Event delegation for star ratings
+      document.getElementById('card-container').addEventListener('click', function(e) {
+        if (e.target && e.target.classList.contains('star')) {
+          const starsContainer = e.target.parentNode;
+          const rating = e.target.dataset.rating;
+          starsContainer.querySelectorAll('.star').forEach(star => {
+            star.classList.toggle('active', star.dataset.rating <= rating);
+          });
+          const feedbackForm = starsContainer.nextElementSibling;
+          feedbackForm.style.display = 'block';
+        }
+      });
     });
+
+    function submitFeedback(button) {
+      const feedbackWidget = button.closest('.feedback-widget');
+      const templateName = feedbackWidget.querySelector('.rating-stars').dataset.template;
+      const rating = feedbackWidget.querySelectorAll('.star.active').length;
+      const comment = feedbackWidget.querySelector('textarea').value;
+      
+      const issueTitle = `[RATING] ${templateName}`;
+      const issueBody = `
+        ### Template Name
+        ${templateName}
+
+        ### Overall Rating
+        ${rating} star(s)
+
+        ### Comments
+        ${comment}
+      `;
+      
+      const issueUrl = `https://github.com/mirichard/pm-tools-templates/issues/new?title=${encodeURIComponent(issueTitle)}&body=${encodeURIComponent(issueBody)}&labels=template-rating,community-feedback`;
+      window.open(issueUrl, '_blank');
+      
+      feedbackWidget.innerHTML = '<h5>✅ Thank you for your feedback!</h5>';
+    }
   </script>
 </body>
 </html>
