@@ -1,0 +1,131 @@
+name: ⭐ Template Rating & Review
+description: Rate a template and provide feedback to help other users
+title: "[RATING] Template: "
+labels: ["template-rating", "community-feedback"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        # ⭐ Template Rating & Review
+        
+        Help the community by rating and reviewing templates! Your feedback helps other project managers choose the right tools.
+
+  - type: input
+    id: template_name
+    attributes:
+      label: Template Name
+      description: Which template are you rating?
+      placeholder: e.g., Sprint Planning Template, Risk Management Matrix
+    validations:
+      required: true
+
+  - type: dropdown
+    id: rating
+    attributes:
+      label: Overall Rating
+      description: How would you rate this template overall?
+      options:
+        - "⭐⭐⭐⭐⭐ (5 stars) - Excellent"
+        - "⭐⭐⭐⭐ (4 stars) - Very Good"
+        - "⭐⭐⭐ (3 stars) - Good"
+        - "⭐⭐ (2 stars) - Fair"
+        - "⭐ (1 star) - Poor"
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: rating_categories
+    attributes:
+      label: Category Ratings
+      description: Rate specific aspects of the template
+      options:
+        - label: "✅ **Ease of Use** - Easy to understand and implement"
+        - label: "🎯 **Effectiveness** - Achieves its intended purpose"
+        - label: "📚 **Documentation** - Well documented and explained"
+        - label: "🔧 **Customization** - Easy to adapt to different needs"
+        - label: "💼 **Professional Quality** - Ready for business use"
+        - label: "⚡ **Time Saving** - Significantly reduces manual work"
+
+  - type: dropdown
+    id: experience_level
+    attributes:
+      label: Your Experience Level
+      description: What's your experience level with project management?
+      options:
+        - "New to PM (0-1 years)"
+        - "Junior PM (1-3 years)"
+        - "Mid-level PM (3-7 years)"
+        - "Senior PM (7+ years)"
+        - "Executive/Director level"
+        - "PM Consultant/Expert"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: project_type
+    attributes:
+      label: Project Type
+      description: What type of project did you use this template for?
+      options:
+        - "Software Development"
+        - "Infrastructure/Operations"
+        - "Marketing Campaign"
+        - "Business Process Improvement"
+        - "Product Launch"
+        - "Event Planning"
+        - "Research & Development"
+        - "Training/Education"
+        - "Other"
+
+  - type: textarea
+    id: what_works
+    attributes:
+      label: "🎉 What Works Well"
+      description: What do you like most about this template?
+      placeholder: "Describe the strengths and positive aspects..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: improvements
+    attributes:
+      label: "🔧 Suggested Improvements"
+      description: How could this template be improved?
+      placeholder: "Suggest specific improvements or missing elements..."
+
+  - type: textarea
+    id: use_case
+    attributes:
+      label: "📋 Your Use Case"
+      description: How did you use this template? What was your specific situation?
+      placeholder: "Describe your project context and how you applied the template..."
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: recommendation
+    attributes:
+      label: "👥 Recommendation"
+      description: Would you recommend this template?
+      options:
+        - label: "✅ Yes, I would recommend this template to other PMs"
+        - label: "❓ Maybe, with some improvements"
+        - label: "❌ No, I would not recommend this template"
+
+  - type: textarea
+    id: additional_feedback
+    attributes:
+      label: "💭 Additional Feedback"
+      description: Any other thoughts, suggestions, or context you'd like to share?
+      placeholder: "Optional: Share any other insights..."
+
+  - type: checkboxes
+    id: follow_up
+    attributes:
+      label: "🤝 Community Engagement"
+      description: How would you like to engage further?
+      options:
+        - label: "📧 Contact me for follow-up questions"
+        - label: "🧪 I'm interested in beta testing new templates"
+        - label: "🤝 I'd like to contribute improvements"
+        - label: "📖 I could share a detailed case study"
