@@ -147,6 +147,31 @@ jobs:
 
             const routing = epicMapping[classification.category] || { epic: 198, theme: 'General Feedback' };
             
+            // Retry function with exponential backoff
+            async function retryWithBackoff(fn, maxRetries = 3, baseDelay = 2000) {
+              for (let attempt = 1; attempt <= maxRetries; attempt++) {
+                try {
+                  return await fn();
+                } catch (error) {
+                  console.log(`Attempt ${attempt} failed:`, error.message);
+                  
+                  // Check if it's a rate limit error
+                  if (error.status === 403 && error.message.includes('rate limit')) {
+                    if (attempt === maxRetries) {
+                      throw error; // Final attempt failed
+                    }
+                    
+                    // Exponential backoff: 2s, 4s, 8s
+                    const delay = baseDelay * Math.pow(2, attempt - 1);
+                    console.log(`Rate limit hit. Waiting ${delay}ms before retry...`);
+                    await new Promise(resolve => setTimeout(resolve, delay));
+                  } else {
+                    throw error; // Non-rate-limit error, don't retry
+                  }
+                }
+              }
+            }
+            
             // Create comment with routing information
             const routingComment = `
             ## 🤖 Automated Feedback Processing
@@ -170,15 +195,18 @@ jobs:
             *This is an automated response from the Community Feedback Processing System.*
             `;
 
-            // Add comment to the issue
-            await github.rest.issues.createComment({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              issue_number: feedbackData.issue_number,
-              body: routingComment
+            // Add comment to the issue with retry logic
+            console.log('Adding feedback processing comment...');
+            await retryWithBackoff(async () => {
+              return await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: feedbackData.issue_number,
+                body: routingComment
+              });
             });
 
-            // Add labels based on classification
+            // Add labels based on classification with retry logic
             const labels = [
               'community-feedback',
               `category:${classification.category}`,
@@ -186,13 +214,17 @@ jobs:
               `epic:${routing.epic}`
             ];
 
-            await github.rest.issues.addLabels({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              issue_number: feedbackData.issue_number,
-              labels: labels
+            console.log('Adding classification labels...');
+            await retryWithBackoff(async () => {
+              return await github.rest.issues.addLabels({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: feedbackData.issue_number,
+                labels: labels
+              });
             });
 
+            console.log('Successfully processed feedback with routing and labeling.');
             return {
               routing: routing,
               classification: classification,
@@ -206,6 +238,33 @@ jobs:
           script: |
             const routingResult = ${{ steps.route.outputs.result }};
             const feedbackData = ${{ steps.parse.outputs.result }};
+            
+            // Retry function with exponential backoff (same as in Route to Epic step)
+            async function retryWithBackoff(fn, maxRetries = 3, baseDelay = 2000) {
+              for (let attempt = 1; attempt <= maxRetries; attempt++) {
+                try {
+                  return await fn();
+                } catch (error) {
+                  console.log(`Notification attempt ${attempt} failed:`, error.message);
+                  
+                  // Check if it's a rate limit error
+                  if (error.status === 403 && error.message.includes('rate limit')) {
+                    if (attempt === maxRetries) {
+                      console.log('Final notification attempt failed due to rate limits');
+                      return null; // Don't throw - this is a non-critical step
+                    }
+                    
+                    // Exponential backoff with jitter to avoid thundering herd
+                    const delay = baseDelay * Math.pow(2, attempt - 1) + Math.random() * 1000;
+                    console.log(`Rate limit hit during notification. Waiting ${Math.round(delay)}ms before retry...`);
+                    await new Promise(resolve => setTimeout(resolve, delay));
+                  } else {
+                    console.log('Non-rate-limit error during notification:', error.message);
+                    return null; // Don't throw - this is a non-critical step
+                  }
+                }
+              }
+            }
             
             // Create notification comment on the relevant epic
             if (routingResult.routing.epic !== 198) {
@@ -224,17 +283,23 @@ jobs:
               *Automated notification from Community Feedback Processing System*
               `;
 
-              try {
-                await github.rest.issues.createComment({
+              console.log(`Sending notification to epic #${routingResult.routing.epic}...`);
+              const result = await retryWithBackoff(async () => {
+                return await github.rest.issues.createComment({
                   owner: context.repo.owner,
                   repo: context.repo.repo,
                   issue_number: routingResult.routing.epic,
                   body: notificationComment
                 });
-                console.log(`Notification sent to epic #${routingResult.routing.epic}`);
-              } catch (error) {
-                console.log(`Could not notify epic #${routingResult.routing.epic}: ${error.message}`);
+              });
+              
+              if (result) {
+                console.log(`✅ Notification successfully sent to epic #${routingResult.routing.epic}`);
+              } else {
+                console.log(`⚠️ Could not send notification to epic #${routingResult.routing.epic} (will continue processing)`);
               }
+            } else {
+              console.log('Skipping epic notification - feedback routed to general feedback epic #198');
             }
 
       - name: Update Analytics
