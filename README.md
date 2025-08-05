@@ -1,11 +1,15 @@
 # Project Management Tools & Templates
 
-> A curated collection of 154+ battle-tested, open-source templates for project and program managers. Practical, vendor-agnostic, and ready to customize.
-
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
-[![Templates](https://img.shields.io/badge/Templates-154-blue.svg)](TEMPLATE_INDEX.md)
-[![Interactive Browser](https://img.shields.io/badge/Browse-Interactive-green.svg)](templates/index.html)
+[![GitHub stars](https://img.shields.io/github/stars/mirichard/pm-tools-templates?style=flat&logo=github)](https://github.com/mirichard/pm-tools-templates/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/mirichard/pm-tools-templates?style=flat&logo=github)](https://github.com/mirichard/pm-tools-templates/network/members)
+[![Templates Count](https://img.shields.io/badge/Templates-154+-blue.svg)](TEMPLATE_INDEX.md)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat)](CONTRIBUTING.md)
+[![Interactive Browser](https://img.shields.io/badge/Browse-Interactive-green.svg?style=flat)](templates/index.html)
+[![GitHub issues](https://img.shields.io/github/issues/mirichard/pm-tools-templates)](https://github.com/mirichard/pm-tools-templates/issues)
+[![GitHub last commit](https://img.shields.io/github/last-commit/mirichard/pm-tools-templates)](https://github.com/mirichard/pm-tools-templates/commits/main)
+
+> A curated collection of 154+ battle-tested, open-source templates for project and program managers. Practical, vendor-agnostic, and ready to customize.
 
 ---
 
@@ -60,16 +64,41 @@
 
 The templates are organized by methodology and use case:
 
-```
-/templates/          # Core template collection  
-├── traditional/     # Waterfall/Traditional PM templates
-├── agile/          # Scrum, Kanban, and agile templates  
-└── hybrid/         # Mixed methodology templates
-
-/project-lifecycle/  # Templates by project phase
-/role-based-toolkits/ # Templates by PM role
-/industry-specializations/ # Industry-specific templates
-/methodology-frameworks/ # Advanced framework templates
+```mermaid
+graph TD
+    A[pm-tools-templates] --> B[📁 templates/]
+    A --> C[📁 project-lifecycle/]
+    A --> D[📁 role-based-toolkits/]
+    A --> E[📁 industry-specializations/]
+    A --> F[📁 methodology-frameworks/]
+    A --> G[📁 integration-guides/]
+    A --> H[📁 examples/]
+    
+    B --> B1[📂 traditional/ - 25 templates]
+    B --> B2[📂 agile/ - 39 templates]
+    B --> B3[📂 hybrid/ - 7 templates]
+    B --> B4[📂 universal/ - 83 templates]
+    
+    C --> C1[📂 01-initiation/]
+    C --> C2[📂 02-planning/]
+    C --> C3[📂 03-execution/]
+    C --> C4[📂 04-monitoring-control/]
+    C --> C5[📂 05-closure/]
+    
+    D --> D1[📂 program-managers/]
+    D --> D2[📂 project-managers/]
+    D --> D3[📂 scrum-masters/]
+    D --> D4[📂 product-owners/]
+    
+    E --> E1[📂 healthcare/]
+    E --> E2[📂 fintech/]
+    E --> E3[📂 manufacturing/]
+    E --> E4[📂 construction/]
+    
+    G --> G1[📂 jira/]
+    G --> G2[📂 github/]
+    G --> G3[📂 asana/]
+    G --> G4[📂 microsoft-project/]
 ```
 
 ---
