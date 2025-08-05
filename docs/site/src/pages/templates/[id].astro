@@ -4,17 +4,22 @@ import TemplateViewer from '../../components/TemplateViewer.tsx';
 
 export async function getStaticPaths() {
   const templates: any[] = await Astro.glob('../../../../templates/**/*.md');
-  return templates.map((template: any) => {
-    const filename = template.file.split('/').pop() || 'unknown';
-    const id = filename.replace('.md', '');
-    return {
-      params: { id },
-      props: { 
-        title: template.frontmatter?.title || id,
-        filePath: template.file
-      }
-    };
-  });
+  return templates
+    .filter((template: any) => {
+      const filename = template.file.split('/').pop() || '';
+      return !filename.toLowerCase().includes('readme');
+    })
+    .map((template: any) => {
+      const filename = template.file.split('/').pop() || 'unknown';
+      const id = filename.replace('.md', '');
+      return {
+        params: { id },
+        props: { 
+          title: template.frontmatter?.title || id,
+          filePath: template.file
+        }
+      };
+    });
 }
 
 const { id } = Astro.params;

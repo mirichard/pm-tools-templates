@@ -4,18 +4,23 @@ import TemplateBrowser from '../components/TemplateBrowser.tsx';
 
 const templatesData = await Astro.glob('../../../../templates/**/*.md');
 
-const templates = templatesData.map(template => {
-  const filename = template.file.split('/').pop() || 'unknown';
-  const id = filename.replace('.md', '');
-  return {
-    id,
-    title: template.frontmatter?.title || id,
-    description: template.frontmatter?.description || 'No description available.',
-    path: template.file,
-    tags: template.frontmatter?.tags || [],
-    methodology: template.frontmatter?.methodology || 'universal'
-  };
-});
+const templates = templatesData
+  .filter(template => {
+    const filename = template.file.split('/').pop() || '';
+    return !filename.toLowerCase().includes('readme');
+  })
+  .map(template => {
+    const filename = template.file.split('/').pop() || 'unknown';
+    const id = filename.replace('.md', '');
+    return {
+      id,
+      title: template.frontmatter?.title || id,
+      description: template.frontmatter?.description || 'No description available.',
+      path: template.file,
+      tags: template.frontmatter?.tags || [],
+      methodology: template.frontmatter?.methodology || 'universal'
+    };
+  });
 
 ---
 
