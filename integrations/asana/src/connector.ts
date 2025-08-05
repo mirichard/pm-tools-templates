@@ -185,9 +185,17 @@ export class AsanaConnector extends EventEmitter {
   }
 
   private setupClientDefaults(): void {
-    // Configure default request options
-    this.client.dispatcher.options.retries = this.config.rateLimitRetries || 3;
-    this.client.dispatcher.options.timeout = this.config.requestTimeout || 30000;
+    // Note: The dispatcher options might not be directly modifiable in this way
+    // Rate limiting and timeout configuration may need to be handled differently
+    // depending on the Asana client version
+    try {
+      if (this.client.dispatcher && (this.client.dispatcher as any).options) {
+        (this.client.dispatcher as any).options.retries = this.config.rateLimitRetries || 3;
+        (this.client.dispatcher as any).options.timeout = this.config.requestTimeout || 30000;
+      }
+    } catch (error) {
+      console.warn('Could not configure dispatcher options:', error);
+    }
   }
 
   /**
@@ -199,7 +207,7 @@ export class AsanaConnector extends EventEmitter {
   ): Promise<void> {
     try {
       // Verify workspace access
-      const workspace = await this.client.workspaces.getWorkspace(workspaceId);
+      const workspace = await this.client.workspaces.findById(workspaceId);
       
       const fullConfig: WorkspaceConfig = {
         workspaceId,
@@ -270,7 +278,7 @@ export class AsanaConnector extends EventEmitter {
         projectData.owner = options.projectData.owner;
       }
 
-      const project = await this.client.projects.createProject(projectData);
+      const project = await this.client.projects.create(projectData);
 
       // Map and set custom fields
       await this.setupProjectCustomFields(
@@ -280,7 +288,7 @@ export class AsanaConnector extends EventEmitter {
       );
 
       // Create tasks from template
-      await this.createTasksFromTemplate(project.gid, template);
+      await this.createTasksFromTemplate(project.gid, template, workspaceId);
 
       // Set up dependencies
       await this.setupTaskDependencies(project.gid, template.dependencies);
@@ -291,7 +299,7 @@ export class AsanaConnector extends EventEmitter {
         taskCount: template.tasks.length
       });
 
-      return project as AsanaProject;
+      return project as unknown as AsanaProject;
     } catch (error) {
       this.emit('error', { 
         type: 'project_creation_error', 
@@ -321,14 +329,16 @@ export class AsanaConnector extends EventEmitter {
         // Check if custom field exists
         let customField: AsanaCustomField;
         if (mapping.asanaFieldGid) {
-          customField = await this.client.customFields.getCustomField(mapping.asanaFieldGid);
+          // Note: Using any type as the method might not be in type definitions
+          customField = await (this.client.customFields as any).findById(mapping.asanaFieldGid);
         } else {
           // Create custom field if it doesn't exist
           customField = await this.createOrGetCustomField(field, mapping);
         }
 
         // Add custom field to project
-        await this.client.projects.addCustomFieldSettingForProject(projectId, {
+        // Note: Using any type as the method might not be in type definitions
+        await (this.client.projects as any).addCustomFieldSettingForProject(projectId, {
           custom_field: customField.gid,
           is_important: field.required
         });
@@ -355,7 +365,7 @@ export class AsanaConnector extends EventEmitter {
     const existing = existingFields.data.find(f => f.name === mapping.asanaField);
     
     if (existing) {
-      return existing as AsanaCustomField;
+      return existing as unknown as AsanaCustomField;
     }
 
     // Create new custom field
@@ -372,7 +382,8 @@ export class AsanaConnector extends EventEmitter {
       }));
     }
 
-    const newField = await this.client.customFields.createCustomField(fieldData);
+    // Note: Using any type as the method might not be in type definitions
+    const newField = await (this.client.customFields as any).create(fieldData);
     return newField as AsanaCustomField;
   }
 
@@ -381,7 +392,8 @@ export class AsanaConnector extends EventEmitter {
    */
   private async createTasksFromTemplate(
     projectId: string,
-    template: PMTemplate
+    template: PMTemplate,
+    workspaceId: string
   ): Promise<Map<string, string>> {
     const taskIdMapping = new Map<string, string>(); // template task ID -> Asana task GID
 
@@ -393,7 +405,8 @@ export class AsanaConnector extends EventEmitter {
         const taskData: any = {
           name: templateTask.name,
           notes: templateTask.description || '',
-          projects: [projectId]
+          projects: [projectId],
+          workspace: this.config.defaultWorkspace || workspaceId
         };
 
         // Set assignee if team mapping exists
@@ -411,7 +424,7 @@ export class AsanaConnector extends EventEmitter {
           taskData.custom_fields = templateTask.customFields;
         }
 
-        const asanaTask = await this.client.tasks.createTask(taskData);
+        const asanaTask = await this.client.tasks.create(taskData);
         taskIdMapping.set(templateTask.id, asanaTask.gid);
 
         // Create subtasks
@@ -420,10 +433,11 @@ export class AsanaConnector extends EventEmitter {
             const subtaskData = {
               name: subtask.name,
               notes: subtask.description || '',
-              parent: asanaTask.gid
+              parent: asanaTask.gid,
+              workspace: this.config.defaultWorkspace || workspaceId
             };
             
-            const asanaSubtask = await this.client.tasks.createTask(subtaskData);
+            const asanaSubtask = await this.client.tasks.create(subtaskData);
             taskIdMapping.set(subtask.id, asanaSubtask.gid);
           }
         }
@@ -538,7 +552,7 @@ export class AsanaConnector extends EventEmitter {
       };
 
       // Get Asana project tasks for future sync implementation
-      await this.client.tasks.getTasksForProject(asanaProjectId, {
+      await this.client.projects.tasks(asanaProjectId, {
         opt_fields: 'name,completed,assignee,due_date,custom_fields,modified_at'
       });
 
@@ -594,8 +608,9 @@ export class AsanaConnector extends EventEmitter {
    */
   async getWorkspaceTeams(workspaceId: string): Promise<Array<{ gid: string; name: string }>> {
     try {
-      const teams = await this.client.teams.getTeamsForWorkspace(workspaceId);
-      return teams.data.map(team => ({
+      // Note: Teams might use findByOrganization instead of findByWorkspace
+      const teams = await (this.client.teams as any).findByOrganization(workspaceId);
+      return teams.data.map((team: any) => ({
         gid: team.gid,
         name: team.name
       }));
@@ -615,7 +630,7 @@ export class AsanaConnector extends EventEmitter {
   async getWorkspaceCustomFields(workspaceId: string): Promise<AsanaCustomField[]> {
     try {
       const fields = await this.client.customFields.getCustomFieldsForWorkspace(workspaceId);
-      return fields.data as AsanaCustomField[];
+      return fields.data as unknown as AsanaCustomField[];
     } catch (error) {
       this.emit('error', { 
         type: 'api_error', 

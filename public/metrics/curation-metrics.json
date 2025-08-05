@@ -1,0 +1,2868 @@
+{
+  "lastGenerated": "2025-08-05T17:11:20.495Z",
+  "totals": {
+    "premium": 0,
+    "featured": 46,
+    "recommended": 87,
+    "standard": 68,
+    "community": 0
+  },
+  "scoreBuckets": [
+    {
+      "range": "0-9",
+      "count": 0
+    },
+    {
+      "range": "10-19",
+      "count": 0
+    },
+    {
+      "range": "20-29",
+      "count": 0
+    },
+    {
+      "range": "30-39",
+      "count": 0
+    },
+    {
+      "range": "40-49",
+      "count": 0
+    },
+    {
+      "range": "50-59",
+      "count": 0
+    },
+    {
+      "range": "60-69",
+      "count": 57
+    },
+    {
+      "range": "70-79",
+      "count": 45
+    },
+    {
+      "range": "80-89",
+      "count": 52
+    },
+    {
+      "range": "90-99",
+      "count": 47
+    }
+  ],
+  "templates": [
+    {
+      "id": "project_closure_report_template",
+      "name": "PROJECT CLOSURE REPORT",
+      "tier": "FEATURED",
+      "overallScore": 84,
+      "categoryScores": {
+        "quality": 76,
+        "community": 85,
+        "engagement": 82,
+        "maintenance": 85,
+        "innovation": 95
+      },
+      "lastUpdated": "2025-06-24T23:58:47.787Z"
+    },
+    {
+      "id": "project_execution_status_report_template",
+      "name": "PROJECT EXECUTION REPORT",
+      "tier": "FEATURED",
+      "overallScore": 66,
+      "categoryScores": {
+        "quality": 95,
+        "community": 90,
+        "engagement": 70,
+        "maintenance": 90,
+        "innovation": 61
+      },
+      "lastUpdated": "2025-06-24T23:58:47.787Z"
+    },
+    {
+      "id": "requirements_traceability_matrix_template",
+      "name": "REQUIREMENTS TRACEABILITY MATRIX (RTM)",
+      "tier": "FEATURED",
+      "overallScore": 68,
+      "categoryScores": {
+        "quality": 83,
+        "community": 99,
+        "engagement": 98,
+        "maintenance": 90,
+        "innovation": 55
+      },
+      "lastUpdated": "2025-06-24T23:58:47.787Z"
+    },
+    {
+      "id": "team_performance_assessment_template",
+      "name": "TEAM PERFORMANCE ASSESSMENT",
+      "tier": "FEATURED",
+      "overallScore": 87,
+      "categoryScores": {
+        "quality": 71,
+        "community": 88,
+        "engagement": 78,
+        "maintenance": 91,
+        "innovation": 90
+      },
+      "lastUpdated": "2025-06-29T21:20:18.006Z"
+    },
+    {
+      "id": "project_charter_template",
+      "name": "PROJECT CHARTER",
+      "tier": "FEATURED",
+      "overallScore": 77,
+      "categoryScores": {
+        "quality": 93,
+        "community": 88,
+        "engagement": 98,
+        "maintenance": 78,
+        "innovation": 81
+      },
+      "lastUpdated": "2025-06-24T23:58:47.788Z"
+    },
+    {
+      "id": "project_performance_monitoring_template",
+      "name": "PROJECT PERFORMANCE MONITORING REPORT",
+      "tier": "FEATURED",
+      "overallScore": 61,
+      "categoryScores": {
+        "quality": 71,
+        "community": 83,
+        "engagement": 83,
+        "maintenance": 76,
+        "innovation": 50
+      },
+      "lastUpdated": "2025-06-24T23:58:47.788Z"
+    },
+    {
+      "id": "project_management_plan_template",
+      "name": "PROJECT MANAGEMENT PLAN",
+      "tier": "FEATURED",
+      "overallScore": 69,
+      "categoryScores": {
+        "quality": 71,
+        "community": 79,
+        "engagement": 83,
+        "maintenance": 79,
+        "innovation": 92
+      },
+      "lastUpdated": "2025-06-24T23:58:47.789Z"
+    },
+    {
+      "id": "project_schedule_template",
+      "name": "PROJECT SCHEDULE",
+      "tier": "FEATURED",
+      "overallScore": 63,
+      "categoryScores": {
+        "quality": 91,
+        "community": 89,
+        "engagement": 72,
+        "maintenance": 94,
+        "innovation": 65
+      },
+      "lastUpdated": "2025-06-24T23:58:47.789Z"
+    },
+    {
+      "id": "schedule_management_metrics",
+      "name": "Schedule Management Metrics Guide",
+      "tier": "FEATURED",
+      "overallScore": 90,
+      "categoryScores": {
+        "quality": 73,
+        "community": 89,
+        "engagement": 93,
+        "maintenance": 76,
+        "innovation": 84
+      },
+      "lastUpdated": "2025-06-24T23:58:47.790Z"
+    },
+    {
+      "id": "schedule_risk_analysis",
+      "name": "Schedule Risk Analysis",
+      "tier": "FEATURED",
+      "overallScore": 83,
+      "categoryScores": {
+        "quality": 82,
+        "community": 65,
+        "engagement": 70,
+        "maintenance": 84,
+        "innovation": 68
+      },
+      "lastUpdated": "2025-06-24T23:58:47.790Z"
+    },
+    {
+      "id": "stakeholder_communication_planning",
+      "name": "Stakeholder Communication Planning - Traditional/Waterfall Projects",
+      "tier": "FEATURED",
+      "overallScore": 85,
+      "categoryScores": {
+        "quality": 79,
+        "community": 71,
+        "engagement": 86,
+        "maintenance": 85,
+        "innovation": 59
+      },
+      "lastUpdated": "2025-06-24T23:58:47.790Z"
+    },
+    {
+      "id": "work_breakdown_structure_template",
+      "name": "WORK BREAKDOWN STRUCTURE (WBS)",
+      "tier": "FEATURED",
+      "overallScore": 65,
+      "categoryScores": {
+        "quality": 75,
+        "community": 91,
+        "engagement": 88,
+        "maintenance": 98,
+        "innovation": 50
+      },
+      "lastUpdated": "2025-06-24T23:58:47.791Z"
+    },
+    {
+      "id": "business_case_template",
+      "name": "Business Case Template - Waterfall Methodology",
+      "tier": "FEATURED",
+      "overallScore": 75,
+      "categoryScores": {
+        "quality": 97,
+        "community": 68,
+        "engagement": 72,
+        "maintenance": 84,
+        "innovation": 97
+      },
+      "lastUpdated": "2025-06-24T23:58:47.791Z"
+    },
+    {
+      "id": "change_management_plan_template",
+      "name": "Change Management Plan Template",
+      "tier": "FEATURED",
+      "overallScore": 88,
+      "categoryScores": {
+        "quality": 79,
+        "community": 98,
+        "engagement": 83,
+        "maintenance": 76,
+        "innovation": 88
+      },
+      "lastUpdated": "2025-06-24T23:58:47.792Z"
+    },
+    {
+      "id": "change_request_template",
+      "name": "PROJECT CHANGE REQUEST FORM",
+      "tier": "FEATURED",
+      "overallScore": 69,
+      "categoryScores": {
+        "quality": 81,
+        "community": 62,
+        "engagement": 90,
+        "maintenance": 82,
+        "innovation": 63
+      },
+      "lastUpdated": "2025-06-24T23:58:47.792Z"
+    },
+    {
+      "id": "communication_plan_template",
+      "name": "PROJECT COMMUNICATION PLAN",
+      "tier": "FEATURED",
+      "overallScore": 60,
+      "categoryScores": {
+        "quality": 97,
+        "community": 66,
+        "engagement": 75,
+        "maintenance": 75,
+        "innovation": 58
+      },
+      "lastUpdated": "2025-06-24T23:58:47.793Z"
+    },
+    {
+      "id": "issue_log_template",
+      "name": "PROJECT ISSUE LOG",
+      "tier": "FEATURED",
+      "overallScore": 89,
+      "categoryScores": {
+        "quality": 96,
+        "community": 72,
+        "engagement": 97,
+        "maintenance": 80,
+        "innovation": 71
+      },
+      "lastUpdated": "2025-06-24T23:58:47.793Z"
+    },
+    {
+      "id": "program_charter_template",
+      "name": "PROGRAM CHARTER TEMPLATE",
+      "tier": "FEATURED",
+      "overallScore": 76,
+      "categoryScores": {
+        "quality": 97,
+        "community": 97,
+        "engagement": 76,
+        "maintenance": 96,
+        "innovation": 83
+      },
+      "lastUpdated": "2025-07-07T20:59:10.564Z"
+    },
+    {
+      "id": "program_management_plan_template",
+      "name": "PROGRAM MANAGEMENT PLAN TEMPLATE",
+      "tier": "FEATURED",
+      "overallScore": 85,
+      "categoryScores": {
+        "quality": 81,
+        "community": 91,
+        "engagement": 73,
+        "maintenance": 98,
+        "innovation": 50
+      },
+      "lastUpdated": "2025-07-08T17:45:32.236Z"
+    },
+    {
+      "id": "project_roadmap_template",
+      "name": "PROJECT ROADMAP",
+      "tier": "FEATURED",
+      "overallScore": 91,
+      "categoryScores": {
+        "quality": 89,
+        "community": 68,
+        "engagement": 74,
+        "maintenance": 75,
+        "innovation": 54
+      },
+      "lastUpdated": "2025-06-24T23:58:47.793Z"
+    },
+    {
+      "id": "purchase_order_template",
+      "name": "Purchase Order Template",
+      "tier": "FEATURED",
+      "overallScore": 85,
+      "categoryScores": {
+        "quality": 80,
+        "community": 82,
+        "engagement": 72,
+        "maintenance": 91,
+        "innovation": 66
+      },
+      "lastUpdated": "2025-08-03T15:40:50.378Z"
+    },
+    {
+      "id": "raid_log_template",
+      "name": "RAID Log Template",
+      "tier": "FEATURED",
+      "overallScore": 94,
+      "categoryScores": {
+        "quality": 85,
+        "community": 92,
+        "engagement": 77,
+        "maintenance": 85,
+        "innovation": 97
+      },
+      "lastUpdated": "2025-08-03T15:40:50.379Z"
+    },
+    {
+      "id": "risk_register_template",
+      "name": "PROJECT RISK REGISTER",
+      "tier": "FEATURED",
+      "overallScore": 79,
+      "categoryScores": {
+        "quality": 74,
+        "community": 64,
+        "engagement": 73,
+        "maintenance": 92,
+        "innovation": 79
+      },
+      "lastUpdated": "2025-06-24T23:58:47.794Z"
+    },
+    {
+      "id": "status_report_template",
+      "name": "PROJECT/PROGRAM STATUS REPORT",
+      "tier": "FEATURED",
+      "overallScore": 91,
+      "categoryScores": {
+        "quality": 93,
+        "community": 66,
+        "engagement": 77,
+        "maintenance": 88,
+        "innovation": 62
+      },
+      "lastUpdated": "2025-06-24T23:58:47.794Z"
+    },
+    {
+      "id": "uat_plan_template",
+      "name": "User Acceptance Testing (UAT) Plan Template",
+      "tier": "FEATURED",
+      "overallScore": 61,
+      "categoryScores": {
+        "quality": 93,
+        "community": 70,
+        "engagement": 75,
+        "maintenance": 99,
+        "innovation": 95
+      },
+      "lastUpdated": "2025-07-02T17:00:00.503Z"
+    },
+    {
+      "id": "uat_strategy_template",
+      "name": "User Acceptance Testing (UAT) Strategy Template",
+      "tier": "FEATURED",
+      "overallScore": 83,
+      "categoryScores": {
+        "quality": 88,
+        "community": 99,
+        "engagement": 74,
+        "maintenance": 98,
+        "innovation": 89
+      },
+      "lastUpdated": "2025-07-02T17:00:00.503Z"
+    },
+    {
+      "id": "product_backlog_template",
+      "name": "PRODUCT BACKLOG",
+      "tier": "STANDARD",
+      "overallScore": 81,
+      "categoryScores": {
+        "quality": 95,
+        "community": 74,
+        "engagement": 90,
+        "maintenance": 79,
+        "innovation": 84
+      },
+      "lastUpdated": "2025-06-20T13:11:26.179Z"
+    },
+    {
+      "id": "sprint_planning_template",
+      "name": "SPRINT PLANNING",
+      "tier": "STANDARD",
+      "overallScore": 83,
+      "categoryScores": {
+        "quality": 89,
+        "community": 85,
+        "engagement": 94,
+        "maintenance": 84,
+        "innovation": 73
+      },
+      "lastUpdated": "2025-06-20T13:11:26.158Z"
+    },
+    {
+      "id": "sprint_retrospective_template",
+      "name": "Sprint Retrospective Template",
+      "tier": "STANDARD",
+      "overallScore": 61,
+      "categoryScores": {
+        "quality": 97,
+        "community": 64,
+        "engagement": 93,
+        "maintenance": 86,
+        "innovation": 83
+      },
+      "lastUpdated": "2025-06-20T13:11:26.165Z"
+    },
+    {
+      "id": "sprint_review_template",
+      "name": "SPRINT REVIEW",
+      "tier": "STANDARD",
+      "overallScore": 97,
+      "categoryScores": {
+        "quality": 96,
+        "community": 79,
+        "engagement": 89,
+        "maintenance": 86,
+        "innovation": 98
+      },
+      "lastUpdated": "2025-06-20T13:11:26.186Z"
+    },
+    {
+      "id": "stakeholder_communication_planning",
+      "name": "Stakeholder Communication Planning - Agile Projects",
+      "tier": "STANDARD",
+      "overallScore": 81,
+      "categoryScores": {
+        "quality": 89,
+        "community": 80,
+        "engagement": 85,
+        "maintenance": 91,
+        "innovation": 96
+      },
+      "lastUpdated": "2025-06-20T13:11:26.172Z"
+    },
+    {
+      "id": "hybrid_project_charter_template",
+      "name": "Hybrid Project Charter Template",
+      "tier": "STANDARD",
+      "overallScore": 98,
+      "categoryScores": {
+        "quality": 86,
+        "community": 67,
+        "engagement": 65,
+        "maintenance": 83,
+        "innovation": 72
+      },
+      "lastUpdated": "2025-06-20T13:11:27.948Z"
+    },
+    {
+      "id": "hybrid_quality_management_template",
+      "name": "Hybrid Quality Management Template",
+      "tier": "STANDARD",
+      "overallScore": 92,
+      "categoryScores": {
+        "quality": 96,
+        "community": 84,
+        "engagement": 82,
+        "maintenance": 77,
+        "innovation": 60
+      },
+      "lastUpdated": "2025-06-20T13:11:27.968Z"
+    },
+    {
+      "id": "hybrid_release_planning_template",
+      "name": "Hybrid Release Planning Template",
+      "tier": "STANDARD",
+      "overallScore": 96,
+      "categoryScores": {
+        "quality": 93,
+        "community": 75,
+        "engagement": 85,
+        "maintenance": 98,
+        "innovation": 59
+      },
+      "lastUpdated": "2025-06-20T13:11:27.941Z"
+    },
+    {
+      "id": "hybrid_team_management_template",
+      "name": "Hybrid Team Management Template",
+      "tier": "STANDARD",
+      "overallScore": 88,
+      "categoryScores": {
+        "quality": 97,
+        "community": 87,
+        "engagement": 79,
+        "maintenance": 78,
+        "innovation": 98
+      },
+      "lastUpdated": "2025-06-20T13:11:27.975Z"
+    },
+    {
+      "id": "integrated_change_strategy_template",
+      "name": "Integrated Change Strategy Template",
+      "tier": "STANDARD",
+      "overallScore": 91,
+      "categoryScores": {
+        "quality": 84,
+        "community": 94,
+        "engagement": 91,
+        "maintenance": 81,
+        "innovation": 57
+      },
+      "lastUpdated": "2025-06-24T23:58:47.778Z"
+    },
+    {
+      "id": "progressive_acceptance_plan_template",
+      "name": "Progressive Acceptance Plan Template",
+      "tier": "STANDARD",
+      "overallScore": 69,
+      "categoryScores": {
+        "quality": 88,
+        "community": 98,
+        "engagement": 80,
+        "maintenance": 89,
+        "innovation": 73
+      },
+      "lastUpdated": "2025-06-24T23:58:47.779Z"
+    },
+    {
+      "id": "stakeholder_communication_planning",
+      "name": "Stakeholder Communication Planning - Hybrid Projects",
+      "tier": "STANDARD",
+      "overallScore": 96,
+      "categoryScores": {
+        "quality": 95,
+        "community": 65,
+        "engagement": 91,
+        "maintenance": 89,
+        "innovation": 69
+      },
+      "lastUpdated": "2025-06-20T13:11:27.954Z"
+    },
+    {
+      "id": "agile-team-charter-template",
+      "name": "Agile Team Charter Template",
+      "tier": "FEATURED",
+      "overallScore": 72,
+      "categoryScores": {
+        "quality": 89,
+        "community": 97,
+        "engagement": 77,
+        "maintenance": 83,
+        "innovation": 51
+      },
+      "lastUpdated": "2025-08-03T15:40:50.414Z"
+    },
+    {
+      "id": "hybrid-project-charter-template",
+      "name": "Hybrid Project Charter Template",
+      "tier": "FEATURED",
+      "overallScore": 68,
+      "categoryScores": {
+        "quality": 85,
+        "community": 82,
+        "engagement": 97,
+        "maintenance": 99,
+        "innovation": 51
+      },
+      "lastUpdated": "2025-08-03T15:40:50.414Z"
+    },
+    {
+      "id": "traditional-project-charter-template",
+      "name": "Traditional Project Charter Template",
+      "tier": "FEATURED",
+      "overallScore": 92,
+      "categoryScores": {
+        "quality": 99,
+        "community": 65,
+        "engagement": 81,
+        "maintenance": 92,
+        "innovation": 69
+      },
+      "lastUpdated": "2025-08-03T15:40:50.415Z"
+    },
+    {
+      "id": "agile-stakeholder-map-template",
+      "name": "Agile Stakeholder Map Template",
+      "tier": "FEATURED",
+      "overallScore": 64,
+      "categoryScores": {
+        "quality": 71,
+        "community": 96,
+        "engagement": 79,
+        "maintenance": 86,
+        "innovation": 52
+      },
+      "lastUpdated": "2025-08-03T15:40:50.415Z"
+    },
+    {
+      "id": "enterprise-stakeholder-analysis-template",
+      "name": "Enterprise Stakeholder Analysis Template",
+      "tier": "FEATURED",
+      "overallScore": 99,
+      "categoryScores": {
+        "quality": 93,
+        "community": 62,
+        "engagement": 77,
+        "maintenance": 89,
+        "innovation": 83
+      },
+      "lastUpdated": "2025-06-24T23:58:47.961Z"
+    },
+    {
+      "id": "stakeholder-register-template",
+      "name": "Stakeholder Register Template",
+      "tier": "FEATURED",
+      "overallScore": 76,
+      "categoryScores": {
+        "quality": 81,
+        "community": 79,
+        "engagement": 79,
+        "maintenance": 98,
+        "innovation": 66
+      },
+      "lastUpdated": "2025-08-03T15:40:50.416Z"
+    },
+    {
+      "id": "business_requirements_document_template",
+      "name": "Business Requirements Document (BRD) Template",
+      "tier": "FEATURED",
+      "overallScore": 88,
+      "categoryScores": {
+        "quality": 99,
+        "community": 96,
+        "engagement": 73,
+        "maintenance": 91,
+        "innovation": 60
+      },
+      "lastUpdated": "2025-06-24T23:58:47.963Z"
+    },
+    {
+      "id": "agile-release-plan-template",
+      "name": "Agile Release Plan Template",
+      "tier": "FEATURED",
+      "overallScore": 92,
+      "categoryScores": {
+        "quality": 79,
+        "community": 75,
+        "engagement": 70,
+        "maintenance": 97,
+        "innovation": 73
+      },
+      "lastUpdated": "2025-06-24T23:58:47.964Z"
+    },
+    {
+      "id": "hybrid-project-management-plan-template",
+      "name": "Hybrid Project Management Plan",
+      "tier": "FEATURED",
+      "overallScore": 75,
+      "categoryScores": {
+        "quality": 88,
+        "community": 68,
+        "engagement": 95,
+        "maintenance": 80,
+        "innovation": 80
+      },
+      "lastUpdated": "2025-06-24T23:58:47.964Z"
+    },
+    {
+      "id": "traditional-project-management-plan-template",
+      "name": "Traditional Project Management Plan Template",
+      "tier": "FEATURED",
+      "overallScore": 71,
+      "categoryScores": {
+        "quality": 91,
+        "community": 61,
+        "engagement": 70,
+        "maintenance": 75,
+        "innovation": 77
+      },
+      "lastUpdated": "2025-06-24T23:58:47.965Z"
+    },
+    {
+      "id": "resource-management-plan-template",
+      "name": "Resource Management Plan Template",
+      "tier": "FEATURED",
+      "overallScore": 83,
+      "categoryScores": {
+        "quality": 96,
+        "community": 92,
+        "engagement": 94,
+        "maintenance": 95,
+        "innovation": 97
+      },
+      "lastUpdated": "2025-06-24T23:58:47.966Z"
+    },
+    {
+      "id": "skills-matrix-template",
+      "name": "Skills Matrix Template",
+      "tier": "FEATURED",
+      "overallScore": 92,
+      "categoryScores": {
+        "quality": 73,
+        "community": 66,
+        "engagement": 93,
+        "maintenance": 93,
+        "innovation": 90
+      },
+      "lastUpdated": "2025-08-03T15:40:50.417Z"
+    },
+    {
+      "id": "team-charter-template",
+      "name": "Team Charter Template",
+      "tier": "FEATURED",
+      "overallScore": 71,
+      "categoryScores": {
+        "quality": 97,
+        "community": 89,
+        "engagement": 76,
+        "maintenance": 88,
+        "innovation": 99
+      },
+      "lastUpdated": "2025-08-03T15:40:50.418Z"
+    },
+    {
+      "id": "agile-risk-board-template",
+      "name": "Agile Risk Board Template",
+      "tier": "FEATURED",
+      "overallScore": 65,
+      "categoryScores": {
+        "quality": 89,
+        "community": 83,
+        "engagement": 97,
+        "maintenance": 87,
+        "innovation": 67
+      },
+      "lastUpdated": "2025-06-24T23:58:47.968Z"
+    },
+    {
+      "id": "enterprise-risk-assessment-template",
+      "name": "Enterprise Risk Assessment",
+      "tier": "FEATURED",
+      "overallScore": 94,
+      "categoryScores": {
+        "quality": 84,
+        "community": 90,
+        "engagement": 90,
+        "maintenance": 89,
+        "innovation": 53
+      },
+      "lastUpdated": "2025-06-24T23:58:47.968Z"
+    },
+    {
+      "id": "risk-management-plan-template",
+      "name": "Risk Management Plan Template",
+      "tier": "FEATURED",
+      "overallScore": 64,
+      "categoryScores": {
+        "quality": 78,
+        "community": 63,
+        "engagement": 74,
+        "maintenance": 99,
+        "innovation": 60
+      },
+      "lastUpdated": "2025-06-24T23:58:47.969Z"
+    },
+    {
+      "id": "risk-register-template",
+      "name": "Risk Register Template",
+      "tier": "FEATURED",
+      "overallScore": 93,
+      "categoryScores": {
+        "quality": 91,
+        "community": 87,
+        "engagement": 75,
+        "maintenance": 90,
+        "innovation": 86
+      },
+      "lastUpdated": "2025-08-03T15:40:50.418Z"
+    },
+    {
+      "id": "issue-log-template",
+      "name": "Issue Log Template",
+      "tier": "FEATURED",
+      "overallScore": 65,
+      "categoryScores": {
+        "quality": 80,
+        "community": 69,
+        "engagement": 95,
+        "maintenance": 99,
+        "innovation": 63
+      },
+      "lastUpdated": "2025-08-03T15:40:50.419Z"
+    },
+    {
+      "id": "project-dashboard-template",
+      "name": "Project Dashboard Template",
+      "tier": "FEATURED",
+      "overallScore": 85,
+      "categoryScores": {
+        "quality": 89,
+        "community": 89,
+        "engagement": 99,
+        "maintenance": 87,
+        "innovation": 63
+      },
+      "lastUpdated": "2025-08-03T15:40:50.419Z"
+    },
+    {
+      "id": "status-report-template",
+      "name": "Project Status Report Template",
+      "tier": "FEATURED",
+      "overallScore": 70,
+      "categoryScores": {
+        "quality": 84,
+        "community": 92,
+        "engagement": 74,
+        "maintenance": 95,
+        "innovation": 60
+      },
+      "lastUpdated": "2025-08-03T15:40:50.420Z"
+    },
+    {
+      "id": "backlog-management-template",
+      "name": "Backlog Management Template",
+      "tier": "STANDARD",
+      "overallScore": 81,
+      "categoryScores": {
+        "quality": 81,
+        "community": 60,
+        "engagement": 95,
+        "maintenance": 83,
+        "innovation": 72
+      },
+      "lastUpdated": "2025-06-24T23:58:47.987Z"
+    },
+    {
+      "id": "okr-template",
+      "name": "OKR Template for Product Owners",
+      "tier": "STANDARD",
+      "overallScore": 76,
+      "categoryScores": {
+        "quality": 97,
+        "community": 65,
+        "engagement": 87,
+        "maintenance": 80,
+        "innovation": 94
+      },
+      "lastUpdated": "2025-06-24T23:58:47.987Z"
+    },
+    {
+      "id": "prioritization-framework-guide",
+      "name": "Prioritization Framework Guide",
+      "tier": "STANDARD",
+      "overallScore": 91,
+      "categoryScores": {
+        "quality": 84,
+        "community": 64,
+        "engagement": 75,
+        "maintenance": 80,
+        "innovation": 91
+      },
+      "lastUpdated": "2025-06-24T23:58:47.988Z"
+    },
+    {
+      "id": "product-metrics-dashboard",
+      "name": "Product Metrics Dashboard Template",
+      "tier": "STANDARD",
+      "overallScore": 67,
+      "categoryScores": {
+        "quality": 88,
+        "community": 61,
+        "engagement": 95,
+        "maintenance": 82,
+        "innovation": 79
+      },
+      "lastUpdated": "2025-06-24T23:58:47.988Z"
+    },
+    {
+      "id": "product-strategy-canvas",
+      "name": "Product Strategy Canvas",
+      "tier": "STANDARD",
+      "overallScore": 88,
+      "categoryScores": {
+        "quality": 86,
+        "community": 62,
+        "engagement": 99,
+        "maintenance": 87,
+        "innovation": 89
+      },
+      "lastUpdated": "2025-06-24T23:58:47.988Z"
+    },
+    {
+      "id": "product-vision-template",
+      "name": "Product Vision Template",
+      "tier": "STANDARD",
+      "overallScore": 89,
+      "categoryScores": {
+        "quality": 92,
+        "community": 66,
+        "engagement": 94,
+        "maintenance": 82,
+        "innovation": 64
+      },
+      "lastUpdated": "2025-06-24T23:58:47.989Z"
+    },
+    {
+      "id": "stakeholder-collaboration-framework",
+      "name": "Stakeholder Collaboration Framework for Product Owners",
+      "tier": "STANDARD",
+      "overallScore": 97,
+      "categoryScores": {
+        "quality": 93,
+        "community": 87,
+        "engagement": 74,
+        "maintenance": 92,
+        "innovation": 73
+      },
+      "lastUpdated": "2025-06-24T23:58:47.989Z"
+    },
+    {
+      "id": "story-writing-checklist",
+      "name": "Story Writing Checklist",
+      "tier": "STANDARD",
+      "overallScore": 64,
+      "categoryScores": {
+        "quality": 71,
+        "community": 76,
+        "engagement": 80,
+        "maintenance": 96,
+        "innovation": 61
+      },
+      "lastUpdated": "2025-06-24T23:58:47.990Z"
+    },
+    {
+      "id": "user-story-template",
+      "name": "User Story Template",
+      "tier": "STANDARD",
+      "overallScore": 62,
+      "categoryScores": {
+        "quality": 86,
+        "community": 79,
+        "engagement": 80,
+        "maintenance": 84,
+        "innovation": 80
+      },
+      "lastUpdated": "2025-06-24T23:58:47.990Z"
+    },
+    {
+      "id": "budget-template",
+      "name": "Project Budget Template",
+      "tier": "STANDARD",
+      "overallScore": 96,
+      "categoryScores": {
+        "quality": 88,
+        "community": 87,
+        "engagement": 80,
+        "maintenance": 99,
+        "innovation": 54
+      },
+      "lastUpdated": "2025-06-24T23:58:47.992Z"
+    },
+    {
+      "id": "business-case",
+      "name": "Business Case Template",
+      "tier": "STANDARD",
+      "overallScore": 63,
+      "categoryScores": {
+        "quality": 72,
+        "community": 67,
+        "engagement": 94,
+        "maintenance": 96,
+        "innovation": 83
+      },
+      "lastUpdated": "2025-06-24T23:58:47.993Z"
+    },
+    {
+      "id": "change-request",
+      "name": "Change Request Template",
+      "tier": "STANDARD",
+      "overallScore": 86,
+      "categoryScores": {
+        "quality": 92,
+        "community": 79,
+        "engagement": 71,
+        "maintenance": 91,
+        "innovation": 81
+      },
+      "lastUpdated": "2025-06-24T23:58:47.993Z"
+    },
+    {
+      "id": "closure-checklist",
+      "name": "Project Closure Checklist Template",
+      "tier": "STANDARD",
+      "overallScore": 97,
+      "categoryScores": {
+        "quality": 81,
+        "community": 81,
+        "engagement": 88,
+        "maintenance": 81,
+        "innovation": 54
+      },
+      "lastUpdated": "2025-06-24T23:58:47.994Z"
+    },
+    {
+      "id": "communication-plan",
+      "name": "Communication Plan Template",
+      "tier": "STANDARD",
+      "overallScore": 66,
+      "categoryScores": {
+        "quality": 92,
+        "community": 68,
+        "engagement": 91,
+        "maintenance": 89,
+        "innovation": 52
+      },
+      "lastUpdated": "2025-06-24T23:58:47.994Z"
+    },
+    {
+      "id": "decision-log",
+      "name": "Decision Log Template",
+      "tier": "STANDARD",
+      "overallScore": 98,
+      "categoryScores": {
+        "quality": 78,
+        "community": 85,
+        "engagement": 97,
+        "maintenance": 80,
+        "innovation": 83
+      },
+      "lastUpdated": "2025-06-24T23:58:47.995Z"
+    },
+    {
+      "id": "final-report",
+      "name": "Final Project Report Template",
+      "tier": "STANDARD",
+      "overallScore": 93,
+      "categoryScores": {
+        "quality": 76,
+        "community": 64,
+        "engagement": 97,
+        "maintenance": 77,
+        "innovation": 68
+      },
+      "lastUpdated": "2025-06-24T23:58:47.995Z"
+    },
+    {
+      "id": "handover-template",
+      "name": "Project Handover Template",
+      "tier": "STANDARD",
+      "overallScore": 87,
+      "categoryScores": {
+        "quality": 82,
+        "community": 78,
+        "engagement": 88,
+        "maintenance": 78,
+        "innovation": 61
+      },
+      "lastUpdated": "2025-06-24T23:58:47.995Z"
+    },
+    {
+      "id": "issue-log",
+      "name": "Issue Log Template",
+      "tier": "STANDARD",
+      "overallScore": 75,
+      "categoryScores": {
+        "quality": 81,
+        "community": 67,
+        "engagement": 79,
+        "maintenance": 97,
+        "innovation": 67
+      },
+      "lastUpdated": "2025-06-24T23:58:47.996Z"
+    },
+    {
+      "id": "lessons-learned",
+      "name": "Lessons Learned Template",
+      "tier": "STANDARD",
+      "overallScore": 70,
+      "categoryScores": {
+        "quality": 99,
+        "community": 82,
+        "engagement": 87,
+        "maintenance": 87,
+        "innovation": 62
+      },
+      "lastUpdated": "2025-06-24T23:58:47.996Z"
+    },
+    {
+      "id": "meeting-templates",
+      "name": "Meeting Templates Collection",
+      "tier": "STANDARD",
+      "overallScore": 92,
+      "categoryScores": {
+        "quality": 74,
+        "community": 84,
+        "engagement": 82,
+        "maintenance": 86,
+        "innovation": 90
+      },
+      "lastUpdated": "2025-06-24T23:58:47.997Z"
+    },
+    {
+      "id": "milestone-review",
+      "name": "Milestone Review Template",
+      "tier": "STANDARD",
+      "overallScore": 87,
+      "categoryScores": {
+        "quality": 71,
+        "community": 97,
+        "engagement": 87,
+        "maintenance": 95,
+        "innovation": 66
+      },
+      "lastUpdated": "2025-06-24T23:58:47.997Z"
+    },
+    {
+      "id": "performance-dashboard",
+      "name": "Performance Dashboard Template",
+      "tier": "STANDARD",
+      "overallScore": 67,
+      "categoryScores": {
+        "quality": 93,
+        "community": 97,
+        "engagement": 74,
+        "maintenance": 75,
+        "innovation": 61
+      },
+      "lastUpdated": "2025-06-24T23:58:47.998Z"
+    },
+    {
+      "id": "project-charter",
+      "name": "Project Charter Template",
+      "tier": "STANDARD",
+      "overallScore": 68,
+      "categoryScores": {
+        "quality": 76,
+        "community": 98,
+        "engagement": 92,
+        "maintenance": 80,
+        "innovation": 77
+      },
+      "lastUpdated": "2025-06-24T23:58:47.998Z"
+    },
+    {
+      "id": "project-schedule",
+      "name": "Project Schedule Template",
+      "tier": "STANDARD",
+      "overallScore": 89,
+      "categoryScores": {
+        "quality": 93,
+        "community": 91,
+        "engagement": 75,
+        "maintenance": 77,
+        "innovation": 72
+      },
+      "lastUpdated": "2025-06-24T23:58:47.998Z"
+    },
+    {
+      "id": "quality-checklist",
+      "name": "Quality Checklist Template",
+      "tier": "STANDARD",
+      "overallScore": 92,
+      "categoryScores": {
+        "quality": 76,
+        "community": 71,
+        "engagement": 93,
+        "maintenance": 88,
+        "innovation": 55
+      },
+      "lastUpdated": "2025-06-24T23:58:47.999Z"
+    },
+    {
+      "id": "resource-planning",
+      "name": "Resource Planning Template",
+      "tier": "STANDARD",
+      "overallScore": 64,
+      "categoryScores": {
+        "quality": 72,
+        "community": 65,
+        "engagement": 98,
+        "maintenance": 86,
+        "innovation": 94
+      },
+      "lastUpdated": "2025-06-24T23:58:47.999Z"
+    },
+    {
+      "id": "risk-register",
+      "name": "Risk Register Template",
+      "tier": "STANDARD",
+      "overallScore": 73,
+      "categoryScores": {
+        "quality": 85,
+        "community": 66,
+        "engagement": 69,
+        "maintenance": 78,
+        "innovation": 80
+      },
+      "lastUpdated": "2025-06-24T23:58:47.999Z"
+    },
+    {
+      "id": "scope-statement",
+      "name": "Project Scope Statement Template",
+      "tier": "STANDARD",
+      "overallScore": 69,
+      "categoryScores": {
+        "quality": 99,
+        "community": 60,
+        "engagement": 94,
+        "maintenance": 94,
+        "innovation": 92
+      },
+      "lastUpdated": "2025-06-24T23:58:48.000Z"
+    },
+    {
+      "id": "stakeholder-register",
+      "name": "Stakeholder Register Template",
+      "tier": "STANDARD",
+      "overallScore": 81,
+      "categoryScores": {
+        "quality": 78,
+        "community": 63,
+        "engagement": 65,
+        "maintenance": 93,
+        "innovation": 54
+      },
+      "lastUpdated": "2025-06-24T23:58:48.000Z"
+    },
+    {
+      "id": "status-report",
+      "name": "Project Status Report Template",
+      "tier": "STANDARD",
+      "overallScore": 95,
+      "categoryScores": {
+        "quality": 80,
+        "community": 92,
+        "engagement": 75,
+        "maintenance": 82,
+        "innovation": 71
+      },
+      "lastUpdated": "2025-06-24T23:58:48.001Z"
+    },
+    {
+      "id": "team-charter",
+      "name": "Team Charter Template",
+      "tier": "STANDARD",
+      "overallScore": 87,
+      "categoryScores": {
+        "quality": 91,
+        "community": 98,
+        "engagement": 88,
+        "maintenance": 88,
+        "innovation": 79
+      },
+      "lastUpdated": "2025-06-24T23:58:48.001Z"
+    },
+    {
+      "id": "timesheet-tracking-template",
+      "name": "Timesheet Tracking Template",
+      "tier": "STANDARD",
+      "overallScore": 61,
+      "categoryScores": {
+        "quality": 78,
+        "community": 64,
+        "engagement": 83,
+        "maintenance": 82,
+        "innovation": 57
+      },
+      "lastUpdated": "2025-08-03T15:40:50.424Z"
+    },
+    {
+      "id": "work-breakdown-structure",
+      "name": "Work Breakdown Structure (WBS) Template",
+      "tier": "STANDARD",
+      "overallScore": 82,
+      "categoryScores": {
+        "quality": 73,
+        "community": 92,
+        "engagement": 70,
+        "maintenance": 83,
+        "innovation": 67
+      },
+      "lastUpdated": "2025-06-24T23:58:48.002Z"
+    },
+    {
+      "id": "change-control-process",
+      "name": "Change Control Process",
+      "tier": "STANDARD",
+      "overallScore": 81,
+      "categoryScores": {
+        "quality": 84,
+        "community": 96,
+        "engagement": 66,
+        "maintenance": 96,
+        "innovation": 74
+      },
+      "lastUpdated": "2025-06-24T23:58:48.003Z"
+    },
+    {
+      "id": "decision-authority",
+      "name": "Decision Authority Matrix",
+      "tier": "STANDARD",
+      "overallScore": 97,
+      "categoryScores": {
+        "quality": 97,
+        "community": 91,
+        "engagement": 95,
+        "maintenance": 95,
+        "innovation": 70
+      },
+      "lastUpdated": "2025-06-24T23:58:48.004Z"
+    },
+    {
+      "id": "decision-framework",
+      "name": "Decision Making Framework",
+      "tier": "STANDARD",
+      "overallScore": 90,
+      "categoryScores": {
+        "quality": 89,
+        "community": 68,
+        "engagement": 83,
+        "maintenance": 92,
+        "innovation": 68
+      },
+      "lastUpdated": "2025-06-24T23:58:48.004Z"
+    },
+    {
+      "id": "escalation-matrix",
+      "name": "Project Escalation Matrix",
+      "tier": "STANDARD",
+      "overallScore": 75,
+      "categoryScores": {
+        "quality": 96,
+        "community": 61,
+        "engagement": 83,
+        "maintenance": 91,
+        "innovation": 56
+      },
+      "lastUpdated": "2025-06-24T23:58:48.004Z"
+    },
+    {
+      "id": "governance-charter",
+      "name": "Project Governance Charter Template",
+      "tier": "STANDARD",
+      "overallScore": 69,
+      "categoryScores": {
+        "quality": 84,
+        "community": 72,
+        "engagement": 95,
+        "maintenance": 86,
+        "innovation": 94
+      },
+      "lastUpdated": "2025-06-24T23:58:48.005Z"
+    },
+    {
+      "id": "governance-framework",
+      "name": "Project Governance Framework Template",
+      "tier": "STANDARD",
+      "overallScore": 77,
+      "categoryScores": {
+        "quality": 92,
+        "community": 96,
+        "engagement": 92,
+        "maintenance": 85,
+        "innovation": 50
+      },
+      "lastUpdated": "2025-06-24T23:58:48.005Z"
+    },
+    {
+      "id": "governance-roles",
+      "name": "Governance Roles and Responsibilities",
+      "tier": "STANDARD",
+      "overallScore": 68,
+      "categoryScores": {
+        "quality": 86,
+        "community": 80,
+        "engagement": 68,
+        "maintenance": 77,
+        "innovation": 75
+      },
+      "lastUpdated": "2025-06-24T23:58:48.005Z"
+    },
+    {
+      "id": "quality-gates",
+      "name": "Quality Gates Checklist",
+      "tier": "STANDARD",
+      "overallScore": 65,
+      "categoryScores": {
+        "quality": 98,
+        "community": 62,
+        "engagement": 95,
+        "maintenance": 88,
+        "innovation": 92
+      },
+      "lastUpdated": "2025-06-24T23:58:48.006Z"
+    },
+    {
+      "id": "executive-dashboard",
+      "name": "Executive Dashboard Template",
+      "tier": "STANDARD",
+      "overallScore": 78,
+      "categoryScores": {
+        "quality": 87,
+        "community": 67,
+        "engagement": 81,
+        "maintenance": 77,
+        "innovation": 73
+      },
+      "lastUpdated": "2025-06-24T23:58:48.007Z"
+    },
+    {
+      "id": "executive-status-report",
+      "name": "Executive Status Report",
+      "tier": "STANDARD",
+      "overallScore": 60,
+      "categoryScores": {
+        "quality": 90,
+        "community": 84,
+        "engagement": 72,
+        "maintenance": 77,
+        "innovation": 89
+      },
+      "lastUpdated": "2025-06-24T23:58:48.007Z"
+    },
+    {
+      "id": "stakeholder-update",
+      "name": "Stakeholder Update Template",
+      "tier": "STANDARD",
+      "overallScore": 80,
+      "categoryScores": {
+        "quality": 87,
+        "community": 71,
+        "engagement": 77,
+        "maintenance": 78,
+        "innovation": 55
+      },
+      "lastUpdated": "2025-06-24T23:58:48.007Z"
+    },
+    {
+      "id": "team-dashboard",
+      "name": "Team Dashboard Template",
+      "tier": "STANDARD",
+      "overallScore": 61,
+      "categoryScores": {
+        "quality": 74,
+        "community": 80,
+        "engagement": 70,
+        "maintenance": 87,
+        "innovation": 52
+      },
+      "lastUpdated": "2025-06-24T23:58:48.008Z"
+    },
+    {
+      "id": "communication-calendar",
+      "name": "Communication Calendar",
+      "tier": "STANDARD",
+      "overallScore": 61,
+      "categoryScores": {
+        "quality": 70,
+        "community": 94,
+        "engagement": 99,
+        "maintenance": 81,
+        "innovation": 69
+      },
+      "lastUpdated": "2025-06-24T23:58:48.009Z"
+    },
+    {
+      "id": "communication-matrix",
+      "name": "Communication Matrix Template",
+      "tier": "STANDARD",
+      "overallScore": 76,
+      "categoryScores": {
+        "quality": 84,
+        "community": 88,
+        "engagement": 87,
+        "maintenance": 78,
+        "innovation": 94
+      },
+      "lastUpdated": "2025-06-24T23:58:48.009Z"
+    },
+    {
+      "id": "engagement-plan",
+      "name": "Stakeholder Engagement Plan",
+      "tier": "STANDARD",
+      "overallScore": 70,
+      "categoryScores": {
+        "quality": 99,
+        "community": 68,
+        "engagement": 67,
+        "maintenance": 93,
+        "innovation": 93
+      },
+      "lastUpdated": "2025-06-24T23:58:48.009Z"
+    },
+    {
+      "id": "raci-matrix",
+      "name": "RACI Matrix Template",
+      "tier": "STANDARD",
+      "overallScore": 88,
+      "categoryScores": {
+        "quality": 77,
+        "community": 79,
+        "engagement": 67,
+        "maintenance": 85,
+        "innovation": 88
+      },
+      "lastUpdated": "2025-06-24T23:58:48.010Z"
+    },
+    {
+      "id": "stakeholder-analysis",
+      "name": "Stakeholder Analysis Template",
+      "tier": "STANDARD",
+      "overallScore": 71,
+      "categoryScores": {
+        "quality": 76,
+        "community": 98,
+        "engagement": 89,
+        "maintenance": 83,
+        "innovation": 72
+      },
+      "lastUpdated": "2025-06-24T23:58:48.010Z"
+    },
+    {
+      "id": "stakeholder-mapping",
+      "name": "Stakeholder Mapping Template",
+      "tier": "STANDARD",
+      "overallScore": 98,
+      "categoryScores": {
+        "quality": 77,
+        "community": 84,
+        "engagement": 97,
+        "maintenance": 97,
+        "innovation": 61
+      },
+      "lastUpdated": "2025-06-24T23:58:48.011Z"
+    },
+    {
+      "id": "backlog-refinement-template",
+      "name": "Backlog Refinement Template",
+      "tier": "STANDARD",
+      "overallScore": 71,
+      "categoryScores": {
+        "quality": 90,
+        "community": 77,
+        "engagement": 86,
+        "maintenance": 99,
+        "innovation": 99
+      },
+      "lastUpdated": "2025-06-24T23:58:48.012Z"
+    },
+    {
+      "id": "daily-standup-template",
+      "name": "Daily Standup Template",
+      "tier": "STANDARD",
+      "overallScore": 63,
+      "categoryScores": {
+        "quality": 87,
+        "community": 61,
+        "engagement": 86,
+        "maintenance": 93,
+        "innovation": 90
+      },
+      "lastUpdated": "2025-06-24T23:58:48.013Z"
+    },
+    {
+      "id": "sprint-planning-template",
+      "name": "Sprint Planning Template",
+      "tier": "STANDARD",
+      "overallScore": 99,
+      "categoryScores": {
+        "quality": 79,
+        "community": 72,
+        "engagement": 77,
+        "maintenance": 91,
+        "innovation": 68
+      },
+      "lastUpdated": "2025-06-24T23:58:48.013Z"
+    },
+    {
+      "id": "sprint-retrospective-template",
+      "name": "Sprint Retrospective Template",
+      "tier": "STANDARD",
+      "overallScore": 70,
+      "categoryScores": {
+        "quality": 94,
+        "community": 82,
+        "engagement": 99,
+        "maintenance": 98,
+        "innovation": 83
+      },
+      "lastUpdated": "2025-06-24T23:58:48.013Z"
+    },
+    {
+      "id": "sprint-review-template",
+      "name": "Sprint Review Template",
+      "tier": "STANDARD",
+      "overallScore": 84,
+      "categoryScores": {
+        "quality": 85,
+        "community": 95,
+        "engagement": 67,
+        "maintenance": 89,
+        "innovation": 66
+      },
+      "lastUpdated": "2025-06-24T23:58:48.014Z"
+    },
+    {
+      "id": "compliance-management-template",
+      "name": "Financial Services Compliance Management Template",
+      "tier": "RECOMMENDED",
+      "overallScore": 68,
+      "categoryScores": {
+        "quality": 82,
+        "community": 68,
+        "engagement": 79,
+        "maintenance": 89,
+        "innovation": 87
+      },
+      "lastUpdated": "2025-06-24T23:58:47.868Z"
+    },
+    {
+      "id": "risk-assessment-framework",
+      "name": "Financial Services Risk Assessment Framework",
+      "tier": "RECOMMENDED",
+      "overallScore": 73,
+      "categoryScores": {
+        "quality": 98,
+        "community": 67,
+        "engagement": 95,
+        "maintenance": 86,
+        "innovation": 75
+      },
+      "lastUpdated": "2025-06-24T23:58:47.869Z"
+    },
+    {
+      "id": "clinical_data_management_plan",
+      "name": "Clinical Data Management Plan Template",
+      "tier": "RECOMMENDED",
+      "overallScore": 68,
+      "categoryScores": {
+        "quality": 90,
+        "community": 62,
+        "engagement": 85,
+        "maintenance": 93,
+        "innovation": 54
+      },
+      "lastUpdated": "2025-06-24T23:58:47.870Z"
+    },
+    {
+      "id": "clinical_trial_budget_management_plan",
+      "name": "Clinical Trial Budget and Financial Management Plan Template",
+      "tier": "RECOMMENDED",
+      "overallScore": 77,
+      "categoryScores": {
+        "quality": 84,
+        "community": 79,
+        "engagement": 76,
+        "maintenance": 84,
+        "innovation": 99
+      },
+      "lastUpdated": "2025-06-24T23:58:47.871Z"
+    },
+    {
+      "id": "clinical_trial_monitoring_plan",
+      "name": "Clinical Trial Monitoring Plan Template",
+      "tier": "RECOMMENDED",
+      "overallScore": 94,
+      "categoryScores": {
+        "quality": 97,
+        "community": 77,
+        "engagement": 82,
+        "maintenance": 94,
+        "innovation": 71
+      },
+      "lastUpdated": "2025-06-24T23:58:47.871Z"
+    },
+    {
+      "id": "clinical_trial_project_plan",
+      "name": "Clinical Trial Project Plan Template",
+      "tier": "RECOMMENDED",
+      "overallScore": 76,
+      "categoryScores": {
+        "quality": 93,
+        "community": 76,
+        "engagement": 85,
+        "maintenance": 81,
+        "innovation": 65
+      },
+      "lastUpdated": "2025-06-24T23:58:47.871Z"
+    },
+    {
+      "id": "clinical_trial_protocol_template",
+      "name": "Clinical Trial Protocol Template",
+      "tier": "RECOMMENDED",
+      "overallScore": 80,
+      "categoryScores": {
+        "quality": 70,
+        "community": 91,
+        "engagement": 76,
+        "maintenance": 87,
+        "innovation": 54
+      },
+      "lastUpdated": "2025-06-24T23:58:47.872Z"
+    },
+    {
+      "id": "clinical_trial_site_management_plan",
+      "name": "Clinical Trial Site Management Plan Template",
+      "tier": "RECOMMENDED",
+      "overallScore": 93,
+      "categoryScores": {
+        "quality": 78,
+        "community": 96,
+        "engagement": 82,
+        "maintenance": 77,
+        "innovation": 61
+      },
+      "lastUpdated": "2025-06-24T23:58:47.872Z"
+    },
+    {
+      "id": "clinical_trial_validation_plan",
+      "name": "Clinical Trial Validation Plan Template",
+      "tier": "RECOMMENDED",
+      "overallScore": 95,
+      "categoryScores": {
+        "quality": 94,
+        "community": 73,
+        "engagement": 76,
+        "maintenance": 90,
+        "innovation": 52
+      },
+      "lastUpdated": "2025-06-24T23:58:47.873Z"
+    },
+    {
+      "id": "site_management_plan",
+      "name": "Clinical Trial Site Management Plan Template",
+      "tier": "RECOMMENDED",
+      "overallScore": 87,
+      "categoryScores": {
+        "quality": 91,
+        "community": 88,
+        "engagement": 74,
+        "maintenance": 87,
+        "innovation": 90
+      },
+      "lastUpdated": "2025-06-24T23:58:47.873Z"
+    },
+    {
+      "id": "capa_management_template",
+      "name": "Corrective and Preventive Action (CAPA) Management Template",
+      "tier": "RECOMMENDED",
+      "overallScore": 94,
+      "categoryScores": {
+        "quality": 88,
+        "community": 65,
+        "engagement": 67,
+        "maintenance": 80,
+        "innovation": 87
+      },
+      "lastUpdated": "2025-06-24T23:58:47.874Z"
+    },
+    {
+      "id": "gxp_compliance_checklist",
+      "name": "GxP Compliance Checklist",
+      "tier": "RECOMMENDED",
+      "overallScore": 82,
+      "categoryScores": {
+        "quality": 97,
+        "community": 83,
+        "engagement": 82,
+        "maintenance": 88,
+        "innovation": 77
+      },
+      "lastUpdated": "2025-06-24T23:58:47.875Z"
+    },
+    {
+      "id": "gxp_training_plan",
+      "name": "GxP Training Plan Template",
+      "tier": "RECOMMENDED",
+      "overallScore": 64,
+      "categoryScores": {
+        "quality": 77,
+        "community": 68,
+        "engagement": 89,
+        "maintenance": 75,
+        "innovation": 91
+      },
+      "lastUpdated": "2025-06-24T23:58:47.875Z"
+    },
+    {
+      "id": "gxp_training_plan_template",
+      "name": "GxP Training Plan Template",
+      "tier": "RECOMMENDED",
+      "overallScore": 80,
+      "categoryScores": {
+        "quality": 71,
+        "community": 92,
+        "engagement": 74,
+        "maintenance": 98,
+        "innovation": 99
+      },
+      "lastUpdated": "2025-06-24T23:58:47.876Z"
+    },
+    {
+      "id": "equipment_qualification_protocol",
+      "name": "Equipment Qualification Protocol Template",
+      "tier": "RECOMMENDED",
+      "overallScore": 86,
+      "categoryScores": {
+        "quality": 79,
+        "community": 70,
+        "engagement": 94,
+        "maintenance": 84,
+        "innovation": 74
+      },
+      "lastUpdated": "2025-06-24T23:58:47.876Z"
+    },
+    {
+      "id": "healthcare_product_lifecycle_plan",
+      "name": "Healthcare Product Lifecycle Management Plan",
+      "tier": "RECOMMENDED",
+      "overallScore": 98,
+      "categoryScores": {
+        "quality": 95,
+        "community": 67,
+        "engagement": 94,
+        "maintenance": 95,
+        "innovation": 64
+      },
+      "lastUpdated": "2025-06-24T23:58:47.877Z"
+    },
+    {
+      "id": "medical_device_development_plan",
+      "name": "Medical Device Development Plan Template",
+      "tier": "RECOMMENDED",
+      "overallScore": 63,
+      "categoryScores": {
+        "quality": 84,
+        "community": 93,
+        "engagement": 65,
+        "maintenance": 86,
+        "innovation": 54
+      },
+      "lastUpdated": "2025-06-24T23:58:47.877Z"
+    },
+    {
+      "id": "pharmaceutical_qbd_template",
+      "name": "Pharmaceutical Quality by Design (QbD) Template",
+      "tier": "RECOMMENDED",
+      "overallScore": 99,
+      "categoryScores": {
+        "quality": 72,
+        "community": 62,
+        "engagement": 96,
+        "maintenance": 79,
+        "innovation": 86
+      },
+      "lastUpdated": "2025-06-24T23:58:47.877Z"
+    },
+    {
+      "id": "batch_record_template",
+      "name": "Manufacturing Batch Record Template",
+      "tier": "RECOMMENDED",
+      "overallScore": 76,
+      "categoryScores": {
+        "quality": 98,
+        "community": 77,
+        "engagement": 77,
+        "maintenance": 81,
+        "innovation": 70
+      },
+      "lastUpdated": "2025-06-24T23:58:47.878Z"
+    },
+    {
+      "id": "manufacturing_batch_record_template",
+      "name": "Manufacturing Batch Record Template",
+      "tier": "RECOMMENDED",
+      "overallScore": 75,
+      "categoryScores": {
+        "quality": 73,
+        "community": 93,
+        "engagement": 91,
+        "maintenance": 95,
+        "innovation": 64
+      },
+      "lastUpdated": "2025-06-24T23:58:47.878Z"
+    },
+    {
+      "id": "process_control_template",
+      "name": "Process Control Template",
+      "tier": "RECOMMENDED",
+      "overallScore": 78,
+      "categoryScores": {
+        "quality": 98,
+        "community": 72,
+        "engagement": 80,
+        "maintenance": 80,
+        "innovation": 52
+      },
+      "lastUpdated": "2025-06-24T23:58:47.879Z"
+    },
+    {
+      "id": "change_control_management",
+      "name": "Change Control Management Template",
+      "tier": "RECOMMENDED",
+      "overallScore": 69,
+      "categoryScores": {
+        "quality": 87,
+        "community": 85,
+        "engagement": 94,
+        "maintenance": 79,
+        "innovation": 60
+      },
+      "lastUpdated": "2025-06-24T23:58:47.881Z"
+    },
+    {
+      "id": "change_management_protocol",
+      "name": "Change Management Protocol Template for Healthcare and Pharmaceutical Projects",
+      "tier": "RECOMMENDED",
+      "overallScore": 99,
+      "categoryScores": {
+        "quality": 78,
+        "community": 97,
+        "engagement": 66,
+        "maintenance": 82,
+        "innovation": 97
+      },
+      "lastUpdated": "2025-06-24T23:58:47.882Z"
+    },
+    {
+      "id": "equipment_maintenance_sop",
+      "name": "Equipment Maintenance SOP Template",
+      "tier": "RECOMMENDED",
+      "overallScore": 67,
+      "categoryScores": {
+        "quality": 70,
+        "community": 88,
+        "engagement": 66,
+        "maintenance": 94,
+        "innovation": 91
+      },
+      "lastUpdated": "2025-06-24T23:58:47.883Z"
+    },
+    {
+      "id": "quality_management_review_template",
+      "name": "Quality Management Review Template",
+      "tier": "RECOMMENDED",
+      "overallScore": 93,
+      "categoryScores": {
+        "quality": 97,
+        "community": 88,
+        "engagement": 70,
+        "maintenance": 88,
+        "innovation": 56
+      },
+      "lastUpdated": "2025-06-24T23:58:47.884Z"
+    },
+    {
+      "id": "supplier_quality_management_protocol",
+      "name": "Supplier Quality Management Protocol",
+      "tier": "RECOMMENDED",
+      "overallScore": 70,
+      "categoryScores": {
+        "quality": 98,
+        "community": 97,
+        "engagement": 75,
+        "maintenance": 96,
+        "innovation": 70
+      },
+      "lastUpdated": "2025-06-24T23:58:47.884Z"
+    },
+    {
+      "id": "validation_master_plan",
+      "name": "Validation Master Plan (VMP) Template",
+      "tier": "RECOMMENDED",
+      "overallScore": 91,
+      "categoryScores": {
+        "quality": 91,
+        "community": 76,
+        "engagement": 74,
+        "maintenance": 85,
+        "innovation": 64
+      },
+      "lastUpdated": "2025-06-24T23:58:47.884Z"
+    },
+    {
+      "id": "capa_management_template",
+      "name": "Corrective and Preventive Action (CAPA) Management Template",
+      "tier": "RECOMMENDED",
+      "overallScore": 81,
+      "categoryScores": {
+        "quality": 73,
+        "community": 65,
+        "engagement": 87,
+        "maintenance": 88,
+        "innovation": 84
+      },
+      "lastUpdated": "2025-06-24T23:58:47.879Z"
+    },
+    {
+      "id": "change_control_procedure",
+      "name": "Change Control Procedure",
+      "tier": "RECOMMENDED",
+      "overallScore": 68,
+      "categoryScores": {
+        "quality": 75,
+        "community": 78,
+        "engagement": 83,
+        "maintenance": 94,
+        "innovation": 87
+      },
+      "lastUpdated": "2025-06-24T23:58:47.880Z"
+    },
+    {
+      "id": "quality_management_review_template",
+      "name": "Quality Management Review Template",
+      "tier": "RECOMMENDED",
+      "overallScore": 92,
+      "categoryScores": {
+        "quality": 71,
+        "community": 62,
+        "engagement": 86,
+        "maintenance": 93,
+        "innovation": 95
+      },
+      "lastUpdated": "2025-06-24T23:58:47.881Z"
+    },
+    {
+      "id": "compliance_risk_assessment",
+      "name": "Compliance Risk Assessment Template",
+      "tier": "RECOMMENDED",
+      "overallScore": 97,
+      "categoryScores": {
+        "quality": 97,
+        "community": 92,
+        "engagement": 90,
+        "maintenance": 85,
+        "innovation": 68
+      },
+      "lastUpdated": "2025-06-24T23:58:47.885Z"
+    },
+    {
+      "id": "compliance_risk_assessment_template",
+      "name": "Compliance Risk Assessment Template",
+      "tier": "RECOMMENDED",
+      "overallScore": 71,
+      "categoryScores": {
+        "quality": 92,
+        "community": 66,
+        "engagement": 90,
+        "maintenance": 95,
+        "innovation": 63
+      },
+      "lastUpdated": "2025-06-24T23:58:47.885Z"
+    },
+    {
+      "id": "computer_system_validation_protocol_template",
+      "name": "Computer System Validation Protocol Template",
+      "tier": "RECOMMENDED",
+      "overallScore": 83,
+      "categoryScores": {
+        "quality": 78,
+        "community": 88,
+        "engagement": 97,
+        "maintenance": 99,
+        "innovation": 57
+      },
+      "lastUpdated": "2025-06-24T23:58:47.886Z"
+    },
+    {
+      "id": "gxp_training_plan_template",
+      "name": "GxP Training Plan Template",
+      "tier": "RECOMMENDED",
+      "overallScore": 77,
+      "categoryScores": {
+        "quality": 88,
+        "community": 87,
+        "engagement": 73,
+        "maintenance": 89,
+        "innovation": 52
+      },
+      "lastUpdated": "2025-06-24T23:58:47.886Z"
+    },
+    {
+      "id": "health_authority_communication_plan_template",
+      "name": "Health Authority Communication Plan",
+      "tier": "RECOMMENDED",
+      "overallScore": 63,
+      "categoryScores": {
+        "quality": 76,
+        "community": 75,
+        "engagement": 68,
+        "maintenance": 88,
+        "innovation": 52
+      },
+      "lastUpdated": "2025-06-24T23:58:47.887Z"
+    },
+    {
+      "id": "process_validation_protocol_template",
+      "name": "Process Validation Protocol Template",
+      "tier": "RECOMMENDED",
+      "overallScore": 74,
+      "categoryScores": {
+        "quality": 96,
+        "community": 65,
+        "engagement": 71,
+        "maintenance": 86,
+        "innovation": 99
+      },
+      "lastUpdated": "2025-06-24T23:58:47.887Z"
+    },
+    {
+      "id": "regulatory_inspection_readiness_plan_template",
+      "name": "Regulatory Inspection Readiness Plan",
+      "tier": "RECOMMENDED",
+      "overallScore": 70,
+      "categoryScores": {
+        "quality": 77,
+        "community": 70,
+        "engagement": 94,
+        "maintenance": 86,
+        "innovation": 55
+      },
+      "lastUpdated": "2025-06-24T23:58:47.888Z"
+    },
+    {
+      "id": "regulatory_strategy_plan_template",
+      "name": "Regulatory Strategy Plan",
+      "tier": "RECOMMENDED",
+      "overallScore": 94,
+      "categoryScores": {
+        "quality": 86,
+        "community": 89,
+        "engagement": 74,
+        "maintenance": 82,
+        "innovation": 96
+      },
+      "lastUpdated": "2025-06-24T23:58:47.888Z"
+    },
+    {
+      "id": "regulatory_submission_checklist",
+      "name": "Regulatory Submission Checklist Template",
+      "tier": "RECOMMENDED",
+      "overallScore": 66,
+      "categoryScores": {
+        "quality": 74,
+        "community": 92,
+        "engagement": 77,
+        "maintenance": 99,
+        "innovation": 94
+      },
+      "lastUpdated": "2025-06-24T23:58:47.888Z"
+    },
+    {
+      "id": "cleaning_validation_protocol_template",
+      "name": "Cleaning Validation Protocol Template",
+      "tier": "RECOMMENDED",
+      "overallScore": 66,
+      "categoryScores": {
+        "quality": 72,
+        "community": 99,
+        "engagement": 65,
+        "maintenance": 92,
+        "innovation": 63
+      },
+      "lastUpdated": "2025-06-24T23:58:47.889Z"
+    },
+    {
+      "id": "computer_system_change_control",
+      "name": "Computer System Change Control Procedure",
+      "tier": "RECOMMENDED",
+      "overallScore": 93,
+      "categoryScores": {
+        "quality": 98,
+        "community": 67,
+        "engagement": 67,
+        "maintenance": 87,
+        "innovation": 86
+      },
+      "lastUpdated": "2025-06-24T23:58:47.889Z"
+    },
+    {
+      "id": "computer_system_validation_plan",
+      "name": "Computer System Validation Plan Template",
+      "tier": "RECOMMENDED",
+      "overallScore": 81,
+      "categoryScores": {
+        "quality": 76,
+        "community": 73,
+        "engagement": 88,
+        "maintenance": 98,
+        "innovation": 52
+      },
+      "lastUpdated": "2025-06-24T23:58:47.890Z"
+    },
+    {
+      "id": "computer_system_validation_protocol_template",
+      "name": "Computer System Validation Protocol Template",
+      "tier": "RECOMMENDED",
+      "overallScore": 71,
+      "categoryScores": {
+        "quality": 79,
+        "community": 67,
+        "engagement": 89,
+        "maintenance": 81,
+        "innovation": 64
+      },
+      "lastUpdated": "2025-06-24T23:58:47.890Z"
+    },
+    {
+      "id": "data_management_integrity_plan",
+      "name": "Data Management and Integrity Plan Template",
+      "tier": "RECOMMENDED",
+      "overallScore": 85,
+      "categoryScores": {
+        "quality": 99,
+        "community": 65,
+        "engagement": 67,
+        "maintenance": 99,
+        "innovation": 99
+      },
+      "lastUpdated": "2025-06-24T23:58:47.891Z"
+    },
+    {
+      "id": "equipment_qualification_protocol",
+      "name": "Equipment Qualification Protocol",
+      "tier": "RECOMMENDED",
+      "overallScore": 89,
+      "categoryScores": {
+        "quality": 78,
+        "community": 83,
+        "engagement": 98,
+        "maintenance": 99,
+        "innovation": 74
+      },
+      "lastUpdated": "2025-06-24T23:58:47.891Z"
+    },
+    {
+      "id": "equipment_qualification_protocol_template",
+      "name": "Equipment Qualification Protocol Template",
+      "tier": "RECOMMENDED",
+      "overallScore": 90,
+      "categoryScores": {
+        "quality": 80,
+        "community": 65,
+        "engagement": 90,
+        "maintenance": 89,
+        "innovation": 92
+      },
+      "lastUpdated": "2025-06-24T23:58:47.891Z"
+    },
+    {
+      "id": "equipment_validation_protocol",
+      "name": "Equipment Validation Protocol Template",
+      "tier": "RECOMMENDED",
+      "overallScore": 85,
+      "categoryScores": {
+        "quality": 82,
+        "community": 65,
+        "engagement": 66,
+        "maintenance": 92,
+        "innovation": 84
+      },
+      "lastUpdated": "2025-06-24T23:58:47.892Z"
+    },
+    {
+      "id": "installation_qualification_protocol_template",
+      "name": "Installation Qualification (IQ) Protocol Template",
+      "tier": "RECOMMENDED",
+      "overallScore": 84,
+      "categoryScores": {
+        "quality": 97,
+        "community": 83,
+        "engagement": 92,
+        "maintenance": 96,
+        "innovation": 54
+      },
+      "lastUpdated": "2025-06-24T23:58:47.892Z"
+    },
+    {
+      "id": "operational_qualification_protocol_template",
+      "name": "Operational Qualification (OQ) Protocol Template",
+      "tier": "RECOMMENDED",
+      "overallScore": 84,
+      "categoryScores": {
+        "quality": 96,
+        "community": 99,
+        "engagement": 70,
+        "maintenance": 85,
+        "innovation": 83
+      },
+      "lastUpdated": "2025-06-24T23:58:47.893Z"
+    },
+    {
+      "id": "performance_qualification_protocol_template",
+      "name": "Performance Qualification (PQ) Protocol Template",
+      "tier": "RECOMMENDED",
+      "overallScore": 86,
+      "categoryScores": {
+        "quality": 78,
+        "community": 70,
+        "engagement": 80,
+        "maintenance": 86,
+        "innovation": 76
+      },
+      "lastUpdated": "2025-06-24T23:58:47.893Z"
+    },
+    {
+      "id": "process_validation_master_plan_template",
+      "name": "Process Validation Master Plan Template",
+      "tier": "RECOMMENDED",
+      "overallScore": 68,
+      "categoryScores": {
+        "quality": 83,
+        "community": 66,
+        "engagement": 88,
+        "maintenance": 97,
+        "innovation": 83
+      },
+      "lastUpdated": "2025-06-24T23:58:47.893Z"
+    },
+    {
+      "id": "process_validation_protocol",
+      "name": "Process Validation Protocol",
+      "tier": "RECOMMENDED",
+      "overallScore": 77,
+      "categoryScores": {
+        "quality": 82,
+        "community": 81,
+        "engagement": 86,
+        "maintenance": 85,
+        "innovation": 99
+      },
+      "lastUpdated": "2025-06-24T23:58:47.894Z"
+    },
+    {
+      "id": "software_requirements_specification_template",
+      "name": "Software Requirements Specification (SRS) Template",
+      "tier": "RECOMMENDED",
+      "overallScore": 66,
+      "categoryScores": {
+        "quality": 72,
+        "community": 70,
+        "engagement": 86,
+        "maintenance": 77,
+        "innovation": 81
+      },
+      "lastUpdated": "2025-06-24T23:58:47.894Z"
+    },
+    {
+      "id": "validation_master_plan_template",
+      "name": "Validation Master Plan Template",
+      "tier": "RECOMMENDED",
+      "overallScore": 95,
+      "categoryScores": {
+        "quality": 70,
+        "community": 70,
+        "engagement": 66,
+        "maintenance": 80,
+        "innovation": 87
+      },
+      "lastUpdated": "2025-06-24T23:58:47.895Z"
+    },
+    {
+      "id": "incident_response_template",
+      "name": "Cybersecurity Incident Response Template",
+      "tier": "RECOMMENDED",
+      "overallScore": 85,
+      "categoryScores": {
+        "quality": 78,
+        "community": 69,
+        "engagement": 95,
+        "maintenance": 84,
+        "innovation": 76
+      },
+      "lastUpdated": "2025-06-24T23:58:47.897Z"
+    },
+    {
+      "id": "risk_assessment_template",
+      "name": "Cybersecurity Risk Assessment Template",
+      "tier": "RECOMMENDED",
+      "overallScore": 62,
+      "categoryScores": {
+        "quality": 93,
+        "community": 79,
+        "engagement": 80,
+        "maintenance": 87,
+        "innovation": 55
+      },
+      "lastUpdated": "2025-06-24T23:58:47.897Z"
+    },
+    {
+      "id": "security_awareness_program",
+      "name": "Security Awareness Program Template",
+      "tier": "RECOMMENDED",
+      "overallScore": 62,
+      "categoryScores": {
+        "quality": 93,
+        "community": 81,
+        "engagement": 85,
+        "maintenance": 79,
+        "innovation": 60
+      },
+      "lastUpdated": "2025-06-24T23:58:47.898Z"
+    },
+    {
+      "id": "security_controls_matrix",
+      "name": "Security Controls Matrix Template",
+      "tier": "RECOMMENDED",
+      "overallScore": 92,
+      "categoryScores": {
+        "quality": 91,
+        "community": 65,
+        "engagement": 70,
+        "maintenance": 81,
+        "innovation": 74
+      },
+      "lastUpdated": "2025-06-24T23:58:47.898Z"
+    },
+    {
+      "id": "security_implementation_roadmap",
+      "name": "Security Implementation Roadmap Template",
+      "tier": "RECOMMENDED",
+      "overallScore": 69,
+      "categoryScores": {
+        "quality": 98,
+        "community": 87,
+        "engagement": 82,
+        "maintenance": 97,
+        "innovation": 54
+      },
+      "lastUpdated": "2025-06-24T23:58:47.898Z"
+    },
+    {
+      "id": "vulnerability_management_plan",
+      "name": "Vulnerability Management Plan Template",
+      "tier": "RECOMMENDED",
+      "overallScore": 63,
+      "categoryScores": {
+        "quality": 83,
+        "community": 95,
+        "engagement": 72,
+        "maintenance": 80,
+        "innovation": 89
+      },
+      "lastUpdated": "2025-06-24T23:58:47.899Z"
+    },
+    {
+      "id": "digital_kpi_dashboard",
+      "name": "Digital KPI Dashboard Template",
+      "tier": "RECOMMENDED",
+      "overallScore": 84,
+      "categoryScores": {
+        "quality": 76,
+        "community": 97,
+        "engagement": 98,
+        "maintenance": 94,
+        "innovation": 91
+      },
+      "lastUpdated": "2025-06-24T23:58:47.899Z"
+    },
+    {
+      "id": "digital_maturity_assessment",
+      "name": "Digital Maturity Assessment Template",
+      "tier": "RECOMMENDED",
+      "overallScore": 78,
+      "categoryScores": {
+        "quality": 92,
+        "community": 80,
+        "engagement": 79,
+        "maintenance": 96,
+        "innovation": 69
+      },
+      "lastUpdated": "2025-06-24T23:58:47.900Z"
+    },
+    {
+      "id": "digital_transformation_strategy_template",
+      "name": "Digital Transformation Strategy Template",
+      "tier": "RECOMMENDED",
+      "overallScore": 66,
+      "categoryScores": {
+        "quality": 73,
+        "community": 80,
+        "engagement": 68,
+        "maintenance": 81,
+        "innovation": 79
+      },
+      "lastUpdated": "2025-06-24T23:58:47.900Z"
+    },
+    {
+      "id": "process_digitization_workflow",
+      "name": "Process Digitization Workflow Template",
+      "tier": "RECOMMENDED",
+      "overallScore": 87,
+      "categoryScores": {
+        "quality": 79,
+        "community": 93,
+        "engagement": 65,
+        "maintenance": 96,
+        "innovation": 75
+      },
+      "lastUpdated": "2025-06-24T23:58:47.901Z"
+    },
+    {
+      "id": "technology_adoption_roadmap",
+      "name": "Technology Adoption Roadmap Template",
+      "tier": "RECOMMENDED",
+      "overallScore": 76,
+      "categoryScores": {
+        "quality": 78,
+        "community": 81,
+        "engagement": 74,
+        "maintenance": 84,
+        "innovation": 67
+      },
+      "lastUpdated": "2025-06-24T23:58:47.901Z"
+    },
+    {
+      "id": "change_management_plan",
+      "name": "Change Management Plan",
+      "tier": "RECOMMENDED",
+      "overallScore": 64,
+      "categoryScores": {
+        "quality": 80,
+        "community": 93,
+        "engagement": 79,
+        "maintenance": 88,
+        "innovation": 98
+      },
+      "lastUpdated": "2025-06-24T23:58:47.902Z"
+    },
+    {
+      "id": "configuration_management_plan",
+      "name": "Configuration Management Plan",
+      "tier": "RECOMMENDED",
+      "overallScore": 96,
+      "categoryScores": {
+        "quality": 92,
+        "community": 66,
+        "engagement": 87,
+        "maintenance": 82,
+        "innovation": 89
+      },
+      "lastUpdated": "2025-06-24T23:58:47.902Z"
+    },
+    {
+      "id": "capacity_planning_worksheet",
+      "name": "IT Infrastructure Capacity Planning Worksheet",
+      "tier": "RECOMMENDED",
+      "overallScore": 70,
+      "categoryScores": {
+        "quality": 99,
+        "community": 95,
+        "engagement": 70,
+        "maintenance": 93,
+        "innovation": 65
+      },
+      "lastUpdated": "2025-06-24T23:58:47.902Z"
+    },
+    {
+      "id": "data_center_design_template",
+      "name": "Data Center Design Template",
+      "tier": "RECOMMENDED",
+      "overallScore": 91,
+      "categoryScores": {
+        "quality": 95,
+        "community": 60,
+        "engagement": 75,
+        "maintenance": 96,
+        "innovation": 53
+      },
+      "lastUpdated": "2025-06-24T23:58:47.903Z"
+    },
+    {
+      "id": "deployment_checklist",
+      "name": "IT Infrastructure Deployment Checklist",
+      "tier": "RECOMMENDED",
+      "overallScore": 88,
+      "categoryScores": {
+        "quality": 98,
+        "community": 97,
+        "engagement": 67,
+        "maintenance": 91,
+        "innovation": 78
+      },
+      "lastUpdated": "2025-06-24T23:58:47.903Z"
+    },
+    {
+      "id": "disaster_recovery_template",
+      "name": "IT Infrastructure Disaster Recovery Template",
+      "tier": "RECOMMENDED",
+      "overallScore": 65,
+      "categoryScores": {
+        "quality": 87,
+        "community": 65,
+        "engagement": 92,
+        "maintenance": 96,
+        "innovation": 75
+      },
+      "lastUpdated": "2025-06-24T23:58:47.903Z"
+    },
+    {
+      "id": "infrastructure_assessment_template",
+      "name": "Infrastructure Assessment Template",
+      "tier": "RECOMMENDED",
+      "overallScore": 72,
+      "categoryScores": {
+        "quality": 85,
+        "community": 60,
+        "engagement": 99,
+        "maintenance": 82,
+        "innovation": 81
+      },
+      "lastUpdated": "2025-06-24T23:58:47.904Z"
+    },
+    {
+      "id": "infrastructure_change_management_protocol",
+      "name": "Infrastructure Change Management Protocol",
+      "tier": "RECOMMENDED",
+      "overallScore": 68,
+      "categoryScores": {
+        "quality": 92,
+        "community": 69,
+        "engagement": 81,
+        "maintenance": 76,
+        "innovation": 89
+      },
+      "lastUpdated": "2025-06-24T23:58:47.904Z"
+    },
+    {
+      "id": "migration_plan_template",
+      "name": "IT Infrastructure Migration Plan Template",
+      "tier": "RECOMMENDED",
+      "overallScore": 77,
+      "categoryScores": {
+        "quality": 79,
+        "community": 90,
+        "engagement": 83,
+        "maintenance": 81,
+        "innovation": 84
+      },
+      "lastUpdated": "2025-06-24T23:58:47.904Z"
+    },
+    {
+      "id": "business_continuity_disaster_recovery_plan",
+      "name": "Business Continuity and Disaster Recovery Plan",
+      "tier": "RECOMMENDED",
+      "overallScore": 80,
+      "categoryScores": {
+        "quality": 94,
+        "community": 70,
+        "engagement": 71,
+        "maintenance": 92,
+        "innovation": 55
+      },
+      "lastUpdated": "2025-06-24T23:58:47.905Z"
+    },
+    {
+      "id": "cybersecurity_assessment_template",
+      "name": "Cybersecurity Assessment Template",
+      "tier": "RECOMMENDED",
+      "overallScore": 78,
+      "categoryScores": {
+        "quality": 91,
+        "community": 87,
+        "engagement": 72,
+        "maintenance": 78,
+        "innovation": 71
+      },
+      "lastUpdated": "2025-06-24T23:58:47.905Z"
+    },
+    {
+      "id": "cybersecurity_training_plan",
+      "name": "Cybersecurity Training Plan",
+      "tier": "RECOMMENDED",
+      "overallScore": 70,
+      "categoryScores": {
+        "quality": 97,
+        "community": 64,
+        "engagement": 78,
+        "maintenance": 91,
+        "innovation": 98
+      },
+      "lastUpdated": "2025-06-24T23:58:47.906Z"
+    },
+    {
+      "id": "incident_response_plan",
+      "name": "Incident Response Plan",
+      "tier": "RECOMMENDED",
+      "overallScore": 65,
+      "categoryScores": {
+        "quality": 93,
+        "community": 95,
+        "engagement": 70,
+        "maintenance": 97,
+        "innovation": 58
+      },
+      "lastUpdated": "2025-06-24T23:58:47.906Z"
+    },
+    {
+      "id": "security_change_management_protocol",
+      "name": "Security Change Management Protocol",
+      "tier": "RECOMMENDED",
+      "overallScore": 73,
+      "categoryScores": {
+        "quality": 98,
+        "community": 60,
+        "engagement": 84,
+        "maintenance": 77,
+        "innovation": 75
+      },
+      "lastUpdated": "2025-06-24T23:58:47.907Z"
+    },
+    {
+      "id": "system_security_plan",
+      "name": "System Security Plan (SSP)",
+      "tier": "RECOMMENDED",
+      "overallScore": 66,
+      "categoryScores": {
+        "quality": 99,
+        "community": 91,
+        "engagement": 70,
+        "maintenance": 99,
+        "innovation": 78
+      },
+      "lastUpdated": "2025-06-24T23:58:47.907Z"
+    },
+    {
+      "id": "problem_management_process_template",
+      "name": "Problem Management Process Template",
+      "tier": "RECOMMENDED",
+      "overallScore": 64,
+      "categoryScores": {
+        "quality": 70,
+        "community": 75,
+        "engagement": 86,
+        "maintenance": 75,
+        "innovation": 50
+      },
+      "lastUpdated": "2025-08-03T15:40:50.405Z"
+    },
+    {
+      "id": "api_documentation_template",
+      "name": "API Documentation Template",
+      "tier": "RECOMMENDED",
+      "overallScore": 84,
+      "categoryScores": {
+        "quality": 73,
+        "community": 65,
+        "engagement": 96,
+        "maintenance": 92,
+        "innovation": 62
+      },
+      "lastUpdated": "2025-06-24T23:58:47.908Z"
+    },
+    {
+      "id": "ci_cd_pipeline_guide",
+      "name": "CI/CD Pipeline Guide for Software Development",
+      "tier": "RECOMMENDED",
+      "overallScore": 84,
+      "categoryScores": {
+        "quality": 74,
+        "community": 96,
+        "engagement": 67,
+        "maintenance": 99,
+        "innovation": 59
+      },
+      "lastUpdated": "2025-06-24T23:58:47.909Z"
+    },
+    {
+      "id": "requirements_specification_template",
+      "name": "Software Requirements Specification (SRS)",
+      "tier": "RECOMMENDED",
+      "overallScore": 87,
+      "categoryScores": {
+        "quality": 72,
+        "community": 80,
+        "engagement": 99,
+        "maintenance": 78,
+        "innovation": 63
+      },
+      "lastUpdated": "2025-06-24T23:58:47.909Z"
+    },
+    {
+      "id": "technical_design_document_template",
+      "name": "Technical Design Document (TDD)",
+      "tier": "RECOMMENDED",
+      "overallScore": 73,
+      "categoryScores": {
+        "quality": 82,
+        "community": 85,
+        "engagement": 70,
+        "maintenance": 89,
+        "innovation": 78
+      },
+      "lastUpdated": "2025-06-24T23:58:47.910Z"
+    },
+    {
+      "id": "test_plan_template",
+      "name": "Test Plan Template",
+      "tier": "RECOMMENDED",
+      "overallScore": 60,
+      "categoryScores": {
+        "quality": 75,
+        "community": 73,
+        "engagement": 83,
+        "maintenance": 78,
+        "innovation": 65
+      },
+      "lastUpdated": "2025-06-24T23:58:47.910Z"
+    },
+    {
+      "id": "user_story_mapping_template",
+      "name": "User Story Mapping Template",
+      "tier": "RECOMMENDED",
+      "overallScore": 74,
+      "categoryScores": {
+        "quality": 79,
+        "community": 91,
+        "engagement": 82,
+        "maintenance": 87,
+        "innovation": 63
+      },
+      "lastUpdated": "2025-06-24T23:58:47.911Z"
+    }
+  ]
+}

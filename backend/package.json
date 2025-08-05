@@ -1,0 +1,14 @@
+{
+  "name": "template-curation-backend",
+  "version": "1.0.0",
+  "description": "Backend for Template Curation Dashboard",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "extract": "node extract-metrics.js",
+    "dev": "npm run extract && npm run start"
+  },
+  "keywords": ["template", "curation", "dashboard", "project-management"],
+  "author": "PM Tools Templates",
+  "license": "MIT"
+}

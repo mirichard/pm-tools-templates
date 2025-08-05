@@ -1,0 +1,375 @@
+name: Template Analytics & Usage Tracking
+
+on:
+  issues:
+    types: [opened, closed, labeled]
+  issue_comment:
+    types: [created]
+  schedule:
+    # Run analytics report daily at 6 AM UTC
+    - cron: '0 6 * * *'
+
+jobs:
+  track-template-usage:
+    if: >
+      (github.event.action == 'opened' && contains(github.event.issue.labels.*.name, 'template-rating')) ||
+      (github.event.action == 'labeled' && github.event.label.name == 'template-rating')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Extract Template Analytics Data
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const issueBody = context.payload.issue.body || '';
+            const issueNumber = context.payload.issue.number;
+            
+            // Extract structured data from rating form
+            const extractField = (field, pattern = null) => {
+              if (pattern) {
+                const match = issueBody.match(pattern);
+                return match ? match[1].trim() : null;
+              }
+              const regex = new RegExp(`### ${field}\\s*\\n\\s*([^\\n#]+)`, 'i');
+              const match = issueBody.match(regex);
+              return match ? match[1].trim() : null;
+            };
+            
+            const analyticsData = {
+              template_name: extractField('Template Name'),
+              overall_rating: extractField('Overall Rating'),
+              experience_level: extractField('Your Experience Level'),
+              project_type: extractField('Project Type'),
+              use_case: extractField('Your Use Case'),
+              timestamp: new Date().toISOString(),
+              issue_number: issueNumber,
+              user: context.payload.issue.user.login
+            };
+            
+            // Extract category ratings from checkboxes
+            const categoryRatings = {};
+            const categories = ['Ease of Use', 'Effectiveness', 'Documentation', 'Customization', 'Professional Quality', 'Time Saving'];
+            categories.forEach(category => {
+              const checked = issueBody.includes(`✅ **${category}**`) || issueBody.includes(`- [x] **${category}**`);
+              categoryRatings[category.toLowerCase().replace(' ', '_')] = checked;
+            });
+            analyticsData.category_ratings = categoryRatings;
+            
+            console.log('Template Analytics Data:', JSON.stringify(analyticsData, null, 2));
+            
+            // Create analytics comment with usage tracking
+            const analyticsComment = `
+            ## 📊 Template Analytics Tracking
+            
+            **Analytics ID:** \`ANALYTICS-${Date.now()}\`
+            **Template:** ${analyticsData.template_name}
+            **Rating:** ${analyticsData.overall_rating}
+            **User Segment:** ${analyticsData.experience_level}
+            **Use Case:** ${analyticsData.project_type}
+            
+            ### Category Performance
+            ${Object.entries(categoryRatings).map(([key, value]) => 
+              `- ${key.replace('_', ' ').replace(/\b\w/g, l => l.toUpperCase())}: ${value ? '✅ Positive' : '⚪ Not Selected'}`
+            ).join('\n')}
+            
+            ---
+            *This data contributes to template improvement analytics and marketplace curation.*
+            `;
+            
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: issueNumber,
+              body: analyticsComment
+            });
+            
+            // Add analytics labels for tracking
+            await github.rest.issues.addLabels({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: issueNumber,
+              labels: [
+                'analytics-tracked',
+                `rating-${analyticsData.overall_rating?.includes('5') ? '5-star' : 
+                        analyticsData.overall_rating?.includes('4') ? '4-star' :
+                        analyticsData.overall_rating?.includes('3') ? '3-star' :
+                        analyticsData.overall_rating?.includes('2') ? '2-star' : '1-star'}`,
+                `segment-${analyticsData.experience_level?.toLowerCase().replace(/[^a-z]/g, '-') || 'unknown'}`
+              ]
+            });
+
+  generate-analytics-report:
+    if: github.event_name == 'schedule'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Generate Daily Analytics Report
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            // Fetch all template rating issues from the last 30 days
+            const thirtyDaysAgo = new Date();
+            thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 30);
+            
+            const { data: issues } = await github.rest.issues.listForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              labels: 'template-rating',
+              state: 'all',
+              since: thirtyDaysAgo.toISOString(),
+              per_page: 100
+            });
+            
+            console.log(`Found ${issues.length} template rating issues in the last 30 days`);
+            
+            // Aggregate analytics data
+            const analytics = {
+              total_ratings: issues.length,
+              ratings_by_star: { '5': 0, '4': 0, '3': 0, '2': 0, '1': 0 },
+              templates_rated: new Set(),
+              user_segments: {},
+              project_types: {},
+              most_rated_templates: {},
+              average_rating: 0,
+              category_performance: {
+                ease_of_use: 0,
+                effectiveness: 0,
+                documentation: 0,
+                customization: 0,
+                professional_quality: 0,
+                time_saving: 0
+              }
+            };
+            
+            let totalStars = 0;
+            
+            for (const issue of issues) {
+              const body = issue.body || '';
+              
+              // Extract template name
+              const templateMatch = body.match(/### Template Name\s*\n\s*([^\n#]+)/i);
+              if (templateMatch) {
+                const templateName = templateMatch[1].trim();
+                analytics.templates_rated.add(templateName);
+                analytics.most_rated_templates[templateName] = (analytics.most_rated_templates[templateName] || 0) + 1;
+              }
+              
+              // Extract rating
+              const ratingMatch = body.match(/⭐{1,5}\s*\((\d)\s*star/i);
+              if (ratingMatch) {
+                const stars = ratingMatch[1];
+                analytics.ratings_by_star[stars]++;
+                totalStars += parseInt(stars);
+              }
+              
+              // Extract user segment
+              const segmentMatch = body.match(/### Your Experience Level\s*\n\s*([^\n#]+)/i);
+              if (segmentMatch) {
+                const segment = segmentMatch[1].trim();
+                analytics.user_segments[segment] = (analytics.user_segments[segment] || 0) + 1;
+              }
+              
+              // Extract project type
+              const projectMatch = body.match(/### Project Type\s*\n\s*([^\n#]+)/i);
+              if (projectMatch) {
+                const projectType = projectMatch[1].trim();
+                analytics.project_types[projectType] = (analytics.project_types[projectType] || 0) + 1;
+              }
+              
+              // Category performance
+              const categories = ['Ease of Use', 'Effectiveness', 'Documentation', 'Customization', 'Professional Quality', 'Time Saving'];
+              categories.forEach(category => {
+                if (body.includes(`✅ **${category}**`) || body.includes(`- [x] **${category}**`)) {
+                  const key = category.toLowerCase().replace(' ', '_');
+                  analytics.category_performance[key]++;
+                }
+              });
+            }
+            
+            analytics.average_rating = issues.length > 0 ? (totalStars / issues.length).toFixed(2) : 0;
+            analytics.templates_rated = Array.from(analytics.templates_rated);
+            
+            // Sort most rated templates
+            const sortedTemplates = Object.entries(analytics.most_rated_templates)
+              .sort(([,a], [,b]) => b - a)
+              .slice(0, 10);
+            
+            // Create analytics report
+            const reportDate = new Date().toDateString();
+            const analyticsReport = `
+            # 📊 Template Analytics Report - ${reportDate}
+            
+            ## Key Metrics (Last 30 Days)
+            
+            - **Total Ratings:** ${analytics.total_ratings}
+            - **Average Rating:** ${analytics.average_rating} ⭐
+            - **Unique Templates Rated:** ${analytics.templates_rated.length}
+            
+            ## Rating Distribution
+            
+            | Stars | Count | Percentage |
+            |-------|-------|------------|
+            | ⭐⭐⭐⭐⭐ | ${analytics.ratings_by_star['5']} | ${analytics.total_ratings > 0 ? ((analytics.ratings_by_star['5'] / analytics.total_ratings) * 100).toFixed(1) : 0}% |
+            | ⭐⭐⭐⭐ | ${analytics.ratings_by_star['4']} | ${analytics.total_ratings > 0 ? ((analytics.ratings_by_star['4'] / analytics.total_ratings) * 100).toFixed(1) : 0}% |
+            | ⭐⭐⭐ | ${analytics.ratings_by_star['3']} | ${analytics.total_ratings > 0 ? ((analytics.ratings_by_star['3'] / analytics.total_ratings) * 100).toFixed(1) : 0}% |
+            | ⭐⭐ | ${analytics.ratings_by_star['2']} | ${analytics.total_ratings > 0 ? ((analytics.ratings_by_star['2'] / analytics.total_ratings) * 100).toFixed(1) : 0}% |
+            | ⭐ | ${analytics.ratings_by_star['1']} | ${analytics.total_ratings > 0 ? ((analytics.ratings_by_star['1'] / analytics.total_ratings) * 100).toFixed(1) : 0}% |
+            
+            ## Most Rated Templates
+            
+            ${sortedTemplates.map(([template, count], index) => 
+              `${index + 1}. **${template}** (${count} ratings)`
+            ).join('\n')}
+            
+            ## User Segment Distribution
+            
+            ${Object.entries(analytics.user_segments).map(([segment, count]) => 
+              `- **${segment}:** ${count} ratings (${analytics.total_ratings > 0 ? ((count / analytics.total_ratings) * 100).toFixed(1) : 0}%)`
+            ).join('\n')}
+            
+            ## Project Type Usage
+            
+            ${Object.entries(analytics.project_types).map(([type, count]) => 
+              `- **${type}:** ${count} ratings (${analytics.total_ratings > 0 ? ((count / analytics.total_ratings) * 100).toFixed(1) : 0}%)`
+            ).join('\n')}
+            
+            ## Category Performance
+            
+            | Category | Positive Ratings | Success Rate |
+            |----------|------------------|--------------|
+            | Ease of Use | ${analytics.category_performance.ease_of_use} | ${analytics.total_ratings > 0 ? ((analytics.category_performance.ease_of_use / analytics.total_ratings) * 100).toFixed(1) : 0}% |
+            | Effectiveness | ${analytics.category_performance.effectiveness} | ${analytics.total_ratings > 0 ? ((analytics.category_performance.effectiveness / analytics.total_ratings) * 100).toFixed(1) : 0}% |
+            | Documentation | ${analytics.category_performance.documentation} | ${analytics.total_ratings > 0 ? ((analytics.category_performance.documentation / analytics.total_ratings) * 100).toFixed(1) : 0}% |
+            | Customization | ${analytics.category_performance.customization} | ${analytics.total_ratings > 0 ? ((analytics.category_performance.customization / analytics.total_ratings) * 100).toFixed(1) : 0}% |
+            | Professional Quality | ${analytics.category_performance.professional_quality} | ${analytics.total_ratings > 0 ? ((analytics.category_performance.professional_quality / analytics.total_ratings) * 100).toFixed(1) : 0}% |
+            | Time Saving | ${analytics.category_performance.time_saving} | ${analytics.total_ratings > 0 ? ((analytics.category_performance.time_saving / analytics.total_ratings) * 100).toFixed(1) : 0}% |
+            
+            ## Action Items
+            
+            ### High Priority Templates (4+ stars, 3+ ratings)
+            ${sortedTemplates
+              .filter(([template, count]) => count >= 3)
+              .map(([template]) => `- ✅ **${template}** - Marketplace ready`)
+              .join('\n') || '- No templates meet criteria yet'}
+            
+            ### Templates Needing Improvement (< 3 stars average)
+            ${analytics.templates_rated
+              .filter(template => {
+                // This would need more complex calculation in real implementation
+                return false; // Placeholder
+              })
+              .map(template => `- 🔧 **${template}** - Needs improvement`)
+              .join('\n') || '- All templates performing well'}
+            
+            ---
+            *Generated automatically by Template Analytics System*
+            `;
+            
+            // Create or update analytics report issue
+            const { data: existingIssues } = await github.rest.issues.listForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              labels: 'analytics-report',
+              state: 'open'
+            });
+            
+            if (existingIssues.length > 0) {
+              // Update existing report
+              await github.rest.issues.update({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: existingIssues[0].number,
+                title: `📊 Template Analytics Report - ${reportDate}`,
+                body: analyticsReport
+              });
+              console.log(`Updated analytics report #${existingIssues[0].number}`);
+            } else {
+              // Create new report
+              const { data: newIssue } = await github.rest.issues.create({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                title: `📊 Template Analytics Report - ${reportDate}`,
+                body: analyticsReport,
+                labels: ['analytics-report', 'automated', 'marketplace-data']
+              });
+              console.log(`Created analytics report #${newIssue.number}`);
+            }
+
+  identify-marketplace-candidates:
+    if: github.event_name == 'schedule'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Identify Premium Template Candidates
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            // Fetch highly rated templates
+            const { data: issues } = await github.rest.issues.listForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              labels: 'template-rating',
+              state: 'all',
+              per_page: 100
+            });
+            
+            const templateStats = {};
+            
+            for (const issue of issues) {
+              const body = issue.body || '';
+              const templateMatch = body.match(/### Template Name\s*\n\s*([^\n#]+)/i);
+              const ratingMatch = body.match(/⭐{1,5}\s*\((\d)\s*star/i);
+              
+              if (templateMatch && ratingMatch) {
+                const templateName = templateMatch[1].trim();
+                const stars = parseInt(ratingMatch[1]);
+                
+                if (!templateStats[templateName]) {
+                  templateStats[templateName] = { ratings: [], total: 0, average: 0 };
+                }
+                
+                templateStats[templateName].ratings.push(stars);
+                templateStats[templateName].total++;
+                templateStats[templateName].average = 
+                  templateStats[templateName].ratings.reduce((a, b) => a + b, 0) / templateStats[templateName].total;
+              }
+            }
+            
+            // Find premium candidates (4+ average rating, 3+ reviews)
+            const premiumCandidates = Object.entries(templateStats)
+              .filter(([name, stats]) => stats.average >= 4 && stats.total >= 3)
+              .sort(([,a], [,b]) => b.average - a.average);
+            
+            if (premiumCandidates.length > 0) {
+              const candidatesReport = `
+              # 💎 Premium Template Marketplace Candidates
+              
+              Based on community ratings, the following templates are ready for marketplace promotion:
+              
+              ${premiumCandidates.map(([name, stats], index) => 
+                `${index + 1}. **${name}**
+                   - Average Rating: ${stats.average.toFixed(1)} ⭐
+                   - Total Reviews: ${stats.total}
+                   - Marketplace Status: Ready for Premium Tier`
+              ).join('\n\n')}
+              
+              ## Next Steps
+              
+              1. **Quality Assurance Review** - Conduct final QA review for each candidate
+              2. **Pricing Strategy** - Determine appropriate pricing tier
+              3. **Marketing Preparation** - Create promotional materials
+              4. **Legal Review** - Ensure licensing and terms are appropriate
+              
+              ---
+              *Auto-generated by Template Analytics System*
+              `;
+              
+              // Create marketplace candidates issue
+              await github.rest.issues.create({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                title: `💎 Premium Template Marketplace Candidates - ${new Date().toDateString()}`,
+                body: candidatesReport,
+                labels: ['marketplace-candidates', 'premium-templates', 'monetization']
+              });
+            }

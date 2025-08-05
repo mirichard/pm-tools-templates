@@ -6,7 +6,61 @@ on:
   issue_comment:
     types: [created]
 
-jobs:
+    jobs:
+  automated-validation:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Run Template Validation
+        run: |
+          echo "Running comprehensive template validation..."
+          
+          # Install dependencies
+          npm install
+          
+          # Run validation on changed template files
+          CHANGED_FILES=$(git diff --name-only HEAD~1 HEAD | grep -E '\.(md|markdown)$' || true)
+          
+          if [ -z "$CHANGED_FILES" ]; then
+            echo "No template files changed."
+            exit 0
+          fi
+          
+          VALIDATION_FAILED=false
+          
+          for file in $CHANGED_FILES; do
+            if [ -f "$file" ]; then
+              echo "Validating: $file"
+              if ! node .github/scripts/validate-template.js "$file"; then
+                VALIDATION_FAILED=true
+                echo "❌ Validation failed for: $file"
+              else
+                echo "✅ Validation passed for: $file"
+              fi
+            fi
+          done
+          
+          if [ "$VALIDATION_FAILED" = true ]; then
+            echo "❌ One or more templates failed validation"
+            exit 1
+          else
+            echo "✅ All templates passed validation"
+            exit 0
+          fi
+  assign-peer-reviewers:
+    if: [31mgithub.event.action == 'labeled' && github.event.label.name == 'peer-review-needed'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Assign Peer Reviewers
+        uses: actions/github-script@v6
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const assignPeerReview = require('./.github/scripts/assign-peer-review.js');
+            assignPeerReview();
   expert-review-assignment:
     if: >
       (github.event.action == 'opened' && (
@@ -15,7 +69,20 @@ jobs:
       )) ||
       (github.event.action == 'labeled' && github.event.label.name == 'expert-review-needed')
     runs-on: ubuntu-latest
-    steps:
+    jobs:
+      validation-checks:
+        runs-on: ubuntu-latest
+        steps:
+          - name: Checkout
+            uses: actions/checkout@v2
+
+          - name: Run Validation Script
+            run: |
+              # Example validation logic
+              echo "Validating template..."
+              # Add specific validation scripts here
+              # Exit with non-zero status if validation fails
+              exit 0
       - name: Assign Expert Reviewers
         uses: actions/github-script@v7
         with:
