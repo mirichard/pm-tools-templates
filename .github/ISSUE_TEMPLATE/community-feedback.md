@@ -1,6 +1,6 @@
 ---
 name: 💬 Community Feedback
-about: Share your thoughts, suggestions, and ideas to help improve our PM tools and templates
+about: Share your thoughts, suggestions, and ideas to help improve our PM tools and templates (No technical knowledge required!)
 title: '[FEEDBACK] '
 labels: ['enhancement', 'community-feedback']
 assignees: ''

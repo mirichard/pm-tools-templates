@@ -1,0 +1,259 @@
+name: Feedback Analytics Dashboard
+
+on:
+  schedule:
+    - cron: '0 0 * * 0'  # Weekly on Sunday
+  workflow_dispatch:
+
+jobs:
+  analytics:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Collect Feedback Data
+        id: collect_feedback
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const fs = require('fs');
+            
+            // Get all issues with community-feedback label
+            const issues = await github.rest.issues.listForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              labels: 'community-feedback',
+              state: 'all',
+              per_page: 100
+            });
+            
+            console.log(`Found ${issues.data.length} feedback issues`);
+            
+            const feedbackData = {
+              timestamp: new Date().toISOString(),
+              total_feedback: issues.data.length,
+              by_type: {},
+              by_category: {},
+              by_priority: {},
+              by_month: {},
+              sentiment_analysis: {
+                positive: 0,
+                negative: 0,
+                neutral: 0
+              },
+              top_templates: {},
+              response_time_avg: 0
+            };
+            
+            issues.data.forEach(issue => {
+              // Extract type from labels
+              const typeLabels = issue.labels.filter(l => l.name.startsWith('category:'));
+              const priorityLabels = issue.labels.filter(l => l.name.startsWith('priority:'));
+              
+              typeLabels.forEach(label => {
+                const type = label.name.replace('category:', '');
+                feedbackData.by_type[type] = (feedbackData.by_type[type] || 0) + 1;
+              });
+              
+              priorityLabels.forEach(label => {
+                const priority = label.name.replace('priority:', '');
+                feedbackData.by_priority[priority] = (feedbackData.by_priority[priority] || 0) + 1;
+              });
+              
+              // Group by month
+              const month = new Date(issue.created_at).toISOString().substring(0, 7);
+              feedbackData.by_month[month] = (feedbackData.by_month[month] || 0) + 1;
+              
+              // Simple sentiment analysis
+              const body = issue.body?.toLowerCase() || '';
+              if (body.includes('great') || body.includes('excellent') || body.includes('love') || body.includes('perfect')) {
+                feedbackData.sentiment_analysis.positive++;
+              } else if (body.includes('problem') || body.includes('issue') || body.includes('broken') || body.includes('terrible')) {
+                feedbackData.sentiment_analysis.negative++;
+              } else {
+                feedbackData.sentiment_analysis.neutral++;
+              }
+              
+              // Extract template mentions
+              const templateMatches = body.match(/template[s]?[:\s]?([\w\s-]+)/gi);
+              if (templateMatches) {
+                templateMatches.forEach(match => {
+                  const template = match.replace(/template[s]?[:\s]?/i, '').trim();
+                  if (template.length > 3) {
+                    feedbackData.top_templates[template] = (feedbackData.top_templates[template] || 0) + 1;
+                  }
+                });
+              }
+            });
+            
+            // Create analytics directory and save data
+            if (!fs.existsSync('analytics')) {
+              fs.mkdirSync('analytics');
+            }
+            
+            fs.writeFileSync('analytics/feedback_data.json', JSON.stringify(feedbackData, null, 2));
+            console.log('Feedback data saved to analytics/feedback_data.json');
+            
+            return feedbackData;
+
+      - name: Generate Analytics Report
+        id: generate_report
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const feedbackData = JSON.parse(fs.readFileSync('analytics/feedback_data.json', 'utf8'));
+            
+            // Generate markdown report
+            let report = `# Community Feedback Analytics Report\n\n`;
+            report += `**Generated:** ${feedbackData.timestamp}\n\n`;
+            
+            report += `## Summary\n\n`;
+            report += `- **Total Feedback Items:** ${feedbackData.total_feedback}\n`;
+            report += `- **Report Period:** Last 30 days\n\n`;
+            
+            // Feedback by type
+            if (Object.keys(feedbackData.by_type).length > 0) {
+              report += `## Feedback by Category\n\n`;
+              Object.entries(feedbackData.by_type)
+                .sort(([,a], [,b]) => b - a)
+                .forEach(([type, count]) => {
+                  report += `- **${type}:** ${count} items\n`;
+                });
+              report += `\n`;
+            }
+            
+            // Priority distribution
+            if (Object.keys(feedbackData.by_priority).length > 0) {
+              report += `## Priority Distribution\n\n`;
+              Object.entries(feedbackData.by_priority)
+                .sort(([,a], [,b]) => b - a)
+                .forEach(([priority, count]) => {
+                  report += `- **${priority}:** ${count} items\n`;
+                });
+              report += `\n`;
+            }
+            
+            // Sentiment analysis
+            report += `## Sentiment Analysis\n\n`;
+            report += `- **Positive:** ${feedbackData.sentiment_analysis.positive} (${Math.round(feedbackData.sentiment_analysis.positive/feedbackData.total_feedback*100)}%)\n`;
+            report += `- **Neutral:** ${feedbackData.sentiment_analysis.neutral} (${Math.round(feedbackData.sentiment_analysis.neutral/feedbackData.total_feedback*100)}%)\n`;
+            report += `- **Negative:** ${feedbackData.sentiment_analysis.negative} (${Math.round(feedbackData.sentiment_analysis.negative/feedbackData.total_feedback*100)}%)\n\n`;
+            
+            // Top templates mentioned
+            if (Object.keys(feedbackData.top_templates).length > 0) {
+              report += `## Most Mentioned Templates\n\n`;
+              Object.entries(feedbackData.top_templates)
+                .sort(([,a], [,b]) => b - a)
+                .slice(0, 10)
+                .forEach(([template, count]) => {
+                  report += `- **${template}:** ${count} mentions\n`;
+                });
+              report += `\n`;
+            }
+            
+            // Monthly trends
+            if (Object.keys(feedbackData.by_month).length > 0) {
+              report += `## Monthly Feedback Trends\n\n`;
+              Object.entries(feedbackData.by_month)
+                .sort(([a], [b]) => b.localeCompare(a))
+                .slice(0, 6)
+                .forEach(([month, count]) => {
+                  report += `- **${month}:** ${count} items\n`;
+                });
+              report += `\n`;
+            }
+            
+            report += `## Key Insights\n\n`;
+            
+            // Generate insights
+            const totalFeedback = feedbackData.total_feedback;
+            const positiveRate = Math.round(feedbackData.sentiment_analysis.positive/totalFeedback*100);
+            
+            if (positiveRate > 70) {
+              report += `- **High Community Satisfaction:** ${positiveRate}% of feedback is positive\n`;
+            } else if (positiveRate < 40) {
+              report += `- **Attention Needed:** Only ${positiveRate}% of feedback is positive\n`;
+            }
+            
+            const topCategory = Object.entries(feedbackData.by_type)
+              .sort(([,a], [,b]) => b - a)[0];
+            if (topCategory) {
+              report += `- **Primary Focus Area:** ${topCategory[0]} (${topCategory[1]} items)\n`;
+            }
+            
+            report += `\n## Recommendations\n\n`;
+            
+            if (feedbackData.sentiment_analysis.negative > feedbackData.sentiment_analysis.positive) {
+              report += `- Address negative feedback items to improve community satisfaction\n`;
+            }
+            
+            if (feedbackData.by_priority.S1 || feedbackData.by_priority.S2) {
+              const highPriority = (feedbackData.by_priority.S1 || 0) + (feedbackData.by_priority.S2 || 0);
+              report += `- ${highPriority} high-priority items need immediate attention\n`;
+            }
+            
+            report += `- Continue engaging with community feedback to maintain participation\n`;
+            report += `\n---\n`;
+            report += `*Report generated automatically by Community Feedback Analytics System*\n`;
+            
+            fs.writeFileSync('analytics/feedback_report.md', report);
+            console.log('Analytics report generated');
+            console.log(report);
+            
+            return report;
+
+      - name: Upload Analytics Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: feedback-analytics-${{ github.run_number }}
+          path: analytics/
+          retention-days: 90
+
+      - name: Create Analytics Issue Comment
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const fs = require('fs');
+            const report = fs.readFileSync('analytics/feedback_report.md', 'utf8');
+            
+            // Find or create analytics tracking issue
+            const issues = await github.rest.issues.listForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              labels: 'analytics,community-feedback',
+              state: 'open'
+            });
+            
+            let issueNumber;
+            if (issues.data.length > 0) {
+              issueNumber = issues.data[0].number;
+            } else {
+              // Create analytics tracking issue
+              const newIssue = await github.rest.issues.create({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                title: '📊 Community Feedback Analytics Tracking',
+                body: 'This issue tracks community feedback analytics and trends.\n\nWeekly analytics reports will be posted here automatically.',
+                labels: ['analytics', 'community-feedback', 'documentation']
+              });
+              issueNumber = newIssue.data.number;
+            }
+            
+            // Post report as comment
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: issueNumber,
+              body: `## Weekly Feedback Analytics Report\n\n${report}`
+            });
+            
+            console.log(`Analytics report posted to issue #${issueNumber}`);
