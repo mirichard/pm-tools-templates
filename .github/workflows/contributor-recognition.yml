@@ -1,0 +1,56 @@
+name: Contributor Recognition
+
+on:
+  schedule:
+    - cron: '0 0 * * 0'  # Every Sunday at midnight
+
+jobs:
+  recognize-contributors:
+    runs-on: ubuntu-latest
+    steps:
+      - name: List Top Contributors
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            // Fetch issues labeled with 'community-feedback' and closed in the last 7 days
+            const { data: issues } = await github.rest.issues.listForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              labels: 'community-feedback',
+              state: 'closed',
+              since: new Date(Date.now() - 7 * 24 * 60 * 60 * 1000).toISOString()
+            });
+
+            const contributors = {};
+
+            issues.forEach(issue => {
+              const author = issue.user.login;
+              if (!contributors[author]) {
+                contributors[author] = { feedback_count: 0 };
+              }
+              contributors[author].feedback_count++;
+            });
+
+            const sortedContributors = Object.entries(contributors).sort(([, a], [, b]) => b.feedback_count - a.feedback_count);
+            const topContributors = sortedContributors.slice(0, 3);
+
+            // Create contributor recognition comment
+            if (topContributors.length > 0) {
+              let commentBody = `## 🌟 Community Contributors of the Week\n\n`;
+              commentBody += `A big thank you to our top contributors for their valuable feedback!\n\n`;
+              topContributors.forEach(([username, { feedback_count }], index) => {
+                commentBody += `${index + 1}. **@${username}** - ${feedback_count} feedback items\n`;
+              });
+              commentBody += `\nKeep the contributions coming to help us improve!\n`;
+
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: 287, // Assuming an open feedback tracking issue
+                body: commentBody
+              });
+
+              console.log('Contributor recognition comment posted.');
+            }
+            
