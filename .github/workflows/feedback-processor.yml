@@ -263,6 +263,7 @@ jobs:
             };
 
       - name: Notify Stakeholders
+        if: fromJSON(steps.check_processing.outputs.result).skip == false
         uses: actions/github-script@v7
         with:
           github-token: ${{ secrets.FEEDBACK_PROCESSOR_TOKEN }}
