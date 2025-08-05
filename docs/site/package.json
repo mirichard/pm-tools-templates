@@ -1,0 +1,27 @@
+{
+  "name": "pm-tools-templates-site",
+  "type": "module",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro check && astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/react": "^3.0.9",
+    "@astrojs/sitemap": "^3.0.5",
+    "@types/react": "^18.2.60",
+    "@types/react-dom": "^18.2.19",
+    "astro": "^4.3.7",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "xlsx": "^0.18.5",
+    "reveal.js": "^5.0.4"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.5.4",
+    "typescript": "^5.3.3"
+  }
+}

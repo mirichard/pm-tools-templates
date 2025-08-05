@@ -1,0 +1,28 @@
+{
+  "templateId": "requirements_traceability_matrix_template",
+  "filePath": "templates/traditional/Traditional/Process_Groups/Executing/requirements_traceability_matrix_template.md",
+  "lastUpdated": "2025-08-05T23:14:13.376Z",
+  "totalChanges": 4,
+  "changes": [
+    {
+      "hash": "8c82c501fb8ca9ac74dfe35d0f36d2be3b430e4d",
+      "date": "2025-08-05",
+      "message": "feat: Phase 3 - Complete Metadata Migration"
+    },
+    {
+      "hash": "76f3a313a5153a040cf5adb75614e4c5f674ee18",
+      "date": "2025-08-05",
+      "message": "Phase 1 Repository Redesign: Structure, Metadata, CI & Governance (#358)"
+    },
+    {
+      "hash": "13aa60250bd81fb7ecfe5ab53e72ef1ab0c108fe",
+      "date": "2025-06-20",
+      "message": "Standardize terminology: Traditional replaces Waterfall"
+    },
+    {
+      "hash": "7cc00f2912497e44d2e3aa299d895b851041315d",
+      "date": "2025-06-08",
+      "message": "Add Requirements Traceability Matrix template for Waterfall execution"
+    }
+  ]
+}

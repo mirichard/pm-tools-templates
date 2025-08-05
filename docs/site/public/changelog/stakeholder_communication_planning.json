@@ -1,0 +1,28 @@
+{
+  "templateId": "stakeholder_communication_planning",
+  "filePath": "templates/traditional/Traditional/Process_Groups/Planning/stakeholder_communication_planning.md",
+  "lastUpdated": "2025-08-05T23:14:12.390Z",
+  "totalChanges": 4,
+  "changes": [
+    {
+      "hash": "76f3a313a5153a040cf5adb75614e4c5f674ee18",
+      "date": "2025-08-05",
+      "message": "Phase 1 Repository Redesign: Structure, Metadata, CI & Governance (#358)"
+    },
+    {
+      "hash": "13aa60250bd81fb7ecfe5ab53e72ef1ab0c108fe",
+      "date": "2025-06-20",
+      "message": "Standardize terminology: Traditional replaces Waterfall"
+    },
+    {
+      "hash": "6987826eb348a89318938fc72bff6a8cd4483e59",
+      "date": "2025-06-20",
+      "message": "refactor: Replace PMBOK with Traditional throughout repository"
+    },
+    {
+      "hash": "ad7173883ae73e9faabe2747e4ff1d3060a0d90a",
+      "date": "2025-06-08",
+      "message": "Add comprehensive stakeholder communication planning and business-ready templates"
+    }
+  ]
+}

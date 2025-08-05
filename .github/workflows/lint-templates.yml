@@ -20,21 +20,35 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
         
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '18'
-          
-      - name: Install dependencies
-        run: |
-          npm init -y
-          npm install js-yaml glob
-          
-      - name: Create linter script
-        run: |
+    - name: Check README links
+      run: |
+        npx markdown-link-check README.md --config .mlc-config.json
+        echo "✅ README link check passed"
+        
+    - name: Check internal template links (sample)
+      continue-on-error: true
+      run: |
+        echo "🔍 Checking internal links in key templates..."
+        find templates/ -name "*.md" -type f | head -10 | while read file; do
+          echo "Checking: $file"
+          npx markdown-link-check "$file" --config .mlc-config.json || echo "⚠️  Issues found in $file"
+        done
+        
+    - name: Install dependencies
+      run: |
+        npm init -y
+        npm install js-yaml glob
+        
+    - name: Create linter script
+      run: |
           cat > lint-templates.js << 'EOF'
           const fs = require('fs');
           const path = require('path');
@@ -137,5 +151,5 @@ jobs:
           lintTemplates().catch(console.error);
           EOF
           
-      - name: Run template linter
-        run: node lint-templates.js
+    - name: Run template linter
+      run: node lint-templates.js

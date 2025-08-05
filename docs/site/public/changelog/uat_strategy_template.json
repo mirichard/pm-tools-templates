@@ -1,0 +1,23 @@
+{
+  "templateId": "uat_strategy_template",
+  "filePath": "templates/traditional/Traditional/Templates/uat_strategy_template.md",
+  "lastUpdated": "2025-08-05T23:14:08.878Z",
+  "totalChanges": 3,
+  "changes": [
+    {
+      "hash": "8c82c501fb8ca9ac74dfe35d0f36d2be3b430e4d",
+      "date": "2025-08-05",
+      "message": "feat: Phase 3 - Complete Metadata Migration"
+    },
+    {
+      "hash": "76f3a313a5153a040cf5adb75614e4c5f674ee18",
+      "date": "2025-08-05",
+      "message": "Phase 1 Repository Redesign: Structure, Metadata, CI & Governance (#358)"
+    },
+    {
+      "hash": "bf8507a741beda0b1accb9af0cf9ca2e05fb653c",
+      "date": "2025-07-02",
+      "message": "Create uat_strategy_template.md"
+    }
+  ]
+}

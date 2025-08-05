@@ -1,0 +1,28 @@
+{
+  "templateId": "work_breakdown_structure_template",
+  "filePath": "templates/traditional/Traditional/Process_Groups/Planning/work_breakdown_structure_template.md",
+  "lastUpdated": "2025-08-05T23:14:12.317Z",
+  "totalChanges": 4,
+  "changes": [
+    {
+      "hash": "8c82c501fb8ca9ac74dfe35d0f36d2be3b430e4d",
+      "date": "2025-08-05",
+      "message": "feat: Phase 3 - Complete Metadata Migration"
+    },
+    {
+      "hash": "76f3a313a5153a040cf5adb75614e4c5f674ee18",
+      "date": "2025-08-05",
+      "message": "Phase 1 Repository Redesign: Structure, Metadata, CI & Governance (#358)"
+    },
+    {
+      "hash": "6987826eb348a89318938fc72bff6a8cd4483e59",
+      "date": "2025-06-20",
+      "message": "refactor: Replace PMBOK with Traditional throughout repository"
+    },
+    {
+      "hash": "d010cd0109453092ed57411ab18b1ea6b756e40d",
+      "date": "2025-06-09",
+      "message": "Fix remaining powerpoint-templates links to PowerPoint (#39)"
+    }
+  ]
+}

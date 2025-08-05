@@ -1,0 +1,18 @@
+{
+  "templateId": "sprint_planning_template",
+  "filePath": "templates/agile/sprint_planning_template.md",
+  "lastUpdated": "2025-08-05T23:14:07.618Z",
+  "totalChanges": 2,
+  "changes": [
+    {
+      "hash": "76f3a313a5153a040cf5adb75614e4c5f674ee18",
+      "date": "2025-08-05",
+      "message": "Phase 1 Repository Redesign: Structure, Metadata, CI & Governance (#358)"
+    },
+    {
+      "hash": "086251fba2700505733928b261d90adaadaf8fe6",
+      "date": "2025-05-07",
+      "message": "Add Sprint Planning template. This comprehensive template guides teams through sprint planning with detailed sections for goal setting, capacity planning, backlog selection, and task breakdown."
+    }
+  ]
+}
