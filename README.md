@@ -45,6 +45,11 @@ Maintained by **Michael Richard**, PMP, with 15+ years of enterprise project man
 - **Local Development** - Complete setup with `npm run dev` (Dashboard at localhost:8080)
 - **Documentation** - Comprehensive guides for setup, usage, and contribution
 
+### 🎯 **Try It Now**
+**👉 [5-Minute Quick Start](docs/community/QUICK_START.md)** - Get the dashboard running locally  
+**👉 [Complete Setup Guide](docs/community/community-platform-guide.md)** - Full deployment documentation  
+**👉 [Community Hub](docs/community/README.md)** - Join our community platform
+
 *Ready for community launch with scalable infrastructure supporting template contribution, curation, and monetization.*
 
 ---
