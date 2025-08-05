@@ -220,40 +220,84 @@ jobs:
       - name: Create Analytics Issue Comment
         uses: actions/github-script@v7
         with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+          github-token: ${{ secrets.FEEDBACK_PROCESSOR_TOKEN }}
           script: |
             const fs = require('fs');
             const report = fs.readFileSync('analytics/feedback_report.md', 'utf8');
             
-            // Find or create analytics tracking issue
-            const issues = await github.rest.issues.listForRepo({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              labels: 'analytics,community-feedback',
-              state: 'open'
-            });
-            
-            let issueNumber;
-            if (issues.data.length > 0) {
-              issueNumber = issues.data[0].number;
-            } else {
-              // Create analytics tracking issue
-              const newIssue = await github.rest.issues.create({
-                owner: context.repo.owner,
-                repo: context.repo.repo,
-                title: '📊 Community Feedback Analytics Tracking',
-                body: 'This issue tracks community feedback analytics and trends.\n\nWeekly analytics reports will be posted here automatically.',
-                labels: ['analytics', 'community-feedback', 'documentation']
-              });
-              issueNumber = newIssue.data.number;
+            // Retry function with exponential backoff
+            async function retryWithBackoff(fn, maxRetries = 3, baseDelay = 2000) {
+              for (let attempt = 1; attempt <= maxRetries; attempt++) {
+                try {
+                  return await fn();
+                } catch (error) {
+                  console.log(`Attempt ${attempt} failed:`, error.message);
+                  
+                  if (error.status === 403 && error.message.includes('rate limit')) {
+                    if (attempt === maxRetries) {
+                      throw error; // Final attempt failed
+                    }
+                    
+                    // Exponential backoff with jitter
+                    const delay = baseDelay * Math.pow(2, attempt - 1) + Math.random() * 1000;
+                    console.log(`Rate limit hit. Waiting ${Math.round(delay)}ms before retry...`);
+                    await new Promise(resolve => setTimeout(resolve, delay));
+                  } else {
+                    throw error; // Non-rate-limit error, don't retry
+                  }
+                }
+              }
             }
             
-            // Post report as comment
-            await github.rest.issues.createComment({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              issue_number: issueNumber,
-              body: `## Weekly Feedback Analytics Report\n\n${report}`
-            });
-            
-            console.log(`Analytics report posted to issue #${issueNumber}`);
+            try {
+              // Find or create analytics tracking issue
+              console.log('Looking for existing analytics tracking issue...');
+              const issues = await retryWithBackoff(async () => {
+                return await github.rest.issues.listForRepo({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  labels: 'analytics,community-feedback',
+                  state: 'open'
+                });
+              });
+              
+              let issueNumber;
+              if (issues.data.length > 0) {
+                issueNumber = issues.data[0].number;
+                console.log(`Found existing analytics tracking issue #${issueNumber}`);
+              } else {
+                // Create analytics tracking issue
+                console.log('Creating new analytics tracking issue...');
+                const newIssue = await retryWithBackoff(async () => {
+                  return await github.rest.issues.create({
+                    owner: context.repo.owner,
+                    repo: context.repo.repo,
+                    title: '📊 Community Feedback Analytics Tracking',
+                    body: 'This issue tracks community feedback analytics and trends.\n\nWeekly analytics reports will be posted here automatically.',
+                    labels: ['analytics', 'community-feedback', 'documentation']
+                  });
+                });
+                issueNumber = newIssue.data.number;
+                console.log(`Created new analytics tracking issue #${issueNumber}`);
+              }
+              
+              // Post report as comment
+              console.log('Posting analytics report as comment...');
+              await retryWithBackoff(async () => {
+                return await github.rest.issues.createComment({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  issue_number: issueNumber,
+                  body: `## Weekly Feedback Analytics Report\n\n${report}`
+                });
+              });
+              
+              console.log(`✅ Analytics report successfully posted to issue #${issueNumber}`);
+              
+            } catch (error) {
+              console.error('❌ Failed to post analytics report:', error.message);
+              console.error('Error details:', error);
+              
+              // Don't fail the entire workflow - the report artifacts are still generated
+              console.log('⚠️ Analytics report is available in artifacts even though posting failed');
+            }
