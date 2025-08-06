@@ -730,7 +730,7 @@ spec:
   provider:
     aws:
       service: SecretsManager
-      region: us-west-2
+      region: <AWS_REGION> <!-- redacted by security sweep 2025-08-06 -->
       auth:
         serviceAccount:
           name: external-secrets-sa

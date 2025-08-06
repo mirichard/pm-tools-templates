@@ -172,6 +172,67 @@ template-name/
    - Any industry-specific considerations
    - Links to related templates or documentation
 
+## 🔒 Documentation Security & Relevance Checks
+
+### Automated Security Scanning
+
+All documentation files are automatically scanned for:
+
+**🛡️ Security Issues (will block PR):**
+- Private IP addresses (10.x.x.x, 192.168.x.x, 172.16-31.x.x)
+- Corporate domain references (*.corp.*)
+- Environment-specific hostnames (dev-*, staging-*, prod-*)
+- Credential patterns (password=, token=, secret=)
+- AWS keys and sensitive information
+
+**📄 Relevance Issues (will block PR):**
+- Missing project keywords (pm-tools-templates, project management, etc.)
+- Unauthorized external references
+- Content that appears unrelated to this project
+
+### Bypassing False Positives
+
+**For legitimate examples in documentation:**
+```markdown
+<!-- doc-sec-allow -->
+Connect to staging server: ssh user@stage-api.example.com
+```
+
+**Allowed by default:**
+- Test IP ranges (192.0.2.x, 198.51.100.x, 203.0.113.x)
+- Example domains (example.com, example.org)
+- Placeholder patterns ({{variable}}, [your-value])
+- Demo/example content marked in first 25 lines
+
+### Configuration Files
+
+- **doc-sec-allowlist.txt**: Add regex patterns for legitimate security matches
+- **relevance-blocklist.txt**: Add terms that should never appear in docs
+
+### Fixing Security Issues
+
+**❌ Don't include:**
+```markdown
+# Connect to production database
+psql -h db-prod-01.corp.mycompany.com -U admin
+password=SuperSecret123!
+```
+
+**✅ Use instead:**
+```markdown
+# Connect to database
+psql -h {{database-host}} -U {{username}}
+password={{your-secure-password}}
+```
+
+**✅ Or mark as allowed example:**
+```markdown
+<!-- doc-sec-allow -->
+# Example connection (not real credentials)
+psql -h demo.example.com -U demo_user
+password=demo123
+```
+
 ## 📋 Review Process
 
 ### What We Review
@@ -300,6 +361,12 @@ See [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) for detailed technical informat
 - **Inclusive Content**: Accessible to diverse audiences and organizations
 - **No Personal Information**: Remove all personal, company, or project-specific data
 - **Universal Applicability**: Avoid region-specific legal or regulatory content
+
+### Security Disclosure
+
+> **Never commit real hostnames, IPs, credentials, or environment specifics.**
+> Use placeholders like `<YOUR_INTERNAL_HOST>`, `<PRIVATE_IP>`, `<API_KEY>`, etc.
+> All examples should use generic domains (example.com, test.local) or RFC-reserved addresses.
 
 ## 🆘 Getting Help
 
