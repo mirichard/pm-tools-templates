@@ -1,0 +1,37 @@
+# Documentation Security Allowlist
+# Lines starting with # are comments
+# Each line should be a regex pattern to allow specific security matches
+
+# Allow example/demo IPs (RFC-5737 ranges are handled automatically)
+192\.0\.2\.\d+
+198\.51\.100\.\d+
+203\.0\.113\.\d+
+
+# Allow localhost variations
+127\.0\.0\.1
+localhost:\d+
+
+# Allow common documentation placeholders
+example\.com
+example\.org
+your-domain\.com
+\[your-\w+\]
+\<your-\w+\>
+
+# Allow template variable formats
+\{\{[\w-]+\}\}
+\$\{[\w-]+\}
+%[\w-]+%
+
+# Allow masked credentials in examples
+\*\*\*\*\*
+password=\*+
+token=\*+
+secret=\[REDACTED\]
+secret=\<redacted\>
+
+# Allow common placeholder values
+password123
+yourpassword
+your-api-key
+your-token

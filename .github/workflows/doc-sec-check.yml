@@ -1,0 +1,158 @@
+name: Documentation Security & Relevance Check
+
+on:
+  pull_request:
+    branches: ['*']
+    paths:
+      - '**/*.md'
+      - '**/*.txt'
+      - '**/*.adoc'
+      - '**/*.rst'
+      - '**/*.js'
+      - '**/*.py'
+      - '**/*.yml'
+      - '**/*.yaml'
+      - '**/*.json'
+      - 'scripts/doc-scan.js'
+      - 'doc-sec-allowlist.txt'
+      - 'relevance-blocklist.txt'
+  push:
+    branches: ['*']
+    paths:
+      - '**/*.md'
+      - '**/*.txt'
+      - '**/*.adoc'
+      - '**/*.rst'
+      - '**/*.js'
+      - '**/*.py'
+      - '**/*.yml'
+      - '**/*.yaml'
+      - '**/*.json'
+      - 'scripts/doc-scan.js'
+      - 'doc-sec-allowlist.txt'
+      - 'relevance-blocklist.txt'
+
+permissions:
+  contents: read
+  security-events: write
+  pull-requests: write
+  checks: write
+
+jobs:
+  doc-sec-check:
+    name: Documentation Security & Relevance Scan
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+        
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+        cache: 'npm'
+        
+    - name: Install dependencies
+      run: npm ci --production
+      
+    - name: Create scripts directory
+      run: mkdir -p scripts
+      
+    - name: Run documentation security scan
+      id: doc-scan
+      run: |
+        echo "🔍 Starting documentation security & relevance scan..."
+        npm run doc-scan
+        SCAN_EXIT=$?
+        
+        echo "scan_exit_code=$SCAN_EXIT" >> $GITHUB_OUTPUT
+        
+        if [ -f "doc-scan.sarif" ]; then
+          echo "sarif_generated=true" >> $GITHUB_OUTPUT
+          echo "📊 SARIF report generated successfully"
+        else
+          echo "sarif_generated=false" >> $GITHUB_OUTPUT
+          echo "⚠️  No SARIF report generated"
+        fi
+        
+        case $SCAN_EXIT in
+          0)
+            echo "✅ Documentation scan passed - no issues found"
+            ;;
+          2)
+            echo "❌ Relevance check failed - documents contain unrelated content"
+            exit 2
+            ;;
+          3)
+            echo "❌ Security check failed - documents contain sensitive information"
+            exit 3
+            ;;
+          *)
+            echo "❌ Documentation scan failed with exit code: $SCAN_EXIT"
+            exit $SCAN_EXIT
+            ;;
+        esac
+        
+    - name: Upload SARIF results
+      if: always() && steps.doc-scan.outputs.sarif_generated == 'true'
+      uses: github/codeql-action/upload-sarif@v3
+      with:
+        sarif_file: doc-scan.sarif
+        category: documentation-security
+        
+    - name: Generate step summary
+      if: always()
+      run: |
+        echo "## 📋 Documentation Security & Relevance Check Results" >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY
+        
+        EXIT_CODE="${{ steps.doc-scan.outputs.scan_exit_code }}"
+        
+        case $EXIT_CODE in
+          0)
+            echo "✅ **Status:** PASSED" >> $GITHUB_STEP_SUMMARY
+            echo "🎉 All documentation files passed security and relevance checks!" >> $GITHUB_STEP_SUMMARY
+            ;;
+          2)
+            echo "❌ **Status:** FAILED (Relevance)" >> $GITHUB_STEP_SUMMARY
+            echo "📄 Some documentation files appear unrelated to the pm-tools-templates project." >> $GITHUB_STEP_SUMMARY
+            echo "Please ensure all documentation contains project-relevant content." >> $GITHUB_STEP_SUMMARY
+            ;;
+          3)
+            echo "❌ **Status:** FAILED (Security)" >> $GITHUB_STEP_SUMMARY
+            echo "🔒 Some documentation files contain sensitive information or environment-specific details." >> $GITHUB_STEP_SUMMARY
+            echo "Please remove or sanitize sensitive content before committing." >> $GITHUB_STEP_SUMMARY
+            ;;
+          *)
+            echo "❌ **Status:** ERROR" >> $GITHUB_STEP_SUMMARY
+            echo "⚠️  An unexpected error occurred during scanning." >> $GITHUB_STEP_SUMMARY
+            ;;
+        esac
+        
+        echo "" >> $GITHUB_STEP_SUMMARY
+        echo "### 📊 Scan Details" >> $GITHUB_STEP_SUMMARY
+        echo "- **Scan Date:** $(date -u '+%Y-%m-%d %H:%M:%S UTC')" >> $GITHUB_STEP_SUMMARY
+        echo "- **Exit Code:** $EXIT_CODE" >> $GITHUB_STEP_SUMMARY
+        echo "- **SARIF Generated:** ${{ steps.doc-scan.outputs.sarif_generated }}" >> $GITHUB_STEP_SUMMARY
+        
+        if [ -f "scan-stats.json" ]; then
+          echo "- **Files Scanned:** $(cat scan-stats.json | jq -r '.filesScanned // "N/A"')" >> $GITHUB_STEP_SUMMARY
+          echo "- **Security Issues:** $(cat scan-stats.json | jq -r '.securityIssues // "N/A"')" >> $GITHUB_STEP_SUMMARY
+          echo "- **Relevance Issues:** $(cat scan-stats.json | jq -r '.relevanceIssues // "N/A"')" >> $GITHUB_STEP_SUMMARY
+        fi
+        
+        echo "" >> $GITHUB_STEP_SUMMARY
+        echo "### 🛠️ Next Steps" >> $GITHUB_STEP_SUMMARY
+        
+        if [ "$EXIT_CODE" != "0" ]; then
+          echo "1. Review the SARIF annotations in the 'Security' tab" >> $GITHUB_STEP_SUMMARY
+          echo "2. Fix flagged issues in your documentation files" >> $GITHUB_STEP_SUMMARY
+          echo "3. Use \`<!-- doc-sec-allow -->\` to bypass false positives" >> $GITHUB_STEP_SUMMARY
+          echo "4. Push changes to re-run the check" >> $GITHUB_STEP_SUMMARY
+        else
+          echo "No action required - all checks passed! ✨" >> $GITHUB_STEP_SUMMARY
+        fi
