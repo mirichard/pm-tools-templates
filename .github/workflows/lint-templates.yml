@@ -75,45 +75,54 @@ jobs:
               const files = await glob(pattern);
               
               for (const file of files) {
-                console.log(`Checking ${file}...`);
+                // Sanitize file path to prevent directory traversal
+                const sanitizedFile = path.normalize(file).replace(/^(\.[\\/])+/, '');
+                
+                // Additional security: ensure path is within expected directories
+                if (!sanitizedFile.startsWith('templates/')) {
+                  console.log(`Skipping file outside templates directory: ${sanitizedFile}`);
+                  continue;
+                }
+                
+                console.log(`Checking ${sanitizedFile}...`);
                 
                 // Only check markdown files for YAML front matter
-                if (path.extname(file) === '.md') {
-                  const content = fs.readFileSync(file, 'utf8');
+                if (path.extname(sanitizedFile) === '.md') {
+                  const content = fs.readFileSync(sanitizedFile, 'utf8');
                   
                   // Check if file starts with YAML front matter
                   if (!content.startsWith('---\n')) {
-                    errors.push(`${file}: Missing YAML front matter`);
+                    errors.push(`${sanitizedFile}: Missing YAML front matter`);
                     continue;
                   }
                   
                   // Extract YAML front matter
                   const yamlEnd = content.indexOf('\n---\n', 4);
                   if (yamlEnd === -1) {
-                    errors.push(`${file}: Invalid YAML front matter format`);
+                    errors.push(`${sanitizedFile}: Invalid YAML front matter format`);
                     continue;
                   }
                   
                   const yamlContent = content.substring(4, yamlEnd);
                   
                   try {
-                    const metadata = yaml.load(yamlContent);
+                    const metadata = yaml.load(yamlContent, { schema: yaml.SAFE_SCHEMA });
                     
                     // Check required fields
                     for (const field of REQUIRED_FIELDS) {
                       if (!metadata[field]) {
-                        errors.push(`${file}: Missing required field '${field}'`);
+                        errors.push(`${sanitizedFile}: Missing required field '${field}'`);
                       }
                     }
                     
                     // Validate methodology
                     if (metadata.methodology && !VALID_METHODOLOGY.includes(metadata.methodology)) {
-                      errors.push(`${file}: Invalid methodology '${metadata.methodology}'. Must be one of: ${VALID_METHODOLOGY.join(', ')}`);
+                      errors.push(`${sanitizedFile}: Invalid methodology '${metadata.methodology}'. Must be one of: ${VALID_METHODOLOGY.join(', ')}`);
                     }
                     
                     // Validate complexity
                     if (metadata.complexity && !VALID_COMPLEXITY.includes(metadata.complexity)) {
-                      errors.push(`${file}: Invalid complexity '${metadata.complexity}'. Must be one of: ${VALID_COMPLEXITY.join(', ')}`);
+                      errors.push(`${sanitizedFile}: Invalid complexity '${metadata.complexity}'. Must be one of: ${VALID_COMPLEXITY.join(', ')}`);
                     }
                     
                     // Check if updated date is too old
@@ -122,12 +131,12 @@ jobs:
                       const daysDiff = (new Date() - updatedDate) / (1000 * 60 * 60 * 24);
                       
                       if (daysDiff > MAX_DAYS_OLD) {
-                        warnings.push(`${file}: Template hasn't been updated in ${Math.floor(daysDiff)} days`);
+                        warnings.push(`${sanitizedFile}: Template hasn't been updated in ${Math.floor(daysDiff)} days`);
                       }
                     }
                     
                   } catch (e) {
-                    errors.push(`${file}: Invalid YAML syntax - ${e.message}`);
+                    errors.push(`${sanitizedFile}: Invalid YAML syntax - ${e.message}`);
                   }
                 }
               }
