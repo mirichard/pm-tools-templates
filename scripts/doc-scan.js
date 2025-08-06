@@ -371,15 +371,23 @@ class DocumentScanner {
     
     const files = await glob(patterns, {
       ignore: [
-        'node_modules/**',
-        '.git/**',
-        'coverage/**',
-        'dist/**',
-        'build/**',
+        '**/node_modules/**',
+        '**/.git/**',
+        '**/coverage/**',
+        '**/dist/**',
+        '**/build/**',
         '**/.DS_Store',
         'doc-scan.sarif',
-        'scan-stats.json'
-      ]
+        'scan-stats.json',
+        '**/.next/**',
+        '**/.nuxt/**',
+        '**/.astro/**',
+        '**/*.min.js',
+        '**/package-lock.json',
+        '**/yarn.lock'
+      ],
+      dot: false,
+      followSymlinkedDirectories: false
     });
     
     console.log(`📁 Found ${files.length} files to scan`);
