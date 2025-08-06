@@ -1,0 +1,13 @@
+{
+  "templateId": "sprint-planning-template",
+  "filePath": "templates/agile/sprint-planning-template.md",
+  "lastUpdated": "2025-08-05T23:14:07.751Z",
+  "totalChanges": 1,
+  "changes": [
+    {
+      "hash": "bbca7a5d07afe8d713f0b41ff6b08b8a99fed189",
+      "date": "2025-06-21",
+      "message": "feat: Add Phase 3 Advanced Quality workflows and test templates"
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "templateId": "quality-test-plan-template",
+  "filePath": "templates/test-samples/quality-test-plan-template.md",
+  "lastUpdated": "2025-08-05T23:14:06.338Z",
+  "totalChanges": 2,
+  "changes": [
+    {
+      "hash": "8c82c501fb8ca9ac74dfe35d0f36d2be3b430e4d",
+      "date": "2025-08-05",
+      "message": "feat: Phase 3 - Complete Metadata Migration"
+    },
+    {
+      "hash": "8415ff8da2747dfd7b2e3a1ab511e91889a75491",
+      "date": "2025-06-29",
+      "message": "Replace quality test template with improved version based on best practices"
+    }
+  ]
+}

@@ -245,6 +245,36 @@ npm install -g markdownlint-cli
 markdownlint .
 ```
 
+### For Advanced Template Browser Development
+
+The repository includes an Astro-based template browser with preview capabilities:
+
+```bash
+# Install all dependencies
+npm install
+cd docs/site && npm install && cd ../..
+
+# Start development server
+npm run dev-site
+
+# Build static site
+npm run build-site
+
+# Generate version history for templates
+npm run generate-changelogs
+
+# Preview built site
+npm run preview-site
+```
+
+**Browser Features:**
+- Template previews for Markdown and Office documents
+- Client-side favorites using localStorage
+- Git-based version history for each template
+- Responsive, accessible design following Tufte principles
+
+See [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) for detailed technical information.
+
 ### For Template Contributors
 
 **Required Tools:**

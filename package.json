@@ -9,7 +9,11 @@
     "test": "echo 'Basic test passed' && exit 0",
     "gateway": "node ecosystem-gateway.js",
     "quick-start": "node onboarding/interactive-onboarding.js",
-    "dashboard-demo": "npm --prefix dashboard-mvp run dev"
+    "dashboard-demo": "npm --prefix dashboard-mvp run dev",
+    "generate-changelogs": "node scripts/generate-changelogs.mjs",
+    "build-site": "npm run generate-changelogs && npm --prefix docs/site run build",
+    "dev-site": "npm --prefix docs/site run dev",
+    "preview-site": "npm --prefix docs/site run preview"
   },
   "keywords": [
     "project-management",

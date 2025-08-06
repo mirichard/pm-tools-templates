@@ -1,0 +1,23 @@
+{
+  "templateId": "hybrid_quality_management_template",
+  "filePath": "templates/hybrid/Hybrid/Templates/hybrid_quality_management_template.md",
+  "lastUpdated": "2025-08-05T23:14:11.768Z",
+  "totalChanges": 3,
+  "changes": [
+    {
+      "hash": "8c82c501fb8ca9ac74dfe35d0f36d2be3b430e4d",
+      "date": "2025-08-05",
+      "message": "feat: Phase 3 - Complete Metadata Migration"
+    },
+    {
+      "hash": "76f3a313a5153a040cf5adb75614e4c5f674ee18",
+      "date": "2025-08-05",
+      "message": "Phase 1 Repository Redesign: Structure, Metadata, CI & Governance (#358)"
+    },
+    {
+      "hash": "c7c62eaf3e73090a0c75e8b22918ea9205335959",
+      "date": "2025-05-07",
+      "message": "Add Hybrid Quality Management template. This comprehensive template provides guidance for managing quality across traditional and agile methodologies, including quality standards, testing strategies, and continuous improvement approaches."
+    }
+  ]
+}

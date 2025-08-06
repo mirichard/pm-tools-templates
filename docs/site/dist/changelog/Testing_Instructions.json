@@ -1,0 +1,13 @@
+{
+  "templateId": "Testing_Instructions",
+  "filePath": "templates/excel/Testing_Instructions.md",
+  "lastUpdated": "2025-08-05T23:14:06.487Z",
+  "totalChanges": 1,
+  "changes": [
+    {
+      "hash": "386cbbfdcc9380c2424048cc8b87b3be3c85171b",
+      "date": "2025-08-03",
+      "message": "feat: Executive Dashboard Enhancement - Data Validation & Quality Control (Issue #327)"
+    }
+  ]
+}

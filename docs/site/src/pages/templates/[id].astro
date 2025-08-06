@@ -1,0 +1,31 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import TemplateViewer from '../../components/TemplateViewer.tsx';
+
+export async function getStaticPaths() {
+  const templates: any[] = await Astro.glob('../../../../templates/**/*.md');
+  return templates
+    .filter((template: any) => {
+      const filename = template.file.split('/').pop() || '';
+      return !filename.toLowerCase().includes('readme');
+    })
+    .map((template: any) => {
+      const filename = template.file.split('/').pop() || 'unknown';
+      const id = filename.replace('.md', '');
+      return {
+        params: { id },
+        props: { 
+          title: template.frontmatter?.title || id,
+          filePath: template.file
+        }
+      };
+    });
+}
+
+const { id } = Astro.params;
+const { title, filePath } = Astro.props;
+---
+
+<Layout title={title}>
+  <TemplateViewer templateId={id} filePath={filePath} title={title} client:load />
+</Layout>
