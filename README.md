@@ -1,8 +1,6 @@
 # Project Management Tools & Templates
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![GitHub stars](https://img.shields.io/github/stars/mirichard/pm-tools-templates?style=flat&logo=github)](https://github.com/mirichard/pm-tools-templates/stargazers)
-[![GitHub forks](https://img.shields.io/github/forks/mirichard/pm-tools-templates?style=flat&logo=github)](https://github.com/mirichard/pm-tools-templates/network/members)
 [![Templates Count](https://img.shields.io/badge/Templates-154+-blue.svg)](TEMPLATE_INDEX.md)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat)](CONTRIBUTING.md)
 [![Interactive Browser](https://img.shields.io/badge/Browse-Interactive-green.svg?style=flat)](templates/index.html)
