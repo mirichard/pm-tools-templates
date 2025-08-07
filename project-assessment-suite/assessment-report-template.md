@@ -1,10 +1,23 @@
 ---
 title: "Assessment Report Template"
+methodology: "traditional"
+complexity: "basic"
+process_group: "initiating"
+industry: "universal"
+role: "stakeholder"
+tags: ["traditional", "initiating", "risk-management", "stakeholder-management", "communication", "planning"]
+version: "1.0.0"
+owner: "mirichard"
+updated: "2025-08-06"
+estimated_completion_time: "15-30 minutes"
+---
+
+
+title: "Assessment Report Template"
 methodology: "universal"
 complexity: "starter"
 owner: "mirichard"
 updated: "2025-08-05"
----
 
 # Assessment Report Template
 
@@ -39,5 +52,4 @@ Step-by-step instructions for using this template.
 ## Version History
 - v1.0 - Initial template creation
 
----
 *This template is part of the PM Tools Templates repository.*

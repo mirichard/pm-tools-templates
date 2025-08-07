@@ -1,3 +1,22 @@
+---
+title: "Pull Request Template"
+methodology: "agile"
+complexity: "advanced"
+process_group: "monitoring"
+industry: "financial"
+role: "pm"
+tags:
+  - "agile"
+  - "communication"
+  - "monitoring"
+  - "quality"
+  - "reporting"
+version: "1.0.0"
+owner: "mirichard"
+updated: "2025-08-06"
+estimated_completion_time: "45-90 minutes"
+---
+
 ## 📋 Pull Request Summary
 
 **Type of Contribution:**

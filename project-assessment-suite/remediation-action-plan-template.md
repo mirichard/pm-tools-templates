@@ -6,6 +6,7 @@ owner: "mirichard"
 updated: "2025-08-05"
 ---
 
+
 # Remediation Action Plan Template
 
 ## Plan Information
@@ -20,7 +21,6 @@ updated: "2025-08-05"
 | **Stakeholders Involved** | |
 | **Approval Authority** | |
 
----
 
 ## Executive Summary
 
@@ -45,7 +45,6 @@ updated: "2025-08-05"
 | Quality Score | ___% | ___% | +___% |
 | Stakeholder Satisfaction | ___% | ___% | +___% |
 
----
 
 ## Action Plan Matrix
 
@@ -81,7 +80,6 @@ updated: "2025-08-05"
 | A011 | | | | | | ☐ Not Started ☐ In Progress ☐ Complete | | |
 | A012 | | | | | | ☐ Not Started ☐ In Progress ☐ Complete | | |
 
----
 
 ## Detailed Action Plans
 
@@ -127,7 +125,6 @@ updated: "2025-08-05"
 |-------------|-------------|-----------|--------|
 | | | | |
 
----
 
 ### Action A002: [Action Title]
 **Priority:** ☐ Critical ☐ High ☐ Medium ☐ Low  
@@ -171,7 +168,6 @@ updated: "2025-08-05"
 |-------------|-------------|-----------|--------|
 | | | | |
 
----
 
 ## Implementation Framework
 
@@ -241,7 +237,6 @@ updated: "2025-08-05"
 | Knowledge Transfer Complete | | | ☐ Not Started ☐ Complete |
 | Continuous Improvement Active | | | ☐ Not Started ☐ Complete |
 
----
 
 ## Resource Management
 
@@ -271,7 +266,6 @@ updated: "2025-08-05"
 | **Training** | | | | $______ |
 | **Tools/Licenses** | | | | $______ |
 
----
 
 ## Progress Tracking
 
@@ -301,7 +295,6 @@ updated: "2025-08-05"
 | Stakeholder Satisfaction | ___% | ___% | ___% | ___% |
 | Risk Exposure Reduction | | | ___% | ___% |
 
----
 
 ## Risk Management
 
@@ -319,7 +312,6 @@ updated: "2025-08-05"
 | R002 | ☐ Open ☐ Mitigated ☐ Closed | | | |
 | R003 | ☐ Open ☐ Mitigated ☐ Closed | | | |
 
----
 
 ## Change Management
 
@@ -346,7 +338,6 @@ updated: "2025-08-05"
 | | | ☐ Online ☐ Classroom ☐ OJT | | | |
 | | | ☐ Online ☐ Classroom ☐ OJT | | | |
 
----
 
 ## Quality Assurance
 
@@ -366,7 +357,6 @@ updated: "2025-08-05"
 | Cost performance | CPI calculation | 1.0+ | | ☐ Met ☐ Not Met |
 | Stakeholder satisfaction | Survey results | ___% | | ☐ Met ☐ Not Met |
 
----
 
 ## Lessons Learned
 
@@ -390,7 +380,6 @@ updated: "2025-08-05"
 2.
 3.
 
----
 
 ## Plan Governance
 
@@ -423,7 +412,6 @@ updated: "2025-08-05"
 
 **Plan Status:** ☐ Draft ☐ Approved ☐ In Progress ☐ Complete ☐ Cancelled
 
----
 
 **Template Usage Notes:**
 - Customize action details based on specific gaps identified

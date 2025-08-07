@@ -1,10 +1,23 @@
 ---
 title: "Future State Blueprint Template"
+methodology: "traditional"
+complexity: "advanced"
+process_group: "initiating"
+industry: "financial"
+role: "stakeholder"
+tags: ["traditional", "initiating", "risk-management", "stakeholder-management", "communication", "planning", "quality"]
+version: "1.0.0"
+owner: "mirichard"
+updated: "2025-08-06"
+estimated_completion_time: "60-90 minutes"
+---
+
+
+title: "Future State Blueprint Template"
 methodology: "universal"
 complexity: "advanced"
 owner: "mirichard"
 updated: "2025-08-05"
----
 
 # Future State Blueprint Template
 
@@ -506,7 +519,6 @@ CEO/Executive Level:
 ### Appendix C: Stakeholder Analysis and Engagement Plan
 [Include detailed stakeholder mapping and engagement strategies]
 
----
 
 ## Related Resources
 
@@ -515,7 +527,6 @@ CEO/Executive Level:
 - [Implementation Planning Template](../project-lifecycle/02-planning/implementation-planning-template.md)
 - [Change Management Plan](../organizational-change/change-management-plan-template.md)
 
----
 
 **Blueprint Date:** {{ blueprint_date }}
 **Document Version:** 1.0

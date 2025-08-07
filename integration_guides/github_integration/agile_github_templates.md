@@ -1,3 +1,24 @@
+---
+title: "AGILE GITHUB TEMPLATES"
+methodology: "agile"
+complexity: "advanced"
+process_group: "planning"
+industry: "technology"
+role: "po"
+tags:
+  - "agile"
+  - "communication"
+  - "planning"
+  - "quality"
+  - "reporting"
+  - "risk-management"
+  - "stakeholder-management"
+version: "1.0.0"
+owner: "mirichard"
+updated: "2025-08-06"
+estimated_completion_time: "90-120 minutes"
+---
+
 # AGILE GITHUB TEMPLATES
 
 ## Repository Setup Templates

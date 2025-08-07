@@ -1,10 +1,23 @@
 ---
 title: "Current State Analysis Template"
 methodology: "universal"
+complexity: "intermediate"
+process_group: "initiating"
+industry: "financial"
+role: "stakeholder"
+tags: ["initiating", "risk-management", "stakeholder-management", "communication", "planning", "quality"]
+version: "1.0.0"
+owner: "mirichard"
+updated: "2025-08-06"
+estimated_completion_time: "30-45 minutes"
+---
+
+
+title: "Current State Analysis Template"
+methodology: "universal"
 complexity: "advanced"
 owner: "mirichard"
 updated: "2025-08-05"
----
 
 # Current State Analysis Template
 
@@ -376,7 +389,6 @@ CEO/Executive Level:
 ### Appendix C: Stakeholder Feedback Summary
 [Include consolidated feedback from key stakeholders]
 
----
 
 ## Related Resources
 
@@ -385,7 +397,6 @@ CEO/Executive Level:
 - [Process Maturity Assessment](./process-maturity-assessment-template.md)
 - [Risk Assessment Template](../project-lifecycle/02-planning/risk-management/risk-assessment-template.md)
 
----
 
 **Assessment Date:** {{ assessment_date }}
 **Document Version:** 1.0

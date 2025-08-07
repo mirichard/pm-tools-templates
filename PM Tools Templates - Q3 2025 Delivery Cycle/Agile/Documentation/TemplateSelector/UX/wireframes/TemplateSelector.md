@@ -1,3 +1,22 @@
+---
+title: "Template Selector Wireframes"
+methodology: "traditional"
+complexity: "advanced"
+process_group: "initiating"
+industry: "universal"
+role: "universal"
+tags:
+  - "initiating"
+  - "planning"
+  - "reporting"
+  - "risk-management"
+  - "traditional"
+version: "1.0.0"
+owner: "mirichard"
+updated: "2025-08-06"
+estimated_completion_time: "45-90 minutes"
+---
+
 # Template Selector Wireframes
 ## PM Tools Templates - Q3 2025 Delivery Cycle
 

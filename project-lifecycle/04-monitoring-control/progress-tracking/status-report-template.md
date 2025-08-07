@@ -6,6 +6,7 @@ owner: "mirichard"
 updated: "2025-08-05"
 ---
 
+
 # Project Status Report Template
 
 ## Purpose/Overview
@@ -285,7 +286,6 @@ This comprehensive status report template provides a structured format for commu
 ### Appendix D: Financial Details
 [Link to detailed financial reports]
 
----
 
 ## Report Distribution
 
@@ -298,7 +298,6 @@ This comprehensive status report template provides a structured format for commu
 - Executive Leadership: [Names]
 - Stakeholder Groups: [Names]
 
----
 
 ## Contact Information
 
@@ -306,11 +305,9 @@ This comprehensive status report template provides a structured format for commu
 **Next Report Date**: [Date]  
 **Report Frequency**: [Weekly/Bi-weekly/Monthly]
 
----
 
 *This status report provides a comprehensive view of project health and progress. For detailed information on any section, please contact the project manager or refer to the linked appendices.*
 
----
 
 ## Status Report Variants
 

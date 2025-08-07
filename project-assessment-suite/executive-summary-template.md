@@ -1,10 +1,23 @@
 ---
 title: "Executive Summary Template"
+methodology: "traditional"
+complexity: "intermediate"
+process_group: "executing"
+industry: "universal"
+role: "stakeholder"
+tags: ["traditional", "executing", "risk-management", "stakeholder-management", "communication", "planning", "quality"]
+version: "1.0.0"
+owner: "mirichard"
+updated: "2025-08-06"
+estimated_completion_time: "30-45 minutes"
+---
+
+
+title: "Executive Summary Template"
 methodology: "universal"
 complexity: "advanced"
 owner: "mirichard"
 updated: "2025-08-05"
----
 
 # Executive Summary Template
 
@@ -22,7 +35,6 @@ updated: "2025-08-05"
 | **Project Phase** | ☐ Initiation ☐ Planning ☐ Execution ☐ Monitoring ☐ Closing |
 | **Project Methodology** | ☐ Agile ☐ Waterfall ☐ Hybrid ☐ Other: |
 
----
 
 ## Assessment Results at a Glance
 
@@ -36,7 +48,6 @@ updated: "2025-08-05"
 
 ### Assessment Confidence Level: ☐ High ☐ Medium ☐ Low
 
----
 
 ## Key Performance Indicators
 
@@ -48,7 +59,6 @@ updated: "2025-08-05"
 | **Stakeholder Satisfaction** | ___% | ___% | ☐ 🟢 ☐ 🟡 ☐ 🔴 | ☐ ↑ ☐ → ☐ ↓ |
 | **Risk Exposure** | $______ | <$______ | ☐ 🟢 ☐ 🟡 ☐ 🔴 | ☐ ↑ ☐ → ☐ ↓ |
 
----
 
 ## Critical Findings
 
@@ -78,7 +88,6 @@ updated: "2025-08-05"
 2. **[Concern Area]**: Brief description and potential impact if not addressed
 3. **[Concern Area]**: Brief description and potential impact if not addressed
 
----
 
 ## Priority Recommendations
 
@@ -99,7 +108,6 @@ updated: "2025-08-05"
 |--------|-------|--------|--------|------------------|
 | **[Action Description]** | [Role/Name] | ☐ High ☐ Med ☐ Low | ☐ High ☐ Med ☐ Low | Brief description of expected result |
 
----
 
 ## Resource Requirements
 
@@ -114,7 +122,6 @@ updated: "2025-08-05"
 
 ### Total Estimated Investment: **$______**
 
----
 
 ## Risk Assessment
 
@@ -130,7 +137,6 @@ updated: "2025-08-05"
 - **Risks with No Mitigation**: ___
 - **Overall Risk Level**: ☐ High ☐ Medium ☐ Low
 
----
 
 ## Success Projections
 
@@ -151,7 +157,6 @@ updated: "2025-08-05"
 | **Quality Issues** | ☐ High ☐ Med ☐ Low | [Timeline] | [Brief mitigation] |
 | **Stakeholder Dissatisfaction** | ☐ High ☐ Med ☐ Low | [Timeline] | [Brief mitigation] |
 
----
 
 ## Decision Points
 
@@ -169,7 +174,6 @@ updated: "2025-08-05"
 | **Scope Change** | [Reason] | [Specify] | ☐ Immediate ☐ This Month ☐ Next Quarter |
 | **Timeline Extension** | [Reason] | [Duration] | ☐ Immediate ☐ This Month ☐ Next Quarter |
 
----
 
 ## Implementation Roadmap
 
@@ -203,7 +207,6 @@ updated: "2025-08-05"
 
 **Success Criteria**: [Specific measurable outcomes]
 
----
 
 ## Stakeholder Impact
 
@@ -215,7 +218,6 @@ updated: "2025-08-05"
 | **Customers/End Users** | ☐ High ☐ Med ☐ Low | [Primary concerns] | [Key actions] | [Expected satisfaction] |
 | **Business Stakeholders** | ☐ High ☐ Med ☐ Low | [Primary concerns] | [Key actions] | [Expected satisfaction] |
 
----
 
 ## Communication Plan
 
@@ -233,7 +235,6 @@ updated: "2025-08-05"
 | **Executive Briefings** | Bi-weekly | Leadership | Status, decisions needed |
 | **Stakeholder Updates** | Monthly | All stakeholders | Progress, impacts |
 
----
 
 ## Success Metrics and Monitoring
 
@@ -251,7 +252,6 @@ updated: "2025-08-05"
 - **90-Day Review**: Health improvement assessment  
 - **6-Month Review**: Full re-assessment
 
----
 
 ## Executive Sponsor Actions Required
 
@@ -267,7 +267,6 @@ updated: "2025-08-05"
 - [ ] **Escalate Issues**: [To senior leadership/board if needed]
 - [ ] **Monitor Progress**: Regular review meetings
 
----
 
 ## Assessment Team Recommendations
 
@@ -283,7 +282,6 @@ updated: "2025-08-05"
 2. **[Improvement Area]**: [Specific recommendation]
 3. **[Improvement Area]**: [Specific recommendation]
 
----
 
 ## Appendices Available
 
@@ -294,7 +292,6 @@ updated: "2025-08-05"
 - **Appendix E**: Supporting Data and Evidence
 - **Appendix F**: Risk Register and Mitigation Plans
 
----
 
 ## Contact Information
 
@@ -306,14 +303,12 @@ updated: "2025-08-05"
 
 **For Questions or Follow-up**: [Primary contact information]
 
----
 
 **Assessment Completed**: [Date]  
 **Report Prepared By**: [Assessment Team]  
 **Next Review**: [Date]  
 **Document Status**: ☐ Draft ☐ Final ☐ Approved
 
----
 
 **Key Message**: *This assessment provides a comprehensive view of project health with specific, actionable recommendations for improvement. Immediate action on critical priorities will significantly improve project outcomes and reduce risk exposure.*
 

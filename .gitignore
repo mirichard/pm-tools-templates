@@ -12,3 +12,9 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 jira-automation-scripts/
+__pycache__/
+*.backup
+*.pyc
+.DS_Store
+.vscode/
+.idea/

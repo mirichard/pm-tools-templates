@@ -6,6 +6,7 @@ owner: "mirichard"
 updated: "2025-08-05"
 ---
 
+
 # Issue Log Template
 
 ## Purpose/Overview
@@ -50,6 +51,5 @@ This template provides a systematic approach to identifying, tracking, and resol
 4. **Action**: Resolution activities undertaken
 5. **Closure**: Issue resolved and verified
 
----
 *Systematic issue tracking and resolution*
 

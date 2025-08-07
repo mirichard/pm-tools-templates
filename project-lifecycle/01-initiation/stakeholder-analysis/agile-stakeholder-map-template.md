@@ -6,6 +6,7 @@ owner: "mirichard"
 updated: "2025-08-05"
 ---
 
+
 # Agile Stakeholder Map Template
 
 ## Purpose/Overview
@@ -172,7 +173,6 @@ This agile stakeholder map template is designed specifically for agile and itera
 - **Update Triggers**: [What events trigger updates]
 - **Owner**: [Who maintains this document]
 
----
 
 **Prepared by**: [Product Owner/Scrum Master Name]  
 **Date**: [Date]  

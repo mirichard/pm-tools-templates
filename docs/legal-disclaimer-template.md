@@ -1,3 +1,21 @@
+---
+title: "Template Legal Disclaimer"
+methodology: "traditional"
+complexity: "intermediate"
+process_group: "planning"
+industry: "financial"
+role: "universal"
+tags:
+  - "communication"
+  - "planning"
+  - "risk-management"
+  - "traditional"
+version: "1.0.0"
+owner: "mirichard"
+updated: "2025-08-06"
+estimated_completion_time: "20-30 minutes"
+---
+
 # Template Legal Disclaimer
 
 **For use in all project templates**

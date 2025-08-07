@@ -1,10 +1,23 @@
 ---
 title: "Waterfall Project Assessment Template"
 methodology: "traditional"
+complexity: "basic"
+process_group: "initiating"
+industry: "financial"
+role: "stakeholder"
+tags: ["traditional", "initiating", "stakeholder-management", "planning", "quality"]
+version: "1.0.0"
+owner: "mirichard"
+updated: "2025-08-06"
+estimated_completion_time: "15-30 minutes"
+---
+
+
+title: "Waterfall Project Assessment Template"
+methodology: "traditional"
 complexity: "starter"
 owner: "mirichard"
 updated: "2025-08-05"
----
 
 # Waterfall Project Assessment Template
 
@@ -59,7 +72,6 @@ This template provides assessment criteria specifically for traditional waterfal
 - [ ] Stakeholder approval obtained
 - [ ] Next phase readiness confirmed
 
----
 Related Resources:
 - [Traditional Framework](../methodology-frameworks/traditional/)
 - [Project Lifecycle](../project-lifecycle/)

@@ -1,3 +1,23 @@
+---
+title: "Template"
+methodology: "agile"
+complexity: "intermediate"
+process_group: "initiating"
+industry: "technology"
+role: "po"
+tags:
+  - "agile"
+  - "communication"
+  - "initiating"
+  - "planning"
+  - "quality"
+  - "reporting"
+version: "1.0.0"
+owner: "mirichard"
+updated: "2025-08-06"
+estimated_completion_time: "30-45 minutes"
+---
+
  USER STORY TEMPLATE
 
  Story Identification

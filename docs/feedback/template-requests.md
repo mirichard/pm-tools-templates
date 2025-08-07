@@ -1,3 +1,24 @@
+---
+title: "Template Requests"
+methodology: "agile"
+complexity: "intermediate"
+process_group: "planning"
+industry: "healthcare"
+role: "stakeholder"
+tags:
+  - "agile"
+  - "communication"
+  - "planning"
+  - "quality"
+  - "reporting"
+  - "risk-management"
+  - "stakeholder-management"
+version: "1.0.0"
+owner: "mirichard"
+updated: "2025-08-06"
+estimated_completion_time: "30-45 minutes"
+---
+
 # Template Requests
 
 ## Request New Templates

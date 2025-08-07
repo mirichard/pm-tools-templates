@@ -1,3 +1,19 @@
+---
+title: "Pull Request"
+methodology: "universal"
+complexity: "basic"
+process_group: "universal"
+industry: "universal"
+role: "pm"
+tags:
+  - "communication"
+  - "quality"
+version: "1.0.0"
+owner: "mirichard"
+updated: "2025-08-06"
+estimated_completion_time: "10-20 minutes"
+---
+
 # Pull Request
 
 ## Description

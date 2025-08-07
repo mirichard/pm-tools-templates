@@ -1,10 +1,23 @@
 ---
 title: "Agile Project Assessment Template"
+methodology: "agile"
+complexity: "basic"
+process_group: "initiating"
+industry: "universal"
+role: "po"
+tags: ["agile", "initiating", "stakeholder-management", "communication", "planning", "quality"]
+version: "1.0.0"
+owner: "mirichard"
+updated: "2025-08-06"
+estimated_completion_time: "15-30 minutes"
+---
+
+
+title: "Agile Project Assessment Template"
 methodology: "universal"
 complexity: "starter"
 owner: "mirichard"
 updated: "2025-08-05"
----
 
 # Agile Project Assessment Template
 
@@ -64,7 +77,6 @@ This template provides an assessment framework specifically designed for Agile p
 2. [Medium priority improvement]
 3. [Continuous improvement suggestions]
 
----
 Related Resources:
 - [Agile Scrum Framework](../methodology-frameworks/agile-scrum/)
 - [Sprint Planning](../methodology-frameworks/agile-scrum/sprint-planning/)

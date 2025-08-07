@@ -1,10 +1,23 @@
 ---
 title: "Resource Management Assessment Template"
 methodology: "universal"
+complexity: "basic"
+process_group: "planning"
+industry: "financial"
+role: "pm"
+tags: ["planning", "planning"]
+version: "1.0.0"
+owner: "mirichard"
+updated: "2025-08-06"
+estimated_completion_time: "15-30 minutes"
+---
+
+
+title: "Resource Management Assessment Template"
+methodology: "universal"
 complexity: "starter"
 owner: "mirichard"
 updated: "2025-08-05"
----
 
 # Resource Management Assessment Template
 
@@ -60,7 +73,6 @@ This template evaluates resource management effectiveness including human resour
 **Recommendations:**
 - [Specific improvement actions]
 
----
 Related Resources:
 - [Resource Planning](../project-lifecycle/02-planning/resource-planning/)
 - [Budget Planning](../project-lifecycle/02-planning/budget-planning/)

@@ -1,10 +1,23 @@
 ---
 title: "Risk Management Assessment Template"
 methodology: "universal"
+complexity: "basic"
+process_group: "planning"
+industry: "universal"
+role: "stakeholder"
+tags: ["planning", "risk-management", "stakeholder-management", "communication", "planning"]
+version: "1.0.0"
+owner: "mirichard"
+updated: "2025-08-06"
+estimated_completion_time: "15-30 minutes"
+---
+
+
+title: "Risk Management Assessment Template"
+methodology: "universal"
 complexity: "starter"
 owner: "mirichard"
 updated: "2025-08-05"
----
 
 # Risk Management Assessment Template
 
@@ -55,7 +68,6 @@ This template provides a comprehensive framework for assessing risk management e
 - [ ] Escalation procedures clarity
 - [ ] Reporting and communication effectiveness
 
----
 Related Resources:
 - [Risk Management Plan](../project-lifecycle/02-planning/risk-management/)
 - [Governance Assessment](./governance-assessment-template.md)

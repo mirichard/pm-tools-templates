@@ -1,10 +1,23 @@
 ---
 title: "Stakeholder Engagement Assessment Template"
 methodology: "universal"
+complexity: "basic"
+process_group: "initiating"
+industry: "universal"
+role: "stakeholder"
+tags: ["initiating", "stakeholder-management", "communication", "planning", "quality"]
+version: "1.0.0"
+owner: "mirichard"
+updated: "2025-08-06"
+estimated_completion_time: "15-30 minutes"
+---
+
+
+title: "Stakeholder Engagement Assessment Template"
+methodology: "universal"
 complexity: "starter"
 owner: "mirichard"
 updated: "2025-08-05"
----
 
 # Stakeholder Engagement Assessment Template
 
@@ -56,7 +69,6 @@ This template evaluates the effectiveness of stakeholder engagement processes an
 2. [Medium priority improvement]
 3. [Low priority improvement]
 
----
 Related Resources:
 - [Stakeholder Engagement](../role-based-toolkits/project-manager/stakeholder-engagement/)
 - [Communication Planning](../project-lifecycle/02-planning/communication-planning/)

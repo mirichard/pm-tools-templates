@@ -1,10 +1,23 @@
 ---
 title: "Gap Analysis Matrix Template"
+methodology: "traditional"
+complexity: "intermediate"
+process_group: "initiating"
+industry: "financial"
+role: "stakeholder"
+tags: ["traditional", "initiating", "risk-management", "stakeholder-management", "communication", "planning", "quality"]
+version: "1.0.0"
+owner: "mirichard"
+updated: "2025-08-06"
+estimated_completion_time: "30-45 minutes"
+---
+
+
+title: "Gap Analysis Matrix Template"
 methodology: "universal"
 complexity: "advanced"
 owner: "mirichard"
 updated: "2025-08-05"
----
 
 # Gap Analysis Matrix Template
 
@@ -18,7 +31,6 @@ updated: "2025-08-05"
 | **Review Period** | |
 | **Stakeholders Consulted** | |
 
----
 
 ## Gap Analysis Overview
 
@@ -32,7 +44,6 @@ Systematically identify, analyze, and prioritize gaps between current state and 
 4. **Impact Assessment** - Evaluate business impact of each gap
 5. **Prioritization** - Rank gaps by impact, urgency, and feasibility
 
----
 
 ## Current State vs Future State Analysis
 
@@ -126,7 +137,6 @@ Systematically identify, analyze, and prioritize gaps between current state and 
 | **Process Integration** | | Leading practice: End-to-end process integration with workflow automation | | ☐ High ☐ Medium ☐ Low |
 | **Tool Integration** | | Leading practice: Integrated toolchain with single source of truth | | ☐ High ☐ Medium ☐ Low |
 
----
 
 ## Gap Priority Matrix
 
@@ -154,7 +164,6 @@ Systematically identify, analyze, and prioritize gaps between current state and 
 | G008 | | ☐ High ☐ Med ☐ Low | ☐ High ☐ Med ☐ Low | ☐ High ☐ Med ☐ Low | |
 | G009 | | ☐ High ☐ Med ☐ Low | ☐ High ☐ Med ☐ Low | ☐ High ☐ Med ☐ Low | |
 
----
 
 ## Root Cause Analysis
 
@@ -168,7 +177,6 @@ Systematically identify, analyze, and prioritize gaps between current state and 
 | G004 | ☐ Process ☐ People ☐ Technology ☐ Culture | | | |
 | G005 | ☐ Process ☐ People ☐ Technology ☐ Culture | | | |
 
----
 
 ## Impact Assessment
 
@@ -194,7 +202,6 @@ Systematically identify, analyze, and prioritize gaps between current state and 
 | Stakeholder Satisfaction | | Target: ___% | | |
 | Risk Exposure Value | | Target: $______ | | |
 
----
 
 ## Gap Closure Strategy
 
@@ -217,7 +224,6 @@ Systematically identify, analyze, and prioritize gaps between current state and 
 | **Technical Complexity** | ☐ Low ☐ Medium ☐ High | |
 | **Stakeholder Support** | ☐ Strong ☐ Moderate ☐ Weak | |
 
----
 
 ## Recommendations Summary
 
@@ -251,7 +257,6 @@ Systematically identify, analyze, and prioritize gaps between current state and 
 | **Training/Development** | | ☐ Internal ☐ External | |
 | **Budget** | | ☐ Current ☐ Additional | |
 
----
 
 ## Success Measures
 
@@ -275,7 +280,6 @@ Systematically identify, analyze, and prioritize gaps between current state and 
 | Issue Resolution Time | | <5 days avg | Issue Tracking |
 | Change Request Cycle Time | | <10 days avg | Change Log |
 
----
 
 ## Follow-up Plan
 
@@ -292,7 +296,6 @@ Systematically identify, analyze, and prioritize gaps between current state and 
 | Project Team | Detailed progress, specific actions | Weekly | Team meetings |
 | Key Stakeholders | Relevant updates, impact on them | Bi-weekly | Status reports |
 
----
 
 ## Analysis Validation
 

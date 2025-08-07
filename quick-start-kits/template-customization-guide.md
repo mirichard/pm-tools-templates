@@ -1,3 +1,25 @@
+---
+title: "Template Customization Guide"
+methodology: "agile"
+complexity: "advanced"
+process_group: "initiating"
+industry: "healthcare"
+role: "stakeholder"
+tags:
+  - "agile"
+  - "communication"
+  - "initiating"
+  - "planning"
+  - "quality"
+  - "reporting"
+  - "risk-management"
+  - "stakeholder-management"
+version: "1.0.0"
+owner: "mirichard"
+updated: "2025-08-06"
+estimated_completion_time: "45-90 minutes"
+---
+
 # Template Customization Guide
 
 ## Executive Summary

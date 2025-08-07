@@ -1,10 +1,23 @@
 ---
 title: "Project Health Assessment Template"
+methodology: "traditional"
+complexity: "intermediate"
+process_group: "initiating"
+industry: "financial"
+role: "stakeholder"
+tags: ["traditional", "initiating", "risk-management", "stakeholder-management", "communication", "planning", "quality"]
+version: "1.0.0"
+owner: "mirichard"
+updated: "2025-08-06"
+estimated_completion_time: "30-45 minutes"
+---
+
+
+title: "Project Health Assessment Template"
 methodology: "universal"
 complexity: "advanced"
 owner: "mirichard"
 updated: "2025-08-05"
----
 
 # Project Health Assessment Template
 
@@ -36,7 +49,6 @@ updated: "2025-08-05"
 |---------------|------------|----------------|
 | | | |
 
----
 
 ## Detailed Assessment Dimensions
 
@@ -242,7 +254,6 @@ updated: "2025-08-05"
 - [ ] Change approval process is followed
 - [ ] Implementation is controlled
 
----
 
 ## Overall Assessment Summary
 
@@ -290,7 +301,6 @@ updated: "2025-08-05"
 | Medium | | | | |
 | Low | | | | |
 
----
 
 ## Follow-up Plan
 
@@ -310,7 +320,6 @@ updated: "2025-08-05"
 |-------------|-------------|-----------|--------|
 | | | | |
 
----
 
 ## Assessment Validation
 
@@ -324,7 +333,6 @@ updated: "2025-08-05"
 **Additional Comments:**
 
 
----
 
 **Assessment Methodology Note:** 
 This assessment uses a 1-5 scoring scale where:

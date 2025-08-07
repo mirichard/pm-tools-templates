@@ -1,3 +1,25 @@
+---
+title: "Deployment Checklist Template"
+methodology: "hybrid"
+complexity: "advanced"
+process_group: "initiating"
+industry: "healthcare"
+role: "po"
+tags:
+  - "communication"
+  - "hybrid"
+  - "initiating"
+  - "planning"
+  - "quality"
+  - "reporting"
+  - "risk-management"
+  - "stakeholder-management"
+version: "1.0.0"
+owner: "mirichard"
+updated: "2025-08-06"
+estimated_completion_time: "45-90 minutes"
+---
+
 # Deployment Checklist Template
 
 ## Document Control

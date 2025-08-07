@@ -1,10 +1,23 @@
 ---
 title: "Hybrid Project Assessment Template"
+methodology: "hybrid"
+complexity: "basic"
+process_group: "initiating"
+industry: "universal"
+role: "stakeholder"
+tags: ["hybrid", "initiating", "risk-management", "stakeholder-management", "communication", "quality"]
+version: "1.0.0"
+owner: "mirichard"
+updated: "2025-08-06"
+estimated_completion_time: "15-30 minutes"
+---
+
+
+title: "Hybrid Project Assessment Template"
 methodology: "universal"
 complexity: "starter"
 owner: "mirichard"
 updated: "2025-08-05"
----
 
 # Hybrid Project Assessment Template
 
@@ -63,7 +76,6 @@ This template assesses projects using hybrid methodologies that combine traditio
 2. [Process optimizations]
 3. [Team development needs]
 
----
 Related Resources:
 - [Hybrid Methodology](../methodology-frameworks/hybrid/)
 - [Integration Strategies](../methodology-frameworks/hybrid/integration-strategies/)

@@ -1,10 +1,23 @@
 ---
 title: "Process Maturity Assessment Template"
+methodology: "traditional"
+complexity: "basic"
+process_group: "initiating"
+industry: "universal"
+role: "stakeholder"
+tags: ["traditional", "initiating", "risk-management", "stakeholder-management", "communication", "planning", "quality"]
+version: "1.0.0"
+owner: "mirichard"
+updated: "2025-08-06"
+estimated_completion_time: "15-30 minutes"
+---
+
+
+title: "Process Maturity Assessment Template"
 methodology: "universal"
 complexity: "starter"
 owner: "mirichard"
 updated: "2025-08-05"
----
 
 # Process Maturity Assessment Template
 
@@ -69,7 +82,6 @@ This template provides a structured approach to assessing project management pro
 - Phase 2 (6-12 months): [Development areas]
 - Phase 3 (12-18 months): [Advanced capabilities]
 
----
 Related Resources:
 - [Governance Assessment](./governance-assessment-template.md)
 - [Risk Management Assessment](./risk-management-assessment-template.md)

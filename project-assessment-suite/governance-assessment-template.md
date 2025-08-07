@@ -1,10 +1,23 @@
 ---
+title: "Project Governance Assessment Template"
+methodology: "universal"
+complexity: "basic"
+process_group: "initiating"
+industry: "financial"
+role: "stakeholder"
+tags: ["initiating", "stakeholder-management", "quality"]
+version: "1.0.0"
+owner: "mirichard"
+updated: "2025-08-06"
+estimated_completion_time: "15-30 minutes"
+---
+
+
 title: "Governance Assessment Template"
 methodology: "universal"
 complexity: "starter"
 owner: "mirichard"
 updated: "2025-08-05"
----
 
 # Project Governance Assessment Template
 
@@ -48,7 +61,6 @@ This template provides a comprehensive framework for assessing project governanc
 **Gaps:** [Areas needing improvement]
 **Action Items:** [Specific recommendations]
 
----
 Related Resources:
 - [Governance Tools](../role-based-toolkits/project-manager/governance-tools/)
 - [Decision Authority Matrix](../role-based-toolkits/project-manager/governance-tools/decision-authority.md)

@@ -6,6 +6,7 @@ owner: "mirichard"
 updated: "2025-08-05"
 ---
 
+
 # Agile Team Charter Template
 
 ## Purpose/Overview
@@ -72,7 +73,6 @@ This agile team charter template establishes the foundation for effective agile 
 - [Metric 2]
 - [Metric 3]
 
----
 
 *Agile team charter following Scrum framework principles*
 

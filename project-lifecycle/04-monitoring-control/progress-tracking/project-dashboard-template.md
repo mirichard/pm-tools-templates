@@ -6,6 +6,7 @@ owner: "mirichard"
 updated: "2025-08-05"
 ---
 
+
 # Project Dashboard Template
 
 ## Purpose/Overview
@@ -62,6 +63,5 @@ This dashboard template provides a visual, at-a-glance view of project health an
 ## Upcoming Activities
 - [Key activities for next period]
 
----
 *Visual project performance tracking*
 

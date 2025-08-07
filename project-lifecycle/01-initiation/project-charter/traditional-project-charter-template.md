@@ -6,6 +6,7 @@ owner: "mirichard"
 updated: "2025-08-05"
 ---
 
+
 # Traditional Project Charter Template
 
 ## Purpose/Overview
@@ -91,7 +92,6 @@ This traditional project charter template provides a comprehensive framework for
 | Project Sponsor | | | |
 | Project Manager | | | |
 
----
 
 *Template follows Traditional Guide project charter best practices*
 

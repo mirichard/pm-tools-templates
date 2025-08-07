@@ -1,3 +1,23 @@
+---
+title: "Template Feedback Form"
+methodology: "agile"
+complexity: "advanced"
+process_group: "planning"
+industry: "financial"
+role: "pm"
+tags:
+  - "agile"
+  - "communication"
+  - "planning"
+  - "quality"
+  - "reporting"
+  - "stakeholder-management"
+version: "1.0.0"
+owner: "mirichard"
+updated: "2025-08-06"
+estimated_completion_time: "45-90 minutes"
+---
+
 # Template Feedback Form
 
 **Help us improve our templates by sharing your experience**
