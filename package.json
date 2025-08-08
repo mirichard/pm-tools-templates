@@ -15,7 +15,8 @@
     "build-site": "npm run generate-changelogs && npm --prefix docs/site run build",
     "dev-site": "npm --prefix docs/site run dev",
     "preview-site": "npm --prefix docs/site run preview",
-    "doc-scan": "node scripts/doc-scan.js"
+    "doc-scan": "node scripts/doc-scan.js",
+    "template-selector": "node scripts/template-selector.mjs"
   },
   "keywords": [
     "project-management",
