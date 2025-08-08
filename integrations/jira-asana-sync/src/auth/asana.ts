@@ -8,9 +8,9 @@ export function createAsanaClient(cfg: AppConfig) {
       secret: cfg.asana.clientSecret,
     },
     auth: {
-      tokenHost: 'https://app.asana.com/',
-      authorizePath: '/- /oauth_authorize',
-      tokenPath: '/- /oauth_token',
+      tokenHost: 'https://app.asana.com',
+      authorizePath: '/-/oauth_authorize',
+      tokenPath: '/-/oauth_token',
     },
     http: {
       json: 'force',
@@ -29,11 +29,38 @@ export function createAsanaClient(cfg: AppConfig) {
     const tokenParams = {
       code,
       redirect_uri: cfg.asana.redirectUri,
+      grant_type: 'authorization_code',
     } as any;
 
     const accessToken = await client.getToken(tokenParams);
     return accessToken;
   }
 
-  return { authorizeUrl, fetchToken };
+  async function refreshToken(refreshToken: string) {
+    const res = await fetch('https://app.asana.com/-/oauth_token', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        grant_type: 'refresh_token',
+        client_id: cfg.asana.clientId,
+        client_secret: cfg.asana.clientSecret,
+        refresh_token: refreshToken,
+      })
+    });
+    if (!res.ok) throw new Error(`Asana refresh token failed: ${res.status} ${res.statusText}`);
+    return res.json();
+  }
+
+  function normalizeToken(raw: any) {
+    const now = Date.now();
+    const expiresIn = Number(raw.expires_in || raw.expiresIn || 0) * 1000;
+    return {
+      accessToken: raw.access_token || raw.accessToken,
+      refreshToken: raw.refresh_token || raw.refreshToken,
+      expiresAt: expiresIn ? now + expiresIn : undefined,
+      provider: 'asana' as const,
+    };
+  }
+
+  return { authorizeUrl, fetchToken, refreshToken, normalizeToken };
 }
