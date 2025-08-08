@@ -1,0 +1,34 @@
+name: ✅ Validate Canonical Template Paths
+
+on:
+  pull_request:
+  push:
+  schedule:
+    - cron: '0 7 * * 1'
+
+jobs:
+  validate-canonical-paths:
+    name: Validate canonical_path and alternate_paths
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Run validator (non-blocking on PRs)
+        id: run-validator
+        run: |
+          python3 scripts/validate_canonical_paths.py
+        continue-on-error: ${{ github.event_name == 'pull_request' }}
+
+      - name: Fail on push if validator failed
+        if: github.event_name != 'pull_request' && steps.run-validator.outcome == 'failure'
+        run: |
+          echo "Canonical path validation failed on push; please fix issues." >&2
+          exit 1
