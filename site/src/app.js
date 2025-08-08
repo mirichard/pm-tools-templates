@@ -21,18 +21,52 @@ async function fetchIndex() {
   return data.files;
 }
 
+function groupFilesByTopLevel(files) {
+  const groups = {};
+  for (const f of files) {
+    const parts = f.split('/');
+    const top = parts.length > 1 ? parts[0] : 'Other';
+    if (!groups[top]) groups[top] = [];
+    groups[top].push(f);
+  }
+  return groups;
+}
+
+function humanizeTitle(filePath) {
+  const name = filePath.split('/').pop() || filePath;
+  return name.replace(/\.md$/i, '').replace(/[_-]+/g, ' ');
+}
+
 function renderList(files) {
   listEl.innerHTML = '';
-  for (const f of files) {
-    const li = document.createElement('li');
-    const btn = document.createElement('button');
-    btn.className = 'file-item';
-    btn.type = 'button';
-    btn.textContent = f;
-    btn.setAttribute('aria-label', `Preview ${f}`);
-    btn.addEventListener('click', () => loadFile(f, btn));
-    li.appendChild(btn);
-    listEl.appendChild(li);
+  const groups = groupFilesByTopLevel(files);
+  const groupNames = Object.keys(groups).sort((a, b) => a.localeCompare(b));
+  for (const g of groupNames) {
+    const details = document.createElement('details');
+    details.className = 'group';
+    details.open = true;
+
+    const summary = document.createElement('summary');
+    summary.innerHTML = `<span class="group-name">${g}</span><span class="count">${groups[g].length}</span>`;
+    details.appendChild(summary);
+
+    const ul = document.createElement('ul');
+    ul.className = 'group-list';
+
+    for (const f of groups[g]) {
+      const li = document.createElement('li');
+      const btn = document.createElement('button');
+      btn.className = 'file-item';
+      btn.type = 'button';
+      btn.setAttribute('aria-label', `Preview ${f}`);
+      btn.innerHTML = `<span class="title">${humanizeTitle(f)}</span><span class="path">${f}</span>`;
+      btn.addEventListener('click', () => loadFile(f, btn));
+      li.appendChild(btn);
+      ul.appendChild(li);
+    }
+
+    details.appendChild(ul);
+    listEl.appendChild(details);
   }
 }
 
@@ -52,6 +86,12 @@ async function loadFile(file, liEl) {
   const newEtag = res.headers.get('ETag') || '';
   const data = await res.json();
   contentEl.innerHTML = data.html;
+  // Make task list checkboxes in markdown previews non-interactive/presentational
+  for (const cb of contentEl.querySelectorAll('input[type="checkbox"]')) {
+    cb.setAttribute('aria-hidden', 'true');
+    cb.setAttribute('tabindex', '-1');
+    cb.setAttribute('disabled', '');
+  }
   contentEl.dataset.etag = newEtag;
   document.title = `${file} - PM Templates Preview`;
   // move focus to content for screen readers
@@ -79,7 +119,7 @@ function setBusy(b) {
   });
   if (filtered.length) {
     // auto-load first item as a demo
-    const firstLi = listEl.querySelector('li');
-    if (firstLi) firstLi.click();
+    const firstBtn = listEl.querySelector('button.file-item');
+    if (firstBtn) firstBtn.click();
   }
 })();
