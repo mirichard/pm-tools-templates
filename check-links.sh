@@ -151,9 +151,20 @@ process_readme() {
     done < "$readme_file"
 }
 
-# Find all README.md files, excluding node_modules and .git
+# Find all README.md files, excluding dependency and build directories
 echo "Scanning repository for README.md files..."
-readme_files=$(find . -name "README.md" -type f -not -path "*/node_modules/*" -not -path "*/.git/*" | sort)
+readme_files=$(find . -name "README.md" -type f \
+    -not -path "*/node_modules/*" \
+    -not -path "*/.git/*" \
+    -not -path "*/dist/*" \
+    -not -path "*/build/*" \
+    -not -path "*/.next/*" \
+    -not -path "*/public/*" \
+    -not -path "*/coverage/*" \
+    -not -path "*/__pycache__/*" \
+    -not -path "*/.pytest_cache/*" \
+    -not -path "*/.vscode/*" \
+    -not -path "*/.idea/*" | sort)
 
 if [[ -z "$readme_files" ]]; then
     echo -e "${RED}No README.md files found!${NC}"

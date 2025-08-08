@@ -7,18 +7,18 @@ This guide provides comprehensive instructions for deploying, using, and partici
 ---
 
 ## Table of Contents
-- [Deployment & Setup](#deployment--setup)
+- [Deployment \u0026 Setup](#deployment-setup)
   - [Prerequisites](#prerequisites)
   - [Running the Backend Services](#running-the-backend-services)
   - [Accessing the Dashboard](#accessing-the-dashboard)
 - [Curation Dashboard User Guide](#curation-dashboard-user-guide)
-  - [Key Metrics & Visualizations](#key-metrics--visualizations)
+- [Key Metrics \u0026 Visualizations](#key-metrics-visualizations)
   - [Interpreting Template Scores](#interpreting-template-scores)
   - [Using Filters and Search](#using-filters-and-search)
 - [Community Engagement Guide](#community-engagement-guide)
-  - [Gamification & Recognition](#gamification--recognition)
+- [Gamification \u0026 Recognition](#gamification-recognition)
   - [Community Events Program](#community-events-program)
-  - [Feedback & Contributions](#feedback--contributions)
+- [Feedback \u0026 Contributions](#feedback-contributions)
 - [Template Marketplace Guide](#template-marketplace-guide)
   - [Monetization Framework](#monetization-framework)
   - [Quality Assurance Process](#quality-assurance-process)

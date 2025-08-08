@@ -69,11 +69,15 @@ class AnchorLinkChecker:
         self.anchor_generator = GitHubAnchorGenerator()
         
     def find_readme_files(self) -> List[Path]:
-        """Find all README.md files in the repository."""
+        """Find all README.md files in the repository, skipping dependencies/build dirs."""
         readme_files = []
+        skip_dirs = {"node_modules", ".git", ".vscode", ".idea", "dist", "build", ".next", "coverage", "__pycache__", ".pytest_cache", "public"}
         for path in self.root_dir.rglob("README.md"):
             # Skip hidden directories and common ignore patterns
             if any(part.startswith('.') for part in path.parts):
+                continue
+            # Skip known dependency/build directories
+            if any(part in skip_dirs for part in path.parts):
                 continue
             readme_files.append(path)
         return readme_files
