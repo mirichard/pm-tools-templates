@@ -21,7 +21,7 @@
     "@axe-core/playwright": "^4.9.1",
     "@playwright/test": "^1.46.0",
     "lighthouse": "^12.1.0",
-    "@lhci/cli": "^0.13.0",
+    "@lhci/cli": "^0.15.1",
     "wait-on": "^7.2.0"
   }
 }
