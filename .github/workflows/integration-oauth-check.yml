@@ -42,7 +42,7 @@ jobs:
           cache-dependency-path: integrations/jira-asana-sync/package.json
 
       - name: Install dependencies
-        run: npm ci
+        run: npm install --no-audit --no-fund
 
       - name: Type check and build
         run: |
