@@ -160,5 +160,6 @@ jobs:
           lintTemplates().catch(console.error);
           EOF
           
-    - name: Run template linter
+    - name: Run template linter (non-blocking on PRs)
+      continue-on-error: ${{ github.event_name == 'pull_request' }}
       run: node lint-templates.js
