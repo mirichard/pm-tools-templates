@@ -26,6 +26,7 @@ Note on canonicalization:
 | [Budget Template](role-based-toolkits/project-manager/essential-templates/budget-template.md) | universal | advanced | mirichard | 2025-08-05 |
 | [Business Case Template](templates/traditional/Traditional/Templates/business_case_template.md) | traditional | advanced | mirichard | 2025-08-05 |
 | [Business Requirements Document Template](project-lifecycle/02-planning/business-requirements/business_requirements_document_template.md) | universal | advanced | mirichard | 2025-08-05 |
+| [Capa Management Template](industry-specializations/healthcare-pharmaceutical/compliance/capa_management_template.md) | universal | advanced | mirichard | 2025-08-05 |
 | [Capa Management Template](industry-specializations/healthcare-pharmaceutical/quality-management/capa_management_template.md) | universal | advanced | mirichard | 2025-08-05 |
 | [Change Management Plan Template](templates/traditional/Traditional/Templates/change_management_plan_template.md) | traditional | advanced | mirichard | 2025-08-05 |
 | [Change Request Template](templates/traditional/Traditional/Templates/change_request_template.md) | traditional | advanced | mirichard | 2025-08-05 |
@@ -35,6 +36,7 @@ Note on canonicalization:
 | [Communication Plan Template](templates/traditional/Traditional/Templates/communication_plan_template.md) | traditional | advanced | mirichard | 2025-08-05 |
 | [Compliance Management Template](industry-specializations/financial-services/compliance/compliance-management-template.md) | universal | advanced | mirichard | 2025-08-05 |
 | [Compliance Risk Assessment Template](industry-specializations/healthcare-pharmaceutical/regulatory/compliance_risk_assessment_template.md) | universal | advanced | mirichard | 2025-08-05 |
+| [Computer System Validation Protocol Template](industry-specializations/healthcare-pharmaceutical/regulatory/computer_system_validation_protocol_template.md) | universal | advanced | mirichard | 2025-08-05 |
 | [Computer System Validation Protocol Template](industry-specializations/healthcare-pharmaceutical/validation/computer_system_validation_protocol_template.md) | universal | advanced | mirichard | 2025-08-05 |
 | [Cross Team Coordination Template](methodology-frameworks/agile-scrum/scaling-frameworks/less/cross_team_coordination_template.md) | agile | advanced | mirichard | 2025-08-05 |
 | [Current State Analysis Template](project-assessment-suite/current-state-analysis-template.md) | universal | advanced | mirichard | 2025-08-05 |
@@ -49,18 +51,20 @@ Note on canonicalization:
 | [Enterprise Stakeholder Analysis Template](project-lifecycle/01-initiation/stakeholder-analysis/enterprise-stakeholder-analysis-template.md) | universal | advanced | mirichard | 2025-08-05 |
 | [Equipment Qualification Protocol Template](industry-specializations/healthcare-pharmaceutical/validation/equipment_qualification_protocol_template.md) | universal | advanced | mirichard | 2025-08-05 |
 | [Evm Dashboard Template](business-stakeholder-suite/financial-governance/enhanced-business-cases/evm-dashboard-template.md) | universal | advanced | mirichard | 2025-08-05 |
-| [Executive Dashboard Template](business-stakeholder-suite/executive-dashboards/tableau-integration/executive-dashboard-template.md) | universal | advanced | mirichard | 2025-08-05 |
 | [Executive Dashboard Template](business-stakeholder-suite/executive-dashboards/powerbi-integration/executive-dashboard-template.md) | universal | advanced | mirichard | 2025-08-05 |
+| [Executive Dashboard Template](business-stakeholder-suite/executive-dashboards/tableau-integration/executive-dashboard-template.md) | universal | advanced | mirichard | 2025-08-05 |
 | [Executive Report Templates](business-stakeholder-suite/executive-dashboards/Word/Executive-Report-Templates.md) | universal | advanced | mirichard | 2025-08-05 |
 | [Executive Summary Template](project-assessment-suite/executive-summary-template.md) | universal | advanced | mirichard | 2025-08-05 |
 | [Future State Blueprint Template](project-assessment-suite/future-state-blueprint-template.md) | universal | advanced | mirichard | 2025-08-05 |
 | [Gap Analysis Matrix Template](project-assessment-suite/gap-analysis-matrix-template.md) | universal | advanced | mirichard | 2025-08-05 |
 | [Governance Assessment Template](project-assessment-suite/governance-assessment-template.md) | universal | starter | mirichard | 2025-08-05 |
+| [Gxp Training Plan Template](industry-specializations/healthcare-pharmaceutical/compliance/gxp_training_plan_template.md) | universal | advanced | mirichard | 2025-08-05 |
 | [Gxp Training Plan Template](industry-specializations/healthcare-pharmaceutical/regulatory/gxp_training_plan_template.md) | universal | advanced | mirichard | 2025-08-05 |
 | [Handover Template](role-based-toolkits/project-manager/essential-templates/handover-template.md) | universal | advanced | mirichard | 2025-08-05 |
 | [Health Authority Communication Plan Template](industry-specializations/healthcare-pharmaceutical/regulatory/health_authority_communication_plan_template.md) | universal | advanced | mirichard | 2025-08-05 |
 | [Hybrid Infrastructure Template](methodology-frameworks/hybrid/infrastructure/hybrid-infrastructure-template.md) | hybrid | advanced | mirichard | 2025-08-05 |
 | [Hybrid Project Assessment Template](project-assessment-suite/hybrid-project-assessment-template.md) | universal | starter | mirichard | 2025-08-05 |
+| [Hybrid Project Charter Template](project-lifecycle/01-initiation/project-charter/hybrid-project-charter-template.md) | universal | advanced | mirichard | 2025-08-05 |
 | [Hybrid Project Charter Template](templates/hybrid/Hybrid/Templates/hybrid_project_charter_template.md) | hybrid | advanced | mirichard | 2025-08-05 |
 | [Hybrid Project Management Plan Template](project-lifecycle/02-planning/project-management-plan/hybrid-project-management-plan-template.md) | universal | starter | mirichard | 2025-08-05 |
 | [Hybrid Quality Management Template](templates/hybrid/Hybrid/Templates/hybrid_quality_management_template.md) | hybrid | advanced | mirichard | 2025-08-05 |
@@ -71,6 +75,7 @@ Note on canonicalization:
 | [Infrastructure Assessment Template](industry-specializations/information-technology/infrastructure/infrastructure_assessment_template.md) | universal | advanced | mirichard | 2025-08-05 |
 | [Installation Qualification Protocol Template](industry-specializations/healthcare-pharmaceutical/validation/installation_qualification_protocol_template.md) | universal | advanced | mirichard | 2025-08-05 |
 | [Integrated Change Strategy Template](templates/hybrid/Hybrid/Templates/integrated_change_strategy_template.md) | hybrid | advanced | mirichard | 2025-08-05 |
+| [Issue Log Template](project-lifecycle/04-monitoring-control/issue-management/issue-log-template.md) | universal | advanced | mirichard | 2025-08-05 |
 | [Issue Log Template](templates/traditional/Traditional/Templates/issue_log_template.md) | traditional | advanced | mirichard | 2025-08-05 |
 | [Less Retrospective Template](methodology-frameworks/agile-scrum/scaling-frameworks/less/less_retrospective_template.md) | agile | advanced | mirichard | 2025-08-05 |
 | [Less Sprint Planning Template](methodology-frameworks/agile-scrum/scaling-frameworks/less/less_sprint_planning_template.md) | agile | advanced | mirichard | 2025-08-05 |
@@ -96,8 +101,8 @@ Note on canonicalization:
 | [Program Charter Template](templates/traditional/Traditional/Templates/program_charter_template.md) | traditional | advanced | mirichard | 2025-08-05 |
 | [Program Management Plan Template](templates/traditional/Traditional/Templates/program_management_plan_template.md) | traditional | advanced | mirichard | 2025-08-05 |
 | [Progressive Acceptance Plan Template](templates/hybrid/Hybrid/Templates/progressive_acceptance_plan_template.md) | hybrid | advanced | mirichard | 2025-08-05 |
-| [Project Charter Template](templates/traditional/project-charter-template.md) | Traditional | intermediate | mirichard | 2025-08-05 |
 | [Project Charter Template](templates/traditional/Traditional/Process_Groups/Initiating/project_charter_template.md) | traditional | advanced | mirichard | 2025-08-05 |
+| [Project Charter Template](templates/traditional/project-charter-template.md) | traditional | intermediate | mirichard | 2025-06-21 |
 | [Project Closure Report Template](templates/traditional/Traditional/Process_Groups/Closing/project_closure_report_template.md) | traditional | advanced | mirichard | 2025-08-05 |
 | [Project Dashboard Template](project-lifecycle/04-monitoring-control/progress-tracking/project-dashboard-template.md) | universal | advanced | mirichard | 2025-08-05 |
 | [Project Execution Status Report Template](templates/traditional/Traditional/Process_Groups/Executing/project_execution_status_report_template.md) | traditional | advanced | mirichard | 2025-08-05 |
@@ -108,6 +113,7 @@ Note on canonicalization:
 | [Project Schedule Template](templates/traditional/Traditional/Process_Groups/Planning/project_schedule_template.md) | traditional | advanced | mirichard | 2025-08-05 |
 | [Purchase Order Template](templates/traditional/Traditional/Templates/purchase_order_template.md) | traditional | intermediate | mirichard | 2025-08-05 |
 | [Quality Management Review Template](industry-specializations/healthcare-pharmaceutical/quality-management/quality_management_review_template.md) | universal | advanced | mirichard | 2025-08-05 |
+| [Quality Management Review Template](industry-specializations/healthcare-pharmaceutical/quality/quality_management_review_template.md) | universal | advanced | mirichard | 2025-08-05 |
 | [Quality Test Plan Template](templates/test-samples/quality-test-plan-template.md) | universal | advanced | mirichard | 2025-08-05 |
 | [Raid Log Template](templates/traditional/Traditional/Templates/raid_log_template.md) | traditional | advanced | mirichard | 2025-08-05 |
 | [Regulatory Inspection Readiness Plan Template](industry-specializations/healthcare-pharmaceutical/regulatory/regulatory_inspection_readiness_plan_template.md) | universal | advanced | mirichard | 2025-08-05 |
@@ -130,11 +136,14 @@ Note on canonicalization:
 | [Safe Program Increment Planning Template](methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_program_increment_planning_template.md) | agile | advanced | mirichard | 2025-08-05 |
 | [Skills Matrix Template](project-lifecycle/02-planning/resource-planning/skills-matrix-template.md) | universal | advanced | mirichard | 2025-08-05 |
 | [Software Requirements Specification Template](industry-specializations/healthcare-pharmaceutical/validation/software_requirements_specification_template.md) | universal | advanced | mirichard | 2025-08-05 |
-| [Sprint Planning Template](templates/agile/sprint-planning-template.md) | Scrum | intermediate | mirichard | 2025-08-05 |
-| [Sprint Retrospective Template](templates/agile/sprint_retrospective_template.md) | agile | advanced | mirichard | 2025-08-05 |
+| [Sprint Planning Template](methodology-frameworks/agile-scrum/sprint-planning/sprint_planning_template.md) | agile | advanced | mirichard | 2025-08-05 |
+| [Sprint Planning Template](role-based-toolkits/scrum-master/agile-ceremonies/sprint-planning-template.md) | agile | advanced | mirichard | 2025-08-05 |
+| [Sprint Planning Template](templates/agile/sprint-planning-template.md) | scrum | intermediate | mirichard | 2025-06-21 |
+| [Sprint Planning Template](templates/agile/sprint_planning_template.md) | agile | intermediate | mirichard | 2025-08-05 |
 | [Sprint Retrospective Template](role-based-toolkits/scrum-master/agile-ceremonies/sprint-retrospective-template.md) | agile | advanced | mirichard | 2025-08-05 |
-| [Sprint Review Template](templates/agile/sprint_review_template.md) | agile | advanced | mirichard | 2025-08-05 |
+| [Sprint Retrospective Template](templates/agile/sprint_retrospective_template.md) | agile | advanced | mirichard | 2025-08-05 |
 | [Sprint Review Template](role-based-toolkits/scrum-master/agile-ceremonies/sprint-review-template.md) | agile | advanced | mirichard | 2025-08-05 |
+| [Sprint Review Template](templates/agile/sprint_review_template.md) | agile | advanced | mirichard | 2025-08-05 |
 | [Stakeholder Engagement Assessment Template](project-assessment-suite/stakeholder-engagement-assessment-template.md) | universal | starter | mirichard | 2025-08-05 |
 | [Stakeholder Register Template](role-based-toolkits/project-manager/essential-templates/stakeholder-register.md) | universal | intermediate | mirichard | 2025-08-05 |
 | [Status Report Template](templates/traditional/Traditional/Templates/status_report_template.md) | traditional | advanced | mirichard | 2025-08-05 |
