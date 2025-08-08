@@ -133,14 +133,18 @@ Check: `test-samples/` → Real-world template applications and case studies
 ## 🛠️ **Template Formats & Tools**
 
 ### **📄 Available Formats**
-| Format | Best For | Tools |
-|--------|----------|-------|
-| **Microsoft Word** | Documents, reports, plans | Word, Google Docs |
-| **Microsoft Excel** | Calculations, tracking, analysis | Excel, Google Sheets |
-| **Microsoft PowerPoint** | Presentations, dashboards | PowerPoint, Google Slides |
-| **PDF** | Printed forms, official documents | Any PDF reader |
-| **CSV** | Data import/export | Any spreadsheet tool |
-| **Markdown** | Version-controlled documentation | Git, GitHub, text editors |
+| Format | Availability | Best For | Tools |
+|--------|--------------|----------|-------|
+| **Markdown** | Common | Version-controlled documentation | Git, GitHub, text editors |
+| **Microsoft Excel** | Select templates (see templates/excel) | Calculations, tracking, analysis | Excel, Google Sheets |
+| **Microsoft Word** | Limited | Documents, reports, plans | Word, Google Docs |
+| **Microsoft PowerPoint** | Limited | Presentations, dashboards | PowerPoint, Google Slides |
+| **PDF** | Export only (as needed) | Printed forms, official documents | Any PDF reader |
+| **CSV** | As provided | Data import/export | Any spreadsheet tool |
+
+Notes
+- Office formats (Word/PowerPoint) are not universally available; prefer Markdown for portability and Excel for calculators/dashboards where present (see templates/excel/).
+- If you contribute Office versions, include both the source file and a Markdown overview.
 
 ### **🔧 Tool Integration**
 - **Project Management Tools** - Import into JIRA, Asana, Monday.com, etc.
@@ -224,6 +228,12 @@ Check: `test-samples/` → Real-world template applications and case studies
 - [`/examples/`](../examples/) - Real-world template applications
 
 ---
+
+## ♿ **Accessibility**
+
+- Follow the Accessibility Checklist: see docs/accessibility.md
+- Use true headings, descriptive links, alt text, and sufficient contrast
+- Prefer canonical links and simple, readable layouts
 
 ## 📞 **Support & Contribution**
 
