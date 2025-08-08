@@ -1,6 +1,6 @@
 # Traditional Project Management Templates & Tools
 
-> **PMBOK-Aligned Excellence** - Comprehensive templates and tools based on PMI standards, waterfall methodology, and traditional project management best practices.
+> **Traditional-Aligned Excellence** - Comprehensive templates and tools based on PMI standards, waterfall methodology, and traditional project management best practices.
 
 ---
 
@@ -169,7 +169,7 @@ Explore: `Templates/program-management/` → Multi-project coordination tools
 
 ---
 
-## 🎓 **PMBOK Alignment & Best Practices**
+## 🎓 **Traditional Alignment & Best Practices**
 
 ### **PMI Standards Integration**
 - **PMBOK Guide 7th Edition** - Process-based and principles-based approaches
@@ -293,5 +293,5 @@ Explore: `Templates/program-management/` → Multi-project coordination tools
 
 **Last Updated:** August 2025  
 **Maintained By:** PM Tools Templates Community  
-**PMBOK Version:** 7th Edition Aligned  
+**Standards Alignment:** PMBOK® 7th Edition  
 **Certification:** PMP®-Aligned Templates

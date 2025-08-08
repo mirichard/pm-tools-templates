@@ -23,7 +23,7 @@ This is your central template repository containing the most frequently used and
 templates/
 ├── agile/              # Agile-specific template variations
 ├── hybrid/             # Hybrid methodology templates
-├── traditional/        # Traditional/PMBOK template variations
+├── traditional/        # Traditional template variations
 └── test-samples/       # Example implementations and demos
 ```
 
@@ -43,7 +43,7 @@ Begin with: **Project Initiation Templates** → Charter, stakeholder analysis, 
 
 ### **2. Know Your Methodology?**
 - **Agile Projects:** → `agile/` directory for sprint-based templates
-- **Traditional Projects:** → `traditional/` directory for PMBOK-aligned templates  
+- **Traditional Projects:** → `traditional/` directory for Traditional-aligned templates  
 - **Mixed Approach:** → `hybrid/` directory for combined methodology templates
 
 ### **3. Need Specific Template Type?**
@@ -213,7 +213,7 @@ Check: `test-samples/` → Real-world template applications and case studies
 
 ### **Within This Repository:**
 - [`/Agile/`](../Agile/) - Complete agile methodology toolkit
-- [`/Traditional/`](../Traditional/) - Full PMBOK-aligned resources
+- [`/Traditional/`](../Traditional/) - Full Traditional-aligned resources
 - [`/Hybrid/`](../Hybrid/) - Hybrid methodology frameworks
 - [`/role-based-toolkits/`](../role-based-toolkits/) - Role-specific template collections
 - [`/industry-specializations/`](../industry-specializations/) - Industry-adapted templates
