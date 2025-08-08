@@ -151,6 +151,16 @@ jobs:
           
           echo "Found $CLEANUP_COUNT artifacts to clean ($(printf "%.2f" $CLEANUP_SIZE_GB) GB)"
 
+      - name: 📤 Upload Discovery Results
+        uses: actions/upload-artifact@v4
+        with:
+          name: artifact-discovery-${{ github.run_number }}
+          path: |
+            artifact-data/artifacts.json
+            artifact-data/analyzed.json
+            artifact-data/stats.json
+          retention-days: 7
+
       - name: 🧹 Execute Cleanup
         if: github.event.inputs.action == 'cleanup'
         env:
@@ -194,7 +204,8 @@ jobs:
         run: |
           echo "💾 Analyzing storage usage patterns..."
           
-          TOTAL_SIZE_GB="${{ needs.artifact-discovery.outputs.total_size_gb }}"
+          # Read totals from stats.json produced in manage-artifacts job
+          TOTAL_SIZE_GB=$(jq -r '.size_total_mb / 1024' artifact-data/stats.json)
           WARNING_THRESHOLD=${{ env.STORAGE_WARNING_THRESHOLD_GB }}
           CRITICAL_THRESHOLD=${{ env.STORAGE_CRITICAL_THRESHOLD_GB }}
           
