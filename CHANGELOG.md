@@ -1,5 +1,24 @@
 # Changelog
 
+## 2025-08-08
+
+Consolidation of canonical path migration and CI/workflow fixes.
+
+Highlights:
+- Adopted canonical_path across templates and introduced canonical/alternate path validation script.
+- Regenerated TEMPLATE_INDEX.md from templates/templates.json; removed non-canonical duplicates.
+- Added simple Template Selector CLI and usage docs.
+- Introduced preview-a11y-perf job and enhanced docs link/anchor checks.
+- Fixed Integration OAuth Check and related workflows; made certain doc/security checks non-blocking on PRs.
+- Added accessibility checklist and clarified template format availability.
+
+CI/Quality:
+- Updated CI to Node 20; hardened npm install steps.
+- Enabled CodeQL, Semgrep, visual regression tests, and artifact lifecycle fixes.
+
+Breaking/Behavioral changes:
+- Prefer canonical templates/ paths; role-based-toolkits and lifecycle directories act as stubs.
+
 All notable changes to this project will be documented in this file.
 
 ## 2025-08-08
