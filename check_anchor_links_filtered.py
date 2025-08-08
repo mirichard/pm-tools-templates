@@ -17,7 +17,7 @@ class LinkHealthChecker:
         skip_dirs = {
             'node_modules', '.git', '.vscode', '.idea', 
             'dist', 'build', '.next', 'coverage', 
-            '__pycache__', '.pytest_cache'
+            '__pycache__', '.pytest_cache', 'public'
         }
         return any(skip_dir in str(dir_path) for skip_dir in skip_dirs)
     
