@@ -11,7 +11,8 @@
     "quick-start": "node onboarding/interactive-onboarding.js",
     "dashboard-demo": "npm --prefix dashboard-mvp run dev",
     "generate-changelogs": "node scripts/generate-changelogs.mjs",
-    "build-site": "npm run generate-changelogs && npm --prefix docs/site run build",
+    "generate-template-index": "node scripts/generate_template_index.mjs",
+    "build-site": "npm run generate-changelogs && npm --prefix docs/site run build",
     "dev-site": "npm --prefix docs/site run dev",
     "preview-site": "npm --prefix docs/site run preview",
     "doc-scan": "node scripts/doc-scan.js"
