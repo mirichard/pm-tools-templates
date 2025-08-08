@@ -22,6 +22,14 @@ estimated_completion_time: "90-120 minutes"
 
 # Interactive Template Selector
 
+Quick CLI usage (optional)
+
+- List templates by filters:
+  - npm run template-selector -- --list --methodology=traditional --search="charter"
+  - npm run template-selector -- --list --tags="risk" --complexity=advanced
+- Copy a template to a destination with optional front-matter injection:
+  - npm run template-selector -- --title="Project Charter Template" --dest=./my-project/docs --inject="project_name=Acme,owner=Jane Doe,date=2025-08-08"
+
 **Find the right templates for your situation in 2 minutes**
 
 ## Quick Selector
