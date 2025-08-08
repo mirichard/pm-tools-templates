@@ -113,6 +113,15 @@ app.get('/api/dashboard', (req, res) => {
 // Static client
 app.use('/', express.static(PUBLIC_DIR));
 
+// Provide a tiny favicon to avoid 404s in logs and best-practices checks
+app.get('/favicon.ico', (req, res) => {
+  const b64 = 'iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR4nGMAAQAABQABDQottAAAAABJRU5ErkJggg=='; // 1x1 transparent PNG
+  const buf = Buffer.from(b64, 'base64');
+  res.setHeader('Content-Type', 'image/png');
+  res.setHeader('Cache-Control', 'public, max-age=31536000, immutable');
+  res.send(buf);
+});
+
 app.listen(PORT, () => {
   // eslint-disable-next-line no-console
   console.log(`Demo server running on http://localhost:${PORT}`);
