@@ -151,11 +151,9 @@ Note: Each entry links to the canonical template location. Where multiple varian
 | Software Requirements Specification Template | universal | advanced | 2025-08-05 | [View](industry-specializations/healthcare-pharmaceutical/validation/software_requirements_specification_template.md) |
 | Sprint Planning Template | agile | intermediate | 2025-08-05 | [View](templates/agile/sprint_planning_template.md) |
 | Sprint Retrospective Template | agile | advanced | 2025-08-05 | [View](templates/agile/sprint_retrospective_template.md) |
-| Sprint Retrospective Template | agile | advanced | 2025-08-05 | [View](role-based-toolkits/scrum-master/agile-ceremonies/sprint-retrospective-template.md) |
 | Sprint Review Template | agile | advanced | 2025-08-05 | [View](templates/agile/sprint_review_template.md) |
-| Sprint Review Template | agile | advanced | 2025-08-05 | [View](role-based-toolkits/scrum-master/agile-ceremonies/sprint-review-template.md) |
 | Stakeholder Engagement Assessment Template | universal | starter | 2025-08-05 | [View](project-assessment-suite/stakeholder-engagement-assessment-template.md) |
-| Stakeholder Register Template | universal | intermediate | 2025-08-05 | [View](project-lifecycle/01-initiation/stakeholder-analysis/stakeholder-register-template.md) |
+| Stakeholder Register Template | universal | intermediate | 2025-08-05 | [View](role-based-toolkits/project-manager/essential-templates/stakeholder-register.md) |
 | Status Report Template | traditional | advanced | 2025-08-05 | [View](templates/traditional/Traditional/Templates/status_report_template.md) |
 | Team Charter Template | universal | advanced | 2025-08-05 | [View](project-lifecycle/02-planning/resource-planning/team-charter-template.md) |
 | Team Performance Assessment Template | traditional | intermediate | 2025-08-05 | [View](templates/traditional/Traditional/Process_Groups/Executing/team_performance_assessment_template.md) |
