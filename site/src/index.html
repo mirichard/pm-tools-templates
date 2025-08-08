@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>PM Templates Preview</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <a href="#content" class="skip-link">Skip to main content</a>
+  <header>
+    <h1>PM Templates Preview</h1>
+    <div class="consent" id="consent">
+      <p>Allow anonymous, opt-in telemetry to improve this demo?</p>
+      <button id="consent-yes">Yes</button>
+      <button id="consent-no">No</button>
+    </div>
+  </header>
+  <main>
+    <aside>
+      <label for="search" class="visually-hidden">Search templates</label>
+      <input id="search" placeholder="Search templates..." />
+    <nav id="file-list" aria-label="Templates navigation"></nav>
+    </aside>
+    <section id="preview" aria-live="polite" aria-busy="false">
+      <div id="content" class="markdown-body" tabindex="-1"></div>
+    </section>
+  </main>
+  <footer>
+    <a href="/api/dashboard" target="_blank">Telemetry dashboard (JSON)</a>
+  </footer>
+  <script src="app.js" type="module"></script>
+</body>
+</html>

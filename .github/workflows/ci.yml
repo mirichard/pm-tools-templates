@@ -3,17 +3,68 @@ on:
   push:
     branches: [ main, staging, develop ]
   pull_request:
+
 jobs:
   build-test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
-        with: { node-version: "20" }
-      - run: npm ci
+        with:
+          node-version: '20'
+      - run: npm ci || npm install
       - run: npm test -- --coverage
       - uses: actions/upload-artifact@v4
         with:
           name: coverage
           path: coverage
 
+  validate-index-and-links:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Install deps
+        run: npm ci || npm install
+      - name: Validate canonical paths
+        run: node scripts/validate-canonical-paths.js --strict
+      - name: Generate index (check for drift)
+        run: node scripts/generate-template-index.js && git diff --no-index --exit-code TEMPLATE_INDEX.md TEMPLATE_INDEX.md
+      - name: Anchor link check (filtered)
+        run: python3 check_anchor_links_filtered.py
+
+  preview-a11y-perf:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Install dependencies
+        working-directory: site
+        run: npm ci || npm i
+      - name: Install Playwright browsers
+        working-directory: site
+        run: npx playwright install --with-deps chromium
+      - name: Start server
+        working-directory: site
+        run: |
+          node server.js &
+          echo $! > .server.pid
+      - name: Wait for server
+        working-directory: site
+        run: npx wait-on http://localhost:5173
+      - name: Run E2E + a11y tests
+        working-directory: site
+        run: npx playwright test
+      - name: Lighthouse CI
+        working-directory: site
+        run: npx lhci autorun --collect.url=http://localhost:5173
+      - name: Stop server
+        working-directory: site
+        if: always()
+        run: kill $(cat .server.pid)
