@@ -43,8 +43,8 @@
 - [Project Charter Template](templates/traditional/Traditional/Process_Groups/Initiating/project_charter_template.md) - Start any project
 - [Sprint Planning Template](templates/agile/sprint_planning_template.md) - Plan agile sprints  
 - [Risk Register Template](templates/traditional/Traditional/Templates/risk_register_template.md) - Manage project risks
-- [Status Report Template](project-lifecycle/04-monitoring-control/progress-tracking/status-report-template.md) - Report progress
-- [Stakeholder Register Template](project-lifecycle/01-initiation/stakeholder-analysis/stakeholder-register-template.md) - Manage stakeholders
+- [Status Report Template](templates/traditional/Traditional/Templates/status_report_template.md) - Report progress
+- [Stakeholder Register Template](role-based-toolkits/project-manager/essential-templates/stakeholder-register.md) - Manage stakeholders
 
 ### Popular Tags
 

@@ -96,7 +96,7 @@ examples/
 
 ---
 
-### **Healthcare Implementation - Traditional PMBOK**
+### **Healthcare Implementation - Traditional**
 **Project:** Electronic Health Records (EHR) System Implementation  
 **Industry:** Healthcare/Hospital Network  
 **Duration:** 24 months  
@@ -109,7 +109,7 @@ examples/
 - Integrate with 50+ existing healthcare systems
 
 **Methodology Applied:**
-- **Traditional PMBOK** - Structured phase-gate approach
+- **Traditional** - Structured phase-gate approach
 - **Risk-Heavy Planning** - Extensive risk management due to patient safety
 - **Vendor Management** - Complex multi-vendor coordination
 

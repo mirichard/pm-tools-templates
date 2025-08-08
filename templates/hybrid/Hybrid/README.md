@@ -1,6 +1,6 @@
 # Hybrid Project Management Templates & Tools
 
-> **Best of Both Worlds** - Intelligently combine Traditional (PMBOK) structure with Agile flexibility for optimal project outcomes across diverse organizational contexts.
+> **Best of Both Worlds** - Intelligently combine Traditional structure with Agile flexibility for optimal project outcomes across diverse organizational contexts.
 
 ---
 
@@ -57,7 +57,7 @@ Check: `Tools/` → Methodology selection and maturity assessment tools
 
 ### **🏗️ Traditional Planning → Agile Execution**
 **Best For:** Large programs, fixed budgets, regulatory requirements
-- **Phase 1:** Traditional initiation and detailed planning (PMBOK)
+- **Phase 1:** Traditional initiation and detailed planning
 - **Phase 2:** Agile execution with sprints and iterations
 - **Phase 3:** Traditional closure and governance reporting
 
@@ -276,7 +276,7 @@ Located in: `MPP-Jira-Integration/`
 
 ### **Within This Repository:**
 - [`/Agile/`](../Agile/) - Pure agile methodology templates and tools
-- [`/Traditional/`](../Traditional/) - PMBOK-aligned traditional project management
+- [`/Traditional/`](../Traditional/) - Traditional-aligned project management
 - [`/role-based-toolkits/`](../role-based-toolkits/) - Role-specific hybrid tools
 - [`/methodology-frameworks/`](../methodology-frameworks/) - Comparative methodology guidance
 

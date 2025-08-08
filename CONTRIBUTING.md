@@ -40,8 +40,14 @@ We organize content around **how PMs actually work**:
 ### 3. Follow Our Principles
 - **Practical over Perfect**: Templates should work in real projects
 - **User-Centric**: Organized by user needs, not theoretical frameworks
-- **Methodology-Agnostic**: Core templates work across Agile, Waterfall, and Hybrid
+- **Methodology-Agnostic**: Core templates work across Agile, Waterfall (Traditional), and Hybrid
 - **Immediately Useful**: No extensive setup or learning curve required
+
+### 4. Terminology and Standards References
+- Use “Traditional” as the user-facing term for waterfall/PMBOK-aligned content.
+- Preserve PMBOK® references only when citing official standards, sections, or guidance (e.g., “PMBOK® 5.4.2.1”).
+- Do not alter legal/trademark notices that reference PMBOK®.
+- Avoid introducing “PMBOK” in new user-facing copy; prefer “Traditional” unless a standards citation is required.
 
 ## 📝 Template Contribution Guidelines
 
@@ -153,6 +159,13 @@ template-name/
    - Include a filled example (with sensitive data removed)
 
 ### Step 3: Submit Your Pull Request
+
+Before opening a PR, run the local link check to catch broken references:
+
+```bash
+# Quick README link check without external dependencies
+python3 check_links_no_deps.py
+```
 
 1. **Commit Your Changes**
    ```bash

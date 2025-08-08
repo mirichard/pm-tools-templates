@@ -21,6 +21,8 @@
 
 ## 📋 All Templates
 
+Note: Each entry links to the canonical template location. Where multiple variants exist, the canonical path is preferred; alternate variants may be listed in the template’s Related section.
+
 | Template | Methodology | Complexity | Updated | Link |
 |----------|-------------|------------|---------|------|
 | Advanced Business Case Template | universal | advanced | 2025-08-05 | [View](business-stakeholder-suite/financial-governance/enhanced-business-cases/advanced-business-case-template.md) |
@@ -89,7 +91,6 @@
 | Installation Qualification Protocol Template | universal | advanced | 2025-08-05 | [View](industry-specializations/healthcare-pharmaceutical/validation/installation_qualification_protocol_template.md) |
 | Integrated Change Strategy Template | hybrid | advanced | 2025-08-05 | [View](templates/hybrid/Hybrid/Templates/integrated_change_strategy_template.md) |
 | Issue Log Template | traditional | advanced | 2025-08-05 | [View](templates/traditional/Traditional/Templates/issue_log_template.md) |
-| Issue Log Template | universal | advanced | 2025-08-05 | [View](project-lifecycle/04-monitoring-control/issue-management/issue-log-template.md) |
 | Less Retrospective Template | agile | advanced | 2025-08-05 | [View](methodology-frameworks/agile-scrum/scaling-frameworks/less/less_retrospective_template.md) |
 | Less Sprint Planning Template | agile | advanced | 2025-08-05 | [View](methodology-frameworks/agile-scrum/scaling-frameworks/less/less_sprint_planning_template.md) |
 | Manufacturing Batch Record Template | universal | advanced | 2025-08-05 | [View](industry-specializations/healthcare-pharmaceutical/manufacturing/manufacturing_batch_record_template.md) |
@@ -114,7 +115,6 @@
 | Program Charter Template | traditional | advanced | 2025-08-05 | [View](templates/traditional/Traditional/Templates/program_charter_template.md) |
 | Program Management Plan Template | traditional | advanced | 2025-08-05 | [View](templates/traditional/Traditional/Templates/program_management_plan_template.md) |
 | Progressive Acceptance Plan Template | hybrid | advanced | 2025-08-05 | [View](templates/hybrid/Hybrid/Templates/progressive_acceptance_plan_template.md) |
-| Project Charter Template | Traditional | Not specified | Not specified | [View](templates/traditional/project-charter-template.md) |
 | Project Charter Template | traditional | advanced | 2025-08-05 | [View](templates/traditional/Traditional/Process_Groups/Initiating/project_charter_template.md) |
 | Project Closure Report Template | traditional | advanced | 2025-08-05 | [View](templates/traditional/Traditional/Process_Groups/Closing/project_closure_report_template.md) |
 | Project Dashboard Template | universal | advanced | 2025-08-05 | [View](project-lifecycle/04-monitoring-control/progress-tracking/project-dashboard-template.md) |
@@ -141,7 +141,6 @@
 | Risk Management Assessment Template | universal | starter | 2025-08-05 | [View](project-assessment-suite/risk-management-assessment-template.md) |
 | Risk Management Plan Template | universal | advanced | 2025-08-05 | [View](project-lifecycle/02-planning/risk-management/risk-management-plan-template.md) |
 | Risk Register Template | traditional | advanced | 2025-08-05 | [View](templates/traditional/Traditional/Templates/risk_register_template.md) |
-| Risk Register Template | universal | advanced | 2025-08-05 | [View](project-lifecycle/02-planning/risk-management/risk-register-template.md) |
 | Roi Tracking Template | traditional | advanced | 2025-08-05 | [View](templates/traditional/Traditional/Knowledge_Areas/Project_Cost_Management/roi_tracking_template.md) |
 | Safe Art Coordination Template | agile | advanced | 2025-08-05 | [View](methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_art_coordination_template.md) |
 | Safe Metrics Dashboard Template | agile | advanced | 2025-08-05 | [View](methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_metrics_dashboard_template.md) |
@@ -151,24 +150,16 @@
 | Skills Matrix Template | universal | advanced | 2025-08-05 | [View](project-lifecycle/02-planning/resource-planning/skills-matrix-template.md) |
 | Software Requirements Specification Template | universal | advanced | 2025-08-05 | [View](industry-specializations/healthcare-pharmaceutical/validation/software_requirements_specification_template.md) |
 | Sprint Planning Template | agile | intermediate | 2025-08-05 | [View](templates/agile/sprint_planning_template.md) |
-| Sprint Planning Template | Scrum | Not specified | Not specified | [View](templates/agile/sprint-planning-template.md) |
-| Sprint Planning Template | agile | advanced | 2025-08-05 | [View](role-based-toolkits/scrum-master/agile-ceremonies/sprint-planning-template.md) |
-| Sprint Planning Template | agile | advanced | 2025-08-05 | [View](methodology-frameworks/agile-scrum/sprint-planning/sprint_planning_template.md) |
 | Sprint Retrospective Template | agile | advanced | 2025-08-05 | [View](templates/agile/sprint_retrospective_template.md) |
-| Sprint Retrospective Template | agile | advanced | 2025-08-05 | [View](role-based-toolkits/scrum-master/agile-ceremonies/sprint-retrospective-template.md) |
 | Sprint Review Template | agile | advanced | 2025-08-05 | [View](templates/agile/sprint_review_template.md) |
-| Sprint Review Template | agile | advanced | 2025-08-05 | [View](role-based-toolkits/scrum-master/agile-ceremonies/sprint-review-template.md) |
 | Stakeholder Engagement Assessment Template | universal | starter | 2025-08-05 | [View](project-assessment-suite/stakeholder-engagement-assessment-template.md) |
-| Stakeholder Register Template | universal | intermediate | 2025-08-05 | [View](project-lifecycle/01-initiation/stakeholder-analysis/stakeholder-register-template.md) |
+| Stakeholder Register Template | universal | intermediate | 2025-08-05 | [View](role-based-toolkits/project-manager/essential-templates/stakeholder-register.md) |
 | Status Report Template | traditional | advanced | 2025-08-05 | [View](templates/traditional/Traditional/Templates/status_report_template.md) |
-| Status Report Template | universal | advanced | 2025-08-05 | [View](project-lifecycle/04-monitoring-control/progress-tracking/status-report-template.md) |
 | Team Charter Template | universal | advanced | 2025-08-05 | [View](project-lifecycle/02-planning/resource-planning/team-charter-template.md) |
 | Team Performance Assessment Template | traditional | intermediate | 2025-08-05 | [View](templates/traditional/Traditional/Process_Groups/Executing/team_performance_assessment_template.md) |
 | Technical Design Document Template | universal | advanced | 2025-08-05 | [View](industry-specializations/information-technology/software-development/technical_design_document_template.md) |
 | Test Plan Template | universal | advanced | 2025-08-05 | [View](industry-specializations/information-technology/software-development/test_plan_template.md) |
 | Timesheet Tracking Template | universal | intermediate | 2025-08-05 | [View](role-based-toolkits/project-manager/essential-templates/timesheet-tracking-template.md) |
-| Traditional Project Charter Template | universal | advanced | 2025-08-05 | [View](project-lifecycle/01-initiation/project-charter/traditional-project-charter-template.md) |
-| Traditional Project Management Plan Template | universal | intermediate | 2025-08-05 | [View](project-lifecycle/02-planning/project-management-plan/traditional-project-management-plan-template.md) |
 | Uat Plan Template | traditional | advanced | 2025-08-05 | [View](templates/traditional/Traditional/Templates/uat_plan_template.md) |
 | Uat Strategy Template | traditional | advanced | 2025-08-05 | [View](templates/traditional/Traditional/Templates/uat_strategy_template.md) |
 | User Empathy Mapping Template | universal | advanced | 2025-08-05 | [View](methodology-frameworks/emerging-methods/design-thinking/user_empathy_mapping_template.md) |
