@@ -1,51 +1,64 @@
-# Dependabot configuration for PM Tools & Templates
-# Monitors for security vulnerabilities and keeps dependencies updated
-
 version: 2
 updates:
-  # Monitor GitHub Actions for security updates
-  - package-ecosystem: "github-actions"
+  # GitHub Actions in the root
+  - package-ecosystem: github-actions
     directory: "/"
     schedule:
-      interval: "weekly"
-      day: "monday"
-    open-pull-requests-limit: 5
-    labels:
-      - "dependencies"
-      - "security"
+      interval: daily
+    open-pull-requests-limit: 10
+    labels: ["dependencies", "security"]
     commit-message:
-      prefix: "Security"
+      prefix: "deps"
       include: "scope"
 
-  # Monitor npm packages if any JavaScript tools are added
-  - package-ecosystem: "npm"
+  # Root Node.js toolchain/scripts
+  - package-ecosystem: npm
     directory: "/"
     schedule:
-      interval: "weekly"
-      day: "monday"
-    open-pull-requests-limit: 5
-    labels:
-      - "dependencies"
-      - "security"
-    commit-message:
-      prefix: "Security"
-      include: "scope"
-    ignore:
-      # Ignore patch updates for now, focus on security
-      - dependency-name: "*"
-        update-types: ["version-update:semver-patch"]
+      interval: daily
+    versioning-strategy: increase
+    open-pull-requests-limit: 10
+    labels: ["dependencies"]
 
-  # Monitor Python packages if any automation tools are added
-  - package-ecosystem: "pip"
-    directory: "/"
+  # Site preview and a11y/perf harness
+  - package-ecosystem: npm
+    directory: "/site"
     schedule:
-      interval: "weekly"
-      day: "monday"
+      interval: daily
+    versioning-strategy: increase
+    open-pull-requests-limit: 10
+    labels: ["dependencies"]
+
+  # Docs site (if present)
+  - package-ecosystem: npm
+    directory: "/docs/site"
+    schedule:
+      interval: daily
+    versioning-strategy: increase
+    open-pull-requests-limit: 10
+    labels: ["dependencies"]
+
+  # Integrations: Jira/Asana sync example
+  - package-ecosystem: npm
+    directory: "/integrations/jira-asana-sync"
+    schedule:
+      interval: daily
+    versioning-strategy: increase
+    open-pull-requests-limit: 10
+    labels: ["dependencies"]
+
+  # Python examples
+  - package-ecosystem: pip
+    directory: "/integrations/linkedin"
+    schedule:
+      interval: weekly
     open-pull-requests-limit: 5
-    labels:
-      - "dependencies"
-      - "security"
-    commit-message:
-      prefix: "Security"
-      include: "scope"
+    labels: ["dependencies", "python"]
+
+  - package-ecosystem: pip
+    directory: "/templates/hybrid/Hybrid/MPP-Jira-Integration"
+    schedule:
+      interval: weekly
+    open-pull-requests-limit: 5
+    labels: ["dependencies", "python"]
 
