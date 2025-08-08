@@ -137,11 +137,14 @@ function main() {
   }
   // Prefer canonical path like earlier generator priority
   const ordered = matches.sort((a, b) => {
+    // prefer canonical_path if present
+    const aPath = a.canonical_path || a.path;
+    const bPath = b.canonical_path || b.path;
     const rank = p => (/^templates\//i.test(p) ? 0 : /^role-based-toolkits\//i.test(p) ? 1 : /^project-lifecycle\//i.test(p) ? 2 : /^methodology-frameworks\//i.test(p) ? 3 : 9);
-    return rank(a.path) - rank(b.path) || a.path.localeCompare(b.path);
+    return rank(aPath) - rank(bPath) || aPath.localeCompare(bPath);
   });
   const choice = ordered[0];
-  const srcPath = path.join(root, choice.path);
+  const srcPath = path.join(root, choice.canonical_path || choice.path);
   if (!fs.existsSync(srcPath)) {
     console.error('Source file not found:', srcPath);
     process.exit(3);

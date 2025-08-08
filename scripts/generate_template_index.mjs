@@ -48,7 +48,10 @@ function buildIndexRows(templatesByTitle) {
     const list = templatesByTitle.get(key);
     // Select canonical entry
     const canonical = (() => {
-      // sort by path priority
+      // prefer entries with canonical_path when present
+      const withCanonical = list.find(t => t.canonical_path);
+      if (withCanonical) return withCanonical;
+      // otherwise sort by path priority
       const sorted = [...list].sort((a, b) => {
         const aP = a.path || '';
         const bP = b.path || '';
@@ -66,7 +69,7 @@ function buildIndexRows(templatesByTitle) {
     const methodology = (canonical.methodology || 'universal').toLowerCase();
     const complexity = (canonical.complexity || 'not specified').toLowerCase();
     const updated = canonical.updated || 'Not specified';
-    const link = canonical.path;
+    const link = canonical.canonical_path || canonical.path;
     rows.push(`| ${title} | ${methodology} | ${complexity} | ${updated} | [View](${link}) |`);
   }
   return rows;

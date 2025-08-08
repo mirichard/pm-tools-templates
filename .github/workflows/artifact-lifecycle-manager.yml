@@ -21,6 +21,10 @@ on:
           - expired
           - large
           - test
+  pull_request:
+  push:
+  schedule:
+    - cron: '0 6 * * 1'
 
 env:
   # Enhanced lifecycle configuration
@@ -34,14 +38,23 @@ env:
   PARALLEL_OPERATIONS: 2
   API_TIMEOUT_SECONDS: 30
 
+  # Thresholds and retention defaults
+  STORAGE_WARNING_THRESHOLD_GB: 4
+  STORAGE_CRITICAL_THRESHOLD_GB: 5
+  CRITICAL_RETENTION_DAYS: 90
+  DEFAULT_RETENTION_DAYS: 30
+  TEST_RETENTION_DAYS: 7
+  CACHE_RETENTION_DAYS: 14
+
 permissions:
   contents: read
   actions: write
 
 jobs:
-  manage-artifacts:
+manage-artifacts:
     name: 📦 Manage Artifacts
     runs-on: ubuntu-latest
+    continue-on-error: ${{ github.event_name == 'pull_request' }}
     
     steps:
       - name: 🔍 Discover Artifacts
@@ -151,6 +164,16 @@ jobs:
           
           echo "Found $CLEANUP_COUNT artifacts to clean ($(printf "%.2f" $CLEANUP_SIZE_GB) GB)"
 
+      - name: 📤 Upload Discovery Results
+        uses: actions/upload-artifact@v4
+        with:
+          name: artifact-discovery-${{ github.run_number }}
+          path: |
+            artifact-data/artifacts.json
+            artifact-data/analyzed.json
+            artifact-data/stats.json
+          retention-days: 7
+
       - name: 🧹 Execute Cleanup
         if: github.event.inputs.action == 'cleanup'
         env:
@@ -176,10 +199,11 @@ jobs:
           done
 
   # Storage Analysis and Optimization
-  storage-analysis:
+storage-analysis:
     name: 💾 Storage Analysis
     runs-on: ubuntu-latest
     needs: manage-artifacts
+    continue-on-error: ${{ github.event_name == 'pull_request' }}
     
     steps:
       - name: 📥 Checkout Repository
@@ -194,7 +218,8 @@ jobs:
         run: |
           echo "💾 Analyzing storage usage patterns..."
           
-          TOTAL_SIZE_GB="${{ needs.artifact-discovery.outputs.total_size_gb }}"
+          # Read totals from stats.json produced in manage-artifacts job
+          TOTAL_SIZE_GB=$(jq -r '.size_total_mb / 1024' artifact-data/stats.json)
           WARNING_THRESHOLD=${{ env.STORAGE_WARNING_THRESHOLD_GB }}
           CRITICAL_THRESHOLD=${{ env.STORAGE_CRITICAL_THRESHOLD_GB }}
           
@@ -225,13 +250,15 @@ jobs:
           import json
           import os
           
-          # Load analysis data
-          with open('artifact_analysis.json', 'r') as f:
-              analysis = json.load(f)
+# Load analysis data
+          with open('artifact-data/analyzed.json', 'r') as f:
+              analyzed = json.load(f)
+          with open('artifact-data/stats.json', 'r') as f:
+              stats = json.load(f)
           
-          total_size = analysis['summary_stats']['total_size_gb']
-          cleanup_candidates = analysis['cleanup_candidates']
-          size_by_category = analysis['summary_stats']['size_by_category_mb']
+          total_size = float(stats.get('size_total_mb', 0) or 0) / 1024
+          cleanup_candidates = analyzed.get('cleanup', [])
+          size_by_category = stats.get('size_by_category_mb', {}) or {}
           
           # Generate optimization recommendations
           recommendations = []
@@ -295,9 +322,11 @@ jobs:
           import os
           from datetime import datetime
           
-          # Load data
-          with open('artifact_analysis.json', 'r') as f:
-              analysis = json.load(f)
+# Load data
+          with open('artifact-data/stats.json', 'r') as f:
+              stats = json.load(f)
+          with open('artifact-data/analyzed.json', 'r') as f:
+              analyzed = json.load(f)
           
           with open('storage_optimization.json', 'r') as f:
               optimization = json.load(f)
@@ -312,10 +341,10 @@ jobs:
           ## 📊 Storage Overview
           
           ### Current Usage
-          - **Total Artifacts:** {analysis['summary_stats']['total_artifacts']}
-          - **Total Storage:** {analysis['summary_stats']['total_size_gb']} GB
-          - **Cleanup Candidates:** {analysis['summary_stats']['cleanup_candidates_count']}
-          - **Potential Savings:** {optimization['potential_savings_gb']:.2f} GB
+- **Total Artifacts:** { (len(analyzed.get('keep', [])) + len(analyzed.get('cleanup', []))) }
+- **Total Storage:** { (float(stats.get('size_total_mb', 0) or 0) / 1024):.2f} GB
+- **Cleanup Candidates:** { len(analyzed.get('cleanup', [])) }
+- **Potential Savings:** {optimization['potential_savings_gb']:.2f} GB
           
           ### Storage Status
           {optimization['storage_message']}
@@ -326,8 +355,8 @@ jobs:
           |----------|-------|-----------|---------------|
           """
           
-          categories = analysis['summary_stats']['categories']
-          sizes = analysis['summary_stats']['size_by_category_mb']
+categories = stats.get('categories', {}) or {}
+          sizes = stats.get('size_by_category_mb', {}) or {}
           
           for category, count in categories.items():
               if count > 0:
@@ -342,9 +371,9 @@ jobs:
           ### Cleanup Candidates by Reason
           """
           
-          # Group cleanup candidates by reason
+# Group cleanup candidates by reason
           cleanup_reasons = {}
-          for candidate in analysis['cleanup_candidates']:
+          for candidate in analyzed.get('cleanup', []):
               reason = candidate.get('cleanup_reason', 'Unknown')
               if reason not in cleanup_reasons:
                   cleanup_reasons[reason] = {'count': 0, 'size_mb': 0}
@@ -433,14 +462,13 @@ jobs:
           retention-days: ${{ env.DEFAULT_RETENTION_DAYS }}
 
   # Automated Cleanup Execution
-  automated-cleanup:
+automated-cleanup:
     name: 🧹 Automated Cleanup
     runs-on: ubuntu-latest
-    needs: [artifact-discovery, storage-analysis]
-    if: >
-      (github.event.inputs.force_cleanup == 'true' || 
-       needs.artifact-discovery.outputs.total_size_gb > 4 ||
-       github.event_name == 'schedule')
+    needs: [manage-artifacts, storage-analysis]
+    continue-on-error: ${{ github.event_name == 'pull_request' }}
+    if: |
+      github.event.inputs.force_cleanup == 'true' || github.event_name == 'schedule'
     
     steps:
       - name: 📥 Checkout Repository
@@ -472,11 +500,11 @@ jobs:
           import os
           from datetime import datetime, timedelta
           
-          # Load cleanup candidates
-          with open('artifact_analysis.json', 'r') as f:
-              analysis = json.load(f)
+# Load cleanup candidates
+          with open('artifact-data/analyzed.json', 'r') as f:
+              analyzed = json.load(f)
           
-          cleanup_candidates = analysis['cleanup_candidates']
+          cleanup_candidates = analyzed.get('cleanup', [])
           cleanup_scope = os.environ.get('CLEANUP_SCOPE', 'comprehensive')
           force_cleanup = os.environ.get('FORCE_CLEANUP', 'false').lower() == 'true'
           
@@ -701,11 +729,12 @@ jobs:
           retention-days: ${{ env.CRITICAL_RETENTION_DAYS }}
 
   # Retention Policy Management
-  retention-policy-manager:
+retention-policy-manager:
     name: 📋 Retention Policy Manager
     runs-on: ubuntu-latest
-    needs: [artifact-discovery, automated-cleanup]
+    needs: [manage-artifacts, automated-cleanup]
     if: always()
+    continue-on-error: ${{ github.event_name == 'pull_request' }}
     
     steps:
       - name: 📥 Checkout Repository
@@ -724,10 +753,39 @@ jobs:
           import os
           from datetime import datetime
           
-          # Parse retention summary
-          retention_data = json.loads(os.environ['RETENTION_SUMMARY'])
-          total_artifacts = int(os.environ.get('TOTAL_ARTIFACTS', 0))
-          total_size_gb = float(os.environ.get('TOTAL_SIZE_GB', 0))
+# Parse retention summary, fallback to computed defaults
+          import pathlib
+          retention_env = os.environ.get('RETENTION_SUMMARY')
+          try:
+              retention_data = json.loads(retention_env) if retention_env else {}
+          except Exception:
+              retention_data = {}
+          # Fallback values
+          total_artifacts = int(os.environ.get('TOTAL_ARTIFACTS', 0) or 0)
+          try:
+              total_size_gb = float(os.environ.get('TOTAL_SIZE_GB', 0) or 0)
+          except Exception:
+              total_size_gb = 0.0
+          # If env not provided, try to compute from analyzed/stats
+          analyzed_path = pathlib.Path('artifact-data/analyzed.json')
+          stats_path = pathlib.Path('artifact-data/stats.json')
+          if analyzed_path.exists():
+              with analyzed_path.open() as f:
+                  analyzed = json.load(f)
+              total_artifacts = len(analyzed.get('keep', [])) + len(analyzed.get('cleanup', []))
+          if stats_path.exists():
+              with stats_path.open() as f:
+                  stats = json.load(f)
+              total_size_gb = float(stats.get('size_total_mb', 0) or 0) / 1024
+          if not retention_data:
+              retention_data = {
+                  'security_artifacts': 0,
+                  'performance_artifacts': 0,
+                  'quality_artifacts': 0,
+                  'build_artifacts': 0,
+                  'other_artifacts': total_artifacts,
+                  'potential_savings_mb': 0
+              }
           
           # Analyze policy effectiveness
           policy_analysis = {
@@ -810,7 +868,7 @@ jobs:
           import json
           from datetime import datetime
           
-          # Load policy analysis
+# Load policy analysis
           with open('retention_policy_analysis.json', 'r') as f:
               analysis = json.load(f)
           
@@ -952,20 +1010,33 @@ jobs:
           retention-days: ${{ env.CRITICAL_RETENTION_DAYS }}
 
   # Lifecycle Summary and Alerting
-  lifecycle-summary:
+lifecycle-summary:
     name: 📊 Lifecycle Summary
     runs-on: ubuntu-latest
-    needs: [artifact-discovery, storage-analysis, automated-cleanup, retention-policy-manager]
+    needs: [manage-artifacts, storage-analysis, automated-cleanup, retention-policy-manager]
     if: always()
+    continue-on-error: ${{ github.event_name == 'pull_request' }}
     
     steps:
+- name: 📥 Download Discovery Results
+        uses: actions/download-artifact@v4
+        with:
+          name: artifact-discovery-${{ github.run_number }}
+
       - name: 📊 Generate Lifecycle Summary
         run: |
           echo "📊 Generating artifact lifecycle management summary..."
           
-          TOTAL_ARTIFACTS="${{ needs.artifact-discovery.outputs.total_artifacts }}"
-          TOTAL_SIZE_GB="${{ needs.artifact-discovery.outputs.total_size_gb }}"
-          CLEANUP_CANDIDATES="${{ needs.artifact-discovery.outputs.cleanup_candidates }}"
+          # Load values from stats.json if available
+          if [ -f artifact-data/stats.json ]; then
+            TOTAL_ARTIFACTS=$(jq -r '.artifacts_total' artifact-data/stats.json)
+            TOTAL_SIZE_GB=$(jq -r '(.size_total_mb // 0) / 1024' artifact-data/stats.json)
+            CLEANUP_CANDIDATES=$(jq -r '.artifacts_to_cleanup' artifact-data/stats.json)
+          else
+            TOTAL_ARTIFACTS=0
+            TOTAL_SIZE_GB=0
+            CLEANUP_CANDIDATES=0
+          fi
           
           # Determine overall status
           if (( $(echo "$TOTAL_SIZE_GB >= 5" | bc -l) )); then
@@ -1075,16 +1146,28 @@ jobs:
           
           echo "Lifecycle summary generated with status: $LIFECYCLE_STATUS"
 
-      - name: 🔔 Create Lifecycle Alert (if needed)
-        if: needs.artifact-discovery.outputs.total_size_gb > 4
+- name: 🔔 Create Lifecycle Alert (if needed)
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           echo "🔔 Creating lifecycle management alert..."
           
-          TOTAL_SIZE_GB="${{ needs.artifact-discovery.outputs.total_size_gb }}"
-          TOTAL_ARTIFACTS="${{ needs.artifact-discovery.outputs.total_artifacts }}"
-          CLEANUP_CANDIDATES="${{ needs.artifact-discovery.outputs.cleanup_candidates }}"
+          if [ -f artifact-data/stats.json ]; then
+            TOTAL_SIZE_GB=$(jq -r '(.size_total_mb // 0) / 1024' artifact-data/stats.json)
+            TOTAL_ARTIFACTS=$(jq -r '.artifacts_total' artifact-data/stats.json)
+            CLEANUP_CANDIDATES=$(jq -r '.artifacts_to_cleanup' artifact-data/stats.json)
+          else
+            TOTAL_SIZE_GB=0
+            TOTAL_ARTIFACTS=0
+            CLEANUP_CANDIDATES=0
+          fi
+
+          # Only create an issue if over threshold
+          COMP=$(echo "$TOTAL_SIZE_GB > ${STORAGE_WARNING_THRESHOLD_GB}" | bc -l)
+          if [ "$COMP" -ne 1 ]; then
+            echo "Storage below threshold (${TOTAL_SIZE_GB}GB <= ${STORAGE_WARNING_THRESHOLD_GB}GB); skipping issue creation."
+            exit 0
+          fi
           
           ISSUE_TITLE="🚨 Artifact Lifecycle Alert: High Storage Usage (${TOTAL_SIZE_GB}GB)"
           

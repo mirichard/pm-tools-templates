@@ -9,7 +9,7 @@ import sys
 
 def find_readme_files(root_dir, exclude_dirs=None):
     """Find all README.md files, excluding specified directories"""
-    exclude_dirs = exclude_dirs or ['node_modules', '.git', '.next']
+    exclude_dirs = exclude_dirs or ['node_modules', '.git', '.next', 'dist', 'build', 'public', 'coverage', '__pycache__', '.pytest_cache', '.vscode', '.idea']
     readme_files = []
     
     for root, dirs, files in os.walk(root_dir):

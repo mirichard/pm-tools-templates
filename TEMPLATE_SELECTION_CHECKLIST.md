@@ -1,3 +1,4 @@
+<a id="template-selection-checklist"></a>
 # Template Selection Checklist 🎯
 
 **Quick decision guide for choosing the right PM templates for your project**
@@ -6,6 +7,7 @@
 
 ---
 
+<a id="quick-assessment-2-minutes"></a>
 ## 🚀 Quick Assessment (2 minutes)
 
 ### Step 1: Project Context
@@ -38,6 +40,7 @@
 
 ---
 
+<a id="detailed-assessment-5-minutes"></a>
 ## 📊 Detailed Assessment (5 minutes)
 
 ### Project Characteristics
@@ -100,6 +103,7 @@
 
 ---
 
+<a id="quick-decision-matrix"></a>
 ## ⚡ Quick Decision Matrix
 
 ### "I need something RIGHT NOW"
@@ -114,6 +118,7 @@
 
 ---
 
+<a id="success-metrics"></a>
 ## 📈 Success Metrics
 
 ### How to Know You Chose Well
@@ -173,6 +178,7 @@
 
 ---
 
+<a id="adaptation-guidelines"></a>
 ## 🔄 Adaptation Guidelines
 
 ### Making Templates Work for You

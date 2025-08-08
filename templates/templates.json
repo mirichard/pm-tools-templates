@@ -8566,6 +8566,10 @@
     },
     {
       "path": "templates/traditional/Traditional/Process_Groups/Initiating/project_charter_template.md",
+      "canonical_path": "templates/traditional/Traditional/Process_Groups/Initiating/project_charter_template.md",
+      "alternate_paths": [
+        "templates/traditional/project-charter-template.md"
+      ],
       "title": "Project Charter Template",
       "methodology": "traditional",
       "complexity": "advanced",
@@ -11079,6 +11083,10 @@
     },
     {
       "path": "project-lifecycle/02-planning/risk-management/risk-register-template.md",
+      "canonical_path": "templates/traditional/Traditional/Templates/risk_register_template.md",
+      "alternate_paths": [
+        "project-lifecycle/02-planning/risk-management/risk-register-template.md"
+      ],
       "title": "Risk Register Template",
       "methodology": "universal",
       "complexity": "advanced",
@@ -11960,6 +11968,11 @@
     },
     {
       "path": "templates/agile/sprint_planning_template.md",
+      "canonical_path": "templates/agile/sprint_planning_template.md",
+      "alternate_paths": [
+        "role-based-toolkits/scrum-master/agile-ceremonies/sprint-planning-template.md",
+        "methodology-frameworks/agile-scrum/sprint-planning/sprint_planning_template.md"
+      ],
       "title": "Sprint Planning Template",
       "methodology": "agile",
       "complexity": "intermediate",
@@ -12825,6 +12838,10 @@
     },
     {
       "path": "project-lifecycle/01-initiation/stakeholder-analysis/stakeholder-register-template.md",
+      "canonical_path": "role-based-toolkits/project-manager/essential-templates/stakeholder-register.md",
+      "alternate_paths": [
+        "project-lifecycle/01-initiation/stakeholder-analysis/stakeholder-register-template.md"
+      ],
       "title": "Stakeholder Register Template",
       "methodology": "universal",
       "complexity": "intermediate",
@@ -13023,6 +13040,10 @@
     },
     {
       "path": "project-lifecycle/04-monitoring-control/progress-tracking/status-report-template.md",
+      "canonical_path": "templates/traditional/Traditional/Templates/status_report_template.md",
+      "alternate_paths": [
+        "project-lifecycle/04-monitoring-control/progress-tracking/status-report-template.md"
+      ],
       "title": "Status Report Template",
       "methodology": "universal",
       "complexity": "advanced",

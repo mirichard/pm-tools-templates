@@ -1,0 +1,63 @@
+name: Integration OAuth Check
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'integrations/jira-asana-sync/**'
+      - '.github/workflows/integration-oauth-check.yml'
+  pull_request:
+    paths:
+      - 'integrations/jira-asana-sync/**'
+
+jobs:
+  oauth-check:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: integrations/jira-asana-sync
+    env:
+      NODE_ENV: test
+      LOG_LEVEL: warn
+      DRY_RUN: 'true'
+      # Jira secrets expected to exist in repo/org secrets
+      JIRA_CLIENT_ID: ${{ secrets.JIRA_CLIENT_ID }}
+      JIRA_CLIENT_SECRET: ${{ secrets.JIRA_CLIENT_SECRET }}
+      JIRA_CLOUD_SCOPES: read:jira-user,read:jira-work
+      JIRA_REDIRECT_URI: ${{ secrets.JIRA_REDIRECT_URI }}
+      # Asana secrets are optional; job step will be skipped if not present
+      ASANA_CLIENT_ID: ${{ secrets.ASANA_CLIENT_ID }}
+      ASANA_CLIENT_SECRET: ${{ secrets.ASANA_CLIENT_SECRET }}
+      ASANA_SCOPES: default
+      ASANA_REDIRECT_URI: ${{ secrets.ASANA_REDIRECT_URI }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          cache-dependency-path: integrations/jira-asana-sync/package.json
+
+      - name: Install dependencies
+        run: npm install --no-audit --no-fund
+
+      - name: Type check and build
+        run: |
+          npm run build
+
+      - name: Run unit tests (no coverage)
+        run: |
+          npm test -- --coverage=false || npm test
+
+      - name: Dry-run authorize URL (Jira)
+        if: env.JIRA_CLIENT_ID != '' && env.JIRA_CLIENT_SECRET != '' && env.JIRA_REDIRECT_URI != ''
+        run: |
+          npm run dev -- --provider=jira --dry-run
+
+      - name: Dry-run authorize URL (Asana) — optional
+        if: env.ASANA_CLIENT_ID != '' && env.ASANA_CLIENT_SECRET != '' && env.ASANA_REDIRECT_URI != ''
+        run: |
+          npm run dev -- --provider=asana --dry-run

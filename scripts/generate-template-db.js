@@ -70,9 +70,11 @@ async function generateTemplateDatabase() {
     statistics: generateStatistics(templates)
   };
   
-  fs.writeFileSync('templates/templates.json', JSON.stringify(database, null, 2));
+  // Write to a generated file to avoid overwriting curated templates/templates.json
+  const outPath = 'templates/templates.generated.json';
+  fs.writeFileSync(outPath, JSON.stringify(database, null, 2));
   console.log(`✅ Template database generated: ${templates.length} templates`);
-  console.log(`   - JSON file: templates/templates.json`);
+  console.log(`   - JSON file: ${outPath}`);
 }
 
 function extractTitleFromPath(filePath) {
