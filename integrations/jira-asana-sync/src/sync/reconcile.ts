@@ -67,10 +67,9 @@ export function reconcilePreview(source: SourceEntity[], target: TargetEntity[],
     }
   }
 
-  // Deletes: targets of types present in source that were not matched
-  const sourceTypes = new Set(source.map(s => s.type));
+  // Deletes: any targets that were not matched
   for (const t of target) {
-    if (!matchedTarget.has(t) && sourceTypes.has(t.type)) {
+    if (!matchedTarget.has(t)) {
       ops.push({ op: 'delete', type: t.type, target: t });
     }
   }
