@@ -7,7 +7,7 @@ import etag from 'etag';
 import { fileURLToPath } from 'url';
 import { marked } from 'marked';
 import hljs from 'highlight.js';
-
+import rateLimit from 'express-rate-limit';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const app = express();
@@ -16,6 +16,13 @@ const PORT = process.env.PORT || 5173;
 app.use(morgan('dev'));
 app.use(express.json());
 
+// Rate limiter for expensive endpoints
+const previewLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000, // 15 minutes
+  max: 100, // limit each IP to 100 requests per windowMs
+  standardHeaders: true, // Return rate limit info in the RateLimit-* headers
+  legacyHeaders: false, // Disable the X-RateLimit-* headers
+});
 // Configure marked
 marked.setOptions({
   highlight(code, lang) {
@@ -73,7 +80,7 @@ app.get('/api/index', (req, res) => {
   res.json({ files });
 });
 
-app.get('/api/preview', (req, res) => {
+app.get('/api/preview', previewLimiter, (req, res) => {
   const rel = req.query.path;
   if (!rel || typeof rel !== 'string') return res.status(400).json({ error: 'path required' });
   const abs = path.resolve(REPO_ROOT, rel);
