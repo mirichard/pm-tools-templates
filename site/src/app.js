@@ -25,19 +25,20 @@ function renderList(files) {
   listEl.innerHTML = '';
   for (const f of files) {
     const li = document.createElement('li');
-    li.textContent = f;
-    li.tabIndex = 0;
-    li.setAttribute('role', 'button');
-    li.setAttribute('aria-label', `Preview ${f}`);
-    li.addEventListener('click', () => loadFile(f, li));
-    li.addEventListener('keypress', (e) => { if (e.key === 'Enter') loadFile(f, li); });
+    const btn = document.createElement('button');
+    btn.className = 'file-item';
+    btn.type = 'button';
+    btn.textContent = f;
+    btn.setAttribute('aria-label', `Preview ${f}`);
+    btn.addEventListener('click', () => loadFile(f, btn));
+    li.appendChild(btn);
     listEl.appendChild(li);
   }
 }
 
 async function loadFile(file, liEl) {
   setBusy(true);
-  for (const li of listEl.querySelectorAll('li')) { li.classList.remove('active'); li.removeAttribute('aria-current'); }
+  for (const b of listEl.querySelectorAll('button.file-item')) { b.classList.remove('active'); b.removeAttribute('aria-current'); }
   if (liEl) { liEl.classList.add('active'); liEl.setAttribute('aria-current', 'true'); }
   const etag = contentEl.dataset.etag || '';
   const res = await fetch(`/api/preview?path=${encodeURIComponent(file)}`, {
