@@ -10,9 +10,10 @@ aside { border-right: 1px solid #e2e8f0; padding: 8px; overflow: auto; }
 #file-list .group .count { background: #e2e8f0; color: #334155; border-radius: 999px; padding: 2px 8px; font-size: 12px; }
 #file-list .group-list { list-style: none; padding: 4px 0 8px 0; margin: 0; }
 #file-list .file-item { display: block; width: 100%; padding: 8px 10px; cursor: pointer; border-radius: 8px; background: none; border: none; text-align: left; font: inherit; }
-#file-list .file-item:hover, #file-list .file-item.active { background: #f1f5f9; }
+#file-list .file-item:hover, #file-list .file-item.active { background: #f8fafc; }
+#file-list .file-item.active .path { color: #1f2937; }
 #file-list .file-item .title { font-weight: 600; color: #0f172a; display: block; }
-#file-list .file-item .path { color: #64748b; font-size: 12px; font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; display: block; margin-top: 2px; }
+#file-list .file-item .path { color: #334155; font-size: 12px; font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; display: block; margin-top: 2px; }
 #search { width: 100%; padding: 8px; border: 1px solid #cbd5e1; border-radius: 6px; }
 #preview { padding: 16px; overflow: auto; }
 .consent { margin-left: auto; display: flex; gap: 8px; align-items: center; }
