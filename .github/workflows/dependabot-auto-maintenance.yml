@@ -2,7 +2,7 @@ name: Dependabot Auto-Maintenance
 
 on:
   schedule:
-    - cron: '*/30 * * * *' # every 30 minutes
+    - cron: '0 * * * *' # hourly
   workflow_dispatch:
 
 permissions:
