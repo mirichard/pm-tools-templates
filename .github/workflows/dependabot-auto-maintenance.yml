@@ -1,0 +1,116 @@
+name: Dependabot Auto-Maintenance
+
+on:
+  schedule:
+    - cron: '*/30 * * * *' # every 30 minutes
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  maintain:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Auto-update and enable auto-merge for Dependabot PRs
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const owner = context.repo.owner;
+            const repo = context.repo.repo;
+
+            async function listDependabotPRs(page = 1) {
+              const res = await github.rest.pulls.list({ owner, repo, state: 'open', per_page: 50, page });
+              const prs = res.data.filter(pr => pr.user && (pr.user.login === 'dependabot[bot]' || pr.user.type === 'Bot'));
+              if (res.data.length === 50) {
+                return prs.concat(await listDependabotPRs(page + 1));
+              }
+              return prs;
+            }
+
+            async function updateBranch(pull_number) {
+              try {
+                await github.request('PUT /repos/{owner}/{repo}/pulls/{pull_number}/update-branch', {
+                  owner, repo, pull_number
+                });
+                core.info(`Update-branch requested for PR #${pull_number}`);
+                return true;
+              } catch (e) {
+                if (e.status === 422) {
+                  core.info(`Update-branch not possible for PR #${pull_number} (likely conflicts)`);
+                  return false;
+                }
+                core.warning(`Update-branch error for PR #${pull_number}: ${e.message}`);
+                return false;
+              }
+            }
+
+            async function commentRebase(pull_number) {
+              try {
+                await github.rest.issues.createComment({ owner, repo, issue_number: pull_number, body: '@dependabot rebase' });
+                core.info(`Requested dependabot rebase on PR #${pull_number}`);
+              } catch (e) {
+                core.warning(`Failed to comment rebase on PR #${pull_number}: ${e.message}`);
+              }
+            }
+
+            async function enableAutoMerge(nodeId) {
+              const mutation = `mutation($pullRequestId: ID!) {
+                enablePullRequestAutoMerge(input: { pullRequestId: $pullRequestId, mergeMethod: SQUASH }) {
+                  pullRequest { number, autoMergeRequest { enabledAt } }
+                }
+              }`;
+              try {
+                const res = await github.graphql(mutation, { pullRequestId: nodeId });
+                core.info(`Auto-merge enabled for PR #${res.enablePullRequestAutoMerge.pullRequest.number}`);
+                return true;
+              } catch (e) {
+                core.info(`Could not enable auto-merge yet: ${e.errors ? JSON.stringify(e.errors) : e.message}`);
+                return false;
+              }
+            }
+
+            async function main() {
+              const prs = await listDependabotPRs();
+              core.info(`Found ${prs.length} open Dependabot PR(s).`);
+              for (const pr of prs) {
+                const num = pr.number;
+                core.startGroup(`Processing PR #${num} – ${pr.title}`);
+                // Try to update branch; if not possible, request rebase
+                const updated = await updateBranch(num);
+                if (!updated) {
+                  await commentRebase(num);
+                }
+
+                // Fetch fresh PR details via GraphQL to get nodeId and mergeability
+                const query = `query($owner:String!,$repo:String!,$number:Int!){
+                  repository(owner:$owner,name:$repo){
+                    pullRequest(number:$number){
+                      id
+                      number
+                      mergeable
+                      mergeStateStatus
+                      author { login }
+                      autoMergeRequest { enabledAt }
+                    }
+                  }
+                }`;
+                let prData;
+                try {
+                  const res = await github.graphql(query, { owner, repo, number: num });
+                  prData = res.repository.pullRequest;
+                } catch (e) {
+                  core.warning(`GraphQL fetch failed for #${num}: ${e.message}`);
+                  core.endGroup();
+                  continue;
+                }
+
+                // Try enabling auto-merge regardless; it will queue when allowed
+                await enableAutoMerge(prData.id);
+                core.endGroup();
+              }
+            }
+
+            main().catch(err => core.setFailed(err.message));
