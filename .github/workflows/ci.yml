@@ -36,6 +36,7 @@ jobs:
         run: python3 check_anchor_links_filtered.py
 
   preview-a11y-perf:
+    if: ${{ github.actor != 'dependabot[bot]' }}
     runs-on: ubuntu-latest
     continue-on-error: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
     steps:
