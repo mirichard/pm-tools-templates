@@ -136,4 +136,4 @@ Need help? We're here for you:
 - 📚 [Browse all templates](TEMPLATE_INDEX.md)
 - 💬 [Join discussions](https://github.com/mirichard/pm-tools-templates/discussions)
 - 🐛 [Report issues](https://github.com/mirichard/pm-tools-templates/issues)
-- 📧 [Contact maintainers](mailto:mirichard@example.com)
+
