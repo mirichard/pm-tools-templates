@@ -1,0 +1,25 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://pm-tools-templates/schemas/web-mvp/risk_register.schema.json",
+  "title": "Risk Register",
+  "type": "object",
+  "properties": {
+    "risks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "string", "title": "ID" },
+          "description": { "type": "string", "title": "Description" },
+          "probability": { "type": "number", "minimum": 0, "maximum": 1 },
+          "impact": { "type": "string", "enum": ["Low", "Medium", "High"] },
+          "mitigation": { "type": "string", "title": "Mitigation" },
+          "owner": { "type": "string", "title": "Owner" }
+        },
+        "required": ["description", "probability", "impact"]
+      }
+    }
+  },
+  "required": ["risks"],
+  "additionalProperties": false
+}

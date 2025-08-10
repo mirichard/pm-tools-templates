@@ -2,7 +2,7 @@ import { test, expect } from '@playwright/test';
 
 async function fillByLabel(page: any, label: string, value: string) { await page.getByLabel(label).fill(value); }
 
-const BASE = 'http://127.0.0.1:5179/';
+const BASE = process.env.BASE_URL || 'http://127.0.0.1:5181/';
 
 test.describe('UAT - Epic 288 Demo', () => {
   test('Charter flow: edit, save versions, diff, download', async ({ page }) => {

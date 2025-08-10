@@ -26,7 +26,10 @@ export default function App() {
   return (
     <div className="container" role="main" id="main">
       <section className="panel" aria-labelledby="editor-h">
-        <h2 id="editor-h">Template Editor <span className="badge">Completion: {completion}%</span></h2>
+        <h2 id="editor-h">Template Editor</h2>
+        <div className="meta" aria-live="polite">
+          <span className="badge">Completion: {completion}%</span>
+        </div>
         <TemplatePicker value={template} onChange={(t)=>{ setTemplate(t); setData({}); setShowDiff({}); }} />
         <Toolbar
           markdown={md}

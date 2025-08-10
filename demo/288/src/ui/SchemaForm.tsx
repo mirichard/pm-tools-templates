@@ -127,10 +127,15 @@ export function SchemaForm({ schema, value, onChange }: Props) {
   function renderErrors(fieldKey: string, errId: string) {
     const m = byFieldRef();
     if (!m[fieldKey] || m[fieldKey].length === 0) return null;
+    const regionId = `errors-${fieldKey}-region`;
     return (
-      <ul id={errId} className="error" role="alert" aria-live="polite">
-        {m[fieldKey].map((msg, i) => (<li key={i}>{msg}</li>))}
-      </ul>
+      <div id={regionId} role="alert" aria-live="assertive" aria-atomic={false} className="error">
+        <ul role="list" id={errId}>
+          {m[fieldKey].map((msg, i) => (
+            <li role="listitem" key={i} id={`error-${fieldKey}-${i}`}>{msg}</li>
+          ))}
+        </ul>
+      </div>
     );
   }
   function byFieldRef(): Record<string, string[]> {

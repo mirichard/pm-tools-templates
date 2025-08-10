@@ -1,0 +1,26 @@
+name: Validate Curated Templates
+
+on:
+  push:
+    branches: [ "**" ]
+  pull_request:
+    branches: [ "**" ]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Use Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies (none required)
+        run: |
+          echo "No repo-level install needed for validator"
+
+      - name: Validate templates/templates.json
+        run: node scripts/validate-curated-templates.js

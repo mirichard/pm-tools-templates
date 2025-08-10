@@ -11,29 +11,29 @@ export function Toolbar({ markdown, templateKey, data, onLoadVersion, onDiffRequ
 
   return (
     <div className="toolbar" aria-label="Actions">
-      <button onClick={()=>download(`${templateKey}.md`, markdown)}>Download Markdown</button>
+      <button data-testid="download-btn" className="btn btn-primary" onClick={()=>download(`${templateKey}.md`, markdown)}>Download Markdown</button>
       <div style={{ display: 'inline-flex', alignItems: 'center', gap: 6 }}>
-        <input aria-label="Version name" placeholder="Version name" value={verName} onChange={e=>setVerName(e.target.value)} />
-        <button onClick={()=>{ if(!verName.trim()) return; saveVersion(templateKey, { name: verName.trim(), data, createdAt: Date.now() }); setVerName(''); }}>Save Version</button>
+        <input data-testid="version-name" aria-label="Version name" placeholder="Version name" value={verName} onChange={e=>setVerName(e.target.value)} />
+        <button data-testid="save-version-btn" className="btn" onClick={()=>{ if(!verName.trim()) return; saveVersion(templateKey, { name: verName.trim(), data, createdAt: Date.now() }); setVerName(''); }}>Save Version</button>
       </div>
       <div style={{ display: 'inline-flex', alignItems: 'center', gap: 6 }}>
         <label>Load:</label>
-        <select aria-label="Load version" value="" onChange={e => { const v = versions.find(x => keyOf(x)===e.target.value); if (v) onLoadVersion(v); }}>
+        <select data-testid="load-select" aria-label="Load version" value="" onChange={e => { const v = versions.find(x => keyOf(x)===e.target.value); if (v) onLoadVersion(v); }}>
           <option value="">Select…</option>
           {versions.map(v => <option key={keyOf(v)} value={keyOf(v)}>{v.name}</option>)}
         </select>
       </div>
       <div style={{ display: 'inline-flex', alignItems: 'center', gap: 6 }}>
         <label>Diff:</label>
-        <select aria-label="Diff A" value={vA} onChange={e=>setVA(e.target.value)}>
+        <select data-testid="diff-a" aria-label="Diff A" value={vA} onChange={e=>setVA(e.target.value)}>
           <option value="">A…</option>
           {versions.map(v => <option key={keyOf(v)} value={keyOf(v)}>{v.name}</option>)}
         </select>
-        <select aria-label="Diff B" value={vB} onChange={e=>setVB(e.target.value)}>
+        <select data-testid="diff-b" aria-label="Diff B" value={vB} onChange={e=>setVB(e.target.value)}>
           <option value="">B…</option>
           {versions.map(v => <option key={keyOf(v)} value={keyOf(v)}>{v.name}</option>)}
         </select>
-        <button onClick={()=>{ const a = versions.find(x=>keyOf(x)===vA); const b = versions.find(x=>keyOf(x)===vB); if (a && b) onDiffRequest(a,b); }}>Show Diff</button>
+        <button data-testid="show-diff-btn" className="btn" disabled={!vA || !vB} onClick={() => { const a = versions.find(x => keyOf(x)===vA); const b = versions.find(x => keyOf(x)===vB); if (a && b) onDiffRequest(a,b); }}>Show Diff</button>
       </div>
     </div>
   );

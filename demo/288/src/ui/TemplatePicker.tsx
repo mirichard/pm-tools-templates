@@ -12,7 +12,7 @@ export function TemplatePicker({ value, onChange }: { value: TemplateKey, onChan
         ['executive','Executive Status'],
       ] as const).map(([k,label]) => (
         <label key={k} style={{ display: 'inline-flex', alignItems: 'center', gap: 6 }}>
-          <input type="radio" name="template" value={k} checked={value===k} onChange={()=>onChange(k as TemplateKey)} />
+          <input data-testid={`template-${k}`} type="radio" name="template" value={k} checked={value===k} onChange={()=>onChange(k as TemplateKey)} />
           {label}
         </label>
       ))}
