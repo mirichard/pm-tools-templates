@@ -17,8 +17,27 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  changes:
+    runs-on: ubuntu-latest
+    outputs:
+      site: ${{ steps.filter.outputs.site }}
+    steps:
+      - uses: actions/checkout@v4
+        with: { fetch-depth: 1 }
+      - uses: dorny/paths-filter@v3
+        id: filter
+        with:
+          filters: |
+            site:
+              - 'website/**'
+              - 'docs/site/**'
+              - 'site/**'
+              - '.github/workflows/build-deploy-site.yml'
+
   build:
     runs-on: ubuntu-latest
+    needs: changes
+    if: ${{ needs.changes.outputs.site == 'true' }}
     concurrency:
       group: site-${{ github.ref }}
       cancel-in-progress: true

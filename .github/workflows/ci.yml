@@ -9,9 +9,44 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  changes:
+    runs-on: ubuntu-latest
+    outputs:
+      docs: ${{ steps.filter.outputs.docs }}
+      site: ${{ steps.filter.outputs.site }}
+      node: ${{ steps.filter.outputs.node }}
+      python: ${{ steps.filter.outputs.python }}
+    steps:
+      - uses: actions/checkout@v4
+        with: { fetch-depth: 1 }
+      - uses: dorny/paths-filter@v3
+        id: filter
+        with:
+          filters: |
+            docs:
+              - 'docs/**'
+              - '**/*.md'
+            site:
+              - 'website/**'
+              - 'docs/site/**'
+              - 'site/**'
+              - '.github/workflows/build-deploy-site.yml'
+            node:
+              - '**/package.json'
+              - '**/package-lock.json'
+              - '**/*.js'
+              - '**/*.ts'
+            python:
+              - '**/requirements*.txt'
+              - '**/*.py'
+
   build-test:
     runs-on: ubuntu-latest
     steps:
+      - name: CI timestamps
+        run: |
+          echo "run_started_at=${{ github.run_started_at }}"
+          date -u +"now_utc=%Y-%m-%dT%H:%M:%SZ"
       - uses: actions/checkout@v4
         with:
           fetch-depth: 1
@@ -24,8 +59,8 @@ jobs:
             **/package-lock.json
       - name: Install dependencies (timed)
         run: ./scripts/measure_step.sh "npm install" -- bash -lc "if [ -f package-lock.json ]; then npm ci; else npm install; fi"
-      - name: Test with coverage (timed)
-        run: ./scripts/measure_step.sh "unit tests" -- bash -lc "npm test -- --coverage"
+      - name: Test (coverage, fail if below thresholds)
+        run: ./scripts/measure_step.sh "unit tests (coverage)" -- npm run test:ci
       - uses: actions/upload-artifact@v4
         with:
           name: coverage
@@ -40,7 +75,13 @@ jobs:
 
   validate-index-and-links:
     runs-on: ubuntu-latest
+    needs: changes
+    if: ${{ needs.changes.outputs.docs == 'true' || needs.changes.outputs.node == 'true' }}
     steps:
+      - name: CI timestamps
+        run: |
+          echo "run_started_at=${{ github.run_started_at }}"
+          date -u +"now_utc=%Y-%m-%dT%H:%M:%SZ"
       - uses: actions/checkout@v4
         with:
           fetch-depth: 1
@@ -70,8 +111,14 @@ jobs:
   preview-a11y-perf:
     if: ${{ github.actor != 'dependabot[bot]' }}
     runs-on: ubuntu-latest
+    needs: changes
+    if: ${{ needs.changes.outputs.site == 'true' }}
     continue-on-error: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
     steps:
+      - name: CI timestamps
+        run: |
+          echo "run_started_at=${{ github.run_started_at }}"
+          date -u +"now_utc=%Y-%m-%dT%H:%M:%SZ"
       - name: Checkout
         uses: actions/checkout@v4
         with:
