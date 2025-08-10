@@ -47,6 +47,12 @@ jobs:
           echo "❌ EMAIL_USERNAME secret not configured"
         fi
 
+    - name: Ensure timings file exists
+      if: always()
+      run: |
+        mkdir -p gha-timings
+        : > gha-timings/timings.jsonl
+
     - name: Upload timings
       if: always()
       uses: actions/upload-artifact@v4
