@@ -208,6 +208,8 @@ storage-analysis:
     steps:
       - name: 📥 Checkout Repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
 
       - name: 📥 Download Discovery Results
         uses: actions/download-artifact@v4
@@ -473,6 +475,8 @@ automated-cleanup:
     steps:
       - name: 📥 Checkout Repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
 
       - name: 📥 Download Analysis Results
         uses: actions/download-artifact@v4
@@ -739,6 +743,8 @@ retention-policy-manager:
     steps:
       - name: 📥 Checkout Repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
 
       - name: 📋 Analyze Retention Policy Effectiveness
         env:

@@ -55,6 +55,8 @@ jobs:
     steps:
       - name: 📥 Checkout Repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
 
       - name: 📊 Collect Workflow Data
         id: collect
@@ -281,6 +283,8 @@ jobs:
     steps:
       - name: 📥 Checkout Repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
 
       - name: ⚡ Analyze Performance Metrics
         env:
@@ -499,6 +503,8 @@ jobs:
     steps:
       - name: 📥 Checkout Repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
 
       - name: 🚨 Evaluate Health Alerts
         id: alerts
@@ -741,6 +747,8 @@ jobs:
     steps:
       - name: 📥 Checkout Repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
 
       - name: 📈 Historical Trend Analysis
         env:
