@@ -5,13 +5,27 @@ on:
   push:
     branches: [ main ]
 
+concurrency:
+  group: simple-test-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   test:
     runs-on: ubuntu-latest
     
     steps:
+    - name: CI timestamps
+      run: |
+        echo "run_started_at=${{ github.run_started_at }}"
+        date -u +"now_utc=%Y-%m-%dT%H:%M:%SZ"
+
     - uses: actions/checkout@v4
+      with:
+        fetch-depth: 1
     
+    - name: Prepare timings (noop)
+      run: ./scripts/measure_step.sh "noop" -- bash -lc "echo 'collect timings context'"
+
     - name: Send Test Email
       if: ${{ secrets.EMAIL_USERNAME != '' }}
       uses: dawidd6/action-send-mail@v3
@@ -33,3 +47,10 @@ jobs:
           echo "❌ EMAIL_USERNAME secret not configured"
         fi
 
+    - name: Upload timings
+      if: always()
+      uses: actions/upload-artifact@v4
+      with:
+        name: gha-timings-simple-test
+        path: gha-timings/timings.jsonl
+        retention-days: 7
