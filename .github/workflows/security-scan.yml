@@ -61,8 +61,7 @@ jobs:
         cache: 'pip'
 
     - name: pip install safety (timed)
-      if: ${{ hashFiles('**/requirements.txt') != '' }}
-      run: ./scripts/measure_step.sh "pip install" -- pip install -r requirements.txt safety
+      run: ./scripts/measure_step.sh "pip install" -- bash -lc "pip install safety && if [ -f requirements.txt ]; then pip install -r requirements.txt; fi"
 
     - name: Run npm audit (timed)
       run: ./scripts/measure_step.sh "npm audit" -- bash -lc "if [ -f package.json ]; then npm audit; else echo 'No package.json found'; fi"
