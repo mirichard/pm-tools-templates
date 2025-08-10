@@ -4,55 +4,99 @@ on:
     branches: [ main, staging, develop ]
   pull_request:
 
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   build-test:
     runs-on: ubuntu-latest
+    env:
+      TIMING_FILE: timings.jsonl
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
       - uses: actions/setup-node@v4
         with:
           node-version: '20'
-      - run: npm ci || npm install
-      - run: npm test -- --coverage
+          cache: 'npm'
+          cache-dependency-path: 'package-lock.json'
+      - name: Install dependencies (timed)
+        run: ./scripts/measure_step.sh install -- bash -lc "if [ -f package-lock.json ]; then npm ci; else npm install; fi"
+      - name: Test with coverage (timed)
+        run: ./scripts/measure_step.sh test -- bash -lc "npm test -- --coverage"
       - uses: actions/upload-artifact@v4
         with:
           name: coverage
           path: coverage
+      - name: Upload CI timings
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-test-timings-${{ github.run_number }}
+          path: ${{ env.TIMING_FILE }}
 
   validate-index-and-links:
     runs-on: ubuntu-latest
+    env:
+      TIMING_FILE: timings.jsonl
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
       - uses: actions/setup-node@v4
         with:
           node-version: '20'
-      - name: Install deps
-        run: npm ci || npm install
+          cache: 'npm'
+          cache-dependency-path: 'package-lock.json'
+      - name: Install deps (timed)
+        run: ./scripts/measure_step.sh install-validate -- bash -lc "if [ -f package-lock.json ]; then npm ci; else npm install; fi"
       - name: Validate canonical paths
         run: node scripts/validate-canonical-paths.js --strict
       - name: Generate index (check for drift)
         run: node scripts/generate-template-index.js && git diff --no-index --exit-code TEMPLATE_INDEX.md TEMPLATE_INDEX.md
       - name: Anchor link check (filtered)
         run: python3 check_anchor_links_filtered.py
+      - name: Upload validation timings
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: validate-index-and-links-timings-${{ github.run_number }}
+          path: ${{ env.TIMING_FILE }}
 
   preview-a11y-perf:
     if: ${{ github.actor != 'dependabot[bot]' }}
     runs-on: ubuntu-latest
     continue-on-error: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
+    env:
+      TIMING_FILE: timings.jsonl
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: '20'
-      - name: Install dependencies
+          cache: 'npm'
+          cache-dependency-path: 'site/package-lock.json'
+      - name: Cache Playwright browsers
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cache/ms-playwright
+          key: playwright-${{ runner.os }}-${{ hashFiles('site/package-lock.json') }}
+          restore-keys: |
+            playwright-${{ runner.os }}-
+      - name: Install dependencies (timed)
         working-directory: site
-        run: npm ci || npm i
-      - name: Install Playwright browsers
+        run: ../scripts/measure_step.sh web-install -- bash -lc "if [ -f package-lock.json ]; then npm ci; else npm i; fi"
+      - name: Install Playwright browsers (timed)
         working-directory: site
-        run: npx playwright install --with-deps chromium
-      - name: Start server
+        run: ../scripts/measure_step.sh pw-install -- bash -lc "npx playwright install --with-deps chromium"
+      - name: Start server (timed)
         working-directory: site
         run: |
           node server.js &
@@ -60,13 +104,19 @@ jobs:
       - name: Wait for server
         working-directory: site
         run: npx wait-on http://localhost:5173
-      - name: Run E2E + a11y tests
+      - name: Run E2E + a11y tests (timed)
         working-directory: site
-        run: npx playwright test
-      - name: Lighthouse CI
+        run: ../scripts/measure_step.sh e2e -- bash -lc "npx playwright test"
+      - name: Lighthouse CI (timed)
         working-directory: site
-        run: npx lhci autorun --collect.url=http://localhost:5173
+        run: ../scripts/measure_step.sh lhci -- bash -lc "npx lhci autorun --collect.url=http://localhost:5173"
       - name: Stop server
         working-directory: site
         if: always()
         run: kill $(cat .server.pid)
+      - name: Upload preview timings
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: preview-a11y-perf-timings-${{ github.run_number }}
+          path: ${{ env.TIMING_FILE }}
