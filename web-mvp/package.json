@@ -1,0 +1,31 @@
+{
+  "name": "pm-tools-web-mvp",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview --port 4173",
+    "test:a11y": "playwright test",
+    "lint": "echo 'add linter later'"
+  },
+  "dependencies": {
+    "ajv": "^8.17.1",
+    "diff": "^5.2.0",
+    "marked": "^12.0.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "y-websocket": "^1.5.0",
+    "yjs": "^13.6.18"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.9.1",
+    "@playwright/test": "^1.45.3",
+    "@types/react": "^18.2.66",
+    "@types/react-dom": "^18.2.22",
+    "@vitejs/plugin-react": "^5.0.0",
+    "typescript": "^5.4.5",
+    "vite": "^7.1.1"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://pm-tools-templates/schemas/web-mvp/stakeholder_communication_plan.schema.json",
+  "title": "Stakeholder Communication Plan",
+  "type": "object",
+  "properties": {
+    "stakeholders": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": { "type": "string" },
+          "role": { "type": "string" },
+          "contact": { "type": "string" },
+          "infoNeeds": { "type": "string", "title": "Information Needs" },
+          "frequency": { "type": "string", "enum": ["Daily", "Weekly", "Biweekly", "Monthly", "Quarterly"] },
+          "channel": { "type": "string", "enum": ["Email", "Meeting", "Report", "Dashboard"] }
+        },
+        "required": ["name", "role", "frequency", "channel"]
+      }
+    }
+  },
+  "required": ["stakeholders"],
+  "additionalProperties": false
+}

@@ -1,0 +1,15 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://pm-tools-templates/schemas/web-mvp/project_charter.schema.json",
+  "title": "Project Charter",
+  "type": "object",
+  "properties": {
+    "projectName": { "type": "string", "title": "Project Name" },
+    "sponsor": { "type": "string", "title": "Sponsor" },
+    "purpose": { "type": "string", "title": "Purpose" },
+    "scope": { "type": "string", "title": "Scope" },
+    "successCriteria": { "type": "string", "title": "Success Criteria" }
+  },
+  "required": ["projectName", "purpose", "scope"],
+  "additionalProperties": false
+}

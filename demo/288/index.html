@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Epic 288 Demo</title>
+    <style>
+      :root {
+        --bg: #f6f7f9;
+        --surface: #ffffff;
+        --text: #111827;
+        --muted: #6b7280;
+        --border: #e5e7eb;
+        --primary: #2563eb;
+        --primary-600: #1d4ed8;
+        --danger: #b91c1c;
+        --radius: 10px;
+        --shadow: 0 1px 2px rgba(17,24,39,0.04), 0 8px 24px rgba(17,24,39,0.06);
+      }
+      * { box-sizing: border-box; }
+      body { margin: 0; color: var(--text); background: var(--bg); font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; line-height: 1.5; }
+      header.app-header { background: var(--surface); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 10; }
+      .header-inner { max-width: 1200px; margin: 0 auto; padding: 12px 20px; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+      .brand { font-weight: 700; letter-spacing: .2px; display: flex; gap: 10px; align-items: center; }
+      .brand .dot { height: 10px; width: 10px; border-radius: 50%; background: var(--primary); display: inline-block; }
+      .subtitle { color: var(--muted); font-size: 14px; }
+      main { max-width: 1200px; margin: 20px auto; padding: 0 20px; }
+      .container { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 20px; }
+      @media (max-width: 1100px) { .container { grid-template-columns: 1fr; } }
+      .panel { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px 18px; box-shadow: var(--shadow); }
+      .panel h2 { margin: 0 0 8px 0; font-size: 18px; }
+      .panel h3 { margin: 14px 0 8px 0; font-size: 16px; }
+      .meta { display: flex; gap: 8px; align-items: center; color: var(--muted); font-size: 13px; }
+      label { display: block; margin-top: 12px; font-weight: 600; font-size: 14px; }
+      input, textarea, select { width: 100%; padding: 10px 12px; margin-top: 6px; border: 1px solid var(--border); border-radius: 8px; font: inherit; background: #fff; transition: border .15s, box-shadow .15s; }
+      input:focus, textarea:focus, select:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 3px rgba(37,99,235,.15); }
+      textarea { min-height: 110px; }
+      .error { color: var(--danger); font-size: 13px; margin: 6px 0 0 2px; }
+      .toolbar { position: sticky; top: 62px; background: var(--surface); padding: 8px; margin: 8px 0 16px; border: 1px solid var(--border); border-radius: 8px; display: flex; gap: 8px; flex-wrap: wrap; align-items: center; box-shadow: 0 1px 1px rgba(0,0,0,0.04); }
+      .badge { display: inline-block; background: #eff6ff; color: var(--primary); border: 1px solid #dbeafe; border-radius: 12px; padding: 2px 8px; font-size: 12px; }
+      .btn { padding: 8px 12px; border-radius: 8px; border: 1px solid var(--border); background: #fff; cursor: pointer; font-weight: 600; }
+      .btn:hover { background: #f9fafb; }
+      .btn-primary { background: var(--primary); color: #fff; border-color: var(--primary); }
+      .btn-primary:hover { background: var(--primary-600); }
+      pre { white-space: pre-wrap; font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New"; font-size: 13.5px; }
+      .skip-link { position: absolute; left: -999px; top: -999px; background: #000; color: #fff; padding: 8px 12px; z-index: 1000; }
+      .skip-link:focus { left: 8px; top: 8px; outline: 2px solid #fff; }
+      :focus { outline: 2px solid #005fcc; outline-offset: 2px; }
+    </style>
+  </head>
+  <body>
+    <a href="#main" class="skip-link">Skip to main content</a>
+    <header class="app-header" role="banner">
+      <div class="header-inner">
+        <div class="brand" aria-label="PM Tools">
+          <span class="dot" aria-hidden="true"></span>
+          PM Tools – Template Customization (MVP)
+        </div>
+        <div class="subtitle">Edit → Preview → Version → Diff → Download</div>
+      </div>
+    </header>
+    <main id="main">
+      <div id="root"></div>
+    </main>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
