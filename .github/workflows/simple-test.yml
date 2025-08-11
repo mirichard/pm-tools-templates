@@ -3,7 +3,8 @@ name: Simple Email Test
 on:
   workflow_dispatch:
   push:
-    branches: [ main ]
+    branches:
+      - '**'
 
 concurrency:
   group: simple-test-${{ github.ref }}
@@ -14,6 +15,16 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
+    - name: Debug context
+      run: |
+        echo "event=${{ github.event_name }}"
+        echo "ref=${{ github.ref }}"
+        echo "sha=${{ github.sha }}"
+        echo "actor=${{ github.actor }}"
+        echo "workflow_ref=${{ github.workflow_ref }}"
+        echo "workflow_sha=${{ github.workflow_sha }}"
+        echo "run_attempt=${{ github.run_attempt }}"
+        echo "run_id=${{ github.run_id }}"
     - name: CI timestamps
       run: |
         echo "run_started_at=${{ github.run_started_at }}"
