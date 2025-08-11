@@ -1,14 +1,29 @@
-# Jira Deployer Scaffold (Issue #290)
+# Jira Deployer (Minimal)
 
-Purpose
-- Minimal project deployer to create a Jira project from a simple template.
+Public-facing CLI to create a minimal Jira project from a simple template.
+Dry-run by default; write mode requires a bearer token via environment variable.
 
-Checklist (Phase 1)
-- [ ] Define minimal template schema (name, key, issue types)
-- [ ] Create project via REST (POST /rest/api/3/project)
-- [ ] Create issue types/fields if missing; idempotent operations
-- [ ] Basic error handling and rollback on failure
-- [ ] Audit logging for deploy events
+Requirements
+- Node.js 18+ recommended
+- JIRA_BEARER set to a valid Atlassian access token (write mode only)
 
-Next
-- Support workflow scheme assignment and permissions mapping
+Usage
+- Dry-run (no writes):
+```
+npm --prefix integrations/deployer/jira run dev
+```
+- Write mode (guarded):
+```
+JIRA_BEARER={{JIRA_ACCESS_TOKEN}} npm --prefix integrations/deployer/jira run deploy
+```
+Optional flags
+- --cloud-id=YOUR_CLOUD_ID (otherwise auto-detected)
+- --project-type=software|service_desk|business (default: software)
+
+Environment variables
+- JIRA_PROJECT_NAME: project name (default: "PM Tools Demo")
+- JIRA_PROJECT_KEY: 2–10 uppercase letters (default: "PMD")
+
+Notes
+- Do not echo or commit secrets. Set tokens via environment variables only.
+- This is a minimal deployer intended for demos and scaffolding. Extend as needed for your org.
