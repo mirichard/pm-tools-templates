@@ -27,7 +27,8 @@ jobs:
       run: ./scripts/measure_step.sh "noop" -- bash -lc "echo 'collect timings context'"
 
     - name: Send Test Email
-      if: ${{ secrets.EMAIL_USERNAME != '' }}
+      if: ${{ secrets.EMAIL_USERNAME != '' && secrets.EMAIL_PASSWORD != '' && secrets.EMAIL_RECIPIENTS != '' && secrets.EMAIL_FROM != '' }}
+      continue-on-error: true
       uses: dawidd6/action-send-mail@v3
       with:
         server_address: smtp.gmail.com
