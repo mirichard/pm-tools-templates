@@ -60,7 +60,7 @@ jobs:
           cache-dependency-path: 'docs/site/package-lock.json'
 
       - name: Install root dependencies (timed)
-        run: ./scripts/measure_step.sh "root install" -- bash -lc "npm install --silent --no-audit"
+        run: ./scripts/measure_step.sh "root install" -- bash -lc "if [ -f package-lock.json ]; then npm ci; else npm install; fi"
 
       - name: Install site dependencies (timed)
         working-directory: ./docs/site
