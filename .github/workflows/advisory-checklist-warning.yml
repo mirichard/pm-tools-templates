@@ -1,0 +1,45 @@
+name: advisory-checklist-warning
+
+on:
+  pull_request:
+    types: [opened, edited, synchronize]
+
+permissions:
+  pull-requests: write
+  contents: read
+
+jobs:
+  advisory-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check PR body for Governance Advisory Checklist
+        id: check
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const body = context.payload.pull_request.body || "";
+            const requiredPhrases = [
+              "Governance Advisory Checklist",
+              "docs/governance/rollback-plan-template.md",
+              "docs/governance/rca-template.md"
+            ];
+            const missing = requiredPhrases.filter(p => !body.includes(p));
+            if (missing.length) {
+              core.setOutput('missing', missing.join(', '));
+            } else {
+              core.setOutput('missing', '');
+            }
+      - name: Warn if checklist missing
+        if: steps.check.outputs.missing != ''
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const missing = core.getInput('missing');
+            const msg = `Advisory: The PR description is missing references to the Governance Advisory Checklist or related templates (missing: ${missing}).\n\nPlease review and consider adding:\n- docs/governance/task-closure-checklist.md\n- docs/governance/rollback-plan-template.md\n- docs/governance/rca-template.md\n- docs/governance/peer-review-log.md\n- docs/governance/stakeholder-comm-plan.md\n- docs/governance/security-compliance-checklist.md\n- docs/governance/lessons-learned-template.md`;
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.payload.pull_request.number,
+              body: msg,
+            });
+
