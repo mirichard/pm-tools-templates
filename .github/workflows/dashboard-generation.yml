@@ -36,6 +36,8 @@ jobs:
     steps:
       - name: 📥 Checkout Repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
 
       - name: 📊 Collect Dashboard Metrics
         id: metrics

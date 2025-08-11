@@ -3,37 +3,79 @@ name: 🔍 Basic Security Scan
 on:
   workflow_dispatch:
 
+concurrency:
+  group: security-scan-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
+  changes:
+    runs-on: ubuntu-latest
+    outputs:
+      node: ${{ steps.filter.outputs.node }}
+      python: ${{ steps.filter.outputs.python }}
+    steps:
+      - uses: actions/checkout@v4
+        with: { fetch-depth: 1 }
+      - uses: dorny/paths-filter@v3
+        id: filter
+        with:
+          filters: |
+            node:
+              - '**/package.json'
+              - '**/package-lock.json'
+              - '**/*.js'
+              - '**/*.ts'
+            python:
+              - '**/requirements*.txt'
+              - '**/*.py'
+
   scan:
+    needs: changes
+    if: ${{ needs.changes.outputs.node == 'true' || needs.changes.outputs.python == 'true' }}
     runs-on: ubuntu-latest
 
     steps:
+    - name: CI timestamps
+      run: |
+        echo "run_started_at=${{ github.run_started_at }}"
+        date -u +"now_utc=%Y-%m-%dT%H:%M:%SZ"
+
     - name: Checkout code
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 1
 
-    - name: Run npm audit
-      run: |
-        if [ -f package.json ]; then
-          npm audit
-        else
-          echo "No package.json found"
-        fi
+    - name: Setup Node (for npm audit)
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+        cache: 'npm'
+        cache-dependency-path: |
+          package-lock.json
+          **/package-lock.json
 
-    - name: Run safety check
-      run: |
-        if [ -f requirements.txt ]; then
-          pip install safety
-          safety check -r requirements.txt
-        else
-          echo "No requirements.txt found"
-        fi
+    - name: Setup Python (for safety)
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.x'
+        cache: 'pip'
 
-    - name: Run bundler-audit
-      run: |
-        if [ -f Gemfile ]; then
-          gem install bundler-audit
-          bundler-audit check
-        else
-          echo "No Gemfile found"
-        fi
+    - name: pip install safety (timed)
+      run: ./scripts/measure_step.sh "pip install" -- bash -lc "pip install safety && if [ -f requirements.txt ]; then pip install -r requirements.txt; fi"
 
+    - name: Run npm audit (timed)
+      run: ./scripts/measure_step.sh "npm audit" -- bash -lc "if [ -f package.json ]; then npm audit; else echo 'No package.json found'; fi"
+
+    - name: Run safety check (timed)
+      run: ./scripts/measure_step.sh "safety check" -- bash -lc "if [ -f requirements.txt ]; then safety check -r requirements.txt; else echo 'No requirements.txt found'; fi"
+
+    - name: Run bundler-audit (timed)
+      run: ./scripts/measure_step.sh "bundler-audit" -- bash -lc "if [ -f Gemfile ]; then gem install bundler-audit && bundler-audit check; else echo 'No Gemfile found'; fi"
+
+    - name: Upload timings
+      if: always()
+      uses: actions/upload-artifact@v4
+      with:
+        name: gha-timings-security-scan
+        path: gha-timings/timings.jsonl
+        retention-days: 7

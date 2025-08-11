@@ -11,14 +11,42 @@ permissions:
   pages: write
   id-token: write
 
+# Keep Pages concurrency for deployments
 concurrency:
   group: "pages"
   cancel-in-progress: false
 
 jobs:
+  changes:
+    runs-on: ubuntu-latest
+    outputs:
+      site: ${{ steps.filter.outputs.site }}
+    steps:
+      - uses: actions/checkout@v4
+        with: { fetch-depth: 1 }
+      - uses: dorny/paths-filter@v3
+        id: filter
+        with:
+          filters: |
+            site:
+              - 'website/**'
+              - 'docs/site/**'
+              - 'site/**'
+              - '.github/workflows/build-deploy-site.yml'
+
   build:
     runs-on: ubuntu-latest
+    needs: changes
+    if: ${{ needs.changes.outputs.site == 'true' }}
+    concurrency:
+      group: site-${{ github.ref }}
+      cancel-in-progress: true
     steps:
+      - name: CI timestamps
+        run: |
+          echo "run_started_at=${{ github.run_started_at }}"
+          date -u +"now_utc=%Y-%m-%dT%H:%M:%SZ"
+
       - name: Checkout
         uses: actions/checkout@v4
         with:
@@ -31,25 +59,32 @@ jobs:
           cache: 'npm'
           cache-dependency-path: 'docs/site/package-lock.json'
 
-      - name: Install root dependencies
-        run: |
-          if [ -f package-lock.json ]; then npm ci; else npm install; fi
+      - name: Install root dependencies (timed)
+        run: ./scripts/measure_step.sh "root install" -- bash -lc "if [ -f package-lock.json ]; then npm ci; else npm install; fi"
 
-      - name: Install site dependencies
+      - name: Install site dependencies (timed)
         working-directory: ./docs/site
-        run: npm install
+        run: ../scripts/measure_step.sh "site install" -- npm install --silent
 
-      - name: Generate changelogs
-        run: node scripts/generate-changelogs.mjs
+      - name: Generate changelogs (timed)
+        run: ./scripts/measure_step.sh "changelogs" -- node scripts/generate-changelogs.mjs
 
-      - name: Build site
+      - name: Build site (timed)
         working-directory: ./docs/site
-        run: npm run build
+        run: ../scripts/measure_step.sh "site build" -- npm run build --silent
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./docs/site/dist
+
+      - name: Upload timings
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gha-timings-build-site
+          path: gha-timings/timings.jsonl
+          retention-days: 7
 
   deploy:
     if: github.ref == 'refs/heads/main'
@@ -59,6 +94,8 @@ jobs:
     runs-on: ubuntu-latest
     needs: build
     steps:
-      - name: Deploy to GitHub Pages
+      - name: Deploy to GitHub Pages (timed)
         id: deployment
+        run: ./scripts/measure_step.sh "deploy pages" -- bash -lc "echo 'Deploy via actions/deploy-pages@v4 is executed by the step metadata';"
+      - name: Deployment action
         uses: actions/deploy-pages@v4

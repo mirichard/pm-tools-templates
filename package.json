@@ -7,6 +7,7 @@
     "start": "node ecosystem-gateway.js",
     "onboard": "node onboarding/interactive-onboarding.js",
     "test": "echo 'Basic test passed' && exit 0",
+    "test:ci": "jest --coverage --runInBand --ci --passWithNoTests",
     "gateway": "node ecosystem-gateway.js",
     "quick-start": "node onboarding/interactive-onboarding.js",
     "dashboard-demo": "npm --prefix dashboard-mvp run dev",
@@ -17,6 +18,16 @@
     "preview-site": "npm --prefix docs/site run preview",
     "doc-scan": "node scripts/doc-scan.js",
     "template-selector": "node scripts/template-selector.mjs"
+  },
+  "jest": {
+    "coverageThreshold": {
+      "global": {
+        "branches": 80,
+        "functions": 85,
+        "lines": 85,
+        "statements": 85
+      }
+    }
   },
   "keywords": [
     "project-management",
@@ -35,7 +46,9 @@
     "@testing-library/jest-dom": "^6.6.4",
     "@testing-library/react": "^16.3.0",
     "identity-obj-proxy": "^3.0.0",
-    "jest-axe": "^10.0.0"
+    "jest": "^29.7.0",
+    "jest-axe": "^10.0.0",
+    "nyc": "^15.1.0"
   },
   "engines": {
     "node": ">=14.0.0"
