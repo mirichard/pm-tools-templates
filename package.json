@@ -64,5 +64,16 @@
   "dependencies": {
     "glob": "^11.0.3",
     "js-yaml": "^4.1.0"
+  },
+  "overrides": {
+    "ws": "^8.17.1",
+    "xlsx": "^0.18.5",
+    "tar-fs": "^3.0.6",
+    "nth-check": "^2.1.1",
+    "cookie": "^0.6.0",
+    "on-headers": "^1.0.2",
+    "webpack-dev-server": "^4.15.2",
+    "esbuild": "^0.21.5",
+    "form-data": "^4.0.0"
   }
 }

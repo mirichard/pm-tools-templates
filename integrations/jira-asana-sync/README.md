@@ -1,3 +1,22 @@
+# Jira/Asana Sync — Foundations
+
+This package contains scaffolding for the Jira/Asana bi-directional sync (Issue #290).
+
+Contents
+- OAuth scaffolding (to be implemented)
+- Rate limit retry helper (src/lib/retry.ts) with exponential backoff and jitter
+- Test setup using Vitest (tests/retry.spec.ts)
+
+Local development
+- npm i
+- npm run dev (uses tsx)
+- npm test (vitest)
+
+Guidance
+- Use withRetry() for API calls that may hit 429/5xx or transient network errors
+- Implement shouldRetry to narrow retry conditions if needed
+- Add audit logging of auth, deploy, and update events
+
 # Jira/Asana Integration – OAuth 2.0 Foundations (Q3)
 
 This module scaffolds secure OAuth 2.0 authentication flows for Atlassian (Jira Cloud) and Asana to enable bi‑directional synchronization of template structures and project data.

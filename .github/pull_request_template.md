@@ -8,9 +8,9 @@ role: "pm"
 tags:
   - "communication"
   - "quality"
-version: "1.0.0"
+version: "1.1.0"
 owner: "mirichard"
-updated: "2025-08-06"
+updated: "2025-08-11"
 estimated_completion_time: "10-20 minutes"
 ---
 
@@ -35,6 +35,19 @@ Brief description of the changes made.
 - [ ] All links within the template are valid
 - [ ] Template has been tested in a real project scenario (if applicable)
 
+## Governance Advisory Checklist (non-blocking)
+Reference templates in docs/governance:
+- [ ] Tests passed as applicable (unit/integration/regression)
+- [ ] Rollback plan prepared and linked (docs/governance/rollback-plan-template.md)
+- [ ] User acceptance evidence linked
+- [ ] Documentation updated and linked
+- [ ] Change log entry added
+- [ ] RCA performed if applicable (docs/governance/rca-template.md)
+- [ ] Peer review recorded (docs/governance/peer-review-log.md)
+- [ ] Stakeholder notifications captured (docs/governance/stakeholder-comm-plan.md)
+- [ ] Security & compliance checks noted (docs/governance/security-compliance-checklist.md)
+- [ ] Lessons learned captured (docs/governance/lessons-learned-template.md)
+
 ## Testing
 - [ ] I have tested these changes locally
 - [ ] Template metadata passes linting
@@ -51,4 +64,4 @@ Any additional information that would be helpful for reviewers.
 
 ---
 
-**Reminder**: Please ensure YAML metadata stays fresh. Templates should be reviewed and updated at least annually to maintain relevance and accuracy.
+Reminder: This repository is public-facing and intended for templates and tools only. Working notes should be kept outside the repo.
