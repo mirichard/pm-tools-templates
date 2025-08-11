@@ -7,7 +7,7 @@ on:
       - '**'
 
 concurrency:
-  group: simple-test-${{ github.ref }}
+  group: simple-test-${{ github.ref }}-${{ github.event_name }}
   cancel-in-progress: true
 
 permissions:
