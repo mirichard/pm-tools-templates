@@ -10,6 +10,9 @@ concurrency:
   group: simple-test-${{ github.ref }}
   cancel-in-progress: true
 
+permissions:
+  contents: read
+
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -37,8 +40,8 @@ jobs:
     - name: Prepare timings (noop)
       run: ./scripts/measure_step.sh "noop" -- bash -lc "echo 'collect timings context'"
 
-    - name: Send Test Email
-      if: ${{ secrets.EMAIL_USERNAME != '' && secrets.EMAIL_PASSWORD != '' && secrets.EMAIL_RECIPIENTS != '' && secrets.EMAIL_FROM != '' }}
+    - name: Send Test Email (temporarily disabled)
+      if: false # temporarily disabled for diagnostics
       continue-on-error: true
       uses: dawidd6/action-send-mail@v3
       with:
