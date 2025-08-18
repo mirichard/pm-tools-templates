@@ -1,7 +1,22 @@
 import { test, expect } from '@playwright/test';
 
 async function fillByLabel(page, label: string, value: string) {
-  await page.getByLabel(label).fill(value);
+  let loc = page.getByLabel(label, { exact: true }).first();
+  if (await loc.count() === 0) {
+    loc = page.getByLabel(new RegExp(label, 'i')).first();
+  }
+  if (await loc.count() === 0) {
+    loc = page.getByPlaceholder(new RegExp(label, 'i')).first();
+  }
+  await loc.fill(value);
+}
+
+async function selectByLabel(page, label: string, option: string) {
+  let loc = page.getByLabel(label, { exact: true }).first();
+  if (await loc.count() === 0) {
+    loc = page.getByLabel(new RegExp(label, 'i')).first();
+  }
+  await loc.selectOption(option);
 }
 
 test.describe('UAT - Template Customization MVP', () => {
@@ -47,7 +62,7 @@ test.describe('UAT - Template Customization MVP', () => {
     await fillByLabel(page, 'ID', 'R-1');
     await fillByLabel(page, 'Description', 'API rate limiting');
     await page.getByLabel('Probability').fill('0.5');
-    await page.getByLabel('Impact').selectOption('High');
+    await selectByLabel(page, 'Impact', 'High');
     await fillByLabel(page, 'Mitigation', 'Implement retries and backoff');
     await fillByLabel(page, 'Owner', 'Infra Team');
     await page.screenshot({ path: 'test-results/risk-preview.png' });
@@ -60,8 +75,8 @@ test.describe('UAT - Template Customization MVP', () => {
     await fillByLabel(page, 'role', 'Executive');
     await fillByLabel(page, 'contact', 'cto@example.com');
     await fillByLabel(page, 'Information Needs', 'Weekly status');
-    await page.getByLabel('frequency').selectOption('Weekly');
-    await page.getByLabel('channel').selectOption('Email');
+    await selectByLabel(page, 'frequency', 'Weekly');
+    await selectByLabel(page, 'channel', 'Email');
     await page.screenshot({ path: 'test-results/stakeholder-preview.png' });
   });
 
@@ -74,10 +89,10 @@ test.describe('UAT - Template Customization MVP', () => {
 
     await page.getByLabel('Template').getByText('Executive Status').click();
     await fillByLabel(page, 'Reporting Period', 'Aug 2025');
-    await page.getByLabel('Overall Health').selectOption('Green');
-    await page.getByLabel('Schedule').selectOption('On Track');
-    await page.getByLabel('Budget').selectOption('On Track');
-    await page.getByLabel('Scope').selectOption('On Track');
+    await page.getByRole('combobox', { name: /overall health/i }).selectOption('Green');
+    await page.getByRole('combobox', { name: /schedule/i }).selectOption('On Track');
+    await page.getByRole('combobox', { name: /budget/i }).selectOption('On Track');
+    await page.getByRole('combobox', { name: /scope/i }).selectOption('On Track');
     await page.screenshot({ path: 'test-results/executive-preview.png' });
   });
 });
