@@ -11,7 +11,11 @@
     "noEmit": true,
     "jsx": "react-jsx",
     "strict": true,
-    "baseUrl": "."
+    "baseUrl": ".",
+    "paths": {
+      "@schemas/*": ["../schemas/web-mvp/*"]
+    },
+    "types": ["vite/client"]
   },
   "include": ["src"]
 }

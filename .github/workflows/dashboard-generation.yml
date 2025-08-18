@@ -34,10 +34,11 @@ jobs:
       pull-requests: write
 
     steps:
-      - name: 📥 Checkout Repository
+      - name: 📥 Checkout Repository (develop, full history)
         uses: actions/checkout@v4
         with:
-          fetch-depth: 1
+          ref: develop
+          fetch-depth: 0
 
       - name: 📊 Collect Dashboard Metrics
         id: metrics
@@ -325,6 +326,7 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
+          set -e
           git config --local user.email "action@github.com"
           git config --local user.name "Dashboard Generator"
           
@@ -334,37 +336,31 @@ jobs:
             exit 0
           fi
           
+          # Ensure we are on develop
+          git checkout develop || git checkout -b develop
+          
           # Add dashboard files
           git add dashboards/ || echo "No dashboard files to add"
           
           # Commit if there are changes
           if git diff --staged --quiet; then
             echo "No dashboard changes to commit"
+            exit 0
+          fi
+          
+          git commit -m "📊 Update project health dashboard - $(date +%Y-%m-%d\ %H:%M)"
+          
+          # Try fast-forward pull, otherwise open a PR instead of rebasing
+          if git pull --ff-only origin develop; then
+            git push origin HEAD:develop
+            echo "✅ Dashboard update pushed to develop (fast-forward)"
           else
-            git commit -m "📊 Update project health dashboard - $(date +%Y-%m-%d\ %H:%M)"
-            
-            # Push directly to develop branch (since main is protected)
-            if git push origin HEAD:develop; then
-              echo "✅ Dashboard update pushed to develop branch successfully"
-            else
-              echo "⚠️ Push failed, attempting to resolve conflicts"
-              # Fetch latest changes
-              git fetch origin develop
-              # Try to rebase
-              if git rebase origin/develop; then
-                echo "✅ Rebase successful"
-                git push origin HEAD:develop
-                echo "✅ Dashboard update pushed after rebase"
-              else
-                echo "🔧 Resolving conflicts automatically"
-                # For dashboard files, always use our version (latest generated data)
-                git checkout --ours dashboards/
-                git add dashboards/
-                git rebase --continue
-                git push origin HEAD:develop
-                echo "✅ Dashboard update pushed after conflict resolution"
-              fi
-            fi
+            echo "⚠️ Non fast-forward. Creating PR instead of rebasing."
+            TMP_BRANCH="auto/dashboard-$(date +%Y%m%d-%H%M%S)"
+            git switch -c "$TMP_BRANCH"
+            git push -u origin "$TMP_BRANCH"
+            gh pr create --title "Auto: Update dashboards" --body "Automated dashboard update from workflow" --base develop --head "$TMP_BRANCH" || echo "ℹ️ gh pr create failed; ensure GH_TOKEN has permissions"
+            echo "✅ Opened PR $TMP_BRANCH -> develop"
           fi
 
       - name: 📊 Generate Dashboard
