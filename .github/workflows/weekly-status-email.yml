@@ -40,6 +40,8 @@ env:
 jobs:
   status-reporting:
     name: Generate Status Report
+    # Do not run on pull_request events to keep PR checks clean
+    if: github.event_name != 'pull_request'
     runs-on: ubuntu-latest
     outputs:
       completion_rate: ${{ steps.metrics.outputs.completion_rate }}
@@ -94,7 +96,8 @@ jobs:
   send-email:
     name: Send Status Email
     needs: status-reporting
-    if: always() && needs.status-reporting.result == 'success'
+    # Only run when not a PR and the reporting job succeeded
+    if: github.event_name != 'pull_request' && needs.status-reporting.result == 'success'
     runs-on: ubuntu-latest
     env:
       COMPLETION_RATE: ${{ needs.status-reporting.outputs.completion_rate }}
