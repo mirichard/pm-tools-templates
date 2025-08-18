@@ -7,7 +7,7 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "preview": "vite preview --port 4173",
-    "test:a11y": "playwright test",
+    "test:a11y": "playwright test tests/a11y.spec.ts",
     "lint": "echo 'add linter later'"
   },
   "dependencies": {
@@ -22,6 +22,7 @@
   "devDependencies": {
     "@axe-core/playwright": "^4.9.1",
     "@playwright/test": "^1.45.3",
+    "@types/diff": "^5.2.1",
     "@types/react": "^18.2.66",
     "@types/react-dom": "^18.2.22",
     "@vitejs/plugin-react": "^5.0.0",
