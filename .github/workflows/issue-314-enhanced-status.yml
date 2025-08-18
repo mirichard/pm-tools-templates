@@ -9,6 +9,8 @@ env:
 
 jobs:
   enhanced-status:
+    # Skip on pull_request to avoid affecting PR checks
+    if: github.event_name != 'pull_request'
     runs-on: ubuntu-latest
     
     steps:
