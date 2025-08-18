@@ -20,7 +20,7 @@
     "reveal.js": "^5.0.4"
   },
   "devDependencies": {
-    "@astrojs/check": "^0.5.4",
+    "@astrojs/check": "^0.9.4",
     "typescript": "^5.3.3"
   },
   "overrides": {
