@@ -37,8 +37,9 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 1
-        with:
           token: ${{ secrets.GITHUB_TOKEN }}
+          persist-credentials: true
+          ref: ${{ github.ref_name }}
 
       - name: 🔍 Identify Risk Issues
         id: risk-analysis
@@ -249,7 +250,10 @@ jobs:
 
       - name: 💾 Commit Risk Documentation
         if: github.event.inputs.action == 'update-risk-register' || github.event_name == 'schedule'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
+          set -euo pipefail
           git config --local user.email "action@github.com"
           git config --local user.name "Risk Management Automation"
           
@@ -259,10 +263,24 @@ jobs:
           # Commit if there are changes
           if git diff --staged --quiet; then
             echo "No changes to commit"
-          else
-            git commit -m "📊 Update risk register and metrics - Score: ${{ steps.risk-scoring.outputs.total_risk_score }} (${{ steps.risk-scoring.outputs.risk_level }})"
-            git push
+            exit 0
           fi
+          git commit -m "📊 Update risk register and metrics - Score: ${{ steps.risk-scoring.outputs.total_risk_score }} (${{ steps.risk-scoring.outputs.risk_level }})"
+          
+          # Determine target branch and push explicitly to avoid detached HEAD issues
+          BRANCH_NAME="${GITHUB_REF_NAME}"
+          if [ -z "$BRANCH_NAME" ] || [ "$BRANCH_NAME" = "HEAD" ]; then
+            BRANCH_NAME="$(git branch --show-current || true)"
+          fi
+          if [ -z "$BRANCH_NAME" ]; then
+            echo "Unable to determine branch name; skipping push to avoid git error 128" >&2
+            exit 0
+          fi
+          echo "Pushing to origin $BRANCH_NAME"
+          git push origin HEAD:"$BRANCH_NAME" || {
+            echo "Push failed, possibly due to permissions or protected branch. Skipping." >&2
+            exit 0
+          }
 
       - name: 🔔 Risk Summary
         if: always()

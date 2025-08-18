@@ -3,6 +3,7 @@ on:
   push:
     branches: [ main, staging, develop ]
   pull_request:
+  workflow_dispatch:
 
 concurrency:
   group: ci-${{ github.ref }}
@@ -178,7 +179,18 @@ JS
       - name: Validate canonical paths
         run: node scripts/validate-canonical-paths.js --strict
       - name: Generate index (check for drift)
-        run: node scripts/generate-template-index.js  git diff --no-index --exit-code TEMPLATE_INDEX.md TEMPLATE_INDEX.md
+        run: |
+          node scripts/generate-template-index.js
+          # Fail CI if the generated index has uncommitted changes
+          if git ls-files --error-unmatch TEMPLATE_INDEX.md >/dev/null 2>&1; then
+            if [[ -n "$(git status --porcelain TEMPLATE_INDEX.md)" ]]; then
+              echo "Template index drift detected. Please run the generator and commit changes." >&2
+              git --no-pager diff -- TEMPLATE_INDEX.md || true
+              exit 1
+            fi
+          else
+            echo "TEMPLATE_INDEX.md not tracked; skipping drift check"
+          fi
       - name: Anchor link check (filtered)
         run: python3 check_anchor_links_filtered.py
       - name: Upload validation timings
