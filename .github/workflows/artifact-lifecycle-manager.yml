@@ -21,8 +21,6 @@ on:
           - expired
           - large
           - test
-  pull_request:
-  push:
   schedule:
     - cron: '0 6 * * 1'
 
