@@ -16,7 +16,7 @@
     "@types/react-dom": "^18.2.19",
     "astro": "^5.13.2",
     "react": "^19.1.1",
-    "react-dom": "^18.2.0",
+    "react-dom": "^19.1.1",
     "reveal.js": "^5.0.4"
   },
   "devDependencies": {
