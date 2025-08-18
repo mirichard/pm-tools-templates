@@ -1,8 +1,6 @@
 import React from 'react';
 import { marked } from 'marked';
 
-marked.use({ mangle: false, headerIds: true });
-
 type Props = { markdown: string };
 
 export function MarkdownPreview({ markdown }: Props) {
