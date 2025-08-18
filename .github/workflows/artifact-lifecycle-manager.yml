@@ -53,6 +53,8 @@ permissions:
 jobs:
 manage-artifacts:
     name: 📦 Manage Artifacts
+    # Skip on pull_request to avoid affecting PR checks; allow schedule/push/dispatch
+    if: github.event_name != 'pull_request'
     runs-on: ubuntu-latest
     continue-on-error: ${{ github.event_name == 'pull_request' }}
     
