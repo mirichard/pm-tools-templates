@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🚀 Team Status Update - {{DATE}}</title>
+    <style>
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            line-height: 1.6; 
+            color: #333; 
+            max-width: 900px; 
+            margin: 0 auto; 
+            padding: 20px; 
+            background-color: #f8f9fa;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+        }
+        .header { 
+            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+            color: white;
+            padding: 25px; 
+            margin: -30px -30px 30px -30px;
+            border-radius: 10px 10px 0 0;
+            text-align: center;
+        }
+        .header h1 { margin: 0; font-size: 28px; font-weight: 500; }
+        .header p { margin: 10px 0 0 0; opacity: 0.9; }
+        
+        .progress-section {
+            background: #e8f5e8;
+            border-left: 4px solid #28a745;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 8px;
+        }
+        
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 25px 0;
+        }
+        
+        .metric-card {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #007bff;
+            text-align: center;
+        }
+        
+        .metric-card.warning { border-left-color: #ffc107; background: #fff8e1; }
+        .metric-card.danger { border-left-color: #dc3545; background: #ffebee; }
+        .metric-card.success { border-left-color: #28a745; background: #e8f5e8; }
+        
+        .metric-value {
+            font-size: 28px;
+            font-weight: bold;
+            margin: 10px 0;
+            color: #495057;
+        }
+        
+        .metric-label {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #6c757d;
+            margin-bottom: 8px;
+        }
+        
+        .section {
+            margin: 30px 0;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+        
+        .section h3 {
+            color: #495057;
+            border-bottom: 2px solid #007bff;
+            padding-bottom: 8px;
+            margin-bottom: 15px;
+        }
+        
+        .task-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .task-item {
+            background: white;
+            margin: 10px 0;
+            padding: 15px;
+            border-radius: 6px;
+            border-left: 4px solid #28a745;
+            display: flex;
+            align-items: center;
+        }
+        
+        .task-item.high-priority { border-left-color: #dc3545; }
+        .task-item.medium-priority { border-left-color: #ffc107; }
+        .task-item.blocked { border-left-color: #6c757d; background: #f1f3f4; }
+        
+        .task-icon {
+            font-size: 18px;
+            margin-right: 12px;
+            width: 25px;
+        }
+        
+        .task-content {
+            flex: 1;
+        }
+        
+        .task-meta {
+            font-size: 12px;
+            color: #6c757d;
+            margin-top: 5px;
+        }
+        
+        .achievement-badge {
+            background: linear-gradient(135deg, #ffd700, #ffed4e);
+            color: #333;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            display: inline-block;
+            margin: 5px;
+        }
+        
+        .blocker-alert {
+            background: #fff5f5;
+            border: 1px solid #fed7d7;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        
+        .blocker-item {
+            margin: 10px 0;
+            padding: 12px;
+            background: white;
+            border-radius: 6px;
+            border-left: 4px solid #dc3545;
+        }
+        
+        .next-actions {
+            background: #e7f3ff;
+            border-left: 4px solid #007bff;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 8px;
+        }
+        
+        .action-item {
+            margin: 12px 0;
+            padding: 10px 0;
+            border-bottom: 1px solid #e9ecef;
+        }
+        
+        .action-item:last-child {
+            border-bottom: none;
+        }
+        
+        .priority-high { color: #dc3545; font-weight: 600; }
+        .priority-medium { color: #ffc107; font-weight: 600; }
+        .priority-low { color: #28a745; font-weight: 600; }
+        
+        .footer { 
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #e9ecef;
+            text-align: center;
+            color: #6c757d;
+            font-size: 12px;
+        }
+        
+        .celebration {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            text-align: center;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 25px 0;
+        }
+        
+        @media (max-width: 600px) {
+            .container { padding: 20px; margin: 10px; }
+            .header { padding: 20px; margin: -20px -20px 20px -20px; }
+            .metrics-grid { grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); }
+            .metric-value { font-size: 24px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🚀 Team Status Update</h1>
+            <p>Development Progress - {{DATE}}</p>
+            <p style="font-size: 14px; opacity: 0.8;">PM Tools Templates - {{REPORT_TYPE}} Update</p>
+        </div>
+        
+        <!-- This Week's Progress -->
+        <div class="progress-section">
+            <h2 style="margin: 0 0 15px 0; color: #495057;">📈 This Week's Progress</h2>
+            <p style="font-size: 16px; margin: 0; color: #495057;">
+                <strong>{{RECENT_CLOSED}} issues completed</strong> this week! 
+                We're now at <strong>{{COMPLETION_RATE}}%</strong> overall completion.
+                {{#if gte RECENT_CLOSED 5)}}
+                🎉 <strong>Outstanding velocity!</strong> The team is crushing it!
+                {{else if (gte RECENT_CLOSED 3)}}
+                👍 <strong>Good momentum!</strong> Keep up the great work!
+                {{else}}
+                💪 <strong>Steady progress!</strong> Let's maintain focus this week.
+                {{/if}}
+            </p>
+        </div>
+        
+        <!-- Team Metrics Dashboard -->
+        <div class="metrics-grid">
+            <div class="metric-card {{#if gte COMPLETION_RATE 80)}}success{{else if (gte COMPLETION_RATE 60)}}warning{{else}}danger{{/if}}">
+                <div class="metric-label">Overall Progress</div>
+                <div class="metric-value">{{COMPLETION_RATE}}%</div>
+                <div style="font-size: 14px; color: #6c757d;">{{CLOSED_ISSUES}}/{{TOTAL_ISSUES}} Complete</div>
+            </div>
+            
+            <div class="metric-card {{#if (lte HIGH_PRIORITY 5)}}success{{else if (lte HIGH_PRIORITY 10)}}warning{{else}}danger{{/if}}">
+                <div class="metric-label">High Priority</div>
+                <div class="metric-value">{{HIGH_PRIORITY}}</div>
+                <div style="font-size: 14px; color: #6c757d;">Active Items</div>
+            </div>
+            
+            <div class="metric-card {{#if (eq BUGS 0)}}success{{else if (lte BUGS 3)}}warning{{else}}danger{{/if}}">
+                <div class="metric-label">Active Bugs</div>
+                <div class="metric-value">{{BUGS}}</div>
+                <div style="font-size: 14px; color: #6c757d;">{{#if (eq BUGS 0)}}Clean!{{else}}Need Attention{{/if}}</div>
+            </div>
+            
+            <div class="metric-card {{#if (eq BLOCKERS 0)}}success{{else}}danger{{/if}}">
+                <div class="metric-label">Blockers</div>
+                <div class="metric-value">{{BLOCKERS}}</div>
+                <div style="font-size: 14px; color: #6c757d;">{{#if (eq BLOCKERS 0)}}All Clear!{{else}}Needs Help{{/if}}</div>
+            </div>
+        </div>
+        
+        {{#if gte RECENT_CLOSED 5)}}
+        <!-- Team Celebration -->
+        <div class="celebration">
+            <h3 style="margin: 0 0 10px 0;">🎉 Weekly Achievement Unlocked!</h3>
+            <p style="margin: 0; font-size: 16px; opacity: 0.9;">
+                {{RECENT_CLOSED}} issues completed this week - That's incredible velocity! 
+                {{#if gte COMPLETION_RATE 90)}}
+                <br><span class="achievement-badge">🏆 Sprint Champion</span>
+                {{else if (gte COMPLETION_RATE 75)}}
+                <br><span class="achievement-badge">🚀 Momentum Master</span>
+                {{else}}
+                <br><span class="achievement-badge">⚡ Velocity Warrior</span>
+                {{/if}}
+            </p>
+        </div>
+        {{/if}}
+        
+        <!-- Current Sprint Focus -->
+        <div class="section">
+            <h3>🎯 Current Sprint Focus</h3>
+            <ul class="task-list">
+                <li class="task-item high-priority">
+                    <div class="task-icon">🔥</div>
+                    <div class="task-content">
+                        <strong>Clean Status Workflow Enhancement</strong><br>
+                        Implementing production-ready email templates and configuration system
+                        <div class="task-meta">Issue #314 • Due: Jul 31 • Owner: Dev Team</div>
+                    </div>
+                </li>
+                <li class="task-item medium-priority">
+                    <div class="task-icon">🔐</div>
+                    <div class="task-content">
+                        <strong>OAuth 2.0 Integration</strong><br>
+                        Secure token management for Jira/Asana integrations
+                        <div class="task-meta">Issue #385 • Due: Aug 15 • Owner: Security Team</div>
+                    </div>
+                </li>
+                <li class="task-item">
+                    <div class="task-icon">🔄</div>
+                    <div class="task-content">
+                        <strong>Field Mapping Engine</strong><br>
+                        Delta sync capabilities with idempotency controls
+                        <div class="task-meta">Issue #386 • Due: Aug 20 • Owner: Integration Team</div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        
+        {{#if gt BLOCKERS 0)}}
+        <!-- Active Blockers -->
+        <div class="blocker-alert">
+            <h3 style="margin: 0 0 15px 0; color: #721c24;">🚨 Active Blockers ({{BLOCKERS}})</h3>
+            <div class="blocker-item">
+                <strong>Workflow Health Critical</strong><br>
+                CI/CD pipeline health degraded to 54.36/100 - impacting development velocity
+                <div style="font-size: 12px; color: #6c757d; margin-top: 5px;">
+                    Owner: DevOps Team • Escalated: {{TIMESTAMP}} • Issue #496
+                </div>
+            </div>
+            {{#if gt CRITICAL_RISKS 0)}}
+            <div class="blocker-item">
+                <strong>Critical Risk Escalation</strong><br>
+                {{CRITICAL_RISKS}} critical program risks require immediate team coordination
+                <div style="font-size: 12px; color: #6c757d; margin-top: 5px;">
+                    Owner: Tech Lead • Action Required: Immediate
+                </div>
+            </div>
+            {{/if}}
+        </div>
+        {{/if}}
+        
+        <!-- This Week's Accomplishments -->
+        <div class="section">
+            <h3>✅ This Week's Accomplishments</h3>
+            {{#if gte RECENT_CLOSED 1)}}
+            <p>🎯 <strong>{{RECENT_CLOSED}} issues resolved</strong> including:</p>
+            <ul style="margin: 15px 0; padding-left: 20px;">
+                <li>Enhanced workflow automation capabilities</li>
+                <li>Improved project health monitoring</li>
+                <li>Documentation and template updates</li>
+                {{#if gte RECENT_CLOSED 3)}}
+                <li>Security vulnerability assessments</li>
+                <li>Performance optimization improvements</li>
+                {{/if}}
+            </ul>
+            {{else}}
+            <p>🔧 Focus week on foundation and infrastructure improvements</p>
+            {{/if}}
+        </div>
+        
+        <!-- Next Week's Priorities -->
+        <div class="next-actions">
+            <h3 style="margin: 0 0 15px 0; color: #004085;">📋 Next Week's Priorities</h3>
+            
+            <div class="action-item">
+                <span class="priority-high">HIGH:</span> 
+                Complete email template variants for Issue #314
+                <div style="font-size: 12px; color: #6c757d; margin-top: 3px;">
+                    Executive, stakeholder, and team templates with responsive design
+                </div>
+            </div>
+            
+            <div class="action-item">
+                <span class="priority-high">HIGH:</span> 
+                Resolve workflow health critical alert (Issue #496)
+                <div style="font-size: 12px; color: #6c757d; margin-top: 3px;">
+                    Investigate CI/CD degradation and implement performance fixes
+                </div>
+            </div>
+            
+            <div class="action-item">
+                <span class="priority-medium">MEDIUM:</span> 
+                Begin OAuth 2.0 implementation for external integrations
+                <div style="font-size: 12px; color: #6c757d; margin-top: 3px;">
+                    Security review and token management architecture
+                </div>
+            </div>
+            
+            <div class="action-item">
+                <span class="priority-low">LOW:</span> 
+                Documentation updates and code review improvements
+                <div style="font-size: 12px; color: #6c757d; margin-top: 3px;">
+                    Maintain quality standards and knowledge sharing
+                </div>
+            </div>
+        </div>
+        
+        <!-- Team Resources -->
+        <div class="section">
+            <h3>🔗 Team Resources</h3>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+                <div>
+                    <strong>📊 Development Dashboard</strong><br>
+                    <a href="{{PROGRAM_DASHBOARD_URL}}" style="color: #007bff; text-decoration: none;">Real-time Project Status</a>
+                </div>
+                <div>
+                    <strong>🐛 Bug Tracker</strong><br>
+                    <a href="https://github.com/{{GITHUB_REPOSITORY}}/issues?q=is%3Aissue+is%3Aopen+label%3Abug" style="color: #007bff; text-decoration: none;">Active Bug Reports</a>
+                </div>
+                <div>
+                    <strong>🚀 Sprint Board</strong><br>
+                    <a href="https://github.com/{{GITHUB_REPOSITORY}}/projects" style="color: #007bff; text-decoration: none;">Current Sprint Progress</a>
+                </div>
+                <div>
+                    <strong>📋 Documentation</strong><br>
+                    <a href="{{DETAILED_REPORTS_URL}}" style="color: #007bff; text-decoration: none;">Technical Docs & Guides</a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Team Motivation -->
+        <div style="background: #f8f9fa; padding: 20px; border-radius: 8px; margin: 25px 0; text-align: center;">
+            <h4 style="margin: 0 0 10px 0; color: #495057;">💪 Team Motivation</h4>
+            <p style="margin: 0; color: #6c757d; font-style: italic;">
+                {{#if gte COMPLETION_RATE 80)}}
+                "We're in the home stretch! Amazing work from everyone on the team. Let's finish strong! 🎯"
+                {{else if (gte COMPLETION_RATE 60)}}
+                "Great momentum this week! We're making real progress toward our goals. Keep it up! 🚀"
+                {{else}}
+                "Every line of code, every bug fix, every improvement matters. We're building something awesome! 💻"
+                {{/if}}
+            </p>
+        </div>
+        
+        <div class="footer">
+            <p><strong>🤖 PM Tools Templates</strong> • Automated Team Status</p>
+            <p>📧 This team update is generated from real-time development data</p>
+            <p>🔄 Updated automatically every {{REPORT_FREQUENCY}} • Next update: {{NEXT_UPDATE}}</p>
+            <p style="margin-top: 15px; font-size: 11px; opacity: 0.7;">
+                Report Generated: {{TIMESTAMP}} | Automation: Clean Status Workflow v2.0
+            </p>
+        </div>
+    </div>
+</body>
+</html>

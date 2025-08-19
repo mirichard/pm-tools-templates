@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📈 Stakeholder Status Report - {{DATE}}</title>
+    <style>
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            line-height: 1.6; 
+            color: #333; 
+            max-width: 900px; 
+            margin: 0 auto; 
+            padding: 20px; 
+            background-color: #f8f9fa;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+        }
+        .header { 
+            background: linear-gradient(135deg, #17a2b8 0%, #6f42c1 100%);
+            color: white;
+            padding: 25px; 
+            margin: -30px -30px 30px -30px;
+            border-radius: 10px 10px 0 0;
+            text-align: center;
+        }
+        .header h1 { margin: 0; font-size: 28px; font-weight: 500; }
+        .header p { margin: 10px 0 0 0; opacity: 0.9; }
+        
+        .executive-overview {
+            background: #e1f5fe;
+            border-left: 4px solid #17a2b8;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 8px;
+        }
+        
+        .status-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 25px 0;
+        }
+        
+        .status-card {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            border-top: 4px solid #17a2b8;
+        }
+        
+        .status-card.on-track { border-top-color: #28a745; background: #e8f5e8; }
+        .status-card.at-risk { border-top-color: #ffc107; background: #fff8e1; }
+        .status-card.behind { border-top-color: #dc3545; background: #ffebee; }
+        
+        .status-value {
+            font-size: 28px;
+            font-weight: bold;
+            margin: 10px 0;
+            color: #495057;
+        }
+        
+        .status-label {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #6c757d;
+            margin-bottom: 8px;
+        }
+        
+        .status-description {
+            font-size: 13px;
+            color: #6c757d;
+            margin-top: 8px;
+        }
+        
+        .milestone-section {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 8px;
+            margin: 25px 0;
+        }
+        
+        .milestone-item {
+            display: flex;
+            align-items: center;
+            margin: 15px 0;
+            padding: 15px;
+            background: white;
+            border-radius: 6px;
+            border-left: 4px solid #28a745;
+        }
+        
+        .milestone-item.at-risk { border-left-color: #ffc107; }
+        .milestone-item.behind { border-left-color: #dc3545; }
+        
+        .milestone-icon {
+            font-size: 18px;
+            margin-right: 15px;
+            width: 25px;
+        }
+        
+        .milestone-content {
+            flex: 1;
+        }
+        
+        .milestone-progress {
+            font-size: 12px;
+            color: #6c757d;
+            margin-top: 5px;
+        }
+        
+        .deliverables-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        
+        .deliverables-table th {
+            background: #e9ecef;
+            padding: 15px 12px;
+            text-align: left;
+            font-weight: 600;
+            color: #495057;
+            font-size: 13px;
+        }
+        
+        .deliverables-table td {
+            padding: 12px;
+            border-bottom: 1px solid #e9ecef;
+            font-size: 14px;
+        }
+        
+        .deliverables-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .status-badge {
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        
+        .status-badge.complete {
+            background: #d4edda;
+            color: #155724;
+        }
+        
+        .status-badge.in-progress {
+            background: #d1ecf1;
+            color: #0c5460;
+        }
+        
+        .status-badge.at-risk {
+            background: #fff3cd;
+            color: #856404;
+        }
+        
+        .status-badge.behind {
+            background: #f8d7da;
+            color: #721c24;
+        }
+        
+        .risks-section {
+            background: #fff5f5;
+            border: 1px solid #fed7d7;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 25px 0;
+        }
+        
+        .risk-item {
+            margin: 12px 0;
+            padding: 12px;
+            background: white;
+            border-radius: 6px;
+            border-left: 4px solid #dc3545;
+        }
+        
+        .risk-level {
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+        }
+        
+        .risk-high { color: #dc3545; }
+        .risk-medium { color: #ffc107; }
+        .risk-low { color: #28a745; }
+        
+        .roi-section {
+            background: #e8f5e8;
+            border-left: 4px solid #28a745;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 8px;
+        }
+        
+        .roi-metrics {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin: 15px 0;
+        }
+        
+        .roi-metric {
+            text-align: center;
+            padding: 15px;
+            background: white;
+            border-radius: 6px;
+        }
+        
+        .roi-value {
+            font-size: 24px;
+            font-weight: bold;
+            color: #28a745;
+            margin: 5px 0;
+        }
+        
+        .roi-label {
+            font-size: 11px;
+            color: #6c757d;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .next-meeting {
+            background: #e7f3ff;
+            border-left: 4px solid #007bff;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 8px;
+        }
+        
+        .contact-section {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 25px 0;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 15px 0;
+        }
+        
+        .contact-card {
+            padding: 15px;
+            background: white;
+            border-radius: 6px;
+            text-align: center;
+        }
+        
+        .footer { 
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #e9ecef;
+            text-align: center;
+            color: #6c757d;
+            font-size: 12px;
+        }
+        
+        @media (max-width: 600px) {
+            .container { padding: 20px; margin: 10px; }
+            .header { padding: 20px; margin: -20px -20px 20px -20px; }
+            .status-grid { grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); }
+            .deliverables-table { font-size: 12px; }
+            .deliverables-table th, .deliverables-table td { padding: 8px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📈 Stakeholder Status Report</h1>
+            <p>Project Progress & Key Updates - {{DATE}}</p>
+            <p style="font-size: 14px; opacity: 0.8;">PM Tools Templates Program - {{REPORT_TYPE}} Report</p>
+        </div>
+        
+        <!-- Executive Overview -->
+        <div class="executive-overview">
+            <h2 style="margin: 0 0 15px 0; color: #495057;">🎯 Project Health Overview</h2>
+            <p style="font-size: 16px; margin: 0; color: #495057; line-height: 1.7;">
+                <strong>Current Status:</strong> 
+                {{#if gte COMPLETION_RATE 80)}}
+                Project is <strong style="color: #28a745;">on track</strong> with {{COMPLETION_RATE}}% completion. 
+                {{else if (gte COMPLETION_RATE 60)}}
+                Project shows <strong style="color: #ffc107;">good progress</strong> at {{COMPLETION_RATE}}% completion. 
+                {{else}}
+                Project requires <strong style="color: #dc3545;">attention</strong> at {{COMPLETION_RATE}}% completion. 
+                {{/if}}
+                {{#if gt HIGH_PRIORITY 5)}}
+                <strong>{{HIGH_PRIORITY}} high-priority items</strong> require stakeholder awareness.
+                {{/if}}
+                {{#if gt CRITICAL_RISKS 0)}}
+                <br><strong style="color: #dc3545;">⚠️ {{CRITICAL_RISKS}} critical risks</strong> need immediate stakeholder review.
+                {{/if}}
+            </p>
+        </div>
+        
+        <!-- Key Performance Indicators -->
+        <div class="status-grid">
+            <div class="status-card {{#if gte COMPLETION_RATE 80)}}on-track{{else if (gte COMPLETION_RATE 60)}}at-risk{{else}}behind{{/if}}">
+                <div class="status-label">Project Progress</div>
+                <div class="status-value">{{COMPLETION_RATE}}%</div>
+                <div class="status-description">{{CLOSED_ISSUES}} of {{TOTAL_ISSUES}} deliverables complete</div>
+            </div>
+            
+            <div class="status-card {{#if gte STRATEGIC_PROGRESS 70)}}on-track{{else if (gte STRATEGIC_PROGRESS 40)}}at-risk{{else}}behind{{/if}}">
+                <div class="status-label">Strategic Goals</div>
+                <div class="status-value">{{STRATEGIC_PROGRESS}}%</div>
+                <div class="status-description">Business objective achievement</div>
+            </div>
+            
+            <div class="status-card {{#if (eq CRITICAL_RISKS 0)}}on-track{{else if (lte CRITICAL_RISKS 2)}}at-risk{{else}}behind{{/if}}">
+                <div class="status-label">Risk Profile</div>
+                <div class="status-value">{{CRITICAL_RISKS}}</div>
+                <div class="status-description">{{#if (eq CRITICAL_RISKS 0)}}Low risk profile{{else}}Critical issues identified{{/if}}</div>
+            </div>
+            
+            <div class="status-card on-track">
+                <div class="status-label">Recent Velocity</div>
+                <div class="status-value">{{RECENT_CLOSED}}</div>
+                <div class="status-description">Deliverables completed this week</div>
+            </div>
+        </div>
+        
+        <!-- Milestone Tracking -->
+        <div class="milestone-section">
+            <h3 style="margin: 0 0 20px 0; color: #495057;">📅 Q3 2025 Milestone Progress</h3>
+            
+            <div class="milestone-item">
+                <div class="milestone-icon">✅</div>
+                <div class="milestone-content">
+                    <strong>Foundation Phase</strong> - Complete<br>
+                    Template selector framework and complexity assessment tools
+                    <div class="milestone-progress">Delivered: Jul 15 | Budget: On target | Quality: Excellent</div>
+                </div>
+            </div>
+            
+            <div class="milestone-item {{#if lt STRATEGIC_PROGRESS 65)}}at-risk{{/if}}">
+                <div class="milestone-icon">🚀</div>
+                <div class="milestone-content">
+                    <strong>Executive Dashboard Suite</strong> - {{STRATEGIC_PROGRESS}}% Complete<br>
+                    Enterprise reporting and advanced analytics capabilities
+                    <div class="milestone-progress">Due: Jul 31 | Budget: On track | Team: Dev + Analytics</div>
+                </div>
+            </div>
+            
+            <div class="milestone-item">
+                <div class="milestone-icon">🎨</div>
+                <div class="milestone-content">
+                    <strong>Enhanced Template Selector</strong> - Design Phase<br>
+                    Interactive onboarding and guided template selection
+                    <div class="milestone-progress">Due: Aug 20 | Budget: Approved | Dependencies: UX Research</div>
+                </div>
+            </div>
+            
+            <div class="milestone-item">
+                <div class="milestone-icon">🤝</div>
+                <div class="milestone-content">
+                    <strong>Community Platform Integration</strong> - Planning<br>
+                    User feedback systems and collaborative features
+                    <div class="milestone-progress">Due: Aug 31 | Budget: Under review | Scope: Defined</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Key Deliverables Status -->
+        <div style="margin: 30px 0;">
+            <h3 style="color: #495057; margin-bottom: 15px;">📋 Key Deliverables Status</h3>
+            <table class="deliverables-table">
+                <thead>
+                    <tr>
+                        <th>Deliverable</th>
+                        <th>Status</th>
+                        <th>Progress</th>
+                        <th>Due Date</th>
+                        <th>Owner</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Enhanced Status Workflow</strong><br><small>Production-ready email templates</small></td>
+                        <td><span class="status-badge in-progress">In Progress</span></td>
+                        <td>75%</td>
+                        <td>Jul 31</td>
+                        <td>Dev Team</td>
+                    </tr>
+                    <tr>
+                        <td><strong>OAuth 2.0 Integration</strong><br><small>Secure external tool connectivity</small></td>
+                        <td><span class="status-badge in-progress">In Progress</span></td>
+                        <td>25%</td>
+                        <td>Aug 15</td>
+                        <td>Security Team</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Field Mapping Engine</strong><br><small>Bi-directional sync capabilities</small></td>
+                        <td><span class="status-badge in-progress">Starting</span></td>
+                        <td>10%</td>
+                        <td>Aug 20</td>
+                        <td>Integration Team</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Workflow Health Monitoring</strong><br><small>CI/CD performance optimization</small></td>
+                        <td><span class="status-badge at-risk">At Risk</span></td>
+                        <td>30%</td>
+                        <td>Immediate</td>
+                        <td>DevOps Team</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        {{#if (or (gt CRITICAL_RISKS 0) (gt HIGH_PRIORITY 10))}}
+        <!-- Risk Assessment -->
+        <div class="risks-section">
+            <h3 style="margin: 0 0 15px 0; color: #721c24;">⚠️ Risk Assessment & Mitigation</h3>
+            
+            {{#if gt CRITICAL_RISKS 0)}}
+            <div class="risk-item">
+                <div class="risk-level risk-high">High Risk</div>
+                <strong>Critical Program Risks Identified</strong><br>
+                {{CRITICAL_RISKS}} critical issues require immediate stakeholder attention and resource allocation.
+                <div style="font-size: 12px; color: #6c757d; margin-top: 5px;">
+                    Mitigation: Executive escalation initiated | Review scheduled | Impact assessment in progress
+                </div>
+            </div>
+            {{/if}}
+            
+            {{#if gt HIGH_PRIORITY 10)}}
+            <div class="risk-item">
+                <div class="risk-level risk-medium">Medium Risk</div>
+                <strong>Resource Allocation Pressure</strong><br>
+                {{HIGH_PRIORITY}} high-priority items may impact delivery timeline without additional resources.
+                <div style="font-size: 12px; color: #6c757d; margin-top: 5px;">
+                    Mitigation: Resource reallocation plan | Priority matrix review | Scope adjustment options
+                </div>
+            </div>
+            {{/if}}
+            
+            <div class="risk-item">
+                <div class="risk-level risk-low">Low Risk</div>
+                <strong>Technical Dependencies</strong><br>
+                External integrations may experience minor delays due to third-party API changes.
+                <div style="font-size: 12px; color: #6c757d; margin-top: 5px;">
+                    Mitigation: Alternative integration paths identified | Vendor communication established
+                </div>
+            </div>
+        </div>
+        {{/if}}
+        
+        <!-- Business Value & ROI -->
+        <div class="roi-section">
+            <h3 style="margin: 0 0 15px 0; color: #495057;">💰 Business Value & ROI Projections</h3>
+            <p style="margin: 0 0 15px 0; color: #495057;">
+                Current investments are delivering measurable value with strong ROI indicators:
+            </p>
+            <div class="roi-metrics">
+                <div class="roi-metric">
+                    <div class="roi-label">Time Savings</div>
+                    <div class="roi-value">40%</div>
+                    <div style="font-size: 12px; color: #6c757d;">Project setup time reduction</div>
+                </div>
+                <div class="roi-metric">
+                    <div class="roi-label">Efficiency Gain</div>
+                    <div class="roi-value">65%</div>
+                    <div style="font-size: 12px; color: #6c757d;">Template utilization improvement</div>
+                </div>
+                <div class="roi-metric">
+                    <div class="roi-label">Quality Score</div>
+                    <div class="roi-value">85%</div>
+                    <div style="font-size: 12px; color: #6c757d;">Standardization compliance</div>
+                </div>
+                <div class="roi-metric">
+                    <div class="roi-label">User Adoption</div>
+                    <div class="roi-value">75%</div>
+                    <div style="font-size: 12px; color: #6c757d;">Active user engagement</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Next Stakeholder Meeting -->
+        <div class="next-meeting">
+            <h3 style="margin: 0 0 15px 0; color: #004085;">📞 Next Stakeholder Review</h3>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+                <div>
+                    <strong>📅 Scheduled Meeting</strong><br>
+                    <div style="margin: 5px 0; color: #004085;">
+                        <strong>Date:</strong> {{ADD_DAYS 7}} at 2:00 PM<br>
+                        <strong>Duration:</strong> 45 minutes<br>
+                        <strong>Format:</strong> Hybrid (Teams + In-person)
+                    </div>
+                </div>
+                <div>
+                    <strong>📋 Agenda Items</strong><br>
+                    <ul style="margin: 5px 0; padding-left: 20px; color: #004085;">
+                        <li>Q3 milestone review</li>
+                        <li>Resource allocation discussion</li>
+                        <li>Risk mitigation strategies</li>
+                        <li>Q4 planning preview</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Contact Information -->
+        <div class="contact-section">
+            <h3 style="margin: 0 0 15px 0; color: #495057;">📞 Project Contacts</h3>
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <strong>📋 Program Manager</strong><br>
+                    <div style="margin: 5px 0; color: #6c757d;">
+                        Michael Richard<br>
+                        <a href="mailto:michael@pm-tools.com" style="color: #007bff;">michael@pm-tools.com</a><br>
+                        Weekly status calls: Fridays 10 AM
+                    </div>
+                </div>
+                <div class="contact-card">
+                    <strong>🔧 Technical Lead</strong><br>
+                    <div style="margin: 5px 0; color: #6c757d;">
+                        Development Team<br>
+                        <a href="mailto:dev-team@pm-tools.com" style="color: #007bff;">dev-team@pm-tools.com</a><br>
+                        Technical reviews: Tuesdays 2 PM
+                    </div>
+                </div>
+                <div class="contact-card">
+                    <strong>💼 Executive Sponsor</strong><br>
+                    <div style="margin: 5px 0; color: #6c757d;">
+                        Program Executive<br>
+                        <a href="mailto:executive@pm-tools.com" style="color: #007bff;">executive@pm-tools.com</a><br>
+                        Strategic reviews: Monthly
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Quick Links -->
+        <div style="background: #e7f3ff; padding: 20px; border-radius: 8px; margin: 25px 0; text-align: center;">
+            <h4 style="margin: 0 0 15px 0; color: #004085;">🔗 Stakeholder Resources</h4>
+            <div style="display: flex; justify-content: center; gap: 15px; flex-wrap: wrap;">
+                <a href="{{PROGRAM_DASHBOARD_URL}}" style="color: #007bff; text-decoration: none; padding: 8px 16px; background: white; border-radius: 6px; font-weight: 500;">📊 Live Dashboard</a>
+                <a href="{{DETAILED_REPORTS_URL}}" style="color: #007bff; text-decoration: none; padding: 8px 16px; background: white; border-radius: 6px; font-weight: 500;">📈 Detailed Reports</a>
+                <a href="https://github.com/{{GITHUB_REPOSITORY}}/milestones" style="color: #007bff; text-decoration: none; padding: 8px 16px; background: white; border-radius: 6px; font-weight: 500;">🎯 Milestone Tracker</a>
+                <a href="mailto:program-manager@pm-tools.com?subject=Stakeholder Inquiry" style="color: #007bff; text-decoration: none; padding: 8px 16px; background: white; border-radius: 6px; font-weight: 500;">📧 Direct Contact</a>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p><strong>🤖 PM Tools Templates</strong> • Automated Stakeholder Report</p>
+            <p>📧 This stakeholder update is generated from real-time project data and milestone tracking</p>
+            <p>🔄 Updated automatically every {{REPORT_FREQUENCY}} • Next report: {{ADD_DAYS 7}}</p>
+            <p style="margin-top: 15px; font-size: 11px; opacity: 0.7;">
+                Report Generated: {{TIMESTAMP}} | Automation: Clean Status Workflow v2.0 | 
+                <a href="mailto:feedback@pm-tools.com?subject=Stakeholder Report Feedback" style="color: inherit;">Feedback Welcome</a>
+            </p>
+        </div>
+    </div>
+</body>
+</html>
