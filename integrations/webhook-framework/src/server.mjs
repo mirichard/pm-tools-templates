@@ -5,7 +5,8 @@ const app = express()
 app.use(express.json({ limit: '1mb' }))
 
 import { logger } from './middleware/logger.mjs'
-app.use('/webhook/:provider', logger)
+import { metrics } from './middleware/metrics.mjs'
+app.use('/webhook/:provider', logger, metrics)
 
 function verifySignature(provider, secret, rawBody, signatureHeader) {
   if (!secret || !signatureHeader) return false
