@@ -211,7 +211,7 @@
             <p style="font-size: 16px; margin: 0; color: #495057;">
                 <strong>{{RECENT_CLOSED}} issues completed</strong> this week! 
                 We're now at <strong>{{COMPLETION_RATE}}%</strong> overall completion.
-                {{#if (gte RECENT_CLOSED 5)}}
+                {{#if gte RECENT_CLOSED 5)}}
                 🎉 <strong>Outstanding velocity!</strong> The team is crushing it!
                 {{else if (gte RECENT_CLOSED 3)}}
                 👍 <strong>Good momentum!</strong> Keep up the great work!
@@ -223,7 +223,7 @@
         
         <!-- Team Metrics Dashboard -->
         <div class="metrics-grid">
-            <div class="metric-card {{#if (gte COMPLETION_RATE 80)}}success{{else if (gte COMPLETION_RATE 60)}}warning{{else}}danger{{/if}}">
+            <div class="metric-card {{#if gte COMPLETION_RATE 80)}}success{{else if (gte COMPLETION_RATE 60)}}warning{{else}}danger{{/if}}">
                 <div class="metric-label">Overall Progress</div>
                 <div class="metric-value">{{COMPLETION_RATE}}%</div>
                 <div style="font-size: 14px; color: #6c757d;">{{CLOSED_ISSUES}}/{{TOTAL_ISSUES}} Complete</div>
@@ -248,13 +248,13 @@
             </div>
         </div>
         
-        {{#if (gte RECENT_CLOSED 5)}}
+        {{#if gte RECENT_CLOSED 5)}}
         <!-- Team Celebration -->
         <div class="celebration">
             <h3 style="margin: 0 0 10px 0;">🎉 Weekly Achievement Unlocked!</h3>
             <p style="margin: 0; font-size: 16px; opacity: 0.9;">
                 {{RECENT_CLOSED}} issues completed this week - That's incredible velocity! 
-                {{#if (gte COMPLETION_RATE 90)}}
+                {{#if gte COMPLETION_RATE 90)}}
                 <br><span class="achievement-badge">🏆 Sprint Champion</span>
                 {{else if (gte COMPLETION_RATE 75)}}
                 <br><span class="achievement-badge">🚀 Momentum Master</span>
@@ -296,7 +296,7 @@
             </ul>
         </div>
         
-        {{#if (gt BLOCKERS 0)}}
+        {{#if gt BLOCKERS 0)}}
         <!-- Active Blockers -->
         <div class="blocker-alert">
             <h3 style="margin: 0 0 15px 0; color: #721c24;">🚨 Active Blockers ({{BLOCKERS}})</h3>
@@ -307,7 +307,7 @@
                     Owner: DevOps Team • Escalated: {{TIMESTAMP}} • Issue #496
                 </div>
             </div>
-            {{#if (gt CRITICAL_RISKS 0)}}
+            {{#if gt CRITICAL_RISKS 0)}}
             <div class="blocker-item">
                 <strong>Critical Risk Escalation</strong><br>
                 {{CRITICAL_RISKS}} critical program risks require immediate team coordination
@@ -322,13 +322,13 @@
         <!-- This Week's Accomplishments -->
         <div class="section">
             <h3>✅ This Week's Accomplishments</h3>
-            {{#if (gte RECENT_CLOSED 1)}}
+            {{#if gte RECENT_CLOSED 1)}}
             <p>🎯 <strong>{{RECENT_CLOSED}} issues resolved</strong> including:</p>
             <ul style="margin: 15px 0; padding-left: 20px;">
                 <li>Enhanced workflow automation capabilities</li>
                 <li>Improved project health monitoring</li>
                 <li>Documentation and template updates</li>
-                {{#if (gte RECENT_CLOSED 3)}}
+                {{#if gte RECENT_CLOSED 3)}}
                 <li>Security vulnerability assessments</li>
                 <li>Performance optimization improvements</li>
                 {{/if}}
@@ -402,7 +402,7 @@
         <div style="background: #f8f9fa; padding: 20px; border-radius: 8px; margin: 25px 0; text-align: center;">
             <h4 style="margin: 0 0 10px 0; color: #495057;">💪 Team Motivation</h4>
             <p style="margin: 0; color: #6c757d; font-style: italic;">
-                {{#if (gte COMPLETION_RATE 80)}}
+                {{#if gte COMPLETION_RATE 80)}}
                 "We're in the home stretch! Amazing work from everyone on the team. Let's finish strong! 🎯"
                 {{else if (gte COMPLETION_RATE 60)}}
                 "Great momentum this week! We're making real progress toward our goals. Keep it up! 🚀"

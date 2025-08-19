@@ -295,17 +295,17 @@
             <h2 style="margin: 0 0 15px 0; color: #495057;">🎯 Project Health Overview</h2>
             <p style="font-size: 16px; margin: 0; color: #495057; line-height: 1.7;">
                 <strong>Current Status:</strong> 
-                {{#if (gte COMPLETION_RATE 80)}}
+                {{#if gte COMPLETION_RATE 80)}}
                 Project is <strong style="color: #28a745;">on track</strong> with {{COMPLETION_RATE}}% completion. 
                 {{else if (gte COMPLETION_RATE 60)}}
                 Project shows <strong style="color: #ffc107;">good progress</strong> at {{COMPLETION_RATE}}% completion. 
                 {{else}}
                 Project requires <strong style="color: #dc3545;">attention</strong> at {{COMPLETION_RATE}}% completion. 
                 {{/if}}
-                {{#if (gt HIGH_PRIORITY 5)}}
+                {{#if gt HIGH_PRIORITY 5)}}
                 <strong>{{HIGH_PRIORITY}} high-priority items</strong> require stakeholder awareness.
                 {{/if}}
-                {{#if (gt CRITICAL_RISKS 0)}}
+                {{#if gt CRITICAL_RISKS 0)}}
                 <br><strong style="color: #dc3545;">⚠️ {{CRITICAL_RISKS}} critical risks</strong> need immediate stakeholder review.
                 {{/if}}
             </p>
@@ -313,13 +313,13 @@
         
         <!-- Key Performance Indicators -->
         <div class="status-grid">
-            <div class="status-card {{#if (gte COMPLETION_RATE 80)}}on-track{{else if (gte COMPLETION_RATE 60)}}at-risk{{else}}behind{{/if}}">
+            <div class="status-card {{#if gte COMPLETION_RATE 80)}}on-track{{else if (gte COMPLETION_RATE 60)}}at-risk{{else}}behind{{/if}}">
                 <div class="status-label">Project Progress</div>
                 <div class="status-value">{{COMPLETION_RATE}}%</div>
                 <div class="status-description">{{CLOSED_ISSUES}} of {{TOTAL_ISSUES}} deliverables complete</div>
             </div>
             
-            <div class="status-card {{#if (gte STRATEGIC_PROGRESS 70)}}on-track{{else if (gte STRATEGIC_PROGRESS 40)}}at-risk{{else}}behind{{/if}}">
+            <div class="status-card {{#if gte STRATEGIC_PROGRESS 70)}}on-track{{else if (gte STRATEGIC_PROGRESS 40)}}at-risk{{else}}behind{{/if}}">
                 <div class="status-label">Strategic Goals</div>
                 <div class="status-value">{{STRATEGIC_PROGRESS}}%</div>
                 <div class="status-description">Business objective achievement</div>
@@ -351,7 +351,7 @@
                 </div>
             </div>
             
-            <div class="milestone-item {{#if (lt STRATEGIC_PROGRESS 65)}}at-risk{{/if}}">
+            <div class="milestone-item {{#if lt STRATEGIC_PROGRESS 65)}}at-risk{{/if}}">
                 <div class="milestone-icon">🚀</div>
                 <div class="milestone-content">
                     <strong>Executive Dashboard Suite</strong> - {{STRATEGIC_PROGRESS}}% Complete<br>
@@ -430,7 +430,7 @@
         <div class="risks-section">
             <h3 style="margin: 0 0 15px 0; color: #721c24;">⚠️ Risk Assessment & Mitigation</h3>
             
-            {{#if (gt CRITICAL_RISKS 0)}}
+            {{#if gt CRITICAL_RISKS 0)}}
             <div class="risk-item">
                 <div class="risk-level risk-high">High Risk</div>
                 <strong>Critical Program Risks Identified</strong><br>
@@ -441,7 +441,7 @@
             </div>
             {{/if}}
             
-            {{#if (gt HIGH_PRIORITY 10)}}
+            {{#if gt HIGH_PRIORITY 10)}}
             <div class="risk-item">
                 <div class="risk-level risk-medium">Medium Risk</div>
                 <strong>Resource Allocation Pressure</strong><br>

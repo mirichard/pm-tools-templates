@@ -206,9 +206,9 @@
         <div class="executive-summary">
             <h2 style="margin: 0 0 20px 0; color: #495057; font-size: 20px;">🎯 Executive Summary</h2>
             <div style="font-size: 16px; line-height: 1.8; color: #495057;">
-                <strong>Program Health:</strong> {{#if (gte COMPLETION_RATE 75)}}On Track{{else}}{{#if (gte COMPLETION_RATE 50)}}Needs Attention{{else}}Critical Review Required{{/if}}{{/if}} 
+                <strong>Program Health:</strong> {{#if gte COMPLETION_RATE 75)}}On Track{{else}}{{#if gte COMPLETION_RATE 50)}}Needs Attention{{else}}Critical Review Required{{/if}}{{/if}} 
                 • <strong>{{COMPLETION_RATE}}%</strong> completion with <strong>{{HIGH_PRIORITY}}</strong> high-priority items requiring executive attention.
-                {{#if (gt CRITICAL_RISKS 0)}}
+                {{#if gt CRITICAL_RISKS 0)}}
                 <br><strong style="color: #dc3545;">⚠️ {{CRITICAL_RISKS}} critical risks</strong> require immediate C-level review.
                 {{/if}}
             </div>
@@ -218,7 +218,7 @@
         <div class="status-indicators">
             <div class="status-card">
                 <div class="status-label">Program Completion</div>
-                <div class="status-value {{#if (gte COMPLETION_RATE 75)}}status-good{{else}}{{#if (gte COMPLETION_RATE 50)}}status-warning{{else}}status-danger{{/if}}{{/if}}">{{COMPLETION_RATE}}%</div>
+                <div class="status-value {{#if gte COMPLETION_RATE 75)}}status-good{{else}}{{#if gte COMPLETION_RATE 50)}}status-warning{{else}}status-danger{{/if}}{{/if}}">{{COMPLETION_RATE}}%</div>
                 <div class="progress-bar">
                     <div class="progress-fill" style="width: {{COMPLETION_RATE}}%;"></div>
                 </div>
@@ -226,9 +226,9 @@
             
             <div class="status-card">
                 <div class="status-label">Strategic Goals</div>
-                <div class="status-value {{#if (gte STRATEGIC_PROGRESS 70)}}status-good{{else}}{{#if (gte STRATEGIC_PROGRESS 40)}}status-warning{{else}}status-danger{{/if}}{{/if}}">{{STRATEGIC_PROGRESS}}%</div>
+                <div class="status-value {{#if gte STRATEGIC_PROGRESS 70)}}status-good{{else}}{{#if gte STRATEGIC_PROGRESS 40)}}status-warning{{else}}status-danger{{/if}}{{/if}}">{{STRATEGIC_PROGRESS}}%</div>
                 <div class="progress-bar">
-                    <div class="progress-fill" style="width: {{STRATEGIC_PROGRESS}}%; {{#if (lt STRATEGIC_PROGRESS 50)}}background: linear-gradient(90deg, #dc3545, #e74c3c);{{/if}}"></div>
+                    <div class="progress-fill" style="width: {{STRATEGIC_PROGRESS}}%; {{#if lt STRATEGIC_PROGRESS 50)}}background: linear-gradient(90deg, #dc3545, #e74c3c);{{/if}}"></div>
                 </div>
             </div>
             
@@ -259,7 +259,7 @@
                 </div>
             </div>
             
-            <div class="milestone {{#if (lt STRATEGIC_PROGRESS 65)}}at-risk{{/if}}">
+            <div class="milestone {{#if lt STRATEGIC_PROGRESS 65)}}at-risk{{/if}}">
                 <div class="milestone-icon">🚀</div>
                 <div>
                     <strong>Executive Dashboards</strong> - {{STRATEGIC_PROGRESS}}% Complete<br>
@@ -267,7 +267,7 @@
                 </div>
             </div>
             
-            <div class="milestone {{#if (lt STRATEGIC_PROGRESS 30)}}behind{{/if}}">
+            <div class="milestone {{#if lt STRATEGIC_PROGRESS 30)}}behind{{/if}}">
                 <div class="milestone-icon">🎨</div>
                 <div>
                     <strong>Template Selector Enhancement</strong> - Planning<br>
@@ -289,7 +289,7 @@
         <div class="critical-actions">
             <h3 style="margin: 0 0 20px 0; color: #721c24;">🚨 Executive Actions Required</h3>
             
-            {{#if (gt HIGH_PRIORITY 10)}}
+            {{#if gt HIGH_PRIORITY 10)}}
             <div class="action-item">
                 <strong>Resource Allocation Review</strong><br>
                 {{HIGH_PRIORITY}} high-priority items require immediate resource allocation and executive prioritization.
@@ -297,7 +297,7 @@
             </div>
             {{/if}}
             
-            {{#if (lt STRATEGIC_PROGRESS 50)}}
+            {{#if lt STRATEGIC_PROGRESS 50)}}
             <div class="action-item">
                 <strong>Strategic Initiative Assessment</strong><br>
                 Strategic progress at {{STRATEGIC_PROGRESS}}% requires C-level review of blockers and resource constraints.
@@ -305,7 +305,7 @@
             </div>
             {{/if}}
             
-            {{#if (gt CRITICAL_RISKS 0)}}
+            {{#if gt CRITICAL_RISKS 0)}}
             <div class="action-item">
                 <strong>Critical Risk Mitigation</strong><br>
                 {{CRITICAL_RISKS}} critical program risks require immediate executive intervention and mitigation strategy.
