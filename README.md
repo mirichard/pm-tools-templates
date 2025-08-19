@@ -6,6 +6,7 @@
 [![Interactive Browser](https://img.shields.io/badge/Browse-Interactive-green.svg?style=flat)](templates/index.html)
 [![GitHub issues](https://img.shields.io/github/issues/mirichard/pm-tools-templates)](https://github.com/mirichard/pm-tools-templates/issues)
 [![GitHub last commit](https://img.shields.io/github/last-commit/mirichard/pm-tools-templates)](https://github.com/mirichard/pm-tools-templates/commits/main)
+[![Reorg Status](https://img.shields.io/badge/Reorg-Status-blue)](docs/reorg/STATUS.md)
 
 > A curated collection of 154+ battle-tested, open-source templates for project and program managers. Practical, vendor-agnostic, and ready to customize.
 
