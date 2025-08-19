@@ -280,6 +280,9 @@ npm run test:watch
 - [Schedule Intelligence API](./docs/api/schedule-intelligence.md)
 - [Quality Prediction API](./docs/api/quality-prediction.md)
 
+### Business & Operations
+- [Monetization Strategy (Exploratory)](./docs/monetization-strategy.md)
+
 ### Model Documentation
 - [Model Architecture](./docs/models/architecture.md)
 - [Training Procedures](./docs/models/training.md)
