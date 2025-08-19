@@ -8,16 +8,11 @@ import { logger } from './middleware/logger.mjs'
 import { metrics } from './middleware/metrics.mjs'
 app.use('/webhook/:provider', logger, metrics)
 
-function verifySignature(provider, secret, rawBody, signatureHeader) {
-  if (!secret || !signatureHeader) return false
-  const hmac = crypto.createHmac('sha256', secret)
-  hmac.update(rawBody)
-  const expected = hmac.digest('hex')
-  return signatureHeader.includes(expected)
-}
+// moved to lib/signature.mjs for reuse and testing
 
 import { handleJira } from './handlers/jira.mjs'
 import { handleGitHub } from './handlers/github.mjs'
+import { verifySignature } from './lib/signature.mjs'
 
 app.post('/webhook/:provider', express.raw({ type: '*/*' }), (req, res) => {
   const provider = req.params.provider
