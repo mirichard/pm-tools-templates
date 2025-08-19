@@ -90,19 +90,19 @@ recipients:
   executives:
     description: "C-level executives and senior leadership"
     env_var: "EMAIL_EXECUTIVES"
-    default: "executives@company.com"
+    default: "exec@example.com"
     template: "executive-summary"
     
   development-team:
     description: "Development team members and technical leads"
     env_var: "EMAIL_DEV_TEAM"
-    default: "dev-team@company.com"
+    default: "team@example.com"
     template: "team-status"
     
   stakeholders:
     description: "Project stakeholders and business sponsors"
     env_var: "EMAIL_STAKEHOLDERS"
-    default: "stakeholders@company.com"
+    default: "stakeholders@example.com"
     template: "stakeholder-status"
 
 # Workflow configuration

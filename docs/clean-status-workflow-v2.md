@@ -35,15 +35,15 @@ The Enhanced Clean Status Workflow is a production-ready automation system that 
 
 ```bash
 # 1. Configure repository secrets
-gh secret set EMAIL_USERNAME --body "your-smtp-username"
-gh secret set EMAIL_PASSWORD --body "your-smtp-password"
-gh secret set EMAIL_EXECUTIVES --body "executives@company.com"
-gh secret set EMAIL_STAKEHOLDERS --body "stakeholders@company.com"
-gh secret set EMAIL_DEV_TEAM --body "dev-team@company.com"
+gh secret set EMAIL_USERNAME --body "[your-smtp-username]"
+gh secret set EMAIL_PASSWORD --body "[your-smtp-password]"
+gh secret set EMAIL_EXECUTIVES --body "exec@example.com"
+gh secret set EMAIL_STAKEHOLDERS --body "stakeholders@example.com"
+gh secret set EMAIL_DEV_TEAM --body "team@example.com"
 
 # 2. Set environment variables (optional)
-gh secret set PROGRAM_DASHBOARD_URL --body "https://company.sharepoint.com/dashboard"
-gh secret set DETAILED_REPORTS_URL --body "https://company.sharepoint.com/reports"
+gh secret set PROGRAM_DASHBOARD_URL --body "https://example.sharepoint.com/dashboard"
+gh secret set DETAILED_REPORTS_URL --body "https://example.sharepoint.com/reports"
 ```
 
 ### 2. Run Workflow
