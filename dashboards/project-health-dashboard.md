@@ -1,6 +1,6 @@
 # PM Tools Templates - Project Health Dashboard
 
-**Last Updated:** Tue Aug 19 14:14:27 UTC 2025  
+**Last Updated:** Tue Aug 19 14:14:48 UTC 2025  
 **Project Health:** 🟠 fair  
 **Overall Progress:** 100%
 
@@ -13,7 +13,7 @@
 | **Project Completion** | 100% | 📈 Positive | 🟠 |
 | **Strategic Progress** | 53% | 📈 On Track | 🟢 |
 | **Weekly Velocity** | 30 issues/week | 📈 Strong | 🟢 |
-| **Risk Score** | 410 points | 📈 Elevated | 🔴 |
+| **Risk Score** | 385 points | 📈 Elevated | 🔴 |
 
 ## 📈 Progress Overview
 
@@ -24,9 +24,9 @@
 - **Completion Rate:** 100%
 
 ### Recent Activity (Last 7 Days)
-- **Issues Opened:** 10
+- **Issues Opened:** 9
 - **Issues Closed:** 30
-- **Net Progress:** 20 issues
+- **Net Progress:** 21 issues
 
 ## 🎯 Strategic Roadmap Progress
 
@@ -41,10 +41,10 @@
 ## ⚠️ Risk Assessment
 
 ### Current Risk Factors
-- **Critical Issues:** 10 (25 points each)
+- **Critical Issues:** 9 (25 points each)
 - **High Priority Issues:** 10 (15 points each)
 - **Open Bugs:** 2 (5 points each)
-- **Total Risk Score:** 410 points
+- **Total Risk Score:** 385 points
 
 ### Risk Level: 🔴 HIGH
 
@@ -59,7 +59,7 @@
 |------|-------|------------|
 | Enhancement | 30 | 100% |
 | Bug | 2 | 6% |
-| Critical | 10 | 33% |
+| Critical | 9 | 30% |
 | High Priority | 10 | 33% |
 
 ## 🎯 Performance Indicators
@@ -71,7 +71,7 @@
 
 ### Quality Metrics
 - **Bug Rate:** 6% of open issues
-- **Critical Issue Rate:** 33% of open issues
+- **Critical Issue Rate:** 30% of open issues
 
 ## 📅 Upcoming Focus Areas
 
@@ -97,14 +97,13 @@
 - 🚨 #499: 🚨 Workflow Health Alert: critical (Score: 55.64/100)
 - 🚨 #498: 🚨 Workflow Health Alert: critical (Score: 53.91/100)
 - 🚨 #497: 🚨 Workflow Health Alert: critical (Score: 55.56/100)
-- 🚨 #496: 🚨 Workflow Health Alert: critical (Score: 54.36/100)
 
 ---
 
 ## 📊 Dashboard Information
 
 - **Auto-generated:** Every 6 hours
-- **Last Update:** Tue Aug 19 14:14:28 UTC 2025
+- **Last Update:** Tue Aug 19 14:14:49 UTC 2025
 - **Next Update:** 20:14 UTC
 - **Data Source:** GitHub Issues API
 - **Methodology:** Automated metric collection and analysis
