@@ -14,6 +14,8 @@ Summary: Program Manager Toolkit expansion (Issues #41, #42)
 - Seeded initial templates (PMP, roadmap, PWBS, resource plan; portfolio kanban, prioritization model, value tracking, governance cadence; governance and quality; risk register/plan/dependency matrix/escalation; comms framework; stakeholder management docs).
 - Updated role-based-toolkits/program-manager/README.md to link new sections.
 
+- Added Program Manager subfolders and templates for Issues #42–#46 (portfolio-management, benefits-realization, program-lifecycle, methodology-variants, and integration communication docs).
+
 Validation and Governance
 - Ran link and path checks locally (to be confirmed by CI).
 - Changes align with Traditional, Agile-at-Scale, and Hybrid guidance.
