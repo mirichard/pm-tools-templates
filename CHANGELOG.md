@@ -2,15 +2,16 @@
 
 ## 2025-08-19
 
-Summary: Program Manager Toolkit expansion (Issue #41)
+Summary: Program Manager Toolkit expansion (Issues #41, #42)
 
 - Added program manager subfolders and starter templates:
   - role-based-toolkits/program-manager/program-planning/
+  - role-based-toolkits/program-manager/portfolio-management/
   - role-based-toolkits/program-manager/governance-framework/
   - role-based-toolkits/program-manager/risk-management/
   - role-based-toolkits/program-manager/communications/
   - role-based-toolkits/program-manager/stakeholder-management/
-- Seeded initial templates (PMP, roadmap, PWBS, resource plan; governance and quality; risk register/plan/dependency matrix/escalation; comms framework; stakeholder management docs).
+- Seeded initial templates (PMP, roadmap, PWBS, resource plan; portfolio kanban, prioritization model, value tracking, governance cadence; governance and quality; risk register/plan/dependency matrix/escalation; comms framework; stakeholder management docs).
 - Updated role-based-toolkits/program-manager/README.md to link new sections.
 
 Validation and Governance

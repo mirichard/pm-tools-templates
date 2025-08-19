@@ -36,6 +36,7 @@ This toolkit provides Program Managers with specialized resources for coordinati
 Subfolders
 - [governance-framework](governance-framework/README.md) — decision rights, bodies, and quality oversight
 - [program-planning](program-planning/README.md) — PMP, roadmap, WBS, resource planning
+- [portfolio-management](portfolio-management/README.md) — investment prioritization, value delivery, and portfolio reporting
 - [risk-management](risk-management/README.md) — risk register, plan, dependency aggregation, escalation
 - [communications](communications/README.md) — communication plan, status reporting, calendar, notifications
 - [stakeholder-management](stakeholder-management/README.md) — analysis, mapping, engagement, change impact
