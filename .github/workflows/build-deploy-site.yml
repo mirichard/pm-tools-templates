@@ -64,7 +64,7 @@ jobs:
 
       - name: Install site dependencies (timed)
         working-directory: ./docs/site
-        run: ../../scripts/measure_step.sh "site install" -- npm install --silent
+        run: ../../scripts/measure_step.sh "site install" -- npm install --legacy-peer-deps
 
       - name: Generate changelogs (timed)
         run: ./scripts/measure_step.sh "changelogs" -- node scripts/generate-changelogs.mjs
