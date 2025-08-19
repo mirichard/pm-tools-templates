@@ -10,8 +10,13 @@
     "ci": "node server.js & echo $! > .server.pid && npx wait-on http://localhost:5173 && playwright test && lhci autorun --collect.url=http://localhost:5173 && kill $(cat .server.pid) || (kill $(cat .server.pid) || true; exit 1)"
   },
   "dependencies": {
+
+    "express": "^4.19.2",
+    "marked": "^16.2.0",
+
     "express": "^5.1.0",
     "marked": "^16.1.2",
+
     "highlight.js": "^11.9.0",
     "morgan": "^1.10.0",
     "etag": "^1.8.1",
