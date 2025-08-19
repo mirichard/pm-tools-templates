@@ -1,6 +1,6 @@
 # PM Tools Templates - Project Health Dashboard
 
-**Last Updated:** Tue Aug 19 00:30:12 UTC 2025  
+**Last Updated:** Tue Aug 19 06:10:03 UTC 2025  
 **Project Health:** 🟠 fair  
 **Overall Progress:** 100%
 
@@ -10,10 +10,10 @@
 
 | 🎯 Key Metric | Value | Trend | Status |
 |---------------|-------|-------|--------|
-| **Project Completion** | 100% | 📈 Positive | 🟠 |
+| **Project Completion** | 100% | 📉 Needs Attention | 🟠 |
 | **Strategic Progress** | 20% | 📉 Behind | 🔴 |
 | **Weekly Velocity** | 15 issues/week | 📈 Strong | 🟢 |
-| **Risk Score** | 360 points | 📈 Elevated | 🔴 |
+| **Risk Score** | 610 points | 📈 Elevated | 🔴 |
 
 ## 📈 Progress Overview
 
@@ -24,9 +24,9 @@
 - **Completion Rate:** 100%
 
 ### Recent Activity (Last 7 Days)
-- **Issues Opened:** 5
+- **Issues Opened:** 15
 - **Issues Closed:** 15
-- **Net Progress:** 10 issues
+- **Net Progress:** 0 issues
 
 ## 🎯 Strategic Roadmap Progress
 
@@ -41,10 +41,10 @@
 ## ⚠️ Risk Assessment
 
 ### Current Risk Factors
-- **Critical Issues:** 5 (25 points each)
+- **Critical Issues:** 15 (25 points each)
 - **High Priority Issues:** 15 (15 points each)
 - **Open Bugs:** 2 (5 points each)
-- **Total Risk Score:** 360 points
+- **Total Risk Score:** 610 points
 
 ### Risk Level: 🔴 HIGH
 
@@ -59,7 +59,7 @@
 |------|-------|------------|
 | Enhancement | 30 | 100% |
 | Bug | 2 | 6% |
-| Critical | 5 | 16% |
+| Critical | 15 | 50% |
 | High Priority | 15 | 50% |
 
 ## 🎯 Performance Indicators
@@ -71,7 +71,7 @@
 
 ### Quality Metrics
 - **Bug Rate:** 6% of open issues
-- **Critical Issue Rate:** 16% of open issues
+- **Critical Issue Rate:** 50% of open issues
 
 ## 📅 Upcoming Focus Areas
 
@@ -93,6 +93,16 @@
 - 🔥 #21: 🏪 [Phase 3.1] Template Marketplace
 
 ### Critical Path Items
+- 🚨 #477: 🚨 Workflow Health Alert: critical (Score: 54.46/100)
+- 🚨 #474: 🚨 Workflow Health Alert: critical (Score: 53.99/100)
+- 🚨 #476: 🚨 Workflow Health Alert: critical (Score: 54.26/100)
+- 🚨 #475: 🚨 Workflow Health Alert: critical (Score: 54.89/100)
+- 🚨 #473: 🚨 Workflow Health Alert: critical (Score: 54.41/100)
+- 🚨 #472: 🚨 Workflow Health Alert: critical (Score: 54.72/100)
+- 🚨 #471: 🚨 Workflow Health Alert: critical (Score: 55.05/100)
+- 🚨 #470: 🚨 Workflow Health Alert: critical (Score: 55.73/100)
+- 🚨 #469: 🚨 Workflow Health Alert: critical (Score: 55.24/100)
+- 🚨 #468: 🚨 Workflow Health Alert: critical (Score: 55.45/100)
 - 🚨 #465: 🚨 Workflow Health Alert: critical (Score: 58.08/100)
 - 🚨 #464: 🚨 Workflow Health Alert: critical (Score: 58.08/100)
 - 🚨 #463: 🚨 Workflow Health Alert: critical (Score: 56.8/100)
@@ -104,8 +114,8 @@
 ## 📊 Dashboard Information
 
 - **Auto-generated:** Every 6 hours
-- **Last Update:** Tue Aug 19 00:30:13 UTC 2025
-- **Next Update:** 06:30 UTC
+- **Last Update:** Tue Aug 19 06:10:04 UTC 2025
+- **Next Update:** 12:10 UTC
 - **Data Source:** GitHub Issues API
 - **Methodology:** Automated metric collection and analysis
 
