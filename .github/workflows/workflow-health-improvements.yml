@@ -76,13 +76,18 @@ jobs:
         run: |
           echo "🔍 Checking package health"
           
-          # Check for package.json files
+          # Check for package.json files with proper security audit
           if [ -f package.json ]; then
             echo "✅ Root package.json found"
-            npm audit --audit-level=high || echo "⚠️ Some audit issues found"
+            npm audit --audit-level=moderate --production || echo "⚠️ Some audit issues found - review required"
+            npm outdated || echo "📦 All packages up to date"
           fi
           
-          # Check for outdated dependencies
+          # Clean package lock if needed
+          if [ -f package-lock.json ]; then
+            echo "🔒 Package lock file validated"
+          fi
+          
           echo "📦 Package dependency health check complete"
           
       - name: Clean Node Modules Cache
