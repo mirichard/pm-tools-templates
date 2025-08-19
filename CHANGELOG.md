@@ -15,6 +15,22 @@ Validation and Governance
 - Ran link and path checks locally (to be confirmed by CI).
 - Changes align with Traditional, Agile-at-Scale, and Hybrid guidance.
 
+### Further increments (Issues #16, #18, #21, #23)
+
+- #16 Enhanced Tool Integrations
+  - Webhook framework: signature util extracted; logger and metrics middleware wired; provider handlers (Jira, GitHub)
+  - JSON Schemas: Jira inbound issue_updated; GitHub inbound push
+  - Scoped unit tests with isolated Jest config: signature and handler tests passing locally
+- #18 Documentation Enhancement
+  - Tutorials: automate status emails, customize project charter
+  - Tutorial steps format and walkthrough example added; API docs reference schema area
+- #21 Template Marketplace
+  - Submission guide, validation checklist, discovery taxonomy
+  - Staged sample submission and front-matter example; mock validation output
+- #23 EPIC 0 Master Plan
+  - KPI scorecards with example targets and data source links
+  - Quarterly planning and scorecard templates
+
 ## 2025-08-08
 
 Consolidation of canonical path migration and CI/workflow fixes.
