@@ -38,8 +38,8 @@ env:
 jobs:
   status-reporting:
     name: Generate Status Report
-    # Do not run on pull_request events to keep PR checks clean
-    if: github.event_name != 'pull_request'
+    # Only run on schedule or manual dispatch; skip push/PR events to keep checks clean
+    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
     outputs:
       completion_rate: ${{ steps.metrics.outputs.completion_rate }}
