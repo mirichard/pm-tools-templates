@@ -12,6 +12,9 @@ function verifySignature(provider, secret, rawBody, signatureHeader) {
   return signatureHeader.includes(expected)
 }
 
+import { handleJira } from './handlers/jira.mjs'
+import { handleGitHub } from './handlers/github.mjs'
+
 app.post('/webhook/:provider', express.raw({ type: '*/*' }), (req, res) => {
   const provider = req.params.provider
   const secret = process.env.WEBHOOK_SECRET || ''
@@ -19,8 +22,17 @@ app.post('/webhook/:provider', express.raw({ type: '*/*' }), (req, res) => {
   const raw = req.body
   const ok = verifySignature(provider, secret, raw, String(sig || ''))
   if (!ok) return res.status(401).json({ error: 'invalid signature' })
-  // TODO: route to handlers by provider/event type
-  return res.status(202).json({ accepted: true, provider })
+  let result
+  try {
+    const event = req.headers['x-github-event'] || req.headers['x-atlassian-webhook-event'] || 'unknown'
+    const payload = JSON.parse(raw.toString('utf8') || '{}')
+    if (provider === 'jira') result = handleJira(String(event), payload)
+    else if (provider === 'github') result = handleGitHub(String(event), payload)
+    else result = { handled: false, provider, event }
+  } catch (e) {
+    return res.status(400).json({ error: 'invalid payload', details: e?.message })
+  }
+  return res.status(202).json({ accepted: true, ...result })
 })
 
 const port = process.env.PORT || 8787

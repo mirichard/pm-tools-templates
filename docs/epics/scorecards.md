@@ -2,8 +2,8 @@
 
 Structure KPIs and success metrics for each strategic theme/epic.
 
-- Adoption and engagement
-- Quality and reliability
-- Delivery performance
-- Financial impact
+- Adoption and engagement (link: ROADMAP.md)
+- Quality and reliability (link: docs/site metrics where applicable)
+- Delivery performance (link: reports/status/)
+- Financial impact (link: business-stakeholder-suite/financial-governance/)
 
