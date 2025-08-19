@@ -20,6 +20,18 @@ Validation and Governance
 - Ran link and path checks locally (to be confirmed by CI).
 - Changes align with Traditional, Agile-at-Scale, and Hybrid guidance.
 
+### Docs/UX Improvements (2025-08-19)
+
+Completed five enhancements to improve documentation accessibility and user experience:
+
+- **Examples Library (#70)**: Created comprehensive Examples & Sample Artifacts Library with curated links and navigation structure.
+- **Contributor Visibility (#71)**: Enhanced contributor guidance with prominent README CTAs and GitHub issue template contact links.
+- **CLI Documentation (#72)**: Added complete CLI usage guide covering installation, commands, examples, and safety guidelines.
+- **Reorg Transparency (#73)**: Established reorganization status documentation with milestone tracking and progress communication.
+- **AI Insights Strategy (#74)**: Developed exploratory monetization strategy framework for AI-powered insights platform.
+
+All changes merged via PRs #480-484 with full CI validation.
+
 ## 2025-08-08
 
 Consolidation of canonical path migration and CI/workflow fixes.
