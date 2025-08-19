@@ -64,14 +64,14 @@ jobs:
 
       - name: Install site dependencies (timed)
         working-directory: ./docs/site
-        run: ../scripts/measure_step.sh "site install" -- npm install --silent
+        run: ../../scripts/measure_step.sh "site install" -- npm install --legacy-peer-deps
 
       - name: Generate changelogs (timed)
         run: ./scripts/measure_step.sh "changelogs" -- node scripts/generate-changelogs.mjs
 
       - name: Build site (timed)
         working-directory: ./docs/site
-        run: ../scripts/measure_step.sh "site build" -- npm run build --silent
+        run: ../../scripts/measure_step.sh "site build" -- npm run build --silent
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
