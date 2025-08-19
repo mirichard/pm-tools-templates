@@ -2,8 +2,6 @@
 
 ## 2025-08-19
 
-Summary: Program Manager Toolkit expansion (Issue #41) and Initial Scaffolding (#16, #18, #21, #23)
-
 - Added program manager subfolders and starter templates:
   - role-based-toolkits/program-manager/program-planning/
   - role-based-toolkits/program-manager/governance-framework/
