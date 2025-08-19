@@ -33,6 +33,13 @@ This toolkit provides Program Managers with specialized resources for coordinati
 - Steering committee management
 - Program-level decision frameworks
 
+Subfolders
+- [governance-framework](governance-framework/README.md) — decision rights, bodies, and quality oversight
+- [program-planning](program-planning/README.md) — PMP, roadmap, WBS, resource planning
+- [risk-management](risk-management/README.md) — risk register, plan, dependency aggregation, escalation
+- [communications](communications/README.md) — communication plan, status reporting, calendar, notifications
+- [stakeholder-management](stakeholder-management/README.md) — analysis, mapping, engagement, change impact
+
 <a id="portfolio-alignment"></a>
 ### 🎯 Portfolio Alignment
 - Strategic alignment assessments
