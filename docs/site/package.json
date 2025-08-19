@@ -31,7 +31,7 @@
     "cookie": "^0.7.0",
     "on-headers": "^1.0.2",
     "webpack-dev-server": "^4.15.2",
-    "esbuild": "^0.24.3",
+    "esbuild": "^0.25.0",
     "form-data": "^4.0.0"
   }
 }
