@@ -4,6 +4,9 @@ import crypto from 'crypto'
 const app = express()
 app.use(express.json({ limit: '1mb' }))
 
+import { logger } from './middleware/logger.mjs'
+app.use('/webhook/:provider', logger)
+
 function verifySignature(provider, secret, rawBody, signatureHeader) {
   if (!secret || !signatureHeader) return false
   const hmac = crypto.createHmac('sha256', secret)

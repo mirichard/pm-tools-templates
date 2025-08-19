@@ -5,5 +5,8 @@
 - Sections to add:
   - Integration events and schemas
   - SDK usage examples
-  - Webhook endpoints
+- Webhook endpoints
+
+Schemas
+- See docs/integration/contracts for JSON schema structure and examples
 
