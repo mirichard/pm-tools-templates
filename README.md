@@ -18,10 +18,13 @@
     git clone https://github.com/mirichard/pm-tools-templates.git
     ```
 2.  **Find your template:**
-    Browse the `/templates` directory or explore curated [Examples & Sample Artifacts](docs/examples/library.md).
+    Browse the `/templates` directory or explore curated [Examples  Sample Artifacts](docs/examples/library.md).
 
 3.  **Customize and go:**
     Open a template in your favorite editor and adapt it to your project.
+
+4.  **Use CLI tools (optional):**
+    See the consolidated [CLI Usage Guide](docs/cli/README.md) for link checks, metadata enrichment, and maintenance scripts.
 
 ---
 
