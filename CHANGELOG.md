@@ -1,5 +1,22 @@
 # Changelog
 
+## 2025-08-19
+
+Summary: Program Manager Toolkit expansion (Issue #41)
+
+- Added program manager subfolders and starter templates:
+  - role-based-toolkits/program-manager/program-planning/
+  - role-based-toolkits/program-manager/governance-framework/
+  - role-based-toolkits/program-manager/risk-management/
+  - role-based-toolkits/program-manager/communications/
+  - role-based-toolkits/program-manager/stakeholder-management/
+- Seeded initial templates (PMP, roadmap, PWBS, resource plan; governance and quality; risk register/plan/dependency matrix/escalation; comms framework; stakeholder management docs).
+- Updated role-based-toolkits/program-manager/README.md to link new sections.
+
+Validation and Governance
+- Ran link and path checks locally (to be confirmed by CI).
+- Changes align with Traditional, Agile-at-Scale, and Hybrid guidance.
+
 ## 2025-08-08
 
 Consolidation of canonical path migration and CI/workflow fixes.
