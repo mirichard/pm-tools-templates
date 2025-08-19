@@ -1,6 +1,6 @@
 # PM Tools Templates - Project Health Dashboard
 
-**Last Updated:** Tue Aug 19 00:07:36 UTC 2025  
+**Last Updated:** Tue Aug 19 00:29:30 UTC 2025  
 **Project Health:** 🟠 fair  
 **Overall Progress:** 100%
 
@@ -11,9 +11,9 @@
 | 🎯 Key Metric | Value | Trend | Status |
 |---------------|-------|-------|--------|
 | **Project Completion** | 100% | 📈 Positive | 🟠 |
-| **Strategic Progress** | 16% | 📉 Behind | 🔴 |
+| **Strategic Progress** | 20% | 📉 Behind | 🔴 |
 | **Weekly Velocity** | 15 issues/week | 📈 Strong | 🟢 |
-| **Risk Score** | 250 points | 📈 Elevated | 🔴 |
+| **Risk Score** | 360 points | 📈 Elevated | 🔴 |
 
 ## 📈 Progress Overview
 
@@ -24,9 +24,9 @@
 - **Completion Rate:** 100%
 
 ### Recent Activity (Last 7 Days)
-- **Issues Opened:** 0
+- **Issues Opened:** 5
 - **Issues Closed:** 15
-- **Net Progress:** 15 issues
+- **Net Progress:** 10 issues
 
 ## 🎯 Strategic Roadmap Progress
 
@@ -34,17 +34,17 @@
 
 | Phase | Total Issues | Completed | Progress | Status |
 |-------|--------------|-----------|----------|--------|
-| **Phase 1** | 20 | 4 | 20% | 🔄 In Progress |
+| **Phase 1** | 20 | 5 | 25% | 🔄 In Progress |
 | **Phase 2** | 26 | 4 | 15% | 🔄 In Progress |
 | **Phase 3** | 18 | 2 | 11% | 📅 Planned |
 
 ## ⚠️ Risk Assessment
 
 ### Current Risk Factors
-- **Critical Issues:** 0 (25 points each)
-- **High Priority Issues:** 16 (15 points each)
+- **Critical Issues:** 5 (25 points each)
+- **High Priority Issues:** 15 (15 points each)
 - **Open Bugs:** 2 (5 points each)
-- **Total Risk Score:** 250 points
+- **Total Risk Score:** 360 points
 
 ### Risk Level: 🔴 HIGH
 
@@ -59,8 +59,8 @@
 |------|-------|------------|
 | Enhancement | 30 | 100% |
 | Bug | 2 | 6% |
-| Critical | 0 | 0% |
-| High Priority | 16 | 53% |
+| Critical | 5 | 16% |
+| High Priority | 15 | 50% |
 
 ## 🎯 Performance Indicators
 
@@ -71,7 +71,7 @@
 
 ### Quality Metrics
 - **Bug Rate:** 6% of open issues
-- **Critical Issue Rate:** 0% of open issues
+- **Critical Issue Rate:** 16% of open issues
 
 ## 📅 Upcoming Focus Areas
 
@@ -89,19 +89,23 @@
 - 🔥 #47: 📋 EPIC 1.10: Program Management Template Suite Implementation
 - 🔥 #43: Benefits Realization Management Suite
 - 🔥 #42: Portfolio Management Suite
-- 🔥 #41: Core Program Manager Toolkit Development
 - 🔥 #23: 🚀 EPIC 0: PM Tools Templates Enhancement Roadmap (Master Epic)
 - 🔥 #21: 🏪 [Phase 3.1] Template Marketplace
 
 ### Critical Path Items
+- 🚨 #465: 🚨 Workflow Health Alert: critical (Score: 58.08/100)
+- 🚨 #464: 🚨 Workflow Health Alert: critical (Score: 58.08/100)
+- 🚨 #463: 🚨 Workflow Health Alert: critical (Score: 56.8/100)
+- 🚨 #462: 🚨 Workflow Health Alert: critical (Score: 56.79/100)
+- 🚨 #461: 🚨 Workflow Health Alert: critical (Score: 56.8/100)
 
 ---
 
 ## 📊 Dashboard Information
 
 - **Auto-generated:** Every 6 hours
-- **Last Update:** Tue Aug 19 00:07:37 UTC 2025
-- **Next Update:** 06:07 UTC
+- **Last Update:** Tue Aug 19 00:29:31 UTC 2025
+- **Next Update:** 06:29 UTC
 - **Data Source:** GitHub Issues API
 - **Methodology:** Automated metric collection and analysis
 
