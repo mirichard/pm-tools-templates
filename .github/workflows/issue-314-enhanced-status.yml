@@ -9,8 +9,8 @@ env:
 
 jobs:
   enhanced-status:
-    # Skip on pull_request to avoid affecting PR checks
-    if: github.event_name != 'pull_request'
+    # Only run on manual dispatch; skip push/PR to avoid affecting checks
+    if: github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
     
     steps:
