@@ -3,6 +3,9 @@ contact_links:
   - name: 💬 Main Community Feedback Hub
     url: https://github.com/mirichard/pm-tools-templates/issues/198
     about: Join our main feedback discussion with templates and examples
+  - name: 🧭 New Contributor Quick Start
+    url: https://github.com/mirichard/pm-tools-templates/blob/main/docs/community/QUICK_START.md
+    about: Start here to set up your environment and make your first contribution
   - name: 📚 Detailed Feedback Guide
     url: https://github.com/mirichard/pm-tools-templates/blob/main/COMMUNITY_FEEDBACK.md
     about: Comprehensive guide with multiple feedback channels and templates

@@ -105,6 +105,11 @@ graph TD
 
 We welcome contributions! Please see our [Contributing Guidelines](CONTRIBUTING.md) to get started.
 
+Looking for where to begin? Start here:
+- 🚀 New? Read the [Quick Start for Contributors](docs/community/QUICK_START.md) and [Contribution Pathways](docs/community/contribution-pathways.md)
+- 🧭 Browse [good first issues](https://github.com/mirichard/pm-tools-templates/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22) and [help wanted](https://github.com/mirichard/pm-tools-templates/issues?q=is%3Aissue+is%3Aopen+label%3A%22help+wanted%22)
+- 🧱 Use our [Templates for contributions](COMMUNITY_FEEDBACK.md) (bugs, enhancements, template requests)
+
 **Quick ways to contribute:**
 - 🐛 [Report issues](https://github.com/mirichard/pm-tools-templates/issues)
 - 💡 [Suggest improvements](https://github.com/mirichard/pm-tools-templates/issues)
