@@ -99,7 +99,7 @@ export function DashboardSettings({ isOpen, onClose, onSettingsChange }: Dashboa
       });
       
       onClose();
-    } catch (error) {
+    } catch {
       addToast({
         type: 'error',
         title: 'Failed to save settings',
