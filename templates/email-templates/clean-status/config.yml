@@ -1,0 +1,211 @@
+# Clean Status Workflow Email Configuration
+# This file defines the template variants and their usage
+
+templates:
+  executive-summary:
+    file: "executive-summary.html"
+    description: "Executive summary for C-level and senior leadership"
+    recipients: "executives"
+    frequency: "weekly"
+    priority: "high"
+    features:
+      - "30-second executive summary"
+      - "Strategic timeline visualization"
+      - "Critical action items with owners"
+      - "Executive dashboard links"
+      - "ROI and business value metrics"
+    variables:
+      - DATE
+      - COMPLETION_RATE
+      - STRATEGIC_PROGRESS
+      - CRITICAL_RISKS
+      - HIGH_PRIORITY
+      - RECENT_CLOSED
+      - PROGRAM_DASHBOARD_URL
+      - DETAILED_REPORTS_URL
+      - GITHUB_REPOSITORY
+      - TIMESTAMP
+      - REPORT_TYPE
+  
+  team-status:
+    file: "team-status.html"
+    description: "Development team progress and motivation"
+    recipients: "development-team"
+    frequency: "weekly"
+    priority: "medium"
+    features:
+      - "Team velocity metrics"
+      - "Sprint focus and accomplishments"
+      - "Blocker identification and escalation"
+      - "Next week priorities"
+      - "Team motivation and gamification"
+    variables:
+      - DATE
+      - COMPLETION_RATE
+      - RECENT_CLOSED
+      - HIGH_PRIORITY
+      - BUGS
+      - BLOCKERS
+      - CRITICAL_RISKS
+      - TOTAL_ISSUES
+      - CLOSED_ISSUES
+      - PROGRAM_DASHBOARD_URL
+      - DETAILED_REPORTS_URL
+      - GITHUB_REPOSITORY
+      - TIMESTAMP
+      - REPORT_TYPE
+      - REPORT_FREQUENCY
+      - NEXT_UPDATE
+
+  stakeholder-status:
+    file: "stakeholder-status.html"
+    description: "Project stakeholders and business sponsors"
+    recipients: "stakeholders"
+    frequency: "bi-weekly"
+    priority: "high"
+    features:
+      - "Business value and ROI tracking"
+      - "Milestone progress with deliverables"
+      - "Risk assessment and mitigation"
+      - "Next stakeholder meeting details"
+      - "Contact information and resources"
+    variables:
+      - DATE
+      - COMPLETION_RATE
+      - STRATEGIC_PROGRESS
+      - CRITICAL_RISKS
+      - HIGH_PRIORITY
+      - RECENT_CLOSED
+      - TOTAL_ISSUES
+      - CLOSED_ISSUES
+      - PROGRAM_DASHBOARD_URL
+      - DETAILED_REPORTS_URL
+      - GITHUB_REPOSITORY
+      - TIMESTAMP
+      - REPORT_TYPE
+      - REPORT_FREQUENCY
+
+# Recipient groups configuration
+recipients:
+  executives:
+    description: "C-level executives and senior leadership"
+    env_var: "EMAIL_EXECUTIVES"
+    default: "executives@company.com"
+    template: "executive-summary"
+    
+  development-team:
+    description: "Development team members and technical leads"
+    env_var: "EMAIL_DEV_TEAM"
+    default: "dev-team@company.com"
+    template: "team-status"
+    
+  stakeholders:
+    description: "Project stakeholders and business sponsors"
+    env_var: "EMAIL_STAKEHOLDERS"
+    default: "stakeholders@company.com"
+    template: "stakeholder-status"
+
+# Workflow configuration
+workflow:
+  default_template: "stakeholder-status"
+  fallback_template: "team-status"
+  
+  # Template selection based on inputs
+  template_selection:
+    methodology:
+      agile: "team-status"
+      traditional: "stakeholder-status"
+      hybrid: "stakeholder-status"
+    
+    report_type:
+      daily: "team-status"
+      weekly: "stakeholder-status"
+      monthly: "executive-summary"
+      quarterly: "executive-summary"
+      milestone: "stakeholder-status"
+      sprint: "team-status"
+  
+  # Email subject templates
+  subjects:
+    executive-summary: "📊 Executive Program Status - {{DATE}}"
+    team-status: "🚀 Team Status Update - {{DATE}}"
+    stakeholder-status: "📈 Stakeholder Status Report - {{DATE}}"
+  
+  # Conditional logic thresholds
+  thresholds:
+    critical_risk_escalation: 1
+    high_priority_alert: 10
+    completion_rate_warning: 50
+    strategic_progress_attention: 40
+    
+  # Feature flags
+  features:
+    enable_gamification: true
+    enable_roi_tracking: true
+    enable_risk_assessment: true
+    enable_milestone_tracking: true
+    enable_mobile_optimization: true
+
+# Template processing configuration
+processing:
+  handlebars:
+    helpers:
+      - "gte" # Greater than or equal
+      - "gt"  # Greater than
+      - "lt"  # Less than
+      - "lte" # Less than or equal
+      - "eq"  # Equal
+      - "or"  # Logical OR
+      - "and" # Logical AND
+      - "if"  # Conditional
+    
+  date_helpers:
+    - "ADD_DAYS" # Add days to current date
+    - "FORMAT_DATE" # Format date string
+    - "TIMESTAMP" # Current timestamp
+  
+  # Variable transformations
+  transforms:
+    COMPLETION_RATE: "percentage"
+    STRATEGIC_PROGRESS: "percentage"
+    RECENT_CLOSED: "integer"
+    HIGH_PRIORITY: "integer"
+    CRITICAL_RISKS: "integer"
+    BUGS: "integer"
+    BLOCKERS: "integer"
+
+# Documentation and setup
+documentation:
+  setup_guide: |
+    ## Quick Setup Guide
+    
+    1. Configure repository secrets:
+       - EMAIL_USERNAME: SMTP username
+       - EMAIL_PASSWORD: SMTP password
+       - EMAIL_EXECUTIVES: Executive email list
+       - EMAIL_DEV_TEAM: Development team emails
+       - EMAIL_STAKEHOLDERS: Stakeholder email list
+    
+    2. Customize environment variables:
+       - PROGRAM_DASHBOARD_URL: Your dashboard URL
+       - DETAILED_REPORTS_URL: Detailed reports URL
+    
+    3. Run workflow with desired template:
+       - gh workflow run clean-status-workflow.yml -f report_type=weekly
+  
+  customization: |
+    ## Customization Options
+    
+    - Modify templates in templates/email-templates/clean-status/
+    - Adjust thresholds in config.yml
+    - Add new recipient groups
+    - Customize email subjects and frequency
+    - Enable/disable features with feature flags
+  
+  troubleshooting: |
+    ## Troubleshooting
+    
+    - Check SMTP configuration if emails fail
+    - Verify GitHub token permissions for metrics collection
+    - Ensure recipient email addresses are valid
+    - Check template syntax if rendering fails
