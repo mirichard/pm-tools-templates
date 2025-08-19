@@ -6,6 +6,7 @@
 [![Interactive Browser](https://img.shields.io/badge/Browse-Interactive-green.svg?style=flat)](templates/index.html)
 [![GitHub issues](https://img.shields.io/github/issues/mirichard/pm-tools-templates)](https://github.com/mirichard/pm-tools-templates/issues)
 [![GitHub last commit](https://img.shields.io/github/last-commit/mirichard/pm-tools-templates)](https://github.com/mirichard/pm-tools-templates/commits/main)
+[![Reorg Status](https://img.shields.io/badge/Reorg-Status-blue)](docs/reorg/STATUS.md)
 
 > A curated collection of 154+ battle-tested, open-source templates for project and program managers. Practical, vendor-agnostic, and ready to customize.
 
@@ -18,10 +19,13 @@
     git clone https://github.com/mirichard/pm-tools-templates.git
     ```
 2.  **Find your template:**
-    Browse the `/templates` directory or explore curated [Examples & Sample Artifacts](docs/examples/library.md).
+    Browse the `/templates` directory or explore curated [Examples  Sample Artifacts](docs/examples/library.md).
 
 3.  **Customize and go:**
     Open a template in your favorite editor and adapt it to your project.
+
+4.  **Use CLI tools (optional):**
+    See the consolidated [CLI Usage Guide](docs/cli/README.md) for link checks, metadata enrichment, and maintenance scripts.
 
 ---
 
