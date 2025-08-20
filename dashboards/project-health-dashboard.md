@@ -1,6 +1,6 @@
 # PM Tools Templates - Project Health Dashboard
 
-**Last Updated:** Tue Aug 19 23:48:14 UTC 2025  
+**Last Updated:** Wed Aug 20 00:28:59 UTC 2025  
 **Project Health:** 🟠 fair  
 **Overall Progress:** 100%
 
@@ -13,7 +13,7 @@
 | **Project Completion** | 100% | 📈 Positive | 🟠 |
 | **Strategic Progress** | 53% | 📈 On Track | 🟢 |
 | **Weekly Velocity** | 30 issues/week | 📈 Strong | 🟢 |
-| **Risk Score** | 160 points | 📈 Elevated | 🔴 |
+| **Risk Score** | 210 points | 📈 Elevated | 🔴 |
 
 ## 📈 Progress Overview
 
@@ -24,9 +24,9 @@
 - **Completion Rate:** 100%
 
 ### Recent Activity (Last 7 Days)
-- **Issues Opened:** 2
+- **Issues Opened:** 4
 - **Issues Closed:** 30
-- **Net Progress:** 28 issues
+- **Net Progress:** 26 issues
 
 ## 🎯 Strategic Roadmap Progress
 
@@ -41,10 +41,10 @@
 ## ⚠️ Risk Assessment
 
 ### Current Risk Factors
-- **Critical Issues:** 0 (25 points each)
+- **Critical Issues:** 2 (25 points each)
 - **High Priority Issues:** 10 (15 points each)
 - **Open Bugs:** 2 (5 points each)
-- **Total Risk Score:** 160 points
+- **Total Risk Score:** 210 points
 
 ### Risk Level: 🔴 HIGH
 
@@ -59,7 +59,7 @@
 |------|-------|------------|
 | Enhancement | 24 | 80% |
 | Bug | 2 | 6% |
-| Critical | 0 | 0% |
+| Critical | 2 | 6% |
 | High Priority | 10 | 33% |
 
 ## 🎯 Performance Indicators
@@ -71,7 +71,7 @@
 
 ### Quality Metrics
 - **Bug Rate:** 6% of open issues
-- **Critical Issue Rate:** 0% of open issues
+- **Critical Issue Rate:** 6% of open issues
 
 ## 📅 Upcoming Focus Areas
 
@@ -88,14 +88,16 @@
 - 🔥 #47: 📋 EPIC 1.10: Program Management Template Suite Implementation
 
 ### Critical Path Items
+- 🚨 #529: 🚨 Workflow Health Alert: critical (Score: 52.61/100)
+- 🚨 #528: 🚨 Workflow Health Alert: critical (Score: 52.3/100)
 
 ---
 
 ## 📊 Dashboard Information
 
 - **Auto-generated:** Every 6 hours
-- **Last Update:** Tue Aug 19 23:48:15 UTC 2025
-- **Next Update:** 05:48 UTC
+- **Last Update:** Wed Aug 20 00:28:59 UTC 2025
+- **Next Update:** 06:28 UTC
 - **Data Source:** GitHub Issues API
 - **Methodology:** Automated metric collection and analysis
 
