@@ -148,21 +148,5 @@ Need help? We're here for you:
 
 ---
 
-## Automation
 
-This repository uses a maintenance workflow to keep Dependabot PRs flowing:
-
-- Workflow: .github/workflows/dependabot-auto-maintenance.yml
-- What it does:
-  - Periodically finds open Dependabot PRs
-  - Attempts to update branches to the latest main (using GitHub’s update-branch API)
-  - If update isn’t possible due to conflicts, requests a rebase by commenting @dependabot rebase
-  - Enables auto-merge (squash) so PRs merge as soon as required checks pass
-- Schedule: Every 30 minutes; can also be triggered manually from the Actions tab
-- Permissions: Uses GITHUB_TOKEN with contents: write and pull-requests: write
-
-Adjusting behavior
-- Change schedule: edit the cron in on.schedule
-- Disable temporarily: use the workflow’s “Disable” button in Actions UI, or comment out the on: block
-- Make a job non-blocking for Dependabot PRs: add a job-level condition if: ${{ github.actor != 'dependabot[bot]' }} to that job in the workflow
 
