@@ -1,6 +1,6 @@
 # PM Tools Templates - Project Health Dashboard
 
-**Last Updated:** Fri Aug 22 14:39:11 UTC 2025  
+**Last Updated:** Fri Aug 22 14:39:35 UTC 2025  
 **Project Health:** 🟠 fair  
 **Overall Progress:** 100%
 
@@ -13,7 +13,7 @@
 | **Project Completion** | 100% | 📈 Positive | 🟠 |
 | **Strategic Progress** | 53% | 📈 On Track | 🟢 |
 | **Weekly Velocity** | 30 issues/week | 📈 Strong | 🟢 |
-| **Risk Score** | 450 points | 📈 Elevated | 🔴 |
+| **Risk Score** | 700 points | 📈 Elevated | 🔴 |
 
 ## 📈 Progress Overview
 
@@ -41,10 +41,10 @@
 ## ⚠️ Risk Assessment
 
 ### Current Risk Factors
-- **Critical Issues:** 11 (25 points each)
+- **Critical Issues:** 21 (25 points each)
 - **High Priority Issues:** 11 (15 points each)
 - **Open Bugs:** 2 (5 points each)
-- **Total Risk Score:** 450 points
+- **Total Risk Score:** 700 points
 
 ### Risk Level: 🔴 HIGH
 
@@ -59,7 +59,7 @@
 |------|-------|------------|
 | Enhancement | 24 | 80% |
 | Bug | 2 | 6% |
-| Critical | 11 | 36% |
+| Critical | 21 | 70% |
 | High Priority | 11 | 36% |
 
 ## 🎯 Performance Indicators
@@ -71,7 +71,7 @@
 
 ### Quality Metrics
 - **Bug Rate:** 6% of open issues
-- **Critical Issue Rate:** 36% of open issues
+- **Critical Issue Rate:** 70% of open issues
 
 ## 📅 Upcoming Focus Areas
 
@@ -89,6 +89,7 @@
 - 🔥 #47: 📋 EPIC 1.10: Program Management Template Suite Implementation
 
 ### Critical Path Items
+- 🚨 #547: 🔄 STORY: Integration Enhancement - Jira/Asana Bi-directional Sync
 - 🚨 #546: 🚨 Workflow Health Alert: critical (Score: 53.77/100)
 - 🚨 #545: 🚨 Workflow Health Alert: critical (Score: 53.61/100)
 - 🚨 #544: 🚨 Workflow Health Alert: critical (Score: 53.51/100)
@@ -100,13 +101,26 @@
 - 🚨 #538: 🚨 Workflow Health Alert: critical (Score: 53.16/100)
 - 🚨 #537: 🚨 Workflow Health Alert: critical (Score: 53.04/100)
 - 🚨 #535: 🚨 Workflow Health Alert: critical (Score: 53.0/100)
+- 🚨 #523: 🔮 AI Data Science Enhancements - Phase 2
+- 🚨 #522: ✅ AI Data Science Features - Production Deployment Ready
+- 🚨 #386: [Q3][#290] Field Mapping + Delta Sync (Jira/Asana) with Idempotency
+- 🚨 #385: [Q3][#290] OAuth 2.0 for Jira/Asana with Secure Token Management
+- 🚨 #383: 💰 Epic: Budget Forecasting Module
+- 🚨 #382: 👥 Epic: Resource Planning Assistant
+- 🚨 #381: ✅ Epic: Checklist Generator (Full Lifecycle)
+- 🚨 #380: 📋 Epic: Deliverables Matrix Generator
+- 🚨 #379: ⚠️ Epic: RAID Log Auto-Starter
+- 🚨 #378: 📅 Epic: Milestone Calendar Sync Tool
+- 🚨 #377: ⚡ Epic: Reminder & Escalation Workflow
+- 🚨 #376: 🤖 Epic: Slack/Teams Update Bot
+- 🚨 #375: 📈 Epic: Project Analytics Engine
 
 ---
 
 ## 📊 Dashboard Information
 
 - **Auto-generated:** Every 6 hours
-- **Last Update:** Fri Aug 22 14:39:12 UTC 2025
+- **Last Update:** Fri Aug 22 14:39:36 UTC 2025
 - **Next Update:** 20:39 UTC
 - **Data Source:** GitHub Issues API
 - **Methodology:** Automated metric collection and analysis
