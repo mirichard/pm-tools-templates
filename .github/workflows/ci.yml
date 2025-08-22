@@ -41,6 +41,21 @@ jobs:
               - '**/requirements*.txt'
               - '**/*.py'
 
+  detect-packages:
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.set-matrix.outputs.matrix }}
+    steps:
+      - uses: actions/checkout@v4
+        with: { fetch-depth: 1 }
+      - name: Detect packages with package.json
+        id: set-matrix
+        run: |
+          # Find directories with package.json files (excluding node_modules)
+          packages=$(find . -name 'package.json' -not -path '*/node_modules/*' -type f | sed 's|/package.json||' | sed 's|^./||' | jq -R -s -c 'split("\n") | map(select(. != "")) | map({"package": .})')
+          echo "matrix={\"include\":$packages}" >> $GITHUB_OUTPUT
+          echo "Found packages: $packages"
+
   build-test:
     runs-on: ubuntu-latest
     steps:
