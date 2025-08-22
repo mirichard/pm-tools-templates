@@ -1,6 +1,6 @@
 # PM Tools Templates - Project Health Dashboard
 
-**Last Updated:** Fri Aug 22 14:39:51 UTC 2025  
+**Last Updated:** Fri Aug 22 14:40:12 UTC 2025  
 **Project Health:** 🟠 fair  
 **Overall Progress:** 100%
 
@@ -13,7 +13,7 @@
 | **Project Completion** | 100% | 📈 Positive | 🟠 |
 | **Strategic Progress** | 53% | 📈 On Track | 🟢 |
 | **Weekly Velocity** | 30 issues/week | 📈 Strong | 🟢 |
-| **Risk Score** | 800 points | 📈 Elevated | 🔴 |
+| **Risk Score** | 775 points | 📈 Elevated | 🔴 |
 
 ## 📈 Progress Overview
 
@@ -24,9 +24,9 @@
 - **Completion Rate:** 100%
 
 ### Recent Activity (Last 7 Days)
-- **Issues Opened:** 14
+- **Issues Opened:** 13
 - **Issues Closed:** 30
-- **Net Progress:** 16 issues
+- **Net Progress:** 17 issues
 
 ## 🎯 Strategic Roadmap Progress
 
@@ -41,10 +41,10 @@
 ## ⚠️ Risk Assessment
 
 ### Current Risk Factors
-- **Critical Issues:** 25 (25 points each)
+- **Critical Issues:** 24 (25 points each)
 - **High Priority Issues:** 11 (15 points each)
 - **Open Bugs:** 2 (5 points each)
-- **Total Risk Score:** 800 points
+- **Total Risk Score:** 775 points
 
 ### Risk Level: 🔴 HIGH
 
@@ -59,7 +59,7 @@
 |------|-------|------------|
 | Enhancement | 24 | 80% |
 | Bug | 2 | 6% |
-| Critical | 25 | 83% |
+| Critical | 24 | 80% |
 | High Priority | 11 | 36% |
 
 ## 🎯 Performance Indicators
@@ -71,7 +71,7 @@
 
 ### Quality Metrics
 - **Bug Rate:** 6% of open issues
-- **Critical Issue Rate:** 83% of open issues
+- **Critical Issue Rate:** 80% of open issues
 
 ## 📅 Upcoming Focus Areas
 
@@ -90,17 +90,6 @@
 
 ### Critical Path Items
 - 🚨 #547: 🔄 STORY: Integration Enhancement - Jira/Asana Bi-directional Sync
-- 🚨 #546: 🚨 Workflow Health Alert: critical (Score: 53.77/100)
-- 🚨 #545: 🚨 Workflow Health Alert: critical (Score: 53.61/100)
-- 🚨 #544: 🚨 Workflow Health Alert: critical (Score: 53.51/100)
-- 🚨 #543: 🚨 Workflow Health Alert: critical (Score: 53.66/100)
-- 🚨 #542: 🚨 Workflow Health Alert: critical (Score: 53.55/100)
-- 🚨 #541: 🚨 Workflow Health Alert: critical (Score: 53.45/100)
-- 🚨 #540: 🚨 Workflow Health Alert: critical (Score: 53.29/100)
-- 🚨 #539: 🚨 Workflow Health Alert: critical (Score: 53.25/100)
-- 🚨 #538: 🚨 Workflow Health Alert: critical (Score: 53.16/100)
-- 🚨 #537: 🚨 Workflow Health Alert: critical (Score: 53.04/100)
-- 🚨 #535: 🚨 Workflow Health Alert: critical (Score: 53.0/100)
 - 🚨 #523: 🔮 AI Data Science Enhancements - Phase 2
 - 🚨 #522: ✅ AI Data Science Features - Production Deployment Ready
 - 🚨 #386: [Q3][#290] Field Mapping + Delta Sync (Jira/Asana) with Idempotency
@@ -120,8 +109,8 @@
 ## 📊 Dashboard Information
 
 - **Auto-generated:** Every 6 hours
-- **Last Update:** Fri Aug 22 14:39:52 UTC 2025
-- **Next Update:** 20:39 UTC
+- **Last Update:** Fri Aug 22 14:40:13 UTC 2025
+- **Next Update:** 20:40 UTC
 - **Data Source:** GitHub Issues API
 - **Methodology:** Automated metric collection and analysis
 
