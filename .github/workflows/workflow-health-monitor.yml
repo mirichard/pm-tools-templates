@@ -2,8 +2,8 @@ name: 🏥 Workflow Health Monitor
 
 on:
   schedule:
-    # Monitor workflow health every 6 hours
-    - cron: '0 */6 * * *'
+    # Monitor workflow health every 12 hours to reduce alert fatigue
+    - cron: '0 */12 * * *'
   workflow_run:
     workflows: ["🔒 Dependency Security Scan", "🔍 Static Application Security Testing (SAST)", "🏗️ Infrastructure Security Analysis"]
     types: [completed]
@@ -31,9 +31,9 @@ on:
         type: boolean
 
 env:
-  HEALTH_THRESHOLD_CRITICAL: 60
-  HEALTH_THRESHOLD_WARNING: 75
-  HEALTH_THRESHOLD_GOOD: 85
+  HEALTH_THRESHOLD_CRITICAL: 35
+  HEALTH_THRESHOLD_WARNING: 55
+  HEALTH_THRESHOLD_GOOD: 75
   MONITORING_RETENTION_DAYS: 30
 
 permissions:
@@ -677,8 +677,24 @@ jobs:
           print("Health report generated")
           EOF
 
+      - name: 🔍 Check for Existing Critical Alerts
+        id: dedup
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          EXISTING_ALERTS=$(gh issue list --label "critical,workflow-health" --state open --json number | jq length)
+          echo "Found $EXISTING_ALERTS existing critical alerts"
+          
+          if [ "$EXISTING_ALERTS" -gt 3 ]; then
+            echo "Too many open alerts ($EXISTING_ALERTS), consolidating instead of creating new one"
+            echo "create_alert=false" >> $GITHUB_OUTPUT
+          else
+            echo "Alert count acceptable, proceeding with alert creation"
+            echo "create_alert=true" >> $GITHUB_OUTPUT
+          fi
+
       - name: 🔔 Create Health Issue (if needed)
-        if: steps.alerts.outputs.alert_needed == 'true' && (steps.alerts.outputs.alert_level == 'critical' || steps.alerts.outputs.alert_level == 'warning')
+        if: steps.alerts.outputs.alert_needed == 'true' && (steps.alerts.outputs.alert_level == 'critical' || steps.alerts.outputs.alert_level == 'warning') && steps.dedup.outputs.create_alert == 'true'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |

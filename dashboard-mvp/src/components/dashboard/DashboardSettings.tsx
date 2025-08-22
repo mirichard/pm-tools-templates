@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { Settings, Layout, Bell, Download, Save, RotateCcw, Badge } from 'lucide-react';
+import { Settings, Layout, Bell, Download, Save, RotateCcw } from 'lucide-react';
 import { useToast } from '@/components/ui/toast';
 
 interface DashboardSettingsProps {
@@ -80,8 +80,8 @@ export function DashboardSettings({ isOpen, onClose, onSettingsChange }: Dashboa
       try {
         const parsed = JSON.parse(savedSettings);
         setSettings({ ...DEFAULT_SETTINGS, ...parsed });
-      } catch (error) {
-        console.warn('Failed to parse saved settings:', error);
+      } catch {
+        console.warn('Failed to parse saved settings');
       }
     }
   }, []);
@@ -99,7 +99,7 @@ export function DashboardSettings({ isOpen, onClose, onSettingsChange }: Dashboa
       });
       
       onClose();
-    } catch (error) {
+    } catch {
       addToast({
         type: 'error',
         title: 'Failed to save settings',
@@ -166,7 +166,7 @@ export function DashboardSettings({ isOpen, onClose, onSettingsChange }: Dashboa
               ].map(({ id, label, icon: Icon }) => (
                 <button
                   key={id}
-                  onClick={() => setActiveTab(id as any)}
+                  onClick={() => setActiveTab(id as 'general' | 'layout' | 'notifications' | 'export')}
                   className={`w-full flex items-center gap-3 px-3 py-2 rounded-md text-left transition-colors ${
                     activeTab === id
                       ? 'bg-blue-100 text-blue-700'
@@ -193,7 +193,7 @@ export function DashboardSettings({ isOpen, onClose, onSettingsChange }: Dashboa
                   </label>
                   <select
                     value={settings.theme}
-                    onChange={(e) => updateSettings({ theme: e.target.value as any })}
+                    onChange={(e) => updateSettings({ theme: e.target.value as 'light' | 'dark' | 'auto' })}
                     className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                   >
                     <option value="light">Light</option>
@@ -227,7 +227,7 @@ export function DashboardSettings({ isOpen, onClose, onSettingsChange }: Dashboa
                   </label>
                   <select
                     value={settings.defaultView}
-                    onChange={(e) => updateSettings({ defaultView: e.target.value as any })}
+                    onChange={(e) => updateSettings({ defaultView: e.target.value as 'overview' | 'detailed' | 'compact' })}
                     className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                   >
                     <option value="overview">Overview</option>
@@ -251,7 +251,7 @@ export function DashboardSettings({ isOpen, onClose, onSettingsChange }: Dashboa
                     {[1, 2, 3].map(cols => (
                       <button
                         key={cols}
-                        onClick={() => updateNestedSettings('layout', { gridColumns: cols as any })}
+                        onClick={() => updateNestedSettings('layout', { gridColumns: cols as 1 | 2 | 3 })}
                         className={`px-4 py-2 rounded-md border ${
                           settings.layout.gridColumns === cols
                             ? 'bg-blue-100 border-blue-300 text-blue-700'
@@ -273,7 +273,7 @@ export function DashboardSettings({ isOpen, onClose, onSettingsChange }: Dashboa
                     {['compact', 'normal', 'relaxed'].map(spacing => (
                       <button
                         key={spacing}
-                        onClick={() => updateNestedSettings('layout', { widgetSpacing: spacing as any })}
+                        onClick={() => updateNestedSettings('layout', { widgetSpacing: spacing as 'compact' | 'normal' | 'relaxed' })}
                         className={`px-4 py-2 rounded-md border capitalize ${
                           settings.layout.widgetSpacing === spacing
                             ? 'bg-blue-100 border-blue-300 text-blue-700'
@@ -297,7 +297,7 @@ export function DashboardSettings({ isOpen, onClose, onSettingsChange }: Dashboa
                         <input
                           type="checkbox"
                           checked={enabled}
-                          onChange={(e) => updateNestedSettings('widgets', { [key]: e.target.checked } as any)}
+                          onChange={(e) => updateNestedSettings('widgets', { [key]: e.target.checked } as Partial<DashboardSettings['widgets']>)}
                           className="mr-3 h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
                         />
                         <span className="text-sm text-gray-700 capitalize">
@@ -331,7 +331,7 @@ export function DashboardSettings({ isOpen, onClose, onSettingsChange }: Dashboa
                       <input
                         type="checkbox"
                         checked={enabled}
-                        onChange={(e) => updateNestedSettings('notifications', { [key]: e.target.checked } as any)}
+                        onChange={(e) => updateNestedSettings('notifications', { [key]: e.target.checked } as Partial<DashboardSettings['notifications']>)}
                         className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
                       />
                     </label>
@@ -351,7 +351,7 @@ export function DashboardSettings({ isOpen, onClose, onSettingsChange }: Dashboa
                   </label>
                   <select
                     value={settings.export.defaultFormat}
-                    onChange={(e) => updateNestedSettings('export', { defaultFormat: e.target.value as any })}
+                    onChange={(e) => updateNestedSettings('export', { defaultFormat: e.target.value as 'pdf' | 'csv' | 'json' })}
                     className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                   >
                     <option value="pdf">PDF Report</option>
