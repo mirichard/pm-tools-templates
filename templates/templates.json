@@ -1,6 +1,6 @@
 {
   "generated": "2025-08-05T20:56:32.142Z",
-  "totalTemplates": 139,
+  "totalTemplates": 137,
   "templates": [
     {
       "path": "business-stakeholder-suite/financial-governance/enhanced-business-cases/advanced-business-case-template.md",
@@ -243,20 +243,6 @@
           "similarity": 93
         },
         {
-          "path": "methodology-frameworks/emerging-methods/design-thinking/design_thinking_workshop_template.md",
-          "title": "Design Thinking Workshop Template",
-          "methodology": "universal",
-          "tags": [
-            "risk-management",
-            "stakeholder-management",
-            "communication",
-            "planning",
-            "monitoring",
-            "quality"
-          ],
-          "similarity": 93
-        },
-        {
           "path": "methodology-frameworks/emerging-methods/devops/release_management_template.md",
           "title": "Release Management Template",
           "methodology": "universal",
@@ -328,20 +314,6 @@
         {
           "path": "methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md",
           "title": "Cicd Pipeline Planning Template",
-          "methodology": "universal",
-          "tags": [
-            "risk-management",
-            "stakeholder-management",
-            "communication",
-            "planning",
-            "monitoring",
-            "quality"
-          ],
-          "similarity": 93
-        },
-        {
-          "path": "methodology-frameworks/emerging-methods/design-thinking/design_thinking_workshop_template.md",
-          "title": "Design Thinking Workshop Template",
           "methodology": "universal",
           "tags": [
             "risk-management",
@@ -1814,20 +1786,6 @@
       ],
       "relatedTemplates": [
         {
-          "path": "methodology-frameworks/emerging-methods/design-thinking/design_thinking_workshop_template.md",
-          "title": "Design Thinking Workshop Template",
-          "methodology": "universal",
-          "tags": [
-            "risk-management",
-            "stakeholder-management",
-            "communication",
-            "planning",
-            "monitoring",
-            "quality"
-          ],
-          "similarity": 100
-        },
-        {
           "path": "methodology-frameworks/emerging-methods/devops/release_management_template.md",
           "title": "Release Management Template",
           "methodology": "universal",
@@ -2203,20 +2161,6 @@
         {
           "path": "methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md",
           "title": "Cicd Pipeline Planning Template",
-          "methodology": "universal",
-          "tags": [
-            "risk-management",
-            "stakeholder-management",
-            "communication",
-            "planning",
-            "monitoring",
-            "quality"
-          ],
-          "similarity": 93
-        },
-        {
-          "path": "methodology-frameworks/emerging-methods/design-thinking/design_thinking_workshop_template.md",
-          "title": "Design Thinking Workshop Template",
           "methodology": "universal",
           "tags": [
             "risk-management",
@@ -2900,101 +2844,6 @@
       ]
     },
     {
-      "path": "methodology-frameworks/emerging-methods/design-thinking/design_thinking_workshop_template.md",
-      "title": "Design Thinking Workshop Template",
-      "methodology": "universal",
-      "complexity": "advanced",
-      "owner": "mirichard",
-      "updated": "2025-08-05",
-      "description": "title: \"Design Thinking Workshop Template\"",
-      "tags": [
-        "risk-management",
-        "stakeholder-management",
-        "communication",
-        "planning",
-        "monitoring",
-        "quality"
-      ],
-      "size": 39226,
-      "lastModified": "2025-08-05",
-      "qualityScore": 85,
-      "qualityIssues": [
-        "Description is too short or missing"
-      ],
-      "relatedTemplates": [
-        {
-          "path": "methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md",
-          "title": "Cicd Pipeline Planning Template",
-          "methodology": "universal",
-          "tags": [
-            "risk-management",
-            "stakeholder-management",
-            "communication",
-            "planning",
-            "monitoring",
-            "quality"
-          ],
-          "similarity": 100
-        },
-        {
-          "path": "methodology-frameworks/emerging-methods/devops/release_management_template.md",
-          "title": "Release Management Template",
-          "methodology": "universal",
-          "tags": [
-            "risk-management",
-            "stakeholder-management",
-            "communication",
-            "planning",
-            "monitoring",
-            "quality"
-          ],
-          "similarity": 100
-        },
-        {
-          "path": "project-lifecycle/02-planning/resource-planning/resource-management-plan-template.md",
-          "title": "Resource Management Plan Template",
-          "methodology": "universal",
-          "tags": [
-            "risk-management",
-            "stakeholder-management",
-            "communication",
-            "planning",
-            "monitoring",
-            "quality"
-          ],
-          "similarity": 100
-        },
-        {
-          "path": "project-lifecycle/02-planning/risk-management/risk-management-plan-template.md",
-          "title": "Risk Management Plan Template",
-          "methodology": "universal",
-          "tags": [
-            "risk-management",
-            "stakeholder-management",
-            "communication",
-            "planning",
-            "monitoring",
-            "quality"
-          ],
-          "similarity": 100
-        },
-        {
-          "path": "project-lifecycle/02-planning/resource-planning/team-charter-template.md",
-          "title": "Team Charter Template",
-          "methodology": "universal",
-          "tags": [
-            "risk-management",
-            "stakeholder-management",
-            "communication",
-            "planning",
-            "monitoring",
-            "quality"
-          ],
-          "similarity": 100
-        }
-      ]
-    },
-    {
       "path": "methodology-frameworks/emerging-methods/devops/devsecops_template.md",
       "title": "Devsecops Template",
       "methodology": "universal",
@@ -3037,20 +2886,6 @@
           "tags": [
             "healthcare",
             "risk-management",
-            "communication",
-            "planning",
-            "monitoring",
-            "quality"
-          ],
-          "similarity": 92
-        },
-        {
-          "path": "methodology-frameworks/emerging-methods/design-thinking/design_thinking_workshop_template.md",
-          "title": "Design Thinking Workshop Template",
-          "methodology": "universal",
-          "tags": [
-            "risk-management",
-            "stakeholder-management",
             "communication",
             "planning",
             "monitoring",
@@ -5319,20 +5154,6 @@
           "tags": [
             "healthcare",
             "risk-management",
-            "communication",
-            "planning",
-            "monitoring",
-            "quality"
-          ],
-          "similarity": 75
-        },
-        {
-          "path": "methodology-frameworks/emerging-methods/design-thinking/design_thinking_workshop_template.md",
-          "title": "Design Thinking Workshop Template",
-          "methodology": "universal",
-          "tags": [
-            "risk-management",
-            "stakeholder-management",
             "communication",
             "planning",
             "monitoring",
@@ -9490,20 +9311,6 @@
           "similarity": 100
         },
         {
-          "path": "methodology-frameworks/emerging-methods/design-thinking/design_thinking_workshop_template.md",
-          "title": "Design Thinking Workshop Template",
-          "methodology": "universal",
-          "tags": [
-            "risk-management",
-            "stakeholder-management",
-            "communication",
-            "planning",
-            "monitoring",
-            "quality"
-          ],
-          "similarity": 100
-        },
-        {
           "path": "project-lifecycle/02-planning/resource-planning/resource-management-plan-template.md",
           "title": "Resource Management Plan Template",
           "methodology": "universal",
@@ -9962,20 +9769,6 @@
           "similarity": 100
         },
         {
-          "path": "methodology-frameworks/emerging-methods/design-thinking/design_thinking_workshop_template.md",
-          "title": "Design Thinking Workshop Template",
-          "methodology": "universal",
-          "tags": [
-            "risk-management",
-            "stakeholder-management",
-            "communication",
-            "planning",
-            "monitoring",
-            "quality"
-          ],
-          "similarity": 100
-        },
-        {
           "path": "methodology-frameworks/emerging-methods/devops/release_management_template.md",
           "title": "Release Management Template",
           "methodology": "universal",
@@ -10244,20 +10037,6 @@
           "similarity": 100
         },
         {
-          "path": "methodology-frameworks/emerging-methods/design-thinking/design_thinking_workshop_template.md",
-          "title": "Design Thinking Workshop Template",
-          "methodology": "universal",
-          "tags": [
-            "risk-management",
-            "stakeholder-management",
-            "communication",
-            "planning",
-            "monitoring",
-            "quality"
-          ],
-          "similarity": 100
-        },
-        {
           "path": "methodology-frameworks/emerging-methods/devops/release_management_template.md",
           "title": "Release Management Template",
           "methodology": "universal",
@@ -10340,19 +10119,6 @@
           "similarity": 90
         },
         {
-          "path": "methodology-frameworks/emerging-methods/design-thinking/user_empathy_mapping_template.md",
-          "title": "User Empathy Mapping Template",
-          "methodology": "universal",
-          "tags": [
-            "risk-management",
-            "stakeholder-management",
-            "communication",
-            "planning",
-            "quality"
-          ],
-          "similarity": 90
-        },
-        {
           "path": "role-based-toolkits/project-manager/essential-templates/budget-template.md",
           "title": "Budget Template",
           "methodology": "universal",
@@ -10369,20 +10135,6 @@
         {
           "path": "methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md",
           "title": "Cicd Pipeline Planning Template",
-          "methodology": "universal",
-          "tags": [
-            "risk-management",
-            "stakeholder-management",
-            "communication",
-            "planning",
-            "monitoring",
-            "quality"
-          ],
-          "similarity": 83
-        },
-        {
-          "path": "methodology-frameworks/emerging-methods/design-thinking/design_thinking_workshop_template.md",
-          "title": "Design Thinking Workshop Template",
           "methodology": "universal",
           "tags": [
             "risk-management",
@@ -11022,35 +10774,8 @@
       ],
       "relatedTemplates": [
         {
-          "path": "methodology-frameworks/emerging-methods/design-thinking/user_empathy_mapping_template.md",
-          "title": "User Empathy Mapping Template",
-          "methodology": "universal",
-          "tags": [
-            "risk-management",
-            "stakeholder-management",
-            "communication",
-            "planning",
-            "quality"
-          ],
-          "similarity": 100
-        },
-        {
           "path": "methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md",
           "title": "Cicd Pipeline Planning Template",
-          "methodology": "universal",
-          "tags": [
-            "risk-management",
-            "stakeholder-management",
-            "communication",
-            "planning",
-            "monitoring",
-            "quality"
-          ],
-          "similarity": 92
-        },
-        {
-          "path": "methodology-frameworks/emerging-methods/design-thinking/design_thinking_workshop_template.md",
-          "title": "Design Thinking Workshop Template",
           "methodology": "universal",
           "tags": [
             "risk-management",
@@ -11785,20 +11510,6 @@
         {
           "path": "methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md",
           "title": "Cicd Pipeline Planning Template",
-          "methodology": "universal",
-          "tags": [
-            "risk-management",
-            "stakeholder-management",
-            "communication",
-            "planning",
-            "monitoring",
-            "quality"
-          ],
-          "similarity": 100
-        },
-        {
-          "path": "methodology-frameworks/emerging-methods/design-thinking/design_thinking_workshop_template.md",
-          "title": "Design Thinking Workshop Template",
           "methodology": "universal",
           "tags": [
             "risk-management",
@@ -12633,99 +12344,6 @@
             "quality"
           ],
           "similarity": 100
-        }
-      ]
-    },
-    {
-      "path": "methodology-frameworks/emerging-methods/design-thinking/user_empathy_mapping_template.md",
-      "title": "User Empathy Mapping Template",
-      "methodology": "universal",
-      "complexity": "advanced",
-      "owner": "mirichard",
-      "updated": "2025-08-05",
-      "description": "title: \"User Empathy Mapping Template\"",
-      "tags": [
-        "risk-management",
-        "stakeholder-management",
-        "communication",
-        "planning",
-        "quality"
-      ],
-      "size": 34707,
-      "lastModified": "2025-08-05",
-      "qualityScore": 85,
-      "qualityIssues": [
-        "Description is too short or missing"
-      ],
-      "relatedTemplates": [
-        {
-          "path": "project-lifecycle/02-planning/resource-planning/skills-matrix-template.md",
-          "title": "Skills Matrix Template",
-          "methodology": "universal",
-          "tags": [
-            "risk-management",
-            "stakeholder-management",
-            "communication",
-            "planning",
-            "quality"
-          ],
-          "similarity": 100
-        },
-        {
-          "path": "methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md",
-          "title": "Cicd Pipeline Planning Template",
-          "methodology": "universal",
-          "tags": [
-            "risk-management",
-            "stakeholder-management",
-            "communication",
-            "planning",
-            "monitoring",
-            "quality"
-          ],
-          "similarity": 92
-        },
-        {
-          "path": "methodology-frameworks/emerging-methods/design-thinking/design_thinking_workshop_template.md",
-          "title": "Design Thinking Workshop Template",
-          "methodology": "universal",
-          "tags": [
-            "risk-management",
-            "stakeholder-management",
-            "communication",
-            "planning",
-            "monitoring",
-            "quality"
-          ],
-          "similarity": 92
-        },
-        {
-          "path": "role-based-toolkits/project-manager/essential-templates/meeting-templates.md",
-          "title": "Meeting Templates",
-          "methodology": "universal",
-          "tags": [
-            "technology",
-            "risk-management",
-            "stakeholder-management",
-            "communication",
-            "planning",
-            "quality"
-          ],
-          "similarity": 92
-        },
-        {
-          "path": "methodology-frameworks/emerging-methods/devops/release_management_template.md",
-          "title": "Release Management Template",
-          "methodology": "universal",
-          "tags": [
-            "risk-management",
-            "stakeholder-management",
-            "communication",
-            "planning",
-            "monitoring",
-            "quality"
-          ],
-          "similarity": 92
         }
       ]
     },
