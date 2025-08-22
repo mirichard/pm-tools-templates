@@ -1,6 +1,6 @@
 # PM Tools Templates - Project Health Dashboard
 
-**Last Updated:** Fri Aug 22 00:29:00 UTC 2025  
+**Last Updated:** Fri Aug 22 06:09:57 UTC 2025  
 **Project Health:** 🟠 fair  
 **Overall Progress:** 100%
 
@@ -13,7 +13,7 @@
 | **Project Completion** | 100% | 📈 Positive | 🟠 |
 | **Strategic Progress** | 53% | 📈 On Track | 🟢 |
 | **Weekly Velocity** | 30 issues/week | 📈 Strong | 🟢 |
-| **Risk Score** | 360 points | 📈 Elevated | 🔴 |
+| **Risk Score** | 385 points | 📈 Elevated | 🔴 |
 
 ## 📈 Progress Overview
 
@@ -24,9 +24,9 @@
 - **Completion Rate:** 100%
 
 ### Recent Activity (Last 7 Days)
-- **Issues Opened:** 10
+- **Issues Opened:** 11
 - **Issues Closed:** 30
-- **Net Progress:** 20 issues
+- **Net Progress:** 19 issues
 
 ## 🎯 Strategic Roadmap Progress
 
@@ -41,10 +41,10 @@
 ## ⚠️ Risk Assessment
 
 ### Current Risk Factors
-- **Critical Issues:** 8 (25 points each)
+- **Critical Issues:** 9 (25 points each)
 - **High Priority Issues:** 10 (15 points each)
 - **Open Bugs:** 2 (5 points each)
-- **Total Risk Score:** 360 points
+- **Total Risk Score:** 385 points
 
 ### Risk Level: 🔴 HIGH
 
@@ -59,7 +59,7 @@
 |------|-------|------------|
 | Enhancement | 24 | 80% |
 | Bug | 2 | 6% |
-| Critical | 8 | 26% |
+| Critical | 9 | 30% |
 | High Priority | 10 | 33% |
 
 ## 🎯 Performance Indicators
@@ -71,7 +71,7 @@
 
 ### Quality Metrics
 - **Bug Rate:** 6% of open issues
-- **Critical Issue Rate:** 26% of open issues
+- **Critical Issue Rate:** 30% of open issues
 
 ## 📅 Upcoming Focus Areas
 
@@ -88,6 +88,7 @@
 - 🔥 #47: 📋 EPIC 1.10: Program Management Template Suite Implementation
 
 ### Critical Path Items
+- 🚨 #544: 🚨 Workflow Health Alert: critical (Score: 53.51/100)
 - 🚨 #543: 🚨 Workflow Health Alert: critical (Score: 53.66/100)
 - 🚨 #542: 🚨 Workflow Health Alert: critical (Score: 53.55/100)
 - 🚨 #541: 🚨 Workflow Health Alert: critical (Score: 53.45/100)
@@ -102,8 +103,8 @@
 ## 📊 Dashboard Information
 
 - **Auto-generated:** Every 6 hours
-- **Last Update:** Fri Aug 22 00:29:01 UTC 2025
-- **Next Update:** 06:29 UTC
+- **Last Update:** Fri Aug 22 06:09:57 UTC 2025
+- **Next Update:** 12:09 UTC
 - **Data Source:** GitHub Issues API
 - **Methodology:** Automated metric collection and analysis
 
