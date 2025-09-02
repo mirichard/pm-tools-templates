@@ -37,8 +37,12 @@ All 11 security vulnerabilities identified by GitHub security alerts have been s
   - `@lhci/cli` (via `inquirer` → `external-editor` → `tmp`)
   - `external-editor` (direct dependency on vulnerable `tmp`)
   - `inquirer` (cascading dependency)
-- **Fix:** **UPDATED** - Added `"tmp": "^0.2.4"` to package.json overrides (corrected from ^0.2.3)
-- **Status:** ✅ Confirmed resolved with npm audit showing 0 vulnerabilities
+- **Fix:** **UPDATED** - Added `"tmp": "^0.2.4"` to package.json overrides in multiple directories:
+  - `site/package.json` (corrected from ^0.2.3)
+  - `tools/template-generator-cli/package.json` (new override added)
+  - `integrations/asana/package.json` (new override added)
+  - `PM Tools Templates - Q3 2025 Delivery Cycle/Implementation/template-selector/backend/package.json` (new override added)
+- **Status:** ✅ Confirmed resolved with npm audit showing 0 vulnerabilities across all directories
 
 ## Remediation Actions Taken
 

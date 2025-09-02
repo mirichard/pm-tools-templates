@@ -40,6 +40,9 @@
   "engines": {
     "node": ">=16.0.0"
   },
+  "overrides": {
+    "tmp": "^0.2.4"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/mirichard/pm-tools-templates.git"
