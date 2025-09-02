@@ -1,5 +1,15 @@
 # Changelog
 
+## 2025-09-02
+
+### Security Update
+
+- **SECURITY FIX**: Resolved CVE-2025-54798 in `tmp` dependency
+  - Updated `tmp` version from `^0.2.3` to `^0.2.4` in site/package.json overrides
+  - Addressed GitHub security alert for known vulnerability in tmp package ≤0.2.3
+  - Verified resolution with npm audit showing 0 vulnerabilities
+  - Updated SECURITY_REMEDIATION_REPORT.md with corrected fix details
+
 ## 2025-08-19
 
 Summary: Program Manager Toolkit expansion (Issues #41, #42)
