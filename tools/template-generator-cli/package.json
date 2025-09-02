@@ -48,6 +48,9 @@
   "engines": {
     "node": ">=16.0.0"
   },
+  "overrides": {
+    "tmp": "^0.2.4"
+  },
   "files": [
     "src/**/*",
     "README.md",
