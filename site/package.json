@@ -15,7 +15,7 @@
     "highlight.js": "^11.9.0",
     "morgan": "^1.10.0",
     "etag": "^1.8.1",
-    "express-rate-limit": "^8.0.1"
+    "express-rate-limit": "^8.1.0"
   },
   "overrides": {
     "ws": "^8.17.1",
