@@ -11,7 +11,12 @@
   },
   "dependencies": {
     "express": "^5.1.0",
+dependabot/npm_and_yarn/site/marked-16.2.1
+    "marked": "^16.2.1",
+
+=======
     "marked": "^16.2.0",
+ main
     "highlight.js": "^11.9.0",
     "morgan": "^1.10.0",
     "etag": "^1.8.1",
