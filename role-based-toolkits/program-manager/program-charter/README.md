@@ -9,12 +9,12 @@ A Program Charter is the foundational document that formally authorizes a progra
 ## 📋 What's Included
 
 ### Core Charter Templates
-- **[Basic Program Charter](basic-program-charter.md)** - Essential elements for simple programs
-- **[Comprehensive Program Charter](comprehensive-program-charter.md)** - Detailed charter for complex programs
-- **[Agile Program Charter](agile-program-charter.md)** - Lean charter for adaptive programs
+- **[Basic Program Charter](basic-program-charter.md)** - ✅ Essential elements for simple programs
+- **[Comprehensive Program Charter](comprehensive-program-charter.md)** - ✅ Detailed charter for complex programs  
+- **[Agile Program Charter](agile-program-charter.md)** - ✅ Lean charter for adaptive programs
 
 ### Supporting Documents
-- **[Program Business Case](program-business-case.md)** - Financial justification and benefits
+- **[Program Business Case](program-business-case.md)** - ✅ Financial justification and benefits
 - **[Program Scope Statement](program-scope-statement.md)** - Detailed scope definition
 - **[Program Governance Framework](program-governance.md)** - Decision-making structure
 
