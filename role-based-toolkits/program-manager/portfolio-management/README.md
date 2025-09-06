@@ -4,10 +4,10 @@ This suite helps Program Managers align initiatives to strategy, prioritize inve
 
 ## What's Included
 
-- portfolio-kanban.md — Visual flow of initiatives through intake to delivery
-- prioritization-model.md — Weighted scoring model (value, cost, risk, alignment)
-- benefits-tracking-dashboard.md — KPIs and benefits realization tracking view
-- governance-cadence.md — Portfolio ceremonies and decision forums
+- **[Portfolio Kanban Board](portfolio-kanban-board.md)** — ✅ Visual flow of initiatives through intake to delivery
+- **[Prioritization Matrix](prioritization-model.md)** — ✅ Weighted scoring model (value, cost, risk, alignment)
+- **[Benefits Tracking Dashboard](benefits-tracking-dashboard.md)** — KPIs and benefits realization tracking view
+- **[Governance Cadence](governance-cadence.md)** — Portfolio ceremonies and decision forums
 
 ## Usage
 
