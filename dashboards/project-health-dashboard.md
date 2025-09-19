@@ -1,6 +1,6 @@
 # PM Tools Templates - Project Health Dashboard
 
-**Last Updated:** Fri Sep 19 12:11:38 UTC 2025  
+**Last Updated:** Fri Sep 19 18:08:58 UTC 2025  
 **Project Health:** 🟠 fair  
 **Overall Progress:** 100%
 
@@ -66,7 +66,7 @@
 
 ### Velocity Metrics
 - **Weekly Velocity:** 0 issues/week
-- **Monthly Throughput:** 19 issues
+- **Monthly Throughput:** 13 issues
 - **Velocity Trend:** 📉 Below Target
 
 ### Quality Metrics
@@ -109,8 +109,8 @@
 ## 📊 Dashboard Information
 
 - **Auto-generated:** Every 6 hours
-- **Last Update:** Fri Sep 19 12:11:39 UTC 2025
-- **Next Update:** 18:11 UTC
+- **Last Update:** Fri Sep 19 18:08:58 UTC 2025
+- **Next Update:** 00:08 UTC
 - **Data Source:** GitHub Issues API
 - **Methodology:** Automated metric collection and analysis
 
