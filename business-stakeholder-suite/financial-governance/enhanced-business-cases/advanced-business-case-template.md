@@ -28,10 +28,10 @@ updated: "2025-08-05"
 | Metric | Value | Target/Benchmark |
 |--------|-------|------------------|
 | **Total Investment** | $[Amount] | [Budget Limit] |
-| **Net Present Value (NPV)** | $[Amount] | \u003e $0 |
-| **Internal Rate of Return (IRR)** | [%] | \u003e [Cost of Capital]% |
-| **Payback Period** | [Years/Months] | \u003c [Target] years |
-| **Return on Investment (ROI)** | [%] | \u003e [Target]% |
+| **Net Present Value (NPV)** | $[Amount] | $0 |
+| **Internal Rate of Return (IRR)** | [%] | [Cost of Capital]% |
+| **Payback Period** | [Years/Months] | [Target] years |
+| **Return on Investment (ROI)** | [%] | [Target]% |
 
 ### Executive Recommendation
 **[APPROVE/DEFER/REJECT]** - [Brief rationale for recommendation]
