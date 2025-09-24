@@ -18,7 +18,7 @@ How to use
 
 Highlighted examples
 - examples/agile/sprint_planning_example.md — shows completed sprint planning doc using Agile templates
-- examples/traditional/project_management_plan_example.md — completed PMP with traceability to base template
+- examples/traditional/project_management_plan_example.md — completed Project Management Professional with traceability to base template
 - examples/completed-templates/project-charter-software-example.md — end-to-end example with acceptance criteria
 - demos/288-template-customization — interactive demo for customizing templates with a UI
 - demo/288 — Template customization MVP with tests (a11y, interaction, UAT)

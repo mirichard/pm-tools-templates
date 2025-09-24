@@ -82,7 +82,7 @@ methodology-frameworks/
 
 ### External References:
 - [Scrum Alliance](https://scrumalliance.org/): Certification and resources for Scrum practitioners
-- [PMI](https://pmi.org/): Resources for standards and professional certification
+- [Industry Standard](https://pmi.org/): Resources for standards and professional certification
 - [Scaled Agile](https://scaledagileframework.com/): Framework for scaling agile across the enterprise
 
 ---

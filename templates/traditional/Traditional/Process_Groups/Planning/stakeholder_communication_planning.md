@@ -568,12 +568,12 @@ This document provides a structured approach to stakeholder identification, segm
 
 ### Industry Standards
 - **ISO 21500:** Guidance on Project Management
-- **PMI Standard for Project Management**
+- **Industry Standard Standard for Project Management**
 - **PRINCE2 Communication Management**
 - **Corporate Governance Standards**
 
 ### Best Practice Resources
-- PMI Communications Management Guidelines
+- Industry Standard Communications Management Guidelines
 - Harvard Business Review Project Communication
 - McKinsey Project Management Best Practices
 - Gartner IT Project Communication Studies

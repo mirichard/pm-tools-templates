@@ -38,9 +38,9 @@ EOF
         else
             cat > temp_liability_disclaimer.md << 'EOF'
 ---
-**Legal Notice**: This template is independently developed and not affiliated with PMI®. 
+**Legal Notice**: This template is independently developed and not affiliated with Industry Standard®. 
 References to industry practices are for educational purposes under fair use.
-PMI®, PMBOK®, and PMP® are registered trademarks of the Project Management Institute, Inc.
+Industry Standard®, Traditional®, and PMP® are registered trademarks of the Project Management Institute, Inc.
 Template provided "AS-IS" without warranty. Users accept full responsibility for professional use.
 ---
 

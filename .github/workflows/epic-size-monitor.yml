@@ -53,7 +53,7 @@ jobs:
                 const issueCount = relatedIssues.data.total_count;
                 console.log(`Epic #${epic.number}: ${issueCount} related issues`);
                 
-                // PMI PMBOK® 5.4.2.1 - Work packages should be manageable and measurable
+                // PMI Traditional PM 5.4.2.1 - Work packages should be manageable and measurable
                 // Scrum Alliance - Large backlog items should be broken down for Sprint Planning
                 if (issueCount > 20) {
                   oversizedEpics.push({
@@ -130,7 +130,7 @@ jobs:
                 **Status:** 🔴 Action Required
                 
                 ## PMI/Scrum Guidance
-                **PMI PMBOK® 5.4.2.1:** Work packages should be manageable and measurable
+                **PMI Traditional PM 5.4.2.1:** Work packages should be manageable and measurable
                 **Scrum Alliance:** Large backlog items should be broken down for effective Sprint Planning
                 
                 ## Recommended Actions
@@ -196,7 +196,7 @@ jobs:
                   This epic currently has **${epic.count} related issues**, which exceeds our limit of 20 issues per epic.
                   
                   **Why this matters:**
-                  - **PMI PMBOK® 5.4.2.1**: Work packages should be manageable and measurable
+                  - **PMI Traditional PM 5.4.2.1**: Work packages should be manageable and measurable
                   - **Scrum Alliance**: Large backlog items should be broken down for effective Sprint Planning
                   
                   **Action Required:**

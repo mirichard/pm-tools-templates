@@ -167,7 +167,7 @@ The templates provided in this directory are starting points designed to be cust
 
 ## Additional Resources
 
-- [IT Project Management Body of Knowledge (Traditional®) Guide](https://www.pmi.org/traditional-guide-standards)
+- [IT Project Management Body of Knowledge (Traditional) Guide](https://www.pmi.org/traditional-guide-standards)
 - [Agile Practice Guide](https://www.pmi.org/traditional-guide-standards/practice-guides/agile)
 - [ITIL Framework for IT Service Management](https://www.axelos.com/certifications/itil-service-management)
 - [DevOps Handbook](https://itrevolution.com/book/the-devops-handbook/)

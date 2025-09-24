@@ -44,10 +44,10 @@ We organize content around **how PMs actually work**:
 - **Immediately Useful**: No extensive setup or learning curve required
 
 ### 4. Terminology and Standards References
-- Use “Traditional” as the user-facing term for waterfall/PMBOK-aligned content.
-- Preserve PMBOK® references only when citing official standards, sections, or guidance (e.g., “PMBOK® 5.4.2.1”).
-- Do not alter legal/trademark notices that reference PMBOK®.
-- Avoid introducing “PMBOK” in new user-facing copy; prefer “Traditional” unless a standards citation is required.
+- Use “Traditional” as the user-facing term for waterfall/Traditional Project Management-aligned content.
+- Preserve Traditional Project Management references only when citing official standards, sections, or guidance (e.g., “Traditional Project Management 5.4.2.1”).
+- Do not alter legal/trademark notices that reference Traditional Project Management.
+- Avoid introducing “Traditional Project Management” in new user-facing copy; prefer “Traditional” unless a standards citation is required.
 
 ## 📝 Template Contribution Guidelines
 

@@ -326,7 +326,7 @@ The program will be considered successful when:
 **Methodology Rationale:** [Why this approach was chosen]
 
 ### Project Management Standards
-- **Standards Framework:** [PMI/PRINCE2/Agile/Custom]
+- **Standards Framework:** [Industry Standard/PRINCE2/Agile/Custom]
 - **Templates and Tools:** [Standard templates to be used]
 - **Quality Gates:** [Review and approval checkpoints]
 - **Documentation Requirements:** [What must be documented]

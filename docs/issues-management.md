@@ -75,7 +75,7 @@ gh issue list --label "strategic" --state all
 - **#29:** Create CONTRIBUTING.md guide for community contributions
 
 ### Legacy Template Development (Pre-Strategic Planning)
-- **#1:** Traditional: Core Process Groups Templates
+- **#1:** Traditional: Core Project Phases Templates
 - **#2:** Agile: Scrum Artifacts and Ceremonies Templates  
 - **#3:** Hybrid: Framework Templates and Guidelines
 - **#4:** Repository Setup and Configuration Tasks
@@ -86,7 +86,7 @@ gh issue list --label "strategic" --state all
 - **#9:** Create Organization Change Management Framework
 - **#10:** Create User Acceptance Testing Framework and Templates
 - **#11:** Create Transition to Operations Framework and Templates
-- **#12:** Create Remaining Traditional Process Groups
+- **#12:** Create Remaining Traditional Project Phases
 - **#13:** Create PM templates that integrate with Github projects for Agile, Traditional and Hybrid methodologies
 
 ---

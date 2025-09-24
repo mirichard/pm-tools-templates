@@ -78,5 +78,5 @@ Change management, tool integration, and scaling practices
 
 ---
 
-*This library follows industry best practices from PMI, Scrum Alliance, and SAFe while remaining practical and adaptable to your organization's needs.*
+*This library follows industry best practices from Industry Standard, Scrum Alliance, and SAFe while remaining practical and adaptable to your organization's needs.*
 

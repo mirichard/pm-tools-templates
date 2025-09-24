@@ -1,4 +1,4 @@
-# Program Management Plan (PMP)
+# Program Management Plan (Project Management Professional)
 
 Purpose: Define how the program will be managed to deliver intended benefits and outcomes.
 

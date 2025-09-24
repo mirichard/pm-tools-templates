@@ -395,7 +395,7 @@ Projects using **15+ Essential Templates** show:
 5. **Teaching** - Share knowledge with other practitioners
 
 ### **Professional Development:**
-- **Certification Preparation** - Templates align with PMP®, CSM, and other certifications
+- **Certification Preparation** - Templates align with PMP, CSM, and other certifications
 - **Portfolio Building** - Document template applications for career advancement
 - **Thought Leadership** - Contribute to PM template evolution and best practices
 

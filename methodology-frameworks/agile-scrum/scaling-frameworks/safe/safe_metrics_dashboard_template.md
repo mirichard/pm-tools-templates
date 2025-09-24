@@ -683,4 +683,4 @@ Sources          →   Collection    →   Processing     →   Presentation
 
 ---
 
-*This template follows the Scaled Agile Framework® (SAFe®) practices for metrics and measurement. Customize as needed for your organization's specific implementation of SAFe.*
+*This template follows the Scaled Agile Framework (SAFe) practices for metrics and measurement. Customize as needed for your organization's specific implementation of SAFe.*

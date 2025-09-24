@@ -58,7 +58,7 @@ Project Manager
 #### Project Management Roles
 | Role | Responsibilities | Skills Required | Experience | Allocation | Duration |
 |------|------------------|-----------------|------------|------------|----------|
-| **Project Manager** | Overall project leadership | PMP, Leadership, Communication | 5+ years | 100% | Full project |
+| **Project Manager** | Overall project leadership | Project Management Professional, Leadership, Communication | 5+ years | 100% | Full project |
 | **Project Coordinator** | Administrative support | Organization, Scheduling | 2+ years | 50% | Full project |
 | **Scrum Master** | Agile facilitation | Agile, Facilitation | 3+ years | 100% | Development phases |
 

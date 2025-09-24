@@ -8,12 +8,12 @@ This repository and its contents are **NOT affiliated with, endorsed by, or spon
 
 The following are registered trademarks of their respective owners:
 
-- **PMI®** - Project Management Institute, Inc.
-- **PMBOK®** - Project Management Institute, Inc.
-- **PMP®** - Project Management Institute, Inc.
-- **PMI-ACP®** - Project Management Institute, Inc.
-- **PRINCE2®** - AXELOS Limited
-- **SAFe®** - Scaled Agile, Inc.
+- **PMI** - Project Management Institute, Inc.
+- **PMBOK** - Project Management Institute, Inc.
+- **PMP** - Project Management Institute, Inc.
+- **PMI-ACP** - Project Management Institute, Inc.
+- **PRINCE2** - AXELOS Limited
+- **SAFe** - Scaled Agile, Inc.
 - **Scrum** - Scrum.org (certain aspects)
 
 ## Educational and Reference Use

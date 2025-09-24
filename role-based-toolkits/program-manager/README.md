@@ -35,7 +35,7 @@ This toolkit provides Program Managers with specialized resources for coordinati
 
 Subfolders
 - [governance-framework](governance-framework/README.md) — decision rights, bodies, and quality oversight
-- [program-planning](program-planning/README.md) — PMP, roadmap, WBS, resource planning
+- [program-planning](program-planning/README.md) — Project Management Professional, roadmap, WBS, resource planning
 - [portfolio-management](portfolio-management/README.md) — investment prioritization, value delivery, and portfolio reporting
 - [benefits-realization](benefits-realization/README.md) — benefits plan, register, KPI tracking, governance
 - [risk-management](risk-management/README.md) — risk register, plan, dependency aggregation, escalation

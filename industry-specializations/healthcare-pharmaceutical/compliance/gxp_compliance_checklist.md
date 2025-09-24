@@ -434,7 +434,7 @@ K Minor      ⚠️  ⚠️   ⚠️⚠️
 - ISPE Good Practice Guides
 - Parenteral Drug Association (PDA) Technical Reports
 - ASTM International Standards
-- GAMP® 5: A Risk-Based Approach to Compliant GxP Computerized Systems
+- GAMP 5: A Risk-Based Approach to Compliant GxP Computerized Systems
 
 ---
 

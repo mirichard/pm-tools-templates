@@ -89,5 +89,5 @@
 
 ---
 
-*This template follows PMI standards and best practices*
+*This template follows Industry Standard standards and best practices*
 

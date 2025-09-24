@@ -526,4 +526,4 @@ Solution Level Metrics:
 
 ---
 
-*This template follows the Scaled Agile Framework® (SAFe®) practices for ART coordination. Customize as needed for your organization's specific implementation of SAFe.*
+*This template follows the Scaled Agile Framework (SAFe) practices for ART coordination. Customize as needed for your organization's specific implementation of SAFe.*

@@ -311,4 +311,4 @@ Iteration 2 (2 weeks): Jan 24-Feb 6
 
 ---
 
-*This template follows the Scaled Agile Framework® (SAFe®) PI Planning process. Customize as needed for your organization's specific implementation of SAFe.*
+*This template follows the Scaled Agile Framework (SAFe) PI Planning process. Customize as needed for your organization's specific implementation of SAFe.*

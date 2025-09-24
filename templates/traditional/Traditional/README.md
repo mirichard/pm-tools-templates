@@ -1,15 +1,15 @@
 # Traditional Project Management Templates & Tools
 
-> **Traditional-Aligned Excellence** - Comprehensive templates and tools based on PMI standards, waterfall methodology, and traditional project management best practices.
+> **Traditional-Aligned Excellence** - Comprehensive templates and tools based on Industry Standard standards, waterfall methodology, and traditional project management best practices.
 
 ---
 
 ## 🎯 **Overview**
 
-This directory contains professionally crafted templates and tools aligned with the **Project Management Body of Knowledge (PMBOK)** and traditional project management methodologies. Perfect for regulated industries, large-scale programs, and organizations requiring structured, phase-gate approaches to project delivery.
+This directory contains professionally crafted templates and tools aligned with the **Traditional Project Management Framework (Traditional Project Management)** and traditional project management methodologies. Perfect for regulated industries, large-scale programs, and organizations requiring structured, phase-gate approaches to project delivery.
 
 ### **Who This Is For:**
-- **Project Managers (PMP®)** - Comprehensive project planning, execution, and control
+- **Project Managers (Project Management Professional)** - Comprehensive project planning, execution, and control
 - **Program Managers** - Multi-project coordination and portfolio oversight
 - **PMO Leaders** - Standardization, governance, and organizational maturity
 - **Business Analysts** - Requirements management and stakeholder analysis
@@ -22,13 +22,13 @@ This directory contains professionally crafted templates and tools aligned with 
 
 ```
 Traditional/
-├── Knowledge_Areas/        # 10 PMBOK Knowledge Areas templates
-├── Process_Groups/        # 5 Process Groups (Initiating → Closing)
+├── Knowledge_Areas/        # 10 Traditional Project Management Knowledge Areas templates
+├── Process_Groups/        # Project Phases (Initiating → Closing)
 ├── Templates/            # Core traditional PM templates
 └── Tools/               # Planning and tracking tools
 ```
 
-### **🔍 Knowledge Areas Coverage:**
+### **🔍 Competency Areas Coverage:**
 1. **Integration Management** - Project charter, project management plan, change control
 2. **Scope Management** - WBS, requirements, scope verification
 3. **Schedule Management** - Network diagrams, critical path, schedule baseline
@@ -58,7 +58,7 @@ Explore: `Templates/program-management/` → Multi-project coordination tools
 
 ---
 
-## 🎯 **Process Groups & Key Deliverables**
+## 🎯 **Project Phases & Key Deliverables**
 
 ### **🟢 1. Initiating Process Group**
 | Deliverable | Template | Purpose |
@@ -171,11 +171,11 @@ Explore: `Templates/program-management/` → Multi-project coordination tools
 
 ## 🎓 **Traditional Alignment & Best Practices**
 
-### **PMI Standards Integration**
-- **PMBOK Guide 7th Edition** - Process-based and principles-based approaches
+### **Industry Standard Standards Integration**
+- **Traditional Project Management Guide 7th Edition** - Process-based and principles-based approaches
 - **Practice Standards** - Scheduling, risk, earned value, configuration management
-- **PMP® Exam Alignment** - Templates support certification preparation
-- **Continuing Education** - Professional development and PDU earning
+- **Project Management Professional Exam Alignment** - Templates support certification preparation
+- **Continuing Education** - Professional development and continuing education
 
 ### **Methodology Integration**
 - **Waterfall Approach** - Sequential phase execution with formal gates
@@ -250,10 +250,10 @@ Explore: `Templates/program-management/` → Multi-project coordination tools
 - [`/business-stakeholder-suite/`](../business-stakeholder-suite/) - Executive reporting tools
 
 ### **External Standards & Certifications:**
-- [PMI.org](https://pmi.org) - Project Management Institute resources
-- [PMBOK Guide](https://pmi.org/pmbok-guide-standards) - Official PMI standards
-- [PMP® Certification](https://pmi.org/certifications/project-management-pmp) - Professional certification
-- [OPM3®](https://pmi.org/learning/library/opm3-organizational-project-management-maturity-model-7799) - Organizational maturity model
+- [Industry Standard.org](https://pmi.org) - Project Management Community resources
+- [Traditional Project Management Guide](https://pmi.org/pmbok-guide-standards) - Official Industry Standard standards
+- [Project Management Professional Certification](https://pmi.org/certifications/project-management-pmp) - Professional certification
+- [OPM3](https://pmi.org/learning/library/opm3-organizational-project-management-maturity-model-7799) - Organizational maturity model
 
 ---
 
@@ -262,11 +262,11 @@ Explore: `Templates/program-management/` → Multi-project coordination tools
 ### **Getting Help:**
 - Review `Knowledge_Areas/` for specific domain guidance
 - Check `Process_Groups/` for phase-specific templates
-- Consult PMI standards for authoritative guidance
+- Consult Industry Standard standards for authoritative guidance
 - Access template customization guides in each directory
 
 ### **Professional Growth:**
-- **PMP® Preparation** - Templates align with exam content outline
+- **Project Management Professional Preparation** - Templates align with exam content outline
 - **PDU Credits** - Template usage supports continuing education
 - **Portfolio Building** - Document template applications for career advancement
 - **Mentoring Others** - Share template experiences and lessons learned
@@ -278,7 +278,7 @@ Explore: `Templates/program-management/` → Multi-project coordination tools
 ### **Industry Standards Supported:**
 - **ISO 21500** - International project management standard
 - **ISO 9001** - Quality management systems
-- **PRINCE2®** - Structured project management method
+- **PRINCE2** - Structured project management method
 - **IPMA** - International Project Management Association standards
 
 ### **Regulatory Compliance:**
@@ -289,9 +289,9 @@ Explore: `Templates/program-management/` → Multi-project coordination tools
 
 ---
 
-*📋 Ready to deliver predictable project success? Start with the Process Groups for systematic project execution, or dive into specific Knowledge Areas for targeted expertise.*
+*📋 Ready to deliver predictable project success? Start with the Project Phases for systematic project execution, or dive into specific Knowledge Areas for targeted expertise.*
 
 **Last Updated:** August 2025  
 **Maintained By:** PM Tools Templates Community  
-**Standards Alignment:** PMBOK® 7th Edition  
-**Certification:** PMP®-Aligned Templates
+**Standards Alignment:** Traditional Project Management 7th Edition  
+**Certification:** Project Management Professional-Aligned Templates

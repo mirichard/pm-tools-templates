@@ -383,10 +383,10 @@ For digital implementation:
 
 ## Appendix B: Additional Resources
 
-- SAFe® Framework: [www.scaledagileframework.com](https://www.scaledagileframework.com/)
+- SAFe Framework: [www.scaledagileframework.com](https://www.scaledagileframework.com/)
 - Portfolio Kanban article: [www.scaledagileframework.com/portfolio-kanban](https://www.scaledagileframework.com/portfolio-kanban/)
 - Lean Portfolio Management: [www.scaledagileframework.com/lean-portfolio-management](https://www.scaledagileframework.com/lean-portfolio-management/)
 
 ---
 
-*This template follows the Scaled Agile Framework® (SAFe®) Portfolio Kanban practices. Customize as needed for your organization's specific implementation of SAFe.*
+*This template follows the Scaled Agile Framework (SAFe) Portfolio Kanban practices. Customize as needed for your organization's specific implementation of SAFe.*

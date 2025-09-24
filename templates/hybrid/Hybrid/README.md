@@ -282,7 +282,7 @@ Located in: `MPP-Jira-Integration/`
 
 ### **External Standards & Frameworks:**
 - [SAFe (Scaled Agile Framework)](https://scaledagileframework.com/) - Enterprise agile scaling
-- [PMI Agile Practice Guide](https://pmi.org/learning/library/agile-practice-guide-better-results-6063) - PMI's hybrid guidance
+- [Industry Standard Agile Practice Guide](https://pmi.org/learning/library/agile-practice-guide-better-results-6063) - Industry Standard's hybrid guidance
 - [PRINCE2 Agile](https://prince2.com/prince2-agile) - Structured hybrid approach
 - [Disciplined Agile (DA)](https://disciplinedagiledelivery.com/) - Context-driven methodology selection
 

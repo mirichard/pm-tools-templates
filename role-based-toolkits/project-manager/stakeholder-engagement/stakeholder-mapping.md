@@ -280,5 +280,5 @@ Classify stakeholders based on their level of power (influence) and interest in 
 | Project Sponsor | [Name] | | |
 
 ---
-*This stakeholder mapping template follows PMI standards and stakeholder management best practices.*
+*This stakeholder mapping template follows Industry Standard standards and stakeholder management best practices.*
 

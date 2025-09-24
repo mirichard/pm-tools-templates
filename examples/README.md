@@ -346,7 +346,7 @@ Sprint: Launch Sprint 2
 - [`/lessons-learned/`](../lessons-learned/) - Additional learning resources
 
 ### **External Case Study Sources:**
-- **PMI Case Studies** - Professional case study library
+- **Industry Case Studies** - Professional case study library
 - **Harvard Business Review** - Management and project case studies
 - **Industry Publications** - Sector-specific project examples
 - **Academic Research** - Peer-reviewed project management studies

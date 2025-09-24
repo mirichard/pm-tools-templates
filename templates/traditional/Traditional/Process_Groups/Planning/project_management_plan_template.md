@@ -12,15 +12,15 @@ updated: "2025-08-05"
 **Document Title:** Project Management Plan  
 **Project Name:** *Enterprise Resource Planning Implementation*  
 **Document Version:** 1.0  
-**Prepared By:** *Jane Smith, PMP*  
+**Prepared By:** *Jane Smith, Project Management Professional*  
 **Preparation Date:** *YYYY-MM-DD*  
-**Last Updated By:** *Jane Smith, PMP*  
+**Last Updated By:** *Jane Smith, Project Management Professional*  
 **Last Revision Date:** *YYYY-MM-DD*  
 
 ---
 
 ## Document Purpose
-*This Project Management Plan (PMP) establishes the framework for managing the [Project Name]. It defines how the project is executed, monitored, controlled, and closed. The PMP is a living document that will be updated throughout the project lifecycle as changes occur.*
+*This Project Management Plan (Project Management Professional) establishes the framework for managing the [Project Name]. It defines how the project is executed, monitored, controlled, and closed. The Project Management Professional is a living document that will be updated throughout the project lifecycle as changes occur.*
 
 ---
 

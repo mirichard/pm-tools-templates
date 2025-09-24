@@ -245,7 +245,7 @@ gantt
 **Priority:** High  
 
 **Features:**
-- Partner with PM certifications (PMI, Scrum Alliance)
+- Partner with PM certifications (industry standards, Scrum Alliance)
 - Launch industry-focused training modules
 - Develop certification mapping tools
 
@@ -795,7 +795,7 @@ Leverage Gartner Magic Quadrant research and leading practices to guide tool int
 - **Mentorship program** for new contributors
 
 ### Industry Partnerships
-- **PMI (Project Management Institute)** - Certification alignment
+- **industry standard organizations** - Certification alignment
 - **Scrum Alliance** - Agile methodology validation
 - **Tool vendors** (Atlassian, Microsoft, GitHub) - Integration partnerships
 - **Consulting firms** - Implementation partnerships

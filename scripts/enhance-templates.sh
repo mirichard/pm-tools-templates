@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # enhance-templates.sh
-# Systematically enhance all sanitized templates with PMI standards and automation hooks
+# Systematically enhance all sanitized templates with Industry Standard standards and automation hooks
 # Transform weak placeholders into professional, ready-to-use templates
 
 set -euo pipefail
@@ -51,7 +51,7 @@ init_reports() {
 
 **Date:** {{DATE}}  
 **Scope:** Systematic enhancement of 20 sanitized templates  
-**Approach:** Complete rebuild using PMI standards and automation hooks  
+**Approach:** Complete rebuild using Industry Standard standards and automation hooks  
 
 ## Enhancement Results
 
@@ -63,7 +63,7 @@ EOF
 # Enhancement Recommendations Log
 
 **Date:** {{DATE}}  
-**Process:** Template enhancement with PMI alignment  
+**Process:** Template enhancement with Industry Standard alignment  
 
 ## Template Gaps Identified
 
@@ -95,7 +95,7 @@ EOF
 ### Content Completeness
 - Original templates were weak placeholders
 - Rebuilt from scratch using gold-standard patterns
-- Ensured PMI alignment and practical utility
+- Ensured Industry Standard alignment and practical utility
 
 ## Process Improvements
 
@@ -300,7 +300,7 @@ checklist_data:
 
 ---
 
-*This checklist follows PMI quality standards and supports both traditional and agile methodologies.*
+*This checklist follows Industry Standard quality standards and supports both traditional and agile methodologies.*
 EOF
 }
 
@@ -430,7 +430,7 @@ matrix_data:
 
 ---
 
-*This matrix template supports PMI tracking standards and includes automation hooks for dashboard reporting.*
+*This matrix template supports Industry Standard tracking standards and includes automation hooks for dashboard reporting.*
 EOF
 }
 
@@ -624,7 +624,7 @@ template_data:
 
 ---
 
-*This template follows PMI standards and supports traditional, agile, and hybrid methodologies with automation-ready data fields.*
+*This template follows Industry Standard standards and supports traditional, agile, and hybrid methodologies with automation-ready data fields.*
 EOF
 }
 
@@ -822,7 +822,7 @@ This guide provides step-by-step instructions and best practices for implementin
 
 ---
 
-*This guide follows PMI standards and industry best practices. Regular updates ensure currency with evolving methodologies.*
+*This guide follows Industry Standard standards and industry best practices. Regular updates ensure currency with evolving methodologies.*
 EOF
 }
 
@@ -870,7 +870,7 @@ process_all_templates() {
         create_enhanced_template "$template_file" "$enhanced_file" "$template_type"
         
         # Determine enhancements made
-        local enhancements="Complete rebuild with PMI standards, automation hooks, proper metadata"
+        local enhancements="Complete rebuild with Industry Standard standards, automation hooks, proper metadata"
         local rationale="Original was weak placeholder; rebuilt as professional, ready-to-use template"
         
         # Add to change summary
@@ -909,7 +909,7 @@ if [[ "${BASH_SOURCE[0]}" == "${0}" ]]; then
             echo "Usage: $0 [enhance|help]"
             echo ""
             echo "Commands:"
-            echo "  enhance     Enhance all templates with PMI standards (default)"
+            echo "  enhance     Enhance all templates with Industry Standard standards (default)"
             echo "  help        Show this help message"
             echo ""
             echo "Output:"

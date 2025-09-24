@@ -280,5 +280,5 @@ This plan covers all project-related risks including:
 | Risk Manager | [Name] | | |
 
 ---
-*This Risk Management Plan follows PMI Risk Management standards and industry best practices.*
+*This Risk Management Plan follows Industry Standard Risk Management standards and industry best practices.*
 

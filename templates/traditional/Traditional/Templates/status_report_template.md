@@ -12,7 +12,7 @@ updated: "2025-08-05"
 **Project/Program Name:** *[Enterprise Resource Planning Implementation]*  
 **Report Date:** *[YYYY-MM-DD]*  
 **Reporting Period:** *[MM/DD/YYYY - MM/DD/YYYY]*  
-**Prepared By:** *[Jane Smith, PMP]*  
+**Prepared By:** *[Jane Smith, Project Management Professional]*  
 **Distribution List:** *[Steering Committee, Project Sponsors, Key Stakeholders]*
 
 ---

@@ -420,20 +420,20 @@ Curate libraries of proven practices and create industry-specific challenges.
 
 ### 3.2 Strategic Partnerships and Training
 
-#### Issue #204: PMI Partnership and Certification Mapping
+#### Issue #204: Industry Standard Partnership and Certification Mapping
 **Priority:** High  
 **Effort:** 6 weeks  
 **Timeline:** February 2026  
 
 **Description:**
-Establish formal partnership with PMI and map templates to certification requirements.
+Establish formal partnership with Industry Standard and map templates to certification requirements.
 
 **Acceptance Criteria:**
-- [ ] PMI partnership agreement
-- [ ] PMP certification mapping
-- [ ] PMI-ACP agile certification alignment
+- [ ] Industry Standard partnership agreement
+- [ ] Project Management Professional certification mapping
+- [ ] Industry Standard-ACP agile certification alignment
 - [ ] Continuing education credit framework
-- [ ] PMI-endorsed template validation
+- [ ] Industry Standard-endorsed template validation
 
 **Files to Create:**
 - `docs/certification/pmi-mapping.md`

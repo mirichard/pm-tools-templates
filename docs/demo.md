@@ -19,7 +19,7 @@ Requirements: Node.js 18+ (recommend 20+)
 
 ## Features
 
-- Template index automatically scans the repository for `.md` templates across Agile, PMBOK, Hybrid, Waterfall, and other folders.
+- Template index automatically scans the repository for `.md` templates across Agile, Traditional Project Management, Hybrid, Waterfall, and other folders.
 - Preview endpoint `/api/preview?path=...` renders Markdown to HTML with syntax highlighting.
 - Caching via ETag and 304 responses when templates have not changed.
 - Accessibility-friendly UI with keyboard navigation of templates and aria-live rendering.

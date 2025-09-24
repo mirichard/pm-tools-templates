@@ -374,7 +374,7 @@ organizational-frameworks/
 
 ### **External Standards & Frameworks:**
 - **Change Management Institute** - Professional change management standards
-- **PMI Standards** - Organizational project management maturity (OPM3)
+- **Industry Standards** - Organizational project management maturity (OPM3)
 - **Prosci** - ADKAR methodology and change management research
 - **McKinsey & Company** - Organizational health and transformation research
 

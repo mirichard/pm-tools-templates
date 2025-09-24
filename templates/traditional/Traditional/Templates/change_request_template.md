@@ -11,9 +11,9 @@ updated: "2025-08-05"
 ## Document Control Information
 **Project/Program Name:** *[Enterprise Resource Planning Implementation]*  
 **Change Request ID:** *[CR-001]*  
-**Prepared By:** *[Jane Smith, PMP]*  
+**Prepared By:** *[Jane Smith, Project Management Professional]*  
 **Preparation Date:** *[YYYY-MM-DD]*  
-**Last Updated By:** *[Jane Smith, PMP]*  
+**Last Updated By:** *[Jane Smith, Project Management Professional]*  
 **Last Revision Date:** *[YYYY-MM-DD]*  
 **Status:** *[Submitted/Under Review/Approved/Rejected/Deferred/Implemented/Closed]*
 
@@ -449,7 +449,7 @@ updated: "2025-08-05"
 
 ---
 
-*Note: This Change Request Form template aligns with PMI® Traditional® Guide best practices for integrated change control. Organizations should adapt this template to their specific needs and governance processes.*
+*Note: This Change Request Form template aligns with Industry Standard Traditional Guide best practices for integrated change control. Organizations should adapt this template to their specific needs and governance processes.*
 
-*PMI and Traditional are registered marks of the Project Management Institute, Inc.*
+*Industry Standard and Traditional are registered marks of the Project Management Community, Inc.*
 

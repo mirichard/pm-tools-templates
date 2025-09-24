@@ -100,7 +100,7 @@
 
 ### 2. **Stale Issue Management**
 - **Problem:** 8.3% of issues (8/96) are stale (>30 days inactive)
-- **PMI Reference:** PMBOK® 4.5 - Regular performance reviews required
+- **Industry Standard Reference:** Traditional Project Management 4.5 - Regular performance reviews required
 - **Recommendation:** Implement weekly triage process per backlog management guidelines
 
 ### 3. **Test Environment Issues**
@@ -185,7 +185,7 @@
 
 This triage process fully complies with established standards:
 
-- ✅ **PMI PMBOK® 4.5** - Monitor and Control Project Work
+- ✅ **Industry Standard Traditional Project Management 4.5** - Monitor and Control Project Work
 - ✅ **Scrum Alliance** - Product Backlog refinement practices  
 - ✅ **Repository CONTRIBUTING.md** - Branching and quality standards
 - ✅ **Backlog Management Process** - Weekly triage and health metrics

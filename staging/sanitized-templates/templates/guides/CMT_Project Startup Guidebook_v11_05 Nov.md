@@ -622,7 +622,7 @@ Deloitte's professionals are unified by a collaborative culture that fosters int
 Deloitte refers to one or more of Deloitte Touche Tohmatsu, a Swiss Verein, and its network of member firms, each of which is a legally separate and independent entity. Please see www.deloitte.com/about for a detailed description of the legal structure of Deloitte Touche Tohmatsu and its member firms. Please see http://www.deloitte.com/us/about for a detailed description of the legal structure of Deloitte LLP and its subsidiaries.
 Internal Usage Statement
 This publication is for internal distribution and use only among personnel of Deloitte Touche Tohmatsu, its member firms, and its and their affiliates. Deloitte Touche Tohmatsu, its member firms, and its and their affiliates shall not be responsible for any loss whatsoever sustained by any person who relies on this publication.
-Copyright © 2012 Deloitte Development LLC. All rights reserved.
+Copyright  2012 Deloitte Development LLC. All rights reserved.
 Member of Deloitte Touche Tohmatsu
 ```
 

@@ -11,9 +11,9 @@ updated: "2025-08-05"
 ## Document Control Information
 **Project/Program Name:** *[Enterprise Resource Planning Implementation]*  
 **Document Version:** *1.0*  
-**Prepared By:** *[Jane Smith, PMP]*  
+**Prepared By:** *[Jane Smith, Project Management Professional]*  
 **Preparation Date:** *[YYYY-MM-DD]*  
-**Last Updated By:** *[Jane Smith, PMP]*  
+**Last Updated By:** *[Jane Smith, Project Management Professional]*  
 **Last Revision Date:** *[YYYY-MM-DD]*  
 
 ---
@@ -40,7 +40,7 @@ updated: "2025-08-05"
 ### 1.1 Risk Management Process Overview
 *Briefly describe the risk management approach for the project, including how risks will be identified, analyzed, responded to, and monitored.*
 
-*Example: This project follows a proactive risk management approach aligned with PMI best practices. Risks will be identified through team brainstorming sessions, stakeholder interviews, expert judgment, and lessons learned from similar projects. Risks will be analyzed quantitatively and qualitatively, with appropriate response strategies developed for each. Key risks will be monitored at weekly status meetings, with the full Risk Register reviewed monthly by the Project Steering Committee.*
+*Example: This project follows a proactive risk management approach aligned with Industry Standard best practices. Risks will be identified through team brainstorming sessions, stakeholder interviews, expert judgment, and lessons learned from similar projects. Risks will be analyzed quantitatively and qualitatively, with appropriate response strategies developed for each. Key risks will be monitored at weekly status meetings, with the full Risk Register reviewed monthly by the Project Steering Committee.*
 
 ### 1.2 Roles and Responsibilities
 

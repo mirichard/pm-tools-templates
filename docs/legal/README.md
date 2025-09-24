@@ -121,7 +121,7 @@ This directory contains comprehensive legal documentation to protect both reposi
 3. **Template-level disclaimers** - Specific protections
 
 ### Supporting Documentation
-1. **PMI_IP_RISK_MITIGATION_PLAN.md** - IP compliance strategy
+1. **Industry Standard_IP_RISK_MITIGATION_PLAN.md** - IP compliance strategy
 2. **README_COMPLIANCE.md** - Implementation status
 3. **MIGRATION_GUIDE.md** - User transition support
 

@@ -11,9 +11,9 @@ updated: "2025-08-05"
 ## Document Control Information
 **Project/Program Name:** *[Enterprise Resource Planning Implementation]*  
 **Document Version:** *1.0*  
-**Prepared By:** *[Jane Smith, PMP]*  
+**Prepared By:** *[Jane Smith, Project Management Professional]*  
 **Preparation Date:** *[YYYY-MM-DD]*  
-**Last Updated By:** *[Jane Smith, PMP]*  
+**Last Updated By:** *[Jane Smith, Project Management Professional]*  
 **Last Revision Date:** *[YYYY-MM-DD]*  
 
 ---

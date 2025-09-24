@@ -10,7 +10,7 @@ updated: "2025-08-05"
 
 ## Overview
 
-This template provides a comprehensive framework for tracking Return on Investment (ROI) throughout the project lifecycle, aligned with Traditional® Guide Project Cost Management knowledge area. Use this template to measure, monitor, and report on project value creation and financial performance.
+This template provides a comprehensive framework for tracking Return on Investment (ROI) throughout the project lifecycle, aligned with Traditional Guide Project Cost Management knowledge area. Use this template to measure, monitor, and report on project value creation and financial performance.
 
 ## ROI Calculation Framework
 
@@ -385,7 +385,7 @@ Next Steps:
 - **Document Owner:** {{ document_owner }}
 - **Approved By:** {{ approved_by }}
 
-**Traditional® Guide Alignment:**
+**Traditional Guide Alignment:**
 - **Knowledge Area:** Project Cost Management
 - **Process Group:** Monitoring and Controlling
 - **Related Processes:** Control Costs, Control Schedule, Monitor and Control Project Work

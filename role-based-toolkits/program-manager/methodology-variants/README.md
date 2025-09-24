@@ -17,7 +17,7 @@ Guidance and template mappings for Traditional, Agile-at-Scale, and Hybrid progr
 - Communications → program status framework, stakeholder calendar
 
 ## Hybrid
-- Hybrid PMP → templates/hybrid-project-management-plan-template.md
+- Hybrid Project Management Professional → templates/hybrid-project-management-plan-template.md
 - Release Planning → templates/hybrid_release_planning_template.md
 - Quality & Readiness → templates/hybrid_quality_management_template.md
 - Stakeholder Communication → templates/stakeholder_communication_planning.md

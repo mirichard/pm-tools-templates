@@ -22,17 +22,17 @@
     {
       "hash": "6987826eb348a89318938fc72bff6a8cd4483e59",
       "date": "2025-06-20",
-      "message": "refactor: Replace PMBOK with Traditional throughout repository"
+      "message": "refactor: Replace Traditional with Traditional throughout repository"
     },
     {
       "hash": "d421e0e462962de47dfbc7ef9a8b9275a38c712f",
       "date": "2025-06-08",
-      "message": "Rename PMBOK folder to Waterfall for clearer methodology organization"
+      "message": "Rename Traditional folder to Waterfall for clearer methodology organization"
     },
     {
       "hash": "9f40f71d7c1b9e4b6963ab04b49681f5296ba876",
       "date": "2025-05-07",
-      "message": "Add core PMBOK templates: Project Charter, Project Management Plan, Status Report, Project Roadmap, and Communication Plan. These templates provide comprehensive project management documentation covering initiation through operations."
+      "message": "Add core Traditional templates: Project Charter, Project Management Plan, Status Report, Project Roadmap, and Communication Plan. These templates provide comprehensive project management documentation covering initiation through operations."
     }
   ]
 }

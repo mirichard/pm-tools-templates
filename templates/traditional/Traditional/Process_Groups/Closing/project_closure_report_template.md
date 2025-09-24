@@ -12,9 +12,9 @@ updated: "2025-08-05"
 **Document Title:** Project Closure Report  
 **Project Name:** *Enterprise Resource Planning Implementation*  
 **Document Version:** 1.0  
-**Prepared By:** *Jane Smith, PMP*  
+**Prepared By:** *Jane Smith, Project Management Professional*  
 **Preparation Date:** *YYYY-MM-DD*  
-**Last Updated By:** *Jane Smith, PMP*  
+**Last Updated By:** *Jane Smith, Project Management Professional*  
 **Last Revision Date:** *YYYY-MM-DD*
 
 ---
@@ -659,7 +659,7 @@ updated: "2025-08-05"
 
 I hereby certify that the Enterprise Resource Planning Implementation project has been completed in accordance with the approved project plan and all deliverables have been successfully handed over to the operational teams. All project objectives have been achieved, stakeholder acceptance has been obtained, and the project is formally closed.
 
-**Project Manager:** Jane Smith, PMP  
+**Project Manager:** Jane Smith, Project Management Professional  
 **Date:** March 15, 2027  
 **Signature:** _______________*
 

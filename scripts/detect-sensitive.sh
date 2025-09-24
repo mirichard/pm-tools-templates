@@ -231,7 +231,7 @@ detect_proper_nouns() {
         "Release Planning"
         "Portfolio Management"
         "Microsoft Project"
-        "PMBOK Guide"
+        "Traditional Guide"
         "Agile Manifesto"
         "Scrum Guide"
     )

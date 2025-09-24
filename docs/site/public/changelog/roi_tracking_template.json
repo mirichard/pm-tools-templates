@@ -17,12 +17,12 @@
     {
       "hash": "6987826eb348a89318938fc72bff6a8cd4483e59",
       "date": "2025-06-20",
-      "message": "refactor: Replace PMBOK with Traditional throughout repository"
+      "message": "refactor: Replace Traditional with Traditional throughout repository"
     },
     {
       "hash": "cb0b12b432435c727f4be01bafeb1fb59b0c837c",
       "date": "2025-06-19",
-      "message": "Add PMBOK and Waterfall methodology templates"
+      "message": "Add Traditional and Waterfall methodology templates"
     }
   ]
 }

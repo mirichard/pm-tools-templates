@@ -1,9 +1,9 @@
 # Program Planning Templates
 
-Program-level planning resources that align multiple projects toward shared objectives, integrating Traditional (PMBOK), Agile-at-Scale, and Hybrid practices.
+Program-level planning resources that align multiple projects toward shared objectives, integrating Traditional (Traditional Project Management), Agile-at-Scale, and Hybrid practices.
 
 ## What's Included
-- Program Management Plan (PMP) Outline
+- Program Management Plan (Project Management Professional) Outline
 - Program Roadmap and Milestones
 - Program Work Breakdown Structure (PWBS)
 - Program Stakeholder Engagement Strategy (planning view)

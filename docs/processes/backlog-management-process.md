@@ -8,8 +8,8 @@
 ## 📖 Overview
 
 This document establishes standardized backlog management practices for the pm-tools-templates repository, fully aligned with:
-- **PMI PMBOK® Guide 7th Edition** - Work Performance Information and Monitoring processes
-- **PMI Agile Practice Guide** - Backlog preparation and refinement practices  
+- **Industry Standard Traditional Project Management Guide 7th Edition** - Work Performance Information and Monitoring processes
+- **Industry Standard Agile Practice Guide** - Backlog preparation and refinement practices  
 - **Scrum Alliance** - Product Backlog Management and Sprint Planning guidelines
 - **Modern Open Source Standards** - Transparency, community involvement, and continuous improvement
 
@@ -22,8 +22,8 @@ This document establishes standardized backlog management practices for the pm-t
 4. **Support Continuous Improvement** - Regular retrospectives and process refinement
 
 ### Alignment with Standards
-- **PMI PMBOK® 4.5.2.3** - Work Performance Information for decision-making
-- **PMI Agile Practice Guide 5.2.8** - Backlog preparation and refinement
+- **Industry Standard Traditional Project Management 4.5.2.3** - Work Performance Information for decision-making
+- **Industry Standard Agile Practice Guide 5.2.8** - Backlog preparation and refinement
 - **Scrum Guide** - Product Backlog Management and Definition of Ready
 
 ---
@@ -35,12 +35,12 @@ This document establishes standardized backlog management practices for the pm-t
 - **Duration:** 60 minutes maximum
 - **Format:** Synchronous video call + asynchronous GitHub review
 
-*Rationale: PMI Agile Practice Guide emphasizes regular cadence for backlog refinement (typically weekly), ensuring work remains relevant and prioritized.*
+*Rationale: Industry Standard Agile Practice Guide emphasizes regular cadence for backlog refinement (typically weekly), ensuring work remains relevant and prioritized.*
 
 ### **Roles & Responsibilities**
 
 #### **Product Owner** (Primary Decision Maker)
-- **PMI Alignment:** Responsible for Work Performance Information analysis and priority decisions
+- **Industry Standard Alignment:** Responsible for Work Performance Information analysis and priority decisions
 - **Responsibilities:**
   - Final prioritization decisions
   - Accept/reject issue proposals
@@ -76,7 +76,7 @@ This document establishes standardized backlog management practices for the pm-t
 - Identify process issues or blockers
 - Confirm agenda priorities
 
-*PMI Reference: PMBOK® 4.5 Monitor and Control Project Work - Regular performance reviews*
+*Industry Standard Reference: Traditional Project Management 4.5 Monitor and Control Project Work - Regular performance reviews*
 
 ##### **Phase 2: New Issue Triage (20 minutes)**
 - Apply **Definition of Ready** criteria:
@@ -93,7 +93,7 @@ This document establishes standardized backlog management practices for the pm-t
 - Plan epic breakdown or closure
 - Validate epic scope alignment
 
-*PMI Reference: PMBOK® 5.4 Create WBS - Decomposition to manageable work components*
+*Industry Standard Reference: Traditional Project Management 5.4 Create WBS - Decomposition to manageable work components*
 
 ##### **Phase 4: Priority Adjustment (5 minutes)**
 - Reorder high-priority items
@@ -102,12 +102,12 @@ This document establishes standardized backlog management practices for the pm-t
 
 ### **Decision Criteria Matrix**
 
-| Criterion | Weight | PMI/Scrum Reference |
+| Criterion | Weight | Industry Standard/Scrum Reference |
 |-----------|--------|-------------------|
-| Strategic Alignment | 30% | PMBOK® 1.2.6.3 - Strategic alignment |
+| Strategic Alignment | 30% | Traditional Project Management 1.2.6.3 - Strategic alignment |
 | User Value | 25% | Agile Practice Guide - Value delivery |
-| Technical Feasibility | 20% | PMBOK® 11.2 - Risk assessment |
-| Resource Availability | 15% | PMBOK® 9.2 - Resource management |
+| Technical Feasibility | 20% | Traditional Project Management 11.2 - Risk assessment |
+| Resource Availability | 15% | Traditional Project Management 9.2 - Resource management |
 | Dependencies | 10% | Scrum Guide - Sprint Planning |
 
 ### **Post-Meeting Actions (Within 24 hours)**
@@ -123,7 +123,7 @@ This document establishes standardized backlog management practices for the pm-t
 ### **Size Limits & Rationale**
 
 #### **Maximum Epic Size: 15-20 Issues**
-- **PMI Justification:** PMBOK® 5.4.2.1 - Work packages should be manageable and measurable
+- **Industry Standard Justification:** Traditional Project Management 5.4.2.1 - Work packages should be manageable and measurable
 - **Scrum Alliance Justification:** Large backlog items should be broken down for Sprint Planning effectiveness
 - **Practical Benefits:**
   - Enables accurate progress tracking
@@ -168,12 +168,12 @@ Epic (15-20 issues max)
 ### **Health Metrics & Thresholds**
 
 #### **Primary Health Indicators**
-| Metric | Target Range | Action Threshold | PMI/Scrum Reference |
+| Metric | Target Range | Action Threshold | Industry Standard/Scrum Reference |
 |--------|--------------|------------------|-------------------|
-| Total Open Issues | 50-100 | >150 or <25 | PMBOK® - Manageable scope |
+| Total Open Issues | 50-100 | >150 or <25 | Traditional Project Management - Manageable scope |
 | Stale Issues (>30 days) | <10% | >20% | Agile Practice Guide - Regular refinement |
 | Issues without Epic/Theme | <5% | >15% | Scrum Guide - Organized backlog |
-| Oversize Epics (>20 issues) | 0 | >2 | PMBOK® WBS - Appropriate decomposition |
+| Oversize Epics (>20 issues) | 0 | >2 | Traditional Project Management WBS - Appropriate decomposition |
 | Issues Ready for Sprint | 20-30 | <15 or >50 | Scrum Alliance - Sprint Planning readiness |
 
 #### **Secondary Health Indicators**
@@ -183,7 +183,7 @@ Epic (15-20 issues max)
 - Label consistency score
 
 ### **Definition of Ready (Issues)**
-Based on Scrum Alliance standards and PMI quality criteria:
+Based on Scrum Alliance standards and Industry Standard quality criteria:
 
 - [ ] **Title:** Clear, actionable, and specific
 - [ ] **Description:** Comprehensive with acceptance criteria
@@ -194,7 +194,7 @@ Based on Scrum Alliance standards and PMI quality criteria:
 - [ ] **Acceptance Criteria:** Testable conditions defined
 
 ### **Definition of Done (Issues)**
-Aligned with PMI deliverable acceptance and Scrum Definition of Done:
+Aligned with Industry Standard deliverable acceptance and Scrum Definition of Done:
 
 - [ ] **Implementation:** Code/content completed and reviewed
 - [ ] **Testing:** Appropriate testing completed
@@ -230,7 +230,7 @@ The process is supported by automated workflows:
 - Identify process friction points
 - Adjust meeting cadence or format as needed
 
-*PMI Reference: PMBOK® 4.6 - Continuous improvement and lessons learned*
+*Industry Standard Reference: Traditional Project Management 4.6 - Continuous improvement and lessons learned*
 
 #### **Quarterly Process Retrospective (60 minutes)**
 Following Scrum Alliance retrospective format:
@@ -260,7 +260,7 @@ Following Scrum Alliance retrospective format:
 ### **Role-Specific Training**
 
 #### **Product Owner Training**
-- PMI Agile Practice Guide - Product Owner responsibilities
+- Industry Standard Agile Practice Guide - Product Owner responsibilities
 - Scrum Alliance - Product Backlog Management certification
 - Repository-specific: Theme structure, priority frameworks
 
@@ -279,14 +279,14 @@ Following Scrum Alliance retrospective format:
 ## 📖 References & Standards
 
 ### **Primary References**
-1. **PMI PMBOK® Guide 7th Edition** - Project Management Institute
-2. **PMI Agile Practice Guide** - Project Management Institute
+1. **Industry Standard Traditional Project Management Guide 7th Edition** - Project Management Community
+2. **Industry Standard Agile Practice Guide** - Project Management Community
 3. **Scrum Guide 2020** - Scrum Alliance
 4. **GitHub Flow** - GitHub best practices for open source
 
 ### **Additional Resources**
 - [Scrum Alliance Product Backlog Management](https://www.scrumalliance.org/about-agile/overview)
-- [PMI Agile Certified Practitioner Handbook](https://www.pmi.org/certifications/agile-acp)
+- [Industry Standard Agile Certified Practitioner Handbook](https://www.pmi.org/certifications/agile-acp)
 - [GitHub Issues Best Practices](https://guides.github.com/features/issues/)
 
 ---
@@ -308,12 +308,12 @@ Following Scrum Alliance retrospective format:
 
 ---
 
-*This process document is a living document and will be updated based on retrospective findings and changing needs. All updates will maintain alignment with PMI and Scrum Alliance standards.*
+*This process document is a living document and will be updated based on retrospective findings and changing needs. All updates will maintain alignment with Industry Standard and Scrum Alliance standards.*
 
 **Document Approval:**
 - Process Owner: Product Owner
 - Technical Review: Development Team Lead  
-- Standards Review: PMI/Scrum Alliance alignment verification
+- Standards Review: Industry Standard/Scrum Alliance alignment verification
 
 **Change History:**
 | Version | Date | Changes | Approver |

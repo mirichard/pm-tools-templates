@@ -591,4 +591,4 @@ Portfolio ROI Trend (12 Months)
 
 ---
 
-*This metrics report template follows SAFe® best practices for measurement and continuous improvement. Customize sections and metrics based on your organization's specific SAFe implementation and business context.*
+*This metrics report template follows SAFe best practices for measurement and continuous improvement. Customize sections and metrics based on your organization's specific SAFe implementation and business context.*

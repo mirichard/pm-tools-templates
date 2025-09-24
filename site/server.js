@@ -39,7 +39,7 @@ const PUBLIC_DIR = path.join(__dirname, 'src');
 
 function listMarkdownFiles() {
   const allowedRoots = [
-    'Agile', 'Hybrid', 'PMBOK', 'Waterfall', 'business-stakeholder-suite',
+    'Agile', 'Hybrid', 'Traditional', 'Waterfall', 'business-stakeholder-suite',
     'docs', 'examples', 'industry_templates', 'integration_guides', 'project-lifecycle', 'quick-start-kits', 'role-based-toolkits'
   ];
   const results = [];

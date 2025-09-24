@@ -107,7 +107,7 @@ updated: "2025-08-05"
 ### 2.1 Program Management Methodology
 *Define the methodology and framework that will guide program management.*
 
-**Framework:** PMI Program Management Standard (Fourth Edition)
+**Framework:** Industry Standard Program Management Standard (Fourth Edition)
 **Approach:** Integrated program management combining traditional and agile methodologies
 **Supporting Methodologies:**
 - Traditional Guide for traditional project management components
@@ -967,7 +967,7 @@ Low Influence, Low Interest: External Partners, Media
 ### 11.1 Risk Management Strategy
 
 #### Risk Management Approach
-**Framework:** PMI Risk Management Standard aligned with enterprise risk management
+**Framework:** Industry Standard Risk Management Standard aligned with enterprise risk management
 **Philosophy:** Proactive identification and management of risks and opportunities
 **Integration:** Embedded in all program processes and decision-making
 

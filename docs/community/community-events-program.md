@@ -179,7 +179,7 @@ The PM Tools & Templates Community Events Program fosters engagement, knowledge 
 ## 🤝 Community Partnerships
 
 ### Industry Organizations
-- **PMI Chapters:** Local project management institutes
+- **Industry Standard Chapters:** Local project management institutes
 - **Agile Communities:** Scrum and agile user groups
 - **Professional Associations:** Industry-specific PM groups
 - **Educational Institutions:** Universities and training organizations

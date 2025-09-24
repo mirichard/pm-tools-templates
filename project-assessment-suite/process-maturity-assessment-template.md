@@ -28,7 +28,7 @@ This template provides a structured approach to assessing project management pro
 **Organization:** [Organization name]
 **Assessment Scope:** [Processes/areas covered]
 **Assessment Date:** [Date]
-**Methodology:** [CMMI/PMI OPM3/Custom]
+**Methodology:** [CMMI/Industry Standard/Custom]
 
 ## Process Areas Assessment
 

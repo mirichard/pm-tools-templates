@@ -135,5 +135,5 @@ All templates can be customized for:
 
 ---
 
-**Note**: These templates follow leading practices from PMI, Agile Alliance, and other recognized project management bodies. Adapt them to your organizational context and specific project needs.
+**Note**: These templates follow leading practices from industry standards, Agile Alliance, and other recognized project management bodies.
 

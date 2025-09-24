@@ -251,22 +251,22 @@ Project managers use stakeholder communication and business reporting tools exte
 <a id="phase-1-foundation"></a>
 
 ### Training & Certification
-- **PMI Project Management Professional (PMP)** - Traditional project management
+- **Industry Standard Project Management Professional (Project Management Professional)** - Traditional project management
 - **Certified ScrumMaster (CSM)** - Agile project management
-- **PMI Agile Certified Practitioner (PMI-ACP)** - Agile methodologies
+- **Industry Standard Agile Certified Practitioner (Industry Standard-ACP)** - Agile methodologies
 <a id="phase-2-intelligence-in-development"></a>
 - **PRINCE2** - Structured project management method
 - **Lean Six Sigma** - Process improvement and quality management
 
 ### Professional Organizations
-- **Project Management Institute (PMI)** - Global PM community
+- **Project Management Community (Industry Standard)** - Global PM community
 <a id="phase-3-ecosystem-planned"></a>
 - **Scrum Alliance** - Agile and Scrum community
 - **Association for Project Management (APM)** - UK-based PM organization
 - **International Project Management Association (IPMA)** - European PM standards
 
 ### Recommended Reading
-- Traditional Guide (PMI)
+- Traditional Guide (Industry Standard)
 - Scrum Guide (Schwaber & Sutherland)
 <a id="pro-tips"></a>
 - "The Lean Startup" (Eric Ries)

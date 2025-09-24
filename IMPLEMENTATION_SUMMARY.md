@@ -138,9 +138,9 @@ quick-start-kits/agile-transformation/
 - **Integration Support**: Framework for tool integrations and AI capabilities
 
 ### Templates Created Follow Best Practices:
-- **Traditional Standards**: Traditional PM Plan follows PMI guidelines
+- **Traditional Standards**: Traditional PM Plan follows industry guidelines
 - **Agile Methodology**: Release plan incorporates Scrum/SAFe practices
-- **Risk Management**: PMI Risk Management standards compliance
+- **Risk Management**: Industry Risk Management standards compliance
 - **Stakeholder Engagement**: Comprehensive stakeholder analysis framework
 - **Governance**: Enterprise governance best practices
 
