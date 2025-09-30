@@ -11,7 +11,7 @@
     "lint": "echo 'Add ESLint if needed'"
   },
   "dependencies": {
-    "dotenv": "^17.2.2",
+    "dotenv": "^17.2.3",
     "simple-oauth2": "^5.1.0"
   },
   "devDependencies": {
