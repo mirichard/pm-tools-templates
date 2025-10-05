@@ -6,6 +6,7 @@
 [![Interactive Browser](https://img.shields.io/badge/Browse-Interactive-green.svg?style=flat)](templates/index.html)
 [![GitHub issues](https://img.shields.io/github/issues/mirichard/pm-tools-templates)](https://github.com/mirichard/pm-tools-templates/issues)
 [![GitHub last commit](https://img.shields.io/github/last-commit/mirichard/pm-tools-templates)](https://github.com/mirichard/pm-tools-templates/commits/main)
+[![Latest Release](https://img.shields.io/github/v/release/mirichard/pm-tools-templates?style=flat&logo=github&labelColor=282828&color=blue)](https://github.com/mirichard/pm-tools-templates/releases/latest)
 [![Reorg Status](https://img.shields.io/badge/Reorg-Status-blue)](docs/reorg/STATUS.md)
 
 > A curated collection of 154+ battle-tested, open-source templates for project and program managers. Practical, vendor-agnostic, and ready to customize.
@@ -26,6 +27,21 @@
 
 4.  **Use CLI tools (optional):**
     See the consolidated [CLI Usage Guide](docs/cli/README.md) for link checks, metadata enrichment, and maintenance scripts.
+
+---
+
+## 🚀 Latest Release
+
+[![Latest Release](https://img.shields.io/github/v/release/mirichard/pm-tools-templates?style=for-the-badge&logo=github&labelColor=282828&color=blue)](https://github.com/mirichard/pm-tools-templates/releases/latest)
+
+**What's New in v0.4.0:**
+- 🤖 **AI Integration**: Complete MCP (Model Context Protocol) setup for Warp AI
+- 🛡️ **Security**: Resolved 11 vulnerabilities with comprehensive fixes
+- 🎨 **UX Improvements**: Enhanced dashboard with modern design principles
+- 📚 **Enhanced Toolkits**: Expanded program manager resources and templates
+- 🔧 **100+ Commits**: Continuous improvements and feature additions
+
+[**→ View Release Notes**](https://github.com/mirichard/pm-tools-templates/releases/latest) | [**→ Download Latest**](https://github.com/mirichard/pm-tools-templates/archive/refs/tags/v0.4.0.zip)
 
 ---
 
