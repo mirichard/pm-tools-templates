@@ -35,7 +35,7 @@
 [![Latest Release](https://img.shields.io/github/v/release/mirichard/pm-tools-templates?style=for-the-badge&logo=github&labelColor=282828&color=blue)](https://github.com/mirichard/pm-tools-templates/releases/latest)
 
 **What's New in v0.4.0:**
-- 🤖 **AI Integration**: Complete MCP (Model Context Protocol) setup for Warp AI
+- 🔬 **AI Data Science**: Advanced analytics and consolidation analysis tools
 - 🛡️ **Security**: Resolved 11 vulnerabilities with comprehensive fixes
 - 🎨 **UX Improvements**: Enhanced dashboard with modern design principles
 - 📚 **Enhanced Toolkits**: Expanded program manager resources and templates
