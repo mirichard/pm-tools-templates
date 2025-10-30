@@ -1,6 +1,6 @@
 # PM Tools Templates - Project Health Dashboard
 
-**Last Updated:** Thu Oct 30 18:09:36 UTC 2025  
+**Last Updated:** Thu Oct 30 19:50:26 UTC 2025  
 **Project Health:** 🟠 fair  
 **Overall Progress:** 100%
 
@@ -13,7 +13,7 @@
 | **Project Completion** | 100% | 📉 Needs Attention | 🟠 |
 | **Strategic Progress** | 53% | 📈 On Track | 🟢 |
 | **Weekly Velocity** | 0 issues/week | 📉 Slow | 🟡 |
-| **Risk Score** | 525 points | 📈 Elevated | 🔴 |
+| **Risk Score** | 510 points | 📈 Elevated | 🔴 |
 
 ## 📈 Progress Overview
 
@@ -34,7 +34,7 @@
 
 | Phase | Total Issues | Completed | Progress | Status |
 |-------|--------------|-----------|----------|--------|
-| **Phase 1** | 20 | 12 | 60% | 🔄 In Progress |
+| **Phase 1** | 20 | 13 | 65% | 🔄 In Progress |
 | **Phase 2** | 26 | 5 | 19% | 🔄 In Progress |
 | **Phase 3** | 18 | 3 | 16% | 📅 Planned |
 
@@ -42,9 +42,9 @@
 
 ### Current Risk Factors
 - **Critical Issues:** 14 (25 points each)
-- **High Priority Issues:** 11 (15 points each)
+- **High Priority Issues:** 10 (15 points each)
 - **Open Bugs:** 2 (5 points each)
-- **Total Risk Score:** 525 points
+- **Total Risk Score:** 510 points
 
 ### Risk Level: 🔴 HIGH
 
@@ -60,7 +60,7 @@
 | Enhancement | 24 | 80% |
 | Bug | 2 | 6% |
 | Critical | 14 | 46% |
-| High Priority | 11 | 36% |
+| High Priority | 10 | 33% |
 
 ## 🎯 Performance Indicators
 
@@ -77,7 +77,6 @@
 
 ### High Priority Items (Next 7 Days)
 - 🔥 #547: 🔄 STORY: Integration Enhancement - Jira/Asana Bi-directional Sync
-- 🔥 #366: 🚀 Epic: Auto-Configure Project from SOW/Charter
 - 🔥 #290: 🔄 STORY: Integration Enhancement - Jira/Asana Bi-directional Sync
 - 🔥 #66: 🔐 SECURITY: Implement Security Monitoring and Dependency Management
 - 🔥 #65: 🔐 SECURITY: Enable Signed Commits for Team Members
@@ -109,8 +108,8 @@
 ## 📊 Dashboard Information
 
 - **Auto-generated:** Every 6 hours
-- **Last Update:** Thu Oct 30 18:09:37 UTC 2025
-- **Next Update:** 00:09 UTC
+- **Last Update:** Thu Oct 30 19:50:27 UTC 2025
+- **Next Update:** 01:50 UTC
 - **Data Source:** GitHub Issues API
 - **Methodology:** Automated metric collection and analysis
 
