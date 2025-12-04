@@ -53,7 +53,7 @@
     "url": "https://github.com/mirichard/pm-tools-templates/issues"
   },
   "dependencies": {
-    "glob": "^11.0.3",
+    "glob": "^13.0.0",
     "js-yaml": "^4.1.0"
   },
   "overrides": {
