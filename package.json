@@ -35,7 +35,7 @@
   "license": "MIT",
   "devDependencies": {
     "@testing-library/jest-dom": "^6.9.1",
-    "@testing-library/react": "^16.3.0",
+    "@testing-library/react": "^16.3.1",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^30.2.0",
     "jest-axe": "^10.0.0",
@@ -53,7 +53,11 @@
     "url": "https://github.com/mirichard/pm-tools-templates/issues"
   },
   "dependencies": {
+dependabot/npm_and_yarn/multi-12cb0b0c21
     "glob": "^11.1.0",
+=======
+    "glob": "^13.0.0",
+ main
     "js-yaml": "^4.1.0"
   },
   "overrides": {
