@@ -49,7 +49,7 @@ permissions:
   actions: write
 
 jobs:
-manage-artifacts:
+  manage-artifacts:
     name: 📦 Manage Artifacts
     # Only run on schedule or manual dispatch; skip push/PR to avoid affecting checks
     if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
@@ -199,7 +199,7 @@ manage-artifacts:
           done
 
   # Storage Analysis and Optimization
-storage-analysis:
+  storage-analysis:
     name: 💾 Storage Analysis
     runs-on: ubuntu-latest
     needs: manage-artifacts
@@ -252,7 +252,7 @@ storage-analysis:
           import json
           import os
           
-# Load analysis data
+          # Load analysis data
           with open('artifact-data/analyzed.json', 'r') as f:
               analyzed = json.load(f)
           with open('artifact-data/stats.json', 'r') as f:
@@ -324,7 +324,7 @@ storage-analysis:
           import os
           from datetime import datetime
           
-# Load data
+          # Load data
           with open('artifact-data/stats.json', 'r') as f:
               stats = json.load(f)
           with open('artifact-data/analyzed.json', 'r') as f:
@@ -343,10 +343,10 @@ storage-analysis:
           ## 📊 Storage Overview
           
           ### Current Usage
-- **Total Artifacts:** { (len(analyzed.get('keep', [])) + len(analyzed.get('cleanup', []))) }
-- **Total Storage:** { (float(stats.get('size_total_mb', 0) or 0) / 1024):.2f} GB
-- **Cleanup Candidates:** { len(analyzed.get('cleanup', [])) }
-- **Potential Savings:** {optimization['potential_savings_gb']:.2f} GB
+          - **Total Artifacts:** { (len(analyzed.get('keep', [])) + len(analyzed.get('cleanup', []))) }
+          - **Total Storage:** { (float(stats.get('size_total_mb', 0) or 0) / 1024):.2f} GB
+          - **Cleanup Candidates:** { len(analyzed.get('cleanup', [])) }
+          - **Potential Savings:** {optimization['potential_savings_gb']:.2f} GB
           
           ### Storage Status
           {optimization['storage_message']}
@@ -357,7 +357,7 @@ storage-analysis:
           |----------|-------|-----------|---------------|
           """
           
-categories = stats.get('categories', {}) or {}
+          categories = stats.get('categories', {}) or {}
           sizes = stats.get('size_by_category_mb', {}) or {}
           
           for category, count in categories.items():
@@ -373,7 +373,7 @@ categories = stats.get('categories', {}) or {}
           ### Cleanup Candidates by Reason
           """
           
-# Group cleanup candidates by reason
+          # Group cleanup candidates by reason
           cleanup_reasons = {}
           for candidate in analyzed.get('cleanup', []):
               reason = candidate.get('cleanup_reason', 'Unknown')
@@ -464,7 +464,7 @@ categories = stats.get('categories', {}) or {}
           retention-days: ${{ env.DEFAULT_RETENTION_DAYS }}
 
   # Automated Cleanup Execution
-automated-cleanup:
+  automated-cleanup:
     name: 🧹 Automated Cleanup
     runs-on: ubuntu-latest
     needs: [manage-artifacts, storage-analysis]
@@ -504,7 +504,7 @@ automated-cleanup:
           import os
           from datetime import datetime, timedelta
           
-# Load cleanup candidates
+          # Load cleanup candidates
           with open('artifact-data/analyzed.json', 'r') as f:
               analyzed = json.load(f)
           
@@ -733,7 +733,7 @@ automated-cleanup:
           retention-days: ${{ env.CRITICAL_RETENTION_DAYS }}
 
   # Retention Policy Management
-retention-policy-manager:
+  retention-policy-manager:
     name: 📋 Retention Policy Manager
     runs-on: ubuntu-latest
     needs: [manage-artifacts, automated-cleanup]
@@ -759,7 +759,7 @@ retention-policy-manager:
           import os
           from datetime import datetime
           
-# Parse retention summary, fallback to computed defaults
+          # Parse retention summary, fallback to computed defaults
           import pathlib
           retention_env = os.environ.get('RETENTION_SUMMARY')
           try:
@@ -874,7 +874,7 @@ retention-policy-manager:
           import json
           from datetime import datetime
           
-# Load policy analysis
+          # Load policy analysis
           with open('retention_policy_analysis.json', 'r') as f:
               analysis = json.load(f)
           
@@ -1016,7 +1016,7 @@ retention-policy-manager:
           retention-days: ${{ env.CRITICAL_RETENTION_DAYS }}
 
   # Lifecycle Summary and Alerting
-lifecycle-summary:
+  lifecycle-summary:
     name: 📊 Lifecycle Summary
     runs-on: ubuntu-latest
     needs: [manage-artifacts, storage-analysis, automated-cleanup, retention-policy-manager]
@@ -1024,7 +1024,7 @@ lifecycle-summary:
     continue-on-error: ${{ github.event_name == 'pull_request' }}
     
     steps:
-- name: 📥 Download Discovery Results
+      - name: 📥 Download Discovery Results
         uses: actions/download-artifact@v4
         with:
           name: artifact-discovery-${{ github.run_number }}
@@ -1152,7 +1152,7 @@ lifecycle-summary:
           
           echo "Lifecycle summary generated with status: $LIFECYCLE_STATUS"
 
-- name: 🔔 Create Lifecycle Alert (if needed)
+      - name: 🔔 Create Lifecycle Alert (if needed)
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |

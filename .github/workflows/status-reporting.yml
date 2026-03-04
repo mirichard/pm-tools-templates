@@ -537,7 +537,7 @@ jobs:
           server_port: 465
           username: ${{ secrets.EMAIL_USERNAME }}
           password: ${{ secrets.EMAIL_PASSWORD }}
-          subject: "📊 Weekly Project Status Update - $(date +"%B %d, %Y")"
+          subject: '📊 Weekly Project Status Update'
           html_body: file://./email/monday-status.html
           to: ${{ secrets.EMAIL_RECIPIENTS || env.MAIL_RECIPIENTS }}
           from: ${{ secrets.EMAIL_FROM || env.MAIL_FROM }}

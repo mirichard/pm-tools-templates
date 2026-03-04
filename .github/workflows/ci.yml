@@ -154,14 +154,14 @@ jobs:
           fi
           npx nyc merge "${files[@]}" coverage/coverage-final.json
           npx nyc report --reporter=json-summary --reporter=html --report-dir coverage
-          node - <<'JS'
-          const fs=require('fs');
-          const sum=JSON.parse(fs.readFileSync('coverage/coverage-summary.json','utf8')).total;
-          const thr={branches:80, functions:85, lines:85, statements:85};
-          const ok= sum.branches.pct>=thr.branches && sum.functions.pct>=thr.functions && sum.lines.pct>=thr.lines && sum.statements.pct>=thr.statements;
-          if(!ok){ console.error('Coverage gate failed:', {actual: sum, thr}); process.exit(1); }
-          console.log('Coverage gate passed:', {actual: sum, thr});
-JS
+          node -e "
+            const fs=require('fs');
+            const sum=JSON.parse(fs.readFileSync('coverage/coverage-summary.json','utf8')).total;
+            const thr={branches:80, functions:85, lines:85, statements:85};
+            const ok= sum.branches.pct>=thr.branches && sum.functions.pct>=thr.functions && sum.lines.pct>=thr.lines && sum.statements.pct>=thr.statements;
+            if(!ok){ console.error('Coverage gate failed:', {actual: sum, thr}); process.exit(1); }
+            console.log('Coverage gate passed:', {actual: sum, thr});
+          "
       - name: Upload merged coverage
         if: always()
         uses: actions/upload-artifact@v4
