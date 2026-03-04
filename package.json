@@ -53,17 +53,8 @@
     "url": "https://github.com/mirichard/pm-tools-templates/issues"
   },
   "dependencies": {
- dependabot/npm_and_yarn/multi-75e6bc5210
-    "glob": "^11.0.3",
-    "js-yaml": "^4.1.1"
-=======
-dependabot/npm_and_yarn/multi-12cb0b0c21
-    "glob": "^11.1.0",
-=======
     "glob": "^13.0.0",
- main
-    "js-yaml": "^4.1.0"
- main
+    "js-yaml": "^4.1.1"
   },
   "overrides": {
     "ws": "^8.17.1",
