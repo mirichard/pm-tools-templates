@@ -15,6 +15,8 @@ jobs:
     # Only run on manual dispatch; skip push/PR to avoid affecting checks
     if: github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
+    env:
+      HAS_EMAIL: ${{ secrets.EMAIL_USERNAME != '' && secrets.EMAIL_PASSWORD != '' && secrets.EMAIL_RECIPIENTS != '' && secrets.EMAIL_FROM != '' }}
     
     steps:
     - name: Debug context
@@ -40,7 +42,7 @@ jobs:
       run: ./scripts/measure_step.sh "noop" -- bash -lc "echo 'collect timings context'"
 
     - name: Send Test Email
-      if: ${{ secrets.EMAIL_USERNAME != '' && secrets.EMAIL_PASSWORD != '' && secrets.EMAIL_RECIPIENTS != '' && secrets.EMAIL_FROM != '' }}
+      if: env.HAS_EMAIL == 'true'
       continue-on-error: true
       uses: dawidd6/action-send-mail@v3
       with:

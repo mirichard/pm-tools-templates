@@ -12,6 +12,8 @@ jobs:
     # Only run on manual dispatch; skip push/PR to avoid affecting checks
     if: github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
+    env:
+      HAS_EMAIL: ${{ secrets.EMAIL_USERNAME != '' }}
     
     steps:
     - name: 📋 Checkout Code
@@ -88,7 +90,7 @@ jobs:
         echo "   📏 Size: $(wc -c < ./status-email/report.html) bytes"
     
     - name: 📧 Send Enhanced Status Email
-      if: ${{ secrets.EMAIL_USERNAME != '' }}
+      if: env.HAS_EMAIL == 'true'
       uses: dawidd6/action-send-mail@v3
       with:
         server_address: smtp.gmail.com

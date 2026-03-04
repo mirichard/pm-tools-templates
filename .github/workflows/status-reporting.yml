@@ -342,6 +342,7 @@ jobs:
     if: always() && needs.status-reporting.result == 'success' && (github.event_name == 'schedule' || github.event_name == 'workflow_dispatch')
     runs-on: ubuntu-latest
     env:
+      HAS_EMAIL: ${{ secrets.EMAIL_USERNAME != '' }}
       COMPLETION_RATE: ${{ needs.status-reporting.outputs.completion_rate }}
       STRATEGIC_PROGRESS: ${{ needs.status-reporting.outputs.strategic_progress }}
       CRITICAL_RISKS: ${{ needs.status-reporting.outputs.critical_risks }}
@@ -530,7 +531,7 @@ jobs:
 
       - name: 📧 Send Status Email
         # Only send email if EMAIL_USERNAME secret is configured
-        if: ${{ secrets.EMAIL_USERNAME != '' }}
+        if: env.HAS_EMAIL == 'true'
         uses: dawidd6/action-send-mail@v3
         with:
           server_address: smtp.gmail.com
@@ -541,7 +542,6 @@ jobs:
           html_body: file://./email/monday-status.html
           to: ${{ secrets.EMAIL_RECIPIENTS || env.MAIL_RECIPIENTS }}
           from: ${{ secrets.EMAIL_FROM || env.MAIL_FROM }}
-          content_type: text/html
           
       - name: 📧 Email Status Summary
         run: |
