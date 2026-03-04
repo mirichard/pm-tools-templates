@@ -15,37 +15,53 @@ updates:
   - package-ecosystem: npm
     directory: "/"
     schedule:
-      interval: daily
+      interval: weekly
     versioning-strategy: increase
-    open-pull-requests-limit: 10
+    open-pull-requests-limit: 5
     labels: ["dependencies"]
+    groups:
+      npm-all:
+        patterns:
+          - "*"
 
   # Site preview and a11y/perf harness
   - package-ecosystem: npm
     directory: "/site"
     schedule:
-      interval: daily
+      interval: weekly
     versioning-strategy: increase
-    open-pull-requests-limit: 10
+    open-pull-requests-limit: 5
     labels: ["dependencies"]
+    groups:
+      npm-all:
+        patterns:
+          - "*"
 
   # Docs site (if present)
   - package-ecosystem: npm
     directory: "/docs/site"
     schedule:
-      interval: daily
+      interval: weekly
     versioning-strategy: increase
-    open-pull-requests-limit: 10
+    open-pull-requests-limit: 5
     labels: ["dependencies"]
+    groups:
+      npm-all:
+        patterns:
+          - "*"
 
   # Integrations: Jira/Asana sync example
   - package-ecosystem: npm
     directory: "/integrations/jira-asana-sync"
     schedule:
-      interval: daily
+      interval: weekly
     versioning-strategy: increase
-    open-pull-requests-limit: 10
+    open-pull-requests-limit: 5
     labels: ["dependencies"]
+    groups:
+      npm-all:
+        patterns:
+          - "*"
 
   # Python examples
   - package-ecosystem: pip

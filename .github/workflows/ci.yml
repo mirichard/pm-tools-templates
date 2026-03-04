@@ -217,10 +217,9 @@ JS
           retention-days: 7
 
   preview-a11y-perf:
-    if: ${{ github.actor != 'dependabot[bot]' }}
+    if: ${{ github.actor != 'dependabot[bot]' && needs.changes.outputs.site == 'true' }}
     runs-on: ubuntu-latest
     needs: changes
-    if: ${{ needs.changes.outputs.site == 'true' }}
     continue-on-error: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
     steps:
       - name: CI timestamps
