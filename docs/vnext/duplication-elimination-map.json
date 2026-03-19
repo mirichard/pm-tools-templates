@@ -1,0 +1,296 @@
+{
+  "metadata": {
+    "story": "#717",
+    "epic": "#707",
+    "generated": "2026-03-19",
+    "source_commit": "96e1d3a1",
+    "total_assets_analyzed": 1140,
+    "assets_involved_in_duplication": 271,
+    "duplication_rate_pct": 23.8
+  },
+  "overlap_groups": [
+    {
+      "id": "OG-1",
+      "name": "Methodology - Agile",
+      "severity": "S2",
+      "assets_involved": 34,
+      "directories": [
+        "Agile/",
+        "templates/agile/",
+        "methodology-frameworks/agile-scrum/",
+        "examples/agile/",
+        "quick-start-kits/agile-transformation/",
+        "role-based-toolkits/scrum-master/"
+      ],
+      "canonical": "methodology-frameworks/agile-scrum/",
+      "actions": [
+        {
+          "path": "Agile/TODO.md",
+          "action": "DELETE"
+        },
+        {
+          "path": "templates/agile/",
+          "action": "REDIRECT",
+          "target": "methodology-frameworks/agile-scrum/",
+          "count": 8
+        },
+        {
+          "path": "examples/agile/",
+          "action": "MERGE",
+          "target": "methodology-frameworks/agile-scrum/examples/",
+          "count": 4
+        },
+        {
+          "path": "quick-start-kits/agile-transformation/",
+          "action": "KEEP",
+          "count": 5
+        },
+        {
+          "path": "role-based-toolkits/scrum-master/",
+          "action": "KEEP"
+        }
+      ]
+    },
+    {
+      "id": "OG-2",
+      "name": "Methodology - Traditional",
+      "severity": "S2",
+      "assets_involved": 30,
+      "directories": [
+        "Traditional/",
+        "templates/traditional/"
+      ],
+      "canonical": "templates/traditional/",
+      "actions": [
+        {
+          "path": "Traditional/TODO.md",
+          "action": "DELETE"
+        },
+        {
+          "path": "templates/traditional/",
+          "action": "KEEP+REFACTOR",
+          "target": "methodology-frameworks/traditional/",
+          "count": 29
+        }
+      ]
+    },
+    {
+      "id": "OG-3",
+      "name": "Methodology - Hybrid",
+      "severity": "S2",
+      "assets_involved": 13,
+      "directories": [
+        "Hybrid/",
+        "templates/hybrid/"
+      ],
+      "canonical": "templates/hybrid/",
+      "actions": [
+        {
+          "path": "Hybrid/TODO.md",
+          "action": "DELETE"
+        },
+        {
+          "path": "Hybrid/Release_Validation_2025-08-08.md",
+          "action": "ARCHIVE"
+        },
+        {
+          "path": "templates/hybrid/",
+          "action": "KEEP+REFACTOR",
+          "target": "methodology-frameworks/hybrid/",
+          "count": 12
+        }
+      ]
+    },
+    {
+      "id": "OG-4",
+      "name": "Integration Ecosystem",
+      "severity": "S1",
+      "assets_involved": 51,
+      "directories": [
+        "integration-guides/",
+        "integration_guides/",
+        "integration-examples/",
+        "integration-toolkits/",
+        "integrations/"
+      ],
+      "canonical": "integration-guides/",
+      "actions": [
+        {
+          "path": "integration_guides/",
+          "action": "REDIRECT",
+          "target": "integration-guides/",
+          "count": 17
+        },
+        {
+          "path": "integration-examples/",
+          "action": "REDIRECT",
+          "target": "integration-guides/",
+          "count": 5
+        },
+        {
+          "path": "integration-toolkits/",
+          "action": "MERGE",
+          "target": "integration-guides/development-tools/",
+          "count": 2
+        },
+        {
+          "path": "integrations/",
+          "action": "KEEP",
+          "count": 18
+        }
+      ]
+    },
+    {
+      "id": "OG-5",
+      "name": "Industry Templates",
+      "severity": "S1",
+      "assets_involved": 113,
+      "directories": [
+        "industry-specializations/",
+        "industry_templates/"
+      ],
+      "canonical": "industry-specializations/",
+      "actions": [
+        {
+          "path": "industry_templates/",
+          "action": "REDIRECT",
+          "target": "industry-specializations/",
+          "count": 22
+        }
+      ]
+    },
+    {
+      "id": "OG-6",
+      "name": "docs/templates/ Shadow Collection",
+      "severity": "S3",
+      "assets_involved": 147,
+      "directories": [
+        "docs/templates/"
+      ],
+      "canonical": "domain-specific directories",
+      "actions": [
+        {
+          "path": "docs/templates/",
+          "action": "REFACTOR",
+          "count": 147
+        }
+      ]
+    },
+    {
+      "id": "OG-7",
+      "name": "Deprecated Staging Areas",
+      "severity": "S1",
+      "assets_involved": 106,
+      "directories": [
+        "staging/",
+        "PM Tools Templates - Q3 2025 Delivery Cycle/"
+      ],
+      "canonical": null,
+      "actions": [
+        {
+          "path": "staging/",
+          "action": "ARCHIVE",
+          "target": "_archive/staging/",
+          "count": 56
+        },
+        {
+          "path": "PM Tools Templates - Q3 2025 Delivery Cycle/",
+          "action": "ARCHIVE",
+          "target": "_archive/q3-2025-cycle/",
+          "count": 50
+        }
+      ]
+    },
+    {
+      "id": "OG-8",
+      "name": "Dashboard & Reporting",
+      "severity": "S4",
+      "assets_involved": 3,
+      "directories": [
+        "curation-dashboard/",
+        "dashboards/",
+        "reports/"
+      ],
+      "canonical": "business-stakeholder-suite/executive-dashboards/",
+      "actions": [
+        {
+          "path": "curation-dashboard/",
+          "action": "KEEP",
+          "count": 1
+        },
+        {
+          "path": "dashboards/",
+          "action": "REDIRECT",
+          "target": "business-stakeholder-suite/executive-dashboards/",
+          "count": 1
+        },
+        {
+          "path": "reports/",
+          "action": "KEEP",
+          "count": 9
+        }
+      ]
+    },
+    {
+      "id": "OG-9",
+      "name": "Documentation & Project Docs",
+      "severity": "S3",
+      "assets_involved": 394,
+      "directories": [
+        "docs/",
+        "project-docs/",
+        "meta/"
+      ],
+      "canonical": "docs/",
+      "actions": [
+        {
+          "path": "project-docs/",
+          "action": "MERGE",
+          "target": "docs/project/",
+          "count": 9
+        },
+        {
+          "path": "meta/",
+          "action": "KEEP_OR_MERGE",
+          "target": "docs/meta/",
+          "count": 5
+        },
+        {
+          "path": "docs/",
+          "action": "REFACTOR",
+          "count": 385
+        }
+      ]
+    }
+  ],
+  "impact_summary": {
+    "keep": 488,
+    "redirect": 136,
+    "merge": 34,
+    "archive": 108,
+    "delete": 4,
+    "refactor_deferred": 370
+  },
+  "risks": [
+    {
+      "id": "R1",
+      "description": "integration_guides/ unique content must be merged before redirect"
+    },
+    {
+      "id": "R2",
+      "description": "industry_templates/construction/ and software_development/ are unique verticals"
+    },
+    {
+      "id": "R3",
+      "description": "docs/templates/ has ~57 potentially unique files needing domain assignment"
+    },
+    {
+      "id": "R4",
+      "description": "Q3 2025 cycle contains full JS app - confirm no active CI/CD dependency"
+    },
+    {
+      "id": "R5",
+      "description": "164 filename collisions - file-level content comparison recommended"
+    }
+  ]
+}
