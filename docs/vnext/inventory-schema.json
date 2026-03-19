@@ -1,0 +1,115 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "PM Tools Templates – Repository Asset Inventory",
+  "description": "Schema for cataloging all content assets in the pm-tools-templates repository. Part of the Value Delivery System Upgrade (vNext), Epic 0: Repository Audit & Mapping.",
+  "version": "1.0.0",
+  "type": "object",
+  "properties": {
+    "metadata": {
+      "type": "object",
+      "properties": {
+        "generated_at": { "type": "string", "format": "date-time" },
+        "repo_commit": { "type": "string" },
+        "total_assets": { "type": "integer" },
+        "schema_version": { "type": "string" }
+      },
+      "required": ["generated_at", "repo_commit", "schema_version"]
+    },
+    "directories": {
+      "type": "array",
+      "description": "Top-level directory summaries",
+      "items": {
+        "type": "object",
+        "properties": {
+          "path": { "type": "string" },
+          "purpose": { "type": "string" },
+          "category": {
+            "type": "string",
+            "enum": ["content", "application", "infrastructure", "data", "special"]
+          },
+          "asset_count": { "type": "integer" }
+        },
+        "required": ["path", "purpose", "category", "asset_count"]
+      }
+    },
+    "assets": {
+      "type": "array",
+      "description": "Individual content asset entries",
+      "items": {
+        "type": "object",
+        "properties": {
+          "path": {
+            "type": "string",
+            "description": "Relative path from repository root"
+          },
+          "name": {
+            "type": "string",
+            "description": "Human-readable asset name derived from filename"
+          },
+          "description": {
+            "type": "string",
+            "description": "Brief description of what the asset provides (1-2 sentences)"
+          },
+          "asset_type": {
+            "type": "string",
+            "enum": ["template", "guide", "framework", "tool", "report", "index", "readme", "policy", "example", "data", "script", "schema"],
+            "description": "What kind of asset this is"
+          },
+          "functional_category": {
+            "type": "string",
+            "enum": [
+              "planning",
+              "risk",
+              "stakeholder",
+              "governance",
+              "reporting",
+              "onboarding",
+              "integration",
+              "methodology",
+              "assessment",
+              "lifecycle",
+              "communication",
+              "financial",
+              "team",
+              "quality",
+              "industry",
+              "tooling",
+              "meta"
+            ],
+            "description": "Primary functional category"
+          },
+          "methodology": {
+            "type": "string",
+            "enum": ["agile", "traditional", "hybrid", "methodology-agnostic"],
+            "description": "Which methodology this asset primarily supports"
+          },
+          "classification": {
+            "type": "string",
+            "enum": ["refactor", "enhance", "net-new", "duplicate", "deprecated"],
+            "description": "Classification for vNext planning (populated in Story 0.2)"
+          },
+          "classification_rationale": {
+            "type": "string",
+            "description": "1-2 sentence explanation of classification choice"
+          },
+          "duplicate_of": {
+            "type": "string",
+            "description": "Path of canonical asset if this is a duplicate"
+          },
+          "performance_domain": {
+            "type": "string",
+            "enum": ["stakeholder", "team", "delivery", "planning", "uncertainty", "measurement"],
+            "description": "Primary performance domain mapping (populated in Story 0.5)"
+          },
+          "value_flow_stage": {
+            "type": "string",
+            "enum": ["input-enabler", "activity-support", "output-generator", "outcome-tracker"],
+            "description": "Position in the value delivery flow (populated in Story 0.4)"
+          }
+        },
+        "required": ["path", "name", "asset_type", "functional_category", "methodology"]
+      }
+    }
+  },
+  "required": ["metadata", "directories", "assets"]
+}
