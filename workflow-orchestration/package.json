@@ -55,6 +55,9 @@
   "bugs": {
     "url": "https://github.com/mirichard/pm-tools-templates/issues"
   },
-  "homepage": "https://github.com/mirichard/pm-tools-templates/tree/main/workflow-orchestration"
+  "homepage": "https://github.com/mirichard/pm-tools-templates/tree/main/workflow-orchestration",
+  "overrides": {
+    "qs": ">=6.14.2"
+  }
 }
 

@@ -83,5 +83,11 @@
   },
   "engines": {
     "node": ">=18.0.0"
+  },
+  "overrides": {
+    "tar": ">=6.2.2",
+    "@mapbox/node-pre-gyp": {
+      "tar": ">=6.2.2"
+    }
   }
 }
