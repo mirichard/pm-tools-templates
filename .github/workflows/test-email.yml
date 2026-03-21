@@ -39,7 +39,7 @@ jobs:
 
       - name: Send Test Email
         if: env.HAS_EMAIL == 'true'
-        uses: dawidd6/action-send-mail@v3
+        uses: dawidd6/action-send-mail@v16
         with:
           server_address: smtp.gmail.com
           server_port: 465
