@@ -18,7 +18,7 @@ jobs:
       node: ${{ steps.filter.outputs.node }}
       python: ${{ steps.filter.outputs.python }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
         with: { fetch-depth: 1 }
       - uses: dorny/paths-filter@v3
         id: filter
@@ -46,7 +46,7 @@ jobs:
     outputs:
       matrix: ${{ steps.set-matrix.outputs.matrix }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
         with: { fetch-depth: 1 }
       - name: Detect packages with package.json
         id: set-matrix
@@ -63,7 +63,7 @@ jobs:
         run: |
           echo "run_started_at=${{ github.run_started_at }}"
           date -u +"now_utc=%Y-%m-%dT%H:%M:%SZ"
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
         with:
           fetch-depth: 1
       - uses: actions/setup-node@v6
@@ -96,7 +96,7 @@ jobs:
       fail-fast: true
       matrix: ${{ fromJson(needs.detect-packages.outputs.matrix) }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
         with: { fetch-depth: 1 }
       - uses: actions/setup-node@v6
         with:
@@ -137,7 +137,7 @@ jobs:
     needs: [build-test, test-matrix]
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
         with: { fetch-depth: 1 }
       - uses: actions/setup-node@v6
         with: { node-version: '20' }
@@ -179,7 +179,7 @@ jobs:
         run: |
           echo "run_started_at=${{ github.run_started_at }}"
           date -u +"now_utc=%Y-%m-%dT%H:%M:%SZ"
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
         with:
           fetch-depth: 1
       - uses: actions/setup-node@v6
@@ -227,7 +227,7 @@ jobs:
           echo "run_started_at=${{ github.run_started_at }}"
           date -u +"now_utc=%Y-%m-%dT%H:%M:%SZ"
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           fetch-depth: 1
       - name: Setup Node

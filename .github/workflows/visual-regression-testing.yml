@@ -90,7 +90,7 @@ jobs:
     
     steps:
       - name: 📥 Checkout Repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           fetch-depth: 0
 
@@ -412,7 +412,7 @@ jobs:
     
     steps:
       - name: 📥 Checkout Repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: 📥 Download Discovery Results
         uses: actions/download-artifact@v4
@@ -712,7 +712,7 @@ jobs:
     
     steps:
       - name: 📥 Checkout Repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: 📥 Download Rendered Templates
         uses: actions/download-artifact@v4
@@ -879,7 +879,7 @@ jobs:
     
     steps:
       - name: 📥 Checkout Repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           fetch-depth: 0
 
@@ -1174,7 +1174,7 @@ jobs:
     
     steps:
       - name: 📥 Checkout Repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: 📥 Download Comparison Results
         uses: actions/download-artifact@v4
