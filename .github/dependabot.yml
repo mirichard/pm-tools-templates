@@ -63,6 +63,19 @@ updates:
         patterns:
           - "*"
 
+  # Template Selector backend
+  - package-ecosystem: npm
+    directory: "/PM Tools Templates - Q3 2025 Delivery Cycle/Implementation/template-selector/backend"
+    schedule:
+      interval: weekly
+    versioning-strategy: increase
+    open-pull-requests-limit: 5
+    labels: ["dependencies", "security"]
+    groups:
+      npm-all:
+        patterns:
+          - "*"
+
   # Python examples
   - package-ecosystem: pip
     directory: "/integrations/linkedin"
