@@ -43,8 +43,9 @@
   "overrides": {
     "tmp": "^0.2.4",
     "qs": ">=6.14.2",
-    "lodash": ">=4.17.22"
-  },
+    "lodash": ">=4.17.22",
+    "flatted": "^3.4.2"
+  }
   "repository": {
     "type": "git",
     "url": "https://github.com/mirichard/pm-tools-templates.git"
