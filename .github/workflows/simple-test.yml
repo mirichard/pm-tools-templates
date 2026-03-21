@@ -34,7 +34,7 @@ jobs:
         echo "run_started_at=${{ github.run_started_at }}"
         date -u +"now_utc=%Y-%m-%dT%H:%M:%SZ"
 
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v6
       with:
         fetch-depth: 1
     
