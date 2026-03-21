@@ -217,7 +217,7 @@ jobs:
 
       - name: 📤 Upload Scan Results
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: security-scan-${{ github.run_number }}
           path: |
@@ -279,7 +279,7 @@ jobs:
 
       - name: 📤 Upload Security Artifacts
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: security-scan-results-${{ github.run_number }}
           path: |

@@ -165,7 +165,7 @@ jobs:
           echo "Found $CLEANUP_COUNT artifacts to clean ($(printf "%.2f" $CLEANUP_SIZE_GB) GB)"
 
       - name: 📤 Upload Discovery Results
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: artifact-discovery-${{ github.run_number }}
           path: |
@@ -455,7 +455,7 @@ jobs:
           EOF
 
       - name: 📤 Upload Storage Analysis
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: storage-analysis-${{ github.run_number }}
           path: |
@@ -724,7 +724,7 @@ jobs:
           EOF
 
       - name: 📤 Upload Cleanup Results
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: cleanup-results-${{ github.run_number }}
           path: |
@@ -1007,7 +1007,7 @@ jobs:
           EOF
 
       - name: 📤 Upload Policy Reports
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: retention-policy-reports-${{ github.run_number }}
           path: |
@@ -1228,7 +1228,7 @@ jobs:
             --label "artifact-lifecycle,storage,alert"
 
       - name: 📤 Upload Lifecycle Summary
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: lifecycle-summary-${{ github.run_number }}
           path: lifecycle-summary.md
