@@ -165,7 +165,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: 🗄️ Cache Node.js Dependencies
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         id: node-cache
         with:
           path: |
@@ -201,7 +201,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: 🗄️ Cache Python Dependencies
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         id: python-cache
         with:
           path: |
@@ -235,7 +235,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: 🗄️ Cache Security Tools
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         id: security-cache
         with:
           path: |
@@ -278,7 +278,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: 🗄️ Cache Infrastructure Tools
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         id: infra-cache
         with:
           path: |
