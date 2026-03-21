@@ -74,7 +74,7 @@ jobs:
 
     - name: Upload timings
       if: always()
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v7
       with:
         name: gha-timings-security-scan
         path: gha-timings/timings.jsonl

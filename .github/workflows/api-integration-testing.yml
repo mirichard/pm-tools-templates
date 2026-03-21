@@ -122,7 +122,7 @@ jobs:
           EOF
 
       - name: 📤 Upload Test Results
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         if: always()
         with:
           name: api-health-check-results-${{ github.run_number }}

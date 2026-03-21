@@ -265,7 +265,7 @@ jobs:
           echo "status_summary=${STATUS_SUMMARY:-"{}"}" >> $GITHUB_OUTPUT
 
       - name: 📤 Upload Analysis Data
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: workflow-analysis-data-${{ github.run_number }}
           path: |
@@ -485,7 +485,7 @@ jobs:
           EOF
 
       - name: 📤 Upload Performance Reports
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: performance-analysis-${{ github.run_number }}
           path: |
@@ -746,7 +746,7 @@ jobs:
             --label "workflow-health,monitoring,${{ steps.alerts.outputs.alert_level }}"
 
       - name: 📤 Upload Health Reports
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: health-monitoring-reports-${{ github.run_number }}
           path: |
@@ -969,7 +969,7 @@ jobs:
           EOF
 
       - name: 📤 Upload Trend Analysis
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: trend-analysis-${{ github.run_number }}
           path: |
@@ -1043,7 +1043,7 @@ jobs:
           echo "📋 Monitoring dashboard generated"
 
       - name: 📤 Upload Monitoring Dashboard
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: monitoring-dashboard-${{ github.run_number }}
           path: monitoring-dashboard.md

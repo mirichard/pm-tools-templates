@@ -474,7 +474,7 @@ jobs:
           echo "- Performance Status: ${{ needs.node-cache.result }} | ${{ needs.python-cache.result }} | ${{ needs.security-tools-cache.result }} | ${{ needs.infrastructure-tools-cache.result }}"
 
       - name: 📤 Upload Cache Reports
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: cache-performance-reports-${{ github.run_number }}
           path: |
@@ -570,7 +570,7 @@ jobs:
 
       - name: 📤 Upload Health Reports
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: cache-health-reports-${{ github.run_number }}
           path: cache-health-report.json
@@ -622,7 +622,7 @@ jobs:
           echo "📋 Cache maintenance completed successfully"
 
       - name: 📤 Upload Maintenance Reports
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: cache-maintenance-reports-${{ github.run_number }}
           path: cache-cleanup-report.md

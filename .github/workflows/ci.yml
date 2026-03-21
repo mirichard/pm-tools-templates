@@ -77,13 +77,13 @@ jobs:
         run: ./scripts/measure_step.sh "npm install" -- bash -lc "if [ -f package-lock.json ]; then npm ci; else npm install; fi"
       - name: Test (coverage, fail if below thresholds)
         run: ./scripts/measure_step.sh "unit tests (coverage)" -- npm run test:ci
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: coverage
           path: coverage
       - name: Upload timings
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: gha-timings-ci
           path: gha-timings/timings.jsonl
@@ -117,7 +117,7 @@ jobs:
             npm --prefix "${{ matrix.package }}" run test:ci --if-present
       - name: Upload coverage for ${{ matrix.package }}
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: coverage-${{ matrix.package }}
           path: |
@@ -126,7 +126,7 @@ jobs:
           retention-days: 7
       - name: Upload timings
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: gha-timings-${{ matrix.package }}
           path: gha-timings/timings.jsonl
@@ -164,7 +164,7 @@ jobs:
           "
       - name: Upload merged coverage
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: coverage-merged
           path: coverage
@@ -210,7 +210,7 @@ jobs:
         run: python3 check_anchor_links_filtered.py
       - name: Upload validation timings
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: gha-timings-validate
           path: gha-timings/timings.jsonl
@@ -270,7 +270,7 @@ jobs:
         run: kill $(cat .server.pid)
       - name: Upload preview timings
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: gha-timings-preview
           path: gha-timings/timings.jsonl
