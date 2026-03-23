@@ -14,7 +14,7 @@ jobs:
     steps:
       - name: Check PR body for Governance Advisory Checklist
         id: check
-        uses: actions/github-script@v7
+        uses: actions/github-script@v8
         with:
           script: |
             const body = context.payload.pull_request.body || "";
@@ -31,7 +31,7 @@ jobs:
             }
       - name: Warn if checklist missing
         if: steps.check.outputs.missing != ''
-        uses: actions/github-script@v7
+        uses: actions/github-script@v8
         with:
           script: |
             const missing = core.getInput('missing');
