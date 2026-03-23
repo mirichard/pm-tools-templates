@@ -212,7 +212,7 @@ jobs:
           fetch-depth: 1
 
       - name: 📥 Download Discovery Results
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v8
         with:
           name: artifact-discovery-${{ github.run_number }}
 
@@ -479,7 +479,7 @@ jobs:
           fetch-depth: 1
 
       - name: 📥 Download Analysis Results
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v8
         with:
           name: artifact-discovery-${{ github.run_number }}
 
@@ -1025,7 +1025,7 @@ jobs:
     
     steps:
       - name: 📥 Download Discovery Results
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v8
         with:
           name: artifact-discovery-${{ github.run_number }}
 
