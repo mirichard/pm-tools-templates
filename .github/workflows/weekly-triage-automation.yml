@@ -32,7 +32,7 @@ jobs:
 
       - name: Gather triage data
         id: triage-data
-        uses: actions/github-script@v7
+        uses: actions/github-script@v8
         with:
           script: |
             const { owner, repo } = context.repo;
@@ -112,7 +112,7 @@ jobs:
             };
 
       - name: Create triage preparation issue
-        uses: actions/github-script@v7
+        uses: actions/github-script@v8
         with:
           script: |
             const triageData = ${{ steps.triage-data.outputs.result }};
@@ -204,7 +204,7 @@ jobs:
 
       - name: Send notification to team
         if: success()
-        uses: actions/github-script@v7
+        uses: actions/github-script@v8
         with:
           script: |
             // This could be extended to send notifications via Slack, email, etc.
@@ -213,7 +213,7 @@ jobs:
 
       - name: Label stale issues
         if: success()
-        uses: actions/github-script@v7
+        uses: actions/github-script@v8
         with:
           script: |
             const triageData = ${{ steps.triage-data.outputs.result }};

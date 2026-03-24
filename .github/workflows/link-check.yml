@@ -58,7 +58,7 @@ jobs:
         
     - name: Comment on PR with link health
       if: github.event_name == 'pull_request'
-      uses: actions/github-script@v6
+      uses: actions/github-script@v8
       continue-on-error: true
       with:
         script: |
@@ -118,7 +118,7 @@ jobs:
         
     - name: Create issue on low link health (scheduled runs only)
       if: github.event_name == 'schedule' && steps.link_check.outputs.health_score < 90
-      uses: actions/github-script@v6
+      uses: actions/github-script@v8
       with:
         script: |
           const healthScore = '${{ steps.link_check.outputs.health_score }}';
