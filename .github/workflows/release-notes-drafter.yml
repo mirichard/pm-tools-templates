@@ -15,7 +15,7 @@ jobs:
           fetch-depth: 1
 
       - name: Draft Release Notes
-        uses: release-drafter/release-drafter@v6
+        uses: release-drafter/release-drafter@v7
         with:
           config-name: release-drafter.yml
         env:
