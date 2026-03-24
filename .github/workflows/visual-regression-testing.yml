@@ -415,7 +415,7 @@ jobs:
         uses: actions/checkout@v6
 
       - name: 📥 Download Discovery Results
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v8
         with:
           name: visual-discovery-${{ github.run_number }}
           path: visual-discovery/
@@ -715,7 +715,7 @@ jobs:
         uses: actions/checkout@v6
 
       - name: 📥 Download Rendered Templates
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v8
         with:
           name: rendered-templates-${{ github.run_number }}
           path: rendered-templates/
@@ -884,7 +884,7 @@ jobs:
           fetch-depth: 0
 
       - name: 📥 Download All Screenshots
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v8
         with:
           pattern: "screenshots-*-${{ github.run_number }}"
           merge-multiple: true
@@ -1177,7 +1177,7 @@ jobs:
         uses: actions/checkout@v6
 
       - name: 📥 Download Comparison Results
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v8
         with:
           name: visual-comparison-results-${{ github.run_number }}
           path: visual-comparison-results/
