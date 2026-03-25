@@ -96,6 +96,6 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages (timed)
         id: deployment
-        run: ./scripts/measure_step.sh "deploy pages" -- bash -lc "echo 'Deploy via actions/deploy-pages@v4 is executed by the step metadata';"
+        run: ./scripts/measure_step.sh "deploy pages" -- bash -lc "echo 'Deploy via actions/deploy-pages@v5 is executed by the step metadata';"
       - name: Deployment action
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
