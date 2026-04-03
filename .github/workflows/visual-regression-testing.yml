@@ -90,7 +90,7 @@ jobs:
     
     steps:
       - name: 📥 Checkout Repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           fetch-depth: 0
 
@@ -397,7 +397,7 @@ jobs:
           echo "total_tests=$TOTAL_TESTS" >> $GITHUB_OUTPUT
 
       - name: 📤 Upload Discovery Results
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: visual-discovery-${{ github.run_number }}
           path: visual-discovery/
@@ -412,10 +412,10 @@ jobs:
     
     steps:
       - name: 📥 Checkout Repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: 📥 Download Discovery Results
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v8
         with:
           name: visual-discovery-${{ github.run_number }}
           path: visual-discovery/
@@ -688,7 +688,7 @@ jobs:
           EOF
 
       - name: 📤 Upload Rendered Templates
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: rendered-templates-${{ github.run_number }}
           path: rendered-templates/
@@ -712,10 +712,10 @@ jobs:
     
     steps:
       - name: 📥 Checkout Repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: 📥 Download Rendered Templates
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v8
         with:
           name: rendered-templates-${{ github.run_number }}
           path: rendered-templates/
@@ -863,7 +863,7 @@ jobs:
           EOF
 
       - name: 📤 Upload Screenshots
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         if: always()
         with:
           name: screenshots-${{ matrix.browser }}-${{ matrix.resolution.name }}-${{ github.run_number }}
@@ -879,12 +879,12 @@ jobs:
     
     steps:
       - name: 📥 Checkout Repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           fetch-depth: 0
 
       - name: 📥 Download All Screenshots
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v8
         with:
           pattern: "screenshots-*-${{ github.run_number }}"
           merge-multiple: true
@@ -1150,7 +1150,7 @@ jobs:
           EOF
 
       - name: 📤 Upload Comparison Results
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         if: always()
         with:
           name: visual-comparison-results-${{ github.run_number }}
@@ -1159,7 +1159,7 @@ jobs:
 
       - name: 📤 Update Visual Baselines
         if: github.event.inputs.baseline_update == 'true'
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: visual-baselines-${{ github.run_number }}
           path: .github/visual-baselines/
@@ -1174,10 +1174,10 @@ jobs:
     
     steps:
       - name: 📥 Checkout Repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: 📥 Download Comparison Results
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v8
         with:
           name: visual-comparison-results-${{ github.run_number }}
           path: visual-comparison-results/
@@ -1432,7 +1432,7 @@ jobs:
 
       - name: 💬 Comment on Pull Request
         if: github.event_name == 'pull_request'
-        uses: actions/github-script@v7
+        uses: actions/github-script@v8
         with:
           script: |
             const fs = require('fs');
@@ -1494,7 +1494,7 @@ jobs:
             });
 
       - name: 📤 Upload Visual Regression Report
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: visual-regression-report-${{ github.run_number }}
           path: |

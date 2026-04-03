@@ -22,7 +22,7 @@ jobs:
     
     steps:
       - name: 📥 Checkout Repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           fetch-depth: 1
 
@@ -217,7 +217,7 @@ jobs:
 
       - name: 📤 Upload Scan Results
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: security-scan-${{ github.run_number }}
           path: |
@@ -279,7 +279,7 @@ jobs:
 
       - name: 📤 Upload Security Artifacts
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: security-scan-results-${{ github.run_number }}
           path: |
@@ -293,7 +293,7 @@ jobs:
 
       - name: 💬 Comment on Pull Request
         if: github.event_name == 'pull_request' && always()
-        uses: actions/github-script@v7
+        uses: actions/github-script@v8
         with:
           script: |
             const fs = require('fs');

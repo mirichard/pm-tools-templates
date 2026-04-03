@@ -17,12 +17,12 @@ jobs:
     
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           fetch-depth: 1
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
           node-version: '18'
 
@@ -32,7 +32,7 @@ jobs:
 
       - name: Gather triage data
         id: triage-data
-        uses: actions/github-script@v7
+        uses: actions/github-script@v8
         with:
           script: |
             const { owner, repo } = context.repo;
@@ -112,7 +112,7 @@ jobs:
             };
 
       - name: Create triage preparation issue
-        uses: actions/github-script@v7
+        uses: actions/github-script@v8
         with:
           script: |
             const triageData = ${{ steps.triage-data.outputs.result }};
@@ -204,7 +204,7 @@ jobs:
 
       - name: Send notification to team
         if: success()
-        uses: actions/github-script@v7
+        uses: actions/github-script@v8
         with:
           script: |
             // This could be extended to send notifications via Slack, email, etc.
@@ -213,7 +213,7 @@ jobs:
 
       - name: Label stale issues
         if: success()
-        uses: actions/github-script@v7
+        uses: actions/github-script@v8
         with:
           script: |
             const triageData = ${{ steps.triage-data.outputs.result }};

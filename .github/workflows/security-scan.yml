@@ -14,9 +14,9 @@ jobs:
       node: ${{ steps.filter.outputs.node }}
       python: ${{ steps.filter.outputs.python }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
         with: { fetch-depth: 1 }
-      - uses: dorny/paths-filter@v3
+      - uses: dorny/paths-filter@v4
         id: filter
         with:
           filters: |
@@ -41,12 +41,12 @@ jobs:
         date -u +"now_utc=%Y-%m-%dT%H:%M:%SZ"
 
     - name: Checkout code
-      uses: actions/checkout@v4
+      uses: actions/checkout@v6
       with:
         fetch-depth: 1
 
     - name: Setup Node (for npm audit)
-      uses: actions/setup-node@v4
+      uses: actions/setup-node@v6
       with:
         node-version: '20'
         cache: 'npm'
@@ -55,7 +55,7 @@ jobs:
           **/package-lock.json
 
     - name: Setup Python (for safety)
-      uses: actions/setup-python@v5
+      uses: actions/setup-python@v6
       with:
         python-version: '3.x'
         cache: 'pip'
@@ -74,7 +74,7 @@ jobs:
 
     - name: Upload timings
       if: always()
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v7
       with:
         name: gha-timings-security-scan
         path: gha-timings/timings.jsonl

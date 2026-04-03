@@ -22,9 +22,9 @@ jobs:
     outputs:
       site: ${{ steps.filter.outputs.site }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
         with: { fetch-depth: 1 }
-      - uses: dorny/paths-filter@v3
+      - uses: dorny/paths-filter@v4
         id: filter
         with:
           filters: |
@@ -48,12 +48,12 @@ jobs:
           date -u +"now_utc=%Y-%m-%dT%H:%M:%SZ"
 
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           fetch-depth: 0  # Need full history for changelog generation
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
           node-version: '20'
           cache: 'npm'
@@ -74,13 +74,13 @@ jobs:
         run: ../../scripts/measure_step.sh "site build" -- npm run build --silent
 
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v4
         with:
           path: ./docs/site/dist
 
       - name: Upload timings
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: gha-timings-build-site
           path: gha-timings/timings.jsonl
@@ -96,6 +96,6 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages (timed)
         id: deployment
-        run: ./scripts/measure_step.sh "deploy pages" -- bash -lc "echo 'Deploy via actions/deploy-pages@v4 is executed by the step metadata';"
+        run: ./scripts/measure_step.sh "deploy pages" -- bash -lc "echo 'Deploy via actions/deploy-pages@v5 is executed by the step metadata';"
       - name: Deployment action
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
