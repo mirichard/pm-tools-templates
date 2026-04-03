@@ -1,5 +1,5 @@
 {
-  "generated": "2026-04-03T23:15:41.605087Z",
+  "generated": "2026-04-03T23:32:53.576527Z",
   "total": 137,
   "mappings": [
     {
@@ -7,9 +7,11 @@
       "title": "Advanced Business Case Template",
       "methodology": "universal",
       "domain": {
-        "primary": "Planning",
-        "secondary": [],
-        "rationale": "Financial template supports strategic planning and budgeting"
+        "primary": "Stakeholder",
+        "secondary": [
+          "Planning"
+        ],
+        "rationale": "Title/path indicates stakeholder-focused purpose"
       },
       "flags": {
         "needs_review": false,
@@ -71,11 +73,11 @@
       "title": "Agile Stakeholder Map Template",
       "methodology": "universal",
       "domain": {
-        "primary": "Delivery",
+        "primary": "Stakeholder",
         "secondary": [
-          "Stakeholder"
+          "Planning"
         ],
-        "rationale": "Methodology-specific template guides delivery execution"
+        "rationale": "Title/path indicates stakeholder-focused purpose"
       },
       "flags": {
         "needs_review": false,
@@ -87,9 +89,9 @@
       "title": "Agile Team Charter Template",
       "methodology": "universal",
       "domain": {
-        "primary": "Delivery",
+        "primary": "Team",
         "secondary": [],
-        "rationale": "Methodology-specific template guides delivery execution"
+        "rationale": "Title/path indicates team-focused ceremony or collaboration"
       },
       "flags": {
         "needs_review": false,
@@ -164,11 +166,9 @@
       "title": "Backlog Refinement Template",
       "methodology": "agile",
       "domain": {
-        "primary": "Delivery",
-        "secondary": [
-          "Uncertainty"
-        ],
-        "rationale": "Methodology-specific template guides delivery execution"
+        "primary": "Team",
+        "secondary": [],
+        "rationale": "Title/path indicates team-focused ceremony or collaboration"
       },
       "flags": {
         "needs_review": false,
@@ -196,11 +196,9 @@
       "title": "Budget Dashboard Template",
       "methodology": "universal",
       "domain": {
-        "primary": "Measurement",
-        "secondary": [
-          "Planning"
-        ],
-        "rationale": "Financial monitoring measures value delivery"
+        "primary": "Stakeholder",
+        "secondary": [],
+        "rationale": "Title/path indicates stakeholder-focused purpose"
       },
       "flags": {
         "needs_review": false,
@@ -212,12 +210,11 @@
       "title": "Budget Template",
       "methodology": "universal",
       "domain": {
-        "primary": "Measurement",
+        "primary": "Planning",
         "secondary": [
-          "Stakeholder",
           "Uncertainty"
         ],
-        "rationale": "Monitoring template tracks and reports performance"
+        "rationale": "Title/path indicates strategic planning purpose"
       },
       "flags": {
         "needs_review": false,
@@ -229,12 +226,11 @@
       "title": "Business Case Template",
       "methodology": "traditional",
       "domain": {
-        "primary": "Delivery",
+        "primary": "Planning",
         "secondary": [
-          "Stakeholder",
           "Uncertainty"
         ],
-        "rationale": "Methodology-specific template guides delivery execution"
+        "rationale": "Title/path indicates strategic planning purpose"
       },
       "flags": {
         "needs_review": false,
@@ -478,11 +474,9 @@
       "title": "Daily Standup Template",
       "methodology": "agile",
       "domain": {
-        "primary": "Delivery",
-        "secondary": [
-          "Uncertainty"
-        ],
-        "rationale": "Methodology-specific template guides delivery execution"
+        "primary": "Team",
+        "secondary": [],
+        "rationale": "Title/path indicates team-focused ceremony or collaboration"
       },
       "flags": {
         "needs_review": false,
@@ -571,12 +565,11 @@
       "title": "Enterprise Stakeholder Analysis Template",
       "methodology": "universal",
       "domain": {
-        "primary": "Measurement",
+        "primary": "Stakeholder",
         "secondary": [
-          "Stakeholder",
-          "Uncertainty"
+          "Planning"
         ],
-        "rationale": "Monitoring template tracks and reports performance"
+        "rationale": "Title/path indicates stakeholder-focused purpose"
       },
       "flags": {
         "needs_review": false,
@@ -604,11 +597,11 @@
       "title": "Evm Dashboard Template",
       "methodology": "universal",
       "domain": {
-        "primary": "Measurement",
+        "primary": "Stakeholder",
         "secondary": [
           "Planning"
         ],
-        "rationale": "Financial monitoring measures value delivery"
+        "rationale": "Title/path indicates stakeholder-focused purpose"
       },
       "flags": {
         "needs_review": false,
@@ -620,12 +613,9 @@
       "title": "Executive Dashboard Template",
       "methodology": "universal",
       "domain": {
-        "primary": "Measurement",
-        "secondary": [
-          "Stakeholder",
-          "Uncertainty"
-        ],
-        "rationale": "Monitoring template tracks and reports performance"
+        "primary": "Stakeholder",
+        "secondary": [],
+        "rationale": "Title/path indicates stakeholder-focused purpose"
       },
       "flags": {
         "needs_review": false,
@@ -637,12 +627,9 @@
       "title": "Executive Report Templates",
       "methodology": "universal",
       "domain": {
-        "primary": "Measurement",
-        "secondary": [
-          "Stakeholder",
-          "Uncertainty"
-        ],
-        "rationale": "Monitoring template tracks and reports performance"
+        "primary": "Stakeholder",
+        "secondary": [],
+        "rationale": "Title/path indicates stakeholder-focused purpose"
       },
       "flags": {
         "needs_review": false,
@@ -804,12 +791,11 @@
       "title": "Hybrid Project Charter Template",
       "methodology": "hybrid",
       "domain": {
-        "primary": "Delivery",
+        "primary": "Planning",
         "secondary": [
-          "Stakeholder",
           "Uncertainty"
         ],
-        "rationale": "Methodology-specific template guides delivery execution"
+        "rationale": "Title/path indicates strategic planning purpose"
       },
       "flags": {
         "needs_review": false,
@@ -986,11 +972,11 @@
       "title": "Less Retrospective Template",
       "methodology": "agile",
       "domain": {
-        "primary": "Delivery",
+        "primary": "Team",
         "secondary": [
           "Stakeholder"
         ],
-        "rationale": "Methodology-specific template guides delivery execution"
+        "rationale": "Title/path indicates team-focused ceremony or collaboration"
       },
       "flags": {
         "needs_review": false,
@@ -1324,12 +1310,11 @@
       "title": "Program Charter Template",
       "methodology": "traditional",
       "domain": {
-        "primary": "Delivery",
+        "primary": "Planning",
         "secondary": [
-          "Stakeholder",
           "Uncertainty"
         ],
-        "rationale": "Methodology-specific template guides delivery execution"
+        "rationale": "Title/path indicates strategic planning purpose"
       },
       "flags": {
         "needs_review": false,
@@ -1375,12 +1360,11 @@
       "title": "Project Charter Template",
       "methodology": "traditional",
       "domain": {
-        "primary": "Delivery",
+        "primary": "Planning",
         "secondary": [
-          "Stakeholder",
           "Uncertainty"
         ],
-        "rationale": "Methodology-specific template guides delivery execution"
+        "rationale": "Title/path indicates strategic planning purpose"
       },
       "flags": {
         "needs_review": false,
@@ -1889,12 +1873,11 @@
       "title": "Skills Matrix Template",
       "methodology": "universal",
       "domain": {
-        "primary": "Uncertainty",
+        "primary": "Team",
         "secondary": [
-          "Planning",
           "Stakeholder"
         ],
-        "rationale": "Risk-focused template manages project uncertainty"
+        "rationale": "Title/path indicates team-focused ceremony or collaboration"
       },
       "flags": {
         "needs_review": false,
@@ -1939,12 +1922,11 @@
       "title": "Sprint Retrospective Template",
       "methodology": "agile",
       "domain": {
-        "primary": "Delivery",
+        "primary": "Team",
         "secondary": [
-          "Stakeholder",
-          "Uncertainty"
+          "Stakeholder"
         ],
-        "rationale": "Methodology-specific template guides delivery execution"
+        "rationale": "Title/path indicates team-focused ceremony or collaboration"
       },
       "flags": {
         "needs_review": false,
@@ -1956,12 +1938,11 @@
       "title": "Sprint Review Template",
       "methodology": "agile",
       "domain": {
-        "primary": "Delivery",
+        "primary": "Team",
         "secondary": [
-          "Stakeholder",
-          "Uncertainty"
+          "Stakeholder"
         ],
-        "rationale": "Methodology-specific template guides delivery execution"
+        "rationale": "Title/path indicates team-focused ceremony or collaboration"
       },
       "flags": {
         "needs_review": false,
@@ -1977,7 +1958,7 @@
         "secondary": [
           "Planning"
         ],
-        "rationale": "Stakeholder engagement and communication template"
+        "rationale": "Title/path indicates stakeholder-focused purpose"
       },
       "flags": {
         "needs_review": false,
@@ -1993,7 +1974,7 @@
         "secondary": [
           "Planning"
         ],
-        "rationale": "Stakeholder engagement and communication template"
+        "rationale": "Title/path indicates stakeholder-focused purpose"
       },
       "flags": {
         "needs_review": false,
@@ -2021,12 +2002,11 @@
       "title": "Team Charter Template",
       "methodology": "universal",
       "domain": {
-        "primary": "Measurement",
+        "primary": "Team",
         "secondary": [
-          "Stakeholder",
-          "Uncertainty"
+          "Stakeholder"
         ],
-        "rationale": "Monitoring template tracks and reports performance"
+        "rationale": "Title/path indicates team-focused ceremony or collaboration"
       },
       "flags": {
         "needs_review": false,
@@ -2038,11 +2018,11 @@
       "title": "Team Performance Assessment Template",
       "methodology": "traditional",
       "domain": {
-        "primary": "Delivery",
+        "primary": "Team",
         "secondary": [
           "Stakeholder"
         ],
-        "rationale": "Methodology-specific template guides delivery execution"
+        "rationale": "Title/path indicates team-focused ceremony or collaboration"
       },
       "flags": {
         "needs_review": false,
@@ -2101,12 +2081,11 @@
       "title": "Traditional Project Charter Template",
       "methodology": "universal",
       "domain": {
-        "primary": "Delivery",
+        "primary": "Planning",
         "secondary": [
-          "Stakeholder",
           "Uncertainty"
         ],
-        "rationale": "Methodology-specific template guides delivery execution"
+        "rationale": "Title/path indicates strategic planning purpose"
       },
       "flags": {
         "needs_review": false,

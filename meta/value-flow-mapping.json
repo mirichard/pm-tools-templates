@@ -1,5 +1,5 @@
 {
-  "generated": "2026-04-03T23:15:41.429550Z",
+  "generated": "2026-04-03T23:32:53.414735Z",
   "total": 137,
   "mappings": [
     {
@@ -7,9 +7,9 @@
       "title": "Advanced Business Case Template",
       "methodology": "universal",
       "value_flow": {
-        "primary": "outcome-tracker",
-        "secondary": null,
-        "rationale": "Financial tracking measures business value realization"
+        "primary": "input-enabler",
+        "secondary": "activity-support",
+        "rationale": "Title/path indicates input-gathering purpose"
       },
       "flags": {
         "needs_review": false,
@@ -35,9 +35,9 @@
       "title": "Agile Release Plan Template",
       "methodology": "universal",
       "value_flow": {
-        "primary": "output-generator",
-        "secondary": "activity-support",
-        "rationale": "Monitoring template with methodology context produces reports during execution"
+        "primary": "activity-support",
+        "secondary": "output-generator",
+        "rationale": "Methodology template with monitoring aspect supports execution"
       },
       "flags": {
         "needs_review": false,
@@ -49,9 +49,9 @@
       "title": "Agile Risk Board Template",
       "methodology": "universal",
       "value_flow": {
-        "primary": "output-generator",
-        "secondary": "activity-support",
-        "rationale": "Monitoring template with methodology context produces reports during execution"
+        "primary": "activity-support",
+        "secondary": "output-generator",
+        "rationale": "Methodology template with monitoring aspect supports execution"
       },
       "flags": {
         "needs_review": false,
@@ -63,9 +63,9 @@
       "title": "Agile Stakeholder Map Template",
       "methodology": "universal",
       "value_flow": {
-        "primary": "output-generator",
-        "secondary": "activity-support",
-        "rationale": "Monitoring template with methodology context produces reports during execution"
+        "primary": "activity-support",
+        "secondary": "output-generator",
+        "rationale": "Methodology template with monitoring aspect supports execution"
       },
       "flags": {
         "needs_review": false,
@@ -120,8 +120,8 @@
       "methodology": "universal",
       "value_flow": {
         "primary": "activity-support",
-        "secondary": null,
-        "rationale": "Risk management template guides uncertainty response during execution"
+        "secondary": "input-enabler",
+        "rationale": "Risk management template supports uncertainty response"
       },
       "flags": {
         "needs_review": false,
@@ -175,9 +175,9 @@
       "title": "Budget Dashboard Template",
       "methodology": "universal",
       "value_flow": {
-        "primary": "outcome-tracker",
-        "secondary": "output-generator",
-        "rationale": "Financial tracking measures business value realization"
+        "primary": "output-generator",
+        "secondary": null,
+        "rationale": "Title/path indicates report/deliverable production"
       },
       "flags": {
         "needs_review": false,
@@ -203,9 +203,9 @@
       "title": "Business Case Template",
       "methodology": "traditional",
       "value_flow": {
-        "primary": "activity-support",
-        "secondary": "input-enabler",
-        "rationale": "Methodology template with stakeholder focus supports execution and input gathering"
+        "primary": "input-enabler",
+        "secondary": "activity-support",
+        "rationale": "Title/path indicates input-gathering purpose"
       },
       "flags": {
         "needs_review": false,
@@ -217,9 +217,9 @@
       "title": "Business Requirements Document Template",
       "methodology": "universal",
       "value_flow": {
-        "primary": "output-generator",
-        "secondary": null,
-        "rationale": "Monitoring-focused template produces reports and dashboards"
+        "primary": "input-enabler",
+        "secondary": "activity-support",
+        "rationale": "Title/path indicates input-gathering purpose"
       },
       "flags": {
         "needs_review": false,
@@ -245,9 +245,9 @@
       "title": "Change Management Plan Template",
       "methodology": "traditional",
       "value_flow": {
-        "primary": "output-generator",
-        "secondary": "activity-support",
-        "rationale": "Monitoring template with methodology context produces reports during execution"
+        "primary": "activity-support",
+        "secondary": "output-generator",
+        "rationale": "Methodology template with monitoring aspect supports execution"
       },
       "flags": {
         "needs_review": false,
@@ -385,9 +385,9 @@
       "title": "Current State Analysis Template",
       "methodology": "universal",
       "value_flow": {
-        "primary": "output-generator",
-        "secondary": null,
-        "rationale": "Monitoring-focused template produces reports and dashboards"
+        "primary": "input-enabler",
+        "secondary": "activity-support",
+        "rationale": "Title/path indicates input-gathering purpose"
       },
       "flags": {
         "needs_review": false,
@@ -484,8 +484,8 @@
       "methodology": "universal",
       "value_flow": {
         "primary": "activity-support",
-        "secondary": null,
-        "rationale": "Risk management template guides uncertainty response during execution"
+        "secondary": "input-enabler",
+        "rationale": "Risk management template supports uncertainty response"
       },
       "flags": {
         "needs_review": false,
@@ -525,9 +525,9 @@
       "title": "Evm Dashboard Template",
       "methodology": "universal",
       "value_flow": {
-        "primary": "outcome-tracker",
-        "secondary": "output-generator",
-        "rationale": "Financial tracking measures business value realization"
+        "primary": "output-generator",
+        "secondary": null,
+        "rationale": "Title/path indicates report/deliverable production"
       },
       "flags": {
         "needs_review": false,
@@ -541,7 +541,7 @@
       "value_flow": {
         "primary": "output-generator",
         "secondary": null,
-        "rationale": "Monitoring-focused template produces reports and dashboards"
+        "rationale": "Title/path indicates report/deliverable production"
       },
       "flags": {
         "needs_review": false,
@@ -555,7 +555,7 @@
       "value_flow": {
         "primary": "output-generator",
         "secondary": null,
-        "rationale": "Monitoring-focused template produces reports and dashboards"
+        "rationale": "Title/path indicates report/deliverable production"
       },
       "flags": {
         "needs_review": false,
@@ -639,7 +639,7 @@
       "value_flow": {
         "primary": "output-generator",
         "secondary": null,
-        "rationale": "Monitoring-focused template produces reports and dashboards"
+        "rationale": "Title/path indicates report/deliverable production"
       },
       "flags": {
         "needs_review": false,
@@ -665,9 +665,9 @@
       "title": "Hybrid Infrastructure Template",
       "methodology": "hybrid",
       "value_flow": {
-        "primary": "output-generator",
-        "secondary": "activity-support",
-        "rationale": "Monitoring template with methodology context produces reports during execution"
+        "primary": "activity-support",
+        "secondary": "output-generator",
+        "rationale": "Methodology template with monitoring aspect supports execution"
       },
       "flags": {
         "needs_review": false,
@@ -680,8 +680,8 @@
       "methodology": "universal",
       "value_flow": {
         "primary": "activity-support",
-        "secondary": "input-enabler",
-        "rationale": "Methodology template with stakeholder focus supports execution and input gathering"
+        "secondary": null,
+        "rationale": "Methodology-specific template guides execution work"
       },
       "flags": {
         "needs_review": false,
@@ -693,9 +693,9 @@
       "title": "Hybrid Project Charter Template",
       "methodology": "hybrid",
       "value_flow": {
-        "primary": "activity-support",
-        "secondary": null,
-        "rationale": "Methodology-specific template guides execution work"
+        "primary": "input-enabler",
+        "secondary": "activity-support",
+        "rationale": "Title/path indicates input-gathering purpose"
       },
       "flags": {
         "needs_review": false,
@@ -708,8 +708,8 @@
       "methodology": "universal",
       "value_flow": {
         "primary": "activity-support",
-        "secondary": "input-enabler",
-        "rationale": "Methodology template with stakeholder focus supports execution and input gathering"
+        "secondary": null,
+        "rationale": "Methodology-specific template guides execution work"
       },
       "flags": {
         "needs_review": false,
@@ -721,9 +721,9 @@
       "title": "Hybrid Quality Management Template",
       "methodology": "hybrid",
       "value_flow": {
-        "primary": "output-generator",
-        "secondary": "activity-support",
-        "rationale": "Monitoring template with methodology context produces reports during execution"
+        "primary": "activity-support",
+        "secondary": "output-generator",
+        "rationale": "Methodology template with monitoring aspect supports execution"
       },
       "flags": {
         "needs_review": false,
@@ -819,9 +819,9 @@
       "title": "Integrated Change Strategy Template",
       "methodology": "hybrid",
       "value_flow": {
-        "primary": "output-generator",
-        "secondary": "activity-support",
-        "rationale": "Monitoring template with methodology context produces reports during execution"
+        "primary": "activity-support",
+        "secondary": "output-generator",
+        "rationale": "Methodology template with monitoring aspect supports execution"
       },
       "flags": {
         "needs_review": false,
@@ -833,9 +833,9 @@
       "title": "Issue Log Template",
       "methodology": "traditional",
       "value_flow": {
-        "primary": "output-generator",
-        "secondary": "activity-support",
-        "rationale": "Monitoring template with methodology context produces reports during execution"
+        "primary": "activity-support",
+        "secondary": "output-generator",
+        "rationale": "Methodology template with monitoring aspect supports execution"
       },
       "flags": {
         "needs_review": false,
@@ -847,9 +847,9 @@
       "title": "Less Retrospective Template",
       "methodology": "agile",
       "value_flow": {
-        "primary": "activity-support",
+        "primary": "outcome-tracker",
         "secondary": null,
-        "rationale": "Methodology-specific template guides execution work"
+        "rationale": "Title/path indicates outcome measurement purpose"
       },
       "flags": {
         "needs_review": false,
@@ -889,9 +889,9 @@
       "title": "Meeting Templates",
       "methodology": "universal",
       "value_flow": {
-        "primary": "activity-support",
-        "secondary": "outcome-tracker",
-        "rationale": "Quality + risk template supports execution with assessment aspect"
+        "primary": "input-enabler",
+        "secondary": "activity-support",
+        "rationale": "Planning + stakeholder template gathers inputs for project setup"
       },
       "flags": {
         "needs_review": false,
@@ -904,8 +904,8 @@
       "methodology": "agile",
       "value_flow": {
         "primary": "output-generator",
-        "secondary": "activity-support",
-        "rationale": "Monitoring template with methodology context produces reports during execution"
+        "secondary": null,
+        "rationale": "Title/path indicates report/deliverable production"
       },
       "flags": {
         "needs_review": false,
@@ -919,7 +919,7 @@
       "value_flow": {
         "primary": "activity-support",
         "secondary": "input-enabler",
-        "rationale": "Risk + planning template supports risk management during execution"
+        "rationale": "Risk management template supports uncertainty response"
       },
       "flags": {
         "needs_review": false,
@@ -945,9 +945,9 @@
       "title": "Okr Template",
       "methodology": "universal",
       "value_flow": {
-        "primary": "outcome-tracker",
-        "secondary": null,
-        "rationale": "Quality-focused template assesses and evaluates outcomes"
+        "primary": "input-enabler",
+        "secondary": "activity-support",
+        "rationale": "Planning + stakeholder template gathers inputs for project setup"
       },
       "flags": {
         "needs_review": false,
@@ -973,9 +973,9 @@
       "title": "Overall Product Backlog Template",
       "methodology": "agile",
       "value_flow": {
-        "primary": "output-generator",
-        "secondary": "activity-support",
-        "rationale": "Monitoring template with methodology context produces reports during execution"
+        "primary": "activity-support",
+        "secondary": "output-generator",
+        "rationale": "Methodology template with monitoring aspect supports execution"
       },
       "flags": {
         "needs_review": false,
@@ -1071,9 +1071,9 @@
       "title": "Process Maturity Assessment Template",
       "methodology": "universal",
       "value_flow": {
-        "primary": "output-generator",
+        "primary": "outcome-tracker",
         "secondary": null,
-        "rationale": "Monitoring-focused template produces reports and dashboards"
+        "rationale": "Title/path indicates outcome measurement purpose"
       },
       "flags": {
         "needs_review": false,
@@ -1128,8 +1128,8 @@
       "methodology": "universal",
       "value_flow": {
         "primary": "activity-support",
-        "secondary": null,
-        "rationale": "Risk management template guides uncertainty response during execution"
+        "secondary": "input-enabler",
+        "rationale": "Risk management template supports uncertainty response"
       },
       "flags": {
         "needs_review": false,
@@ -1141,9 +1141,9 @@
       "title": "Program Charter Template",
       "methodology": "traditional",
       "value_flow": {
-        "primary": "output-generator",
+        "primary": "input-enabler",
         "secondary": "activity-support",
-        "rationale": "Monitoring template with methodology context produces reports during execution"
+        "rationale": "Title/path indicates input-gathering purpose"
       },
       "flags": {
         "needs_review": false,
@@ -1155,9 +1155,9 @@
       "title": "Program Management Plan Template",
       "methodology": "traditional",
       "value_flow": {
-        "primary": "output-generator",
-        "secondary": "activity-support",
-        "rationale": "Monitoring template with methodology context produces reports during execution"
+        "primary": "activity-support",
+        "secondary": "output-generator",
+        "rationale": "Methodology template with monitoring aspect supports execution"
       },
       "flags": {
         "needs_review": false,
@@ -1169,9 +1169,9 @@
       "title": "Progressive Acceptance Plan Template",
       "methodology": "hybrid",
       "value_flow": {
-        "primary": "output-generator",
-        "secondary": "activity-support",
-        "rationale": "Monitoring template with methodology context produces reports during execution"
+        "primary": "activity-support",
+        "secondary": "output-generator",
+        "rationale": "Methodology template with monitoring aspect supports execution"
       },
       "flags": {
         "needs_review": false,
@@ -1183,9 +1183,9 @@
       "title": "Project Charter Template",
       "methodology": "traditional",
       "value_flow": {
-        "primary": "activity-support",
-        "secondary": null,
-        "rationale": "Methodology-specific template guides execution work"
+        "primary": "input-enabler",
+        "secondary": "activity-support",
+        "rationale": "Title/path indicates input-gathering purpose"
       },
       "flags": {
         "needs_review": false,
@@ -1198,8 +1198,8 @@
       "methodology": "traditional",
       "value_flow": {
         "primary": "output-generator",
-        "secondary": "activity-support",
-        "rationale": "Monitoring template with methodology context produces reports during execution"
+        "secondary": null,
+        "rationale": "Title/path indicates report/deliverable production"
       },
       "flags": {
         "needs_review": false,
@@ -1211,9 +1211,9 @@
       "title": "Project Dashboard Template",
       "methodology": "universal",
       "value_flow": {
-        "primary": "activity-support",
-        "secondary": "outcome-tracker",
-        "rationale": "Quality + risk template supports execution with assessment aspect"
+        "primary": "output-generator",
+        "secondary": null,
+        "rationale": "Title/path indicates report/deliverable production"
       },
       "flags": {
         "needs_review": false,
@@ -1226,8 +1226,8 @@
       "methodology": "traditional",
       "value_flow": {
         "primary": "output-generator",
-        "secondary": "activity-support",
-        "rationale": "Monitoring template with methodology context produces reports during execution"
+        "secondary": null,
+        "rationale": "Title/path indicates report/deliverable production"
       },
       "flags": {
         "needs_review": false,
@@ -1239,9 +1239,9 @@
       "title": "Project Health Assessment Template",
       "methodology": "universal",
       "value_flow": {
-        "primary": "output-generator",
+        "primary": "outcome-tracker",
         "secondary": null,
-        "rationale": "Monitoring-focused template produces reports and dashboards"
+        "rationale": "Title/path indicates outcome measurement purpose"
       },
       "flags": {
         "needs_review": false,
@@ -1253,9 +1253,9 @@
       "title": "Project Management Plan Template",
       "methodology": "traditional",
       "value_flow": {
-        "primary": "output-generator",
-        "secondary": "activity-support",
-        "rationale": "Monitoring template with methodology context produces reports during execution"
+        "primary": "activity-support",
+        "secondary": "output-generator",
+        "rationale": "Methodology template with monitoring aspect supports execution"
       },
       "flags": {
         "needs_review": false,
@@ -1267,9 +1267,9 @@
       "title": "Project Performance Monitoring Template",
       "methodology": "traditional",
       "value_flow": {
-        "primary": "output-generator",
-        "secondary": "activity-support",
-        "rationale": "Monitoring template with methodology context produces reports during execution"
+        "primary": "activity-support",
+        "secondary": "output-generator",
+        "rationale": "Methodology template with monitoring aspect supports execution"
       },
       "flags": {
         "needs_review": false,
@@ -1281,9 +1281,9 @@
       "title": "Project Roadmap Template",
       "methodology": "traditional",
       "value_flow": {
-        "primary": "output-generator",
-        "secondary": "activity-support",
-        "rationale": "Monitoring template with methodology context produces reports during execution"
+        "primary": "activity-support",
+        "secondary": "output-generator",
+        "rationale": "Methodology template with monitoring aspect supports execution"
       },
       "flags": {
         "needs_review": false,
@@ -1381,7 +1381,7 @@
       "value_flow": {
         "primary": "activity-support",
         "secondary": "input-enabler",
-        "rationale": "Risk + planning template supports risk management during execution"
+        "rationale": "Risk management template supports uncertainty response"
       },
       "flags": {
         "needs_review": false,
@@ -1421,9 +1421,9 @@
       "title": "Requirements Specification Template",
       "methodology": "universal",
       "value_flow": {
-        "primary": "activity-support",
-        "secondary": "outcome-tracker",
-        "rationale": "Quality + risk template supports execution with assessment aspect"
+        "primary": "input-enabler",
+        "secondary": "activity-support",
+        "rationale": "Title/path indicates input-gathering purpose"
       },
       "flags": {
         "needs_review": false,
@@ -1435,9 +1435,9 @@
       "title": "Requirements Traceability Matrix Template",
       "methodology": "traditional",
       "value_flow": {
-        "primary": "output-generator",
+        "primary": "input-enabler",
         "secondary": "activity-support",
-        "rationale": "Monitoring template with methodology context produces reports during execution"
+        "rationale": "Title/path indicates input-gathering purpose"
       },
       "flags": {
         "needs_review": false,
@@ -1533,9 +1533,9 @@
       "title": "Roi Tracking Template",
       "methodology": "traditional",
       "value_flow": {
-        "primary": "output-generator",
-        "secondary": "activity-support",
-        "rationale": "Monitoring template with methodology context produces reports during execution"
+        "primary": "outcome-tracker",
+        "secondary": null,
+        "rationale": "Title/path indicates outcome measurement purpose"
       },
       "flags": {
         "needs_review": false,
@@ -1547,9 +1547,9 @@
       "title": "Safe Art Coordination Template",
       "methodology": "agile",
       "value_flow": {
-        "primary": "output-generator",
-        "secondary": "activity-support",
-        "rationale": "Monitoring template with methodology context produces reports during execution"
+        "primary": "activity-support",
+        "secondary": "output-generator",
+        "rationale": "Methodology template with monitoring aspect supports execution"
       },
       "flags": {
         "needs_review": false,
@@ -1562,8 +1562,8 @@
       "methodology": "agile",
       "value_flow": {
         "primary": "output-generator",
-        "secondary": "activity-support",
-        "rationale": "Monitoring template with methodology context produces reports during execution"
+        "secondary": null,
+        "rationale": "Title/path indicates report/deliverable production"
       },
       "flags": {
         "needs_review": false,
@@ -1575,9 +1575,9 @@
       "title": "Safe Metrics Reporting Template",
       "methodology": "agile",
       "value_flow": {
-        "primary": "output-generator",
-        "secondary": "activity-support",
-        "rationale": "Monitoring template with methodology context produces reports during execution"
+        "primary": "activity-support",
+        "secondary": "output-generator",
+        "rationale": "Methodology template with monitoring aspect supports execution"
       },
       "flags": {
         "needs_review": false,
@@ -1589,9 +1589,9 @@
       "title": "Safe Portfolio Kanban Template",
       "methodology": "agile",
       "value_flow": {
-        "primary": "output-generator",
-        "secondary": "activity-support",
-        "rationale": "Monitoring template with methodology context produces reports during execution"
+        "primary": "activity-support",
+        "secondary": "output-generator",
+        "rationale": "Methodology template with monitoring aspect supports execution"
       },
       "flags": {
         "needs_review": false,
@@ -1631,9 +1631,9 @@
       "title": "Software Requirements Specification Template",
       "methodology": "universal",
       "value_flow": {
-        "primary": "output-generator",
-        "secondary": null,
-        "rationale": "Monitoring-focused template produces reports and dashboards"
+        "primary": "input-enabler",
+        "secondary": "activity-support",
+        "rationale": "Title/path indicates input-gathering purpose"
       },
       "flags": {
         "needs_review": false,
@@ -1659,9 +1659,9 @@
       "title": "Sprint Retrospective Template",
       "methodology": "agile",
       "value_flow": {
-        "primary": "activity-support",
-        "secondary": "input-enabler",
-        "rationale": "Methodology template with stakeholder focus supports execution and input gathering"
+        "primary": "outcome-tracker",
+        "secondary": null,
+        "rationale": "Title/path indicates outcome measurement purpose"
       },
       "flags": {
         "needs_review": false,
@@ -1687,9 +1687,9 @@
       "title": "Stakeholder Engagement Assessment Template",
       "methodology": "universal",
       "value_flow": {
-        "primary": "outcome-tracker",
-        "secondary": null,
-        "rationale": "Quality-focused template assesses and evaluates outcomes"
+        "primary": "input-enabler",
+        "secondary": "activity-support",
+        "rationale": "Planning + stakeholder template gathers inputs for project setup"
       },
       "flags": {
         "needs_review": false,
@@ -1701,9 +1701,9 @@
       "title": "Stakeholder Register Template",
       "methodology": "universal",
       "value_flow": {
-        "primary": "activity-support",
-        "secondary": null,
-        "rationale": "Planning template structures project work"
+        "primary": "input-enabler",
+        "secondary": "activity-support",
+        "rationale": "Title/path indicates input-gathering purpose"
       },
       "flags": {
         "needs_review": false,
@@ -1715,9 +1715,9 @@
       "title": "Status Report Template",
       "methodology": "universal",
       "value_flow": {
-        "primary": "activity-support",
-        "secondary": "outcome-tracker",
-        "rationale": "Quality + risk template supports execution with assessment aspect"
+        "primary": "output-generator",
+        "secondary": null,
+        "rationale": "Title/path indicates report/deliverable production"
       },
       "flags": {
         "needs_review": false,
@@ -1744,8 +1744,8 @@
       "methodology": "traditional",
       "value_flow": {
         "primary": "activity-support",
-        "secondary": "input-enabler",
-        "rationale": "Methodology template with stakeholder focus supports execution and input gathering"
+        "secondary": null,
+        "rationale": "Methodology-specific template guides execution work"
       },
       "flags": {
         "needs_review": false,
@@ -1799,9 +1799,9 @@
       "title": "Traditional Project Charter Template",
       "methodology": "universal",
       "value_flow": {
-        "primary": "activity-support",
-        "secondary": null,
-        "rationale": "Methodology-specific template guides execution work"
+        "primary": "input-enabler",
+        "secondary": "activity-support",
+        "rationale": "Title/path indicates input-gathering purpose"
       },
       "flags": {
         "needs_review": false,
@@ -1813,9 +1813,9 @@
       "title": "Traditional Project Management Plan Template",
       "methodology": "universal",
       "value_flow": {
-        "primary": "output-generator",
-        "secondary": "activity-support",
-        "rationale": "Monitoring template with methodology context produces reports during execution"
+        "primary": "activity-support",
+        "secondary": "output-generator",
+        "rationale": "Methodology template with monitoring aspect supports execution"
       },
       "flags": {
         "needs_review": false,
@@ -1827,9 +1827,9 @@
       "title": "Uat Plan Template",
       "methodology": "traditional",
       "value_flow": {
-        "primary": "output-generator",
-        "secondary": "activity-support",
-        "rationale": "Monitoring template with methodology context produces reports during execution"
+        "primary": "activity-support",
+        "secondary": "output-generator",
+        "rationale": "Methodology template with monitoring aspect supports execution"
       },
       "flags": {
         "needs_review": false,
@@ -1841,9 +1841,9 @@
       "title": "Uat Strategy Template",
       "methodology": "traditional",
       "value_flow": {
-        "primary": "output-generator",
-        "secondary": "activity-support",
-        "rationale": "Monitoring template with methodology context produces reports during execution"
+        "primary": "activity-support",
+        "secondary": "output-generator",
+        "rationale": "Methodology template with monitoring aspect supports execution"
       },
       "flags": {
         "needs_review": false,
@@ -1857,7 +1857,7 @@
       "value_flow": {
         "primary": "activity-support",
         "secondary": "input-enabler",
-        "rationale": "Risk + planning template supports risk management during execution"
+        "rationale": "Risk management template supports uncertainty response"
       },
       "flags": {
         "needs_review": false,
@@ -1870,8 +1870,8 @@
       "methodology": "universal",
       "value_flow": {
         "primary": "activity-support",
-        "secondary": null,
-        "rationale": "Risk management template guides uncertainty response during execution"
+        "secondary": "input-enabler",
+        "rationale": "Risk management template supports uncertainty response"
       },
       "flags": {
         "needs_review": false,
@@ -1897,9 +1897,9 @@
       "title": "Waterfall Project Assessment Template",
       "methodology": "traditional",
       "value_flow": {
-        "primary": "outcome-tracker",
-        "secondary": null,
-        "rationale": "Quality-focused template assesses and evaluates outcomes"
+        "primary": "input-enabler",
+        "secondary": "activity-support",
+        "rationale": "Planning + stakeholder template gathers inputs for project setup"
       },
       "flags": {
         "needs_review": false,
@@ -1911,9 +1911,9 @@
       "title": "Work Breakdown Structure Template",
       "methodology": "traditional",
       "value_flow": {
-        "primary": "output-generator",
-        "secondary": "activity-support",
-        "rationale": "Monitoring template with methodology context produces reports during execution"
+        "primary": "activity-support",
+        "secondary": "output-generator",
+        "rationale": "Methodology template with monitoring aspect supports execution"
       },
       "flags": {
         "needs_review": false,

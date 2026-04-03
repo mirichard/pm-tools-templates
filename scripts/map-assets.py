@@ -30,11 +30,51 @@ META_DIR = REPO_ROOT / "meta"
 METHODOLOGY_TAGS = {"agile", "scrum", "kanban", "traditional", "hybrid"}
 EXECUTION_TAGS = METHODOLOGY_TAGS | {"technology"}
 
-def classify_value_flow(tags: list[str]) -> tuple[str, str | None, str, bool]:
+# Title/path keywords that override tag-based rules
+INPUT_ENABLER_KEYWORDS = [
+    "business case", "business_case", "stakeholder register", "stakeholder_register",
+    "feasibility", "current state", "current_state", "requirements",
+    "project charter", "project_charter", "program charter", "program_charter",
+    "assessment planning", "readiness assessment", "readiness_assessment",
+]
+OUTCOME_KEYWORDS = [
+    "benefits", "roi", "value stream", "value_stream", "maturity assessment",
+    "health assessment", "health_assessment", "process maturity", "process_maturity",
+    "scoring", "retrospective",
+]
+OUTPUT_KEYWORDS = [
+    "status report", "status_report", "dashboard", "closure report",
+    "closure_report", "lessons learned", "lessons_learned", "handover",
+    "hand-over", "executive report", "executive_report", "meeting minutes",
+]
+TEAM_KEYWORDS = [
+    "daily standup", "daily_standup", "standup", "stand-up",
+    "retrospective", "team charter", "team_charter", "team performance",
+    "team_performance", "skills matrix", "skills_matrix",
+    "backlog refinement", "backlog_refinement",
+    "sprint review", "sprint_review", "sprint retrospective", "sprint_retrospective",
+]
+
+def _title_matches(title: str, path: str, keywords: list[str]) -> bool:
+    combined = (title + " " + path).lower()
+    return any(kw in combined for kw in keywords)
+
+def classify_value_flow(tags: list[str], title: str = "", path: str = "") -> tuple[str, str | None, str, bool]:
     """
     Returns (primary_category, secondary_category, rationale, needs_review).
     """
     tag_set = set(tags)
+
+    # Rule 0: Title/path keyword overrides (highest priority)
+    if _title_matches(title, path, INPUT_ENABLER_KEYWORDS):
+        return ("input-enabler", "activity-support",
+                f"Title/path indicates input-gathering purpose", False)
+    if _title_matches(title, path, OUTCOME_KEYWORDS):
+        return ("outcome-tracker", None,
+                f"Title/path indicates outcome measurement purpose", False)
+    if _title_matches(title, path, OUTPUT_KEYWORDS):
+        return ("output-generator", None,
+                f"Title/path indicates report/deliverable production", False)
 
     # Rule 1: finance → outcome-tracker
     if "finance" in tag_set:
@@ -42,44 +82,40 @@ def classify_value_flow(tags: list[str]) -> tuple[str, str | None, str, bool]:
         return ("outcome-tracker", secondary,
                 "Financial tracking measures business value realization", False)
 
-    # Rule 2: monitoring (without finance) → output-generator
-    if "monitoring" in tag_set:
-        if tag_set & METHODOLOGY_TAGS:
-            return ("output-generator", "activity-support",
-                    "Monitoring template with methodology context produces reports during execution", False)
+    # Rule 2: monitoring (without methodology tags) → output-generator
+    if "monitoring" in tag_set and not (tag_set & METHODOLOGY_TAGS):
         return ("output-generator", None,
                 "Monitoring-focused template produces reports and dashboards", False)
 
-    # Rule 3: methodology tags → activity-support
+    # Rule 3: monitoring + methodology → activity-support (these are execution templates with reporting aspects)
+    if "monitoring" in tag_set and (tag_set & METHODOLOGY_TAGS):
+        return ("activity-support", "output-generator",
+                "Methodology template with monitoring aspect supports execution", False)
+
+    # Rule 4: methodology tags → activity-support
     if tag_set & METHODOLOGY_TAGS:
-        if "stakeholder-management" in tag_set and "planning" not in tag_set:
-            return ("activity-support", "input-enabler",
-                    "Methodology template with stakeholder focus supports execution and input gathering", False)
         return ("activity-support", None,
                 "Methodology-specific template guides execution work", False)
 
-    # Rule 4: planning + stakeholder-management (no execution tags) → input-enabler
-    if "planning" in tag_set and "stakeholder-management" in tag_set and not (tag_set & EXECUTION_TAGS):
+    # Rule 5: planning + stakeholder-management → input-enabler
+    if "planning" in tag_set and "stakeholder-management" in tag_set:
         return ("input-enabler", "activity-support",
                 "Planning + stakeholder template gathers inputs for project setup", False)
 
-    # Rule 5: quality + no monitoring → outcome-tracker
-    if "quality" in tag_set and "monitoring" not in tag_set and not (tag_set & METHODOLOGY_TAGS):
+    # Rule 6: quality + no monitoring → outcome-tracker
+    if "quality" in tag_set and "monitoring" not in tag_set:
         if "risk-management" in tag_set:
             return ("activity-support", "outcome-tracker",
                     "Quality + risk template supports execution with assessment aspect", False)
         return ("outcome-tracker", None,
                 "Quality-focused template assesses and evaluates outcomes", False)
 
-    # Rule 6: risk-management dominant → activity-support
+    # Rule 7: risk-management → activity-support
     if "risk-management" in tag_set:
-        if "planning" in tag_set:
-            return ("activity-support", "input-enabler",
-                    "Risk + planning template supports risk management during execution", False)
-        return ("activity-support", None,
-                "Risk management template guides uncertainty response during execution", False)
+        return ("activity-support", "input-enabler",
+                "Risk management template supports uncertainty response", False)
 
-    # Rule 7: planning alone → activity-support
+    # Rule 8: planning alone → activity-support
     if "planning" in tag_set:
         return ("activity-support", None,
                 "Planning template structures project work", False)
@@ -94,12 +130,33 @@ def classify_value_flow(tags: list[str]) -> tuple[str, str | None, str, bool]:
 
 # ── Domain Mapping Rules ─────────────────────────────────────────────────────
 
-def classify_domain(tags: list[str]) -> tuple[str, list[str], str, bool]:
+def classify_domain(tags: list[str], title: str = "", path: str = "") -> tuple[str, list[str], str, bool]:
     """
     Returns (primary_domain, secondary_domains, rationale, needs_review).
     """
     tag_set = set(tags)
     secondaries = []
+
+    # Rule 0: Title/path keyword overrides for Team domain
+    if _title_matches(title, path, TEAM_KEYWORDS):
+        if "stakeholder-management" in tag_set:
+            secondaries.append("Stakeholder")
+        return ("Team", secondaries[:2],
+                "Title/path indicates team-focused ceremony or collaboration", False)
+
+    # Rule 0b: Title-based Stakeholder override
+    if _title_matches(title, path, ["stakeholder"]):
+        return ("Stakeholder", ["Planning"] if "planning" in tag_set else [],
+                "Title/path indicates stakeholder-focused purpose", False)
+
+    # Rule 0c: Title-based Planning override
+    if _title_matches(title, path, ["business case", "business_case", "project charter", "project_charter",
+                                      "program charter", "program_charter", "feasibility", "budget",
+                                      "resource plan", "resource_plan", "scope"]):
+        if "risk-management" in tag_set:
+            secondaries.append("Uncertainty")
+        return ("Planning", secondaries[:2],
+                "Title/path indicates strategic planning purpose", False)
 
     # Rule 1: finance → Planning
     if "finance" in tag_set:
@@ -132,8 +189,8 @@ def classify_domain(tags: list[str]) -> tuple[str, list[str], str, bool]:
         return ("Measurement", secondaries[:2],
                 "Monitoring template tracks and reports performance", False)
 
-    # Rule 5: risk-management (dominant, no methodology) → Uncertainty
-    if "risk-management" in tag_set and not (tag_set & METHODOLOGY_TAGS):
+    # Rule 5: risk-management → Uncertainty
+    if "risk-management" in tag_set:
         if "planning" in tag_set:
             secondaries.append("Planning")
         if "stakeholder-management" in tag_set:
@@ -151,12 +208,12 @@ def classify_domain(tags: list[str]) -> tuple[str, list[str], str, bool]:
         return ("Stakeholder", [],
                 "Stakeholder-focused template", False)
 
-    # Rule 8: planning (no methodology) → Planning
+    # Rule 8: planning → Planning
     if "planning" in tag_set:
         return ("Planning", [],
                 "Planning template supports project strategy and scope", False)
 
-    # Rule 9: quality → Measurement or Delivery
+    # Rule 9: quality → Measurement
     if "quality" in tag_set:
         return ("Measurement", [],
                 "Quality assessment template evaluates performance", False)
@@ -200,11 +257,11 @@ def main():
         methodology = t.get("methodology", "universal")
 
         # Value flow
-        vf_primary, vf_secondary, vf_rationale, vf_review = classify_value_flow(tags)
+        vf_primary, vf_secondary, vf_rationale, vf_review = classify_value_flow(tags, title, path)
         vf_counts[vf_primary] += 1
 
         # Domain
-        d_primary, d_secondary, d_rationale, d_review = classify_domain(tags)
+        d_primary, d_secondary, d_rationale, d_review = classify_domain(tags, title, path)
         domain_counts[d_primary] += 1
 
         is_cross_domain = len(set(tags)) >= 5
