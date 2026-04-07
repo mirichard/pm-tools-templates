@@ -77,6 +77,7 @@ This repo offers three navigation paths — pick the one that matches your quest
 - **By Role** → [`role-based-toolkits/`](role-based-toolkits/) — Curated sets for PM, Scrum Master, Product Owner, Program Manager
 - **By Lifecycle Phase** → [`project-lifecycle/`](project-lifecycle/) — Initiation → Planning → Execution → Monitoring → Closure
 - **By Methodology** → [`templates/`](templates/) — Agile, Traditional, Hybrid, and Universal templates
+- **By Task** → [`Use-Case Pathways`](docs/USE_CASE_PATHWAYS.md) — "I need to start a project", "I need to manage risk", etc.
 
 📐 **[View Full System Architecture →](docs/SYSTEM_ARCHITECTURE.md)**
 
