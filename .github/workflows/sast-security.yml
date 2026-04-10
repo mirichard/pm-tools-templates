@@ -688,7 +688,7 @@ jobs:
 
       - name: 💬 Comment on Pull Request
         if: github.event_name == 'pull_request'
-        uses: actions/github-script@v8
+        uses: actions/github-script@v9
         env:
           LANGUAGES_LIST: ${{ needs.detect-languages.outputs.languages }}
           CODEQL_STATUS: ${{ needs.codeql-analysis.result }}
