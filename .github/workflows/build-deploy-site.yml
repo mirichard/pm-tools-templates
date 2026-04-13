@@ -74,7 +74,7 @@ jobs:
         run: ../../scripts/measure_step.sh "site build" -- npm run build --silent
 
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v4
+        uses: actions/upload-pages-artifact@v5
         with:
           path: ./docs/site/dist
 
