@@ -67,7 +67,7 @@
     "ml-matrix": "^6.10.7",
     "regression": "^2.0.1",
     "node-cache": "^5.1.2",
-    "uuid": "^9.0.1",
+    "uuid": "^14.0.0",
     "joi": "^17.11.0"
   },
   "devDependencies": {
