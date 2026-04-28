@@ -1,175 +1,101 @@
-<a id="getting-started-with-pm-tools-templates"></a>
 # Getting Started with PM Tools & Templates
 
-**Your journey to effective project management starts here**
-
-This guide helps you quickly get oriented and find the resources you need, whether you're new to project management or looking to improve your current practices.
-
----
-<a id="whats-your-situation"></a>
-
-<a id="im-new-to-project-management"></a>
-## 🎯 What's Your Situation?
-
-### I'm New to Project Management
-👋 **Start here:** [New PM Quick Start](#new-pm-quick-start)
-
-<a id="im-transitioning-methodologies"></a>
-### I Have a Project Starting Soon
-🚀 **Start here:** [Project Kickoff Kit](#project-kickoff-kit)
-
-### I'm Transitioning Methodologies
-🔄 **Start here:** [Methodology Transition Guide](#methodology-transition)
-
-### I Need Executive Reporting
-📊 **Start here:** [Business Stakeholder Suite](../../business-stakeholder-suite/)
-
----
-<a id="step-1-understand-your-options"></a>
-
-<a id="new-pm-quick-start"></a>
-## New PM Quick Start
-
-<a id="step-2-get-essential-templates"></a>
-### Step 1: Understand Your Options
-**[→ Read: Methodology Selector](methodology-selector.md)**
-- Learn when to use Traditional/Waterfall vs Agile vs Hybrid approaches
-- 5-minute decision tree to guide your choice
-<a id="step-3-set-up-your-project"></a>
-
-### Step 2: Get Essential Templates
-**[→ Use: Template Selector](template-selector.md)**
-- Find templates based on your project type and methodology
-<a id="step-4-choose-your-role-toolkit"></a>
-- Download starter kits for common scenarios
-
-### Step 3: Set Up Your Project
-**[→ Go to: Project Lifecycle Templates](../../project-lifecycle/)**
-- Start with [Project Charter](../../project-lifecycle/01-initiation/project-charter/)
-- Follow the phase-by-phase guidance
-
-### Step 4: Choose Your Role Toolkit
-**[→ Browse: Role-Based Toolkits](../../role-based-toolkits/)**
-- **Project Manager:** [Essential Templates](../../role-based-toolkits/project-manager/essential-templates/)
-<a id="immediate-actions-week-1"></a>
-- **Scrum Master:** [Agile Ceremonies](../../role-based-toolkits/scrum-master/agile-ceremonies/)
-- **Product Owner:** [Product Owner Toolkit](../../role-based-toolkits/product-owner/)
-
----
-<a id="planning-phase-week-2-3"></a>
-
-<a id="project-kickoff-kit"></a>
-## Project Kickoff Kit
-
-### Immediate Actions (Week 1)
-1. **[Create Project Charter](../../project-lifecycle/01-initiation/project-charter/)**
-2. **[Analyze Stakeholders](../../project-lifecycle/01-initiation/stakeholder-analysis/)**
-3. **[Set Up Communication Plan](../../project-lifecycle/02-planning/communication-planning/)**
-
-### Planning Phase (Week 2-3)
-1. **[Develop Project Management Plan](../../project-lifecycle/02-planning/project-management-plan/)**
-2. **[Create Risk Register](../../project-lifecycle/02-planning/risk-management/)**
-3. **[Plan Resources](../../project-lifecycle/02-planning/resource-planning/)**
-
-### Ongoing Management
-1. **[Track Progress](../../project-lifecycle/04-monitoring-control/progress-tracking/)**
-2. **[Manage Issues](../../project-lifecycle/04-monitoring-control/issue-management/)**
-3. **[Report Status](../../role-based-toolkits/project-manager/reporting-dashboards/)**
-
----
-<a id="from-agile-to-scaledenterprise"></a>
-
-<a id="methodology-transition"></a>
-## Methodology Transition
-
-### From Traditional to Agile
-**[→ Use: Agile Transformation Kit](../../quick-start-kits/agile-transformation/)**
-- Understanding the mindset shift
-- Template mapping: Waterfall → Agile equivalents
-- Change management strategies
-
-### From Agile to Scaled/Enterprise
-**[→ Use: Scaling Frameworks](../../methodology-frameworks/agile-scrum/scaling-frameworks/)**
-- When pure Agile isn't enough
-<a id="essential-checklists"></a>
-- Scaling frameworks (SAFe, LeSS, Nexus)
-- Governance without losing agility
-
-### Custom Hybrid Approach
-**[→ Use: Hybrid Approaches](../../methodology-frameworks/hybrid-approaches/)**
-- Design your own hybrid approach
-- Balance predictability with adaptability
-- Templates for mixed methodology projects
+> **Goal:** Go from zero to your first customized template in under 5 minutes.
 
 ---
 
-## 📋 Essential Checklists
+## 1. What Is This? *(30 seconds)*
 
-### Project Initiation Checklist
-- [ ] Project charter created and approved
-- [ ] Stakeholders identified and analyzed
-- [ ] Business case developed (if required)
-- [ ] Initial team assembled
-- [ ] Communication plan established
+This is a curated collection of **154+ battle-tested, open-source templates** for project and program managers. Whether you're running agile sprints, traditional waterfall projects, or a hybrid approach — find the right template, customize it, and go.
 
-### Planning Phase Checklist
-- [ ] Scope clearly defined
-- [ ] Schedule developed with realistic timelines
-- [ ] Resources identified and allocated
-<a id="quick-links"></a>
-- [ ] Risks assessed and mitigation plans created
-- [ ] Quality standards established
-
-### Execution Readiness Checklist
-- [ ] Team roles and responsibilities clear
-- [ ] Communication channels established
-- [ ] Progress tracking system in place
-- [ ] Issue escalation process defined
-- [ ] Change control process established
+Everything is free, vendor-agnostic, and MIT-licensed.
 
 ---
 
-## 🔗 Quick Links
-- [Template Index](../../TEMPLATE_INDEX.md)
-- [Integration Examples](../../integration-examples/README.md)
-- [Exporting Templates](../exporting-templates.md)
+## 2. How Is It Organized? *(60 seconds)*
 
-### Templates by Frequency of Use
-1. **Daily:** [Daily Standup Notes](../../role-based-toolkits/scrum-master/agile-ceremonies/) | [Issue Log](../../project-lifecycle/04-monitoring-control/issue-management/)
-2. **Weekly:** [Status Reports](../../role-based-toolkits/project-manager/reporting-dashboards/) | [Risk Reviews](../../project-lifecycle/02-planning/risk-management/)
-3. **Monthly:** [Executive Dashboards](../../business-stakeholder-suite/executive-dashboards/) | [Stakeholder Updates](../../business-stakeholder-suite/communication-automation/)
-<a id="pro-tips"></a>
+The repository offers **three navigation paths** — pick the one that matches your question:
 
-### Templates by Project Size
-- **Small Projects (< 6 months):** [First Time PM Starter](../../quick-start-kits/first-time-pm-starter/)
-- **Large Projects (> 1 year):** [Enterprise Templates](../../role-based-toolkits/project-manager/)
-- **Complex Programs:** [Release Train Engineer Toolkit](../../role-based-toolkits/release-train-engineer/)
+| If you're thinking... | Start here |
+|-----------------------|-----------|
+| *"I'm a Scrum Master, what do I need?"* | [**Role-Based Toolkits →**](../../role-based-toolkits/) |
+| *"I'm in the planning phase"* | [**Project Lifecycle →**](../../project-lifecycle/) |
+| *"I need agile templates"* | [**Templates by Methodology →**](../../templates/) |
 
-### Industry-Specific Starting Points
-- **IT Projects:** [Project Lifecycle Templates](../../project-lifecycle/)
-- **Agile Projects:** [Agile-Scrum Framework](../../methodology-frameworks/agile-scrum/)
-- **Enterprise Projects:** [Business Stakeholder Suite](../../business-stakeholder-suite/)
+These paths overlap intentionally — the same template may appear in multiple places. Start anywhere and cross-reference as needed.
+
+📐 [**View the full System Architecture diagram →**](../SYSTEM_ARCHITECTURE.md)
 
 ---
 
-## 💡 Pro Tips
+## 3. Find What You Need *(90 seconds)*
 
-### For New Project Managers
-1. **Start simple** - Don't use every template; choose 3-5 core ones
-2. **Focus on communication** - Most project failures are communication failures
-3. **Iterate and improve** - Adapt templates to your organization's culture
+Answer one question to get started:
 
-### For Experienced PMs
-1. **Explore hybrid approaches** - Combine the best of multiple methodologies
-2. **Leverage automation** - Use available templates to reduce manual work
-3. **Scale your practices** - Use [methodology frameworks](../../methodology-frameworks/) for consistency
+### Do you know your role?
 
-### For Organizations
-1. **Customize thoughtfully** - Adapt templates but maintain core structure
-2. **Train your teams** - Ensure everyone understands the chosen methodology
-3. **Measure and improve** - Track template usage and effectiveness
+**Yes →** Go directly to your toolkit:
+- 🗂️ [Project Manager](../../role-based-toolkits/project-manager/) — planning, execution, reporting, governance
+- 🔄 [Scrum Master](../../role-based-toolkits/scrum-master/) — ceremonies, facilitation, impediments, metrics
+- 🎯 [Product Owner](../../role-based-toolkits/product-owner/) — vision, backlog, stories, prioritization
+- 📊 [Executive / Sponsor](../../business-stakeholder-suite/) — dashboards, financial governance, assessments
+
+### Not sure? Pick your methodology:
+
+- **Agile** → [Agile templates](../../templates/agile/) and [Scrum framework guide](../../methodology-frameworks/agile-scrum/)
+- **Traditional / Waterfall** → [Traditional templates](../../templates/traditional/) and [Project Lifecycle phases](../../project-lifecycle/)
+- **Hybrid** → [Hybrid templates](../../templates/hybrid/) and [Hybrid approaches guide](../../methodology-frameworks/hybrid-approaches/)
+- **Don't know yet?** → Read the [Methodology Selection Guide](../../quick-start-kits/methodology-selection-guide.md)
+
+### Just browsing?
+
+📋 [**Browse all 154 templates →**](../../TEMPLATE_INDEX.md)
 
 ---
 
-*Need specific help? Check our [Template Selector](template-selector.md) or browse the [Methodology Frameworks](../../methodology-frameworks/) for detailed guidance.*
+## 4. Your First Template *(120 seconds)*
+
+Let's customize a Project Charter — the most common starting point for any project.
+
+**Step 1:** Open [`project-charter-simple.md`](../../quick-start-kits/first-time-pm-starter/project-charter-simple.md)
+
+**Step 2:** Replace the placeholders:
+- `[Project Name]` → Your project's name
+- `[Objective]` → One sentence describing what you're trying to achieve
+- `[Key Stakeholders]` → List 3 people who care about this project
+- `[Target Date]` → When you need to deliver
+
+**Step 3:** Save the file. You've just created your first project artifact. ✅
+
+*Prefer a more detailed charter?* Try the [full Project Charter template](../../project-lifecycle/01-initiation/project-charter/).
+
+---
+
+## 5. What's Next?
+
+### 🟢 Beginner — Keep it simple
+Continue with the **[First-Time PM Starter Kit](../../quick-start-kits/first-time-pm-starter/)** — 9 simplified templates covering everything a new PM needs:
+- [Communication Plan](../../quick-start-kits/first-time-pm-starter/communication-plan-simple.md)
+- [Risk Register](../../quick-start-kits/first-time-pm-starter/risk-register-simple.md)
+- [Budget](../../quick-start-kits/first-time-pm-starter/budget-simple.md)
+- [Status Report](../../quick-start-kits/first-time-pm-starter/status-report-simple.md)
+- [Common Pitfalls to Avoid](../../quick-start-kits/first-time-pm-starter/common-pitfalls.md)
+
+### 🟡 Intermediate — Go deeper
+Explore your **[Role Toolkit](../../role-based-toolkits/)** for comprehensive templates, then walk through the **[Project Lifecycle](../../project-lifecycle/)** phases from initiation to closure.
+
+### 🔴 Advanced — Full capability
+Browse the **[Template Index](../../TEMPLATE_INDEX.md)** for the complete collection, check **[Industry Specializations](../../industry-specializations/)** for your sector, or integrate with your tools using the **[Integration Guides](../../integrations/)**.
+
+---
+
+## Tutorials
+
+Ready to go hands-on? Try these step-by-step walkthroughs:
+- [Customize a Project Charter](tutorials/customize-project-charter.md)
+- [Automate Status Emails](tutorials/automate-status-emails.md)
+
+---
+
+*Need help finding something specific? Check the [Template Index](../../TEMPLATE_INDEX.md) or open a [discussion](https://github.com/mirichard/pm-tools-templates/discussions).*
 

@@ -15,18 +15,71 @@
 
 ## Quick Start
 
-1.  **Clone the repository:**
-    ```bash
-    git clone https://github.com/mirichard/pm-tools-templates.git
-    ```
-2.  **Find your template:**
-    Browse the `/templates` directory or explore curated [Examples  Sample Artifacts](docs/examples/library.md).
+**New here?** → **[Start the 5-Minute Getting Started Guide](docs/getting-started/README.md)**
 
-3.  **Customize and go:**
-    Open a template in your favorite editor and adapt it to your project.
+Or jump straight in:
+1. `git clone https://github.com/mirichard/pm-tools-templates.git`
+2. Pick your role below → find your templates → customize and go
 
-4.  **Use CLI tools (optional):**
-    See the consolidated [CLI Usage Guide](docs/cli/README.md) for link checks, metadata enrichment, and maintenance scripts.
+---
+
+## 👤 Find Templates By Role
+
+### 🗂️ Project Manager
+**You run projects end-to-end** — planning, execution, stakeholder reporting, and closure.
+
+→ **[Project Manager Toolkit](role-based-toolkits/project-manager/)** — Essential templates, reporting dashboards, stakeholder engagement, and governance tools
+
+Start with: [Project Charter](templates/traditional/Traditional/Process_Groups/Initiating/project_charter_template.md) · [Risk Register](templates/traditional/Traditional/Templates/risk_register_template.md) · [Status Report](templates/traditional/Traditional/Templates/status_report_template.md)
+
+---
+
+### 🔄 Scrum Master
+**You facilitate agile ceremonies** — sprint planning, standups, retrospectives, and impediment removal.
+
+→ **[Scrum Master Toolkit](role-based-toolkits/scrum-master/)** — Agile ceremonies, team facilitation, impediment tracking, and agile metrics
+
+Start with: [Sprint Planning](templates/agile/sprint_planning_template.md) · [Sprint Retrospective](templates/agile/sprint_retrospective_template.md) · [Sprint Review](templates/agile/sprint_review_template.md)
+
+---
+
+### 🎯 Product Owner
+**You define what to build and why** — product vision, backlog management, and stakeholder collaboration.
+
+→ **[Product Owner Toolkit](role-based-toolkits/product-owner/)** — Product strategy, backlog management, story writing, prioritization, and OKRs
+
+Start with: [Product Vision](role-based-toolkits/product-owner/product-vision-template.md) · [User Stories](role-based-toolkits/product-owner/user-story-template.md) · [Backlog Management](role-based-toolkits/product-owner/backlog-management-template.md)
+
+---
+
+### 📊 Executive / Sponsor
+**You provide strategic oversight** — investment decisions, governance, and organizational alignment.
+
+→ **[Executive Dashboards](business-stakeholder-suite/executive-dashboards/)** · **[Financial Governance](business-stakeholder-suite/financial-governance/)** · **[Project Assessment Suite](project-assessment-suite/)**
+
+Start with: [Executive Dashboard](business-stakeholder-suite/executive-dashboards/performance-monitoring-analytics.md) · [ROI Tracking](business-stakeholder-suite/financial-governance/roi-tracking-dashboard.md) · [Project Health Assessment](project-assessment-suite/project-health-assessment-template.md)
+
+---
+
+### 🚀 New to Project Management
+**You're getting started** — learn the basics with simplified templates and guided walkthroughs.
+
+→ **[First-Time PM Starter Kit](quick-start-kits/first-time-pm-starter/)** — 9 simplified templates covering charter, risks, budget, status, and stakeholders
+
+Start with: [Simple Project Charter](quick-start-kits/first-time-pm-starter/project-charter-simple.md) · [Simple Risk Register](quick-start-kits/first-time-pm-starter/risk-register-simple.md) · [PM Checklist](quick-start-kits/first-time-pm-starter/pm-checklist.md)
+
+---
+
+## 🏗️ How This Repository Is Organized
+
+This repo offers three navigation paths — pick the one that matches your question:
+
+- **By Role** → [`role-based-toolkits/`](role-based-toolkits/) — Curated sets for PM, Scrum Master, Product Owner, Program Manager
+- **By Lifecycle Phase** → [`project-lifecycle/`](project-lifecycle/) — Initiation → Planning → Execution → Monitoring → Closure
+- **By Methodology** → [`templates/`](templates/) — Agile, Traditional, Hybrid, and Universal templates
+- **By Task** → [`Use-Case Pathways`](docs/USE_CASE_PATHWAYS.md) — "I need to start a project", "I need to manage risk", etc.
+
+📐 **[View Full System Architecture →](docs/SYSTEM_ARCHITECTURE.md)**
 
 ---
 
@@ -75,49 +128,6 @@
 - [Quality (110)](templates/index.html?search=quality)
 - [Monitoring (89)](templates/index.html?search=monitoring)
 - [Technology (85)](templates/index.html?search=technology)
-
----
-
-## Repository Structure
-
-The templates are organized by methodology and use case:
-
-```mermaid
-graph TD
-    A[pm-tools-templates] --> B[📁 templates/]
-    A --> C[📁 project-lifecycle/]
-    A --> D[📁 role-based-toolkits/]
-    A --> E[📁 industry-specializations/]
-    A --> F[📁 methodology-frameworks/]
-    A --> G[📁 integration-guides/]
-    A --> H[📁 examples/]
-    
-    B --> B1[📂 traditional/ - 25 templates]
-    B --> B2[📂 agile/ - 39 templates]
-    B --> B3[📂 hybrid/ - 7 templates]
-    B --> B4[📂 universal/ - 83 templates]
-    
-    C --> C1[📂 01-initiation/]
-    C --> C2[📂 02-planning/]
-    C --> C3[📂 03-execution/]
-    C --> C4[📂 04-monitoring-control/]
-    C --> C5[📂 05-closure/]
-    
-    D --> D1[📂 program-managers/]
-    D --> D2[📂 project-managers/]
-    D --> D3[📂 scrum-masters/]
-    D --> D4[📂 product-owners/]
-    
-    E --> E1[📂 healthcare/]
-    E --> E2[📂 fintech/]
-    E --> E3[📂 manufacturing/]
-    E --> E4[📂 construction/]
-    
-    G --> G1[📂 jira/]
-    G --> G2[📂 github/]
-    G --> G3[📂 asana/]
-    G --> G4[📂 microsoft-project/]
-```
 
 ---
 
