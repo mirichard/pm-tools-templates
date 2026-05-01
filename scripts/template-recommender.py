@@ -152,7 +152,9 @@ def ask_questions() -> dict:
                     context[q["key"]] = values[idx]
                     break
             except ValueError:
-                pass
+                # Non-numeric input; prompt again.
+                print(f"  Please enter a number 1-{len(options)}")
+                continue
             print(f"  Please enter a number 1-{len(options)}")
         print()
 
