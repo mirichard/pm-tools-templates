@@ -2,4 +2,4 @@ requests>=2.33.1
 pandas>=2.0.0
 markdown>=3.10.2
 main
-python-dotenv>=1.0.0
+python-dotenv>=1.2.2
