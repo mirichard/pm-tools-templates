@@ -40,6 +40,6 @@ Bundles reference templates — they don't duplicate them. All links point to th
 ## Related Resources
 
 - [Template Decision Tree](../template-decision-tree.md) — Guided question flow to find the right bundle
-- [Rules Engine](../../meta/architecture-research/806-rules-engine-implementation.md) — Technical rules behind recommendations
-- [Template Index](../../TEMPLATE_INDEX.md) — Browse all 137+ templates
-- [Template Selection Checklist](../../TEMPLATE_SELECTION_CHECKLIST.md) — Quick checklist for experienced PMs
+- [Rules Engine](../../../meta/architecture-research/806-rules-engine-implementation.md) — Technical rules behind recommendations
+- [Template Index](../../../TEMPLATE_INDEX.md) — Browse all 137+ templates
+- [Template Selection Checklist](../../../TEMPLATE_SELECTION_CHECKLIST.md) — Quick checklist for experienced PMs
