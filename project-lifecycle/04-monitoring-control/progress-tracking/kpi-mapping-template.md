@@ -3,10 +3,10 @@
 **Purpose:** Map project execution metrics to strategic outcomes using a 4-level KPI hierarchy. This template connects daily team activity to organizational value delivery.
 
 > **Related resources:**
-> - [KPI Hierarchy Model](../../meta/architecture-research/784-785-kpi-mapping-design.md) — design rationale
-> - [Benefits Realization Framework](../../business-stakeholder-suite/financial-governance/benefit-realization-framework.md) — strategic benefits tracking
-> - [Project Health Dashboard](../../dashboards/project-health-dashboard.md) — operational monitoring
-> - [Product Metrics Dashboard](../../role-based-toolkits/product-owner/product-metrics-dashboard.md) — product-level metrics
+> - [KPI Hierarchy Model](../../../meta/architecture-research/784-785-kpi-mapping-design.md) — design rationale
+> - [Benefits Realization Framework](../../../business-stakeholder-suite/financial-governance/benefit-realization-framework.md) — strategic benefits tracking
+> - [Project Health Dashboard](../../../dashboards/project-health-dashboard.md) — operational monitoring
+> - [Product Metrics Dashboard](../../../role-based-toolkits/product-owner/product-metrics-dashboard.md) — product-level metrics
 
 ---
 
@@ -25,10 +25,10 @@ These measure whether projects deliver organizational value. Typically tracked q
 
 | KPI | Definition | Target | Actual | Trend | Source Template |
 |-----|-----------|--------|--------|-------|-----------------|
-| Portfolio ROI | Return on investment across all active projects | ≥ ___% | | | [ROI Tracking Dashboard](../../business-stakeholder-suite/financial-governance/roi-tracking-dashboard.md) |
-| Strategic Alignment Score | % of projects mapped to strategic objectives | ≥ ___% | | | [Executive Dashboard](../../business-stakeholder-suite/executive-dashboards/powerbi-integration/executive-dashboard-template.md) |
-| Benefits Realization Rate | % of planned benefits actually delivered | ≥ ___% | | | [Benefits Realization Framework](../../business-stakeholder-suite/financial-governance/benefit-realization-framework.md) |
-| Organizational Capability Maturity | Process maturity assessment score | ≥ ___/5 | | | [Process Maturity Assessment](../../project-assessment-suite/process-maturity-assessment-template.md) |
+| Portfolio ROI | Return on investment across all active projects | ≥ ___% | | | [ROI Tracking Dashboard](../../../business-stakeholder-suite/financial-governance/roi-tracking-dashboard.md) |
+| Strategic Alignment Score | % of projects mapped to strategic objectives | ≥ ___% | | | [Executive Dashboard](../../../business-stakeholder-suite/executive-dashboards/powerbi-integration/executive-dashboard-template.md) |
+| Benefits Realization Rate | % of planned benefits actually delivered | ≥ ___% | | | [Benefits Realization Framework](../../../business-stakeholder-suite/financial-governance/benefit-realization-framework.md) |
+| Organizational Capability Maturity | Process maturity assessment score | ≥ ___/5 | | | [Process Maturity Assessment](../../../project-assessment-suite/process-maturity-assessment-template.md) |
 
 **Leading indicators:** Benefits pipeline value, strategic initiative count, capability investment %
 
@@ -40,10 +40,10 @@ These measure cross-project health and coordination. Typically tracked monthly.
 
 | KPI | Definition | Target | Actual | Trend | Source Template |
 |-----|-----------|--------|--------|-------|-----------------|
-| Cross-Project Dependency Health | % of inter-project dependencies on track | ≥ ___% | | | [Program Management Plan](../../templates/traditional/Traditional/Templates/program_management_plan_template.md) |
-| Aggregate Resource Utilization | Avg utilization across project teams | ___–___% | | | [Resource Management Plan](../../project-lifecycle/02-planning/resource-planning/resource-management-plan-template.md) |
-| Aggregate Delivery Performance | % of projects meeting schedule/cost baselines | ≥ ___% | | | [Project Performance Monitoring](../../templates/traditional/Traditional/Process_Groups/Monitoring_and_Controlling/project_performance_monitoring_template.md) |
-| Program Benefits On Track | % of program benefits trending to plan | ≥ ___% | | | [Benefits Realization Framework](../../business-stakeholder-suite/financial-governance/benefit-realization-framework.md) |
+| Cross-Project Dependency Health | % of inter-project dependencies on track | ≥ ___% | | | [Program Management Plan](../../../templates/traditional/Traditional/Templates/program_management_plan_template.md) |
+| Aggregate Resource Utilization | Avg utilization across project teams | ___–___% | | | [Resource Management Plan](../../../project-lifecycle/02-planning/resource-planning/resource-management-plan-template.md) |
+| Aggregate Delivery Performance | % of projects meeting schedule/cost baselines | ≥ ___% | | | [Project Performance Monitoring](../../../templates/traditional/Traditional/Process_Groups/Monitoring_and_Controlling/project_performance_monitoring_template.md) |
+| Program Benefits On Track | % of program benefits trending to plan | ≥ ___% | | | [Benefits Realization Framework](../../../business-stakeholder-suite/financial-governance/benefit-realization-framework.md) |
 
 **Leading indicators:** Dependency risk count, resource conflict rate, milestone slip rate
 
@@ -55,12 +55,12 @@ These are the core project health metrics. Tracked weekly or bi-weekly.
 
 | KPI | Type | Definition | Target | Actual | Trend | Source Template |
 |-----|------|-----------|--------|--------|-------|-----------------|
-| Schedule Performance Index (SPI) | Lagging | Earned schedule / planned schedule | ≥ 0.95 | | | [EVM Dashboard](../../business-stakeholder-suite/financial-governance/enhanced-business-cases/evm-dashboard-template.md) |
-| Cost Performance Index (CPI) | Lagging | Earned value / actual cost | ≥ 0.95 | | | [Budget Dashboard](../../business-stakeholder-suite/financial-governance/budget-dashboard-template.md) |
-| Scope Completion % | Lagging | Deliverables accepted / total deliverables | ≥ ___% | | | [Status Report](../../project-lifecycle/04-monitoring-control/progress-tracking/status-report-template.md) |
-| Risk Exposure Trend | Leading | Total risk score change over time | Decreasing | | | [Risk Register](../../project-lifecycle/02-planning/risk-management/risk-register-template.md) |
-| Stakeholder Satisfaction | Lagging | Stakeholder survey score | ≥ ___/5 | | | [Stakeholder Engagement Assessment](../../project-assessment-suite/stakeholder-engagement-assessment-template.md) |
-| Quality Score | Lagging | Defects per deliverable / rework rate | ≤ ___% | | | [Quality Test Plan](../../templates/test-samples/quality-test-plan-template.md) |
+| Schedule Performance Index (SPI) | Lagging | Earned schedule / planned schedule | ≥ 0.95 | | | [EVM Dashboard](../../../business-stakeholder-suite/financial-governance/enhanced-business-cases/evm-dashboard-template.md) |
+| Cost Performance Index (CPI) | Lagging | Earned value / actual cost | ≥ 0.95 | | | [Budget Dashboard](../../../business-stakeholder-suite/financial-governance/budget-dashboard-template.md) |
+| Scope Completion % | Lagging | Deliverables accepted / total deliverables | ≥ ___% | | | [Status Report](../../../project-lifecycle/04-monitoring-control/progress-tracking/status-report-template.md) |
+| Risk Exposure Trend | Leading | Total risk score change over time | Decreasing | | | [Risk Register](../../../project-lifecycle/02-planning/risk-management/risk-register-template.md) |
+| Stakeholder Satisfaction | Lagging | Stakeholder survey score | ≥ ___/5 | | | [Stakeholder Engagement Assessment](../../../project-assessment-suite/stakeholder-engagement-assessment-template.md) |
+| Quality Score | Lagging | Defects per deliverable / rework rate | ≤ ___% | | | [Quality Test Plan](../../../templates/test-samples/quality-test-plan-template.md) |
 
 **Leading indicators:** Open risk count, issue resolution rate, change request volume
 
