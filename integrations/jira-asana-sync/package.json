@@ -15,13 +15,8 @@
     "simple-oauth2": "^5.1.0"
   },
   "devDependencies": {
-dependabot/npm_and_yarn/integrations/jira-asana-sync/vitest/coverage-v8-tw-4.0.18
-    "@types/node": "^25.0.9",
-    "@vitest/coverage-v8": "^4.0.18",
-
     "@types/node": "^25.1.0",
-    "@vitest/coverage-v8": "^4.0.17",
-main
+    "@vitest/coverage-v8": "^4.0.18",
     "tsx": "^4.21.0",
     "typescript": "^5.9.3",
     "vitest": "^4.0.18"
