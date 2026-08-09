@@ -10,10 +10,10 @@
     "ci": "node server.js & echo $! > .server.pid && npx wait-on http://localhost:5173 && playwright test && lhci autorun --collect.url=http://localhost:5173 && kill $(cat .server.pid) || (kill $(cat .server.pid) || true; exit 1)"
   },
   "dependencies": {
-    "express": "^5.1.0",
-    "marked": "^16.2.1",
+    "express": "^5.2.1",
+    "marked": "^18.0.9",
     "highlight.js": "^11.9.0",
-    "morgan": "^1.10.0",
+    "morgan": "^1.11.0",
     "etag": "^1.8.1",
     "express-rate-limit": "^8.1.0"
   },
@@ -31,10 +31,10 @@
     "tmp": "^0.2.4"
   },
   "devDependencies": {
-    "@axe-core/playwright": "^4.9.1",
-    "@playwright/test": "^1.55.0",
-    "lighthouse": "^12.8.2",
+    "@axe-core/playwright": "^4.12.1",
+    "@playwright/test": "^1.62.1",
+    "lighthouse": "^13.4.1",
     "@lhci/cli": "^0.15.1",
-    "wait-on": "^8.0.4"
+    "wait-on": "^9.1.0"
   }
 }
