@@ -34,12 +34,12 @@
   "author": "PM Tools Templates Team",
   "license": "MIT",
   "devDependencies": {
-    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/jest-dom": "^7.0.0",
     "@testing-library/react": "^16.3.1",
     "identity-obj-proxy": "^3.0.0",
-    "jest": "^30.2.0",
-    "jest-axe": "^10.0.0",
-    "nyc": "^17.1.0"
+    "jest": "^30.4.2",
+    "jest-axe": "^11.0.0",
+    "nyc": "^18.0.0"
   },
   "engines": {
     "node": ">=14.0.0"
@@ -54,7 +54,7 @@
   },
   "dependencies": {
     "glob": "^13.0.0",
-    "js-yaml": "^4.3.1"
+    "js-yaml": "^5.2.3"
   },
   "overrides": {
     "ws": "^8.17.1",
