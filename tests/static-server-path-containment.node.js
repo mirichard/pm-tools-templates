@@ -36,6 +36,8 @@ const TRAVERSAL_PATHS = [
     '/public/..\\\\package.json'
 ];
 
+const PATH_DISCLOSURE_PATTERN = /\/workspaces\/|\/tmp\/|[A-Za-z]:\\/;
+
 function requestPath(port, requestPathValue) {
     return new Promise((resolve, reject) => {
         const req = http.request(
@@ -120,6 +122,15 @@ for (const entryPoint of ENTRY_POINTS) {
         await withStartedServer(entryPoint.modulePath, async (port) => {
             const response = await requestPath(port, '/%E0%A4%A');
             assert.equal(response.statusCode, 400);
+        });
+    });
+
+    test(`${entryPoint.name}: missing static file returns 404 without path or package disclosure`, async () => {
+        await withStartedServer(entryPoint.modulePath, async (port) => {
+            const response = await requestPath(port, '/public/metrics/does-not-exist-9f6ea728.json');
+            assert.equal(response.statusCode, 404);
+            assert.equal(PATH_DISCLOSURE_PATTERN.test(response.body), false);
+            assert.equal(response.body.includes(PACKAGE_MARKER), false);
         });
     });
 }

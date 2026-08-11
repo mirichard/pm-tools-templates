@@ -1,39 +1,72 @@
 const fs = require('fs');
 const path = require('path');
 
+const SAFE_SEGMENT_REGEX = /^[A-Za-z0-9._-]+$/;
+
 function isContained(parentPath, childPath) {
     const relativePath = path.relative(parentPath, childPath);
     return relativePath && !relativePath.startsWith('..') && !path.isAbsolute(relativePath) || relativePath === '';
 }
 
-function resolveRequestTarget(repoRoot, decodedPathname) {
+function validateSegments(relativePath) {
+    const rawSegments = relativePath.split('/');
+    const validatedSegments = [];
+
+    for (const segment of rawSegments) {
+        if (segment === '' || segment === '.' || segment === '..') {
+            return null;
+        }
+
+        if (segment.includes('\0')) {
+            return null;
+        }
+
+        if (segment.includes('/') || segment.includes('\\')) {
+            return null;
+        }
+
+        if (path.basename(segment) !== segment) {
+            return null;
+        }
+
+        if (!SAFE_SEGMENT_REGEX.test(segment)) {
+            return null;
+        }
+
+        validatedSegments.push(segment);
+    }
+
+    return validatedSegments;
+}
+
+function resolveRequestTarget(repoRoot, normalizedPathname) {
     const curationRoot = path.resolve(repoRoot, 'curation-dashboard');
     const publicRoot = path.resolve(repoRoot, 'public');
 
-    if (decodedPathname === '/') {
+    if (normalizedPathname === '/') {
         return {
             staticRoot: curationRoot,
-            relativeFilePath: 'index.html'
+            relativePath: 'index.html'
         };
     }
 
-    if (decodedPathname.startsWith('/public/')) {
+    if (normalizedPathname.startsWith('/public/')) {
         return {
             staticRoot: publicRoot,
-            relativeFilePath: decodedPathname.slice('/public/'.length)
+            relativePath: normalizedPathname.slice('/public/'.length)
         };
     }
 
-    if (decodedPathname.startsWith('/curation-dashboard/')) {
+    if (normalizedPathname.startsWith('/curation-dashboard/')) {
         return {
             staticRoot: curationRoot,
-            relativeFilePath: decodedPathname.slice('/curation-dashboard/'.length)
+            relativePath: normalizedPathname.slice('/curation-dashboard/'.length)
         };
     }
 
     return {
         staticRoot: curationRoot,
-        relativeFilePath: decodedPathname.replace(/^\/+/, '')
+        relativePath: normalizedPathname.replace(/^\/+/, '')
     };
 }
 
@@ -54,16 +87,17 @@ function createStaticRequestHandler(options) {
             return;
         }
 
-        const normalizedForTraversalCheck = decodedPathname.replace(/\\/g, '/');
-        const segments = normalizedForTraversalCheck.split('/');
-        if (segments.includes('..')) {
+        const normalizedPathname = decodedPathname.replace(/\\/g, '/');
+        const { staticRoot, relativePath } = resolveRequestTarget(repoRoot, normalizedPathname);
+        const validatedSegments = validateSegments(relativePath);
+
+        if (!validatedSegments) {
             res.writeHead(403, { 'Content-Type': 'text/plain' });
             res.end('Forbidden');
             return;
         }
 
-        const { staticRoot, relativeFilePath } = resolveRequestTarget(repoRoot, decodedPathname);
-        const resolvedFilePath = path.resolve(staticRoot, relativeFilePath);
+        const resolvedFilePath = path.resolve(staticRoot, ...validatedSegments);
 
         if (!isContained(staticRoot, resolvedFilePath)) {
             res.writeHead(403, { 'Content-Type': 'text/plain' });
