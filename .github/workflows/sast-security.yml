@@ -397,6 +397,17 @@ jobs:
 
       - name: 🛡️ Configure Semgrep Rules
         id: configure
+        env:
+          HAS_JAVASCRIPT: ${{ needs.detect-languages.outputs.has_javascript }}
+          HAS_TYPESCRIPT: ${{ needs.detect-languages.outputs.has_typescript }}
+          HAS_PYTHON: ${{ needs.detect-languages.outputs.has_python }}
+          HAS_JAVA: ${{ needs.detect-languages.outputs.has_java }}
+          HAS_CSHARP: ${{ needs.detect-languages.outputs.has_csharp }}
+          HAS_GO: ${{ needs.detect-languages.outputs.has_go }}
+          HAS_RUST: ${{ needs.detect-languages.outputs.has_rust }}
+          HAS_PHP: ${{ needs.detect-languages.outputs.has_php }}
+          HAS_RUBY: ${{ needs.detect-languages.outputs.has_ruby }}
+          INCLUDE_EXPERIMENTAL: ${{ github.event.inputs.include_experimental }}
         run: |
           echo "🛡️ Configuring Semgrep rules based on detected languages..."
           
@@ -408,46 +419,46 @@ jobs:
           RULES+=("p/owasp-top-ten")
           
           # Language-specific rules
-          if [[ "${{ needs.detect-languages.outputs.has_javascript }}" == "true" || "${{ needs.detect-languages.outputs.has_typescript }}" == "true" ]]; then
+          if [[ "$HAS_JAVASCRIPT" == "true" || "$HAS_TYPESCRIPT" == "true" ]]; then
             RULES+=("p/javascript")
             RULES+=("p/typescript")
             RULES+=("p/react")
             RULES+=("p/nodejs")
           fi
           
-          if [[ "${{ needs.detect-languages.outputs.has_python }}" == "true" ]]; then
+          if [[ "$HAS_PYTHON" == "true" ]]; then
             RULES+=("p/python")
             RULES+=("p/django")
             RULES+=("p/flask")
           fi
           
-          if [[ "${{ needs.detect-languages.outputs.has_java }}" == "true" ]]; then
+          if [[ "$HAS_JAVA" == "true" ]]; then
             RULES+=("p/java")
             RULES+=("p/spring")
           fi
           
-          if [[ "${{ needs.detect-languages.outputs.has_csharp }}" == "true" ]]; then
+          if [[ "$HAS_CSHARP" == "true" ]]; then
             RULES+=("p/csharp")
           fi
           
-          if [[ "${{ needs.detect-languages.outputs.has_go }}" == "true" ]]; then
+          if [[ "$HAS_GO" == "true" ]]; then
             RULES+=("p/golang")
           fi
           
-          if [[ "${{ needs.detect-languages.outputs.has_rust }}" == "true" ]]; then
+          if [[ "$HAS_RUST" == "true" ]]; then
             RULES+=("p/rust")
           fi
           
-          if [[ "${{ needs.detect-languages.outputs.has_php }}" == "true" ]]; then
+          if [[ "$HAS_PHP" == "true" ]]; then
             RULES+=("p/php")
           fi
           
-          if [[ "${{ needs.detect-languages.outputs.has_ruby }}" == "true" ]]; then
+          if [[ "$HAS_RUBY" == "true" ]]; then
             RULES+=("p/ruby")
           fi
           
           # Add experimental rules if requested
-          if [[ "${{ github.event.inputs.include_experimental }}" == "true" ]]; then
+          if [[ "$INCLUDE_EXPERIMENTAL" == "true" ]]; then
             RULES+=("p/experimental")
           fi
           
@@ -541,6 +552,10 @@ jobs:
 
       - name: 📊 Generate Comprehensive Security Report
         if: always()
+        env:
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          ANALYSIS_DEPTH: ${{ github.event.inputs.analysis_depth || 'comprehensive' }}
+          GITHUB_REF_NAME: ${{ github.ref_name }}
         run: |
           mkdir -p security-reports
           
@@ -548,9 +563,9 @@ jobs:
           # 🔍 Comprehensive SAST Security Report
           
           **Generated:** $(date)
-          **Repository:** ${{ github.repository }}
-          **Analysis Depth:** ${{ github.event.inputs.analysis_depth || 'comprehensive' }}
-          **Branch:** ${{ github.ref_name }}
+          **Repository:** $GITHUB_REPOSITORY
+          **Analysis Depth:** $ANALYSIS_DEPTH
+          **Branch:** $GITHUB_REF_NAME
           
           ## 📊 Analysis Overview
           
@@ -578,10 +593,10 @@ jobs:
           ## 🔍 Security Findings Summary
           
           ### CodeQL Results
-          📄 View detailed CodeQL results in the [Security tab](https://github.com/${{ github.repository }}/security/code-scanning)
+          📄 View detailed CodeQL results in the [Security tab](https://github.com/$GITHUB_REPOSITORY/security/code-scanning)
           
           ### Semgrep Results
-          📄 View Semgrep findings in the [Security tab](https://github.com/${{ github.repository }}/security/code-scanning)
+          📄 View Semgrep findings in the [Security tab](https://github.com/$GITHUB_REPOSITORY/security/code-scanning)
           
           ### Secrets Detection
           EOF
@@ -694,6 +709,10 @@ jobs:
           CODEQL_STATUS: ${{ needs.codeql-analysis.result }}
           SEMGREP_STATUS: ${{ needs.semgrep-analysis.result }}
           ADVANCED_STATUS: ${{ needs.advanced-security.result }}
+          ANALYSIS_DEPTH: ${{ github.event.inputs.analysis_depth || 'comprehensive' }}
+          SECURITY_SEVERITY_THRESHOLD_VALUE: ${{ env.SECURITY_SEVERITY_THRESHOLD }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          GITHUB_RUN_ID: ${{ github.run_id }}
         with:
           script: |
             const languagesList = process.env.LANGUAGES_LIST || '';
@@ -701,6 +720,10 @@ jobs:
             const codeqlStatus = process.env.CODEQL_STATUS;
             const semgrepStatus = process.env.SEMGREP_STATUS;
             const advancedStatus = process.env.ADVANCED_STATUS;
+            const analysisDepth = process.env.ANALYSIS_DEPTH || 'comprehensive';
+            const securitySeverityThreshold = process.env.SECURITY_SEVERITY_THRESHOLD_VALUE || 'medium';
+            const githubRepository = process.env.GITHUB_REPOSITORY || `${context.repo.owner}/${context.repo.repo}`;
+            const githubRunId = process.env.GITHUB_RUN_ID || String(context.runId || '');
             
             const statusIcon = (status) => {
               switch(status) {
@@ -716,8 +739,8 @@ jobs:
             
             ### 📊 Analysis Overview
             - **Languages Detected:** ${languages.join(', ')}
-            - **Analysis Depth:** ${{ github.event.inputs.analysis_depth || 'comprehensive' }}
-            - **Security Threshold:** ${{ env.SECURITY_SEVERITY_THRESHOLD }}
+            - **Analysis Depth:** ${analysisDepth}
+            - **Security Threshold:** ${securitySeverityThreshold}
             
             ### 🛡️ Security Analysis Status
             | Tool | Status | Coverage |
@@ -727,11 +750,11 @@ jobs:
             | Advanced Security | ${statusIcon(advancedStatus)} ${advancedStatus} | Secrets, Containers, IaC |
             
             ### 🔍 Next Steps
-            1. **Review Security Tab** - Check [Security alerts](https://github.com/${{ github.repository }}/security/code-scanning) for findings
+            1. **Review Security Tab** - Check [Security alerts](https://github.com/${githubRepository}/security/code-scanning) for findings
             2. **Address High Priority Issues** - Focus on critical and high severity vulnerabilities
             3. **Verify Fixes** - Re-run analysis after implementing fixes
             
-            📄 [View Full SAST Report](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }})
+            📄 [View Full SAST Report](https://github.com/${githubRepository}/actions/runs/${githubRunId})
             `;
             
             github.rest.issues.createComment({
@@ -745,6 +768,8 @@ jobs:
         if: failure() && (github.event_name == 'schedule' || github.event_name == 'push')
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          GITHUB_REF_NAME: ${{ github.ref_name }}
         run: |
           gh issue create \
             --title "🚨 Critical SAST Security Findings Detected" \
@@ -752,8 +777,8 @@ jobs:
             --body "## 🔍 SAST Security Alert
           
           **Detection Date:** $(date)
-          **Repository:** ${{ github.repository }}
-          **Branch:** ${{ github.ref_name }}
+          **Repository:** $GITHUB_REPOSITORY
+          **Branch:** $GITHUB_REF_NAME
           **Analysis Type:** Static Application Security Testing (SAST)
           
           ### 🚨 Critical Security Issues Detected

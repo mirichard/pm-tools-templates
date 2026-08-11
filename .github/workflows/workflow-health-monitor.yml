@@ -508,11 +508,16 @@ jobs:
 
       - name: 🚨 Evaluate Health Alerts
         id: alerts
+        env:
+          HEALTH_SCORE: ${{ needs.collect-workflow-status.outputs.health_score }}
+          ALERT_THRESHOLD_INPUT: ${{ github.event.inputs.alert_threshold || '75' }}
+          HEALTH_THRESHOLD_CRITICAL_VALUE: ${{ env.HEALTH_THRESHOLD_CRITICAL }}
+          HEALTH_THRESHOLD_WARNING_VALUE: ${{ env.HEALTH_THRESHOLD_WARNING }}
+          HEALTH_THRESHOLD_GOOD_VALUE: ${{ env.HEALTH_THRESHOLD_GOOD }}
         run: |
           echo "🚨 Evaluating health alerts..."
           
-          HEALTH_SCORE="${{ needs.collect-workflow-status.outputs.health_score }}"
-          ALERT_THRESHOLD="${{ github.event.inputs.alert_threshold || '75' }}"
+          ALERT_THRESHOLD="$ALERT_THRESHOLD_INPUT"
           
           echo "Current Health Score: $HEALTH_SCORE"
           echo "Alert Threshold: $ALERT_THRESHOLD"
@@ -521,15 +526,15 @@ jobs:
           ALERT_LEVEL="info"
           ALERT_MESSAGE=""
           
-          if (( $(echo "$HEALTH_SCORE < ${{ env.HEALTH_THRESHOLD_CRITICAL }}" | bc -l) )); then
+          if (( $(echo "$HEALTH_SCORE < $HEALTH_THRESHOLD_CRITICAL_VALUE" | bc -l) )); then
             ALERT_NEEDED="true"
             ALERT_LEVEL="critical"
             ALERT_MESSAGE="🔴 CRITICAL: Workflow health is severely degraded (Score: $HEALTH_SCORE/100)"
-          elif (( $(echo "$HEALTH_SCORE < ${{ env.HEALTH_THRESHOLD_WARNING }}" | bc -l) )); then
+          elif (( $(echo "$HEALTH_SCORE < $HEALTH_THRESHOLD_WARNING_VALUE" | bc -l) )); then
             ALERT_NEEDED="true"
             ALERT_LEVEL="warning"
             ALERT_MESSAGE="🟡 WARNING: Workflow health is below acceptable levels (Score: $HEALTH_SCORE/100)"
-          elif (( $(echo "$HEALTH_SCORE < ${{ env.HEALTH_THRESHOLD_GOOD }}" | bc -l) )); then
+          elif (( $(echo "$HEALTH_SCORE < $HEALTH_THRESHOLD_GOOD_VALUE" | bc -l) )); then
             ALERT_NEEDED="true"
             ALERT_LEVEL="notice"
             ALERT_MESSAGE="🟠 NOTICE: Workflow health could be improved (Score: $HEALTH_SCORE/100)"
@@ -544,10 +549,15 @@ jobs:
           echo "$ALERT_MESSAGE"
 
       - name: 📋 Generate Health Report
+        env:
+          STATUS_SUMMARY: ${{ needs.collect-workflow-status.outputs.status_summary }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          MONITORING_SCOPE: ${{ github.event.inputs.monitoring_scope || 'comprehensive' }}
+          ALERT_LEVEL_OUTPUT: ${{ steps.alerts.outputs.alert_level }}
+          ALERT_MESSAGE_OUTPUT: ${{ steps.alerts.outputs.alert_message }}
+          ALERT_NEEDED_OUTPUT: ${{ steps.alerts.outputs.alert_needed }}
         run: |
           echo "📋 Generating comprehensive health report..."
-          
-          STATUS_SUMMARY='${{ needs.collect-workflow-status.outputs.status_summary }}'
           
           # Debug: Check if STATUS_SUMMARY is available
           if [ -z "${STATUS_SUMMARY:-"{}"}" ]; then
@@ -579,8 +589,8 @@ jobs:
           report = f"""# 🏥 Workflow Health Report
           
           **Generated:** {datetime.now().isoformat()}
-          **Repository:** ${{ github.repository }}
-          **Monitoring Scope:** ${{ github.event.inputs.monitoring_scope || 'comprehensive' }}
+          **Repository:** {os.environ.get('GITHUB_REPOSITORY', '')}
+          **Monitoring Scope:** {os.environ.get('MONITORING_SCOPE', 'comprehensive')}
           
           ## 🎯 Health Summary
           
@@ -602,9 +612,9 @@ jobs:
           
           ## 🚨 Alert Status
           
-          - **Alert Level:** ${{ steps.alerts.outputs.alert_level }}
-          - **Alert Message:** ${{ steps.alerts.outputs.alert_message }}
-          - **Alert Needed:** ${{ steps.alerts.outputs.alert_needed }}
+          - **Alert Level:** {os.environ.get('ALERT_LEVEL_OUTPUT', 'info')}
+          - **Alert Message:** {os.environ.get('ALERT_MESSAGE_OUTPUT', '')}
+          - **Alert Needed:** {os.environ.get('ALERT_NEEDED_OUTPUT', 'false')}
           
           ## 🔍 Detailed Analysis
           

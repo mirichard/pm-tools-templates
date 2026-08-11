@@ -430,21 +430,29 @@ jobs:
           EOF
 
       - name: 🎯 Dashboard Summary
+        env:
+          DASHBOARD_TYPE_INPUT: ${{ github.event.inputs.dashboard_type || 'comprehensive' }}
+          HEALTH_ICON: ${{ steps.metrics.outputs.health_icon }}
+          HEALTH_STATUS: ${{ steps.metrics.outputs.health_status }}
+          COMPLETION_RATE: ${{ steps.metrics.outputs.completion_rate }}
+          STRATEGIC_PROGRESS: ${{ steps.metrics.outputs.strategic_progress }}
+          RISK_SCORE: ${{ steps.metrics.outputs.risk_score }}
+          VELOCITY: ${{ steps.metrics.outputs.velocity }}
         run: |
           echo "📊 Dashboard Generation Complete"
           echo "================================"
-          DASHBOARD_TYPE="${{ github.event.inputs.dashboard_type || 'comprehensive' }}"
-          echo "Dashboard Type: $DASHBOARD_TYPE"
-          echo "Project Health: ${{ steps.metrics.outputs.health_icon }} ${{ steps.metrics.outputs.health_status }}"
-          echo "Completion Rate: ${{ steps.metrics.outputs.completion_rate }}%"
-          echo "Strategic Progress: ${{ steps.metrics.outputs.strategic_progress }}%"
-          echo "Risk Score: ${{ steps.metrics.outputs.risk_score }}"
-          echo "Weekly Velocity: ${{ steps.metrics.outputs.velocity }} issues"
+          DASHBOARD_TYPE="$DASHBOARD_TYPE_INPUT"
+          printf 'Dashboard Type: %s\n' "$DASHBOARD_TYPE"
+          echo "Project Health: $HEALTH_ICON $HEALTH_STATUS"
+          echo "Completion Rate: $COMPLETION_RATE%"
+          echo "Strategic Progress: $STRATEGIC_PROGRESS%"
+          echo "Risk Score: $RISK_SCORE"
+          echo "Weekly Velocity: $VELOCITY issues"
           echo ""
           echo "Files Generated:"
           echo "- dashboards/project-health-dashboard.md"
           echo "- dashboards/data/metrics-$(date +%Y-%m-%d).json"
-          if [ "${{ github.event.inputs.dashboard_type }}" = "executive" ]; then
+          if [ "$DASHBOARD_TYPE" = "executive" ]; then
             echo "- dashboards/executive/executive-dashboard.md"
           fi
           echo ""

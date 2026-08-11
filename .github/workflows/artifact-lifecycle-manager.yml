@@ -63,7 +63,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           echo "🔍 Discovering artifacts..."
-          
+
           mkdir -p ./artifact-data
           
           # List all artifacts with error handling and retry logic
@@ -178,11 +178,13 @@ jobs:
         if: github.event.inputs.action == 'cleanup'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          CLEANUP_TYPE_INPUT: ${{ github.event.inputs.cleanup_type }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
         run: |
           echo "🧹 Executing artifact cleanup..."
           
           # Get artifacts to clean based on type
-          CLEANUP_TYPE="${{ github.event.inputs.cleanup_type }}"
+          CLEANUP_TYPE="$CLEANUP_TYPE_INPUT"
           
           jq -r --arg type "$CLEANUP_TYPE" '
           .cleanup | map(select(
@@ -194,7 +196,7 @@ jobs:
           )) | .[] | .id' ./artifact-data/analyzed.json | \
           while read -r artifact_id; do
             echo "Deleting artifact $artifact_id..."
-            gh api "repos/${{ github.repository }}/actions/artifacts/$artifact_id" \
+            gh api "repos/$GITHUB_REPOSITORY/actions/artifacts/$artifact_id" \
               --method DELETE && echo "✓ Deleted" || echo "✗ Failed"
           done
 
@@ -486,13 +488,18 @@ jobs:
       - name: 🧹 Execute Artifact Cleanup
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          CLEANUP_SCOPE_INPUT: ${{ github.event.inputs.cleanup_scope || 'comprehensive' }}
+          FORCE_CLEANUP_INPUT: ${{ github.event.inputs.force_cleanup }}
+          RETENTION_OVERRIDE_INPUT: ${{ github.event.inputs.retention_days }}
+          STORAGE_LIMIT_INPUT: ${{ github.event.inputs.storage_limit_gb || '5' }}
         run: |
           echo "🧹 Executing automated artifact cleanup..."
           
-          CLEANUP_SCOPE="${{ github.event.inputs.cleanup_scope || 'comprehensive' }}"
-          FORCE_CLEANUP="${{ github.event.inputs.force_cleanup }}"
-          RETENTION_OVERRIDE="${{ github.event.inputs.retention_days }}"
-          STORAGE_LIMIT="${{ github.event.inputs.storage_limit_gb || '5' }}"
+          CLEANUP_SCOPE="$CLEANUP_SCOPE_INPUT"
+          FORCE_CLEANUP="$FORCE_CLEANUP_INPUT"
+          RETENTION_OVERRIDE="$RETENTION_OVERRIDE_INPUT"
+          STORAGE_LIMIT="$STORAGE_LIMIT_INPUT"
           
           echo "Cleanup scope: $CLEANUP_SCOPE"
           echo "Force cleanup: $FORCE_CLEANUP"
@@ -503,11 +510,13 @@ jobs:
           import subprocess
           import os
           from datetime import datetime, timedelta
-          
+
+          github_repository = os.environ.get('GITHUB_REPOSITORY', '')
+
           # Load cleanup candidates
           with open('artifact-data/analyzed.json', 'r') as f:
               analyzed = json.load(f)
-          
+
           cleanup_candidates = analyzed.get('cleanup', [])
           cleanup_scope = os.environ.get('CLEANUP_SCOPE', 'comprehensive')
           force_cleanup = os.environ.get('FORCE_CLEANUP', 'false').lower() == 'true'
@@ -579,7 +588,7 @@ jobs:
                       # Delete the artifact
                       result = subprocess.run([
                           'gh', 'api', 
-                          f'repos/${{ github.repository }}/actions/artifacts/{artifact_id}',
+                      f'repos/{github_repository}/actions/artifacts/{artifact_id}',
                           '--method', 'DELETE'
                       ], capture_output=True, text=True)
                       

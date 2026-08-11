@@ -79,15 +79,18 @@ jobs:
           done
 
       - name: 📊 Generate Report
+        env:
+          VALIDATION_SCOPE_INPUT: ${{ github.event.inputs.validation_scope }}
         run: |
           echo "📊 Generating validation report..."
+          VALIDATION_SCOPE="$VALIDATION_SCOPE_INPUT"
           
           # Create simple report
           cat > validation-report.md << 'EOF'
           # Simple Template Validation Report
           
           **Generated:** $(date -u +"%Y-%m-%d %H:%M:%S UTC")
-          **Scope:** ${{ github.event.inputs.validation_scope }}
+          **Scope:** $VALIDATION_SCOPE
           
           ## Summary
           
@@ -95,7 +98,6 @@ jobs:
           
           template_count=$(find templates -name "*.md" 2>/dev/null | wc -l)
           echo "- Templates found: $template_count" >> validation-report.md
-          VALIDATION_SCOPE="${{ github.event.inputs.validation_scope }}"
           echo "- Validation scope: $VALIDATION_SCOPE" >> validation-report.md
           echo "- Status: ✅ Completed" >> validation-report.md
           
