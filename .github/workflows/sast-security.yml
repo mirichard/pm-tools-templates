@@ -609,15 +609,15 @@ jobs:
           ### 🔍 Languages Detected
           | Language | Detected | Analysis Coverage |
           |----------|----------|-------------------|
-              | JavaScript | {has_javascript} | CodeQL + Semgrep |
-              | TypeScript | {has_typescript} | CodeQL + Semgrep |
-              | Python | {has_python} | CodeQL + Semgrep |
-              | Java | {has_java} | CodeQL + Semgrep |
-              | C# | {has_csharp} | CodeQL + Semgrep |
-              | Go | {has_go} | CodeQL + Semgrep |
-              | Rust | {has_rust} | Semgrep |
-              | PHP | {has_php} | Semgrep |
-              | Ruby | {has_ruby} | CodeQL + Semgrep |
+          | JavaScript | {has_javascript} | CodeQL + Semgrep |
+          | TypeScript | {has_typescript} | CodeQL + Semgrep |
+          | Python | {has_python} | CodeQL + Semgrep |
+          | Java | {has_java} | CodeQL + Semgrep |
+          | C# | {has_csharp} | CodeQL + Semgrep |
+          | Go | {has_go} | CodeQL + Semgrep |
+          | Rust | {has_rust} | Semgrep |
+          | PHP | {has_php} | Semgrep |
+          | Ruby | {has_ruby} | CodeQL + Semgrep |
 
           ### 🛡️ Analysis Tools Used
           - ✅ **GitHub CodeQL** - Semantic analysis and vulnerability detection
