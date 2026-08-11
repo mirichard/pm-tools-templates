@@ -1,6 +1,6 @@
 const http = require('http');
-const fs = require('fs');
 const path = require('path');
+const { createStaticRequestHandler } = require('../../backend/static-file-handler');
 
 const PORT = 8080;
 
@@ -16,41 +16,27 @@ const mimeTypes = {
     '.svg': 'image/svg+xml'
 };
 
-const server = http.createServer((req, res) => {
-    console.log('Request for:', req.url);
-    
-    let filePath = '';
-    
-    if (req.url === '/') {
-        filePath = path.join(__dirname, '..', 'curation-dashboard', 'index.html');
-    } else if (req.url.startsWith('/curation-dashboard/')) {
-        filePath = path.join(__dirname, '..', req.url);
-    } else if (req.url.startsWith('/public/')) {
-        filePath = path.join(__dirname, '..', req.url);
-    } else {
-        filePath = path.join(__dirname, '..', 'curation-dashboard', req.url);
-    }
-    
-    const extName = path.extname(filePath).toLowerCase();
-    const contentType = mimeTypes[extName] || 'application/octet-stream';
-    
-    console.log('Serving file:', filePath);
-    
-    fs.readFile(filePath, (err, content) => {
-        if (err) {
-            console.error('File not found:', filePath);
-            res.writeHead(404, { 'Content-Type': 'text/plain' });
-            res.end('File not found');
-        } else {
-            res.writeHead(200, { 'Content-Type': contentType });
-            res.end(content, 'utf-8');
-        }
-    });
+const requestHandler = createStaticRequestHandler({
+    repoRoot: path.resolve(__dirname, '..', '..'),
+    mimeTypes
 });
 
-server.listen(PORT, () => {
-    console.log(`Server running at http://localhost:${PORT}/`);
-    console.log('Available endpoints:');
-    console.log('  - Dashboard: http://localhost:8080/');
-    console.log('  - Metrics API: http://localhost:8080/public/metrics/curation-metrics.json');
+const server = http.createServer((req, res) => {
+    console.log('Request for:', req.url);
+
+    requestHandler(req, res);
 });
+
+if (require.main === module) {
+    server.listen(PORT, () => {
+        console.log(`Server running at http://localhost:${PORT}/`);
+        console.log('Available endpoints:');
+        console.log('  - Dashboard: http://localhost:8080/');
+        console.log('  - Metrics API: http://localhost:8080/public/metrics/curation-metrics.json');
+    });
+}
+
+module.exports = {
+    server,
+    requestHandler
+};
