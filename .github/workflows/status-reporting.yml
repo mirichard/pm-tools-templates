@@ -260,40 +260,62 @@ jobs:
           EOF
 
       - name: 📊 Generate Metrics JSON
+        env:
+          REPORT_TYPE_INPUT: ${{ github.event.inputs.report_type || 'weekly' }}
+          METHODOLOGY_INPUT: ${{ github.event.inputs.methodology || 'agile' }}
+          TOTAL_ISSUES: ${{ steps.metrics.outputs.total_issues }}
+          OPEN_ISSUES: ${{ steps.metrics.outputs.open_issues }}
+          CLOSED_ISSUES: ${{ steps.metrics.outputs.closed_issues }}
+          COMPLETION_RATE: ${{ steps.metrics.outputs.completion_rate }}
+          HIGH_PRIORITY: ${{ steps.metrics.outputs.high_priority }}
+          BUGS_COUNT: ${{ steps.metrics.outputs.bugs }}
+          STRATEGIC_OPEN: ${{ steps.metrics.outputs.strategic_open }}
+          STRATEGIC_PROGRESS: ${{ steps.metrics.outputs.strategic_progress }}
+          CRITICAL_RISKS: ${{ steps.metrics.outputs.critical_risks }}
+          BLOCKERS_COUNT: ${{ steps.metrics.outputs.blockers }}
+          RECENT_CLOSED: ${{ steps.metrics.outputs.recent_closed }}
         run: |
           # Create metrics data file
           mkdir -p metrics/status-data
+
+          REPORT_TYPE="$REPORT_TYPE_INPUT"
+          METHODOLOGY="$METHODOLOGY_INPUT"
           
           cat > metrics/status-data/status-metrics-$(date +%Y-%m-%d).json << EOF
           {
             "report_date": "$(date -Iseconds)",
-            "report_type": "${{ github.event.inputs.report_type || 'weekly' }}",
-            "methodology": "${{ github.event.inputs.methodology || 'agile' }}",
+            "report_type": "$REPORT_TYPE",
+            "methodology": "$METHODOLOGY",
             "metrics": {
-              "total_issues": ${{ steps.metrics.outputs.total_issues }},
-              "open_issues": ${{ steps.metrics.outputs.open_issues }},
-              "closed_issues": ${{ steps.metrics.outputs.closed_issues }},
-              "completion_rate": ${{ steps.metrics.outputs.completion_rate }},
-              "high_priority": ${{ steps.metrics.outputs.high_priority }},
-              "bugs": ${{ steps.metrics.outputs.bugs }},
-              "strategic_open": ${{ steps.metrics.outputs.strategic_open }},
-              "strategic_progress": ${{ steps.metrics.outputs.strategic_progress }},
-              "critical_risks": ${{ steps.metrics.outputs.critical_risks }},
-              "blockers": ${{ steps.metrics.outputs.blockers }},
-              "recent_closed": ${{ steps.metrics.outputs.recent_closed }}
+              "total_issues": $TOTAL_ISSUES,
+              "open_issues": $OPEN_ISSUES,
+              "closed_issues": $CLOSED_ISSUES,
+              "completion_rate": $COMPLETION_RATE,
+              "high_priority": $HIGH_PRIORITY,
+              "bugs": $BUGS_COUNT,
+              "strategic_open": $STRATEGIC_OPEN,
+              "strategic_progress": $STRATEGIC_PROGRESS,
+              "critical_risks": $CRITICAL_RISKS,
+              "blockers": $BLOCKERS_COUNT,
+              "recent_closed": $RECENT_CLOSED
             },
             "health_indicators": {
-              "overall_health": "$([ ${{ steps.metrics.outputs.completion_rate }} -ge 75 ] && echo "green" || echo "yellow")",
-              "risk_level": "$([ ${{ steps.metrics.outputs.critical_risks }} -eq 0 ] && echo "low" || echo "high")",
-              "progress_trend": "$([ ${{ steps.metrics.outputs.recent_closed }} -gt 0 ] && echo "positive" || echo "stagnant")"
+              "overall_health": "$([ "$COMPLETION_RATE" -ge 75 ] && echo "green" || echo "yellow")",
+              "risk_level": "$([ "$CRITICAL_RISKS" -eq 0 ] && echo "low" || echo "high")",
+              "progress_trend": "$([ "$RECENT_CLOSED" -gt 0 ] && echo "positive" || echo "stagnant")"
             }
           }
           EOF
 
       - name: 💾 Commit Status Report
+        env:
+          REPORT_TYPE_INPUT: ${{ github.event.inputs.report_type || 'weekly' }}
+          COMPLETION_RATE: ${{ steps.metrics.outputs.completion_rate }}
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "Status Reporting Automation"
+
+          REPORT_TYPE="$REPORT_TYPE_INPUT"
           
           # Add the generated reports
           git add reports/status/ metrics/status-data/
@@ -302,7 +324,7 @@ jobs:
           if git diff --staged --quiet; then
             echo "No changes to commit"
           else
-            git commit -m "📊 Generate ${{ github.event.inputs.report_type || 'weekly' }} status report - ${{ steps.metrics.outputs.completion_rate }}% complete"
+            git commit -m "📊 Generate $REPORT_TYPE status report - $COMPLETION_RATE% complete"
             git push
           fi
 

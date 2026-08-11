@@ -1183,6 +1183,11 @@ jobs:
           path: visual-comparison-results/
 
       - name: 📊 Generate Visual Regression Report
+        env:
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          TEST_SCOPE_INPUT: ${{ github.event.inputs.test_scope || 'comprehensive' }}
+          BASELINE_UPDATE_INPUT: ${{ github.event.inputs.baseline_update || 'false' }}
+          TEST_RESOLUTION_INPUT: ${{ github.event.inputs.test_resolution || 'standard' }}
         run: |
           echo "📊 Generating comprehensive visual regression report..."
           
@@ -1191,6 +1196,11 @@ jobs:
           import os
           from datetime import datetime
           from statistics import mean
+
+          github_repository = os.environ.get('GITHUB_REPOSITORY', '')
+          test_scope = os.environ.get('TEST_SCOPE_INPUT', 'comprehensive')
+          baseline_update = os.environ.get('BASELINE_UPDATE_INPUT', 'false')
+          test_resolution = os.environ.get('TEST_RESOLUTION_INPUT', 'standard')
           
           # Load comparison results
           try:
@@ -1210,9 +1220,9 @@ jobs:
               report = f"""# 👁️ Visual Regression Testing Report
           
           **Generated:** {datetime.now().isoformat()}
-          **Repository:** ${{ github.repository }}
-          **Test Scope:** ${{ github.event.inputs.test_scope || 'comprehensive' }}
-          **Baseline Update:** ${{ github.event.inputs.baseline_update || 'false' }}
+          **Repository:** {github_repository}
+          **Test Scope:** {test_scope}
+          **Baseline Update:** {baseline_update}
           **Diff Threshold:** {summary.get('threshold_percent', 2)}%
           
           ## 📊 Executive Summary
@@ -1380,10 +1390,10 @@ jobs:
           
           ## ⚙️ Test Configuration
           
-          - **Test Scope:** ${{ github.event.inputs.test_scope || 'comprehensive' }}
+          - **Test Scope:** {test_scope}
           - **Diff Threshold:** {summary.get('threshold_percent', 2)}%
-          - **Baseline Update:** ${{ github.event.inputs.baseline_update || 'false' }}
-          - **Test Resolution:** ${{ github.event.inputs.test_resolution || 'standard' }}
+          - **Baseline Update:** {baseline_update}
+          - **Test Resolution:** {test_resolution}
           - **Screenshot Timeout:** {os.environ.get('SCREENSHOT_TIMEOUT', 30000)}ms
           - **Image Quality:** {os.environ.get('IMAGE_QUALITY', 90)}%
           
@@ -1503,18 +1513,26 @@ jobs:
           retention-days: 30
 
       - name: 📊 Visual Testing Summary
+        env:
+          GITHUB_REPO_INPUT: ${{ github.repository }}
+          TEST_SCOPE_INPUT: ${{ github.event.inputs.test_scope || 'comprehensive' }}
+          BASELINE_UPDATE_INPUT: ${{ github.event.inputs.baseline_update || 'false' }}
+          DIFF_THRESHOLD_INPUT: ${{ github.event.inputs.diff_threshold || '2' }}
+          VISUAL_DISCOVERY_RESULT: ${{ needs.visual-discovery.result }}
+          TEMPLATE_RENDERING_RESULT: ${{ needs.template-rendering.result || 'Skipped' }}
+          VISUAL_CAPTURE_RESULT: ${{ needs.visual-capture.result || 'Skipped' }}
+          VISUAL_COMPARISON_RESULT: ${{ needs.visual-comparison.result || 'Skipped' }}
         run: |
           echo "👁️ Visual Regression Testing Summary"
           echo "===================================="
-          GITHUB_REPO="${{ github.repository }}"
-          TEST_SCOPE="${{ github.event.inputs.test_scope || 'comprehensive' }}"
+          GITHUB_REPO="$GITHUB_REPO_INPUT"
+          TEST_SCOPE="$TEST_SCOPE_INPUT"
           echo "Repository: $GITHUB_REPO"
           echo "Test Scope: $TEST_SCOPE"
-          BASELINE_UPDATE="${{ github.event.inputs.baseline_update || 'false' }}"
-          DIFF_THRESHOLD="${{ github.event.inputs.diff_threshold || '2' }}"
+          BASELINE_UPDATE="$BASELINE_UPDATE_INPUT"
+          DIFF_THRESHOLD="$DIFF_THRESHOLD_INPUT"
           echo "Baseline Update: $BASELINE_UPDATE"
           echo "Diff Threshold: $DIFF_THRESHOLD%"
-          echo ""
           echo "📋 Results:"
           if [ -f visual-testing-summary.json ]; then
             echo "- Screenshots: $(jq -r '.total_screenshots' visual-testing-summary.json)"
@@ -1527,10 +1545,10 @@ jobs:
           fi
           echo ""
           echo "🔍 Components Completed:"
-          echo "- Visual Discovery: ${{ needs.visual-discovery.result }}"
-          echo "- Template Rendering: ${{ needs.template-rendering.result || 'Skipped' }}"
-          echo "- Visual Capture: ${{ needs.visual-capture.result || 'Skipped' }}"
-          echo "- Visual Comparison: ${{ needs.visual-comparison.result || 'Skipped' }}"
+          echo "- Visual Discovery: $VISUAL_DISCOVERY_RESULT"
+          echo "- Template Rendering: $TEMPLATE_RENDERING_RESULT"
+          echo "- Visual Capture: $VISUAL_CAPTURE_RESULT"
+          echo "- Visual Comparison: $VISUAL_COMPARISON_RESULT"
           echo ""
           echo "👁️ Visual regression testing completed!"
           echo "📊 Check artifacts for detailed reports and diff images"
