@@ -489,17 +489,12 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_REPOSITORY: ${{ github.repository }}
-          CLEANUP_SCOPE_INPUT: ${{ github.event.inputs.cleanup_scope || 'comprehensive' }}
-          FORCE_CLEANUP_INPUT: ${{ github.event.inputs.force_cleanup }}
-          RETENTION_OVERRIDE_INPUT: ${{ github.event.inputs.retention_days }}
-          STORAGE_LIMIT_INPUT: ${{ github.event.inputs.storage_limit_gb || '5' }}
+          CLEANUP_SCOPE: comprehensive
+          FORCE_CLEANUP: "false"
+          RETENTION_OVERRIDE: ""
+          STORAGE_LIMIT: "5"
         run: |
           echo "🧹 Executing automated artifact cleanup..."
-          
-          CLEANUP_SCOPE="$CLEANUP_SCOPE_INPUT"
-          FORCE_CLEANUP="$FORCE_CLEANUP_INPUT"
-          RETENTION_OVERRIDE="$RETENTION_OVERRIDE_INPUT"
-          STORAGE_LIMIT="$STORAGE_LIMIT_INPUT"
           
           echo "Cleanup scope: $CLEANUP_SCOPE"
           echo "Force cleanup: $FORCE_CLEANUP"

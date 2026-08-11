@@ -556,49 +556,90 @@ jobs:
           GITHUB_REPOSITORY: ${{ github.repository }}
           ANALYSIS_DEPTH: ${{ github.event.inputs.analysis_depth || 'comprehensive' }}
           GITHUB_REF_NAME: ${{ github.ref_name }}
+          HAS_JAVASCRIPT: ${{ needs.detect-languages.outputs.has_javascript }}
+          HAS_TYPESCRIPT: ${{ needs.detect-languages.outputs.has_typescript }}
+          HAS_PYTHON: ${{ needs.detect-languages.outputs.has_python }}
+          HAS_JAVA: ${{ needs.detect-languages.outputs.has_java }}
+          HAS_CSHARP: ${{ needs.detect-languages.outputs.has_csharp }}
+          HAS_GO: ${{ needs.detect-languages.outputs.has_go }}
+          HAS_RUST: ${{ needs.detect-languages.outputs.has_rust }}
+          HAS_PHP: ${{ needs.detect-languages.outputs.has_php }}
+          HAS_RUBY: ${{ needs.detect-languages.outputs.has_ruby }}
         run: |
           mkdir -p security-reports
-          
-          cat > security-reports/sast-comprehensive-report.md << 'EOF'
-          # 🔍 Comprehensive SAST Security Report
-          
-          **Generated:** $(date)
-          **Repository:** $GITHUB_REPOSITORY
-          **Analysis Depth:** $ANALYSIS_DEPTH
-          **Branch:** $GITHUB_REF_NAME
-          
+
+          python3 - << 'EOF'
+          import os
+          from datetime import datetime
+          from pathlib import Path
+
+          github_repository = os.environ.get('GITHUB_REPOSITORY', '')
+          analysis_depth = os.environ.get('ANALYSIS_DEPTH', 'comprehensive')
+          github_ref_name = os.environ.get('GITHUB_REF_NAME', '')
+          has_javascript = os.environ.get('HAS_JAVASCRIPT', 'false')
+          has_typescript = os.environ.get('HAS_TYPESCRIPT', 'false')
+          has_python = os.environ.get('HAS_PYTHON', 'false')
+          has_java = os.environ.get('HAS_JAVA', 'false')
+          has_csharp = os.environ.get('HAS_CSHARP', 'false')
+          has_go = os.environ.get('HAS_GO', 'false')
+          has_rust = os.environ.get('HAS_RUST', 'false')
+          has_php = os.environ.get('HAS_PHP', 'false')
+          has_ruby = os.environ.get('HAS_RUBY', 'false')
+
+          hadolint_line = (
+              "✅ **Hadolint** - Dockerfile security"
+              if Path('hadolint-Dockerfile.json').exists()
+              else "⏭️ **Hadolint** - No Dockerfiles found"
+          )
+          checkov_line = (
+              "✅ **Checkov** - Infrastructure as Code"
+              if Path('terraform-security.json').exists()
+              else "⏭️ **Checkov** - No IaC files found"
+          )
+
+          report = f"""# 🔍 Comprehensive SAST Security Report
+
+          **Generated:** {datetime.now().isoformat()}
+          **Repository:** {github_repository}
+          **Analysis Depth:** {analysis_depth}
+          **Branch:** {github_ref_name}
+
           ## 📊 Analysis Overview
-          
+
           ### 🔍 Languages Detected
           | Language | Detected | Analysis Coverage |
           |----------|----------|-------------------|
-          | JavaScript | ${{ needs.detect-languages.outputs.has_javascript }} | CodeQL + Semgrep |
-          | TypeScript | ${{ needs.detect-languages.outputs.has_typescript }} | CodeQL + Semgrep |
-          | Python | ${{ needs.detect-languages.outputs.has_python }} | CodeQL + Semgrep |
-          | Java | ${{ needs.detect-languages.outputs.has_java }} | CodeQL + Semgrep |
-          | C# | ${{ needs.detect-languages.outputs.has_csharp }} | CodeQL + Semgrep |
-          | Go | ${{ needs.detect-languages.outputs.has_go }} | CodeQL + Semgrep |
-          | Rust | ${{ needs.detect-languages.outputs.has_rust }} | Semgrep |
-          | PHP | ${{ needs.detect-languages.outputs.has_php }} | Semgrep |
-          | Ruby | ${{ needs.detect-languages.outputs.has_ruby }} | CodeQL + Semgrep |
-          
+              | JavaScript | {has_javascript} | CodeQL + Semgrep |
+              | TypeScript | {has_typescript} | CodeQL + Semgrep |
+              | Python | {has_python} | CodeQL + Semgrep |
+              | Java | {has_java} | CodeQL + Semgrep |
+              | C# | {has_csharp} | CodeQL + Semgrep |
+              | Go | {has_go} | CodeQL + Semgrep |
+              | Rust | {has_rust} | Semgrep |
+              | PHP | {has_php} | Semgrep |
+              | Ruby | {has_ruby} | CodeQL + Semgrep |
+
           ### 🛡️ Analysis Tools Used
           - ✅ **GitHub CodeQL** - Semantic analysis and vulnerability detection
           - ✅ **Semgrep** - Rule-based static analysis
           - ✅ **TruffleHog** - Secrets detection
           - ✅ **Git-secrets** - AWS credentials scanning
-          - $([ -f hadolint-Dockerfile.json ] && echo "✅ **Hadolint** - Dockerfile security" || echo "⏭️ **Hadolint** - No Dockerfiles found")
-          - $([ -f terraform-security.json ] && echo "✅ **Checkov** - Infrastructure as Code" || echo "⏭️ **Checkov** - No IaC files found")
-          
+          - {hadolint_line}
+          - {checkov_line}
+
           ## 🔍 Security Findings Summary
-          
+
           ### CodeQL Results
-          📄 View detailed CodeQL results in the [Security tab](https://github.com/$GITHUB_REPOSITORY/security/code-scanning)
-          
+          📄 View detailed CodeQL results in the [Security tab](https://github.com/{github_repository}/security/code-scanning)
+
           ### Semgrep Results
-          📄 View Semgrep findings in the [Security tab](https://github.com/$GITHUB_REPOSITORY/security/code-scanning)
-          
+          📄 View Semgrep findings in the [Security tab](https://github.com/{github_repository}/security/code-scanning)
+
           ### Secrets Detection
+          """
+
+          with open('security-reports/sast-comprehensive-report.md', 'w', encoding='utf-8') as f:
+              f.write(report)
           EOF
           
           # Add secrets detection results

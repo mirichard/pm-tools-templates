@@ -1531,6 +1531,8 @@ jobs:
           echo "Test Scope: $TEST_SCOPE"
           BASELINE_UPDATE="$BASELINE_UPDATE_INPUT"
           DIFF_THRESHOLD="$DIFF_THRESHOLD_INPUT"
+          echo "Baseline Update: $BASELINE_UPDATE"
+          echo "Diff Threshold: $DIFF_THRESHOLD%"
           echo "📋 Results:"
           if [ -f visual-testing-summary.json ]; then
             echo "- Screenshots: $(jq -r '.total_screenshots' visual-testing-summary.json)"
