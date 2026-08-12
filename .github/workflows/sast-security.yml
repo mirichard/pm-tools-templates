@@ -511,11 +511,54 @@ jobs:
               raise SystemExit(1)
 
           runs = sarif.get("runs")
-          if not isinstance(runs, list):
-              print(f"Invalid SARIF runs in {sarif_path}: expected a list", file=sys.stderr)
+          if not isinstance(runs, list) or not runs:
+              print(f"Invalid SARIF runs in {sarif_path}: expected a nonempty list", file=sys.stderr)
               raise SystemExit(1)
 
-          print(f"Validated {sarif_path} ({os.path.getsize(sarif_path)} bytes)")
+          for run in runs:
+              tool = run.get("tool") if isinstance(run, dict) else None
+              driver = tool.get("driver") if isinstance(tool, dict) else None
+              if not isinstance(driver, dict):
+                print(
+                  f"Invalid SARIF run in {sarif_path}: missing tool.driver object",
+                  file=sys.stderr,
+                )
+                raise SystemExit(1)
+              driver["name"] = "Semgrep"
+
+          with open(sarif_path, "w", encoding="utf-8") as sarif_file:
+              json.dump(sarif, sarif_file, indent=2)
+              sarif_file.write("\n")
+
+          try:
+              with open(sarif_path, "r", encoding="utf-8") as sarif_file:
+                normalized_sarif = json.load(sarif_file)
+          except Exception as exc:
+              print(f"Failed to re-parse normalized {sarif_path} as JSON: {exc}", file=sys.stderr)
+              raise SystemExit(1)
+
+          normalized_runs = normalized_sarif.get("runs")
+          if not isinstance(normalized_runs, list) or not normalized_runs:
+              print(
+                f"Invalid normalized SARIF runs in {sarif_path}: expected a nonempty list",
+                file=sys.stderr,
+              )
+              raise SystemExit(1)
+
+          for run in normalized_runs:
+              tool = run.get("tool") if isinstance(run, dict) else None
+              driver = tool.get("driver") if isinstance(tool, dict) else None
+              if not isinstance(driver, dict) or driver.get("name") != "Semgrep":
+                print(
+                  f"Invalid normalized SARIF tool.driver.name in {sarif_path}: expected 'Semgrep'",
+                  file=sys.stderr,
+                )
+                raise SystemExit(1)
+
+          print(
+              f"Normalized {len(normalized_runs)} SARIF runs to Semgrep "
+              f"({os.path.getsize(sarif_path)} bytes)"
+          )
           PY
 
       - name: 📤 Upload Semgrep SARIF
