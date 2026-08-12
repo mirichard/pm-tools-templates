@@ -16,6 +16,7 @@
 const axios = require('axios');
 const fs = require('fs-extra');
 const path = require('path');
+const { validateStructuredResponse, sanitizeErrorPayload, buildSafeOutputPath, buildContainedChildPath, safeWriteJSON } = require('./security');
 
 // ─── Provider defaults ──────────────────────────────────────────────────────
 const PROVIDER_DEFAULTS = {
@@ -157,8 +158,7 @@ class LLMClient {
 
     if (this.saveTraces) {
       await this._saveTrace(
-        [{ role: 'system', content: systemPrompt }, { role: 'user', content: userPrompt }],
-        content
+        [{ role: 'system', content: systemPrompt }, { role: 'user', content: userPrompt }]
       );
     }
 
@@ -204,10 +204,12 @@ class LLMClient {
       return response.data.content[0].text;
     } catch (error) {
       if (error.response) {
-        const msg = error.response.data?.error?.message || JSON.stringify(error.response.data);
-        throw new Error(`Anthropic API error (${error.response.status}): ${msg}`);
+        const status = error.response.status;
+        const body = sanitizeErrorPayload(error.response.data || {});
+        const msg = body?.error?.message || body?.message || JSON.stringify(body).slice(0, 400);
+        throw new Error(`Anthropic API error (${status}): ${msg}`);
       }
-      throw error;
+      throw new Error(`Anthropic API request failed: ${sanitizeErrorPayload(error && error.message ? error.message : String(error))}`);
     }
   }
 
@@ -234,10 +236,11 @@ class LLMClient {
     } catch (error) {
       if (error.response) {
         const status = error.response.status;
-        const msg = error.response.data?.error?.message || 'Unknown API error';
+        const payload = sanitizeErrorPayload(error.response.data || {});
+        const msg = payload?.error?.message || payload?.message || JSON.stringify(payload).slice(0, 400) || 'Unknown API error';
         throw new Error(`LLM API error (${status}): ${msg}`);
       }
-      throw error;
+      throw new Error(`LLM API request failed: ${sanitizeErrorPayload(error && error.message ? error.message : String(error))}`);
     }
   }
 
@@ -246,26 +249,28 @@ class LLMClient {
    * @param {object} options - Same as chat()
    * @returns {object} Parsed JSON from the response
    */
-  async chatJSON(options) {
+  async chatJSON(options = {}) {
     const raw = await this.chat(options);
+    const expectedRoot = options.expectedRoot || 'object';
 
-    // Extract JSON from markdown code fences if present
-    // Handle both complete fences and truncated responses (no closing fence)
-    const fencedMatch = raw.match(/```(?:json)?\s*\n([\s\S]*?)\n```/);
+    const fencedMatch = raw.match(/```(?:json)?\s*\n([\s\S]*?)(?:\n```|$)/);
     let jsonString;
     if (fencedMatch) {
       jsonString = fencedMatch[1].trim();
     } else {
-      // Try opening fence without closing (truncated response)
       const openFenceMatch = raw.match(/```(?:json)?\s*\n([\s\S]+)/);
-      jsonString = openFenceMatch ? openFenceMatch[1].trim() : raw.trim();
+      jsonString = openFenceMatch ? openFenceMatch[1].trim() : String(raw).trim();
     }
 
     try {
-      return JSON.parse(jsonString);
+      const parsed = validateStructuredResponse(jsonString, {
+        expectedRoot,
+        requiredKeys: Array.isArray(options.requiredKeys) ? options.requiredKeys : [],
+      });
+      return parsed;
     } catch (err) {
       throw new Error(
-        `Failed to parse LLM response as JSON: ${err.message}\nRaw response:\n${raw}`
+        `Failed to parse validated LLM response as JSON: ${err.message}`
       );
     }
   }
@@ -273,18 +278,19 @@ class LLMClient {
   /**
    * Save prompt/response traces for debugging
    */
-  async _saveTrace(messages, response) {
-    await fs.ensureDir(this.traceDir);
+  async _saveTrace(messages) {
+    const safeTraceDir = buildSafeOutputPath(this.traceDir);
+    await fs.ensureDir(safeTraceDir);
     const timestamp = new Date().toISOString().replace(/[:.]/g, '-');
     const trace = {
       timestamp: new Date().toISOString(),
       provider: this.provider,
       model: this.model,
-      messages,
-      response,
+      messages: JSON.parse(JSON.stringify(messages, null, 2)),
+      response: '[REDACTED_REMOTE_RESPONSE]',
     };
-    const tracePath = path.join(this.traceDir, `trace-${timestamp}.json`);
-    await fs.writeJSON(tracePath, trace, { spaces: 2 });
+    const tracePath = buildContainedChildPath(safeTraceDir, `trace-${timestamp}.json`);
+    await safeWriteJSON(tracePath, trace, { spaces: 2, rootDir: safeTraceDir });
   }
 }
 

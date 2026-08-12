@@ -16,6 +16,14 @@ const ora = require('ora');
 const fs = require('fs-extra');
 const path = require('path');
 const inquirer = require('inquirer');
+const {
+  sanitizeTerminalValue,
+  buildSafeOutputPath,
+  buildContainedChildPath,
+  safeWriteJSON,
+  safeWriteText,
+  sanitizeErrorPayload,
+} = require('./security');
 
 const RequirementsParser = require('./parser');
 const RequirementsStructurer = require('./structurer');
@@ -27,8 +35,24 @@ const ReportGenerator = require('./report-generator');
 const AmbiguityDetector = require('./ambiguity-detector');
 const GherkinGenerator = require('./gherkin-generator');
 
+function terminalLog(message) {
+  const safeMessage = sanitizeTerminalValue(message);
+  process.stdout.write(`${safeMessage}\n`);
+}
+
+function terminalError(message) {
+  const safeMessage = sanitizeTerminalValue(message);
+  process.stderr.write(`${safeMessage}\n`);
+}
+
+function spinnerFail(spinner, message) {
+  const safeMessage = sanitizeTerminalValue(message);
+  spinner.stop();
+  process.stderr.write(`${safeMessage}\n`);
+}
+
 // CLI Header
-console.log(
+terminalLog(
   chalk.blue.bold(`
 ┌─────────────────────────────────────────────────────────────┐
 │       Requirements Structuring & Validation CLI             │
@@ -62,14 +86,14 @@ program
         },
       ]);
       if (!overwrite) {
-        console.log(chalk.yellow('Skipped.'));
+        terminalLog(chalk.yellow('Skipped.'));
         return;
       }
     }
 
     await fs.copy(templateSrc, templateDest);
-    console.log(chalk.green('✓ Created requirements-input.md'));
-    console.log(chalk.dim('  Fill in the template, then run: pm-requirements structure requirements-input.md'));
+    terminalLog(chalk.green('✓ Created requirements-input.md'));
+    terminalLog(chalk.dim('  Fill in the template, then run: pm-requirements structure requirements-input.md'));
   });
 
 // ─── detect ──────────────────────────────────────────────────────────────────
@@ -85,22 +109,23 @@ program
       const result = await detector.detect(rawContent);
       spinner.succeed('Ambiguity scan complete');
 
-      console.log(detector.formatFindings(result));
+      terminalLog(detector.formatFindings(result));
 
       if (opts.output) {
         const markdown = detector.formatMarkdown(result);
-        await fs.writeFile(path.resolve(opts.output), markdown);
-        console.log(chalk.green(`✓ Report saved to ${opts.output}`));
+        const outputPath = buildSafeOutputPath(opts.output);
+        await safeWriteText(outputPath, markdown);
+        terminalLog(chalk.green(`✓ Report saved to ${outputPath}`));
       }
 
-      // Save JSON alongside
       const jsonPath = opts.output
         ? opts.output.replace(/\.md$/, '.json')
         : inputFile.replace(/\.md$/, '-ambiguity.json');
-      await fs.writeJSON(path.resolve(jsonPath), result, { spaces: 2 });
-      console.log(chalk.dim(`  → ${jsonPath}`));
+      const safeJsonPath = buildSafeOutputPath(jsonPath);
+      await safeWriteJSON(safeJsonPath, result, { spaces: 2 });
+      terminalLog(chalk.dim(`  → ${safeJsonPath}`));
     } catch (err) {
-      spinner.fail(err.message);
+      spinnerFail(spinner, err && err.message ? err.message : String(err));
       process.exit(1);
     }
   });
@@ -122,11 +147,12 @@ program
       spinner.succeed('Requirements structured');
 
       const outputPath = opts.output || inputFile.replace(/\.md$/, '-structured.json');
-      await fs.writeJSON(path.resolve(outputPath), structured, { spaces: 2 });
-      console.log(chalk.green(`✓ Formal structure saved to ${outputPath}`));
-      console.log(chalk.dim(`  Business objects identified: ${(structured.businessObjects || []).join(', ')}`));
+      const safeOutputPath = buildSafeOutputPath(outputPath);
+      await safeWriteJSON(safeOutputPath, structured, { spaces: 2 });
+      terminalLog(chalk.green(`✓ Formal structure saved to ${safeOutputPath}`));
+      terminalLog(chalk.dim(`  Business objects identified: ${(structured.businessObjects || []).join(', ')}`));
     } catch (err) {
-      spinner.fail(err.message);
+      spinnerFail(spinner, err && err.message ? err.message : String(err));
       process.exit(1);
     }
   });
@@ -154,10 +180,11 @@ program
       spinner.succeed('UCS template generated');
 
       const outputPath = opts.output || structuredFile.replace(/-structured\.json$/, '-ucs.json');
-      await fs.writeJSON(path.resolve(outputPath), ucs.toJSON ? ucs.toJSON() : ucs, { spaces: 2 });
-      console.log(chalk.green(`✓ UCS template saved to ${outputPath}`));
+      const safeOutputPath = buildSafeOutputPath(outputPath);
+      await safeWriteJSON(safeOutputPath, ucs.toJSON ? ucs.toJSON() : ucs, { spaces: 2 });
+      terminalLog(chalk.green(`✓ UCS template saved to ${safeOutputPath}`));
     } catch (err) {
-      spinner.fail(err.message);
+      spinnerFail(spinner, err && err.message ? err.message : String(err));
       process.exit(1);
     }
   });
@@ -176,11 +203,12 @@ program
       spinner.succeed(`Generated ${testCases.length} test case(s)`);
 
       const outputPath = opts.output || ucsFile.replace(/-ucs\.json$/, '-tests.json');
-      await fs.writeJSON(path.resolve(outputPath), testCases, { spaces: 2 });
-      console.log(chalk.green(`✓ Test cases saved to ${outputPath}`));
-      console.log(generator.formatSummary(testCases));
+      const safeOutputPath = buildSafeOutputPath(outputPath);
+      await safeWriteJSON(safeOutputPath, testCases, { spaces: 2 });
+      terminalLog(chalk.green(`✓ Test cases saved to ${safeOutputPath}`));
+      terminalLog(generator.formatSummary(testCases));
     } catch (err) {
-      spinner.fail(err.message);
+      spinnerFail(spinner, err && err.message ? err.message : String(err));
       process.exit(1);
     }
   });
@@ -210,20 +238,20 @@ program
       }
 
       if (!opts.activity && !opts.state) {
-        console.log(chalk.yellow('No diagram files provided. Use --activity and/or --state.'));
+        terminalLog(chalk.yellow('No diagram files provided. Use --activity and/or --state.'));
         return;
       }
 
       const results = checker.validateAll(ucsData, options);
-      console.log(checker.formatReport(results));
+      terminalLog(sanitizeTerminalValue(checker.formatReport(results)));
 
       if (results.totalViolations === 0) {
-        console.log(chalk.green('\n✓ All consistency checks passed'));
+        terminalLog(chalk.green('\n✓ All consistency checks passed'));
       } else {
-        console.log(chalk.red(`\n✗ ${results.totalViolations} violation(s) found — review and correct the UCS`));
+        terminalLog(chalk.red(`\n✗ ${results.totalViolations} violation(s) found — review and correct the UCS`));
       }
     } catch (err) {
-      console.log(chalk.red(`Error: ${err.message}`));
+      terminalError(chalk.red(`Error: ${sanitizeErrorPayload(err && err.message ? err.message : String(err))}`));
       process.exit(1);
     }
   });
@@ -242,19 +270,20 @@ program
       const result = await feedbackLoop.run(ucsData, testCases);
 
       const { passResults } = result;
-      console.log(chalk.cyan('\n📊 Feedback Loop Summary:'));
-      console.log(`  Gaps found: ${passResults.gaps}`);
-      console.log(`  Additional test suggestions: ${passResults.additionalTests}`);
-      console.log(`  Implicit requirements: ${passResults.implicitReqs}`);
-      console.log(`  Suggestions accepted: ${passResults.accepted}`);
+      terminalLog(chalk.cyan('\n📊 Feedback Loop Summary:'));
+      terminalLog(`  Gaps found: ${passResults.gaps}`);
+      terminalLog(`  Additional test suggestions: ${passResults.additionalTests}`);
+      terminalLog(`  Implicit requirements: ${passResults.implicitReqs}`);
+      terminalLog(`  Suggestions accepted: ${passResults.accepted}`);
 
       if (passResults.accepted > 0) {
         const outputPath = opts.output || ucsFile.replace(/\.json$/, '-refined.json');
-        await fs.writeJSON(path.resolve(outputPath), result.updatedUCS, { spaces: 2 });
-        console.log(chalk.green(`\n✓ Refined UCS saved to ${outputPath}`));
+        const safeOutputPath = buildSafeOutputPath(outputPath, { rootDir: process.cwd(), allowAbsolute: true });
+        await safeWriteJSON(safeOutputPath, result.updatedUCS, { spaces: 2 });
+        terminalLog(chalk.green(`\n✓ Refined UCS saved to ${safeOutputPath}`));
       }
     } catch (err) {
-      console.log(chalk.red(`Error: ${err.message}`));
+      terminalError(chalk.red(`Error: ${sanitizeErrorPayload(err && err.message ? err.message : String(err))}`));
       process.exit(1);
     }
   });
@@ -273,11 +302,12 @@ program
 
       const gherkin = new GherkinGenerator();
       const outputPath = opts.output || testCasesFile.replace(/-tests\.json$/, '.feature');
-      await gherkin.generateFile(testCases, ucs, path.resolve(outputPath));
+      const safeOutputPath = buildSafeOutputPath(outputPath);
+      await gherkin.generateFile(testCases, ucs, safeOutputPath);
       spinner.succeed('Gherkin feature file generated');
-      console.log(chalk.green(`✓ Feature file saved to ${outputPath}`));
+      terminalLog(chalk.green(`✓ Feature file saved to ${safeOutputPath}`));
     } catch (err) {
-      spinner.fail(err.message);
+      spinnerFail(spinner, err && err.message ? err.message : String(err));
       process.exit(1);
     }
   });
@@ -290,34 +320,34 @@ program
   .option('--state <files...>', 'State model JSON file(s)')
   .option('-o, --output-dir <dir>', 'Output directory', './output')
   .action(async (inputFile, opts) => {
-    const outputDir = path.resolve(opts.outputDir);
+    const outputDir = buildSafeOutputPath(opts.outputDir);
     await fs.ensureDir(outputDir);
 
     const baseName = path.basename(inputFile, path.extname(inputFile));
 
     try {
       // ═══ Phase 0: Ambiguity Detection ═══════════════════════════════════════
-      console.log(chalk.blue.bold('\n═══ Phase 0: Ambiguity Detection ═══'));
+      terminalLog(chalk.blue.bold('\n═══ Phase 0: Ambiguity Detection ═══'));
       const rawContent = await fs.readFile(path.resolve(inputFile), 'utf-8');
       const detector = new AmbiguityDetector();
       const spinnerA = ora('Scanning for ambiguities...').start();
       const ambiguityResult = await detector.detect(rawContent);
       spinnerA.succeed('Ambiguity scan complete');
 
-      console.log(detector.formatFindings(ambiguityResult));
+      terminalLog(detector.formatFindings(ambiguityResult));
 
       // Save ambiguity report
       const ambiguityJsonPath = path.join(outputDir, `${baseName}-ambiguity.json`);
-      await fs.writeJSON(ambiguityJsonPath, ambiguityResult, { spaces: 2 });
+      await safeWriteJSON(ambiguityJsonPath, ambiguityResult, { spaces: 2, rootDir: outputDir });
       const ambiguityMdPath = path.join(outputDir, `${baseName}-ambiguity-report.md`);
-      await fs.writeFile(ambiguityMdPath, detector.formatMarkdown(ambiguityResult));
-      console.log(chalk.dim(`  → ${ambiguityJsonPath}`));
-      console.log(chalk.dim(`  → ${ambiguityMdPath}`));
+      await safeWriteText(ambiguityMdPath, detector.formatMarkdown(ambiguityResult), 'utf8', { rootDir: outputDir });
+      terminalLog(chalk.dim(`  → ${ambiguityJsonPath}`));
+      terminalLog(chalk.dim(`  → ${ambiguityMdPath}`));
 
       // Gate: block pipeline if NOT READY
       if (ambiguityResult.summary.readinessScore === 'not_ready') {
-        console.log(chalk.red.bold('\n  Pipeline halted — requirements are not ready.'));
-        console.log(chalk.red('  Resolve blockers with stakeholders and re-run.'));
+        terminalLog(chalk.red.bold('\n  Pipeline halted — requirements are not ready.'));
+        terminalLog(chalk.red('  Resolve blockers with stakeholders and re-run.'));
         return;
       }
 
@@ -334,7 +364,7 @@ program
       }
 
       // ═══ Phase 1: Requirement Structuring ══════════════════════════════════
-      console.log(chalk.blue.bold('\n═══ Phase 1: Requirement Structuring ═══'));
+      terminalLog(chalk.blue.bold('\n═══ Phase 1: Requirement Structuring ═══'));
       const parser = new RequirementsParser();
       const parsed = await parser.parse(inputFile);
 
@@ -344,8 +374,8 @@ program
       spinner1.succeed('Phase 1 complete');
 
       const structuredPath = path.join(outputDir, `${baseName}-structured.json`);
-      await fs.writeJSON(structuredPath, structured, { spaces: 2 });
-      console.log(chalk.dim(`  → ${structuredPath}`));
+      await safeWriteJSON(structuredPath, structured, { spaces: 2, rootDir: outputDir });
+      terminalLog(chalk.dim(`  → ${structuredPath}`));
 
       const { proceed: proceed1 } = await inquirer.prompt([
         { type: 'confirm', name: 'proceed', message: 'Review complete. Proceed to Phase 2?', default: true },
@@ -353,30 +383,31 @@ program
       if (!proceed1) return;
 
       // ═══ Phase 2: UCS Template + Test Case Generation ═════════════════════
-      console.log(chalk.blue.bold('\n═══ Phase 2: UCS Template + Test Cases ═══'));
+      terminalLog(chalk.blue.bold('\n═══ Phase 2: UCS Template + Test Cases ═══'));
       const spinner2 = ora('Generating UCS template...').start();
       const transformer = new UCSTransformer();
       const ucs = await transformer.transform(structured);
       spinner2.succeed('UCS template generated');
 
       const ucsPath = path.join(outputDir, `${baseName}-ucs.json`);
-      await fs.writeJSON(ucsPath, ucs.toJSON ? ucs.toJSON() : ucs, { spaces: 2 });
+      await safeWriteJSON(ucsPath, ucs.toJSON ? ucs.toJSON() : ucs, { spaces: 2, rootDir: outputDir });
 
       const generator = new TestGenerator();
       const testCases = generator.generate(ucs);
       const testsPath = path.join(outputDir, `${baseName}-tests.json`);
-      await fs.writeJSON(testsPath, testCases, { spaces: 2 });
+      await safeWriteJSON(testsPath, testCases, { spaces: 2, rootDir: outputDir });
 
-      console.log(chalk.dim(`  → ${ucsPath}`));
-      console.log(chalk.dim(`  → ${testsPath} (${testCases.length} test cases)`));
-      console.log(generator.formatSummary(testCases));
+      terminalLog(chalk.dim(`  → ${ucsPath}`));
+      terminalLog(chalk.dim(`  → ${testsPath} (${testCases.length} test cases)`));
+      terminalLog(generator.formatSummary(testCases));
 
       // Generate Gherkin .feature file
       const gherkin = new GherkinGenerator();
       const ucsJSON2 = ucs.toJSON ? ucs.toJSON() : ucs;
       const featurePath = path.join(outputDir, `${baseName}.feature`);
-      await gherkin.generateFile(testCases, ucsJSON2, featurePath);
-      console.log(chalk.dim(`  → ${featurePath} (Gherkin/BDD)`));
+      const safeFeaturePath = buildContainedChildPath(outputDir, path.basename(featurePath));
+      await gherkin.generateFile(testCases, ucsJSON2, safeFeaturePath);
+      terminalLog(chalk.dim(`  → ${safeFeaturePath} (Gherkin/BDD)`));
 
       const { proceed: proceed2 } = await inquirer.prompt([
         { type: 'confirm', name: 'proceed', message: 'Review complete. Proceed to Phase 3?', default: true },
@@ -384,7 +415,7 @@ program
       if (!proceed2) return;
 
       // ═══ Phase 3: Test Case Review + Iterative Refinement ═════════════════
-      console.log(chalk.blue.bold('\n═══ Phase 3: Feedback Loop ═══'));
+      terminalLog(chalk.blue.bold('\n═══ Phase 3: Feedback Loop ═══'));
       const feedbackLoop = new FeedbackLoop();
       const ucsJSON = ucs.toJSON ? ucs.toJSON() : ucs;
       const feedbackResult = await feedbackLoop.run(ucsJSON, testCases);
@@ -392,51 +423,51 @@ program
       let currentUCS = feedbackResult.updatedUCS;
       if (feedbackResult.suggestions.length > 0) {
         const refinedPath = path.join(outputDir, `${baseName}-ucs-refined.json`);
-        await fs.writeJSON(refinedPath, currentUCS, { spaces: 2 });
-        console.log(chalk.dim(`  → ${refinedPath}`));
+        await safeWriteJSON(refinedPath, currentUCS, { spaces: 2, rootDir: outputDir });
+        terminalLog(chalk.dim(`  → ${refinedPath}`));
       }
 
       // ═══ Phase 4: Consistency Validation — Activity Diagram ════════════════
       if (opts.activity) {
-        console.log(chalk.blue.bold('\n═══ Phase 4: Activity Diagram Consistency ═══'));
+        terminalLog(chalk.blue.bold('\n═══ Phase 4: Activity Diagram Consistency ═══'));
         const bpm = await fs.readJSON(path.resolve(opts.activity));
         const checker = new ConsistencyChecker();
         const processResult = checker.validateWithProcess(currentUCS, bpm);
 
         if (processResult.violations.length === 0) {
-          console.log(chalk.green('  ✓ Rules 1 & 2: No violations'));
+          terminalLog(chalk.green('  ✓ Rules 1 & 2: No violations'));
         } else {
           for (const v of processResult.violations) {
-            console.log(chalk.red(`  ✗ Rule ${v.rule}: ${v.message}`));
+            terminalLog(chalk.red(`  ✗ Rule ${v.rule}: ${v.message}`));
           }
         }
       } else {
-        console.log(chalk.dim('\n═══ Phase 4: Skipped (no --activity provided) ═══'));
+        terminalLog(chalk.dim('\n═══ Phase 4: Skipped (no --activity provided) ═══'));
       }
 
       // ═══ Phase 5: Consistency Validation — State Machine ══════════════════
       if (opts.state) {
-        console.log(chalk.blue.bold('\n═══ Phase 5: State Machine Consistency ═══'));
+        terminalLog(chalk.blue.bold('\n═══ Phase 5: State Machine Consistency ═══'));
         const checker = new ConsistencyChecker();
         for (const stateFile of opts.state) {
           const sm = await fs.readJSON(path.resolve(stateFile));
           const stateResult = checker.validateWithState(currentUCS, sm);
 
-          console.log(chalk.cyan(`  ${sm.businessObjectName}:`));
+          terminalLog(chalk.cyan(`  ${sm.businessObjectName}:`));
           if (stateResult.violations.length === 0) {
-            console.log(chalk.green('    ✓ Rule 3: No violations'));
+            terminalLog(chalk.green('    ✓ Rule 3: No violations'));
           } else {
             for (const v of stateResult.violations) {
-              console.log(chalk.red(`    ✗ ${v.message}`));
+              terminalLog(chalk.red(`    ✗ ${v.message}`));
             }
           }
         }
       } else {
-        console.log(chalk.dim('\n═══ Phase 5: Skipped (no --state provided) ═══'));
+        terminalLog(chalk.dim('\n═══ Phase 5: Skipped (no --state provided) ═══'));
       }
 
       // ═══ Generate Human-Readable Reports ══════════════════════════════════
-      console.log(chalk.blue.bold('\n═══ Generating Reports ═══'));
+      terminalLog(chalk.blue.bold('\n═══ Generating Reports ═══'));
 
       const checker = new ConsistencyChecker();
       const validationResults = { totalViolations: 0 };
@@ -468,21 +499,33 @@ program
       });
 
       for (const f of reportFiles) {
-        console.log(chalk.dim(`  → ${f}`));
+        terminalLog(chalk.dim(`  → ${f}`));
       }
 
-      console.log(chalk.green.bold('\n✓ Pipeline complete'));
-      console.log(chalk.dim(`  All artifacts saved to ${outputDir}/`));
-      console.log(chalk.cyan('\n  Human-readable reports (Markdown):'));
+      terminalLog(chalk.green.bold('\n✓ Pipeline complete'));
+      terminalLog(chalk.dim(`  All artifacts saved to ${outputDir}/`));
+      terminalLog(chalk.cyan('\n  Human-readable reports (Markdown):'));
       for (const f of reportFiles) {
-        console.log(chalk.cyan(`    • ${path.basename(f)}`));
+        terminalLog(chalk.cyan(`    • ${path.basename(f)}`));
       }
-      console.log(chalk.cyan('\n  BDD/Gherkin:'));
-      console.log(chalk.cyan(`    • ${baseName}.feature`));
+      terminalLog(chalk.cyan('\n  BDD/Gherkin:'));
+      terminalLog(chalk.cyan(`    • ${baseName}.feature`));
     } catch (err) {
-      console.log(chalk.red(`Pipeline error: ${err.message}`));
+      terminalError(chalk.red(`Pipeline error: ${sanitizeErrorPayload(err && err.message ? err.message : String(err))}`));
       process.exit(1);
     }
   });
 
-program.parse();
+if (require.main === module) {
+  program.parse();
+}
+
+module.exports = {
+  sanitizeTerminalValue,
+  validateStructuredResponse: require('./security').validateStructuredResponse,
+  buildSafeOutputPath,
+  buildContainedChildPath,
+  sanitizeErrorPayload,
+  safeWriteText: require('./security').safeWriteText,
+  safeWriteJSON: require('./security').safeWriteJSON,
+};

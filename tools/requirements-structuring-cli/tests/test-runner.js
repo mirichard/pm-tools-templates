@@ -11,6 +11,16 @@ const ConsistencyChecker = require('../src/consistency-checker');
 const RequirementsParser = require('../src/parser');
 const AmbiguityDetector = require('../src/ambiguity-detector');
 const GherkinGenerator = require('../src/gherkin-generator');
+const LLMClient = require('../src/llm-client');
+const {
+  sanitizeTerminalValue,
+  validateStructuredResponse,
+  buildSafeOutputPath,
+  buildContainedChildPath,
+  sanitizeErrorPayload,
+  safeWriteText,
+  safeWriteJSON,
+} = require('../src/index');
 
 class TestRunner {
   constructor() {
@@ -29,6 +39,7 @@ class TestRunner {
     await this.testParser();
     await this.testAmbiguityDetector();
     await this.testGherkinGenerator();
+    await this.testSecurityBoundaries();
 
     this.printResults();
   }
@@ -472,6 +483,137 @@ class TestRunner {
       const output = gherkin.generate(testCases, ucs);
       return output.includes('Then the record is saved');
     });
+  }
+
+  // ─── Security boundary tests ─────────────────────────────────────────────
+  async testSecurityBoundaries() {
+    console.log(chalk.yellow('\n🛡️ Testing security boundaries...'));
+    const tempRoot = path.join('/tmp', `requirements-cli-security-${process.pid}`);
+    await fs.remove(tempRoot);
+    await fs.ensureDir(tempRoot);
+
+    await this.test('Terminal sanitizer strips control chars', () => {
+      const unsafe = 'first\r\nsecond\u001b[31mred\u2028text\u2029';
+      const safe = sanitizeTerminalValue(unsafe);
+      return safe.includes('first') && safe.includes('second') && !safe.includes('\r') && !safe.includes('\n') && !safe.includes('\u001b') && !safe.includes('\u2028') && !safe.includes('\u2029');
+    });
+
+    await this.test('Structured response validator accepts valid JSON object', () => {
+      const payload = { content: { text: 'ok' } };
+      return validateStructuredResponse(JSON.stringify(payload), { expectedRoot: 'object', requiredKeys: ['content'] });
+    });
+
+    await this.test('Structured response validator rejects dangerous keys', () => {
+      try {
+        validateStructuredResponse('{"__proto__":{"polluted":true}}', { expectedRoot: 'object' });
+        return false;
+      } catch (error) {
+        return typeof error?.message === 'string' && error.message.includes('prohibited key');
+      }
+    });
+
+    await this.test('Output path builder rejects null bytes and traversal outside root', () => {
+      try {
+        buildContainedChildPath('/tmp/root', '../escape.txt');
+        return false;
+      } catch (error) {
+        return typeof error?.message === 'string' && error.message.includes('application-controlled names');
+      }
+    });
+
+    await this.test('Error redaction strips secrets and hostile content', () => {
+      const redacted = sanitizeErrorPayload({
+        provider: 'test', status: 401, message: 'Bearer abc123\n\u001b[31m evil\n',
+        headers: { authorization: 'Bearer abc123', 'x-api-key': 'key123', cookie: 'sid=secret' },
+        body: 'token=abc123',
+      });
+      const serialized = JSON.stringify(redacted);
+      return serialized.includes('REDACTED') && !serialized.includes('abc123') && !serialized.includes('key123') && !serialized.includes('sid=secret') && !serialized.includes('headers');
+    });
+
+    await this.test('Real text sink preserves multiline Markdown and Gherkin', async () => {
+      const markdown = '# Report\n\n- First\n- Second\n';
+      const gherkin = 'Feature: Checkout\n\n  Scenario: Pay\n    Given a cart\n';
+      await safeWriteText(path.join(tempRoot, 'report.md'), markdown, 'utf8', { rootDir: tempRoot });
+      await safeWriteText(path.join(tempRoot, 'feature.feature'), gherkin, 'utf8', { rootDir: tempRoot });
+      return await fs.readFile(path.join(tempRoot, 'report.md'), 'utf8') === markdown && await fs.readFile(path.join(tempRoot, 'feature.feature'), 'utf8') === gherkin;
+    });
+
+    await this.test('Real JSON sink validates and parses output', async () => {
+      const output = path.join(tempRoot, 'data.json');
+      await safeWriteJSON(output, { content: { text: 'ok' } }, { rootDir: tempRoot });
+      return JSON.parse(await fs.readFile(output, 'utf8')).content.text === 'ok';
+    });
+
+    await this.test('Real JSON sink rejects dangerous and oversized data before writing', async () => {
+      try {
+        await safeWriteJSON(path.join(tempRoot, 'danger.json'), JSON.parse('{"safe":{"__proto__":{"polluted":true}}}'), { rootDir: tempRoot });
+        await safeWriteJSON(path.join(tempRoot, 'large.json'), { text: 'x'.repeat(2000001) }, { rootDir: tempRoot });
+        return false;
+      } catch (error) {
+        return error instanceof Error && !(await fs.pathExists(path.join(tempRoot, 'danger.json')));
+      }
+    });
+
+    await this.test('User paths work while generated paths stay contained', async () => {
+      const absolute = path.join(tempRoot, 'absolute.md');
+      await safeWriteText(absolute, 'ok');
+      let escaped = false;
+      try { buildContainedChildPath(tempRoot, '../escape.md'); } catch { escaped = true; }
+      return await fs.pathExists(absolute) && escaped;
+    });
+
+    await this.test('Symlink escape is rejected for generated paths', async () => {
+      const outside = path.join(tempRoot, 'outside');
+      const root = path.join(tempRoot, 'root');
+      await fs.ensureDir(outside);
+      await fs.ensureSymlink(outside, path.join(root, 'link'));
+      try { buildContainedChildPath(root, 'link/file.json'); return false; } catch { return true; }
+    });
+
+    await this.test('Remote content cannot select a destination path', async () => {
+      const candidate = { outputPath: '../escape.json', content: 'remote' };
+      await safeWriteJSON(path.join(tempRoot, 'fixed.json'), candidate, { rootDir: tempRoot });
+      return await fs.pathExists(path.join(tempRoot, 'fixed.json')) && !(await fs.pathExists(path.join(tempRoot, '..', 'escape.json')));
+    });
+
+    await this.test('Real chatJSON validates fenced, malformed, and dangerous JSON', async () => {
+      const client = Object.create(LLMClient.prototype);
+      client.chat = async () => '```json\n{"content":{"text":"ok"}}\n```';
+      const valid = await client.chatJSON({ requiredKeys: ['content'] });
+      client.chat = async () => '{bad';
+      let malformed = false;
+      try { await client.chatJSON(); } catch { malformed = true; }
+      client.chat = async () => '{"__proto__":{"polluted":true}}';
+      let dangerous = false;
+      try { await client.chatJSON(); } catch { dangerous = true; }
+      return valid.content.text === 'ok' && malformed && dangerous;
+    });
+
+    await this.test('Provider prompts preserve legitimate multiline content', async () => {
+      const client = Object.create(LLMClient.prototype);
+      let captured;
+      client.provider = 'openai';
+      client.validate = () => {};
+      client._chatOpenAI = async (args) => { captured = args; return 'ok'; };
+      const prompt = 'line one\n\nline two';
+      await client.chat({ systemPrompt: prompt, userPrompt: prompt });
+      return captured.systemPrompt === prompt && captured.userPrompt === prompt;
+    });
+
+    await this.test('Trace persistence excludes remote response bodies', async () => {
+      const traceDir = path.join(tempRoot, 'traces');
+      const client = Object.create(LLMClient.prototype);
+      client.traceDir = traceDir;
+      client.provider = 'test';
+      client.model = 'test-model';
+      await client._saveTrace([{ role: 'user', content: 'line one\nline two' }]);
+      const traceFiles = await fs.readdir(traceDir);
+      const trace = JSON.parse(await fs.readFile(path.join(traceDir, traceFiles[0]), 'utf8'));
+      return trace.response === '[REDACTED_REMOTE_RESPONSE]' && !JSON.stringify(trace).includes('test-api-key') && !JSON.stringify(trace).includes('remote body');
+    });
+
+    await fs.remove(tempRoot);
   }
 
   // ─── Test Infrastructure ─────────────────────────────────────────────────
