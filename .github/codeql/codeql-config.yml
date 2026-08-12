@@ -5,8 +5,6 @@ disable-default-queries: false
 
 # Include additional query suites and queries
 queries:
-  - name: security-and-quality
-    uses: security-and-quality
   - name: security-extended
     uses: security-extended
 

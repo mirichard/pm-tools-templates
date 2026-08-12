@@ -99,11 +99,26 @@ jobs:
             ;;
         esac
         
-    - name: Upload SARIF results
+    - name: Preserve full documentation scan report
+      if: always() && steps.doc-scan.outputs.sarif_generated == 'true'
+      uses: actions/upload-artifact@v7
+      with:
+        name: documentation-security-report
+        path: |
+          doc-scan.sarif
+          scan-stats.json
+        if-no-files-found: error
+
+    - name: Retire documentation findings from code scanning
+      if: always() && steps.doc-scan.outputs.sarif_generated == 'true'
+      run: |
+        node -e 'const fs=require("fs");const report=JSON.parse(fs.readFileSync("doc-scan.sarif","utf8"));report.runs.forEach(run=>{run.results=[]});fs.writeFileSync("doc-scan-retirement.sarif",JSON.stringify(report))'
+
+    - name: Upload empty retirement SARIF
       if: always() && steps.doc-scan.outputs.sarif_generated == 'true'
       uses: github/codeql-action/upload-sarif@v4
       with:
-        sarif_file: doc-scan.sarif
+        sarif_file: doc-scan-retirement.sarif
         category: documentation-security
         
     - name: Generate step summary

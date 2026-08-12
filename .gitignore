@@ -16,6 +16,7 @@ jira-automation-scripts/
 # Generated Istanbul coverage reports (uploaded as CI artifacts)
 /coverage/
 /PM Tools Templates - Q3 2025 Delivery Cycle/Implementation/template-selector/coverage/
+/docs/site/dist/
 
 __pycache__/
 *.backup
