@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import { execSync } from 'child_process';
+import { execFileSync } from 'child_process';
 import fs from 'fs';
 import path from 'path';
 import { glob } from 'glob';
@@ -33,8 +33,11 @@ async function getTemplateFiles() {
 function getTemplateChangelog(filePath) {
   try {
     // Use git log to get the history of the specific file
-    const command = `git log --follow --pretty=format:'%H|%ad|%s' --date=short "${filePath}"`;
-    const output = execSync(command, { encoding: 'utf8' });
+    const output = execFileSync(
+      'git',
+      ['log', '--follow', '--pretty=format:%H|%ad|%s', '--date=short', '--', filePath],
+      { encoding: 'utf8' }
+    );
     
     const changes = output
       .split('\n')

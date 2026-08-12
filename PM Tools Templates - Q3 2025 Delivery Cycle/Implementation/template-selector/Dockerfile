@@ -17,7 +17,7 @@ COPY . .
 RUN npm run build
 
 # Production stage
-FROM nginx:alpine AS production
+FROM nginxinc/nginx-unprivileged:alpine AS production
 
 # Copy built application
 COPY --from=builder /app/dist /usr/share/nginx/html
@@ -26,13 +26,14 @@ COPY --from=builder /app/dist /usr/share/nginx/html
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 
 # Expose port
-EXPOSE 80
+EXPOSE 8080
 
 # Health check
 HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
-  CMD curl -f http://localhost/health || exit 1
+  CMD curl -f http://localhost:8080/health || exit 1
 
 # Start nginx
+USER nginx
 CMD ["nginx", "-g", "daemon off;"]
 
 # Development stage
@@ -49,8 +50,11 @@ RUN npm ci
 # Copy source code
 COPY . .
 
+RUN chown -R node:node /app
+
 # Expose port
 EXPOSE 3000
 
 # Start development server
+USER node
 CMD ["npm", "run", "dev"]
