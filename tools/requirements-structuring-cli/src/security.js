@@ -198,7 +198,7 @@ async function safeWriteText(filePath, content, encoding = 'utf8', options = {})
   const resolvedPath = resolveWritePath(filePath, options.rootDir);
   const validatedContent = validateDocumentContent(content);
   await fs.ensureDir(path.dirname(resolvedPath));
-  await fs.writeFile(resolvedPath, validatedContent, encoding);
+  await fs.writeFile(resolvedPath, Buffer.from(validatedContent, encoding));
   return resolvedPath;
 }
 
@@ -206,7 +206,7 @@ async function safeWriteJSON(filePath, data, options = {}) {
   const resolvedPath = resolveWritePath(filePath, options.rootDir);
   const validatedJson = validateAndSerializeJSON(data, options);
   await fs.ensureDir(path.dirname(resolvedPath));
-  await fs.writeFile(resolvedPath, validatedJson, 'utf8');
+  await fs.writeFile(resolvedPath, Buffer.from(validatedJson, 'utf8'));
   return resolvedPath;
 }
 

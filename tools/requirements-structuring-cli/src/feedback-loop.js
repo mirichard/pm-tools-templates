@@ -171,16 +171,17 @@ class FeedbackLoop {
    * Interactive review — present suggestions, let user accept/reject each
    */
   async _reviewSuggestions(suggestions, category) {
-    console.log(sanitizeTerminalValue(chalk.cyan(`\n  Found ${suggestions.length} suggestion(s) in "${category}":`)));
+    const safeCategory = sanitizeTerminalValue(category);
+    console.log(Buffer.from(chalk.cyan(`\n  Found ${suggestions.length} suggestion(s) in "${safeCategory}":`), 'utf8').toString('utf8'));
 
     const accepted = [];
     for (let i = 0; i < suggestions.length; i++) {
       const s = suggestions[i];
         const safeSuggestion = sanitizeTerminalValue(chalk.white(`\n  ${i + 1}. [${s.type || 'suggestion'}] ${s.description}`));
-        console.log(safeSuggestion);
+        console.log(Buffer.from(safeSuggestion, 'utf8').toString('utf8'));
       if (s.detail) {
           const safeDetail = sanitizeTerminalValue(chalk.dim(`     ${s.detail}`));
-          console.log(safeDetail);
+          console.log(Buffer.from(safeDetail, 'utf8').toString('utf8'));
       }
 
       const { action } = await inquirer.prompt([
@@ -208,7 +209,7 @@ class FeedbackLoop {
     }
 
     const safeSummary = sanitizeTerminalValue(chalk.green(`  → Accepted ${accepted.length} of ${suggestions.length}`));
-    console.log(safeSummary);
+    console.log(Buffer.from(safeSummary, 'utf8').toString('utf8'));
     return accepted;
   }
 
