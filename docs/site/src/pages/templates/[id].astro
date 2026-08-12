@@ -2,14 +2,21 @@
 import Layout from '../../layouts/Layout.astro';
 import TemplateViewer from '../../components/TemplateViewer.tsx';
 
+interface TemplateModule {
+  file: string;
+  frontmatter?: { title?: string };
+}
+
 export async function getStaticPaths() {
-  const templates: any[] = await Astro.glob('../../../../templates/**/*.md');
+  const templates = Object.values(
+    import.meta.glob<TemplateModule>('../../../../templates/**/*.md', { eager: true })
+  );
   return templates
-    .filter((template: any) => {
+    .filter((template) => {
       const filename = template.file.split('/').pop() || '';
       return !filename.toLowerCase().includes('readme');
     })
-    .map((template: any) => {
+    .map((template) => {
       const filename = template.file.split('/').pop() || 'unknown';
       const id = filename.replace('.md', '');
       return {

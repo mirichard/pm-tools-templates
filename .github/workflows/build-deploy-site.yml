@@ -55,7 +55,9 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v6
         with:
-          node-version: '20'
+          # Astro 7 requires Node >=22.12. Keep the hosted build aligned with
+          # the runtime validated by the current docs/site lockfile.
+          node-version: '22'
           cache: 'npm'
           cache-dependency-path: 'docs/site/package-lock.json'
 

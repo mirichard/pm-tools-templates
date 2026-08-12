@@ -15,9 +15,9 @@ export default defineConfig({
     build: {
       rollupOptions: {
         output: {
-          manualChunks: {
-            'office-viewers': ['xlsx'],
-            'reveal': ['reveal.js']
+          manualChunks(id) {
+            if (id.includes('/node_modules/xlsx/')) return 'office-viewers';
+            if (id.includes('/node_modules/reveal.js/')) return 'reveal';
           }
         }
       }
