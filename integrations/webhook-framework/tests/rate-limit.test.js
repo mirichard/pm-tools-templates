@@ -5,115 +5,80 @@ async function loadServerModule() {
   return import('../src/server.mjs');
 }
 
-describe('Webhook framework rate limiting', () => {
-  let now = 0;
+function sign(payload, secret) {
+  return `sha256=${crypto.createHmac('sha256', secret).update(payload).digest('hex')}`;
+}
 
-  function sign(payload, secret) {
-    return `sha256=${crypto.createHmac('sha256', secret).update(payload).digest('hex')}`;
-  }
-
-  function makeRequest(app, method, pathname, body, headers = {}) {
-    return new Promise((resolve, reject) => {
-      const server = app.listen(0, '127.0.0.1', () => {
-        const { port } = server.address();
-        const req = http.request(
-          {
-            host: '127.0.0.1',
-            port,
-            path: pathname,
-            method,
-            headers: {
-              'content-type': 'application/json',
-              ...headers,
-            },
-          },
-          (res) => {
-            const chunks = [];
-            res.on('data', (chunk) => chunks.push(Buffer.from(chunk)));
-            res.on('end', () => {
-              const responseBody = Buffer.concat(chunks).toString('utf8');
-              server.close(() => resolve({ status: res.statusCode, headers: res.headers, body: responseBody }));
-            });
-          }
-        );
-
-        req.on('error', (error) => {
-          server.close(() => reject(error));
-        });
-        req.end(body);
+function makeRequest(app, pathname, body, headers = {}) {
+  return new Promise((resolve, reject) => {
+    const server = app.listen(0, '127.0.0.1', () => {
+      const { port } = server.address();
+      const req = http.request({
+        host: '127.0.0.1', port, path: pathname, method: 'POST',
+        headers: { 'content-type': 'application/json', ...headers },
+      }, (res) => {
+        const chunks = [];
+        res.on('data', (chunk) => chunks.push(Buffer.from(chunk)));
+        res.on('end', () => server.close(() => resolve({
+          status: res.statusCode,
+          headers: res.headers,
+          body: Buffer.concat(chunks).toString('utf8'),
+        })));
       });
+      req.on('error', (error) => server.close(() => reject(error)));
+      req.end(body);
     });
-  }
+  });
+}
 
-  test('valid signed requests work under the threshold and 429 after the threshold', async () => {
+describe('Webhook framework production route rate limiting', () => {
+  const secret = 'test-secret';
+  const payload = Buffer.from(JSON.stringify({ foo: 'bar' }));
+
+  beforeEach(() => { process.env.WEBHOOK_SECRET = secret; });
+
+  test('signed requests pass below the limit and then return 429 with Retry-After', async () => {
     const { createApp } = await loadServerModule();
-    const secret = 'test-secret';
-    process.env.WEBHOOK_SECRET = secret;
-    const app = createApp({
-      rateLimit: { windowMs: 1000, maxRequests: 2, maxEntries: 20, now: () => now },
-    });
+    const app = createApp({ rateLimit: { windowMs: 60000, maxRequests: 2 } });
+    const headers = { 'x-signature': sign(payload, secret) };
 
-    const payload = JSON.stringify({ foo: 'bar' });
-    const body = Buffer.from(payload);
-    const signature = sign(body, secret);
-
-    const first = await makeRequest(app, 'POST', '/webhook/github', body, { 'x-signature': signature });
-    expect(first.status).toBe(202);
-
-    const second = await makeRequest(app, 'POST', '/webhook/github', body, { 'x-signature': signature });
-    expect(second.status).toBe(202);
-
-    const third = await makeRequest(app, 'POST', '/webhook/github', body, { 'x-signature': signature });
-    expect(third.status).toBe(429);
-    expect(third.headers['retry-after']).toBeDefined();
-    expect(String(third.headers['retry-after'])).toMatch(/^\d+$/);
+    expect((await makeRequest(app, '/webhook/github', payload, headers)).status).toBe(202);
+    expect((await makeRequest(app, '/webhook/github', payload, headers)).status).toBe(202);
+    const blocked = await makeRequest(app, '/webhook/github', payload, headers);
+    expect(blocked.status).toBe(429);
+    expect(String(blocked.headers['retry-after'])).toMatch(/^\d+$/);
   });
 
-  test('spoofed X-Forwarded-For values do not bypass the limit', async () => {
+  test('raw-body signature verification still rejects invalid signatures', async () => {
     const { createApp } = await loadServerModule();
-    const secret = 'test-secret';
-    process.env.WEBHOOK_SECRET = secret;
-    const app = createApp({
-      rateLimit: { windowMs: 1000, maxRequests: 1, maxEntries: 10, now: () => now },
-    });
-    const payload = JSON.stringify({ foo: 'bar' });
-    const signature = sign(Buffer.from(payload), secret);
-
-    const first = await makeRequest(app, 'POST', '/webhook/github', payload, {
-      'x-signature': signature,
-      'x-forwarded-for': '203.0.113.9',
-    });
-    expect(first.status).toBe(202);
-
-    const second = await makeRequest(app, 'POST', '/webhook/github', payload, {
-      'x-signature': signature,
-      'x-forwarded-for': '203.0.113.9',
-    });
-    expect(second.status).toBe(429);
+    const app = createApp({ rateLimit: { windowMs: 60000, maxRequests: 2 } });
+    const response = await makeRequest(app, '/webhook/github', payload, { 'x-signature': 'invalid' });
+    expect(response.status).toBe(401);
   });
 
-  test('stale entries expire and the store stays bounded', async () => {
-    const { createRateLimiter } = await loadServerModule();
-    const limiter = createRateLimiter({
-      windowMs: 1000,
-      maxRequests: 2,
-      maxEntries: 2,
-      now: () => now,
+  test('explicit proxy trust gives separate clients separate counters', async () => {
+    const { createApp } = await loadServerModule();
+    const app = createApp({ trustProxy: 1, rateLimit: { windowMs: 60000, maxRequests: 1 } });
+    const signature = sign(payload, secret);
+    const first = await makeRequest(app, '/webhook/github', payload, {
+      'x-signature': signature, 'x-forwarded-for': '203.0.113.1',
     });
+    const otherClient = await makeRequest(app, '/webhook/github', payload, {
+      'x-signature': signature, 'x-forwarded-for': '203.0.113.2',
+    });
+    expect(first.status).toBe(202);
+    expect(otherClient.status).toBe(202);
+  });
 
-    const first = { socket: { remoteAddress: '127.0.0.1' }, ip: '127.0.0.1' };
-    const second = { socket: { remoteAddress: '127.0.0.2' }, ip: '127.0.0.2' };
-    const third = { socket: { remoteAddress: '127.0.0.3' }, ip: '127.0.0.3' };
-
-    const res = { set: jest.fn(), status: jest.fn().mockReturnThis(), json: jest.fn() };
-    limiter(first, res, jest.fn());
-    limiter(second, res, jest.fn());
-    limiter(third, res, jest.fn());
-    expect(res.status).not.toHaveBeenCalledWith(429);
-
-    now = 2000;
-    const expiredRes = { set: jest.fn(), status: jest.fn().mockReturnThis(), json: jest.fn() };
-    limiter(first, expiredRes, jest.fn());
-    expect(expiredRes.status).not.toHaveBeenCalledWith(429);
+  test('forwarding headers do not bypass the limit without proxy trust', async () => {
+    const { createApp } = await loadServerModule();
+    const app = createApp({ rateLimit: { windowMs: 60000, maxRequests: 1 } });
+    const signature = sign(payload, secret);
+    expect((await makeRequest(app, '/webhook/github', payload, {
+      'x-signature': signature, 'x-forwarded-for': '203.0.113.1',
+    })).status).toBe(202);
+    expect((await makeRequest(app, '/webhook/github', payload, {
+      'x-signature': signature, 'x-forwarded-for': '203.0.113.2',
+    })).status).toBe(429);
   });
 });

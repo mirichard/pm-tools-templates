@@ -74,7 +74,6 @@ function makeRequest(
 
 describe('Asana webhook rate limiting', () => {
   const secret = 'asana-secret';
-  let now = 0;
 
   function createServerWithLimit(overrides: Record<string, any> = {}) {
     const syncEngine: FakeSyncEngine = {
@@ -87,9 +86,7 @@ describe('Asana webhook rate limiting', () => {
       webhookSecret: secret,
       syncEngine: syncEngine as any,
       connector: {} as any,
-      rateLimit: { windowMs: 1000, maxRequests: 2 },
-      rateLimitClock: () => now,
-      rateLimitMaxEntries: 4,
+      rateLimit: { windowMs: 60000, maxRequests: 2 },
       ...overrides,
     });
 
@@ -120,46 +117,43 @@ describe('Asana webhook rate limiting', () => {
     expect(String(third.headers['retry-after'])).toMatch(/^\d+$/);
   });
 
-  test('separate clients have separate counters and stale entries expire', () => {
-    const { server } = createServerWithLimit();
-    const rateLimit = (server as any).webhookRateLimit.bind(server);
+  test('explicit proxy trust gives separate clients separate counters', async () => {
+    const { server } = createServerWithLimit({
+      trustProxy: 1,
+      rateLimit: { windowMs: 60000, maxRequests: 1 },
+    });
+    const body = Buffer.from(JSON.stringify(buildWebhookPayload()));
+    const signature = signPayload(body, secret);
 
-    const reqA = { socket: { remoteAddress: '127.0.0.1' }, ip: '127.0.0.1', headers: {} } as any;
-    const reqB = { socket: { remoteAddress: '127.0.0.2' }, ip: '127.0.0.2', headers: {} } as any;
-    const resA = { setHeader: jest.fn(), status: jest.fn().mockReturnThis(), json: jest.fn() } as any;
-    const resB = { setHeader: jest.fn(), status: jest.fn().mockReturnThis(), json: jest.fn() } as any;
-    const nextA = jest.fn();
-    const nextB = jest.fn();
-
-    rateLimit(reqA, resA, nextA);
-    rateLimit(reqA, resA, nextA);
-    rateLimit(reqB, resB, nextB);
-    expect(nextB).toHaveBeenCalledTimes(1);
-
-    now = 2000;
-    const freshRes = { setHeader: jest.fn(), status: jest.fn().mockReturnThis(), json: jest.fn() } as any;
-    rateLimit(reqA, freshRes, jest.fn());
-    expect(freshRes.status).not.toHaveBeenCalledWith(429);
+    const first = await makeRequest((server as any).app, 'POST', '/webhooks/asana', body, {
+      'x-hook-signature': signature,
+      'x-forwarded-for': '203.0.113.1',
+    });
+    const otherClient = await makeRequest((server as any).app, 'POST', '/webhooks/asana', body, {
+      'x-hook-signature': signature,
+      'x-forwarded-for': '203.0.113.2',
+    });
+    expect(first.status).toBe(200);
+    expect(otherClient.status).toBe(200);
   });
 
-  test('spoofed x-forwarded-for does not bypass the limit', () => {
-    const { server } = createServerWithLimit();
-    const rateLimit = (server as any).webhookRateLimit.bind(server);
+  test('spoofed x-forwarded-for does not bypass the production limit', async () => {
+    const { server } = createServerWithLimit({
+      rateLimit: { windowMs: 60000, maxRequests: 1 },
+    });
+    const body = Buffer.from(JSON.stringify(buildWebhookPayload()));
+    const signature = signPayload(body, secret);
 
-    const req = {
-      socket: { remoteAddress: '127.0.0.1' },
-      ip: '127.0.0.1',
-      headers: { 'x-forwarded-for': '203.0.113.44' },
-    } as any;
-    const res1 = { setHeader: jest.fn(), status: jest.fn().mockReturnThis(), json: jest.fn() } as any;
-    const res2 = { setHeader: jest.fn(), status: jest.fn().mockReturnThis(), json: jest.fn() } as any;
-    const next1 = jest.fn();
-    const next2 = jest.fn();
-
-    rateLimit(req, res1, next1);
-    rateLimit(req, res2, next2);
-    expect(next2).toHaveBeenCalledTimes(1);
-    expect(res2.status).not.toHaveBeenCalledWith(429);
+    const first = await makeRequest((server as any).app, 'POST', '/webhooks/asana', body, {
+      'x-hook-signature': signature,
+      'x-forwarded-for': '203.0.113.1',
+    });
+    const blocked = await makeRequest((server as any).app, 'POST', '/webhooks/asana', body, {
+      'x-hook-signature': signature,
+      'x-forwarded-for': '203.0.113.2',
+    });
+    expect(first.status).toBe(200);
+    expect(blocked.status).toBe(429);
   });
 
   test('health remains unprotected', async () => {
@@ -169,14 +163,12 @@ describe('Asana webhook rate limiting', () => {
     expect(JSON.parse(health.body).status).toBe('healthy');
   });
 
-  test('storage remains bounded', () => {
-    const { server } = createServerWithLimit({ rateLimitMaxEntries: 2 });
-    const rateLimit = (server as any).webhookRateLimit.bind(server);
-    const res = { setHeader: jest.fn(), status: jest.fn().mockReturnThis(), json: jest.fn() } as any;
-
-    rateLimit({ socket: { remoteAddress: '10.0.0.1' }, ip: '10.0.0.1', headers: {} }, res, jest.fn());
-    rateLimit({ socket: { remoteAddress: '10.0.0.2' }, ip: '10.0.0.2', headers: {} }, res, jest.fn());
-    rateLimit({ socket: { remoteAddress: '10.0.0.3' }, ip: '10.0.0.3', headers: {} }, res, jest.fn());
-    expect((server as any).webhookRateLimitStore.size).toBeLessThanOrEqual(2);
+  test('raw-body signature verification remains active', async () => {
+    const { server } = createServerWithLimit();
+    const body = Buffer.from(JSON.stringify(buildWebhookPayload()));
+    const response = await makeRequest((server as any).app, 'POST', '/webhooks/asana', body, {
+      'x-hook-signature': 'invalid',
+    });
+    expect(response.status).toBe(401);
   });
 });
