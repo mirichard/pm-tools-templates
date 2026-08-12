@@ -428,16 +428,11 @@ function useAIInsights(client) {
   };
 }
 
-// Export for different module systems
+// Export for module systems. Do not attach API-derived result objects to the
+// browser global namespace; callers should import the classes they use.
 if (typeof module !== 'undefined' && module.exports) {
   // CommonJS
   module.exports = { AIInsightsClient, AIInsightsResult, AIInsightsError, useAIInsights };
-} else if (typeof window !== 'undefined') {
-  // Browser
-  window.AIInsightsClient = AIInsightsClient;
-  window.AIInsightsResult = AIInsightsResult;
-  window.AIInsightsError = AIInsightsError;
-  window.useAIInsights = useAIInsights;
 }
 
 // ES6 export
