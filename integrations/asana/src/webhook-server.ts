@@ -43,6 +43,9 @@ export interface WebhookServerConfig {
     windowMs: number;
     maxRequests: number;
   };
+  rateLimitClock?: () => number;
+  rateLimitMaxEntries?: number;
+  trustProxy?: boolean | number | string;
   cors?: {
     origin: string[];
     methods: string[];
@@ -67,14 +70,16 @@ export class AsanaWebhookServer extends EventEmitter {
   private app: express.Application;
   private server: any;
   private config: WebhookServerConfig;
-  private logger: winston.Logger;
+  private logger!: winston.Logger;
   private subscriptions: Map<string, WebhookSubscription> = new Map();
   private eventStats: Map<string, number> = new Map();
+  private webhookRateLimitStore: Map<string, { count: number; resetTime: number }> = new Map();
 
   constructor(config: WebhookServerConfig) {
     super();
     this.config = config;
     this.app = express();
+    if (config.trustProxy !== undefined) this.app.set('trust proxy', config.trustProxy);
     
     // Set up logging
     this.setupLogging();
@@ -145,36 +150,6 @@ export class AsanaWebhookServer extends EventEmitter {
       });
     }
 
-    // Rate limiting middleware
-    if (this.config.rateLimit) {
-      const rateLimitMap = new Map<string, { count: number; resetTime: number }>();
-      
-      this.app.use((req: Request, res: Response, next: NextFunction) => {
-        const clientIp = req.ip || req.connection.remoteAddress || 'unknown';
-        const now = Date.now();
-        const windowMs = this.config.rateLimit!.windowMs;
-        const maxRequests = this.config.rateLimit!.maxRequests;
-
-        const clientData = rateLimitMap.get(clientIp) || { count: 0, resetTime: now + windowMs };
-
-        if (now > clientData.resetTime) {
-          clientData.count = 1;
-          clientData.resetTime = now + windowMs;
-        } else {
-          clientData.count++;
-        }
-
-        rateLimitMap.set(clientIp, clientData);
-
-        if (clientData.count > maxRequests) {
-          res.status(429).json({ error: 'Too many requests' });
-          return;
-        }
-
-        next();
-      });
-    }
-
     // Request logging
     this.app.use((req: Request, res: Response, next: NextFunction) => {
       this.logger.info('Incoming request', {
@@ -206,7 +181,7 @@ export class AsanaWebhookServer extends EventEmitter {
 
     // Subscription management endpoints
     this.app.post('/subscriptions', this.createSubscription.bind(this));
-    this.app.get('/subscriptions', this.getSubscriptions.bind(this));
+    this.app.get('/subscriptions', this.listSubscriptions.bind(this));
     this.app.get('/subscriptions/:id', this.getSubscription.bind(this));
     this.app.put('/subscriptions/:id', this.updateSubscription.bind(this));
     this.app.delete('/subscriptions/:id', this.deleteSubscription.bind(this));
@@ -224,41 +199,47 @@ export class AsanaWebhookServer extends EventEmitter {
    * Additional rate limiting specifically for webhook endpoint
    */
   private webhookRateLimit(req: Request, res: Response, next: NextFunction): void {
-    const clientIp = req.ip || req.connection.remoteAddress || 'unknown';
+    const clientIp = this.config.trustProxy !== undefined
+      ? req.ip || req.socket.remoteAddress || 'unknown'
+      : req.socket.remoteAddress || req.ip || 'unknown';
     const webhookKey = `webhook:${clientIp}`;
-    const now = Date.now();
-    const windowMs = 60000; // 1 minute window
-    const maxWebhookRequests = 10; // Max 10 webhook requests per minute per IP
-    
-    // Get or create rate limit data for this IP
-    const rateLimitData = this.eventStats.get(webhookKey) || 0;
-    const requestCount = rateLimitData;
-    
-    // Reset counter if window expired
-    const lastReset = this.eventStats.get(`${webhookKey}:reset`) || 0;
-    if (now - lastReset > windowMs) {
-      this.eventStats.set(webhookKey, 1);
-      this.eventStats.set(`${webhookKey}:reset`, now);
-      next();
-      return;
+    const now = this.config.rateLimitClock?.() ?? Date.now();
+    const windowMs = this.config.rateLimit?.windowMs ?? 60000;
+    const maxWebhookRequests = this.config.rateLimit?.maxRequests ?? 30;
+    const maxEntries = this.config.rateLimitMaxEntries ?? 10000;
+
+    for (const [key, entry] of this.webhookRateLimitStore) {
+      if (entry.resetTime <= now) this.webhookRateLimitStore.delete(key);
     }
-    
-    // Check if limit exceeded
-    if (requestCount >= maxWebhookRequests) {
+
+    let rateLimitData = this.webhookRateLimitStore.get(webhookKey);
+    if (!rateLimitData || rateLimitData.resetTime <= now) {
+      if (this.webhookRateLimitStore.size >= maxEntries && !this.webhookRateLimitStore.has(webhookKey)) {
+        const firstKey = this.webhookRateLimitStore.keys().next().value;
+        if (firstKey !== undefined) {
+          this.webhookRateLimitStore.delete(firstKey);
+        }
+      }
+      rateLimitData = { count: 0, resetTime: now + windowMs };
+      this.webhookRateLimitStore.set(webhookKey, rateLimitData);
+    }
+
+    if (rateLimitData.count >= maxWebhookRequests) {
+      const retryAfter = Math.max(1, Math.ceil((rateLimitData.resetTime - now) / 1000));
       this.logger.warn('Webhook rate limit exceeded', { 
         ip: clientIp, 
-        requestCount, 
-        maxAllowed: maxWebhookRequests 
+        requestCount: rateLimitData.count,
+        maxAllowed: maxWebhookRequests
       });
+      res.setHeader('Retry-After', String(retryAfter));
       res.status(429).json({ 
         error: 'Webhook rate limit exceeded. Please slow down.',
-        retryAfter: Math.ceil((windowMs - (now - lastReset)) / 1000)
+        retryAfter
       });
       return;
     }
-    
-    // Increment counter and proceed
-    this.eventStats.set(webhookKey, requestCount + 1);
+
+    rateLimitData.count += 1;
     next();
   }
 
@@ -464,14 +445,6 @@ export class AsanaWebhookServer extends EventEmitter {
   }
 
   /**
-   * Get all webhook subscriptions
-   */
-  private async getSubscriptions(req: Request, res: Response): Promise<void> {
-    const subscriptions = Array.from(this.subscriptions.values());
-    res.json({ subscriptions });
-  }
-
-  /**
    * Get specific webhook subscription
    */
   private async getSubscription(req: Request, res: Response): Promise<void> {
@@ -658,10 +631,15 @@ export class AsanaWebhookServer extends EventEmitter {
   }
 
   /**
-   * Get current subscriptions
+   * Get current subscriptions snapshot
    */
   getSubscriptions(): WebhookSubscription[] {
     return Array.from(this.subscriptions.values());
+  }
+
+  private async listSubscriptions(req: Request, res: Response): Promise<void> {
+    const subscriptions = Array.from(this.subscriptions.values());
+    res.json({ subscriptions });
   }
 
   /**
