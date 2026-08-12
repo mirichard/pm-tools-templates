@@ -601,6 +601,18 @@ class TestRunner {
       return captured.systemPrompt === prompt && captured.userPrompt === prompt;
     });
 
+    await this.test('Trace persistence excludes remote response bodies', async () => {
+      const traceDir = path.join(tempRoot, 'traces');
+      const client = Object.create(LLMClient.prototype);
+      client.traceDir = traceDir;
+      client.provider = 'test';
+      client.model = 'test-model';
+      await client._saveTrace([{ role: 'user', content: 'line one\nline two' }], 'Bearer test-api-key\nremote body');
+      const traceFiles = await fs.readdir(traceDir);
+      const trace = JSON.parse(await fs.readFile(path.join(traceDir, traceFiles[0]), 'utf8'));
+      return trace.response === '[REDACTED_REMOTE_RESPONSE]' && !JSON.stringify(trace).includes('test-api-key') && !JSON.stringify(trace).includes('remote body');
+    });
+
     await fs.remove(tempRoot);
   }
 

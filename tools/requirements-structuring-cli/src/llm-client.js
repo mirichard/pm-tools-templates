@@ -288,7 +288,9 @@ class LLMClient {
       provider: this.provider,
       model: this.model,
       messages: JSON.parse(JSON.stringify(messages, null, 2)),
-      response: sanitizeErrorPayload(response),
+      response: response === undefined || response === null
+        ? null
+        : '[REDACTED_REMOTE_RESPONSE]',
     };
     const tracePath = buildContainedChildPath(safeTraceDir, `trace-${timestamp}.json`);
     await safeWriteJSON(tracePath, trace, { spaces: 2, rootDir: safeTraceDir });
