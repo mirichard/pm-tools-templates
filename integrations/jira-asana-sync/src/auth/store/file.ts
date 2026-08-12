@@ -1,5 +1,6 @@
 import { promises as fs } from 'fs';
 import { dirname, join, resolve, sep } from 'path';
+import { createHash } from 'crypto';
 import type { Token, TokenStore } from '../types';
 
 export class FileTokenStore implements TokenStore {
@@ -10,7 +11,8 @@ export class FileTokenStore implements TokenStore {
       throw new Error('Invalid token-store key');
     }
     const root = resolve(this.baseDir);
-    const file = resolve(join(root, `${key}.json`));
+    const keyDigest = createHash('sha256').update(key, 'utf8').digest('hex');
+    const file = resolve(join(root, `${keyDigest}.json`));
     if (!file.startsWith(`${root}${sep}`)) throw new Error('Token path escapes store');
     return file;
   }

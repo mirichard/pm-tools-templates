@@ -1,15 +1,10 @@
 import React from 'react';
-import { marked } from 'marked';
-import DOMPurify from 'dompurify';
-
-// marked v12: headerIds is supported; mangle no longer used in types
-marked.use({ headerIds: true } as any);
+import ReactMarkdown from 'react-markdown';
 
 type Props = { markdown: string };
 
 export function MarkdownPreview({ markdown }: Props) {
-  const html = React.useMemo(() => DOMPurify.sanitize(String(marked.parse(markdown || ''))), [markdown]);
   return (
-    <div aria-live="polite" dangerouslySetInnerHTML={{ __html: html }} />
+    <div aria-live="polite"><ReactMarkdown>{markdown || ''}</ReactMarkdown></div>
   );
 }

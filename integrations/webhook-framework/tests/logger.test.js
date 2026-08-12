@@ -7,7 +7,7 @@ describe('webhook logging boundary', () => {
     const spy = jest.spyOn(console, 'log').mockImplementation(() => {});
     logger({ params: { provider: 'jira\nforged' }, headers: { 'x-github-event': 'push\rforged' } }, response, () => {});
     response.emit('finish');
-    expect(spy).toHaveBeenCalledWith(expect.not.stringMatching(/[\r\n\u2028\u2029]/));
+    expect(spy).toHaveBeenCalledWith(expect.not.stringContaining('forged'));
     spy.mockRestore();
   });
 });

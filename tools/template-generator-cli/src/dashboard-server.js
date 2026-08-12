@@ -457,7 +457,7 @@ class DashboardServer {
         break;
       
       default:
-        console.log('Unknown client message type:', String(data.type).replace(/[\r\n\u2028\u2029]/g, ' '));
+        console.log('Unknown client message type received');
     }
   }
 

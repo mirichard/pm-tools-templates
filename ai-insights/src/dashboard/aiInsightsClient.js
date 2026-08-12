@@ -237,17 +237,11 @@ class AIInsightsResult {
     this.timestamp = new Date().toISOString();
   }
 
-  /**
-   * Sanitize data to prevent XSS attacks
-   */
+  /** Copy API data while rejecting prototype mutation keys. React consumers
+   * render strings as text and therefore perform context-aware escaping. */
   sanitizeData(data) {
     if (typeof data === 'string') {
-      return data
-        .replace(/&/g, '&amp;')
-        .replace(/</g, '&lt;')
-        .replace(/>/g, '&gt;')
-        .replace(/"/g, '&quot;')
-        .replace(/'/g, '&#x27;');
+      return data;
     }
     
     if (Array.isArray(data)) {
