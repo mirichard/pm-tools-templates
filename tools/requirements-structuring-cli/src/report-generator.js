@@ -8,6 +8,7 @@
 
 const fs = require('fs-extra');
 const path = require('path');
+const { safeWriteText, buildSafeOutputPath } = require('./security');
 
 class ReportGenerator {
   /**
@@ -26,30 +27,32 @@ class ReportGenerator {
 
     const files = [];
 
+    const safeOutputDir = buildSafeOutputPath(outputDir, { rootDir: process.cwd(), allowAbsolute: true });
+
     // Use Case Specification
     const ucsDoc = this.formatUCS(refinedUcs || ucs);
-    const ucsPath = path.join(outputDir, `${baseName}-use-case-spec.md`);
-    await fs.writeFile(ucsPath, ucsDoc);
+    const ucsPath = path.join(safeOutputDir, `${baseName}-use-case-spec.md`);
+    await safeWriteText(ucsPath, ucsDoc);
     files.push(ucsPath);
 
     // Test Cases
     const testDoc = this.formatTestCases(testCases, ucs);
-    const testPath = path.join(outputDir, `${baseName}-test-cases.md`);
-    await fs.writeFile(testPath, testDoc);
+    const testPath = path.join(safeOutputDir, `${baseName}-test-cases.md`);
+    await safeWriteText(testPath, testDoc);
     files.push(testPath);
 
     // Validation Report (if available)
     if (validationResults) {
       const valDoc = this.formatValidationReport(validationResults, ucs);
-      const valPath = path.join(outputDir, `${baseName}-validation-report.md`);
-      await fs.writeFile(valPath, valDoc);
+      const valPath = path.join(safeOutputDir, `${baseName}-validation-report.md`);
+      await safeWriteText(valPath, valDoc);
       files.push(valPath);
     }
 
     // Pipeline Summary
     const summaryDoc = this.formatSummary(opts);
-    const summaryPath = path.join(outputDir, `${baseName}-summary.md`);
-    await fs.writeFile(summaryPath, summaryDoc);
+    const summaryPath = path.join(safeOutputDir, `${baseName}-summary.md`);
+    await safeWriteText(summaryPath, summaryDoc);
     files.push(summaryPath);
 
     return files;

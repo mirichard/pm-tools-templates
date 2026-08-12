@@ -11,6 +11,7 @@
 
 const fs = require('fs-extra');
 const path = require('path');
+const { buildSafeOutputPath } = require('./security');
 
 class GherkinGenerator {
   /**
@@ -98,8 +99,9 @@ class GherkinGenerator {
    */
   async generateFile(testCases, ucs, outputPath) {
     const content = this.generate(testCases, ucs);
-    await fs.writeFile(outputPath, content);
-    return outputPath;
+    const safeOutput = buildSafeOutputPath(outputPath, { rootDir: process.cwd(), allowAbsolute: true });
+    await fs.writeFile(safeOutput, content, 'utf8');
+    return safeOutput;
   }
 
   // ─── Step normalization helpers ──────────────────────────────────────────

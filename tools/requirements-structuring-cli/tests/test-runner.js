@@ -11,6 +11,12 @@ const ConsistencyChecker = require('../src/consistency-checker');
 const RequirementsParser = require('../src/parser');
 const AmbiguityDetector = require('../src/ambiguity-detector');
 const GherkinGenerator = require('../src/gherkin-generator');
+const {
+  sanitizeTerminalValue,
+  validateStructuredResponse,
+  buildSafeOutputPath,
+  sanitizeErrorPayload,
+} = require('../src/index');
 
 class TestRunner {
   constructor() {
@@ -29,6 +35,7 @@ class TestRunner {
     await this.testParser();
     await this.testAmbiguityDetector();
     await this.testGherkinGenerator();
+    await this.testSecurityBoundaries();
 
     this.printResults();
   }
@@ -471,6 +478,45 @@ class TestRunner {
       }];
       const output = gherkin.generate(testCases, ucs);
       return output.includes('Then the record is saved');
+    });
+  }
+
+  // ─── Security boundary tests ─────────────────────────────────────────────
+  async testSecurityBoundaries() {
+    console.log(chalk.yellow('\n🛡️ Testing security boundaries...'));
+
+    await this.test('Terminal sanitizer strips control chars', () => {
+      const unsafe = 'first\r\nsecond\u001b[31mred\u2028text\u2029';
+      const safe = sanitizeTerminalValue(unsafe);
+      return safe.includes('first') && safe.includes('second') && !safe.includes('\r') && !safe.includes('\n') && !safe.includes('\u001b') && !safe.includes('\u2028') && !safe.includes('\u2029');
+    });
+
+    await this.test('Structured response validator accepts valid JSON object', () => {
+      const payload = { content: { text: 'ok' } };
+      return validateStructuredResponse(JSON.stringify(payload), { expectedRoot: 'object', requiredKeys: ['content'] });
+    });
+
+    await this.test('Structured response validator rejects dangerous keys', () => {
+      try {
+        validateStructuredResponse('{"__proto__":{"polluted":true}}', { expectedRoot: 'object' });
+        return false;
+      } catch (error) {
+        return typeof error?.message === 'string' && error.message.includes('prohibited key');
+      }
+    });
+
+    await this.test('Output path builder rejects null bytes and traversal outside root', () => {
+      try {
+        buildSafeOutputPath('/tmp/root/../escape.txt', { allowAbsolute: false, rootDir: '/tmp/root' });
+        return false;
+      } catch (error) {
+        return typeof error?.message === 'string' && error.message.includes('escapes the permitted directory');
+      }
+    });
+
+    await this.test('Error redaction strips secrets and hostile content', () => {
+      const redacted = sanitizeErrorPayload({ message: 'Bearer abc123\n\u001b[31m evil\n', body: 'token=abc123' });
+      return JSON.stringify(redacted).includes('REDACTED') && !JSON.stringify(redacted).includes('abc123') && !JSON.stringify(redacted).includes('\u001b');
     });
   }
 

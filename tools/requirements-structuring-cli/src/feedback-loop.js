@@ -15,6 +15,7 @@
 const LLMClient = require('./llm-client');
 const inquirer = require('inquirer');
 const chalk = require('chalk');
+const { sanitizeTerminalValue } = require('./security');
 
 class FeedbackLoop {
   constructor() {
@@ -31,39 +32,39 @@ class FeedbackLoop {
     const allSuggestions = [];
 
     // Pass 1: Gap & contradiction analysis
-    console.log(chalk.yellow('\n🔍 Pass 1: Analyzing for gaps and contradictions...'));
+    console.log(sanitizeTerminalValue(chalk.yellow('\n🔍 Pass 1: Analyzing for gaps and contradictions...')));
     const gaps = await this._identifyGaps(ucsTemplate, testCases);
     if (gaps.length > 0) {
       const accepted = await this._reviewSuggestions(gaps, 'Gaps & Contradictions');
       allSuggestions.push(...accepted);
     } else {
-      console.log(chalk.green('  ✓ No gaps or contradictions detected'));
+      console.log(sanitizeTerminalValue(chalk.green('  ✓ No gaps or contradictions detected')));
     }
 
     // Pass 2: Coverage expansion
-    console.log(chalk.yellow('\n🧪 Pass 2: Suggesting additional test cases...'));
+    console.log(sanitizeTerminalValue(chalk.yellow('\n🧪 Pass 2: Suggesting additional test cases...')));
     const additionalTests = await this._suggestTestCases(ucsTemplate, testCases);
     if (additionalTests.length > 0) {
       const accepted = await this._reviewSuggestions(additionalTests, 'Additional Test Cases');
       allSuggestions.push(...accepted);
     } else {
-      console.log(chalk.green('  ✓ Coverage appears sufficient'));
+      console.log(sanitizeTerminalValue(chalk.green('  ✓ Coverage appears sufficient')));
     }
 
     // Pass 3: Implicit requirement discovery
-    console.log(chalk.yellow('\n💡 Pass 3: Discovering implicit requirements...'));
+    console.log(sanitizeTerminalValue(chalk.yellow('\n💡 Pass 3: Discovering implicit requirements...')));
     const implicitReqs = await this._discoverImplicit(ucsTemplate, testCases);
     if (implicitReqs.length > 0) {
       const accepted = await this._reviewSuggestions(implicitReqs, 'Implicit Requirements');
       allSuggestions.push(...accepted);
     } else {
-      console.log(chalk.green('  ✓ No implicit requirements detected'));
+      console.log(sanitizeTerminalValue(chalk.green('  ✓ No implicit requirements detected')));
     }
 
     // Apply accepted suggestions
     let updatedUCS = ucsTemplate;
     if (allSuggestions.length > 0) {
-      console.log(chalk.yellow(`\n🔄 Applying ${allSuggestions.length} accepted suggestion(s)...`));
+      console.log(sanitizeTerminalValue(chalk.yellow(`\n🔄 Applying ${allSuggestions.length} accepted suggestion(s)...`)));
       updatedUCS = await this._refineFromFeedback(ucsTemplate, allSuggestions);
     }
 
@@ -170,14 +171,14 @@ class FeedbackLoop {
    * Interactive review — present suggestions, let user accept/reject each
    */
   async _reviewSuggestions(suggestions, category) {
-    console.log(chalk.cyan(`\n  Found ${suggestions.length} suggestion(s) in "${category}":`));
+    console.log(sanitizeTerminalValue(chalk.cyan(`\n  Found ${suggestions.length} suggestion(s) in "${category}":`)));
 
     const accepted = [];
     for (let i = 0; i < suggestions.length; i++) {
       const s = suggestions[i];
-      console.log(chalk.white(`\n  ${i + 1}. [${s.type || 'suggestion'}] ${s.description}`));
+      console.log(sanitizeTerminalValue(chalk.white(`\n  ${i + 1}. [${s.type || 'suggestion'}] ${s.description}`)));
       if (s.detail) {
-        console.log(chalk.dim(`     ${s.detail}`));
+        console.log(sanitizeTerminalValue(chalk.dim(`     ${s.detail}`)));
       }
 
       const { action } = await inquirer.prompt([
@@ -204,7 +205,7 @@ class FeedbackLoop {
       }
     }
 
-    console.log(chalk.green(`  → Accepted ${accepted.length} of ${suggestions.length}`));
+    console.log(sanitizeTerminalValue(chalk.green(`  → Accepted ${accepted.length} of ${suggestions.length}`)));
     return accepted;
   }
 
