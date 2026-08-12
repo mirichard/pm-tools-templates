@@ -305,6 +305,7 @@ jobs:
                   tags: ["maintainability"]
                   
             paths-ignore:
+              - "**/coverage/**"
               - "**/*.test.*"
               - "**/*.spec.*"
               - "**/test/**"

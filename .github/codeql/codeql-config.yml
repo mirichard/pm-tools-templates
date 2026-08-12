@@ -21,6 +21,7 @@ paths:
 # Paths to ignore during analysis
 paths-ignore:
   - node_modules
+  - "**/coverage/**"
   - "**/*.min.js"
   - "**/*.bundle.js"
   - "**/*.generated.js"
@@ -42,4 +43,3 @@ packs:
     - "codeql/javascript-queries"
     # Add custom packs if available
     # - "my-org/my-custom-pack"
-
