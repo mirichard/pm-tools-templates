@@ -607,7 +607,7 @@ class TestRunner {
       client.traceDir = traceDir;
       client.provider = 'test';
       client.model = 'test-model';
-      await client._saveTrace([{ role: 'user', content: 'line one\nline two' }], 'Bearer test-api-key\nremote body');
+      await client._saveTrace([{ role: 'user', content: 'line one\nline two' }]);
       const traceFiles = await fs.readdir(traceDir);
       const trace = JSON.parse(await fs.readFile(path.join(traceDir, traceFiles[0]), 'utf8'));
       return trace.response === '[REDACTED_REMOTE_RESPONSE]' && !JSON.stringify(trace).includes('test-api-key') && !JSON.stringify(trace).includes('remote body');

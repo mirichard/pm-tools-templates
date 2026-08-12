@@ -158,8 +158,7 @@ class LLMClient {
 
     if (this.saveTraces) {
       await this._saveTrace(
-        [{ role: 'system', content: systemPrompt }, { role: 'user', content: userPrompt }],
-        content
+        [{ role: 'system', content: systemPrompt }, { role: 'user', content: userPrompt }]
       );
     }
 
@@ -279,7 +278,7 @@ class LLMClient {
   /**
    * Save prompt/response traces for debugging
    */
-  async _saveTrace(messages, response) {
+  async _saveTrace(messages) {
     const safeTraceDir = buildSafeOutputPath(this.traceDir);
     await fs.ensureDir(safeTraceDir);
     const timestamp = new Date().toISOString().replace(/[:.]/g, '-');
@@ -288,9 +287,7 @@ class LLMClient {
       provider: this.provider,
       model: this.model,
       messages: JSON.parse(JSON.stringify(messages, null, 2)),
-      response: response === undefined || response === null
-        ? null
-        : '[REDACTED_REMOTE_RESPONSE]',
+      response: '[REDACTED_REMOTE_RESPONSE]',
     };
     const tracePath = buildContainedChildPath(safeTraceDir, `trace-${timestamp}.json`);
     await safeWriteJSON(tracePath, trace, { spaces: 2, rootDir: safeTraceDir });
