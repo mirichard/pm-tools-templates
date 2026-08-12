@@ -203,9 +203,10 @@ app.post('/api/templates/:id/rate', async (req, res) => {
     
     // In a real implementation, this would save to a database
     // For now, we'll just return success
-    console.log(`Rating submitted for template ${templateId}: ${rating}/5`);
+    const safeTemplateId = String(templateId).replace(/[\r\n\u2028\u2029]/g, ' ');
+    console.log(`Rating submitted for template ${safeTemplateId}: ${rating}/5`);
     if (feedback) {
-      console.log(`Feedback: ${feedback}`);
+      console.log(`Feedback: ${String(feedback).replace(/[\r\n\u2028\u2029]/g, ' ')}`);
     }
     
     res.json({ message: 'Rating submitted successfully' });

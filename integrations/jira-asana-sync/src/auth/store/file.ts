@@ -1,12 +1,18 @@
 import { promises as fs } from 'fs';
-import { dirname, join } from 'path';
+import { dirname, join, resolve, sep } from 'path';
 import type { Token, TokenStore } from '../types';
 
 export class FileTokenStore implements TokenStore {
   constructor(private baseDir = process.env.TOKEN_DIR || '.tokens') {}
 
   private fileFor(key: string) {
-    return join(this.baseDir, `${key}.json`);
+    if (!/^[A-Za-z0-9_-]{1,128}$/.test(key)) {
+      throw new Error('Invalid token-store key');
+    }
+    const root = resolve(this.baseDir);
+    const file = resolve(join(root, `${key}.json`));
+    if (!file.startsWith(`${root}${sep}`)) throw new Error('Token path escapes store');
+    return file;
   }
 
   async save(key: string, token: Token): Promise<void> {

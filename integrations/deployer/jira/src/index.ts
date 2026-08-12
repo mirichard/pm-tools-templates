@@ -1,6 +1,10 @@
 import { getAccessibleResources, createProject } from './api.js';
 import type { JiraTemplate, DeployOptions } from './types.js';
 
+export function sanitizeLogValue(value: unknown): string {
+  return String(value).replace(/[\r\n\u2028\u2029]/g, ' ');
+}
+
 function parseArgs(argv: string[]) {
   const get = (name: string) => {
     const a = argv.find(s => s.startsWith(`--${name}=`));
@@ -57,7 +61,7 @@ async function main() {
     const res = await deployJiraProject(template, { ...args, token } as any);
     console.log('Created Jira project:', JSON.stringify(res));
   } catch (e:any) {
-    console.error('Deploy failed:', e.message);
+    console.error('Deploy failed:', sanitizeLogValue(e.message));
     process.exit(1);
   }
 }
@@ -65,4 +69,3 @@ async function main() {
 if (import.meta.url === `file://${process.argv[1]}`) {
   main();
 }
-

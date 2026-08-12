@@ -22,7 +22,7 @@ const requestHandler = createStaticRequestHandler({
 });
 
 const server = http.createServer((req, res) => {
-    console.log('Request for:', req.url);
+    console.log('Request for:', String(req.url).replace(/[\r\n\u2028\u2029]/g, ' '));
     
     // Add CORS headers
     res.setHeader('Access-Control-Allow-Origin', '*');

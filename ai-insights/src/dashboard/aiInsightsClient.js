@@ -242,16 +242,12 @@ class AIInsightsResult {
    */
   sanitizeData(data) {
     if (typeof data === 'string') {
-      return data.replace(/[<>\"'&]/g, (match) => {
-        const escapeMap = {
-          '<': '&lt;',
-          '>': '&gt;',
-          '"': '&quot;',
-          "'": '&#x27;',
-          '&': '&amp;'
-        };
-        return escapeMap[match];
-      });
+      return data
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#x27;');
     }
     
     if (Array.isArray(data)) {
@@ -259,11 +255,11 @@ class AIInsightsResult {
     }
     
     if (data && typeof data === 'object') {
-      const sanitized = {};
-      for (const [key, value] of Object.entries(data)) {
-        sanitized[this.sanitizeData(key)] = this.sanitizeData(value);
-      }
-      return sanitized;
+      return Object.fromEntries(
+        Object.entries(data)
+          .filter(([key]) => key !== '__proto__' && key !== 'prototype' && key !== 'constructor')
+          .map(([key, value]) => [key, this.sanitizeData(value)])
+      );
     }
     
     return data;
@@ -452,4 +448,3 @@ if (typeof module !== 'undefined' && module.exports) {
 
 // ES6 export
 export { AIInsightsClient, AIInsightsResult, AIInsightsError, useAIInsights };
-
