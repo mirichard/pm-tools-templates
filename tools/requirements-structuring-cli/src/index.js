@@ -19,6 +19,7 @@ const inquirer = require('inquirer');
 const {
   sanitizeTerminalValue,
   buildSafeOutputPath,
+  buildContainedChildPath,
   safeWriteJSON,
   safeWriteText,
   sanitizeErrorPayload,
@@ -35,15 +36,18 @@ const AmbiguityDetector = require('./ambiguity-detector');
 const GherkinGenerator = require('./gherkin-generator');
 
 function terminalLog(message) {
-  console.log(sanitizeTerminalValue(message));
+  const safeMessage = sanitizeTerminalValue(message);
+  console.log(safeMessage);
 }
 
 function terminalError(message) {
-  console.error(sanitizeTerminalValue(message));
+  const safeMessage = sanitizeTerminalValue(message);
+  console.error(safeMessage);
 }
 
 function spinnerFail(spinner, message) {
-  spinner.fail(sanitizeTerminalValue(message));
+  const safeMessage = sanitizeTerminalValue(message);
+  spinner.fail(safeMessage);
 }
 
 // CLI Header
@@ -108,7 +112,7 @@ program
 
       if (opts.output) {
         const markdown = detector.formatMarkdown(result);
-        const outputPath = buildSafeOutputPath(opts.output, { rootDir: process.cwd(), allowAbsolute: true });
+        const outputPath = buildSafeOutputPath(opts.output);
         await safeWriteText(outputPath, markdown);
         terminalLog(chalk.green(`✓ Report saved to ${outputPath}`));
       }
@@ -116,7 +120,7 @@ program
       const jsonPath = opts.output
         ? opts.output.replace(/\.md$/, '.json')
         : inputFile.replace(/\.md$/, '-ambiguity.json');
-      const safeJsonPath = buildSafeOutputPath(jsonPath, { rootDir: process.cwd(), allowAbsolute: true });
+      const safeJsonPath = buildSafeOutputPath(jsonPath);
       await safeWriteJSON(safeJsonPath, result, { spaces: 2 });
       terminalLog(chalk.dim(`  → ${safeJsonPath}`));
     } catch (err) {
@@ -142,7 +146,7 @@ program
       spinner.succeed('Requirements structured');
 
       const outputPath = opts.output || inputFile.replace(/\.md$/, '-structured.json');
-      const safeOutputPath = buildSafeOutputPath(outputPath, { rootDir: process.cwd(), allowAbsolute: true });
+      const safeOutputPath = buildSafeOutputPath(outputPath);
       await safeWriteJSON(safeOutputPath, structured, { spaces: 2 });
       terminalLog(chalk.green(`✓ Formal structure saved to ${safeOutputPath}`));
       terminalLog(chalk.dim(`  Business objects identified: ${(structured.businessObjects || []).join(', ')}`));
@@ -175,7 +179,7 @@ program
       spinner.succeed('UCS template generated');
 
       const outputPath = opts.output || structuredFile.replace(/-structured\.json$/, '-ucs.json');
-      const safeOutputPath = buildSafeOutputPath(outputPath, { rootDir: process.cwd(), allowAbsolute: true });
+      const safeOutputPath = buildSafeOutputPath(outputPath);
       await safeWriteJSON(safeOutputPath, ucs.toJSON ? ucs.toJSON() : ucs, { spaces: 2 });
       terminalLog(chalk.green(`✓ UCS template saved to ${safeOutputPath}`));
     } catch (err) {
@@ -198,7 +202,7 @@ program
       spinner.succeed(`Generated ${testCases.length} test case(s)`);
 
       const outputPath = opts.output || ucsFile.replace(/-ucs\.json$/, '-tests.json');
-      const safeOutputPath = buildSafeOutputPath(outputPath, { rootDir: process.cwd(), allowAbsolute: true });
+      const safeOutputPath = buildSafeOutputPath(outputPath);
       await safeWriteJSON(safeOutputPath, testCases, { spaces: 2 });
       terminalLog(chalk.green(`✓ Test cases saved to ${safeOutputPath}`));
       terminalLog(generator.formatSummary(testCases));
@@ -297,7 +301,7 @@ program
 
       const gherkin = new GherkinGenerator();
       const outputPath = opts.output || testCasesFile.replace(/-tests\.json$/, '.feature');
-      const safeOutputPath = buildSafeOutputPath(outputPath, { rootDir: process.cwd(), allowAbsolute: true });
+      const safeOutputPath = buildSafeOutputPath(outputPath);
       await gherkin.generateFile(testCases, ucs, safeOutputPath);
       spinner.succeed('Gherkin feature file generated');
       terminalLog(chalk.green(`✓ Feature file saved to ${safeOutputPath}`));
@@ -315,7 +319,7 @@ program
   .option('--state <files...>', 'State model JSON file(s)')
   .option('-o, --output-dir <dir>', 'Output directory', './output')
   .action(async (inputFile, opts) => {
-    const outputDir = buildSafeOutputPath(opts.outputDir, { rootDir: process.cwd(), allowAbsolute: true });
+    const outputDir = buildSafeOutputPath(opts.outputDir);
     await fs.ensureDir(outputDir);
 
     const baseName = path.basename(inputFile, path.extname(inputFile));
@@ -333,9 +337,9 @@ program
 
       // Save ambiguity report
       const ambiguityJsonPath = path.join(outputDir, `${baseName}-ambiguity.json`);
-      await safeWriteJSON(ambiguityJsonPath, ambiguityResult, { spaces: 2 });
+      await safeWriteJSON(ambiguityJsonPath, ambiguityResult, { spaces: 2, rootDir: outputDir });
       const ambiguityMdPath = path.join(outputDir, `${baseName}-ambiguity-report.md`);
-      await safeWriteText(ambiguityMdPath, detector.formatMarkdown(ambiguityResult));
+      await safeWriteText(ambiguityMdPath, detector.formatMarkdown(ambiguityResult), 'utf8', { rootDir: outputDir });
       terminalLog(chalk.dim(`  → ${ambiguityJsonPath}`));
       terminalLog(chalk.dim(`  → ${ambiguityMdPath}`));
 
@@ -369,7 +373,7 @@ program
       spinner1.succeed('Phase 1 complete');
 
       const structuredPath = path.join(outputDir, `${baseName}-structured.json`);
-      await safeWriteJSON(structuredPath, structured, { spaces: 2 });
+      await safeWriteJSON(structuredPath, structured, { spaces: 2, rootDir: outputDir });
       terminalLog(chalk.dim(`  → ${structuredPath}`));
 
       const { proceed: proceed1 } = await inquirer.prompt([
@@ -385,12 +389,12 @@ program
       spinner2.succeed('UCS template generated');
 
       const ucsPath = path.join(outputDir, `${baseName}-ucs.json`);
-      await safeWriteJSON(ucsPath, ucs.toJSON ? ucs.toJSON() : ucs, { spaces: 2 });
+      await safeWriteJSON(ucsPath, ucs.toJSON ? ucs.toJSON() : ucs, { spaces: 2, rootDir: outputDir });
 
       const generator = new TestGenerator();
       const testCases = generator.generate(ucs);
       const testsPath = path.join(outputDir, `${baseName}-tests.json`);
-      await safeWriteJSON(testsPath, testCases, { spaces: 2 });
+      await safeWriteJSON(testsPath, testCases, { spaces: 2, rootDir: outputDir });
 
       terminalLog(chalk.dim(`  → ${ucsPath}`));
       terminalLog(chalk.dim(`  → ${testsPath} (${testCases.length} test cases)`));
@@ -400,7 +404,7 @@ program
       const gherkin = new GherkinGenerator();
       const ucsJSON2 = ucs.toJSON ? ucs.toJSON() : ucs;
       const featurePath = path.join(outputDir, `${baseName}.feature`);
-      const safeFeaturePath = buildSafeOutputPath(featurePath, { rootDir: outputDir, allowAbsolute: true });
+      const safeFeaturePath = buildContainedChildPath(outputDir, path.basename(featurePath));
       await gherkin.generateFile(testCases, ucsJSON2, safeFeaturePath);
       terminalLog(chalk.dim(`  → ${safeFeaturePath} (Gherkin/BDD)`));
 
@@ -418,7 +422,7 @@ program
       let currentUCS = feedbackResult.updatedUCS;
       if (feedbackResult.suggestions.length > 0) {
         const refinedPath = path.join(outputDir, `${baseName}-ucs-refined.json`);
-        await safeWriteJSON(refinedPath, currentUCS, { spaces: 2 });
+        await safeWriteJSON(refinedPath, currentUCS, { spaces: 2, rootDir: outputDir });
         terminalLog(chalk.dim(`  → ${refinedPath}`));
       }
 
@@ -519,5 +523,8 @@ module.exports = {
   sanitizeTerminalValue,
   validateStructuredResponse: require('./security').validateStructuredResponse,
   buildSafeOutputPath,
+  buildContainedChildPath,
   sanitizeErrorPayload,
+  safeWriteText: require('./security').safeWriteText,
+  safeWriteJSON: require('./security').safeWriteJSON,
 };

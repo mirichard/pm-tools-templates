@@ -11,7 +11,7 @@
 
 const fs = require('fs-extra');
 const path = require('path');
-const { buildSafeOutputPath } = require('./security');
+const { buildSafeOutputPath, safeWriteText } = require('./security');
 
 class GherkinGenerator {
   /**
@@ -100,7 +100,7 @@ class GherkinGenerator {
   async generateFile(testCases, ucs, outputPath) {
     const content = this.generate(testCases, ucs);
     const safeOutput = buildSafeOutputPath(outputPath, { rootDir: process.cwd(), allowAbsolute: true });
-    await fs.writeFile(safeOutput, content, 'utf8');
+    await safeWriteText(safeOutput, content);
     return safeOutput;
   }
 

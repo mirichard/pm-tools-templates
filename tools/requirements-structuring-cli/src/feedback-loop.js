@@ -176,9 +176,11 @@ class FeedbackLoop {
     const accepted = [];
     for (let i = 0; i < suggestions.length; i++) {
       const s = suggestions[i];
-      console.log(sanitizeTerminalValue(chalk.white(`\n  ${i + 1}. [${s.type || 'suggestion'}] ${s.description}`)));
+        const safeSuggestion = sanitizeTerminalValue(chalk.white(`\n  ${i + 1}. [${s.type || 'suggestion'}] ${s.description}`));
+        console.log(safeSuggestion);
       if (s.detail) {
-        console.log(sanitizeTerminalValue(chalk.dim(`     ${s.detail}`)));
+          const safeDetail = sanitizeTerminalValue(chalk.dim(`     ${s.detail}`));
+          console.log(safeDetail);
       }
 
       const { action } = await inquirer.prompt([
@@ -205,7 +207,8 @@ class FeedbackLoop {
       }
     }
 
-    console.log(sanitizeTerminalValue(chalk.green(`  → Accepted ${accepted.length} of ${suggestions.length}`)));
+    const safeSummary = sanitizeTerminalValue(chalk.green(`  → Accepted ${accepted.length} of ${suggestions.length}`));
+    console.log(safeSummary);
     return accepted;
   }
 

@@ -16,7 +16,7 @@
 const axios = require('axios');
 const fs = require('fs-extra');
 const path = require('path');
-const { validateStructuredResponse, sanitizeErrorPayload, buildSafeOutputPath } = require('./security');
+const { validateStructuredResponse, sanitizeErrorPayload, buildSafeOutputPath, buildContainedChildPath, safeWriteJSON } = require('./security');
 
 // ─── Provider defaults ──────────────────────────────────────────────────────
 const PROVIDER_DEFAULTS = {
@@ -280,7 +280,7 @@ class LLMClient {
    * Save prompt/response traces for debugging
    */
   async _saveTrace(messages, response) {
-    const safeTraceDir = buildSafeOutputPath(this.traceDir, { rootDir: process.cwd(), allowAbsolute: true });
+    const safeTraceDir = buildSafeOutputPath(this.traceDir);
     await fs.ensureDir(safeTraceDir);
     const timestamp = new Date().toISOString().replace(/[:.]/g, '-');
     const trace = {
@@ -290,8 +290,8 @@ class LLMClient {
       messages: JSON.parse(JSON.stringify(messages, null, 2)),
       response: sanitizeErrorPayload(response),
     };
-    const tracePath = path.join(safeTraceDir, `trace-${timestamp}.json`);
-    await fs.writeJSON(tracePath, trace, { spaces: 2 });
+    const tracePath = buildContainedChildPath(safeTraceDir, `trace-${timestamp}.json`);
+    await safeWriteJSON(tracePath, trace, { spaces: 2, rootDir: safeTraceDir });
   }
 }
 

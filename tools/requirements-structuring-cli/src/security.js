@@ -133,11 +133,6 @@ function validateStructuredResponse(raw, options = {}) {
 }
 
 function buildSafeOutputPath(targetPath, options = {}) {
-  const {
-    rootDir = null,
-    allowAbsolute = true,
-  } = options;
-
   if (typeof targetPath !== 'string') {
     throw new Error('Output path must be a string.');
   }
@@ -145,69 +140,115 @@ function buildSafeOutputPath(targetPath, options = {}) {
     throw new Error('Output path cannot contain null bytes.');
   }
 
-  const resolved = path.resolve(targetPath);
+  return path.resolve(targetPath);
+}
 
-  if (rootDir) {
-    const baseRoot = path.resolve(rootDir);
-    const relative = path.relative(baseRoot, resolved);
-    const escapesRoot = relative === '..' || relative.startsWith('../') || path.isAbsolute(relative);
-    if (escapesRoot && !allowAbsolute) {
-      throw new Error(`Output path escapes the permitted directory: ${targetPath}`);
+function buildContainedChildPath(rootDir, childName) {
+  if (typeof rootDir !== 'string' || typeof childName !== 'string' || !childName) {
+    throw new Error('A root directory and application-controlled filename are required.');
+  }
+  if (childName.includes('\0') || childName !== path.basename(childName)) {
+    throw new Error('Generated filenames must be simple application-controlled names.');
+  }
+
+  const resolvedRoot = path.resolve(rootDir);
+  const resolvedPath = path.resolve(resolvedRoot, childName);
+  const relative = path.relative(resolvedRoot, resolvedPath);
+  if (relative === '..' || relative.startsWith(`..${path.sep}`) || path.isAbsolute(relative)) {
+    throw new Error(`Generated output path escapes the permitted directory: ${childName}`);
+  }
+
+  const existingRoot = fs.existsSync(resolvedRoot) ? fs.realpathSync(resolvedRoot) : resolvedRoot;
+  const parentDir = path.dirname(resolvedPath);
+  if (fs.existsSync(parentDir)) {
+    const existingParent = fs.realpathSync(parentDir);
+    const realRelative = path.relative(existingRoot, existingParent);
+    if (realRelative === '..' || realRelative.startsWith(`..${path.sep}`) || path.isAbsolute(realRelative)) {
+      throw new Error(`Generated output path resolves outside the permitted directory: ${childName}`);
     }
   }
 
-  return resolved;
+  return resolvedPath;
 }
 
 function sanitizeErrorPayload(value) {
-  const redact = (input) => {
-    if (input === null || input === undefined) return input;
-    if (typeof input === 'string') {
-      let text = input
-        .replace(ANSI_ESCAPE_RE, ' ')
-        .replace(CONTROL_RE, ' ')
-        .replace(/(Bearer\s+)[A-Za-z0-9._~+/-]+/gi, '$1[REDACTED]')
-        .replace(/(Authorization\s*:\s*)(Bearer\s+)?[^\s,;]+/gi, '$1[REDACTED]')
-        .replace(/((?:api[_-]?key|token|authorization|secret|password)\s*[:=]\s*)([^\s,;]+)/gi, '$1[REDACTED]');
-      return text.length > 2000 ? `${text.slice(0, 2000)}... [truncated]` : text;
-    }
-    if (Array.isArray(input)) {
-      return input.map(redact);
-    }
-    if (typeof input === 'object') {
-      const sanitized = {};
-      for (const [key, entry] of Object.entries(input)) {
-        const nextKey = /^(authorization|apiKey|token|secret|password)$/i.test(key) ? '[REDACTED]' : key;
-        sanitized[nextKey] = redact(entry);
-      }
-      return sanitized;
-    }
-    return input;
+  const text = (input, limit = 400) => {
+    if (input === null || input === undefined) return '';
+    return sanitizeTerminalValue(String(input)).replace(
+      /(Bearer\s+|(?:authorization|api[-_]?key|x-api-key|token|secret|password|cookie|set-cookie)\s*[:=]\s*)[^\s,;]+/gi,
+      '$1[REDACTED]'
+    ).slice(0, limit);
   };
+  const source = value && typeof value === 'object' ? value : {};
+  const nestedError = source.error && typeof source.error === 'object' ? source.error : {};
+  const headers = source.headers && typeof source.headers === 'object' ? source.headers : {};
+  const diagnostic = {};
 
-  return redact(value);
+  if (source.provider !== undefined) diagnostic.provider = text(source.provider, 100);
+  if (source.status !== undefined) diagnostic.status = Number.isFinite(Number(source.status)) ? Number(source.status) : 0;
+  if (source.code !== undefined || nestedError.code !== undefined) diagnostic.code = text(source.code ?? nestedError.code, 100);
+  const message = source.message ?? nestedError.message ?? (typeof value === 'string' ? value : '');
+  if (message) diagnostic.message = text(message, 2000);
+  const requestId = source.requestId ?? source.request_id ?? headers['request-id'] ?? headers['x-request-id'];
+  if (requestId !== undefined) diagnostic.requestId = text(requestId, 200);
+  return diagnostic;
 }
 
-async function safeWriteText(filePath, content, encoding = 'utf8') {
-  const resolvedPath = buildSafeOutputPath(filePath, { rootDir: process.cwd() });
+async function safeWriteText(filePath, content, encoding = 'utf8', options = {}) {
+  const resolvedPath = resolveWritePath(filePath, options.rootDir);
+  const validatedContent = validateDocumentContent(content);
   await fs.ensureDir(path.dirname(resolvedPath));
-  await fs.writeFile(resolvedPath, content, encoding);
+  await fs.writeFile(resolvedPath, validatedContent, encoding);
   return resolvedPath;
 }
 
 async function safeWriteJSON(filePath, data, options = {}) {
-  const resolvedPath = buildSafeOutputPath(filePath, { rootDir: process.cwd() });
+  const resolvedPath = resolveWritePath(filePath, options.rootDir);
+  const validatedJson = validateAndSerializeJSON(data, options);
   await fs.ensureDir(path.dirname(resolvedPath));
-  const jsonText = JSON.stringify(data, null, options.spaces ?? 2);
-  await fs.writeFile(resolvedPath, jsonText, 'utf8');
+  await fs.writeFile(resolvedPath, validatedJson, 'utf8');
   return resolvedPath;
+}
+
+function resolveWritePath(filePath, generatedRoot = null) {
+  if (!generatedRoot) return buildSafeOutputPath(filePath);
+  const resolvedPath = buildSafeOutputPath(filePath);
+  return buildContainedChildPath(generatedRoot, path.basename(resolvedPath));
+}
+
+function validateDocumentContent(content) {
+  if (typeof content !== 'string') throw new Error('Document content must be text.');
+  if (content.length > 2000000) throw new Error('Document content exceeds the maximum supported size.');
+  if (ANSI_ESCAPE_RE.test(content) || /[\u0000\u0008\u000B\u000C\u000E-\u001F\u007F-\u009F]/.test(content)) {
+    throw new Error('Document content contains unsupported control characters.');
+  }
+  ANSI_ESCAPE_RE.lastIndex = 0;
+  return content;
+}
+
+function validateAndSerializeJSON(data, options = {}) {
+  let jsonText;
+  try {
+    jsonText = JSON.stringify(data, null, options.spaces ?? 2);
+  } catch (error) {
+    throw new Error(`Unable to serialize JSON output: ${error.message}`);
+  }
+  const parsed = validateStructuredResponse(jsonText, {
+    expectedRoot: options.expectedRoot || (Array.isArray(data) ? 'array' : 'object'),
+  });
+  const validatedJson = JSON.stringify(parsed, null, options.spaces ?? 2);
+  if (validatedJson.length > 2000000) throw new Error('JSON output exceeds the maximum supported size.');
+  return validatedJson;
 }
 
 module.exports = {
   sanitizeTerminalValue,
   validateStructuredResponse,
   buildSafeOutputPath,
+  buildContainedChildPath,
   sanitizeErrorPayload,
   safeWriteText,
   safeWriteJSON,
+  validateDocumentContent,
+  validateAndSerializeJSON,
 };
