@@ -1,4 +1,5 @@
 const fs = require('fs-extra');
+const nativeFs = require('fs');
 const path = require('path');
 
 const DANGEROUS_KEYS = new Set(['__proto__', 'prototype', 'constructor']);
@@ -212,7 +213,7 @@ async function safeWriteJSON(filePath, data, options = {}) {
 
 function writeValidatedBytes(filePath, bytes) {
   return new Promise((resolve, reject) => {
-    const stream = fs.createWriteStream(filePath, { encoding: 'utf8' });
+    const stream = nativeFs.createWriteStream(filePath, { encoding: 'utf8' });
     stream.once('error', reject);
     stream.once('finish', resolve);
     stream.end(bytes);
