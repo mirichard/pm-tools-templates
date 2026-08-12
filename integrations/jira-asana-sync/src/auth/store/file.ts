@@ -30,7 +30,9 @@ export class FileTokenStore implements TokenStore {
 
   private encrypt(token: Token): EncryptedToken {
     const iv = randomBytes(12);
-    const cipher = createCipheriv('aes-256-gcm', this.encryptionKey(), iv);
+    const cipher = createCipheriv('aes-256-gcm', this.encryptionKey(), iv, {
+      authTagLength: 16
+    });
     const ciphertext = Buffer.concat([
       cipher.update(JSON.stringify(token), 'utf8'),
       cipher.final()
@@ -51,7 +53,8 @@ export class FileTokenStore implements TokenStore {
     const decipher = createDecipheriv(
       'aes-256-gcm',
       this.encryptionKey(),
-      Buffer.from(envelope.iv, 'base64')
+      Buffer.from(envelope.iv, 'base64'),
+      { authTagLength: 16 }
     );
     decipher.setAuthTag(Buffer.from(envelope.authTag, 'base64'));
     const plaintext = Buffer.concat([
