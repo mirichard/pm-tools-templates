@@ -172,16 +172,16 @@ class FeedbackLoop {
    */
   async _reviewSuggestions(suggestions, category) {
     const safeCategory = sanitizeTerminalValue(category);
-    console.log(Buffer.from(chalk.cyan(`\n  Found ${suggestions.length} suggestion(s) in "${safeCategory}":`), 'utf8').toString('utf8'));
+    process.stdout.write(`${chalk.cyan(`\n  Found ${suggestions.length} suggestion(s) in "${safeCategory}":`)}\n`);
 
     const accepted = [];
     for (let i = 0; i < suggestions.length; i++) {
       const s = suggestions[i];
         const safeSuggestion = sanitizeTerminalValue(chalk.white(`\n  ${i + 1}. [${s.type || 'suggestion'}] ${s.description}`));
-        console.log(Buffer.from(safeSuggestion, 'utf8').toString('utf8'));
+        process.stdout.write(`${safeSuggestion}\n`);
       if (s.detail) {
           const safeDetail = sanitizeTerminalValue(chalk.dim(`     ${s.detail}`));
-          console.log(Buffer.from(safeDetail, 'utf8').toString('utf8'));
+          process.stdout.write(`${safeDetail}\n`);
       }
 
       const { action } = await inquirer.prompt([
@@ -209,7 +209,7 @@ class FeedbackLoop {
     }
 
     const safeSummary = sanitizeTerminalValue(chalk.green(`  → Accepted ${accepted.length} of ${suggestions.length}`));
-    console.log(Buffer.from(safeSummary, 'utf8').toString('utf8'));
+    process.stdout.write(`${safeSummary}\n`);
     return accepted;
   }
 

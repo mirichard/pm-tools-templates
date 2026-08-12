@@ -37,17 +37,18 @@ const GherkinGenerator = require('./gherkin-generator');
 
 function terminalLog(message) {
   const safeMessage = sanitizeTerminalValue(message);
-  console.log(Buffer.from(safeMessage, 'utf8').toString('utf8'));
+  process.stdout.write(`${safeMessage}\n`);
 }
 
 function terminalError(message) {
   const safeMessage = sanitizeTerminalValue(message);
-  console.error(Buffer.from(safeMessage, 'utf8').toString('utf8'));
+  process.stderr.write(`${safeMessage}\n`);
 }
 
 function spinnerFail(spinner, message) {
   const safeMessage = sanitizeTerminalValue(message);
-  spinner.fail(Buffer.from(safeMessage, 'utf8').toString('utf8'));
+  spinner.stop();
+  process.stderr.write(`${safeMessage}\n`);
 }
 
 // CLI Header

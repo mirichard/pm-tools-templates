@@ -198,7 +198,7 @@ async function safeWriteText(filePath, content, encoding = 'utf8', options = {})
   const resolvedPath = resolveWritePath(filePath, options.rootDir);
   const validatedContent = validateDocumentContent(content);
   await fs.ensureDir(path.dirname(resolvedPath));
-  await fs.writeFile(resolvedPath, Buffer.from(validatedContent, encoding));
+  await writeValidatedBytes(resolvedPath, Buffer.from(validatedContent, encoding));
   return resolvedPath;
 }
 
@@ -206,8 +206,17 @@ async function safeWriteJSON(filePath, data, options = {}) {
   const resolvedPath = resolveWritePath(filePath, options.rootDir);
   const validatedJson = validateAndSerializeJSON(data, options);
   await fs.ensureDir(path.dirname(resolvedPath));
-  await fs.writeFile(resolvedPath, Buffer.from(validatedJson, 'utf8'));
+  await writeValidatedBytes(resolvedPath, Buffer.from(validatedJson, 'utf8'));
   return resolvedPath;
+}
+
+function writeValidatedBytes(filePath, bytes) {
+  return new Promise((resolve, reject) => {
+    const stream = fs.createWriteStream(filePath, { encoding: 'utf8' });
+    stream.once('error', reject);
+    stream.once('finish', resolve);
+    stream.end(bytes);
+  });
 }
 
 function resolveWritePath(filePath, generatedRoot = null) {
