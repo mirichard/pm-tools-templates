@@ -30,6 +30,7 @@
     "esbuild": "^0.25.0",
     "form-data": "^4.0.0",
     "tmp": "^0.2.6",
+    "@puppeteer/browsers": "3.2.0",
     "@lhci/cli": {
       "uuid": "^11.1.1"
     }
