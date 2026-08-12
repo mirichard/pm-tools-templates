@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
 const express = require('express');
+const { rateLimit } = require('express-rate-limit');
 const fs = require('fs-extra');
 const path = require('path');
 const chalk = require('chalk');
@@ -8,44 +9,6 @@ const WebSocket = require('ws');
 const { createServer } = require('http');
 const cron = require('node-cron');
 require('dotenv').config();
-
-function getClientKey(req, trustProxy) {
-  if (trustProxy !== undefined) return req.ip || req.socket?.remoteAddress || 'unknown';
-  return req.socket?.remoteAddress || req.ip || 'unknown';
-}
-
-function createRateLimiter({ windowMs, maxRequests, maxEntries = 10000, now = Date.now, trustProxy } = {}) {
-  const clients = new Map();
-
-  return {
-    middleware(req, res, next) {
-      const currentTime = now();
-      for (const [key, entry] of clients) {
-        if (entry.resetAt <= currentTime) clients.delete(key);
-      }
-
-      const clientKey = getClientKey(req, trustProxy);
-      let entry = clients.get(clientKey);
-      if (!entry || entry.resetAt <= currentTime) {
-        if (clients.size >= maxEntries && !clients.has(clientKey)) {
-          clients.delete(clients.keys().next().value);
-        }
-        entry = { count: 0, resetAt: currentTime + windowMs };
-        clients.set(clientKey, entry);
-      }
-
-      if (entry.count >= maxRequests) {
-        const retryAfter = Math.max(1, Math.ceil((entry.resetAt - currentTime) / 1000));
-        res.set('Retry-After', String(retryAfter));
-        res.status(429).json({ error: 'Too many requests', retryAfter });
-        return;
-      }
-
-      entry.count += 1;
-      next();
-    }
-  };
-}
 
 /**
  * Advanced Executive Dashboard Server
@@ -58,7 +21,7 @@ function createRateLimiter({ windowMs, maxRequests, maxEntries = 10000, now = Da
  * - KPI metrics and trends
  */
 class DashboardServer {
-  constructor({ rateLimitClock = Date.now, rateLimitMaxEntries = 10000 } = {}) {
+  constructor({ readRateLimit = {}, writeRateLimit = {} } = {}) {
     this.app = express();
     this.server = createServer(this.app);
     this.wss = new WebSocket.Server({ server: this.server });
@@ -66,21 +29,8 @@ class DashboardServer {
     if (process.env.DASHBOARD_TRUST_PROXY === 'true') {
       this.app.set('trust proxy', 1);
     }
-    const trustProxy = process.env.DASHBOARD_TRUST_PROXY === 'true' ? 1 : undefined;
-    this.dashboardReadRateLimiter = createRateLimiter({
-      windowMs: 60000,
-      maxRequests: 60,
-      maxEntries: rateLimitMaxEntries,
-      now: rateLimitClock,
-      trustProxy
-    });
-    this.dashboardWriteRateLimiter = createRateLimiter({
-      windowMs: 60000,
-      maxRequests: 20,
-      maxEntries: rateLimitMaxEntries,
-      now: rateLimitClock,
-      trustProxy
-    });
+    this.readRateLimit = readRateLimit;
+    this.writeRateLimit = writeRateLimit;
     
     // Data repositories
     this.analyticsPath = path.resolve(__dirname, '../analytics');
@@ -120,15 +70,31 @@ class DashboardServer {
 
   setupRoutes() {
     // Main dashboard view
-    this.app.get('/', this.dashboardReadRateLimiter.middleware, (req, res) => {
+    const readLimiter = rateLimit({
+      windowMs: this.readRateLimit.windowMs ?? 60000,
+      limit: this.readRateLimit.maxRequests ?? 60,
+      standardHeaders: 'draft-8',
+      legacyHeaders: false
+    });
+    const writeLimiter = rateLimit({
+      windowMs: this.writeRateLimit.windowMs ?? 60000,
+      limit: this.writeRateLimit.maxRequests ?? 20,
+      standardHeaders: 'draft-8',
+      legacyHeaders: false
+    });
+
+    this.app.get('/', rateLimit({
+      windowMs: this.readRateLimit.windowMs ?? 60000,
+      limit: this.readRateLimit.maxRequests ?? 60,
+      standardHeaders: 'draft-8',
+      legacyHeaders: false
+    }), (req, res) => {
       res.sendFile(path.join(__dirname, '../dashboard-ui/index.html'));
     });
 
     this.app.use(express.static(path.join(__dirname, '../dashboard-ui')));
 
     // API Endpoints
-    const readLimiter = this.dashboardReadRateLimiter.middleware;
-    const writeLimiter = this.dashboardWriteRateLimiter.middleware;
     this.app.get('/api/dashboard/overview', readLimiter, this.getPortfolioOverview.bind(this));
     this.app.get('/api/dashboard/projects', readLimiter, this.getProjectList.bind(this));
     this.app.get('/api/dashboard/risks', readLimiter, this.getRiskDashboard.bind(this));
@@ -672,4 +638,4 @@ if (require.main === module) {
   dashboard.start();
 }
 
-module.exports = { DashboardServer, createRateLimiter };
+module.exports = { DashboardServer };
