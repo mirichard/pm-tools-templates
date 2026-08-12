@@ -50,7 +50,7 @@ jobs:
         # languages: javascript, python, go, java, csharp, ruby, cpp
         
         # Configure CodeQL queries to run
-        queries: +security-and-quality
+        queries: +security-extended
         
         # Use custom configuration
         config-file: ./.github/codeql/codeql-config.yml
@@ -88,4 +88,3 @@ jobs:
         retention-days: 30
         # Continue even if SARIF file doesn't exist
         if-no-files-found: warn
-

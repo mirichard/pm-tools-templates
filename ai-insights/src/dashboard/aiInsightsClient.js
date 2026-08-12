@@ -237,21 +237,11 @@ class AIInsightsResult {
     this.timestamp = new Date().toISOString();
   }
 
-  /**
-   * Sanitize data to prevent XSS attacks
-   */
+  /** Copy API data while rejecting prototype mutation keys. React consumers
+   * render strings as text and therefore perform context-aware escaping. */
   sanitizeData(data) {
     if (typeof data === 'string') {
-      return data.replace(/[<>\"'&]/g, (match) => {
-        const escapeMap = {
-          '<': '&lt;',
-          '>': '&gt;',
-          '"': '&quot;',
-          "'": '&#x27;',
-          '&': '&amp;'
-        };
-        return escapeMap[match];
-      });
+      return data;
     }
     
     if (Array.isArray(data)) {
@@ -259,11 +249,11 @@ class AIInsightsResult {
     }
     
     if (data && typeof data === 'object') {
-      const sanitized = {};
-      for (const [key, value] of Object.entries(data)) {
-        sanitized[this.sanitizeData(key)] = this.sanitizeData(value);
-      }
-      return sanitized;
+      return Object.fromEntries(
+        Object.entries(data)
+          .filter(([key]) => key !== '__proto__' && key !== 'prototype' && key !== 'constructor')
+          .map(([key, value]) => [key, this.sanitizeData(value)])
+      );
     }
     
     return data;
@@ -438,18 +428,12 @@ function useAIInsights(client) {
   };
 }
 
-// Export for different module systems
+// Export for module systems. Do not attach API-derived result objects to the
+// browser global namespace; callers should import the classes they use.
 if (typeof module !== 'undefined' && module.exports) {
   // CommonJS
   module.exports = { AIInsightsClient, AIInsightsResult, AIInsightsError, useAIInsights };
-} else if (typeof window !== 'undefined') {
-  // Browser
-  window.AIInsightsClient = AIInsightsClient;
-  window.AIInsightsResult = AIInsightsResult;
-  window.AIInsightsError = AIInsightsError;
-  window.useAIInsights = useAIInsights;
 }
 
 // ES6 export
 export { AIInsightsClient, AIInsightsResult, AIInsightsError, useAIInsights };
-

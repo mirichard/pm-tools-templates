@@ -2,6 +2,7 @@ const fs = require('fs-extra');
 const path = require('path');
 const chalk = require('chalk');
 const ora = require('ora');
+const { randomBytes } = require('crypto');
 
 /**
  * Project Intelligence CLI Gateway
@@ -211,7 +212,7 @@ class UsageAnalyticsCollector {
   }
 
   generateSessionId() {
-    return `session-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
+    return `session-${Date.now()}-${randomBytes(8).toString('hex')}`;
   }
 
   async getUsageInsights() {
@@ -243,7 +244,7 @@ class AIInsightsConnector {
   constructor(rootPath) {
     this.aiInsightsPath = path.join(rootPath, 'ai-insights');
     this.aiServiceUrl = process.env.AI_SERVICE_URL || 'http://localhost:3001';
-    this.mockAIMode = !this.checkAIServiceAvailable();
+    this.mockAIMode = true;
   }
 
   async checkAIServiceAvailable() {

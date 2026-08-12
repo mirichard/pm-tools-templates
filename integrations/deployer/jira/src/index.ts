@@ -57,7 +57,7 @@ async function main() {
     const res = await deployJiraProject(template, { ...args, token } as any);
     console.log('Created Jira project:', JSON.stringify(res));
   } catch (e:any) {
-    console.error('Deploy failed:', e.message);
+    console.error('Jira deployment failed');
     process.exit(1);
   }
 }
@@ -65,4 +65,3 @@ async function main() {
 if (import.meta.url === `file://${process.argv[1]}`) {
   main();
 }
-

@@ -457,7 +457,7 @@ class DashboardServer {
         break;
       
       default:
-        console.log('Unknown client message type:', data.type);
+        console.log('Unknown client message type received');
     }
   }
 

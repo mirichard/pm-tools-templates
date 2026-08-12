@@ -1,10 +1,8 @@
 export function logger(req, res, next) {
   const start = Date.now()
-  const provider = req.params?.provider
-  const event = req.headers['x-github-event'] || req.headers['x-atlassian-webhook-event'] || 'unknown'
   res.on('finish', () => {
     const ms = Date.now() - start
-    console.log(`[webhook] provider=${provider} event=${event} ms=${ms}`)
+    console.log(`[webhook] request completed in ${ms}ms`)
   })
   next()
 }

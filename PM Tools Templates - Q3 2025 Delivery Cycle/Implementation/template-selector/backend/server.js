@@ -203,9 +203,9 @@ app.post('/api/templates/:id/rate', async (req, res) => {
     
     // In a real implementation, this would save to a database
     // For now, we'll just return success
-    console.log(`Rating submitted for template ${templateId}: ${rating}/5`);
+    console.log('Template rating submitted');
     if (feedback) {
-      console.log(`Feedback: ${feedback}`);
+      console.log('Template feedback received');
     }
     
     res.json({ message: 'Rating submitted successfully' });

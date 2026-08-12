@@ -63,6 +63,11 @@ function listMarkdownFiles() {
   return results;
 }
 
+export function resolvePreviewPath(rel, indexedFiles = listMarkdownFiles()) {
+  if (typeof rel !== 'string' || !indexedFiles.includes(rel)) return null;
+  return path.resolve(REPO_ROOT, rel);
+}
+
 function getFileETag(absPath) {
   try {
     const stat = fs.statSync(absPath);
@@ -83,8 +88,8 @@ app.get('/api/index', (req, res) => {
 app.get('/api/preview', previewLimiter, (req, res) => {
   const rel = req.query.path;
   if (!rel || typeof rel !== 'string') return res.status(400).json({ error: 'path required' });
-  const abs = path.resolve(REPO_ROOT, rel);
-  if (!abs.startsWith(REPO_ROOT)) return res.status(400).json({ error: 'invalid path' });
+  const abs = resolvePreviewPath(rel);
+  if (!abs) return res.status(400).json({ error: 'invalid path' });
   if (!fs.existsSync(abs) || !fs.statSync(abs).isFile()) return res.status(404).json({ error: 'not found' });
   const et = getFileETag(abs);
   if (et && req.headers['if-none-match'] === et) {
@@ -129,7 +134,11 @@ app.get('/favicon.ico', (req, res) => {
   res.send(buf);
 });
 
-app.listen(PORT, () => {
-  // eslint-disable-next-line no-console
-  console.log(`Demo server running on http://localhost:${PORT}`);
-});
+if (import.meta.url === `file://${process.argv[1]}`) {
+  app.listen(PORT, () => {
+    // eslint-disable-next-line no-console
+    console.log(`Demo server running on http://localhost:${PORT}`);
+  });
+}
+
+export { app };

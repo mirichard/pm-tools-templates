@@ -31,6 +31,8 @@ Goals for this slice
 
 Key principles
 - Never print tokens or secrets
+- Persist local OAuth tokens only as AES-256-GCM authenticated ciphertext; keep
+  `TOKEN_ENCRYPTION_KEY` in your environment or secret manager
 - Keep credentials in environment variables only
 - Use least-privilege scopes; separate read/write where possible
 - Support dry-run and verbose audit logs without sensitive data
@@ -59,6 +61,8 @@ Environment variables (.env or CI vars)
 - ASANA_CLIENT_SECRET
 - ASANA_SCOPES (comma-separated)
 - ASANA_REDIRECT_URI
+- TOKEN_ENCRYPTION_KEY (canonical base64 encoding of 32 random bytes; required
+  for authenticated encryption when the local file token store is used)
 
 Local development
 1) Copy .env.example to .env and fill values

@@ -2,7 +2,19 @@
 import Layout from '../layouts/Layout.astro';
 import TemplateBrowser from '../components/TemplateBrowser.tsx';
 
-const templatesData = await Astro.glob('../../../../templates/**/*.md');
+interface TemplateModule {
+  file: string;
+  frontmatter?: {
+    title?: string;
+    description?: string;
+    tags?: string[];
+    methodology?: string;
+  };
+}
+
+const templatesData = Object.values(
+  import.meta.glob<TemplateModule>('../../../../templates/**/*.md', { eager: true })
+);
 
 const templates = templatesData
   .filter(template => {

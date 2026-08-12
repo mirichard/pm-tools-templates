@@ -22,7 +22,7 @@ const requestHandler = createStaticRequestHandler({
 });
 
 const server = http.createServer((req, res) => {
-    console.log('Request for:', req.url);
+    console.log('HTTP request received');
 
     requestHandler(req, res);
 });

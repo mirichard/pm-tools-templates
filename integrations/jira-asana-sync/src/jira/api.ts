@@ -1,10 +1,17 @@
 type AccessibleResource = { id: string; name: string; url: string; scopes: string[]; }; // cloudId is id
 
+export function assertBearerToken(token: string): string {
+  if (!/^[A-Za-z0-9._~+/=-]{20,4096}$/.test(token)) {
+    throw new Error('Invalid Jira bearer token format');
+  }
+  return token;
+}
+
 async function apiGet(url: string, token: string) {
   const res = await fetch(url, {
     method: 'GET',
     headers: {
-      'Authorization': `Bearer ${token}`,
+      'Authorization': `Bearer ${assertBearerToken(token)}`,
       'Accept': 'application/json'
     }
   });
@@ -35,7 +42,7 @@ export async function setProjectProperty(token: string, cloudId: string, project
   const res = await fetch(url, {
     method: 'PUT',
     headers: {
-      'Authorization': `Bearer ${token}`,
+      'Authorization': `Bearer ${assertBearerToken(token)}`,
       'Accept': 'application/json',
       'Content-Type': 'application/json'
     },

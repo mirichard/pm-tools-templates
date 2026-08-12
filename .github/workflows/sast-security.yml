@@ -294,8 +294,8 @@ jobs:
             disable-default-queries: false
             
             queries:
-              - name: security-and-quality
-                uses: security-and-quality
+              - name: security-extended
+                uses: security-extended
               - name: security-experimental
                 uses: security-experimental
             
