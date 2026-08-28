@@ -47,7 +47,8 @@
     },
     "serialize-javascript": ">=6.0.2",
     "minimatch": ">=3.1.5",
-    "lodash": ">=4.17.22"
+    "lodash": ">=4.17.22",
+    "diff": ">=8.0.3"
   },
   "devDependencies": {
     "@babel/core": "^7.28.0",
