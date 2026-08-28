@@ -32,7 +32,9 @@
     "tmp": "^0.2.6",
     "@puppeteer/browsers": "3.2.0",
     "@lhci/cli": {
-      "uuid": "^11.1.1"
+      "uuid": "^11.1.1",
+      "path-to-regexp": "^0.1.13",
+      "body-parser": "^1.20.6"
     }
   },
   "devDependencies": {
