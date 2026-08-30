@@ -13,8 +13,8 @@
     "@astrojs/react": "^6.0.4",
     "@astrojs/sitemap": "^3.7.2",
     "@types/react": "^19.2.18",
-    "@types/react-dom": "^19.2.4",
-    "astro": "^7.2.4",
+    "@types/react-dom": "^19.2.5",
+    "astro": "^7.2.9",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
     "reveal.js": "^6.0.0"
