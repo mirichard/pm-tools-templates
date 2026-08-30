@@ -35,7 +35,7 @@
   "license": "MIT",
   "devDependencies": {
     "@testing-library/jest-dom": "^7.0.1",
-    "@testing-library/react": "^16.3.1",
+    "@testing-library/react": "^16.3.3",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^30.4.2",
     "jest-axe": "^11.0.0",
@@ -56,7 +56,7 @@
     "express": "^5.2.1",
     "express-rate-limit": "^8.6.2",
     "glob": "^13.0.0",
-    "js-yaml": "^5.3.0"
+    "js-yaml": "^5.4.1"
   },
   "overrides": {
     "ws": "^8.17.1",
