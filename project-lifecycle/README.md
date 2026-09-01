@@ -152,6 +152,10 @@ Each phase builds on the previous one:
 
 ## 🔗 Integration with Other Sections
 
+### Value Stream
+- **[Value Stream Map](value-stream-map.md)** - Cross-cutting end-to-end flow view (Concept through Value Realization), stage handoff points, and waste-identification guidance
+- **[Stage Handoff Record](stage-handoff-record-template.md)** - Reusable template for recording confirmed phase transitions
+
 ### Role-Based Toolkits
 - **[Project Manager](../role-based-toolkits/project-manager/)** - Uses all lifecycle phases
 - **[Scrum Master](../role-based-toolkits/scrum-master/)** - Adapts execution and monitoring templates
