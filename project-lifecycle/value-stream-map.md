@@ -53,7 +53,7 @@ Monitoring & Control is not a linear stage — it runs in parallel with Executio
 
 ## Stage Handoffs
 
-Each transition between stages already has a "Phase Transition Criteria" checklist in the outgoing phase's README (e.g. [01-initiation/README.md](01-initiation/README.md#-phase-transition-criteria)). Those checklists describe *what* must be true — but nothing persists *evidence* that it was confirmed, by whom, or what was carried forward.
+Each transition between stages already has a "Phase Transition Criteria" checklist in the outgoing phase's README (e.g. [01-initiation/README.md](01-initiation/README.md#phase-transition-criteria)). Those checklists describe *what* must be true — but nothing persists *evidence* that it was confirmed, by whom, or what was carried forward.
 
 Use the [Stage Handoff Record](stage-handoff-record-template.md) template at each transition to close that gap. It references the relevant phase's existing checklist rather than repeating it, and adds only a sign-off and an open-items log.
 
