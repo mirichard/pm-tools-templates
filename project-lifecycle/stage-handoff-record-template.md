@@ -13,10 +13,10 @@
 ## Transition Criteria Confirmed
 
 See the outgoing phase's "Phase Transition Criteria" checklist:
-- [01-initiation/README.md](01-initiation/README.md#-phase-transition-criteria)
-- [02-planning/README.md](02-planning/README.md#-phase-transition-criteria)
-- [03-execution/README.md](03-execution/README.md#-phase-transition-criteria)
-- [05-closure/README.md](05-closure/README.md#-project-lifecycle-completion)
+- [01-initiation/README.md](01-initiation/README.md#phase-transition-criteria)
+- [02-planning/README.md](02-planning/README.md#phase-transition-criteria)
+- [03-execution/README.md](03-execution/README.md#phase-transition-criteria)
+- [05-closure/README.md](05-closure/README.md#project-lifecycle-completion)
 
 - [ ] All items on the linked checklist confirmed complete
 - [ ] Exceptions documented below (if any)
