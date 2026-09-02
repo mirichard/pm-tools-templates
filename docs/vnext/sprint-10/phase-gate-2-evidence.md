@@ -2,7 +2,7 @@
 
 **Review date:** 2026-09-02
 **Scope:** Sprint 10 / Phase 2 Migration
-**Decision:** **APPROVED — merge authorized; post-merge confirmation required before issue closure**
+**Decision:** **PASS — approved, merged, and confirmed on `main`**
 **Approver:** `mirichard` (repository owner; alternative review mechanism explicitly authorized because no independent collaborator is available)
 **Approval date:** 2026-09-02
 
@@ -23,7 +23,7 @@ Benefits Review (#725/#797–#799), domain migration and cross-references (#711/
 | #799 | Realistic sample, calculations, thresholds, integration and retest | PASS | `docs/vnext/sprint-10/benefits-validation.md`; `examples/benefits-review/` |
 | #799 | Human content review | PASS | Repository owner/user approved all content in the Codex session on 2026-09-02 |
 | #725 | Six story acceptance criteria | PASS | Technical and human content evidence passes; closure waits for integration |
-| #708 | Five Epic 1 acceptance criteria | NOT TESTED | Independently recheck all epic evidence after merge |
+| #708 | Five Epic 1 acceptance criteria | PASS | Independently rechecked after merge against closed stories #721–#726 and integrated lifecycle assets |
 | #737 | Complete move/dependency/link inventory | PASS | 137/137 records in `meta/migration-inventory.json` |
 | #737 | Ordered batches, entry/exit validation and rollback | PASS | `docs/vnext/sprint-10/asset-migration-plan.md` |
 | #738 | Required machine-readable cross-reference fields | PASS | `meta/cross-references.json` and validator |
@@ -36,7 +36,7 @@ Benefits Review (#725/#797–#799), domain migration and cross-references (#711/
 | #742 | Annotation format, selected top 20 and validator | PASS | Schema, selection rationale and opt-in validation mode |
 | #742 | Apply and validate annotations on all 20 | PASS | Three-line annotations applied; strict validator passes |
 | #712 | Taxonomy, anti-patterns and self-assessment | PASS | `docs/principles/` |
-| #712 | Approved annotations and complete epic verification | NOT TESTED | Story evidence passes; independently recheck epic after merge |
+| #712 | Approved annotations and complete epic verification | FAIL | Initial top-20 rollout passes, but the epic requires every in-scope template; remaining work is tracked in #1058 |
 
 ## Commands and latest results
 
@@ -52,6 +52,7 @@ Benefits Review (#725/#797–#799), domain migration and cross-references (#711/
 | `npm run test:webhook` | 5 suites and 9 tests passed | PASS |
 | `npm audit --json` | 0 vulnerabilities | PASS |
 | GitHub Actions for PR #1051 at `ae14e79c` | Build test, all package-matrix tests, merged coverage, quality gate, links, metadata, accessibility, template validation, CodeQL, Semgrep and advanced security completed successfully | PASS |
+| Post-merge validation on `main` at `0ccc9a9b` | Strict Sprint validator 137/137; root tests 2/2 and 100% coverage; canonical paths 0 errors/3 legacy warnings; index clean; audit 0 vulnerabilities | PASS |
 | `npm run doc-scan` | 1206 files scanned; 130 security and 199 relevance findings plus directory-read error | FAIL |
 | `bash scripts/detect-sensitive.sh` | Script failed in `sed` before scan | FAIL |
 
@@ -71,12 +72,13 @@ No physical migration or existing canonical template relocation occurs in this c
 - GitHub cannot provide a separate same-account PR approval because `mirichard` is the only collaborator. The repository owner explicitly authorized this documented alternative review mechanism on 2026-09-02; no independent-review claim is made.
 - Top-20 traffic is a catalog-order proxy because no usage telemetry was found.
 - Repository-wide documentation/security scripts have pre-existing failures tracked in #1052 and #1053; CI results remain required.
-- Actual domain relocation and its external-bookmark behavior are not validated, so Epic #711 stays open.
+- Actual domain relocation and its external-bookmark behavior are not validated, so Epic #711 stays open with #1057 tracking the remaining work.
+- Repository-wide annotations and usage guidance exceed the validated top-20 rollout, so Epic #712 stays open with #1058 tracking the remaining work.
 - Project-board field verification remains blocked by missing `read:project` token scope.
 
 ## Approval conditions and closure control
 
 1. Required pull-request checks passed; CI orchestration defects were corrected without reducing coverage thresholds or security controls.
 2. PR #1051 may be integrated through the repository's approved workflow under the explicitly authorized alternative review mechanism.
-3. Run strict Sprint 10 validation against the resulting `main` commit before closing stories or epics.
+3. Strict Sprint 10 validation passed against `main` commit `0ccc9a9b` before verified task and story closure.
 4. Keep Epic #711 open unless its untested physical-reorganization criteria are completed or formally re-scoped with traceable follow-up work.
