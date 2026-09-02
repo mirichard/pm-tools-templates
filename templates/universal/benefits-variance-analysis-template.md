@@ -6,6 +6,9 @@ owner: "benefits-owner"
 updated: "2026-09-02"
 domain: "Measurement"
 tags: ["benefits-realization", "variance-analysis", "measurement", "governance"]
+primary_principles: ["evidence-based-decisions", "value-focus"]
+secondary_principles: ["stewardship", "risk-optimization"]
+principle_rationale: "Makes benefit variance, confidence, thresholds, and decision evidence explicit."
 ---
 
 # Benefits Variance Analysis

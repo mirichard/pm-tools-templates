@@ -4,6 +4,9 @@ methodology: "universal"
 complexity: "intermediate"
 owner: "mirichard"
 updated: "2025-08-05"
+primary_principles: ["stakeholder-engagement", "systems-thinking"]
+secondary_principles: ["adaptability", "collaborative-leadership"]
+principle_rationale: "Maps stakeholder relationships so engagement adapts to influence, impact, and feedback."
 ---
 
 
@@ -179,4 +182,3 @@ This agile stakeholder map template is designed specifically for agile and itera
 **Next Review**: [Date]
 
 *Agile-focused stakeholder engagement for collaborative success*
-

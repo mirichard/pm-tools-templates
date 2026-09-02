@@ -10,6 +10,9 @@ version: "1.0.0"
 owner: "mirichard"
 updated: "2025-08-06"
 estimated_completion_time: "15-30 minutes"
+primary_principles: ["adaptability", "evidence-based-decisions"]
+secondary_principles: ["stakeholder-engagement", "continuous-learning"]
+principle_rationale: "Uses evidence and feedback to tailor an agile approach to project context."
 ---
 
 

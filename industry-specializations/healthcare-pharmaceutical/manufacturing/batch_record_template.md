@@ -4,6 +4,9 @@ methodology: "universal"
 complexity: "advanced"
 owner: "mirichard"
 updated: "2025-08-05"
+primary_principles: ["stewardship", "quality-by-design"]
+secondary_principles: ["evidence-based-decisions", "risk-optimization"]
+principle_rationale: "Preserves controlled evidence, product quality, accountability, and risk response."
 ---
 
 # Manufacturing Batch Record Template

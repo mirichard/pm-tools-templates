@@ -4,6 +4,9 @@ methodology: "traditional"
 complexity: "advanced"
 owner: "mirichard"
 updated: "2025-08-05"
+primary_principles: ["value-focus", "stewardship"]
+secondary_principles: ["evidence-based-decisions", "systems-thinking"]
+principle_rationale: "Justifies investment through accountable value, evidence, and systemic impacts."
 ---
 
 # Business Case Template - Waterfall Methodology
@@ -470,4 +473,3 @@ updated: "2025-08-05"
 - **Process Group:** Initiating
 - **Knowledge Areas:** Project Integration Management, Project Scope Management
 - **Gate Review:** Business Case Approval Gate
-

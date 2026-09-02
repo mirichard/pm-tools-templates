@@ -4,6 +4,9 @@ methodology: "traditional"
 complexity: "advanced"
 owner: "mirichard"
 updated: "2025-08-05"
+primary_principles: ["stakeholder-engagement", "adaptability"]
+secondary_principles: ["systems-thinking", "collaborative-leadership"]
+principle_rationale: "Plans adaptive change through stakeholder participation, leadership, and system awareness."
 ---
 
 # Change Management Plan Template
@@ -284,4 +287,3 @@ updated: "2025-08-05"
 - [Communication Plan Template](communication_plan_template.md)
 - [Risk Register Template](risk_register_template.md)
 - [Training Plan Template](training_plan_template.md)
-

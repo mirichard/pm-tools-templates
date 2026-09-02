@@ -4,6 +4,9 @@ methodology: "universal"
 complexity: "advanced"
 owner: "mirichard"
 updated: "2025-08-05"
+primary_principles: ["stewardship", "evidence-based-decisions"]
+secondary_principles: ["value-focus", "risk-optimization"]
+principle_rationale: "Makes resource performance and financial exposure visible for value decisions."
 ---
 
 # Budget Dashboard Template
@@ -249,4 +252,3 @@ cash_flow:
 **Support**: [Support contact information]
 
 *Real-time budget tracking for informed financial decision-making*
-

@@ -4,6 +4,9 @@ methodology: "universal"
 complexity: "advanced"
 owner: "mirichard"
 updated: "2025-08-05"
+primary_principles: ["risk-optimization", "adaptability"]
+secondary_principles: ["evidence-based-decisions", "collaborative-leadership"]
+principle_rationale: "Enables visible, collaborative, and adaptive responses to threats and opportunities."
 ---
 
 # Agile Risk Board Template
@@ -410,4 +413,3 @@ Sprint 12 Risk Metrics
 **Next Review**: [Date]
 
 *This Agile Risk Board template should be adapted to fit your team's specific needs and tools. Regular retrospectives should include evaluation of the risk board's effectiveness and opportunities for improvement.*
-

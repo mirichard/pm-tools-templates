@@ -4,6 +4,9 @@ methodology: "agile"
 complexity: "advanced"
 owner: "mirichard"
 updated: "2025-08-05"
+primary_principles: ["systems-thinking", "collaborative-leadership"]
+secondary_principles: ["value-focus", "adaptability"]
+principle_rationale: "Coordinates teams and dependencies around shared value with adaptable leadership."
 ---
 
 # SAFe Agile Release Train (ART) Coordination Template
@@ -586,4 +589,3 @@ Based on maturity assessment, prioritize coaching in:
 ---
 
 *This template is part of the PM Tools Templates library. For more information and additional templates, visit [repository root](../../../../README.md).*
-

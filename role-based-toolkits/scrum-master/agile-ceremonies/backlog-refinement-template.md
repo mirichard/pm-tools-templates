@@ -4,6 +4,9 @@ methodology: "agile"
 complexity: "advanced"
 owner: "mirichard"
 updated: "2025-08-05"
+primary_principles: ["collaborative-leadership", "adaptability"]
+secondary_principles: ["value-focus", "continuous-learning"]
+principle_rationale: "Supports collaborative refinement as priorities, evidence, and learning evolve."
 ---
 
 # Backlog Refinement Template
@@ -263,4 +266,3 @@ Based on refinement session:
 **Next Refinement**: [Date]
 
 *Preparing the backlog for successful sprint execution*
-

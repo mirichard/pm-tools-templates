@@ -4,6 +4,9 @@ methodology: "universal"
 complexity: "advanced"
 owner: "mirichard"
 updated: "2025-08-05"
+primary_principles: ["value-focus", "adaptability"]
+secondary_principles: ["stakeholder-engagement", "evidence-based-decisions"]
+principle_rationale: "Orders adaptable delivery choices by stakeholder value and supporting evidence."
 ---
 
 # Backlog Management Template
@@ -179,4 +182,3 @@ updated: "2025-08-05"
 **Next Review**: [Date]
 
 *Systematic product backlog management for maximum value delivery*
-

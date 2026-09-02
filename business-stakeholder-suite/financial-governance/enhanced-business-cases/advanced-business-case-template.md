@@ -4,6 +4,9 @@ methodology: "universal"
 complexity: "advanced"
 owner: "mirichard"
 updated: "2025-08-05"
+primary_principles: ["value-focus", "evidence-based-decisions"]
+secondary_principles: ["stewardship", "risk-optimization"]
+principle_rationale: "Tests investment value, assumptions, exposure, and accountable use of resources."
 ---
 
 # Advanced Business Case Template
@@ -495,4 +498,3 @@ Name: _______________________ Signature: _______________________ Date: _______
 ---
 
 *This advanced business case template provides comprehensive financial analysis and decision support for complex organizational investments. It should be customized to match organizational standards and industry requirements.*
-

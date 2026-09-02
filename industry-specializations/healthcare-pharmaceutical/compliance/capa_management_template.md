@@ -4,6 +4,9 @@ methodology: "universal"
 complexity: "advanced"
 owner: "mirichard"
 updated: "2025-08-05"
+primary_principles: ["quality-by-design", "continuous-learning"]
+secondary_principles: ["stewardship", "evidence-based-decisions"]
+principle_rationale: "Uses controlled evidence and learning to correct causes and prevent recurrence."
 ---
 
 # Corrective and Preventive Action (CAPA) Management Template

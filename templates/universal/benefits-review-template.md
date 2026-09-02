@@ -6,6 +6,9 @@ owner: "benefits-owner"
 updated: "2026-09-02"
 domain: "Measurement"
 tags: ["benefits-realization", "value-delivery", "governance", "closure"]
+primary_principles: ["value-focus", "evidence-based-decisions"]
+secondary_principles: ["stewardship", "continuous-learning"]
+principle_rationale: "Connects benefit decisions to traceable outcome evidence and accountable learning."
 ---
 
 # Benefits Review
