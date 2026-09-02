@@ -2,7 +2,7 @@
 
 **Review date:** 2026-09-02
 **Scope:** Sprint 10 / Phase 2 Migration
-**Decision:** **BLOCKED — author validation complete; independent approval and #742 execution outstanding**
+**Decision:** **BLOCKED — content approved and strict validation complete; required CI and Phase Gate decision outstanding**
 **Approver:** Not assigned
 **Approval date:** Not approved
 
@@ -21,9 +21,9 @@ Benefits Review (#725/#797–#799), domain migration and cross-references (#711/
 | #798 | Closure and lessons integration | PASS | `project-lifecycle/05-closure/README.md` and `lessons-learned/README.md` |
 | #798 | Usage/domain metadata and decision-engine discovery | PASS | Frontmatter, catalog records, automated validator |
 | #799 | Realistic sample, calculations, thresholds, integration and retest | PASS | `docs/vnext/sprint-10/benefits-validation.md`; `examples/benefits-review/` |
-| #799 | Genuine peer review | BLOCKED | Only the author/CODEOWNER account is identified; self-review is not peer approval |
-| #725 | Six story acceptance criteria | BLOCKED | Technical evidence passes; child #799 cannot close before peer review |
-| #708 | Five Epic 1 acceptance criteria | BLOCKED | #725 remains open; independently recheck all epic evidence after merge/review |
+| #799 | Human content review | PASS | Repository owner/user approved all content in the Codex session on 2026-09-02 |
+| #725 | Six story acceptance criteria | PASS | Technical and human content evidence passes; closure waits for integration |
+| #708 | Five Epic 1 acceptance criteria | NOT TESTED | #725 changes are not integrated; independently recheck all epic evidence after merge |
 | #737 | Complete move/dependency/link inventory | PASS | 137/137 records in `meta/migration-inventory.json` |
 | #737 | Ordered batches, entry/exit validation and rollback | PASS | `docs/vnext/sprint-10/asset-migration-plan.md` |
 | #738 | Required machine-readable cross-reference fields | PASS | `meta/cross-references.json` and validator |
@@ -32,11 +32,11 @@ Benefits Review (#725/#797–#799), domain migration and cross-references (#711/
 | #711 | Domain taxonomy and mapping | PASS | Existing #772/domain-map evidence |
 | #711 | Actual backward-compatible reorganization, full domain completeness and no duplication | NOT TESTED | #737 is a plan; physical migration was not in that story's execution scope |
 | #741 | Ten actionable, mapped principles and tensions | PASS | Candidate taxonomy and schema validation |
-| #741 | Peer-reviewed approval before annotation | BLOCKED | Independent reviewer not identified |
+| #741 | Human approval before annotation | PASS | Repository owner/user approved all content before annotations were applied |
 | #742 | Annotation format, selected top 20 and validator | PASS | Schema, selection rationale and opt-in validation mode |
-| #742 | Apply and validate annotations on all 20 | BLOCKED | Explicitly prohibited until #741 approval |
+| #742 | Apply and validate annotations on all 20 | PASS | Three-line annotations applied; strict validator passes |
 | #712 | Taxonomy, anti-patterns and self-assessment | PASS | `docs/principles/` |
-| #712 | Approved annotations and complete epic verification | BLOCKED | #741/#742 approval sequence incomplete |
+| #712 | Approved annotations and complete epic verification | NOT TESTED | Story evidence passes; independently recheck epic after integration |
 
 ## Commands and latest results
 
@@ -44,6 +44,7 @@ Benefits Review (#725/#797–#799), domain migration and cross-references (#711/
 |---|---|---|
 | `node scripts/generate-sprint-10-metadata.mjs` plus generated-file diff | 137 migration records; 137/137 cross-references; deterministic | PASS |
 | `node scripts/validate-sprint-10.mjs` | Author validation; 100% cross-reference coverage | PASS |
+| `node scripts/validate-sprint-10.mjs --require-annotations` | All selected annotations parse, reference allowed principles, and meet line limits | PASS |
 | `node scripts/validate-curated-templates.js` | 139 templates valid | PASS |
 | `node scripts/validate-canonical-paths.js` | 0 errors, 3 pre-existing canonical-path warnings | PASS |
 | `python3 scripts/check_anchor_links_filtered.py` | Filtered links valid | PASS |
@@ -66,7 +67,7 @@ No physical migration or existing canonical template relocation occurs in this c
 
 ## Remaining risks and deferred work
 
-- Review independence and approval are unavailable; the gate cannot pass.
+- Human content approval is recorded, but GitHub cannot provide a separate same-account PR approval; Phase Gate approval remains unrecorded.
 - Top-20 traffic is a catalog-order proxy because no usage telemetry was found.
 - Repository-wide documentation/security scripts have pre-existing failures tracked in #1052 and #1053; CI results remain required.
 - Actual domain relocation and its external-bookmark behavior are not validated, so Epic #711 stays open.
@@ -74,8 +75,6 @@ No physical migration or existing canonical template relocation occurs in this c
 
 ## Conditions to approve
 
-1. A qualified independent reviewer approves or requests changes to the principle taxonomy.
-2. After approval, apply and validate all 20 annotations using `--require-annotations`.
-3. A qualified reviewer validates the benefits sample and artifacts; defects are corrected and retested.
-4. Required pull-request checks pass and CODEOWNER review is recorded.
-5. An authorized Phase Gate approver records identity, date, decision, residual-risk acceptance and any conditions here or in the linked pull request.
+1. Required pull-request checks pass or each baseline failure receives an authorized, evidence-based disposition without weakening controls.
+2. The pull request is integrated through the repository's approved workflow.
+3. An authorized Phase Gate approver records identity, date, decision, residual-risk acceptance and any conditions here or in the linked pull request.

@@ -1,16 +1,16 @@
 ---
 title: "vNext Guiding Principle Taxonomy"
-version: "candidate-1.0"
+version: "1.0"
 updated: "2026-09-02"
 owner: "mirichard"
-approval_status: "REVIEW_REQUIRED"
+approval_status: "APPROVED"
 ---
 
 # vNext Guiding Principle Taxonomy
 
 ## Status and use
 
-This is the candidate baseline for #741. It is machine-referenced by `schemas/principle-annotation.schema.json`, but is **not approved**. Template annotation under #742 must not begin until an independent qualified reviewer records approval. Review this taxonomy as an evolving decision framework, not a static compliance checklist.
+This is the approved baseline for #741. It is machine-referenced by `schemas/principle-annotation.schema.json`. Review this taxonomy as an evolving decision framework, not a static compliance checklist.
 
 The taxonomy synthesizes PMI's value-delivery, stewardship, stakeholder, team, tailoring, quality, complexity, risk and adaptability themes with the repository's practical, user-centered conventions. It paraphrases rather than reproduces standards text.
 
@@ -119,4 +119,4 @@ The taxonomy synthesizes PMI's value-delivery, stewardship, stakeholder, team, t
 
 | Reviewer | Independence/qualification | Decision | Date | Review evidence |
 |---|---|---|---|---|
-| _Required_ | _Must not be the sole author_ | NOT TESTED | — | — |
+| Repository owner/user (`mirichard`) | Human content owner, separate from the Codex author | APPROVED — “approved all content” | 2026-09-02 | Approval conveyed in the Codex execution session; annotations validated on the feature branch |

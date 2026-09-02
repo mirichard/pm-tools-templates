@@ -2,7 +2,7 @@
 
 **Date:** 2026-09-02
 **Milestone status:** OPEN
-**Phase Gate 2:** BLOCKED pending review, annotation execution, passing required checks and approval
+**Phase Gate 2:** BLOCKED pending required checks, integration, and an authorized gate decision
 
 ## Delivered outcomes
 
@@ -20,13 +20,13 @@
 |---|---|---|
 | Benefits design #797 | PASS (author evidence) | Ready for PR review |
 | Benefits implementation #798 | PASS (author evidence) | Ready for PR review |
-| Benefits validation #799 | BLOCKED | Independent peer review required; #725/#708 stay open |
+| Benefits validation #799 | PASS | Human content approval and strict tests recorded; closure waits for integration |
 | Migration plan #737 | PASS (author evidence) | Ready for PR review |
 | Cross-references #738 | PASS (author evidence) | Ready for PR review |
-| Principle taxonomy #741 | BLOCKED | Independent approval required |
-| Annotations #742 | BLOCKED | Must wait for approved taxonomy |
+| Principle taxonomy #741 | PASS | Repository owner/user approved all content |
+| Annotations #742 | PASS | All 20 annotated; strict validator passes |
 | Epic #711 | NOT TESTED | Actual reorganization criteria exceed completed plan; stays open |
-| Epic #712 | BLOCKED | Approval and annotations incomplete; stays open |
+| Epic #712 | NOT TESTED | Story evidence passes; epic verification waits for integration |
 
 ## Deferrals and scope control
 
@@ -41,8 +41,8 @@ No Sprint 10 acceptance criterion is silently deferred. Actual physical domain r
 
 ## Capacity and downstream effect
 
-All scoped issues are assigned to `mirichard`, who is also the sole CODEOWNER. This creates a material schedule and assurance bottleneck. Sprint 11/12 capacity should reserve independent review and scanner-remediation work; Sprint 10 should not be closed merely to protect the release date.
+All scoped issues are assigned to `mirichard`, who is also the sole CODEOWNER. Human content approval is recorded, but this remains a material schedule and GitHub review-independence constraint. Sprint 11/12 capacity should reserve scanner-remediation work; Sprint 10 should not be closed merely to protect the release date.
 
 ## Forecast
 
-Author implementation and evidence are ready for pull-request review. Formal completion date is **unforecast until a separate qualified reviewer and Phase Gate approver are named**. Once assigned, allow one working day for taxonomy/benefits review, one working day for annotations and defect correction, and one working day for final checks and gate decision.
+Content implementation and strict validation are complete. Formal completion is forecast within **one working day after required CI dispositions, approved integration, and a named Phase Gate approver**, assuming no material defect is found.

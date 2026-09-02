@@ -3613,7 +3613,6 @@
       ],
       "dependencies": [],
       "affected_internal_references": [
-        "TEMPLATE_INDEX.md",
         "docs/decision-engine/bundles/enterprise-governance-bundle.md",
         "docs/decision-engine/bundles/hybrid-balanced-bundle.md",
         "docs/decision-engine/bundles/new-pm-agile-small-bundle.md",
@@ -4102,7 +4101,6 @@
       ],
       "dependencies": [],
       "affected_internal_references": [
-        "TEMPLATE_INDEX.md",
         "docs/archive/README-20250805.md",
         "docs/decision-engine/bundles/new-pm-traditional-small-bundle.md",
         "docs/decision-engine/template-decision-tree.md",
@@ -4138,7 +4136,6 @@
       ],
       "dependencies": [],
       "affected_internal_references": [
-        "TEMPLATE_INDEX.md",
         "docs/decision-engine/bundles/hybrid-balanced-bundle.md",
         "docs/decision-engine/bundles/new-pm-traditional-small-bundle.md",
         "docs/decision-engine/bundles/standard-traditional-medium-bundle.md",
