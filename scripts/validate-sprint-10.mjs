@@ -47,6 +47,9 @@ function validateLinks(file) {
 const evidenceFiles = [
   'docs/vnext/sprint-10/baseline-and-traceability.md',
   'docs/vnext/sprint-10/asset-migration-plan.md',
+  'docs/vnext/sprint-10/benefits-validation.md',
+  'docs/vnext/sprint-10/phase-gate-2-evidence.md',
+  'docs/vnext/sprint-10/sprint-review.md',
   'docs/benefits/benefits-review-process.md',
   'templates/universal/benefits-review-template.md',
   'templates/universal/benefits-variance-analysis-template.md',
