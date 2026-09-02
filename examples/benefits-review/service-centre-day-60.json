@@ -1,0 +1,35 @@
+{
+  "project": "Customer Service Routing Upgrade",
+  "checkpoint": "Day 60",
+  "as_of": "2026-08-30",
+  "decision": "ESCALATE",
+  "benefits": [
+    {
+      "id": "BEN-001",
+      "measure": "Average resolution time (days)",
+      "direction": "lower",
+      "baseline": 10,
+      "target": 6,
+      "actual": 7,
+      "expected_achievement_percent": 95,
+      "expected_actual_achievement_percent": 75,
+      "expected_variance_points": -20,
+      "expected_status": "RED",
+      "source": "Anonymized service operations extract SR-60"
+    },
+    {
+      "id": "BEN-002",
+      "measure": "Annualized avoidable handling cost (USD)",
+      "direction": "lower",
+      "baseline": 500000,
+      "target": 380000,
+      "actual": 410000,
+      "expected_achievement_percent": 80,
+      "expected_actual_achievement_percent": 75,
+      "expected_variance_points": -5,
+      "expected_status": "GREEN",
+      "source": "Anonymized finance model FM-60"
+    }
+  ]
+}
+
