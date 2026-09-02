@@ -52,7 +52,7 @@ jobs:
         id: set-matrix
         run: |
           # Find directories with package.json files (excluding node_modules)
-          packages=$(find . -name 'package.json' -not -path '*/node_modules/*' -type f | sed 's|/package.json||' | sed 's|^./||' | jq -R -s -c 'split("\n") | map(select(. != "")) | map({"package": .})')
+          packages=$(find . -name 'package.json' -not -path '*/node_modules/*' -type f | sed 's|/package.json||' | sed 's|^./||' | jq -R -s -c 'split("\n") | map(select(. != "")) | map({"package": ., "artifact": (gsub("/"; "-"))})')
           echo "matrix={\"include\":$packages}" >> $GITHUB_OUTPUT
           echo "Found packages: $packages"
 
@@ -119,7 +119,7 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v7
         with:
-          name: coverage-${{ matrix.package }}
+          name: coverage-${{ matrix.artifact }}
           path: |
             ${{ matrix.package }}/coverage
           if-no-files-found: ignore
@@ -128,7 +128,7 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v7
         with:
-          name: gha-timings-${{ matrix.package }}
+          name: gha-timings-${{ matrix.artifact }}
           path: gha-timings/timings.jsonl
           if-no-files-found: ignore
           retention-days: 7
@@ -207,7 +207,7 @@ jobs:
             echo "TEMPLATE_INDEX.md not tracked; skipping drift check"
           fi
       - name: Anchor link check (filtered)
-        run: python3 check_anchor_links_filtered.py
+        run: python3 scripts/check_anchor_links_filtered.py
       - name: Upload validation timings
         if: always()
         uses: actions/upload-artifact@v7
