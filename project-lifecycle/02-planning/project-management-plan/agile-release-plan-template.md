@@ -4,6 +4,9 @@ methodology: "universal"
 complexity: "advanced"
 owner: "mirichard"
 updated: "2025-08-05"
+primary_principles: ["adaptability", "value-focus"]
+secondary_principles: ["systems-thinking", "stakeholder-engagement"]
+principle_rationale: "Connects adaptable release decisions to value, dependencies, and stakeholder needs."
 ---
 
 # Agile Release Plan Template
@@ -249,4 +252,3 @@ updated: "2025-08-05"
 
 ---
 *This template follows Agile/Scrum best practices for release planning and management.*
-

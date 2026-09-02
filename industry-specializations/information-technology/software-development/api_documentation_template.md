@@ -4,6 +4,9 @@ methodology: "universal"
 complexity: "advanced"
 owner: "mirichard"
 updated: "2025-08-05"
+primary_principles: ["quality-by-design", "stewardship"]
+secondary_principles: ["systems-thinking", "stakeholder-engagement"]
+principle_rationale: "Makes interface quality, ownership, dependencies, and consumer needs explicit."
 ---
 
 # API Documentation Template

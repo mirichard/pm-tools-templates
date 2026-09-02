@@ -1,7 +1,35 @@
 {
   "generated": "2025-08-05T20:56:32.142Z",
-  "totalTemplates": 137,
+  "totalTemplates": 139,
   "templates": [
+    {
+      "path": "templates/universal/benefits-review-template.md",
+      "title": "Benefits Review Template",
+      "methodology": "universal",
+      "complexity": "intermediate",
+      "owner": "benefits-owner",
+      "updated": "2026-09-02",
+      "description": "Run evidence-based benefit reviews at lifecycle and post-closure checkpoints.",
+      "tags": ["benefits-realization", "value-delivery", "governance", "closure"],
+      "relatedTemplates": [
+        {"path": "templates/universal/benefits-variance-analysis-template.md", "title": "Benefits Variance Analysis Template", "methodology": "universal", "tags": ["benefits-realization", "measurement"], "similarity": 95},
+        {"path": "templates/universal/benefits-register-lightweight.md", "title": "Benefits Register Lightweight", "methodology": "universal", "tags": ["benefits-realization"], "similarity": 90}
+      ]
+    },
+    {
+      "path": "templates/universal/benefits-variance-analysis-template.md",
+      "title": "Benefits Variance Analysis Template",
+      "methodology": "universal",
+      "complexity": "intermediate",
+      "owner": "benefits-owner",
+      "updated": "2026-09-02",
+      "description": "Compare actual benefit achievement with the approved expected trajectory.",
+      "tags": ["benefits-realization", "variance-analysis", "measurement", "governance"],
+      "relatedTemplates": [
+        {"path": "templates/universal/benefits-review-template.md", "title": "Benefits Review Template", "methodology": "universal", "tags": ["benefits-realization", "governance"], "similarity": 95},
+        {"path": "templates/universal/benefits-register-lightweight.md", "title": "Benefits Register Lightweight", "methodology": "universal", "tags": ["benefits-realization"], "similarity": 90}
+      ]
+    },
     {
       "path": "business-stakeholder-suite/financial-governance/enhanced-business-cases/advanced-business-case-template.md",
       "title": "Advanced Business Case Template",

@@ -33,7 +33,7 @@ jobs:
       id: link_check
       run: |
         echo "Running filtered anchor link health check..."
-        python3 check_anchor_links_filtered.py > link_report.txt 2>&1
+        python3 scripts/check_anchor_links_filtered.py > link_report.txt 2>&1
         
         # Extract broken links count and total files from the report
         BROKEN_LINKS=$(grep "Broken links:" link_report.txt | grep -o '[0-9]*' || echo "0")
@@ -149,4 +149,3 @@ jobs:
             `,
             labels: ['maintenance', 'documentation', 'link-health']
           });
-

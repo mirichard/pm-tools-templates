@@ -4,6 +4,9 @@ methodology: "universal"
 complexity: "intermediate"
 owner: "mirichard"
 updated: "2025-08-05"
+primary_principles: ["collaborative-leadership", "continuous-learning"]
+secondary_principles: ["adaptability", "stewardship"]
+principle_rationale: "Creates accountable team agreements that support adaptation, trust, and learning."
 ---
 
 
@@ -75,4 +78,3 @@ This agile team charter template establishes the foundation for effective agile 
 
 
 *Agile team charter following Scrum framework principles*
-

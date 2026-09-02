@@ -148,6 +148,10 @@ The closure phase marks the formal conclusion of the project lifecycle, focusing
 
 ## 🛠️ Closure Tools & Techniques
 
+### Benefits realization review
+
+Before administrative closure, use the [Benefits Review Process](../../docs/benefits/benefits-review-process.md) and record planned-versus-actual results with the [Benefits Variance Analysis Template](../../templates/universal/benefits-variance-analysis-template.md). Name the post-project benefits owner, transfer open realization actions, and schedule the 30/60/90-day reviews. Delivery completion alone is not evidence that intended value was realized.
+
 ### Documentation Management
 - **Document Management Systems** - Centralized storage and version control
 - **Knowledge Management Platforms** - Organizational learning repositories
@@ -304,4 +308,3 @@ Before declaring project complete, ensure:
 ---
 
 *Project closure is not just an ending, but a transformation - converting project outputs into operational value and project experience into organizational wisdom. Invest in closure to ensure lasting success.*
-

@@ -4,6 +4,9 @@ methodology: "universal"
 complexity: "advanced"
 owner: "mirichard"
 updated: "2025-08-05"
+primary_principles: ["stewardship", "value-focus"]
+secondary_principles: ["evidence-based-decisions", "risk-optimization"]
+principle_rationale: "Plans responsible resource use against value assumptions and financial uncertainty."
 ---
 
 # Project Budget Template
@@ -363,4 +366,3 @@ critical_variances: 2
 - [Procurement Plan]
 
 *This budget serves as the financial baseline for project execution and control.*
-

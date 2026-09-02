@@ -10,6 +10,9 @@ version: "1.0.0"
 owner: "mirichard"
 updated: "2025-08-06"
 estimated_completion_time: "15-30 minutes"
+primary_principles: ["evidence-based-decisions", "quality-by-design"]
+secondary_principles: ["stakeholder-engagement", "continuous-learning"]
+principle_rationale: "Turns assessed evidence into quality decisions, stakeholder insight, and improvement."
 ---
 
 

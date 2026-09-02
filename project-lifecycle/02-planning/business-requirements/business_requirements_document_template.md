@@ -4,6 +4,9 @@ methodology: "universal"
 complexity: "advanced"
 owner: "mirichard"
 updated: "2025-08-05"
+primary_principles: ["stakeholder-engagement", "quality-by-design"]
+secondary_principles: ["systems-thinking", "evidence-based-decisions"]
+principle_rationale: "Translates stakeholder needs into verifiable quality requirements and dependencies."
 ---
 
 # Business Requirements Document (BRD) Template
