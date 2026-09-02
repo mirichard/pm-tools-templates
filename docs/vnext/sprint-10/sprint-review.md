@@ -1,7 +1,7 @@
 # Sprint 10 Recovery Review
 
 **Date:** 2026-09-02
-**Milestone status:** OPEN — Epics #711 and #712 retain unmet criteria
+**Milestone status:** CLOSED on 2026-09-02 — 13 closed issues, 0 open issues
 **Phase Gate 2:** PASS — approved and post-merge confirmed on 2026-09-02
 
 ## Delivered outcomes
@@ -46,4 +46,4 @@ All scoped issues are assigned to `mirichard`, who is also the sole repository c
 
 ## Forecast
 
-Sprint 10 deliverables are integrated and Phase Gate 2 passed. Milestone closure remains blocked until Epics #711 and #712 are re-scoped or their follow-ups can be reassigned to actual Sprint 11/12 milestones.
+Sprint 10 deliverables are integrated, Phase Gate 2 passed, and the milestone is closed. Epic #711 and follow-up #1057 moved to Sprint 11; Epic #712 and follow-up #1058 moved to Sprint 12.
