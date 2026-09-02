@@ -30,7 +30,7 @@
 
 ## Deferrals and scope control
 
-No Sprint 10 acceptance criterion is silently deferred. Actual physical domain relocation is not claimed as #737 delivery and remains under Epic #711. Repairs for repository-wide `doc-scan` and `detect-sensitive.sh` failures are newly discovered work and should receive separate future-sprint issues rather than expand this recovery pull request.
+No Sprint 10 acceptance criterion is silently deferred. Actual physical domain relocation is not claimed as #737 delivery and remains under Epic #711. Repairs for repository-wide `doc-scan` and `detect-sensitive.sh` failures are assigned to Sprint 12 as #1052 and #1053 rather than expanding this recovery pull request.
 
 ## Lessons learned
 

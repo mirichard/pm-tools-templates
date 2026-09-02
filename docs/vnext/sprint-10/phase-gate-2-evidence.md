@@ -68,7 +68,7 @@ No physical migration or existing canonical template relocation occurs in this c
 
 - Review independence and approval are unavailable; the gate cannot pass.
 - Top-20 traffic is a catalog-order proxy because no usage telemetry was found.
-- Repository-wide documentation/security scripts have pre-existing failures; CI results remain required.
+- Repository-wide documentation/security scripts have pre-existing failures tracked in #1052 and #1053; CI results remain required.
 - Actual domain relocation and its external-bookmark behavior are not validated, so Epic #711 stays open.
 - Project-board field verification remains blocked by missing `read:project` token scope.
 
