@@ -152,8 +152,12 @@ jobs:
           if (( ${#files[@]} == 0 )); then
             echo "No coverage-final.json files found"; exit 0
           fi
-          npx nyc merge "${files[@]}" coverage/coverage-final.json
-          npx nyc report --reporter=json-summary --reporter=html --report-dir coverage
+          mkdir -p coverage-input
+          for i in "${!files[@]}"; do
+            cp "${files[$i]}" "coverage-input/$i.json"
+          done
+          npx nyc merge coverage-input coverage/coverage-final.json
+          npx nyc report --temp-dir coverage --reporter=json-summary --reporter=html --report-dir coverage
           node -e "
             const fs=require('fs');
             const sum=JSON.parse(fs.readFileSync('coverage/coverage-summary.json','utf8')).total;
