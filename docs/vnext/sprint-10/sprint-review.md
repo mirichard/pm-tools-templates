@@ -1,8 +1,8 @@
 # Sprint 10 Recovery Review
 
 **Date:** 2026-09-02
-**Milestone status:** OPEN
-**Phase Gate 2:** APPROVED on 2026-09-02; post-merge confirmation required before issue closure
+**Milestone status:** CLOSED on 2026-09-02 — 13 closed issues, 0 open issues
+**Phase Gate 2:** PASS — approved and post-merge confirmed on 2026-09-02
 
 ## Delivered outcomes
 
@@ -18,15 +18,16 @@
 
 | Workstream | Status | Closure effect |
 |---|---|---|
-| Benefits design #797 | PASS (author evidence) | Ready for PR review |
-| Benefits implementation #798 | PASS (author evidence) | Ready for PR review |
-| Benefits validation #799 | PASS | Human content approval and strict tests recorded; closure waits for integration |
-| Migration plan #737 | PASS (author evidence) | Ready for PR review |
-| Cross-references #738 | PASS (author evidence) | Ready for PR review |
-| Principle taxonomy #741 | PASS | Repository owner/user approved all content |
-| Annotations #742 | PASS | All 20 annotated; strict validator passes |
-| Epic #711 | NOT TESTED | Actual reorganization criteria exceed completed plan; stays open |
-| Epic #712 | NOT TESTED | Story evidence passes; epic verification waits for integration |
+| Benefits design #797 | PASS | Closed after merge and post-merge verification |
+| Benefits implementation #798 | PASS | Closed after merge and post-merge verification |
+| Benefits validation #799 | PASS | Closed after approval, merge, and post-merge verification |
+| Benefits story #725 / Epic #708 | PASS | Closed with criterion-to-evidence comments |
+| Migration plan #737 | PASS | Closed; physical execution remains in #1057 |
+| Cross-references #738 | PASS | Closed at 137/137 assets |
+| Principle taxonomy #741 | PASS | Closed after approved alternative review |
+| Annotations #742 | PASS | Closed at 20/20 selected templates |
+| Epic #711 | FAIL | Physical reorganization criteria remain; #1057 targets Sprint 11 |
+| Epic #712 | FAIL | Repository-wide rollout remains; #1058 targets Sprint 12 |
 
 ## Deferrals and scope control
 
@@ -45,4 +46,4 @@ All scoped issues are assigned to `mirichard`, who is also the sole repository c
 
 ## Forecast
 
-Content implementation, strict validation, required CI, and gate approval are complete. Formal completion is forecast after merge and successful post-merge confirmation, assuming no material defect is found.
+Sprint 10 deliverables are integrated, Phase Gate 2 passed, and the milestone is closed. Epic #711 and follow-up #1057 moved to Sprint 11; Epic #712 and follow-up #1058 moved to Sprint 12.
