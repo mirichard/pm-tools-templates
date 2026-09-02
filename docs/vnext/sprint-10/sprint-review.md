@@ -2,7 +2,7 @@
 
 **Date:** 2026-09-02
 **Milestone status:** OPEN
-**Phase Gate 2:** BLOCKED pending required checks, integration, and an authorized gate decision
+**Phase Gate 2:** APPROVED on 2026-09-02; post-merge confirmation required before issue closure
 
 ## Delivered outcomes
 
@@ -41,8 +41,8 @@ No Sprint 10 acceptance criterion is silently deferred. Actual physical domain r
 
 ## Capacity and downstream effect
 
-All scoped issues are assigned to `mirichard`, who is also the sole CODEOWNER. Human content approval is recorded, but this remains a material schedule and GitHub review-independence constraint. Sprint 11/12 capacity should reserve scanner-remediation work; Sprint 10 should not be closed merely to protect the release date.
+All scoped issues are assigned to `mirichard`, who is also the sole repository collaborator. The owner explicitly authorized a documented alternative review mechanism; no independent-review claim is made. Sprint 11/12 capacity should reserve scanner-remediation work.
 
 ## Forecast
 
-Content implementation and strict validation are complete. Formal completion is forecast within **one working day after required CI dispositions, approved integration, and a named Phase Gate approver**, assuming no material defect is found.
+Content implementation, strict validation, required CI, and gate approval are complete. Formal completion is forecast after merge and successful post-merge confirmation, assuming no material defect is found.

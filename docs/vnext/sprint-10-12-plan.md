@@ -80,7 +80,7 @@
 
 ## Sprint 10 — Epic 4 Domain Refactor + Epic 5 Kickoff (Aug 10–21; recovery Sep 2–8)
 
-**Status:** 🟠 Recovery in progress — implementation and content approval complete; integration gate blocked
+**Status:** 🟡 Recovery ready to integrate — Phase Gate 2 approved; post-merge verification pending
 **Goal:** Establish the domain-refactor foundation, close the remaining Epic 1 tail work, and introduce the principles layer.
 
 **Delivery PR:** [#1051](https://github.com/mirichard/pm-tools-templates/pull/1051) (draft, not merged)
@@ -110,7 +110,7 @@
 
 **Verified scope result:** Sprint author validation passes with 137/137 migration assets and 100% cross-reference coverage. The top-20 principles set is fully annotated and machine-validated. Benefits-review design, implementation, and sample validation are committed to PR #1051.
 
-**Gate status:** Phase Gate 2 is **BLOCKED**, not passed. Content approval was recorded on Sep 2, but PR #1051 is unmerged and required CI is not clean. Two branch-independent CI defects remain visible: the root Jest job attempts to parse existing TypeScript/Vitest suites, and the repository-wide quality gate fails nondeterministically on 16 pre-existing warnings despite 0 errors.
+**Gate status:** Phase Gate 2 was **APPROVED** by `mirichard` on Sep 2 using an explicitly authorized alternative review mechanism because no independent collaborator is available. Required CI passes after correcting the root Jest scope, deterministic quality comparison, link-check paths, artifact naming, and coverage merge orchestration. PR #1051 remains to be merged and confirmed on `main` before closure.
 
 **Forecast:** Sep 2–8 remains feasible only if a qualified reviewer approves PR #1051 and the CI baseline failures are repaired or formally dispositioned by the authorized gate approver. Otherwise Sprint 10 remains open beyond Sep 8.
 
