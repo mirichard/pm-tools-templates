@@ -52,4 +52,3 @@ Do not calculate a percentage when the baseline equals the target, units differ,
 - [ ] Approved changes retain the original baseline and approval reference.
 - [ ] Amber repetition and Critical override rules were applied.
 - [ ] Every Amber/Red/Critical result has an owned, dated action or escalation.
-

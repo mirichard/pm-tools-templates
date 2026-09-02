@@ -18,4 +18,3 @@ Score each statement `0` (no evidence), `1` (inconsistent), or `2` (repeatable e
 **Interpretation:** 17–20 strong alignment; 12–16 targeted improvement required; 0–11 governance review required before a material commitment. Any safety, legal, ethical or integrity failure overrides the numeric result and requires escalation.
 
 Record assessor, date, scope, total, override conditions, approved actions and next assessment. This tool supports judgment; it is not certification.
-

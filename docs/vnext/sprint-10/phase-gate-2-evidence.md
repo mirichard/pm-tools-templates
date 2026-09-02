@@ -1,9 +1,9 @@
 # Phase Gate 2 Evidence Record
 
-**Review date:** 2026-09-02  
-**Scope:** Sprint 10 / Phase 2 Migration  
-**Decision:** **BLOCKED — author validation complete; independent approval and #742 execution outstanding**  
-**Approver:** Not assigned  
+**Review date:** 2026-09-02
+**Scope:** Sprint 10 / Phase 2 Migration
+**Decision:** **BLOCKED — author validation complete; independent approval and #742 execution outstanding**
+**Approver:** Not assigned
 **Approval date:** Not approved
 
 ## Scope reviewed
@@ -79,4 +79,3 @@ No physical migration or existing canonical template relocation occurs in this c
 3. A qualified reviewer validates the benefits sample and artifacts; defects are corrected and retested.
 4. Required pull-request checks pass and CODEOWNER review is recorded.
 5. An authorized Phase Gate approver records identity, date, decision, residual-risk acceptance and any conditions here or in the linked pull request.
-

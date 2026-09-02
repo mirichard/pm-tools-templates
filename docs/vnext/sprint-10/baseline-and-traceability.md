@@ -1,9 +1,9 @@
 # Sprint 10 Recovery Baseline and Traceability
 
-**Baseline date:** 2026-09-02  
-**Recovery window:** 2026-09-02 through 2026-09-08  
-**Milestone:** [vNext – Sprint 10 (Aug 10–21)](https://github.com/mirichard/pm-tools-templates/milestone/28)  
-**Branch:** `feat/797-sprint-10-completion`  
+**Baseline date:** 2026-09-02
+**Recovery window:** 2026-09-02 through 2026-09-08
+**Milestone:** [vNext – Sprint 10 (Aug 10–21)](https://github.com/mirichard/pm-tools-templates/milestone/28)
+**Branch:** `feat/797-sprint-10-completion`
 **Baseline commit:** `61508dac`
 
 ## Governance status

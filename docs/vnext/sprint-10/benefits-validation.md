@@ -1,8 +1,8 @@
 # Benefits Review Workflow Validation
 
-**Issue:** #799  
-**Date:** 2026-09-02  
-**Author validation:** PASS  
+**Issue:** #799
+**Date:** 2026-09-02
+**Author validation:** PASS
 **Independent peer review:** BLOCKED — no reviewer distinct from `mirichard` is identified
 
 ## Scenario and coverage

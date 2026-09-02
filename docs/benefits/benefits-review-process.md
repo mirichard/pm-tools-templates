@@ -112,4 +112,3 @@ Retain the completed review, variance analysis, source references, attendance, d
 - [Value Stream Map](../../project-lifecycle/value-stream-map.md)
 - [Change Control](../../project-lifecycle/04-monitoring-control/change-control/)
 - [Closure guidance](../../project-lifecycle/05-closure/README.md)
-

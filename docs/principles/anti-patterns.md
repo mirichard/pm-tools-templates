@@ -12,4 +12,3 @@
 | Template as substitute for judgment | Completion becomes the goal | State when not to use and the decision the artifact supports |
 | Self-approval | Author review is represented as independent assurance | Record self-validation honestly and obtain a separate approver |
 | Lessons archive | Findings are stored but never change future work | Assign actions and link learning to standards, estimates and planning |
-

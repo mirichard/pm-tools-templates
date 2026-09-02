@@ -1,7 +1,7 @@
 # Sprint 10 Recovery Review
 
-**Date:** 2026-09-02  
-**Milestone status:** OPEN  
+**Date:** 2026-09-02
+**Milestone status:** OPEN
 **Phase Gate 2:** BLOCKED pending review, annotation execution, passing required checks and approval
 
 ## Delivered outcomes

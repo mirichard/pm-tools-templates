@@ -60,11 +60,11 @@ Complete and attach the [Benefits Variance Analysis](benefits-variance-analysis-
 
 ## Decision
 
-**Decision:** CONTINUE / CORRECT / CHANGE / ESCALATE / EXTEND / ACCEPT  
-**Decision owner:**  
-**Rationale and evidence:**  
-**Dissent or conflict disclosed:**  
-**Change-control reference, if applicable:**  
+**Decision:** CONTINUE / CORRECT / CHANGE / ESCALATE / EXTEND / ACCEPT
+**Decision owner:**
+**Rationale and evidence:**
+**Dissent or conflict disclosed:**
+**Change-control reference, if applicable:**
 **Closure decision:** NOT APPLICABLE / HOLD / CONDITIONAL / APPROVE
 
 ## Actions and escalation
@@ -88,4 +88,3 @@ Complete and attach the [Benefits Variance Analysis](benefits-variance-analysis-
 | Sponsor / authorized delegate | | | |
 
 Record location and retention rule: [location/rule]
-

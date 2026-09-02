@@ -1,7 +1,7 @@
 # Asset Migration and Cross-Reference Plan
 
-**Issues:** #737, #738  
-**Status:** Design ready for validation; no physical moves authorized  
+**Issues:** #737, #738
+**Status:** Design ready for validation; no physical moves authorized
 **Baseline:** `meta/domain-mapping.json` (137 cataloged assets)
 
 ## Scope and design decision
@@ -74,4 +74,3 @@ Coverage denominator is all unique existing paths in `meta/domain-mapping.json` 
 ## Approval and residual risks
 
 The domain taxonomy and mapping exist, but this move design requires maintainer approval before physical execution. Main risks are the size of the Delivery batch, links assembled dynamically by applications, and external bookmarks that repository checks cannot observe. Mitigations are small subsets, legacy pointers, telemetry/feedback where available, and independent rollback commits.
-
