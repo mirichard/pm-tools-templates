@@ -60,14 +60,26 @@ jobs:
       - name: 📋 Template Validation
         id: template-validation
         if: github.event.inputs.check_type == 'template-validation' || github.event.inputs.check_type == 'comprehensive' || github.event_name == 'pull_request'
+        env:
+          CHANGED_FILES: ${{ steps.analysis.outputs.changed_files }}
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
         run: |
           # Initialize validation results
           VALIDATION_ERRORS=0
           VALIDATION_WARNINGS=0
           VALIDATION_REPORT=""
           
-          # Find all template files
-          TEMPLATE_FILES=$(find . -name "*.md" -path "*/Templates/*" -o -name "*template*.md" | head -20)
+          # Pull requests gate only changed template files so legacy warnings do
+          # not create nondeterministic pass/fail results. Manual runs retain a
+          # stable repository-wide sample for baseline monitoring.
+          if [ "${{ github.event_name }}" = "pull_request" ]; then
+            TEMPLATE_FILES=$(printf '%s\n' "$CHANGED_FILES" \
+              | grep -E '(^|/)(Templates/.*\.md$|[^/]*template[^/]*\.md$)' \
+              | sort -u || true)
+          else
+            TEMPLATE_FILES=$(find . -type f \( -path "*/Templates/*.md" -o -iname "*template*.md" \) \
+              | sort | head -20)
+          fi
           
           # Validate each template
           for file in $TEMPLATE_FILES; do
@@ -83,25 +95,35 @@ jobs:
               
               # Check for required sections (basic check)
               CONTENT=$(cat "$file" | tr '[:upper:]' '[:lower:]')
+              BASE_CONTENT=""
+              BASE_EXISTS=false
+              if [ -n "$BASE_SHA" ] && git cat-file -e "$BASE_SHA:$file" 2>/dev/null; then
+                BASE_CONTENT=$(git show "$BASE_SHA:$file" | tr '[:upper:]' '[:lower:]')
+                BASE_EXISTS=true
+              fi
               
-              if ! echo "$CONTENT" | grep -q "purpose\|overview\|description"; then
+              if ! echo "$CONTENT" | grep -q "purpose\|overview\|description" \
+                && { [ "$BASE_EXISTS" = false ] || echo "$BASE_CONTENT" | grep -q "purpose\|overview\|description"; }; then
                 VALIDATION_WARNINGS=$((VALIDATION_WARNINGS + 1))
                 VALIDATION_REPORT="$VALIDATION_REPORT\n⚠️ $file: Missing purpose/overview section"
               fi
               
-              if ! echo "$CONTENT" | grep -q "usage\|how to\|instructions"; then
+              if ! echo "$CONTENT" | grep -q "usage\|how to\|instructions" \
+                && { [ "$BASE_EXISTS" = false ] || echo "$BASE_CONTENT" | grep -q "usage\|how to\|instructions"; }; then
                 VALIDATION_WARNINGS=$((VALIDATION_WARNINGS + 1))
                 VALIDATION_REPORT="$VALIDATION_REPORT\n⚠️ $file: Missing usage instructions"
               fi
               
               # Check for placeholder content
-              if grep -q "TODO\|TBD\|FIXME\|XXX" "$file"; then
+              if grep -q "TODO\|TBD\|FIXME\|XXX" "$file" \
+                && { [ "$BASE_EXISTS" = false ] || ! echo "$BASE_CONTENT" | grep -q "TODO\|TBD\|FIXME\|XXX"; }; then
                 VALIDATION_WARNINGS=$((VALIDATION_WARNINGS + 1))
                 VALIDATION_REPORT="$VALIDATION_REPORT\n⚠️ $file: Contains placeholder content (TODO/TBD/FIXME)"
               fi
               
               # Check for proper markdown formatting
-              if ! grep -q "^# " "$file"; then
+              if ! grep -q "^# " "$file" \
+                && { [ "$BASE_EXISTS" = false ] || echo "$BASE_CONTENT" | grep -q "^# "; }; then
                 VALIDATION_WARNINGS=$((VALIDATION_WARNINGS + 1))
                 VALIDATION_REPORT="$VALIDATION_REPORT\n⚠️ $file: Missing main heading (# Title)"
               fi
@@ -335,4 +357,3 @@ jobs:
           else
             echo "❌ Quality gate failed - action required"
           fi
-

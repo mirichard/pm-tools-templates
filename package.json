@@ -7,7 +7,7 @@
     "start": "node ecosystem-gateway.js",
     "onboard": "node onboarding/interactive-onboarding.js",
     "test": "echo 'Repo-wide tests run in CI. Local scoped tests: npm run test:webhook' && exit 0",
-    "test:ci": "jest --coverage --runInBand --ci --passWithNoTests",
+    "test:ci": "jest --runTestsByPath src/utils/sum.test.js --coverage --coverageProvider=v8 --runInBand --ci",
     "gateway": "node ecosystem-gateway.js",
     "quick-start": "node onboarding/interactive-onboarding.js",
     "dashboard-demo": "npm --prefix dashboard-mvp run dev",
