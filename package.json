@@ -17,6 +17,7 @@
     "dev-site": "npm --prefix docs/site run dev",
     "preview-site": "npm --prefix docs/site run preview",
     "doc-scan": "node scripts/doc-scan.js",
+    "test:doc-scan": "node --test tests/doc-scan.test.js",
     "template-selector": "node scripts/template-selector.mjs",
     "test:webhook": "node --experimental-vm-modules ./node_modules/jest/bin/jest.js --config integrations/webhook-framework/jest.config.webhook.js --runInBand --testMatch \"**/integrations/webhook-framework/tests/**/*.test.js\""
   },

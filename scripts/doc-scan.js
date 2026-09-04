@@ -4,6 +4,38 @@ const fs = require('fs');
 const path = require('path');
 const { glob } = require('glob');
 
+const EXIT_CODES = Object.freeze({
+  clean: 0,
+  scannerError: 1,
+  relevanceFindings: 2,
+  securityFindings: 3,
+  mixedFindings: 4
+});
+
+// Generated dependencies, build products, test artifacts, and scanner outputs
+// are not source documentation and must not influence repository findings.
+const SCAN_IGNORE_PATTERNS = Object.freeze([
+  '**/node_modules/**',
+  '**/.git/**',
+  '**/coverage/**',
+  '**/dist/**',
+  '**/build/**',
+  '**/cypress/screenshots/**',
+  '**/cypress/reports/**',
+  '**/.lighthouseci/**',
+  '**/.next/**',
+  '**/.nuxt/**',
+  '**/.astro/**',
+  '**/.DS_Store',
+  '**/*.min.js',
+  '**/package-lock.json',
+  '**/yarn.lock',
+  'doc-sec-allowlist.txt',
+  'relevance-blocklist.txt',
+  'doc-scan.sarif',
+  'scan-stats.json'
+]);
+
 // Security detection patterns
 const SECURITY_PATTERNS = {
   privateIP: {
@@ -68,7 +100,8 @@ class DocumentScanner {
     this.stats = {
       filesScanned: 0,
       securityIssues: 0,
-      relevanceIssues: 0
+      relevanceIssues: 0,
+      scanErrors: 0
     };
     this.allowlistPatterns = this.loadAllowlist();
     this.blocklistTerms = this.loadBlocklist();
@@ -82,6 +115,9 @@ class DocumentScanner {
         .filter(line => line && !line.startsWith('#'))
         .map(pattern => new RegExp(pattern, 'gi'));
     } catch (error) {
+      if (error.code !== 'ENOENT') {
+        throw error;
+      }
       console.log('No allowlist file found, using defaults');
       return [];
     }
@@ -94,6 +130,9 @@ class DocumentScanner {
         .map(line => line.trim())
         .filter(line => line && !line.startsWith('#'));
     } catch (error) {
+      if (error.code !== 'ENOENT') {
+        throw error;
+      }
       console.log('No blocklist file found, using defaults');
       return RELEVANCE_BLOCKLIST;
     }
@@ -262,6 +301,11 @@ class DocumentScanner {
   }
 
   async scanFile(filePath) {
+    const fileStats = fs.statSync(filePath);
+    if (!fileStats.isFile()) {
+      return;
+    }
+
     const content = fs.readFileSync(filePath, 'utf8');
     const ext = path.extname(filePath);
     
@@ -370,22 +414,8 @@ class DocumentScanner {
     ];
     
     const files = await glob(patterns, {
-      ignore: [
-        '**/node_modules/**',
-        '**/.git/**',
-        '**/coverage/**',
-        '**/dist/**',
-        '**/build/**',
-        '**/.DS_Store',
-        'doc-scan.sarif',
-        'scan-stats.json',
-        '**/.next/**',
-        '**/.nuxt/**',
-        '**/.astro/**',
-        '**/*.min.js',
-        '**/package-lock.json',
-        '**/yarn.lock'
-      ],
+      ignore: SCAN_IGNORE_PATTERNS,
+      nodir: true,
       dot: false,
       followSymlinkedDirectories: false
     });
@@ -397,6 +427,7 @@ class DocumentScanner {
         await this.scanFile(file);
       } catch (error) {
         console.error(`Error scanning ${file}:`, error.message);
+        this.stats.scanErrors++;
       }
     }
     
@@ -412,18 +443,28 @@ class DocumentScanner {
     console.log(`   Relevance issues: ${this.stats.relevanceIssues}`);
     
     // Determine exit code
+    if (this.stats.scanErrors > 0) {
+      console.log('❌ Scanner failed to read one or more candidate files');
+      return EXIT_CODES.scannerError;
+    }
+
+    if (this.stats.securityIssues > 0 && this.stats.relevanceIssues > 0) {
+      console.log('❌ Security and relevance checks failed');
+      return EXIT_CODES.mixedFindings;
+    }
+
     if (this.stats.relevanceIssues > 0) {
       console.log('❌ Relevance check failed');
-      return 2;
+      return EXIT_CODES.relevanceFindings;
     }
     
     if (this.stats.securityIssues > 0) {
       console.log('❌ Security check failed');
-      return 3;
+      return EXIT_CODES.securityFindings;
     }
     
     console.log('✅ All checks passed');
-    return 0;
+    return EXIT_CODES.clean;
   }
 }
 
@@ -442,3 +483,5 @@ async function main() {
 if (require.main === module) {
   main();
 }
+
+module.exports = { DocumentScanner, EXIT_CODES, SCAN_IGNORE_PATTERNS };

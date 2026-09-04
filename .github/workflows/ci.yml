@@ -77,6 +77,8 @@ jobs:
             **/package-lock.json
       - name: Install dependencies (timed)
         run: ./scripts/measure_step.sh "npm install" -- bash -lc "if [ -f package-lock.json ]; then npm ci; else npm install; fi"
+      - name: Test documentation scanner
+        run: npm run test:doc-scan
       - name: Test (coverage, fail if below thresholds)
         run: ./scripts/measure_step.sh "unit tests (coverage)" -- npm run test:ci
       - uses: actions/upload-artifact@v7

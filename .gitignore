@@ -19,6 +19,10 @@ jira-automation-scripts/
 /docs/site/dist/
 /PM Tools Templates - Q3 2025 Delivery Cycle/Implementation/template-selector/cypress/reports/
 
+# Generated documentation scan evidence (retained as CI artifacts)
+/doc-scan.sarif
+/scan-stats.json
+
 __pycache__/
 *.backup
 *.pyc
