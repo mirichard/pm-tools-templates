@@ -301,31 +301,42 @@ class DocumentScanner {
   }
 
   async scanFile(filePath) {
-    const fileStats = fs.statSync(filePath);
-    if (!fileStats.isFile()) {
+    let fd;
+    try {
+      fd = fs.openSync(filePath, 'r');
+    } catch {
       return;
     }
 
-    const content = fs.readFileSync(filePath, 'utf8');
-    const ext = path.extname(filePath);
-    
-    let scanContent = content;
-    
-    // For code files, extract comments only
-    if (!['.md', '.txt', '.adoc', '.rst'].includes(ext)) {
-      scanContent = this.extractCodeComments(content, filePath);
-      if (!scanContent.trim()) {
-        return; // No comments to scan
+    try {
+      const fileStats = fs.fstatSync(fd);
+      if (!fileStats.isFile()) {
+        return;
       }
+
+      const content = fs.readFileSync(fd, 'utf8');
+      const ext = path.extname(filePath);
+
+      let scanContent = content;
+
+      // For code files, extract comments only
+      if (!['.md', '.txt', '.adoc', '.rst'].includes(ext)) {
+        scanContent = this.extractCodeComments(content, filePath);
+        if (!scanContent.trim()) {
+          return; // No comments to scan
+        }
+      }
+
+      const securityIssues = this.scanSecurity(filePath, scanContent);
+      const relevanceIssues = this.scanRelevance(filePath, scanContent);
+
+      this.issues.push(...securityIssues, ...relevanceIssues);
+      this.stats.securityIssues += securityIssues.length;
+      this.stats.relevanceIssues += relevanceIssues.length;
+      this.stats.filesScanned++;
+    } finally {
+      fs.closeSync(fd);
     }
-    
-    const securityIssues = this.scanSecurity(filePath, scanContent);
-    const relevanceIssues = this.scanRelevance(filePath, scanContent);
-    
-    this.issues.push(...securityIssues, ...relevanceIssues);
-    this.stats.securityIssues += securityIssues.length;
-    this.stats.relevanceIssues += relevanceIssues.length;
-    this.stats.filesScanned++;
   }
 
   generateSARIF() {
