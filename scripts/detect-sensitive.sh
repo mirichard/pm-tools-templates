@@ -4,13 +4,13 @@
 # Hard Pre-Check Gate Script for NAS Template Integration
 # Zero tolerance for names, identifiers, or PII in templates
 
-set -euo pipefail
+set -Eeuo pipefail
 
 # Configuration
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 REPO_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
 TEMP_DIR="/tmp/pm-tools-sensitive-scan-$$"
-COMPLIANCE_REPORT="${REPO_ROOT}/meta/compliance-report-$(date +%Y%m%d-%H%M%S).md"
+COMPLIANCE_REPORT="${COMPLIANCE_REPORT:-${REPO_ROOT}/meta/compliance-report-$(date +%Y%m%d-%H%M%S).md}"
 EXIT_CODE=0
 
 # Colors for output
@@ -37,15 +37,38 @@ log_success() {
     echo -e "${GREEN}SUCCESS:${NC} $1"
 }
 
-# Create temp directory
-mkdir -p "$TEMP_DIR"
-mkdir -p "$(dirname "$COMPLIANCE_REPORT")"
-
 # Cleanup function
 cleanup() {
     rm -rf "$TEMP_DIR"
+    rm -f "${COMPLIANCE_REPORT}.tmp.$$"
 }
 trap cleanup EXIT
+
+handle_tool_error() {
+    local status=$?
+
+    trap - ERR
+    log_error "Scanner execution failed with status $status"
+    exit 2
+}
+trap handle_tool_error ERR
+
+# Create working and report directories after error handling is active.
+mkdir -p "$TEMP_DIR"
+mkdir -p "$(dirname "$COMPLIANCE_REPORT")"
+
+# Replace a report placeholder without relying on platform-specific sed -i syntax.
+replace_placeholder() {
+    local placeholder="$1"
+    local value="$2"
+    local file="$3"
+    local escaped_value
+    local temp_file="${file}.tmp.$$"
+
+    escaped_value=$(printf '%s' "$value" | sed 's/[\\&|]/\\&/g')
+    sed "s|{{$placeholder}}|$escaped_value|g" "$file" > "$temp_file"
+    mv "$temp_file" "$file"
+}
 
 # Initialize compliance report
 init_compliance_report() {
@@ -81,7 +104,7 @@ This report documents the results of the comprehensive sensitive information det
 EOF
     
     # Replace placeholders
-    sed -i '' "s/{{SCAN_DATE}}/$(date -u +"%Y-%m-%d %H:%M:%S UTC")/g" "$COMPLIANCE_REPORT"
+    replace_placeholder "SCAN_DATE" "$(date -u +"%Y-%m-%d %H:%M:%S UTC")" "$COMPLIANCE_REPORT"
 }
 
 # Email detection
@@ -106,7 +129,7 @@ detect_emails() {
         log_error "Found email addresses:"
         cat "$results_file"
         EXIT_CODE=1
-        return 1
+        return 0
     fi
     
     log_success "No email addresses detected"
@@ -136,7 +159,7 @@ detect_phones() {
         log_error "Found phone numbers:"
         cat "$results_file"
         EXIT_CODE=1
-        return 1
+        return 0
     fi
     
     log_success "No phone numbers detected"
@@ -184,7 +207,7 @@ detect_urls() {
             log_error "Found external URLs:"
             cat "$filtered_file"
             EXIT_CODE=1
-            return 1
+            return 0
         fi
     fi
     
@@ -278,7 +301,7 @@ detect_organizations() {
         log_error "Found organization references:"
         cat "$results_file"
         EXIT_CODE=1
-        return 1
+        return 0
     fi
     
     log_success "No organization references detected"
@@ -329,7 +352,7 @@ EOF
         log_error "Found deny-listed terms:"
         cat "$results_file"
         EXIT_CODE=1
-        return 1
+        return 0
     fi
     
     log_success "No deny-listed terms detected"
@@ -386,6 +409,11 @@ analyze_binary_metadata() {
 # Main scanning function
 run_detection_scan() {
     local target_dir="${1:-$REPO_ROOT}"
+
+    if [[ ! -d "$target_dir" ]]; then
+        log_error "Scan target is not a directory: $target_dir"
+        exit 2
+    fi
     
     log_info "Starting comprehensive sensitive information detection scan..."
     log_info "Target directory: $target_dir"
@@ -404,19 +432,19 @@ run_detection_scan() {
     # Generate final report
     if [[ $EXIT_CODE -eq 0 ]]; then
         log_success "✅ COMPLIANCE CHECK PASSED - No sensitive information detected"
-        sed -i '' "s/{{OVERALL_STATUS}}/✅ PASSED/g" "$COMPLIANCE_REPORT"
-        sed -i '' "s/{{SCAN_SCOPE}}/$(basename "$target_dir")/g" "$COMPLIANCE_REPORT"
-        sed -i '' "s/{{FINDINGS_SUMMARY}}/No sensitive information detected. All checks passed./g" "$COMPLIANCE_REPORT"
+        replace_placeholder "OVERALL_STATUS" "✅ PASSED" "$COMPLIANCE_REPORT"
+        replace_placeholder "SCAN_SCOPE" "$(basename "$target_dir")" "$COMPLIANCE_REPORT"
+        replace_placeholder "FINDINGS_SUMMARY" "No sensitive information detected. All checks passed." "$COMPLIANCE_REPORT"
     else
         log_error "❌ COMPLIANCE CHECK FAILED - Sensitive information detected"
-        sed -i '' "s/{{OVERALL_STATUS}}/❌ FAILED/g" "$COMPLIANCE_REPORT"
-        sed -i '' "s/{{SCAN_SCOPE}}/$(basename "$target_dir")/g" "$COMPLIANCE_REPORT"
-        sed -i '' "s/{{FINDINGS_SUMMARY}}/Sensitive information detected. Review required before proceeding./g" "$COMPLIANCE_REPORT"
+        replace_placeholder "OVERALL_STATUS" "❌ FAILED" "$COMPLIANCE_REPORT"
+        replace_placeholder "SCAN_SCOPE" "$(basename "$target_dir")" "$COMPLIANCE_REPORT"
+        replace_placeholder "FINDINGS_SUMMARY" "Sensitive information detected. Review required before proceeding." "$COMPLIANCE_REPORT"
     fi
     
     log_info "Compliance report generated: $COMPLIANCE_REPORT"
     
-    return $EXIT_CODE
+    return 0
 }
 
 # CLI handling
@@ -424,6 +452,7 @@ if [[ "${BASH_SOURCE[0]}" == "${0}" ]]; then
     case "${1:-scan}" in
         scan)
             run_detection_scan "${2:-$REPO_ROOT}"
+            exit "$EXIT_CODE"
             ;;
         help|--help|-h)
             echo "Usage: $0 [scan|help] [target_directory]"
@@ -439,7 +468,7 @@ if [[ "${BASH_SOURCE[0]}" == "${0}" ]]; then
         *)
             log_error "Unknown command: $1"
             echo "Use '$0 help' for usage information"
-            exit 1
+            exit 2
             ;;
     esac
 fi
