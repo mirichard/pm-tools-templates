@@ -304,8 +304,11 @@ class DocumentScanner {
     let fd;
     try {
       fd = fs.openSync(filePath, 'r');
-    } catch {
-      return;
+    } catch (error) {
+      if (error.code === 'ENOENT') {
+        return;
+      }
+      throw error;
     }
 
     try {
