@@ -1,6 +1,6 @@
 # Principle Alignment Self-Assessment
 
-Score each statement `0` (no evidence), `1` (inconsistent), or `2` (repeatable evidence). Link evidence; narrative alone does not earn a score.
+Use this project management self-assessment to score each statement `0` (no evidence), `1` (inconsistent), or `2` (repeatable evidence). Link evidence; narrative alone does not earn a score.
 
 | Principle | Test | Score | Evidence / action owner / due date |
 |---|---|---:|---|
