@@ -1,6 +1,6 @@
 # PM Tools Templates - Project Health Dashboard
 
-**Last Updated:** Fri Sep  4 20:41:24 UTC 2026  
+**Last Updated:** Fri Sep  4 20:41:40 UTC 2026  
 **Project Health:** 🟠 fair  
 **Overall Progress:** 100%
 
@@ -13,7 +13,7 @@
 | **Project Completion** | 100% | 📉 Needs Attention | 🟠 |
 | **Strategic Progress** | 60% | 📈 On Track | 🟢 |
 | **Weekly Velocity** | 2 issues/week | 📉 Slow | 🟡 |
-| **Risk Score** | 125 points | 📈 Elevated | 🔴 |
+| **Risk Score** | 75 points | 📈 Elevated | 🔴 |
 
 ## 📈 Progress Overview
 
@@ -41,10 +41,10 @@
 ## ⚠️ Risk Assessment
 
 ### Current Risk Factors
-- **Critical Issues:** 5 (25 points each)
+- **Critical Issues:** 3 (25 points each)
 - **High Priority Issues:** 0 (15 points each)
 - **Open Bugs:** 0 (5 points each)
-- **Total Risk Score:** 125 points
+- **Total Risk Score:** 75 points
 
 ### Risk Level: 🔴 HIGH
 
@@ -59,7 +59,7 @@
 |------|-------|------------|
 | Enhancement | 24 | 80% |
 | Bug | 0 | 0% |
-| Critical | 5 | 16% |
+| Critical | 3 | 10% |
 | High Priority | 0 | 0% |
 
 ## 🎯 Performance Indicators
@@ -71,15 +71,13 @@
 
 ### Quality Metrics
 - **Bug Rate:** 0% of open issues
-- **Critical Issue Rate:** 16% of open issues
+- **Critical Issue Rate:** 10% of open issues
 
 ## 📅 Upcoming Focus Areas
 
 ### High Priority Items (Next 7 Days)
 
 ### Critical Path Items
-- 🚨 #379: ⚠️ Epic: RAID Log Auto-Starter
-- 🚨 #378: 📅 Epic: Milestone Calendar Sync Tool
 - 🚨 #377: ⚡ Epic: Reminder & Escalation Workflow
 - 🚨 #376: 🤖 Epic: Slack/Teams Update Bot
 - 🚨 #375: 📈 Epic: Project Analytics Engine
@@ -89,7 +87,7 @@
 ## 📊 Dashboard Information
 
 - **Auto-generated:** Every 6 hours
-- **Last Update:** Fri Sep  4 20:41:25 UTC 2026
+- **Last Update:** Fri Sep  4 20:41:41 UTC 2026
 - **Next Update:** 02:41 UTC
 - **Data Source:** GitHub Issues API
 - **Methodology:** Automated metric collection and analysis
