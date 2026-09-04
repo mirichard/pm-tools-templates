@@ -19,10 +19,11 @@ function fixture(files, setup) {
   return root;
 }
 
-function run(root) {
+function run(root, env = {}) {
   const result = spawnSync(process.execPath, [scanner], {
     cwd: root,
-    encoding: 'utf8'
+    encoding: 'utf8',
+    env: { ...process.env, ...env }
   });
   const statsPath = path.join(root, 'scan-stats.json');
   const sarifPath = path.join(root, 'doc-scan.sarif');
@@ -31,6 +32,24 @@ function run(root) {
     stats: fs.existsSync(statsPath) ? JSON.parse(fs.readFileSync(statsPath, 'utf8')) : null,
     sarif: fs.existsSync(sarifPath) ? JSON.parse(fs.readFileSync(sarifPath, 'utf8')) : null
   };
+}
+
+function installOpenFailureHook(root, errorCode) {
+  const hook = path.join(root, 'open-failure-hook.cjs');
+  fs.writeFileSync(hook, `
+    const fs = require('node:fs');
+    const path = require('node:path');
+    const originalOpenSync = fs.openSync;
+    fs.openSync = function(filePath, ...args) {
+      if (path.basename(String(filePath)) === 'guide.md') {
+        const error = new Error('${errorCode} test failure');
+        error.code = '${errorCode}';
+        throw error;
+      }
+      return originalOpenSync.call(this, filePath, ...args);
+    };
+  `);
+  return hook;
 }
 
 test('scans a known-safe source fixture and writes evidence', t => {
@@ -91,4 +110,27 @@ test('returns scanner-error exit for invalid scanner configuration', t => {
   assert.equal(result.status, 1);
   assert.match(result.stderr, /Fatal error/);
   assert.equal(result.sarif, null);
+});
+
+test('skips a candidate that disappears before it can be opened', t => {
+  const root = fixture({ 'guide.md': '# Project management template\nSafe guidance.\n' });
+  const hook = installOpenFailureHook(root, 'ENOENT');
+  t.after(() => fs.rmSync(root, { recursive: true, force: true }));
+
+  const result = run(root, { NODE_OPTIONS: `--require=${hook}` });
+  assert.equal(result.status, 0, result.stderr || result.stdout);
+  assert.equal(result.stats.filesScanned, 0);
+  assert.equal(result.stats.scanErrors, 0);
+});
+
+test('reports a non-ENOENT open failure as a scanner error', t => {
+  const root = fixture({ 'guide.md': '# Project management template\nSafe guidance.\n' });
+  const hook = installOpenFailureHook(root, 'EACCES');
+  t.after(() => fs.rmSync(root, { recursive: true, force: true }));
+
+  const result = run(root, { NODE_OPTIONS: `--require=${hook}` });
+  assert.equal(result.status, 1, result.stderr || result.stdout);
+  assert.equal(result.stats.filesScanned, 0);
+  assert.equal(result.stats.scanErrors, 1);
+  assert.match(result.stderr, /Error scanning guide\.md/);
 });
