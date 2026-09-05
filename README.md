@@ -1,7 +1,6 @@
 # Project Management Tools & Templates
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Templates Count](https://img.shields.io/badge/Templates-154+-blue.svg)](TEMPLATE_INDEX.md)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat)](CONTRIBUTING.md)
 [![Interactive Browser](https://img.shields.io/badge/Browse-Interactive-green.svg?style=flat)](templates/index.html)
 [![GitHub issues](https://img.shields.io/github/issues/mirichard/pm-tools-templates)](https://github.com/mirichard/pm-tools-templates/issues)
@@ -9,7 +8,7 @@
 [![Latest Release](https://img.shields.io/github/v/release/mirichard/pm-tools-templates?style=flat&logo=github&labelColor=282828&color=blue)](https://github.com/mirichard/pm-tools-templates/releases/latest)
 [![Reorg Status](https://img.shields.io/badge/Reorg-Status-blue)](docs/reorg/STATUS.md)
 
-> A curated collection of 154+ battle-tested, open-source templates for project and program managers. Practical, vendor-agnostic, and ready to customize.
+> A growing collection of battle-tested, open-source templates for project and program managers. Practical, vendor-agnostic, and ready to customize.
 
 ---
 
@@ -100,16 +99,16 @@ This repo offers three navigation paths — pick the one that matches your quest
 
 ## Templates Index
 
-📋 **[Browse All 154 Templates →](TEMPLATE_INDEX.md)**
+📋 **[Browse All Templates →](TEMPLATE_INDEX.md)**
 
 ### Quick Access
 
-| Category | Count | Link |
-|----------|-------|------|
-| **Traditional** | 25 templates | [Browse Traditional](TEMPLATE_INDEX.md#traditional-templates) |
-| **Agile** | 39 templates | [Browse Agile](TEMPLATE_INDEX.md#agile-templates) |
-| **Hybrid** | 7 templates | [Browse Hybrid](TEMPLATE_INDEX.md#hybrid-templates) |
-| **Universal** | 83 templates | [Browse Universal](TEMPLATE_INDEX.md#universal-templates) |
+| Category | Link |
+|----------|------|
+| **Traditional** | [Browse Traditional](TEMPLATE_INDEX.md#traditional-templates) |
+| **Agile** | [Browse Agile](TEMPLATE_INDEX.md#agile-templates) |
+| **Hybrid** | [Browse Hybrid](TEMPLATE_INDEX.md#hybrid-templates) |
+| **Universal** | [Browse Universal](TEMPLATE_INDEX.md#universal-templates) |
 
 ### Most Popular Templates
 
