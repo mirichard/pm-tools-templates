@@ -1,7 +1,18 @@
 {
+  "batch_execution_records": [
+    {
+      "batch_id": "B1A",
+      "issue": "#1057",
+      "parent_issue": "#711",
+      "asset_count": 1,
+      "status": "executed",
+      "evidence_file": "docs/vnext/sprint-11/b1a-migration-record.md",
+      "rollback_owner": "mirichard"
+    }
+  ],
   "generated": "2026-09-02",
   "source": "meta/domain-mapping.json",
-  "physical_moves_executed": false,
+  "physical_moves_executed": true,
   "total": 137,
   "moves": [
     {
@@ -167,7 +178,7 @@
       "primary_domain": "Team",
       "secondary_domains": [],
       "dependencies": [
-        "project-lifecycle/01-initiation/stakeholder-analysis/stakeholder-register-template.md",
+        "domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/stakeholder-register-template.md",
         "project-lifecycle/01-initiation/stakeholder-analysis/agile-stakeholder-map-template.md",
         "project-assessment-suite/agile-project-assessment-template.md"
       ],
@@ -4106,6 +4117,7 @@
         "docs/decision-engine/template-decision-tree.md",
         "docs/getting-started/template-selector.md",
         "docs/templates/stakeholder-register-template.md",
+        "docs/vnext/sprint-11/b1a-migration-record.md",
         "meta/architecture-research/769-773-mapping-methodology.md",
         "meta/architecture-research/806-rules-engine-implementation.md",
         "meta/architecture-research/807-rules-engine-validation.md",
@@ -4125,7 +4137,14 @@
       ],
       "batch": 1,
       "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move",
-      "action": "planned-move-not-executed"
+      "action": "executed-move-with-legacy-pointer",
+      "execution": {
+        "batch_id": "B1A",
+        "pre_batch_sha": "724a25a2d15c017ac5e6b44365b9467495a8aa3c",
+        "pre_move_source_sha256": "64d7a7d1a8096b3d7f3410162abd61e7fc88e953c8ddae1935a47e786c7d3a57",
+        "evidence_file": "docs/vnext/sprint-11/b1a-migration-record.md",
+        "rollback_owner": "mirichard"
+      }
     },
     {
       "source": "project-lifecycle/04-monitoring-control/progress-tracking/status-report-template.md",

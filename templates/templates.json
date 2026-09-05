@@ -464,7 +464,7 @@
           "similarity": 79
         },
         {
-          "path": "project-lifecycle/01-initiation/stakeholder-analysis/stakeholder-register-template.md",
+          "path": "domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/stakeholder-register-template.md",
           "title": "Stakeholder Register Template",
           "methodology": "universal",
           "tags": [
@@ -499,7 +499,7 @@
       ],
       "relatedTemplates": [
         {
-          "path": "project-lifecycle/01-initiation/stakeholder-analysis/stakeholder-register-template.md",
+          "path": "domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/stakeholder-register-template.md",
           "title": "Stakeholder Register Template",
           "methodology": "universal",
           "tags": [
@@ -11324,7 +11324,7 @@
       ]
     },
     {
-      "path": "project-lifecycle/01-initiation/stakeholder-analysis/stakeholder-register-template.md",
+      "path": "domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/stakeholder-register-template.md",
       "canonical_path": "role-based-toolkits/project-manager/essential-templates/stakeholder-register.md",
       "alternate_paths": [
         "project-lifecycle/01-initiation/stakeholder-analysis/stakeholder-register-template.md"
@@ -11941,7 +11941,7 @@
           "similarity": 63
         },
         {
-          "path": "project-lifecycle/01-initiation/stakeholder-analysis/stakeholder-register-template.md",
+          "path": "domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/stakeholder-register-template.md",
           "title": "Stakeholder Register Template",
           "methodology": "universal",
           "tags": [

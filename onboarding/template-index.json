@@ -62,7 +62,7 @@
         {
           "name": "Stakeholder Analysis",
           "description": "Detailed stakeholder identification and management strategy",
-          "path": "project-lifecycle/01-initiation/stakeholder-analysis/stakeholder-register-template.md",
+          "path": "domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/stakeholder-register-template.md",
           "category": "initiation",
           "methodology": ["traditional", "agile", "hybrid"],
           "projectTypes": ["all"],
