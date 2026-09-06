@@ -78,9 +78,7 @@ env:
   VISUAL_TILE_DIFF_THRESHOLD: '3'
   GITHUB_EVENT_INPUTS_TEST_SCOPE: ${{ github.event.inputs.test_scope || 'comprehensive' }}
   GITHUB_EVENT_INPUTS_TEST_RESOLUTION: ${{ github.event.inputs.test_resolution || 'standard' }}
-  # The PR-head clause is a one-time bootstrap and is removed after the first
-  # reviewed baseline is published.
-  GITHUB_EVENT_INPUTS_BASELINE_UPDATE: ${{ github.event.inputs.baseline_update == 'true' || (github.event_name == 'pull_request' && github.head_ref == 'feat/visual-regression-baselines') }}
+  GITHUB_EVENT_INPUTS_BASELINE_UPDATE: ${{ github.event.inputs.baseline_update == 'true' }}
   BASELINE_BRANCH: 'visual-baselines'
   SCREENSHOT_TIMEOUT: 30000
   PARALLEL_WORKERS: 4
@@ -967,7 +965,7 @@ jobs:
   visual-comparison:
     name: 🔍 Visual Comparison
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 15
     needs: [visual-discovery, visual-capture]
     if: always() && needs.visual-discovery.outputs.total_tests > 0
     
@@ -1028,7 +1026,6 @@ jobs:
           from PIL import Image, ImageDraw, ImageFont
           import numpy as np
           from datetime import datetime
-          import shutil
           
           def compare_images(
               current_path,
@@ -1254,37 +1251,6 @@ jobs:
           with open('visual-comparison-results/summary.json', 'w') as f:
               json.dump(summary, f, indent=2)
           
-          # Update baselines if requested
-          if update_baseline:
-              print("\n📤 Updating visual baselines...")
-              baseline_dir = '.github/visual-baselines'
-              
-              # Remove old baselines
-              if os.path.exists(baseline_dir):
-                  shutil.rmtree(baseline_dir)
-              
-              # Copy current screenshots as new baselines
-              for browser_resolution, files in current_screenshots.items():
-                  target_dir = f"{baseline_dir}/screenshots-{browser_resolution}"
-                  os.makedirs(target_dir, exist_ok=True)
-                  
-                  for file_path in files:
-                      filename = os.path.basename(file_path)
-                      target_path = f"{target_dir}/{Path(filename).stem}.webp"
-                      with Image.open(file_path).convert('RGB') as image:
-                          width, height = image.size
-                          baseline_width = 256
-                          scale = min(baseline_width / width, 16383 / height)
-                          baseline_width = max(1, round(width * scale))
-                          baseline_height = max(1, round(height * scale))
-                          image = image.resize(
-                              (baseline_width, baseline_height), Image.Resampling.LANCZOS
-                          )
-                          image.save(target_path, 'WEBP', quality=85, method=4)
-                      print(f"    ✅ Updated baseline: {filename}")
-              
-              print("✅ Baseline update completed!")
-          
           # Set exit code based on regressions
           if regressions_found > 0 and not update_baseline:
               print(f"\n🚨 {regressions_found} visual regressions detected!")
@@ -1301,20 +1267,12 @@ jobs:
           path: visual-comparison-results/
           retention-days: 30
 
-      - name: 📤 Update Visual Baselines
-        if: env.GITHUB_EVENT_INPUTS_BASELINE_UPDATE == 'true'
-        uses: actions/upload-artifact@v7
-        with:
-          name: visual-baselines-${{ github.run_number }}
-          path: .github/visual-baselines/
-          retention-days: 90
-
   visual-baseline-publish:
     name: 📌 Publish Reviewed Visual Baselines
     runs-on: ubuntu-latest
     timeout-minutes: 30
     needs: [visual-discovery, visual-capture, visual-comparison]
-    if: (github.event.inputs.baseline_update == 'true' || (github.event_name == 'pull_request' && github.head_ref == 'feat/visual-regression-baselines')) && needs.visual-capture.result == 'success' && needs.visual-comparison.result == 'success'
+    if: github.event.inputs.baseline_update == 'true' && needs.visual-capture.result == 'success' && needs.visual-comparison.result == 'success'
     permissions:
       contents: write
 
@@ -1364,7 +1322,7 @@ jobs:
             git switch --orphan baseline-branch
           fi
 
-          git rm -rf .
+          git rm -rf . --ignore-unmatch
           mkdir -p .github/visual-baselines/packs
           cp /tmp/visual-baseline-packs/* .github/visual-baselines/packs/
           git add .github/visual-baselines
