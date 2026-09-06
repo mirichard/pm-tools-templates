@@ -197,7 +197,9 @@ jobs:
               
               # Discover documentation
               if test_scope in ['comprehensive', 'docs-only']:
-                  doc_files = glob.glob('docs/**/*.md', recursive=True)
+                  doc_files = []
+                  for pattern in ['docs/**/*.md', 'docs/**/*.html']:
+                      doc_files.extend(glob.glob(pattern, recursive=True))
                   for doc_path in doc_files:
                       if os.path.exists(doc_path):
                           target = {
