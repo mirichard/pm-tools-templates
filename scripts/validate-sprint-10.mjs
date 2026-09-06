@@ -11,6 +11,9 @@ const assert = (condition, message) => { if (!condition) fail(message); };
 const read = file => fs.readFileSync(path.join(root, file), 'utf8');
 const json = file => JSON.parse(read(file));
 const exists = file => fs.existsSync(path.join(root, file));
+const normalize = value => value.replaceAll('\\', '/');
+const hashSha256 = value => crypto.createHash('sha256').update(value).digest('hex');
+const normalizeContent = value => value.replace(/\s+/g, ' ').trim();
 
 function frontmatter(file) {
   const content = read(file);
@@ -32,6 +35,12 @@ function frontmatter(file) {
   return parsed;
 }
 
+function stripFrontmatter(content) {
+  if (!content.startsWith('---\n')) return content;
+  const end = content.indexOf('\n---', 4);
+  return end > 0 ? content.slice(end + 4) : content;
+}
+
 function validateLinks(file) {
   const content = read(file);
   const linkPattern = /\[[^\]]*\]\(([^)]+)\)/g;
@@ -50,6 +59,7 @@ const evidenceFiles = [
   'docs/vnext/sprint-10/benefits-validation.md',
   'docs/vnext/sprint-10/phase-gate-2-evidence.md',
   'docs/vnext/sprint-10/sprint-review.md',
+  'docs/vnext/sprint-11/b1a-migration-record.md',
   'docs/benefits/benefits-review-process.md',
   'templates/universal/benefits-review-template.md',
   'templates/universal/benefits-variance-analysis-template.md',
@@ -92,18 +102,93 @@ for (const title of ['Benefits Review Template', 'Benefits Variance Analysis Tem
 
 const migration = json('meta/migration-inventory.json');
 const domainMap = json('meta/domain-mapping.json');
+const cross = json('meta/cross-references.json');
+const executedActionSet = new Set(['executed-move-with-legacy-pointer']);
+const canonicalMovePath = move => executedActionSet.has(move.action) ? move.destination : move.source;
 assert(migration.total === domainMap.mappings.length, 'Migration inventory does not cover the domain-map denominator');
 assert(new Set(migration.moves.map(item => item.source)).size === migration.total, 'Migration inventory has duplicate sources');
 assert(new Set(migration.moves.map(item => item.destination)).size === migration.total, 'Migration inventory has destination collisions');
+const executedMoves = migration.moves.filter(move => executedActionSet.has(move.action));
+for (const move of migration.moves) {
+  const validAction = move.action === 'planned-move-not-executed' || executedActionSet.has(move.action);
+  assert(validAction, `${move.source}: unsupported migration action ${move.action}`);
+}
+const executedBatchRecords = (migration.batch_execution_records || []).filter(record => record.status === 'executed');
+const migrationBySource = new Map(migration.moves.map(item => [item.source, item]));
+const migrationByDestination = new Map(migration.moves.map(item => [item.destination, item]));
+assert(typeof migration.physical_moves_executed === 'boolean', 'Migration inventory physical_moves_executed must be boolean');
+const expectedPhysicalMovesFlag = executedMoves.length > 0;
+assert(migration.physical_moves_executed === expectedPhysicalMovesFlag, 'Migration inventory physical_moves_executed does not match execution metadata/records');
+if (migration.physical_moves_executed) assert(executedMoves.length > 0, 'Migration inventory marks physical moves executed but no move is marked executed');
+for (const record of executedBatchRecords) {
+  assert(executedMoves.some(move => move.execution?.batch_id === record.batch_id), `Executed batch record ${record.batch_id} has no executed move`);
+  const executedCount = executedMoves.filter(move => move.execution?.batch_id === record.batch_id).length;
+  assert(record.asset_count === executedCount, `Executed batch record ${record.batch_id} asset_count ${record.asset_count} does not match executed moves ${executedCount}`);
+}
+for (const move of executedMoves) {
+  assert(executedBatchRecords.some(record => record.batch_id === move.execution?.batch_id), `${move.source}: executed move batch_id is missing from batch_execution_records`);
+}
 for (const move of migration.moves) {
   assert(exists(move.source), `Migration source missing: ${move.source}`);
   assert(move.destination.startsWith('domains/'), `Migration target outside domain layer: ${move.destination}`);
   assert(Number.isInteger(move.batch), `Migration batch missing: ${move.source}`);
-  for (const dependency of move.dependencies) assert(exists(dependency), `Migration dependency missing: ${dependency}`);
+  for (const dependency of move.dependencies) {
+    if (exists(dependency)) continue;
+    const linkedMove = migrationBySource.get(dependency) || migrationByDestination.get(dependency);
+    const linkedCanonicalPath = linkedMove ? canonicalMovePath(linkedMove) : null;
+    assert(Boolean(linkedCanonicalPath) && exists(linkedCanonicalPath), `Migration dependency missing: ${dependency}`);
+  }
   for (const inbound of move.affected_internal_references) assert(exists(inbound), `Inbound reference file missing: ${inbound}`);
+  const canonicalPath = move.action === 'planned-move-not-executed' ? move.source : move.destination;
+  assert(exists(canonicalPath), `Canonical migration path missing: ${canonicalPath}`);
 }
 
-const cross = json('meta/cross-references.json');
+const catalogByCanonical = new Map();
+const catalogByPath = new Map();
+for (const item of templateDb.templates) {
+  if (item.canonical_path) catalogByCanonical.set(normalize(item.canonical_path), item);
+  if (item.path) catalogByPath.set(normalize(item.path), item);
+}
+
+for (const move of executedMoves) {
+  assert(exists(move.destination), `Executed migration destination missing: ${move.destination}`);
+  assert(typeof move.execution?.pre_move_source_sha256 === 'string' && move.execution.pre_move_source_sha256.length > 10, `${move.source}: missing pre_move_source_sha256`);
+  if (exists(move.destination) && move.execution?.pre_move_source_sha256) {
+    const destinationRawHash = hashSha256(read(move.destination));
+    const destinationNormalizedHash = hashSha256(normalizeContent(read(move.destination)));
+    assert(
+      move.execution.pre_move_source_sha256 === destinationRawHash || move.execution.pre_move_source_sha256 === destinationNormalizedHash,
+      `${move.source}: destination hash does not match pre-move source hash`
+    );
+  }
+  const legacyContent = read(move.source);
+  const pointerBody = stripFrontmatter(legacyContent);
+  const pointerMatch = pointerBody.match(/^\s*\*{0,2}Canonical location:?\*{0,2}\s*\[[^\]]+\]\(([^)]+)\)/im);
+  assert(Boolean(pointerMatch?.[1]), `${move.source}: legacy pointer must contain a canonical location link`);
+  if (pointerMatch?.[1]) {
+    const resolved = normalize(path.relative(root, path.resolve(root, path.dirname(move.source), pointerMatch[1].split('#')[0].trim().replace(/^<|>$/g, ''))));
+    assert(resolved === move.destination, `${move.source}: legacy pointer must resolve to canonical destination`);
+  }
+  assert(/moved|canonical/i.test(legacyContent), `${move.source}: legacy pointer must describe moved canonical location`);
+  assert(legacyContent.length <= 1200, `${move.source}: legacy pointer contains unexpected non-navigation content`);
+  assert(domainMap.mappings.some(item => item.path === move.destination), `${move.source}: domain map must point to canonical destination`);
+  assert(cross.records.some(item => item.path === move.destination), `${move.source}: cross-reference record missing canonical destination`);
+  assert(!cross.records.some(item => item.path === move.source), `${move.source}: cross-reference should not keep legacy path as canonical record`);
+  const canonicalMatch = catalogByCanonical.get(move.destination);
+  const pathMatch = catalogByPath.get(move.destination);
+  if (canonicalMatch && pathMatch) {
+    assert(canonicalMatch === pathMatch, `${move.source}: canonical destination matches multiple catalog records`);
+  }
+  const catalogRecord = canonicalMatch || pathMatch;
+  assert(Boolean(catalogRecord), `${move.source}: template catalog must include canonical destination`);
+  if (catalogRecord) {
+    const alternates = Array.isArray(catalogRecord.alternate_paths) ? catalogRecord.alternate_paths.map(normalize) : [];
+    assert(alternates.includes(move.source), `${move.source}: template catalog alternate_paths must keep legacy source path`);
+  }
+  assert(typeof move.execution?.evidence_file === 'string' && move.execution.evidence_file.length > 0, `${move.source}: missing execution evidence file`);
+  if (move.execution?.evidence_file) assert(exists(move.execution.evidence_file), `${move.source}: execution evidence file missing`);
+}
+
 assert(cross.denominator === domainMap.mappings.length, 'Cross-reference denominator mismatch');
 assert(cross.coverage_percent >= 80, `Cross-reference coverage ${cross.coverage_percent}% is below 80%`);
 const crossByPath = new Map(cross.records.map(item => [item.path, item]));
@@ -150,9 +235,28 @@ if (process.argv.includes('--require-annotations')) {
 
 const newTemplateHashes = new Map();
 for (const file of ['templates/universal/benefits-review-template.md', 'templates/universal/benefits-variance-analysis-template.md']) {
-  const hash = crypto.createHash('sha256').update(read(file).replace(/\s+/g, ' ').trim()).digest('hex');
+  const hash = hashSha256(normalizeContent(read(file)));
   assert(!newTemplateHashes.has(hash), `${file}: duplicates ${newTemplateHashes.get(hash)}`);
   newTemplateHashes.set(hash, file);
+}
+
+const baselineCanonicalHashes = new Map();
+for (const move of migration.moves.filter(item => item.action === 'planned-move-not-executed')) {
+  if (!exists(move.source)) continue;
+  const hash = hashSha256(normalizeContent(read(move.source)));
+  const existing = baselineCanonicalHashes.get(hash) || new Set();
+  existing.add(move.source);
+  baselineCanonicalHashes.set(hash, existing);
+}
+
+const executedCanonicalHashes = new Map();
+for (const move of executedMoves) {
+  if (!exists(move.destination)) continue;
+  const hash = hashSha256(normalizeContent(read(move.destination)));
+  assert(!executedCanonicalHashes.has(hash), `${move.destination}: executed canonical duplicate of ${executedCanonicalHashes.get(hash)}`);
+  executedCanonicalHashes.set(hash, move.destination);
+  const baselineMatches = [...(baselineCanonicalHashes.get(hash) || [])].filter(pathValue => pathValue !== move.source);
+  assert(baselineMatches.length === 0, `${move.destination}: migration-created canonical duplicate of ${baselineMatches[0]}`);
 }
 
 notes.forEach(note => console.log(`NOTE: ${note}`));

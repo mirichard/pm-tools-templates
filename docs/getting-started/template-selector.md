@@ -284,7 +284,7 @@ Traditional Project ──> Traditional/Waterfall Templates
 - [Sprint Planning](../../methodology-frameworks/agile-scrum/sprint-planning-template.md)
 - [Sprint Review](../../methodology-frameworks/agile-scrum/sprint-review-template.md)
 - [Sprint Retrospective](../../methodology-frameworks/agile-scrum/sprint-retrospective-template.md)
-- [Stakeholder Register](../../project-lifecycle/01-initiation/stakeholder-analysis/stakeholder-register-template.md)
+- [Stakeholder Register](../../domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/stakeholder-register-template.md)
 - [Status Report](../../project-lifecycle/04-monitoring-control/status-reporting/status-report-template.md)
 - [User Stories](../../methodology-frameworks/agile-scrum/user-story-template.md)
 

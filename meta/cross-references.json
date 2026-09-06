@@ -115,6 +115,24 @@
       "next_workflow_step": "project-assessment-suite/stakeholder-engagement-assessment-template.md"
     },
     {
+      "path": "domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/stakeholder-register-template.md",
+      "domain": {
+        "primary": "Stakeholder",
+        "secondary": [
+          "Planning"
+        ],
+        "rationale": "Title/path indicates stakeholder-focused purpose"
+      },
+      "prerequisites": [],
+      "related_assets": [
+        "project-lifecycle/01-initiation/stakeholder-analysis/enterprise-stakeholder-analysis-template.md",
+        "role-based-toolkits/product-owner/okr-template.md"
+      ],
+      "complementary_assets": [],
+      "previous_workflow_step": "project-lifecycle/01-initiation/stakeholder-analysis/enterprise-stakeholder-analysis-template.md",
+      "next_workflow_step": "role-based-toolkits/product-owner/okr-template.md"
+    },
+    {
       "path": "industry-specializations/financial-services/compliance/compliance-management-template.md",
       "domain": {
         "primary": "Measurement",
@@ -1766,14 +1784,14 @@
         "rationale": "Title/path indicates team-focused ceremony or collaboration"
       },
       "prerequisites": [
-        "project-lifecycle/01-initiation/stakeholder-analysis/stakeholder-register-template.md"
+        "domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/stakeholder-register-template.md"
       ],
       "related_assets": [
         "methodology-frameworks/agile-scrum/scaling-frameworks/less/less_retrospective_template.md",
         "project-lifecycle/02-planning/resource-planning/skills-matrix-template.md"
       ],
       "complementary_assets": [
-        "project-lifecycle/01-initiation/stakeholder-analysis/stakeholder-register-template.md",
+        "domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/stakeholder-register-template.md",
         "project-lifecycle/01-initiation/stakeholder-analysis/agile-stakeholder-map-template.md"
       ],
       "previous_workflow_step": "methodology-frameworks/agile-scrum/scaling-frameworks/less/less_retrospective_template.md",
@@ -1839,32 +1857,14 @@
       ],
       "related_assets": [
         "project-lifecycle/01-initiation/stakeholder-analysis/agile-stakeholder-map-template.md",
-        "project-lifecycle/01-initiation/stakeholder-analysis/stakeholder-register-template.md"
+        "domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/stakeholder-register-template.md"
       ],
       "complementary_assets": [
         "project-assessment-suite/current-state-analysis-template.md",
         "industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md"
       ],
       "previous_workflow_step": "project-lifecycle/01-initiation/stakeholder-analysis/agile-stakeholder-map-template.md",
-      "next_workflow_step": "project-lifecycle/01-initiation/stakeholder-analysis/stakeholder-register-template.md"
-    },
-    {
-      "path": "project-lifecycle/01-initiation/stakeholder-analysis/stakeholder-register-template.md",
-      "domain": {
-        "primary": "Stakeholder",
-        "secondary": [
-          "Planning"
-        ],
-        "rationale": "Title/path indicates stakeholder-focused purpose"
-      },
-      "prerequisites": [],
-      "related_assets": [
-        "project-lifecycle/01-initiation/stakeholder-analysis/enterprise-stakeholder-analysis-template.md",
-        "role-based-toolkits/product-owner/okr-template.md"
-      ],
-      "complementary_assets": [],
-      "previous_workflow_step": "project-lifecycle/01-initiation/stakeholder-analysis/enterprise-stakeholder-analysis-template.md",
-      "next_workflow_step": "role-based-toolkits/product-owner/okr-template.md"
+      "next_workflow_step": "domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/stakeholder-register-template.md"
     },
     {
       "path": "project-lifecycle/02-planning/business-requirements/business_requirements_document_template.md",
@@ -2199,14 +2199,14 @@
         "role-based-toolkits/project-manager/essential-templates/meeting-templates.md"
       ],
       "related_assets": [
-        "project-lifecycle/01-initiation/stakeholder-analysis/stakeholder-register-template.md",
+        "domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/stakeholder-register-template.md",
         "business-stakeholder-suite/executive-dashboards/powerbi-integration/executive-dashboard-template.md"
       ],
       "complementary_assets": [
         "role-based-toolkits/project-manager/essential-templates/meeting-templates.md",
         "methodology-frameworks/emerging-methods/devops/monitoring_alerting_template.md"
       ],
-      "previous_workflow_step": "project-lifecycle/01-initiation/stakeholder-analysis/stakeholder-register-template.md",
+      "previous_workflow_step": "domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/stakeholder-register-template.md",
       "next_workflow_step": "business-stakeholder-suite/executive-dashboards/powerbi-integration/executive-dashboard-template.md"
     },
     {
