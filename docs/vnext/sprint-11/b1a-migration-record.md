@@ -48,7 +48,7 @@ node scripts/generate-sprint-10-metadata.mjs
 git diff --exit-code -- meta/migration-inventory.json meta/cross-references.json
 node scripts/validate-sprint-10.mjs --require-annotations
 node scripts/validate-curated-templates.js
-npm run generate-template-index
+node scripts/generate-template-index.js
 node scripts/validate-canonical-paths.js --strict
 python3 check_anchor_links_filtered.py || python3 scripts/check_anchor_links_filtered.py
 npm run test:ci
@@ -75,6 +75,24 @@ git revert fdd64ccce55fe41c85d807e35171e41933dc2430
 ### Remaining gate before B1B
 
 - [ ] Record the final visual-regression result.
-- [ ] Run the documented metadata generation clean-diff and validation suite against current `main`.
-- [ ] Record the explicit old `/blob/main/<legacy-path>` browser test.
-- [ ] Change this record to `PASS — integrated` only after the three checks above pass.
+- [x] Run the documented metadata generation clean-diff and validation suite against current `main`.
+- [x] Record the explicit old `/blob/main/<legacy-path>` browser test.
+- [ ] Change this record to `PASS — integrated` after visual regression passes.
+
+## Post-merge validation results — 2026-09-06
+
+Validation was executed from a clean checkout of `main` at `fdd64ccce55fe41c85d807e35171e41933dc2430`.
+
+| Check | Result |
+|---|---|
+| Migration metadata generation + clean diff | PASS — 137 records; 137/137 cross-references; no metadata drift |
+| Sprint 10 strict validator | PASS — 137/137; 100% cross-reference coverage |
+| Curated template validator | PASS — 139 templates |
+| Authoritative template-index generator + clean diff | PASS — `node scripts/generate-template-index.js` produced no drift |
+| Canonical paths | PASS — 0 errors; 3 existing warnings |
+| Filtered anchor links | PASS |
+| `npm run test:ci` | PASS — 1 suite, 2 tests, 100% coverage |
+| Legacy `/blob/main/...` URL | PASS — HTTP 200 |
+| Canonical `/blob/main/...` URL | PASS — HTTP 200 |
+
+The package script `npm run generate-template-index` is not the authoritative CI drift check: it invokes `scripts/generate_template_index.mjs`, which produces a different index format. B1A evidence uses `scripts/generate-template-index.js`, matching `.github/workflows/ci.yml`.
