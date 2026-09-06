@@ -81,7 +81,7 @@ env:
   GITHUB_EVENT_INPUTS_BASELINE_UPDATE: ${{ github.event.inputs.baseline_update == 'true' }}
   BASELINE_BRANCH: 'visual-baselines'
   SCREENSHOT_TIMEOUT: 30000
-  PARALLEL_WORKERS: 4
+  PARALLEL_WORKERS: 2
   IMAGE_QUALITY: 90
   ANIMATION_DISABLE: true
   PLAYWRIGHT_VERSION: '1.63.0'
@@ -1022,6 +1022,7 @@ jobs:
           import os
           import json
           import glob
+          from concurrent.futures import ThreadPoolExecutor
           from pathlib import Path
           from PIL import Image, ImageDraw, ImageFont
           import numpy as np
@@ -1166,8 +1167,7 @@ jobs:
           print(f"Found baseline sets: {list(baseline_screenshots.keys())}")
           
           comparison_results = []
-          total_comparisons = 0
-          regressions_found = 0
+          comparison_tasks = []
           
           for browser_resolution, current_files in current_screenshots.items():
               print(f"\nProcessing {browser_resolution}...")
@@ -1189,31 +1189,50 @@ jobs:
                   }
                   
                   if baseline_file and os.path.exists(baseline_file):
-                      # Perform comparison
                       diff_path = f"visual-comparison-results/{browser_resolution}_{filename.replace('.png', '_diff.png')}"
-                      os.makedirs(os.path.dirname(diff_path), exist_ok=True)
-                      
-                      comparison = compare_images(
+                      comparison_tasks.append((
+                          result,
                           current_file,
                           baseline_file,
-                          diff_path,
-                          threshold_percent,
-                          tile_threshold_percent
-                      )
-                      result.update(comparison)
-                      
-                      total_comparisons += 1
-                      if comparison.get('threshold_exceeded', False):
-                          regressions_found += 1
-                          print(f"  🚨 REGRESSION: {filename} - {comparison.get('diff_percentage', 0)}% difference")
-                      else:
-                          print(f"  ✅ PASS: {filename} - {comparison.get('diff_percentage', 0)}% difference")
+                          diff_path
+                      ))
                   
                   else:
                       print(f"  📷 NEW: {filename} - no baseline available")
                       result['status'] = 'new_screenshot'
                   
-                  comparison_results.append(result)
+                      comparison_results.append(result)
+
+          def execute_comparison(task):
+              result, current_file, baseline_file, diff_path = task
+              comparison = compare_images(
+                  current_file,
+                  baseline_file,
+                  diff_path,
+                  threshold_percent,
+                  tile_threshold_percent
+              )
+              result.update(comparison)
+              return result
+
+          worker_count = max(1, int(os.environ.get('PARALLEL_WORKERS', '2')))
+          print(f"Comparing {len(comparison_tasks)} screenshots with {worker_count} workers...")
+          with ThreadPoolExecutor(max_workers=worker_count) as executor:
+              compared_results = list(executor.map(execute_comparison, comparison_tasks))
+          comparison_results.extend(compared_results)
+
+          total_comparisons = len(compared_results)
+          regressions = [
+              result for result in compared_results
+              if result.get('threshold_exceeded', False)
+          ]
+          regressions_found = len(regressions)
+          for result in regressions:
+              print(
+                  f"  🚨 REGRESSION: {result['filename']} - "
+                  f"{result.get('diff_percentage', 0)}% global / "
+                  f"{result.get('max_tile_diff_percentage', 0)}% tile"
+              )
           
           # Generate summary
           summary = {
