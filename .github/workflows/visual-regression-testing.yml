@@ -1070,46 +1070,43 @@ jobs:
                       or max_tile_diff_percentage > tile_threshold_percent
                   )
                   
-                  # Create visual diff image
-                  diff_image = Image.fromarray(diff_array.astype(np.uint8))
-                  
-                  # Enhance diff visibility
-                  diff_enhanced = diff_image.point(lambda x: min(255, x * 3))
-                  
-                  # Create side-by-side comparison
-                  width, height = baseline.size
-                  comparison = Image.new('RGB', (width * 3, height + 50), 'white')
-                  
-                  # Paste images
-                  comparison.paste(baseline, (0, 50))
-                  comparison.paste(current, (width, 50))
-                  comparison.paste(diff_enhanced, (width * 2, 50))
-                  
-                  # Add labels
-                  draw = ImageDraw.Draw(comparison)
-                  try:
-                      font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", 16)
-                  except:
-                      font = ImageFont.load_default()
-                  
-                  draw.text((10, 10), "BASELINE", fill='black', font=font)
-                  draw.text((width + 10, 10), "CURRENT", fill='black', font=font)
-                  draw.text(
-                      (width * 2 + 10, 10),
-                      f"DIFF ({diff_percentage:.2f}% / tile {max_tile_diff_percentage:.2f}%)",
-                      fill='red' if threshold_exceeded else 'green',
-                      font=font
-                  )
-                  
-                  # Save comparison
-                  comparison.save(diff_path)
+                  # Passing comparisons are fully represented in JSON. Generate
+                  # the heavier side-by-side image only when review is required.
+                  if threshold_exceeded:
+                      diff_image = Image.fromarray(diff_array.astype(np.uint8))
+                      diff_enhanced = diff_image.point(lambda x: min(255, x * 3))
+
+                      width, height = baseline.size
+                      comparison = Image.new('RGB', (width * 3, height + 50), 'white')
+                      comparison.paste(baseline, (0, 50))
+                      comparison.paste(current, (width, 50))
+                      comparison.paste(diff_enhanced, (width * 2, 50))
+
+                      draw = ImageDraw.Draw(comparison)
+                      try:
+                          font = ImageFont.truetype(
+                              "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf",
+                              16
+                          )
+                      except OSError:
+                          font = ImageFont.load_default()
+
+                      draw.text((10, 10), "BASELINE", fill='black', font=font)
+                      draw.text((width + 10, 10), "CURRENT", fill='black', font=font)
+                      draw.text(
+                          (width * 2 + 10, 10),
+                          f"DIFF ({diff_percentage:.2f}% / tile {max_tile_diff_percentage:.2f}%)",
+                          fill='red',
+                          font=font
+                      )
+                      comparison.save(diff_path)
                   
                   return {
                       'diff_percentage': round(diff_percentage, 2),
                       'max_tile_diff_percentage': round(max_tile_diff_percentage, 2),
                       'total_pixels': int(total_pixels),
                       'threshold_exceeded': threshold_exceeded,
-                      'diff_image': diff_path
+                      'diff_image': diff_path if threshold_exceeded else None
                   }
                   
               except Exception as e:
