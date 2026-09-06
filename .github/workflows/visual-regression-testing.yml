@@ -75,10 +75,13 @@ on:
 env:
   # Visual Testing Configuration
   VISUAL_DIFF_THRESHOLD: ${{ github.event.inputs.diff_threshold || '2' }}
+  VISUAL_TILE_DIFF_THRESHOLD: '3'
   GITHUB_EVENT_INPUTS_TEST_SCOPE: ${{ github.event.inputs.test_scope || 'comprehensive' }}
   GITHUB_EVENT_INPUTS_TEST_RESOLUTION: ${{ github.event.inputs.test_resolution || 'standard' }}
-  GITHUB_EVENT_INPUTS_BASELINE_UPDATE: ${{ github.event.inputs.baseline_update || 'false' }}
-  BASELINE_BRANCH: 'main'
+  # The PR-head clause is a one-time bootstrap and is removed after the first
+  # reviewed baseline is published.
+  GITHUB_EVENT_INPUTS_BASELINE_UPDATE: ${{ github.event.inputs.baseline_update == 'true' || (github.event_name == 'pull_request' && github.head_ref == 'feat/visual-regression-baselines') }}
+  BASELINE_BRANCH: 'visual-baselines'
   SCREENSHOT_TIMEOUT: 30000
   PARALLEL_WORKERS: 4
   IMAGE_QUALITY: 90
@@ -130,6 +133,7 @@ jobs:
           import os
           import json
           import glob
+          import subprocess
           import yaml
           from pathlib import Path
           
@@ -400,7 +404,21 @@ jobs:
           test_matrix = generate_test_matrix(len(targets))
           
           # Check if baselines exist
-          baseline_exists = os.path.exists('.github/visual-baselines') or os.environ.get('GITHUB_EVENT_INPUTS_BASELINE_UPDATE') == 'true'
+          baseline_branch = os.environ.get('BASELINE_BRANCH', 'visual-baselines')
+          remote_baseline_exists = subprocess.run(
+              [
+                  'git', 'ls-remote', '--exit-code', '--heads', 'origin',
+                  f'refs/heads/{baseline_branch}'
+              ],
+              stdout=subprocess.DEVNULL,
+              stderr=subprocess.DEVNULL,
+              check=False
+          ).returncode == 0
+          baseline_exists = (
+              os.path.exists('.github/visual-baselines')
+              or remote_baseline_exists
+              or os.environ.get('GITHUB_EVENT_INPUTS_BASELINE_UPDATE') == 'true'
+          )
           
           # Generate summary
           summary = {
@@ -950,7 +968,7 @@ jobs:
   visual-comparison:
     name: 🔍 Visual Comparison
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 30
     needs: [visual-discovery, visual-capture]
     if: always() && needs.visual-discovery.outputs.total_tests > 0
     
@@ -968,7 +986,6 @@ jobs:
 
       - name: 📥 Download Baseline Screenshots (if available)
         if: needs.visual-discovery.outputs.baseline_exists == 'true'
-        continue-on-error: true
         run: |
           echo "📥 Attempting to download baseline screenshots..."
           
@@ -978,20 +995,23 @@ jobs:
           if git show-ref --verify --quiet refs/heads/baseline-branch; then
             git checkout baseline-branch -- .github/visual-baselines/ || echo "No baselines found in baseline branch"
           fi
-          
-          # Also check for baselines in artifacts from previous runs
-          # This would require additional logic to download from previous successful runs
+
+          if compgen -G '.github/visual-baselines/packs/*.zip' > /dev/null; then
+            jq -r '.packs[] | "\(.sha256)  .github/visual-baselines/packs/\(.file)"' \
+              .github/visual-baselines/packs/manifest.json | sha256sum -c -
+            for pack in .github/visual-baselines/packs/*.zip; do
+              unzip -q -o "$pack" -d .github/visual-baselines/
+            done
+          fi
+
+          test -f .github/visual-baselines/packs/manifest.json
+          find .github/visual-baselines -type f \( -name '*.webp' -o -name '*.png' \) | grep -q .
 
       - name: 🛠️ Setup Image Comparison Tools
         run: |
           echo "🛠️ Setting up image comparison tools..."
-          
-          # Install ImageMagick for image comparison
-          sudo apt-get update
-          sudo apt-get install -y imagemagick
-          
-          # Install Python image processing libraries
-          pip install Pillow numpy opencv-python scikit-image
+
+          pip install Pillow numpy
           
           echo "✅ Image comparison tools ready"
 
@@ -1005,13 +1025,19 @@ jobs:
           import os
           import json
           import glob
+          from pathlib import Path
           from PIL import Image, ImageDraw, ImageFont
           import numpy as np
           from datetime import datetime
-          import subprocess
           import shutil
           
-          def compare_images(current_path, baseline_path, diff_path, threshold_percent=2):
+          def compare_images(
+              current_path,
+              baseline_path,
+              diff_path,
+              threshold_percent=2,
+              tile_threshold_percent=3
+          ):
               """Compare two images and generate diff"""
               
               try:
@@ -1032,10 +1058,21 @@ jobs:
                   # Calculate difference
                   diff_array = np.abs(current_array.astype(float) - baseline_array.astype(float))
                   
-                  # Calculate percentage difference
+                  # Mean absolute error is stable across compact WebP baselines.
+                  # A tiled maximum prevents local changes on long pages from
+                  # being diluted by the full-page average.
                   total_pixels = current_array.shape[0] * current_array.shape[1]
-                  changed_pixels = np.sum(np.any(diff_array > 10, axis=2))  # Threshold for "changed"
-                  diff_percentage = (changed_pixels / total_pixels) * 100
+                  diff_percentage = float(np.mean(diff_array) / 255 * 100)
+                  tile_height = 512
+                  tile_differences = [
+                      float(np.mean(diff_array[offset:offset + tile_height]) / 255 * 100)
+                      for offset in range(0, diff_array.shape[0], tile_height)
+                  ]
+                  max_tile_diff_percentage = max(tile_differences, default=0)
+                  threshold_exceeded = (
+                      diff_percentage > threshold_percent
+                      or max_tile_diff_percentage > tile_threshold_percent
+                  )
                   
                   # Create visual diff image
                   diff_image = Image.fromarray(diff_array.astype(np.uint8))
@@ -1061,16 +1098,21 @@ jobs:
                   
                   draw.text((10, 10), "BASELINE", fill='black', font=font)
                   draw.text((width + 10, 10), "CURRENT", fill='black', font=font)
-                  draw.text((width * 2 + 10, 10), f"DIFF ({diff_percentage:.2f}%)", fill='red' if diff_percentage > threshold_percent else 'green', font=font)
+                  draw.text(
+                      (width * 2 + 10, 10),
+                      f"DIFF ({diff_percentage:.2f}% / tile {max_tile_diff_percentage:.2f}%)",
+                      fill='red' if threshold_exceeded else 'green',
+                      font=font
+                  )
                   
                   # Save comparison
                   comparison.save(diff_path)
                   
                   return {
                       'diff_percentage': round(diff_percentage, 2),
-                      'changed_pixels': int(changed_pixels),
+                      'max_tile_diff_percentage': round(max_tile_diff_percentage, 2),
                       'total_pixels': int(total_pixels),
-                      'threshold_exceeded': diff_percentage > threshold_percent,
+                      'threshold_exceeded': threshold_exceeded,
                       'diff_image': diff_path
                   }
                   
@@ -1086,11 +1128,12 @@ jobs:
               """Find all screenshot files"""
               screenshot_files = {}
               
-              # Find all screenshot directories
-              screenshot_dirs = glob.glob('screenshots-*')
+              # download-artifact merges each shard into its browser/resolution
+              # directory (for example, chromium_desktop).
+              screenshot_dirs = glob.glob('chromium_*')
               
               for screenshot_dir in screenshot_dirs:
-                  browser_resolution = screenshot_dir.replace('screenshots-', '')
+                  browser_resolution = screenshot_dir
                   screenshot_files[browser_resolution] = glob.glob(f"{screenshot_dir}/*.png")
               
               return screenshot_files
@@ -1106,12 +1149,16 @@ jobs:
                   
                   for baseline_dir_path in baseline_dirs:
                       browser_resolution = os.path.basename(baseline_dir_path).replace('screenshots-', '')
-                      baseline_files[browser_resolution] = glob.glob(f"{baseline_dir_path}/*.png")
+                      baseline_files[browser_resolution] = (
+                          glob.glob(f"{baseline_dir_path}/*.webp")
+                          + glob.glob(f"{baseline_dir_path}/*.png")
+                      )
               
               return baseline_files
           
           # Main comparison process
           threshold_percent = float(os.environ.get('VISUAL_DIFF_THRESHOLD', '2'))
+          tile_threshold_percent = float(os.environ.get('VISUAL_TILE_DIFF_THRESHOLD', '3'))
           update_baseline = os.environ.get('GITHUB_EVENT_INPUTS_BASELINE_UPDATE') == 'true'
           
           print(f"Visual comparison threshold: {threshold_percent}%")
@@ -1133,11 +1180,11 @@ jobs:
               print(f"\nProcessing {browser_resolution}...")
               
               baseline_files = baseline_screenshots.get(browser_resolution, [])
-              baseline_file_map = {os.path.basename(f): f for f in baseline_files}
+              baseline_file_map = {Path(f).stem: f for f in baseline_files}
               
               for current_file in current_files:
                   filename = os.path.basename(current_file)
-                  baseline_file = baseline_file_map.get(filename)
+                  baseline_file = baseline_file_map.get(Path(filename).stem)
                   
                   result = {
                       'browser_resolution': browser_resolution,
@@ -1153,7 +1200,13 @@ jobs:
                       diff_path = f"visual-comparison-results/{browser_resolution}_{filename.replace('.png', '_diff.png')}"
                       os.makedirs(os.path.dirname(diff_path), exist_ok=True)
                       
-                      comparison = compare_images(current_file, baseline_file, diff_path, threshold_percent)
+                      comparison = compare_images(
+                          current_file,
+                          baseline_file,
+                          diff_path,
+                          threshold_percent,
+                          tile_threshold_percent
+                      )
                       result.update(comparison)
                       
                       total_comparisons += 1
@@ -1188,6 +1241,12 @@ jobs:
           print(f"  Regressions found: {summary['regressions_found']}")
           print(f"  New screenshots: {summary['new_screenshots']}")
           print(f"  Regression rate: {summary['regression_rate']}%")
+
+          if summary['total_screenshots'] == 0:
+              raise SystemExit("No screenshots were discovered after artifact download")
+
+          if baseline_screenshots and total_comparisons == 0 and not update_baseline:
+              raise SystemExit("Baselines exist, but zero screenshots were compared")
           
           # Save detailed results
           with open('visual-comparison-results/comparison_results.json', 'w') as f:
@@ -1212,8 +1271,17 @@ jobs:
                   
                   for file_path in files:
                       filename = os.path.basename(file_path)
-                      target_path = f"{target_dir}/{filename}"
-                      shutil.copy2(file_path, target_path)
+                      target_path = f"{target_dir}/{Path(filename).stem}.webp"
+                      with Image.open(file_path).convert('RGB') as image:
+                          width, height = image.size
+                          baseline_width = 256
+                          scale = min(baseline_width / width, 16383 / height)
+                          baseline_width = max(1, round(width * scale))
+                          baseline_height = max(1, round(height * scale))
+                          image = image.resize(
+                              (baseline_width, baseline_height), Image.Resampling.LANCZOS
+                          )
+                          image.save(target_path, 'WEBP', quality=85, method=4)
                       print(f"    ✅ Updated baseline: {filename}")
               
               print("✅ Baseline update completed!")
@@ -1235,12 +1303,74 @@ jobs:
           retention-days: 30
 
       - name: 📤 Update Visual Baselines
-        if: github.event.inputs.baseline_update == 'true'
+        if: env.GITHUB_EVENT_INPUTS_BASELINE_UPDATE == 'true'
         uses: actions/upload-artifact@v7
         with:
           name: visual-baselines-${{ github.run_number }}
           path: .github/visual-baselines/
           retention-days: 90
+
+  visual-baseline-publish:
+    name: 📌 Publish Reviewed Visual Baselines
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    needs: [visual-discovery, visual-capture, visual-comparison]
+    if: (github.event.inputs.baseline_update == 'true' || (github.event_name == 'pull_request' && github.head_ref == 'feat/visual-regression-baselines')) && needs.visual-capture.result == 'success' && needs.visual-comparison.result == 'success'
+    permissions:
+      contents: write
+
+    steps:
+      - name: 📥 Checkout Repository
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: 📥 Download Reviewed Screenshots
+        uses: actions/download-artifact@v8
+        with:
+          pattern: "screenshots-*-${{ github.run_number }}"
+          path: baseline-source-artifacts
+
+      - name: 📦 Build Compact Baseline Packs
+        env:
+          BASELINE_SOURCE_COMMIT: ${{ github.event.pull_request.head.sha || github.sha }}
+        run: |
+          pip install Pillow
+          python3 scripts/build-visual-baseline-packs.py \
+            baseline-source-artifacts \
+            /tmp/visual-baseline-packs \
+            --source-run "${{ github.run_id }}" \
+            --source-commit "$BASELINE_SOURCE_COMMIT"
+
+          jq -e '.total_screenshots > 0 and (.packs | length > 0)' \
+            /tmp/visual-baseline-packs/manifest.json > /dev/null
+          jq -r '.packs[] | "\(.sha256)  /tmp/visual-baseline-packs/\(.file)"' \
+            /tmp/visual-baseline-packs/manifest.json | sha256sum -c -
+          if find /tmp/visual-baseline-packs -name '*.zip' -size +99M -print -quit | grep -q .; then
+            echo 'A baseline pack exceeds GitHub size limits'
+            exit 1
+          fi
+
+      - name: 📌 Publish Baseline Branch
+        env:
+          BASELINE_COMMIT: ${{ github.event.pull_request.head.sha || github.sha }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          if git ls-remote --exit-code --heads origin "refs/heads/$BASELINE_BRANCH" > /dev/null 2>&1; then
+            git fetch origin "$BASELINE_BRANCH:baseline-branch"
+            git switch baseline-branch
+          else
+            git switch --orphan baseline-branch
+          fi
+
+          git rm -rf .
+          mkdir -p .github/visual-baselines/packs
+          cp /tmp/visual-baseline-packs/* .github/visual-baselines/packs/
+          git add .github/visual-baselines
+          git commit -m "test: publish reviewed visual baselines for $BASELINE_COMMIT"
+          git push origin "HEAD:$BASELINE_BRANCH"
 
   # Visual Regression Report
   visual-report:
