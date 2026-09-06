@@ -1,5 +1,0 @@
-// .gitignore for React frontend
-node_modules/
-build/
-.env
-.DS_Store

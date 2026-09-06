@@ -1,0 +1,70 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-09-06T23:12:44.947523+00:00",
+  "source_workflow_run": 34064948923,
+  "source_commit": "434e717257af5ad8f9afc731c71b9b6c74a500b6",
+  "format": "webp",
+  "width": 256,
+  "maximum_dimension": 16383,
+  "quality": 85,
+  "method": 4,
+  "total_screenshots": 1790,
+  "packs": [
+    {
+      "file": "chromium-desktop-shard-0.zip",
+      "browser_resolution": "chromium_desktop",
+      "screenshots": 227,
+      "bytes": 8008548,
+      "sha256": "dfd51765259785bfe9b5d21f637e543fec6577b94d6196ef45d8e5937c0f0234"
+    },
+    {
+      "file": "chromium-desktop-shard-1.zip",
+      "browser_resolution": "chromium_desktop",
+      "screenshots": 222,
+      "bytes": 6666284,
+      "sha256": "0cfe9befb20e33178d8a6192e7ca9ec8d9cceb3e01c1d206a3ab12d69c6fd097"
+    },
+    {
+      "file": "chromium-desktop-shard-2.zip",
+      "browser_resolution": "chromium_desktop",
+      "screenshots": 225,
+      "bytes": 6885416,
+      "sha256": "7fdb714068945c11bac689b57514ff8a2dc0b0d05b4c6fd9692022f8ca44fa5f"
+    },
+    {
+      "file": "chromium-desktop-shard-3.zip",
+      "browser_resolution": "chromium_desktop",
+      "screenshots": 221,
+      "bytes": 7673348,
+      "sha256": "75b73c0c485d273163fe2035bdf1218d4c37eaa7277ad905377e90e285cec7bf"
+    },
+    {
+      "file": "chromium-mobile-shard-0.zip",
+      "browser_resolution": "chromium_mobile",
+      "screenshots": 227,
+      "bytes": 31795882,
+      "sha256": "01e161bc69543daa93734c2880fa4e5a02069facd91990e1fab3dcb65a3affcd"
+    },
+    {
+      "file": "chromium-mobile-shard-1.zip",
+      "browser_resolution": "chromium_mobile",
+      "screenshots": 222,
+      "bytes": 28098080,
+      "sha256": "876f262e4a5930b05865b9bb361c046abfafd4157b98f8b50f948105cada5969"
+    },
+    {
+      "file": "chromium-mobile-shard-2.zip",
+      "browser_resolution": "chromium_mobile",
+      "screenshots": 225,
+      "bytes": 31315074,
+      "sha256": "a5b8a6978dbfce81ac1af9d8af5987416e6aac62f27b531c3048bca0f95404ed"
+    },
+    {
+      "file": "chromium-mobile-shard-3.zip",
+      "browser_resolution": "chromium_mobile",
+      "screenshots": 221,
+      "bytes": 33131694,
+      "sha256": "378e6b778f8eaee7fb052204a507e5081a9c77d313aff2b43f4ef7cede12005e"
+    }
+  ]
+}
