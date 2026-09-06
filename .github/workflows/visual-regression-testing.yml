@@ -417,7 +417,6 @@ jobs:
           baseline_exists = (
               os.path.exists('.github/visual-baselines')
               or remote_baseline_exists
-              or os.environ.get('GITHUB_EVENT_INPUTS_BASELINE_UPDATE') == 'true'
           )
           
           # Generate summary
