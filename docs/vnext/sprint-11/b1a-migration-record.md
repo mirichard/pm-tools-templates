@@ -68,7 +68,7 @@ git revert fdd64ccce55fe41c85d807e35171e41933dc2430
 - Default-branch inspection confirms the legacy path renders a navigation-only pointer and its canonical target exists.
 - Domain mapping remains 137/137 with baseline counts preserved: Stakeholder 11, Team 9, Delivery 69, Planning 8, Uncertainty 13, Measurement 27.
 - Cross-reference coverage remains 137/137 (100%), including the canonical destination record.
-- Latest PR-head checks: CI, canonical paths, template validation, links, quality, CodeQL, SAST, documentation security, accessibility and build checks passed.
+- Latest PR-head checks (excluding visual regression): CI, canonical paths, template validation, links, quality, CodeQL, SAST, documentation security, accessibility and build checks passed.
 - Visual regression remained in progress at this checkpoint.
 - Project Health Dashboard Generator reported `action_required`; it is recorded separately and is not treated as passing B1A evidence.
 
