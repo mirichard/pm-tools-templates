@@ -44,15 +44,24 @@ function inboundLinks(assetPath) {
     .sort();
 }
 
+// Resolve an item's pre-migration source path. For an item whose domain-mapping `path` is
+// already the canonical destination (an executed move), this is the original legacy path;
+// otherwise it's the path unchanged. Used both for the migration record and as a stable sort
+// key so that executing a move doesn't shift a template's alphabetical position within its
+// domain group and cascade into unrelated neighbors' previous/next/related_assets fields.
+function resolveSource(item) {
+  const canonicalPrefix = `domains/${slug(item.domain.primary)}/`;
+  const isCanonicalPath = item.path.startsWith(canonicalPrefix);
+  return isCanonicalPath ? (existingByDestination.get(item.path)?.source || item.path) : item.path;
+}
+
 const migration = mappings.map(item => {
   const canonicalPrefix = `domains/${slug(item.domain.primary)}/`;
   const isCanonicalPath = item.path.startsWith(canonicalPrefix);
   const existingMove = isCanonicalPath
     ? (existingByDestination.get(item.path) || {})
     : (existingBySource.get(item.path) || existingByDestination.get(item.path) || {});
-  const resolvedSource = isCanonicalPath
-    ? (existingByDestination.get(item.path)?.source || item.path)
-    : item.path;
+  const resolvedSource = resolveSource(item);
   const resolvedDestination = isCanonicalPath
     ? item.path
     : `domains/${slug(item.domain.primary)}/${item.path}`;
@@ -82,13 +91,18 @@ for (const executedMove of migration.filter(item => item.action === 'executed-mo
 }
 
 const ordered = [...mappings].sort((a, b) => a.path.localeCompare(b.path));
+// Domain-group neighbors (previous/next/related_assets) are computed from this separately
+// sorted list so that an executed move's shift in `item.path` doesn't change its alphabetical
+// position relative to domain siblings, which would otherwise cascade unrelated previous/next
+// changes into every neighbor's record on regeneration.
+const stableOrder = [...mappings].sort((a, b) => resolveSource(a).localeCompare(resolveSource(b)));
 const crossReferences = ordered.map(item => {
   const indexed = byPath.get(item.path);
   const indexedRelated = (indexed?.relatedTemplates || [])
     .map(value => normalize(value.path))
     .filter(target => fs.existsSync(path.join(root, target)));
   const sameDomain = ordered.filter(candidate => candidate.path !== item.path && candidate.domain.primary === item.domain.primary).map(candidate => candidate.path);
-  const domainGroup = ordered.filter(candidate => candidate.domain.primary === item.domain.primary);
+  const domainGroup = stableOrder.filter(candidate => candidate.domain.primary === item.domain.primary);
   const domainIndex = domainGroup.findIndex(candidate => candidate.path === item.path);
   const previous = domainGroup.length > 1 ? domainGroup[(domainIndex - 1 + domainGroup.length) % domainGroup.length].path : null;
   const next = domainGroup.length > 1 ? domainGroup[(domainIndex + 1) % domainGroup.length].path : null;
