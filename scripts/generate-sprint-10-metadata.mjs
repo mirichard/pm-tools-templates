@@ -6,7 +6,6 @@ const root = process.cwd();
 const readJson = file => JSON.parse(fs.readFileSync(path.join(root, file), 'utf8'));
 const normalize = value => value.replaceAll('\\', '/');
 const slug = value => value.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
-const generatedDate = new Date().toISOString().slice(0, 10);
 const migrationInventoryPath = path.join(root, 'meta/migration-inventory.json');
 const existingInventory = fs.existsSync(migrationInventoryPath) ? JSON.parse(fs.readFileSync(migrationInventoryPath, 'utf8')) : null;
 const existingMoves = existingInventory?.moves || [];
@@ -14,6 +13,9 @@ const existingBySource = new Map(existingMoves.map(item => [item.source, item]))
 const existingByDestination = new Map(existingMoves.map(item => [item.destination, item]));
 const crossReferencesPath = path.join(root, 'meta/cross-references.json');
 const existingCrossReferences = fs.existsSync(crossReferencesPath) ? JSON.parse(fs.readFileSync(crossReferencesPath, 'utf8')) : null;
+// Preserve the recorded generation date so repeated generation is deterministic.
+// Set a new date only when neither generated artifact exists yet.
+const generatedDate = existingInventory?.generated || existingCrossReferences?.generated || new Date().toISOString().slice(0, 10);
 const existingCrossByPath = new Map((existingCrossReferences?.records || []).map(item => [item.path, item]));
 
 const domainMap = readJson('meta/domain-mapping.json');
