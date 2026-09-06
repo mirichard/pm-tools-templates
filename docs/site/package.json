@@ -10,11 +10,11 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/react": "^6.0.4",
-    "@astrojs/sitemap": "^3.7.2",
+    "@astrojs/react": "^6.0.5",
+    "@astrojs/sitemap": "^3.7.4",
     "@types/react": "^19.2.18",
-    "@types/react-dom": "^19.2.5",
-    "astro": "^7.2.9",
+    "@types/react-dom": "^19.2.7",
+    "astro": "^7.3.1",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
     "reveal.js": "^6.0.0"
