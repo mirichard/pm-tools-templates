@@ -66,7 +66,7 @@
           "similarity": 83
         },
         {
-          "path": "business-stakeholder-suite/financial-governance/enhanced-business-cases/evm-dashboard-template.md",
+          "path": "domains/stakeholder/business-stakeholder-suite/financial-governance/enhanced-business-cases/evm-dashboard-template.md",
           "title": "Evm Dashboard Template",
           "methodology": "universal",
           "tags": [
@@ -1129,7 +1129,7 @@
       ],
       "relatedTemplates": [
         {
-          "path": "business-stakeholder-suite/financial-governance/enhanced-business-cases/evm-dashboard-template.md",
+          "path": "domains/stakeholder/business-stakeholder-suite/financial-governance/enhanced-business-cases/evm-dashboard-template.md",
           "title": "Evm Dashboard Template",
           "methodology": "universal",
           "tags": [
@@ -2171,7 +2171,7 @@
       ],
       "relatedTemplates": [
         {
-          "path": "business-stakeholder-suite/financial-governance/enhanced-business-cases/evm-dashboard-template.md",
+          "path": "domains/stakeholder/business-stakeholder-suite/financial-governance/enhanced-business-cases/evm-dashboard-template.md",
           "title": "Evm Dashboard Template",
           "methodology": "universal",
           "tags": [
@@ -3404,7 +3404,10 @@
       ]
     },
     {
-      "path": "business-stakeholder-suite/financial-governance/enhanced-business-cases/evm-dashboard-template.md",
+      "path": "domains/stakeholder/business-stakeholder-suite/financial-governance/enhanced-business-cases/evm-dashboard-template.md",
+      "alternate_paths": [
+        "business-stakeholder-suite/financial-governance/enhanced-business-cases/evm-dashboard-template.md"
+      ],
       "title": "Evm Dashboard Template",
       "methodology": "universal",
       "complexity": "advanced",

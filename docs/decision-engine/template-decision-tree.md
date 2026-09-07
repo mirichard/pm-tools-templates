@@ -189,7 +189,7 @@ Use your answers to find the matching recommendation set below. Start with your 
 
 **If regulatory, also add compliance templates for your industry:**
 - Healthcare: [Compliance Risk Assessment](../../industry-specializations/healthcare-pharmaceutical/regulatory/compliance_risk_assessment_template.md), [Validation Master Plan](../../industry-specializations/healthcare-pharmaceutical/validation/validation_master_plan_template.md), [GxP Training Plan](../../industry-specializations/healthcare-pharmaceutical/compliance/gxp_training_plan_template.md)
-- Financial: [Compliance Management](../../industry-specializations/financial-services/compliance/compliance-management-template.md), [EVM Dashboard](../../business-stakeholder-suite/financial-governance/enhanced-business-cases/evm-dashboard-template.md)
+- Financial: [Compliance Management](../../industry-specializations/financial-services/compliance/compliance-management-template.md), [EVM Dashboard](../../domains/stakeholder/business-stakeholder-suite/financial-governance/enhanced-business-cases/evm-dashboard-template.md)
 - IT: [Cybersecurity Assessment](../../industry-specializations/information-technology/security/cybersecurity_assessment_template.md), [Test Plan](../../industry-specializations/information-technology/software-development/test_plan_template.md)
 
 **Recommended toolkit:** [Role-Based Toolkits](../../role-based-toolkits/) + [Business Stakeholder Suite](../../business-stakeholder-suite/)
@@ -271,7 +271,7 @@ Use your answers to find the matching recommendation set below. Start with your 
 
 **If financial industry, also add:**
 7. [Compliance Management Template](../../industry-specializations/financial-services/compliance/compliance-management-template.md)
-8. [EVM Dashboard Template](../../business-stakeholder-suite/financial-governance/enhanced-business-cases/evm-dashboard-template.md)
+8. [EVM Dashboard Template](../../domains/stakeholder/business-stakeholder-suite/financial-governance/enhanced-business-cases/evm-dashboard-template.md)
 
 **Recommended toolkit:** [Role-Based Toolkits](../../role-based-toolkits/)
 

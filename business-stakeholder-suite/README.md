@@ -63,7 +63,7 @@ These tools work regardless of project methodology:
 
 **What's Included:**
 - **[Enhanced Business Cases](financial-governance/enhanced-business-cases/)** - Enterprise-grade financial analysis with advanced ROI modeling
-- **[EVM Dashboard](financial-governance/enhanced-business-cases/evm-dashboard-template.md)** - Professional Earned Value Management tracking
+- **[EVM Dashboard](../domains/stakeholder/business-stakeholder-suite/financial-governance/enhanced-business-cases/evm-dashboard-template.md)** - Professional Earned Value Management tracking
 - **[Value Analysis Framework](financial-governance/enhanced-business-cases/value-analysis-framework.md)** - Systematic value engineering and optimization
 - **[Financial Performance Tracker](financial-governance/enhanced-business-cases/financial-performance-tracker.md)** - Comprehensive monitoring and control
 - **[Budget Tracking & Controls](financial-governance/budget-dashboard-template.md)** - Real-time financial monitoring
@@ -307,4 +307,3 @@ These tools work regardless of project methodology:
 ---
 
 *This Business Stakeholder Suite transforms project communication from a burden into a strategic advantage, providing executives with the insights they need to make informed decisions and drive organizational success.*
-

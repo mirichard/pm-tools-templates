@@ -27,7 +27,7 @@ This section provides advanced business case development and financial analysis 
 - **Investment alternative** comparison and ranking
 
 <a id="earned-value-management-evm-dashboardevm-dashboard-templatemd"></a>
-### [Earned Value Management (EVM) Dashboard](evm-dashboard-template.md)
+### [Earned Value Management (EVM) Dashboard](../../../domains/stakeholder/business-stakeholder-suite/financial-governance/enhanced-business-cases/evm-dashboard-template.md)
 **Purpose:** Professional EVM tracking with advanced KPIs
 - **Performance indices** (SPI, CPI, TCPI) with trend analysis
 - **Variance analysis** and forecasting models
@@ -84,7 +84,7 @@ This section provides advanced business case development and financial analysis 
 
 <a id="week-2-financial-framework-setup"></a>
 ### Week 2: Financial Framework Setup
-1. **[EVM Dashboard](evm-dashboard-template.md)** - Establish performance baselines
+1. **[EVM Dashboard](../../../domains/stakeholder/business-stakeholder-suite/financial-governance/enhanced-business-cases/evm-dashboard-template.md)** - Establish performance baselines
 2. **[Performance Tracking](financial-performance-tracker.md)** - Set up monitoring systems
 3. **Stakeholder reporting** rhythm and automation
 
@@ -217,4 +217,3 @@ This section provides advanced business case development and financial analysis 
 *These enhanced business case templates provide the financial rigor and professional presentation needed for complex organizational investments. They transform financial planning from a compliance exercise into a strategic advantage.*
 
 **Enterprise Ready:** These templates include features for board presentations, audit trails, and integration with enterprise financial systems.
-

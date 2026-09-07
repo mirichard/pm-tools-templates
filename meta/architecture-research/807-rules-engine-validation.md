@@ -320,7 +320,7 @@ INDUSTRY SUPPLEMENTS (financial):
       → business-stakeholder-suite/financial-governance/enhanced-business-cases/advanced-business-case-template.md
       Rule: R014 (Financial industry)
   14. EVM Dashboard Template
-      → business-stakeholder-suite/financial-governance/enhanced-business-cases/evm-dashboard-template.md
+      → domains/stakeholder/business-stakeholder-suite/financial-governance/enhanced-business-cases/evm-dashboard-template.md
       Rule: R014 (Financial industry)
 
 RECOMMENDED TOOLKIT:

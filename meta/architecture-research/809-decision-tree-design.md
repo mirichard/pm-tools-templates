@@ -238,7 +238,7 @@ After answering all 6 questions, combine the activated rules to generate a recom
 - [Project Dashboard Template](../../project-lifecycle/04-monitoring-control/progress-tracking/project-dashboard-template.md) — Visual tracking (R006)
 - [Risk Register Template](../../project-lifecycle/02-planning/risk-management/risk-register-template.md) — Risk tracking (R008)
 - [Compliance Management Template](../../industry-specializations/financial-services/compliance/compliance-management-template.md) — Financial compliance (R014)
-- [EVM Dashboard Template](../../business-stakeholder-suite/financial-governance/enhanced-business-cases/evm-dashboard-template.md) — Value tracking (R014)
+- [EVM Dashboard Template](../../domains/stakeholder/business-stakeholder-suite/financial-governance/enhanced-business-cases/evm-dashboard-template.md) — Value tracking (R014)
 
 **Recommended Toolkit:** [Role-Based Toolkits](../../role-based-toolkits/)
 

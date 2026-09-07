@@ -15,7 +15,7 @@
 
 title: "Evm Dashboard Template"
 
-[**➡️ View Template File**](/business-stakeholder-suite/financial-governance/enhanced-business-cases/evm-dashboard-template.md)
+[**➡️ View Template File**](/domains/stakeholder/business-stakeholder-suite/financial-governance/enhanced-business-cases/evm-dashboard-template.md)
 
 ## 📈 Quality Score
 

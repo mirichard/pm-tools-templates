@@ -50,7 +50,7 @@
 | # | Template | Purpose | Setup Time |
 |---|----------|---------|------------|
 | 15 | [Compliance Management](../../../industry-specializations/financial-services/compliance/compliance-management-template.md) | Regulatory compliance tracking | ~60 min |
-| 16 | [EVM Dashboard](../../../business-stakeholder-suite/financial-governance/enhanced-business-cases/evm-dashboard-template.md) | Earned value management | ~45 min |
+| 16 | [EVM Dashboard](../../../domains/stakeholder/business-stakeholder-suite/financial-governance/enhanced-business-cases/evm-dashboard-template.md) | Earned value management | ~45 min |
 | 17 | [Advanced Business Case](../../../business-stakeholder-suite/financial-governance/enhanced-business-cases/advanced-business-case-template.md) | Detailed financial justification | ~90 min |
 
 ## Complementary Resources

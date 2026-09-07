@@ -290,7 +290,7 @@ Step 8: RANK AND OUTPUT
   - [Compliance Management Template](../../industry-specializations/financial-services/compliance/compliance-management-template.md)
   - [ROI Tracking Template](../../templates/traditional/Traditional/Knowledge_Areas/Project_Cost_Management/roi_tracking_template.md)
   - [Advanced Business Case Template](../../business-stakeholder-suite/financial-governance/enhanced-business-cases/advanced-business-case-template.md)
-  - [EVM Dashboard Template](../../business-stakeholder-suite/financial-governance/enhanced-business-cases/evm-dashboard-template.md)
+  - [EVM Dashboard Template](../../domains/stakeholder/business-stakeholder-suite/financial-governance/enhanced-business-cases/evm-dashboard-template.md)
 - **Why:** Financial services require compliance tracking, value demonstration, and earned value management
 
 **R015: General/Construction Industry**
