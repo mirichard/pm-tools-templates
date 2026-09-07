@@ -26,6 +26,15 @@
       "status": "executed",
       "evidence_file": "docs/vnext/sprint-12/b1c-migration-record.md",
       "rollback_owner": "mirichard"
+    },
+    {
+      "batch_id": "B1D",
+      "issue": "#1057",
+      "parent_issue": "#711",
+      "asset_count": 1,
+      "status": "executed",
+      "evidence_file": "docs/vnext/sprint-12/b1d-migration-record.md",
+      "rollback_owner": "mirichard"
     }
   ],
   "generated": "2026-09-02",
@@ -459,7 +468,7 @@
       "dependencies": [
         "project-assessment-suite/current-state-analysis-template.md",
         "industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md",
-        "project-lifecycle/01-initiation/stakeholder-analysis/enterprise-stakeholder-analysis-template.md"
+        "domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/enterprise-stakeholder-analysis-template.md"
       ],
       "affected_internal_references": [
         "TEMPLATE_INDEX.md",
@@ -939,7 +948,7 @@
       ],
       "dependencies": [
         "industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md",
-        "project-lifecycle/01-initiation/stakeholder-analysis/enterprise-stakeholder-analysis-template.md",
+        "domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/enterprise-stakeholder-analysis-template.md",
         "project-assessment-suite/executive-summary-template.md"
       ],
       "affected_internal_references": [
@@ -1104,7 +1113,7 @@
       ],
       "dependencies": [
         "project-assessment-suite/current-state-analysis-template.md",
-        "project-lifecycle/01-initiation/stakeholder-analysis/enterprise-stakeholder-analysis-template.md",
+        "domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/enterprise-stakeholder-analysis-template.md",
         "project-assessment-suite/executive-summary-template.md"
       ],
       "affected_internal_references": [
@@ -1222,7 +1231,14 @@
       ],
       "batch": 1,
       "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move",
-      "action": "planned-move-not-executed"
+      "action": "executed-move-with-legacy-pointer",
+      "execution": {
+        "batch_id": "B1D",
+        "pre_batch_sha": "cd58f39d99531429df48fd0dce7e05c0439aa180",
+        "pre_move_source_sha256": "a63bf5c5e6d9c5fa3a2db03e6bd04bcd902bc013d61e9e890568f265363e6555",
+        "evidence_file": "docs/vnext/sprint-12/b1d-migration-record.md",
+        "rollback_owner": "mirichard"
+      }
     },
     {
       "source": "industry-specializations/healthcare-pharmaceutical/validation/equipment_qualification_protocol_template.md",
@@ -1373,7 +1389,7 @@
       "dependencies": [
         "project-assessment-suite/current-state-analysis-template.md",
         "industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md",
-        "project-lifecycle/01-initiation/stakeholder-analysis/enterprise-stakeholder-analysis-template.md"
+        "domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/enterprise-stakeholder-analysis-template.md"
       ],
       "affected_internal_references": [
         "TEMPLATE_INDEX.md",
@@ -1406,7 +1422,7 @@
       "dependencies": [
         "project-assessment-suite/current-state-analysis-template.md",
         "industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md",
-        "project-lifecycle/01-initiation/stakeholder-analysis/enterprise-stakeholder-analysis-template.md"
+        "domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/enterprise-stakeholder-analysis-template.md"
       ],
       "affected_internal_references": [
         "TEMPLATE_INDEX.md",
@@ -1437,7 +1453,7 @@
       "dependencies": [
         "project-assessment-suite/current-state-analysis-template.md",
         "industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md",
-        "project-lifecycle/01-initiation/stakeholder-analysis/enterprise-stakeholder-analysis-template.md"
+        "domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/enterprise-stakeholder-analysis-template.md"
       ],
       "affected_internal_references": [
         "TEMPLATE_INDEX.md",
@@ -1541,7 +1557,7 @@
       "dependencies": [
         "project-assessment-suite/current-state-analysis-template.md",
         "industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md",
-        "project-lifecycle/01-initiation/stakeholder-analysis/enterprise-stakeholder-analysis-template.md"
+        "domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/enterprise-stakeholder-analysis-template.md"
       ],
       "affected_internal_references": [
         "TEMPLATE_INDEX.md",
@@ -2150,7 +2166,7 @@
       "dependencies": [
         "project-assessment-suite/current-state-analysis-template.md",
         "industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md",
-        "project-lifecycle/01-initiation/stakeholder-analysis/enterprise-stakeholder-analysis-template.md"
+        "domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/enterprise-stakeholder-analysis-template.md"
       ],
       "affected_internal_references": [
         "TEMPLATE_INDEX.md",
@@ -2249,7 +2265,7 @@
       "dependencies": [
         "project-assessment-suite/current-state-analysis-template.md",
         "industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md",
-        "project-lifecycle/01-initiation/stakeholder-analysis/enterprise-stakeholder-analysis-template.md"
+        "domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/enterprise-stakeholder-analysis-template.md"
       ],
       "affected_internal_references": [
         "TEMPLATE_INDEX.md",
@@ -2991,7 +3007,7 @@
       "dependencies": [
         "project-assessment-suite/current-state-analysis-template.md",
         "industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md",
-        "project-lifecycle/01-initiation/stakeholder-analysis/enterprise-stakeholder-analysis-template.md"
+        "domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/enterprise-stakeholder-analysis-template.md"
       ],
       "affected_internal_references": [
         "README.md",
@@ -3388,7 +3404,7 @@
       "dependencies": [
         "project-assessment-suite/current-state-analysis-template.md",
         "industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md",
-        "project-lifecycle/01-initiation/stakeholder-analysis/enterprise-stakeholder-analysis-template.md"
+        "domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/enterprise-stakeholder-analysis-template.md"
       ],
       "affected_internal_references": [
         "TEMPLATE_INDEX.md",
@@ -4307,7 +4323,7 @@
       "dependencies": [
         "project-assessment-suite/current-state-analysis-template.md",
         "industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md",
-        "project-lifecycle/01-initiation/stakeholder-analysis/enterprise-stakeholder-analysis-template.md"
+        "domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/enterprise-stakeholder-analysis-template.md"
       ],
       "affected_internal_references": [
         "TEMPLATE_INDEX.md",
@@ -4338,7 +4354,7 @@
       "dependencies": [
         "project-assessment-suite/current-state-analysis-template.md",
         "industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md",
-        "project-lifecycle/01-initiation/stakeholder-analysis/enterprise-stakeholder-analysis-template.md"
+        "domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/enterprise-stakeholder-analysis-template.md"
       ],
       "affected_internal_references": [
         "TEMPLATE_INDEX.md",
@@ -4427,7 +4443,7 @@
       "dependencies": [
         "project-assessment-suite/current-state-analysis-template.md",
         "industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md",
-        "project-lifecycle/01-initiation/stakeholder-analysis/enterprise-stakeholder-analysis-template.md"
+        "domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/enterprise-stakeholder-analysis-template.md"
       ],
       "affected_internal_references": [
         "TEMPLATE_INDEX.md",

@@ -39,7 +39,7 @@
 | [Digital Transformation Strategy Template](industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md) | universal | advanced | mirichard | 2025-08-05 |
 | [Disaster Recovery Template](domains/planning/industry-specializations/information-technology/infrastructure/disaster_recovery_template.md) | universal | starter | mirichard | 2025-08-05 |
 | [Enterprise Risk Assessment Template](project-lifecycle/02-planning/risk-management/enterprise-risk-assessment-template.md) | universal | starter | mirichard | 2025-08-05 |
-| [Enterprise Stakeholder Analysis Template](project-lifecycle/01-initiation/stakeholder-analysis/enterprise-stakeholder-analysis-template.md) | universal | advanced | mirichard | 2025-08-05 |
+| [Enterprise Stakeholder Analysis Template](domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/enterprise-stakeholder-analysis-template.md) | universal | advanced | mirichard | 2025-08-05 |
 | [Equipment Qualification Protocol Template](industry-specializations/healthcare-pharmaceutical/validation/equipment_qualification_protocol_template.md) | universal | advanced | mirichard | 2025-08-05 |
 | [Evm Dashboard Template](domains/stakeholder/business-stakeholder-suite/financial-governance/enhanced-business-cases/evm-dashboard-template.md) | universal | advanced | mirichard | 2025-08-05 |
 | [Executive Dashboard Template](business-stakeholder-suite/executive-dashboards/powerbi-integration/executive-dashboard-template.md) | universal | advanced | mirichard | 2025-08-05 |

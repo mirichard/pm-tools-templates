@@ -1253,7 +1253,7 @@
           "similarity": 93
         },
         {
-          "path": "project-lifecycle/01-initiation/stakeholder-analysis/enterprise-stakeholder-analysis-template.md",
+          "path": "domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/enterprise-stakeholder-analysis-template.md",
           "title": "Enterprise Stakeholder Analysis Template",
           "methodology": "universal",
           "tags": [
@@ -2553,7 +2553,7 @@
           "similarity": 100
         },
         {
-          "path": "project-lifecycle/01-initiation/stakeholder-analysis/enterprise-stakeholder-analysis-template.md",
+          "path": "domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/enterprise-stakeholder-analysis-template.md",
           "title": "Enterprise Stakeholder Analysis Template",
           "methodology": "universal",
           "tags": [
@@ -2994,7 +2994,7 @@
           "similarity": 100
         },
         {
-          "path": "project-lifecycle/01-initiation/stakeholder-analysis/enterprise-stakeholder-analysis-template.md",
+          "path": "domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/enterprise-stakeholder-analysis-template.md",
           "title": "Enterprise Stakeholder Analysis Template",
           "methodology": "universal",
           "tags": [
@@ -3219,7 +3219,10 @@
       ]
     },
     {
-      "path": "project-lifecycle/01-initiation/stakeholder-analysis/enterprise-stakeholder-analysis-template.md",
+      "path": "domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/enterprise-stakeholder-analysis-template.md",
+      "alternate_paths": [
+        "project-lifecycle/01-initiation/stakeholder-analysis/enterprise-stakeholder-analysis-template.md"
+      ],
       "title": "Enterprise Stakeholder Analysis Template",
       "methodology": "universal",
       "complexity": "advanced",
@@ -3477,7 +3480,7 @@
           "similarity": 94
         },
         {
-          "path": "project-lifecycle/01-initiation/stakeholder-analysis/enterprise-stakeholder-analysis-template.md",
+          "path": "domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/enterprise-stakeholder-analysis-template.md",
           "title": "Enterprise Stakeholder Analysis Template",
           "methodology": "universal",
           "tags": [
@@ -3737,7 +3740,7 @@
           "similarity": 100
         },
         {
-          "path": "project-lifecycle/01-initiation/stakeholder-analysis/enterprise-stakeholder-analysis-template.md",
+          "path": "domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/enterprise-stakeholder-analysis-template.md",
           "title": "Enterprise Stakeholder Analysis Template",
           "methodology": "universal",
           "tags": [
@@ -3838,7 +3841,7 @@
           "similarity": 100
         },
         {
-          "path": "project-lifecycle/01-initiation/stakeholder-analysis/enterprise-stakeholder-analysis-template.md",
+          "path": "domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/enterprise-stakeholder-analysis-template.md",
           "title": "Enterprise Stakeholder Analysis Template",
           "methodology": "universal",
           "tags": [
@@ -3939,7 +3942,7 @@
           "similarity": 100
         },
         {
-          "path": "project-lifecycle/01-initiation/stakeholder-analysis/enterprise-stakeholder-analysis-template.md",
+          "path": "domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/enterprise-stakeholder-analysis-template.md",
           "title": "Enterprise Stakeholder Analysis Template",
           "methodology": "universal",
           "tags": [
@@ -4231,7 +4234,7 @@
           "similarity": 100
         },
         {
-          "path": "project-lifecycle/01-initiation/stakeholder-analysis/enterprise-stakeholder-analysis-template.md",
+          "path": "domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/enterprise-stakeholder-analysis-template.md",
           "title": "Enterprise Stakeholder Analysis Template",
           "methodology": "universal",
           "tags": [
@@ -5917,7 +5920,7 @@
           "similarity": 93
         },
         {
-          "path": "project-lifecycle/01-initiation/stakeholder-analysis/enterprise-stakeholder-analysis-template.md",
+          "path": "domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/enterprise-stakeholder-analysis-template.md",
           "title": "Enterprise Stakeholder Analysis Template",
           "methodology": "universal",
           "tags": [
@@ -6194,7 +6197,7 @@
           "similarity": 93
         },
         {
-          "path": "project-lifecycle/01-initiation/stakeholder-analysis/enterprise-stakeholder-analysis-template.md",
+          "path": "domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/enterprise-stakeholder-analysis-template.md",
           "title": "Enterprise Stakeholder Analysis Template",
           "methodology": "universal",
           "tags": [
@@ -7123,7 +7126,7 @@
           "similarity": 90
         },
         {
-          "path": "project-lifecycle/01-initiation/stakeholder-analysis/enterprise-stakeholder-analysis-template.md",
+          "path": "domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/enterprise-stakeholder-analysis-template.md",
           "title": "Enterprise Stakeholder Analysis Template",
           "methodology": "universal",
           "tags": [
@@ -8300,7 +8303,7 @@
           "similarity": 100
         },
         {
-          "path": "project-lifecycle/01-initiation/stakeholder-analysis/enterprise-stakeholder-analysis-template.md",
+          "path": "domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/enterprise-stakeholder-analysis-template.md",
           "title": "Enterprise Stakeholder Analysis Template",
           "methodology": "universal",
           "tags": [
@@ -9446,7 +9449,7 @@
           "similarity": 100
         },
         {
-          "path": "project-lifecycle/01-initiation/stakeholder-analysis/enterprise-stakeholder-analysis-template.md",
+          "path": "domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/enterprise-stakeholder-analysis-template.md",
           "title": "Enterprise Stakeholder Analysis Template",
           "methodology": "universal",
           "tags": [
@@ -11753,7 +11756,7 @@
           "similarity": 93
         },
         {
-          "path": "project-lifecycle/01-initiation/stakeholder-analysis/enterprise-stakeholder-analysis-template.md",
+          "path": "domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/enterprise-stakeholder-analysis-template.md",
           "title": "Enterprise Stakeholder Analysis Template",
           "methodology": "universal",
           "tags": [
@@ -11853,7 +11856,7 @@
           "similarity": 93
         },
         {
-          "path": "project-lifecycle/01-initiation/stakeholder-analysis/enterprise-stakeholder-analysis-template.md",
+          "path": "domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/enterprise-stakeholder-analysis-template.md",
           "title": "Enterprise Stakeholder Analysis Template",
           "methodology": "universal",
           "tags": [
@@ -12124,7 +12127,7 @@
           "similarity": 84
         },
         {
-          "path": "project-lifecycle/01-initiation/stakeholder-analysis/enterprise-stakeholder-analysis-template.md",
+          "path": "domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/enterprise-stakeholder-analysis-template.md",
           "title": "Enterprise Stakeholder Analysis Template",
           "methodology": "universal",
           "tags": [
