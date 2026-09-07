@@ -423,7 +423,7 @@
       }
     },
     {
-      "path": "industry-specializations/information-technology/infrastructure/data_center_design_template.md",
+      "path": "domains/planning/industry-specializations/information-technology/infrastructure/data_center_design_template.md",
       "title": "Data Center Design Template",
       "methodology": "universal",
       "value_flow": {
@@ -465,7 +465,7 @@
       }
     },
     {
-      "path": "industry-specializations/information-technology/infrastructure/disaster_recovery_template.md",
+      "path": "domains/planning/industry-specializations/information-technology/infrastructure/disaster_recovery_template.md",
       "title": "Disaster Recovery Template",
       "methodology": "universal",
       "value_flow": {

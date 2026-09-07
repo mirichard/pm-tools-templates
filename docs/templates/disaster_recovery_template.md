@@ -15,7 +15,7 @@
 
 title: "Disaster Recovery Template"
 
-[**➡️ View Template File**](/industry-specializations/information-technology/infrastructure/disaster_recovery_template.md)
+[**➡️ View Template File**](/domains/planning/industry-specializations/information-technology/infrastructure/disaster_recovery_template.md)
 
 ## 📈 Quality Score
 

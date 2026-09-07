@@ -34,10 +34,10 @@
 | [Current State Analysis Template](project-assessment-suite/current-state-analysis-template.md) | universal | advanced | mirichard | 2025-08-05 |
 | [Cybersecurity Assessment Template](industry-specializations/information-technology/security/cybersecurity_assessment_template.md) | universal | advanced | mirichard | 2025-08-05 |
 | [Daily Standup Template](role-based-toolkits/scrum-master/agile-ceremonies/daily-standup-template.md) | agile | intermediate | mirichard | 2025-08-05 |
-| [Data Center Design Template](industry-specializations/information-technology/infrastructure/data_center_design_template.md) | universal | starter | mirichard | 2025-08-05 |
+| [Data Center Design Template](domains/planning/industry-specializations/information-technology/infrastructure/data_center_design_template.md) | universal | starter | mirichard | 2025-08-05 |
 | [Devsecops Template](methodology-frameworks/emerging-methods/devops/devsecops_template.md) | universal | advanced | mirichard | 2025-08-05 |
 | [Digital Transformation Strategy Template](industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md) | universal | advanced | mirichard | 2025-08-05 |
-| [Disaster Recovery Template](industry-specializations/information-technology/infrastructure/disaster_recovery_template.md) | universal | starter | mirichard | 2025-08-05 |
+| [Disaster Recovery Template](domains/planning/industry-specializations/information-technology/infrastructure/disaster_recovery_template.md) | universal | starter | mirichard | 2025-08-05 |
 | [Enterprise Risk Assessment Template](project-lifecycle/02-planning/risk-management/enterprise-risk-assessment-template.md) | universal | starter | mirichard | 2025-08-05 |
 | [Enterprise Stakeholder Analysis Template](project-lifecycle/01-initiation/stakeholder-analysis/enterprise-stakeholder-analysis-template.md) | universal | advanced | mirichard | 2025-08-05 |
 | [Equipment Qualification Protocol Template](industry-specializations/healthcare-pharmaceutical/validation/equipment_qualification_protocol_template.md) | universal | advanced | mirichard | 2025-08-05 |

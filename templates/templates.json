@@ -2794,7 +2794,10 @@
       ]
     },
     {
-      "path": "industry-specializations/information-technology/infrastructure/data_center_design_template.md",
+      "path": "domains/planning/industry-specializations/information-technology/infrastructure/data_center_design_template.md",
+      "alternate_paths": [
+        "industry-specializations/information-technology/infrastructure/data_center_design_template.md"
+      ],
       "title": "Data Center Design Template",
       "methodology": "universal",
       "complexity": "starter",
@@ -2813,7 +2816,7 @@
       ],
       "relatedTemplates": [
         {
-          "path": "industry-specializations/information-technology/infrastructure/disaster_recovery_template.md",
+          "path": "domains/planning/industry-specializations/information-technology/infrastructure/disaster_recovery_template.md",
           "title": "Disaster Recovery Template",
           "methodology": "universal",
           "tags": [
@@ -3053,7 +3056,10 @@
       ]
     },
     {
-      "path": "industry-specializations/information-technology/infrastructure/disaster_recovery_template.md",
+      "path": "domains/planning/industry-specializations/information-technology/infrastructure/disaster_recovery_template.md",
+      "alternate_paths": [
+        "industry-specializations/information-technology/infrastructure/disaster_recovery_template.md"
+      ],
       "title": "Disaster Recovery Template",
       "methodology": "universal",
       "complexity": "starter",
@@ -3072,7 +3078,7 @@
       ],
       "relatedTemplates": [
         {
-          "path": "industry-specializations/information-technology/infrastructure/data_center_design_template.md",
+          "path": "domains/planning/industry-specializations/information-technology/infrastructure/data_center_design_template.md",
           "title": "Data Center Design Template",
           "methodology": "universal",
           "tags": [
@@ -6076,7 +6082,7 @@
       ],
       "relatedTemplates": [
         {
-          "path": "industry-specializations/information-technology/infrastructure/data_center_design_template.md",
+          "path": "domains/planning/industry-specializations/information-technology/infrastructure/data_center_design_template.md",
           "title": "Data Center Design Template",
           "methodology": "universal",
           "tags": [
@@ -6085,7 +6091,7 @@
           "similarity": 75
         },
         {
-          "path": "industry-specializations/information-technology/infrastructure/disaster_recovery_template.md",
+          "path": "domains/planning/industry-specializations/information-technology/infrastructure/disaster_recovery_template.md",
           "title": "Disaster Recovery Template",
           "methodology": "universal",
           "tags": [

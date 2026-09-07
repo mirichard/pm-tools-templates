@@ -115,6 +115,48 @@
       "next_workflow_step": "project-assessment-suite/stakeholder-engagement-assessment-template.md"
     },
     {
+      "path": "domains/planning/industry-specializations/information-technology/infrastructure/data_center_design_template.md",
+      "domain": {
+        "primary": "Planning",
+        "secondary": [],
+        "rationale": "Planning template supports project strategy and scope"
+      },
+      "prerequisites": [
+        "domains/planning/industry-specializations/information-technology/infrastructure/disaster_recovery_template.md"
+      ],
+      "related_assets": [
+        "templates/traditional/Traditional/Templates/program_charter_template.md",
+        "domains/planning/industry-specializations/information-technology/infrastructure/disaster_recovery_template.md"
+      ],
+      "complementary_assets": [
+        "industry-specializations/information-technology/infrastructure/migration_plan_template.md",
+        "project-assessment-suite/resource-management-assessment-template.md"
+      ],
+      "previous_workflow_step": "templates/traditional/Traditional/Templates/program_charter_template.md",
+      "next_workflow_step": "domains/planning/industry-specializations/information-technology/infrastructure/disaster_recovery_template.md"
+    },
+    {
+      "path": "domains/planning/industry-specializations/information-technology/infrastructure/disaster_recovery_template.md",
+      "domain": {
+        "primary": "Planning",
+        "secondary": [],
+        "rationale": "Planning template supports project strategy and scope"
+      },
+      "prerequisites": [
+        "domains/planning/industry-specializations/information-technology/infrastructure/data_center_design_template.md"
+      ],
+      "related_assets": [
+        "domains/planning/industry-specializations/information-technology/infrastructure/data_center_design_template.md",
+        "project-lifecycle/01-initiation/project-charter/traditional-project-charter-template.md"
+      ],
+      "complementary_assets": [
+        "industry-specializations/information-technology/infrastructure/migration_plan_template.md",
+        "project-assessment-suite/resource-management-assessment-template.md"
+      ],
+      "previous_workflow_step": "domains/planning/industry-specializations/information-technology/infrastructure/data_center_design_template.md",
+      "next_workflow_step": "project-lifecycle/01-initiation/project-charter/traditional-project-charter-template.md"
+    },
+    {
       "path": "domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/stakeholder-register-template.md",
       "domain": {
         "primary": "Stakeholder",
@@ -729,48 +771,6 @@
       "next_workflow_step": "industry-specializations/information-technology/infrastructure/infrastructure_assessment_template.md"
     },
     {
-      "path": "industry-specializations/information-technology/infrastructure/data_center_design_template.md",
-      "domain": {
-        "primary": "Planning",
-        "secondary": [],
-        "rationale": "Planning template supports project strategy and scope"
-      },
-      "prerequisites": [
-        "industry-specializations/information-technology/infrastructure/disaster_recovery_template.md"
-      ],
-      "related_assets": [
-        "templates/traditional/Traditional/Templates/program_charter_template.md",
-        "industry-specializations/information-technology/infrastructure/disaster_recovery_template.md"
-      ],
-      "complementary_assets": [
-        "industry-specializations/information-technology/infrastructure/migration_plan_template.md",
-        "project-assessment-suite/resource-management-assessment-template.md"
-      ],
-      "previous_workflow_step": "templates/traditional/Traditional/Templates/program_charter_template.md",
-      "next_workflow_step": "industry-specializations/information-technology/infrastructure/disaster_recovery_template.md"
-    },
-    {
-      "path": "industry-specializations/information-technology/infrastructure/disaster_recovery_template.md",
-      "domain": {
-        "primary": "Planning",
-        "secondary": [],
-        "rationale": "Planning template supports project strategy and scope"
-      },
-      "prerequisites": [
-        "industry-specializations/information-technology/infrastructure/data_center_design_template.md"
-      ],
-      "related_assets": [
-        "industry-specializations/information-technology/infrastructure/data_center_design_template.md",
-        "project-lifecycle/01-initiation/project-charter/traditional-project-charter-template.md"
-      ],
-      "complementary_assets": [
-        "industry-specializations/information-technology/infrastructure/migration_plan_template.md",
-        "project-assessment-suite/resource-management-assessment-template.md"
-      ],
-      "previous_workflow_step": "industry-specializations/information-technology/infrastructure/data_center_design_template.md",
-      "next_workflow_step": "project-lifecycle/01-initiation/project-charter/traditional-project-charter-template.md"
-    },
-    {
       "path": "industry-specializations/information-technology/infrastructure/infrastructure_assessment_template.md",
       "domain": {
         "primary": "Measurement",
@@ -804,15 +804,15 @@
         "rationale": "Risk-focused template manages project uncertainty"
       },
       "prerequisites": [
-        "industry-specializations/information-technology/infrastructure/data_center_design_template.md"
+        "domains/planning/industry-specializations/information-technology/infrastructure/data_center_design_template.md"
       ],
       "related_assets": [
         "templates/test-samples/quality-test-plan-template.md",
         "industry-specializations/information-technology/software-development/requirements_specification_template.md"
       ],
       "complementary_assets": [
-        "industry-specializations/information-technology/infrastructure/data_center_design_template.md",
-        "industry-specializations/information-technology/infrastructure/disaster_recovery_template.md"
+        "domains/planning/industry-specializations/information-technology/infrastructure/data_center_design_template.md",
+        "domains/planning/industry-specializations/information-technology/infrastructure/disaster_recovery_template.md"
       ],
       "previous_workflow_step": "templates/test-samples/quality-test-plan-template.md",
       "next_workflow_step": "industry-specializations/information-technology/software-development/requirements_specification_template.md"
@@ -1810,14 +1810,14 @@
         "role-based-toolkits/project-manager/essential-templates/budget-template.md"
       ],
       "related_assets": [
-        "industry-specializations/information-technology/infrastructure/disaster_recovery_template.md",
+        "domains/planning/industry-specializations/information-technology/infrastructure/disaster_recovery_template.md",
         "role-based-toolkits/project-manager/essential-templates/budget-template.md"
       ],
       "complementary_assets": [
         "role-based-toolkits/project-manager/essential-templates/meeting-templates.md",
         "role-based-toolkits/product-owner/product-vision-template.md"
       ],
-      "previous_workflow_step": "industry-specializations/information-technology/infrastructure/disaster_recovery_template.md",
+      "previous_workflow_step": "domains/planning/industry-specializations/information-technology/infrastructure/disaster_recovery_template.md",
       "next_workflow_step": "role-based-toolkits/project-manager/essential-templates/budget-template.md"
     },
     {
@@ -3018,14 +3018,14 @@
       ],
       "related_assets": [
         "templates/traditional/Traditional/Templates/business_case_template.md",
-        "industry-specializations/information-technology/infrastructure/data_center_design_template.md"
+        "domains/planning/industry-specializations/information-technology/infrastructure/data_center_design_template.md"
       ],
       "complementary_assets": [
         "templates/traditional/Traditional/Templates/issue_log_template.md",
         "templates/traditional/Traditional/Templates/program_management_plan_template.md"
       ],
       "previous_workflow_step": "templates/traditional/Traditional/Templates/business_case_template.md",
-      "next_workflow_step": "industry-specializations/information-technology/infrastructure/data_center_design_template.md"
+      "next_workflow_step": "domains/planning/industry-specializations/information-technology/infrastructure/data_center_design_template.md"
     },
     {
       "path": "templates/traditional/Traditional/Templates/program_management_plan_template.md",

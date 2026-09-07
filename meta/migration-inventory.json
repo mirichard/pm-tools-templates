@@ -8,6 +8,15 @@
       "status": "executed",
       "evidence_file": "docs/vnext/sprint-11/b1a-migration-record.md",
       "rollback_owner": "mirichard"
+    },
+    {
+      "batch_id": "B1B",
+      "issue": "#1057",
+      "parent_issue": "#711",
+      "asset_count": 2,
+      "status": "executed",
+      "evidence_file": "docs/vnext/sprint-12/b1b-migration-record.md",
+      "rollback_owner": "mirichard"
     }
   ],
   "generated": "2026-09-02",
@@ -1014,7 +1023,7 @@
       "primary_domain": "Planning",
       "secondary_domains": [],
       "dependencies": [
-        "industry-specializations/information-technology/infrastructure/disaster_recovery_template.md",
+        "domains/planning/industry-specializations/information-technology/infrastructure/disaster_recovery_template.md",
         "industry-specializations/information-technology/infrastructure/migration_plan_template.md",
         "project-assessment-suite/resource-management-assessment-template.md"
       ],
@@ -1033,7 +1042,14 @@
       ],
       "batch": 1,
       "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move",
-      "action": "planned-move-not-executed"
+      "action": "executed-move-with-legacy-pointer",
+      "execution": {
+        "batch_id": "B1B",
+        "pre_batch_sha": "e88846275ce7f1097a4671cd25330eb5dd06c5d1",
+        "pre_move_source_sha256": "d7fd9270887a9ddaf7025bf5963df1cc4ecda89c63a76bd3b3af103c3fea0a07",
+        "evidence_file": "docs/vnext/sprint-12/b1b-migration-record.md",
+        "rollback_owner": "mirichard"
+      }
     },
     {
       "source": "methodology-frameworks/emerging-methods/devops/devsecops_template.md",
@@ -1106,7 +1122,7 @@
       "primary_domain": "Planning",
       "secondary_domains": [],
       "dependencies": [
-        "industry-specializations/information-technology/infrastructure/data_center_design_template.md",
+        "domains/planning/industry-specializations/information-technology/infrastructure/data_center_design_template.md",
         "industry-specializations/information-technology/infrastructure/migration_plan_template.md",
         "project-assessment-suite/resource-management-assessment-template.md"
       ],
@@ -1125,7 +1141,14 @@
       ],
       "batch": 1,
       "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move",
-      "action": "planned-move-not-executed"
+      "action": "executed-move-with-legacy-pointer",
+      "execution": {
+        "batch_id": "B1B",
+        "pre_batch_sha": "e88846275ce7f1097a4671cd25330eb5dd06c5d1",
+        "pre_move_source_sha256": "e2f85f6387be817a220dfa32eb65083df02fc50ad3054ea62c5e3f56d52c00a5",
+        "evidence_file": "docs/vnext/sprint-12/b1b-migration-record.md",
+        "rollback_owner": "mirichard"
+      }
     },
     {
       "source": "project-lifecycle/02-planning/risk-management/enterprise-risk-assessment-template.md",
@@ -1880,10 +1903,10 @@
       "affected_internal_references": [
         "TEMPLATE_INDEX.md",
         "docs/templates/infrastructure_assessment_template.md",
+        "domains/planning/industry-specializations/information-technology/infrastructure/data_center_design_template.md",
+        "domains/planning/industry-specializations/information-technology/infrastructure/disaster_recovery_template.md",
         "industry-specializations/information-technology/README.md",
         "industry-specializations/information-technology/infrastructure/capacity_planning_worksheet.md",
-        "industry-specializations/information-technology/infrastructure/data_center_design_template.md",
-        "industry-specializations/information-technology/infrastructure/disaster_recovery_template.md",
         "industry-specializations/information-technology/infrastructure/migration_plan_template.md",
         "meta/cross-references.json",
         "meta/domain-mapping.json",
@@ -2179,8 +2202,8 @@
         "Planning"
       ],
       "dependencies": [
-        "industry-specializations/information-technology/infrastructure/data_center_design_template.md",
-        "industry-specializations/information-technology/infrastructure/disaster_recovery_template.md",
+        "domains/planning/industry-specializations/information-technology/infrastructure/data_center_design_template.md",
+        "domains/planning/industry-specializations/information-technology/infrastructure/disaster_recovery_template.md",
         "industry-specializations/healthcare-pharmaceutical/regulatory/regulatory_strategy_plan_template.md"
       ],
       "affected_internal_references": [

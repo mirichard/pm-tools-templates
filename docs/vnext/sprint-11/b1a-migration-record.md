@@ -4,7 +4,7 @@
 - Batch: `B1A`
 - Asset count: `1`
 - Rollback owner: `mirichard`
-- Status: **MERGED — final post-merge evidence pending**
+- Status: **PASS — integrated**
 - Delivery PR: [#1076](https://github.com/mirichard/pm-tools-templates/pull/1076)
 
 ## Checkpoint A — Baseline
@@ -54,7 +54,7 @@ python3 check_anchor_links_filtered.py || python3 scripts/check_anchor_links_fil
 npm run test:ci
 ```
 
-Decision: **MERGED — retain B1A on `main`; final post-merge evidence remains gated below**. The merged default branch contains the canonical destination, legacy pointer, executed migration metadata, 137/137 domain mapping, and canonical cross-reference record.
+Decision: **PASS — integrated; retain B1A on `main`**. The merged default branch contains the canonical destination, legacy pointer, executed migration metadata, 137/137 domain mapping, and canonical cross-reference record.
 
 Rollback command if any exit criterion later fails:
 
@@ -69,15 +69,15 @@ git revert fdd64ccce55fe41c85d807e35171e41933dc2430
 - Domain mapping remains 137/137 with baseline counts preserved: Stakeholder 11, Team 9, Delivery 69, Planning 8, Uncertainty 13, Measurement 27.
 - Cross-reference coverage remains 137/137 (100%), including the canonical destination record.
 - Latest PR-head checks (excluding visual regression): CI, canonical paths, template validation, links, quality, CodeQL, SAST, documentation security, accessibility and build checks passed.
-- Visual regression remained in progress at this checkpoint.
+- Visual Regression Testing run [#348](https://github.com/mirichard/pm-tools-templates/actions/runs/34040783605) passed on the final PR head.
 - Project Health Dashboard Generator reported `action_required`; it is recorded separately and is not treated as passing B1A evidence.
 
 ### Remaining gate before B1B
 
-- [ ] Record the final visual-regression result.
+- [x] Record the final visual-regression result.
 - [x] Run the documented metadata generation clean-diff and validation suite against current `main`.
 - [x] Record the explicit old `/blob/main/<legacy-path>` browser test.
-- [ ] Change this record to `PASS — integrated` after visual regression passes.
+- [x] Change this record to `PASS — integrated` after visual regression passes.
 
 ## Post-merge validation results — 2026-09-06
 
