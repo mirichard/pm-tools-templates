@@ -70,9 +70,9 @@ Rollback boundary: revert the B1D delivery commit/merge commit, regenerate metad
 | Canonical uniqueness and duplicate control | PASS — no migration-created canonical duplicate |
 | Bidirectional navigation and internal links | PASS — 137/137 cross-reference coverage; strict and filtered-link validators pass |
 | Catalog/index discovery | PASS — 139-template catalog and generated index point to the canonical destination |
-| Reviewed visual regression | Pending |
+| Reviewed visual regression | PASS — run 34124382808 (attempt 2) |
 | Legacy `/blob/main/...` bookmark compatibility | Pending post-merge |
-| Required CI | Pending |
+| Required CI | PASS — run 34124382792 |
 | Production rollback command | Pending merge SHA |
 
 Local exit suite results:
