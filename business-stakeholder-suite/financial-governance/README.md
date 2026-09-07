@@ -14,7 +14,7 @@ This section provides robust financial governance frameworks, advanced business 
 **Enterprise-grade financial analysis frameworks**
 - **[Advanced Business Case Template](enhanced-business-cases/advanced-business-case-template.md)** - Comprehensive investment justification with multi-dimensional analysis
 - **[Value Analysis Framework](enhanced-business-cases/value-analysis-framework.md)** - Systematic value engineering and cost-benefit optimization
-- **[EVM Dashboard Template](enhanced-business-cases/evm-dashboard-template.md)** - Professional Earned Value Management tracking with advanced KPIs
+- **[EVM Dashboard Template](../../domains/stakeholder/business-stakeholder-suite/financial-governance/enhanced-business-cases/evm-dashboard-template.md)** - Professional Earned Value Management tracking with advanced KPIs
 - **[Financial Performance Tracker](enhanced-business-cases/financial-performance-tracker.md)** - Comprehensive financial monitoring and control
 
 <a id="budget-tracking-control"></a>
@@ -70,7 +70,7 @@ This section provides robust financial governance frameworks, advanced business 
 
 <a id="week-2-financial-framework-setup"></a>
 ### Week 2: Financial Framework Setup
-1. **[EVM Dashboard](enhanced-business-cases/evm-dashboard-template.md)** - Establish performance baselines and tracking
+1. **[EVM Dashboard](../../domains/stakeholder/business-stakeholder-suite/financial-governance/enhanced-business-cases/evm-dashboard-template.md)** - Establish performance baselines and tracking
 2. **[Performance Tracker](enhanced-business-cases/financial-performance-tracker.md)** - Set up ongoing monitoring systems
 3. **[Budget Controls](budget-dashboard-template.md)** - Implement cost management frameworks
 
@@ -277,4 +277,3 @@ This section provides robust financial governance frameworks, advanced business 
 *This Financial Governance framework provides enterprise-grade financial oversight and control for project investments. It transforms financial management from a compliance activity into a strategic advantage through sophisticated analysis, proactive monitoring, and value optimization.*
 
 **Enterprise Ready:** All templates include features for board presentations, audit compliance, and integration with enterprise financial systems.
-

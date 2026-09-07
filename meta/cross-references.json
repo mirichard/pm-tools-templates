@@ -55,14 +55,14 @@
         "rationale": "Title/path indicates stakeholder-focused purpose"
       },
       "prerequisites": [
-        "business-stakeholder-suite/financial-governance/enhanced-business-cases/evm-dashboard-template.md"
+        "domains/stakeholder/business-stakeholder-suite/financial-governance/enhanced-business-cases/evm-dashboard-template.md"
       ],
       "related_assets": [
         "business-stakeholder-suite/executive-dashboards/Word/Executive-Report-Templates.md",
         "business-stakeholder-suite/financial-governance/enhanced-business-cases/advanced-business-case-template.md"
       ],
       "complementary_assets": [
-        "business-stakeholder-suite/financial-governance/enhanced-business-cases/evm-dashboard-template.md",
+        "domains/stakeholder/business-stakeholder-suite/financial-governance/enhanced-business-cases/evm-dashboard-template.md",
         "industry-specializations/information-technology/software-development/test_plan_template.md"
       ],
       "previous_workflow_step": "business-stakeholder-suite/executive-dashboards/Word/Executive-Report-Templates.md",
@@ -82,37 +82,14 @@
       ],
       "related_assets": [
         "business-stakeholder-suite/financial-governance/budget-dashboard-template.md",
-        "business-stakeholder-suite/financial-governance/enhanced-business-cases/evm-dashboard-template.md"
+        "domains/stakeholder/business-stakeholder-suite/financial-governance/enhanced-business-cases/evm-dashboard-template.md"
       ],
       "complementary_assets": [
         "industry-specializations/information-technology/cybersecurity/risk_assessment_template.md",
         "industry-specializations/information-technology/software-development/user_story_mapping_template.md"
       ],
       "previous_workflow_step": "business-stakeholder-suite/financial-governance/budget-dashboard-template.md",
-      "next_workflow_step": "business-stakeholder-suite/financial-governance/enhanced-business-cases/evm-dashboard-template.md"
-    },
-    {
-      "path": "business-stakeholder-suite/financial-governance/enhanced-business-cases/evm-dashboard-template.md",
-      "domain": {
-        "primary": "Stakeholder",
-        "secondary": [
-          "Planning"
-        ],
-        "rationale": "Title/path indicates stakeholder-focused purpose"
-      },
-      "prerequisites": [
-        "industry-specializations/financial-services/compliance/compliance-management-template.md"
-      ],
-      "related_assets": [
-        "business-stakeholder-suite/financial-governance/enhanced-business-cases/advanced-business-case-template.md",
-        "project-assessment-suite/stakeholder-engagement-assessment-template.md"
-      ],
-      "complementary_assets": [
-        "industry-specializations/financial-services/compliance/compliance-management-template.md",
-        "project-assessment-suite/current-state-analysis-template.md"
-      ],
-      "previous_workflow_step": "business-stakeholder-suite/financial-governance/enhanced-business-cases/advanced-business-case-template.md",
-      "next_workflow_step": "project-assessment-suite/stakeholder-engagement-assessment-template.md"
+      "next_workflow_step": "domains/stakeholder/business-stakeholder-suite/financial-governance/enhanced-business-cases/evm-dashboard-template.md"
     },
     {
       "path": "domains/planning/industry-specializations/information-technology/infrastructure/data_center_design_template.md",
@@ -157,6 +134,29 @@
       "next_workflow_step": "project-lifecycle/01-initiation/project-charter/traditional-project-charter-template.md"
     },
     {
+      "path": "domains/stakeholder/business-stakeholder-suite/financial-governance/enhanced-business-cases/evm-dashboard-template.md",
+      "domain": {
+        "primary": "Stakeholder",
+        "secondary": [
+          "Planning"
+        ],
+        "rationale": "Title/path indicates stakeholder-focused purpose"
+      },
+      "prerequisites": [
+        "industry-specializations/financial-services/compliance/compliance-management-template.md"
+      ],
+      "related_assets": [
+        "business-stakeholder-suite/financial-governance/enhanced-business-cases/advanced-business-case-template.md",
+        "project-assessment-suite/stakeholder-engagement-assessment-template.md"
+      ],
+      "complementary_assets": [
+        "industry-specializations/financial-services/compliance/compliance-management-template.md",
+        "project-assessment-suite/current-state-analysis-template.md"
+      ],
+      "previous_workflow_step": "business-stakeholder-suite/financial-governance/enhanced-business-cases/advanced-business-case-template.md",
+      "next_workflow_step": "project-assessment-suite/stakeholder-engagement-assessment-template.md"
+    },
+    {
       "path": "domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/stakeholder-register-template.md",
       "domain": {
         "primary": "Stakeholder",
@@ -184,14 +184,14 @@
         "rationale": "Financial monitoring measures value delivery"
       },
       "prerequisites": [
-        "business-stakeholder-suite/financial-governance/enhanced-business-cases/evm-dashboard-template.md"
+        "domains/stakeholder/business-stakeholder-suite/financial-governance/enhanced-business-cases/evm-dashboard-template.md"
       ],
       "related_assets": [
         "role-based-toolkits/project-manager/essential-templates/handover-template.md",
         "industry-specializations/information-technology/cybersecurity/incident_response_template.md"
       ],
       "complementary_assets": [
-        "business-stakeholder-suite/financial-governance/enhanced-business-cases/evm-dashboard-template.md",
+        "domains/stakeholder/business-stakeholder-suite/financial-governance/enhanced-business-cases/evm-dashboard-template.md",
         "methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md"
       ],
       "previous_workflow_step": "role-based-toolkits/project-manager/essential-templates/handover-template.md",
@@ -1745,14 +1745,14 @@
         "project-assessment-suite/agile-project-assessment-template.md"
       ],
       "related_assets": [
-        "business-stakeholder-suite/financial-governance/enhanced-business-cases/evm-dashboard-template.md",
+        "domains/stakeholder/business-stakeholder-suite/financial-governance/enhanced-business-cases/evm-dashboard-template.md",
         "project-assessment-suite/waterfall-project-assessment-template.md"
       ],
       "complementary_assets": [
         "project-assessment-suite/agile-project-assessment-template.md",
         "role-based-toolkits/product-owner/okr-template.md"
       ],
-      "previous_workflow_step": "business-stakeholder-suite/financial-governance/enhanced-business-cases/evm-dashboard-template.md",
+      "previous_workflow_step": "domains/stakeholder/business-stakeholder-suite/financial-governance/enhanced-business-cases/evm-dashboard-template.md",
       "next_workflow_step": "project-assessment-suite/waterfall-project-assessment-template.md"
     },
     {

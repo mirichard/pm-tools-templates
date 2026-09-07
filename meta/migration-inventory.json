@@ -17,6 +17,15 @@
       "status": "executed",
       "evidence_file": "docs/vnext/sprint-12/b1b-migration-record.md",
       "rollback_owner": "mirichard"
+    },
+    {
+      "batch_id": "B1C",
+      "issue": "#1057",
+      "parent_issue": "#711",
+      "asset_count": 1,
+      "status": "executed",
+      "evidence_file": "docs/vnext/sprint-12/b1c-migration-record.md",
+      "rollback_owner": "mirichard"
     }
   ],
   "generated": "2026-09-02",
@@ -33,7 +42,7 @@
       ],
       "dependencies": [
         "industry-specializations/information-technology/cybersecurity/risk_assessment_template.md",
-        "business-stakeholder-suite/financial-governance/enhanced-business-cases/evm-dashboard-template.md",
+        "domains/stakeholder/business-stakeholder-suite/financial-governance/enhanced-business-cases/evm-dashboard-template.md",
         "industry-specializations/information-technology/software-development/user_story_mapping_template.md"
       ],
       "affected_internal_references": [
@@ -411,7 +420,7 @@
       "primary_domain": "Stakeholder",
       "secondary_domains": [],
       "dependencies": [
-        "business-stakeholder-suite/financial-governance/enhanced-business-cases/evm-dashboard-template.md",
+        "domains/stakeholder/business-stakeholder-suite/financial-governance/enhanced-business-cases/evm-dashboard-template.md",
         "industry-specializations/information-technology/software-development/test_plan_template.md",
         "business-stakeholder-suite/executive-dashboards/powerbi-integration/executive-dashboard-template.md"
       ],
@@ -799,7 +808,7 @@
         "Planning"
       ],
       "dependencies": [
-        "business-stakeholder-suite/financial-governance/enhanced-business-cases/evm-dashboard-template.md",
+        "domains/stakeholder/business-stakeholder-suite/financial-governance/enhanced-business-cases/evm-dashboard-template.md",
         "methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md",
         "methodology-frameworks/emerging-methods/devops/release_management_template.md"
       ],
@@ -1278,7 +1287,14 @@
       ],
       "batch": 1,
       "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move",
-      "action": "planned-move-not-executed"
+      "action": "executed-move-with-legacy-pointer",
+      "execution": {
+        "batch_id": "B1C",
+        "pre_batch_sha": "a962df1a41783ba5ca471e800c9660c1c0d3df5a",
+        "pre_move_source_sha256": "4e10e837a2028a3bf287768652da91000487d140efc9799b5c19d0602fd901e5",
+        "evidence_file": "docs/vnext/sprint-12/b1c-migration-record.md",
+        "rollback_owner": "mirichard"
+      }
     },
     {
       "source": "business-stakeholder-suite/executive-dashboards/powerbi-integration/executive-dashboard-template.md",
