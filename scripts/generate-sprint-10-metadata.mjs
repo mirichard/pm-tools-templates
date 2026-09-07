@@ -24,7 +24,9 @@ const mappings = domainMap.mappings.filter(item => fs.existsSync(path.join(root,
 const byPath = new Map(templateDb.templates.map(item => [normalize(item.canonical_path || item.path), item]));
 
 const textFiles = [];
-const ignored = new Set(['.git', 'node_modules', 'coverage', 'dist', 'build']);
+// Wave manifests are planning metadata. Counting their self-references as inbound
+// links would make generation drift as soon as a proposed wave is recorded.
+const ignored = new Set(['.git', 'node_modules', 'coverage', 'dist', 'build', 'migration-waves']);
 function walk(directory) {
   for (const entry of fs.readdirSync(directory, { withFileTypes: true })) {
     if (ignored.has(entry.name)) continue;
