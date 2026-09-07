@@ -168,7 +168,7 @@ Use your answers to find the matching recommendation set below. Start with your 
 4. [Risk Register Template](../../project-lifecycle/02-planning/risk-management/risk-register-template.md)
 5. [Risk Management Plan Template](../../project-lifecycle/02-planning/risk-management/risk-management-plan-template.md)
 6. [Resource Management Plan Template](../../project-lifecycle/02-planning/resource-planning/resource-management-plan-template.md)
-7. [Budget Template](../../role-based-toolkits/project-manager/essential-templates/budget-template.md)
+7. [Budget Template](../../domains/planning/role-based-toolkits/project-manager/essential-templates/budget-template.md)
 
 **Recommended toolkit:** [Role-Based Toolkits — Project Manager](../../role-based-toolkits/project-manager/)
 

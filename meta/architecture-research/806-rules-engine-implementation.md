@@ -309,7 +309,7 @@ Step 8: RANK AND OUTPUT
 - **Condition:** `size = "medium"`
 - **Action:** Include core PM lifecycle templates (5–10 templates)
 - **Additional recommendations:**
-  - [Budget Template](../../role-based-toolkits/project-manager/essential-templates/budget-template.md)
+  - [Budget Template](../../domains/planning/role-based-toolkits/project-manager/essential-templates/budget-template.md)
   - [Meeting Templates](../../role-based-toolkits/project-manager/essential-templates/meeting-templates.md)
 - **Rationale:** Medium projects benefit from structured planning without full governance
 

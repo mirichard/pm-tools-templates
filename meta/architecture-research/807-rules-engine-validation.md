@@ -298,7 +298,7 @@ RECOMMENDED TEMPLATES:
      → templates/traditional/Traditional/Templates/issue_log_template.md
      Rule: R006 (In-progress phase — universal template)
   8. Budget Template
-     → role-based-toolkits/project-manager/essential-templates/budget-template.md
+     → domains/planning/role-based-toolkits/project-manager/essential-templates/budget-template.md
      Rule: R017 (Medium size)
 
 RISK/GOVERNANCE SUPPLEMENTS (high risk):

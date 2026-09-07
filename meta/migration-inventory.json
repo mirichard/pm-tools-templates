@@ -35,6 +35,15 @@
       "status": "executed",
       "evidence_file": "docs/vnext/sprint-12/b1d-migration-record.md",
       "rollback_owner": "mirichard"
+    },
+    {
+      "batch_id": "B1E",
+      "issue": "#1057",
+      "parent_issue": "#711",
+      "asset_count": 1,
+      "status": "executed",
+      "evidence_file": "docs/vnext/sprint-12/b1e-migration-record.md",
+      "rollback_owner": "mirichard"
     }
   ],
   "generated": "2026-09-02",
@@ -491,7 +500,14 @@
       ],
       "batch": 1,
       "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move",
-      "action": "planned-move-not-executed"
+      "action": "executed-move-with-legacy-pointer",
+      "execution": {
+        "batch_id": "B1E",
+        "pre_batch_sha": "aca38be3a1a4a15b6230e3a2b8163030d9ae0005",
+        "pre_move_source_sha256": "8152afa2b63d3917167714c8467e7950ee75498df38471a714dfcd9f7f055b32",
+        "evidence_file": "docs/vnext/sprint-12/b1e-migration-record.md",
+        "rollback_owner": "mirichard"
+      }
     },
     {
       "source": "templates/traditional/Traditional/Templates/business_case_template.md",
@@ -979,7 +995,7 @@
       ],
       "dependencies": [
         "business-stakeholder-suite/executive-dashboards/Word/Executive-Report-Templates.md",
-        "role-based-toolkits/project-manager/essential-templates/budget-template.md",
+        "domains/planning/role-based-toolkits/project-manager/essential-templates/budget-template.md",
         "project-lifecycle/02-planning/business-requirements/business_requirements_document_template.md"
       ],
       "affected_internal_references": [
@@ -1355,7 +1371,7 @@
       "secondary_domains": [],
       "dependencies": [
         "industry-specializations/information-technology/security/cybersecurity_assessment_template.md",
-        "role-based-toolkits/project-manager/essential-templates/budget-template.md",
+        "domains/planning/role-based-toolkits/project-manager/essential-templates/budget-template.md",
         "project-lifecycle/02-planning/business-requirements/business_requirements_document_template.md"
       ],
       "affected_internal_references": [
@@ -1892,7 +1908,7 @@
       "secondary_domains": [],
       "dependencies": [
         "methodology-frameworks/emerging-methods/devops/devsecops_template.md",
-        "role-based-toolkits/project-manager/essential-templates/budget-template.md",
+        "domains/planning/role-based-toolkits/project-manager/essential-templates/budget-template.md",
         "methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md"
       ],
       "affected_internal_references": [
@@ -3564,7 +3580,7 @@
         "Uncertainty"
       ],
       "dependencies": [
-        "role-based-toolkits/project-manager/essential-templates/budget-template.md",
+        "domains/planning/role-based-toolkits/project-manager/essential-templates/budget-template.md",
         "industry-specializations/information-technology/software-development/test_plan_template.md",
         "business-stakeholder-suite/executive-dashboards/tableau-integration/executive-dashboard-template.md"
       ],
@@ -3606,7 +3622,7 @@
       ],
       "dependencies": [
         "project-assessment-suite/process-maturity-assessment-template.md",
-        "role-based-toolkits/project-manager/essential-templates/budget-template.md",
+        "domains/planning/role-based-toolkits/project-manager/essential-templates/budget-template.md",
         "project-assessment-suite/assessment-report-template.md"
       ],
       "affected_internal_references": [
@@ -4410,7 +4426,7 @@
         "Uncertainty"
       ],
       "dependencies": [
-        "role-based-toolkits/project-manager/essential-templates/budget-template.md",
+        "domains/planning/role-based-toolkits/project-manager/essential-templates/budget-template.md",
         "role-based-toolkits/project-manager/essential-templates/meeting-templates.md",
         "role-based-toolkits/product-owner/product-vision-template.md"
       ],

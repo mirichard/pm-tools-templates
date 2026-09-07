@@ -199,7 +199,7 @@ After answering all 6 questions, combine the activated rules to generate a recom
 - [Risk Register Template](../../project-lifecycle/02-planning/risk-management/risk-register-template.md) — Risk tracking (R008)
 - [Risk Management Plan Template](../../project-lifecycle/02-planning/risk-management/risk-management-plan-template.md) — Risk approach (R008)
 - [Resource Management Plan Template](../../project-lifecycle/02-planning/resource-planning/resource-management-plan-template.md) — Resource planning
-- [Budget Template](../../role-based-toolkits/project-manager/essential-templates/budget-template.md) — Financial tracking (R017)
+- [Budget Template](../../domains/planning/role-based-toolkits/project-manager/essential-templates/budget-template.md) — Financial tracking (R017)
 
 **Recommended Toolkit:** [Role-Based Toolkits — Project Manager](../../role-based-toolkits/project-manager/)
 

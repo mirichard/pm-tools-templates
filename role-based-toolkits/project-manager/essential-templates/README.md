@@ -19,7 +19,7 @@ These templates provide the fundamental documents and tools required for effecti
 - **[Work Breakdown Structure (WBS)](work-breakdown-structure.md)** - Decompose project into manageable components
 - **[Project Schedule Template](project-schedule.md)** - Plan timing and dependencies
 - **[Resource Planning Template](resource-planning.md)** - Plan team and resource requirements
-- **[Budget Template](budget-template.md)** - Plan and track project finances
+- **[Budget Template](../../../domains/planning/role-based-toolkits/project-manager/essential-templates/budget-template.md)** - Plan and track project finances
 - **[Risk Register](risk-register.md)** - Identify and manage project risks
 - **[Communication Plan](communication-plan.md)** - Plan stakeholder communications
 
@@ -78,7 +78,7 @@ These templates provide the fundamental documents and tools required for effecti
 ### Week 3: Team Setup
 1. **[Team Charter](team-charter.md)** - Establish team agreements
 2. **[Resource Planning](resource-planning.md)** - Confirm team and resources
-3. **[Budget Template](budget-template.md)** - Finalize budget and approvals
+3. **[Budget Template](../../../domains/planning/role-based-toolkits/project-manager/essential-templates/budget-template.md)** - Finalize budget and approvals
 
 <a id="methodology-adaptations"></a>
 ### Week 4: Execution Readiness
