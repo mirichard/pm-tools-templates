@@ -138,6 +138,11 @@ export function validateWavePlan({ root, inventory, plan }) {
   if (!Array.isArray(plan.assets) || plan.assets.length === 0) fail('assets must be a non-empty array');
   if (plan.assets?.length > plan.max_assets) fail('asset count exceeds max_assets');
   if (plan.asset_count !== plan.assets?.length) fail('asset_count does not match assets length');
+  if (plan.generated_from !== 'meta/migration-inventory.json') {
+    fail('generated_from must be meta/migration-inventory.json');
+  }
+  if (!plan.inventory_generated) fail('inventory_generated is required');
+  else if (plan.inventory_generated !== inventory.generated) fail('inventory_generated does not match migration inventory snapshot');
   if (!/^[0-9a-f]{40}$/.test(plan.pre_batch_sha || '')) fail('pre_batch_sha must be a 40-character Git SHA');
   if (!plan.rollback_owner) fail('rollback_owner is required');
   if (plan.rollback?.command !== 'git revert <wave-merge-sha>') fail('rollback command is missing or unsupported');

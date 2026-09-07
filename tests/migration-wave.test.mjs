@@ -41,6 +41,13 @@ test('detects source drift after the plan is generated', () => {
   assert.match(validateWavePlan({ root, inventory, plan }).join('\n'), /source hash mismatch/);
 });
 
+test('detects inventory snapshot drift after the plan is generated', () => {
+  const { root, inventory } = fixture();
+  const plan = buildWavePlan({ root, inventory, waveId: 'B1F', sourceBatch: 1, primaryDomain: 'Stakeholder', maxAssets: 12, preBatchSha: 'a'.repeat(40), rollbackOwner: 'owner' });
+  inventory.generated = '2026-09-08';
+  assert.match(validateWavePlan({ root, inventory, plan }).join('\n'), /inventory_generated does not match migration inventory snapshot/);
+});
+
 test('validates the same manifest after an executed move', () => {
   const { root, inventory } = fixture();
   const plan = buildWavePlan({ root, inventory, waveId: 'B1F', sourceBatch: 1, primaryDomain: 'Stakeholder', maxAssets: 1, preBatchSha: 'a'.repeat(40), rollbackOwner: 'owner' });
