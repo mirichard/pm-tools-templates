@@ -48,9 +48,9 @@ Infrastructure projects focus on designing, implementing, and managing the hardw
 - [Infrastructure Assessment Template](./infrastructure/infrastructure_assessment_template.md)
 - [Capacity Planning Worksheet](./infrastructure/capacity_planning_worksheet.md)
 - [Migration Plan Template](./infrastructure/migration_plan_template.md)
-- [Data Center Design Template](./infrastructure/data_center_design_template.md)
+- [Data Center Design Template](../../domains/planning/industry-specializations/information-technology/infrastructure/data_center_design_template.md)
 - [Infrastructure Deployment Checklist](./infrastructure/deployment_checklist.md)
-- [Disaster Recovery Plan Template](./infrastructure/disaster_recovery_template.md)
+- [Disaster Recovery Plan Template](../../domains/planning/industry-specializations/information-technology/infrastructure/disaster_recovery_template.md)
 
 #### Delivery Approach Selection
 - **Phased Rollout**: For large infrastructure changes with high risk of service disruption

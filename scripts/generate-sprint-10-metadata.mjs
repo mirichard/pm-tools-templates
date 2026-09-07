@@ -83,11 +83,14 @@ const migration = mappings.map(item => {
   };
 });
 
-for (const executedMove of migration.filter(item => item.action === 'executed-move-with-legacy-pointer')) {
-  const rewriteDependency = value => value === executedMove.source || value === executedMove.destination ? executedMove.destination : value;
-  for (const move of migration) {
-    move.dependencies = [...new Set((move.dependencies || []).map(rewriteDependency))];
-  }
+const executedMoves = migration.filter(item => item.action === 'executed-move-with-legacy-pointer');
+const executedPathMap = new Map(executedMoves.flatMap(move => [
+  [move.source, move.destination],
+  [move.destination, move.destination]
+]));
+const rewriteExecutedPath = value => executedPathMap.get(value) || value;
+for (const move of migration) {
+  move.dependencies = [...new Set((move.dependencies || []).map(rewriteExecutedPath))];
 }
 
 const ordered = [...mappings].sort((a, b) => a.path.localeCompare(b.path));
@@ -119,27 +122,27 @@ const crossReferences = ordered.map(item => {
   };
 });
 
-for (const move of migration.filter(item => item.action !== 'planned-move-not-executed')) {
-  const rewrite = value => value === move.source ? move.destination : value;
-  for (const record of crossReferences) {
-    record.prerequisites = (record.prerequisites || []).map(rewrite);
-    record.related_assets = (record.related_assets || []).map(rewrite);
-    record.complementary_assets = (record.complementary_assets || []).map(rewrite);
-    if (record.previous_workflow_step) record.previous_workflow_step = rewrite(record.previous_workflow_step);
-    if (record.next_workflow_step) record.next_workflow_step = rewrite(record.next_workflow_step);
-  }
+for (const record of crossReferences) {
+  record.prerequisites = (record.prerequisites || []).map(rewriteExecutedPath);
+  record.related_assets = (record.related_assets || []).map(rewriteExecutedPath);
+  record.complementary_assets = (record.complementary_assets || []).map(rewriteExecutedPath);
+  if (record.previous_workflow_step) record.previous_workflow_step = rewriteExecutedPath(record.previous_workflow_step);
+  if (record.next_workflow_step) record.next_workflow_step = rewriteExecutedPath(record.next_workflow_step);
+}
+
+for (const move of executedMoves) {
   const legacyIndex = crossReferences.findIndex(item => item.path === move.source);
   if (legacyIndex >= 0) crossReferences.splice(legacyIndex, 1);
-  const legacyRecord = existingCrossByPath.get(move.source);
+  const legacyRecord = existingCrossByPath.get(move.source) || existingCrossByPath.get(move.destination);
   if (!legacyRecord) continue;
   const replacement = {
     ...legacyRecord,
     path: move.destination,
-    prerequisites: (legacyRecord.prerequisites || []).map(rewrite),
-    related_assets: (legacyRecord.related_assets || []).map(rewrite),
-    complementary_assets: (legacyRecord.complementary_assets || []).map(rewrite),
-    previous_workflow_step: legacyRecord.previous_workflow_step ? rewrite(legacyRecord.previous_workflow_step) : null,
-    next_workflow_step: legacyRecord.next_workflow_step ? rewrite(legacyRecord.next_workflow_step) : null
+    prerequisites: (legacyRecord.prerequisites || []).map(rewriteExecutedPath),
+    related_assets: (legacyRecord.related_assets || []).map(rewriteExecutedPath),
+    complementary_assets: (legacyRecord.complementary_assets || []).map(rewriteExecutedPath),
+    previous_workflow_step: legacyRecord.previous_workflow_step ? rewriteExecutedPath(legacyRecord.previous_workflow_step) : null,
+    next_workflow_step: legacyRecord.next_workflow_step ? rewriteExecutedPath(legacyRecord.next_workflow_step) : null
   };
   const index = crossReferences.findIndex(item => item.path === move.destination);
   if (index >= 0) crossReferences[index] = replacement;

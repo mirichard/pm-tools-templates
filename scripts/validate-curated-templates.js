@@ -48,6 +48,7 @@ function warn(msg) {
   let errors = 0;
   const titleMap = new Map(); // normalized title -> [indexes]
   const allowedRoots = new Set([
+    'domains',
     'templates',
     'role-based-toolkits',
     'project-lifecycle',
@@ -206,4 +207,3 @@ function warn(msg) {
 
   console.log(`✅ templates/templates.json is valid (${list.length} templates)`);
 })();
-

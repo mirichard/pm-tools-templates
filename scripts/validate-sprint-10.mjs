@@ -60,6 +60,7 @@ const evidenceFiles = [
   'docs/vnext/sprint-10/phase-gate-2-evidence.md',
   'docs/vnext/sprint-10/sprint-review.md',
   'docs/vnext/sprint-11/b1a-migration-record.md',
+  'docs/vnext/sprint-12/b1b-migration-record.md',
   'docs/benefits/benefits-review-process.md',
   'templates/universal/benefits-review-template.md',
   'templates/universal/benefits-variance-analysis-template.md',
