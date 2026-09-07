@@ -320,7 +320,7 @@ Step 8: RANK AND OUTPUT
   - [Program Charter Template](../../templates/traditional/Traditional/Templates/program_charter_template.md)
   - [Executive Dashboard Template](../../business-stakeholder-suite/executive-dashboards/powerbi-integration/executive-dashboard-template.md)
   - [Budget Dashboard Template](../../business-stakeholder-suite/financial-governance/budget-dashboard-template.md)
-  - [Enterprise Stakeholder Analysis Template](../../project-lifecycle/01-initiation/stakeholder-analysis/enterprise-stakeholder-analysis-template.md)
+  - [Enterprise Stakeholder Analysis Template](../../domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/enterprise-stakeholder-analysis-template.md)
 - **Rationale:** Large projects need multi-level governance, executive reporting, and stakeholder management
 
 **R019: Enterprise Project**

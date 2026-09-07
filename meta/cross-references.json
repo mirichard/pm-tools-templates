@@ -157,6 +157,29 @@
       "next_workflow_step": "project-assessment-suite/stakeholder-engagement-assessment-template.md"
     },
     {
+      "path": "domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/enterprise-stakeholder-analysis-template.md",
+      "domain": {
+        "primary": "Stakeholder",
+        "secondary": [
+          "Planning"
+        ],
+        "rationale": "Title/path indicates stakeholder-focused purpose"
+      },
+      "prerequisites": [
+        "project-assessment-suite/current-state-analysis-template.md"
+      ],
+      "related_assets": [
+        "project-lifecycle/01-initiation/stakeholder-analysis/agile-stakeholder-map-template.md",
+        "domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/stakeholder-register-template.md"
+      ],
+      "complementary_assets": [
+        "project-assessment-suite/current-state-analysis-template.md",
+        "industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md"
+      ],
+      "previous_workflow_step": "project-lifecycle/01-initiation/stakeholder-analysis/agile-stakeholder-map-template.md",
+      "next_workflow_step": "domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/stakeholder-register-template.md"
+    },
+    {
       "path": "domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/stakeholder-register-template.md",
       "domain": {
         "primary": "Stakeholder",
@@ -167,11 +190,11 @@
       },
       "prerequisites": [],
       "related_assets": [
-        "project-lifecycle/01-initiation/stakeholder-analysis/enterprise-stakeholder-analysis-template.md",
+        "domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/enterprise-stakeholder-analysis-template.md",
         "role-based-toolkits/product-owner/okr-template.md"
       ],
       "complementary_assets": [],
-      "previous_workflow_step": "project-lifecycle/01-initiation/stakeholder-analysis/enterprise-stakeholder-analysis-template.md",
+      "previous_workflow_step": "domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/enterprise-stakeholder-analysis-template.md",
       "next_workflow_step": "role-based-toolkits/product-owner/okr-template.md"
     },
     {
@@ -765,7 +788,7 @@
       ],
       "complementary_assets": [
         "project-assessment-suite/current-state-analysis-template.md",
-        "project-lifecycle/01-initiation/stakeholder-analysis/enterprise-stakeholder-analysis-template.md"
+        "domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/enterprise-stakeholder-analysis-template.md"
       ],
       "previous_workflow_step": "industry-specializations/information-technology/cybersecurity/risk_assessment_template.md",
       "next_workflow_step": "industry-specializations/information-technology/infrastructure/infrastructure_assessment_template.md"
@@ -1491,7 +1514,7 @@
       ],
       "complementary_assets": [
         "industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md",
-        "project-lifecycle/01-initiation/stakeholder-analysis/enterprise-stakeholder-analysis-template.md"
+        "domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/enterprise-stakeholder-analysis-template.md"
       ],
       "previous_workflow_step": "methodology-frameworks/emerging-methods/devops/release_management_template.md",
       "next_workflow_step": "project-assessment-suite/executive-summary-template.md"
@@ -1515,7 +1538,7 @@
       ],
       "complementary_assets": [
         "industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md",
-        "project-lifecycle/01-initiation/stakeholder-analysis/enterprise-stakeholder-analysis-template.md"
+        "domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/enterprise-stakeholder-analysis-template.md"
       ],
       "previous_workflow_step": "project-assessment-suite/current-state-analysis-template.md",
       "next_workflow_step": "project-assessment-suite/future-state-blueprint-template.md"
@@ -1834,37 +1857,14 @@
       ],
       "related_assets": [
         "project-assessment-suite/waterfall-project-assessment-template.md",
-        "project-lifecycle/01-initiation/stakeholder-analysis/enterprise-stakeholder-analysis-template.md"
+        "domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/enterprise-stakeholder-analysis-template.md"
       ],
       "complementary_assets": [
         "project-lifecycle/02-planning/project-management-plan/traditional-project-management-plan-template.md",
         "project-assessment-suite/agile-project-assessment-template.md"
       ],
       "previous_workflow_step": "project-assessment-suite/waterfall-project-assessment-template.md",
-      "next_workflow_step": "project-lifecycle/01-initiation/stakeholder-analysis/enterprise-stakeholder-analysis-template.md"
-    },
-    {
-      "path": "project-lifecycle/01-initiation/stakeholder-analysis/enterprise-stakeholder-analysis-template.md",
-      "domain": {
-        "primary": "Stakeholder",
-        "secondary": [
-          "Planning"
-        ],
-        "rationale": "Title/path indicates stakeholder-focused purpose"
-      },
-      "prerequisites": [
-        "project-assessment-suite/current-state-analysis-template.md"
-      ],
-      "related_assets": [
-        "project-lifecycle/01-initiation/stakeholder-analysis/agile-stakeholder-map-template.md",
-        "domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/stakeholder-register-template.md"
-      ],
-      "complementary_assets": [
-        "project-assessment-suite/current-state-analysis-template.md",
-        "industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md"
-      ],
-      "previous_workflow_step": "project-lifecycle/01-initiation/stakeholder-analysis/agile-stakeholder-map-template.md",
-      "next_workflow_step": "domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/stakeholder-register-template.md"
+      "next_workflow_step": "domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/enterprise-stakeholder-analysis-template.md"
     },
     {
       "path": "project-lifecycle/02-planning/business-requirements/business_requirements_document_template.md",

@@ -15,7 +15,7 @@
 
 title: "Enterprise Stakeholder Analysis Template"
 
-[**➡️ View Template File**](/project-lifecycle/01-initiation/stakeholder-analysis/enterprise-stakeholder-analysis-template.md)
+[**➡️ View Template File**](/domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/enterprise-stakeholder-analysis-template.md)
 
 ## 📈 Quality Score
 

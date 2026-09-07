@@ -493,7 +493,7 @@
       }
     },
     {
-      "path": "project-lifecycle/01-initiation/stakeholder-analysis/enterprise-stakeholder-analysis-template.md",
+      "path": "domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/enterprise-stakeholder-analysis-template.md",
       "title": "Enterprise Stakeholder Analysis Template",
       "methodology": "universal",
       "value_flow": {

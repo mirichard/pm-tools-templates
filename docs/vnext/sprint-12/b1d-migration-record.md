@@ -1,32 +1,32 @@
-# B1C Migration Execution Record
+# B1D Migration Execution Record
 
 - Issues: [#1057](https://github.com/mirichard/pm-tools-templates/issues/1057) (parent [#711](https://github.com/mirichard/pm-tools-templates/issues/711))
-- Batch: `B1C`
+- Batch: `B1D`
 - Asset count: `1`
 - Rollback owner: `mirichard`
-- Status: **PASS — integrated**
-- Initial implementation commit: `7be5305d90cb9a7ee078a92e5762ee54442b11f3`
-- Delivery PR: [#1085](https://github.com/mirichard/pm-tools-templates/pull/1085)
+- Status: **PASS (local, pre-integration)**
+- Initial implementation commit: `dc6baa15a7163f2e8a9fd60deb3a1f721df2a507`
+- Delivery PR: [#1086](https://github.com/mirichard/pm-tools-templates/pull/1086)
 
 ## Scope decision
 
-B1C is the smallest executable continuation after B1B: one Stakeholder-domain asset. Moving the EVM dashboard first also converts a dependency used by two remaining Batch 1 assets—the advanced business case and budget dashboard templates—to its canonical location.
+B1D moves one Stakeholder-domain asset with no unresolved dependency inside the remaining Batch 1 inventory. It unlocks the budget-template dependency chain, which subsequently feeds the executive-report, executive-dashboard, budget-dashboard, and traditional-charter migrations.
 
 | Legacy source | Canonical destination | Pre-move SHA-256 |
 |---|---|---|
-| `business-stakeholder-suite/financial-governance/enhanced-business-cases/evm-dashboard-template.md` | `domains/stakeholder/business-stakeholder-suite/financial-governance/enhanced-business-cases/evm-dashboard-template.md` | `4e10e837a2028a3bf287768652da91000487d140efc9799b5c19d0602fd901e5` |
+| `project-lifecycle/01-initiation/stakeholder-analysis/enterprise-stakeholder-analysis-template.md` | `domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/enterprise-stakeholder-analysis-template.md` | `a63bf5c5e6d9c5fa3a2db03e6bd04bcd902bc013d61e9e890568f265363e6555` |
 
 Historical/generated evidence files (`site/.lighthouseci/**`, `*.bak`) and the proposal snapshot `templates/templates.proposed.json` are retained unchanged. Maintained catalogs, indexes, mappings, current documentation, and navigation records use the canonical destination.
 
 ## Checkpoint A — Baseline
 
-- `pre_batch_sha`: `a962df1a41783ba5ca471e800c9660c1c0d3df5a`
-- Working branch: `feat/b1c-evm-dashboard`, created cleanly from current `origin/main`
+- `pre_batch_sha`: `cd58f39d99531429df48fd0dce7e05c0439aa180`
+- Working branch: `feat/b1d-enterprise-stakeholder-analysis`, created cleanly from current `origin/main`
 - Source existed; destination did not exist
 - Baseline metadata generation: PASS — 137 migration records and 137/137 cross-reference coverage with no generated drift
 - Baseline domain counts: Stakeholder `11`, Team `9`, Delivery `69`, Planning `8`, Uncertainty `13`, Measurement `27`
 - Baseline strict migration, curated-template, canonical-path, filtered-anchor, and focused test checks: PASS
-- B1B prerequisite: PASS — PR [#1084](https://github.com/mirichard/pm-tools-templates/pull/1084) merged; pre-merge visual run [#370](https://github.com/mirichard/pm-tools-templates/actions/runs/34114056079) and post-merge run [#371](https://github.com/mirichard/pm-tools-templates/actions/runs/34115828621) succeeded
+- B1C prerequisite: PASS — PR [#1085](https://github.com/mirichard/pm-tools-templates/pull/1085) merged at `cd58f39d99531429df48fd0dce7e05c0439aa180`; post-merge visual run [#34121847059](https://github.com/mirichard/pm-tools-templates/actions/runs/34121847059) succeeded
 
 ## Checkpoints B/C — Move and compatibility
 
@@ -55,9 +55,9 @@ python3 scripts/check_anchor_links_filtered.py
 npm run test:ci
 ```
 
-Decision: **PASS — integrated; retain B1C on `main`**. Required PR checks and post-merge validation passed.
+Decision: **PASS (local, pre-integration) — retain B1D on the delivery branch**. Required PR checks and post-merge legacy bookmark checks remain integration gates.
 
-Rollback boundary: revert the B1C delivery commit/merge commit, regenerate metadata/indexes, and rerun the same suite. Do not start B1D until B1C is integrated and final evidence is recorded.
+Rollback boundary: revert the B1D delivery commit/merge commit, regenerate metadata/indexes, and rerun the same suite. Do not start B1E until B1D is integrated and final evidence is recorded.
 
 ## Exit evidence
 
@@ -70,10 +70,10 @@ Rollback boundary: revert the B1C delivery commit/merge commit, regenerate metad
 | Canonical uniqueness and duplicate control | PASS — no migration-created canonical duplicate |
 | Bidirectional navigation and internal links | PASS — 137/137 cross-reference coverage; strict and filtered-link validators pass |
 | Catalog/index discovery | PASS — 139-template catalog and generated index point to the canonical destination |
-| Reviewed visual regression | PASS — run [#374](https://github.com/mirichard/pm-tools-templates/actions/runs/34119655205), attempt 2 |
-| Legacy `/blob/main/...` bookmark compatibility | PASS — legacy and canonical GitHub URLs returned HTTP 200 |
-| Required CI | PASS — all 16 PR workflows completed successfully or were conditionally skipped as designed |
-| Production rollback command | `git revert cd58f39d99531429df48fd0dce7e05c0439aa180` |
+| Reviewed visual regression | PASS — run 34124382808 (attempt 2) |
+| Legacy `/blob/main/...` bookmark compatibility | Pending post-merge |
+| Required CI | PASS — run 34124382792 |
+| Production rollback command | Pending merge SHA |
 
 Local exit suite results:
 

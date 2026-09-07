@@ -37,7 +37,7 @@ Effective stakeholder management is often the difference between project success
 - Ideal for software development and product projects
 
 ### Enterprise Stakeholder Analysis
-**[→ Download: Enterprise Stakeholder Analysis Template](enterprise-stakeholder-analysis-template.md)**
+**[→ Download: Enterprise Stakeholder Analysis Template](../../../domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/enterprise-stakeholder-analysis-template.md)**
 - Comprehensive analysis for large, complex projects
 - Multi-level organizational mapping
 - Change impact assessment by stakeholder group
@@ -325,4 +325,3 @@ Effective stakeholder management is often the difference between project success
 ---
 
 *Effective stakeholder management starts with thorough analysis. Use these templates and frameworks to build strong stakeholder relationships from day one.*
-
