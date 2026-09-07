@@ -70,7 +70,7 @@ Rollback boundary: revert the B1C delivery commit/merge commit, regenerate metad
 | Canonical uniqueness and duplicate control | PASS — no migration-created canonical duplicate |
 | Bidirectional navigation and internal links | PASS — 137/137 cross-reference coverage; strict and filtered-link validators pass |
 | Catalog/index discovery | PASS — 139-template catalog and generated index point to the canonical destination |
-| Reviewed visual regression | PASS — run [#373](https://github.com/mirichard/pm-tools-templates/actions/runs/34118412210), attempt 2 |
+| Reviewed visual regression | PASS — run [#374](https://github.com/mirichard/pm-tools-templates/actions/runs/34119655205), attempt 2 |
 | Legacy `/blob/main/...` bookmark compatibility | Pending post-merge |
 | Required CI | PASS — all 16 PR workflows completed successfully or were conditionally skipped as designed |
 | Production rollback command | Pending merge SHA |
