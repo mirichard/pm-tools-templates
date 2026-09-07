@@ -79,6 +79,15 @@ jobs:
         run: ./scripts/measure_step.sh "npm install" -- bash -lc "if [ -f package-lock.json ]; then npm ci; else npm install; fi"
       - name: Test documentation scanner
         run: npm run test:doc-scan
+      - name: Test migration wave planner and validator
+        run: npm run test:migration-wave
+      - name: Validate recorded migration wave manifests
+        run: |
+          shopt -s nullglob
+          manifests=(meta/migration-waves/*.json)
+          for manifest in "${manifests[@]}"; do
+            node scripts/validate-migration-wave.mjs --manifest "$manifest"
+          done
       - name: Test (coverage, fail if below thresholds)
         run: ./scripts/measure_step.sh "unit tests (coverage)" -- npm run test:ci
       - uses: actions/upload-artifact@v7
