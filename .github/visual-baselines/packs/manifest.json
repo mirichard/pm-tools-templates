@@ -1,14 +1,14 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-07T12:05:47.148556+00:00",
-  "source_workflow_run": 34119655205,
-  "source_commit": "4b5f26548fb30af5af7961f86d4aa28dbd50a7a2",
+  "generated_at": "2026-09-07T13:03:01.186730+00:00",
+  "source_workflow_run": 34124382808,
+  "source_commit": "b5d896338f824d25206e58d6966f73f88b87a7ce",
   "format": "webp",
   "width": 256,
   "maximum_dimension": 16383,
   "quality": 85,
   "method": 4,
-  "total_screenshots": 1810,
+  "total_screenshots": 1822,
   "packs": [
     {
       "file": "chromium-desktop-shard-0.zip",
@@ -79,6 +79,20 @@
       "screenshots": 5,
       "bytes": 377430,
       "sha256": "31f03ccd4b0284a89194c17c34946f41079926fb5f6b2578455e95c8eb586f9c"
+    },
+    {
+      "file": "zz-b1d-chromium-desktop.zip",
+      "browser_resolution": "chromium_desktop",
+      "screenshots": 6,
+      "bytes": 125948,
+      "sha256": "1e9bb83b71a824be07ad6b6620ff26e55908757ca81b20c27bfde83074f58ac1"
+    },
+    {
+      "file": "zz-b1d-chromium-mobile.zip",
+      "browser_resolution": "chromium_mobile",
+      "screenshots": 6,
+      "bytes": 377996,
+      "sha256": "31fa53efaec2515700f5878a68c6500cc334e0b29f2b7dcac233ad2d30df5529"
     }
   ]
 }
