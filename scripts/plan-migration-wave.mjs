@@ -20,6 +20,9 @@ const args = argumentsFrom(process.argv.slice(2));
 for (const required of ['wave-id', 'batch', 'domain', 'rollback-owner']) {
   if (!args[required]) throw new Error(`--${required} is required`);
 }
+if (args.inventory && path.resolve(root, args.inventory) !== path.resolve(root, 'meta/migration-inventory.json')) {
+  throw new Error('--inventory currently supports only meta/migration-inventory.json');
+}
 const inventory = JSON.parse(fs.readFileSync(path.join(root, args.inventory || 'meta/migration-inventory.json'), 'utf8'));
 const preBatchSha = args['pre-batch-sha'] || execFileSync('git', ['rev-parse', 'HEAD'], { cwd: root, encoding: 'utf8' }).trim();
 const plan = buildWavePlan({

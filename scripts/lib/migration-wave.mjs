@@ -180,10 +180,12 @@ export function validateWavePlan({ root, inventory, plan }) {
       else if (sha256File(destinationPath) !== asset.pre_move_sha256) fail(`destination hash mismatch: ${asset.destination}`);
       if (move.execution?.batch_id !== plan.wave_id) fail(`execution batch_id mismatch: ${asset.source}`);
       if (fs.existsSync(sourcePath)) {
-        const pointer = fs.readFileSync(sourcePath, 'utf8').match(/\[[^\]]+\]\(([^)]+)\)/);
-        if (!pointer) fail(`legacy pointer is missing: ${asset.source}`);
+        const pointer = fs.readFileSync(sourcePath, 'utf8')
+          .match(/^\s*\*{0,2}Canonical location:?\*{0,2}\s*\[[^\]]+\]\(([^)]+)\)/im);
+        if (!pointer?.[1]) fail(`legacy pointer is missing: ${asset.source}`);
         else {
-          const resolved = path.resolve(path.dirname(sourcePath), pointer[1].split('#')[0]);
+          const target = pointer[1].split('#')[0].trim().replace(/^<|>$/g, '');
+          const resolved = path.resolve(path.dirname(sourcePath), target);
           if (resolved !== destinationPath) fail(`legacy pointer does not resolve to destination: ${asset.source}`);
         }
       }
