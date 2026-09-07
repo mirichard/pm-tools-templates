@@ -1,6 +1,3 @@
-Warning: truncated output (original token count: 58896)
-Total output lines: 4778
-
 {
   "batch_execution_records": [
     {
@@ -2039,7 +2036,717 @@ Total output lines: 4778
         "site/.lighthouseci/lhr-1755874277795.json",
         "templates/templates.json",
         "templates/templates.proposed.json"
-   …8896 tokens truncated…les/scaled-agile-large-bundle.md",
+      ],
+      "batch": 3,
+      "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move",
+      "action": "planned-move-not-executed"
+    },
+    {
+      "source": "templates/hybrid/Hybrid/Templates/integrated_change_strategy_template.md",
+      "destination": "domains/delivery/templates/hybrid/Hybrid/Templates/integrated_change_strategy_template.md",
+      "primary_domain": "Delivery",
+      "secondary_domains": [
+        "Stakeholder",
+        "Uncertainty"
+      ],
+      "dependencies": [
+        "methodology-frameworks/hybrid/infrastructure/hybrid-infrastructure-template.md",
+        "templates/hybrid/Hybrid/Templates/progressive_acceptance_plan_template.md",
+        "templates/hybrid/Hybrid/Templates/hybrid_release_planning_template.md"
+      ],
+      "affected_internal_references": [
+        "TEMPLATE_INDEX.md",
+        "docs/archive/README-20250805.md",
+        "docs/decision-engine/bundles/hybrid-balanced-bundle.md",
+        "docs/decision-engine/template-decision-tree.md",
+        "docs/site/public/changelog/integrated_change_strategy_template.json",
+        "docs/templates/integrated_change_strategy_template.md",
+        "meta/architecture-research/806-rules-engine-implementation.md",
+        "meta/architecture-research/807-rules-engine-validation.md",
+        "meta/architecture-research/809-decision-tree-design.md",
+        "meta/cross-references.json",
+        "meta/domain-mapping.json",
+        "meta/migration-inventory.json",
+        "meta/value-flow-mapping.json",
+        "organizational_change_management_framework.md",
+        "project-docs/progressive_acceptance_plan.md",
+        "site/.lighthouseci/lhr-1755874277795.html",
+        "site/.lighthouseci/lhr-1755874277795.json",
+        "templates/hybrid/Hybrid/Templates/progressive_acceptance_plan_template.md",
+        "templates/templates.json",
+        "templates/templates.proposed.json",
+        "tools/template-generator-cli/src/recommender.js"
+      ],
+      "batch": 3,
+      "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move",
+      "action": "planned-move-not-executed"
+    },
+    {
+      "source": "templates/traditional/Traditional/Templates/issue_log_template.md",
+      "destination": "domains/delivery/templates/traditional/Traditional/Templates/issue_log_template.md",
+      "primary_domain": "Delivery",
+      "secondary_domains": [
+        "Stakeholder",
+        "Uncertainty"
+      ],
+      "dependencies": [
+        "templates/traditional/Traditional/Templates/program_charter_template.md",
+        "templates/traditional/Traditional/Templates/program_management_plan_template.md",
+        "templates/traditional/Traditional/Process_Groups/Closing/project_closure_report_template.md"
+      ],
+      "affected_internal_references": [
+        "GUIDE.md",
+        "TEMPLATE_INDEX.md",
+        "docs/archive/README-20250805.md",
+        "docs/decision-engine/bundles/standard-traditional-medium-bundle.md",
+        "docs/decision-engine/template-decision-tree.md",
+        "docs/site/public/changelog/issue_log_template.json",
+        "docs/templates/issue_log_template.md",
+        "meta/architecture-research/806-rules-engine-implementation.md",
+        "meta/architecture-research/807-rules-engine-validation.md",
+        "meta/cross-references.json",
+        "meta/domain-mapping.json",
+        "meta/migration-inventory.json",
+        "meta/value-flow-mapping.json",
+        "site/.lighthouseci/lhr-1755874277795.html",
+        "site/.lighthouseci/lhr-1755874277795.json",
+        "templates/templates.json",
+        "templates/templates.proposed.json"
+      ],
+      "batch": 3,
+      "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move",
+      "action": "planned-move-not-executed"
+    },
+    {
+      "source": "methodology-frameworks/agile-scrum/scaling-frameworks/less/less_retrospective_template.md",
+      "destination": "domains/team/methodology-frameworks/agile-scrum/scaling-frameworks/less/less_retrospective_template.md",
+      "primary_domain": "Team",
+      "secondary_domains": [
+        "Stakeholder"
+      ],
+      "dependencies": [
+        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md",
+        "methodology-frameworks/agile-scrum/scaling-frameworks/less/cross_team_coordination_template.md",
+        "methodology-frameworks/agile-scrum/scaling-frameworks/less/less_sprint_planning_template.md"
+      ],
+      "affected_internal_references": [
+        "TEMPLATE_INDEX.md",
+        "docs/archive/README-20250805.md",
+        "docs/methodology-guides/methodology-comparison.md",
+        "docs/templates/less_retrospective_template.md",
+        "meta/architecture-research/806-rules-engine-implementation.md",
+        "meta/cross-references.json",
+        "meta/domain-mapping.json",
+        "meta/migration-inventory.json",
+        "meta/value-flow-mapping.json",
+        "methodology-frameworks/agile-scrum/scaling-frameworks/less/cross_team_coordination_template.md",
+        "methodology-frameworks/agile-scrum/scaling-frameworks/less/less_sprint_planning_template.md",
+        "methodology-frameworks/agile-scrum/scaling-frameworks/less/overall_product_backlog_template.md",
+        "quick-start-kits/less-adoption/README.md",
+        "site/.lighthouseci/lhr-1755874277795.html",
+        "site/.lighthouseci/lhr-1755874277795.json",
+        "templates/templates.json",
+        "templates/templates.proposed.json"
+      ],
+      "batch": 2,
+      "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move",
+      "action": "planned-move-not-executed"
+    },
+    {
+      "source": "methodology-frameworks/agile-scrum/scaling-frameworks/less/less_sprint_planning_template.md",
+      "destination": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/less/less_sprint_planning_template.md",
+      "primary_domain": "Delivery",
+      "secondary_domains": [
+        "Stakeholder",
+        "Uncertainty"
+      ],
+      "dependencies": [
+        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md",
+        "methodology-frameworks/agile-scrum/scaling-frameworks/less/cross_team_coordination_template.md",
+        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_art_coordination_template.md"
+      ],
+      "affected_internal_references": [
+        "TEMPLATE_INDEX.md",
+        "docs/archive/README-20250805.md",
+        "docs/methodology-guides/methodology-comparison.md",
+        "docs/templates/less_sprint_planning_template.md",
+        "meta/cross-references.json",
+        "meta/domain-mapping.json",
+        "meta/migration-inventory.json",
+        "meta/value-flow-mapping.json",
+        "methodology-frameworks/agile-scrum/scaling-frameworks/less/cross_team_coordination_template.md",
+        "methodology-frameworks/agile-scrum/scaling-frameworks/less/less_retrospective_template.md",
+        "methodology-frameworks/agile-scrum/scaling-frameworks/less/overall_product_backlog_template.md",
+        "quick-start-kits/less-adoption/README.md",
+        "site/.lighthouseci/lhr-1755874277795.html",
+        "site/.lighthouseci/lhr-1755874277795.json",
+        "templates/templates.json",
+        "templates/templates.proposed.json"
+      ],
+      "batch": 3,
+      "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move",
+      "action": "planned-move-not-executed"
+    },
+    {
+      "source": "industry-specializations/healthcare-pharmaceutical/manufacturing/manufacturing_batch_record_template.md",
+      "destination": "domains/delivery/industry-specializations/healthcare-pharmaceutical/manufacturing/manufacturing_batch_record_template.md",
+      "primary_domain": "Delivery",
+      "secondary_domains": [
+        "Uncertainty"
+      ],
+      "dependencies": [
+        "industry-specializations/healthcare-pharmaceutical/manufacturing/batch_record_template.md",
+        "industry-specializations/healthcare-pharmaceutical/regulatory/computer_system_validation_protocol_template.md",
+        "industry-specializations/healthcare-pharmaceutical/validation/equipment_qualification_protocol_template.md"
+      ],
+      "affected_internal_references": [
+        "TEMPLATE_INDEX.md",
+        "docs/templates/manufacturing_batch_record_template.md",
+        "meta/cross-references.json",
+        "meta/domain-mapping.json",
+        "meta/migration-inventory.json",
+        "meta/value-flow-mapping.json",
+        "site/.lighthouseci/lhr-1755874277795.html",
+        "site/.lighthouseci/lhr-1755874277795.json",
+        "templates/templates.json",
+        "templates/templates.proposed.json"
+      ],
+      "batch": 3,
+      "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move",
+      "action": "planned-move-not-executed"
+    },
+    {
+      "source": "role-based-toolkits/project-manager/essential-templates/meeting-templates.md",
+      "destination": "domains/uncertainty/role-based-toolkits/project-manager/essential-templates/meeting-templates.md",
+      "primary_domain": "Uncertainty",
+      "secondary_domains": [
+        "Planning",
+        "Stakeholder"
+      ],
+      "dependencies": [
+        "project-assessment-suite/current-state-analysis-template.md",
+        "industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md",
+        "domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/enterprise-stakeholder-analysis-template.md"
+      ],
+      "affected_internal_references": [
+        "TEMPLATE_INDEX.md",
+        "docs/decision-engine/bundles/new-pm-traditional-small-bundle.md",
+        "docs/templates/meeting-templates.md",
+        "meta/architecture-research/806-rules-engine-implementation.md",
+        "meta/cross-references.json",
+        "meta/domain-mapping.json",
+        "meta/migration-inventory.json",
+        "meta/value-flow-mapping.json",
+        "role-based-toolkits/project-manager/essential-templates/README.md",
+        "site/.lighthouseci/lhr-1755874277795.html",
+        "site/.lighthouseci/lhr-1755874277795.json",
+        "templates/templates.json",
+        "templates/templates.proposed.json"
+      ],
+      "batch": 2,
+      "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move",
+      "action": "planned-move-not-executed"
+    },
+    {
+      "source": "methodology-frameworks/agile-scrum/scaling-frameworks/safe/metrics_dashboard_template.md",
+      "destination": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/metrics_dashboard_template.md",
+      "primary_domain": "Delivery",
+      "secondary_domains": [
+        "Stakeholder",
+        "Uncertainty"
+      ],
+      "dependencies": [
+        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_metrics_dashboard_template.md",
+        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_metrics_reporting_template.md",
+        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_art_coordination_template.md"
+      ],
+      "affected_internal_references": [
+        "TEMPLATE_INDEX.md",
+        "business-stakeholder-suite/safe-executive-dashboards/README.md",
+        "docs/methodology-guides/methodology-comparison.md",
+        "docs/templates/metrics_dashboard_template.md",
+        "docs/templates/safe_metrics_dashboard_template.md",
+        "industry-specializations/information-technology/software-development/test_plan_template.md",
+        "meta/cross-references.json",
+        "meta/domain-mapping.json",
+        "meta/migration-inventory.json",
+        "meta/value-flow-mapping.json",
+        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md",
+        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/pi_planning_template.md",
+        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/portfolio_kanban_template.md",
+        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_art_coordination_template.md",
+        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_metrics_reporting_template.md",
+        "role-based-toolkits/release-train-engineer/README.md",
+        "site/.lighthouseci/lhr-1755874277795.html",
+        "site/.lighthouseci/lhr-1755874277795.json",
+        "templates/templates.json",
+        "templates/templates.proposed.json"
+      ],
+      "batch": 3,
+      "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move",
+      "action": "planned-move-not-executed"
+    },
+    {
+      "source": "industry-specializations/information-technology/infrastructure/migration_plan_template.md",
+      "destination": "domains/uncertainty/industry-specializations/information-technology/infrastructure/migration_plan_template.md",
+      "primary_domain": "Uncertainty",
+      "secondary_domains": [
+        "Planning"
+      ],
+      "dependencies": [
+        "domains/planning/industry-specializations/information-technology/infrastructure/data_center_design_template.md",
+        "domains/planning/industry-specializations/information-technology/infrastructure/disaster_recovery_template.md",
+        "industry-specializations/healthcare-pharmaceutical/regulatory/regulatory_strategy_plan_template.md"
+      ],
+      "affected_internal_references": [
+        "TEMPLATE_INDEX.md",
+        "docs/templates/migration_plan_template.md",
+        "industry-specializations/information-technology/README.md",
+        "meta/cross-references.json",
+        "meta/domain-mapping.json",
+        "meta/migration-inventory.json",
+        "meta/value-flow-mapping.json",
+        "site/.lighthouseci/lhr-1755874277795.html",
+        "site/.lighthouseci/lhr-1755874277795.json",
+        "templates/templates.json",
+        "templates/templates.proposed.json"
+      ],
+      "batch": 2,
+      "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move",
+      "action": "planned-move-not-executed"
+    },
+    {
+      "source": "methodology-frameworks/emerging-methods/devops/monitoring_alerting_template.md",
+      "destination": "domains/measurement/methodology-frameworks/emerging-methods/devops/monitoring_alerting_template.md",
+      "primary_domain": "Measurement",
+      "secondary_domains": [
+        "Stakeholder"
+      ],
+      "dependencies": [
+        "project-assessment-suite/current-state-analysis-template.md",
+        "industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md",
+        "domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/enterprise-stakeholder-analysis-template.md"
+      ],
+      "affected_internal_references": [
+        "TEMPLATE_INDEX.md",
+        "docs/archive/README-20250805.md",
+        "docs/methodology-guides/methodology-comparison.md",
+        "docs/templates/monitoring_alerting_template.md",
+        "meta/cross-references.json",
+        "meta/domain-mapping.json",
+        "meta/migration-inventory.json",
+        "meta/value-flow-mapping.json",
+        "methodology-frameworks/emerging-methods/devops/devsecops_template.md",
+        "methodology-frameworks/emerging-methods/devops/infrastructure_as_code_template.md",
+        "site/.lighthouseci/lhr-1755874277795.html",
+        "site/.lighthouseci/lhr-1755874277795.json",
+        "templates/templates.json",
+        "templates/templates.proposed.json"
+      ],
+      "batch": 4,
+      "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move",
+      "action": "planned-move-not-executed"
+    },
+    {
+      "source": "role-based-toolkits/product-owner/okr-template.md",
+      "destination": "domains/stakeholder/role-based-toolkits/product-owner/okr-template.md",
+      "primary_domain": "Stakeholder",
+      "secondary_domains": [
+        "Planning"
+      ],
+      "dependencies": [
+        "role-based-toolkits/project-manager/essential-templates/meeting-templates.md",
+        "methodology-frameworks/emerging-methods/devops/monitoring_alerting_template.md",
+        "domains/stakeholder/project-assessment-suite/stakeholder-engagement-assessment-template.md"
+      ],
+      "affected_internal_references": [
+        "TEMPLATE_INDEX.md",
+        "docs/templates/okr-template.md",
+        "meta/architecture-research/771-value-flow-scenario-walkthroughs.md",
+        "meta/cross-references.json",
+        "meta/domain-mapping.json",
+        "meta/migration-inventory.json",
+        "meta/value-flow-mapping.json",
+        "role-based-toolkits/product-owner/README.md",
+        "role-based-toolkits/product-owner/product-metrics-dashboard.md",
+        "site/.lighthouseci/lhr-1755874277795.html",
+        "site/.lighthouseci/lhr-1755874277795.json",
+        "templates/templates.json",
+        "templates/templates.proposed.json"
+      ],
+      "batch": 1,
+      "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move",
+      "action": "executed-move-with-legacy-pointer",
+      "execution": {
+        "batch_id": "B1F",
+        "pre_batch_sha": "fe526dbec23f50a1ac9d97a7ae5f798a69d78c40",
+        "pre_move_source_sha256": "8275b3a215747acf56a7a6324a5994ce78a312548bcfba25fda8b712a172e841",
+        "evidence_file": "docs/vnext/sprint-12/b1f-migration-record.md",
+        "rollback_owner": "mirichard"
+      }
+    },
+    {
+      "source": "industry-specializations/healthcare-pharmaceutical/validation/operational_qualification_protocol_template.md",
+      "destination": "domains/delivery/industry-specializations/healthcare-pharmaceutical/validation/operational_qualification_protocol_template.md",
+      "primary_domain": "Delivery",
+      "secondary_domains": [],
+      "dependencies": [
+        "industry-specializations/healthcare-pharmaceutical/validation/installation_qualification_protocol_template.md",
+        "industry-specializations/healthcare-pharmaceutical/manufacturing/process_control_template.md",
+        "industry-specializations/healthcare-pharmaceutical/compliance/capa_management_template.md"
+      ],
+      "affected_internal_references": [
+        "TEMPLATE_INDEX.md",
+        "docs/templates/operational_qualification_protocol_template.md",
+        "meta/cross-references.json",
+        "meta/domain-mapping.json",
+        "meta/migration-inventory.json",
+        "meta/value-flow-mapping.json",
+        "site/.lighthouseci/lhr-1755874277795.html",
+        "site/.lighthouseci/lhr-1755874277795.json",
+        "templates/templates.json",
+        "templates/templates.proposed.json"
+      ],
+      "batch": 3,
+      "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move",
+      "action": "planned-move-not-executed"
+    },
+    {
+      "source": "methodology-frameworks/agile-scrum/scaling-frameworks/less/overall_product_backlog_template.md",
+      "destination": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/less/overall_product_backlog_template.md",
+      "primary_domain": "Delivery",
+      "secondary_domains": [
+        "Stakeholder",
+        "Uncertainty"
+      ],
+      "dependencies": [
+        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_art_coordination_template.md",
+        "methodology-frameworks/agile-scrum/sprint-planning/sprint_planning_template.md",
+        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md"
+      ],
+      "affected_internal_references": [
+        "TEMPLATE_INDEX.md",
+        "docs/archive/README-20250805.md",
+        "docs/methodology-guides/methodology-comparison.md",
+        "docs/templates/overall_product_backlog_template.md",
+        "meta/cross-references.json",
+        "meta/domain-mapping.json",
+        "meta/migration-inventory.json",
+        "meta/value-flow-mapping.json",
+        "methodology-frameworks/agile-scrum/scaling-frameworks/less/cross_team_coordination_template.md",
+        "methodology-frameworks/agile-scrum/scaling-frameworks/less/less_retrospective_template.md",
+        "methodology-frameworks/agile-scrum/scaling-frameworks/less/less_sprint_planning_template.md",
+        "quick-start-kits/less-adoption/README.md",
+        "site/.lighthouseci/lhr-1755874277795.html",
+        "site/.lighthouseci/lhr-1755874277795.json",
+        "templates/templates.json",
+        "templates/templates.proposed.json"
+      ],
+      "batch": 3,
+      "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move",
+      "action": "planned-move-not-executed"
+    },
+    {
+      "source": "industry-specializations/healthcare-pharmaceutical/validation/performance_qualification_protocol_template.md",
+      "destination": "domains/delivery/industry-specializations/healthcare-pharmaceutical/validation/performance_qualification_protocol_template.md",
+      "primary_domain": "Delivery",
+      "secondary_domains": [],
+      "dependencies": [
+        "industry-specializations/healthcare-pharmaceutical/manufacturing/batch_record_template.md",
+        "industry-specializations/healthcare-pharmaceutical/regulatory/computer_system_validation_protocol_template.md",
+        "industry-specializations/healthcare-pharmaceutical/validation/equipment_qualification_protocol_template.md"
+      ],
+      "affected_internal_references": [
+        "TEMPLATE_INDEX.md",
+        "docs/templates/performance_qualification_protocol_template.md",
+        "meta/cross-references.json",
+        "meta/domain-mapping.json",
+        "meta/migration-inventory.json",
+        "meta/value-flow-mapping.json",
+        "site/.lighthouseci/lhr-1755874277795.html",
+        "site/.lighthouseci/lhr-1755874277795.json",
+        "templates/templates.json",
+        "templates/templates.proposed.json"
+      ],
+      "batch": 3,
+      "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move",
+      "action": "planned-move-not-executed"
+    },
+    {
+      "source": "industry-specializations/healthcare-pharmaceutical/lifecycle/pharmaceutical_qbd_template.md",
+      "destination": "domains/delivery/industry-specializations/healthcare-pharmaceutical/lifecycle/pharmaceutical_qbd_template.md",
+      "primary_domain": "Delivery",
+      "secondary_domains": [
+        "Uncertainty"
+      ],
+      "dependencies": [
+        "industry-specializations/healthcare-pharmaceutical/manufacturing/batch_record_template.md",
+        "industry-specializations/healthcare-pharmaceutical/regulatory/computer_system_validation_protocol_template.md",
+        "industry-specializations/healthcare-pharmaceutical/validation/equipment_qualification_protocol_template.md"
+      ],
+      "affected_internal_references": [
+        "TEMPLATE_INDEX.md",
+        "docs/templates/pharmaceutical_qbd_template.md",
+        "industry-specializations/healthcare-pharmaceutical/README.md",
+        "meta/cross-references.json",
+        "meta/domain-mapping.json",
+        "meta/migration-inventory.json",
+        "meta/value-flow-mapping.json",
+        "site/.lighthouseci/lhr-1755874277795.html",
+        "site/.lighthouseci/lhr-1755874277795.json",
+        "templates/templates.json",
+        "templates/templates.proposed.json"
+      ],
+      "batch": 3,
+      "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move",
+      "action": "planned-move-not-executed"
+    },
+    {
+      "source": "methodology-frameworks/agile-scrum/scaling-frameworks/safe/pi_planning_template.md",
+      "destination": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/pi_planning_template.md",
+      "primary_domain": "Delivery",
+      "secondary_domains": [
+        "Stakeholder",
+        "Uncertainty"
+      ],
+      "dependencies": [
+        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/portfolio_kanban_template.md",
+        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_program_increment_planning_template.md",
+        "methodology-frameworks/agile-scrum/sprint-planning/sprint_planning_template.md"
+      ],
+      "affected_internal_references": [
+        "TEMPLATE_INDEX.md",
+        "business-stakeholder-suite/safe-executive-dashboards/README.md",
+        "docs/templates/pi_planning_template.md",
+        "meta/cross-references.json",
+        "meta/domain-mapping.json",
+        "meta/migration-inventory.json",
+        "meta/value-flow-mapping.json",
+        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md",
+        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/metrics_dashboard_template.md",
+        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/portfolio_kanban_template.md",
+        "role-based-toolkits/program-manager/methodology-variants/README.md",
+        "role-based-toolkits/release-train-engineer/README.md",
+        "site/.lighthouseci/lhr-1755874277795.html",
+        "site/.lighthouseci/lhr-1755874277795.json",
+        "templates/templates.json",
+        "templates/templates.proposed.json"
+      ],
+      "batch": 3,
+      "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move",
+      "action": "planned-move-not-executed"
+    },
+    {
+      "source": "methodology-frameworks/agile-scrum/scaling-frameworks/safe/portfolio_kanban_template.md",
+      "destination": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/portfolio_kanban_template.md",
+      "primary_domain": "Delivery",
+      "secondary_domains": [
+        "Stakeholder",
+        "Uncertainty"
+      ],
+      "dependencies": [
+        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_portfolio_kanban_template.md",
+        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/pi_planning_template.md",
+        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_program_increment_planning_template.md"
+      ],
+      "affected_internal_references": [
+        "TEMPLATE_INDEX.md",
+        "business-stakeholder-suite/safe-executive-dashboards/README.md",
+        "docs/archive/README-20250805.md",
+        "docs/methodology-guides/methodology-comparison.md",
+        "docs/templates/portfolio_kanban_template.md",
+        "docs/templates/safe_portfolio_kanban_template.md",
+        "meta/architecture-research/806-rules-engine-implementation.md",
+        "meta/cross-references.json",
+        "meta/domain-mapping.json",
+        "meta/migration-inventory.json",
+        "meta/value-flow-mapping.json",
+        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md",
+        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/metrics_dashboard_template.md",
+        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/pi_planning_template.md",
+        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_art_coordination_template.md",
+        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_metrics_dashboard_template.md",
+        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_metrics_reporting_template.md",
+        "role-based-toolkits/release-train-engineer/README.md",
+        "site/.lighthouseci/lhr-1755874277795.html",
+        "site/.lighthouseci/lhr-1755874277795.json",
+        "templates/templates.json",
+        "templates/templates.proposed.json"
+      ],
+      "batch": 3,
+      "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move",
+      "action": "planned-move-not-executed"
+    },
+    {
+      "source": "industry-specializations/information-technology/service-management/problem_management_process_template.md",
+      "destination": "domains/delivery/industry-specializations/information-technology/service-management/problem_management_process_template.md",
+      "primary_domain": "Delivery",
+      "secondary_domains": [],
+      "dependencies": [
+        "domains/stakeholder/business-stakeholder-suite/financial-governance/enhanced-business-cases/advanced-business-case-template.md",
+        "project-lifecycle/02-planning/project-management-plan/agile-release-plan-template.md",
+        "project-lifecycle/02-planning/risk-management/agile-risk-board-template.md"
+      ],
+      "affected_internal_references": [
+        "TEMPLATE_INDEX.md",
+        "docs/templates/problem_management_process_template.md",
+        "meta/cross-references.json",
+        "meta/domain-mapping.json",
+        "meta/migration-inventory.json",
+        "meta/needs-review.md",
+        "meta/value-flow-mapping.json",
+        "site/.lighthouseci/lhr-1755874277795.html",
+        "site/.lighthouseci/lhr-1755874277795.json",
+        "templates/templates.json",
+        "templates/templates.proposed.json"
+      ],
+      "batch": 3,
+      "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move",
+      "action": "planned-move-not-executed"
+    },
+    {
+      "source": "industry-specializations/healthcare-pharmaceutical/manufacturing/process_control_template.md",
+      "destination": "domains/delivery/industry-specializations/healthcare-pharmaceutical/manufacturing/process_control_template.md",
+      "primary_domain": "Delivery",
+      "secondary_domains": [
+        "Uncertainty"
+      ],
+      "dependencies": [
+        "industry-specializations/healthcare-pharmaceutical/compliance/capa_management_template.md",
+        "industry-specializations/healthcare-pharmaceutical/regulatory/compliance_risk_assessment_template.md",
+        "industry-specializations/healthcare-pharmaceutical/validation/computer_system_validation_protocol_template.md"
+      ],
+      "affected_internal_references": [
+        "TEMPLATE_INDEX.md",
+        "docs/templates/process_control_template.md",
+        "meta/cross-references.json",
+        "meta/domain-mapping.json",
+        "meta/migration-inventory.json",
+        "meta/value-flow-mapping.json",
+        "site/.lighthouseci/lhr-1755874277795.html",
+        "site/.lighthouseci/lhr-1755874277795.json",
+        "templates/templates.json",
+        "templates/templates.proposed.json"
+      ],
+      "batch": 3,
+      "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move",
+      "action": "planned-move-not-executed"
+    },
+    {
+      "source": "project-assessment-suite/process-maturity-assessment-template.md",
+      "destination": "domains/measurement/project-assessment-suite/process-maturity-assessment-template.md",
+      "primary_domain": "Measurement",
+      "secondary_domains": [
+        "Stakeholder",
+        "Uncertainty"
+      ],
+      "dependencies": [
+        "project-assessment-suite/risk-management-assessment-template.md",
+        "project-assessment-suite/current-state-analysis-template.md",
+        "industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md"
+      ],
+      "affected_internal_references": [
+        "TEMPLATE_INDEX.md",
+        "docs/USE_CASE_PATHWAYS.md",
+        "docs/decision-engine/bundles/enterprise-governance-bundle.md",
+        "docs/decision-engine/bundles/scaled-agile-large-bundle.md",
+        "docs/decision-engine/template-decision-tree.md",
+        "docs/templates/process-maturity-assessment-template.md",
+        "meta/architecture-research/771-value-flow-scenario-walkthroughs.md",
+        "meta/architecture-research/806-rules-engine-implementation.md",
+        "meta/cross-references.json",
+        "meta/domain-mapping.json",
+        "meta/migration-inventory.json",
+        "meta/value-flow-mapping.json",
+        "project-assessment-suite/README.md",
+        "project-assessment-suite/current-state-analysis-template.md",
+        "project-lifecycle/04-monitoring-control/progress-tracking/kpi-mapping-template.md",
+        "site/.lighthouseci/lhr-1755874277795.html",
+        "site/.lighthouseci/lhr-1755874277795.json",
+        "templates/templates.json",
+        "templates/templates.proposed.json"
+      ],
+      "batch": 4,
+      "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move",
+      "action": "planned-move-not-executed"
+    },
+    {
+      "source": "industry-specializations/healthcare-pharmaceutical/validation/process_validation_master_plan_template.md",
+      "destination": "domains/delivery/industry-specializations/healthcare-pharmaceutical/validation/process_validation_master_plan_template.md",
+      "primary_domain": "Delivery",
+      "secondary_domains": [
+        "Uncertainty"
+      ],
+      "dependencies": [
+        "industry-specializations/healthcare-pharmaceutical/compliance/gxp_training_plan_template.md",
+        "industry-specializations/healthcare-pharmaceutical/validation/validation_master_plan_template.md",
+        "industry-specializations/healthcare-pharmaceutical/compliance/capa_management_template.md"
+      ],
+      "affected_internal_references": [
+        "TEMPLATE_INDEX.md",
+        "docs/templates/process_validation_master_plan_template.md",
+        "meta/cross-references.json",
+        "meta/domain-mapping.json",
+        "meta/migration-inventory.json",
+        "meta/value-flow-mapping.json",
+        "site/.lighthouseci/lhr-1755874277795.html",
+        "site/.lighthouseci/lhr-1755874277795.json",
+        "templates/templates.json",
+        "templates/templates.proposed.json"
+      ],
+      "batch": 3,
+      "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move",
+      "action": "planned-move-not-executed"
+    },
+    {
+      "source": "industry-specializations/healthcare-pharmaceutical/regulatory/process_validation_protocol_template.md",
+      "destination": "domains/delivery/industry-specializations/healthcare-pharmaceutical/regulatory/process_validation_protocol_template.md",
+      "primary_domain": "Delivery",
+      "secondary_domains": [
+        "Uncertainty"
+      ],
+      "dependencies": [
+        "industry-specializations/healthcare-pharmaceutical/regulatory/compliance_risk_assessment_template.md",
+        "industry-specializations/healthcare-pharmaceutical/regulatory/regulatory_inspection_readiness_plan_template.md",
+        "industry-specializations/healthcare-pharmaceutical/manufacturing/batch_record_template.md"
+      ],
+      "affected_internal_references": [
+        "TEMPLATE_INDEX.md",
+        "docs/templates/process_validation_protocol_template.md",
+        "meta/architecture-research/806-rules-engine-implementation.md",
+        "meta/cross-references.json",
+        "meta/domain-mapping.json",
+        "meta/migration-inventory.json",
+        "meta/value-flow-mapping.json",
+        "site/.lighthouseci/lhr-1755874277795.html",
+        "site/.lighthouseci/lhr-1755874277795.json",
+        "templates/templates.json",
+        "templates/templates.proposed.json"
+      ],
+      "batch": 3,
+      "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move",
+      "action": "planned-move-not-executed"
+    },
+    {
+      "source": "templates/agile/product_backlog_template.md",
+      "destination": "domains/delivery/templates/agile/product_backlog_template.md",
+      "primary_domain": "Delivery",
+      "secondary_domains": [
+        "Stakeholder",
+        "Uncertainty"
+      ],
+      "dependencies": [
+        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_program_increment_planning_template.md",
+        "templates/agile/sprint_review_template.md",
+        "templates/agile/sprint_planning_template.md"
+      ],
+      "affected_internal_references": [
+        "GUIDE.md",
+        "TEMPLATE_INDEX.md",
+        "docs/archive/README-20250611.md",
+        "docs/archive/README-20250805.md",
+        "docs/decision-engine/bundles/new-pm-agile-small-bundle.md",
+        "docs/decision-engine/bundles/scaled-agile-large-bundle.md",
         "docs/decision-engine/bundles/standard-agile-medium-bundle.md",
         "docs/decision-engine/template-decision-tree.md",
         "docs/methodology-guides/methodology-comparison.md",
