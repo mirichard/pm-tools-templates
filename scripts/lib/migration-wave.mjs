@@ -1,9 +1,19 @@
 import crypto from 'node:crypto';
 import fs from 'node:fs';
 import path from 'node:path';
+import { execFileSync } from 'node:child_process';
 
 export const MAX_WAVE_ASSETS = 15;
 export const DEFAULT_WAVE_ASSETS = 12;
+export const REQUIRED_CHECKPOINTS = [
+  'baseline-and-hashes',
+  'canonical-moves',
+  'legacy-pointers',
+  'canonical-references',
+  'affected-scope-validation',
+  'reviewed-visual-regression',
+  'post-merge-verification'
+];
 
 export function sha256File(file) {
   return crypto.createHash('sha256').update(fs.readFileSync(file)).digest('hex');
@@ -11,11 +21,11 @@ export function sha256File(file) {
 
 export function classifyDependency(root, dependency, inventoryByPath, selectedPaths) {
   const linked = inventoryByPath.get(dependency);
-  if (linked?.action === 'executed-move-with-legacy-pointer') {
-    return { path: dependency, status: 'satisfied-executed', resolved_path: linked.destination };
-  }
   if (linked && (selectedPaths.has(linked.source) || selectedPaths.has(linked.destination))) {
     return { path: dependency, status: 'same-wave', resolved_path: linked.destination };
+  }
+  if (linked?.action === 'executed-move-with-legacy-pointer') {
+    return { path: dependency, status: 'satisfied-executed', resolved_path: linked.destination };
   }
   if (fs.existsSync(path.join(root, dependency))) {
     return { path: dependency, status: 'satisfied-existing-deferred', resolved_path: dependency };
@@ -99,15 +109,7 @@ export function buildWavePlan({
     max_assets: maxAssets,
     asset_count: assets.length,
     assets,
-    checkpoints: [
-      'baseline-and-hashes',
-      'canonical-moves',
-      'legacy-pointers',
-      'canonical-references',
-      'affected-scope-validation',
-      'reviewed-visual-regression',
-      'post-merge-verification'
-    ],
+    checkpoints: [...REQUIRED_CHECKPOINTS],
     validation_commands: [
       'node scripts/validate-migration-wave.mjs --manifest <manifest>',
       'node scripts/generate-sprint-10-metadata.mjs',
@@ -143,11 +145,36 @@ export function validateWavePlan({ root, inventory, plan }) {
   }
   if (!plan.inventory_generated) fail('inventory_generated is required');
   else if (plan.inventory_generated !== inventory.generated) fail('inventory_generated does not match migration inventory snapshot');
-  if (!/^[0-9a-f]{40}$/.test(plan.pre_batch_sha || '')) fail('pre_batch_sha must be a 40-character Git SHA');
+  if (!/^[0-9a-f]{40}$/.test(plan.pre_batch_sha || '')) {
+    fail('pre_batch_sha must be a 40-character Git SHA');
+  } else {
+    let checkpointExists = true;
+    try {
+      execFileSync('git', ['cat-file', '-e', `${plan.pre_batch_sha}^{commit}`], { cwd: root, stdio: 'ignore' });
+    } catch {
+      checkpointExists = false;
+      fail('pre_batch_sha does not resolve to a commit');
+    }
+    if (checkpointExists) {
+      try {
+        execFileSync('git', ['merge-base', '--is-ancestor', plan.pre_batch_sha, 'HEAD'], { cwd: root, stdio: 'ignore' });
+      } catch {
+        fail('pre_batch_sha is not an ancestor of HEAD');
+      }
+    }
+  }
   if (!plan.rollback_owner) fail('rollback_owner is required');
+  if (JSON.stringify(plan.checkpoints) !== JSON.stringify(REQUIRED_CHECKPOINTS)) {
+    fail('checkpoints must contain the complete ordered checkpoint set');
+  }
+  if (plan.rollback?.strategy !== 'revert-wave-merge-commit') fail('rollback strategy is missing or unsupported');
   if (plan.rollback?.command !== 'git revert <wave-merge-sha>') fail('rollback command is missing or unsupported');
+  if (plan.rollback?.granularity !== 'wave') fail('rollback granularity must be wave');
+  if (plan.rollback?.asset_hashes_preserved !== true) fail('rollback must preserve asset hashes');
 
   const bySource = new Map(inventory.moves.map(move => [move.source, move]));
+  const inventoryByPath = new Map(inventory.moves.flatMap(move => [[move.source, move], [move.destination, move]]));
+  const selectedPaths = new Set((plan.assets || []).flatMap(asset => [asset.source, asset.destination]));
   const sources = new Set();
   const destinations = new Set();
   for (const asset of plan.assets || []) {
@@ -190,8 +217,21 @@ export function validateWavePlan({ root, inventory, plan }) {
         }
       }
     }
-    for (const dependency of asset.dependencies || []) {
-      if (dependency.status === 'blocked-missing') fail(`missing dependency: ${dependency.path}`);
+    const recordedDependencies = Array.isArray(asset.dependencies) ? asset.dependencies : [];
+    const expectedDependencyPaths = move.dependencies || [];
+    if (recordedDependencies.length !== expectedDependencyPaths.length) {
+      fail(`dependency count mismatch: ${asset.source}`);
+    }
+    for (let index = 0; index < expectedDependencyPaths.length; index += 1) {
+      const dependencyPath = expectedDependencyPaths[index];
+      const recorded = recordedDependencies[index];
+      const expected = classifyDependency(root, dependencyPath, inventoryByPath, selectedPaths);
+      if (!recorded || recorded.path !== expected.path) fail(`dependency path mismatch: ${asset.source}`);
+      if (!recorded || recorded.status !== expected.status) fail(`dependency status mismatch: ${asset.source} -> ${dependencyPath}`);
+      if (!recorded || recorded.resolved_path !== expected.resolved_path) {
+        fail(`dependency resolved path mismatch: ${asset.source} -> ${dependencyPath}`);
+      }
+      if (expected.status === 'blocked-missing') fail(`missing dependency: ${dependencyPath}`);
     }
   }
   return errors;

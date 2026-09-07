@@ -65,7 +65,9 @@ jobs:
           date -u +"now_utc=%Y-%m-%dT%H:%M:%SZ"
       - uses: actions/checkout@v6
         with:
-          fetch-depth: 1
+          # Manifest validation verifies that the rollback SHA exists and is an
+          # ancestor of the tested revision, which requires repository history.
+          fetch-depth: 0
       - name: Test sensitive-information scanner
         run: bash tests/detect-sensitive.test.sh
       - uses: actions/setup-node@v6
