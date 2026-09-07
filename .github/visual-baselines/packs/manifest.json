@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-07T11:58:03.339475+00:00",
-  "source_workflow_run": 34118412210,
-  "source_commit": "01c2816c6528370d6d88d938668ee5b4dccabf9f",
+  "generated_at": "2026-09-07T12:05:47.148556+00:00",
+  "source_workflow_run": 34119655205,
+  "source_commit": "4b5f26548fb30af5af7961f86d4aa28dbd50a7a2",
   "format": "webp",
   "width": 256,
   "maximum_dimension": 16383,
@@ -70,15 +70,15 @@
       "file": "zz-b1c-chromium-desktop.zip",
       "browser_resolution": "chromium_desktop",
       "screenshots": 5,
-      "bytes": 143180,
-      "sha256": "dbcf33228a8f2f6d5c74eab9f8483979e725df07e013943e01c141dafbec045f"
+      "bytes": 143596,
+      "sha256": "e015282114d6d8b90c85e9223d35478ba5a57282a6f1bf8b585fd82272b83108"
     },
     {
       "file": "zz-b1c-chromium-mobile.zip",
       "browser_resolution": "chromium_mobile",
       "screenshots": 5,
-      "bytes": 376738,
-      "sha256": "34586f1a3f71f6179ac9a49fd8653148f9b0a04e2b2932c2ca83065520ce4300"
+      "bytes": 377430,
+      "sha256": "31f03ccd4b0284a89194c17c34946f41079926fb5f6b2578455e95c8eb586f9c"
     }
   ]
 }
