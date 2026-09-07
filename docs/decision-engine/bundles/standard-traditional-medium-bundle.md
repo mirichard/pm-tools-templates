@@ -20,7 +20,7 @@
 | 4 | [Risk Register](../../../project-lifecycle/02-planning/risk-management/risk-register-template.md) | Identify, assess, and mitigate risks | ~30 min |
 | 5 | [Risk Management Plan](../../../project-lifecycle/02-planning/risk-management/risk-management-plan-template.md) | Define risk approach and thresholds | ~45 min |
 | 6 | [Resource Management Plan](../../../project-lifecycle/02-planning/resource-planning/resource-management-plan-template.md) | Staff assignments and resource planning | ~45 min |
-| 7 | [Budget Template](../../../role-based-toolkits/project-manager/essential-templates/budget-template.md) | Financial tracking and forecasting | ~30 min |
+| 7 | [Budget Template](../../../domains/planning/role-based-toolkits/project-manager/essential-templates/budget-template.md) | Financial tracking and forecasting | ~30 min |
 
 ### Recommended (add during execution)
 

@@ -35,7 +35,7 @@
 
 - **Detailed scheduling** — Small projects often don't need formal Gantt charts or WBS. If scope grows, see the [Standard Traditional Bundle](standard-traditional-medium-bundle.md).
 - **Risk management** — Low-risk projects skip formal risk registers. Add the [Risk Register](../../../project-lifecycle/02-planning/risk-management/risk-register-template.md) if risks emerge.
-- **Financial governance** — No budget or ROI tracking. Add the [Budget Template](../../../role-based-toolkits/project-manager/essential-templates/budget-template.md) if needed.
+- **Financial governance** — No budget or ROI tracking. Add the [Budget Template](../../../domains/planning/role-based-toolkits/project-manager/essential-templates/budget-template.md) if needed.
 - **Industry compliance** — No regulatory templates included.
 
 ## Next Steps

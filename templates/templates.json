@@ -107,7 +107,7 @@
           "similarity": 79
         },
         {
-          "path": "role-based-toolkits/project-manager/essential-templates/budget-template.md",
+          "path": "domains/planning/role-based-toolkits/project-manager/essential-templates/budget-template.md",
           "title": "Budget Template",
           "methodology": "universal",
           "tags": [
@@ -1200,7 +1200,10 @@
       ]
     },
     {
-      "path": "role-based-toolkits/project-manager/essential-templates/budget-template.md",
+      "path": "domains/planning/role-based-toolkits/project-manager/essential-templates/budget-template.md",
+      "alternate_paths": [
+        "role-based-toolkits/project-manager/essential-templates/budget-template.md"
+      ],
       "title": "Budget Template",
       "methodology": "universal",
       "complexity": "advanced",
@@ -1455,7 +1458,7 @@
           "similarity": 88
         },
         {
-          "path": "role-based-toolkits/project-manager/essential-templates/budget-template.md",
+          "path": "domains/planning/role-based-toolkits/project-manager/essential-templates/budget-template.md",
           "title": "Budget Template",
           "methodology": "universal",
           "tags": [
@@ -2650,7 +2653,7 @@
           "similarity": 100
         },
         {
-          "path": "role-based-toolkits/project-manager/essential-templates/budget-template.md",
+          "path": "domains/planning/role-based-toolkits/project-manager/essential-templates/budget-template.md",
           "title": "Budget Template",
           "methodology": "universal",
           "tags": [
@@ -3634,7 +3637,7 @@
           "similarity": 100
         },
         {
-          "path": "role-based-toolkits/project-manager/essential-templates/budget-template.md",
+          "path": "domains/planning/role-based-toolkits/project-manager/essential-templates/budget-template.md",
           "title": "Budget Template",
           "methodology": "universal",
           "tags": [
@@ -5097,7 +5100,7 @@
           "similarity": 90
         },
         {
-          "path": "role-based-toolkits/project-manager/essential-templates/budget-template.md",
+          "path": "domains/planning/role-based-toolkits/project-manager/essential-templates/budget-template.md",
           "title": "Budget Template",
           "methodology": "universal",
           "tags": [
@@ -5160,7 +5163,7 @@
           "similarity": 80
         },
         {
-          "path": "role-based-toolkits/project-manager/essential-templates/budget-template.md",
+          "path": "domains/planning/role-based-toolkits/project-manager/essential-templates/budget-template.md",
           "title": "Budget Template",
           "methodology": "universal",
           "tags": [
@@ -9875,7 +9878,7 @@
       ],
       "relatedTemplates": [
         {
-          "path": "role-based-toolkits/project-manager/essential-templates/budget-template.md",
+          "path": "domains/planning/role-based-toolkits/project-manager/essential-templates/budget-template.md",
           "title": "Budget Template",
           "methodology": "universal",
           "tags": [
@@ -9982,7 +9985,7 @@
           "similarity": 93
         },
         {
-          "path": "role-based-toolkits/project-manager/essential-templates/budget-template.md",
+          "path": "domains/planning/role-based-toolkits/project-manager/essential-templates/budget-template.md",
           "title": "Budget Template",
           "methodology": "universal",
           "tags": [
@@ -10159,7 +10162,7 @@
           "similarity": 90
         },
         {
-          "path": "role-based-toolkits/project-manager/essential-templates/budget-template.md",
+          "path": "domains/planning/role-based-toolkits/project-manager/essential-templates/budget-template.md",
           "title": "Budget Template",
           "methodology": "universal",
           "tags": [
@@ -12005,7 +12008,7 @@
       ],
       "relatedTemplates": [
         {
-          "path": "role-based-toolkits/project-manager/essential-templates/budget-template.md",
+          "path": "domains/planning/role-based-toolkits/project-manager/essential-templates/budget-template.md",
           "title": "Budget Template",
           "methodology": "universal",
           "tags": [
@@ -12456,7 +12459,7 @@
           "similarity": 80
         },
         {
-          "path": "role-based-toolkits/project-manager/essential-templates/budget-template.md",
+          "path": "domains/planning/role-based-toolkits/project-manager/essential-templates/budget-template.md",
           "title": "Budget Template",
           "methodology": "universal",
           "tags": [
