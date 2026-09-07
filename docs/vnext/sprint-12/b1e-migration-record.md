@@ -5,8 +5,8 @@
 - Asset count: `1`
 - Rollback owner: `mirichard`
 - Status: **PASS (local, pre-integration)**
-- Initial implementation commit: pending
-- Delivery PR: pending
+- Initial implementation commit: `81a9b3f90b5bf4d71dd6a0e839291e4b5e0aed99`
+- Delivery PR: [#1087](https://github.com/mirichard/pm-tools-templates/pull/1087)
 
 ## Scope decision
 
