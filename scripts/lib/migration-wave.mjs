@@ -225,8 +225,10 @@ export function validateWavePlan({ root, inventory, plan }) {
     for (let index = 0; index < expectedDependencyPaths.length; index += 1) {
       const dependencyPath = expectedDependencyPaths[index];
       const recorded = recordedDependencies[index];
-      const expected = classifyDependency(root, dependencyPath, inventoryByPath, selectedPaths);
-      if (!recorded || recorded.path !== expected.path) fail(`dependency path mismatch: ${asset.source}`);
+      const recordedIdentity = inventoryByPath.get(recorded?.path)?.destination || recorded?.path;
+      const expectedIdentity = inventoryByPath.get(dependencyPath)?.destination || dependencyPath;
+      const expected = classifyDependency(root, recorded?.path || dependencyPath, inventoryByPath, selectedPaths);
+      if (!recorded || recordedIdentity !== expectedIdentity) fail(`dependency path mismatch: ${asset.source}`);
       if (!recorded || recorded.status !== expected.status) fail(`dependency status mismatch: ${asset.source} -> ${dependencyPath}`);
       if (!recorded || recorded.resolved_path !== expected.resolved_path) {
         fail(`dependency resolved path mismatch: ${asset.source} -> ${dependencyPath}`);

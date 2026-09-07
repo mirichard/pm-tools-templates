@@ -61,7 +61,7 @@ PMBOK 7th Edition defines **8 performance domains**:
 - `role-based-toolkits/*/stakeholder-*`
 - `project-lifecycle/01-initiation/stakeholder-analysis/`
 - `business-stakeholder-suite/` (communication, executive dashboards)
-- `project-assessment-suite/stakeholder-engagement-assessment-template.md`
+- `domains/stakeholder/project-assessment-suite/stakeholder-engagement-assessment-template.md`
 
 ### Domain 2: TEAM
 **Scope:** Building, developing, leading, and sustaining the project team — including structures, performance, culture, and collaboration.

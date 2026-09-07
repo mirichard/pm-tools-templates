@@ -289,7 +289,7 @@ Step 8: RANK AND OUTPUT
 - **Supplements:**
   - [Compliance Management Template](../../industry-specializations/financial-services/compliance/compliance-management-template.md)
   - [ROI Tracking Template](../../templates/traditional/Traditional/Knowledge_Areas/Project_Cost_Management/roi_tracking_template.md)
-  - [Advanced Business Case Template](../../business-stakeholder-suite/financial-governance/enhanced-business-cases/advanced-business-case-template.md)
+  - [Advanced Business Case Template](../../domains/stakeholder/business-stakeholder-suite/financial-governance/enhanced-business-cases/advanced-business-case-template.md)
   - [EVM Dashboard Template](../../domains/stakeholder/business-stakeholder-suite/financial-governance/enhanced-business-cases/evm-dashboard-template.md)
 - **Why:** Financial services require compliance tracking, value demonstration, and earned value management
 
@@ -318,8 +318,8 @@ Step 8: RANK AND OUTPUT
 - **Action:** Include full template suite + governance templates
 - **Additional recommendations:**
   - [Program Charter Template](../../templates/traditional/Traditional/Templates/program_charter_template.md)
-  - [Executive Dashboard Template](../../business-stakeholder-suite/executive-dashboards/powerbi-integration/executive-dashboard-template.md)
-  - [Budget Dashboard Template](../../business-stakeholder-suite/financial-governance/budget-dashboard-template.md)
+  - [Executive Dashboard Template](../../domains/stakeholder/business-stakeholder-suite/executive-dashboards/powerbi-integration/executive-dashboard-template.md)
+  - [Budget Dashboard Template](../../domains/stakeholder/business-stakeholder-suite/financial-governance/budget-dashboard-template.md)
   - [Enterprise Stakeholder Analysis Template](../../domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/enterprise-stakeholder-analysis-template.md)
 - **Rationale:** Large projects need multi-level governance, executive reporting, and stakeholder management
 
@@ -329,7 +329,7 @@ Step 8: RANK AND OUTPUT
 - **Additional recommendations:**
   - [Program Management Plan Template](../../templates/traditional/Traditional/Templates/program_management_plan_template.md)
   - [ROI Tracking Template](../../templates/traditional/Traditional/Knowledge_Areas/Project_Cost_Management/roi_tracking_template.md)
-  - [Executive Report Templates](../../business-stakeholder-suite/executive-dashboards/Word/Executive-Report-Templates.md)
+  - [Executive Report Templates](../../domains/stakeholder/business-stakeholder-suite/executive-dashboards/Word/Executive-Report-Templates.md)
   - [Portfolio Kanban Template](../../methodology-frameworks/agile-scrum/scaling-frameworks/safe/portfolio_kanban_template.md) (agile)
   - [SAFe Program Increment Planning Template](../../methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_program_increment_planning_template.md) (agile)
 - **Rationale:** Enterprise programs require portfolio-level visibility, value tracking, and multi-team coordination

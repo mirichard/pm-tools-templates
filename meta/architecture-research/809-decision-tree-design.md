@@ -168,7 +168,7 @@ After answering all 6 questions, combine the activated rules to generate a recom
 - [SAFe Program Increment Planning Template](../../methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_program_increment_planning_template.md) — Multi-team planning
 - [Enterprise Risk Assessment Template](../../project-lifecycle/02-planning/risk-management/enterprise-risk-assessment-template.md) — Risk governance (R009)
 - [Governance Assessment Template](../../project-assessment-suite/governance-assessment-template.md) — Governance (R009)
-- [Executive Dashboard Template](../../business-stakeholder-suite/executive-dashboards/powerbi-integration/executive-dashboard-template.md) — Executive reporting (R018)
+- [Executive Dashboard Template](../../domains/stakeholder/business-stakeholder-suite/executive-dashboards/powerbi-integration/executive-dashboard-template.md) — Executive reporting (R018)
 - [Technical Design Document Template](../../industry-specializations/information-technology/software-development/technical_design_document_template.md) — IT supplement (R012)
 
 **Recommended Toolkit:** [Role-Based Toolkits](../../role-based-toolkits/) + [Business Stakeholder Suite](../../business-stakeholder-suite/) + [SAFe/LeSS Scaling Frameworks](../../methodology-frameworks/agile-scrum/scaling-frameworks/)
@@ -220,7 +220,7 @@ After answering all 6 questions, combine the activated rules to generate a recom
 - [GxP Training Plan Template](../../industry-specializations/healthcare-pharmaceutical/compliance/gxp_training_plan_template.md) — Training (R013)
 - [Quality Management Review Template](../../industry-specializations/healthcare-pharmaceutical/quality/quality_management_review_template.md) — Quality (R013)
 - [ROI Tracking Template](../../templates/traditional/Traditional/Knowledge_Areas/Project_Cost_Management/roi_tracking_template.md) — Value tracking (R019)
-- [Executive Report Templates](../../business-stakeholder-suite/executive-dashboards/Word/Executive-Report-Templates.md) — Executive reporting (R019)
+- [Executive Report Templates](../../domains/stakeholder/business-stakeholder-suite/executive-dashboards/Word/Executive-Report-Templates.md) — Executive reporting (R019)
 
 **Recommended Toolkit:** [Role-Based Toolkits](../../role-based-toolkits/) + [Business Stakeholder Suite](../../business-stakeholder-suite/)
 
@@ -257,8 +257,8 @@ After answering all 6 questions, combine the activated rules to generate a recom
 - [Enterprise Risk Assessment Template](../../project-lifecycle/02-planning/risk-management/enterprise-risk-assessment-template.md) — Enterprise risk (R009)
 - [Governance Assessment Template](../../project-assessment-suite/governance-assessment-template.md) — Governance (R009)
 - [Project Health Assessment Template](../../project-assessment-suite/project-health-assessment-template.md) — Health checks (R009)
-- [Executive Dashboard Template](../../business-stakeholder-suite/executive-dashboards/powerbi-integration/executive-dashboard-template.md) — Executive reporting (R018)
-- [Budget Dashboard Template](../../business-stakeholder-suite/financial-governance/budget-dashboard-template.md) — Financial oversight (R018)
+- [Executive Dashboard Template](../../domains/stakeholder/business-stakeholder-suite/executive-dashboards/powerbi-integration/executive-dashboard-template.md) — Executive reporting (R018)
+- [Budget Dashboard Template](../../domains/stakeholder/business-stakeholder-suite/financial-governance/budget-dashboard-template.md) — Financial oversight (R018)
 
 **Recommended Toolkit:** [Role-Based Toolkits](../../role-based-toolkits/) + [Business Stakeholder Suite](../../business-stakeholder-suite/)
 

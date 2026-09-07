@@ -15,7 +15,7 @@
 
 title: "Advanced Business Case Template"
 
-[**➡️ View Template File**](/business-stakeholder-suite/financial-governance/enhanced-business-cases/advanced-business-case-template.md)
+[**➡️ View Template File**](/domains/stakeholder/business-stakeholder-suite/financial-governance/enhanced-business-cases/advanced-business-case-template.md)
 
 ## 📈 Quality Score
 

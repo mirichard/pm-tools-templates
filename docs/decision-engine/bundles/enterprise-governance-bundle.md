@@ -28,10 +28,10 @@
 | # | Template | Purpose | Setup Time |
 |---|----------|---------|------------|
 | 9 | [Governance Assessment](../../../project-assessment-suite/governance-assessment-template.md) | Evaluate governance effectiveness | ~45 min |
-| 10 | [Executive Dashboard](../../../business-stakeholder-suite/executive-dashboards/powerbi-integration/executive-dashboard-template.md) | Executive-level visibility | ~30 min |
-| 11 | [Executive Report Templates](../../../business-stakeholder-suite/executive-dashboards/Word/Executive-Report-Templates.md) | Formal executive reporting | ~30 min |
+| 10 | [Executive Dashboard](../../../domains/stakeholder/business-stakeholder-suite/executive-dashboards/powerbi-integration/executive-dashboard-template.md) | Executive-level visibility | ~30 min |
+| 11 | [Executive Report Templates](../../../domains/stakeholder/business-stakeholder-suite/executive-dashboards/Word/Executive-Report-Templates.md) | Formal executive reporting | ~30 min |
 | 12 | [ROI Tracking](../../../templates/traditional/Traditional/Knowledge_Areas/Project_Cost_Management/roi_tracking_template.md) | Benefits and value tracking | ~30 min |
-| 13 | [Budget Dashboard](../../../business-stakeholder-suite/financial-governance/budget-dashboard-template.md) | Financial oversight | ~30 min |
+| 13 | [Budget Dashboard](../../../domains/stakeholder/business-stakeholder-suite/financial-governance/budget-dashboard-template.md) | Financial oversight | ~30 min |
 | 14 | [Resource Management Plan](../../../project-lifecycle/02-planning/resource-planning/resource-management-plan-template.md) | Staff and resource planning | ~45 min |
 
 ### Optional: Industry Compliance Supplements
@@ -51,7 +51,7 @@
 |---|----------|---------|------------|
 | 15 | [Compliance Management](../../../industry-specializations/financial-services/compliance/compliance-management-template.md) | Regulatory compliance tracking | ~60 min |
 | 16 | [EVM Dashboard](../../../domains/stakeholder/business-stakeholder-suite/financial-governance/enhanced-business-cases/evm-dashboard-template.md) | Earned value management | ~45 min |
-| 17 | [Advanced Business Case](../../../business-stakeholder-suite/financial-governance/enhanced-business-cases/advanced-business-case-template.md) | Detailed financial justification | ~90 min |
+| 17 | [Advanced Business Case](../../../domains/stakeholder/business-stakeholder-suite/financial-governance/enhanced-business-cases/advanced-business-case-template.md) | Detailed financial justification | ~90 min |
 
 ## Complementary Resources
 

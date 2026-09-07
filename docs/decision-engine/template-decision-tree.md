@@ -184,7 +184,7 @@ Use your answers to find the matching recommendation set below. Start with your 
 9. [Change Management Plan Template](../../templates/traditional/Traditional/Templates/change_management_plan_template.md)
 10. [Enterprise Risk Assessment Template](../../project-lifecycle/02-planning/risk-management/enterprise-risk-assessment-template.md)
 11. [Governance Assessment Template](../../project-assessment-suite/governance-assessment-template.md)
-12. [Executive Dashboard Template](../../business-stakeholder-suite/executive-dashboards/powerbi-integration/executive-dashboard-template.md)
+12. [Executive Dashboard Template](../../domains/stakeholder/business-stakeholder-suite/executive-dashboards/powerbi-integration/executive-dashboard-template.md)
 13. [ROI Tracking Template](../../templates/traditional/Traditional/Knowledge_Areas/Project_Cost_Management/roi_tracking_template.md)
 
 **If regulatory, also add compliance templates for your industry:**
@@ -244,7 +244,7 @@ Use your answers to find the matching recommendation set below. Start with your 
 9. [SAFe Program Increment Planning Template](../../methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_program_increment_planning_template.md)
 10. [Enterprise Risk Assessment Template](../../project-lifecycle/02-planning/risk-management/enterprise-risk-assessment-template.md)
 11. [Governance Assessment Template](../../project-assessment-suite/governance-assessment-template.md)
-12. [Executive Dashboard Template](../../business-stakeholder-suite/executive-dashboards/powerbi-integration/executive-dashboard-template.md)
+12. [Executive Dashboard Template](../../domains/stakeholder/business-stakeholder-suite/executive-dashboards/powerbi-integration/executive-dashboard-template.md)
 
 **If regulatory, also add compliance templates for your industry** (see [Enterprise Traditional](#enterprise-traditional-program-highregulatory-risk-large-scale) for industry-specific lists).
 
@@ -290,8 +290,8 @@ Use your answers to find the matching recommendation set below. Start with your 
 10. [Enterprise Risk Assessment Template](../../project-lifecycle/02-planning/risk-management/enterprise-risk-assessment-template.md)
 11. [Governance Assessment Template](../../project-assessment-suite/governance-assessment-template.md)
 12. [Project Health Assessment Template](../../project-assessment-suite/project-health-assessment-template.md)
-13. [Executive Dashboard Template](../../business-stakeholder-suite/executive-dashboards/powerbi-integration/executive-dashboard-template.md)
-14. [Budget Dashboard Template](../../business-stakeholder-suite/financial-governance/budget-dashboard-template.md)
+13. [Executive Dashboard Template](../../domains/stakeholder/business-stakeholder-suite/executive-dashboards/powerbi-integration/executive-dashboard-template.md)
+14. [Budget Dashboard Template](../../domains/stakeholder/business-stakeholder-suite/financial-governance/budget-dashboard-template.md)
 
 **If regulatory, also add compliance templates for your industry** (see [Enterprise Traditional](#enterprise-traditional-program-highregulatory-risk-large-scale) for industry-specific lists).
 

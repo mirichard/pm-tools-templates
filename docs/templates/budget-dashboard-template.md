@@ -15,7 +15,7 @@
 
 title: "Budget Dashboard Template"
 
-[**➡️ View Template File**](/business-stakeholder-suite/financial-governance/budget-dashboard-template.md)
+[**➡️ View Template File**](/domains/stakeholder/business-stakeholder-suite/financial-governance/budget-dashboard-template.md)
 
 ## 📈 Quality Score
 

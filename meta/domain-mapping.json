@@ -3,7 +3,7 @@
   "total": 137,
   "mappings": [
     {
-      "path": "business-stakeholder-suite/financial-governance/enhanced-business-cases/advanced-business-case-template.md",
+      "path": "domains/stakeholder/business-stakeholder-suite/financial-governance/enhanced-business-cases/advanced-business-case-template.md",
       "title": "Advanced Business Case Template",
       "methodology": "universal",
       "domain": {
@@ -69,7 +69,7 @@
       }
     },
     {
-      "path": "project-lifecycle/01-initiation/stakeholder-analysis/agile-stakeholder-map-template.md",
+      "path": "domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/agile-stakeholder-map-template.md",
       "title": "Agile Stakeholder Map Template",
       "methodology": "universal",
       "domain": {
@@ -192,7 +192,7 @@
       }
     },
     {
-      "path": "business-stakeholder-suite/financial-governance/budget-dashboard-template.md",
+      "path": "domains/stakeholder/business-stakeholder-suite/financial-governance/budget-dashboard-template.md",
       "title": "Budget Dashboard Template",
       "methodology": "universal",
       "domain": {
@@ -609,7 +609,7 @@
       }
     },
     {
-      "path": "business-stakeholder-suite/executive-dashboards/powerbi-integration/executive-dashboard-template.md",
+      "path": "domains/stakeholder/business-stakeholder-suite/executive-dashboards/powerbi-integration/executive-dashboard-template.md",
       "title": "Executive Dashboard Template",
       "methodology": "universal",
       "domain": {
@@ -623,7 +623,7 @@
       }
     },
     {
-      "path": "business-stakeholder-suite/executive-dashboards/Word/Executive-Report-Templates.md",
+      "path": "domains/stakeholder/business-stakeholder-suite/executive-dashboards/Word/Executive-Report-Templates.md",
       "title": "Executive Report Templates",
       "methodology": "universal",
       "domain": {
@@ -1083,7 +1083,7 @@
       }
     },
     {
-      "path": "role-based-toolkits/product-owner/okr-template.md",
+      "path": "domains/stakeholder/role-based-toolkits/product-owner/okr-template.md",
       "title": "Okr Template",
       "methodology": "universal",
       "domain": {
@@ -1950,7 +1950,7 @@
       }
     },
     {
-      "path": "project-assessment-suite/stakeholder-engagement-assessment-template.md",
+      "path": "domains/stakeholder/project-assessment-suite/stakeholder-engagement-assessment-template.md",
       "title": "Stakeholder Engagement Assessment Template",
       "methodology": "universal",
       "domain": {
@@ -2190,7 +2190,7 @@
       }
     },
     {
-      "path": "project-assessment-suite/waterfall-project-assessment-template.md",
+      "path": "domains/stakeholder/project-assessment-suite/waterfall-project-assessment-template.md",
       "title": "Waterfall Project Assessment Template",
       "methodology": "traditional",
       "domain": {

@@ -69,6 +69,23 @@ test('validates the same manifest after an executed move', t => {
   assert.deepEqual(validateWavePlan({ root, inventory, plan }), []);
 });
 
+test('validates immutable same-wave dependency evidence after inventory paths normalize', t => {
+  const { root, inventory, preBatchSha } = fixture(t);
+  const plan = buildWavePlan({ root, inventory, waveId: 'B1F', sourceBatch: 1, primaryDomain: 'Stakeholder', maxAssets: 2, preBatchSha, rollbackOwner: 'owner' });
+  for (const move of inventory.moves) {
+    fs.mkdirSync(path.dirname(path.join(root, move.destination)), { recursive: true });
+    fs.renameSync(path.join(root, move.source), path.join(root, move.destination));
+    const pointer = path.relative(path.dirname(move.source), move.destination).replaceAll('\\', '/');
+    fs.mkdirSync(path.dirname(path.join(root, move.source)), { recursive: true });
+    fs.writeFileSync(path.join(root, move.source), `# Moved\n\nCanonical location: [template](${pointer})\n`);
+    move.action = 'executed-move-with-legacy-pointer';
+    move.execution = { batch_id: 'B1F' };
+  }
+  inventory.moves[1].dependencies = [inventory.moves[0].destination];
+  plan.phase = 'executed';
+  assert.deepEqual(validateWavePlan({ root, inventory, plan }), []);
+});
+
 test('validates canonical location link when other links exist', t => {
   const { root, inventory, preBatchSha } = fixture(t);
   const plan = buildWavePlan({ root, inventory, waveId: 'B1F', sourceBatch: 1, primaryDomain: 'Stakeholder', maxAssets: 1, preBatchSha, rollbackOwner: 'owner' });
