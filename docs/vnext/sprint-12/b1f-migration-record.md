@@ -6,7 +6,7 @@
 - Primary domain: `Stakeholder`
 - Rollback owner: `mirichard`
 - Status: **PASS (local, pre-integration)**
-- Delivery PR: Pending
+- Delivery PR: [#1089](https://github.com/mirichard/pm-tools-templates/pull/1089)
 
 ## Scope decision
 
@@ -76,9 +76,9 @@ Rollback boundary: revert the complete B1F delivery commit or merge commit, rege
 | Canonical uniqueness and duplicate control | PASS — no migration-created canonical duplicate |
 | Bidirectional navigation and internal links | PASS — 137/137 cross-reference coverage; strict and filtered-link validators pass |
 | Catalog/index discovery | PASS — 139-template catalog and generated index use canonical paths with legacy aliases |
-| Reviewed visual regression | Pending PR validation |
+| Reviewed visual regression | PASS — run [#392](https://github.com/mirichard/pm-tools-templates/actions/runs/34171412916), attempt 2; reviewed baselines `929d8deb` |
 | Legacy `/blob/main/...` bookmark compatibility | Pending post-merge |
-| Required CI | Pending PR validation |
+| Required CI | PASS — run [34171412872](https://github.com/mirichard/pm-tools-templates/actions/runs/34171412872) |
 | Production rollback command | Pending merge SHA |
 
 Local exit suite results:
