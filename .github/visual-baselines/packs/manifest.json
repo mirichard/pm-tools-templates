@@ -270,11 +270,32 @@
       "sha256": "f183fd8676bb8e21057f9e2c670da67b76f2548f0d3984db3d9a6800a7fcc204"
     },
     {
-      "file": "zz-b1g-chromium-mobile.zip",
+      "file": "zz-b1g-chromium-mobile-aa.zip",
       "browser_resolution": "chromium_mobile",
-      "screenshots": 21,
-      "bytes": 1868196,
-      "sha256": "0787997b768afcaec300042187c8f0c27f4539b65e00bc4a3880d0c79e31d0dd"
+      "screenshots": 6,
+      "bytes": 518982,
+      "sha256": "f2b09b5552d130e3141a2a2e74bfb23deb7aad31a0da75355f7d67c37819d94f"
+    },
+    {
+      "file": "zz-b1g-chromium-mobile-ab.zip",
+      "browser_resolution": "chromium_mobile",
+      "screenshots": 5,
+      "bytes": 420526,
+      "sha256": "eb106dd4fc7f8d0ce3bb2022b77d47c328f9ae2b4a946f2960e98891328178d2"
+    },
+    {
+      "file": "zz-b1g-chromium-mobile-ac.zip",
+      "browser_resolution": "chromium_mobile",
+      "screenshots": 5,
+      "bytes": 415784,
+      "sha256": "71ef842c76bf21fbc89caa57606a03029649de6217c2f842f2f26756ee3a4f82"
+    },
+    {
+      "file": "zz-b1g-chromium-mobile-ad.zip",
+      "browser_resolution": "chromium_mobile",
+      "screenshots": 5,
+      "bytes": 512970,
+      "sha256": "714c8fd3f12e4011895a1ac86757fcaedf2b1231da6b53694018bbfe6a5a431c"
     }
   ]
 }
