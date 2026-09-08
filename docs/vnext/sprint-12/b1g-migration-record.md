@@ -5,8 +5,10 @@
 - Asset count: `5`
 - Primary domain: `Planning`
 - Rollback owner: `mirichard`
-- Status: **PASS (local, pre-integration)**
+- Status: **PASS (PR, pre-integration)**
 - Delivery PR: [#1091](https://github.com/mirichard/pm-tools-templates/pull/1091)
+- Validated PR head: `969a2b4674a0a9afa20f5cfc850e0d76541d929b`
+- Validated PR tree: `868f583ae08cb27e9ace8eddc236c8eb67ccdcaa`
 
 ## Scope decision
 
@@ -75,9 +77,9 @@ Rollback boundary: revert the complete B1G delivery commit or merge commit, rege
 | Canonical uniqueness and duplicate control | PASS — no migration-created canonical duplicate |
 | Bidirectional navigation and internal links | PASS — 137/137 cross-reference coverage; strict and filtered-link validators pass |
 | Catalog/index discovery | PASS — 139-template catalog and generated index use canonical paths with legacy aliases |
-| Reviewed visual regression | Pending PR visual run |
+| Reviewed visual regression | PASS — run [#399](https://github.com/mirichard/pm-tools-templates/actions/runs/34265982077), attempt 2; 42 reviewed B1G screenshots; verified baselines `0677a032` |
 | Legacy `/blob/main/...` bookmark compatibility | Pending post-merge |
-| Required CI | Pending PR workflows |
+| Required CI | PASS — CI run [34265981789](https://github.com/mirichard/pm-tools-templates/actions/runs/34265981789); SAST run [34265981885](https://github.com/mirichard/pm-tools-templates/actions/runs/34265981885); all 17 applicable nonvisual workflows passed |
 | Production rollback command | Pending merge SHA |
 
 Local exit suite results:
