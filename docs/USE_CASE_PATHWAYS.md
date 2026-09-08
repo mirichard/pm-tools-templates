@@ -113,7 +113,7 @@ Each pathway below gives you a **quick start** (single most important template) 
 - [Governance Assessment](project-assessment-suite/governance-assessment-template.md) — Review oversight and controls
 - [Stakeholder Engagement Assessment](domains/stakeholder/project-assessment-suite/stakeholder-engagement-assessment-template.md) — Evaluate stakeholder satisfaction
 
-**Works for:** All methodologies — use the agile or waterfall variant from `project-assessment-suite/`
+**Works for:** All methodologies — use the agile or waterfall variant from `domains/stakeholder/project-assessment-suite/`
 
 ---
 
