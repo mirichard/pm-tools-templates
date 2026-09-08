@@ -15,7 +15,7 @@
 
 title: "Project Charter Template"
 
-[**➡️ View Template File**](/templates/traditional/Traditional/Process_Groups/Initiating/project_charter_template.md)
+[**➡️ View Template File**](/domains/planning/templates/traditional/Traditional/Process_Groups/Initiating/project_charter_template.md)
 
 ## 📈 Quality Score
 

@@ -180,7 +180,7 @@ After answering all 6 questions, combine the activated rules to generate a recom
 **Rules:** R001 + R004 + R011 + R016 + R020 + R023
 
 **Essential Templates (3–5):**
-- [Project Charter Template](../../templates/traditional/Traditional/Process_Groups/Initiating/project_charter_template.md) — Project authorization
+- [Project Charter Template](../../domains/planning/templates/traditional/Traditional/Process_Groups/Initiating/project_charter_template.md) — Project authorization
 - [Stakeholder Register Template](../../project-lifecycle/01-initiation/stakeholder-analysis/stakeholder-register-template.md) — Stakeholder identification
 - [Communication Plan Template](../../templates/traditional/Traditional/Templates/communication_plan_template.md) — Basic communications
 
@@ -250,7 +250,7 @@ After answering all 6 questions, combine the activated rules to generate a recom
 
 **Essential Templates (14–18):**
 - All T7 essential templates (excluding financial supplements), plus:
-- [Hybrid Project Charter Template](../../templates/hybrid/Hybrid/Templates/hybrid_project_charter_template.md) — Project authorization
+- [Hybrid Project Charter Template](../../domains/planning/templates/hybrid/Hybrid/Templates/hybrid_project_charter_template.md) — Project authorization
 - [Hybrid Release Planning Template](../../templates/hybrid/Hybrid/Templates/hybrid_release_planning_template.md) — Release coordination
 - [Progressive Acceptance Plan Template](../../templates/hybrid/Hybrid/Templates/progressive_acceptance_plan_template.md) — Acceptance planning
 - [Hybrid Infrastructure Template](../../methodology-frameworks/hybrid/infrastructure/hybrid-infrastructure-template.md) — Infrastructure

@@ -28,7 +28,7 @@ End-to-end validation of the [Template Decision Tree](../../docs/decision-engine
 
 **Phase additions (Just starting):**
 5. ✅ Stakeholder Register Template → `project-lifecycle/01-initiation/stakeholder-analysis/stakeholder-register-template.md` — exists
-6. ✅ Business Case Template → `templates/traditional/Traditional/Templates/business_case_template.md` — exists
+6. ✅ Business Case Template → `domains/planning/templates/traditional/Traditional/Templates/business_case_template.md` — exists
 
 **Experience adjustment:** New PM → First-Time PM Starter Kit ✅
 

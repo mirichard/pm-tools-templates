@@ -1,0 +1,179 @@
+{
+  "schema_version": 1,
+  "wave_id": "B1G",
+  "phase": "executed",
+  "source_batch": 1,
+  "primary_domain": "Planning",
+  "generated_from": "meta/migration-inventory.json",
+  "inventory_generated": "2026-09-02",
+  "pre_batch_sha": "9012ac677333913d1b704fa2a2f84aadc6b1859f",
+  "rollback_owner": "mirichard",
+  "max_assets": 12,
+  "asset_count": 5,
+  "assets": [
+    {
+      "order": 1,
+      "source": "project-lifecycle/01-initiation/project-charter/traditional-project-charter-template.md",
+      "destination": "domains/planning/project-lifecycle/01-initiation/project-charter/traditional-project-charter-template.md",
+      "primary_domain": "Planning",
+      "secondary_domains": [
+        "Uncertainty"
+      ],
+      "pre_move_sha256": "3b7cfab0abc66bc389bbe4c161330e19af41f1801fb6edafa06700e47acbf75f",
+      "dependencies": [
+        {
+          "path": "domains/planning/role-based-toolkits/project-manager/essential-templates/budget-template.md",
+          "status": "satisfied-executed",
+          "resolved_path": "domains/planning/role-based-toolkits/project-manager/essential-templates/budget-template.md"
+        },
+        {
+          "path": "role-based-toolkits/project-manager/essential-templates/meeting-templates.md",
+          "status": "satisfied-existing-deferred",
+          "resolved_path": "role-based-toolkits/project-manager/essential-templates/meeting-templates.md"
+        },
+        {
+          "path": "role-based-toolkits/product-owner/product-vision-template.md",
+          "status": "satisfied-existing-deferred",
+          "resolved_path": "role-based-toolkits/product-owner/product-vision-template.md"
+        }
+      ],
+      "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move"
+    },
+    {
+      "order": 2,
+      "source": "templates/hybrid/Hybrid/Templates/hybrid_project_charter_template.md",
+      "destination": "domains/planning/templates/hybrid/Hybrid/Templates/hybrid_project_charter_template.md",
+      "primary_domain": "Planning",
+      "secondary_domains": [
+        "Uncertainty"
+      ],
+      "pre_move_sha256": "6e83701a99b292612c65cf5388b008a25a658728dccb134926ed7a0446fc9bb5",
+      "dependencies": [
+        {
+          "path": "templates/hybrid/Hybrid/Templates/hybrid_release_planning_template.md",
+          "status": "satisfied-existing-deferred",
+          "resolved_path": "templates/hybrid/Hybrid/Templates/hybrid_release_planning_template.md"
+        },
+        {
+          "path": "templates/hybrid/Hybrid/Templates/hybrid_team_management_template.md",
+          "status": "satisfied-existing-deferred",
+          "resolved_path": "templates/hybrid/Hybrid/Templates/hybrid_team_management_template.md"
+        },
+        {
+          "path": "methodology-frameworks/hybrid/infrastructure/hybrid-infrastructure-template.md",
+          "status": "satisfied-existing-deferred",
+          "resolved_path": "methodology-frameworks/hybrid/infrastructure/hybrid-infrastructure-template.md"
+        }
+      ],
+      "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move"
+    },
+    {
+      "order": 3,
+      "source": "templates/traditional/Traditional/Process_Groups/Initiating/project_charter_template.md",
+      "destination": "domains/planning/templates/traditional/Traditional/Process_Groups/Initiating/project_charter_template.md",
+      "primary_domain": "Planning",
+      "secondary_domains": [
+        "Uncertainty"
+      ],
+      "pre_move_sha256": "1cf4e3a648bbbe5f188a6f9c7c8141620539ab94a68951722b71b0426cc7eb24",
+      "dependencies": [
+        {
+          "path": "templates/traditional/Traditional/Templates/change_request_template.md",
+          "status": "satisfied-existing-deferred",
+          "resolved_path": "templates/traditional/Traditional/Templates/change_request_template.md"
+        },
+        {
+          "path": "templates/traditional/Traditional/Templates/communication_plan_template.md",
+          "status": "satisfied-existing-deferred",
+          "resolved_path": "templates/traditional/Traditional/Templates/communication_plan_template.md"
+        },
+        {
+          "path": "templates/traditional/Traditional/Process_Groups/Planning/project_schedule_template.md",
+          "status": "satisfied-existing-deferred",
+          "resolved_path": "templates/traditional/Traditional/Process_Groups/Planning/project_schedule_template.md"
+        }
+      ],
+      "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move"
+    },
+    {
+      "order": 4,
+      "source": "templates/traditional/Traditional/Templates/business_case_template.md",
+      "destination": "domains/planning/templates/traditional/Traditional/Templates/business_case_template.md",
+      "primary_domain": "Planning",
+      "secondary_domains": [
+        "Uncertainty"
+      ],
+      "pre_move_sha256": "6eb3641724f91300a53af81496d77483f25a9a55910b59682202de01554f4ebe",
+      "dependencies": [
+        {
+          "path": "templates/traditional/Traditional/Process_Groups/Executing/requirements_traceability_matrix_template.md",
+          "status": "satisfied-existing-deferred",
+          "resolved_path": "templates/traditional/Traditional/Process_Groups/Executing/requirements_traceability_matrix_template.md"
+        },
+        {
+          "path": "templates/traditional/Traditional/Knowledge_Areas/Project_Cost_Management/roi_tracking_template.md",
+          "status": "satisfied-existing-deferred",
+          "resolved_path": "templates/traditional/Traditional/Knowledge_Areas/Project_Cost_Management/roi_tracking_template.md"
+        },
+        {
+          "path": "templates/traditional/Traditional/Templates/change_request_template.md",
+          "status": "satisfied-existing-deferred",
+          "resolved_path": "templates/traditional/Traditional/Templates/change_request_template.md"
+        }
+      ],
+      "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move"
+    },
+    {
+      "order": 5,
+      "source": "templates/traditional/Traditional/Templates/program_charter_template.md",
+      "destination": "domains/planning/templates/traditional/Traditional/Templates/program_charter_template.md",
+      "primary_domain": "Planning",
+      "secondary_domains": [
+        "Uncertainty"
+      ],
+      "pre_move_sha256": "cf362c0636f43d6fd6dfefe4e8b74ecc8b255c3686a7ade50d9e5dbb0ece821f",
+      "dependencies": [
+        {
+          "path": "templates/traditional/Traditional/Templates/issue_log_template.md",
+          "status": "satisfied-existing-deferred",
+          "resolved_path": "templates/traditional/Traditional/Templates/issue_log_template.md"
+        },
+        {
+          "path": "templates/traditional/Traditional/Templates/program_management_plan_template.md",
+          "status": "satisfied-existing-deferred",
+          "resolved_path": "templates/traditional/Traditional/Templates/program_management_plan_template.md"
+        },
+        {
+          "path": "templates/traditional/Traditional/Process_Groups/Closing/project_closure_report_template.md",
+          "status": "satisfied-existing-deferred",
+          "resolved_path": "templates/traditional/Traditional/Process_Groups/Closing/project_closure_report_template.md"
+        }
+      ],
+      "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move"
+    }
+  ],
+  "checkpoints": [
+    "baseline-and-hashes",
+    "canonical-moves",
+    "legacy-pointers",
+    "canonical-references",
+    "affected-scope-validation",
+    "reviewed-visual-regression",
+    "post-merge-verification"
+  ],
+  "validation_commands": [
+    "node scripts/validate-migration-wave.mjs --manifest <manifest>",
+    "node scripts/generate-sprint-10-metadata.mjs",
+    "node scripts/validate-sprint-10.mjs --require-annotations",
+    "node scripts/validate-curated-templates.js",
+    "node scripts/validate-canonical-paths.js --strict",
+    "python3 scripts/check_anchor_links_filtered.py",
+    "npm run test:ci"
+  ],
+  "rollback": {
+    "strategy": "revert-wave-merge-commit",
+    "command": "git revert <wave-merge-sha>",
+    "granularity": "wave",
+    "asset_hashes_preserved": true
+  }
+}

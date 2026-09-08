@@ -229,8 +229,18 @@ export function validateWavePlan({ root, inventory, plan }) {
       const expectedIdentity = inventoryByPath.get(dependencyPath)?.destination || dependencyPath;
       const expected = classifyDependency(root, recorded?.path || dependencyPath, inventoryByPath, selectedPaths);
       if (!recorded || recordedIdentity !== expectedIdentity) fail(`dependency path mismatch: ${asset.source}`);
-      if (!recorded || recorded.status !== expected.status) fail(`dependency status mismatch: ${asset.source} -> ${dependencyPath}`);
-      if (!recorded || recorded.resolved_path !== expected.resolved_path) {
+      const laterExecutedDependency = recorded?.status === 'satisfied-existing-deferred'
+        && expected.status === 'satisfied-executed'
+        && recordedIdentity === expectedIdentity;
+      if (!recorded || (recorded.status !== expected.status && !laterExecutedDependency)) {
+        fail(`dependency status mismatch: ${asset.source} -> ${dependencyPath}`);
+      }
+      const recordedResolvedIdentity = inventoryByPath.get(recorded?.resolved_path)?.destination || recorded?.resolved_path;
+      const expectedResolvedIdentity = inventoryByPath.get(expected.resolved_path)?.destination || expected.resolved_path;
+      const resolvedPathMatches = laterExecutedDependency
+        ? recordedResolvedIdentity === expectedResolvedIdentity
+        : recorded?.resolved_path === expected.resolved_path;
+      if (!recorded || !resolvedPathMatches) {
         fail(`dependency resolved path mismatch: ${asset.source} -> ${dependencyPath}`);
       }
       if (expected.status === 'blocked-missing') fail(`missing dependency: ${dependencyPath}`);

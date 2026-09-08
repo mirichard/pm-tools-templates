@@ -10,10 +10,32 @@
       "owner": "benefits-owner",
       "updated": "2026-09-02",
       "description": "Run evidence-based benefit reviews at lifecycle and post-closure checkpoints.",
-      "tags": ["benefits-realization", "value-delivery", "governance", "closure"],
+      "tags": [
+        "benefits-realization",
+        "value-delivery",
+        "governance",
+        "closure"
+      ],
       "relatedTemplates": [
-        {"path": "templates/universal/benefits-variance-analysis-template.md", "title": "Benefits Variance Analysis Template", "methodology": "universal", "tags": ["benefits-realization", "measurement"], "similarity": 95},
-        {"path": "templates/universal/benefits-register-lightweight.md", "title": "Benefits Register Lightweight", "methodology": "universal", "tags": ["benefits-realization"], "similarity": 90}
+        {
+          "path": "templates/universal/benefits-variance-analysis-template.md",
+          "title": "Benefits Variance Analysis Template",
+          "methodology": "universal",
+          "tags": [
+            "benefits-realization",
+            "measurement"
+          ],
+          "similarity": 95
+        },
+        {
+          "path": "templates/universal/benefits-register-lightweight.md",
+          "title": "Benefits Register Lightweight",
+          "methodology": "universal",
+          "tags": [
+            "benefits-realization"
+          ],
+          "similarity": 90
+        }
       ]
     },
     {
@@ -24,10 +46,32 @@
       "owner": "benefits-owner",
       "updated": "2026-09-02",
       "description": "Compare actual benefit achievement with the approved expected trajectory.",
-      "tags": ["benefits-realization", "variance-analysis", "measurement", "governance"],
+      "tags": [
+        "benefits-realization",
+        "variance-analysis",
+        "measurement",
+        "governance"
+      ],
       "relatedTemplates": [
-        {"path": "templates/universal/benefits-review-template.md", "title": "Benefits Review Template", "methodology": "universal", "tags": ["benefits-realization", "governance"], "similarity": 95},
-        {"path": "templates/universal/benefits-register-lightweight.md", "title": "Benefits Register Lightweight", "methodology": "universal", "tags": ["benefits-realization"], "similarity": 90}
+        {
+          "path": "templates/universal/benefits-review-template.md",
+          "title": "Benefits Review Template",
+          "methodology": "universal",
+          "tags": [
+            "benefits-realization",
+            "governance"
+          ],
+          "similarity": 95
+        },
+        {
+          "path": "templates/universal/benefits-register-lightweight.md",
+          "title": "Benefits Register Lightweight",
+          "methodology": "universal",
+          "tags": [
+            "benefits-realization"
+          ],
+          "similarity": 90
+        }
       ]
     },
     {
@@ -1312,7 +1356,7 @@
       ]
     },
     {
-      "path": "templates/traditional/Traditional/Templates/business_case_template.md",
+      "path": "domains/planning/templates/traditional/Traditional/Templates/business_case_template.md",
       "title": "Business Case Template",
       "methodology": "traditional",
       "complexity": "advanced",
@@ -1392,7 +1436,7 @@
           "similarity": 86
         },
         {
-          "path": "templates/traditional/Traditional/Process_Groups/Initiating/project_charter_template.md",
+          "path": "domains/planning/templates/traditional/Traditional/Process_Groups/Initiating/project_charter_template.md",
           "title": "Project Charter Template",
           "methodology": "traditional",
           "tags": [
@@ -1406,6 +1450,9 @@
           ],
           "similarity": 86
         }
+      ],
+      "alternate_paths": [
+        "templates/traditional/Traditional/Templates/business_case_template.md"
       ]
     },
     {
@@ -1650,7 +1697,7 @@
           "similarity": 94
         },
         {
-          "path": "templates/traditional/Traditional/Templates/program_charter_template.md",
+          "path": "domains/planning/templates/traditional/Traditional/Templates/program_charter_template.md",
           "title": "Program Charter Template",
           "methodology": "traditional",
           "tags": [
@@ -1739,7 +1786,7 @@
           "similarity": 100
         },
         {
-          "path": "templates/traditional/Traditional/Process_Groups/Initiating/project_charter_template.md",
+          "path": "domains/planning/templates/traditional/Traditional/Process_Groups/Initiating/project_charter_template.md",
           "title": "Project Charter Template",
           "methodology": "traditional",
           "tags": [
@@ -1785,7 +1832,7 @@
           "similarity": 94
         },
         {
-          "path": "templates/traditional/Traditional/Templates/program_charter_template.md",
+          "path": "domains/planning/templates/traditional/Traditional/Templates/program_charter_template.md",
           "title": "Program Charter Template",
           "methodology": "traditional",
           "tags": [
@@ -2095,7 +2142,7 @@
           "similarity": 100
         },
         {
-          "path": "templates/traditional/Traditional/Process_Groups/Initiating/project_charter_template.md",
+          "path": "domains/planning/templates/traditional/Traditional/Process_Groups/Initiating/project_charter_template.md",
           "title": "Project Charter Template",
           "methodology": "traditional",
           "tags": [
@@ -2141,7 +2188,7 @@
           "similarity": 94
         },
         {
-          "path": "templates/traditional/Traditional/Templates/program_charter_template.md",
+          "path": "domains/planning/templates/traditional/Traditional/Templates/program_charter_template.md",
           "title": "Program Charter Template",
           "methodology": "traditional",
           "tags": [
@@ -4581,7 +4628,7 @@
       ]
     },
     {
-      "path": "templates/hybrid/Hybrid/Templates/hybrid_project_charter_template.md",
+      "path": "domains/planning/templates/hybrid/Hybrid/Templates/hybrid_project_charter_template.md",
       "title": "Hybrid Project Charter Template",
       "methodology": "hybrid",
       "complexity": "advanced",
@@ -4675,6 +4722,9 @@
           ],
           "similarity": 86
         }
+      ],
+      "alternate_paths": [
+        "templates/hybrid/Hybrid/Templates/hybrid_project_charter_template.md"
       ]
     },
     {
@@ -4833,7 +4883,7 @@
           "similarity": 88
         },
         {
-          "path": "templates/hybrid/Hybrid/Templates/hybrid_project_charter_template.md",
+          "path": "domains/planning/templates/hybrid/Hybrid/Templates/hybrid_project_charter_template.md",
           "title": "Hybrid Project Charter Template",
           "methodology": "hybrid",
           "tags": [
@@ -4944,7 +4994,7 @@
           "similarity": 93
         },
         {
-          "path": "templates/hybrid/Hybrid/Templates/hybrid_project_charter_template.md",
+          "path": "domains/planning/templates/hybrid/Hybrid/Templates/hybrid_project_charter_template.md",
           "title": "Hybrid Project Charter Template",
           "methodology": "hybrid",
           "tags": [
@@ -5041,7 +5091,7 @@
           "similarity": 93
         },
         {
-          "path": "templates/hybrid/Hybrid/Templates/hybrid_project_charter_template.md",
+          "path": "domains/planning/templates/hybrid/Hybrid/Templates/hybrid_project_charter_template.md",
           "title": "Hybrid Project Charter Template",
           "methodology": "hybrid",
           "tags": [
@@ -5515,7 +5565,7 @@
       ],
       "relatedTemplates": [
         {
-          "path": "templates/traditional/Traditional/Templates/program_charter_template.md",
+          "path": "domains/planning/templates/traditional/Traditional/Templates/program_charter_template.md",
           "title": "Program Charter Template",
           "methodology": "traditional",
           "tags": [
@@ -7547,7 +7597,7 @@
       ]
     },
     {
-      "path": "templates/traditional/Traditional/Templates/program_charter_template.md",
+      "path": "domains/planning/templates/traditional/Traditional/Templates/program_charter_template.md",
       "title": "Program Charter Template",
       "methodology": "traditional",
       "complexity": "advanced",
@@ -7651,6 +7701,9 @@
           ],
           "similarity": 100
         }
+      ],
+      "alternate_paths": [
+        "templates/traditional/Traditional/Templates/program_charter_template.md"
       ]
     },
     {
@@ -7695,7 +7748,7 @@
           "similarity": 100
         },
         {
-          "path": "templates/traditional/Traditional/Templates/program_charter_template.md",
+          "path": "domains/planning/templates/traditional/Traditional/Templates/program_charter_template.md",
           "title": "Program Charter Template",
           "methodology": "traditional",
           "tags": [
@@ -7860,10 +7913,10 @@
       ]
     },
     {
-      "path": "templates/traditional/Traditional/Process_Groups/Initiating/project_charter_template.md",
-      "canonical_path": "templates/traditional/Traditional/Process_Groups/Initiating/project_charter_template.md",
+      "path": "domains/planning/templates/traditional/Traditional/Process_Groups/Initiating/project_charter_template.md",
+      "canonical_path": "domains/planning/templates/traditional/Traditional/Process_Groups/Initiating/project_charter_template.md",
       "alternate_paths": [
-        "templates/traditional/project-charter-template.md"
+        "templates/traditional/Traditional/Process_Groups/Initiating/project_charter_template.md"
       ],
       "title": "Project Charter Template",
       "methodology": "traditional",
@@ -7949,7 +8002,7 @@
           "similarity": 94
         },
         {
-          "path": "templates/traditional/Traditional/Templates/program_charter_template.md",
+          "path": "domains/planning/templates/traditional/Traditional/Templates/program_charter_template.md",
           "title": "Program Charter Template",
           "methodology": "traditional",
           "tags": [
@@ -8008,7 +8061,7 @@
           "similarity": 100
         },
         {
-          "path": "templates/traditional/Traditional/Templates/program_charter_template.md",
+          "path": "domains/planning/templates/traditional/Traditional/Templates/program_charter_template.md",
           "title": "Program Charter Template",
           "methodology": "traditional",
           "tags": [
@@ -8204,7 +8257,7 @@
           "similarity": 100
         },
         {
-          "path": "templates/traditional/Traditional/Templates/program_charter_template.md",
+          "path": "domains/planning/templates/traditional/Traditional/Templates/program_charter_template.md",
           "title": "Program Charter Template",
           "methodology": "traditional",
           "tags": [
@@ -8412,7 +8465,7 @@
           "similarity": 100
         },
         {
-          "path": "templates/traditional/Traditional/Templates/program_charter_template.md",
+          "path": "domains/planning/templates/traditional/Traditional/Templates/program_charter_template.md",
           "title": "Program Charter Template",
           "methodology": "traditional",
           "tags": [
@@ -8519,7 +8572,7 @@
           "similarity": 100
         },
         {
-          "path": "templates/traditional/Traditional/Templates/program_charter_template.md",
+          "path": "domains/planning/templates/traditional/Traditional/Templates/program_charter_template.md",
           "title": "Program Charter Template",
           "methodology": "traditional",
           "tags": [
@@ -8640,7 +8693,7 @@
           "similarity": 94
         },
         {
-          "path": "templates/traditional/Traditional/Templates/program_charter_template.md",
+          "path": "domains/planning/templates/traditional/Traditional/Templates/program_charter_template.md",
           "title": "Program Charter Template",
           "methodology": "traditional",
           "tags": [
@@ -8744,7 +8797,7 @@
           "similarity": 100
         },
         {
-          "path": "templates/traditional/Traditional/Process_Groups/Initiating/project_charter_template.md",
+          "path": "domains/planning/templates/traditional/Traditional/Process_Groups/Initiating/project_charter_template.md",
           "title": "Project Charter Template",
           "methodology": "traditional",
           "tags": [
@@ -8775,7 +8828,7 @@
           "similarity": 94
         },
         {
-          "path": "templates/traditional/Traditional/Templates/program_charter_template.md",
+          "path": "domains/planning/templates/traditional/Traditional/Templates/program_charter_template.md",
           "title": "Program Charter Template",
           "methodology": "traditional",
           "tags": [
@@ -8837,7 +8890,7 @@
           "similarity": 70
         },
         {
-          "path": "templates/traditional/Traditional/Templates/business_case_template.md",
+          "path": "domains/planning/templates/traditional/Traditional/Templates/business_case_template.md",
           "title": "Business Case Template",
           "methodology": "traditional",
           "tags": [
@@ -9086,7 +9139,7 @@
       ],
       "relatedTemplates": [
         {
-          "path": "templates/traditional/Traditional/Templates/business_case_template.md",
+          "path": "domains/planning/templates/traditional/Traditional/Templates/business_case_template.md",
           "title": "Business Case Template",
           "methodology": "traditional",
           "tags": [
@@ -9658,7 +9711,7 @@
           "similarity": 93
         },
         {
-          "path": "templates/traditional/Traditional/Templates/business_case_template.md",
+          "path": "domains/planning/templates/traditional/Traditional/Templates/business_case_template.md",
           "title": "Business Case Template",
           "methodology": "traditional",
           "tags": [
@@ -9687,7 +9740,7 @@
           "similarity": 88
         },
         {
-          "path": "templates/traditional/Traditional/Templates/program_charter_template.md",
+          "path": "domains/planning/templates/traditional/Traditional/Templates/program_charter_template.md",
           "title": "Program Charter Template",
           "methodology": "traditional",
           "tags": [
@@ -10262,7 +10315,7 @@
           "similarity": 93
         },
         {
-          "path": "templates/traditional/Traditional/Templates/business_case_template.md",
+          "path": "domains/planning/templates/traditional/Traditional/Templates/business_case_template.md",
           "title": "Business Case Template",
           "methodology": "traditional",
           "tags": [
@@ -10291,7 +10344,7 @@
           "similarity": 88
         },
         {
-          "path": "templates/traditional/Traditional/Templates/program_charter_template.md",
+          "path": "domains/planning/templates/traditional/Traditional/Templates/program_charter_template.md",
           "title": "Program Charter Template",
           "methodology": "traditional",
           "tags": [
@@ -11682,7 +11735,7 @@
           "similarity": 76
         },
         {
-          "path": "templates/traditional/Traditional/Process_Groups/Initiating/project_charter_template.md",
+          "path": "domains/planning/templates/traditional/Traditional/Process_Groups/Initiating/project_charter_template.md",
           "title": "Project Charter Template",
           "methodology": "traditional",
           "tags": [
@@ -11712,7 +11765,7 @@
           "similarity": 76
         },
         {
-          "path": "templates/traditional/Traditional/Templates/business_case_template.md",
+          "path": "domains/planning/templates/traditional/Traditional/Templates/business_case_template.md",
           "title": "Business Case Template",
           "methodology": "traditional",
           "tags": [
@@ -12006,7 +12059,7 @@
       ]
     },
     {
-      "path": "project-lifecycle/01-initiation/project-charter/traditional-project-charter-template.md",
+      "path": "domains/planning/project-lifecycle/01-initiation/project-charter/traditional-project-charter-template.md",
       "title": "Traditional Project Charter Template",
       "methodology": "universal",
       "complexity": "advanced",
@@ -12095,6 +12148,9 @@
           ],
           "similarity": 81
         }
+      ],
+      "alternate_paths": [
+        "project-lifecycle/01-initiation/project-charter/traditional-project-charter-template.md"
       ]
     },
     {
@@ -12239,7 +12295,7 @@
           "similarity": 100
         },
         {
-          "path": "templates/traditional/Traditional/Templates/program_charter_template.md",
+          "path": "domains/planning/templates/traditional/Traditional/Templates/program_charter_template.md",
           "title": "Program Charter Template",
           "methodology": "traditional",
           "tags": [
@@ -12346,7 +12402,7 @@
           "similarity": 100
         },
         {
-          "path": "templates/traditional/Traditional/Templates/program_charter_template.md",
+          "path": "domains/planning/templates/traditional/Traditional/Templates/program_charter_template.md",
           "title": "Program Charter Template",
           "methodology": "traditional",
           "tags": [
@@ -12726,7 +12782,7 @@
           "similarity": 69
         },
         {
-          "path": "templates/traditional/Traditional/Process_Groups/Initiating/project_charter_template.md",
+          "path": "domains/planning/templates/traditional/Traditional/Process_Groups/Initiating/project_charter_template.md",
           "title": "Project Charter Template",
           "methodology": "traditional",
           "tags": [
@@ -12814,7 +12870,7 @@
           "similarity": 100
         },
         {
-          "path": "templates/traditional/Traditional/Templates/program_charter_template.md",
+          "path": "domains/planning/templates/traditional/Traditional/Templates/program_charter_template.md",
           "title": "Program Charter Template",
           "methodology": "traditional",
           "tags": [

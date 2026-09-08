@@ -145,7 +145,7 @@ Step 8: RANK AND OUTPUT
 - **Condition:** `methodology = "traditional"`
 - **Action:** Include Traditional + Universal templates
 - **Essential templates:**
-  - [Project Charter Template](../../templates/traditional/Traditional/Process_Groups/Initiating/project_charter_template.md)
+  - [Project Charter Template](../../domains/planning/templates/traditional/Traditional/Process_Groups/Initiating/project_charter_template.md)
   - [Project Management Plan Template](../../templates/traditional/Traditional/Process_Groups/Planning/project_management_plan_template.md)
   - [Work Breakdown Structure Template](../../templates/traditional/Traditional/Process_Groups/Planning/work_breakdown_structure_template.md)
   - [Project Schedule Template](../../templates/traditional/Traditional/Process_Groups/Planning/project_schedule_template.md)
@@ -172,7 +172,7 @@ Step 8: RANK AND OUTPUT
 - **Condition:** `methodology = "hybrid"`
 - **Action:** Include Hybrid + Universal templates
 - **Essential templates:**
-  - [Hybrid Project Charter Template](../../templates/hybrid/Hybrid/Templates/hybrid_project_charter_template.md)
+  - [Hybrid Project Charter Template](../../domains/planning/templates/hybrid/Hybrid/Templates/hybrid_project_charter_template.md)
   - [Hybrid Release Planning Template](../../templates/hybrid/Hybrid/Templates/hybrid_release_planning_template.md)
   - [Hybrid Quality Management Template](../../templates/hybrid/Hybrid/Templates/hybrid_quality_management_template.md)
   - [Hybrid Team Management Template](../../templates/hybrid/Hybrid/Templates/hybrid_team_management_template.md)
@@ -187,10 +187,10 @@ Step 8: RANK AND OUTPUT
 - **Condition:** `phase = "starting"`
 - **Action:** Prioritize initiation templates
 - **Essential templates:**
-  - [Traditional Project Charter Template](../../project-lifecycle/01-initiation/project-charter/traditional-project-charter-template.md) (traditional)
+  - [Traditional Project Charter Template](../../domains/planning/project-lifecycle/01-initiation/project-charter/traditional-project-charter-template.md) (traditional)
   - [Agile Team Charter Template](../../project-lifecycle/01-initiation/project-charter/agile-team-charter-template.md) (agile)
   - [Stakeholder Register Template](../../project-lifecycle/01-initiation/stakeholder-analysis/stakeholder-register-template.md)
-  - [Business Case Template](../../templates/traditional/Traditional/Templates/business_case_template.md)
+  - [Business Case Template](../../domains/planning/templates/traditional/Traditional/Templates/business_case_template.md)
 - **Why:** Chartering and stakeholder identification are prerequisites for all subsequent work
 
 **R005: Planning Phase**
@@ -317,7 +317,7 @@ Step 8: RANK AND OUTPUT
 - **Condition:** `size = "large"`
 - **Action:** Include full template suite + governance templates
 - **Additional recommendations:**
-  - [Program Charter Template](../../templates/traditional/Traditional/Templates/program_charter_template.md)
+  - [Program Charter Template](../../domains/planning/templates/traditional/Traditional/Templates/program_charter_template.md)
   - [Executive Dashboard Template](../../domains/stakeholder/business-stakeholder-suite/executive-dashboards/powerbi-integration/executive-dashboard-template.md)
   - [Budget Dashboard Template](../../domains/stakeholder/business-stakeholder-suite/financial-governance/budget-dashboard-template.md)
   - [Enterprise Stakeholder Analysis Template](../../domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/enterprise-stakeholder-analysis-template.md)

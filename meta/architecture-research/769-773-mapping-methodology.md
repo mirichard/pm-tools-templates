@@ -87,7 +87,7 @@ For each asset in the repository inventory:
 These examples establish the mapping standard. All subsequent mappings should be consistent with these.
 
 ### Example 1: Business Case Template
-- **Path:** `templates/traditional/Traditional/Templates/business_case_template.md`
+- **Path:** `domains/planning/templates/traditional/Traditional/Templates/business_case_template.md`
 - **Tags:** `traditional`, `technology`, `risk-management`, `stakeholder-management`, `quality`
 - **Value Flow:** Primary: `input-enabler` — Justifies the project investment before work begins
 - **Domain:** Primary: `Planning` — Establishes the strategic case for the project; Secondary: `Stakeholder` (stakeholder buy-in)
@@ -142,7 +142,7 @@ These examples establish the mapping standard. All subsequent mappings should be
 - **Domain:** Primary: `Measurement` — Assessment/evaluation artifact; Secondary: `Uncertainty`
 
 ### Example 10: Hybrid Project Charter Template
-- **Path:** `templates/hybrid/Hybrid/Templates/hybrid_project_charter_template.md`
+- **Path:** `domains/planning/templates/hybrid/Hybrid/Templates/hybrid_project_charter_template.md`
 - **Tags:** `hybrid`, `risk-management`, `stakeholder-management`, `planning`, `quality`
 - **Value Flow:** Primary: `input-enabler` — Defines project purpose and authorization
 - **Domain:** Primary: `Planning` — Establishes scope, objectives, constraints; Secondary: `Stakeholder`

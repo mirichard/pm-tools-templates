@@ -18,7 +18,7 @@
 | [Batch Record Template](industry-specializations/healthcare-pharmaceutical/manufacturing/batch_record_template.md) | universal | advanced | mirichard | 2025-08-05 |
 | [Budget Dashboard Template](domains/stakeholder/business-stakeholder-suite/financial-governance/budget-dashboard-template.md) | universal | advanced | mirichard | 2025-08-05 |
 | [Budget Template](domains/planning/role-based-toolkits/project-manager/essential-templates/budget-template.md) | universal | advanced | mirichard | 2025-08-05 |
-| [Business Case Template](templates/traditional/Traditional/Templates/business_case_template.md) | traditional | advanced | mirichard | 2025-08-05 |
+| [Business Case Template](domains/planning/templates/traditional/Traditional/Templates/business_case_template.md) | traditional | advanced | mirichard | 2025-08-05 |
 | [Business Requirements Document Template](project-lifecycle/02-planning/business-requirements/business_requirements_document_template.md) | universal | advanced | mirichard | 2025-08-05 |
 | [Capa Management Template](industry-specializations/healthcare-pharmaceutical/compliance/capa_management_template.md) | universal | advanced | mirichard | 2025-08-05 |
 | [Change Management Plan Template](templates/traditional/Traditional/Templates/change_management_plan_template.md) | traditional | advanced | mirichard | 2025-08-05 |
@@ -53,7 +53,7 @@
 | [Health Authority Communication Plan Template](industry-specializations/healthcare-pharmaceutical/regulatory/health_authority_communication_plan_template.md) | universal | advanced | mirichard | 2025-08-05 |
 | [Hybrid Infrastructure Template](methodology-frameworks/hybrid/infrastructure/hybrid-infrastructure-template.md) | hybrid | advanced | mirichard | 2025-08-05 |
 | [Hybrid Project Assessment Template](project-assessment-suite/hybrid-project-assessment-template.md) | universal | starter | mirichard | 2025-08-05 |
-| [Hybrid Project Charter Template](templates/hybrid/Hybrid/Templates/hybrid_project_charter_template.md) | hybrid | advanced | mirichard | 2025-08-05 |
+| [Hybrid Project Charter Template](domains/planning/templates/hybrid/Hybrid/Templates/hybrid_project_charter_template.md) | hybrid | advanced | mirichard | 2025-08-05 |
 | [Hybrid Project Management Plan Template](project-lifecycle/02-planning/project-management-plan/hybrid-project-management-plan-template.md) | universal | starter | mirichard | 2025-08-05 |
 | [Hybrid Quality Management Template](templates/hybrid/Hybrid/Templates/hybrid_quality_management_template.md) | hybrid | advanced | mirichard | 2025-08-05 |
 | [Hybrid Release Planning Template](templates/hybrid/Hybrid/Templates/hybrid_release_planning_template.md) | hybrid | advanced | mirichard | 2025-08-05 |
@@ -85,10 +85,10 @@
 | [Process Validation Protocol Template](industry-specializations/healthcare-pharmaceutical/regulatory/process_validation_protocol_template.md) | universal | advanced | mirichard | 2025-08-05 |
 | [Product Backlog Template](templates/agile/product_backlog_template.md) | agile | advanced | mirichard | 2025-08-05 |
 | [Product Vision Template](role-based-toolkits/product-owner/product-vision-template.md) | universal | advanced | mirichard | 2025-08-05 |
-| [Program Charter Template](templates/traditional/Traditional/Templates/program_charter_template.md) | traditional | advanced | mirichard | 2025-08-05 |
+| [Program Charter Template](domains/planning/templates/traditional/Traditional/Templates/program_charter_template.md) | traditional | advanced | mirichard | 2025-08-05 |
 | [Program Management Plan Template](templates/traditional/Traditional/Templates/program_management_plan_template.md) | traditional | advanced | mirichard | 2025-08-05 |
 | [Progressive Acceptance Plan Template](templates/hybrid/Hybrid/Templates/progressive_acceptance_plan_template.md) | hybrid | advanced | mirichard | 2025-08-05 |
-| [Project Charter Template](templates/traditional/Traditional/Process_Groups/Initiating/project_charter_template.md) | traditional | advanced | mirichard | 2025-08-05 |
+| [Project Charter Template](domains/planning/templates/traditional/Traditional/Process_Groups/Initiating/project_charter_template.md) | traditional | advanced | mirichard | 2025-08-05 |
 | [Project Closure Report Template](templates/traditional/Traditional/Process_Groups/Closing/project_closure_report_template.md) | traditional | advanced | mirichard | 2025-08-05 |
 | [Project Dashboard Template](project-lifecycle/04-monitoring-control/progress-tracking/project-dashboard-template.md) | universal | advanced | mirichard | 2025-08-05 |
 | [Project Execution Status Report Template](templates/traditional/Traditional/Process_Groups/Executing/project_execution_status_report_template.md) | traditional | advanced | mirichard | 2025-08-05 |
@@ -132,7 +132,7 @@
 | [Technical Design Document Template](industry-specializations/information-technology/software-development/technical_design_document_template.md) | universal | advanced | mirichard | 2025-08-05 |
 | [Test Plan Template](industry-specializations/information-technology/software-development/test_plan_template.md) | universal | advanced | mirichard | 2025-08-05 |
 | [Timesheet Tracking Template](role-based-toolkits/project-manager/essential-templates/timesheet-tracking-template.md) | universal | intermediate | mirichard | 2025-08-05 |
-| [Traditional Project Charter Template](project-lifecycle/01-initiation/project-charter/traditional-project-charter-template.md) | universal | advanced | mirichard | 2025-08-05 |
+| [Traditional Project Charter Template](domains/planning/project-lifecycle/01-initiation/project-charter/traditional-project-charter-template.md) | universal | advanced | mirichard | 2025-08-05 |
 | [Traditional Project Management Plan Template](project-lifecycle/02-planning/project-management-plan/traditional-project-management-plan-template.md) | universal | intermediate | mirichard | 2025-08-05 |
 | [Uat Plan Template](templates/traditional/Traditional/Templates/uat_plan_template.md) | traditional | advanced | mirichard | 2025-08-05 |
 | [Uat Strategy Template](templates/traditional/Traditional/Templates/uat_strategy_template.md) | traditional | advanced | mirichard | 2025-08-05 |
