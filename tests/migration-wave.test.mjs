@@ -86,6 +86,30 @@ test('validates immutable same-wave dependency evidence after inventory paths no
   assert.deepEqual(validateWavePlan({ root, inventory, plan }), []);
 });
 
+test('validates immutable deferred dependency evidence after a later wave executes', t => {
+  const { root, inventory, preBatchSha } = fixture(t);
+  inventory.moves[0].batch = 2;
+  inventory.moves[1].dependencies = ['legacy/a.md'];
+  const plan = buildWavePlan({ root, inventory, waveId: 'B1F', sourceBatch: 1, primaryDomain: 'Stakeholder', maxAssets: 1, preBatchSha, rollbackOwner: 'owner' });
+  const selected = inventory.moves[1];
+  fs.mkdirSync(path.dirname(path.join(root, selected.destination)), { recursive: true });
+  fs.renameSync(path.join(root, selected.source), path.join(root, selected.destination));
+  fs.writeFileSync(path.join(root, selected.source), '# Moved\n\nCanonical location: [B](../domains/stakeholder/legacy/b.md)\n');
+  selected.action = 'executed-move-with-legacy-pointer';
+  selected.execution = { batch_id: 'B1F' };
+  plan.phase = 'executed';
+
+  const later = inventory.moves[0];
+  fs.mkdirSync(path.dirname(path.join(root, later.destination)), { recursive: true });
+  fs.renameSync(path.join(root, later.source), path.join(root, later.destination));
+  fs.writeFileSync(path.join(root, later.source), '# Moved\n\nCanonical location: [A](../domains/stakeholder/legacy/a.md)\n');
+  later.action = 'executed-move-with-legacy-pointer';
+  later.execution = { batch_id: 'B2A' };
+  selected.dependencies = [later.destination];
+
+  assert.deepEqual(validateWavePlan({ root, inventory, plan }), []);
+});
+
 test('validates canonical location link when other links exist', t => {
   const { root, inventory, preBatchSha } = fixture(t);
   const plan = buildWavePlan({ root, inventory, waveId: 'B1F', sourceBatch: 1, primaryDomain: 'Stakeholder', maxAssets: 1, preBatchSha, rollbackOwner: 'owner' });

@@ -12,6 +12,8 @@
 
 B1G executes the five remaining Batch 1 Planning-domain moves as one dependency-aware wave. Every recorded dependency is available at an existing deferred path or a previously executed canonical path. The wave completes Batch 1 while retaining every legacy source as a navigation-only pointer.
 
+Executing B1G advanced one dependency recorded by the immutable B1F manifest from deferred to executed state. The validator now accepts that later lifecycle transition only when the recorded and current paths resolve to the same canonical identity; a regression test covers the case while retaining strict rejection of altered status or resolved-path evidence.
+
 | Legacy source | Canonical destination | Pre-move SHA-256 |
 |---|---|---|
 | `project-lifecycle/01-initiation/project-charter/traditional-project-charter-template.md` | `domains/planning/project-lifecycle/01-initiation/project-charter/traditional-project-charter-template.md` | `3b7cfab0abc66bc389bbe4c161330e19af41f1801fb6edafa06700e47acbf75f` |
@@ -50,7 +52,7 @@ node scripts/generate-sprint-10-metadata.mjs
 git diff --exit-code -- meta/migration-inventory.json meta/cross-references.json
 node scripts/validate-sprint-10.mjs --require-annotations
 node scripts/validate-curated-templates.js
-node scripts/generate_template_index.mjs
+node scripts/generate-template-index.js
 git diff --exit-code -- TEMPLATE_INDEX.md
 node scripts/validate-canonical-paths.js --strict
 python3 scripts/check_anchor_links_filtered.py
@@ -81,7 +83,7 @@ Rollback boundary: revert the complete B1G delivery commit or merge commit, rege
 Local exit suite results:
 
 - Executed B1G manifest: PASS — 5 assets, limit 12
-- Migration-wave tests: PASS — 11/11
+- Migration-wave tests: PASS — 12/12
 - Destination hashes and legacy-pointer resolution: PASS — 5/5 each
 - Migration metadata generation: PASS — 137 records; 137/137 cross-reference coverage
 - Sprint 10 strict validator: PASS — 137/137; 100% cross-reference coverage
