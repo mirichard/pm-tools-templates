@@ -56,8 +56,8 @@
 ### INPUTS
 | Need | Template Available? | Source |
 |------|-------------------|--------|
-| Business case | ✅ `templates/traditional/Traditional/Templates/business_case_template.md` | |
-| Project charter | ✅ `templates/traditional/Traditional/Process_Groups/Initiating/project_charter_template.md` | |
+| Business case | ✅ `domains/planning/templates/traditional/Traditional/Templates/business_case_template.md` | |
+| Project charter | ✅ `domains/planning/templates/traditional/Traditional/Process_Groups/Initiating/project_charter_template.md` | |
 | Stakeholder analysis | ✅ `project-lifecycle/01-initiation/stakeholder-analysis/` | |
 | Feasibility study | ✅ `project-lifecycle/01-initiation/feasibility-study/` (if populated) | |
 | **Gap:** Regulatory requirements checklist | ⚠️ Pharma/healthcare compliance exists but no general regulatory template | `industry_templates/healthcare_pharmaceutical/gxp_compliance_checklist.md` is domain-specific |
@@ -100,7 +100,7 @@
 ### INPUTS
 | Need | Template Available? | Source |
 |------|-------------------|--------|
-| Hybrid project charter | ✅ `templates/hybrid/Hybrid/Templates/hybrid_project_charter_template.md` | |
+| Hybrid project charter | ✅ `domains/planning/templates/hybrid/Hybrid/Templates/hybrid_project_charter_template.md` | |
 | Stakeholder analysis | ✅ Multiple sources | |
 | **Gap:** Steering committee terms of reference | ⚠️ No governance body setup template | |
 

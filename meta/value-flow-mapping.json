@@ -199,7 +199,7 @@
       }
     },
     {
-      "path": "templates/traditional/Traditional/Templates/business_case_template.md",
+      "path": "domains/planning/templates/traditional/Traditional/Templates/business_case_template.md",
       "title": "Business Case Template",
       "methodology": "traditional",
       "value_flow": {
@@ -689,7 +689,7 @@
       }
     },
     {
-      "path": "templates/hybrid/Hybrid/Templates/hybrid_project_charter_template.md",
+      "path": "domains/planning/templates/hybrid/Hybrid/Templates/hybrid_project_charter_template.md",
       "title": "Hybrid Project Charter Template",
       "methodology": "hybrid",
       "value_flow": {
@@ -1137,7 +1137,7 @@
       }
     },
     {
-      "path": "templates/traditional/Traditional/Templates/program_charter_template.md",
+      "path": "domains/planning/templates/traditional/Traditional/Templates/program_charter_template.md",
       "title": "Program Charter Template",
       "methodology": "traditional",
       "value_flow": {
@@ -1179,7 +1179,7 @@
       }
     },
     {
-      "path": "templates/traditional/Traditional/Process_Groups/Initiating/project_charter_template.md",
+      "path": "domains/planning/templates/traditional/Traditional/Process_Groups/Initiating/project_charter_template.md",
       "title": "Project Charter Template",
       "methodology": "traditional",
       "value_flow": {
@@ -1795,7 +1795,7 @@
       }
     },
     {
-      "path": "project-lifecycle/01-initiation/project-charter/traditional-project-charter-template.md",
+      "path": "domains/planning/project-lifecycle/01-initiation/project-charter/traditional-project-charter-template.md",
       "title": "Traditional Project Charter Template",
       "methodology": "universal",
       "value_flow": {

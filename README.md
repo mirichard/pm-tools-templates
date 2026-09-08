@@ -29,7 +29,7 @@ Or jump straight in:
 
 → **[Project Manager Toolkit](role-based-toolkits/project-manager/)** — Essential templates, reporting dashboards, stakeholder engagement, and governance tools
 
-Start with: [Project Charter](templates/traditional/Traditional/Process_Groups/Initiating/project_charter_template.md) · [Risk Register](templates/traditional/Traditional/Templates/risk_register_template.md) · [Status Report](templates/traditional/Traditional/Templates/status_report_template.md)
+Start with: [Project Charter](domains/planning/templates/traditional/Traditional/Process_Groups/Initiating/project_charter_template.md) · [Risk Register](templates/traditional/Traditional/Templates/risk_register_template.md) · [Status Report](templates/traditional/Traditional/Templates/status_report_template.md)
 
 ---
 
@@ -112,7 +112,7 @@ This repo offers three navigation paths — pick the one that matches your quest
 
 ### Most Popular Templates
 
-- [Project Charter Template](templates/traditional/Traditional/Process_Groups/Initiating/project_charter_template.md) - Start any project
+- [Project Charter Template](domains/planning/templates/traditional/Traditional/Process_Groups/Initiating/project_charter_template.md) - Start any project
 - [Sprint Planning Template](templates/agile/sprint_planning_template.md) - Plan agile sprints  
 - [Risk Register Template](templates/traditional/Traditional/Templates/risk_register_template.md) - Manage project risks
 - [Status Report Template](templates/traditional/Traditional/Templates/status_report_template.md) - Report progress

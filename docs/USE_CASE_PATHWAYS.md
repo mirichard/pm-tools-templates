@@ -15,7 +15,7 @@ Each pathway below gives you a **quick start** (single most important template) 
 **Complete set:**
 - [Project Charter](project-lifecycle/01-initiation/project-charter/) — Define purpose, scope, and authority
 - [Stakeholder Register](project-lifecycle/01-initiation/stakeholder-analysis/) — Identify and analyze key players
-- [Business Case](templates/traditional/Traditional/Templates/business_case_template.md) — Justify the investment
+- [Business Case](domains/planning/templates/traditional/Traditional/Templates/business_case_template.md) — Justify the investment
 - [Communication Plan](project-lifecycle/02-planning/communication-planning/) — Establish how you'll keep everyone informed
 
 **Works for:** All methodologies (Traditional, Agile, Hybrid)

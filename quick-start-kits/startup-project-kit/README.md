@@ -103,7 +103,7 @@ A comprehensive quick-start kit for entrepreneurs and product managers launching
 
 ### Templates Integration
 This kit integrates with other PM Tools Templates:
-- [Business Case Template](../../templates/traditional/Traditional/Templates/business_case_template.md)
+- [Business Case Template](../../domains/planning/templates/traditional/Traditional/Templates/business_case_template.md)
 - [Risk Register Template](../../templates/traditional/Traditional/Templates/risk_register_template.md)
 - [Status Report Template](../../templates/traditional/Traditional/Templates/status_report_template.md)
 - [Project Charter Template](../../templates/traditional/Traditional/Templates/project_charter_template.md)

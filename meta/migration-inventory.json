@@ -53,6 +53,15 @@
       "status": "executed",
       "evidence_file": "docs/vnext/sprint-12/b1f-migration-record.md",
       "rollback_owner": "mirichard"
+    },
+    {
+      "batch_id": "B1G",
+      "issue": "#1057",
+      "parent_issue": "#711",
+      "asset_count": 5,
+      "status": "executed",
+      "evidence_file": "docs/vnext/sprint-12/b1g-migration-record.md",
+      "rollback_owner": "mirichard"
     }
   ],
   "generated": "2026-09-02",
@@ -577,7 +586,14 @@
       ],
       "batch": 1,
       "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move",
-      "action": "planned-move-not-executed"
+      "action": "executed-move-with-legacy-pointer",
+      "execution": {
+        "batch_id": "B1G",
+        "pre_batch_sha": "9012ac677333913d1b704fa2a2f84aadc6b1859f",
+        "pre_move_source_sha256": "6eb3641724f91300a53af81496d77483f25a9a55910b59682202de01554f4ebe",
+        "evidence_file": "docs/vnext/sprint-12/b1g-migration-record.md",
+        "rollback_owner": "mirichard"
+      }
     },
     {
       "source": "project-lifecycle/02-planning/business-requirements/business_requirements_document_template.md",
@@ -650,7 +666,7 @@
       "dependencies": [
         "templates/traditional/Traditional/Templates/project_roadmap_template.md",
         "templates/traditional/Traditional/Templates/issue_log_template.md",
-        "templates/traditional/Traditional/Templates/program_charter_template.md"
+        "domains/planning/templates/traditional/Traditional/Templates/program_charter_template.md"
       ],
       "affected_internal_references": [
         "TEMPLATE_INDEX.md",
@@ -690,7 +706,7 @@
       ],
       "dependencies": [
         "templates/traditional/Traditional/Templates/communication_plan_template.md",
-        "templates/traditional/Traditional/Process_Groups/Initiating/project_charter_template.md",
+        "domains/planning/templates/traditional/Traditional/Process_Groups/Initiating/project_charter_template.md",
         "templates/traditional/Traditional/Process_Groups/Planning/project_schedule_template.md"
       ],
       "affected_internal_references": [
@@ -824,7 +840,7 @@
       ],
       "dependencies": [
         "templates/traditional/Traditional/Templates/change_request_template.md",
-        "templates/traditional/Traditional/Process_Groups/Initiating/project_charter_template.md",
+        "domains/planning/templates/traditional/Traditional/Process_Groups/Initiating/project_charter_template.md",
         "templates/traditional/Traditional/Process_Groups/Planning/project_schedule_template.md"
       ],
       "affected_internal_references": [
@@ -1768,7 +1784,14 @@
       ],
       "batch": 1,
       "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move",
-      "action": "planned-move-not-executed"
+      "action": "executed-move-with-legacy-pointer",
+      "execution": {
+        "batch_id": "B1G",
+        "pre_batch_sha": "9012ac677333913d1b704fa2a2f84aadc6b1859f",
+        "pre_move_source_sha256": "6e83701a99b292612c65cf5388b008a25a658728dccb134926ed7a0446fc9bb5",
+        "evidence_file": "docs/vnext/sprint-12/b1g-migration-record.md",
+        "rollback_owner": "mirichard"
+      }
     },
     {
       "source": "project-lifecycle/02-planning/project-management-plan/hybrid-project-management-plan-template.md",
@@ -2090,7 +2113,7 @@
         "Uncertainty"
       ],
       "dependencies": [
-        "templates/traditional/Traditional/Templates/program_charter_template.md",
+        "domains/planning/templates/traditional/Traditional/Templates/program_charter_template.md",
         "templates/traditional/Traditional/Templates/program_management_plan_template.md",
         "templates/traditional/Traditional/Process_Groups/Closing/project_closure_report_template.md"
       ],
@@ -2838,7 +2861,14 @@
       ],
       "batch": 1,
       "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move",
-      "action": "planned-move-not-executed"
+      "action": "executed-move-with-legacy-pointer",
+      "execution": {
+        "batch_id": "B1G",
+        "pre_batch_sha": "9012ac677333913d1b704fa2a2f84aadc6b1859f",
+        "pre_move_source_sha256": "cf362c0636f43d6fd6dfefe4e8b74ecc8b255c3686a7ade50d9e5dbb0ece821f",
+        "evidence_file": "docs/vnext/sprint-12/b1g-migration-record.md",
+        "rollback_owner": "mirichard"
+      }
     },
     {
       "source": "templates/traditional/Traditional/Templates/program_management_plan_template.md",
@@ -2850,7 +2880,7 @@
       ],
       "dependencies": [
         "templates/traditional/Traditional/Templates/issue_log_template.md",
-        "templates/traditional/Traditional/Templates/program_charter_template.md",
+        "domains/planning/templates/traditional/Traditional/Templates/program_charter_template.md",
         "templates/traditional/Traditional/Process_Groups/Closing/project_closure_report_template.md"
       ],
       "affected_internal_references": [
@@ -2959,7 +2989,14 @@
       ],
       "batch": 1,
       "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move",
-      "action": "planned-move-not-executed"
+      "action": "executed-move-with-legacy-pointer",
+      "execution": {
+        "batch_id": "B1G",
+        "pre_batch_sha": "9012ac677333913d1b704fa2a2f84aadc6b1859f",
+        "pre_move_source_sha256": "1cf4e3a648bbbe5f188a6f9c7c8141620539ab94a68951722b71b0426cc7eb24",
+        "evidence_file": "docs/vnext/sprint-12/b1g-migration-record.md",
+        "rollback_owner": "mirichard"
+      }
     },
     {
       "source": "templates/traditional/Traditional/Process_Groups/Closing/project_closure_report_template.md",
@@ -2971,7 +3008,7 @@
       ],
       "dependencies": [
         "templates/traditional/Traditional/Templates/issue_log_template.md",
-        "templates/traditional/Traditional/Templates/program_charter_template.md",
+        "domains/planning/templates/traditional/Traditional/Templates/program_charter_template.md",
         "templates/traditional/Traditional/Templates/program_management_plan_template.md"
       ],
       "affected_internal_references": [
@@ -3041,7 +3078,7 @@
       ],
       "dependencies": [
         "templates/traditional/Traditional/Templates/issue_log_template.md",
-        "templates/traditional/Traditional/Templates/program_charter_template.md",
+        "domains/planning/templates/traditional/Traditional/Templates/program_charter_template.md",
         "templates/traditional/Traditional/Templates/program_management_plan_template.md"
       ],
       "affected_internal_references": [
@@ -3116,7 +3153,7 @@
       ],
       "dependencies": [
         "templates/traditional/Traditional/Templates/issue_log_template.md",
-        "templates/traditional/Traditional/Templates/program_charter_template.md",
+        "domains/planning/templates/traditional/Traditional/Templates/program_charter_template.md",
         "templates/traditional/Traditional/Templates/program_management_plan_template.md"
       ],
       "affected_internal_references": [
@@ -3155,7 +3192,7 @@
       ],
       "dependencies": [
         "templates/traditional/Traditional/Templates/issue_log_template.md",
-        "templates/traditional/Traditional/Templates/program_charter_template.md",
+        "domains/planning/templates/traditional/Traditional/Templates/program_charter_template.md",
         "templates/traditional/Traditional/Templates/program_management_plan_template.md"
       ],
       "affected_internal_references": [
@@ -3188,7 +3225,7 @@
       "dependencies": [
         "templates/traditional/Traditional/Templates/change_management_plan_template.md",
         "templates/traditional/Traditional/Templates/issue_log_template.md",
-        "templates/traditional/Traditional/Templates/program_charter_template.md"
+        "domains/planning/templates/traditional/Traditional/Templates/program_charter_template.md"
       ],
       "affected_internal_references": [
         "GUIDE.md",
@@ -3221,7 +3258,7 @@
       "dependencies": [
         "templates/traditional/Traditional/Templates/change_request_template.md",
         "templates/traditional/Traditional/Templates/communication_plan_template.md",
-        "templates/traditional/Traditional/Process_Groups/Initiating/project_charter_template.md"
+        "domains/planning/templates/traditional/Traditional/Process_Groups/Initiating/project_charter_template.md"
       ],
       "affected_internal_references": [
         "TEMPLATE_INDEX.md",
@@ -3255,7 +3292,7 @@
       "dependencies": [
         "templates/traditional/Traditional/Templates/raid_log_template.md",
         "templates/traditional/Traditional/Process_Groups/Executing/team_performance_assessment_template.md",
-        "templates/traditional/Traditional/Templates/business_case_template.md"
+        "domains/planning/templates/traditional/Traditional/Templates/business_case_template.md"
       ],
       "affected_internal_references": [
         "TEMPLATE_INDEX.md",
@@ -3344,7 +3381,7 @@
         "Uncertainty"
       ],
       "dependencies": [
-        "templates/traditional/Traditional/Templates/business_case_template.md",
+        "domains/planning/templates/traditional/Traditional/Templates/business_case_template.md",
         "templates/traditional/Traditional/Process_Groups/Executing/requirements_traceability_matrix_template.md",
         "templates/traditional/Traditional/Knowledge_Areas/Project_Cost_Management/roi_tracking_template.md"
       ],
@@ -3509,6 +3546,7 @@
         "docs/decision-engine/template-decision-tree.md",
         "docs/templates/requirements_specification_template.md",
         "docs/templates/software_requirements_specification_template.md",
+        "domains/planning/templates/traditional/Traditional/Templates/business_case_template.md",
         "industry-specializations/information-technology/README.md",
         "meta/architecture-research/806-rules-engine-implementation.md",
         "meta/architecture-research/807-rules-engine-validation.md",
@@ -3520,8 +3558,7 @@
         "site/.lighthouseci/lhr-1755874277795.html",
         "site/.lighthouseci/lhr-1755874277795.json",
         "templates/templates.json",
-        "templates/templates.proposed.json",
-        "templates/traditional/Traditional/Templates/business_case_template.md"
+        "templates/templates.proposed.json"
       ],
       "batch": 2,
       "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move",
@@ -3538,7 +3575,7 @@
       "dependencies": [
         "templates/traditional/Traditional/Knowledge_Areas/Project_Cost_Management/roi_tracking_template.md",
         "templates/traditional/Traditional/Templates/status_report_template.md",
-        "templates/traditional/Traditional/Templates/business_case_template.md"
+        "domains/planning/templates/traditional/Traditional/Templates/business_case_template.md"
       ],
       "affected_internal_references": [
         "TEMPLATE_INDEX.md",
@@ -3798,7 +3835,7 @@
       "dependencies": [
         "templates/traditional/Traditional/Process_Groups/Executing/requirements_traceability_matrix_template.md",
         "templates/traditional/Traditional/Templates/status_report_template.md",
-        "templates/traditional/Traditional/Templates/business_case_template.md"
+        "domains/planning/templates/traditional/Traditional/Templates/business_case_template.md"
       ],
       "affected_internal_references": [
         "TEMPLATE_INDEX.md",
@@ -3808,6 +3845,7 @@
         "docs/decision-engine/template-decision-tree.md",
         "docs/site/public/changelog/roi_tracking_template.json",
         "docs/templates/roi_tracking_template.md",
+        "domains/planning/templates/traditional/Traditional/Templates/business_case_template.md",
         "meta/architecture-research/806-rules-engine-implementation.md",
         "meta/architecture-research/807-rules-engine-validation.md",
         "meta/architecture-research/809-decision-tree-design.md",
@@ -3818,8 +3856,7 @@
         "site/.lighthouseci/lhr-1755874277795.html",
         "site/.lighthouseci/lhr-1755874277795.json",
         "templates/templates.json",
-        "templates/templates.proposed.json",
-        "templates/traditional/Traditional/Templates/business_case_template.md"
+        "templates/templates.proposed.json"
       ],
       "batch": 3,
       "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move",
@@ -4366,7 +4403,7 @@
       "dependencies": [
         "templates/traditional/Traditional/Templates/change_request_template.md",
         "templates/traditional/Traditional/Templates/communication_plan_template.md",
-        "templates/traditional/Traditional/Process_Groups/Initiating/project_charter_template.md"
+        "domains/planning/templates/traditional/Traditional/Process_Groups/Initiating/project_charter_template.md"
       ],
       "affected_internal_references": [
         "TEMPLATE_INDEX.md",
@@ -4504,7 +4541,14 @@
       ],
       "batch": 1,
       "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move",
-      "action": "planned-move-not-executed"
+      "action": "executed-move-with-legacy-pointer",
+      "execution": {
+        "batch_id": "B1G",
+        "pre_batch_sha": "9012ac677333913d1b704fa2a2f84aadc6b1859f",
+        "pre_move_source_sha256": "3b7cfab0abc66bc389bbe4c161330e19af41f1801fb6edafa06700e47acbf75f",
+        "evidence_file": "docs/vnext/sprint-12/b1g-migration-record.md",
+        "rollback_owner": "mirichard"
+      }
     },
     {
       "source": "project-lifecycle/02-planning/project-management-plan/traditional-project-management-plan-template.md",
@@ -4547,7 +4591,7 @@
       ],
       "dependencies": [
         "templates/traditional/Traditional/Templates/issue_log_template.md",
-        "templates/traditional/Traditional/Templates/program_charter_template.md",
+        "domains/planning/templates/traditional/Traditional/Templates/program_charter_template.md",
         "templates/traditional/Traditional/Templates/program_management_plan_template.md"
       ],
       "affected_internal_references": [
@@ -4582,7 +4626,7 @@
       ],
       "dependencies": [
         "templates/traditional/Traditional/Templates/issue_log_template.md",
-        "templates/traditional/Traditional/Templates/program_charter_template.md",
+        "domains/planning/templates/traditional/Traditional/Templates/program_charter_template.md",
         "templates/traditional/Traditional/Templates/program_management_plan_template.md"
       ],
       "affected_internal_references": [
@@ -4708,7 +4752,7 @@
       "dependencies": [
         "templates/traditional/Traditional/Templates/change_request_template.md",
         "templates/traditional/Traditional/Templates/communication_plan_template.md",
-        "templates/traditional/Traditional/Process_Groups/Initiating/project_charter_template.md"
+        "domains/planning/templates/traditional/Traditional/Process_Groups/Initiating/project_charter_template.md"
       ],
       "affected_internal_references": [
         "TEMPLATE_INDEX.md",
@@ -4744,7 +4788,7 @@
       ],
       "dependencies": [
         "templates/traditional/Traditional/Templates/issue_log_template.md",
-        "templates/traditional/Traditional/Templates/program_charter_template.md",
+        "domains/planning/templates/traditional/Traditional/Templates/program_charter_template.md",
         "templates/traditional/Traditional/Templates/program_management_plan_template.md"
       ],
       "affected_internal_references": [
