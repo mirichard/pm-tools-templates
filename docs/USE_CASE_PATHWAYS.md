@@ -111,9 +111,9 @@ Each pathway below gives you a **quick start** (single most important template) 
 - [Project Health Assessment](project-assessment-suite/project-health-assessment-template.md) — Overall health check
 - [Process Maturity Assessment](project-assessment-suite/process-maturity-assessment-template.md) — Evaluate process effectiveness
 - [Governance Assessment](project-assessment-suite/governance-assessment-template.md) — Review oversight and controls
-- [Stakeholder Engagement Assessment](project-assessment-suite/stakeholder-engagement-assessment-template.md) — Evaluate stakeholder satisfaction
+- [Stakeholder Engagement Assessment](domains/stakeholder/project-assessment-suite/stakeholder-engagement-assessment-template.md) — Evaluate stakeholder satisfaction
 
-**Works for:** All methodologies — use the agile or waterfall variant from `project-assessment-suite/`
+**Works for:** All methodologies — use the agile or waterfall variant from `domains/stakeholder/project-assessment-suite/`
 
 ---
 

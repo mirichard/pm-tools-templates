@@ -15,7 +15,7 @@
 
 title: "Executive Report Templates"
 
-[**➡️ View Template File**](/business-stakeholder-suite/executive-dashboards/Word/Executive-Report-Templates.md)
+[**➡️ View Template File**](/domains/stakeholder/business-stakeholder-suite/executive-dashboards/Word/Executive-Report-Templates.md)
 
 ## 📈 Quality Score
 

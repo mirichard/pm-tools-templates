@@ -41,7 +41,7 @@
 | Need | Template Available? | Source |
 |------|-------------------|--------|
 | Retrospective | ✅ `templates/agile/sprint_retrospective_template.md` | |
-| OKR tracking | ✅ `role-based-toolkits/product-owner/okr-template.md` | |
+| OKR tracking | ✅ `domains/stakeholder/role-based-toolkits/product-owner/okr-template.md` | |
 | Product metrics | ✅ `role-based-toolkits/product-owner/product-metrics-dashboard.md` | |
 | **Gap:** Benefits realization tracking | ⚠️ No agile-specific benefits tracker | `business-stakeholder-suite/financial-governance/benefit-realization-framework.md` exists but is enterprise-focused |
 

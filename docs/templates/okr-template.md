@@ -15,7 +15,7 @@
 
 title: "Okr Template"
 
-[**➡️ View Template File**](/role-based-toolkits/product-owner/okr-template.md)
+[**➡️ View Template File**](/domains/stakeholder/role-based-toolkits/product-owner/okr-template.md)
 
 ## 📈 Quality Score
 

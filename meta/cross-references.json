@@ -6,92 +6,6 @@
   "coverage_percent": 100,
   "records": [
     {
-      "path": "business-stakeholder-suite/executive-dashboards/powerbi-integration/executive-dashboard-template.md",
-      "domain": {
-        "primary": "Stakeholder",
-        "secondary": [],
-        "rationale": "Title/path indicates stakeholder-focused purpose"
-      },
-      "prerequisites": [
-        "industry-specializations/information-technology/security/cybersecurity_assessment_template.md"
-      ],
-      "related_assets": [
-        "role-based-toolkits/product-owner/okr-template.md",
-        "business-stakeholder-suite/executive-dashboards/Word/Executive-Report-Templates.md"
-      ],
-      "complementary_assets": [
-        "industry-specializations/information-technology/security/cybersecurity_assessment_template.md",
-        "industry-specializations/information-technology/cybersecurity/risk_assessment_template.md"
-      ],
-      "previous_workflow_step": "role-based-toolkits/product-owner/okr-template.md",
-      "next_workflow_step": "business-stakeholder-suite/executive-dashboards/Word/Executive-Report-Templates.md"
-    },
-    {
-      "path": "business-stakeholder-suite/executive-dashboards/Word/Executive-Report-Templates.md",
-      "domain": {
-        "primary": "Stakeholder",
-        "secondary": [],
-        "rationale": "Title/path indicates stakeholder-focused purpose"
-      },
-      "prerequisites": [
-        "industry-specializations/information-technology/security/cybersecurity_assessment_template.md"
-      ],
-      "related_assets": [
-        "business-stakeholder-suite/executive-dashboards/powerbi-integration/executive-dashboard-template.md",
-        "business-stakeholder-suite/financial-governance/budget-dashboard-template.md"
-      ],
-      "complementary_assets": [
-        "industry-specializations/information-technology/security/cybersecurity_assessment_template.md",
-        "domains/planning/role-based-toolkits/project-manager/essential-templates/budget-template.md"
-      ],
-      "previous_workflow_step": "business-stakeholder-suite/executive-dashboards/powerbi-integration/executive-dashboard-template.md",
-      "next_workflow_step": "business-stakeholder-suite/financial-governance/budget-dashboard-template.md"
-    },
-    {
-      "path": "business-stakeholder-suite/financial-governance/budget-dashboard-template.md",
-      "domain": {
-        "primary": "Stakeholder",
-        "secondary": [],
-        "rationale": "Title/path indicates stakeholder-focused purpose"
-      },
-      "prerequisites": [
-        "domains/stakeholder/business-stakeholder-suite/financial-governance/enhanced-business-cases/evm-dashboard-template.md"
-      ],
-      "related_assets": [
-        "business-stakeholder-suite/executive-dashboards/Word/Executive-Report-Templates.md",
-        "business-stakeholder-suite/financial-governance/enhanced-business-cases/advanced-business-case-template.md"
-      ],
-      "complementary_assets": [
-        "domains/stakeholder/business-stakeholder-suite/financial-governance/enhanced-business-cases/evm-dashboard-template.md",
-        "industry-specializations/information-technology/software-development/test_plan_template.md"
-      ],
-      "previous_workflow_step": "business-stakeholder-suite/executive-dashboards/Word/Executive-Report-Templates.md",
-      "next_workflow_step": "business-stakeholder-suite/financial-governance/enhanced-business-cases/advanced-business-case-template.md"
-    },
-    {
-      "path": "business-stakeholder-suite/financial-governance/enhanced-business-cases/advanced-business-case-template.md",
-      "domain": {
-        "primary": "Stakeholder",
-        "secondary": [
-          "Planning"
-        ],
-        "rationale": "Title/path indicates stakeholder-focused purpose"
-      },
-      "prerequisites": [
-        "industry-specializations/information-technology/cybersecurity/risk_assessment_template.md"
-      ],
-      "related_assets": [
-        "business-stakeholder-suite/financial-governance/budget-dashboard-template.md",
-        "domains/stakeholder/business-stakeholder-suite/financial-governance/enhanced-business-cases/evm-dashboard-template.md"
-      ],
-      "complementary_assets": [
-        "industry-specializations/information-technology/cybersecurity/risk_assessment_template.md",
-        "industry-specializations/information-technology/software-development/user_story_mapping_template.md"
-      ],
-      "previous_workflow_step": "business-stakeholder-suite/financial-governance/budget-dashboard-template.md",
-      "next_workflow_step": "domains/stakeholder/business-stakeholder-suite/financial-governance/enhanced-business-cases/evm-dashboard-template.md"
-    },
-    {
       "path": "domains/planning/industry-specializations/information-technology/infrastructure/data_center_design_template.md",
       "domain": {
         "primary": "Planning",
@@ -157,6 +71,92 @@
       "next_workflow_step": "templates/hybrid/Hybrid/Templates/hybrid_project_charter_template.md"
     },
     {
+      "path": "domains/stakeholder/business-stakeholder-suite/executive-dashboards/powerbi-integration/executive-dashboard-template.md",
+      "domain": {
+        "primary": "Stakeholder",
+        "secondary": [],
+        "rationale": "Title/path indicates stakeholder-focused purpose"
+      },
+      "prerequisites": [
+        "industry-specializations/information-technology/security/cybersecurity_assessment_template.md"
+      ],
+      "related_assets": [
+        "domains/stakeholder/role-based-toolkits/product-owner/okr-template.md",
+        "domains/stakeholder/business-stakeholder-suite/executive-dashboards/Word/Executive-Report-Templates.md"
+      ],
+      "complementary_assets": [
+        "industry-specializations/information-technology/security/cybersecurity_assessment_template.md",
+        "industry-specializations/information-technology/cybersecurity/risk_assessment_template.md"
+      ],
+      "previous_workflow_step": "domains/stakeholder/role-based-toolkits/product-owner/okr-template.md",
+      "next_workflow_step": "domains/stakeholder/business-stakeholder-suite/executive-dashboards/Word/Executive-Report-Templates.md"
+    },
+    {
+      "path": "domains/stakeholder/business-stakeholder-suite/executive-dashboards/Word/Executive-Report-Templates.md",
+      "domain": {
+        "primary": "Stakeholder",
+        "secondary": [],
+        "rationale": "Title/path indicates stakeholder-focused purpose"
+      },
+      "prerequisites": [
+        "industry-specializations/information-technology/security/cybersecurity_assessment_template.md"
+      ],
+      "related_assets": [
+        "domains/stakeholder/business-stakeholder-suite/executive-dashboards/powerbi-integration/executive-dashboard-template.md",
+        "domains/stakeholder/business-stakeholder-suite/financial-governance/budget-dashboard-template.md"
+      ],
+      "complementary_assets": [
+        "industry-specializations/information-technology/security/cybersecurity_assessment_template.md",
+        "domains/planning/role-based-toolkits/project-manager/essential-templates/budget-template.md"
+      ],
+      "previous_workflow_step": "domains/stakeholder/business-stakeholder-suite/executive-dashboards/powerbi-integration/executive-dashboard-template.md",
+      "next_workflow_step": "domains/stakeholder/business-stakeholder-suite/financial-governance/budget-dashboard-template.md"
+    },
+    {
+      "path": "domains/stakeholder/business-stakeholder-suite/financial-governance/budget-dashboard-template.md",
+      "domain": {
+        "primary": "Stakeholder",
+        "secondary": [],
+        "rationale": "Title/path indicates stakeholder-focused purpose"
+      },
+      "prerequisites": [
+        "domains/stakeholder/business-stakeholder-suite/financial-governance/enhanced-business-cases/evm-dashboard-template.md"
+      ],
+      "related_assets": [
+        "domains/stakeholder/business-stakeholder-suite/executive-dashboards/Word/Executive-Report-Templates.md",
+        "domains/stakeholder/business-stakeholder-suite/financial-governance/enhanced-business-cases/advanced-business-case-template.md"
+      ],
+      "complementary_assets": [
+        "domains/stakeholder/business-stakeholder-suite/financial-governance/enhanced-business-cases/evm-dashboard-template.md",
+        "industry-specializations/information-technology/software-development/test_plan_template.md"
+      ],
+      "previous_workflow_step": "domains/stakeholder/business-stakeholder-suite/executive-dashboards/Word/Executive-Report-Templates.md",
+      "next_workflow_step": "domains/stakeholder/business-stakeholder-suite/financial-governance/enhanced-business-cases/advanced-business-case-template.md"
+    },
+    {
+      "path": "domains/stakeholder/business-stakeholder-suite/financial-governance/enhanced-business-cases/advanced-business-case-template.md",
+      "domain": {
+        "primary": "Stakeholder",
+        "secondary": [
+          "Planning"
+        ],
+        "rationale": "Title/path indicates stakeholder-focused purpose"
+      },
+      "prerequisites": [
+        "industry-specializations/information-technology/cybersecurity/risk_assessment_template.md"
+      ],
+      "related_assets": [
+        "domains/stakeholder/business-stakeholder-suite/financial-governance/budget-dashboard-template.md",
+        "domains/stakeholder/business-stakeholder-suite/financial-governance/enhanced-business-cases/evm-dashboard-template.md"
+      ],
+      "complementary_assets": [
+        "industry-specializations/information-technology/cybersecurity/risk_assessment_template.md",
+        "industry-specializations/information-technology/software-development/user_story_mapping_template.md"
+      ],
+      "previous_workflow_step": "domains/stakeholder/business-stakeholder-suite/financial-governance/budget-dashboard-template.md",
+      "next_workflow_step": "domains/stakeholder/business-stakeholder-suite/financial-governance/enhanced-business-cases/evm-dashboard-template.md"
+    },
+    {
       "path": "domains/stakeholder/business-stakeholder-suite/financial-governance/enhanced-business-cases/evm-dashboard-template.md",
       "domain": {
         "primary": "Stakeholder",
@@ -169,15 +169,82 @@
         "industry-specializations/financial-services/compliance/compliance-management-template.md"
       ],
       "related_assets": [
-        "business-stakeholder-suite/financial-governance/enhanced-business-cases/advanced-business-case-template.md",
-        "project-assessment-suite/stakeholder-engagement-assessment-template.md"
+        "domains/stakeholder/business-stakeholder-suite/financial-governance/enhanced-business-cases/advanced-business-case-template.md",
+        "domains/stakeholder/project-assessment-suite/stakeholder-engagement-assessment-template.md"
       ],
       "complementary_assets": [
         "industry-specializations/financial-services/compliance/compliance-management-template.md",
         "project-assessment-suite/current-state-analysis-template.md"
       ],
-      "previous_workflow_step": "business-stakeholder-suite/financial-governance/enhanced-business-cases/advanced-business-case-template.md",
-      "next_workflow_step": "project-assessment-suite/stakeholder-engagement-assessment-template.md"
+      "previous_workflow_step": "domains/stakeholder/business-stakeholder-suite/financial-governance/enhanced-business-cases/advanced-business-case-template.md",
+      "next_workflow_step": "domains/stakeholder/project-assessment-suite/stakeholder-engagement-assessment-template.md"
+    },
+    {
+      "path": "domains/stakeholder/project-assessment-suite/stakeholder-engagement-assessment-template.md",
+      "domain": {
+        "primary": "Stakeholder",
+        "secondary": [
+          "Planning"
+        ],
+        "rationale": "Title/path indicates stakeholder-focused purpose"
+      },
+      "prerequisites": [
+        "project-assessment-suite/agile-project-assessment-template.md"
+      ],
+      "related_assets": [
+        "domains/stakeholder/business-stakeholder-suite/financial-governance/enhanced-business-cases/evm-dashboard-template.md",
+        "domains/stakeholder/project-assessment-suite/waterfall-project-assessment-template.md"
+      ],
+      "complementary_assets": [
+        "project-assessment-suite/agile-project-assessment-template.md",
+        "domains/stakeholder/role-based-toolkits/product-owner/okr-template.md"
+      ],
+      "previous_workflow_step": "domains/stakeholder/business-stakeholder-suite/financial-governance/enhanced-business-cases/evm-dashboard-template.md",
+      "next_workflow_step": "domains/stakeholder/project-assessment-suite/waterfall-project-assessment-template.md"
+    },
+    {
+      "path": "domains/stakeholder/project-assessment-suite/waterfall-project-assessment-template.md",
+      "domain": {
+        "primary": "Stakeholder",
+        "secondary": [],
+        "rationale": "Stakeholder-focused template"
+      },
+      "prerequisites": [
+        "templates/traditional/Traditional/Templates/change_request_template.md"
+      ],
+      "related_assets": [
+        "domains/stakeholder/project-assessment-suite/stakeholder-engagement-assessment-template.md",
+        "domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/agile-stakeholder-map-template.md"
+      ],
+      "complementary_assets": [
+        "templates/traditional/Traditional/Templates/change_request_template.md",
+        "templates/traditional/Traditional/Templates/communication_plan_template.md"
+      ],
+      "previous_workflow_step": "domains/stakeholder/project-assessment-suite/stakeholder-engagement-assessment-template.md",
+      "next_workflow_step": "domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/agile-stakeholder-map-template.md"
+    },
+    {
+      "path": "domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/agile-stakeholder-map-template.md",
+      "domain": {
+        "primary": "Stakeholder",
+        "secondary": [
+          "Planning"
+        ],
+        "rationale": "Title/path indicates stakeholder-focused purpose"
+      },
+      "prerequisites": [
+        "project-lifecycle/02-planning/project-management-plan/traditional-project-management-plan-template.md"
+      ],
+      "related_assets": [
+        "domains/stakeholder/project-assessment-suite/waterfall-project-assessment-template.md",
+        "domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/enterprise-stakeholder-analysis-template.md"
+      ],
+      "complementary_assets": [
+        "project-lifecycle/02-planning/project-management-plan/traditional-project-management-plan-template.md",
+        "project-assessment-suite/agile-project-assessment-template.md"
+      ],
+      "previous_workflow_step": "domains/stakeholder/project-assessment-suite/waterfall-project-assessment-template.md",
+      "next_workflow_step": "domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/enterprise-stakeholder-analysis-template.md"
     },
     {
       "path": "domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/enterprise-stakeholder-analysis-template.md",
@@ -192,14 +259,14 @@
         "project-assessment-suite/current-state-analysis-template.md"
       ],
       "related_assets": [
-        "project-lifecycle/01-initiation/stakeholder-analysis/agile-stakeholder-map-template.md",
+        "domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/agile-stakeholder-map-template.md",
         "domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/stakeholder-register-template.md"
       ],
       "complementary_assets": [
         "project-assessment-suite/current-state-analysis-template.md",
         "industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md"
       ],
-      "previous_workflow_step": "project-lifecycle/01-initiation/stakeholder-analysis/agile-stakeholder-map-template.md",
+      "previous_workflow_step": "domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/agile-stakeholder-map-template.md",
       "next_workflow_step": "domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/stakeholder-register-template.md"
     },
     {
@@ -214,11 +281,34 @@
       "prerequisites": [],
       "related_assets": [
         "domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/enterprise-stakeholder-analysis-template.md",
-        "role-based-toolkits/product-owner/okr-template.md"
+        "domains/stakeholder/role-based-toolkits/product-owner/okr-template.md"
       ],
       "complementary_assets": [],
       "previous_workflow_step": "domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/enterprise-stakeholder-analysis-template.md",
-      "next_workflow_step": "role-based-toolkits/product-owner/okr-template.md"
+      "next_workflow_step": "domains/stakeholder/role-based-toolkits/product-owner/okr-template.md"
+    },
+    {
+      "path": "domains/stakeholder/role-based-toolkits/product-owner/okr-template.md",
+      "domain": {
+        "primary": "Stakeholder",
+        "secondary": [
+          "Planning"
+        ],
+        "rationale": "Stakeholder engagement and communication template"
+      },
+      "prerequisites": [
+        "role-based-toolkits/project-manager/essential-templates/meeting-templates.md"
+      ],
+      "related_assets": [
+        "domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/stakeholder-register-template.md",
+        "domains/stakeholder/business-stakeholder-suite/executive-dashboards/powerbi-integration/executive-dashboard-template.md"
+      ],
+      "complementary_assets": [
+        "role-based-toolkits/project-manager/essential-templates/meeting-templates.md",
+        "methodology-frameworks/emerging-methods/devops/monitoring_alerting_template.md"
+      ],
+      "previous_workflow_step": "domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/stakeholder-register-template.md",
+      "next_workflow_step": "domains/stakeholder/business-stakeholder-suite/executive-dashboards/powerbi-integration/executive-dashboard-template.md"
     },
     {
       "path": "industry-specializations/financial-services/compliance/compliance-management-template.md",
@@ -835,7 +925,7 @@
       ],
       "complementary_assets": [
         "project-lifecycle/02-planning/business-requirements/business_requirements_document_template.md",
-        "business-stakeholder-suite/executive-dashboards/powerbi-integration/executive-dashboard-template.md"
+        "domains/stakeholder/business-stakeholder-suite/executive-dashboards/powerbi-integration/executive-dashboard-template.md"
       ],
       "previous_workflow_step": "industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md",
       "next_workflow_step": "industry-specializations/information-technology/security/cybersecurity_assessment_template.md"
@@ -874,14 +964,14 @@
         "rationale": "Monitoring template tracks and reports performance"
       },
       "prerequisites": [
-        "business-stakeholder-suite/executive-dashboards/Word/Executive-Report-Templates.md"
+        "domains/stakeholder/business-stakeholder-suite/executive-dashboards/Word/Executive-Report-Templates.md"
       ],
       "related_assets": [
         "industry-specializations/information-technology/infrastructure/infrastructure_assessment_template.md",
         "industry-specializations/information-technology/software-development/technical_design_document_template.md"
       ],
       "complementary_assets": [
-        "business-stakeholder-suite/executive-dashboards/Word/Executive-Report-Templates.md",
+        "domains/stakeholder/business-stakeholder-suite/executive-dashboards/Word/Executive-Report-Templates.md",
         "domains/planning/role-based-toolkits/project-manager/essential-templates/budget-template.md"
       ],
       "previous_workflow_step": "industry-specializations/information-technology/infrastructure/infrastructure_assessment_template.md",
@@ -895,14 +985,14 @@
         "rationale": "No tags available — needs manual review"
       },
       "prerequisites": [
-        "business-stakeholder-suite/financial-governance/enhanced-business-cases/advanced-business-case-template.md"
+        "domains/stakeholder/business-stakeholder-suite/financial-governance/enhanced-business-cases/advanced-business-case-template.md"
       ],
       "related_assets": [
         "industry-specializations/healthcare-pharmaceutical/validation/validation_master_plan_template.md",
         "industry-specializations/information-technology/software-development/api_documentation_template.md"
       ],
       "complementary_assets": [
-        "business-stakeholder-suite/financial-governance/enhanced-business-cases/advanced-business-case-template.md",
+        "domains/stakeholder/business-stakeholder-suite/financial-governance/enhanced-business-cases/advanced-business-case-template.md",
         "project-lifecycle/02-planning/project-management-plan/agile-release-plan-template.md"
       ],
       "previous_workflow_step": "industry-specializations/healthcare-pharmaceutical/validation/validation_master_plan_template.md",
@@ -1482,15 +1572,15 @@
         "rationale": "Methodology-specific template guides delivery execution"
       },
       "prerequisites": [
-        "project-assessment-suite/stakeholder-engagement-assessment-template.md"
+        "domains/stakeholder/project-assessment-suite/stakeholder-engagement-assessment-template.md"
       ],
       "related_assets": [
         "methodology-frameworks/hybrid/infrastructure/hybrid-infrastructure-template.md",
         "project-assessment-suite/hybrid-project-assessment-template.md"
       ],
       "complementary_assets": [
-        "project-assessment-suite/stakeholder-engagement-assessment-template.md",
-        "project-lifecycle/01-initiation/stakeholder-analysis/agile-stakeholder-map-template.md"
+        "domains/stakeholder/project-assessment-suite/stakeholder-engagement-assessment-template.md",
+        "domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/agile-stakeholder-map-template.md"
       ],
       "previous_workflow_step": "methodology-frameworks/hybrid/infrastructure/hybrid-infrastructure-template.md",
       "next_workflow_step": "project-assessment-suite/hybrid-project-assessment-template.md"
@@ -1631,8 +1721,8 @@
         "project-assessment-suite/process-maturity-assessment-template.md"
       ],
       "complementary_assets": [
-        "project-assessment-suite/stakeholder-engagement-assessment-template.md",
-        "business-stakeholder-suite/financial-governance/budget-dashboard-template.md"
+        "domains/stakeholder/project-assessment-suite/stakeholder-engagement-assessment-template.md",
+        "domains/stakeholder/business-stakeholder-suite/financial-governance/budget-dashboard-template.md"
       ],
       "previous_workflow_step": "project-assessment-suite/gap-analysis-matrix-template.md",
       "next_workflow_step": "project-assessment-suite/process-maturity-assessment-template.md"
@@ -1779,50 +1869,6 @@
       "next_workflow_step": "project-lifecycle/02-planning/business-requirements/business_requirements_document_template.md"
     },
     {
-      "path": "project-assessment-suite/stakeholder-engagement-assessment-template.md",
-      "domain": {
-        "primary": "Stakeholder",
-        "secondary": [
-          "Planning"
-        ],
-        "rationale": "Title/path indicates stakeholder-focused purpose"
-      },
-      "prerequisites": [
-        "project-assessment-suite/agile-project-assessment-template.md"
-      ],
-      "related_assets": [
-        "domains/stakeholder/business-stakeholder-suite/financial-governance/enhanced-business-cases/evm-dashboard-template.md",
-        "project-assessment-suite/waterfall-project-assessment-template.md"
-      ],
-      "complementary_assets": [
-        "project-assessment-suite/agile-project-assessment-template.md",
-        "role-based-toolkits/product-owner/okr-template.md"
-      ],
-      "previous_workflow_step": "domains/stakeholder/business-stakeholder-suite/financial-governance/enhanced-business-cases/evm-dashboard-template.md",
-      "next_workflow_step": "project-assessment-suite/waterfall-project-assessment-template.md"
-    },
-    {
-      "path": "project-assessment-suite/waterfall-project-assessment-template.md",
-      "domain": {
-        "primary": "Stakeholder",
-        "secondary": [],
-        "rationale": "Stakeholder-focused template"
-      },
-      "prerequisites": [
-        "templates/traditional/Traditional/Templates/change_request_template.md"
-      ],
-      "related_assets": [
-        "project-assessment-suite/stakeholder-engagement-assessment-template.md",
-        "project-lifecycle/01-initiation/stakeholder-analysis/agile-stakeholder-map-template.md"
-      ],
-      "complementary_assets": [
-        "templates/traditional/Traditional/Templates/change_request_template.md",
-        "templates/traditional/Traditional/Templates/communication_plan_template.md"
-      ],
-      "previous_workflow_step": "project-assessment-suite/stakeholder-engagement-assessment-template.md",
-      "next_workflow_step": "project-lifecycle/01-initiation/stakeholder-analysis/agile-stakeholder-map-template.md"
-    },
-    {
       "path": "project-lifecycle/01-initiation/project-charter/agile-team-charter-template.md",
       "domain": {
         "primary": "Team",
@@ -1838,7 +1884,7 @@
       ],
       "complementary_assets": [
         "domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/stakeholder-register-template.md",
-        "project-lifecycle/01-initiation/stakeholder-analysis/agile-stakeholder-map-template.md"
+        "domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/agile-stakeholder-map-template.md"
       ],
       "previous_workflow_step": "methodology-frameworks/agile-scrum/scaling-frameworks/less/less_retrospective_template.md",
       "next_workflow_step": "project-lifecycle/02-planning/resource-planning/skills-matrix-template.md"
@@ -1867,29 +1913,6 @@
       "next_workflow_step": "domains/planning/role-based-toolkits/project-manager/essential-templates/budget-template.md"
     },
     {
-      "path": "project-lifecycle/01-initiation/stakeholder-analysis/agile-stakeholder-map-template.md",
-      "domain": {
-        "primary": "Stakeholder",
-        "secondary": [
-          "Planning"
-        ],
-        "rationale": "Title/path indicates stakeholder-focused purpose"
-      },
-      "prerequisites": [
-        "project-lifecycle/02-planning/project-management-plan/traditional-project-management-plan-template.md"
-      ],
-      "related_assets": [
-        "project-assessment-suite/waterfall-project-assessment-template.md",
-        "domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/enterprise-stakeholder-analysis-template.md"
-      ],
-      "complementary_assets": [
-        "project-lifecycle/02-planning/project-management-plan/traditional-project-management-plan-template.md",
-        "project-assessment-suite/agile-project-assessment-template.md"
-      ],
-      "previous_workflow_step": "project-assessment-suite/waterfall-project-assessment-template.md",
-      "next_workflow_step": "domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/enterprise-stakeholder-analysis-template.md"
-    },
-    {
       "path": "project-lifecycle/02-planning/business-requirements/business_requirements_document_template.md",
       "domain": {
         "primary": "Measurement",
@@ -1908,7 +1931,7 @@
       ],
       "complementary_assets": [
         "industry-specializations/information-technology/security/cybersecurity_assessment_template.md",
-        "business-stakeholder-suite/executive-dashboards/Word/Executive-Report-Templates.md"
+        "domains/stakeholder/business-stakeholder-suite/executive-dashboards/Word/Executive-Report-Templates.md"
       ],
       "previous_workflow_step": "project-assessment-suite/risk-management-assessment-template.md",
       "next_workflow_step": "project-lifecycle/02-planning/resource-planning/resource-management-plan-template.md"
@@ -2208,29 +2231,6 @@
       ],
       "previous_workflow_step": "project-lifecycle/04-monitoring-control/progress-tracking/status-report-template.md",
       "next_workflow_step": "role-based-toolkits/product-owner/product-vision-template.md"
-    },
-    {
-      "path": "role-based-toolkits/product-owner/okr-template.md",
-      "domain": {
-        "primary": "Stakeholder",
-        "secondary": [
-          "Planning"
-        ],
-        "rationale": "Stakeholder engagement and communication template"
-      },
-      "prerequisites": [
-        "role-based-toolkits/project-manager/essential-templates/meeting-templates.md"
-      ],
-      "related_assets": [
-        "domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/stakeholder-register-template.md",
-        "business-stakeholder-suite/executive-dashboards/powerbi-integration/executive-dashboard-template.md"
-      ],
-      "complementary_assets": [
-        "role-based-toolkits/project-manager/essential-templates/meeting-templates.md",
-        "methodology-frameworks/emerging-methods/devops/monitoring_alerting_template.md"
-      ],
-      "previous_workflow_step": "domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/stakeholder-register-template.md",
-      "next_workflow_step": "business-stakeholder-suite/executive-dashboards/powerbi-integration/executive-dashboard-template.md"
     },
     {
       "path": "role-based-toolkits/product-owner/product-vision-template.md",

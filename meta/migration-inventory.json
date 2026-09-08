@@ -44,6 +44,15 @@
       "status": "executed",
       "evidence_file": "docs/vnext/sprint-12/b1e-migration-record.md",
       "rollback_owner": "mirichard"
+    },
+    {
+      "batch_id": "B1F",
+      "issue": "#1057",
+      "parent_issue": "#711",
+      "asset_count": 8,
+      "status": "executed",
+      "evidence_file": "docs/vnext/sprint-12/b1f-migration-record.md",
+      "rollback_owner": "mirichard"
     }
   ],
   "generated": "2026-09-02",
@@ -82,7 +91,14 @@
       ],
       "batch": 1,
       "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move",
-      "action": "planned-move-not-executed"
+      "action": "executed-move-with-legacy-pointer",
+      "execution": {
+        "batch_id": "B1F",
+        "pre_batch_sha": "fe526dbec23f50a1ac9d97a7ae5f798a69d78c40",
+        "pre_move_source_sha256": "b9fca0975cc801353e0ff7ddac459ea8631fdd7fc9498bf55c07d769b8ea04df",
+        "evidence_file": "docs/vnext/sprint-12/b1f-migration-record.md",
+        "rollback_owner": "mirichard"
+      }
     },
     {
       "source": "project-assessment-suite/agile-project-assessment-template.md",
@@ -92,9 +108,9 @@
         "Stakeholder"
       ],
       "dependencies": [
-        "project-assessment-suite/stakeholder-engagement-assessment-template.md",
-        "project-lifecycle/01-initiation/stakeholder-analysis/agile-stakeholder-map-template.md",
-        "role-based-toolkits/product-owner/okr-template.md"
+        "domains/stakeholder/project-assessment-suite/stakeholder-engagement-assessment-template.md",
+        "domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/agile-stakeholder-map-template.md",
+        "domains/stakeholder/role-based-toolkits/product-owner/okr-template.md"
       ],
       "affected_internal_references": [
         "TEMPLATE_INDEX.md",
@@ -206,7 +222,14 @@
       ],
       "batch": 1,
       "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move",
-      "action": "planned-move-not-executed"
+      "action": "executed-move-with-legacy-pointer",
+      "execution": {
+        "batch_id": "B1F",
+        "pre_batch_sha": "fe526dbec23f50a1ac9d97a7ae5f798a69d78c40",
+        "pre_move_source_sha256": "a9312efad04f7976d8e03c39f0ac59658001629c1c0d57150db91c44ccea9f17",
+        "evidence_file": "docs/vnext/sprint-12/b1f-migration-record.md",
+        "rollback_owner": "mirichard"
+      }
     },
     {
       "source": "project-lifecycle/01-initiation/project-charter/agile-team-charter-template.md",
@@ -215,7 +238,7 @@
       "secondary_domains": [],
       "dependencies": [
         "domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/stakeholder-register-template.md",
-        "project-lifecycle/01-initiation/stakeholder-analysis/agile-stakeholder-map-template.md",
+        "domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/agile-stakeholder-map-template.md",
         "project-assessment-suite/agile-project-assessment-template.md"
       ],
       "affected_internal_references": [
@@ -440,7 +463,7 @@
       "dependencies": [
         "domains/stakeholder/business-stakeholder-suite/financial-governance/enhanced-business-cases/evm-dashboard-template.md",
         "industry-specializations/information-technology/software-development/test_plan_template.md",
-        "business-stakeholder-suite/executive-dashboards/powerbi-integration/executive-dashboard-template.md"
+        "domains/stakeholder/business-stakeholder-suite/executive-dashboards/powerbi-integration/executive-dashboard-template.md"
       ],
       "affected_internal_references": [
         "TEMPLATE_INDEX.md",
@@ -465,7 +488,14 @@
       ],
       "batch": 1,
       "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move",
-      "action": "planned-move-not-executed"
+      "action": "executed-move-with-legacy-pointer",
+      "execution": {
+        "batch_id": "B1F",
+        "pre_batch_sha": "fe526dbec23f50a1ac9d97a7ae5f798a69d78c40",
+        "pre_move_source_sha256": "167f338626bb4c864e00458699a36be5687b998c92d37103e1a286de53bd88ee",
+        "evidence_file": "docs/vnext/sprint-12/b1f-migration-record.md",
+        "rollback_owner": "mirichard"
+      }
     },
     {
       "source": "role-based-toolkits/project-manager/essential-templates/budget-template.md",
@@ -559,7 +589,7 @@
       ],
       "dependencies": [
         "industry-specializations/information-technology/security/cybersecurity_assessment_template.md",
-        "business-stakeholder-suite/executive-dashboards/Word/Executive-Report-Templates.md",
+        "domains/stakeholder/business-stakeholder-suite/executive-dashboards/Word/Executive-Report-Templates.md",
         "industry-specializations/information-technology/infrastructure/infrastructure_assessment_template.md"
       ],
       "affected_internal_references": [
@@ -994,7 +1024,7 @@
         "Uncertainty"
       ],
       "dependencies": [
-        "business-stakeholder-suite/executive-dashboards/Word/Executive-Report-Templates.md",
+        "domains/stakeholder/business-stakeholder-suite/executive-dashboards/Word/Executive-Report-Templates.md",
         "domains/planning/role-based-toolkits/project-manager/essential-templates/budget-template.md",
         "project-lifecycle/02-planning/business-requirements/business_requirements_document_template.md"
       ],
@@ -1335,7 +1365,7 @@
       "secondary_domains": [],
       "dependencies": [
         "industry-specializations/information-technology/security/cybersecurity_assessment_template.md",
-        "business-stakeholder-suite/executive-dashboards/Word/Executive-Report-Templates.md",
+        "domains/stakeholder/business-stakeholder-suite/executive-dashboards/Word/Executive-Report-Templates.md",
         "industry-specializations/information-technology/cybersecurity/risk_assessment_template.md"
       ],
       "affected_internal_references": [
@@ -1362,7 +1392,14 @@
       ],
       "batch": 1,
       "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move",
-      "action": "planned-move-not-executed"
+      "action": "executed-move-with-legacy-pointer",
+      "execution": {
+        "batch_id": "B1F",
+        "pre_batch_sha": "fe526dbec23f50a1ac9d97a7ae5f798a69d78c40",
+        "pre_move_source_sha256": "2f7f07ed73be740db85f2e104d859701da83cf205f731b8a465a0e80e445872b",
+        "evidence_file": "docs/vnext/sprint-12/b1f-migration-record.md",
+        "rollback_owner": "mirichard"
+      }
     },
     {
       "source": "business-stakeholder-suite/executive-dashboards/Word/Executive-Report-Templates.md",
@@ -1392,7 +1429,14 @@
       ],
       "batch": 1,
       "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move",
-      "action": "planned-move-not-executed"
+      "action": "executed-move-with-legacy-pointer",
+      "execution": {
+        "batch_id": "B1F",
+        "pre_batch_sha": "fe526dbec23f50a1ac9d97a7ae5f798a69d78c40",
+        "pre_move_source_sha256": "1338a81251bc9956211cbdf2a8473105aca45b45ee8607fbdac59a0524119381",
+        "evidence_file": "docs/vnext/sprint-12/b1f-migration-record.md",
+        "rollback_owner": "mirichard"
+      }
     },
     {
       "source": "project-assessment-suite/executive-summary-template.md",
@@ -1499,8 +1543,8 @@
       ],
       "dependencies": [
         "project-assessment-suite/process-maturity-assessment-template.md",
-        "project-assessment-suite/stakeholder-engagement-assessment-template.md",
-        "business-stakeholder-suite/financial-governance/budget-dashboard-template.md"
+        "domains/stakeholder/project-assessment-suite/stakeholder-engagement-assessment-template.md",
+        "domains/stakeholder/business-stakeholder-suite/financial-governance/budget-dashboard-template.md"
       ],
       "affected_internal_references": [
         "TEMPLATE_INDEX.md",
@@ -1880,7 +1924,7 @@
       "dependencies": [
         "project-lifecycle/04-monitoring-control/issue-management/issue-log-template.md",
         "industry-specializations/information-technology/security/cybersecurity_assessment_template.md",
-        "business-stakeholder-suite/executive-dashboards/Word/Executive-Report-Templates.md"
+        "domains/stakeholder/business-stakeholder-suite/executive-dashboards/Word/Executive-Report-Templates.md"
       ],
       "affected_internal_references": [
         "TEMPLATE_INDEX.md",
@@ -1945,7 +1989,7 @@
       ],
       "dependencies": [
         "project-lifecycle/02-planning/business-requirements/business_requirements_document_template.md",
-        "business-stakeholder-suite/executive-dashboards/powerbi-integration/executive-dashboard-template.md",
+        "domains/stakeholder/business-stakeholder-suite/executive-dashboards/powerbi-integration/executive-dashboard-template.md",
         "industry-specializations/healthcare-pharmaceutical/clinical-trials/clinical_trial_protocol_template.md"
       ],
       "affected_internal_references": [
@@ -2313,7 +2357,7 @@
       "dependencies": [
         "role-based-toolkits/project-manager/essential-templates/meeting-templates.md",
         "methodology-frameworks/emerging-methods/devops/monitoring_alerting_template.md",
-        "project-assessment-suite/stakeholder-engagement-assessment-template.md"
+        "domains/stakeholder/project-assessment-suite/stakeholder-engagement-assessment-template.md"
       ],
       "affected_internal_references": [
         "TEMPLATE_INDEX.md",
@@ -2332,7 +2376,14 @@
       ],
       "batch": 1,
       "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move",
-      "action": "planned-move-not-executed"
+      "action": "executed-move-with-legacy-pointer",
+      "execution": {
+        "batch_id": "B1F",
+        "pre_batch_sha": "fe526dbec23f50a1ac9d97a7ae5f798a69d78c40",
+        "pre_move_source_sha256": "8275b3a215747acf56a7a6324a5994ce78a312548bcfba25fda8b712a172e841",
+        "evidence_file": "docs/vnext/sprint-12/b1f-migration-record.md",
+        "rollback_owner": "mirichard"
+      }
     },
     {
       "source": "industry-specializations/healthcare-pharmaceutical/validation/operational_qualification_protocol_template.md",
@@ -2532,7 +2583,7 @@
       "primary_domain": "Delivery",
       "secondary_domains": [],
       "dependencies": [
-        "business-stakeholder-suite/financial-governance/enhanced-business-cases/advanced-business-case-template.md",
+        "domains/stakeholder/business-stakeholder-suite/financial-governance/enhanced-business-cases/advanced-business-case-template.md",
         "project-lifecycle/02-planning/project-management-plan/agile-release-plan-template.md",
         "project-lifecycle/02-planning/risk-management/agile-risk-board-template.md"
       ],
@@ -4151,7 +4202,7 @@
       ],
       "dependencies": [
         "project-assessment-suite/agile-project-assessment-template.md",
-        "role-based-toolkits/product-owner/okr-template.md",
+        "domains/stakeholder/role-based-toolkits/product-owner/okr-template.md",
         "project-assessment-suite/process-maturity-assessment-template.md"
       ],
       "affected_internal_references": [
@@ -4172,7 +4223,14 @@
       ],
       "batch": 1,
       "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move",
-      "action": "planned-move-not-executed"
+      "action": "executed-move-with-legacy-pointer",
+      "execution": {
+        "batch_id": "B1F",
+        "pre_batch_sha": "fe526dbec23f50a1ac9d97a7ae5f798a69d78c40",
+        "pre_move_source_sha256": "f75d1438fe08ec594fda5f649f2fdb9c014677fcd2b8e46fc5eb04db35f19e2c",
+        "evidence_file": "docs/vnext/sprint-12/b1f-migration-record.md",
+        "rollback_owner": "mirichard"
+      }
     },
     {
       "source": "project-lifecycle/01-initiation/stakeholder-analysis/stakeholder-register-template.md",
@@ -4557,7 +4615,7 @@
       "dependencies": [
         "business-stakeholder-suite/executive-dashboards/tableau-integration/executive-dashboard-template.md",
         "role-based-toolkits/product-owner/user-story-template.md",
-        "business-stakeholder-suite/financial-governance/enhanced-business-cases/advanced-business-case-template.md"
+        "domains/stakeholder/business-stakeholder-suite/financial-governance/enhanced-business-cases/advanced-business-case-template.md"
       ],
       "affected_internal_references": [
         "TEMPLATE_INDEX.md",
@@ -4667,7 +4725,14 @@
       ],
       "batch": 1,
       "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move",
-      "action": "planned-move-not-executed"
+      "action": "executed-move-with-legacy-pointer",
+      "execution": {
+        "batch_id": "B1F",
+        "pre_batch_sha": "fe526dbec23f50a1ac9d97a7ae5f798a69d78c40",
+        "pre_move_source_sha256": "95165f9cbf36fa6dc2e812e45a845342b045c6fa072f3126994feab5a7128404",
+        "evidence_file": "docs/vnext/sprint-12/b1f-migration-record.md",
+        "rollback_owner": "mirichard"
+      }
     },
     {
       "source": "templates/traditional/Traditional/Process_Groups/Planning/work_breakdown_structure_template.md",

@@ -15,7 +15,7 @@
 
 title: "Executive Dashboard Template"
 
-[**➡️ View Template File**](/business-stakeholder-suite/executive-dashboards/powerbi-integration/executive-dashboard-template.md)
+[**➡️ View Template File**](/domains/stakeholder/business-stakeholder-suite/executive-dashboards/powerbi-integration/executive-dashboard-template.md)
 
 ## 📈 Quality Score
 

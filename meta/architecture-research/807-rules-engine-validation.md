@@ -206,13 +206,13 @@ INDUSTRY SUPPLEMENTS (healthcare):
 
 ENTERPRISE GOVERNANCE SUPPLEMENTS:
   20. Executive Dashboard Template
-      → business-stakeholder-suite/executive-dashboards/powerbi-integration/executive-dashboard-template.md
+      → domains/stakeholder/business-stakeholder-suite/executive-dashboards/powerbi-integration/executive-dashboard-template.md
       Rule: R018 (Large size governance)
   21. ROI Tracking Template
       → templates/traditional/Traditional/Knowledge_Areas/Project_Cost_Management/roi_tracking_template.md
       Rule: R019 (Enterprise size)
   22. Executive Report Templates
-      → business-stakeholder-suite/executive-dashboards/Word/Executive-Report-Templates.md
+      → domains/stakeholder/business-stakeholder-suite/executive-dashboards/Word/Executive-Report-Templates.md
       Rule: R019 (Enterprise size)
 
 RECOMMENDED TOOLKIT:
@@ -317,7 +317,7 @@ INDUSTRY SUPPLEMENTS (financial):
       → industry-specializations/financial-services/compliance/compliance-management-template.md
       Rule: R014 (Financial industry)
   13. Advanced Business Case Template
-      → business-stakeholder-suite/financial-governance/enhanced-business-cases/advanced-business-case-template.md
+      → domains/stakeholder/business-stakeholder-suite/financial-governance/enhanced-business-cases/advanced-business-case-template.md
       Rule: R014 (Financial industry)
   14. EVM Dashboard Template
       → domains/stakeholder/business-stakeholder-suite/financial-governance/enhanced-business-cases/evm-dashboard-template.md
