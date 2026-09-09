@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-09T00:58:56.517569+00:00",
+  "generated_at": "2026-09-09T01:06:56.075575+00:00",
   "source_workflow_run": 34296723928,
   "source_commit": "2f029f8922181bd56e703d6f42b7283b20a25b95",
   "format": "webp",
@@ -315,8 +315,8 @@
       "file": "zz-b2a-chromium-desktop.zip",
       "browser_resolution": "chromium_desktop",
       "screenshots": 37,
-      "bytes": 730928,
-      "sha256": "c5302b3df20eba7cbcb2898a3b9a4f04daa6693f9296303bb08ff4865428c16c"
+      "bytes": 767064,
+      "sha256": "5be6beaaf8cd03028f9ecc3d2b7dddaeedbee5238947631217ed467845e116a2"
     },
     {
       "file": "zz-b2a-chromium-mobile-aa.zip",
@@ -336,8 +336,8 @@
       "file": "zz-b2a-chromium-mobile-ac.zip",
       "browser_resolution": "chromium_mobile",
       "screenshots": 6,
-      "bytes": 528200,
-      "sha256": "028ac32d0e8cfd350c042d326a0c5907ed2bfb728ef1c5540010f53d333c2132"
+      "bytes": 955286,
+      "sha256": "c9860fd0bafbf7a23b5ffeae27fcc0b6db8ec1815dfbc9c84f99042119d2c36f"
     },
     {
       "file": "zz-b2a-chromium-mobile-ad.zip",
