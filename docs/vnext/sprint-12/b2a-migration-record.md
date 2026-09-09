@@ -6,7 +6,7 @@
 - Primary domain: `Team`
 - Rollback owner: `mirichard`
 - Status: **PASS (local, pre-integration)**
-- Delivery PR: pending
+- Delivery PR: [#1092](https://github.com/mirichard/pm-tools-templates/pull/1092)
 
 ## Scope decision
 
