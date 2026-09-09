@@ -375,14 +375,14 @@
       "sha256": "f19b5f1aefb9c755f0b0d30a2482c6a98f16e2951791958b3938cc334ae80262"
     },
     {
-      "file": "zz-b2a-evidence-correction-chromium-desktop.zip",
+      "file": "zz-b2a-zz-evidence-correction-chromium-desktop.zip",
       "browser_resolution": "chromium_desktop",
       "screenshots": 1,
       "bytes": 6712,
       "sha256": "28bc4df0836892f4a3d428904580cc33960ebb63e22f08b16dc08140017eda2b"
     },
     {
-      "file": "zz-b2a-evidence-correction-chromium-mobile.zip",
+      "file": "zz-b2a-zz-evidence-correction-chromium-mobile.zip",
       "browser_resolution": "chromium_mobile",
       "screenshots": 1,
       "bytes": 7310,
