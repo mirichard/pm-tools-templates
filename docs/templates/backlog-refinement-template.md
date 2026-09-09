@@ -15,7 +15,7 @@
 
 title: "Backlog Refinement Template"
 
-[**➡️ View Template File**](/role-based-toolkits/scrum-master/agile-ceremonies/backlog-refinement-template.md)
+[**➡️ View Template File**](/domains/team/role-based-toolkits/scrum-master/agile-ceremonies/backlog-refinement-template.md)
 
 ## 📈 Quality Score
 

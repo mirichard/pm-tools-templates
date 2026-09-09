@@ -14,7 +14,7 @@
 
 | # | Template | Purpose | Setup Time |
 |---|----------|---------|------------|
-| 1 | [Agile Team Charter](../../../project-lifecycle/01-initiation/project-charter/agile-team-charter-template.md) | Align team on vision, roles, and working agreements | ~30 min |
+| 1 | [Agile Team Charter](../../../domains/team/project-lifecycle/01-initiation/project-charter/agile-team-charter-template.md) | Align team on vision, roles, and working agreements | ~30 min |
 | 2 | [Product Backlog](../../../templates/agile/product_backlog_template.md) | Capture and prioritize user stories and features | ~45 min |
 | 3 | [Sprint Planning](../../../templates/agile/sprint_planning_template.md) | Plan each sprint's scope and commitments | ~20 min |
 
@@ -22,8 +22,8 @@
 
 | # | Template | Purpose | Setup Time |
 |---|----------|---------|------------|
-| 4 | [Sprint Retrospective](../../../templates/agile/sprint_retrospective_template.md) | Continuous improvement after each sprint | ~15 min |
-| 5 | [Sprint Review](../../../templates/agile/sprint_review_template.md) | Demo work and gather stakeholder feedback | ~15 min |
+| 4 | [Sprint Retrospective](../../../domains/team/templates/agile/sprint_retrospective_template.md) | Continuous improvement after each sprint | ~15 min |
+| 5 | [Sprint Review](../../../domains/team/templates/agile/sprint_review_template.md) | Demo work and gather stakeholder feedback | ~15 min |
 
 ## Complementary Resources
 

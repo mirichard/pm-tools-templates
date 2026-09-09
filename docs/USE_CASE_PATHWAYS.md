@@ -58,11 +58,11 @@ Each pathway below gives you a **quick start** (single most important template) 
 
 **You need to:** Reflect on what worked, what didn't, and what to improve.
 
-**Quick start:** [Sprint Retrospective Template](templates/agile/sprint_retrospective_template.md)
+**Quick start:** [Sprint Retrospective Template](domains/team/templates/agile/sprint_retrospective_template.md)
 
 **Complete set:**
-- [Sprint Retrospective](templates/agile/sprint_retrospective_template.md) — Structured reflection framework
-- [Sprint Review](templates/agile/sprint_review_template.md) — Demo and feedback session
+- [Sprint Retrospective](domains/team/templates/agile/sprint_retrospective_template.md) — Structured reflection framework
+- [Sprint Review](domains/team/templates/agile/sprint_review_template.md) — Demo and feedback session
 - [Lessons Learned](project-lifecycle/05-closure/lessons-learned/) — Formal knowledge capture
 
 **Works for:** Primarily Agile/Hybrid — Traditional projects use lessons learned at phase gates

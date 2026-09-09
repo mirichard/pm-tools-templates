@@ -161,10 +161,10 @@ Step 8: RANK AND OUTPUT
 - **Essential templates:**
   - [Product Backlog Template](../../templates/agile/product_backlog_template.md)
   - [Sprint Planning Template](../../templates/agile/sprint_planning_template.md)
-  - [Sprint Review Template](../../templates/agile/sprint_review_template.md)
-  - [Sprint Retrospective Template](../../templates/agile/sprint_retrospective_template.md)
-  - [Daily Standup Template](../../role-based-toolkits/scrum-master/agile-ceremonies/daily-standup-template.md)
-  - [Backlog Refinement Template](../../role-based-toolkits/scrum-master/agile-ceremonies/backlog-refinement-template.md)
+  - [Sprint Review Template](../../domains/team/templates/agile/sprint_review_template.md)
+  - [Sprint Retrospective Template](../../domains/team/templates/agile/sprint_retrospective_template.md)
+  - [Daily Standup Template](../../domains/team/role-based-toolkits/scrum-master/agile-ceremonies/daily-standup-template.md)
+  - [Backlog Refinement Template](../../domains/team/role-based-toolkits/scrum-master/agile-ceremonies/backlog-refinement-template.md)
 - **Why:** Core Scrum ceremonies and artifacts for iterative delivery
 - **Why not Traditional:** Gantt charts, WBS, and sequential gate reviews conflict with agile values
 
@@ -188,7 +188,7 @@ Step 8: RANK AND OUTPUT
 - **Action:** Prioritize initiation templates
 - **Essential templates:**
   - [Traditional Project Charter Template](../../domains/planning/project-lifecycle/01-initiation/project-charter/traditional-project-charter-template.md) (traditional)
-  - [Agile Team Charter Template](../../project-lifecycle/01-initiation/project-charter/agile-team-charter-template.md) (agile)
+  - [Agile Team Charter Template](../../domains/team/project-lifecycle/01-initiation/project-charter/agile-team-charter-template.md) (agile)
   - [Stakeholder Register Template](../../project-lifecycle/01-initiation/stakeholder-analysis/stakeholder-register-template.md)
   - [Business Case Template](../../domains/planning/templates/traditional/Traditional/Templates/business_case_template.md)
 - **Why:** Chartering and stakeholder identification are prerequisites for all subsequent work
@@ -221,7 +221,7 @@ Step 8: RANK AND OUTPUT
 - **Essential templates:**
   - [Project Closure Report Template](../../templates/traditional/Traditional/Process_Groups/Closing/project_closure_report_template.md)
   - [Handover Template](../../role-based-toolkits/project-manager/essential-templates/handover-template.md)
-  - [Less Retrospective Template](../../methodology-frameworks/agile-scrum/scaling-frameworks/less/less_retrospective_template.md) (agile)
+  - [Less Retrospective Template](../../domains/team/methodology-frameworks/agile-scrum/scaling-frameworks/less/less_retrospective_template.md) (agile)
 - **Why:** Formal closure, knowledge transfer, and lessons learned ensure organizational learning
 
 ### R008–R011: Risk Supplement Rules
@@ -412,10 +412,10 @@ ESSENTIAL TEMPLATES (start with these):
 
 RECOMMENDED TEMPLATES:
   5. Sprint Review Template
-     → templates/agile/sprint_review_template.md
+     → domains/team/templates/agile/sprint_review_template.md
      Rule: R002 (Agile methodology)
   6. Backlog Refinement Template
-     → role-based-toolkits/scrum-master/agile-ceremonies/backlog-refinement-template.md
+     → domains/team/role-based-toolkits/scrum-master/agile-ceremonies/backlog-refinement-template.md
      Rule: R002 (Agile methodology)
 
 RISK SUPPLEMENTS (high risk profile):

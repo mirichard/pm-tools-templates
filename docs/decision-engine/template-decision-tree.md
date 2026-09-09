@@ -204,7 +204,7 @@ Use your answers to find the matching recommendation set below. Start with your 
 *Answers: Agile + Any Phase + Low Risk + Small + Any Industry + Any Experience*
 
 **Start with these:**
-1. [Agile Team Charter Template](../../project-lifecycle/01-initiation/project-charter/agile-team-charter-template.md)
+1. [Agile Team Charter Template](../../domains/team/project-lifecycle/01-initiation/project-charter/agile-team-charter-template.md)
 2. [Product Backlog Template](../../templates/agile/product_backlog_template.md)
 3. [Sprint Planning Template](../../templates/agile/sprint_planning_template.md)
 
@@ -220,8 +220,8 @@ Use your answers to find the matching recommendation set below. Start with your 
 **Start with these:**
 1. [Product Backlog Template](../../templates/agile/product_backlog_template.md)
 2. [Sprint Planning Template](../../templates/agile/sprint_planning_template.md)
-3. [Sprint Review Template](../../templates/agile/sprint_review_template.md)
-4. [Sprint Retrospective Template](../../templates/agile/sprint_retrospective_template.md)
+3. [Sprint Review Template](../../domains/team/templates/agile/sprint_review_template.md)
+4. [Sprint Retrospective Template](../../domains/team/templates/agile/sprint_retrospective_template.md)
 5. [Agile Release Plan Template](../../project-lifecycle/02-planning/project-management-plan/agile-release-plan-template.md)
 6. [Risk Register Template](../../project-lifecycle/02-planning/risk-management/risk-register-template.md)
 
@@ -239,8 +239,8 @@ Use your answers to find the matching recommendation set below. Start with your 
 *Answers: Agile + Any Phase + High or Regulatory + Large + Any Industry + Advanced*
 
 **Start with these (all Standard Agile templates above, plus):**
-7. [Daily Standup Template](../../role-based-toolkits/scrum-master/agile-ceremonies/daily-standup-template.md)
-8. [Backlog Refinement Template](../../role-based-toolkits/scrum-master/agile-ceremonies/backlog-refinement-template.md)
+7. [Daily Standup Template](../../domains/team/role-based-toolkits/scrum-master/agile-ceremonies/daily-standup-template.md)
+8. [Backlog Refinement Template](../../domains/team/role-based-toolkits/scrum-master/agile-ceremonies/backlog-refinement-template.md)
 9. [SAFe Program Increment Planning Template](../../methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_program_increment_planning_template.md)
 10. [Enterprise Risk Assessment Template](../../project-lifecycle/02-planning/risk-management/enterprise-risk-assessment-template.md)
 11. [Governance Assessment Template](../../project-assessment-suite/governance-assessment-template.md)
@@ -308,7 +308,7 @@ Regardless of methodology, add these templates based on your **current phase** (
 | Phase | Add These Templates |
 |-------|-------------------|
 | **Just starting** | [Stakeholder Register](../../project-lifecycle/01-initiation/stakeholder-analysis/stakeholder-register-template.md), [Business Case Template](../../domains/planning/templates/traditional/Traditional/Templates/business_case_template.md) |
-| **Planning** | [Skills Matrix](../../project-lifecycle/02-planning/resource-planning/skills-matrix-template.md), [Team Charter](../../project-lifecycle/02-planning/resource-planning/team-charter-template.md) |
+| **Planning** | [Skills Matrix](../../domains/team/project-lifecycle/02-planning/resource-planning/skills-matrix-template.md), [Team Charter](../../domains/team/project-lifecycle/02-planning/resource-planning/team-charter-template.md) |
 | **In progress** | [Issue Log](../../templates/traditional/Traditional/Templates/issue_log_template.md), [Change Request Template](../../templates/traditional/Traditional/Templates/change_request_template.md) |
 | **Closing** | [Project Closure Report](../../templates/traditional/Traditional/Process_Groups/Closing/project_closure_report_template.md), [Handover Template](../../role-based-toolkits/project-manager/essential-templates/handover-template.md) |
 

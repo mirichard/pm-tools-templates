@@ -56,7 +56,7 @@ PROJECT CONTEXT SUMMARY
 
 ESSENTIAL TEMPLATES (start with these):
   1. Agile Team Charter Template
-     → project-lifecycle/01-initiation/project-charter/agile-team-charter-template.md
+     → domains/team/project-lifecycle/01-initiation/project-charter/agile-team-charter-template.md
      Rules: R002 + R004 (Agile + Starting phase)
   2. Product Backlog Template
      → templates/agile/product_backlog_template.md

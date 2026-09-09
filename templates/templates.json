@@ -502,7 +502,7 @@
           "similarity": 83
         },
         {
-          "path": "project-lifecycle/01-initiation/project-charter/agile-team-charter-template.md",
+          "path": "domains/team/project-lifecycle/01-initiation/project-charter/agile-team-charter-template.md",
           "title": "Agile Team Charter Template",
           "methodology": "universal",
           "tags": [
@@ -528,7 +528,7 @@
       ]
     },
     {
-      "path": "project-lifecycle/01-initiation/project-charter/agile-team-charter-template.md",
+      "path": "domains/team/project-lifecycle/01-initiation/project-charter/agile-team-charter-template.md",
       "title": "Agile Team Charter Template",
       "methodology": "universal",
       "complexity": "intermediate",
@@ -618,6 +618,9 @@
           ],
           "similarity": 65
         }
+      ],
+      "alternate_paths": [
+        "project-lifecycle/01-initiation/project-charter/agile-team-charter-template.md"
       ]
     },
     {
@@ -781,7 +784,7 @@
           "similarity": 94
         },
         {
-          "path": "methodology-frameworks/agile-scrum/scaling-frameworks/less/less_retrospective_template.md",
+          "path": "domains/team/methodology-frameworks/agile-scrum/scaling-frameworks/less/less_retrospective_template.md",
           "title": "Less Retrospective Template",
           "methodology": "agile",
           "tags": [
@@ -973,7 +976,7 @@
       ]
     },
     {
-      "path": "role-based-toolkits/scrum-master/agile-ceremonies/backlog-refinement-template.md",
+      "path": "domains/team/role-based-toolkits/scrum-master/agile-ceremonies/backlog-refinement-template.md",
       "title": "Backlog Refinement Template",
       "methodology": "agile",
       "complexity": "advanced",
@@ -1069,6 +1072,9 @@
           ],
           "similarity": 81
         }
+      ],
+      "alternate_paths": [
+        "role-based-toolkits/scrum-master/agile-ceremonies/backlog-refinement-template.md"
       ]
     },
     {
@@ -1915,7 +1921,7 @@
           "similarity": 100
         },
         {
-          "path": "project-lifecycle/02-planning/resource-planning/team-charter-template.md",
+          "path": "domains/team/project-lifecycle/02-planning/resource-planning/team-charter-template.md",
           "title": "Team Charter Template",
           "methodology": "universal",
           "tags": [
@@ -2557,7 +2563,7 @@
           "similarity": 94
         },
         {
-          "path": "methodology-frameworks/agile-scrum/scaling-frameworks/less/less_retrospective_template.md",
+          "path": "domains/team/methodology-frameworks/agile-scrum/scaling-frameworks/less/less_retrospective_template.md",
           "title": "Less Retrospective Template",
           "methodology": "agile",
           "tags": [
@@ -2761,7 +2767,7 @@
       ]
     },
     {
-      "path": "role-based-toolkits/scrum-master/agile-ceremonies/daily-standup-template.md",
+      "path": "domains/team/role-based-toolkits/scrum-master/agile-ceremonies/daily-standup-template.md",
       "title": "Daily Standup Template",
       "methodology": "agile",
       "complexity": "intermediate",
@@ -2782,7 +2788,7 @@
       ],
       "relatedTemplates": [
         {
-          "path": "role-based-toolkits/scrum-master/agile-ceremonies/backlog-refinement-template.md",
+          "path": "domains/team/role-based-toolkits/scrum-master/agile-ceremonies/backlog-refinement-template.md",
           "title": "Backlog Refinement Template",
           "methodology": "agile",
           "tags": [
@@ -2850,6 +2856,9 @@
           ],
           "similarity": 64
         }
+      ],
+      "alternate_paths": [
+        "role-based-toolkits/scrum-master/agile-ceremonies/daily-standup-template.md"
       ]
     },
     {
@@ -5647,7 +5656,7 @@
       ]
     },
     {
-      "path": "methodology-frameworks/agile-scrum/scaling-frameworks/less/less_retrospective_template.md",
+      "path": "domains/team/methodology-frameworks/agile-scrum/scaling-frameworks/less/less_retrospective_template.md",
       "title": "Less Retrospective Template",
       "methodology": "agile",
       "complexity": "advanced",
@@ -5746,6 +5755,9 @@
           ],
           "similarity": 88
         }
+      ],
+      "alternate_paths": [
+        "methodology-frameworks/agile-scrum/scaling-frameworks/less/less_retrospective_template.md"
       ]
     },
     {
@@ -5835,7 +5847,7 @@
           "similarity": 94
         },
         {
-          "path": "methodology-frameworks/agile-scrum/scaling-frameworks/less/less_retrospective_template.md",
+          "path": "domains/team/methodology-frameworks/agile-scrum/scaling-frameworks/less/less_retrospective_template.md",
           "title": "Less Retrospective Template",
           "methodology": "agile",
           "tags": [
@@ -7451,7 +7463,7 @@
           "similarity": 92
         },
         {
-          "path": "templates/agile/sprint_review_template.md",
+          "path": "domains/team/templates/agile/sprint_review_template.md",
           "title": "Sprint Review Template",
           "methodology": "agile",
           "tags": [
@@ -8877,7 +8889,7 @@
           "similarity": 73
         },
         {
-          "path": "templates/traditional/Traditional/Process_Groups/Executing/team_performance_assessment_template.md",
+          "path": "domains/team/templates/traditional/Traditional/Process_Groups/Executing/team_performance_assessment_template.md",
           "title": "Team Performance Assessment Template",
           "methodology": "traditional",
           "tags": [
@@ -9453,7 +9465,7 @@
           "similarity": 100
         },
         {
-          "path": "project-lifecycle/02-planning/resource-planning/team-charter-template.md",
+          "path": "domains/team/project-lifecycle/02-planning/resource-planning/team-charter-template.md",
           "title": "Team Charter Template",
           "methodology": "universal",
           "tags": [
@@ -9911,7 +9923,7 @@
           "similarity": 100
         },
         {
-          "path": "project-lifecycle/02-planning/resource-planning/team-charter-template.md",
+          "path": "domains/team/project-lifecycle/02-planning/resource-planning/team-charter-template.md",
           "title": "Team Charter Template",
           "methodology": "universal",
           "tags": [
@@ -10179,7 +10191,7 @@
           "similarity": 100
         },
         {
-          "path": "project-lifecycle/02-planning/resource-planning/team-charter-template.md",
+          "path": "domains/team/project-lifecycle/02-planning/resource-planning/team-charter-template.md",
           "title": "Team Charter Template",
           "methodology": "universal",
           "tags": [
@@ -10220,7 +10232,7 @@
       ],
       "relatedTemplates": [
         {
-          "path": "project-lifecycle/02-planning/resource-planning/skills-matrix-template.md",
+          "path": "domains/team/project-lifecycle/02-planning/resource-planning/skills-matrix-template.md",
           "title": "Skills Matrix Template",
           "methodology": "universal",
           "tags": [
@@ -10866,7 +10878,7 @@
       ]
     },
     {
-      "path": "project-lifecycle/02-planning/resource-planning/skills-matrix-template.md",
+      "path": "domains/team/project-lifecycle/02-planning/resource-planning/skills-matrix-template.md",
       "title": "Skills Matrix Template",
       "methodology": "universal",
       "complexity": "advanced",
@@ -10929,6 +10941,9 @@
           ],
           "similarity": 92
         }
+      ],
+      "alternate_paths": [
+        "project-lifecycle/02-planning/resource-planning/skills-matrix-template.md"
       ]
     },
     {
@@ -11080,7 +11095,7 @@
           "similarity": 82
         },
         {
-          "path": "templates/agile/sprint_review_template.md",
+          "path": "domains/team/templates/agile/sprint_review_template.md",
           "title": "Sprint Review Template",
           "methodology": "agile",
           "tags": [
@@ -11126,7 +11141,7 @@
       ]
     },
     {
-      "path": "templates/agile/sprint_retrospective_template.md",
+      "path": "domains/team/templates/agile/sprint_retrospective_template.md",
       "title": "Sprint Retrospective Template",
       "methodology": "agile",
       "complexity": "advanced",
@@ -11148,7 +11163,7 @@
       ],
       "relatedTemplates": [
         {
-          "path": "templates/agile/sprint_review_template.md",
+          "path": "domains/team/templates/agile/sprint_review_template.md",
           "title": "Sprint Review Template",
           "methodology": "agile",
           "tags": [
@@ -11219,10 +11234,13 @@
           ],
           "similarity": 83
         }
+      ],
+      "alternate_paths": [
+        "templates/agile/sprint_retrospective_template.md"
       ]
     },
     {
-      "path": "templates/agile/sprint_review_template.md",
+      "path": "domains/team/templates/agile/sprint_review_template.md",
       "title": "Sprint Review Template",
       "methodology": "agile",
       "complexity": "advanced",
@@ -11303,7 +11321,7 @@
           "similarity": 92
         },
         {
-          "path": "templates/agile/sprint_retrospective_template.md",
+          "path": "domains/team/templates/agile/sprint_retrospective_template.md",
           "title": "Sprint Retrospective Template",
           "methodology": "agile",
           "tags": [
@@ -11315,6 +11333,9 @@
           ],
           "similarity": 92
         }
+      ],
+      "alternate_paths": [
+        "templates/agile/sprint_review_template.md"
       ]
     },
     {
@@ -11464,7 +11485,7 @@
           "similarity": 80
         },
         {
-          "path": "project-lifecycle/01-initiation/project-charter/agile-team-charter-template.md",
+          "path": "domains/team/project-lifecycle/01-initiation/project-charter/agile-team-charter-template.md",
           "title": "Agile Team Charter Template",
           "methodology": "universal",
           "tags": [
@@ -11602,7 +11623,7 @@
       ]
     },
     {
-      "path": "project-lifecycle/02-planning/resource-planning/team-charter-template.md",
+      "path": "domains/team/project-lifecycle/02-planning/resource-planning/team-charter-template.md",
       "title": "Team Charter Template",
       "methodology": "universal",
       "complexity": "advanced",
@@ -11680,10 +11701,13 @@
           ],
           "similarity": 100
         }
+      ],
+      "alternate_paths": [
+        "project-lifecycle/02-planning/resource-planning/team-charter-template.md"
       ]
     },
     {
-      "path": "templates/traditional/Traditional/Process_Groups/Executing/team_performance_assessment_template.md",
+      "path": "domains/team/templates/traditional/Traditional/Process_Groups/Executing/team_performance_assessment_template.md",
       "title": "Team Performance Assessment Template",
       "methodology": "traditional",
       "complexity": "intermediate",
@@ -11777,6 +11801,9 @@
           ],
           "similarity": 73
         }
+      ],
+      "alternate_paths": [
+        "templates/traditional/Traditional/Process_Groups/Executing/team_performance_assessment_template.md"
       ]
     },
     {
@@ -12018,7 +12045,7 @@
           "similarity": 65
         },
         {
-          "path": "project-lifecycle/01-initiation/project-charter/agile-team-charter-template.md",
+          "path": "domains/team/project-lifecycle/01-initiation/project-charter/agile-team-charter-template.md",
           "title": "Agile Team Charter Template",
           "methodology": "universal",
           "tags": [

@@ -15,7 +15,7 @@
 
 title: "Agile Team Charter Template"
 
-[**➡️ View Template File**](/project-lifecycle/01-initiation/project-charter/agile-team-charter-template.md)
+[**➡️ View Template File**](/domains/team/project-lifecycle/01-initiation/project-charter/agile-team-charter-template.md)
 
 ## 📈 Quality Score
 

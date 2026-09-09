@@ -62,6 +62,15 @@
       "status": "executed",
       "evidence_file": "docs/vnext/sprint-12/b1g-migration-record.md",
       "rollback_owner": "mirichard"
+    },
+    {
+      "batch_id": "B2A",
+      "issue": "#1057",
+      "parent_issue": "#711",
+      "asset_count": 9,
+      "status": "executed",
+      "evidence_file": "docs/vnext/sprint-12/b2a-migration-record.md",
+      "rollback_owner": "mirichard"
     }
   ],
   "generated": "2026-09-02",
@@ -271,7 +280,14 @@
       ],
       "batch": 2,
       "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move",
-      "action": "planned-move-not-executed"
+      "action": "executed-move-with-legacy-pointer",
+      "execution": {
+        "batch_id": "B2A",
+        "pre_batch_sha": "b521b58792f7de09c391f3665cc3f56a5a22b752",
+        "pre_move_source_sha256": "0f0673726f23f2778e520fd5b9f59c9de8ba17f64cc3c4ab56f6f542fc61e5df",
+        "evidence_file": "docs/vnext/sprint-12/b2a-migration-record.md",
+        "rollback_owner": "mirichard"
+      }
     },
     {
       "source": "industry-specializations/information-technology/software-development/api_documentation_template.md",
@@ -433,7 +449,14 @@
       ],
       "batch": 2,
       "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move",
-      "action": "planned-move-not-executed"
+      "action": "executed-move-with-legacy-pointer",
+      "execution": {
+        "batch_id": "B2A",
+        "pre_batch_sha": "b521b58792f7de09c391f3665cc3f56a5a22b752",
+        "pre_move_source_sha256": "42e010dfd3e6392835182f16b440d091ae4228cae96b91f98517ad2fbfdeb632",
+        "evidence_file": "docs/vnext/sprint-12/b2a-migration-record.md",
+        "rollback_owner": "mirichard"
+      }
     },
     {
       "source": "industry-specializations/healthcare-pharmaceutical/manufacturing/batch_record_template.md",
@@ -984,11 +1007,11 @@
         "docs/archive/README-20250805.md",
         "docs/methodology-guides/methodology-comparison.md",
         "docs/templates/cross_team_coordination_template.md",
+        "domains/team/methodology-frameworks/agile-scrum/scaling-frameworks/less/less_retrospective_template.md",
         "meta/cross-references.json",
         "meta/domain-mapping.json",
         "meta/migration-inventory.json",
         "meta/value-flow-mapping.json",
-        "methodology-frameworks/agile-scrum/scaling-frameworks/less/less_retrospective_template.md",
         "methodology-frameworks/agile-scrum/scaling-frameworks/less/less_sprint_planning_template.md",
         "quick-start-kits/less-adoption/README.md",
         "site/.lighthouseci/lhr-1755874277795.html",
@@ -1068,7 +1091,7 @@
       "primary_domain": "Team",
       "secondary_domains": [],
       "dependencies": [
-        "role-based-toolkits/scrum-master/agile-ceremonies/backlog-refinement-template.md",
+        "domains/team/role-based-toolkits/scrum-master/agile-ceremonies/backlog-refinement-template.md",
         "methodology-frameworks/agile-scrum/scaling-frameworks/safe/pi_planning_template.md",
         "role-based-toolkits/scrum-master/agile-ceremonies/sprint-planning-template.md"
       ],
@@ -1095,7 +1118,14 @@
       ],
       "batch": 2,
       "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move",
-      "action": "planned-move-not-executed"
+      "action": "executed-move-with-legacy-pointer",
+      "execution": {
+        "batch_id": "B2A",
+        "pre_batch_sha": "b521b58792f7de09c391f3665cc3f56a5a22b752",
+        "pre_move_source_sha256": "51d78959b9bcb390984d708e42ec3e30a0f9dc6c4196d2583681b432e83b8b7b",
+        "evidence_file": "docs/vnext/sprint-12/b2a-migration-record.md",
+        "rollback_owner": "mirichard"
+      }
     },
     {
       "source": "industry-specializations/information-technology/infrastructure/data_center_design_template.md",
@@ -2173,7 +2203,14 @@
       ],
       "batch": 2,
       "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move",
-      "action": "planned-move-not-executed"
+      "action": "executed-move-with-legacy-pointer",
+      "execution": {
+        "batch_id": "B2A",
+        "pre_batch_sha": "b521b58792f7de09c391f3665cc3f56a5a22b752",
+        "pre_move_source_sha256": "a96a2a8c38e7231f2d4354d465d5e47efddd1d7c226cb0eef5e4c524cae9189f",
+        "evidence_file": "docs/vnext/sprint-12/b2a-migration-record.md",
+        "rollback_owner": "mirichard"
+      }
     },
     {
       "source": "methodology-frameworks/agile-scrum/scaling-frameworks/less/less_sprint_planning_template.md",
@@ -2193,12 +2230,12 @@
         "docs/archive/README-20250805.md",
         "docs/methodology-guides/methodology-comparison.md",
         "docs/templates/less_sprint_planning_template.md",
+        "domains/team/methodology-frameworks/agile-scrum/scaling-frameworks/less/less_retrospective_template.md",
         "meta/cross-references.json",
         "meta/domain-mapping.json",
         "meta/migration-inventory.json",
         "meta/value-flow-mapping.json",
         "methodology-frameworks/agile-scrum/scaling-frameworks/less/cross_team_coordination_template.md",
-        "methodology-frameworks/agile-scrum/scaling-frameworks/less/less_retrospective_template.md",
         "methodology-frameworks/agile-scrum/scaling-frameworks/less/overall_product_backlog_template.md",
         "quick-start-kits/less-adoption/README.md",
         "site/.lighthouseci/lhr-1755874277795.html",
@@ -2452,12 +2489,12 @@
         "docs/archive/README-20250805.md",
         "docs/methodology-guides/methodology-comparison.md",
         "docs/templates/overall_product_backlog_template.md",
+        "domains/team/methodology-frameworks/agile-scrum/scaling-frameworks/less/less_retrospective_template.md",
         "meta/cross-references.json",
         "meta/domain-mapping.json",
         "meta/migration-inventory.json",
         "meta/value-flow-mapping.json",
         "methodology-frameworks/agile-scrum/scaling-frameworks/less/cross_team_coordination_template.md",
-        "methodology-frameworks/agile-scrum/scaling-frameworks/less/less_retrospective_template.md",
         "methodology-frameworks/agile-scrum/scaling-frameworks/less/less_sprint_planning_template.md",
         "quick-start-kits/less-adoption/README.md",
         "site/.lighthouseci/lhr-1755874277795.html",
@@ -2760,7 +2797,7 @@
       ],
       "dependencies": [
         "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_program_increment_planning_template.md",
-        "templates/agile/sprint_review_template.md",
+        "domains/team/templates/agile/sprint_review_template.md",
         "templates/agile/sprint_planning_template.md"
       ],
       "affected_internal_references": [
@@ -2776,6 +2813,7 @@
         "docs/site/public/changelog/product_backlog_template.json",
         "docs/templates/overall_product_backlog_template.md",
         "docs/templates/product_backlog_template.md",
+        "domains/team/methodology-frameworks/agile-scrum/scaling-frameworks/less/less_retrospective_template.md",
         "meta/architecture-research/806-rules-engine-implementation.md",
         "meta/architecture-research/807-rules-engine-validation.md",
         "meta/architecture-research/809-decision-tree-design.md",
@@ -2786,7 +2824,6 @@
         "meta/migration-inventory.json",
         "meta/value-flow-mapping.json",
         "methodology-frameworks/agile-scrum/scaling-frameworks/less/cross_team_coordination_template.md",
-        "methodology-frameworks/agile-scrum/scaling-frameworks/less/less_retrospective_template.md",
         "methodology-frameworks/agile-scrum/scaling-frameworks/less/less_sprint_planning_template.md",
         "methodology-frameworks/agile-scrum/sprint-planning/sprint_planning_template.md",
         "quick-start-kits/less-adoption/README.md",
@@ -3291,7 +3328,7 @@
       "secondary_domains": [],
       "dependencies": [
         "templates/traditional/Traditional/Templates/raid_log_template.md",
-        "templates/traditional/Traditional/Process_Groups/Executing/team_performance_assessment_template.md",
+        "domains/team/templates/traditional/Traditional/Process_Groups/Executing/team_performance_assessment_template.md",
         "domains/planning/templates/traditional/Traditional/Templates/business_case_template.md"
       ],
       "affected_internal_references": [
@@ -4057,7 +4094,14 @@
       ],
       "batch": 2,
       "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move",
-      "action": "planned-move-not-executed"
+      "action": "executed-move-with-legacy-pointer",
+      "execution": {
+        "batch_id": "B2A",
+        "pre_batch_sha": "b521b58792f7de09c391f3665cc3f56a5a22b752",
+        "pre_move_source_sha256": "89caff225adae1dd3db08729141472ea80946d18f6098333d039275748bcf158",
+        "evidence_file": "docs/vnext/sprint-12/b2a-migration-record.md",
+        "rollback_owner": "mirichard"
+      }
     },
     {
       "source": "industry-specializations/healthcare-pharmaceutical/validation/software_requirements_specification_template.md",
@@ -4098,7 +4142,7 @@
       "dependencies": [
         "templates/agile/product_backlog_template.md",
         "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_program_increment_planning_template.md",
-        "templates/agile/sprint_review_template.md"
+        "domains/team/templates/agile/sprint_review_template.md"
       ],
       "affected_internal_references": [
         ".github/ISSUE_TEMPLATE/template-improvement.yml",
@@ -4115,6 +4159,7 @@
         "docs/site/public/changelog/sprint_planning_template.json",
         "docs/templates/less_sprint_planning_template.md",
         "docs/templates/sprint_planning_template.md",
+        "domains/team/methodology-frameworks/agile-scrum/scaling-frameworks/less/less_retrospective_template.md",
         "industry-specializations/information-technology/README.md",
         "industry_templates/software_development/README.md",
         "meta/architecture-research/769-773-mapping-methodology.md",
@@ -4130,7 +4175,6 @@
         "meta/migration-inventory.json",
         "meta/value-flow-mapping.json",
         "methodology-frameworks/agile-scrum/scaling-frameworks/less/cross_team_coordination_template.md",
-        "methodology-frameworks/agile-scrum/scaling-frameworks/less/less_retrospective_template.md",
         "methodology-frameworks/agile-scrum/scaling-frameworks/less/overall_product_backlog_template.md",
         "organizational_change_management_framework.md",
         "quick-start-kits/less-adoption/README.md",
@@ -4153,7 +4197,7 @@
         "Stakeholder"
       ],
       "dependencies": [
-        "templates/agile/sprint_review_template.md",
+        "domains/team/templates/agile/sprint_review_template.md",
         "methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md",
         "methodology-frameworks/agile-scrum/scaling-frameworks/less/cross_team_coordination_template.md"
       ],
@@ -4186,7 +4230,14 @@
       ],
       "batch": 2,
       "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move",
-      "action": "planned-move-not-executed"
+      "action": "executed-move-with-legacy-pointer",
+      "execution": {
+        "batch_id": "B2A",
+        "pre_batch_sha": "b521b58792f7de09c391f3665cc3f56a5a22b752",
+        "pre_move_source_sha256": "30d1d9549b91ad911ac934f3bc86da72813b850229f095c8afe6a4974f1bf47d",
+        "evidence_file": "docs/vnext/sprint-12/b2a-migration-record.md",
+        "rollback_owner": "mirichard"
+      }
     },
     {
       "source": "templates/agile/sprint_review_template.md",
@@ -4228,7 +4279,14 @@
       ],
       "batch": 2,
       "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move",
-      "action": "planned-move-not-executed"
+      "action": "executed-move-with-legacy-pointer",
+      "execution": {
+        "batch_id": "B2A",
+        "pre_batch_sha": "b521b58792f7de09c391f3665cc3f56a5a22b752",
+        "pre_move_source_sha256": "3f37c1dbbc7f11b2ac603b6846eb99470550de0cf7fa7b4d61b98659c4996325",
+        "evidence_file": "docs/vnext/sprint-12/b2a-migration-record.md",
+        "rollback_owner": "mirichard"
+      }
     },
     {
       "source": "project-assessment-suite/stakeholder-engagement-assessment-template.md",
@@ -4391,7 +4449,14 @@
       ],
       "batch": 2,
       "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move",
-      "action": "planned-move-not-executed"
+      "action": "executed-move-with-legacy-pointer",
+      "execution": {
+        "batch_id": "B2A",
+        "pre_batch_sha": "b521b58792f7de09c391f3665cc3f56a5a22b752",
+        "pre_move_source_sha256": "66814df1b812d05e9caf5e8f4dc524082eea0926100478f93752a98882b4712d",
+        "evidence_file": "docs/vnext/sprint-12/b2a-migration-record.md",
+        "rollback_owner": "mirichard"
+      }
     },
     {
       "source": "templates/traditional/Traditional/Process_Groups/Executing/team_performance_assessment_template.md",
@@ -4422,7 +4487,14 @@
       ],
       "batch": 2,
       "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move",
-      "action": "planned-move-not-executed"
+      "action": "executed-move-with-legacy-pointer",
+      "execution": {
+        "batch_id": "B2A",
+        "pre_batch_sha": "b521b58792f7de09c391f3665cc3f56a5a22b752",
+        "pre_move_source_sha256": "7d6268733b205ac301e8e55d9892a3c0b4999a923f1fa2deca188704907720aa",
+        "evidence_file": "docs/vnext/sprint-12/b2a-migration-record.md",
+        "rollback_owner": "mirichard"
+      }
     },
     {
       "source": "industry-specializations/information-technology/software-development/technical_design_document_template.md",
@@ -4494,7 +4566,7 @@
       "dependencies": [
         "industry-specializations/information-technology/software-development/api_documentation_template.md",
         "role-based-toolkits/product-owner/user-story-template.md",
-        "project-lifecycle/01-initiation/project-charter/agile-team-charter-template.md"
+        "domains/team/project-lifecycle/01-initiation/project-charter/agile-team-charter-template.md"
       ],
       "affected_internal_references": [
         "TEMPLATE_INDEX.md",
