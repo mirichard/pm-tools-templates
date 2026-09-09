@@ -21,7 +21,7 @@ End-to-end validation of the [Template Decision Tree](../../docs/decision-engine
 **Expected path:** Small Agile Project (Low Risk)
 
 **Decision tree output:**
-1. ✅ Agile Team Charter Template → `project-lifecycle/01-initiation/project-charter/agile-team-charter-template.md` — exists
+1. ✅ Agile Team Charter Template → `domains/team/project-lifecycle/01-initiation/project-charter/agile-team-charter-template.md` — exists
 2. ✅ Product Backlog Template → `templates/agile/product_backlog_template.md` — exists
 3. ✅ Sprint Planning Template → `templates/agile/sprint_planning_template.md` — exists
 4. ✅ Toolkit: Quick Start Kits + First-Time PM Starter — exists

@@ -426,6 +426,207 @@
       "next_workflow_step": "domains/stakeholder/business-stakeholder-suite/executive-dashboards/powerbi-integration/executive-dashboard-template.md"
     },
     {
+      "path": "domains/team/methodology-frameworks/agile-scrum/scaling-frameworks/less/less_retrospective_template.md",
+      "domain": {
+        "primary": "Team",
+        "secondary": [
+          "Stakeholder"
+        ],
+        "rationale": "Title/path indicates team-focused ceremony or collaboration"
+      },
+      "prerequisites": [
+        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md"
+      ],
+      "related_assets": [
+        "domains/team/templates/traditional/Traditional/Process_Groups/Executing/team_performance_assessment_template.md",
+        "domains/team/project-lifecycle/01-initiation/project-charter/agile-team-charter-template.md"
+      ],
+      "complementary_assets": [
+        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md",
+        "methodology-frameworks/agile-scrum/scaling-frameworks/less/cross_team_coordination_template.md"
+      ],
+      "previous_workflow_step": "domains/team/templates/traditional/Traditional/Process_Groups/Executing/team_performance_assessment_template.md",
+      "next_workflow_step": "domains/team/project-lifecycle/01-initiation/project-charter/agile-team-charter-template.md"
+    },
+    {
+      "path": "domains/team/project-lifecycle/01-initiation/project-charter/agile-team-charter-template.md",
+      "domain": {
+        "primary": "Team",
+        "secondary": [],
+        "rationale": "Title/path indicates team-focused ceremony or collaboration"
+      },
+      "prerequisites": [
+        "domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/stakeholder-register-template.md"
+      ],
+      "related_assets": [
+        "domains/team/methodology-frameworks/agile-scrum/scaling-frameworks/less/less_retrospective_template.md",
+        "domains/team/project-lifecycle/02-planning/resource-planning/skills-matrix-template.md"
+      ],
+      "complementary_assets": [
+        "domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/stakeholder-register-template.md",
+        "domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/agile-stakeholder-map-template.md"
+      ],
+      "previous_workflow_step": "domains/team/methodology-frameworks/agile-scrum/scaling-frameworks/less/less_retrospective_template.md",
+      "next_workflow_step": "domains/team/project-lifecycle/02-planning/resource-planning/skills-matrix-template.md"
+    },
+    {
+      "path": "domains/team/project-lifecycle/02-planning/resource-planning/skills-matrix-template.md",
+      "domain": {
+        "primary": "Team",
+        "secondary": [
+          "Stakeholder"
+        ],
+        "rationale": "Title/path indicates team-focused ceremony or collaboration"
+      },
+      "prerequisites": [
+        "methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md"
+      ],
+      "related_assets": [
+        "domains/team/project-lifecycle/01-initiation/project-charter/agile-team-charter-template.md",
+        "domains/team/project-lifecycle/02-planning/resource-planning/team-charter-template.md"
+      ],
+      "complementary_assets": [
+        "methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md",
+        "role-based-toolkits/project-manager/essential-templates/meeting-templates.md"
+      ],
+      "previous_workflow_step": "domains/team/project-lifecycle/01-initiation/project-charter/agile-team-charter-template.md",
+      "next_workflow_step": "domains/team/project-lifecycle/02-planning/resource-planning/team-charter-template.md"
+    },
+    {
+      "path": "domains/team/project-lifecycle/02-planning/resource-planning/team-charter-template.md",
+      "domain": {
+        "primary": "Team",
+        "secondary": [
+          "Stakeholder"
+        ],
+        "rationale": "Title/path indicates team-focused ceremony or collaboration"
+      },
+      "prerequisites": [
+        "methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md"
+      ],
+      "related_assets": [
+        "domains/team/project-lifecycle/02-planning/resource-planning/skills-matrix-template.md",
+        "domains/team/role-based-toolkits/scrum-master/agile-ceremonies/backlog-refinement-template.md"
+      ],
+      "complementary_assets": [
+        "methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md",
+        "methodology-frameworks/emerging-methods/devops/release_management_template.md"
+      ],
+      "previous_workflow_step": "domains/team/project-lifecycle/02-planning/resource-planning/skills-matrix-template.md",
+      "next_workflow_step": "domains/team/role-based-toolkits/scrum-master/agile-ceremonies/backlog-refinement-template.md"
+    },
+    {
+      "path": "domains/team/role-based-toolkits/scrum-master/agile-ceremonies/backlog-refinement-template.md",
+      "domain": {
+        "primary": "Team",
+        "secondary": [],
+        "rationale": "Title/path indicates team-focused ceremony or collaboration"
+      },
+      "prerequisites": [
+        "role-based-toolkits/scrum-master/agile-ceremonies/sprint-planning-template.md"
+      ],
+      "related_assets": [
+        "domains/team/project-lifecycle/02-planning/resource-planning/team-charter-template.md",
+        "domains/team/role-based-toolkits/scrum-master/agile-ceremonies/daily-standup-template.md"
+      ],
+      "complementary_assets": [
+        "role-based-toolkits/scrum-master/agile-ceremonies/sprint-planning-template.md",
+        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_program_increment_planning_template.md"
+      ],
+      "previous_workflow_step": "domains/team/project-lifecycle/02-planning/resource-planning/team-charter-template.md",
+      "next_workflow_step": "domains/team/role-based-toolkits/scrum-master/agile-ceremonies/daily-standup-template.md"
+    },
+    {
+      "path": "domains/team/role-based-toolkits/scrum-master/agile-ceremonies/daily-standup-template.md",
+      "domain": {
+        "primary": "Team",
+        "secondary": [],
+        "rationale": "Title/path indicates team-focused ceremony or collaboration"
+      },
+      "prerequisites": [
+        "domains/team/role-based-toolkits/scrum-master/agile-ceremonies/backlog-refinement-template.md"
+      ],
+      "related_assets": [
+        "domains/team/role-based-toolkits/scrum-master/agile-ceremonies/backlog-refinement-template.md",
+        "domains/team/templates/agile/sprint_retrospective_template.md"
+      ],
+      "complementary_assets": [
+        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/pi_planning_template.md",
+        "role-based-toolkits/scrum-master/agile-ceremonies/sprint-planning-template.md"
+      ],
+      "previous_workflow_step": "domains/team/role-based-toolkits/scrum-master/agile-ceremonies/backlog-refinement-template.md",
+      "next_workflow_step": "domains/team/templates/agile/sprint_retrospective_template.md"
+    },
+    {
+      "path": "domains/team/templates/agile/sprint_retrospective_template.md",
+      "domain": {
+        "primary": "Team",
+        "secondary": [
+          "Stakeholder"
+        ],
+        "rationale": "Title/path indicates team-focused ceremony or collaboration"
+      },
+      "prerequisites": [
+        "domains/team/templates/agile/sprint_review_template.md"
+      ],
+      "related_assets": [
+        "domains/team/role-based-toolkits/scrum-master/agile-ceremonies/daily-standup-template.md",
+        "domains/team/templates/agile/sprint_review_template.md"
+      ],
+      "complementary_assets": [
+        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md",
+        "methodology-frameworks/agile-scrum/scaling-frameworks/less/cross_team_coordination_template.md"
+      ],
+      "previous_workflow_step": "domains/team/role-based-toolkits/scrum-master/agile-ceremonies/daily-standup-template.md",
+      "next_workflow_step": "domains/team/templates/agile/sprint_review_template.md"
+    },
+    {
+      "path": "domains/team/templates/agile/sprint_review_template.md",
+      "domain": {
+        "primary": "Team",
+        "secondary": [
+          "Stakeholder"
+        ],
+        "rationale": "Title/path indicates team-focused ceremony or collaboration"
+      },
+      "prerequisites": [
+        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md"
+      ],
+      "related_assets": [
+        "domains/team/templates/agile/sprint_retrospective_template.md",
+        "domains/team/templates/traditional/Traditional/Process_Groups/Executing/team_performance_assessment_template.md"
+      ],
+      "complementary_assets": [
+        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md",
+        "methodology-frameworks/agile-scrum/scaling-frameworks/less/cross_team_coordination_template.md"
+      ],
+      "previous_workflow_step": "domains/team/templates/agile/sprint_retrospective_template.md",
+      "next_workflow_step": "domains/team/templates/traditional/Traditional/Process_Groups/Executing/team_performance_assessment_template.md"
+    },
+    {
+      "path": "domains/team/templates/traditional/Traditional/Process_Groups/Executing/team_performance_assessment_template.md",
+      "domain": {
+        "primary": "Team",
+        "secondary": [
+          "Stakeholder"
+        ],
+        "rationale": "Title/path indicates team-focused ceremony or collaboration"
+      },
+      "prerequisites": [
+        "templates/traditional/Traditional/Templates/change_request_template.md"
+      ],
+      "related_assets": [
+        "domains/team/templates/agile/sprint_review_template.md",
+        "domains/team/methodology-frameworks/agile-scrum/scaling-frameworks/less/less_retrospective_template.md"
+      ],
+      "complementary_assets": [
+        "templates/traditional/Traditional/Templates/change_request_template.md",
+        "templates/traditional/Traditional/Templates/communication_plan_template.md"
+      ],
+      "previous_workflow_step": "domains/team/templates/agile/sprint_review_template.md",
+      "next_workflow_step": "domains/team/methodology-frameworks/agile-scrum/scaling-frameworks/less/less_retrospective_template.md"
+    },
+    {
       "path": "industry-specializations/financial-services/compliance/compliance-management-template.md",
       "domain": {
         "primary": "Measurement",
@@ -1252,29 +1453,6 @@
       "next_workflow_step": "methodology-frameworks/agile-scrum/scaling-frameworks/less/less_sprint_planning_template.md"
     },
     {
-      "path": "methodology-frameworks/agile-scrum/scaling-frameworks/less/less_retrospective_template.md",
-      "domain": {
-        "primary": "Team",
-        "secondary": [
-          "Stakeholder"
-        ],
-        "rationale": "Title/path indicates team-focused ceremony or collaboration"
-      },
-      "prerequisites": [
-        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md"
-      ],
-      "related_assets": [
-        "templates/traditional/Traditional/Process_Groups/Executing/team_performance_assessment_template.md",
-        "project-lifecycle/01-initiation/project-charter/agile-team-charter-template.md"
-      ],
-      "complementary_assets": [
-        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md",
-        "methodology-frameworks/agile-scrum/scaling-frameworks/less/cross_team_coordination_template.md"
-      ],
-      "previous_workflow_step": "templates/traditional/Traditional/Process_Groups/Executing/team_performance_assessment_template.md",
-      "next_workflow_step": "project-lifecycle/01-initiation/project-charter/agile-team-charter-template.md"
-    },
-    {
       "path": "methodology-frameworks/agile-scrum/scaling-frameworks/less/less_sprint_planning_template.md",
       "domain": {
         "primary": "Delivery",
@@ -1984,27 +2162,6 @@
       "next_workflow_step": "project-lifecycle/02-planning/business-requirements/business_requirements_document_template.md"
     },
     {
-      "path": "project-lifecycle/01-initiation/project-charter/agile-team-charter-template.md",
-      "domain": {
-        "primary": "Team",
-        "secondary": [],
-        "rationale": "Title/path indicates team-focused ceremony or collaboration"
-      },
-      "prerequisites": [
-        "domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/stakeholder-register-template.md"
-      ],
-      "related_assets": [
-        "methodology-frameworks/agile-scrum/scaling-frameworks/less/less_retrospective_template.md",
-        "project-lifecycle/02-planning/resource-planning/skills-matrix-template.md"
-      ],
-      "complementary_assets": [
-        "domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/stakeholder-register-template.md",
-        "domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/agile-stakeholder-map-template.md"
-      ],
-      "previous_workflow_step": "methodology-frameworks/agile-scrum/scaling-frameworks/less/less_retrospective_template.md",
-      "next_workflow_step": "project-lifecycle/02-planning/resource-planning/skills-matrix-template.md"
-    },
-    {
       "path": "project-lifecycle/02-planning/business-requirements/business_requirements_document_template.md",
       "domain": {
         "primary": "Measurement",
@@ -2123,52 +2280,6 @@
       ],
       "previous_workflow_step": "project-lifecycle/02-planning/business-requirements/business_requirements_document_template.md",
       "next_workflow_step": "project-lifecycle/02-planning/risk-management/risk-management-plan-template.md"
-    },
-    {
-      "path": "project-lifecycle/02-planning/resource-planning/skills-matrix-template.md",
-      "domain": {
-        "primary": "Team",
-        "secondary": [
-          "Stakeholder"
-        ],
-        "rationale": "Title/path indicates team-focused ceremony or collaboration"
-      },
-      "prerequisites": [
-        "methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md"
-      ],
-      "related_assets": [
-        "project-lifecycle/01-initiation/project-charter/agile-team-charter-template.md",
-        "project-lifecycle/02-planning/resource-planning/team-charter-template.md"
-      ],
-      "complementary_assets": [
-        "methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md",
-        "role-based-toolkits/project-manager/essential-templates/meeting-templates.md"
-      ],
-      "previous_workflow_step": "project-lifecycle/01-initiation/project-charter/agile-team-charter-template.md",
-      "next_workflow_step": "project-lifecycle/02-planning/resource-planning/team-charter-template.md"
-    },
-    {
-      "path": "project-lifecycle/02-planning/resource-planning/team-charter-template.md",
-      "domain": {
-        "primary": "Team",
-        "secondary": [
-          "Stakeholder"
-        ],
-        "rationale": "Title/path indicates team-focused ceremony or collaboration"
-      },
-      "prerequisites": [
-        "methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md"
-      ],
-      "related_assets": [
-        "project-lifecycle/02-planning/resource-planning/skills-matrix-template.md",
-        "role-based-toolkits/scrum-master/agile-ceremonies/backlog-refinement-template.md"
-      ],
-      "complementary_assets": [
-        "methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md",
-        "methodology-frameworks/emerging-methods/devops/release_management_template.md"
-      ],
-      "previous_workflow_step": "project-lifecycle/02-planning/resource-planning/skills-matrix-template.md",
-      "next_workflow_step": "role-based-toolkits/scrum-master/agile-ceremonies/backlog-refinement-template.md"
     },
     {
       "path": "project-lifecycle/02-planning/risk-management/agile-risk-board-template.md",
@@ -2438,48 +2549,6 @@
       "next_workflow_step": "templates/agile/product_backlog_template.md"
     },
     {
-      "path": "role-based-toolkits/scrum-master/agile-ceremonies/backlog-refinement-template.md",
-      "domain": {
-        "primary": "Team",
-        "secondary": [],
-        "rationale": "Title/path indicates team-focused ceremony or collaboration"
-      },
-      "prerequisites": [
-        "role-based-toolkits/scrum-master/agile-ceremonies/sprint-planning-template.md"
-      ],
-      "related_assets": [
-        "project-lifecycle/02-planning/resource-planning/team-charter-template.md",
-        "role-based-toolkits/scrum-master/agile-ceremonies/daily-standup-template.md"
-      ],
-      "complementary_assets": [
-        "role-based-toolkits/scrum-master/agile-ceremonies/sprint-planning-template.md",
-        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_program_increment_planning_template.md"
-      ],
-      "previous_workflow_step": "project-lifecycle/02-planning/resource-planning/team-charter-template.md",
-      "next_workflow_step": "role-based-toolkits/scrum-master/agile-ceremonies/daily-standup-template.md"
-    },
-    {
-      "path": "role-based-toolkits/scrum-master/agile-ceremonies/daily-standup-template.md",
-      "domain": {
-        "primary": "Team",
-        "secondary": [],
-        "rationale": "Title/path indicates team-focused ceremony or collaboration"
-      },
-      "prerequisites": [
-        "role-based-toolkits/scrum-master/agile-ceremonies/backlog-refinement-template.md"
-      ],
-      "related_assets": [
-        "role-based-toolkits/scrum-master/agile-ceremonies/backlog-refinement-template.md",
-        "templates/agile/sprint_retrospective_template.md"
-      ],
-      "complementary_assets": [
-        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/pi_planning_template.md",
-        "role-based-toolkits/scrum-master/agile-ceremonies/sprint-planning-template.md"
-      ],
-      "previous_workflow_step": "role-based-toolkits/scrum-master/agile-ceremonies/backlog-refinement-template.md",
-      "next_workflow_step": "templates/agile/sprint_retrospective_template.md"
-    },
-    {
       "path": "templates/agile/product_backlog_template.md",
       "domain": {
         "primary": "Delivery",
@@ -2498,7 +2567,7 @@
       ],
       "complementary_assets": [
         "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_program_increment_planning_template.md",
-        "templates/agile/sprint_review_template.md"
+        "domains/team/templates/agile/sprint_review_template.md"
       ],
       "previous_workflow_step": "role-based-toolkits/project-manager/essential-templates/timesheet-tracking-template.md",
       "next_workflow_step": "templates/agile/sprint_planning_template.md"
@@ -2522,56 +2591,10 @@
       ],
       "complementary_assets": [
         "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_program_increment_planning_template.md",
-        "templates/agile/sprint_review_template.md"
+        "domains/team/templates/agile/sprint_review_template.md"
       ],
       "previous_workflow_step": "templates/agile/product_backlog_template.md",
       "next_workflow_step": "templates/hybrid/Hybrid/Templates/hybrid_quality_management_template.md"
-    },
-    {
-      "path": "templates/agile/sprint_retrospective_template.md",
-      "domain": {
-        "primary": "Team",
-        "secondary": [
-          "Stakeholder"
-        ],
-        "rationale": "Title/path indicates team-focused ceremony or collaboration"
-      },
-      "prerequisites": [
-        "templates/agile/sprint_review_template.md"
-      ],
-      "related_assets": [
-        "role-based-toolkits/scrum-master/agile-ceremonies/daily-standup-template.md",
-        "templates/agile/sprint_review_template.md"
-      ],
-      "complementary_assets": [
-        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md",
-        "methodology-frameworks/agile-scrum/scaling-frameworks/less/cross_team_coordination_template.md"
-      ],
-      "previous_workflow_step": "role-based-toolkits/scrum-master/agile-ceremonies/daily-standup-template.md",
-      "next_workflow_step": "templates/agile/sprint_review_template.md"
-    },
-    {
-      "path": "templates/agile/sprint_review_template.md",
-      "domain": {
-        "primary": "Team",
-        "secondary": [
-          "Stakeholder"
-        ],
-        "rationale": "Title/path indicates team-focused ceremony or collaboration"
-      },
-      "prerequisites": [
-        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md"
-      ],
-      "related_assets": [
-        "templates/agile/sprint_retrospective_template.md",
-        "templates/traditional/Traditional/Process_Groups/Executing/team_performance_assessment_template.md"
-      ],
-      "complementary_assets": [
-        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md",
-        "methodology-frameworks/agile-scrum/scaling-frameworks/less/cross_team_coordination_template.md"
-      ],
-      "previous_workflow_step": "templates/agile/sprint_retrospective_template.md",
-      "next_workflow_step": "templates/traditional/Traditional/Process_Groups/Executing/team_performance_assessment_template.md"
     },
     {
       "path": "templates/hybrid/Hybrid/Templates/hybrid_quality_management_template.md",
@@ -2811,29 +2834,6 @@
       ],
       "previous_workflow_step": "templates/traditional/Traditional/Process_Groups/Executing/project_execution_status_report_template.md",
       "next_workflow_step": "templates/traditional/Traditional/Process_Groups/Monitoring_and_Controlling/project_performance_monitoring_template.md"
-    },
-    {
-      "path": "templates/traditional/Traditional/Process_Groups/Executing/team_performance_assessment_template.md",
-      "domain": {
-        "primary": "Team",
-        "secondary": [
-          "Stakeholder"
-        ],
-        "rationale": "Title/path indicates team-focused ceremony or collaboration"
-      },
-      "prerequisites": [
-        "templates/traditional/Traditional/Templates/change_request_template.md"
-      ],
-      "related_assets": [
-        "templates/agile/sprint_review_template.md",
-        "methodology-frameworks/agile-scrum/scaling-frameworks/less/less_retrospective_template.md"
-      ],
-      "complementary_assets": [
-        "templates/traditional/Traditional/Templates/change_request_template.md",
-        "templates/traditional/Traditional/Templates/communication_plan_template.md"
-      ],
-      "previous_workflow_step": "templates/agile/sprint_review_template.md",
-      "next_workflow_step": "methodology-frameworks/agile-scrum/scaling-frameworks/less/less_retrospective_template.md"
     },
     {
       "path": "templates/traditional/Traditional/Process_Groups/Monitoring_and_Controlling/project_performance_monitoring_template.md",
@@ -3090,7 +3090,7 @@
         "templates/traditional/Traditional/Templates/raid_log_template.md"
       ],
       "complementary_assets": [
-        "templates/traditional/Traditional/Process_Groups/Executing/team_performance_assessment_template.md",
+        "domains/team/templates/traditional/Traditional/Process_Groups/Executing/team_performance_assessment_template.md",
         "domains/planning/templates/traditional/Traditional/Templates/business_case_template.md"
       ],
       "previous_workflow_step": "templates/traditional/Traditional/Templates/project_roadmap_template.md",

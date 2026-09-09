@@ -73,7 +73,7 @@
       }
     },
     {
-      "path": "project-lifecycle/01-initiation/project-charter/agile-team-charter-template.md",
+      "path": "domains/team/project-lifecycle/01-initiation/project-charter/agile-team-charter-template.md",
       "title": "Agile Team Charter Template",
       "methodology": "universal",
       "value_flow": {
@@ -143,7 +143,7 @@
       }
     },
     {
-      "path": "role-based-toolkits/scrum-master/agile-ceremonies/backlog-refinement-template.md",
+      "path": "domains/team/role-based-toolkits/scrum-master/agile-ceremonies/backlog-refinement-template.md",
       "title": "Backlog Refinement Template",
       "methodology": "agile",
       "value_flow": {
@@ -409,7 +409,7 @@
       }
     },
     {
-      "path": "role-based-toolkits/scrum-master/agile-ceremonies/daily-standup-template.md",
+      "path": "domains/team/role-based-toolkits/scrum-master/agile-ceremonies/daily-standup-template.md",
       "title": "Daily Standup Template",
       "methodology": "agile",
       "value_flow": {
@@ -843,7 +843,7 @@
       }
     },
     {
-      "path": "methodology-frameworks/agile-scrum/scaling-frameworks/less/less_retrospective_template.md",
+      "path": "domains/team/methodology-frameworks/agile-scrum/scaling-frameworks/less/less_retrospective_template.md",
       "title": "Less Retrospective Template",
       "methodology": "agile",
       "value_flow": {
@@ -1613,7 +1613,7 @@
       }
     },
     {
-      "path": "project-lifecycle/02-planning/resource-planning/skills-matrix-template.md",
+      "path": "domains/team/project-lifecycle/02-planning/resource-planning/skills-matrix-template.md",
       "title": "Skills Matrix Template",
       "methodology": "universal",
       "value_flow": {
@@ -1655,7 +1655,7 @@
       }
     },
     {
-      "path": "templates/agile/sprint_retrospective_template.md",
+      "path": "domains/team/templates/agile/sprint_retrospective_template.md",
       "title": "Sprint Retrospective Template",
       "methodology": "agile",
       "value_flow": {
@@ -1669,7 +1669,7 @@
       }
     },
     {
-      "path": "templates/agile/sprint_review_template.md",
+      "path": "domains/team/templates/agile/sprint_review_template.md",
       "title": "Sprint Review Template",
       "methodology": "agile",
       "value_flow": {
@@ -1725,7 +1725,7 @@
       }
     },
     {
-      "path": "project-lifecycle/02-planning/resource-planning/team-charter-template.md",
+      "path": "domains/team/project-lifecycle/02-planning/resource-planning/team-charter-template.md",
       "title": "Team Charter Template",
       "methodology": "universal",
       "value_flow": {
@@ -1739,7 +1739,7 @@
       }
     },
     {
-      "path": "templates/traditional/Traditional/Process_Groups/Executing/team_performance_assessment_template.md",
+      "path": "domains/team/templates/traditional/Traditional/Process_Groups/Executing/team_performance_assessment_template.md",
       "title": "Team Performance Assessment Template",
       "methodology": "traditional",
       "value_flow": {

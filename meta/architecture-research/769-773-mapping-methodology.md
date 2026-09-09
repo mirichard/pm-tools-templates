@@ -130,7 +130,7 @@ These examples establish the mapping standard. All subsequent mappings should be
 - **Domain:** Primary: `Measurement` — Tracks ROI metrics; Secondary: `Planning` (financial alignment)
 
 ### Example 8: Backlog Refinement Template
-- **Path:** `role-based-toolkits/scrum-master/agile-ceremonies/backlog-refinement-template.md`
+- **Path:** `domains/team/role-based-toolkits/scrum-master/agile-ceremonies/backlog-refinement-template.md`
 - **Tags:** `agile`, `scrum`, `technology`, `risk-management`, `planning`, `quality`
 - **Value Flow:** Primary: `activity-support` — Guides backlog grooming during sprints
 - **Domain:** Primary: `Delivery` — Execution ceremony; Secondary: `Team` (team collaboration activity)

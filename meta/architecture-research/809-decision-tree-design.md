@@ -132,7 +132,7 @@ After answering all 6 questions, combine the activated rules to generate a recom
 **Rules:** R002 + R004–R007 + R011 + R016 + R020 + R023
 
 **Essential Templates (3–5):**
-- [Agile Team Charter Template](../../project-lifecycle/01-initiation/project-charter/agile-team-charter-template.md) — Lightweight team alignment
+- [Agile Team Charter Template](../../domains/team/project-lifecycle/01-initiation/project-charter/agile-team-charter-template.md) — Lightweight team alignment
 - [Product Backlog Template](../../templates/agile/product_backlog_template.md) — Core agile artifact
 - [Sprint Planning Template](../../templates/agile/sprint_planning_template.md) — Sprint-level planning
 
@@ -147,8 +147,8 @@ After answering all 6 questions, combine the activated rules to generate a recom
 **Essential Templates (7–10):**
 - [Product Backlog Template](../../templates/agile/product_backlog_template.md) — Backlog management
 - [Sprint Planning Template](../../templates/agile/sprint_planning_template.md) — Sprint planning
-- [Sprint Review Template](../../templates/agile/sprint_review_template.md) — Stakeholder feedback
-- [Sprint Retrospective Template](../../templates/agile/sprint_retrospective_template.md) — Continuous improvement
+- [Sprint Review Template](../../domains/team/templates/agile/sprint_review_template.md) — Stakeholder feedback
+- [Sprint Retrospective Template](../../domains/team/templates/agile/sprint_retrospective_template.md) — Continuous improvement
 - [Agile Release Plan Template](../../project-lifecycle/02-planning/project-management-plan/agile-release-plan-template.md) — Release coordination
 - [Risk Register Template](../../project-lifecycle/02-planning/risk-management/risk-register-template.md) — Risk tracking (R008)
 - [Requirements Specification Template](../../industry-specializations/information-technology/software-development/requirements_specification_template.md) — IT supplement (R012)
@@ -163,8 +163,8 @@ After answering all 6 questions, combine the activated rules to generate a recom
 
 **Essential Templates (12–18):**
 - All T2 essential templates, plus:
-- [Daily Standup Template](../../role-based-toolkits/scrum-master/agile-ceremonies/daily-standup-template.md) — Daily coordination
-- [Backlog Refinement Template](../../role-based-toolkits/scrum-master/agile-ceremonies/backlog-refinement-template.md) — Ongoing backlog grooming
+- [Daily Standup Template](../../domains/team/role-based-toolkits/scrum-master/agile-ceremonies/daily-standup-template.md) — Daily coordination
+- [Backlog Refinement Template](../../domains/team/role-based-toolkits/scrum-master/agile-ceremonies/backlog-refinement-template.md) — Ongoing backlog grooming
 - [SAFe Program Increment Planning Template](../../methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_program_increment_planning_template.md) — Multi-team planning
 - [Enterprise Risk Assessment Template](../../project-lifecycle/02-planning/risk-management/enterprise-risk-assessment-template.md) — Risk governance (R009)
 - [Governance Assessment Template](../../project-assessment-suite/governance-assessment-template.md) — Governance (R009)

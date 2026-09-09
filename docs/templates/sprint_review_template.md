@@ -15,7 +15,7 @@
 
 title: "Sprint Review Template"
 
-[**➡️ View Template File**](/templates/agile/sprint_review_template.md)
+[**➡️ View Template File**](/domains/team/templates/agile/sprint_review_template.md)
 
 ## 📈 Quality Score
 

@@ -33,14 +33,14 @@
 ### OUTPUTS — What do they deliver?
 | Need | Template Available? | Source |
 |------|-------------------|--------|
-| Sprint review / demo | ✅ `templates/agile/sprint_review_template.md` | |
+| Sprint review / demo | ✅ `domains/team/templates/agile/sprint_review_template.md` | |
 | Status reports | ✅ `quick-start-kits/first-time-pm-starter/status-report-simple.md` | |
 | **Gap:** Sprint demo summary for stakeholders | ⚠️ No lightweight demo recap template | Sprint review is ceremony-focused, not stakeholder-report-focused |
 
 ### OUTCOMES — Did it deliver value?
 | Need | Template Available? | Source |
 |------|-------------------|--------|
-| Retrospective | ✅ `templates/agile/sprint_retrospective_template.md` | |
+| Retrospective | ✅ `domains/team/templates/agile/sprint_retrospective_template.md` | |
 | OKR tracking | ✅ `domains/stakeholder/role-based-toolkits/product-owner/okr-template.md` | |
 | Product metrics | ✅ `role-based-toolkits/product-owner/product-metrics-dashboard.md` | |
 | **Gap:** Benefits realization tracking | ⚠️ No agile-specific benefits tracker | `business-stakeholder-suite/financial-governance/benefit-realization-framework.md` exists but is enterprise-focused |

@@ -38,7 +38,7 @@ Start with: [Project Charter](domains/planning/templates/traditional/Traditional
 
 → **[Scrum Master Toolkit](role-based-toolkits/scrum-master/)** — Agile ceremonies, team facilitation, impediment tracking, and agile metrics
 
-Start with: [Sprint Planning](templates/agile/sprint_planning_template.md) · [Sprint Retrospective](templates/agile/sprint_retrospective_template.md) · [Sprint Review](templates/agile/sprint_review_template.md)
+Start with: [Sprint Planning](templates/agile/sprint_planning_template.md) · [Sprint Retrospective](domains/team/templates/agile/sprint_retrospective_template.md) · [Sprint Review](domains/team/templates/agile/sprint_review_template.md)
 
 ---
 

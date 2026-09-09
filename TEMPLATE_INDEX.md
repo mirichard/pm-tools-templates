@@ -9,12 +9,12 @@
 | [Agile Release Plan Template](project-lifecycle/02-planning/project-management-plan/agile-release-plan-template.md) | universal | advanced | mirichard | 2025-08-05 |
 | [Agile Risk Board Template](project-lifecycle/02-planning/risk-management/agile-risk-board-template.md) | universal | advanced | mirichard | 2025-08-05 |
 | [Agile Stakeholder Map Template](domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/agile-stakeholder-map-template.md) | universal | intermediate | mirichard | 2025-08-05 |
-| [Agile Team Charter Template](project-lifecycle/01-initiation/project-charter/agile-team-charter-template.md) | universal | intermediate | mirichard | 2025-08-05 |
+| [Agile Team Charter Template](domains/team/project-lifecycle/01-initiation/project-charter/agile-team-charter-template.md) | universal | intermediate | mirichard | 2025-08-05 |
 | [Api Documentation Template](industry-specializations/information-technology/software-development/api_documentation_template.md) | universal | advanced | mirichard | 2025-08-05 |
 | [Art Coordination Template](methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md) | agile | advanced | mirichard | 2025-08-05 |
 | [Assessment Report Template](project-assessment-suite/assessment-report-template.md) | universal | starter | mirichard | 2025-08-05 |
 | [Backlog Management Template](role-based-toolkits/product-owner/backlog-management-template.md) | universal | advanced | mirichard | 2025-08-05 |
-| [Backlog Refinement Template](role-based-toolkits/scrum-master/agile-ceremonies/backlog-refinement-template.md) | agile | advanced | mirichard | 2025-08-05 |
+| [Backlog Refinement Template](domains/team/role-based-toolkits/scrum-master/agile-ceremonies/backlog-refinement-template.md) | agile | advanced | mirichard | 2025-08-05 |
 | [Batch Record Template](industry-specializations/healthcare-pharmaceutical/manufacturing/batch_record_template.md) | universal | advanced | mirichard | 2025-08-05 |
 | [Budget Dashboard Template](domains/stakeholder/business-stakeholder-suite/financial-governance/budget-dashboard-template.md) | universal | advanced | mirichard | 2025-08-05 |
 | [Budget Template](domains/planning/role-based-toolkits/project-manager/essential-templates/budget-template.md) | universal | advanced | mirichard | 2025-08-05 |
@@ -33,7 +33,7 @@
 | [Cross Team Coordination Template](methodology-frameworks/agile-scrum/scaling-frameworks/less/cross_team_coordination_template.md) | agile | advanced | mirichard | 2025-08-05 |
 | [Current State Analysis Template](project-assessment-suite/current-state-analysis-template.md) | universal | advanced | mirichard | 2025-08-05 |
 | [Cybersecurity Assessment Template](industry-specializations/information-technology/security/cybersecurity_assessment_template.md) | universal | advanced | mirichard | 2025-08-05 |
-| [Daily Standup Template](role-based-toolkits/scrum-master/agile-ceremonies/daily-standup-template.md) | agile | intermediate | mirichard | 2025-08-05 |
+| [Daily Standup Template](domains/team/role-based-toolkits/scrum-master/agile-ceremonies/daily-standup-template.md) | agile | intermediate | mirichard | 2025-08-05 |
 | [Data Center Design Template](domains/planning/industry-specializations/information-technology/infrastructure/data_center_design_template.md) | universal | starter | mirichard | 2025-08-05 |
 | [Devsecops Template](methodology-frameworks/emerging-methods/devops/devsecops_template.md) | universal | advanced | mirichard | 2025-08-05 |
 | [Digital Transformation Strategy Template](industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md) | universal | advanced | mirichard | 2025-08-05 |
@@ -64,7 +64,7 @@
 | [Installation Qualification Protocol Template](industry-specializations/healthcare-pharmaceutical/validation/installation_qualification_protocol_template.md) | universal | advanced | mirichard | 2025-08-05 |
 | [Integrated Change Strategy Template](templates/hybrid/Hybrid/Templates/integrated_change_strategy_template.md) | hybrid | advanced | mirichard | 2025-08-05 |
 | [Issue Log Template](templates/traditional/Traditional/Templates/issue_log_template.md) | traditional | advanced | mirichard | 2025-08-05 |
-| [Less Retrospective Template](methodology-frameworks/agile-scrum/scaling-frameworks/less/less_retrospective_template.md) | agile | advanced | mirichard | 2025-08-05 |
+| [Less Retrospective Template](domains/team/methodology-frameworks/agile-scrum/scaling-frameworks/less/less_retrospective_template.md) | agile | advanced | mirichard | 2025-08-05 |
 | [Less Sprint Planning Template](methodology-frameworks/agile-scrum/scaling-frameworks/less/less_sprint_planning_template.md) | agile | advanced | mirichard | 2025-08-05 |
 | [Manufacturing Batch Record Template](industry-specializations/healthcare-pharmaceutical/manufacturing/manufacturing_batch_record_template.md) | universal | advanced | mirichard | 2025-08-05 |
 | [Meeting Templates](role-based-toolkits/project-manager/essential-templates/meeting-templates.md) | universal | advanced | mirichard | 2025-08-05 |
@@ -119,16 +119,16 @@
 | [Safe Metrics Reporting Template](methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_metrics_reporting_template.md) | agile | advanced | mirichard | 2025-08-05 |
 | [Safe Portfolio Kanban Template](methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_portfolio_kanban_template.md) | agile | advanced | mirichard | 2025-08-05 |
 | [Safe Program Increment Planning Template](methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_program_increment_planning_template.md) | agile | advanced | mirichard | 2025-08-05 |
-| [Skills Matrix Template](project-lifecycle/02-planning/resource-planning/skills-matrix-template.md) | universal | advanced | mirichard | 2025-08-05 |
+| [Skills Matrix Template](domains/team/project-lifecycle/02-planning/resource-planning/skills-matrix-template.md) | universal | advanced | mirichard | 2025-08-05 |
 | [Software Requirements Specification Template](industry-specializations/healthcare-pharmaceutical/validation/software_requirements_specification_template.md) | universal | advanced | mirichard | 2025-08-05 |
 | [Sprint Planning Template](templates/agile/sprint_planning_template.md) | agile | intermediate | mirichard | 2025-08-05 |
-| [Sprint Retrospective Template](templates/agile/sprint_retrospective_template.md) | agile | advanced | mirichard | 2025-08-05 |
-| [Sprint Review Template](templates/agile/sprint_review_template.md) | agile | advanced | mirichard | 2025-08-05 |
+| [Sprint Retrospective Template](domains/team/templates/agile/sprint_retrospective_template.md) | agile | advanced | mirichard | 2025-08-05 |
+| [Sprint Review Template](domains/team/templates/agile/sprint_review_template.md) | agile | advanced | mirichard | 2025-08-05 |
 | [Stakeholder Engagement Assessment Template](domains/stakeholder/project-assessment-suite/stakeholder-engagement-assessment-template.md) | universal | starter | mirichard | 2025-08-05 |
 | [Stakeholder Register Template](role-based-toolkits/project-manager/essential-templates/stakeholder-register.md) | universal | intermediate | mirichard | 2025-08-05 |
 | [Status Report Template](templates/traditional/Traditional/Templates/status_report_template.md) | universal | advanced | mirichard | 2025-08-05 |
-| [Team Charter Template](project-lifecycle/02-planning/resource-planning/team-charter-template.md) | universal | advanced | mirichard | 2025-08-05 |
-| [Team Performance Assessment Template](templates/traditional/Traditional/Process_Groups/Executing/team_performance_assessment_template.md) | traditional | intermediate | mirichard | 2025-08-05 |
+| [Team Charter Template](domains/team/project-lifecycle/02-planning/resource-planning/team-charter-template.md) | universal | advanced | mirichard | 2025-08-05 |
+| [Team Performance Assessment Template](domains/team/templates/traditional/Traditional/Process_Groups/Executing/team_performance_assessment_template.md) | traditional | intermediate | mirichard | 2025-08-05 |
 | [Technical Design Document Template](industry-specializations/information-technology/software-development/technical_design_document_template.md) | universal | advanced | mirichard | 2025-08-05 |
 | [Test Plan Template](industry-specializations/information-technology/software-development/test_plan_template.md) | universal | advanced | mirichard | 2025-08-05 |
 | [Timesheet Tracking Template](role-based-toolkits/project-manager/essential-templates/timesheet-tracking-template.md) | universal | intermediate | mirichard | 2025-08-05 |

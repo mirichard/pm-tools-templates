@@ -470,7 +470,7 @@ Infrastructure:
 ## Related Templates
 - [LeSS Sprint Planning Template](../../methodology-frameworks/agile-scrum/scaling-frameworks/less/less_sprint_planning_template.md)
 - [Overall Product Backlog Management](../../methodology-frameworks/agile-scrum/scaling-frameworks/less/overall_product_backlog_template.md)
-- [LeSS Retrospective Template](../../methodology-frameworks/agile-scrum/scaling-frameworks/less/less_retrospective_template.md)
+- [LeSS Retrospective Template](../../domains/team/methodology-frameworks/agile-scrum/scaling-frameworks/less/less_retrospective_template.md)
 - [Cross-Team Coordination Template](../../methodology-frameworks/agile-scrum/scaling-frameworks/less/cross_team_coordination_template.md)
 
 ---

@@ -16,11 +16,11 @@
 |---|----------|---------|------------|
 | 1 | [Product Backlog](../../../templates/agile/product_backlog_template.md) | Master backlog across teams | ~60 min |
 | 2 | [Sprint Planning](../../../templates/agile/sprint_planning_template.md) | Team-level sprint planning | ~20 min |
-| 3 | [Sprint Review](../../../templates/agile/sprint_review_template.md) | Integrated demo and feedback | ~15 min |
-| 4 | [Sprint Retrospective](../../../templates/agile/sprint_retrospective_template.md) | Team and program-level improvement | ~15 min |
+| 3 | [Sprint Review](../../../domains/team/templates/agile/sprint_review_template.md) | Integrated demo and feedback | ~15 min |
+| 4 | [Sprint Retrospective](../../../domains/team/templates/agile/sprint_retrospective_template.md) | Team and program-level improvement | ~15 min |
 | 5 | [SAFe PI Planning](../../../methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_program_increment_planning_template.md) | Program Increment planning across teams | ~90 min |
-| 6 | [Daily Standup](../../../role-based-toolkits/scrum-master/agile-ceremonies/daily-standup-template.md) | Daily team synchronization | ~10 min |
-| 7 | [Backlog Refinement](../../../role-based-toolkits/scrum-master/agile-ceremonies/backlog-refinement-template.md) | Ongoing story grooming | ~15 min |
+| 6 | [Daily Standup](../../../domains/team/role-based-toolkits/scrum-master/agile-ceremonies/daily-standup-template.md) | Daily team synchronization | ~10 min |
+| 7 | [Backlog Refinement](../../../domains/team/role-based-toolkits/scrum-master/agile-ceremonies/backlog-refinement-template.md) | Ongoing story grooming | ~15 min |
 | 8 | [Enterprise Risk Assessment](../../../project-lifecycle/02-planning/risk-management/enterprise-risk-assessment-template.md) | Organization-level risk management | ~60 min |
 
 ### Recommended (governance and reporting)
