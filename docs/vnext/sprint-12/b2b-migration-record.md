@@ -42,6 +42,8 @@ Historical/generated evidence, archived documentation, proposal/backup metadata,
 - Each legacy source was recreated as a navigation-only Markdown pointer.
 - Each pointer resolves from its legacy path to its canonical destination.
 - Each destination SHA-256 equals its recorded pre-move source SHA-256.
+- Two navigation-only compatibility files preserve Migration Plan related-resource links to Infrastructure Assessment and Deployment Checklist; neither adds a migrated template body.
+- The repair script's template-creation helper skips existing files and symbolic links so rerunning it cannot replace migrated bodies with stubs.
 
 ## Checkpoint D — Canonical references
 
@@ -58,6 +60,8 @@ Local validation is complete:
 - Curated templates: PASS — 139 templates
 - Canonical paths: PASS — 0 errors; 3 pre-existing warnings
 - Filtered anchor links: PASS
+- Previously valid relative file links in all thirteen moved bodies: PASS; compatibility pointers resolve to maintained resources
+- Repair-helper preservation and missing-file creation checks: PASS
 - Migration-wave tests: PASS — 12/12
 - Focused Jest: PASS — 1 suite, 2 tests, 100% coverage
 - Metadata and template-index regeneration: deterministic

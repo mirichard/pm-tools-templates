@@ -25,6 +25,11 @@ create_template_file() {
     local file_path="$1"
     local title="$2"
     local description="$3"
+
+    # Preserve existing templates and compatibility pointers.
+    if [[ -e "$file_path" || -L "$file_path" ]]; then
+        return 0
+    fi
     
     # Ensure directory exists
     mkdir -p "$(dirname "$file_path")"
@@ -68,7 +73,7 @@ Step-by-step instructions for using this template.
 EOF
     
     echo -e "${GREEN}✅ Created: $file_path${NC}"
-    ((FIXES_APPLIED++))
+    FIXES_APPLIED=$((FIXES_APPLIED + 1))
 }
 
 # Fix 1: Traditional vs Waterfall references in main README
