@@ -5,7 +5,7 @@
 - Asset count: `9`
 - Primary domain: `Team`
 - Rollback owner: `mirichard`
-- Status: **PASS (local, pre-integration)**
+- Status: **PASS (PR, pre-integration)**
 - Delivery PR: [#1092](https://github.com/mirichard/pm-tools-templates/pull/1092)
 
 ## Scope decision
@@ -62,7 +62,7 @@ npm run test:migration-wave
 npm run test:ci
 ```
 
-Decision: **PASS (local, pre-integration) — retain the complete B2A wave on the delivery branch; GitHub, review, and affected-scope visual gates remain pending**.
+Decision: **PASS (pre-integration) — retain the complete B2A wave on the delivery branch; final-head checks and review remain pending**.
 
 Rollback boundary: revert the complete B2A delivery commit or merge commit, regenerate metadata/indexes, and rerun the same suite. All nine assets must roll back together.
 
@@ -77,9 +77,9 @@ Rollback boundary: revert the complete B2A delivery commit or merge commit, rege
 | Canonical uniqueness and duplicate control | PASS — no migration-created canonical duplicate |
 | Bidirectional navigation and internal links | PASS — 137/137 cross-reference coverage; strict and filtered-link validators pass |
 | Catalog/index discovery | PASS — 139-template catalog and generated index use canonical paths with legacy aliases |
-| Reviewed visual regression | Pending |
+| Reviewed visual regression | PASS — run [#403](https://github.com/mirichard/pm-tools-templates/actions/runs/34296723928), attempt 3; 74 reviewed B2A screenshots; verified baselines `4adcdb9f` |
 | Legacy `/blob/main/...` bookmark compatibility | Pending post-merge |
-| Required CI | Pending |
+| Required CI | PASS — CI run [34296723946](https://github.com/mirichard/pm-tools-templates/actions/runs/34296723946); SAST run [34296723956](https://github.com/mirichard/pm-tools-templates/actions/runs/34296723956); all 17 applicable workflows passed |
 | Production rollback command | Pending merge SHA |
 
 Local exit suite results:
@@ -94,3 +94,11 @@ Local exit suite results:
 - Filtered anchor links: PASS
 - Focused Jest: PASS — 1 suite, 2 tests, 100% coverage
 - Metadata and template-index regeneration: deterministic
+
+GitHub pre-integration evidence:
+
+- Initial affected-scope visual run: 38 new screenshots and 36 expected legacy-pointer regressions, all independently reviewed as clean
+- Reviewed baseline branch commit: `4adcdb9fd4a482aedda9a2ed7a57ea1ea7b163d5`
+- Baseline manifest: PASS — 2,026 physical screenshots across 50 packs; every ZIP hash, byte count, and entry count verified
+- Visual run 403, attempt 3: PASS — 104/104 comparisons; 0 regressions; 0 new screenshots
+- All 17 applicable workflows on the validated implementation head: PASS
