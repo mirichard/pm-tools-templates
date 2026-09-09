@@ -375,7 +375,7 @@ Need help? Check out:
             recommendations.essential.push(
                 { name: 'Project Charter', description: 'Comprehensive project definition', path: 'project-lifecycle/01-initiation/project-charter/project-charter-template.md' },
                 { name: 'Stakeholder Analysis', description: 'Detailed stakeholder management', path: 'project-lifecycle/01-initiation/stakeholder-analysis/stakeholder-register-template.md' },
-                { name: 'Risk Register', description: 'Identify and manage project risks', path: 'project-lifecycle/02-planning/risk-management/risk-register-template.md' }
+                { name: 'Risk Register', description: 'Identify and manage project risks', path: 'domains/uncertainty/project-lifecycle/02-planning/risk-management/risk-register-template.md' }
             );
         }
 

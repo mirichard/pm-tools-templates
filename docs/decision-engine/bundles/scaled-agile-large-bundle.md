@@ -21,7 +21,7 @@
 | 5 | [SAFe PI Planning](../../../methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_program_increment_planning_template.md) | Program Increment planning across teams | ~90 min |
 | 6 | [Daily Standup](../../../domains/team/role-based-toolkits/scrum-master/agile-ceremonies/daily-standup-template.md) | Daily team synchronization | ~10 min |
 | 7 | [Backlog Refinement](../../../domains/team/role-based-toolkits/scrum-master/agile-ceremonies/backlog-refinement-template.md) | Ongoing story grooming | ~15 min |
-| 8 | [Enterprise Risk Assessment](../../../project-lifecycle/02-planning/risk-management/enterprise-risk-assessment-template.md) | Organization-level risk management | ~60 min |
+| 8 | [Enterprise Risk Assessment](../../../domains/uncertainty/project-lifecycle/02-planning/risk-management/enterprise-risk-assessment-template.md) | Organization-level risk management | ~60 min |
 
 ### Recommended (governance and reporting)
 
@@ -29,7 +29,7 @@
 |---|----------|---------|------------|
 | 9 | [Governance Assessment](../../../project-assessment-suite/governance-assessment-template.md) | Evaluate governance effectiveness | ~45 min |
 | 10 | [Executive Dashboard](../../../domains/stakeholder/business-stakeholder-suite/executive-dashboards/powerbi-integration/executive-dashboard-template.md) | Executive-level progress visibility | ~30 min |
-| 11 | [Risk Register](../../../project-lifecycle/02-planning/risk-management/risk-register-template.md) | Detailed risk tracking | ~30 min |
+| 11 | [Risk Register](../../../domains/uncertainty/project-lifecycle/02-planning/risk-management/risk-register-template.md) | Detailed risk tracking | ~30 min |
 | 12 | [Project Health Assessment](../../../project-assessment-suite/project-health-assessment-template.md) | Periodic health checks | ~30 min |
 
 ## Complementary Resources

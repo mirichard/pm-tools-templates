@@ -16,7 +16,7 @@
 |------|-------------------|--------|
 | Project charter / vision | ✅ `quick-start-kits/first-time-pm-starter/project-charter-simple.md` | Also: `project-lifecycle/01-initiation/project-charter/` |
 | Stakeholder register | ✅ `quick-start-kits/first-time-pm-starter/stakeholder-register-simple.md` | Also: `project-lifecycle/01-initiation/stakeholder-analysis/` |
-| Product vision | ✅ `role-based-toolkits/product-owner/product-vision-template.md` | |
+| Product vision | ✅ `domains/uncertainty/role-based-toolkits/product-owner/product-vision-template.md` | |
 | Readiness assessment | ✅ `quick-start-kits/agile-transformation/readiness-assessment.md` | |
 | **Gap:** Team skills assessment | ⚠️ No dedicated skills matrix template | Closest: `role-based-toolkits/scrum-master/` README mentions it but no template |
 
@@ -24,9 +24,9 @@
 | Need | Template Available? | Source |
 |------|-------------------|--------|
 | Sprint planning | ✅ `templates/agile/sprint_planning_template.md` | Multiple versions available |
-| Backlog management | ✅ `role-based-toolkits/product-owner/backlog-management-template.md` | |
+| Backlog management | ✅ `domains/uncertainty/role-based-toolkits/product-owner/backlog-management-template.md` | |
 | Daily standup | ✅ Scrum master toolkit references | |
-| User stories | ✅ `role-based-toolkits/product-owner/user-story-template.md` | |
+| User stories | ✅ `domains/uncertainty/role-based-toolkits/product-owner/user-story-template.md` | |
 | Risk management | ✅ `quick-start-kits/first-time-pm-starter/risk-register-simple.md` | |
 | Communication plan | ✅ `quick-start-kits/first-time-pm-starter/communication-plan-simple.md` | |
 

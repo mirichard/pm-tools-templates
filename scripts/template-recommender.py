@@ -93,7 +93,7 @@ ESSENTIALS = {
 
 AGILE_EXTRAS = [
     ("Sprint Planning", "templates/agile/sprint_planning_template.md", "Plan iteration work"),
-    ("Product Backlog", "role-based-toolkits/product-owner/backlog-management-template.md", "Manage work items"),
+    ("Product Backlog", "domains/uncertainty/role-based-toolkits/product-owner/backlog-management-template.md", "Manage work items"),
     ("Sprint Retrospective", "domains/team/templates/agile/sprint_retrospective_template.md", "Continuous improvement"),
 ]
 

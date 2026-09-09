@@ -17,9 +17,9 @@
 | 1 | [Hybrid Quality Management](../../../templates/hybrid/Hybrid/Templates/hybrid_quality_management_template.md) | Quality oversight bridging both approaches | ~45 min |
 | 2 | [Integrated Change Strategy](../../../templates/hybrid/Hybrid/Templates/integrated_change_strategy_template.md) | Change control spanning traditional and agile | ~45 min |
 | 3 | [Hybrid Team Management](../../../templates/hybrid/Hybrid/Templates/hybrid_team_management_template.md) | Team coordination across methodology boundaries | ~30 min |
-| 4 | [Status Report](../../../project-lifecycle/04-monitoring-control/progress-tracking/status-report-template.md) | Progress tracking for stakeholders | ~15 min |
-| 5 | [Project Dashboard](../../../project-lifecycle/04-monitoring-control/progress-tracking/project-dashboard-template.md) | Visual project health overview | ~20 min |
-| 6 | [Risk Register](../../../project-lifecycle/02-planning/risk-management/risk-register-template.md) | Track and mitigate project risks | ~30 min |
+| 4 | [Status Report](../../../domains/uncertainty/project-lifecycle/04-monitoring-control/progress-tracking/status-report-template.md) | Progress tracking for stakeholders | ~15 min |
+| 5 | [Project Dashboard](../../../domains/uncertainty/project-lifecycle/04-monitoring-control/progress-tracking/project-dashboard-template.md) | Visual project health overview | ~20 min |
+| 6 | [Risk Register](../../../domains/uncertainty/project-lifecycle/02-planning/risk-management/risk-register-template.md) | Track and mitigate project risks | ~30 min |
 
 ### Recommended (add as needed)
 

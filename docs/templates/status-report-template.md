@@ -15,7 +15,7 @@
 
 title: "Status Report Template"
 
-[**➡️ View Template File**](/project-lifecycle/04-monitoring-control/progress-tracking/status-report-template.md)
+[**➡️ View Template File**](/domains/uncertainty/project-lifecycle/04-monitoring-control/progress-tracking/status-report-template.md)
 
 ## 📈 Quality Score
 

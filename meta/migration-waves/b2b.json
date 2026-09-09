@@ -1,0 +1,371 @@
+{
+  "schema_version": 1,
+  "wave_id": "B2B",
+  "phase": "executed",
+  "source_batch": 2,
+  "primary_domain": "Uncertainty",
+  "generated_from": "meta/migration-inventory.json",
+  "inventory_generated": "2026-09-02",
+  "pre_batch_sha": "0970338f8441608a189d45c97e89ed300a5d2975",
+  "rollback_owner": "mirichard",
+  "max_assets": 15,
+  "asset_count": 13,
+  "assets": [
+    {
+      "order": 1,
+      "source": "industry-specializations/information-technology/infrastructure/migration_plan_template.md",
+      "destination": "domains/uncertainty/industry-specializations/information-technology/infrastructure/migration_plan_template.md",
+      "primary_domain": "Uncertainty",
+      "secondary_domains": [
+        "Planning"
+      ],
+      "pre_move_sha256": "db8a336f4e9059f03b1c91cf0b750b1ac36455f12524fbc55fc79d09c80faa82",
+      "dependencies": [
+        {
+          "path": "domains/planning/industry-specializations/information-technology/infrastructure/data_center_design_template.md",
+          "status": "satisfied-executed",
+          "resolved_path": "domains/planning/industry-specializations/information-technology/infrastructure/data_center_design_template.md"
+        },
+        {
+          "path": "domains/planning/industry-specializations/information-technology/infrastructure/disaster_recovery_template.md",
+          "status": "satisfied-executed",
+          "resolved_path": "domains/planning/industry-specializations/information-technology/infrastructure/disaster_recovery_template.md"
+        },
+        {
+          "path": "industry-specializations/healthcare-pharmaceutical/regulatory/regulatory_strategy_plan_template.md",
+          "status": "satisfied-existing-deferred",
+          "resolved_path": "industry-specializations/healthcare-pharmaceutical/regulatory/regulatory_strategy_plan_template.md"
+        }
+      ],
+      "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move"
+    },
+    {
+      "order": 2,
+      "source": "project-lifecycle/02-planning/risk-management/risk-register-template.md",
+      "destination": "domains/uncertainty/project-lifecycle/02-planning/risk-management/risk-register-template.md",
+      "primary_domain": "Uncertainty",
+      "secondary_domains": [
+        "Planning",
+        "Stakeholder"
+      ],
+      "pre_move_sha256": "88bff3d126d0d911dd0af1bce7a1dbba642c8a5fc3536d18144849225731a08e",
+      "dependencies": [],
+      "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move"
+    },
+    {
+      "order": 3,
+      "source": "project-lifecycle/04-monitoring-control/progress-tracking/status-report-template.md",
+      "destination": "domains/uncertainty/project-lifecycle/04-monitoring-control/progress-tracking/status-report-template.md",
+      "primary_domain": "Uncertainty",
+      "secondary_domains": [
+        "Stakeholder"
+      ],
+      "pre_move_sha256": "aa10eee873c4fb6f9755e59c3dbe9a48f40dd8a2452d5231c92fa3e3361548ee",
+      "dependencies": [],
+      "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move"
+    },
+    {
+      "order": 4,
+      "source": "role-based-toolkits/project-manager/essential-templates/meeting-templates.md",
+      "destination": "domains/uncertainty/role-based-toolkits/project-manager/essential-templates/meeting-templates.md",
+      "primary_domain": "Uncertainty",
+      "secondary_domains": [
+        "Planning",
+        "Stakeholder"
+      ],
+      "pre_move_sha256": "733ce38e3062f418d3d18de128f1535433b8ac4e48ce113103847c14bd169302",
+      "dependencies": [
+        {
+          "path": "project-assessment-suite/current-state-analysis-template.md",
+          "status": "satisfied-existing-deferred",
+          "resolved_path": "project-assessment-suite/current-state-analysis-template.md"
+        },
+        {
+          "path": "industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md",
+          "status": "satisfied-existing-deferred",
+          "resolved_path": "industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md"
+        },
+        {
+          "path": "domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/enterprise-stakeholder-analysis-template.md",
+          "status": "satisfied-executed",
+          "resolved_path": "domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/enterprise-stakeholder-analysis-template.md"
+        }
+      ],
+      "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move"
+    },
+    {
+      "order": 5,
+      "source": "industry-specializations/information-technology/software-development/requirements_specification_template.md",
+      "destination": "domains/uncertainty/industry-specializations/information-technology/software-development/requirements_specification_template.md",
+      "primary_domain": "Uncertainty",
+      "secondary_domains": [
+        "Stakeholder"
+      ],
+      "pre_move_sha256": "04fe0e90e9df7e6502d8f244983a98e8e5c952ccb450e298c1acb0683eb1ff6b",
+      "dependencies": [
+        {
+          "path": "role-based-toolkits/product-owner/backlog-management-template.md",
+          "status": "same-wave",
+          "resolved_path": "domains/uncertainty/role-based-toolkits/product-owner/backlog-management-template.md"
+        },
+        {
+          "path": "project-lifecycle/04-monitoring-control/progress-tracking/project-dashboard-template.md",
+          "status": "same-wave",
+          "resolved_path": "domains/uncertainty/project-lifecycle/04-monitoring-control/progress-tracking/project-dashboard-template.md"
+        },
+        {
+          "path": "project-lifecycle/04-monitoring-control/progress-tracking/status-report-template.md",
+          "status": "same-wave",
+          "resolved_path": "domains/uncertainty/project-lifecycle/04-monitoring-control/progress-tracking/status-report-template.md"
+        }
+      ],
+      "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move"
+    },
+    {
+      "order": 6,
+      "source": "industry-specializations/information-technology/software-development/user_story_mapping_template.md",
+      "destination": "domains/uncertainty/industry-specializations/information-technology/software-development/user_story_mapping_template.md",
+      "primary_domain": "Uncertainty",
+      "secondary_domains": [
+        "Planning"
+      ],
+      "pre_move_sha256": "94d03a74e36dc1de37e0ce1e545c32557aef15ccd0951a40aff7d69077954f1d",
+      "dependencies": [
+        {
+          "path": "business-stakeholder-suite/executive-dashboards/tableau-integration/executive-dashboard-template.md",
+          "status": "satisfied-existing-deferred",
+          "resolved_path": "business-stakeholder-suite/executive-dashboards/tableau-integration/executive-dashboard-template.md"
+        },
+        {
+          "path": "role-based-toolkits/product-owner/user-story-template.md",
+          "status": "same-wave",
+          "resolved_path": "domains/uncertainty/role-based-toolkits/product-owner/user-story-template.md"
+        },
+        {
+          "path": "domains/stakeholder/business-stakeholder-suite/financial-governance/enhanced-business-cases/advanced-business-case-template.md",
+          "status": "satisfied-executed",
+          "resolved_path": "domains/stakeholder/business-stakeholder-suite/financial-governance/enhanced-business-cases/advanced-business-case-template.md"
+        }
+      ],
+      "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move"
+    },
+    {
+      "order": 7,
+      "source": "role-based-toolkits/product-owner/user-story-template.md",
+      "destination": "domains/uncertainty/role-based-toolkits/product-owner/user-story-template.md",
+      "primary_domain": "Uncertainty",
+      "secondary_domains": [],
+      "pre_move_sha256": "370b2f8cba7d82ce45781c6d9a484b6b0e5c2695480553491b2668279077c118",
+      "dependencies": [
+        {
+          "path": "industry-specializations/information-technology/software-development/user_story_mapping_template.md",
+          "status": "same-wave",
+          "resolved_path": "domains/uncertainty/industry-specializations/information-technology/software-development/user_story_mapping_template.md"
+        },
+        {
+          "path": "industry-specializations/information-technology/software-development/api_documentation_template.md",
+          "status": "satisfied-existing-deferred",
+          "resolved_path": "industry-specializations/information-technology/software-development/api_documentation_template.md"
+        },
+        {
+          "path": "business-stakeholder-suite/executive-dashboards/tableau-integration/executive-dashboard-template.md",
+          "status": "satisfied-existing-deferred",
+          "resolved_path": "business-stakeholder-suite/executive-dashboards/tableau-integration/executive-dashboard-template.md"
+        }
+      ],
+      "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move"
+    },
+    {
+      "order": 8,
+      "source": "project-assessment-suite/assessment-report-template.md",
+      "destination": "domains/uncertainty/project-assessment-suite/assessment-report-template.md",
+      "primary_domain": "Uncertainty",
+      "secondary_domains": [
+        "Stakeholder"
+      ],
+      "pre_move_sha256": "542595e2691103808729b4a74d0b564867c013a92b8513f0aec08fcf4c2df523",
+      "dependencies": [
+        {
+          "path": "role-based-toolkits/product-owner/product-vision-template.md",
+          "status": "same-wave",
+          "resolved_path": "domains/uncertainty/role-based-toolkits/product-owner/product-vision-template.md"
+        },
+        {
+          "path": "project-lifecycle/02-planning/risk-management/enterprise-risk-assessment-template.md",
+          "status": "same-wave",
+          "resolved_path": "domains/uncertainty/project-lifecycle/02-planning/risk-management/enterprise-risk-assessment-template.md"
+        },
+        {
+          "path": "project-assessment-suite/hybrid-project-assessment-template.md",
+          "status": "satisfied-existing-deferred",
+          "resolved_path": "project-assessment-suite/hybrid-project-assessment-template.md"
+        }
+      ],
+      "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move"
+    },
+    {
+      "order": 9,
+      "source": "project-lifecycle/02-planning/risk-management/enterprise-risk-assessment-template.md",
+      "destination": "domains/uncertainty/project-lifecycle/02-planning/risk-management/enterprise-risk-assessment-template.md",
+      "primary_domain": "Uncertainty",
+      "secondary_domains": [
+        "Stakeholder"
+      ],
+      "pre_move_sha256": "309adc88633a4b0c437935cd4be6c7e56cead0c8395c0a7bfe0f7e591e5a4852",
+      "dependencies": [
+        {
+          "path": "project-assessment-suite/assessment-report-template.md",
+          "status": "same-wave",
+          "resolved_path": "domains/uncertainty/project-assessment-suite/assessment-report-template.md"
+        },
+        {
+          "path": "project-lifecycle/02-planning/project-management-plan/hybrid-project-management-plan-template.md",
+          "status": "satisfied-existing-deferred",
+          "resolved_path": "project-lifecycle/02-planning/project-management-plan/hybrid-project-management-plan-template.md"
+        },
+        {
+          "path": "project-lifecycle/02-planning/business-requirements/business_requirements_document_template.md",
+          "status": "satisfied-existing-deferred",
+          "resolved_path": "project-lifecycle/02-planning/business-requirements/business_requirements_document_template.md"
+        }
+      ],
+      "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move"
+    },
+    {
+      "order": 10,
+      "source": "project-lifecycle/04-monitoring-control/progress-tracking/project-dashboard-template.md",
+      "destination": "domains/uncertainty/project-lifecycle/04-monitoring-control/progress-tracking/project-dashboard-template.md",
+      "primary_domain": "Uncertainty",
+      "secondary_domains": [
+        "Stakeholder"
+      ],
+      "pre_move_sha256": "ef58c1f9ea8dded2f4c545637f4443d196619157455b32941a4b0207486d7a57",
+      "dependencies": [
+        {
+          "path": "role-based-toolkits/product-owner/backlog-management-template.md",
+          "status": "same-wave",
+          "resolved_path": "domains/uncertainty/role-based-toolkits/product-owner/backlog-management-template.md"
+        },
+        {
+          "path": "industry-specializations/information-technology/software-development/requirements_specification_template.md",
+          "status": "same-wave",
+          "resolved_path": "domains/uncertainty/industry-specializations/information-technology/software-development/requirements_specification_template.md"
+        },
+        {
+          "path": "project-lifecycle/04-monitoring-control/progress-tracking/status-report-template.md",
+          "status": "same-wave",
+          "resolved_path": "domains/uncertainty/project-lifecycle/04-monitoring-control/progress-tracking/status-report-template.md"
+        }
+      ],
+      "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move"
+    },
+    {
+      "order": 11,
+      "source": "role-based-toolkits/product-owner/backlog-management-template.md",
+      "destination": "domains/uncertainty/role-based-toolkits/product-owner/backlog-management-template.md",
+      "primary_domain": "Uncertainty",
+      "secondary_domains": [
+        "Stakeholder"
+      ],
+      "pre_move_sha256": "7a8a7148188a5d3587bb32017b6b90a3505f59e55e346d6e29751d0a06d29100",
+      "dependencies": [
+        {
+          "path": "project-lifecycle/04-monitoring-control/progress-tracking/project-dashboard-template.md",
+          "status": "same-wave",
+          "resolved_path": "domains/uncertainty/project-lifecycle/04-monitoring-control/progress-tracking/project-dashboard-template.md"
+        },
+        {
+          "path": "industry-specializations/information-technology/software-development/requirements_specification_template.md",
+          "status": "same-wave",
+          "resolved_path": "domains/uncertainty/industry-specializations/information-technology/software-development/requirements_specification_template.md"
+        },
+        {
+          "path": "project-lifecycle/04-monitoring-control/progress-tracking/status-report-template.md",
+          "status": "same-wave",
+          "resolved_path": "domains/uncertainty/project-lifecycle/04-monitoring-control/progress-tracking/status-report-template.md"
+        }
+      ],
+      "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move"
+    },
+    {
+      "order": 12,
+      "source": "role-based-toolkits/product-owner/product-vision-template.md",
+      "destination": "domains/uncertainty/role-based-toolkits/product-owner/product-vision-template.md",
+      "primary_domain": "Uncertainty",
+      "secondary_domains": [
+        "Stakeholder"
+      ],
+      "pre_move_sha256": "b3272316a959d181229a4ec00345ee07ac5d3bbed099bf4d0abea1ff9f50e01a",
+      "dependencies": [
+        {
+          "path": "project-assessment-suite/assessment-report-template.md",
+          "status": "same-wave",
+          "resolved_path": "domains/uncertainty/project-assessment-suite/assessment-report-template.md"
+        },
+        {
+          "path": "role-based-toolkits/product-owner/backlog-management-template.md",
+          "status": "same-wave",
+          "resolved_path": "domains/uncertainty/role-based-toolkits/product-owner/backlog-management-template.md"
+        },
+        {
+          "path": "industry-specializations/information-technology/security/cybersecurity_assessment_template.md",
+          "status": "satisfied-existing-deferred",
+          "resolved_path": "industry-specializations/information-technology/security/cybersecurity_assessment_template.md"
+        }
+      ],
+      "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move"
+    },
+    {
+      "order": 13,
+      "source": "templates/test-samples/quality-test-plan-template.md",
+      "destination": "domains/uncertainty/templates/test-samples/quality-test-plan-template.md",
+      "primary_domain": "Uncertainty",
+      "secondary_domains": [
+        "Stakeholder"
+      ],
+      "pre_move_sha256": "2ba91662759324665fa4a19c8c2f5bdba016a0b2d9f8e96baaba8f5d47bc9d0c",
+      "dependencies": [
+        {
+          "path": "role-based-toolkits/product-owner/backlog-management-template.md",
+          "status": "same-wave",
+          "resolved_path": "domains/uncertainty/role-based-toolkits/product-owner/backlog-management-template.md"
+        },
+        {
+          "path": "project-lifecycle/04-monitoring-control/progress-tracking/project-dashboard-template.md",
+          "status": "same-wave",
+          "resolved_path": "domains/uncertainty/project-lifecycle/04-monitoring-control/progress-tracking/project-dashboard-template.md"
+        },
+        {
+          "path": "industry-specializations/information-technology/software-development/requirements_specification_template.md",
+          "status": "same-wave",
+          "resolved_path": "domains/uncertainty/industry-specializations/information-technology/software-development/requirements_specification_template.md"
+        }
+      ],
+      "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move"
+    }
+  ],
+  "checkpoints": [
+    "baseline-and-hashes",
+    "canonical-moves",
+    "legacy-pointers",
+    "canonical-references",
+    "affected-scope-validation",
+    "reviewed-visual-regression",
+    "post-merge-verification"
+  ],
+  "validation_commands": [
+    "node scripts/validate-migration-wave.mjs --manifest <manifest>",
+    "node scripts/generate-sprint-10-metadata.mjs",
+    "node scripts/validate-sprint-10.mjs --require-annotations",
+    "node scripts/validate-curated-templates.js",
+    "node scripts/validate-canonical-paths.js --strict",
+    "python3 scripts/check_anchor_links_filtered.py",
+    "npm run test:ci"
+  ],
+  "rollback": {
+    "strategy": "revert-wave-merge-commit",
+    "command": "git revert <wave-merge-sha>",
+    "granularity": "wave",
+    "asset_hashes_preserved": true
+  }
+}

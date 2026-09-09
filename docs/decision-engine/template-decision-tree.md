@@ -150,7 +150,7 @@ Use your answers to find the matching recommendation set below. Start with your 
 3. [Communication Plan Template](../../templates/traditional/Traditional/Templates/communication_plan_template.md)
 
 **If medium risk, also add:**
-4. [Risk Register Template](../../project-lifecycle/02-planning/risk-management/risk-register-template.md)
+4. [Risk Register Template](../../domains/uncertainty/project-lifecycle/02-planning/risk-management/risk-register-template.md)
 
 **Recommended toolkit:** [Quick Start Kits](../../quick-start-kits/) · [First-Time PM Starter](../../quick-start-kits/first-time-pm-starter/) (if new to PM)
 
@@ -165,7 +165,7 @@ Use your answers to find the matching recommendation set below. Start with your 
 1. [Project Management Plan Template](../../templates/traditional/Traditional/Process_Groups/Planning/project_management_plan_template.md)
 2. [Work Breakdown Structure Template](../../templates/traditional/Traditional/Process_Groups/Planning/work_breakdown_structure_template.md)
 3. [Project Schedule Template](../../templates/traditional/Traditional/Process_Groups/Planning/project_schedule_template.md)
-4. [Risk Register Template](../../project-lifecycle/02-planning/risk-management/risk-register-template.md)
+4. [Risk Register Template](../../domains/uncertainty/project-lifecycle/02-planning/risk-management/risk-register-template.md)
 5. [Risk Management Plan Template](../../project-lifecycle/02-planning/risk-management/risk-management-plan-template.md)
 6. [Resource Management Plan Template](../../project-lifecycle/02-planning/resource-planning/resource-management-plan-template.md)
 7. [Budget Template](../../domains/planning/role-based-toolkits/project-manager/essential-templates/budget-template.md)
@@ -182,7 +182,7 @@ Use your answers to find the matching recommendation set below. Start with your 
 **Start with these (all Standard templates above, plus):**
 8. [Program Management Plan Template](../../templates/traditional/Traditional/Templates/program_management_plan_template.md)
 9. [Change Management Plan Template](../../templates/traditional/Traditional/Templates/change_management_plan_template.md)
-10. [Enterprise Risk Assessment Template](../../project-lifecycle/02-planning/risk-management/enterprise-risk-assessment-template.md)
+10. [Enterprise Risk Assessment Template](../../domains/uncertainty/project-lifecycle/02-planning/risk-management/enterprise-risk-assessment-template.md)
 11. [Governance Assessment Template](../../project-assessment-suite/governance-assessment-template.md)
 12. [Executive Dashboard Template](../../domains/stakeholder/business-stakeholder-suite/executive-dashboards/powerbi-integration/executive-dashboard-template.md)
 13. [ROI Tracking Template](../../templates/traditional/Traditional/Knowledge_Areas/Project_Cost_Management/roi_tracking_template.md)
@@ -223,10 +223,10 @@ Use your answers to find the matching recommendation set below. Start with your 
 3. [Sprint Review Template](../../domains/team/templates/agile/sprint_review_template.md)
 4. [Sprint Retrospective Template](../../domains/team/templates/agile/sprint_retrospective_template.md)
 5. [Agile Release Plan Template](../../project-lifecycle/02-planning/project-management-plan/agile-release-plan-template.md)
-6. [Risk Register Template](../../project-lifecycle/02-planning/risk-management/risk-register-template.md)
+6. [Risk Register Template](../../domains/uncertainty/project-lifecycle/02-planning/risk-management/risk-register-template.md)
 
 **If IT industry, also add:**
-7. [Requirements Specification Template](../../industry-specializations/information-technology/software-development/requirements_specification_template.md)
+7. [Requirements Specification Template](../../domains/uncertainty/industry-specializations/information-technology/software-development/requirements_specification_template.md)
 8. [Test Plan Template](../../industry-specializations/information-technology/software-development/test_plan_template.md)
 
 **Recommended toolkit:** [Role-Based Toolkits](../../role-based-toolkits/) (Scrum Master or Product Owner)
@@ -242,7 +242,7 @@ Use your answers to find the matching recommendation set below. Start with your 
 7. [Daily Standup Template](../../domains/team/role-based-toolkits/scrum-master/agile-ceremonies/daily-standup-template.md)
 8. [Backlog Refinement Template](../../domains/team/role-based-toolkits/scrum-master/agile-ceremonies/backlog-refinement-template.md)
 9. [SAFe Program Increment Planning Template](../../methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_program_increment_planning_template.md)
-10. [Enterprise Risk Assessment Template](../../project-lifecycle/02-planning/risk-management/enterprise-risk-assessment-template.md)
+10. [Enterprise Risk Assessment Template](../../domains/uncertainty/project-lifecycle/02-planning/risk-management/enterprise-risk-assessment-template.md)
 11. [Governance Assessment Template](../../project-assessment-suite/governance-assessment-template.md)
 12. [Executive Dashboard Template](../../domains/stakeholder/business-stakeholder-suite/executive-dashboards/powerbi-integration/executive-dashboard-template.md)
 
@@ -263,11 +263,11 @@ Use your answers to find the matching recommendation set below. Start with your 
 1. [Hybrid Quality Management Template](../../templates/hybrid/Hybrid/Templates/hybrid_quality_management_template.md)
 2. [Integrated Change Strategy Template](../../templates/hybrid/Hybrid/Templates/integrated_change_strategy_template.md)
 3. [Hybrid Team Management Template](../../templates/hybrid/Hybrid/Templates/hybrid_team_management_template.md)
-4. [Status Report Template](../../project-lifecycle/04-monitoring-control/progress-tracking/status-report-template.md)
-5. [Project Dashboard Template](../../project-lifecycle/04-monitoring-control/progress-tracking/project-dashboard-template.md)
+4. [Status Report Template](../../domains/uncertainty/project-lifecycle/04-monitoring-control/progress-tracking/status-report-template.md)
+5. [Project Dashboard Template](../../domains/uncertainty/project-lifecycle/04-monitoring-control/progress-tracking/project-dashboard-template.md)
 
 **If medium risk, also add:**
-6. [Risk Register Template](../../project-lifecycle/02-planning/risk-management/risk-register-template.md)
+6. [Risk Register Template](../../domains/uncertainty/project-lifecycle/02-planning/risk-management/risk-register-template.md)
 
 **If financial industry, also add:**
 7. [Compliance Management Template](../../industry-specializations/financial-services/compliance/compliance-management-template.md)
@@ -287,7 +287,7 @@ Use your answers to find the matching recommendation set below. Start with your 
 7. [Hybrid Release Planning Template](../../templates/hybrid/Hybrid/Templates/hybrid_release_planning_template.md)
 8. [Progressive Acceptance Plan Template](../../templates/hybrid/Hybrid/Templates/progressive_acceptance_plan_template.md)
 9. [Hybrid Infrastructure Template](../../methodology-frameworks/hybrid/infrastructure/hybrid-infrastructure-template.md)
-10. [Enterprise Risk Assessment Template](../../project-lifecycle/02-planning/risk-management/enterprise-risk-assessment-template.md)
+10. [Enterprise Risk Assessment Template](../../domains/uncertainty/project-lifecycle/02-planning/risk-management/enterprise-risk-assessment-template.md)
 11. [Governance Assessment Template](../../project-assessment-suite/governance-assessment-template.md)
 12. [Project Health Assessment Template](../../project-assessment-suite/project-health-assessment-template.md)
 13. [Executive Dashboard Template](../../domains/stakeholder/business-stakeholder-suite/executive-dashboards/powerbi-integration/executive-dashboard-template.md)

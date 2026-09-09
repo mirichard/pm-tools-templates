@@ -22,8 +22,8 @@
 
 | # | Template | Purpose | Setup Time |
 |---|----------|---------|------------|
-| 4 | [Status Report](../../../project-lifecycle/04-monitoring-control/progress-tracking/status-report-template.md) | Regular progress updates for stakeholders | ~15 min |
-| 5 | [Meeting Templates](../../../role-based-toolkits/project-manager/essential-templates/meeting-templates.md) | Structured agendas for project meetings | ~10 min |
+| 4 | [Status Report](../../../domains/uncertainty/project-lifecycle/04-monitoring-control/progress-tracking/status-report-template.md) | Regular progress updates for stakeholders | ~15 min |
+| 5 | [Meeting Templates](../../../domains/uncertainty/role-based-toolkits/project-manager/essential-templates/meeting-templates.md) | Structured agendas for project meetings | ~10 min |
 
 ## Complementary Resources
 
@@ -34,7 +34,7 @@
 ## What This Bundle Does NOT Cover
 
 - **Detailed scheduling** — Small projects often don't need formal Gantt charts or WBS. If scope grows, see the [Standard Traditional Bundle](standard-traditional-medium-bundle.md).
-- **Risk management** — Low-risk projects skip formal risk registers. Add the [Risk Register](../../../project-lifecycle/02-planning/risk-management/risk-register-template.md) if risks emerge.
+- **Risk management** — Low-risk projects skip formal risk registers. Add the [Risk Register](../../../domains/uncertainty/project-lifecycle/02-planning/risk-management/risk-register-template.md) if risks emerge.
 - **Financial governance** — No budget or ROI tracking. Add the [Budget Template](../../../domains/planning/role-based-toolkits/project-manager/essential-templates/budget-template.md) if needed.
 - **Industry compliance** — No regulatory templates included.
 

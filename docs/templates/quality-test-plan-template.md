@@ -15,7 +15,7 @@
 
 title: "Quality Test Plan Template"
 
-[**➡️ View Template File**](/templates/test-samples/quality-test-plan-template.md)
+[**➡️ View Template File**](/domains/uncertainty/templates/test-samples/quality-test-plan-template.md)
 
 ## 📈 Quality Score
 

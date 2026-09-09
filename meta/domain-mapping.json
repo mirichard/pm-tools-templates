@@ -130,7 +130,7 @@
       }
     },
     {
-      "path": "project-assessment-suite/assessment-report-template.md",
+      "path": "domains/uncertainty/project-assessment-suite/assessment-report-template.md",
       "title": "Assessment Report Template",
       "methodology": "universal",
       "domain": {
@@ -146,7 +146,7 @@
       }
     },
     {
-      "path": "role-based-toolkits/product-owner/backlog-management-template.md",
+      "path": "domains/uncertainty/role-based-toolkits/product-owner/backlog-management-template.md",
       "title": "Backlog Management Template",
       "methodology": "universal",
       "domain": {
@@ -545,7 +545,7 @@
       }
     },
     {
-      "path": "project-lifecycle/02-planning/risk-management/enterprise-risk-assessment-template.md",
+      "path": "domains/uncertainty/project-lifecycle/02-planning/risk-management/enterprise-risk-assessment-template.md",
       "title": "Enterprise Risk Assessment Template",
       "methodology": "universal",
       "domain": {
@@ -1017,7 +1017,7 @@
       }
     },
     {
-      "path": "role-based-toolkits/project-manager/essential-templates/meeting-templates.md",
+      "path": "domains/uncertainty/role-based-toolkits/project-manager/essential-templates/meeting-templates.md",
       "title": "Meeting Templates",
       "methodology": "universal",
       "domain": {
@@ -1051,7 +1051,7 @@
       }
     },
     {
-      "path": "industry-specializations/information-technology/infrastructure/migration_plan_template.md",
+      "path": "domains/uncertainty/industry-specializations/information-technology/infrastructure/migration_plan_template.md",
       "title": "Migration Plan Template",
       "methodology": "universal",
       "domain": {
@@ -1290,7 +1290,7 @@
       }
     },
     {
-      "path": "role-based-toolkits/product-owner/product-vision-template.md",
+      "path": "domains/uncertainty/role-based-toolkits/product-owner/product-vision-template.md",
       "title": "Product Vision Template",
       "methodology": "universal",
       "domain": {
@@ -1389,7 +1389,7 @@
       }
     },
     {
-      "path": "project-lifecycle/04-monitoring-control/progress-tracking/project-dashboard-template.md",
+      "path": "domains/uncertainty/project-lifecycle/04-monitoring-control/progress-tracking/project-dashboard-template.md",
       "title": "Project Dashboard Template",
       "methodology": "universal",
       "domain": {
@@ -1537,7 +1537,7 @@
       }
     },
     {
-      "path": "templates/test-samples/quality-test-plan-template.md",
+      "path": "domains/uncertainty/templates/test-samples/quality-test-plan-template.md",
       "title": "Quality Test Plan Template",
       "methodology": "universal",
       "domain": {
@@ -1635,7 +1635,7 @@
       }
     },
     {
-      "path": "industry-specializations/information-technology/software-development/requirements_specification_template.md",
+      "path": "domains/uncertainty/industry-specializations/information-technology/software-development/requirements_specification_template.md",
       "title": "Requirements Specification Template",
       "methodology": "universal",
       "domain": {
@@ -1750,7 +1750,7 @@
       }
     },
     {
-      "path": "project-lifecycle/02-planning/risk-management/risk-register-template.md",
+      "path": "domains/uncertainty/project-lifecycle/02-planning/risk-management/risk-register-template.md",
       "title": "Risk Register Template",
       "methodology": "universal",
       "domain": {
@@ -1982,7 +1982,7 @@
       }
     },
     {
-      "path": "project-lifecycle/04-monitoring-control/progress-tracking/status-report-template.md",
+      "path": "domains/uncertainty/project-lifecycle/04-monitoring-control/progress-tracking/status-report-template.md",
       "title": "Status Report Template",
       "methodology": "universal",
       "domain": {
@@ -2144,7 +2144,7 @@
       }
     },
     {
-      "path": "industry-specializations/information-technology/software-development/user_story_mapping_template.md",
+      "path": "domains/uncertainty/industry-specializations/information-technology/software-development/user_story_mapping_template.md",
       "title": "User Story Mapping Template",
       "methodology": "universal",
       "domain": {
@@ -2160,7 +2160,7 @@
       }
     },
     {
-      "path": "role-based-toolkits/product-owner/user-story-template.md",
+      "path": "domains/uncertainty/role-based-toolkits/product-owner/user-story-template.md",
       "title": "User Story Template",
       "methodology": "universal",
       "domain": {

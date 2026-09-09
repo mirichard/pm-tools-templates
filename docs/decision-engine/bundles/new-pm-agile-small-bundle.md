@@ -33,7 +33,7 @@
 
 ## What This Bundle Does NOT Cover
 
-- **Risk management** — Low-risk projects don't need formal risk registers. If risk increases, add the [Risk Register](../../../project-lifecycle/02-planning/risk-management/risk-register-template.md).
+- **Risk management** — Low-risk projects don't need formal risk registers. If risk increases, add the [Risk Register](../../../domains/uncertainty/project-lifecycle/02-planning/risk-management/risk-register-template.md).
 - **Detailed project planning** — Agile replaces upfront planning with iterative sprints. No WBS or Gantt charts needed.
 - **Executive reporting** — Small teams communicate directly. If stakeholder reporting becomes needed, see the [Standard Agile Bundle](standard-agile-medium-bundle.md).
 - **Industry compliance** — No regulatory templates included. If compliance is needed, re-run the [Decision Tree](../template-decision-tree.md) with "Regulatory" risk.

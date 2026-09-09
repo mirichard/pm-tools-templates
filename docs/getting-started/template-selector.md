@@ -277,7 +277,7 @@ Traditional Project ──> Traditional/Waterfall Templates
 ### P-R
 - [Product Backlog](../../methodology-frameworks/agile-scrum/product-backlog-template.md)
 - [Project Charter](../../project-lifecycle/01-initiation/project-charter/project-charter-template.md)
-- [Risk Register](../../project-lifecycle/02-planning/risk-management/risk-register-template.md)
+- [Risk Register](../../domains/uncertainty/project-lifecycle/02-planning/risk-management/risk-register-template.md)
 - [ROI Tracking](../../business-stakeholder-suite/financial-governance/roi-tracking.md)
 
 ### S-U

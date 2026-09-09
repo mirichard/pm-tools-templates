@@ -89,7 +89,7 @@ create_template_file "project-assessment-suite/scoring-rating-guide.md" \
     "Scoring and Rating Guide" \
     "A comprehensive guide for scoring and rating project assessments across different criteria."
 
-create_template_file "project-assessment-suite/assessment-report-template.md" \
+create_template_file "domains/uncertainty/project-assessment-suite/assessment-report-template.md" \
     "Assessment Report Template" \
     "A standardized template for generating comprehensive project assessment reports."
 
@@ -164,7 +164,7 @@ create_template_file "project-lifecycle/02-planning/project-management-plan/hybr
     "Hybrid Project Management Plan" \
     "Project management plan template combining traditional and agile methodologies."
 
-create_template_file "project-lifecycle/02-planning/risk-management/enterprise-risk-assessment-template.md" \
+create_template_file "domains/uncertainty/project-lifecycle/02-planning/risk-management/enterprise-risk-assessment-template.md" \
     "Enterprise Risk Assessment" \
     "Comprehensive risk assessment template for enterprise-level projects."
 

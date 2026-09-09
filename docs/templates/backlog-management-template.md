@@ -15,7 +15,7 @@
 
 title: "Backlog Management Template"
 
-[**➡️ View Template File**](/role-based-toolkits/product-owner/backlog-management-template.md)
+[**➡️ View Template File**](/domains/uncertainty/role-based-toolkits/product-owner/backlog-management-template.md)
 
 ## 📈 Quality Score
 

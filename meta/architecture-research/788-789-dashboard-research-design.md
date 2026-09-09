@@ -15,7 +15,7 @@
 | Asset | Location | Purpose | Value Delivery Content |
 |-------|----------|---------|----------------------|
 | Project Health Dashboard | `dashboards/project-health-dashboard.md` | Auto-generated project health | ❌ No value/outcome metrics |
-| Project Dashboard Template | `project-lifecycle/04-monitoring-control/progress-tracking/project-dashboard-template.md` | Manual project status | ❌ Schedule/budget/quality only |
+| Project Dashboard Template | `domains/uncertainty/project-lifecycle/04-monitoring-control/progress-tracking/project-dashboard-template.md` | Manual project status | ❌ Schedule/budget/quality only |
 | Executive Dashboard (PowerBI) | `domains/stakeholder/business-stakeholder-suite/executive-dashboards/powerbi-integration/executive-dashboard-template.md` | Executive portfolio view | ⚠️ Has strategic goals table but no benefit tracking |
 | Product Metrics Dashboard | `role-based-toolkits/product-owner/product-metrics-dashboard.md` | Product performance | ⚠️ Has OKR section but no value flow |
 | Benefit Realization Framework | `business-stakeholder-suite/financial-governance/benefit-realization-framework.md` | Benefits tracking | ✅ Has benefit register + dashboard section |

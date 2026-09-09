@@ -1,43 +1,11 @@
----
-title: "Enterprise Risk Assessment Template"
-methodology: "universal"
-complexity: "starter"
-owner: "mirichard"
-updated: "2025-08-05"
----
+# Enterprise Risk Assessment — Moved
 
-# Enterprise Risk Assessment
+## Purpose and overview
 
-## Overview
-Comprehensive risk assessment template for enterprise-level projects.
+This legacy path is retained so existing repository links and external bookmarks continue to reach the Enterprise Risk Assessment after its domain migration. The maintained canonical template now resides in the Uncertainty domain; this file contains navigation guidance only and is not a second template copy.
 
-## Usage
-This template provides a standardized approach for Enterprise Risk Assessment.
+**Canonical location:** [Open the Enterprise Risk Assessment](../../../domains/uncertainty/project-lifecycle/02-planning/risk-management/enterprise-risk-assessment-template.md)
 
-## Template Sections
+## Usage instructions
 
-### 1. Introduction
-Brief description of the purpose and scope.
-
-### 2. Key Components
-List the main elements that should be included.
-
-### 3. Implementation Guidelines
-Step-by-step instructions for using this template.
-
-### 4. Best Practices
-- Follow established project management standards
-- Ensure stakeholder review and approval
-- Document all decisions and changes
-- Regular updates and maintenance
-
-## Related Templates
-- [Project Charter](../project-charter/)
-- [Risk Management](../risk-management/)
-- [Communication Plan](../communication-plan/)
-
-## Version History
-- v1.0 - Initial template creation
-
----
-*This template is part of the PM Tools Templates repository.*
+Follow the canonical-location link above to view, copy, or update the template. Update only the canonical file when proposing content changes. References to this legacy path remain supported for backward compatibility, but new documentation and catalog entries should link directly to the canonical domain path.

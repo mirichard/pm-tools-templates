@@ -72,7 +72,7 @@ RECOMMENDED TEMPLATES:
 
 INDUSTRY SUPPLEMENTS (IT):
   5. Requirements Specification Template
-     → industry-specializations/information-technology/software-development/requirements_specification_template.md
+     → domains/uncertainty/industry-specializations/information-technology/software-development/requirements_specification_template.md
      Rule: R012 (IT industry)
 
 RECOMMENDED TOOLKIT:
@@ -151,7 +151,7 @@ ESSENTIAL TEMPLATES (start with these):
      → project-lifecycle/02-planning/risk-management/risk-management-plan-template.md
      Rules: R005 + R010 (Planning phase + Regulatory risk)
   5. Risk Register Template
-     → project-lifecycle/02-planning/risk-management/risk-register-template.md
+     → domains/uncertainty/project-lifecycle/02-planning/risk-management/risk-register-template.md
      Rules: R005 + R010 (Planning phase + Regulatory risk)
 
 RECOMMENDED TEMPLATES:
@@ -170,7 +170,7 @@ RECOMMENDED TEMPLATES:
 
 RISK/GOVERNANCE SUPPLEMENTS (regulatory):
   10. Enterprise Risk Assessment Template
-      → project-lifecycle/02-planning/risk-management/enterprise-risk-assessment-template.md
+      → domains/uncertainty/project-lifecycle/02-planning/risk-management/enterprise-risk-assessment-template.md
       Rule: R009 (High risk, included in R010)
   11. Governance Assessment Template
       → project-assessment-suite/governance-assessment-template.md
@@ -281,10 +281,10 @@ ESSENTIAL TEMPLATES (start with these):
      → templates/hybrid/Hybrid/Templates/integrated_change_strategy_template.md
      Rules: R003 + R009 (Hybrid + High risk change control)
   3. Status Report Template
-     → project-lifecycle/04-monitoring-control/progress-tracking/status-report-template.md
+     → domains/uncertainty/project-lifecycle/04-monitoring-control/progress-tracking/status-report-template.md
      Rule: R006 (In-progress phase)
   4. Project Dashboard Template
-     → project-lifecycle/04-monitoring-control/progress-tracking/project-dashboard-template.md
+     → domains/uncertainty/project-lifecycle/04-monitoring-control/progress-tracking/project-dashboard-template.md
      Rule: R006 (In-progress phase)
 
 RECOMMENDED TEMPLATES:
@@ -303,7 +303,7 @@ RECOMMENDED TEMPLATES:
 
 RISK/GOVERNANCE SUPPLEMENTS (high risk):
   9. Enterprise Risk Assessment Template
-     → project-lifecycle/02-planning/risk-management/enterprise-risk-assessment-template.md
+     → domains/uncertainty/project-lifecycle/02-planning/risk-management/enterprise-risk-assessment-template.md
      Rule: R009 (High risk)
   10. Governance Assessment Template
       → project-assessment-suite/governance-assessment-template.md
