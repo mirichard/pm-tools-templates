@@ -161,6 +161,13 @@ npm start generate-gherkin my-tests.json --ucs my-ucs.json -o my-feature.feature
 
 The `.feature` file can be wired directly into Cucumber, pytest-bdd, SpecFlow, or any Gherkin-compatible test framework.
 
+### `generate-nfr [input-file]`
+
+NFR command skeleton (#1112). Accepts an existing structured or UCS JSON
+artifact; classification (#1108) and generation (#1109) are follow-ups.
+See the [NFR input contract](docs/nfr-input-contract.md) for required fields,
+shape validation, and compatibility decisions. No version marker is required.
+
 ### `validate <ucs-file>`
 
 Validate UCS consistency against activity diagrams and/or state machines (Algorithms 2 & 3).

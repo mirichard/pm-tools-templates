@@ -1,7 +1,8 @@
 # NFR Input Contract
 
 This document defines the input boundary for `generate-nfr` (#1112), used by
-classification (#1108) and generation (#1109). Implementation is in progress.
+classification (#1108) and generation (#1109). The contract is maintained in
+Git with `src/nfr-input.js`; it is not a version field in the input JSON.
 
 ## Design decisions
 
@@ -17,3 +18,51 @@ classification (#1108) and generation (#1109). Implementation is in progress.
 - Preserve the existing Commander, dotenv, LLMClient, report writer, phases,
   and interactive gates. Overlay content belongs to #1115; only neutral core
   is available in this skeleton.
+
+## Accepted artifacts and required fields
+
+The standalone command takes **one** JSON artifact, not a directory, raw
+requirements Markdown, test-case array, or an invented wrapper. The pipeline
+passes Phase 2 `ucs.toJSON()` after test-case/Gherkin generation, before the
+Phase 3 feedback gate. Existing Phases 0–5 and their order stay intact.
+
+| Artifact | Required shape |
+| --- | --- |
+| Phase 1 `*-structured.json` | Object with non-empty string `useCaseId`, non-empty string `useCaseName`, and non-empty `steps` array. |
+| Phase 2 `*-ucs.json` | Object with non-empty strings `useCaseId`, `intent`, `role`; `preconditions` and `postconditions` arrays of strings (empty allowed); `basicFlow` object with a non-empty `steps` array. |
+| Every step in either artifact | Object with non-empty strings `stepId`, `actor`, `action`, `businessObject`. |
+| UCS alternative/exception flow, when supplied | Object with non-empty strings `flowId`, `deviationPoint`, `triggerCondition`, and non-empty `steps` validated as above; optional string `rejoinPoint`. |
+
+UCS is identified by the presence of `basicFlow`, `intent`, or `role`; otherwise
+the document is interpreted as formal structure. A document with both UCS
+fields and top-level `steps` is rejected as ambiguous.
+
+Optional fields are preserved, not classified or rewritten:
+
+- Both: `businessObjects`, when present, must be an array of strings.
+- UCS: `useCaseName`, when present, must be a non-empty string;
+  `relatedUseCases` is an optional string array. `alternativeFlows` and
+  `exceptionFlows` are optional arrays (empty allowed).
+- Steps: `toActor`, `precondition`, `postcondition`, `refUseCaseId`, and
+  `description`, when present, must be strings. Formal steps also permit string
+  `previousStep`, `deviationPoint`, `rejoinPoint`, and `flowType` restricted to
+  `basic`, `alternative`, or `exception`.
+- Additional fields are retained subject to the existing JSON safety limits.
+  This boundary checks data shape, not 25010 taxonomy, flow semantics, or
+  classification/generation correctness.
+
+`useCaseName` is **not required for UCS** because the runtime model intentionally
+serializes `intent` instead. Requiring the sample's extra `useCaseName` would
+reject actual pipeline output. Formal structure still requires `useCaseName`
+as specified by `schemas/formal-structure.schema.json`. These decisions are
+part of the contract consumed by #1108/#1109.
+
+## Failure behavior
+
+Missing arguments/files fail with a missing-input message. Unreadable or
+malformed JSON fails with a file/JSON message. Unsafe JSON, wrong field types,
+empty required strings/step arrays, and ambiguous artifacts fail with an
+`Invalid NFR input` message identifying the boundary or field. All failures exit
+non-zero, before an NFR report is written. Re-run `structure` and `transform`
+(or `pipeline`) from the original requirements and correct upstream fields
+if they are still incomplete. No input file is modified.

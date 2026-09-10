@@ -36,6 +36,7 @@ const AmbiguityDetector = require('./ambiguity-detector');
 const GherkinGenerator = require('./gherkin-generator');
 const NFRGenerator = require('./nfr-generator');
 const { addNFROptions, normalizeNFROptions, configureNFRProvider } = require('./nfr-options');
+const { loadNFRInput } = require('./nfr-input');
 
 function terminalLog(message) {
   const safeMessage = sanitizeTerminalValue(message);
@@ -315,7 +316,7 @@ program
   });
 
 // ─── generate-nfr ────────────────────────────────────────────────────────────
-addNFROptions(program.command('generate-nfr <input-file>'))
+addNFROptions(program.command('generate-nfr [input-file]'))
   .description('Run the NFR command skeleton on structured requirements or UCS JSON')
   .option('-o, --output <dir>', 'Output directory', './output')
   .action(async (inputFile, opts) => {
@@ -324,7 +325,7 @@ addNFROptions(program.command('generate-nfr <input-file>'))
     try {
       const options = normalizeNFROptions(opts);
       restoreProvider = configureNFRProvider(options);
-      const input = await fs.readJSON(path.resolve(inputFile));
+      const input = await loadNFRInput(inputFile);
       const generator = new NFRGenerator();
       const result = await generator.run(input, options);
       spinner.succeed('NFR skeleton complete');
