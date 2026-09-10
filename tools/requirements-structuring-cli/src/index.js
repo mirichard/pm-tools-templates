@@ -34,6 +34,7 @@ const FeedbackLoop = require('./feedback-loop');
 const ReportGenerator = require('./report-generator');
 const AmbiguityDetector = require('./ambiguity-detector');
 const GherkinGenerator = require('./gherkin-generator');
+const NFRGenerator = require('./nfr-generator');
 
 function terminalLog(message) {
   const safeMessage = sanitizeTerminalValue(message);
@@ -306,6 +307,25 @@ program
       await gherkin.generateFile(testCases, ucs, safeOutputPath);
       spinner.succeed('Gherkin feature file generated');
       terminalLog(chalk.green(`✓ Feature file saved to ${safeOutputPath}`));
+    } catch (err) {
+      spinnerFail(spinner, err && err.message ? err.message : String(err));
+      process.exit(1);
+    }
+  });
+
+// ─── generate-nfr ────────────────────────────────────────────────────────────
+program
+  .command('generate-nfr <input-file>')
+  .description('Run the NFR command skeleton on structured requirements or UCS JSON')
+  .option('-o, --output <dir>', 'Output directory', './output')
+  .action(async (inputFile, opts) => {
+    const spinner = ora('Loading NFR input...').start();
+    try {
+      const input = await fs.readJSON(path.resolve(inputFile));
+      const generator = new NFRGenerator();
+      const result = await generator.run(input, opts);
+      spinner.succeed('NFR skeleton complete');
+      terminalLog(chalk.yellow(result.notice));
     } catch (err) {
       spinnerFail(spinner, err && err.message ? err.message : String(err));
       process.exit(1);
