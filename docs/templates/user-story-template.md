@@ -15,7 +15,7 @@
 
 title: "User Story Template"
 
-[**➡️ View Template File**](/role-based-toolkits/product-owner/user-story-template.md)
+[**➡️ View Template File**](/domains/uncertainty/role-based-toolkits/product-owner/user-story-template.md)
 
 ## 📈 Quality Score
 

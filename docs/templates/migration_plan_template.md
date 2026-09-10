@@ -15,7 +15,7 @@
 
 title: "Migration Plan Template"
 
-[**➡️ View Template File**](/industry-specializations/information-technology/infrastructure/migration_plan_template.md)
+[**➡️ View Template File**](/domains/uncertainty/industry-specializations/information-technology/infrastructure/migration_plan_template.md)
 
 ## 📈 Quality Score
 

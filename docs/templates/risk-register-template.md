@@ -15,7 +15,7 @@
 
 title: "Risk Register Template"
 
-[**➡️ View Template File**](/project-lifecycle/02-planning/risk-management/risk-register-template.md)
+[**➡️ View Template File**](/domains/uncertainty/project-lifecycle/02-planning/risk-management/risk-register-template.md)
 
 ## 📈 Quality Score
 

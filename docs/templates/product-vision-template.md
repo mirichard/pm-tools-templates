@@ -15,7 +15,7 @@
 
 title: "Product Vision Template"
 
-[**➡️ View Template File**](/role-based-toolkits/product-owner/product-vision-template.md)
+[**➡️ View Template File**](/domains/uncertainty/role-based-toolkits/product-owner/product-vision-template.md)
 
 ## 📈 Quality Score
 

@@ -20,7 +20,7 @@
         "domains/planning/industry-specializations/information-technology/infrastructure/disaster_recovery_template.md"
       ],
       "complementary_assets": [
-        "industry-specializations/information-technology/infrastructure/migration_plan_template.md",
+        "domains/uncertainty/industry-specializations/information-technology/infrastructure/migration_plan_template.md",
         "project-assessment-suite/resource-management-assessment-template.md"
       ],
       "previous_workflow_step": "domains/planning/templates/traditional/Traditional/Templates/program_charter_template.md",
@@ -41,7 +41,7 @@
         "domains/planning/project-lifecycle/01-initiation/project-charter/traditional-project-charter-template.md"
       ],
       "complementary_assets": [
-        "industry-specializations/information-technology/infrastructure/migration_plan_template.md",
+        "domains/uncertainty/industry-specializations/information-technology/infrastructure/migration_plan_template.md",
         "project-assessment-suite/resource-management-assessment-template.md"
       ],
       "previous_workflow_step": "domains/planning/industry-specializations/information-technology/infrastructure/data_center_design_template.md",
@@ -64,8 +64,8 @@
         "domains/planning/role-based-toolkits/project-manager/essential-templates/budget-template.md"
       ],
       "complementary_assets": [
-        "role-based-toolkits/project-manager/essential-templates/meeting-templates.md",
-        "role-based-toolkits/product-owner/product-vision-template.md"
+        "domains/uncertainty/role-based-toolkits/project-manager/essential-templates/meeting-templates.md",
+        "domains/uncertainty/role-based-toolkits/product-owner/product-vision-template.md"
       ],
       "previous_workflow_step": "domains/planning/industry-specializations/information-technology/infrastructure/disaster_recovery_template.md",
       "next_workflow_step": "domains/planning/role-based-toolkits/project-manager/essential-templates/budget-template.md"
@@ -266,7 +266,7 @@
       ],
       "complementary_assets": [
         "industry-specializations/information-technology/cybersecurity/risk_assessment_template.md",
-        "industry-specializations/information-technology/software-development/user_story_mapping_template.md"
+        "domains/uncertainty/industry-specializations/information-technology/software-development/user_story_mapping_template.md"
       ],
       "previous_workflow_step": "domains/stakeholder/business-stakeholder-suite/financial-governance/budget-dashboard-template.md",
       "next_workflow_step": "domains/stakeholder/business-stakeholder-suite/financial-governance/enhanced-business-cases/evm-dashboard-template.md"
@@ -412,14 +412,14 @@
         "rationale": "Stakeholder engagement and communication template"
       },
       "prerequisites": [
-        "role-based-toolkits/project-manager/essential-templates/meeting-templates.md"
+        "domains/uncertainty/role-based-toolkits/project-manager/essential-templates/meeting-templates.md"
       ],
       "related_assets": [
         "domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/stakeholder-register-template.md",
         "domains/stakeholder/business-stakeholder-suite/executive-dashboards/powerbi-integration/executive-dashboard-template.md"
       ],
       "complementary_assets": [
-        "role-based-toolkits/project-manager/essential-templates/meeting-templates.md",
+        "domains/uncertainty/role-based-toolkits/project-manager/essential-templates/meeting-templates.md",
         "methodology-frameworks/emerging-methods/devops/monitoring_alerting_template.md"
       ],
       "previous_workflow_step": "domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/stakeholder-register-template.md",
@@ -487,7 +487,7 @@
       ],
       "complementary_assets": [
         "methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md",
-        "role-based-toolkits/project-manager/essential-templates/meeting-templates.md"
+        "domains/uncertainty/role-based-toolkits/project-manager/essential-templates/meeting-templates.md"
       ],
       "previous_workflow_step": "domains/team/project-lifecycle/01-initiation/project-charter/agile-team-charter-template.md",
       "next_workflow_step": "domains/team/project-lifecycle/02-planning/resource-planning/team-charter-template.md"
@@ -625,6 +625,295 @@
       ],
       "previous_workflow_step": "domains/team/templates/agile/sprint_review_template.md",
       "next_workflow_step": "domains/team/methodology-frameworks/agile-scrum/scaling-frameworks/less/less_retrospective_template.md"
+    },
+    {
+      "path": "domains/uncertainty/industry-specializations/information-technology/infrastructure/migration_plan_template.md",
+      "domain": {
+        "primary": "Uncertainty",
+        "secondary": [
+          "Planning"
+        ],
+        "rationale": "Risk-focused template manages project uncertainty"
+      },
+      "prerequisites": [
+        "domains/planning/industry-specializations/information-technology/infrastructure/data_center_design_template.md"
+      ],
+      "related_assets": [
+        "domains/uncertainty/templates/test-samples/quality-test-plan-template.md",
+        "domains/uncertainty/industry-specializations/information-technology/software-development/requirements_specification_template.md"
+      ],
+      "complementary_assets": [
+        "domains/planning/industry-specializations/information-technology/infrastructure/data_center_design_template.md",
+        "domains/planning/industry-specializations/information-technology/infrastructure/disaster_recovery_template.md"
+      ],
+      "previous_workflow_step": "domains/uncertainty/templates/test-samples/quality-test-plan-template.md",
+      "next_workflow_step": "domains/uncertainty/industry-specializations/information-technology/software-development/requirements_specification_template.md"
+    },
+    {
+      "path": "domains/uncertainty/industry-specializations/information-technology/software-development/requirements_specification_template.md",
+      "domain": {
+        "primary": "Uncertainty",
+        "secondary": [
+          "Stakeholder"
+        ],
+        "rationale": "Risk-focused template manages project uncertainty"
+      },
+      "prerequisites": [
+        "domains/uncertainty/role-based-toolkits/product-owner/backlog-management-template.md"
+      ],
+      "related_assets": [
+        "domains/uncertainty/industry-specializations/information-technology/infrastructure/migration_plan_template.md",
+        "domains/uncertainty/industry-specializations/information-technology/software-development/user_story_mapping_template.md"
+      ],
+      "complementary_assets": [
+        "domains/uncertainty/role-based-toolkits/product-owner/backlog-management-template.md",
+        "domains/uncertainty/project-lifecycle/04-monitoring-control/progress-tracking/project-dashboard-template.md"
+      ],
+      "previous_workflow_step": "domains/uncertainty/industry-specializations/information-technology/infrastructure/migration_plan_template.md",
+      "next_workflow_step": "domains/uncertainty/industry-specializations/information-technology/software-development/user_story_mapping_template.md"
+    },
+    {
+      "path": "domains/uncertainty/industry-specializations/information-technology/software-development/user_story_mapping_template.md",
+      "domain": {
+        "primary": "Uncertainty",
+        "secondary": [
+          "Planning"
+        ],
+        "rationale": "Risk-focused template manages project uncertainty"
+      },
+      "prerequisites": [
+        "business-stakeholder-suite/executive-dashboards/tableau-integration/executive-dashboard-template.md"
+      ],
+      "related_assets": [
+        "domains/uncertainty/industry-specializations/information-technology/software-development/requirements_specification_template.md",
+        "domains/uncertainty/project-assessment-suite/assessment-report-template.md"
+      ],
+      "complementary_assets": [
+        "business-stakeholder-suite/executive-dashboards/tableau-integration/executive-dashboard-template.md",
+        "domains/uncertainty/role-based-toolkits/product-owner/user-story-template.md"
+      ],
+      "previous_workflow_step": "domains/uncertainty/industry-specializations/information-technology/software-development/requirements_specification_template.md",
+      "next_workflow_step": "domains/uncertainty/project-assessment-suite/assessment-report-template.md"
+    },
+    {
+      "path": "domains/uncertainty/project-assessment-suite/assessment-report-template.md",
+      "domain": {
+        "primary": "Uncertainty",
+        "secondary": [
+          "Stakeholder"
+        ],
+        "rationale": "Risk-focused template manages project uncertainty"
+      },
+      "prerequisites": [
+        "domains/uncertainty/role-based-toolkits/product-owner/product-vision-template.md"
+      ],
+      "related_assets": [
+        "domains/uncertainty/industry-specializations/information-technology/software-development/user_story_mapping_template.md",
+        "domains/uncertainty/project-lifecycle/02-planning/risk-management/enterprise-risk-assessment-template.md"
+      ],
+      "complementary_assets": [
+        "domains/uncertainty/role-based-toolkits/product-owner/product-vision-template.md",
+        "project-assessment-suite/hybrid-project-assessment-template.md"
+      ],
+      "previous_workflow_step": "domains/uncertainty/industry-specializations/information-technology/software-development/user_story_mapping_template.md",
+      "next_workflow_step": "domains/uncertainty/project-lifecycle/02-planning/risk-management/enterprise-risk-assessment-template.md"
+    },
+    {
+      "path": "domains/uncertainty/project-lifecycle/02-planning/risk-management/enterprise-risk-assessment-template.md",
+      "domain": {
+        "primary": "Uncertainty",
+        "secondary": [
+          "Stakeholder"
+        ],
+        "rationale": "Risk-focused template manages project uncertainty"
+      },
+      "prerequisites": [
+        "domains/uncertainty/project-assessment-suite/assessment-report-template.md"
+      ],
+      "related_assets": [
+        "domains/uncertainty/project-assessment-suite/assessment-report-template.md",
+        "domains/uncertainty/project-lifecycle/02-planning/risk-management/risk-register-template.md"
+      ],
+      "complementary_assets": [
+        "project-lifecycle/02-planning/project-management-plan/hybrid-project-management-plan-template.md",
+        "project-lifecycle/02-planning/business-requirements/business_requirements_document_template.md"
+      ],
+      "previous_workflow_step": "domains/uncertainty/project-assessment-suite/assessment-report-template.md",
+      "next_workflow_step": "domains/uncertainty/project-lifecycle/02-planning/risk-management/risk-register-template.md"
+    },
+    {
+      "path": "domains/uncertainty/project-lifecycle/02-planning/risk-management/risk-register-template.md",
+      "domain": {
+        "primary": "Uncertainty",
+        "secondary": [
+          "Planning",
+          "Stakeholder"
+        ],
+        "rationale": "Risk-focused template manages project uncertainty"
+      },
+      "prerequisites": [],
+      "related_assets": [
+        "domains/uncertainty/project-lifecycle/02-planning/risk-management/enterprise-risk-assessment-template.md",
+        "domains/uncertainty/project-lifecycle/04-monitoring-control/progress-tracking/project-dashboard-template.md"
+      ],
+      "complementary_assets": [],
+      "previous_workflow_step": "domains/uncertainty/project-lifecycle/02-planning/risk-management/enterprise-risk-assessment-template.md",
+      "next_workflow_step": "domains/uncertainty/project-lifecycle/04-monitoring-control/progress-tracking/project-dashboard-template.md"
+    },
+    {
+      "path": "domains/uncertainty/project-lifecycle/04-monitoring-control/progress-tracking/project-dashboard-template.md",
+      "domain": {
+        "primary": "Uncertainty",
+        "secondary": [
+          "Stakeholder"
+        ],
+        "rationale": "Risk-focused template manages project uncertainty"
+      },
+      "prerequisites": [
+        "domains/uncertainty/role-based-toolkits/product-owner/backlog-management-template.md"
+      ],
+      "related_assets": [
+        "domains/uncertainty/project-lifecycle/02-planning/risk-management/risk-register-template.md",
+        "domains/uncertainty/project-lifecycle/04-monitoring-control/progress-tracking/status-report-template.md"
+      ],
+      "complementary_assets": [
+        "domains/uncertainty/role-based-toolkits/product-owner/backlog-management-template.md",
+        "domains/uncertainty/industry-specializations/information-technology/software-development/requirements_specification_template.md"
+      ],
+      "previous_workflow_step": "domains/uncertainty/project-lifecycle/02-planning/risk-management/risk-register-template.md",
+      "next_workflow_step": "domains/uncertainty/project-lifecycle/04-monitoring-control/progress-tracking/status-report-template.md"
+    },
+    {
+      "path": "domains/uncertainty/project-lifecycle/04-monitoring-control/progress-tracking/status-report-template.md",
+      "domain": {
+        "primary": "Uncertainty",
+        "secondary": [
+          "Stakeholder"
+        ],
+        "rationale": "Risk-focused template manages project uncertainty"
+      },
+      "prerequisites": [],
+      "related_assets": [
+        "domains/uncertainty/project-lifecycle/04-monitoring-control/progress-tracking/project-dashboard-template.md",
+        "domains/uncertainty/role-based-toolkits/product-owner/backlog-management-template.md"
+      ],
+      "complementary_assets": [],
+      "previous_workflow_step": "domains/uncertainty/project-lifecycle/04-monitoring-control/progress-tracking/project-dashboard-template.md",
+      "next_workflow_step": "domains/uncertainty/role-based-toolkits/product-owner/backlog-management-template.md"
+    },
+    {
+      "path": "domains/uncertainty/role-based-toolkits/product-owner/backlog-management-template.md",
+      "domain": {
+        "primary": "Uncertainty",
+        "secondary": [
+          "Stakeholder"
+        ],
+        "rationale": "Risk-focused template manages project uncertainty"
+      },
+      "prerequisites": [
+        "domains/uncertainty/project-lifecycle/04-monitoring-control/progress-tracking/project-dashboard-template.md"
+      ],
+      "related_assets": [
+        "domains/uncertainty/project-lifecycle/04-monitoring-control/progress-tracking/status-report-template.md",
+        "domains/uncertainty/role-based-toolkits/product-owner/product-vision-template.md"
+      ],
+      "complementary_assets": [
+        "domains/uncertainty/project-lifecycle/04-monitoring-control/progress-tracking/project-dashboard-template.md",
+        "domains/uncertainty/industry-specializations/information-technology/software-development/requirements_specification_template.md"
+      ],
+      "previous_workflow_step": "domains/uncertainty/project-lifecycle/04-monitoring-control/progress-tracking/status-report-template.md",
+      "next_workflow_step": "domains/uncertainty/role-based-toolkits/product-owner/product-vision-template.md"
+    },
+    {
+      "path": "domains/uncertainty/role-based-toolkits/product-owner/product-vision-template.md",
+      "domain": {
+        "primary": "Uncertainty",
+        "secondary": [
+          "Stakeholder"
+        ],
+        "rationale": "Risk-focused template manages project uncertainty"
+      },
+      "prerequisites": [
+        "domains/uncertainty/project-assessment-suite/assessment-report-template.md"
+      ],
+      "related_assets": [
+        "domains/uncertainty/role-based-toolkits/product-owner/backlog-management-template.md",
+        "domains/uncertainty/role-based-toolkits/product-owner/user-story-template.md"
+      ],
+      "complementary_assets": [
+        "domains/uncertainty/project-assessment-suite/assessment-report-template.md",
+        "industry-specializations/information-technology/security/cybersecurity_assessment_template.md"
+      ],
+      "previous_workflow_step": "domains/uncertainty/role-based-toolkits/product-owner/backlog-management-template.md",
+      "next_workflow_step": "domains/uncertainty/role-based-toolkits/product-owner/user-story-template.md"
+    },
+    {
+      "path": "domains/uncertainty/role-based-toolkits/product-owner/user-story-template.md",
+      "domain": {
+        "primary": "Uncertainty",
+        "secondary": [],
+        "rationale": "Risk-focused template manages project uncertainty"
+      },
+      "prerequisites": [
+        "domains/uncertainty/industry-specializations/information-technology/software-development/user_story_mapping_template.md"
+      ],
+      "related_assets": [
+        "domains/uncertainty/role-based-toolkits/product-owner/product-vision-template.md",
+        "domains/uncertainty/role-based-toolkits/project-manager/essential-templates/meeting-templates.md"
+      ],
+      "complementary_assets": [
+        "domains/uncertainty/industry-specializations/information-technology/software-development/user_story_mapping_template.md",
+        "industry-specializations/information-technology/software-development/api_documentation_template.md"
+      ],
+      "previous_workflow_step": "domains/uncertainty/role-based-toolkits/product-owner/product-vision-template.md",
+      "next_workflow_step": "domains/uncertainty/role-based-toolkits/project-manager/essential-templates/meeting-templates.md"
+    },
+    {
+      "path": "domains/uncertainty/role-based-toolkits/project-manager/essential-templates/meeting-templates.md",
+      "domain": {
+        "primary": "Uncertainty",
+        "secondary": [
+          "Planning",
+          "Stakeholder"
+        ],
+        "rationale": "Risk-focused template manages project uncertainty"
+      },
+      "prerequisites": [
+        "project-assessment-suite/current-state-analysis-template.md"
+      ],
+      "related_assets": [
+        "domains/uncertainty/role-based-toolkits/product-owner/user-story-template.md",
+        "domains/uncertainty/templates/test-samples/quality-test-plan-template.md"
+      ],
+      "complementary_assets": [
+        "project-assessment-suite/current-state-analysis-template.md",
+        "industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md"
+      ],
+      "previous_workflow_step": "domains/uncertainty/role-based-toolkits/product-owner/user-story-template.md",
+      "next_workflow_step": "domains/uncertainty/templates/test-samples/quality-test-plan-template.md"
+    },
+    {
+      "path": "domains/uncertainty/templates/test-samples/quality-test-plan-template.md",
+      "domain": {
+        "primary": "Uncertainty",
+        "secondary": [
+          "Stakeholder"
+        ],
+        "rationale": "Risk-focused template manages project uncertainty"
+      },
+      "prerequisites": [
+        "domains/uncertainty/role-based-toolkits/product-owner/backlog-management-template.md"
+      ],
+      "related_assets": [
+        "domains/uncertainty/role-based-toolkits/project-manager/essential-templates/meeting-templates.md",
+        "domains/uncertainty/industry-specializations/information-technology/infrastructure/migration_plan_template.md"
+      ],
+      "complementary_assets": [
+        "domains/uncertainty/role-based-toolkits/product-owner/backlog-management-template.md",
+        "domains/uncertainty/project-lifecycle/04-monitoring-control/progress-tracking/project-dashboard-template.md"
+      ],
+      "previous_workflow_step": "domains/uncertainty/role-based-toolkits/project-manager/essential-templates/meeting-templates.md",
+      "next_workflow_step": "domains/uncertainty/industry-specializations/information-technology/infrastructure/migration_plan_template.md"
     },
     {
       "path": "industry-specializations/financial-services/compliance/compliance-management-template.md",
@@ -958,14 +1247,14 @@
         "rationale": "Industry-specific execution guidance"
       },
       "prerequisites": [
-        "industry-specializations/information-technology/infrastructure/migration_plan_template.md"
+        "domains/uncertainty/industry-specializations/information-technology/infrastructure/migration_plan_template.md"
       ],
       "related_assets": [
         "industry-specializations/healthcare-pharmaceutical/regulatory/regulatory_inspection_readiness_plan_template.md",
         "industry-specializations/healthcare-pharmaceutical/validation/cleaning_validation_protocol_template.md"
       ],
       "complementary_assets": [
-        "industry-specializations/information-technology/infrastructure/migration_plan_template.md",
+        "domains/uncertainty/industry-specializations/information-technology/infrastructure/migration_plan_template.md",
         "industry-specializations/healthcare-pharmaceutical/regulatory/process_validation_protocol_template.md"
       ],
       "previous_workflow_step": "industry-specializations/healthcare-pharmaceutical/regulatory/regulatory_inspection_readiness_plan_template.md",
@@ -1247,29 +1536,6 @@
       "next_workflow_step": "industry-specializations/information-technology/security/cybersecurity_assessment_template.md"
     },
     {
-      "path": "industry-specializations/information-technology/infrastructure/migration_plan_template.md",
-      "domain": {
-        "primary": "Uncertainty",
-        "secondary": [
-          "Planning"
-        ],
-        "rationale": "Risk-focused template manages project uncertainty"
-      },
-      "prerequisites": [
-        "domains/planning/industry-specializations/information-technology/infrastructure/data_center_design_template.md"
-      ],
-      "related_assets": [
-        "templates/test-samples/quality-test-plan-template.md",
-        "industry-specializations/information-technology/software-development/requirements_specification_template.md"
-      ],
-      "complementary_assets": [
-        "domains/planning/industry-specializations/information-technology/infrastructure/data_center_design_template.md",
-        "domains/planning/industry-specializations/information-technology/infrastructure/disaster_recovery_template.md"
-      ],
-      "previous_workflow_step": "templates/test-samples/quality-test-plan-template.md",
-      "next_workflow_step": "industry-specializations/information-technology/software-development/requirements_specification_template.md"
-    },
-    {
       "path": "industry-specializations/information-technology/security/cybersecurity_assessment_template.md",
       "domain": {
         "primary": "Measurement",
@@ -1330,33 +1596,10 @@
       ],
       "complementary_assets": [
         "role-based-toolkits/project-manager/essential-templates/timesheet-tracking-template.md",
-        "role-based-toolkits/product-owner/user-story-template.md"
+        "domains/uncertainty/role-based-toolkits/product-owner/user-story-template.md"
       ],
       "previous_workflow_step": "industry-specializations/information-technology/service-management/problem_management_process_template.md",
       "next_workflow_step": "methodology-frameworks/agile-scrum/scaling-frameworks/less/cross_team_coordination_template.md"
-    },
-    {
-      "path": "industry-specializations/information-technology/software-development/requirements_specification_template.md",
-      "domain": {
-        "primary": "Uncertainty",
-        "secondary": [
-          "Stakeholder"
-        ],
-        "rationale": "Risk-focused template manages project uncertainty"
-      },
-      "prerequisites": [
-        "role-based-toolkits/product-owner/backlog-management-template.md"
-      ],
-      "related_assets": [
-        "industry-specializations/information-technology/infrastructure/migration_plan_template.md",
-        "industry-specializations/information-technology/software-development/user_story_mapping_template.md"
-      ],
-      "complementary_assets": [
-        "role-based-toolkits/product-owner/backlog-management-template.md",
-        "project-lifecycle/04-monitoring-control/progress-tracking/project-dashboard-template.md"
-      ],
-      "previous_workflow_step": "industry-specializations/information-technology/infrastructure/migration_plan_template.md",
-      "next_workflow_step": "industry-specializations/information-technology/software-development/user_story_mapping_template.md"
     },
     {
       "path": "industry-specializations/information-technology/software-development/technical_design_document_template.md",
@@ -1404,29 +1647,6 @@
       ],
       "previous_workflow_step": "industry-specializations/information-technology/software-development/technical_design_document_template.md",
       "next_workflow_step": "methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md"
-    },
-    {
-      "path": "industry-specializations/information-technology/software-development/user_story_mapping_template.md",
-      "domain": {
-        "primary": "Uncertainty",
-        "secondary": [
-          "Planning"
-        ],
-        "rationale": "Risk-focused template manages project uncertainty"
-      },
-      "prerequisites": [
-        "business-stakeholder-suite/executive-dashboards/tableau-integration/executive-dashboard-template.md"
-      ],
-      "related_assets": [
-        "industry-specializations/information-technology/software-development/requirements_specification_template.md",
-        "project-assessment-suite/assessment-report-template.md"
-      ],
-      "complementary_assets": [
-        "business-stakeholder-suite/executive-dashboards/tableau-integration/executive-dashboard-template.md",
-        "role-based-toolkits/product-owner/user-story-template.md"
-      ],
-      "previous_workflow_step": "industry-specializations/information-technology/software-development/requirements_specification_template.md",
-      "next_workflow_step": "project-assessment-suite/assessment-report-template.md"
     },
     {
       "path": "methodology-frameworks/agile-scrum/scaling-frameworks/less/cross_team_coordination_template.md",
@@ -1879,29 +2099,6 @@
       "next_workflow_step": "project-assessment-suite/hybrid-project-assessment-template.md"
     },
     {
-      "path": "project-assessment-suite/assessment-report-template.md",
-      "domain": {
-        "primary": "Uncertainty",
-        "secondary": [
-          "Stakeholder"
-        ],
-        "rationale": "Risk-focused template manages project uncertainty"
-      },
-      "prerequisites": [
-        "role-based-toolkits/product-owner/product-vision-template.md"
-      ],
-      "related_assets": [
-        "industry-specializations/information-technology/software-development/user_story_mapping_template.md",
-        "project-lifecycle/02-planning/risk-management/enterprise-risk-assessment-template.md"
-      ],
-      "complementary_assets": [
-        "role-based-toolkits/product-owner/product-vision-template.md",
-        "project-assessment-suite/hybrid-project-assessment-template.md"
-      ],
-      "previous_workflow_step": "industry-specializations/information-technology/software-development/user_story_mapping_template.md",
-      "next_workflow_step": "project-lifecycle/02-planning/risk-management/enterprise-risk-assessment-template.md"
-    },
-    {
       "path": "project-assessment-suite/current-state-analysis-template.md",
       "domain": {
         "primary": "Measurement",
@@ -2031,14 +2228,14 @@
         "rationale": "Methodology-specific template guides delivery execution"
       },
       "prerequisites": [
-        "project-assessment-suite/assessment-report-template.md"
+        "domains/uncertainty/project-assessment-suite/assessment-report-template.md"
       ],
       "related_assets": [
         "project-assessment-suite/agile-project-assessment-template.md",
         "project-lifecycle/02-planning/project-management-plan/agile-release-plan-template.md"
       ],
       "complementary_assets": [
-        "project-assessment-suite/assessment-report-template.md",
+        "domains/uncertainty/project-assessment-suite/assessment-report-template.md",
         "project-lifecycle/02-planning/project-management-plan/hybrid-project-management-plan-template.md"
       ],
       "previous_workflow_step": "project-assessment-suite/agile-project-assessment-template.md",
@@ -2220,14 +2417,14 @@
         "rationale": "Methodology-specific template guides delivery execution"
       },
       "prerequisites": [
-        "project-lifecycle/02-planning/risk-management/enterprise-risk-assessment-template.md"
+        "domains/uncertainty/project-lifecycle/02-planning/risk-management/enterprise-risk-assessment-template.md"
       ],
       "related_assets": [
         "project-lifecycle/02-planning/project-management-plan/agile-release-plan-template.md",
         "project-lifecycle/02-planning/project-management-plan/traditional-project-management-plan-template.md"
       ],
       "complementary_assets": [
-        "project-lifecycle/02-planning/risk-management/enterprise-risk-assessment-template.md",
+        "domains/uncertainty/project-lifecycle/02-planning/risk-management/enterprise-risk-assessment-template.md",
         "project-assessment-suite/hybrid-project-assessment-template.md"
       ],
       "previous_workflow_step": "project-lifecycle/02-planning/project-management-plan/agile-release-plan-template.md",
@@ -2306,29 +2503,6 @@
       "next_workflow_step": "role-based-toolkits/project-manager/essential-templates/timesheet-tracking-template.md"
     },
     {
-      "path": "project-lifecycle/02-planning/risk-management/enterprise-risk-assessment-template.md",
-      "domain": {
-        "primary": "Uncertainty",
-        "secondary": [
-          "Stakeholder"
-        ],
-        "rationale": "Risk-focused template manages project uncertainty"
-      },
-      "prerequisites": [
-        "project-assessment-suite/assessment-report-template.md"
-      ],
-      "related_assets": [
-        "project-assessment-suite/assessment-report-template.md",
-        "project-lifecycle/02-planning/risk-management/risk-register-template.md"
-      ],
-      "complementary_assets": [
-        "project-lifecycle/02-planning/project-management-plan/hybrid-project-management-plan-template.md",
-        "project-lifecycle/02-planning/business-requirements/business_requirements_document_template.md"
-      ],
-      "previous_workflow_step": "project-assessment-suite/assessment-report-template.md",
-      "next_workflow_step": "project-lifecycle/02-planning/risk-management/risk-register-template.md"
-    },
-    {
       "path": "project-lifecycle/02-planning/risk-management/risk-management-plan-template.md",
       "domain": {
         "primary": "Measurement",
@@ -2351,133 +2525,6 @@
       ],
       "previous_workflow_step": "project-lifecycle/02-planning/resource-planning/resource-management-plan-template.md",
       "next_workflow_step": "role-based-toolkits/project-manager/essential-templates/handover-template.md"
-    },
-    {
-      "path": "project-lifecycle/02-planning/risk-management/risk-register-template.md",
-      "domain": {
-        "primary": "Uncertainty",
-        "secondary": [
-          "Planning",
-          "Stakeholder"
-        ],
-        "rationale": "Risk-focused template manages project uncertainty"
-      },
-      "prerequisites": [],
-      "related_assets": [
-        "project-lifecycle/02-planning/risk-management/enterprise-risk-assessment-template.md",
-        "project-lifecycle/04-monitoring-control/progress-tracking/project-dashboard-template.md"
-      ],
-      "complementary_assets": [],
-      "previous_workflow_step": "project-lifecycle/02-planning/risk-management/enterprise-risk-assessment-template.md",
-      "next_workflow_step": "project-lifecycle/04-monitoring-control/progress-tracking/project-dashboard-template.md"
-    },
-    {
-      "path": "project-lifecycle/04-monitoring-control/progress-tracking/project-dashboard-template.md",
-      "domain": {
-        "primary": "Uncertainty",
-        "secondary": [
-          "Stakeholder"
-        ],
-        "rationale": "Risk-focused template manages project uncertainty"
-      },
-      "prerequisites": [
-        "role-based-toolkits/product-owner/backlog-management-template.md"
-      ],
-      "related_assets": [
-        "project-lifecycle/02-planning/risk-management/risk-register-template.md",
-        "project-lifecycle/04-monitoring-control/progress-tracking/status-report-template.md"
-      ],
-      "complementary_assets": [
-        "role-based-toolkits/product-owner/backlog-management-template.md",
-        "industry-specializations/information-technology/software-development/requirements_specification_template.md"
-      ],
-      "previous_workflow_step": "project-lifecycle/02-planning/risk-management/risk-register-template.md",
-      "next_workflow_step": "project-lifecycle/04-monitoring-control/progress-tracking/status-report-template.md"
-    },
-    {
-      "path": "project-lifecycle/04-monitoring-control/progress-tracking/status-report-template.md",
-      "domain": {
-        "primary": "Uncertainty",
-        "secondary": [
-          "Stakeholder"
-        ],
-        "rationale": "Risk-focused template manages project uncertainty"
-      },
-      "prerequisites": [],
-      "related_assets": [
-        "project-lifecycle/04-monitoring-control/progress-tracking/project-dashboard-template.md",
-        "role-based-toolkits/product-owner/backlog-management-template.md"
-      ],
-      "complementary_assets": [],
-      "previous_workflow_step": "project-lifecycle/04-monitoring-control/progress-tracking/project-dashboard-template.md",
-      "next_workflow_step": "role-based-toolkits/product-owner/backlog-management-template.md"
-    },
-    {
-      "path": "role-based-toolkits/product-owner/backlog-management-template.md",
-      "domain": {
-        "primary": "Uncertainty",
-        "secondary": [
-          "Stakeholder"
-        ],
-        "rationale": "Risk-focused template manages project uncertainty"
-      },
-      "prerequisites": [
-        "project-lifecycle/04-monitoring-control/progress-tracking/project-dashboard-template.md"
-      ],
-      "related_assets": [
-        "project-lifecycle/04-monitoring-control/progress-tracking/status-report-template.md",
-        "role-based-toolkits/product-owner/product-vision-template.md"
-      ],
-      "complementary_assets": [
-        "project-lifecycle/04-monitoring-control/progress-tracking/project-dashboard-template.md",
-        "industry-specializations/information-technology/software-development/requirements_specification_template.md"
-      ],
-      "previous_workflow_step": "project-lifecycle/04-monitoring-control/progress-tracking/status-report-template.md",
-      "next_workflow_step": "role-based-toolkits/product-owner/product-vision-template.md"
-    },
-    {
-      "path": "role-based-toolkits/product-owner/product-vision-template.md",
-      "domain": {
-        "primary": "Uncertainty",
-        "secondary": [
-          "Stakeholder"
-        ],
-        "rationale": "Risk-focused template manages project uncertainty"
-      },
-      "prerequisites": [
-        "project-assessment-suite/assessment-report-template.md"
-      ],
-      "related_assets": [
-        "role-based-toolkits/product-owner/backlog-management-template.md",
-        "role-based-toolkits/product-owner/user-story-template.md"
-      ],
-      "complementary_assets": [
-        "project-assessment-suite/assessment-report-template.md",
-        "industry-specializations/information-technology/security/cybersecurity_assessment_template.md"
-      ],
-      "previous_workflow_step": "role-based-toolkits/product-owner/backlog-management-template.md",
-      "next_workflow_step": "role-based-toolkits/product-owner/user-story-template.md"
-    },
-    {
-      "path": "role-based-toolkits/product-owner/user-story-template.md",
-      "domain": {
-        "primary": "Uncertainty",
-        "secondary": [],
-        "rationale": "Risk-focused template manages project uncertainty"
-      },
-      "prerequisites": [
-        "industry-specializations/information-technology/software-development/user_story_mapping_template.md"
-      ],
-      "related_assets": [
-        "role-based-toolkits/product-owner/product-vision-template.md",
-        "role-based-toolkits/project-manager/essential-templates/meeting-templates.md"
-      ],
-      "complementary_assets": [
-        "industry-specializations/information-technology/software-development/user_story_mapping_template.md",
-        "industry-specializations/information-technology/software-development/api_documentation_template.md"
-      ],
-      "previous_workflow_step": "role-based-toolkits/product-owner/product-vision-template.md",
-      "next_workflow_step": "role-based-toolkits/project-manager/essential-templates/meeting-templates.md"
     },
     {
       "path": "role-based-toolkits/project-manager/essential-templates/handover-template.md",
@@ -2504,30 +2551,6 @@
       "next_workflow_step": "industry-specializations/financial-services/compliance/compliance-management-template.md"
     },
     {
-      "path": "role-based-toolkits/project-manager/essential-templates/meeting-templates.md",
-      "domain": {
-        "primary": "Uncertainty",
-        "secondary": [
-          "Planning",
-          "Stakeholder"
-        ],
-        "rationale": "Risk-focused template manages project uncertainty"
-      },
-      "prerequisites": [
-        "project-assessment-suite/current-state-analysis-template.md"
-      ],
-      "related_assets": [
-        "role-based-toolkits/product-owner/user-story-template.md",
-        "templates/test-samples/quality-test-plan-template.md"
-      ],
-      "complementary_assets": [
-        "project-assessment-suite/current-state-analysis-template.md",
-        "industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md"
-      ],
-      "previous_workflow_step": "role-based-toolkits/product-owner/user-story-template.md",
-      "next_workflow_step": "templates/test-samples/quality-test-plan-template.md"
-    },
-    {
       "path": "role-based-toolkits/project-manager/essential-templates/timesheet-tracking-template.md",
       "domain": {
         "primary": "Delivery",
@@ -2543,7 +2566,7 @@
       ],
       "complementary_assets": [
         "industry-specializations/information-technology/software-development/api_documentation_template.md",
-        "role-based-toolkits/product-owner/user-story-template.md"
+        "domains/uncertainty/role-based-toolkits/product-owner/user-story-template.md"
       ],
       "previous_workflow_step": "project-lifecycle/02-planning/risk-management/agile-risk-board-template.md",
       "next_workflow_step": "templates/agile/product_backlog_template.md"
@@ -2715,29 +2738,6 @@
       ],
       "previous_workflow_step": "templates/hybrid/Hybrid/Templates/integrated_change_strategy_template.md",
       "next_workflow_step": "templates/traditional/Traditional/Knowledge_Areas/Project_Cost_Management/roi_tracking_template.md"
-    },
-    {
-      "path": "templates/test-samples/quality-test-plan-template.md",
-      "domain": {
-        "primary": "Uncertainty",
-        "secondary": [
-          "Stakeholder"
-        ],
-        "rationale": "Risk-focused template manages project uncertainty"
-      },
-      "prerequisites": [
-        "role-based-toolkits/product-owner/backlog-management-template.md"
-      ],
-      "related_assets": [
-        "role-based-toolkits/project-manager/essential-templates/meeting-templates.md",
-        "industry-specializations/information-technology/infrastructure/migration_plan_template.md"
-      ],
-      "complementary_assets": [
-        "role-based-toolkits/product-owner/backlog-management-template.md",
-        "project-lifecycle/04-monitoring-control/progress-tracking/project-dashboard-template.md"
-      ],
-      "previous_workflow_step": "role-based-toolkits/project-manager/essential-templates/meeting-templates.md",
-      "next_workflow_step": "industry-specializations/information-technology/infrastructure/migration_plan_template.md"
     },
     {
       "path": "templates/traditional/Traditional/Knowledge_Areas/Project_Cost_Management/roi_tracking_template.md",

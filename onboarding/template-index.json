@@ -321,7 +321,7 @@
         {
           "name": "User Story Template",
           "description": "Write effective user stories with acceptance criteria",
-          "path": "role-based-toolkits/product-owner/user-story-template.md",
+          "path": "domains/uncertainty/role-based-toolkits/product-owner/user-story-template.md",
           "category": "requirements",
           "methodology": ["agile"],
           "projectTypes": ["software", "product-launch"],

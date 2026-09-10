@@ -5,7 +5,7 @@
 
 set -euo pipefail
 
-PROJECT_ROOT="/Users/michael/pm-tools-templates"
+PROJECT_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 cd "$PROJECT_ROOT"
 
 # Colors for output
@@ -13,6 +13,7 @@ RED='\033[0;31m'
 GREEN='\033[0;32m'
 YELLOW='\033[1;33m'
 BLUE='\033[0;34m'
+CYAN='\033[0;36m'
 NC='\033[0m' # No Color
 
 echo -e "${BLUE}🔧 Fixing High-Impact Broken Links${NC}"
@@ -25,6 +26,11 @@ create_template_file() {
     local file_path="$1"
     local title="$2"
     local description="$3"
+
+    # Preserve existing templates and compatibility pointers.
+    if [[ -e "$file_path" || -L "$file_path" ]]; then
+        return 0
+    fi
     
     # Ensure directory exists
     mkdir -p "$(dirname "$file_path")"
@@ -68,7 +74,7 @@ Step-by-step instructions for using this template.
 EOF
     
     echo -e "${GREEN}✅ Created: $file_path${NC}"
-    ((FIXES_APPLIED++))
+    FIXES_APPLIED=$((FIXES_APPLIED + 1))
 }
 
 # Fix 1: Traditional vs Waterfall references in main README
@@ -79,7 +85,7 @@ if grep -q "methodology-frameworks/traditional/process-groups" README.md; then
     sed -i '' 's|methodology-frameworks/traditional/process-groups|Traditional/Process_Groups|g' README.md 2>/dev/null || \
     sed -i 's|methodology-frameworks/traditional/process-groups|Traditional/Process_Groups|g' README.md
     echo -e "${GREEN}✅ Fixed Traditional references in README.md${NC}"
-    ((FIXES_APPLIED++))
+    FIXES_APPLIED=$((FIXES_APPLIED + 1))
 fi
 
 # Fix 2: Create most critical missing files for project assessment
@@ -89,7 +95,7 @@ create_template_file "project-assessment-suite/scoring-rating-guide.md" \
     "Scoring and Rating Guide" \
     "A comprehensive guide for scoring and rating project assessments across different criteria."
 
-create_template_file "project-assessment-suite/assessment-report-template.md" \
+create_template_file "domains/uncertainty/project-assessment-suite/assessment-report-template.md" \
     "Assessment Report Template" \
     "A standardized template for generating comprehensive project assessment reports."
 
@@ -164,7 +170,7 @@ create_template_file "project-lifecycle/02-planning/project-management-plan/hybr
     "Hybrid Project Management Plan" \
     "Project management plan template combining traditional and agile methodologies."
 
-create_template_file "project-lifecycle/02-planning/risk-management/enterprise-risk-assessment-template.md" \
+create_template_file "domains/uncertainty/project-lifecycle/02-planning/risk-management/enterprise-risk-assessment-template.md" \
     "Enterprise Risk Assessment" \
     "Comprehensive risk assessment template for enterprise-level projects."
 
@@ -193,7 +199,7 @@ Community resources and guidelines for the PM Tools Templates project.
 EOF
 
 echo -e "${GREEN}✅ Created docs/community directory${NC}"
-((FIXES_APPLIED++))
+FIXES_APPLIED=$((FIXES_APPLIED + 1))
 
 # Create integration-toolkits structure
 mkdir -p "integration-toolkits/development-tools"
@@ -219,7 +225,7 @@ Integration templates and guides for development tools and project management pl
 EOF
 
 echo -e "${GREEN}✅ Created integration-toolkits/development-tools${NC}"
-((FIXES_APPLIED++))
+FIXES_APPLIED=$((FIXES_APPLIED + 1))
 
 # Summary
 echo ""

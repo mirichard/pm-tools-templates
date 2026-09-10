@@ -150,8 +150,8 @@ After answering all 6 questions, combine the activated rules to generate a recom
 - [Sprint Review Template](../../domains/team/templates/agile/sprint_review_template.md) — Stakeholder feedback
 - [Sprint Retrospective Template](../../domains/team/templates/agile/sprint_retrospective_template.md) — Continuous improvement
 - [Agile Release Plan Template](../../project-lifecycle/02-planning/project-management-plan/agile-release-plan-template.md) — Release coordination
-- [Risk Register Template](../../project-lifecycle/02-planning/risk-management/risk-register-template.md) — Risk tracking (R008)
-- [Requirements Specification Template](../../industry-specializations/information-technology/software-development/requirements_specification_template.md) — IT supplement (R012)
+- [Risk Register Template](../../domains/uncertainty/project-lifecycle/02-planning/risk-management/risk-register-template.md) — Risk tracking (R008)
+- [Requirements Specification Template](../../domains/uncertainty/industry-specializations/information-technology/software-development/requirements_specification_template.md) — IT supplement (R012)
 
 **Recommended Toolkit:** [Role-Based Toolkits](../../role-based-toolkits/) (Scrum Master or Product Owner)
 
@@ -166,7 +166,7 @@ After answering all 6 questions, combine the activated rules to generate a recom
 - [Daily Standup Template](../../domains/team/role-based-toolkits/scrum-master/agile-ceremonies/daily-standup-template.md) — Daily coordination
 - [Backlog Refinement Template](../../domains/team/role-based-toolkits/scrum-master/agile-ceremonies/backlog-refinement-template.md) — Ongoing backlog grooming
 - [SAFe Program Increment Planning Template](../../methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_program_increment_planning_template.md) — Multi-team planning
-- [Enterprise Risk Assessment Template](../../project-lifecycle/02-planning/risk-management/enterprise-risk-assessment-template.md) — Risk governance (R009)
+- [Enterprise Risk Assessment Template](../../domains/uncertainty/project-lifecycle/02-planning/risk-management/enterprise-risk-assessment-template.md) — Risk governance (R009)
 - [Governance Assessment Template](../../project-assessment-suite/governance-assessment-template.md) — Governance (R009)
 - [Executive Dashboard Template](../../domains/stakeholder/business-stakeholder-suite/executive-dashboards/powerbi-integration/executive-dashboard-template.md) — Executive reporting (R018)
 - [Technical Design Document Template](../../industry-specializations/information-technology/software-development/technical_design_document_template.md) — IT supplement (R012)
@@ -196,7 +196,7 @@ After answering all 6 questions, combine the activated rules to generate a recom
 - [Project Management Plan Template](../../templates/traditional/Traditional/Process_Groups/Planning/project_management_plan_template.md) — Master plan
 - [Work Breakdown Structure Template](../../templates/traditional/Traditional/Process_Groups/Planning/work_breakdown_structure_template.md) — Scope decomposition
 - [Project Schedule Template](../../templates/traditional/Traditional/Process_Groups/Planning/project_schedule_template.md) — Timeline management
-- [Risk Register Template](../../project-lifecycle/02-planning/risk-management/risk-register-template.md) — Risk tracking (R008)
+- [Risk Register Template](../../domains/uncertainty/project-lifecycle/02-planning/risk-management/risk-register-template.md) — Risk tracking (R008)
 - [Risk Management Plan Template](../../project-lifecycle/02-planning/risk-management/risk-management-plan-template.md) — Risk approach (R008)
 - [Resource Management Plan Template](../../project-lifecycle/02-planning/resource-planning/resource-management-plan-template.md) — Resource planning
 - [Budget Template](../../domains/planning/role-based-toolkits/project-manager/essential-templates/budget-template.md) — Financial tracking (R017)
@@ -213,7 +213,7 @@ After answering all 6 questions, combine the activated rules to generate a recom
 - All T5 essential templates, plus:
 - [Program Management Plan Template](../../templates/traditional/Traditional/Templates/program_management_plan_template.md) — Program governance (R019)
 - [Change Management Plan Template](../../templates/traditional/Traditional/Templates/change_management_plan_template.md) — Change control (R010)
-- [Enterprise Risk Assessment Template](../../project-lifecycle/02-planning/risk-management/enterprise-risk-assessment-template.md) — Enterprise risk (R009/R010)
+- [Enterprise Risk Assessment Template](../../domains/uncertainty/project-lifecycle/02-planning/risk-management/enterprise-risk-assessment-template.md) — Enterprise risk (R009/R010)
 - [Governance Assessment Template](../../project-assessment-suite/governance-assessment-template.md) — Governance (R009/R010)
 - [Compliance Risk Assessment Template](../../industry-specializations/healthcare-pharmaceutical/regulatory/compliance_risk_assessment_template.md) — Healthcare compliance (R010+R013)
 - [Validation Master Plan Template](../../industry-specializations/healthcare-pharmaceutical/validation/validation_master_plan_template.md) — Validation (R013)
@@ -234,9 +234,9 @@ After answering all 6 questions, combine the activated rules to generate a recom
 - [Hybrid Quality Management Template](../../templates/hybrid/Hybrid/Templates/hybrid_quality_management_template.md) — Quality oversight
 - [Integrated Change Strategy Template](../../templates/hybrid/Hybrid/Templates/integrated_change_strategy_template.md) — Change control
 - [Hybrid Team Management Template](../../templates/hybrid/Hybrid/Templates/hybrid_team_management_template.md) — Team coordination
-- [Status Report Template](../../project-lifecycle/04-monitoring-control/progress-tracking/status-report-template.md) — Progress tracking (R006)
-- [Project Dashboard Template](../../project-lifecycle/04-monitoring-control/progress-tracking/project-dashboard-template.md) — Visual tracking (R006)
-- [Risk Register Template](../../project-lifecycle/02-planning/risk-management/risk-register-template.md) — Risk tracking (R008)
+- [Status Report Template](../../domains/uncertainty/project-lifecycle/04-monitoring-control/progress-tracking/status-report-template.md) — Progress tracking (R006)
+- [Project Dashboard Template](../../domains/uncertainty/project-lifecycle/04-monitoring-control/progress-tracking/project-dashboard-template.md) — Visual tracking (R006)
+- [Risk Register Template](../../domains/uncertainty/project-lifecycle/02-planning/risk-management/risk-register-template.md) — Risk tracking (R008)
 - [Compliance Management Template](../../industry-specializations/financial-services/compliance/compliance-management-template.md) — Financial compliance (R014)
 - [EVM Dashboard Template](../../domains/stakeholder/business-stakeholder-suite/financial-governance/enhanced-business-cases/evm-dashboard-template.md) — Value tracking (R014)
 
@@ -254,7 +254,7 @@ After answering all 6 questions, combine the activated rules to generate a recom
 - [Hybrid Release Planning Template](../../templates/hybrid/Hybrid/Templates/hybrid_release_planning_template.md) — Release coordination
 - [Progressive Acceptance Plan Template](../../templates/hybrid/Hybrid/Templates/progressive_acceptance_plan_template.md) — Acceptance planning
 - [Hybrid Infrastructure Template](../../methodology-frameworks/hybrid/infrastructure/hybrid-infrastructure-template.md) — Infrastructure
-- [Enterprise Risk Assessment Template](../../project-lifecycle/02-planning/risk-management/enterprise-risk-assessment-template.md) — Enterprise risk (R009)
+- [Enterprise Risk Assessment Template](../../domains/uncertainty/project-lifecycle/02-planning/risk-management/enterprise-risk-assessment-template.md) — Enterprise risk (R009)
 - [Governance Assessment Template](../../project-assessment-suite/governance-assessment-template.md) — Governance (R009)
 - [Project Health Assessment Template](../../project-assessment-suite/project-health-assessment-template.md) — Health checks (R009)
 - [Executive Dashboard Template](../../domains/stakeholder/business-stakeholder-suite/executive-dashboards/powerbi-integration/executive-dashboard-template.md) — Executive reporting (R018)

@@ -198,7 +198,7 @@ Step 8: RANK AND OUTPUT
 - **Action:** Prioritize planning templates
 - **Essential templates:**
   - [Risk Management Plan Template](../../project-lifecycle/02-planning/risk-management/risk-management-plan-template.md)
-  - [Risk Register Template](../../project-lifecycle/02-planning/risk-management/risk-register-template.md)
+  - [Risk Register Template](../../domains/uncertainty/project-lifecycle/02-planning/risk-management/risk-register-template.md)
   - [Resource Management Plan Template](../../project-lifecycle/02-planning/resource-planning/resource-management-plan-template.md)
   - [Traditional Project Management Plan Template](../../project-lifecycle/02-planning/project-management-plan/traditional-project-management-plan-template.md) (traditional)
   - [Agile Release Plan Template](../../project-lifecycle/02-planning/project-management-plan/agile-release-plan-template.md) (agile)
@@ -208,8 +208,8 @@ Step 8: RANK AND OUTPUT
 - **Condition:** `phase = "in_progress"`
 - **Action:** Prioritize execution and monitoring templates
 - **Essential templates:**
-  - [Status Report Template](../../project-lifecycle/04-monitoring-control/progress-tracking/status-report-template.md)
-  - [Project Dashboard Template](../../project-lifecycle/04-monitoring-control/progress-tracking/project-dashboard-template.md)
+  - [Status Report Template](../../domains/uncertainty/project-lifecycle/04-monitoring-control/progress-tracking/status-report-template.md)
+  - [Project Dashboard Template](../../domains/uncertainty/project-lifecycle/04-monitoring-control/progress-tracking/project-dashboard-template.md)
   - [Project Execution Status Report Template](../../templates/traditional/Traditional/Process_Groups/Executing/project_execution_status_report_template.md) (traditional)
   - [Issue Log Template](../../templates/traditional/Traditional/Templates/issue_log_template.md)
   - [Change Request Template](../../templates/traditional/Traditional/Templates/change_request_template.md)
@@ -230,7 +230,7 @@ Step 8: RANK AND OUTPUT
 - **Condition:** `risk_profile = "medium"`
 - **Action:** Add basic risk templates
 - **Supplements:**
-  - [Risk Register Template](../../project-lifecycle/02-planning/risk-management/risk-register-template.md)
+  - [Risk Register Template](../../domains/uncertainty/project-lifecycle/02-planning/risk-management/risk-register-template.md)
   - [Risk Management Plan Template](../../project-lifecycle/02-planning/risk-management/risk-management-plan-template.md)
 - **Why:** Moderate risk requires structured tracking but not full governance overhead
 
@@ -238,7 +238,7 @@ Step 8: RANK AND OUTPUT
 - **Condition:** `risk_profile = "high"`
 - **Action:** Add comprehensive risk + governance templates
 - **Supplements:**
-  - [Enterprise Risk Assessment Template](../../project-lifecycle/02-planning/risk-management/enterprise-risk-assessment-template.md)
+  - [Enterprise Risk Assessment Template](../../domains/uncertainty/project-lifecycle/02-planning/risk-management/enterprise-risk-assessment-template.md)
   - [Governance Assessment Template](../../project-assessment-suite/governance-assessment-template.md)
   - [Risk Management Assessment Template](../../project-assessment-suite/risk-management-assessment-template.md)
   - [Change Management Plan Template](../../templates/traditional/Traditional/Templates/change_management_plan_template.md)
@@ -265,7 +265,7 @@ Step 8: RANK AND OUTPUT
 - **Condition:** `industry = "it"`
 - **Action:** Add IT specialization templates
 - **Supplements:**
-  - [Requirements Specification Template](../../industry-specializations/information-technology/software-development/requirements_specification_template.md)
+  - [Requirements Specification Template](../../domains/uncertainty/industry-specializations/information-technology/software-development/requirements_specification_template.md)
   - [Technical Design Document Template](../../industry-specializations/information-technology/software-development/technical_design_document_template.md)
   - [Test Plan Template](../../industry-specializations/information-technology/software-development/test_plan_template.md)
   - [API Documentation Template](../../industry-specializations/information-technology/software-development/api_documentation_template.md)
@@ -310,7 +310,7 @@ Step 8: RANK AND OUTPUT
 - **Action:** Include core PM lifecycle templates (5–10 templates)
 - **Additional recommendations:**
   - [Budget Template](../../domains/planning/role-based-toolkits/project-manager/essential-templates/budget-template.md)
-  - [Meeting Templates](../../role-based-toolkits/project-manager/essential-templates/meeting-templates.md)
+  - [Meeting Templates](../../domains/uncertainty/role-based-toolkits/project-manager/essential-templates/meeting-templates.md)
 - **Rationale:** Medium projects benefit from structured planning without full governance
 
 **R018: Large Project**
@@ -407,7 +407,7 @@ ESSENTIAL TEMPLATES (start with these):
      → project-lifecycle/02-planning/project-management-plan/agile-release-plan-template.md
      Rule: R002 + R005 (Agile + Planning phase)
   4. Risk Register Template
-     → project-lifecycle/02-planning/risk-management/risk-register-template.md
+     → domains/uncertainty/project-lifecycle/02-planning/risk-management/risk-register-template.md
      Rule: R005 + R009 (Planning phase + High risk)
 
 RECOMMENDED TEMPLATES:
@@ -420,7 +420,7 @@ RECOMMENDED TEMPLATES:
 
 RISK SUPPLEMENTS (high risk profile):
   7. Enterprise Risk Assessment Template
-     → project-lifecycle/02-planning/risk-management/enterprise-risk-assessment-template.md
+     → domains/uncertainty/project-lifecycle/02-planning/risk-management/enterprise-risk-assessment-template.md
      Rule: R009 (High risk)
   8. Governance Assessment Template
      → project-assessment-suite/governance-assessment-template.md
@@ -431,7 +431,7 @@ RISK SUPPLEMENTS (high risk profile):
 
 INDUSTRY SUPPLEMENTS (IT):
   10. Requirements Specification Template
-      → industry-specializations/information-technology/software-development/requirements_specification_template.md
+      → domains/uncertainty/industry-specializations/information-technology/software-development/requirements_specification_template.md
       Rule: R012 (IT industry)
   11. Test Plan Template
       → industry-specializations/information-technology/software-development/test_plan_template.md

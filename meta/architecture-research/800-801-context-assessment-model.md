@@ -118,7 +118,7 @@ PROJECT CONTEXT: Medium Agile IT Project (High Risk)
 
 📋 ESSENTIAL TEMPLATES (start with these):
    1. Project Charter → quick-start-kits/first-time-pm-starter/project-charter-simple.md
-   2. Product Backlog → role-based-toolkits/product-owner/backlog-management-template.md
+   2. Product Backlog → domains/uncertainty/role-based-toolkits/product-owner/backlog-management-template.md
    3. Risk Register  → project-lifecycle/02-planning/risk-management/
    4. Sprint Planning → templates/agile/sprint_planning_template.md
 

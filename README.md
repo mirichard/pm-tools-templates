@@ -47,7 +47,7 @@ Start with: [Sprint Planning](templates/agile/sprint_planning_template.md) · [S
 
 → **[Product Owner Toolkit](role-based-toolkits/product-owner/)** — Product strategy, backlog management, story writing, prioritization, and OKRs
 
-Start with: [Product Vision](role-based-toolkits/product-owner/product-vision-template.md) · [User Stories](role-based-toolkits/product-owner/user-story-template.md) · [Backlog Management](role-based-toolkits/product-owner/backlog-management-template.md)
+Start with: [Product Vision](domains/uncertainty/role-based-toolkits/product-owner/product-vision-template.md) · [User Stories](domains/uncertainty/role-based-toolkits/product-owner/user-story-template.md) · [Backlog Management](domains/uncertainty/role-based-toolkits/product-owner/backlog-management-template.md)
 
 ---
 

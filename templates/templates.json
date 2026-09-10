@@ -129,7 +129,7 @@
           "similarity": 81
         },
         {
-          "path": "industry-specializations/information-technology/software-development/user_story_mapping_template.md",
+          "path": "domains/uncertainty/industry-specializations/information-technology/software-development/user_story_mapping_template.md",
           "title": "User Story Mapping Template",
           "methodology": "universal",
           "tags": [
@@ -249,7 +249,7 @@
           "similarity": 81
         },
         {
-          "path": "role-based-toolkits/project-manager/essential-templates/meeting-templates.md",
+          "path": "domains/uncertainty/role-based-toolkits/project-manager/essential-templates/meeting-templates.md",
           "title": "Meeting Templates",
           "methodology": "universal",
           "tags": [
@@ -652,7 +652,7 @@
           "similarity": 90
         },
         {
-          "path": "role-based-toolkits/product-owner/user-story-template.md",
+          "path": "domains/uncertainty/role-based-toolkits/product-owner/user-story-template.md",
           "title": "User Story Template",
           "methodology": "universal",
           "tags": [
@@ -673,7 +673,7 @@
           "similarity": 67
         },
         {
-          "path": "industry-specializations/information-technology/software-development/user_story_mapping_template.md",
+          "path": "domains/uncertainty/industry-specializations/information-technology/software-development/user_story_mapping_template.md",
           "title": "User Story Mapping Template",
           "methodology": "universal",
           "tags": [
@@ -800,7 +800,7 @@
       ]
     },
     {
-      "path": "project-assessment-suite/assessment-report-template.md",
+      "path": "domains/uncertainty/project-assessment-suite/assessment-report-template.md",
       "title": "Assessment Report Template",
       "methodology": "universal",
       "complexity": "starter",
@@ -821,7 +821,7 @@
       ],
       "relatedTemplates": [
         {
-          "path": "role-based-toolkits/product-owner/product-vision-template.md",
+          "path": "domains/uncertainty/role-based-toolkits/product-owner/product-vision-template.md",
           "title": "Product Vision Template",
           "methodology": "universal",
           "tags": [
@@ -833,7 +833,7 @@
           "similarity": 90
         },
         {
-          "path": "project-lifecycle/02-planning/risk-management/enterprise-risk-assessment-template.md",
+          "path": "domains/uncertainty/project-lifecycle/02-planning/risk-management/enterprise-risk-assessment-template.md",
           "title": "Enterprise Risk Assessment Template",
           "methodology": "universal",
           "tags": [
@@ -872,7 +872,7 @@
           "similarity": 83
         },
         {
-          "path": "role-based-toolkits/product-owner/backlog-management-template.md",
+          "path": "domains/uncertainty/role-based-toolkits/product-owner/backlog-management-template.md",
           "title": "Backlog Management Template",
           "methodology": "universal",
           "tags": [
@@ -884,10 +884,13 @@
           ],
           "similarity": 80
         }
+      ],
+      "alternate_paths": [
+        "project-assessment-suite/assessment-report-template.md"
       ]
     },
     {
-      "path": "role-based-toolkits/product-owner/backlog-management-template.md",
+      "path": "domains/uncertainty/role-based-toolkits/product-owner/backlog-management-template.md",
       "title": "Backlog Management Template",
       "methodology": "universal",
       "complexity": "advanced",
@@ -909,7 +912,7 @@
       ],
       "relatedTemplates": [
         {
-          "path": "project-lifecycle/04-monitoring-control/progress-tracking/project-dashboard-template.md",
+          "path": "domains/uncertainty/project-lifecycle/04-monitoring-control/progress-tracking/project-dashboard-template.md",
           "title": "Project Dashboard Template",
           "methodology": "universal",
           "tags": [
@@ -922,7 +925,7 @@
           "similarity": 100
         },
         {
-          "path": "industry-specializations/information-technology/software-development/requirements_specification_template.md",
+          "path": "domains/uncertainty/industry-specializations/information-technology/software-development/requirements_specification_template.md",
           "title": "Requirements Specification Template",
           "methodology": "universal",
           "tags": [
@@ -935,7 +938,7 @@
           "similarity": 100
         },
         {
-          "path": "project-lifecycle/04-monitoring-control/progress-tracking/status-report-template.md",
+          "path": "domains/uncertainty/project-lifecycle/04-monitoring-control/progress-tracking/status-report-template.md",
           "title": "Status Report Template",
           "methodology": "universal",
           "tags": [
@@ -948,7 +951,7 @@
           "similarity": 100
         },
         {
-          "path": "role-based-toolkits/project-manager/essential-templates/meeting-templates.md",
+          "path": "domains/uncertainty/role-based-toolkits/project-manager/essential-templates/meeting-templates.md",
           "title": "Meeting Templates",
           "methodology": "universal",
           "tags": [
@@ -962,7 +965,7 @@
           "similarity": 92
         },
         {
-          "path": "role-based-toolkits/product-owner/product-vision-template.md",
+          "path": "domains/uncertainty/role-based-toolkits/product-owner/product-vision-template.md",
           "title": "Product Vision Template",
           "methodology": "universal",
           "tags": [
@@ -973,6 +976,9 @@
           ],
           "similarity": 90
         }
+      ],
+      "alternate_paths": [
+        "role-based-toolkits/product-owner/backlog-management-template.md"
       ]
     },
     {
@@ -1230,7 +1236,7 @@
           "similarity": 83
         },
         {
-          "path": "templates/test-samples/quality-test-plan-template.md",
+          "path": "domains/uncertainty/templates/test-samples/quality-test-plan-template.md",
           "title": "Quality Test Plan Template",
           "methodology": "universal",
           "tags": [
@@ -2893,7 +2899,7 @@
           "similarity": 100
         },
         {
-          "path": "industry-specializations/information-technology/infrastructure/migration_plan_template.md",
+          "path": "domains/uncertainty/industry-specializations/information-technology/infrastructure/migration_plan_template.md",
           "title": "Migration Plan Template",
           "methodology": "universal",
           "tags": [
@@ -3155,7 +3161,7 @@
           "similarity": 100
         },
         {
-          "path": "industry-specializations/information-technology/infrastructure/migration_plan_template.md",
+          "path": "domains/uncertainty/industry-specializations/information-technology/infrastructure/migration_plan_template.md",
           "title": "Migration Plan Template",
           "methodology": "universal",
           "tags": [
@@ -3205,7 +3211,7 @@
       ]
     },
     {
-      "path": "project-lifecycle/02-planning/risk-management/enterprise-risk-assessment-template.md",
+      "path": "domains/uncertainty/project-lifecycle/02-planning/risk-management/enterprise-risk-assessment-template.md",
       "title": "Enterprise Risk Assessment Template",
       "methodology": "universal",
       "complexity": "starter",
@@ -3225,7 +3231,7 @@
       ],
       "relatedTemplates": [
         {
-          "path": "project-assessment-suite/assessment-report-template.md",
+          "path": "domains/uncertainty/project-assessment-suite/assessment-report-template.md",
           "title": "Assessment Report Template",
           "methodology": "universal",
           "tags": [
@@ -3261,7 +3267,7 @@
           "similarity": 78
         },
         {
-          "path": "role-based-toolkits/product-owner/product-vision-template.md",
+          "path": "domains/uncertainty/role-based-toolkits/product-owner/product-vision-template.md",
           "title": "Product Vision Template",
           "methodology": "universal",
           "tags": [
@@ -3273,7 +3279,7 @@
           "similarity": 78
         },
         {
-          "path": "project-lifecycle/02-planning/risk-management/risk-register-template.md",
+          "path": "domains/uncertainty/project-lifecycle/02-planning/risk-management/risk-register-template.md",
           "title": "Risk Register Template",
           "methodology": "universal",
           "tags": [
@@ -3284,6 +3290,9 @@
           ],
           "similarity": 78
         }
+      ],
+      "alternate_paths": [
+        "project-lifecycle/02-planning/risk-management/enterprise-risk-assessment-template.md"
       ]
     },
     {
@@ -4572,7 +4581,7 @@
       ],
       "relatedTemplates": [
         {
-          "path": "project-assessment-suite/assessment-report-template.md",
+          "path": "domains/uncertainty/project-assessment-suite/assessment-report-template.md",
           "title": "Assessment Report Template",
           "methodology": "universal",
           "tags": [
@@ -4596,7 +4605,7 @@
           "similarity": 83
         },
         {
-          "path": "role-based-toolkits/product-owner/backlog-management-template.md",
+          "path": "domains/uncertainty/role-based-toolkits/product-owner/backlog-management-template.md",
           "title": "Backlog Management Template",
           "methodology": "universal",
           "tags": [
@@ -4609,7 +4618,7 @@
           "similarity": 82
         },
         {
-          "path": "project-lifecycle/04-monitoring-control/progress-tracking/project-dashboard-template.md",
+          "path": "domains/uncertainty/project-lifecycle/04-monitoring-control/progress-tracking/project-dashboard-template.md",
           "title": "Project Dashboard Template",
           "methodology": "universal",
           "tags": [
@@ -4622,7 +4631,7 @@
           "similarity": 82
         },
         {
-          "path": "industry-specializations/information-technology/software-development/requirements_specification_template.md",
+          "path": "domains/uncertainty/industry-specializations/information-technology/software-development/requirements_specification_template.md",
           "title": "Requirements Specification Template",
           "methodology": "universal",
           "tags": [
@@ -4758,7 +4767,7 @@
       ],
       "relatedTemplates": [
         {
-          "path": "project-lifecycle/02-planning/risk-management/enterprise-risk-assessment-template.md",
+          "path": "domains/uncertainty/project-lifecycle/02-planning/risk-management/enterprise-risk-assessment-template.md",
           "title": "Enterprise Risk Assessment Template",
           "methodology": "universal",
           "tags": [
@@ -4783,7 +4792,7 @@
           "similarity": 83
         },
         {
-          "path": "project-assessment-suite/assessment-report-template.md",
+          "path": "domains/uncertainty/project-assessment-suite/assessment-report-template.md",
           "title": "Assessment Report Template",
           "methodology": "universal",
           "tags": [
@@ -5947,7 +5956,7 @@
       ]
     },
     {
-      "path": "role-based-toolkits/project-manager/essential-templates/meeting-templates.md",
+      "path": "domains/uncertainty/role-based-toolkits/project-manager/essential-templates/meeting-templates.md",
       "title": "Meeting Templates",
       "methodology": "universal",
       "complexity": "advanced",
@@ -6044,6 +6053,9 @@
           ],
           "similarity": 93
         }
+      ],
+      "alternate_paths": [
+        "role-based-toolkits/project-manager/essential-templates/meeting-templates.md"
       ]
     },
     {
@@ -6148,7 +6160,7 @@
       ]
     },
     {
-      "path": "industry-specializations/information-technology/infrastructure/migration_plan_template.md",
+      "path": "domains/uncertainty/industry-specializations/information-technology/infrastructure/migration_plan_template.md",
       "title": "Migration Plan Template",
       "methodology": "universal",
       "complexity": "starter",
@@ -6197,7 +6209,7 @@
           "similarity": 73
         },
         {
-          "path": "industry-specializations/information-technology/software-development/user_story_mapping_template.md",
+          "path": "domains/uncertainty/industry-specializations/information-technology/software-development/user_story_mapping_template.md",
           "title": "User Story Mapping Template",
           "methodology": "universal",
           "tags": [
@@ -6221,6 +6233,9 @@
           ],
           "similarity": 67
         }
+      ],
+      "alternate_paths": [
+        "industry-specializations/information-technology/infrastructure/migration_plan_template.md"
       ]
     },
     {
@@ -6349,7 +6364,7 @@
       ],
       "relatedTemplates": [
         {
-          "path": "role-based-toolkits/project-manager/essential-templates/meeting-templates.md",
+          "path": "domains/uncertainty/role-based-toolkits/project-manager/essential-templates/meeting-templates.md",
           "title": "Meeting Templates",
           "methodology": "universal",
           "tags": [
@@ -7032,7 +7047,7 @@
           "similarity": 50
         },
         {
-          "path": "role-based-toolkits/product-owner/backlog-management-template.md",
+          "path": "domains/uncertainty/role-based-toolkits/product-owner/backlog-management-template.md",
           "title": "Backlog Management Template",
           "methodology": "universal",
           "tags": [
@@ -7522,7 +7537,7 @@
       ]
     },
     {
-      "path": "role-based-toolkits/product-owner/product-vision-template.md",
+      "path": "domains/uncertainty/role-based-toolkits/product-owner/product-vision-template.md",
       "title": "Product Vision Template",
       "methodology": "universal",
       "complexity": "advanced",
@@ -7543,7 +7558,7 @@
       ],
       "relatedTemplates": [
         {
-          "path": "project-assessment-suite/assessment-report-template.md",
+          "path": "domains/uncertainty/project-assessment-suite/assessment-report-template.md",
           "title": "Assessment Report Template",
           "methodology": "universal",
           "tags": [
@@ -7555,7 +7570,7 @@
           "similarity": 90
         },
         {
-          "path": "role-based-toolkits/product-owner/backlog-management-template.md",
+          "path": "domains/uncertainty/role-based-toolkits/product-owner/backlog-management-template.md",
           "title": "Backlog Management Template",
           "methodology": "universal",
           "tags": [
@@ -7594,7 +7609,7 @@
           "similarity": 90
         },
         {
-          "path": "project-lifecycle/04-monitoring-control/progress-tracking/project-dashboard-template.md",
+          "path": "domains/uncertainty/project-lifecycle/04-monitoring-control/progress-tracking/project-dashboard-template.md",
           "title": "Project Dashboard Template",
           "methodology": "universal",
           "tags": [
@@ -7606,6 +7621,9 @@
           ],
           "similarity": 90
         }
+      ],
+      "alternate_paths": [
+        "role-based-toolkits/product-owner/product-vision-template.md"
       ]
     },
     {
@@ -8139,7 +8157,7 @@
       ]
     },
     {
-      "path": "project-lifecycle/04-monitoring-control/progress-tracking/project-dashboard-template.md",
+      "path": "domains/uncertainty/project-lifecycle/04-monitoring-control/progress-tracking/project-dashboard-template.md",
       "title": "Project Dashboard Template",
       "methodology": "universal",
       "complexity": "advanced",
@@ -8161,7 +8179,7 @@
       ],
       "relatedTemplates": [
         {
-          "path": "role-based-toolkits/product-owner/backlog-management-template.md",
+          "path": "domains/uncertainty/role-based-toolkits/product-owner/backlog-management-template.md",
           "title": "Backlog Management Template",
           "methodology": "universal",
           "tags": [
@@ -8174,7 +8192,7 @@
           "similarity": 100
         },
         {
-          "path": "industry-specializations/information-technology/software-development/requirements_specification_template.md",
+          "path": "domains/uncertainty/industry-specializations/information-technology/software-development/requirements_specification_template.md",
           "title": "Requirements Specification Template",
           "methodology": "universal",
           "tags": [
@@ -8187,7 +8205,7 @@
           "similarity": 100
         },
         {
-          "path": "project-lifecycle/04-monitoring-control/progress-tracking/status-report-template.md",
+          "path": "domains/uncertainty/project-lifecycle/04-monitoring-control/progress-tracking/status-report-template.md",
           "title": "Status Report Template",
           "methodology": "universal",
           "tags": [
@@ -8200,7 +8218,7 @@
           "similarity": 100
         },
         {
-          "path": "role-based-toolkits/project-manager/essential-templates/meeting-templates.md",
+          "path": "domains/uncertainty/role-based-toolkits/project-manager/essential-templates/meeting-templates.md",
           "title": "Meeting Templates",
           "methodology": "universal",
           "tags": [
@@ -8214,7 +8232,7 @@
           "similarity": 92
         },
         {
-          "path": "role-based-toolkits/product-owner/product-vision-template.md",
+          "path": "domains/uncertainty/role-based-toolkits/product-owner/product-vision-template.md",
           "title": "Product Vision Template",
           "methodology": "universal",
           "tags": [
@@ -8225,6 +8243,9 @@
           ],
           "similarity": 90
         }
+      ],
+      "alternate_paths": [
+        "project-lifecycle/04-monitoring-control/progress-tracking/project-dashboard-template.md"
       ]
     },
     {
@@ -9042,7 +9063,7 @@
       ]
     },
     {
-      "path": "templates/test-samples/quality-test-plan-template.md",
+      "path": "domains/uncertainty/templates/test-samples/quality-test-plan-template.md",
       "title": "Quality Test Plan Template",
       "methodology": "universal",
       "complexity": "advanced",
@@ -9063,7 +9084,7 @@
       ],
       "relatedTemplates": [
         {
-          "path": "role-based-toolkits/product-owner/backlog-management-template.md",
+          "path": "domains/uncertainty/role-based-toolkits/product-owner/backlog-management-template.md",
           "title": "Backlog Management Template",
           "methodology": "universal",
           "tags": [
@@ -9076,7 +9097,7 @@
           "similarity": 90
         },
         {
-          "path": "project-lifecycle/04-monitoring-control/progress-tracking/project-dashboard-template.md",
+          "path": "domains/uncertainty/project-lifecycle/04-monitoring-control/progress-tracking/project-dashboard-template.md",
           "title": "Project Dashboard Template",
           "methodology": "universal",
           "tags": [
@@ -9089,7 +9110,7 @@
           "similarity": 90
         },
         {
-          "path": "industry-specializations/information-technology/software-development/requirements_specification_template.md",
+          "path": "domains/uncertainty/industry-specializations/information-technology/software-development/requirements_specification_template.md",
           "title": "Requirements Specification Template",
           "methodology": "universal",
           "tags": [
@@ -9102,7 +9123,7 @@
           "similarity": 90
         },
         {
-          "path": "project-lifecycle/04-monitoring-control/progress-tracking/status-report-template.md",
+          "path": "domains/uncertainty/project-lifecycle/04-monitoring-control/progress-tracking/status-report-template.md",
           "title": "Status Report Template",
           "methodology": "universal",
           "tags": [
@@ -9128,6 +9149,9 @@
           ],
           "similarity": 83
         }
+      ],
+      "alternate_paths": [
+        "templates/test-samples/quality-test-plan-template.md"
       ]
     },
     {
@@ -9336,7 +9360,7 @@
       ],
       "relatedTemplates": [
         {
-          "path": "industry-specializations/information-technology/infrastructure/migration_plan_template.md",
+          "path": "domains/uncertainty/industry-specializations/information-technology/infrastructure/migration_plan_template.md",
           "title": "Migration Plan Template",
           "methodology": "universal",
           "tags": [
@@ -9582,7 +9606,7 @@
       ]
     },
     {
-      "path": "industry-specializations/information-technology/software-development/requirements_specification_template.md",
+      "path": "domains/uncertainty/industry-specializations/information-technology/software-development/requirements_specification_template.md",
       "title": "Requirements Specification Template",
       "methodology": "universal",
       "complexity": "advanced",
@@ -9604,7 +9628,7 @@
       ],
       "relatedTemplates": [
         {
-          "path": "role-based-toolkits/product-owner/backlog-management-template.md",
+          "path": "domains/uncertainty/role-based-toolkits/product-owner/backlog-management-template.md",
           "title": "Backlog Management Template",
           "methodology": "universal",
           "tags": [
@@ -9617,7 +9641,7 @@
           "similarity": 100
         },
         {
-          "path": "project-lifecycle/04-monitoring-control/progress-tracking/project-dashboard-template.md",
+          "path": "domains/uncertainty/project-lifecycle/04-monitoring-control/progress-tracking/project-dashboard-template.md",
           "title": "Project Dashboard Template",
           "methodology": "universal",
           "tags": [
@@ -9630,7 +9654,7 @@
           "similarity": 100
         },
         {
-          "path": "project-lifecycle/04-monitoring-control/progress-tracking/status-report-template.md",
+          "path": "domains/uncertainty/project-lifecycle/04-monitoring-control/progress-tracking/status-report-template.md",
           "title": "Status Report Template",
           "methodology": "universal",
           "tags": [
@@ -9643,7 +9667,7 @@
           "similarity": 100
         },
         {
-          "path": "role-based-toolkits/project-manager/essential-templates/meeting-templates.md",
+          "path": "domains/uncertainty/role-based-toolkits/project-manager/essential-templates/meeting-templates.md",
           "title": "Meeting Templates",
           "methodology": "universal",
           "tags": [
@@ -9657,7 +9681,7 @@
           "similarity": 92
         },
         {
-          "path": "role-based-toolkits/product-owner/product-vision-template.md",
+          "path": "domains/uncertainty/role-based-toolkits/product-owner/product-vision-template.md",
           "title": "Product Vision Template",
           "methodology": "universal",
           "tags": [
@@ -9668,6 +9692,9 @@
           ],
           "similarity": 90
         }
+      ],
+      "alternate_paths": [
+        "industry-specializations/information-technology/software-development/requirements_specification_template.md"
       ]
     },
     {
@@ -10082,7 +10109,7 @@
           "similarity": 90
         },
         {
-          "path": "project-assessment-suite/assessment-report-template.md",
+          "path": "domains/uncertainty/project-assessment-suite/assessment-report-template.md",
           "title": "Assessment Report Template",
           "methodology": "universal",
           "tags": [
@@ -10207,9 +10234,10 @@
       ]
     },
     {
-      "path": "project-lifecycle/02-planning/risk-management/risk-register-template.md",
-      "canonical_path": "templates/traditional/Traditional/Templates/risk_register_template.md",
+      "path": "domains/uncertainty/project-lifecycle/02-planning/risk-management/risk-register-template.md",
+      "canonical_path": "domains/uncertainty/project-lifecycle/02-planning/risk-management/risk-register-template.md",
       "alternate_paths": [
+        "templates/traditional/Traditional/Templates/risk_register_template.md",
         "project-lifecycle/02-planning/risk-management/risk-register-template.md"
       ],
       "title": "Risk Register Template",
@@ -10914,7 +10942,7 @@
           "similarity": 92
         },
         {
-          "path": "role-based-toolkits/project-manager/essential-templates/meeting-templates.md",
+          "path": "domains/uncertainty/role-based-toolkits/project-manager/essential-templates/meeting-templates.md",
           "title": "Meeting Templates",
           "methodology": "universal",
           "tags": [
@@ -11404,7 +11432,7 @@
           "similarity": 86
         },
         {
-          "path": "role-based-toolkits/project-manager/essential-templates/meeting-templates.md",
+          "path": "domains/uncertainty/role-based-toolkits/project-manager/essential-templates/meeting-templates.md",
           "title": "Meeting Templates",
           "methodology": "universal",
           "tags": [
@@ -11530,9 +11558,10 @@
       ]
     },
     {
-      "path": "project-lifecycle/04-monitoring-control/progress-tracking/status-report-template.md",
-      "canonical_path": "templates/traditional/Traditional/Templates/status_report_template.md",
+      "path": "domains/uncertainty/project-lifecycle/04-monitoring-control/progress-tracking/status-report-template.md",
+      "canonical_path": "domains/uncertainty/project-lifecycle/04-monitoring-control/progress-tracking/status-report-template.md",
       "alternate_paths": [
+        "templates/traditional/Traditional/Templates/status_report_template.md",
         "project-lifecycle/04-monitoring-control/progress-tracking/status-report-template.md"
       ],
       "title": "Status Report Template",
@@ -11556,7 +11585,7 @@
       ],
       "relatedTemplates": [
         {
-          "path": "role-based-toolkits/product-owner/backlog-management-template.md",
+          "path": "domains/uncertainty/role-based-toolkits/product-owner/backlog-management-template.md",
           "title": "Backlog Management Template",
           "methodology": "universal",
           "tags": [
@@ -11569,7 +11598,7 @@
           "similarity": 100
         },
         {
-          "path": "project-lifecycle/04-monitoring-control/progress-tracking/project-dashboard-template.md",
+          "path": "domains/uncertainty/project-lifecycle/04-monitoring-control/progress-tracking/project-dashboard-template.md",
           "title": "Project Dashboard Template",
           "methodology": "universal",
           "tags": [
@@ -11582,7 +11611,7 @@
           "similarity": 100
         },
         {
-          "path": "industry-specializations/information-technology/software-development/requirements_specification_template.md",
+          "path": "domains/uncertainty/industry-specializations/information-technology/software-development/requirements_specification_template.md",
           "title": "Requirements Specification Template",
           "methodology": "universal",
           "tags": [
@@ -11595,7 +11624,7 @@
           "similarity": 100
         },
         {
-          "path": "role-based-toolkits/project-manager/essential-templates/meeting-templates.md",
+          "path": "domains/uncertainty/role-based-toolkits/project-manager/essential-templates/meeting-templates.md",
           "title": "Meeting Templates",
           "methodology": "universal",
           "tags": [
@@ -11609,7 +11638,7 @@
           "similarity": 92
         },
         {
-          "path": "role-based-toolkits/product-owner/product-vision-template.md",
+          "path": "domains/uncertainty/role-based-toolkits/product-owner/product-vision-template.md",
           "title": "Product Vision Template",
           "methodology": "universal",
           "tags": [
@@ -12035,7 +12064,7 @@
           "similarity": 90
         },
         {
-          "path": "role-based-toolkits/product-owner/user-story-template.md",
+          "path": "domains/uncertainty/role-based-toolkits/product-owner/user-story-template.md",
           "title": "User Story Template",
           "methodology": "universal",
           "tags": [
@@ -12123,7 +12152,7 @@
           "similarity": 86
         },
         {
-          "path": "role-based-toolkits/project-manager/essential-templates/meeting-templates.md",
+          "path": "domains/uncertainty/role-based-toolkits/project-manager/essential-templates/meeting-templates.md",
           "title": "Meeting Templates",
           "methodology": "universal",
           "tags": [
@@ -12137,7 +12166,7 @@
           "similarity": 86
         },
         {
-          "path": "role-based-toolkits/product-owner/product-vision-template.md",
+          "path": "domains/uncertainty/role-based-toolkits/product-owner/product-vision-template.md",
           "title": "Product Vision Template",
           "methodology": "universal",
           "tags": [
@@ -12149,7 +12178,7 @@
           "similarity": 83
         },
         {
-          "path": "project-lifecycle/02-planning/risk-management/risk-register-template.md",
+          "path": "domains/uncertainty/project-lifecycle/02-planning/risk-management/risk-register-template.md",
           "title": "Risk Register Template",
           "methodology": "universal",
           "tags": [
@@ -12495,7 +12524,7 @@
       ]
     },
     {
-      "path": "industry-specializations/information-technology/software-development/user_story_mapping_template.md",
+      "path": "domains/uncertainty/industry-specializations/information-technology/software-development/user_story_mapping_template.md",
       "title": "User Story Mapping Template",
       "methodology": "universal",
       "complexity": "advanced",
@@ -12527,7 +12556,7 @@
           "similarity": 88
         },
         {
-          "path": "role-based-toolkits/product-owner/user-story-template.md",
+          "path": "domains/uncertainty/role-based-toolkits/product-owner/user-story-template.md",
           "title": "User Story Template",
           "methodology": "universal",
           "tags": [
@@ -12576,10 +12605,13 @@
           ],
           "similarity": 75
         }
+      ],
+      "alternate_paths": [
+        "industry-specializations/information-technology/software-development/user_story_mapping_template.md"
       ]
     },
     {
-      "path": "role-based-toolkits/product-owner/user-story-template.md",
+      "path": "domains/uncertainty/role-based-toolkits/product-owner/user-story-template.md",
       "title": "User Story Template",
       "methodology": "universal",
       "complexity": "advanced",
@@ -12599,7 +12631,7 @@
       ],
       "relatedTemplates": [
         {
-          "path": "industry-specializations/information-technology/software-development/user_story_mapping_template.md",
+          "path": "domains/uncertainty/industry-specializations/information-technology/software-development/user_story_mapping_template.md",
           "title": "User Story Mapping Template",
           "methodology": "universal",
           "tags": [
@@ -12643,7 +12675,7 @@
           "similarity": 75
         },
         {
-          "path": "role-based-toolkits/product-owner/product-vision-template.md",
+          "path": "domains/uncertainty/role-based-toolkits/product-owner/product-vision-template.md",
           "title": "Product Vision Template",
           "methodology": "universal",
           "tags": [
@@ -12654,6 +12686,9 @@
           ],
           "similarity": 75
         }
+      ],
+      "alternate_paths": [
+        "role-based-toolkits/product-owner/user-story-template.md"
       ]
     },
     {

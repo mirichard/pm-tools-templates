@@ -71,6 +71,15 @@
       "status": "executed",
       "evidence_file": "docs/vnext/sprint-12/b2a-migration-record.md",
       "rollback_owner": "mirichard"
+    },
+    {
+      "batch_id": "B2B",
+      "issue": "#1057",
+      "parent_issue": "#711",
+      "asset_count": 13,
+      "status": "executed",
+      "evidence_file": "docs/vnext/sprint-12/b2b-migration-record.md",
+      "rollback_owner": "mirichard"
     }
   ],
   "generated": "2026-09-02",
@@ -88,7 +97,7 @@
       "dependencies": [
         "industry-specializations/information-technology/cybersecurity/risk_assessment_template.md",
         "domains/stakeholder/business-stakeholder-suite/financial-governance/enhanced-business-cases/evm-dashboard-template.md",
-        "industry-specializations/information-technology/software-development/user_story_mapping_template.md"
+        "domains/uncertainty/industry-specializations/information-technology/software-development/user_story_mapping_template.md"
       ],
       "affected_internal_references": [
         "TEMPLATE_INDEX.md",
@@ -296,7 +305,7 @@
       "secondary_domains": [],
       "dependencies": [
         "role-based-toolkits/project-manager/essential-templates/timesheet-tracking-template.md",
-        "role-based-toolkits/product-owner/user-story-template.md",
+        "domains/uncertainty/role-based-toolkits/product-owner/user-story-template.md",
         "project-lifecycle/01-initiation/project-charter/hybrid-project-charter-template.md"
       ],
       "affected_internal_references": [
@@ -365,8 +374,8 @@
         "Stakeholder"
       ],
       "dependencies": [
-        "role-based-toolkits/product-owner/product-vision-template.md",
-        "project-lifecycle/02-planning/risk-management/enterprise-risk-assessment-template.md",
+        "domains/uncertainty/role-based-toolkits/product-owner/product-vision-template.md",
+        "domains/uncertainty/project-lifecycle/02-planning/risk-management/enterprise-risk-assessment-template.md",
         "project-assessment-suite/hybrid-project-assessment-template.md"
       ],
       "affected_internal_references": [
@@ -384,7 +393,14 @@
       ],
       "batch": 2,
       "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move",
-      "action": "planned-move-not-executed"
+      "action": "executed-move-with-legacy-pointer",
+      "execution": {
+        "batch_id": "B2B",
+        "pre_batch_sha": "0970338f8441608a189d45c97e89ed300a5d2975",
+        "pre_move_source_sha256": "542595e2691103808729b4a74d0b564867c013a92b8513f0aec08fcf4c2df523",
+        "evidence_file": "docs/vnext/sprint-12/b2b-migration-record.md",
+        "rollback_owner": "mirichard"
+      }
     },
     {
       "source": "role-based-toolkits/product-owner/backlog-management-template.md",
@@ -394,9 +410,9 @@
         "Stakeholder"
       ],
       "dependencies": [
-        "project-lifecycle/04-monitoring-control/progress-tracking/project-dashboard-template.md",
-        "industry-specializations/information-technology/software-development/requirements_specification_template.md",
-        "project-lifecycle/04-monitoring-control/progress-tracking/status-report-template.md"
+        "domains/uncertainty/project-lifecycle/04-monitoring-control/progress-tracking/project-dashboard-template.md",
+        "domains/uncertainty/industry-specializations/information-technology/software-development/requirements_specification_template.md",
+        "domains/uncertainty/project-lifecycle/04-monitoring-control/progress-tracking/status-report-template.md"
       ],
       "affected_internal_references": [
         "README.md",
@@ -416,7 +432,14 @@
       ],
       "batch": 2,
       "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move",
-      "action": "planned-move-not-executed"
+      "action": "executed-move-with-legacy-pointer",
+      "execution": {
+        "batch_id": "B2B",
+        "pre_batch_sha": "0970338f8441608a189d45c97e89ed300a5d2975",
+        "pre_move_source_sha256": "7a8a7148188a5d3587bb32017b6b90a3505f59e55e346d6e29751d0a06d29100",
+        "evidence_file": "docs/vnext/sprint-12/b2b-migration-record.md",
+        "rollback_owner": "mirichard"
+      }
     },
     {
       "source": "role-based-toolkits/scrum-master/agile-ceremonies/backlog-refinement-template.md",
@@ -1134,7 +1157,7 @@
       "secondary_domains": [],
       "dependencies": [
         "domains/planning/industry-specializations/information-technology/infrastructure/disaster_recovery_template.md",
-        "industry-specializations/information-technology/infrastructure/migration_plan_template.md",
+        "domains/uncertainty/industry-specializations/information-technology/infrastructure/migration_plan_template.md",
         "project-assessment-suite/resource-management-assessment-template.md"
       ],
       "affected_internal_references": [
@@ -1233,7 +1256,7 @@
       "secondary_domains": [],
       "dependencies": [
         "domains/planning/industry-specializations/information-technology/infrastructure/data_center_design_template.md",
-        "industry-specializations/information-technology/infrastructure/migration_plan_template.md",
+        "domains/uncertainty/industry-specializations/information-technology/infrastructure/migration_plan_template.md",
         "project-assessment-suite/resource-management-assessment-template.md"
       ],
       "affected_internal_references": [
@@ -1268,7 +1291,7 @@
         "Stakeholder"
       ],
       "dependencies": [
-        "project-assessment-suite/assessment-report-template.md",
+        "domains/uncertainty/project-assessment-suite/assessment-report-template.md",
         "project-lifecycle/02-planning/project-management-plan/hybrid-project-management-plan-template.md",
         "project-lifecycle/02-planning/business-requirements/business_requirements_document_template.md"
       ],
@@ -1293,7 +1316,14 @@
       ],
       "batch": 2,
       "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move",
-      "action": "planned-move-not-executed"
+      "action": "executed-move-with-legacy-pointer",
+      "execution": {
+        "batch_id": "B2B",
+        "pre_batch_sha": "0970338f8441608a189d45c97e89ed300a5d2975",
+        "pre_move_source_sha256": "309adc88633a4b0c437935cd4be6c7e56cead0c8395c0a7bfe0f7e591e5a4852",
+        "evidence_file": "docs/vnext/sprint-12/b2b-migration-record.md",
+        "rollback_owner": "mirichard"
+      }
     },
     {
       "source": "project-lifecycle/01-initiation/stakeholder-analysis/enterprise-stakeholder-analysis-template.md",
@@ -1757,9 +1787,9 @@
         "Uncertainty"
       ],
       "dependencies": [
-        "project-assessment-suite/assessment-report-template.md",
+        "domains/uncertainty/project-assessment-suite/assessment-report-template.md",
         "project-lifecycle/02-planning/project-management-plan/hybrid-project-management-plan-template.md",
-        "role-based-toolkits/product-owner/backlog-management-template.md"
+        "domains/uncertainty/role-based-toolkits/product-owner/backlog-management-template.md"
       ],
       "affected_internal_references": [
         "TEMPLATE_INDEX.md",
@@ -1832,9 +1862,9 @@
         "Uncertainty"
       ],
       "dependencies": [
-        "project-lifecycle/02-planning/risk-management/enterprise-risk-assessment-template.md",
+        "domains/uncertainty/project-lifecycle/02-planning/risk-management/enterprise-risk-assessment-template.md",
         "project-assessment-suite/hybrid-project-assessment-template.md",
-        "project-assessment-suite/assessment-report-template.md"
+        "domains/uncertainty/project-assessment-suite/assessment-report-template.md"
       ],
       "affected_internal_references": [
         "TEMPLATE_INDEX.md",
@@ -2050,9 +2080,9 @@
         "docs/templates/infrastructure_assessment_template.md",
         "domains/planning/industry-specializations/information-technology/infrastructure/data_center_design_template.md",
         "domains/planning/industry-specializations/information-technology/infrastructure/disaster_recovery_template.md",
+        "domains/uncertainty/industry-specializations/information-technology/infrastructure/migration_plan_template.md",
         "industry-specializations/information-technology/README.md",
         "industry-specializations/information-technology/infrastructure/capacity_planning_worksheet.md",
-        "industry-specializations/information-technology/infrastructure/migration_plan_template.md",
         "meta/cross-references.json",
         "meta/domain-mapping.json",
         "meta/migration-inventory.json",
@@ -2305,7 +2335,14 @@
       ],
       "batch": 2,
       "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move",
-      "action": "planned-move-not-executed"
+      "action": "executed-move-with-legacy-pointer",
+      "execution": {
+        "batch_id": "B2B",
+        "pre_batch_sha": "0970338f8441608a189d45c97e89ed300a5d2975",
+        "pre_move_source_sha256": "733ce38e3062f418d3d18de128f1535433b8ac4e48ce113103847c14bd169302",
+        "evidence_file": "docs/vnext/sprint-12/b2b-migration-record.md",
+        "rollback_owner": "mirichard"
+      }
     },
     {
       "source": "methodology-frameworks/agile-scrum/scaling-frameworks/safe/metrics_dashboard_template.md",
@@ -2373,7 +2410,14 @@
       ],
       "batch": 2,
       "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move",
-      "action": "planned-move-not-executed"
+      "action": "executed-move-with-legacy-pointer",
+      "execution": {
+        "batch_id": "B2B",
+        "pre_batch_sha": "0970338f8441608a189d45c97e89ed300a5d2975",
+        "pre_move_source_sha256": "db8a336f4e9059f03b1c91cf0b750b1ac36455f12524fbc55fc79d09c80faa82",
+        "evidence_file": "docs/vnext/sprint-12/b2b-migration-record.md",
+        "rollback_owner": "mirichard"
+      }
     },
     {
       "source": "methodology-frameworks/emerging-methods/devops/monitoring_alerting_template.md",
@@ -2415,7 +2459,7 @@
         "Planning"
       ],
       "dependencies": [
-        "role-based-toolkits/project-manager/essential-templates/meeting-templates.md",
+        "domains/uncertainty/role-based-toolkits/project-manager/essential-templates/meeting-templates.md",
         "methodology-frameworks/emerging-methods/devops/monitoring_alerting_template.md",
         "domains/stakeholder/project-assessment-suite/stakeholder-engagement-assessment-template.md"
       ],
@@ -2845,8 +2889,8 @@
         "Stakeholder"
       ],
       "dependencies": [
-        "project-assessment-suite/assessment-report-template.md",
-        "role-based-toolkits/product-owner/backlog-management-template.md",
+        "domains/uncertainty/project-assessment-suite/assessment-report-template.md",
+        "domains/uncertainty/role-based-toolkits/product-owner/backlog-management-template.md",
         "industry-specializations/information-technology/security/cybersecurity_assessment_template.md"
       ],
       "affected_internal_references": [
@@ -2866,7 +2910,14 @@
       ],
       "batch": 2,
       "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move",
-      "action": "planned-move-not-executed"
+      "action": "executed-move-with-legacy-pointer",
+      "execution": {
+        "batch_id": "B2B",
+        "pre_batch_sha": "0970338f8441608a189d45c97e89ed300a5d2975",
+        "pre_move_source_sha256": "b3272316a959d181229a4ec00345ee07ac5d3bbed099bf4d0abea1ff9f50e01a",
+        "evidence_file": "docs/vnext/sprint-12/b2b-migration-record.md",
+        "rollback_owner": "mirichard"
+      }
     },
     {
       "source": "templates/traditional/Traditional/Templates/program_charter_template.md",
@@ -3076,9 +3127,9 @@
         "Stakeholder"
       ],
       "dependencies": [
-        "role-based-toolkits/product-owner/backlog-management-template.md",
-        "industry-specializations/information-technology/software-development/requirements_specification_template.md",
-        "project-lifecycle/04-monitoring-control/progress-tracking/status-report-template.md"
+        "domains/uncertainty/role-based-toolkits/product-owner/backlog-management-template.md",
+        "domains/uncertainty/industry-specializations/information-technology/software-development/requirements_specification_template.md",
+        "domains/uncertainty/project-lifecycle/04-monitoring-control/progress-tracking/status-report-template.md"
       ],
       "affected_internal_references": [
         "TEMPLATE_INDEX.md",
@@ -3103,7 +3154,14 @@
       ],
       "batch": 2,
       "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move",
-      "action": "planned-move-not-executed"
+      "action": "executed-move-with-legacy-pointer",
+      "execution": {
+        "batch_id": "B2B",
+        "pre_batch_sha": "0970338f8441608a189d45c97e89ed300a5d2975",
+        "pre_move_source_sha256": "ef58c1f9ea8dded2f4c545637f4443d196619157455b32941a4b0207486d7a57",
+        "evidence_file": "docs/vnext/sprint-12/b2b-migration-record.md",
+        "rollback_owner": "mirichard"
+      }
     },
     {
       "source": "templates/traditional/Traditional/Process_Groups/Executing/project_execution_status_report_template.md",
@@ -3388,9 +3446,9 @@
         "Stakeholder"
       ],
       "dependencies": [
-        "role-based-toolkits/product-owner/backlog-management-template.md",
-        "project-lifecycle/04-monitoring-control/progress-tracking/project-dashboard-template.md",
-        "industry-specializations/information-technology/software-development/requirements_specification_template.md"
+        "domains/uncertainty/role-based-toolkits/product-owner/backlog-management-template.md",
+        "domains/uncertainty/project-lifecycle/04-monitoring-control/progress-tracking/project-dashboard-template.md",
+        "domains/uncertainty/industry-specializations/information-technology/software-development/requirements_specification_template.md"
       ],
       "affected_internal_references": [
         "TEMPLATE_INDEX.md",
@@ -3408,7 +3466,14 @@
       ],
       "batch": 2,
       "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move",
-      "action": "planned-move-not-executed"
+      "action": "executed-move-with-legacy-pointer",
+      "execution": {
+        "batch_id": "B2B",
+        "pre_batch_sha": "0970338f8441608a189d45c97e89ed300a5d2975",
+        "pre_move_source_sha256": "2ba91662759324665fa4a19c8c2f5bdba016a0b2d9f8e96baaba8f5d47bc9d0c",
+        "evidence_file": "docs/vnext/sprint-12/b2b-migration-record.md",
+        "rollback_owner": "mirichard"
+      }
     },
     {
       "source": "templates/traditional/Traditional/Templates/raid_log_template.md",
@@ -3475,7 +3540,7 @@
         "Uncertainty"
       ],
       "dependencies": [
-        "industry-specializations/information-technology/infrastructure/migration_plan_template.md",
+        "domains/uncertainty/industry-specializations/information-technology/infrastructure/migration_plan_template.md",
         "industry-specializations/healthcare-pharmaceutical/regulatory/process_validation_protocol_template.md",
         "industry-specializations/healthcare-pharmaceutical/validation/cleaning_validation_protocol_template.md"
       ],
@@ -3574,9 +3639,9 @@
         "Stakeholder"
       ],
       "dependencies": [
-        "role-based-toolkits/product-owner/backlog-management-template.md",
-        "project-lifecycle/04-monitoring-control/progress-tracking/project-dashboard-template.md",
-        "project-lifecycle/04-monitoring-control/progress-tracking/status-report-template.md"
+        "domains/uncertainty/role-based-toolkits/product-owner/backlog-management-template.md",
+        "domains/uncertainty/project-lifecycle/04-monitoring-control/progress-tracking/project-dashboard-template.md",
+        "domains/uncertainty/project-lifecycle/04-monitoring-control/progress-tracking/status-report-template.md"
       ],
       "affected_internal_references": [
         "TEMPLATE_INDEX.md",
@@ -3599,7 +3664,14 @@
       ],
       "batch": 2,
       "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move",
-      "action": "planned-move-not-executed"
+      "action": "executed-move-with-legacy-pointer",
+      "execution": {
+        "batch_id": "B2B",
+        "pre_batch_sha": "0970338f8441608a189d45c97e89ed300a5d2975",
+        "pre_move_source_sha256": "04fe0e90e9df7e6502d8f244983a98e8e5c952ccb450e298c1acb0683eb1ff6b",
+        "evidence_file": "docs/vnext/sprint-12/b2b-migration-record.md",
+        "rollback_owner": "mirichard"
+      }
     },
     {
       "source": "templates/traditional/Traditional/Process_Groups/Executing/requirements_traceability_matrix_template.md",
@@ -3748,7 +3820,7 @@
       "dependencies": [
         "project-assessment-suite/process-maturity-assessment-template.md",
         "domains/planning/role-based-toolkits/project-manager/essential-templates/budget-template.md",
-        "project-assessment-suite/assessment-report-template.md"
+        "domains/uncertainty/project-assessment-suite/assessment-report-template.md"
       ],
       "affected_internal_references": [
         "TEMPLATE_INDEX.md",
@@ -3859,7 +3931,14 @@
       ],
       "batch": 2,
       "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move",
-      "action": "planned-move-not-executed"
+      "action": "executed-move-with-legacy-pointer",
+      "execution": {
+        "batch_id": "B2B",
+        "pre_batch_sha": "0970338f8441608a189d45c97e89ed300a5d2975",
+        "pre_move_source_sha256": "88bff3d126d0d911dd0af1bce7a1dbba642c8a5fc3536d18144849225731a08e",
+        "evidence_file": "docs/vnext/sprint-12/b2b-migration-record.md",
+        "rollback_owner": "mirichard"
+      }
     },
     {
       "source": "templates/traditional/Traditional/Knowledge_Areas/Project_Cost_Management/roi_tracking_template.md",
@@ -4075,7 +4154,7 @@
       ],
       "dependencies": [
         "methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md",
-        "role-based-toolkits/project-manager/essential-templates/meeting-templates.md",
+        "domains/uncertainty/role-based-toolkits/project-manager/essential-templates/meeting-templates.md",
         "methodology-frameworks/emerging-methods/devops/release_management_template.md"
       ],
       "affected_internal_references": [
@@ -4412,7 +4491,14 @@
       ],
       "batch": 2,
       "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move",
-      "action": "planned-move-not-executed"
+      "action": "executed-move-with-legacy-pointer",
+      "execution": {
+        "batch_id": "B2B",
+        "pre_batch_sha": "0970338f8441608a189d45c97e89ed300a5d2975",
+        "pre_move_source_sha256": "aa10eee873c4fb6f9755e59c3dbe9a48f40dd8a2452d5231c92fa3e3361548ee",
+        "evidence_file": "docs/vnext/sprint-12/b2b-migration-record.md",
+        "rollback_owner": "mirichard"
+      }
     },
     {
       "source": "project-lifecycle/02-planning/resource-planning/team-charter-template.md",
@@ -4565,7 +4651,7 @@
       "secondary_domains": [],
       "dependencies": [
         "industry-specializations/information-technology/software-development/api_documentation_template.md",
-        "role-based-toolkits/product-owner/user-story-template.md",
+        "domains/uncertainty/role-based-toolkits/product-owner/user-story-template.md",
         "domains/team/project-lifecycle/01-initiation/project-charter/agile-team-charter-template.md"
       ],
       "affected_internal_references": [
@@ -4594,8 +4680,8 @@
       ],
       "dependencies": [
         "domains/planning/role-based-toolkits/project-manager/essential-templates/budget-template.md",
-        "role-based-toolkits/project-manager/essential-templates/meeting-templates.md",
-        "role-based-toolkits/product-owner/product-vision-template.md"
+        "domains/uncertainty/role-based-toolkits/project-manager/essential-templates/meeting-templates.md",
+        "domains/uncertainty/role-based-toolkits/product-owner/product-vision-template.md"
       ],
       "affected_internal_references": [
         "TEMPLATE_INDEX.md",
@@ -4730,7 +4816,7 @@
       ],
       "dependencies": [
         "business-stakeholder-suite/executive-dashboards/tableau-integration/executive-dashboard-template.md",
-        "role-based-toolkits/product-owner/user-story-template.md",
+        "domains/uncertainty/role-based-toolkits/product-owner/user-story-template.md",
         "domains/stakeholder/business-stakeholder-suite/financial-governance/enhanced-business-cases/advanced-business-case-template.md"
       ],
       "affected_internal_references": [
@@ -4748,7 +4834,14 @@
       ],
       "batch": 2,
       "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move",
-      "action": "planned-move-not-executed"
+      "action": "executed-move-with-legacy-pointer",
+      "execution": {
+        "batch_id": "B2B",
+        "pre_batch_sha": "0970338f8441608a189d45c97e89ed300a5d2975",
+        "pre_move_source_sha256": "94d03a74e36dc1de37e0ce1e545c32557aef15ccd0951a40aff7d69077954f1d",
+        "evidence_file": "docs/vnext/sprint-12/b2b-migration-record.md",
+        "rollback_owner": "mirichard"
+      }
     },
     {
       "source": "role-based-toolkits/product-owner/user-story-template.md",
@@ -4756,7 +4849,7 @@
       "primary_domain": "Uncertainty",
       "secondary_domains": [],
       "dependencies": [
-        "industry-specializations/information-technology/software-development/user_story_mapping_template.md",
+        "domains/uncertainty/industry-specializations/information-technology/software-development/user_story_mapping_template.md",
         "industry-specializations/information-technology/software-development/api_documentation_template.md",
         "business-stakeholder-suite/executive-dashboards/tableau-integration/executive-dashboard-template.md"
       ],
@@ -4779,7 +4872,14 @@
       ],
       "batch": 2,
       "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move",
-      "action": "planned-move-not-executed"
+      "action": "executed-move-with-legacy-pointer",
+      "execution": {
+        "batch_id": "B2B",
+        "pre_batch_sha": "0970338f8441608a189d45c97e89ed300a5d2975",
+        "pre_move_source_sha256": "370b2f8cba7d82ce45781c6d9a484b6b0e5c2695480553491b2668279077c118",
+        "evidence_file": "docs/vnext/sprint-12/b2b-migration-record.md",
+        "rollback_owner": "mirichard"
+      }
     },
     {
       "source": "industry-specializations/healthcare-pharmaceutical/validation/validation_master_plan_template.md",

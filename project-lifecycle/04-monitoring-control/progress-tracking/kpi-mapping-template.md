@@ -57,10 +57,10 @@ These are the core project health metrics. Tracked weekly or bi-weekly.
 |-----|------|-----------|--------|--------|-------|-----------------|
 | Schedule Performance Index (SPI) | Lagging | Earned schedule / planned schedule | ≥ 0.95 | | | [EVM Dashboard](../../../domains/stakeholder/business-stakeholder-suite/financial-governance/enhanced-business-cases/evm-dashboard-template.md) |
 | Cost Performance Index (CPI) | Lagging | Earned value / actual cost | ≥ 0.95 | | | [Budget Dashboard](../../../domains/stakeholder/business-stakeholder-suite/financial-governance/budget-dashboard-template.md) |
-| Scope Completion % | Lagging | Deliverables accepted / total deliverables | ≥ ___% | | | [Status Report](../../../project-lifecycle/04-monitoring-control/progress-tracking/status-report-template.md) |
-| Risk Exposure Trend | Leading | Total risk score change over time | Decreasing | | | [Risk Register](../../../project-lifecycle/02-planning/risk-management/risk-register-template.md) |
+| Scope Completion % | Lagging | Deliverables accepted / total deliverables | ≥ ___% | | | [Status Report](../../../domains/uncertainty/project-lifecycle/04-monitoring-control/progress-tracking/status-report-template.md) |
+| Risk Exposure Trend | Leading | Total risk score change over time | Decreasing | | | [Risk Register](../../../domains/uncertainty/project-lifecycle/02-planning/risk-management/risk-register-template.md) |
 | Stakeholder Satisfaction | Lagging | Stakeholder survey score | ≥ ___/5 | | | [Stakeholder Engagement Assessment](../../../domains/stakeholder/project-assessment-suite/stakeholder-engagement-assessment-template.md) |
-| Quality Score | Lagging | Defects per deliverable / rework rate | ≤ ___% | | | [Quality Test Plan](../../../templates/test-samples/quality-test-plan-template.md) |
+| Quality Score | Lagging | Defects per deliverable / rework rate | ≤ ___% | | | [Quality Test Plan](../../../domains/uncertainty/templates/test-samples/quality-test-plan-template.md) |
 
 **Leading indicators:** Open risk count, issue resolution rate, change request volume
 

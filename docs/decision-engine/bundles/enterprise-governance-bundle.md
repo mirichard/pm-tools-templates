@@ -19,8 +19,8 @@
 | 3 | [Work Breakdown Structure](../../../templates/traditional/Traditional/Process_Groups/Planning/work_breakdown_structure_template.md) | Scope decomposition | ~90 min |
 | 4 | [Project Schedule](../../../templates/traditional/Traditional/Process_Groups/Planning/project_schedule_template.md) | Timeline and dependencies | ~90 min |
 | 5 | [Risk Management Plan](../../../project-lifecycle/02-planning/risk-management/risk-management-plan-template.md) | Risk approach and thresholds | ~45 min |
-| 6 | [Risk Register](../../../project-lifecycle/02-planning/risk-management/risk-register-template.md) | Detailed risk tracking | ~30 min |
-| 7 | [Enterprise Risk Assessment](../../../project-lifecycle/02-planning/risk-management/enterprise-risk-assessment-template.md) | Organization-level risk management | ~60 min |
+| 6 | [Risk Register](../../../domains/uncertainty/project-lifecycle/02-planning/risk-management/risk-register-template.md) | Detailed risk tracking | ~30 min |
+| 7 | [Enterprise Risk Assessment](../../../domains/uncertainty/project-lifecycle/02-planning/risk-management/enterprise-risk-assessment-template.md) | Organization-level risk management | ~60 min |
 | 8 | [Change Management Plan](../../../templates/traditional/Traditional/Templates/change_management_plan_template.md) | Formal change control process | ~45 min |
 
 ### Recommended (governance and reporting)

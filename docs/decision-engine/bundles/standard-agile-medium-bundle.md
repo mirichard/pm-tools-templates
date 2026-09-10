@@ -19,7 +19,7 @@
 | 3 | [Sprint Review](../../../domains/team/templates/agile/sprint_review_template.md) | Stakeholder demo and feedback | ~15 min |
 | 4 | [Sprint Retrospective](../../../domains/team/templates/agile/sprint_retrospective_template.md) | Team continuous improvement | ~15 min |
 | 5 | [Agile Release Plan](../../../project-lifecycle/02-planning/project-management-plan/agile-release-plan-template.md) | Multi-sprint release coordination | ~60 min |
-| 6 | [Risk Register](../../../project-lifecycle/02-planning/risk-management/risk-register-template.md) | Track and mitigate project risks | ~30 min |
+| 6 | [Risk Register](../../../domains/uncertainty/project-lifecycle/02-planning/risk-management/risk-register-template.md) | Track and mitigate project risks | ~30 min |
 
 ### Recommended (add as needed)
 

@@ -15,7 +15,7 @@
 
 title: "Requirements Specification Template"
 
-[**➡️ View Template File**](/industry-specializations/information-technology/software-development/requirements_specification_template.md)
+[**➡️ View Template File**](/domains/uncertainty/industry-specializations/information-technology/software-development/requirements_specification_template.md)
 
 ## 📈 Quality Score
 
