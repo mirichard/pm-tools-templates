@@ -180,6 +180,31 @@ clearly. The empty registry in `src/nfr-overlays.js` is the selection boundary
 for #1115; this change includes no regulatory or other overlay content.
 Listing needs no input file or API credentials and writes no report.
 
+The command writes `<base>-nfr-report.md` through the existing Markdown report
+writer, explicitly labeled `NFR generation not yet implemented (#1108/#1109)`.
+The stub does not call an LLM or create NFR candidates. `pipeline` automatically
+runs the same step after Phase 2 UCS, test cases and Gherkin, before the Phase 3
+review gate; all existing phase ordering and gates are preserved.
+
+| Flag | Behavior |
+| --- | --- |
+| `--provider gemini\|anthropic\|openai` | Override existing `LLM_PROVIDER` selection for the invocation; `openai` also covers compatible APIs using `LLM_BASE_URL`. |
+| `--model <name>` | Override existing `LLM_MODEL` selection for the invocation. |
+| `--attributes <names>` | Comma-separated non-empty names; trimmed/deduplicated and recorded without taxonomy lookup (#1115). |
+| `--confidence-threshold <number>` | Finite number in `[0, 1]`; recorded only, no confidence calculation or review gate. |
+| `--profile` / `--overlay` | Select an available name; default `neutral`. |
+| `-o` / `--output <dir>` | Report directory, default `./output`. Pipeline retains `--output-dir` and also accepts `--output`. |
+
+All these selection flags also apply to `pipeline`. Upstream pipeline phases
+still use the configured LLM and interactive gates. The standalone skeleton
+and overlay listing do not require API credentials. Provider/model flags reuse
+the existing environment loader/client and restore overrides after execution.
+
+```bash
+npm start -- generate-nfr examples/web-store-ucs.json --attributes reliability,security --confidence-threshold 0.8 -o ./output
+npm start -- pipeline examples/web-store-input.md --provider gemini --overlay neutral -o ./output
+```
+
 ### `validate <ucs-file>`
 
 Validate UCS consistency against activity diagrams and/or state machines (Algorithms 2 & 3).

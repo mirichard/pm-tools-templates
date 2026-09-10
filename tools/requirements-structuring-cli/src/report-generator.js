@@ -8,9 +8,48 @@
 
 const fs = require('fs-extra');
 const path = require('path');
-const { safeWriteText, buildSafeOutputPath, buildContainedChildPath } = require('./security');
+const { safeWriteText, buildSafeOutputPath, buildContainedChildPath, sanitizeTerminalValue } = require('./security');
 
 class ReportGenerator {
+  /** Write a deliberately non-generative report through the existing text sink. */
+  async generateNFRReport(result, { outputDir, baseName }) {
+    const safeOutputDir = buildSafeOutputPath(outputDir);
+    await fs.ensureDir(safeOutputDir);
+    const reportPath = buildContainedChildPath(safeOutputDir, `${baseName}-nfr-report.md`);
+    await safeWriteText(reportPath, this.formatNFRReport(result), 'utf8', { rootDir: safeOutputDir });
+    return reportPath;
+  }
+
+  formatNFRReport({ notice, input, inputKind, options }) {
+    const display = (value) => sanitizeTerminalValue(value);
+    return [
+      `# NFR Report: ${display(input.useCaseId)}`,
+      '',
+      '**Status: Placeholder — not implemented**',
+      '',
+      notice,
+      '',
+      'No classification, NFR candidates, confidence scores, or overlay content were produced.',
+      '',
+      '## Input',
+      '',
+      `- Artifact: ${inputKind}`,
+      `- Use case: ${display(input.useCaseName || input.intent || input.useCaseId)}`,
+      '',
+      '## Requested Options',
+      '',
+      `- Provider: ${display(options.provider || 'not configured (no LLM call)')}`,
+      `- Model: ${display(options.model)}`,
+      `- Attributes: ${options.attributes.length ? options.attributes.map(display).join(', ') : 'unspecified'}`,
+      `- Confidence threshold: ${options.confidenceThreshold ?? 'unspecified'}`,
+      `- Overlay: ${display(options.overlay)} (neutral core; no overlay content)`,
+      '',
+      'These options are recorded only. Classification (#1108), generation (#1109),',
+      'the review gate (#1111), and the curated library (#1115) are follow-ups.',
+      '',
+    ].join('\n');
+  }
+
   /**
    * Generate all Markdown reports from pipeline artifacts
    * @param {object} opts

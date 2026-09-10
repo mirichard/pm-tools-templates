@@ -334,9 +334,11 @@ addNFROptions(program.command('generate-nfr [input-file]'))
       restoreProvider = configureNFRProvider(options);
       const input = await loadNFRInput(inputFile);
       const generator = new NFRGenerator();
-      const result = await generator.run(input, options);
+      const baseName = path.basename(inputFile, path.extname(inputFile)).replace(/-(?:structured|ucs)(?:-refined)?$/, '');
+      const result = await generator.run(input, { ...options, baseName });
       spinner.succeed('NFR skeleton complete');
       terminalLog(chalk.yellow(result.notice));
+      terminalLog(chalk.green(`✓ NFR placeholder report saved to ${result.reportPath}`));
     } catch (err) {
       spinnerFail(spinner, err && err.message ? err.message : String(err));
       process.exitCode = 1;
@@ -351,12 +353,13 @@ addNFROptions(program.command('pipeline <input-file>'))
   .option('--activity <file>', 'Business process model JSON')
   .option('--state <files...>', 'State model JSON file(s)')
   .option('-o, --output-dir <dir>', 'Output directory', './output')
+  .option('--output <dir>', 'Alias for --output-dir')
   .action(async (inputFile, opts) => {
     let restoreProvider = () => {};
     try {
       const nfrOptions = normalizeNFROptions(opts);
       restoreProvider = configureNFRProvider(nfrOptions);
-      const outputDir = buildSafeOutputPath(opts.outputDir);
+      const outputDir = buildSafeOutputPath(opts.output || opts.outputDir);
       await fs.ensureDir(outputDir);
       const baseName = path.basename(inputFile, path.extname(inputFile));
       // ═══ Phase 0: Ambiguity Detection ═══════════════════════════════════════
@@ -447,6 +450,7 @@ addNFROptions(program.command('pipeline <input-file>'))
       const nfrGenerator = new NFRGenerator();
       const nfrResult = await nfrGenerator.run(ucsJSON2, { ...nfrOptions, output: outputDir, baseName });
       terminalLog(chalk.yellow(nfrResult.notice));
+      terminalLog(chalk.dim(`  → ${nfrResult.reportPath}`));
 
       const { proceed: proceed2 } = await inquirer.prompt([
         { type: 'confirm', name: 'proceed', message: 'Review complete. Proceed to Phase 3?', default: true },
@@ -536,6 +540,7 @@ addNFROptions(program.command('pipeline <input-file>'))
         outputDir,
         baseName,
       });
+      reportFiles.push(nfrResult.reportPath);
 
       for (const f of reportFiles) {
         terminalLog(chalk.dim(`  → ${f}`));
