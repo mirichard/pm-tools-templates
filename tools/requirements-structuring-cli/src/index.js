@@ -34,6 +34,10 @@ const FeedbackLoop = require('./feedback-loop');
 const ReportGenerator = require('./report-generator');
 const AmbiguityDetector = require('./ambiguity-detector');
 const GherkinGenerator = require('./gherkin-generator');
+const NFRGenerator = require('./nfr-generator');
+const { addNFROptions, normalizeNFROptions, configureNFRProvider } = require('./nfr-options');
+const { loadNFRInput } = require('./nfr-input');
+const { listOverlays } = require('./nfr-overlays');
 
 function terminalLog(message) {
   const safeMessage = sanitizeTerminalValue(message);
@@ -312,20 +316,52 @@ program
     }
   });
 
+// ─── generate-nfr ────────────────────────────────────────────────────────────
+addNFROptions(program.command('generate-nfr [input-file]'))
+  .description('Run the NFR command skeleton on structured requirements or UCS JSON')
+  .option('-o, --output <dir>', 'Output directory', './output')
+  .option('--list-overlays', 'List available overlays without reading input or calling an LLM')
+  .action(async (inputFile, opts) => {
+    const spinner = ora('Loading NFR input...').start();
+    let restoreProvider = () => {};
+    try {
+      const options = normalizeNFROptions(opts);
+      if (opts.listOverlays) {
+        spinner.stop();
+        for (const overlay of listOverlays()) terminalLog(overlay.label);
+        return;
+      }
+      restoreProvider = configureNFRProvider(options);
+      const input = await loadNFRInput(inputFile);
+      const generator = new NFRGenerator();
+      const baseName = path.basename(inputFile, path.extname(inputFile)).replace(/-(?:structured|ucs)(?:-refined)?$/, '');
+      const result = await generator.run(input, { ...options, baseName });
+      spinner.succeed('NFR skeleton complete');
+      terminalLog(chalk.yellow(result.notice));
+      terminalLog(chalk.green(`✓ NFR placeholder report saved to ${result.reportPath}`));
+    } catch (err) {
+      spinnerFail(spinner, err && err.message ? err.message : String(err));
+      process.exitCode = 1;
+    } finally {
+      restoreProvider();
+    }
+  });
+
 // ─── pipeline ────────────────────────────────────────────────────────────────
-program
-  .command('pipeline <input-file>')
+addNFROptions(program.command('pipeline <input-file>'))
   .description('Full 5-phase pipeline per Li & Zheng (2025)')
   .option('--activity <file>', 'Business process model JSON')
   .option('--state <files...>', 'State model JSON file(s)')
   .option('-o, --output-dir <dir>', 'Output directory', './output')
+  .option('--output <dir>', 'Alias for --output-dir')
   .action(async (inputFile, opts) => {
-    const outputDir = buildSafeOutputPath(opts.outputDir);
-    await fs.ensureDir(outputDir);
-
-    const baseName = path.basename(inputFile, path.extname(inputFile));
-
+    let restoreProvider = () => {};
     try {
+      const nfrOptions = normalizeNFROptions(opts);
+      restoreProvider = configureNFRProvider(nfrOptions);
+      const outputDir = buildSafeOutputPath(opts.output || opts.outputDir);
+      await fs.ensureDir(outputDir);
+      const baseName = path.basename(inputFile, path.extname(inputFile));
       // ═══ Phase 0: Ambiguity Detection ═══════════════════════════════════════
       terminalLog(chalk.blue.bold('\n═══ Phase 0: Ambiguity Detection ═══'));
       const rawContent = await fs.readFile(path.resolve(inputFile), 'utf-8');
@@ -408,6 +444,13 @@ program
       const safeFeaturePath = buildContainedChildPath(outputDir, path.basename(featurePath));
       await gherkin.generateFile(testCases, ucsJSON2, safeFeaturePath);
       terminalLog(chalk.dim(`  → ${safeFeaturePath} (Gherkin/BDD)`));
+
+      // ═══ NFR Phase: after UCS, test cases and Gherkin ═════════════════════
+      terminalLog(chalk.blue.bold('\n═══ NFR Phase ═══'));
+      const nfrGenerator = new NFRGenerator();
+      const nfrResult = await nfrGenerator.run(ucsJSON2, { ...nfrOptions, output: outputDir, baseName });
+      terminalLog(chalk.yellow(nfrResult.notice));
+      terminalLog(chalk.dim(`  → ${nfrResult.reportPath}`));
 
       const { proceed: proceed2 } = await inquirer.prompt([
         { type: 'confirm', name: 'proceed', message: 'Review complete. Proceed to Phase 3?', default: true },
@@ -497,6 +540,7 @@ program
         outputDir,
         baseName,
       });
+      reportFiles.push(nfrResult.reportPath);
 
       for (const f of reportFiles) {
         terminalLog(chalk.dim(`  → ${f}`));
@@ -511,8 +555,11 @@ program
       terminalLog(chalk.cyan('\n  BDD/Gherkin:'));
       terminalLog(chalk.cyan(`    • ${baseName}.feature`));
     } catch (err) {
-      terminalError(chalk.red(`Pipeline error: ${sanitizeErrorPayload(err && err.message ? err.message : String(err))}`));
-      process.exit(1);
+      const diagnostic = sanitizeErrorPayload(err && err.message ? err.message : String(err));
+      terminalError(chalk.red(`Pipeline error: ${diagnostic.message || 'Unknown error'}`));
+      process.exitCode = 1;
+    } finally {
+      restoreProvider();
     }
   });
 
