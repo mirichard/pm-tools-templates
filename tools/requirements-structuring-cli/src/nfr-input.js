@@ -19,6 +19,22 @@ function strings(value, field) {
   }
 }
 
+function guardLegacyShape(data) {
+  if (typeof data.useCaseId !== 'string' || !data.useCaseId.trim()) return;
+  const isUCS = own(data, 'basicFlow') || own(data, 'intent') || own(data, 'role');
+  let missing;
+  if (isUCS && !own(data, 'steps')) {
+    if (!own(data, 'basicFlow')) missing = 'basicFlow.steps is missing';
+    else if (Array.isArray(data.basicFlow)) missing = 'basicFlow is a bare array instead of an object with steps';
+    else if (object(data.basicFlow) && !own(data.basicFlow, 'steps')) missing = 'basicFlow.steps is missing';
+  } else if (!isUCS && own(data, 'useCaseName') && !own(data, 'steps')) {
+    missing = 'structured steps is missing';
+  }
+  if (missing) {
+    throw new Error(`Legacy/incomplete NFR input (pre-contract shape): ${missing}. Re-run structure and transform (or pipeline) from the original requirements; do not add a version marker. See docs/nfr-input-contract.md.`);
+  }
+}
+
 function steps(value, field, structured = false) {
   if (!Array.isArray(value) || !value.length) invalid(field, 'must be a non-empty array');
   value.forEach((step, index) => {
@@ -43,6 +59,7 @@ function validateNFRInput(input) {
   } catch {
     invalid('document', 'must be a safe JSON object within the existing CLI size/depth limits');
   }
+  guardLegacyShape(data);
   text(data.useCaseId, 'useCaseId');
   const isUCS = own(data, 'basicFlow') || own(data, 'intent') || own(data, 'role');
   if (isUCS && own(data, 'steps')) invalid('document', 'must contain one artifact, not both structured and UCS shapes');

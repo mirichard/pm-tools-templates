@@ -66,3 +66,26 @@ empty required strings/step arrays, and ambiguous artifacts fail with an
 non-zero, before an NFR report is written. Re-run `structure` and `transform`
 (or `pipeline`) from the original requirements and correct upstream fields
 if they are still incomplete. No input file is modified.
+
+## Legacy/pre-contract compatibility
+
+There is **no reliable artifact-age signal**: old and current outputs have no
+version marker. Complete v1.1.0 artifacts are accepted, including runtime UCS
+without `useCaseName`. Do not add a version field to make an input pass.
+
+The concrete legacy/incomplete signals, after JSON safety validation, are:
+
+1. A recognized UCS object (non-empty `useCaseId` and at least one of
+   `intent`, `role`, `basicFlow`, without top-level `steps`) is missing
+   `basicFlow` or `basicFlow.steps`, or has a bare `basicFlow` array rather
+   than `{ "steps": [...] }`.
+2. A recognized formal structure (non-empty `useCaseId`, a `useCaseName`
+   property, no UCS discriminator) is missing the top-level `steps` property.
+
+These fail distinctly with `Legacy/incomplete NFR input (pre-contract shape)`
+and instructions to re-run structuring/transformation. They identify an
+incompatible shape, **not proof that a file is old**; a newly incomplete file
+can trigger the same message. Present-but-invalid fields (for example
+`steps: null`, an empty step array, or a step missing `action`) remain ordinary
+contract-validation errors. Missing UCS `useCaseName` never triggers either
+error. No legacy input is silently migrated or modified.
