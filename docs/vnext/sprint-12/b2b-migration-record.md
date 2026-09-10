@@ -72,6 +72,12 @@ Local validation is complete:
 - Focused Jest: PASS — 1 suite, 2 tests, 100% coverage
 - Metadata and template-index regeneration: deterministic
 
+## Inherited quality debt disposition
+
+B2B intentionally preserves canonical template bodies byte-for-byte, so pre-existing content-quality defects are not corrected inside this migration. They are tracked explicitly in [#1117](https://github.com/mirichard/pm-tools-templates/issues/1117), with usage-guidance work coordinated with [#1058](https://github.com/mirichard/pm-tools-templates/issues/1058).
+
+The tracked debt includes the six B2B quality-gate warnings for missing purpose/overview or usage guidance and the duplicate/conflicting orphan metadata in `assessment-report-template.md`. These findings are inherited rather than migration-created. They must remain open until post-migration remediation and validation are complete; this disposition does not represent content-quality closure.
+
 Pull-request workflows, review, and affected-scope visual regression must pass before integration. Reviewed visual baselines may be published only after the evidence text is final. Post-merge production bookmark, required main-workflow, comprehensive visual-regression, and rollback-SHA verification remain mandatory.
 
 Decision: **PASS (local execution); retain B2B as one atomic wave. GitHub integration gates remain pending.**
