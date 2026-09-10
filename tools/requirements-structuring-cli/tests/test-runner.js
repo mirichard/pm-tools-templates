@@ -40,6 +40,7 @@ class TestRunner {
     await this.testAmbiguityDetector();
     await this.testGherkinGenerator();
     await this.testSecurityBoundaries();
+    await require('./nfr-tests')(this);
 
     this.printResults();
   }
