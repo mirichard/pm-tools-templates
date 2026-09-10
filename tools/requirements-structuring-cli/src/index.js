@@ -429,6 +429,12 @@ program
       await gherkin.generateFile(testCases, ucsJSON2, safeFeaturePath);
       terminalLog(chalk.dim(`  → ${safeFeaturePath} (Gherkin/BDD)`));
 
+      // ═══ NFR Phase: after UCS, test cases and Gherkin ═════════════════════
+      terminalLog(chalk.blue.bold('\n═══ NFR Phase ═══'));
+      const nfrGenerator = new NFRGenerator();
+      const nfrResult = await nfrGenerator.run(ucsJSON2, { output: outputDir, baseName });
+      terminalLog(chalk.yellow(nfrResult.notice));
+
       const { proceed: proceed2 } = await inquirer.prompt([
         { type: 'confirm', name: 'proceed', message: 'Review complete. Proceed to Phase 3?', default: true },
       ]);
