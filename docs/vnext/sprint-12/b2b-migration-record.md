@@ -58,10 +58,16 @@ Local validation is complete:
 - Migration metadata generation: PASS — 137 records; 137/137 cross-reference coverage
 - Sprint 10 strict validator: PASS — 137/137; 100% cross-reference coverage
 - Curated templates: PASS — 139 templates
-- Canonical paths: PASS — 0 errors; 3 pre-existing warnings
-- Filtered anchor links: PASS
+- Canonical paths: PASS — 0 errors; 1 pre-existing Stakeholder Register warning
+- Migration-scope inline links: PASS for no new failures — 60 Markdown files, 919 local inline links, 110 pre-existing failures, 0 new failures against the pre-batch SHA
+- The former filtered-anchor PASS claim is withdrawn: that command performs no validation. Its B2B manifest entry is replaced by `python3 scripts/check_migration_links.py --manifest meta/migration-waves/b2b.json`.
+- Checker scope: inline Markdown file/directory links, ATX heading fragments, and explicit HTML anchors outside fenced code. External URLs, reference-style links, site routing, and inbound legacy section bookmarks are not verified by this check. This is migration regression evidence, not a claim that all repository links work.
+- Link-checker regression tests: PASS — 3/3, including missing files/fragments and a previously valid link broken by relocation
+- Risk Register and Status Report catalog canonical paths and generated index: corrected to Uncertainty destinations; Traditional variant files remain available in alternate paths
+- Template-selector copy behavior: PASS — both copied files equal their canonical bodies byte-for-byte
 - Previously valid relative file links in all thirteen moved bodies: PASS; compatibility pointers resolve to maintained resources
 - Repair-helper preservation and missing-file creation checks: PASS
+- Complete repair-script fixture execution: PASS with all helper targets already present, both with and without the README repair; preserved targets and reached final analysis from a zero counter. All post-increments are replaced; repository-root discovery and the missing summary color definition are corrected.
 - Migration-wave tests: PASS — 12/12
 - Focused Jest: PASS — 1 suite, 2 tests, 100% coverage
 - Metadata and template-index regeneration: deterministic

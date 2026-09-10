@@ -112,7 +112,7 @@
 | [Risk Assessment Template](industry-specializations/information-technology/cybersecurity/risk_assessment_template.md) | universal | advanced | mirichard | 2025-08-05 |
 | [Risk Management Assessment Template](project-assessment-suite/risk-management-assessment-template.md) | universal | starter | mirichard | 2025-08-05 |
 | [Risk Management Plan Template](project-lifecycle/02-planning/risk-management/risk-management-plan-template.md) | universal | advanced | mirichard | 2025-08-05 |
-| [Risk Register Template](templates/traditional/Traditional/Templates/risk_register_template.md) | universal | advanced | mirichard | 2025-08-05 |
+| [Risk Register Template](domains/uncertainty/project-lifecycle/02-planning/risk-management/risk-register-template.md) | universal | advanced | mirichard | 2025-08-05 |
 | [Roi Tracking Template](templates/traditional/Traditional/Knowledge_Areas/Project_Cost_Management/roi_tracking_template.md) | traditional | advanced | mirichard | 2025-08-05 |
 | [Safe Art Coordination Template](methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_art_coordination_template.md) | agile | advanced | mirichard | 2025-08-05 |
 | [Safe Metrics Dashboard Template](methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_metrics_dashboard_template.md) | agile | advanced | mirichard | 2025-08-05 |
@@ -126,7 +126,7 @@
 | [Sprint Review Template](domains/team/templates/agile/sprint_review_template.md) | agile | advanced | mirichard | 2025-08-05 |
 | [Stakeholder Engagement Assessment Template](domains/stakeholder/project-assessment-suite/stakeholder-engagement-assessment-template.md) | universal | starter | mirichard | 2025-08-05 |
 | [Stakeholder Register Template](role-based-toolkits/project-manager/essential-templates/stakeholder-register.md) | universal | intermediate | mirichard | 2025-08-05 |
-| [Status Report Template](templates/traditional/Traditional/Templates/status_report_template.md) | universal | advanced | mirichard | 2025-08-05 |
+| [Status Report Template](domains/uncertainty/project-lifecycle/04-monitoring-control/progress-tracking/status-report-template.md) | universal | advanced | mirichard | 2025-08-05 |
 | [Team Charter Template](domains/team/project-lifecycle/02-planning/resource-planning/team-charter-template.md) | universal | advanced | mirichard | 2025-08-05 |
 | [Team Performance Assessment Template](domains/team/templates/traditional/Traditional/Process_Groups/Executing/team_performance_assessment_template.md) | traditional | intermediate | mirichard | 2025-08-05 |
 | [Technical Design Document Template](industry-specializations/information-technology/software-development/technical_design_document_template.md) | universal | advanced | mirichard | 2025-08-05 |

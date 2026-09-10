@@ -5,7 +5,7 @@
 
 set -euo pipefail
 
-PROJECT_ROOT="/Users/michael/pm-tools-templates"
+PROJECT_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 cd "$PROJECT_ROOT"
 
 # Colors for output
@@ -13,6 +13,7 @@ RED='\033[0;31m'
 GREEN='\033[0;32m'
 YELLOW='\033[1;33m'
 BLUE='\033[0;34m'
+CYAN='\033[0;36m'
 NC='\033[0m' # No Color
 
 echo -e "${BLUE}🔧 Fixing High-Impact Broken Links${NC}"
@@ -84,7 +85,7 @@ if grep -q "methodology-frameworks/traditional/process-groups" README.md; then
     sed -i '' 's|methodology-frameworks/traditional/process-groups|Traditional/Process_Groups|g' README.md 2>/dev/null || \
     sed -i 's|methodology-frameworks/traditional/process-groups|Traditional/Process_Groups|g' README.md
     echo -e "${GREEN}✅ Fixed Traditional references in README.md${NC}"
-    ((FIXES_APPLIED++))
+    FIXES_APPLIED=$((FIXES_APPLIED + 1))
 fi
 
 # Fix 2: Create most critical missing files for project assessment
@@ -198,7 +199,7 @@ Community resources and guidelines for the PM Tools Templates project.
 EOF
 
 echo -e "${GREEN}✅ Created docs/community directory${NC}"
-((FIXES_APPLIED++))
+FIXES_APPLIED=$((FIXES_APPLIED + 1))
 
 # Create integration-toolkits structure
 mkdir -p "integration-toolkits/development-tools"
@@ -224,7 +225,7 @@ Integration templates and guides for development tools and project management pl
 EOF
 
 echo -e "${GREEN}✅ Created integration-toolkits/development-tools${NC}"
-((FIXES_APPLIED++))
+FIXES_APPLIED=$((FIXES_APPLIED + 1))
 
 # Summary
 echo ""

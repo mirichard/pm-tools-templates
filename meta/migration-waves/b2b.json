@@ -359,7 +359,7 @@
     "node scripts/validate-sprint-10.mjs --require-annotations",
     "node scripts/validate-curated-templates.js",
     "node scripts/validate-canonical-paths.js --strict",
-    "python3 scripts/check_anchor_links_filtered.py",
+    "python3 scripts/check_migration_links.py --manifest meta/migration-waves/b2b.json",
     "npm run test:ci"
   ],
   "rollback": {

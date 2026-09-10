@@ -10235,8 +10235,9 @@
     },
     {
       "path": "domains/uncertainty/project-lifecycle/02-planning/risk-management/risk-register-template.md",
-      "canonical_path": "templates/traditional/Traditional/Templates/risk_register_template.md",
+      "canonical_path": "domains/uncertainty/project-lifecycle/02-planning/risk-management/risk-register-template.md",
       "alternate_paths": [
+        "templates/traditional/Traditional/Templates/risk_register_template.md",
         "project-lifecycle/02-planning/risk-management/risk-register-template.md"
       ],
       "title": "Risk Register Template",
@@ -11558,8 +11559,9 @@
     },
     {
       "path": "domains/uncertainty/project-lifecycle/04-monitoring-control/progress-tracking/status-report-template.md",
-      "canonical_path": "templates/traditional/Traditional/Templates/status_report_template.md",
+      "canonical_path": "domains/uncertainty/project-lifecycle/04-monitoring-control/progress-tracking/status-report-template.md",
       "alternate_paths": [
+        "templates/traditional/Traditional/Templates/status_report_template.md",
         "project-lifecycle/04-monitoring-control/progress-tracking/status-report-template.md"
       ],
       "title": "Status Report Template",
