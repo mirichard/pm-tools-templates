@@ -1,392 +1,70 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-09T15:16:30.631042+00:00",
-  "source_workflow_run": 34368301188,
-  "source_commit": "c2b5606d1a5fd902f7713526c5be303a3f170cbf",
+  "generated_at": "2026-09-10T02:13:31.503600+00:00",
+  "source_workflow_run": 34427491373,
+  "source_commit": "5d0d627b43ddc7c334c6f602d4127b4c26c65dc4",
   "format": "webp",
   "width": 256,
   "maximum_dimension": 16383,
   "quality": 85,
   "method": 4,
-  "total_screenshots": 2030,
+  "total_screenshots": 1976,
   "packs": [
     {
       "file": "chromium-desktop-shard-0.zip",
       "browser_resolution": "chromium_desktop",
-      "screenshots": 227,
-      "bytes": 7474364,
-      "sha256": "e4be3116e87a2abb239d755443a7173788d7146e39d8aa39f58b006df0bf5414"
+      "screenshots": 249,
+      "bytes": 7272932,
+      "sha256": "030aa2348d31b3ac8068326b553777fa03e0107bb01830446ff241c9242cb277"
     },
     {
       "file": "chromium-desktop-shard-1.zip",
       "browser_resolution": "chromium_desktop",
-      "screenshots": 223,
-      "bytes": 7534316,
-      "sha256": "93f70e04192b2579a35b63437dccdaed50b02da0f46ef1f5b18799bfcb81fbf9"
+      "screenshots": 245,
+      "bytes": 7950114,
+      "sha256": "04df3fcebc1aa7b6b9d2d698771fd4d333e91149c368299e91d7fe0313e38b5b"
     },
     {
       "file": "chromium-desktop-shard-2.zip",
       "browser_resolution": "chromium_desktop",
-      "screenshots": 228,
-      "bytes": 7571596,
-      "sha256": "ef515da8f565c1cce6f2a828b82a380b659d338798aacbfa0bb396bc263035c5"
+      "screenshots": 250,
+      "bytes": 7778468,
+      "sha256": "27f05237d8f5b1a1def3b3ee061545485f0c146e1d2710f233b879c324e3475d"
     },
     {
       "file": "chromium-desktop-shard-3.zip",
       "browser_resolution": "chromium_desktop",
-      "screenshots": 222,
-      "bytes": 6686024,
-      "sha256": "088a20f6ca58af6d7f785534d84f5f30e74f179fc9afb49a24e5d72447d2f2aa"
+      "screenshots": 244,
+      "bytes": 6710416,
+      "sha256": "c325cfb11b167561b43905f3b25805d44ebe6f91002233130d7df310bf2e6e68"
     },
     {
       "file": "chromium-mobile-shard-0.zip",
       "browser_resolution": "chromium_mobile",
-      "screenshots": 227,
-      "bytes": 31284948,
-      "sha256": "8b644b42168fa749b6f0ab8424f94002d825f48c45ccf1deaf08911fd67dfc5b"
+      "screenshots": 249,
+      "bytes": 30569550,
+      "sha256": "a5a9ff6ce181500a00cfa81540b0b9001e89106f9a6449de420f8d39833adac9"
     },
     {
       "file": "chromium-mobile-shard-1.zip",
       "browser_resolution": "chromium_mobile",
-      "screenshots": 223,
-      "bytes": 31525638,
-      "sha256": "4aa39658a54b9f304699322372bb5562369fd9883a67c2021d352d456cc1a54d"
+      "screenshots": 245,
+      "bytes": 32885670,
+      "sha256": "2da8ddc5870dc1d7f3fc1469b6b6f7f10e9cefe5733f64dbfc9eb6062bd81d24"
     },
     {
       "file": "chromium-mobile-shard-2.zip",
       "browser_resolution": "chromium_mobile",
-      "screenshots": 228,
-      "bytes": 32356222,
-      "sha256": "bbce977cf694f0fe41863c542b1abd4f3e7fc08f8d12b701192abed74cd05849"
+      "screenshots": 250,
+      "bytes": 33946812,
+      "sha256": "bbaa897e0917286a3db2d2320821850c5019809b8e2b0d65a87bed6977d1b497"
     },
     {
       "file": "chromium-mobile-shard-3.zip",
       "browser_resolution": "chromium_mobile",
-      "screenshots": 222,
-      "bytes": 29275750,
-      "sha256": "39ef0772c73add3027e09455d84f366045a1e5c0e6d809a407706148e9af2e58"
-    },
-    {
-      "file": "zz-b1c-chromium-desktop.zip",
-      "browser_resolution": "chromium_desktop",
-      "screenshots": 5,
-      "bytes": 143596,
-      "sha256": "e015282114d6d8b90c85e9223d35478ba5a57282a6f1bf8b585fd82272b83108"
-    },
-    {
-      "file": "zz-b1c-chromium-mobile.zip",
-      "browser_resolution": "chromium_mobile",
-      "screenshots": 5,
-      "bytes": 377430,
-      "sha256": "31f03ccd4b0284a89194c17c34946f41079926fb5f6b2578455e95c8eb586f9c"
-    },
-    {
-      "file": "zz-b1d-chromium-desktop.zip",
-      "browser_resolution": "chromium_desktop",
-      "screenshots": 6,
-      "bytes": 125948,
-      "sha256": "1e9bb83b71a824be07ad6b6620ff26e55908757ca81b20c27bfde83074f58ac1"
-    },
-    {
-      "file": "zz-b1d-chromium-mobile.zip",
-      "browser_resolution": "chromium_mobile",
-      "screenshots": 6,
-      "bytes": 377996,
-      "sha256": "31fa53efaec2515700f5878a68c6500cc334e0b29f2b7dcac233ad2d30df5529"
-    },
-    {
-      "file": "zz-b1d-postmerge-chromium-mobile.zip",
-      "browser_resolution": "chromium_mobile",
-      "screenshots": 1,
-      "bytes": 21472,
-      "sha256": "a4d3d8b3ff4efbc0e7722d1a0307e207b4ff7bea198b77a1c94642181585bead"
-    },
-    {
-      "file": "zz-b1e-chromium-desktop.zip",
-      "browser_resolution": "chromium_desktop",
-      "screenshots": 6,
-      "bytes": 170242,
-      "sha256": "2af544a072085da94f3b9855d21f357d286de646882a1b187f79c68bf9960ace"
-    },
-    {
-      "file": "zz-b1e-chromium-mobile.zip",
-      "browser_resolution": "chromium_mobile",
-      "screenshots": 6,
-      "bytes": 315700,
-      "sha256": "b89750822afbdef222861dade9f5b7d7b278e421288d57dd06b43cd3338e0ce2"
-    },
-    {
-      "file": "zz-b1e-postmerge-chromium-mobile.zip",
-      "browser_resolution": "chromium_mobile",
-      "screenshots": 1,
-      "bytes": 24802,
-      "sha256": "bc53b82b2eaa3a4b948e102abace877bd63265956af36b1fcfacf5c9abf55d5b"
-    },
-    {
-      "file": "zz-migration-wave-tooling-chromium-desktop.zip",
-      "browser_resolution": "chromium_desktop",
-      "screenshots": 1,
-      "bytes": 9342,
-      "sha256": "3dfba11a1efda88b35ae9bac984274b673142f73ccd96c4002163b1e0edd6283"
-    },
-    {
-      "file": "zz-migration-wave-tooling-chromium-mobile.zip",
-      "browser_resolution": "chromium_mobile",
-      "screenshots": 1,
-      "bytes": 83706,
-      "sha256": "126b3495e21eded1662d7d81e84c264419afbc1667a0139e17ac177eb85d15b8"
-    },
-    {
-      "file": "zz-b1f-chromium-desktop.zip",
-      "browser_resolution": "chromium_desktop",
-      "screenshots": 33,
-      "bytes": 625968,
-      "sha256": "b65ec0a22a956196dc7550b009602a539c2357afd1ad425f9e20f22fc68550ca"
-    },
-    {
-      "file": "zz-b1f-chromium-mobile-aa.zip",
-      "browser_resolution": "chromium_mobile",
-      "screenshots": 3,
-      "bytes": 653712,
-      "sha256": "02046504d772f2dc8370da15eeca52e9d9218479a540ac33a848b7b9f5ee901f"
-    },
-    {
-      "file": "zz-b1f-chromium-mobile-ab.zip",
-      "browser_resolution": "chromium_mobile",
-      "screenshots": 3,
-      "bytes": 442144,
-      "sha256": "52eb7473865138f40413018243f9dbbf27b08e1bd2abe4c4d45f22f20bf1eb7d"
-    },
-    {
-      "file": "zz-b1f-chromium-mobile-ad.zip",
-      "browser_resolution": "chromium_mobile",
-      "screenshots": 3,
-      "bytes": 628014,
-      "sha256": "8863daf27ebff4afba8e1f11b6532327f8ab064d7c027fe974c06f6a360a610f"
-    },
-    {
-      "file": "zz-b1f-chromium-mobile-ae.zip",
-      "browser_resolution": "chromium_mobile",
-      "screenshots": 3,
-      "bytes": 261528,
-      "sha256": "20aaa9d7fb744b34f7d65bc5863c0ba4e8359df0084ba8cb5a245eaef4e927e1"
-    },
-    {
-      "file": "zz-b1f-chromium-mobile-af.zip",
-      "browser_resolution": "chromium_mobile",
-      "screenshots": 3,
-      "bytes": 395954,
-      "sha256": "83fa66c09189dbd719615764f7a17b54523e68f93671c8aa7692200ff74b0458"
-    },
-    {
-      "file": "zz-b1f-chromium-mobile-ag.zip",
-      "browser_resolution": "chromium_mobile",
-      "screenshots": 3,
-      "bytes": 127138,
-      "sha256": "9a662fbc179dd1bb4309e4eafea9aa10afbf8b946c73af9c25f845e0f081d7f3"
-    },
-    {
-      "file": "zz-b1f-chromium-mobile-ah.zip",
-      "browser_resolution": "chromium_mobile",
-      "screenshots": 3,
-      "bytes": 116182,
-      "sha256": "5ab6bbc3f7447c23b688c027e35cb8a13e93458e7517f7aae341bec44341ce93"
-    },
-    {
-      "file": "zz-b1f-chromium-mobile-ai.zip",
-      "browser_resolution": "chromium_mobile",
-      "screenshots": 3,
-      "bytes": 117114,
-      "sha256": "9137f7af4973570e333f27b4df43931366d92bccd405a4a25f39ed82f3874484"
-    },
-    {
-      "file": "zz-b1f-chromium-mobile-aj.zip",
-      "browser_resolution": "chromium_mobile",
-      "screenshots": 3,
-      "bytes": 116772,
-      "sha256": "08f149343d5827f53c9376ea6dfe017813eae630f3727b3f0405209e60117b63"
-    },
-    {
-      "file": "zz-b1f-chromium-mobile-ak.zip",
-      "browser_resolution": "chromium_mobile",
-      "screenshots": 3,
-      "bytes": 107306,
-      "sha256": "1bb1a15ff311069f1b6c43702966557060f385400f7df83871f2a82eff2b1974"
-    },
-    {
-      "file": "zz-b1f-chromium-mobile-ac1.zip",
-      "browser_resolution": "chromium_mobile",
-      "screenshots": 1,
-      "bytes": 123272,
-      "sha256": "f3f0d576f7f8af6849aff9efe44122e68c653f99404a5632d35c45853a6da5f7"
-    },
-    {
-      "file": "zz-b1f-chromium-mobile-ac2.zip",
-      "browser_resolution": "chromium_mobile",
-      "screenshots": 1,
-      "bytes": 344722,
-      "sha256": "ce68eeefff07395822dec9e1bc69c938f7838a8096eb6b7018907b8b9d63cc8e"
-    },
-    {
-      "file": "zz-b1f-chromium-mobile-ac3.zip",
-      "browser_resolution": "chromium_mobile",
-      "screenshots": 1,
-      "bytes": 338902,
-      "sha256": "d09bd508f6bd852241e494e112f4063207acbfea284fd48078dae476d7fae221"
-    },
-    {
-      "file": "zz-b1f-final-chromium-desktop.zip",
-      "browser_resolution": "chromium_desktop",
-      "screenshots": 1,
-      "bytes": 24328,
-      "sha256": "8b928cf1c8365cb53a7c467e8beaa6b3a5c87108107e4c1d9a323dbd0ac82343"
-    },
-    {
-      "file": "zz-b1f-final-chromium-mobile.zip",
-      "browser_resolution": "chromium_mobile",
-      "screenshots": 1,
-      "bytes": 26396,
-      "sha256": "95bfd93461dbaf250c8fcbb0aab20f52be1cc3e7bcf650aad5232b882ad9c2d1"
-    },
-    {
-      "file": "zz-b1f-postmerge-chromium-desktop.zip",
-      "browser_resolution": "chromium_desktop",
-      "screenshots": 1,
-      "bytes": 19994,
-      "sha256": "ab3bf94e53db2e58ed901846153868b4993c7fccf094a945712dcf28cba766bd"
-    },
-    {
-      "file": "zz-b1f-postmerge-chromium-mobile.zip",
-      "browser_resolution": "chromium_mobile",
-      "screenshots": 1,
-      "bytes": 133738,
-      "sha256": "8804c32e693f3ca4f619c70d7880c30c9a6317bb2f666b06a046008efb5af2fb"
-    },
-    {
-      "file": "zz-b1g-chromium-desktop.zip",
-      "browser_resolution": "chromium_desktop",
-      "screenshots": 21,
-      "bytes": 539648,
-      "sha256": "f183fd8676bb8e21057f9e2c670da67b76f2548f0d3984db3d9a6800a7fcc204"
-    },
-    {
-      "file": "zz-b1g-chromium-mobile-aa.zip",
-      "browser_resolution": "chromium_mobile",
-      "screenshots": 6,
-      "bytes": 518982,
-      "sha256": "f2b09b5552d130e3141a2a2e74bfb23deb7aad31a0da75355f7d67c37819d94f"
-    },
-    {
-      "file": "zz-b1g-chromium-mobile-ab.zip",
-      "browser_resolution": "chromium_mobile",
-      "screenshots": 5,
-      "bytes": 420526,
-      "sha256": "eb106dd4fc7f8d0ce3bb2022b77d47c328f9ae2b4a946f2960e98891328178d2"
-    },
-    {
-      "file": "zz-b1g-chromium-mobile-ac.zip",
-      "browser_resolution": "chromium_mobile",
-      "screenshots": 5,
-      "bytes": 415784,
-      "sha256": "71ef842c76bf21fbc89caa57606a03029649de6217c2f842f2f26756ee3a4f82"
-    },
-    {
-      "file": "zz-b1g-chromium-mobile-ad.zip",
-      "browser_resolution": "chromium_mobile",
-      "screenshots": 5,
-      "bytes": 512970,
-      "sha256": "714c8fd3f12e4011895a1ac86757fcaedf2b1231da6b53694018bbfe6a5a431c"
-    },
-    {
-      "file": "zz-b1g-final-chromium-desktop.zip",
-      "browser_resolution": "chromium_desktop",
-      "screenshots": 1,
-      "bytes": 6320,
-      "sha256": "7f512a8cf1905107225f8e0fba5987a3905ff7ebf0dfa2b5021f2b5e3a64dc8f"
-    },
-    {
-      "file": "zz-b1g-final-chromium-mobile.zip",
-      "browser_resolution": "chromium_mobile",
-      "screenshots": 1,
-      "bytes": 6706,
-      "sha256": "bcd345f396b842d3ab6e1ebb79c446bbabb9eda5288032ed621310c78d81cfca"
-    },
-    {
-      "file": "zz-b2a-chromium-desktop.zip",
-      "browser_resolution": "chromium_desktop",
-      "screenshots": 37,
-      "bytes": 767064,
-      "sha256": "5be6beaaf8cd03028f9ecc3d2b7dddaeedbee5238947631217ed467845e116a2"
-    },
-    {
-      "file": "zz-b2a-chromium-mobile-aa.zip",
-      "browser_resolution": "chromium_mobile",
-      "screenshots": 7,
-      "bytes": 563936,
-      "sha256": "f610e329483dd8e78e7c3e770ec8a15d854fc73c742d765b6f236506d7f9633d"
-    },
-    {
-      "file": "zz-b2a-chromium-mobile-ab.zip",
-      "browser_resolution": "chromium_mobile",
-      "screenshots": 6,
-      "bytes": 1004960,
-      "sha256": "231134024bb5b95af115c1b5daa820bbf7a46d79dd2f8585991589a9b3cddc3e"
-    },
-    {
-      "file": "zz-b2a-chromium-mobile-ac.zip",
-      "browser_resolution": "chromium_mobile",
-      "screenshots": 6,
-      "bytes": 955286,
-      "sha256": "c9860fd0bafbf7a23b5ffeae27fcc0b6db8ec1815dfbc9c84f99042119d2c36f"
-    },
-    {
-      "file": "zz-b2a-chromium-mobile-ad.zip",
-      "browser_resolution": "chromium_mobile",
-      "screenshots": 6,
-      "bytes": 398624,
-      "sha256": "bc6aac10464daaf91d8ba5af8c7f29e8c39f1ef669d0aed151ad673fbbcc56f6"
-    },
-    {
-      "file": "zz-b2a-chromium-mobile-ae.zip",
-      "browser_resolution": "chromium_mobile",
-      "screenshots": 6,
-      "bytes": 379604,
-      "sha256": "de1934f6304f25a8775ce269bd03dc805ca5703b4999f6315fafcd39771bc336"
-    },
-    {
-      "file": "zz-b2a-chromium-mobile-af.zip",
-      "browser_resolution": "chromium_mobile",
-      "screenshots": 6,
-      "bytes": 466672,
-      "sha256": "c24e8a250b4da07d9cd8878379ea4d6135c8c4fe5dcb312d547fbbb6596d4824"
-    },
-    {
-      "file": "zz-b2a-final-chromium-desktop.zip",
-      "browser_resolution": "chromium_desktop",
-      "screenshots": 1,
-      "bytes": 6462,
-      "sha256": "a1895ff9468d0d091fbcfbbc37e56e81a7ae291fb30ddf33932f24422c7883f0"
-    },
-    {
-      "file": "zz-b2a-final-chromium-mobile.zip",
-      "browser_resolution": "chromium_mobile",
-      "screenshots": 1,
-      "bytes": 6894,
-      "sha256": "f19b5f1aefb9c755f0b0d30a2482c6a98f16e2951791958b3938cc334ae80262"
-    },
-    {
-      "file": "zz-b2a-zz-evidence-correction-chromium-desktop.zip",
-      "browser_resolution": "chromium_desktop",
-      "screenshots": 1,
-      "bytes": 6712,
-      "sha256": "28bc4df0836892f4a3d428904580cc33960ebb63e22f08b16dc08140017eda2b"
-    },
-    {
-      "file": "zz-b2a-zz-evidence-correction-chromium-mobile.zip",
-      "browser_resolution": "chromium_mobile",
-      "screenshots": 1,
-      "bytes": 7310,
-      "sha256": "7ba45ba3076615b621094b60f07f970c51a278a443bc94932760aa59d2830bc9"
+      "screenshots": 244,
+      "bytes": 29668144,
+      "sha256": "a99597720803a7f103cb9a6997730a5e71de00c5b0e4ef6c5d4f7766c83cfa98"
     }
   ]
 }
