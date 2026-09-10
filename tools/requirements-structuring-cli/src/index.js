@@ -555,7 +555,8 @@ addNFROptions(program.command('pipeline <input-file>'))
       terminalLog(chalk.cyan('\n  BDD/Gherkin:'));
       terminalLog(chalk.cyan(`    • ${baseName}.feature`));
     } catch (err) {
-      terminalError(chalk.red(`Pipeline error: ${sanitizeErrorPayload(err && err.message ? err.message : String(err))}`));
+      const diagnostic = sanitizeErrorPayload(err && err.message ? err.message : String(err));
+      terminalError(chalk.red(`Pipeline error: ${diagnostic.message || 'Unknown error'}`));
       process.exitCode = 1;
     } finally {
       restoreProvider();
