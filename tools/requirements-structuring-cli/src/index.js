@@ -35,6 +35,7 @@ const ReportGenerator = require('./report-generator');
 const AmbiguityDetector = require('./ambiguity-detector');
 const GherkinGenerator = require('./gherkin-generator');
 const NFRGenerator = require('./nfr-generator');
+const { addNFROptions, normalizeNFROptions, configureNFRProvider } = require('./nfr-options');
 
 function terminalLog(message) {
   const safeMessage = sanitizeTerminalValue(message);
@@ -314,38 +315,42 @@ program
   });
 
 // ─── generate-nfr ────────────────────────────────────────────────────────────
-program
-  .command('generate-nfr <input-file>')
+addNFROptions(program.command('generate-nfr <input-file>'))
   .description('Run the NFR command skeleton on structured requirements or UCS JSON')
   .option('-o, --output <dir>', 'Output directory', './output')
   .action(async (inputFile, opts) => {
     const spinner = ora('Loading NFR input...').start();
+    let restoreProvider = () => {};
     try {
+      const options = normalizeNFROptions(opts);
+      restoreProvider = configureNFRProvider(options);
       const input = await fs.readJSON(path.resolve(inputFile));
       const generator = new NFRGenerator();
-      const result = await generator.run(input, opts);
+      const result = await generator.run(input, options);
       spinner.succeed('NFR skeleton complete');
       terminalLog(chalk.yellow(result.notice));
     } catch (err) {
       spinnerFail(spinner, err && err.message ? err.message : String(err));
-      process.exit(1);
+      process.exitCode = 1;
+    } finally {
+      restoreProvider();
     }
   });
 
 // ─── pipeline ────────────────────────────────────────────────────────────────
-program
-  .command('pipeline <input-file>')
+addNFROptions(program.command('pipeline <input-file>'))
   .description('Full 5-phase pipeline per Li & Zheng (2025)')
   .option('--activity <file>', 'Business process model JSON')
   .option('--state <files...>', 'State model JSON file(s)')
   .option('-o, --output-dir <dir>', 'Output directory', './output')
   .action(async (inputFile, opts) => {
-    const outputDir = buildSafeOutputPath(opts.outputDir);
-    await fs.ensureDir(outputDir);
-
-    const baseName = path.basename(inputFile, path.extname(inputFile));
-
+    let restoreProvider = () => {};
     try {
+      const nfrOptions = normalizeNFROptions(opts);
+      restoreProvider = configureNFRProvider(nfrOptions);
+      const outputDir = buildSafeOutputPath(opts.outputDir);
+      await fs.ensureDir(outputDir);
+      const baseName = path.basename(inputFile, path.extname(inputFile));
       // ═══ Phase 0: Ambiguity Detection ═══════════════════════════════════════
       terminalLog(chalk.blue.bold('\n═══ Phase 0: Ambiguity Detection ═══'));
       const rawContent = await fs.readFile(path.resolve(inputFile), 'utf-8');
@@ -432,7 +437,7 @@ program
       // ═══ NFR Phase: after UCS, test cases and Gherkin ═════════════════════
       terminalLog(chalk.blue.bold('\n═══ NFR Phase ═══'));
       const nfrGenerator = new NFRGenerator();
-      const nfrResult = await nfrGenerator.run(ucsJSON2, { output: outputDir, baseName });
+      const nfrResult = await nfrGenerator.run(ucsJSON2, { ...nfrOptions, output: outputDir, baseName });
       terminalLog(chalk.yellow(nfrResult.notice));
 
       const { proceed: proceed2 } = await inquirer.prompt([
@@ -538,7 +543,9 @@ program
       terminalLog(chalk.cyan(`    • ${baseName}.feature`));
     } catch (err) {
       terminalError(chalk.red(`Pipeline error: ${sanitizeErrorPayload(err && err.message ? err.message : String(err))}`));
-      process.exit(1);
+      process.exitCode = 1;
+    } finally {
+      restoreProvider();
     }
   });
 
