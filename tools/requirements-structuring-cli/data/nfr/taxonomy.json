@@ -1,0 +1,540 @@
+{
+  "accuracyNotice": "Taxonomy structure and sub-characteristic descriptions are reconstructed from secondary/public sources, not the primary ISO/IEC 25010:2023 document (paywalled). REQUIRES human verification against the purchased standard before being treated as authoritative for a released product.",
+  "revision": "0.1.0",
+  "standardEdition": "ISO/IEC 25010:2023",
+  "curatedOn": "2026-09-10",
+  "releaseStatus": "requires-human-verification",
+  "sources": [
+    {
+      "id": "square-public-1",
+      "title": "ISO25000.com public product-quality overview (first four characteristics)",
+      "url": "https://iso25000.com/index.php/en/iso-25000-standards/iso-25010",
+      "accessedOn": "2026-09-10",
+      "kind": "secondary-public-description"
+    },
+    {
+      "id": "square-public-2",
+      "title": "ISO25000.com public product-quality overview (reliability through safety)",
+      "url": "https://iso25000.com/index.php/en/iso-25000-standards/iso-25010?start=5",
+      "accessedOn": "2026-09-10",
+      "kind": "secondary-public-description"
+    },
+    {
+      "id": "istqb-2025",
+      "title": "ISTQB CTAL-TA v4.0 (2025), Appendix F, pp. 72–73; structure cross-check only",
+      "url": "https://istqb.org/?download_id=5745&sdm_process_download=1",
+      "accessedOn": "2026-09-10",
+      "kind": "secondary-public-description"
+    }
+  ],
+  "characteristics": [
+    {
+      "id": "functional-suitability",
+      "name": "Functional suitability",
+      "description": "Functions address stakeholder needs.",
+      "sources": [
+        "square-public-1",
+        "istqb-2025"
+      ],
+      "verification": "REQUIRES_PRIMARY_REVIEW",
+      "subCharacteristics": [
+        {
+          "id": "functional-completeness",
+          "name": "Functional completeness",
+          "description": "Covers the intended task set.",
+          "sources": [
+            "square-public-1",
+            "istqb-2025"
+          ],
+          "verification": "REQUIRES_PRIMARY_REVIEW"
+        },
+        {
+          "id": "functional-correctness",
+          "name": "Functional correctness",
+          "description": "Produces the expected accurate results.",
+          "sources": [
+            "square-public-1",
+            "istqb-2025"
+          ],
+          "verification": "REQUIRES_PRIMARY_REVIEW"
+        },
+        {
+          "id": "functional-appropriateness",
+          "name": "Functional appropriateness",
+          "description": "Helps users accomplish their objectives.",
+          "sources": [
+            "square-public-1",
+            "istqb-2025"
+          ],
+          "verification": "REQUIRES_PRIMARY_REVIEW"
+        }
+      ]
+    },
+    {
+      "id": "performance-efficiency",
+      "name": "Performance efficiency",
+      "description": "Delivers work within resource budgets.",
+      "sources": [
+        "square-public-1",
+        "istqb-2025"
+      ],
+      "verification": "REQUIRES_PRIMARY_REVIEW",
+      "subCharacteristics": [
+        {
+          "id": "time-behaviour",
+          "name": "Time behaviour",
+          "description": "Meets response and throughput targets.",
+          "sources": [
+            "square-public-1",
+            "istqb-2025"
+          ],
+          "verification": "REQUIRES_PRIMARY_REVIEW"
+        },
+        {
+          "id": "resource-utilization",
+          "name": "Resource utilization",
+          "description": "Stays within resource consumption limits.",
+          "sources": [
+            "square-public-1",
+            "istqb-2025"
+          ],
+          "verification": "REQUIRES_PRIMARY_REVIEW"
+        },
+        {
+          "id": "capacity",
+          "name": "Capacity",
+          "description": "Supports the specified operating limits.",
+          "sources": [
+            "square-public-1",
+            "istqb-2025"
+          ],
+          "verification": "REQUIRES_PRIMARY_REVIEW"
+        }
+      ]
+    },
+    {
+      "id": "compatibility",
+      "name": "Compatibility",
+      "description": "Works alongside and with peers.",
+      "sources": [
+        "square-public-1",
+        "istqb-2025"
+      ],
+      "verification": "REQUIRES_PRIMARY_REVIEW",
+      "subCharacteristics": [
+        {
+          "id": "co-existence",
+          "name": "Co-existence",
+          "description": "Shares resources without disrupting peers.",
+          "sources": [
+            "square-public-1",
+            "istqb-2025"
+          ],
+          "verification": "REQUIRES_PRIMARY_REVIEW"
+        },
+        {
+          "id": "interoperability",
+          "name": "Interoperability",
+          "description": "Exchanges information usable by peers.",
+          "sources": [
+            "square-public-1",
+            "istqb-2025"
+          ],
+          "verification": "REQUIRES_PRIMARY_REVIEW"
+        }
+      ]
+    },
+    {
+      "id": "interaction-capability",
+      "name": "Interaction capability",
+      "description": "Supports effective interaction with users.",
+      "sources": [
+        "square-public-1",
+        "istqb-2025"
+      ],
+      "verification": "REQUIRES_PRIMARY_REVIEW",
+      "subCharacteristics": [
+        {
+          "id": "appropriateness-recognizability",
+          "name": "Appropriateness recognizability",
+          "description": "Makes suitability apparent to users.",
+          "sources": [
+            "square-public-1",
+            "istqb-2025"
+          ],
+          "verification": "REQUIRES_PRIMARY_REVIEW"
+        },
+        {
+          "id": "learnability",
+          "name": "Learnability",
+          "description": "Enables learning within allotted time.",
+          "sources": [
+            "square-public-1",
+            "istqb-2025"
+          ],
+          "verification": "REQUIRES_PRIMARY_REVIEW"
+        },
+        {
+          "id": "operability",
+          "name": "Operability",
+          "description": "Makes operation and control straightforward.",
+          "sources": [
+            "square-public-1",
+            "istqb-2025"
+          ],
+          "verification": "REQUIRES_PRIMARY_REVIEW"
+        },
+        {
+          "id": "user-error-protection",
+          "name": "User error protection",
+          "description": "Prevents harmful user operation mistakes.",
+          "sources": [
+            "square-public-1",
+            "istqb-2025"
+          ],
+          "verification": "REQUIRES_PRIMARY_REVIEW"
+        },
+        {
+          "id": "user-engagement",
+          "name": "User engagement",
+          "description": "Encourages users to continue interacting.",
+          "sources": [
+            "square-public-1",
+            "istqb-2025"
+          ],
+          "verification": "REQUIRES_PRIMARY_REVIEW"
+        },
+        {
+          "id": "inclusivity",
+          "name": "Inclusivity",
+          "description": "Accommodates diverse backgrounds and capabilities.",
+          "sources": [
+            "square-public-1",
+            "istqb-2025"
+          ],
+          "verification": "REQUIRES_PRIMARY_REVIEW"
+        },
+        {
+          "id": "user-assistance",
+          "name": "User assistance",
+          "description": "Supports varied users achieving goals.",
+          "sources": [
+            "square-public-1",
+            "istqb-2025"
+          ],
+          "verification": "REQUIRES_PRIMARY_REVIEW"
+        },
+        {
+          "id": "self-descriptiveness",
+          "name": "Self-descriptiveness",
+          "description": "Explains available actions when needed.",
+          "sources": [
+            "square-public-1",
+            "istqb-2025"
+          ],
+          "verification": "REQUIRES_PRIMARY_REVIEW"
+        }
+      ]
+    },
+    {
+      "id": "reliability",
+      "name": "Reliability",
+      "description": "Sustains intended service over time.",
+      "sources": [
+        "square-public-2",
+        "istqb-2025"
+      ],
+      "verification": "REQUIRES_PRIMARY_REVIEW",
+      "subCharacteristics": [
+        {
+          "id": "faultlessness",
+          "name": "Faultlessness",
+          "description": "Avoids faults during normal use.",
+          "sources": [
+            "square-public-2",
+            "istqb-2025"
+          ],
+          "verification": "REQUIRES_PRIMARY_REVIEW"
+        },
+        {
+          "id": "availability",
+          "name": "Availability",
+          "description": "Remains usable when needed.",
+          "sources": [
+            "square-public-2",
+            "istqb-2025"
+          ],
+          "verification": "REQUIRES_PRIMARY_REVIEW"
+        },
+        {
+          "id": "fault-tolerance",
+          "name": "Fault tolerance",
+          "description": "Continues despite component faults.",
+          "sources": [
+            "square-public-2",
+            "istqb-2025"
+          ],
+          "verification": "REQUIRES_PRIMARY_REVIEW"
+        },
+        {
+          "id": "recoverability",
+          "name": "Recoverability",
+          "description": "Restores affected data and operation.",
+          "sources": [
+            "square-public-2",
+            "istqb-2025"
+          ],
+          "verification": "REQUIRES_PRIMARY_REVIEW"
+        }
+      ]
+    },
+    {
+      "id": "security",
+      "name": "Security",
+      "description": "Protects data and withstands attacks.",
+      "sources": [
+        "square-public-2",
+        "istqb-2025"
+      ],
+      "verification": "REQUIRES_PRIMARY_REVIEW",
+      "subCharacteristics": [
+        {
+          "id": "confidentiality",
+          "name": "Confidentiality",
+          "description": "Restricts disclosure to authorized parties.",
+          "sources": [
+            "square-public-2",
+            "istqb-2025"
+          ],
+          "verification": "REQUIRES_PRIMARY_REVIEW"
+        },
+        {
+          "id": "integrity",
+          "name": "Integrity",
+          "description": "Prevents unauthorized changes or loss.",
+          "sources": [
+            "square-public-2",
+            "istqb-2025"
+          ],
+          "verification": "REQUIRES_PRIMARY_REVIEW"
+        },
+        {
+          "id": "non-repudiation",
+          "name": "Non-repudiation",
+          "description": "Preserves evidence of performed actions.",
+          "sources": [
+            "square-public-2",
+            "istqb-2025"
+          ],
+          "verification": "REQUIRES_PRIMARY_REVIEW"
+        },
+        {
+          "id": "accountability",
+          "name": "Accountability",
+          "description": "Attributes actions to specific entities.",
+          "sources": [
+            "square-public-2",
+            "istqb-2025"
+          ],
+          "verification": "REQUIRES_PRIMARY_REVIEW"
+        },
+        {
+          "id": "authenticity",
+          "name": "Authenticity",
+          "description": "Verifies claimed identities.",
+          "sources": [
+            "square-public-2",
+            "istqb-2025"
+          ],
+          "verification": "REQUIRES_PRIMARY_REVIEW"
+        },
+        {
+          "id": "resistance",
+          "name": "Resistance",
+          "description": "Sustains service under malicious attack.",
+          "sources": [
+            "square-public-2",
+            "istqb-2025"
+          ],
+          "verification": "REQUIRES_PRIMARY_REVIEW"
+        }
+      ]
+    },
+    {
+      "id": "maintainability",
+      "name": "Maintainability",
+      "description": "Supports effective product changes.",
+      "sources": [
+        "square-public-2",
+        "istqb-2025"
+      ],
+      "verification": "REQUIRES_PRIMARY_REVIEW",
+      "subCharacteristics": [
+        {
+          "id": "modularity",
+          "name": "Modularity",
+          "description": "Limits impact across component boundaries.",
+          "sources": [
+            "square-public-2",
+            "istqb-2025"
+          ],
+          "verification": "REQUIRES_PRIMARY_REVIEW"
+        },
+        {
+          "id": "reusability",
+          "name": "Reusability",
+          "description": "Enables use in other products.",
+          "sources": [
+            "square-public-2",
+            "istqb-2025"
+          ],
+          "verification": "REQUIRES_PRIMARY_REVIEW"
+        },
+        {
+          "id": "analysability",
+          "name": "Analysability",
+          "description": "Supports diagnosis and impact assessment.",
+          "sources": [
+            "square-public-2",
+            "istqb-2025"
+          ],
+          "verification": "REQUIRES_PRIMARY_REVIEW"
+        },
+        {
+          "id": "modifiability",
+          "name": "Modifiability",
+          "description": "Allows changes without degrading quality.",
+          "sources": [
+            "square-public-2",
+            "istqb-2025"
+          ],
+          "verification": "REQUIRES_PRIMARY_REVIEW"
+        },
+        {
+          "id": "testability",
+          "name": "Testability",
+          "description": "Supports establishing and checking criteria.",
+          "sources": [
+            "square-public-2",
+            "istqb-2025"
+          ],
+          "verification": "REQUIRES_PRIMARY_REVIEW"
+        }
+      ]
+    },
+    {
+      "id": "flexibility",
+      "name": "Flexibility",
+      "description": "Accommodates changing operating circumstances.",
+      "sources": [
+        "square-public-2",
+        "istqb-2025"
+      ],
+      "verification": "REQUIRES_PRIMARY_REVIEW",
+      "subCharacteristics": [
+        {
+          "id": "adaptability",
+          "name": "Adaptability",
+          "description": "Transfers across supported environments.",
+          "sources": [
+            "square-public-2",
+            "istqb-2025"
+          ],
+          "verification": "REQUIRES_PRIMARY_REVIEW"
+        },
+        {
+          "id": "scalability",
+          "name": "Scalability",
+          "description": "Adjusts capacity to workload variation.",
+          "sources": [
+            "square-public-2",
+            "istqb-2025"
+          ],
+          "verification": "REQUIRES_PRIMARY_REVIEW"
+        },
+        {
+          "id": "installability",
+          "name": "Installability",
+          "description": "Supports successful installation and removal.",
+          "sources": [
+            "square-public-2",
+            "istqb-2025"
+          ],
+          "verification": "REQUIRES_PRIMARY_REVIEW"
+        },
+        {
+          "id": "replaceability",
+          "name": "Replaceability",
+          "description": "Substitutes for a comparable product.",
+          "sources": [
+            "square-public-2",
+            "istqb-2025"
+          ],
+          "verification": "REQUIRES_PRIMARY_REVIEW"
+        }
+      ]
+    },
+    {
+      "id": "safety",
+      "name": "Safety",
+      "description": "Avoids endangering people or surroundings.",
+      "sources": [
+        "square-public-2",
+        "istqb-2025"
+      ],
+      "verification": "REQUIRES_PRIMARY_REVIEW",
+      "subCharacteristics": [
+        {
+          "id": "operational-constraint",
+          "name": "Operational constraint",
+          "description": "Keeps operation within safe bounds.",
+          "sources": [
+            "square-public-2",
+            "istqb-2025"
+          ],
+          "verification": "REQUIRES_PRIMARY_REVIEW"
+        },
+        {
+          "id": "risk-identification",
+          "name": "Risk identification",
+          "description": "Recognizes sequences leading to hazards.",
+          "sources": [
+            "square-public-2",
+            "istqb-2025"
+          ],
+          "verification": "REQUIRES_PRIMARY_REVIEW"
+        },
+        {
+          "id": "fail-safe",
+          "name": "Fail safe",
+          "description": "Enters a safe failure state.",
+          "sources": [
+            "square-public-2",
+            "istqb-2025"
+          ],
+          "verification": "REQUIRES_PRIMARY_REVIEW"
+        },
+        {
+          "id": "hazard-warning",
+          "name": "Hazard warning",
+          "description": "Warns early enough for intervention.",
+          "sources": [
+            "square-public-2",
+            "istqb-2025"
+          ],
+          "verification": "REQUIRES_PRIMARY_REVIEW"
+        },
+        {
+          "id": "safe-integration",
+          "name": "Safe integration",
+          "description": "Maintains safety when combining components.",
+          "sources": [
+            "square-public-2",
+            "istqb-2025"
+          ],
+          "verification": "REQUIRES_PRIMARY_REVIEW"
+        }
+      ]
+    }
+  ]
+}
