@@ -1,4 +1,5 @@
 const { InvalidArgumentError } = require('commander');
+const { selectOverlay } = require('./nfr-overlays');
 
 function nonEmpty(value) {
   if (!value.trim()) throw new InvalidArgumentError('Expected a non-empty value.');
@@ -48,7 +49,7 @@ function normalizeNFROptions(options) {
     ...options,
     attributes: options.attributes || [],
     confidenceThreshold: options.confidenceThreshold ?? null,
-    overlay: options.overlay || options.profile || 'neutral',
+    overlay: selectOverlay(options.overlay || options.profile || 'neutral'),
   };
 }
 

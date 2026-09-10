@@ -168,6 +168,18 @@ artifact; classification (#1108) and generation (#1109) are follow-ups.
 See the [NFR input contract](docs/nfr-input-contract.md) for required fields,
 shape validation, and compatibility decisions. No version marker is required.
 
+```bash
+npm start -- generate-nfr --list-overlays
+npm start -- generate-nfr examples/web-store-ucs.json --profile neutral -o ./output
+```
+
+`--profile <name>` and `--overlay <name>` select the same registry entry. If both
+are supplied, they must agree. The default is `neutral` (no domain overlay);
+listing currently shows only `neutral core (default)`. Unknown names fail
+clearly. The empty registry in `src/nfr-overlays.js` is the selection boundary
+for #1115; this change includes no regulatory or other overlay content.
+Listing needs no input file or API credentials and writes no report.
+
 ### `validate <ucs-file>`
 
 Validate UCS consistency against activity diagrams and/or state machines (Algorithms 2 & 3).

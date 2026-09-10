@@ -37,6 +37,7 @@ const GherkinGenerator = require('./gherkin-generator');
 const NFRGenerator = require('./nfr-generator');
 const { addNFROptions, normalizeNFROptions, configureNFRProvider } = require('./nfr-options');
 const { loadNFRInput } = require('./nfr-input');
+const { listOverlays } = require('./nfr-overlays');
 
 function terminalLog(message) {
   const safeMessage = sanitizeTerminalValue(message);
@@ -319,11 +320,17 @@ program
 addNFROptions(program.command('generate-nfr [input-file]'))
   .description('Run the NFR command skeleton on structured requirements or UCS JSON')
   .option('-o, --output <dir>', 'Output directory', './output')
+  .option('--list-overlays', 'List available overlays without reading input or calling an LLM')
   .action(async (inputFile, opts) => {
     const spinner = ora('Loading NFR input...').start();
     let restoreProvider = () => {};
     try {
       const options = normalizeNFROptions(opts);
+      if (opts.listOverlays) {
+        spinner.stop();
+        for (const overlay of listOverlays()) terminalLog(overlay.label);
+        return;
+      }
       restoreProvider = configureNFRProvider(options);
       const input = await loadNFRInput(inputFile);
       const generator = new NFRGenerator();
