@@ -175,9 +175,12 @@ npm start -- generate-nfr examples/web-store-ucs.json --profile neutral -o ./out
 
 `--profile <name>` and `--overlay <name>` select the same registry entry. If both
 are supplied, they must agree. The default is `neutral` (no domain overlay);
-listing currently shows only `neutral core (default)`. Unknown names fail
-clearly. The empty registry in `src/nfr-overlays.js` is the selection boundary
-for #1115; this change includes no regulatory or other overlay content.
+listing also shows the opt-in review candidates `fda-21-cfr-11`, `hipaa`,
+`pci-dss`, `wcag-22`, and `section-508`. Unknown names fail clearly.
+The [curated library and review requirements](docs/nfr-taxonomy.md) describe
+40 neutral patterns, provenance, overlay scope and versioning. The taxonomy
+requires human verification against the purchased ISO/IEC 25010:2023 standard
+before authoritative release. Selecting an overlay does not establish compliance.
 Listing needs no input file or API credentials and writes no report.
 
 The command writes `<base>-nfr-report.md` through the existing Markdown report
@@ -190,7 +193,7 @@ review gate; all existing phase ordering and gates are preserved.
 | --- | --- |
 | `--provider gemini\|anthropic\|openai` | Override existing `LLM_PROVIDER` selection for the invocation; `openai` also covers compatible APIs using `LLM_BASE_URL`. |
 | `--model <name>` | Override existing `LLM_MODEL` selection for the invocation. |
-| `--attributes <names>` | Comma-separated non-empty names; trimmed/deduplicated and recorded without taxonomy lookup (#1115). |
+| `--attributes <names>` | Comma-separated non-empty names; trimmed/deduplicated and recorded without taxonomy lookup (classification follows in #1108). |
 | `--confidence-threshold <number>` | Finite number in `[0, 1]`; recorded only, no confidence calculation or review gate. |
 | `--profile` / `--overlay` | Select an available name; default `neutral`. |
 | `-o` / `--output <dir>` | Report directory, default `./output`. Pipeline retains `--output-dir` and also accepts `--output`. |

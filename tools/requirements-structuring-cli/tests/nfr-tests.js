@@ -150,12 +150,14 @@ module.exports = async function testNFR(runner) {
       validateNFRInput(runtime);
       assert.strictEqual(JSON.stringify(runtime), before);
     });
-    await test('NFR overlay registry and CLI listing expose only neutral core', async () => {
-      assert.deepStrictEqual(listOverlays(), [{ name: 'neutral', label: 'neutral core (default)' }]);
+    await test('NFR overlay registry lists opt-in candidates and keeps neutral default', async () => {
+      assert.deepStrictEqual(listOverlays().map((entry) => entry.name),
+        ['neutral', 'fda-21-cfr-11', 'hipaa', 'pci-dss', 'wcag-22', 'section-508']);
       const output = path.join(temp, 'list-output');
       const result = cli(['generate-nfr', '--list-overlays', '-o', output]);
       assert.strictEqual(result.status, 0, result.text);
       assert.strictEqual(result.stdout.split('\n').filter((line) => line.includes('(default)')).join(''), 'neutral core (default)');
+      for (const overlay of listOverlays()) assert.ok(result.stdout.includes(overlay.label), overlay.name);
       assert.strictEqual(await fs.pathExists(output), false);
     });
     await test('NFR standalone produces a placeholder from runtime UCS without credentials', async () => {
@@ -169,6 +171,16 @@ module.exports = async function testNFR(runner) {
         assert.ok(report.includes(fragment), fragment);
       }
       assert.deepStrictEqual(await fs.readJSON(runtimePath), runtime);
+    });
+    await test('NFR explicit overlay records selection without generating candidates or calling a provider', async () => {
+      const output = path.join(temp, 'overlay-selection');
+      const result = cli(['generate-nfr', structuredPath, '--overlay', 'wcag-22', '-o', output]);
+      assert.strictEqual(result.status, 0, result.text);
+      const report = await fs.readFile(path.join(output, 'formal-nfr-report.md'), 'utf8');
+      assert.match(report, /wcag-22 \(selection recorded; no patterns generated\)/);
+      assert.match(report, /No classification, NFR candidates/);
+      assert.match(report, /requiring human verification/);
+      assert.doesNotMatch(report, /neutral core; no overlay content/);
     });
     await test('NFR standalone also consumes the formal structure artifact', async () => {
       const output = path.join(temp, 'formal');

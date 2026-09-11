@@ -1,0 +1,271 @@
+{
+  "revision": "0.1.0",
+  "taxonomyRevision": "0.1.0",
+  "releaseStatus": "requires-human-verification",
+  "overlays": [
+    {
+      "id": "fda-21-cfr-11",
+      "label": "21 CFR Part 11 audit-trail candidate",
+      "applicability": "Opt in only after a qualified reviewer determines that 21 CFR Part 11 applies to the closed system and electronic records; this is one audit-trail measure, not complete Part 11 coverage.",
+      "patterns": [
+        {
+          "id": "fda-21-cfr-11.accountability",
+          "subCharacteristic": "accountability",
+          "characteristic": "security",
+          "template": "{{system}} shall produce a time-stamped, attributable audit trail for at least {{target}} percent of record changes in {{scope}} under {{conditions}}.",
+          "parameters": {
+            "system": {
+              "type": "string",
+              "description": "System or component under assessment."
+            },
+            "scope": {
+              "type": "string",
+              "description": "Named, versioned task, interface, event or scenario inventory; must be nonempty."
+            },
+            "conditions": {
+              "type": "string",
+              "description": "Approved measurement plan: environment, workload/cohort, observation window, oracle, aggregation and exclusions."
+            },
+            "target": {
+              "type": "number",
+              "description": "Stakeholder-approved acceptance bound; no framework-prescribed default is implied.",
+              "minimum": 100,
+              "maximum": 100
+            }
+          },
+          "metric": {
+            "type": "coverage",
+            "unit": "percent",
+            "operator": ">=",
+            "targetParameter": "target",
+            "measurement": "Review every create, modify and delete event against actor/time/change evidence; full applicable coverage requires a target of 100 and separate retention/tamper-protection requirements."
+          },
+          "provenance": {
+            "standardEdition": "ISO/IEC 25010:2023",
+            "subCharacteristic": "accountability",
+            "frameworks": [
+              {
+                "id": "cfr11",
+                "section": "11.10(e)"
+              }
+            ],
+            "derivation": "curator-authored; framework-informed measurement, not a normative ISO mapping"
+          },
+          "reviewStatus": "requires-human-verification"
+        }
+      ]
+    },
+    {
+      "id": "hipaa",
+      "label": "HIPAA audit-control candidate",
+      "applicability": "Opt in only for reviewed covered-entity/business-associate ePHI scope; audit-event coverage alone does not satisfy the HIPAA Security Rule.",
+      "patterns": [
+        {
+          "id": "hipaa.accountability",
+          "subCharacteristic": "accountability",
+          "characteristic": "security",
+          "template": "{{system}} shall record reviewable audit evidence for at least {{target}} percent of ePHI activities in {{scope}} under {{conditions}}.",
+          "parameters": {
+            "system": {
+              "type": "string",
+              "description": "System or component under assessment."
+            },
+            "scope": {
+              "type": "string",
+              "description": "Named, versioned task, interface, event or scenario inventory; must be nonempty."
+            },
+            "conditions": {
+              "type": "string",
+              "description": "Approved measurement plan: environment, workload/cohort, observation window, oracle, aggregation and exclusions."
+            },
+            "target": {
+              "type": "number",
+              "description": "Stakeholder-approved acceptance bound; no framework-prescribed default is implied.",
+              "minimum": 0,
+              "maximum": 100
+            }
+          },
+          "metric": {
+            "type": "coverage",
+            "unit": "percent",
+            "operator": ">=",
+            "targetParameter": "target",
+            "measurement": "Freeze the risk-assessed event inventory; verify retained evidence supports examination of each recorded activity."
+          },
+          "provenance": {
+            "standardEdition": "ISO/IEC 25010:2023",
+            "subCharacteristic": "accountability",
+            "frameworks": [
+              {
+                "id": "hipaa",
+                "section": "164.312(b) Audit controls"
+              }
+            ],
+            "derivation": "curator-authored; framework-informed measurement, not a normative ISO mapping"
+          },
+          "reviewStatus": "requires-human-verification"
+        }
+      ]
+    },
+    {
+      "id": "pci-dss",
+      "label": "PCI DSS data-retention candidate",
+      "applicability": "Opt in only after PCI scope and any issuer-specific provisions are reviewed; this checks post-authorization storage of sensitive authentication data, not full PCI DSS compliance.",
+      "patterns": [
+        {
+          "id": "pci-dss.confidentiality",
+          "subCharacteristic": "confidentiality",
+          "characteristic": "security",
+          "template": "{{system}} shall retain at most {{target}} sensitive-authentication-data records in {{scope}} after authorization under {{conditions}}.",
+          "parameters": {
+            "system": {
+              "type": "string",
+              "description": "System or component under assessment."
+            },
+            "scope": {
+              "type": "string",
+              "description": "Named, versioned task, interface, event or scenario inventory; must be nonempty."
+            },
+            "conditions": {
+              "type": "string",
+              "description": "Approved measurement plan: environment, workload/cohort, observation window, oracle, aggregation and exclusions."
+            },
+            "target": {
+              "type": "number",
+              "description": "Stakeholder-approved acceptance bound; no framework-prescribed default is implied.",
+              "minimum": 0,
+              "maximum": 0
+            }
+          },
+          "metric": {
+            "type": "count",
+            "unit": "records",
+            "operator": "<=",
+            "targetParameter": "target",
+            "measurement": "Inspect persistent stores, logs and backups after authorization; the referenced prohibition requires target 0, not an adjustable tolerance."
+          },
+          "provenance": {
+            "standardEdition": "ISO/IEC 25010:2023",
+            "subCharacteristic": "confidentiality",
+            "frameworks": [
+              {
+                "id": "pci",
+                "section": "FAQ 1154; requirement 3.3.1"
+              }
+            ],
+            "derivation": "curator-authored; framework-informed measurement, not a normative ISO mapping"
+          },
+          "reviewStatus": "requires-human-verification"
+        }
+      ]
+    },
+    {
+      "id": "wcag-22",
+      "label": "WCAG 2.2 web-accessibility candidate",
+      "applicability": "Opt in for a reviewed web-content accessibility policy; this single keyboard-access measure is not a WCAG conformance assessment.",
+      "patterns": [
+        {
+          "id": "wcag-22.inclusivity",
+          "subCharacteristic": "inclusivity",
+          "characteristic": "interaction-capability",
+          "template": "{{system}} shall provide keyboard operation for at least {{target}} percent of the applicable functionality in {{scope}} under {{conditions}}.",
+          "parameters": {
+            "system": {
+              "type": "string",
+              "description": "System or component under assessment."
+            },
+            "scope": {
+              "type": "string",
+              "description": "Named, versioned task, interface, event or scenario inventory; must be nonempty."
+            },
+            "conditions": {
+              "type": "string",
+              "description": "Approved measurement plan: environment, workload/cohort, observation window, oracle, aggregation and exclusions."
+            },
+            "target": {
+              "type": "number",
+              "description": "Stakeholder-approved acceptance bound; no framework-prescribed default is implied.",
+              "minimum": 100,
+              "maximum": 100
+            }
+          },
+          "metric": {
+            "type": "coverage",
+            "unit": "percent",
+            "operator": ">=",
+            "targetParameter": "target",
+            "measurement": "Use manual keyboard tests and review path-dependent-input exceptions; all applicable functionality requires target 100."
+          },
+          "provenance": {
+            "standardEdition": "ISO/IEC 25010:2023",
+            "subCharacteristic": "inclusivity",
+            "frameworks": [
+              {
+                "id": "wcag22",
+                "section": "2.1.1 Keyboard"
+              }
+            ],
+            "derivation": "curator-authored; framework-informed measurement, not a normative ISO mapping"
+          },
+          "reviewStatus": "requires-human-verification"
+        }
+      ]
+    },
+    {
+      "id": "section-508",
+      "label": "Section 508 web-content candidate",
+      "applicability": "Opt in only for reviewed Section 508 web-content scope; E205.4 incorporates WCAG 2.0 A/AA, not WCAG 2.2; this single criterion does not cover the entire rule.",
+      "patterns": [
+        {
+          "id": "section-508.inclusivity",
+          "subCharacteristic": "inclusivity",
+          "characteristic": "interaction-capability",
+          "template": "{{system}} shall provide keyboard operation for at least {{target}} percent of the applicable web functionality in {{scope}} under {{conditions}}.",
+          "parameters": {
+            "system": {
+              "type": "string",
+              "description": "System or component under assessment."
+            },
+            "scope": {
+              "type": "string",
+              "description": "Named, versioned task, interface, event or scenario inventory; must be nonempty."
+            },
+            "conditions": {
+              "type": "string",
+              "description": "Approved measurement plan: environment, workload/cohort, observation window, oracle, aggregation and exclusions."
+            },
+            "target": {
+              "type": "number",
+              "description": "Stakeholder-approved acceptance bound; no framework-prescribed default is implied.",
+              "minimum": 100,
+              "maximum": 100
+            }
+          },
+          "metric": {
+            "type": "coverage",
+            "unit": "percent",
+            "operator": ">=",
+            "targetParameter": "target",
+            "measurement": "Review WCAG 2.0 keyboard criterion applicability and exceptions; all applicable functionality requires target 100."
+          },
+          "provenance": {
+            "standardEdition": "ISO/IEC 25010:2023",
+            "subCharacteristic": "inclusivity",
+            "frameworks": [
+              {
+                "id": "section508",
+                "section": "E205.4"
+              },
+              {
+                "id": "wcag20",
+                "section": "2.1.1 Keyboard"
+              }
+            ],
+            "derivation": "curator-authored; framework-informed measurement, not a normative ISO mapping"
+          },
+          "reviewStatus": "requires-human-verification"
+        }
+      ]
+    }
+  ]
+}

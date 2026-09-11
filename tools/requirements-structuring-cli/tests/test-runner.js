@@ -41,6 +41,7 @@ class TestRunner {
     await this.testGherkinGenerator();
     await this.testSecurityBoundaries();
     await require('./nfr-tests')(this);
+    await require('./nfr-library-tests')(this);
 
     this.printResults();
   }
