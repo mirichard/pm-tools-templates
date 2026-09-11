@@ -78,6 +78,14 @@ def check(content, source, read, exists):
     return checked, failures
 
 
+def wave_path_mapping(plan):
+    """Map current wave body paths to their pre-move source paths."""
+    phase = plan.get("phase", "executed")
+    if phase == "entry":
+        return {asset["source"]: asset["source"] for asset in plan["assets"]}
+    return {asset["destination"]: asset["source"] for asset in plan["assets"]}
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--manifest", required=True)
@@ -92,12 +100,15 @@ def main():
     base_paths = set(entries)
     def old_read(path):
         return git("show", f"{base}:{path}")
-    moved = {a["destination"]: a["source"] for a in plan["assets"]}
+    moved = wave_path_mapping(plan)
     changed = git("diff", "--name-only", "--diff-filter=ACMR", base, "--", "*.md").splitlines()
     sources = sorted(set(changed) | set(moved) | {a["source"] for a in plan["assets"]})
     total = inherited = regressions = 0
     for source in sources:
-        count, current = check((root / source).read_text(), source,
+        current_path = root / source
+        if not current_path.exists():
+            raise FileNotFoundError(f"Current migration path does not exist: {source}")
+        count, current = check(current_path.read_text(), source,
                                lambda p: (root / p).read_text(), lambda p: (root / p).exists())
         total += count
         previous = moved.get(source, source)
