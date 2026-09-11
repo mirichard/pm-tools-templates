@@ -1,0 +1,39 @@
+name: B3A Reference Analysis
+
+on:
+  push:
+    branches:
+      - feat/b3a-delivery-wave
+    paths:
+      - .github/workflows/b3a-reference-analysis.yml
+
+permissions:
+  contents: read
+
+jobs:
+  analyze:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Enumerate legacy-path references
+        run: |
+          node --input-type=module <<'NODE'
+          import fs from 'node:fs';
+          import {execFileSync} from 'node:child_process';
+          const plan = JSON.parse(fs.readFileSync('meta/migration-waves/b3a.json','utf8'));
+          for (const asset of plan.assets) {
+            console.log(`\n=== ${asset.source} ===`);
+            try {
+              const out = execFileSync('git',['grep','-n','-F',asset.source,'--',':(exclude).git',':(exclude)meta/migration-waves/b3a.json',':(exclude)docs/vnext/sprint-12/b3a-migration-record.md'],{encoding:'utf8'});
+              process.stdout.write(out);
+            } catch (e) {
+              if (e.status !== 1) throw e;
+              console.log('(no references)');
+            }
+          }
+          NODE
