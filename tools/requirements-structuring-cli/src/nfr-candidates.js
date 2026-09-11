@@ -37,8 +37,8 @@ function matchingPatterns(patterns, subCharacteristic) {
   return patterns.filter(p => p.subCharacteristic === subCharacteristic).sort((a, b) => a.id < b.id ? -1 : a.id > b.id ? 1 : 0);
 }
 
-function selectPairs(handoff) {
-  const library = loadNFRLibrary();
+function selectPairs(handoff, { overlay = 'neutral' } = {}) {
+  const library = loadNFRLibrary({ overlay });
   const data = validateHandoff(handoff, library);
   const pairs = data.requirements.flatMap(r => r.attributes.map(attribute => ({
     source: r.source, attribute, patterns: matchingPatterns(library.patterns, attribute.subCharacteristic),
