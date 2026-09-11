@@ -1,4 +1,4 @@
-name: B3A Reference Analysis
+name: B3A Reference Normalization
 
 on:
   push:
@@ -8,32 +8,110 @@ on:
       - .github/workflows/b3a-reference-analysis.yml
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
-  analyze:
+  normalize:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
+          ref: feat/b3a-delivery-wave
       - uses: actions/setup-node@v4
         with:
           node-version: '20'
-      - name: Enumerate legacy-path references
+      - name: Guard P3 state
+        run: |
+          git merge-base --is-ancestor 8024e52607c137d37f2c9b7baffe22f9ffb53585 HEAD
+          test "$(node -p "require('./meta/migration-waves/b3a.json').phase")" = "entry"
+          test "$(node -p "require('./meta/migration-waves/b3a.json').asset_count")" = "12"
+          test -z "$(git status --porcelain)"
+      - name: Normalize maintained references and execution state
         run: |
           node --input-type=module <<'NODE'
           import fs from 'node:fs';
-          import {execFileSync} from 'node:child_process';
-          const plan = JSON.parse(fs.readFileSync('meta/migration-waves/b3a.json','utf8'));
-          for (const asset of plan.assets) {
-            console.log(`\n=== ${asset.source} ===`);
-            try {
-              const out = execFileSync('git',['grep','-n','-F',asset.source,'--',':(exclude).git',':(exclude)meta/migration-waves/b3a.json',':(exclude)docs/vnext/sprint-12/b3a-migration-record.md'],{encoding:'utf8'});
-              process.stdout.write(out);
-            } catch (e) {
-              if (e.status !== 1) throw e;
-              console.log('(no references)');
-            }
+          import path from 'node:path';
+          import crypto from 'node:crypto';
+
+          const manifestPath = 'meta/migration-waves/b3a.json';
+          const inventoryPath = 'meta/migration-inventory.json';
+          const evidencePath = 'docs/vnext/sprint-12/b3a-migration-record.md';
+          const manifest = JSON.parse(fs.readFileSync(manifestPath,'utf8'));
+          const mapping = new Map(manifest.assets.map(a => [a.source, a.destination]));
+          const maintained = new Set([
+            'TEMPLATE_INDEX.md',
+            'docs/decision-engine/bundles/enterprise-governance-bundle.md',
+            'docs/decision-engine/template-decision-tree.md',
+            'meta/cross-references.json',
+            'meta/domain-mapping.json',
+            'meta/value-flow-mapping.json',
+            'templates/templates.json',
+          ]);
+          for (const a of manifest.assets) {
+            maintained.add(`docs/templates/${path.basename(a.source)}`);
           }
+
+          for (const file of maintained) {
+            if (!fs.existsSync(file)) continue;
+            let text = fs.readFileSync(file,'utf8');
+            const before = text;
+            for (const [source,destination] of mapping) text = text.split(source).join(destination);
+            if (text !== before) fs.writeFileSync(file,text);
+          }
+
+          const inventory = JSON.parse(fs.readFileSync(inventoryPath,'utf8'));
+          let selected = 0;
+          for (const record of inventory.assets ?? inventory.templates ?? inventory) {
+            if (Array.isArray(record.dependencies)) {
+              record.dependencies = record.dependencies.map(dep => mapping.get(dep) ?? dep);
+            }
+            if (!mapping.has(record.source)) continue;
+            selected++;
+            const a = manifest.assets.find(x => x.source === record.source);
+            record.action = 'executed-move-with-legacy-pointer';
+            record.execution = {
+              batch_id: 'B3A',
+              pre_batch_sha: manifest.pre_batch_sha,
+              pre_move_source_sha256: a.pre_move_sha256,
+              evidence_file: evidencePath,
+              rollback_owner: manifest.rollback_owner,
+            };
+          }
+          if (selected !== manifest.asset_count) throw new Error(`Expected ${manifest.asset_count} selected inventory records, found ${selected}`);
+          fs.writeFileSync(inventoryPath, JSON.stringify(inventory,null,2) + '\n');
+
+          manifest.phase = 'executed';
+          fs.writeFileSync(manifestPath, JSON.stringify(manifest,null,2) + '\n');
+
+          // Re-prove body integrity and legacy pointer resolution after metadata changes.
+          const hash = file => crypto.createHash('sha256').update(fs.readFileSync(file)).digest('hex');
+          for (const a of manifest.assets) {
+            if (hash(a.destination) !== a.pre_move_sha256) throw new Error(`Destination hash mismatch: ${a.destination}`);
+            const pointer = fs.readFileSync(a.source,'utf8');
+            const m = pointer.match(/\*\*Canonical location:\*\*\s*\[[^\]]+\]\(([^)]+)\)/i);
+            if (!m || path.resolve(path.dirname(a.source),m[1]) !== path.resolve(a.destination)) throw new Error(`Invalid legacy pointer: ${a.source}`);
+          }
+
+          // No maintained current-reference surface may retain a B3A legacy path.
+          const stale = [];
+          for (const file of maintained) {
+            if (!fs.existsSync(file)) continue;
+            const text = fs.readFileSync(file,'utf8');
+            for (const source of mapping.keys()) if (text.includes(source)) stale.push(`${file}: ${source}`);
+          }
+          if (stale.length) throw new Error(`Stale maintained references:\n${stale.join('\n')}`);
+          console.log(`PASS: ${manifest.asset_count}/${manifest.asset_count} inventory records executed; maintained references canonicalized; hashes and pointers intact.`);
           NODE
+      - name: Stage only P4 migration metadata/reference files
+        run: |
+          git add TEMPLATE_INDEX.md docs/templates meta/cross-references.json meta/domain-mapping.json meta/value-flow-mapping.json templates/templates.json meta/migration-inventory.json meta/migration-waves/b3a.json docs/decision-engine/bundles/enterprise-governance-bundle.md docs/decision-engine/template-decision-tree.md
+          echo '--- staged files ---'
+          git diff --cached --name-only
+          test -n "$(git diff --cached --name-only)"
+      - name: Commit and push P4
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "refactor(b3a): canonicalize maintained references and execution metadata"
+          git push origin HEAD:feat/b3a-delivery-wave
