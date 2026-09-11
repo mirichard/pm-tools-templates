@@ -1165,6 +1165,9 @@
           ],
           "similarity": 90
         }
+      ],
+      "alternate_paths": [
+        "industry-specializations/healthcare-pharmaceutical/manufacturing/batch_record_template.md"
       ]
     },
     {
@@ -1651,6 +1654,9 @@
           ],
           "similarity": 93
         }
+      ],
+      "alternate_paths": [
+        "industry-specializations/healthcare-pharmaceutical/compliance/capa_management_template.md"
       ]
     },
     {
@@ -2112,6 +2118,9 @@
           ],
           "similarity": 90
         }
+      ],
+      "alternate_paths": [
+        "industry-specializations/healthcare-pharmaceutical/clinical-trials/clinical_trial_protocol_template.md"
       ]
     },
     {
@@ -2480,6 +2489,9 @@
           ],
           "similarity": 90
         }
+      ],
+      "alternate_paths": [
+        "industry-specializations/healthcare-pharmaceutical/regulatory/computer_system_validation_protocol_template.md"
       ]
     },
     {
@@ -3481,6 +3493,9 @@
           ],
           "similarity": 90
         }
+      ],
+      "alternate_paths": [
+        "industry-specializations/healthcare-pharmaceutical/validation/equipment_qualification_protocol_template.md"
       ]
     },
     {
@@ -4260,6 +4275,9 @@
           ],
           "similarity": 93
         }
+      ],
+      "alternate_paths": [
+        "industry-specializations/healthcare-pharmaceutical/compliance/gxp_training_plan_template.md"
       ]
     },
     {
@@ -5953,6 +5971,9 @@
           ],
           "similarity": 90
         }
+      ],
+      "alternate_paths": [
+        "industry-specializations/healthcare-pharmaceutical/manufacturing/manufacturing_batch_record_template.md"
       ]
     },
     {
@@ -6783,6 +6804,9 @@
           ],
           "similarity": 90
         }
+      ],
+      "alternate_paths": [
+        "industry-specializations/healthcare-pharmaceutical/lifecycle/pharmaceutical_qbd_template.md"
       ]
     },
     {
@@ -7153,6 +7177,9 @@
           ],
           "similarity": 92
         }
+      ],
+      "alternate_paths": [
+        "industry-specializations/healthcare-pharmaceutical/manufacturing/process_control_template.md"
       ]
     },
     {
@@ -7351,6 +7378,9 @@
           ],
           "similarity": 93
         }
+      ],
+      "alternate_paths": [
+        "industry-specializations/healthcare-pharmaceutical/validation/process_validation_master_plan_template.md"
       ]
     },
     {
@@ -9060,6 +9090,9 @@
           ],
           "similarity": 93
         }
+      ],
+      "alternate_paths": [
+        "industry-specializations/healthcare-pharmaceutical/quality/quality_management_review_template.md"
       ]
     },
     {
@@ -12787,6 +12820,9 @@
           ],
           "similarity": 93
         }
+      ],
+      "alternate_paths": [
+        "industry-specializations/healthcare-pharmaceutical/validation/validation_master_plan_template.md"
       ]
     },
     {
