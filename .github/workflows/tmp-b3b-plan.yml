@@ -1,4 +1,4 @@
-name: Temporary B3B Manifest Persistence
+name: Temporary B3B Execution
 
 on:
   push:
@@ -11,7 +11,7 @@ permissions:
   contents: write
 
 jobs:
-  persist:
+  execute:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -19,38 +19,208 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Guard authoritative base
+      - name: Guard authoritative state
         run: |
           set -euo pipefail
+          git fetch origin main feat/b3b-delivery-wave
           test "$(git rev-parse origin/main)" = "6b270df6e533f2f2c69fab37cecdc5c2b0ca01c1"
-
-      - name: Generate and validate manifest
-        run: |
-          set -euo pipefail
-          mkdir -p meta/migration-waves
-          node scripts/plan-migration-wave.mjs \
-            --wave-id B3B \
-            --batch 3 \
-            --domain Delivery \
-            --rollback-owner mirichard \
-            --pre-batch-sha 6b270df6e533f2f2c69fab37cecdc5c2b0ca01c1 \
-            --output meta/migration-waves/b3b.json
           node scripts/validate-migration-wave.mjs --manifest meta/migration-waves/b3b.json
           python3 - <<'PY'
           import json
           m=json.load(open('meta/migration-waves/b3b.json'))
-          assert m['asset_count']==11, m['asset_count']
+          assert m['wave_id']=='B3B'
+          assert m['asset_count']==11
           assert m['phase']=='entry'
           assert m['pre_batch_sha']=='6b270df6e533f2f2c69fab37cecdc5c2b0ca01c1'
-          print('B3B manifest guard PASS: 11 assets')
+          print('B3B entry guard PASS')
           PY
 
-      - name: Commit only manifest
+      - name: Execute B3B moves and metadata transition
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import hashlib, json, os
+          from pathlib import Path
+
+          root = Path('.')
+          manifest_path = root/'meta/migration-waves/b3b.json'
+          m = json.loads(manifest_path.read_text())
+          assets = m['assets']
+          mapping = {a['source']: a['destination'] for a in assets}
+          evidence = 'docs/vnext/sprint-12/b3b-migration-record.md'
+          pre_sha = m['pre_batch_sha']
+
+          # Preflight: every source is intact and every destination is absent.
+          for a in assets:
+              src = root/a['source']
+              dst = root/a['destination']
+              assert src.is_file(), f'missing source: {src}'
+              assert not dst.exists(), f'destination already exists: {dst}'
+              digest = hashlib.sha256(src.read_bytes()).hexdigest()
+              assert digest == a['pre_move_sha256'], (a['source'], digest, a['pre_move_sha256'])
+
+          # Preserve canonical bodies byte-for-byte and leave navigation-only compatibility pointers.
+          for a in assets:
+              src = root/a['source']
+              dst = root/a['destination']
+              body = src.read_bytes()
+              dst.parent.mkdir(parents=True, exist_ok=True)
+              dst.write_bytes(body)
+
+              lines = body.decode('utf-8').splitlines()
+              title = next((ln[2:].strip() for ln in lines if ln.startswith('# ')), Path(a['source']).stem.replace('_',' ').title())
+              rel = os.path.relpath(dst, start=src.parent).replace(os.sep, '/')
+              pointer = (
+                  f'# {title} — Moved\n\n'
+                  '## Purpose and overview\n\n'
+                  f'This legacy path is retained so existing repository links and external bookmarks continue to reach the {title} after its domain migration. '
+                  'The maintained canonical template now resides in the Delivery domain; this file contains navigation guidance only and is not a second template copy.\n\n'
+                  f'**Canonical location:** [Open the {title}]({rel})\n\n'
+                  '## Usage instructions\n\n'
+                  'Follow the canonical-location link above to view, copy, or update the template. Update only the canonical file when proposing content changes. '
+                  'References to this legacy path remain supported for backward compatibility, but new documentation and catalog entries should link directly to the canonical domain path.\n'
+              )
+              src.write_text(pointer)
+
+          # Canonical catalog: replace canonical/related paths and retain legacy aliases.
+          catalog_path = root/'templates/templates.json'
+          catalog = json.loads(catalog_path.read_text())
+          def walk_catalog(obj):
+              if isinstance(obj, dict):
+                  if isinstance(obj.get('path'), str) and obj['path'] in mapping:
+                      old = obj['path']
+                      obj['path'] = mapping[old]
+                      alts = obj.setdefault('alternate_paths', [])
+                      if old not in alts:
+                          alts.append(old)
+                  for k, v in list(obj.items()):
+                      if k == 'alternate_paths':
+                          continue
+                      walk_catalog(v)
+              elif isinstance(obj, list):
+                  for v in obj:
+                      walk_catalog(v)
+              elif isinstance(obj, str):
+                  pass
+          walk_catalog(catalog)
+          # relatedTemplates and any other nested path values not owning a canonical record.
+          def replace_exact(obj):
+              if isinstance(obj, dict):
+                  for k, v in obj.items():
+                      if k == 'alternate_paths':
+                          continue
+                      if isinstance(v, str) and v in mapping:
+                          obj[k] = mapping[v]
+                      else:
+                          replace_exact(v)
+              elif isinstance(obj, list):
+                  for i, v in enumerate(obj):
+                      if isinstance(v, str) and v in mapping:
+                          obj[i] = mapping[v]
+                      else:
+                          replace_exact(v)
+          replace_exact(catalog)
+          catalog_path.write_text(json.dumps(catalog, indent=2) + '\n')
+
+          # Other canonical metadata maps contain canonical references only.
+          for p in ['meta/domain-mapping.json','meta/cross-references.json','meta/value-flow-mapping.json']:
+              path = root/p
+              text = path.read_text()
+              for old, new in mapping.items():
+                  text = text.replace(f'"{old}"', f'"{new}"')
+              path.write_text(text)
+
+          # Inventory: preserve historical source identity, update dependency references, mark B3B executed.
+          inv_path = root/'meta/migration-inventory.json'
+          inv = json.loads(inv_path.read_text())
+          for rec in inv.get('assets', []):
+              deps = rec.get('dependencies')
+              if isinstance(deps, list):
+                  rec['dependencies'] = [mapping.get(x, x) for x in deps]
+              if rec.get('source') in mapping:
+                  a = next(a for a in assets if a['source'] == rec['source'])
+                  rec['action'] = 'executed-move-with-legacy-pointer'
+                  rec['execution'] = {
+                      'batch_id': 'B3B',
+                      'pre_batch_sha': pre_sha,
+                      'pre_move_source_sha256': a['pre_move_sha256'],
+                      'evidence_file': evidence,
+                      'rollback_owner': m['rollback_owner'],
+                  }
+          executions = inv.setdefault('batch_executions', [])
+          assert not any(x.get('batch_id') == 'B3B' for x in executions), 'duplicate B3B batch execution'
+          executions.append({
+              'batch_id': 'B3B',
+              'issue': '#1057',
+              'parent_issue': '#711',
+              'asset_count': len(assets),
+              'status': 'executed',
+              'evidence_file': evidence,
+              'rollback_owner': m['rollback_owner'],
+          })
+          inv_path.write_text(json.dumps(inv, indent=2) + '\n')
+
+          # Maintained navigation/reference surfaces: point directly at canonical locations.
+          text_files = [root/'TEMPLATE_INDEX.md']
+          for base in [root/'docs/decision-engine', root/'docs/templates']:
+              if base.exists():
+                  text_files.extend(base.rglob('*.md'))
+          for path in text_files:
+              text = path.read_text()
+              changed = text
+              for old, new in mapping.items():
+                  changed = changed.replace(old, new)
+              if changed != text:
+                  path.write_text(changed)
+
+          m['phase'] = 'executed'
+          manifest_path.write_text(json.dumps(m, indent=2) + '\n')
+          print(f'Executed {len(assets)} B3B assets')
+          PY
+
+      - name: Validate executed state
+        run: |
+          set -euo pipefail
+          node scripts/validate-migration-wave.mjs --manifest meta/migration-waves/b3b.json
+          node --test tests/migration-wave.test.mjs
+          python3 -m pytest -q tests/test_migration_links.py
+          node scripts/validate-curated-templates.js
+          node scripts/validate-canonical-paths.js
+          python3 - <<'PY'
+          import hashlib, json, os
+          from pathlib import Path
+          m=json.load(open('meta/migration-waves/b3b.json'))
+          assert m['phase']=='executed'
+          assert m['asset_count']==11
+          cat=json.load(open('templates/templates.json'))
+          raw=json.dumps(cat)
+          inv=json.load(open('meta/migration-inventory.json'))
+          assert sum(1 for x in inv.get('batch_executions',[]) if x.get('batch_id')=='B3B') == 1
+          records={x['source']:x for x in inv.get('assets',[]) if x.get('source') in {a['source'] for a in m['assets']}}
+          assert len(records)==11
+          for a in m['assets']:
+              src=Path(a['source']); dst=Path(a['destination'])
+              assert src.is_file() and dst.is_file()
+              assert hashlib.sha256(dst.read_bytes()).hexdigest()==a['pre_move_sha256']
+              s=src.read_text()
+              assert '— Moved' in s and '**Canonical location:**' in s
+              rel=os.path.relpath(dst,start=src.parent).replace(os.sep,'/')
+              assert f']({rel})' in s
+              rec=records[a['source']]
+              assert rec['action']=='executed-move-with-legacy-pointer'
+              assert rec['execution']['batch_id']=='B3B'
+              assert f'"path": "{a["destination"]}"' in raw
+              assert a['source'] in raw
+          print('B3B executed-state integrity PASS: 11/11')
+          PY
+
+      - name: Commit B3B execution
         run: |
           set -euo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add meta/migration-waves/b3b.json
-          test "$(git diff --cached --name-only)" = "meta/migration-waves/b3b.json"
-          git commit -m "docs(migration): record B3B entry manifest"
+          git rm .github/workflows/tmp-b3b-plan.yml
+          git add -A
+          git diff --cached --check
+          git commit -m "refactor: migrate B3B Delivery-domain assets"
           git push origin HEAD:feat/b3b-delivery-wave
