@@ -30,10 +30,11 @@ module.exports = async function testNFR(runner) {
   };
   const cli = (args, extra = {}) => {
     const env = { ...process.env, LLM_PROVIDER: '', LLM_MODEL: '', LLM_API_KEY: '',
-      GEMINI_API_KEY: '', ANTHROPIC_API_KEY: '', OPENAI_API_KEY: '', SAVE_LLM_TRACES: 'false',
+      GEMINI_API_KEY: '', ANTHROPIC_API_KEY: '', OPENAI_API_KEY: '', SAVE_LLM_TRACES: 'false', NFR_ATTRIBUTES: '',
       ...extra.env };
     const child = spawnSync(process.execPath,
-      [...(extra.preload ? ['--require', path.join(__dirname, 'nfr-pipeline-fixture.js')] : []),
+      [...(extra.preload ? ['--require', path.join(__dirname, 'nfr-pipeline-fixture.js')]
+        : extra.classify ? ['--require', path.join(__dirname, 'nfr-classification-preload.js')] : []),
         path.join(root, 'src/index.js'), ...args],
       { cwd: temp, env, encoding: 'utf8', timeout: 15000 });
     if (child.error) throw child.error;
@@ -160,31 +161,31 @@ module.exports = async function testNFR(runner) {
       for (const overlay of listOverlays()) assert.ok(result.stdout.includes(overlay.label), overlay.name);
       assert.strictEqual(await fs.pathExists(output), false);
     });
-    await test('NFR standalone produces a placeholder from runtime UCS without credentials', async () => {
+    await test('NFR standalone classifies runtime UCS through an offline provider fixture', async () => {
       const output = path.join(temp, 'standalone');
       const result = cli(['generate-nfr', runtimePath, '--attributes', 'security,reliability',
-        '--confidence-threshold', '0.8', '--profile', 'neutral', '--provider', 'openai', '--model', 'fixture-model', '--output', output]);
+        '--confidence-threshold', '0.8', '--profile', 'neutral', '--provider', 'openai', '--model', 'fixture-model', '--output', output], { classify: true });
       assert.strictEqual(result.status, 0, result.text);
       const report = await fs.readFile(path.join(output, 'runtime-nfr-report.md'), 'utf8');
-      for (const fragment of ['NFR generation not yet implemented (#1108/#1109)', 'Artifact: ucs',
-        'security, reliability', '0.8', 'openai', 'fixture-model', 'neutral', 'No classification, NFR candidates']) {
+      for (const fragment of ['NFR generation not yet implemented (#1109)', 'Artifact: ucs',
+        'security, reliability', '0.8', 'openai', 'fixture-model', 'neutral', 'No NFR candidates']) {
         assert.ok(report.includes(fragment), fragment);
       }
       assert.deepStrictEqual(await fs.readJSON(runtimePath), runtime);
     });
-    await test('NFR explicit overlay records selection without generating candidates or calling a provider', async () => {
+    await test('NFR explicit overlay records selection without generating NFR candidates', async () => {
       const output = path.join(temp, 'overlay-selection');
-      const result = cli(['generate-nfr', structuredPath, '--overlay', 'wcag-22', '-o', output]);
+      const result = cli(['generate-nfr', structuredPath, '--overlay', 'wcag-22', '-o', output], { classify: true });
       assert.strictEqual(result.status, 0, result.text);
       const report = await fs.readFile(path.join(output, 'formal-nfr-report.md'), 'utf8');
       assert.match(report, /wcag-22 \(selection recorded; no patterns generated\)/);
-      assert.match(report, /No classification, NFR candidates/);
+      assert.match(report, /No NFR candidates/);
       assert.match(report, /requiring human verification/);
       assert.doesNotMatch(report, /neutral core; no overlay content/);
     });
     await test('NFR standalone also consumes the formal structure artifact', async () => {
       const output = path.join(temp, 'formal');
-      const result = cli(['generate-nfr', structuredPath, '--overlay', 'neutral', '-o', output]);
+      const result = cli(['generate-nfr', structuredPath, '--overlay', 'neutral', '-o', output], { classify: true });
       assert.strictEqual(result.status, 0, result.text);
       assert.match(await fs.readFile(path.join(output, 'formal-nfr-report.md'), 'utf8'), /Artifact: structured/);
     });

@@ -19,7 +19,7 @@ function record(event, detail = {}) {
   }
 }
 
-LLMClient.prototype.chat = async () => { throw new Error('Unexpected LLM call in offline NFR test'); };
+require('./nfr-classification-preload');
 AmbiguityDetector.prototype.detect = async function () {
   record('ambiguity');
   const gate = process.env.NFR_TEST_GATE;
