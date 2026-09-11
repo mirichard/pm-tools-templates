@@ -321,6 +321,7 @@ addNFROptions(program.command('generate-nfr [input-file]'))
   .description('Run the NFR command skeleton on structured requirements or UCS JSON')
   .option('-o, --output <dir>', 'Output directory', './output')
   .option('--list-overlays', 'List available overlays without reading input or calling an LLM')
+  .option('--force', 'Overwrite existing NFR output, including manual edits')
   .action(async (inputFile, opts) => {
     const spinner = ora('Loading NFR input...').start();
     let restoreProvider = () => {};
