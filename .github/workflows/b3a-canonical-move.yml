@@ -1,0 +1,122 @@
+name: B3A Canonical Move
+
+on:
+  push:
+    branches:
+      - feat/b3a-delivery-wave
+    paths:
+      - .github/workflows/b3a-canonical-move.yml
+
+permissions:
+  contents: write
+
+jobs:
+  migrate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout B3A branch
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: feat/b3a-delivery-wave
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Guard authoritative state
+        run: |
+          test "$(git branch --show-current)" = "feat/b3a-delivery-wave"
+          git merge-base --is-ancestor f639e285ec3970372f1fa1166b4af07d371e7fb8 HEAD
+          test "$(node -p "require('./meta/migration-waves/b3a.json').phase")" = "entry"
+          test "$(node -p "require('./meta/migration-waves/b3a.json').asset_count")" = "12"
+          test -z "$(git status --porcelain)"
+
+      - name: Move canonical bodies and create legacy pointers
+        run: |
+          node --input-type=module <<'NODE'
+          import fs from 'node:fs';
+          import path from 'node:path';
+          import crypto from 'node:crypto';
+
+          const plan = JSON.parse(fs.readFileSync('meta/migration-waves/b3a.json', 'utf8'));
+          if (plan.phase !== 'entry' || plan.asset_count !== 12) throw new Error('Unexpected B3A manifest state');
+
+          const hash = file => crypto.createHash('sha256').update(fs.readFileSync(file)).digest('hex');
+          const expectedPaths = [];
+
+          for (const asset of plan.assets) {
+            if (!fs.existsSync(asset.source)) throw new Error(`Missing source: ${asset.source}`);
+            if (fs.existsSync(asset.destination)) throw new Error(`Destination collision: ${asset.destination}`);
+            const before = hash(asset.source);
+            if (before !== asset.pre_move_sha256) {
+              throw new Error(`Source hash mismatch: ${asset.source}: ${before} != ${asset.pre_move_sha256}`);
+            }
+
+            const original = fs.readFileSync(asset.source, 'utf8');
+            const heading = original.match(/^#\s+(.+?)\s*$/m)?.[1]?.replace(/\s+—\s+Moved\s*$/, '')
+              || path.basename(asset.source, path.extname(asset.source)).replaceAll(/[-_]+/g, ' ');
+
+            fs.mkdirSync(path.dirname(asset.destination), { recursive: true });
+            fs.renameSync(asset.source, asset.destination);
+
+            const relative = path.relative(path.dirname(asset.source), asset.destination).split(path.sep).join('/');
+            const pointer = `# ${heading} — Moved\n\n## Purpose and overview\n\nThis legacy path is retained so existing repository links and external bookmarks continue to reach the ${heading} after its domain migration. The maintained canonical template now resides in the Delivery domain; this file contains navigation guidance only and is not a second template copy.\n\n**Canonical location:** [Open the ${heading}](${relative})\n\n## Usage instructions\n\nFollow the canonical-location link above to view, copy, or update the template. Update only the canonical file when proposing content changes. References to this legacy path remain supported for backward compatibility, but new documentation and catalog entries should link directly to the canonical domain path.\n`;
+            fs.writeFileSync(asset.source, pointer);
+
+            const after = hash(asset.destination);
+            if (after !== asset.pre_move_sha256) {
+              throw new Error(`Destination hash mismatch: ${asset.destination}: ${after} != ${asset.pre_move_sha256}`);
+            }
+
+            const match = pointer.match(/\*\*Canonical location:\*\*\s*\[[^\]]+\]\(([^)]+)\)/i);
+            if (!match) throw new Error(`Pointer missing canonical link: ${asset.source}`);
+            const resolved = path.resolve(path.dirname(asset.source), match[1]);
+            if (resolved !== path.resolve(asset.destination)) {
+              throw new Error(`Pointer resolves incorrectly: ${asset.source} -> ${match[1]}`);
+            }
+
+            expectedPaths.push(asset.source, asset.destination);
+            console.log(`PASS ${asset.source} -> ${asset.destination} ${after}`);
+          }
+
+          fs.writeFileSync('/tmp/b3a-paths', expectedPaths.join('\n') + '\n');
+          fs.writeFileSync('/tmp/b3a-expected-sorted', [...expectedPaths].sort().join('\n') + '\n');
+          console.log(`PASS: ${plan.asset_count}/${plan.asset_count} bodies byte-preserved; ${plan.asset_count}/${plan.asset_count} legacy pointers resolve.`);
+          NODE
+
+      - name: Stage only B3A canonical moves and pointers
+        run: |
+          git add --pathspec-from-file=/tmp/b3a-paths
+          git diff --cached --name-only | sort > /tmp/b3a-staged-sorted
+          diff -u /tmp/b3a-expected-sorted /tmp/b3a-staged-sorted
+          test "$(git diff --cached --name-only | wc -l)" -eq 24
+          echo '--- staged paths ---'
+          cat /tmp/b3a-staged-sorted
+
+      - name: Re-verify staged integrity
+        run: |
+          node --input-type=module <<'NODE'
+          import fs from 'node:fs';
+          import path from 'node:path';
+          import crypto from 'node:crypto';
+          const plan = JSON.parse(fs.readFileSync('meta/migration-waves/b3a.json', 'utf8'));
+          const hash = file => crypto.createHash('sha256').update(fs.readFileSync(file)).digest('hex');
+          for (const asset of plan.assets) {
+            if (hash(asset.destination) !== asset.pre_move_sha256) throw new Error(`Hash mismatch: ${asset.destination}`);
+            const pointer = fs.readFileSync(asset.source, 'utf8');
+            const match = pointer.match(/\*\*Canonical location:\*\*\s*\[[^\]]+\]\(([^)]+)\)/i);
+            if (!match || path.resolve(path.dirname(asset.source), match[1]) !== path.resolve(asset.destination)) {
+              throw new Error(`Invalid pointer: ${asset.source}`);
+            }
+          }
+          console.log('PASS: 12/12 destination hashes and 12/12 pointer resolutions verified immediately before commit.');
+          NODE
+
+      - name: Commit and push atomic P3 migration
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "refactor(b3a): move Delivery canonical bodies with legacy pointers"
+          git push origin HEAD:feat/b3a-delivery-wave
