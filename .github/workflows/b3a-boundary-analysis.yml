@@ -1,0 +1,124 @@
+name: B3A Boundary Analysis
+
+on:
+  push:
+    branches:
+      - feat/b3a-delivery-wave
+    paths:
+      - .github/workflows/b3a-boundary-analysis.yml
+
+permissions:
+  contents: read
+
+jobs:
+  analyze:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Generate and validate repository planner output
+        run: |
+          node scripts/plan-migration-wave.mjs \
+            --wave-id B3A \
+            --batch 3 \
+            --domain Delivery \
+            --rollback-owner mirichard \
+            --pre-batch-sha f639e285ec3970372f1fa1166b4af07d371e7fb8 \
+            --output meta/migration-waves/_b3a-analysis.json
+          node scripts/validate-migration-wave.mjs \
+            --manifest meta/migration-waves/_b3a-analysis.json
+          echo '--- planner manifest ---'
+          cat meta/migration-waves/_b3a-analysis.json
+
+      - name: Analyze full Batch 3 Delivery SCC boundary
+        run: |
+          node --input-type=module <<'NODE'
+          import fs from 'node:fs';
+
+          const inventory = JSON.parse(fs.readFileSync('meta/migration-inventory.json', 'utf8'));
+          const candidates = inventory.moves
+            .filter(m => m.action === 'planned-move-not-executed')
+            .filter(m => m.batch === 3 && m.primary_domain === 'Delivery')
+            .sort((a, b) => a.source.localeCompare(b.source));
+
+          const byPath = new Map(candidates.flatMap(m => [[m.source, m], [m.destination, m]]));
+          const graph = new Map(candidates.map(m => [m.source, []]));
+          for (const move of candidates) {
+            for (const dep of move.dependencies || []) {
+              const target = byPath.get(dep);
+              if (target) graph.get(move.source).push(target.source);
+            }
+          }
+
+          let index = 0;
+          const indices = new Map();
+          const low = new Map();
+          const stack = [];
+          const onStack = new Set();
+          const sccs = [];
+
+          function strongConnect(v) {
+            indices.set(v, index);
+            low.set(v, index);
+            index += 1;
+            stack.push(v);
+            onStack.add(v);
+
+            for (const w of graph.get(v) || []) {
+              if (!indices.has(w)) {
+                strongConnect(w);
+                low.set(v, Math.min(low.get(v), low.get(w)));
+              } else if (onStack.has(w)) {
+                low.set(v, Math.min(low.get(v), indices.get(w)));
+              }
+            }
+
+            if (low.get(v) === indices.get(v)) {
+              const component = [];
+              while (true) {
+                const w = stack.pop();
+                onStack.delete(w);
+                component.push(w);
+                if (w === v) break;
+              }
+              component.sort();
+              sccs.push(component);
+            }
+          }
+
+          for (const move of candidates) {
+            if (!indices.has(move.source)) strongConnect(move.source);
+          }
+
+          const initial = candidates.slice(0, 12).map(m => m.source);
+          const initialSet = new Set(initial);
+          const crossing = sccs
+            .filter(c => c.some(x => initialSet.has(x)) && c.some(x => !initialSet.has(x)))
+            .sort((a, b) => a[0].localeCompare(b[0]));
+          const required = new Set(initial);
+          for (const component of crossing) for (const source of component) required.add(source);
+
+          const summary = {
+            candidate_count: candidates.length,
+            initial_count: initial.length,
+            initial,
+            crossing_scc_count: crossing.length,
+            crossing_sccs: crossing,
+            minimum_scc_closed_count: required.size,
+            additional_assets_required: [...required].filter(x => !initialSet.has(x)).sort(),
+            max_wave_assets: 15,
+            safe_under_limit: required.size <= 15
+          };
+
+          console.log('--- SCC boundary analysis ---');
+          console.log(JSON.stringify(summary, null, 2));
+          if (required.size > 15) {
+            console.log(`HARD_STOP: closing SCCs intersecting initial 12 requires ${required.size} assets (>15).`);
+          }
+          NODE
