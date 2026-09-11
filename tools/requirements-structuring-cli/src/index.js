@@ -336,9 +336,10 @@ addNFROptions(program.command('generate-nfr [input-file]'))
       const generator = new NFRGenerator();
       const baseName = path.basename(inputFile, path.extname(inputFile)).replace(/-(?:structured|ucs)(?:-refined)?$/, '');
       const result = await generator.run(input, { ...options, baseName });
-      spinner.succeed('NFR skeleton complete');
+      spinner.succeed('NFR classification complete; generation pending');
       terminalLog(chalk.yellow(result.notice));
-      terminalLog(chalk.green(`✓ NFR placeholder report saved to ${result.reportPath}`));
+      terminalLog(chalk.green(`✓ NFR classification report saved to ${result.reportPath}`));
+      terminalLog(chalk.green(`✓ NFR classification JSON handoff saved to ${result.classificationPath}`));
     } catch (err) {
       spinnerFail(spinner, err && err.message ? err.message : String(err));
       process.exitCode = 1;

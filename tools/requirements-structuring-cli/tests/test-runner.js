@@ -42,6 +42,7 @@ class TestRunner {
     await this.testSecurityBoundaries();
     await require('./nfr-tests')(this);
     await require('./nfr-library-tests')(this);
+    await require('./nfr-classification-tests')(this);
 
     this.printResults();
   }

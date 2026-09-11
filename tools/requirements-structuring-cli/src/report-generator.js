@@ -20,16 +20,16 @@ class ReportGenerator {
     return reportPath;
   }
 
-  formatNFRReport({ notice, input, inputKind, options }) {
+  formatNFRReport({ notice, input, inputKind, options, classifications }) {
     const display = (value) => sanitizeTerminalValue(value);
     return [
       `# NFR Report: ${display(input.useCaseId)}`,
       '',
-      '**Status: Placeholder — not implemented**',
+      '**Status: Classification complete; NFR generation pending**',
       '',
       notice,
       '',
-      'No classification, NFR candidates, confidence scores, or overlay content were produced.',
+      'No NFR candidates or overlay content were generated.',
       '',
       '## Input',
       '',
@@ -40,12 +40,26 @@ class ReportGenerator {
       '',
       `- Provider: ${display(options.provider || 'not configured (no LLM call)')}`,
       `- Model: ${display(options.model)}`,
-      `- Attributes: ${options.attributes.length ? options.attributes.map(display).join(', ') : 'unspecified'}`,
+      `- Attributes: ${(options.attributes.length ? options.attributes : classifications.characteristics).map(display).join(', ')}`,
       `- Confidence threshold: ${options.confidenceThreshold ?? 'unspecified'}`,
       `- Overlay: ${display(options.overlay)} (selection recorded; no patterns generated)`,
       '',
-      'These options are recorded only. Classification (#1108), generation (#1109),',
-      'and the review gate (#1111) are follow-ups.',
+      'Generation (#1109) and the confidence review gate (#1111) remain follow-ups.',
+      'Confidence values are model estimates, not calibrated probabilities; no threshold gate was applied.',
+      '',
+      '## Attribute Classifications',
+      '',
+      `- Taxonomy revision: ${display(classifications.sourceTaxonomyVersion)}`,
+      `- Taxonomy SHA-256: ${display(classifications.taxonomySha256)}`,
+      `- Prompt version: ${display(classifications.promptVersion)}`,
+      `- Considered characteristics: ${classifications.characteristics.map(display).join(', ')}`,
+      '',
+      '| FR path | Characteristic | Sub-characteristic | Confidence |',
+      '| --- | --- | --- | --- |',
+      ...classifications.requirements.flatMap((requirement) => requirement.attributes.length
+        ? requirement.attributes.map((attribute) => `| ${requirement.source.path} | ${attribute.characteristic} | ${attribute.subCharacteristic} | ${attribute.confidence} |`)
+        : [`| ${requirement.source.path} | Unmapped | — | — |`]),
+      '',
       'The bundled library (#1115) is a review candidate requiring human verification',
       'against ISO/IEC 25010:2023; overlay selection does not establish compliance.',
       '',

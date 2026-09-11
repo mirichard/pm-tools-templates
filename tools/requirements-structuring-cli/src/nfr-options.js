@@ -35,7 +35,7 @@ function addNFROptions(command) {
   return command
     .option('--provider <name>', 'LLM provider (uses existing environment configuration)', parseProvider)
     .option('--model <name>', 'Override the configured LLM model', nonEmpty)
-    .option('--attributes <names>', 'Comma-separated attribute subset (stored for #1108)', parseAttributes)
+    .option('--attributes <names>', 'Comma-separated taxonomy characteristic names/IDs for classification (overrides NFR_ATTRIBUTES)', parseAttributes)
     .option('--confidence-threshold <number>', 'Review threshold from 0 to 1 (stored for #1111)', parseConfidence)
     .option('--profile <name>', 'Domain overlay profile (alias for --overlay)', nonEmpty)
     .option('--overlay <name>', 'Domain overlay name; default is neutral core', nonEmpty);

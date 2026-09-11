@@ -114,8 +114,11 @@ outside the library when coverage is missing. Parameter rendering and candidate
 review are follow-ups, not implemented by this data PR.
 
 `generate-nfr --list-overlays` exposes registered selection names. The existing
-command still writes a placeholder report: selecting an overlay records that
-selection but does not yet generate requirements or call a provider.
+command classifies structured FR/UCS steps through the configured LLM provider
+and writes a JSON classification handoff plus a Markdown report. See the
+[classification handoff contract](nfr-classification.md) for the output shape.
+Selecting an overlay records that selection; NFR generation remains a follow-up
+(#1109), and no overlay patterns are rendered.
 
 ## Curation and release review
 
