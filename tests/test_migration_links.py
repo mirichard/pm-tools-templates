@@ -28,6 +28,23 @@ class MigrationLinksTests(unittest.TestCase):
         self.assertFalse(before)
         self.assertEqual(sum((after - before).values()), 1)
 
+    def test_entry_manifest_checks_legacy_sources(self):
+        plan = {
+            "phase": "entry",
+            "assets": [{"source": "legacy/a.md", "destination": "domains/delivery/legacy/a.md"}],
+        }
+        self.assertEqual(checker.wave_path_mapping(plan), {"legacy/a.md": "legacy/a.md"})
+
+    def test_executed_manifest_checks_canonical_bodies_against_legacy_baseline(self):
+        plan = {
+            "phase": "executed",
+            "assets": [{"source": "legacy/a.md", "destination": "domains/delivery/legacy/a.md"}],
+        }
+        self.assertEqual(
+            checker.wave_path_mapping(plan),
+            {"domains/delivery/legacy/a.md": "legacy/a.md"},
+        )
+
 
 if __name__ == "__main__":
     unittest.main()
