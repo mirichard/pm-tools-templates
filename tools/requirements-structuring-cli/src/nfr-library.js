@@ -66,6 +66,9 @@ function validateLibraryData(taxonomy, core, overlays) {
       ensure(!/[{}\r\n]/.test(residual), `${label}: malformed template placeholder`);
       ensure(pattern.template.startsWith('{{system}} shall ') && (pattern.template.match(/\bshall\b/g) || []).length === 1,
         `${label}: expected one requirement statement`);
+      const metric = pattern.metric;
+      ensure(tokens.includes(metric.targetParameter),
+        `${label}: metric target reference {{${metric.targetParameter}}} is missing from template`);
       const names = Object.keys(pattern.parameters);
       ensure(tokens.length > 0 && names.every((name) => tokens.includes(name))
         && tokens.every((name) => Object.prototype.hasOwnProperty.call(pattern.parameters, name)), `${label}: parameter/placeholder mismatch`);
@@ -78,7 +81,6 @@ function validateLibraryData(taxonomy, core, overlays) {
         ensure(parameter.minimum === undefined || parameter.maximum === undefined || parameter.minimum <= parameter.maximum,
           `${label}: inverted parameter bounds`);
       }
-      const metric = pattern.metric;
       const target = pattern.parameters[metric.targetParameter];
       ensure(target?.type === 'number' && target.minimum !== undefined && target.minimum >= 0,
         `${label}: metric target must have a nonnegative numeric bound`);
