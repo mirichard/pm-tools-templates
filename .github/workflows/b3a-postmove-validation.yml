@@ -1,0 +1,111 @@
+name: B3A Executed-State Validation
+
+on:
+  push:
+    branches:
+      - feat/b3a-delivery-wave
+    paths:
+      - .github/workflows/b3a-postmove-validation.yml
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: npm
+      - name: Install dependencies
+        run: npm ci
+      - name: Validate migration tooling and executed manifest
+        run: |
+          node --test tests/migration-wave.test.mjs
+          python3 -m unittest tests.test_migration_links
+          node scripts/validate-migration-wave.mjs --manifest meta/migration-waves/b3a.json
+      - name: Run structural validators
+        run: |
+          node scripts/validate-sprint-10.mjs --require-annotations
+          node scripts/validate-curated-templates.js
+          node scripts/validate-canonical-paths.js --strict
+      - name: Validate B3A migration links
+        run: python3 scripts/check_migration_links.py --manifest meta/migration-waves/b3a.json
+      - name: Run CI
+        run: npm run test:ci
+      - name: Prove executed-state integrity
+        run: |
+          node --input-type=module <<'NODE'
+          import fs from 'node:fs';
+          import path from 'node:path';
+          import crypto from 'node:crypto';
+          import {execFileSync} from 'node:child_process';
+          const manifest = JSON.parse(fs.readFileSync('meta/migration-waves/b3a.json','utf8'));
+          const inventory = JSON.parse(fs.readFileSync('meta/migration-inventory.json','utf8'));
+          if (manifest.phase !== 'executed') throw new Error(`manifest phase=${manifest.phase}`);
+          if (manifest.asset_count !== 12) throw new Error(`asset_count=${manifest.asset_count}`);
+          const batch = inventory.batch_execution_records.filter(r => r.batch_id === 'B3A');
+          if (batch.length !== 1 || batch[0].asset_count !== 12 || batch[0].status !== 'executed') throw new Error('invalid B3A batch execution record');
+          const executed = inventory.moves.filter(r => r.execution?.batch_id === 'B3A');
+          if (executed.length !== 12) throw new Error(`B3A executed moves=${executed.length}`);
+          const hash = f => crypto.createHash('sha256').update(fs.readFileSync(f)).digest('hex');
+          let hashes=0,pointers=0;
+          for (const a of manifest.assets) {
+            if (!fs.existsSync(a.destination)) throw new Error(`missing destination ${a.destination}`);
+            if (hash(a.destination) !== a.pre_move_sha256) throw new Error(`hash mismatch ${a.destination}`);
+            hashes++;
+            const pointer=fs.readFileSync(a.source,'utf8');
+            const m=pointer.match(/\*\*Canonical location:\*\*\s*\[[^\]]+\]\(([^)]+)\)/i);
+            if (!m || path.resolve(path.dirname(a.source),m[1]) !== path.resolve(a.destination)) throw new Error(`bad pointer ${a.source}`);
+            if (pointer.length > 2000) throw new Error(`legacy path appears to retain body content: ${a.source}`);
+            pointers++;
+            const rec=executed.find(r=>r.source===a.source);
+            if (!rec || rec.execution.pre_move_source_sha256 !== a.pre_move_sha256 || rec.execution.pre_batch_sha !== manifest.pre_batch_sha) throw new Error(`inventory execution mismatch ${a.source}`);
+          }
+          console.log(`PASS: ${hashes}/12 destination hashes; ${pointers}/12 legacy pointers; one B3A execution record; 12/12 inventory execution records.`);
+
+          // Exact-body duplicate control: a migrated canonical body must not exist at any other tracked path.
+          const tracked=execFileSync('git',['ls-files'],{encoding:'utf8'}).trim().split('\n').filter(Boolean);
+          for (const a of manifest.assets) {
+            const h=a.pre_move_sha256;
+            const duplicates=[];
+            for (const f of tracked) {
+              if (f===a.destination || !fs.existsSync(f) || !fs.statSync(f).isFile()) continue;
+              try { if (hash(f)===h) duplicates.push(f); } catch {}
+            }
+            if (duplicates.length) throw new Error(`duplicate body for ${a.destination}: ${duplicates.join(', ')}`);
+          }
+          console.log('PASS: zero exact-body duplicates for all 12 migrated canonicals.');
+
+          // Maintained surfaces must not contain a legacy-only B3A path.
+          const maintained=['TEMPLATE_INDEX.md','docs/decision-engine/bundles/enterprise-governance-bundle.md','docs/decision-engine/template-decision-tree.md','meta/cross-references.json','meta/domain-mapping.json','meta/value-flow-mapping.json','templates/templates.json'];
+          for (const a of manifest.assets) maintained.push(`docs/templates/${path.basename(a.source)}`);
+          const stale=[];
+          for (const f of maintained) {
+            if (!fs.existsSync(f)) continue;
+            const text=fs.readFileSync(f,'utf8');
+            for (const a of manifest.assets) if (text.split(a.destination).join('').includes(a.source)) stale.push(`${f}: ${a.source}`);
+          }
+          if (stale.length) throw new Error(`stale maintained references:\n${stale.join('\n')}`);
+          console.log('PASS: no maintained current-reference surface retains a B3A legacy-only path.');
+          NODE
+      - name: Report generator drift without changing committed state
+        run: |
+          node scripts/generate-sprint-10-metadata.mjs
+          echo '--- generator changed files ---'
+          git diff --name-only
+          echo '--- generator diff hash ---'
+          git diff --binary | sha256sum
+          # Generation must not destroy B3A execution state.
+          node --input-type=module <<'NODE'
+          import fs from 'node:fs';
+          const inv=JSON.parse(fs.readFileSync('meta/migration-inventory.json','utf8'));
+          const b=inv.batch_execution_records.filter(r=>r.batch_id==='B3A');
+          const m=inv.moves.filter(r=>r.execution?.batch_id==='B3A');
+          if (b.length!==1 || m.length!==12) throw new Error('generator did not preserve B3A execution state');
+          console.log('PASS: generator preserves B3A execution state.');
+          NODE
