@@ -1,7 +1,11 @@
 # Healthcare Pharmaceutical Quality Management — Compatibility Navigation
 
-This directory is retained in the Delivery-domain hierarchy so byte-preserved migrated templates can continue to resolve existing relative links while the remaining Quality Management assets await their dependency-safe migration wave.
+## Purpose and overview
 
-**Current maintained collection:** [Healthcare Pharmaceutical Quality Management](../../../../../industry-specializations/healthcare-pharmaceutical/quality-management/)
+This file provides navigation only so byte-preserved Delivery-domain templates can continue resolving the existing Quality Management relative path while that collection awaits its dependency-safe migration wave.
 
-Do not duplicate template bodies here. Canonical files will be added through the normal migration-wave process when those assets are executed.
+[Open the maintained Quality Management Review Template](../../../../../industry-specializations/healthcare-pharmaceutical/quality-management/quality_management_review_template.md)
+
+## Usage instructions
+
+Use the maintained template location above until the remaining Quality Management assets are migrated through the normal migration-wave process. Do not duplicate template bodies in this compatibility directory.
