@@ -33,6 +33,97 @@ export function classifyDependency(root, dependency, inventoryByPath, selectedPa
   return { path: dependency, status: 'blocked-missing', resolved_path: dependency };
 }
 
+function dependencyGraph(moves) {
+  const byPath = new Map(moves.flatMap(move => [[move.source, move], [move.destination, move]]));
+  return new Map(moves.map(move => [
+    move.source,
+    (move.dependencies || [])
+      .map(dependency => byPath.get(dependency)?.source)
+      .filter(Boolean)
+  ]));
+}
+
+function stronglyConnectedComponents(moves) {
+  const graph = dependencyGraph(moves);
+  let nextIndex = 0;
+  const indices = new Map();
+  const lowLinks = new Map();
+  const stack = [];
+  const onStack = new Set();
+  const components = [];
+
+  function visit(source) {
+    indices.set(source, nextIndex);
+    lowLinks.set(source, nextIndex);
+    nextIndex += 1;
+    stack.push(source);
+    onStack.add(source);
+
+    for (const dependency of graph.get(source) || []) {
+      if (!indices.has(dependency)) {
+        visit(dependency);
+        lowLinks.set(source, Math.min(lowLinks.get(source), lowLinks.get(dependency)));
+      } else if (onStack.has(dependency)) {
+        lowLinks.set(source, Math.min(lowLinks.get(source), indices.get(dependency)));
+      }
+    }
+
+    if (lowLinks.get(source) === indices.get(source)) {
+      const component = [];
+      while (stack.length > 0) {
+        const member = stack.pop();
+        onStack.delete(member);
+        component.push(member);
+        if (member === source) break;
+      }
+      components.push(component.sort());
+    }
+  }
+
+  for (const move of moves) {
+    if (!indices.has(move.source)) visit(move.source);
+  }
+  return components;
+}
+
+function selectAtomicPrefix(candidates, maxAssets) {
+  const components = stronglyConnectedComponents(candidates);
+  const componentBySource = new Map();
+  components.forEach((component, index) => {
+    for (const source of component) componentBySource.set(source, index);
+  });
+  const bySource = new Map(candidates.map(move => [move.source, move]));
+  const selectedSources = new Set();
+  const selectedComponents = new Set();
+
+  for (const move of candidates) {
+    if (selectedSources.has(move.source)) continue;
+    const componentIndex = componentBySource.get(move.source);
+    if (selectedComponents.has(componentIndex)) continue;
+    const component = components[componentIndex];
+    if (selectedSources.size + component.length > maxAssets) break;
+    selectedComponents.add(componentIndex);
+    for (const source of component) selectedSources.add(source);
+  }
+
+  if (selectedSources.size === 0) {
+    const first = candidates[0];
+    const component = components[componentBySource.get(first.source)];
+    throw new Error(
+      `Next dependency cycle contains ${component.length} assets, exceeding max-assets ${maxAssets}: ${component.join(', ')}`
+    );
+  }
+
+  return candidates.filter(move => selectedSources.has(move.source)).map(move => bySource.get(move.source));
+}
+
+function splitComponents(moves, selectedSources) {
+  return stronglyConnectedComponents(moves).filter(component => {
+    const selectedCount = component.filter(source => selectedSources.has(source)).length;
+    return selectedCount > 0 && selectedCount < component.length;
+  });
+}
+
 function dependencyOrder(moves) {
   const selectedByPath = new Map(moves.flatMap(move => [[move.source, move], [move.destination, move]]));
   const remaining = new Set(moves);
@@ -44,8 +135,8 @@ function dependencyOrder(moves) {
         return !prerequisite || !remaining.has(prerequisite);
       }))
       .sort((a, b) => a.source.localeCompare(b.source));
-    // A cycle can be migrated atomically in one wave. Break it deterministically
-    // while retaining explicit same-wave dependency classifications.
+    // Cycles are selected atomically by selectAtomicPrefix. Break ordering ties
+    // deterministically while retaining same-wave dependency classifications.
     const next = ready[0] || [...remaining].sort((a, b) => a.source.localeCompare(b.source))[0];
     ordered.push(next);
     remaining.delete(next);
@@ -74,7 +165,7 @@ export function buildWavePlan({
     .sort((a, b) => a.source.localeCompare(b.source));
 
   if (candidates.length === 0) throw new Error('No planned moves match the requested batch/domain');
-  const selected = dependencyOrder(candidates.slice(0, maxAssets));
+  const selected = dependencyOrder(selectAtomicPrefix(candidates, maxAssets));
   const selectedPaths = new Set(selected.flatMap(move => [move.source, move.destination]));
   const inventoryByPath = new Map(inventory.moves.flatMap(move => [[move.source, move], [move.destination, move]]));
 
@@ -116,7 +207,7 @@ export function buildWavePlan({
       'node scripts/validate-sprint-10.mjs --require-annotations',
       'node scripts/validate-curated-templates.js',
       'node scripts/validate-canonical-paths.js --strict',
-      'python3 scripts/check_anchor_links_filtered.py',
+      'python3 scripts/check_migration_links.py --manifest <manifest>',
       'npm run test:ci'
     ],
     rollback: {
@@ -175,6 +266,16 @@ export function validateWavePlan({ root, inventory, plan }) {
   const bySource = new Map(inventory.moves.map(move => [move.source, move]));
   const inventoryByPath = new Map(inventory.moves.flatMap(move => [[move.source, move], [move.destination, move]]));
   const selectedPaths = new Set((plan.assets || []).flatMap(asset => [asset.source, asset.destination]));
+  const selectedSources = new Set((plan.assets || []).map(asset => asset.source));
+  const boundaryMoves = inventory.moves
+    .filter(move => move.batch === plan.source_batch)
+    .filter(move => plan.primary_domain === 'mixed' || move.primary_domain === plan.primary_domain)
+    .filter(move => move.action === 'planned-move-not-executed' || move.execution?.batch_id === plan.wave_id)
+    .sort((a, b) => a.source.localeCompare(b.source));
+  for (const component of splitComponents(boundaryMoves, selectedSources)) {
+    fail(`wave splits dependency cycle: ${component.join(', ')}`);
+  }
+
   const sources = new Set();
   const destinations = new Set();
   for (const asset of plan.assets || []) {
