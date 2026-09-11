@@ -318,7 +318,7 @@ program
 
 // ─── generate-nfr ────────────────────────────────────────────────────────────
 addNFROptions(program.command('generate-nfr [input-file]'))
-  .description('Run the NFR command skeleton on structured requirements or UCS JSON')
+  .description('Generate NFR candidates from structured requirements or UCS JSON')
   .option('-o, --output <dir>', 'Output directory', './output')
   .option('--list-overlays', 'List available overlays without reading input or calling an LLM')
   .option('--force', 'Overwrite existing NFR output, including manual edits')
@@ -337,9 +337,9 @@ addNFROptions(program.command('generate-nfr [input-file]'))
       const generator = new NFRGenerator();
       const baseName = path.basename(inputFile, path.extname(inputFile)).replace(/-(?:structured|ucs)(?:-refined)?$/, '');
       const result = await generator.run(input, { ...options, baseName });
-      spinner.succeed('NFR classification complete; generation pending');
+      spinner.succeed('NFR classification and candidate generation complete');
       terminalLog(chalk.yellow(result.notice));
-      terminalLog(chalk.green(`✓ NFR classification report saved to ${result.reportPath}`));
+      terminalLog(chalk.green(`✓ NFR candidate report saved to ${result.reportPath}`));
       terminalLog(chalk.green(`✓ NFR classification JSON handoff saved to ${result.classificationPath}`));
     } catch (err) {
       spinnerFail(spinner, err && err.message ? err.message : String(err));
