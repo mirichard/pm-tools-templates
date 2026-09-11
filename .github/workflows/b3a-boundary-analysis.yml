@@ -38,7 +38,7 @@ jobs:
           echo '--- planner manifest ---'
           cat meta/migration-waves/_b3a-analysis.json
 
-      - name: Analyze full Batch 3 Delivery SCC boundary
+      - name: Analyze full Batch 3 Delivery SCC boundary and safe packing
         run: |
           node --input-type=module <<'NODE'
           import fs from 'node:fs';
@@ -98,6 +98,11 @@ jobs:
             if (!indices.has(move.source)) strongConnect(move.source);
           }
 
+          const componentBySource = new Map();
+          sccs.forEach((component, componentIndex) => {
+            for (const source of component) componentBySource.set(source, componentIndex);
+          });
+
           const initial = candidates.slice(0, 12).map(m => m.source);
           const initialSet = new Set(initial);
           const crossing = sccs
@@ -105,6 +110,58 @@ jobs:
             .sort((a, b) => a[0].localeCompare(b[0]));
           const required = new Set(initial);
           for (const component of crossing) for (const source of component) required.add(source);
+
+          function safePrefix(limit) {
+            const selected = [];
+            const selectedSet = new Set();
+            const selectedComponents = new Set();
+            let blocked = null;
+
+            for (const move of candidates) {
+              if (selectedSet.has(move.source)) continue;
+              const componentIndex = componentBySource.get(move.source);
+              if (selectedComponents.has(componentIndex)) continue;
+              const component = [...sccs[componentIndex]].sort();
+              const missing = component.filter(source => !selectedSet.has(source));
+              if (selected.length + missing.length > limit) {
+                blocked = {
+                  first_source: move.source,
+                  component_size: component.length,
+                  component,
+                  count_before_block: selected.length,
+                  would_total: selected.length + missing.length
+                };
+                break;
+              }
+              selectedComponents.add(componentIndex);
+              for (const source of component) {
+                if (!selectedSet.has(source)) {
+                  selectedSet.add(source);
+                  selected.push(source);
+                }
+              }
+            }
+
+            const orderedSelected = candidates
+              .map(m => m.source)
+              .filter(source => selectedSet.has(source));
+
+            const splitComponents = sccs.filter(component => {
+              const inside = component.filter(source => selectedSet.has(source)).length;
+              return inside > 0 && inside < component.length;
+            });
+
+            return {
+              limit,
+              selected_count: orderedSelected.length,
+              selected: orderedSelected,
+              selected_nontrivial_sccs: sccs
+                .filter(c => c.length > 1 && c.every(source => selectedSet.has(source)))
+                .sort((a, b) => a[0].localeCompare(b[0])),
+              split_scc_count: splitComponents.length,
+              blocked
+            };
+          }
 
           const summary = {
             candidate_count: candidates.length,
@@ -115,12 +172,12 @@ jobs:
             minimum_scc_closed_count: required.size,
             additional_assets_required: [...required].filter(x => !initialSet.has(x)).sort(),
             max_wave_assets: 15,
-            safe_under_limit: required.size <= 15
+            safe_under_limit: required.size <= 15,
+            nontrivial_sccs: sccs.filter(c => c.length > 1).sort((a, b) => a[0].localeCompare(b[0])),
+            safe_prefix_12: safePrefix(12),
+            safe_prefix_15: safePrefix(15)
           };
 
-          console.log('--- SCC boundary analysis ---');
+          console.log('--- SCC boundary and safe-pack analysis ---');
           console.log(JSON.stringify(summary, null, 2));
-          if (required.size > 15) {
-            console.log(`HARD_STOP: closing SCCs intersecting initial 12 requires ${required.size} assets (>15).`);
-          }
           NODE
