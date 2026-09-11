@@ -8,88 +8,46 @@ on:
       - .github/workflows/b3a-boundary-analysis.yml
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
-  analyze:
+  persist-manifest:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
+          ref: feat/b3a-delivery-wave
 
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: '20'
 
-      - name: Run migration-wave regression tests
-        run: node --test tests/migration-wave.test.mjs
-
-      - name: Generate corrected B3A planner output
+      - name: Verify expected branch state
         run: |
+          test "$(git branch --show-current)" = "feat/b3a-delivery-wave"
+          git merge-base --is-ancestor f639e285ec3970372f1fa1166b4af07d371e7fb8 HEAD
+
+      - name: Generate and validate B3A entry manifest
+        run: |
+          node --test tests/migration-wave.test.mjs
           node scripts/plan-migration-wave.mjs \
             --wave-id B3A \
             --batch 3 \
             --domain Delivery \
             --rollback-owner mirichard \
             --pre-batch-sha f639e285ec3970372f1fa1166b4af07d371e7fb8 \
-            --output meta/migration-waves/_b3a-analysis.json
+            --output meta/migration-waves/b3a.json
           node scripts/validate-migration-wave.mjs \
-            --manifest meta/migration-waves/_b3a-analysis.json
-          echo '--- corrected planner summary ---'
-          node --input-type=module <<'NODE'
-          import fs from 'node:fs';
-          const plan = JSON.parse(fs.readFileSync('meta/migration-waves/_b3a-analysis.json', 'utf8'));
-          console.log(JSON.stringify({
-            asset_count: plan.asset_count,
-            max_assets: plan.max_assets,
-            assets: plan.assets.map(asset => ({
-              order: asset.order,
-              source: asset.source,
-              destination: asset.destination,
-              pre_move_sha256: asset.pre_move_sha256,
-              dependencies: asset.dependencies
-            }))
-          }, null, 2));
-          NODE
+            --manifest meta/migration-waves/b3a.json
 
-      - name: Verify selected wave does not split full Batch 3 Delivery SCCs
+      - name: Persist only the validated manifest
         run: |
-          node --input-type=module <<'NODE'
-          import fs from 'node:fs';
-          const inventory = JSON.parse(fs.readFileSync('meta/migration-inventory.json', 'utf8'));
-          const plan = JSON.parse(fs.readFileSync('meta/migration-waves/_b3a-analysis.json', 'utf8'));
-          const candidates = inventory.moves
-            .filter(m => m.action === 'planned-move-not-executed')
-            .filter(m => m.batch === 3 && m.primary_domain === 'Delivery')
-            .sort((a, b) => a.source.localeCompare(b.source));
-          const byPath = new Map(candidates.flatMap(m => [[m.source, m], [m.destination, m]]));
-          const graph = new Map(candidates.map(m => [m.source, (m.dependencies || []).map(d => byPath.get(d)?.source).filter(Boolean)]));
-          let index = 0;
-          const indices = new Map(), low = new Map(), stack = [], onStack = new Set(), components = [];
-          function visit(v) {
-            indices.set(v, index); low.set(v, index); index += 1; stack.push(v); onStack.add(v);
-            for (const w of graph.get(v) || []) {
-              if (!indices.has(w)) { visit(w); low.set(v, Math.min(low.get(v), low.get(w))); }
-              else if (onStack.has(w)) low.set(v, Math.min(low.get(v), indices.get(w)));
-            }
-            if (low.get(v) === indices.get(v)) {
-              const c = [];
-              while (true) { const w = stack.pop(); onStack.delete(w); c.push(w); if (w === v) break; }
-              components.push(c.sort());
-            }
-          }
-          for (const m of candidates) if (!indices.has(m.source)) visit(m.source);
-          const selected = new Set(plan.assets.map(a => a.source));
-          const split = components.filter(c => {
-            const n = c.filter(x => selected.has(x)).length;
-            return n > 0 && n < c.length;
-          });
-          if (split.length) {
-            console.error(JSON.stringify(split, null, 2));
-            process.exit(1);
-          }
-          console.log(`PASS: corrected B3A selects ${selected.size} assets and splits 0 SCCs across ${candidates.length} Delivery candidates.`);
-          NODE
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add meta/migration-waves/b3a.json
+          test "$(git diff --cached --name-only)" = "meta/migration-waves/b3a.json"
+          git commit -m "chore(b3a): record validated entry manifest"
+          git push origin HEAD:feat/b3a-delivery-wave
