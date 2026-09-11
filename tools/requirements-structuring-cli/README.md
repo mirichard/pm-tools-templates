@@ -163,8 +163,9 @@ The `.feature` file can be wired directly into Cucumber, pytest-bdd, SpecFlow, o
 
 ### `generate-nfr [input-file]`
 
-NFR command skeleton (#1112). Accepts an existing structured or UCS JSON
-artifact; classification (#1108) and generation (#1109) are follow-ups.
+Accepts an existing structured or UCS JSON artifact and classifies each step
+against the quality taxonomy (#1108). NFR text generation (#1109) is a follow-up.
+See the [classification handoff contract](docs/nfr-classification.md).
 See the [NFR input contract](docs/nfr-input-contract.md) for required fields,
 shape validation, and compatibility decisions. No version marker is required.
 
@@ -184,8 +185,9 @@ before authoritative release. Selecting an overlay does not establish compliance
 Listing needs no input file or API credentials and writes no report.
 
 The command writes `<base>-nfr-report.md` through the existing Markdown report
-writer, explicitly labeled `NFR generation not yet implemented (#1108/#1109)`.
-The stub does not call an LLM or create NFR candidates. `pipeline` automatically
+writer, explicitly labeled `NFR generation not yet implemented (#1109)`, plus
+a machine-readable `<base>-nfr-classifications.json` artifact. Classification
+uses the configured LLM; no NFR candidates are generated. `pipeline` automatically
 runs the same step after Phase 2 UCS, test cases and Gherkin, before the Phase 3
 review gate; all existing phase ordering and gates are preserved.
 
@@ -193,14 +195,14 @@ review gate; all existing phase ordering and gates are preserved.
 | --- | --- |
 | `--provider gemini\|anthropic\|openai` | Override existing `LLM_PROVIDER` selection for the invocation; `openai` also covers compatible APIs using `LLM_BASE_URL`. |
 | `--model <name>` | Override existing `LLM_MODEL` selection for the invocation. |
-| `--attributes <names>` | Comma-separated non-empty names; trimmed/deduplicated and recorded without taxonomy lookup (classification follows in #1108). |
+| `--attributes <names>` | Comma-separated non-empty names; top-level taxonomy names/IDs restricting classification; overrides `NFR_ATTRIBUTES` from the environment. |
 | `--confidence-threshold <number>` | Finite number in `[0, 1]`; recorded only, no confidence calculation or review gate. |
 | `--profile` / `--overlay` | Select an available name; default `neutral`. |
 | `-o` / `--output <dir>` | Report directory, default `./output`. Pipeline retains `--output-dir` and also accepts `--output`. |
 
 All these selection flags also apply to `pipeline`. Upstream pipeline phases
-still use the configured LLM and interactive gates. The standalone skeleton
-and overlay listing do not require API credentials. Provider/model flags reuse
+still use the configured LLM and interactive gates. Standalone classification requires the existing provider credentials;
+overlay listing does not require API credentials. Provider/model flags reuse
 the existing environment loader/client and restore overrides after execution.
 
 ```bash
