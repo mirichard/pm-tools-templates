@@ -55,6 +55,32 @@ module.exports = async (runner) => {
     rejects((t, c) => { c.patterns[0].template += '\nAnother statement.'; }, /malformed template/);
     rejects((t, c) => { c.patterns[0].template += ' It shall do more.'; }, /one requirement/);
   });
+  await test('metric target omitted from template fails with pattern and missing reference', () => {
+    for (const name of ['target', 'acceptanceBound']) {
+      const values = fixture();
+      const pattern = values[1].patterns[0];
+      const target = pattern.parameters.target;
+      delete pattern.parameters.target;
+      pattern.parameters[name] = target;
+      pattern.metric.targetParameter = name;
+      pattern.template = pattern.template.replace('{{target}}', 'the approved bound');
+      assert.throws(() => validateLibraryData(...values), {
+        message: `Invalid NFR library: ${pattern.id}: metric target reference {{${name}}} is missing from template`,
+      });
+    }
+  });
+  await test('metric target referenced by its declared name passes', () => {
+    for (const name of ['target', 'acceptanceBound']) {
+      const values = fixture();
+      const pattern = values[1].patterns[0];
+      const target = pattern.parameters.target;
+      delete pattern.parameters.target;
+      pattern.parameters[name] = target;
+      pattern.metric.targetParameter = name;
+      pattern.template = pattern.template.replace('{{target}}', `{{${name}}}`);
+      assert.strictEqual(validateLibraryData(...values).corePatterns, 40);
+    }
+  });
   await test('target type, unit and acceptance bounds are meaningful', () => {
     rejects((t, c) => { c.patterns[0].parameters.target.type = 'string'; }, /numeric bounds on string/);
     rejects((t, c) => { c.patterns[0].metric.unit = 'minutes'; }, /type\/unit mismatch/);
