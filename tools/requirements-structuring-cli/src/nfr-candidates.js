@@ -46,3 +46,27 @@ function selectPairs(handoff, { overlay = 'neutral' } = {}) {
   return { library, data, pairs };
 }
 module.exports = { validateHandoff, matchingPatterns, selectPairs };
+
+function generateCandidates(handoff, options = {}) {
+  const { library, data, pairs } = selectPairs(handoff, options);
+  const candidates = pairs.flatMap(pair => pair.patterns.map(pattern => {
+    const bindings = Object.fromEntries(Object.keys(pattern.parameters).map(name => [name, `[NEEDS INPUT: ${name}]`]));
+    return {
+      id: `${data.useCaseId}:${pair.source.path}:${pattern.id}`,
+      source: pair.source, characteristic: pair.attribute.characteristic,
+      subCharacteristic: pair.attribute.subCharacteristic, confidence: pair.attribute.confidence,
+      sourceTaxonomyVersion: pair.attribute.sourceTaxonomyVersion,
+      patternId: pattern.id, libraryRevision: library.revision,
+      text: pattern.template.replace(/\{\{([a-z][a-zA-Z0-9]*)\}\}/g, (_, name) => bindings[name]),
+      bindings, unboundParameters: Object.keys(bindings), metric: pattern.metric,
+      provenance: pattern.provenance,
+      frameworks: pattern.provenance.frameworks.map(ref => ({ ...library.frameworks.find(f => f.id === ref.id), section: ref.section })),
+      applicability: library.applicability, reviewStatus: 'needs-human-input',
+    };
+  }));
+  return { rendererVersion: '1.0.0', useCaseId: data.useCaseId, overlay: library.overlay,
+    accuracyNotice: library.accuracyNotice, candidates,
+    missingPatterns: pairs.filter(p => !p.patterns.length).map(p => ({ source: p.source, subCharacteristic: p.attribute.subCharacteristic })),
+    unmappedSources: data.requirements.filter(r => !r.attributes.length).map(r => r.source) };
+}
+module.exports.generateCandidates = generateCandidates;
