@@ -8,17 +8,17 @@
 - Rollback owner: `mirichard`
 - Pre-batch SHA: `f639e285ec3970372f1fa1166b4af07d371e7fb8`
 - Manifest: `meta/migration-waves/b3a.json`
-- Status: **PASS (entry baseline); physical migration pending**
+- Status: **PASS — physical migration and local executed-state validation complete; integration pending**
 
 ## Scope decision
 
-The current migration inventory contains 69 pending Batch 3 / Delivery candidates. The original planner selected the first twelve lexicographic candidates before dependency ordering. Full Tarjan strongly-connected-component analysis showed that this boundary split three dependency cycles; closing those cycles required seventeen assets and therefore exceeded the repository's fifteen-asset safety ceiling.
+The migration inventory contained 69 pending Batch 3 / Delivery candidates at entry. The original planner selected the first twelve candidates before dependency closure. Full strongly-connected-component analysis showed that this boundary split three dependency cycles; closing every component intersecting that raw selection required 17 assets, exceeding the repository's 15-asset safety ceiling.
 
-The migration planner and validator were corrected before B3A execution. Planning now selects a deterministic source-ordered prefix while treating every same-batch/domain SCC as indivisible, and validation rejects manifests that split an SCC. Under both the normal twelve-asset target and the fifteen-asset ceiling, the first safe atomic prefix contains the same twelve assets. The next candidate belongs to a four-asset SCC and would increase the wave to sixteen, so that component is deferred intact to the next wave.
+The migration planner and validator were corrected before any physical move. Planning now selects a deterministic source-ordered prefix while treating every same-batch/domain SCC as indivisible, and validation rejects manifests that split an SCC. Under both the normal 12-asset target and 15-asset ceiling, the first safe atomic prefix contains the same 12 assets. The next atomic component would raise the wave to 16, so it remains deferred intact.
 
-B3A therefore contains twelve assets and splits zero SCCs.
+B3A therefore contains 12 assets and splits zero SCCs.
 
-## Assets and immutable entry hashes
+## Assets and immutable hashes
 
 | Legacy source | Canonical destination | Pre-move SHA-256 |
 |---|---|---|
@@ -37,13 +37,7 @@ B3A therefore contains twelve assets and splits zero SCCs.
 
 ## Dependency-boundary evidence
 
-The rejected original first-twelve boundary crossed three SCCs:
-
-- GxP / validation-master SCC: 3 assets
-- Manufacturing / CSV qualification SCC: 4 assets
-- Regulatory risk / communication SCC: 4 assets
-
-Closing all SCCs intersecting that raw selection required 17 assets. The corrected SCC-atomic B3A selection contains complete GxP/validation-master and manufacturing/CSV qualification components while deferring the four-asset regulatory risk/communication component intact. Independent full-graph validation confirmed zero split SCCs across all 69 pending Delivery candidates.
+The rejected raw first-twelve boundary crossed three SCCs. Completing all intersecting components required 17 assets. The corrected SCC-atomic B3A selection contains complete atomic components and defers the next four-asset component intact. Independent full-graph validation confirmed zero split SCCs across all 69 pending Delivery candidates.
 
 ## Checkpoint A — entry baseline
 
@@ -52,62 +46,89 @@ Authoritative baseline run: GitHub Actions run `34614165100`.
 - Migration-wave tests: PASS — 15/15
 - Migration-link checker tests: PASS — 5/5
 - Entry manifest: PASS — 12 assets, limit 12
-- Sprint 10 strict validation: PASS — 137/137; 100% cross-reference coverage
+- Sprint strict validation: PASS — 137/137; 100% cross-reference coverage
 - Curated templates: PASS — 139 templates
 - Canonical paths: PASS — 0 errors; 1 inherited Stakeholder Register `path`/`canonical_path` warning
-- Migration-link baseline: PASS for no new failures — 12 files, 63 local inline links, 2 inherited failures, 0 new failures
+- Migration-link baseline: 63 local inline links; 2 inherited failures; 0 new failures
 - CI: PASS — 1 suite, 2 tests, 100% coverage
-- Entry integrity: PASS — 12/12 source hashes match; 0 destination collisions
+- Entry integrity: PASS — 12/12 source hashes; 0 destination collisions
 
-The two inherited link failures are both in `industry-specializations/healthcare-pharmaceutical/lifecycle/pharmaceutical_qbd_template.md`:
+The two inherited link failures are both in `pharmaceutical_qbd_template.md`:
 
 - `../regulatory-compliance/`
 - `../clinical-research/`
 
-They are baseline defects and are not B3A-created.
-
-## Inherited generator drift
-
-Running `node scripts/generate-sprint-10-metadata.mjs` on untouched `main` at the pre-batch SHA and on the B3A entry branch produces the identical pre-existing change to `meta/migration-inventory.json`.
-
-Generated diff SHA-256:
-
-`8789b36931eb137b16c4c74e760c7c992e84208d85453cd4299dd7ba5d54935f`
-
-This is prior-wave metadata normalization drift, not a B3A regression. It is explicitly baselined and must not be silently misclassified as B3A-created change.
-
-## Tooling corrections established before execution
-
-B3A exposed two migration-tooling defects before any physical move:
-
-1. The planner could split same-batch/domain dependency cycles because it sliced candidates before dependency analysis. Planning now selects an SCC-atomic prefix and validation rejects split-cycle manifests.
-2. The migration-link checker assumed canonical destinations existed even for an entry-phase manifest. It now checks entry-phase legacy sources against the pre-batch baseline and preserves canonical-destination behavior for executed manifests.
-
-Both corrections have focused regression coverage and passed the entry baseline.
-
 ## Checkpoints B/C — canonical moves and compatibility
 
-**Pending.** Each selected source will be moved byte-for-byte to its `domains/delivery/...` destination. The original path will then be recreated as a navigation-only pointer to that destination. Destination hashes and pointer resolution must pass 12/12 before this checkpoint is complete.
+Physical migration commit: `8024e52607c137d37f2c9b7baffe22f9ffb53585`.
 
-## Checkpoint D — canonical references and metadata
+GitHub Actions run `34614548665` executed the guarded atomic move.
 
-**Pending.** Maintained catalogs, indexes, mappings, selectors, documentation, and navigation will be updated after the physical move. Historical evidence and archived/generated snapshots will not be rewritten merely to eliminate legacy paths.
+- 12/12 canonical destination bodies match their immutable pre-move SHA-256 values.
+- 12/12 legacy source paths were replaced with navigation-only pointers.
+- 12/12 legacy pointers resolve to the intended canonical destination.
+- Exactly 24 migration paths were staged for the physical move.
+- No canonical template body was rewritten.
 
-## Checkpoint E — affected-scope validation
+## Checkpoint D — canonical references and execution metadata
 
-**Pending.** Executed-wave validation must prove zero B3A-created link regressions relative to the entry baseline and re-run structural, catalog, selector/copy, migration-wave, and CI checks.
+Reference/execution commit: `22c051de` (`refactor(b3a): canonicalize maintained references and execution metadata`).
 
-## Checkpoint F — reviewed visual regression
+- 12/12 inventory moves are `executed-move-with-legacy-pointer` with B3A execution metadata.
+- Exactly one B3A `batch_execution_records` entry exists.
+- Maintained current-reference surfaces were updated to the Delivery canonicals: current template index, template wrappers, decision-engine references, domain/cross-reference/value-flow mappings, and current catalog paths.
+- Historical research, backup files, proposed snapshots, and archived evidence were intentionally not rewritten.
 
-**Pending.** Visual comparison must be performed on the final PR head against reviewed baselines. Baselines will not be updated merely to force a green result.
+P5 exposed one catalog compatibility error caused by over-normalizing `alternate_paths`. Canonical `path`/`canonical_path` correctly remain on Delivery, while legacy source paths are required compatibility alternates. Commit `4ce1aa1998eced78d79f8f575d080805b9e426ac` restored the 12 legacy catalog alternate paths without changing canonical identity.
+
+P5 also exposed one migration-created relative-link failure in the byte-preserved Pharmaceutical QbD template: `../quality-management/` resolved at the legacy hierarchy but the deferred Delivery quality-management directory did not yet exist. The canonical body was not altered. Commit `912b6469fec8f5eaed6f810dcfa5f0da49bcb26f` added a lightweight `domains/delivery/.../quality-management/README.md` compatibility-navigation shim pointing to the still-deferred maintained collection. No deferred template body was copied or prematurely migrated.
+
+## Checkpoint E — executed-state validation
+
+Final successful validation: GitHub Actions run `34617979386`, rerun job `103325290829`.
+
+- Migration-wave tests: PASS — 15/15
+- Migration-link checker tests: PASS — 5/5
+- Executed manifest: PASS — 12 assets
+- Sprint strict validation: PASS — 137/137; 100% cross-reference coverage
+- Curated templates: PASS — 139 templates
+- Canonical paths: PASS — 0 errors; 1 inherited Stakeholder Register warning
+- Migration links: PASS — 41 files, 363 local inline links; 2 inherited failures; **0 new failures**
+- CI: PASS — 1 suite, 2 tests, 100% coverage
+- Destination hashes: PASS — 12/12
+- Legacy pointers: PASS — 12/12
+- Catalog compatibility paths: PASS — 12/12
+- Inventory execution records: PASS — 12/12
+- B3A batch execution records: PASS — exactly one
+- Exact-body duplicate control: PASS — zero duplicate bodies for all 12 migrated canonicals
+- Maintained non-catalog references: PASS — zero B3A legacy-only paths
+
+The only remaining migration-link failures are the same two inherited entry-baseline defects (`../regulatory-compliance/` and `../clinical-research/`). B3A created zero new affected-scope link failures.
+
+## Generator drift disposition
+
+The metadata generator has inherited normalization drift that was already reproduced on the pre-batch main baseline. On the executed B3A state it changes only `meta/cross-references.json` and `meta/migration-inventory.json`; generated diff SHA-256 is `310d9c57a937f686a0ce401592c45e78e502dc20f91028abf2e5665f12c2b46c`. The validation explicitly proved that generator execution preserves the single B3A batch record and all 12 B3A move execution records. This non-mutating diagnostic drift was not committed as part of B3A.
+
+## Tooling corrections established by B3A
+
+B3A exposed and corrected two migration-tooling lifecycle defects before/while executing the wave:
+
+1. The planner could split same-batch/domain dependency cycles because it sliced candidates before dependency analysis. Planning now selects an SCC-atomic prefix and validation rejects split-cycle manifests.
+2. The migration-link checker assumed canonical destinations existed even for an entry-phase manifest. It now validates entry-phase legacy sources and executed-phase canonical destinations correctly.
+
+Both corrections have focused regression coverage and pass the final executed-state validation.
+
+## Checkpoint F — integration/visual validation
+
+**Pending.** The branch-local migration is complete and validated. Integration checks must run on the final delivery head before manual merge. Visual baselines must not be updated merely to force a green result.
 
 ## Checkpoint G — post-merge verification
 
-**Pending and outside pre-merge completion.** After manual merge, production `main` must verify canonical hashes/pointers, required workflows, comprehensive visual regression, and rollback SHA before B3A is recorded as executed/closed.
+**Pending.** After manual integration, production `main` must reverify the 12 canonical hashes, 12 legacy pointers, catalog compatibility, required workflows, comprehensive visual regression, and rollback SHA before B3A can be treated as integrated and the next dependency-aware Delivery wave becomes authoritative.
 
 ## Technical-debt disposition
 
-B3A is a structural migration. Canonical template bodies are immutable for this wave. Inherited content-quality issues are not silently repaired. Existing technical-debt tracking remains under #1117 / #1058 where applicable; any newly discovered inherited defect will be explicitly dispositioned rather than folded into body edits.
+B3A is a structural migration. Canonical template bodies remained immutable. Inherited content-quality issues were not silently repaired. Existing technical-debt tracking remains under #1117 / #1058 where applicable.
 
 ## Rollback
 
@@ -118,5 +139,3 @@ Pre-batch rollback anchor:
 After manual integration, the wave-level rollback method is:
 
 `git revert <B3A-merge-sha>`
-
-No physical migration has yet occurred at the time of this entry record.
