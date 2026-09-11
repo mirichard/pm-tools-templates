@@ -185,9 +185,9 @@ before authoritative release. Selecting an overlay does not establish compliance
 Listing needs no input file or API credentials and writes no report.
 
 The command writes `<base>-nfr-report.md` through the existing Markdown report
-writer, explicitly labeled `NFR generation not yet implemented (#1109)`, plus
+writer, explicitly labeled `NFR candidates generated; human input required for all unbound parameters.`, plus
 a machine-readable `<base>-nfr-classifications.json` artifact. Classification
-uses the configured LLM; no NFR candidates are generated. `pipeline` automatically
+uses the configured LLM; candidate parameters remain unbound. `pipeline` automatically
 runs the same step after Phase 2 UCS, test cases and Gherkin, before the Phase 3
 review gate; all existing phase ordering and gates are preserved.
 
@@ -367,3 +367,12 @@ Runs 29 tests covering: business object model, UCS template model, test generato
 ## License
 
 MIT — See the repository root LICENSE file.
+
+### NFR candidate generation (#1109)
+
+Classification now continues into deterministic library-based candidate rendering.
+Targets, conditions and other unsupplied bindings are explicit NEEDS INPUT
+placeholders; no values are invented. The existing NFR Markdown report includes
+candidates and characteristic/parameter gaps. Existing NFR output blocks reruns;
+standalone `--force` explicitly permits overwriting manual edits. See the
+[generation contract and extension points](docs/nfr-generation.md).
