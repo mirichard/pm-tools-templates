@@ -23,16 +23,30 @@ function requirementUnits(kind, data) {
   return units;
 }
 
+function selectCharacteristics(taxonomy, attributes) {
+  if (!Array.isArray(attributes) || attributes.some((name) => typeof name !== 'string')) {
+    throw new Error('Classification attributes must be an array of characteristic names or IDs.');
+  }
+  const configured = attributes.length ? attributes : (process.env.NFR_ATTRIBUTES || '').trim()
+    ? process.env.NFR_ATTRIBUTES.split(',') : [];
+  const requested = new Set(configured.map((name) => name.trim().toLowerCase().replace(/\s+/g, '-')));
+  const known = new Set(taxonomy.characteristics.map((entry) => entry.id));
+  if ([...requested].some((id) => !known.has(id))) {
+    throw new Error('Unknown classification characteristic in --attributes or NFR_ATTRIBUTES; use top-level taxonomy names or IDs.');
+  }
+  return taxonomy.characteristics.filter((entry) => !requested.size || requested.has(entry.id));
+}
+
 class NFRClassifier {
   constructor({ llm = new LLMClient(), taxonomyPath } = {}) {
     this.llm = llm;
     this.taxonomyPath = taxonomyPath;
   }
 
-  async classify(input) {
+  async classify(input, { attributes = [] } = {}) {
     const { kind, data } = validateNFRInput(input);
     const { taxonomy, sha256 } = loadClassificationTaxonomy(this.taxonomyPath);
-    const characteristics = taxonomy.characteristics;
+    const characteristics = selectCharacteristics(taxonomy, attributes);
     const parents = new Map(characteristics.flatMap((c) => c.subCharacteristics.map((s) => [s.id, c.id])));
     const systemPrompt = await this.llm.loadPrompt(PROMPT_FILE);
     const context = { useCaseId: data.useCaseId, useCaseName: data.useCaseName,
