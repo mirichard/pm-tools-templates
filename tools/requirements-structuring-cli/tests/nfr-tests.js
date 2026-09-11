@@ -167,19 +167,19 @@ module.exports = async function testNFR(runner) {
         '--confidence-threshold', '0.8', '--profile', 'neutral', '--provider', 'openai', '--model', 'fixture-model', '--output', output], { classify: true });
       assert.strictEqual(result.status, 0, result.text);
       const report = await fs.readFile(path.join(output, 'runtime-nfr-report.md'), 'utf8');
-      for (const fragment of ['NFR generation not yet implemented (#1109)', 'Artifact: ucs',
-        'security, reliability', '0.8', 'openai', 'fixture-model', 'neutral', 'No NFR candidates']) {
+      for (const fragment of ['NFR candidates generated; human input required for all unbound parameters.', 'Artifact: ucs',
+        'security, reliability', '0.8', 'openai', 'fixture-model', 'neutral', 'NFR candidates']) {
         assert.ok(report.includes(fragment), fragment);
       }
       assert.deepStrictEqual(await fs.readJSON(runtimePath), runtime);
     });
-    await test('NFR explicit overlay records selection without generating NFR candidates', async () => {
+    await test('NFR explicit overlay records selection for candidate generation', async () => {
       const output = path.join(temp, 'overlay-selection');
       const result = cli(['generate-nfr', structuredPath, '--overlay', 'wcag-22', '-o', output], { classify: true });
       assert.strictEqual(result.status, 0, result.text);
       const report = await fs.readFile(path.join(output, 'formal-nfr-report.md'), 'utf8');
-      assert.match(report, /wcag-22 \(selection recorded; no patterns generated\)/);
-      assert.match(report, /No NFR candidates/);
+      assert.match(report, /wcag-22 \(explicit selection; additive patterns\)/);
+      assert.match(report, /NFR candidates/);
       assert.match(report, /requiring human verification/);
       assert.doesNotMatch(report, /neutral core; no overlay content/);
     });

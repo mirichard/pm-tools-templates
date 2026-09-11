@@ -198,19 +198,19 @@ module.exports = async (runner) => {
       await assert.rejects(new NFRClassifier({ llm }).classify({ useCaseId: 'OLD', useCaseName: 'Old' }), /Legacy\/incomplete NFR input/);
       assert.strictEqual(llm.calls.length, 0);
     });
-    await test('writes the exact handoff and retains only the #1109 generation notice', async () => {
+    await test('writes the exact classification handoff alongside generation output', async () => {
       const output = path.join(temp, 'success');
       const result = await new NFRGenerator({ llm: client() }).run(fixture.input,
         { output, baseName: 'fixture', confidenceThreshold: 0.95, overlay: 'hipaa' });
-      assert.strictEqual(result.notice, 'NFR generation not yet implemented (#1109)');
-      assert.strictEqual(result.status, 'classified');
+      assert.strictEqual(result.notice, 'NFR candidates generated; human input required for all unbound parameters.');
+      assert.strictEqual(result.status, 'generated');
       assert.deepStrictEqual(await fs.readJSON(result.classificationPath), result.classifications);
       assert.strictEqual(result.classifications.schemaVersion, '1.0.0');
       assert.strictEqual(result.classifications.requirements[0].attributes.length, 2);
       assert.strictEqual(result.classifications.patterns, undefined);
       const report = await fs.readFile(result.reportPath, 'utf8');
       assert.match(report, /Attribute Classifications/);
-      assert.match(report, /No NFR candidates or overlay content were generated/);
+      assert.match(report, /Generated NFR Candidates/);
       assert.match(report, /no threshold gate was applied/);
       assert.doesNotMatch(report, /#1108\/#1109|No classification/);
       assert.deepStrictEqual((await fs.readdir(output)).sort(), ['fixture-nfr-classifications.json', 'fixture-nfr-report.md']);
