@@ -188,7 +188,7 @@ Use your answers to find the matching recommendation set below. Start with your 
 13. [ROI Tracking Template](../../templates/traditional/Traditional/Knowledge_Areas/Project_Cost_Management/roi_tracking_template.md)
 
 **If regulatory, also add compliance templates for your industry:**
-- Healthcare: [Compliance Risk Assessment](../../industry-specializations/healthcare-pharmaceutical/regulatory/compliance_risk_assessment_template.md), [Validation Master Plan](../../industry-specializations/healthcare-pharmaceutical/validation/validation_master_plan_template.md), [GxP Training Plan](../../industry-specializations/healthcare-pharmaceutical/compliance/gxp_training_plan_template.md)
+- Healthcare: [Compliance Risk Assessment](../../industry-specializations/healthcare-pharmaceutical/regulatory/compliance_risk_assessment_template.md), [Validation Master Plan](../../domains/delivery/industry-specializations/healthcare-pharmaceutical/validation/validation_master_plan_template.md), [GxP Training Plan](../../domains/delivery/industry-specializations/healthcare-pharmaceutical/compliance/gxp_training_plan_template.md)
 - Financial: [Compliance Management](../../industry-specializations/financial-services/compliance/compliance-management-template.md), [EVM Dashboard](../../domains/stakeholder/business-stakeholder-suite/financial-governance/enhanced-business-cases/evm-dashboard-template.md)
 - IT: [Cybersecurity Assessment](../../industry-specializations/information-technology/security/cybersecurity_assessment_template.md), [Test Plan](../../industry-specializations/information-technology/software-development/test_plan_template.md)
 

@@ -15,7 +15,7 @@
 
 title: "Computer System Validation Protocol Template"
 
-[**➡️ View Template File**](/industry-specializations/healthcare-pharmaceutical/regulatory/computer_system_validation_protocol_template.md)
+[**➡️ View Template File**](/domains/delivery/industry-specializations/healthcare-pharmaceutical/regulatory/computer_system_validation_protocol_template.md)
 
 ## 📈 Quality Score
 

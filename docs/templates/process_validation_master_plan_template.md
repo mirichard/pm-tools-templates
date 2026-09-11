@@ -15,7 +15,7 @@
 
 title: "Process Validation Master Plan Template"
 
-[**➡️ View Template File**](/industry-specializations/healthcare-pharmaceutical/validation/process_validation_master_plan_template.md)
+[**➡️ View Template File**](/domains/delivery/industry-specializations/healthcare-pharmaceutical/validation/process_validation_master_plan_template.md)
 
 ## 📈 Quality Score
 

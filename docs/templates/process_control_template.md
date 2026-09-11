@@ -15,7 +15,7 @@
 
 title: "Process Control Template"
 
-[**➡️ View Template File**](/industry-specializations/healthcare-pharmaceutical/manufacturing/process_control_template.md)
+[**➡️ View Template File**](/domains/delivery/industry-specializations/healthcare-pharmaceutical/manufacturing/process_control_template.md)
 
 ## 📈 Quality Score
 

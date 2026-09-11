@@ -1,0 +1,375 @@
+{
+  "schema_version": 1,
+  "wave_id": "B3A",
+  "phase": "executed",
+  "source_batch": 3,
+  "primary_domain": "Delivery",
+  "generated_from": "meta/migration-inventory.json",
+  "inventory_generated": "2026-09-02",
+  "pre_batch_sha": "f639e285ec3970372f1fa1166b4af07d371e7fb8",
+  "rollback_owner": "mirichard",
+  "max_assets": 12,
+  "asset_count": 12,
+  "assets": [
+    {
+      "order": 1,
+      "source": "industry-specializations/healthcare-pharmaceutical/compliance/capa_management_template.md",
+      "destination": "domains/delivery/industry-specializations/healthcare-pharmaceutical/compliance/capa_management_template.md",
+      "primary_domain": "Delivery",
+      "secondary_domains": [
+        "Uncertainty"
+      ],
+      "pre_move_sha256": "c529b8195c0e169a00d64e8f397d765c873bb329bbd63340825abc62715445b4",
+      "dependencies": [
+        {
+          "path": "industry-specializations/healthcare-pharmaceutical/validation/computer_system_validation_protocol_template.md",
+          "status": "satisfied-existing-deferred",
+          "resolved_path": "industry-specializations/healthcare-pharmaceutical/validation/computer_system_validation_protocol_template.md"
+        },
+        {
+          "path": "industry-specializations/healthcare-pharmaceutical/regulatory/gxp_training_plan_template.md",
+          "status": "satisfied-existing-deferred",
+          "resolved_path": "industry-specializations/healthcare-pharmaceutical/regulatory/gxp_training_plan_template.md"
+        },
+        {
+          "path": "industry-specializations/healthcare-pharmaceutical/quality-management/capa_management_template.md",
+          "status": "satisfied-existing-deferred",
+          "resolved_path": "industry-specializations/healthcare-pharmaceutical/quality-management/capa_management_template.md"
+        }
+      ],
+      "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move"
+    },
+    {
+      "order": 2,
+      "source": "industry-specializations/healthcare-pharmaceutical/clinical-trials/clinical_trial_protocol_template.md",
+      "destination": "domains/delivery/industry-specializations/healthcare-pharmaceutical/clinical-trials/clinical_trial_protocol_template.md",
+      "primary_domain": "Delivery",
+      "secondary_domains": [
+        "Uncertainty"
+      ],
+      "pre_move_sha256": "45e3419297ecf5986bd2144134578b1237bf43cfb4f3f45d049ccb417405947e",
+      "dependencies": [
+        {
+          "path": "industry-specializations/healthcare-pharmaceutical/compliance/capa_management_template.md",
+          "status": "same-wave",
+          "resolved_path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/compliance/capa_management_template.md"
+        },
+        {
+          "path": "industry-specializations/healthcare-pharmaceutical/validation/computer_system_validation_protocol_template.md",
+          "status": "satisfied-existing-deferred",
+          "resolved_path": "industry-specializations/healthcare-pharmaceutical/validation/computer_system_validation_protocol_template.md"
+        },
+        {
+          "path": "industry-specializations/healthcare-pharmaceutical/regulatory/gxp_training_plan_template.md",
+          "status": "satisfied-existing-deferred",
+          "resolved_path": "industry-specializations/healthcare-pharmaceutical/regulatory/gxp_training_plan_template.md"
+        }
+      ],
+      "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move"
+    },
+    {
+      "order": 3,
+      "source": "industry-specializations/healthcare-pharmaceutical/manufacturing/process_control_template.md",
+      "destination": "domains/delivery/industry-specializations/healthcare-pharmaceutical/manufacturing/process_control_template.md",
+      "primary_domain": "Delivery",
+      "secondary_domains": [
+        "Uncertainty"
+      ],
+      "pre_move_sha256": "5294d183cbcfa7cd148e5f8553b606cd77d02d733ae4dac72ac652527bb1371a",
+      "dependencies": [
+        {
+          "path": "industry-specializations/healthcare-pharmaceutical/compliance/capa_management_template.md",
+          "status": "same-wave",
+          "resolved_path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/compliance/capa_management_template.md"
+        },
+        {
+          "path": "industry-specializations/healthcare-pharmaceutical/regulatory/compliance_risk_assessment_template.md",
+          "status": "satisfied-existing-deferred",
+          "resolved_path": "industry-specializations/healthcare-pharmaceutical/regulatory/compliance_risk_assessment_template.md"
+        },
+        {
+          "path": "industry-specializations/healthcare-pharmaceutical/validation/computer_system_validation_protocol_template.md",
+          "status": "satisfied-existing-deferred",
+          "resolved_path": "industry-specializations/healthcare-pharmaceutical/validation/computer_system_validation_protocol_template.md"
+        }
+      ],
+      "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move"
+    },
+    {
+      "order": 4,
+      "source": "industry-specializations/healthcare-pharmaceutical/quality/quality_management_review_template.md",
+      "destination": "domains/delivery/industry-specializations/healthcare-pharmaceutical/quality/quality_management_review_template.md",
+      "primary_domain": "Delivery",
+      "secondary_domains": [
+        "Uncertainty"
+      ],
+      "pre_move_sha256": "1d0bb39160e464dc89a713e4ef865e31e8e18ab46ba1a6475a4a24f188d53181",
+      "dependencies": [
+        {
+          "path": "industry-specializations/healthcare-pharmaceutical/quality-management/capa_management_template.md",
+          "status": "satisfied-existing-deferred",
+          "resolved_path": "industry-specializations/healthcare-pharmaceutical/quality-management/capa_management_template.md"
+        },
+        {
+          "path": "industry-specializations/healthcare-pharmaceutical/compliance/capa_management_template.md",
+          "status": "same-wave",
+          "resolved_path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/compliance/capa_management_template.md"
+        },
+        {
+          "path": "industry-specializations/healthcare-pharmaceutical/validation/computer_system_validation_protocol_template.md",
+          "status": "satisfied-existing-deferred",
+          "resolved_path": "industry-specializations/healthcare-pharmaceutical/validation/computer_system_validation_protocol_template.md"
+        }
+      ],
+      "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move"
+    },
+    {
+      "order": 5,
+      "source": "industry-specializations/healthcare-pharmaceutical/compliance/gxp_training_plan_template.md",
+      "destination": "domains/delivery/industry-specializations/healthcare-pharmaceutical/compliance/gxp_training_plan_template.md",
+      "primary_domain": "Delivery",
+      "secondary_domains": [
+        "Uncertainty"
+      ],
+      "pre_move_sha256": "5ed332f0480642c30b255f26b7218f4b6dd7e71376b339015f3fcda28efe6f4a",
+      "dependencies": [
+        {
+          "path": "industry-specializations/healthcare-pharmaceutical/validation/process_validation_master_plan_template.md",
+          "status": "same-wave",
+          "resolved_path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/validation/process_validation_master_plan_template.md"
+        },
+        {
+          "path": "industry-specializations/healthcare-pharmaceutical/validation/validation_master_plan_template.md",
+          "status": "same-wave",
+          "resolved_path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/validation/validation_master_plan_template.md"
+        },
+        {
+          "path": "industry-specializations/healthcare-pharmaceutical/compliance/capa_management_template.md",
+          "status": "same-wave",
+          "resolved_path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/compliance/capa_management_template.md"
+        }
+      ],
+      "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move"
+    },
+    {
+      "order": 6,
+      "source": "industry-specializations/healthcare-pharmaceutical/lifecycle/pharmaceutical_qbd_template.md",
+      "destination": "domains/delivery/industry-specializations/healthcare-pharmaceutical/lifecycle/pharmaceutical_qbd_template.md",
+      "primary_domain": "Delivery",
+      "secondary_domains": [
+        "Uncertainty"
+      ],
+      "pre_move_sha256": "78d325c58e8f345939a6fb2efc82f82ba954f548b71befc1182f7d72930f93c0",
+      "dependencies": [
+        {
+          "path": "industry-specializations/healthcare-pharmaceutical/manufacturing/batch_record_template.md",
+          "status": "same-wave",
+          "resolved_path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/manufacturing/batch_record_template.md"
+        },
+        {
+          "path": "industry-specializations/healthcare-pharmaceutical/regulatory/computer_system_validation_protocol_template.md",
+          "status": "same-wave",
+          "resolved_path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/regulatory/computer_system_validation_protocol_template.md"
+        },
+        {
+          "path": "industry-specializations/healthcare-pharmaceutical/validation/equipment_qualification_protocol_template.md",
+          "status": "same-wave",
+          "resolved_path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/validation/equipment_qualification_protocol_template.md"
+        }
+      ],
+      "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move"
+    },
+    {
+      "order": 7,
+      "source": "industry-specializations/healthcare-pharmaceutical/manufacturing/batch_record_template.md",
+      "destination": "domains/delivery/industry-specializations/healthcare-pharmaceutical/manufacturing/batch_record_template.md",
+      "primary_domain": "Delivery",
+      "secondary_domains": [
+        "Uncertainty"
+      ],
+      "pre_move_sha256": "2028d72c48d76f6ca0e99291452e2c04f7ea855692cbd92816df4077c8b77643",
+      "dependencies": [
+        {
+          "path": "industry-specializations/healthcare-pharmaceutical/regulatory/computer_system_validation_protocol_template.md",
+          "status": "same-wave",
+          "resolved_path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/regulatory/computer_system_validation_protocol_template.md"
+        },
+        {
+          "path": "industry-specializations/healthcare-pharmaceutical/validation/equipment_qualification_protocol_template.md",
+          "status": "same-wave",
+          "resolved_path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/validation/equipment_qualification_protocol_template.md"
+        },
+        {
+          "path": "industry-specializations/healthcare-pharmaceutical/manufacturing/manufacturing_batch_record_template.md",
+          "status": "same-wave",
+          "resolved_path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/manufacturing/manufacturing_batch_record_template.md"
+        }
+      ],
+      "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move"
+    },
+    {
+      "order": 8,
+      "source": "industry-specializations/healthcare-pharmaceutical/manufacturing/manufacturing_batch_record_template.md",
+      "destination": "domains/delivery/industry-specializations/healthcare-pharmaceutical/manufacturing/manufacturing_batch_record_template.md",
+      "primary_domain": "Delivery",
+      "secondary_domains": [
+        "Uncertainty"
+      ],
+      "pre_move_sha256": "25dc484b2e9e7ac300d207246e464cb901dba925113c4e5568a53817a7f22f17",
+      "dependencies": [
+        {
+          "path": "industry-specializations/healthcare-pharmaceutical/manufacturing/batch_record_template.md",
+          "status": "same-wave",
+          "resolved_path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/manufacturing/batch_record_template.md"
+        },
+        {
+          "path": "industry-specializations/healthcare-pharmaceutical/regulatory/computer_system_validation_protocol_template.md",
+          "status": "same-wave",
+          "resolved_path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/regulatory/computer_system_validation_protocol_template.md"
+        },
+        {
+          "path": "industry-specializations/healthcare-pharmaceutical/validation/equipment_qualification_protocol_template.md",
+          "status": "same-wave",
+          "resolved_path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/validation/equipment_qualification_protocol_template.md"
+        }
+      ],
+      "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move"
+    },
+    {
+      "order": 9,
+      "source": "industry-specializations/healthcare-pharmaceutical/regulatory/computer_system_validation_protocol_template.md",
+      "destination": "domains/delivery/industry-specializations/healthcare-pharmaceutical/regulatory/computer_system_validation_protocol_template.md",
+      "primary_domain": "Delivery",
+      "secondary_domains": [
+        "Uncertainty"
+      ],
+      "pre_move_sha256": "88a04353e540a4cd6c9a6e6f62a217c6026f95107d56fd0e3cbc10bb387b3711",
+      "dependencies": [
+        {
+          "path": "industry-specializations/healthcare-pharmaceutical/manufacturing/batch_record_template.md",
+          "status": "same-wave",
+          "resolved_path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/manufacturing/batch_record_template.md"
+        },
+        {
+          "path": "industry-specializations/healthcare-pharmaceutical/validation/equipment_qualification_protocol_template.md",
+          "status": "same-wave",
+          "resolved_path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/validation/equipment_qualification_protocol_template.md"
+        },
+        {
+          "path": "industry-specializations/healthcare-pharmaceutical/manufacturing/manufacturing_batch_record_template.md",
+          "status": "same-wave",
+          "resolved_path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/manufacturing/manufacturing_batch_record_template.md"
+        }
+      ],
+      "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move"
+    },
+    {
+      "order": 10,
+      "source": "industry-specializations/healthcare-pharmaceutical/validation/equipment_qualification_protocol_template.md",
+      "destination": "domains/delivery/industry-specializations/healthcare-pharmaceutical/validation/equipment_qualification_protocol_template.md",
+      "primary_domain": "Delivery",
+      "secondary_domains": [
+        "Uncertainty"
+      ],
+      "pre_move_sha256": "fbc7a75cb552460d80e5f42b9a0694660b7230a9573dfd2766d1c721e7e22d92",
+      "dependencies": [
+        {
+          "path": "industry-specializations/healthcare-pharmaceutical/manufacturing/batch_record_template.md",
+          "status": "same-wave",
+          "resolved_path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/manufacturing/batch_record_template.md"
+        },
+        {
+          "path": "industry-specializations/healthcare-pharmaceutical/regulatory/computer_system_validation_protocol_template.md",
+          "status": "same-wave",
+          "resolved_path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/regulatory/computer_system_validation_protocol_template.md"
+        },
+        {
+          "path": "industry-specializations/healthcare-pharmaceutical/manufacturing/manufacturing_batch_record_template.md",
+          "status": "same-wave",
+          "resolved_path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/manufacturing/manufacturing_batch_record_template.md"
+        }
+      ],
+      "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move"
+    },
+    {
+      "order": 11,
+      "source": "industry-specializations/healthcare-pharmaceutical/validation/process_validation_master_plan_template.md",
+      "destination": "domains/delivery/industry-specializations/healthcare-pharmaceutical/validation/process_validation_master_plan_template.md",
+      "primary_domain": "Delivery",
+      "secondary_domains": [
+        "Uncertainty"
+      ],
+      "pre_move_sha256": "c0300e4f494b44312d3e17cc9a410dad3171cbabf61b9ee6d5e04774982ad8d5",
+      "dependencies": [
+        {
+          "path": "industry-specializations/healthcare-pharmaceutical/compliance/gxp_training_plan_template.md",
+          "status": "same-wave",
+          "resolved_path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/compliance/gxp_training_plan_template.md"
+        },
+        {
+          "path": "industry-specializations/healthcare-pharmaceutical/validation/validation_master_plan_template.md",
+          "status": "same-wave",
+          "resolved_path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/validation/validation_master_plan_template.md"
+        },
+        {
+          "path": "industry-specializations/healthcare-pharmaceutical/compliance/capa_management_template.md",
+          "status": "same-wave",
+          "resolved_path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/compliance/capa_management_template.md"
+        }
+      ],
+      "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move"
+    },
+    {
+      "order": 12,
+      "source": "industry-specializations/healthcare-pharmaceutical/validation/validation_master_plan_template.md",
+      "destination": "domains/delivery/industry-specializations/healthcare-pharmaceutical/validation/validation_master_plan_template.md",
+      "primary_domain": "Delivery",
+      "secondary_domains": [
+        "Uncertainty"
+      ],
+      "pre_move_sha256": "770b558145b2ab79d322fdacf902cee25b0fe342bedfcd584fa0712752323414",
+      "dependencies": [
+        {
+          "path": "industry-specializations/healthcare-pharmaceutical/compliance/gxp_training_plan_template.md",
+          "status": "same-wave",
+          "resolved_path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/compliance/gxp_training_plan_template.md"
+        },
+        {
+          "path": "industry-specializations/healthcare-pharmaceutical/validation/process_validation_master_plan_template.md",
+          "status": "same-wave",
+          "resolved_path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/validation/process_validation_master_plan_template.md"
+        },
+        {
+          "path": "industry-specializations/healthcare-pharmaceutical/compliance/capa_management_template.md",
+          "status": "same-wave",
+          "resolved_path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/compliance/capa_management_template.md"
+        }
+      ],
+      "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move"
+    }
+  ],
+  "checkpoints": [
+    "baseline-and-hashes",
+    "canonical-moves",
+    "legacy-pointers",
+    "canonical-references",
+    "affected-scope-validation",
+    "reviewed-visual-regression",
+    "post-merge-verification"
+  ],
+  "validation_commands": [
+    "node scripts/validate-migration-wave.mjs --manifest <manifest>",
+    "node scripts/generate-sprint-10-metadata.mjs",
+    "node scripts/validate-sprint-10.mjs --require-annotations",
+    "node scripts/validate-curated-templates.js",
+    "node scripts/validate-canonical-paths.js --strict",
+    "python3 scripts/check_migration_links.py --manifest <manifest>",
+    "npm run test:ci"
+  ],
+  "rollback": {
+    "strategy": "revert-wave-merge-commit",
+    "command": "git revert <wave-merge-sha>",
+    "granularity": "wave",
+    "asset_hashes_preserved": true
+  }
+}
