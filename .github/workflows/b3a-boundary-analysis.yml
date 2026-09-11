@@ -24,7 +24,10 @@ jobs:
         with:
           node-version: '20'
 
-      - name: Generate and validate repository planner output
+      - name: Run migration-wave regression tests
+        run: node --test tests/migration-wave.test.mjs
+
+      - name: Generate corrected B3A planner output
         run: |
           node scripts/plan-migration-wave.mjs \
             --wave-id B3A \
@@ -35,149 +38,58 @@ jobs:
             --output meta/migration-waves/_b3a-analysis.json
           node scripts/validate-migration-wave.mjs \
             --manifest meta/migration-waves/_b3a-analysis.json
-          echo '--- planner manifest ---'
-          cat meta/migration-waves/_b3a-analysis.json
+          echo '--- corrected planner summary ---'
+          node --input-type=module <<'NODE'
+          import fs from 'node:fs';
+          const plan = JSON.parse(fs.readFileSync('meta/migration-waves/_b3a-analysis.json', 'utf8'));
+          console.log(JSON.stringify({
+            asset_count: plan.asset_count,
+            max_assets: plan.max_assets,
+            assets: plan.assets.map(asset => ({
+              order: asset.order,
+              source: asset.source,
+              destination: asset.destination,
+              pre_move_sha256: asset.pre_move_sha256,
+              dependencies: asset.dependencies
+            }))
+          }, null, 2));
+          NODE
 
-      - name: Analyze full Batch 3 Delivery SCC boundary and safe packing
+      - name: Verify selected wave does not split full Batch 3 Delivery SCCs
         run: |
           node --input-type=module <<'NODE'
           import fs from 'node:fs';
-
           const inventory = JSON.parse(fs.readFileSync('meta/migration-inventory.json', 'utf8'));
+          const plan = JSON.parse(fs.readFileSync('meta/migration-waves/_b3a-analysis.json', 'utf8'));
           const candidates = inventory.moves
             .filter(m => m.action === 'planned-move-not-executed')
             .filter(m => m.batch === 3 && m.primary_domain === 'Delivery')
             .sort((a, b) => a.source.localeCompare(b.source));
-
           const byPath = new Map(candidates.flatMap(m => [[m.source, m], [m.destination, m]]));
-          const graph = new Map(candidates.map(m => [m.source, []]));
-          for (const move of candidates) {
-            for (const dep of move.dependencies || []) {
-              const target = byPath.get(dep);
-              if (target) graph.get(move.source).push(target.source);
-            }
-          }
-
+          const graph = new Map(candidates.map(m => [m.source, (m.dependencies || []).map(d => byPath.get(d)?.source).filter(Boolean)]));
           let index = 0;
-          const indices = new Map();
-          const low = new Map();
-          const stack = [];
-          const onStack = new Set();
-          const sccs = [];
-
-          function strongConnect(v) {
-            indices.set(v, index);
-            low.set(v, index);
-            index += 1;
-            stack.push(v);
-            onStack.add(v);
-
+          const indices = new Map(), low = new Map(), stack = [], onStack = new Set(), components = [];
+          function visit(v) {
+            indices.set(v, index); low.set(v, index); index += 1; stack.push(v); onStack.add(v);
             for (const w of graph.get(v) || []) {
-              if (!indices.has(w)) {
-                strongConnect(w);
-                low.set(v, Math.min(low.get(v), low.get(w)));
-              } else if (onStack.has(w)) {
-                low.set(v, Math.min(low.get(v), indices.get(w)));
-              }
+              if (!indices.has(w)) { visit(w); low.set(v, Math.min(low.get(v), low.get(w))); }
+              else if (onStack.has(w)) low.set(v, Math.min(low.get(v), indices.get(w)));
             }
-
             if (low.get(v) === indices.get(v)) {
-              const component = [];
-              while (true) {
-                const w = stack.pop();
-                onStack.delete(w);
-                component.push(w);
-                if (w === v) break;
-              }
-              component.sort();
-              sccs.push(component);
+              const c = [];
+              while (true) { const w = stack.pop(); onStack.delete(w); c.push(w); if (w === v) break; }
+              components.push(c.sort());
             }
           }
-
-          for (const move of candidates) {
-            if (!indices.has(move.source)) strongConnect(move.source);
-          }
-
-          const componentBySource = new Map();
-          sccs.forEach((component, componentIndex) => {
-            for (const source of component) componentBySource.set(source, componentIndex);
+          for (const m of candidates) if (!indices.has(m.source)) visit(m.source);
+          const selected = new Set(plan.assets.map(a => a.source));
+          const split = components.filter(c => {
+            const n = c.filter(x => selected.has(x)).length;
+            return n > 0 && n < c.length;
           });
-
-          const initial = candidates.slice(0, 12).map(m => m.source);
-          const initialSet = new Set(initial);
-          const crossing = sccs
-            .filter(c => c.some(x => initialSet.has(x)) && c.some(x => !initialSet.has(x)))
-            .sort((a, b) => a[0].localeCompare(b[0]));
-          const required = new Set(initial);
-          for (const component of crossing) for (const source of component) required.add(source);
-
-          function safePrefix(limit) {
-            const selected = [];
-            const selectedSet = new Set();
-            const selectedComponents = new Set();
-            let blocked = null;
-
-            for (const move of candidates) {
-              if (selectedSet.has(move.source)) continue;
-              const componentIndex = componentBySource.get(move.source);
-              if (selectedComponents.has(componentIndex)) continue;
-              const component = [...sccs[componentIndex]].sort();
-              const missing = component.filter(source => !selectedSet.has(source));
-              if (selected.length + missing.length > limit) {
-                blocked = {
-                  first_source: move.source,
-                  component_size: component.length,
-                  component,
-                  count_before_block: selected.length,
-                  would_total: selected.length + missing.length
-                };
-                break;
-              }
-              selectedComponents.add(componentIndex);
-              for (const source of component) {
-                if (!selectedSet.has(source)) {
-                  selectedSet.add(source);
-                  selected.push(source);
-                }
-              }
-            }
-
-            const orderedSelected = candidates
-              .map(m => m.source)
-              .filter(source => selectedSet.has(source));
-
-            const splitComponents = sccs.filter(component => {
-              const inside = component.filter(source => selectedSet.has(source)).length;
-              return inside > 0 && inside < component.length;
-            });
-
-            return {
-              limit,
-              selected_count: orderedSelected.length,
-              selected: orderedSelected,
-              selected_nontrivial_sccs: sccs
-                .filter(c => c.length > 1 && c.every(source => selectedSet.has(source)))
-                .sort((a, b) => a[0].localeCompare(b[0])),
-              split_scc_count: splitComponents.length,
-              blocked
-            };
+          if (split.length) {
+            console.error(JSON.stringify(split, null, 2));
+            process.exit(1);
           }
-
-          const summary = {
-            candidate_count: candidates.length,
-            initial_count: initial.length,
-            initial,
-            crossing_scc_count: crossing.length,
-            crossing_sccs: crossing,
-            minimum_scc_closed_count: required.size,
-            additional_assets_required: [...required].filter(x => !initialSet.has(x)).sort(),
-            max_wave_assets: 15,
-            safe_under_limit: required.size <= 15,
-            nontrivial_sccs: sccs.filter(c => c.length > 1).sort((a, b) => a[0].localeCompare(b[0])),
-            safe_prefix_12: safePrefix(12),
-            safe_prefix_15: safePrefix(15)
-          };
-
-          console.log('--- SCC boundary and safe-pack analysis ---');
-          console.log(JSON.stringify(summary, null, 2));
+          console.log(`PASS: corrected B3A selects ${selected.size} assets and splits 0 SCCs across ${candidates.length} Delivery candidates.`);
           NODE
