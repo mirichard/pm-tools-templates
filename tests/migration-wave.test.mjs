@@ -160,3 +160,56 @@ test('rejects altered dependency status and resolved path', t => {
   assert.match(errors, /dependency status mismatch/);
   assert.match(errors, /dependency resolved path mismatch/);
 });
+
+test('stops before a dependency cycle that would cross the wave limit', t => {
+  const { root, inventory, preBatchSha } = fixture(t);
+  fs.writeFileSync(path.join(root, 'legacy/c.md'), '# C\n');
+  inventory.moves[1].dependencies = ['legacy/c.md'];
+  inventory.moves.push({
+    source: 'legacy/c.md',
+    destination: 'domains/stakeholder/legacy/c.md',
+    primary_domain: 'Stakeholder',
+    secondary_domains: [],
+    dependencies: ['legacy/b.md'],
+    batch: 1,
+    legacy_strategy: 'pointer',
+    action: 'planned-move-not-executed'
+  });
+
+  const plan = buildWavePlan({ root, inventory, waveId: 'B1F', sourceBatch: 1, primaryDomain: 'Stakeholder', maxAssets: 2, preBatchSha, rollbackOwner: 'owner' });
+  assert.equal(plan.asset_count, 1);
+  assert.deepEqual(plan.assets.map(asset => asset.source), ['legacy/a.md']);
+  assert.deepEqual(validateWavePlan({ root, inventory, plan }), []);
+});
+
+test('rejects a manifest that splits a dependency cycle', t => {
+  const { root, inventory, preBatchSha } = fixture(t);
+  fs.writeFileSync(path.join(root, 'legacy/c.md'), '# C\n');
+  inventory.moves[1].dependencies = ['legacy/c.md'];
+  inventory.moves.push({
+    source: 'legacy/c.md',
+    destination: 'domains/stakeholder/legacy/c.md',
+    primary_domain: 'Stakeholder',
+    secondary_domains: [],
+    dependencies: ['legacy/b.md'],
+    batch: 1,
+    legacy_strategy: 'pointer',
+    action: 'planned-move-not-executed'
+  });
+
+  const plan = buildWavePlan({ root, inventory, waveId: 'B1F', sourceBatch: 1, primaryDomain: 'Stakeholder', maxAssets: 3, preBatchSha, rollbackOwner: 'owner' });
+  plan.assets = plan.assets.filter(asset => asset.source !== 'legacy/c.md');
+  plan.asset_count = plan.assets.length;
+  const errors = validateWavePlan({ root, inventory, plan }).join('\n');
+  assert.match(errors, /wave splits dependency cycle/);
+});
+
+test('fails when the first atomic dependency cycle exceeds max-assets', t => {
+  const { root, inventory, preBatchSha } = fixture(t);
+  inventory.moves[0].dependencies = ['legacy/b.md'];
+  inventory.moves[1].dependencies = ['legacy/a.md'];
+  assert.throws(
+    () => buildWavePlan({ root, inventory, waveId: 'B1F', sourceBatch: 1, primaryDomain: 'Stakeholder', maxAssets: 1, preBatchSha, rollbackOwner: 'owner' }),
+    /Next dependency cycle contains 2 assets, exceeding max-assets 1/
+  );
+});
