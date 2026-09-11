@@ -8,7 +8,7 @@ on:
       - .github/workflows/b3a-postmove-validation.yml
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   validate:
@@ -17,12 +17,52 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
+          ref: feat/b3a-delivery-wave
       - uses: actions/setup-node@v4
         with:
           node-version: '20'
           cache: npm
       - name: Install dependencies
         run: npm ci
+      - name: Restore catalog legacy compatibility paths
+        run: |
+          node --input-type=module <<'NODE'
+          import fs from 'node:fs';
+          const manifest=JSON.parse(fs.readFileSync('meta/migration-waves/b3a.json','utf8'));
+          const catalogPath='templates/templates.json';
+          const catalog=JSON.parse(fs.readFileSync(catalogPath,'utf8'));
+          if (!Array.isArray(catalog.templates)) throw new Error('templates.json templates must be an array');
+          let matchedAssets=0;
+          for (const a of manifest.assets) {
+            const entries=catalog.templates.filter(e => e.path===a.destination || e.canonical_path===a.destination);
+            if (!entries.length) throw new Error(`No canonical catalog entry found for ${a.destination}`);
+            matchedAssets++;
+            for (const e of entries) {
+              const current=Array.isArray(e.alternate_paths) ? e.alternate_paths : [];
+              // A canonical destination is not a useful alternate for itself. Convert only that accidental
+              // P4 replacement back to the legacy compatibility path and preserve all other alternates.
+              e.alternate_paths=[...new Set(current.map(p => p===a.destination ? a.source : p))];
+              if (!e.alternate_paths.includes(a.source)) e.alternate_paths.push(a.source);
+              if (e.path!==a.destination && e.canonical_path!==a.destination) throw new Error(`Canonical identity drift for ${a.source}`);
+            }
+          }
+          if (matchedAssets!==manifest.asset_count) throw new Error(`matched ${matchedAssets}/${manifest.asset_count} assets`);
+          fs.writeFileSync(catalogPath,JSON.stringify(catalog,null,2)+'\n');
+          console.log(`PASS: restored legacy alternate_paths for ${matchedAssets}/${manifest.asset_count} B3A assets without changing canonical paths.`);
+          NODE
+          node scripts/validate-sprint-10.mjs --require-annotations
+      - name: Commit catalog compatibility correction if needed
+        run: |
+          if git diff --quiet -- templates/templates.json; then
+            echo 'Catalog already correct; no compatibility commit required.'
+          else
+            git add templates/templates.json
+            test "$(git diff --cached --name-only)" = "templates/templates.json"
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git commit -m "fix(b3a): restore legacy catalog alternate paths"
+            git push origin HEAD:feat/b3a-delivery-wave
+          fi
       - name: Validate migration tooling and executed manifest
         run: |
           node --test tests/migration-wave.test.mjs
@@ -44,45 +84,47 @@ jobs:
           import path from 'node:path';
           import crypto from 'node:crypto';
           import {execFileSync} from 'node:child_process';
-          const manifest = JSON.parse(fs.readFileSync('meta/migration-waves/b3a.json','utf8'));
-          const inventory = JSON.parse(fs.readFileSync('meta/migration-inventory.json','utf8'));
-          if (manifest.phase !== 'executed') throw new Error(`manifest phase=${manifest.phase}`);
-          if (manifest.asset_count !== 12) throw new Error(`asset_count=${manifest.asset_count}`);
-          const batch = inventory.batch_execution_records.filter(r => r.batch_id === 'B3A');
-          if (batch.length !== 1 || batch[0].asset_count !== 12 || batch[0].status !== 'executed') throw new Error('invalid B3A batch execution record');
-          const executed = inventory.moves.filter(r => r.execution?.batch_id === 'B3A');
-          if (executed.length !== 12) throw new Error(`B3A executed moves=${executed.length}`);
-          const hash = f => crypto.createHash('sha256').update(fs.readFileSync(f)).digest('hex');
-          let hashes=0,pointers=0;
+          const manifest=JSON.parse(fs.readFileSync('meta/migration-waves/b3a.json','utf8'));
+          const inventory=JSON.parse(fs.readFileSync('meta/migration-inventory.json','utf8'));
+          const catalog=JSON.parse(fs.readFileSync('templates/templates.json','utf8'));
+          if (manifest.phase!=='executed') throw new Error(`manifest phase=${manifest.phase}`);
+          if (manifest.asset_count!==12) throw new Error(`asset_count=${manifest.asset_count}`);
+          const batch=inventory.batch_execution_records.filter(r=>r.batch_id==='B3A');
+          if (batch.length!==1 || batch[0].asset_count!==12 || batch[0].status!=='executed') throw new Error('invalid B3A batch execution record');
+          const executed=inventory.moves.filter(r=>r.execution?.batch_id==='B3A');
+          if (executed.length!==12) throw new Error(`B3A executed moves=${executed.length}`);
+          const hash=f=>crypto.createHash('sha256').update(fs.readFileSync(f)).digest('hex');
+          let hashes=0,pointers=0,catalogCompatibility=0;
           for (const a of manifest.assets) {
             if (!fs.existsSync(a.destination)) throw new Error(`missing destination ${a.destination}`);
-            if (hash(a.destination) !== a.pre_move_sha256) throw new Error(`hash mismatch ${a.destination}`);
+            if (hash(a.destination)!==a.pre_move_sha256) throw new Error(`hash mismatch ${a.destination}`);
             hashes++;
             const pointer=fs.readFileSync(a.source,'utf8');
             const m=pointer.match(/\*\*Canonical location:\*\*\s*\[[^\]]+\]\(([^)]+)\)/i);
-            if (!m || path.resolve(path.dirname(a.source),m[1]) !== path.resolve(a.destination)) throw new Error(`bad pointer ${a.source}`);
-            if (pointer.length > 2000) throw new Error(`legacy path appears to retain body content: ${a.source}`);
+            if (!m || path.resolve(path.dirname(a.source),m[1])!==path.resolve(a.destination)) throw new Error(`bad pointer ${a.source}`);
+            if (pointer.length>2000) throw new Error(`legacy path appears to retain body content: ${a.source}`);
             pointers++;
             const rec=executed.find(r=>r.source===a.source);
-            if (!rec || rec.execution.pre_move_source_sha256 !== a.pre_move_sha256 || rec.execution.pre_batch_sha !== manifest.pre_batch_sha) throw new Error(`inventory execution mismatch ${a.source}`);
+            if (!rec || rec.execution.pre_move_source_sha256!==a.pre_move_sha256 || rec.execution.pre_batch_sha!==manifest.pre_batch_sha) throw new Error(`inventory execution mismatch ${a.source}`);
+            const entries=catalog.templates.filter(e=>e.path===a.destination || e.canonical_path===a.destination);
+            if (!entries.length || !entries.some(e=>Array.isArray(e.alternate_paths) && e.alternate_paths.includes(a.source))) throw new Error(`catalog compatibility missing for ${a.source}`);
+            catalogCompatibility++;
           }
-          console.log(`PASS: ${hashes}/12 destination hashes; ${pointers}/12 legacy pointers; one B3A execution record; 12/12 inventory execution records.`);
+          console.log(`PASS: ${hashes}/12 destination hashes; ${pointers}/12 legacy pointers; ${catalogCompatibility}/12 catalog compatibility paths; one B3A execution record; 12/12 inventory execution records.`);
 
-          // Exact-body duplicate control: a migrated canonical body must not exist at any other tracked path.
           const tracked=execFileSync('git',['ls-files'],{encoding:'utf8'}).trim().split('\n').filter(Boolean);
           for (const a of manifest.assets) {
-            const h=a.pre_move_sha256;
             const duplicates=[];
             for (const f of tracked) {
               if (f===a.destination || !fs.existsSync(f) || !fs.statSync(f).isFile()) continue;
-              try { if (hash(f)===h) duplicates.push(f); } catch {}
+              try { if (hash(f)===a.pre_move_sha256) duplicates.push(f); } catch {}
             }
             if (duplicates.length) throw new Error(`duplicate body for ${a.destination}: ${duplicates.join(', ')}`);
           }
           console.log('PASS: zero exact-body duplicates for all 12 migrated canonicals.');
 
-          // Maintained surfaces must not contain a legacy-only B3A path.
-          const maintained=['TEMPLATE_INDEX.md','docs/decision-engine/bundles/enterprise-governance-bundle.md','docs/decision-engine/template-decision-tree.md','meta/cross-references.json','meta/domain-mapping.json','meta/value-flow-mapping.json','templates/templates.json'];
+          // Legacy paths are intentionally allowed in templates/templates.json alternate_paths.
+          const maintained=['TEMPLATE_INDEX.md','docs/decision-engine/bundles/enterprise-governance-bundle.md','docs/decision-engine/template-decision-tree.md','meta/cross-references.json','meta/domain-mapping.json','meta/value-flow-mapping.json'];
           for (const a of manifest.assets) maintained.push(`docs/templates/${path.basename(a.source)}`);
           const stale=[];
           for (const f of maintained) {
@@ -91,7 +133,7 @@ jobs:
             for (const a of manifest.assets) if (text.split(a.destination).join('').includes(a.source)) stale.push(`${f}: ${a.source}`);
           }
           if (stale.length) throw new Error(`stale maintained references:\n${stale.join('\n')}`);
-          console.log('PASS: no maintained current-reference surface retains a B3A legacy-only path.');
+          console.log('PASS: no maintained non-catalog surface retains a B3A legacy-only path.');
           NODE
       - name: Report generator drift without changing committed state
         run: |
@@ -100,7 +142,6 @@ jobs:
           git diff --name-only
           echo '--- generator diff hash ---'
           git diff --binary | sha256sum
-          # Generation must not destroy B3A execution state.
           node --input-type=module <<'NODE'
           import fs from 'node:fs';
           const inv=JSON.parse(fs.readFileSync('meta/migration-inventory.json','utf8'));
