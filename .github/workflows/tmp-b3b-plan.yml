@@ -1,0 +1,63 @@
+name: Temporary B3B Planning Analysis
+
+on:
+  push:
+    branches:
+      - feat/b3b-delivery-wave
+    paths:
+      - .github/workflows/tmp-b3b-plan.yml
+
+permissions:
+  contents: read
+
+jobs:
+  analyze:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: Verify base and inventory denominator
+        run: |
+          set -euo pipefail
+          echo "HEAD=$(git rev-parse HEAD)"
+          echo "MAIN=$(git rev-parse origin/main)"
+          python3 - <<'PY'
+          import json
+          from collections import Counter
+          inv=json.load(open('meta/migration-inventory.json'))
+          moves=inv['moves']
+          pending=[m for m in moves if m.get('action')=='planned-move-not-executed']
+          executed=[m for m in moves if m.get('action')=='executed-move-with-legacy-pointer']
+          print('TOTAL', len(moves))
+          print('EXECUTED', len(executed))
+          print('PENDING', len(pending))
+          print('PENDING_BY_DOMAIN', dict(sorted(Counter(m.get('primary_domain') for m in pending).items())))
+          print('PENDING_BY_BATCH_DOMAIN', dict(sorted(Counter((m.get('batch'),m.get('primary_domain')) for m in pending).items(), key=lambda x:str(x[0]))))
+          PY
+
+      - name: Generate B3B entry manifest
+        run: |
+          set -euo pipefail
+          node scripts/plan-migration-wave.mjs \
+            --wave-id B3B \
+            --batch 3 \
+            --domain Delivery \
+            --rollback-owner mirichard \
+            --pre-batch-sha 6b270df6e533f2f2c69fab37cecdc5c2b0ca01c1 \
+            --output /tmp/b3b.json
+          node scripts/validate-migration-wave.mjs --manifest /tmp/b3b.json
+          cat /tmp/b3b.json
+
+      - name: Summarize boundary
+        run: |
+          python3 - <<'PY'
+          import json
+          m=json.load(open('/tmp/b3b.json'))
+          assets=m.get('assets') or m.get('moves') or []
+          print('B3B_ASSET_COUNT', len(assets))
+          for i,a in enumerate(assets,1):
+              print(f"{i:02d} {a.get('source')} -> {a.get('destination')}")
+          PY
