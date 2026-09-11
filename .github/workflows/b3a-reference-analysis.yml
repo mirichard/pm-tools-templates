@@ -51,11 +51,18 @@ jobs:
           ]);
           for (const a of manifest.assets) maintained.add(`docs/templates/${path.basename(a.source)}`);
 
+          // Protect already-canonical strings before replacing legacy strings so retries are idempotent.
+          const replaceLegacy = (text, source, destination) => {
+            const marker = `__B3A_CANONICAL_${crypto.createHash('sha1').update(destination).digest('hex')}__`;
+            return text.split(destination).join(marker).split(source).join(destination).split(marker).join(destination);
+          };
+          const containsLegacyOnly = (text, source, destination) => text.split(destination).join('').includes(source);
+
           for (const file of maintained) {
             if (!fs.existsSync(file)) continue;
             let text = fs.readFileSync(file,'utf8');
             const before = text;
-            for (const [source,destination] of mapping) text = text.split(source).join(destination);
+            for (const [source,destination] of mapping) text = replaceLegacy(text, source, destination);
             if (text !== before) fs.writeFileSync(file,text);
           }
 
@@ -110,7 +117,7 @@ jobs:
           for (const file of maintained) {
             if (!fs.existsSync(file)) continue;
             const text = fs.readFileSync(file,'utf8');
-            for (const source of mapping.keys()) if (text.includes(source)) stale.push(`${file}: ${source}`);
+            for (const [source,destination] of mapping) if (containsLegacyOnly(text, source, destination)) stale.push(`${file}: ${source}`);
           }
           if (stale.length) throw new Error(`Stale maintained references:\n${stale.join('\n')}`);
 
