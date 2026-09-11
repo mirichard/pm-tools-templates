@@ -1,70 +1,70 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-10T21:17:05.934170+00:00",
-  "source_workflow_run": 34529609610,
-  "source_commit": "eb15d9255c4e9846d8a718030558d05c4f29d89e",
+  "generated_at": "2026-09-11T16:19:50.407257+00:00",
+  "source_workflow_run": 34619764050,
+  "source_commit": "abc9878165eda810d49b83a7f07479097496c1c7",
   "format": "webp",
   "width": 256,
   "maximum_dimension": 16383,
   "quality": 85,
   "method": 4,
-  "total_screenshots": 1976,
+  "total_screenshots": 2028,
   "packs": [
     {
       "file": "chromium-desktop-shard-0.zip",
       "browser_resolution": "chromium_desktop",
-      "screenshots": 249,
-      "bytes": 7276238,
-      "sha256": "ef08eb4536eaba144931687a8f61e71a0da256a59cc57418dccbc1f2de37af1d"
+      "screenshots": 252,
+      "bytes": 7419182,
+      "sha256": "79e0a22ccb3cd2c722ab76549c57c6adc562e08c9b472b14efde28a8996403c0"
     },
     {
       "file": "chromium-desktop-shard-1.zip",
       "browser_resolution": "chromium_desktop",
-      "screenshots": 245,
-      "bytes": 7950128,
-      "sha256": "c667668ecbdba66f1fa9614a08ee2a9f89b37b8530fa3716cb4470a7617abaa9"
+      "screenshots": 255,
+      "bytes": 6953032,
+      "sha256": "386dfdb9a132df01f5e22199b9f150d1e5ee3add28ad68ebaaa9652c5e2198ae"
     },
     {
       "file": "chromium-desktop-shard-2.zip",
       "browser_resolution": "chromium_desktop",
-      "screenshots": 250,
-      "bytes": 7778468,
-      "sha256": "27f05237d8f5b1a1def3b3ee061545485f0c146e1d2710f233b879c324e3475d"
+      "screenshots": 251,
+      "bytes": 7780344,
+      "sha256": "c90ec6e3d84456350e2a0f9ae399bdf333e4096fb63296820a1354af7641af16"
     },
     {
       "file": "chromium-desktop-shard-3.zip",
       "browser_resolution": "chromium_desktop",
-      "screenshots": 244,
-      "bytes": 6710436,
-      "sha256": "c8bd1528ab8ea5e42ce202acae748b494e60f1ef4787997275090969512eb36f"
+      "screenshots": 256,
+      "bytes": 7687238,
+      "sha256": "39b0a958dec3f4d81426f16aa924f4a4ba84c9fba2507f304e8b0d492f7b9df2"
     },
     {
       "file": "chromium-mobile-shard-0.zip",
       "browser_resolution": "chromium_mobile",
-      "screenshots": 249,
-      "bytes": 30572458,
-      "sha256": "3ac33e16ef2a7ca4793a16f3ad880bb0e2c27e3e90d669589bd1e531f883887f"
+      "screenshots": 252,
+      "bytes": 31825324,
+      "sha256": "72df427a2b97025698f0f35461703fde068d751e3ee1b6280e91d933123e3172"
     },
     {
       "file": "chromium-mobile-shard-1.zip",
       "browser_resolution": "chromium_mobile",
-      "screenshots": 245,
-      "bytes": 32885656,
-      "sha256": "cb60b512c0c12a6510eab7b96bdbf7d60ad71b33db6fc75db57bdeb26114a791"
+      "screenshots": 255,
+      "bytes": 29221170,
+      "sha256": "562bb1e74a95f736b27a049ca73bfbbd8fd3ef53bdc06d19407a021134787a53"
     },
     {
       "file": "chromium-mobile-shard-2.zip",
       "browser_resolution": "chromium_mobile",
-      "screenshots": 250,
-      "bytes": 33946812,
-      "sha256": "bbaa897e0917286a3db2d2320821850c5019809b8e2b0d65a87bed6977d1b497"
+      "screenshots": 251,
+      "bytes": 34365466,
+      "sha256": "7c9d434d4da1ff94d15c7ce8ea3d212cdbafb317e51088a3472eed10b41ccd3f"
     },
     {
       "file": "chromium-mobile-shard-3.zip",
       "browser_resolution": "chromium_mobile",
-      "screenshots": 244,
-      "bytes": 29668156,
-      "sha256": "56ba249f2d0804155c9aa5a6153d4fd7c43930fd2b898dc5b171356d1cd43743"
+      "screenshots": 256,
+      "bytes": 32078876,
+      "sha256": "6444a290fa0c09a90f00f07b1fd1f983bfa0300865b0eb717c432e599584d57b"
     }
   ]
 }
