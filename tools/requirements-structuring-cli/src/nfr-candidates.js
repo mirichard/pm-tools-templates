@@ -66,6 +66,7 @@ function generateCandidates(handoff, options = {}) {
   }));
   return { rendererVersion: '1.0.0', useCaseId: data.useCaseId, overlay: library.overlay,
     accuracyNotice: library.accuracyNotice, candidates,
+    uncoveredCharacteristics: library.taxonomy.characteristics.filter(c => !candidates.some(n => n.characteristic === c.id)).map(c => c.id),
     missingPatterns: pairs.filter(p => !p.patterns.length).map(p => ({ source: p.source, subCharacteristic: p.attribute.subCharacteristic })),
     unmappedSources: data.requirements.filter(r => !r.attributes.length).map(r => r.source) };
 }

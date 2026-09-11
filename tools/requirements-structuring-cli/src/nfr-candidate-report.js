@@ -23,6 +23,15 @@ function formatCandidateReport(generation) {
       }
     }
   }
+  lines.push('## Coverage Gaps and Missing Inputs', '',
+    'Gaps require human confirmation; a generated placeholder candidate is not completed coverage.', '',
+    '### Characteristics with zero candidates', '',
+    ...(generation.uncoveredCharacteristics.length ? generation.uncoveredCharacteristics.map(c => `- ${display(c)}`) : ['None.']), '',
+    '### Unbound parameters per candidate', '',
+    ...generation.candidates.map(c => `- ${display(c.id)}: ${c.unboundParameters.map(p => display(c.bindings[p])).join(', ')}`), '',
+    '### Unmapped FRs and missing patterns', '',
+    ...generation.unmappedSources.map(s => `- Unmapped FR: ${display(s.path)}`),
+    ...generation.missingPatterns.map(p => `- No matching pattern: ${display(p.source.path)} / ${display(p.subCharacteristic)}`), '');
   return lines.join('\n');
 }
 module.exports = { formatCandidateReport, display };
