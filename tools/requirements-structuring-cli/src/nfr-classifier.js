@@ -62,7 +62,12 @@ class NFRClassifier {
           || !parents.has(assignment.subCharacteristic)) {
           throw new Error(`Invalid classification assignment for ${unit.path}: expected a supplied sub-characteristic, without additional fields.`);
         }
-        return { characteristic: parents.get(assignment.subCharacteristic), subCharacteristic: assignment.subCharacteristic };
+        if (typeof assignment.confidence !== 'number' || !Number.isFinite(assignment.confidence)
+          || assignment.confidence < 0 || assignment.confidence > 1) {
+          throw new Error(`Invalid classification assignment for ${unit.path}: confidence must be a finite number from 0 to 1.`);
+        }
+        return { characteristic: parents.get(assignment.subCharacteristic), subCharacteristic: assignment.subCharacteristic,
+          confidence: assignment.confidence, sourceTaxonomyVersion: taxonomy.revision };
       });
       const assigned = new Set(attributes.map((attribute) => attribute.subCharacteristic));
       if (assigned.size !== attributes.length) {
