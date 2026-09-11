@@ -15,7 +15,7 @@
 
 title: "Pharmaceutical Qbd Template"
 
-[**➡️ View Template File**](/industry-specializations/healthcare-pharmaceutical/lifecycle/pharmaceutical_qbd_template.md)
+[**➡️ View Template File**](/domains/delivery/industry-specializations/healthcare-pharmaceutical/lifecycle/pharmaceutical_qbd_template.md)
 
 ## 📈 Quality Score
 

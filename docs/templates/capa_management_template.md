@@ -15,7 +15,7 @@
 
 title: "Capa Management Template"
 
-[**➡️ View Template File**](/industry-specializations/healthcare-pharmaceutical/compliance/capa_management_template.md)
+[**➡️ View Template File**](/domains/delivery/industry-specializations/healthcare-pharmaceutical/compliance/capa_management_template.md)
 
 ## 📈 Quality Score
 

@@ -176,7 +176,7 @@
       }
     },
     {
-      "path": "industry-specializations/healthcare-pharmaceutical/manufacturing/batch_record_template.md",
+      "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/manufacturing/batch_record_template.md",
       "title": "Batch Record Template",
       "methodology": "universal",
       "domain": {
@@ -255,7 +255,7 @@
       }
     },
     {
-      "path": "industry-specializations/healthcare-pharmaceutical/compliance/capa_management_template.md",
+      "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/compliance/capa_management_template.md",
       "title": "Capa Management Template",
       "methodology": "universal",
       "domain": {
@@ -338,7 +338,7 @@
       }
     },
     {
-      "path": "industry-specializations/healthcare-pharmaceutical/clinical-trials/clinical_trial_protocol_template.md",
+      "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/clinical-trials/clinical_trial_protocol_template.md",
       "title": "Clinical Trial Protocol Template",
       "methodology": "universal",
       "domain": {
@@ -403,7 +403,7 @@
       }
     },
     {
-      "path": "industry-specializations/healthcare-pharmaceutical/regulatory/computer_system_validation_protocol_template.md",
+      "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/regulatory/computer_system_validation_protocol_template.md",
       "title": "Computer System Validation Protocol Template",
       "methodology": "universal",
       "domain": {
@@ -577,7 +577,7 @@
       }
     },
     {
-      "path": "industry-specializations/healthcare-pharmaceutical/validation/equipment_qualification_protocol_template.md",
+      "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/validation/equipment_qualification_protocol_template.md",
       "title": "Equipment Qualification Protocol Template",
       "methodology": "universal",
       "domain": {
@@ -704,7 +704,7 @@
       }
     },
     {
-      "path": "industry-specializations/healthcare-pharmaceutical/compliance/gxp_training_plan_template.md",
+      "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/compliance/gxp_training_plan_template.md",
       "title": "Gxp Training Plan Template",
       "methodology": "universal",
       "domain": {
@@ -1001,7 +1001,7 @@
       }
     },
     {
-      "path": "industry-specializations/healthcare-pharmaceutical/manufacturing/manufacturing_batch_record_template.md",
+      "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/manufacturing/manufacturing_batch_record_template.md",
       "title": "Manufacturing Batch Record Template",
       "methodology": "universal",
       "domain": {
@@ -1144,7 +1144,7 @@
       }
     },
     {
-      "path": "industry-specializations/healthcare-pharmaceutical/lifecycle/pharmaceutical_qbd_template.md",
+      "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/lifecycle/pharmaceutical_qbd_template.md",
       "title": "Pharmaceutical Qbd Template",
       "methodology": "universal",
       "domain": {
@@ -1208,7 +1208,7 @@
       }
     },
     {
-      "path": "industry-specializations/healthcare-pharmaceutical/manufacturing/process_control_template.md",
+      "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/manufacturing/process_control_template.md",
       "title": "Process Control Template",
       "methodology": "universal",
       "domain": {
@@ -1241,7 +1241,7 @@
       }
     },
     {
-      "path": "industry-specializations/healthcare-pharmaceutical/validation/process_validation_master_plan_template.md",
+      "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/validation/process_validation_master_plan_template.md",
       "title": "Process Validation Master Plan Template",
       "methodology": "universal",
       "domain": {
@@ -1521,7 +1521,7 @@
       }
     },
     {
-      "path": "industry-specializations/healthcare-pharmaceutical/quality/quality_management_review_template.md",
+      "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/quality/quality_management_review_template.md",
       "title": "Quality Management Review Template",
       "methodology": "universal",
       "domain": {
@@ -2174,7 +2174,7 @@
       }
     },
     {
-      "path": "industry-specializations/healthcare-pharmaceutical/validation/validation_master_plan_template.md",
+      "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/validation/validation_master_plan_template.md",
       "title": "Validation Master Plan Template",
       "methodology": "universal",
       "domain": {
