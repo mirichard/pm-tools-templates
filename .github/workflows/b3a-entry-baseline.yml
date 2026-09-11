@@ -33,14 +33,6 @@ jobs:
           git diff --name-only
           echo '--- generated diff SHA-256 ---'
           git diff --binary | sha256sum
-          echo '--- generated diff ---'
-          git diff -- \
-            meta/domain-mapping.json \
-            meta/cross-references.json \
-            meta/migration-inventory.json \
-            meta/value-flow-mapping.json \
-            TEMPLATE_INDEX.md \
-            templates/templates.json
 
   b3a-baseline:
     runs-on: ubuntu-latest
@@ -59,9 +51,10 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Validate migration-wave tooling and entry manifest
+      - name: Validate migration tooling and entry manifest
         run: |
           node --test tests/migration-wave.test.mjs
+          python3 -m unittest tests.test_migration_links
           node scripts/validate-migration-wave.mjs --manifest meta/migration-waves/b3a.json
 
       - name: Run structural validators on committed entry state
