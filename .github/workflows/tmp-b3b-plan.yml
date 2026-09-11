@@ -47,15 +47,16 @@ jobs:
             --domain Delivery \
             --rollback-owner mirichard \
             --pre-batch-sha 6b270df6e533f2f2c69fab37cecdc5c2b0ca01c1 \
-            --output /tmp/b3b.json
-          node scripts/validate-migration-wave.mjs --manifest /tmp/b3b.json
-          cat /tmp/b3b.json
+            --output b3b-analysis.json
+          cp b3b-analysis.json /tmp/b3b-display.json
+          node scripts/validate-migration-wave.mjs --manifest b3b-analysis.json
+          cat /tmp/b3b-display.json
 
       - name: Summarize boundary
         run: |
           python3 - <<'PY'
           import json
-          m=json.load(open('/tmp/b3b.json'))
+          m=json.load(open('/tmp/b3b-display.json'))
           assets=m.get('assets') or m.get('moves') or []
           print('B3B_ASSET_COUNT', len(assets))
           for i,a in enumerate(assets,1):
