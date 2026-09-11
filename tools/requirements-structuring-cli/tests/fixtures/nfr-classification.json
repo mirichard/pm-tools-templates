@@ -1,0 +1,21 @@
+{
+  "input": {
+    "useCaseId": "UC-CLASSIFY",
+    "useCaseName": "Sign in and retrieve records",
+    "steps": [
+      {"stepId": "1", "actor": "User", "action": "signs in with credentials and receives input-error guidance", "businessObject": "Account"},
+      {"stepId": "2", "actor": "System", "action": "retrieves records within the agreed response-time objective", "businessObject": "Record"},
+      {"stepId": "3", "actor": "System", "action": "restores record access after a disruption", "businessObject": "Record"}
+    ]
+  },
+  "responses": [
+    {"assignments": [{"subCharacteristic": "authenticity", "confidence": 0.94}, {"subCharacteristic": "user-error-protection", "confidence": 0.4}]},
+    {"assignments": [{"subCharacteristic": "time-behaviour", "confidence": 0.91}]},
+    {"assignments": [{"subCharacteristic": "recoverability", "confidence": 0.88}]}
+  ],
+  "expected": [
+    ["user-error-protection", "authenticity"],
+    ["time-behaviour"],
+    ["recoverability"]
+  ]
+}
