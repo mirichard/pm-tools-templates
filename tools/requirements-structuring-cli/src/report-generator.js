@@ -40,7 +40,7 @@ class ReportGenerator {
       '',
       `- Provider: ${display(options.provider || 'not configured (no LLM call)')}`,
       `- Model: ${display(options.model)}`,
-      `- Attributes: ${options.attributes.length ? options.attributes.map(display).join(', ') : 'unspecified'}`,
+      `- Attributes: ${(options.attributes.length ? options.attributes : classifications.characteristics).map(display).join(', ')}`,
       `- Confidence threshold: ${options.confidenceThreshold ?? 'unspecified'}`,
       `- Overlay: ${display(options.overlay)} (selection recorded; no patterns generated)`,
       '',
