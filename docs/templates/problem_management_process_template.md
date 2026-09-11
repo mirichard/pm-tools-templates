@@ -15,7 +15,7 @@
 
 title: "Problem Management Process Template"
 
-[**➡️ View Template File**](/industry-specializations/information-technology/service-management/problem_management_process_template.md)
+[**➡️ View Template File**](/domains/delivery/industry-specializations/information-technology/service-management/problem_management_process_template.md)
 
 ## 📈 Quality Score
 

@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "wave_id": "B3B",
-  "phase": "entry",
+  "phase": "executed",
   "source_batch": 3,
   "primary_domain": "Delivery",
   "generated_from": "meta/migration-inventory.json",
