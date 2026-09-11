@@ -1,0 +1,74 @@
+name: B3A Entry Baseline
+
+on:
+  push:
+    branches:
+      - feat/b3a-delivery-wave
+    paths:
+      - .github/workflows/b3a-entry-baseline.yml
+
+permissions:
+  contents: read
+
+jobs:
+  baseline:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Validate migration-wave tooling and entry manifest
+        run: |
+          node --test tests/migration-wave.test.mjs
+          node scripts/validate-migration-wave.mjs --manifest meta/migration-waves/b3a.json
+
+      - name: Verify metadata generation is deterministic at entry
+        run: |
+          node scripts/generate-sprint-10-metadata.mjs
+          git diff --exit-code -- \
+            meta/domain-mapping.json \
+            meta/cross-references.json \
+            meta/migration-inventory.json \
+            meta/value-flow-mapping.json \
+            TEMPLATE_INDEX.md \
+            templates/templates.json
+
+      - name: Run structural validators
+        run: |
+          node scripts/validate-sprint-10.mjs --require-annotations
+          node scripts/validate-curated-templates.js
+          node scripts/validate-canonical-paths.js --strict
+
+      - name: Establish B3A migration-link baseline
+        run: python3 scripts/check_migration_links.py --manifest meta/migration-waves/b3a.json
+
+      - name: Run CI test suite
+        run: npm run test:ci
+
+      - name: Verify entry assets still untouched
+        run: |
+          node --input-type=module <<'NODE'
+          import fs from 'node:fs';
+          import crypto from 'node:crypto';
+          const plan = JSON.parse(fs.readFileSync('meta/migration-waves/b3a.json', 'utf8'));
+          let failures = 0;
+          for (const asset of plan.assets) {
+            if (!fs.existsSync(asset.source)) { console.error(`missing source: ${asset.source}`); failures++; continue; }
+            if (fs.existsSync(asset.destination)) { console.error(`destination already exists: ${asset.destination}`); failures++; }
+            const hash = crypto.createHash('sha256').update(fs.readFileSync(asset.source)).digest('hex');
+            if (hash !== asset.pre_move_sha256) { console.error(`hash drift: ${asset.source}`); failures++; }
+          }
+          if (failures) process.exit(1);
+          console.log(`PASS: ${plan.asset_count}/${plan.asset_count} entry sources match recorded hashes; 0 destination collisions.`);
+          NODE
