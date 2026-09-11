@@ -64,7 +64,13 @@ class NFRClassifier {
         }
         return { characteristic: parents.get(assignment.subCharacteristic), subCharacteristic: assignment.subCharacteristic };
       });
-      requirements.push({ source: { kind, path: unit.path, stepId: unit.step.stepId,
+      const assigned = new Set(attributes.map((attribute) => attribute.subCharacteristic));
+      if (assigned.size !== attributes.length) {
+        throw new Error(`Invalid classification response for ${unit.path}: duplicate sub-characteristic assignments.`);
+      }
+      const order = [...parents.keys()];
+      attributes.sort((a, b) => order.indexOf(a.subCharacteristic) - order.indexOf(b.subCharacteristic));
+      requirements.push({ status: attributes.length ? 'classified' : 'unmapped', source: { kind, path: unit.path, stepId: unit.step.stepId,
         ...(unit.flow ? { flowId: unit.flow.flowId } : {}) }, attributes });
     }
     return { schemaVersion: '1.0.0', useCaseId: data.useCaseId, inputKind: kind,
