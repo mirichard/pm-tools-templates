@@ -12,7 +12,8 @@
     "test": "node tests/test-runner.js",
     "test:quick": "node tests/test-runner.js --quick",
     "validate": "npm test && echo 'CLI validation complete'",
-    "prepublishOnly": "npm test"
+    "prepublishOnly": "npm test",
+    "validate:nfr-library": "node src/nfr-library.js"
   },
   "keywords": [
     "requirements-engineering",
@@ -26,6 +27,7 @@
   "license": "MIT",
   "dependencies": {
     "@google/generative-ai": "^0.24.0",
+    "ajv": "8.20.0",
     "axios": "^1.18.0",
     "chalk": "^4.1.2",
     "commander": "^11.0.0",
@@ -44,7 +46,9 @@
     "templates/**/*",
     "examples/**/*",
     "README.md",
-    "package.json"
+    "package.json",
+    "data/nfr/**/*",
+    "docs/**/*"
   ],
   "repository": {
     "type": "git",

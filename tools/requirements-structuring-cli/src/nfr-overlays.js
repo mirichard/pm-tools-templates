@@ -1,17 +1,13 @@
-/** Selection metadata only. Curated overlay content/registration belongs to #1115. */
-const OVERLAY_REGISTRY = Object.freeze({});
+const { listLibraryOverlays } = require('./nfr-library');
 
 function listOverlays() {
-  return [
-    { name: 'neutral', label: 'neutral core (default)' },
-    ...Object.entries(OVERLAY_REGISTRY).map(([name, entry]) => ({ name, label: entry.label })),
-  ];
+  return listLibraryOverlays();
 }
 
+// Preserve #1112's name-selection API; callers opt in to content via loadNFRLibrary.
 function selectOverlay(name = 'neutral') {
-  if (name === 'neutral') return 'neutral';
-  if (Object.prototype.hasOwnProperty.call(OVERLAY_REGISTRY, name)) return name;
-  throw new Error(`Unknown NFR overlay: ${name}. Run generate-nfr --list-overlays. Only neutral core is available until #1115 supplies overlay content.`);
+  if (listOverlays().some((entry) => entry.name === name)) return name;
+  throw new Error(`Unknown NFR overlay: ${name}. Run generate-nfr --list-overlays.`);
 }
 
 module.exports = { listOverlays, selectOverlay };

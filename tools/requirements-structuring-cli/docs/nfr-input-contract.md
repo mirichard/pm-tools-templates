@@ -16,8 +16,8 @@ Git with `src/nfr-input.js`; it is not a version field in the input JSON.
   not a missing version or an inferred creation date. Complete existing
   artifacts remain valid regardless of age.
 - Preserve the existing Commander, dotenv, LLMClient, report writer, phases,
-  and interactive gates. Overlay content belongs to #1115; only neutral core
-  is available in this skeleton.
+  and interactive gates. Overlay selection uses the #1115 curated review-candidate library;
+  neutral remains the default and domain overlays require explicit selection.
 
 ## Accepted artifacts and required fields
 

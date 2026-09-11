@@ -42,10 +42,12 @@ class ReportGenerator {
       `- Model: ${display(options.model)}`,
       `- Attributes: ${options.attributes.length ? options.attributes.map(display).join(', ') : 'unspecified'}`,
       `- Confidence threshold: ${options.confidenceThreshold ?? 'unspecified'}`,
-      `- Overlay: ${display(options.overlay)} (neutral core; no overlay content)`,
+      `- Overlay: ${display(options.overlay)} (selection recorded; no patterns generated)`,
       '',
       'These options are recorded only. Classification (#1108), generation (#1109),',
-      'the review gate (#1111), and the curated library (#1115) are follow-ups.',
+      'and the review gate (#1111) are follow-ups.',
+      'The bundled library (#1115) is a review candidate requiring human verification',
+      'against ISO/IEC 25010:2023; overlay selection does not establish compliance.',
       '',
     ].join('\n');
   }

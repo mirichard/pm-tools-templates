@@ -1,0 +1,239 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "revision",
+    "taxonomyRevision",
+    "releaseStatus",
+    "frameworks",
+    "patterns"
+  ],
+  "properties": {
+    "revision": {
+      "type": "string",
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"
+    },
+    "taxonomyRevision": {
+      "type": "string",
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"
+    },
+    "releaseStatus": {
+      "const": "requires-human-verification"
+    },
+    "frameworks": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "title",
+          "edition",
+          "url",
+          "accessedOn"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9-]*$"
+          },
+          "title": {
+            "type": "string",
+            "minLength": 1
+          },
+          "edition": {
+            "type": "string",
+            "minLength": 1
+          },
+          "url": {
+            "type": "string",
+            "pattern": "^https://"
+          },
+          "accessedOn": {
+            "type": "string",
+            "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
+          }
+        }
+      }
+    },
+    "patterns": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/definitions/pattern"
+      }
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "nfr-patterns.schema.json",
+  "title": "Curated NFR pattern review candidate",
+  "definitions": {
+    "pattern": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "characteristic",
+        "subCharacteristic",
+        "template",
+        "parameters",
+        "metric",
+        "provenance",
+        "reviewStatus"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9-]*\\.[a-z][a-z0-9-]*$"
+        },
+        "characteristic": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9-]*$"
+        },
+        "subCharacteristic": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9-]*$"
+        },
+        "template": {
+          "type": "string",
+          "minLength": 1
+        },
+        "parameters": {
+          "type": "object",
+          "minProperties": 1,
+          "propertyNames": {
+            "pattern": "^[a-z][a-zA-Z0-9]*$"
+          },
+          "additionalProperties": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "type",
+              "description"
+            ],
+            "properties": {
+              "type": {
+                "enum": [
+                  "string",
+                  "number"
+                ]
+              },
+              "description": {
+                "type": "string",
+                "minLength": 1
+              },
+              "minimum": {
+                "type": "number"
+              },
+              "maximum": {
+                "type": "number"
+              }
+            }
+          }
+        },
+        "metric": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "type",
+            "unit",
+            "operator",
+            "targetParameter",
+            "measurement"
+          ],
+          "properties": {
+            "type": {
+              "enum": [
+                "coverage",
+                "success-rate",
+                "count",
+                "duration",
+                "utilization",
+                "degradation",
+                "availability",
+                "effort",
+                "growth"
+              ]
+            },
+            "unit": {
+              "enum": [
+                "percent",
+                "actions",
+                "milliseconds",
+                "minutes",
+                "sessions",
+                "components",
+                "contexts",
+                "person-hours",
+                "environments",
+                "records"
+              ]
+            },
+            "operator": {
+              "enum": [
+                ">=",
+                "<="
+              ]
+            },
+            "targetParameter": {
+              "type": "string",
+              "minLength": 1
+            },
+            "measurement": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        },
+        "provenance": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "standardEdition",
+            "subCharacteristic",
+            "frameworks",
+            "derivation"
+          ],
+          "properties": {
+            "standardEdition": {
+              "const": "ISO/IEC 25010:2023"
+            },
+            "subCharacteristic": {
+              "type": "string",
+              "pattern": "^[a-z][a-z0-9-]*$"
+            },
+            "frameworks": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "id",
+                  "section"
+                ],
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "pattern": "^[a-z][a-z0-9-]*$"
+                  },
+                  "section": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                }
+              }
+            },
+            "derivation": {
+              "const": "curator-authored; framework-informed measurement, not a normative ISO mapping"
+            }
+          }
+        },
+        "reviewStatus": {
+          "const": "requires-human-verification"
+        }
+      }
+    }
+  }
+}

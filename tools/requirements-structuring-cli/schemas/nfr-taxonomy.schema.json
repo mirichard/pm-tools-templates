@@ -1,0 +1,165 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "nfr-taxonomy.schema.json",
+  "title": "Public-source NFR taxonomy review candidate",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "accuracyNotice",
+    "revision",
+    "standardEdition",
+    "curatedOn",
+    "releaseStatus",
+    "sources",
+    "characteristics"
+  ],
+  "properties": {
+    "accuracyNotice": {
+      "const": "Taxonomy structure and sub-characteristic descriptions are reconstructed from secondary/public sources, not the primary ISO/IEC 25010:2023 document (paywalled). REQUIRES human verification against the purchased standard before being treated as authoritative for a released product."
+    },
+    "revision": {
+      "type": "string",
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"
+    },
+    "standardEdition": {
+      "const": "ISO/IEC 25010:2023"
+    },
+    "curatedOn": {
+      "type": "string",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
+    },
+    "releaseStatus": {
+      "const": "requires-human-verification"
+    },
+    "sources": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "title",
+          "url",
+          "accessedOn",
+          "kind"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "title": {
+            "type": "string",
+            "minLength": 1
+          },
+          "url": {
+            "type": "string",
+            "pattern": "^https://"
+          },
+          "accessedOn": {
+            "type": "string",
+            "minLength": 1
+          },
+          "kind": {
+            "const": "secondary-public-description"
+          }
+        }
+      }
+    },
+    "characteristics": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "name",
+          "description",
+          "sources",
+          "verification",
+          "subCharacteristics"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9-]*$"
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "description": {
+            "type": "string",
+            "minLength": 1
+          },
+          "sources": {
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "verification": {
+            "enum": [
+              "REQUIRES_PRIMARY_REVIEW",
+              "UNVERIFIED — needs source"
+            ]
+          },
+          "subCharacteristics": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "$ref": "#/definitions/entry"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "entry": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "name",
+        "description",
+        "sources",
+        "verification"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9-]*$"
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "description": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sources": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "verification": {
+          "enum": [
+            "REQUIRES_PRIMARY_REVIEW",
+            "UNVERIFIED — needs source"
+          ]
+        }
+      }
+    }
+  }
+}
