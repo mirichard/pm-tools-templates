@@ -1,4 +1,4 @@
-name: Temporary B3B Planning Analysis
+name: Temporary B3B Manifest Persistence
 
 on:
   push:
@@ -8,10 +8,10 @@ on:
       - .github/workflows/tmp-b3b-plan.yml
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
-  analyze:
+  persist:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -19,46 +19,38 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Verify base and inventory denominator
+      - name: Guard authoritative base
         run: |
           set -euo pipefail
-          echo "HEAD=$(git rev-parse HEAD)"
-          echo "MAIN=$(git rev-parse origin/main)"
-          python3 - <<'PY'
-          import json
-          from collections import Counter
-          inv=json.load(open('meta/migration-inventory.json'))
-          moves=inv['moves']
-          pending=[m for m in moves if m.get('action')=='planned-move-not-executed']
-          executed=[m for m in moves if m.get('action')=='executed-move-with-legacy-pointer']
-          print('TOTAL', len(moves))
-          print('EXECUTED', len(executed))
-          print('PENDING', len(pending))
-          print('PENDING_BY_DOMAIN', dict(sorted(Counter(m.get('primary_domain') for m in pending).items())))
-          print('PENDING_BY_BATCH_DOMAIN', dict(sorted(Counter((m.get('batch'),m.get('primary_domain')) for m in pending).items(), key=lambda x:str(x[0]))))
-          PY
+          test "$(git rev-parse origin/main)" = "6b270df6e533f2f2c69fab37cecdc5c2b0ca01c1"
 
-      - name: Generate B3B entry manifest
+      - name: Generate and validate manifest
         run: |
           set -euo pipefail
+          mkdir -p meta/migration-waves
           node scripts/plan-migration-wave.mjs \
             --wave-id B3B \
             --batch 3 \
             --domain Delivery \
             --rollback-owner mirichard \
             --pre-batch-sha 6b270df6e533f2f2c69fab37cecdc5c2b0ca01c1 \
-            --output b3b-analysis.json
-          cp b3b-analysis.json /tmp/b3b-display.json
-          node scripts/validate-migration-wave.mjs --manifest b3b-analysis.json
-          cat /tmp/b3b-display.json
-
-      - name: Summarize boundary
-        run: |
+            --output meta/migration-waves/b3b.json
+          node scripts/validate-migration-wave.mjs --manifest meta/migration-waves/b3b.json
           python3 - <<'PY'
           import json
-          m=json.load(open('/tmp/b3b-display.json'))
-          assets=m.get('assets') or m.get('moves') or []
-          print('B3B_ASSET_COUNT', len(assets))
-          for i,a in enumerate(assets,1):
-              print(f"{i:02d} {a.get('source')} -> {a.get('destination')}")
+          m=json.load(open('meta/migration-waves/b3b.json'))
+          assert m['asset_count']==11, m['asset_count']
+          assert m['phase']=='entry'
+          assert m['pre_batch_sha']=='6b270df6e533f2f2c69fab37cecdc5c2b0ca01c1'
+          print('B3B manifest guard PASS: 11 assets')
           PY
+
+      - name: Commit only manifest
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add meta/migration-waves/b3b.json
+          test "$(git diff --cached --name-only)" = "meta/migration-waves/b3b.json"
+          git commit -m "docs(migration): record B3B entry manifest"
+          git push origin HEAD:feat/b3b-delivery-wave
