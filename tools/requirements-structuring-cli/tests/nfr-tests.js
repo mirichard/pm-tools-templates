@@ -189,6 +189,22 @@ module.exports = async function testNFR(runner) {
       assert.strictEqual(result.status, 0, result.text);
       assert.match(await fs.readFile(path.join(output, 'formal-nfr-report.md'), 'utf8'), /Artifact: structured/);
     });
+    await test('NFR without credentials fails through the real provider path without artifacts', async () => {
+      const output = path.join(temp, 'no-credentials-output');
+      const before = (await fs.readdir(temp)).sort();
+      // No preload; empty credentials also prevent dotenv from filling these keys.
+      const result = cli(['generate-nfr', structuredPath, '--output', output], {
+        env: { NODE_OPTIONS: '', LLM_PROVIDER: '', LLM_API_KEY: '',
+          GEMINI_API_KEY: '', ANTHROPIC_API_KEY: '', OPENAI_API_KEY: '' },
+      });
+      assert.strictEqual(result.status, 1, result.text);
+      assert.match(result.text, /No LLM provider configured\. Set one of these in your \.env file:/);
+      for (const key of ['GEMINI_API_KEY', 'ANTHROPIC_API_KEY', 'OPENAI_API_KEY', 'LLM_API_KEY']) {
+        assert.ok(result.text.includes(key), key);
+      }
+      assert.strictEqual(await fs.pathExists(output), false);
+      assert.deepStrictEqual((await fs.readdir(temp)).sort(), before);
+    });
     await test('NFR missing argument or file fails non-zero with an actionable message', () => {
       for (const args of [[], [path.join(temp, 'absent.json')]]) {
         const result = cli(['generate-nfr', ...args]);
