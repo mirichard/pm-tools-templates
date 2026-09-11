@@ -164,7 +164,8 @@ The `.feature` file can be wired directly into Cucumber, pytest-bdd, SpecFlow, o
 ### `generate-nfr [input-file]`
 
 Accepts an existing structured or UCS JSON artifact and classifies each step
-against the quality taxonomy (#1108). NFR text generation (#1109) is a follow-up.
+against the quality taxonomy (#1108), then renders library-based NFR candidates
+with explicit placeholders for every unsupplied parameter (#1109).
 See the [classification handoff contract](docs/nfr-classification.md).
 See the [NFR input contract](docs/nfr-input-contract.md) for required fields,
 shape validation, and compatibility decisions. No version marker is required.
@@ -184,7 +185,7 @@ requires human verification against the purchased ISO/IEC 25010:2023 standard
 before authoritative release. Selecting an overlay does not establish compliance.
 Listing needs no input file or API credentials and writes no report.
 
-The command writes `<base>-nfr-report.md` through the existing Markdown report
+The command writes `<base>-nfr-report.md` through a protected Markdown report
 writer, explicitly labeled `NFR candidates generated; human input required for all unbound parameters.`, plus
 a machine-readable `<base>-nfr-classifications.json` artifact. Classification
 uses the configured LLM; candidate parameters remain unbound. `pipeline` automatically
@@ -200,7 +201,10 @@ review gate; all existing phase ordering and gates are preserved.
 | `--profile` / `--overlay` | Select an available name; default `neutral`. |
 | `-o` / `--output <dir>` | Report directory, default `./output`. Pipeline retains `--output-dir` and also accepts `--output`. |
 
-All these selection flags also apply to `pipeline`. Upstream pipeline phases
+Standalone `--force` explicitly permits replacing existing NFR output and manual
+edits. It is not a pipeline flag; use a fresh output directory for pipeline reruns.
+
+All the selection flags in the table also apply to `pipeline`. Upstream pipeline phases
 still use the configured LLM and interactive gates. Standalone classification requires the existing provider credentials;
 overlay listing does not require API credentials. Provider/model flags reuse
 the existing environment loader/client and restore overrides after execution.
