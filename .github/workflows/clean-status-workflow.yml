@@ -33,8 +33,8 @@ on:
 
 env:
   # Configure these in your repository secrets for production use
-  PROGRAM_DASHBOARD_URL: ${{ secrets.PROGRAM_DASHBOARD_URL || 'https://company.sharepoint.com/program-dashboard' }}
-  DETAILED_REPORTS_URL: ${{ secrets.DETAILED_REPORTS_URL || 'https://company.sharepoint.com/program-reports' }}
+  PROGRAM_DASHBOARD_URL: ${{ inputs.test_mode && format('https://github.com/{0}', github.repository) || secrets.PROGRAM_DASHBOARD_URL || 'https://company.sharepoint.com/program-dashboard' }}
+  DETAILED_REPORTS_URL: ${{ inputs.test_mode && format('https://github.com/{0}/issues', github.repository) || secrets.DETAILED_REPORTS_URL || 'https://company.sharepoint.com/program-reports' }}
 
 jobs:
   enhanced-clean-status:
@@ -219,6 +219,7 @@ jobs:
         run: python3 scripts/validate-status-output.py
 
       - name: Upload report preview
+        if: ${{ inputs.test_mode }}
         uses: actions/upload-artifact@v7
         with:
           name: clean-status-preview

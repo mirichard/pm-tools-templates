@@ -27,6 +27,10 @@ class CleanStatusTests(unittest.TestCase):
         mail = next(s for s in self.steps if s['name'] == 'Send Status Email')
         self.assertEqual(mail['with']['to'], '${{ secrets.EMAIL_RECIPIENTS }}')
         self.assertNotIn('MAIL_RECIPIENTS', self.workflow['env'])
+        upload = next(s for s in self.steps if s['name'] == 'Upload report preview')
+        self.assertEqual(upload['if'], '${{ inputs.test_mode }}')
+        for key in ('PROGRAM_DASHBOARD_URL', 'DETAILED_REPORTS_URL'):
+            self.assertTrue(self.workflow['env'][key].startswith("${{ inputs.test_mode && format('https://github.com/"))
         trigger = self.workflow.get('on', self.workflow.get(True))
         self.assertEqual(str(trigger['workflow_dispatch']['inputs']['test_mode']['default']).lower(), 'true')
 
