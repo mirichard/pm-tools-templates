@@ -1,5 +1,6 @@
 name: Temporary B3C Execution
 
+# Retrigger after workflow registration on the branch.
 on:
   push:
     branches:
