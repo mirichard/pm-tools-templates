@@ -7,9 +7,9 @@
 - Primary domain: `Delivery`
 - Rollback owner: `mirichard`
 - Pre-batch SHA: `b29500895cc57cb80016b5bf723dd0960a81b4b0`
-- Physical migration commit: `<pending-atomic-commit>`
+- Physical migration commit: `6db276ce335abf2c604ac8bb98b17a5ce39039aa`
 - Manifest: `meta/migration-waves/b3c.json`
-- Status: **PASS — local guarded execution validation complete; atomic branch commit pending**
+- Status: **PASS — guarded execution validation complete; atomic migration commit recorded**
 
 ## Scope decision
 
@@ -55,7 +55,7 @@ B3C is the next dependency-safe Batch 3 / Delivery wave after B3B. The repositor
 
 ## Checkpoint E — executed-state validation
 
-**Pending atomic branch commit and final guarded validation run.**
+PASS — generated executed state passed the complete guarded validation suite in GitHub Actions run `34725528838` before the atomic commit. The suite verified the B3C manifest, post-check (`74` executed / `63` remaining), metadata regeneration stability, 137/137 annotation coverage, curated-template validity, strict canonical paths, migration links with zero new failures, migration-wave tests, migration post-check tests, repository CI, 10/10 immutable destination hashes, 10/10 legacy pointers, and the single B3C execution record.
 
 ## Checkpoint F — integration/visual validation
 
