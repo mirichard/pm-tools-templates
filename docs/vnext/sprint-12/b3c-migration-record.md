@@ -71,7 +71,9 @@ PASS — generated executed state passed the complete guarded validation suite i
 
 ## Checkpoint F — integration/visual validation
 
-**Pending.** Required branch/PR integration workflows and comprehensive visual regression must be reviewed on the final delivery head. Visual baselines must not be updated merely to force a green result.
+Visual review of run `34725908902` covered 134 desktop/mobile screenshots. All 40 canonical-body images pass against the original source-body baselines at the unchanged 2% mean / 3% tiled thresholds. All 40 reported differences map exactly to the 10 legacy sources becoming navigation pointers. The 64 new screenshot identities cover the new canonical, compatibility, and evidence surfaces.
+
+Reviewed overlay commit: `970723108150ec5eb71b2262fbe337088581eb87` on `visual-baselines`; original packs remain intact. No comparator exclusions, threshold changes, or pointer skips are accepted. Final normal comparison results and exact-head CI/review disposition are recorded in [delivery PR #1134](https://github.com/mirichard/pm-tools-templates/pull/1134). Manual readiness requires those gates to pass; this record alone does not authorize merge.
 
 ## Checkpoint G — post-merge verification
 
@@ -90,3 +92,4 @@ Pre-batch rollback anchor:
 After manual integration, the wave-level rollback method is:
 
 `git revert <B3C-merge-sha>`
+
