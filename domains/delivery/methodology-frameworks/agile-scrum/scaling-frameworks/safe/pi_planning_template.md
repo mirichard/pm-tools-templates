@@ -8,4 +8,4 @@ This file provides navigation only for relative links preserved in migrated temp
 
 ## Usage instructions
 
-Follow the link to the maintained resource. This compatibility file contains no duplicate template body.
+Follow the link to the maintained resource. This compatibility file contains no duplicate template body. When bookmarking or sharing the resource, use its maintained location so future readers reach the current version directly.

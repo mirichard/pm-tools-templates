@@ -65,6 +65,9 @@ PASS — generated executed state passed the complete guarded validation suite i
 - Regenerated metadata after cleanup; generator stability is verified independently.
 - Local checks: executed manifest; repository post-check (74 executed / 63 remaining); 137/137 annotation coverage; 139 curated templates; canonical paths (0 errors, 1 inherited warning); migration links (45 files, 446 links, 12 inherited failures, 0 new); metadata (0 blocking errors).
 - Canonical bytes remain unchanged across every executed wave manifest.
+- Migration/post-check tests: 32/32; migration-link tests: 5/5; focused Jest: 2/2.
+- Isolated runs of the index and mapping generators at the production base and current head produce outputs differing only by the 10 approved path substitutions. The index generator also reproduces an inherited alternate table layout; the mapping generator reproduces 5 review entries out of 139 catalog assets, while the approved mapping inventory retains its 137-asset denominator. These inherited layout/denominator differences are explicitly deferred; this wave preserves the maintained layout and approved mapping scope while canonicalizing paths.
+- Quality review: compatibility navigation includes direct-bookmark guidance; no template body or quality gate was weakened.
 
 ## Checkpoint F — integration/visual validation
 
