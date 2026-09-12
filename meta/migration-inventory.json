@@ -2841,7 +2841,7 @@
       "dependencies": [
         "domains/delivery/industry-specializations/healthcare-pharmaceutical/compliance/capa_management_template.md",
         "domains/delivery/industry-specializations/healthcare-pharmaceutical/regulatory/compliance_risk_assessment_template.md",
-        "domains/delivery/industry-specializations/healthcare-pharmaceutical/regulatory/computer_system_validation_protocol_template.md"
+        "industry-specializations/healthcare-pharmaceutical/validation/computer_system_validation_protocol_template.md"
       ],
       "affected_internal_references": [
         "TEMPLATE_INDEX.md",
