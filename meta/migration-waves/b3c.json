@@ -1,0 +1,299 @@
+{
+  "schema_version": 1,
+  "wave_id": "B3C",
+  "phase": "entry",
+  "source_batch": 3,
+  "primary_domain": "Delivery",
+  "generated_from": "meta/migration-inventory.json",
+  "inventory_generated": "2026-09-02",
+  "pre_batch_sha": "b29500895cc57cb80016b5bf723dd0960a81b4b0",
+  "rollback_owner": "mirichard",
+  "max_assets": 12,
+  "asset_count": 10,
+  "assets": [
+    {
+      "order": 1,
+      "source": "industry-specializations/information-technology/software-development/api_documentation_template.md",
+      "destination": "domains/delivery/industry-specializations/information-technology/software-development/api_documentation_template.md",
+      "primary_domain": "Delivery",
+      "secondary_domains": [],
+      "pre_move_sha256": "615cb8ea6af39c4e06d7698b7483782a7df77c7dd2547a5f162ac1c416d5ea1b",
+      "dependencies": [
+        {
+          "path": "role-based-toolkits/project-manager/essential-templates/timesheet-tracking-template.md",
+          "status": "same-wave",
+          "resolved_path": "domains/delivery/role-based-toolkits/project-manager/essential-templates/timesheet-tracking-template.md"
+        },
+        {
+          "path": "domains/uncertainty/role-based-toolkits/product-owner/user-story-template.md",
+          "status": "satisfied-executed",
+          "resolved_path": "domains/uncertainty/role-based-toolkits/product-owner/user-story-template.md"
+        },
+        {
+          "path": "project-lifecycle/01-initiation/project-charter/hybrid-project-charter-template.md",
+          "status": "satisfied-existing-deferred",
+          "resolved_path": "project-lifecycle/01-initiation/project-charter/hybrid-project-charter-template.md"
+        }
+      ],
+      "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move"
+    },
+    {
+      "order": 2,
+      "source": "role-based-toolkits/project-manager/essential-templates/timesheet-tracking-template.md",
+      "destination": "domains/delivery/role-based-toolkits/project-manager/essential-templates/timesheet-tracking-template.md",
+      "primary_domain": "Delivery",
+      "secondary_domains": [],
+      "pre_move_sha256": "c80bbc3c57444f640c6c6820e2efce747f61ae50571dc4bf2afdc4a8b854f5b4",
+      "dependencies": [
+        {
+          "path": "industry-specializations/information-technology/software-development/api_documentation_template.md",
+          "status": "same-wave",
+          "resolved_path": "domains/delivery/industry-specializations/information-technology/software-development/api_documentation_template.md"
+        },
+        {
+          "path": "domains/uncertainty/role-based-toolkits/product-owner/user-story-template.md",
+          "status": "satisfied-executed",
+          "resolved_path": "domains/uncertainty/role-based-toolkits/product-owner/user-story-template.md"
+        },
+        {
+          "path": "domains/team/project-lifecycle/01-initiation/project-charter/agile-team-charter-template.md",
+          "status": "satisfied-executed",
+          "resolved_path": "domains/team/project-lifecycle/01-initiation/project-charter/agile-team-charter-template.md"
+        }
+      ],
+      "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move"
+    },
+    {
+      "order": 3,
+      "source": "methodology-frameworks/agile-scrum/scaling-frameworks/less/cross_team_coordination_template.md",
+      "destination": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/less/cross_team_coordination_template.md",
+      "primary_domain": "Delivery",
+      "secondary_domains": ["Stakeholder", "Uncertainty"],
+      "pre_move_sha256": "6e559a6e0a08d0a1ff658764865688006c263dc649319e2ace944032fadc8157",
+      "dependencies": [
+        {
+          "path": "methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md",
+          "status": "same-wave",
+          "resolved_path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md"
+        },
+        {
+          "path": "methodology-frameworks/agile-scrum/scaling-frameworks/less/less_sprint_planning_template.md",
+          "status": "same-wave",
+          "resolved_path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/less/less_sprint_planning_template.md"
+        },
+        {
+          "path": "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_art_coordination_template.md",
+          "status": "same-wave",
+          "resolved_path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_art_coordination_template.md"
+        }
+      ],
+      "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move"
+    },
+    {
+      "order": 4,
+      "source": "methodology-frameworks/agile-scrum/scaling-frameworks/less/less_sprint_planning_template.md",
+      "destination": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/less/less_sprint_planning_template.md",
+      "primary_domain": "Delivery",
+      "secondary_domains": ["Stakeholder", "Uncertainty"],
+      "pre_move_sha256": "61717ca810bc9f2be6a3dd07211989d46072e7b51683434b88f0c4fa68706ec6",
+      "dependencies": [
+        {
+          "path": "methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md",
+          "status": "same-wave",
+          "resolved_path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md"
+        },
+        {
+          "path": "methodology-frameworks/agile-scrum/scaling-frameworks/less/cross_team_coordination_template.md",
+          "status": "same-wave",
+          "resolved_path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/less/cross_team_coordination_template.md"
+        },
+        {
+          "path": "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_art_coordination_template.md",
+          "status": "same-wave",
+          "resolved_path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_art_coordination_template.md"
+        }
+      ],
+      "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move"
+    },
+    {
+      "order": 5,
+      "source": "methodology-frameworks/agile-scrum/scaling-frameworks/less/overall_product_backlog_template.md",
+      "destination": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/less/overall_product_backlog_template.md",
+      "primary_domain": "Delivery",
+      "secondary_domains": ["Stakeholder", "Uncertainty"],
+      "pre_move_sha256": "74f2f476c9b8ea81beb045b3da8f818edf1ee5c728c58a6c0d25290175e26574",
+      "dependencies": [
+        {
+          "path": "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_art_coordination_template.md",
+          "status": "same-wave",
+          "resolved_path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_art_coordination_template.md"
+        },
+        {
+          "path": "methodology-frameworks/agile-scrum/sprint-planning/sprint_planning_template.md",
+          "status": "satisfied-existing-deferred",
+          "resolved_path": "methodology-frameworks/agile-scrum/sprint-planning/sprint_planning_template.md"
+        },
+        {
+          "path": "methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md",
+          "status": "same-wave",
+          "resolved_path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md"
+        }
+      ],
+      "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move"
+    },
+    {
+      "order": 6,
+      "source": "methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md",
+      "destination": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md",
+      "primary_domain": "Delivery",
+      "secondary_domains": ["Stakeholder", "Uncertainty"],
+      "pre_move_sha256": "942e733db10117e8c638c33385383a501323925a3b7aaa21d29d361b62739e1f",
+      "dependencies": [
+        {
+          "path": "methodology-frameworks/agile-scrum/scaling-frameworks/less/cross_team_coordination_template.md",
+          "status": "same-wave",
+          "resolved_path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/less/cross_team_coordination_template.md"
+        },
+        {
+          "path": "methodology-frameworks/agile-scrum/scaling-frameworks/less/less_sprint_planning_template.md",
+          "status": "same-wave",
+          "resolved_path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/less/less_sprint_planning_template.md"
+        },
+        {
+          "path": "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_art_coordination_template.md",
+          "status": "same-wave",
+          "resolved_path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_art_coordination_template.md"
+        }
+      ],
+      "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move"
+    },
+    {
+      "order": 7,
+      "source": "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_art_coordination_template.md",
+      "destination": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_art_coordination_template.md",
+      "primary_domain": "Delivery",
+      "secondary_domains": ["Stakeholder", "Uncertainty"],
+      "pre_move_sha256": "77cac0ef7034cca657c7bd1b63910df6c525bfbc38979b50630051f791853a18",
+      "dependencies": [
+        {
+          "path": "methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md",
+          "status": "same-wave",
+          "resolved_path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md"
+        },
+        {
+          "path": "methodology-frameworks/agile-scrum/scaling-frameworks/less/cross_team_coordination_template.md",
+          "status": "same-wave",
+          "resolved_path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/less/cross_team_coordination_template.md"
+        },
+        {
+          "path": "methodology-frameworks/agile-scrum/scaling-frameworks/less/less_sprint_planning_template.md",
+          "status": "same-wave",
+          "resolved_path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/less/less_sprint_planning_template.md"
+        }
+      ],
+      "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move"
+    },
+    {
+      "order": 8,
+      "source": "methodology-frameworks/agile-scrum/scaling-frameworks/safe/metrics_dashboard_template.md",
+      "destination": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/metrics_dashboard_template.md",
+      "primary_domain": "Delivery",
+      "secondary_domains": ["Stakeholder", "Uncertainty"],
+      "pre_move_sha256": "1834bd7608cff4f719a20d8c8fea72ba73c36b0f1171a3dc40a399013daa2952",
+      "dependencies": [
+        {
+          "path": "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_metrics_dashboard_template.md",
+          "status": "same-wave",
+          "resolved_path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_metrics_dashboard_template.md"
+        },
+        {
+          "path": "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_metrics_reporting_template.md",
+          "status": "same-wave",
+          "resolved_path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_metrics_reporting_template.md"
+        },
+        {
+          "path": "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_art_coordination_template.md",
+          "status": "same-wave",
+          "resolved_path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_art_coordination_template.md"
+        }
+      ],
+      "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move"
+    },
+    {
+      "order": 9,
+      "source": "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_metrics_dashboard_template.md",
+      "destination": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_metrics_dashboard_template.md",
+      "primary_domain": "Delivery",
+      "secondary_domains": ["Stakeholder", "Uncertainty"],
+      "pre_move_sha256": "ca79a4e46ff245402f41e561083d4bf28a914a6d5127d4f28a638a8a481626bb",
+      "dependencies": [
+        {
+          "path": "methodology-frameworks/agile-scrum/scaling-frameworks/safe/metrics_dashboard_template.md",
+          "status": "same-wave",
+          "resolved_path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/metrics_dashboard_template.md"
+        },
+        {
+          "path": "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_metrics_reporting_template.md",
+          "status": "same-wave",
+          "resolved_path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_metrics_reporting_template.md"
+        },
+        {
+          "path": "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_art_coordination_template.md",
+          "status": "same-wave",
+          "resolved_path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_art_coordination_template.md"
+        }
+      ],
+      "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move"
+    },
+    {
+      "order": 10,
+      "source": "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_metrics_reporting_template.md",
+      "destination": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_metrics_reporting_template.md",
+      "primary_domain": "Delivery",
+      "secondary_domains": ["Stakeholder", "Uncertainty"],
+      "pre_move_sha256": "971937d974b8f26eec47a08396126a4420b07722edd2c04c152e5b4c75e98576",
+      "dependencies": [
+        {
+          "path": "methodology-frameworks/agile-scrum/scaling-frameworks/safe/metrics_dashboard_template.md",
+          "status": "same-wave",
+          "resolved_path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/metrics_dashboard_template.md"
+        },
+        {
+          "path": "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_metrics_dashboard_template.md",
+          "status": "same-wave",
+          "resolved_path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_metrics_dashboard_template.md"
+        },
+        {
+          "path": "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_art_coordination_template.md",
+          "status": "same-wave",
+          "resolved_path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_art_coordination_template.md"
+        }
+      ],
+      "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move"
+    }
+  ],
+  "checkpoints": [
+    "baseline-and-hashes",
+    "canonical-moves",
+    "legacy-pointers",
+    "canonical-references",
+    "affected-scope-validation",
+    "reviewed-visual-regression",
+    "post-merge-verification"
+  ],
+  "validation_commands": [
+    "node scripts/validate-migration-wave.mjs --manifest <manifest>",
+    "node scripts/generate-sprint-10-metadata.mjs",
+    "node scripts/validate-sprint-10.mjs --require-annotations",
+    "node scripts/validate-curated-templates.js",
+    "node scripts/validate-canonical-paths.js --strict",
+    "python3 scripts/check_migration_links.py --manifest <manifest>",
+    "npm run test:ci"
+  ],
+  "rollback": {
+    "strategy": "revert-wave-merge-commit",
+    "command": "git revert <wave-merge-sha>",
+    "granularity": "wave",
+    "asset_hashes_preserved": true
+  }
+}
