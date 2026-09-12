@@ -29,8 +29,11 @@ jobs:
           set -euxo pipefail
           node scripts/validate-migration-wave.mjs --manifest meta/migration-waves/b3c.json
           node scripts/migration-post-check.mjs
+          cp meta/cross-references.json /tmp/cross-references.before.json
+          cp meta/migration-inventory.json /tmp/migration-inventory.before.json
           node scripts/generate-sprint-10-metadata.mjs
-          git diff --exit-code -- meta/cross-references.json meta/migration-inventory.json
+          cmp /tmp/cross-references.before.json meta/cross-references.json
+          cmp /tmp/migration-inventory.before.json meta/migration-inventory.json
           node scripts/validate-sprint-10.mjs --require-annotations
           node scripts/validate-curated-templates.js
           node scripts/validate-canonical-paths.js --strict
