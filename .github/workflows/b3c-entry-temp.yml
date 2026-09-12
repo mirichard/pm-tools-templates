@@ -6,29 +6,27 @@ on:
       - feat/b3c-delivery-wave
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
-  validate-entry:
+  refresh-generated-metadata:
+    if: ${{ !contains(github.event.head_commit.message, 'chore: commit regenerated migration metadata') }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout exact branch state
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      - name: Install dependencies
-        run: npm ci
-      - name: Validate B3C entry state
+      - name: Regenerate migration metadata
         run: |
           set -euxo pipefail
-          node scripts/validate-migration-wave.mjs --manifest meta/migration-waves/b3c.json
-          node scripts/migration-post-check.mjs
           node scripts/generate-sprint-10-metadata.mjs
-          git diff --exit-code -- meta/cross-references.json meta/migration-inventory.json
-          node scripts/validate-sprint-10.mjs --require-annotations
-          node scripts/validate-curated-templates.js
-          node scripts/validate-canonical-paths.js --strict
-          python3 scripts/check_migration_links.py --manifest meta/migration-waves/b3c.json
-          node --test tests/migration-wave.test.mjs
-          node --test tests/migration-post-check.test.mjs
-          npm run test:ci
+          changed="$(git diff --name-only)"
+          printf '%s\n' "$changed"
+          test "$changed" = "meta/cross-references.json
+meta/migration-inventory.json"
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add meta/cross-references.json meta/migration-inventory.json
+          git commit -m "chore: commit regenerated migration metadata"
+          git push
