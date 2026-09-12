@@ -4,7 +4,7 @@ const { validateStructuredResponse } = require('./security');
 const { loadClassificationTaxonomy } = require('./nfr-classification-taxonomy');
 
 const PROMPT_FILE = '08-classify-quality-attributes-v1.md';
-const PROMPT_VERSION = '1.0.0';
+const PROMPT_VERSION = '1.0.1';
 
 function requirementUnits(kind, data) {
   if (kind === 'structured') {
@@ -60,12 +60,17 @@ class NFRClassifier {
           taxonomy: { revision: taxonomy.revision, standardEdition: taxonomy.standardEdition,
             accuracyNotice: taxonomy.accuracyNotice, characteristics } }),
         mode: 'structure',
+        // Validate either JSON root here; assignment validation below stays strict.
+        expectedRoot: 'any',
       });
       let response;
       try {
-        response = validateStructuredResponse(JSON.stringify(raw), { expectedRoot: 'object' });
+        const parsed = validateStructuredResponse(JSON.stringify(raw), {
+          expectedRoot: Array.isArray(raw) ? 'array' : 'object',
+        });
+        response = Array.isArray(parsed) ? { assignments: parsed } : parsed;
       } catch {
-        throw new Error(`Invalid classification response for ${unit.path}: expected safe JSON object.`);
+        throw new Error(`Invalid classification response for ${unit.path}: expected safe JSON object or assignment array.`);
       }
       if (Object.keys(response).length !== 1 || !Array.isArray(response.assignments)) {
         throw new Error(`Invalid classification response for ${unit.path}: expected assignments array only.`);
