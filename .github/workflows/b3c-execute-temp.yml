@@ -22,6 +22,7 @@ jobs:
         run: |
           python3 .github/scripts/b3c-execute-temp.py
           python3 .github/scripts/b3c-fix-pointers-temp.py
+          python3 .github/scripts/b3c-fix-review-temp.py
           node scripts/generate-sprint-10-metadata.mjs
       - name: Validate generated executed state
         run: |
