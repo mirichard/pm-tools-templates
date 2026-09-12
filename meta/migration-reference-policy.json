@@ -5,6 +5,7 @@
     "docs/vnext/"
   ],
   "intentional_exact_files": [
-    "meta/migration-inventory.json"
+    "meta/migration-inventory.json",
+    "templates/templates.proposed.json"
   ]
 }

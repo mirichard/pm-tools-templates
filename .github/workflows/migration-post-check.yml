@@ -2,19 +2,10 @@ name: Migration Post-Check
 
 on:
   pull_request:
-    paths:
-      - 'meta/migration-inventory.json'
-      - 'meta/migration-reference-policy.json'
-      - 'meta/needs-review.md'
-      - 'meta/migration-waves/**'
-      - 'scripts/migration-post-check.mjs'
-      - 'tests/migration-post-check.test.mjs'
-      - 'domains/**'
-      - 'industry-specializations/**'
-      - 'methodology-frameworks/**'
-      - 'role-based-toolkits/**'
-      - 'templates/**'
-      - 'TEMPLATE_INDEX.md'
+  pull_request_review:
+    types: [submitted, edited, dismissed]
+  pull_request_review_comment:
+    types: [created, edited, deleted]
   workflow_dispatch:
 
 permissions:
@@ -29,6 +20,7 @@ jobs:
       - uses: actions/checkout@v6
         with:
           fetch-depth: 0
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
 
       - uses: actions/setup-node@v6
         with:
@@ -52,15 +44,16 @@ jobs:
           fi
 
       - name: Reject unresolved review threads at merge boundary
-        if: github.event_name == 'pull_request'
+        if: github.event_name != 'workflow_dispatch'
         env:
           GH_TOKEN: ${{ github.token }}
           PR_NUMBER: ${{ github.event.pull_request.number }}
         run: |
           set -euo pipefail
-          unresolved=$(gh api graphql -f query='query($owner:String!,$name:String!,$number:Int!){repository(owner:$owner,name:$name){pullRequest(number:$number){reviewThreads(first:100){nodes{isResolved}}}}}' \
+          unresolved=$(gh api graphql --paginate --slurp \
+            -f query='query($owner:String!,$name:String!,$number:Int!,$endCursor:String){repository(owner:$owner,name:$name){pullRequest(number:$number){reviewThreads(first:100,after:$endCursor){nodes{isResolved}pageInfo{hasNextPage endCursor}}}}}' \
             -f owner='${{ github.repository_owner }}' \
             -f name='${{ github.event.repository.name }}' \
             -F number="$PR_NUMBER" \
-            --jq '[.data.repository.pullRequest.reviewThreads.nodes[] | select(.isResolved == false)] | length')
+            --jq '[.[] | .data.repository.pullRequest.reviewThreads.nodes[] | select(.isResolved == false)] | length')
           test "$unresolved" -eq 0 || { echo "$unresolved unresolved review thread(s) remain"; exit 1; }
