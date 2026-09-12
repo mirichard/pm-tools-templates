@@ -25,7 +25,7 @@ jobs:
             --rollback-owner mirichard \
             --max-assets 12 \
             --pre-batch-sha b29500895cc57cb80016b5bf723dd0960a81b4b0 \
-            --output /tmp/b3c.json
+            --output b3c-plan-output.json
           echo '--- B3C PLAN START ---'
-          cat /tmp/b3c.json
+          cat b3c-plan-output.json
           echo '--- B3C PLAN END ---'
