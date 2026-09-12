@@ -1,14 +1,14 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-11T19:25:35.766597+00:00",
-  "source_workflow_run": 34637232960,
-  "source_commit": "23b7ebb91743119ad25a9b0a48f379884a3f51dd",
+  "generated_at": "2026-09-12T23:46:33.223587+00:00",
+  "source_workflow_run": 34725908902,
+  "source_commit": "58bb429a5c05b27b22d9a926f0d28489fd85a1b0",
   "format": "webp",
   "width": 256,
   "maximum_dimension": 16383,
   "quality": 85,
   "method": 4,
-  "total_screenshots": 2074,
+  "total_screenshots": 2208,
   "packs": [
     {
       "file": "chromium-desktop-shard-0.zip",
@@ -65,6 +65,69 @@
       "screenshots": 257,
       "bytes": 30233538,
       "sha256": "57f62b21a62ec57c1ead78a5c8efd07d516872fbcb6d763c94aa064ce9130455"
+    },
+    {
+      "file": "z-b3c-chromium-desktop-shard-0.zip",
+      "browser_resolution": "chromium_desktop",
+      "screenshots": 17,
+      "bytes": 268932,
+      "sha256": "427c62d82fb436980641b80e68b148e99afe80b5945edb2436ff14f7f2c8d5aa"
+    },
+    {
+      "file": "z-b3c-chromium-desktop-shard-1.zip",
+      "browser_resolution": "chromium_desktop",
+      "screenshots": 16,
+      "bytes": 521560,
+      "sha256": "6234f82b88fa40ad1b8b807b6676ac2da1d41db9b1802752154a2bc88fc6d8dd"
+    },
+    {
+      "file": "z-b3c-chromium-desktop-shard-2.zip",
+      "browser_resolution": "chromium_desktop",
+      "screenshots": 17,
+      "bytes": 377210,
+      "sha256": "93a7d00d7d0e7b9c3979609016168504c1ce60895f7c374cf4a0205aff7a5c82"
+    },
+    {
+      "file": "z-b3c-chromium-desktop-shard-3.zip",
+      "browser_resolution": "chromium_desktop",
+      "screenshots": 17,
+      "bytes": 629682,
+      "sha256": "b34989e3607c4bc24e594ea84da86b76bd1aab770008aec034eb2324c4486879"
+    },
+    {
+      "file": "z-b3c-chromium-mobile-shard-0.zip",
+      "browser_resolution": "chromium_mobile",
+      "screenshots": 17,
+      "bytes": 1206858,
+      "sha256": "4fee86fe3e0df6a39114f8c0acd6ade6d39812fbf23be154bce4854f690b8aed"
+    },
+    {
+      "file": "z-b3c-chromium-mobile-shard-1.zip",
+      "browser_resolution": "chromium_mobile",
+      "screenshots": 16,
+      "bytes": 2399414,
+      "sha256": "74e98b92f0597bf053acb240acb52d72b24f871bc710fb5ed02ac7e9fa402489"
+    },
+    {
+      "file": "z-b3c-chromium-mobile-shard-2.zip",
+      "browser_resolution": "chromium_mobile",
+      "screenshots": 17,
+      "bytes": 1137442,
+      "sha256": "c56e6ebf0766ba78c8855e2ad3b2bd1d403a7adf3e042514ee80af79f0b85eee"
+    },
+    {
+      "file": "z-b3c-chromium-mobile-shard-3.zip",
+      "browser_resolution": "chromium_mobile",
+      "screenshots": 17,
+      "bytes": 1983370,
+      "sha256": "150561bbf2e79bef7215e6b2a9429bca5c1331bf3eba60e0d1b760066a03bab2"
     }
-  ]
+  ],
+  "reviewed_migration_overlay": {
+    "wave": "B3C",
+    "canonical_visual_parity": "40/40 original-body comparisons pass",
+    "legacy_pointer_transitions": 40,
+    "reviewed_screenshots": 134,
+    "source_tree": "16b55ddd596ebd09c26e2943a6fabda4256801b2"
+  }
 }
