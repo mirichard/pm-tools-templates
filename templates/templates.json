@@ -1949,7 +1949,7 @@
       ]
     },
     {
-      "path": "industry-specializations/healthcare-pharmaceutical/validation/cleaning_validation_protocol_template.md",
+      "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/validation/cleaning_validation_protocol_template.md",
       "title": "Cleaning Validation Protocol Template",
       "methodology": "universal",
       "complexity": "advanced",
@@ -2005,7 +2005,7 @@
           "similarity": 88
         },
         {
-          "path": "industry-specializations/healthcare-pharmaceutical/validation/installation_qualification_protocol_template.md",
+          "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/validation/installation_qualification_protocol_template.md",
           "title": "Installation Qualification Protocol Template",
           "methodology": "universal",
           "tags": [
@@ -2028,6 +2028,9 @@
           ],
           "similarity": 88
         }
+      ],
+      "alternate_paths": [
+        "industry-specializations/healthcare-pharmaceutical/validation/cleaning_validation_protocol_template.md"
       ]
     },
     {
@@ -2311,7 +2314,7 @@
       ]
     },
     {
-      "path": "industry-specializations/healthcare-pharmaceutical/regulatory/compliance_risk_assessment_template.md",
+      "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/regulatory/compliance_risk_assessment_template.md",
       "title": "Compliance Risk Assessment Template",
       "methodology": "universal",
       "complexity": "advanced",
@@ -2334,7 +2337,7 @@
       ],
       "relatedTemplates": [
         {
-          "path": "industry-specializations/healthcare-pharmaceutical/regulatory/regulatory_inspection_readiness_plan_template.md",
+          "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/regulatory/regulatory_inspection_readiness_plan_template.md",
           "title": "Regulatory Inspection Readiness Plan Template",
           "methodology": "universal",
           "tags": [
@@ -2363,7 +2366,7 @@
           "similarity": 93
         },
         {
-          "path": "industry-specializations/healthcare-pharmaceutical/regulatory/health_authority_communication_plan_template.md",
+          "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/regulatory/health_authority_communication_plan_template.md",
           "title": "Health Authority Communication Plan Template",
           "methodology": "universal",
           "tags": [
@@ -2407,6 +2410,9 @@
           ],
           "similarity": 93
         }
+      ],
+      "alternate_paths": [
+        "industry-specializations/healthcare-pharmaceutical/regulatory/compliance_risk_assessment_template.md"
       ]
     },
     {
@@ -2997,7 +3003,7 @@
           "similarity": 92
         },
         {
-          "path": "industry-specializations/healthcare-pharmaceutical/regulatory/compliance_risk_assessment_template.md",
+          "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/regulatory/compliance_risk_assessment_template.md",
           "title": "Compliance Risk Assessment Template",
           "methodology": "universal",
           "tags": [
@@ -3011,7 +3017,7 @@
           "similarity": 92
         },
         {
-          "path": "industry-specializations/healthcare-pharmaceutical/regulatory/regulatory_inspection_readiness_plan_template.md",
+          "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/regulatory/regulatory_inspection_readiness_plan_template.md",
           "title": "Regulatory Inspection Readiness Plan Template",
           "methodology": "universal",
           "tags": [
@@ -4262,7 +4268,7 @@
           "similarity": 93
         },
         {
-          "path": "industry-specializations/healthcare-pharmaceutical/regulatory/compliance_risk_assessment_template.md",
+          "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/regulatory/compliance_risk_assessment_template.md",
           "title": "Compliance Risk Assessment Template",
           "methodology": "universal",
           "tags": [
@@ -4382,7 +4388,7 @@
       ]
     },
     {
-      "path": "industry-specializations/healthcare-pharmaceutical/regulatory/health_authority_communication_plan_template.md",
+      "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/regulatory/health_authority_communication_plan_template.md",
       "title": "Health Authority Communication Plan Template",
       "methodology": "universal",
       "complexity": "advanced",
@@ -4404,7 +4410,7 @@
       "qualityIssues": [],
       "relatedTemplates": [
         {
-          "path": "industry-specializations/healthcare-pharmaceutical/regulatory/compliance_risk_assessment_template.md",
+          "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/regulatory/compliance_risk_assessment_template.md",
           "title": "Compliance Risk Assessment Template",
           "methodology": "universal",
           "tags": [
@@ -4418,7 +4424,7 @@
           "similarity": 93
         },
         {
-          "path": "industry-specializations/healthcare-pharmaceutical/regulatory/regulatory_inspection_readiness_plan_template.md",
+          "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/regulatory/regulatory_inspection_readiness_plan_template.md",
           "title": "Regulatory Inspection Readiness Plan Template",
           "methodology": "universal",
           "tags": [
@@ -4432,7 +4438,7 @@
           "similarity": 93
         },
         {
-          "path": "industry-specializations/healthcare-pharmaceutical/validation/software_requirements_specification_template.md",
+          "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/validation/software_requirements_specification_template.md",
           "title": "Software Requirements Specification Template",
           "methodology": "universal",
           "tags": [
@@ -4474,6 +4480,9 @@
           ],
           "similarity": 88
         }
+      ],
+      "alternate_paths": [
+        "industry-specializations/healthcare-pharmaceutical/regulatory/health_authority_communication_plan_template.md"
       ]
     },
     {
@@ -5292,7 +5301,7 @@
           "similarity": 75
         },
         {
-          "path": "industry-specializations/healthcare-pharmaceutical/regulatory/compliance_risk_assessment_template.md",
+          "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/regulatory/compliance_risk_assessment_template.md",
           "title": "Compliance Risk Assessment Template",
           "methodology": "universal",
           "tags": [
@@ -5393,7 +5402,7 @@
       ]
     },
     {
-      "path": "industry-specializations/healthcare-pharmaceutical/validation/installation_qualification_protocol_template.md",
+      "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/validation/installation_qualification_protocol_template.md",
       "title": "Installation Qualification Protocol Template",
       "methodology": "universal",
       "complexity": "advanced",
@@ -5425,7 +5434,7 @@
           "similarity": 90
         },
         {
-          "path": "industry-specializations/healthcare-pharmaceutical/validation/cleaning_validation_protocol_template.md",
+          "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/validation/cleaning_validation_protocol_template.md",
           "title": "Cleaning Validation Protocol Template",
           "methodology": "universal",
           "tags": [
@@ -5436,7 +5445,7 @@
           "similarity": 88
         },
         {
-          "path": "industry-specializations/healthcare-pharmaceutical/validation/operational_qualification_protocol_template.md",
+          "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/validation/operational_qualification_protocol_template.md",
           "title": "Operational Qualification Protocol Template",
           "methodology": "universal",
           "tags": [
@@ -5461,7 +5470,7 @@
           "similarity": 83
         },
         {
-          "path": "industry-specializations/healthcare-pharmaceutical/regulatory/compliance_risk_assessment_template.md",
+          "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/regulatory/compliance_risk_assessment_template.md",
           "title": "Compliance Risk Assessment Template",
           "methodology": "universal",
           "tags": [
@@ -5474,6 +5483,9 @@
           ],
           "similarity": 83
         }
+      ],
+      "alternate_paths": [
+        "industry-specializations/healthcare-pharmaceutical/validation/installation_qualification_protocol_template.md"
       ]
     },
     {
@@ -6219,7 +6231,7 @@
           "similarity": 75
         },
         {
-          "path": "industry-specializations/healthcare-pharmaceutical/regulatory/regulatory_strategy_plan_template.md",
+          "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/regulatory/regulatory_strategy_plan_template.md",
           "title": "Regulatory Strategy Plan Template",
           "methodology": "universal",
           "tags": [
@@ -6458,7 +6470,7 @@
       ]
     },
     {
-      "path": "industry-specializations/healthcare-pharmaceutical/validation/operational_qualification_protocol_template.md",
+      "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/validation/operational_qualification_protocol_template.md",
       "title": "Operational Qualification Protocol Template",
       "methodology": "universal",
       "complexity": "advanced",
@@ -6476,7 +6488,7 @@
       "qualityIssues": [],
       "relatedTemplates": [
         {
-          "path": "industry-specializations/healthcare-pharmaceutical/validation/installation_qualification_protocol_template.md",
+          "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/validation/installation_qualification_protocol_template.md",
           "title": "Installation Qualification Protocol Template",
           "methodology": "universal",
           "tags": [
@@ -6515,7 +6527,7 @@
           "similarity": 75
         },
         {
-          "path": "industry-specializations/healthcare-pharmaceutical/validation/cleaning_validation_protocol_template.md",
+          "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/validation/cleaning_validation_protocol_template.md",
           "title": "Cleaning Validation Protocol Template",
           "methodology": "universal",
           "tags": [
@@ -6526,7 +6538,7 @@
           "similarity": 75
         },
         {
-          "path": "industry-specializations/healthcare-pharmaceutical/regulatory/compliance_risk_assessment_template.md",
+          "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/regulatory/compliance_risk_assessment_template.md",
           "title": "Compliance Risk Assessment Template",
           "methodology": "universal",
           "tags": [
@@ -6539,6 +6551,9 @@
           ],
           "similarity": 75
         }
+      ],
+      "alternate_paths": [
+        "industry-specializations/healthcare-pharmaceutical/validation/operational_qualification_protocol_template.md"
       ]
     },
     {
@@ -6643,7 +6658,7 @@
       ]
     },
     {
-      "path": "industry-specializations/healthcare-pharmaceutical/validation/performance_qualification_protocol_template.md",
+      "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/validation/performance_qualification_protocol_template.md",
       "title": "Performance Qualification Protocol Template",
       "methodology": "universal",
       "complexity": "advanced",
@@ -6720,6 +6735,9 @@
           ],
           "similarity": 88
         }
+      ],
+      "alternate_paths": [
+        "industry-specializations/healthcare-pharmaceutical/validation/performance_qualification_protocol_template.md"
       ]
     },
     {
@@ -7002,7 +7020,7 @@
       ]
     },
     {
-      "path": "industry-specializations/information-technology/service-management/problem_management_process_template.md",
+      "path": "domains/delivery/industry-specializations/information-technology/service-management/problem_management_process_template.md",
       "title": "Problem Management Process Template",
       "methodology": "universal",
       "complexity": "advanced",
@@ -7083,6 +7101,9 @@
           ],
           "similarity": 50
         }
+      ],
+      "alternate_paths": [
+        "industry-specializations/information-technology/service-management/problem_management_process_template.md"
       ]
     },
     {
@@ -7122,7 +7143,7 @@
           "similarity": 92
         },
         {
-          "path": "industry-specializations/healthcare-pharmaceutical/regulatory/compliance_risk_assessment_template.md",
+          "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/regulatory/compliance_risk_assessment_template.md",
           "title": "Compliance Risk Assessment Template",
           "methodology": "universal",
           "tags": [
@@ -7164,7 +7185,7 @@
           "similarity": 92
         },
         {
-          "path": "industry-specializations/healthcare-pharmaceutical/regulatory/regulatory_inspection_readiness_plan_template.md",
+          "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/regulatory/regulatory_inspection_readiness_plan_template.md",
           "title": "Regulatory Inspection Readiness Plan Template",
           "methodology": "universal",
           "tags": [
@@ -7365,7 +7386,7 @@
           "similarity": 93
         },
         {
-          "path": "industry-specializations/healthcare-pharmaceutical/regulatory/compliance_risk_assessment_template.md",
+          "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/regulatory/compliance_risk_assessment_template.md",
           "title": "Compliance Risk Assessment Template",
           "methodology": "universal",
           "tags": [
@@ -7384,7 +7405,7 @@
       ]
     },
     {
-      "path": "industry-specializations/healthcare-pharmaceutical/regulatory/process_validation_protocol_template.md",
+      "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/regulatory/process_validation_protocol_template.md",
       "title": "Process Validation Protocol Template",
       "methodology": "universal",
       "complexity": "advanced",
@@ -7406,7 +7427,7 @@
       ],
       "relatedTemplates": [
         {
-          "path": "industry-specializations/healthcare-pharmaceutical/regulatory/compliance_risk_assessment_template.md",
+          "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/regulatory/compliance_risk_assessment_template.md",
           "title": "Compliance Risk Assessment Template",
           "methodology": "universal",
           "tags": [
@@ -7420,7 +7441,7 @@
           "similarity": 92
         },
         {
-          "path": "industry-specializations/healthcare-pharmaceutical/regulatory/regulatory_inspection_readiness_plan_template.md",
+          "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/regulatory/regulatory_inspection_readiness_plan_template.md",
           "title": "Regulatory Inspection Readiness Plan Template",
           "methodology": "universal",
           "tags": [
@@ -7469,6 +7490,9 @@
           ],
           "similarity": 90
         }
+      ],
+      "alternate_paths": [
+        "industry-specializations/healthcare-pharmaceutical/regulatory/process_validation_protocol_template.md"
       ]
     },
     {
@@ -9077,7 +9101,7 @@
           "similarity": 93
         },
         {
-          "path": "industry-specializations/healthcare-pharmaceutical/validation/software_requirements_specification_template.md",
+          "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/validation/software_requirements_specification_template.md",
           "title": "Software Requirements Specification Template",
           "methodology": "universal",
           "tags": [
@@ -9276,7 +9300,7 @@
       ]
     },
     {
-      "path": "industry-specializations/healthcare-pharmaceutical/regulatory/regulatory_inspection_readiness_plan_template.md",
+      "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/regulatory/regulatory_inspection_readiness_plan_template.md",
       "title": "Regulatory Inspection Readiness Plan Template",
       "methodology": "universal",
       "complexity": "advanced",
@@ -9297,7 +9321,7 @@
       "qualityIssues": [],
       "relatedTemplates": [
         {
-          "path": "industry-specializations/healthcare-pharmaceutical/regulatory/compliance_risk_assessment_template.md",
+          "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/regulatory/compliance_risk_assessment_template.md",
           "title": "Compliance Risk Assessment Template",
           "methodology": "universal",
           "tags": [
@@ -9326,7 +9350,7 @@
           "similarity": 93
         },
         {
-          "path": "industry-specializations/healthcare-pharmaceutical/regulatory/health_authority_communication_plan_template.md",
+          "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/regulatory/health_authority_communication_plan_template.md",
           "title": "Health Authority Communication Plan Template",
           "methodology": "universal",
           "tags": [
@@ -9370,10 +9394,13 @@
           ],
           "similarity": 93
         }
+      ],
+      "alternate_paths": [
+        "industry-specializations/healthcare-pharmaceutical/regulatory/regulatory_inspection_readiness_plan_template.md"
       ]
     },
     {
-      "path": "industry-specializations/healthcare-pharmaceutical/regulatory/regulatory_strategy_plan_template.md",
+      "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/regulatory/regulatory_strategy_plan_template.md",
       "title": "Regulatory Strategy Plan Template",
       "methodology": "universal",
       "complexity": "intermediate",
@@ -9403,7 +9430,7 @@
           "similarity": 73
         },
         {
-          "path": "industry-specializations/healthcare-pharmaceutical/regulatory/process_validation_protocol_template.md",
+          "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/regulatory/process_validation_protocol_template.md",
           "title": "Process Validation Protocol Template",
           "methodology": "universal",
           "tags": [
@@ -9416,7 +9443,7 @@
           "similarity": 70
         },
         {
-          "path": "industry-specializations/healthcare-pharmaceutical/validation/cleaning_validation_protocol_template.md",
+          "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/validation/cleaning_validation_protocol_template.md",
           "title": "Cleaning Validation Protocol Template",
           "methodology": "universal",
           "tags": [
@@ -9427,7 +9454,7 @@
           "similarity": 65
         },
         {
-          "path": "industry-specializations/healthcare-pharmaceutical/regulatory/compliance_risk_assessment_template.md",
+          "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/regulatory/compliance_risk_assessment_template.md",
           "title": "Compliance Risk Assessment Template",
           "methodology": "universal",
           "tags": [
@@ -9441,7 +9468,7 @@
           "similarity": 65
         },
         {
-          "path": "industry-specializations/healthcare-pharmaceutical/regulatory/regulatory_inspection_readiness_plan_template.md",
+          "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/regulatory/regulatory_inspection_readiness_plan_template.md",
           "title": "Regulatory Inspection Readiness Plan Template",
           "methodology": "universal",
           "tags": [
@@ -9454,6 +9481,9 @@
           ],
           "similarity": 65
         }
+      ],
+      "alternate_paths": [
+        "industry-specializations/healthcare-pharmaceutical/regulatory/regulatory_strategy_plan_template.md"
       ]
     },
     {
@@ -11008,7 +11038,7 @@
       ]
     },
     {
-      "path": "industry-specializations/healthcare-pharmaceutical/validation/software_requirements_specification_template.md",
+      "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/validation/software_requirements_specification_template.md",
       "title": "Software Requirements Specification Template",
       "methodology": "universal",
       "complexity": "advanced",
@@ -11044,7 +11074,7 @@
           "similarity": 93
         },
         {
-          "path": "industry-specializations/healthcare-pharmaceutical/regulatory/health_authority_communication_plan_template.md",
+          "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/regulatory/health_authority_communication_plan_template.md",
           "title": "Health Authority Communication Plan Template",
           "methodology": "universal",
           "tags": [
@@ -11099,6 +11129,9 @@
           ],
           "similarity": 92
         }
+      ],
+      "alternate_paths": [
+        "industry-specializations/healthcare-pharmaceutical/validation/software_requirements_specification_template.md"
       ]
     },
     {
@@ -12807,7 +12840,7 @@
           "similarity": 93
         },
         {
-          "path": "industry-specializations/healthcare-pharmaceutical/regulatory/compliance_risk_assessment_template.md",
+          "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/regulatory/compliance_risk_assessment_template.md",
           "title": "Compliance Risk Assessment Template",
           "methodology": "universal",
           "tags": [

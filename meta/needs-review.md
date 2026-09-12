@@ -6,11 +6,10 @@
   - Tags: technology
   - Auto-assigned: VF=activity-support, Domain=Delivery
 
-- **Problem Management Process Template** (`industry-specializations/information-technology/service-management/problem_management_process_template.md`)
+- **Problem Management Process Template** (`domains/delivery/industry-specializations/information-technology/service-management/problem_management_process_template.md`)
   - Tags: none
   - Auto-assigned: VF=activity-support, Domain=Delivery
 
 - **Timesheet Tracking Template** (`role-based-toolkits/project-manager/essential-templates/timesheet-tracking-template.md`)
   - Tags: technology
   - Auto-assigned: VF=activity-support, Domain=Delivery
-

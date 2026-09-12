@@ -1094,7 +1094,7 @@
       ],
       "complementary_assets": [
         "domains/delivery/industry-specializations/healthcare-pharmaceutical/compliance/capa_management_template.md",
-        "industry-specializations/healthcare-pharmaceutical/regulatory/compliance_risk_assessment_template.md"
+        "domains/delivery/industry-specializations/healthcare-pharmaceutical/regulatory/compliance_risk_assessment_template.md"
       ],
       "previous_workflow_step": "domains/delivery/industry-specializations/healthcare-pharmaceutical/manufacturing/manufacturing_batch_record_template.md",
       "next_workflow_step": "domains/delivery/industry-specializations/healthcare-pharmaceutical/quality/quality_management_review_template.md"
@@ -1113,17 +1113,17 @@
       ],
       "related_assets": [
         "domains/delivery/industry-specializations/healthcare-pharmaceutical/manufacturing/process_control_template.md",
-        "industry-specializations/healthcare-pharmaceutical/regulatory/compliance_risk_assessment_template.md"
+        "domains/delivery/industry-specializations/healthcare-pharmaceutical/regulatory/compliance_risk_assessment_template.md"
       ],
       "complementary_assets": [
         "industry-specializations/healthcare-pharmaceutical/quality-management/capa_management_template.md",
         "domains/delivery/industry-specializations/healthcare-pharmaceutical/compliance/capa_management_template.md"
       ],
       "previous_workflow_step": "domains/delivery/industry-specializations/healthcare-pharmaceutical/manufacturing/process_control_template.md",
-      "next_workflow_step": "industry-specializations/healthcare-pharmaceutical/regulatory/compliance_risk_assessment_template.md"
+      "next_workflow_step": "domains/delivery/industry-specializations/healthcare-pharmaceutical/regulatory/compliance_risk_assessment_template.md"
     },
     {
-      "path": "industry-specializations/healthcare-pharmaceutical/regulatory/compliance_risk_assessment_template.md",
+      "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/regulatory/compliance_risk_assessment_template.md",
       "domain": {
         "primary": "Delivery",
         "secondary": [
@@ -1132,14 +1132,14 @@
         "rationale": "Industry-specific execution guidance"
       },
       "prerequisites": [
-        "industry-specializations/healthcare-pharmaceutical/regulatory/regulatory_inspection_readiness_plan_template.md"
+        "domains/delivery/industry-specializations/healthcare-pharmaceutical/regulatory/regulatory_inspection_readiness_plan_template.md"
       ],
       "related_assets": [
         "domains/delivery/industry-specializations/healthcare-pharmaceutical/quality/quality_management_review_template.md",
         "domains/delivery/industry-specializations/healthcare-pharmaceutical/regulatory/computer_system_validation_protocol_template.md"
       ],
       "complementary_assets": [
-        "industry-specializations/healthcare-pharmaceutical/regulatory/regulatory_inspection_readiness_plan_template.md",
+        "domains/delivery/industry-specializations/healthcare-pharmaceutical/regulatory/regulatory_inspection_readiness_plan_template.md",
         "domains/delivery/industry-specializations/healthcare-pharmaceutical/compliance/gxp_training_plan_template.md"
       ],
       "previous_workflow_step": "domains/delivery/industry-specializations/healthcare-pharmaceutical/quality/quality_management_review_template.md",
@@ -1158,18 +1158,18 @@
         "domains/delivery/industry-specializations/healthcare-pharmaceutical/manufacturing/batch_record_template.md"
       ],
       "related_assets": [
-        "industry-specializations/healthcare-pharmaceutical/regulatory/compliance_risk_assessment_template.md",
-        "industry-specializations/healthcare-pharmaceutical/regulatory/health_authority_communication_plan_template.md"
+        "domains/delivery/industry-specializations/healthcare-pharmaceutical/regulatory/compliance_risk_assessment_template.md",
+        "domains/delivery/industry-specializations/healthcare-pharmaceutical/regulatory/health_authority_communication_plan_template.md"
       ],
       "complementary_assets": [
         "domains/delivery/industry-specializations/healthcare-pharmaceutical/manufacturing/batch_record_template.md",
         "domains/delivery/industry-specializations/healthcare-pharmaceutical/validation/equipment_qualification_protocol_template.md"
       ],
-      "previous_workflow_step": "industry-specializations/healthcare-pharmaceutical/regulatory/compliance_risk_assessment_template.md",
-      "next_workflow_step": "industry-specializations/healthcare-pharmaceutical/regulatory/health_authority_communication_plan_template.md"
+      "previous_workflow_step": "domains/delivery/industry-specializations/healthcare-pharmaceutical/regulatory/compliance_risk_assessment_template.md",
+      "next_workflow_step": "domains/delivery/industry-specializations/healthcare-pharmaceutical/regulatory/health_authority_communication_plan_template.md"
     },
     {
-      "path": "industry-specializations/healthcare-pharmaceutical/regulatory/health_authority_communication_plan_template.md",
+      "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/regulatory/health_authority_communication_plan_template.md",
       "domain": {
         "primary": "Delivery",
         "secondary": [
@@ -1178,21 +1178,21 @@
         "rationale": "Industry-specific execution guidance"
       },
       "prerequisites": [
-        "industry-specializations/healthcare-pharmaceutical/regulatory/compliance_risk_assessment_template.md"
+        "domains/delivery/industry-specializations/healthcare-pharmaceutical/regulatory/compliance_risk_assessment_template.md"
       ],
       "related_assets": [
         "domains/delivery/industry-specializations/healthcare-pharmaceutical/regulatory/computer_system_validation_protocol_template.md",
-        "industry-specializations/healthcare-pharmaceutical/regulatory/process_validation_protocol_template.md"
+        "domains/delivery/industry-specializations/healthcare-pharmaceutical/regulatory/process_validation_protocol_template.md"
       ],
       "complementary_assets": [
-        "industry-specializations/healthcare-pharmaceutical/regulatory/compliance_risk_assessment_template.md",
-        "industry-specializations/healthcare-pharmaceutical/regulatory/regulatory_inspection_readiness_plan_template.md"
+        "domains/delivery/industry-specializations/healthcare-pharmaceutical/regulatory/compliance_risk_assessment_template.md",
+        "domains/delivery/industry-specializations/healthcare-pharmaceutical/regulatory/regulatory_inspection_readiness_plan_template.md"
       ],
       "previous_workflow_step": "domains/delivery/industry-specializations/healthcare-pharmaceutical/regulatory/computer_system_validation_protocol_template.md",
-      "next_workflow_step": "industry-specializations/healthcare-pharmaceutical/regulatory/process_validation_protocol_template.md"
+      "next_workflow_step": "domains/delivery/industry-specializations/healthcare-pharmaceutical/regulatory/process_validation_protocol_template.md"
     },
     {
-      "path": "industry-specializations/healthcare-pharmaceutical/regulatory/process_validation_protocol_template.md",
+      "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/regulatory/process_validation_protocol_template.md",
       "domain": {
         "primary": "Delivery",
         "secondary": [
@@ -1201,21 +1201,21 @@
         "rationale": "Industry-specific execution guidance"
       },
       "prerequisites": [
-        "industry-specializations/healthcare-pharmaceutical/regulatory/compliance_risk_assessment_template.md"
+        "domains/delivery/industry-specializations/healthcare-pharmaceutical/regulatory/compliance_risk_assessment_template.md"
       ],
       "related_assets": [
-        "industry-specializations/healthcare-pharmaceutical/regulatory/health_authority_communication_plan_template.md",
-        "industry-specializations/healthcare-pharmaceutical/regulatory/regulatory_inspection_readiness_plan_template.md"
+        "domains/delivery/industry-specializations/healthcare-pharmaceutical/regulatory/health_authority_communication_plan_template.md",
+        "domains/delivery/industry-specializations/healthcare-pharmaceutical/regulatory/regulatory_inspection_readiness_plan_template.md"
       ],
       "complementary_assets": [
-        "industry-specializations/healthcare-pharmaceutical/regulatory/compliance_risk_assessment_template.md",
+        "domains/delivery/industry-specializations/healthcare-pharmaceutical/regulatory/compliance_risk_assessment_template.md",
         "domains/delivery/industry-specializations/healthcare-pharmaceutical/manufacturing/batch_record_template.md"
       ],
-      "previous_workflow_step": "industry-specializations/healthcare-pharmaceutical/regulatory/health_authority_communication_plan_template.md",
-      "next_workflow_step": "industry-specializations/healthcare-pharmaceutical/regulatory/regulatory_inspection_readiness_plan_template.md"
+      "previous_workflow_step": "domains/delivery/industry-specializations/healthcare-pharmaceutical/regulatory/health_authority_communication_plan_template.md",
+      "next_workflow_step": "domains/delivery/industry-specializations/healthcare-pharmaceutical/regulatory/regulatory_inspection_readiness_plan_template.md"
     },
     {
-      "path": "industry-specializations/healthcare-pharmaceutical/regulatory/regulatory_inspection_readiness_plan_template.md",
+      "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/regulatory/regulatory_inspection_readiness_plan_template.md",
       "domain": {
         "primary": "Delivery",
         "secondary": [
@@ -1224,21 +1224,21 @@
         "rationale": "Industry-specific execution guidance"
       },
       "prerequisites": [
-        "industry-specializations/healthcare-pharmaceutical/regulatory/compliance_risk_assessment_template.md"
+        "domains/delivery/industry-specializations/healthcare-pharmaceutical/regulatory/compliance_risk_assessment_template.md"
       ],
       "related_assets": [
-        "industry-specializations/healthcare-pharmaceutical/regulatory/process_validation_protocol_template.md",
-        "industry-specializations/healthcare-pharmaceutical/regulatory/regulatory_strategy_plan_template.md"
+        "domains/delivery/industry-specializations/healthcare-pharmaceutical/regulatory/process_validation_protocol_template.md",
+        "domains/delivery/industry-specializations/healthcare-pharmaceutical/regulatory/regulatory_strategy_plan_template.md"
       ],
       "complementary_assets": [
-        "industry-specializations/healthcare-pharmaceutical/regulatory/compliance_risk_assessment_template.md",
+        "domains/delivery/industry-specializations/healthcare-pharmaceutical/regulatory/compliance_risk_assessment_template.md",
         "domains/delivery/industry-specializations/healthcare-pharmaceutical/compliance/gxp_training_plan_template.md"
       ],
-      "previous_workflow_step": "industry-specializations/healthcare-pharmaceutical/regulatory/process_validation_protocol_template.md",
-      "next_workflow_step": "industry-specializations/healthcare-pharmaceutical/regulatory/regulatory_strategy_plan_template.md"
+      "previous_workflow_step": "domains/delivery/industry-specializations/healthcare-pharmaceutical/regulatory/process_validation_protocol_template.md",
+      "next_workflow_step": "domains/delivery/industry-specializations/healthcare-pharmaceutical/regulatory/regulatory_strategy_plan_template.md"
     },
     {
-      "path": "industry-specializations/healthcare-pharmaceutical/regulatory/regulatory_strategy_plan_template.md",
+      "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/regulatory/regulatory_strategy_plan_template.md",
       "domain": {
         "primary": "Delivery",
         "secondary": [
@@ -1250,18 +1250,18 @@
         "domains/uncertainty/industry-specializations/information-technology/infrastructure/migration_plan_template.md"
       ],
       "related_assets": [
-        "industry-specializations/healthcare-pharmaceutical/regulatory/regulatory_inspection_readiness_plan_template.md",
-        "industry-specializations/healthcare-pharmaceutical/validation/cleaning_validation_protocol_template.md"
+        "domains/delivery/industry-specializations/healthcare-pharmaceutical/regulatory/regulatory_inspection_readiness_plan_template.md",
+        "domains/delivery/industry-specializations/healthcare-pharmaceutical/validation/cleaning_validation_protocol_template.md"
       ],
       "complementary_assets": [
         "domains/uncertainty/industry-specializations/information-technology/infrastructure/migration_plan_template.md",
-        "industry-specializations/healthcare-pharmaceutical/regulatory/process_validation_protocol_template.md"
+        "domains/delivery/industry-specializations/healthcare-pharmaceutical/regulatory/process_validation_protocol_template.md"
       ],
-      "previous_workflow_step": "industry-specializations/healthcare-pharmaceutical/regulatory/regulatory_inspection_readiness_plan_template.md",
-      "next_workflow_step": "industry-specializations/healthcare-pharmaceutical/validation/cleaning_validation_protocol_template.md"
+      "previous_workflow_step": "domains/delivery/industry-specializations/healthcare-pharmaceutical/regulatory/regulatory_inspection_readiness_plan_template.md",
+      "next_workflow_step": "domains/delivery/industry-specializations/healthcare-pharmaceutical/validation/cleaning_validation_protocol_template.md"
     },
     {
-      "path": "industry-specializations/healthcare-pharmaceutical/validation/cleaning_validation_protocol_template.md",
+      "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/validation/cleaning_validation_protocol_template.md",
       "domain": {
         "primary": "Delivery",
         "secondary": [
@@ -1273,14 +1273,14 @@
         "domains/delivery/industry-specializations/healthcare-pharmaceutical/manufacturing/batch_record_template.md"
       ],
       "related_assets": [
-        "industry-specializations/healthcare-pharmaceutical/regulatory/regulatory_strategy_plan_template.md",
+        "domains/delivery/industry-specializations/healthcare-pharmaceutical/regulatory/regulatory_strategy_plan_template.md",
         "domains/delivery/industry-specializations/healthcare-pharmaceutical/validation/equipment_qualification_protocol_template.md"
       ],
       "complementary_assets": [
         "domains/delivery/industry-specializations/healthcare-pharmaceutical/manufacturing/batch_record_template.md",
         "domains/delivery/industry-specializations/healthcare-pharmaceutical/regulatory/computer_system_validation_protocol_template.md"
       ],
-      "previous_workflow_step": "industry-specializations/healthcare-pharmaceutical/regulatory/regulatory_strategy_plan_template.md",
+      "previous_workflow_step": "domains/delivery/industry-specializations/healthcare-pharmaceutical/regulatory/regulatory_strategy_plan_template.md",
       "next_workflow_step": "domains/delivery/industry-specializations/healthcare-pharmaceutical/validation/equipment_qualification_protocol_template.md"
     },
     {
@@ -1296,18 +1296,18 @@
         "domains/delivery/industry-specializations/healthcare-pharmaceutical/manufacturing/batch_record_template.md"
       ],
       "related_assets": [
-        "industry-specializations/healthcare-pharmaceutical/validation/cleaning_validation_protocol_template.md",
-        "industry-specializations/healthcare-pharmaceutical/validation/installation_qualification_protocol_template.md"
+        "domains/delivery/industry-specializations/healthcare-pharmaceutical/validation/cleaning_validation_protocol_template.md",
+        "domains/delivery/industry-specializations/healthcare-pharmaceutical/validation/installation_qualification_protocol_template.md"
       ],
       "complementary_assets": [
         "domains/delivery/industry-specializations/healthcare-pharmaceutical/manufacturing/batch_record_template.md",
         "domains/delivery/industry-specializations/healthcare-pharmaceutical/regulatory/computer_system_validation_protocol_template.md"
       ],
-      "previous_workflow_step": "industry-specializations/healthcare-pharmaceutical/validation/cleaning_validation_protocol_template.md",
-      "next_workflow_step": "industry-specializations/healthcare-pharmaceutical/validation/installation_qualification_protocol_template.md"
+      "previous_workflow_step": "domains/delivery/industry-specializations/healthcare-pharmaceutical/validation/cleaning_validation_protocol_template.md",
+      "next_workflow_step": "domains/delivery/industry-specializations/healthcare-pharmaceutical/validation/installation_qualification_protocol_template.md"
     },
     {
-      "path": "industry-specializations/healthcare-pharmaceutical/validation/installation_qualification_protocol_template.md",
+      "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/validation/installation_qualification_protocol_template.md",
       "domain": {
         "primary": "Delivery",
         "secondary": [
@@ -1320,38 +1320,38 @@
       ],
       "related_assets": [
         "domains/delivery/industry-specializations/healthcare-pharmaceutical/validation/equipment_qualification_protocol_template.md",
-        "industry-specializations/healthcare-pharmaceutical/validation/operational_qualification_protocol_template.md"
+        "domains/delivery/industry-specializations/healthcare-pharmaceutical/validation/operational_qualification_protocol_template.md"
       ],
       "complementary_assets": [
         "domains/delivery/industry-specializations/healthcare-pharmaceutical/manufacturing/process_control_template.md",
-        "industry-specializations/healthcare-pharmaceutical/validation/cleaning_validation_protocol_template.md"
+        "domains/delivery/industry-specializations/healthcare-pharmaceutical/validation/cleaning_validation_protocol_template.md"
       ],
       "previous_workflow_step": "domains/delivery/industry-specializations/healthcare-pharmaceutical/validation/equipment_qualification_protocol_template.md",
-      "next_workflow_step": "industry-specializations/healthcare-pharmaceutical/validation/operational_qualification_protocol_template.md"
+      "next_workflow_step": "domains/delivery/industry-specializations/healthcare-pharmaceutical/validation/operational_qualification_protocol_template.md"
     },
     {
-      "path": "industry-specializations/healthcare-pharmaceutical/validation/operational_qualification_protocol_template.md",
+      "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/validation/operational_qualification_protocol_template.md",
       "domain": {
         "primary": "Delivery",
         "secondary": [],
         "rationale": "Industry-specific execution guidance"
       },
       "prerequisites": [
-        "industry-specializations/healthcare-pharmaceutical/validation/installation_qualification_protocol_template.md"
+        "domains/delivery/industry-specializations/healthcare-pharmaceutical/validation/installation_qualification_protocol_template.md"
       ],
       "related_assets": [
-        "industry-specializations/healthcare-pharmaceutical/validation/installation_qualification_protocol_template.md",
-        "industry-specializations/healthcare-pharmaceutical/validation/performance_qualification_protocol_template.md"
+        "domains/delivery/industry-specializations/healthcare-pharmaceutical/validation/installation_qualification_protocol_template.md",
+        "domains/delivery/industry-specializations/healthcare-pharmaceutical/validation/performance_qualification_protocol_template.md"
       ],
       "complementary_assets": [
         "domains/delivery/industry-specializations/healthcare-pharmaceutical/manufacturing/process_control_template.md",
         "domains/delivery/industry-specializations/healthcare-pharmaceutical/compliance/capa_management_template.md"
       ],
-      "previous_workflow_step": "industry-specializations/healthcare-pharmaceutical/validation/installation_qualification_protocol_template.md",
-      "next_workflow_step": "industry-specializations/healthcare-pharmaceutical/validation/performance_qualification_protocol_template.md"
+      "previous_workflow_step": "domains/delivery/industry-specializations/healthcare-pharmaceutical/validation/installation_qualification_protocol_template.md",
+      "next_workflow_step": "domains/delivery/industry-specializations/healthcare-pharmaceutical/validation/performance_qualification_protocol_template.md"
     },
     {
-      "path": "industry-specializations/healthcare-pharmaceutical/validation/performance_qualification_protocol_template.md",
+      "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/validation/performance_qualification_protocol_template.md",
       "domain": {
         "primary": "Delivery",
         "secondary": [],
@@ -1361,14 +1361,14 @@
         "domains/delivery/industry-specializations/healthcare-pharmaceutical/manufacturing/batch_record_template.md"
       ],
       "related_assets": [
-        "industry-specializations/healthcare-pharmaceutical/validation/operational_qualification_protocol_template.md",
+        "domains/delivery/industry-specializations/healthcare-pharmaceutical/validation/operational_qualification_protocol_template.md",
         "domains/delivery/industry-specializations/healthcare-pharmaceutical/validation/process_validation_master_plan_template.md"
       ],
       "complementary_assets": [
         "domains/delivery/industry-specializations/healthcare-pharmaceutical/manufacturing/batch_record_template.md",
         "domains/delivery/industry-specializations/healthcare-pharmaceutical/regulatory/computer_system_validation_protocol_template.md"
       ],
-      "previous_workflow_step": "industry-specializations/healthcare-pharmaceutical/validation/operational_qualification_protocol_template.md",
+      "previous_workflow_step": "domains/delivery/industry-specializations/healthcare-pharmaceutical/validation/operational_qualification_protocol_template.md",
       "next_workflow_step": "domains/delivery/industry-specializations/healthcare-pharmaceutical/validation/process_validation_master_plan_template.md"
     },
     {
@@ -1384,18 +1384,18 @@
         "domains/delivery/industry-specializations/healthcare-pharmaceutical/compliance/gxp_training_plan_template.md"
       ],
       "related_assets": [
-        "industry-specializations/healthcare-pharmaceutical/validation/performance_qualification_protocol_template.md",
-        "industry-specializations/healthcare-pharmaceutical/validation/software_requirements_specification_template.md"
+        "domains/delivery/industry-specializations/healthcare-pharmaceutical/validation/performance_qualification_protocol_template.md",
+        "domains/delivery/industry-specializations/healthcare-pharmaceutical/validation/software_requirements_specification_template.md"
       ],
       "complementary_assets": [
         "domains/delivery/industry-specializations/healthcare-pharmaceutical/compliance/gxp_training_plan_template.md",
         "domains/delivery/industry-specializations/healthcare-pharmaceutical/validation/validation_master_plan_template.md"
       ],
-      "previous_workflow_step": "industry-specializations/healthcare-pharmaceutical/validation/performance_qualification_protocol_template.md",
-      "next_workflow_step": "industry-specializations/healthcare-pharmaceutical/validation/software_requirements_specification_template.md"
+      "previous_workflow_step": "domains/delivery/industry-specializations/healthcare-pharmaceutical/validation/performance_qualification_protocol_template.md",
+      "next_workflow_step": "domains/delivery/industry-specializations/healthcare-pharmaceutical/validation/software_requirements_specification_template.md"
     },
     {
-      "path": "industry-specializations/healthcare-pharmaceutical/validation/software_requirements_specification_template.md",
+      "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/validation/software_requirements_specification_template.md",
       "domain": {
         "primary": "Delivery",
         "secondary": [
@@ -1412,7 +1412,7 @@
       ],
       "complementary_assets": [
         "industry-specializations/healthcare-pharmaceutical/quality-management/capa_management_template.md",
-        "industry-specializations/healthcare-pharmaceutical/regulatory/health_authority_communication_plan_template.md"
+        "domains/delivery/industry-specializations/healthcare-pharmaceutical/regulatory/health_authority_communication_plan_template.md"
       ],
       "previous_workflow_step": "domains/delivery/industry-specializations/healthcare-pharmaceutical/validation/process_validation_master_plan_template.md",
       "next_workflow_step": "domains/delivery/industry-specializations/healthcare-pharmaceutical/validation/validation_master_plan_template.md"
@@ -1430,15 +1430,15 @@
         "domains/delivery/industry-specializations/healthcare-pharmaceutical/compliance/gxp_training_plan_template.md"
       ],
       "related_assets": [
-        "industry-specializations/healthcare-pharmaceutical/validation/software_requirements_specification_template.md",
-        "industry-specializations/information-technology/service-management/problem_management_process_template.md"
+        "domains/delivery/industry-specializations/healthcare-pharmaceutical/validation/software_requirements_specification_template.md",
+        "domains/delivery/industry-specializations/information-technology/service-management/problem_management_process_template.md"
       ],
       "complementary_assets": [
         "domains/delivery/industry-specializations/healthcare-pharmaceutical/compliance/gxp_training_plan_template.md",
         "domains/delivery/industry-specializations/healthcare-pharmaceutical/validation/process_validation_master_plan_template.md"
       ],
-      "previous_workflow_step": "industry-specializations/healthcare-pharmaceutical/validation/software_requirements_specification_template.md",
-      "next_workflow_step": "industry-specializations/information-technology/service-management/problem_management_process_template.md"
+      "previous_workflow_step": "domains/delivery/industry-specializations/healthcare-pharmaceutical/validation/software_requirements_specification_template.md",
+      "next_workflow_step": "domains/delivery/industry-specializations/information-technology/service-management/problem_management_process_template.md"
     },
     {
       "path": "industry-specializations/information-technology/cybersecurity/incident_response_template.md",
@@ -1560,7 +1560,7 @@
       "next_workflow_step": "industry-specializations/information-technology/software-development/technical_design_document_template.md"
     },
     {
-      "path": "industry-specializations/information-technology/service-management/problem_management_process_template.md",
+      "path": "domains/delivery/industry-specializations/information-technology/service-management/problem_management_process_template.md",
       "domain": {
         "primary": "Delivery",
         "secondary": [],
@@ -1591,14 +1591,14 @@
         "role-based-toolkits/project-manager/essential-templates/timesheet-tracking-template.md"
       ],
       "related_assets": [
-        "industry-specializations/information-technology/service-management/problem_management_process_template.md",
+        "domains/delivery/industry-specializations/information-technology/service-management/problem_management_process_template.md",
         "methodology-frameworks/agile-scrum/scaling-frameworks/less/cross_team_coordination_template.md"
       ],
       "complementary_assets": [
         "role-based-toolkits/project-manager/essential-templates/timesheet-tracking-template.md",
         "domains/uncertainty/role-based-toolkits/product-owner/user-story-template.md"
       ],
-      "previous_workflow_step": "industry-specializations/information-technology/service-management/problem_management_process_template.md",
+      "previous_workflow_step": "domains/delivery/industry-specializations/information-technology/service-management/problem_management_process_template.md",
       "next_workflow_step": "methodology-frameworks/agile-scrum/scaling-frameworks/less/cross_team_coordination_template.md"
     },
     {
@@ -1977,8 +1977,8 @@
         "methodology-frameworks/emerging-methods/devops/infrastructure_as_code_template.md"
       ],
       "complementary_assets": [
-        "industry-specializations/healthcare-pharmaceutical/regulatory/compliance_risk_assessment_template.md",
-        "industry-specializations/healthcare-pharmaceutical/regulatory/regulatory_inspection_readiness_plan_template.md"
+        "domains/delivery/industry-specializations/healthcare-pharmaceutical/regulatory/compliance_risk_assessment_template.md",
+        "domains/delivery/industry-specializations/healthcare-pharmaceutical/regulatory/regulatory_inspection_readiness_plan_template.md"
       ],
       "previous_workflow_step": "methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md",
       "next_workflow_step": "methodology-frameworks/emerging-methods/devops/infrastructure_as_code_template.md"

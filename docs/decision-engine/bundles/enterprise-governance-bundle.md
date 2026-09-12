@@ -40,7 +40,7 @@
 
 | # | Template | Purpose | Setup Time |
 |---|----------|---------|------------|
-| 15 | [Compliance Risk Assessment](../../../industry-specializations/healthcare-pharmaceutical/regulatory/compliance_risk_assessment_template.md) | Regulatory compliance gap analysis | ~60 min |
+| 15 | [Compliance Risk Assessment](../../../domains/delivery/industry-specializations/healthcare-pharmaceutical/regulatory/compliance_risk_assessment_template.md) | Regulatory compliance gap analysis | ~60 min |
 | 16 | [Validation Master Plan](../../../domains/delivery/industry-specializations/healthcare-pharmaceutical/validation/validation_master_plan_template.md) | GxP validation strategy | ~90 min |
 | 17 | [GxP Training Plan](../../../domains/delivery/industry-specializations/healthcare-pharmaceutical/compliance/gxp_training_plan_template.md) | Compliance training program | ~45 min |
 | 18 | [Quality Management Review](../../../domains/delivery/industry-specializations/healthcare-pharmaceutical/quality/quality_management_review_template.md) | Quality system oversight | ~45 min |
