@@ -1,5 +1,6 @@
 name: B3C Execution Change Set Temporary
 
+# Trigger registered workflow after restoring its known executable path.
 on:
   push:
     branches:
