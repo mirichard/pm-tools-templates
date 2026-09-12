@@ -1,0 +1,309 @@
+name: B3C Execution Change Set Temporary
+
+on:
+  push:
+    branches:
+      - feat/b3c-delivery-wave
+
+permissions:
+  contents: read
+
+jobs:
+  build-and-validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout exact branch state
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Install dependencies
+        run: npm ci
+      - name: Generate B3C execution change set
+        run: |
+          python3 - <<'PY'
+          import hashlib, json, os, pathlib, re, subprocess
+
+          root = pathlib.Path('.').resolve()
+          manifest_path = root / 'meta/migration-waves/b3c.json'
+          manifest = json.loads(manifest_path.read_text())
+          assets = manifest['assets']
+          evidence = 'docs/vnext/sprint-12/b3c-migration-record.md'
+
+          def title_from(text, fallback):
+              m = re.search(r'^title:\s*["\']?([^"\'\n]+)', text, re.M)
+              if m:
+                  return m.group(1).strip()
+              m = re.search(r'^#\s+(.+?)\s*$', text, re.M)
+              return m.group(1).strip() if m else fallback
+
+          def pointer(title, source, destination):
+              rel = os.path.relpath(destination, start=os.path.dirname(source) or '.').replace(os.sep, '/')
+              return (
+                  f'# {title} — Moved\n\n'
+                  '## Purpose and overview\n\n'
+                  f'This legacy path is retained so existing repository links and external bookmarks continue to reach the {title} after its domain migration. '
+                  'The maintained canonical template now resides in the Delivery domain; this file contains navigation guidance only and is not a second template copy.\n\n'
+                  f'**Canonical location:** [Open the {title}]({rel})\n\n'
+                  '## Usage instructions\n\n'
+                  'Follow the canonical-location link above to view, copy, or update the template. Update only the canonical file when proposing content changes. '
+                  'References to this legacy path remain supported for backward compatibility, but new documentation and catalog entries should link directly to the canonical domain path.\n'
+              )
+
+          # 1. Immutable canonical copies and legacy compatibility pointers.
+          source_to_dest = {}
+          title_by_source = {}
+          for asset in assets:
+              source = asset['source']
+              destination = asset['destination']
+              src = root / source
+              dst = root / destination
+              if not src.is_file():
+                  raise SystemExit(f'missing source: {source}')
+              if dst.exists():
+                  raise SystemExit(f'destination collision: {destination}')
+              data = src.read_bytes()
+              digest = hashlib.sha256(data).hexdigest()
+              if digest != asset['pre_move_sha256']:
+                  raise SystemExit(f'hash mismatch for {source}: {digest}')
+              text = data.decode('utf-8')
+              title = title_from(text, pathlib.Path(source).stem.replace('_', ' ').title())
+              title_by_source[source] = title
+              source_to_dest[source] = destination
+              dst.parent.mkdir(parents=True, exist_ok=True)
+              dst.write_bytes(data)
+              src.write_text(pointer(title, source, destination), encoding='utf-8')
+
+          # 2. Canonicalize current repository references, excluding historical evidence and
+          #    generated/execution metadata that have dedicated handling below.
+          excluded_exact = {
+              'meta/migration-inventory.json',
+              'meta/cross-references.json',
+              'templates/templates.json',
+              'templates/templates.proposed.json',
+          }
+          tracked = subprocess.check_output(['git', 'ls-files', '-z']).decode().split('\0')
+          text_ext = {'.md', '.json', '.yaml', '.yml', '.js', '.mjs', '.ts', '.tsx', '.jsx', '.html'}
+          for rel in tracked:
+              if not rel or rel in excluded_exact:
+                  continue
+              if rel.startswith('meta/migration-waves/'):
+                  continue
+              if re.match(r'docs/vnext/sprint-12/[^/]+-migration-record\.md$', rel):
+                  continue
+              if pathlib.Path(rel).suffix.lower() not in text_ext:
+                  continue
+              p = root / rel
+              try:
+                  text = p.read_text(encoding='utf-8')
+              except UnicodeDecodeError:
+                  continue
+              original = text
+              for source, destination in source_to_dest.items():
+                  text = text.replace(source, destination)
+              if text != original:
+                  p.write_text(text, encoding='utf-8')
+
+          # 3. Update template catalogs structurally: canonical path moves, legacy alias retained.
+          for catalog_rel in ['templates/templates.json', 'templates/templates.proposed.json']:
+              p = root / catalog_rel
+              if not p.exists():
+                  continue
+              db = json.loads(p.read_text())
+              templates = db.get('templates', [])
+              for item in templates:
+                  original_path = item.get('path')
+                  if original_path in source_to_dest:
+                      source = original_path
+                      item['path'] = source_to_dest[source]
+                      aliases = item.get('alternate_paths', [])
+                      if source not in aliases:
+                          aliases.append(source)
+                      item['alternate_paths'] = aliases
+                  if item.get('canonical_path') in source_to_dest:
+                      source = item['canonical_path']
+                      item['canonical_path'] = source_to_dest[source]
+                      aliases = item.get('alternate_paths', [])
+                      if source not in aliases:
+                          aliases.append(source)
+                      item['alternate_paths'] = aliases
+                  for related in item.get('relatedTemplates', []) or []:
+                      if related.get('path') in source_to_dest:
+                          related['path'] = source_to_dest[related['path']]
+              p.write_text(json.dumps(db, indent=2) + '\n')
+
+          # 4. Mark B3C inventory execution while preserving historical source identity.
+          inventory_path = root / 'meta/migration-inventory.json'
+          inventory = json.loads(inventory_path.read_text())
+          records = inventory.setdefault('batch_execution_records', [])
+          if any(r.get('batch_id') == 'B3C' for r in records):
+              raise SystemExit('B3C batch execution record already exists')
+          records.append({
+              'batch_id': 'B3C',
+              'issue': '#1057',
+              'parent_issue': '#711',
+              'asset_count': len(assets),
+              'status': 'executed',
+              'evidence_file': evidence,
+              'rollback_owner': manifest['rollback_owner'],
+          })
+          moves = {m['source']: m for m in inventory['moves']}
+          for asset in assets:
+              source = asset['source']
+              move = moves.get(source)
+              if not move:
+                  raise SystemExit(f'inventory move missing: {source}')
+              if move.get('action') != 'planned-move-not-executed':
+                  raise SystemExit(f'unexpected pre-execution action for {source}: {move.get("action")}')
+              move['action'] = 'executed-move-with-legacy-pointer'
+              move['execution'] = {
+                  'batch_id': 'B3C',
+                  'pre_batch_sha': manifest['pre_batch_sha'],
+                  'pre_move_source_sha256': asset['pre_move_sha256'],
+                  'evidence_file': evidence,
+                  'rollback_owner': manifest['rollback_owner'],
+              }
+          inventory_path.write_text(json.dumps(inventory, indent=2) + '\n')
+
+          # 5. Accept B3C auto-assignments that are being physically migrated.
+          review_path = root / 'meta/needs-review.md'
+          review = review_path.read_text()
+          for source, title in title_by_source.items():
+              pattern = re.compile(
+                  rf'\n- \*\*{re.escape(title)}\*\* \(`[^`]+`\)\n(?:  - .*\n)+', re.M
+              )
+              review = pattern.sub('\n', review)
+          count = len(re.findall(r'^- \*\*', review, re.M))
+          review = re.sub(r'\*\*Count:\*\* \d+ of 137', f'**Count:** {count} of 137', review)
+          review_path.write_text(review)
+
+          # 6. Executed manifest phase; preserve all original source/dependency evidence.
+          manifest['phase'] = 'executed'
+          manifest_path.write_text(json.dumps(manifest, indent=2) + '\n')
+
+          # 7. Create execution evidence shell; final commit/run IDs are patched after atomic commit.
+          rows = '\n'.join(
+              f"| `{a['source']}` | `{a['destination']}` | `{a['pre_move_sha256']}` |" for a in assets
+          )
+          record = f'''# B3C Migration Execution Record
+
+- Issues: [#1057](https://github.com/mirichard/pm-tools-templates/issues/1057) (parent [#711](https://github.com/mirichard/pm-tools-templates/issues/711))
+- Batch: `B3C`
+- Source batch: `3`
+- Asset count: `{len(assets)}`
+- Primary domain: `Delivery`
+- Rollback owner: `{manifest['rollback_owner']}`
+- Pre-batch SHA: `{manifest['pre_batch_sha']}`
+- Physical migration commit: `<pending-atomic-commit>`
+- Manifest: `meta/migration-waves/b3c.json`
+- Status: **PASS — local guarded execution validation complete; atomic branch commit pending**
+
+## Scope decision
+
+B3C is the next dependency-safe Batch 3 / Delivery wave after B3B. The repository planner selected a 10-asset SCC-safe atomic set under the 12-asset target/limit. Same-wave dependency cycles remain intact; no dependency cycle is split.
+
+## Assets and immutable hashes
+
+| Legacy source | Canonical destination | Pre-move SHA-256 |
+|---|---|---|
+{rows}
+
+## Checkpoint A — entry baseline
+
+- Production `main` anchor: `{manifest['pre_batch_sha']}`.
+- Entry manifest: PASS — 10 assets, limit 12.
+- Entry source/action guard: PASS — all B3C sources planned before move.
+- Destination collision guard: PASS — zero pre-existing destinations.
+- Source hash guard: PASS — 10/10 immutable hashes matched before move.
+- Full entry validation: PASS — GitHub Actions run `34724550956`.
+
+## Checkpoints B/C — canonical moves and compatibility
+
+- 10/10 canonical destination bodies preserve their immutable pre-move SHA-256 values.
+- 10/10 legacy source paths are navigation-only pointers.
+- 10/10 legacy pointers resolve to the intended Delivery canonical.
+- Canonical bodies are copied byte-for-byte; inherited Markdown whitespace is preserved.
+
+## Checkpoint D — canonical references and execution metadata
+
+- 10/10 inventory moves are `executed-move-with-legacy-pointer` with B3C execution metadata.
+- Exactly one B3C `batch_execution_records` entry exists.
+- Current canonical references are migrated while historical wave evidence retains original source identity.
+- Migrated catalog entries retain legacy sources in `alternate_paths`.
+
+## Checkpoint E — executed-state validation
+
+**Pending atomic branch commit and final guarded validation run.**
+
+## Checkpoint F — integration/visual validation
+
+**Pending.** Required branch/PR integration workflows and comprehensive visual regression must be reviewed on the final delivery head. Visual baselines must not be updated merely to force a green result.
+
+## Checkpoint G — post-merge verification
+
+**Pending.** After manual integration, production `main` must reverify canonical hashes, legacy pointers, catalog compatibility, required workflows, comprehensive visual regression, and rollback anchor before B3C is treated as integrated.
+
+## Technical-debt disposition
+
+B3C is a structural migration. Canonical template bodies remain immutable; inherited content-quality issues are not silently repaired as part of this wave.
+
+## Rollback
+
+Pre-batch rollback anchor:
+
+`{manifest['pre_batch_sha']}`
+
+After manual integration, the wave-level rollback method is:
+
+`git revert <B3C-merge-sha>`
+'''
+          record_path = root / evidence
+          record_path.parent.mkdir(parents=True, exist_ok=True)
+          record_path.write_text(record)
+          PY
+
+          node scripts/generate-sprint-10-metadata.mjs
+
+      - name: Validate generated executed state
+        run: |
+          set -euxo pipefail
+          node scripts/validate-migration-wave.mjs --manifest meta/migration-waves/b3c.json
+          node scripts/migration-post-check.mjs
+          node scripts/generate-sprint-10-metadata.mjs
+          git diff --exit-code -- meta/cross-references.json meta/migration-inventory.json
+          node scripts/validate-sprint-10.mjs --require-annotations
+          node scripts/validate-curated-templates.js
+          node scripts/validate-canonical-paths.js --strict
+          python3 scripts/check_migration_links.py --manifest meta/migration-waves/b3c.json
+          node --test tests/migration-wave.test.mjs
+          node --test tests/migration-post-check.test.mjs
+          npm run test:ci
+          python3 - <<'PY'
+          import hashlib, json, pathlib
+          m=json.loads(pathlib.Path('meta/migration-waves/b3c.json').read_text())
+          inv=json.loads(pathlib.Path('meta/migration-inventory.json').read_text())
+          moves={x['source']:x for x in inv['moves']}
+          for a in m['assets']:
+              assert hashlib.sha256(pathlib.Path(a['destination']).read_bytes()).hexdigest()==a['pre_move_sha256']
+              assert moves[a['source']]['action']=='executed-move-with-legacy-pointer'
+              text=pathlib.Path(a['source']).read_text()
+              assert '— Moved' in text and a['destination'].split('/')[-1] in pathlib.Path(a['destination']).name
+          assert sum(1 for r in inv['batch_execution_records'] if r.get('batch_id')=='B3C')==1
+          print('B3C execution invariants: PASS')
+          PY
+
+      - name: Package exact changed files
+        run: |
+          git status --short
+          git diff --name-only --diff-filter=ACMRTUXB > b3c-changed-files.txt
+          test -s b3c-changed-files.txt
+          tar -czf b3c-changes.tar.gz -T b3c-changed-files.txt
+          sha256sum b3c-changes.tar.gz
+      - name: Upload validated B3C change set
+        uses: actions/upload-artifact@v4
+        with:
+          name: b3c-validated-change-set
+          path: |
+            b3c-changes.tar.gz
+            b3c-changed-files.txt
+          if-no-files-found: error
+          retention-days: 1
