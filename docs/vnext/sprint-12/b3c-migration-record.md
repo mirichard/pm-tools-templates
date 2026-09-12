@@ -57,6 +57,15 @@ B3C is the next dependency-safe Batch 3 / Delivery wave after B3B. The repositor
 
 PASS — generated executed state passed the complete guarded validation suite in GitHub Actions run `34725528838` before the atomic commit. The suite verified the B3C manifest, post-check (`74` executed / `63` remaining), metadata regeneration stability, 137/137 annotation coverage, curated-template validity, strict canonical paths, migration links with zero new failures, migration-wave tests, migration post-check tests, repository CI, 10/10 immutable destination hashes, 10/10 legacy pointers, and the single B3C execution record.
 
+### Recovery review corrections
+
+- Removed the remaining temporary execution workflow and script.
+- Replaced six symlinks with explicit Markdown compatibility navigation, usable as repository links without filesystem symlink resolution.
+- Preserved historical proposed-catalog and architecture-research snapshots from the production base.
+- Regenerated metadata after cleanup; generator stability is verified independently.
+- Local checks: executed manifest; repository post-check (74 executed / 63 remaining); 137/137 annotation coverage; 139 curated templates; canonical paths (0 errors, 1 inherited warning); migration links (45 files, 446 links, 12 inherited failures, 0 new); metadata (0 blocking errors).
+- Canonical bytes remain unchanged across every executed wave manifest.
+
 ## Checkpoint F — integration/visual validation
 
 **Pending.** Required branch/PR integration workflows and comprehensive visual regression must be reviewed on the final delivery head. Visual baselines must not be updated merely to force a green result.

@@ -268,7 +268,7 @@ Step 8: RANK AND OUTPUT
   - [Requirements Specification Template](../../domains/uncertainty/industry-specializations/information-technology/software-development/requirements_specification_template.md)
   - [Technical Design Document Template](../../industry-specializations/information-technology/software-development/technical_design_document_template.md)
   - [Test Plan Template](../../industry-specializations/information-technology/software-development/test_plan_template.md)
-  - [API Documentation Template](../../domains/delivery/industry-specializations/information-technology/software-development/api_documentation_template.md)
+  - [API Documentation Template](../../industry-specializations/information-technology/software-development/api_documentation_template.md)
   - [Digital Transformation Strategy Template](../../industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md) (large/enterprise only)
 - **Why:** Software projects need requirements traceability, technical design, and test planning
 
