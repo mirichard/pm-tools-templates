@@ -23,6 +23,7 @@ jobs:
           python3 .github/scripts/b3c-execute-temp.py
           python3 .github/scripts/b3c-fix-pointers-temp.py
           python3 .github/scripts/b3c-fix-review-temp.py
+          python3 .github/scripts/b3c-link-compat-temp.py
           node scripts/generate-sprint-10-metadata.mjs
       - name: Validate generated executed state
         run: |
@@ -56,9 +57,9 @@ jobs:
       - name: Package exact changed files
         run: |
           git status --short
-          git diff --name-only --diff-filter=ACMRTUXB > b3c-changed-files.txt
+          { git diff --name-only --diff-filter=ACMRTUXB; git ls-files --others --exclude-standard; } | sort -u > b3c-changed-files.txt
           test -s b3c-changed-files.txt
-          tar -czf b3c-changes.tar.gz -T b3c-changed-files.txt
+          tar -czhf b3c-changes.tar.gz -T b3c-changed-files.txt
           sha256sum b3c-changes.tar.gz
       - name: Upload validated B3C change set
         uses: actions/upload-artifact@v4
