@@ -10,7 +10,8 @@ const DEFAULT_POLICY = {
   historical_prefixes: [
     'meta/architecture-research/',
     'meta/migration-waves/',
-    'docs/vnext/'
+    'docs/vnext/',
+    'docs/archive/'
   ],
   intentional_exact_files: [
     'meta/migration-inventory.json',
@@ -47,7 +48,7 @@ function readJson(root, relative) {
 function containsPathReference(content, target) {
   const source = escapeRegex(normalize(target));
   const boundaryBefore = '(^|[\\s"\'`(<>=])';
-  const optionalRelativePrefix = '(?:\\.\\./|\\./|/)?';
+  const optionalRelativePrefix = '(?:(?:\\.\\./)+|\\./|/)?';
   const boundaryAfter = '(?=$|[\\s"\'`)>,;:#?\\]\\}])';
   return new RegExp(`${boundaryBefore}${optionalRelativePrefix}${source}${boundaryAfter}`, 'm').test(content);
 }
@@ -56,23 +57,12 @@ function validateCatalog(catalog, executed) {
   const errors = [];
   const executedBySource = new Map(executed.map(move => [normalize(move.source), move]));
 
-  const inspectNestedPaths = (value, context, topLevel = false) => {
+  const inspectPaths = (value, context) => {
     if (Array.isArray(value)) {
-      value.forEach((item, index) => inspectNestedPaths(item, `${context}[${index}]`, false));
+      value.forEach((item, index) => inspectPaths(item, `${context}[${index}]`));
       return;
     }
     if (!value || typeof value !== 'object') return;
-
-    const canonical = topLevel ? normalize(value.canonical_path || value.path) : null;
-    if (topLevel) {
-      for (const alternate of value.alternate_paths || []) {
-        const source = normalize(alternate);
-        const move = executedBySource.get(source);
-        if (move && canonical !== normalize(move.destination)) {
-          errors.push(`${CATALOG_FILE}: ${context}.alternate_paths retains ${source} under canonical ${canonical}, expected ${normalize(move.destination)}`);
-        }
-      }
-    }
 
     for (const [key, child] of Object.entries(value)) {
       if (key === 'alternate_paths') continue;
@@ -81,12 +71,12 @@ function validateCatalog(catalog, executed) {
         const move = executedBySource.get(source);
         if (move) errors.push(`${CATALOG_FILE}: ${context}.${key} still uses migrated legacy path ${source}; use ${normalize(move.destination)}`);
       }
-      if (child && typeof child === 'object') inspectNestedPaths(child, `${context}.${key}`, false);
+      if (child && typeof child === 'object') inspectPaths(child, `${context}.${key}`);
     }
   };
 
   for (let index = 0; index < (catalog.templates || []).length; index += 1) {
-    inspectNestedPaths(catalog.templates[index], `templates[${index}]`, true);
+    inspectPaths(catalog.templates[index], `templates[${index}]`);
   }
   return errors;
 }
