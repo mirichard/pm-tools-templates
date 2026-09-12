@@ -1,0 +1,54 @@
+name: B3C Current Head Validation Temporary
+
+on:
+  push:
+    branches:
+      - feat/b3c-delivery-wave
+
+permissions:
+  contents: read
+
+jobs:
+  validate-b3c-head:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout exact branch state
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Install dependencies
+        run: npm ci
+      - name: Validate B3C migration contract
+        run: |
+          set -euxo pipefail
+          node scripts/validate-migration-wave.mjs --manifest meta/migration-waves/b3c.json
+          node scripts/migration-post-check.mjs
+          cp meta/cross-references.json /tmp/cross-references.before.json
+          cp meta/migration-inventory.json /tmp/migration-inventory.before.json
+          node scripts/generate-sprint-10-metadata.mjs
+          cmp /tmp/cross-references.before.json meta/cross-references.json
+          cmp /tmp/migration-inventory.before.json meta/migration-inventory.json
+          node scripts/validate-sprint-10.mjs --require-annotations
+          node scripts/validate-curated-templates.js
+          node scripts/validate-canonical-paths.js --strict
+          python3 scripts/check_migration_links.py --manifest meta/migration-waves/b3c.json
+          node --test tests/migration-wave.test.mjs
+          node --test tests/migration-post-check.test.mjs
+          npm run test:ci
+          python3 - <<'PY'
+          import hashlib, json, pathlib
+          manifest = json.loads(pathlib.Path('meta/migration-waves/b3c.json').read_text())
+          inventory = json.loads(pathlib.Path('meta/migration-inventory.json').read_text())
+          moves = {item['source']: item for item in inventory['moves']}
+          for asset in manifest['assets']:
+              destination = pathlib.Path(asset['destination'])
+              source = pathlib.Path(asset['source'])
+              assert destination.exists(), asset['destination']
+              assert hashlib.sha256(destination.read_bytes()).hexdigest() == asset['pre_move_sha256'], asset['destination']
+              assert moves[asset['source']]['action'] == 'executed-move-with-legacy-pointer', asset['source']
+              assert source.exists(), asset['source']
+              text = source.read_text()
+              assert 'Moved' in text and asset['destination'] in text, asset['source']
+          assert sum(1 for record in inventory['batch_execution_records'] if record.get('batch_id') == 'B3C') == 1
+          print('B3C current-head invariants: PASS')
+          PY
