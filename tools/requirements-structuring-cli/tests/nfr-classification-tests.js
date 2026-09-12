@@ -186,11 +186,42 @@ module.exports = async (runner) => {
       assert.strictEqual(llm.calls.length, 0);
     });
     await test('rejects malformed responses, invented IDs and generated NFR fields', async () => {
-      for (const response of [null, [], {}, { assignments: 'not-array' }, { assignments: [], text: 'NFR' },
+      for (const response of [null, {}, { assignments: 'not-array' }, { assignments: [], text: 'NFR' },
         { assignments: [{ subCharacteristic: 'invented', confidence: 0.7 }] },
         { assignments: [{ subCharacteristic: 'authenticity', confidence: 0.7, requirement: 'System shall...' }] },
         JSON.parse('{"assignments":[],"__proto__":{}}')]) {
         await assert.rejects(new NFRClassifier({ llm: client(() => response) }).classify(oneFR()), /Invalid classification/);
+      }
+    });
+    await test('normalizes captured Gemini array through the real JSON parser', async () => {
+      const LLMClient = require('../src/llm-client');
+      const llm = new LLMClient();
+      const captured = await fs.readFile(path.join(__dirname, 'fixtures/nfr-classification-array.json'), 'utf8');
+      llm.chat = async () => captured;
+      const actual = await new NFRClassifier({ llm }).classify(oneFR());
+      llm.chat = async () => JSON.stringify({ assignments: JSON.parse(captured) });
+      const expected = await new NFRClassifier({ llm }).classify(oneFR());
+      assert.deepStrictEqual(actual, expected);
+      assert.strictEqual(actual.requirements[0].attributes.length, 7);
+    });
+    await test('empty array remains explicitly unmapped', async () => {
+      const result = await new NFRClassifier({ llm: client(() => []) }).classify(oneFR());
+      assert.strictEqual(result.requirements[0].status, 'unmapped');
+      assert.deepStrictEqual(result.requirements[0].attributes, []);
+    });
+    await test('array normalization rejects malformed, unsafe, duplicate and excluded assignments', async () => {
+      const LLMClient = require('../src/llm-client');
+      const llm = new LLMClient();
+      const valid = { subCharacteristic: 'authenticity', confidence: 0.8 };
+      for (const raw of ['[', 'null', '42', '[null]', '[[]]', '[{}]',
+        '[{"__proto__":{}}]', JSON.stringify([{ ...valid, confidence: '0.8' }]),
+        JSON.stringify([{ ...valid, confidence: 2 }]), JSON.stringify([valid, valid]),
+        JSON.stringify([{ ...valid, requirement: 'invented NFR' }]),
+        JSON.stringify([{ ...valid, subCharacteristic: 'invented' }]),
+        JSON.stringify([{ ...valid, subCharacteristic: 'operability' }])]) {
+        llm.chat = async () => raw;
+        await assert.rejects(new NFRClassifier({ llm }).classify(oneFR(), { attributes: ['security'] }),
+          /Invalid classification|Failed to parse validated LLM response/);
       }
     });
     await test('preserves legacy rejection before taxonomy/model processing', async () => {

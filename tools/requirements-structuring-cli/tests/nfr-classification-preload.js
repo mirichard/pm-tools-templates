@@ -3,7 +3,7 @@ const assert = require('assert');
 const LLMClient = require('../src/llm-client');
 
 LLMClient.prototype.chat = async function ({ systemPrompt, userPrompt, mode }) {
-  assert.match(systemPrompt, /Prompt contract version: 1\.0\.0/);
+  assert.match(systemPrompt, /Prompt contract version: 1\.0\.1/);
   assert.strictEqual(mode, 'structure');
   const input = JSON.parse(userPrompt);
   assert.ok(input.requirement.step.action);

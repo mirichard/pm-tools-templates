@@ -30,7 +30,7 @@ not the Markdown table, is the machine-consumption boundary.
 | `taxonomySha256` | SHA-256 of the loaded taxonomy file's UTF-8 bytes |
 | `standardEdition` | `ISO/IEC 25010:2023` |
 | `taxonomyReleaseStatus`, `accuracyNotice` | Unmodified taxonomy review status and accuracy notice |
-| `promptVersion` | `1.0.0`, file `prompts/08-classify-quality-attributes-v1.md` |
+| `promptVersion` | `1.0.1`, file `prompts/08-classify-quality-attributes-v1.md` |
 | `characteristics` | Actual considered top-level IDs, in taxonomy order |
 | `requirements` | One result per validated source step, in source traversal order |
 
@@ -125,3 +125,23 @@ A changed prompt or output contract requires a new recorded version and tests.
 A taxonomy revision change requires an explicit supported-version update after
 review; the classifier does not silently consume a newer edition. Taxonomy,
 pattern, overlay and schema content remain owned by #1115.
+
+## Response-shape compatibility (#1131)
+
+The classifier requests an object containing only `assignments`. It also accepts
+an entire, valid JSON array of assignments and normalizes it to that object.
+Both shapes pass the same safe-JSON, taxonomy/subset, exact assignment-field,
+confidence and duplicate checks. Empty arrays explicitly mean unmapped; invalid
+JSON, unsafe keys, scalar roots and malformed assignments still fail. The shared
+LLM client and public classification handoff are unchanged. Prompt patch 1.0.1
+clarifies that even an empty response should retain the object wrapper.
+
+A real gemini-2.5-flash reproduction at temperature 0 returned seven complete
+assignment objects as a bare array for password-reset UCS `/basicFlow/steps/3`.
+The response is preserved in `tests/fixtures/nfr-classification-array.json`.
+It has no extra fields, duplicate/unknown IDs or missing/out-of-range confidence.
+This establishes structural validity, not independent correctness of model scores.
+The regression runs it through the real client JSON parser with only transport
+stubbed. Built-in traces intentionally redact responses; a temporary diagnostic
+wrapper captured the returned text locally without changing client internals.
+No full prompts, credentials or diagnostic trace files are committed.

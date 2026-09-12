@@ -1,0 +1,30 @@
+[
+  {
+    "subCharacteristic": "functional-completeness",
+    "confidence": 0.9
+  },
+  {
+    "subCharacteristic": "functional-correctness",
+    "confidence": 0.95
+  },
+  {
+    "subCharacteristic": "functional-appropriateness",
+    "confidence": 0.85
+  },
+  {
+    "subCharacteristic": "operability",
+    "confidence": 0.8
+  },
+  {
+    "subCharacteristic": "user-error-protection",
+    "confidence": 0.9
+  },
+  {
+    "subCharacteristic": "integrity",
+    "confidence": 0.85
+  },
+  {
+    "subCharacteristic": "resistance",
+    "confidence": 0.8
+  }
+]
