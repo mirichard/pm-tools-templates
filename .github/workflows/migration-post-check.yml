@@ -14,7 +14,7 @@ on:
 
 permissions:
   contents: read
-  issues: read
+  issues: write
   pull-requests: read
 
 jobs:
@@ -49,6 +49,11 @@ jobs:
           remaining=$(node -e "const i=require('./meta/migration-inventory.json'); console.log(i.moves.filter(m=>m.action==='planned-move-not-executed').length)")
           if [ "$remaining" -gt 0 ]; then
             state=$(gh issue view 1057 --repo "$GITHUB_REPOSITORY" --json state --jq .state)
+            if [ "$state" != "OPEN" ] && [ "${{ github.event_name }}" = "issues" ] && [ "${{ github.event.issue.number || 0 }}" = "1057" ]; then
+              echo "#1057 was closed with $remaining migration move(s) remaining; reopening it."
+              gh issue reopen 1057 --repo "$GITHUB_REPOSITORY"
+              state=$(gh issue view 1057 --repo "$GITHUB_REPOSITORY" --json state --jq .state)
+            fi
             test "$state" = "OPEN" || { echo "#1057 must remain open while $remaining moves remain"; exit 1; }
           fi
 
