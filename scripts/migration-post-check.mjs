@@ -3,7 +3,6 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-const TEXT_EXTENSIONS = new Set(['.md', '.json', '.yml', '.yaml', '.js', '.mjs', '.cjs', '.py', '.txt', '.html', '.htm']);
 const SUPPORTED_ACTIONS = new Set(['planned-move-not-executed', 'executed-move-with-legacy-pointer']);
 const CATALOG_FILE = 'templates/templates.json';
 const DEFAULT_POLICY = {
@@ -22,6 +21,20 @@ const DEFAULT_POLICY = {
 const normalize = value => String(value || '').replaceAll('\\', '/').replace(/^\.\//, '');
 const escapeRegex = value => value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 
+function isProbablyTextFile(file) {
+  const fd = fs.openSync(file, 'r');
+  try {
+    const buffer = Buffer.alloc(8192);
+    const bytesRead = fs.readSync(fd, buffer, 0, buffer.length, 0);
+    for (let index = 0; index < bytesRead; index += 1) {
+      if (buffer[index] === 0) return false;
+    }
+    return true;
+  } finally {
+    fs.closeSync(fd);
+  }
+}
+
 function walk(root, relative = '') {
   const current = path.join(root, relative);
   const entries = fs.readdirSync(current, { withFileTypes: true });
@@ -30,7 +43,7 @@ function walk(root, relative = '') {
     if (entry.name === '.git' || entry.name === 'node_modules' || entry.name === 'coverage') continue;
     const rel = normalize(path.join(relative, entry.name));
     if (entry.isDirectory()) files.push(...walk(root, rel));
-    else if (TEXT_EXTENSIONS.has(path.extname(entry.name).toLowerCase())) files.push(rel);
+    else if (isProbablyTextFile(path.join(root, rel))) files.push(rel);
   }
   return files;
 }
@@ -55,7 +68,12 @@ function containsPathReference(content, target) {
 
 function validateCatalog(catalog, executed) {
   const errors = [];
+  if (!Array.isArray(catalog?.templates)) {
+    return [`${CATALOG_FILE}: templates must be an array`];
+  }
+
   const executedBySource = new Map(executed.map(move => [normalize(move.source), move]));
+  const catalogRecords = [];
 
   const inspectPaths = (value, context) => {
     if (Array.isArray(value)) {
@@ -75,14 +93,35 @@ function validateCatalog(catalog, executed) {
     }
   };
 
-  for (let index = 0; index < (catalog.templates || []).length; index += 1) {
-    inspectPaths(catalog.templates[index], `templates[${index}]`);
+  for (let index = 0; index < catalog.templates.length; index += 1) {
+    const record = catalog.templates[index];
+    catalogRecords.push(record);
+    inspectPaths(record, `templates[${index}]`);
   }
+
+  for (const move of executed) {
+    const source = normalize(move.source);
+    const destination = normalize(move.destination);
+    const record = catalogRecords.find(item =>
+      normalize(item?.path) === destination || normalize(item?.canonical_path) === destination
+    );
+    if (!record) {
+      errors.push(`${CATALOG_FILE}: canonical destination ${destination} is missing for executed move ${source}`);
+      continue;
+    }
+    const alternates = Array.isArray(record.alternate_paths) ? record.alternate_paths.map(normalize) : [];
+    if (!alternates.includes(source)) {
+      errors.push(`${CATALOG_FILE}: canonical destination ${destination} must retain legacy source ${source} in alternate_paths`);
+    }
+  }
+
   return errors;
 }
 
 export function validatePostMigrationState({ root, inventory, policy = DEFAULT_POLICY, files = null }) {
   const errors = [];
+  if (!Array.isArray(inventory?.moves)) return ['meta/migration-inventory.json: moves must be an array'];
+
   const unsupported = inventory.moves.filter(move => !SUPPORTED_ACTIONS.has(move.action));
   for (const move of unsupported) errors.push(`${move.source}: unsupported migration action ${JSON.stringify(move.action)}`);
 
@@ -90,6 +129,12 @@ export function validatePostMigrationState({ root, inventory, policy = DEFAULT_P
   const executedBySource = new Map(executed.map(move => [normalize(move.source), move]));
 
   for (const move of inventory.moves) {
+    const source = normalize(move.source);
+    if (!fs.existsSync(path.join(root, source))) errors.push(`${source}: migration source file is missing`);
+    for (const affected of move.affected_internal_references || []) {
+      const file = normalize(affected);
+      if (!fs.existsSync(path.join(root, file))) errors.push(`${file}: affected reference file is missing for ${source}`);
+    }
     for (const dependency of move.dependencies || []) {
       const executedTarget = executedBySource.get(normalize(dependency));
       if (executedTarget) {
@@ -99,7 +144,8 @@ export function validatePostMigrationState({ root, inventory, policy = DEFAULT_P
   }
 
   const catalogPath = path.join(root, CATALOG_FILE);
-  if (fs.existsSync(catalogPath)) errors.push(...validateCatalog(readJson(root, CATALOG_FILE), executed));
+  if (!fs.existsSync(catalogPath)) errors.push(`${CATALOG_FILE}: required template catalog is missing`);
+  else errors.push(...validateCatalog(readJson(root, CATALOG_FILE), executed));
 
   const scanFiles = files || walk(root);
   const textCache = new Map();
@@ -114,7 +160,6 @@ export function validatePostMigrationState({ root, inventory, policy = DEFAULT_P
     const sourcePath = path.join(root, source);
     const destinationPath = path.join(root, destination);
 
-    if (!fs.existsSync(sourcePath)) errors.push(`${source}: legacy pointer file is missing`);
     if (!fs.existsSync(destinationPath)) errors.push(`${destination}: canonical destination is missing`);
 
     if (fs.existsSync(sourcePath)) {
@@ -137,11 +182,7 @@ export function validatePostMigrationState({ root, inventory, policy = DEFAULT_P
     for (const affected of move.affected_internal_references || []) {
       const file = normalize(affected);
       const fullPath = path.join(root, file);
-      if (!fs.existsSync(fullPath)) {
-        errors.push(`${file}: affected reference file is missing for ${source}`);
-        continue;
-      }
-      if (isHistoricalOrIntentional(file, policy) || file === CATALOG_FILE) continue;
+      if (!fs.existsSync(fullPath) || isHistoricalOrIntentional(file, policy) || file === CATALOG_FILE) continue;
       const content = text(file);
       if (containsPathReference(content, source)) errors.push(`${file}: affected reference was not canonicalized from ${source}`);
       if (file === 'meta/needs-review.md' && !containsPathReference(content, destination)) {
