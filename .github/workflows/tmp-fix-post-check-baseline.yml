@@ -1,5 +1,6 @@
 name: Temporary Post-Check Baseline Repair
 
+# Second push intentionally triggers this branch-local helper after workflow registration.
 on:
   push:
     branches:
