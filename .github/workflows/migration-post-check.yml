@@ -6,6 +6,10 @@ on:
     types: [submitted, edited, dismissed]
   pull_request_review_comment:
     types: [created, edited, deleted]
+  push:
+    branches: [main]
+  issues:
+    types: [closed]
   workflow_dispatch:
 
 permissions:
@@ -15,6 +19,7 @@ permissions:
 
 jobs:
   migration-post-check:
+    if: github.event_name != 'issues' || github.event.issue.number == 1057
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
@@ -48,7 +53,7 @@ jobs:
           fi
 
       - name: Reject unresolved review threads at merge boundary
-        if: github.event_name != 'workflow_dispatch'
+        if: github.event_name == 'pull_request' || github.event_name == 'pull_request_review' || github.event_name == 'pull_request_review_comment'
         env:
           GH_TOKEN: ${{ github.token }}
           PR_NUMBER: ${{ github.event.pull_request.number }}
