@@ -1,35 +1,18 @@
 # Golden NFR reference example (#1116)
 
-This fixture extends `examples/web-store-input.md` into a synthetic regulated
-laboratory-supply ordering workflow. It retains the shopping/cart/order idiom
-while making account access, audit records, interrupted-order recovery and
-keyboard interaction explicit. No real customer, payment or patient data is used.
+The active source is `password-reset-input.md`, the owner's six functional
+requirements for a single password-reset feature. It follows the section format
+of the existing `examples/web-store-input.md` sample but uses a documented new
+scenario. The earlier laboratory-order source was removed from this directory;
+its history remains in Git and it is no longer used for fixture generation.
 
-The planned neutral and `fda-21-cfr-11` runs use the same source. Overlay selection
-is an illustrative opt-in audit-record scenario, not a compliance assertion.
-Numeric targets and measurement conditions remain exactly as the generator's
-NEEDS INPUT placeholders; this example must never manually fill them in.
+The source preserves the owner's 30-minute reset-link validity and 12-character
+password rule. These are supplied functional requirements, not invented NFR
+bindings. Generated NFR targets and measurement conditions must remain exactly
+as the generator's NEEDS INPUT placeholders.
 
-Work in progress: generated artifacts and verified regeneration instructions
-will be added after successful full-pipeline runs. This is not yet an eval gold
-standard or a completed reference for #1113/#1114.
-
-## Explicit synthetic-example choices
-
-The owner specified state transitions, correction flags and audit events. To
-resolve the accompanying warnings, this fixture chooses case-insensitive
-substring search on product name/identifier, hides variant controls when absent,
-requires a nonempty single-sentence comment per correction flag (approval comments
-optional; owner-specified 500-character cap), uses read-only HTML receipts retained for the
-life of the order record, and preserves all prior review metadata in immutable
-audit entries. These are fixture-specific functional choices, not recommended
-production retention, performance or compliance commitments. No deletion/expiry
-operation is modeled. The correction branch is optional; Under Review can move
-directly to Approved. Cancellation and fulfillment behavior are explicit in the
-source rather than inferred by a model.
-
-The owner additionally specified an explicit Start Review action, shipment
-webhooks as the sole fulfillment trigger, rejection of partial corrections, and
-any Reviewer-role member handling resubmissions. The 500-character comment cap
-is a supplied functional validation rule, not an invented NFR target. Numeric
-NFR template bindings still remain NEEDS INPUT placeholders.
+Work in progress: Phase 0 must return READY before continuing. If it returns
+NOT READY or NEEDS CLARIFICATION, stop and report the exact findings without
+further source edits. Full neutral/overlay outputs, four-characteristic breadth,
+meaningful overlay differentiation and reproducible regeneration remain
+unverified. This is not yet the completed #1113/#1114 anchor.
