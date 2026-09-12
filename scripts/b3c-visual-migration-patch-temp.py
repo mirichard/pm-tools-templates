@@ -53,8 +53,8 @@ replace_once(
 )
 
 replace_once(
-    '          baseline_screenshots = find_baseline_files()\n          print(f"Found baseline sets: {list(baseline_screenshots.keys())}")\n\n          comparison_results = []',
-    '          baseline_screenshots = find_baseline_files()\n          print(f"Found baseline sets: {list(baseline_screenshots.keys())}")\n\n          migration_aliases, legacy_pointer_keys = build_migration_visual_aliases()\n          print(f"Loaded {len(migration_aliases)} migration baseline aliases")\n\n          comparison_results = []',
+    '          baseline_screenshots = find_baseline_files()\n          print(f"Found baseline sets: {list(baseline_screenshots.keys())}")\n          \n          comparison_results = []\n          comparison_tasks = []',
+    '          baseline_screenshots = find_baseline_files()\n          print(f"Found baseline sets: {list(baseline_screenshots.keys())}")\n          \n          migration_aliases, legacy_pointer_keys = build_migration_visual_aliases()\n          print(f"Loaded {len(migration_aliases)} migration baseline aliases")\n          \n          comparison_results = []\n          comparison_tasks = []',
     'alias initialization',
 )
 
