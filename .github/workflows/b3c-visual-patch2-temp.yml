@@ -1,5 +1,6 @@
 name: B3C Migration-Aware Visual Fix Temporary
 
+# Trigger the registered temporary workflow after its introduction commit.
 on:
   push:
     branches:
