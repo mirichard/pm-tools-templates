@@ -21,6 +21,7 @@ jobs:
       - name: Generate B3C execution change set
         run: |
           python3 .github/scripts/b3c-execute-temp.py
+          python3 .github/scripts/b3c-fix-pointers-temp.py
           node scripts/generate-sprint-10-metadata.mjs
       - name: Validate generated executed state
         run: |
