@@ -39,9 +39,9 @@ Healthcare and pharmaceutical projects operate under strict regulatory oversight
 
 ### Regulatory Compliance
 
-- [Regulatory Strategy Plan Template](./regulatory/regulatory_strategy_plan_template.md) - Framework for navigating regulatory requirements across different markets
+- [Regulatory Strategy Plan Template](../../domains/delivery/industry-specializations/healthcare-pharmaceutical/regulatory/regulatory_strategy_plan_template.md) - Framework for navigating regulatory requirements across different markets
 - [Regulatory Submission Checklist](./regulatory/regulatory_submission_checklist.md) - Comprehensive checklist for preparing regulatory submissions
-- [Compliance Risk Assessment Template](./regulatory/compliance_risk_assessment_template.md) - Tool for identifying and mitigating compliance risks
+- [Compliance Risk Assessment Template](../../domains/delivery/industry-specializations/healthcare-pharmaceutical/regulatory/compliance_risk_assessment_template.md) - Tool for identifying and mitigating compliance risks
 
 ### Clinical Trials Management
 
