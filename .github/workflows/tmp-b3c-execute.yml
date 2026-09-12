@@ -1,6 +1,6 @@
 name: Temporary B3C Execution
 
-# Retrigger after workflow registration on the branch.
+# Retrigger after idempotent maintained-reference reconciliation fix.
 on:
   push:
     branches:
