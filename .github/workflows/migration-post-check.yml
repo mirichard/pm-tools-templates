@@ -50,10 +50,12 @@ jobs:
           PR_NUMBER: ${{ github.event.pull_request.number }}
         run: |
           set -euo pipefail
-          unresolved=$(gh api graphql --paginate --slurp \
+          gh api graphql --paginate --slurp \
             -f query='query($owner:String!,$name:String!,$number:Int!,$endCursor:String){repository(owner:$owner,name:$name){pullRequest(number:$number){reviewThreads(first:100,after:$endCursor){nodes{isResolved}pageInfo{hasNextPage endCursor}}}}}' \
             -f owner='${{ github.repository_owner }}' \
             -f name='${{ github.event.repository.name }}' \
             -F number="$PR_NUMBER" \
-            --jq '[.[] | .data.repository.pullRequest.reviewThreads.nodes[] | select(.isResolved == false)] | length')
+            > /tmp/review-threads.json
+          unresolved=$(jq '[.[] | .data.repository.pullRequest.reviewThreads.nodes[] | select(.isResolved == false)] | length' /tmp/review-threads.json)
+          [[ "$unresolved" =~ ^[0-9]+$ ]] || { echo "Unable to determine unresolved review-thread count: $unresolved"; exit 1; }
           test "$unresolved" -eq 0 || { echo "$unresolved unresolved review thread(s) remain"; exit 1; }
