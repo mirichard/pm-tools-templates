@@ -624,7 +624,7 @@
       ]
     },
     {
-      "path": "industry-specializations/information-technology/software-development/api_documentation_template.md",
+      "path": "domains/delivery/industry-specializations/information-technology/software-development/api_documentation_template.md",
       "title": "Api Documentation Template",
       "methodology": "universal",
       "complexity": "advanced",
@@ -643,7 +643,7 @@
       ],
       "relatedTemplates": [
         {
-          "path": "role-based-toolkits/project-manager/essential-templates/timesheet-tracking-template.md",
+          "path": "domains/delivery/role-based-toolkits/project-manager/essential-templates/timesheet-tracking-template.md",
           "title": "Timesheet Tracking Template",
           "methodology": "universal",
           "tags": [
@@ -695,10 +695,13 @@
           ],
           "similarity": 63
         }
+      ],
+      "alternate_paths": [
+        "industry-specializations/information-technology/software-development/api_documentation_template.md"
       ]
     },
     {
-      "path": "methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md",
+      "path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md",
       "title": "Art Coordination Template",
       "methodology": "agile",
       "complexity": "advanced",
@@ -722,7 +725,7 @@
       ],
       "relatedTemplates": [
         {
-          "path": "methodology-frameworks/agile-scrum/scaling-frameworks/less/cross_team_coordination_template.md",
+          "path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/less/cross_team_coordination_template.md",
           "title": "Cross Team Coordination Template",
           "methodology": "agile",
           "tags": [
@@ -737,7 +740,7 @@
           "similarity": 100
         },
         {
-          "path": "methodology-frameworks/agile-scrum/scaling-frameworks/less/less_sprint_planning_template.md",
+          "path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/less/less_sprint_planning_template.md",
           "title": "Less Sprint Planning Template",
           "methodology": "agile",
           "tags": [
@@ -752,7 +755,7 @@
           "similarity": 100
         },
         {
-          "path": "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_art_coordination_template.md",
+          "path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_art_coordination_template.md",
           "title": "Safe Art Coordination Template",
           "methodology": "agile",
           "tags": [
@@ -797,6 +800,9 @@
           ],
           "similarity": 93
         }
+      ],
+      "alternate_paths": [
+        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md"
       ]
     },
     {
@@ -1049,7 +1055,7 @@
           "similarity": 86
         },
         {
-          "path": "methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md",
+          "path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md",
           "title": "Art Coordination Template",
           "methodology": "agile",
           "tags": [
@@ -1064,7 +1070,7 @@
           "similarity": 81
         },
         {
-          "path": "methodology-frameworks/agile-scrum/scaling-frameworks/less/cross_team_coordination_template.md",
+          "path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/less/cross_team_coordination_template.md",
           "title": "Cross Team Coordination Template",
           "methodology": "agile",
           "tags": [
@@ -2501,7 +2507,7 @@
       ]
     },
     {
-      "path": "methodology-frameworks/agile-scrum/scaling-frameworks/less/cross_team_coordination_template.md",
+      "path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/less/cross_team_coordination_template.md",
       "title": "Cross Team Coordination Template",
       "methodology": "agile",
       "complexity": "advanced",
@@ -2525,7 +2531,7 @@
       ],
       "relatedTemplates": [
         {
-          "path": "methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md",
+          "path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md",
           "title": "Art Coordination Template",
           "methodology": "agile",
           "tags": [
@@ -2540,7 +2546,7 @@
           "similarity": 100
         },
         {
-          "path": "methodology-frameworks/agile-scrum/scaling-frameworks/less/less_sprint_planning_template.md",
+          "path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/less/less_sprint_planning_template.md",
           "title": "Less Sprint Planning Template",
           "methodology": "agile",
           "tags": [
@@ -2555,7 +2561,7 @@
           "similarity": 100
         },
         {
-          "path": "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_art_coordination_template.md",
+          "path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_art_coordination_template.md",
           "title": "Safe Art Coordination Template",
           "methodology": "agile",
           "tags": [
@@ -2600,6 +2606,9 @@
           ],
           "similarity": 93
         }
+      ],
+      "alternate_paths": [
+        "methodology-frameworks/agile-scrum/scaling-frameworks/less/cross_team_coordination_template.md"
       ]
     },
     {
@@ -5718,7 +5727,7 @@
       ],
       "relatedTemplates": [
         {
-          "path": "methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md",
+          "path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md",
           "title": "Art Coordination Template",
           "methodology": "agile",
           "tags": [
@@ -5733,7 +5742,7 @@
           "similarity": 93
         },
         {
-          "path": "methodology-frameworks/agile-scrum/scaling-frameworks/less/cross_team_coordination_template.md",
+          "path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/less/cross_team_coordination_template.md",
           "title": "Cross Team Coordination Template",
           "methodology": "agile",
           "tags": [
@@ -5748,7 +5757,7 @@
           "similarity": 93
         },
         {
-          "path": "methodology-frameworks/agile-scrum/scaling-frameworks/less/less_sprint_planning_template.md",
+          "path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/less/less_sprint_planning_template.md",
           "title": "Less Sprint Planning Template",
           "methodology": "agile",
           "tags": [
@@ -5763,7 +5772,7 @@
           "similarity": 93
         },
         {
-          "path": "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_art_coordination_template.md",
+          "path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_art_coordination_template.md",
           "title": "Safe Art Coordination Template",
           "methodology": "agile",
           "tags": [
@@ -5800,7 +5809,7 @@
       ]
     },
     {
-      "path": "methodology-frameworks/agile-scrum/scaling-frameworks/less/less_sprint_planning_template.md",
+      "path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/less/less_sprint_planning_template.md",
       "title": "Less Sprint Planning Template",
       "methodology": "agile",
       "complexity": "advanced",
@@ -5824,7 +5833,7 @@
       ],
       "relatedTemplates": [
         {
-          "path": "methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md",
+          "path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md",
           "title": "Art Coordination Template",
           "methodology": "agile",
           "tags": [
@@ -5839,7 +5848,7 @@
           "similarity": 100
         },
         {
-          "path": "methodology-frameworks/agile-scrum/scaling-frameworks/less/cross_team_coordination_template.md",
+          "path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/less/cross_team_coordination_template.md",
           "title": "Cross Team Coordination Template",
           "methodology": "agile",
           "tags": [
@@ -5854,7 +5863,7 @@
           "similarity": 100
         },
         {
-          "path": "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_art_coordination_template.md",
+          "path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_art_coordination_template.md",
           "title": "Safe Art Coordination Template",
           "methodology": "agile",
           "tags": [
@@ -5899,6 +5908,9 @@
           ],
           "similarity": 93
         }
+      ],
+      "alternate_paths": [
+        "methodology-frameworks/agile-scrum/scaling-frameworks/less/less_sprint_planning_template.md"
       ]
     },
     {
@@ -6092,7 +6104,7 @@
       ]
     },
     {
-      "path": "methodology-frameworks/agile-scrum/scaling-frameworks/safe/metrics_dashboard_template.md",
+      "path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/metrics_dashboard_template.md",
       "title": "Metrics Dashboard Template",
       "methodology": "agile",
       "complexity": "advanced",
@@ -6116,7 +6128,7 @@
       ],
       "relatedTemplates": [
         {
-          "path": "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_metrics_dashboard_template.md",
+          "path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_metrics_dashboard_template.md",
           "title": "Safe Metrics Dashboard Template",
           "methodology": "agile",
           "tags": [
@@ -6131,7 +6143,7 @@
           "similarity": 100
         },
         {
-          "path": "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_metrics_reporting_template.md",
+          "path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_metrics_reporting_template.md",
           "title": "Safe Metrics Reporting Template",
           "methodology": "agile",
           "tags": [
@@ -6146,7 +6158,7 @@
           "similarity": 100
         },
         {
-          "path": "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_art_coordination_template.md",
+          "path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_art_coordination_template.md",
           "title": "Safe Art Coordination Template",
           "methodology": "agile",
           "tags": [
@@ -6176,7 +6188,7 @@
           "similarity": 93
         },
         {
-          "path": "methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md",
+          "path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md",
           "title": "Art Coordination Template",
           "methodology": "agile",
           "tags": [
@@ -6190,6 +6202,9 @@
           ],
           "similarity": 88
         }
+      ],
+      "alternate_paths": [
+        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/metrics_dashboard_template.md"
       ]
     },
     {
@@ -6557,7 +6572,7 @@
       ]
     },
     {
-      "path": "methodology-frameworks/agile-scrum/scaling-frameworks/less/overall_product_backlog_template.md",
+      "path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/less/overall_product_backlog_template.md",
       "title": "Overall Product Backlog Template",
       "methodology": "agile",
       "complexity": "advanced",
@@ -6581,7 +6596,7 @@
       ],
       "relatedTemplates": [
         {
-          "path": "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_art_coordination_template.md",
+          "path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_art_coordination_template.md",
           "title": "Safe Art Coordination Template",
           "methodology": "agile",
           "tags": [
@@ -6611,7 +6626,7 @@
           "similarity": 93
         },
         {
-          "path": "methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md",
+          "path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md",
           "title": "Art Coordination Template",
           "methodology": "agile",
           "tags": [
@@ -6626,7 +6641,7 @@
           "similarity": 88
         },
         {
-          "path": "methodology-frameworks/agile-scrum/scaling-frameworks/less/cross_team_coordination_template.md",
+          "path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/less/cross_team_coordination_template.md",
           "title": "Cross Team Coordination Template",
           "methodology": "agile",
           "tags": [
@@ -6641,7 +6656,7 @@
           "similarity": 88
         },
         {
-          "path": "methodology-frameworks/agile-scrum/scaling-frameworks/less/less_sprint_planning_template.md",
+          "path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/less/less_sprint_planning_template.md",
           "title": "Less Sprint Planning Template",
           "methodology": "agile",
           "tags": [
@@ -6655,6 +6670,9 @@
           ],
           "similarity": 88
         }
+      ],
+      "alternate_paths": [
+        "methodology-frameworks/agile-scrum/scaling-frameworks/less/overall_product_backlog_template.md"
       ]
     },
     {
@@ -6892,7 +6910,7 @@
           "similarity": 92
         },
         {
-          "path": "methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md",
+          "path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md",
           "title": "Art Coordination Template",
           "methodology": "agile",
           "tags": [
@@ -6907,7 +6925,7 @@
           "similarity": 86
         },
         {
-          "path": "methodology-frameworks/agile-scrum/scaling-frameworks/less/cross_team_coordination_template.md",
+          "path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/less/cross_team_coordination_template.md",
           "title": "Cross Team Coordination Template",
           "methodology": "agile",
           "tags": [
@@ -7003,7 +7021,7 @@
           "similarity": 86
         },
         {
-          "path": "methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md",
+          "path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md",
           "title": "Art Coordination Template",
           "methodology": "agile",
           "tags": [
@@ -7080,7 +7098,7 @@
           "similarity": 50
         },
         {
-          "path": "industry-specializations/information-technology/software-development/api_documentation_template.md",
+          "path": "domains/delivery/industry-specializations/information-technology/software-development/api_documentation_template.md",
           "title": "Api Documentation Template",
           "methodology": "universal",
           "tags": [
@@ -7559,7 +7577,7 @@
           "similarity": 90
         },
         {
-          "path": "methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md",
+          "path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md",
           "title": "Art Coordination Template",
           "methodology": "agile",
           "tags": [
@@ -7574,7 +7592,7 @@
           "similarity": 86
         },
         {
-          "path": "methodology-frameworks/agile-scrum/scaling-frameworks/less/cross_team_coordination_template.md",
+          "path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/less/cross_team_coordination_template.md",
           "title": "Cross Team Coordination Template",
           "methodology": "agile",
           "tags": [
@@ -10465,7 +10483,7 @@
       ]
     },
     {
-      "path": "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_art_coordination_template.md",
+      "path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_art_coordination_template.md",
       "title": "Safe Art Coordination Template",
       "methodology": "agile",
       "complexity": "advanced",
@@ -10490,7 +10508,7 @@
       ],
       "relatedTemplates": [
         {
-          "path": "methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md",
+          "path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md",
           "title": "Art Coordination Template",
           "methodology": "agile",
           "tags": [
@@ -10505,7 +10523,7 @@
           "similarity": 94
         },
         {
-          "path": "methodology-frameworks/agile-scrum/scaling-frameworks/less/cross_team_coordination_template.md",
+          "path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/less/cross_team_coordination_template.md",
           "title": "Cross Team Coordination Template",
           "methodology": "agile",
           "tags": [
@@ -10520,7 +10538,7 @@
           "similarity": 94
         },
         {
-          "path": "methodology-frameworks/agile-scrum/scaling-frameworks/less/less_sprint_planning_template.md",
+          "path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/less/less_sprint_planning_template.md",
           "title": "Less Sprint Planning Template",
           "methodology": "agile",
           "tags": [
@@ -10535,7 +10553,7 @@
           "similarity": 94
         },
         {
-          "path": "methodology-frameworks/agile-scrum/scaling-frameworks/safe/metrics_dashboard_template.md",
+          "path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/metrics_dashboard_template.md",
           "title": "Metrics Dashboard Template",
           "methodology": "agile",
           "tags": [
@@ -10550,7 +10568,7 @@
           "similarity": 94
         },
         {
-          "path": "methodology-frameworks/agile-scrum/scaling-frameworks/less/overall_product_backlog_template.md",
+          "path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/less/overall_product_backlog_template.md",
           "title": "Overall Product Backlog Template",
           "methodology": "agile",
           "tags": [
@@ -10564,10 +10582,13 @@
           ],
           "similarity": 94
         }
+      ],
+      "alternate_paths": [
+        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_art_coordination_template.md"
       ]
     },
     {
-      "path": "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_metrics_dashboard_template.md",
+      "path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_metrics_dashboard_template.md",
       "title": "Safe Metrics Dashboard Template",
       "methodology": "agile",
       "complexity": "advanced",
@@ -10591,7 +10612,7 @@
       ],
       "relatedTemplates": [
         {
-          "path": "methodology-frameworks/agile-scrum/scaling-frameworks/safe/metrics_dashboard_template.md",
+          "path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/metrics_dashboard_template.md",
           "title": "Metrics Dashboard Template",
           "methodology": "agile",
           "tags": [
@@ -10606,7 +10627,7 @@
           "similarity": 100
         },
         {
-          "path": "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_metrics_reporting_template.md",
+          "path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_metrics_reporting_template.md",
           "title": "Safe Metrics Reporting Template",
           "methodology": "agile",
           "tags": [
@@ -10621,7 +10642,7 @@
           "similarity": 100
         },
         {
-          "path": "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_art_coordination_template.md",
+          "path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_art_coordination_template.md",
           "title": "Safe Art Coordination Template",
           "methodology": "agile",
           "tags": [
@@ -10651,7 +10672,7 @@
           "similarity": 93
         },
         {
-          "path": "methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md",
+          "path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md",
           "title": "Art Coordination Template",
           "methodology": "agile",
           "tags": [
@@ -10665,10 +10686,13 @@
           ],
           "similarity": 88
         }
+      ],
+      "alternate_paths": [
+        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_metrics_dashboard_template.md"
       ]
     },
     {
-      "path": "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_metrics_reporting_template.md",
+      "path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_metrics_reporting_template.md",
       "title": "Safe Metrics Reporting Template",
       "methodology": "agile",
       "complexity": "advanced",
@@ -10692,7 +10716,7 @@
       ],
       "relatedTemplates": [
         {
-          "path": "methodology-frameworks/agile-scrum/scaling-frameworks/safe/metrics_dashboard_template.md",
+          "path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/metrics_dashboard_template.md",
           "title": "Metrics Dashboard Template",
           "methodology": "agile",
           "tags": [
@@ -10707,7 +10731,7 @@
           "similarity": 100
         },
         {
-          "path": "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_metrics_dashboard_template.md",
+          "path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_metrics_dashboard_template.md",
           "title": "Safe Metrics Dashboard Template",
           "methodology": "agile",
           "tags": [
@@ -10722,7 +10746,7 @@
           "similarity": 100
         },
         {
-          "path": "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_art_coordination_template.md",
+          "path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_art_coordination_template.md",
           "title": "Safe Art Coordination Template",
           "methodology": "agile",
           "tags": [
@@ -10752,7 +10776,7 @@
           "similarity": 93
         },
         {
-          "path": "methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md",
+          "path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md",
           "title": "Art Coordination Template",
           "methodology": "agile",
           "tags": [
@@ -10766,6 +10790,9 @@
           ],
           "similarity": 88
         }
+      ],
+      "alternate_paths": [
+        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_metrics_reporting_template.md"
       ]
     },
     {
@@ -10807,7 +10834,7 @@
           "similarity": 93
         },
         {
-          "path": "methodology-frameworks/agile-scrum/scaling-frameworks/safe/metrics_dashboard_template.md",
+          "path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/metrics_dashboard_template.md",
           "title": "Metrics Dashboard Template",
           "methodology": "agile",
           "tags": [
@@ -10822,7 +10849,7 @@
           "similarity": 88
         },
         {
-          "path": "methodology-frameworks/agile-scrum/scaling-frameworks/less/overall_product_backlog_template.md",
+          "path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/less/overall_product_backlog_template.md",
           "title": "Overall Product Backlog Template",
           "methodology": "agile",
           "tags": [
@@ -10837,7 +10864,7 @@
           "similarity": 88
         },
         {
-          "path": "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_metrics_dashboard_template.md",
+          "path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_metrics_dashboard_template.md",
           "title": "Safe Metrics Dashboard Template",
           "methodology": "agile",
           "tags": [
@@ -10852,7 +10879,7 @@
           "similarity": 88
         },
         {
-          "path": "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_metrics_reporting_template.md",
+          "path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_metrics_reporting_template.md",
           "title": "Safe Metrics Reporting Template",
           "methodology": "agile",
           "tags": [
@@ -10892,7 +10919,7 @@
       ],
       "relatedTemplates": [
         {
-          "path": "methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md",
+          "path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md",
           "title": "Art Coordination Template",
           "methodology": "agile",
           "tags": [
@@ -10907,7 +10934,7 @@
           "similarity": 93
         },
         {
-          "path": "methodology-frameworks/agile-scrum/scaling-frameworks/less/cross_team_coordination_template.md",
+          "path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/less/cross_team_coordination_template.md",
           "title": "Cross Team Coordination Template",
           "methodology": "agile",
           "tags": [
@@ -10922,7 +10949,7 @@
           "similarity": 93
         },
         {
-          "path": "methodology-frameworks/agile-scrum/scaling-frameworks/less/less_sprint_planning_template.md",
+          "path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/less/less_sprint_planning_template.md",
           "title": "Less Sprint Planning Template",
           "methodology": "agile",
           "tags": [
@@ -10937,7 +10964,7 @@
           "similarity": 93
         },
         {
-          "path": "methodology-frameworks/agile-scrum/scaling-frameworks/safe/metrics_dashboard_template.md",
+          "path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/metrics_dashboard_template.md",
           "title": "Metrics Dashboard Template",
           "methodology": "agile",
           "tags": [
@@ -10952,7 +10979,7 @@
           "similarity": 93
         },
         {
-          "path": "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_metrics_dashboard_template.md",
+          "path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_metrics_dashboard_template.md",
           "title": "Safe Metrics Dashboard Template",
           "methodology": "agile",
           "tags": [
@@ -11203,7 +11230,7 @@
           "similarity": 82
         },
         {
-          "path": "methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md",
+          "path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md",
           "title": "Art Coordination Template",
           "methodology": "agile",
           "tags": [
@@ -11218,7 +11245,7 @@
           "similarity": 76
         },
         {
-          "path": "methodology-frameworks/agile-scrum/scaling-frameworks/less/cross_team_coordination_template.md",
+          "path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/less/cross_team_coordination_template.md",
           "title": "Cross Team Coordination Template",
           "methodology": "agile",
           "tags": [
@@ -11271,7 +11298,7 @@
           "similarity": 92
         },
         {
-          "path": "methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md",
+          "path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md",
           "title": "Art Coordination Template",
           "methodology": "agile",
           "tags": [
@@ -11286,7 +11313,7 @@
           "similarity": 86
         },
         {
-          "path": "methodology-frameworks/agile-scrum/scaling-frameworks/less/cross_team_coordination_template.md",
+          "path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/less/cross_team_coordination_template.md",
           "title": "Cross Team Coordination Template",
           "methodology": "agile",
           "tags": [
@@ -11301,7 +11328,7 @@
           "similarity": 86
         },
         {
-          "path": "methodology-frameworks/agile-scrum/scaling-frameworks/less/less_sprint_planning_template.md",
+          "path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/less/less_sprint_planning_template.md",
           "title": "Less Sprint Planning Template",
           "methodology": "agile",
           "tags": [
@@ -11357,7 +11384,7 @@
       ],
       "relatedTemplates": [
         {
-          "path": "methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md",
+          "path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md",
           "title": "Art Coordination Template",
           "methodology": "agile",
           "tags": [
@@ -11372,7 +11399,7 @@
           "similarity": 93
         },
         {
-          "path": "methodology-frameworks/agile-scrum/scaling-frameworks/less/cross_team_coordination_template.md",
+          "path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/less/cross_team_coordination_template.md",
           "title": "Cross Team Coordination Template",
           "methodology": "agile",
           "tags": [
@@ -11387,7 +11414,7 @@
           "similarity": 93
         },
         {
-          "path": "methodology-frameworks/agile-scrum/scaling-frameworks/less/less_sprint_planning_template.md",
+          "path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/less/less_sprint_planning_template.md",
           "title": "Less Sprint Planning Template",
           "methodology": "agile",
           "tags": [
@@ -12102,7 +12129,7 @@
       ]
     },
     {
-      "path": "role-based-toolkits/project-manager/essential-templates/timesheet-tracking-template.md",
+      "path": "domains/delivery/role-based-toolkits/project-manager/essential-templates/timesheet-tracking-template.md",
       "title": "Timesheet Tracking Template",
       "methodology": "universal",
       "complexity": "intermediate",
@@ -12121,7 +12148,7 @@
       ],
       "relatedTemplates": [
         {
-          "path": "industry-specializations/information-technology/software-development/api_documentation_template.md",
+          "path": "domains/delivery/industry-specializations/information-technology/software-development/api_documentation_template.md",
           "title": "Api Documentation Template",
           "methodology": "universal",
           "tags": [
@@ -12178,6 +12205,9 @@
           ],
           "similarity": 57
         }
+      ],
+      "alternate_paths": [
+        "role-based-toolkits/project-manager/essential-templates/timesheet-tracking-template.md"
       ]
     },
     {
@@ -12708,7 +12738,7 @@
           "similarity": 83
         },
         {
-          "path": "industry-specializations/information-technology/software-development/api_documentation_template.md",
+          "path": "domains/delivery/industry-specializations/information-technology/software-development/api_documentation_template.md",
           "title": "Api Documentation Template",
           "methodology": "universal",
           "tags": [

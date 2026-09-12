@@ -87,7 +87,7 @@
       }
     },
     {
-      "path": "industry-specializations/information-technology/software-development/api_documentation_template.md",
+      "path": "domains/delivery/industry-specializations/information-technology/software-development/api_documentation_template.md",
       "title": "Api Documentation Template",
       "methodology": "universal",
       "value_flow": {
@@ -101,7 +101,7 @@
       }
     },
     {
-      "path": "methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md",
+      "path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md",
       "title": "Art Coordination Template",
       "methodology": "agile",
       "value_flow": {
@@ -367,7 +367,7 @@
       }
     },
     {
-      "path": "methodology-frameworks/agile-scrum/scaling-frameworks/less/cross_team_coordination_template.md",
+      "path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/less/cross_team_coordination_template.md",
       "title": "Cross Team Coordination Template",
       "methodology": "agile",
       "value_flow": {
@@ -857,7 +857,7 @@
       }
     },
     {
-      "path": "methodology-frameworks/agile-scrum/scaling-frameworks/less/less_sprint_planning_template.md",
+      "path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/less/less_sprint_planning_template.md",
       "title": "Less Sprint Planning Template",
       "methodology": "agile",
       "value_flow": {
@@ -899,7 +899,7 @@
       }
     },
     {
-      "path": "methodology-frameworks/agile-scrum/scaling-frameworks/safe/metrics_dashboard_template.md",
+      "path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/metrics_dashboard_template.md",
       "title": "Metrics Dashboard Template",
       "methodology": "agile",
       "value_flow": {
@@ -969,7 +969,7 @@
       }
     },
     {
-      "path": "methodology-frameworks/agile-scrum/scaling-frameworks/less/overall_product_backlog_template.md",
+      "path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/less/overall_product_backlog_template.md",
       "title": "Overall Product Backlog Template",
       "methodology": "agile",
       "value_flow": {
@@ -1543,7 +1543,7 @@
       }
     },
     {
-      "path": "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_art_coordination_template.md",
+      "path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_art_coordination_template.md",
       "title": "Safe Art Coordination Template",
       "methodology": "agile",
       "value_flow": {
@@ -1557,7 +1557,7 @@
       }
     },
     {
-      "path": "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_metrics_dashboard_template.md",
+      "path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_metrics_dashboard_template.md",
       "title": "Safe Metrics Dashboard Template",
       "methodology": "agile",
       "value_flow": {
@@ -1571,7 +1571,7 @@
       }
     },
     {
-      "path": "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_metrics_reporting_template.md",
+      "path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_metrics_reporting_template.md",
       "title": "Safe Metrics Reporting Template",
       "methodology": "agile",
       "value_flow": {
@@ -1781,7 +1781,7 @@
       }
     },
     {
-      "path": "role-based-toolkits/project-manager/essential-templates/timesheet-tracking-template.md",
+      "path": "domains/delivery/role-based-toolkits/project-manager/essential-templates/timesheet-tracking-template.md",
       "title": "Timesheet Tracking Template",
       "methodology": "universal",
       "value_flow": {

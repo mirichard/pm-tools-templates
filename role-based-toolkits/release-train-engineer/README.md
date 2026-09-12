@@ -650,9 +650,9 @@ Team Delta:  ████████████         60% (Needs Attention)
 
 ### SAFe Templates and Tools
 - [PI Planning Template](../../methodology-frameworks/agile-scrum/scaling-frameworks/safe/pi_planning_template.md)
-- [ART Coordination Template](../../methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md)
+- [ART Coordination Template](../../domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md)
 - [Portfolio Kanban Template](../../methodology-frameworks/agile-scrum/scaling-frameworks/safe/portfolio_kanban_template.md)
-- [SAFe Metrics Dashboard](../../methodology-frameworks/agile-scrum/scaling-frameworks/safe/metrics_dashboard_template.md)
+- [SAFe Metrics Dashboard](../../domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/metrics_dashboard_template.md)
 
 ### Other Role-Based Toolkits
 - [Scrum Master Toolkit](../scrum-master/README.md)

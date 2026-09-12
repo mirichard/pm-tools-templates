@@ -267,7 +267,7 @@ The following metrics and targets will be used to measure testing effectiveness 
 | Mean Time to Detect (MTTD) | <24 hours | Time between defect introduction and detection |
 | Mean Time to Repair (MTTR) | <2.3 hours | Time between defect detection and fix deployment |
 
-These metrics align with the SAFe quality metrics as outlined in the [SAFe Metrics Dashboard](../../../../methodology-frameworks/agile-scrum/scaling-frameworks/safe/metrics_dashboard_template.md) and will be reported regularly through our quality dashboard.
+These metrics align with the SAFe quality metrics as outlined in the [SAFe Metrics Dashboard](../../../domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/metrics_dashboard_template.md) and will be reported regularly through our quality dashboard.
 
 ## 3. Test Environments
 

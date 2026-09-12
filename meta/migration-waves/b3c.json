@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "wave_id": "B3C",
-  "phase": "entry",
+  "phase": "executed",
   "source_batch": 3,
   "primary_domain": "Delivery",
   "generated_from": "meta/migration-inventory.json",
@@ -68,7 +68,10 @@
       "source": "methodology-frameworks/agile-scrum/scaling-frameworks/less/cross_team_coordination_template.md",
       "destination": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/less/cross_team_coordination_template.md",
       "primary_domain": "Delivery",
-      "secondary_domains": ["Stakeholder", "Uncertainty"],
+      "secondary_domains": [
+        "Stakeholder",
+        "Uncertainty"
+      ],
       "pre_move_sha256": "6e559a6e0a08d0a1ff658764865688006c263dc649319e2ace944032fadc8157",
       "dependencies": [
         {
@@ -94,7 +97,10 @@
       "source": "methodology-frameworks/agile-scrum/scaling-frameworks/less/less_sprint_planning_template.md",
       "destination": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/less/less_sprint_planning_template.md",
       "primary_domain": "Delivery",
-      "secondary_domains": ["Stakeholder", "Uncertainty"],
+      "secondary_domains": [
+        "Stakeholder",
+        "Uncertainty"
+      ],
       "pre_move_sha256": "61717ca810bc9f2be6a3dd07211989d46072e7b51683434b88f0c4fa68706ec6",
       "dependencies": [
         {
@@ -120,7 +126,10 @@
       "source": "methodology-frameworks/agile-scrum/scaling-frameworks/less/overall_product_backlog_template.md",
       "destination": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/less/overall_product_backlog_template.md",
       "primary_domain": "Delivery",
-      "secondary_domains": ["Stakeholder", "Uncertainty"],
+      "secondary_domains": [
+        "Stakeholder",
+        "Uncertainty"
+      ],
       "pre_move_sha256": "74f2f476c9b8ea81beb045b3da8f818edf1ee5c728c58a6c0d25290175e26574",
       "dependencies": [
         {
@@ -146,7 +155,10 @@
       "source": "methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md",
       "destination": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md",
       "primary_domain": "Delivery",
-      "secondary_domains": ["Stakeholder", "Uncertainty"],
+      "secondary_domains": [
+        "Stakeholder",
+        "Uncertainty"
+      ],
       "pre_move_sha256": "942e733db10117e8c638c33385383a501323925a3b7aaa21d29d361b62739e1f",
       "dependencies": [
         {
@@ -172,7 +184,10 @@
       "source": "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_art_coordination_template.md",
       "destination": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_art_coordination_template.md",
       "primary_domain": "Delivery",
-      "secondary_domains": ["Stakeholder", "Uncertainty"],
+      "secondary_domains": [
+        "Stakeholder",
+        "Uncertainty"
+      ],
       "pre_move_sha256": "77cac0ef7034cca657c7bd1b63910df6c525bfbc38979b50630051f791853a18",
       "dependencies": [
         {
@@ -198,7 +213,10 @@
       "source": "methodology-frameworks/agile-scrum/scaling-frameworks/safe/metrics_dashboard_template.md",
       "destination": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/metrics_dashboard_template.md",
       "primary_domain": "Delivery",
-      "secondary_domains": ["Stakeholder", "Uncertainty"],
+      "secondary_domains": [
+        "Stakeholder",
+        "Uncertainty"
+      ],
       "pre_move_sha256": "1834bd7608cff4f719a20d8c8fea72ba73c36b0f1171a3dc40a399013daa2952",
       "dependencies": [
         {
@@ -224,7 +242,10 @@
       "source": "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_metrics_dashboard_template.md",
       "destination": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_metrics_dashboard_template.md",
       "primary_domain": "Delivery",
-      "secondary_domains": ["Stakeholder", "Uncertainty"],
+      "secondary_domains": [
+        "Stakeholder",
+        "Uncertainty"
+      ],
       "pre_move_sha256": "ca79a4e46ff245402f41e561083d4bf28a914a6d5127d4f28a638a8a481626bb",
       "dependencies": [
         {
@@ -250,7 +271,10 @@
       "source": "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_metrics_reporting_template.md",
       "destination": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_metrics_reporting_template.md",
       "primary_domain": "Delivery",
-      "secondary_domains": ["Stakeholder", "Uncertainty"],
+      "secondary_domains": [
+        "Stakeholder",
+        "Uncertainty"
+      ],
       "pre_move_sha256": "971937d974b8f26eec47a08396126a4420b07722edd2c04c152e5b4c75e98576",
       "dependencies": [
         {

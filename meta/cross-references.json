@@ -519,14 +519,248 @@
       ],
       "related_assets": [
         "domains/delivery/industry-specializations/healthcare-pharmaceutical/validation/validation_master_plan_template.md",
-        "industry-specializations/information-technology/software-development/api_documentation_template.md"
+        "domains/delivery/industry-specializations/information-technology/software-development/api_documentation_template.md"
       ],
       "complementary_assets": [
         "domains/stakeholder/business-stakeholder-suite/financial-governance/enhanced-business-cases/advanced-business-case-template.md",
         "project-lifecycle/02-planning/project-management-plan/agile-release-plan-template.md"
       ],
       "previous_workflow_step": "domains/delivery/industry-specializations/healthcare-pharmaceutical/validation/validation_master_plan_template.md",
-      "next_workflow_step": "industry-specializations/information-technology/software-development/api_documentation_template.md"
+      "next_workflow_step": "domains/delivery/industry-specializations/information-technology/software-development/api_documentation_template.md"
+    },
+    {
+      "path": "domains/delivery/industry-specializations/information-technology/software-development/api_documentation_template.md",
+      "domain": {
+        "primary": "Delivery",
+        "secondary": [],
+        "rationale": "Technology template supports delivery execution"
+      },
+      "prerequisites": [
+        "domains/delivery/role-based-toolkits/project-manager/essential-templates/timesheet-tracking-template.md"
+      ],
+      "related_assets": [
+        "domains/delivery/industry-specializations/information-technology/service-management/problem_management_process_template.md",
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/less/cross_team_coordination_template.md"
+      ],
+      "complementary_assets": [
+        "domains/delivery/role-based-toolkits/project-manager/essential-templates/timesheet-tracking-template.md",
+        "domains/uncertainty/role-based-toolkits/product-owner/user-story-template.md"
+      ],
+      "previous_workflow_step": "domains/delivery/industry-specializations/information-technology/service-management/problem_management_process_template.md",
+      "next_workflow_step": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/less/cross_team_coordination_template.md"
+    },
+    {
+      "path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/less/cross_team_coordination_template.md",
+      "domain": {
+        "primary": "Delivery",
+        "secondary": [
+          "Stakeholder",
+          "Uncertainty"
+        ],
+        "rationale": "Methodology-specific template guides delivery execution"
+      },
+      "prerequisites": [
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md"
+      ],
+      "related_assets": [
+        "domains/delivery/industry-specializations/information-technology/software-development/api_documentation_template.md",
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/less/less_sprint_planning_template.md"
+      ],
+      "complementary_assets": [
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md",
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_art_coordination_template.md"
+      ],
+      "previous_workflow_step": "domains/delivery/industry-specializations/information-technology/software-development/api_documentation_template.md",
+      "next_workflow_step": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/less/less_sprint_planning_template.md"
+    },
+    {
+      "path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/less/less_sprint_planning_template.md",
+      "domain": {
+        "primary": "Delivery",
+        "secondary": [
+          "Stakeholder",
+          "Uncertainty"
+        ],
+        "rationale": "Methodology-specific template guides delivery execution"
+      },
+      "prerequisites": [
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md"
+      ],
+      "related_assets": [
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/less/cross_team_coordination_template.md",
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/less/overall_product_backlog_template.md"
+      ],
+      "complementary_assets": [
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md",
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_art_coordination_template.md"
+      ],
+      "previous_workflow_step": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/less/cross_team_coordination_template.md",
+      "next_workflow_step": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/less/overall_product_backlog_template.md"
+    },
+    {
+      "path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/less/overall_product_backlog_template.md",
+      "domain": {
+        "primary": "Delivery",
+        "secondary": [
+          "Stakeholder",
+          "Uncertainty"
+        ],
+        "rationale": "Methodology-specific template guides delivery execution"
+      },
+      "prerequisites": [
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_art_coordination_template.md"
+      ],
+      "related_assets": [
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/less/less_sprint_planning_template.md",
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md"
+      ],
+      "complementary_assets": [
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_art_coordination_template.md",
+        "methodology-frameworks/agile-scrum/sprint-planning/sprint_planning_template.md"
+      ],
+      "previous_workflow_step": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/less/less_sprint_planning_template.md",
+      "next_workflow_step": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md"
+    },
+    {
+      "path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md",
+      "domain": {
+        "primary": "Delivery",
+        "secondary": [
+          "Stakeholder",
+          "Uncertainty"
+        ],
+        "rationale": "Methodology-specific template guides delivery execution"
+      },
+      "prerequisites": [
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/less/cross_team_coordination_template.md"
+      ],
+      "related_assets": [
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/less/overall_product_backlog_template.md",
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/metrics_dashboard_template.md"
+      ],
+      "complementary_assets": [
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/less/cross_team_coordination_template.md",
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/less/less_sprint_planning_template.md"
+      ],
+      "previous_workflow_step": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/less/overall_product_backlog_template.md",
+      "next_workflow_step": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/metrics_dashboard_template.md"
+    },
+    {
+      "path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/metrics_dashboard_template.md",
+      "domain": {
+        "primary": "Delivery",
+        "secondary": [
+          "Stakeholder",
+          "Uncertainty"
+        ],
+        "rationale": "Methodology-specific template guides delivery execution"
+      },
+      "prerequisites": [
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_metrics_dashboard_template.md"
+      ],
+      "related_assets": [
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md",
+        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/pi_planning_template.md"
+      ],
+      "complementary_assets": [
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_metrics_dashboard_template.md",
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_metrics_reporting_template.md"
+      ],
+      "previous_workflow_step": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md",
+      "next_workflow_step": "methodology-frameworks/agile-scrum/scaling-frameworks/safe/pi_planning_template.md"
+    },
+    {
+      "path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_art_coordination_template.md",
+      "domain": {
+        "primary": "Delivery",
+        "secondary": [
+          "Stakeholder",
+          "Uncertainty"
+        ],
+        "rationale": "Methodology-specific template guides delivery execution"
+      },
+      "prerequisites": [
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md"
+      ],
+      "related_assets": [
+        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/portfolio_kanban_template.md",
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_metrics_dashboard_template.md"
+      ],
+      "complementary_assets": [
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md",
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/less/cross_team_coordination_template.md"
+      ],
+      "previous_workflow_step": "methodology-frameworks/agile-scrum/scaling-frameworks/safe/portfolio_kanban_template.md",
+      "next_workflow_step": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_metrics_dashboard_template.md"
+    },
+    {
+      "path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_metrics_dashboard_template.md",
+      "domain": {
+        "primary": "Delivery",
+        "secondary": [
+          "Stakeholder",
+          "Uncertainty"
+        ],
+        "rationale": "Methodology-specific template guides delivery execution"
+      },
+      "prerequisites": [
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/metrics_dashboard_template.md"
+      ],
+      "related_assets": [
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_art_coordination_template.md",
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_metrics_reporting_template.md"
+      ],
+      "complementary_assets": [
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/metrics_dashboard_template.md",
+        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_program_increment_planning_template.md"
+      ],
+      "previous_workflow_step": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_art_coordination_template.md",
+      "next_workflow_step": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_metrics_reporting_template.md"
+    },
+    {
+      "path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_metrics_reporting_template.md",
+      "domain": {
+        "primary": "Delivery",
+        "secondary": [
+          "Stakeholder",
+          "Uncertainty"
+        ],
+        "rationale": "Methodology-specific template guides delivery execution"
+      },
+      "prerequisites": [
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/metrics_dashboard_template.md"
+      ],
+      "related_assets": [
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_metrics_dashboard_template.md",
+        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_portfolio_kanban_template.md"
+      ],
+      "complementary_assets": [
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/metrics_dashboard_template.md",
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_art_coordination_template.md"
+      ],
+      "previous_workflow_step": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_metrics_dashboard_template.md",
+      "next_workflow_step": "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_portfolio_kanban_template.md"
+    },
+    {
+      "path": "domains/delivery/role-based-toolkits/project-manager/essential-templates/timesheet-tracking-template.md",
+      "domain": {
+        "primary": "Delivery",
+        "secondary": [],
+        "rationale": "Technology template supports delivery execution"
+      },
+      "prerequisites": [
+        "domains/delivery/industry-specializations/information-technology/software-development/api_documentation_template.md"
+      ],
+      "related_assets": [
+        "project-lifecycle/02-planning/risk-management/agile-risk-board-template.md",
+        "templates/agile/product_backlog_template.md"
+      ],
+      "complementary_assets": [
+        "domains/delivery/industry-specializations/information-technology/software-development/api_documentation_template.md",
+        "domains/uncertainty/role-based-toolkits/product-owner/user-story-template.md"
+      ],
+      "previous_workflow_step": "project-lifecycle/02-planning/risk-management/agile-risk-board-template.md",
+      "next_workflow_step": "templates/agile/product_backlog_template.md"
     },
     {
       "path": "domains/planning/industry-specializations/information-technology/infrastructure/data_center_design_template.md",
@@ -958,15 +1192,15 @@
         "rationale": "Title/path indicates team-focused ceremony or collaboration"
       },
       "prerequisites": [
-        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md"
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md"
       ],
       "related_assets": [
         "domains/team/templates/traditional/Traditional/Process_Groups/Executing/team_performance_assessment_template.md",
         "domains/team/project-lifecycle/01-initiation/project-charter/agile-team-charter-template.md"
       ],
       "complementary_assets": [
-        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md",
-        "methodology-frameworks/agile-scrum/scaling-frameworks/less/cross_team_coordination_template.md"
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md",
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/less/cross_team_coordination_template.md"
       ],
       "previous_workflow_step": "domains/team/templates/traditional/Traditional/Process_Groups/Executing/team_performance_assessment_template.md",
       "next_workflow_step": "domains/team/project-lifecycle/01-initiation/project-charter/agile-team-charter-template.md"
@@ -1097,8 +1331,8 @@
         "domains/team/templates/agile/sprint_review_template.md"
       ],
       "complementary_assets": [
-        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md",
-        "methodology-frameworks/agile-scrum/scaling-frameworks/less/cross_team_coordination_template.md"
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md",
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/less/cross_team_coordination_template.md"
       ],
       "previous_workflow_step": "domains/team/role-based-toolkits/scrum-master/agile-ceremonies/daily-standup-template.md",
       "next_workflow_step": "domains/team/templates/agile/sprint_review_template.md"
@@ -1113,15 +1347,15 @@
         "rationale": "Title/path indicates team-focused ceremony or collaboration"
       },
       "prerequisites": [
-        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md"
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md"
       ],
       "related_assets": [
         "domains/team/templates/agile/sprint_retrospective_template.md",
         "domains/team/templates/traditional/Traditional/Process_Groups/Executing/team_performance_assessment_template.md"
       ],
       "complementary_assets": [
-        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md",
-        "methodology-frameworks/agile-scrum/scaling-frameworks/less/cross_team_coordination_template.md"
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md",
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/less/cross_team_coordination_template.md"
       ],
       "previous_workflow_step": "domains/team/templates/agile/sprint_retrospective_template.md",
       "next_workflow_step": "domains/team/templates/traditional/Traditional/Process_Groups/Executing/team_performance_assessment_template.md"
@@ -1386,7 +1620,7 @@
       ],
       "complementary_assets": [
         "domains/uncertainty/industry-specializations/information-technology/software-development/user_story_mapping_template.md",
-        "industry-specializations/information-technology/software-development/api_documentation_template.md"
+        "domains/delivery/industry-specializations/information-technology/software-development/api_documentation_template.md"
       ],
       "previous_workflow_step": "domains/uncertainty/role-based-toolkits/product-owner/product-vision-template.md",
       "next_workflow_step": "domains/uncertainty/role-based-toolkits/project-manager/essential-templates/meeting-templates.md"
@@ -1581,27 +1815,6 @@
       "next_workflow_step": "industry-specializations/information-technology/software-development/technical_design_document_template.md"
     },
     {
-      "path": "industry-specializations/information-technology/software-development/api_documentation_template.md",
-      "domain": {
-        "primary": "Delivery",
-        "secondary": [],
-        "rationale": "Technology template supports delivery execution"
-      },
-      "prerequisites": [
-        "role-based-toolkits/project-manager/essential-templates/timesheet-tracking-template.md"
-      ],
-      "related_assets": [
-        "domains/delivery/industry-specializations/information-technology/service-management/problem_management_process_template.md",
-        "methodology-frameworks/agile-scrum/scaling-frameworks/less/cross_team_coordination_template.md"
-      ],
-      "complementary_assets": [
-        "role-based-toolkits/project-manager/essential-templates/timesheet-tracking-template.md",
-        "domains/uncertainty/role-based-toolkits/product-owner/user-story-template.md"
-      ],
-      "previous_workflow_step": "domains/delivery/industry-specializations/information-technology/service-management/problem_management_process_template.md",
-      "next_workflow_step": "methodology-frameworks/agile-scrum/scaling-frameworks/less/cross_team_coordination_template.md"
-    },
-    {
       "path": "industry-specializations/information-technology/software-development/technical_design_document_template.md",
       "domain": {
         "primary": "Measurement",
@@ -1649,126 +1862,6 @@
       "next_workflow_step": "methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md"
     },
     {
-      "path": "methodology-frameworks/agile-scrum/scaling-frameworks/less/cross_team_coordination_template.md",
-      "domain": {
-        "primary": "Delivery",
-        "secondary": [
-          "Stakeholder",
-          "Uncertainty"
-        ],
-        "rationale": "Methodology-specific template guides delivery execution"
-      },
-      "prerequisites": [
-        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md"
-      ],
-      "related_assets": [
-        "industry-specializations/information-technology/software-development/api_documentation_template.md",
-        "methodology-frameworks/agile-scrum/scaling-frameworks/less/less_sprint_planning_template.md"
-      ],
-      "complementary_assets": [
-        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md",
-        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_art_coordination_template.md"
-      ],
-      "previous_workflow_step": "industry-specializations/information-technology/software-development/api_documentation_template.md",
-      "next_workflow_step": "methodology-frameworks/agile-scrum/scaling-frameworks/less/less_sprint_planning_template.md"
-    },
-    {
-      "path": "methodology-frameworks/agile-scrum/scaling-frameworks/less/less_sprint_planning_template.md",
-      "domain": {
-        "primary": "Delivery",
-        "secondary": [
-          "Stakeholder",
-          "Uncertainty"
-        ],
-        "rationale": "Methodology-specific template guides delivery execution"
-      },
-      "prerequisites": [
-        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md"
-      ],
-      "related_assets": [
-        "methodology-frameworks/agile-scrum/scaling-frameworks/less/cross_team_coordination_template.md",
-        "methodology-frameworks/agile-scrum/scaling-frameworks/less/overall_product_backlog_template.md"
-      ],
-      "complementary_assets": [
-        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md",
-        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_art_coordination_template.md"
-      ],
-      "previous_workflow_step": "methodology-frameworks/agile-scrum/scaling-frameworks/less/cross_team_coordination_template.md",
-      "next_workflow_step": "methodology-frameworks/agile-scrum/scaling-frameworks/less/overall_product_backlog_template.md"
-    },
-    {
-      "path": "methodology-frameworks/agile-scrum/scaling-frameworks/less/overall_product_backlog_template.md",
-      "domain": {
-        "primary": "Delivery",
-        "secondary": [
-          "Stakeholder",
-          "Uncertainty"
-        ],
-        "rationale": "Methodology-specific template guides delivery execution"
-      },
-      "prerequisites": [
-        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_art_coordination_template.md"
-      ],
-      "related_assets": [
-        "methodology-frameworks/agile-scrum/scaling-frameworks/less/less_sprint_planning_template.md",
-        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md"
-      ],
-      "complementary_assets": [
-        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_art_coordination_template.md",
-        "methodology-frameworks/agile-scrum/sprint-planning/sprint_planning_template.md"
-      ],
-      "previous_workflow_step": "methodology-frameworks/agile-scrum/scaling-frameworks/less/less_sprint_planning_template.md",
-      "next_workflow_step": "methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md"
-    },
-    {
-      "path": "methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md",
-      "domain": {
-        "primary": "Delivery",
-        "secondary": [
-          "Stakeholder",
-          "Uncertainty"
-        ],
-        "rationale": "Methodology-specific template guides delivery execution"
-      },
-      "prerequisites": [
-        "methodology-frameworks/agile-scrum/scaling-frameworks/less/cross_team_coordination_template.md"
-      ],
-      "related_assets": [
-        "methodology-frameworks/agile-scrum/scaling-frameworks/less/overall_product_backlog_template.md",
-        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/metrics_dashboard_template.md"
-      ],
-      "complementary_assets": [
-        "methodology-frameworks/agile-scrum/scaling-frameworks/less/cross_team_coordination_template.md",
-        "methodology-frameworks/agile-scrum/scaling-frameworks/less/less_sprint_planning_template.md"
-      ],
-      "previous_workflow_step": "methodology-frameworks/agile-scrum/scaling-frameworks/less/overall_product_backlog_template.md",
-      "next_workflow_step": "methodology-frameworks/agile-scrum/scaling-frameworks/safe/metrics_dashboard_template.md"
-    },
-    {
-      "path": "methodology-frameworks/agile-scrum/scaling-frameworks/safe/metrics_dashboard_template.md",
-      "domain": {
-        "primary": "Delivery",
-        "secondary": [
-          "Stakeholder",
-          "Uncertainty"
-        ],
-        "rationale": "Methodology-specific template guides delivery execution"
-      },
-      "prerequisites": [
-        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_metrics_dashboard_template.md"
-      ],
-      "related_assets": [
-        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md",
-        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/pi_planning_template.md"
-      ],
-      "complementary_assets": [
-        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_metrics_dashboard_template.md",
-        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_metrics_reporting_template.md"
-      ],
-      "previous_workflow_step": "methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md",
-      "next_workflow_step": "methodology-frameworks/agile-scrum/scaling-frameworks/safe/pi_planning_template.md"
-    },
-    {
       "path": "methodology-frameworks/agile-scrum/scaling-frameworks/safe/pi_planning_template.md",
       "domain": {
         "primary": "Delivery",
@@ -1782,14 +1875,14 @@
         "methodology-frameworks/agile-scrum/scaling-frameworks/safe/portfolio_kanban_template.md"
       ],
       "related_assets": [
-        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/metrics_dashboard_template.md",
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/metrics_dashboard_template.md",
         "methodology-frameworks/agile-scrum/scaling-frameworks/safe/portfolio_kanban_template.md"
       ],
       "complementary_assets": [
         "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_program_increment_planning_template.md",
         "methodology-frameworks/agile-scrum/sprint-planning/sprint_planning_template.md"
       ],
-      "previous_workflow_step": "methodology-frameworks/agile-scrum/scaling-frameworks/safe/metrics_dashboard_template.md",
+      "previous_workflow_step": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/metrics_dashboard_template.md",
       "next_workflow_step": "methodology-frameworks/agile-scrum/scaling-frameworks/safe/portfolio_kanban_template.md"
     },
     {
@@ -1807,86 +1900,14 @@
       ],
       "related_assets": [
         "methodology-frameworks/agile-scrum/scaling-frameworks/safe/pi_planning_template.md",
-        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_art_coordination_template.md"
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_art_coordination_template.md"
       ],
       "complementary_assets": [
         "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_portfolio_kanban_template.md",
         "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_program_increment_planning_template.md"
       ],
       "previous_workflow_step": "methodology-frameworks/agile-scrum/scaling-frameworks/safe/pi_planning_template.md",
-      "next_workflow_step": "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_art_coordination_template.md"
-    },
-    {
-      "path": "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_art_coordination_template.md",
-      "domain": {
-        "primary": "Delivery",
-        "secondary": [
-          "Stakeholder",
-          "Uncertainty"
-        ],
-        "rationale": "Methodology-specific template guides delivery execution"
-      },
-      "prerequisites": [
-        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md"
-      ],
-      "related_assets": [
-        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/portfolio_kanban_template.md",
-        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_metrics_dashboard_template.md"
-      ],
-      "complementary_assets": [
-        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md",
-        "methodology-frameworks/agile-scrum/scaling-frameworks/less/cross_team_coordination_template.md"
-      ],
-      "previous_workflow_step": "methodology-frameworks/agile-scrum/scaling-frameworks/safe/portfolio_kanban_template.md",
-      "next_workflow_step": "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_metrics_dashboard_template.md"
-    },
-    {
-      "path": "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_metrics_dashboard_template.md",
-      "domain": {
-        "primary": "Delivery",
-        "secondary": [
-          "Stakeholder",
-          "Uncertainty"
-        ],
-        "rationale": "Methodology-specific template guides delivery execution"
-      },
-      "prerequisites": [
-        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/metrics_dashboard_template.md"
-      ],
-      "related_assets": [
-        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_art_coordination_template.md",
-        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_metrics_reporting_template.md"
-      ],
-      "complementary_assets": [
-        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/metrics_dashboard_template.md",
-        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_program_increment_planning_template.md"
-      ],
-      "previous_workflow_step": "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_art_coordination_template.md",
-      "next_workflow_step": "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_metrics_reporting_template.md"
-    },
-    {
-      "path": "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_metrics_reporting_template.md",
-      "domain": {
-        "primary": "Delivery",
-        "secondary": [
-          "Stakeholder",
-          "Uncertainty"
-        ],
-        "rationale": "Methodology-specific template guides delivery execution"
-      },
-      "prerequisites": [
-        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/metrics_dashboard_template.md"
-      ],
-      "related_assets": [
-        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_metrics_dashboard_template.md",
-        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_portfolio_kanban_template.md"
-      ],
-      "complementary_assets": [
-        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/metrics_dashboard_template.md",
-        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_art_coordination_template.md"
-      ],
-      "previous_workflow_step": "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_metrics_dashboard_template.md",
-      "next_workflow_step": "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_portfolio_kanban_template.md"
+      "next_workflow_step": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_art_coordination_template.md"
     },
     {
       "path": "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_portfolio_kanban_template.md",
@@ -1902,14 +1923,14 @@
         "methodology-frameworks/agile-scrum/scaling-frameworks/safe/portfolio_kanban_template.md"
       ],
       "related_assets": [
-        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_metrics_reporting_template.md",
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_metrics_reporting_template.md",
         "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_program_increment_planning_template.md"
       ],
       "complementary_assets": [
         "methodology-frameworks/agile-scrum/scaling-frameworks/safe/portfolio_kanban_template.md",
-        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/metrics_dashboard_template.md"
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/metrics_dashboard_template.md"
       ],
-      "previous_workflow_step": "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_metrics_reporting_template.md",
+      "previous_workflow_step": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_metrics_reporting_template.md",
       "next_workflow_step": "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_program_increment_planning_template.md"
     },
     {
@@ -1923,15 +1944,15 @@
         "rationale": "Methodology-specific template guides delivery execution"
       },
       "prerequisites": [
-        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md"
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md"
       ],
       "related_assets": [
         "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_portfolio_kanban_template.md",
         "methodology-frameworks/hybrid/infrastructure/hybrid-infrastructure-template.md"
       ],
       "complementary_assets": [
-        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md",
-        "methodology-frameworks/agile-scrum/scaling-frameworks/less/cross_team_coordination_template.md"
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md",
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/less/cross_team_coordination_template.md"
       ],
       "previous_workflow_step": "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_portfolio_kanban_template.md",
       "next_workflow_step": "methodology-frameworks/hybrid/infrastructure/hybrid-infrastructure-template.md"
@@ -2493,14 +2514,14 @@
       ],
       "related_assets": [
         "project-lifecycle/02-planning/project-management-plan/traditional-project-management-plan-template.md",
-        "role-based-toolkits/project-manager/essential-templates/timesheet-tracking-template.md"
+        "domains/delivery/role-based-toolkits/project-manager/essential-templates/timesheet-tracking-template.md"
       ],
       "complementary_assets": [
         "project-lifecycle/02-planning/project-management-plan/agile-release-plan-template.md",
         "methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md"
       ],
       "previous_workflow_step": "project-lifecycle/02-planning/project-management-plan/traditional-project-management-plan-template.md",
-      "next_workflow_step": "role-based-toolkits/project-manager/essential-templates/timesheet-tracking-template.md"
+      "next_workflow_step": "domains/delivery/role-based-toolkits/project-manager/essential-templates/timesheet-tracking-template.md"
     },
     {
       "path": "project-lifecycle/02-planning/risk-management/risk-management-plan-template.md",
@@ -2551,27 +2572,6 @@
       "next_workflow_step": "industry-specializations/financial-services/compliance/compliance-management-template.md"
     },
     {
-      "path": "role-based-toolkits/project-manager/essential-templates/timesheet-tracking-template.md",
-      "domain": {
-        "primary": "Delivery",
-        "secondary": [],
-        "rationale": "Technology template supports delivery execution"
-      },
-      "prerequisites": [
-        "industry-specializations/information-technology/software-development/api_documentation_template.md"
-      ],
-      "related_assets": [
-        "project-lifecycle/02-planning/risk-management/agile-risk-board-template.md",
-        "templates/agile/product_backlog_template.md"
-      ],
-      "complementary_assets": [
-        "industry-specializations/information-technology/software-development/api_documentation_template.md",
-        "domains/uncertainty/role-based-toolkits/product-owner/user-story-template.md"
-      ],
-      "previous_workflow_step": "project-lifecycle/02-planning/risk-management/agile-risk-board-template.md",
-      "next_workflow_step": "templates/agile/product_backlog_template.md"
-    },
-    {
       "path": "templates/agile/product_backlog_template.md",
       "domain": {
         "primary": "Delivery",
@@ -2585,14 +2585,14 @@
         "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_program_increment_planning_template.md"
       ],
       "related_assets": [
-        "role-based-toolkits/project-manager/essential-templates/timesheet-tracking-template.md",
+        "domains/delivery/role-based-toolkits/project-manager/essential-templates/timesheet-tracking-template.md",
         "templates/agile/sprint_planning_template.md"
       ],
       "complementary_assets": [
         "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_program_increment_planning_template.md",
         "domains/team/templates/agile/sprint_review_template.md"
       ],
-      "previous_workflow_step": "role-based-toolkits/project-manager/essential-templates/timesheet-tracking-template.md",
+      "previous_workflow_step": "domains/delivery/role-based-toolkits/project-manager/essential-templates/timesheet-tracking-template.md",
       "next_workflow_step": "templates/agile/sprint_planning_template.md"
     },
     {

@@ -2,7 +2,7 @@
 
 **Count:** 3 of 137
 
-- **Api Documentation Template** (`industry-specializations/information-technology/software-development/api_documentation_template.md`)
+- **Api Documentation Template** (`domains/delivery/industry-specializations/information-technology/software-development/api_documentation_template.md`)
   - Tags: technology
   - Auto-assigned: VF=activity-support, Domain=Delivery
 
@@ -10,6 +10,6 @@
   - Tags: none
   - Auto-assigned: VF=activity-support, Domain=Delivery
 
-- **Timesheet Tracking Template** (`role-based-toolkits/project-manager/essential-templates/timesheet-tracking-template.md`)
+- **Timesheet Tracking Template** (`domains/delivery/role-based-toolkits/project-manager/essential-templates/timesheet-tracking-template.md`)
   - Tags: technology
   - Auto-assigned: VF=activity-support, Domain=Delivery

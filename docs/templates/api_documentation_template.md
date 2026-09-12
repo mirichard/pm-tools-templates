@@ -15,7 +15,7 @@
 
 title: "Api Documentation Template"
 
-[**➡️ View Template File**](/industry-specializations/information-technology/software-development/api_documentation_template.md)
+[**➡️ View Template File**](/domains/delivery/industry-specializations/information-technology/software-development/api_documentation_template.md)
 
 ## 📈 Quality Score
 
