@@ -13,7 +13,8 @@ an attributable audit-trail pattern. Every unbound parameter remains a visible
 NEEDS INPUT placeholder, not an approved numeric target or compliance claim.
 
 Status: both captures and downstream byte-exact regeneration are available.
-Full live-from-source reproducibility remains unproven. The owner directed
+The owner accepted recorded-handoff regeneration as the reproducibility gate;
+live LLM output is inherently nondeterministic, even at temperature 0. The owner directed
 skipping post-generation feedback, so later aggregate reports are not captured.
-Do not describe the example as having passed every original completion gate
-until the remaining requirements are dispositioned on #1116.
+The complete accepted capture scope is the eight files per variant through NFR
+generation, with the subsequent interactive feedback loop intentionally declined.

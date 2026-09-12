@@ -27,7 +27,8 @@ Consequently the CLI's later aggregate Markdown reports were not emitted; the
 NFR Markdown, structured/UCS/test JSON and Gherkin are included as produced.
 No generated content has been manually edited.
 
-Overlay comparison and regeneration verification are pending.
+Overlay comparison and accepted handoff-regeneration verification passed, as
+detailed below. The three golden-fixture checks also run through `npm test`.
 
 ## FDA capture and controlled overlay comparison
 
@@ -63,8 +64,9 @@ It does not call or replace a provider, regenerate classifications from source,
 or copy captured output files and call that regeneration. The five remaining
 files per variant are recorded live-provider artifacts (ambiguity JSON/report,
 structured JSON, UCS JSON, classification JSON), not independently regenerated
-by this check. Thus deterministic downstream regeneration is proven, but the
-original full-source reproducibility criterion is still unproven.
+by this check. The owner accepted this scope as sufficient for Step 3e and
+Success Criterion 5: deterministic handoff regeneration plus an explicit
+limitation that live model output cannot be guaranteed identical.
 
 To make new live captures from the source (requires configured Gemini credentials):
 
@@ -82,5 +84,5 @@ Phase 3 feedback. Stop for new functional blockers. Never overwrite the committe
 captures automatically. Live model responses can differ despite temperature 0:
 these two runs already produced different warnings and assignment counts. Such
 differences require review; they are not silently stripped from comparisons.
-A repeatable live-from-source output or an explicitly agreed recorded-handoff
-reproducibility criterion is still needed for the original Step 6 gate.
+The accepted reproducibility gate is the recorded-handoff check above, not
+full live-provider determinism. Live recapture is optional, not a readiness gate.
