@@ -6,7 +6,6 @@ import subprocess
 
 root = pathlib.Path('.').resolve()
 manifest = json.loads(pathlib.Path('meta/migration-waves/b3c.json').read_text())
-source_to_dest = {a['source']: a['destination'] for a in manifest['assets']}
 
 # Restore historical archive material: migration should not rewrite archived snapshots.
 archive = pathlib.Path('docs/archive/README-20250805.md')
@@ -18,7 +17,11 @@ if archive.exists():
 test_plan = pathlib.Path('industry-specializations/information-technology/software-development/test_plan_template.md')
 if test_plan.exists():
     text = test_plan.read_text()
-    dest = source_to_dest['methodology-frameworks/agile-scrum/scaling-frameworks/safe/metrics_dashboard_template.md']
+    dest = next(
+        asset['destination']
+        for asset in manifest['assets']
+        if asset['destination'].endswith('/safe/metrics_dashboard_template.md')
+    )
     rel = os.path.relpath(dest, start=str(test_plan.parent)).replace(os.sep, '/')
     text = re.sub(
         r'(\]\()[^)]*metrics_dashboard_template\.md(\))',
@@ -52,7 +55,7 @@ for link_name, target in links.items():
     relative_target = os.path.relpath(target, start=str(link.parent)).replace(os.sep, '/')
     link.symlink_to(relative_target)
 
-for link_name, target in links.items():
+for link_name in links:
     link = pathlib.Path(link_name)
     if not link.is_symlink() or not link.exists():
         raise SystemExit(f'broken compatibility symlink: {link_name} -> {os.readlink(link)}')
