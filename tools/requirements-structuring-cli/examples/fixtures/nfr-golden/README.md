@@ -46,3 +46,41 @@ with FDA framework provenance. Core patterns are retained, not overridden.
 The target, scope, system and conditions remain explicit NEEDS INPUT bindings.
 Library measurement guidance is not a supplied project threshold or a compliance
 claim. All 292 FDA bindings remain placeholders.
+
+## Regeneration and its limits
+
+From `tools/requirements-structuring-cli`, run:
+
+```sh
+node examples/fixtures/nfr-golden/verify-regeneration.cjs
+```
+
+This makes fresh temporary output directories, invokes the unchanged test,
+Gherkin and NFR renderers on the recorded UCS/classification handoffs, and
+compares all six derived files byte-for-byte with the captures. All six passed.
+It also verifies that every candidate binding remains an explicit placeholder.
+It does not call or replace a provider, regenerate classifications from source,
+or copy captured output files and call that regeneration. The five remaining
+files per variant are recorded live-provider artifacts (ambiguity JSON/report,
+structured JSON, UCS JSON, classification JSON), not independently regenerated
+by this check. Thus deterministic downstream regeneration is proven, but the
+original full-source reproducibility criterion is still unproven.
+
+To make new live captures from the source (requires configured Gemini credentials):
+
+```sh
+capture_root=$(mktemp -d /tmp/nfr-golden-live-XXXXXX)
+export SAVE_LLM_TRACES=false LLM_TEMPERATURE_STRUCTURE=0 LLM_TEMPERATURE_CREATIVE=0
+node src/index.js pipeline examples/fixtures/nfr-golden/password-reset-input.md --provider gemini --model gemini-2.5-flash -o "$capture_root/neutral"
+node src/index.js pipeline examples/fixtures/nfr-golden/password-reset-input.md --provider gemini --model gemini-2.5-flash --profile fda-21-cfr-11 -o "$capture_root/fda-21-cfr-11"
+diff -ru examples/fixtures/nfr-golden/neutral "$capture_root/neutral"
+diff -ru examples/fixtures/nfr-golden/fda-21-cfr-11 "$capture_root/fda-21-cfr-11"
+```
+
+Accept the approved UI-only warning gate if presented, accept Phase 2, and decline
+Phase 3 feedback. Stop for new functional blockers. Never overwrite the committed
+captures automatically. Live model responses can differ despite temperature 0:
+these two runs already produced different warnings and assignment counts. Such
+differences require review; they are not silently stripped from comparisons.
+A repeatable live-from-source output or an explicitly agreed recorded-handoff
+reproducibility criterion is still needed for the original Step 6 gate.
