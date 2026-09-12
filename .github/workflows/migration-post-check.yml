@@ -1,0 +1,66 @@
+name: Migration Post-Check
+
+on:
+  pull_request:
+    paths:
+      - 'meta/migration-inventory.json'
+      - 'meta/migration-reference-policy.json'
+      - 'meta/needs-review.md'
+      - 'meta/migration-waves/**'
+      - 'scripts/migration-post-check.mjs'
+      - 'tests/migration-post-check.test.mjs'
+      - 'domains/**'
+      - 'industry-specializations/**'
+      - 'methodology-frameworks/**'
+      - 'role-based-toolkits/**'
+      - 'templates/**'
+      - 'TEMPLATE_INDEX.md'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: read
+  pull-requests: read
+
+jobs:
+  migration-post-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '20'
+
+      - name: Regression tests
+        run: npm run test:migration-post-check
+
+      - name: Repository migration post-check
+        run: npm run validate:migration-post-check
+
+      - name: Keep migration parent issue open while moves remain
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          remaining=$(node -e "const i=require('./meta/migration-inventory.json'); console.log(i.moves.filter(m=>m.action==='planned-move-not-executed').length)")
+          if [ "$remaining" -gt 0 ]; then
+            state=$(gh issue view 1057 --repo "$GITHUB_REPOSITORY" --json state --jq .state)
+            test "$state" = "OPEN" || { echo "#1057 must remain open while $remaining moves remain"; exit 1; }
+          fi
+
+      - name: Reject unresolved review threads at merge boundary
+        if: github.event_name == 'pull_request'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+        run: |
+          set -euo pipefail
+          unresolved=$(gh api graphql -f query='query($owner:String!,$name:String!,$number:Int!){repository(owner:$owner,name:$name){pullRequest(number:$number){reviewThreads(first:100){nodes{isResolved}}}}}' \
+            -f owner='${{ github.repository_owner }}' \
+            -f name='${{ github.event.repository.name }}' \
+            -F number="$PR_NUMBER" \
+            --jq '[.data.repository.pullRequest.reviewThreads.nodes[] | select(.isResolved == false)] | length')
+          test "$unresolved" -eq 0 || { echo "$unresolved unresolved review thread(s) remain"; exit 1; }
