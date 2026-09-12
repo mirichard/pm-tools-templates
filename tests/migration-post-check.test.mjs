@@ -62,6 +62,12 @@ test('rejects a maintained reference that still uses an executed legacy path', t
   assert.match(validatePostMigrationState({ root, inventory }).join('\n'), /maintained reference still uses migrated legacy path legacy\/a\.md/);
 });
 
+test('rejects a maintained reference through multiple parent-directory segments', t => {
+  const { root, inventory } = fixture(t);
+  fs.writeFileSync(path.join(root, 'docs/current.md'), '[A](../../legacy/a.md)\n');
+  assert.match(validatePostMigrationState({ root, inventory }).join('\n'), /maintained reference still uses migrated legacy path legacy\/a\.md/);
+});
+
 test('does not treat a legacy path suffix inside a canonical path as a stale reference', t => {
   const { root, inventory } = fixture(t);
   fs.writeFileSync(path.join(root, 'docs/current.md'), '[A](../domains/delivery/legacy/a.md)\n');
