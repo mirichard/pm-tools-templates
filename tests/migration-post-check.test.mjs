@@ -68,6 +68,12 @@ test('rejects a maintained reference through multiple parent-directory segments'
   assert.match(validatePostMigrationState({ root, inventory }).join('\n'), /maintained reference still uses migrated legacy path legacy\/a\.md/);
 });
 
+test('scans maintained text files without relying on an extension allowlist', t => {
+  const { root, inventory } = fixture(t);
+  fs.writeFileSync(path.join(root, 'docs/current.tsx'), 'export const href = "../legacy/a.md";\n');
+  assert.match(validatePostMigrationState({ root, inventory }).join('\n'), /docs\/current\.tsx: maintained reference still uses migrated legacy path/);
+});
+
 test('does not treat a legacy path suffix inside a canonical path as a stale reference', t => {
   const { root, inventory } = fixture(t);
   fs.writeFileSync(path.join(root, 'docs/current.md'), '[A](../domains/delivery/legacy/a.md)\n');
@@ -101,10 +107,19 @@ test('detects a stale generated needs-review path when listed as affected', t =>
   assert.ok(errors.some(error => error.includes('meta/needs-review.md')));
 });
 
-test('rejects missing affected-reference files', t => {
+test('rejects missing affected-reference files for executed moves', t => {
   const { root, inventory } = fixture(t);
   inventory.moves[0].affected_internal_references.push('docs/missing.md');
   assert.match(validatePostMigrationState({ root, inventory }).join('\n'), /affected reference file is missing/);
+});
+
+test('rejects missing source and affected-reference files for planned moves', t => {
+  const { root, inventory } = fixture(t);
+  fs.unlinkSync(path.join(root, 'legacy/b.md'));
+  inventory.moves[1].affected_internal_references.push('docs/planned-missing.md');
+  const errors = validatePostMigrationState({ root, inventory }).join('\n');
+  assert.match(errors, /legacy\/b\.md: migration source file is missing/);
+  assert.match(errors, /docs\/planned-missing\.md: affected reference file is missing/);
 });
 
 test('scans HTML affected-reference files', t => {
@@ -120,11 +135,29 @@ test('rejects unsupported migration actions', t => {
   assert.match(validatePostMigrationState({ root, inventory }).join('\n'), /unsupported migration action/);
 });
 
-test('permits legacy source only as catalog alternate path for its canonical destination', t => {
+test('allows catalog alternate compatibility but rejects a stale nested catalog path', t => {
   const { root, inventory } = fixture(t);
   const catalogPath = path.join(root, 'templates/templates.json');
   const catalog = JSON.parse(fs.readFileSync(catalogPath, 'utf8'));
   catalog.templates[0].relatedTemplates[0].path = 'legacy/a.md';
   fs.writeFileSync(catalogPath, JSON.stringify(catalog, null, 2));
   assert.match(validatePostMigrationState({ root, inventory }).join('\n'), /relatedTemplates.*still uses migrated legacy path/);
+});
+
+test('rejects a missing template catalog', t => {
+  const { root, inventory } = fixture(t);
+  fs.unlinkSync(path.join(root, 'templates/templates.json'));
+  assert.match(validatePostMigrationState({ root, inventory }).join('\n'), /required template catalog is missing/);
+});
+
+test('rejects a malformed template catalog without a templates array', t => {
+  const { root, inventory } = fixture(t);
+  fs.writeFileSync(path.join(root, 'templates/templates.json'), '{}\n');
+  assert.match(validatePostMigrationState({ root, inventory }).join('\n'), /templates must be an array/);
+});
+
+test('rejects a catalog that omits an executed canonical destination', t => {
+  const { root, inventory } = fixture(t);
+  fs.writeFileSync(path.join(root, 'templates/templates.json'), JSON.stringify({ templates: [] }, null, 2));
+  assert.match(validatePostMigrationState({ root, inventory }).join('\n'), /canonical destination domains\/delivery\/a\.md is missing/);
 });
