@@ -1,0 +1,31 @@
+name: B3C Entry Validation Temporary
+
+on:
+  push:
+    branches:
+      - feat/b3c-delivery-wave
+
+permissions:
+  contents: read
+
+jobs:
+  validate-entry:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout exact branch state
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Validate B3C entry state
+        run: |
+          set -euxo pipefail
+          node scripts/validate-migration-wave.mjs --manifest meta/migration-waves/b3c.json
+          node scripts/migration-post-check.mjs
+          node scripts/generate-sprint-10-metadata.mjs
+          git diff --exit-code -- meta templates TEMPLATE_INDEX.md
+          node scripts/validate-sprint-10.mjs --require-annotations
+          node scripts/validate-curated-templates.js
+          node scripts/validate-canonical-paths.js --strict
+          python3 scripts/check_migration_links.py --manifest meta/migration-waves/b3c.json
+          node --test tests/migration-wave.test.mjs
+          node --test tests/migration-post-check.test.mjs
