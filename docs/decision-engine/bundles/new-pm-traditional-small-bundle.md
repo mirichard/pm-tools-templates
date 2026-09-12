@@ -15,7 +15,7 @@
 | # | Template | Purpose | Setup Time |
 |---|----------|---------|------------|
 | 1 | [Project Charter](../../../domains/planning/templates/traditional/Traditional/Process_Groups/Initiating/project_charter_template.md) | Formally authorize the project and define scope | ~45 min |
-| 2 | [Stakeholder Register](../../../project-lifecycle/01-initiation/stakeholder-analysis/stakeholder-register-template.md) | Identify and track all project stakeholders | ~30 min |
+| 2 | [Stakeholder Register](../../../domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/stakeholder-register-template.md) | Identify and track all project stakeholders | ~30 min |
 | 3 | [Communication Plan](../../../templates/traditional/Traditional/Templates/communication_plan_template.md) | Define who gets what information, when, and how | ~30 min |
 
 ### Recommended (add during planning)
