@@ -28,3 +28,21 @@ NFR Markdown, structured/UCS/test JSON and Gherkin are included as produced.
 No generated content has been manually edited.
 
 Overlay comparison and regeneration verification are pending.
+
+## FDA capture and controlled overlay comparison
+
+`fda-21-cfr-11/` preserves the eight artifacts of the second real pipeline run
+with `--profile fda-21-cfr-11`. Phase 0 had zero blockers and five owner-approved
+UI-only warnings; the warning gate was accepted and post-generation feedback
+was declined. Both runs cover the same eight characteristics; Safety is absent.
+FDA produced 72 assignments, 73 candidates and 292 placeholder bindings,
+versus neutral's 75 assignments, 75 candidates and 300 bindings.
+
+The differing assignment counts are live model variation, not overlay removal.
+Rendering the FDA classification handoff with and without the overlay isolates
+one addition: `fda-21-cfr-11.accountability` for `/basicFlow/steps/0`.
+It adds a time-stamped, attributable record-change audit-trail coverage statement
+with FDA framework provenance. Core patterns are retained, not overridden.
+The target, scope, system and conditions remain explicit NEEDS INPUT bindings.
+Library measurement guidance is not a supplied project threshold or a compliance
+claim. All 292 FDA bindings remain placeholders.
