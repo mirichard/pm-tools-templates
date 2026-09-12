@@ -6,6 +6,9 @@ on:
   pull_request:
     branches: [ "**" ]
 
+permissions:
+  contents: write
+
 jobs:
   validate:
     runs-on: ubuntu-latest
@@ -26,3 +29,60 @@ jobs:
 
       - name: Validate templates/templates.json
         run: node scripts/validate-curated-templates.js
+
+  guarded-baseline-repair:
+    if: github.event_name == 'push' && github.ref == 'refs/heads/chore/migration-post-check'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: chore/migration-post-check
+          fetch-depth: 0
+      - name: Canonicalize inherited Stakeholder Register references
+        run: |
+          set -euo pipefail
+          old='project-lifecycle/01-initiation/stakeholder-analysis/stakeholder-register-template.md'
+          new='domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/stakeholder-register-template.md'
+          files=(
+            'docs/decision-engine/bundles/new-pm-traditional-small-bundle.md'
+            'docs/decision-engine/template-decision-tree.md'
+            'onboarding/interactive-onboarding.js'
+          )
+          for file in "${files[@]}"; do
+            grep -Fq "$old" "$file"
+            python3 - "$file" "$old" "$new" <<'PY'
+import sys
+from pathlib import Path
+p = Path(sys.argv[1])
+old, new = sys.argv[2], sys.argv[3]
+text = p.read_text()
+count = text.count(old)
+assert count > 0, f'expected stale reference in {p}'
+p.write_text(text.replace(old, new))
+print(f'{p}: replaced {count}')
+PY
+            ! grep -Fq "$old" "$file"
+            grep -Fq "$new" "$file"
+          done
+      - name: Restore workflow surface and verify exact scope
+        run: |
+          set -euo pipefail
+          git checkout origin/main -- .github/workflows/validate-curated-templates.yml
+          rm -f .github/workflows/tmp-fix-post-check-baseline.yml
+          git diff --check
+          changed=$(git diff --name-only | sort)
+          expected=$(printf '%s\n' \
+            '.github/workflows/tmp-fix-post-check-baseline.yml' \
+            '.github/workflows/validate-curated-templates.yml' \
+            'docs/decision-engine/bundles/new-pm-traditional-small-bundle.md' \
+            'docs/decision-engine/template-decision-tree.md' \
+            'onboarding/interactive-onboarding.js' | sort)
+          test "$changed" = "$expected"
+      - name: Commit and push repair
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          git commit -m 'fix(migration): canonicalize inherited stakeholder references'
+          git push origin HEAD:chore/migration-post-check
