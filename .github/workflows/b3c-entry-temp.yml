@@ -4,14 +4,12 @@ on:
   push:
     branches:
       - feat/b3c-delivery-wave
-    paths:
-      - .github/workflows/b3c-entry-temp.yml
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
-  refresh-generated-metadata:
+  export-generated-metadata:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout exact branch state
@@ -22,12 +20,13 @@ jobs:
         run: |
           set -euxo pipefail
           node scripts/generate-sprint-10-metadata.mjs
-          changed="$(git diff --name-only)"
-          printf '%s\n' "$changed"
-          test "$changed" = "meta/cross-references.json
-meta/migration-inventory.json"
-          git config user.name github-actions[bot]
-          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
-          git add meta/cross-references.json meta/migration-inventory.json
-          git commit -m "chore: commit regenerated migration metadata"
-          git push
+          git diff --name-only -- meta/cross-references.json meta/migration-inventory.json
+      - name: Upload regenerated metadata
+        uses: actions/upload-artifact@v4
+        with:
+          name: b3c-generated-metadata
+          path: |
+            meta/cross-references.json
+            meta/migration-inventory.json
+          if-no-files-found: error
+          retention-days: 1
