@@ -21,6 +21,7 @@ jobs:
         with:
           fetch-depth: 0
           ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          persist-credentials: false
 
       - uses: actions/setup-node@v6
         with:
@@ -28,6 +29,9 @@ jobs:
 
       - name: Regression tests
         run: npm run test:migration-post-check
+
+      - name: Authoritative migration inventory validation
+        run: node scripts/validate-sprint-10.mjs --require-annotations
 
       - name: Repository migration post-check
         run: npm run validate:migration-post-check
