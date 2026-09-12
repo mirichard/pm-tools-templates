@@ -146,7 +146,7 @@ Use your answers to find the matching recommendation set below. Start with your 
 
 **Start with these:**
 1. [Project Charter Template](../../domains/planning/templates/traditional/Traditional/Process_Groups/Initiating/project_charter_template.md)
-2. [Stakeholder Register Template](../../project-lifecycle/01-initiation/stakeholder-analysis/stakeholder-register-template.md)
+2. [Stakeholder Register Template](../../domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/stakeholder-register-template.md)
 3. [Communication Plan Template](../../templates/traditional/Traditional/Templates/communication_plan_template.md)
 
 **If medium risk, also add:**
@@ -307,7 +307,7 @@ Regardless of methodology, add these templates based on your **current phase** (
 
 | Phase | Add These Templates |
 |-------|-------------------|
-| **Just starting** | [Stakeholder Register](../../project-lifecycle/01-initiation/stakeholder-analysis/stakeholder-register-template.md), [Business Case Template](../../domains/planning/templates/traditional/Traditional/Templates/business_case_template.md) |
+| **Just starting** | [Stakeholder Register](../../domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/stakeholder-register-template.md), [Business Case Template](../../domains/planning/templates/traditional/Traditional/Templates/business_case_template.md) |
 | **Planning** | [Skills Matrix](../../domains/team/project-lifecycle/02-planning/resource-planning/skills-matrix-template.md), [Team Charter](../../domains/team/project-lifecycle/02-planning/resource-planning/team-charter-template.md) |
 | **In progress** | [Issue Log](../../templates/traditional/Traditional/Templates/issue_log_template.md), [Change Request Template](../../templates/traditional/Traditional/Templates/change_request_template.md) |
 | **Closing** | [Project Closure Report](../../templates/traditional/Traditional/Process_Groups/Closing/project_closure_report_template.md), [Handover Template](../../role-based-toolkits/project-manager/essential-templates/handover-template.md) |

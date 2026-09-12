@@ -1,0 +1,65 @@
+name: Migration Post-Check
+
+on:
+  pull_request:
+  pull_request_review:
+    types: [submitted, edited, dismissed]
+  pull_request_review_comment:
+    types: [created, edited, deleted]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: read
+  pull-requests: read
+
+jobs:
+  migration-post-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          persist-credentials: false
+
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '20'
+
+      - name: Regression tests
+        run: npm run test:migration-post-check
+
+      - name: Authoritative migration inventory validation
+        run: node scripts/validate-sprint-10.mjs --require-annotations
+
+      - name: Repository migration post-check
+        run: npm run validate:migration-post-check
+
+      - name: Keep migration parent issue open while moves remain
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          remaining=$(node -e "const i=require('./meta/migration-inventory.json'); console.log(i.moves.filter(m=>m.action==='planned-move-not-executed').length)")
+          if [ "$remaining" -gt 0 ]; then
+            state=$(gh issue view 1057 --repo "$GITHUB_REPOSITORY" --json state --jq .state)
+            test "$state" = "OPEN" || { echo "#1057 must remain open while $remaining moves remain"; exit 1; }
+          fi
+
+      - name: Reject unresolved review threads at merge boundary
+        if: github.event_name != 'workflow_dispatch'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+        run: |
+          set -euo pipefail
+          gh api graphql --paginate --slurp \
+            -f query='query($owner:String!,$name:String!,$number:Int!,$endCursor:String){repository(owner:$owner,name:$name){pullRequest(number:$number){reviewThreads(first:100,after:$endCursor){nodes{isResolved}pageInfo{hasNextPage endCursor}}}}}' \
+            -f owner='${{ github.repository_owner }}' \
+            -f name='${{ github.event.repository.name }}' \
+            -F number="$PR_NUMBER" \
+            > /tmp/review-threads.json
+          unresolved=$(jq '[.[] | .data.repository.pullRequest.reviewThreads.nodes[] | select(.isResolved == false)] | length' /tmp/review-threads.json)
+          [[ "$unresolved" =~ ^[0-9]+$ ]] || { echo "Unable to determine unresolved review-thread count: $unresolved"; exit 1; }
+          test "$unresolved" -eq 0 || { echo "$unresolved unresolved review thread(s) remain"; exit 1; }

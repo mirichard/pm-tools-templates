@@ -21,8 +21,10 @@
     "template-selector": "node scripts/template-selector.mjs",
     "test:webhook": "node --experimental-vm-modules ./node_modules/jest/bin/jest.js --config integrations/webhook-framework/jest.config.webhook.js --runInBand --testMatch \"**/integrations/webhook-framework/tests/**/*.test.js\"",
     "test:migration-wave": "node --test tests/migration-wave.test.mjs",
+    "test:migration-post-check": "node --test tests/migration-post-check.test.mjs",
     "plan:migration-wave": "node scripts/plan-migration-wave.mjs",
-    "validate:migration-wave": "node scripts/validate-migration-wave.mjs"
+    "validate:migration-wave": "node scripts/validate-migration-wave.mjs",
+    "validate:migration-post-check": "node scripts/migration-post-check.mjs"
   },
   "keywords": [
     "project-management",
