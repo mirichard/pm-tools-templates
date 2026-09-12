@@ -22,6 +22,20 @@ intentional_files = set(policy.get('intentional_exact_files', []))
 def historical_or_intentional(rel: str) -> bool:
     return rel in intentional_files or rel.startswith(historical_prefixes)
 
+def canonicalize_text(text: str) -> str:
+    """Replace B3C legacy paths once while protecting already-canonical paths."""
+    protected = {}
+    for index, destination in enumerate(mapping.values()):
+        token = f'__B3C_CANONICAL_PATH_{index}__'
+        if destination in text:
+            text = text.replace(destination, token)
+            protected[token] = destination
+    for source, destination in mapping.items():
+        text = text.replace(source, destination)
+    for token, destination in protected.items():
+        text = text.replace(token, destination)
+    return text
+
 # Guard immutable source state before touching the tree.
 for asset in assets:
     src = root / asset['source']
@@ -83,13 +97,15 @@ def replace_nested_paths(obj):
 replace_nested_paths(catalog)
 catalog_path.write_text(json.dumps(catalog, indent=2) + '\n')
 
-# Canonicalize current structured metadata without reformatting unrelated records.
-for relative in ['meta/domain-mapping.json', 'meta/cross-references.json', 'meta/value-flow-mapping.json']:
+# Canonicalize current structured metadata exactly once.
+structured_files = {
+    'meta/domain-mapping.json',
+    'meta/cross-references.json',
+    'meta/value-flow-mapping.json',
+}
+for relative in structured_files:
     path = root / relative
-    text = path.read_text()
-    for old, new in mapping.items():
-        text = text.replace(f'"{old}"', f'"{new}"')
-    path.write_text(text)
+    path.write_text(canonicalize_text(path.read_text()))
 
 # Transition migration inventory and globally canonicalize dependency edges to this wave.
 inv_path = root / 'meta/migration-inventory.json'
@@ -130,43 +146,45 @@ inv_path.write_text(json.dumps(inv, indent=2) + '\n')
 # records retain source identity by policy; canonical bodies remain byte-preserved.
 selected_bodies = set(mapping.values())
 selected_sources = set(mapping)
+already_structured = structured_files | {
+    'templates/templates.json',
+    'meta/migration-inventory.json',
+    'meta/migration-waves/b3c.json',
+}
+maintained_files = set()
 for record in inv['moves']:
     if record.get('source') not in selected:
         continue
     for relative in record.get('affected_internal_references', []):
         relative = relative.replace('\\', '/')
-        if historical_or_intentional(relative) or relative in selected_bodies or relative in selected_sources:
+        if (
+            historical_or_intentional(relative)
+            or relative in selected_bodies
+            or relative in selected_sources
+            or relative in already_structured
+        ):
             continue
-        path = root / relative
-        if not path.is_file():
-            continue
-        try:
-            text = path.read_text()
-        except UnicodeDecodeError:
-            continue
-        changed = text
-        for old, new in mapping.items():
-            changed = changed.replace(old, new)
-        if changed != text:
-            path.write_text(changed)
+        maintained_files.add(relative)
 
-# Preserve the standard maintained discovery surfaces used by prior waves.
-for relative in ['TEMPLATE_INDEX.md']:
-    path = root / relative
-    text = path.read_text()
-    for old, new in mapping.items():
-        text = text.replace(old, new)
-    path.write_text(text)
+# Preserve the standard maintained discovery surfaces used by prior waves, but process each
+# file at most once so canonicalization is idempotent.
+maintained_files.add('TEMPLATE_INDEX.md')
 for base in [root / 'docs/decision-engine', root / 'docs/templates']:
-    if not base.exists():
+    if base.exists():
+        for path in base.rglob('*.md'):
+            maintained_files.add(path.relative_to(root).as_posix())
+
+for relative in sorted(maintained_files):
+    path = root / relative
+    if not path.is_file():
         continue
-    for path in base.rglob('*.md'):
+    try:
         text = path.read_text()
-        changed = text
-        for old, new in mapping.items():
-            changed = changed.replace(old, new)
-        if changed != text:
-            path.write_text(changed)
+    except UnicodeDecodeError:
+        continue
+    changed = canonicalize_text(text)
+    if changed != text:
+        path.write_text(changed)
 
 manifest['phase'] = 'executed'
 manifest_path.write_text(json.dumps(manifest, indent=2) + '\n')
