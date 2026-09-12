@@ -1,6 +1,5 @@
 name: Temporary Post-Check Baseline Repair
 
-# Second push intentionally triggers this branch-local helper after workflow registration.
 on:
   push:
     branches:
@@ -31,17 +30,7 @@ jobs:
           )
           for file in "${files[@]}"; do
             grep -Fq "$old" "$file"
-            python3 - "$file" "$old" "$new" <<'PY'
-import sys
-from pathlib import Path
-p = Path(sys.argv[1])
-old, new = sys.argv[2], sys.argv[3]
-text = p.read_text()
-count = text.count(old)
-assert count > 0, f'expected stale reference in {p}'
-p.write_text(text.replace(old, new))
-print(f'{p}: replaced {count}')
-PY
+            python3 -c "from pathlib import Path; import sys; p=Path(sys.argv[1]); old=sys.argv[2]; new=sys.argv[3]; text=p.read_text(); count=text.count(old); assert count > 0, f'expected stale reference in {p}'; p.write_text(text.replace(old,new)); print(f'{p}: replaced {count}')" "$file" "$old" "$new"
             ! grep -Fq "$old" "$file"
             grep -Fq "$new" "$file"
           done
@@ -50,7 +39,6 @@ PY
           set -euo pipefail
           rm .github/workflows/tmp-fix-post-check-baseline.yml
           git diff --check
-          git status --short
           changed=$(git diff --name-only | sort)
           expected=$(printf '%s\n' \
             '.github/workflows/tmp-fix-post-check-baseline.yml' \
