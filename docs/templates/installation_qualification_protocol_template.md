@@ -15,7 +15,7 @@
 
 title: "Installation Qualification Protocol Template"
 
-[**➡️ View Template File**](/industry-specializations/healthcare-pharmaceutical/validation/installation_qualification_protocol_template.md)
+[**➡️ View Template File**](/domains/delivery/industry-specializations/healthcare-pharmaceutical/validation/installation_qualification_protocol_template.md)
 
 ## 📈 Quality Score
 

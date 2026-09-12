@@ -322,7 +322,7 @@
       }
     },
     {
-      "path": "industry-specializations/healthcare-pharmaceutical/validation/cleaning_validation_protocol_template.md",
+      "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/validation/cleaning_validation_protocol_template.md",
       "title": "Cleaning Validation Protocol Template",
       "methodology": "universal",
       "domain": {
@@ -387,7 +387,7 @@
       }
     },
     {
-      "path": "industry-specializations/healthcare-pharmaceutical/regulatory/compliance_risk_assessment_template.md",
+      "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/regulatory/compliance_risk_assessment_template.md",
       "title": "Compliance Risk Assessment Template",
       "methodology": "universal",
       "domain": {
@@ -737,7 +737,7 @@
       }
     },
     {
-      "path": "industry-specializations/healthcare-pharmaceutical/regulatory/health_authority_communication_plan_template.md",
+      "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/regulatory/health_authority_communication_plan_template.md",
       "title": "Health Authority Communication Plan Template",
       "methodology": "universal",
       "domain": {
@@ -918,7 +918,7 @@
       }
     },
     {
-      "path": "industry-specializations/healthcare-pharmaceutical/validation/installation_qualification_protocol_template.md",
+      "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/validation/installation_qualification_protocol_template.md",
       "title": "Installation Qualification Protocol Template",
       "methodology": "universal",
       "domain": {
@@ -1099,7 +1099,7 @@
       }
     },
     {
-      "path": "industry-specializations/healthcare-pharmaceutical/validation/operational_qualification_protocol_template.md",
+      "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/validation/operational_qualification_protocol_template.md",
       "title": "Operational Qualification Protocol Template",
       "methodology": "universal",
       "domain": {
@@ -1130,7 +1130,7 @@
       }
     },
     {
-      "path": "industry-specializations/healthcare-pharmaceutical/validation/performance_qualification_protocol_template.md",
+      "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/validation/performance_qualification_protocol_template.md",
       "title": "Performance Qualification Protocol Template",
       "methodology": "universal",
       "domain": {
@@ -1194,7 +1194,7 @@
       }
     },
     {
-      "path": "industry-specializations/information-technology/service-management/problem_management_process_template.md",
+      "path": "domains/delivery/industry-specializations/information-technology/service-management/problem_management_process_template.md",
       "title": "Problem Management Process Template",
       "methodology": "universal",
       "domain": {
@@ -1257,7 +1257,7 @@
       }
     },
     {
-      "path": "industry-specializations/healthcare-pharmaceutical/regulatory/process_validation_protocol_template.md",
+      "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/regulatory/process_validation_protocol_template.md",
       "title": "Process Validation Protocol Template",
       "methodology": "universal",
       "domain": {
@@ -1569,7 +1569,7 @@
       }
     },
     {
-      "path": "industry-specializations/healthcare-pharmaceutical/regulatory/regulatory_inspection_readiness_plan_template.md",
+      "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/regulatory/regulatory_inspection_readiness_plan_template.md",
       "title": "Regulatory Inspection Readiness Plan Template",
       "methodology": "universal",
       "domain": {
@@ -1585,7 +1585,7 @@
       }
     },
     {
-      "path": "industry-specializations/healthcare-pharmaceutical/regulatory/regulatory_strategy_plan_template.md",
+      "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/regulatory/regulatory_strategy_plan_template.md",
       "title": "Regulatory Strategy Plan Template",
       "methodology": "universal",
       "domain": {
@@ -1885,7 +1885,7 @@
       }
     },
     {
-      "path": "industry-specializations/healthcare-pharmaceutical/validation/software_requirements_specification_template.md",
+      "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/validation/software_requirements_specification_template.md",
       "title": "Software Requirements Specification Template",
       "methodology": "universal",
       "domain": {
