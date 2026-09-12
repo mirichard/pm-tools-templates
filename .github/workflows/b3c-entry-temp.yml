@@ -10,7 +10,7 @@ permissions:
 
 jobs:
   refresh-generated-metadata:
-    if: ${{ !contains(github.event.head_commit.message, 'chore: commit regenerated migration metadata') }}
+    if: "${{ !contains(github.event.head_commit.message, 'chore: commit regenerated migration metadata') }}"
     runs-on: ubuntu-latest
     steps:
       - name: Checkout exact branch state
