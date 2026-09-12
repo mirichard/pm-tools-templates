@@ -9,24 +9,26 @@ permissions:
   contents: read
 
 jobs:
-  export-generated-metadata:
+  validate-entry:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout exact branch state
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      - name: Regenerate migration metadata
+      - name: Install dependencies
+        run: npm ci
+      - name: Validate B3C entry state
         run: |
           set -euxo pipefail
+          node scripts/validate-migration-wave.mjs --manifest meta/migration-waves/b3c.json
+          node scripts/migration-post-check.mjs
           node scripts/generate-sprint-10-metadata.mjs
-          git diff --name-only -- meta/cross-references.json meta/migration-inventory.json
-      - name: Upload regenerated metadata
-        uses: actions/upload-artifact@v4
-        with:
-          name: b3c-generated-metadata
-          path: |
-            meta/cross-references.json
-            meta/migration-inventory.json
-          if-no-files-found: error
-          retention-days: 1
+          git diff --exit-code -- meta/cross-references.json meta/migration-inventory.json
+          node scripts/validate-sprint-10.mjs --require-annotations
+          node scripts/validate-curated-templates.js
+          node scripts/validate-canonical-paths.js --strict
+          python3 scripts/check_migration_links.py --manifest meta/migration-waves/b3c.json
+          node --test tests/migration-wave.test.mjs
+          node --test tests/migration-post-check.test.mjs
+          npm run test:ci
