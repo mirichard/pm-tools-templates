@@ -22,6 +22,7 @@ class UCSStep {
   constructor(params) {
     this.stepId = params.stepId;
     this.sourceRequirementId = params.sourceRequirementId;
+    this.sourceText = params.sourceText;
     this.actor = params.actor;
     this.action = params.action;
     this.businessObject = params.businessObject;
@@ -43,6 +44,7 @@ class UCSStep {
       action: this.action,
       businessObject: this.businessObject,
     };
+    if (this.sourceText !== undefined) result.sourceText = this.sourceText;
     if (this.sourceRequirementId !== undefined) result.sourceRequirementId = this.sourceRequirementId;
     if (this.toActor) result.toActor = this.toActor;
     if (this.precondition) result.precondition = this.precondition;

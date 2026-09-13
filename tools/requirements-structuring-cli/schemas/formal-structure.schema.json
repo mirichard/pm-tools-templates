@@ -4,11 +4,7 @@
   "title": "Requirement Specification Structure",
   "description": "JSON representation of the formal structure from Li & Zheng (2025), Equation 1: <Pre-conditions [Previous Step]; Actor; Action; Business Objects; [To actor]; [Post-conditions]>",
   "type": "object",
-  "required": [
-    "useCaseId",
-    "useCaseName",
-    "steps"
-  ],
+  "required": ["useCaseId", "useCaseName", "steps"],
   "properties": {
     "useCaseId": {
       "type": "string",
@@ -57,13 +53,16 @@
     "structuredStep": {
       "type": "object",
       "description": "A single requirement normalized into the formal structure (Eq. 1)",
-      "required": [
-        "stepId",
-        "actor",
-        "action",
-        "businessObject"
-      ],
+      "required": ["stepId", "actor", "action", "businessObject"],
       "properties": {
+        "sourceRequirementId": {
+          "type": "string",
+          "description": "Originating parser requirement ID; optional for legacy artifacts."
+        },
+        "sourceText": {
+          "type": "string",
+          "description": "Exact original source line reattached by code; optional for legacy artifacts."
+        },
         "stepId": {
           "type": "string",
           "description": "Step identifier (e.g., '1', '3a1')"
@@ -102,11 +101,7 @@
         },
         "flowType": {
           "type": "string",
-          "enum": [
-            "basic",
-            "alternative",
-            "exception"
-          ],
+          "enum": ["basic", "alternative", "exception"],
           "description": "Which flow this step belongs to"
         },
         "deviationPoint": {
@@ -116,10 +111,6 @@
         "rejoinPoint": {
           "type": "string",
           "description": "For alternative/exception steps: the basic flow step to rejoin after this flow completes"
-        },
-        "sourceRequirementId": {
-          "type": "string",
-          "description": "Originating parser requirement ID; optional for legacy artifacts."
         }
       }
     }

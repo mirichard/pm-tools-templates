@@ -255,7 +255,7 @@ program
         terminalLog(chalk.red(`\n✗ ${results.totalViolations} violation(s) found — review and correct the UCS`));
       }
     } catch (err) {
-      terminalError(chalk.red(`Error: ${sanitizeErrorPayload(err && err.message ? err.message : String(err))}`));
+      terminalError(chalk.red(`Error: ${sanitizeErrorPayload(err && err.message ? err.message : String(err)).message || 'Unknown error'}`));
       process.exit(1);
     }
   });
@@ -287,7 +287,7 @@ program
         terminalLog(chalk.green(`\n✓ Refined UCS saved to ${safeOutputPath}`));
       }
     } catch (err) {
-      terminalError(chalk.red(`Error: ${sanitizeErrorPayload(err && err.message ? err.message : String(err))}`));
+      terminalError(chalk.red(`Error: ${sanitizeErrorPayload(err && err.message ? err.message : String(err)).message || 'Unknown error'}`));
       process.exit(1);
     }
   });

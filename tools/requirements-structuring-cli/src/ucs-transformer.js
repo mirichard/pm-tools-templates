@@ -11,6 +11,7 @@
  */
 
 const LLMClient = require('./llm-client');
+const { sourceMap, attachSources } = require('./source-traceability');
 const UCS_PROMPT_VERSION = '1.0.0';
 const { UCSTemplate } = require('./ucs-template');
 
@@ -25,6 +26,7 @@ class UCSTransformer {
    * @returns {UCSTemplate} Complete UCS template
    */
   async transform(formalStructure) {
+    const map = formalStructure.sourceRequirements === undefined ? undefined : sourceMap(formalStructure.sourceRequirements);
     const prompt = await this.llm.loadPrompt('03-generate-ucs-template.md');
 
     const userContent = [
@@ -44,7 +46,7 @@ class UCSTransformer {
       mode: 'structure',
     });
 
-    ucsData.sourceRequirements = formalStructure.sourceRequirements;
+    attachSources(ucsData, map, 'ucs', 'UCS transformation');
     return UCSTemplate.fromJSON(ucsData);
   }
 
@@ -54,6 +56,8 @@ class UCSTransformer {
    * Falls back to this when no API key is available.
    */
   transformDeterministic(formalStructure) {
+    const map = formalStructure.sourceRequirements === undefined ? undefined : sourceMap(formalStructure.sourceRequirements);
+    formalStructure = attachSources(JSON.parse(JSON.stringify(formalStructure)), map, 'structured', 'Deterministic transformation');
     const basicSteps = (formalStructure.steps || []).filter(
       (s) => !s.flowType || s.flowType === 'basic'
     );

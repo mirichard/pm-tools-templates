@@ -11,6 +11,7 @@
  */
 
 const LLMClient = require('./llm-client');
+const { sourceMap, attachSources } = require('./source-traceability');
 const STRUCTURE_PROMPT_VERSION = '1.0.0';
 const CORRECTION_PROMPT_VERSION = '1.0.0';
 
@@ -25,6 +26,8 @@ class RequirementsStructurer {
    * @returns {object} Formal structure conforming to formal-structure.schema.json
    */
   async structure(parsedRequirements) {
+    const map = sourceMap([...parsedRequirements.basicFlow, ...parsedRequirements.alternativeFlows,
+      ...parsedRequirements.exceptionFlows]);
     // Pass 1: NL → formal structure
     const structurePrompt = await this.llm.loadPrompt('01-structure-requirements.md');
     const userContent = this._buildUserPrompt(parsedRequirements);
@@ -35,15 +38,11 @@ class RequirementsStructurer {
       mode: 'structure',
     });
 
-    // This catalog is parser-owned, never copied from a model response.
-    const sourceRequirements = [...parsedRequirements.basicFlow, ...parsedRequirements.alternativeFlows,
-      ...parsedRequirements.exceptionFlows].map(({ id, originalText }) => ({ id, originalText }));
-    structured.sourceRequirements = sourceRequirements;
+    attachSources(structured, map, 'structured', 'Structuring');
 
     // Pass 2: BO correction — fix attribute/entity confusion
     const corrected = await this._correctBusinessObjects(structured);
 
-    corrected.sourceRequirements = sourceRequirements;
     return corrected;
   }
 
@@ -53,6 +52,7 @@ class RequirementsStructurer {
    * as business objects instead of the entity they belong to (e.g., "Buyer").
    */
   async _correctBusinessObjects(structured) {
+    const map = structured.sourceRequirements === undefined ? undefined : sourceMap(structured.sourceRequirements);
     const correctionPrompt = await this.llm.loadPrompt('02-correct-business-objects.md');
 
     const userContent = [
@@ -72,8 +72,7 @@ class RequirementsStructurer {
       mode: 'structure',
     });
 
-    corrected.sourceRequirements = structured.sourceRequirements;
-    return corrected;
+    return attachSources(corrected, map, 'structured', 'Business-object correction');
   }
 
   /**
