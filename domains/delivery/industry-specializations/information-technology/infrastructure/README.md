@@ -4,7 +4,7 @@
 
 This file provides navigation only for relative links preserved in migrated templates. The maintained resource is linked below.
 
-[Open the maintained infrastructure](../../../../../industry-specializations/information-technology/infrastructure)
+[Open the maintained infrastructure](../../../../../industry-specializations/information-technology/infrastructure/README.md)
 
 ## Usage instructions
 

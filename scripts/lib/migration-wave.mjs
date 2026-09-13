@@ -46,8 +46,9 @@ function isCompatibilityNavigation(content, destination, source) {
 
 function destinationReplacement(root, move) {
   const destination = path.join(root, move.destination);
-  if (!fs.existsSync(destination)) return {};
-  if (!fs.lstatSync(destination).isFile() ||
+  const stat = fs.lstatSync(destination, { throwIfNoEntry: false });
+  if (!stat) return {};
+  if (!stat.isFile() ||
       !isCompatibilityNavigation(fs.readFileSync(destination, 'utf8'), move.destination, move.source)) {
     throw new Error(`destination already exists and is not verified compatibility navigation: ${move.destination}`);
   }

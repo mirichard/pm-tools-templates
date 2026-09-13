@@ -4,7 +4,7 @@
 
 This file provides navigation only for relative links preserved in migrated templates. The maintained resource is linked below.
 
-[Open the maintained risk management](../../../../../project-lifecycle/02-planning/risk-management)
+[Open the maintained risk management](../../../../../project-lifecycle/02-planning/risk-management/README.md)
 
 ## Usage instructions
 

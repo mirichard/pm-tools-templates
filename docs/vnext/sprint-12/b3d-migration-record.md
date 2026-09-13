@@ -14,7 +14,9 @@ All 12 canonical bodies preserve their pre-move SHA-256 hashes. All 12 legacy fi
 
 Four destinations contained B3C navigation-only pointers. The manifest records their hashes. Validation requires the exact navigation-only format, the intended source target, a regular file, and matching content in the pre-batch Git checkpoint. Drift, wrong targets, symlinks, extra content, and uncommitted replacement evidence are rejected. Executed validation checks canonical body hashes and retains the replacement evidence for rollback review.
 
-Six new navigation-only files preserve previously working relative links without modifying template bodies: two infrastructure templates, the CI/CD planning template, and the infrastructure, sprint-planning, and risk-management directories. No symlinks or duplicate bodies are introduced.
+Six new navigation-only files preserve previously working relative links without modifying template bodies: two infrastructure templates, the CI/CD planning template, and the infrastructure, sprint-planning, and risk-management directories. Two maintained directory guides provide file targets for navigation where no README existed. No symlinks or duplicate bodies are introduced.
+
+The metadata linter carries forward two inherited `complexity: basic` findings only after verifying that the base inventory planned the same move, the original source was a catalog canonical, the entire destination body exactly equals the base source, its execution hash matches, and the legacy pointer passes structural validation. Changed bodies and invalid metadata remain blocking; inherited findings stay visible in the debt report.
 
 ## Assets and immutable hashes
 
@@ -41,7 +43,7 @@ Six new navigation-only files preserve previously working relative links without
 - Migration-wave and post-check tests: 35 passed, including replacement guard negative cases.
 - Curated catalog: 139 valid templates. Strict canonical paths: zero errors, one inherited warning.
 - Link validation: zero new failures; inherited broken links remain outside this structural migration.
-- Metadata regeneration, annotation coverage, full CI/security, and visual evidence are recorded in the delivery PR as checks complete. No visual threshold change, exclusion, or blanket baseline update is authorized by this record.
+- Metadata regeneration is stable and annotation coverage is 137/137. Full CI/security and visual evidence are recorded in the delivery PR as checks complete. No visual threshold change, exclusion, or blanket baseline update is authorized by this record.
 
 ## Integration and rollback
 

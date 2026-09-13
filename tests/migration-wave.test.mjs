@@ -297,6 +297,9 @@ test('rejects wrong-target navigation, symlinks, and uncommitted replacement fil
   fs.symlinkSync(path.join(root, move.source), destination);
   assert.throws(build, /not verified compatibility/);
   fs.unlinkSync(destination);
+  fs.symlinkSync(path.join(root, 'missing.md'), destination);
+  assert.throws(build, /not verified compatibility/);
+  fs.unlinkSync(destination);
   fs.writeFileSync(destination, compatibilityNavigation('A', '../../../legacy/a.md'));
   assert.match(validateWavePlan({ root, inventory, plan: build() }).join('\n'), /absent from checkpoint/);
 });

@@ -2,6 +2,7 @@
 from datetime import date
 import importlib.util
 import json
+import hashlib
 from pathlib import Path
 import subprocess
 import tempfile
@@ -50,6 +51,39 @@ class MetadataTests(unittest.TestCase):
         self.git('add', '.')
         self.git('commit', '-qm', 'fixture')
         return self.git('rev-parse', 'HEAD')
+
+    def test_migration_debt_requires_identical_checkpoint_body_and_valid_pointer(self):
+        source = 'templates/body with spaces.md'
+        destination = 'domains/delivery/body.md'
+        body = VALID.replace('complexity: starter', 'complexity: basic')
+        self.write(source, body)
+        move = dict(source=source, destination=destination, action='planned-move-not-executed')
+        self.write('meta/migration-inventory.json', json.dumps({'moves': [move]}))
+        base = self.commit()
+        self.write(destination, body)
+        self.write(source, POINTER.replace('body with spaces.md', '../domains/delivery/body.md'))
+        move['action'] = 'executed-move-with-legacy-pointer'
+        move['execution'] = {'pre_move_source_sha256': hashlib.sha256(body.encode()).hexdigest()}
+        self.write('meta/migration-inventory.json', json.dumps({'moves': [move]}))
+        self.write('templates/templates.json', json.dumps({'templates': [{'path': destination, 'alternate_paths': [source]}]}))
+        self.commit()
+        transfer = lint.unchanged_migration_debt(self.root, base, {source})
+        self.assertEqual(transfer, {destination: ['invalid complexity']})
+        result = lint.lint(self.root, {source, destination}, {source}, old_primary={source}, migration_debt=transfer)
+        self.assertFalse(result['errors'])
+        self.assertIn(destination + ': invalid complexity', result['inherited_debt'])
+        self.assertEqual(lint.unchanged_migration_debt(self.root, base, set()), {})
+        self.write(destination, body + 'Changed body\n')
+        self.assertEqual(lint.unchanged_migration_debt(self.root, base, {source}), {})
+        self.assertTrue(lint.lint(self.root, {destination}, {source}, old_primary={source})['errors'])
+        self.write(destination, body)
+        move['execution']['pre_move_source_sha256'] = '0' * 64
+        self.write('meta/migration-inventory.json', json.dumps({'moves': [move]}))
+        self.assertEqual(lint.unchanged_migration_debt(self.root, base, {source}), {})
+        move['execution']['pre_move_source_sha256'] = hashlib.sha256(body.encode()).hexdigest()
+        self.write('meta/migration-inventory.json', json.dumps({'moves': [move]}))
+        self.write(source, POINTER.replace('body with spaces.md', 'missing.md'))
+        self.assertEqual(lint.unchanged_migration_debt(self.root, base, {source}), {})
 
     def test_valid_canonical_and_universal(self):
         self.assertEqual(lint.metadata(VALID, date(2026, 9, 11)), ([], []))
