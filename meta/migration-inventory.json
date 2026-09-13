@@ -98,6 +98,24 @@
       "status": "executed",
       "evidence_file": "docs/vnext/sprint-12/b3b-migration-record.md",
       "rollback_owner": "mirichard"
+    },
+    {
+      "batch_id": "B3C",
+      "issue": "#1057",
+      "parent_issue": "#711",
+      "asset_count": 10,
+      "status": "executed",
+      "evidence_file": "docs/vnext/sprint-12/b3c-migration-record.md",
+      "rollback_owner": "mirichard"
+    },
+    {
+      "batch_id": "B3D",
+      "issue": "#1057",
+      "parent_issue": "#711",
+      "asset_count": 12,
+      "status": "executed",
+      "evidence_file": "docs/vnext/sprint-12/b3d-migration-record.md",
+      "rollback_owner": "mirichard"
     }
   ],
   "generated": "2026-09-02",
@@ -173,7 +191,14 @@
       ],
       "batch": 3,
       "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move",
-      "action": "planned-move-not-executed"
+      "action": "executed-move-with-legacy-pointer",
+      "execution": {
+        "batch_id": "B3D",
+        "pre_batch_sha": "de93a99a5154367fc996cdf41b2738046eba5192",
+        "pre_move_source_sha256": "d6c3d92cbc2d8160a13a4b10dd1bc28b4b0f5978d62651ca633581cbb7266318",
+        "evidence_file": "docs/vnext/sprint-12/b3d-migration-record.md",
+        "rollback_owner": "mirichard"
+      }
     },
     {
       "source": "project-lifecycle/02-planning/project-management-plan/agile-release-plan-template.md",
@@ -249,7 +274,7 @@
       ],
       "dependencies": [
         "project-lifecycle/02-planning/project-management-plan/traditional-project-management-plan-template.md",
-        "project-assessment-suite/agile-project-assessment-template.md",
+        "domains/delivery/project-assessment-suite/agile-project-assessment-template.md",
         "methodology-frameworks/emerging-methods/devops/monitoring_alerting_template.md"
       ],
       "affected_internal_references": [
@@ -284,7 +309,7 @@
       "dependencies": [
         "domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/stakeholder-register-template.md",
         "domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/agile-stakeholder-map-template.md",
-        "project-assessment-suite/agile-project-assessment-template.md"
+        "domains/delivery/project-assessment-suite/agile-project-assessment-template.md"
       ],
       "affected_internal_references": [
         "TEMPLATE_INDEX.md",
@@ -322,7 +347,7 @@
       "primary_domain": "Delivery",
       "secondary_domains": [],
       "dependencies": [
-        "role-based-toolkits/project-manager/essential-templates/timesheet-tracking-template.md",
+        "domains/delivery/role-based-toolkits/project-manager/essential-templates/timesheet-tracking-template.md",
         "domains/uncertainty/role-based-toolkits/product-owner/user-story-template.md",
         "project-lifecycle/01-initiation/project-charter/hybrid-project-charter-template.md"
       ],
@@ -343,7 +368,14 @@
       ],
       "batch": 3,
       "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move",
-      "action": "planned-move-not-executed"
+      "action": "executed-move-with-legacy-pointer",
+      "execution": {
+        "batch_id": "B3C",
+        "pre_batch_sha": "b29500895cc57cb80016b5bf723dd0960a81b4b0",
+        "pre_move_source_sha256": "615cb8ea6af39c4e06d7698b7483782a7df77c7dd2547a5f162ac1c416d5ea1b",
+        "evidence_file": "docs/vnext/sprint-12/b3c-migration-record.md",
+        "rollback_owner": "mirichard"
+      }
     },
     {
       "source": "methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md",
@@ -354,9 +386,9 @@
         "Uncertainty"
       ],
       "dependencies": [
-        "methodology-frameworks/agile-scrum/scaling-frameworks/less/cross_team_coordination_template.md",
-        "methodology-frameworks/agile-scrum/scaling-frameworks/less/less_sprint_planning_template.md",
-        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_art_coordination_template.md"
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/less/cross_team_coordination_template.md",
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/less/less_sprint_planning_template.md",
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_art_coordination_template.md"
       ],
       "affected_internal_references": [
         "TEMPLATE_INDEX.md",
@@ -382,7 +414,14 @@
       ],
       "batch": 3,
       "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move",
-      "action": "planned-move-not-executed"
+      "action": "executed-move-with-legacy-pointer",
+      "execution": {
+        "batch_id": "B3C",
+        "pre_batch_sha": "b29500895cc57cb80016b5bf723dd0960a81b4b0",
+        "pre_move_source_sha256": "942e733db10117e8c638c33385383a501323925a3b7aaa21d29d361b62739e1f",
+        "evidence_file": "docs/vnext/sprint-12/b3c-migration-record.md",
+        "rollback_owner": "mirichard"
+      }
     },
     {
       "source": "project-assessment-suite/assessment-report-template.md",
@@ -394,7 +433,7 @@
       "dependencies": [
         "domains/uncertainty/role-based-toolkits/product-owner/product-vision-template.md",
         "domains/uncertainty/project-lifecycle/02-planning/risk-management/enterprise-risk-assessment-template.md",
-        "project-assessment-suite/hybrid-project-assessment-template.md"
+        "domains/delivery/project-assessment-suite/hybrid-project-assessment-template.md"
       ],
       "affected_internal_references": [
         "TEMPLATE_INDEX.md",
@@ -466,7 +505,7 @@
       "secondary_domains": [],
       "dependencies": [
         "role-based-toolkits/scrum-master/agile-ceremonies/sprint-planning-template.md",
-        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_program_increment_planning_template.md",
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_program_increment_planning_template.md",
         "role-based-toolkits/scrum-master/agile-ceremonies/sprint-retrospective-template.md"
       ],
       "affected_internal_references": [
@@ -753,6 +792,7 @@
         "docs/decision-engine/template-decision-tree.md",
         "docs/site/public/changelog/change_management_plan_template.json",
         "docs/templates/change_management_plan_template.md",
+        "domains/delivery/templates/hybrid/Hybrid/Templates/integrated_change_strategy_template.md",
         "meta/architecture-research/769-773-mapping-methodology.md",
         "meta/architecture-research/771-value-flow-scenario-walkthroughs.md",
         "meta/architecture-research/775-domain-coverage-report.md",
@@ -766,7 +806,6 @@
         "organizational_change_management_framework.md",
         "site/.lighthouseci/lhr-1755874277795.html",
         "site/.lighthouseci/lhr-1755874277795.json",
-        "templates/hybrid/Hybrid/Templates/integrated_change_strategy_template.md",
         "templates/templates.json",
         "templates/templates.proposed.json"
       ],
@@ -829,6 +868,8 @@
         "docs/archive/README-20250805.md",
         "docs/methodology-guides/methodology-comparison.md",
         "docs/templates/cicd_pipeline_planning_template.md",
+        "domains/delivery/methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md",
+        "domains/delivery/methodology-frameworks/hybrid/infrastructure/hybrid-infrastructure-template.md",
         "essential-templates/infrastructure/deployment-checklist-template.md",
         "essential-templates/infrastructure/infrastructure-requirements-template.md",
         "industry-specializations/information-technology/software-development/ci_cd_pipeline_guide.md",
@@ -841,7 +882,6 @@
         "methodology-frameworks/emerging-methods/devops/infrastructure_as_code_template.md",
         "methodology-frameworks/emerging-methods/devops/monitoring_alerting_template.md",
         "methodology-frameworks/emerging-methods/devops/release_management_template.md",
-        "methodology-frameworks/hybrid/infrastructure/hybrid-infrastructure-template.md",
         "site/.lighthouseci/lhr-1755874277795.html",
         "site/.lighthouseci/lhr-1755874277795.json",
         "templates/templates.json",
@@ -945,6 +985,8 @@
         "docs/site/public/changelog/communication_plan_template.json",
         "docs/templates/communication_plan_template.md",
         "docs/templates/health_authority_communication_plan_template.md",
+        "docs/vnext/sprint-12/b3b-migration-record.md",
+        "industry-specializations/healthcare-pharmaceutical/regulatory/health_authority_communication_plan_template.md",
         "meta/architecture-research/806-rules-engine-implementation.md",
         "meta/architecture-research/807-rules-engine-validation.md",
         "meta/architecture-research/809-decision-tree-design.md",
@@ -1081,9 +1123,9 @@
         "Uncertainty"
       ],
       "dependencies": [
-        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md",
-        "methodology-frameworks/agile-scrum/scaling-frameworks/less/less_sprint_planning_template.md",
-        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_art_coordination_template.md"
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md",
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/less/less_sprint_planning_template.md",
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_art_coordination_template.md"
       ],
       "affected_internal_references": [
         "TEMPLATE_INDEX.md",
@@ -1104,7 +1146,14 @@
       ],
       "batch": 3,
       "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move",
-      "action": "planned-move-not-executed"
+      "action": "executed-move-with-legacy-pointer",
+      "execution": {
+        "batch_id": "B3C",
+        "pre_batch_sha": "b29500895cc57cb80016b5bf723dd0960a81b4b0",
+        "pre_move_source_sha256": "6e559a6e0a08d0a1ff658764865688006c263dc649319e2ace944032fadc8157",
+        "evidence_file": "docs/vnext/sprint-12/b3c-migration-record.md",
+        "rollback_owner": "mirichard"
+      }
     },
     {
       "source": "project-assessment-suite/current-state-analysis-template.md",
@@ -1175,7 +1224,7 @@
       "secondary_domains": [],
       "dependencies": [
         "domains/team/role-based-toolkits/scrum-master/agile-ceremonies/backlog-refinement-template.md",
-        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/pi_planning_template.md",
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/pi_planning_template.md",
         "role-based-toolkits/scrum-master/agile-ceremonies/sprint-planning-template.md"
       ],
       "affected_internal_references": [
@@ -1352,7 +1401,7 @@
       ],
       "dependencies": [
         "domains/uncertainty/project-assessment-suite/assessment-report-template.md",
-        "project-lifecycle/02-planning/project-management-plan/hybrid-project-management-plan-template.md",
+        "domains/delivery/project-lifecycle/02-planning/project-management-plan/hybrid-project-management-plan-template.md",
         "project-lifecycle/02-planning/business-requirements/business_requirements_document_template.md"
       ],
       "affected_internal_references": [
@@ -1832,9 +1881,9 @@
         "Uncertainty"
       ],
       "dependencies": [
-        "templates/hybrid/Hybrid/Templates/integrated_change_strategy_template.md",
-        "templates/hybrid/Hybrid/Templates/progressive_acceptance_plan_template.md",
-        "templates/hybrid/Hybrid/Templates/hybrid_release_planning_template.md"
+        "domains/delivery/templates/hybrid/Hybrid/Templates/integrated_change_strategy_template.md",
+        "domains/delivery/templates/hybrid/Hybrid/Templates/progressive_acceptance_plan_template.md",
+        "domains/delivery/templates/hybrid/Hybrid/Templates/hybrid_release_planning_template.md"
       ],
       "affected_internal_references": [
         "TEMPLATE_INDEX.md",
@@ -1857,7 +1906,14 @@
       ],
       "batch": 3,
       "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move",
-      "action": "planned-move-not-executed"
+      "action": "executed-move-with-legacy-pointer",
+      "execution": {
+        "batch_id": "B3D",
+        "pre_batch_sha": "de93a99a5154367fc996cdf41b2738046eba5192",
+        "pre_move_source_sha256": "f4509b4bd1fd0623ad1a57b881eb3e27a48923f4fefce164ea7a4c229aa75882",
+        "evidence_file": "docs/vnext/sprint-12/b3d-migration-record.md",
+        "rollback_owner": "mirichard"
+      }
     },
     {
       "source": "project-assessment-suite/hybrid-project-assessment-template.md",
@@ -1869,7 +1925,7 @@
       ],
       "dependencies": [
         "domains/uncertainty/project-assessment-suite/assessment-report-template.md",
-        "project-lifecycle/02-planning/project-management-plan/hybrid-project-management-plan-template.md",
+        "domains/delivery/project-lifecycle/02-planning/project-management-plan/hybrid-project-management-plan-template.md",
         "domains/uncertainty/role-based-toolkits/product-owner/backlog-management-template.md"
       ],
       "affected_internal_references": [
@@ -1888,7 +1944,14 @@
       ],
       "batch": 3,
       "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move",
-      "action": "planned-move-not-executed"
+      "action": "executed-move-with-legacy-pointer",
+      "execution": {
+        "batch_id": "B3D",
+        "pre_batch_sha": "de93a99a5154367fc996cdf41b2738046eba5192",
+        "pre_move_source_sha256": "1c8fa1600dd19af4f0423cf206686d82bd921f371607587c9b534d5dfbdca2b6",
+        "evidence_file": "docs/vnext/sprint-12/b3d-migration-record.md",
+        "rollback_owner": "mirichard"
+      }
     },
     {
       "source": "templates/hybrid/Hybrid/Templates/hybrid_project_charter_template.md",
@@ -1898,9 +1961,9 @@
         "Uncertainty"
       ],
       "dependencies": [
-        "templates/hybrid/Hybrid/Templates/hybrid_release_planning_template.md",
-        "templates/hybrid/Hybrid/Templates/hybrid_team_management_template.md",
-        "methodology-frameworks/hybrid/infrastructure/hybrid-infrastructure-template.md"
+        "domains/delivery/templates/hybrid/Hybrid/Templates/hybrid_release_planning_template.md",
+        "domains/delivery/templates/hybrid/Hybrid/Templates/hybrid_team_management_template.md",
+        "domains/delivery/methodology-frameworks/hybrid/infrastructure/hybrid-infrastructure-template.md"
       ],
       "affected_internal_references": [
         "GUIDE.md",
@@ -1944,7 +2007,7 @@
       ],
       "dependencies": [
         "domains/uncertainty/project-lifecycle/02-planning/risk-management/enterprise-risk-assessment-template.md",
-        "project-assessment-suite/hybrid-project-assessment-template.md",
+        "domains/delivery/project-assessment-suite/hybrid-project-assessment-template.md",
         "domains/uncertainty/project-assessment-suite/assessment-report-template.md"
       ],
       "affected_internal_references": [
@@ -1963,7 +2026,14 @@
       ],
       "batch": 3,
       "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move",
-      "action": "planned-move-not-executed"
+      "action": "executed-move-with-legacy-pointer",
+      "execution": {
+        "batch_id": "B3D",
+        "pre_batch_sha": "de93a99a5154367fc996cdf41b2738046eba5192",
+        "pre_move_source_sha256": "bd2120477962f8098e889728c96eda2ae0a035066af1bcb9f19c0e8faff3e64a",
+        "evidence_file": "docs/vnext/sprint-12/b3d-migration-record.md",
+        "rollback_owner": "mirichard"
+      }
     },
     {
       "source": "templates/hybrid/Hybrid/Templates/hybrid_quality_management_template.md",
@@ -1974,9 +2044,9 @@
         "Uncertainty"
       ],
       "dependencies": [
-        "methodology-frameworks/hybrid/infrastructure/hybrid-infrastructure-template.md",
-        "templates/hybrid/Hybrid/Templates/integrated_change_strategy_template.md",
-        "templates/hybrid/Hybrid/Templates/progressive_acceptance_plan_template.md"
+        "domains/delivery/methodology-frameworks/hybrid/infrastructure/hybrid-infrastructure-template.md",
+        "domains/delivery/templates/hybrid/Hybrid/Templates/integrated_change_strategy_template.md",
+        "domains/delivery/templates/hybrid/Hybrid/Templates/progressive_acceptance_plan_template.md"
       ],
       "affected_internal_references": [
         "TEMPLATE_INDEX.md",
@@ -2011,9 +2081,9 @@
         "Uncertainty"
       ],
       "dependencies": [
-        "templates/hybrid/Hybrid/Templates/hybrid_team_management_template.md",
-        "methodology-frameworks/hybrid/infrastructure/hybrid-infrastructure-template.md",
-        "templates/hybrid/Hybrid/Templates/integrated_change_strategy_template.md"
+        "domains/delivery/templates/hybrid/Hybrid/Templates/hybrid_team_management_template.md",
+        "domains/delivery/methodology-frameworks/hybrid/infrastructure/hybrid-infrastructure-template.md",
+        "domains/delivery/templates/hybrid/Hybrid/Templates/integrated_change_strategy_template.md"
       ],
       "affected_internal_references": [
         "GUIDE.md",
@@ -2038,7 +2108,14 @@
       ],
       "batch": 3,
       "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move",
-      "action": "planned-move-not-executed"
+      "action": "executed-move-with-legacy-pointer",
+      "execution": {
+        "batch_id": "B3D",
+        "pre_batch_sha": "de93a99a5154367fc996cdf41b2738046eba5192",
+        "pre_move_source_sha256": "15deb9f7888d40448607bda46ff99ea779a5c5b6ecba01f3f6ddb6244a0ae316",
+        "evidence_file": "docs/vnext/sprint-12/b3d-migration-record.md",
+        "rollback_owner": "mirichard"
+      }
     },
     {
       "source": "templates/hybrid/Hybrid/Templates/hybrid_team_management_template.md",
@@ -2049,9 +2126,9 @@
         "Uncertainty"
       ],
       "dependencies": [
-        "templates/hybrid/Hybrid/Templates/hybrid_release_planning_template.md",
-        "methodology-frameworks/hybrid/infrastructure/hybrid-infrastructure-template.md",
-        "templates/hybrid/Hybrid/Templates/integrated_change_strategy_template.md"
+        "domains/delivery/templates/hybrid/Hybrid/Templates/hybrid_release_planning_template.md",
+        "domains/delivery/methodology-frameworks/hybrid/infrastructure/hybrid-infrastructure-template.md",
+        "domains/delivery/templates/hybrid/Hybrid/Templates/integrated_change_strategy_template.md"
       ],
       "affected_internal_references": [
         "GUIDE.md",
@@ -2076,7 +2153,14 @@
       ],
       "batch": 3,
       "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move",
-      "action": "planned-move-not-executed"
+      "action": "executed-move-with-legacy-pointer",
+      "execution": {
+        "batch_id": "B3D",
+        "pre_batch_sha": "de93a99a5154367fc996cdf41b2738046eba5192",
+        "pre_move_source_sha256": "1457753bce63009ade9f4c7b313eb8bf5f5949473a8cadc22191909daf4d82fd",
+        "evidence_file": "docs/vnext/sprint-12/b3d-migration-record.md",
+        "rollback_owner": "mirichard"
+      }
     },
     {
       "source": "industry-specializations/information-technology/cybersecurity/incident_response_template.md",
@@ -2161,8 +2245,10 @@
         "docs/templates/infrastructure_assessment_template.md",
         "domains/planning/industry-specializations/information-technology/infrastructure/data_center_design_template.md",
         "domains/planning/industry-specializations/information-technology/infrastructure/disaster_recovery_template.md",
+        "domains/uncertainty/industry-specializations/information-technology/infrastructure/infrastructure_assessment_template.md",
         "domains/uncertainty/industry-specializations/information-technology/infrastructure/migration_plan_template.md",
         "industry-specializations/information-technology/README.md",
+        "industry-specializations/information-technology/infrastructure/README.md",
         "industry-specializations/information-technology/infrastructure/capacity_planning_worksheet.md",
         "meta/cross-references.json",
         "meta/domain-mapping.json",
@@ -2221,9 +2307,9 @@
         "Uncertainty"
       ],
       "dependencies": [
-        "methodology-frameworks/hybrid/infrastructure/hybrid-infrastructure-template.md",
-        "templates/hybrid/Hybrid/Templates/progressive_acceptance_plan_template.md",
-        "templates/hybrid/Hybrid/Templates/hybrid_release_planning_template.md"
+        "domains/delivery/methodology-frameworks/hybrid/infrastructure/hybrid-infrastructure-template.md",
+        "domains/delivery/templates/hybrid/Hybrid/Templates/progressive_acceptance_plan_template.md",
+        "domains/delivery/templates/hybrid/Hybrid/Templates/hybrid_release_planning_template.md"
       ],
       "affected_internal_references": [
         "TEMPLATE_INDEX.md",
@@ -2250,7 +2336,14 @@
       ],
       "batch": 3,
       "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move",
-      "action": "planned-move-not-executed"
+      "action": "executed-move-with-legacy-pointer",
+      "execution": {
+        "batch_id": "B3D",
+        "pre_batch_sha": "de93a99a5154367fc996cdf41b2738046eba5192",
+        "pre_move_source_sha256": "6e507133a8d33dd70efa9c37219528937b0cd507b4a612ce17ba9b200be3c490",
+        "evidence_file": "docs/vnext/sprint-12/b3d-migration-record.md",
+        "rollback_owner": "mirichard"
+      }
     },
     {
       "source": "templates/traditional/Traditional/Templates/issue_log_template.md",
@@ -2296,9 +2389,9 @@
         "Stakeholder"
       ],
       "dependencies": [
-        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md",
-        "methodology-frameworks/agile-scrum/scaling-frameworks/less/cross_team_coordination_template.md",
-        "methodology-frameworks/agile-scrum/scaling-frameworks/less/less_sprint_planning_template.md"
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md",
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/less/cross_team_coordination_template.md",
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/less/less_sprint_planning_template.md"
       ],
       "affected_internal_references": [
         "TEMPLATE_INDEX.md",
@@ -2339,9 +2432,9 @@
         "Uncertainty"
       ],
       "dependencies": [
-        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md",
-        "methodology-frameworks/agile-scrum/scaling-frameworks/less/cross_team_coordination_template.md",
-        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_art_coordination_template.md"
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md",
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/less/cross_team_coordination_template.md",
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_art_coordination_template.md"
       ],
       "affected_internal_references": [
         "TEMPLATE_INDEX.md",
@@ -2363,7 +2456,14 @@
       ],
       "batch": 3,
       "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move",
-      "action": "planned-move-not-executed"
+      "action": "executed-move-with-legacy-pointer",
+      "execution": {
+        "batch_id": "B3C",
+        "pre_batch_sha": "b29500895cc57cb80016b5bf723dd0960a81b4b0",
+        "pre_move_source_sha256": "61717ca810bc9f2be6a3dd07211989d46072e7b51683434b88f0c4fa68706ec6",
+        "evidence_file": "docs/vnext/sprint-12/b3c-migration-record.md",
+        "rollback_owner": "mirichard"
+      }
     },
     {
       "source": "industry-specializations/healthcare-pharmaceutical/manufacturing/manufacturing_batch_record_template.md",
@@ -2448,9 +2548,9 @@
         "Uncertainty"
       ],
       "dependencies": [
-        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_metrics_dashboard_template.md",
-        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_metrics_reporting_template.md",
-        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_art_coordination_template.md"
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_metrics_dashboard_template.md",
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_metrics_reporting_template.md",
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_art_coordination_template.md"
       ],
       "affected_internal_references": [
         "TEMPLATE_INDEX.md",
@@ -2476,7 +2576,14 @@
       ],
       "batch": 3,
       "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move",
-      "action": "planned-move-not-executed"
+      "action": "executed-move-with-legacy-pointer",
+      "execution": {
+        "batch_id": "B3C",
+        "pre_batch_sha": "b29500895cc57cb80016b5bf723dd0960a81b4b0",
+        "pre_move_source_sha256": "1834bd7608cff4f719a20d8c8fea72ba73c36b0f1171a3dc40a399013daa2952",
+        "evidence_file": "docs/vnext/sprint-12/b3c-migration-record.md",
+        "rollback_owner": "mirichard"
+      }
     },
     {
       "source": "industry-specializations/information-technology/infrastructure/migration_plan_template.md",
@@ -2626,9 +2733,9 @@
         "Uncertainty"
       ],
       "dependencies": [
-        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_art_coordination_template.md",
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_art_coordination_template.md",
         "methodology-frameworks/agile-scrum/sprint-planning/sprint_planning_template.md",
-        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md"
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md"
       ],
       "affected_internal_references": [
         "TEMPLATE_INDEX.md",
@@ -2650,7 +2757,14 @@
       ],
       "batch": 3,
       "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move",
-      "action": "planned-move-not-executed"
+      "action": "executed-move-with-legacy-pointer",
+      "execution": {
+        "batch_id": "B3C",
+        "pre_batch_sha": "b29500895cc57cb80016b5bf723dd0960a81b4b0",
+        "pre_move_source_sha256": "74f2f476c9b8ea81beb045b3da8f818edf1ee5c728c58a6c0d25290175e26574",
+        "evidence_file": "docs/vnext/sprint-12/b3c-migration-record.md",
+        "rollback_owner": "mirichard"
+      }
     },
     {
       "source": "industry-specializations/healthcare-pharmaceutical/validation/performance_qualification_protocol_template.md",
@@ -2730,20 +2844,21 @@
         "Uncertainty"
       ],
       "dependencies": [
-        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/portfolio_kanban_template.md",
-        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_program_increment_planning_template.md",
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/portfolio_kanban_template.md",
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_program_increment_planning_template.md",
         "methodology-frameworks/agile-scrum/sprint-planning/sprint_planning_template.md"
       ],
       "affected_internal_references": [
         "TEMPLATE_INDEX.md",
         "business-stakeholder-suite/safe-executive-dashboards/README.md",
         "docs/templates/pi_planning_template.md",
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md",
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/metrics_dashboard_template.md",
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/pi_planning_template.md",
         "meta/cross-references.json",
         "meta/domain-mapping.json",
         "meta/migration-inventory.json",
         "meta/value-flow-mapping.json",
-        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md",
-        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/metrics_dashboard_template.md",
         "methodology-frameworks/agile-scrum/scaling-frameworks/safe/portfolio_kanban_template.md",
         "role-based-toolkits/program-manager/methodology-variants/README.md",
         "role-based-toolkits/release-train-engineer/README.md",
@@ -2754,7 +2869,14 @@
       ],
       "batch": 3,
       "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move",
-      "action": "planned-move-not-executed"
+      "action": "executed-move-with-legacy-pointer",
+      "execution": {
+        "batch_id": "B3D",
+        "pre_batch_sha": "de93a99a5154367fc996cdf41b2738046eba5192",
+        "pre_move_source_sha256": "bfc54b6167e17f60324b219eee1ceca426243df72a3229895754ba474119c58b",
+        "evidence_file": "docs/vnext/sprint-12/b3d-migration-record.md",
+        "rollback_owner": "mirichard"
+      }
     },
     {
       "source": "methodology-frameworks/agile-scrum/scaling-frameworks/safe/portfolio_kanban_template.md",
@@ -2765,9 +2887,9 @@
         "Uncertainty"
       ],
       "dependencies": [
-        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_portfolio_kanban_template.md",
-        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/pi_planning_template.md",
-        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_program_increment_planning_template.md"
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_portfolio_kanban_template.md",
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/pi_planning_template.md",
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_program_increment_planning_template.md"
       ],
       "affected_internal_references": [
         "TEMPLATE_INDEX.md",
@@ -2776,17 +2898,19 @@
         "docs/methodology-guides/methodology-comparison.md",
         "docs/templates/portfolio_kanban_template.md",
         "docs/templates/safe_portfolio_kanban_template.md",
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md",
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/metrics_dashboard_template.md",
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/portfolio_kanban_template.md",
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_art_coordination_template.md",
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_metrics_dashboard_template.md",
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_metrics_reporting_template.md",
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_portfolio_kanban_template.md",
         "meta/architecture-research/806-rules-engine-implementation.md",
         "meta/cross-references.json",
         "meta/domain-mapping.json",
         "meta/migration-inventory.json",
         "meta/value-flow-mapping.json",
-        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md",
-        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/metrics_dashboard_template.md",
         "methodology-frameworks/agile-scrum/scaling-frameworks/safe/pi_planning_template.md",
-        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_art_coordination_template.md",
-        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_metrics_dashboard_template.md",
-        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_metrics_reporting_template.md",
         "role-based-toolkits/release-train-engineer/README.md",
         "site/.lighthouseci/lhr-1755874277795.html",
         "site/.lighthouseci/lhr-1755874277795.json",
@@ -2795,7 +2919,14 @@
       ],
       "batch": 3,
       "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move",
-      "action": "planned-move-not-executed"
+      "action": "executed-move-with-legacy-pointer",
+      "execution": {
+        "batch_id": "B3D",
+        "pre_batch_sha": "de93a99a5154367fc996cdf41b2738046eba5192",
+        "pre_move_source_sha256": "6e106e086812a27dfdb0f6e24385e5e4c0d4798ded17d63fb2f16a1c83f5ce78",
+        "evidence_file": "docs/vnext/sprint-12/b3d-migration-record.md",
+        "rollback_owner": "mirichard"
+      }
     },
     {
       "source": "industry-specializations/information-technology/service-management/problem_management_process_template.md",
@@ -2984,7 +3115,7 @@
         "Uncertainty"
       ],
       "dependencies": [
-        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_program_increment_planning_template.md",
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_program_increment_planning_template.md",
         "domains/team/templates/agile/sprint_review_template.md",
         "templates/agile/sprint_planning_template.md"
       ],
@@ -3001,6 +3132,9 @@
         "docs/site/public/changelog/product_backlog_template.json",
         "docs/templates/overall_product_backlog_template.md",
         "docs/templates/product_backlog_template.md",
+        "docs/vnext/sprint-12/b3c-migration-record.md",
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/less/cross_team_coordination_template.md",
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/less/less_sprint_planning_template.md",
         "domains/team/methodology-frameworks/agile-scrum/scaling-frameworks/less/less_retrospective_template.md",
         "meta/architecture-research/806-rules-engine-implementation.md",
         "meta/architecture-research/807-rules-engine-validation.md",
@@ -3011,8 +3145,7 @@
         "meta/domain-mapping.json",
         "meta/migration-inventory.json",
         "meta/value-flow-mapping.json",
-        "methodology-frameworks/agile-scrum/scaling-frameworks/less/cross_team_coordination_template.md",
-        "methodology-frameworks/agile-scrum/scaling-frameworks/less/less_sprint_planning_template.md",
+        "methodology-frameworks/agile-scrum/scaling-frameworks/less/overall_product_backlog_template.md",
         "methodology-frameworks/agile-scrum/sprint-planning/sprint_planning_template.md",
         "quick-start-kits/less-adoption/README.md",
         "site/.lighthouseci/lhr-1755874277795.html",
@@ -3149,9 +3282,9 @@
         "Uncertainty"
       ],
       "dependencies": [
-        "methodology-frameworks/hybrid/infrastructure/hybrid-infrastructure-template.md",
-        "templates/hybrid/Hybrid/Templates/integrated_change_strategy_template.md",
-        "templates/hybrid/Hybrid/Templates/hybrid_release_planning_template.md"
+        "domains/delivery/methodology-frameworks/hybrid/infrastructure/hybrid-infrastructure-template.md",
+        "domains/delivery/templates/hybrid/Hybrid/Templates/integrated_change_strategy_template.md",
+        "domains/delivery/templates/hybrid/Hybrid/Templates/hybrid_release_planning_template.md"
       ],
       "affected_internal_references": [
         "TEMPLATE_INDEX.md",
@@ -3175,7 +3308,14 @@
       ],
       "batch": 3,
       "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move",
-      "action": "planned-move-not-executed"
+      "action": "executed-move-with-legacy-pointer",
+      "execution": {
+        "batch_id": "B3D",
+        "pre_batch_sha": "de93a99a5154367fc996cdf41b2738046eba5192",
+        "pre_move_source_sha256": "d1d1d8291915ed829c632e823e442e8667ea5a5f675b52e5f02e2e433030a20a",
+        "evidence_file": "docs/vnext/sprint-12/b3d-migration-record.md",
+        "rollback_owner": "mirichard"
+      }
     },
     {
       "source": "templates/traditional/Traditional/Process_Groups/Initiating/project_charter_template.md",
@@ -3952,7 +4092,9 @@
         "docs/decision-engine/template-decision-tree.md",
         "docs/templates/compliance_risk_assessment_template.md",
         "docs/templates/risk_assessment_template.md",
+        "docs/vnext/sprint-12/b3b-migration-record.md",
         "industry-specializations/healthcare-pharmaceutical/README.md",
+        "industry-specializations/healthcare-pharmaceutical/regulatory/compliance_risk_assessment_template.md",
         "industry-specializations/information-technology/README.md",
         "industry-specializations/information-technology/cybersecurity/security_controls_matrix.md",
         "industry-specializations/information-technology/cybersecurity/security_implementation_roadmap.md",
@@ -4152,9 +4294,9 @@
         "Uncertainty"
       ],
       "dependencies": [
-        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md",
-        "methodology-frameworks/agile-scrum/scaling-frameworks/less/cross_team_coordination_template.md",
-        "methodology-frameworks/agile-scrum/scaling-frameworks/less/less_sprint_planning_template.md"
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md",
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/less/cross_team_coordination_template.md",
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/less/less_sprint_planning_template.md"
       ],
       "affected_internal_references": [
         "TEMPLATE_INDEX.md",
@@ -4174,7 +4316,14 @@
       ],
       "batch": 3,
       "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move",
-      "action": "planned-move-not-executed"
+      "action": "executed-move-with-legacy-pointer",
+      "execution": {
+        "batch_id": "B3C",
+        "pre_batch_sha": "b29500895cc57cb80016b5bf723dd0960a81b4b0",
+        "pre_move_source_sha256": "77cac0ef7034cca657c7bd1b63910df6c525bfbc38979b50630051f791853a18",
+        "evidence_file": "docs/vnext/sprint-12/b3c-migration-record.md",
+        "rollback_owner": "mirichard"
+      }
     },
     {
       "source": "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_metrics_dashboard_template.md",
@@ -4185,9 +4334,9 @@
         "Uncertainty"
       ],
       "dependencies": [
-        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/metrics_dashboard_template.md",
-        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_metrics_reporting_template.md",
-        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_art_coordination_template.md"
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/metrics_dashboard_template.md",
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_metrics_reporting_template.md",
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_art_coordination_template.md"
       ],
       "affected_internal_references": [
         "TEMPLATE_INDEX.md",
@@ -4205,7 +4354,14 @@
       ],
       "batch": 3,
       "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move",
-      "action": "planned-move-not-executed"
+      "action": "executed-move-with-legacy-pointer",
+      "execution": {
+        "batch_id": "B3C",
+        "pre_batch_sha": "b29500895cc57cb80016b5bf723dd0960a81b4b0",
+        "pre_move_source_sha256": "ca79a4e46ff245402f41e561083d4bf28a914a6d5127d4f28a638a8a481626bb",
+        "evidence_file": "docs/vnext/sprint-12/b3c-migration-record.md",
+        "rollback_owner": "mirichard"
+      }
     },
     {
       "source": "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_metrics_reporting_template.md",
@@ -4216,9 +4372,9 @@
         "Uncertainty"
       ],
       "dependencies": [
-        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/metrics_dashboard_template.md",
-        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_metrics_dashboard_template.md",
-        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_art_coordination_template.md"
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/metrics_dashboard_template.md",
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_metrics_dashboard_template.md",
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_art_coordination_template.md"
       ],
       "affected_internal_references": [
         "TEMPLATE_INDEX.md",
@@ -4235,7 +4391,14 @@
       ],
       "batch": 3,
       "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move",
-      "action": "planned-move-not-executed"
+      "action": "executed-move-with-legacy-pointer",
+      "execution": {
+        "batch_id": "B3C",
+        "pre_batch_sha": "b29500895cc57cb80016b5bf723dd0960a81b4b0",
+        "pre_move_source_sha256": "971937d974b8f26eec47a08396126a4420b07722edd2c04c152e5b4c75e98576",
+        "evidence_file": "docs/vnext/sprint-12/b3c-migration-record.md",
+        "rollback_owner": "mirichard"
+      }
     },
     {
       "source": "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_portfolio_kanban_template.md",
@@ -4246,22 +4409,23 @@
         "Uncertainty"
       ],
       "dependencies": [
-        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/portfolio_kanban_template.md",
-        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/metrics_dashboard_template.md",
-        "methodology-frameworks/agile-scrum/scaling-frameworks/less/overall_product_backlog_template.md"
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/portfolio_kanban_template.md",
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/metrics_dashboard_template.md",
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/less/overall_product_backlog_template.md"
       ],
       "affected_internal_references": [
         "TEMPLATE_INDEX.md",
         "docs/archive/README-20250805.md",
         "docs/methodology-guides/methodology-comparison.md",
         "docs/templates/safe_portfolio_kanban_template.md",
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_art_coordination_template.md",
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_metrics_dashboard_template.md",
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_metrics_reporting_template.md",
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_portfolio_kanban_template.md",
         "meta/cross-references.json",
         "meta/domain-mapping.json",
         "meta/migration-inventory.json",
         "meta/value-flow-mapping.json",
-        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_art_coordination_template.md",
-        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_metrics_dashboard_template.md",
-        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_metrics_reporting_template.md",
         "site/.lighthouseci/lhr-1755874277795.html",
         "site/.lighthouseci/lhr-1755874277795.json",
         "templates/templates.json",
@@ -4269,7 +4433,14 @@
       ],
       "batch": 3,
       "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move",
-      "action": "planned-move-not-executed"
+      "action": "executed-move-with-legacy-pointer",
+      "execution": {
+        "batch_id": "B3D",
+        "pre_batch_sha": "de93a99a5154367fc996cdf41b2738046eba5192",
+        "pre_move_source_sha256": "06aa28142b43d23a20a74e92bfbf40cf3cd526ae9a58045164fdb160d54f7174",
+        "evidence_file": "docs/vnext/sprint-12/b3d-migration-record.md",
+        "rollback_owner": "mirichard"
+      }
     },
     {
       "source": "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_program_increment_planning_template.md",
@@ -4280,9 +4451,9 @@
         "Uncertainty"
       ],
       "dependencies": [
-        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md",
-        "methodology-frameworks/agile-scrum/scaling-frameworks/less/cross_team_coordination_template.md",
-        "methodology-frameworks/agile-scrum/scaling-frameworks/less/less_sprint_planning_template.md"
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md",
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/less/cross_team_coordination_template.md",
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/less/less_sprint_planning_template.md"
       ],
       "affected_internal_references": [
         "TEMPLATE_INDEX.md",
@@ -4291,15 +4462,16 @@
         "docs/decision-engine/template-decision-tree.md",
         "docs/methodology-guides/methodology-comparison.md",
         "docs/templates/safe_program_increment_planning_template.md",
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_art_coordination_template.md",
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_metrics_dashboard_template.md",
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_metrics_reporting_template.md",
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_program_increment_planning_template.md",
         "meta/architecture-research/806-rules-engine-implementation.md",
         "meta/architecture-research/809-decision-tree-design.md",
         "meta/cross-references.json",
         "meta/domain-mapping.json",
         "meta/migration-inventory.json",
         "meta/value-flow-mapping.json",
-        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_art_coordination_template.md",
-        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_metrics_dashboard_template.md",
-        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_metrics_reporting_template.md",
         "role-based-toolkits/program-manager/methodology-variants/README.md",
         "site/.lighthouseci/lhr-1755874277795.html",
         "site/.lighthouseci/lhr-1755874277795.json",
@@ -4308,7 +4480,14 @@
       ],
       "batch": 3,
       "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move",
-      "action": "planned-move-not-executed"
+      "action": "executed-move-with-legacy-pointer",
+      "execution": {
+        "batch_id": "B3D",
+        "pre_batch_sha": "de93a99a5154367fc996cdf41b2738046eba5192",
+        "pre_move_source_sha256": "c69dfa1a6da85c2ad76911f228846544a6477a9b7343f1f0a8777d557f8a19c3",
+        "evidence_file": "docs/vnext/sprint-12/b3d-migration-record.md",
+        "rollback_owner": "mirichard"
+      }
     },
     {
       "source": "project-lifecycle/02-planning/resource-planning/skills-matrix-template.md",
@@ -4392,7 +4571,7 @@
       ],
       "dependencies": [
         "templates/agile/product_backlog_template.md",
-        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_program_increment_planning_template.md",
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_program_increment_planning_template.md",
         "domains/team/templates/agile/sprint_review_template.md"
       ],
       "affected_internal_references": [
@@ -4410,6 +4589,9 @@
         "docs/site/public/changelog/sprint_planning_template.json",
         "docs/templates/less_sprint_planning_template.md",
         "docs/templates/sprint_planning_template.md",
+        "docs/vnext/sprint-12/b3c-migration-record.md",
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/less/cross_team_coordination_template.md",
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/less/overall_product_backlog_template.md",
         "domains/team/methodology-frameworks/agile-scrum/scaling-frameworks/less/less_retrospective_template.md",
         "industry-specializations/information-technology/README.md",
         "industry_templates/software_development/README.md",
@@ -4425,8 +4607,8 @@
         "meta/domain-mapping.json",
         "meta/migration-inventory.json",
         "meta/value-flow-mapping.json",
-        "methodology-frameworks/agile-scrum/scaling-frameworks/less/cross_team_coordination_template.md",
-        "methodology-frameworks/agile-scrum/scaling-frameworks/less/overall_product_backlog_template.md",
+        "methodology-frameworks/agile-scrum/scaling-frameworks/less/less_sprint_planning_template.md",
+        "methodology-frameworks/agile-scrum/sprint-planning/README.md",
         "organizational_change_management_framework.md",
         "quick-start-kits/less-adoption/README.md",
         "site/.lighthouseci/lhr-1755874277795.html",
@@ -4449,8 +4631,8 @@
       ],
       "dependencies": [
         "domains/team/templates/agile/sprint_review_template.md",
-        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md",
-        "methodology-frameworks/agile-scrum/scaling-frameworks/less/cross_team_coordination_template.md"
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md",
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/less/cross_team_coordination_template.md"
       ],
       "affected_internal_references": [
         "GUIDE.md",
@@ -4498,9 +4680,9 @@
         "Stakeholder"
       ],
       "dependencies": [
-        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md",
-        "methodology-frameworks/agile-scrum/scaling-frameworks/less/cross_team_coordination_template.md",
-        "methodology-frameworks/agile-scrum/scaling-frameworks/less/less_sprint_planning_template.md"
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md",
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/less/cross_team_coordination_template.md",
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/less/less_sprint_planning_template.md"
       ],
       "affected_internal_references": [
         "GUIDE.md",
@@ -4547,7 +4729,7 @@
         "Planning"
       ],
       "dependencies": [
-        "project-assessment-suite/agile-project-assessment-template.md",
+        "domains/delivery/project-assessment-suite/agile-project-assessment-template.md",
         "domains/stakeholder/role-based-toolkits/product-owner/okr-template.md",
         "project-assessment-suite/process-maturity-assessment-template.md"
       ],
@@ -4822,7 +5004,7 @@
       "primary_domain": "Delivery",
       "secondary_domains": [],
       "dependencies": [
-        "industry-specializations/information-technology/software-development/api_documentation_template.md",
+        "domains/delivery/industry-specializations/information-technology/software-development/api_documentation_template.md",
         "domains/uncertainty/role-based-toolkits/product-owner/user-story-template.md",
         "domains/team/project-lifecycle/01-initiation/project-charter/agile-team-charter-template.md"
       ],
@@ -4841,7 +5023,14 @@
       ],
       "batch": 3,
       "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move",
-      "action": "planned-move-not-executed"
+      "action": "executed-move-with-legacy-pointer",
+      "execution": {
+        "batch_id": "B3C",
+        "pre_batch_sha": "b29500895cc57cb80016b5bf723dd0960a81b4b0",
+        "pre_move_source_sha256": "c80bbc3c57444f640c6c6820e2efce747f61ae50571dc4bf2afdc4a8b854f5b4",
+        "evidence_file": "docs/vnext/sprint-12/b3c-migration-record.md",
+        "rollback_owner": "mirichard"
+      }
     },
     {
       "source": "project-lifecycle/01-initiation/project-charter/traditional-project-charter-template.md",
@@ -4929,6 +5118,7 @@
         "docs/archive/README-20250805.md",
         "docs/site/public/changelog/uat_plan_template.json",
         "docs/templates/uat_plan_template.md",
+        "domains/delivery/templates/hybrid/Hybrid/Templates/progressive_acceptance_plan_template.md",
         "meta/cross-references.json",
         "meta/domain-mapping.json",
         "meta/migration-inventory.json",
@@ -4936,7 +5126,6 @@
         "project-docs/progressive_acceptance_plan.md",
         "site/.lighthouseci/lhr-1755874277795.html",
         "site/.lighthouseci/lhr-1755874277795.json",
-        "templates/hybrid/Hybrid/Templates/progressive_acceptance_plan_template.md",
         "templates/templates.json",
         "templates/templates.proposed.json",
         "templates/traditional/Traditional/Templates/uat_strategy_template.md",
@@ -5022,7 +5211,7 @@
       "secondary_domains": [],
       "dependencies": [
         "domains/uncertainty/industry-specializations/information-technology/software-development/user_story_mapping_template.md",
-        "industry-specializations/information-technology/software-development/api_documentation_template.md",
+        "domains/delivery/industry-specializations/information-technology/software-development/api_documentation_template.md",
         "business-stakeholder-suite/executive-dashboards/tableau-integration/executive-dashboard-template.md"
       ],
       "affected_internal_references": [

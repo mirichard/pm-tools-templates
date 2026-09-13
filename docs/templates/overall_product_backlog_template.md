@@ -15,7 +15,7 @@
 
 title: "Overall Product Backlog Template"
 
-[**➡️ View Template File**](/methodology-frameworks/agile-scrum/scaling-frameworks/less/overall_product_backlog_template.md)
+[**➡️ View Template File**](/domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/less/overall_product_backlog_template.md)
 
 ## 📈 Quality Score
 

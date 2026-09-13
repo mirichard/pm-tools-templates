@@ -15,7 +15,7 @@
 
 title: "Safe Art Coordination Template"
 
-[**➡️ View Template File**](/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_art_coordination_template.md)
+[**➡️ View Template File**](/domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_art_coordination_template.md)
 
 ## 📈 Quality Score
 

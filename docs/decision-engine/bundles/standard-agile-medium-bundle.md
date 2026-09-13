@@ -32,7 +32,7 @@
 ## Complementary Resources
 
 - **Toolkit:** [Scrum Master Toolkit](../../../role-based-toolkits/scrum-master/) or [Product Owner Toolkit](../../../role-based-toolkits/product-owner/)
-- **Assessment:** [Agile Project Assessment](../../../project-assessment-suite/agile-project-assessment-template.md)
+- **Assessment:** [Agile Project Assessment](../../../domains/delivery/project-assessment-suite/agile-project-assessment-template.md)
 - **Guide:** [Methodology Selection Guide](../../../quick-start-kits/methodology-selection-guide.md)
 
 ## What This Bundle Does NOT Cover

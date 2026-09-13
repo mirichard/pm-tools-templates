@@ -56,6 +56,13 @@ class GherkinGenerator {
 
       // Convert steps to When/Then pairs
       for (const step of tc.steps) {
+        // Retain constraints as source references, not invented executable assertions.
+        if (typeof step.sourceText === 'string') {
+          lines.push(`    # Source requirement ${step.sourceRequirementId || '(unlabeled)'}`);
+          for (const sourceLine of step.sourceText.split(/\r?\n/)) {
+            lines.push(`    # ${sourceLine}`);
+          }
+        }
         const actor = step.actor || 'the system';
         const action = step.action || 'performs action';
         const bo = step.businessObject || '';

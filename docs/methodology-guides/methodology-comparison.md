@@ -106,10 +106,10 @@ Scaling frameworks extend Agile practices to handle larger, more complex project
 - Enterprises with 50+ team members
 
 **Templates Available:**
-- [SAFe Program Increment Planning Template](../../methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_program_increment_planning_template.md)
-- [SAFe Portfolio Kanban Template](../../methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_portfolio_kanban_template.md)
-- [SAFe ART Coordination Template](../../methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_art_coordination_template.md)
-- [SAFe Metrics Dashboard Template](../../methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_metrics_dashboard_template.md)
+- [SAFe Program Increment Planning Template](../../domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_program_increment_planning_template.md)
+- [SAFe Portfolio Kanban Template](../../domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_portfolio_kanban_template.md)
+- [SAFe ART Coordination Template](../../domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_art_coordination_template.md)
+- [SAFe Metrics Dashboard Template](../../domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_metrics_dashboard_template.md)
 
 #### LeSS (Large-Scale Scrum)
 
@@ -120,10 +120,10 @@ Scaling frameworks extend Agile practices to handle larger, more complex project
 - Organizations wanting to stay close to Scrum principles
 
 **Templates Available:**
-- [LeSS Sprint Planning Template](../../methodology-frameworks/agile-scrum/scaling-frameworks/less/less_sprint_planning_template.md)
+- [LeSS Sprint Planning Template](../../domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/less/less_sprint_planning_template.md)
 - [LeSS Retrospective Template](../../domains/team/methodology-frameworks/agile-scrum/scaling-frameworks/less/less_retrospective_template.md)
-- [Cross Team Coordination Template](../../methodology-frameworks/agile-scrum/scaling-frameworks/less/cross_team_coordination_template.md)
-- [Overall Product Backlog Template](../../methodology-frameworks/agile-scrum/scaling-frameworks/less/overall_product_backlog_template.md)
+- [Cross Team Coordination Template](../../domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/less/cross_team_coordination_template.md)
+- [Overall Product Backlog Template](../../domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/less/overall_product_backlog_template.md)
 
 ### Hybrid Approaches
 

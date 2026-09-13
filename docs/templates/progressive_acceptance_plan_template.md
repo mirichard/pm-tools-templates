@@ -15,7 +15,7 @@
 
 title: "Progressive Acceptance Plan Template"
 
-[**➡️ View Template File**](/templates/hybrid/Hybrid/Templates/progressive_acceptance_plan_template.md)
+[**➡️ View Template File**](/domains/delivery/templates/hybrid/Hybrid/Templates/progressive_acceptance_plan_template.md)
 
 ## 📈 Quality Score
 

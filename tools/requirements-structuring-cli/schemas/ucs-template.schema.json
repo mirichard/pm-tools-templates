@@ -51,6 +51,25 @@
       "type": "array",
       "items": { "type": "string" },
       "description": "IDs of use cases referenced by steps in this template"
+    },
+    "sourceRequirements": {
+      "type": "array",
+      "description": "Parser-owned original source lines; optional for legacy artifacts.",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "originalText"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "originalText": {
+            "type": "string"
+          }
+        }
+      }
     }
   },
   "definitions": {
@@ -58,6 +77,14 @@
       "type": "object",
       "required": ["stepId", "actor", "action", "businessObject"],
       "properties": {
+        "sourceRequirementId": {
+          "type": "string",
+          "description": "Originating parser requirement ID; optional for legacy artifacts."
+        },
+        "sourceText": {
+          "type": "string",
+          "description": "Exact original source line reattached by code; optional for legacy artifacts."
+        },
         "stepId": {
           "type": "string",
           "description": "Step identifier (e.g., '1', '2', '3a1')"

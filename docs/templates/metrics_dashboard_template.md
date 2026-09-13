@@ -15,7 +15,7 @@
 
 title: "Metrics Dashboard Template"
 
-[**➡️ View Template File**](/methodology-frameworks/agile-scrum/scaling-frameworks/safe/metrics_dashboard_template.md)
+[**➡️ View Template File**](/domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/metrics_dashboard_template.md)
 
 ## 📈 Quality Score
 

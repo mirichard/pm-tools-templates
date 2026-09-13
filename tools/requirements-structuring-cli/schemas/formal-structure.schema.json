@@ -28,6 +28,25 @@
       "items": {
         "type": "string"
       }
+    },
+    "sourceRequirements": {
+      "type": "array",
+      "description": "Parser-owned original source lines; optional for legacy artifacts.",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "originalText"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "originalText": {
+            "type": "string"
+          }
+        }
+      }
     }
   },
   "definitions": {
@@ -36,6 +55,14 @@
       "description": "A single requirement normalized into the formal structure (Eq. 1)",
       "required": ["stepId", "actor", "action", "businessObject"],
       "properties": {
+        "sourceRequirementId": {
+          "type": "string",
+          "description": "Originating parser requirement ID; optional for legacy artifacts."
+        },
+        "sourceText": {
+          "type": "string",
+          "description": "Exact original source line reattached by code; optional for legacy artifacts."
+        },
         "stepId": {
           "type": "string",
           "description": "Step identifier (e.g., '1', '3a1')"

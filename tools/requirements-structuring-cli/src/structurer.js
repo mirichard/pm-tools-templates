@@ -11,6 +11,9 @@
  */
 
 const LLMClient = require('./llm-client');
+const { sourceMap, attachSources } = require('./source-traceability');
+const STRUCTURE_PROMPT_VERSION = '1.0.0';
+const CORRECTION_PROMPT_VERSION = '1.0.0';
 
 class RequirementsStructurer {
   constructor() {
@@ -23,6 +26,8 @@ class RequirementsStructurer {
    * @returns {object} Formal structure conforming to formal-structure.schema.json
    */
   async structure(parsedRequirements) {
+    const map = sourceMap([...parsedRequirements.basicFlow, ...parsedRequirements.alternativeFlows,
+      ...parsedRequirements.exceptionFlows]);
     // Pass 1: NL → formal structure
     const structurePrompt = await this.llm.loadPrompt('01-structure-requirements.md');
     const userContent = this._buildUserPrompt(parsedRequirements);
@@ -32,6 +37,8 @@ class RequirementsStructurer {
       userPrompt: userContent,
       mode: 'structure',
     });
+
+    attachSources(structured, map, 'structured', 'Structuring');
 
     // Pass 2: BO correction — fix attribute/entity confusion
     const corrected = await this._correctBusinessObjects(structured);
@@ -45,9 +52,11 @@ class RequirementsStructurer {
    * as business objects instead of the entity they belong to (e.g., "Buyer").
    */
   async _correctBusinessObjects(structured) {
+    const map = structured.sourceRequirements === undefined ? undefined : sourceMap(structured.sourceRequirements);
     const correctionPrompt = await this.llm.loadPrompt('02-correct-business-objects.md');
 
     const userContent = [
+      'Preserve sourceRequirementId on every step; the supplied sourceRequirements catalog defines valid IDs.',
       'Review the following structured requirements and correct any business object misidentifications.',
       'If a "businessObject" field contains an attribute (e.g., "buyer\'s name", "order total")',
       'rather than a true business entity, replace it with the entity it belongs to.',
@@ -63,7 +72,7 @@ class RequirementsStructurer {
       mode: 'structure',
     });
 
-    return corrected;
+    return attachSources(corrected, map, 'structured', 'Business-object correction');
   }
 
   /**
@@ -84,15 +93,15 @@ class RequirementsStructurer {
     }
 
     if (parsed.basicFlow.length > 0) {
-      parts.push(`\nBasic Flow:\n${parsed.basicFlow.map((s, i) => `${i + 1}. ${s}`).join('\n')}`);
+      parts.push(`\nBasic Flow:\n${parsed.basicFlow.map((s, i) => `${i + 1}. [${s.id}] ${s.text}`).join('\n')}`);
     }
 
     if (parsed.alternativeFlows.length > 0) {
-      parts.push(`\nAlternative Flows:\n${parsed.alternativeFlows.map((s) => `- ${s}`).join('\n')}`);
+      parts.push(`\nAlternative Flows:\n${parsed.alternativeFlows.map((s) => `- [${s.id}] ${s.text}`).join('\n')}`);
     }
 
     if (parsed.exceptionFlows.length > 0) {
-      parts.push(`\nException Flows:\n${parsed.exceptionFlows.map((s) => `- ${s}`).join('\n')}`);
+      parts.push(`\nException Flows:\n${parsed.exceptionFlows.map((s) => `- [${s.id}] ${s.text}`).join('\n')}`);
     }
 
     if (parsed.postconditions.length > 0) {
@@ -113,3 +122,6 @@ class RequirementsStructurer {
 }
 
 module.exports = RequirementsStructurer;
+
+module.exports.STRUCTURE_PROMPT_VERSION = STRUCTURE_PROMPT_VERSION;
+module.exports.CORRECTION_PROMPT_VERSION = CORRECTION_PROMPT_VERSION;

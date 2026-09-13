@@ -17,7 +17,7 @@
       }
     },
     {
-      "path": "project-assessment-suite/agile-project-assessment-template.md",
+      "path": "domains/delivery/project-assessment-suite/agile-project-assessment-template.md",
       "title": "Agile Project Assessment Template",
       "methodology": "universal",
       "value_flow": {
@@ -87,7 +87,7 @@
       }
     },
     {
-      "path": "industry-specializations/information-technology/software-development/api_documentation_template.md",
+      "path": "domains/delivery/industry-specializations/information-technology/software-development/api_documentation_template.md",
       "title": "Api Documentation Template",
       "methodology": "universal",
       "value_flow": {
@@ -101,7 +101,7 @@
       }
     },
     {
-      "path": "methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md",
+      "path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md",
       "title": "Art Coordination Template",
       "methodology": "agile",
       "value_flow": {
@@ -367,7 +367,7 @@
       }
     },
     {
-      "path": "methodology-frameworks/agile-scrum/scaling-frameworks/less/cross_team_coordination_template.md",
+      "path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/less/cross_team_coordination_template.md",
       "title": "Cross Team Coordination Template",
       "methodology": "agile",
       "value_flow": {
@@ -661,7 +661,7 @@
       }
     },
     {
-      "path": "methodology-frameworks/hybrid/infrastructure/hybrid-infrastructure-template.md",
+      "path": "domains/delivery/methodology-frameworks/hybrid/infrastructure/hybrid-infrastructure-template.md",
       "title": "Hybrid Infrastructure Template",
       "methodology": "hybrid",
       "value_flow": {
@@ -675,7 +675,7 @@
       }
     },
     {
-      "path": "project-assessment-suite/hybrid-project-assessment-template.md",
+      "path": "domains/delivery/project-assessment-suite/hybrid-project-assessment-template.md",
       "title": "Hybrid Project Assessment Template",
       "methodology": "universal",
       "value_flow": {
@@ -703,7 +703,7 @@
       }
     },
     {
-      "path": "project-lifecycle/02-planning/project-management-plan/hybrid-project-management-plan-template.md",
+      "path": "domains/delivery/project-lifecycle/02-planning/project-management-plan/hybrid-project-management-plan-template.md",
       "title": "Hybrid Project Management Plan Template",
       "methodology": "universal",
       "value_flow": {
@@ -731,7 +731,7 @@
       }
     },
     {
-      "path": "templates/hybrid/Hybrid/Templates/hybrid_release_planning_template.md",
+      "path": "domains/delivery/templates/hybrid/Hybrid/Templates/hybrid_release_planning_template.md",
       "title": "Hybrid Release Planning Template",
       "methodology": "hybrid",
       "value_flow": {
@@ -745,7 +745,7 @@
       }
     },
     {
-      "path": "templates/hybrid/Hybrid/Templates/hybrid_team_management_template.md",
+      "path": "domains/delivery/templates/hybrid/Hybrid/Templates/hybrid_team_management_template.md",
       "title": "Hybrid Team Management Template",
       "methodology": "hybrid",
       "value_flow": {
@@ -815,7 +815,7 @@
       }
     },
     {
-      "path": "templates/hybrid/Hybrid/Templates/integrated_change_strategy_template.md",
+      "path": "domains/delivery/templates/hybrid/Hybrid/Templates/integrated_change_strategy_template.md",
       "title": "Integrated Change Strategy Template",
       "methodology": "hybrid",
       "value_flow": {
@@ -857,7 +857,7 @@
       }
     },
     {
-      "path": "methodology-frameworks/agile-scrum/scaling-frameworks/less/less_sprint_planning_template.md",
+      "path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/less/less_sprint_planning_template.md",
       "title": "Less Sprint Planning Template",
       "methodology": "agile",
       "value_flow": {
@@ -899,7 +899,7 @@
       }
     },
     {
-      "path": "methodology-frameworks/agile-scrum/scaling-frameworks/safe/metrics_dashboard_template.md",
+      "path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/metrics_dashboard_template.md",
       "title": "Metrics Dashboard Template",
       "methodology": "agile",
       "value_flow": {
@@ -969,7 +969,7 @@
       }
     },
     {
-      "path": "methodology-frameworks/agile-scrum/scaling-frameworks/less/overall_product_backlog_template.md",
+      "path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/less/overall_product_backlog_template.md",
       "title": "Overall Product Backlog Template",
       "methodology": "agile",
       "value_flow": {
@@ -1011,7 +1011,7 @@
       }
     },
     {
-      "path": "methodology-frameworks/agile-scrum/scaling-frameworks/safe/pi_planning_template.md",
+      "path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/pi_planning_template.md",
       "title": "Pi Planning Template",
       "methodology": "agile",
       "value_flow": {
@@ -1025,7 +1025,7 @@
       }
     },
     {
-      "path": "methodology-frameworks/agile-scrum/scaling-frameworks/safe/portfolio_kanban_template.md",
+      "path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/portfolio_kanban_template.md",
       "title": "Portfolio Kanban Template",
       "methodology": "agile",
       "value_flow": {
@@ -1165,7 +1165,7 @@
       }
     },
     {
-      "path": "templates/hybrid/Hybrid/Templates/progressive_acceptance_plan_template.md",
+      "path": "domains/delivery/templates/hybrid/Hybrid/Templates/progressive_acceptance_plan_template.md",
       "title": "Progressive Acceptance Plan Template",
       "methodology": "hybrid",
       "value_flow": {
@@ -1543,7 +1543,7 @@
       }
     },
     {
-      "path": "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_art_coordination_template.md",
+      "path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_art_coordination_template.md",
       "title": "Safe Art Coordination Template",
       "methodology": "agile",
       "value_flow": {
@@ -1557,7 +1557,7 @@
       }
     },
     {
-      "path": "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_metrics_dashboard_template.md",
+      "path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_metrics_dashboard_template.md",
       "title": "Safe Metrics Dashboard Template",
       "methodology": "agile",
       "value_flow": {
@@ -1571,7 +1571,7 @@
       }
     },
     {
-      "path": "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_metrics_reporting_template.md",
+      "path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_metrics_reporting_template.md",
       "title": "Safe Metrics Reporting Template",
       "methodology": "agile",
       "value_flow": {
@@ -1585,7 +1585,7 @@
       }
     },
     {
-      "path": "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_portfolio_kanban_template.md",
+      "path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_portfolio_kanban_template.md",
       "title": "Safe Portfolio Kanban Template",
       "methodology": "agile",
       "value_flow": {
@@ -1599,7 +1599,7 @@
       }
     },
     {
-      "path": "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_program_increment_planning_template.md",
+      "path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_program_increment_planning_template.md",
       "title": "Safe Program Increment Planning Template",
       "methodology": "agile",
       "value_flow": {
@@ -1781,7 +1781,7 @@
       }
     },
     {
-      "path": "role-based-toolkits/project-manager/essential-templates/timesheet-tracking-template.md",
+      "path": "domains/delivery/role-based-toolkits/project-manager/essential-templates/timesheet-tracking-template.md",
       "title": "Timesheet Tracking Template",
       "methodology": "universal",
       "value_flow": {

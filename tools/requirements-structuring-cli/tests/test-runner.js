@@ -35,8 +35,10 @@ class TestRunner {
     await this.testBusinessObjectModel();
     await this.testUCSTemplateModel();
     await this.testTestGenerator();
+    await require('./testgen-terminal-tests')(this);
     await this.testConsistencyChecker();
     await this.testParser();
+    await require('./source-traceability-tests')(this);
     await this.testAmbiguityDetector();
     await this.testGherkinGenerator();
     await this.testSecurityBoundaries();
