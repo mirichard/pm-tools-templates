@@ -11,6 +11,7 @@
  */
 
 const LLMClient = require('./llm-client');
+const UCS_PROMPT_VERSION = '1.0.0';
 const { UCSTemplate } = require('./ucs-template');
 
 class UCSTransformer {
@@ -27,6 +28,7 @@ class UCSTransformer {
     const prompt = await this.llm.loadPrompt('03-generate-ucs-template.md');
 
     const userContent = [
+      'When sourceRequirements is supplied, echo its originating sourceRequirementId on every step.',
       'Transform the following structured requirements into a complete UCS template.',
       'The structured requirements follow the formal structure:',
       '<Pre-conditions [Previous Step]; Actor; Action; Business Objects; [To actor]; [Post-conditions]>',
@@ -42,6 +44,7 @@ class UCSTransformer {
       mode: 'structure',
     });
 
+    ucsData.sourceRequirements = formalStructure.sourceRequirements;
     return UCSTemplate.fromJSON(ucsData);
   }
 
@@ -66,6 +69,7 @@ class UCSTransformer {
     const excFlows = this._groupByDeviation(excSteps);
 
     return UCSTemplate.fromJSON({
+      sourceRequirements: formalStructure.sourceRequirements,
       useCaseId: formalStructure.useCaseId,
       intent: formalStructure.useCaseName,
       role: basicSteps.length > 0 ? basicSteps[0].actor : 'Unknown',
@@ -107,3 +111,5 @@ class UCSTransformer {
 }
 
 module.exports = UCSTransformer;
+
+module.exports.UCS_PROMPT_VERSION = UCS_PROMPT_VERSION;
