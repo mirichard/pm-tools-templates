@@ -21,6 +21,8 @@ class UCSStep {
    */
   constructor(params) {
     this.stepId = params.stepId;
+    this.sourceRequirementId = params.sourceRequirementId;
+    this.sourceText = params.sourceText;
     this.actor = params.actor;
     this.action = params.action;
     this.businessObject = params.businessObject;
@@ -42,6 +44,8 @@ class UCSStep {
       action: this.action,
       businessObject: this.businessObject,
     };
+    if (this.sourceText !== undefined) result.sourceText = this.sourceText;
+    if (this.sourceRequirementId !== undefined) result.sourceRequirementId = this.sourceRequirementId;
     if (this.toActor) result.toActor = this.toActor;
     if (this.precondition) result.precondition = this.precondition;
     if (this.postcondition) result.postcondition = this.postcondition;
@@ -101,6 +105,7 @@ class UCSTemplate {
    * @param {string[]} [params.relatedUseCases]
    */
   constructor(params) {
+    this.sourceRequirements = params.sourceRequirements;
     this.useCaseId = params.useCaseId;
     this.intent = params.intent;
     this.role = params.role;
@@ -158,6 +163,7 @@ class UCSTemplate {
 
   toJSON() {
     return {
+      ...(this.sourceRequirements === undefined ? {} : { sourceRequirements: this.sourceRequirements }),
       useCaseId: this.useCaseId,
       intent: this.intent,
       role: this.role,

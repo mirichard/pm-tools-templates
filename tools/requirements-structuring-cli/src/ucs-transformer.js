@@ -11,6 +11,8 @@
  */
 
 const LLMClient = require('./llm-client');
+const { sourceMap, attachSources } = require('./source-traceability');
+const UCS_PROMPT_VERSION = '1.0.0';
 const { UCSTemplate } = require('./ucs-template');
 
 class UCSTransformer {
@@ -24,9 +26,11 @@ class UCSTransformer {
    * @returns {UCSTemplate} Complete UCS template
    */
   async transform(formalStructure) {
+    const map = formalStructure.sourceRequirements === undefined ? undefined : sourceMap(formalStructure.sourceRequirements);
     const prompt = await this.llm.loadPrompt('03-generate-ucs-template.md');
 
     const userContent = [
+      'When sourceRequirements is supplied, echo its originating sourceRequirementId on every step.',
       'Transform the following structured requirements into a complete UCS template.',
       'The structured requirements follow the formal structure:',
       '<Pre-conditions [Previous Step]; Actor; Action; Business Objects; [To actor]; [Post-conditions]>',
@@ -42,6 +46,7 @@ class UCSTransformer {
       mode: 'structure',
     });
 
+    attachSources(ucsData, map, 'ucs', 'UCS transformation');
     return UCSTemplate.fromJSON(ucsData);
   }
 
@@ -51,6 +56,8 @@ class UCSTransformer {
    * Falls back to this when no API key is available.
    */
   transformDeterministic(formalStructure) {
+    const map = formalStructure.sourceRequirements === undefined ? undefined : sourceMap(formalStructure.sourceRequirements);
+    formalStructure = attachSources(JSON.parse(JSON.stringify(formalStructure)), map, 'structured', 'Deterministic transformation');
     const basicSteps = (formalStructure.steps || []).filter(
       (s) => !s.flowType || s.flowType === 'basic'
     );
@@ -66,6 +73,7 @@ class UCSTransformer {
     const excFlows = this._groupByDeviation(excSteps);
 
     return UCSTemplate.fromJSON({
+      sourceRequirements: formalStructure.sourceRequirements,
       useCaseId: formalStructure.useCaseId,
       intent: formalStructure.useCaseName,
       role: basicSteps.length > 0 ? basicSteps[0].actor : 'Unknown',
@@ -107,3 +115,5 @@ class UCSTransformer {
 }
 
 module.exports = UCSTransformer;
+
+module.exports.UCS_PROMPT_VERSION = UCS_PROMPT_VERSION;
