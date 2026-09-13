@@ -268,7 +268,7 @@
       ]
     },
     {
-      "path": "project-lifecycle/02-planning/project-management-plan/agile-release-plan-template.md",
+      "path": "domains/delivery/project-lifecycle/02-planning/project-management-plan/agile-release-plan-template.md",
       "title": "Agile Release Plan Template",
       "methodology": "universal",
       "complexity": "advanced",
@@ -292,7 +292,7 @@
       ],
       "relatedTemplates": [
         {
-          "path": "project-lifecycle/02-planning/risk-management/agile-risk-board-template.md",
+          "path": "domains/delivery/project-lifecycle/02-planning/risk-management/agile-risk-board-template.md",
           "title": "Agile Risk Board Template",
           "methodology": "universal",
           "tags": [
@@ -348,10 +348,13 @@
           ],
           "similarity": 93
         }
+      ],
+      "alternate_paths": [
+        "project-lifecycle/02-planning/project-management-plan/agile-release-plan-template.md"
       ]
     },
     {
-      "path": "project-lifecycle/02-planning/risk-management/agile-risk-board-template.md",
+      "path": "domains/delivery/project-lifecycle/02-planning/risk-management/agile-risk-board-template.md",
       "title": "Agile Risk Board Template",
       "methodology": "universal",
       "complexity": "advanced",
@@ -375,7 +378,7 @@
       ],
       "relatedTemplates": [
         {
-          "path": "project-lifecycle/02-planning/project-management-plan/agile-release-plan-template.md",
+          "path": "domains/delivery/project-lifecycle/02-planning/project-management-plan/agile-release-plan-template.md",
           "title": "Agile Release Plan Template",
           "methodology": "universal",
           "tags": [
@@ -431,6 +434,9 @@
           ],
           "similarity": 93
         }
+      ],
+      "alternate_paths": [
+        "project-lifecycle/02-planning/risk-management/agile-risk-board-template.md"
       ]
     },
     {
@@ -461,7 +467,7 @@
       ],
       "relatedTemplates": [
         {
-          "path": "project-lifecycle/02-planning/project-management-plan/traditional-project-management-plan-template.md",
+          "path": "domains/delivery/project-lifecycle/02-planning/project-management-plan/traditional-project-management-plan-template.md",
           "title": "Traditional Project Management Plan Template",
           "methodology": "universal",
           "tags": [
@@ -593,7 +599,7 @@
           "similarity": 73
         },
         {
-          "path": "project-lifecycle/02-planning/project-management-plan/traditional-project-management-plan-template.md",
+          "path": "domains/delivery/project-lifecycle/02-planning/project-management-plan/traditional-project-management-plan-template.md",
           "title": "Traditional Project Management Plan Template",
           "methodology": "universal",
           "tags": [
@@ -1402,7 +1408,7 @@
       ],
       "relatedTemplates": [
         {
-          "path": "templates/traditional/Traditional/Process_Groups/Executing/requirements_traceability_matrix_template.md",
+          "path": "domains/delivery/templates/traditional/Traditional/Process_Groups/Executing/requirements_traceability_matrix_template.md",
           "title": "Requirements Traceability Matrix Template",
           "methodology": "traditional",
           "tags": [
@@ -1416,7 +1422,7 @@
           "similarity": 92
         },
         {
-          "path": "templates/traditional/Traditional/Knowledge_Areas/Project_Cost_Management/roi_tracking_template.md",
+          "path": "domains/delivery/templates/traditional/Traditional/Knowledge_Areas/Project_Cost_Management/roi_tracking_template.md",
           "title": "Roi Tracking Template",
           "methodology": "traditional",
           "tags": [
@@ -1708,7 +1714,7 @@
           "similarity": 100
         },
         {
-          "path": "templates/traditional/Traditional/Templates/issue_log_template.md",
+          "path": "domains/delivery/templates/traditional/Traditional/Templates/issue_log_template.md",
           "title": "Issue Log Template",
           "methodology": "traditional",
           "tags": [
@@ -1740,7 +1746,7 @@
           "similarity": 94
         },
         {
-          "path": "templates/traditional/Traditional/Templates/program_management_plan_template.md",
+          "path": "domains/delivery/templates/traditional/Traditional/Templates/program_management_plan_template.md",
           "title": "Program Management Plan Template",
           "methodology": "traditional",
           "tags": [
@@ -1756,7 +1762,7 @@
           "similarity": 94
         },
         {
-          "path": "templates/traditional/Traditional/Process_Groups/Closing/project_closure_report_template.md",
+          "path": "domains/delivery/templates/traditional/Traditional/Process_Groups/Closing/project_closure_report_template.md",
           "title": "Project Closure Report Template",
           "methodology": "traditional",
           "tags": [
@@ -1843,7 +1849,7 @@
           "similarity": 100
         },
         {
-          "path": "templates/traditional/Traditional/Templates/issue_log_template.md",
+          "path": "domains/delivery/templates/traditional/Traditional/Templates/issue_log_template.md",
           "title": "Issue Log Template",
           "methodology": "traditional",
           "tags": [
@@ -2205,7 +2211,7 @@
           "similarity": 100
         },
         {
-          "path": "templates/traditional/Traditional/Templates/issue_log_template.md",
+          "path": "domains/delivery/templates/traditional/Traditional/Templates/issue_log_template.md",
           "title": "Issue Log Template",
           "methodology": "traditional",
           "tags": [
@@ -2880,7 +2886,7 @@
           "similarity": 65
         },
         {
-          "path": "templates/agile/sprint_planning_template.md",
+          "path": "domains/delivery/templates/agile/sprint_planning_template.md",
           "title": "Sprint Planning Template",
           "methodology": "agile",
           "tags": [
@@ -4580,7 +4586,7 @@
           "similarity": 93
         },
         {
-          "path": "templates/hybrid/Hybrid/Templates/hybrid_quality_management_template.md",
+          "path": "domains/delivery/templates/hybrid/Hybrid/Templates/hybrid_quality_management_template.md",
           "title": "Hybrid Quality Management Template",
           "methodology": "hybrid",
           "tags": [
@@ -4756,7 +4762,7 @@
           "similarity": 86
         },
         {
-          "path": "templates/hybrid/Hybrid/Templates/hybrid_quality_management_template.md",
+          "path": "domains/delivery/templates/hybrid/Hybrid/Templates/hybrid_quality_management_template.md",
           "title": "Hybrid Quality Management Template",
           "methodology": "hybrid",
           "tags": [
@@ -4880,7 +4886,7 @@
       ]
     },
     {
-      "path": "templates/hybrid/Hybrid/Templates/hybrid_quality_management_template.md",
+      "path": "domains/delivery/templates/hybrid/Hybrid/Templates/hybrid_quality_management_template.md",
       "title": "Hybrid Quality Management Template",
       "methodology": "hybrid",
       "complexity": "advanced",
@@ -4975,6 +4981,9 @@
           ],
           "similarity": 81
         }
+      ],
+      "alternate_paths": [
+        "templates/hybrid/Hybrid/Templates/hybrid_quality_management_template.md"
       ]
     },
     {
@@ -5598,7 +5607,7 @@
           "similarity": 93
         },
         {
-          "path": "templates/hybrid/Hybrid/Templates/hybrid_quality_management_template.md",
+          "path": "domains/delivery/templates/hybrid/Hybrid/Templates/hybrid_quality_management_template.md",
           "title": "Hybrid Quality Management Template",
           "methodology": "hybrid",
           "tags": [
@@ -5618,7 +5627,7 @@
       ]
     },
     {
-      "path": "templates/traditional/Traditional/Templates/issue_log_template.md",
+      "path": "domains/delivery/templates/traditional/Traditional/Templates/issue_log_template.md",
       "title": "Issue Log Template",
       "methodology": "traditional",
       "complexity": "advanced",
@@ -5659,7 +5668,7 @@
           "similarity": 100
         },
         {
-          "path": "templates/traditional/Traditional/Templates/program_management_plan_template.md",
+          "path": "domains/delivery/templates/traditional/Traditional/Templates/program_management_plan_template.md",
           "title": "Program Management Plan Template",
           "methodology": "traditional",
           "tags": [
@@ -5675,7 +5684,7 @@
           "similarity": 100
         },
         {
-          "path": "templates/traditional/Traditional/Process_Groups/Closing/project_closure_report_template.md",
+          "path": "domains/delivery/templates/traditional/Traditional/Process_Groups/Closing/project_closure_report_template.md",
           "title": "Project Closure Report Template",
           "methodology": "traditional",
           "tags": [
@@ -5691,7 +5700,7 @@
           "similarity": 100
         },
         {
-          "path": "templates/traditional/Traditional/Process_Groups/Executing/project_execution_status_report_template.md",
+          "path": "domains/delivery/templates/traditional/Traditional/Process_Groups/Executing/project_execution_status_report_template.md",
           "title": "Project Execution Status Report Template",
           "methodology": "traditional",
           "tags": [
@@ -5722,6 +5731,9 @@
           ],
           "similarity": 100
         }
+      ],
+      "alternate_paths": [
+        "templates/traditional/Traditional/Templates/issue_log_template.md"
       ]
     },
     {
@@ -7095,7 +7107,7 @@
           "similarity": 50
         },
         {
-          "path": "project-lifecycle/02-planning/project-management-plan/agile-release-plan-template.md",
+          "path": "domains/delivery/project-lifecycle/02-planning/project-management-plan/agile-release-plan-template.md",
           "title": "Agile Release Plan Template",
           "methodology": "universal",
           "tags": [
@@ -7110,7 +7122,7 @@
           "similarity": 50
         },
         {
-          "path": "project-lifecycle/02-planning/risk-management/agile-risk-board-template.md",
+          "path": "domains/delivery/project-lifecycle/02-planning/risk-management/agile-risk-board-template.md",
           "title": "Agile Risk Board Template",
           "methodology": "universal",
           "tags": [
@@ -7541,7 +7553,7 @@
       ]
     },
     {
-      "path": "templates/agile/product_backlog_template.md",
+      "path": "domains/delivery/templates/agile/product_backlog_template.md",
       "title": "Product Backlog Template",
       "methodology": "agile",
       "complexity": "advanced",
@@ -7591,7 +7603,7 @@
           "similarity": 92
         },
         {
-          "path": "templates/agile/sprint_planning_template.md",
+          "path": "domains/delivery/templates/agile/sprint_planning_template.md",
           "title": "Sprint Planning Template",
           "methodology": "agile",
           "tags": [
@@ -7633,6 +7645,9 @@
           ],
           "similarity": 86
         }
+      ],
+      "alternate_paths": [
+        "templates/agile/product_backlog_template.md"
       ]
     },
     {
@@ -7751,7 +7766,7 @@
       ],
       "relatedTemplates": [
         {
-          "path": "templates/traditional/Traditional/Templates/issue_log_template.md",
+          "path": "domains/delivery/templates/traditional/Traditional/Templates/issue_log_template.md",
           "title": "Issue Log Template",
           "methodology": "traditional",
           "tags": [
@@ -7767,7 +7782,7 @@
           "similarity": 100
         },
         {
-          "path": "templates/traditional/Traditional/Templates/program_management_plan_template.md",
+          "path": "domains/delivery/templates/traditional/Traditional/Templates/program_management_plan_template.md",
           "title": "Program Management Plan Template",
           "methodology": "traditional",
           "tags": [
@@ -7783,7 +7798,7 @@
           "similarity": 100
         },
         {
-          "path": "templates/traditional/Traditional/Process_Groups/Closing/project_closure_report_template.md",
+          "path": "domains/delivery/templates/traditional/Traditional/Process_Groups/Closing/project_closure_report_template.md",
           "title": "Project Closure Report Template",
           "methodology": "traditional",
           "tags": [
@@ -7799,7 +7814,7 @@
           "similarity": 100
         },
         {
-          "path": "templates/traditional/Traditional/Process_Groups/Executing/project_execution_status_report_template.md",
+          "path": "domains/delivery/templates/traditional/Traditional/Process_Groups/Executing/project_execution_status_report_template.md",
           "title": "Project Execution Status Report Template",
           "methodology": "traditional",
           "tags": [
@@ -7836,7 +7851,7 @@
       ]
     },
     {
-      "path": "templates/traditional/Traditional/Templates/program_management_plan_template.md",
+      "path": "domains/delivery/templates/traditional/Traditional/Templates/program_management_plan_template.md",
       "title": "Program Management Plan Template",
       "methodology": "traditional",
       "complexity": "advanced",
@@ -7861,7 +7876,7 @@
       ],
       "relatedTemplates": [
         {
-          "path": "templates/traditional/Traditional/Templates/issue_log_template.md",
+          "path": "domains/delivery/templates/traditional/Traditional/Templates/issue_log_template.md",
           "title": "Issue Log Template",
           "methodology": "traditional",
           "tags": [
@@ -7893,7 +7908,7 @@
           "similarity": 100
         },
         {
-          "path": "templates/traditional/Traditional/Process_Groups/Closing/project_closure_report_template.md",
+          "path": "domains/delivery/templates/traditional/Traditional/Process_Groups/Closing/project_closure_report_template.md",
           "title": "Project Closure Report Template",
           "methodology": "traditional",
           "tags": [
@@ -7909,7 +7924,7 @@
           "similarity": 100
         },
         {
-          "path": "templates/traditional/Traditional/Process_Groups/Executing/project_execution_status_report_template.md",
+          "path": "domains/delivery/templates/traditional/Traditional/Process_Groups/Executing/project_execution_status_report_template.md",
           "title": "Project Execution Status Report Template",
           "methodology": "traditional",
           "tags": [
@@ -7940,6 +7955,9 @@
           ],
           "similarity": 100
         }
+      ],
+      "alternate_paths": [
+        "templates/traditional/Traditional/Templates/program_management_plan_template.md"
       ]
     },
     {
@@ -8025,7 +8043,7 @@
           "similarity": 93
         },
         {
-          "path": "templates/hybrid/Hybrid/Templates/hybrid_quality_management_template.md",
+          "path": "domains/delivery/templates/hybrid/Hybrid/Templates/hybrid_quality_management_template.md",
           "title": "Hybrid Quality Management Template",
           "methodology": "hybrid",
           "tags": [
@@ -8118,7 +8136,7 @@
           "similarity": 100
         },
         {
-          "path": "templates/traditional/Traditional/Templates/issue_log_template.md",
+          "path": "domains/delivery/templates/traditional/Traditional/Templates/issue_log_template.md",
           "title": "Issue Log Template",
           "methodology": "traditional",
           "tags": [
@@ -8152,7 +8170,7 @@
       ]
     },
     {
-      "path": "templates/traditional/Traditional/Process_Groups/Closing/project_closure_report_template.md",
+      "path": "domains/delivery/templates/traditional/Traditional/Process_Groups/Closing/project_closure_report_template.md",
       "title": "Project Closure Report Template",
       "methodology": "traditional",
       "complexity": "advanced",
@@ -8177,7 +8195,7 @@
       ],
       "relatedTemplates": [
         {
-          "path": "templates/traditional/Traditional/Templates/issue_log_template.md",
+          "path": "domains/delivery/templates/traditional/Traditional/Templates/issue_log_template.md",
           "title": "Issue Log Template",
           "methodology": "traditional",
           "tags": [
@@ -8209,7 +8227,7 @@
           "similarity": 100
         },
         {
-          "path": "templates/traditional/Traditional/Templates/program_management_plan_template.md",
+          "path": "domains/delivery/templates/traditional/Traditional/Templates/program_management_plan_template.md",
           "title": "Program Management Plan Template",
           "methodology": "traditional",
           "tags": [
@@ -8225,7 +8243,7 @@
           "similarity": 100
         },
         {
-          "path": "templates/traditional/Traditional/Process_Groups/Executing/project_execution_status_report_template.md",
+          "path": "domains/delivery/templates/traditional/Traditional/Process_Groups/Executing/project_execution_status_report_template.md",
           "title": "Project Execution Status Report Template",
           "methodology": "traditional",
           "tags": [
@@ -8256,6 +8274,9 @@
           ],
           "similarity": 100
         }
+      ],
+      "alternate_paths": [
+        "templates/traditional/Traditional/Process_Groups/Closing/project_closure_report_template.md"
       ]
     },
     {
@@ -8351,7 +8372,7 @@
       ]
     },
     {
-      "path": "templates/traditional/Traditional/Process_Groups/Executing/project_execution_status_report_template.md",
+      "path": "domains/delivery/templates/traditional/Traditional/Process_Groups/Executing/project_execution_status_report_template.md",
       "title": "Project Execution Status Report Template",
       "methodology": "traditional",
       "complexity": "advanced",
@@ -8376,7 +8397,7 @@
       ],
       "relatedTemplates": [
         {
-          "path": "templates/traditional/Traditional/Templates/issue_log_template.md",
+          "path": "domains/delivery/templates/traditional/Traditional/Templates/issue_log_template.md",
           "title": "Issue Log Template",
           "methodology": "traditional",
           "tags": [
@@ -8408,7 +8429,7 @@
           "similarity": 100
         },
         {
-          "path": "templates/traditional/Traditional/Templates/program_management_plan_template.md",
+          "path": "domains/delivery/templates/traditional/Traditional/Templates/program_management_plan_template.md",
           "title": "Program Management Plan Template",
           "methodology": "traditional",
           "tags": [
@@ -8424,7 +8445,7 @@
           "similarity": 100
         },
         {
-          "path": "templates/traditional/Traditional/Process_Groups/Closing/project_closure_report_template.md",
+          "path": "domains/delivery/templates/traditional/Traditional/Process_Groups/Closing/project_closure_report_template.md",
           "title": "Project Closure Report Template",
           "methodology": "traditional",
           "tags": [
@@ -8455,6 +8476,9 @@
           ],
           "similarity": 100
         }
+      ],
+      "alternate_paths": [
+        "templates/traditional/Traditional/Process_Groups/Executing/project_execution_status_report_template.md"
       ]
     },
     {
@@ -8584,7 +8608,7 @@
       ],
       "relatedTemplates": [
         {
-          "path": "templates/traditional/Traditional/Templates/issue_log_template.md",
+          "path": "domains/delivery/templates/traditional/Traditional/Templates/issue_log_template.md",
           "title": "Issue Log Template",
           "methodology": "traditional",
           "tags": [
@@ -8616,7 +8640,7 @@
           "similarity": 100
         },
         {
-          "path": "templates/traditional/Traditional/Templates/program_management_plan_template.md",
+          "path": "domains/delivery/templates/traditional/Traditional/Templates/program_management_plan_template.md",
           "title": "Program Management Plan Template",
           "methodology": "traditional",
           "tags": [
@@ -8632,7 +8656,7 @@
           "similarity": 100
         },
         {
-          "path": "templates/traditional/Traditional/Process_Groups/Closing/project_closure_report_template.md",
+          "path": "domains/delivery/templates/traditional/Traditional/Process_Groups/Closing/project_closure_report_template.md",
           "title": "Project Closure Report Template",
           "methodology": "traditional",
           "tags": [
@@ -8648,7 +8672,7 @@
           "similarity": 100
         },
         {
-          "path": "templates/traditional/Traditional/Process_Groups/Executing/project_execution_status_report_template.md",
+          "path": "domains/delivery/templates/traditional/Traditional/Process_Groups/Executing/project_execution_status_report_template.md",
           "title": "Project Execution Status Report Template",
           "methodology": "traditional",
           "tags": [
@@ -8691,7 +8715,7 @@
       ],
       "relatedTemplates": [
         {
-          "path": "templates/traditional/Traditional/Templates/issue_log_template.md",
+          "path": "domains/delivery/templates/traditional/Traditional/Templates/issue_log_template.md",
           "title": "Issue Log Template",
           "methodology": "traditional",
           "tags": [
@@ -8723,7 +8747,7 @@
           "similarity": 100
         },
         {
-          "path": "templates/traditional/Traditional/Templates/program_management_plan_template.md",
+          "path": "domains/delivery/templates/traditional/Traditional/Templates/program_management_plan_template.md",
           "title": "Program Management Plan Template",
           "methodology": "traditional",
           "tags": [
@@ -8739,7 +8763,7 @@
           "similarity": 100
         },
         {
-          "path": "templates/traditional/Traditional/Process_Groups/Closing/project_closure_report_template.md",
+          "path": "domains/delivery/templates/traditional/Traditional/Process_Groups/Closing/project_closure_report_template.md",
           "title": "Project Closure Report Template",
           "methodology": "traditional",
           "tags": [
@@ -8755,7 +8779,7 @@
           "similarity": 100
         },
         {
-          "path": "templates/traditional/Traditional/Process_Groups/Executing/project_execution_status_report_template.md",
+          "path": "domains/delivery/templates/traditional/Traditional/Process_Groups/Executing/project_execution_status_report_template.md",
           "title": "Project Execution Status Report Template",
           "methodology": "traditional",
           "tags": [
@@ -8812,7 +8836,7 @@
           "similarity": 100
         },
         {
-          "path": "templates/traditional/Traditional/Templates/issue_log_template.md",
+          "path": "domains/delivery/templates/traditional/Traditional/Templates/issue_log_template.md",
           "title": "Issue Log Template",
           "methodology": "traditional",
           "tags": [
@@ -8844,7 +8868,7 @@
           "similarity": 94
         },
         {
-          "path": "templates/traditional/Traditional/Templates/program_management_plan_template.md",
+          "path": "domains/delivery/templates/traditional/Traditional/Templates/program_management_plan_template.md",
           "title": "Program Management Plan Template",
           "methodology": "traditional",
           "tags": [
@@ -8860,7 +8884,7 @@
           "similarity": 94
         },
         {
-          "path": "templates/traditional/Traditional/Process_Groups/Closing/project_closure_report_template.md",
+          "path": "domains/delivery/templates/traditional/Traditional/Process_Groups/Closing/project_closure_report_template.md",
           "title": "Project Closure Report Template",
           "methodology": "traditional",
           "tags": [
@@ -8947,7 +8971,7 @@
           "similarity": 100
         },
         {
-          "path": "templates/traditional/Traditional/Templates/issue_log_template.md",
+          "path": "domains/delivery/templates/traditional/Traditional/Templates/issue_log_template.md",
           "title": "Issue Log Template",
           "methodology": "traditional",
           "tags": [
@@ -9038,7 +9062,7 @@
           "similarity": 60
         },
         {
-          "path": "templates/traditional/Traditional/Process_Groups/Executing/requirements_traceability_matrix_template.md",
+          "path": "domains/delivery/templates/traditional/Traditional/Process_Groups/Executing/requirements_traceability_matrix_template.md",
           "title": "Requirements Traceability Matrix Template",
           "methodology": "traditional",
           "tags": [
@@ -9052,7 +9076,7 @@
           "similarity": 57
         },
         {
-          "path": "templates/traditional/Traditional/Knowledge_Areas/Project_Cost_Management/roi_tracking_template.md",
+          "path": "domains/delivery/templates/traditional/Traditional/Knowledge_Areas/Project_Cost_Management/roi_tracking_template.md",
           "title": "Roi Tracking Template",
           "methodology": "traditional",
           "tags": [
@@ -9293,7 +9317,7 @@
           "similarity": 80
         },
         {
-          "path": "templates/traditional/Traditional/Process_Groups/Executing/requirements_traceability_matrix_template.md",
+          "path": "domains/delivery/templates/traditional/Traditional/Process_Groups/Executing/requirements_traceability_matrix_template.md",
           "title": "Requirements Traceability Matrix Template",
           "methodology": "traditional",
           "tags": [
@@ -9307,7 +9331,7 @@
           "similarity": 75
         },
         {
-          "path": "templates/traditional/Traditional/Knowledge_Areas/Project_Cost_Management/roi_tracking_template.md",
+          "path": "domains/delivery/templates/traditional/Traditional/Knowledge_Areas/Project_Cost_Management/roi_tracking_template.md",
           "title": "Roi Tracking Template",
           "methodology": "traditional",
           "tags": [
@@ -9809,7 +9833,7 @@
       ]
     },
     {
-      "path": "templates/traditional/Traditional/Process_Groups/Executing/requirements_traceability_matrix_template.md",
+      "path": "domains/delivery/templates/traditional/Traditional/Process_Groups/Executing/requirements_traceability_matrix_template.md",
       "title": "Requirements Traceability Matrix Template",
       "methodology": "traditional",
       "complexity": "advanced",
@@ -9832,7 +9856,7 @@
       ],
       "relatedTemplates": [
         {
-          "path": "templates/traditional/Traditional/Knowledge_Areas/Project_Cost_Management/roi_tracking_template.md",
+          "path": "domains/delivery/templates/traditional/Traditional/Knowledge_Areas/Project_Cost_Management/roi_tracking_template.md",
           "title": "Roi Tracking Template",
           "methodology": "traditional",
           "tags": [
@@ -9874,7 +9898,7 @@
           "similarity": 92
         },
         {
-          "path": "templates/traditional/Traditional/Templates/issue_log_template.md",
+          "path": "domains/delivery/templates/traditional/Traditional/Templates/issue_log_template.md",
           "title": "Issue Log Template",
           "methodology": "traditional",
           "tags": [
@@ -9905,6 +9929,9 @@
           ],
           "similarity": 88
         }
+      ],
+      "alternate_paths": [
+        "templates/traditional/Traditional/Process_Groups/Executing/requirements_traceability_matrix_template.md"
       ]
     },
     {
@@ -10414,7 +10441,7 @@
       ]
     },
     {
-      "path": "templates/traditional/Traditional/Knowledge_Areas/Project_Cost_Management/roi_tracking_template.md",
+      "path": "domains/delivery/templates/traditional/Traditional/Knowledge_Areas/Project_Cost_Management/roi_tracking_template.md",
       "title": "Roi Tracking Template",
       "methodology": "traditional",
       "complexity": "advanced",
@@ -10437,7 +10464,7 @@
       ],
       "relatedTemplates": [
         {
-          "path": "templates/traditional/Traditional/Process_Groups/Executing/requirements_traceability_matrix_template.md",
+          "path": "domains/delivery/templates/traditional/Traditional/Process_Groups/Executing/requirements_traceability_matrix_template.md",
           "title": "Requirements Traceability Matrix Template",
           "methodology": "traditional",
           "tags": [
@@ -10479,7 +10506,7 @@
           "similarity": 92
         },
         {
-          "path": "templates/traditional/Traditional/Templates/issue_log_template.md",
+          "path": "domains/delivery/templates/traditional/Traditional/Templates/issue_log_template.md",
           "title": "Issue Log Template",
           "methodology": "traditional",
           "tags": [
@@ -10510,6 +10537,9 @@
           ],
           "similarity": 88
         }
+      ],
+      "alternate_paths": [
+        "templates/traditional/Traditional/Knowledge_Areas/Project_Cost_Management/roi_tracking_template.md"
       ]
     },
     {
@@ -11198,11 +11228,12 @@
       ]
     },
     {
-      "path": "templates/agile/sprint_planning_template.md",
-      "canonical_path": "templates/agile/sprint_planning_template.md",
+      "path": "domains/delivery/templates/agile/sprint_planning_template.md",
+      "canonical_path": "domains/delivery/templates/agile/sprint_planning_template.md",
       "alternate_paths": [
         "role-based-toolkits/scrum-master/agile-ceremonies/sprint-planning-template.md",
-        "methodology-frameworks/agile-scrum/sprint-planning/sprint_planning_template.md"
+        "methodology-frameworks/agile-scrum/sprint-planning/sprint_planning_template.md",
+        "templates/agile/sprint_planning_template.md"
       ],
       "title": "Sprint Planning Template",
       "methodology": "agile",
@@ -11225,7 +11256,7 @@
       ],
       "relatedTemplates": [
         {
-          "path": "templates/agile/product_backlog_template.md",
+          "path": "domains/delivery/templates/agile/product_backlog_template.md",
           "title": "Product Backlog Template",
           "methodology": "agile",
           "tags": [
@@ -11379,7 +11410,7 @@
           "similarity": 86
         },
         {
-          "path": "templates/agile/product_backlog_template.md",
+          "path": "domains/delivery/templates/agile/product_backlog_template.md",
           "title": "Product Backlog Template",
           "methodology": "agile",
           "tags": [
@@ -11465,7 +11496,7 @@
           "similarity": 93
         },
         {
-          "path": "templates/agile/product_backlog_template.md",
+          "path": "domains/delivery/templates/agile/product_backlog_template.md",
           "title": "Product Backlog Template",
           "methodology": "agile",
           "tags": [
@@ -11669,7 +11700,7 @@
           "similarity": 79
         },
         {
-          "path": "project-lifecycle/02-planning/project-management-plan/traditional-project-management-plan-template.md",
+          "path": "domains/delivery/project-lifecycle/02-planning/project-management-plan/traditional-project-management-plan-template.md",
           "title": "Traditional Project Management Plan Template",
           "methodology": "universal",
           "tags": [
@@ -12342,7 +12373,7 @@
       ]
     },
     {
-      "path": "project-lifecycle/02-planning/project-management-plan/traditional-project-management-plan-template.md",
+      "path": "domains/delivery/project-lifecycle/02-planning/project-management-plan/traditional-project-management-plan-template.md",
       "title": "Traditional Project Management Plan Template",
       "methodology": "universal",
       "complexity": "intermediate",
@@ -12439,6 +12470,9 @@
           ],
           "similarity": 84
         }
+      ],
+      "alternate_paths": [
+        "project-lifecycle/02-planning/project-management-plan/traditional-project-management-plan-template.md"
       ]
     },
     {
@@ -12467,7 +12501,7 @@
       ],
       "relatedTemplates": [
         {
-          "path": "templates/traditional/Traditional/Templates/issue_log_template.md",
+          "path": "domains/delivery/templates/traditional/Traditional/Templates/issue_log_template.md",
           "title": "Issue Log Template",
           "methodology": "traditional",
           "tags": [
@@ -12499,7 +12533,7 @@
           "similarity": 100
         },
         {
-          "path": "templates/traditional/Traditional/Templates/program_management_plan_template.md",
+          "path": "domains/delivery/templates/traditional/Traditional/Templates/program_management_plan_template.md",
           "title": "Program Management Plan Template",
           "methodology": "traditional",
           "tags": [
@@ -12515,7 +12549,7 @@
           "similarity": 100
         },
         {
-          "path": "templates/traditional/Traditional/Process_Groups/Closing/project_closure_report_template.md",
+          "path": "domains/delivery/templates/traditional/Traditional/Process_Groups/Closing/project_closure_report_template.md",
           "title": "Project Closure Report Template",
           "methodology": "traditional",
           "tags": [
@@ -12531,7 +12565,7 @@
           "similarity": 100
         },
         {
-          "path": "templates/traditional/Traditional/Process_Groups/Executing/project_execution_status_report_template.md",
+          "path": "domains/delivery/templates/traditional/Traditional/Process_Groups/Executing/project_execution_status_report_template.md",
           "title": "Project Execution Status Report Template",
           "methodology": "traditional",
           "tags": [
@@ -12574,7 +12608,7 @@
       ],
       "relatedTemplates": [
         {
-          "path": "templates/traditional/Traditional/Templates/issue_log_template.md",
+          "path": "domains/delivery/templates/traditional/Traditional/Templates/issue_log_template.md",
           "title": "Issue Log Template",
           "methodology": "traditional",
           "tags": [
@@ -12606,7 +12640,7 @@
           "similarity": 100
         },
         {
-          "path": "templates/traditional/Traditional/Templates/program_management_plan_template.md",
+          "path": "domains/delivery/templates/traditional/Traditional/Templates/program_management_plan_template.md",
           "title": "Program Management Plan Template",
           "methodology": "traditional",
           "tags": [
@@ -12622,7 +12656,7 @@
           "similarity": 100
         },
         {
-          "path": "templates/traditional/Traditional/Process_Groups/Closing/project_closure_report_template.md",
+          "path": "domains/delivery/templates/traditional/Traditional/Process_Groups/Closing/project_closure_report_template.md",
           "title": "Project Closure Report Template",
           "methodology": "traditional",
           "tags": [
@@ -12638,7 +12672,7 @@
           "similarity": 100
         },
         {
-          "path": "templates/traditional/Traditional/Process_Groups/Executing/project_execution_status_report_template.md",
+          "path": "domains/delivery/templates/traditional/Traditional/Process_Groups/Executing/project_execution_status_report_template.md",
           "title": "Project Execution Status Report Template",
           "methodology": "traditional",
           "tags": [
@@ -13051,7 +13085,7 @@
       ],
       "relatedTemplates": [
         {
-          "path": "templates/traditional/Traditional/Templates/issue_log_template.md",
+          "path": "domains/delivery/templates/traditional/Traditional/Templates/issue_log_template.md",
           "title": "Issue Log Template",
           "methodology": "traditional",
           "tags": [
@@ -13083,7 +13117,7 @@
           "similarity": 100
         },
         {
-          "path": "templates/traditional/Traditional/Templates/program_management_plan_template.md",
+          "path": "domains/delivery/templates/traditional/Traditional/Templates/program_management_plan_template.md",
           "title": "Program Management Plan Template",
           "methodology": "traditional",
           "tags": [
@@ -13099,7 +13133,7 @@
           "similarity": 100
         },
         {
-          "path": "templates/traditional/Traditional/Process_Groups/Closing/project_closure_report_template.md",
+          "path": "domains/delivery/templates/traditional/Traditional/Process_Groups/Closing/project_closure_report_template.md",
           "title": "Project Closure Report Template",
           "methodology": "traditional",
           "tags": [
@@ -13115,7 +13149,7 @@
           "similarity": 100
         },
         {
-          "path": "templates/traditional/Traditional/Process_Groups/Executing/project_execution_status_report_template.md",
+          "path": "domains/delivery/templates/traditional/Traditional/Process_Groups/Executing/project_execution_status_report_template.md",
           "title": "Project Execution Status Report Template",
           "methodology": "traditional",
           "tags": [

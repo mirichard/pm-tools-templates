@@ -10,9 +10,10 @@ interface Props {
   templateId: string;
   filePath: string;
   title: string;
+  content: string;
 }
 
-const TemplateViewer: React.FC<Props> = ({ templateId, filePath, title }) => {
+const TemplateViewer: React.FC<Props> = ({ templateId, filePath, title, content }) => {
   const [activeTab, setActiveTab] = useState<'preview' | 'changelog'>('preview');
   const [changelog, setChangelog] = useState<ChangelogEntry[]>([]);
   const [loading, setLoading] = useState(false);
@@ -45,7 +46,7 @@ const TemplateViewer: React.FC<Props> = ({ templateId, filePath, title }) => {
   const renderPreview = () => {
     const extension = getFileExtension(filePath);
     const fileName = filePath.split('/').pop() || 'template';
-    const fileSize = '~2.5KB'; // This could be dynamic if we track file sizes
+    const fileSize = `${new TextEncoder().encode(content).length.toLocaleString()} bytes`;
 
     switch (extension) {
       case 'md':
@@ -68,7 +69,7 @@ const TemplateViewer: React.FC<Props> = ({ templateId, filePath, title }) => {
                 </div>
               </div>
               <a 
-                href={`/pm-tools-templates/${filePath}`} 
+                href={`/pm-tools-templates/downloads/${templateId}.md`}
                 download
                 className="btn btn-secondary"
                 style={{ fontSize: '0.75rem', padding: '0.5rem 0.75rem' }}
@@ -76,16 +77,10 @@ const TemplateViewer: React.FC<Props> = ({ templateId, filePath, title }) => {
                 💾 Download
               </a>
             </div>
-            <iframe 
-              src={`/pm-tools-templates/preview/markdown?file=${encodeURIComponent(filePath)}`}
-              style={{ 
-                width: '100%', 
-                height: '600px', 
-                border: 'none',
-                borderRadius: '0 0 var(--radius-lg) var(--radius-lg)'
-              }}
-              title={`Preview of ${title}`}
-            />
+            <pre
+              aria-label={`Markdown source of ${title}`}
+              style={{ padding: '1.5rem', maxHeight: '600px', overflow: 'auto', whiteSpace: 'pre-wrap', overflowWrap: 'anywhere' }}
+            >{content}</pre>
           </div>
         );
       case 'docx':
@@ -134,7 +129,7 @@ const TemplateViewer: React.FC<Props> = ({ templateId, filePath, title }) => {
           
           <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
             <a 
-              href={`/pm-tools-templates/${filePath}`} 
+              href={`/pm-tools-templates/downloads/${templateId}.md`}
               download
               className="btn btn-primary"
               style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}
@@ -143,7 +138,7 @@ const TemplateViewer: React.FC<Props> = ({ templateId, filePath, title }) => {
             </a>
             <button 
               className="btn btn-secondary"
-              onClick={() => navigator.clipboard.writeText(window.location.origin + `/pm-tools-templates/${filePath}`)}
+              onClick={() => navigator.clipboard.writeText(window.location.origin + `/pm-tools-templates/downloads/${templateId}.md`)}
               style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}
             >
               🔗 Copy Link

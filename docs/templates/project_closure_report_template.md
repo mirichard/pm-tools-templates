@@ -15,7 +15,7 @@
 
 title: "Project Closure Report Template"
 
-[**➡️ View Template File**](/templates/traditional/Traditional/Process_Groups/Closing/project_closure_report_template.md)
+[**➡️ View Template File**](/domains/delivery/templates/traditional/Traditional/Process_Groups/Closing/project_closure_report_template.md)
 
 ## 📈 Quality Score
 

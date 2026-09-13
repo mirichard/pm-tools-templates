@@ -3,32 +3,11 @@
 import { execFileSync } from 'child_process';
 import fs from 'fs';
 import path from 'path';
-import { glob } from 'glob';
+import { fileURLToPath } from 'node:url';
+import { loadSiteTemplates } from './lib/site-template-catalog.mjs';
 
-const CHANGELOG_DIR = './docs/site/public/changelog';
-const TEMPLATES_DIR = './templates';
+const CHANGELOG_DIR = process.env.CHANGELOG_OUTPUT_DIR || './docs/site/public/changelog';
 
-// Ensure changelog directory exists
-if (!fs.existsSync(CHANGELOG_DIR)) {
-  fs.mkdirSync(CHANGELOG_DIR, { recursive: true });
-}
-
-async function getTemplateFiles() {
-  const patterns = [
-    `${TEMPLATES_DIR}/**/*.md`,
-    `${TEMPLATES_DIR}/**/*.docx`,
-    `${TEMPLATES_DIR}/**/*.xlsx`,
-    `${TEMPLATES_DIR}/**/*.pptx`
-  ];
-  
-  const files = [];
-  for (const pattern of patterns) {
-    const matches = await glob(pattern);
-    files.push(...matches);
-  }
-  
-  return files;
-}
 
 function getTemplateChangelog(filePath) {
   try {
@@ -63,20 +42,21 @@ function getTemplateId(filePath) {
   return path.basename(filePath, path.extname(filePath));
 }
 
-async function generateChangelogs() {
+export async function generateChangelogs({ outputDirectory = CHANGELOG_DIR, history = getTemplateChangelog } = {}) {
+  fs.mkdirSync(outputDirectory, { recursive: true });
   console.log('🔍 Finding template files...');
-  const templateFiles = await getTemplateFiles();
+  const templateFiles = loadSiteTemplates().map(template => template.path);
   console.log(`📄 Found ${templateFiles.length} template files`);
 
   let generated = 0;
   
   for (const filePath of templateFiles) {
     const templateId = getTemplateId(filePath);
-    const changelogPath = path.join(CHANGELOG_DIR, `${templateId}.json`);
+    const changelogPath = path.join(outputDirectory, `${templateId}.json`);
     
     console.log(`📝 Generating changelog for: ${templateId}`);
     
-    const changes = getTemplateChangelog(filePath);
+    const changes = history(filePath);
     
     const changelog = {
       templateId,
@@ -90,11 +70,12 @@ async function generateChangelogs() {
     generated++;
   }
   
-  console.log(`✅ Generated ${generated} changelog files in ${CHANGELOG_DIR}`);
+  console.log(`✅ Generated ${generated} changelog files in ${outputDirectory}`);
 }
 
-// Run the script
-generateChangelogs().catch(error => {
-  console.error('❌ Error generating changelogs:', error);
-  process.exit(1);
-});
+if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
+  generateChangelogs().catch(error => {
+    console.error('❌ Error generating changelogs:', error);
+    process.exitCode = 1;
+  });
+}

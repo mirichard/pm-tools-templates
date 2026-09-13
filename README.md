@@ -38,7 +38,7 @@ Start with: [Project Charter](domains/planning/templates/traditional/Traditional
 
 → **[Scrum Master Toolkit](role-based-toolkits/scrum-master/)** — Agile ceremonies, team facilitation, impediment tracking, and agile metrics
 
-Start with: [Sprint Planning](templates/agile/sprint_planning_template.md) · [Sprint Retrospective](domains/team/templates/agile/sprint_retrospective_template.md) · [Sprint Review](domains/team/templates/agile/sprint_review_template.md)
+Start with: [Sprint Planning](domains/delivery/templates/agile/sprint_planning_template.md) · [Sprint Retrospective](domains/team/templates/agile/sprint_retrospective_template.md) · [Sprint Review](domains/team/templates/agile/sprint_review_template.md)
 
 ---
 
@@ -113,7 +113,7 @@ This repo offers three navigation paths — pick the one that matches your quest
 ### Most Popular Templates
 
 - [Project Charter Template](domains/planning/templates/traditional/Traditional/Process_Groups/Initiating/project_charter_template.md) - Start any project
-- [Sprint Planning Template](templates/agile/sprint_planning_template.md) - Plan agile sprints  
+- [Sprint Planning Template](domains/delivery/templates/agile/sprint_planning_template.md) - Plan agile sprints
 - [Risk Register Template](templates/traditional/Traditional/Templates/risk_register_template.md) - Manage project risks
 - [Status Report Template](templates/traditional/Traditional/Templates/status_report_template.md) - Report progress
 - [Stakeholder Register Template](role-based-toolkits/project-manager/essential-templates/stakeholder-register.md) - Manage stakeholders

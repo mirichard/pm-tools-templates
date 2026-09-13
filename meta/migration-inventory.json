@@ -116,6 +116,15 @@
       "status": "executed",
       "evidence_file": "docs/vnext/sprint-12/b3d-migration-record.md",
       "rollback_owner": "mirichard"
+    },
+    {
+      "batch_id": "B3E",
+      "issue": "#1057",
+      "parent_issue": "#711",
+      "asset_count": 12,
+      "status": "executed",
+      "evidence_file": "docs/vnext/sprint-12/b3e-migration-record.md",
+      "rollback_owner": "mirichard"
     }
   ],
   "generated": "2026-09-02",
@@ -209,7 +218,7 @@
         "Uncertainty"
       ],
       "dependencies": [
-        "project-lifecycle/02-planning/risk-management/agile-risk-board-template.md",
+        "domains/delivery/project-lifecycle/02-planning/risk-management/agile-risk-board-template.md",
         "methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md",
         "methodology-frameworks/emerging-methods/devops/release_management_template.md"
       ],
@@ -232,7 +241,14 @@
       ],
       "batch": 3,
       "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move",
-      "action": "planned-move-not-executed"
+      "action": "executed-move-with-legacy-pointer",
+      "execution": {
+        "batch_id": "B3E",
+        "pre_batch_sha": "fba39481fb7dbad8cdd45e251cce3ad0217d9f94",
+        "pre_move_source_sha256": "0da71dc599bfc989493568314b3c3505d45c1cf45353b0fb0aed194de0d86f6f",
+        "evidence_file": "docs/vnext/sprint-12/b3e-migration-record.md",
+        "rollback_owner": "mirichard"
+      }
     },
     {
       "source": "project-lifecycle/02-planning/risk-management/agile-risk-board-template.md",
@@ -243,7 +259,7 @@
         "Uncertainty"
       ],
       "dependencies": [
-        "project-lifecycle/02-planning/project-management-plan/agile-release-plan-template.md",
+        "domains/delivery/project-lifecycle/02-planning/project-management-plan/agile-release-plan-template.md",
         "methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md",
         "methodology-frameworks/emerging-methods/devops/release_management_template.md"
       ],
@@ -263,7 +279,14 @@
       ],
       "batch": 3,
       "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move",
-      "action": "planned-move-not-executed"
+      "action": "executed-move-with-legacy-pointer",
+      "execution": {
+        "batch_id": "B3E",
+        "pre_batch_sha": "fba39481fb7dbad8cdd45e251cce3ad0217d9f94",
+        "pre_move_source_sha256": "c21471c497e2d5c5d03beb1dc1ba6c16c71ee0968346560a745069d6c2b2cdd2",
+        "evidence_file": "docs/vnext/sprint-12/b3e-migration-record.md",
+        "rollback_owner": "mirichard"
+      }
     },
     {
       "source": "project-lifecycle/01-initiation/stakeholder-analysis/agile-stakeholder-map-template.md",
@@ -273,7 +296,7 @@
         "Planning"
       ],
       "dependencies": [
-        "project-lifecycle/02-planning/project-management-plan/traditional-project-management-plan-template.md",
+        "domains/delivery/project-lifecycle/02-planning/project-management-plan/traditional-project-management-plan-template.md",
         "domains/delivery/project-assessment-suite/agile-project-assessment-template.md",
         "methodology-frameworks/emerging-methods/devops/monitoring_alerting_template.md"
       ],
@@ -666,8 +689,8 @@
         "Uncertainty"
       ],
       "dependencies": [
-        "templates/traditional/Traditional/Process_Groups/Executing/requirements_traceability_matrix_template.md",
-        "templates/traditional/Traditional/Knowledge_Areas/Project_Cost_Management/roi_tracking_template.md",
+        "domains/delivery/templates/traditional/Traditional/Process_Groups/Executing/requirements_traceability_matrix_template.md",
+        "domains/delivery/templates/traditional/Traditional/Knowledge_Areas/Project_Cost_Management/roi_tracking_template.md",
         "templates/traditional/Traditional/Templates/change_request_template.md"
       ],
       "affected_internal_references": [
@@ -782,7 +805,7 @@
       ],
       "dependencies": [
         "templates/traditional/Traditional/Templates/project_roadmap_template.md",
-        "templates/traditional/Traditional/Templates/issue_log_template.md",
+        "domains/delivery/templates/traditional/Traditional/Templates/issue_log_template.md",
         "domains/planning/templates/traditional/Traditional/Templates/program_charter_template.md"
       ],
       "affected_internal_references": [
@@ -2070,7 +2093,14 @@
       ],
       "batch": 3,
       "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move",
-      "action": "planned-move-not-executed"
+      "action": "executed-move-with-legacy-pointer",
+      "execution": {
+        "batch_id": "B3E",
+        "pre_batch_sha": "fba39481fb7dbad8cdd45e251cce3ad0217d9f94",
+        "pre_move_source_sha256": "242395430e8c1541260b0446931d505f1b63a0aacd40a328c7ae71d63005ee82",
+        "evidence_file": "docs/vnext/sprint-12/b3e-migration-record.md",
+        "rollback_owner": "mirichard"
+      }
     },
     {
       "source": "templates/hybrid/Hybrid/Templates/hybrid_release_planning_template.md",
@@ -2355,8 +2385,8 @@
       ],
       "dependencies": [
         "domains/planning/templates/traditional/Traditional/Templates/program_charter_template.md",
-        "templates/traditional/Traditional/Templates/program_management_plan_template.md",
-        "templates/traditional/Traditional/Process_Groups/Closing/project_closure_report_template.md"
+        "domains/delivery/templates/traditional/Traditional/Templates/program_management_plan_template.md",
+        "domains/delivery/templates/traditional/Traditional/Process_Groups/Closing/project_closure_report_template.md"
       ],
       "affected_internal_references": [
         "GUIDE.md",
@@ -2379,7 +2409,14 @@
       ],
       "batch": 3,
       "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move",
-      "action": "planned-move-not-executed"
+      "action": "executed-move-with-legacy-pointer",
+      "execution": {
+        "batch_id": "B3E",
+        "pre_batch_sha": "fba39481fb7dbad8cdd45e251cce3ad0217d9f94",
+        "pre_move_source_sha256": "279b6222363708b2d872aec2a78a8db3459288ab549306ee1d786c78e5b304c1",
+        "evidence_file": "docs/vnext/sprint-12/b3e-migration-record.md",
+        "rollback_owner": "mirichard"
+      }
     },
     {
       "source": "methodology-frameworks/agile-scrum/scaling-frameworks/less/less_retrospective_template.md",
@@ -2935,8 +2972,8 @@
       "secondary_domains": [],
       "dependencies": [
         "domains/stakeholder/business-stakeholder-suite/financial-governance/enhanced-business-cases/advanced-business-case-template.md",
-        "project-lifecycle/02-planning/project-management-plan/agile-release-plan-template.md",
-        "project-lifecycle/02-planning/risk-management/agile-risk-board-template.md"
+        "domains/delivery/project-lifecycle/02-planning/project-management-plan/agile-release-plan-template.md",
+        "domains/delivery/project-lifecycle/02-planning/risk-management/agile-risk-board-template.md"
       ],
       "affected_internal_references": [
         "TEMPLATE_INDEX.md",
@@ -3117,7 +3154,7 @@
       "dependencies": [
         "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_program_increment_planning_template.md",
         "domains/team/templates/agile/sprint_review_template.md",
-        "templates/agile/sprint_planning_template.md"
+        "domains/delivery/templates/agile/sprint_planning_template.md"
       ],
       "affected_internal_references": [
         "GUIDE.md",
@@ -3156,7 +3193,14 @@
       ],
       "batch": 3,
       "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move",
-      "action": "planned-move-not-executed"
+      "action": "executed-move-with-legacy-pointer",
+      "execution": {
+        "batch_id": "B3E",
+        "pre_batch_sha": "fba39481fb7dbad8cdd45e251cce3ad0217d9f94",
+        "pre_move_source_sha256": "2235c7af0329590b42886dc552c6314367fdeb2abed577382906e071a58ed8a2",
+        "evidence_file": "docs/vnext/sprint-12/b3e-migration-record.md",
+        "rollback_owner": "mirichard"
+      }
     },
     {
       "source": "role-based-toolkits/product-owner/product-vision-template.md",
@@ -3204,9 +3248,9 @@
         "Uncertainty"
       ],
       "dependencies": [
-        "templates/traditional/Traditional/Templates/issue_log_template.md",
-        "templates/traditional/Traditional/Templates/program_management_plan_template.md",
-        "templates/traditional/Traditional/Process_Groups/Closing/project_closure_report_template.md"
+        "domains/delivery/templates/traditional/Traditional/Templates/issue_log_template.md",
+        "domains/delivery/templates/traditional/Traditional/Templates/program_management_plan_template.md",
+        "domains/delivery/templates/traditional/Traditional/Process_Groups/Closing/project_closure_report_template.md"
       ],
       "affected_internal_references": [
         "TEMPLATE_INDEX.md",
@@ -3244,9 +3288,9 @@
         "Uncertainty"
       ],
       "dependencies": [
-        "templates/traditional/Traditional/Templates/issue_log_template.md",
+        "domains/delivery/templates/traditional/Traditional/Templates/issue_log_template.md",
         "domains/planning/templates/traditional/Traditional/Templates/program_charter_template.md",
-        "templates/traditional/Traditional/Process_Groups/Closing/project_closure_report_template.md"
+        "domains/delivery/templates/traditional/Traditional/Process_Groups/Closing/project_closure_report_template.md"
       ],
       "affected_internal_references": [
         "TEMPLATE_INDEX.md",
@@ -3271,7 +3315,14 @@
       ],
       "batch": 3,
       "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move",
-      "action": "planned-move-not-executed"
+      "action": "executed-move-with-legacy-pointer",
+      "execution": {
+        "batch_id": "B3E",
+        "pre_batch_sha": "fba39481fb7dbad8cdd45e251cce3ad0217d9f94",
+        "pre_move_source_sha256": "6440f148aabedc18dfd20d11d3589ddc01973a81a657ba30a4a2c0991505cfea",
+        "evidence_file": "docs/vnext/sprint-12/b3e-migration-record.md",
+        "rollback_owner": "mirichard"
+      }
     },
     {
       "source": "templates/hybrid/Hybrid/Templates/progressive_acceptance_plan_template.md",
@@ -3379,9 +3430,9 @@
         "Uncertainty"
       ],
       "dependencies": [
-        "templates/traditional/Traditional/Templates/issue_log_template.md",
+        "domains/delivery/templates/traditional/Traditional/Templates/issue_log_template.md",
         "domains/planning/templates/traditional/Traditional/Templates/program_charter_template.md",
-        "templates/traditional/Traditional/Templates/program_management_plan_template.md"
+        "domains/delivery/templates/traditional/Traditional/Templates/program_management_plan_template.md"
       ],
       "affected_internal_references": [
         "TEMPLATE_INDEX.md",
@@ -3401,7 +3452,14 @@
       ],
       "batch": 3,
       "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move",
-      "action": "planned-move-not-executed"
+      "action": "executed-move-with-legacy-pointer",
+      "execution": {
+        "batch_id": "B3E",
+        "pre_batch_sha": "fba39481fb7dbad8cdd45e251cce3ad0217d9f94",
+        "pre_move_source_sha256": "3f7d84648b990561627e5ebc761f3eb133e0350ac2a17858871be83124da7565",
+        "evidence_file": "docs/vnext/sprint-12/b3e-migration-record.md",
+        "rollback_owner": "mirichard"
+      }
     },
     {
       "source": "project-lifecycle/04-monitoring-control/progress-tracking/project-dashboard-template.md",
@@ -3456,9 +3514,9 @@
         "Uncertainty"
       ],
       "dependencies": [
-        "templates/traditional/Traditional/Templates/issue_log_template.md",
+        "domains/delivery/templates/traditional/Traditional/Templates/issue_log_template.md",
         "domains/planning/templates/traditional/Traditional/Templates/program_charter_template.md",
-        "templates/traditional/Traditional/Templates/program_management_plan_template.md"
+        "domains/delivery/templates/traditional/Traditional/Templates/program_management_plan_template.md"
       ],
       "affected_internal_references": [
         "TEMPLATE_INDEX.md",
@@ -3477,7 +3535,14 @@
       ],
       "batch": 3,
       "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move",
-      "action": "planned-move-not-executed"
+      "action": "executed-move-with-legacy-pointer",
+      "execution": {
+        "batch_id": "B3E",
+        "pre_batch_sha": "fba39481fb7dbad8cdd45e251cce3ad0217d9f94",
+        "pre_move_source_sha256": "11646ab5f94555586b4d565b67b3b705437d07a242ffbac2b5e7862973c50c25",
+        "evidence_file": "docs/vnext/sprint-12/b3e-migration-record.md",
+        "rollback_owner": "mirichard"
+      }
     },
     {
       "source": "project-assessment-suite/project-health-assessment-template.md",
@@ -3531,9 +3596,9 @@
         "Uncertainty"
       ],
       "dependencies": [
-        "templates/traditional/Traditional/Templates/issue_log_template.md",
+        "domains/delivery/templates/traditional/Traditional/Templates/issue_log_template.md",
         "domains/planning/templates/traditional/Traditional/Templates/program_charter_template.md",
-        "templates/traditional/Traditional/Templates/program_management_plan_template.md"
+        "domains/delivery/templates/traditional/Traditional/Templates/program_management_plan_template.md"
       ],
       "affected_internal_references": [
         "GUIDE.md",
@@ -3570,9 +3635,9 @@
         "Uncertainty"
       ],
       "dependencies": [
-        "templates/traditional/Traditional/Templates/issue_log_template.md",
+        "domains/delivery/templates/traditional/Traditional/Templates/issue_log_template.md",
         "domains/planning/templates/traditional/Traditional/Templates/program_charter_template.md",
-        "templates/traditional/Traditional/Templates/program_management_plan_template.md"
+        "domains/delivery/templates/traditional/Traditional/Templates/program_management_plan_template.md"
       ],
       "affected_internal_references": [
         "TEMPLATE_INDEX.md",
@@ -3603,7 +3668,7 @@
       ],
       "dependencies": [
         "templates/traditional/Traditional/Templates/change_management_plan_template.md",
-        "templates/traditional/Traditional/Templates/issue_log_template.md",
+        "domains/delivery/templates/traditional/Traditional/Templates/issue_log_template.md",
         "domains/planning/templates/traditional/Traditional/Templates/program_charter_template.md"
       ],
       "affected_internal_references": [
@@ -3775,8 +3840,8 @@
       ],
       "dependencies": [
         "domains/planning/templates/traditional/Traditional/Templates/business_case_template.md",
-        "templates/traditional/Traditional/Process_Groups/Executing/requirements_traceability_matrix_template.md",
-        "templates/traditional/Traditional/Knowledge_Areas/Project_Cost_Management/roi_tracking_template.md"
+        "domains/delivery/templates/traditional/Traditional/Process_Groups/Executing/requirements_traceability_matrix_template.md",
+        "domains/delivery/templates/traditional/Traditional/Knowledge_Areas/Project_Cost_Management/roi_tracking_template.md"
       ],
       "affected_internal_references": [
         "TEMPLATE_INDEX.md",
@@ -3987,7 +4052,7 @@
         "Uncertainty"
       ],
       "dependencies": [
-        "templates/traditional/Traditional/Knowledge_Areas/Project_Cost_Management/roi_tracking_template.md",
+        "domains/delivery/templates/traditional/Traditional/Knowledge_Areas/Project_Cost_Management/roi_tracking_template.md",
         "templates/traditional/Traditional/Templates/status_report_template.md",
         "domains/planning/templates/traditional/Traditional/Templates/business_case_template.md"
       ],
@@ -4007,7 +4072,14 @@
       ],
       "batch": 3,
       "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move",
-      "action": "planned-move-not-executed"
+      "action": "executed-move-with-legacy-pointer",
+      "execution": {
+        "batch_id": "B3E",
+        "pre_batch_sha": "fba39481fb7dbad8cdd45e251cce3ad0217d9f94",
+        "pre_move_source_sha256": "90077cdd46763e468f39c04831323ed39d5993c8d815c729f4118be4afce7767",
+        "evidence_file": "docs/vnext/sprint-12/b3e-migration-record.md",
+        "rollback_owner": "mirichard"
+      }
     },
     {
       "source": "project-assessment-suite/resource-management-assessment-template.md",
@@ -4256,7 +4328,7 @@
         "Uncertainty"
       ],
       "dependencies": [
-        "templates/traditional/Traditional/Process_Groups/Executing/requirements_traceability_matrix_template.md",
+        "domains/delivery/templates/traditional/Traditional/Process_Groups/Executing/requirements_traceability_matrix_template.md",
         "templates/traditional/Traditional/Templates/status_report_template.md",
         "domains/planning/templates/traditional/Traditional/Templates/business_case_template.md"
       ],
@@ -4283,7 +4355,14 @@
       ],
       "batch": 3,
       "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move",
-      "action": "planned-move-not-executed"
+      "action": "executed-move-with-legacy-pointer",
+      "execution": {
+        "batch_id": "B3E",
+        "pre_batch_sha": "fba39481fb7dbad8cdd45e251cce3ad0217d9f94",
+        "pre_move_source_sha256": "c0c8ee1ebc50582bae668d50ee44a4a51a394ec248be5ab881b9c2c8bbc6bcad",
+        "evidence_file": "docs/vnext/sprint-12/b3e-migration-record.md",
+        "rollback_owner": "mirichard"
+      }
     },
     {
       "source": "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_art_coordination_template.md",
@@ -4570,7 +4649,7 @@
         "Uncertainty"
       ],
       "dependencies": [
-        "templates/agile/product_backlog_template.md",
+        "domains/delivery/templates/agile/product_backlog_template.md",
         "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_program_increment_planning_template.md",
         "domains/team/templates/agile/sprint_review_template.md"
       ],
@@ -4620,7 +4699,14 @@
       ],
       "batch": 3,
       "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move",
-      "action": "planned-move-not-executed"
+      "action": "executed-move-with-legacy-pointer",
+      "execution": {
+        "batch_id": "B3E",
+        "pre_batch_sha": "fba39481fb7dbad8cdd45e251cce3ad0217d9f94",
+        "pre_move_source_sha256": "f36813b5adb50ce997ed84e1c9c0ae4558cb3f09d11a05876492383b96dc9815",
+        "evidence_file": "docs/vnext/sprint-12/b3e-migration-record.md",
+        "rollback_owner": "mirichard"
+      }
     },
     {
       "source": "templates/agile/sprint_retrospective_template.md",
@@ -5098,7 +5184,14 @@
       ],
       "batch": 3,
       "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move",
-      "action": "planned-move-not-executed"
+      "action": "executed-move-with-legacy-pointer",
+      "execution": {
+        "batch_id": "B3E",
+        "pre_batch_sha": "fba39481fb7dbad8cdd45e251cce3ad0217d9f94",
+        "pre_move_source_sha256": "377a8035beec71d6b87bd4a86f994ad282a31316ceec3a58e3c3e9645e5fcf33",
+        "evidence_file": "docs/vnext/sprint-12/b3e-migration-record.md",
+        "rollback_owner": "mirichard"
+      }
     },
     {
       "source": "templates/traditional/Traditional/Templates/uat_plan_template.md",
@@ -5109,9 +5202,9 @@
         "Uncertainty"
       ],
       "dependencies": [
-        "templates/traditional/Traditional/Templates/issue_log_template.md",
+        "domains/delivery/templates/traditional/Traditional/Templates/issue_log_template.md",
         "domains/planning/templates/traditional/Traditional/Templates/program_charter_template.md",
-        "templates/traditional/Traditional/Templates/program_management_plan_template.md"
+        "domains/delivery/templates/traditional/Traditional/Templates/program_management_plan_template.md"
       ],
       "affected_internal_references": [
         "TEMPLATE_INDEX.md",
@@ -5144,9 +5237,9 @@
         "Uncertainty"
       ],
       "dependencies": [
-        "templates/traditional/Traditional/Templates/issue_log_template.md",
+        "domains/delivery/templates/traditional/Traditional/Templates/issue_log_template.md",
         "domains/planning/templates/traditional/Traditional/Templates/program_charter_template.md",
-        "templates/traditional/Traditional/Templates/program_management_plan_template.md"
+        "domains/delivery/templates/traditional/Traditional/Templates/program_management_plan_template.md"
       ],
       "affected_internal_references": [
         "TEMPLATE_INDEX.md",
@@ -5327,9 +5420,9 @@
         "Uncertainty"
       ],
       "dependencies": [
-        "templates/traditional/Traditional/Templates/issue_log_template.md",
+        "domains/delivery/templates/traditional/Traditional/Templates/issue_log_template.md",
         "domains/planning/templates/traditional/Traditional/Templates/program_charter_template.md",
-        "templates/traditional/Traditional/Templates/program_management_plan_template.md"
+        "domains/delivery/templates/traditional/Traditional/Templates/program_management_plan_template.md"
       ],
       "affected_internal_references": [
         "TEMPLATE_INDEX.md",

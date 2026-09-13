@@ -15,7 +15,7 @@
 
 title: "Requirements Traceability Matrix Template"
 
-[**➡️ View Template File**](/templates/traditional/Traditional/Process_Groups/Executing/requirements_traceability_matrix_template.md)
+[**➡️ View Template File**](/domains/delivery/templates/traditional/Traditional/Process_Groups/Executing/requirements_traceability_matrix_template.md)
 
 ## 📈 Quality Score
 

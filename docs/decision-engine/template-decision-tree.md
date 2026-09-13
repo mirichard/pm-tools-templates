@@ -180,12 +180,12 @@ Use your answers to find the matching recommendation set below. Start with your 
 *Answers: Traditional + Any Phase + High or Regulatory + Large + Any Industry + Advanced*
 
 **Start with these (all Standard templates above, plus):**
-8. [Program Management Plan Template](../../templates/traditional/Traditional/Templates/program_management_plan_template.md)
+8. [Program Management Plan Template](../../domains/delivery/templates/traditional/Traditional/Templates/program_management_plan_template.md)
 9. [Change Management Plan Template](../../templates/traditional/Traditional/Templates/change_management_plan_template.md)
 10. [Enterprise Risk Assessment Template](../../domains/uncertainty/project-lifecycle/02-planning/risk-management/enterprise-risk-assessment-template.md)
 11. [Governance Assessment Template](../../project-assessment-suite/governance-assessment-template.md)
 12. [Executive Dashboard Template](../../domains/stakeholder/business-stakeholder-suite/executive-dashboards/powerbi-integration/executive-dashboard-template.md)
-13. [ROI Tracking Template](../../templates/traditional/Traditional/Knowledge_Areas/Project_Cost_Management/roi_tracking_template.md)
+13. [ROI Tracking Template](../../domains/delivery/templates/traditional/Traditional/Knowledge_Areas/Project_Cost_Management/roi_tracking_template.md)
 
 **If regulatory, also add compliance templates for your industry:**
 - Healthcare: [Compliance Risk Assessment](../../domains/delivery/industry-specializations/healthcare-pharmaceutical/regulatory/compliance_risk_assessment_template.md), [Validation Master Plan](../../domains/delivery/industry-specializations/healthcare-pharmaceutical/validation/validation_master_plan_template.md), [GxP Training Plan](../../domains/delivery/industry-specializations/healthcare-pharmaceutical/compliance/gxp_training_plan_template.md)
@@ -205,8 +205,8 @@ Use your answers to find the matching recommendation set below. Start with your 
 
 **Start with these:**
 1. [Agile Team Charter Template](../../domains/team/project-lifecycle/01-initiation/project-charter/agile-team-charter-template.md)
-2. [Product Backlog Template](../../templates/agile/product_backlog_template.md)
-3. [Sprint Planning Template](../../templates/agile/sprint_planning_template.md)
+2. [Product Backlog Template](../../domains/delivery/templates/agile/product_backlog_template.md)
+3. [Sprint Planning Template](../../domains/delivery/templates/agile/sprint_planning_template.md)
 
 **Recommended toolkit:** [Quick Start Kits](../../quick-start-kits/) · [First-Time PM Starter](../../quick-start-kits/first-time-pm-starter/) (if new to PM)
 
@@ -218,11 +218,11 @@ Use your answers to find the matching recommendation set below. Start with your 
 *Answers: Agile + Any Phase + Medium Risk + Medium + Any Industry + Intermediate or Advanced*
 
 **Start with these:**
-1. [Product Backlog Template](../../templates/agile/product_backlog_template.md)
-2. [Sprint Planning Template](../../templates/agile/sprint_planning_template.md)
+1. [Product Backlog Template](../../domains/delivery/templates/agile/product_backlog_template.md)
+2. [Sprint Planning Template](../../domains/delivery/templates/agile/sprint_planning_template.md)
 3. [Sprint Review Template](../../domains/team/templates/agile/sprint_review_template.md)
 4. [Sprint Retrospective Template](../../domains/team/templates/agile/sprint_retrospective_template.md)
-5. [Agile Release Plan Template](../../project-lifecycle/02-planning/project-management-plan/agile-release-plan-template.md)
+5. [Agile Release Plan Template](../../domains/delivery/project-lifecycle/02-planning/project-management-plan/agile-release-plan-template.md)
 6. [Risk Register Template](../../domains/uncertainty/project-lifecycle/02-planning/risk-management/risk-register-template.md)
 
 **If IT industry, also add:**
@@ -260,7 +260,7 @@ Use your answers to find the matching recommendation set below. Start with your 
 *Answers: Hybrid + Any Phase + Low or Medium Risk + Small or Medium + Any Industry + Any Experience*
 
 **Start with these:**
-1. [Hybrid Quality Management Template](../../templates/hybrid/Hybrid/Templates/hybrid_quality_management_template.md)
+1. [Hybrid Quality Management Template](../../domains/delivery/templates/hybrid/Hybrid/Templates/hybrid_quality_management_template.md)
 2. [Integrated Change Strategy Template](../../domains/delivery/templates/hybrid/Hybrid/Templates/integrated_change_strategy_template.md)
 3. [Hybrid Team Management Template](../../domains/delivery/templates/hybrid/Hybrid/Templates/hybrid_team_management_template.md)
 4. [Status Report Template](../../domains/uncertainty/project-lifecycle/04-monitoring-control/progress-tracking/status-report-template.md)
@@ -309,8 +309,8 @@ Regardless of methodology, add these templates based on your **current phase** (
 |-------|-------------------|
 | **Just starting** | [Stakeholder Register](../../domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/stakeholder-register-template.md), [Business Case Template](../../domains/planning/templates/traditional/Traditional/Templates/business_case_template.md) |
 | **Planning** | [Skills Matrix](../../domains/team/project-lifecycle/02-planning/resource-planning/skills-matrix-template.md), [Team Charter](../../domains/team/project-lifecycle/02-planning/resource-planning/team-charter-template.md) |
-| **In progress** | [Issue Log](../../templates/traditional/Traditional/Templates/issue_log_template.md), [Change Request Template](../../templates/traditional/Traditional/Templates/change_request_template.md) |
-| **Closing** | [Project Closure Report](../../templates/traditional/Traditional/Process_Groups/Closing/project_closure_report_template.md), [Handover Template](../../role-based-toolkits/project-manager/essential-templates/handover-template.md) |
+| **In progress** | [Issue Log](../../domains/delivery/templates/traditional/Traditional/Templates/issue_log_template.md), [Change Request Template](../../templates/traditional/Traditional/Templates/change_request_template.md) |
+| **Closing** | [Project Closure Report](../../domains/delivery/templates/traditional/Traditional/Process_Groups/Closing/project_closure_report_template.md), [Handover Template](../../role-based-toolkits/project-manager/essential-templates/handover-template.md) |
 
 ---
 

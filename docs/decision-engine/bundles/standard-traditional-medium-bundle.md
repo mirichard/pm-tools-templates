@@ -28,7 +28,7 @@
 |---|----------|---------|------------|
 | 8 | [Status Report](../../../domains/uncertainty/project-lifecycle/04-monitoring-control/progress-tracking/status-report-template.md) | Regular stakeholder updates | ~15 min |
 | 9 | [Change Request](../../../templates/traditional/Traditional/Templates/change_request_template.md) | Formal scope change control | ~15 min |
-| 10 | [Issue Log](../../../templates/traditional/Traditional/Templates/issue_log_template.md) | Track and resolve project issues | ~15 min |
+| 10 | [Issue Log](../../../domains/delivery/templates/traditional/Traditional/Templates/issue_log_template.md) | Track and resolve project issues | ~15 min |
 
 ## Complementary Resources
 

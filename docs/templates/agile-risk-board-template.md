@@ -15,7 +15,7 @@
 
 title: "Agile Risk Board Template"
 
-[**➡️ View Template File**](/project-lifecycle/02-planning/risk-management/agile-risk-board-template.md)
+[**➡️ View Template File**](/domains/delivery/project-lifecycle/02-planning/risk-management/agile-risk-board-template.md)
 
 ## 📈 Quality Score
 
