@@ -1,0 +1,53 @@
+[
+  {
+    "run": "new-run-1",
+    "coreCandidates": 53,
+    "fdaCandidates": 53,
+    "added": []
+  },
+  {
+    "run": "new-run-2",
+    "coreCandidates": 62,
+    "fdaCandidates": 62,
+    "added": []
+  },
+  {
+    "run": "new-run-3",
+    "coreCandidates": 53,
+    "fdaCandidates": 53,
+    "added": []
+  },
+  {
+    "run": "old-ucs-1",
+    "coreCandidates": 70,
+    "fdaCandidates": 71,
+    "added": [
+      {
+        "patternId": "fda-21-cfr-11.accountability",
+        "path": "/basicFlow/steps/0"
+      }
+    ]
+  },
+  {
+    "run": "old-ucs-2",
+    "coreCandidates": 64,
+    "fdaCandidates": 65,
+    "added": [
+      {
+        "patternId": "fda-21-cfr-11.accountability",
+        "path": "/basicFlow/steps/0"
+      }
+    ]
+  },
+  {
+    "run": "old-ucs-3",
+    "coreCandidates": 72,
+    "fdaCandidates": 73,
+    "added": [
+      {
+        "patternId": "fda-21-cfr-11.accountability",
+        "path": "/basicFlow/steps/0"
+      }
+    ]
+  }
+]
