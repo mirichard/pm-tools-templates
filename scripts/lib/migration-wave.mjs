@@ -44,15 +44,30 @@ function isCompatibilityNavigation(content, destination, source) {
   return Boolean(title) && content === compatibilityNavigation(title, target);
 }
 
+function readRegularFile(file) {
+  const descriptor = fs.openSync(file, fs.constants.O_RDONLY | fs.constants.O_NOFOLLOW);
+  try {
+    if (!fs.fstatSync(descriptor).isFile()) throw new Error('Expected a regular file');
+    return fs.readFileSync(descriptor);
+  } finally {
+    fs.closeSync(descriptor);
+  }
+}
+
 function destinationReplacement(root, move) {
-  const destination = path.join(root, move.destination);
-  const stat = fs.lstatSync(destination, { throwIfNoEntry: false });
-  if (!stat) return {};
-  if (!stat.isFile() ||
-      !isCompatibilityNavigation(fs.readFileSync(destination, 'utf8'), move.destination, move.source)) {
+  let content;
+  try {
+    content = readRegularFile(path.join(root, move.destination));
+  } catch (error) {
+    if (error.code === 'ENOENT') return {};
     throw new Error(`destination already exists and is not verified compatibility navigation: ${move.destination}`);
   }
-  return { destination_replacement: { kind: 'compatibility-navigation', sha256: sha256File(destination) } };
+  if (!isCompatibilityNavigation(content.toString('utf8'), move.destination, move.source)) {
+    throw new Error(`destination already exists and is not verified compatibility navigation: ${move.destination}`);
+  }
+  return { destination_replacement: {
+    kind: 'compatibility-navigation', sha256: crypto.createHash('sha256').update(content).digest('hex')
+  } };
 }
 
 function dependencyGraph(moves) {
@@ -348,8 +363,14 @@ export function validateWavePlan({ root, inventory, plan }) {
     if (plan.phase === 'entry') {
       if (fs.existsSync(sourcePath) && sha256File(sourcePath) !== asset.pre_move_sha256) fail(`source hash mismatch: ${asset.source}`);
       if (replacement) {
-        if (!fs.existsSync(destinationPath) || !fs.lstatSync(destinationPath).isFile() ||
-            sha256File(destinationPath) !== replacement.sha256) fail(`destination replacement drift: ${asset.destination}`);
+        try {
+          const content = readRegularFile(destinationPath);
+          if (crypto.createHash('sha256').update(content).digest('hex') !== replacement.sha256) {
+            fail(`destination replacement drift: ${asset.destination}`);
+          }
+        } catch {
+          fail(`destination replacement drift: ${asset.destination}`);
+        }
       } else if (fs.existsSync(destinationPath)) fail(`destination already exists: ${asset.destination}`);
     } else {
       if (!fs.existsSync(destinationPath)) fail(`executed destination does not exist: ${asset.destination}`);
