@@ -385,7 +385,13 @@ export function validateWavePlan({ root, inventory, plan }) {
         } catch {
           fail(`destination replacement drift: ${asset.destination}`);
         }
-      } else if (fs.existsSync(destinationPath)) fail(`destination already exists: ${asset.destination}`);
+      } else {
+        try {
+          if (fs.lstatSync(destinationPath, { throwIfNoEntry: false })) fail(`destination already exists: ${asset.destination}`);
+        } catch {
+          fail(`destination cannot be inspected: ${asset.destination}`);
+        }
+      }
     } else {
       try {
         if (crypto.createHash('sha256').update(readRegularFile(destinationPath)).digest('hex') !== asset.pre_move_sha256) {
@@ -397,8 +403,8 @@ export function validateWavePlan({ root, inventory, plan }) {
       if (move.execution?.batch_id !== plan.wave_id) fail(`execution batch_id mismatch: ${asset.source}`);
       if (move.execution?.pre_batch_sha !== plan.pre_batch_sha) fail(`execution checkpoint mismatch: ${asset.source}`);
       if (move.execution?.pre_move_source_sha256 !== asset.pre_move_sha256) fail(`execution source hash mismatch: ${asset.source}`);
-      if (fs.existsSync(sourcePath)) {
-        const pointer = fs.readFileSync(sourcePath, 'utf8')
+      try {
+        const pointer = readRegularFile(sourcePath).toString('utf8')
           .match(/^\s*\*{0,2}Canonical location:?\*{0,2}\s*\[[^\]]+\]\(([^)]+)\)/im);
         if (!pointer?.[1]) fail(`legacy pointer is missing: ${asset.source}`);
         else {
@@ -406,6 +412,8 @@ export function validateWavePlan({ root, inventory, plan }) {
           const resolved = path.resolve(path.dirname(sourcePath), target);
           if (resolved !== destinationPath) fail(`legacy pointer does not resolve to destination: ${asset.source}`);
         }
+      } catch {
+        fail(`legacy source is not a readable regular file: ${asset.source}`);
       }
     }
     const recordedDependencies = Array.isArray(asset.dependencies) ? asset.dependencies : [];

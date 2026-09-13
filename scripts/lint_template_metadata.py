@@ -10,6 +10,8 @@ all pointers are checked, including compatibility links outside migration waves.
 import argparse
 import hashlib
 import hmac
+import os
+import stat
 from datetime import date
 import json
 from pathlib import Path
@@ -158,6 +160,18 @@ def metadata(content, today=None):
     return errors, warnings
 
 
+def read_regular_bytes(path):
+    """Check and read the same no-follow file descriptor."""
+    descriptor = os.open(path, os.O_RDONLY | os.O_NOFOLLOW)
+    try:
+        if not stat.S_ISREG(os.fstat(descriptor).st_mode):
+            raise OSError('Expected a regular file')
+        with os.fdopen(descriptor, 'rb', closefd=False) as stream:
+            return stream.read()
+    finally:
+        os.close(descriptor)
+
+
 def unchanged_migration_debt(root, base, old_primary):
     """Transfer debt only when a planned canonical source is moved byte-for-byte."""
     inventory_path = 'meta/migration-inventory.json'
@@ -178,7 +192,7 @@ def unchanged_migration_debt(root, base, old_primary):
         try:
             original = git(root, 'show', f'{base}:{source}')
             body = Path(root) / destination
-            if body.is_symlink() or body.read_bytes() != original:
+            if read_regular_bytes(body) != original:
                 continue
             execution = move.get('execution', {})
             recorded_hash = execution.get('pre_move_source_sha256', '')
@@ -188,7 +202,8 @@ def unchanged_migration_debt(root, base, old_primary):
                 continue
             # Navigation is validated separately for every pointer in lint().
             legacy = Path(root) / source
-            if not pointer_candidate(legacy.read_text()) or pointer_errors(root, source, legacy.read_text()):
+            navigation = read_regular_bytes(legacy).decode()
+            if not pointer_candidate(navigation) or pointer_errors(root, source, navigation):
                 continue
             inherited[destination] = metadata(original.decode())[0]
         except (subprocess.CalledProcessError, OSError, UnicodeError):

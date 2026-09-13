@@ -6,7 +6,7 @@
 - Pre-batch SHA: `de93a99a5154367fc996cdf41b2738046eba5192`
 - Rollback owner: `mirichard`
 - Manifest: `meta/migration-waves/b3d.json`
-- Status: Executed locally; integration and reviewed visual gates pending in the delivery PR.
+- Status: Canonical moves complete; final PR validation is recorded in the delivery PR before manual merge.
 
 ## Content integrity and compatibility
 
@@ -40,10 +40,11 @@ The metadata linter carries forward two inherited `complexity: basic` findings o
 - Entry and executed manifests pass for all 12 assets.
 - Migration post-check: 86 executed / 51 remaining (24 Delivery, 27 Measurement).
 - Maintained catalogs, mappings, indexes, documentation, and inventory dependencies use canonical paths; historical wave and research records retain original identities.
-- Migration-wave and post-check tests: 35 passed, including replacement guard negative cases.
+- Migration-wave and post-check tests: 40 passed using `node --test tests/migration-wave.test.mjs tests/migration-post-check.test.mjs` (23 wave tests and 17 post-check tests), including checkpoint, replacement, and non-regular-file negative cases.
+- Metadata tests: 17 passed using `python -m unittest discover -s tests -p test_template_metadata.py`.
 - Curated catalog: 139 valid templates. Strict canonical paths: zero errors, one inherited warning.
 - Link validation: zero new failures; inherited broken links remain outside this structural migration.
-- Metadata regeneration is stable and annotation coverage is 137/137. Full CI/security and visual evidence are recorded in the delivery PR as checks complete. No visual threshold change, exclusion, or blanket baseline update is authorized by this record.
+- Metadata regeneration is stable and annotation coverage is 137/137. Final-head CI/security and visual results must be verified in the delivery PR; this record does not assert that those integration gates have passed. No visual threshold change, exclusion, or blanket baseline update is authorized by this record.
 
 ## Integration and rollback
 

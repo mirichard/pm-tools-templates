@@ -84,6 +84,14 @@ class MetadataTests(unittest.TestCase):
         self.write('meta/migration-inventory.json', json.dumps({'moves': [move]}))
         self.write(source, POINTER.replace('body with spaces.md', 'missing.md'))
         self.assertEqual(lint.unchanged_migration_debt(self.root, base, {source}), {})
+        self.write('navigation.md', POINTER.replace('body with spaces.md', '../domains/delivery/body.md'))
+        (self.root / source).unlink()
+        (self.root / source).symlink_to(self.root / 'navigation.md')
+        self.assertEqual(lint.unchanged_migration_debt(self.root, base, {source}), {})
+        (self.root / source).unlink()
+        (self.root / source).mkdir()
+        self.assertEqual(lint.unchanged_migration_debt(self.root, base, {source}), {})
+
 
     def test_valid_canonical_and_universal(self):
         self.assertEqual(lint.metadata(VALID, date(2026, 9, 11)), ([], []))

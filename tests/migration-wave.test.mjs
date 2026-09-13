@@ -347,3 +347,33 @@ test('rejects executed symlinks even when their target has the correct body hash
   plan.phase = 'executed';
   assert.match(validateWavePlan({ root, inventory, plan }).join('\n'), /executed destination is not a readable regular file/);
 });
+
+
+test('entry validation rejects a dangling destination introduced after planning', t => {
+  const { root, inventory, preBatchSha } = fixture(t);
+  const plan = buildWavePlan({ root, inventory, waveId: 'B1F', sourceBatch: 1, maxAssets: 1, preBatchSha, rollbackOwner: 'owner' });
+  const destination = path.join(root, plan.assets[0].destination);
+  fs.mkdirSync(path.dirname(destination), { recursive: true });
+  fs.symlinkSync(path.join(root, 'missing.md'), destination);
+  assert.match(validateWavePlan({ root, inventory, plan }).join('\n'), /destination already exists/);
+});
+
+test('executed validation rejects symlink and directory legacy sources without throwing', t => {
+  const { root, inventory, preBatchSha } = fixture(t);
+  const plan = buildWavePlan({ root, inventory, waveId: 'B1F', sourceBatch: 1, maxAssets: 1, preBatchSha, rollbackOwner: 'owner' });
+  const move = inventory.moves[0];
+  const source = path.join(root, move.source);
+  const destination = path.join(root, move.destination);
+  fs.mkdirSync(path.dirname(destination), { recursive: true });
+  fs.renameSync(source, destination);
+  const navigation = path.join(root, 'navigation.md');
+  fs.writeFileSync(navigation, '# Moved\nCanonical location: [A](../domains/stakeholder/legacy/a.md)\n');
+  fs.symlinkSync(navigation, source);
+  move.action = 'executed-move-with-legacy-pointer';
+  move.execution = { batch_id: 'B1F', pre_batch_sha: plan.pre_batch_sha, pre_move_source_sha256: plan.assets[0].pre_move_sha256 };
+  plan.phase = 'executed';
+  assert.match(validateWavePlan({ root, inventory, plan }).join('\n'), /legacy source is not a readable regular file/);
+  fs.unlinkSync(source);
+  fs.mkdirSync(source);
+  assert.match(validateWavePlan({ root, inventory, plan }).join('\n'), /legacy source is not a readable regular file/);
+});
