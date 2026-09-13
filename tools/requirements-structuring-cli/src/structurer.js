@@ -12,6 +12,7 @@
 
 const LLMClient = require('./llm-client');
 const STRUCTURE_PROMPT_VERSION = '1.0.0';
+const CORRECTION_PROMPT_VERSION = '1.0.0';
 
 class RequirementsStructurer {
   constructor() {
@@ -55,6 +56,7 @@ class RequirementsStructurer {
     const correctionPrompt = await this.llm.loadPrompt('02-correct-business-objects.md');
 
     const userContent = [
+      'Preserve sourceRequirementId on every step; the supplied sourceRequirements catalog defines valid IDs.',
       'Review the following structured requirements and correct any business object misidentifications.',
       'If a "businessObject" field contains an attribute (e.g., "buyer\'s name", "order total")',
       'rather than a true business entity, replace it with the entity it belongs to.',
@@ -70,6 +72,7 @@ class RequirementsStructurer {
       mode: 'structure',
     });
 
+    corrected.sourceRequirements = structured.sourceRequirements;
     return corrected;
   }
 
@@ -122,3 +125,4 @@ class RequirementsStructurer {
 module.exports = RequirementsStructurer;
 
 module.exports.STRUCTURE_PROMPT_VERSION = STRUCTURE_PROMPT_VERSION;
+module.exports.CORRECTION_PROMPT_VERSION = CORRECTION_PROMPT_VERSION;
