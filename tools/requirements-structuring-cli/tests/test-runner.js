@@ -38,6 +38,7 @@ class TestRunner {
     await require('./testgen-terminal-tests')(this);
     await this.testConsistencyChecker();
     await this.testParser();
+    await require('./source-traceability-tests')(this);
     await this.testAmbiguityDetector();
     await this.testGherkinGenerator();
     await this.testSecurityBoundaries();
