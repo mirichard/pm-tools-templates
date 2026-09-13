@@ -11,6 +11,7 @@
  */
 
 const LLMClient = require('./llm-client');
+const STRUCTURE_PROMPT_VERSION = '1.0.0';
 
 class RequirementsStructurer {
   constructor() {
@@ -33,9 +34,15 @@ class RequirementsStructurer {
       mode: 'structure',
     });
 
+    // This catalog is parser-owned, never copied from a model response.
+    const sourceRequirements = [...parsedRequirements.basicFlow, ...parsedRequirements.alternativeFlows,
+      ...parsedRequirements.exceptionFlows].map(({ id, originalText }) => ({ id, originalText }));
+    structured.sourceRequirements = sourceRequirements;
+
     // Pass 2: BO correction — fix attribute/entity confusion
     const corrected = await this._correctBusinessObjects(structured);
 
+    corrected.sourceRequirements = sourceRequirements;
     return corrected;
   }
 
@@ -113,3 +120,5 @@ class RequirementsStructurer {
 }
 
 module.exports = RequirementsStructurer;
+
+module.exports.STRUCTURE_PROMPT_VERSION = STRUCTURE_PROMPT_VERSION;
