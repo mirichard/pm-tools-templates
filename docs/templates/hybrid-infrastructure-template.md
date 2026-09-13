@@ -15,7 +15,7 @@
 
 title: "Hybrid Infrastructure Template"
 
-[**➡️ View Template File**](/methodology-frameworks/hybrid/infrastructure/hybrid-infrastructure-template.md)
+[**➡️ View Template File**](/domains/delivery/methodology-frameworks/hybrid/infrastructure/hybrid-infrastructure-template.md)
 
 ## 📈 Quality Score
 

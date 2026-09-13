@@ -5,7 +5,7 @@ import path from 'node:path';
 import { execFileSync } from 'node:child_process';
 import test from 'node:test';
 import { fileURLToPath } from 'node:url';
-import { buildWavePlan, validateWavePlan } from '../scripts/lib/migration-wave.mjs';
+import { buildWavePlan, validateWavePlan, compatibilityNavigation } from '../scripts/lib/migration-wave.mjs';
 
 test('metadata regeneration preserves executed dependencies while canonicalizing paths', t => {
   const root = fs.mkdtempSync(path.join(os.tmpdir(), 'migration-metadata-'));
@@ -253,4 +253,50 @@ test('fails when the first atomic dependency cycle exceeds max-assets', t => {
     () => buildWavePlan({ root, inventory, waveId: 'B1F', sourceBatch: 1, primaryDomain: 'Stakeholder', maxAssets: 1, preBatchSha, rollbackOwner: 'owner' }),
     /Next dependency cycle contains 2 assets, exceeding max-assets 1/
   );
+});
+
+
+test('replaces only checkpointed navigation and detects drift and forged evidence', t => {
+  const { root, inventory } = fixture(t);
+  const move = inventory.moves[0];
+  const destination = path.join(root, move.destination);
+  fs.mkdirSync(path.dirname(destination), { recursive: true });
+  const content = compatibilityNavigation('A', '../../../legacy/a.md');
+  fs.writeFileSync(destination, content);
+  execFileSync('git', ['add', '.'], { cwd: root });
+  execFileSync('git', ['commit', '-qm', 'navigation checkpoint'], { cwd: root });
+  const preBatchSha = execFileSync('git', ['rev-parse', 'HEAD'], { cwd: root, encoding: 'utf8' }).trim();
+  const plan = buildWavePlan({ root, inventory, waveId: 'B1F', sourceBatch: 1, maxAssets: 1, preBatchSha, rollbackOwner: 'owner' });
+  assert.deepEqual(validateWavePlan({ root, inventory, plan }), []);
+  fs.appendFileSync(destination, 'unexpected body');
+  assert.match(validateWavePlan({ root, inventory, plan }).join('\n'), /replacement drift/);
+  assert.throws(() => buildWavePlan({ root, inventory, waveId: 'B1F', sourceBatch: 1, maxAssets: 1, preBatchSha, rollbackOwner: 'owner' }), /not verified compatibility/);
+  fs.writeFileSync(destination, content);
+  plan.assets[0].destination_replacement.sha256 = '0'.repeat(64);
+  assert.match(validateWavePlan({ root, inventory, plan }).join('\n'), /invalid destination replacement evidence/);
+  plan.assets[0].destination_replacement.sha256 = buildWavePlan({ root, inventory, waveId: 'B1F', sourceBatch: 1, maxAssets: 1, preBatchSha, rollbackOwner: 'owner' }).assets[0].destination_replacement.sha256;
+  fs.copyFileSync(path.join(root, move.source), destination);
+  fs.writeFileSync(path.join(root, move.source), '# Moved\nCanonical location: [A](../domains/stakeholder/legacy/a.md)\n');
+  move.action = 'executed-move-with-legacy-pointer';
+  move.execution = { batch_id: 'B1F' };
+  plan.phase = 'executed';
+  assert.deepEqual(validateWavePlan({ root, inventory, plan }), []);
+  delete plan.assets[0].destination_replacement;
+  assert.match(validateWavePlan({ root, inventory, plan }).join('\n'), /requires replacement evidence/);
+});
+
+test('rejects wrong-target navigation, symlinks, and uncommitted replacement files', t => {
+  const { root, inventory, preBatchSha } = fixture(t);
+  const move = inventory.moves[0];
+  const destination = path.join(root, move.destination);
+  fs.mkdirSync(path.dirname(destination), { recursive: true });
+  const build = () => buildWavePlan({ root, inventory, waveId: 'B1F', sourceBatch: 1, maxAssets: 1, preBatchSha, rollbackOwner: 'owner' });
+  fs.writeFileSync(destination, compatibilityNavigation('A', '../../../legacy/b.md'));
+  assert.throws(build, /not verified compatibility/);
+  fs.unlinkSync(destination);
+  fs.symlinkSync(path.join(root, move.source), destination);
+  assert.throws(build, /not verified compatibility/);
+  fs.unlinkSync(destination);
+  fs.writeFileSync(destination, compatibilityNavigation('A', '../../../legacy/a.md'));
+  assert.match(validateWavePlan({ root, inventory, plan: build() }).join('\n'), /absent from checkpoint/);
 });

@@ -33,6 +33,27 @@ export function classifyDependency(root, dependency, inventoryByPath, selectedPa
   return { path: dependency, status: 'blocked-missing', resolved_path: dependency };
 }
 
+// Only the exact navigation-only format is eligible for replacement.
+export function compatibilityNavigation(title, target) {
+  return `# ${title} — Compatibility Navigation\n\n## Purpose and overview\n\nThis file provides navigation only for relative links preserved in migrated templates. The maintained resource is linked below.\n\n[Open the maintained ${title}](${target})\n\n## Usage instructions\n\nFollow the link to the maintained resource. This compatibility file contains no duplicate template body. When bookmarking or sharing the resource, use its maintained location so future readers reach the current version directly.\n`;
+}
+
+function isCompatibilityNavigation(content, destination, source) {
+  const title = content.match(/^# (.+) — Compatibility Navigation\n/)?.[1];
+  const target = path.posix.relative(path.posix.dirname(destination), source);
+  return Boolean(title) && content === compatibilityNavigation(title, target);
+}
+
+function destinationReplacement(root, move) {
+  const destination = path.join(root, move.destination);
+  if (!fs.existsSync(destination)) return {};
+  if (!fs.lstatSync(destination).isFile() ||
+      !isCompatibilityNavigation(fs.readFileSync(destination, 'utf8'), move.destination, move.source)) {
+    throw new Error(`destination already exists and is not verified compatibility navigation: ${move.destination}`);
+  }
+  return { destination_replacement: { kind: 'compatibility-navigation', sha256: sha256File(destination) } };
+}
+
 function dependencyGraph(moves) {
   const byPath = new Map(moves.flatMap(move => [[move.source, move], [move.destination, move]]));
   return new Map(moves.map(move => [
@@ -176,6 +197,7 @@ export function buildWavePlan({
     primary_domain: move.primary_domain,
     secondary_domains: move.secondary_domains || [],
     pre_move_sha256: sha256File(path.join(root, move.source)),
+    ...destinationReplacement(root, move),
     dependencies: (move.dependencies || []).map(dependency =>
       classifyDependency(root, dependency, inventoryByPath, selectedPaths)
     ),
@@ -300,9 +322,34 @@ export function validateWavePlan({ root, inventory, plan }) {
     const sourcePath = path.join(root, asset.source);
     const destinationPath = path.join(root, asset.destination);
     if (!fs.existsSync(sourcePath)) fail(`source does not exist: ${asset.source}`);
+    const replacement = asset.destination_replacement;
+    if (!replacement) {
+      try {
+        execFileSync('git', ['cat-file', '-e', `${plan.pre_batch_sha}:${asset.destination}`], { cwd: root, stdio: 'ignore' });
+        fail(`checkpoint destination requires replacement evidence: ${asset.destination}`);
+      } catch {
+        // An absent checkpoint destination is the normal migration case.
+      }
+    }
+    if (replacement) {
+      try {
+        const historical = execFileSync('git', ['show', `${plan.pre_batch_sha}:${asset.destination}`], { cwd: root, encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] });
+        const mode = execFileSync('git', ['ls-tree', plan.pre_batch_sha, '--', asset.destination], { cwd: root, encoding: 'utf8' }).split(' ')[0];
+        const hash = crypto.createHash('sha256').update(historical).digest('hex');
+        if (replacement.kind !== 'compatibility-navigation' || mode !== '100644' ||
+            replacement.sha256 !== hash || !isCompatibilityNavigation(historical, asset.destination, asset.source)) {
+          fail(`invalid destination replacement evidence: ${asset.destination}`);
+        }
+      } catch {
+        fail(`destination replacement is absent from checkpoint: ${asset.destination}`);
+      }
+    }
     if (plan.phase === 'entry') {
       if (fs.existsSync(sourcePath) && sha256File(sourcePath) !== asset.pre_move_sha256) fail(`source hash mismatch: ${asset.source}`);
-      if (fs.existsSync(destinationPath)) fail(`destination already exists: ${asset.destination}`);
+      if (replacement) {
+        if (!fs.existsSync(destinationPath) || !fs.lstatSync(destinationPath).isFile() ||
+            sha256File(destinationPath) !== replacement.sha256) fail(`destination replacement drift: ${asset.destination}`);
+      } else if (fs.existsSync(destinationPath)) fail(`destination already exists: ${asset.destination}`);
     } else {
       if (!fs.existsSync(destinationPath)) fail(`executed destination does not exist: ${asset.destination}`);
       else if (sha256File(destinationPath) !== asset.pre_move_sha256) fail(`destination hash mismatch: ${asset.destination}`);

@@ -15,7 +15,7 @@
 
 title: "Hybrid Project Assessment Template"
 
-[**➡️ View Template File**](/project-assessment-suite/hybrid-project-assessment-template.md)
+[**➡️ View Template File**](/domains/delivery/project-assessment-suite/hybrid-project-assessment-template.md)
 
 ## 📈 Quality Score
 

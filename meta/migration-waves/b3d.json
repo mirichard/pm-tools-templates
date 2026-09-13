@@ -1,0 +1,402 @@
+{
+  "schema_version": 1,
+  "wave_id": "B3D",
+  "phase": "executed",
+  "source_batch": 3,
+  "primary_domain": "Delivery",
+  "generated_from": "meta/migration-inventory.json",
+  "inventory_generated": "2026-09-02",
+  "pre_batch_sha": "de93a99a5154367fc996cdf41b2738046eba5192",
+  "rollback_owner": "mirichard",
+  "max_assets": 12,
+  "asset_count": 12,
+  "assets": [
+    {
+      "order": 1,
+      "source": "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_program_increment_planning_template.md",
+      "destination": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_program_increment_planning_template.md",
+      "primary_domain": "Delivery",
+      "secondary_domains": [
+        "Stakeholder",
+        "Uncertainty"
+      ],
+      "pre_move_sha256": "c69dfa1a6da85c2ad76911f228846544a6477a9b7343f1f0a8777d557f8a19c3",
+      "destination_replacement": {
+        "kind": "compatibility-navigation",
+        "sha256": "b9824e80af65caa68dfdcb414d9a34f398aee8aac717a3f1c930fbe0d8f568ee"
+      },
+      "dependencies": [
+        {
+          "path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md",
+          "status": "satisfied-executed",
+          "resolved_path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md"
+        },
+        {
+          "path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/less/cross_team_coordination_template.md",
+          "status": "satisfied-executed",
+          "resolved_path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/less/cross_team_coordination_template.md"
+        },
+        {
+          "path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/less/less_sprint_planning_template.md",
+          "status": "satisfied-executed",
+          "resolved_path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/less/less_sprint_planning_template.md"
+        }
+      ],
+      "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move"
+    },
+    {
+      "order": 2,
+      "source": "project-assessment-suite/agile-project-assessment-template.md",
+      "destination": "domains/delivery/project-assessment-suite/agile-project-assessment-template.md",
+      "primary_domain": "Delivery",
+      "secondary_domains": [
+        "Stakeholder"
+      ],
+      "pre_move_sha256": "d6c3d92cbc2d8160a13a4b10dd1bc28b4b0f5978d62651ca633581cbb7266318",
+      "dependencies": [
+        {
+          "path": "domains/stakeholder/project-assessment-suite/stakeholder-engagement-assessment-template.md",
+          "status": "satisfied-executed",
+          "resolved_path": "domains/stakeholder/project-assessment-suite/stakeholder-engagement-assessment-template.md"
+        },
+        {
+          "path": "domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/agile-stakeholder-map-template.md",
+          "status": "satisfied-executed",
+          "resolved_path": "domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/agile-stakeholder-map-template.md"
+        },
+        {
+          "path": "domains/stakeholder/role-based-toolkits/product-owner/okr-template.md",
+          "status": "satisfied-executed",
+          "resolved_path": "domains/stakeholder/role-based-toolkits/product-owner/okr-template.md"
+        }
+      ],
+      "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move"
+    },
+    {
+      "order": 3,
+      "source": "methodology-frameworks/agile-scrum/scaling-frameworks/safe/pi_planning_template.md",
+      "destination": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/pi_planning_template.md",
+      "primary_domain": "Delivery",
+      "secondary_domains": [
+        "Stakeholder",
+        "Uncertainty"
+      ],
+      "pre_move_sha256": "bfc54b6167e17f60324b219eee1ceca426243df72a3229895754ba474119c58b",
+      "destination_replacement": {
+        "kind": "compatibility-navigation",
+        "sha256": "4f565b0306c7779de9f6f3c18149d48f13a167d9cf44a84a0efea0e48d778131"
+      },
+      "dependencies": [
+        {
+          "path": "methodology-frameworks/agile-scrum/scaling-frameworks/safe/portfolio_kanban_template.md",
+          "status": "same-wave",
+          "resolved_path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/portfolio_kanban_template.md"
+        },
+        {
+          "path": "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_program_increment_planning_template.md",
+          "status": "same-wave",
+          "resolved_path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_program_increment_planning_template.md"
+        },
+        {
+          "path": "methodology-frameworks/agile-scrum/sprint-planning/sprint_planning_template.md",
+          "status": "satisfied-existing-deferred",
+          "resolved_path": "methodology-frameworks/agile-scrum/sprint-planning/sprint_planning_template.md"
+        }
+      ],
+      "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move"
+    },
+    {
+      "order": 4,
+      "source": "methodology-frameworks/agile-scrum/scaling-frameworks/safe/portfolio_kanban_template.md",
+      "destination": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/portfolio_kanban_template.md",
+      "primary_domain": "Delivery",
+      "secondary_domains": [
+        "Stakeholder",
+        "Uncertainty"
+      ],
+      "pre_move_sha256": "6e106e086812a27dfdb0f6e24385e5e4c0d4798ded17d63fb2f16a1c83f5ce78",
+      "destination_replacement": {
+        "kind": "compatibility-navigation",
+        "sha256": "f94d538cf4bec25a22723541fcd12dc8788d081cbfcfc03bb01f2c4c387f5f95"
+      },
+      "dependencies": [
+        {
+          "path": "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_portfolio_kanban_template.md",
+          "status": "same-wave",
+          "resolved_path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_portfolio_kanban_template.md"
+        },
+        {
+          "path": "methodology-frameworks/agile-scrum/scaling-frameworks/safe/pi_planning_template.md",
+          "status": "same-wave",
+          "resolved_path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/pi_planning_template.md"
+        },
+        {
+          "path": "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_program_increment_planning_template.md",
+          "status": "same-wave",
+          "resolved_path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_program_increment_planning_template.md"
+        }
+      ],
+      "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move"
+    },
+    {
+      "order": 5,
+      "source": "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_portfolio_kanban_template.md",
+      "destination": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_portfolio_kanban_template.md",
+      "primary_domain": "Delivery",
+      "secondary_domains": [
+        "Stakeholder",
+        "Uncertainty"
+      ],
+      "pre_move_sha256": "06aa28142b43d23a20a74e92bfbf40cf3cd526ae9a58045164fdb160d54f7174",
+      "destination_replacement": {
+        "kind": "compatibility-navigation",
+        "sha256": "2e02b0c8f38dfef4c4bfc6fd0cb456c8dbbf6235e60c2f32bafe21df21ad1800"
+      },
+      "dependencies": [
+        {
+          "path": "methodology-frameworks/agile-scrum/scaling-frameworks/safe/portfolio_kanban_template.md",
+          "status": "same-wave",
+          "resolved_path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/portfolio_kanban_template.md"
+        },
+        {
+          "path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/metrics_dashboard_template.md",
+          "status": "satisfied-executed",
+          "resolved_path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/metrics_dashboard_template.md"
+        },
+        {
+          "path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/less/overall_product_backlog_template.md",
+          "status": "satisfied-executed",
+          "resolved_path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/less/overall_product_backlog_template.md"
+        }
+      ],
+      "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move"
+    },
+    {
+      "order": 6,
+      "source": "methodology-frameworks/hybrid/infrastructure/hybrid-infrastructure-template.md",
+      "destination": "domains/delivery/methodology-frameworks/hybrid/infrastructure/hybrid-infrastructure-template.md",
+      "primary_domain": "Delivery",
+      "secondary_domains": [
+        "Stakeholder",
+        "Uncertainty"
+      ],
+      "pre_move_sha256": "f4509b4bd1fd0623ad1a57b881eb3e27a48923f4fefce164ea7a4c229aa75882",
+      "dependencies": [
+        {
+          "path": "templates/hybrid/Hybrid/Templates/integrated_change_strategy_template.md",
+          "status": "same-wave",
+          "resolved_path": "domains/delivery/templates/hybrid/Hybrid/Templates/integrated_change_strategy_template.md"
+        },
+        {
+          "path": "templates/hybrid/Hybrid/Templates/progressive_acceptance_plan_template.md",
+          "status": "same-wave",
+          "resolved_path": "domains/delivery/templates/hybrid/Hybrid/Templates/progressive_acceptance_plan_template.md"
+        },
+        {
+          "path": "templates/hybrid/Hybrid/Templates/hybrid_release_planning_template.md",
+          "status": "same-wave",
+          "resolved_path": "domains/delivery/templates/hybrid/Hybrid/Templates/hybrid_release_planning_template.md"
+        }
+      ],
+      "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move"
+    },
+    {
+      "order": 7,
+      "source": "project-assessment-suite/hybrid-project-assessment-template.md",
+      "destination": "domains/delivery/project-assessment-suite/hybrid-project-assessment-template.md",
+      "primary_domain": "Delivery",
+      "secondary_domains": [
+        "Stakeholder",
+        "Uncertainty"
+      ],
+      "pre_move_sha256": "1c8fa1600dd19af4f0423cf206686d82bd921f371607587c9b534d5dfbdca2b6",
+      "dependencies": [
+        {
+          "path": "domains/uncertainty/project-assessment-suite/assessment-report-template.md",
+          "status": "satisfied-executed",
+          "resolved_path": "domains/uncertainty/project-assessment-suite/assessment-report-template.md"
+        },
+        {
+          "path": "project-lifecycle/02-planning/project-management-plan/hybrid-project-management-plan-template.md",
+          "status": "same-wave",
+          "resolved_path": "domains/delivery/project-lifecycle/02-planning/project-management-plan/hybrid-project-management-plan-template.md"
+        },
+        {
+          "path": "domains/uncertainty/role-based-toolkits/product-owner/backlog-management-template.md",
+          "status": "satisfied-executed",
+          "resolved_path": "domains/uncertainty/role-based-toolkits/product-owner/backlog-management-template.md"
+        }
+      ],
+      "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move"
+    },
+    {
+      "order": 8,
+      "source": "project-lifecycle/02-planning/project-management-plan/hybrid-project-management-plan-template.md",
+      "destination": "domains/delivery/project-lifecycle/02-planning/project-management-plan/hybrid-project-management-plan-template.md",
+      "primary_domain": "Delivery",
+      "secondary_domains": [
+        "Stakeholder",
+        "Uncertainty"
+      ],
+      "pre_move_sha256": "bd2120477962f8098e889728c96eda2ae0a035066af1bcb9f19c0e8faff3e64a",
+      "dependencies": [
+        {
+          "path": "domains/uncertainty/project-lifecycle/02-planning/risk-management/enterprise-risk-assessment-template.md",
+          "status": "satisfied-executed",
+          "resolved_path": "domains/uncertainty/project-lifecycle/02-planning/risk-management/enterprise-risk-assessment-template.md"
+        },
+        {
+          "path": "project-assessment-suite/hybrid-project-assessment-template.md",
+          "status": "same-wave",
+          "resolved_path": "domains/delivery/project-assessment-suite/hybrid-project-assessment-template.md"
+        },
+        {
+          "path": "domains/uncertainty/project-assessment-suite/assessment-report-template.md",
+          "status": "satisfied-executed",
+          "resolved_path": "domains/uncertainty/project-assessment-suite/assessment-report-template.md"
+        }
+      ],
+      "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move"
+    },
+    {
+      "order": 9,
+      "source": "templates/hybrid/Hybrid/Templates/hybrid_release_planning_template.md",
+      "destination": "domains/delivery/templates/hybrid/Hybrid/Templates/hybrid_release_planning_template.md",
+      "primary_domain": "Delivery",
+      "secondary_domains": [
+        "Stakeholder",
+        "Uncertainty"
+      ],
+      "pre_move_sha256": "15deb9f7888d40448607bda46ff99ea779a5c5b6ecba01f3f6ddb6244a0ae316",
+      "dependencies": [
+        {
+          "path": "templates/hybrid/Hybrid/Templates/hybrid_team_management_template.md",
+          "status": "same-wave",
+          "resolved_path": "domains/delivery/templates/hybrid/Hybrid/Templates/hybrid_team_management_template.md"
+        },
+        {
+          "path": "methodology-frameworks/hybrid/infrastructure/hybrid-infrastructure-template.md",
+          "status": "same-wave",
+          "resolved_path": "domains/delivery/methodology-frameworks/hybrid/infrastructure/hybrid-infrastructure-template.md"
+        },
+        {
+          "path": "templates/hybrid/Hybrid/Templates/integrated_change_strategy_template.md",
+          "status": "same-wave",
+          "resolved_path": "domains/delivery/templates/hybrid/Hybrid/Templates/integrated_change_strategy_template.md"
+        }
+      ],
+      "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move"
+    },
+    {
+      "order": 10,
+      "source": "templates/hybrid/Hybrid/Templates/hybrid_team_management_template.md",
+      "destination": "domains/delivery/templates/hybrid/Hybrid/Templates/hybrid_team_management_template.md",
+      "primary_domain": "Delivery",
+      "secondary_domains": [
+        "Stakeholder",
+        "Uncertainty"
+      ],
+      "pre_move_sha256": "1457753bce63009ade9f4c7b313eb8bf5f5949473a8cadc22191909daf4d82fd",
+      "dependencies": [
+        {
+          "path": "templates/hybrid/Hybrid/Templates/hybrid_release_planning_template.md",
+          "status": "same-wave",
+          "resolved_path": "domains/delivery/templates/hybrid/Hybrid/Templates/hybrid_release_planning_template.md"
+        },
+        {
+          "path": "methodology-frameworks/hybrid/infrastructure/hybrid-infrastructure-template.md",
+          "status": "same-wave",
+          "resolved_path": "domains/delivery/methodology-frameworks/hybrid/infrastructure/hybrid-infrastructure-template.md"
+        },
+        {
+          "path": "templates/hybrid/Hybrid/Templates/integrated_change_strategy_template.md",
+          "status": "same-wave",
+          "resolved_path": "domains/delivery/templates/hybrid/Hybrid/Templates/integrated_change_strategy_template.md"
+        }
+      ],
+      "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move"
+    },
+    {
+      "order": 11,
+      "source": "templates/hybrid/Hybrid/Templates/integrated_change_strategy_template.md",
+      "destination": "domains/delivery/templates/hybrid/Hybrid/Templates/integrated_change_strategy_template.md",
+      "primary_domain": "Delivery",
+      "secondary_domains": [
+        "Stakeholder",
+        "Uncertainty"
+      ],
+      "pre_move_sha256": "6e507133a8d33dd70efa9c37219528937b0cd507b4a612ce17ba9b200be3c490",
+      "dependencies": [
+        {
+          "path": "methodology-frameworks/hybrid/infrastructure/hybrid-infrastructure-template.md",
+          "status": "same-wave",
+          "resolved_path": "domains/delivery/methodology-frameworks/hybrid/infrastructure/hybrid-infrastructure-template.md"
+        },
+        {
+          "path": "templates/hybrid/Hybrid/Templates/progressive_acceptance_plan_template.md",
+          "status": "same-wave",
+          "resolved_path": "domains/delivery/templates/hybrid/Hybrid/Templates/progressive_acceptance_plan_template.md"
+        },
+        {
+          "path": "templates/hybrid/Hybrid/Templates/hybrid_release_planning_template.md",
+          "status": "same-wave",
+          "resolved_path": "domains/delivery/templates/hybrid/Hybrid/Templates/hybrid_release_planning_template.md"
+        }
+      ],
+      "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move"
+    },
+    {
+      "order": 12,
+      "source": "templates/hybrid/Hybrid/Templates/progressive_acceptance_plan_template.md",
+      "destination": "domains/delivery/templates/hybrid/Hybrid/Templates/progressive_acceptance_plan_template.md",
+      "primary_domain": "Delivery",
+      "secondary_domains": [
+        "Stakeholder",
+        "Uncertainty"
+      ],
+      "pre_move_sha256": "d1d1d8291915ed829c632e823e442e8667ea5a5f675b52e5f02e2e433030a20a",
+      "dependencies": [
+        {
+          "path": "methodology-frameworks/hybrid/infrastructure/hybrid-infrastructure-template.md",
+          "status": "same-wave",
+          "resolved_path": "domains/delivery/methodology-frameworks/hybrid/infrastructure/hybrid-infrastructure-template.md"
+        },
+        {
+          "path": "templates/hybrid/Hybrid/Templates/integrated_change_strategy_template.md",
+          "status": "same-wave",
+          "resolved_path": "domains/delivery/templates/hybrid/Hybrid/Templates/integrated_change_strategy_template.md"
+        },
+        {
+          "path": "templates/hybrid/Hybrid/Templates/hybrid_release_planning_template.md",
+          "status": "same-wave",
+          "resolved_path": "domains/delivery/templates/hybrid/Hybrid/Templates/hybrid_release_planning_template.md"
+        }
+      ],
+      "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move"
+    }
+  ],
+  "checkpoints": [
+    "baseline-and-hashes",
+    "canonical-moves",
+    "legacy-pointers",
+    "canonical-references",
+    "affected-scope-validation",
+    "reviewed-visual-regression",
+    "post-merge-verification"
+  ],
+  "validation_commands": [
+    "node scripts/validate-migration-wave.mjs --manifest <manifest>",
+    "node scripts/generate-sprint-10-metadata.mjs",
+    "node scripts/validate-sprint-10.mjs --require-annotations",
+    "node scripts/validate-curated-templates.js",
+    "node scripts/validate-canonical-paths.js --strict",
+    "python3 scripts/check_migration_links.py --manifest <manifest>",
+    "npm run test:ci"
+  ],
+  "rollback": {
+    "strategy": "revert-wave-merge-commit",
+    "command": "git revert <wave-merge-sha>",
+    "granularity": "wave",
+    "asset_hashes_preserved": true
+  }
+}

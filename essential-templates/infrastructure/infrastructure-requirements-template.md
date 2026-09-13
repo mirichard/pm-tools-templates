@@ -542,7 +542,7 @@ This document defines the infrastructure requirements for [Project Name]. It spe
 
 ### Infrastructure Templates
 - [Deployment Checklist Template](./deployment-checklist-template.md)
-- [Hybrid Infrastructure Template](../../methodology-frameworks/hybrid/infrastructure/hybrid-infrastructure-template.md)
+- [Hybrid Infrastructure Template](../../domains/delivery/methodology-frameworks/hybrid/infrastructure/hybrid-infrastructure-template.md)
 - [DevOps Pipeline Template](../../methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md)
 
 ### External Resources
