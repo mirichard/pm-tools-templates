@@ -1,14 +1,14 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-13T00:04:31.888208+00:00",
-  "source_workflow_run": 34726807987,
-  "source_commit": "0e04ffe8f4815e45e5d132ef73eed13fd9183ffa",
+  "generated_at": "2026-09-13T13:49:41.553530+00:00",
+  "source_workflow_run": 34733936274,
+  "source_commit": "423632fbb0375192d453b05a6fb3f61b13c07f24",
   "format": "webp",
   "width": 256,
   "maximum_dimension": 16383,
   "quality": 85,
   "method": 4,
-  "total_screenshots": 2210,
+  "total_screenshots": 2374,
   "packs": [
     {
       "file": "chromium-desktop-shard-0.zip",
@@ -135,6 +135,62 @@
       "screenshots": 1,
       "bytes": 19716,
       "sha256": "ae66056a98f5510d022c2e8e5fb542e24f9f2ce2497a87711d21d0009968c486"
+    },
+    {
+      "file": "zzz-b3d-chromium-desktop-shard-0.zip",
+      "browser_resolution": "chromium_desktop",
+      "screenshots": 21,
+      "bytes": 457774,
+      "sha256": "a4da4eb54a0e3d932e090b0c3a8cfe966a725d0fbb34e00f3e0244158c569efd"
+    },
+    {
+      "file": "zzz-b3d-chromium-desktop-shard-1.zip",
+      "browser_resolution": "chromium_desktop",
+      "screenshots": 21,
+      "bytes": 510562,
+      "sha256": "7fd28e23c770d3608bb1169e1cac9cbe83af1791e483a7adaee42c364a9c74f7"
+    },
+    {
+      "file": "zzz-b3d-chromium-desktop-shard-2.zip",
+      "browser_resolution": "chromium_desktop",
+      "screenshots": 20,
+      "bytes": 334897,
+      "sha256": "7845cd8815beda1590f1fa46a871c2af9e94d0edc218ae0640ad7a0cbc2de191"
+    },
+    {
+      "file": "zzz-b3d-chromium-desktop-shard-3.zip",
+      "browser_resolution": "chromium_desktop",
+      "screenshots": 20,
+      "bytes": 363789,
+      "sha256": "4a9eee2940bd5e1e12370798eb0d011a5f804eb7c3d30b87ddae1016f0d61382"
+    },
+    {
+      "file": "zzz-b3d-chromium-mobile-shard-0.zip",
+      "browser_resolution": "chromium_mobile",
+      "screenshots": 21,
+      "bytes": 1974727,
+      "sha256": "eb647de196bcfdfe06deb4fdbc599a985f581cc49c63f9192ed4d19a6b27fe87"
+    },
+    {
+      "file": "zzz-b3d-chromium-mobile-shard-1.zip",
+      "browser_resolution": "chromium_mobile",
+      "screenshots": 21,
+      "bytes": 2383115,
+      "sha256": "155e332efce85fdab3346a88b6c5c8f12748563baadd09f3143b5875fd1433c5"
+    },
+    {
+      "file": "zzz-b3d-chromium-mobile-shard-2.zip",
+      "browser_resolution": "chromium_mobile",
+      "screenshots": 20,
+      "bytes": 1330098,
+      "sha256": "a2d2aa272d3776b83221df55cefbe24c1e4390b5a68910a088e2e92476fafb87"
+    },
+    {
+      "file": "zzz-b3d-chromium-mobile-shard-3.zip",
+      "browser_resolution": "chromium_mobile",
+      "screenshots": 20,
+      "bytes": 1441673,
+      "sha256": "01cf63f893264557dfa1cd105c2e6bb3c7296a2ed2f0a8013959f9ce20c1e5bb"
     }
   ],
   "reviewed_migration_overlay": {
@@ -148,5 +204,6 @@
     "screenshots": 2,
     "source_commit": "0e04ffe8f4815e45e5d132ef73eed13fd9183ffa",
     "source_workflow_run": 34726807987
-  }
+  },
+  "review_notes": "B3D: 164 screenshots reviewed. 64 expected changes: 48 legacy-pointer views and 16 former-navigation canonical views. 56 new identities. Original-source comparison: 42/48 within unchanged thresholds; six mobile views manually reviewed for generated-path footer and screenshot sizing effects. Canonical bodies and rendering styles unchanged. No comparator skips or threshold changes."
 }
