@@ -102,6 +102,9 @@ class TestGenerator {
   _formatStep(step) {
     return {
       stepId: step.stepId,
+      ...(typeof step.sourceText === 'string' ? {
+        sourceRequirementId: step.sourceRequirementId, sourceText: step.sourceText,
+      } : {}),
       description:
         step.description ||
         `${step.actor} ${step.action} ${step.businessObject}${step.toActor ? ` to ${step.toActor}` : ''}`,
@@ -126,6 +129,7 @@ class TestGenerator {
       lines.push(`  Steps:`);
       for (const step of tc.steps) {
         lines.push(`    ${step.stepId}. ${step.description}`);
+        if (typeof step.sourceText === 'string') lines.push(`      Source requirement ${step.sourceRequirementId}: ${step.sourceText}`);
       }
     }
     return lines.join('\n');
