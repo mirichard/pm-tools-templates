@@ -18,14 +18,14 @@
         "domains/delivery/industry-specializations/healthcare-pharmaceutical/compliance/capa_management_template.md"
       ],
       "related_assets": [
-        "templates/traditional/Traditional/Templates/uat_strategy_template.md",
+        "domains/delivery/templates/traditional/Traditional/Templates/uat_strategy_template.md",
         "domains/delivery/industry-specializations/healthcare-pharmaceutical/compliance/capa_management_template.md"
       ],
       "complementary_assets": [
         "industry-specializations/healthcare-pharmaceutical/validation/computer_system_validation_protocol_template.md",
         "industry-specializations/healthcare-pharmaceutical/regulatory/gxp_training_plan_template.md"
       ],
-      "previous_workflow_step": "templates/traditional/Traditional/Templates/uat_strategy_template.md",
+      "previous_workflow_step": "domains/delivery/templates/traditional/Traditional/Templates/uat_strategy_template.md",
       "next_workflow_step": "domains/delivery/industry-specializations/healthcare-pharmaceutical/compliance/capa_management_template.md"
     },
     {
@@ -1280,14 +1280,182 @@
       ],
       "related_assets": [
         "domains/delivery/templates/traditional/Traditional/Process_Groups/Executing/project_execution_status_report_template.md",
-        "templates/traditional/Traditional/Process_Groups/Monitoring_and_Controlling/project_performance_monitoring_template.md"
+        "domains/delivery/templates/traditional/Traditional/Process_Groups/Monitoring_and_Controlling/project_performance_monitoring_template.md"
       ],
       "complementary_assets": [
         "domains/delivery/templates/traditional/Traditional/Knowledge_Areas/Project_Cost_Management/roi_tracking_template.md",
         "templates/traditional/Traditional/Templates/status_report_template.md"
       ],
       "previous_workflow_step": "domains/delivery/templates/traditional/Traditional/Process_Groups/Executing/project_execution_status_report_template.md",
-      "next_workflow_step": "templates/traditional/Traditional/Process_Groups/Monitoring_and_Controlling/project_performance_monitoring_template.md"
+      "next_workflow_step": "domains/delivery/templates/traditional/Traditional/Process_Groups/Monitoring_and_Controlling/project_performance_monitoring_template.md"
+    },
+    {
+      "path": "domains/delivery/templates/traditional/Traditional/Process_Groups/Monitoring_and_Controlling/project_performance_monitoring_template.md",
+      "domain": {
+        "primary": "Delivery",
+        "secondary": [
+          "Stakeholder",
+          "Uncertainty"
+        ],
+        "rationale": "Methodology-specific template guides delivery execution"
+      },
+      "prerequisites": [
+        "domains/delivery/templates/traditional/Traditional/Templates/issue_log_template.md"
+      ],
+      "related_assets": [
+        "domains/delivery/templates/traditional/Traditional/Process_Groups/Executing/requirements_traceability_matrix_template.md",
+        "domains/delivery/templates/traditional/Traditional/Process_Groups/Planning/project_management_plan_template.md"
+      ],
+      "complementary_assets": [
+        "domains/delivery/templates/traditional/Traditional/Templates/issue_log_template.md",
+        "domains/planning/templates/traditional/Traditional/Templates/program_charter_template.md"
+      ],
+      "previous_workflow_step": "domains/delivery/templates/traditional/Traditional/Process_Groups/Executing/requirements_traceability_matrix_template.md",
+      "next_workflow_step": "domains/delivery/templates/traditional/Traditional/Process_Groups/Planning/project_management_plan_template.md"
+    },
+    {
+      "path": "domains/delivery/templates/traditional/Traditional/Process_Groups/Planning/project_management_plan_template.md",
+      "domain": {
+        "primary": "Delivery",
+        "secondary": [
+          "Stakeholder",
+          "Uncertainty"
+        ],
+        "rationale": "Methodology-specific template guides delivery execution"
+      },
+      "prerequisites": [
+        "domains/delivery/templates/traditional/Traditional/Templates/issue_log_template.md"
+      ],
+      "related_assets": [
+        "domains/delivery/templates/traditional/Traditional/Process_Groups/Monitoring_and_Controlling/project_performance_monitoring_template.md",
+        "domains/delivery/templates/traditional/Traditional/Process_Groups/Planning/project_schedule_template.md"
+      ],
+      "complementary_assets": [
+        "domains/delivery/templates/traditional/Traditional/Templates/issue_log_template.md",
+        "domains/planning/templates/traditional/Traditional/Templates/program_charter_template.md"
+      ],
+      "previous_workflow_step": "domains/delivery/templates/traditional/Traditional/Process_Groups/Monitoring_and_Controlling/project_performance_monitoring_template.md",
+      "next_workflow_step": "domains/delivery/templates/traditional/Traditional/Process_Groups/Planning/project_schedule_template.md"
+    },
+    {
+      "path": "domains/delivery/templates/traditional/Traditional/Process_Groups/Planning/project_schedule_template.md",
+      "domain": {
+        "primary": "Delivery",
+        "secondary": [
+          "Stakeholder",
+          "Uncertainty"
+        ],
+        "rationale": "Methodology-specific template guides delivery execution"
+      },
+      "prerequisites": [
+        "domains/delivery/templates/traditional/Traditional/Templates/change_request_template.md"
+      ],
+      "related_assets": [
+        "domains/delivery/templates/traditional/Traditional/Process_Groups/Planning/project_management_plan_template.md",
+        "domains/delivery/templates/traditional/Traditional/Process_Groups/Planning/work_breakdown_structure_template.md"
+      ],
+      "complementary_assets": [
+        "domains/delivery/templates/traditional/Traditional/Templates/change_request_template.md",
+        "domains/delivery/templates/traditional/Traditional/Templates/communication_plan_template.md"
+      ],
+      "previous_workflow_step": "domains/delivery/templates/traditional/Traditional/Process_Groups/Planning/project_management_plan_template.md",
+      "next_workflow_step": "domains/delivery/templates/traditional/Traditional/Process_Groups/Planning/work_breakdown_structure_template.md"
+    },
+    {
+      "path": "domains/delivery/templates/traditional/Traditional/Process_Groups/Planning/work_breakdown_structure_template.md",
+      "domain": {
+        "primary": "Delivery",
+        "secondary": [
+          "Stakeholder",
+          "Uncertainty"
+        ],
+        "rationale": "Methodology-specific template guides delivery execution"
+      },
+      "prerequisites": [
+        "domains/delivery/templates/traditional/Traditional/Templates/issue_log_template.md"
+      ],
+      "related_assets": [
+        "domains/delivery/templates/traditional/Traditional/Process_Groups/Planning/project_schedule_template.md",
+        "domains/delivery/templates/traditional/Traditional/Templates/change_management_plan_template.md"
+      ],
+      "complementary_assets": [
+        "domains/delivery/templates/traditional/Traditional/Templates/issue_log_template.md",
+        "domains/planning/templates/traditional/Traditional/Templates/program_charter_template.md"
+      ],
+      "previous_workflow_step": "domains/delivery/templates/traditional/Traditional/Process_Groups/Planning/project_schedule_template.md",
+      "next_workflow_step": "domains/delivery/templates/traditional/Traditional/Templates/change_management_plan_template.md"
+    },
+    {
+      "path": "domains/delivery/templates/traditional/Traditional/Templates/change_management_plan_template.md",
+      "domain": {
+        "primary": "Delivery",
+        "secondary": [
+          "Stakeholder",
+          "Uncertainty"
+        ],
+        "rationale": "Methodology-specific template guides delivery execution"
+      },
+      "prerequisites": [
+        "domains/delivery/templates/traditional/Traditional/Templates/project_roadmap_template.md"
+      ],
+      "related_assets": [
+        "domains/delivery/templates/traditional/Traditional/Process_Groups/Planning/work_breakdown_structure_template.md",
+        "domains/delivery/templates/traditional/Traditional/Templates/change_request_template.md"
+      ],
+      "complementary_assets": [
+        "domains/delivery/templates/traditional/Traditional/Templates/project_roadmap_template.md",
+        "domains/delivery/templates/traditional/Traditional/Templates/issue_log_template.md"
+      ],
+      "previous_workflow_step": "domains/delivery/templates/traditional/Traditional/Process_Groups/Planning/work_breakdown_structure_template.md",
+      "next_workflow_step": "domains/delivery/templates/traditional/Traditional/Templates/change_request_template.md"
+    },
+    {
+      "path": "domains/delivery/templates/traditional/Traditional/Templates/change_request_template.md",
+      "domain": {
+        "primary": "Delivery",
+        "secondary": [
+          "Stakeholder",
+          "Uncertainty"
+        ],
+        "rationale": "Methodology-specific template guides delivery execution"
+      },
+      "prerequisites": [
+        "domains/delivery/templates/traditional/Traditional/Templates/communication_plan_template.md"
+      ],
+      "related_assets": [
+        "domains/delivery/templates/traditional/Traditional/Templates/change_management_plan_template.md",
+        "domains/delivery/templates/traditional/Traditional/Templates/communication_plan_template.md"
+      ],
+      "complementary_assets": [
+        "domains/planning/templates/traditional/Traditional/Process_Groups/Initiating/project_charter_template.md",
+        "domains/delivery/templates/traditional/Traditional/Process_Groups/Planning/project_schedule_template.md"
+      ],
+      "previous_workflow_step": "domains/delivery/templates/traditional/Traditional/Templates/change_management_plan_template.md",
+      "next_workflow_step": "domains/delivery/templates/traditional/Traditional/Templates/communication_plan_template.md"
+    },
+    {
+      "path": "domains/delivery/templates/traditional/Traditional/Templates/communication_plan_template.md",
+      "domain": {
+        "primary": "Delivery",
+        "secondary": [
+          "Stakeholder",
+          "Uncertainty"
+        ],
+        "rationale": "Methodology-specific template guides delivery execution"
+      },
+      "prerequisites": [
+        "domains/delivery/templates/traditional/Traditional/Templates/change_request_template.md"
+      ],
+      "related_assets": [
+        "domains/delivery/templates/traditional/Traditional/Templates/change_request_template.md",
+        "domains/delivery/templates/traditional/Traditional/Templates/issue_log_template.md"
+      ],
+      "complementary_assets": [
+        "domains/planning/templates/traditional/Traditional/Process_Groups/Initiating/project_charter_template.md",
+        "domains/delivery/templates/traditional/Traditional/Process_Groups/Planning/project_schedule_template.md"
+      ],
+      "previous_workflow_step": "domains/delivery/templates/traditional/Traditional/Templates/change_request_template.md",
+      "next_workflow_step": "domains/delivery/templates/traditional/Traditional/Templates/issue_log_template.md"
     },
     {
       "path": "domains/delivery/templates/traditional/Traditional/Templates/issue_log_template.md",
@@ -1303,14 +1471,14 @@
         "domains/planning/templates/traditional/Traditional/Templates/program_charter_template.md"
       ],
       "related_assets": [
-        "templates/traditional/Traditional/Templates/communication_plan_template.md",
+        "domains/delivery/templates/traditional/Traditional/Templates/communication_plan_template.md",
         "domains/delivery/templates/traditional/Traditional/Templates/program_management_plan_template.md"
       ],
       "complementary_assets": [
         "domains/planning/templates/traditional/Traditional/Templates/program_charter_template.md",
         "domains/delivery/templates/traditional/Traditional/Process_Groups/Closing/project_closure_report_template.md"
       ],
-      "previous_workflow_step": "templates/traditional/Traditional/Templates/communication_plan_template.md",
+      "previous_workflow_step": "domains/delivery/templates/traditional/Traditional/Templates/communication_plan_template.md",
       "next_workflow_step": "domains/delivery/templates/traditional/Traditional/Templates/program_management_plan_template.md"
     },
     {
@@ -1328,14 +1496,130 @@
       ],
       "related_assets": [
         "domains/delivery/templates/traditional/Traditional/Templates/issue_log_template.md",
-        "templates/traditional/Traditional/Templates/project_roadmap_template.md"
+        "domains/delivery/templates/traditional/Traditional/Templates/project_roadmap_template.md"
       ],
       "complementary_assets": [
         "domains/planning/templates/traditional/Traditional/Templates/program_charter_template.md",
         "domains/delivery/templates/traditional/Traditional/Process_Groups/Closing/project_closure_report_template.md"
       ],
       "previous_workflow_step": "domains/delivery/templates/traditional/Traditional/Templates/issue_log_template.md",
-      "next_workflow_step": "templates/traditional/Traditional/Templates/project_roadmap_template.md"
+      "next_workflow_step": "domains/delivery/templates/traditional/Traditional/Templates/project_roadmap_template.md"
+    },
+    {
+      "path": "domains/delivery/templates/traditional/Traditional/Templates/project_roadmap_template.md",
+      "domain": {
+        "primary": "Delivery",
+        "secondary": [
+          "Stakeholder",
+          "Uncertainty"
+        ],
+        "rationale": "Methodology-specific template guides delivery execution"
+      },
+      "prerequisites": [
+        "domains/delivery/templates/traditional/Traditional/Templates/change_management_plan_template.md"
+      ],
+      "related_assets": [
+        "domains/delivery/templates/traditional/Traditional/Templates/program_management_plan_template.md",
+        "domains/delivery/templates/traditional/Traditional/Templates/purchase_order_template.md"
+      ],
+      "complementary_assets": [
+        "domains/delivery/templates/traditional/Traditional/Templates/change_management_plan_template.md",
+        "domains/delivery/templates/traditional/Traditional/Templates/issue_log_template.md"
+      ],
+      "previous_workflow_step": "domains/delivery/templates/traditional/Traditional/Templates/program_management_plan_template.md",
+      "next_workflow_step": "domains/delivery/templates/traditional/Traditional/Templates/purchase_order_template.md"
+    },
+    {
+      "path": "domains/delivery/templates/traditional/Traditional/Templates/purchase_order_template.md",
+      "domain": {
+        "primary": "Delivery",
+        "secondary": [],
+        "rationale": "Methodology-specific template guides delivery execution"
+      },
+      "prerequisites": [
+        "domains/delivery/templates/traditional/Traditional/Templates/raid_log_template.md"
+      ],
+      "related_assets": [
+        "domains/delivery/templates/traditional/Traditional/Templates/project_roadmap_template.md",
+        "domains/delivery/templates/traditional/Traditional/Templates/raid_log_template.md"
+      ],
+      "complementary_assets": [
+        "domains/team/templates/traditional/Traditional/Process_Groups/Executing/team_performance_assessment_template.md",
+        "domains/planning/templates/traditional/Traditional/Templates/business_case_template.md"
+      ],
+      "previous_workflow_step": "domains/delivery/templates/traditional/Traditional/Templates/project_roadmap_template.md",
+      "next_workflow_step": "domains/delivery/templates/traditional/Traditional/Templates/raid_log_template.md"
+    },
+    {
+      "path": "domains/delivery/templates/traditional/Traditional/Templates/raid_log_template.md",
+      "domain": {
+        "primary": "Delivery",
+        "secondary": [
+          "Uncertainty"
+        ],
+        "rationale": "Methodology-specific template guides delivery execution"
+      },
+      "prerequisites": [
+        "domains/planning/templates/traditional/Traditional/Templates/business_case_template.md"
+      ],
+      "related_assets": [
+        "domains/delivery/templates/traditional/Traditional/Templates/purchase_order_template.md",
+        "domains/delivery/templates/traditional/Traditional/Templates/uat_plan_template.md"
+      ],
+      "complementary_assets": [
+        "domains/planning/templates/traditional/Traditional/Templates/business_case_template.md",
+        "domains/delivery/templates/traditional/Traditional/Process_Groups/Executing/requirements_traceability_matrix_template.md"
+      ],
+      "previous_workflow_step": "domains/delivery/templates/traditional/Traditional/Templates/purchase_order_template.md",
+      "next_workflow_step": "domains/delivery/templates/traditional/Traditional/Templates/uat_plan_template.md"
+    },
+    {
+      "path": "domains/delivery/templates/traditional/Traditional/Templates/uat_plan_template.md",
+      "domain": {
+        "primary": "Delivery",
+        "secondary": [
+          "Stakeholder",
+          "Uncertainty"
+        ],
+        "rationale": "Methodology-specific template guides delivery execution"
+      },
+      "prerequisites": [
+        "domains/delivery/templates/traditional/Traditional/Templates/issue_log_template.md"
+      ],
+      "related_assets": [
+        "domains/delivery/templates/traditional/Traditional/Templates/raid_log_template.md",
+        "domains/delivery/templates/traditional/Traditional/Templates/uat_strategy_template.md"
+      ],
+      "complementary_assets": [
+        "domains/delivery/templates/traditional/Traditional/Templates/issue_log_template.md",
+        "domains/planning/templates/traditional/Traditional/Templates/program_charter_template.md"
+      ],
+      "previous_workflow_step": "domains/delivery/templates/traditional/Traditional/Templates/raid_log_template.md",
+      "next_workflow_step": "domains/delivery/templates/traditional/Traditional/Templates/uat_strategy_template.md"
+    },
+    {
+      "path": "domains/delivery/templates/traditional/Traditional/Templates/uat_strategy_template.md",
+      "domain": {
+        "primary": "Delivery",
+        "secondary": [
+          "Stakeholder",
+          "Uncertainty"
+        ],
+        "rationale": "Methodology-specific template guides delivery execution"
+      },
+      "prerequisites": [
+        "domains/delivery/templates/traditional/Traditional/Templates/issue_log_template.md"
+      ],
+      "related_assets": [
+        "domains/delivery/templates/traditional/Traditional/Templates/uat_plan_template.md",
+        "domains/delivery/industry-specializations/healthcare-pharmaceutical/clinical-trials/clinical_trial_protocol_template.md"
+      ],
+      "complementary_assets": [
+        "domains/delivery/templates/traditional/Traditional/Templates/issue_log_template.md",
+        "domains/planning/templates/traditional/Traditional/Templates/program_charter_template.md"
+      ],
+      "previous_workflow_step": "domains/delivery/templates/traditional/Traditional/Templates/uat_plan_template.md",
+      "next_workflow_step": "domains/delivery/industry-specializations/healthcare-pharmaceutical/clinical-trials/clinical_trial_protocol_template.md"
     },
     {
       "path": "domains/planning/industry-specializations/information-technology/infrastructure/data_center_design_template.md",
@@ -1458,15 +1742,15 @@
         "rationale": "Title/path indicates strategic planning purpose"
       },
       "prerequisites": [
-        "templates/traditional/Traditional/Templates/change_request_template.md"
+        "domains/delivery/templates/traditional/Traditional/Templates/change_request_template.md"
       ],
       "related_assets": [
         "domains/planning/templates/hybrid/Hybrid/Templates/hybrid_project_charter_template.md",
         "domains/planning/templates/traditional/Traditional/Templates/business_case_template.md"
       ],
       "complementary_assets": [
-        "templates/traditional/Traditional/Templates/change_request_template.md",
-        "templates/traditional/Traditional/Templates/communication_plan_template.md"
+        "domains/delivery/templates/traditional/Traditional/Templates/change_request_template.md",
+        "domains/delivery/templates/traditional/Traditional/Templates/communication_plan_template.md"
       ],
       "previous_workflow_step": "domains/planning/templates/hybrid/Hybrid/Templates/hybrid_project_charter_template.md",
       "next_workflow_step": "domains/planning/templates/traditional/Traditional/Templates/business_case_template.md"
@@ -1657,15 +1941,15 @@
         "rationale": "Stakeholder-focused template"
       },
       "prerequisites": [
-        "templates/traditional/Traditional/Templates/change_request_template.md"
+        "domains/delivery/templates/traditional/Traditional/Templates/change_request_template.md"
       ],
       "related_assets": [
         "domains/stakeholder/project-assessment-suite/stakeholder-engagement-assessment-template.md",
         "domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/agile-stakeholder-map-template.md"
       ],
       "complementary_assets": [
-        "templates/traditional/Traditional/Templates/change_request_template.md",
-        "templates/traditional/Traditional/Templates/communication_plan_template.md"
+        "domains/delivery/templates/traditional/Traditional/Templates/change_request_template.md",
+        "domains/delivery/templates/traditional/Traditional/Templates/communication_plan_template.md"
       ],
       "previous_workflow_step": "domains/stakeholder/project-assessment-suite/stakeholder-engagement-assessment-template.md",
       "next_workflow_step": "domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/agile-stakeholder-map-template.md"
@@ -1945,15 +2229,15 @@
         "rationale": "Title/path indicates team-focused ceremony or collaboration"
       },
       "prerequisites": [
-        "templates/traditional/Traditional/Templates/change_request_template.md"
+        "domains/delivery/templates/traditional/Traditional/Templates/change_request_template.md"
       ],
       "related_assets": [
         "domains/team/templates/agile/sprint_review_template.md",
         "domains/team/methodology-frameworks/agile-scrum/scaling-frameworks/less/less_retrospective_template.md"
       ],
       "complementary_assets": [
-        "templates/traditional/Traditional/Templates/change_request_template.md",
-        "templates/traditional/Traditional/Templates/communication_plan_template.md"
+        "domains/delivery/templates/traditional/Traditional/Templates/change_request_template.md",
+        "domains/delivery/templates/traditional/Traditional/Templates/communication_plan_template.md"
       ],
       "previous_workflow_step": "domains/team/templates/agile/sprint_review_template.md",
       "next_workflow_step": "domains/team/methodology-frameworks/agile-scrum/scaling-frameworks/less/less_retrospective_template.md"
@@ -2882,290 +3166,6 @@
       ],
       "previous_workflow_step": "project-lifecycle/02-planning/risk-management/risk-management-plan-template.md",
       "next_workflow_step": "industry-specializations/financial-services/compliance/compliance-management-template.md"
-    },
-    {
-      "path": "templates/traditional/Traditional/Process_Groups/Monitoring_and_Controlling/project_performance_monitoring_template.md",
-      "domain": {
-        "primary": "Delivery",
-        "secondary": [
-          "Stakeholder",
-          "Uncertainty"
-        ],
-        "rationale": "Methodology-specific template guides delivery execution"
-      },
-      "prerequisites": [
-        "domains/delivery/templates/traditional/Traditional/Templates/issue_log_template.md"
-      ],
-      "related_assets": [
-        "domains/delivery/templates/traditional/Traditional/Process_Groups/Executing/requirements_traceability_matrix_template.md",
-        "templates/traditional/Traditional/Process_Groups/Planning/project_management_plan_template.md"
-      ],
-      "complementary_assets": [
-        "domains/delivery/templates/traditional/Traditional/Templates/issue_log_template.md",
-        "domains/planning/templates/traditional/Traditional/Templates/program_charter_template.md"
-      ],
-      "previous_workflow_step": "domains/delivery/templates/traditional/Traditional/Process_Groups/Executing/requirements_traceability_matrix_template.md",
-      "next_workflow_step": "templates/traditional/Traditional/Process_Groups/Planning/project_management_plan_template.md"
-    },
-    {
-      "path": "templates/traditional/Traditional/Process_Groups/Planning/project_management_plan_template.md",
-      "domain": {
-        "primary": "Delivery",
-        "secondary": [
-          "Stakeholder",
-          "Uncertainty"
-        ],
-        "rationale": "Methodology-specific template guides delivery execution"
-      },
-      "prerequisites": [
-        "domains/delivery/templates/traditional/Traditional/Templates/issue_log_template.md"
-      ],
-      "related_assets": [
-        "templates/traditional/Traditional/Process_Groups/Monitoring_and_Controlling/project_performance_monitoring_template.md",
-        "templates/traditional/Traditional/Process_Groups/Planning/project_schedule_template.md"
-      ],
-      "complementary_assets": [
-        "domains/delivery/templates/traditional/Traditional/Templates/issue_log_template.md",
-        "domains/planning/templates/traditional/Traditional/Templates/program_charter_template.md"
-      ],
-      "previous_workflow_step": "templates/traditional/Traditional/Process_Groups/Monitoring_and_Controlling/project_performance_monitoring_template.md",
-      "next_workflow_step": "templates/traditional/Traditional/Process_Groups/Planning/project_schedule_template.md"
-    },
-    {
-      "path": "templates/traditional/Traditional/Process_Groups/Planning/project_schedule_template.md",
-      "domain": {
-        "primary": "Delivery",
-        "secondary": [
-          "Stakeholder",
-          "Uncertainty"
-        ],
-        "rationale": "Methodology-specific template guides delivery execution"
-      },
-      "prerequisites": [
-        "templates/traditional/Traditional/Templates/change_request_template.md"
-      ],
-      "related_assets": [
-        "templates/traditional/Traditional/Process_Groups/Planning/project_management_plan_template.md",
-        "templates/traditional/Traditional/Process_Groups/Planning/work_breakdown_structure_template.md"
-      ],
-      "complementary_assets": [
-        "templates/traditional/Traditional/Templates/change_request_template.md",
-        "templates/traditional/Traditional/Templates/communication_plan_template.md"
-      ],
-      "previous_workflow_step": "templates/traditional/Traditional/Process_Groups/Planning/project_management_plan_template.md",
-      "next_workflow_step": "templates/traditional/Traditional/Process_Groups/Planning/work_breakdown_structure_template.md"
-    },
-    {
-      "path": "templates/traditional/Traditional/Process_Groups/Planning/work_breakdown_structure_template.md",
-      "domain": {
-        "primary": "Delivery",
-        "secondary": [
-          "Stakeholder",
-          "Uncertainty"
-        ],
-        "rationale": "Methodology-specific template guides delivery execution"
-      },
-      "prerequisites": [
-        "domains/delivery/templates/traditional/Traditional/Templates/issue_log_template.md"
-      ],
-      "related_assets": [
-        "templates/traditional/Traditional/Process_Groups/Planning/project_schedule_template.md",
-        "templates/traditional/Traditional/Templates/change_management_plan_template.md"
-      ],
-      "complementary_assets": [
-        "domains/delivery/templates/traditional/Traditional/Templates/issue_log_template.md",
-        "domains/planning/templates/traditional/Traditional/Templates/program_charter_template.md"
-      ],
-      "previous_workflow_step": "templates/traditional/Traditional/Process_Groups/Planning/project_schedule_template.md",
-      "next_workflow_step": "templates/traditional/Traditional/Templates/change_management_plan_template.md"
-    },
-    {
-      "path": "templates/traditional/Traditional/Templates/change_management_plan_template.md",
-      "domain": {
-        "primary": "Delivery",
-        "secondary": [
-          "Stakeholder",
-          "Uncertainty"
-        ],
-        "rationale": "Methodology-specific template guides delivery execution"
-      },
-      "prerequisites": [
-        "templates/traditional/Traditional/Templates/project_roadmap_template.md"
-      ],
-      "related_assets": [
-        "templates/traditional/Traditional/Process_Groups/Planning/work_breakdown_structure_template.md",
-        "templates/traditional/Traditional/Templates/change_request_template.md"
-      ],
-      "complementary_assets": [
-        "templates/traditional/Traditional/Templates/project_roadmap_template.md",
-        "domains/delivery/templates/traditional/Traditional/Templates/issue_log_template.md"
-      ],
-      "previous_workflow_step": "templates/traditional/Traditional/Process_Groups/Planning/work_breakdown_structure_template.md",
-      "next_workflow_step": "templates/traditional/Traditional/Templates/change_request_template.md"
-    },
-    {
-      "path": "templates/traditional/Traditional/Templates/change_request_template.md",
-      "domain": {
-        "primary": "Delivery",
-        "secondary": [
-          "Stakeholder",
-          "Uncertainty"
-        ],
-        "rationale": "Methodology-specific template guides delivery execution"
-      },
-      "prerequisites": [
-        "templates/traditional/Traditional/Templates/communication_plan_template.md"
-      ],
-      "related_assets": [
-        "templates/traditional/Traditional/Templates/change_management_plan_template.md",
-        "templates/traditional/Traditional/Templates/communication_plan_template.md"
-      ],
-      "complementary_assets": [
-        "domains/planning/templates/traditional/Traditional/Process_Groups/Initiating/project_charter_template.md",
-        "templates/traditional/Traditional/Process_Groups/Planning/project_schedule_template.md"
-      ],
-      "previous_workflow_step": "templates/traditional/Traditional/Templates/change_management_plan_template.md",
-      "next_workflow_step": "templates/traditional/Traditional/Templates/communication_plan_template.md"
-    },
-    {
-      "path": "templates/traditional/Traditional/Templates/communication_plan_template.md",
-      "domain": {
-        "primary": "Delivery",
-        "secondary": [
-          "Stakeholder",
-          "Uncertainty"
-        ],
-        "rationale": "Methodology-specific template guides delivery execution"
-      },
-      "prerequisites": [
-        "templates/traditional/Traditional/Templates/change_request_template.md"
-      ],
-      "related_assets": [
-        "templates/traditional/Traditional/Templates/change_request_template.md",
-        "domains/delivery/templates/traditional/Traditional/Templates/issue_log_template.md"
-      ],
-      "complementary_assets": [
-        "domains/planning/templates/traditional/Traditional/Process_Groups/Initiating/project_charter_template.md",
-        "templates/traditional/Traditional/Process_Groups/Planning/project_schedule_template.md"
-      ],
-      "previous_workflow_step": "templates/traditional/Traditional/Templates/change_request_template.md",
-      "next_workflow_step": "domains/delivery/templates/traditional/Traditional/Templates/issue_log_template.md"
-    },
-    {
-      "path": "templates/traditional/Traditional/Templates/project_roadmap_template.md",
-      "domain": {
-        "primary": "Delivery",
-        "secondary": [
-          "Stakeholder",
-          "Uncertainty"
-        ],
-        "rationale": "Methodology-specific template guides delivery execution"
-      },
-      "prerequisites": [
-        "templates/traditional/Traditional/Templates/change_management_plan_template.md"
-      ],
-      "related_assets": [
-        "domains/delivery/templates/traditional/Traditional/Templates/program_management_plan_template.md",
-        "templates/traditional/Traditional/Templates/purchase_order_template.md"
-      ],
-      "complementary_assets": [
-        "templates/traditional/Traditional/Templates/change_management_plan_template.md",
-        "domains/delivery/templates/traditional/Traditional/Templates/issue_log_template.md"
-      ],
-      "previous_workflow_step": "domains/delivery/templates/traditional/Traditional/Templates/program_management_plan_template.md",
-      "next_workflow_step": "templates/traditional/Traditional/Templates/purchase_order_template.md"
-    },
-    {
-      "path": "templates/traditional/Traditional/Templates/purchase_order_template.md",
-      "domain": {
-        "primary": "Delivery",
-        "secondary": [],
-        "rationale": "Methodology-specific template guides delivery execution"
-      },
-      "prerequisites": [
-        "templates/traditional/Traditional/Templates/raid_log_template.md"
-      ],
-      "related_assets": [
-        "templates/traditional/Traditional/Templates/project_roadmap_template.md",
-        "templates/traditional/Traditional/Templates/raid_log_template.md"
-      ],
-      "complementary_assets": [
-        "domains/team/templates/traditional/Traditional/Process_Groups/Executing/team_performance_assessment_template.md",
-        "domains/planning/templates/traditional/Traditional/Templates/business_case_template.md"
-      ],
-      "previous_workflow_step": "templates/traditional/Traditional/Templates/project_roadmap_template.md",
-      "next_workflow_step": "templates/traditional/Traditional/Templates/raid_log_template.md"
-    },
-    {
-      "path": "templates/traditional/Traditional/Templates/raid_log_template.md",
-      "domain": {
-        "primary": "Delivery",
-        "secondary": [
-          "Uncertainty"
-        ],
-        "rationale": "Methodology-specific template guides delivery execution"
-      },
-      "prerequisites": [
-        "domains/planning/templates/traditional/Traditional/Templates/business_case_template.md"
-      ],
-      "related_assets": [
-        "templates/traditional/Traditional/Templates/purchase_order_template.md",
-        "templates/traditional/Traditional/Templates/uat_plan_template.md"
-      ],
-      "complementary_assets": [
-        "domains/planning/templates/traditional/Traditional/Templates/business_case_template.md",
-        "domains/delivery/templates/traditional/Traditional/Process_Groups/Executing/requirements_traceability_matrix_template.md"
-      ],
-      "previous_workflow_step": "templates/traditional/Traditional/Templates/purchase_order_template.md",
-      "next_workflow_step": "templates/traditional/Traditional/Templates/uat_plan_template.md"
-    },
-    {
-      "path": "templates/traditional/Traditional/Templates/uat_plan_template.md",
-      "domain": {
-        "primary": "Delivery",
-        "secondary": [
-          "Stakeholder",
-          "Uncertainty"
-        ],
-        "rationale": "Methodology-specific template guides delivery execution"
-      },
-      "prerequisites": [
-        "domains/delivery/templates/traditional/Traditional/Templates/issue_log_template.md"
-      ],
-      "related_assets": [
-        "templates/traditional/Traditional/Templates/raid_log_template.md",
-        "templates/traditional/Traditional/Templates/uat_strategy_template.md"
-      ],
-      "complementary_assets": [
-        "domains/delivery/templates/traditional/Traditional/Templates/issue_log_template.md",
-        "domains/planning/templates/traditional/Traditional/Templates/program_charter_template.md"
-      ],
-      "previous_workflow_step": "templates/traditional/Traditional/Templates/raid_log_template.md",
-      "next_workflow_step": "templates/traditional/Traditional/Templates/uat_strategy_template.md"
-    },
-    {
-      "path": "templates/traditional/Traditional/Templates/uat_strategy_template.md",
-      "domain": {
-        "primary": "Delivery",
-        "secondary": [
-          "Stakeholder",
-          "Uncertainty"
-        ],
-        "rationale": "Methodology-specific template guides delivery execution"
-      },
-      "prerequisites": [
-        "domains/delivery/templates/traditional/Traditional/Templates/issue_log_template.md"
-      ],
-      "related_assets": [
-        "templates/traditional/Traditional/Templates/uat_plan_template.md",
-        "domains/delivery/industry-specializations/healthcare-pharmaceutical/clinical-trials/clinical_trial_protocol_template.md"
-      ],
-      "complementary_assets": [
-        "domains/delivery/templates/traditional/Traditional/Templates/issue_log_template.md",
-        "domains/planning/templates/traditional/Traditional/Templates/program_charter_template.md"
-      ],
-      "previous_workflow_step": "templates/traditional/Traditional/Templates/uat_plan_template.md",
-      "next_workflow_step": "domains/delivery/industry-specializations/healthcare-pharmaceutical/clinical-trials/clinical_trial_protocol_template.md"
     }
   ]
 }

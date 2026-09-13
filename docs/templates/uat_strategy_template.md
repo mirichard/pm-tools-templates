@@ -15,7 +15,7 @@
 
 title: "Uat Strategy Template"
 
-[**➡️ View Template File**](/templates/traditional/Traditional/Templates/uat_strategy_template.md)
+[**➡️ View Template File**](/domains/delivery/templates/traditional/Traditional/Templates/uat_strategy_template.md)
 
 ## 📈 Quality Score
 
