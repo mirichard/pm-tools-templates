@@ -14,8 +14,8 @@
 
 | # | Template | Purpose | Setup Time |
 |---|----------|---------|------------|
-| 1 | [Product Backlog](../../../templates/agile/product_backlog_template.md) | Master backlog across teams | ~60 min |
-| 2 | [Sprint Planning](../../../templates/agile/sprint_planning_template.md) | Team-level sprint planning | ~20 min |
+| 1 | [Product Backlog](../../../domains/delivery/templates/agile/product_backlog_template.md) | Master backlog across teams | ~60 min |
+| 2 | [Sprint Planning](../../../domains/delivery/templates/agile/sprint_planning_template.md) | Team-level sprint planning | ~20 min |
 | 3 | [Sprint Review](../../../domains/team/templates/agile/sprint_review_template.md) | Integrated demo and feedback | ~15 min |
 | 4 | [Sprint Retrospective](../../../domains/team/templates/agile/sprint_retrospective_template.md) | Team and program-level improvement | ~15 min |
 | 5 | [SAFe PI Planning](../../../domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_program_increment_planning_template.md) | Program Increment planning across teams | ~90 min |
@@ -42,7 +42,7 @@
 
 - **Traditional project planning** — No WBS, Gantt charts, or sequential gates. If you need these, consider the [Hybrid Bundle](hybrid-balanced-bundle.md).
 - **Industry-specific compliance** — Add from [Industry Specializations](../../../industry-specializations/) based on your domain.
-- **Financial governance** — Add [Budget Dashboard](../../../domains/stakeholder/business-stakeholder-suite/financial-governance/budget-dashboard-template.md) and [ROI Tracking](../../../templates/traditional/Traditional/Knowledge_Areas/Project_Cost_Management/roi_tracking_template.md) if required.
+- **Financial governance** — Add [Budget Dashboard](../../../domains/stakeholder/business-stakeholder-suite/financial-governance/budget-dashboard-template.md) and [ROI Tracking](../../../domains/delivery/templates/traditional/Traditional/Knowledge_Areas/Project_Cost_Management/roi_tracking_template.md) if required.
 
 ## Next Steps
 

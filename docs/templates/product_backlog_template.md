@@ -15,7 +15,7 @@
 
 title: "Product Backlog Template"
 
-[**➡️ View Template File**](/templates/agile/product_backlog_template.md)
+[**➡️ View Template File**](/domains/delivery/templates/agile/product_backlog_template.md)
 
 ## 📈 Quality Score
 

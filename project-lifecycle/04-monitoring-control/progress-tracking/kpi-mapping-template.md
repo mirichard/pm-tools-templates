@@ -1,3 +1,10 @@
+---
+title: KPI Mapping Template
+methodology: universal
+complexity: intermediate
+owner: mirichard
+updated: 2026-09-13
+---
 # KPI Mapping Template
 
 **Purpose:** Map project execution metrics to strategic outcomes using a 4-level KPI hierarchy. This template connects daily team activity to organizational value delivery.
@@ -40,7 +47,7 @@ These measure cross-project health and coordination. Typically tracked monthly.
 
 | KPI | Definition | Target | Actual | Trend | Source Template |
 |-----|-----------|--------|--------|-------|-----------------|
-| Cross-Project Dependency Health | % of inter-project dependencies on track | ≥ ___% | | | [Program Management Plan](../../../templates/traditional/Traditional/Templates/program_management_plan_template.md) |
+| Cross-Project Dependency Health | % of inter-project dependencies on track | ≥ ___% | | | [Program Management Plan](../../../domains/delivery/templates/traditional/Traditional/Templates/program_management_plan_template.md) |
 | Aggregate Resource Utilization | Avg utilization across project teams | ___–___% | | | [Resource Management Plan](../../../project-lifecycle/02-planning/resource-planning/resource-management-plan-template.md) |
 | Aggregate Delivery Performance | % of projects meeting schedule/cost baselines | ≥ ___% | | | [Project Performance Monitoring](../../../templates/traditional/Traditional/Process_Groups/Monitoring_and_Controlling/project_performance_monitoring_template.md) |
 | Program Benefits On Track | % of program benefits trending to plan | ≥ ___% | | | [Benefits Realization Framework](../../../business-stakeholder-suite/financial-governance/benefit-realization-framework.md) |

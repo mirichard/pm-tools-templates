@@ -15,7 +15,7 @@
 
 title: "Traditional Project Management Plan Template"
 
-[**➡️ View Template File**](/project-lifecycle/02-planning/project-management-plan/traditional-project-management-plan-template.md)
+[**➡️ View Template File**](/domains/delivery/project-lifecycle/02-planning/project-management-plan/traditional-project-management-plan-template.md)
 
 ## 📈 Quality Score
 

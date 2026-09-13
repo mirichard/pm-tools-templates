@@ -31,7 +31,7 @@
       }
     },
     {
-      "path": "project-lifecycle/02-planning/project-management-plan/agile-release-plan-template.md",
+      "path": "domains/delivery/project-lifecycle/02-planning/project-management-plan/agile-release-plan-template.md",
       "title": "Agile Release Plan Template",
       "methodology": "universal",
       "value_flow": {
@@ -45,7 +45,7 @@
       }
     },
     {
-      "path": "project-lifecycle/02-planning/risk-management/agile-risk-board-template.md",
+      "path": "domains/delivery/project-lifecycle/02-planning/risk-management/agile-risk-board-template.md",
       "title": "Agile Risk Board Template",
       "methodology": "universal",
       "value_flow": {
@@ -717,7 +717,7 @@
       }
     },
     {
-      "path": "templates/hybrid/Hybrid/Templates/hybrid_quality_management_template.md",
+      "path": "domains/delivery/templates/hybrid/Hybrid/Templates/hybrid_quality_management_template.md",
       "title": "Hybrid Quality Management Template",
       "methodology": "hybrid",
       "value_flow": {
@@ -829,7 +829,7 @@
       }
     },
     {
-      "path": "templates/traditional/Traditional/Templates/issue_log_template.md",
+      "path": "domains/delivery/templates/traditional/Traditional/Templates/issue_log_template.md",
       "title": "Issue Log Template",
       "methodology": "traditional",
       "value_flow": {
@@ -1109,7 +1109,7 @@
       }
     },
     {
-      "path": "templates/agile/product_backlog_template.md",
+      "path": "domains/delivery/templates/agile/product_backlog_template.md",
       "title": "Product Backlog Template",
       "methodology": "agile",
       "value_flow": {
@@ -1151,7 +1151,7 @@
       }
     },
     {
-      "path": "templates/traditional/Traditional/Templates/program_management_plan_template.md",
+      "path": "domains/delivery/templates/traditional/Traditional/Templates/program_management_plan_template.md",
       "title": "Program Management Plan Template",
       "methodology": "traditional",
       "value_flow": {
@@ -1193,7 +1193,7 @@
       }
     },
     {
-      "path": "templates/traditional/Traditional/Process_Groups/Closing/project_closure_report_template.md",
+      "path": "domains/delivery/templates/traditional/Traditional/Process_Groups/Closing/project_closure_report_template.md",
       "title": "Project Closure Report Template",
       "methodology": "traditional",
       "value_flow": {
@@ -1221,7 +1221,7 @@
       }
     },
     {
-      "path": "templates/traditional/Traditional/Process_Groups/Executing/project_execution_status_report_template.md",
+      "path": "domains/delivery/templates/traditional/Traditional/Process_Groups/Executing/project_execution_status_report_template.md",
       "title": "Project Execution Status Report Template",
       "methodology": "traditional",
       "value_flow": {
@@ -1431,7 +1431,7 @@
       }
     },
     {
-      "path": "templates/traditional/Traditional/Process_Groups/Executing/requirements_traceability_matrix_template.md",
+      "path": "domains/delivery/templates/traditional/Traditional/Process_Groups/Executing/requirements_traceability_matrix_template.md",
       "title": "Requirements Traceability Matrix Template",
       "methodology": "traditional",
       "value_flow": {
@@ -1529,7 +1529,7 @@
       }
     },
     {
-      "path": "templates/traditional/Traditional/Knowledge_Areas/Project_Cost_Management/roi_tracking_template.md",
+      "path": "domains/delivery/templates/traditional/Traditional/Knowledge_Areas/Project_Cost_Management/roi_tracking_template.md",
       "title": "Roi Tracking Template",
       "methodology": "traditional",
       "value_flow": {
@@ -1641,7 +1641,7 @@
       }
     },
     {
-      "path": "templates/agile/sprint_planning_template.md",
+      "path": "domains/delivery/templates/agile/sprint_planning_template.md",
       "title": "Sprint Planning Template",
       "methodology": "agile",
       "value_flow": {
@@ -1809,7 +1809,7 @@
       }
     },
     {
-      "path": "project-lifecycle/02-planning/project-management-plan/traditional-project-management-plan-template.md",
+      "path": "domains/delivery/project-lifecycle/02-planning/project-management-plan/traditional-project-management-plan-template.md",
       "title": "Traditional Project Management Plan Template",
       "methodology": "universal",
       "value_flow": {

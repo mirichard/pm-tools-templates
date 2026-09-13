@@ -15,7 +15,7 @@
 
 title: "Issue Log Template"
 
-[**➡️ View Template File**](/templates/traditional/Traditional/Templates/issue_log_template.md)
+[**➡️ View Template File**](/domains/delivery/templates/traditional/Traditional/Templates/issue_log_template.md)
 
 ## 📈 Quality Score
 

@@ -14,7 +14,7 @@
 
 | # | Template | Purpose | Setup Time |
 |---|----------|---------|------------|
-| 1 | [Hybrid Quality Management](../../../templates/hybrid/Hybrid/Templates/hybrid_quality_management_template.md) | Quality oversight bridging both approaches | ~45 min |
+| 1 | [Hybrid Quality Management](../../../domains/delivery/templates/hybrid/Hybrid/Templates/hybrid_quality_management_template.md) | Quality oversight bridging both approaches | ~45 min |
 | 2 | [Integrated Change Strategy](../../../domains/delivery/templates/hybrid/Hybrid/Templates/integrated_change_strategy_template.md) | Change control spanning traditional and agile | ~45 min |
 | 3 | [Hybrid Team Management](../../../domains/delivery/templates/hybrid/Hybrid/Templates/hybrid_team_management_template.md) | Team coordination across methodology boundaries | ~30 min |
 | 4 | [Status Report](../../../domains/uncertainty/project-lifecycle/04-monitoring-control/progress-tracking/status-report-template.md) | Progress tracking for stakeholders | ~15 min |

@@ -15,7 +15,7 @@
 | # | Template | Purpose | Setup Time |
 |---|----------|---------|------------|
 | 1 | [Project Management Plan](../../../templates/traditional/Traditional/Process_Groups/Planning/project_management_plan_template.md) | Master plan covering all knowledge areas | ~2 hrs |
-| 2 | [Program Management Plan](../../../templates/traditional/Traditional/Templates/program_management_plan_template.md) | Multi-project program coordination | ~2 hrs |
+| 2 | [Program Management Plan](../../../domains/delivery/templates/traditional/Traditional/Templates/program_management_plan_template.md) | Multi-project program coordination | ~2 hrs |
 | 3 | [Work Breakdown Structure](../../../templates/traditional/Traditional/Process_Groups/Planning/work_breakdown_structure_template.md) | Scope decomposition | ~90 min |
 | 4 | [Project Schedule](../../../templates/traditional/Traditional/Process_Groups/Planning/project_schedule_template.md) | Timeline and dependencies | ~90 min |
 | 5 | [Risk Management Plan](../../../project-lifecycle/02-planning/risk-management/risk-management-plan-template.md) | Risk approach and thresholds | ~45 min |
@@ -30,7 +30,7 @@
 | 9 | [Governance Assessment](../../../project-assessment-suite/governance-assessment-template.md) | Evaluate governance effectiveness | ~45 min |
 | 10 | [Executive Dashboard](../../../domains/stakeholder/business-stakeholder-suite/executive-dashboards/powerbi-integration/executive-dashboard-template.md) | Executive-level visibility | ~30 min |
 | 11 | [Executive Report Templates](../../../domains/stakeholder/business-stakeholder-suite/executive-dashboards/Word/Executive-Report-Templates.md) | Formal executive reporting | ~30 min |
-| 12 | [ROI Tracking](../../../templates/traditional/Traditional/Knowledge_Areas/Project_Cost_Management/roi_tracking_template.md) | Benefits and value tracking | ~30 min |
+| 12 | [ROI Tracking](../../../domains/delivery/templates/traditional/Traditional/Knowledge_Areas/Project_Cost_Management/roi_tracking_template.md) | Benefits and value tracking | ~30 min |
 | 13 | [Budget Dashboard](../../../domains/stakeholder/business-stakeholder-suite/financial-governance/budget-dashboard-template.md) | Financial oversight | ~30 min |
 | 14 | [Resource Management Plan](../../../project-lifecycle/02-planning/resource-planning/resource-management-plan-template.md) | Staff and resource planning | ~45 min |
 
