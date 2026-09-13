@@ -1,8 +1,8 @@
 # Source requirement traceability
 
 Flow entries returned by the parser contain `id`, `originalText` (the original
-line before prefix stripping), and normalized `text`. Other parsed lists remain
-strings. An explicit leading label such as `FR4:` becomes the ID; unlabeled
+line before prefix stripping, excluding LF/CRLF line delimiters), and normalized `text`. Other parsed lists remain
+strings. The full `rawText` input remains unchanged. An explicit leading label such as `FR4:` becomes the ID; unlabeled
 basic, alternative, and exception entries use `BF-1`, `AF-1`, and `EF-1`.
 Duplicate labels are errors. Positional IDs are stable for unchanged input,
 not across insertions or reordering; explicit labels survive reordering.

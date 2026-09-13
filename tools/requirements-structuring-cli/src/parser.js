@@ -55,7 +55,8 @@ class RequirementsParser {
    */
   _extractSections(content) {
     const sections = {};
-    const lines = content.split('\n');
+    // Line endings delimit source lines; rawText still retains the full input.
+    const lines = content.split(/\r?\n/);
     let currentHeading = null;
     let currentContent = [];
 

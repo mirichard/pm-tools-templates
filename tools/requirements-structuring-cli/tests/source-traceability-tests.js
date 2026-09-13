@@ -12,6 +12,7 @@ const TestGenerator = require('../src/test-generator');
 const GherkinGenerator = require('../src/gherkin-generator');
 const { sourceMap, attachSources } = require('../src/source-traceability');
 const { validateNFRInput } = require('../src/nfr-input');
+const { validateDocumentContent } = require('../src/security');
 const root = path.resolve(__dirname, '..');
 const originalText = '4. FR4: A new password must be at least 12 characters and contain at least one letter and one number.';
 const catalog = [{ id: 'FR4', originalText }];
@@ -29,6 +30,31 @@ module.exports = async runner => {
     assert.deepEqual(p.basicFlow[0], { id: 'FR4', originalText: originalText + '  ', text: originalText.slice(3) });
     assert.equal(p.alternativeFlows[0].id, 'AF9'); assert.equal(p.exceptionFlows[0].id, 'EF-1');
     assert.equal(p.exceptionFlows[0].originalText, '- Fail');
+  });
+  await test('CRLF source generates a valid feature file with clean source comments', async () => {
+    const input = '## Basic Flow\r\n' + originalText + '  \r\n';
+    const p = new Parser().parseContent(input);
+    assert.equal(p.rawText, input);
+    const d = attachSources(ucs(), sourceMap(p.basicFlow), 'ucs', 'Test');
+    const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'traceability-crlf-'));
+    try {
+      const output = path.join(dir, 'password.feature');
+      await new GherkinGenerator().generateFile(new TestGenerator().generate(d), d, output);
+      const feature = fs.readFileSync(output, 'utf8');
+      assert.equal(validateDocumentContent(feature), feature);
+      assert(feature.includes('    # ' + originalText + '  \n'));
+      assert(!feature.includes('\r'));
+    } finally { fs.rmSync(dir, { recursive: true, force: true }); }
+  });
+  await test('LF source preserves original whitespace and unchanged generated output', () => {
+    const input = '## Basic Flow\n' + originalText + '  \n';
+    const p = new Parser().parseContent(input);
+    assert.equal(p.rawText, input);
+    assert.deepEqual(p.basicFlow, [{ id: 'FR4', originalText: originalText + '  ', text: originalText.slice(3) }]);
+    const expected = attachSources(ucs(), sourceMap([{ id: 'FR4', originalText: originalText + '  ' }]), 'ucs', 'Test');
+    const actual = attachSources(ucs(), sourceMap(p.basicFlow), 'ucs', 'Test');
+    const generate = d => new GherkinGenerator().generate(new TestGenerator().generate(d), d);
+    assert.equal(generate(actual), generate(expected));
   });
   await test('fallback IDs repeat for unchanged input; explicit labels survive reordering', () => {
     const p = new Parser(); const text = '## Basic Flow\n1. Login\n2. Logout';
