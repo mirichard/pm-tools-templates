@@ -1,4 +1,5 @@
-const ID = /^[A-Za-z][A-Za-z0-9_-]*$/;
+// Require absolute end of input, including when the next character is a line terminator.
+const ID = /^[A-Za-z][A-Za-z0-9_-]*(?![\s\S])/;
 
 function sourceMap(entries) {
   if (!Array.isArray(entries) || !entries.length) {

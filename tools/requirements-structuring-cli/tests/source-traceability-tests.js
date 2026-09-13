@@ -87,6 +87,18 @@ module.exports = async runner => {
       assert.throws(() => attachSources(d, sourceMap(catalog), 'structured', 'Test'), /step "4".*sourceRequirementId/);
     }
   });
+  await test('IDs with trailing line terminators fail catalog and step validation', () => {
+    for (const terminator of ['\n', '\r', '\r\n', '\u2028', '\u2029']) {
+      const id = 'FR4' + terminator;
+      assert.throws(() => sourceMap([{ id, originalText }]), /invalid or duplicate source catalog entry/);
+      const d = structured();
+      d.steps[0].sourceRequirementId = id;
+      // Even a supplied map containing the malformed key must not bypass validation.
+      assert.throws(() => attachSources(d, new Map([[id, originalText]]), 'structured', 'Test'),
+        error => error.message.includes('step "4"') && error.message.includes(JSON.stringify(id)));
+    }
+    assert.equal(sourceMap(catalog).get('FR4'), originalText);
+  });
   await test('invalid and duplicate catalogs and malformed steps fail', () => {
     for (const entries of [[], null, [{id:'FR4'}], [catalog[0],catalog[0]]]) assert.throws(() => sourceMap(entries));
     for (const d of [{steps:[]},{steps:[null]}]) assert.throws(() => attachSources(d,sourceMap(catalog),'structured','Test'));
