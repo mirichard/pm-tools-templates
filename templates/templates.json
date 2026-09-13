@@ -1436,7 +1436,7 @@
           "similarity": 92
         },
         {
-          "path": "templates/traditional/Traditional/Templates/change_request_template.md",
+          "path": "domains/delivery/templates/traditional/Traditional/Templates/change_request_template.md",
           "title": "Change Request Template",
           "methodology": "traditional",
           "tags": [
@@ -1451,7 +1451,7 @@
           "similarity": 86
         },
         {
-          "path": "templates/traditional/Traditional/Templates/communication_plan_template.md",
+          "path": "domains/delivery/templates/traditional/Traditional/Templates/communication_plan_template.md",
           "title": "Communication Plan Template",
           "methodology": "traditional",
           "tags": [
@@ -1675,7 +1675,7 @@
       ]
     },
     {
-      "path": "templates/traditional/Traditional/Templates/change_management_plan_template.md",
+      "path": "domains/delivery/templates/traditional/Traditional/Templates/change_management_plan_template.md",
       "title": "Change Management Plan Template",
       "methodology": "traditional",
       "complexity": "advanced",
@@ -1699,7 +1699,7 @@
       ],
       "relatedTemplates": [
         {
-          "path": "templates/traditional/Traditional/Templates/project_roadmap_template.md",
+          "path": "domains/delivery/templates/traditional/Traditional/Templates/project_roadmap_template.md",
           "title": "Project Roadmap Template",
           "methodology": "traditional",
           "tags": [
@@ -1777,10 +1777,13 @@
           ],
           "similarity": 94
         }
+      ],
+      "alternate_paths": [
+        "templates/traditional/Traditional/Templates/change_management_plan_template.md"
       ]
     },
     {
-      "path": "templates/traditional/Traditional/Templates/change_request_template.md",
+      "path": "domains/delivery/templates/traditional/Traditional/Templates/change_request_template.md",
       "title": "Change Request Template",
       "methodology": "traditional",
       "complexity": "advanced",
@@ -1804,7 +1807,7 @@
       ],
       "relatedTemplates": [
         {
-          "path": "templates/traditional/Traditional/Templates/communication_plan_template.md",
+          "path": "domains/delivery/templates/traditional/Traditional/Templates/communication_plan_template.md",
           "title": "Communication Plan Template",
           "methodology": "traditional",
           "tags": [
@@ -1834,7 +1837,7 @@
           "similarity": 100
         },
         {
-          "path": "templates/traditional/Traditional/Process_Groups/Planning/project_schedule_template.md",
+          "path": "domains/delivery/templates/traditional/Traditional/Process_Groups/Planning/project_schedule_template.md",
           "title": "Project Schedule Template",
           "methodology": "traditional",
           "tags": [
@@ -1880,6 +1883,9 @@
           ],
           "similarity": 94
         }
+      ],
+      "alternate_paths": [
+        "templates/traditional/Traditional/Templates/change_request_template.md"
       ]
     },
     {
@@ -2142,7 +2148,7 @@
       ]
     },
     {
-      "path": "templates/traditional/Traditional/Templates/communication_plan_template.md",
+      "path": "domains/delivery/templates/traditional/Traditional/Templates/communication_plan_template.md",
       "title": "Communication Plan Template",
       "methodology": "traditional",
       "complexity": "advanced",
@@ -2166,7 +2172,7 @@
       ],
       "relatedTemplates": [
         {
-          "path": "templates/traditional/Traditional/Templates/change_request_template.md",
+          "path": "domains/delivery/templates/traditional/Traditional/Templates/change_request_template.md",
           "title": "Change Request Template",
           "methodology": "traditional",
           "tags": [
@@ -2196,7 +2202,7 @@
           "similarity": 100
         },
         {
-          "path": "templates/traditional/Traditional/Process_Groups/Planning/project_schedule_template.md",
+          "path": "domains/delivery/templates/traditional/Traditional/Process_Groups/Planning/project_schedule_template.md",
           "title": "Project Schedule Template",
           "methodology": "traditional",
           "tags": [
@@ -2242,6 +2248,9 @@
           ],
           "similarity": 94
         }
+      ],
+      "alternate_paths": [
+        "templates/traditional/Traditional/Templates/communication_plan_template.md"
       ]
     },
     {
@@ -5716,7 +5725,7 @@
           "similarity": 100
         },
         {
-          "path": "templates/traditional/Traditional/Process_Groups/Planning/project_management_plan_template.md",
+          "path": "domains/delivery/templates/traditional/Traditional/Process_Groups/Planning/project_management_plan_template.md",
           "title": "Project Management Plan Template",
           "methodology": "traditional",
           "tags": [
@@ -7830,7 +7839,7 @@
           "similarity": 100
         },
         {
-          "path": "templates/traditional/Traditional/Process_Groups/Planning/project_management_plan_template.md",
+          "path": "domains/delivery/templates/traditional/Traditional/Process_Groups/Planning/project_management_plan_template.md",
           "title": "Project Management Plan Template",
           "methodology": "traditional",
           "tags": [
@@ -7940,7 +7949,7 @@
           "similarity": 100
         },
         {
-          "path": "templates/traditional/Traditional/Process_Groups/Planning/project_management_plan_template.md",
+          "path": "domains/delivery/templates/traditional/Traditional/Process_Groups/Planning/project_management_plan_template.md",
           "title": "Project Management Plan Template",
           "methodology": "traditional",
           "tags": [
@@ -8091,7 +8100,7 @@
       ],
       "relatedTemplates": [
         {
-          "path": "templates/traditional/Traditional/Templates/change_request_template.md",
+          "path": "domains/delivery/templates/traditional/Traditional/Templates/change_request_template.md",
           "title": "Change Request Template",
           "methodology": "traditional",
           "tags": [
@@ -8106,7 +8115,7 @@
           "similarity": 100
         },
         {
-          "path": "templates/traditional/Traditional/Templates/communication_plan_template.md",
+          "path": "domains/delivery/templates/traditional/Traditional/Templates/communication_plan_template.md",
           "title": "Communication Plan Template",
           "methodology": "traditional",
           "tags": [
@@ -8121,7 +8130,7 @@
           "similarity": 100
         },
         {
-          "path": "templates/traditional/Traditional/Process_Groups/Planning/project_schedule_template.md",
+          "path": "domains/delivery/templates/traditional/Traditional/Process_Groups/Planning/project_schedule_template.md",
           "title": "Project Schedule Template",
           "methodology": "traditional",
           "tags": [
@@ -8259,7 +8268,7 @@
           "similarity": 100
         },
         {
-          "path": "templates/traditional/Traditional/Process_Groups/Planning/project_management_plan_template.md",
+          "path": "domains/delivery/templates/traditional/Traditional/Process_Groups/Planning/project_management_plan_template.md",
           "title": "Project Management Plan Template",
           "methodology": "traditional",
           "tags": [
@@ -8461,7 +8470,7 @@
           "similarity": 100
         },
         {
-          "path": "templates/traditional/Traditional/Process_Groups/Planning/project_management_plan_template.md",
+          "path": "domains/delivery/templates/traditional/Traditional/Process_Groups/Planning/project_management_plan_template.md",
           "title": "Project Management Plan Template",
           "methodology": "traditional",
           "tags": [
@@ -8583,7 +8592,7 @@
       ]
     },
     {
-      "path": "templates/traditional/Traditional/Process_Groups/Planning/project_management_plan_template.md",
+      "path": "domains/delivery/templates/traditional/Traditional/Process_Groups/Planning/project_management_plan_template.md",
       "title": "Project Management Plan Template",
       "methodology": "traditional",
       "complexity": "advanced",
@@ -8687,10 +8696,13 @@
           ],
           "similarity": 100
         }
+      ],
+      "alternate_paths": [
+        "templates/traditional/Traditional/Process_Groups/Planning/project_management_plan_template.md"
       ]
     },
     {
-      "path": "templates/traditional/Traditional/Process_Groups/Monitoring_and_Controlling/project_performance_monitoring_template.md",
+      "path": "domains/delivery/templates/traditional/Traditional/Process_Groups/Monitoring_and_Controlling/project_performance_monitoring_template.md",
       "title": "Project Performance Monitoring Template",
       "methodology": "traditional",
       "complexity": "advanced",
@@ -8794,10 +8806,13 @@
           ],
           "similarity": 100
         }
+      ],
+      "alternate_paths": [
+        "templates/traditional/Traditional/Process_Groups/Monitoring_and_Controlling/project_performance_monitoring_template.md"
       ]
     },
     {
-      "path": "templates/traditional/Traditional/Templates/project_roadmap_template.md",
+      "path": "domains/delivery/templates/traditional/Traditional/Templates/project_roadmap_template.md",
       "title": "Project Roadmap Template",
       "methodology": "traditional",
       "complexity": "advanced",
@@ -8821,7 +8836,7 @@
       ],
       "relatedTemplates": [
         {
-          "path": "templates/traditional/Traditional/Templates/change_management_plan_template.md",
+          "path": "domains/delivery/templates/traditional/Traditional/Templates/change_management_plan_template.md",
           "title": "Change Management Plan Template",
           "methodology": "traditional",
           "tags": [
@@ -8899,10 +8914,13 @@
           ],
           "similarity": 94
         }
+      ],
+      "alternate_paths": [
+        "templates/traditional/Traditional/Templates/project_roadmap_template.md"
       ]
     },
     {
-      "path": "templates/traditional/Traditional/Process_Groups/Planning/project_schedule_template.md",
+      "path": "domains/delivery/templates/traditional/Traditional/Process_Groups/Planning/project_schedule_template.md",
       "title": "Project Schedule Template",
       "methodology": "traditional",
       "complexity": "advanced",
@@ -8926,7 +8944,7 @@
       ],
       "relatedTemplates": [
         {
-          "path": "templates/traditional/Traditional/Templates/change_request_template.md",
+          "path": "domains/delivery/templates/traditional/Traditional/Templates/change_request_template.md",
           "title": "Change Request Template",
           "methodology": "traditional",
           "tags": [
@@ -8941,7 +8959,7 @@
           "similarity": 100
         },
         {
-          "path": "templates/traditional/Traditional/Templates/communication_plan_template.md",
+          "path": "domains/delivery/templates/traditional/Traditional/Templates/communication_plan_template.md",
           "title": "Communication Plan Template",
           "methodology": "traditional",
           "tags": [
@@ -9002,10 +9020,13 @@
           ],
           "similarity": 94
         }
+      ],
+      "alternate_paths": [
+        "templates/traditional/Traditional/Process_Groups/Planning/project_schedule_template.md"
       ]
     },
     {
-      "path": "templates/traditional/Traditional/Templates/purchase_order_template.md",
+      "path": "domains/delivery/templates/traditional/Traditional/Templates/purchase_order_template.md",
       "title": "Purchase Order Template",
       "methodology": "traditional",
       "complexity": "intermediate",
@@ -9025,7 +9046,7 @@
       ],
       "relatedTemplates": [
         {
-          "path": "templates/traditional/Traditional/Templates/raid_log_template.md",
+          "path": "domains/delivery/templates/traditional/Traditional/Templates/raid_log_template.md",
           "title": "Raid Log Template",
           "methodology": "traditional",
           "tags": [
@@ -9089,6 +9110,9 @@
           ],
           "similarity": 57
         }
+      ],
+      "alternate_paths": [
+        "templates/traditional/Traditional/Templates/purchase_order_template.md"
       ]
     },
     {
@@ -9284,7 +9308,7 @@
       ]
     },
     {
-      "path": "templates/traditional/Traditional/Templates/raid_log_template.md",
+      "path": "domains/delivery/templates/traditional/Traditional/Templates/raid_log_template.md",
       "title": "Raid Log Template",
       "methodology": "traditional",
       "complexity": "advanced",
@@ -9345,7 +9369,7 @@
           "similarity": 75
         },
         {
-          "path": "templates/traditional/Traditional/Templates/purchase_order_template.md",
+          "path": "domains/delivery/templates/traditional/Traditional/Templates/purchase_order_template.md",
           "title": "Purchase Order Template",
           "methodology": "traditional",
           "tags": [
@@ -9355,7 +9379,7 @@
           "similarity": 73
         },
         {
-          "path": "templates/traditional/Traditional/Templates/change_management_plan_template.md",
+          "path": "domains/delivery/templates/traditional/Traditional/Templates/change_management_plan_template.md",
           "title": "Change Management Plan Template",
           "methodology": "traditional",
           "tags": [
@@ -9369,6 +9393,9 @@
           ],
           "similarity": 71
         }
+      ],
+      "alternate_paths": [
+        "templates/traditional/Traditional/Templates/raid_log_template.md"
       ]
     },
     {
@@ -11918,7 +11945,7 @@
       ],
       "relatedTemplates": [
         {
-          "path": "templates/traditional/Traditional/Templates/change_request_template.md",
+          "path": "domains/delivery/templates/traditional/Traditional/Templates/change_request_template.md",
           "title": "Change Request Template",
           "methodology": "traditional",
           "tags": [
@@ -11933,7 +11960,7 @@
           "similarity": 76
         },
         {
-          "path": "templates/traditional/Traditional/Templates/communication_plan_template.md",
+          "path": "domains/delivery/templates/traditional/Traditional/Templates/communication_plan_template.md",
           "title": "Communication Plan Template",
           "methodology": "traditional",
           "tags": [
@@ -11963,7 +11990,7 @@
           "similarity": 76
         },
         {
-          "path": "templates/traditional/Traditional/Process_Groups/Planning/project_schedule_template.md",
+          "path": "domains/delivery/templates/traditional/Traditional/Process_Groups/Planning/project_schedule_template.md",
           "title": "Project Schedule Template",
           "methodology": "traditional",
           "tags": [
@@ -12476,7 +12503,7 @@
       ]
     },
     {
-      "path": "templates/traditional/Traditional/Templates/uat_plan_template.md",
+      "path": "domains/delivery/templates/traditional/Traditional/Templates/uat_plan_template.md",
       "title": "Uat Plan Template",
       "methodology": "traditional",
       "complexity": "advanced",
@@ -12580,10 +12607,13 @@
           ],
           "similarity": 100
         }
+      ],
+      "alternate_paths": [
+        "templates/traditional/Traditional/Templates/uat_plan_template.md"
       ]
     },
     {
-      "path": "templates/traditional/Traditional/Templates/uat_strategy_template.md",
+      "path": "domains/delivery/templates/traditional/Traditional/Templates/uat_strategy_template.md",
       "title": "Uat Strategy Template",
       "methodology": "traditional",
       "complexity": "advanced",
@@ -12687,6 +12717,9 @@
           ],
           "similarity": 100
         }
+      ],
+      "alternate_paths": [
+        "templates/traditional/Traditional/Templates/uat_strategy_template.md"
       ]
     },
     {
@@ -12983,7 +13016,7 @@
       ],
       "relatedTemplates": [
         {
-          "path": "templates/traditional/Traditional/Templates/change_request_template.md",
+          "path": "domains/delivery/templates/traditional/Traditional/Templates/change_request_template.md",
           "title": "Change Request Template",
           "methodology": "traditional",
           "tags": [
@@ -12998,7 +13031,7 @@
           "similarity": 69
         },
         {
-          "path": "templates/traditional/Traditional/Templates/communication_plan_template.md",
+          "path": "domains/delivery/templates/traditional/Traditional/Templates/communication_plan_template.md",
           "title": "Communication Plan Template",
           "methodology": "traditional",
           "tags": [
@@ -13028,7 +13061,7 @@
           "similarity": 69
         },
         {
-          "path": "templates/traditional/Traditional/Process_Groups/Planning/project_schedule_template.md",
+          "path": "domains/delivery/templates/traditional/Traditional/Process_Groups/Planning/project_schedule_template.md",
           "title": "Project Schedule Template",
           "methodology": "traditional",
           "tags": [
@@ -13060,7 +13093,7 @@
       ]
     },
     {
-      "path": "templates/traditional/Traditional/Process_Groups/Planning/work_breakdown_structure_template.md",
+      "path": "domains/delivery/templates/traditional/Traditional/Process_Groups/Planning/work_breakdown_structure_template.md",
       "title": "Work Breakdown Structure Template",
       "methodology": "traditional",
       "complexity": "advanced",
@@ -13164,6 +13197,9 @@
           ],
           "similarity": 100
         }
+      ],
+      "alternate_paths": [
+        "templates/traditional/Traditional/Process_Groups/Planning/work_breakdown_structure_template.md"
       ]
     }
   ],

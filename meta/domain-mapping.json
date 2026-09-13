@@ -271,7 +271,7 @@
       }
     },
     {
-      "path": "templates/traditional/Traditional/Templates/change_management_plan_template.md",
+      "path": "domains/delivery/templates/traditional/Traditional/Templates/change_management_plan_template.md",
       "title": "Change Management Plan Template",
       "methodology": "traditional",
       "domain": {
@@ -288,7 +288,7 @@
       }
     },
     {
-      "path": "templates/traditional/Traditional/Templates/change_request_template.md",
+      "path": "domains/delivery/templates/traditional/Traditional/Templates/change_request_template.md",
       "title": "Change Request Template",
       "methodology": "traditional",
       "domain": {
@@ -354,7 +354,7 @@
       }
     },
     {
-      "path": "templates/traditional/Traditional/Templates/communication_plan_template.md",
+      "path": "domains/delivery/templates/traditional/Traditional/Templates/communication_plan_template.md",
       "title": "Communication Plan Template",
       "methodology": "traditional",
       "domain": {
@@ -1439,7 +1439,7 @@
       }
     },
     {
-      "path": "templates/traditional/Traditional/Process_Groups/Planning/project_management_plan_template.md",
+      "path": "domains/delivery/templates/traditional/Traditional/Process_Groups/Planning/project_management_plan_template.md",
       "title": "Project Management Plan Template",
       "methodology": "traditional",
       "domain": {
@@ -1456,7 +1456,7 @@
       }
     },
     {
-      "path": "templates/traditional/Traditional/Process_Groups/Monitoring_and_Controlling/project_performance_monitoring_template.md",
+      "path": "domains/delivery/templates/traditional/Traditional/Process_Groups/Monitoring_and_Controlling/project_performance_monitoring_template.md",
       "title": "Project Performance Monitoring Template",
       "methodology": "traditional",
       "domain": {
@@ -1473,7 +1473,7 @@
       }
     },
     {
-      "path": "templates/traditional/Traditional/Templates/project_roadmap_template.md",
+      "path": "domains/delivery/templates/traditional/Traditional/Templates/project_roadmap_template.md",
       "title": "Project Roadmap Template",
       "methodology": "traditional",
       "domain": {
@@ -1490,7 +1490,7 @@
       }
     },
     {
-      "path": "templates/traditional/Traditional/Process_Groups/Planning/project_schedule_template.md",
+      "path": "domains/delivery/templates/traditional/Traditional/Process_Groups/Planning/project_schedule_template.md",
       "title": "Project Schedule Template",
       "methodology": "traditional",
       "domain": {
@@ -1507,7 +1507,7 @@
       }
     },
     {
-      "path": "templates/traditional/Traditional/Templates/purchase_order_template.md",
+      "path": "domains/delivery/templates/traditional/Traditional/Templates/purchase_order_template.md",
       "title": "Purchase Order Template",
       "methodology": "traditional",
       "domain": {
@@ -1553,7 +1553,7 @@
       }
     },
     {
-      "path": "templates/traditional/Traditional/Templates/raid_log_template.md",
+      "path": "domains/delivery/templates/traditional/Traditional/Templates/raid_log_template.md",
       "title": "Raid Log Template",
       "methodology": "traditional",
       "domain": {
@@ -2110,7 +2110,7 @@
       }
     },
     {
-      "path": "templates/traditional/Traditional/Templates/uat_plan_template.md",
+      "path": "domains/delivery/templates/traditional/Traditional/Templates/uat_plan_template.md",
       "title": "Uat Plan Template",
       "methodology": "traditional",
       "domain": {
@@ -2127,7 +2127,7 @@
       }
     },
     {
-      "path": "templates/traditional/Traditional/Templates/uat_strategy_template.md",
+      "path": "domains/delivery/templates/traditional/Traditional/Templates/uat_strategy_template.md",
       "title": "Uat Strategy Template",
       "methodology": "traditional",
       "domain": {
@@ -2204,7 +2204,7 @@
       }
     },
     {
-      "path": "templates/traditional/Traditional/Process_Groups/Planning/work_breakdown_structure_template.md",
+      "path": "domains/delivery/templates/traditional/Traditional/Process_Groups/Planning/work_breakdown_structure_template.md",
       "title": "Work Breakdown Structure Template",
       "methodology": "traditional",
       "domain": {

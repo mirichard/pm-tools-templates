@@ -147,7 +147,7 @@ Use your answers to find the matching recommendation set below. Start with your 
 **Start with these:**
 1. [Project Charter Template](../../domains/planning/templates/traditional/Traditional/Process_Groups/Initiating/project_charter_template.md)
 2. [Stakeholder Register Template](../../domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/stakeholder-register-template.md)
-3. [Communication Plan Template](../../templates/traditional/Traditional/Templates/communication_plan_template.md)
+3. [Communication Plan Template](../../domains/delivery/templates/traditional/Traditional/Templates/communication_plan_template.md)
 
 **If medium risk, also add:**
 4. [Risk Register Template](../../domains/uncertainty/project-lifecycle/02-planning/risk-management/risk-register-template.md)
@@ -162,9 +162,9 @@ Use your answers to find the matching recommendation set below. Start with your 
 *Answers: Traditional + Planning + Medium Risk + Medium + Any Industry + Intermediate or Advanced*
 
 **Start with these:**
-1. [Project Management Plan Template](../../templates/traditional/Traditional/Process_Groups/Planning/project_management_plan_template.md)
-2. [Work Breakdown Structure Template](../../templates/traditional/Traditional/Process_Groups/Planning/work_breakdown_structure_template.md)
-3. [Project Schedule Template](../../templates/traditional/Traditional/Process_Groups/Planning/project_schedule_template.md)
+1. [Project Management Plan Template](../../domains/delivery/templates/traditional/Traditional/Process_Groups/Planning/project_management_plan_template.md)
+2. [Work Breakdown Structure Template](../../domains/delivery/templates/traditional/Traditional/Process_Groups/Planning/work_breakdown_structure_template.md)
+3. [Project Schedule Template](../../domains/delivery/templates/traditional/Traditional/Process_Groups/Planning/project_schedule_template.md)
 4. [Risk Register Template](../../domains/uncertainty/project-lifecycle/02-planning/risk-management/risk-register-template.md)
 5. [Risk Management Plan Template](../../project-lifecycle/02-planning/risk-management/risk-management-plan-template.md)
 6. [Resource Management Plan Template](../../project-lifecycle/02-planning/resource-planning/resource-management-plan-template.md)
@@ -181,7 +181,7 @@ Use your answers to find the matching recommendation set below. Start with your 
 
 **Start with these (all Standard templates above, plus):**
 8. [Program Management Plan Template](../../domains/delivery/templates/traditional/Traditional/Templates/program_management_plan_template.md)
-9. [Change Management Plan Template](../../templates/traditional/Traditional/Templates/change_management_plan_template.md)
+9. [Change Management Plan Template](../../domains/delivery/templates/traditional/Traditional/Templates/change_management_plan_template.md)
 10. [Enterprise Risk Assessment Template](../../domains/uncertainty/project-lifecycle/02-planning/risk-management/enterprise-risk-assessment-template.md)
 11. [Governance Assessment Template](../../project-assessment-suite/governance-assessment-template.md)
 12. [Executive Dashboard Template](../../domains/stakeholder/business-stakeholder-suite/executive-dashboards/powerbi-integration/executive-dashboard-template.md)
@@ -309,7 +309,7 @@ Regardless of methodology, add these templates based on your **current phase** (
 |-------|-------------------|
 | **Just starting** | [Stakeholder Register](../../domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/stakeholder-register-template.md), [Business Case Template](../../domains/planning/templates/traditional/Traditional/Templates/business_case_template.md) |
 | **Planning** | [Skills Matrix](../../domains/team/project-lifecycle/02-planning/resource-planning/skills-matrix-template.md), [Team Charter](../../domains/team/project-lifecycle/02-planning/resource-planning/team-charter-template.md) |
-| **In progress** | [Issue Log](../../domains/delivery/templates/traditional/Traditional/Templates/issue_log_template.md), [Change Request Template](../../templates/traditional/Traditional/Templates/change_request_template.md) |
+| **In progress** | [Issue Log](../../domains/delivery/templates/traditional/Traditional/Templates/issue_log_template.md), [Change Request Template](../../domains/delivery/templates/traditional/Traditional/Templates/change_request_template.md) |
 | **Closing** | [Project Closure Report](../../domains/delivery/templates/traditional/Traditional/Process_Groups/Closing/project_closure_report_template.md), [Handover Template](../../role-based-toolkits/project-manager/essential-templates/handover-template.md) |
 
 ---

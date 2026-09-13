@@ -21,12 +21,12 @@
 | [Business Case Template](domains/planning/templates/traditional/Traditional/Templates/business_case_template.md) | traditional | advanced | mirichard | 2025-08-05 |
 | [Business Requirements Document Template](project-lifecycle/02-planning/business-requirements/business_requirements_document_template.md) | universal | advanced | mirichard | 2025-08-05 |
 | [Capa Management Template](domains/delivery/industry-specializations/healthcare-pharmaceutical/compliance/capa_management_template.md) | universal | advanced | mirichard | 2025-08-05 |
-| [Change Management Plan Template](templates/traditional/Traditional/Templates/change_management_plan_template.md) | traditional | advanced | mirichard | 2025-08-05 |
-| [Change Request Template](templates/traditional/Traditional/Templates/change_request_template.md) | traditional | advanced | mirichard | 2025-08-05 |
+| [Change Management Plan Template](domains/delivery/templates/traditional/Traditional/Templates/change_management_plan_template.md) | traditional | advanced | mirichard | 2025-08-05 |
+| [Change Request Template](domains/delivery/templates/traditional/Traditional/Templates/change_request_template.md) | traditional | advanced | mirichard | 2025-08-05 |
 | [Cicd Pipeline Planning Template](methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md) | universal | advanced | mirichard | 2025-08-05 |
 | [Cleaning Validation Protocol Template](domains/delivery/industry-specializations/healthcare-pharmaceutical/validation/cleaning_validation_protocol_template.md) | universal | advanced | mirichard | 2025-08-05 |
 | [Clinical Trial Protocol Template](domains/delivery/industry-specializations/healthcare-pharmaceutical/clinical-trials/clinical_trial_protocol_template.md) | universal | advanced | mirichard | 2025-08-05 |
-| [Communication Plan Template](templates/traditional/Traditional/Templates/communication_plan_template.md) | traditional | advanced | mirichard | 2025-08-05 |
+| [Communication Plan Template](domains/delivery/templates/traditional/Traditional/Templates/communication_plan_template.md) | traditional | advanced | mirichard | 2025-08-05 |
 | [Compliance Management Template](industry-specializations/financial-services/compliance/compliance-management-template.md) | universal | advanced | mirichard | 2025-08-05 |
 | [Compliance Risk Assessment Template](domains/delivery/industry-specializations/healthcare-pharmaceutical/regulatory/compliance_risk_assessment_template.md) | universal | advanced | mirichard | 2025-08-05 |
 | [Computer System Validation Protocol Template](domains/delivery/industry-specializations/healthcare-pharmaceutical/regulatory/computer_system_validation_protocol_template.md) | universal | advanced | mirichard | 2025-08-05 |
@@ -93,14 +93,14 @@
 | [Project Dashboard Template](domains/uncertainty/project-lifecycle/04-monitoring-control/progress-tracking/project-dashboard-template.md) | universal | advanced | mirichard | 2025-08-05 |
 | [Project Execution Status Report Template](domains/delivery/templates/traditional/Traditional/Process_Groups/Executing/project_execution_status_report_template.md) | traditional | advanced | mirichard | 2025-08-05 |
 | [Project Health Assessment Template](project-assessment-suite/project-health-assessment-template.md) | universal | advanced | mirichard | 2025-08-05 |
-| [Project Management Plan Template](templates/traditional/Traditional/Process_Groups/Planning/project_management_plan_template.md) | traditional | advanced | mirichard | 2025-08-05 |
-| [Project Performance Monitoring Template](templates/traditional/Traditional/Process_Groups/Monitoring_and_Controlling/project_performance_monitoring_template.md) | traditional | advanced | mirichard | 2025-08-05 |
-| [Project Roadmap Template](templates/traditional/Traditional/Templates/project_roadmap_template.md) | traditional | advanced | mirichard | 2025-08-05 |
-| [Project Schedule Template](templates/traditional/Traditional/Process_Groups/Planning/project_schedule_template.md) | traditional | advanced | mirichard | 2025-08-05 |
-| [Purchase Order Template](templates/traditional/Traditional/Templates/purchase_order_template.md) | traditional | intermediate | mirichard | 2025-08-05 |
+| [Project Management Plan Template](domains/delivery/templates/traditional/Traditional/Process_Groups/Planning/project_management_plan_template.md) | traditional | advanced | mirichard | 2025-08-05 |
+| [Project Performance Monitoring Template](domains/delivery/templates/traditional/Traditional/Process_Groups/Monitoring_and_Controlling/project_performance_monitoring_template.md) | traditional | advanced | mirichard | 2025-08-05 |
+| [Project Roadmap Template](domains/delivery/templates/traditional/Traditional/Templates/project_roadmap_template.md) | traditional | advanced | mirichard | 2025-08-05 |
+| [Project Schedule Template](domains/delivery/templates/traditional/Traditional/Process_Groups/Planning/project_schedule_template.md) | traditional | advanced | mirichard | 2025-08-05 |
+| [Purchase Order Template](domains/delivery/templates/traditional/Traditional/Templates/purchase_order_template.md) | traditional | intermediate | mirichard | 2025-08-05 |
 | [Quality Management Review Template](domains/delivery/industry-specializations/healthcare-pharmaceutical/quality/quality_management_review_template.md) | universal | advanced | mirichard | 2025-08-05 |
 | [Quality Test Plan Template](domains/uncertainty/templates/test-samples/quality-test-plan-template.md) | universal | advanced | mirichard | 2025-08-05 |
-| [Raid Log Template](templates/traditional/Traditional/Templates/raid_log_template.md) | traditional | advanced | mirichard | 2025-08-05 |
+| [Raid Log Template](domains/delivery/templates/traditional/Traditional/Templates/raid_log_template.md) | traditional | advanced | mirichard | 2025-08-05 |
 | [Regulatory Inspection Readiness Plan Template](domains/delivery/industry-specializations/healthcare-pharmaceutical/regulatory/regulatory_inspection_readiness_plan_template.md) | universal | advanced | mirichard | 2025-08-05 |
 | [Regulatory Strategy Plan Template](domains/delivery/industry-specializations/healthcare-pharmaceutical/regulatory/regulatory_strategy_plan_template.md) | universal | intermediate | mirichard | 2025-08-05 |
 | [Release Management Template](methodology-frameworks/emerging-methods/devops/release_management_template.md) | universal | advanced | mirichard | 2025-08-05 |
@@ -134,10 +134,10 @@
 | [Timesheet Tracking Template](domains/delivery/role-based-toolkits/project-manager/essential-templates/timesheet-tracking-template.md) | universal | intermediate | mirichard | 2025-08-05 |
 | [Traditional Project Charter Template](domains/planning/project-lifecycle/01-initiation/project-charter/traditional-project-charter-template.md) | universal | advanced | mirichard | 2025-08-05 |
 | [Traditional Project Management Plan Template](domains/delivery/project-lifecycle/02-planning/project-management-plan/traditional-project-management-plan-template.md) | universal | intermediate | mirichard | 2025-08-05 |
-| [Uat Plan Template](templates/traditional/Traditional/Templates/uat_plan_template.md) | traditional | advanced | mirichard | 2025-08-05 |
-| [Uat Strategy Template](templates/traditional/Traditional/Templates/uat_strategy_template.md) | traditional | advanced | mirichard | 2025-08-05 |
+| [Uat Plan Template](domains/delivery/templates/traditional/Traditional/Templates/uat_plan_template.md) | traditional | advanced | mirichard | 2025-08-05 |
+| [Uat Strategy Template](domains/delivery/templates/traditional/Traditional/Templates/uat_strategy_template.md) | traditional | advanced | mirichard | 2025-08-05 |
 | [User Story Mapping Template](domains/uncertainty/industry-specializations/information-technology/software-development/user_story_mapping_template.md) | universal | advanced | mirichard | 2025-08-05 |
 | [User Story Template](domains/uncertainty/role-based-toolkits/product-owner/user-story-template.md) | universal | advanced | mirichard | 2025-08-05 |
 | [Validation Master Plan Template](domains/delivery/industry-specializations/healthcare-pharmaceutical/validation/validation_master_plan_template.md) | universal | advanced | mirichard | 2025-08-05 |
 | [Waterfall Project Assessment Template](domains/stakeholder/project-assessment-suite/waterfall-project-assessment-template.md) | traditional | starter | mirichard | 2025-08-05 |
-| [Work Breakdown Structure Template](templates/traditional/Traditional/Process_Groups/Planning/work_breakdown_structure_template.md) | traditional | advanced | mirichard | 2025-08-05 |
+| [Work Breakdown Structure Template](domains/delivery/templates/traditional/Traditional/Process_Groups/Planning/work_breakdown_structure_template.md) | traditional | advanced | mirichard | 2025-08-05 |

@@ -125,6 +125,15 @@
       "status": "executed",
       "evidence_file": "docs/vnext/sprint-12/b3e-migration-record.md",
       "rollback_owner": "mirichard"
+    },
+    {
+      "batch_id": "B3F",
+      "issue": "#1057",
+      "parent_issue": "#711",
+      "asset_count": 12,
+      "status": "executed",
+      "evidence_file": "docs/vnext/sprint-12/b3f-migration-record.md",
+      "rollback_owner": "mirichard"
     }
   ],
   "generated": "2026-09-02",
@@ -691,7 +700,7 @@
       "dependencies": [
         "domains/delivery/templates/traditional/Traditional/Process_Groups/Executing/requirements_traceability_matrix_template.md",
         "domains/delivery/templates/traditional/Traditional/Knowledge_Areas/Project_Cost_Management/roi_tracking_template.md",
-        "templates/traditional/Traditional/Templates/change_request_template.md"
+        "domains/delivery/templates/traditional/Traditional/Templates/change_request_template.md"
       ],
       "affected_internal_references": [
         "TEMPLATE_INDEX.md",
@@ -804,7 +813,7 @@
         "Uncertainty"
       ],
       "dependencies": [
-        "templates/traditional/Traditional/Templates/project_roadmap_template.md",
+        "domains/delivery/templates/traditional/Traditional/Templates/project_roadmap_template.md",
         "domains/delivery/templates/traditional/Traditional/Templates/issue_log_template.md",
         "domains/planning/templates/traditional/Traditional/Templates/program_charter_template.md"
       ],
@@ -834,7 +843,14 @@
       ],
       "batch": 3,
       "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move",
-      "action": "planned-move-not-executed"
+      "action": "executed-move-with-legacy-pointer",
+      "execution": {
+        "batch_id": "B3F",
+        "pre_batch_sha": "9fecc91628f331e0f3b4e013088f8b806afff042",
+        "pre_move_source_sha256": "952d7cfe226ee061599688c1b9f1f6768ee3013e7a735e284e6bb6f5d2588e2b",
+        "evidence_file": "docs/vnext/sprint-12/b3f-migration-record.md",
+        "rollback_owner": "mirichard"
+      }
     },
     {
       "source": "templates/traditional/Traditional/Templates/change_request_template.md",
@@ -845,9 +861,9 @@
         "Uncertainty"
       ],
       "dependencies": [
-        "templates/traditional/Traditional/Templates/communication_plan_template.md",
+        "domains/delivery/templates/traditional/Traditional/Templates/communication_plan_template.md",
         "domains/planning/templates/traditional/Traditional/Process_Groups/Initiating/project_charter_template.md",
-        "templates/traditional/Traditional/Process_Groups/Planning/project_schedule_template.md"
+        "domains/delivery/templates/traditional/Traditional/Process_Groups/Planning/project_schedule_template.md"
       ],
       "affected_internal_references": [
         "GUIDE.md",
@@ -871,7 +887,14 @@
       ],
       "batch": 3,
       "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move",
-      "action": "planned-move-not-executed"
+      "action": "executed-move-with-legacy-pointer",
+      "execution": {
+        "batch_id": "B3F",
+        "pre_batch_sha": "9fecc91628f331e0f3b4e013088f8b806afff042",
+        "pre_move_source_sha256": "33ecd1a3df1bf28e8ad3918b95967513bfc5ce43545fa749563b3c7c527ba544",
+        "evidence_file": "docs/vnext/sprint-12/b3f-migration-record.md",
+        "rollback_owner": "mirichard"
+      }
     },
     {
       "source": "methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md",
@@ -994,9 +1017,9 @@
         "Uncertainty"
       ],
       "dependencies": [
-        "templates/traditional/Traditional/Templates/change_request_template.md",
+        "domains/delivery/templates/traditional/Traditional/Templates/change_request_template.md",
         "domains/planning/templates/traditional/Traditional/Process_Groups/Initiating/project_charter_template.md",
-        "templates/traditional/Traditional/Process_Groups/Planning/project_schedule_template.md"
+        "domains/delivery/templates/traditional/Traditional/Process_Groups/Planning/project_schedule_template.md"
       ],
       "affected_internal_references": [
         "GUIDE.md",
@@ -1026,7 +1049,14 @@
       ],
       "batch": 3,
       "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move",
-      "action": "planned-move-not-executed"
+      "action": "executed-move-with-legacy-pointer",
+      "execution": {
+        "batch_id": "B3F",
+        "pre_batch_sha": "9fecc91628f331e0f3b4e013088f8b806afff042",
+        "pre_move_source_sha256": "19c4977c07597ca7a4001bb5a33edcb39ed7bd08f5b262a782d8f9d6ffd0969c",
+        "evidence_file": "docs/vnext/sprint-12/b3f-migration-record.md",
+        "rollback_owner": "mirichard"
+      }
     },
     {
       "source": "industry-specializations/financial-services/compliance/compliance-management-template.md",
@@ -3376,9 +3406,9 @@
         "Uncertainty"
       ],
       "dependencies": [
-        "templates/traditional/Traditional/Templates/change_request_template.md",
-        "templates/traditional/Traditional/Templates/communication_plan_template.md",
-        "templates/traditional/Traditional/Process_Groups/Planning/project_schedule_template.md"
+        "domains/delivery/templates/traditional/Traditional/Templates/change_request_template.md",
+        "domains/delivery/templates/traditional/Traditional/Templates/communication_plan_template.md",
+        "domains/delivery/templates/traditional/Traditional/Process_Groups/Planning/project_schedule_template.md"
       ],
       "affected_internal_references": [
         "GUIDE.md",
@@ -3624,7 +3654,14 @@
       ],
       "batch": 3,
       "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move",
-      "action": "planned-move-not-executed"
+      "action": "executed-move-with-legacy-pointer",
+      "execution": {
+        "batch_id": "B3F",
+        "pre_batch_sha": "9fecc91628f331e0f3b4e013088f8b806afff042",
+        "pre_move_source_sha256": "d9d5d711fef826ae66669052bea13a0c96ea5bebe1f647337cc8abd54a9baa86",
+        "evidence_file": "docs/vnext/sprint-12/b3f-migration-record.md",
+        "rollback_owner": "mirichard"
+      }
     },
     {
       "source": "templates/traditional/Traditional/Process_Groups/Monitoring_and_Controlling/project_performance_monitoring_template.md",
@@ -3656,7 +3693,14 @@
       ],
       "batch": 3,
       "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move",
-      "action": "planned-move-not-executed"
+      "action": "executed-move-with-legacy-pointer",
+      "execution": {
+        "batch_id": "B3F",
+        "pre_batch_sha": "9fecc91628f331e0f3b4e013088f8b806afff042",
+        "pre_move_source_sha256": "8bfa9c5b021d3cddadb12e081976f092395f70605b11704b2fd0dd9938d007ba",
+        "evidence_file": "docs/vnext/sprint-12/b3f-migration-record.md",
+        "rollback_owner": "mirichard"
+      }
     },
     {
       "source": "templates/traditional/Traditional/Templates/project_roadmap_template.md",
@@ -3667,7 +3711,7 @@
         "Uncertainty"
       ],
       "dependencies": [
-        "templates/traditional/Traditional/Templates/change_management_plan_template.md",
+        "domains/delivery/templates/traditional/Traditional/Templates/change_management_plan_template.md",
         "domains/delivery/templates/traditional/Traditional/Templates/issue_log_template.md",
         "domains/planning/templates/traditional/Traditional/Templates/program_charter_template.md"
       ],
@@ -3689,7 +3733,14 @@
       ],
       "batch": 3,
       "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move",
-      "action": "planned-move-not-executed"
+      "action": "executed-move-with-legacy-pointer",
+      "execution": {
+        "batch_id": "B3F",
+        "pre_batch_sha": "9fecc91628f331e0f3b4e013088f8b806afff042",
+        "pre_move_source_sha256": "47cf62cfa8a3716fd648e7aa80bbf01cbb9f2090a6c3fa396be04b2ec9bfbd99",
+        "evidence_file": "docs/vnext/sprint-12/b3f-migration-record.md",
+        "rollback_owner": "mirichard"
+      }
     },
     {
       "source": "templates/traditional/Traditional/Process_Groups/Planning/project_schedule_template.md",
@@ -3700,8 +3751,8 @@
         "Uncertainty"
       ],
       "dependencies": [
-        "templates/traditional/Traditional/Templates/change_request_template.md",
-        "templates/traditional/Traditional/Templates/communication_plan_template.md",
+        "domains/delivery/templates/traditional/Traditional/Templates/change_request_template.md",
+        "domains/delivery/templates/traditional/Traditional/Templates/communication_plan_template.md",
         "domains/planning/templates/traditional/Traditional/Process_Groups/Initiating/project_charter_template.md"
       ],
       "affected_internal_references": [
@@ -3726,7 +3777,14 @@
       ],
       "batch": 3,
       "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move",
-      "action": "planned-move-not-executed"
+      "action": "executed-move-with-legacy-pointer",
+      "execution": {
+        "batch_id": "B3F",
+        "pre_batch_sha": "9fecc91628f331e0f3b4e013088f8b806afff042",
+        "pre_move_source_sha256": "369379d571d8d8979138042f015ae2ed8989a486b99924a0c62f25be999778e5",
+        "evidence_file": "docs/vnext/sprint-12/b3f-migration-record.md",
+        "rollback_owner": "mirichard"
+      }
     },
     {
       "source": "templates/traditional/Traditional/Templates/purchase_order_template.md",
@@ -3734,7 +3792,7 @@
       "primary_domain": "Delivery",
       "secondary_domains": [],
       "dependencies": [
-        "templates/traditional/Traditional/Templates/raid_log_template.md",
+        "domains/delivery/templates/traditional/Traditional/Templates/raid_log_template.md",
         "domains/team/templates/traditional/Traditional/Process_Groups/Executing/team_performance_assessment_template.md",
         "domains/planning/templates/traditional/Traditional/Templates/business_case_template.md"
       ],
@@ -3753,7 +3811,14 @@
       ],
       "batch": 3,
       "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move",
-      "action": "planned-move-not-executed"
+      "action": "executed-move-with-legacy-pointer",
+      "execution": {
+        "batch_id": "B3F",
+        "pre_batch_sha": "9fecc91628f331e0f3b4e013088f8b806afff042",
+        "pre_move_source_sha256": "1774015a25b64d49da2cc535984350fa488dc52a0e4f07c7882454e0d032b4f6",
+        "evidence_file": "docs/vnext/sprint-12/b3f-migration-record.md",
+        "rollback_owner": "mirichard"
+      }
     },
     {
       "source": "industry-specializations/healthcare-pharmaceutical/quality/quality_management_review_template.md",
@@ -3858,7 +3923,14 @@
       ],
       "batch": 3,
       "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move",
-      "action": "planned-move-not-executed"
+      "action": "executed-move-with-legacy-pointer",
+      "execution": {
+        "batch_id": "B3F",
+        "pre_batch_sha": "9fecc91628f331e0f3b4e013088f8b806afff042",
+        "pre_move_source_sha256": "fe40e55482e765f09610b14f1a3f02b91048c9e0f77833b0952b61c3dfd1862b",
+        "evidence_file": "docs/vnext/sprint-12/b3f-migration-record.md",
+        "rollback_owner": "mirichard"
+      }
     },
     {
       "source": "industry-specializations/healthcare-pharmaceutical/regulatory/regulatory_inspection_readiness_plan_template.md",
@@ -4992,8 +5064,8 @@
         "Stakeholder"
       ],
       "dependencies": [
-        "templates/traditional/Traditional/Templates/change_request_template.md",
-        "templates/traditional/Traditional/Templates/communication_plan_template.md",
+        "domains/delivery/templates/traditional/Traditional/Templates/change_request_template.md",
+        "domains/delivery/templates/traditional/Traditional/Templates/communication_plan_template.md",
         "domains/planning/templates/traditional/Traditional/Process_Groups/Initiating/project_charter_template.md"
       ],
       "affected_internal_references": [
@@ -5226,7 +5298,14 @@
       ],
       "batch": 3,
       "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move",
-      "action": "planned-move-not-executed"
+      "action": "executed-move-with-legacy-pointer",
+      "execution": {
+        "batch_id": "B3F",
+        "pre_batch_sha": "9fecc91628f331e0f3b4e013088f8b806afff042",
+        "pre_move_source_sha256": "ee173547e1cd8905fc329ac748356545fd7dfb7a0c241a8e9e83151c20bb092f",
+        "evidence_file": "docs/vnext/sprint-12/b3f-migration-record.md",
+        "rollback_owner": "mirichard"
+      }
     },
     {
       "source": "templates/traditional/Traditional/Templates/uat_strategy_template.md",
@@ -5259,7 +5338,14 @@
       ],
       "batch": 3,
       "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move",
-      "action": "planned-move-not-executed"
+      "action": "executed-move-with-legacy-pointer",
+      "execution": {
+        "batch_id": "B3F",
+        "pre_batch_sha": "9fecc91628f331e0f3b4e013088f8b806afff042",
+        "pre_move_source_sha256": "aa9a0c9345aae72ef671fa4e03230dea2ba06cc1234a9d318069dfcc9f3847c8",
+        "evidence_file": "docs/vnext/sprint-12/b3f-migration-record.md",
+        "rollback_owner": "mirichard"
+      }
     },
     {
       "source": "industry-specializations/information-technology/software-development/user_story_mapping_template.md",
@@ -5383,8 +5469,8 @@
       "primary_domain": "Stakeholder",
       "secondary_domains": [],
       "dependencies": [
-        "templates/traditional/Traditional/Templates/change_request_template.md",
-        "templates/traditional/Traditional/Templates/communication_plan_template.md",
+        "domains/delivery/templates/traditional/Traditional/Templates/change_request_template.md",
+        "domains/delivery/templates/traditional/Traditional/Templates/communication_plan_template.md",
         "domains/planning/templates/traditional/Traditional/Process_Groups/Initiating/project_charter_template.md"
       ],
       "affected_internal_references": [
@@ -5449,7 +5535,14 @@
       ],
       "batch": 3,
       "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move",
-      "action": "planned-move-not-executed"
+      "action": "executed-move-with-legacy-pointer",
+      "execution": {
+        "batch_id": "B3F",
+        "pre_batch_sha": "9fecc91628f331e0f3b4e013088f8b806afff042",
+        "pre_move_source_sha256": "315f67d04de2d3b5dc32be6132f60caede285666fd8cc2362c6b16c02b8d4f15",
+        "evidence_file": "docs/vnext/sprint-12/b3f-migration-record.md",
+        "rollback_owner": "mirichard"
+      }
     }
   ]
 }

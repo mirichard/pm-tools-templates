@@ -15,7 +15,7 @@
 
 title: "Uat Plan Template"
 
-[**➡️ View Template File**](/templates/traditional/Traditional/Templates/uat_plan_template.md)
+[**➡️ View Template File**](/domains/delivery/templates/traditional/Traditional/Templates/uat_plan_template.md)
 
 ## 📈 Quality Score
 
