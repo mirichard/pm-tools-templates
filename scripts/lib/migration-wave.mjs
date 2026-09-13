@@ -395,6 +395,8 @@ export function validateWavePlan({ root, inventory, plan }) {
         fail(`executed destination is not a readable regular file: ${asset.destination}`);
       }
       if (move.execution?.batch_id !== plan.wave_id) fail(`execution batch_id mismatch: ${asset.source}`);
+      if (move.execution?.pre_batch_sha !== plan.pre_batch_sha) fail(`execution checkpoint mismatch: ${asset.source}`);
+      if (move.execution?.pre_move_source_sha256 !== asset.pre_move_sha256) fail(`execution source hash mismatch: ${asset.source}`);
       if (fs.existsSync(sourcePath)) {
         const pointer = fs.readFileSync(sourcePath, 'utf8')
           .match(/^\s*\*{0,2}Canonical location:?\*{0,2}\s*\[[^\]]+\]\(([^)]+)\)/im);

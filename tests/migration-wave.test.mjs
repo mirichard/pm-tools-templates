@@ -105,9 +105,14 @@ test('validates the same manifest after an executed move', t => {
   fs.renameSync(path.join(root, move.source), path.join(root, move.destination));
   fs.writeFileSync(path.join(root, move.source), '# Moved\n\nCanonical location: [A](../domains/stakeholder/legacy/a.md)\n');
   move.action = 'executed-move-with-legacy-pointer';
-  move.execution = { batch_id: 'B1F' };
+  move.execution = { batch_id: 'B1F', pre_batch_sha: plan.pre_batch_sha, pre_move_source_sha256: plan.assets.find(asset => asset.source === move.source).pre_move_sha256 };
   plan.phase = 'executed';
   assert.deepEqual(validateWavePlan({ root, inventory, plan }), []);
+  move.execution.pre_batch_sha = '0'.repeat(40);
+  move.execution.pre_move_source_sha256 = '0'.repeat(64);
+  const errors = validateWavePlan({ root, inventory, plan }).join('\n');
+  assert.match(errors, /execution checkpoint mismatch/);
+  assert.match(errors, /execution source hash mismatch/);
 });
 
 test('validates immutable same-wave dependency evidence after inventory paths normalize', t => {
@@ -120,7 +125,7 @@ test('validates immutable same-wave dependency evidence after inventory paths no
     fs.mkdirSync(path.dirname(path.join(root, move.source)), { recursive: true });
     fs.writeFileSync(path.join(root, move.source), `# Moved\n\nCanonical location: [template](${pointer})\n`);
     move.action = 'executed-move-with-legacy-pointer';
-    move.execution = { batch_id: 'B1F' };
+    move.execution = { batch_id: 'B1F', pre_batch_sha: plan.pre_batch_sha, pre_move_source_sha256: plan.assets.find(asset => asset.source === move.source).pre_move_sha256 };
   }
   inventory.moves[1].dependencies = [inventory.moves[0].destination];
   plan.phase = 'executed';
@@ -137,7 +142,7 @@ test('validates immutable deferred dependency evidence after a later wave execut
   fs.renameSync(path.join(root, selected.source), path.join(root, selected.destination));
   fs.writeFileSync(path.join(root, selected.source), '# Moved\n\nCanonical location: [B](../domains/stakeholder/legacy/b.md)\n');
   selected.action = 'executed-move-with-legacy-pointer';
-  selected.execution = { batch_id: 'B1F' };
+  selected.execution = { batch_id: 'B1F', pre_batch_sha: plan.pre_batch_sha, pre_move_source_sha256: plan.assets.find(asset => asset.source === selected.source).pre_move_sha256 };
   plan.phase = 'executed';
 
   const later = inventory.moves[0];
@@ -162,7 +167,7 @@ test('validates canonical location link when other links exist', t => {
     '# Moved\n\n[Other](./README.md)\n\n**Canonical location:** [A](<../domains/stakeholder/legacy/a.md#section>)\n'
   );
   move.action = 'executed-move-with-legacy-pointer';
-  move.execution = { batch_id: 'B1F' };
+  move.execution = { batch_id: 'B1F', pre_batch_sha: plan.pre_batch_sha, pre_move_source_sha256: plan.assets.find(asset => asset.source === move.source).pre_move_sha256 };
   plan.phase = 'executed';
   assert.deepEqual(validateWavePlan({ root, inventory, plan }), []);
 });
@@ -278,7 +283,7 @@ test('replaces only checkpointed navigation and detects drift and forged evidenc
   fs.copyFileSync(path.join(root, move.source), destination);
   fs.writeFileSync(path.join(root, move.source), '# Moved\nCanonical location: [A](../domains/stakeholder/legacy/a.md)\n');
   move.action = 'executed-move-with-legacy-pointer';
-  move.execution = { batch_id: 'B1F' };
+  move.execution = { batch_id: 'B1F', pre_batch_sha: plan.pre_batch_sha, pre_move_source_sha256: plan.assets.find(asset => asset.source === move.source).pre_move_sha256 };
   plan.phase = 'executed';
   assert.deepEqual(validateWavePlan({ root, inventory, plan }), []);
   delete plan.assets[0].destination_replacement;
@@ -315,7 +320,7 @@ test('anchors source hashes to the checkpoint before and after execution', t => 
   fs.renameSync(path.join(root, move.source), path.join(root, move.destination));
   fs.writeFileSync(path.join(root, move.source), '# Moved\nCanonical location: [A](../domains/stakeholder/legacy/a.md)\n');
   move.action = 'executed-move-with-legacy-pointer';
-  move.execution = { batch_id: 'B1F' };
+  move.execution = { batch_id: 'B1F', pre_batch_sha: plan.pre_batch_sha, pre_move_source_sha256: plan.assets.find(asset => asset.source === move.source).pre_move_sha256 };
   plan.phase = 'executed';
   assert.match(validateWavePlan({ root, inventory, plan }).join('\n'), /checkpoint source hash mismatch/);
 });
@@ -338,7 +343,7 @@ test('rejects executed symlinks even when their target has the correct body hash
   fs.symlinkSync(original, path.join(root, move.destination));
   fs.writeFileSync(path.join(root, move.source), '# Moved\nCanonical location: [A](../domains/stakeholder/legacy/a.md)\n');
   move.action = 'executed-move-with-legacy-pointer';
-  move.execution = { batch_id: 'B1F' };
+  move.execution = { batch_id: 'B1F', pre_batch_sha: plan.pre_batch_sha, pre_move_source_sha256: plan.assets.find(asset => asset.source === move.source).pre_move_sha256 };
   plan.phase = 'executed';
   assert.match(validateWavePlan({ root, inventory, plan }).join('\n'), /executed destination is not a readable regular file/);
 });
