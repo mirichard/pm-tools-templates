@@ -84,15 +84,15 @@ class RequirementsStructurer {
     }
 
     if (parsed.basicFlow.length > 0) {
-      parts.push(`\nBasic Flow:\n${parsed.basicFlow.map((s, i) => `${i + 1}. ${s}`).join('\n')}`);
+      parts.push(`\nBasic Flow:\n${parsed.basicFlow.map((s, i) => `${i + 1}. [${s.id}] ${s.text}`).join('\n')}`);
     }
 
     if (parsed.alternativeFlows.length > 0) {
-      parts.push(`\nAlternative Flows:\n${parsed.alternativeFlows.map((s) => `- ${s}`).join('\n')}`);
+      parts.push(`\nAlternative Flows:\n${parsed.alternativeFlows.map((s) => `- [${s.id}] ${s.text}`).join('\n')}`);
     }
 
     if (parsed.exceptionFlows.length > 0) {
-      parts.push(`\nException Flows:\n${parsed.exceptionFlows.map((s) => `- ${s}`).join('\n')}`);
+      parts.push(`\nException Flows:\n${parsed.exceptionFlows.map((s) => `- [${s.id}] ${s.text}`).join('\n')}`);
     }
 
     if (parsed.postconditions.length > 0) {

@@ -32,15 +32,18 @@ class RequirementsParser {
   parseContent(content) {
     const sections = this._extractSections(content);
 
+    const usedIds = new Set();
+    const flows = Object.fromEntries([['basicFlow', 'basic flow', 'BF'],
+      ['alternativeFlows', 'alternative flows', 'AF'], ['exceptionFlows', 'exception flows', 'EF']]
+      .map(([name, section, prefix]) => [name, this._extractFlow(sections, section, prefix, usedIds)]));
+
     return {
       useCaseId: this._extractField(sections, 'use case id') || null,
       useCaseName: this._extractField(sections, 'use case name') || null,
       actors: this._extractList(sections, 'actors'),
       preconditions: this._extractList(sections, 'preconditions'),
       postconditions: this._extractList(sections, 'postconditions'),
-      basicFlow: this._extractList(sections, 'basic flow'),
-      alternativeFlows: this._extractList(sections, 'alternative flows'),
-      exceptionFlows: this._extractList(sections, 'exception flows'),
+      ...flows,
       businessObjects: this._extractList(sections, 'business objects'),
       relatedUseCases: this._extractList(sections, 'related use cases'),
       rawText: content,
@@ -60,7 +63,7 @@ class RequirementsParser {
       const headingMatch = line.match(/^#{1,3}\s+(.+)/);
       if (headingMatch) {
         if (currentHeading) {
-          sections[currentHeading] = currentContent.join('\n').trim();
+          sections[currentHeading] = currentContent.join('\n');
         }
         currentHeading = headingMatch[1].trim().toLowerCase();
         currentContent = [];
@@ -70,7 +73,7 @@ class RequirementsParser {
     }
 
     if (currentHeading) {
-      sections[currentHeading] = currentContent.join('\n').trim();
+      sections[currentHeading] = currentContent.join('\n');
     }
 
     return sections;
@@ -88,6 +91,20 @@ class RequirementsParser {
       .map((l) => l.replace(/^[-*]\s*/, '').trim())
       .filter(Boolean);
     return lines[0] || null;
+  }
+
+  /** Retain source lines separately from normalized prompt text. Positional IDs
+   * are stable for unchanged input; explicit labels survive reordering. */
+  _extractFlow(sections, key, prefix, usedIds) {
+    return (sections[key] || '').split('\n').filter((line) => line.trim())
+      .map((originalText, index) => {
+        const text = originalText.replace(/^\d+\.\s*/, '').replace(/^[-*]\s*/, '').trim();
+        const label = text.match(/^([A-Za-z][A-Za-z0-9_-]*):\s*/);
+        const id = label ? label[1] : `${prefix}-${index + 1}`;
+        if (usedIds.has(id)) throw new Error(`Duplicate source requirement ID "${id}" in ${key}. Use unique labels.`);
+        usedIds.add(id);
+        return { id, originalText, text };
+      });
   }
 
   /**
