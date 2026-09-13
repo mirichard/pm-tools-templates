@@ -75,7 +75,11 @@ const migration = mappings.map(item => {
     destination: resolvedDestination,
     primary_domain: item.domain.primary,
     secondary_domains: item.domain.secondary,
-    dependencies: (relationshipSeed?.relatedTemplates || []).slice(0, 3).map(value => normalize(value.path)),
+    // Executed dependencies are recorded wave evidence, including an empty list.
+    // Canonicalize their paths below without replacing them with catalog suggestions.
+    dependencies: isExecutedMove
+      ? (existingMove.dependencies || []).map(normalize)
+      : (relationshipSeed?.relatedTemplates || []).slice(0, 3).map(value => normalize(value.path)),
     affected_internal_references: isExecutedMove
       ? (existingMove.affected_internal_references || [])
       : inboundLinks(resolvedSource),

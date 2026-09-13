@@ -4116,11 +4116,7 @@
         "Planning",
         "Stakeholder"
       ],
-      "dependencies": [
-        "domains/team/project-lifecycle/02-planning/resource-planning/skills-matrix-template.md",
-        "domains/planning/role-based-toolkits/project-manager/essential-templates/budget-template.md",
-        "methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md"
-      ],
+      "dependencies": [],
       "affected_internal_references": [
         "docs/decision-engine/bundles/enterprise-governance-bundle.md",
         "docs/decision-engine/bundles/hybrid-balanced-bundle.md",
@@ -4718,11 +4714,7 @@
       "secondary_domains": [
         "Stakeholder"
       ],
-      "dependencies": [
-        "domains/uncertainty/role-based-toolkits/product-owner/backlog-management-template.md",
-        "domains/uncertainty/project-lifecycle/04-monitoring-control/progress-tracking/project-dashboard-template.md",
-        "domains/uncertainty/industry-specializations/information-technology/software-development/requirements_specification_template.md"
-      ],
+      "dependencies": [],
       "affected_internal_references": [
         "docs/decision-engine/bundles/hybrid-balanced-bundle.md",
         "docs/decision-engine/bundles/new-pm-traditional-small-bundle.md",

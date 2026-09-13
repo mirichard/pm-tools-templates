@@ -4,7 +4,48 @@ import os from 'node:os';
 import path from 'node:path';
 import { execFileSync } from 'node:child_process';
 import test from 'node:test';
+import { fileURLToPath } from 'node:url';
 import { buildWavePlan, validateWavePlan } from '../scripts/lib/migration-wave.mjs';
+
+test('metadata regeneration preserves executed dependencies while canonicalizing paths', t => {
+  const root = fs.mkdtempSync(path.join(os.tmpdir(), 'migration-metadata-'));
+  t.after(() => fs.rmSync(root, { recursive: true, force: true }));
+  const destination = name => `domains/delivery/legacy/${name}.md`;
+  const moves = ['a', 'b', 'c'].map(name => ({
+    source: `legacy/${name}.md`, destination: destination(name),
+    action: name === 'c' ? 'planned-move-not-executed' : 'executed-move-with-legacy-pointer',
+    dependencies: name === 'b' ? ['legacy/a.md'] : [],
+    affected_internal_references: []
+  }));
+  const mappings = moves.map(move => ({
+    path: move.action === 'planned-move-not-executed' ? move.source : move.destination,
+    domain: { primary: 'Delivery', secondary: [] }
+  }));
+  for (const mapping of mappings) {
+    const file = path.join(root, mapping.path);
+    fs.mkdirSync(path.dirname(file), { recursive: true });
+    fs.writeFileSync(file, '# Fixture\n');
+  }
+  fs.mkdirSync(path.join(root, 'meta'), { recursive: true });
+  fs.mkdirSync(path.join(root, 'templates'), { recursive: true });
+  const writeJson = (file, data) => fs.writeFileSync(path.join(root, file), JSON.stringify(data));
+  writeJson('meta/migration-inventory.json', { generated: '2026-09-12', moves });
+  writeJson('meta/domain-mapping.json', { mappings });
+  writeJson('templates/templates.json', { templates: mappings.map(mapping => ({
+    path: mapping.path, relatedTemplates: [{ path: 'legacy/a.md' }, { path: 'legacy/c.md' }]
+  })) });
+  const generator = fileURLToPath(new URL('../scripts/generate-sprint-10-metadata.mjs', import.meta.url));
+  execFileSync(process.execPath, [generator], { cwd: root });
+  const inventoryPath = path.join(root, 'meta/migration-inventory.json');
+  const first = fs.readFileSync(inventoryPath, 'utf8');
+  const generated = JSON.parse(first).moves;
+  assert.deepEqual(generated[0].dependencies, []);
+  assert.deepEqual(generated[1].dependencies, [destination('a')]);
+  assert.deepEqual(generated[2].dependencies, [destination('a'), 'legacy/c.md']);
+  execFileSync(process.execPath, [generator], { cwd: root });
+  const regenerated = JSON.parse(fs.readFileSync(inventoryPath, 'utf8')).moves;
+  assert.deepEqual(regenerated.map(move => move.dependencies), generated.map(move => move.dependencies));
+});
 
 function fixture(t) {
   const root = fs.mkdtempSync(path.join(os.tmpdir(), 'migration-wave-'));
