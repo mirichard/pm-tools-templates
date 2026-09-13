@@ -4,7 +4,7 @@
 
 This file provides navigation only for relative links preserved in migrated templates. The maintained resource is linked below.
 
-[Open the maintained Risk Register Template](../../../../../../templates/traditional/Traditional/Templates/risk_register_template.md)
+[Open the maintained Risk Register Template](../../../../../uncertainty/project-lifecycle/02-planning/risk-management/risk-register-template.md)
 
 ## Usage instructions
 

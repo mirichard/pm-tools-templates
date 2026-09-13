@@ -8,7 +8,7 @@
 
 ## Scope and integrity
 
-The final 12 Delivery assets preserve their pre-move SHA-256 values. Legacy files provide relative canonical-location pointers; catalog aliases retain source identities. No canonical destination was replaced. Dependencies are in this wave or available at existing paths. One navigation-only compatibility file preserves the moved change-management plan's relative risk-register link.
+The final 12 Delivery assets preserve their pre-move SHA-256 values. Legacy files provide relative canonical-location pointers; catalog aliases retain source identities. No canonical destination was replaced. Dependencies are in this wave or available at existing paths. One navigation-only compatibility file preserves the moved change-management plan's relative risk-register link and points directly to the catalog's canonical Uncertainty-domain Risk Register.
 
 | Legacy source | Canonical destination | SHA-256 |
 |---|---|---|
@@ -30,6 +30,10 @@ The final 12 Delivery assets preserve their pre-move SHA-256 values. Legacy file
 Entry/executed manifests, migration post-check, catalog/canonical validation, and 137/137 annotation coverage passed. All 47 migration/catalog tests and 17 metadata tests passed. Changed-body metadata has zero blocking errors. Scoped link validation checked 44 files and 389 local inline links: six inherited failures, zero new failures. Final CI and visual results are recorded in the delivery PR. This record does not assert that pending CI, security, or reviewed visual gates have passed. No threshold change, exclusion, or blanket baseline update is authorized.
 
 Inventory after execution: 110 executed / 27 remaining, all remaining assets in Measurement. Migration issues remain open.
+
+## Review dispositions
+
+Copilot identified a compatibility-link correction, now addressed by linking directly to the catalog canonical Risk Register. Two inherited truncated endings (`may require buf` in Project Schedule and `Avoid over-` in WBS) were confirmed byte-identical in the pre-batch sources. They are explicitly deferred and tracked in #1145 for a separate content-quality change; this migration preserves their recorded hashes.
 
 ## Integration and rollback
 
