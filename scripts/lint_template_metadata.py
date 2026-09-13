@@ -8,6 +8,10 @@ only outside that identity set. Unchanged metadata debt is reported separately;
 all pointers are checked, including compatibility links outside migration waves.
 """
 import argparse
+import hashlib
+import hmac
+import os
+import stat
 from datetime import date
 import json
 from pathlib import Path
@@ -156,7 +160,58 @@ def metadata(content, today=None):
     return errors, warnings
 
 
-def lint(root, changed, old_identities=(), today=None, old_primary=None):
+def read_regular_bytes(path):
+    """Check and read the same no-follow file descriptor."""
+    descriptor = os.open(path, os.O_RDONLY | os.O_NOFOLLOW)
+    try:
+        if not stat.S_ISREG(os.fstat(descriptor).st_mode):
+            raise OSError('Expected a regular file')
+        with os.fdopen(descriptor, 'rb', closefd=False) as stream:
+            return stream.read()
+    finally:
+        os.close(descriptor)
+
+
+def unchanged_migration_debt(root, base, old_primary):
+    """Transfer debt only when a planned canonical source is moved byte-for-byte."""
+    inventory_path = 'meta/migration-inventory.json'
+    try:
+        previous = json.loads(git(root, 'show', f'{base}:{inventory_path}'))
+        current = json.loads((Path(root) / inventory_path).read_text())
+    except (subprocess.CalledProcessError, OSError, ValueError):
+        return {}
+    previous_moves = {move['source']: move for move in previous.get('moves', [])}
+    inherited = {}
+    for move in current.get('moves', []):
+        source, destination = move.get('source'), move.get('destination')
+        before = previous_moves.get(source, {})
+        if (source not in old_primary or before.get('action') != 'planned-move-not-executed'
+                or move.get('action') != 'executed-move-with-legacy-pointer'
+                or before.get('destination') != destination):
+            continue
+        try:
+            original = git(root, 'show', f'{base}:{source}')
+            body = Path(root) / destination
+            if read_regular_bytes(body) != original:
+                continue
+            execution = move.get('execution', {})
+            recorded_hash = execution.get('pre_move_source_sha256', '')
+            if not isinstance(recorded_hash, str) or not re.fullmatch(r'[0-9a-f]{64}', recorded_hash):
+                continue
+            if not hmac.compare_digest(hashlib.sha256(original).hexdigest(), recorded_hash):
+                continue
+            # Navigation is validated separately for every pointer in lint().
+            legacy = Path(root) / source
+            navigation = read_regular_bytes(legacy).decode()
+            if not pointer_candidate(navigation) or pointer_errors(root, source, navigation):
+                continue
+            inherited[destination] = metadata(original.decode())[0]
+        except (subprocess.CalledProcessError, OSError, UnicodeError):
+            continue
+    return inherited
+
+
+def lint(root, changed, old_identities=(), today=None, old_primary=None, migration_debt=None):
     root = Path(root)
     catalog = (root / CATALOG).read_text()
     identities = catalog_paths(catalog)
@@ -183,7 +238,9 @@ def lint(root, changed, old_identities=(), today=None, old_primary=None):
                 errors.append(f'{path}: catalog canonical body is a pointer')
         elif kind == 'canonical':
             found, stale = metadata(content, today)
-            (errors if path in strict else debt).extend(f'{path}: {e}' for e in found)
+            for error in found:
+                inherited_error = error in (migration_debt or {}).get(path, [])
+                (errors if path in strict and not inherited_error else debt).append(f'{path}: {error}')
             warnings.extend(f'{path}: {w}' for w in stale)
     return dict(errors=errors, inherited_debt=debt, warnings=warnings, classifications=classifications,
                 changed=sorted(changed), strict=sorted(strict))
@@ -211,7 +268,8 @@ def main():
         previous = subprocess.run(['git', 'show', f'{base}:{path}'], capture_output=True, text=True)
         if previous.returncode == 0 and classify(path, previous.stdout, old) == 'canonical':
             old.add(path)
-    result = lint(root, changed, old, old_primary=primary_paths(old_catalog))
+    result = lint(root, changed, old, old_primary=primary_paths(old_catalog),
+                  migration_debt=unchanged_migration_debt(root, base, primary_paths(old_catalog)))
     for group in ('errors', 'inherited_debt', 'warnings'):
         print(f'{group}: {len(result[group])}')
         for message in result[group]: print(f'  {message}')

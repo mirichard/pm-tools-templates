@@ -660,14 +660,62 @@
       ],
       "related_assets": [
         "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md",
-        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/pi_planning_template.md"
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/pi_planning_template.md"
       ],
       "complementary_assets": [
         "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_metrics_dashboard_template.md",
         "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_metrics_reporting_template.md"
       ],
       "previous_workflow_step": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md",
-      "next_workflow_step": "methodology-frameworks/agile-scrum/scaling-frameworks/safe/pi_planning_template.md"
+      "next_workflow_step": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/pi_planning_template.md"
+    },
+    {
+      "path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/pi_planning_template.md",
+      "domain": {
+        "primary": "Delivery",
+        "secondary": [
+          "Stakeholder",
+          "Uncertainty"
+        ],
+        "rationale": "Methodology-specific template guides delivery execution"
+      },
+      "prerequisites": [
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/portfolio_kanban_template.md"
+      ],
+      "related_assets": [
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/metrics_dashboard_template.md",
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/portfolio_kanban_template.md"
+      ],
+      "complementary_assets": [
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_program_increment_planning_template.md",
+        "methodology-frameworks/agile-scrum/sprint-planning/sprint_planning_template.md"
+      ],
+      "previous_workflow_step": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/metrics_dashboard_template.md",
+      "next_workflow_step": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/portfolio_kanban_template.md"
+    },
+    {
+      "path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/portfolio_kanban_template.md",
+      "domain": {
+        "primary": "Delivery",
+        "secondary": [
+          "Stakeholder",
+          "Uncertainty"
+        ],
+        "rationale": "Methodology-specific template guides delivery execution"
+      },
+      "prerequisites": [
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_portfolio_kanban_template.md"
+      ],
+      "related_assets": [
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/pi_planning_template.md",
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_art_coordination_template.md"
+      ],
+      "complementary_assets": [
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_portfolio_kanban_template.md",
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_program_increment_planning_template.md"
+      ],
+      "previous_workflow_step": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/pi_planning_template.md",
+      "next_workflow_step": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_art_coordination_template.md"
     },
     {
       "path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_art_coordination_template.md",
@@ -683,14 +731,14 @@
         "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md"
       ],
       "related_assets": [
-        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/portfolio_kanban_template.md",
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/portfolio_kanban_template.md",
         "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_metrics_dashboard_template.md"
       ],
       "complementary_assets": [
         "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md",
         "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/less/cross_team_coordination_template.md"
       ],
-      "previous_workflow_step": "methodology-frameworks/agile-scrum/scaling-frameworks/safe/portfolio_kanban_template.md",
+      "previous_workflow_step": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/portfolio_kanban_template.md",
       "next_workflow_step": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_metrics_dashboard_template.md"
     },
     {
@@ -712,7 +760,7 @@
       ],
       "complementary_assets": [
         "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/metrics_dashboard_template.md",
-        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_program_increment_planning_template.md"
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_program_increment_planning_template.md"
       ],
       "previous_workflow_step": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_art_coordination_template.md",
       "next_workflow_step": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_metrics_reporting_template.md"
@@ -732,14 +780,157 @@
       ],
       "related_assets": [
         "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_metrics_dashboard_template.md",
-        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_portfolio_kanban_template.md"
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_portfolio_kanban_template.md"
       ],
       "complementary_assets": [
         "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/metrics_dashboard_template.md",
         "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_art_coordination_template.md"
       ],
       "previous_workflow_step": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_metrics_dashboard_template.md",
-      "next_workflow_step": "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_portfolio_kanban_template.md"
+      "next_workflow_step": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_portfolio_kanban_template.md"
+    },
+    {
+      "path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_portfolio_kanban_template.md",
+      "domain": {
+        "primary": "Delivery",
+        "secondary": [
+          "Stakeholder",
+          "Uncertainty"
+        ],
+        "rationale": "Methodology-specific template guides delivery execution"
+      },
+      "prerequisites": [
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/portfolio_kanban_template.md"
+      ],
+      "related_assets": [
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_metrics_reporting_template.md",
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_program_increment_planning_template.md"
+      ],
+      "complementary_assets": [
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/portfolio_kanban_template.md",
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/metrics_dashboard_template.md"
+      ],
+      "previous_workflow_step": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_metrics_reporting_template.md",
+      "next_workflow_step": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_program_increment_planning_template.md"
+    },
+    {
+      "path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_program_increment_planning_template.md",
+      "domain": {
+        "primary": "Delivery",
+        "secondary": [
+          "Stakeholder",
+          "Uncertainty"
+        ],
+        "rationale": "Methodology-specific template guides delivery execution"
+      },
+      "prerequisites": [
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md"
+      ],
+      "related_assets": [
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_portfolio_kanban_template.md",
+        "domains/delivery/methodology-frameworks/hybrid/infrastructure/hybrid-infrastructure-template.md"
+      ],
+      "complementary_assets": [
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md",
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/less/cross_team_coordination_template.md"
+      ],
+      "previous_workflow_step": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_portfolio_kanban_template.md",
+      "next_workflow_step": "domains/delivery/methodology-frameworks/hybrid/infrastructure/hybrid-infrastructure-template.md"
+    },
+    {
+      "path": "domains/delivery/methodology-frameworks/hybrid/infrastructure/hybrid-infrastructure-template.md",
+      "domain": {
+        "primary": "Delivery",
+        "secondary": [
+          "Stakeholder",
+          "Uncertainty"
+        ],
+        "rationale": "Methodology-specific template guides delivery execution"
+      },
+      "prerequisites": [
+        "domains/delivery/templates/hybrid/Hybrid/Templates/integrated_change_strategy_template.md"
+      ],
+      "related_assets": [
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_program_increment_planning_template.md",
+        "domains/delivery/project-assessment-suite/agile-project-assessment-template.md"
+      ],
+      "complementary_assets": [
+        "domains/delivery/templates/hybrid/Hybrid/Templates/integrated_change_strategy_template.md",
+        "domains/delivery/templates/hybrid/Hybrid/Templates/progressive_acceptance_plan_template.md"
+      ],
+      "previous_workflow_step": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_program_increment_planning_template.md",
+      "next_workflow_step": "domains/delivery/project-assessment-suite/agile-project-assessment-template.md"
+    },
+    {
+      "path": "domains/delivery/project-assessment-suite/agile-project-assessment-template.md",
+      "domain": {
+        "primary": "Delivery",
+        "secondary": [
+          "Stakeholder"
+        ],
+        "rationale": "Methodology-specific template guides delivery execution"
+      },
+      "prerequisites": [
+        "domains/stakeholder/project-assessment-suite/stakeholder-engagement-assessment-template.md"
+      ],
+      "related_assets": [
+        "domains/delivery/methodology-frameworks/hybrid/infrastructure/hybrid-infrastructure-template.md",
+        "domains/delivery/project-assessment-suite/hybrid-project-assessment-template.md"
+      ],
+      "complementary_assets": [
+        "domains/stakeholder/project-assessment-suite/stakeholder-engagement-assessment-template.md",
+        "domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/agile-stakeholder-map-template.md"
+      ],
+      "previous_workflow_step": "domains/delivery/methodology-frameworks/hybrid/infrastructure/hybrid-infrastructure-template.md",
+      "next_workflow_step": "domains/delivery/project-assessment-suite/hybrid-project-assessment-template.md"
+    },
+    {
+      "path": "domains/delivery/project-assessment-suite/hybrid-project-assessment-template.md",
+      "domain": {
+        "primary": "Delivery",
+        "secondary": [
+          "Stakeholder",
+          "Uncertainty"
+        ],
+        "rationale": "Methodology-specific template guides delivery execution"
+      },
+      "prerequisites": [
+        "domains/uncertainty/project-assessment-suite/assessment-report-template.md"
+      ],
+      "related_assets": [
+        "domains/delivery/project-assessment-suite/agile-project-assessment-template.md",
+        "project-lifecycle/02-planning/project-management-plan/agile-release-plan-template.md"
+      ],
+      "complementary_assets": [
+        "domains/uncertainty/project-assessment-suite/assessment-report-template.md",
+        "domains/delivery/project-lifecycle/02-planning/project-management-plan/hybrid-project-management-plan-template.md"
+      ],
+      "previous_workflow_step": "domains/delivery/project-assessment-suite/agile-project-assessment-template.md",
+      "next_workflow_step": "project-lifecycle/02-planning/project-management-plan/agile-release-plan-template.md"
+    },
+    {
+      "path": "domains/delivery/project-lifecycle/02-planning/project-management-plan/hybrid-project-management-plan-template.md",
+      "domain": {
+        "primary": "Delivery",
+        "secondary": [
+          "Stakeholder",
+          "Uncertainty"
+        ],
+        "rationale": "Methodology-specific template guides delivery execution"
+      },
+      "prerequisites": [
+        "domains/uncertainty/project-lifecycle/02-planning/risk-management/enterprise-risk-assessment-template.md"
+      ],
+      "related_assets": [
+        "project-lifecycle/02-planning/project-management-plan/agile-release-plan-template.md",
+        "project-lifecycle/02-planning/project-management-plan/traditional-project-management-plan-template.md"
+      ],
+      "complementary_assets": [
+        "domains/uncertainty/project-lifecycle/02-planning/risk-management/enterprise-risk-assessment-template.md",
+        "domains/delivery/project-assessment-suite/hybrid-project-assessment-template.md"
+      ],
+      "previous_workflow_step": "project-lifecycle/02-planning/project-management-plan/agile-release-plan-template.md",
+      "next_workflow_step": "project-lifecycle/02-planning/project-management-plan/traditional-project-management-plan-template.md"
     },
     {
       "path": "domains/delivery/role-based-toolkits/project-manager/essential-templates/timesheet-tracking-template.md",
@@ -761,6 +952,102 @@
       ],
       "previous_workflow_step": "project-lifecycle/02-planning/risk-management/agile-risk-board-template.md",
       "next_workflow_step": "templates/agile/product_backlog_template.md"
+    },
+    {
+      "path": "domains/delivery/templates/hybrid/Hybrid/Templates/hybrid_release_planning_template.md",
+      "domain": {
+        "primary": "Delivery",
+        "secondary": [
+          "Stakeholder",
+          "Uncertainty"
+        ],
+        "rationale": "Methodology-specific template guides delivery execution"
+      },
+      "prerequisites": [
+        "domains/delivery/templates/hybrid/Hybrid/Templates/hybrid_team_management_template.md"
+      ],
+      "related_assets": [
+        "templates/hybrid/Hybrid/Templates/hybrid_quality_management_template.md",
+        "domains/delivery/templates/hybrid/Hybrid/Templates/hybrid_team_management_template.md"
+      ],
+      "complementary_assets": [
+        "domains/delivery/methodology-frameworks/hybrid/infrastructure/hybrid-infrastructure-template.md",
+        "domains/delivery/templates/hybrid/Hybrid/Templates/integrated_change_strategy_template.md"
+      ],
+      "previous_workflow_step": "templates/hybrid/Hybrid/Templates/hybrid_quality_management_template.md",
+      "next_workflow_step": "domains/delivery/templates/hybrid/Hybrid/Templates/hybrid_team_management_template.md"
+    },
+    {
+      "path": "domains/delivery/templates/hybrid/Hybrid/Templates/hybrid_team_management_template.md",
+      "domain": {
+        "primary": "Delivery",
+        "secondary": [
+          "Stakeholder",
+          "Uncertainty"
+        ],
+        "rationale": "Methodology-specific template guides delivery execution"
+      },
+      "prerequisites": [
+        "domains/delivery/templates/hybrid/Hybrid/Templates/hybrid_release_planning_template.md"
+      ],
+      "related_assets": [
+        "domains/delivery/templates/hybrid/Hybrid/Templates/hybrid_release_planning_template.md",
+        "domains/delivery/templates/hybrid/Hybrid/Templates/integrated_change_strategy_template.md"
+      ],
+      "complementary_assets": [
+        "domains/delivery/methodology-frameworks/hybrid/infrastructure/hybrid-infrastructure-template.md",
+        "domains/delivery/templates/hybrid/Hybrid/Templates/progressive_acceptance_plan_template.md"
+      ],
+      "previous_workflow_step": "domains/delivery/templates/hybrid/Hybrid/Templates/hybrid_release_planning_template.md",
+      "next_workflow_step": "domains/delivery/templates/hybrid/Hybrid/Templates/integrated_change_strategy_template.md"
+    },
+    {
+      "path": "domains/delivery/templates/hybrid/Hybrid/Templates/integrated_change_strategy_template.md",
+      "domain": {
+        "primary": "Delivery",
+        "secondary": [
+          "Stakeholder",
+          "Uncertainty"
+        ],
+        "rationale": "Methodology-specific template guides delivery execution"
+      },
+      "prerequisites": [
+        "domains/delivery/methodology-frameworks/hybrid/infrastructure/hybrid-infrastructure-template.md"
+      ],
+      "related_assets": [
+        "domains/delivery/templates/hybrid/Hybrid/Templates/hybrid_team_management_template.md",
+        "domains/delivery/templates/hybrid/Hybrid/Templates/progressive_acceptance_plan_template.md"
+      ],
+      "complementary_assets": [
+        "domains/delivery/methodology-frameworks/hybrid/infrastructure/hybrid-infrastructure-template.md",
+        "domains/delivery/templates/hybrid/Hybrid/Templates/hybrid_release_planning_template.md"
+      ],
+      "previous_workflow_step": "domains/delivery/templates/hybrid/Hybrid/Templates/hybrid_team_management_template.md",
+      "next_workflow_step": "domains/delivery/templates/hybrid/Hybrid/Templates/progressive_acceptance_plan_template.md"
+    },
+    {
+      "path": "domains/delivery/templates/hybrid/Hybrid/Templates/progressive_acceptance_plan_template.md",
+      "domain": {
+        "primary": "Delivery",
+        "secondary": [
+          "Stakeholder",
+          "Uncertainty"
+        ],
+        "rationale": "Methodology-specific template guides delivery execution"
+      },
+      "prerequisites": [
+        "domains/delivery/methodology-frameworks/hybrid/infrastructure/hybrid-infrastructure-template.md"
+      ],
+      "related_assets": [
+        "domains/delivery/templates/hybrid/Hybrid/Templates/integrated_change_strategy_template.md",
+        "templates/traditional/Traditional/Knowledge_Areas/Project_Cost_Management/roi_tracking_template.md"
+      ],
+      "complementary_assets": [
+        "domains/delivery/methodology-frameworks/hybrid/infrastructure/hybrid-infrastructure-template.md",
+        "domains/delivery/templates/hybrid/Hybrid/Templates/hybrid_release_planning_template.md"
+      ],
+      "previous_workflow_step": "domains/delivery/templates/hybrid/Hybrid/Templates/integrated_change_strategy_template.md",
+      "next_workflow_step": "templates/traditional/Traditional/Knowledge_Areas/Project_Cost_Management/roi_tracking_template.md"
     },
     {
       "path": "domains/planning/industry-specializations/information-technology/infrastructure/data_center_design_template.md",
@@ -860,15 +1147,15 @@
         "rationale": "Title/path indicates strategic planning purpose"
       },
       "prerequisites": [
-        "templates/hybrid/Hybrid/Templates/hybrid_release_planning_template.md"
+        "domains/delivery/templates/hybrid/Hybrid/Templates/hybrid_release_planning_template.md"
       ],
       "related_assets": [
         "domains/planning/role-based-toolkits/project-manager/essential-templates/budget-template.md",
         "domains/planning/templates/traditional/Traditional/Process_Groups/Initiating/project_charter_template.md"
       ],
       "complementary_assets": [
-        "templates/hybrid/Hybrid/Templates/hybrid_release_planning_template.md",
-        "templates/hybrid/Hybrid/Templates/hybrid_team_management_template.md"
+        "domains/delivery/templates/hybrid/Hybrid/Templates/hybrid_release_planning_template.md",
+        "domains/delivery/templates/hybrid/Hybrid/Templates/hybrid_team_management_template.md"
       ],
       "previous_workflow_step": "domains/planning/role-based-toolkits/project-manager/essential-templates/budget-template.md",
       "next_workflow_step": "domains/planning/templates/traditional/Traditional/Process_Groups/Initiating/project_charter_template.md"
@@ -1061,14 +1348,14 @@
         "rationale": "Title/path indicates stakeholder-focused purpose"
       },
       "prerequisites": [
-        "project-assessment-suite/agile-project-assessment-template.md"
+        "domains/delivery/project-assessment-suite/agile-project-assessment-template.md"
       ],
       "related_assets": [
         "domains/stakeholder/business-stakeholder-suite/financial-governance/enhanced-business-cases/evm-dashboard-template.md",
         "domains/stakeholder/project-assessment-suite/waterfall-project-assessment-template.md"
       ],
       "complementary_assets": [
-        "project-assessment-suite/agile-project-assessment-template.md",
+        "domains/delivery/project-assessment-suite/agile-project-assessment-template.md",
         "domains/stakeholder/role-based-toolkits/product-owner/okr-template.md"
       ],
       "previous_workflow_step": "domains/stakeholder/business-stakeholder-suite/financial-governance/enhanced-business-cases/evm-dashboard-template.md",
@@ -1113,7 +1400,7 @@
       ],
       "complementary_assets": [
         "project-lifecycle/02-planning/project-management-plan/traditional-project-management-plan-template.md",
-        "project-assessment-suite/agile-project-assessment-template.md"
+        "domains/delivery/project-assessment-suite/agile-project-assessment-template.md"
       ],
       "previous_workflow_step": "domains/stakeholder/project-assessment-suite/waterfall-project-assessment-template.md",
       "next_workflow_step": "domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/enterprise-stakeholder-analysis-template.md"
@@ -1288,7 +1575,7 @@
       ],
       "complementary_assets": [
         "role-based-toolkits/scrum-master/agile-ceremonies/sprint-planning-template.md",
-        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_program_increment_planning_template.md"
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_program_increment_planning_template.md"
       ],
       "previous_workflow_step": "domains/team/project-lifecycle/02-planning/resource-planning/team-charter-template.md",
       "next_workflow_step": "domains/team/role-based-toolkits/scrum-master/agile-ceremonies/daily-standup-template.md"
@@ -1308,7 +1595,7 @@
         "domains/team/templates/agile/sprint_retrospective_template.md"
       ],
       "complementary_assets": [
-        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/pi_planning_template.md",
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/pi_planning_template.md",
         "role-based-toolkits/scrum-master/agile-ceremonies/sprint-planning-template.md"
       ],
       "previous_workflow_step": "domains/team/role-based-toolkits/scrum-master/agile-ceremonies/backlog-refinement-template.md",
@@ -1470,7 +1757,7 @@
       ],
       "complementary_assets": [
         "domains/uncertainty/role-based-toolkits/product-owner/product-vision-template.md",
-        "project-assessment-suite/hybrid-project-assessment-template.md"
+        "domains/delivery/project-assessment-suite/hybrid-project-assessment-template.md"
       ],
       "previous_workflow_step": "domains/uncertainty/industry-specializations/information-technology/software-development/user_story_mapping_template.md",
       "next_workflow_step": "domains/uncertainty/project-lifecycle/02-planning/risk-management/enterprise-risk-assessment-template.md"
@@ -1492,7 +1779,7 @@
         "domains/uncertainty/project-lifecycle/02-planning/risk-management/risk-register-template.md"
       ],
       "complementary_assets": [
-        "project-lifecycle/02-planning/project-management-plan/hybrid-project-management-plan-template.md",
+        "domains/delivery/project-lifecycle/02-planning/project-management-plan/hybrid-project-management-plan-template.md",
         "project-lifecycle/02-planning/business-requirements/business_requirements_document_template.md"
       ],
       "previous_workflow_step": "domains/uncertainty/project-assessment-suite/assessment-report-template.md",
@@ -1862,102 +2149,6 @@
       "next_workflow_step": "methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md"
     },
     {
-      "path": "methodology-frameworks/agile-scrum/scaling-frameworks/safe/pi_planning_template.md",
-      "domain": {
-        "primary": "Delivery",
-        "secondary": [
-          "Stakeholder",
-          "Uncertainty"
-        ],
-        "rationale": "Methodology-specific template guides delivery execution"
-      },
-      "prerequisites": [
-        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/portfolio_kanban_template.md"
-      ],
-      "related_assets": [
-        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/metrics_dashboard_template.md",
-        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/portfolio_kanban_template.md"
-      ],
-      "complementary_assets": [
-        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_program_increment_planning_template.md",
-        "methodology-frameworks/agile-scrum/sprint-planning/sprint_planning_template.md"
-      ],
-      "previous_workflow_step": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/metrics_dashboard_template.md",
-      "next_workflow_step": "methodology-frameworks/agile-scrum/scaling-frameworks/safe/portfolio_kanban_template.md"
-    },
-    {
-      "path": "methodology-frameworks/agile-scrum/scaling-frameworks/safe/portfolio_kanban_template.md",
-      "domain": {
-        "primary": "Delivery",
-        "secondary": [
-          "Stakeholder",
-          "Uncertainty"
-        ],
-        "rationale": "Methodology-specific template guides delivery execution"
-      },
-      "prerequisites": [
-        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_portfolio_kanban_template.md"
-      ],
-      "related_assets": [
-        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/pi_planning_template.md",
-        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_art_coordination_template.md"
-      ],
-      "complementary_assets": [
-        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_portfolio_kanban_template.md",
-        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_program_increment_planning_template.md"
-      ],
-      "previous_workflow_step": "methodology-frameworks/agile-scrum/scaling-frameworks/safe/pi_planning_template.md",
-      "next_workflow_step": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_art_coordination_template.md"
-    },
-    {
-      "path": "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_portfolio_kanban_template.md",
-      "domain": {
-        "primary": "Delivery",
-        "secondary": [
-          "Stakeholder",
-          "Uncertainty"
-        ],
-        "rationale": "Methodology-specific template guides delivery execution"
-      },
-      "prerequisites": [
-        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/portfolio_kanban_template.md"
-      ],
-      "related_assets": [
-        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_metrics_reporting_template.md",
-        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_program_increment_planning_template.md"
-      ],
-      "complementary_assets": [
-        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/portfolio_kanban_template.md",
-        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/metrics_dashboard_template.md"
-      ],
-      "previous_workflow_step": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_metrics_reporting_template.md",
-      "next_workflow_step": "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_program_increment_planning_template.md"
-    },
-    {
-      "path": "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_program_increment_planning_template.md",
-      "domain": {
-        "primary": "Delivery",
-        "secondary": [
-          "Stakeholder",
-          "Uncertainty"
-        ],
-        "rationale": "Methodology-specific template guides delivery execution"
-      },
-      "prerequisites": [
-        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md"
-      ],
-      "related_assets": [
-        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_portfolio_kanban_template.md",
-        "methodology-frameworks/hybrid/infrastructure/hybrid-infrastructure-template.md"
-      ],
-      "complementary_assets": [
-        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md",
-        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/less/cross_team_coordination_template.md"
-      ],
-      "previous_workflow_step": "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_portfolio_kanban_template.md",
-      "next_workflow_step": "methodology-frameworks/hybrid/infrastructure/hybrid-infrastructure-template.md"
-    },
-    {
       "path": "methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md",
       "domain": {
         "primary": "Measurement",
@@ -2071,53 +2262,6 @@
       ],
       "previous_workflow_step": "methodology-frameworks/emerging-methods/devops/monitoring_alerting_template.md",
       "next_workflow_step": "project-assessment-suite/current-state-analysis-template.md"
-    },
-    {
-      "path": "methodology-frameworks/hybrid/infrastructure/hybrid-infrastructure-template.md",
-      "domain": {
-        "primary": "Delivery",
-        "secondary": [
-          "Stakeholder",
-          "Uncertainty"
-        ],
-        "rationale": "Methodology-specific template guides delivery execution"
-      },
-      "prerequisites": [
-        "templates/hybrid/Hybrid/Templates/integrated_change_strategy_template.md"
-      ],
-      "related_assets": [
-        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_program_increment_planning_template.md",
-        "project-assessment-suite/agile-project-assessment-template.md"
-      ],
-      "complementary_assets": [
-        "templates/hybrid/Hybrid/Templates/integrated_change_strategy_template.md",
-        "templates/hybrid/Hybrid/Templates/progressive_acceptance_plan_template.md"
-      ],
-      "previous_workflow_step": "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_program_increment_planning_template.md",
-      "next_workflow_step": "project-assessment-suite/agile-project-assessment-template.md"
-    },
-    {
-      "path": "project-assessment-suite/agile-project-assessment-template.md",
-      "domain": {
-        "primary": "Delivery",
-        "secondary": [
-          "Stakeholder"
-        ],
-        "rationale": "Methodology-specific template guides delivery execution"
-      },
-      "prerequisites": [
-        "domains/stakeholder/project-assessment-suite/stakeholder-engagement-assessment-template.md"
-      ],
-      "related_assets": [
-        "methodology-frameworks/hybrid/infrastructure/hybrid-infrastructure-template.md",
-        "project-assessment-suite/hybrid-project-assessment-template.md"
-      ],
-      "complementary_assets": [
-        "domains/stakeholder/project-assessment-suite/stakeholder-engagement-assessment-template.md",
-        "domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/agile-stakeholder-map-template.md"
-      ],
-      "previous_workflow_step": "methodology-frameworks/hybrid/infrastructure/hybrid-infrastructure-template.md",
-      "next_workflow_step": "project-assessment-suite/hybrid-project-assessment-template.md"
     },
     {
       "path": "project-assessment-suite/current-state-analysis-template.md",
@@ -2237,30 +2381,6 @@
       ],
       "previous_workflow_step": "project-assessment-suite/gap-analysis-matrix-template.md",
       "next_workflow_step": "project-assessment-suite/process-maturity-assessment-template.md"
-    },
-    {
-      "path": "project-assessment-suite/hybrid-project-assessment-template.md",
-      "domain": {
-        "primary": "Delivery",
-        "secondary": [
-          "Stakeholder",
-          "Uncertainty"
-        ],
-        "rationale": "Methodology-specific template guides delivery execution"
-      },
-      "prerequisites": [
-        "domains/uncertainty/project-assessment-suite/assessment-report-template.md"
-      ],
-      "related_assets": [
-        "project-assessment-suite/agile-project-assessment-template.md",
-        "project-lifecycle/02-planning/project-management-plan/agile-release-plan-template.md"
-      ],
-      "complementary_assets": [
-        "domains/uncertainty/project-assessment-suite/assessment-report-template.md",
-        "project-lifecycle/02-planning/project-management-plan/hybrid-project-management-plan-template.md"
-      ],
-      "previous_workflow_step": "project-assessment-suite/agile-project-assessment-template.md",
-      "next_workflow_step": "project-lifecycle/02-planning/project-management-plan/agile-release-plan-template.md"
     },
     {
       "path": "project-assessment-suite/process-maturity-assessment-template.md",
@@ -2417,39 +2537,15 @@
         "project-lifecycle/02-planning/risk-management/agile-risk-board-template.md"
       ],
       "related_assets": [
-        "project-assessment-suite/hybrid-project-assessment-template.md",
-        "project-lifecycle/02-planning/project-management-plan/hybrid-project-management-plan-template.md"
+        "domains/delivery/project-assessment-suite/hybrid-project-assessment-template.md",
+        "domains/delivery/project-lifecycle/02-planning/project-management-plan/hybrid-project-management-plan-template.md"
       ],
       "complementary_assets": [
         "project-lifecycle/02-planning/risk-management/agile-risk-board-template.md",
         "methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md"
       ],
-      "previous_workflow_step": "project-assessment-suite/hybrid-project-assessment-template.md",
-      "next_workflow_step": "project-lifecycle/02-planning/project-management-plan/hybrid-project-management-plan-template.md"
-    },
-    {
-      "path": "project-lifecycle/02-planning/project-management-plan/hybrid-project-management-plan-template.md",
-      "domain": {
-        "primary": "Delivery",
-        "secondary": [
-          "Stakeholder",
-          "Uncertainty"
-        ],
-        "rationale": "Methodology-specific template guides delivery execution"
-      },
-      "prerequisites": [
-        "domains/uncertainty/project-lifecycle/02-planning/risk-management/enterprise-risk-assessment-template.md"
-      ],
-      "related_assets": [
-        "project-lifecycle/02-planning/project-management-plan/agile-release-plan-template.md",
-        "project-lifecycle/02-planning/project-management-plan/traditional-project-management-plan-template.md"
-      ],
-      "complementary_assets": [
-        "domains/uncertainty/project-lifecycle/02-planning/risk-management/enterprise-risk-assessment-template.md",
-        "project-assessment-suite/hybrid-project-assessment-template.md"
-      ],
-      "previous_workflow_step": "project-lifecycle/02-planning/project-management-plan/agile-release-plan-template.md",
-      "next_workflow_step": "project-lifecycle/02-planning/project-management-plan/traditional-project-management-plan-template.md"
+      "previous_workflow_step": "domains/delivery/project-assessment-suite/hybrid-project-assessment-template.md",
+      "next_workflow_step": "domains/delivery/project-lifecycle/02-planning/project-management-plan/hybrid-project-management-plan-template.md"
     },
     {
       "path": "project-lifecycle/02-planning/project-management-plan/traditional-project-management-plan-template.md",
@@ -2465,14 +2561,14 @@
         "project-assessment-suite/current-state-analysis-template.md"
       ],
       "related_assets": [
-        "project-lifecycle/02-planning/project-management-plan/hybrid-project-management-plan-template.md",
+        "domains/delivery/project-lifecycle/02-planning/project-management-plan/hybrid-project-management-plan-template.md",
         "project-lifecycle/02-planning/risk-management/agile-risk-board-template.md"
       ],
       "complementary_assets": [
         "project-assessment-suite/current-state-analysis-template.md",
         "industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md"
       ],
-      "previous_workflow_step": "project-lifecycle/02-planning/project-management-plan/hybrid-project-management-plan-template.md",
+      "previous_workflow_step": "domains/delivery/project-lifecycle/02-planning/project-management-plan/hybrid-project-management-plan-template.md",
       "next_workflow_step": "project-lifecycle/02-planning/risk-management/agile-risk-board-template.md"
     },
     {
@@ -2582,14 +2678,14 @@
         "rationale": "Methodology-specific template guides delivery execution"
       },
       "prerequisites": [
-        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_program_increment_planning_template.md"
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_program_increment_planning_template.md"
       ],
       "related_assets": [
         "domains/delivery/role-based-toolkits/project-manager/essential-templates/timesheet-tracking-template.md",
         "templates/agile/sprint_planning_template.md"
       ],
       "complementary_assets": [
-        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_program_increment_planning_template.md",
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_program_increment_planning_template.md",
         "domains/team/templates/agile/sprint_review_template.md"
       ],
       "previous_workflow_step": "domains/delivery/role-based-toolkits/project-manager/essential-templates/timesheet-tracking-template.md",
@@ -2613,7 +2709,7 @@
         "templates/hybrid/Hybrid/Templates/hybrid_quality_management_template.md"
       ],
       "complementary_assets": [
-        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_program_increment_planning_template.md",
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_program_increment_planning_template.md",
         "domains/team/templates/agile/sprint_review_template.md"
       ],
       "previous_workflow_step": "templates/agile/product_backlog_template.md",
@@ -2630,114 +2726,18 @@
         "rationale": "Methodology-specific template guides delivery execution"
       },
       "prerequisites": [
-        "methodology-frameworks/hybrid/infrastructure/hybrid-infrastructure-template.md"
+        "domains/delivery/methodology-frameworks/hybrid/infrastructure/hybrid-infrastructure-template.md"
       ],
       "related_assets": [
         "templates/agile/sprint_planning_template.md",
-        "templates/hybrid/Hybrid/Templates/hybrid_release_planning_template.md"
+        "domains/delivery/templates/hybrid/Hybrid/Templates/hybrid_release_planning_template.md"
       ],
       "complementary_assets": [
-        "methodology-frameworks/hybrid/infrastructure/hybrid-infrastructure-template.md",
-        "templates/hybrid/Hybrid/Templates/integrated_change_strategy_template.md"
+        "domains/delivery/methodology-frameworks/hybrid/infrastructure/hybrid-infrastructure-template.md",
+        "domains/delivery/templates/hybrid/Hybrid/Templates/integrated_change_strategy_template.md"
       ],
       "previous_workflow_step": "templates/agile/sprint_planning_template.md",
-      "next_workflow_step": "templates/hybrid/Hybrid/Templates/hybrid_release_planning_template.md"
-    },
-    {
-      "path": "templates/hybrid/Hybrid/Templates/hybrid_release_planning_template.md",
-      "domain": {
-        "primary": "Delivery",
-        "secondary": [
-          "Stakeholder",
-          "Uncertainty"
-        ],
-        "rationale": "Methodology-specific template guides delivery execution"
-      },
-      "prerequisites": [
-        "templates/hybrid/Hybrid/Templates/hybrid_team_management_template.md"
-      ],
-      "related_assets": [
-        "templates/hybrid/Hybrid/Templates/hybrid_quality_management_template.md",
-        "templates/hybrid/Hybrid/Templates/hybrid_team_management_template.md"
-      ],
-      "complementary_assets": [
-        "methodology-frameworks/hybrid/infrastructure/hybrid-infrastructure-template.md",
-        "templates/hybrid/Hybrid/Templates/integrated_change_strategy_template.md"
-      ],
-      "previous_workflow_step": "templates/hybrid/Hybrid/Templates/hybrid_quality_management_template.md",
-      "next_workflow_step": "templates/hybrid/Hybrid/Templates/hybrid_team_management_template.md"
-    },
-    {
-      "path": "templates/hybrid/Hybrid/Templates/hybrid_team_management_template.md",
-      "domain": {
-        "primary": "Delivery",
-        "secondary": [
-          "Stakeholder",
-          "Uncertainty"
-        ],
-        "rationale": "Methodology-specific template guides delivery execution"
-      },
-      "prerequisites": [
-        "templates/hybrid/Hybrid/Templates/hybrid_release_planning_template.md"
-      ],
-      "related_assets": [
-        "templates/hybrid/Hybrid/Templates/hybrid_release_planning_template.md",
-        "templates/hybrid/Hybrid/Templates/integrated_change_strategy_template.md"
-      ],
-      "complementary_assets": [
-        "methodology-frameworks/hybrid/infrastructure/hybrid-infrastructure-template.md",
-        "templates/hybrid/Hybrid/Templates/progressive_acceptance_plan_template.md"
-      ],
-      "previous_workflow_step": "templates/hybrid/Hybrid/Templates/hybrid_release_planning_template.md",
-      "next_workflow_step": "templates/hybrid/Hybrid/Templates/integrated_change_strategy_template.md"
-    },
-    {
-      "path": "templates/hybrid/Hybrid/Templates/integrated_change_strategy_template.md",
-      "domain": {
-        "primary": "Delivery",
-        "secondary": [
-          "Stakeholder",
-          "Uncertainty"
-        ],
-        "rationale": "Methodology-specific template guides delivery execution"
-      },
-      "prerequisites": [
-        "methodology-frameworks/hybrid/infrastructure/hybrid-infrastructure-template.md"
-      ],
-      "related_assets": [
-        "templates/hybrid/Hybrid/Templates/hybrid_team_management_template.md",
-        "templates/hybrid/Hybrid/Templates/progressive_acceptance_plan_template.md"
-      ],
-      "complementary_assets": [
-        "methodology-frameworks/hybrid/infrastructure/hybrid-infrastructure-template.md",
-        "templates/hybrid/Hybrid/Templates/hybrid_release_planning_template.md"
-      ],
-      "previous_workflow_step": "templates/hybrid/Hybrid/Templates/hybrid_team_management_template.md",
-      "next_workflow_step": "templates/hybrid/Hybrid/Templates/progressive_acceptance_plan_template.md"
-    },
-    {
-      "path": "templates/hybrid/Hybrid/Templates/progressive_acceptance_plan_template.md",
-      "domain": {
-        "primary": "Delivery",
-        "secondary": [
-          "Stakeholder",
-          "Uncertainty"
-        ],
-        "rationale": "Methodology-specific template guides delivery execution"
-      },
-      "prerequisites": [
-        "methodology-frameworks/hybrid/infrastructure/hybrid-infrastructure-template.md"
-      ],
-      "related_assets": [
-        "templates/hybrid/Hybrid/Templates/integrated_change_strategy_template.md",
-        "templates/traditional/Traditional/Knowledge_Areas/Project_Cost_Management/roi_tracking_template.md"
-      ],
-      "complementary_assets": [
-        "methodology-frameworks/hybrid/infrastructure/hybrid-infrastructure-template.md",
-        "templates/hybrid/Hybrid/Templates/hybrid_release_planning_template.md"
-      ],
-      "previous_workflow_step": "templates/hybrid/Hybrid/Templates/integrated_change_strategy_template.md",
-      "next_workflow_step": "templates/traditional/Traditional/Knowledge_Areas/Project_Cost_Management/roi_tracking_template.md"
+      "next_workflow_step": "domains/delivery/templates/hybrid/Hybrid/Templates/hybrid_release_planning_template.md"
     },
     {
       "path": "templates/traditional/Traditional/Knowledge_Areas/Project_Cost_Management/roi_tracking_template.md",
@@ -2753,14 +2753,14 @@
         "templates/traditional/Traditional/Process_Groups/Executing/requirements_traceability_matrix_template.md"
       ],
       "related_assets": [
-        "templates/hybrid/Hybrid/Templates/progressive_acceptance_plan_template.md",
+        "domains/delivery/templates/hybrid/Hybrid/Templates/progressive_acceptance_plan_template.md",
         "templates/traditional/Traditional/Process_Groups/Closing/project_closure_report_template.md"
       ],
       "complementary_assets": [
         "templates/traditional/Traditional/Process_Groups/Executing/requirements_traceability_matrix_template.md",
         "templates/traditional/Traditional/Templates/status_report_template.md"
       ],
-      "previous_workflow_step": "templates/hybrid/Hybrid/Templates/progressive_acceptance_plan_template.md",
+      "previous_workflow_step": "domains/delivery/templates/hybrid/Hybrid/Templates/progressive_acceptance_plan_template.md",
       "next_workflow_step": "templates/traditional/Traditional/Process_Groups/Closing/project_closure_report_template.md"
     },
     {

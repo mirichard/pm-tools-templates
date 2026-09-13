@@ -15,7 +15,7 @@
 
 title: "Portfolio Kanban Template"
 
-[**➡️ View Template File**](/methodology-frameworks/agile-scrum/scaling-frameworks/safe/portfolio_kanban_template.md)
+[**➡️ View Template File**](/domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/portfolio_kanban_template.md)
 
 ## 📈 Quality Score
 

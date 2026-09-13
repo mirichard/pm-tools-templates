@@ -39,7 +39,7 @@ The project management plan is your project's master document that defines how t
 - Ideal for software development and iterative projects
 
 ### Hybrid Project Management Plan
-**[→ Download: Hybrid Project Management Plan Template](hybrid-project-management-plan-template.md)**
+**[→ Download: Hybrid Project Management Plan Template](../../../domains/delivery/project-lifecycle/02-planning/project-management-plan/hybrid-project-management-plan-template.md)**
 - Combines predictive and adaptive planning
 - Phase-gate approach with Agile execution
 - Governance framework for mixed methodologies

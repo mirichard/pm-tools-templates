@@ -12,4 +12,4 @@ Infrastructure as Code (IaC) practices and templates for DevOps environments.
 ---
 Related Resources:
 - [DevOps Pipeline Template](../cicd_pipeline_planning_template.md)
-- [Hybrid Infrastructure Template](../../../hybrid/infrastructure/hybrid-infrastructure-template.md)
+- [Hybrid Infrastructure Template](../../../../domains/delivery/methodology-frameworks/hybrid/infrastructure/hybrid-infrastructure-template.md)

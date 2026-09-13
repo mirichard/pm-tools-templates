@@ -106,8 +106,8 @@ Scaling frameworks extend Agile practices to handle larger, more complex project
 - Enterprises with 50+ team members
 
 **Templates Available:**
-- [SAFe Program Increment Planning Template](../../methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_program_increment_planning_template.md)
-- [SAFe Portfolio Kanban Template](../../methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_portfolio_kanban_template.md)
+- [SAFe Program Increment Planning Template](../../domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_program_increment_planning_template.md)
+- [SAFe Portfolio Kanban Template](../../domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_portfolio_kanban_template.md)
 - [SAFe ART Coordination Template](../../domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_art_coordination_template.md)
 - [SAFe Metrics Dashboard Template](../../domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_metrics_dashboard_template.md)
 

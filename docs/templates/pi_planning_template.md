@@ -15,7 +15,7 @@
 
 title: "Pi Planning Template"
 
-[**➡️ View Template File**](/methodology-frameworks/agile-scrum/scaling-frameworks/safe/pi_planning_template.md)
+[**➡️ View Template File**](/domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/pi_planning_template.md)
 
 ## 📈 Quality Score
 

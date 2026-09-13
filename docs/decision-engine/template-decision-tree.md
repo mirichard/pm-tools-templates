@@ -241,7 +241,7 @@ Use your answers to find the matching recommendation set below. Start with your 
 **Start with these (all Standard Agile templates above, plus):**
 7. [Daily Standup Template](../../domains/team/role-based-toolkits/scrum-master/agile-ceremonies/daily-standup-template.md)
 8. [Backlog Refinement Template](../../domains/team/role-based-toolkits/scrum-master/agile-ceremonies/backlog-refinement-template.md)
-9. [SAFe Program Increment Planning Template](../../methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_program_increment_planning_template.md)
+9. [SAFe Program Increment Planning Template](../../domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_program_increment_planning_template.md)
 10. [Enterprise Risk Assessment Template](../../domains/uncertainty/project-lifecycle/02-planning/risk-management/enterprise-risk-assessment-template.md)
 11. [Governance Assessment Template](../../project-assessment-suite/governance-assessment-template.md)
 12. [Executive Dashboard Template](../../domains/stakeholder/business-stakeholder-suite/executive-dashboards/powerbi-integration/executive-dashboard-template.md)
@@ -261,8 +261,8 @@ Use your answers to find the matching recommendation set below. Start with your 
 
 **Start with these:**
 1. [Hybrid Quality Management Template](../../templates/hybrid/Hybrid/Templates/hybrid_quality_management_template.md)
-2. [Integrated Change Strategy Template](../../templates/hybrid/Hybrid/Templates/integrated_change_strategy_template.md)
-3. [Hybrid Team Management Template](../../templates/hybrid/Hybrid/Templates/hybrid_team_management_template.md)
+2. [Integrated Change Strategy Template](../../domains/delivery/templates/hybrid/Hybrid/Templates/integrated_change_strategy_template.md)
+3. [Hybrid Team Management Template](../../domains/delivery/templates/hybrid/Hybrid/Templates/hybrid_team_management_template.md)
 4. [Status Report Template](../../domains/uncertainty/project-lifecycle/04-monitoring-control/progress-tracking/status-report-template.md)
 5. [Project Dashboard Template](../../domains/uncertainty/project-lifecycle/04-monitoring-control/progress-tracking/project-dashboard-template.md)
 
@@ -284,9 +284,9 @@ Use your answers to find the matching recommendation set below. Start with your 
 
 **Start with these (all Balanced Hybrid templates above, plus):**
 6. [Hybrid Project Charter Template](../../domains/planning/templates/hybrid/Hybrid/Templates/hybrid_project_charter_template.md)
-7. [Hybrid Release Planning Template](../../templates/hybrid/Hybrid/Templates/hybrid_release_planning_template.md)
-8. [Progressive Acceptance Plan Template](../../templates/hybrid/Hybrid/Templates/progressive_acceptance_plan_template.md)
-9. [Hybrid Infrastructure Template](../../methodology-frameworks/hybrid/infrastructure/hybrid-infrastructure-template.md)
+7. [Hybrid Release Planning Template](../../domains/delivery/templates/hybrid/Hybrid/Templates/hybrid_release_planning_template.md)
+8. [Progressive Acceptance Plan Template](../../domains/delivery/templates/hybrid/Hybrid/Templates/progressive_acceptance_plan_template.md)
+9. [Hybrid Infrastructure Template](../../domains/delivery/methodology-frameworks/hybrid/infrastructure/hybrid-infrastructure-template.md)
 10. [Enterprise Risk Assessment Template](../../domains/uncertainty/project-lifecycle/02-planning/risk-management/enterprise-risk-assessment-template.md)
 11. [Governance Assessment Template](../../project-assessment-suite/governance-assessment-template.md)
 12. [Project Health Assessment Template](../../project-assessment-suite/project-health-assessment-template.md)
