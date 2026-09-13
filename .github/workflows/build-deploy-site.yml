@@ -31,6 +31,18 @@ jobs:
             site:
               - 'website/**'
               - 'docs/site/**'
+              - 'templates/**'
+              - 'domains/**'
+              - 'project-lifecycle/**'
+              - 'project-assessment-suite/**'
+              - 'business-stakeholder-suite/**'
+              - 'role-based-toolkits/**'
+              - 'methodology-frameworks/**'
+              - 'industry-specializations/**'
+              - 'scripts/lib/site-template-catalog.mjs'
+              - 'scripts/generate-changelogs.mjs'
+              - 'scripts/validate-site-output.py'
+              - 'tests/site-template-catalog.test.mjs'
               - 'site/**'
               - '.github/workflows/build-deploy-site.yml'
 
@@ -67,12 +79,18 @@ jobs:
         working-directory: ./docs/site
         run: ../../scripts/measure_step.sh "site install" -- npm install --legacy-peer-deps
 
+      - name: Verify canonical site catalog
+        run: node --test tests/site-template-catalog.test.mjs
+
       - name: Generate changelogs (timed)
         run: ./scripts/measure_step.sh "changelogs" -- node scripts/generate-changelogs.mjs
 
       - name: Build site (timed)
         working-directory: ./docs/site
         run: ../../scripts/measure_step.sh "site build" -- npm run build --silent
+
+      - name: Verify built previews and downloads
+        run: python3 scripts/validate-site-output.py
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v5
