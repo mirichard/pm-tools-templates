@@ -98,6 +98,15 @@
       "status": "executed",
       "evidence_file": "docs/vnext/sprint-12/b3b-migration-record.md",
       "rollback_owner": "mirichard"
+    },
+    {
+      "batch_id": "B3C",
+      "issue": "#1057",
+      "parent_issue": "#711",
+      "asset_count": 10,
+      "status": "executed",
+      "evidence_file": "docs/vnext/sprint-12/b3c-migration-record.md",
+      "rollback_owner": "mirichard"
     }
   ],
   "generated": "2026-09-02",
@@ -322,7 +331,7 @@
       "primary_domain": "Delivery",
       "secondary_domains": [],
       "dependencies": [
-        "role-based-toolkits/project-manager/essential-templates/timesheet-tracking-template.md",
+        "domains/delivery/role-based-toolkits/project-manager/essential-templates/timesheet-tracking-template.md",
         "domains/uncertainty/role-based-toolkits/product-owner/user-story-template.md",
         "project-lifecycle/01-initiation/project-charter/hybrid-project-charter-template.md"
       ],
@@ -343,7 +352,14 @@
       ],
       "batch": 3,
       "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move",
-      "action": "planned-move-not-executed"
+      "action": "executed-move-with-legacy-pointer",
+      "execution": {
+        "batch_id": "B3C",
+        "pre_batch_sha": "b29500895cc57cb80016b5bf723dd0960a81b4b0",
+        "pre_move_source_sha256": "615cb8ea6af39c4e06d7698b7483782a7df77c7dd2547a5f162ac1c416d5ea1b",
+        "evidence_file": "docs/vnext/sprint-12/b3c-migration-record.md",
+        "rollback_owner": "mirichard"
+      }
     },
     {
       "source": "methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md",
@@ -354,9 +370,9 @@
         "Uncertainty"
       ],
       "dependencies": [
-        "methodology-frameworks/agile-scrum/scaling-frameworks/less/cross_team_coordination_template.md",
-        "methodology-frameworks/agile-scrum/scaling-frameworks/less/less_sprint_planning_template.md",
-        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_art_coordination_template.md"
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/less/cross_team_coordination_template.md",
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/less/less_sprint_planning_template.md",
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_art_coordination_template.md"
       ],
       "affected_internal_references": [
         "TEMPLATE_INDEX.md",
@@ -382,7 +398,14 @@
       ],
       "batch": 3,
       "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move",
-      "action": "planned-move-not-executed"
+      "action": "executed-move-with-legacy-pointer",
+      "execution": {
+        "batch_id": "B3C",
+        "pre_batch_sha": "b29500895cc57cb80016b5bf723dd0960a81b4b0",
+        "pre_move_source_sha256": "942e733db10117e8c638c33385383a501323925a3b7aaa21d29d361b62739e1f",
+        "evidence_file": "docs/vnext/sprint-12/b3c-migration-record.md",
+        "rollback_owner": "mirichard"
+      }
     },
     {
       "source": "project-assessment-suite/assessment-report-template.md",
@@ -945,6 +968,8 @@
         "docs/site/public/changelog/communication_plan_template.json",
         "docs/templates/communication_plan_template.md",
         "docs/templates/health_authority_communication_plan_template.md",
+        "docs/vnext/sprint-12/b3b-migration-record.md",
+        "industry-specializations/healthcare-pharmaceutical/regulatory/health_authority_communication_plan_template.md",
         "meta/architecture-research/806-rules-engine-implementation.md",
         "meta/architecture-research/807-rules-engine-validation.md",
         "meta/architecture-research/809-decision-tree-design.md",
@@ -1081,9 +1106,9 @@
         "Uncertainty"
       ],
       "dependencies": [
-        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md",
-        "methodology-frameworks/agile-scrum/scaling-frameworks/less/less_sprint_planning_template.md",
-        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_art_coordination_template.md"
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md",
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/less/less_sprint_planning_template.md",
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_art_coordination_template.md"
       ],
       "affected_internal_references": [
         "TEMPLATE_INDEX.md",
@@ -1104,7 +1129,14 @@
       ],
       "batch": 3,
       "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move",
-      "action": "planned-move-not-executed"
+      "action": "executed-move-with-legacy-pointer",
+      "execution": {
+        "batch_id": "B3C",
+        "pre_batch_sha": "b29500895cc57cb80016b5bf723dd0960a81b4b0",
+        "pre_move_source_sha256": "6e559a6e0a08d0a1ff658764865688006c263dc649319e2ace944032fadc8157",
+        "evidence_file": "docs/vnext/sprint-12/b3c-migration-record.md",
+        "rollback_owner": "mirichard"
+      }
     },
     {
       "source": "project-assessment-suite/current-state-analysis-template.md",
@@ -2161,6 +2193,7 @@
         "docs/templates/infrastructure_assessment_template.md",
         "domains/planning/industry-specializations/information-technology/infrastructure/data_center_design_template.md",
         "domains/planning/industry-specializations/information-technology/infrastructure/disaster_recovery_template.md",
+        "domains/uncertainty/industry-specializations/information-technology/infrastructure/infrastructure_assessment_template.md",
         "domains/uncertainty/industry-specializations/information-technology/infrastructure/migration_plan_template.md",
         "industry-specializations/information-technology/README.md",
         "industry-specializations/information-technology/infrastructure/capacity_planning_worksheet.md",
@@ -2296,9 +2329,9 @@
         "Stakeholder"
       ],
       "dependencies": [
-        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md",
-        "methodology-frameworks/agile-scrum/scaling-frameworks/less/cross_team_coordination_template.md",
-        "methodology-frameworks/agile-scrum/scaling-frameworks/less/less_sprint_planning_template.md"
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md",
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/less/cross_team_coordination_template.md",
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/less/less_sprint_planning_template.md"
       ],
       "affected_internal_references": [
         "TEMPLATE_INDEX.md",
@@ -2339,9 +2372,9 @@
         "Uncertainty"
       ],
       "dependencies": [
-        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md",
-        "methodology-frameworks/agile-scrum/scaling-frameworks/less/cross_team_coordination_template.md",
-        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_art_coordination_template.md"
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md",
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/less/cross_team_coordination_template.md",
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_art_coordination_template.md"
       ],
       "affected_internal_references": [
         "TEMPLATE_INDEX.md",
@@ -2363,7 +2396,14 @@
       ],
       "batch": 3,
       "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move",
-      "action": "planned-move-not-executed"
+      "action": "executed-move-with-legacy-pointer",
+      "execution": {
+        "batch_id": "B3C",
+        "pre_batch_sha": "b29500895cc57cb80016b5bf723dd0960a81b4b0",
+        "pre_move_source_sha256": "61717ca810bc9f2be6a3dd07211989d46072e7b51683434b88f0c4fa68706ec6",
+        "evidence_file": "docs/vnext/sprint-12/b3c-migration-record.md",
+        "rollback_owner": "mirichard"
+      }
     },
     {
       "source": "industry-specializations/healthcare-pharmaceutical/manufacturing/manufacturing_batch_record_template.md",
@@ -2448,9 +2488,9 @@
         "Uncertainty"
       ],
       "dependencies": [
-        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_metrics_dashboard_template.md",
-        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_metrics_reporting_template.md",
-        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_art_coordination_template.md"
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_metrics_dashboard_template.md",
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_metrics_reporting_template.md",
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_art_coordination_template.md"
       ],
       "affected_internal_references": [
         "TEMPLATE_INDEX.md",
@@ -2476,7 +2516,14 @@
       ],
       "batch": 3,
       "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move",
-      "action": "planned-move-not-executed"
+      "action": "executed-move-with-legacy-pointer",
+      "execution": {
+        "batch_id": "B3C",
+        "pre_batch_sha": "b29500895cc57cb80016b5bf723dd0960a81b4b0",
+        "pre_move_source_sha256": "1834bd7608cff4f719a20d8c8fea72ba73c36b0f1171a3dc40a399013daa2952",
+        "evidence_file": "docs/vnext/sprint-12/b3c-migration-record.md",
+        "rollback_owner": "mirichard"
+      }
     },
     {
       "source": "industry-specializations/information-technology/infrastructure/migration_plan_template.md",
@@ -2626,9 +2673,9 @@
         "Uncertainty"
       ],
       "dependencies": [
-        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_art_coordination_template.md",
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_art_coordination_template.md",
         "methodology-frameworks/agile-scrum/sprint-planning/sprint_planning_template.md",
-        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md"
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md"
       ],
       "affected_internal_references": [
         "TEMPLATE_INDEX.md",
@@ -2650,7 +2697,14 @@
       ],
       "batch": 3,
       "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move",
-      "action": "planned-move-not-executed"
+      "action": "executed-move-with-legacy-pointer",
+      "execution": {
+        "batch_id": "B3C",
+        "pre_batch_sha": "b29500895cc57cb80016b5bf723dd0960a81b4b0",
+        "pre_move_source_sha256": "74f2f476c9b8ea81beb045b3da8f818edf1ee5c728c58a6c0d25290175e26574",
+        "evidence_file": "docs/vnext/sprint-12/b3c-migration-record.md",
+        "rollback_owner": "mirichard"
+      }
     },
     {
       "source": "industry-specializations/healthcare-pharmaceutical/validation/performance_qualification_protocol_template.md",
@@ -2738,12 +2792,13 @@
         "TEMPLATE_INDEX.md",
         "business-stakeholder-suite/safe-executive-dashboards/README.md",
         "docs/templates/pi_planning_template.md",
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md",
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/metrics_dashboard_template.md",
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/pi_planning_template.md",
         "meta/cross-references.json",
         "meta/domain-mapping.json",
         "meta/migration-inventory.json",
         "meta/value-flow-mapping.json",
-        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md",
-        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/metrics_dashboard_template.md",
         "methodology-frameworks/agile-scrum/scaling-frameworks/safe/portfolio_kanban_template.md",
         "role-based-toolkits/program-manager/methodology-variants/README.md",
         "role-based-toolkits/release-train-engineer/README.md",
@@ -2776,17 +2831,19 @@
         "docs/methodology-guides/methodology-comparison.md",
         "docs/templates/portfolio_kanban_template.md",
         "docs/templates/safe_portfolio_kanban_template.md",
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md",
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/metrics_dashboard_template.md",
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/portfolio_kanban_template.md",
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_art_coordination_template.md",
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_metrics_dashboard_template.md",
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_metrics_reporting_template.md",
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_portfolio_kanban_template.md",
         "meta/architecture-research/806-rules-engine-implementation.md",
         "meta/cross-references.json",
         "meta/domain-mapping.json",
         "meta/migration-inventory.json",
         "meta/value-flow-mapping.json",
-        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md",
-        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/metrics_dashboard_template.md",
         "methodology-frameworks/agile-scrum/scaling-frameworks/safe/pi_planning_template.md",
-        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_art_coordination_template.md",
-        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_metrics_dashboard_template.md",
-        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_metrics_reporting_template.md",
         "role-based-toolkits/release-train-engineer/README.md",
         "site/.lighthouseci/lhr-1755874277795.html",
         "site/.lighthouseci/lhr-1755874277795.json",
@@ -3001,6 +3058,9 @@
         "docs/site/public/changelog/product_backlog_template.json",
         "docs/templates/overall_product_backlog_template.md",
         "docs/templates/product_backlog_template.md",
+        "docs/vnext/sprint-12/b3c-migration-record.md",
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/less/cross_team_coordination_template.md",
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/less/less_sprint_planning_template.md",
         "domains/team/methodology-frameworks/agile-scrum/scaling-frameworks/less/less_retrospective_template.md",
         "meta/architecture-research/806-rules-engine-implementation.md",
         "meta/architecture-research/807-rules-engine-validation.md",
@@ -3011,8 +3071,7 @@
         "meta/domain-mapping.json",
         "meta/migration-inventory.json",
         "meta/value-flow-mapping.json",
-        "methodology-frameworks/agile-scrum/scaling-frameworks/less/cross_team_coordination_template.md",
-        "methodology-frameworks/agile-scrum/scaling-frameworks/less/less_sprint_planning_template.md",
+        "methodology-frameworks/agile-scrum/scaling-frameworks/less/overall_product_backlog_template.md",
         "methodology-frameworks/agile-scrum/sprint-planning/sprint_planning_template.md",
         "quick-start-kits/less-adoption/README.md",
         "site/.lighthouseci/lhr-1755874277795.html",
@@ -3952,7 +4011,9 @@
         "docs/decision-engine/template-decision-tree.md",
         "docs/templates/compliance_risk_assessment_template.md",
         "docs/templates/risk_assessment_template.md",
+        "docs/vnext/sprint-12/b3b-migration-record.md",
         "industry-specializations/healthcare-pharmaceutical/README.md",
+        "industry-specializations/healthcare-pharmaceutical/regulatory/compliance_risk_assessment_template.md",
         "industry-specializations/information-technology/README.md",
         "industry-specializations/information-technology/cybersecurity/security_controls_matrix.md",
         "industry-specializations/information-technology/cybersecurity/security_implementation_roadmap.md",
@@ -4152,9 +4213,9 @@
         "Uncertainty"
       ],
       "dependencies": [
-        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md",
-        "methodology-frameworks/agile-scrum/scaling-frameworks/less/cross_team_coordination_template.md",
-        "methodology-frameworks/agile-scrum/scaling-frameworks/less/less_sprint_planning_template.md"
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md",
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/less/cross_team_coordination_template.md",
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/less/less_sprint_planning_template.md"
       ],
       "affected_internal_references": [
         "TEMPLATE_INDEX.md",
@@ -4174,7 +4235,14 @@
       ],
       "batch": 3,
       "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move",
-      "action": "planned-move-not-executed"
+      "action": "executed-move-with-legacy-pointer",
+      "execution": {
+        "batch_id": "B3C",
+        "pre_batch_sha": "b29500895cc57cb80016b5bf723dd0960a81b4b0",
+        "pre_move_source_sha256": "77cac0ef7034cca657c7bd1b63910df6c525bfbc38979b50630051f791853a18",
+        "evidence_file": "docs/vnext/sprint-12/b3c-migration-record.md",
+        "rollback_owner": "mirichard"
+      }
     },
     {
       "source": "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_metrics_dashboard_template.md",
@@ -4185,9 +4253,9 @@
         "Uncertainty"
       ],
       "dependencies": [
-        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/metrics_dashboard_template.md",
-        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_metrics_reporting_template.md",
-        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_art_coordination_template.md"
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/metrics_dashboard_template.md",
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_metrics_reporting_template.md",
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_art_coordination_template.md"
       ],
       "affected_internal_references": [
         "TEMPLATE_INDEX.md",
@@ -4205,7 +4273,14 @@
       ],
       "batch": 3,
       "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move",
-      "action": "planned-move-not-executed"
+      "action": "executed-move-with-legacy-pointer",
+      "execution": {
+        "batch_id": "B3C",
+        "pre_batch_sha": "b29500895cc57cb80016b5bf723dd0960a81b4b0",
+        "pre_move_source_sha256": "ca79a4e46ff245402f41e561083d4bf28a914a6d5127d4f28a638a8a481626bb",
+        "evidence_file": "docs/vnext/sprint-12/b3c-migration-record.md",
+        "rollback_owner": "mirichard"
+      }
     },
     {
       "source": "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_metrics_reporting_template.md",
@@ -4216,9 +4291,9 @@
         "Uncertainty"
       ],
       "dependencies": [
-        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/metrics_dashboard_template.md",
-        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_metrics_dashboard_template.md",
-        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_art_coordination_template.md"
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/metrics_dashboard_template.md",
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_metrics_dashboard_template.md",
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_art_coordination_template.md"
       ],
       "affected_internal_references": [
         "TEMPLATE_INDEX.md",
@@ -4235,7 +4310,14 @@
       ],
       "batch": 3,
       "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move",
-      "action": "planned-move-not-executed"
+      "action": "executed-move-with-legacy-pointer",
+      "execution": {
+        "batch_id": "B3C",
+        "pre_batch_sha": "b29500895cc57cb80016b5bf723dd0960a81b4b0",
+        "pre_move_source_sha256": "971937d974b8f26eec47a08396126a4420b07722edd2c04c152e5b4c75e98576",
+        "evidence_file": "docs/vnext/sprint-12/b3c-migration-record.md",
+        "rollback_owner": "mirichard"
+      }
     },
     {
       "source": "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_portfolio_kanban_template.md",
@@ -4247,21 +4329,22 @@
       ],
       "dependencies": [
         "methodology-frameworks/agile-scrum/scaling-frameworks/safe/portfolio_kanban_template.md",
-        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/metrics_dashboard_template.md",
-        "methodology-frameworks/agile-scrum/scaling-frameworks/less/overall_product_backlog_template.md"
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/metrics_dashboard_template.md",
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/less/overall_product_backlog_template.md"
       ],
       "affected_internal_references": [
         "TEMPLATE_INDEX.md",
         "docs/archive/README-20250805.md",
         "docs/methodology-guides/methodology-comparison.md",
         "docs/templates/safe_portfolio_kanban_template.md",
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_art_coordination_template.md",
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_metrics_dashboard_template.md",
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_metrics_reporting_template.md",
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_portfolio_kanban_template.md",
         "meta/cross-references.json",
         "meta/domain-mapping.json",
         "meta/migration-inventory.json",
         "meta/value-flow-mapping.json",
-        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_art_coordination_template.md",
-        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_metrics_dashboard_template.md",
-        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_metrics_reporting_template.md",
         "site/.lighthouseci/lhr-1755874277795.html",
         "site/.lighthouseci/lhr-1755874277795.json",
         "templates/templates.json",
@@ -4280,9 +4363,9 @@
         "Uncertainty"
       ],
       "dependencies": [
-        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md",
-        "methodology-frameworks/agile-scrum/scaling-frameworks/less/cross_team_coordination_template.md",
-        "methodology-frameworks/agile-scrum/scaling-frameworks/less/less_sprint_planning_template.md"
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md",
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/less/cross_team_coordination_template.md",
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/less/less_sprint_planning_template.md"
       ],
       "affected_internal_references": [
         "TEMPLATE_INDEX.md",
@@ -4291,15 +4374,16 @@
         "docs/decision-engine/template-decision-tree.md",
         "docs/methodology-guides/methodology-comparison.md",
         "docs/templates/safe_program_increment_planning_template.md",
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_art_coordination_template.md",
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_metrics_dashboard_template.md",
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_metrics_reporting_template.md",
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_program_increment_planning_template.md",
         "meta/architecture-research/806-rules-engine-implementation.md",
         "meta/architecture-research/809-decision-tree-design.md",
         "meta/cross-references.json",
         "meta/domain-mapping.json",
         "meta/migration-inventory.json",
         "meta/value-flow-mapping.json",
-        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_art_coordination_template.md",
-        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_metrics_dashboard_template.md",
-        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_metrics_reporting_template.md",
         "role-based-toolkits/program-manager/methodology-variants/README.md",
         "site/.lighthouseci/lhr-1755874277795.html",
         "site/.lighthouseci/lhr-1755874277795.json",
@@ -4410,6 +4494,9 @@
         "docs/site/public/changelog/sprint_planning_template.json",
         "docs/templates/less_sprint_planning_template.md",
         "docs/templates/sprint_planning_template.md",
+        "docs/vnext/sprint-12/b3c-migration-record.md",
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/less/cross_team_coordination_template.md",
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/less/overall_product_backlog_template.md",
         "domains/team/methodology-frameworks/agile-scrum/scaling-frameworks/less/less_retrospective_template.md",
         "industry-specializations/information-technology/README.md",
         "industry_templates/software_development/README.md",
@@ -4425,8 +4512,7 @@
         "meta/domain-mapping.json",
         "meta/migration-inventory.json",
         "meta/value-flow-mapping.json",
-        "methodology-frameworks/agile-scrum/scaling-frameworks/less/cross_team_coordination_template.md",
-        "methodology-frameworks/agile-scrum/scaling-frameworks/less/overall_product_backlog_template.md",
+        "methodology-frameworks/agile-scrum/scaling-frameworks/less/less_sprint_planning_template.md",
         "organizational_change_management_framework.md",
         "quick-start-kits/less-adoption/README.md",
         "site/.lighthouseci/lhr-1755874277795.html",
@@ -4449,8 +4535,8 @@
       ],
       "dependencies": [
         "domains/team/templates/agile/sprint_review_template.md",
-        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md",
-        "methodology-frameworks/agile-scrum/scaling-frameworks/less/cross_team_coordination_template.md"
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md",
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/less/cross_team_coordination_template.md"
       ],
       "affected_internal_references": [
         "GUIDE.md",
@@ -4498,9 +4584,9 @@
         "Stakeholder"
       ],
       "dependencies": [
-        "methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md",
-        "methodology-frameworks/agile-scrum/scaling-frameworks/less/cross_team_coordination_template.md",
-        "methodology-frameworks/agile-scrum/scaling-frameworks/less/less_sprint_planning_template.md"
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md",
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/less/cross_team_coordination_template.md",
+        "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/less/less_sprint_planning_template.md"
       ],
       "affected_internal_references": [
         "GUIDE.md",
@@ -4822,7 +4908,7 @@
       "primary_domain": "Delivery",
       "secondary_domains": [],
       "dependencies": [
-        "industry-specializations/information-technology/software-development/api_documentation_template.md",
+        "domains/delivery/industry-specializations/information-technology/software-development/api_documentation_template.md",
         "domains/uncertainty/role-based-toolkits/product-owner/user-story-template.md",
         "domains/team/project-lifecycle/01-initiation/project-charter/agile-team-charter-template.md"
       ],
@@ -4841,7 +4927,14 @@
       ],
       "batch": 3,
       "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move",
-      "action": "planned-move-not-executed"
+      "action": "executed-move-with-legacy-pointer",
+      "execution": {
+        "batch_id": "B3C",
+        "pre_batch_sha": "b29500895cc57cb80016b5bf723dd0960a81b4b0",
+        "pre_move_source_sha256": "c80bbc3c57444f640c6c6820e2efce747f61ae50571dc4bf2afdc4a8b854f5b4",
+        "evidence_file": "docs/vnext/sprint-12/b3c-migration-record.md",
+        "rollback_owner": "mirichard"
+      }
     },
     {
       "source": "project-lifecycle/01-initiation/project-charter/traditional-project-charter-template.md",
@@ -5022,7 +5115,7 @@
       "secondary_domains": [],
       "dependencies": [
         "domains/uncertainty/industry-specializations/information-technology/software-development/user_story_mapping_template.md",
-        "industry-specializations/information-technology/software-development/api_documentation_template.md",
+        "domains/delivery/industry-specializations/information-technology/software-development/api_documentation_template.md",
         "business-stakeholder-suite/executive-dashboards/tableau-integration/executive-dashboard-template.md"
       ],
       "affected_internal_references": [

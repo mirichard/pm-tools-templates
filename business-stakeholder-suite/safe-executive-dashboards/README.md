@@ -405,8 +405,8 @@ Source Systems     │ Integration Layer │ Analytics Layer  │ Presentation
 ### SAFe Framework Templates
 - [PI Planning Template](../../methodology-frameworks/agile-scrum/scaling-frameworks/safe/pi_planning_template.md)
 - [Portfolio Kanban Template](../../methodology-frameworks/agile-scrum/scaling-frameworks/safe/portfolio_kanban_template.md)
-- [ART Coordination Template](../../methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md)
-- [SAFe Metrics Dashboard](../../methodology-frameworks/agile-scrum/scaling-frameworks/safe/metrics_dashboard_template.md)
+- [ART Coordination Template](../../domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md)
+- [SAFe Metrics Dashboard](../../domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/metrics_dashboard_template.md)
 
 ### Business Stakeholder Resources
 - [Executive Communication Templates](../executive-dashboards/README.md)
