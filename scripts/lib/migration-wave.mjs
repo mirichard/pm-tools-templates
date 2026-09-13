@@ -338,6 +338,14 @@ export function validateWavePlan({ root, inventory, plan }) {
     const sourcePath = path.join(root, asset.source);
     const destinationPath = path.join(root, asset.destination);
     if (!fs.existsSync(sourcePath)) fail(`source does not exist: ${asset.source}`);
+    try {
+      const original = execFileSync('git', ['show', `${plan.pre_batch_sha}:${asset.source}`], { cwd: root, stdio: ['ignore', 'pipe', 'ignore'] });
+      if (crypto.createHash('sha256').update(original).digest('hex') !== asset.pre_move_sha256) {
+        fail(`checkpoint source hash mismatch: ${asset.source}`);
+      }
+    } catch {
+      fail(`source is absent from checkpoint: ${asset.source}`);
+    }
     const replacement = asset.destination_replacement;
     if (!replacement) {
       try {
@@ -361,7 +369,13 @@ export function validateWavePlan({ root, inventory, plan }) {
       }
     }
     if (plan.phase === 'entry') {
-      if (fs.existsSync(sourcePath) && sha256File(sourcePath) !== asset.pre_move_sha256) fail(`source hash mismatch: ${asset.source}`);
+      try {
+        if (crypto.createHash('sha256').update(readRegularFile(sourcePath)).digest('hex') !== asset.pre_move_sha256) {
+          fail(`source hash mismatch: ${asset.source}`);
+        }
+      } catch {
+        fail(`source is not a readable regular file: ${asset.source}`);
+      }
       if (replacement) {
         try {
           const content = readRegularFile(destinationPath);
@@ -373,8 +387,13 @@ export function validateWavePlan({ root, inventory, plan }) {
         }
       } else if (fs.existsSync(destinationPath)) fail(`destination already exists: ${asset.destination}`);
     } else {
-      if (!fs.existsSync(destinationPath)) fail(`executed destination does not exist: ${asset.destination}`);
-      else if (sha256File(destinationPath) !== asset.pre_move_sha256) fail(`destination hash mismatch: ${asset.destination}`);
+      try {
+        if (crypto.createHash('sha256').update(readRegularFile(destinationPath)).digest('hex') !== asset.pre_move_sha256) {
+          fail(`destination hash mismatch: ${asset.destination}`);
+        }
+      } catch {
+        fail(`executed destination is not a readable regular file: ${asset.destination}`);
+      }
       if (move.execution?.batch_id !== plan.wave_id) fail(`execution batch_id mismatch: ${asset.source}`);
       if (fs.existsSync(sourcePath)) {
         const pointer = fs.readFileSync(sourcePath, 'utf8')

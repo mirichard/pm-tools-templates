@@ -303,3 +303,42 @@ test('rejects wrong-target navigation, symlinks, and uncommitted replacement fil
   fs.writeFileSync(destination, compatibilityNavigation('A', '../../../legacy/a.md'));
   assert.match(validateWavePlan({ root, inventory, plan: build() }).join('\n'), /absent from checkpoint/);
 });
+
+
+test('anchors source hashes to the checkpoint before and after execution', t => {
+  const { root, inventory, preBatchSha } = fixture(t);
+  const move = inventory.moves[0];
+  fs.appendFileSync(path.join(root, move.source), 'Uncommitted change\n');
+  const plan = buildWavePlan({ root, inventory, waveId: 'B1F', sourceBatch: 1, maxAssets: 1, preBatchSha, rollbackOwner: 'owner' });
+  assert.match(validateWavePlan({ root, inventory, plan }).join('\n'), /checkpoint source hash mismatch/);
+  fs.mkdirSync(path.dirname(path.join(root, move.destination)), { recursive: true });
+  fs.renameSync(path.join(root, move.source), path.join(root, move.destination));
+  fs.writeFileSync(path.join(root, move.source), '# Moved\nCanonical location: [A](../domains/stakeholder/legacy/a.md)\n');
+  move.action = 'executed-move-with-legacy-pointer';
+  move.execution = { batch_id: 'B1F' };
+  plan.phase = 'executed';
+  assert.match(validateWavePlan({ root, inventory, plan }).join('\n'), /checkpoint source hash mismatch/);
+});
+
+test('rejects a source missing from the recorded checkpoint', t => {
+  const { root, inventory, preBatchSha } = fixture(t);
+  inventory.moves[0].source = 'legacy/new.md';
+  fs.writeFileSync(path.join(root, 'legacy/new.md'), '# New\n');
+  const plan = buildWavePlan({ root, inventory, waveId: 'B1F', sourceBatch: 1, maxAssets: 2, preBatchSha, rollbackOwner: 'owner' });
+  assert.match(validateWavePlan({ root, inventory, plan }).join('\n'), /source is absent from checkpoint: legacy\/new.md/);
+});
+
+test('rejects executed symlinks even when their target has the correct body hash', t => {
+  const { root, inventory, preBatchSha } = fixture(t);
+  const plan = buildWavePlan({ root, inventory, waveId: 'B1F', sourceBatch: 1, maxAssets: 1, preBatchSha, rollbackOwner: 'owner' });
+  const move = inventory.moves[0];
+  const original = path.join(root, 'original.md');
+  fs.renameSync(path.join(root, move.source), original);
+  fs.mkdirSync(path.dirname(path.join(root, move.destination)), { recursive: true });
+  fs.symlinkSync(original, path.join(root, move.destination));
+  fs.writeFileSync(path.join(root, move.source), '# Moved\nCanonical location: [A](../domains/stakeholder/legacy/a.md)\n');
+  move.action = 'executed-move-with-legacy-pointer';
+  move.execution = { batch_id: 'B1F' };
+  plan.phase = 'executed';
+  assert.match(validateWavePlan({ root, inventory, plan }).join('\n'), /executed destination is not a readable regular file/);
+});

@@ -9,6 +9,7 @@ all pointers are checked, including compatibility links outside migration waves.
 """
 import argparse
 import hashlib
+import hmac
 from datetime import date
 import json
 from pathlib import Path
@@ -180,7 +181,10 @@ def unchanged_migration_debt(root, base, old_primary):
             if body.is_symlink() or body.read_bytes() != original:
                 continue
             execution = move.get('execution', {})
-            if hashlib.sha256(original).hexdigest() != execution.get('pre_move_source_sha256'):
+            recorded_hash = execution.get('pre_move_source_sha256', '')
+            if not isinstance(recorded_hash, str) or not re.fullmatch(r'[0-9a-f]{64}', recorded_hash):
+                continue
+            if not hmac.compare_digest(hashlib.sha256(original).hexdigest(), recorded_hash):
                 continue
             # Navigation is validated separately for every pointer in lint().
             legacy = Path(root) / source
