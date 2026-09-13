@@ -1,14 +1,14 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-13T15:16:35.602155+00:00",
-  "source_workflow_run": 34764831921,
-  "source_commit": "eacb391447f601ea3a773a46afda4f1cbdf66fa4",
+  "generated_at": "2026-09-13T18:31:06.342834+00:00",
+  "source_workflow_run": 34774067609,
+  "source_commit": "455ec64f753eec312aeca3f16b28bbb42c0f795d",
   "format": "webp",
   "width": 256,
   "maximum_dimension": 16383,
   "quality": 85,
   "method": 4,
-  "total_screenshots": 2376,
+  "total_screenshots": 2474,
   "packs": [
     {
       "file": "chromium-desktop-shard-0.zip",
@@ -205,6 +205,62 @@
       "screenshots": 1,
       "bytes": 9091,
       "sha256": "72c076f235bbdda6a8ec9b3e04e090ccddc87f34d6584da705e8c40f582d60d1"
+    },
+    {
+      "file": "zzzzz-b3e-chromium_desktop-shard-0.zip",
+      "browser_resolution": "chromium_desktop",
+      "screenshots": 13,
+      "bytes": 247839,
+      "sha256": "508a3366d1014009c0442e243ba5c6e366f04c5eaa1447b42942c5a16c67e0a9"
+    },
+    {
+      "file": "zzzzz-b3e-chromium_desktop-shard-1.zip",
+      "browser_resolution": "chromium_desktop",
+      "screenshots": 12,
+      "bytes": 664536,
+      "sha256": "b29e8d02c2acc4eafd2ea504be84d4482cc62ca43cad3b680f11aba5412bc85e"
+    },
+    {
+      "file": "zzzzz-b3e-chromium_desktop-shard-2.zip",
+      "browser_resolution": "chromium_desktop",
+      "screenshots": 12,
+      "bytes": 685133,
+      "sha256": "1105f9783b175d8569d40d8c4ce146e6dc9b493de4551f4dbde45dbc411304e4"
+    },
+    {
+      "file": "zzzzz-b3e-chromium_desktop-shard-3.zip",
+      "browser_resolution": "chromium_desktop",
+      "screenshots": 12,
+      "bytes": 253856,
+      "sha256": "cc776b092e42e626726d45a9332f011dbf268b8204b0251155bdc520865d115c"
+    },
+    {
+      "file": "zzzzz-b3e-chromium_mobile-shard-0.zip",
+      "browser_resolution": "chromium_mobile",
+      "screenshots": 13,
+      "bytes": 629776,
+      "sha256": "a3f0623f7affa675a1b3569ccf4e765ba46889a213bdc0523b747d929a736316"
+    },
+    {
+      "file": "zzzzz-b3e-chromium_mobile-shard-1.zip",
+      "browser_resolution": "chromium_mobile",
+      "screenshots": 12,
+      "bytes": 1582319,
+      "sha256": "8e7d0a22e2b9bf33424a65cb438dfccd9f5478f87a2e52a3c25bd59d3e7e08cc"
+    },
+    {
+      "file": "zzzzz-b3e-chromium_mobile-shard-2.zip",
+      "browser_resolution": "chromium_mobile",
+      "screenshots": 12,
+      "bytes": 1563995,
+      "sha256": "f385a5b2e9579cef31cbf6a84fe16dd73bf3a8e745f7d0fad9132d6eb4a1d6a7"
+    },
+    {
+      "file": "zzzzz-b3e-chromium_mobile-shard-3.zip",
+      "browser_resolution": "chromium_mobile",
+      "screenshots": 12,
+      "bytes": 585645,
+      "sha256": "4d22d699b17280f9edb3a288c0a2a6568b56b575535a1e800245a9d5b564ab3c"
     }
   ],
   "reviewed_migration_overlay": {
@@ -220,5 +276,6 @@
     "source_workflow_run": 34726807987
   },
   "review_notes": "B3D: 164 screenshots reviewed. 64 expected changes: 48 legacy-pointer views and 16 former-navigation canonical views. 56 new identities. Original-source comparison: 42/48 within unchanged thresholds; six mobile views manually reviewed for generated-path footer and screenshot sizing effects. Canonical bodies and rendering styles unchanged. No comparator skips or threshold changes.",
-  "evidence_review_notes": "B3D final evidence-page text update: desktop and mobile screenshots reviewed against prior accepted views. Corrected test counts and clarified integration status; existing wide hash-table layout unchanged. Exactly two expected differences; remaining 162 comparisons passed. Only these two reviewed identities overlaid; no thresholds or exclusions changed."
+  "evidence_review_notes": "B3D final evidence-page text update: desktop and mobile screenshots reviewed against prior accepted views. Corrected test counts and clarified integration status; existing wide hash-table layout unchanged. Exactly two expected differences; remaining 162 comparisons passed. Only these two reviewed identities overlaid; no thresholds or exclusions changed.",
+  "b3e_review_notes": "142 screenshots inspected. Selective overlay only: 48 expected legacy-pointer replacements and 50 new identities (48 canonical template views, two evidence-page views). All 44 unchanged existing identities retain prior baselines. Canonical/source comparison: 40/48 within unchanged 2% mean and 3% tile limits; eight mobile light/dark views of Traditional PM Plan, Agile Risk Board, Closure Report and Execution Status Report inspected side-by-side for longer generated-path footer and full-page rescaling effects. Canonical body hashes and renderer styles unchanged. Existing wide tables, title overflow and dark-link contrast remain inherited renderer behavior. No threshold changes or exclusions."
 }
