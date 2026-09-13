@@ -8,7 +8,7 @@
  * 2. For each step with an alternative/exception branch:
  *    - All steps before the deviation point
  *    - The full alternative/exception path
- *    - Rejoin to basic flow at defined point, or continue to end
+ *    - Rejoin to basic flow at defined point, otherwise terminate
  * 3. Each test case is a standalone start-to-finish scenario
  */
 
@@ -74,7 +74,7 @@ class TestGenerator {
           testCase.steps.push(this._formatStep(altStep));
         }
 
-        // Line 8-10: Handle rejoin
+        // A branch without an explicit rejoin terminates after its own steps.
         if (flow.rejoinPoint) {
           // Line 9: Append from rejoin point onward
           const rejoinIndex = basicSteps.findIndex(
@@ -86,12 +86,6 @@ class TestGenerator {
             }
             testCase.expectedPostconditions = ucs.postconditions;
           }
-        } else if (i < n - 1) {
-          // Line 10: else if i < n, append [step_{i+1}, ..., step_n]
-          for (let j = i + 1; j < n; j++) {
-            testCase.steps.push(this._formatStep(basicSteps[j]));
-          }
-          testCase.expectedPostconditions = ucs.postconditions;
         }
 
         testCases.push(testCase);
