@@ -789,7 +789,7 @@ jobs:
           path: rendered-templates/
 
       - name: 🛠️ Setup Playwright
-        uses: actions/cache@v5
+        uses: actions/cache@v6
         with:
           path: ~/.cache/ms-playwright
           key: playwright-${{ runner.os }}-${{ env.PLAYWRIGHT_VERSION }}
