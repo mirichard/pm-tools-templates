@@ -498,14 +498,14 @@
       ],
       "related_assets": [
         "domains/delivery/industry-specializations/healthcare-pharmaceutical/validation/software_requirements_specification_template.md",
-        "domains/delivery/industry-specializations/information-technology/service-management/problem_management_process_template.md"
+        "domains/delivery/industry-specializations/information-technology/software-development/api_documentation_template.md"
       ],
       "complementary_assets": [
         "domains/delivery/industry-specializations/healthcare-pharmaceutical/compliance/gxp_training_plan_template.md",
         "domains/delivery/industry-specializations/healthcare-pharmaceutical/validation/process_validation_master_plan_template.md"
       ],
       "previous_workflow_step": "domains/delivery/industry-specializations/healthcare-pharmaceutical/validation/software_requirements_specification_template.md",
-      "next_workflow_step": "domains/delivery/industry-specializations/information-technology/service-management/problem_management_process_template.md"
+      "next_workflow_step": "domains/delivery/industry-specializations/information-technology/software-development/api_documentation_template.md"
     },
     {
       "path": "domains/delivery/industry-specializations/information-technology/service-management/problem_management_process_template.md",
@@ -518,15 +518,15 @@
         "domains/stakeholder/business-stakeholder-suite/financial-governance/enhanced-business-cases/advanced-business-case-template.md"
       ],
       "related_assets": [
-        "domains/delivery/industry-specializations/healthcare-pharmaceutical/validation/validation_master_plan_template.md",
-        "domains/delivery/industry-specializations/information-technology/software-development/api_documentation_template.md"
+        "domains/uncertainty/industry-specializations/information-technology/infrastructure/migration_plan_template.md",
+        "domains/uncertainty/industry-specializations/information-technology/software-development/requirements_specification_template.md"
       ],
       "complementary_assets": [
         "domains/stakeholder/business-stakeholder-suite/financial-governance/enhanced-business-cases/advanced-business-case-template.md",
         "domains/delivery/project-lifecycle/02-planning/project-management-plan/agile-release-plan-template.md"
       ],
-      "previous_workflow_step": "domains/delivery/industry-specializations/healthcare-pharmaceutical/validation/validation_master_plan_template.md",
-      "next_workflow_step": "domains/delivery/industry-specializations/information-technology/software-development/api_documentation_template.md"
+      "previous_workflow_step": "domains/uncertainty/industry-specializations/information-technology/infrastructure/migration_plan_template.md",
+      "next_workflow_step": "domains/uncertainty/industry-specializations/information-technology/software-development/requirements_specification_template.md"
     },
     {
       "path": "domains/delivery/industry-specializations/information-technology/software-development/api_documentation_template.md",
@@ -539,14 +539,14 @@
         "domains/delivery/role-based-toolkits/project-manager/essential-templates/timesheet-tracking-template.md"
       ],
       "related_assets": [
-        "domains/delivery/industry-specializations/information-technology/service-management/problem_management_process_template.md",
+        "domains/delivery/industry-specializations/healthcare-pharmaceutical/validation/validation_master_plan_template.md",
         "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/less/cross_team_coordination_template.md"
       ],
       "complementary_assets": [
         "domains/delivery/role-based-toolkits/project-manager/essential-templates/timesheet-tracking-template.md",
         "domains/uncertainty/role-based-toolkits/product-owner/user-story-template.md"
       ],
-      "previous_workflow_step": "domains/delivery/industry-specializations/information-technology/service-management/problem_management_process_template.md",
+      "previous_workflow_step": "domains/delivery/industry-specializations/healthcare-pharmaceutical/validation/validation_master_plan_template.md",
       "next_workflow_step": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/less/cross_team_coordination_template.md"
     },
     {
@@ -995,14 +995,14 @@
       ],
       "related_assets": [
         "domains/delivery/project-lifecycle/02-planning/project-management-plan/traditional-project-management-plan-template.md",
-        "domains/delivery/role-based-toolkits/project-manager/essential-templates/timesheet-tracking-template.md"
+        "domains/delivery/templates/agile/product_backlog_template.md"
       ],
       "complementary_assets": [
         "domains/delivery/project-lifecycle/02-planning/project-management-plan/agile-release-plan-template.md",
         "domains/measurement/methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md"
       ],
       "previous_workflow_step": "domains/delivery/project-lifecycle/02-planning/project-management-plan/traditional-project-management-plan-template.md",
-      "next_workflow_step": "domains/delivery/role-based-toolkits/project-manager/essential-templates/timesheet-tracking-template.md"
+      "next_workflow_step": "domains/delivery/templates/agile/product_backlog_template.md"
     },
     {
       "path": "domains/delivery/role-based-toolkits/project-manager/essential-templates/timesheet-tracking-template.md",
@@ -1015,15 +1015,15 @@
         "domains/delivery/industry-specializations/information-technology/software-development/api_documentation_template.md"
       ],
       "related_assets": [
-        "domains/delivery/project-lifecycle/02-planning/risk-management/agile-risk-board-template.md",
-        "domains/delivery/templates/agile/product_backlog_template.md"
+        "domains/measurement/role-based-toolkits/project-manager/essential-templates/handover-template.md",
+        "domains/measurement/industry-specializations/financial-services/compliance/compliance-management-template.md"
       ],
       "complementary_assets": [
         "domains/delivery/industry-specializations/information-technology/software-development/api_documentation_template.md",
         "domains/uncertainty/role-based-toolkits/product-owner/user-story-template.md"
       ],
-      "previous_workflow_step": "domains/delivery/project-lifecycle/02-planning/risk-management/agile-risk-board-template.md",
-      "next_workflow_step": "domains/delivery/templates/agile/product_backlog_template.md"
+      "previous_workflow_step": "domains/measurement/role-based-toolkits/project-manager/essential-templates/handover-template.md",
+      "next_workflow_step": "domains/measurement/industry-specializations/financial-services/compliance/compliance-management-template.md"
     },
     {
       "path": "domains/delivery/templates/agile/product_backlog_template.md",
@@ -1039,14 +1039,14 @@
         "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_program_increment_planning_template.md"
       ],
       "related_assets": [
-        "domains/delivery/role-based-toolkits/project-manager/essential-templates/timesheet-tracking-template.md",
+        "domains/delivery/project-lifecycle/02-planning/risk-management/agile-risk-board-template.md",
         "domains/delivery/templates/agile/sprint_planning_template.md"
       ],
       "complementary_assets": [
         "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_program_increment_planning_template.md",
         "domains/team/templates/agile/sprint_review_template.md"
       ],
-      "previous_workflow_step": "domains/delivery/role-based-toolkits/project-manager/essential-templates/timesheet-tracking-template.md",
+      "previous_workflow_step": "domains/delivery/project-lifecycle/02-planning/risk-management/agile-risk-board-template.md",
       "next_workflow_step": "domains/delivery/templates/agile/sprint_planning_template.md"
     },
     {
@@ -1634,14 +1634,14 @@
         "domains/stakeholder/business-stakeholder-suite/financial-governance/enhanced-business-cases/evm-dashboard-template.md"
       ],
       "related_assets": [
-        "domains/measurement/role-based-toolkits/project-manager/essential-templates/handover-template.md",
+        "domains/delivery/role-based-toolkits/project-manager/essential-templates/timesheet-tracking-template.md",
         "domains/measurement/industry-specializations/information-technology/cybersecurity/incident_response_template.md"
       ],
       "complementary_assets": [
         "domains/stakeholder/business-stakeholder-suite/financial-governance/enhanced-business-cases/evm-dashboard-template.md",
         "domains/measurement/methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md"
       ],
-      "previous_workflow_step": "domains/measurement/role-based-toolkits/project-manager/essential-templates/handover-template.md",
+      "previous_workflow_step": "domains/delivery/role-based-toolkits/project-manager/essential-templates/timesheet-tracking-template.md",
       "next_workflow_step": "domains/measurement/industry-specializations/information-technology/cybersecurity/incident_response_template.md"
     },
     {
@@ -2248,14 +2248,14 @@
       ],
       "related_assets": [
         "domains/measurement/project-lifecycle/02-planning/risk-management/risk-management-plan-template.md",
-        "domains/measurement/industry-specializations/financial-services/compliance/compliance-management-template.md"
+        "domains/delivery/role-based-toolkits/project-manager/essential-templates/timesheet-tracking-template.md"
       ],
       "complementary_assets": [
         "domains/measurement/project-assessment-suite/current-state-analysis-template.md",
         "domains/measurement/industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md"
       ],
       "previous_workflow_step": "domains/measurement/project-lifecycle/02-planning/risk-management/risk-management-plan-template.md",
-      "next_workflow_step": "domains/measurement/industry-specializations/financial-services/compliance/compliance-management-template.md"
+      "next_workflow_step": "domains/delivery/role-based-toolkits/project-manager/essential-templates/timesheet-tracking-template.md"
     },
     {
       "path": "domains/planning/industry-specializations/information-technology/infrastructure/data_center_design_template.md",
@@ -2892,14 +2892,14 @@
       ],
       "related_assets": [
         "domains/uncertainty/templates/test-samples/quality-test-plan-template.md",
-        "domains/uncertainty/industry-specializations/information-technology/software-development/requirements_specification_template.md"
+        "domains/delivery/industry-specializations/information-technology/service-management/problem_management_process_template.md"
       ],
       "complementary_assets": [
         "domains/planning/industry-specializations/information-technology/infrastructure/data_center_design_template.md",
         "domains/planning/industry-specializations/information-technology/infrastructure/disaster_recovery_template.md"
       ],
       "previous_workflow_step": "domains/uncertainty/templates/test-samples/quality-test-plan-template.md",
-      "next_workflow_step": "domains/uncertainty/industry-specializations/information-technology/software-development/requirements_specification_template.md"
+      "next_workflow_step": "domains/delivery/industry-specializations/information-technology/service-management/problem_management_process_template.md"
     },
     {
       "path": "domains/uncertainty/industry-specializations/information-technology/software-development/requirements_specification_template.md",
@@ -2914,14 +2914,14 @@
         "domains/uncertainty/role-based-toolkits/product-owner/backlog-management-template.md"
       ],
       "related_assets": [
-        "domains/uncertainty/industry-specializations/information-technology/infrastructure/migration_plan_template.md",
+        "domains/delivery/industry-specializations/information-technology/service-management/problem_management_process_template.md",
         "domains/uncertainty/industry-specializations/information-technology/software-development/user_story_mapping_template.md"
       ],
       "complementary_assets": [
         "domains/uncertainty/role-based-toolkits/product-owner/backlog-management-template.md",
         "domains/uncertainty/project-lifecycle/04-monitoring-control/progress-tracking/project-dashboard-template.md"
       ],
-      "previous_workflow_step": "domains/uncertainty/industry-specializations/information-technology/infrastructure/migration_plan_template.md",
+      "previous_workflow_step": "domains/delivery/industry-specializations/information-technology/service-management/problem_management_process_template.md",
       "next_workflow_step": "domains/uncertainty/industry-specializations/information-technology/software-development/user_story_mapping_template.md"
     },
     {

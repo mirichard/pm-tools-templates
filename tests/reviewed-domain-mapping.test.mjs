@@ -42,7 +42,7 @@ test('reviewed classifications survive both generators without rewriting migrati
   write('meta/migration-inventory.json', { generated: '2026-09-14', moves });
   write('meta/cross-references.json', { records: decisions.map(d => ({
     path: d.path, domain: { primary: 'Delivery' }, prerequisites: [],
-    related_assets: [], complementary_assets: [], previous_workflow_step: null, next_workflow_step: null
+    related_assets: [decisions[0].path], complementary_assets: [], previous_workflow_step: decisions[0].path, next_workflow_step: decisions[0].path
   })) });
   const generator = path.join(repo, 'scripts/generate-sprint-10-metadata.mjs');
   for (let pass = 0; pass < 2; pass += 1) {
@@ -51,6 +51,9 @@ test('reviewed classifications survive both generators without rewriting migrati
     for (const decision of decisions) {
       const record = read('meta/cross-references.json').records.find(r => r.path === decision.path);
       assert.equal(record.domain.primary, decision.primary);
+      assert.deepEqual(record.related_assets, []);
+      assert.equal(record.previous_workflow_step, null);
+      assert.equal(record.next_workflow_step, null);
       assert.equal(fs.readFileSync(path.join(root, decision.path), 'utf8'), '# Original body\n');
     }
   }
