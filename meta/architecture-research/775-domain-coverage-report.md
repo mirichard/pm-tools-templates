@@ -3,7 +3,9 @@
 **Story:** #719 ([Mapping] – Domain Alignment – Performance Domain Classification)
 **Epic:** #707 (Epic 0: Repository Audit & Mapping)
 **Date:** 2026-04-03
-**Status:** Complete
+**Status:** Complete — historical baseline
+
+This report preserves the April 3, 2026 analysis. Its counts, classifications, and gap assessments describe that baseline, not current acceptance evidence. The [accepted classification review](../../docs/domain-classification-review.md) supersedes the primary-domain counts and records the three owner-approved decisions. Current counts are in the [mapping summary](../mapping-summary.md), and current acceptance status is in the [Epic 4 closeout validation](../../docs/vnext/sprint-12/epic-4-closeout-validation.md).
 
 ---
 

@@ -17,6 +17,7 @@ The [domain taxonomy](../meta/architecture-research/772-performance-domain-taxon
 
 ## Bookmarks and external integrations
 
+- Domain classification is maintained in `meta/domain-mapping.json`; reviewed decisions are recorded in `meta/domain-review-decisions.json`. A later reclassification preserves the canonical URL, so its directory name can reflect an earlier classification. Use domain landing pages and mapping metadata for discovery.
 - Existing legacy file URLs remain supported as lightweight navigation documents pointing to the maintained canonical file.
 - New bookmarks and documentation should use canonical paths.
 - Integrations should read `templates/templates.json`, prefer `canonical_path` when present, and treat `alternate_paths` as compatibility aliases. Integrations must not infer canonical identity from directory enumeration.
