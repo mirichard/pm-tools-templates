@@ -73,7 +73,7 @@
         {
           "name": "Risk Management Plan",
           "description": "Comprehensive risk identification and mitigation strategy",
-          "path": "project-lifecycle/02-planning/risk-management/risk-management-plan-template.md",
+          "path": "domains/measurement/project-lifecycle/02-planning/risk-management/risk-management-plan-template.md",
           "category": "planning",
           "methodology": ["traditional", "hybrid"],
           "projectTypes": ["all"],

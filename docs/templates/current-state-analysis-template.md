@@ -15,7 +15,7 @@
 
 title: "Current State Analysis Template"
 
-[**➡️ View Template File**](/project-assessment-suite/current-state-analysis-template.md)
+[**➡️ View Template File**](/domains/measurement/project-assessment-suite/current-state-analysis-template.md)
 
 ## 📈 Quality Score
 

@@ -1,3 +1,11 @@
+---
+title: "Post-Implementation Review (PIR)"
+methodology: universal
+complexity: intermediate
+owner: mirichard
+updated: "2026-09-14"
+---
+
 # Post-Implementation Review (PIR)
 
 > Assess whether a completed project delivered its intended business value. Conduct 3-6 months after project closure to allow time for benefits to materialize.
@@ -85,7 +93,7 @@
 
 **When to use:** 3-6 months after project closure for any project where benefits realization was tracked.
 
-**When NOT to use:** For projects still in progress (use [Project Health Assessment](../../project-assessment-suite/project-health-assessment-template.md) instead).
+**When NOT to use:** For projects still in progress (use [Project Health Assessment](../../domains/measurement/project-assessment-suite/project-health-assessment-template.md) instead).
 
 **Related templates:**
 - [Benefits Register](benefits-register-lightweight.md) — Track benefits during and after the project

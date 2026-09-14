@@ -166,8 +166,8 @@ Use your answers to find the matching recommendation set below. Start with your 
 2. [Work Breakdown Structure Template](../../domains/delivery/templates/traditional/Traditional/Process_Groups/Planning/work_breakdown_structure_template.md)
 3. [Project Schedule Template](../../domains/delivery/templates/traditional/Traditional/Process_Groups/Planning/project_schedule_template.md)
 4. [Risk Register Template](../../domains/uncertainty/project-lifecycle/02-planning/risk-management/risk-register-template.md)
-5. [Risk Management Plan Template](../../project-lifecycle/02-planning/risk-management/risk-management-plan-template.md)
-6. [Resource Management Plan Template](../../project-lifecycle/02-planning/resource-planning/resource-management-plan-template.md)
+5. [Risk Management Plan Template](../../domains/measurement/project-lifecycle/02-planning/risk-management/risk-management-plan-template.md)
+6. [Resource Management Plan Template](../../domains/measurement/project-lifecycle/02-planning/resource-planning/resource-management-plan-template.md)
 7. [Budget Template](../../domains/planning/role-based-toolkits/project-manager/essential-templates/budget-template.md)
 
 **Recommended toolkit:** [Role-Based Toolkits — Project Manager](../../role-based-toolkits/project-manager/)
@@ -183,14 +183,14 @@ Use your answers to find the matching recommendation set below. Start with your 
 8. [Program Management Plan Template](../../domains/delivery/templates/traditional/Traditional/Templates/program_management_plan_template.md)
 9. [Change Management Plan Template](../../domains/delivery/templates/traditional/Traditional/Templates/change_management_plan_template.md)
 10. [Enterprise Risk Assessment Template](../../domains/uncertainty/project-lifecycle/02-planning/risk-management/enterprise-risk-assessment-template.md)
-11. [Governance Assessment Template](../../project-assessment-suite/governance-assessment-template.md)
+11. [Governance Assessment Template](../../domains/measurement/project-assessment-suite/governance-assessment-template.md)
 12. [Executive Dashboard Template](../../domains/stakeholder/business-stakeholder-suite/executive-dashboards/powerbi-integration/executive-dashboard-template.md)
 13. [ROI Tracking Template](../../domains/delivery/templates/traditional/Traditional/Knowledge_Areas/Project_Cost_Management/roi_tracking_template.md)
 
 **If regulatory, also add compliance templates for your industry:**
 - Healthcare: [Compliance Risk Assessment](../../domains/delivery/industry-specializations/healthcare-pharmaceutical/regulatory/compliance_risk_assessment_template.md), [Validation Master Plan](../../domains/delivery/industry-specializations/healthcare-pharmaceutical/validation/validation_master_plan_template.md), [GxP Training Plan](../../domains/delivery/industry-specializations/healthcare-pharmaceutical/compliance/gxp_training_plan_template.md)
-- Financial: [Compliance Management](../../industry-specializations/financial-services/compliance/compliance-management-template.md), [EVM Dashboard](../../domains/stakeholder/business-stakeholder-suite/financial-governance/enhanced-business-cases/evm-dashboard-template.md)
-- IT: [Cybersecurity Assessment](../../industry-specializations/information-technology/security/cybersecurity_assessment_template.md), [Test Plan](../../industry-specializations/information-technology/software-development/test_plan_template.md)
+- Financial: [Compliance Management](../../domains/measurement/industry-specializations/financial-services/compliance/compliance-management-template.md), [EVM Dashboard](../../domains/stakeholder/business-stakeholder-suite/financial-governance/enhanced-business-cases/evm-dashboard-template.md)
+- IT: [Cybersecurity Assessment](../../domains/measurement/industry-specializations/information-technology/security/cybersecurity_assessment_template.md), [Test Plan](../../domains/measurement/industry-specializations/information-technology/software-development/test_plan_template.md)
 
 **Recommended toolkit:** [Role-Based Toolkits](../../role-based-toolkits/) + [Business Stakeholder Suite](../../business-stakeholder-suite/)
 
@@ -227,7 +227,7 @@ Use your answers to find the matching recommendation set below. Start with your 
 
 **If IT industry, also add:**
 7. [Requirements Specification Template](../../domains/uncertainty/industry-specializations/information-technology/software-development/requirements_specification_template.md)
-8. [Test Plan Template](../../industry-specializations/information-technology/software-development/test_plan_template.md)
+8. [Test Plan Template](../../domains/measurement/industry-specializations/information-technology/software-development/test_plan_template.md)
 
 **Recommended toolkit:** [Role-Based Toolkits](../../role-based-toolkits/) (Scrum Master or Product Owner)
 
@@ -243,7 +243,7 @@ Use your answers to find the matching recommendation set below. Start with your 
 8. [Backlog Refinement Template](../../domains/team/role-based-toolkits/scrum-master/agile-ceremonies/backlog-refinement-template.md)
 9. [SAFe Program Increment Planning Template](../../domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_program_increment_planning_template.md)
 10. [Enterprise Risk Assessment Template](../../domains/uncertainty/project-lifecycle/02-planning/risk-management/enterprise-risk-assessment-template.md)
-11. [Governance Assessment Template](../../project-assessment-suite/governance-assessment-template.md)
+11. [Governance Assessment Template](../../domains/measurement/project-assessment-suite/governance-assessment-template.md)
 12. [Executive Dashboard Template](../../domains/stakeholder/business-stakeholder-suite/executive-dashboards/powerbi-integration/executive-dashboard-template.md)
 
 **If regulatory, also add compliance templates for your industry** (see [Enterprise Traditional](#enterprise-traditional-program-highregulatory-risk-large-scale) for industry-specific lists).
@@ -270,7 +270,7 @@ Use your answers to find the matching recommendation set below. Start with your 
 6. [Risk Register Template](../../domains/uncertainty/project-lifecycle/02-planning/risk-management/risk-register-template.md)
 
 **If financial industry, also add:**
-7. [Compliance Management Template](../../industry-specializations/financial-services/compliance/compliance-management-template.md)
+7. [Compliance Management Template](../../domains/measurement/industry-specializations/financial-services/compliance/compliance-management-template.md)
 8. [EVM Dashboard Template](../../domains/stakeholder/business-stakeholder-suite/financial-governance/enhanced-business-cases/evm-dashboard-template.md)
 
 **Recommended toolkit:** [Role-Based Toolkits](../../role-based-toolkits/)
@@ -288,8 +288,8 @@ Use your answers to find the matching recommendation set below. Start with your 
 8. [Progressive Acceptance Plan Template](../../domains/delivery/templates/hybrid/Hybrid/Templates/progressive_acceptance_plan_template.md)
 9. [Hybrid Infrastructure Template](../../domains/delivery/methodology-frameworks/hybrid/infrastructure/hybrid-infrastructure-template.md)
 10. [Enterprise Risk Assessment Template](../../domains/uncertainty/project-lifecycle/02-planning/risk-management/enterprise-risk-assessment-template.md)
-11. [Governance Assessment Template](../../project-assessment-suite/governance-assessment-template.md)
-12. [Project Health Assessment Template](../../project-assessment-suite/project-health-assessment-template.md)
+11. [Governance Assessment Template](../../domains/measurement/project-assessment-suite/governance-assessment-template.md)
+12. [Project Health Assessment Template](../../domains/measurement/project-assessment-suite/project-health-assessment-template.md)
 13. [Executive Dashboard Template](../../domains/stakeholder/business-stakeholder-suite/executive-dashboards/powerbi-integration/executive-dashboard-template.md)
 14. [Budget Dashboard Template](../../domains/stakeholder/business-stakeholder-suite/financial-governance/budget-dashboard-template.md)
 
@@ -310,7 +310,7 @@ Regardless of methodology, add these templates based on your **current phase** (
 | **Just starting** | [Stakeholder Register](../../domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/stakeholder-register-template.md), [Business Case Template](../../domains/planning/templates/traditional/Traditional/Templates/business_case_template.md) |
 | **Planning** | [Skills Matrix](../../domains/team/project-lifecycle/02-planning/resource-planning/skills-matrix-template.md), [Team Charter](../../domains/team/project-lifecycle/02-planning/resource-planning/team-charter-template.md) |
 | **In progress** | [Issue Log](../../domains/delivery/templates/traditional/Traditional/Templates/issue_log_template.md), [Change Request Template](../../domains/delivery/templates/traditional/Traditional/Templates/change_request_template.md) |
-| **Closing** | [Project Closure Report](../../domains/delivery/templates/traditional/Traditional/Process_Groups/Closing/project_closure_report_template.md), [Handover Template](../../role-based-toolkits/project-manager/essential-templates/handover-template.md) |
+| **Closing** | [Project Closure Report](../../domains/delivery/templates/traditional/Traditional/Process_Groups/Closing/project_closure_report_template.md), [Handover Template](../../domains/measurement/role-based-toolkits/project-manager/essential-templates/handover-template.md) |
 
 ---
 
@@ -320,7 +320,7 @@ Based on your **PM experience** (Q6):
 
 - **New to PM:** Start with the [First-Time PM Starter Kit](../../quick-start-kits/first-time-pm-starter/) and the [Template Customization Guide](../../quick-start-kits/template-customization-guide.md). Use the simplified versions of templates when available.
 - **Intermediate:** Use the standard methodology-specific templates. Add the [Project Assessment Suite](../../project-assessment-suite/) for periodic health checks.
-- **Advanced:** Use the full template set with comprehensive governance. Consider the [Process Maturity Assessment](../../project-assessment-suite/process-maturity-assessment-template.md) to optimize your approach.
+- **Advanced:** Use the full template set with comprehensive governance. Consider the [Process Maturity Assessment](../../domains/measurement/project-assessment-suite/process-maturity-assessment-template.md) to optimize your approach.
 
 ---
 

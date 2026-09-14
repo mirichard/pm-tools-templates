@@ -18,7 +18,7 @@
 | 2 | [Program Management Plan](../../../domains/delivery/templates/traditional/Traditional/Templates/program_management_plan_template.md) | Multi-project program coordination | ~2 hrs |
 | 3 | [Work Breakdown Structure](../../../domains/delivery/templates/traditional/Traditional/Process_Groups/Planning/work_breakdown_structure_template.md) | Scope decomposition | ~90 min |
 | 4 | [Project Schedule](../../../domains/delivery/templates/traditional/Traditional/Process_Groups/Planning/project_schedule_template.md) | Timeline and dependencies | ~90 min |
-| 5 | [Risk Management Plan](../../../project-lifecycle/02-planning/risk-management/risk-management-plan-template.md) | Risk approach and thresholds | ~45 min |
+| 5 | [Risk Management Plan](../../../domains/measurement/project-lifecycle/02-planning/risk-management/risk-management-plan-template.md) | Risk approach and thresholds | ~45 min |
 | 6 | [Risk Register](../../../domains/uncertainty/project-lifecycle/02-planning/risk-management/risk-register-template.md) | Detailed risk tracking | ~30 min |
 | 7 | [Enterprise Risk Assessment](../../../domains/uncertainty/project-lifecycle/02-planning/risk-management/enterprise-risk-assessment-template.md) | Organization-level risk management | ~60 min |
 | 8 | [Change Management Plan](../../../domains/delivery/templates/traditional/Traditional/Templates/change_management_plan_template.md) | Formal change control process | ~45 min |
@@ -27,12 +27,12 @@
 
 | # | Template | Purpose | Setup Time |
 |---|----------|---------|------------|
-| 9 | [Governance Assessment](../../../project-assessment-suite/governance-assessment-template.md) | Evaluate governance effectiveness | ~45 min |
+| 9 | [Governance Assessment](../../../domains/measurement/project-assessment-suite/governance-assessment-template.md) | Evaluate governance effectiveness | ~45 min |
 | 10 | [Executive Dashboard](../../../domains/stakeholder/business-stakeholder-suite/executive-dashboards/powerbi-integration/executive-dashboard-template.md) | Executive-level visibility | ~30 min |
 | 11 | [Executive Report Templates](../../../domains/stakeholder/business-stakeholder-suite/executive-dashboards/Word/Executive-Report-Templates.md) | Formal executive reporting | ~30 min |
 | 12 | [ROI Tracking](../../../domains/delivery/templates/traditional/Traditional/Knowledge_Areas/Project_Cost_Management/roi_tracking_template.md) | Benefits and value tracking | ~30 min |
 | 13 | [Budget Dashboard](../../../domains/stakeholder/business-stakeholder-suite/financial-governance/budget-dashboard-template.md) | Financial oversight | ~30 min |
-| 14 | [Resource Management Plan](../../../project-lifecycle/02-planning/resource-planning/resource-management-plan-template.md) | Staff and resource planning | ~45 min |
+| 14 | [Resource Management Plan](../../../domains/measurement/project-lifecycle/02-planning/resource-planning/resource-management-plan-template.md) | Staff and resource planning | ~45 min |
 
 ### Optional: Industry Compliance Supplements
 
@@ -49,14 +49,14 @@
 
 | # | Template | Purpose | Setup Time |
 |---|----------|---------|------------|
-| 15 | [Compliance Management](../../../industry-specializations/financial-services/compliance/compliance-management-template.md) | Regulatory compliance tracking | ~60 min |
+| 15 | [Compliance Management](../../../domains/measurement/industry-specializations/financial-services/compliance/compliance-management-template.md) | Regulatory compliance tracking | ~60 min |
 | 16 | [EVM Dashboard](../../../domains/stakeholder/business-stakeholder-suite/financial-governance/enhanced-business-cases/evm-dashboard-template.md) | Earned value management | ~45 min |
 | 17 | [Advanced Business Case](../../../domains/stakeholder/business-stakeholder-suite/financial-governance/enhanced-business-cases/advanced-business-case-template.md) | Detailed financial justification | ~90 min |
 
 ## Complementary Resources
 
 - **Toolkit:** [Role-Based Toolkits](../../../role-based-toolkits/) + [Business Stakeholder Suite](../../../business-stakeholder-suite/)
-- **Assessment:** [Process Maturity Assessment](../../../project-assessment-suite/process-maturity-assessment-template.md)
+- **Assessment:** [Process Maturity Assessment](../../../domains/measurement/project-assessment-suite/process-maturity-assessment-template.md)
 - **Guide:** [Methodology Selection Guide](../../../quick-start-kits/methodology-selection-guide.md)
 
 ## What This Bundle Does NOT Cover

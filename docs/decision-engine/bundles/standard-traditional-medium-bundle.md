@@ -18,8 +18,8 @@
 | 2 | [Work Breakdown Structure](../../../domains/delivery/templates/traditional/Traditional/Process_Groups/Planning/work_breakdown_structure_template.md) | Hierarchical scope decomposition | ~90 min |
 | 3 | [Project Schedule](../../../domains/delivery/templates/traditional/Traditional/Process_Groups/Planning/project_schedule_template.md) | Timeline with milestones and dependencies | ~90 min |
 | 4 | [Risk Register](../../../domains/uncertainty/project-lifecycle/02-planning/risk-management/risk-register-template.md) | Identify, assess, and mitigate risks | ~30 min |
-| 5 | [Risk Management Plan](../../../project-lifecycle/02-planning/risk-management/risk-management-plan-template.md) | Define risk approach and thresholds | ~45 min |
-| 6 | [Resource Management Plan](../../../project-lifecycle/02-planning/resource-planning/resource-management-plan-template.md) | Staff assignments and resource planning | ~45 min |
+| 5 | [Risk Management Plan](../../../domains/measurement/project-lifecycle/02-planning/risk-management/risk-management-plan-template.md) | Define risk approach and thresholds | ~45 min |
+| 6 | [Resource Management Plan](../../../domains/measurement/project-lifecycle/02-planning/resource-planning/resource-management-plan-template.md) | Staff assignments and resource planning | ~45 min |
 | 7 | [Budget Template](../../../domains/planning/role-based-toolkits/project-manager/essential-templates/budget-template.md) | Financial tracking and forecasting | ~30 min |
 
 ### Recommended (add during execution)
@@ -33,7 +33,7 @@
 ## Complementary Resources
 
 - **Toolkit:** [Project Manager Toolkit](../../../role-based-toolkits/project-manager/)
-- **Assessment:** [Project Health Assessment](../../../project-assessment-suite/project-health-assessment-template.md)
+- **Assessment:** [Project Health Assessment](../../../domains/measurement/project-assessment-suite/project-health-assessment-template.md)
 - **Guide:** [Methodology Selection Guide](../../../quick-start-kits/methodology-selection-guide.md)
 
 ## What This Bundle Does NOT Cover

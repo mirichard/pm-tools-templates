@@ -15,7 +15,7 @@
 
 title: "Compliance Management Template"
 
-[**➡️ View Template File**](/industry-specializations/financial-services/compliance/compliance-management-template.md)
+[**➡️ View Template File**](/domains/measurement/industry-specializations/financial-services/compliance/compliance-management-template.md)
 
 ## 📈 Quality Score
 

@@ -15,7 +15,7 @@
 
 title: "Monitoring Alerting Template"
 
-[**➡️ View Template File**](/methodology-frameworks/emerging-methods/devops/monitoring_alerting_template.md)
+[**➡️ View Template File**](/domains/measurement/methodology-frameworks/emerging-methods/devops/monitoring_alerting_template.md)
 
 ## 📈 Quality Score
 

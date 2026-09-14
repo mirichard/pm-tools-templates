@@ -15,7 +15,7 @@
 
 title: "Test Plan Template"
 
-[**➡️ View Template File**](/industry-specializations/information-technology/software-development/test_plan_template.md)
+[**➡️ View Template File**](/domains/measurement/industry-specializations/information-technology/software-development/test_plan_template.md)
 
 ## 📈 Quality Score
 
