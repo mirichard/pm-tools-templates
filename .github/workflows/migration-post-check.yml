@@ -41,6 +41,11 @@ jobs:
       - name: Repository migration post-check
         run: npm run validate:migration-post-check
 
+      - name: Domain navigation and findability validation
+        run: |
+          node --test tests/domain-navigation.test.mjs
+          npm run validate:domain-navigation
+
       - name: Keep migration parent issue open while moves remain
         env:
           GH_TOKEN: ${{ github.token }}
