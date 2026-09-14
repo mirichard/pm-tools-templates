@@ -12,7 +12,7 @@ const { generateCandidates } = require(path.join(root, 'src/nfr-candidates'));
 const { formatCandidateReport } = require(path.join(root, 'src/nfr-candidate-report'));
 const output = fs.mkdtempSync(path.join(os.tmpdir(), 'nfr-golden-regeneration-'));
 const base = 'password-reset-input';
-for (const overlay of ['neutral', 'fda-21-cfr-11']) {
+for (const overlay of ['neutral', 'pci-dss']) {
   const inputDir = path.join(__dirname, overlay);
   const read = suffix => JSON.parse(fs.readFileSync(path.join(inputDir, base + suffix), 'utf8'));
   const input = read('-ucs.json');
