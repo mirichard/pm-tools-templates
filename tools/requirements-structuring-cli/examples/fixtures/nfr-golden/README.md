@@ -66,8 +66,7 @@ is not a supplied project threshold; all 312 bindings remain placeholders.
 The previous `fda-21-cfr-11` demonstration was replaced because its sole pattern
 keys on accountability, which this fixture does not currently produce. This
 switch does not resolve whether the FDA/HIPAA overlays work for explicitly
-auditable requirements. The separate accountability investigation will be linked
-here when filed in the next finalization step.
+auditable requirements. See the unresolved [accountability investigation #1163](https://github.com/mirichard/pm-tools-templates/issues/1163).
 
 ## Source integrity and evaluation use
 
