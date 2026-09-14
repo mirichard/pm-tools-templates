@@ -4,12 +4,52 @@ const path = require('path');
 const { execFileSync } = require('child_process');
 const { generateCandidates } = require('../src/nfr-candidates');
 const root = path.resolve(__dirname, '../examples/fixtures/nfr-golden');
-const variants = ['neutral', 'fda-21-cfr-11'];
+const variants = ['neutral', 'pci-dss'];
+const expected = {
+  "neutral": {
+    "characteristics": [
+      "compatibility",
+      "functional-suitability",
+      "interaction-capability",
+      "performance-efficiency",
+      "reliability",
+      "security"
+    ],
+    "uncovered": [
+      "flexibility",
+      "maintainability",
+      "safety"
+    ],
+    "candidates": 70,
+    "bindings": 280
+  },
+  "pci-dss": {
+    "characteristics": [
+      "compatibility",
+      "functional-suitability",
+      "interaction-capability",
+      "reliability",
+      "security"
+    ],
+    "uncovered": [
+      "flexibility",
+      "maintainability",
+      "performance-efficiency",
+      "safety"
+    ],
+    "candidates": 78,
+    "bindings": 312
+  }
+};
 const base = 'password-reset-input';
 const read = (variant, suffix) => JSON.parse(fs.readFileSync(path.join(root, variant, base + suffix), 'utf8'));
 module.exports = async runner => {
   await runner.test('Golden fixture: all captured artifacts exist and have valid structure', () => {
-    assert(fs.readFileSync(path.join(root, base + '.md'), 'utf8').includes('FR6:'));
+    const source = fs.readFileSync(path.join(root, base + '.md'), 'utf8');
+    assert.equal(require('crypto').createHash('sha256').update(source).digest('hex'), 'f722b387b595bcbf34d5e344f853ba4086d1ee6e92e7ea7ea3e1cdabf42c3f3d');
+    const parsed = new (require('../src/parser'))().parseContent(source);
+    const catalog = [...parsed.basicFlow, ...parsed.alternativeFlows, ...parsed.exceptionFlows]
+      .map(({ id, originalText }) => ({ id, originalText }));
     for (const variant of variants) {
       const suffixes = ['-ambiguity.json', '-ambiguity-report.md', '-structured.json', '-ucs.json', '-tests.json', '.feature', '-nfr-classifications.json', '-nfr-report.md'];
       assert.equal(fs.readdirSync(path.join(root, variant)).length, suffixes.length);
@@ -18,25 +58,31 @@ module.exports = async runner => {
         assert(text.trim().length > 0);
         if (suffix.endsWith('.json')) JSON.parse(text);
       }
-      assert.equal(read(variant, '-nfr-classifications.json').requirements.length, 8);
+      assert.equal(read(variant, '-nfr-classifications.json').requirements.length, 10);
+      assert.deepEqual(read(variant, '-ucs.json').sourceRequirements, catalog);
+      assert.deepEqual(read(variant, '-structured.json').sourceRequirements, catalog);
       assert.match(fs.readFileSync(path.join(root, variant, base + '-nfr-report.md'), 'utf8'), /Coverage Gaps and Missing Inputs/);
     }
     return true;
   });
-  await runner.test('Golden fixture: breadth, placeholder-only bindings and genuine FDA addition', () => {
+  await runner.test('Golden fixture: exact coverage, placeholder-only bindings and PCI-DSS additions', () => {
     for (const variant of variants) {
       const handoff = read(variant, '-nfr-classifications.json');
       const generated = generateCandidates(handoff, { overlay: variant });
-      assert(new Set(generated.candidates.map(c => c.characteristic)).size >= 4);
-      assert(generated.candidates.length > 0);
+      assert.deepEqual([...new Set(generated.candidates.map(c => c.characteristic))].sort(), expected[variant].characteristics);
+      assert.deepEqual([...generated.uncoveredCharacteristics].sort(), expected[variant].uncovered);
+      assert.equal(generated.candidates.length, expected[variant].candidates);
+      assert.equal(generated.candidates.reduce((n, c) => n + Object.keys(c.bindings).length, 0), expected[variant].bindings);
       for (const candidate of generated.candidates) {
         for (const [name, binding] of Object.entries(candidate.bindings)) assert.equal(binding, `[NEEDS INPUT: ${name}]`);
       }
       if (variant !== 'neutral') {
         const neutral = generateCandidates(handoff);
         const added = generated.candidates.filter(c => !neutral.candidates.some(n => n.id === c.id));
-        assert.equal(added.length, 1);
-        assert.equal(added[0].patternId, 'fda-21-cfr-11.accountability');
+        assert.equal(neutral.candidates.length, 73);
+        assert.deepEqual(added.map(c => ({ patternId: c.patternId, path: c.source.path })),
+          ['/basicFlow/steps/1', '/basicFlow/steps/2', '/basicFlow/steps/4', '/basicFlow/steps/5', '/alternativeFlows/0/steps/0']
+            .map(path => ({ patternId: 'pci-dss.confidentiality', path })));
         assert(neutral.candidates.every(n => generated.candidates.some(c => c.id === n.id)));
       }
     }
