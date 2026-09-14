@@ -10,7 +10,7 @@ Use this directory to find maintained planning resources for this practice area.
 - [Data Center Design Template](data_center_design_template.md)
 - [Deployment Checklist](deployment_checklist.md)
 - [Disaster Recovery Template](disaster_recovery_template.md)
-- [Infrastructure Assessment Template](infrastructure_assessment_template.md)
+- [Infrastructure Assessment Template](../../../domains/measurement/industry-specializations/information-technology/infrastructure/infrastructure_assessment_template.md)
 - [Infrastructure Change Management Protocol](infrastructure_change_management_protocol.md)
 - [Migration Plan Template](migration_plan_template.md)
 

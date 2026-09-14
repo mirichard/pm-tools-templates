@@ -15,7 +15,7 @@
 
 title: "Gap Analysis Matrix Template"
 
-[**➡️ View Template File**](/project-assessment-suite/gap-analysis-matrix-template.md)
+[**➡️ View Template File**](/domains/measurement/project-assessment-suite/gap-analysis-matrix-template.md)
 
 ## 📈 Quality Score
 
