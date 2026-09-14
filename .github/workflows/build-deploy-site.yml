@@ -64,7 +64,7 @@ jobs:
           fetch-depth: 0  # Need full history for changelog generation
 
       - name: Setup Node.js
-        uses: actions/setup-node@v6
+        uses: actions/setup-node@v7
         with:
           # Astro 7 requires Node >=22.12. Keep the hosted build aligned with
           # the runtime validated by the current docs/site lockfile.
