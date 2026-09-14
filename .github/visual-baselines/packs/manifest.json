@@ -1,14 +1,14 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-13T19:49:21.963236+00:00",
-  "source_workflow_run": 34778987239,
-  "source_commit": "ce3128c9ee06bb14841e9f7f904002203c485471",
+  "generated_at": "2026-09-14T11:08:18.710643+00:00",
+  "source_workflow_run": 34836002782,
+  "source_commit": "d928a1c7801af50b198670a34298f063b6683d9e",
   "format": "webp",
   "width": 256,
   "maximum_dimension": 16383,
   "quality": 85,
   "method": 4,
-  "total_screenshots": 2578,
+  "total_screenshots": 2722,
   "packs": [
     {
       "file": "chromium-desktop-shard-0.zip",
@@ -331,6 +331,62 @@
       "screenshots": 1,
       "bytes": 4012,
       "sha256": "afddfea2b8c11532843e0756d4a0c2335744bf2cc5d97aeb9beee71ef679374c"
+    },
+    {
+      "file": "zzzzzzzz-b4a-chromium_desktop-shard-0.zip",
+      "browser_resolution": "chromium_desktop",
+      "screenshots": 18,
+      "bytes": 578680,
+      "sha256": "9c1211eed354298d2a74e9deffb0b8b49a9691cde4009683b66c7bd835d09e54"
+    },
+    {
+      "file": "zzzzzzzz-b4a-chromium_desktop-shard-1.zip",
+      "browser_resolution": "chromium_desktop",
+      "screenshots": 18,
+      "bytes": 622074,
+      "sha256": "b033bd07801588d4f0ec1cd1d911f5a6847026e6f9f332a326241522d00946d6"
+    },
+    {
+      "file": "zzzzzzzz-b4a-chromium_desktop-shard-2.zip",
+      "browser_resolution": "chromium_desktop",
+      "screenshots": 18,
+      "bytes": 623330,
+      "sha256": "32a157f3d1aecaea73f0e73e2ee1e7654e0be90f675d773060ed07fc70219c2c"
+    },
+    {
+      "file": "zzzzzzzz-b4a-chromium_desktop-shard-3.zip",
+      "browser_resolution": "chromium_desktop",
+      "screenshots": 18,
+      "bytes": 667960,
+      "sha256": "b70342af8b4cd1d613c9a54512307263f3a06ff0ff873ffc5c0b95c173e9e41c"
+    },
+    {
+      "file": "zzzzzzzz-b4a-chromium_mobile-shard-0.zip",
+      "browser_resolution": "chromium_mobile",
+      "screenshots": 18,
+      "bytes": 1897486,
+      "sha256": "8216dbfbef016f355831aa61fdc4a318ed6cc7928a3d47315d2f819c842027a5"
+    },
+    {
+      "file": "zzzzzzzz-b4a-chromium_mobile-shard-1.zip",
+      "browser_resolution": "chromium_mobile",
+      "screenshots": 18,
+      "bytes": 1947822,
+      "sha256": "b053bdbd33dddec6ccd4a1fe05feb851ddcdaab23ebeef3f6a78a13502f47ad8"
+    },
+    {
+      "file": "zzzzzzzz-b4a-chromium_mobile-shard-2.zip",
+      "browser_resolution": "chromium_mobile",
+      "screenshots": 18,
+      "bytes": 1756406,
+      "sha256": "d9925d31e057af873605c0768366ce231e265434a62d3280aa80edab96a58ac8"
+    },
+    {
+      "file": "zzzzzzzz-b4a-chromium_mobile-shard-3.zip",
+      "browser_resolution": "chromium_mobile",
+      "screenshots": 18,
+      "bytes": 1806072,
+      "sha256": "866e77476638be307994a0de890ffc65cbcea9e65b92888a59ed00bef6c2ebb7"
     }
   ],
   "reviewed_migration_overlay": {
@@ -349,5 +405,6 @@
   "evidence_review_notes": "B3D final evidence-page text update: desktop and mobile screenshots reviewed against prior accepted views. Corrected test counts and clarified integration status; existing wide hash-table layout unchanged. Exactly two expected differences; remaining 162 comparisons passed. Only these two reviewed identities overlaid; no thresholds or exclusions changed.",
   "b3e_review_notes": "142 screenshots inspected. Selective overlay only: 48 expected legacy-pointer replacements and 50 new identities (48 canonical template views, two evidence-page views). All 44 unchanged existing identities retain prior baselines. Canonical/source comparison: 40/48 within unchanged 2% mean and 3% tile limits; eight mobile light/dark views of Traditional PM Plan, Agile Risk Board, Closure Report and Execution Status Report inspected side-by-side for longer generated-path footer and full-page rescaling effects. Canonical body hashes and renderer styles unchanged. Existing wide tables, title overflow and dark-link contrast remain inherited renderer behavior. No threshold changes or exclusions.",
   "b3f_review_notes": "Selective acceptance: 48 expected legacy-pointer replacements and 54 new identities (48 canonical views, four compatibility-navigation views, two evidence-page views). All 36 unchanged views retain prior baselines. All 102 accepted images visually inspected. Canonical/source comparison: 40/48 within unchanged 2% mean and 3% tile limits; eight mobile light/dark views of Performance Monitoring, WBS, Purchase Order, and Change Management manually inspected for longer generated-path footer and full-page scaling. All 110 executed canonical body hashes preserved. Existing wide tables, title overflow and dark-link contrast are inherited renderer behavior. No thresholds, comparator logic, or exclusions changed.",
-  "b3f_final_evidence_review_notes": "Reviewed desktop and mobile evidence-page changes documenting canonical Risk Register correction and inherited truncation deferral to #1145. Preserve existing wide hash-table layout. Only these two image identities overlaid; other accepted images retained. No thresholds or exclusions changed."
+  "b3f_final_evidence_review_notes": "Reviewed desktop and mobile evidence-page changes documenting canonical Risk Register correction and inherited truncation deferral to #1145. Preserve existing wide hash-table layout. Only these two image identities overlaid; other accepted images retained. No thresholds or exclusions changed.",
+  "b4a_review_notes": "Selectively reviewed 60 legacy-pointer replacements and 84 new identities (60 canonical views, 22 compatibility-navigation views, two evidence-page views). All 94 unchanged views retain their prior baselines. All 144 accepted views visually inspected. Canonical/source comparison: 50/60 within unchanged 2% mean and 3% tile limits; ten mobile light/dark views of Compliance Management, CI/CD Pipeline, Release Management, Current State Analysis, and Risk Management Plan additionally inspected at top/middle/footer. Differences are longer generated-path footer and full-page rescaling; all 125 executed body hashes preserved. Inherited wide tables, title overflow, visible metadata and dark-link contrast remain. No threshold, comparator, renderer, or exclusion changes."
 }
