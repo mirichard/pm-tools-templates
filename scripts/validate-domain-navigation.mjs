@@ -21,6 +21,7 @@ export function validateDomainNavigation(root) {
   const crossReferences = readJson(root, 'meta/cross-references.json');
   const mappedByPath = new Map(mapping.mappings.map(item => [normalize(item.path), item]));
   const crossPaths = new Set(crossReferences.records.map(item => normalize(item.path)));
+  const requiredStarts = readJson(root, 'meta/domain-review-decisions.json').decisions;
   const rootReadme = fs.readFileSync(path.join(root, 'README.md'), 'utf8');
   const rootLinks = new Set(localLinks(rootReadme).map(normalize));
   const journeys = [];
@@ -50,6 +51,11 @@ export function validateDomainNavigation(root) {
     }
     if (linkedMapped.size < MINIMUM_ASSETS) {
       errors.push(`${domain}: landing page links ${linkedMapped.size} primary-domain assets; minimum is ${MINIMUM_ASSETS}`);
+    }
+    for (const decision of requiredStarts.filter(item => item.primary === domain)) {
+      if (!linkedMapped.has(normalize(decision.path))) {
+        errors.push(`${domain}: missing reviewed starting asset: ${decision.path}`);
+      }
     }
     for (const asset of linkedMapped) {
       if (!crossPaths.has(asset)) errors.push(`${domain}: starting asset lacks workflow cross-reference: ${asset}`);
