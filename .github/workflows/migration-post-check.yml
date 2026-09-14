@@ -43,7 +43,7 @@ jobs:
 
       - name: Domain navigation and findability validation
         run: |
-          node --test tests/domain-navigation.test.mjs
+          node --test tests/domain-navigation.test.mjs tests/reviewed-domain-mapping.test.mjs
           npm run validate:domain-navigation
 
       - name: Keep migration parent issue open while moves remain

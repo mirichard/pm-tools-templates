@@ -105,7 +105,7 @@
       "domain": {
         "primary": "Delivery",
         "secondary": [],
-        "rationale": "Technology template supports delivery execution"
+        "rationale": "Reviewed primary purpose: structure and document a technical delivery interface."
       },
       "flags": {
         "needs_review": true,
@@ -1198,9 +1198,9 @@
       "title": "Problem Management Process Template",
       "methodology": "universal",
       "domain": {
-        "primary": "Delivery",
+        "primary": "Uncertainty",
         "secondary": [],
-        "rationale": "No tags available — needs manual review"
+        "rationale": "Reviewed primary purpose: identify, investigate, mitigate, and resolve unexpected problems."
       },
       "flags": {
         "needs_review": true,
@@ -2067,9 +2067,9 @@
       "title": "Timesheet Tracking Template",
       "methodology": "universal",
       "domain": {
-        "primary": "Delivery",
+        "primary": "Measurement",
         "secondary": [],
-        "rationale": "Technology template supports delivery execution"
+        "rationale": "Reviewed primary purpose: record and summarize effort evidence for tracking and reporting."
       },
       "flags": {
         "needs_review": true,
