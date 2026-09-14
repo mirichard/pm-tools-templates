@@ -372,20 +372,27 @@ def main():
         total = sum(row.values())
         summary += f"| {meth} | " + " | ".join(str(row[d]) for d in domain_counts) + f" | {total} |\n"
 
+    reviewed_pending = sum(r["domain_reviewed"] for r in needs_review)
+    if reviewed_pending:
+        summary += (f"\n{reviewed_pending} remaining review flags concern value flow only; "
+                    "their domain decisions were accepted in #740.\n")
+
     with open(META_DIR / "mapping-summary.md", "w") as f:
         f.write(summary)
 
     # Needs review
-    review_md = f"# Assets Needing Manual Review\n\n**Count:** {len(needs_review)} of {len(templates)}\n\n"
+    review_note = (" (value-flow review only; domain decisions accepted in #740)"
+                   if needs_review and reviewed_pending == len(needs_review) else "")
+    review_md = f"# Assets Needing Manual Review\n\n**Count:** {len(needs_review)} of {len(templates)}{review_note}\n\n"
     for r in needs_review:
         review_md += f"- **{r['title']}** (`{r['path']}`)\n"
         review_md += f"  - Tags: {', '.join(r['tags']) if r['tags'] else 'none'}\n"
-        review_md += f"  - Auto-assigned: VF={r['vf_primary']}, Domain={r['d_primary']}\n\n"
-        if r["domain_reviewed"]:
-            review_md += "  - Domain reviewed in #740; remaining review concerns value flow only.\n\n"
+        label = ("Value flow remains auto-assigned; domain reviewed"
+                 if r["domain_reviewed"] else "Auto-assigned")
+        review_md += f"  - {label}: VF={r['vf_primary']}, Domain={r['d_primary']}\n\n"
 
     with open(META_DIR / "needs-review.md", "w") as f:
-        f.write(review_md)
+        f.write(review_md.rstrip() + "\n")
 
     # Print summary
     print(f"\n{'='*50}")

@@ -1,6 +1,6 @@
 # Asset Mapping Summary
 
-**Generated:** 2026-04-03 23:32 UTC
+**Generated:** 2026-09-14 21:20 UTC
 **Total assets mapped:** 137
 **Needs manual review:** 3 (2.2%)
 **Cross-domain assets:** 100
@@ -34,4 +34,4 @@
 | traditional | 1 | 1 | 18 | 3 | 0 | 0 | 23 |
 | universal | 10 | 3 | 29 | 4 | 14 | 28 | 88 |
 
-Domain decisions updated following #740 owner acceptance. Counts retain the original 137-asset denominator. The three remaining review flags concern value flow only.
+3 remaining review flags concern value flow only; their domain decisions were accepted in #740.
