@@ -24,7 +24,8 @@
     "test:migration-post-check": "node --test tests/migration-post-check.test.mjs",
     "plan:migration-wave": "node scripts/plan-migration-wave.mjs",
     "validate:migration-wave": "node scripts/validate-migration-wave.mjs",
-    "validate:migration-post-check": "node scripts/migration-post-check.mjs"
+    "validate:migration-post-check": "node scripts/migration-post-check.mjs",
+    "validate:domain-navigation": "node scripts/validate-domain-navigation.mjs"
   },
   "keywords": [
     "project-management",

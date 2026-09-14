@@ -1,11 +1,15 @@
-# Readme — Compatibility Navigation
+# Measurement performance domain
 
-## Purpose and overview
+Use this domain to track progress, assess performance, report status, and evaluate outcomes.
 
-This file provides navigation only for relative links preserved in migrated templates. The maintained resource is linked below.
+## Scope and boundary
 
-[Open the maintained Readme](../../README.md)
+Measurement includes KPIs, progress tracking, dashboards, status reporting, health assessments, benefits realization, and maturity evaluation. Risk-specific analysis belongs in [Uncertainty](../uncertainty/); team coaching belongs in [Team](../team/); financial planning belongs in [Planning](../planning/).
 
-## Usage instructions
+## Start here
 
-Follow the link to the maintained resource. This compatibility file contains no duplicate template body. When bookmarking or sharing the resource, use its maintained location so future readers reach the current version directly.
+- [Current-state analysis](../../domains/measurement/project-assessment-suite/current-state-analysis-template.md)
+- [Cybersecurity assessment](../../domains/measurement/industry-specializations/information-technology/security/cybersecurity_assessment_template.md)
+- [CI/CD pipeline planning](../../domains/measurement/methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md)
+
+Browse the [complete template index](../../TEMPLATE_INDEX.md) or use the [interactive browser](../../templates/index.html) for additional filters.
