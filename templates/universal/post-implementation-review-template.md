@@ -3,7 +3,7 @@ title: "Post-Implementation Review (PIR)"
 methodology: universal
 complexity: intermediate
 owner: mirichard
-updated: 2026-09-14
+updated: "2026-09-14"
 ---
 
 # Post-Implementation Review (PIR)
