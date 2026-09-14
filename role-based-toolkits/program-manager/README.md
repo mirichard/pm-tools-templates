@@ -15,7 +15,7 @@ This toolkit provides Program Managers with specialized resources for coordinati
 - **[Gap Analysis Matrix](../../project-assessment-suite/gap-analysis-matrix-template.md)** - Current vs. future state analysis with prioritization
 - **[Remediation Action Plan](../../project-assessment-suite/remediation-action-plan-template.md)** - Structured improvement planning and tracking
 - **[Assessment Planning Guide](../../project-assessment-suite/assessment-planning-guide.md)** - Step-by-step assessment methodology
-- **[Executive Summary](../../project-assessment-suite/executive-summary-template.md)** - Leadership reporting format
+- **[Executive Summary](../../domains/measurement/project-assessment-suite/executive-summary-template.md)** - Leadership reporting format
 
 *Essential for program managers to systematically assess project health, identify issues early, and implement corrective actions using leading practices.*
 

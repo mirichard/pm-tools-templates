@@ -4,7 +4,7 @@
 
 This file provides navigation only for relative links preserved in migrated templates. The maintained resource is linked below.
 
-[Open the maintained cicd pipeline planning template](../../../../../methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md)
+[Open the maintained cicd pipeline planning template](../../../../measurement/methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md)
 
 ## Usage instructions
 
