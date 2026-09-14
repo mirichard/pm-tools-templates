@@ -33,7 +33,7 @@ Scoped validation checks 51 files and 608 local inline links: zero new failures 
 
 ## Validation and completion
 
-Entry/executed manifest, migration post-check, curated/canonical paths and 137/137 annotation coverage pass. All 47 migration/catalog tests and 22 Python metadata/link tests pass. Final validation evidence is recorded in the delivery PR. This record does not assert that pending CI, security, or reviewed visual gates have passed. No threshold change, exclusion, or blanket baseline update is authorized.
+Entry/executed manifest, migration post-check, curated/canonical paths and 137/137 annotation coverage pass. All 47 migration/catalog tests and 22 Python metadata/link tests pass. Final validation evidence is recorded in the delivery PR. This record does not assert that pending CI, security, or reviewed visual gates have passed. Quality-gate baseline resolution now uses the original source only for a preplanned byte-identical move with a matching recorded hash and valid legacy destination. Six tests cover the valid move and rejection of changed bodies, wrong hashes, broken pointers, unplanned destinations and symlinks. Shell here-strings avoid false warnings from early-closing grep pipelines on long templates. Warning thresholds remain unchanged; no exclusion or blanket baseline update is authorized.
 
 Inventory after execution: 137 executed / 0 remaining. Parent migration issues remain open.
 
