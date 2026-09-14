@@ -29,11 +29,21 @@ All 12 canonical bodies preserve their original SHA-256 values. Legacy pointers 
 
 Four navigation-only compatibility files preserve existing links to CI/CD, Release Management, Current State Analysis and decision authority. Four previous compatibility files become canonical bodies in this wave. All 12 original body hashes remain unchanged. The maintained Post-Implementation Review template receives required metadata when its assessment link is updated; its existing prose is preserved.
 
-Scoped validation checks 51 files and 608 local inline links: zero new failures and 54 inherited failures explicitly tracked in #1157. These include seven inherited missing-resource links within the migrated DevOps, Future State Blueprint and Resource Management Assessment bodies. These defects remain deferred, not repaired; related inherited content debt #1145/#1156 remains open.
+At pre-repair head `bfff65e43e1379312e1d5438d7a66a8d065eddd7`, scoped validation checked 56 files and 612 local inline links: zero new failures and 54 inherited failures explicitly tracked in #1157. These include seven inherited missing-resource links within the migrated DevOps, Future State Blueprint and Resource Management Assessment bodies. These defects remain deferred, not repaired; related inherited content debt #1145/#1156 remains open.
 
 ## Validation and completion
 
-Entry/executed manifest, migration post-check, curated/canonical paths and 137/137 annotation coverage pass. All 47 migration/catalog tests and 22 Python metadata/link tests pass. Final validation evidence is recorded in the delivery PR. This record does not assert that pending CI, security, or reviewed visual gates have passed. Quality-gate baseline resolution now uses the original source only for a preplanned byte-identical move with a matching recorded hash and valid legacy destination. Six tests cover the valid move and rejection of changed bodies, wrong hashes, broken pointers, unplanned destinations and symlinks. Shell here-strings avoid false warnings from early-closing grep pipelines on long templates. Warning thresholds remain unchanged; no exclusion or blanket baseline update is authorized.
+### Verified checkpoint before the second Copilot review repair
+
+At head `bfff65e43e1379312e1d5438d7a66a8d065eddd7`, entry/executed manifest, migration post-check, curated/canonical paths and 137/137 annotation coverage passed. All 47 migration/catalog tests and 28 Python metadata/link/baseline tests passed. All 18 workflows passed, including CI/security and the normal affected visual comparison: 168/168, zero regressions, new screenshots or errors, baseline_update=false. See the [final checkpoint evidence](https://github.com/mirichard/pm-tools-templates/pull/1158#issuecomment-5664112107) and [visual run 34843644401, attempt 3](https://github.com/mirichard/pm-tools-templates/actions/runs/34843644401/attempts/3). These results supersede the initial 22-test, gates-pending record and apply only to that pre-repair head.
+
+### Second Copilot review repair
+
+The quality gate and metadata linter now share the existing navigation-only validator. A matching canonical link alone cannot transfer inherited debt: the source must also meet the small, single-link navigation document contract. Existing preplanned-move, byte-identity, hash and exact-destination checks remain in place. The shared validator has no YAML dependency, so the quality-gate command remains usable without the metadata linter's parser dependency.
+
+Local repair validation passed: 30 Python metadata/link/baseline tests (including eight baseline tests), four status-output tests, and the 12-asset executed manifest. Added regressions reject a full template with an appended canonical link, extra links, template lists, oversized content and a missing navigation declaration. Direct CLI execution still yields exactly 12 valid baseline transfers. Existing rejection tests for changed bodies, wrong hashes, broken pointers, unplanned destinations and symlinks remain passing.
+
+Remote CI/security and visual results for the repair commit must be checked separately in the delivery PR before merge; the earlier passing checkpoint does not approve this revision. Warning thresholds, rendering and visual baselines remain unchanged by this repair.
 
 Inventory after execution: 137 executed / 0 remaining. Parent migration issues remain open.
 

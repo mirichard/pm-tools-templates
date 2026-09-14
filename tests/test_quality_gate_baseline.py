@@ -1,16 +1,11 @@
 """Verify that relocated inherited debt never exempts changed or unplanned bodies."""
 import hashlib
-import importlib.util
 import json
-from pathlib import Path
 import unittest
+from scripts import quality_gate_baseline as baseline
 from tests import test_template_metadata as fixtures
 
 POINTER, VALID = fixtures.POINTER, fixtures.VALID
-
-spec = importlib.util.spec_from_file_location('baseline', Path(__file__).resolve().parents[1] / 'scripts/quality_gate_baseline.py')
-baseline = importlib.util.module_from_spec(spec)
-spec.loader.exec_module(baseline)
 
 
 class QualityBaselineTests(unittest.TestCase):
@@ -51,6 +46,24 @@ class QualityBaselineTests(unittest.TestCase):
     def test_wrong_pointer_receives_no_debt_transfer(self):
         self.write(self.source, POINTER)
         self.assertEqual(baseline.migration_sources(self.root, self.base), {})
+
+    def test_template_with_appended_canonical_link_receives_no_debt_transfer(self):
+        self.write(self.source, VALID + '\n**Canonical location:** '
+                   '[Open template](../' + self.destination + ')\n')
+        self.assertEqual(baseline.migration_sources(self.root, self.base), {})
+
+    def test_invalid_navigation_receives_no_debt_transfer(self):
+        pointer = POINTER.replace('body with spaces.md', '../' + self.destination)
+        variants = {
+            'extra link': pointer + '\n[Another link](../' + self.destination + ')\n',
+            'template list': pointer + '\n- Template body item\n',
+            'oversized body': pointer + '\n' + 'x' * 2201,
+            'missing declaration': pointer.replace('navigation guidance only', 'a template'),
+        }
+        for name, content in variants.items():
+            with self.subTest(name=name):
+                self.write(self.source, content)
+                self.assertEqual(baseline.migration_sources(self.root, self.base), {})
 
     def test_unplanned_destination_receives_no_debt_transfer(self):
         self.move['destination'] = 'domains/measurement/other.md'

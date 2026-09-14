@@ -10,6 +10,11 @@ import re
 import stat
 import subprocess
 
+if __package__:
+    from .migration_pointer import pointer_errors
+else:
+    from migration_pointer import pointer_errors
+
 
 def git_bytes(root, base, path):
     return subprocess.check_output(['git', '-C', str(root), 'show', f'{base}:{path}'],
@@ -47,6 +52,8 @@ def migration_sources(root, base):
             if hashlib.sha256(body).hexdigest() != digest or regular_bytes(root, destination) != body:
                 continue
             pointer = regular_bytes(root, source).decode()
+            if pointer_errors(root, source, pointer):
+                continue
             target = re.search(r'\*\*Canonical location:\*\*\s*\[[^\]]+\]\(([^)]+)\)', pointer)
             if not target or posixpath.normpath(posixpath.join(posixpath.dirname(source), target[1].removeprefix('<').removesuffix('>'))) != destination:
                 continue
