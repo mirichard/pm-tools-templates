@@ -1471,8 +1471,8 @@ q4_initiatives:
 ---
 
 ## Related Templates
-- [CI/CD Pipeline Planning](./cicd_pipeline_planning_template.md)
-- [Release Management Workflow](./release_management_template.md)
+- [CI/CD Pipeline Planning](../../../domains/measurement/methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md)
+- [Release Management Workflow](../../../domains/measurement/methodology-frameworks/emerging-methods/devops/release_management_template.md)
 - [DevOps Monitoring and Alerting](./monitoring_alerting_template.md)
 - [Infrastructure as Code](./infrastructure_as_code_template.md)
 - [Security Engineer Toolkit](../../role-based-toolkits/security-engineer/README.md)

@@ -15,7 +15,7 @@
 
 title: "Roi Tracking Template"
 
-[**➡️ View Template File**](/templates/traditional/Traditional/Knowledge_Areas/Project_Cost_Management/roi_tracking_template.md)
+[**➡️ View Template File**](/domains/delivery/templates/traditional/Traditional/Knowledge_Areas/Project_Cost_Management/roi_tracking_template.md)
 
 ## 📈 Quality Score
 

@@ -35,7 +35,7 @@
       }
     },
     {
-      "path": "project-lifecycle/02-planning/project-management-plan/agile-release-plan-template.md",
+      "path": "domains/delivery/project-lifecycle/02-planning/project-management-plan/agile-release-plan-template.md",
       "title": "Agile Release Plan Template",
       "methodology": "universal",
       "domain": {
@@ -52,7 +52,7 @@
       }
     },
     {
-      "path": "project-lifecycle/02-planning/risk-management/agile-risk-board-template.md",
+      "path": "domains/delivery/project-lifecycle/02-planning/risk-management/agile-risk-board-template.md",
       "title": "Agile Risk Board Template",
       "methodology": "universal",
       "domain": {
@@ -238,7 +238,7 @@
       }
     },
     {
-      "path": "project-lifecycle/02-planning/business-requirements/business_requirements_document_template.md",
+      "path": "domains/measurement/project-lifecycle/02-planning/business-requirements/business_requirements_document_template.md",
       "title": "Business Requirements Document Template",
       "methodology": "universal",
       "domain": {
@@ -271,7 +271,7 @@
       }
     },
     {
-      "path": "templates/traditional/Traditional/Templates/change_management_plan_template.md",
+      "path": "domains/delivery/templates/traditional/Traditional/Templates/change_management_plan_template.md",
       "title": "Change Management Plan Template",
       "methodology": "traditional",
       "domain": {
@@ -288,7 +288,7 @@
       }
     },
     {
-      "path": "templates/traditional/Traditional/Templates/change_request_template.md",
+      "path": "domains/delivery/templates/traditional/Traditional/Templates/change_request_template.md",
       "title": "Change Request Template",
       "methodology": "traditional",
       "domain": {
@@ -305,7 +305,7 @@
       }
     },
     {
-      "path": "methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md",
+      "path": "domains/measurement/methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md",
       "title": "Cicd Pipeline Planning Template",
       "methodology": "universal",
       "domain": {
@@ -354,7 +354,7 @@
       }
     },
     {
-      "path": "templates/traditional/Traditional/Templates/communication_plan_template.md",
+      "path": "domains/delivery/templates/traditional/Traditional/Templates/communication_plan_template.md",
       "title": "Communication Plan Template",
       "methodology": "traditional",
       "domain": {
@@ -371,7 +371,7 @@
       }
     },
     {
-      "path": "industry-specializations/financial-services/compliance/compliance-management-template.md",
+      "path": "domains/measurement/industry-specializations/financial-services/compliance/compliance-management-template.md",
       "title": "Compliance Management Template",
       "methodology": "universal",
       "domain": {
@@ -436,7 +436,7 @@
       }
     },
     {
-      "path": "project-assessment-suite/current-state-analysis-template.md",
+      "path": "domains/measurement/project-assessment-suite/current-state-analysis-template.md",
       "title": "Current State Analysis Template",
       "methodology": "universal",
       "domain": {
@@ -453,7 +453,7 @@
       }
     },
     {
-      "path": "industry-specializations/information-technology/security/cybersecurity_assessment_template.md",
+      "path": "domains/measurement/industry-specializations/information-technology/security/cybersecurity_assessment_template.md",
       "title": "Cybersecurity Assessment Template",
       "methodology": "universal",
       "domain": {
@@ -514,7 +514,7 @@
       }
     },
     {
-      "path": "industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md",
+      "path": "domains/measurement/industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md",
       "title": "Digital Transformation Strategy Template",
       "methodology": "universal",
       "domain": {
@@ -637,7 +637,7 @@
       }
     },
     {
-      "path": "project-assessment-suite/executive-summary-template.md",
+      "path": "domains/measurement/project-assessment-suite/executive-summary-template.md",
       "title": "Executive Summary Template",
       "methodology": "universal",
       "domain": {
@@ -820,7 +820,7 @@
       }
     },
     {
-      "path": "templates/hybrid/Hybrid/Templates/hybrid_quality_management_template.md",
+      "path": "domains/delivery/templates/hybrid/Hybrid/Templates/hybrid_quality_management_template.md",
       "title": "Hybrid Quality Management Template",
       "methodology": "hybrid",
       "domain": {
@@ -871,7 +871,7 @@
       }
     },
     {
-      "path": "industry-specializations/information-technology/cybersecurity/incident_response_template.md",
+      "path": "domains/measurement/industry-specializations/information-technology/cybersecurity/incident_response_template.md",
       "title": "Incident Response Template",
       "methodology": "universal",
       "domain": {
@@ -901,7 +901,7 @@
       }
     },
     {
-      "path": "industry-specializations/information-technology/infrastructure/infrastructure_assessment_template.md",
+      "path": "domains/measurement/industry-specializations/information-technology/infrastructure/infrastructure_assessment_template.md",
       "title": "Infrastructure Assessment Template",
       "methodology": "universal",
       "domain": {
@@ -951,7 +951,7 @@
       }
     },
     {
-      "path": "templates/traditional/Traditional/Templates/issue_log_template.md",
+      "path": "domains/delivery/templates/traditional/Traditional/Templates/issue_log_template.md",
       "title": "Issue Log Template",
       "methodology": "traditional",
       "domain": {
@@ -1273,7 +1273,7 @@
       }
     },
     {
-      "path": "templates/agile/product_backlog_template.md",
+      "path": "domains/delivery/templates/agile/product_backlog_template.md",
       "title": "Product Backlog Template",
       "methodology": "agile",
       "domain": {
@@ -1322,7 +1322,7 @@
       }
     },
     {
-      "path": "templates/traditional/Traditional/Templates/program_management_plan_template.md",
+      "path": "domains/delivery/templates/traditional/Traditional/Templates/program_management_plan_template.md",
       "title": "Program Management Plan Template",
       "methodology": "traditional",
       "domain": {
@@ -1372,7 +1372,7 @@
       }
     },
     {
-      "path": "templates/traditional/Traditional/Process_Groups/Closing/project_closure_report_template.md",
+      "path": "domains/delivery/templates/traditional/Traditional/Process_Groups/Closing/project_closure_report_template.md",
       "title": "Project Closure Report Template",
       "methodology": "traditional",
       "domain": {
@@ -1405,7 +1405,7 @@
       }
     },
     {
-      "path": "templates/traditional/Traditional/Process_Groups/Executing/project_execution_status_report_template.md",
+      "path": "domains/delivery/templates/traditional/Traditional/Process_Groups/Executing/project_execution_status_report_template.md",
       "title": "Project Execution Status Report Template",
       "methodology": "traditional",
       "domain": {
@@ -1439,7 +1439,7 @@
       }
     },
     {
-      "path": "templates/traditional/Traditional/Process_Groups/Planning/project_management_plan_template.md",
+      "path": "domains/delivery/templates/traditional/Traditional/Process_Groups/Planning/project_management_plan_template.md",
       "title": "Project Management Plan Template",
       "methodology": "traditional",
       "domain": {
@@ -1456,7 +1456,7 @@
       }
     },
     {
-      "path": "templates/traditional/Traditional/Process_Groups/Monitoring_and_Controlling/project_performance_monitoring_template.md",
+      "path": "domains/delivery/templates/traditional/Traditional/Process_Groups/Monitoring_and_Controlling/project_performance_monitoring_template.md",
       "title": "Project Performance Monitoring Template",
       "methodology": "traditional",
       "domain": {
@@ -1473,7 +1473,7 @@
       }
     },
     {
-      "path": "templates/traditional/Traditional/Templates/project_roadmap_template.md",
+      "path": "domains/delivery/templates/traditional/Traditional/Templates/project_roadmap_template.md",
       "title": "Project Roadmap Template",
       "methodology": "traditional",
       "domain": {
@@ -1490,7 +1490,7 @@
       }
     },
     {
-      "path": "templates/traditional/Traditional/Process_Groups/Planning/project_schedule_template.md",
+      "path": "domains/delivery/templates/traditional/Traditional/Process_Groups/Planning/project_schedule_template.md",
       "title": "Project Schedule Template",
       "methodology": "traditional",
       "domain": {
@@ -1507,7 +1507,7 @@
       }
     },
     {
-      "path": "templates/traditional/Traditional/Templates/purchase_order_template.md",
+      "path": "domains/delivery/templates/traditional/Traditional/Templates/purchase_order_template.md",
       "title": "Purchase Order Template",
       "methodology": "traditional",
       "domain": {
@@ -1553,7 +1553,7 @@
       }
     },
     {
-      "path": "templates/traditional/Traditional/Templates/raid_log_template.md",
+      "path": "domains/delivery/templates/traditional/Traditional/Templates/raid_log_template.md",
       "title": "Raid Log Template",
       "methodology": "traditional",
       "domain": {
@@ -1601,7 +1601,7 @@
       }
     },
     {
-      "path": "methodology-frameworks/emerging-methods/devops/release_management_template.md",
+      "path": "domains/measurement/methodology-frameworks/emerging-methods/devops/release_management_template.md",
       "title": "Release Management Template",
       "methodology": "universal",
       "domain": {
@@ -1651,7 +1651,7 @@
       }
     },
     {
-      "path": "templates/traditional/Traditional/Process_Groups/Executing/requirements_traceability_matrix_template.md",
+      "path": "domains/delivery/templates/traditional/Traditional/Process_Groups/Executing/requirements_traceability_matrix_template.md",
       "title": "Requirements Traceability Matrix Template",
       "methodology": "traditional",
       "domain": {
@@ -1682,7 +1682,7 @@
       }
     },
     {
-      "path": "project-lifecycle/02-planning/resource-planning/resource-management-plan-template.md",
+      "path": "domains/measurement/project-lifecycle/02-planning/resource-planning/resource-management-plan-template.md",
       "title": "Resource Management Plan Template",
       "methodology": "universal",
       "domain": {
@@ -1699,7 +1699,7 @@
       }
     },
     {
-      "path": "industry-specializations/information-technology/cybersecurity/risk_assessment_template.md",
+      "path": "domains/measurement/industry-specializations/information-technology/cybersecurity/risk_assessment_template.md",
       "title": "Risk Assessment Template",
       "methodology": "universal",
       "domain": {
@@ -1733,7 +1733,7 @@
       }
     },
     {
-      "path": "project-lifecycle/02-planning/risk-management/risk-management-plan-template.md",
+      "path": "domains/measurement/project-lifecycle/02-planning/risk-management/risk-management-plan-template.md",
       "title": "Risk Management Plan Template",
       "methodology": "universal",
       "domain": {
@@ -1767,7 +1767,7 @@
       }
     },
     {
-      "path": "templates/traditional/Traditional/Knowledge_Areas/Project_Cost_Management/roi_tracking_template.md",
+      "path": "domains/delivery/templates/traditional/Traditional/Knowledge_Areas/Project_Cost_Management/roi_tracking_template.md",
       "title": "Roi Tracking Template",
       "methodology": "traditional",
       "domain": {
@@ -1901,7 +1901,7 @@
       }
     },
     {
-      "path": "templates/agile/sprint_planning_template.md",
+      "path": "domains/delivery/templates/agile/sprint_planning_template.md",
       "title": "Sprint Planning Template",
       "methodology": "agile",
       "domain": {
@@ -2030,7 +2030,7 @@
       }
     },
     {
-      "path": "industry-specializations/information-technology/software-development/technical_design_document_template.md",
+      "path": "domains/measurement/industry-specializations/information-technology/software-development/technical_design_document_template.md",
       "title": "Technical Design Document Template",
       "methodology": "universal",
       "domain": {
@@ -2046,7 +2046,7 @@
       }
     },
     {
-      "path": "industry-specializations/information-technology/software-development/test_plan_template.md",
+      "path": "domains/measurement/industry-specializations/information-technology/software-development/test_plan_template.md",
       "title": "Test Plan Template",
       "methodology": "universal",
       "domain": {
@@ -2093,7 +2093,7 @@
       }
     },
     {
-      "path": "project-lifecycle/02-planning/project-management-plan/traditional-project-management-plan-template.md",
+      "path": "domains/delivery/project-lifecycle/02-planning/project-management-plan/traditional-project-management-plan-template.md",
       "title": "Traditional Project Management Plan Template",
       "methodology": "universal",
       "domain": {
@@ -2110,7 +2110,7 @@
       }
     },
     {
-      "path": "templates/traditional/Traditional/Templates/uat_plan_template.md",
+      "path": "domains/delivery/templates/traditional/Traditional/Templates/uat_plan_template.md",
       "title": "Uat Plan Template",
       "methodology": "traditional",
       "domain": {
@@ -2127,7 +2127,7 @@
       }
     },
     {
-      "path": "templates/traditional/Traditional/Templates/uat_strategy_template.md",
+      "path": "domains/delivery/templates/traditional/Traditional/Templates/uat_strategy_template.md",
       "title": "Uat Strategy Template",
       "methodology": "traditional",
       "domain": {
@@ -2204,7 +2204,7 @@
       }
     },
     {
-      "path": "templates/traditional/Traditional/Process_Groups/Planning/work_breakdown_structure_template.md",
+      "path": "domains/delivery/templates/traditional/Traditional/Process_Groups/Planning/work_breakdown_structure_template.md",
       "title": "Work Breakdown Structure Template",
       "methodology": "traditional",
       "domain": {

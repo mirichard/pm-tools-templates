@@ -320,4 +320,4 @@ This template provides a comprehensive framework for developing and implementing
 Related Resources:
 - [Security Implementation Roadmap](./security_implementation_roadmap.md)
 - [Security Controls Matrix](./security_controls_matrix.md)
-- [Incident Response Template](./incident_response_template.md)
+- [Incident Response Template](../../../domains/measurement/industry-specializations/information-technology/cybersecurity/incident_response_template.md)

@@ -40,6 +40,10 @@ updates:
   # Docs site (if present)
   - package-ecosystem: npm
     directory: "/docs/site"
+    # Remove when astro check supports TypeScript 7's native compiler API.
+    ignore:
+      - dependency-name: "typescript"
+        versions: [">=7.0.0 <8.0.0"]
     schedule:
       interval: weekly
     versioning-strategy: increase

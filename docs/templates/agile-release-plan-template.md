@@ -15,7 +15,7 @@
 
 title: "Agile Release Plan Template"
 
-[**➡️ View Template File**](/project-lifecycle/02-planning/project-management-plan/agile-release-plan-template.md)
+[**➡️ View Template File**](/domains/delivery/project-lifecycle/02-planning/project-management-plan/agile-release-plan-template.md)
 
 ## 📈 Quality Score
 

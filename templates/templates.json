@@ -100,7 +100,7 @@
       ],
       "relatedTemplates": [
         {
-          "path": "industry-specializations/information-technology/cybersecurity/risk_assessment_template.md",
+          "path": "domains/measurement/industry-specializations/information-technology/cybersecurity/risk_assessment_template.md",
           "title": "Risk Assessment Template",
           "methodology": "universal",
           "tags": [
@@ -268,7 +268,7 @@
       ]
     },
     {
-      "path": "project-lifecycle/02-planning/project-management-plan/agile-release-plan-template.md",
+      "path": "domains/delivery/project-lifecycle/02-planning/project-management-plan/agile-release-plan-template.md",
       "title": "Agile Release Plan Template",
       "methodology": "universal",
       "complexity": "advanced",
@@ -292,7 +292,7 @@
       ],
       "relatedTemplates": [
         {
-          "path": "project-lifecycle/02-planning/risk-management/agile-risk-board-template.md",
+          "path": "domains/delivery/project-lifecycle/02-planning/risk-management/agile-risk-board-template.md",
           "title": "Agile Risk Board Template",
           "methodology": "universal",
           "tags": [
@@ -307,7 +307,7 @@
           "similarity": 100
         },
         {
-          "path": "methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md",
+          "path": "domains/measurement/methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md",
           "title": "Cicd Pipeline Planning Template",
           "methodology": "universal",
           "tags": [
@@ -321,7 +321,7 @@
           "similarity": 93
         },
         {
-          "path": "methodology-frameworks/emerging-methods/devops/release_management_template.md",
+          "path": "domains/measurement/methodology-frameworks/emerging-methods/devops/release_management_template.md",
           "title": "Release Management Template",
           "methodology": "universal",
           "tags": [
@@ -335,7 +335,7 @@
           "similarity": 93
         },
         {
-          "path": "project-lifecycle/02-planning/resource-planning/resource-management-plan-template.md",
+          "path": "domains/measurement/project-lifecycle/02-planning/resource-planning/resource-management-plan-template.md",
           "title": "Resource Management Plan Template",
           "methodology": "universal",
           "tags": [
@@ -348,10 +348,13 @@
           ],
           "similarity": 93
         }
+      ],
+      "alternate_paths": [
+        "project-lifecycle/02-planning/project-management-plan/agile-release-plan-template.md"
       ]
     },
     {
-      "path": "project-lifecycle/02-planning/risk-management/agile-risk-board-template.md",
+      "path": "domains/delivery/project-lifecycle/02-planning/risk-management/agile-risk-board-template.md",
       "title": "Agile Risk Board Template",
       "methodology": "universal",
       "complexity": "advanced",
@@ -375,7 +378,7 @@
       ],
       "relatedTemplates": [
         {
-          "path": "project-lifecycle/02-planning/project-management-plan/agile-release-plan-template.md",
+          "path": "domains/delivery/project-lifecycle/02-planning/project-management-plan/agile-release-plan-template.md",
           "title": "Agile Release Plan Template",
           "methodology": "universal",
           "tags": [
@@ -390,7 +393,7 @@
           "similarity": 100
         },
         {
-          "path": "methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md",
+          "path": "domains/measurement/methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md",
           "title": "Cicd Pipeline Planning Template",
           "methodology": "universal",
           "tags": [
@@ -404,7 +407,7 @@
           "similarity": 93
         },
         {
-          "path": "methodology-frameworks/emerging-methods/devops/release_management_template.md",
+          "path": "domains/measurement/methodology-frameworks/emerging-methods/devops/release_management_template.md",
           "title": "Release Management Template",
           "methodology": "universal",
           "tags": [
@@ -418,7 +421,7 @@
           "similarity": 93
         },
         {
-          "path": "project-lifecycle/02-planning/resource-planning/resource-management-plan-template.md",
+          "path": "domains/measurement/project-lifecycle/02-planning/resource-planning/resource-management-plan-template.md",
           "title": "Resource Management Plan Template",
           "methodology": "universal",
           "tags": [
@@ -431,6 +434,9 @@
           ],
           "similarity": 93
         }
+      ],
+      "alternate_paths": [
+        "project-lifecycle/02-planning/risk-management/agile-risk-board-template.md"
       ]
     },
     {
@@ -461,7 +467,7 @@
       ],
       "relatedTemplates": [
         {
-          "path": "project-lifecycle/02-planning/project-management-plan/traditional-project-management-plan-template.md",
+          "path": "domains/delivery/project-lifecycle/02-planning/project-management-plan/traditional-project-management-plan-template.md",
           "title": "Traditional Project Management Plan Template",
           "methodology": "universal",
           "tags": [
@@ -593,7 +599,7 @@
           "similarity": 73
         },
         {
-          "path": "project-lifecycle/02-planning/project-management-plan/traditional-project-management-plan-template.md",
+          "path": "domains/delivery/project-lifecycle/02-planning/project-management-plan/traditional-project-management-plan-template.md",
           "title": "Traditional Project Management Plan Template",
           "methodology": "universal",
           "tags": [
@@ -1222,7 +1228,7 @@
           "similarity": 88
         },
         {
-          "path": "industry-specializations/information-technology/software-development/test_plan_template.md",
+          "path": "domains/measurement/industry-specializations/information-technology/software-development/test_plan_template.md",
           "title": "Test Plan Template",
           "methodology": "universal",
           "tags": [
@@ -1303,7 +1309,7 @@
       ],
       "relatedTemplates": [
         {
-          "path": "project-assessment-suite/current-state-analysis-template.md",
+          "path": "domains/measurement/project-assessment-suite/current-state-analysis-template.md",
           "title": "Current State Analysis Template",
           "methodology": "universal",
           "tags": [
@@ -1318,7 +1324,7 @@
           "similarity": 93
         },
         {
-          "path": "industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md",
+          "path": "domains/measurement/industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md",
           "title": "Digital Transformation Strategy Template",
           "methodology": "universal",
           "tags": [
@@ -1348,7 +1354,7 @@
           "similarity": 93
         },
         {
-          "path": "project-assessment-suite/executive-summary-template.md",
+          "path": "domains/measurement/project-assessment-suite/executive-summary-template.md",
           "title": "Executive Summary Template",
           "methodology": "universal",
           "tags": [
@@ -1402,7 +1408,7 @@
       ],
       "relatedTemplates": [
         {
-          "path": "templates/traditional/Traditional/Process_Groups/Executing/requirements_traceability_matrix_template.md",
+          "path": "domains/delivery/templates/traditional/Traditional/Process_Groups/Executing/requirements_traceability_matrix_template.md",
           "title": "Requirements Traceability Matrix Template",
           "methodology": "traditional",
           "tags": [
@@ -1416,7 +1422,7 @@
           "similarity": 92
         },
         {
-          "path": "templates/traditional/Traditional/Knowledge_Areas/Project_Cost_Management/roi_tracking_template.md",
+          "path": "domains/delivery/templates/traditional/Traditional/Knowledge_Areas/Project_Cost_Management/roi_tracking_template.md",
           "title": "Roi Tracking Template",
           "methodology": "traditional",
           "tags": [
@@ -1430,7 +1436,7 @@
           "similarity": 92
         },
         {
-          "path": "templates/traditional/Traditional/Templates/change_request_template.md",
+          "path": "domains/delivery/templates/traditional/Traditional/Templates/change_request_template.md",
           "title": "Change Request Template",
           "methodology": "traditional",
           "tags": [
@@ -1445,7 +1451,7 @@
           "similarity": 86
         },
         {
-          "path": "templates/traditional/Traditional/Templates/communication_plan_template.md",
+          "path": "domains/delivery/templates/traditional/Traditional/Templates/communication_plan_template.md",
           "title": "Communication Plan Template",
           "methodology": "traditional",
           "tags": [
@@ -1480,7 +1486,7 @@
       ]
     },
     {
-      "path": "project-lifecycle/02-planning/business-requirements/business_requirements_document_template.md",
+      "path": "domains/measurement/project-lifecycle/02-planning/business-requirements/business_requirements_document_template.md",
       "title": "Business Requirements Document Template",
       "methodology": "universal",
       "complexity": "advanced",
@@ -1501,7 +1507,7 @@
       ],
       "relatedTemplates": [
         {
-          "path": "industry-specializations/information-technology/security/cybersecurity_assessment_template.md",
+          "path": "domains/measurement/industry-specializations/information-technology/security/cybersecurity_assessment_template.md",
           "title": "Cybersecurity Assessment Template",
           "methodology": "universal",
           "tags": [
@@ -1527,7 +1533,7 @@
           "similarity": 90
         },
         {
-          "path": "industry-specializations/information-technology/infrastructure/infrastructure_assessment_template.md",
+          "path": "domains/measurement/industry-specializations/information-technology/infrastructure/infrastructure_assessment_template.md",
           "title": "Infrastructure Assessment Template",
           "methodology": "universal",
           "tags": [
@@ -1565,6 +1571,9 @@
           ],
           "similarity": 83
         }
+      ],
+      "alternate_paths": [
+        "project-lifecycle/02-planning/business-requirements/business_requirements_document_template.md"
       ]
     },
     {
@@ -1669,7 +1678,7 @@
       ]
     },
     {
-      "path": "templates/traditional/Traditional/Templates/change_management_plan_template.md",
+      "path": "domains/delivery/templates/traditional/Traditional/Templates/change_management_plan_template.md",
       "title": "Change Management Plan Template",
       "methodology": "traditional",
       "complexity": "advanced",
@@ -1693,7 +1702,7 @@
       ],
       "relatedTemplates": [
         {
-          "path": "templates/traditional/Traditional/Templates/project_roadmap_template.md",
+          "path": "domains/delivery/templates/traditional/Traditional/Templates/project_roadmap_template.md",
           "title": "Project Roadmap Template",
           "methodology": "traditional",
           "tags": [
@@ -1708,7 +1717,7 @@
           "similarity": 100
         },
         {
-          "path": "templates/traditional/Traditional/Templates/issue_log_template.md",
+          "path": "domains/delivery/templates/traditional/Traditional/Templates/issue_log_template.md",
           "title": "Issue Log Template",
           "methodology": "traditional",
           "tags": [
@@ -1740,7 +1749,7 @@
           "similarity": 94
         },
         {
-          "path": "templates/traditional/Traditional/Templates/program_management_plan_template.md",
+          "path": "domains/delivery/templates/traditional/Traditional/Templates/program_management_plan_template.md",
           "title": "Program Management Plan Template",
           "methodology": "traditional",
           "tags": [
@@ -1756,7 +1765,7 @@
           "similarity": 94
         },
         {
-          "path": "templates/traditional/Traditional/Process_Groups/Closing/project_closure_report_template.md",
+          "path": "domains/delivery/templates/traditional/Traditional/Process_Groups/Closing/project_closure_report_template.md",
           "title": "Project Closure Report Template",
           "methodology": "traditional",
           "tags": [
@@ -1771,10 +1780,13 @@
           ],
           "similarity": 94
         }
+      ],
+      "alternate_paths": [
+        "templates/traditional/Traditional/Templates/change_management_plan_template.md"
       ]
     },
     {
-      "path": "templates/traditional/Traditional/Templates/change_request_template.md",
+      "path": "domains/delivery/templates/traditional/Traditional/Templates/change_request_template.md",
       "title": "Change Request Template",
       "methodology": "traditional",
       "complexity": "advanced",
@@ -1798,7 +1810,7 @@
       ],
       "relatedTemplates": [
         {
-          "path": "templates/traditional/Traditional/Templates/communication_plan_template.md",
+          "path": "domains/delivery/templates/traditional/Traditional/Templates/communication_plan_template.md",
           "title": "Communication Plan Template",
           "methodology": "traditional",
           "tags": [
@@ -1828,7 +1840,7 @@
           "similarity": 100
         },
         {
-          "path": "templates/traditional/Traditional/Process_Groups/Planning/project_schedule_template.md",
+          "path": "domains/delivery/templates/traditional/Traditional/Process_Groups/Planning/project_schedule_template.md",
           "title": "Project Schedule Template",
           "methodology": "traditional",
           "tags": [
@@ -1843,7 +1855,7 @@
           "similarity": 100
         },
         {
-          "path": "templates/traditional/Traditional/Templates/issue_log_template.md",
+          "path": "domains/delivery/templates/traditional/Traditional/Templates/issue_log_template.md",
           "title": "Issue Log Template",
           "methodology": "traditional",
           "tags": [
@@ -1874,10 +1886,13 @@
           ],
           "similarity": 94
         }
+      ],
+      "alternate_paths": [
+        "templates/traditional/Traditional/Templates/change_request_template.md"
       ]
     },
     {
-      "path": "methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md",
+      "path": "domains/measurement/methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md",
       "title": "Cicd Pipeline Planning Template",
       "methodology": "universal",
       "complexity": "advanced",
@@ -1900,7 +1915,7 @@
       ],
       "relatedTemplates": [
         {
-          "path": "methodology-frameworks/emerging-methods/devops/release_management_template.md",
+          "path": "domains/measurement/methodology-frameworks/emerging-methods/devops/release_management_template.md",
           "title": "Release Management Template",
           "methodology": "universal",
           "tags": [
@@ -1914,7 +1929,7 @@
           "similarity": 100
         },
         {
-          "path": "project-lifecycle/02-planning/resource-planning/resource-management-plan-template.md",
+          "path": "domains/measurement/project-lifecycle/02-planning/resource-planning/resource-management-plan-template.md",
           "title": "Resource Management Plan Template",
           "methodology": "universal",
           "tags": [
@@ -1928,7 +1943,7 @@
           "similarity": 100
         },
         {
-          "path": "project-lifecycle/02-planning/risk-management/risk-management-plan-template.md",
+          "path": "domains/measurement/project-lifecycle/02-planning/risk-management/risk-management-plan-template.md",
           "title": "Risk Management Plan Template",
           "methodology": "universal",
           "tags": [
@@ -1955,6 +1970,9 @@
           ],
           "similarity": 100
         }
+      ],
+      "alternate_paths": [
+        "methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md"
       ]
     },
     {
@@ -2136,7 +2154,7 @@
       ]
     },
     {
-      "path": "templates/traditional/Traditional/Templates/communication_plan_template.md",
+      "path": "domains/delivery/templates/traditional/Traditional/Templates/communication_plan_template.md",
       "title": "Communication Plan Template",
       "methodology": "traditional",
       "complexity": "advanced",
@@ -2160,7 +2178,7 @@
       ],
       "relatedTemplates": [
         {
-          "path": "templates/traditional/Traditional/Templates/change_request_template.md",
+          "path": "domains/delivery/templates/traditional/Traditional/Templates/change_request_template.md",
           "title": "Change Request Template",
           "methodology": "traditional",
           "tags": [
@@ -2190,7 +2208,7 @@
           "similarity": 100
         },
         {
-          "path": "templates/traditional/Traditional/Process_Groups/Planning/project_schedule_template.md",
+          "path": "domains/delivery/templates/traditional/Traditional/Process_Groups/Planning/project_schedule_template.md",
           "title": "Project Schedule Template",
           "methodology": "traditional",
           "tags": [
@@ -2205,7 +2223,7 @@
           "similarity": 100
         },
         {
-          "path": "templates/traditional/Traditional/Templates/issue_log_template.md",
+          "path": "domains/delivery/templates/traditional/Traditional/Templates/issue_log_template.md",
           "title": "Issue Log Template",
           "methodology": "traditional",
           "tags": [
@@ -2236,10 +2254,13 @@
           ],
           "similarity": 94
         }
+      ],
+      "alternate_paths": [
+        "templates/traditional/Traditional/Templates/communication_plan_template.md"
       ]
     },
     {
-      "path": "industry-specializations/financial-services/compliance/compliance-management-template.md",
+      "path": "domains/measurement/industry-specializations/financial-services/compliance/compliance-management-template.md",
       "title": "Compliance Management Template",
       "methodology": "universal",
       "complexity": "advanced",
@@ -2279,7 +2300,7 @@
           "similarity": 94
         },
         {
-          "path": "methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md",
+          "path": "domains/measurement/methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md",
           "title": "Cicd Pipeline Planning Template",
           "methodology": "universal",
           "tags": [
@@ -2293,7 +2314,7 @@
           "similarity": 93
         },
         {
-          "path": "methodology-frameworks/emerging-methods/devops/release_management_template.md",
+          "path": "domains/measurement/methodology-frameworks/emerging-methods/devops/release_management_template.md",
           "title": "Release Management Template",
           "methodology": "universal",
           "tags": [
@@ -2307,7 +2328,7 @@
           "similarity": 93
         },
         {
-          "path": "project-lifecycle/02-planning/resource-planning/resource-management-plan-template.md",
+          "path": "domains/measurement/project-lifecycle/02-planning/resource-planning/resource-management-plan-template.md",
           "title": "Resource Management Plan Template",
           "methodology": "universal",
           "tags": [
@@ -2320,6 +2341,9 @@
           ],
           "similarity": 93
         }
+      ],
+      "alternate_paths": [
+        "industry-specializations/financial-services/compliance/compliance-management-template.md"
       ]
     },
     {
@@ -2615,7 +2639,7 @@
       ]
     },
     {
-      "path": "project-assessment-suite/current-state-analysis-template.md",
+      "path": "domains/measurement/project-assessment-suite/current-state-analysis-template.md",
       "title": "Current State Analysis Template",
       "methodology": "universal",
       "complexity": "advanced",
@@ -2639,7 +2663,7 @@
       ],
       "relatedTemplates": [
         {
-          "path": "industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md",
+          "path": "domains/measurement/industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md",
           "title": "Digital Transformation Strategy Template",
           "methodology": "universal",
           "tags": [
@@ -2669,7 +2693,7 @@
           "similarity": 100
         },
         {
-          "path": "project-assessment-suite/executive-summary-template.md",
+          "path": "domains/measurement/project-assessment-suite/executive-summary-template.md",
           "title": "Executive Summary Template",
           "methodology": "universal",
           "tags": [
@@ -2713,10 +2737,13 @@
           ],
           "similarity": 100
         }
+      ],
+      "alternate_paths": [
+        "project-assessment-suite/current-state-analysis-template.md"
       ]
     },
     {
-      "path": "industry-specializations/information-technology/security/cybersecurity_assessment_template.md",
+      "path": "domains/measurement/industry-specializations/information-technology/security/cybersecurity_assessment_template.md",
       "title": "Cybersecurity Assessment Template",
       "methodology": "universal",
       "complexity": "advanced",
@@ -2765,7 +2792,7 @@
           "similarity": 92
         },
         {
-          "path": "project-lifecycle/02-planning/business-requirements/business_requirements_document_template.md",
+          "path": "domains/measurement/project-lifecycle/02-planning/business-requirements/business_requirements_document_template.md",
           "title": "Business Requirements Document Template",
           "methodology": "universal",
           "tags": [
@@ -2789,7 +2816,7 @@
           "similarity": 90
         },
         {
-          "path": "industry-specializations/information-technology/cybersecurity/incident_response_template.md",
+          "path": "domains/measurement/industry-specializations/information-technology/cybersecurity/incident_response_template.md",
           "title": "Incident Response Template",
           "methodology": "universal",
           "tags": [
@@ -2800,6 +2827,9 @@
           ],
           "similarity": 90
         }
+      ],
+      "alternate_paths": [
+        "industry-specializations/information-technology/security/cybersecurity_assessment_template.md"
       ]
     },
     {
@@ -2880,7 +2910,7 @@
           "similarity": 65
         },
         {
-          "path": "templates/agile/sprint_planning_template.md",
+          "path": "domains/delivery/templates/agile/sprint_planning_template.md",
           "title": "Sprint Planning Template",
           "methodology": "agile",
           "tags": [
@@ -3001,7 +3031,7 @@
       ],
       "relatedTemplates": [
         {
-          "path": "methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md",
+          "path": "domains/measurement/methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md",
           "title": "Cicd Pipeline Planning Template",
           "methodology": "universal",
           "tags": [
@@ -3043,7 +3073,7 @@
           "similarity": 92
         },
         {
-          "path": "methodology-frameworks/emerging-methods/devops/release_management_template.md",
+          "path": "domains/measurement/methodology-frameworks/emerging-methods/devops/release_management_template.md",
           "title": "Release Management Template",
           "methodology": "universal",
           "tags": [
@@ -3059,7 +3089,7 @@
       ]
     },
     {
-      "path": "industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md",
+      "path": "domains/measurement/industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md",
       "title": "Digital Transformation Strategy Template",
       "methodology": "universal",
       "complexity": "advanced",
@@ -3083,7 +3113,7 @@
       ],
       "relatedTemplates": [
         {
-          "path": "project-assessment-suite/current-state-analysis-template.md",
+          "path": "domains/measurement/project-assessment-suite/current-state-analysis-template.md",
           "title": "Current State Analysis Template",
           "methodology": "universal",
           "tags": [
@@ -3113,7 +3143,7 @@
           "similarity": 100
         },
         {
-          "path": "project-assessment-suite/executive-summary-template.md",
+          "path": "domains/measurement/project-assessment-suite/executive-summary-template.md",
           "title": "Executive Summary Template",
           "methodology": "universal",
           "tags": [
@@ -3157,6 +3187,9 @@
           ],
           "similarity": 100
         }
+      ],
+      "alternate_paths": [
+        "industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md"
       ]
     },
     {
@@ -3285,7 +3318,7 @@
           "similarity": 88
         },
         {
-          "path": "project-lifecycle/02-planning/business-requirements/business_requirements_document_template.md",
+          "path": "domains/measurement/project-lifecycle/02-planning/business-requirements/business_requirements_document_template.md",
           "title": "Business Requirements Document Template",
           "methodology": "universal",
           "tags": [
@@ -3353,7 +3386,7 @@
       ],
       "relatedTemplates": [
         {
-          "path": "project-assessment-suite/current-state-analysis-template.md",
+          "path": "domains/measurement/project-assessment-suite/current-state-analysis-template.md",
           "title": "Current State Analysis Template",
           "methodology": "universal",
           "tags": [
@@ -3368,7 +3401,7 @@
           "similarity": 100
         },
         {
-          "path": "industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md",
+          "path": "domains/measurement/industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md",
           "title": "Digital Transformation Strategy Template",
           "methodology": "universal",
           "tags": [
@@ -3383,7 +3416,7 @@
           "similarity": 100
         },
         {
-          "path": "project-assessment-suite/executive-summary-template.md",
+          "path": "domains/measurement/project-assessment-suite/executive-summary-template.md",
           "title": "Executive Summary Template",
           "methodology": "universal",
           "tags": [
@@ -3545,7 +3578,7 @@
       ],
       "relatedTemplates": [
         {
-          "path": "industry-specializations/financial-services/compliance/compliance-management-template.md",
+          "path": "domains/measurement/industry-specializations/financial-services/compliance/compliance-management-template.md",
           "title": "Compliance Management Template",
           "methodology": "universal",
           "tags": [
@@ -3560,7 +3593,7 @@
           "similarity": 94
         },
         {
-          "path": "project-assessment-suite/current-state-analysis-template.md",
+          "path": "domains/measurement/project-assessment-suite/current-state-analysis-template.md",
           "title": "Current State Analysis Template",
           "methodology": "universal",
           "tags": [
@@ -3575,7 +3608,7 @@
           "similarity": 94
         },
         {
-          "path": "industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md",
+          "path": "domains/measurement/industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md",
           "title": "Digital Transformation Strategy Template",
           "methodology": "universal",
           "tags": [
@@ -3605,7 +3638,7 @@
           "similarity": 94
         },
         {
-          "path": "project-assessment-suite/executive-summary-template.md",
+          "path": "domains/measurement/project-assessment-suite/executive-summary-template.md",
           "title": "Executive Summary Template",
           "methodology": "universal",
           "tags": [
@@ -3646,7 +3679,7 @@
       ],
       "relatedTemplates": [
         {
-          "path": "industry-specializations/information-technology/security/cybersecurity_assessment_template.md",
+          "path": "domains/measurement/industry-specializations/information-technology/security/cybersecurity_assessment_template.md",
           "title": "Cybersecurity Assessment Template",
           "methodology": "universal",
           "tags": [
@@ -3672,7 +3705,7 @@
           "similarity": 90
         },
         {
-          "path": "industry-specializations/information-technology/cybersecurity/risk_assessment_template.md",
+          "path": "domains/measurement/industry-specializations/information-technology/cybersecurity/risk_assessment_template.md",
           "title": "Risk Assessment Template",
           "methodology": "universal",
           "tags": [
@@ -3685,7 +3718,7 @@
           "similarity": 90
         },
         {
-          "path": "industry-specializations/information-technology/infrastructure/infrastructure_assessment_template.md",
+          "path": "domains/measurement/industry-specializations/information-technology/infrastructure/infrastructure_assessment_template.md",
           "title": "Infrastructure Assessment Template",
           "methodology": "universal",
           "tags": [
@@ -3737,7 +3770,7 @@
       ],
       "relatedTemplates": [
         {
-          "path": "industry-specializations/information-technology/security/cybersecurity_assessment_template.md",
+          "path": "domains/measurement/industry-specializations/information-technology/security/cybersecurity_assessment_template.md",
           "title": "Cybersecurity Assessment Template",
           "methodology": "universal",
           "tags": [
@@ -3764,7 +3797,7 @@
           "similarity": 92
         },
         {
-          "path": "project-lifecycle/02-planning/business-requirements/business_requirements_document_template.md",
+          "path": "domains/measurement/project-lifecycle/02-planning/business-requirements/business_requirements_document_template.md",
           "title": "Business Requirements Document Template",
           "methodology": "universal",
           "tags": [
@@ -3788,7 +3821,7 @@
           "similarity": 90
         },
         {
-          "path": "industry-specializations/information-technology/cybersecurity/incident_response_template.md",
+          "path": "domains/measurement/industry-specializations/information-technology/cybersecurity/incident_response_template.md",
           "title": "Incident Response Template",
           "methodology": "universal",
           "tags": [
@@ -3802,7 +3835,7 @@
       ]
     },
     {
-      "path": "project-assessment-suite/executive-summary-template.md",
+      "path": "domains/measurement/project-assessment-suite/executive-summary-template.md",
       "title": "Executive Summary Template",
       "methodology": "universal",
       "complexity": "advanced",
@@ -3826,7 +3859,7 @@
       ],
       "relatedTemplates": [
         {
-          "path": "project-assessment-suite/current-state-analysis-template.md",
+          "path": "domains/measurement/project-assessment-suite/current-state-analysis-template.md",
           "title": "Current State Analysis Template",
           "methodology": "universal",
           "tags": [
@@ -3841,7 +3874,7 @@
           "similarity": 100
         },
         {
-          "path": "industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md",
+          "path": "domains/measurement/industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md",
           "title": "Digital Transformation Strategy Template",
           "methodology": "universal",
           "tags": [
@@ -3900,6 +3933,9 @@
           ],
           "similarity": 100
         }
+      ],
+      "alternate_paths": [
+        "project-assessment-suite/executive-summary-template.md"
       ]
     },
     {
@@ -3927,7 +3963,7 @@
       ],
       "relatedTemplates": [
         {
-          "path": "project-assessment-suite/current-state-analysis-template.md",
+          "path": "domains/measurement/project-assessment-suite/current-state-analysis-template.md",
           "title": "Current State Analysis Template",
           "methodology": "universal",
           "tags": [
@@ -3942,7 +3978,7 @@
           "similarity": 100
         },
         {
-          "path": "industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md",
+          "path": "domains/measurement/industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md",
           "title": "Digital Transformation Strategy Template",
           "methodology": "universal",
           "tags": [
@@ -3972,7 +4008,7 @@
           "similarity": 100
         },
         {
-          "path": "project-assessment-suite/executive-summary-template.md",
+          "path": "domains/measurement/project-assessment-suite/executive-summary-template.md",
           "title": "Executive Summary Template",
           "methodology": "universal",
           "tags": [
@@ -4028,7 +4064,7 @@
       ],
       "relatedTemplates": [
         {
-          "path": "project-assessment-suite/current-state-analysis-template.md",
+          "path": "domains/measurement/project-assessment-suite/current-state-analysis-template.md",
           "title": "Current State Analysis Template",
           "methodology": "universal",
           "tags": [
@@ -4043,7 +4079,7 @@
           "similarity": 100
         },
         {
-          "path": "industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md",
+          "path": "domains/measurement/industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md",
           "title": "Digital Transformation Strategy Template",
           "methodology": "universal",
           "tags": [
@@ -4073,7 +4109,7 @@
           "similarity": 100
         },
         {
-          "path": "project-assessment-suite/executive-summary-template.md",
+          "path": "domains/measurement/project-assessment-suite/executive-summary-template.md",
           "title": "Executive Summary Template",
           "methodology": "universal",
           "tags": [
@@ -4182,7 +4218,7 @@
           "similarity": 73
         },
         {
-          "path": "industry-specializations/information-technology/software-development/test_plan_template.md",
+          "path": "domains/measurement/industry-specializations/information-technology/software-development/test_plan_template.md",
           "title": "Test Plan Template",
           "methodology": "universal",
           "tags": [
@@ -4266,7 +4302,7 @@
           "similarity": 93
         },
         {
-          "path": "methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md",
+          "path": "domains/measurement/methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md",
           "title": "Cicd Pipeline Planning Template",
           "methodology": "universal",
           "tags": [
@@ -4323,7 +4359,7 @@
       ],
       "relatedTemplates": [
         {
-          "path": "project-assessment-suite/current-state-analysis-template.md",
+          "path": "domains/measurement/project-assessment-suite/current-state-analysis-template.md",
           "title": "Current State Analysis Template",
           "methodology": "universal",
           "tags": [
@@ -4338,7 +4374,7 @@
           "similarity": 100
         },
         {
-          "path": "industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md",
+          "path": "domains/measurement/industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md",
           "title": "Digital Transformation Strategy Template",
           "methodology": "universal",
           "tags": [
@@ -4368,7 +4404,7 @@
           "similarity": 100
         },
         {
-          "path": "project-assessment-suite/executive-summary-template.md",
+          "path": "domains/measurement/project-assessment-suite/executive-summary-template.md",
           "title": "Executive Summary Template",
           "methodology": "universal",
           "tags": [
@@ -4464,7 +4500,7 @@
           "similarity": 93
         },
         {
-          "path": "industry-specializations/information-technology/software-development/technical_design_document_template.md",
+          "path": "domains/measurement/industry-specializations/information-technology/software-development/technical_design_document_template.md",
           "title": "Technical Design Document Template",
           "methodology": "universal",
           "tags": [
@@ -4580,7 +4616,7 @@
           "similarity": 93
         },
         {
-          "path": "templates/hybrid/Hybrid/Templates/hybrid_quality_management_template.md",
+          "path": "domains/delivery/templates/hybrid/Hybrid/Templates/hybrid_quality_management_template.md",
           "title": "Hybrid Quality Management Template",
           "methodology": "hybrid",
           "tags": [
@@ -4756,7 +4792,7 @@
           "similarity": 86
         },
         {
-          "path": "templates/hybrid/Hybrid/Templates/hybrid_quality_management_template.md",
+          "path": "domains/delivery/templates/hybrid/Hybrid/Templates/hybrid_quality_management_template.md",
           "title": "Hybrid Quality Management Template",
           "methodology": "hybrid",
           "tags": [
@@ -4863,7 +4899,7 @@
           "similarity": 71
         },
         {
-          "path": "project-lifecycle/02-planning/business-requirements/business_requirements_document_template.md",
+          "path": "domains/measurement/project-lifecycle/02-planning/business-requirements/business_requirements_document_template.md",
           "title": "Business Requirements Document Template",
           "methodology": "universal",
           "tags": [
@@ -4880,7 +4916,7 @@
       ]
     },
     {
-      "path": "templates/hybrid/Hybrid/Templates/hybrid_quality_management_template.md",
+      "path": "domains/delivery/templates/hybrid/Hybrid/Templates/hybrid_quality_management_template.md",
       "title": "Hybrid Quality Management Template",
       "methodology": "hybrid",
       "complexity": "advanced",
@@ -4975,6 +5011,9 @@
           ],
           "similarity": 81
         }
+      ],
+      "alternate_paths": [
+        "templates/hybrid/Hybrid/Templates/hybrid_quality_management_template.md"
       ]
     },
     {
@@ -5178,7 +5217,7 @@
       ]
     },
     {
-      "path": "industry-specializations/information-technology/cybersecurity/incident_response_template.md",
+      "path": "domains/measurement/industry-specializations/information-technology/cybersecurity/incident_response_template.md",
       "title": "Incident Response Template",
       "methodology": "universal",
       "complexity": "advanced",
@@ -5211,7 +5250,7 @@
           "similarity": 100
         },
         {
-          "path": "industry-specializations/information-technology/security/cybersecurity_assessment_template.md",
+          "path": "domains/measurement/industry-specializations/information-technology/security/cybersecurity_assessment_template.md",
           "title": "Cybersecurity Assessment Template",
           "methodology": "universal",
           "tags": [
@@ -5264,6 +5303,9 @@
           ],
           "similarity": 83
         }
+      ],
+      "alternate_paths": [
+        "industry-specializations/information-technology/cybersecurity/incident_response_template.md"
       ]
     },
     {
@@ -5314,7 +5356,7 @@
           "similarity": 75
         },
         {
-          "path": "methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md",
+          "path": "domains/measurement/methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md",
           "title": "Cicd Pipeline Planning Template",
           "methodology": "universal",
           "tags": [
@@ -5344,7 +5386,7 @@
       ]
     },
     {
-      "path": "industry-specializations/information-technology/infrastructure/infrastructure_assessment_template.md",
+      "path": "domains/measurement/industry-specializations/information-technology/infrastructure/infrastructure_assessment_template.md",
       "title": "Infrastructure Assessment Template",
       "methodology": "universal",
       "complexity": "advanced",
@@ -5364,7 +5406,7 @@
       ],
       "relatedTemplates": [
         {
-          "path": "project-lifecycle/02-planning/business-requirements/business_requirements_document_template.md",
+          "path": "domains/measurement/project-lifecycle/02-planning/business-requirements/business_requirements_document_template.md",
           "title": "Business Requirements Document Template",
           "methodology": "universal",
           "tags": [
@@ -5401,7 +5443,7 @@
           "similarity": 80
         },
         {
-          "path": "industry-specializations/information-technology/security/cybersecurity_assessment_template.md",
+          "path": "domains/measurement/industry-specializations/information-technology/security/cybersecurity_assessment_template.md",
           "title": "Cybersecurity Assessment Template",
           "methodology": "universal",
           "tags": [
@@ -5426,6 +5468,9 @@
           ],
           "similarity": 80
         }
+      ],
+      "alternate_paths": [
+        "industry-specializations/information-technology/infrastructure/infrastructure_assessment_template.md"
       ]
     },
     {
@@ -5598,7 +5643,7 @@
           "similarity": 93
         },
         {
-          "path": "templates/hybrid/Hybrid/Templates/hybrid_quality_management_template.md",
+          "path": "domains/delivery/templates/hybrid/Hybrid/Templates/hybrid_quality_management_template.md",
           "title": "Hybrid Quality Management Template",
           "methodology": "hybrid",
           "tags": [
@@ -5618,7 +5663,7 @@
       ]
     },
     {
-      "path": "templates/traditional/Traditional/Templates/issue_log_template.md",
+      "path": "domains/delivery/templates/traditional/Traditional/Templates/issue_log_template.md",
       "title": "Issue Log Template",
       "methodology": "traditional",
       "complexity": "advanced",
@@ -5659,7 +5704,7 @@
           "similarity": 100
         },
         {
-          "path": "templates/traditional/Traditional/Templates/program_management_plan_template.md",
+          "path": "domains/delivery/templates/traditional/Traditional/Templates/program_management_plan_template.md",
           "title": "Program Management Plan Template",
           "methodology": "traditional",
           "tags": [
@@ -5675,7 +5720,7 @@
           "similarity": 100
         },
         {
-          "path": "templates/traditional/Traditional/Process_Groups/Closing/project_closure_report_template.md",
+          "path": "domains/delivery/templates/traditional/Traditional/Process_Groups/Closing/project_closure_report_template.md",
           "title": "Project Closure Report Template",
           "methodology": "traditional",
           "tags": [
@@ -5691,7 +5736,7 @@
           "similarity": 100
         },
         {
-          "path": "templates/traditional/Traditional/Process_Groups/Executing/project_execution_status_report_template.md",
+          "path": "domains/delivery/templates/traditional/Traditional/Process_Groups/Executing/project_execution_status_report_template.md",
           "title": "Project Execution Status Report Template",
           "methodology": "traditional",
           "tags": [
@@ -5707,7 +5752,7 @@
           "similarity": 100
         },
         {
-          "path": "templates/traditional/Traditional/Process_Groups/Planning/project_management_plan_template.md",
+          "path": "domains/delivery/templates/traditional/Traditional/Process_Groups/Planning/project_management_plan_template.md",
           "title": "Project Management Plan Template",
           "methodology": "traditional",
           "tags": [
@@ -5722,6 +5767,9 @@
           ],
           "similarity": 100
         }
+      ],
+      "alternate_paths": [
+        "templates/traditional/Traditional/Templates/issue_log_template.md"
       ]
     },
     {
@@ -6045,7 +6093,7 @@
       ],
       "relatedTemplates": [
         {
-          "path": "project-assessment-suite/current-state-analysis-template.md",
+          "path": "domains/measurement/project-assessment-suite/current-state-analysis-template.md",
           "title": "Current State Analysis Template",
           "methodology": "universal",
           "tags": [
@@ -6060,7 +6108,7 @@
           "similarity": 93
         },
         {
-          "path": "industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md",
+          "path": "domains/measurement/industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md",
           "title": "Digital Transformation Strategy Template",
           "methodology": "universal",
           "tags": [
@@ -6090,7 +6138,7 @@
           "similarity": 93
         },
         {
-          "path": "project-assessment-suite/executive-summary-template.md",
+          "path": "domains/measurement/project-assessment-suite/executive-summary-template.md",
           "title": "Executive Summary Template",
           "methodology": "universal",
           "tags": [
@@ -6331,7 +6379,7 @@
       ],
       "relatedTemplates": [
         {
-          "path": "project-assessment-suite/current-state-analysis-template.md",
+          "path": "domains/measurement/project-assessment-suite/current-state-analysis-template.md",
           "title": "Current State Analysis Template",
           "methodology": "universal",
           "tags": [
@@ -6346,7 +6394,7 @@
           "similarity": 93
         },
         {
-          "path": "industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md",
+          "path": "domains/measurement/industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md",
           "title": "Digital Transformation Strategy Template",
           "methodology": "universal",
           "tags": [
@@ -6376,7 +6424,7 @@
           "similarity": 93
         },
         {
-          "path": "project-assessment-suite/executive-summary-template.md",
+          "path": "domains/measurement/project-assessment-suite/executive-summary-template.md",
           "title": "Executive Summary Template",
           "methodology": "universal",
           "tags": [
@@ -6474,7 +6522,7 @@
           "similarity": 90
         },
         {
-          "path": "project-assessment-suite/current-state-analysis-template.md",
+          "path": "domains/measurement/project-assessment-suite/current-state-analysis-template.md",
           "title": "Current State Analysis Template",
           "methodology": "universal",
           "tags": [
@@ -6489,7 +6537,7 @@
           "similarity": 86
         },
         {
-          "path": "industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md",
+          "path": "domains/measurement/industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md",
           "title": "Digital Transformation Strategy Template",
           "methodology": "universal",
           "tags": [
@@ -7095,7 +7143,7 @@
           "similarity": 50
         },
         {
-          "path": "project-lifecycle/02-planning/project-management-plan/agile-release-plan-template.md",
+          "path": "domains/delivery/project-lifecycle/02-planning/project-management-plan/agile-release-plan-template.md",
           "title": "Agile Release Plan Template",
           "methodology": "universal",
           "tags": [
@@ -7110,7 +7158,7 @@
           "similarity": 50
         },
         {
-          "path": "project-lifecycle/02-planning/risk-management/agile-risk-board-template.md",
+          "path": "domains/delivery/project-lifecycle/02-planning/risk-management/agile-risk-board-template.md",
           "title": "Agile Risk Board Template",
           "methodology": "universal",
           "tags": [
@@ -7287,7 +7335,7 @@
           "similarity": 93
         },
         {
-          "path": "project-assessment-suite/current-state-analysis-template.md",
+          "path": "domains/measurement/project-assessment-suite/current-state-analysis-template.md",
           "title": "Current State Analysis Template",
           "methodology": "universal",
           "tags": [
@@ -7302,7 +7350,7 @@
           "similarity": 90
         },
         {
-          "path": "industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md",
+          "path": "domains/measurement/industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md",
           "title": "Digital Transformation Strategy Template",
           "methodology": "universal",
           "tags": [
@@ -7332,7 +7380,7 @@
           "similarity": 90
         },
         {
-          "path": "project-assessment-suite/executive-summary-template.md",
+          "path": "domains/measurement/project-assessment-suite/executive-summary-template.md",
           "title": "Executive Summary Template",
           "methodology": "universal",
           "tags": [
@@ -7417,7 +7465,7 @@
           "similarity": 93
         },
         {
-          "path": "methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md",
+          "path": "domains/measurement/methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md",
           "title": "Cicd Pipeline Planning Template",
           "methodology": "universal",
           "tags": [
@@ -7541,7 +7589,7 @@
       ]
     },
     {
-      "path": "templates/agile/product_backlog_template.md",
+      "path": "domains/delivery/templates/agile/product_backlog_template.md",
       "title": "Product Backlog Template",
       "methodology": "agile",
       "complexity": "advanced",
@@ -7591,7 +7639,7 @@
           "similarity": 92
         },
         {
-          "path": "templates/agile/sprint_planning_template.md",
+          "path": "domains/delivery/templates/agile/sprint_planning_template.md",
           "title": "Sprint Planning Template",
           "methodology": "agile",
           "tags": [
@@ -7633,6 +7681,9 @@
           ],
           "similarity": 86
         }
+      ],
+      "alternate_paths": [
+        "templates/agile/product_backlog_template.md"
       ]
     },
     {
@@ -7682,7 +7733,7 @@
           "similarity": 90
         },
         {
-          "path": "industry-specializations/information-technology/security/cybersecurity_assessment_template.md",
+          "path": "domains/measurement/industry-specializations/information-technology/security/cybersecurity_assessment_template.md",
           "title": "Cybersecurity Assessment Template",
           "methodology": "universal",
           "tags": [
@@ -7751,7 +7802,7 @@
       ],
       "relatedTemplates": [
         {
-          "path": "templates/traditional/Traditional/Templates/issue_log_template.md",
+          "path": "domains/delivery/templates/traditional/Traditional/Templates/issue_log_template.md",
           "title": "Issue Log Template",
           "methodology": "traditional",
           "tags": [
@@ -7767,7 +7818,7 @@
           "similarity": 100
         },
         {
-          "path": "templates/traditional/Traditional/Templates/program_management_plan_template.md",
+          "path": "domains/delivery/templates/traditional/Traditional/Templates/program_management_plan_template.md",
           "title": "Program Management Plan Template",
           "methodology": "traditional",
           "tags": [
@@ -7783,7 +7834,7 @@
           "similarity": 100
         },
         {
-          "path": "templates/traditional/Traditional/Process_Groups/Closing/project_closure_report_template.md",
+          "path": "domains/delivery/templates/traditional/Traditional/Process_Groups/Closing/project_closure_report_template.md",
           "title": "Project Closure Report Template",
           "methodology": "traditional",
           "tags": [
@@ -7799,7 +7850,7 @@
           "similarity": 100
         },
         {
-          "path": "templates/traditional/Traditional/Process_Groups/Executing/project_execution_status_report_template.md",
+          "path": "domains/delivery/templates/traditional/Traditional/Process_Groups/Executing/project_execution_status_report_template.md",
           "title": "Project Execution Status Report Template",
           "methodology": "traditional",
           "tags": [
@@ -7815,7 +7866,7 @@
           "similarity": 100
         },
         {
-          "path": "templates/traditional/Traditional/Process_Groups/Planning/project_management_plan_template.md",
+          "path": "domains/delivery/templates/traditional/Traditional/Process_Groups/Planning/project_management_plan_template.md",
           "title": "Project Management Plan Template",
           "methodology": "traditional",
           "tags": [
@@ -7836,7 +7887,7 @@
       ]
     },
     {
-      "path": "templates/traditional/Traditional/Templates/program_management_plan_template.md",
+      "path": "domains/delivery/templates/traditional/Traditional/Templates/program_management_plan_template.md",
       "title": "Program Management Plan Template",
       "methodology": "traditional",
       "complexity": "advanced",
@@ -7861,7 +7912,7 @@
       ],
       "relatedTemplates": [
         {
-          "path": "templates/traditional/Traditional/Templates/issue_log_template.md",
+          "path": "domains/delivery/templates/traditional/Traditional/Templates/issue_log_template.md",
           "title": "Issue Log Template",
           "methodology": "traditional",
           "tags": [
@@ -7893,7 +7944,7 @@
           "similarity": 100
         },
         {
-          "path": "templates/traditional/Traditional/Process_Groups/Closing/project_closure_report_template.md",
+          "path": "domains/delivery/templates/traditional/Traditional/Process_Groups/Closing/project_closure_report_template.md",
           "title": "Project Closure Report Template",
           "methodology": "traditional",
           "tags": [
@@ -7909,7 +7960,7 @@
           "similarity": 100
         },
         {
-          "path": "templates/traditional/Traditional/Process_Groups/Executing/project_execution_status_report_template.md",
+          "path": "domains/delivery/templates/traditional/Traditional/Process_Groups/Executing/project_execution_status_report_template.md",
           "title": "Project Execution Status Report Template",
           "methodology": "traditional",
           "tags": [
@@ -7925,7 +7976,7 @@
           "similarity": 100
         },
         {
-          "path": "templates/traditional/Traditional/Process_Groups/Planning/project_management_plan_template.md",
+          "path": "domains/delivery/templates/traditional/Traditional/Process_Groups/Planning/project_management_plan_template.md",
           "title": "Project Management Plan Template",
           "methodology": "traditional",
           "tags": [
@@ -7940,6 +7991,9 @@
           ],
           "similarity": 100
         }
+      ],
+      "alternate_paths": [
+        "templates/traditional/Traditional/Templates/program_management_plan_template.md"
       ]
     },
     {
@@ -8025,7 +8079,7 @@
           "similarity": 93
         },
         {
-          "path": "templates/hybrid/Hybrid/Templates/hybrid_quality_management_template.md",
+          "path": "domains/delivery/templates/hybrid/Hybrid/Templates/hybrid_quality_management_template.md",
           "title": "Hybrid Quality Management Template",
           "methodology": "hybrid",
           "tags": [
@@ -8073,7 +8127,7 @@
       ],
       "relatedTemplates": [
         {
-          "path": "templates/traditional/Traditional/Templates/change_request_template.md",
+          "path": "domains/delivery/templates/traditional/Traditional/Templates/change_request_template.md",
           "title": "Change Request Template",
           "methodology": "traditional",
           "tags": [
@@ -8088,7 +8142,7 @@
           "similarity": 100
         },
         {
-          "path": "templates/traditional/Traditional/Templates/communication_plan_template.md",
+          "path": "domains/delivery/templates/traditional/Traditional/Templates/communication_plan_template.md",
           "title": "Communication Plan Template",
           "methodology": "traditional",
           "tags": [
@@ -8103,7 +8157,7 @@
           "similarity": 100
         },
         {
-          "path": "templates/traditional/Traditional/Process_Groups/Planning/project_schedule_template.md",
+          "path": "domains/delivery/templates/traditional/Traditional/Process_Groups/Planning/project_schedule_template.md",
           "title": "Project Schedule Template",
           "methodology": "traditional",
           "tags": [
@@ -8118,7 +8172,7 @@
           "similarity": 100
         },
         {
-          "path": "templates/traditional/Traditional/Templates/issue_log_template.md",
+          "path": "domains/delivery/templates/traditional/Traditional/Templates/issue_log_template.md",
           "title": "Issue Log Template",
           "methodology": "traditional",
           "tags": [
@@ -8152,7 +8206,7 @@
       ]
     },
     {
-      "path": "templates/traditional/Traditional/Process_Groups/Closing/project_closure_report_template.md",
+      "path": "domains/delivery/templates/traditional/Traditional/Process_Groups/Closing/project_closure_report_template.md",
       "title": "Project Closure Report Template",
       "methodology": "traditional",
       "complexity": "advanced",
@@ -8177,7 +8231,7 @@
       ],
       "relatedTemplates": [
         {
-          "path": "templates/traditional/Traditional/Templates/issue_log_template.md",
+          "path": "domains/delivery/templates/traditional/Traditional/Templates/issue_log_template.md",
           "title": "Issue Log Template",
           "methodology": "traditional",
           "tags": [
@@ -8209,7 +8263,7 @@
           "similarity": 100
         },
         {
-          "path": "templates/traditional/Traditional/Templates/program_management_plan_template.md",
+          "path": "domains/delivery/templates/traditional/Traditional/Templates/program_management_plan_template.md",
           "title": "Program Management Plan Template",
           "methodology": "traditional",
           "tags": [
@@ -8225,7 +8279,7 @@
           "similarity": 100
         },
         {
-          "path": "templates/traditional/Traditional/Process_Groups/Executing/project_execution_status_report_template.md",
+          "path": "domains/delivery/templates/traditional/Traditional/Process_Groups/Executing/project_execution_status_report_template.md",
           "title": "Project Execution Status Report Template",
           "methodology": "traditional",
           "tags": [
@@ -8241,7 +8295,7 @@
           "similarity": 100
         },
         {
-          "path": "templates/traditional/Traditional/Process_Groups/Planning/project_management_plan_template.md",
+          "path": "domains/delivery/templates/traditional/Traditional/Process_Groups/Planning/project_management_plan_template.md",
           "title": "Project Management Plan Template",
           "methodology": "traditional",
           "tags": [
@@ -8256,6 +8310,9 @@
           ],
           "similarity": 100
         }
+      ],
+      "alternate_paths": [
+        "templates/traditional/Traditional/Process_Groups/Closing/project_closure_report_template.md"
       ]
     },
     {
@@ -8351,7 +8408,7 @@
       ]
     },
     {
-      "path": "templates/traditional/Traditional/Process_Groups/Executing/project_execution_status_report_template.md",
+      "path": "domains/delivery/templates/traditional/Traditional/Process_Groups/Executing/project_execution_status_report_template.md",
       "title": "Project Execution Status Report Template",
       "methodology": "traditional",
       "complexity": "advanced",
@@ -8376,7 +8433,7 @@
       ],
       "relatedTemplates": [
         {
-          "path": "templates/traditional/Traditional/Templates/issue_log_template.md",
+          "path": "domains/delivery/templates/traditional/Traditional/Templates/issue_log_template.md",
           "title": "Issue Log Template",
           "methodology": "traditional",
           "tags": [
@@ -8408,7 +8465,7 @@
           "similarity": 100
         },
         {
-          "path": "templates/traditional/Traditional/Templates/program_management_plan_template.md",
+          "path": "domains/delivery/templates/traditional/Traditional/Templates/program_management_plan_template.md",
           "title": "Program Management Plan Template",
           "methodology": "traditional",
           "tags": [
@@ -8424,7 +8481,7 @@
           "similarity": 100
         },
         {
-          "path": "templates/traditional/Traditional/Process_Groups/Closing/project_closure_report_template.md",
+          "path": "domains/delivery/templates/traditional/Traditional/Process_Groups/Closing/project_closure_report_template.md",
           "title": "Project Closure Report Template",
           "methodology": "traditional",
           "tags": [
@@ -8440,7 +8497,7 @@
           "similarity": 100
         },
         {
-          "path": "templates/traditional/Traditional/Process_Groups/Planning/project_management_plan_template.md",
+          "path": "domains/delivery/templates/traditional/Traditional/Process_Groups/Planning/project_management_plan_template.md",
           "title": "Project Management Plan Template",
           "methodology": "traditional",
           "tags": [
@@ -8455,6 +8512,9 @@
           ],
           "similarity": 100
         }
+      ],
+      "alternate_paths": [
+        "templates/traditional/Traditional/Process_Groups/Executing/project_execution_status_report_template.md"
       ]
     },
     {
@@ -8482,7 +8542,7 @@
       ],
       "relatedTemplates": [
         {
-          "path": "project-assessment-suite/current-state-analysis-template.md",
+          "path": "domains/measurement/project-assessment-suite/current-state-analysis-template.md",
           "title": "Current State Analysis Template",
           "methodology": "universal",
           "tags": [
@@ -8497,7 +8557,7 @@
           "similarity": 100
         },
         {
-          "path": "industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md",
+          "path": "domains/measurement/industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md",
           "title": "Digital Transformation Strategy Template",
           "methodology": "universal",
           "tags": [
@@ -8527,7 +8587,7 @@
           "similarity": 100
         },
         {
-          "path": "project-assessment-suite/executive-summary-template.md",
+          "path": "domains/measurement/project-assessment-suite/executive-summary-template.md",
           "title": "Executive Summary Template",
           "methodology": "universal",
           "tags": [
@@ -8559,7 +8619,7 @@
       ]
     },
     {
-      "path": "templates/traditional/Traditional/Process_Groups/Planning/project_management_plan_template.md",
+      "path": "domains/delivery/templates/traditional/Traditional/Process_Groups/Planning/project_management_plan_template.md",
       "title": "Project Management Plan Template",
       "methodology": "traditional",
       "complexity": "advanced",
@@ -8584,7 +8644,7 @@
       ],
       "relatedTemplates": [
         {
-          "path": "templates/traditional/Traditional/Templates/issue_log_template.md",
+          "path": "domains/delivery/templates/traditional/Traditional/Templates/issue_log_template.md",
           "title": "Issue Log Template",
           "methodology": "traditional",
           "tags": [
@@ -8616,7 +8676,7 @@
           "similarity": 100
         },
         {
-          "path": "templates/traditional/Traditional/Templates/program_management_plan_template.md",
+          "path": "domains/delivery/templates/traditional/Traditional/Templates/program_management_plan_template.md",
           "title": "Program Management Plan Template",
           "methodology": "traditional",
           "tags": [
@@ -8632,7 +8692,7 @@
           "similarity": 100
         },
         {
-          "path": "templates/traditional/Traditional/Process_Groups/Closing/project_closure_report_template.md",
+          "path": "domains/delivery/templates/traditional/Traditional/Process_Groups/Closing/project_closure_report_template.md",
           "title": "Project Closure Report Template",
           "methodology": "traditional",
           "tags": [
@@ -8648,7 +8708,7 @@
           "similarity": 100
         },
         {
-          "path": "templates/traditional/Traditional/Process_Groups/Executing/project_execution_status_report_template.md",
+          "path": "domains/delivery/templates/traditional/Traditional/Process_Groups/Executing/project_execution_status_report_template.md",
           "title": "Project Execution Status Report Template",
           "methodology": "traditional",
           "tags": [
@@ -8663,10 +8723,13 @@
           ],
           "similarity": 100
         }
+      ],
+      "alternate_paths": [
+        "templates/traditional/Traditional/Process_Groups/Planning/project_management_plan_template.md"
       ]
     },
     {
-      "path": "templates/traditional/Traditional/Process_Groups/Monitoring_and_Controlling/project_performance_monitoring_template.md",
+      "path": "domains/delivery/templates/traditional/Traditional/Process_Groups/Monitoring_and_Controlling/project_performance_monitoring_template.md",
       "title": "Project Performance Monitoring Template",
       "methodology": "traditional",
       "complexity": "advanced",
@@ -8691,7 +8754,7 @@
       ],
       "relatedTemplates": [
         {
-          "path": "templates/traditional/Traditional/Templates/issue_log_template.md",
+          "path": "domains/delivery/templates/traditional/Traditional/Templates/issue_log_template.md",
           "title": "Issue Log Template",
           "methodology": "traditional",
           "tags": [
@@ -8723,7 +8786,7 @@
           "similarity": 100
         },
         {
-          "path": "templates/traditional/Traditional/Templates/program_management_plan_template.md",
+          "path": "domains/delivery/templates/traditional/Traditional/Templates/program_management_plan_template.md",
           "title": "Program Management Plan Template",
           "methodology": "traditional",
           "tags": [
@@ -8739,7 +8802,7 @@
           "similarity": 100
         },
         {
-          "path": "templates/traditional/Traditional/Process_Groups/Closing/project_closure_report_template.md",
+          "path": "domains/delivery/templates/traditional/Traditional/Process_Groups/Closing/project_closure_report_template.md",
           "title": "Project Closure Report Template",
           "methodology": "traditional",
           "tags": [
@@ -8755,7 +8818,7 @@
           "similarity": 100
         },
         {
-          "path": "templates/traditional/Traditional/Process_Groups/Executing/project_execution_status_report_template.md",
+          "path": "domains/delivery/templates/traditional/Traditional/Process_Groups/Executing/project_execution_status_report_template.md",
           "title": "Project Execution Status Report Template",
           "methodology": "traditional",
           "tags": [
@@ -8770,10 +8833,13 @@
           ],
           "similarity": 100
         }
+      ],
+      "alternate_paths": [
+        "templates/traditional/Traditional/Process_Groups/Monitoring_and_Controlling/project_performance_monitoring_template.md"
       ]
     },
     {
-      "path": "templates/traditional/Traditional/Templates/project_roadmap_template.md",
+      "path": "domains/delivery/templates/traditional/Traditional/Templates/project_roadmap_template.md",
       "title": "Project Roadmap Template",
       "methodology": "traditional",
       "complexity": "advanced",
@@ -8797,7 +8863,7 @@
       ],
       "relatedTemplates": [
         {
-          "path": "templates/traditional/Traditional/Templates/change_management_plan_template.md",
+          "path": "domains/delivery/templates/traditional/Traditional/Templates/change_management_plan_template.md",
           "title": "Change Management Plan Template",
           "methodology": "traditional",
           "tags": [
@@ -8812,7 +8878,7 @@
           "similarity": 100
         },
         {
-          "path": "templates/traditional/Traditional/Templates/issue_log_template.md",
+          "path": "domains/delivery/templates/traditional/Traditional/Templates/issue_log_template.md",
           "title": "Issue Log Template",
           "methodology": "traditional",
           "tags": [
@@ -8844,7 +8910,7 @@
           "similarity": 94
         },
         {
-          "path": "templates/traditional/Traditional/Templates/program_management_plan_template.md",
+          "path": "domains/delivery/templates/traditional/Traditional/Templates/program_management_plan_template.md",
           "title": "Program Management Plan Template",
           "methodology": "traditional",
           "tags": [
@@ -8860,7 +8926,7 @@
           "similarity": 94
         },
         {
-          "path": "templates/traditional/Traditional/Process_Groups/Closing/project_closure_report_template.md",
+          "path": "domains/delivery/templates/traditional/Traditional/Process_Groups/Closing/project_closure_report_template.md",
           "title": "Project Closure Report Template",
           "methodology": "traditional",
           "tags": [
@@ -8875,10 +8941,13 @@
           ],
           "similarity": 94
         }
+      ],
+      "alternate_paths": [
+        "templates/traditional/Traditional/Templates/project_roadmap_template.md"
       ]
     },
     {
-      "path": "templates/traditional/Traditional/Process_Groups/Planning/project_schedule_template.md",
+      "path": "domains/delivery/templates/traditional/Traditional/Process_Groups/Planning/project_schedule_template.md",
       "title": "Project Schedule Template",
       "methodology": "traditional",
       "complexity": "advanced",
@@ -8902,7 +8971,7 @@
       ],
       "relatedTemplates": [
         {
-          "path": "templates/traditional/Traditional/Templates/change_request_template.md",
+          "path": "domains/delivery/templates/traditional/Traditional/Templates/change_request_template.md",
           "title": "Change Request Template",
           "methodology": "traditional",
           "tags": [
@@ -8917,7 +8986,7 @@
           "similarity": 100
         },
         {
-          "path": "templates/traditional/Traditional/Templates/communication_plan_template.md",
+          "path": "domains/delivery/templates/traditional/Traditional/Templates/communication_plan_template.md",
           "title": "Communication Plan Template",
           "methodology": "traditional",
           "tags": [
@@ -8947,7 +9016,7 @@
           "similarity": 100
         },
         {
-          "path": "templates/traditional/Traditional/Templates/issue_log_template.md",
+          "path": "domains/delivery/templates/traditional/Traditional/Templates/issue_log_template.md",
           "title": "Issue Log Template",
           "methodology": "traditional",
           "tags": [
@@ -8978,10 +9047,13 @@
           ],
           "similarity": 94
         }
+      ],
+      "alternate_paths": [
+        "templates/traditional/Traditional/Process_Groups/Planning/project_schedule_template.md"
       ]
     },
     {
-      "path": "templates/traditional/Traditional/Templates/purchase_order_template.md",
+      "path": "domains/delivery/templates/traditional/Traditional/Templates/purchase_order_template.md",
       "title": "Purchase Order Template",
       "methodology": "traditional",
       "complexity": "intermediate",
@@ -9001,7 +9073,7 @@
       ],
       "relatedTemplates": [
         {
-          "path": "templates/traditional/Traditional/Templates/raid_log_template.md",
+          "path": "domains/delivery/templates/traditional/Traditional/Templates/raid_log_template.md",
           "title": "Raid Log Template",
           "methodology": "traditional",
           "tags": [
@@ -9038,7 +9110,7 @@
           "similarity": 60
         },
         {
-          "path": "templates/traditional/Traditional/Process_Groups/Executing/requirements_traceability_matrix_template.md",
+          "path": "domains/delivery/templates/traditional/Traditional/Process_Groups/Executing/requirements_traceability_matrix_template.md",
           "title": "Requirements Traceability Matrix Template",
           "methodology": "traditional",
           "tags": [
@@ -9052,7 +9124,7 @@
           "similarity": 57
         },
         {
-          "path": "templates/traditional/Traditional/Knowledge_Areas/Project_Cost_Management/roi_tracking_template.md",
+          "path": "domains/delivery/templates/traditional/Traditional/Knowledge_Areas/Project_Cost_Management/roi_tracking_template.md",
           "title": "Roi Tracking Template",
           "methodology": "traditional",
           "tags": [
@@ -9065,6 +9137,9 @@
           ],
           "similarity": 57
         }
+      ],
+      "alternate_paths": [
+        "templates/traditional/Traditional/Templates/purchase_order_template.md"
       ]
     },
     {
@@ -9260,7 +9335,7 @@
       ]
     },
     {
-      "path": "templates/traditional/Traditional/Templates/raid_log_template.md",
+      "path": "domains/delivery/templates/traditional/Traditional/Templates/raid_log_template.md",
       "title": "Raid Log Template",
       "methodology": "traditional",
       "complexity": "advanced",
@@ -9293,7 +9368,7 @@
           "similarity": 80
         },
         {
-          "path": "templates/traditional/Traditional/Process_Groups/Executing/requirements_traceability_matrix_template.md",
+          "path": "domains/delivery/templates/traditional/Traditional/Process_Groups/Executing/requirements_traceability_matrix_template.md",
           "title": "Requirements Traceability Matrix Template",
           "methodology": "traditional",
           "tags": [
@@ -9307,7 +9382,7 @@
           "similarity": 75
         },
         {
-          "path": "templates/traditional/Traditional/Knowledge_Areas/Project_Cost_Management/roi_tracking_template.md",
+          "path": "domains/delivery/templates/traditional/Traditional/Knowledge_Areas/Project_Cost_Management/roi_tracking_template.md",
           "title": "Roi Tracking Template",
           "methodology": "traditional",
           "tags": [
@@ -9321,7 +9396,7 @@
           "similarity": 75
         },
         {
-          "path": "templates/traditional/Traditional/Templates/purchase_order_template.md",
+          "path": "domains/delivery/templates/traditional/Traditional/Templates/purchase_order_template.md",
           "title": "Purchase Order Template",
           "methodology": "traditional",
           "tags": [
@@ -9331,7 +9406,7 @@
           "similarity": 73
         },
         {
-          "path": "templates/traditional/Traditional/Templates/change_management_plan_template.md",
+          "path": "domains/delivery/templates/traditional/Traditional/Templates/change_management_plan_template.md",
           "title": "Change Management Plan Template",
           "methodology": "traditional",
           "tags": [
@@ -9345,6 +9420,9 @@
           ],
           "similarity": 71
         }
+      ],
+      "alternate_paths": [
+        "templates/traditional/Traditional/Templates/raid_log_template.md"
       ]
     },
     {
@@ -9535,7 +9613,7 @@
       ]
     },
     {
-      "path": "methodology-frameworks/emerging-methods/devops/release_management_template.md",
+      "path": "domains/measurement/methodology-frameworks/emerging-methods/devops/release_management_template.md",
       "title": "Release Management Template",
       "methodology": "universal",
       "complexity": "advanced",
@@ -9558,7 +9636,7 @@
       ],
       "relatedTemplates": [
         {
-          "path": "methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md",
+          "path": "domains/measurement/methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md",
           "title": "Cicd Pipeline Planning Template",
           "methodology": "universal",
           "tags": [
@@ -9572,7 +9650,7 @@
           "similarity": 100
         },
         {
-          "path": "project-lifecycle/02-planning/resource-planning/resource-management-plan-template.md",
+          "path": "domains/measurement/project-lifecycle/02-planning/resource-planning/resource-management-plan-template.md",
           "title": "Resource Management Plan Template",
           "methodology": "universal",
           "tags": [
@@ -9586,7 +9664,7 @@
           "similarity": 100
         },
         {
-          "path": "project-lifecycle/02-planning/risk-management/risk-management-plan-template.md",
+          "path": "domains/measurement/project-lifecycle/02-planning/risk-management/risk-management-plan-template.md",
           "title": "Risk Management Plan Template",
           "methodology": "universal",
           "tags": [
@@ -9613,6 +9691,9 @@
           ],
           "similarity": 100
         }
+      ],
+      "alternate_paths": [
+        "methodology-frameworks/emerging-methods/devops/release_management_template.md"
       ]
     },
     {
@@ -9640,7 +9721,7 @@
       ],
       "relatedTemplates": [
         {
-          "path": "project-assessment-suite/current-state-analysis-template.md",
+          "path": "domains/measurement/project-assessment-suite/current-state-analysis-template.md",
           "title": "Current State Analysis Template",
           "methodology": "universal",
           "tags": [
@@ -9655,7 +9736,7 @@
           "similarity": 100
         },
         {
-          "path": "industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md",
+          "path": "domains/measurement/industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md",
           "title": "Digital Transformation Strategy Template",
           "methodology": "universal",
           "tags": [
@@ -9685,7 +9766,7 @@
           "similarity": 100
         },
         {
-          "path": "project-assessment-suite/executive-summary-template.md",
+          "path": "domains/measurement/project-assessment-suite/executive-summary-template.md",
           "title": "Executive Summary Template",
           "methodology": "universal",
           "tags": [
@@ -9809,7 +9890,7 @@
       ]
     },
     {
-      "path": "templates/traditional/Traditional/Process_Groups/Executing/requirements_traceability_matrix_template.md",
+      "path": "domains/delivery/templates/traditional/Traditional/Process_Groups/Executing/requirements_traceability_matrix_template.md",
       "title": "Requirements Traceability Matrix Template",
       "methodology": "traditional",
       "complexity": "advanced",
@@ -9832,7 +9913,7 @@
       ],
       "relatedTemplates": [
         {
-          "path": "templates/traditional/Traditional/Knowledge_Areas/Project_Cost_Management/roi_tracking_template.md",
+          "path": "domains/delivery/templates/traditional/Traditional/Knowledge_Areas/Project_Cost_Management/roi_tracking_template.md",
           "title": "Roi Tracking Template",
           "methodology": "traditional",
           "tags": [
@@ -9874,7 +9955,7 @@
           "similarity": 92
         },
         {
-          "path": "templates/traditional/Traditional/Templates/issue_log_template.md",
+          "path": "domains/delivery/templates/traditional/Traditional/Templates/issue_log_template.md",
           "title": "Issue Log Template",
           "methodology": "traditional",
           "tags": [
@@ -9905,6 +9986,9 @@
           ],
           "similarity": 88
         }
+      ],
+      "alternate_paths": [
+        "templates/traditional/Traditional/Process_Groups/Executing/requirements_traceability_matrix_template.md"
       ]
     },
     {
@@ -9981,7 +10065,7 @@
           "similarity": 70
         },
         {
-          "path": "industry-specializations/information-technology/cybersecurity/risk_assessment_template.md",
+          "path": "domains/measurement/industry-specializations/information-technology/cybersecurity/risk_assessment_template.md",
           "title": "Risk Assessment Template",
           "methodology": "universal",
           "tags": [
@@ -9996,7 +10080,7 @@
       ]
     },
     {
-      "path": "project-lifecycle/02-planning/resource-planning/resource-management-plan-template.md",
+      "path": "domains/measurement/project-lifecycle/02-planning/resource-planning/resource-management-plan-template.md",
       "title": "Resource Management Plan Template",
       "methodology": "universal",
       "complexity": "advanced",
@@ -10019,7 +10103,7 @@
       ],
       "relatedTemplates": [
         {
-          "path": "methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md",
+          "path": "domains/measurement/methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md",
           "title": "Cicd Pipeline Planning Template",
           "methodology": "universal",
           "tags": [
@@ -10033,7 +10117,7 @@
           "similarity": 100
         },
         {
-          "path": "methodology-frameworks/emerging-methods/devops/release_management_template.md",
+          "path": "domains/measurement/methodology-frameworks/emerging-methods/devops/release_management_template.md",
           "title": "Release Management Template",
           "methodology": "universal",
           "tags": [
@@ -10047,7 +10131,7 @@
           "similarity": 100
         },
         {
-          "path": "project-lifecycle/02-planning/risk-management/risk-management-plan-template.md",
+          "path": "domains/measurement/project-lifecycle/02-planning/risk-management/risk-management-plan-template.md",
           "title": "Risk Management Plan Template",
           "methodology": "universal",
           "tags": [
@@ -10074,10 +10158,13 @@
           ],
           "similarity": 100
         }
+      ],
+      "alternate_paths": [
+        "project-lifecycle/02-planning/resource-planning/resource-management-plan-template.md"
       ]
     },
     {
-      "path": "industry-specializations/information-technology/cybersecurity/risk_assessment_template.md",
+      "path": "domains/measurement/industry-specializations/information-technology/cybersecurity/risk_assessment_template.md",
       "title": "Risk Assessment Template",
       "methodology": "universal",
       "complexity": "advanced",
@@ -10113,7 +10200,7 @@
           "similarity": 92
         },
         {
-          "path": "industry-specializations/information-technology/software-development/test_plan_template.md",
+          "path": "domains/measurement/industry-specializations/information-technology/software-development/test_plan_template.md",
           "title": "Test Plan Template",
           "methodology": "universal",
           "tags": [
@@ -10151,7 +10238,7 @@
           "similarity": 90
         },
         {
-          "path": "project-assessment-suite/current-state-analysis-template.md",
+          "path": "domains/measurement/project-assessment-suite/current-state-analysis-template.md",
           "title": "Current State Analysis Template",
           "methodology": "universal",
           "tags": [
@@ -10165,6 +10252,9 @@
           ],
           "similarity": 86
         }
+      ],
+      "alternate_paths": [
+        "industry-specializations/information-technology/cybersecurity/risk_assessment_template.md"
       ]
     },
     {
@@ -10232,7 +10322,7 @@
           "similarity": 83
         },
         {
-          "path": "project-assessment-suite/current-state-analysis-template.md",
+          "path": "domains/measurement/project-assessment-suite/current-state-analysis-template.md",
           "title": "Current State Analysis Template",
           "methodology": "universal",
           "tags": [
@@ -10247,7 +10337,7 @@
           "similarity": 83
         },
         {
-          "path": "industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md",
+          "path": "domains/measurement/industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md",
           "title": "Digital Transformation Strategy Template",
           "methodology": "universal",
           "tags": [
@@ -10264,7 +10354,7 @@
       ]
     },
     {
-      "path": "project-lifecycle/02-planning/risk-management/risk-management-plan-template.md",
+      "path": "domains/measurement/project-lifecycle/02-planning/risk-management/risk-management-plan-template.md",
       "title": "Risk Management Plan Template",
       "methodology": "universal",
       "complexity": "advanced",
@@ -10287,7 +10377,7 @@
       ],
       "relatedTemplates": [
         {
-          "path": "methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md",
+          "path": "domains/measurement/methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md",
           "title": "Cicd Pipeline Planning Template",
           "methodology": "universal",
           "tags": [
@@ -10301,7 +10391,7 @@
           "similarity": 100
         },
         {
-          "path": "methodology-frameworks/emerging-methods/devops/release_management_template.md",
+          "path": "domains/measurement/methodology-frameworks/emerging-methods/devops/release_management_template.md",
           "title": "Release Management Template",
           "methodology": "universal",
           "tags": [
@@ -10315,7 +10405,7 @@
           "similarity": 100
         },
         {
-          "path": "project-lifecycle/02-planning/resource-planning/resource-management-plan-template.md",
+          "path": "domains/measurement/project-lifecycle/02-planning/resource-planning/resource-management-plan-template.md",
           "title": "Resource Management Plan Template",
           "methodology": "universal",
           "tags": [
@@ -10342,6 +10432,9 @@
           ],
           "similarity": 100
         }
+      ],
+      "alternate_paths": [
+        "project-lifecycle/02-planning/risk-management/risk-management-plan-template.md"
       ]
     },
     {
@@ -10398,7 +10491,7 @@
           "similarity": 83
         },
         {
-          "path": "methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md",
+          "path": "domains/measurement/methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md",
           "title": "Cicd Pipeline Planning Template",
           "methodology": "universal",
           "tags": [
@@ -10414,7 +10507,7 @@
       ]
     },
     {
-      "path": "templates/traditional/Traditional/Knowledge_Areas/Project_Cost_Management/roi_tracking_template.md",
+      "path": "domains/delivery/templates/traditional/Traditional/Knowledge_Areas/Project_Cost_Management/roi_tracking_template.md",
       "title": "Roi Tracking Template",
       "methodology": "traditional",
       "complexity": "advanced",
@@ -10437,7 +10530,7 @@
       ],
       "relatedTemplates": [
         {
-          "path": "templates/traditional/Traditional/Process_Groups/Executing/requirements_traceability_matrix_template.md",
+          "path": "domains/delivery/templates/traditional/Traditional/Process_Groups/Executing/requirements_traceability_matrix_template.md",
           "title": "Requirements Traceability Matrix Template",
           "methodology": "traditional",
           "tags": [
@@ -10479,7 +10572,7 @@
           "similarity": 92
         },
         {
-          "path": "templates/traditional/Traditional/Templates/issue_log_template.md",
+          "path": "domains/delivery/templates/traditional/Traditional/Templates/issue_log_template.md",
           "title": "Issue Log Template",
           "methodology": "traditional",
           "tags": [
@@ -10510,6 +10603,9 @@
           ],
           "similarity": 88
         }
+      ],
+      "alternate_paths": [
+        "templates/traditional/Traditional/Knowledge_Areas/Project_Cost_Management/roi_tracking_template.md"
       ]
     },
     {
@@ -11054,7 +11150,7 @@
       ],
       "relatedTemplates": [
         {
-          "path": "methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md",
+          "path": "domains/measurement/methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md",
           "title": "Cicd Pipeline Planning Template",
           "methodology": "universal",
           "tags": [
@@ -11082,7 +11178,7 @@
           "similarity": 92
         },
         {
-          "path": "methodology-frameworks/emerging-methods/devops/release_management_template.md",
+          "path": "domains/measurement/methodology-frameworks/emerging-methods/devops/release_management_template.md",
           "title": "Release Management Template",
           "methodology": "universal",
           "tags": [
@@ -11198,11 +11294,12 @@
       ]
     },
     {
-      "path": "templates/agile/sprint_planning_template.md",
-      "canonical_path": "templates/agile/sprint_planning_template.md",
+      "path": "domains/delivery/templates/agile/sprint_planning_template.md",
+      "canonical_path": "domains/delivery/templates/agile/sprint_planning_template.md",
       "alternate_paths": [
         "role-based-toolkits/scrum-master/agile-ceremonies/sprint-planning-template.md",
-        "methodology-frameworks/agile-scrum/sprint-planning/sprint_planning_template.md"
+        "methodology-frameworks/agile-scrum/sprint-planning/sprint_planning_template.md",
+        "templates/agile/sprint_planning_template.md"
       ],
       "title": "Sprint Planning Template",
       "methodology": "agile",
@@ -11225,7 +11322,7 @@
       ],
       "relatedTemplates": [
         {
-          "path": "templates/agile/product_backlog_template.md",
+          "path": "domains/delivery/templates/agile/product_backlog_template.md",
           "title": "Product Backlog Template",
           "methodology": "agile",
           "tags": [
@@ -11379,7 +11476,7 @@
           "similarity": 86
         },
         {
-          "path": "templates/agile/product_backlog_template.md",
+          "path": "domains/delivery/templates/agile/product_backlog_template.md",
           "title": "Product Backlog Template",
           "methodology": "agile",
           "tags": [
@@ -11465,7 +11562,7 @@
           "similarity": 93
         },
         {
-          "path": "templates/agile/product_backlog_template.md",
+          "path": "domains/delivery/templates/agile/product_backlog_template.md",
           "title": "Product Backlog Template",
           "methodology": "agile",
           "tags": [
@@ -11669,7 +11766,7 @@
           "similarity": 79
         },
         {
-          "path": "project-lifecycle/02-planning/project-management-plan/traditional-project-management-plan-template.md",
+          "path": "domains/delivery/project-lifecycle/02-planning/project-management-plan/traditional-project-management-plan-template.md",
           "title": "Traditional Project Management Plan Template",
           "methodology": "universal",
           "tags": [
@@ -11804,7 +11901,7 @@
       ],
       "relatedTemplates": [
         {
-          "path": "methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md",
+          "path": "domains/measurement/methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md",
           "title": "Cicd Pipeline Planning Template",
           "methodology": "universal",
           "tags": [
@@ -11818,7 +11915,7 @@
           "similarity": 100
         },
         {
-          "path": "methodology-frameworks/emerging-methods/devops/release_management_template.md",
+          "path": "domains/measurement/methodology-frameworks/emerging-methods/devops/release_management_template.md",
           "title": "Release Management Template",
           "methodology": "universal",
           "tags": [
@@ -11832,7 +11929,7 @@
           "similarity": 100
         },
         {
-          "path": "project-lifecycle/02-planning/resource-planning/resource-management-plan-template.md",
+          "path": "domains/measurement/project-lifecycle/02-planning/resource-planning/resource-management-plan-template.md",
           "title": "Resource Management Plan Template",
           "methodology": "universal",
           "tags": [
@@ -11846,7 +11943,7 @@
           "similarity": 100
         },
         {
-          "path": "project-lifecycle/02-planning/risk-management/risk-management-plan-template.md",
+          "path": "domains/measurement/project-lifecycle/02-planning/risk-management/risk-management-plan-template.md",
           "title": "Risk Management Plan Template",
           "methodology": "universal",
           "tags": [
@@ -11887,7 +11984,7 @@
       ],
       "relatedTemplates": [
         {
-          "path": "templates/traditional/Traditional/Templates/change_request_template.md",
+          "path": "domains/delivery/templates/traditional/Traditional/Templates/change_request_template.md",
           "title": "Change Request Template",
           "methodology": "traditional",
           "tags": [
@@ -11902,7 +11999,7 @@
           "similarity": 76
         },
         {
-          "path": "templates/traditional/Traditional/Templates/communication_plan_template.md",
+          "path": "domains/delivery/templates/traditional/Traditional/Templates/communication_plan_template.md",
           "title": "Communication Plan Template",
           "methodology": "traditional",
           "tags": [
@@ -11932,7 +12029,7 @@
           "similarity": 76
         },
         {
-          "path": "templates/traditional/Traditional/Process_Groups/Planning/project_schedule_template.md",
+          "path": "domains/delivery/templates/traditional/Traditional/Process_Groups/Planning/project_schedule_template.md",
           "title": "Project Schedule Template",
           "methodology": "traditional",
           "tags": [
@@ -11965,7 +12062,7 @@
       ]
     },
     {
-      "path": "industry-specializations/information-technology/software-development/technical_design_document_template.md",
+      "path": "domains/measurement/industry-specializations/information-technology/software-development/technical_design_document_template.md",
       "title": "Technical Design Document Template",
       "methodology": "universal",
       "complexity": "advanced",
@@ -11988,7 +12085,7 @@
       ],
       "relatedTemplates": [
         {
-          "path": "project-assessment-suite/current-state-analysis-template.md",
+          "path": "domains/measurement/project-assessment-suite/current-state-analysis-template.md",
           "title": "Current State Analysis Template",
           "methodology": "universal",
           "tags": [
@@ -12003,7 +12100,7 @@
           "similarity": 93
         },
         {
-          "path": "industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md",
+          "path": "domains/measurement/industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md",
           "title": "Digital Transformation Strategy Template",
           "methodology": "universal",
           "tags": [
@@ -12033,7 +12130,7 @@
           "similarity": 93
         },
         {
-          "path": "project-assessment-suite/executive-summary-template.md",
+          "path": "domains/measurement/project-assessment-suite/executive-summary-template.md",
           "title": "Executive Summary Template",
           "methodology": "universal",
           "tags": [
@@ -12062,10 +12159,13 @@
           ],
           "similarity": 93
         }
+      ],
+      "alternate_paths": [
+        "industry-specializations/information-technology/software-development/technical_design_document_template.md"
       ]
     },
     {
-      "path": "industry-specializations/information-technology/software-development/test_plan_template.md",
+      "path": "domains/measurement/industry-specializations/information-technology/software-development/test_plan_template.md",
       "title": "Test Plan Template",
       "methodology": "universal",
       "complexity": "advanced",
@@ -12088,7 +12188,7 @@
       ],
       "relatedTemplates": [
         {
-          "path": "project-assessment-suite/current-state-analysis-template.md",
+          "path": "domains/measurement/project-assessment-suite/current-state-analysis-template.md",
           "title": "Current State Analysis Template",
           "methodology": "universal",
           "tags": [
@@ -12103,7 +12203,7 @@
           "similarity": 93
         },
         {
-          "path": "industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md",
+          "path": "domains/measurement/industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md",
           "title": "Digital Transformation Strategy Template",
           "methodology": "universal",
           "tags": [
@@ -12133,7 +12233,7 @@
           "similarity": 93
         },
         {
-          "path": "project-assessment-suite/executive-summary-template.md",
+          "path": "domains/measurement/project-assessment-suite/executive-summary-template.md",
           "title": "Executive Summary Template",
           "methodology": "universal",
           "tags": [
@@ -12162,6 +12262,9 @@
           ],
           "similarity": 93
         }
+      ],
+      "alternate_paths": [
+        "industry-specializations/information-technology/software-development/test_plan_template.md"
       ]
     },
     {
@@ -12322,7 +12425,7 @@
           "similarity": 83
         },
         {
-          "path": "project-assessment-suite/current-state-analysis-template.md",
+          "path": "domains/measurement/project-assessment-suite/current-state-analysis-template.md",
           "title": "Current State Analysis Template",
           "methodology": "universal",
           "tags": [
@@ -12342,7 +12445,7 @@
       ]
     },
     {
-      "path": "project-lifecycle/02-planning/project-management-plan/traditional-project-management-plan-template.md",
+      "path": "domains/delivery/project-lifecycle/02-planning/project-management-plan/traditional-project-management-plan-template.md",
       "title": "Traditional Project Management Plan Template",
       "methodology": "universal",
       "complexity": "intermediate",
@@ -12365,7 +12468,7 @@
       "qualityIssues": [],
       "relatedTemplates": [
         {
-          "path": "project-assessment-suite/current-state-analysis-template.md",
+          "path": "domains/measurement/project-assessment-suite/current-state-analysis-template.md",
           "title": "Current State Analysis Template",
           "methodology": "universal",
           "tags": [
@@ -12380,7 +12483,7 @@
           "similarity": 84
         },
         {
-          "path": "industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md",
+          "path": "domains/measurement/industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md",
           "title": "Digital Transformation Strategy Template",
           "methodology": "universal",
           "tags": [
@@ -12410,7 +12513,7 @@
           "similarity": 84
         },
         {
-          "path": "project-assessment-suite/executive-summary-template.md",
+          "path": "domains/measurement/project-assessment-suite/executive-summary-template.md",
           "title": "Executive Summary Template",
           "methodology": "universal",
           "tags": [
@@ -12439,10 +12542,13 @@
           ],
           "similarity": 84
         }
+      ],
+      "alternate_paths": [
+        "project-lifecycle/02-planning/project-management-plan/traditional-project-management-plan-template.md"
       ]
     },
     {
-      "path": "templates/traditional/Traditional/Templates/uat_plan_template.md",
+      "path": "domains/delivery/templates/traditional/Traditional/Templates/uat_plan_template.md",
       "title": "Uat Plan Template",
       "methodology": "traditional",
       "complexity": "advanced",
@@ -12467,7 +12573,7 @@
       ],
       "relatedTemplates": [
         {
-          "path": "templates/traditional/Traditional/Templates/issue_log_template.md",
+          "path": "domains/delivery/templates/traditional/Traditional/Templates/issue_log_template.md",
           "title": "Issue Log Template",
           "methodology": "traditional",
           "tags": [
@@ -12499,7 +12605,7 @@
           "similarity": 100
         },
         {
-          "path": "templates/traditional/Traditional/Templates/program_management_plan_template.md",
+          "path": "domains/delivery/templates/traditional/Traditional/Templates/program_management_plan_template.md",
           "title": "Program Management Plan Template",
           "methodology": "traditional",
           "tags": [
@@ -12515,7 +12621,7 @@
           "similarity": 100
         },
         {
-          "path": "templates/traditional/Traditional/Process_Groups/Closing/project_closure_report_template.md",
+          "path": "domains/delivery/templates/traditional/Traditional/Process_Groups/Closing/project_closure_report_template.md",
           "title": "Project Closure Report Template",
           "methodology": "traditional",
           "tags": [
@@ -12531,7 +12637,7 @@
           "similarity": 100
         },
         {
-          "path": "templates/traditional/Traditional/Process_Groups/Executing/project_execution_status_report_template.md",
+          "path": "domains/delivery/templates/traditional/Traditional/Process_Groups/Executing/project_execution_status_report_template.md",
           "title": "Project Execution Status Report Template",
           "methodology": "traditional",
           "tags": [
@@ -12546,10 +12652,13 @@
           ],
           "similarity": 100
         }
+      ],
+      "alternate_paths": [
+        "templates/traditional/Traditional/Templates/uat_plan_template.md"
       ]
     },
     {
-      "path": "templates/traditional/Traditional/Templates/uat_strategy_template.md",
+      "path": "domains/delivery/templates/traditional/Traditional/Templates/uat_strategy_template.md",
       "title": "Uat Strategy Template",
       "methodology": "traditional",
       "complexity": "advanced",
@@ -12574,7 +12683,7 @@
       ],
       "relatedTemplates": [
         {
-          "path": "templates/traditional/Traditional/Templates/issue_log_template.md",
+          "path": "domains/delivery/templates/traditional/Traditional/Templates/issue_log_template.md",
           "title": "Issue Log Template",
           "methodology": "traditional",
           "tags": [
@@ -12606,7 +12715,7 @@
           "similarity": 100
         },
         {
-          "path": "templates/traditional/Traditional/Templates/program_management_plan_template.md",
+          "path": "domains/delivery/templates/traditional/Traditional/Templates/program_management_plan_template.md",
           "title": "Program Management Plan Template",
           "methodology": "traditional",
           "tags": [
@@ -12622,7 +12731,7 @@
           "similarity": 100
         },
         {
-          "path": "templates/traditional/Traditional/Process_Groups/Closing/project_closure_report_template.md",
+          "path": "domains/delivery/templates/traditional/Traditional/Process_Groups/Closing/project_closure_report_template.md",
           "title": "Project Closure Report Template",
           "methodology": "traditional",
           "tags": [
@@ -12638,7 +12747,7 @@
           "similarity": 100
         },
         {
-          "path": "templates/traditional/Traditional/Process_Groups/Executing/project_execution_status_report_template.md",
+          "path": "domains/delivery/templates/traditional/Traditional/Process_Groups/Executing/project_execution_status_report_template.md",
           "title": "Project Execution Status Report Template",
           "methodology": "traditional",
           "tags": [
@@ -12653,6 +12762,9 @@
           ],
           "similarity": 100
         }
+      ],
+      "alternate_paths": [
+        "templates/traditional/Traditional/Templates/uat_strategy_template.md"
       ]
     },
     {
@@ -12711,7 +12823,7 @@
           "similarity": 80
         },
         {
-          "path": "industry-specializations/information-technology/cybersecurity/risk_assessment_template.md",
+          "path": "domains/measurement/industry-specializations/information-technology/cybersecurity/risk_assessment_template.md",
           "title": "Risk Assessment Template",
           "methodology": "universal",
           "tags": [
@@ -12892,7 +13004,7 @@
           "similarity": 93
         },
         {
-          "path": "methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md",
+          "path": "domains/measurement/methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md",
           "title": "Cicd Pipeline Planning Template",
           "methodology": "universal",
           "tags": [
@@ -12949,7 +13061,7 @@
       ],
       "relatedTemplates": [
         {
-          "path": "templates/traditional/Traditional/Templates/change_request_template.md",
+          "path": "domains/delivery/templates/traditional/Traditional/Templates/change_request_template.md",
           "title": "Change Request Template",
           "methodology": "traditional",
           "tags": [
@@ -12964,7 +13076,7 @@
           "similarity": 69
         },
         {
-          "path": "templates/traditional/Traditional/Templates/communication_plan_template.md",
+          "path": "domains/delivery/templates/traditional/Traditional/Templates/communication_plan_template.md",
           "title": "Communication Plan Template",
           "methodology": "traditional",
           "tags": [
@@ -12994,7 +13106,7 @@
           "similarity": 69
         },
         {
-          "path": "templates/traditional/Traditional/Process_Groups/Planning/project_schedule_template.md",
+          "path": "domains/delivery/templates/traditional/Traditional/Process_Groups/Planning/project_schedule_template.md",
           "title": "Project Schedule Template",
           "methodology": "traditional",
           "tags": [
@@ -13026,7 +13138,7 @@
       ]
     },
     {
-      "path": "templates/traditional/Traditional/Process_Groups/Planning/work_breakdown_structure_template.md",
+      "path": "domains/delivery/templates/traditional/Traditional/Process_Groups/Planning/work_breakdown_structure_template.md",
       "title": "Work Breakdown Structure Template",
       "methodology": "traditional",
       "complexity": "advanced",
@@ -13051,7 +13163,7 @@
       ],
       "relatedTemplates": [
         {
-          "path": "templates/traditional/Traditional/Templates/issue_log_template.md",
+          "path": "domains/delivery/templates/traditional/Traditional/Templates/issue_log_template.md",
           "title": "Issue Log Template",
           "methodology": "traditional",
           "tags": [
@@ -13083,7 +13195,7 @@
           "similarity": 100
         },
         {
-          "path": "templates/traditional/Traditional/Templates/program_management_plan_template.md",
+          "path": "domains/delivery/templates/traditional/Traditional/Templates/program_management_plan_template.md",
           "title": "Program Management Plan Template",
           "methodology": "traditional",
           "tags": [
@@ -13099,7 +13211,7 @@
           "similarity": 100
         },
         {
-          "path": "templates/traditional/Traditional/Process_Groups/Closing/project_closure_report_template.md",
+          "path": "domains/delivery/templates/traditional/Traditional/Process_Groups/Closing/project_closure_report_template.md",
           "title": "Project Closure Report Template",
           "methodology": "traditional",
           "tags": [
@@ -13115,7 +13227,7 @@
           "similarity": 100
         },
         {
-          "path": "templates/traditional/Traditional/Process_Groups/Executing/project_execution_status_report_template.md",
+          "path": "domains/delivery/templates/traditional/Traditional/Process_Groups/Executing/project_execution_status_report_template.md",
           "title": "Project Execution Status Report Template",
           "methodology": "traditional",
           "tags": [
@@ -13130,6 +13242,9 @@
           ],
           "similarity": 100
         }
+      ],
+      "alternate_paths": [
+        "templates/traditional/Traditional/Process_Groups/Planning/work_breakdown_structure_template.md"
       ]
     }
   ],

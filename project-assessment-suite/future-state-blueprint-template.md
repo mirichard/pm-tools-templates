@@ -522,7 +522,7 @@ CEO/Executive Level:
 
 ## Related Resources
 
-- [Current State Analysis Template](./current-state-analysis-template.md)
+- [Current State Analysis Template](../domains/measurement/project-assessment-suite/current-state-analysis-template.md)
 - [Gap Analysis Framework](./gap-analysis-framework.md)
 - [Implementation Planning Template](../project-lifecycle/02-planning/implementation-planning-template.md)
 - [Change Management Plan](../organizational-change/change-management-plan-template.md)

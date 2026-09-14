@@ -24,7 +24,7 @@ The project management plan is your project's master document that defines how t
 
 <a id="traditionaltraditional-project-management-plan"></a>
 ### Traditional/Traditional Project Management Plan
-**[→ Download: Traditional Project Management Plan Template](traditional-project-management-plan-template.md)**
+**[→ Download: Traditional Project Management Plan Template](../../../domains/delivery/project-lifecycle/02-planning/project-management-plan/traditional-project-management-plan-template.md)**
 - Comprehensive plan following Traditional standards
 <a id="agile-project-plan-release-plan"></a>
 - All 10 knowledge areas integrated
@@ -32,7 +32,7 @@ The project management plan is your project's master document that defines how t
 - Perfect for regulated industries and complex projects
 
 ### Agile Project Plan (Release Plan)
-**[→ Download: Agile Release Plan Template](agile-release-plan-template.md)**
+**[→ Download: Agile Release Plan Template](../../../domains/delivery/project-lifecycle/02-planning/project-management-plan/agile-release-plan-template.md)**
 - Product roadmap and release planning
 - Epic and feature breakdown
 - Sprint planning framework
