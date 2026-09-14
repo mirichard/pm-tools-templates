@@ -27,16 +27,16 @@
 
 | # | Template | Purpose | Setup Time |
 |---|----------|---------|------------|
-| 9 | [Governance Assessment](../../../project-assessment-suite/governance-assessment-template.md) | Evaluate governance effectiveness | ~45 min |
+| 9 | [Governance Assessment](../../../domains/measurement/project-assessment-suite/governance-assessment-template.md) | Evaluate governance effectiveness | ~45 min |
 | 10 | [Executive Dashboard](../../../domains/stakeholder/business-stakeholder-suite/executive-dashboards/powerbi-integration/executive-dashboard-template.md) | Executive-level progress visibility | ~30 min |
 | 11 | [Risk Register](../../../domains/uncertainty/project-lifecycle/02-planning/risk-management/risk-register-template.md) | Detailed risk tracking | ~30 min |
-| 12 | [Project Health Assessment](../../../project-assessment-suite/project-health-assessment-template.md) | Periodic health checks | ~30 min |
+| 12 | [Project Health Assessment](../../../domains/measurement/project-assessment-suite/project-health-assessment-template.md) | Periodic health checks | ~30 min |
 
 ## Complementary Resources
 
 - **Toolkit:** [Scrum Master Toolkit](../../../role-based-toolkits/scrum-master/) + [Business Stakeholder Suite](../../../business-stakeholder-suite/)
 - **Scaling:** [SAFe Frameworks](../../../methodology-frameworks/agile-scrum/scaling-frameworks/safe/) · [LeSS Frameworks](../../../methodology-frameworks/agile-scrum/scaling-frameworks/less/)
-- **Assessment:** [Process Maturity Assessment](../../../project-assessment-suite/process-maturity-assessment-template.md)
+- **Assessment:** [Process Maturity Assessment](../../../domains/measurement/project-assessment-suite/process-maturity-assessment-template.md)
 
 ## What This Bundle Does NOT Cover
 

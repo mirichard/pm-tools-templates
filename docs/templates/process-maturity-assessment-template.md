@@ -15,7 +15,7 @@
 
 title: "Process Maturity Assessment Template"
 
-[**➡️ View Template File**](/project-assessment-suite/process-maturity-assessment-template.md)
+[**➡️ View Template File**](/domains/measurement/project-assessment-suite/process-maturity-assessment-template.md)
 
 ## 📈 Quality Score
 

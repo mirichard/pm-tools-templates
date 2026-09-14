@@ -35,7 +35,7 @@ These measure whether projects deliver organizational value. Typically tracked q
 | Portfolio ROI | Return on investment across all active projects | ≥ ___% | | | [ROI Tracking Dashboard](../../../business-stakeholder-suite/financial-governance/roi-tracking-dashboard.md) |
 | Strategic Alignment Score | % of projects mapped to strategic objectives | ≥ ___% | | | [Executive Dashboard](../../../domains/stakeholder/business-stakeholder-suite/executive-dashboards/powerbi-integration/executive-dashboard-template.md) |
 | Benefits Realization Rate | % of planned benefits actually delivered | ≥ ___% | | | [Benefits Realization Framework](../../../business-stakeholder-suite/financial-governance/benefit-realization-framework.md) |
-| Organizational Capability Maturity | Process maturity assessment score | ≥ ___/5 | | | [Process Maturity Assessment](../../../project-assessment-suite/process-maturity-assessment-template.md) |
+| Organizational Capability Maturity | Process maturity assessment score | ≥ ___/5 | | | [Process Maturity Assessment](../../../domains/measurement/project-assessment-suite/process-maturity-assessment-template.md) |
 
 **Leading indicators:** Benefits pipeline value, strategic initiative count, capability investment %
 

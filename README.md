@@ -56,7 +56,7 @@ Start with: [Product Vision](domains/uncertainty/role-based-toolkits/product-own
 
 → **[Executive Dashboards](business-stakeholder-suite/executive-dashboards/)** · **[Financial Governance](business-stakeholder-suite/financial-governance/)** · **[Project Assessment Suite](project-assessment-suite/)**
 
-Start with: [Executive Dashboard](business-stakeholder-suite/executive-dashboards/performance-monitoring-analytics.md) · [ROI Tracking](business-stakeholder-suite/financial-governance/roi-tracking-dashboard.md) · [Project Health Assessment](project-assessment-suite/project-health-assessment-template.md)
+Start with: [Executive Dashboard](business-stakeholder-suite/executive-dashboards/performance-monitoring-analytics.md) · [ROI Tracking](business-stakeholder-suite/financial-governance/roi-tracking-dashboard.md) · [Project Health Assessment](domains/measurement/project-assessment-suite/project-health-assessment-template.md)
 
 ---
 
