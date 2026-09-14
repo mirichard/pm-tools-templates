@@ -30,6 +30,7 @@ function fixture(t) {
   }
   fs.writeFileSync(path.join(root, 'README.md'), rootLinks.join('\n'));
   fs.mkdirSync(path.join(root, 'meta'));
+  fs.writeFileSync(path.join(root, 'meta/domain-review-decisions.json'), JSON.stringify({ decisions: [] }));
   fs.writeFileSync(path.join(root, 'meta/domain-mapping.json'), JSON.stringify({ mappings }));
   fs.writeFileSync(path.join(root, 'meta/cross-references.json'), JSON.stringify({ denominator: 18, covered: 18, records }));
   return root;
@@ -82,3 +83,28 @@ test('checks non-starting assets despite reported full coverage', t => {
   fs.writeFileSync(crossFile, JSON.stringify(cross));
   assert.deepEqual(validateDomainNavigation(root).errors, []);
 });
+
+for (const domain of ['Uncertainty', 'Measurement']) {
+  test(`requires the reviewed ${domain} start even with three other valid links`, t => {
+    const root = fixture(t);
+    const asset = `domains/${domain.toLowerCase()}/asset-4.md`;
+    fs.writeFileSync(path.join(root, asset), '# Reviewed start');
+    const mapFile = path.join(root, 'meta/domain-mapping.json');
+    const mapping = JSON.parse(fs.readFileSync(mapFile));
+    mapping.mappings.push({ path: asset, domain: { primary: domain } });
+    fs.writeFileSync(mapFile, JSON.stringify(mapping));
+    const crossFile = path.join(root, 'meta/cross-references.json');
+    const cross = JSON.parse(fs.readFileSync(crossFile));
+    cross.records.push({ path: asset });
+    cross.covered = cross.denominator = 19;
+    fs.writeFileSync(crossFile, JSON.stringify(cross));
+    fs.appendFileSync(path.join(root, 'domains', domain.toLowerCase(), 'README.md'), '[Reviewed](asset-4.md)');
+    fs.writeFileSync(path.join(root, 'meta/domain-review-decisions.json'), JSON.stringify({ decisions: [{ path: asset, primary: domain }] }));
+    assert.deepEqual(validateDomainNavigation(root).errors, []);
+    const readme = path.join(root, 'domains', domain.toLowerCase(), 'README.md');
+    fs.writeFileSync(readme, fs.readFileSync(readme, 'utf8').replace('[Reviewed](asset-4.md)', ''));
+    const result = validateDomainNavigation(root);
+    assert.equal(result.errors.length, 1);
+    assert.match(result.errors.join('\n'), /missing reviewed starting asset/);
+  });
+}

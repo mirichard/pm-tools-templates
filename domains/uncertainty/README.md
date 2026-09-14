@@ -8,6 +8,7 @@ Uncertainty covers risk and opportunity management, issue resolution, contingenc
 
 ## Start here
 
+- [Problem management process](../../domains/delivery/industry-specializations/information-technology/service-management/problem_management_process_template.md)
 - [Enterprise risk assessment](../../domains/uncertainty/project-lifecycle/02-planning/risk-management/enterprise-risk-assessment-template.md)
 - [Migration plan](../../domains/uncertainty/industry-specializations/information-technology/infrastructure/migration_plan_template.md)
 - [Backlog management](../../domains/uncertainty/role-based-toolkits/product-owner/backlog-management-template.md)

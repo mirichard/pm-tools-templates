@@ -8,6 +8,7 @@ Measurement includes KPIs, progress tracking, dashboards, status reporting, heal
 
 ## Start here
 
+- [Timesheet tracking](../../domains/delivery/role-based-toolkits/project-manager/essential-templates/timesheet-tracking-template.md)
 - [Current-state analysis](../../domains/measurement/project-assessment-suite/current-state-analysis-template.md)
 - [Cybersecurity assessment](../../domains/measurement/industry-specializations/information-technology/security/cybersecurity_assessment_template.md)
 - [CI/CD pipeline planning](../../domains/measurement/methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md)
