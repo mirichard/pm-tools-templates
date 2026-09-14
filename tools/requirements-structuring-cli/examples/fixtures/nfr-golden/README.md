@@ -2,51 +2,83 @@
 
 The active source is `password-reset-input.md`, the owner's six functional
 requirements for a single password-reset feature. It follows the section format
-of the existing `examples/web-store-input.md` sample but uses a documented new
-scenario. The earlier laboratory-order source was removed from this directory;
-its history remains in Git and it is no longer used for fixture generation.
+of `examples/web-store-input.md` but uses a documented new scenario. The earlier
+laboratory-order source is no longer used; its history remains in Git.
 
-The source preserves the owner's 30-minute reset-link validity and 12-character
-password rule. These are supplied functional requirements, not invented NFR
-bindings. Generated NFR targets and measurement conditions must remain exactly
-as the generator's NEEDS INPUT placeholders.
+The source's 30-minute reset-link validity and 12-character password rule are
+supplied functional requirements, not invented NFR bindings. All generated NFR
+targets, system names, scopes and measurement conditions remain exactly
+`[NEEDS INPUT: <name>]`. No generated content has been manually edited.
 
-## Neutral capture
+## Captures and measured invariants
 
-`neutral/` preserves the eight artifacts emitted by the live default run,
-unchanged. Source commit: e1780547e007e2fd37461dfcc54fee9379bce536.
-Provider: Gemini; model: gemini-2.5-flash; structure and creative temperatures: 0;
-traces disabled. Phase 0 was READY (0 blockers, 1 password-rule warning).
-The owner confirmed the six FRs are the entire functional scope and approved
-proceeding past UI-only warnings. No additional source rules were invented.
+Both captures were generated on a base including #1137 (terminal flows), #1139
+(source traceability), and #1155 (send-side classifier payload filtering), using
+Gemini `gemini-2.5-flash`, structure and creative temperatures 0, traces disabled.
+Both Phase 0 scans returned NEEDS CLARIFICATION with zero blockers and five
+owner-approved UI-only warnings. The warning and Phase 2 gates were accepted;
+Phase 3 feedback was declined. Later aggregate Markdown reports are therefore
+not emitted. Each directory contains all eight artifacts through NFR generation:
+ambiguity JSON/report, structured JSON, UCS JSON, tests JSON, Gherkin,
+classification JSON, and the NFR Markdown report with coverage/missing-input gaps.
 
-The run produced 75 classifications/candidates across eight characteristics,
-with 300 unbound placeholder bindings. Safety is uncovered. The post-generation
-feedback gate was declined as directed: no interactive refinement was performed.
-Consequently the CLI's later aggregate Markdown reports were not emitted; the
-NFR Markdown, structured/UCS/test JSON and Gherkin are included as produced.
-No generated content has been manually edited.
+| Recorded measure | `neutral/` | `pci-dss/` |
+|---|---:|---:|
+| UCS steps / classified sources | 10 | 10 |
+| Classification assignments | 70 | 73 |
+| Covered characteristics | 6 | 5 |
+| Generated candidates | 70 | 78 |
+| Unbound placeholder bindings | 280 | 312 |
 
-Overlay comparison and accepted handoff-regeneration verification passed, as
-detailed below. The three golden-fixture checks also run through `npm test`.
+Neutral covers compatibility, functional suitability, interaction capability,
+performance efficiency, reliability and security. It leaves maintainability,
+flexibility and safety uncovered.
 
-## FDA capture and controlled overlay comparison
+PCI-DSS covers compatibility, functional suitability, interaction capability,
+reliability and security. It leaves performance efficiency, maintainability,
+flexibility and safety uncovered. Neither capture contains accountability.
 
-`fda-21-cfr-11/` preserves the eight artifacts of the second real pipeline run
-with `--profile fda-21-cfr-11`. Phase 0 had zero blockers and five owner-approved
-UI-only warnings; the warning gate was accepted and post-generation feedback
-was declined. Both runs cover the same eight characteristics; Safety is absent.
-FDA produced 72 assignments, 73 candidates and 292 placeholder bindings,
-versus neutral's 75 assignments, 75 candidates and 300 bindings.
+The unmatched-email alternative terminates after generic confirmation; it does
+not proceed to reset-link access or password change. UCS steps and generated
+tests/Gherkin retain the exact FR4 source reference, including “12 characters”,
+“one letter”, and “one number”.
 
-The differing assignment counts are live model variation, not overlay removal.
-Rendering the FDA classification handoff with and without the overlay isolates
-one addition: `fda-21-cfr-11.accountability` for `/basicFlow/steps/0`.
-It adds a time-stamped, attributable record-change audit-trail coverage statement
-with FDA framework provenance. Core patterns are retained, not overridden.
-The target, scope, system and conditions remain explicit NEEDS INPUT bindings.
-Library measurement guidance is not a supplied project threshold or a compliance
-claim. All 292 FDA bindings remain placeholders.
+## Controlled PCI-DSS overlay comparison
+
+These are independent live captures. A raw side-by-side report diff conflates
+model variation with the overlay's contribution. Render the PCI-DSS run's own
+classification handoff with both libraries to isolate the overlay: 73 neutral
+candidates become 78 PCI-DSS candidates, retaining every core candidate.
+
+All five additions use `pci-dss.confidentiality`, at:
+
+- `/basicFlow/steps/1`
+- `/basicFlow/steps/2`
+- `/basicFlow/steps/4`
+- `/basicFlow/steps/5`
+- `/alternativeFlows/0/steps/0`
+
+The pattern concerns post-authorization retention of sensitive authentication
+data. This demonstrates overlay selection and provenance, not applicability to
+a password-reset system or PCI DSS compliance. The library's measurement guidance
+is not a supplied project threshold; all 312 bindings remain placeholders.
+
+The previous `fda-21-cfr-11` demonstration was replaced because its sole pattern
+keys on accountability, which this fixture does not currently produce. This
+switch does not resolve whether the FDA/HIPAA overlays work for explicitly
+auditable requirements. The separate accountability investigation will be linked
+here when filed in the next finalization step.
+
+## Source integrity and evaluation use
+
+The source SHA-256 is
+`f722b387b595bcbf34d5e344f853ba4086d1ee6e92e7ea7ea3e1cdabf42c3f3d`.
+The golden tests check the complete source hash and compare parser-owned source
+catalogs with both structured/UCS handoffs, as well as exact coverage, counts,
+placeholder values and overlay source paths. These are recorded fixture
+invariants, not expectations that every live run must reproduce the same labels.
+Use the [anchor guide](../../../docs/nfr-golden-example.md) for #1113's eval
+inputs and #1114's worked example. Captured classifications are not expert labels.
 
 ## Regeneration and its limits
 
@@ -56,33 +88,25 @@ From `tools/requirements-structuring-cli`, run:
 node examples/fixtures/nfr-golden/verify-regeneration.cjs
 ```
 
-This makes fresh temporary output directories, invokes the unchanged test,
-Gherkin and NFR renderers on the recorded UCS/classification handoffs, and
-compares all six derived files byte-for-byte with the captures. All six passed.
-It also verifies that every candidate binding remains an explicit placeholder.
-It does not call or replace a provider, regenerate classifications from source,
-or copy captured output files and call that regeneration. The five remaining
-files per variant are recorded live-provider artifacts (ambiguity JSON/report,
-structured JSON, UCS JSON, classification JSON), not independently regenerated
-by this check. The owner accepted this scope as sufficient for Step 3e and
-Success Criterion 5: deterministic handoff regeneration plus an explicit
-limitation that live model output cannot be guaranteed identical.
+This creates fresh temporary outputs from the recorded UCS/classification
+handoffs using the unchanged test, Gherkin and NFR renderers. It compares six
+derived files byte-for-byte (tests JSON, Gherkin, NFR Markdown in each variant)
+and checks placeholder bindings. It makes no provider calls. The other five
+files per variant are recorded provider artifacts, not independently regenerated
+by this check. Live source-to-classification determinism is not claimed, even
+at temperature 0; recorded-handoff replay is the accepted reproducibility scope.
 
-To make new live captures from the source (requires configured Gemini credentials):
+To make new live captures with configured Gemini credentials:
 
 ```sh
 capture_root=$(mktemp -d /tmp/nfr-golden-live-XXXXXX)
 export SAVE_LLM_TRACES=false LLM_TEMPERATURE_STRUCTURE=0 LLM_TEMPERATURE_CREATIVE=0
 node src/index.js pipeline examples/fixtures/nfr-golden/password-reset-input.md --provider gemini --model gemini-2.5-flash -o "$capture_root/neutral"
-node src/index.js pipeline examples/fixtures/nfr-golden/password-reset-input.md --provider gemini --model gemini-2.5-flash --profile fda-21-cfr-11 -o "$capture_root/fda-21-cfr-11"
+node src/index.js pipeline examples/fixtures/nfr-golden/password-reset-input.md --provider gemini --model gemini-2.5-flash --profile pci-dss -o "$capture_root/pci-dss"
 diff -ru examples/fixtures/nfr-golden/neutral "$capture_root/neutral"
-diff -ru examples/fixtures/nfr-golden/fda-21-cfr-11 "$capture_root/fda-21-cfr-11"
+diff -ru examples/fixtures/nfr-golden/pci-dss "$capture_root/pci-dss"
 ```
 
-Accept the approved UI-only warning gate if presented, accept Phase 2, and decline
-Phase 3 feedback. Stop for new functional blockers. Never overwrite the committed
-captures automatically. Live model responses can differ despite temperature 0:
-these two runs already produced different warnings and assignment counts. Such
-differences require review; they are not silently stripped from comparisons.
-The accepted reproducibility gate is the recorded-handoff check above, not
-full live-provider determinism. Live recapture is optional, not a readiness gate.
+Accept approved UI-only warnings, accept Phase 2, and decline Phase 3 feedback.
+Stop for new functional blockers. Review all live differences before replacing
+captures; do not silently normalize them or expect byte-identical live results.
