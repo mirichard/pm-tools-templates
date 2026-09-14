@@ -22,6 +22,7 @@ export function validateDomainNavigation(root) {
   const mappedByPath = new Map(mapping.mappings.map(item => [normalize(item.path), item]));
   const crossPaths = new Set(crossReferences.records.map(item => normalize(item.path)));
   const rootReadme = fs.readFileSync(path.join(root, 'README.md'), 'utf8');
+  const rootLinks = new Set(localLinks(rootReadme).map(normalize));
   const journeys = [];
 
   for (const domain of DOMAINS) {
@@ -34,7 +35,7 @@ export function validateDomainNavigation(root) {
       errors.push(`${domain}: missing domains/${slug}/README.md`);
       continue;
     }
-    if (!rootReadme.includes(`domains/${slug}/`)) errors.push(`${domain}: root README does not link the domain entry point`);
+    if (!rootLinks.has(`domains/${slug}/`)) errors.push(`${domain}: root README does not link the domain entry point`);
 
     const content = fs.readFileSync(readmePath, 'utf8');
     const linkedMapped = new Set();
@@ -56,6 +57,12 @@ export function validateDomainNavigation(root) {
     journeys.push({ domain, mappedAssets: mapped.length, startingAssets: linkedMapped.size });
   }
 
+  for (const asset of mappedByPath.keys()) {
+    if (!crossPaths.has(asset)) errors.push(`Mapped asset lacks workflow cross-reference: ${asset}`);
+  }
+  for (const asset of crossPaths) {
+    if (!mappedByPath.has(asset)) errors.push(`Workflow cross-reference has unmapped path: ${asset}`);
+  }
   if (crossReferences.covered !== mapping.mappings.length || crossReferences.denominator !== mapping.mappings.length) {
     errors.push('Cross-reference coverage does not match the domain-mapping denominator');
   }
