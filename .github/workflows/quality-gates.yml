@@ -81,6 +81,13 @@ jobs:
               | sort | head -20)
           fi
           
+          # Resolve source baselines only for verified byte-preserving migrations.
+          MIGRATION_BASELINES="$RUNNER_TEMP/quality-migration-baselines.json"
+          printf '{}' > "$MIGRATION_BASELINES"
+          if [ -n "$BASE_SHA" ]; then
+            python3 scripts/quality_gate_baseline.py --base "$BASE_SHA" --output "$MIGRATION_BASELINES"
+          fi
+
           # Validate each template
           for file in $TEMPLATE_FILES; do
             if [ -f "$file" ]; then
@@ -97,33 +104,34 @@ jobs:
               CONTENT=$(cat "$file" | tr '[:upper:]' '[:lower:]')
               BASE_CONTENT=""
               BASE_EXISTS=false
-              if [ -n "$BASE_SHA" ] && git cat-file -e "$BASE_SHA:$file" 2>/dev/null; then
-                BASE_CONTENT=$(git show "$BASE_SHA:$file" | tr '[:upper:]' '[:lower:]')
+              BASE_FILE=$(python3 -c 'import json,sys; print(json.load(open(sys.argv[1])).get(sys.argv[2], sys.argv[2]))' "$MIGRATION_BASELINES" "$file")
+              if [ -n "$BASE_SHA" ] && git cat-file -e "$BASE_SHA:$BASE_FILE" 2>/dev/null; then
+                BASE_CONTENT=$(git show "$BASE_SHA:$BASE_FILE" | tr '[:upper:]' '[:lower:]')
                 BASE_EXISTS=true
               fi
               
-              if ! echo "$CONTENT" | grep -q "purpose\|overview\|description" \
-                && { [ "$BASE_EXISTS" = false ] || echo "$BASE_CONTENT" | grep -q "purpose\|overview\|description"; }; then
+              if ! grep -q "purpose\|overview\|description" <<< "$CONTENT" \
+                && { [ "$BASE_EXISTS" = false ] || grep -q "purpose\|overview\|description" <<< "$BASE_CONTENT"; }; then
                 VALIDATION_WARNINGS=$((VALIDATION_WARNINGS + 1))
                 VALIDATION_REPORT="$VALIDATION_REPORT\n⚠️ $file: Missing purpose/overview section"
               fi
               
-              if ! echo "$CONTENT" | grep -q "usage\|how to\|instructions" \
-                && { [ "$BASE_EXISTS" = false ] || echo "$BASE_CONTENT" | grep -q "usage\|how to\|instructions"; }; then
+              if ! grep -q "usage\|how to\|instructions" <<< "$CONTENT" \
+                && { [ "$BASE_EXISTS" = false ] || grep -q "usage\|how to\|instructions" <<< "$BASE_CONTENT"; }; then
                 VALIDATION_WARNINGS=$((VALIDATION_WARNINGS + 1))
                 VALIDATION_REPORT="$VALIDATION_REPORT\n⚠️ $file: Missing usage instructions"
               fi
               
               # Check for placeholder content
               if grep -q "TODO\|TBD\|FIXME\|XXX" "$file" \
-                && { [ "$BASE_EXISTS" = false ] || ! echo "$BASE_CONTENT" | grep -q "TODO\|TBD\|FIXME\|XXX"; }; then
+                && { [ "$BASE_EXISTS" = false ] || ! grep -q "TODO\|TBD\|FIXME\|XXX" <<< "$BASE_CONTENT"; }; then
                 VALIDATION_WARNINGS=$((VALIDATION_WARNINGS + 1))
                 VALIDATION_REPORT="$VALIDATION_REPORT\n⚠️ $file: Contains placeholder content (TODO/TBD/FIXME)"
               fi
               
               # Check for proper markdown formatting
               if ! grep -q "^# " "$file" \
-                && { [ "$BASE_EXISTS" = false ] || echo "$BASE_CONTENT" | grep -q "^# "; }; then
+                && { [ "$BASE_EXISTS" = false ] || grep -q "^# " <<< "$BASE_CONTENT"; }; then
                 VALIDATION_WARNINGS=$((VALIDATION_WARNINGS + 1))
                 VALIDATION_REPORT="$VALIDATION_REPORT\n⚠️ $file: Missing main heading (# Title)"
               fi

@@ -54,9 +54,13 @@ class NFRClassifier {
       postconditions: data.postconditions, businessObjects: data.businessObjects };
     const requirements = [];
     for (const unit of requirementUnits(kind, data)) {
+      // Traceability belongs to artifacts, not the classification input.
+      const step = { ...unit.step };
+      delete step.sourceRequirementId;
+      delete step.sourceText;
       const raw = await this.llm.chatJSON({
         systemPrompt,
-        userPrompt: JSON.stringify({ context, requirement: unit,
+        userPrompt: JSON.stringify({ context, requirement: { ...unit, step },
           taxonomy: { revision: taxonomy.revision, standardEdition: taxonomy.standardEdition,
             accuracyNotice: taxonomy.accuracyNotice, characteristics } }),
         mode: 'structure',

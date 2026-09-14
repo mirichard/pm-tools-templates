@@ -123,6 +123,71 @@ module.exports = async (runner) => {
       assert.deepStrictEqual(llm.calls[0].payload.requirement.step, input.steps[0]);
       assert.deepStrictEqual(input, before);
     });
+    await test('send-side filtering removes exactly two fields for structured and all UCS flows', async () => {
+      const step = { ...copy(fixture.input.steps[0]), sourceRequirementId: 'FR4', sourceText: 'Original constraint',
+        description: 'Validate password', precondition: 'Form open', postcondition: 'Password valid',
+        toActor: 'System', refUseCaseId: 'UC-OTHER', extraMetadata: { retained: true } };
+      const plain = copy(step); delete plain.sourceRequirementId; delete plain.sourceText;
+      const inputs = [
+        { ...oneFR(), steps: [step] },
+        { useCaseId: 'UC-PAYLOAD', intent: 'Reset password', role: 'User', preconditions: [], postconditions: [],
+          basicFlow: { steps: [copy(step)] },
+          alternativeFlows: [{ flowId: 'alt', deviationPoint: '1', triggerCondition: 'Invalid', rejoinPoint: '1', steps: [copy(step)] }],
+          exceptionFlows: [{ flowId: 'err', deviationPoint: '1', triggerCondition: 'Expired', steps: [copy(step)] }] },
+      ];
+      for (const input of inputs) {
+        const before = copy(input);
+        const llm = client(() => ({ assignments: [] }));
+        await new NFRClassifier({ llm }).classify(input);
+        for (const call of llm.calls) assert.deepStrictEqual(call.payload.requirement.step, plain);
+        assert.deepStrictEqual(input, before);
+        const without = copy(input);
+        const steps = without.steps || [...without.basicFlow.steps, ...without.alternativeFlows.flatMap(f => f.steps), ...without.exceptionFlows.flatMap(f => f.steps)];
+        steps.forEach(s => { delete s.sourceRequirementId; delete s.sourceText; });
+        const control = client(() => ({ assignments: [] }));
+        await new NFRClassifier({ llm: control }).classify(without);
+        assert.deepStrictEqual(llm.calls, control.calls);
+      }
+    });
+    await test('traceability does not change classification output fields or values', async () => {
+      const input = oneFR();
+      const expected = await new NFRClassifier({ llm: client() }).classify(input);
+      Object.assign(input.steps[0], { sourceRequirementId: 'FR4', sourceText: 'Exact original text' });
+      const actual = await new NFRClassifier({ llm: client() }).classify(input);
+      assert.deepStrictEqual(actual, expected);
+      assert.deepStrictEqual(Object.keys(actual.requirements[0].source).sort(), ['kind', 'path', 'stepId']);
+      assert.strictEqual(input.steps[0].sourceRequirementId, 'FR4');
+      assert.strictEqual(input.steps[0].sourceText, 'Exact original text');
+    });
+    await test('classification preserves traceability in written UCS, tests and Gherkin', async () => {
+      const { UCSTemplate } = require('../src/ucs-template');
+      const TestGenerator = require('../src/test-generator');
+      const GherkinGenerator = require('../src/gherkin-generator');
+      const Ajv = require('ajv');
+      const sourceText = 'FR4: A password must be at least 12 characters and contain at least one letter and one number.';
+      const input = UCSTemplate.fromJSON({ useCaseId: 'UC-PASSWORD', intent: 'Reset password', role: 'User',
+        preconditions: [], postconditions: [], businessObjects: [], relatedUseCases: [],
+        basicFlow: { steps: [{ stepId: '4', actor: 'System', action: 'validates', businessObject: 'Password',
+          description: 'Meets complexity rules', sourceRequirementId: 'FR4', sourceText }] },
+        alternativeFlows: [], exceptionFlows: [] }).toJSON();
+      const before = copy(input);
+      await new NFRClassifier({ llm: client(() => ({ assignments: [] })) }).classify(input);
+      assert.deepStrictEqual(input, before);
+      const ucsPath = path.join(temp, 'traceability-ucs.json');
+      await fs.writeJSON(ucsPath, input);
+      const written = await fs.readJSON(ucsPath);
+      assert(new Ajv({ strict: false }).validate(require('../schemas/ucs-template.schema.json'), written));
+      assert.strictEqual(written.basicFlow.steps[0].sourceRequirementId, 'FR4');
+      assert.strictEqual(written.basicFlow.steps[0].sourceText, sourceText);
+      const tests = new TestGenerator().generate(written);
+      assert.strictEqual(tests[0].steps[0].sourceRequirementId, 'FR4');
+      assert.strictEqual(tests[0].steps[0].sourceText, sourceText);
+      const featurePath = path.join(temp, 'traceability.feature');
+      await new GherkinGenerator().generateFile(tests, written, featurePath);
+      const feature = await fs.readFile(featurePath, 'utf8');
+      assert(feature.includes('# Source requirement FR4'));
+      assert(feature.includes(sourceText));
+    });
     await test('keeps unmapped FRs rather than fabricating an attribute', async () => {
       const result = await new NFRClassifier({ llm: client(() => ({ assignments: [] })) }).classify(oneFR());
       assert.deepStrictEqual(result.requirements[0].attributes, []);

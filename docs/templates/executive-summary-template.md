@@ -15,7 +15,7 @@
 
 title: "Executive Summary Template"
 
-[**➡️ View Template File**](/project-assessment-suite/executive-summary-template.md)
+[**➡️ View Template File**](/domains/measurement/project-assessment-suite/executive-summary-template.md)
 
 ## 📈 Quality Score
 

@@ -100,7 +100,7 @@
       ],
       "relatedTemplates": [
         {
-          "path": "industry-specializations/information-technology/cybersecurity/risk_assessment_template.md",
+          "path": "domains/measurement/industry-specializations/information-technology/cybersecurity/risk_assessment_template.md",
           "title": "Risk Assessment Template",
           "methodology": "universal",
           "tags": [
@@ -234,7 +234,7 @@
           "similarity": 82
         },
         {
-          "path": "project-assessment-suite/process-maturity-assessment-template.md",
+          "path": "domains/measurement/project-assessment-suite/process-maturity-assessment-template.md",
           "title": "Process Maturity Assessment Template",
           "methodology": "universal",
           "tags": [
@@ -307,7 +307,7 @@
           "similarity": 100
         },
         {
-          "path": "methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md",
+          "path": "domains/measurement/methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md",
           "title": "Cicd Pipeline Planning Template",
           "methodology": "universal",
           "tags": [
@@ -321,7 +321,7 @@
           "similarity": 93
         },
         {
-          "path": "methodology-frameworks/emerging-methods/devops/release_management_template.md",
+          "path": "domains/measurement/methodology-frameworks/emerging-methods/devops/release_management_template.md",
           "title": "Release Management Template",
           "methodology": "universal",
           "tags": [
@@ -335,7 +335,7 @@
           "similarity": 93
         },
         {
-          "path": "project-lifecycle/02-planning/resource-planning/resource-management-plan-template.md",
+          "path": "domains/measurement/project-lifecycle/02-planning/resource-planning/resource-management-plan-template.md",
           "title": "Resource Management Plan Template",
           "methodology": "universal",
           "tags": [
@@ -393,7 +393,7 @@
           "similarity": 100
         },
         {
-          "path": "methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md",
+          "path": "domains/measurement/methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md",
           "title": "Cicd Pipeline Planning Template",
           "methodology": "universal",
           "tags": [
@@ -407,7 +407,7 @@
           "similarity": 93
         },
         {
-          "path": "methodology-frameworks/emerging-methods/devops/release_management_template.md",
+          "path": "domains/measurement/methodology-frameworks/emerging-methods/devops/release_management_template.md",
           "title": "Release Management Template",
           "methodology": "universal",
           "tags": [
@@ -421,7 +421,7 @@
           "similarity": 93
         },
         {
-          "path": "project-lifecycle/02-planning/resource-planning/resource-management-plan-template.md",
+          "path": "domains/measurement/project-lifecycle/02-planning/resource-planning/resource-management-plan-template.md",
           "title": "Resource Management Plan Template",
           "methodology": "universal",
           "tags": [
@@ -497,7 +497,7 @@
           "similarity": 83
         },
         {
-          "path": "methodology-frameworks/emerging-methods/devops/monitoring_alerting_template.md",
+          "path": "domains/measurement/methodology-frameworks/emerging-methods/devops/monitoring_alerting_template.md",
           "title": "Monitoring Alerting Template",
           "methodology": "universal",
           "tags": [
@@ -873,7 +873,7 @@
           "similarity": 83
         },
         {
-          "path": "project-assessment-suite/risk-management-assessment-template.md",
+          "path": "domains/measurement/project-assessment-suite/risk-management-assessment-template.md",
           "title": "Risk Management Assessment Template",
           "methodology": "universal",
           "tags": [
@@ -1228,7 +1228,7 @@
           "similarity": 88
         },
         {
-          "path": "industry-specializations/information-technology/software-development/test_plan_template.md",
+          "path": "domains/measurement/industry-specializations/information-technology/software-development/test_plan_template.md",
           "title": "Test Plan Template",
           "methodology": "universal",
           "tags": [
@@ -1309,7 +1309,7 @@
       ],
       "relatedTemplates": [
         {
-          "path": "project-assessment-suite/current-state-analysis-template.md",
+          "path": "domains/measurement/project-assessment-suite/current-state-analysis-template.md",
           "title": "Current State Analysis Template",
           "methodology": "universal",
           "tags": [
@@ -1324,7 +1324,7 @@
           "similarity": 93
         },
         {
-          "path": "industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md",
+          "path": "domains/measurement/industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md",
           "title": "Digital Transformation Strategy Template",
           "methodology": "universal",
           "tags": [
@@ -1354,7 +1354,7 @@
           "similarity": 93
         },
         {
-          "path": "project-assessment-suite/executive-summary-template.md",
+          "path": "domains/measurement/project-assessment-suite/executive-summary-template.md",
           "title": "Executive Summary Template",
           "methodology": "universal",
           "tags": [
@@ -1369,7 +1369,7 @@
           "similarity": 93
         },
         {
-          "path": "project-assessment-suite/future-state-blueprint-template.md",
+          "path": "domains/measurement/project-assessment-suite/future-state-blueprint-template.md",
           "title": "Future State Blueprint Template",
           "methodology": "universal",
           "tags": [
@@ -1486,7 +1486,7 @@
       ]
     },
     {
-      "path": "project-lifecycle/02-planning/business-requirements/business_requirements_document_template.md",
+      "path": "domains/measurement/project-lifecycle/02-planning/business-requirements/business_requirements_document_template.md",
       "title": "Business Requirements Document Template",
       "methodology": "universal",
       "complexity": "advanced",
@@ -1507,7 +1507,7 @@
       ],
       "relatedTemplates": [
         {
-          "path": "industry-specializations/information-technology/security/cybersecurity_assessment_template.md",
+          "path": "domains/measurement/industry-specializations/information-technology/security/cybersecurity_assessment_template.md",
           "title": "Cybersecurity Assessment Template",
           "methodology": "universal",
           "tags": [
@@ -1533,7 +1533,7 @@
           "similarity": 90
         },
         {
-          "path": "industry-specializations/information-technology/infrastructure/infrastructure_assessment_template.md",
+          "path": "domains/measurement/industry-specializations/information-technology/infrastructure/infrastructure_assessment_template.md",
           "title": "Infrastructure Assessment Template",
           "methodology": "universal",
           "tags": [
@@ -1571,6 +1571,9 @@
           ],
           "similarity": 83
         }
+      ],
+      "alternate_paths": [
+        "project-lifecycle/02-planning/business-requirements/business_requirements_document_template.md"
       ]
     },
     {
@@ -1889,7 +1892,7 @@
       ]
     },
     {
-      "path": "methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md",
+      "path": "domains/measurement/methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md",
       "title": "Cicd Pipeline Planning Template",
       "methodology": "universal",
       "complexity": "advanced",
@@ -1912,7 +1915,7 @@
       ],
       "relatedTemplates": [
         {
-          "path": "methodology-frameworks/emerging-methods/devops/release_management_template.md",
+          "path": "domains/measurement/methodology-frameworks/emerging-methods/devops/release_management_template.md",
           "title": "Release Management Template",
           "methodology": "universal",
           "tags": [
@@ -1926,7 +1929,7 @@
           "similarity": 100
         },
         {
-          "path": "project-lifecycle/02-planning/resource-planning/resource-management-plan-template.md",
+          "path": "domains/measurement/project-lifecycle/02-planning/resource-planning/resource-management-plan-template.md",
           "title": "Resource Management Plan Template",
           "methodology": "universal",
           "tags": [
@@ -1940,7 +1943,7 @@
           "similarity": 100
         },
         {
-          "path": "project-lifecycle/02-planning/risk-management/risk-management-plan-template.md",
+          "path": "domains/measurement/project-lifecycle/02-planning/risk-management/risk-management-plan-template.md",
           "title": "Risk Management Plan Template",
           "methodology": "universal",
           "tags": [
@@ -1967,6 +1970,9 @@
           ],
           "similarity": 100
         }
+      ],
+      "alternate_paths": [
+        "methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md"
       ]
     },
     {
@@ -2254,7 +2260,7 @@
       ]
     },
     {
-      "path": "industry-specializations/financial-services/compliance/compliance-management-template.md",
+      "path": "domains/measurement/industry-specializations/financial-services/compliance/compliance-management-template.md",
       "title": "Compliance Management Template",
       "methodology": "universal",
       "complexity": "advanced",
@@ -2294,7 +2300,7 @@
           "similarity": 94
         },
         {
-          "path": "methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md",
+          "path": "domains/measurement/methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md",
           "title": "Cicd Pipeline Planning Template",
           "methodology": "universal",
           "tags": [
@@ -2308,7 +2314,7 @@
           "similarity": 93
         },
         {
-          "path": "methodology-frameworks/emerging-methods/devops/release_management_template.md",
+          "path": "domains/measurement/methodology-frameworks/emerging-methods/devops/release_management_template.md",
           "title": "Release Management Template",
           "methodology": "universal",
           "tags": [
@@ -2322,7 +2328,7 @@
           "similarity": 93
         },
         {
-          "path": "project-lifecycle/02-planning/resource-planning/resource-management-plan-template.md",
+          "path": "domains/measurement/project-lifecycle/02-planning/resource-planning/resource-management-plan-template.md",
           "title": "Resource Management Plan Template",
           "methodology": "universal",
           "tags": [
@@ -2335,6 +2341,9 @@
           ],
           "similarity": 93
         }
+      ],
+      "alternate_paths": [
+        "industry-specializations/financial-services/compliance/compliance-management-template.md"
       ]
     },
     {
@@ -2630,7 +2639,7 @@
       ]
     },
     {
-      "path": "project-assessment-suite/current-state-analysis-template.md",
+      "path": "domains/measurement/project-assessment-suite/current-state-analysis-template.md",
       "title": "Current State Analysis Template",
       "methodology": "universal",
       "complexity": "advanced",
@@ -2654,7 +2663,7 @@
       ],
       "relatedTemplates": [
         {
-          "path": "industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md",
+          "path": "domains/measurement/industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md",
           "title": "Digital Transformation Strategy Template",
           "methodology": "universal",
           "tags": [
@@ -2684,7 +2693,7 @@
           "similarity": 100
         },
         {
-          "path": "project-assessment-suite/executive-summary-template.md",
+          "path": "domains/measurement/project-assessment-suite/executive-summary-template.md",
           "title": "Executive Summary Template",
           "methodology": "universal",
           "tags": [
@@ -2699,7 +2708,7 @@
           "similarity": 100
         },
         {
-          "path": "project-assessment-suite/future-state-blueprint-template.md",
+          "path": "domains/measurement/project-assessment-suite/future-state-blueprint-template.md",
           "title": "Future State Blueprint Template",
           "methodology": "universal",
           "tags": [
@@ -2714,7 +2723,7 @@
           "similarity": 100
         },
         {
-          "path": "project-assessment-suite/gap-analysis-matrix-template.md",
+          "path": "domains/measurement/project-assessment-suite/gap-analysis-matrix-template.md",
           "title": "Gap Analysis Matrix Template",
           "methodology": "universal",
           "tags": [
@@ -2728,10 +2737,13 @@
           ],
           "similarity": 100
         }
+      ],
+      "alternate_paths": [
+        "project-assessment-suite/current-state-analysis-template.md"
       ]
     },
     {
-      "path": "industry-specializations/information-technology/security/cybersecurity_assessment_template.md",
+      "path": "domains/measurement/industry-specializations/information-technology/security/cybersecurity_assessment_template.md",
       "title": "Cybersecurity Assessment Template",
       "methodology": "universal",
       "complexity": "advanced",
@@ -2780,7 +2792,7 @@
           "similarity": 92
         },
         {
-          "path": "project-lifecycle/02-planning/business-requirements/business_requirements_document_template.md",
+          "path": "domains/measurement/project-lifecycle/02-planning/business-requirements/business_requirements_document_template.md",
           "title": "Business Requirements Document Template",
           "methodology": "universal",
           "tags": [
@@ -2804,7 +2816,7 @@
           "similarity": 90
         },
         {
-          "path": "industry-specializations/information-technology/cybersecurity/incident_response_template.md",
+          "path": "domains/measurement/industry-specializations/information-technology/cybersecurity/incident_response_template.md",
           "title": "Incident Response Template",
           "methodology": "universal",
           "tags": [
@@ -2815,6 +2827,9 @@
           ],
           "similarity": 90
         }
+      ],
+      "alternate_paths": [
+        "industry-specializations/information-technology/security/cybersecurity_assessment_template.md"
       ]
     },
     {
@@ -2954,7 +2969,7 @@
           "similarity": 75
         },
         {
-          "path": "project-assessment-suite/resource-management-assessment-template.md",
+          "path": "domains/measurement/project-assessment-suite/resource-management-assessment-template.md",
           "title": "Resource Management Assessment Template",
           "methodology": "universal",
           "tags": [
@@ -2994,7 +3009,7 @@
       ]
     },
     {
-      "path": "methodology-frameworks/emerging-methods/devops/devsecops_template.md",
+      "path": "domains/measurement/methodology-frameworks/emerging-methods/devops/devsecops_template.md",
       "title": "Devsecops Template",
       "methodology": "universal",
       "complexity": "advanced",
@@ -3016,7 +3031,7 @@
       ],
       "relatedTemplates": [
         {
-          "path": "methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md",
+          "path": "domains/measurement/methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md",
           "title": "Cicd Pipeline Planning Template",
           "methodology": "universal",
           "tags": [
@@ -3058,7 +3073,7 @@
           "similarity": 92
         },
         {
-          "path": "methodology-frameworks/emerging-methods/devops/release_management_template.md",
+          "path": "domains/measurement/methodology-frameworks/emerging-methods/devops/release_management_template.md",
           "title": "Release Management Template",
           "methodology": "universal",
           "tags": [
@@ -3071,10 +3086,13 @@
           ],
           "similarity": 92
         }
+      ],
+      "alternate_paths": [
+        "methodology-frameworks/emerging-methods/devops/devsecops_template.md"
       ]
     },
     {
-      "path": "industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md",
+      "path": "domains/measurement/industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md",
       "title": "Digital Transformation Strategy Template",
       "methodology": "universal",
       "complexity": "advanced",
@@ -3098,7 +3116,7 @@
       ],
       "relatedTemplates": [
         {
-          "path": "project-assessment-suite/current-state-analysis-template.md",
+          "path": "domains/measurement/project-assessment-suite/current-state-analysis-template.md",
           "title": "Current State Analysis Template",
           "methodology": "universal",
           "tags": [
@@ -3128,7 +3146,7 @@
           "similarity": 100
         },
         {
-          "path": "project-assessment-suite/executive-summary-template.md",
+          "path": "domains/measurement/project-assessment-suite/executive-summary-template.md",
           "title": "Executive Summary Template",
           "methodology": "universal",
           "tags": [
@@ -3143,7 +3161,7 @@
           "similarity": 100
         },
         {
-          "path": "project-assessment-suite/future-state-blueprint-template.md",
+          "path": "domains/measurement/project-assessment-suite/future-state-blueprint-template.md",
           "title": "Future State Blueprint Template",
           "methodology": "universal",
           "tags": [
@@ -3158,7 +3176,7 @@
           "similarity": 100
         },
         {
-          "path": "project-assessment-suite/gap-analysis-matrix-template.md",
+          "path": "domains/measurement/project-assessment-suite/gap-analysis-matrix-template.md",
           "title": "Gap Analysis Matrix Template",
           "methodology": "universal",
           "tags": [
@@ -3172,6 +3190,9 @@
           ],
           "similarity": 100
         }
+      ],
+      "alternate_paths": [
+        "industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md"
       ]
     },
     {
@@ -3216,7 +3237,7 @@
           "similarity": 75
         },
         {
-          "path": "project-assessment-suite/resource-management-assessment-template.md",
+          "path": "domains/measurement/project-assessment-suite/resource-management-assessment-template.md",
           "title": "Resource Management Assessment Template",
           "methodology": "universal",
           "tags": [
@@ -3300,7 +3321,7 @@
           "similarity": 88
         },
         {
-          "path": "project-lifecycle/02-planning/business-requirements/business_requirements_document_template.md",
+          "path": "domains/measurement/project-lifecycle/02-planning/business-requirements/business_requirements_document_template.md",
           "title": "Business Requirements Document Template",
           "methodology": "universal",
           "tags": [
@@ -3368,7 +3389,7 @@
       ],
       "relatedTemplates": [
         {
-          "path": "project-assessment-suite/current-state-analysis-template.md",
+          "path": "domains/measurement/project-assessment-suite/current-state-analysis-template.md",
           "title": "Current State Analysis Template",
           "methodology": "universal",
           "tags": [
@@ -3383,7 +3404,7 @@
           "similarity": 100
         },
         {
-          "path": "industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md",
+          "path": "domains/measurement/industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md",
           "title": "Digital Transformation Strategy Template",
           "methodology": "universal",
           "tags": [
@@ -3398,7 +3419,7 @@
           "similarity": 100
         },
         {
-          "path": "project-assessment-suite/executive-summary-template.md",
+          "path": "domains/measurement/project-assessment-suite/executive-summary-template.md",
           "title": "Executive Summary Template",
           "methodology": "universal",
           "tags": [
@@ -3413,7 +3434,7 @@
           "similarity": 100
         },
         {
-          "path": "project-assessment-suite/future-state-blueprint-template.md",
+          "path": "domains/measurement/project-assessment-suite/future-state-blueprint-template.md",
           "title": "Future State Blueprint Template",
           "methodology": "universal",
           "tags": [
@@ -3428,7 +3449,7 @@
           "similarity": 100
         },
         {
-          "path": "project-assessment-suite/gap-analysis-matrix-template.md",
+          "path": "domains/measurement/project-assessment-suite/gap-analysis-matrix-template.md",
           "title": "Gap Analysis Matrix Template",
           "methodology": "universal",
           "tags": [
@@ -3560,7 +3581,7 @@
       ],
       "relatedTemplates": [
         {
-          "path": "industry-specializations/financial-services/compliance/compliance-management-template.md",
+          "path": "domains/measurement/industry-specializations/financial-services/compliance/compliance-management-template.md",
           "title": "Compliance Management Template",
           "methodology": "universal",
           "tags": [
@@ -3575,7 +3596,7 @@
           "similarity": 94
         },
         {
-          "path": "project-assessment-suite/current-state-analysis-template.md",
+          "path": "domains/measurement/project-assessment-suite/current-state-analysis-template.md",
           "title": "Current State Analysis Template",
           "methodology": "universal",
           "tags": [
@@ -3590,7 +3611,7 @@
           "similarity": 94
         },
         {
-          "path": "industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md",
+          "path": "domains/measurement/industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md",
           "title": "Digital Transformation Strategy Template",
           "methodology": "universal",
           "tags": [
@@ -3620,7 +3641,7 @@
           "similarity": 94
         },
         {
-          "path": "project-assessment-suite/executive-summary-template.md",
+          "path": "domains/measurement/project-assessment-suite/executive-summary-template.md",
           "title": "Executive Summary Template",
           "methodology": "universal",
           "tags": [
@@ -3661,7 +3682,7 @@
       ],
       "relatedTemplates": [
         {
-          "path": "industry-specializations/information-technology/security/cybersecurity_assessment_template.md",
+          "path": "domains/measurement/industry-specializations/information-technology/security/cybersecurity_assessment_template.md",
           "title": "Cybersecurity Assessment Template",
           "methodology": "universal",
           "tags": [
@@ -3687,7 +3708,7 @@
           "similarity": 90
         },
         {
-          "path": "industry-specializations/information-technology/cybersecurity/risk_assessment_template.md",
+          "path": "domains/measurement/industry-specializations/information-technology/cybersecurity/risk_assessment_template.md",
           "title": "Risk Assessment Template",
           "methodology": "universal",
           "tags": [
@@ -3700,7 +3721,7 @@
           "similarity": 90
         },
         {
-          "path": "industry-specializations/information-technology/infrastructure/infrastructure_assessment_template.md",
+          "path": "domains/measurement/industry-specializations/information-technology/infrastructure/infrastructure_assessment_template.md",
           "title": "Infrastructure Assessment Template",
           "methodology": "universal",
           "tags": [
@@ -3752,7 +3773,7 @@
       ],
       "relatedTemplates": [
         {
-          "path": "industry-specializations/information-technology/security/cybersecurity_assessment_template.md",
+          "path": "domains/measurement/industry-specializations/information-technology/security/cybersecurity_assessment_template.md",
           "title": "Cybersecurity Assessment Template",
           "methodology": "universal",
           "tags": [
@@ -3779,7 +3800,7 @@
           "similarity": 92
         },
         {
-          "path": "project-lifecycle/02-planning/business-requirements/business_requirements_document_template.md",
+          "path": "domains/measurement/project-lifecycle/02-planning/business-requirements/business_requirements_document_template.md",
           "title": "Business Requirements Document Template",
           "methodology": "universal",
           "tags": [
@@ -3803,7 +3824,7 @@
           "similarity": 90
         },
         {
-          "path": "industry-specializations/information-technology/cybersecurity/incident_response_template.md",
+          "path": "domains/measurement/industry-specializations/information-technology/cybersecurity/incident_response_template.md",
           "title": "Incident Response Template",
           "methodology": "universal",
           "tags": [
@@ -3817,7 +3838,7 @@
       ]
     },
     {
-      "path": "project-assessment-suite/executive-summary-template.md",
+      "path": "domains/measurement/project-assessment-suite/executive-summary-template.md",
       "title": "Executive Summary Template",
       "methodology": "universal",
       "complexity": "advanced",
@@ -3841,7 +3862,7 @@
       ],
       "relatedTemplates": [
         {
-          "path": "project-assessment-suite/current-state-analysis-template.md",
+          "path": "domains/measurement/project-assessment-suite/current-state-analysis-template.md",
           "title": "Current State Analysis Template",
           "methodology": "universal",
           "tags": [
@@ -3856,7 +3877,7 @@
           "similarity": 100
         },
         {
-          "path": "industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md",
+          "path": "domains/measurement/industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md",
           "title": "Digital Transformation Strategy Template",
           "methodology": "universal",
           "tags": [
@@ -3886,7 +3907,7 @@
           "similarity": 100
         },
         {
-          "path": "project-assessment-suite/future-state-blueprint-template.md",
+          "path": "domains/measurement/project-assessment-suite/future-state-blueprint-template.md",
           "title": "Future State Blueprint Template",
           "methodology": "universal",
           "tags": [
@@ -3901,7 +3922,7 @@
           "similarity": 100
         },
         {
-          "path": "project-assessment-suite/gap-analysis-matrix-template.md",
+          "path": "domains/measurement/project-assessment-suite/gap-analysis-matrix-template.md",
           "title": "Gap Analysis Matrix Template",
           "methodology": "universal",
           "tags": [
@@ -3915,10 +3936,13 @@
           ],
           "similarity": 100
         }
+      ],
+      "alternate_paths": [
+        "project-assessment-suite/executive-summary-template.md"
       ]
     },
     {
-      "path": "project-assessment-suite/future-state-blueprint-template.md",
+      "path": "domains/measurement/project-assessment-suite/future-state-blueprint-template.md",
       "title": "Future State Blueprint Template",
       "methodology": "universal",
       "complexity": "advanced",
@@ -3942,7 +3966,7 @@
       ],
       "relatedTemplates": [
         {
-          "path": "project-assessment-suite/current-state-analysis-template.md",
+          "path": "domains/measurement/project-assessment-suite/current-state-analysis-template.md",
           "title": "Current State Analysis Template",
           "methodology": "universal",
           "tags": [
@@ -3957,7 +3981,7 @@
           "similarity": 100
         },
         {
-          "path": "industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md",
+          "path": "domains/measurement/industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md",
           "title": "Digital Transformation Strategy Template",
           "methodology": "universal",
           "tags": [
@@ -3987,7 +4011,7 @@
           "similarity": 100
         },
         {
-          "path": "project-assessment-suite/executive-summary-template.md",
+          "path": "domains/measurement/project-assessment-suite/executive-summary-template.md",
           "title": "Executive Summary Template",
           "methodology": "universal",
           "tags": [
@@ -4002,7 +4026,7 @@
           "similarity": 100
         },
         {
-          "path": "project-assessment-suite/gap-analysis-matrix-template.md",
+          "path": "domains/measurement/project-assessment-suite/gap-analysis-matrix-template.md",
           "title": "Gap Analysis Matrix Template",
           "methodology": "universal",
           "tags": [
@@ -4016,10 +4040,13 @@
           ],
           "similarity": 100
         }
+      ],
+      "alternate_paths": [
+        "project-assessment-suite/future-state-blueprint-template.md"
       ]
     },
     {
-      "path": "project-assessment-suite/gap-analysis-matrix-template.md",
+      "path": "domains/measurement/project-assessment-suite/gap-analysis-matrix-template.md",
       "title": "Gap Analysis Matrix Template",
       "methodology": "universal",
       "complexity": "advanced",
@@ -4043,7 +4070,7 @@
       ],
       "relatedTemplates": [
         {
-          "path": "project-assessment-suite/current-state-analysis-template.md",
+          "path": "domains/measurement/project-assessment-suite/current-state-analysis-template.md",
           "title": "Current State Analysis Template",
           "methodology": "universal",
           "tags": [
@@ -4058,7 +4085,7 @@
           "similarity": 100
         },
         {
-          "path": "industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md",
+          "path": "domains/measurement/industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md",
           "title": "Digital Transformation Strategy Template",
           "methodology": "universal",
           "tags": [
@@ -4088,7 +4115,7 @@
           "similarity": 100
         },
         {
-          "path": "project-assessment-suite/executive-summary-template.md",
+          "path": "domains/measurement/project-assessment-suite/executive-summary-template.md",
           "title": "Executive Summary Template",
           "methodology": "universal",
           "tags": [
@@ -4103,7 +4130,7 @@
           "similarity": 100
         },
         {
-          "path": "project-assessment-suite/future-state-blueprint-template.md",
+          "path": "domains/measurement/project-assessment-suite/future-state-blueprint-template.md",
           "title": "Future State Blueprint Template",
           "methodology": "universal",
           "tags": [
@@ -4117,10 +4144,13 @@
           ],
           "similarity": 100
         }
+      ],
+      "alternate_paths": [
+        "project-assessment-suite/gap-analysis-matrix-template.md"
       ]
     },
     {
-      "path": "project-assessment-suite/governance-assessment-template.md",
+      "path": "domains/measurement/project-assessment-suite/governance-assessment-template.md",
       "title": "Governance Assessment Template",
       "methodology": "universal",
       "complexity": "starter",
@@ -4141,7 +4171,7 @@
       ],
       "relatedTemplates": [
         {
-          "path": "project-assessment-suite/process-maturity-assessment-template.md",
+          "path": "domains/measurement/project-assessment-suite/process-maturity-assessment-template.md",
           "title": "Process Maturity Assessment Template",
           "methodology": "universal",
           "tags": [
@@ -4183,7 +4213,7 @@
           "similarity": 73
         },
         {
-          "path": "methodology-frameworks/emerging-methods/devops/monitoring_alerting_template.md",
+          "path": "domains/measurement/methodology-frameworks/emerging-methods/devops/monitoring_alerting_template.md",
           "title": "Monitoring Alerting Template",
           "methodology": "universal",
           "tags": [
@@ -4197,7 +4227,7 @@
           "similarity": 73
         },
         {
-          "path": "industry-specializations/information-technology/software-development/test_plan_template.md",
+          "path": "domains/measurement/industry-specializations/information-technology/software-development/test_plan_template.md",
           "title": "Test Plan Template",
           "methodology": "universal",
           "tags": [
@@ -4210,6 +4240,9 @@
           ],
           "similarity": 73
         }
+      ],
+      "alternate_paths": [
+        "project-assessment-suite/governance-assessment-template.md"
       ]
     },
     {
@@ -4281,7 +4314,7 @@
           "similarity": 93
         },
         {
-          "path": "methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md",
+          "path": "domains/measurement/methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md",
           "title": "Cicd Pipeline Planning Template",
           "methodology": "universal",
           "tags": [
@@ -4314,7 +4347,7 @@
       ]
     },
     {
-      "path": "role-based-toolkits/project-manager/essential-templates/handover-template.md",
+      "path": "domains/measurement/role-based-toolkits/project-manager/essential-templates/handover-template.md",
       "title": "Handover Template",
       "methodology": "universal",
       "complexity": "advanced",
@@ -4338,7 +4371,7 @@
       ],
       "relatedTemplates": [
         {
-          "path": "project-assessment-suite/current-state-analysis-template.md",
+          "path": "domains/measurement/project-assessment-suite/current-state-analysis-template.md",
           "title": "Current State Analysis Template",
           "methodology": "universal",
           "tags": [
@@ -4353,7 +4386,7 @@
           "similarity": 100
         },
         {
-          "path": "industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md",
+          "path": "domains/measurement/industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md",
           "title": "Digital Transformation Strategy Template",
           "methodology": "universal",
           "tags": [
@@ -4383,7 +4416,7 @@
           "similarity": 100
         },
         {
-          "path": "project-assessment-suite/executive-summary-template.md",
+          "path": "domains/measurement/project-assessment-suite/executive-summary-template.md",
           "title": "Executive Summary Template",
           "methodology": "universal",
           "tags": [
@@ -4398,7 +4431,7 @@
           "similarity": 100
         },
         {
-          "path": "project-assessment-suite/future-state-blueprint-template.md",
+          "path": "domains/measurement/project-assessment-suite/future-state-blueprint-template.md",
           "title": "Future State Blueprint Template",
           "methodology": "universal",
           "tags": [
@@ -4412,6 +4445,9 @@
           ],
           "similarity": 100
         }
+      ],
+      "alternate_paths": [
+        "role-based-toolkits/project-manager/essential-templates/handover-template.md"
       ]
     },
     {
@@ -4479,7 +4515,7 @@
           "similarity": 93
         },
         {
-          "path": "industry-specializations/information-technology/software-development/technical_design_document_template.md",
+          "path": "domains/measurement/industry-specializations/information-technology/software-development/technical_design_document_template.md",
           "title": "Technical Design Document Template",
           "methodology": "universal",
           "tags": [
@@ -4864,7 +4900,7 @@
           "similarity": 80
         },
         {
-          "path": "project-assessment-suite/risk-management-assessment-template.md",
+          "path": "domains/measurement/project-assessment-suite/risk-management-assessment-template.md",
           "title": "Risk Management Assessment Template",
           "methodology": "universal",
           "tags": [
@@ -4878,7 +4914,7 @@
           "similarity": 71
         },
         {
-          "path": "project-lifecycle/02-planning/business-requirements/business_requirements_document_template.md",
+          "path": "domains/measurement/project-lifecycle/02-planning/business-requirements/business_requirements_document_template.md",
           "title": "Business Requirements Document Template",
           "methodology": "universal",
           "tags": [
@@ -5196,7 +5232,7 @@
       ]
     },
     {
-      "path": "industry-specializations/information-technology/cybersecurity/incident_response_template.md",
+      "path": "domains/measurement/industry-specializations/information-technology/cybersecurity/incident_response_template.md",
       "title": "Incident Response Template",
       "methodology": "universal",
       "complexity": "advanced",
@@ -5229,7 +5265,7 @@
           "similarity": 100
         },
         {
-          "path": "industry-specializations/information-technology/security/cybersecurity_assessment_template.md",
+          "path": "domains/measurement/industry-specializations/information-technology/security/cybersecurity_assessment_template.md",
           "title": "Cybersecurity Assessment Template",
           "methodology": "universal",
           "tags": [
@@ -5269,7 +5305,7 @@
           "similarity": 83
         },
         {
-          "path": "methodology-frameworks/emerging-methods/devops/monitoring_alerting_template.md",
+          "path": "domains/measurement/methodology-frameworks/emerging-methods/devops/monitoring_alerting_template.md",
           "title": "Monitoring Alerting Template",
           "methodology": "universal",
           "tags": [
@@ -5282,10 +5318,13 @@
           ],
           "similarity": 83
         }
+      ],
+      "alternate_paths": [
+        "industry-specializations/information-technology/cybersecurity/incident_response_template.md"
       ]
     },
     {
-      "path": "methodology-frameworks/emerging-methods/devops/infrastructure_as_code_template.md",
+      "path": "domains/measurement/methodology-frameworks/emerging-methods/devops/infrastructure_as_code_template.md",
       "title": "Infrastructure As Code Template",
       "methodology": "universal",
       "complexity": "advanced",
@@ -5305,7 +5344,7 @@
       ],
       "relatedTemplates": [
         {
-          "path": "methodology-frameworks/emerging-methods/devops/devsecops_template.md",
+          "path": "domains/measurement/methodology-frameworks/emerging-methods/devops/devsecops_template.md",
           "title": "Devsecops Template",
           "methodology": "universal",
           "tags": [
@@ -5332,7 +5371,7 @@
           "similarity": 75
         },
         {
-          "path": "methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md",
+          "path": "domains/measurement/methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md",
           "title": "Cicd Pipeline Planning Template",
           "methodology": "universal",
           "tags": [
@@ -5359,10 +5398,13 @@
           ],
           "similarity": 75
         }
+      ],
+      "alternate_paths": [
+        "methodology-frameworks/emerging-methods/devops/infrastructure_as_code_template.md"
       ]
     },
     {
-      "path": "industry-specializations/information-technology/infrastructure/infrastructure_assessment_template.md",
+      "path": "domains/measurement/industry-specializations/information-technology/infrastructure/infrastructure_assessment_template.md",
       "title": "Infrastructure Assessment Template",
       "methodology": "universal",
       "complexity": "advanced",
@@ -5382,7 +5424,7 @@
       ],
       "relatedTemplates": [
         {
-          "path": "project-lifecycle/02-planning/business-requirements/business_requirements_document_template.md",
+          "path": "domains/measurement/project-lifecycle/02-planning/business-requirements/business_requirements_document_template.md",
           "title": "Business Requirements Document Template",
           "methodology": "universal",
           "tags": [
@@ -5419,7 +5461,7 @@
           "similarity": 80
         },
         {
-          "path": "industry-specializations/information-technology/security/cybersecurity_assessment_template.md",
+          "path": "domains/measurement/industry-specializations/information-technology/security/cybersecurity_assessment_template.md",
           "title": "Cybersecurity Assessment Template",
           "methodology": "universal",
           "tags": [
@@ -5444,6 +5486,9 @@
           ],
           "similarity": 80
         }
+      ],
+      "alternate_paths": [
+        "industry-specializations/information-technology/infrastructure/infrastructure_assessment_template.md"
       ]
     },
     {
@@ -6066,7 +6111,7 @@
       ],
       "relatedTemplates": [
         {
-          "path": "project-assessment-suite/current-state-analysis-template.md",
+          "path": "domains/measurement/project-assessment-suite/current-state-analysis-template.md",
           "title": "Current State Analysis Template",
           "methodology": "universal",
           "tags": [
@@ -6081,7 +6126,7 @@
           "similarity": 93
         },
         {
-          "path": "industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md",
+          "path": "domains/measurement/industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md",
           "title": "Digital Transformation Strategy Template",
           "methodology": "universal",
           "tags": [
@@ -6111,7 +6156,7 @@
           "similarity": 93
         },
         {
-          "path": "project-assessment-suite/executive-summary-template.md",
+          "path": "domains/measurement/project-assessment-suite/executive-summary-template.md",
           "title": "Executive Summary Template",
           "methodology": "universal",
           "tags": [
@@ -6126,7 +6171,7 @@
           "similarity": 93
         },
         {
-          "path": "project-assessment-suite/future-state-blueprint-template.md",
+          "path": "domains/measurement/project-assessment-suite/future-state-blueprint-template.md",
           "title": "Future State Blueprint Template",
           "methodology": "universal",
           "tags": [
@@ -6310,7 +6355,7 @@
           "similarity": 73
         },
         {
-          "path": "project-assessment-suite/risk-management-assessment-template.md",
+          "path": "domains/measurement/project-assessment-suite/risk-management-assessment-template.md",
           "title": "Risk Management Assessment Template",
           "methodology": "universal",
           "tags": [
@@ -6329,7 +6374,7 @@
       ]
     },
     {
-      "path": "methodology-frameworks/emerging-methods/devops/monitoring_alerting_template.md",
+      "path": "domains/measurement/methodology-frameworks/emerging-methods/devops/monitoring_alerting_template.md",
       "title": "Monitoring Alerting Template",
       "methodology": "universal",
       "complexity": "advanced",
@@ -6352,7 +6397,7 @@
       ],
       "relatedTemplates": [
         {
-          "path": "project-assessment-suite/current-state-analysis-template.md",
+          "path": "domains/measurement/project-assessment-suite/current-state-analysis-template.md",
           "title": "Current State Analysis Template",
           "methodology": "universal",
           "tags": [
@@ -6367,7 +6412,7 @@
           "similarity": 93
         },
         {
-          "path": "industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md",
+          "path": "domains/measurement/industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md",
           "title": "Digital Transformation Strategy Template",
           "methodology": "universal",
           "tags": [
@@ -6397,7 +6442,7 @@
           "similarity": 93
         },
         {
-          "path": "project-assessment-suite/executive-summary-template.md",
+          "path": "domains/measurement/project-assessment-suite/executive-summary-template.md",
           "title": "Executive Summary Template",
           "methodology": "universal",
           "tags": [
@@ -6412,7 +6457,7 @@
           "similarity": 93
         },
         {
-          "path": "project-assessment-suite/future-state-blueprint-template.md",
+          "path": "domains/measurement/project-assessment-suite/future-state-blueprint-template.md",
           "title": "Future State Blueprint Template",
           "methodology": "universal",
           "tags": [
@@ -6426,6 +6471,9 @@
           ],
           "similarity": 93
         }
+      ],
+      "alternate_paths": [
+        "methodology-frameworks/emerging-methods/devops/monitoring_alerting_template.md"
       ]
     },
     {
@@ -6468,7 +6516,7 @@
           "similarity": 92
         },
         {
-          "path": "methodology-frameworks/emerging-methods/devops/monitoring_alerting_template.md",
+          "path": "domains/measurement/methodology-frameworks/emerging-methods/devops/monitoring_alerting_template.md",
           "title": "Monitoring Alerting Template",
           "methodology": "universal",
           "tags": [
@@ -6495,7 +6543,7 @@
           "similarity": 90
         },
         {
-          "path": "project-assessment-suite/current-state-analysis-template.md",
+          "path": "domains/measurement/project-assessment-suite/current-state-analysis-template.md",
           "title": "Current State Analysis Template",
           "methodology": "universal",
           "tags": [
@@ -6510,7 +6558,7 @@
           "similarity": 86
         },
         {
-          "path": "industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md",
+          "path": "domains/measurement/industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md",
           "title": "Digital Transformation Strategy Template",
           "methodology": "universal",
           "tags": [
@@ -7270,7 +7318,7 @@
       ]
     },
     {
-      "path": "project-assessment-suite/process-maturity-assessment-template.md",
+      "path": "domains/measurement/project-assessment-suite/process-maturity-assessment-template.md",
       "title": "Process Maturity Assessment Template",
       "methodology": "universal",
       "complexity": "starter",
@@ -7294,7 +7342,7 @@
       ],
       "relatedTemplates": [
         {
-          "path": "project-assessment-suite/risk-management-assessment-template.md",
+          "path": "domains/measurement/project-assessment-suite/risk-management-assessment-template.md",
           "title": "Risk Management Assessment Template",
           "methodology": "universal",
           "tags": [
@@ -7308,7 +7356,7 @@
           "similarity": 93
         },
         {
-          "path": "project-assessment-suite/current-state-analysis-template.md",
+          "path": "domains/measurement/project-assessment-suite/current-state-analysis-template.md",
           "title": "Current State Analysis Template",
           "methodology": "universal",
           "tags": [
@@ -7323,7 +7371,7 @@
           "similarity": 90
         },
         {
-          "path": "industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md",
+          "path": "domains/measurement/industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md",
           "title": "Digital Transformation Strategy Template",
           "methodology": "universal",
           "tags": [
@@ -7353,7 +7401,7 @@
           "similarity": 90
         },
         {
-          "path": "project-assessment-suite/executive-summary-template.md",
+          "path": "domains/measurement/project-assessment-suite/executive-summary-template.md",
           "title": "Executive Summary Template",
           "methodology": "universal",
           "tags": [
@@ -7367,6 +7415,9 @@
           ],
           "similarity": 90
         }
+      ],
+      "alternate_paths": [
+        "project-assessment-suite/process-maturity-assessment-template.md"
       ]
     },
     {
@@ -7438,7 +7489,7 @@
           "similarity": 93
         },
         {
-          "path": "methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md",
+          "path": "domains/measurement/methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md",
           "title": "Cicd Pipeline Planning Template",
           "methodology": "universal",
           "tags": [
@@ -7706,7 +7757,7 @@
           "similarity": 90
         },
         {
-          "path": "industry-specializations/information-technology/security/cybersecurity_assessment_template.md",
+          "path": "domains/measurement/industry-specializations/information-technology/security/cybersecurity_assessment_template.md",
           "title": "Cybersecurity Assessment Template",
           "methodology": "universal",
           "tags": [
@@ -8491,7 +8542,7 @@
       ]
     },
     {
-      "path": "project-assessment-suite/project-health-assessment-template.md",
+      "path": "domains/measurement/project-assessment-suite/project-health-assessment-template.md",
       "title": "Project Health Assessment Template",
       "methodology": "universal",
       "complexity": "advanced",
@@ -8515,7 +8566,7 @@
       ],
       "relatedTemplates": [
         {
-          "path": "project-assessment-suite/current-state-analysis-template.md",
+          "path": "domains/measurement/project-assessment-suite/current-state-analysis-template.md",
           "title": "Current State Analysis Template",
           "methodology": "universal",
           "tags": [
@@ -8530,7 +8581,7 @@
           "similarity": 100
         },
         {
-          "path": "industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md",
+          "path": "domains/measurement/industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md",
           "title": "Digital Transformation Strategy Template",
           "methodology": "universal",
           "tags": [
@@ -8560,7 +8611,7 @@
           "similarity": 100
         },
         {
-          "path": "project-assessment-suite/executive-summary-template.md",
+          "path": "domains/measurement/project-assessment-suite/executive-summary-template.md",
           "title": "Executive Summary Template",
           "methodology": "universal",
           "tags": [
@@ -8575,7 +8626,7 @@
           "similarity": 100
         },
         {
-          "path": "project-assessment-suite/future-state-blueprint-template.md",
+          "path": "domains/measurement/project-assessment-suite/future-state-blueprint-template.md",
           "title": "Future State Blueprint Template",
           "methodology": "universal",
           "tags": [
@@ -8589,6 +8640,9 @@
           ],
           "similarity": 100
         }
+      ],
+      "alternate_paths": [
+        "project-assessment-suite/project-health-assessment-template.md"
       ]
     },
     {
@@ -9586,7 +9640,7 @@
       ]
     },
     {
-      "path": "methodology-frameworks/emerging-methods/devops/release_management_template.md",
+      "path": "domains/measurement/methodology-frameworks/emerging-methods/devops/release_management_template.md",
       "title": "Release Management Template",
       "methodology": "universal",
       "complexity": "advanced",
@@ -9609,7 +9663,7 @@
       ],
       "relatedTemplates": [
         {
-          "path": "methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md",
+          "path": "domains/measurement/methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md",
           "title": "Cicd Pipeline Planning Template",
           "methodology": "universal",
           "tags": [
@@ -9623,7 +9677,7 @@
           "similarity": 100
         },
         {
-          "path": "project-lifecycle/02-planning/resource-planning/resource-management-plan-template.md",
+          "path": "domains/measurement/project-lifecycle/02-planning/resource-planning/resource-management-plan-template.md",
           "title": "Resource Management Plan Template",
           "methodology": "universal",
           "tags": [
@@ -9637,7 +9691,7 @@
           "similarity": 100
         },
         {
-          "path": "project-lifecycle/02-planning/risk-management/risk-management-plan-template.md",
+          "path": "domains/measurement/project-lifecycle/02-planning/risk-management/risk-management-plan-template.md",
           "title": "Risk Management Plan Template",
           "methodology": "universal",
           "tags": [
@@ -9664,10 +9718,13 @@
           ],
           "similarity": 100
         }
+      ],
+      "alternate_paths": [
+        "methodology-frameworks/emerging-methods/devops/release_management_template.md"
       ]
     },
     {
-      "path": "project-assessment-suite/remediation-action-plan-template.md",
+      "path": "domains/measurement/project-assessment-suite/remediation-action-plan-template.md",
       "title": "Remediation Action Plan Template",
       "methodology": "universal",
       "complexity": "advanced",
@@ -9691,7 +9748,7 @@
       ],
       "relatedTemplates": [
         {
-          "path": "project-assessment-suite/current-state-analysis-template.md",
+          "path": "domains/measurement/project-assessment-suite/current-state-analysis-template.md",
           "title": "Current State Analysis Template",
           "methodology": "universal",
           "tags": [
@@ -9706,7 +9763,7 @@
           "similarity": 100
         },
         {
-          "path": "industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md",
+          "path": "domains/measurement/industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md",
           "title": "Digital Transformation Strategy Template",
           "methodology": "universal",
           "tags": [
@@ -9736,7 +9793,7 @@
           "similarity": 100
         },
         {
-          "path": "project-assessment-suite/executive-summary-template.md",
+          "path": "domains/measurement/project-assessment-suite/executive-summary-template.md",
           "title": "Executive Summary Template",
           "methodology": "universal",
           "tags": [
@@ -9751,7 +9808,7 @@
           "similarity": 100
         },
         {
-          "path": "project-assessment-suite/future-state-blueprint-template.md",
+          "path": "domains/measurement/project-assessment-suite/future-state-blueprint-template.md",
           "title": "Future State Blueprint Template",
           "methodology": "universal",
           "tags": [
@@ -9765,6 +9822,9 @@
           ],
           "similarity": 100
         }
+      ],
+      "alternate_paths": [
+        "project-assessment-suite/remediation-action-plan-template.md"
       ]
     },
     {
@@ -9962,7 +10022,7 @@
       ]
     },
     {
-      "path": "project-assessment-suite/resource-management-assessment-template.md",
+      "path": "domains/measurement/project-assessment-suite/resource-management-assessment-template.md",
       "title": "Resource Management Assessment Template",
       "methodology": "universal",
       "complexity": "starter",
@@ -9994,7 +10054,7 @@
           "similarity": 78
         },
         {
-          "path": "project-assessment-suite/risk-management-assessment-template.md",
+          "path": "domains/measurement/project-assessment-suite/risk-management-assessment-template.md",
           "title": "Risk Management Assessment Template",
           "methodology": "universal",
           "tags": [
@@ -10008,7 +10068,7 @@
           "similarity": 75
         },
         {
-          "path": "project-assessment-suite/process-maturity-assessment-template.md",
+          "path": "domains/measurement/project-assessment-suite/process-maturity-assessment-template.md",
           "title": "Process Maturity Assessment Template",
           "methodology": "universal",
           "tags": [
@@ -10023,7 +10083,7 @@
           "similarity": 71
         },
         {
-          "path": "project-assessment-suite/governance-assessment-template.md",
+          "path": "domains/measurement/project-assessment-suite/governance-assessment-template.md",
           "title": "Governance Assessment Template",
           "methodology": "universal",
           "tags": [
@@ -10035,7 +10095,7 @@
           "similarity": 70
         },
         {
-          "path": "industry-specializations/information-technology/cybersecurity/risk_assessment_template.md",
+          "path": "domains/measurement/industry-specializations/information-technology/cybersecurity/risk_assessment_template.md",
           "title": "Risk Assessment Template",
           "methodology": "universal",
           "tags": [
@@ -10047,10 +10107,13 @@
           ],
           "similarity": 70
         }
+      ],
+      "alternate_paths": [
+        "project-assessment-suite/resource-management-assessment-template.md"
       ]
     },
     {
-      "path": "project-lifecycle/02-planning/resource-planning/resource-management-plan-template.md",
+      "path": "domains/measurement/project-lifecycle/02-planning/resource-planning/resource-management-plan-template.md",
       "title": "Resource Management Plan Template",
       "methodology": "universal",
       "complexity": "advanced",
@@ -10073,7 +10136,7 @@
       ],
       "relatedTemplates": [
         {
-          "path": "methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md",
+          "path": "domains/measurement/methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md",
           "title": "Cicd Pipeline Planning Template",
           "methodology": "universal",
           "tags": [
@@ -10087,7 +10150,7 @@
           "similarity": 100
         },
         {
-          "path": "methodology-frameworks/emerging-methods/devops/release_management_template.md",
+          "path": "domains/measurement/methodology-frameworks/emerging-methods/devops/release_management_template.md",
           "title": "Release Management Template",
           "methodology": "universal",
           "tags": [
@@ -10101,7 +10164,7 @@
           "similarity": 100
         },
         {
-          "path": "project-lifecycle/02-planning/risk-management/risk-management-plan-template.md",
+          "path": "domains/measurement/project-lifecycle/02-planning/risk-management/risk-management-plan-template.md",
           "title": "Risk Management Plan Template",
           "methodology": "universal",
           "tags": [
@@ -10128,10 +10191,13 @@
           ],
           "similarity": 100
         }
+      ],
+      "alternate_paths": [
+        "project-lifecycle/02-planning/resource-planning/resource-management-plan-template.md"
       ]
     },
     {
-      "path": "industry-specializations/information-technology/cybersecurity/risk_assessment_template.md",
+      "path": "domains/measurement/industry-specializations/information-technology/cybersecurity/risk_assessment_template.md",
       "title": "Risk Assessment Template",
       "methodology": "universal",
       "complexity": "advanced",
@@ -10167,7 +10233,7 @@
           "similarity": 92
         },
         {
-          "path": "industry-specializations/information-technology/software-development/test_plan_template.md",
+          "path": "domains/measurement/industry-specializations/information-technology/software-development/test_plan_template.md",
           "title": "Test Plan Template",
           "methodology": "universal",
           "tags": [
@@ -10205,7 +10271,7 @@
           "similarity": 90
         },
         {
-          "path": "project-assessment-suite/current-state-analysis-template.md",
+          "path": "domains/measurement/project-assessment-suite/current-state-analysis-template.md",
           "title": "Current State Analysis Template",
           "methodology": "universal",
           "tags": [
@@ -10219,10 +10285,13 @@
           ],
           "similarity": 86
         }
+      ],
+      "alternate_paths": [
+        "industry-specializations/information-technology/cybersecurity/risk_assessment_template.md"
       ]
     },
     {
-      "path": "project-assessment-suite/risk-management-assessment-template.md",
+      "path": "domains/measurement/project-assessment-suite/risk-management-assessment-template.md",
       "title": "Risk Management Assessment Template",
       "methodology": "universal",
       "complexity": "starter",
@@ -10245,7 +10314,7 @@
       ],
       "relatedTemplates": [
         {
-          "path": "project-assessment-suite/process-maturity-assessment-template.md",
+          "path": "domains/measurement/project-assessment-suite/process-maturity-assessment-template.md",
           "title": "Process Maturity Assessment Template",
           "methodology": "universal",
           "tags": [
@@ -10286,7 +10355,7 @@
           "similarity": 83
         },
         {
-          "path": "project-assessment-suite/current-state-analysis-template.md",
+          "path": "domains/measurement/project-assessment-suite/current-state-analysis-template.md",
           "title": "Current State Analysis Template",
           "methodology": "universal",
           "tags": [
@@ -10301,7 +10370,7 @@
           "similarity": 83
         },
         {
-          "path": "industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md",
+          "path": "domains/measurement/industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md",
           "title": "Digital Transformation Strategy Template",
           "methodology": "universal",
           "tags": [
@@ -10315,10 +10384,13 @@
           ],
           "similarity": 83
         }
+      ],
+      "alternate_paths": [
+        "project-assessment-suite/risk-management-assessment-template.md"
       ]
     },
     {
-      "path": "project-lifecycle/02-planning/risk-management/risk-management-plan-template.md",
+      "path": "domains/measurement/project-lifecycle/02-planning/risk-management/risk-management-plan-template.md",
       "title": "Risk Management Plan Template",
       "methodology": "universal",
       "complexity": "advanced",
@@ -10341,7 +10413,7 @@
       ],
       "relatedTemplates": [
         {
-          "path": "methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md",
+          "path": "domains/measurement/methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md",
           "title": "Cicd Pipeline Planning Template",
           "methodology": "universal",
           "tags": [
@@ -10355,7 +10427,7 @@
           "similarity": 100
         },
         {
-          "path": "methodology-frameworks/emerging-methods/devops/release_management_template.md",
+          "path": "domains/measurement/methodology-frameworks/emerging-methods/devops/release_management_template.md",
           "title": "Release Management Template",
           "methodology": "universal",
           "tags": [
@@ -10369,7 +10441,7 @@
           "similarity": 100
         },
         {
-          "path": "project-lifecycle/02-planning/resource-planning/resource-management-plan-template.md",
+          "path": "domains/measurement/project-lifecycle/02-planning/resource-planning/resource-management-plan-template.md",
           "title": "Resource Management Plan Template",
           "methodology": "universal",
           "tags": [
@@ -10396,6 +10468,9 @@
           ],
           "similarity": 100
         }
+      ],
+      "alternate_paths": [
+        "project-lifecycle/02-planning/risk-management/risk-management-plan-template.md"
       ]
     },
     {
@@ -10452,7 +10527,7 @@
           "similarity": 83
         },
         {
-          "path": "methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md",
+          "path": "domains/measurement/methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md",
           "title": "Cicd Pipeline Planning Template",
           "methodology": "universal",
           "tags": [
@@ -11111,7 +11186,7 @@
       ],
       "relatedTemplates": [
         {
-          "path": "methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md",
+          "path": "domains/measurement/methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md",
           "title": "Cicd Pipeline Planning Template",
           "methodology": "universal",
           "tags": [
@@ -11139,7 +11214,7 @@
           "similarity": 92
         },
         {
-          "path": "methodology-frameworks/emerging-methods/devops/release_management_template.md",
+          "path": "domains/measurement/methodology-frameworks/emerging-methods/devops/release_management_template.md",
           "title": "Release Management Template",
           "methodology": "universal",
           "tags": [
@@ -11604,7 +11679,7 @@
           "similarity": 90
         },
         {
-          "path": "project-assessment-suite/process-maturity-assessment-template.md",
+          "path": "domains/measurement/project-assessment-suite/process-maturity-assessment-template.md",
           "title": "Process Maturity Assessment Template",
           "methodology": "universal",
           "tags": [
@@ -11633,7 +11708,7 @@
           "similarity": 82
         },
         {
-          "path": "methodology-frameworks/emerging-methods/devops/monitoring_alerting_template.md",
+          "path": "domains/measurement/methodology-frameworks/emerging-methods/devops/monitoring_alerting_template.md",
           "title": "Monitoring Alerting Template",
           "methodology": "universal",
           "tags": [
@@ -11862,7 +11937,7 @@
       ],
       "relatedTemplates": [
         {
-          "path": "methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md",
+          "path": "domains/measurement/methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md",
           "title": "Cicd Pipeline Planning Template",
           "methodology": "universal",
           "tags": [
@@ -11876,7 +11951,7 @@
           "similarity": 100
         },
         {
-          "path": "methodology-frameworks/emerging-methods/devops/release_management_template.md",
+          "path": "domains/measurement/methodology-frameworks/emerging-methods/devops/release_management_template.md",
           "title": "Release Management Template",
           "methodology": "universal",
           "tags": [
@@ -11890,7 +11965,7 @@
           "similarity": 100
         },
         {
-          "path": "project-lifecycle/02-planning/resource-planning/resource-management-plan-template.md",
+          "path": "domains/measurement/project-lifecycle/02-planning/resource-planning/resource-management-plan-template.md",
           "title": "Resource Management Plan Template",
           "methodology": "universal",
           "tags": [
@@ -11904,7 +11979,7 @@
           "similarity": 100
         },
         {
-          "path": "project-lifecycle/02-planning/risk-management/risk-management-plan-template.md",
+          "path": "domains/measurement/project-lifecycle/02-planning/risk-management/risk-management-plan-template.md",
           "title": "Risk Management Plan Template",
           "methodology": "universal",
           "tags": [
@@ -12023,7 +12098,7 @@
       ]
     },
     {
-      "path": "industry-specializations/information-technology/software-development/technical_design_document_template.md",
+      "path": "domains/measurement/industry-specializations/information-technology/software-development/technical_design_document_template.md",
       "title": "Technical Design Document Template",
       "methodology": "universal",
       "complexity": "advanced",
@@ -12046,7 +12121,7 @@
       ],
       "relatedTemplates": [
         {
-          "path": "project-assessment-suite/current-state-analysis-template.md",
+          "path": "domains/measurement/project-assessment-suite/current-state-analysis-template.md",
           "title": "Current State Analysis Template",
           "methodology": "universal",
           "tags": [
@@ -12061,7 +12136,7 @@
           "similarity": 93
         },
         {
-          "path": "industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md",
+          "path": "domains/measurement/industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md",
           "title": "Digital Transformation Strategy Template",
           "methodology": "universal",
           "tags": [
@@ -12091,7 +12166,7 @@
           "similarity": 93
         },
         {
-          "path": "project-assessment-suite/executive-summary-template.md",
+          "path": "domains/measurement/project-assessment-suite/executive-summary-template.md",
           "title": "Executive Summary Template",
           "methodology": "universal",
           "tags": [
@@ -12106,7 +12181,7 @@
           "similarity": 93
         },
         {
-          "path": "project-assessment-suite/future-state-blueprint-template.md",
+          "path": "domains/measurement/project-assessment-suite/future-state-blueprint-template.md",
           "title": "Future State Blueprint Template",
           "methodology": "universal",
           "tags": [
@@ -12120,10 +12195,13 @@
           ],
           "similarity": 93
         }
+      ],
+      "alternate_paths": [
+        "industry-specializations/information-technology/software-development/technical_design_document_template.md"
       ]
     },
     {
-      "path": "industry-specializations/information-technology/software-development/test_plan_template.md",
+      "path": "domains/measurement/industry-specializations/information-technology/software-development/test_plan_template.md",
       "title": "Test Plan Template",
       "methodology": "universal",
       "complexity": "advanced",
@@ -12146,7 +12224,7 @@
       ],
       "relatedTemplates": [
         {
-          "path": "project-assessment-suite/current-state-analysis-template.md",
+          "path": "domains/measurement/project-assessment-suite/current-state-analysis-template.md",
           "title": "Current State Analysis Template",
           "methodology": "universal",
           "tags": [
@@ -12161,7 +12239,7 @@
           "similarity": 93
         },
         {
-          "path": "industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md",
+          "path": "domains/measurement/industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md",
           "title": "Digital Transformation Strategy Template",
           "methodology": "universal",
           "tags": [
@@ -12191,7 +12269,7 @@
           "similarity": 93
         },
         {
-          "path": "project-assessment-suite/executive-summary-template.md",
+          "path": "domains/measurement/project-assessment-suite/executive-summary-template.md",
           "title": "Executive Summary Template",
           "methodology": "universal",
           "tags": [
@@ -12206,7 +12284,7 @@
           "similarity": 93
         },
         {
-          "path": "project-assessment-suite/future-state-blueprint-template.md",
+          "path": "domains/measurement/project-assessment-suite/future-state-blueprint-template.md",
           "title": "Future State Blueprint Template",
           "methodology": "universal",
           "tags": [
@@ -12220,6 +12298,9 @@
           ],
           "similarity": 93
         }
+      ],
+      "alternate_paths": [
+        "industry-specializations/information-technology/software-development/test_plan_template.md"
       ]
     },
     {
@@ -12380,7 +12461,7 @@
           "similarity": 83
         },
         {
-          "path": "project-assessment-suite/current-state-analysis-template.md",
+          "path": "domains/measurement/project-assessment-suite/current-state-analysis-template.md",
           "title": "Current State Analysis Template",
           "methodology": "universal",
           "tags": [
@@ -12423,7 +12504,7 @@
       "qualityIssues": [],
       "relatedTemplates": [
         {
-          "path": "project-assessment-suite/current-state-analysis-template.md",
+          "path": "domains/measurement/project-assessment-suite/current-state-analysis-template.md",
           "title": "Current State Analysis Template",
           "methodology": "universal",
           "tags": [
@@ -12438,7 +12519,7 @@
           "similarity": 84
         },
         {
-          "path": "industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md",
+          "path": "domains/measurement/industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md",
           "title": "Digital Transformation Strategy Template",
           "methodology": "universal",
           "tags": [
@@ -12468,7 +12549,7 @@
           "similarity": 84
         },
         {
-          "path": "project-assessment-suite/executive-summary-template.md",
+          "path": "domains/measurement/project-assessment-suite/executive-summary-template.md",
           "title": "Executive Summary Template",
           "methodology": "universal",
           "tags": [
@@ -12483,7 +12564,7 @@
           "similarity": 84
         },
         {
-          "path": "project-assessment-suite/future-state-blueprint-template.md",
+          "path": "domains/measurement/project-assessment-suite/future-state-blueprint-template.md",
           "title": "Future State Blueprint Template",
           "methodology": "universal",
           "tags": [
@@ -12778,7 +12859,7 @@
           "similarity": 80
         },
         {
-          "path": "industry-specializations/information-technology/cybersecurity/risk_assessment_template.md",
+          "path": "domains/measurement/industry-specializations/information-technology/cybersecurity/risk_assessment_template.md",
           "title": "Risk Assessment Template",
           "methodology": "universal",
           "tags": [
@@ -12959,7 +13040,7 @@
           "similarity": 93
         },
         {
-          "path": "methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md",
+          "path": "domains/measurement/methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md",
           "title": "Cicd Pipeline Planning Template",
           "methodology": "universal",
           "tags": [

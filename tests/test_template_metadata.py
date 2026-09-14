@@ -1,6 +1,5 @@
 """Deterministic metadata policy, pointer structure and Git event fixtures."""
 from datetime import date
-import importlib.util
 import json
 import hashlib
 from pathlib import Path
@@ -8,10 +7,9 @@ import subprocess
 import tempfile
 import unittest
 
+from scripts import lint_template_metadata as lint
+
 ROOT = Path(__file__).resolve().parents[1]
-spec = importlib.util.spec_from_file_location('metadata', ROOT / 'scripts/lint_template_metadata.py')
-lint = importlib.util.module_from_spec(spec)
-spec.loader.exec_module(lint)
 VALID = '---\ntitle: Test template\nmethodology: universal\ncomplexity: starter\nowner: maintainer\nupdated: 2026-09-01\n---\n# Body\n'
 POINTER = '''# Test Template — Moved
 

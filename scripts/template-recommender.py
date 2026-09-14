@@ -99,8 +99,8 @@ AGILE_EXTRAS = [
 
 RISK_EXTRAS = [
     ("Risk Register", "templates/traditional/Traditional/Templates/risk_register_template.md", "Track all risks"),
-    ("Risk Assessment", "project-assessment-suite/risk-management-assessment-template.md", "Evaluate risk maturity"),
-    ("Governance Assessment", "project-assessment-suite/governance-assessment-template.md", "Review oversight"),
+    ("Risk Assessment", "domains/measurement/project-assessment-suite/risk-management-assessment-template.md", "Evaluate risk maturity"),
+    ("Governance Assessment", "domains/measurement/project-assessment-suite/governance-assessment-template.md", "Review oversight"),
 ]
 
 TOOLKITS = {
