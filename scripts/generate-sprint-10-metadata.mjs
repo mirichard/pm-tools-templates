@@ -52,12 +52,18 @@ function inboundLinks(assetPath) {
 // key so that executing a move doesn't shift a template's alphabetical position within its
 // domain group and cascade into unrelated neighbors' previous/next/related_assets fields.
 function resolveSource(item) {
+  const executed = existingByDestination.get(item.path);
+  if (executed?.action === 'executed-move-with-legacy-pointer') return executed.source;
   const canonicalPrefix = `domains/${slug(item.domain.primary)}/`;
   const isCanonicalPath = item.path.startsWith(canonicalPrefix);
   return isCanonicalPath ? (existingByDestination.get(item.path)?.source || item.path) : item.path;
 }
 
 const migration = mappings.map(item => {
+  const executed = existingByDestination.get(item.path);
+  // Classification can change independently of canonical identity. Preserve the
+  // completed migration's destinations, domains, batches, and evidence verbatim.
+  if (executed?.action === 'executed-move-with-legacy-pointer') return { ...executed };
   const canonicalPrefix = `domains/${slug(item.domain.primary)}/`;
   const isCanonicalPath = item.path.startsWith(canonicalPrefix);
   const existingMove = isCanonicalPath
@@ -143,6 +149,7 @@ for (const move of executedMoves) {
   if (!legacyRecord) continue;
   const replacement = {
     ...legacyRecord,
+    domain: mappings.find(item => item.path === move.destination).domain,
     path: move.destination,
     prerequisites: (legacyRecord.prerequisites || []).map(rewriteExecutedPath),
     related_assets: (legacyRecord.related_assets || []).map(rewriteExecutedPath),

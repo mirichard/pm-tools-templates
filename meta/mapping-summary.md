@@ -20,10 +20,10 @@
 |--------|-------|-----------|
 | Stakeholder | 11 | 8.0% |
 | Team | 9 | 6.6% |
-| Delivery | 69 | 50.4% |
+| Delivery | 67 | 48.9% |
 | Planning | 8 | 5.8% |
-| Uncertainty | 13 | 9.5% |
-| Measurement | 27 | 19.7% |
+| Uncertainty | 14 | 10.2% |
+| Measurement | 28 | 20.4% |
 
 ## Coverage Matrix (Domain × Methodology)
 
@@ -32,4 +32,6 @@
 | agile | 0 | 5 | 14 | 0 | 0 | 0 | 19 |
 | hybrid | 0 | 0 | 6 | 1 | 0 | 0 | 7 |
 | traditional | 1 | 1 | 18 | 3 | 0 | 0 | 23 |
-| universal | 10 | 3 | 31 | 4 | 13 | 27 | 88 |
+| universal | 10 | 3 | 29 | 4 | 14 | 28 | 88 |
+
+Domain decisions updated following #740 owner acceptance. Counts retain the original 137-asset denominator. The three remaining review flags concern value flow only.

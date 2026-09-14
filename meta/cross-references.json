@@ -510,9 +510,9 @@
     {
       "path": "domains/delivery/industry-specializations/information-technology/service-management/problem_management_process_template.md",
       "domain": {
-        "primary": "Delivery",
+        "primary": "Uncertainty",
         "secondary": [],
-        "rationale": "No tags available — needs manual review"
+        "rationale": "Reviewed primary purpose: identify, investigate, mitigate, and resolve unexpected problems."
       },
       "prerequisites": [
         "domains/stakeholder/business-stakeholder-suite/financial-governance/enhanced-business-cases/advanced-business-case-template.md"
@@ -533,7 +533,7 @@
       "domain": {
         "primary": "Delivery",
         "secondary": [],
-        "rationale": "Technology template supports delivery execution"
+        "rationale": "Reviewed primary purpose: structure and document a technical delivery interface."
       },
       "prerequisites": [
         "domains/delivery/role-based-toolkits/project-manager/essential-templates/timesheet-tracking-template.md"
@@ -1007,9 +1007,9 @@
     {
       "path": "domains/delivery/role-based-toolkits/project-manager/essential-templates/timesheet-tracking-template.md",
       "domain": {
-        "primary": "Delivery",
+        "primary": "Measurement",
         "secondary": [],
-        "rationale": "Technology template supports delivery execution"
+        "rationale": "Reviewed primary purpose: record and summarize effort evidence for tracking and reporting."
       },
       "prerequisites": [
         "domains/delivery/industry-specializations/information-technology/software-development/api_documentation_template.md"

@@ -24,6 +24,10 @@ from datetime import datetime
 REPO_ROOT = Path(__file__).parent.parent
 TEMPLATES_JSON = REPO_ROOT / "templates" / "templates.json"
 META_DIR = REPO_ROOT / "meta"
+DOMAIN_DECISIONS = {
+    item["path"]: item
+    for item in json.loads((META_DIR / "domain-review-decisions.json").read_text())["decisions"]
+}
 
 # ── Value Flow Mapping Rules ──────────────────────────────────────────────────
 
@@ -262,6 +266,10 @@ def main():
 
         # Domain
         d_primary, d_secondary, d_rationale, d_review = classify_domain(tags, title, path)
+        decision = DOMAIN_DECISIONS.get(path)
+        if decision:
+            d_primary, d_secondary = decision["primary"], decision["secondary"]
+            d_rationale, d_review = decision["rationale"], False
         domain_counts[d_primary] += 1
 
         is_cross_domain = len(set(tags)) >= 5
@@ -305,7 +313,8 @@ def main():
 
         if review_needed:
             needs_review.append({"path": path, "title": title, "tags": tags,
-                                 "vf_primary": vf_primary, "d_primary": d_primary})
+                                 "vf_primary": vf_primary, "d_primary": d_primary,
+                                 "domain_reviewed": decision is not None})
 
     # Write outputs
     META_DIR.mkdir(exist_ok=True)
@@ -372,6 +381,8 @@ def main():
         review_md += f"- **{r['title']}** (`{r['path']}`)\n"
         review_md += f"  - Tags: {', '.join(r['tags']) if r['tags'] else 'none'}\n"
         review_md += f"  - Auto-assigned: VF={r['vf_primary']}, Domain={r['d_primary']}\n\n"
+        if r["domain_reviewed"]:
+            review_md += "  - Domain reviewed in #740; remaining review concerns value flow only.\n\n"
 
     with open(META_DIR / "needs-review.md", "w") as f:
         f.write(review_md)
