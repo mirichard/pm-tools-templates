@@ -134,6 +134,24 @@
       "status": "executed",
       "evidence_file": "docs/vnext/sprint-12/b3f-migration-record.md",
       "rollback_owner": "mirichard"
+    },
+    {
+      "batch_id": "B4A",
+      "issue": "#1057",
+      "parent_issue": "#711",
+      "asset_count": 15,
+      "status": "executed",
+      "evidence_file": "docs/vnext/sprint-12/b4a-migration-record.md",
+      "rollback_owner": "mirichard"
+    },
+    {
+      "batch_id": "B4B",
+      "issue": "#1057",
+      "parent_issue": "#711",
+      "asset_count": 12,
+      "status": "executed",
+      "evidence_file": "docs/vnext/sprint-12/b4b-migration-record.md",
+      "rollback_owner": "mirichard"
     }
   ],
   "generated": "2026-09-02",
@@ -149,7 +167,7 @@
         "Planning"
       ],
       "dependencies": [
-        "industry-specializations/information-technology/cybersecurity/risk_assessment_template.md",
+        "domains/measurement/industry-specializations/information-technology/cybersecurity/risk_assessment_template.md",
         "domains/stakeholder/business-stakeholder-suite/financial-governance/enhanced-business-cases/evm-dashboard-template.md",
         "domains/uncertainty/industry-specializations/information-technology/software-development/user_story_mapping_template.md"
       ],
@@ -228,8 +246,8 @@
       ],
       "dependencies": [
         "domains/delivery/project-lifecycle/02-planning/risk-management/agile-risk-board-template.md",
-        "methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md",
-        "methodology-frameworks/emerging-methods/devops/release_management_template.md"
+        "domains/measurement/methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md",
+        "domains/measurement/methodology-frameworks/emerging-methods/devops/release_management_template.md"
       ],
       "affected_internal_references": [
         "TEMPLATE_INDEX.md",
@@ -269,8 +287,8 @@
       ],
       "dependencies": [
         "domains/delivery/project-lifecycle/02-planning/project-management-plan/agile-release-plan-template.md",
-        "methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md",
-        "methodology-frameworks/emerging-methods/devops/release_management_template.md"
+        "domains/measurement/methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md",
+        "domains/measurement/methodology-frameworks/emerging-methods/devops/release_management_template.md"
       ],
       "affected_internal_references": [
         "TEMPLATE_INDEX.md",
@@ -307,7 +325,7 @@
       "dependencies": [
         "domains/delivery/project-lifecycle/02-planning/project-management-plan/traditional-project-management-plan-template.md",
         "domains/delivery/project-assessment-suite/agile-project-assessment-template.md",
-        "methodology-frameworks/emerging-methods/devops/monitoring_alerting_template.md"
+        "domains/measurement/methodology-frameworks/emerging-methods/devops/monitoring_alerting_template.md"
       ],
       "affected_internal_references": [
         "TEMPLATE_INDEX.md",
@@ -613,7 +631,7 @@
       "secondary_domains": [],
       "dependencies": [
         "domains/stakeholder/business-stakeholder-suite/financial-governance/enhanced-business-cases/evm-dashboard-template.md",
-        "industry-specializations/information-technology/software-development/test_plan_template.md",
+        "domains/measurement/industry-specializations/information-technology/software-development/test_plan_template.md",
         "domains/stakeholder/business-stakeholder-suite/executive-dashboards/powerbi-integration/executive-dashboard-template.md"
       ],
       "affected_internal_references": [
@@ -656,8 +674,8 @@
         "Uncertainty"
       ],
       "dependencies": [
-        "project-assessment-suite/current-state-analysis-template.md",
-        "industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md",
+        "domains/measurement/project-assessment-suite/current-state-analysis-template.md",
+        "domains/measurement/industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md",
         "domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/enterprise-stakeholder-analysis-template.md"
       ],
       "affected_internal_references": [
@@ -746,9 +764,9 @@
         "Uncertainty"
       ],
       "dependencies": [
-        "industry-specializations/information-technology/security/cybersecurity_assessment_template.md",
+        "domains/measurement/industry-specializations/information-technology/security/cybersecurity_assessment_template.md",
         "domains/stakeholder/business-stakeholder-suite/executive-dashboards/Word/Executive-Report-Templates.md",
-        "industry-specializations/information-technology/infrastructure/infrastructure_assessment_template.md"
+        "domains/measurement/industry-specializations/information-technology/infrastructure/infrastructure_assessment_template.md"
       ],
       "affected_internal_references": [
         "TEMPLATE_INDEX.md",
@@ -764,7 +782,14 @@
       ],
       "batch": 4,
       "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move",
-      "action": "planned-move-not-executed"
+      "action": "executed-move-with-legacy-pointer",
+      "execution": {
+        "batch_id": "B4A",
+        "pre_batch_sha": "8f680af6990f65b4de5aedf16871e23f86ffc5c2",
+        "pre_move_source_sha256": "68ce143df4327ffae340b42292a52a14e9ef24df0501b452ae3c003f015aa1b5",
+        "evidence_file": "docs/vnext/sprint-12/b4a-migration-record.md",
+        "rollback_owner": "mirichard"
+      }
     },
     {
       "source": "industry-specializations/healthcare-pharmaceutical/compliance/capa_management_template.md",
@@ -905,9 +930,9 @@
         "Uncertainty"
       ],
       "dependencies": [
-        "methodology-frameworks/emerging-methods/devops/release_management_template.md",
-        "project-lifecycle/02-planning/resource-planning/resource-management-plan-template.md",
-        "project-lifecycle/02-planning/risk-management/risk-management-plan-template.md"
+        "domains/measurement/methodology-frameworks/emerging-methods/devops/release_management_template.md",
+        "domains/measurement/project-lifecycle/02-planning/resource-planning/resource-management-plan-template.md",
+        "domains/measurement/project-lifecycle/02-planning/risk-management/risk-management-plan-template.md"
       ],
       "affected_internal_references": [
         "TEMPLATE_INDEX.md",
@@ -935,7 +960,14 @@
       ],
       "batch": 4,
       "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move",
-      "action": "planned-move-not-executed"
+      "action": "executed-move-with-legacy-pointer",
+      "execution": {
+        "batch_id": "B4A",
+        "pre_batch_sha": "8f680af6990f65b4de5aedf16871e23f86ffc5c2",
+        "pre_move_source_sha256": "05b492617a09417baf7de2a755b6028f1fe844b50877ecd6809bfdb429e19f95",
+        "evidence_file": "docs/vnext/sprint-12/b4a-migration-record.md",
+        "rollback_owner": "mirichard"
+      }
     },
     {
       "source": "industry-specializations/healthcare-pharmaceutical/validation/cleaning_validation_protocol_template.md",
@@ -1067,8 +1099,8 @@
       ],
       "dependencies": [
         "domains/stakeholder/business-stakeholder-suite/financial-governance/enhanced-business-cases/evm-dashboard-template.md",
-        "methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md",
-        "methodology-frameworks/emerging-methods/devops/release_management_template.md"
+        "domains/measurement/methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md",
+        "domains/measurement/methodology-frameworks/emerging-methods/devops/release_management_template.md"
       ],
       "affected_internal_references": [
         "TEMPLATE_INDEX.md",
@@ -1089,7 +1121,14 @@
       ],
       "batch": 4,
       "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move",
-      "action": "planned-move-not-executed"
+      "action": "executed-move-with-legacy-pointer",
+      "execution": {
+        "batch_id": "B4A",
+        "pre_batch_sha": "8f680af6990f65b4de5aedf16871e23f86ffc5c2",
+        "pre_move_source_sha256": "1719184880167489dc260a7a0044f5e627c3b3c13df27741f7073c2d6a1f877c",
+        "evidence_file": "docs/vnext/sprint-12/b4a-migration-record.md",
+        "rollback_owner": "mirichard"
+      }
     },
     {
       "source": "industry-specializations/healthcare-pharmaceutical/regulatory/compliance_risk_assessment_template.md",
@@ -1217,9 +1256,9 @@
         "Uncertainty"
       ],
       "dependencies": [
-        "industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md",
+        "domains/measurement/industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md",
         "domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/enterprise-stakeholder-analysis-template.md",
-        "project-assessment-suite/executive-summary-template.md"
+        "domains/measurement/project-assessment-suite/executive-summary-template.md"
       ],
       "affected_internal_references": [
         "TEMPLATE_INDEX.md",
@@ -1237,7 +1276,14 @@
       ],
       "batch": 4,
       "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move",
-      "action": "planned-move-not-executed"
+      "action": "executed-move-with-legacy-pointer",
+      "execution": {
+        "batch_id": "B4A",
+        "pre_batch_sha": "8f680af6990f65b4de5aedf16871e23f86ffc5c2",
+        "pre_move_source_sha256": "f9b0cb20451849ec72f7afc170d624bf6b4b6ab3ed4c2c789cbe838c5523fe3c",
+        "evidence_file": "docs/vnext/sprint-12/b4a-migration-record.md",
+        "rollback_owner": "mirichard"
+      }
     },
     {
       "source": "industry-specializations/information-technology/security/cybersecurity_assessment_template.md",
@@ -1250,7 +1296,7 @@
       "dependencies": [
         "domains/stakeholder/business-stakeholder-suite/executive-dashboards/Word/Executive-Report-Templates.md",
         "domains/planning/role-based-toolkits/project-manager/essential-templates/budget-template.md",
-        "project-lifecycle/02-planning/business-requirements/business_requirements_document_template.md"
+        "domains/measurement/project-lifecycle/02-planning/business-requirements/business_requirements_document_template.md"
       ],
       "affected_internal_references": [
         "TEMPLATE_INDEX.md",
@@ -1268,7 +1314,14 @@
       ],
       "batch": 4,
       "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move",
-      "action": "planned-move-not-executed"
+      "action": "executed-move-with-legacy-pointer",
+      "execution": {
+        "batch_id": "B4A",
+        "pre_batch_sha": "8f680af6990f65b4de5aedf16871e23f86ffc5c2",
+        "pre_move_source_sha256": "9c7640128c87dd00bc96b64412c0036d234d8536c469ef90b53c6f403b12c829",
+        "evidence_file": "docs/vnext/sprint-12/b4a-migration-record.md",
+        "rollback_owner": "mirichard"
+      }
     },
     {
       "source": "role-based-toolkits/scrum-master/agile-ceremonies/daily-standup-template.md",
@@ -1320,7 +1373,7 @@
       "dependencies": [
         "domains/planning/industry-specializations/information-technology/infrastructure/disaster_recovery_template.md",
         "domains/uncertainty/industry-specializations/information-technology/infrastructure/migration_plan_template.md",
-        "project-assessment-suite/resource-management-assessment-template.md"
+        "domains/measurement/project-assessment-suite/resource-management-assessment-template.md"
       ],
       "affected_internal_references": [
         "TEMPLATE_INDEX.md",
@@ -1354,7 +1407,7 @@
         "Uncertainty"
       ],
       "dependencies": [
-        "methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md",
+        "domains/measurement/methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md",
         "domains/delivery/industry-specializations/healthcare-pharmaceutical/regulatory/compliance_risk_assessment_template.md",
         "domains/delivery/industry-specializations/healthcare-pharmaceutical/regulatory/regulatory_inspection_readiness_plan_template.md"
       ],
@@ -1363,14 +1416,15 @@
         "docs/archive/README-20250805.md",
         "docs/methodology-guides/methodology-comparison.md",
         "docs/templates/devsecops_template.md",
+        "domains/measurement/methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md",
+        "domains/measurement/methodology-frameworks/emerging-methods/devops/devsecops_template.md",
+        "domains/measurement/methodology-frameworks/emerging-methods/devops/release_management_template.md",
         "meta/cross-references.json",
         "meta/domain-mapping.json",
         "meta/migration-inventory.json",
         "meta/value-flow-mapping.json",
-        "methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md",
         "methodology-frameworks/emerging-methods/devops/infrastructure_as_code_template.md",
         "methodology-frameworks/emerging-methods/devops/monitoring_alerting_template.md",
-        "methodology-frameworks/emerging-methods/devops/release_management_template.md",
         "site/.lighthouseci/lhr-1755874277795.html",
         "site/.lighthouseci/lhr-1755874277795.json",
         "templates/templates.json",
@@ -1378,7 +1432,14 @@
       ],
       "batch": 4,
       "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move",
-      "action": "planned-move-not-executed"
+      "action": "executed-move-with-legacy-pointer",
+      "execution": {
+        "batch_id": "B4B",
+        "pre_batch_sha": "e00b7637d01275fc70a35d3c2552cfbc403a4e3c",
+        "pre_move_source_sha256": "829c36d2f1fb05b2c428ab8fe254e64b4e026d56e957738f90beff87cbf3cace",
+        "evidence_file": "docs/vnext/sprint-12/b4b-migration-record.md",
+        "rollback_owner": "mirichard"
+      }
     },
     {
       "source": "industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md",
@@ -1389,9 +1450,9 @@
         "Uncertainty"
       ],
       "dependencies": [
-        "project-assessment-suite/current-state-analysis-template.md",
+        "domains/measurement/project-assessment-suite/current-state-analysis-template.md",
         "domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/enterprise-stakeholder-analysis-template.md",
-        "project-assessment-suite/executive-summary-template.md"
+        "domains/measurement/project-assessment-suite/executive-summary-template.md"
       ],
       "affected_internal_references": [
         "TEMPLATE_INDEX.md",
@@ -1409,7 +1470,14 @@
       ],
       "batch": 4,
       "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move",
-      "action": "planned-move-not-executed"
+      "action": "executed-move-with-legacy-pointer",
+      "execution": {
+        "batch_id": "B4A",
+        "pre_batch_sha": "8f680af6990f65b4de5aedf16871e23f86ffc5c2",
+        "pre_move_source_sha256": "2448e97d65f180380bca8037edd8bd6c497ee285c8fb9ebdf03392b48aa38cce",
+        "evidence_file": "docs/vnext/sprint-12/b4a-migration-record.md",
+        "rollback_owner": "mirichard"
+      }
     },
     {
       "source": "industry-specializations/information-technology/infrastructure/disaster_recovery_template.md",
@@ -1419,7 +1487,7 @@
       "dependencies": [
         "domains/planning/industry-specializations/information-technology/infrastructure/data_center_design_template.md",
         "domains/uncertainty/industry-specializations/information-technology/infrastructure/migration_plan_template.md",
-        "project-assessment-suite/resource-management-assessment-template.md"
+        "domains/measurement/project-assessment-suite/resource-management-assessment-template.md"
       ],
       "affected_internal_references": [
         "TEMPLATE_INDEX.md",
@@ -1455,7 +1523,7 @@
       "dependencies": [
         "domains/uncertainty/project-assessment-suite/assessment-report-template.md",
         "domains/delivery/project-lifecycle/02-planning/project-management-plan/hybrid-project-management-plan-template.md",
-        "project-lifecycle/02-planning/business-requirements/business_requirements_document_template.md"
+        "domains/measurement/project-lifecycle/02-planning/business-requirements/business_requirements_document_template.md"
       ],
       "affected_internal_references": [
         "TEMPLATE_INDEX.md",
@@ -1495,9 +1563,9 @@
         "Planning"
       ],
       "dependencies": [
-        "project-assessment-suite/current-state-analysis-template.md",
-        "industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md",
-        "project-assessment-suite/executive-summary-template.md"
+        "domains/measurement/project-assessment-suite/current-state-analysis-template.md",
+        "domains/measurement/industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md",
+        "domains/measurement/project-assessment-suite/executive-summary-template.md"
       ],
       "affected_internal_references": [
         "TEMPLATE_INDEX.md",
@@ -1567,9 +1635,9 @@
         "Planning"
       ],
       "dependencies": [
-        "industry-specializations/financial-services/compliance/compliance-management-template.md",
-        "project-assessment-suite/current-state-analysis-template.md",
-        "industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md"
+        "domains/measurement/industry-specializations/financial-services/compliance/compliance-management-template.md",
+        "domains/measurement/project-assessment-suite/current-state-analysis-template.md",
+        "domains/measurement/industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md"
       ],
       "affected_internal_references": [
         "TEMPLATE_INDEX.md",
@@ -1609,9 +1677,9 @@
       "primary_domain": "Stakeholder",
       "secondary_domains": [],
       "dependencies": [
-        "industry-specializations/information-technology/security/cybersecurity_assessment_template.md",
+        "domains/measurement/industry-specializations/information-technology/security/cybersecurity_assessment_template.md",
         "domains/stakeholder/business-stakeholder-suite/executive-dashboards/Word/Executive-Report-Templates.md",
-        "industry-specializations/information-technology/cybersecurity/risk_assessment_template.md"
+        "domains/measurement/industry-specializations/information-technology/cybersecurity/risk_assessment_template.md"
       ],
       "affected_internal_references": [
         "TEMPLATE_INDEX.md",
@@ -1652,9 +1720,9 @@
       "primary_domain": "Stakeholder",
       "secondary_domains": [],
       "dependencies": [
-        "industry-specializations/information-technology/security/cybersecurity_assessment_template.md",
+        "domains/measurement/industry-specializations/information-technology/security/cybersecurity_assessment_template.md",
         "domains/planning/role-based-toolkits/project-manager/essential-templates/budget-template.md",
-        "project-lifecycle/02-planning/business-requirements/business_requirements_document_template.md"
+        "domains/measurement/project-lifecycle/02-planning/business-requirements/business_requirements_document_template.md"
       ],
       "affected_internal_references": [
         "TEMPLATE_INDEX.md",
@@ -1692,8 +1760,8 @@
         "Uncertainty"
       ],
       "dependencies": [
-        "project-assessment-suite/current-state-analysis-template.md",
-        "industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md",
+        "domains/measurement/project-assessment-suite/current-state-analysis-template.md",
+        "domains/measurement/industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md",
         "domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/enterprise-stakeholder-analysis-template.md"
       ],
       "affected_internal_references": [
@@ -1714,7 +1782,14 @@
       ],
       "batch": 4,
       "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move",
-      "action": "planned-move-not-executed"
+      "action": "executed-move-with-legacy-pointer",
+      "execution": {
+        "batch_id": "B4A",
+        "pre_batch_sha": "8f680af6990f65b4de5aedf16871e23f86ffc5c2",
+        "pre_move_source_sha256": "f9db1eb1ff403b140873fcb4dd27eb8361b4e6d6ca8f2365e4b9b135a0ef9662",
+        "evidence_file": "docs/vnext/sprint-12/b4a-migration-record.md",
+        "rollback_owner": "mirichard"
+      }
     },
     {
       "source": "project-assessment-suite/future-state-blueprint-template.md",
@@ -1725,19 +1800,20 @@
         "Uncertainty"
       ],
       "dependencies": [
-        "project-assessment-suite/current-state-analysis-template.md",
-        "industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md",
+        "domains/measurement/project-assessment-suite/current-state-analysis-template.md",
+        "domains/measurement/industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md",
         "domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/enterprise-stakeholder-analysis-template.md"
       ],
       "affected_internal_references": [
         "TEMPLATE_INDEX.md",
         "docs/templates/future-state-blueprint-template.md",
+        "domains/measurement/project-assessment-suite/current-state-analysis-template.md",
+        "domains/measurement/project-assessment-suite/future-state-blueprint-template.md",
         "meta/cross-references.json",
         "meta/domain-mapping.json",
         "meta/migration-inventory.json",
         "meta/value-flow-mapping.json",
         "project-assessment-suite/README.md",
-        "project-assessment-suite/current-state-analysis-template.md",
         "site/.lighthouseci/lhr-1755874277795.html",
         "site/.lighthouseci/lhr-1755874277795.json",
         "templates/templates.json",
@@ -1745,7 +1821,14 @@
       ],
       "batch": 4,
       "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move",
-      "action": "planned-move-not-executed"
+      "action": "executed-move-with-legacy-pointer",
+      "execution": {
+        "batch_id": "B4B",
+        "pre_batch_sha": "e00b7637d01275fc70a35d3c2552cfbc403a4e3c",
+        "pre_move_source_sha256": "76a480170b0a85dfac94be1cb12a13e8045c7c34d7c7523f424854c0c6895205",
+        "evidence_file": "docs/vnext/sprint-12/b4b-migration-record.md",
+        "rollback_owner": "mirichard"
+      }
     },
     {
       "source": "project-assessment-suite/gap-analysis-matrix-template.md",
@@ -1756,8 +1839,8 @@
         "Uncertainty"
       ],
       "dependencies": [
-        "project-assessment-suite/current-state-analysis-template.md",
-        "industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md",
+        "domains/measurement/project-assessment-suite/current-state-analysis-template.md",
+        "domains/measurement/industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md",
         "domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/enterprise-stakeholder-analysis-template.md"
       ],
       "affected_internal_references": [
@@ -1777,7 +1860,14 @@
       ],
       "batch": 4,
       "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move",
-      "action": "planned-move-not-executed"
+      "action": "executed-move-with-legacy-pointer",
+      "execution": {
+        "batch_id": "B4B",
+        "pre_batch_sha": "e00b7637d01275fc70a35d3c2552cfbc403a4e3c",
+        "pre_move_source_sha256": "feb2938dabf9aea1aac1f54f14e3c65b7c69d350050ff225825a204051511386",
+        "evidence_file": "docs/vnext/sprint-12/b4b-migration-record.md",
+        "rollback_owner": "mirichard"
+      }
     },
     {
       "source": "project-assessment-suite/governance-assessment-template.md",
@@ -1787,7 +1877,7 @@
         "Stakeholder"
       ],
       "dependencies": [
-        "project-assessment-suite/process-maturity-assessment-template.md",
+        "domains/measurement/project-assessment-suite/process-maturity-assessment-template.md",
         "domains/stakeholder/project-assessment-suite/stakeholder-engagement-assessment-template.md",
         "domains/stakeholder/business-stakeholder-suite/financial-governance/budget-dashboard-template.md"
       ],
@@ -1815,7 +1905,14 @@
       ],
       "batch": 4,
       "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move",
-      "action": "planned-move-not-executed"
+      "action": "executed-move-with-legacy-pointer",
+      "execution": {
+        "batch_id": "B4B",
+        "pre_batch_sha": "e00b7637d01275fc70a35d3c2552cfbc403a4e3c",
+        "pre_move_source_sha256": "b65b661fe88ac07616bd3115897c247633549fa2da6935d4cfadadb561b42534",
+        "evidence_file": "docs/vnext/sprint-12/b4b-migration-record.md",
+        "rollback_owner": "mirichard"
+      }
     },
     {
       "source": "industry-specializations/healthcare-pharmaceutical/compliance/gxp_training_plan_template.md",
@@ -1867,8 +1964,8 @@
         "Uncertainty"
       ],
       "dependencies": [
-        "project-assessment-suite/current-state-analysis-template.md",
-        "industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md",
+        "domains/measurement/project-assessment-suite/current-state-analysis-template.md",
+        "domains/measurement/industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md",
         "domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/enterprise-stakeholder-analysis-template.md"
       ],
       "affected_internal_references": [
@@ -1888,7 +1985,14 @@
       ],
       "batch": 4,
       "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move",
-      "action": "planned-move-not-executed"
+      "action": "executed-move-with-legacy-pointer",
+      "execution": {
+        "batch_id": "B4B",
+        "pre_batch_sha": "e00b7637d01275fc70a35d3c2552cfbc403a4e3c",
+        "pre_move_source_sha256": "88eb503bb348d07d7eb78b3c14b1e4e9be5f85faa11a349ee70ab3c9917fa4a3",
+        "evidence_file": "docs/vnext/sprint-12/b4b-migration-record.md",
+        "rollback_owner": "mirichard"
+      }
     },
     {
       "source": "industry-specializations/healthcare-pharmaceutical/regulatory/health_authority_communication_plan_template.md",
@@ -2231,7 +2335,7 @@
       ],
       "dependencies": [
         "project-lifecycle/04-monitoring-control/issue-management/issue-log-template.md",
-        "industry-specializations/information-technology/security/cybersecurity_assessment_template.md",
+        "domains/measurement/industry-specializations/information-technology/security/cybersecurity_assessment_template.md",
         "domains/stakeholder/business-stakeholder-suite/executive-dashboards/Word/Executive-Report-Templates.md"
       ],
       "affected_internal_references": [
@@ -2251,7 +2355,14 @@
       ],
       "batch": 4,
       "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move",
-      "action": "planned-move-not-executed"
+      "action": "executed-move-with-legacy-pointer",
+      "execution": {
+        "batch_id": "B4A",
+        "pre_batch_sha": "8f680af6990f65b4de5aedf16871e23f86ffc5c2",
+        "pre_move_source_sha256": "53c41ca421b970020c66faf05f1afa0691e72a0ee3627f4b553eafcb4366519a",
+        "evidence_file": "docs/vnext/sprint-12/b4a-migration-record.md",
+        "rollback_owner": "mirichard"
+      }
     },
     {
       "source": "methodology-frameworks/emerging-methods/devops/infrastructure_as_code_template.md",
@@ -2259,25 +2370,26 @@
       "primary_domain": "Measurement",
       "secondary_domains": [],
       "dependencies": [
-        "methodology-frameworks/emerging-methods/devops/devsecops_template.md",
+        "domains/measurement/methodology-frameworks/emerging-methods/devops/devsecops_template.md",
         "domains/planning/role-based-toolkits/project-manager/essential-templates/budget-template.md",
-        "methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md"
+        "domains/measurement/methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md"
       ],
       "affected_internal_references": [
         "TEMPLATE_INDEX.md",
         "docs/archive/README-20250805.md",
         "docs/methodology-guides/methodology-comparison.md",
         "docs/templates/infrastructure_as_code_template.md",
+        "domains/measurement/methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md",
+        "domains/measurement/methodology-frameworks/emerging-methods/devops/infrastructure_as_code_template.md",
+        "domains/measurement/methodology-frameworks/emerging-methods/devops/release_management_template.md",
         "industry-specializations/information-technology/software-development/ci_cd_pipeline_guide.md",
         "meta/cross-references.json",
         "meta/domain-mapping.json",
         "meta/migration-inventory.json",
         "meta/value-flow-mapping.json",
-        "methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md",
         "methodology-frameworks/emerging-methods/devops/devsecops_template.md",
         "methodology-frameworks/emerging-methods/devops/infrastructure-as-code/README.md",
         "methodology-frameworks/emerging-methods/devops/monitoring_alerting_template.md",
-        "methodology-frameworks/emerging-methods/devops/release_management_template.md",
         "site/.lighthouseci/lhr-1755874277795.html",
         "site/.lighthouseci/lhr-1755874277795.json",
         "templates/templates.json",
@@ -2285,7 +2397,14 @@
       ],
       "batch": 4,
       "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move",
-      "action": "planned-move-not-executed"
+      "action": "executed-move-with-legacy-pointer",
+      "execution": {
+        "batch_id": "B4B",
+        "pre_batch_sha": "e00b7637d01275fc70a35d3c2552cfbc403a4e3c",
+        "pre_move_source_sha256": "333e35748d8ea811a0927fb2736265c38a3cdc1c95027e2862574434ce2104ab",
+        "evidence_file": "docs/vnext/sprint-12/b4b-migration-record.md",
+        "rollback_owner": "mirichard"
+      }
     },
     {
       "source": "industry-specializations/information-technology/infrastructure/infrastructure_assessment_template.md",
@@ -2296,7 +2415,7 @@
         "Uncertainty"
       ],
       "dependencies": [
-        "project-lifecycle/02-planning/business-requirements/business_requirements_document_template.md",
+        "domains/measurement/project-lifecycle/02-planning/business-requirements/business_requirements_document_template.md",
         "domains/stakeholder/business-stakeholder-suite/executive-dashboards/powerbi-integration/executive-dashboard-template.md",
         "domains/delivery/industry-specializations/healthcare-pharmaceutical/clinical-trials/clinical_trial_protocol_template.md"
       ],
@@ -2321,7 +2440,14 @@
       ],
       "batch": 4,
       "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move",
-      "action": "planned-move-not-executed"
+      "action": "executed-move-with-legacy-pointer",
+      "execution": {
+        "batch_id": "B4A",
+        "pre_batch_sha": "8f680af6990f65b4de5aedf16871e23f86ffc5c2",
+        "pre_move_source_sha256": "a75ac25c38b9304995c9549189e6d310178497eb96f554856a6dae2d9cee0931",
+        "evidence_file": "docs/vnext/sprint-12/b4a-migration-record.md",
+        "rollback_owner": "mirichard"
+      }
     },
     {
       "source": "industry-specializations/healthcare-pharmaceutical/validation/installation_qualification_protocol_template.md",
@@ -2576,8 +2702,8 @@
         "Stakeholder"
       ],
       "dependencies": [
-        "project-assessment-suite/current-state-analysis-template.md",
-        "industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md",
+        "domains/measurement/project-assessment-suite/current-state-analysis-template.md",
+        "domains/measurement/industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md",
         "domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/enterprise-stakeholder-analysis-template.md"
       ],
       "affected_internal_references": [
@@ -2696,8 +2822,8 @@
         "Stakeholder"
       ],
       "dependencies": [
-        "project-assessment-suite/current-state-analysis-template.md",
-        "industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md",
+        "domains/measurement/project-assessment-suite/current-state-analysis-template.md",
+        "domains/measurement/industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md",
         "domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/enterprise-stakeholder-analysis-template.md"
       ],
       "affected_internal_references": [
@@ -2718,7 +2844,14 @@
       ],
       "batch": 4,
       "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move",
-      "action": "planned-move-not-executed"
+      "action": "executed-move-with-legacy-pointer",
+      "execution": {
+        "batch_id": "B4B",
+        "pre_batch_sha": "e00b7637d01275fc70a35d3c2552cfbc403a4e3c",
+        "pre_move_source_sha256": "b62c1b48b334684a651420e9c867335c92d3cd6762b35d70063098f54ac5441b",
+        "evidence_file": "docs/vnext/sprint-12/b4b-migration-record.md",
+        "rollback_owner": "mirichard"
+      }
     },
     {
       "source": "role-based-toolkits/product-owner/okr-template.md",
@@ -2729,7 +2862,7 @@
       ],
       "dependencies": [
         "domains/uncertainty/role-based-toolkits/project-manager/essential-templates/meeting-templates.md",
-        "methodology-frameworks/emerging-methods/devops/monitoring_alerting_template.md",
+        "domains/measurement/methodology-frameworks/emerging-methods/devops/monitoring_alerting_template.md",
         "domains/stakeholder/project-assessment-suite/stakeholder-engagement-assessment-template.md"
       ],
       "affected_internal_references": [
@@ -3073,9 +3206,9 @@
         "Uncertainty"
       ],
       "dependencies": [
-        "project-assessment-suite/risk-management-assessment-template.md",
-        "project-assessment-suite/current-state-analysis-template.md",
-        "industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md"
+        "domains/measurement/project-assessment-suite/risk-management-assessment-template.md",
+        "domains/measurement/project-assessment-suite/current-state-analysis-template.md",
+        "domains/measurement/industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md"
       ],
       "affected_internal_references": [
         "TEMPLATE_INDEX.md",
@@ -3084,6 +3217,8 @@
         "docs/decision-engine/bundles/scaled-agile-large-bundle.md",
         "docs/decision-engine/template-decision-tree.md",
         "docs/templates/process-maturity-assessment-template.md",
+        "domains/measurement/project-assessment-suite/current-state-analysis-template.md",
+        "domains/measurement/project-assessment-suite/process-maturity-assessment-template.md",
         "meta/architecture-research/771-value-flow-scenario-walkthroughs.md",
         "meta/architecture-research/806-rules-engine-implementation.md",
         "meta/cross-references.json",
@@ -3091,7 +3226,6 @@
         "meta/migration-inventory.json",
         "meta/value-flow-mapping.json",
         "project-assessment-suite/README.md",
-        "project-assessment-suite/current-state-analysis-template.md",
         "project-lifecycle/04-monitoring-control/progress-tracking/kpi-mapping-template.md",
         "site/.lighthouseci/lhr-1755874277795.html",
         "site/.lighthouseci/lhr-1755874277795.json",
@@ -3100,7 +3234,14 @@
       ],
       "batch": 4,
       "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move",
-      "action": "planned-move-not-executed"
+      "action": "executed-move-with-legacy-pointer",
+      "execution": {
+        "batch_id": "B4B",
+        "pre_batch_sha": "e00b7637d01275fc70a35d3c2552cfbc403a4e3c",
+        "pre_move_source_sha256": "9ce118c133948c01760541baaa1c563bb08d2a6c3f4b2c3996f8094b630b5c54",
+        "evidence_file": "docs/vnext/sprint-12/b4b-migration-record.md",
+        "rollback_owner": "mirichard"
+      }
     },
     {
       "source": "industry-specializations/healthcare-pharmaceutical/validation/process_validation_master_plan_template.md",
@@ -3242,7 +3383,7 @@
       "dependencies": [
         "domains/uncertainty/project-assessment-suite/assessment-report-template.md",
         "domains/uncertainty/role-based-toolkits/product-owner/backlog-management-template.md",
-        "industry-specializations/information-technology/security/cybersecurity_assessment_template.md"
+        "domains/measurement/industry-specializations/information-technology/security/cybersecurity_assessment_template.md"
       ],
       "affected_internal_references": [
         "README.md",
@@ -3583,8 +3724,8 @@
         "Uncertainty"
       ],
       "dependencies": [
-        "project-assessment-suite/current-state-analysis-template.md",
-        "industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md",
+        "domains/measurement/project-assessment-suite/current-state-analysis-template.md",
+        "domains/measurement/industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md",
         "domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/enterprise-stakeholder-analysis-template.md"
       ],
       "affected_internal_references": [
@@ -3615,7 +3756,14 @@
       ],
       "batch": 4,
       "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move",
-      "action": "planned-move-not-executed"
+      "action": "executed-move-with-legacy-pointer",
+      "execution": {
+        "batch_id": "B4B",
+        "pre_batch_sha": "e00b7637d01275fc70a35d3c2552cfbc403a4e3c",
+        "pre_move_source_sha256": "f788a4a046bddd95b451def6c03fae9ac54733ac329ec2fb4e0a15609112f047",
+        "evidence_file": "docs/vnext/sprint-12/b4b-migration-record.md",
+        "rollback_owner": "mirichard"
+      }
     },
     {
       "source": "templates/traditional/Traditional/Process_Groups/Planning/project_management_plan_template.md",
@@ -4014,9 +4162,9 @@
         "Uncertainty"
       ],
       "dependencies": [
-        "methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md",
-        "project-lifecycle/02-planning/resource-planning/resource-management-plan-template.md",
-        "project-lifecycle/02-planning/risk-management/risk-management-plan-template.md"
+        "domains/measurement/methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md",
+        "domains/measurement/project-lifecycle/02-planning/resource-planning/resource-management-plan-template.md",
+        "domains/measurement/project-lifecycle/02-planning/risk-management/risk-management-plan-template.md"
       ],
       "affected_internal_references": [
         "TEMPLATE_INDEX.md",
@@ -4039,7 +4187,14 @@
       ],
       "batch": 4,
       "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move",
-      "action": "planned-move-not-executed"
+      "action": "executed-move-with-legacy-pointer",
+      "execution": {
+        "batch_id": "B4A",
+        "pre_batch_sha": "8f680af6990f65b4de5aedf16871e23f86ffc5c2",
+        "pre_move_source_sha256": "0ebf8b0f77543353af7be4cafe19986c6af515d81e399763ae80cc8e475b6778",
+        "evidence_file": "docs/vnext/sprint-12/b4a-migration-record.md",
+        "rollback_owner": "mirichard"
+      }
     },
     {
       "source": "project-assessment-suite/remediation-action-plan-template.md",
@@ -4050,8 +4205,8 @@
         "Uncertainty"
       ],
       "dependencies": [
-        "project-assessment-suite/current-state-analysis-template.md",
-        "industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md",
+        "domains/measurement/project-assessment-suite/current-state-analysis-template.md",
+        "domains/measurement/industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md",
         "domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/enterprise-stakeholder-analysis-template.md"
       ],
       "affected_internal_references": [
@@ -4071,7 +4226,14 @@
       ],
       "batch": 4,
       "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move",
-      "action": "planned-move-not-executed"
+      "action": "executed-move-with-legacy-pointer",
+      "execution": {
+        "batch_id": "B4B",
+        "pre_batch_sha": "e00b7637d01275fc70a35d3c2552cfbc403a4e3c",
+        "pre_move_source_sha256": "b05e7086adf4b00b88cc8d1d395e9242e9c2d97bd27ce54ba54d3955bac4b5f0",
+        "evidence_file": "docs/vnext/sprint-12/b4b-migration-record.md",
+        "rollback_owner": "mirichard"
+      }
     },
     {
       "source": "industry-specializations/information-technology/software-development/requirements_specification_template.md",
@@ -4160,8 +4322,8 @@
       "secondary_domains": [],
       "dependencies": [
         "business-stakeholder-suite/executive-dashboards/tableau-integration/executive-dashboard-template.md",
-        "project-assessment-suite/risk-management-assessment-template.md",
-        "project-assessment-suite/process-maturity-assessment-template.md"
+        "domains/measurement/project-assessment-suite/risk-management-assessment-template.md",
+        "domains/measurement/project-assessment-suite/process-maturity-assessment-template.md"
       ],
       "affected_internal_references": [
         "TEMPLATE_INDEX.md",
@@ -4178,7 +4340,14 @@
       ],
       "batch": 4,
       "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move",
-      "action": "planned-move-not-executed"
+      "action": "executed-move-with-legacy-pointer",
+      "execution": {
+        "batch_id": "B4B",
+        "pre_batch_sha": "e00b7637d01275fc70a35d3c2552cfbc403a4e3c",
+        "pre_move_source_sha256": "b6484e6dc9fbda8ce29a97f40f51f71a6e86b0c78ca7054922bfc8ac76513f0b",
+        "evidence_file": "docs/vnext/sprint-12/b4b-migration-record.md",
+        "rollback_owner": "mirichard"
+      }
     },
     {
       "source": "project-lifecycle/02-planning/resource-planning/resource-management-plan-template.md",
@@ -4189,9 +4358,9 @@
         "Uncertainty"
       ],
       "dependencies": [
-        "methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md",
-        "methodology-frameworks/emerging-methods/devops/release_management_template.md",
-        "project-lifecycle/02-planning/risk-management/risk-management-plan-template.md"
+        "domains/measurement/methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md",
+        "domains/measurement/methodology-frameworks/emerging-methods/devops/release_management_template.md",
+        "domains/measurement/project-lifecycle/02-planning/risk-management/risk-management-plan-template.md"
       ],
       "affected_internal_references": [
         "TEMPLATE_INDEX.md",
@@ -4215,7 +4384,14 @@
       ],
       "batch": 4,
       "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move",
-      "action": "planned-move-not-executed"
+      "action": "executed-move-with-legacy-pointer",
+      "execution": {
+        "batch_id": "B4A",
+        "pre_batch_sha": "8f680af6990f65b4de5aedf16871e23f86ffc5c2",
+        "pre_move_source_sha256": "ff7fda80410dbe59428077dbc9000149f9c5f969b842e1c58bf9be239627e93c",
+        "evidence_file": "docs/vnext/sprint-12/b4a-migration-record.md",
+        "rollback_owner": "mirichard"
+      }
     },
     {
       "source": "industry-specializations/information-technology/cybersecurity/risk_assessment_template.md",
@@ -4227,7 +4403,7 @@
       ],
       "dependencies": [
         "domains/planning/role-based-toolkits/project-manager/essential-templates/budget-template.md",
-        "industry-specializations/information-technology/software-development/test_plan_template.md",
+        "domains/measurement/industry-specializations/information-technology/software-development/test_plan_template.md",
         "business-stakeholder-suite/executive-dashboards/tableau-integration/executive-dashboard-template.md"
       ],
       "affected_internal_references": [
@@ -4258,7 +4434,14 @@
       ],
       "batch": 4,
       "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move",
-      "action": "planned-move-not-executed"
+      "action": "executed-move-with-legacy-pointer",
+      "execution": {
+        "batch_id": "B4A",
+        "pre_batch_sha": "8f680af6990f65b4de5aedf16871e23f86ffc5c2",
+        "pre_move_source_sha256": "06c0c9d00e9cfc4c104ece6a4834bb0b7c579d01049d3a56af9795e781ed992d",
+        "evidence_file": "docs/vnext/sprint-12/b4a-migration-record.md",
+        "rollback_owner": "mirichard"
+      }
     },
     {
       "source": "project-assessment-suite/risk-management-assessment-template.md",
@@ -4269,7 +4452,7 @@
         "Uncertainty"
       ],
       "dependencies": [
-        "project-assessment-suite/process-maturity-assessment-template.md",
+        "domains/measurement/project-assessment-suite/process-maturity-assessment-template.md",
         "domains/planning/role-based-toolkits/project-manager/essential-templates/budget-template.md",
         "domains/uncertainty/project-assessment-suite/assessment-report-template.md"
       ],
@@ -4293,7 +4476,14 @@
       ],
       "batch": 4,
       "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move",
-      "action": "planned-move-not-executed"
+      "action": "executed-move-with-legacy-pointer",
+      "execution": {
+        "batch_id": "B4B",
+        "pre_batch_sha": "e00b7637d01275fc70a35d3c2552cfbc403a4e3c",
+        "pre_move_source_sha256": "8cc61fea63d4a7f8a8d36b2f27b2075a8e7311b57c3e3d4da67ae4fe1ccb2209",
+        "evidence_file": "docs/vnext/sprint-12/b4b-migration-record.md",
+        "rollback_owner": "mirichard"
+      }
     },
     {
       "source": "project-lifecycle/02-planning/risk-management/risk-management-plan-template.md",
@@ -4304,9 +4494,9 @@
         "Uncertainty"
       ],
       "dependencies": [
-        "methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md",
-        "methodology-frameworks/emerging-methods/devops/release_management_template.md",
-        "project-lifecycle/02-planning/resource-planning/resource-management-plan-template.md"
+        "domains/measurement/methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md",
+        "domains/measurement/methodology-frameworks/emerging-methods/devops/release_management_template.md",
+        "domains/measurement/project-lifecycle/02-planning/resource-planning/resource-management-plan-template.md"
       ],
       "affected_internal_references": [
         "TEMPLATE_INDEX.md",
@@ -4331,7 +4521,14 @@
       ],
       "batch": 4,
       "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move",
-      "action": "planned-move-not-executed"
+      "action": "executed-move-with-legacy-pointer",
+      "execution": {
+        "batch_id": "B4A",
+        "pre_batch_sha": "8f680af6990f65b4de5aedf16871e23f86ffc5c2",
+        "pre_move_source_sha256": "5bc34126cd641661d98b88879810de59dc8f516742e388bdde1e9c4d7f190ab1",
+        "evidence_file": "docs/vnext/sprint-12/b4a-migration-record.md",
+        "rollback_owner": "mirichard"
+      }
     },
     {
       "source": "project-lifecycle/02-planning/risk-management/risk-register-template.md",
@@ -4648,9 +4845,9 @@
         "Stakeholder"
       ],
       "dependencies": [
-        "methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md",
+        "domains/measurement/methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md",
         "domains/uncertainty/role-based-toolkits/project-manager/essential-templates/meeting-templates.md",
-        "methodology-frameworks/emerging-methods/devops/release_management_template.md"
+        "domains/measurement/methodology-frameworks/emerging-methods/devops/release_management_template.md"
       ],
       "affected_internal_references": [
         "TEMPLATE_INDEX.md",
@@ -4889,7 +5086,7 @@
       "dependencies": [
         "domains/delivery/project-assessment-suite/agile-project-assessment-template.md",
         "domains/stakeholder/role-based-toolkits/product-owner/okr-template.md",
-        "project-assessment-suite/process-maturity-assessment-template.md"
+        "domains/measurement/project-assessment-suite/process-maturity-assessment-template.md"
       ],
       "affected_internal_references": [
         "TEMPLATE_INDEX.md",
@@ -5020,9 +5217,9 @@
         "Stakeholder"
       ],
       "dependencies": [
-        "methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md",
-        "methodology-frameworks/emerging-methods/devops/release_management_template.md",
-        "project-lifecycle/02-planning/resource-planning/resource-management-plan-template.md"
+        "domains/measurement/methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md",
+        "domains/measurement/methodology-frameworks/emerging-methods/devops/release_management_template.md",
+        "domains/measurement/project-lifecycle/02-planning/resource-planning/resource-management-plan-template.md"
       ],
       "affected_internal_references": [
         "TEMPLATE_INDEX.md",
@@ -5102,8 +5299,8 @@
         "Uncertainty"
       ],
       "dependencies": [
-        "project-assessment-suite/current-state-analysis-template.md",
-        "industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md",
+        "domains/measurement/project-assessment-suite/current-state-analysis-template.md",
+        "domains/measurement/industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md",
         "domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/enterprise-stakeholder-analysis-template.md"
       ],
       "affected_internal_references": [
@@ -5122,7 +5319,14 @@
       ],
       "batch": 4,
       "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move",
-      "action": "planned-move-not-executed"
+      "action": "executed-move-with-legacy-pointer",
+      "execution": {
+        "batch_id": "B4A",
+        "pre_batch_sha": "8f680af6990f65b4de5aedf16871e23f86ffc5c2",
+        "pre_move_source_sha256": "260838d45353513cd1ffa16b484517a6bf0cb37460492bb2049a6427f16bf2fa",
+        "evidence_file": "docs/vnext/sprint-12/b4a-migration-record.md",
+        "rollback_owner": "mirichard"
+      }
     },
     {
       "source": "industry-specializations/information-technology/software-development/test_plan_template.md",
@@ -5133,8 +5337,8 @@
         "Uncertainty"
       ],
       "dependencies": [
-        "project-assessment-suite/current-state-analysis-template.md",
-        "industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md",
+        "domains/measurement/project-assessment-suite/current-state-analysis-template.md",
+        "domains/measurement/industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md",
         "domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/enterprise-stakeholder-analysis-template.md"
       ],
       "affected_internal_references": [
@@ -5154,7 +5358,14 @@
       ],
       "batch": 4,
       "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move",
-      "action": "planned-move-not-executed"
+      "action": "executed-move-with-legacy-pointer",
+      "execution": {
+        "batch_id": "B4A",
+        "pre_batch_sha": "8f680af6990f65b4de5aedf16871e23f86ffc5c2",
+        "pre_move_source_sha256": "d2874996ef634c94ef623e631fd37fedb49fb609be1d9f8e55f34143b5b1f374",
+        "evidence_file": "docs/vnext/sprint-12/b4a-migration-record.md",
+        "rollback_owner": "mirichard"
+      }
     },
     {
       "source": "role-based-toolkits/project-manager/essential-templates/timesheet-tracking-template.md",
@@ -5236,8 +5447,8 @@
         "Uncertainty"
       ],
       "dependencies": [
-        "project-assessment-suite/current-state-analysis-template.md",
-        "industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md",
+        "domains/measurement/project-assessment-suite/current-state-analysis-template.md",
+        "domains/measurement/industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md",
         "domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/enterprise-stakeholder-analysis-template.md"
       ],
       "affected_internal_references": [

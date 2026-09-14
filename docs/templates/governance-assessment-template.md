@@ -15,7 +15,7 @@
 
 title: "Governance Assessment Template"
 
-[**➡️ View Template File**](/project-assessment-suite/governance-assessment-template.md)
+[**➡️ View Template File**](/domains/measurement/project-assessment-suite/governance-assessment-template.md)
 
 ## 📈 Quality Score
 

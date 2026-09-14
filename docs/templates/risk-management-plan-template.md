@@ -15,7 +15,7 @@
 
 title: "Risk Management Plan Template"
 
-[**➡️ View Template File**](/project-lifecycle/02-planning/risk-management/risk-management-plan-template.md)
+[**➡️ View Template File**](/domains/measurement/project-lifecycle/02-planning/risk-management/risk-management-plan-template.md)
 
 ## 📈 Quality Score
 

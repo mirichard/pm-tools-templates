@@ -15,7 +15,7 @@
 
 title: "Handover Template"
 
-[**➡️ View Template File**](/role-based-toolkits/project-manager/essential-templates/handover-template.md)
+[**➡️ View Template File**](/domains/measurement/role-based-toolkits/project-manager/essential-templates/handover-template.md)
 
 ## 📈 Quality Score
 

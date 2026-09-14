@@ -43,7 +43,7 @@ Effective risk management is the difference between projects that succeed despit
 - Perfect for complex programs and portfolios
 
 ### Risk Management Plan Template
-**[→ Download: Risk Management Plan Template](risk-management-plan-template.md)**
+**[→ Download: Risk Management Plan Template](../../../domains/measurement/project-lifecycle/02-planning/risk-management/risk-management-plan-template.md)**
 - Complete framework for organizing risk activities
 - Roles, responsibilities, and processes
 - Risk categories and scoring methodology

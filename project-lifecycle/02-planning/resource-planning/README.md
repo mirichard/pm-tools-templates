@@ -22,7 +22,7 @@ Resource planning is about ensuring your project has the people, skills, and cap
 ## 🚀 Quick Start Templates
 
 ### Resource Management Plan
-**[→ Download: Resource Management Plan Template](resource-management-plan-template.md)**
+**[→ Download: Resource Management Plan Template](../../../domains/measurement/project-lifecycle/02-planning/resource-planning/resource-management-plan-template.md)**
 - Complete framework for resource planning and management
 - Roles, responsibilities, and reporting relationships
 <a id="team-charter-raci-matrix"></a>
