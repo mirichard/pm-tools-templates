@@ -234,7 +234,7 @@
           "similarity": 82
         },
         {
-          "path": "project-assessment-suite/process-maturity-assessment-template.md",
+          "path": "domains/measurement/project-assessment-suite/process-maturity-assessment-template.md",
           "title": "Process Maturity Assessment Template",
           "methodology": "universal",
           "tags": [
@@ -497,7 +497,7 @@
           "similarity": 83
         },
         {
-          "path": "methodology-frameworks/emerging-methods/devops/monitoring_alerting_template.md",
+          "path": "domains/measurement/methodology-frameworks/emerging-methods/devops/monitoring_alerting_template.md",
           "title": "Monitoring Alerting Template",
           "methodology": "universal",
           "tags": [
@@ -873,7 +873,7 @@
           "similarity": 83
         },
         {
-          "path": "project-assessment-suite/risk-management-assessment-template.md",
+          "path": "domains/measurement/project-assessment-suite/risk-management-assessment-template.md",
           "title": "Risk Management Assessment Template",
           "methodology": "universal",
           "tags": [
@@ -1369,7 +1369,7 @@
           "similarity": 93
         },
         {
-          "path": "project-assessment-suite/future-state-blueprint-template.md",
+          "path": "domains/measurement/project-assessment-suite/future-state-blueprint-template.md",
           "title": "Future State Blueprint Template",
           "methodology": "universal",
           "tags": [
@@ -2708,7 +2708,7 @@
           "similarity": 100
         },
         {
-          "path": "project-assessment-suite/future-state-blueprint-template.md",
+          "path": "domains/measurement/project-assessment-suite/future-state-blueprint-template.md",
           "title": "Future State Blueprint Template",
           "methodology": "universal",
           "tags": [
@@ -2723,7 +2723,7 @@
           "similarity": 100
         },
         {
-          "path": "project-assessment-suite/gap-analysis-matrix-template.md",
+          "path": "domains/measurement/project-assessment-suite/gap-analysis-matrix-template.md",
           "title": "Gap Analysis Matrix Template",
           "methodology": "universal",
           "tags": [
@@ -2969,7 +2969,7 @@
           "similarity": 75
         },
         {
-          "path": "project-assessment-suite/resource-management-assessment-template.md",
+          "path": "domains/measurement/project-assessment-suite/resource-management-assessment-template.md",
           "title": "Resource Management Assessment Template",
           "methodology": "universal",
           "tags": [
@@ -3009,7 +3009,7 @@
       ]
     },
     {
-      "path": "methodology-frameworks/emerging-methods/devops/devsecops_template.md",
+      "path": "domains/measurement/methodology-frameworks/emerging-methods/devops/devsecops_template.md",
       "title": "Devsecops Template",
       "methodology": "universal",
       "complexity": "advanced",
@@ -3086,6 +3086,9 @@
           ],
           "similarity": 92
         }
+      ],
+      "alternate_paths": [
+        "methodology-frameworks/emerging-methods/devops/devsecops_template.md"
       ]
     },
     {
@@ -3158,7 +3161,7 @@
           "similarity": 100
         },
         {
-          "path": "project-assessment-suite/future-state-blueprint-template.md",
+          "path": "domains/measurement/project-assessment-suite/future-state-blueprint-template.md",
           "title": "Future State Blueprint Template",
           "methodology": "universal",
           "tags": [
@@ -3173,7 +3176,7 @@
           "similarity": 100
         },
         {
-          "path": "project-assessment-suite/gap-analysis-matrix-template.md",
+          "path": "domains/measurement/project-assessment-suite/gap-analysis-matrix-template.md",
           "title": "Gap Analysis Matrix Template",
           "methodology": "universal",
           "tags": [
@@ -3234,7 +3237,7 @@
           "similarity": 75
         },
         {
-          "path": "project-assessment-suite/resource-management-assessment-template.md",
+          "path": "domains/measurement/project-assessment-suite/resource-management-assessment-template.md",
           "title": "Resource Management Assessment Template",
           "methodology": "universal",
           "tags": [
@@ -3431,7 +3434,7 @@
           "similarity": 100
         },
         {
-          "path": "project-assessment-suite/future-state-blueprint-template.md",
+          "path": "domains/measurement/project-assessment-suite/future-state-blueprint-template.md",
           "title": "Future State Blueprint Template",
           "methodology": "universal",
           "tags": [
@@ -3446,7 +3449,7 @@
           "similarity": 100
         },
         {
-          "path": "project-assessment-suite/gap-analysis-matrix-template.md",
+          "path": "domains/measurement/project-assessment-suite/gap-analysis-matrix-template.md",
           "title": "Gap Analysis Matrix Template",
           "methodology": "universal",
           "tags": [
@@ -3904,7 +3907,7 @@
           "similarity": 100
         },
         {
-          "path": "project-assessment-suite/future-state-blueprint-template.md",
+          "path": "domains/measurement/project-assessment-suite/future-state-blueprint-template.md",
           "title": "Future State Blueprint Template",
           "methodology": "universal",
           "tags": [
@@ -3919,7 +3922,7 @@
           "similarity": 100
         },
         {
-          "path": "project-assessment-suite/gap-analysis-matrix-template.md",
+          "path": "domains/measurement/project-assessment-suite/gap-analysis-matrix-template.md",
           "title": "Gap Analysis Matrix Template",
           "methodology": "universal",
           "tags": [
@@ -3939,7 +3942,7 @@
       ]
     },
     {
-      "path": "project-assessment-suite/future-state-blueprint-template.md",
+      "path": "domains/measurement/project-assessment-suite/future-state-blueprint-template.md",
       "title": "Future State Blueprint Template",
       "methodology": "universal",
       "complexity": "advanced",
@@ -4023,7 +4026,7 @@
           "similarity": 100
         },
         {
-          "path": "project-assessment-suite/gap-analysis-matrix-template.md",
+          "path": "domains/measurement/project-assessment-suite/gap-analysis-matrix-template.md",
           "title": "Gap Analysis Matrix Template",
           "methodology": "universal",
           "tags": [
@@ -4037,10 +4040,13 @@
           ],
           "similarity": 100
         }
+      ],
+      "alternate_paths": [
+        "project-assessment-suite/future-state-blueprint-template.md"
       ]
     },
     {
-      "path": "project-assessment-suite/gap-analysis-matrix-template.md",
+      "path": "domains/measurement/project-assessment-suite/gap-analysis-matrix-template.md",
       "title": "Gap Analysis Matrix Template",
       "methodology": "universal",
       "complexity": "advanced",
@@ -4124,7 +4130,7 @@
           "similarity": 100
         },
         {
-          "path": "project-assessment-suite/future-state-blueprint-template.md",
+          "path": "domains/measurement/project-assessment-suite/future-state-blueprint-template.md",
           "title": "Future State Blueprint Template",
           "methodology": "universal",
           "tags": [
@@ -4138,10 +4144,13 @@
           ],
           "similarity": 100
         }
+      ],
+      "alternate_paths": [
+        "project-assessment-suite/gap-analysis-matrix-template.md"
       ]
     },
     {
-      "path": "project-assessment-suite/governance-assessment-template.md",
+      "path": "domains/measurement/project-assessment-suite/governance-assessment-template.md",
       "title": "Governance Assessment Template",
       "methodology": "universal",
       "complexity": "starter",
@@ -4162,7 +4171,7 @@
       ],
       "relatedTemplates": [
         {
-          "path": "project-assessment-suite/process-maturity-assessment-template.md",
+          "path": "domains/measurement/project-assessment-suite/process-maturity-assessment-template.md",
           "title": "Process Maturity Assessment Template",
           "methodology": "universal",
           "tags": [
@@ -4204,7 +4213,7 @@
           "similarity": 73
         },
         {
-          "path": "methodology-frameworks/emerging-methods/devops/monitoring_alerting_template.md",
+          "path": "domains/measurement/methodology-frameworks/emerging-methods/devops/monitoring_alerting_template.md",
           "title": "Monitoring Alerting Template",
           "methodology": "universal",
           "tags": [
@@ -4231,6 +4240,9 @@
           ],
           "similarity": 73
         }
+      ],
+      "alternate_paths": [
+        "project-assessment-suite/governance-assessment-template.md"
       ]
     },
     {
@@ -4335,7 +4347,7 @@
       ]
     },
     {
-      "path": "role-based-toolkits/project-manager/essential-templates/handover-template.md",
+      "path": "domains/measurement/role-based-toolkits/project-manager/essential-templates/handover-template.md",
       "title": "Handover Template",
       "methodology": "universal",
       "complexity": "advanced",
@@ -4419,7 +4431,7 @@
           "similarity": 100
         },
         {
-          "path": "project-assessment-suite/future-state-blueprint-template.md",
+          "path": "domains/measurement/project-assessment-suite/future-state-blueprint-template.md",
           "title": "Future State Blueprint Template",
           "methodology": "universal",
           "tags": [
@@ -4433,6 +4445,9 @@
           ],
           "similarity": 100
         }
+      ],
+      "alternate_paths": [
+        "role-based-toolkits/project-manager/essential-templates/handover-template.md"
       ]
     },
     {
@@ -4885,7 +4900,7 @@
           "similarity": 80
         },
         {
-          "path": "project-assessment-suite/risk-management-assessment-template.md",
+          "path": "domains/measurement/project-assessment-suite/risk-management-assessment-template.md",
           "title": "Risk Management Assessment Template",
           "methodology": "universal",
           "tags": [
@@ -5290,7 +5305,7 @@
           "similarity": 83
         },
         {
-          "path": "methodology-frameworks/emerging-methods/devops/monitoring_alerting_template.md",
+          "path": "domains/measurement/methodology-frameworks/emerging-methods/devops/monitoring_alerting_template.md",
           "title": "Monitoring Alerting Template",
           "methodology": "universal",
           "tags": [
@@ -5309,7 +5324,7 @@
       ]
     },
     {
-      "path": "methodology-frameworks/emerging-methods/devops/infrastructure_as_code_template.md",
+      "path": "domains/measurement/methodology-frameworks/emerging-methods/devops/infrastructure_as_code_template.md",
       "title": "Infrastructure As Code Template",
       "methodology": "universal",
       "complexity": "advanced",
@@ -5329,7 +5344,7 @@
       ],
       "relatedTemplates": [
         {
-          "path": "methodology-frameworks/emerging-methods/devops/devsecops_template.md",
+          "path": "domains/measurement/methodology-frameworks/emerging-methods/devops/devsecops_template.md",
           "title": "Devsecops Template",
           "methodology": "universal",
           "tags": [
@@ -5383,6 +5398,9 @@
           ],
           "similarity": 75
         }
+      ],
+      "alternate_paths": [
+        "methodology-frameworks/emerging-methods/devops/infrastructure_as_code_template.md"
       ]
     },
     {
@@ -6153,7 +6171,7 @@
           "similarity": 93
         },
         {
-          "path": "project-assessment-suite/future-state-blueprint-template.md",
+          "path": "domains/measurement/project-assessment-suite/future-state-blueprint-template.md",
           "title": "Future State Blueprint Template",
           "methodology": "universal",
           "tags": [
@@ -6337,7 +6355,7 @@
           "similarity": 73
         },
         {
-          "path": "project-assessment-suite/risk-management-assessment-template.md",
+          "path": "domains/measurement/project-assessment-suite/risk-management-assessment-template.md",
           "title": "Risk Management Assessment Template",
           "methodology": "universal",
           "tags": [
@@ -6356,7 +6374,7 @@
       ]
     },
     {
-      "path": "methodology-frameworks/emerging-methods/devops/monitoring_alerting_template.md",
+      "path": "domains/measurement/methodology-frameworks/emerging-methods/devops/monitoring_alerting_template.md",
       "title": "Monitoring Alerting Template",
       "methodology": "universal",
       "complexity": "advanced",
@@ -6439,7 +6457,7 @@
           "similarity": 93
         },
         {
-          "path": "project-assessment-suite/future-state-blueprint-template.md",
+          "path": "domains/measurement/project-assessment-suite/future-state-blueprint-template.md",
           "title": "Future State Blueprint Template",
           "methodology": "universal",
           "tags": [
@@ -6453,6 +6471,9 @@
           ],
           "similarity": 93
         }
+      ],
+      "alternate_paths": [
+        "methodology-frameworks/emerging-methods/devops/monitoring_alerting_template.md"
       ]
     },
     {
@@ -6495,7 +6516,7 @@
           "similarity": 92
         },
         {
-          "path": "methodology-frameworks/emerging-methods/devops/monitoring_alerting_template.md",
+          "path": "domains/measurement/methodology-frameworks/emerging-methods/devops/monitoring_alerting_template.md",
           "title": "Monitoring Alerting Template",
           "methodology": "universal",
           "tags": [
@@ -7297,7 +7318,7 @@
       ]
     },
     {
-      "path": "project-assessment-suite/process-maturity-assessment-template.md",
+      "path": "domains/measurement/project-assessment-suite/process-maturity-assessment-template.md",
       "title": "Process Maturity Assessment Template",
       "methodology": "universal",
       "complexity": "starter",
@@ -7321,7 +7342,7 @@
       ],
       "relatedTemplates": [
         {
-          "path": "project-assessment-suite/risk-management-assessment-template.md",
+          "path": "domains/measurement/project-assessment-suite/risk-management-assessment-template.md",
           "title": "Risk Management Assessment Template",
           "methodology": "universal",
           "tags": [
@@ -7394,6 +7415,9 @@
           ],
           "similarity": 90
         }
+      ],
+      "alternate_paths": [
+        "project-assessment-suite/process-maturity-assessment-template.md"
       ]
     },
     {
@@ -8518,7 +8542,7 @@
       ]
     },
     {
-      "path": "project-assessment-suite/project-health-assessment-template.md",
+      "path": "domains/measurement/project-assessment-suite/project-health-assessment-template.md",
       "title": "Project Health Assessment Template",
       "methodology": "universal",
       "complexity": "advanced",
@@ -8602,7 +8626,7 @@
           "similarity": 100
         },
         {
-          "path": "project-assessment-suite/future-state-blueprint-template.md",
+          "path": "domains/measurement/project-assessment-suite/future-state-blueprint-template.md",
           "title": "Future State Blueprint Template",
           "methodology": "universal",
           "tags": [
@@ -8616,6 +8640,9 @@
           ],
           "similarity": 100
         }
+      ],
+      "alternate_paths": [
+        "project-assessment-suite/project-health-assessment-template.md"
       ]
     },
     {
@@ -9697,7 +9724,7 @@
       ]
     },
     {
-      "path": "project-assessment-suite/remediation-action-plan-template.md",
+      "path": "domains/measurement/project-assessment-suite/remediation-action-plan-template.md",
       "title": "Remediation Action Plan Template",
       "methodology": "universal",
       "complexity": "advanced",
@@ -9781,7 +9808,7 @@
           "similarity": 100
         },
         {
-          "path": "project-assessment-suite/future-state-blueprint-template.md",
+          "path": "domains/measurement/project-assessment-suite/future-state-blueprint-template.md",
           "title": "Future State Blueprint Template",
           "methodology": "universal",
           "tags": [
@@ -9795,6 +9822,9 @@
           ],
           "similarity": 100
         }
+      ],
+      "alternate_paths": [
+        "project-assessment-suite/remediation-action-plan-template.md"
       ]
     },
     {
@@ -9992,7 +10022,7 @@
       ]
     },
     {
-      "path": "project-assessment-suite/resource-management-assessment-template.md",
+      "path": "domains/measurement/project-assessment-suite/resource-management-assessment-template.md",
       "title": "Resource Management Assessment Template",
       "methodology": "universal",
       "complexity": "starter",
@@ -10024,7 +10054,7 @@
           "similarity": 78
         },
         {
-          "path": "project-assessment-suite/risk-management-assessment-template.md",
+          "path": "domains/measurement/project-assessment-suite/risk-management-assessment-template.md",
           "title": "Risk Management Assessment Template",
           "methodology": "universal",
           "tags": [
@@ -10038,7 +10068,7 @@
           "similarity": 75
         },
         {
-          "path": "project-assessment-suite/process-maturity-assessment-template.md",
+          "path": "domains/measurement/project-assessment-suite/process-maturity-assessment-template.md",
           "title": "Process Maturity Assessment Template",
           "methodology": "universal",
           "tags": [
@@ -10053,7 +10083,7 @@
           "similarity": 71
         },
         {
-          "path": "project-assessment-suite/governance-assessment-template.md",
+          "path": "domains/measurement/project-assessment-suite/governance-assessment-template.md",
           "title": "Governance Assessment Template",
           "methodology": "universal",
           "tags": [
@@ -10077,6 +10107,9 @@
           ],
           "similarity": 70
         }
+      ],
+      "alternate_paths": [
+        "project-assessment-suite/resource-management-assessment-template.md"
       ]
     },
     {
@@ -10258,7 +10291,7 @@
       ]
     },
     {
-      "path": "project-assessment-suite/risk-management-assessment-template.md",
+      "path": "domains/measurement/project-assessment-suite/risk-management-assessment-template.md",
       "title": "Risk Management Assessment Template",
       "methodology": "universal",
       "complexity": "starter",
@@ -10281,7 +10314,7 @@
       ],
       "relatedTemplates": [
         {
-          "path": "project-assessment-suite/process-maturity-assessment-template.md",
+          "path": "domains/measurement/project-assessment-suite/process-maturity-assessment-template.md",
           "title": "Process Maturity Assessment Template",
           "methodology": "universal",
           "tags": [
@@ -10351,6 +10384,9 @@
           ],
           "similarity": 83
         }
+      ],
+      "alternate_paths": [
+        "project-assessment-suite/risk-management-assessment-template.md"
       ]
     },
     {
@@ -11643,7 +11679,7 @@
           "similarity": 90
         },
         {
-          "path": "project-assessment-suite/process-maturity-assessment-template.md",
+          "path": "domains/measurement/project-assessment-suite/process-maturity-assessment-template.md",
           "title": "Process Maturity Assessment Template",
           "methodology": "universal",
           "tags": [
@@ -11672,7 +11708,7 @@
           "similarity": 82
         },
         {
-          "path": "methodology-frameworks/emerging-methods/devops/monitoring_alerting_template.md",
+          "path": "domains/measurement/methodology-frameworks/emerging-methods/devops/monitoring_alerting_template.md",
           "title": "Monitoring Alerting Template",
           "methodology": "universal",
           "tags": [
@@ -12145,7 +12181,7 @@
           "similarity": 93
         },
         {
-          "path": "project-assessment-suite/future-state-blueprint-template.md",
+          "path": "domains/measurement/project-assessment-suite/future-state-blueprint-template.md",
           "title": "Future State Blueprint Template",
           "methodology": "universal",
           "tags": [
@@ -12248,7 +12284,7 @@
           "similarity": 93
         },
         {
-          "path": "project-assessment-suite/future-state-blueprint-template.md",
+          "path": "domains/measurement/project-assessment-suite/future-state-blueprint-template.md",
           "title": "Future State Blueprint Template",
           "methodology": "universal",
           "tags": [
@@ -12528,7 +12564,7 @@
           "similarity": 84
         },
         {
-          "path": "project-assessment-suite/future-state-blueprint-template.md",
+          "path": "domains/measurement/project-assessment-suite/future-state-blueprint-template.md",
           "title": "Future State Blueprint Template",
           "methodology": "universal",
           "tags": [

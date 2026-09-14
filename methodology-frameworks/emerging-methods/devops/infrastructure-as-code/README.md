@@ -4,7 +4,7 @@
 Infrastructure as Code (IaC) practices and templates for DevOps environments.
 
 ## Templates
-- [Infrastructure as Code Template](../infrastructure_as_code_template.md)
+- [Infrastructure as Code Template](../../../../domains/measurement/methodology-frameworks/emerging-methods/devops/infrastructure_as_code_template.md)
 
 ## Best Practices
 [Infrastructure as Code implementation guidelines]

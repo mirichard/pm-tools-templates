@@ -27,7 +27,7 @@
 
 | # | Template | Purpose | Setup Time |
 |---|----------|---------|------------|
-| 9 | [Governance Assessment](../../../project-assessment-suite/governance-assessment-template.md) | Evaluate governance effectiveness | ~45 min |
+| 9 | [Governance Assessment](../../../domains/measurement/project-assessment-suite/governance-assessment-template.md) | Evaluate governance effectiveness | ~45 min |
 | 10 | [Executive Dashboard](../../../domains/stakeholder/business-stakeholder-suite/executive-dashboards/powerbi-integration/executive-dashboard-template.md) | Executive-level visibility | ~30 min |
 | 11 | [Executive Report Templates](../../../domains/stakeholder/business-stakeholder-suite/executive-dashboards/Word/Executive-Report-Templates.md) | Formal executive reporting | ~30 min |
 | 12 | [ROI Tracking](../../../domains/delivery/templates/traditional/Traditional/Knowledge_Areas/Project_Cost_Management/roi_tracking_template.md) | Benefits and value tracking | ~30 min |
@@ -56,7 +56,7 @@
 ## Complementary Resources
 
 - **Toolkit:** [Role-Based Toolkits](../../../role-based-toolkits/) + [Business Stakeholder Suite](../../../business-stakeholder-suite/)
-- **Assessment:** [Process Maturity Assessment](../../../project-assessment-suite/process-maturity-assessment-template.md)
+- **Assessment:** [Process Maturity Assessment](../../../domains/measurement/project-assessment-suite/process-maturity-assessment-template.md)
 - **Guide:** [Methodology Selection Guide](../../../quick-start-kits/methodology-selection-guide.md)
 
 ## What This Bundle Does NOT Cover

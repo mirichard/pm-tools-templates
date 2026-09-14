@@ -183,7 +183,7 @@ Use your answers to find the matching recommendation set below. Start with your 
 8. [Program Management Plan Template](../../domains/delivery/templates/traditional/Traditional/Templates/program_management_plan_template.md)
 9. [Change Management Plan Template](../../domains/delivery/templates/traditional/Traditional/Templates/change_management_plan_template.md)
 10. [Enterprise Risk Assessment Template](../../domains/uncertainty/project-lifecycle/02-planning/risk-management/enterprise-risk-assessment-template.md)
-11. [Governance Assessment Template](../../project-assessment-suite/governance-assessment-template.md)
+11. [Governance Assessment Template](../../domains/measurement/project-assessment-suite/governance-assessment-template.md)
 12. [Executive Dashboard Template](../../domains/stakeholder/business-stakeholder-suite/executive-dashboards/powerbi-integration/executive-dashboard-template.md)
 13. [ROI Tracking Template](../../domains/delivery/templates/traditional/Traditional/Knowledge_Areas/Project_Cost_Management/roi_tracking_template.md)
 
@@ -243,7 +243,7 @@ Use your answers to find the matching recommendation set below. Start with your 
 8. [Backlog Refinement Template](../../domains/team/role-based-toolkits/scrum-master/agile-ceremonies/backlog-refinement-template.md)
 9. [SAFe Program Increment Planning Template](../../domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_program_increment_planning_template.md)
 10. [Enterprise Risk Assessment Template](../../domains/uncertainty/project-lifecycle/02-planning/risk-management/enterprise-risk-assessment-template.md)
-11. [Governance Assessment Template](../../project-assessment-suite/governance-assessment-template.md)
+11. [Governance Assessment Template](../../domains/measurement/project-assessment-suite/governance-assessment-template.md)
 12. [Executive Dashboard Template](../../domains/stakeholder/business-stakeholder-suite/executive-dashboards/powerbi-integration/executive-dashboard-template.md)
 
 **If regulatory, also add compliance templates for your industry** (see [Enterprise Traditional](#enterprise-traditional-program-highregulatory-risk-large-scale) for industry-specific lists).
@@ -288,8 +288,8 @@ Use your answers to find the matching recommendation set below. Start with your 
 8. [Progressive Acceptance Plan Template](../../domains/delivery/templates/hybrid/Hybrid/Templates/progressive_acceptance_plan_template.md)
 9. [Hybrid Infrastructure Template](../../domains/delivery/methodology-frameworks/hybrid/infrastructure/hybrid-infrastructure-template.md)
 10. [Enterprise Risk Assessment Template](../../domains/uncertainty/project-lifecycle/02-planning/risk-management/enterprise-risk-assessment-template.md)
-11. [Governance Assessment Template](../../project-assessment-suite/governance-assessment-template.md)
-12. [Project Health Assessment Template](../../project-assessment-suite/project-health-assessment-template.md)
+11. [Governance Assessment Template](../../domains/measurement/project-assessment-suite/governance-assessment-template.md)
+12. [Project Health Assessment Template](../../domains/measurement/project-assessment-suite/project-health-assessment-template.md)
 13. [Executive Dashboard Template](../../domains/stakeholder/business-stakeholder-suite/executive-dashboards/powerbi-integration/executive-dashboard-template.md)
 14. [Budget Dashboard Template](../../domains/stakeholder/business-stakeholder-suite/financial-governance/budget-dashboard-template.md)
 
@@ -310,7 +310,7 @@ Regardless of methodology, add these templates based on your **current phase** (
 | **Just starting** | [Stakeholder Register](../../domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/stakeholder-register-template.md), [Business Case Template](../../domains/planning/templates/traditional/Traditional/Templates/business_case_template.md) |
 | **Planning** | [Skills Matrix](../../domains/team/project-lifecycle/02-planning/resource-planning/skills-matrix-template.md), [Team Charter](../../domains/team/project-lifecycle/02-planning/resource-planning/team-charter-template.md) |
 | **In progress** | [Issue Log](../../domains/delivery/templates/traditional/Traditional/Templates/issue_log_template.md), [Change Request Template](../../domains/delivery/templates/traditional/Traditional/Templates/change_request_template.md) |
-| **Closing** | [Project Closure Report](../../domains/delivery/templates/traditional/Traditional/Process_Groups/Closing/project_closure_report_template.md), [Handover Template](../../role-based-toolkits/project-manager/essential-templates/handover-template.md) |
+| **Closing** | [Project Closure Report](../../domains/delivery/templates/traditional/Traditional/Process_Groups/Closing/project_closure_report_template.md), [Handover Template](../../domains/measurement/role-based-toolkits/project-manager/essential-templates/handover-template.md) |
 
 ---
 
@@ -320,7 +320,7 @@ Based on your **PM experience** (Q6):
 
 - **New to PM:** Start with the [First-Time PM Starter Kit](../../quick-start-kits/first-time-pm-starter/) and the [Template Customization Guide](../../quick-start-kits/template-customization-guide.md). Use the simplified versions of templates when available.
 - **Intermediate:** Use the standard methodology-specific templates. Add the [Project Assessment Suite](../../project-assessment-suite/) for periodic health checks.
-- **Advanced:** Use the full template set with comprehensive governance. Consider the [Process Maturity Assessment](../../project-assessment-suite/process-maturity-assessment-template.md) to optimize your approach.
+- **Advanced:** Use the full template set with comprehensive governance. Consider the [Process Maturity Assessment](../../domains/measurement/project-assessment-suite/process-maturity-assessment-template.md) to optimize your approach.
 
 ---
 

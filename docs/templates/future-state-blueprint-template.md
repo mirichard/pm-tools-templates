@@ -15,7 +15,7 @@
 
 title: "Future State Blueprint Template"
 
-[**➡️ View Template File**](/project-assessment-suite/future-state-blueprint-template.md)
+[**➡️ View Template File**](/domains/measurement/project-assessment-suite/future-state-blueprint-template.md)
 
 ## 📈 Quality Score
 

@@ -24,18 +24,18 @@ The assessment follows a structured approach:
 ## Templates Included
 
 ### Core Assessment Templates
-- **[Project Health Assessment](./project-health-assessment-template.md)** - Comprehensive project health evaluation
+- **[Project Health Assessment](../domains/measurement/project-assessment-suite/project-health-assessment-template.md)** - Comprehensive project health evaluation
 - **[Current State Analysis](../domains/measurement/project-assessment-suite/current-state-analysis-template.md)** - Detailed current state documentation
-- **[Future State Blueprint](./future-state-blueprint-template.md)** - Target state definition using best practices
-- **[Gap Analysis Matrix](./gap-analysis-matrix-template.md)** - Systematic gap identification and prioritization
-- **[Remediation Action Plan](./remediation-action-plan-template.md)** - Structured improvement planning
+- **[Future State Blueprint](../domains/measurement/project-assessment-suite/future-state-blueprint-template.md)** - Target state definition using best practices
+- **[Gap Analysis Matrix](../domains/measurement/project-assessment-suite/gap-analysis-matrix-template.md)** - Systematic gap identification and prioritization
+- **[Remediation Action Plan](../domains/measurement/project-assessment-suite/remediation-action-plan-template.md)** - Structured improvement planning
 
 ### Specialized Assessments
-- **[Governance Assessment](./governance-assessment-template.md)** - Project governance evaluation
-- **[Risk Management Assessment](./risk-management-assessment-template.md)** - Risk management maturity evaluation
+- **[Governance Assessment](../domains/measurement/project-assessment-suite/governance-assessment-template.md)** - Project governance evaluation
+- **[Risk Management Assessment](../domains/measurement/project-assessment-suite/risk-management-assessment-template.md)** - Risk management maturity evaluation
 - **[Stakeholder Engagement Assessment](./stakeholder-engagement-assessment-template.md)** - Stakeholder management effectiveness
-- **[Process Maturity Assessment](./process-maturity-assessment-template.md)** - Process and methodology maturity
-- **[Resource Management Assessment](./resource-management-assessment-template.md)** - Resource allocation and management
+- **[Process Maturity Assessment](../domains/measurement/project-assessment-suite/process-maturity-assessment-template.md)** - Process and methodology maturity
+- **[Resource Management Assessment](../domains/measurement/project-assessment-suite/resource-management-assessment-template.md)** - Resource allocation and management
 
 ### Methodology-Specific Templates
 - **[Agile Assessment](../domains/delivery/project-assessment-suite/agile-project-assessment-template.md)** - Agile-specific project evaluation

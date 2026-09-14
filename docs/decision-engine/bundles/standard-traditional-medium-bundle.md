@@ -33,7 +33,7 @@
 ## Complementary Resources
 
 - **Toolkit:** [Project Manager Toolkit](../../../role-based-toolkits/project-manager/)
-- **Assessment:** [Project Health Assessment](../../../project-assessment-suite/project-health-assessment-template.md)
+- **Assessment:** [Project Health Assessment](../../../domains/measurement/project-assessment-suite/project-health-assessment-template.md)
 - **Guide:** [Methodology Selection Guide](../../../quick-start-kits/methodology-selection-guide.md)
 
 ## What This Bundle Does NOT Cover
