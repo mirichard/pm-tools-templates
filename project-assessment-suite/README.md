@@ -25,7 +25,7 @@ The assessment follows a structured approach:
 
 ### Core Assessment Templates
 - **[Project Health Assessment](./project-health-assessment-template.md)** - Comprehensive project health evaluation
-- **[Current State Analysis](./current-state-analysis-template.md)** - Detailed current state documentation
+- **[Current State Analysis](../domains/measurement/project-assessment-suite/current-state-analysis-template.md)** - Detailed current state documentation
 - **[Future State Blueprint](./future-state-blueprint-template.md)** - Target state definition using best practices
 - **[Gap Analysis Matrix](./gap-analysis-matrix-template.md)** - Systematic gap identification and prioritization
 - **[Remediation Action Plan](./remediation-action-plan-template.md)** - Structured improvement planning
@@ -45,7 +45,7 @@ The assessment follows a structured approach:
 ### Supporting Tools
 - **[Assessment Planning Guide](./assessment-planning-guide.md)** - How to plan and conduct assessments
 - **[Scoring and Rating Guide](./scoring-rating-guide.md)** - Standardized scoring methodology
-- **[Executive Summary Template](./executive-summary-template.md)** - Executive reporting format
+- **[Executive Summary Template](../domains/measurement/project-assessment-suite/executive-summary-template.md)** - Executive reporting format
 - **[Assessment Report Template](./assessment-report-template.md)** - Comprehensive assessment documentation
 
 ## Usage Guidelines

@@ -166,8 +166,8 @@ Use your answers to find the matching recommendation set below. Start with your 
 2. [Work Breakdown Structure Template](../../domains/delivery/templates/traditional/Traditional/Process_Groups/Planning/work_breakdown_structure_template.md)
 3. [Project Schedule Template](../../domains/delivery/templates/traditional/Traditional/Process_Groups/Planning/project_schedule_template.md)
 4. [Risk Register Template](../../domains/uncertainty/project-lifecycle/02-planning/risk-management/risk-register-template.md)
-5. [Risk Management Plan Template](../../project-lifecycle/02-planning/risk-management/risk-management-plan-template.md)
-6. [Resource Management Plan Template](../../project-lifecycle/02-planning/resource-planning/resource-management-plan-template.md)
+5. [Risk Management Plan Template](../../domains/measurement/project-lifecycle/02-planning/risk-management/risk-management-plan-template.md)
+6. [Resource Management Plan Template](../../domains/measurement/project-lifecycle/02-planning/resource-planning/resource-management-plan-template.md)
 7. [Budget Template](../../domains/planning/role-based-toolkits/project-manager/essential-templates/budget-template.md)
 
 **Recommended toolkit:** [Role-Based Toolkits — Project Manager](../../role-based-toolkits/project-manager/)
@@ -189,8 +189,8 @@ Use your answers to find the matching recommendation set below. Start with your 
 
 **If regulatory, also add compliance templates for your industry:**
 - Healthcare: [Compliance Risk Assessment](../../domains/delivery/industry-specializations/healthcare-pharmaceutical/regulatory/compliance_risk_assessment_template.md), [Validation Master Plan](../../domains/delivery/industry-specializations/healthcare-pharmaceutical/validation/validation_master_plan_template.md), [GxP Training Plan](../../domains/delivery/industry-specializations/healthcare-pharmaceutical/compliance/gxp_training_plan_template.md)
-- Financial: [Compliance Management](../../industry-specializations/financial-services/compliance/compliance-management-template.md), [EVM Dashboard](../../domains/stakeholder/business-stakeholder-suite/financial-governance/enhanced-business-cases/evm-dashboard-template.md)
-- IT: [Cybersecurity Assessment](../../industry-specializations/information-technology/security/cybersecurity_assessment_template.md), [Test Plan](../../industry-specializations/information-technology/software-development/test_plan_template.md)
+- Financial: [Compliance Management](../../domains/measurement/industry-specializations/financial-services/compliance/compliance-management-template.md), [EVM Dashboard](../../domains/stakeholder/business-stakeholder-suite/financial-governance/enhanced-business-cases/evm-dashboard-template.md)
+- IT: [Cybersecurity Assessment](../../domains/measurement/industry-specializations/information-technology/security/cybersecurity_assessment_template.md), [Test Plan](../../domains/measurement/industry-specializations/information-technology/software-development/test_plan_template.md)
 
 **Recommended toolkit:** [Role-Based Toolkits](../../role-based-toolkits/) + [Business Stakeholder Suite](../../business-stakeholder-suite/)
 
@@ -227,7 +227,7 @@ Use your answers to find the matching recommendation set below. Start with your 
 
 **If IT industry, also add:**
 7. [Requirements Specification Template](../../domains/uncertainty/industry-specializations/information-technology/software-development/requirements_specification_template.md)
-8. [Test Plan Template](../../industry-specializations/information-technology/software-development/test_plan_template.md)
+8. [Test Plan Template](../../domains/measurement/industry-specializations/information-technology/software-development/test_plan_template.md)
 
 **Recommended toolkit:** [Role-Based Toolkits](../../role-based-toolkits/) (Scrum Master or Product Owner)
 
@@ -270,7 +270,7 @@ Use your answers to find the matching recommendation set below. Start with your 
 6. [Risk Register Template](../../domains/uncertainty/project-lifecycle/02-planning/risk-management/risk-register-template.md)
 
 **If financial industry, also add:**
-7. [Compliance Management Template](../../industry-specializations/financial-services/compliance/compliance-management-template.md)
+7. [Compliance Management Template](../../domains/measurement/industry-specializations/financial-services/compliance/compliance-management-template.md)
 8. [EVM Dashboard Template](../../domains/stakeholder/business-stakeholder-suite/financial-governance/enhanced-business-cases/evm-dashboard-template.md)
 
 **Recommended toolkit:** [Role-Based Toolkits](../../role-based-toolkits/)

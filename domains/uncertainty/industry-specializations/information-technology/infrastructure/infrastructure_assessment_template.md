@@ -4,7 +4,7 @@
 
 This compatibility path preserves the related-resource link in the migrated Migration Plan Template. The Infrastructure Assessment Template remains at its maintained location outside this domain. This file provides navigation only; it does not contain a template body or designate another canonical copy.
 
-[Open the maintained Infrastructure Assessment Template](../../../../../industry-specializations/information-technology/infrastructure/infrastructure_assessment_template.md).
+[Open the maintained Infrastructure Assessment Template](../../../../measurement/industry-specializations/information-technology/infrastructure/infrastructure_assessment_template.md).
 
 ## Usage instructions
 

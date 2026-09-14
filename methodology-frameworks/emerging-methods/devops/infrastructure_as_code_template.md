@@ -1879,8 +1879,8 @@ groups:
 ---
 
 ## Related Templates
-- [CI/CD Pipeline Planning](./cicd_pipeline_planning_template.md)
-- [Release Management Workflow](./release_management_template.md)
+- [CI/CD Pipeline Planning](../../../domains/measurement/methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md)
+- [Release Management Workflow](../../../domains/measurement/methodology-frameworks/emerging-methods/devops/release_management_template.md)
 - [DevOps Monitoring and Alerting](./monitoring_alerting_template.md)
 - [DevSecOps Integration](./devsecops_template.md)
 - [DevOps Engineer Toolkit](../../role-based-toolkits/devops-engineer/README.md)
