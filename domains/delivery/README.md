@@ -1,11 +1,15 @@
-# Repository overview — Compatibility Navigation
+# Delivery performance domain
 
-## Purpose and overview
+Use this domain to select an approach, organize execution, and produce project deliverables. It combines development approach, project work, and delivery into the practical question: how will the work get done?
 
-This file provides navigation only for relative links preserved in migrated templates. The maintained resource is linked below.
+## Scope and boundary
 
-[Open the maintained Repository overview](../../README.md)
+Delivery includes methodology selection, work decomposition, iteration or phase execution, change control, execution quality, procurement, and delivery tooling. Strategic scope, schedule, and budget decisions belong in [Planning](../planning/); risk response belongs in [Uncertainty](../uncertainty/); performance reporting belongs in [Measurement](../measurement/).
 
-## Usage instructions
+## Start here
 
-Follow the link to the maintained resource. This compatibility file contains no duplicate template body. When bookmarking or sharing the resource, use its maintained location so future readers reach the current version directly.
+- [Agile release plan](../../domains/delivery/project-lifecycle/02-planning/project-management-plan/agile-release-plan-template.md)
+- [Agile risk board](../../domains/delivery/project-lifecycle/02-planning/risk-management/agile-risk-board-template.md)
+- [API documentation template](../../domains/delivery/industry-specializations/information-technology/software-development/api_documentation_template.md)
+
+Browse the [complete template index](../../TEMPLATE_INDEX.md) or use the [interactive browser](../../templates/index.html) for additional filters.
