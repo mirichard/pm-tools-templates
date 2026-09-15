@@ -180,9 +180,9 @@ Combines software development (Dev) and IT operations (Ops) to shorten developme
 
 **Templates Available:**
 - [CI/CD Pipeline Planning Template](../../domains/measurement/methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md)
-- [DevSecOps Template](../../methodology-frameworks/emerging-methods/devops/devsecops_template.md)
-- [Infrastructure as Code Template](../../methodology-frameworks/emerging-methods/devops/infrastructure_as_code_template.md)
-- [Monitoring and Alerting Template](../../methodology-frameworks/emerging-methods/devops/monitoring_alerting_template.md)
+- [DevSecOps Template](../../domains/measurement/methodology-frameworks/emerging-methods/devops/devsecops_template.md)
+- [Infrastructure as Code Template](../../domains/measurement/methodology-frameworks/emerging-methods/devops/infrastructure_as_code_template.md)
+- [Monitoring and Alerting Template](../../domains/measurement/methodology-frameworks/emerging-methods/devops/monitoring_alerting_template.md)
 - [Release Management Template](../../domains/measurement/methodology-frameworks/emerging-methods/devops/release_management_template.md)
 
 ---

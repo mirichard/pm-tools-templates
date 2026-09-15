@@ -31,7 +31,7 @@ Each pathway below gives you a **quick start** (single most important template) 
 **Complete set:**
 - [Risk Management Plan](project-lifecycle/02-planning/risk-management/) — Define your approach to risk
 - [Risk Register](templates/traditional/Traditional/Templates/risk_register_template.md) — Track risks, impacts, and responses
-- [Risk Assessment](project-assessment-suite/risk-management-assessment-template.md) — Evaluate risk management maturity
+- [Risk Assessment](../domains/measurement/project-assessment-suite/risk-management-assessment-template.md) — Evaluate risk management maturity
 - [Risk Metrics Dashboard](metrics/risk-data/) — Monitor risk trends over time
 
 **Works for:** All methodologies — scale the formality to match your project's risk profile
@@ -47,7 +47,7 @@ Each pathway below gives you a **quick start** (single most important template) 
 **Complete set:**
 - [Status Report Template](templates/traditional/Traditional/Templates/status_report_template.md) — Weekly/monthly progress updates
 - [Executive Dashboard](business-stakeholder-suite/executive-dashboards/performance-monitoring-analytics.md) — Leadership-level visibility
-- [Project Health Assessment](project-assessment-suite/project-health-assessment-template.md) — Comprehensive health check
+- [Project Health Assessment](../domains/measurement/project-assessment-suite/project-health-assessment-template.md) — Comprehensive health check
 - [ROI Tracking Dashboard](business-stakeholder-suite/financial-governance/roi-tracking-dashboard.md) — Financial performance
 
 **Works for:** All methodologies — traditional uses formal reports, agile uses demos + lightweight updates
@@ -105,12 +105,12 @@ Each pathway below gives you a **quick start** (single most important template) 
 
 **You need to:** Evaluate whether a project is on track and identify areas needing attention.
 
-**Quick start:** [Project Health Assessment](project-assessment-suite/project-health-assessment-template.md)
+**Quick start:** [Project Health Assessment](../domains/measurement/project-assessment-suite/project-health-assessment-template.md)
 
 **Complete set:**
-- [Project Health Assessment](project-assessment-suite/project-health-assessment-template.md) — Overall health check
-- [Process Maturity Assessment](project-assessment-suite/process-maturity-assessment-template.md) — Evaluate process effectiveness
-- [Governance Assessment](project-assessment-suite/governance-assessment-template.md) — Review oversight and controls
+- [Project Health Assessment](../domains/measurement/project-assessment-suite/project-health-assessment-template.md) — Overall health check
+- [Process Maturity Assessment](../domains/measurement/project-assessment-suite/process-maturity-assessment-template.md) — Evaluate process effectiveness
+- [Governance Assessment](../domains/measurement/project-assessment-suite/governance-assessment-template.md) — Review oversight and controls
 - [Stakeholder Engagement Assessment](domains/stakeholder/project-assessment-suite/stakeholder-engagement-assessment-template.md) — Evaluate stakeholder satisfaction
 
 **Works for:** All methodologies — use the agile or waterfall variant from `domains/stakeholder/project-assessment-suite/`

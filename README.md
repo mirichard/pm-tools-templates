@@ -56,7 +56,7 @@ Start with: [Product Vision](domains/uncertainty/role-based-toolkits/product-own
 
 → **[Executive Dashboards](business-stakeholder-suite/executive-dashboards/)** · **[Financial Governance](business-stakeholder-suite/financial-governance/)** · **[Project Assessment Suite](project-assessment-suite/)**
 
-Start with: [Executive Dashboard](business-stakeholder-suite/executive-dashboards/performance-monitoring-analytics.md) · [ROI Tracking](business-stakeholder-suite/financial-governance/roi-tracking-dashboard.md) · [Project Health Assessment](project-assessment-suite/project-health-assessment-template.md)
+Start with: [Executive Dashboard](business-stakeholder-suite/executive-dashboards/performance-monitoring-analytics.md) · [ROI Tracking](business-stakeholder-suite/financial-governance/roi-tracking-dashboard.md) · [Project Health Assessment](domains/measurement/project-assessment-suite/project-health-assessment-template.md)
 
 ---
 
@@ -74,9 +74,12 @@ Start with: [Simple Project Charter](quick-start-kits/first-time-pm-starter/proj
 This repo offers three navigation paths — pick the one that matches your question:
 
 - **By Role** → [`role-based-toolkits/`](role-based-toolkits/) — Curated sets for PM, Scrum Master, Product Owner, Program Manager
+- **By Performance Domain** → [Stakeholder](domains/stakeholder/) · [Team](domains/team/) · [Delivery](domains/delivery/) · [Planning](domains/planning/) · [Uncertainty](domains/uncertainty/) · [Measurement](domains/measurement/)
 - **By Lifecycle Phase** → [`project-lifecycle/`](project-lifecycle/) — Initiation → Planning → Execution → Monitoring → Closure
 - **By Methodology** → [`templates/`](templates/) — Agile, Traditional, Hybrid, and Universal templates
 - **By Task** → [`Use-Case Pathways`](docs/USE_CASE_PATHWAYS.md) — "I need to start a project", "I need to manage risk", etc.
+
+Canonical and legacy-path behavior for bookmarks and integrations is defined in the [domain navigation and legacy-path policy](docs/domain-navigation-and-legacy-paths.md).
 
 📐 **[View Full System Architecture →](docs/SYSTEM_ARCHITECTURE.md)**
 
@@ -172,6 +175,5 @@ Need help? We're here for you:
 - 🐛 [Report issues](https://github.com/mirichard/pm-tools-templates/issues)
 
 ---
-
 
 

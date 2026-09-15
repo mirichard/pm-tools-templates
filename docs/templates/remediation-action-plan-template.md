@@ -15,7 +15,7 @@
 
 title: "Remediation Action Plan Template"
 
-[**➡️ View Template File**](/project-assessment-suite/remediation-action-plan-template.md)
+[**➡️ View Template File**](/domains/measurement/project-assessment-suite/remediation-action-plan-template.md)
 
 ## 📈 Quality Score
 

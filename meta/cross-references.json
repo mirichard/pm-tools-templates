@@ -498,55 +498,55 @@
       ],
       "related_assets": [
         "domains/delivery/industry-specializations/healthcare-pharmaceutical/validation/software_requirements_specification_template.md",
-        "domains/delivery/industry-specializations/information-technology/service-management/problem_management_process_template.md"
+        "domains/delivery/industry-specializations/information-technology/software-development/api_documentation_template.md"
       ],
       "complementary_assets": [
         "domains/delivery/industry-specializations/healthcare-pharmaceutical/compliance/gxp_training_plan_template.md",
         "domains/delivery/industry-specializations/healthcare-pharmaceutical/validation/process_validation_master_plan_template.md"
       ],
       "previous_workflow_step": "domains/delivery/industry-specializations/healthcare-pharmaceutical/validation/software_requirements_specification_template.md",
-      "next_workflow_step": "domains/delivery/industry-specializations/information-technology/service-management/problem_management_process_template.md"
+      "next_workflow_step": "domains/delivery/industry-specializations/information-technology/software-development/api_documentation_template.md"
     },
     {
       "path": "domains/delivery/industry-specializations/information-technology/service-management/problem_management_process_template.md",
       "domain": {
-        "primary": "Delivery",
+        "primary": "Uncertainty",
         "secondary": [],
-        "rationale": "No tags available — needs manual review"
+        "rationale": "Reviewed primary purpose: identify, investigate, mitigate, and resolve unexpected problems."
       },
       "prerequisites": [
         "domains/stakeholder/business-stakeholder-suite/financial-governance/enhanced-business-cases/advanced-business-case-template.md"
       ],
       "related_assets": [
-        "domains/delivery/industry-specializations/healthcare-pharmaceutical/validation/validation_master_plan_template.md",
-        "domains/delivery/industry-specializations/information-technology/software-development/api_documentation_template.md"
+        "domains/uncertainty/industry-specializations/information-technology/infrastructure/migration_plan_template.md",
+        "domains/uncertainty/industry-specializations/information-technology/software-development/requirements_specification_template.md"
       ],
       "complementary_assets": [
         "domains/stakeholder/business-stakeholder-suite/financial-governance/enhanced-business-cases/advanced-business-case-template.md",
         "domains/delivery/project-lifecycle/02-planning/project-management-plan/agile-release-plan-template.md"
       ],
-      "previous_workflow_step": "domains/delivery/industry-specializations/healthcare-pharmaceutical/validation/validation_master_plan_template.md",
-      "next_workflow_step": "domains/delivery/industry-specializations/information-technology/software-development/api_documentation_template.md"
+      "previous_workflow_step": "domains/uncertainty/industry-specializations/information-technology/infrastructure/migration_plan_template.md",
+      "next_workflow_step": "domains/uncertainty/industry-specializations/information-technology/software-development/requirements_specification_template.md"
     },
     {
       "path": "domains/delivery/industry-specializations/information-technology/software-development/api_documentation_template.md",
       "domain": {
         "primary": "Delivery",
         "secondary": [],
-        "rationale": "Technology template supports delivery execution"
+        "rationale": "Reviewed primary purpose: structure and document a technical delivery interface."
       },
       "prerequisites": [
         "domains/delivery/role-based-toolkits/project-manager/essential-templates/timesheet-tracking-template.md"
       ],
       "related_assets": [
-        "domains/delivery/industry-specializations/information-technology/service-management/problem_management_process_template.md",
+        "domains/delivery/industry-specializations/healthcare-pharmaceutical/validation/validation_master_plan_template.md",
         "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/less/cross_team_coordination_template.md"
       ],
       "complementary_assets": [
         "domains/delivery/role-based-toolkits/project-manager/essential-templates/timesheet-tracking-template.md",
         "domains/uncertainty/role-based-toolkits/product-owner/user-story-template.md"
       ],
-      "previous_workflow_step": "domains/delivery/industry-specializations/information-technology/service-management/problem_management_process_template.md",
+      "previous_workflow_step": "domains/delivery/industry-specializations/healthcare-pharmaceutical/validation/validation_master_plan_template.md",
       "next_workflow_step": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/less/cross_team_coordination_template.md"
     },
     {
@@ -995,35 +995,35 @@
       ],
       "related_assets": [
         "domains/delivery/project-lifecycle/02-planning/project-management-plan/traditional-project-management-plan-template.md",
-        "domains/delivery/role-based-toolkits/project-manager/essential-templates/timesheet-tracking-template.md"
+        "domains/delivery/templates/agile/product_backlog_template.md"
       ],
       "complementary_assets": [
         "domains/delivery/project-lifecycle/02-planning/project-management-plan/agile-release-plan-template.md",
         "domains/measurement/methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md"
       ],
       "previous_workflow_step": "domains/delivery/project-lifecycle/02-planning/project-management-plan/traditional-project-management-plan-template.md",
-      "next_workflow_step": "domains/delivery/role-based-toolkits/project-manager/essential-templates/timesheet-tracking-template.md"
+      "next_workflow_step": "domains/delivery/templates/agile/product_backlog_template.md"
     },
     {
       "path": "domains/delivery/role-based-toolkits/project-manager/essential-templates/timesheet-tracking-template.md",
       "domain": {
-        "primary": "Delivery",
+        "primary": "Measurement",
         "secondary": [],
-        "rationale": "Technology template supports delivery execution"
+        "rationale": "Reviewed primary purpose: record and summarize effort evidence for tracking and reporting."
       },
       "prerequisites": [
         "domains/delivery/industry-specializations/information-technology/software-development/api_documentation_template.md"
       ],
       "related_assets": [
-        "domains/delivery/project-lifecycle/02-planning/risk-management/agile-risk-board-template.md",
-        "domains/delivery/templates/agile/product_backlog_template.md"
+        "domains/measurement/role-based-toolkits/project-manager/essential-templates/handover-template.md",
+        "domains/measurement/industry-specializations/financial-services/compliance/compliance-management-template.md"
       ],
       "complementary_assets": [
         "domains/delivery/industry-specializations/information-technology/software-development/api_documentation_template.md",
         "domains/uncertainty/role-based-toolkits/product-owner/user-story-template.md"
       ],
-      "previous_workflow_step": "domains/delivery/project-lifecycle/02-planning/risk-management/agile-risk-board-template.md",
-      "next_workflow_step": "domains/delivery/templates/agile/product_backlog_template.md"
+      "previous_workflow_step": "domains/measurement/role-based-toolkits/project-manager/essential-templates/handover-template.md",
+      "next_workflow_step": "domains/measurement/industry-specializations/financial-services/compliance/compliance-management-template.md"
     },
     {
       "path": "domains/delivery/templates/agile/product_backlog_template.md",
@@ -1039,14 +1039,14 @@
         "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_program_increment_planning_template.md"
       ],
       "related_assets": [
-        "domains/delivery/role-based-toolkits/project-manager/essential-templates/timesheet-tracking-template.md",
+        "domains/delivery/project-lifecycle/02-planning/risk-management/agile-risk-board-template.md",
         "domains/delivery/templates/agile/sprint_planning_template.md"
       ],
       "complementary_assets": [
         "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_program_increment_planning_template.md",
         "domains/team/templates/agile/sprint_review_template.md"
       ],
-      "previous_workflow_step": "domains/delivery/role-based-toolkits/project-manager/essential-templates/timesheet-tracking-template.md",
+      "previous_workflow_step": "domains/delivery/project-lifecycle/02-planning/risk-management/agile-risk-board-template.md",
       "next_workflow_step": "domains/delivery/templates/agile/sprint_planning_template.md"
     },
     {
@@ -1634,14 +1634,14 @@
         "domains/stakeholder/business-stakeholder-suite/financial-governance/enhanced-business-cases/evm-dashboard-template.md"
       ],
       "related_assets": [
-        "role-based-toolkits/project-manager/essential-templates/handover-template.md",
+        "domains/delivery/role-based-toolkits/project-manager/essential-templates/timesheet-tracking-template.md",
         "domains/measurement/industry-specializations/information-technology/cybersecurity/incident_response_template.md"
       ],
       "complementary_assets": [
         "domains/stakeholder/business-stakeholder-suite/financial-governance/enhanced-business-cases/evm-dashboard-template.md",
         "domains/measurement/methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md"
       ],
-      "previous_workflow_step": "role-based-toolkits/project-manager/essential-templates/handover-template.md",
+      "previous_workflow_step": "domains/delivery/role-based-toolkits/project-manager/essential-templates/timesheet-tracking-template.md",
       "next_workflow_step": "domains/measurement/industry-specializations/information-technology/cybersecurity/incident_response_template.md"
     },
     {
@@ -1825,14 +1825,81 @@
       ],
       "related_assets": [
         "domains/measurement/industry-specializations/information-technology/software-development/test_plan_template.md",
-        "methodology-frameworks/emerging-methods/devops/devsecops_template.md"
+        "domains/measurement/methodology-frameworks/emerging-methods/devops/devsecops_template.md"
       ],
       "complementary_assets": [
         "domains/measurement/methodology-frameworks/emerging-methods/devops/release_management_template.md",
         "domains/measurement/project-lifecycle/02-planning/resource-planning/resource-management-plan-template.md"
       ],
       "previous_workflow_step": "domains/measurement/industry-specializations/information-technology/software-development/test_plan_template.md",
-      "next_workflow_step": "methodology-frameworks/emerging-methods/devops/devsecops_template.md"
+      "next_workflow_step": "domains/measurement/methodology-frameworks/emerging-methods/devops/devsecops_template.md"
+    },
+    {
+      "path": "domains/measurement/methodology-frameworks/emerging-methods/devops/devsecops_template.md",
+      "domain": {
+        "primary": "Measurement",
+        "secondary": [
+          "Uncertainty"
+        ],
+        "rationale": "Monitoring template tracks and reports performance"
+      },
+      "prerequisites": [
+        "domains/measurement/methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md"
+      ],
+      "related_assets": [
+        "domains/measurement/methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md",
+        "domains/measurement/methodology-frameworks/emerging-methods/devops/infrastructure_as_code_template.md"
+      ],
+      "complementary_assets": [
+        "domains/delivery/industry-specializations/healthcare-pharmaceutical/regulatory/compliance_risk_assessment_template.md",
+        "domains/delivery/industry-specializations/healthcare-pharmaceutical/regulatory/regulatory_inspection_readiness_plan_template.md"
+      ],
+      "previous_workflow_step": "domains/measurement/methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md",
+      "next_workflow_step": "domains/measurement/methodology-frameworks/emerging-methods/devops/infrastructure_as_code_template.md"
+    },
+    {
+      "path": "domains/measurement/methodology-frameworks/emerging-methods/devops/infrastructure_as_code_template.md",
+      "domain": {
+        "primary": "Measurement",
+        "secondary": [],
+        "rationale": "Monitoring template tracks and reports performance"
+      },
+      "prerequisites": [
+        "domains/measurement/methodology-frameworks/emerging-methods/devops/devsecops_template.md"
+      ],
+      "related_assets": [
+        "domains/measurement/methodology-frameworks/emerging-methods/devops/devsecops_template.md",
+        "domains/measurement/methodology-frameworks/emerging-methods/devops/monitoring_alerting_template.md"
+      ],
+      "complementary_assets": [
+        "domains/planning/role-based-toolkits/project-manager/essential-templates/budget-template.md",
+        "domains/measurement/methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md"
+      ],
+      "previous_workflow_step": "domains/measurement/methodology-frameworks/emerging-methods/devops/devsecops_template.md",
+      "next_workflow_step": "domains/measurement/methodology-frameworks/emerging-methods/devops/monitoring_alerting_template.md"
+    },
+    {
+      "path": "domains/measurement/methodology-frameworks/emerging-methods/devops/monitoring_alerting_template.md",
+      "domain": {
+        "primary": "Measurement",
+        "secondary": [
+          "Stakeholder"
+        ],
+        "rationale": "Monitoring template tracks and reports performance"
+      },
+      "prerequisites": [
+        "domains/measurement/project-assessment-suite/current-state-analysis-template.md"
+      ],
+      "related_assets": [
+        "domains/measurement/methodology-frameworks/emerging-methods/devops/infrastructure_as_code_template.md",
+        "domains/measurement/methodology-frameworks/emerging-methods/devops/release_management_template.md"
+      ],
+      "complementary_assets": [
+        "domains/measurement/project-assessment-suite/current-state-analysis-template.md",
+        "domains/measurement/industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md"
+      ],
+      "previous_workflow_step": "domains/measurement/methodology-frameworks/emerging-methods/devops/infrastructure_as_code_template.md",
+      "next_workflow_step": "domains/measurement/methodology-frameworks/emerging-methods/devops/release_management_template.md"
     },
     {
       "path": "domains/measurement/methodology-frameworks/emerging-methods/devops/release_management_template.md",
@@ -1848,14 +1915,14 @@
         "domains/measurement/methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md"
       ],
       "related_assets": [
-        "methodology-frameworks/emerging-methods/devops/monitoring_alerting_template.md",
+        "domains/measurement/methodology-frameworks/emerging-methods/devops/monitoring_alerting_template.md",
         "domains/measurement/project-assessment-suite/current-state-analysis-template.md"
       ],
       "complementary_assets": [
         "domains/measurement/methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md",
         "domains/measurement/project-lifecycle/02-planning/resource-planning/resource-management-plan-template.md"
       ],
-      "previous_workflow_step": "methodology-frameworks/emerging-methods/devops/monitoring_alerting_template.md",
+      "previous_workflow_step": "domains/measurement/methodology-frameworks/emerging-methods/devops/monitoring_alerting_template.md",
       "next_workflow_step": "domains/measurement/project-assessment-suite/current-state-analysis-template.md"
     },
     {
@@ -1897,14 +1964,202 @@
       ],
       "related_assets": [
         "domains/measurement/project-assessment-suite/current-state-analysis-template.md",
-        "project-assessment-suite/future-state-blueprint-template.md"
+        "domains/measurement/project-assessment-suite/future-state-blueprint-template.md"
       ],
       "complementary_assets": [
         "domains/measurement/industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md",
         "domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/enterprise-stakeholder-analysis-template.md"
       ],
       "previous_workflow_step": "domains/measurement/project-assessment-suite/current-state-analysis-template.md",
-      "next_workflow_step": "project-assessment-suite/future-state-blueprint-template.md"
+      "next_workflow_step": "domains/measurement/project-assessment-suite/future-state-blueprint-template.md"
+    },
+    {
+      "path": "domains/measurement/project-assessment-suite/future-state-blueprint-template.md",
+      "domain": {
+        "primary": "Measurement",
+        "secondary": [
+          "Stakeholder",
+          "Uncertainty"
+        ],
+        "rationale": "Monitoring template tracks and reports performance"
+      },
+      "prerequisites": [
+        "domains/measurement/project-assessment-suite/current-state-analysis-template.md"
+      ],
+      "related_assets": [
+        "domains/measurement/project-assessment-suite/executive-summary-template.md",
+        "domains/measurement/project-assessment-suite/gap-analysis-matrix-template.md"
+      ],
+      "complementary_assets": [
+        "domains/measurement/project-assessment-suite/current-state-analysis-template.md",
+        "domains/measurement/industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md"
+      ],
+      "previous_workflow_step": "domains/measurement/project-assessment-suite/executive-summary-template.md",
+      "next_workflow_step": "domains/measurement/project-assessment-suite/gap-analysis-matrix-template.md"
+    },
+    {
+      "path": "domains/measurement/project-assessment-suite/gap-analysis-matrix-template.md",
+      "domain": {
+        "primary": "Measurement",
+        "secondary": [
+          "Stakeholder",
+          "Uncertainty"
+        ],
+        "rationale": "Monitoring template tracks and reports performance"
+      },
+      "prerequisites": [
+        "domains/measurement/project-assessment-suite/current-state-analysis-template.md"
+      ],
+      "related_assets": [
+        "domains/measurement/project-assessment-suite/future-state-blueprint-template.md",
+        "domains/measurement/project-assessment-suite/governance-assessment-template.md"
+      ],
+      "complementary_assets": [
+        "domains/measurement/project-assessment-suite/current-state-analysis-template.md",
+        "domains/measurement/industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md"
+      ],
+      "previous_workflow_step": "domains/measurement/project-assessment-suite/future-state-blueprint-template.md",
+      "next_workflow_step": "domains/measurement/project-assessment-suite/governance-assessment-template.md"
+    },
+    {
+      "path": "domains/measurement/project-assessment-suite/governance-assessment-template.md",
+      "domain": {
+        "primary": "Measurement",
+        "secondary": [
+          "Stakeholder"
+        ],
+        "rationale": "Monitoring template tracks and reports performance"
+      },
+      "prerequisites": [
+        "domains/measurement/project-assessment-suite/process-maturity-assessment-template.md"
+      ],
+      "related_assets": [
+        "domains/measurement/project-assessment-suite/gap-analysis-matrix-template.md",
+        "domains/measurement/project-assessment-suite/process-maturity-assessment-template.md"
+      ],
+      "complementary_assets": [
+        "domains/stakeholder/project-assessment-suite/stakeholder-engagement-assessment-template.md",
+        "domains/stakeholder/business-stakeholder-suite/financial-governance/budget-dashboard-template.md"
+      ],
+      "previous_workflow_step": "domains/measurement/project-assessment-suite/gap-analysis-matrix-template.md",
+      "next_workflow_step": "domains/measurement/project-assessment-suite/process-maturity-assessment-template.md"
+    },
+    {
+      "path": "domains/measurement/project-assessment-suite/process-maturity-assessment-template.md",
+      "domain": {
+        "primary": "Measurement",
+        "secondary": [
+          "Stakeholder",
+          "Uncertainty"
+        ],
+        "rationale": "Monitoring template tracks and reports performance"
+      },
+      "prerequisites": [
+        "domains/measurement/project-assessment-suite/risk-management-assessment-template.md"
+      ],
+      "related_assets": [
+        "domains/measurement/project-assessment-suite/governance-assessment-template.md",
+        "domains/measurement/project-assessment-suite/project-health-assessment-template.md"
+      ],
+      "complementary_assets": [
+        "domains/measurement/project-assessment-suite/risk-management-assessment-template.md",
+        "domains/measurement/project-assessment-suite/current-state-analysis-template.md"
+      ],
+      "previous_workflow_step": "domains/measurement/project-assessment-suite/governance-assessment-template.md",
+      "next_workflow_step": "domains/measurement/project-assessment-suite/project-health-assessment-template.md"
+    },
+    {
+      "path": "domains/measurement/project-assessment-suite/project-health-assessment-template.md",
+      "domain": {
+        "primary": "Measurement",
+        "secondary": [
+          "Stakeholder",
+          "Uncertainty"
+        ],
+        "rationale": "Monitoring template tracks and reports performance"
+      },
+      "prerequisites": [
+        "domains/measurement/project-assessment-suite/current-state-analysis-template.md"
+      ],
+      "related_assets": [
+        "domains/measurement/project-assessment-suite/process-maturity-assessment-template.md",
+        "domains/measurement/project-assessment-suite/remediation-action-plan-template.md"
+      ],
+      "complementary_assets": [
+        "domains/measurement/project-assessment-suite/current-state-analysis-template.md",
+        "domains/measurement/industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md"
+      ],
+      "previous_workflow_step": "domains/measurement/project-assessment-suite/process-maturity-assessment-template.md",
+      "next_workflow_step": "domains/measurement/project-assessment-suite/remediation-action-plan-template.md"
+    },
+    {
+      "path": "domains/measurement/project-assessment-suite/remediation-action-plan-template.md",
+      "domain": {
+        "primary": "Measurement",
+        "secondary": [
+          "Stakeholder",
+          "Uncertainty"
+        ],
+        "rationale": "Monitoring template tracks and reports performance"
+      },
+      "prerequisites": [
+        "domains/measurement/project-assessment-suite/current-state-analysis-template.md"
+      ],
+      "related_assets": [
+        "domains/measurement/project-assessment-suite/project-health-assessment-template.md",
+        "domains/measurement/project-assessment-suite/resource-management-assessment-template.md"
+      ],
+      "complementary_assets": [
+        "domains/measurement/project-assessment-suite/current-state-analysis-template.md",
+        "domains/measurement/industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md"
+      ],
+      "previous_workflow_step": "domains/measurement/project-assessment-suite/project-health-assessment-template.md",
+      "next_workflow_step": "domains/measurement/project-assessment-suite/resource-management-assessment-template.md"
+    },
+    {
+      "path": "domains/measurement/project-assessment-suite/resource-management-assessment-template.md",
+      "domain": {
+        "primary": "Measurement",
+        "secondary": [],
+        "rationale": "Monitoring template tracks and reports performance"
+      },
+      "prerequisites": [
+        "business-stakeholder-suite/executive-dashboards/tableau-integration/executive-dashboard-template.md"
+      ],
+      "related_assets": [
+        "domains/measurement/project-assessment-suite/remediation-action-plan-template.md",
+        "domains/measurement/project-assessment-suite/risk-management-assessment-template.md"
+      ],
+      "complementary_assets": [
+        "business-stakeholder-suite/executive-dashboards/tableau-integration/executive-dashboard-template.md",
+        "domains/measurement/project-assessment-suite/process-maturity-assessment-template.md"
+      ],
+      "previous_workflow_step": "domains/measurement/project-assessment-suite/remediation-action-plan-template.md",
+      "next_workflow_step": "domains/measurement/project-assessment-suite/risk-management-assessment-template.md"
+    },
+    {
+      "path": "domains/measurement/project-assessment-suite/risk-management-assessment-template.md",
+      "domain": {
+        "primary": "Measurement",
+        "secondary": [
+          "Stakeholder",
+          "Uncertainty"
+        ],
+        "rationale": "Monitoring template tracks and reports performance"
+      },
+      "prerequisites": [
+        "domains/measurement/project-assessment-suite/process-maturity-assessment-template.md"
+      ],
+      "related_assets": [
+        "domains/measurement/project-assessment-suite/resource-management-assessment-template.md",
+        "domains/measurement/project-lifecycle/02-planning/business-requirements/business_requirements_document_template.md"
+      ],
+      "complementary_assets": [
+        "domains/measurement/project-assessment-suite/process-maturity-assessment-template.md",
+        "domains/planning/role-based-toolkits/project-manager/essential-templates/budget-template.md"
+      ],
+      "previous_workflow_step": "domains/measurement/project-assessment-suite/resource-management-assessment-template.md",
+      "next_workflow_step": "domains/measurement/project-lifecycle/02-planning/business-requirements/business_requirements_document_template.md"
     },
     {
       "path": "domains/measurement/project-lifecycle/02-planning/business-requirements/business_requirements_document_template.md",
@@ -1920,14 +2175,14 @@
         "domains/measurement/industry-specializations/information-technology/security/cybersecurity_assessment_template.md"
       ],
       "related_assets": [
-        "project-assessment-suite/risk-management-assessment-template.md",
+        "domains/measurement/project-assessment-suite/risk-management-assessment-template.md",
         "domains/measurement/project-lifecycle/02-planning/resource-planning/resource-management-plan-template.md"
       ],
       "complementary_assets": [
         "domains/measurement/industry-specializations/information-technology/security/cybersecurity_assessment_template.md",
         "domains/stakeholder/business-stakeholder-suite/executive-dashboards/Word/Executive-Report-Templates.md"
       ],
-      "previous_workflow_step": "project-assessment-suite/risk-management-assessment-template.md",
+      "previous_workflow_step": "domains/measurement/project-assessment-suite/risk-management-assessment-template.md",
       "next_workflow_step": "domains/measurement/project-lifecycle/02-planning/resource-planning/resource-management-plan-template.md"
     },
     {
@@ -1969,14 +2224,38 @@
       ],
       "related_assets": [
         "domains/measurement/project-lifecycle/02-planning/resource-planning/resource-management-plan-template.md",
-        "role-based-toolkits/project-manager/essential-templates/handover-template.md"
+        "domains/measurement/role-based-toolkits/project-manager/essential-templates/handover-template.md"
       ],
       "complementary_assets": [
         "domains/measurement/methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md",
         "domains/measurement/methodology-frameworks/emerging-methods/devops/release_management_template.md"
       ],
       "previous_workflow_step": "domains/measurement/project-lifecycle/02-planning/resource-planning/resource-management-plan-template.md",
-      "next_workflow_step": "role-based-toolkits/project-manager/essential-templates/handover-template.md"
+      "next_workflow_step": "domains/measurement/role-based-toolkits/project-manager/essential-templates/handover-template.md"
+    },
+    {
+      "path": "domains/measurement/role-based-toolkits/project-manager/essential-templates/handover-template.md",
+      "domain": {
+        "primary": "Measurement",
+        "secondary": [
+          "Stakeholder",
+          "Uncertainty"
+        ],
+        "rationale": "Monitoring template tracks and reports performance"
+      },
+      "prerequisites": [
+        "domains/measurement/project-assessment-suite/current-state-analysis-template.md"
+      ],
+      "related_assets": [
+        "domains/measurement/project-lifecycle/02-planning/risk-management/risk-management-plan-template.md",
+        "domains/delivery/role-based-toolkits/project-manager/essential-templates/timesheet-tracking-template.md"
+      ],
+      "complementary_assets": [
+        "domains/measurement/project-assessment-suite/current-state-analysis-template.md",
+        "domains/measurement/industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md"
+      ],
+      "previous_workflow_step": "domains/measurement/project-lifecycle/02-planning/risk-management/risk-management-plan-template.md",
+      "next_workflow_step": "domains/delivery/role-based-toolkits/project-manager/essential-templates/timesheet-tracking-template.md"
     },
     {
       "path": "domains/planning/industry-specializations/information-technology/infrastructure/data_center_design_template.md",
@@ -1994,7 +2273,7 @@
       ],
       "complementary_assets": [
         "domains/uncertainty/industry-specializations/information-technology/infrastructure/migration_plan_template.md",
-        "project-assessment-suite/resource-management-assessment-template.md"
+        "domains/measurement/project-assessment-suite/resource-management-assessment-template.md"
       ],
       "previous_workflow_step": "domains/planning/templates/traditional/Traditional/Templates/program_charter_template.md",
       "next_workflow_step": "domains/planning/industry-specializations/information-technology/infrastructure/disaster_recovery_template.md"
@@ -2015,7 +2294,7 @@
       ],
       "complementary_assets": [
         "domains/uncertainty/industry-specializations/information-technology/infrastructure/migration_plan_template.md",
-        "project-assessment-suite/resource-management-assessment-template.md"
+        "domains/measurement/project-assessment-suite/resource-management-assessment-template.md"
       ],
       "previous_workflow_step": "domains/planning/industry-specializations/information-technology/infrastructure/data_center_design_template.md",
       "next_workflow_step": "domains/planning/project-lifecycle/01-initiation/project-charter/traditional-project-charter-template.md"
@@ -2393,7 +2672,7 @@
       ],
       "complementary_assets": [
         "domains/uncertainty/role-based-toolkits/project-manager/essential-templates/meeting-templates.md",
-        "methodology-frameworks/emerging-methods/devops/monitoring_alerting_template.md"
+        "domains/measurement/methodology-frameworks/emerging-methods/devops/monitoring_alerting_template.md"
       ],
       "previous_workflow_step": "domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/stakeholder-register-template.md",
       "next_workflow_step": "domains/stakeholder/business-stakeholder-suite/executive-dashboards/powerbi-integration/executive-dashboard-template.md"
@@ -2613,14 +2892,14 @@
       ],
       "related_assets": [
         "domains/uncertainty/templates/test-samples/quality-test-plan-template.md",
-        "domains/uncertainty/industry-specializations/information-technology/software-development/requirements_specification_template.md"
+        "domains/delivery/industry-specializations/information-technology/service-management/problem_management_process_template.md"
       ],
       "complementary_assets": [
         "domains/planning/industry-specializations/information-technology/infrastructure/data_center_design_template.md",
         "domains/planning/industry-specializations/information-technology/infrastructure/disaster_recovery_template.md"
       ],
       "previous_workflow_step": "domains/uncertainty/templates/test-samples/quality-test-plan-template.md",
-      "next_workflow_step": "domains/uncertainty/industry-specializations/information-technology/software-development/requirements_specification_template.md"
+      "next_workflow_step": "domains/delivery/industry-specializations/information-technology/service-management/problem_management_process_template.md"
     },
     {
       "path": "domains/uncertainty/industry-specializations/information-technology/software-development/requirements_specification_template.md",
@@ -2635,14 +2914,14 @@
         "domains/uncertainty/role-based-toolkits/product-owner/backlog-management-template.md"
       ],
       "related_assets": [
-        "domains/uncertainty/industry-specializations/information-technology/infrastructure/migration_plan_template.md",
+        "domains/delivery/industry-specializations/information-technology/service-management/problem_management_process_template.md",
         "domains/uncertainty/industry-specializations/information-technology/software-development/user_story_mapping_template.md"
       ],
       "complementary_assets": [
         "domains/uncertainty/role-based-toolkits/product-owner/backlog-management-template.md",
         "domains/uncertainty/project-lifecycle/04-monitoring-control/progress-tracking/project-dashboard-template.md"
       ],
-      "previous_workflow_step": "domains/uncertainty/industry-specializations/information-technology/infrastructure/migration_plan_template.md",
+      "previous_workflow_step": "domains/delivery/industry-specializations/information-technology/service-management/problem_management_process_template.md",
       "next_workflow_step": "domains/uncertainty/industry-specializations/information-technology/software-development/user_story_mapping_template.md"
     },
     {
@@ -2887,285 +3166,6 @@
       ],
       "previous_workflow_step": "domains/uncertainty/role-based-toolkits/project-manager/essential-templates/meeting-templates.md",
       "next_workflow_step": "domains/uncertainty/industry-specializations/information-technology/infrastructure/migration_plan_template.md"
-    },
-    {
-      "path": "methodology-frameworks/emerging-methods/devops/devsecops_template.md",
-      "domain": {
-        "primary": "Measurement",
-        "secondary": [
-          "Uncertainty"
-        ],
-        "rationale": "Monitoring template tracks and reports performance"
-      },
-      "prerequisites": [
-        "domains/measurement/methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md"
-      ],
-      "related_assets": [
-        "domains/measurement/methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md",
-        "methodology-frameworks/emerging-methods/devops/infrastructure_as_code_template.md"
-      ],
-      "complementary_assets": [
-        "domains/delivery/industry-specializations/healthcare-pharmaceutical/regulatory/compliance_risk_assessment_template.md",
-        "domains/delivery/industry-specializations/healthcare-pharmaceutical/regulatory/regulatory_inspection_readiness_plan_template.md"
-      ],
-      "previous_workflow_step": "domains/measurement/methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md",
-      "next_workflow_step": "methodology-frameworks/emerging-methods/devops/infrastructure_as_code_template.md"
-    },
-    {
-      "path": "methodology-frameworks/emerging-methods/devops/infrastructure_as_code_template.md",
-      "domain": {
-        "primary": "Measurement",
-        "secondary": [],
-        "rationale": "Monitoring template tracks and reports performance"
-      },
-      "prerequisites": [
-        "methodology-frameworks/emerging-methods/devops/devsecops_template.md"
-      ],
-      "related_assets": [
-        "methodology-frameworks/emerging-methods/devops/devsecops_template.md",
-        "methodology-frameworks/emerging-methods/devops/monitoring_alerting_template.md"
-      ],
-      "complementary_assets": [
-        "domains/planning/role-based-toolkits/project-manager/essential-templates/budget-template.md",
-        "domains/measurement/methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md"
-      ],
-      "previous_workflow_step": "methodology-frameworks/emerging-methods/devops/devsecops_template.md",
-      "next_workflow_step": "methodology-frameworks/emerging-methods/devops/monitoring_alerting_template.md"
-    },
-    {
-      "path": "methodology-frameworks/emerging-methods/devops/monitoring_alerting_template.md",
-      "domain": {
-        "primary": "Measurement",
-        "secondary": [
-          "Stakeholder"
-        ],
-        "rationale": "Monitoring template tracks and reports performance"
-      },
-      "prerequisites": [
-        "domains/measurement/project-assessment-suite/current-state-analysis-template.md"
-      ],
-      "related_assets": [
-        "methodology-frameworks/emerging-methods/devops/infrastructure_as_code_template.md",
-        "domains/measurement/methodology-frameworks/emerging-methods/devops/release_management_template.md"
-      ],
-      "complementary_assets": [
-        "domains/measurement/project-assessment-suite/current-state-analysis-template.md",
-        "domains/measurement/industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md"
-      ],
-      "previous_workflow_step": "methodology-frameworks/emerging-methods/devops/infrastructure_as_code_template.md",
-      "next_workflow_step": "domains/measurement/methodology-frameworks/emerging-methods/devops/release_management_template.md"
-    },
-    {
-      "path": "project-assessment-suite/future-state-blueprint-template.md",
-      "domain": {
-        "primary": "Measurement",
-        "secondary": [
-          "Stakeholder",
-          "Uncertainty"
-        ],
-        "rationale": "Monitoring template tracks and reports performance"
-      },
-      "prerequisites": [
-        "domains/measurement/project-assessment-suite/current-state-analysis-template.md"
-      ],
-      "related_assets": [
-        "domains/measurement/project-assessment-suite/executive-summary-template.md",
-        "project-assessment-suite/gap-analysis-matrix-template.md"
-      ],
-      "complementary_assets": [
-        "domains/measurement/project-assessment-suite/current-state-analysis-template.md",
-        "domains/measurement/industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md"
-      ],
-      "previous_workflow_step": "domains/measurement/project-assessment-suite/executive-summary-template.md",
-      "next_workflow_step": "project-assessment-suite/gap-analysis-matrix-template.md"
-    },
-    {
-      "path": "project-assessment-suite/gap-analysis-matrix-template.md",
-      "domain": {
-        "primary": "Measurement",
-        "secondary": [
-          "Stakeholder",
-          "Uncertainty"
-        ],
-        "rationale": "Monitoring template tracks and reports performance"
-      },
-      "prerequisites": [
-        "domains/measurement/project-assessment-suite/current-state-analysis-template.md"
-      ],
-      "related_assets": [
-        "project-assessment-suite/future-state-blueprint-template.md",
-        "project-assessment-suite/governance-assessment-template.md"
-      ],
-      "complementary_assets": [
-        "domains/measurement/project-assessment-suite/current-state-analysis-template.md",
-        "domains/measurement/industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md"
-      ],
-      "previous_workflow_step": "project-assessment-suite/future-state-blueprint-template.md",
-      "next_workflow_step": "project-assessment-suite/governance-assessment-template.md"
-    },
-    {
-      "path": "project-assessment-suite/governance-assessment-template.md",
-      "domain": {
-        "primary": "Measurement",
-        "secondary": [
-          "Stakeholder"
-        ],
-        "rationale": "Monitoring template tracks and reports performance"
-      },
-      "prerequisites": [
-        "project-assessment-suite/process-maturity-assessment-template.md"
-      ],
-      "related_assets": [
-        "project-assessment-suite/gap-analysis-matrix-template.md",
-        "project-assessment-suite/process-maturity-assessment-template.md"
-      ],
-      "complementary_assets": [
-        "domains/stakeholder/project-assessment-suite/stakeholder-engagement-assessment-template.md",
-        "domains/stakeholder/business-stakeholder-suite/financial-governance/budget-dashboard-template.md"
-      ],
-      "previous_workflow_step": "project-assessment-suite/gap-analysis-matrix-template.md",
-      "next_workflow_step": "project-assessment-suite/process-maturity-assessment-template.md"
-    },
-    {
-      "path": "project-assessment-suite/process-maturity-assessment-template.md",
-      "domain": {
-        "primary": "Measurement",
-        "secondary": [
-          "Stakeholder",
-          "Uncertainty"
-        ],
-        "rationale": "Monitoring template tracks and reports performance"
-      },
-      "prerequisites": [
-        "project-assessment-suite/risk-management-assessment-template.md"
-      ],
-      "related_assets": [
-        "project-assessment-suite/governance-assessment-template.md",
-        "project-assessment-suite/project-health-assessment-template.md"
-      ],
-      "complementary_assets": [
-        "project-assessment-suite/risk-management-assessment-template.md",
-        "domains/measurement/project-assessment-suite/current-state-analysis-template.md"
-      ],
-      "previous_workflow_step": "project-assessment-suite/governance-assessment-template.md",
-      "next_workflow_step": "project-assessment-suite/project-health-assessment-template.md"
-    },
-    {
-      "path": "project-assessment-suite/project-health-assessment-template.md",
-      "domain": {
-        "primary": "Measurement",
-        "secondary": [
-          "Stakeholder",
-          "Uncertainty"
-        ],
-        "rationale": "Monitoring template tracks and reports performance"
-      },
-      "prerequisites": [
-        "domains/measurement/project-assessment-suite/current-state-analysis-template.md"
-      ],
-      "related_assets": [
-        "project-assessment-suite/process-maturity-assessment-template.md",
-        "project-assessment-suite/remediation-action-plan-template.md"
-      ],
-      "complementary_assets": [
-        "domains/measurement/project-assessment-suite/current-state-analysis-template.md",
-        "domains/measurement/industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md"
-      ],
-      "previous_workflow_step": "project-assessment-suite/process-maturity-assessment-template.md",
-      "next_workflow_step": "project-assessment-suite/remediation-action-plan-template.md"
-    },
-    {
-      "path": "project-assessment-suite/remediation-action-plan-template.md",
-      "domain": {
-        "primary": "Measurement",
-        "secondary": [
-          "Stakeholder",
-          "Uncertainty"
-        ],
-        "rationale": "Monitoring template tracks and reports performance"
-      },
-      "prerequisites": [
-        "domains/measurement/project-assessment-suite/current-state-analysis-template.md"
-      ],
-      "related_assets": [
-        "project-assessment-suite/project-health-assessment-template.md",
-        "project-assessment-suite/resource-management-assessment-template.md"
-      ],
-      "complementary_assets": [
-        "domains/measurement/project-assessment-suite/current-state-analysis-template.md",
-        "domains/measurement/industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md"
-      ],
-      "previous_workflow_step": "project-assessment-suite/project-health-assessment-template.md",
-      "next_workflow_step": "project-assessment-suite/resource-management-assessment-template.md"
-    },
-    {
-      "path": "project-assessment-suite/resource-management-assessment-template.md",
-      "domain": {
-        "primary": "Measurement",
-        "secondary": [],
-        "rationale": "Monitoring template tracks and reports performance"
-      },
-      "prerequisites": [
-        "business-stakeholder-suite/executive-dashboards/tableau-integration/executive-dashboard-template.md"
-      ],
-      "related_assets": [
-        "project-assessment-suite/remediation-action-plan-template.md",
-        "project-assessment-suite/risk-management-assessment-template.md"
-      ],
-      "complementary_assets": [
-        "business-stakeholder-suite/executive-dashboards/tableau-integration/executive-dashboard-template.md",
-        "project-assessment-suite/process-maturity-assessment-template.md"
-      ],
-      "previous_workflow_step": "project-assessment-suite/remediation-action-plan-template.md",
-      "next_workflow_step": "project-assessment-suite/risk-management-assessment-template.md"
-    },
-    {
-      "path": "project-assessment-suite/risk-management-assessment-template.md",
-      "domain": {
-        "primary": "Measurement",
-        "secondary": [
-          "Stakeholder",
-          "Uncertainty"
-        ],
-        "rationale": "Monitoring template tracks and reports performance"
-      },
-      "prerequisites": [
-        "project-assessment-suite/process-maturity-assessment-template.md"
-      ],
-      "related_assets": [
-        "project-assessment-suite/resource-management-assessment-template.md",
-        "domains/measurement/project-lifecycle/02-planning/business-requirements/business_requirements_document_template.md"
-      ],
-      "complementary_assets": [
-        "project-assessment-suite/process-maturity-assessment-template.md",
-        "domains/planning/role-based-toolkits/project-manager/essential-templates/budget-template.md"
-      ],
-      "previous_workflow_step": "project-assessment-suite/resource-management-assessment-template.md",
-      "next_workflow_step": "domains/measurement/project-lifecycle/02-planning/business-requirements/business_requirements_document_template.md"
-    },
-    {
-      "path": "role-based-toolkits/project-manager/essential-templates/handover-template.md",
-      "domain": {
-        "primary": "Measurement",
-        "secondary": [
-          "Stakeholder",
-          "Uncertainty"
-        ],
-        "rationale": "Monitoring template tracks and reports performance"
-      },
-      "prerequisites": [
-        "domains/measurement/project-assessment-suite/current-state-analysis-template.md"
-      ],
-      "related_assets": [
-        "domains/measurement/project-lifecycle/02-planning/risk-management/risk-management-plan-template.md",
-        "domains/measurement/industry-specializations/financial-services/compliance/compliance-management-template.md"
-      ],
-      "complementary_assets": [
-        "domains/measurement/project-assessment-suite/current-state-analysis-template.md",
-        "domains/measurement/industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md"
-      ],
-      "previous_workflow_step": "domains/measurement/project-lifecycle/02-planning/risk-management/risk-management-plan-template.md",
-      "next_workflow_step": "domains/measurement/industry-specializations/financial-services/compliance/compliance-management-template.md"
     }
   ]
 }

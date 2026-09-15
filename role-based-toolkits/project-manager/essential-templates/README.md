@@ -40,7 +40,7 @@ These templates provide the fundamental documents and tools required for effecti
 - **[Project Closure Checklist](closure-checklist.md)** - Ensure complete project closure
 - **[Lessons Learned Template](lessons-learned.md)** - Capture knowledge for future projects
 - **[Final Report Template](final-report.md)** - Comprehensive project summary
-- **[Handover Template](handover-template.md)** - Transfer deliverables to operations
+- **[Handover Template](../../../domains/measurement/role-based-toolkits/project-manager/essential-templates/handover-template.md)** - Transfer deliverables to operations
 
 ---
 <a id="when-to-use"></a>

@@ -15,7 +15,7 @@
 
 title: "Resource Management Assessment Template"
 
-[**➡️ View Template File**](/project-assessment-suite/resource-management-assessment-template.md)
+[**➡️ View Template File**](/domains/measurement/project-assessment-suite/resource-management-assessment-template.md)
 
 ## 📈 Quality Score
 

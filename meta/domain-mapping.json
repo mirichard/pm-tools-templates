@@ -105,7 +105,7 @@
       "domain": {
         "primary": "Delivery",
         "secondary": [],
-        "rationale": "Technology template supports delivery execution"
+        "rationale": "Reviewed primary purpose: structure and document a technical delivery interface."
       },
       "flags": {
         "needs_review": true,
@@ -498,7 +498,7 @@
       }
     },
     {
-      "path": "methodology-frameworks/emerging-methods/devops/devsecops_template.md",
+      "path": "domains/measurement/methodology-frameworks/emerging-methods/devops/devsecops_template.md",
       "title": "Devsecops Template",
       "methodology": "universal",
       "domain": {
@@ -654,7 +654,7 @@
       }
     },
     {
-      "path": "project-assessment-suite/future-state-blueprint-template.md",
+      "path": "domains/measurement/project-assessment-suite/future-state-blueprint-template.md",
       "title": "Future State Blueprint Template",
       "methodology": "universal",
       "domain": {
@@ -671,7 +671,7 @@
       }
     },
     {
-      "path": "project-assessment-suite/gap-analysis-matrix-template.md",
+      "path": "domains/measurement/project-assessment-suite/gap-analysis-matrix-template.md",
       "title": "Gap Analysis Matrix Template",
       "methodology": "universal",
       "domain": {
@@ -688,7 +688,7 @@
       }
     },
     {
-      "path": "project-assessment-suite/governance-assessment-template.md",
+      "path": "domains/measurement/project-assessment-suite/governance-assessment-template.md",
       "title": "Governance Assessment Template",
       "methodology": "universal",
       "domain": {
@@ -720,7 +720,7 @@
       }
     },
     {
-      "path": "role-based-toolkits/project-manager/essential-templates/handover-template.md",
+      "path": "domains/measurement/role-based-toolkits/project-manager/essential-templates/handover-template.md",
       "title": "Handover Template",
       "methodology": "universal",
       "domain": {
@@ -887,7 +887,7 @@
       }
     },
     {
-      "path": "methodology-frameworks/emerging-methods/devops/infrastructure_as_code_template.md",
+      "path": "domains/measurement/methodology-frameworks/emerging-methods/devops/infrastructure_as_code_template.md",
       "title": "Infrastructure As Code Template",
       "methodology": "universal",
       "domain": {
@@ -1067,7 +1067,7 @@
       }
     },
     {
-      "path": "methodology-frameworks/emerging-methods/devops/monitoring_alerting_template.md",
+      "path": "domains/measurement/methodology-frameworks/emerging-methods/devops/monitoring_alerting_template.md",
       "title": "Monitoring Alerting Template",
       "methodology": "universal",
       "domain": {
@@ -1198,9 +1198,9 @@
       "title": "Problem Management Process Template",
       "methodology": "universal",
       "domain": {
-        "primary": "Delivery",
+        "primary": "Uncertainty",
         "secondary": [],
-        "rationale": "No tags available — needs manual review"
+        "rationale": "Reviewed primary purpose: identify, investigate, mitigate, and resolve unexpected problems."
       },
       "flags": {
         "needs_review": true,
@@ -1224,7 +1224,7 @@
       }
     },
     {
-      "path": "project-assessment-suite/process-maturity-assessment-template.md",
+      "path": "domains/measurement/project-assessment-suite/process-maturity-assessment-template.md",
       "title": "Process Maturity Assessment Template",
       "methodology": "universal",
       "domain": {
@@ -1422,7 +1422,7 @@
       }
     },
     {
-      "path": "project-assessment-suite/project-health-assessment-template.md",
+      "path": "domains/measurement/project-assessment-suite/project-health-assessment-template.md",
       "title": "Project Health Assessment Template",
       "methodology": "universal",
       "domain": {
@@ -1618,7 +1618,7 @@
       }
     },
     {
-      "path": "project-assessment-suite/remediation-action-plan-template.md",
+      "path": "domains/measurement/project-assessment-suite/remediation-action-plan-template.md",
       "title": "Remediation Action Plan Template",
       "methodology": "universal",
       "domain": {
@@ -1668,7 +1668,7 @@
       }
     },
     {
-      "path": "project-assessment-suite/resource-management-assessment-template.md",
+      "path": "domains/measurement/project-assessment-suite/resource-management-assessment-template.md",
       "title": "Resource Management Assessment Template",
       "methodology": "universal",
       "domain": {
@@ -1716,7 +1716,7 @@
       }
     },
     {
-      "path": "project-assessment-suite/risk-management-assessment-template.md",
+      "path": "domains/measurement/project-assessment-suite/risk-management-assessment-template.md",
       "title": "Risk Management Assessment Template",
       "methodology": "universal",
       "domain": {
@@ -2067,9 +2067,9 @@
       "title": "Timesheet Tracking Template",
       "methodology": "universal",
       "domain": {
-        "primary": "Delivery",
+        "primary": "Measurement",
         "secondary": [],
-        "rationale": "Technology template supports delivery execution"
+        "rationale": "Reviewed primary purpose: record and summarize effort evidence for tracking and reporting."
       },
       "flags": {
         "needs_review": true,
