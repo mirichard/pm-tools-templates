@@ -41,6 +41,7 @@ class TestRunner {
     await require('./source-traceability-tests')(this);
     await this.testAmbiguityDetector();
     await this.testGherkinGenerator();
+    await require('./negative-scenario-trigger-tests')(this);
     await this.testSecurityBoundaries();
     await require('./nfr-tests')(this);
     await require('./nfr-library-tests')(this);
@@ -215,8 +216,12 @@ class TestRunner {
       };
       const testCases = generator.generate(ucs);
       const altTC = testCases[1];
-      // Should have: 0 steps before deviation + 1 alt step + step 3 (rejoin) = 2 steps
-      return altTC.steps.length === 2 && altTC.steps[1].stepId === '3';
+      // The deviation point (step 1) is user-driven and the alt flow's own
+      // step is the system's reaction, so a synthesized trigger step is
+      // inserted first (see #1164-follow-up: negative scenarios must show the
+      // triggering action, not just assert the outcome). Should have:
+      // 0 steps before deviation + 1 synthesized trigger + 1 alt step + step 3 (rejoin) = 3 steps
+      return altTC.steps.length === 3 && altTC.steps[1].stepId === '1a1' && altTC.steps[2].stepId === '3';
     });
   }
 

@@ -13,6 +13,7 @@
  */
 
 const { UCSTemplate } = require('./ucs-template');
+const { isSystemActor } = require('./actor-role');
 
 class TestGenerator {
   /**
@@ -59,7 +60,11 @@ class TestGenerator {
           type: flow.flowId.includes('b') ? 'exception' : 'alternative',
           triggerCondition: flow.triggerCondition,
           deviationPoint: flow.deviationPoint,
-          preconditions: ucs.preconditions,
+          // The flow's own triggerCondition is the precondition that
+          // distinguishes this branch from the basic flow; render it as a
+          // scenario-specific Given alongside the use case's own preconditions
+          // instead of only carrying it in the test case name.
+          preconditions: [...ucs.preconditions, flow.triggerCondition],
           steps: [],
           expectedPostconditions: [],
         };
@@ -67,6 +72,27 @@ class TestGenerator {
         // Line 6: testCase ← [step1, step2, ..., step_{i-1}]
         for (let j = 0; j < i; j++) {
           testCase.steps.push(this._formatStep(basicSteps[j]));
+        }
+
+        // If the deviation point is a user-driven action and this branch's own
+        // steps open straight with the system's reaction, the branch never
+        // shows anyone performing the (invalid-variant) action that actually
+        // triggers it — e.g. asserting a rejection without ever submitting the
+        // rejected input. Re-assert the same action (actor/action/businessObject
+        // only, not its happy-path description or postcondition, which would
+        // contradict this branch's outcome) so the scenario has something to
+        // invoke before the branch's own steps assert what happens instead.
+        const deviationStep = basicSteps[i];
+        const branchOpensWithReaction = flow.steps.length > 0 && isSystemActor(flow.steps[0].actor);
+        if (!isSystemActor(deviationStep.actor) && branchOpensWithReaction) {
+          testCase.steps.push({
+            stepId: `${deviationStep.stepId}-${flow.flowId}`,
+            description: null,
+            actor: deviationStep.actor,
+            action: deviationStep.action,
+            businessObject: deviationStep.businessObject,
+            expectedResult: null,
+          });
         }
 
         // Line 7: Append all steps from altF_ij to testCase
