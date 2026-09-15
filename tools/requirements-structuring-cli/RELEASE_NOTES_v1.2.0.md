@@ -43,7 +43,7 @@ LLM-assisted tool implementing the Li & Zheng (2025) framework for sprint teams 
 - ISO/IEC 25010:2023 quality-attribute classification and NFR candidate generation, with opt-in domain overlays
 - Source requirement traceability from input through the initial UCS and its generated test/Gherkin artifacts
 - Human-readable Markdown reports
-- 171 unit tests (up from 29 in v1.1.0)
+- 172 unit tests (up from 29 in v1.1.0)
 
 ### Getting Started
 

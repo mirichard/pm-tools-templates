@@ -14,7 +14,7 @@ All notable changes to the Requirements Structuring & Validation CLI are documen
   - **Golden end-to-end NFR reference example** (#1116): recorded `neutral` and `pci-dss` live captures of a password-reset feature, all eight pipeline artifacts through NFR generation, with a deterministic, provider-call-free regeneration check. See `examples/fixtures/nfr-golden/`.
 - **Source requirement traceability** (#1139): parsed requirements retain a stable ID and original text; the initial, source-driven UCS/test/Gherkin artifacts carry that propagated ID and text on each step. Membership validation cannot detect a wrong-but-valid ID (e.g. a step derived from FR4 that cites FR3), so this is provenance labeling, not proof the cited requirement is the one actually used. Legacy transformation without a source catalog does not claim provenance, and the optional feedback/refinement phase may alter or omit this metadata. New module `src/source-traceability.js`.
 - Shared `src/actor-role.js`: single definition of "system actor" used by both the test generator and the Gherkin generator (previously two independently-maintained lists).
-- 142 new unit tests (29 → 171) covering classification, generation, overlays, the NFR input contract, traceability, negative-scenario Gherkin synthesis, and the golden fixture.
+- 143 new unit tests (29 → 172) covering classification, generation, overlays, the NFR input contract, traceability, negative-scenario Gherkin synthesis, the golden fixture, and a CLI version-drift regression check.
 
 ### Changed
 
