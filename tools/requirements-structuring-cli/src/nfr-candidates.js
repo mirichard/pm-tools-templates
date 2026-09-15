@@ -47,6 +47,21 @@ function selectPairs(handoff, { overlay = 'neutral' } = {}) {
 }
 module.exports = { validateHandoff, matchingPatterns, selectPairs };
 
+// #1110: a self-contained acceptance-criterion scaffold, distinct from the prose `text`
+// statement: quantifiable when the pattern defines a metric (every pattern does today — see
+// docs/nfr-generation.md and nfr-acceptance-scaffold-tests.js for why the qualitative branch
+// is real, exercised code rather than a currently-reachable one). The threshold is still the
+// same unbound `[NEEDS INPUT: <param>]` placeholder as `bindings` — never a fabricated value.
+// Exported standalone so the qualitative branch is unit-testable with a synthetic pattern,
+// without touching the real pattern library.
+function buildAcceptanceCriterion(pattern, bindings, text) {
+  return pattern.metric ? {
+    kind: 'quantifiable', metric: pattern.metric.type, unit: pattern.metric.unit,
+    operator: pattern.metric.operator, threshold: bindings[pattern.metric.targetParameter],
+    measurement: pattern.metric.measurement,
+  } : { kind: 'qualitative', criterion: text };
+}
+
 function generateCandidates(handoff, options = {}) {
   const { library, data, pairs } = selectPairs(handoff, options);
   const candidates = pairs.flatMap(pair => pair.patterns.map(pattern => {
@@ -59,17 +74,7 @@ function generateCandidates(handoff, options = {}) {
       sourceTaxonomyVersion: pair.attribute.sourceTaxonomyVersion,
       patternId: pattern.id, libraryRevision: library.revision,
       text, bindings, unboundParameters: Object.keys(bindings), metric: pattern.metric,
-      // #1110: a self-contained acceptance-criterion scaffold, distinct from the prose `text`
-      // statement above. Quantifiable when the pattern defines a metric (every pattern does
-      // today; see docs/nfr-generation.md and nfr-acceptance-scaffold-tests.js for why the
-      // qualitative branch below is real, exercised code rather than a currently-reachable one).
-      // The threshold is still the same unbound `[NEEDS INPUT: <param>]` placeholder as
-      // `bindings` — never a fabricated value.
-      acceptanceCriterion: pattern.metric ? {
-        kind: 'quantifiable', metric: pattern.metric.type, unit: pattern.metric.unit,
-        operator: pattern.metric.operator, threshold: bindings[pattern.metric.targetParameter],
-        measurement: pattern.metric.measurement,
-      } : { kind: 'qualitative', criterion: text },
+      acceptanceCriterion: buildAcceptanceCriterion(pattern, bindings, text),
       provenance: pattern.provenance,
       frameworks: pattern.provenance.frameworks.map(ref => ({ ...library.frameworks.find(f => f.id === ref.id), section: ref.section })),
       applicability: library.applicability, reviewStatus: 'needs-human-input',
@@ -82,3 +87,4 @@ function generateCandidates(handoff, options = {}) {
     unmappedSources: data.requirements.filter(r => !r.attributes.length).map(r => r.source) };
 }
 module.exports.generateCandidates = generateCandidates;
+module.exports.buildAcceptanceCriterion = buildAcceptanceCriterion;
