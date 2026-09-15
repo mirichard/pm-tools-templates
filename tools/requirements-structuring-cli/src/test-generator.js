@@ -87,7 +87,7 @@ class TestGenerator {
         if (!isSystemActor(deviationStep.actor) && branchOpensWithReaction) {
           testCase.steps.push({
             stepId: `${deviationStep.stepId}-${flow.flowId}`,
-            description: null,
+            description: `${deviationStep.actor} ${deviationStep.action} ${deviationStep.businessObject}`,
             actor: deviationStep.actor,
             action: deviationStep.action,
             businessObject: deviationStep.businessObject,
