@@ -12,6 +12,7 @@
 const fs = require('fs-extra');
 const path = require('path');
 const { buildSafeOutputPath, safeWriteText } = require('./security');
+const { isSystemActor } = require('./actor-role');
 
 class GherkinGenerator {
   /**
@@ -114,8 +115,7 @@ class GherkinGenerator {
   // ─── Step normalization helpers ──────────────────────────────────────────
 
   _isActorAction(actor) {
-    const systemActors = ['system', 'the system', 'application', 'server', 'api'];
-    return !systemActors.includes((actor || '').toLowerCase());
+    return !isSystemActor(actor);
   }
 
   _normalizeGiven(precondition) {
