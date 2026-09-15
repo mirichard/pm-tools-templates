@@ -72,7 +72,7 @@ module.exports = async function testNFRInputContract(runner) {
   });
 
   await test('#1164 SC7 rejection guard: loosened fields still reject non-string, non-null values', () => {
-    for (const field of ['precondition', 'toActor', 'refUseCaseId']) {
+    for (const field of ['precondition', 'previousStep', 'toActor', 'postcondition', 'refUseCaseId', 'deviationPoint', 'rejoinPoint']) {
       const data = copy(minimalStructured);
       data.steps[0][field] = 42;
       assert.throws(() => validateNFRInput(data), new RegExp(`steps\\[0\\]\\.${field} must be a string or null`),
