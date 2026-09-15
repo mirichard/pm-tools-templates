@@ -99,6 +99,10 @@
           "type": ["string", "null"],
           "description": "Pointer to an existing use case if this step is defined elsewhere (Eq. 2 simplified form); null when the step does not delegate"
         },
+        "description": {
+          "type": "string",
+          "description": "Human-readable step description; not nullable, unlike the fields above (no generation prompt marks it \"(or null)\")"
+        },
         "flowType": {
           "type": "string",
           "enum": ["basic", "alternative", "exception"],

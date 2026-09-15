@@ -79,6 +79,7 @@ module.exports = async function testNFRInputContract(runner) {
     noDescription.steps[0].description = null;
     assert.throws(() => validateNFRInput(noDescription), /steps\[0\]\.description must be a string/,
       'description = null must still be rejected: no generation prompt marks it "(or null)"');
+    assert(!validateFormalStructure(noDescription), 'description = null should also fail formal-structure.schema.json');
     const topLevelNull = copy(minimalStructured);
     topLevelNull.useCaseName = null;
     assert.throws(() => validateNFRInput(topLevelNull), /useCaseName/);
