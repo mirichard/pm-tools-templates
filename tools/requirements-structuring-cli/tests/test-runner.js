@@ -217,11 +217,20 @@ class TestRunner {
       const testCases = generator.generate(ucs);
       const altTC = testCases[1];
       // The deviation point (step 1) is user-driven and the alt flow's own
-      // step is the system's reaction, so a synthesized trigger step is
-      // inserted first (see #1168: negative scenarios must show the
-      // triggering action, not just assert the outcome). Should have:
-      // 0 steps before deviation + 1 synthesized trigger + 1 alt step + step 3 (rejoin) = 3 steps
-      return altTC.steps.length === 3 && altTC.steps[1].stepId === '1a1' && altTC.steps[2].stepId === '3';
+      // step is the system's reaction, so a synthesized `given` step (the
+      // trigger condition, established at the deviation point rather than
+      // as an upfront precondition — see #1128 finding 2) and a synthesized
+      // trigger action are inserted first (see #1168: negative scenarios
+      // must show the triggering action, not just assert the outcome).
+      // Should have: 0 steps before deviation + 1 given + 1 synthesized
+      // trigger action + 1 alt step + step 3 (rejoin) = 4 steps
+      return (
+        altTC.steps.length === 4 &&
+        altTC.steps[0].stepKind === 'given' &&
+        altTC.steps[1].stepId === '1-1a' &&
+        altTC.steps[2].stepId === '1a1' &&
+        altTC.steps[3].stepId === '3'
+      );
     });
   }
 

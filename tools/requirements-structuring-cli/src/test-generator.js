@@ -53,6 +53,18 @@ class TestGenerator {
 
       // Line 5: for each alternative flow altF_ij in altF_i
       for (const flow of branchingFlows) {
+        // If the deviation point is a user-driven action and this branch's own
+        // steps open straight with the system's reaction, the branch never
+        // shows anyone performing the (invalid-variant) action that actually
+        // triggers it — e.g. asserting a rejection without ever submitting the
+        // rejected input. This also means the triggerCondition only becomes
+        // true at the deviation point (e.g. a link only "expires" once the
+        // prefix steps that create it have run), so it cannot be an upfront
+        // Given alongside the use case's own preconditions.
+        const deviationStep = basicSteps[i];
+        const branchOpensWithReaction = flow.steps.length > 0 && isSystemActor(flow.steps[0].actor);
+        const synthesizesTrigger = !isSystemActor(deviationStep.actor) && branchOpensWithReaction;
+
         const testCase = {
           testCaseId: `TC-${ucs.useCaseId}-${String(tcCounter).padStart(2, '0')}`,
           name: `${ucs.intent} - ${flow.flowId}: ${flow.triggerCondition}`,
@@ -61,10 +73,13 @@ class TestGenerator {
           triggerCondition: flow.triggerCondition,
           deviationPoint: flow.deviationPoint,
           // The flow's own triggerCondition is the precondition that
-          // distinguishes this branch from the basic flow; render it as a
-          // scenario-specific Given alongside the use case's own preconditions
-          // instead of only carrying it in the test case name.
-          preconditions: [...ucs.preconditions, flow.triggerCondition],
+          // distinguishes this branch from the basic flow. When the branch is
+          // system-driven (no synthesized action below), the condition already
+          // holds before any of this test case's steps run, so it belongs
+          // alongside the use case's own preconditions. When it is synthesized,
+          // the condition is established later, at the deviation point itself
+          // (see the `given` step below), not up front.
+          preconditions: synthesizesTrigger ? ucs.preconditions : [...ucs.preconditions, flow.triggerCondition],
           steps: [],
           expectedPostconditions: [],
         };
@@ -74,17 +89,16 @@ class TestGenerator {
           testCase.steps.push(this._formatStep(basicSteps[j]));
         }
 
-        // If the deviation point is a user-driven action and this branch's own
-        // steps open straight with the system's reaction, the branch never
-        // shows anyone performing the (invalid-variant) action that actually
-        // triggers it — e.g. asserting a rejection without ever submitting the
-        // rejected input. Re-assert the same action (actor/action/businessObject
-        // only, not its happy-path description or postcondition, which would
-        // contradict this branch's outcome) so the scenario has something to
-        // invoke before the branch's own steps assert what happens instead.
-        const deviationStep = basicSteps[i];
-        const branchOpensWithReaction = flow.steps.length > 0 && isSystemActor(flow.steps[0].actor);
-        if (!isSystemActor(deviationStep.actor) && branchOpensWithReaction) {
+        if (synthesizesTrigger) {
+          // Establish the branch's trigger condition at the deviation point,
+          // after the prefix steps that make it possible (e.g. a reset link
+          // must be created before it can be expired), instead of asserting
+          // it as if it already held at the start of the scenario.
+          testCase.steps.push({
+            stepKind: 'given',
+            stepId: `${deviationStep.stepId}-${flow.flowId}-given`,
+            description: flow.triggerCondition,
+          });
           // Reuse _formatStep so sourceRequirementId/sourceText (the traceability
           // contract requires generated tests/Gherkin retain them) are preserved
           // from the deviation-point step, then override the fields that must not
