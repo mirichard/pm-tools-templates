@@ -92,12 +92,21 @@
         "actor": { "type": "string" },
         "action": { "type": "string" },
         "businessObject": { "type": "string" },
-        "toActor": { "type": "string" },
-        "precondition": { "type": "string" },
-        "postcondition": { "type": "string" },
+        "toActor": {
+          "type": ["string", "null"],
+          "description": "Recipient of the action; null when the action has no recipient"
+        },
+        "precondition": {
+          "type": ["string", "null"],
+          "description": "Required state before this step; null when the producer prompt has no precondition to report"
+        },
+        "postcondition": {
+          "type": ["string", "null"],
+          "description": "Resulting state after this step; null when the producer prompt has no postcondition to report"
+        },
         "refUseCaseId": {
-          "type": "string",
-          "description": "If this step delegates to another use case"
+          "type": ["string", "null"],
+          "description": "If this step delegates to another use case; null when it does not"
         },
         "description": {
           "type": "string",

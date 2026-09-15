@@ -41,9 +41,18 @@ function steps(value, field, structured = false) {
     const location = `${field}[${index}]`;
     if (!object(step)) invalid(location, 'must be an object');
     for (const key of ['stepId', 'actor', 'action', 'businessObject']) text(step[key], `${location}.${key}`);
-    for (const key of ['toActor', 'precondition', 'postcondition', 'refUseCaseId', 'description',
+    // toActor/precondition/postcondition/refUseCaseId (and, for formal structure,
+    // previousStep/deviationPoint/rejoinPoint) are explicitly "(or null)" in the
+    // producer prompts (prompts/01-structure-requirements.md, prompts/03-generate-ucs-template.md)
+    // for a step that legitimately has no value there; null is accepted, not just omission.
+    for (const key of ['toActor', 'precondition', 'postcondition', 'refUseCaseId',
       ...(structured ? ['previousStep', 'deviationPoint', 'rejoinPoint'] : [])]) {
-      if (own(step, key) && typeof step[key] !== 'string') invalid(`${location}.${key}`, 'must be a string');
+      if (own(step, key) && step[key] !== null && typeof step[key] !== 'string') {
+        invalid(`${location}.${key}`, 'must be a string or null');
+      }
+    }
+    if (own(step, 'description') && typeof step.description !== 'string') {
+      invalid(`${location}.description`, 'must be a string');
     }
     if (structured && own(step, 'flowType') && !['basic', 'alternative', 'exception'].includes(step.flowType)) {
       invalid(`${location}.flowType`, 'must be basic, alternative, or exception');
