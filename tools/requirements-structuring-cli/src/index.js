@@ -70,7 +70,7 @@ program
   .description(
     'Structure natural language requirements, generate test cases, and validate consistency'
   )
-  .version('1.0.0');
+  .version('1.2.0');
 
 // ─── init ────────────────────────────────────────────────────────────────────
 program
