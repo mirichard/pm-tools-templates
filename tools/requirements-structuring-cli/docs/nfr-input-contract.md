@@ -43,10 +43,15 @@ Optional fields are preserved, not classified or rewritten:
 - UCS: `useCaseName`, when present, must be a non-empty string;
   `relatedUseCases` is an optional string array. `alternativeFlows` and
   `exceptionFlows` are optional arrays (empty allowed).
-- Steps: `toActor`, `precondition`, `postcondition`, `refUseCaseId`, and
-  `description`, when present, must be strings. Formal steps also permit string
-  `previousStep`, `deviationPoint`, `rejoinPoint`, and `flowType` restricted to
-  `basic`, `alternative`, or `exception`.
+- Steps: `toActor`, `precondition`, `postcondition`, and `refUseCaseId`, when
+  present, must be a string **or `null`** — both producer prompts
+  (`prompts/01-structure-requirements.md`, `prompts/03-generate-ucs-template.md`)
+  specify these as `(or null)` for a step that legitimately has no value there,
+  and null is accepted as the producer's intentional output, not just omission.
+  `description`, when present, must be a string (no producer prompt permits
+  null for it). Formal steps also permit string-or-null `previousStep`,
+  `deviationPoint`, `rejoinPoint`, and `flowType` restricted to `basic`,
+  `alternative`, or `exception`.
 - Additional fields are retained subject to the existing JSON safety limits.
   This boundary checks data shape, not 25010 taxonomy, flow semantics, or
   classification/generation correctness.
