@@ -22,7 +22,7 @@ LLM-assisted tool implementing the Li & Zheng (2025) framework for sprint teams 
 - Based on: Almonte et al. (2025), *"Automated Non-Functional Requirements Generation in Software Engineering with LLMs: A Comparative Study"* — [arXiv:2503.15248](https://arxiv.org/abs/2503.15248)
 
 **Source Requirement Traceability**
-- Every generated UCS, test case, and Gherkin step now carries the source requirement ID and text propagated from parsing (#1139). Membership validation cannot detect a wrong-but-valid ID, so this is provenance labeling for review, not a guarantee the cited requirement is the one actually used.
+- The initial, source-driven UCS, test case, and Gherkin artifacts now carry the source requirement ID and text propagated from parsing on each step (#1139). Membership validation cannot detect a wrong-but-valid ID, so this is provenance labeling for review, not a guarantee the cited requirement is the one actually used. Legacy transformation without a source catalog does not claim provenance, and the optional feedback/refinement phase may alter or omit this metadata.
 
 **Fixes**
 - Negative Gherkin scenarios (invalid password, expired reset link) now assert the action that triggers their expected result, instead of asserting the outcome directly (#1168)
@@ -41,7 +41,7 @@ LLM-assisted tool implementing the Li & Zheng (2025) framework for sprint teams 
 - 3-pass feedback loop: gap analysis, coverage expansion, implicit requirement discovery
 - Gherkin/BDD `.feature` file generation (Cucumber, pytest-bdd, SpecFlow compatible)
 - ISO/IEC 25010:2023 quality-attribute classification and NFR candidate generation, with opt-in domain overlays
-- Source requirement traceability from input through every generated artifact
+- Source requirement traceability from input through the initial UCS and its generated test/Gherkin artifacts
 - Human-readable Markdown reports
 - 171 unit tests (up from 29 in v1.1.0)
 
