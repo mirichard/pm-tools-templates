@@ -23,12 +23,12 @@ Business Stakeholder Interview
   │  Phase 0  Ambiguity Detection         → blockers & warnings    │
   │  Phase 1  Requirement Structuring      → formal structure JSON  │
   │  Phase 2  UCS + Test Cases + Gherkin   → UCS, tests, .feature  │
+  │  NFR      Classification + Generation  → NFR classifications,  │
+  │           (generate-nfr, auto-run here)  candidates, report    │
   │  Phase 3  Feedback Loop                → refined UCS            │
   │  Phase 4  Activity Diagram Validation  → Rule 1 & 2 checks     │
   │  Phase 5  State Machine Validation     → Rule 3 checks         │
   └─────────────────────────────────────────────────────────────────┘
-        ↓
-  NFR Classification + Generation (generate-nfr, auto-run after Phase 2)
         ↓
   Sprint team receives:
   • Ambiguity report (questions for stakeholders)
@@ -235,10 +235,14 @@ Both overlays key exclusively on the ISO/IEC 25010 `accountability`
 sub-characteristic. As of [#1163](https://github.com/mirichard/pm-tools-templates/issues/1163)
 (open, unresolved), the classifier has not been observed to produce
 `accountability` on any pipeline output generated after PR #1139 — so
-selecting either overlay currently adds no additional NFR candidates versus
-the neutral run. `pci-dss`, `wcag-22`, and `section-508` are not known to have
-this issue. Selecting any overlay never establishes compliance on its own;
-all rendered targets remain placeholders pending human review.
+selecting either overlay has added no additional NFR candidates on every
+capture measured so far. Whether this is a classifier limitation or specific
+to sources tested to date (none has yet included an explicitly auditable
+requirement) is exactly what #1163 is still investigating — it is not yet
+established that either overlay is a no-op for every possible input.
+`pci-dss`, `wcag-22`, and `section-508` are not known to have this issue.
+Selecting any overlay never establishes compliance on its own; all rendered
+targets remain placeholders pending human review.
 
 #### Worked example: golden password-reset fixture (#1116)
 
@@ -264,7 +268,7 @@ Sample excerpt from the committed `neutral` capture's
 
 Candidate: UC-PASSWORD-RESET:/basicFlow/steps/0:core.functional-completeness
 
-[NEEDS INPUT: system] shall provide implemented functions for at least [NEEDS INPUT: target] percent of the required tasks in [NEEDS INPUT: scope] under [NEEDS INPUT: conditions].
+\[NEEDS INPUT: system\] shall provide implemented functions for at least \[NEEDS INPUT: target\] percent of the required tasks in \[NEEDS INPUT: scope\] under \[NEEDS INPUT: conditions\].
 
 Source step: 1; sub-characteristic: functional-completeness; confidence: 0.9.
 Pattern: core.functional-completeness; library: 0.1.0; taxonomy: 0.1.0.
@@ -421,7 +425,7 @@ The `examples/` directory contains data from the paper's GAMMA-J Web Store exper
 npm start pipeline examples/web-store-input.md -o ./web-store-output
 ```
 
-### Golden NFR reference example (from the paper's scope, extended for #1116)
+### Golden NFR reference example (password-reset fixture, #1116)
 
 See [Worked example: golden password-reset fixture (#1116)](#worked-example-golden-password-reset-fixture-1116)
 above under `generate-nfr` for the full NFR-augmented worked example.

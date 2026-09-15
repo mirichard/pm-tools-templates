@@ -22,7 +22,7 @@ LLM-assisted tool implementing the Li & Zheng (2025) framework for sprint teams 
 - Based on: Almonte et al. (2025), *"Automated Non-Functional Requirements Generation in Software Engineering with LLMs: A Comparative Study"* — [arXiv:2503.15248](https://arxiv.org/abs/2503.15248)
 
 **Source Requirement Traceability**
-- Every generated UCS, test case, and Gherkin step now traces back to the exact source requirement ID and text it was derived from (#1139)
+- Every generated UCS, test case, and Gherkin step now carries the source requirement ID and text propagated from parsing (#1139). Membership validation cannot detect a wrong-but-valid ID, so this is provenance labeling for review, not a guarantee the cited requirement is the one actually used.
 
 **Fixes**
 - Negative Gherkin scenarios (invalid password, expired reset link) now assert the action that triggers their expected result, instead of asserting the outcome directly (#1168)
@@ -30,7 +30,7 @@ LLM-assisted tool implementing the Li & Zheng (2025) framework for sprint teams 
 - Terminal alternative/exception flows without a rejoin point now end the generated test case correctly (#1137)
 
 **Known limitation**
-- The `fda-21-cfr-11` and `hipaa` overlays currently add no additional candidates: the classifier has not been observed to produce the `accountability` sub-characteristic they depend on since PR #1139. Tracked in [#1163](https://github.com/mirichard/pm-tools-templates/issues/1163), unresolved as of this release.
+- The `fda-21-cfr-11` and `hipaa` overlays have added no additional candidates on every capture measured so far: the classifier has not been observed to produce the `accountability` sub-characteristic they depend on since PR #1139. Whether this is a classifier limitation or reflects that no source tested to date contains an explicitly auditable requirement is unresolved — tracked in [#1163](https://github.com/mirichard/pm-tools-templates/issues/1163).
 
 ### Full Feature Set
 
@@ -51,8 +51,12 @@ LLM-assisted tool implementing the Li & Zheng (2025) framework for sprint teams 
 cd tools/requirements-structuring-cli
 npm install
 cp .env.example .env   # Add your GEMINI_API_KEY
+
+# Full pipeline (NFR generation runs automatically after Phase 2):
 npm start pipeline requirements-input.md -o ./output
-npm start -- generate-nfr requirements-input-ucs.json -o ./output   # standalone, or auto-run in pipeline
+
+# Or standalone, against an already-generated UCS file:
+npm start -- generate-nfr ./output/requirements-input-ucs.json -o ./nfr-output
 ```
 
 See [README](https://github.com/mirichard/pm-tools-templates/tree/main/tools/requirements-structuring-cli) for full documentation, including the [golden NFR fixture worked example](https://github.com/mirichard/pm-tools-templates/tree/main/tools/requirements-structuring-cli/examples/fixtures/nfr-golden).
