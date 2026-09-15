@@ -79,6 +79,24 @@ invariants, not expectations that every live run must reproduce the same labels.
 Use the [anchor guide](../../../docs/nfr-golden-example.md) for #1113's eval
 inputs and #1114's worked example. Captured classifications are not expert labels.
 
+## Business object scope: "Password" is not a separate business object
+
+`password-reset-input.md`'s own `## Business Objects` list names `Password` as
+a fourth entry, alongside `Account`, `Password Reset Link`, and `Login Session`.
+The captured `structured.json`/`ucs.json` only carry the latter three — a
+Copilot review flagged this as a possible stale/incomplete capture. It is not:
+a second, fully independent live capture (fresh credentials, same source,
+same `gemini-2.5-flash` at temperature 0) reproduced the identical
+three-entry `businessObjects` array. Across two independent live runs, the
+model consistently declines to promote `Password` to a top-level business
+object, treating it instead as an attribute of `Account` — consistent with
+the formal-structure schema's own guidance that `businessObject` names "the
+real-world business entity being acted upon... NOT attributes like 'buyer
+name'". This is accepted, reproducible model behavior, not a capture defect;
+re-running live will not add it, and this fixture's own "no manual edits"
+rule means the array is not hand-corrected to match the source's informal
+list.
+
 ## Regeneration and its limits
 
 From `tools/requirements-structuring-cli`, run:
