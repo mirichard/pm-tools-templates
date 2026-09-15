@@ -32,11 +32,11 @@ Feature: UC-PASSWORD-RESET — Allows a user to reset their forgotten password a
     Then the user informed of successful password change and ability to log in
 
   Scenario: Email does not match any registered account
-    Given the email does not match any registered account
     # Source requirement FR1
     # 1. FR1: A user on the login page can click "Forgot password" to enter their registered email address and request a reset link.
     When the User requests a Password Reset Link from the System.
     Then the user has requested a password reset link for an Account
+    Given the email does not match any registered account
     # Source requirement FR2
     # 2. FR2: If the email matches a registered account, the system sends a reset link to that email; the link is valid for 30 minutes from send time. If the email does not match any account, the system shows the same generic confirmation message (no account-enumeration signal).
     Then the System shows a generic confirmation message to the User, without indicating if the email address is registered.

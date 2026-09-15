@@ -21,8 +21,11 @@ module.exports = async runner => {
         }];
         const original = JSON.stringify(input);
         const cases = new TestGenerator().generate(input);
+        const givenStepId = `2-${key === 'alternativeFlows' ? '2a1' : '2b1'}-given`;
         assert.deepEqual(cases[0].steps.map(s => s.stepId), ['1', '2', '3', '4', '5']);
-        assert.deepEqual(cases[1].steps.map(s => s.stepId), rejoin ? ['1', 'branch', '4', '5'] : ['1', 'branch']);
+        assert.deepEqual(cases[1].steps.map(s => s.stepId),
+          rejoin ? ['1', givenStepId, 'branch', '4', '5'] : ['1', givenStepId, 'branch']);
+        assert.equal(cases[1].steps[1].stepKind, 'given');
         assert.deepEqual(cases[1].expectedPostconditions, rejoin ? ['Success'] : []);
         assert.equal(JSON.stringify(input), original);
         return true;
