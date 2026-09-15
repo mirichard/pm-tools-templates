@@ -2,7 +2,9 @@ const assert = require('assert/strict');
 const fs = require('fs');
 const path = require('path');
 const { execFileSync } = require('child_process');
+const Ajv = require('ajv');
 const { generateCandidates } = require('../src/nfr-candidates');
+const { validateNFRInput } = require('../src/nfr-input');
 const root = path.resolve(__dirname, '../examples/fixtures/nfr-golden');
 const variants = ['neutral', 'pci-dss'];
 const expected = {
@@ -62,6 +64,42 @@ module.exports = async runner => {
       assert.deepEqual(read(variant, '-ucs.json').sourceRequirements, catalog);
       assert.deepEqual(read(variant, '-structured.json').sourceRequirements, catalog);
       assert.match(fs.readFileSync(path.join(root, variant, base + '-nfr-report.md'), 'utf8'), /Coverage Gaps and Missing Inputs/);
+    }
+    return true;
+  });
+  await runner.test('Golden fixture: structured and UCS artifacts actually pass validateNFRInput and their reference schemas (#1164 finding 3)', () => {
+    // #1164 found that the committed *-structured.json captures fail validateNFRInput
+    // (refUseCaseId and other prompt-permitted nulls were rejected as strings-only) and
+    // that this suite never caught it: nulling structured.steps in memory left every
+    // existing golden test passing, because none of them invoked the validator. Fixed
+    // upstream in src/nfr-input.js; this test is the actual regression guard.
+    const ajv = new Ajv({ strict: false });
+    const validateFormalStructure = ajv.compile(require('../schemas/formal-structure.schema.json'));
+    const validateUCSTemplate = ajv.compile(require('../schemas/ucs-template.schema.json'));
+    for (const variant of variants) {
+      const structured = read(variant, '-structured.json');
+      const ucs = read(variant, '-ucs.json');
+
+      const structuredResult = validateNFRInput(structured);
+      assert.equal(structuredResult.kind, 'structured');
+      assert.equal(structuredResult.data.steps[0].refUseCaseId, null,
+        'sanity check: this fixture must still exercise a real prompt-permitted null, not a stale copy');
+
+      const ucsResult = validateNFRInput(ucs);
+      assert.equal(ucsResult.kind, 'ucs');
+
+      assert(validateFormalStructure(structured), JSON.stringify(validateFormalStructure.errors));
+      assert(validateUCSTemplate(ucs), JSON.stringify(validateUCSTemplate.errors));
+
+      // Prove the validator is actually discriminating, not vacuously passing:
+      // a field no generation prompt authorizes as null must still be rejected.
+      const brokenStructured = JSON.parse(JSON.stringify(structured));
+      brokenStructured.steps[0].actor = null;
+      assert.throws(() => validateNFRInput(brokenStructured), /steps\[0\]\.actor/);
+
+      const brokenUCS = JSON.parse(JSON.stringify(ucs));
+      brokenUCS.basicFlow.steps = null;
+      assert.throws(() => validateNFRInput(brokenUCS));
     }
     return true;
   });
