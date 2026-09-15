@@ -63,25 +63,34 @@ class TestGenerator {
         const deviationStep = basicSteps[i];
         const branchOpensWithReaction = flow.steps.length > 0 && isSystemActor(flow.steps[0].actor);
         // A system-driven deviation point is ambiguous on its own: the branch
-        // may replace it entirely (e.g. #2a shows a generic message *instead
-        // of* sending a link — the send is never attempted, and the branch's
-        // own step acts on a different business object) or it may react to
-        // that step's own outcome (e.g. a web-store example's #7a, "Email
-        // delivery failure" from attempting to send a confirmation — the
-        // branch's own step acts on the *same* business object as the send).
-        // Business-object identity is the structural signal that
-        // distinguishes them without guessing at triggerCondition prose.
-        const reactsToSameBusinessObject =
-          branchOpensWithReaction && flow.steps[0].businessObject === deviationStep.businessObject;
-        // Synthesize a re-assertion of the deviation-point action whenever the
-        // branch's own steps open straight with a reaction and never show the
-        // action that actually triggers it — either because it's user-driven
-        // (asserting a rejection without ever submitting the rejected input),
-        // or because it's a system action whose own attempt produced the
-        // branch's trigger condition (asserting a delivery failure without
-        // ever attempting the send).
+        // may replace it entirely (#2a shows a generic message *instead of*
+        // sending a link — the send is never attempted) or it may react to
+        // that step's own outcome (a web-store example's 7a, "Email delivery
+        // failure" from attempting to send a confirmation). Matching
+        // businessObject looked like a structural signal for this, but a
+        // Copilot review on this exact fix produced a same-businessObject
+        // counter-example that is a *replacement*, not a reaction ("System
+        // sends Confirmation" replaced by "System shows a generic error for
+        // Confirmation") — structurally identical in shape to 7a. Without a
+        // reliable signal, only synthesize for user-driven deviation points,
+        // where the branch's reactive step can never itself BE the missing
+        // user action (different actor), so there is no replacement/reaction
+        // ambiguity to get wrong. This leaves system-driven branches like 7a
+        // without a shown send attempt — an accepted gap, not a defect to
+        // keep chasing with unsound heuristics.
+        //
+        // Even for user-driven deviations, only synthesize if no step in the
+        // branch already shows the deviation-point action; otherwise a branch
+        // that reacts and then has the user retry the same action (reject,
+        // then resubmit) would get a duplicate copy of it.
+        const deviationAlreadyShown = flow.steps.some(
+          (s) =>
+            s.actor === deviationStep.actor &&
+            s.action === deviationStep.action &&
+            s.businessObject === deviationStep.businessObject
+        );
         const synthesizesTrigger =
-          branchOpensWithReaction && (!isSystemActor(deviationStep.actor) || reactsToSameBusinessObject);
+          !isSystemActor(deviationStep.actor) && branchOpensWithReaction && !deviationAlreadyShown;
 
         const testCase = {
           testCaseId: `TC-${ucs.useCaseId}-${String(tcCounter).padStart(2, '0')}`,
