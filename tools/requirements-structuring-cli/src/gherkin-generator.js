@@ -64,6 +64,14 @@ class GherkinGenerator {
             lines.push(`    # ${sourceLine}`);
           }
         }
+        if (step.stepKind === 'given') {
+          // A condition established at the deviation point itself (e.g. a
+          // link expiring only after prior steps create it), not an upfront
+          // scenario precondition — render it as a Given inline, in sequence.
+          lines.push(`    Given ${this._normalizeGiven(step.description)}`);
+          continue;
+        }
+
         const actor = step.actor || 'the system';
         const action = step.action || 'performs action';
         const bo = step.businessObject || '';

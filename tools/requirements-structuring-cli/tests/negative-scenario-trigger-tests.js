@@ -32,31 +32,47 @@ module.exports = async function testNegativeScenarioTriggers(runner) {
   await test('finding-2: PR #1128\'s actual "invalid password" scenario (4a) now submits before asserting rejection', () => {
     const tc = byFlow('4a');
     assert.ok(tc, 'expected a test case for flow 4a');
-    assert.deepStrictEqual(tc.steps.map((s) => s.stepId), ['1', '2', '3', '4-4a', '4a1', '3', '4', '5', '5.1', '5.2']);
-    assert.strictEqual(tc.steps[3].actor, 'User');
-    assert.strictEqual(tc.steps[3].action, 'submit');
-    assert.ok(tc.preconditions.includes('User enters a new Password that does not meet rules'),
-      'triggerCondition must be carried as a scenario-specific precondition');
+    assert.deepStrictEqual(tc.steps.map((s) => s.stepId),
+      ['1', '2', '3', '4-4a-given', '4-4a', '4a1', '3', '4', '5', '5.1', '5.2']);
+    assert.strictEqual(tc.steps[3].stepKind, 'given');
+    assert.strictEqual(tc.steps[3].description, 'User enters a new Password that does not meet rules');
+    assert.strictEqual(tc.steps[4].actor, 'User');
+    assert.strictEqual(tc.steps[4].action, 'submit');
+    assert.ok(!tc.preconditions.includes('User enters a new Password that does not meet rules'),
+      'a triggerCondition only true at the deviation point must not be an upfront precondition (#1128 finding 2)');
     const feature = gherkin.generate([tc], pr1128UCS);
     const lines = feature.split('\n').map((l) => l.trim()).filter(Boolean);
+    const accessIndex = lines.findIndex((l) => l === 'When the User accesses their Account via the System using the reset link, and is presented with a form to enter a new password.');
+    const givenIndex = lines.findIndex((l) => l === 'Given the user enters a new Password that does not meet rules');
     const whenIndex = lines.findIndex((l) => l === 'When the User submit Account');
     const thenIndex = lines.findIndex((l) => l.startsWith('Then the System rejects the new password'));
-    assert.ok(whenIndex >= 0 && whenIndex < thenIndex, 'the submission must appear before the rejection is asserted');
-    assert.ok(lines.includes('Given the user enters a new Password that does not meet rules'));
+    assert.ok(givenIndex >= 0, 'expected the trigger condition rendered as a Given');
+    assert.ok(accessIndex < givenIndex, 'the Given must follow the steps that make the condition possible');
+    assert.ok(givenIndex < whenIndex && whenIndex < thenIndex,
+      'the Given must precede the submission, which must precede the rejection');
   });
 
   await test('finding-2: PR #1128\'s actual "expired link" scenario (3b) now accesses the link before asserting the error', () => {
     const tc = byFlow('3b');
     assert.ok(tc, 'expected a test case for flow 3b');
-    assert.deepStrictEqual(tc.steps.map((s) => s.stepId), ['1', '2', '3-3b', '3b1', '1', '2', '3', '4', '5', '5.1', '5.2']);
-    assert.strictEqual(tc.steps[2].actor, 'User');
-    assert.strictEqual(tc.steps[2].action, 'access');
+    assert.deepStrictEqual(tc.steps.map((s) => s.stepId),
+      ['1', '2', '3-3b-given', '3-3b', '3b1', '1', '2', '3', '4', '5', '5.1', '5.2']);
+    assert.strictEqual(tc.steps[2].stepKind, 'given');
+    assert.strictEqual(tc.steps[2].description, 'Password Reset Link is expired or already used');
+    assert.strictEqual(tc.steps[3].actor, 'User');
+    assert.strictEqual(tc.steps[3].action, 'access');
+    assert.ok(!tc.preconditions.includes('Password Reset Link is expired or already used'),
+      'a triggerCondition only true once the link has been sent must not be an upfront precondition (#1128 finding 2)');
     const feature = gherkin.generate([tc], pr1128UCS);
     const lines = feature.split('\n').map((l) => l.trim()).filter(Boolean);
+    const sendIndex = lines.findIndex((l) => l === "Then the System sends a Password Reset Link to the User's registered email address.");
+    const givenIndex = lines.findIndex((l) => l === 'Given the password Reset Link is expired or already used');
     const whenIndex = lines.findIndex((l) => l === 'When the User access Account');
     const thenIndex = lines.findIndex((l) => l.startsWith('Then the System shows an error message'));
-    assert.ok(whenIndex >= 0 && whenIndex < thenIndex, 'accessing the (expired) link must appear before the error is asserted');
-    assert.ok(lines.includes('Given the password Reset Link is expired or already used'));
+    assert.ok(givenIndex >= 0, 'expected the trigger condition rendered as a Given');
+    assert.ok(sendIndex < givenIndex, 'the Given must follow the step that sends the link, not precede it');
+    assert.ok(givenIndex < whenIndex && whenIndex < thenIndex,
+      'the Given must precede accessing the (expired) link, which must precede the error');
   });
 
   await test('finding-2: unaffected branch (2a) deviates from a system step, so no synthesized action is added', () => {

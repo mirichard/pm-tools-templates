@@ -42,7 +42,6 @@ Feature: UC-PASSWORD-RESET — Allows a user to reset their forgotten password a
     Then the System shows a generic confirmation message to the User, without indicating if the email address is registered.
 
   Scenario: Password Reset Link is expired or already used
-    Given the password Reset Link is expired or already used
     # Source requirement FR1
     # 1. FR1: A user on the login page can click "Forgot password" to enter their registered email address and request a reset link.
     When the User requests a Password Reset Link from the System.
@@ -50,6 +49,7 @@ Feature: UC-PASSWORD-RESET — Allows a user to reset their forgotten password a
     # Source requirement FR2
     # 2. FR2: If the email matches a registered account, the system sends a reset link to that email; the link is valid for 30 minutes from send time. If the email does not match any account, the system shows the same generic confirmation message (no account-enumeration signal).
     Then the System sends a Password Reset Link to the User's registered email address.
+    Given the password Reset Link is expired or already used
     # Source requirement FR3
     # 3. FR3: Clicking a valid, unexpired reset link takes the user to a form to enter and confirm a new password.
     When the User access Account
@@ -83,7 +83,6 @@ Feature: UC-PASSWORD-RESET — Allows a user to reset their forgotten password a
     Then the user informed of successful password change and ability to log in
 
   Scenario: User enters a new Password that does not meet rules
-    Given the user enters a new Password that does not meet rules
     # Source requirement FR1
     # 1. FR1: A user on the login page can click "Forgot password" to enter their registered email address and request a reset link.
     When the User requests a Password Reset Link from the System.
@@ -95,6 +94,7 @@ Feature: UC-PASSWORD-RESET — Allows a user to reset their forgotten password a
     # 3. FR3: Clicking a valid, unexpired reset link takes the user to a form to enter and confirm a new password.
     When the User accesses their Account via the System using the reset link, and is presented with a form to enter a new password.
     Then the user is presented with a form to enter and confirm a new Password
+    Given the user enters a new Password that does not meet rules
     # Source requirement FR4
     # 4. FR4: A new password must be at least 12 characters and contain at least one letter and one number. If it does not meet these rules, the system rejects it and shows the specific unmet rule(s).
     When the User submit Account
