@@ -12,13 +12,18 @@ const GherkinGenerator = require('../src/gherkin-generator');
 // clicking the link. Root cause: TestGenerator recorded each flow's own
 // triggerCondition on the test case for its name only, never rendered it as a
 // Given, and never re-asserted the deviation-point action before the branch's
-// reactive step. Fixed by: (1) carrying triggerCondition into the test case's
-// own preconditions so GherkinGenerator's existing extraPres handling renders
-// it as a Given, and (2) synthesizing a When step (actor/action/businessObject
-// only, not the happy-path description/postcondition, which would contradict
-// the branch's own outcome) reusing the deviation-point step's own fields,
-// exactly when that step is actor-driven and the branch's own first step is
-// the system's reaction.
+// reactive step. Fixed by: (1) always inserting the flow's triggerCondition as
+// a `given` step immediately after the prefix steps (never as an upfront
+// scenario precondition — a later Copilot pass on this same fix found that
+// even a seemingly pre-existing condition like 2a's is only meaningful once
+// its deviation point is reached, and a condition the deviation point itself
+// produces, like a web-store example's "email delivery failure" from
+// attempting to send, is outright false before that point runs), and (2)
+// synthesizing a When step (actor/action/businessObject only, not the
+// happy-path description/postcondition, which would contradict the branch's
+// own outcome) reusing the deviation-point step's own fields, exactly when
+// that step is actor-driven and the branch's own first step is the system's
+// reaction.
 module.exports = async function testNegativeScenarioTriggers(runner) {
   const test = (description, fn) => runner.test(description, async () => { await fn(); return true; });
 
@@ -79,10 +84,40 @@ module.exports = async function testNegativeScenarioTriggers(runner) {
     const tc = byFlow('2a');
     assert.ok(tc, 'expected a test case for flow 2a');
     // Deviation point 2 ("System send") is not user-driven, so there is no
-    // user action to re-assert — only the flow's own reactive step follows
-    // the pre-deviation basic steps.
-    assert.deepStrictEqual(tc.steps.map((s) => s.stepId), ['1', '2a1']);
-    assert.ok(tc.preconditions.includes('Email does not match any registered account'));
+    // user action to re-assert — only a `given` for the trigger condition,
+    // then the flow's own reactive step, follow the pre-deviation basic steps.
+    assert.deepStrictEqual(tc.steps.map((s) => s.stepId), ['1', '2-2a-given', '2a1']);
+    assert.strictEqual(tc.steps[1].stepKind, 'given');
+    assert.strictEqual(tc.steps[1].description, 'Email does not match any registered account');
+    assert.ok(!tc.preconditions.includes('Email does not match any registered account'),
+      'even a seemingly pre-existing trigger condition must not be an upfront precondition (#1128 finding 2 follow-up)');
+  });
+
+  await test('finding-2 follow-up: a system-driven deviation whose own step produces the trigger condition still gets the Given at the deviation point, not upfront', () => {
+    // Mirrors the web-store example's 7a ("Email delivery failure" from the
+    // system's own "sends confirmation email" step): the deviation point is
+    // system-driven and the branch opens with a system reaction too, so no
+    // action is synthesized — but the condition is a *consequence* of
+    // attempting the deviation-point step, not a pre-existing fact like 2a's,
+    // so it must never render before the steps that make it possible.
+    const ucs = {
+      useCaseId: 'UC-01', intent: 'Test', role: 'User',
+      preconditions: [], postconditions: ['Done'],
+      basicFlow: { steps: [
+        { stepId: '1', actor: 'User', action: 'starts', businessObject: 'Process' },
+        { stepId: '2', actor: 'System', action: 'sends', businessObject: 'Confirmation' },
+      ]},
+      alternativeFlows: [{
+        flowId: '2a', deviationPoint: '2', triggerCondition: 'Delivery failure',
+        steps: [{ stepId: '2a1', actor: 'System', action: 'shows', businessObject: 'Error' }],
+      }],
+      exceptionFlows: [],
+    };
+    const tcs = new TestGenerator().generate(ucs);
+    assert.deepStrictEqual(tcs[1].steps.map((s) => s.stepId), ['1', '2-2a-given', '2a1']);
+    assert.strictEqual(tcs[1].steps[1].stepKind, 'given');
+    assert.strictEqual(tcs[1].steps[1].description, 'Delivery failure');
+    assert.ok(!tcs[1].preconditions.includes('Delivery failure'));
   });
 
   await test('finding-2: no duplicate synthesis when the branch already opens with an actor-driven step', () => {
@@ -96,7 +131,7 @@ module.exports = async function testNegativeScenarioTriggers(runner) {
       alternativeFlows: [{
         flowId: '1a', deviationPoint: '1', triggerCondition: 'User retries immediately',
         // This branch's own first step is already actor-driven, so nothing
-        // should be synthesized ahead of it.
+        // should be synthesized ahead of it — only the trigger's `given`.
         steps: [
           { stepId: '1a1', actor: 'User', action: 'retries', businessObject: 'Process' },
           { stepId: '1a2', actor: 'System', action: 'confirms', businessObject: 'Process' },
@@ -105,6 +140,7 @@ module.exports = async function testNegativeScenarioTriggers(runner) {
       exceptionFlows: [],
     };
     const tcs = new TestGenerator().generate(ucs);
-    assert.deepStrictEqual(tcs[1].steps.map((s) => s.stepId), ['1a1', '1a2']);
+    assert.deepStrictEqual(tcs[1].steps.map((s) => s.stepId), ['1-1a-given', '1a1', '1a2']);
+    assert.strictEqual(tcs[1].steps[0].stepKind, 'given');
   });
 };

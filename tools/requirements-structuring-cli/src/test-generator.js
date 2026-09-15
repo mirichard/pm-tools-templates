@@ -53,16 +53,21 @@ class TestGenerator {
 
       // Line 5: for each alternative flow altF_ij in altF_i
       for (const flow of branchingFlows) {
+        // A flow's triggerCondition is never safe as an upfront Given: even a
+        // condition that looks pre-existing (e.g. #2a's "email does not match
+        // any registered account") is only relevant once its deviation point
+        // is reached, and a condition the deviation point itself produces
+        // (e.g. #7a's "email delivery failure" from attempting to send) is
+        // outright false before that point runs. Always assert it right after
+        // the prefix steps, at the deviation point, never before them.
+        const deviationStep = basicSteps[i];
+        const branchOpensWithReaction = flow.steps.length > 0 && isSystemActor(flow.steps[0].actor);
         // If the deviation point is a user-driven action and this branch's own
         // steps open straight with the system's reaction, the branch never
         // shows anyone performing the (invalid-variant) action that actually
         // triggers it — e.g. asserting a rejection without ever submitting the
-        // rejected input. This also means the triggerCondition only becomes
-        // true at the deviation point (e.g. a link only "expires" once the
-        // prefix steps that create it have run), so it cannot be an upfront
-        // Given alongside the use case's own preconditions.
-        const deviationStep = basicSteps[i];
-        const branchOpensWithReaction = flow.steps.length > 0 && isSystemActor(flow.steps[0].actor);
+        // rejected input. Re-assert that action (see below) immediately after
+        // the Given.
         const synthesizesTrigger = !isSystemActor(deviationStep.actor) && branchOpensWithReaction;
 
         const testCase = {
@@ -72,14 +77,7 @@ class TestGenerator {
           type: flow.flowId.includes('b') ? 'exception' : 'alternative',
           triggerCondition: flow.triggerCondition,
           deviationPoint: flow.deviationPoint,
-          // The flow's own triggerCondition is the precondition that
-          // distinguishes this branch from the basic flow. When the branch is
-          // system-driven (no synthesized action below), the condition already
-          // holds before any of this test case's steps run, so it belongs
-          // alongside the use case's own preconditions. When it is synthesized,
-          // the condition is established later, at the deviation point itself
-          // (see the `given` step below), not up front.
-          preconditions: synthesizesTrigger ? ucs.preconditions : [...ucs.preconditions, flow.triggerCondition],
+          preconditions: ucs.preconditions,
           steps: [],
           expectedPostconditions: [],
         };
@@ -89,16 +87,18 @@ class TestGenerator {
           testCase.steps.push(this._formatStep(basicSteps[j]));
         }
 
+        // Establish the branch's trigger condition at the deviation point,
+        // after the prefix steps that make it possible (e.g. a reset link
+        // must be created before it can be expired, or a send attempted
+        // before it can fail), instead of asserting it as if it already held
+        // at the start of the scenario.
+        testCase.steps.push({
+          stepKind: 'given',
+          stepId: `${deviationStep.stepId}-${flow.flowId}-given`,
+          description: flow.triggerCondition,
+        });
+
         if (synthesizesTrigger) {
-          // Establish the branch's trigger condition at the deviation point,
-          // after the prefix steps that make it possible (e.g. a reset link
-          // must be created before it can be expired), instead of asserting
-          // it as if it already held at the start of the scenario.
-          testCase.steps.push({
-            stepKind: 'given',
-            stepId: `${deviationStep.stepId}-${flow.flowId}-given`,
-            description: flow.triggerCondition,
-          });
           // Reuse _formatStep so sourceRequirementId/sourceText (the traceability
           // contract requires generated tests/Gherkin retain them) are preserved
           // from the deviation-point step, then override the fields that must not
