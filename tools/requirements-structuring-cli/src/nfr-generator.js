@@ -1,5 +1,6 @@
 /** Classification and placeholder candidate generation orchestration. */
 const fs = require('fs-extra');
+const fsNative = require('fs');
 const LLMClient = require('./llm-client');
 const { validateNFRInput } = require('./nfr-input');
 const { normalizeNFROptions } = require('./nfr-options');
@@ -11,19 +12,27 @@ const { formatCandidateReport } = require('./nfr-candidate-report');
 const { assertGenerationOutputAvailable, writeGenerationReport, writeSafeOverwrite } = require('./nfr-output');
 const GherkinGenerator = require('./gherkin-generator');
 
-/** Read a path expected to be a plain file, refusing a symlink or other non-regular file
- * exactly like assertGenerationOutputAvailable does for the other NFR outputs. Returns null
- * if the path doesn't exist. */
+/** Read a path expected to be a plain file, refusing a symlink or other non-regular file.
+ * Opens with O_NOFOLLOW and stats/reads that same open file descriptor, rather than a
+ * separate lstat-then-read (which CodeQL flagged as a TOCTOU race: the path could be
+ * replaced with a symlink between the check and the read). Returns null if the path
+ * doesn't exist. */
 async function readSafeIfExists(file) {
-  let stat;
+  let handle;
   try {
-    stat = await fs.lstat(file);
+    handle = await fsNative.promises.open(file, fsNative.constants.O_RDONLY | fsNative.constants.O_NOFOLLOW);
   } catch (error) {
     if (error.code === 'ENOENT') return null;
+    if (error.code === 'ELOOP') throw new Error(`Unsafe NFR output: ${file}`);
     throw error;
   }
-  if (!stat.isFile() || stat.isSymbolicLink()) throw new Error(`Unsafe NFR output: ${file}`);
-  return fs.readFile(file, 'utf8');
+  try {
+    const stat = await handle.stat();
+    if (!stat.isFile()) throw new Error(`Unsafe NFR output: ${file}`);
+    return await handle.readFile('utf8');
+  } finally {
+    await handle.close();
+  }
 }
 
 /**
