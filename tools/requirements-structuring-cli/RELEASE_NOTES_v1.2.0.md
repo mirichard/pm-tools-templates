@@ -1,0 +1,58 @@
+<!--
+Draft GitHub Release body for tag v1.2.0-requirements-cli, mirroring the
+structure of the v1.1.0-requirements-cli release
+(https://github.com/mirichard/pm-tools-templates/releases/tag/v1.1.0-requirements-cli).
+Paste the content below (without this comment) into the GitHub Release when
+creating the tag; this file is a staging draft, not additional CLI
+documentation, and is not referenced by the README.
+-->
+
+## Requirements Structuring & Validation CLI v1.2.0
+
+LLM-assisted tool implementing the Li & Zheng (2025) framework for sprint teams to convert business requirements into testable specifications — now extended with NFR generation and ISO/IEC 25010 mapping.
+
+### What's New in v1.2.0
+
+**NFR Generation & ISO/IEC 25010 Mapping** (epic #1107)
+- Classifies every FR/UCS step against a curated ISO/IEC 25010:2023 taxonomy (#1108)
+- Generates deterministic NFR candidate statements from classification output, with explicit `[NEEDS INPUT: <name>]` placeholders for every unbound target, condition, or scope — no values are invented (#1109)
+- New `generate-nfr` CLI command, also auto-run as a pipeline phase after UCS/tests/Gherkin generation (#1112)
+- Curated pattern library with 40 neutral patterns plus 5 opt-in, additive domain overlays: `fda-21-cfr-11`, `hipaa`, `pci-dss`, `wcag-22`, `section-508` (#1115)
+- Golden end-to-end reference example: recorded `neutral` and `pci-dss` captures of a password-reset feature, covering all eight pipeline artifacts through NFR generation (#1116)
+- Based on: Almonte et al. (2025), *"Automated Non-Functional Requirements Generation in Software Engineering with LLMs: A Comparative Study"* — [arXiv:2503.15248](https://arxiv.org/abs/2503.15248)
+
+**Source Requirement Traceability**
+- Every generated UCS, test case, and Gherkin step now traces back to the exact source requirement ID and text it was derived from (#1139)
+
+**Fixes**
+- Negative Gherkin scenarios (invalid password, expired reset link) now assert the action that triggers their expected result, instead of asserting the outcome directly (#1168)
+- NFR input validation accepts `null` for the step fields the generation prompts explicitly permit to be null (#1164)
+- Terminal alternative/exception flows without a rejoin point now end the generated test case correctly (#1137)
+
+**Known limitation**
+- The `fda-21-cfr-11` and `hipaa` overlays currently add no additional candidates: the classifier has not been observed to produce the `accountability` sub-characteristic they depend on since PR #1139. Tracked in [#1163](https://github.com/mirichard/pm-tools-templates/issues/1163), unresolved as of this release.
+
+### Full Feature Set
+
+- 6-phase pipeline with interactive review gates, plus an automatic NFR generation phase after Phase 2
+- Multi-provider LLM: Gemini (free tier), Claude, OpenAI, any OpenAI-compatible endpoint
+- Formal structuring per Equation 1, UCS template generation, test case generation (Algorithm 1)
+- Consistency validation against activity diagrams (Rules 1 & 2) and state machines (Rule 3)
+- 3-pass feedback loop: gap analysis, coverage expansion, implicit requirement discovery
+- Gherkin/BDD `.feature` file generation (Cucumber, pytest-bdd, SpecFlow compatible)
+- ISO/IEC 25010:2023 quality-attribute classification and NFR candidate generation, with opt-in domain overlays
+- Source requirement traceability from input through every generated artifact
+- Human-readable Markdown reports
+- 171 unit tests (up from 29 in v1.1.0)
+
+### Getting Started
+
+```bash
+cd tools/requirements-structuring-cli
+npm install
+cp .env.example .env   # Add your GEMINI_API_KEY
+npm start pipeline requirements-input.md -o ./output
+npm start -- generate-nfr requirements-input-ucs.json -o ./output   # standalone, or auto-run in pipeline
+```
+
+See [README](https://github.com/mirichard/pm-tools-templates/tree/main/tools/requirements-structuring-cli) for full documentation, including the [golden NFR fixture worked example](https://github.com/mirichard/pm-tools-templates/tree/main/tools/requirements-structuring-cli/examples/fixtures/nfr-golden).
