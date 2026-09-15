@@ -59,7 +59,8 @@ async function writeNFRGherkinScenarios(outputDir, baseName, candidates, useCase
     // gets the same exclusive-create-or-force contract as the report/classification/candidates
     // JSON outputs, not the pipeline .feature file's idempotent-append semantics.
     assertGenerationOutputAvailable(standalonePath, force);
-    const standaloneFeature = `Feature: ${useCaseId} — NFR acceptance-criteria scaffolds\n` + section.replace(/^\n+/, '');
+    const standaloneFeature = `Feature: ${GherkinGenerator.sanitizeGherkinLine(useCaseId)} — NFR acceptance-criteria scaffolds\n`
+      + section.replace(/^\n+/, '');
     await writeSafeOverwrite(standalonePath, standaloneFeature);
     return { path: standalonePath, mode: 'standalone' };
   }

@@ -55,6 +55,17 @@ module.exports = async function testNFRAcceptanceScaffold(runner) {
     assert.match(section, /\| coverage \| >= \| \[NEEDS INPUT: target\] \| percent \|/);
   });
 
+  await test('NFR acceptance scaffold: a useCaseId containing CR/LF cannot inject Gherkin lines', () => {
+    // validateNFRInput only requires useCaseId to be a non-empty string -- it could contain
+    // line breaks. Confirm they're collapsed rather than allowed to break out of the comment.
+    const malicious = 'UC-01\nScenario: injected\n  Then the system is compromised';
+    const section = new GherkinGenerator().generateNFRScenarios(generation.candidates.slice(0, 1), malicious);
+    assert.doesNotMatch(section, /^Scenario: injected/m);
+    assert.doesNotMatch(section, /^\s*Then the system is compromised/m);
+    assert.equal(section.split('\n').filter(l => l.includes('Generated from')).length, 1);
+    assert.match(section, /# Generated from UC-01\s+Scenario: injected\s+Then the system is compromised's NFR candidates/);
+  });
+
   await test('NFR acceptance scaffold: qualitative candidate renders as a plain Scenario, not an Examples table', () => {
     const qualitativeCandidate = { ...generation.candidates[0], acceptanceCriterion: { kind: 'qualitative', criterion: 'the system provides consistent terminology.' } };
     const section = new GherkinGenerator().generateNFRScenarios([qualitativeCandidate], generation.useCaseId);
