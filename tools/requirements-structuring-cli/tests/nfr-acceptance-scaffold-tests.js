@@ -83,15 +83,32 @@ module.exports = async function testNFRAcceptanceScaffold(runner) {
     }
   });
 
-  await test('NFR acceptance scaffold: standalone .feature is written when no base .feature file exists', async () => {
+  await test('NFR acceptance scaffold: standalone .feature is valid Gherkin on its own (has a Feature: header) when no base .feature file exists', async () => {
     const temp = await fs.mkdtemp(path.join(os.tmpdir(), 'nfr-scaffold-standalone-'));
     try {
       const result = await writeNFRGherkinScenarios(temp, 'password-reset-input', generation.candidates, generation.useCaseId);
       assert.equal(result.mode, 'standalone');
       assert.equal(path.basename(result.path), 'password-reset-input-nfr.feature');
       const content = await fs.readFile(result.path, 'utf8');
-      assert.match(content, /Feature:|NFR acceptance-criteria scaffolds/);
+      assert.match(content, /^Feature: UC-PASSWORD-RESET — NFR acceptance-criteria scaffolds\n/);
       assert.match(content, /Scenario Outline: NFR —/);
+    } finally {
+      await fs.remove(temp);
+    }
+  });
+
+  await test('NFR acceptance scaffold: standalone .feature follows the same exclusive-create-or-force contract as the other NFR outputs', async () => {
+    const temp = await fs.mkdtemp(path.join(os.tmpdir(), 'nfr-scaffold-standalone-force-'));
+    try {
+      const first = await writeNFRGherkinScenarios(temp, 'password-reset-input', generation.candidates, generation.useCaseId, false);
+      await assert.rejects(
+        writeNFRGherkinScenarios(temp, 'password-reset-input', generation.candidates, generation.useCaseId, false),
+        /NFR output already exists/,
+      );
+      const second = await writeNFRGherkinScenarios(temp, 'password-reset-input', generation.candidates.slice(0, 3), generation.useCaseId, true);
+      assert.equal(second.mode, 'standalone');
+      const content = await fs.readFile(first.path, 'utf8');
+      assert.equal((content.match(/Scenario Outline: NFR —/g) || []).length, 3);
     } finally {
       await fs.remove(temp);
     }

@@ -44,7 +44,14 @@ async function writeNFRGherkinScenarios(outputDir, baseName, candidates, useCase
   const standalonePath = buildContainedChildPath(outputDir, `${baseName}-nfr.feature`);
   const existing = await readSafeIfExists(featurePath);
   if (existing === null) {
-    await writeSafeOverwrite(standalonePath, section.replace(/^\n+/, ''));
+    // No base .feature to append to: this file has to be valid Gherkin on its own, so it
+    // needs its own Feature: header (generateNFRScenarios deliberately omits one — the
+    // append case above already has the base file's). Owned entirely by generate-nfr, so it
+    // gets the same exclusive-create-or-force contract as the report/classification/candidates
+    // JSON outputs, not the pipeline .feature file's idempotent-append semantics.
+    assertGenerationOutputAvailable(standalonePath, force);
+    const standaloneFeature = `Feature: ${useCaseId} — NFR acceptance-criteria scaffolds\n` + section.replace(/^\n+/, '');
+    await writeSafeOverwrite(standalonePath, standaloneFeature);
     return { path: standalonePath, mode: 'standalone' };
   }
   const markerIndex = existing.indexOf(GherkinGenerator.NFR_SECTION_MARKER);
