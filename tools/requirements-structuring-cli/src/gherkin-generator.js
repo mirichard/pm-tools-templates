@@ -12,6 +12,7 @@
 const fs = require('fs-extra');
 const path = require('path');
 const { buildSafeOutputPath, safeWriteText } = require('./security');
+const { isSystemActor } = require('./actor-role');
 
 class GherkinGenerator {
   /**
@@ -63,6 +64,14 @@ class GherkinGenerator {
             lines.push(`    # ${sourceLine}`);
           }
         }
+        if (step.stepKind === 'given') {
+          // A condition established at the deviation point itself (e.g. a
+          // link expiring only after prior steps create it), not an upfront
+          // scenario precondition — render it as a Given inline, in sequence.
+          lines.push(`    Given ${this._normalizeGiven(step.description)}`);
+          continue;
+        }
+
         const actor = step.actor || 'the system';
         const action = step.action || 'performs action';
         const bo = step.businessObject || '';
@@ -114,8 +123,7 @@ class GherkinGenerator {
   // ─── Step normalization helpers ──────────────────────────────────────────
 
   _isActorAction(actor) {
-    const systemActors = ['system', 'the system', 'application', 'server', 'api'];
-    return !systemActors.includes((actor || '').toLowerCase());
+    return !isSystemActor(actor);
   }
 
   _normalizeGiven(precondition) {
