@@ -42,7 +42,7 @@ jobs:
     
     steps:
       - name: 📥 Checkout Repository
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
         with:
           fetch-depth: 1
 
@@ -162,10 +162,10 @@ jobs:
     
     steps:
       - name: 📥 Checkout Repository
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
 
       - name: 🗄️ Cache Node.js Dependencies
-        uses: actions/cache@v5
+        uses: actions/cache@v6
         id: node-cache
         with:
           path: |
@@ -198,10 +198,10 @@ jobs:
     
     steps:
       - name: 📥 Checkout Repository
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
 
       - name: 🗄️ Cache Python Dependencies
-        uses: actions/cache@v5
+        uses: actions/cache@v6
         id: python-cache
         with:
           path: |
@@ -232,10 +232,10 @@ jobs:
     
     steps:
       - name: 📥 Checkout Repository
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
 
       - name: 🗄️ Cache Security Tools
-        uses: actions/cache@v5
+        uses: actions/cache@v6
         id: security-cache
         with:
           path: |
@@ -275,10 +275,10 @@ jobs:
     
     steps:
       - name: 📥 Checkout Repository
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
 
       - name: 🗄️ Cache Infrastructure Tools
-        uses: actions/cache@v5
+        uses: actions/cache@v6
         id: infra-cache
         with:
           path: |
@@ -311,7 +311,7 @@ jobs:
     
     steps:
       - name: 📥 Checkout Repository
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
 
       - name: 🗜️ Cache Compression & Optimization
         run: |
@@ -492,7 +492,7 @@ jobs:
     
     steps:
       - name: 📥 Checkout Repository
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
 
       - name: 🏥 Cache Health Assessment
         run: |

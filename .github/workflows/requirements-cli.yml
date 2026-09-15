@@ -21,7 +21,8 @@ jobs:
       run:
         working-directory: tools/requirements-structuring-cli
     steps:
-      - uses: actions/checkout@v6
+<<<<<<< HEAD
+      - uses: actions/checkout@v7
       - uses: actions/setup-node@v7
         with:
           node-version: '20'

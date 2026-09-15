@@ -11,14 +11,14 @@
     "lint": "echo 'Add ESLint if needed'"
   },
   "dependencies": {
-    "dotenv": "^17.2.3",
+    "dotenv": "^17.4.2",
     "simple-oauth2": "^5.1.0"
   },
   "devDependencies": {
-    "@types/node": "^25.1.0",
-    "@vitest/coverage-v8": "^4.0.18",
-    "tsx": "^4.21.0",
+    "@types/node": "^26.5.1",
+    "@vitest/coverage-v8": "^4.1.11",
+    "tsx": "^4.23.13",
     "typescript": "^5.9.3",
-    "vitest": "^4.0.18"
+    "vitest": "^4.1.11"
   }
 }

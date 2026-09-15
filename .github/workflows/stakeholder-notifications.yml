@@ -37,7 +37,7 @@ jobs:
 
     steps:
       - name: 📥 Checkout Repository
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
         with:
           fetch-depth: 1
 
@@ -75,10 +75,11 @@ jobs:
 
       - name: 📧 Send Weekly Notification
         if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
-        uses: dawidd6/action-send-mail@v17
+        uses: dawidd6/action-send-mail@v21
         with:
           server_address: smtp.gmail.com  # Gmail SMTP server
           server_port: 587
+          require_tls: true
           username: ${{ secrets.SMTP_USERNAME }}  # Your Gmail address
           password: ${{ secrets.SMTP_PASSWORD }}   # Your Gmail App Password
           subject: "📊 PM Tools Templates - Weekly Project Update"

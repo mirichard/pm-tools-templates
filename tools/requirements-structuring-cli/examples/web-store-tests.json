@@ -81,65 +81,28 @@
     ],
     "steps": [
       {
+        "stepKind": "given",
+        "stepId": "1-1a-given",
+        "description": "Product is out of stock"
+      },
+      {
+        "stepId": "1-1a",
+        "description": "Customer adds products into Shopping Cart",
+        "actor": "Customer",
+        "action": "adds products into",
+        "businessObject": "Shopping Cart",
+        "expectedResult": null
+      },
+      {
         "stepId": "1a1",
         "description": "System displays out-of-stock error for Product",
         "actor": "System",
         "action": "displays out-of-stock error for",
         "businessObject": "Product",
         "expectedResult": null
-      },
-      {
-        "stepId": "2",
-        "description": "System displays items and total cost of Shopping Cart",
-        "actor": "System",
-        "action": "displays items and total cost of",
-        "businessObject": "Shopping Cart",
-        "expectedResult": null
-      },
-      {
-        "stepId": "3",
-        "description": "Customer adds or removes products from Shopping Cart",
-        "actor": "Customer",
-        "action": "adds or removes products from",
-        "businessObject": "Shopping Cart",
-        "expectedResult": null
-      },
-      {
-        "stepId": "4",
-        "description": "Customer checks out Order",
-        "actor": "Customer",
-        "action": "checks out",
-        "businessObject": "Order",
-        "expectedResult": null
-      },
-      {
-        "stepId": "5",
-        "description": "Customer confirms Order",
-        "actor": "Customer",
-        "action": "confirms",
-        "businessObject": "Order",
-        "expectedResult": null
-      },
-      {
-        "stepId": "6",
-        "description": "Customer updates Order",
-        "actor": "Customer",
-        "action": "updates",
-        "businessObject": "Order",
-        "expectedResult": null
-      },
-      {
-        "stepId": "7",
-        "description": "System sends confirmation email with details of Order",
-        "actor": "System",
-        "action": "sends confirmation email with details of",
-        "businessObject": "Order",
-        "expectedResult": null
       }
     ],
-    "expectedPostconditions": [
-      "The customer has completed the checkout process and received a confirmation email"
-    ]
+    "expectedPostconditions": []
   },
   {
     "testCaseId": "TC-UC-01-03",
@@ -174,6 +137,19 @@
         "actor": "Customer",
         "action": "adds or removes products from",
         "businessObject": "Shopping Cart",
+        "expectedResult": null
+      },
+      {
+        "stepKind": "given",
+        "stepId": "4-4a-given",
+        "description": "Order is incorrect"
+      },
+      {
+        "stepId": "4-4a",
+        "description": "Customer checks out Order",
+        "actor": "Customer",
+        "action": "checks out",
+        "businessObject": "Order",
         "expectedResult": null
       },
       {
@@ -273,6 +249,19 @@
         "expectedResult": null
       },
       {
+        "stepKind": "given",
+        "stepId": "5-5a-given",
+        "description": "Payment fails"
+      },
+      {
+        "stepId": "5-5a",
+        "description": "Customer confirms Order",
+        "actor": "Customer",
+        "action": "confirms",
+        "businessObject": "Order",
+        "expectedResult": null
+      },
+      {
         "stepId": "5a1",
         "description": "System prompts retry payment for Order",
         "actor": "System",
@@ -361,33 +350,28 @@
         "expectedResult": null
       },
       {
+        "stepKind": "given",
+        "stepId": "5-5b-given",
+        "description": "Payment fails after retry"
+      },
+      {
+        "stepId": "5-5b",
+        "description": "Customer confirms Order",
+        "actor": "Customer",
+        "action": "confirms",
+        "businessObject": "Order",
+        "expectedResult": null
+      },
+      {
         "stepId": "5b1",
         "description": "System cancels transaction for Order",
         "actor": "System",
         "action": "cancels transaction for",
         "businessObject": "Order",
         "expectedResult": null
-      },
-      {
-        "stepId": "6",
-        "description": "Customer updates Order",
-        "actor": "Customer",
-        "action": "updates",
-        "businessObject": "Order",
-        "expectedResult": null
-      },
-      {
-        "stepId": "7",
-        "description": "System sends confirmation email with details of Order",
-        "actor": "System",
-        "action": "sends confirmation email with details of",
-        "businessObject": "Order",
-        "expectedResult": null
       }
     ],
-    "expectedPostconditions": [
-      "The customer has completed the checkout process and received a confirmation email"
-    ]
+    "expectedPostconditions": []
   },
   {
     "testCaseId": "TC-UC-01-06",
@@ -441,25 +425,28 @@
         "expectedResult": null
       },
       {
+        "stepKind": "given",
+        "stepId": "6-6a-given",
+        "description": "Order revision attempted after deadline"
+      },
+      {
+        "stepId": "6-6a",
+        "description": "Customer updates Order",
+        "actor": "Customer",
+        "action": "updates",
+        "businessObject": "Order",
+        "expectedResult": null
+      },
+      {
         "stepId": "6a1",
         "description": "System displays revision-not-allowed notification for Order",
         "actor": "System",
         "action": "displays revision-not-allowed notification for",
         "businessObject": "Order",
         "expectedResult": null
-      },
-      {
-        "stepId": "7",
-        "description": "System sends confirmation email with details of Order",
-        "actor": "System",
-        "action": "sends confirmation email with details of",
-        "businessObject": "Order",
-        "expectedResult": null
       }
     ],
-    "expectedPostconditions": [
-      "The customer has completed the checkout process and received a confirmation email"
-    ]
+    "expectedPostconditions": []
   },
   {
     "testCaseId": "TC-UC-01-07",
@@ -519,6 +506,11 @@
         "action": "updates",
         "businessObject": "Order",
         "expectedResult": null
+      },
+      {
+        "stepKind": "given",
+        "stepId": "7-7a-given",
+        "description": "Email delivery failure"
       },
       {
         "stepId": "7a1",

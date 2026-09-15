@@ -24,6 +24,10 @@ from datetime import datetime
 REPO_ROOT = Path(__file__).parent.parent
 TEMPLATES_JSON = REPO_ROOT / "templates" / "templates.json"
 META_DIR = REPO_ROOT / "meta"
+DOMAIN_DECISIONS = {
+    item["path"]: item
+    for item in json.loads((META_DIR / "domain-review-decisions.json").read_text())["decisions"]
+}
 
 # ── Value Flow Mapping Rules ──────────────────────────────────────────────────
 
@@ -262,6 +266,10 @@ def main():
 
         # Domain
         d_primary, d_secondary, d_rationale, d_review = classify_domain(tags, title, path)
+        decision = DOMAIN_DECISIONS.get(path)
+        if decision:
+            d_primary, d_secondary = decision["primary"], decision["secondary"]
+            d_rationale, d_review = decision["rationale"], False
         domain_counts[d_primary] += 1
 
         is_cross_domain = len(set(tags)) >= 5
@@ -305,7 +313,8 @@ def main():
 
         if review_needed:
             needs_review.append({"path": path, "title": title, "tags": tags,
-                                 "vf_primary": vf_primary, "d_primary": d_primary})
+                                 "vf_primary": vf_primary, "d_primary": d_primary,
+                                 "domain_reviewed": decision is not None})
 
     # Write outputs
     META_DIR.mkdir(exist_ok=True)
@@ -363,18 +372,27 @@ def main():
         total = sum(row.values())
         summary += f"| {meth} | " + " | ".join(str(row[d]) for d in domain_counts) + f" | {total} |\n"
 
+    reviewed_pending = sum(r["domain_reviewed"] for r in needs_review)
+    if reviewed_pending:
+        summary += (f"\n{reviewed_pending} remaining review flags concern value flow only; "
+                    "their domain decisions were accepted in #740.\n")
+
     with open(META_DIR / "mapping-summary.md", "w") as f:
         f.write(summary)
 
     # Needs review
-    review_md = f"# Assets Needing Manual Review\n\n**Count:** {len(needs_review)} of {len(templates)}\n\n"
+    review_note = (" (value-flow review only; domain decisions accepted in #740)"
+                   if needs_review and reviewed_pending == len(needs_review) else "")
+    review_md = f"# Assets Needing Manual Review\n\n**Count:** {len(needs_review)} of {len(templates)}{review_note}\n\n"
     for r in needs_review:
         review_md += f"- **{r['title']}** (`{r['path']}`)\n"
         review_md += f"  - Tags: {', '.join(r['tags']) if r['tags'] else 'none'}\n"
-        review_md += f"  - Auto-assigned: VF={r['vf_primary']}, Domain={r['d_primary']}\n\n"
+        label = ("Value flow remains auto-assigned; domain reviewed"
+                 if r["domain_reviewed"] else "Auto-assigned")
+        review_md += f"  - {label}: VF={r['vf_primary']}, Domain={r['d_primary']}\n\n"
 
     with open(META_DIR / "needs-review.md", "w") as f:
-        f.write(review_md)
+        f.write(review_md.rstrip() + "\n")
 
     # Print summary
     print(f"\n{'='*50}")

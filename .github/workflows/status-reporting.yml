@@ -58,7 +58,7 @@ jobs:
 
     steps:
       - name: 📥 Checkout Repository
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
         with:
           fetch-depth: 1
 
@@ -372,7 +372,7 @@ jobs:
     
     steps:
       - name: 📥 Checkout Repository
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
         with:
           fetch-depth: 1
 
@@ -554,7 +554,7 @@ jobs:
       - name: 📧 Send Status Email
         # Only send email if EMAIL_USERNAME secret is configured
         if: env.HAS_EMAIL == 'true'
-        uses: dawidd6/action-send-mail@v17
+        uses: dawidd6/action-send-mail@v21
         with:
           server_address: smtp.gmail.com
           server_port: 465

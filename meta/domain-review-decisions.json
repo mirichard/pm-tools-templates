@@ -1,0 +1,23 @@
+{
+  "issue": "https://github.com/mirichard/pm-tools-templates/issues/740#issuecomment-5667449915",
+  "decisions": [
+    {
+      "path": "domains/delivery/industry-specializations/information-technology/software-development/api_documentation_template.md",
+      "primary": "Delivery",
+      "secondary": [],
+      "rationale": "Reviewed primary purpose: structure and document a technical delivery interface."
+    },
+    {
+      "path": "domains/delivery/industry-specializations/information-technology/service-management/problem_management_process_template.md",
+      "primary": "Uncertainty",
+      "secondary": [],
+      "rationale": "Reviewed primary purpose: identify, investigate, mitigate, and resolve unexpected problems."
+    },
+    {
+      "path": "domains/delivery/role-based-toolkits/project-manager/essential-templates/timesheet-tracking-template.md",
+      "primary": "Measurement",
+      "secondary": [],
+      "rationale": "Reviewed primary purpose: record and summarize effort evidence for tracking and reporting."
+    }
+  ]
+}

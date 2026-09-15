@@ -22,7 +22,7 @@ jobs:
     if: github.event_name != 'issues' || github.event.issue.number == 1057
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
         with:
           fetch-depth: 0
           ref: ${{ github.event.pull_request.head.sha || github.sha }}
@@ -40,6 +40,11 @@ jobs:
 
       - name: Repository migration post-check
         run: npm run validate:migration-post-check
+
+      - name: Domain navigation and findability validation
+        run: |
+          node --test tests/domain-navigation.test.mjs tests/reviewed-domain-mapping.test.mjs
+          npm run validate:domain-navigation
 
       - name: Keep migration parent issue open while moves remain
         env:
