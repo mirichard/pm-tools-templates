@@ -23,7 +23,8 @@ const expected = {
       "safety"
     ],
     "candidates": 70,
-    "bindings": 280
+    "bindings": 280,
+    "assignments": 70
   },
   "pci-dss": {
     "characteristics": [
@@ -40,7 +41,8 @@ const expected = {
       "safety"
     ],
     "candidates": 78,
-    "bindings": 312
+    "bindings": 312,
+    "assignments": 73
   }
 };
 const base = 'password-reset-input';
@@ -63,6 +65,17 @@ function flattenStepsByPath(ucs) {
   return byPath;
 }
 
+// All steps across an artifact, regardless of shape: structured (top-level
+// steps) or UCS (basicFlow + alternativeFlows + exceptionFlows).
+function allSteps(artifact) {
+  if (Array.isArray(artifact.steps)) return artifact.steps;
+  return [
+    ...artifact.basicFlow.steps,
+    ...(artifact.alternativeFlows || []).flatMap((flow) => flow.steps),
+    ...(artifact.exceptionFlows || []).flatMap((flow) => flow.steps),
+  ];
+}
+
 module.exports = async runner => {
   await runner.test('Golden fixture: all captured artifacts exist and have valid structure', () => {
     const source = fs.readFileSync(path.join(root, base + '.md'), 'utf8');
@@ -79,8 +92,28 @@ module.exports = async runner => {
         if (suffix.endsWith('.json')) JSON.parse(text);
       }
       assert.equal(read(variant, '-nfr-classifications.json').requirements.length, 10);
-      assert.deepEqual(read(variant, '-ucs.json').sourceRequirements, catalog);
-      assert.deepEqual(read(variant, '-structured.json').sourceRequirements, catalog);
+      const ucs = read(variant, '-ucs.json');
+      const structured = read(variant, '-structured.json');
+      assert.deepEqual(ucs.sourceRequirements, catalog);
+      assert.deepEqual(structured.sourceRequirements, catalog);
+
+      // The two checks above only compare the top-level sourceRequirements
+      // catalog array; they don't prove any individual step's own
+      // sourceRequirementId/sourceText actually joins to it correctly. A stale
+      // or fabricated per-step value would pass them and still be emitted into
+      // tests/Gherkin. Do the code-side join here for every step that carries
+      // one (this is separate from, and doesn't attempt to catch, the
+      // documented wrong-but-valid-ID limitation from #1139).
+      const byId = new Map(catalog.map((entry) => [entry.id, entry.originalText]));
+      for (const [label, artifact] of [['ucs', ucs], ['structured', structured]]) {
+        for (const step of allSteps(artifact)) {
+          if (!('sourceRequirementId' in step)) continue;
+          assert(byId.has(step.sourceRequirementId),
+            `${variant}/${label} step ${step.stepId}: sourceRequirementId ${step.sourceRequirementId} is not in the source catalog`);
+          assert.equal(step.sourceText, byId.get(step.sourceRequirementId),
+            `${variant}/${label} step ${step.stepId}: sourceText does not match the catalog's originalText for ${step.sourceRequirementId}`);
+        }
+      }
       assert.match(fs.readFileSync(path.join(root, variant, base + '-nfr-report.md'), 'utf8'), /Coverage Gaps and Missing Inputs/);
     }
     return true;
@@ -124,6 +157,13 @@ module.exports = async runner => {
   await runner.test('Golden fixture: exact coverage, placeholder-only bindings and PCI-DSS additions', () => {
     for (const variant of variants) {
       const handoff = read(variant, '-nfr-classifications.json');
+      // The README/PR documents a distinct "assignments" metric (the raw
+      // classification attribute count) from "candidates"/"bindings" (downstream
+      // of NFR generation) — pci-dss's 73 assignments vs. 78 candidates shows
+      // they diverge. A handoff mutation that changes assignment totals or
+      // labels while preserving derived candidate/binding counts would
+      // otherwise pass unnoticed.
+      assert.equal(handoff.requirements.reduce((n, r) => n + r.attributes.length, 0), expected[variant].assignments);
       const generated = generateCandidates(handoff, { overlay: variant });
       assert.deepEqual([...new Set(generated.candidates.map(c => c.characteristic))].sort(), expected[variant].characteristics);
       assert.deepEqual([...generated.uncoveredCharacteristics].sort(), expected[variant].uncovered);

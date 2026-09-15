@@ -50,6 +50,8 @@ Feature: UC-PASSWORD-RESET — Allows a user to reset their forgotten password a
     # Source requirement FR2
     # 2. FR2: If the email matches a registered account, the system sends a reset link to that email; the link is valid for 30 minutes from send time. If the email does not match any account, the system shows the same generic confirmation message (no account-enumeration signal).
     Then the System sends a Password Reset Link to the User's registered email address.
+    # Source requirement FR3
+    # 3. FR3: Clicking a valid, unexpired reset link takes the user to a form to enter and confirm a new password.
     When the User access Account
     # Source requirement FR6
     # 6. FR6: If a reset link is expired or already used, the system shows an error and offers to send a new one (returning to FR1's flow).
@@ -93,6 +95,8 @@ Feature: UC-PASSWORD-RESET — Allows a user to reset their forgotten password a
     # 3. FR3: Clicking a valid, unexpired reset link takes the user to a form to enter and confirm a new password.
     When the User accesses their Account via the System using the reset link, and is presented with a form to enter a new password.
     Then the user is presented with a form to enter and confirm a new Password
+    # Source requirement FR4
+    # 4. FR4: A new password must be at least 12 characters and contain at least one letter and one number. If it does not meet these rules, the system rejects it and shows the specific unmet rule(s).
     When the User submit Account
     # Source requirement FR4
     # 4. FR4: A new password must be at least 12 characters and contain at least one letter and one number. If it does not meet these rules, the system rejects it and shows the specific unmet rule(s).

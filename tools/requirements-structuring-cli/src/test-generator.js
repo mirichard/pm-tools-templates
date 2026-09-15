@@ -85,12 +85,14 @@ class TestGenerator {
         const deviationStep = basicSteps[i];
         const branchOpensWithReaction = flow.steps.length > 0 && isSystemActor(flow.steps[0].actor);
         if (!isSystemActor(deviationStep.actor) && branchOpensWithReaction) {
+          // Reuse _formatStep so sourceRequirementId/sourceText (the traceability
+          // contract requires generated tests/Gherkin retain them) are preserved
+          // from the deviation-point step, then override the fields that must not
+          // carry the happy-path narrative.
           testCase.steps.push({
+            ...this._formatStep(deviationStep),
             stepId: `${deviationStep.stepId}-${flow.flowId}`,
             description: `${deviationStep.actor} ${deviationStep.action} ${deviationStep.businessObject}`,
-            actor: deviationStep.actor,
-            action: deviationStep.action,
-            businessObject: deviationStep.businessObject,
             expectedResult: null,
           });
         }
