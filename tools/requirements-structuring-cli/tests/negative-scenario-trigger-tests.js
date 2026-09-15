@@ -33,11 +33,15 @@ const GherkinGenerator = require('../src/gherkin-generator');
 // identical to 7a but a *replacement*, proving businessObject identity isn't
 // a sound signal. System-driven branches only ever get the `given`, never a
 // synthesized action — an accepted gap (the send attempt in a case like 7a
-// stays implicit), not a defect to keep chasing with unsound heuristics. That
-// same review also found the guard only checked the branch's first step, so
-// a branch that reacts and then has the user retry the same action later
-// would get a duplicate synthesized copy; fixed by checking every step in
-// the branch, not just the first.
+// stays implicit), not a defect to keep chasing with unsound heuristics. A
+// separate attempt to skip synthesis whenever any later branch step matched
+// the deviation action (to avoid a "duplicate" when the branch reacts then
+// has the user retry) was also reverted: branchOpensWithReaction already
+// guarantees the branch's first step is the reaction, so any such match is
+// necessarily a retry AFTER it, not the trigger action shown BEFORE it —
+// suppressing synthesis there just reintroduced the original #1168 defect.
+// The synthesized action and a later identical-looking retry are distinct
+// events, not a duplicate to eliminate.
 module.exports = async function testNegativeScenarioTriggers(runner) {
   const test = (description, fn) => runner.test(description, async () => { await fn(); return true; });
 
@@ -150,12 +154,18 @@ module.exports = async function testNegativeScenarioTriggers(runner) {
     assert.strictEqual(tcs[1].steps[0].stepKind, 'given');
   });
 
-  await test('finding-2 follow-up: no duplicate synthesis when the branch reacts first but resubmits the same action later', () => {
-    // The branch opens with a system reaction (so it would otherwise qualify
-    // for synthesis) but later includes the user redoing the exact deviation
-    // action (same actor/action/businessObject) — e.g. reject, then retry.
-    // The guard must scan every branch step, not just the first, or this
-    // gets a synthesized copy in addition to the real retry step.
+  await test('finding-2 follow-up: a branch that reacts and then retries the identical action still gets the synthesized trigger, not a suppressed one', () => {
+    // The branch opens with a system reaction and later includes the user
+    // redoing the exact deviation action (same actor/action/businessObject)
+    // — e.g. reject, then retry. A prior fix suppressed synthesis whenever
+    // any later branch step matched the deviation action, reasoning it was
+    // a duplicate; a Copilot review correctly pointed out that match is
+    // necessarily AFTER the reaction (branchOpensWithReaction guarantees the
+    // branch's first step is the reaction), so it's a distinct retry, not
+    // evidence the *initial* (invalid) submission was ever shown. Suppressing
+    // synthesis there reintroduced the #1168 defect (reject shown with no
+    // prior submission). The synthesized action and the later retry are two
+    // different events and both must appear.
     const ucs = {
       useCaseId: 'UC-01', intent: 'Test', role: 'User',
       preconditions: [], postconditions: [],
@@ -173,7 +183,9 @@ module.exports = async function testNegativeScenarioTriggers(runner) {
       exceptionFlows: [],
     };
     const tcs = new TestGenerator().generate(ucs);
-    assert.deepStrictEqual(tcs[1].steps.map((s) => s.stepId), ['1-1a-given', '1a1', '1a2', '1a3']);
+    assert.deepStrictEqual(tcs[1].steps.map((s) => s.stepId), ['1-1a-given', '1-1a', '1a1', '1a2', '1a3']);
     assert.strictEqual(tcs[1].steps[0].stepKind, 'given');
+    assert.strictEqual(tcs[1].steps[1].actor, 'User');
+    assert.strictEqual(tcs[1].steps[1].action, 'submits');
   });
 };

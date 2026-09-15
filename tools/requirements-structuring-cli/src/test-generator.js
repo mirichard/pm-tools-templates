@@ -79,18 +79,20 @@ class TestGenerator {
         // without a shown send attempt — an accepted gap, not a defect to
         // keep chasing with unsound heuristics.
         //
-        // Even for user-driven deviations, only synthesize if no step in the
-        // branch already shows the deviation-point action; otherwise a branch
-        // that reacts and then has the user retry the same action (reject,
-        // then resubmit) would get a duplicate copy of it.
-        const deviationAlreadyShown = flow.steps.some(
-          (s) =>
-            s.actor === deviationStep.actor &&
-            s.action === deviationStep.action &&
-            s.businessObject === deviationStep.businessObject
-        );
-        const synthesizesTrigger =
-          !isSystemActor(deviationStep.actor) && branchOpensWithReaction && !deviationAlreadyShown;
+        // A prior attempt to also skip synthesis when the branch's own steps
+        // later repeat the same actor/action/businessObject (e.g. reject,
+        // then retry the identical action) was itself wrong and has been
+        // dropped: `branchOpensWithReaction` already guarantees the branch's
+        // first step is the reaction, so any matching step found elsewhere in
+        // flow.steps is necessarily AFTER that reaction — a retry, not
+        // evidence the trigger action was already shown before it. Suppressing
+        // synthesis on that match reintroduced exactly the #1168 defect this
+        // fix exists to prevent (reject shown with no submission before it).
+        // A branch whose synthesized action is followed by a real, later
+        // retry of the identical action is not a duplicate: they are two
+        // distinct events (the invalid attempt, then the corrected one), and
+        // the generator has no finer-grained wording to distinguish them.
+        const synthesizesTrigger = !isSystemActor(deviationStep.actor) && branchOpensWithReaction;
 
         const testCase = {
           testCaseId: `TC-${ucs.useCaseId}-${String(tcCounter).padStart(2, '0')}`,

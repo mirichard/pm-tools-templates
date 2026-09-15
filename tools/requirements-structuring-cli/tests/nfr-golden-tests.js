@@ -107,7 +107,13 @@ module.exports = async runner => {
       const byId = new Map(catalog.map((entry) => [entry.id, entry.originalText]));
       for (const [label, artifact] of [['ucs', ucs], ['structured', structured]]) {
         for (const step of allSteps(artifact)) {
-          if (!('sourceRequirementId' in step)) continue;
+          // This fixture claims exact source traceability for every step (see
+          // README); silently skipping a step with no sourceRequirementId
+          // would make this check vacuous if a regression stripped
+          // provenance from some or all steps, so require it rather than
+          // treating absence as opt-out.
+          assert.equal(typeof step.sourceRequirementId, 'string',
+            `${variant}/${label} step ${step.stepId}: missing sourceRequirementId`);
           assert(byId.has(step.sourceRequirementId),
             `${variant}/${label} step ${step.stepId}: sourceRequirementId ${step.sourceRequirementId} is not in the source catalog`);
           assert.equal(step.sourceText, byId.get(step.sourceRequirementId),
