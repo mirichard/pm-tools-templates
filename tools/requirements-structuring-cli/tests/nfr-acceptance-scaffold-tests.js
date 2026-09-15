@@ -97,6 +97,42 @@ module.exports = async function testNFRAcceptanceScaffold(runner) {
     }
   });
 
+  await test('NFR acceptance scaffold: --force rebuilds the NFR section in place, preserving the UCS-generated prefix', async () => {
+    const temp = await fs.mkdtemp(path.join(os.tmpdir(), 'nfr-scaffold-force-'));
+    try {
+      const original = await fs.readFile(path.join(goldenDir, 'password-reset-input.feature'), 'utf8');
+      await fs.copyFile(path.join(goldenDir, 'password-reset-input.feature'), path.join(temp, 'password-reset-input.feature'));
+      await writeNFRGherkinScenarios(temp, 'password-reset-input', generation.candidates, generation.useCaseId, false);
+      const rebuilt = await writeNFRGherkinScenarios(temp, 'password-reset-input', generation.candidates.slice(0, 2), generation.useCaseId, true);
+      assert.equal(rebuilt.mode, 'rebuilt');
+      const content = await fs.readFile(rebuilt.path, 'utf8');
+      assert.ok(content.startsWith(original), 'UCS-driven prefix must survive a force rebuild');
+      assert.equal((content.match(/NFR acceptance-criteria scaffolds \(Story #1110\)/g) || []).length, 1,
+        'force rebuild must not duplicate the marker');
+      assert.equal((content.match(/Scenario Outline: NFR —/g) || []).length, 2,
+        'force rebuild must reflect the fresh (smaller) candidate set, not the stale one');
+    } finally {
+      await fs.remove(temp);
+    }
+  });
+
+  await test('NFR acceptance scaffold: refuses to read or write through a symlinked .feature path', async () => {
+    const temp = await fs.mkdtemp(path.join(os.tmpdir(), 'nfr-scaffold-symlink-'));
+    const secretFile = path.join(os.tmpdir(), `nfr-scaffold-secret-${Date.now()}.txt`);
+    try {
+      await fs.writeFile(secretFile, 'DO NOT OVERWRITE');
+      await fs.symlink(secretFile, path.join(temp, 'password-reset-input.feature'));
+      await assert.rejects(
+        writeNFRGherkinScenarios(temp, 'password-reset-input', generation.candidates, generation.useCaseId),
+        /Unsafe NFR output/,
+      );
+      assert.equal(await fs.readFile(secretFile, 'utf8'), 'DO NOT OVERWRITE');
+    } finally {
+      await fs.remove(temp);
+      await fs.remove(secretFile);
+    }
+  });
+
   await test('NFR acceptance scaffold: #1155 regression — sourceRequirementId/sourceText never reach the new candidates artifact', () => {
     const serialized = JSON.stringify(generation);
     assert.doesNotMatch(serialized, /sourceRequirementId/);

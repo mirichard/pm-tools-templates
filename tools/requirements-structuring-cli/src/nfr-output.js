@@ -23,4 +23,22 @@ async function writeGenerationReport(file, text, force = false) {
     throw error;
   } finally { if (handle) await handle.close(); }
 }
-module.exports = { assertGenerationOutputAvailable, writeGenerationReport };
+/**
+ * #1110: write text to a file that may or may not already exist (create-or-overwrite,
+ * unlike writeGenerationReport's exclusive-create-or-force semantics), with the same
+ * symlink/non-regular-file protection as the other NFR outputs above.
+ */
+async function writeSafeOverwrite(file, text) {
+  const validated = validateDocumentContent(text);
+  let handle;
+  try {
+    handle = await fs.promises.open(file, fs.constants.O_WRONLY | fs.constants.O_CREAT
+      | fs.constants.O_TRUNC | fs.constants.O_NOFOLLOW, 0o600);
+    await handle.writeFile(validated, 'utf8');
+  } catch (error) {
+    if (error.code === 'ELOOP') throw new Error(`Unsafe NFR output: ${file}`);
+    throw error;
+  } finally { if (handle) await handle.close(); }
+}
+
+module.exports = { assertGenerationOutputAvailable, writeGenerationReport, writeSafeOverwrite };
