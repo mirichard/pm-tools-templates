@@ -8,6 +8,8 @@ Built for sprint teams — Product Owners, Business Analysts, Engineers, QA, and
 
 Based on: Li & Zheng (2025) *"Enhancing Requirements via Structured Formalization and Process-State Consistency Validation: An LLM-Assisted Test-Driven Framework"* — IET Software.
 
+NFR classification and generation (`generate-nfr`, below) are based on: Almonte et al. (2025) *"Automated Non-Functional Requirements Generation in Software Engineering with LLMs: A Comparative Study"* — [arXiv:2503.15248](https://arxiv.org/abs/2503.15248). Reported median validity & applicability 5.0/5, with 80.4% of attribute assignments matching expert classification (8.3% near miss, 11.3% mismatch) — the mismatch rate is why generated candidates require human review before use as acceptance criteria.
+
 ---
 
 ## How It Works
@@ -26,11 +28,14 @@ Business Stakeholder Interview
   │  Phase 5  State Machine Validation     → Rule 3 checks         │
   └─────────────────────────────────────────────────────────────────┘
         ↓
+  NFR Classification + Generation (generate-nfr, auto-run after Phase 2)
+        ↓
   Sprint team receives:
   • Ambiguity report (questions for stakeholders)
   • Formal Use Case Specification
   • Acceptance test cases
   • Gherkin .feature file (wire into Cucumber/pytest-bdd/SpecFlow)
+  • NFR report (ISO/IEC 25010 classification + candidate statements)
   • Validation report
 ```
 
@@ -214,6 +219,64 @@ npm start -- generate-nfr examples/web-store-ucs.json --attributes reliability,s
 npm start -- pipeline examples/web-store-input.md --provider gemini --overlay neutral -o ./output
 ```
 
+#### NFR candidate generation (#1109)
+
+Classification output feeds deterministic library-based candidate rendering.
+Targets, measurement conditions and other unsupplied bindings are explicit
+`[NEEDS INPUT: <name>]` placeholders — no values are invented. The existing
+NFR Markdown report includes candidates grouped by FR and characteristic, plus
+characteristic/parameter coverage gaps. Existing NFR output blocks reruns;
+standalone `--force` explicitly permits overwriting manual edits. See the
+[generation contract and extension points](docs/nfr-generation.md).
+
+#### Overlay caveat: `fda-21-cfr-11` and `hipaa`
+
+Both overlays key exclusively on the ISO/IEC 25010 `accountability`
+sub-characteristic. As of [#1163](https://github.com/mirichard/pm-tools-templates/issues/1163)
+(open, unresolved), the classifier has not been observed to produce
+`accountability` on any pipeline output generated after PR #1139 — so
+selecting either overlay currently adds no additional NFR candidates versus
+the neutral run. `pci-dss`, `wcag-22`, and `section-508` are not known to have
+this issue. Selecting any overlay never establishes compliance on its own;
+all rendered targets remain placeholders pending human review.
+
+#### Worked example: golden password-reset fixture (#1116)
+
+[`examples/fixtures/nfr-golden/`](examples/fixtures/nfr-golden/README.md)
+(anchor guide: [`docs/nfr-golden-example.md`](docs/nfr-golden-example.md))
+contains a full, recorded reference run: a `neutral` and a `pci-dss` capture
+of the same password-reset source, all eight pipeline artifacts through NFR
+generation, and a deterministic regeneration check that makes no provider
+calls (`node examples/fixtures/nfr-golden/verify-regeneration.cjs`).
+
+```bash
+node src/index.js pipeline examples/fixtures/nfr-golden/password-reset-input.md \
+  --provider gemini --model gemini-2.5-flash -o ./output
+```
+
+Sample excerpt from the committed `neutral` capture's
+`password-reset-input-nfr-report.md`:
+
+```markdown
+### FR /basicFlow/steps/0
+
+#### functional-suitability
+
+Candidate: UC-PASSWORD-RESET:/basicFlow/steps/0:core.functional-completeness
+
+[NEEDS INPUT: system] shall provide implemented functions for at least [NEEDS INPUT: target] percent of the required tasks in [NEEDS INPUT: scope] under [NEEDS INPUT: conditions].
+
+Source step: 1; sub-characteristic: functional-completeness; confidence: 0.9.
+Pattern: core.functional-completeness; library: 0.1.0; taxonomy: 0.1.0.
+```
+
+Measured captures: 70 classification assignments / 70 candidates / 280
+unbound placeholder bindings (`neutral`); 73 / 78 / 312 (`pci-dss`), with five
+additional `pci-dss.confidentiality` candidates isolated via same-handoff
+comparison (rendering the `pci-dss` capture's own classification through both
+libraries). See the fixture README for the full methodology, the accepted
+"Password is not a separate business object" finding, and other caveats.
+
 ### `validate <ucs-file>`
 
 Validate UCS consistency against activity diagrams and/or state machines (Algorithms 2 & 3).
@@ -311,24 +374,38 @@ LLM_MODEL=llama3
 ```
 requirements-structuring-cli/
 ├── src/
-│   ├── index.js                # CLI entry point (9 commands)
-│   ├── parser.js               # NL input reader
-│   ├── structurer.js           # Phase 1: NL → formal structure (Eq. 1)
-│   ├── ucs-transformer.js      # Phase 2: structure → UCS template
-│   ├── ambiguity-detector.js   # Phase 0: ambiguity scanner
-│   ├── gherkin-generator.js    # Gherkin/BDD .feature generator
-│   ├── business-object.js      # BO model: (N, Att, S_allowed, M, C)
-│   ├── ucs-template.js         # UCS data model
-│   ├── test-generator.js       # Algorithm 1 (GenTestCase)
-│   ├── consistency-checker.js  # Algorithms 2 & 3
-│   ├── feedback-loop.js        # Interactive 3-pass refinement loop
-│   ├── report-generator.js     # Human-readable Markdown reports
-│   └── llm-client.js           # Multi-provider LLM wrapper
-├── prompts/                     # 8 LLM prompt templates (00–07)
-├── schemas/                     # JSON Schemas for all data formats
+│   ├── index.js                       # CLI entry point (10 commands)
+│   ├── parser.js                      # NL input reader
+│   ├── structurer.js                  # Phase 1: NL → formal structure (Eq. 1)
+│   ├── ucs-transformer.js             # Phase 2: structure → UCS template
+│   ├── ambiguity-detector.js          # Phase 0: ambiguity scanner
+│   ├── gherkin-generator.js           # Gherkin/BDD .feature generator
+│   ├── actor-role.js                  # Shared system-actor classification
+│   ├── business-object.js             # BO model: (N, Att, S_allowed, M, C)
+│   ├── ucs-template.js                # UCS data model
+│   ├── test-generator.js              # Algorithm 1 (GenTestCase)
+│   ├── consistency-checker.js         # Algorithms 2 & 3
+│   ├── feedback-loop.js               # Interactive 3-pass refinement loop
+│   ├── report-generator.js            # Human-readable Markdown reports
+│   ├── source-traceability.js         # Source requirement ID/text provenance
+│   ├── nfr-classifier.js              # #1108: FR/UCS → 25010 attribute classification
+│   ├── nfr-classification-taxonomy.js # Taxonomy loading/validation for classification
+│   ├── nfr-candidates.js              # #1109: classification → candidate matching
+│   ├── nfr-candidate-report.js        # Candidate Markdown rendering
+│   ├── nfr-library.js                 # #1115: curated 25010 taxonomy + pattern library
+│   ├── nfr-overlays.js                # Domain overlay registry (opt-in, additive)
+│   ├── nfr-input.js                   # #1112/#1164: NFR input validation contract
+│   ├── nfr-options.js                 # generate-nfr/pipeline shared CLI flags
+│   ├── nfr-output.js                  # Protected report/classification file writer
+│   ├── nfr-generator.js               # #1112: generate-nfr command + pipeline phase
+│   └── llm-client.js                  # Multi-provider LLM wrapper
+├── prompts/                     # 9 LLM prompt templates (00–08)
+├── schemas/                     # JSON Schemas for all data formats, incl. NFR taxonomy/patterns/overlays
+├── data/nfr/                    # Curated ISO/IEC 25010 taxonomy, pattern library, overlays (#1115)
 ├── templates/                   # Requirements input template
-├── examples/                    # Web Store sample data (from paper)
-└── tests/                       # 29 unit tests
+├── examples/                    # Web Store sample data (from paper) + golden NFR fixture (#1116)
+├── docs/                        # NFR contract, classification, generation, traceability, golden-example docs
+└── tests/                       # 171 unit tests
 ```
 
 ## Examples
@@ -344,6 +421,11 @@ The `examples/` directory contains data from the paper's GAMMA-J Web Store exper
 npm start pipeline examples/web-store-input.md -o ./web-store-output
 ```
 
+### Golden NFR reference example (from the paper's scope, extended for #1116)
+
+See [Worked example: golden password-reset fixture (#1116)](#worked-example-golden-password-reset-fixture-1116)
+above under `generate-nfr` for the full NFR-augmented worked example.
+
 ---
 
 ## Testing
@@ -352,7 +434,11 @@ npm start pipeline examples/web-store-input.md -o ./web-store-output
 npm test
 ```
 
-Runs 29 tests covering: business object model, UCS template model, test generator (Algorithm 1), consistency checker (Algorithms 2 & 3), requirements parser, ambiguity detector, and Gherkin generator.
+Runs the full unit-test suite (business object model, UCS template model, test
+generator, consistency checker, requirements parser, ambiguity detector,
+Gherkin generator, NFR classification/generation/overlays, source
+traceability, and the golden fixture) — 171 tests as of v1.2.0, up from 29 at
+v1.1.0.
 
 ---
 
@@ -371,12 +457,3 @@ Runs 29 tests covering: business object model, UCS template model, test generato
 ## License
 
 MIT — See the repository root LICENSE file.
-
-### NFR candidate generation (#1109)
-
-Classification now continues into deterministic library-based candidate rendering.
-Targets, conditions and other unsupplied bindings are explicit NEEDS INPUT
-placeholders; no values are invented. The existing NFR Markdown report includes
-candidates and characteristic/parameter gaps. Existing NFR output blocks reruns;
-standalone `--force` explicitly permits overwriting manual edits. See the
-[generation contract and extension points](docs/nfr-generation.md).
