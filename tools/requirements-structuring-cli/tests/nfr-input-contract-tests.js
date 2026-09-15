@@ -1,6 +1,7 @@
 const assert = require('assert');
 const fs = require('fs-extra');
 const path = require('path');
+const Ajv = require('ajv');
 const { validateNFRInput } = require('../src/nfr-input');
 
 // Regression coverage for #1164: the structurer's own generation prompt
@@ -30,6 +31,15 @@ module.exports = async function testNFRInputContract(runner) {
     basicFlow: { steps: [{ stepId: '1', actor: 'User', action: 'does', businessObject: 'Thing' }] },
   };
 
+  // validateNFRInput is the actual runtime gate, but the reference schemas
+  // are a separate source of truth the checkpoint's own investigation found
+  // in conflict with it — assert against both, not just the validator, so a
+  // schema regressing back to string-only would fail here even if
+  // validateNFRInput stayed correct.
+  const ajv = new Ajv({ strict: false });
+  const validateFormalStructure = ajv.compile(require('../schemas/formal-structure.schema.json'));
+  const validateUCSTemplate = ajv.compile(require('../schemas/ucs-template.schema.json'));
+
   await test('#1164 SC6: PR #1128\'s actual committed structured artifact validates (neutral and pci-dss captures are byte-identical, so this fixture covers both)', () => {
     const result = validateNFRInput(pr1128Structured);
     assert.strictEqual(result.kind, 'structured');
@@ -43,6 +53,7 @@ module.exports = async function testNFRInputContract(runner) {
       data.steps[0][field] = null;
       const result = validateNFRInput(data);
       assert.strictEqual(result.data.steps[0][field], null, `${field} should validate as null`);
+      assert(validateFormalStructure(data), `${field} = null should also pass formal-structure.schema.json: ${JSON.stringify(validateFormalStructure.errors)}`);
     }
   });
 
@@ -52,6 +63,7 @@ module.exports = async function testNFRInputContract(runner) {
       data.basicFlow.steps[0][field] = null;
       const result = validateNFRInput(data);
       assert.strictEqual(result.data.basicFlow.steps[0][field], null, `${field} should validate as null`);
+      assert(validateUCSTemplate(data), `${field} = null should also pass ucs-template.schema.json: ${JSON.stringify(validateUCSTemplate.errors)}`);
     }
   });
 
@@ -61,6 +73,7 @@ module.exports = async function testNFRInputContract(runner) {
       data.steps[0][field] = null;
       assert.throws(() => validateNFRInput(data), new RegExp(`steps\\[0\\]\\.${field}`),
         `${field} = null must still be rejected (not authorized by any generation prompt)`);
+      assert(!validateFormalStructure(data), `${field} = null should also fail formal-structure.schema.json`);
     }
     const noDescription = copy(minimalStructured);
     noDescription.steps[0].description = null;
@@ -69,6 +82,7 @@ module.exports = async function testNFRInputContract(runner) {
     const topLevelNull = copy(minimalStructured);
     topLevelNull.useCaseName = null;
     assert.throws(() => validateNFRInput(topLevelNull), /useCaseName/);
+    assert(!validateFormalStructure(topLevelNull), 'useCaseName = null should also fail formal-structure.schema.json');
   });
 
   await test('#1164 SC7 rejection guard: loosened fields still reject non-string, non-null values', () => {
@@ -77,13 +91,16 @@ module.exports = async function testNFRInputContract(runner) {
       data.steps[0][field] = 42;
       assert.throws(() => validateNFRInput(data), new RegExp(`steps\\[0\\]\\.${field} must be a string or null`),
         `${field} = 42 must still be rejected`);
+      assert(!validateFormalStructure(data), `${field} = 42 should also fail formal-structure.schema.json`);
       const arrayData = copy(minimalStructured);
       arrayData.steps[0][field] = ['not', 'a', 'string'];
       assert.throws(() => validateNFRInput(arrayData), new RegExp(`steps\\[0\\]\\.${field} must be a string or null`));
+      assert(!validateFormalStructure(arrayData), `${field} = array should also fail formal-structure.schema.json`);
     }
     const badFlowType = copy(minimalStructured);
     badFlowType.steps[0].flowType = null;
     assert.throws(() => validateNFRInput(badFlowType), /flowType must be basic, alternative, or exception/,
       'flowType is still a restricted enum, not nullable');
+    assert(!validateFormalStructure(badFlowType), 'flowType = null should also fail formal-structure.schema.json: the schema restricts it to a plain string enum, not nullable');
   });
 };
