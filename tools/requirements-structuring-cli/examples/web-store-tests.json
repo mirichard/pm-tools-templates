@@ -513,6 +513,14 @@
         "description": "Email delivery failure"
       },
       {
+        "stepId": "7-7a",
+        "description": "System sends confirmation email with details of Order",
+        "actor": "System",
+        "action": "sends confirmation email with details of",
+        "businessObject": "Order",
+        "expectedResult": null
+      },
+      {
         "stepId": "7a1",
         "description": "System displays email error for Order",
         "actor": "System",
