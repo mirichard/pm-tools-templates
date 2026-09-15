@@ -50,8 +50,9 @@ Optional fields are preserved, not classified or rewritten:
   and null is accepted as the producer's intentional output, not just omission.
   `description`, when present, must be a string (no producer prompt permits
   null for it). Formal steps also permit string-or-null `previousStep`,
-  `deviationPoint`, `rejoinPoint`, and `flowType` restricted to `basic`,
-  `alternative`, or `exception`.
+  `deviationPoint`, and `rejoinPoint`. `flowType`, when present, is not
+  nullable: it is restricted to the strings `basic`, `alternative`, or
+  `exception`.
 - Additional fields are retained subject to the existing JSON safety limits.
   This boundary checks data shape, not 25010 taxonomy, flow semantics, or
   classification/generation correctness.
