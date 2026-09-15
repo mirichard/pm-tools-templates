@@ -409,7 +409,7 @@ requirements-structuring-cli/
 ├── templates/                   # Requirements input template
 ├── examples/                    # Web Store sample data (from paper) + golden NFR fixture (#1116)
 ├── docs/                        # NFR contract, classification, generation, traceability, golden-example docs
-└── tests/                       # 171 unit tests
+└── tests/                       # 172 unit tests
 ```
 
 ## Examples
@@ -441,8 +441,8 @@ npm test
 Runs the full unit-test suite (business object model, UCS template model, test
 generator, consistency checker, requirements parser, ambiguity detector,
 Gherkin generator, NFR classification/generation/overlays, source
-traceability, and the golden fixture) — 171 tests as of v1.2.0, up from 29 at
-v1.1.0.
+traceability, the golden fixture, and a CLI version-drift regression check) —
+172 tests as of v1.2.0, up from 29 at v1.1.0.
 
 ---
 
