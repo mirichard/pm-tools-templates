@@ -45,6 +45,24 @@ const expected = {
 };
 const base = 'password-reset-input';
 const read = (variant, suffix) => JSON.parse(fs.readFileSync(path.join(root, variant, base + suffix), 'utf8'));
+
+// Flatten a UCS into { path -> step } using the exact same path grammar
+// generateCandidates' handoff validator accepts (see src/nfr-candidates.js
+// validateHandoff): /basicFlow/steps/N or /(alternativeFlows|exceptionFlows)/N/steps/M.
+// That validator only checks path shape and uniqueness, never that the path
+// resolves to a real step — this reproduces the actual resolution so the
+// fixture test can verify it independently.
+function flattenStepsByPath(ucs) {
+  const byPath = new Map();
+  ucs.basicFlow.steps.forEach((step, i) => byPath.set(`/basicFlow/steps/${i}`, step));
+  for (const key of ['alternativeFlows', 'exceptionFlows']) {
+    (ucs[key] || []).forEach((flow, flowIndex) => {
+      flow.steps.forEach((step, stepIndex) => byPath.set(`/${key}/${flowIndex}/steps/${stepIndex}`, step));
+    });
+  }
+  return byPath;
+}
+
 module.exports = async runner => {
   await runner.test('Golden fixture: all captured artifacts exist and have valid structure', () => {
     const source = fs.readFileSync(path.join(root, base + '.md'), 'utf8');
@@ -122,6 +140,27 @@ module.exports = async runner => {
           ['/basicFlow/steps/1', '/basicFlow/steps/2', '/basicFlow/steps/4', '/basicFlow/steps/5', '/alternativeFlows/0/steps/0']
             .map(path => ({ patternId: 'pci-dss.confidentiality', path })));
         assert(neutral.candidates.every(n => generated.candidates.some(c => c.id === n.id)));
+      }
+    }
+    return true;
+  });
+  await runner.test('Golden fixture: every classification handoff source path resolves to the real UCS step it claims', () => {
+    // generateCandidates' handoff validator only enforces path shape and
+    // uniqueness (see validateHandoff in src/nfr-candidates.js); a
+    // plausible-looking but nonexistent path such as /basicFlow/steps/99
+    // would still pass that check and produce candidates/report entries
+    // pointing at a step that doesn't exist. Resolve every recorded path
+    // against the actual committed UCS and confirm it names the same step.
+    for (const variant of variants) {
+      const ucs = read(variant, '-ucs.json');
+      const byPath = flattenStepsByPath(ucs);
+      const handoff = read(variant, '-nfr-classifications.json');
+      assert(handoff.requirements.length > 0);
+      for (const requirement of handoff.requirements) {
+        const step = byPath.get(requirement.source.path);
+        assert(step, `${variant}: source path ${requirement.source.path} does not resolve to any step in the committed UCS`);
+        assert.equal(step.stepId, requirement.source.stepId,
+          `${variant}: source path ${requirement.source.path} resolves to step ${step.stepId}, not the claimed ${requirement.source.stepId}`);
       }
     }
     return true;
