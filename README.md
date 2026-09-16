@@ -90,12 +90,15 @@ Canonical and legacy-path behavior for bookmarks and integrations is defined in 
 [![Latest Release](https://img.shields.io/github/v/release/mirichard/pm-tools-templates?style=for-the-badge&logo=github&labelColor=282828&color=blue)](https://github.com/mirichard/pm-tools-templates/releases/latest)
 
 **What's New in v1.2.0-requirements-cli:**
-- 🎯 **NFR Generation & ISO/IEC 25010 Mapping**: Classifies every FR/UCS step against a curated quality-attribute taxonomy and generates deterministic NFR candidate statements, with explicit `[NEEDS INPUT: <name>]` placeholders for every unbound target, condition, or scope — no values are invented
-- 📐 **Curated Pattern Library**: 40 neutral NFR patterns plus 5 opt-in, additive domain overlays — FDA 21 CFR 11, HIPAA, PCI-DSS, WCAG 2.2, Section 508
-- 🔗 **Source Requirement Traceability**: UCS, test case, and Gherkin artifacts carry the source requirement ID and text through generation, for review — not a guarantee the cited requirement is the one actually used
+
+v1.1.0 already delivers a full 6-phase pipeline — formal requirement structuring, UCS generation, test case and Gherkin/BDD output, multi-provider LLM support, and consistency validation against activity diagrams and state machines. v1.2.0 builds directly on that foundation with a new non-functional-requirements layer:
+
+- 🎯 **NFR Generation & ISO/IEC 25010 Mapping**: Classifies every FR/UCS step against a curated quality-attribute taxonomy and generates deterministic NFR candidate statements alongside your existing functional output
+- 📐 **Curated Pattern Library**: 40 neutral NFR patterns plus 5 opt-in domain overlays — FDA 21 CFR 11, HIPAA, PCI-DSS, WCAG 2.2, Section 508
+- 🔗 **Source Requirement Traceability**: Every generated UCS, test case, and Gherkin artifact now carries its source requirement ID and text end to end
 - 🥒 **Gherkin/BDD Output**: Generates `.feature` files from test cases — wire directly into Cucumber, pytest-bdd, or SpecFlow
 - 🤖 **Multi-Provider LLM**: Supports Gemini (free tier), Claude, OpenAI, and any OpenAI-compatible endpoint
-- 🧪 **172 Unit Tests** (up from 29 in v1.1.0)
+- 🧪 **218 Unit Tests** (up from 29 in v1.1.0)
 
 [**→ View Release Notes**](https://github.com/mirichard/pm-tools-templates/releases/tag/v1.2.0-requirements-cli) | [**→ Download Latest**](https://github.com/mirichard/pm-tools-templates/archive/refs/tags/v1.2.0-requirements-cli.zip)
 
