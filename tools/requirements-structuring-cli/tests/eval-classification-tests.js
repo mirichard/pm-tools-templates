@@ -181,6 +181,7 @@ module.exports = async function testEvalClassification(runner) {
       // keeps only this JSON must still be able to see why the rates aren't accuracy.
       assert.match(written.labelSetWarning, /NOT independently expert-verified/);
       assert.match(written.labelSetOrderOfOperationsCaveat, /order-of-operations|blind independent validation/i);
+      assert.match(written.labelSetTaxonomyAccuracyCaveat, /reconstructed from secondary/i);
 
       const second = runScript(['--output', outDir]);
       assert.notStrictEqual(second.status, 0, 'a second run without --force must not silently overwrite results');

@@ -175,6 +175,7 @@ async function main(argv) {
     const results = { generatedAt: new Date().toISOString(), labelSetProvenance: labelSet.provenance,
       labelSetExpertVerified: labelSet.expertVerified, labelSetWarning: labelSet.warning,
       labelSetOrderOfOperationsCaveat: labelSet.orderOfOperationsCaveat,
+      labelSetTaxonomyAccuracyCaveat: labelSet.taxonomyAccuracyCaveat,
       variants, live: args.live, rows: allRows, overall };
     try {
       await writeSafe(resultsPath, validateAndSerializeJSON(results), args.force);
