@@ -63,20 +63,28 @@ async function writeNFRGherkinScenarios(outputDir, baseName, candidates, useCase
     // append case above already has the base file's). Owned entirely by generate-nfr, so it
     // gets the same exclusive-create-or-force contract as the report/classification/candidates
     // JSON outputs, not the pipeline .feature file's idempotent-append semantics.
+    // Fast-fail pre-check (redundant with, but not a substitute for, the atomic O_EXCL below
+    // -- mirrors writeGenerationReport's own belt-and-suspenders pattern in this same file).
     assertGenerationOutputAvailable(standalonePath, force);
     const standaloneFeature = `Feature: ${GherkinGenerator.sanitizeGherkinLine(useCaseId)} — NFR acceptance-criteria scaffolds\n`
       + section.replace(/^\n+/, '');
-    await writeSafeOverwrite(standalonePath, standaloneFeature);
+    // force is threaded through here (unlike the two calls below) because this path owns the
+    // exclusive-create-or-force contract: without it, O_EXCL makes file creation itself
+    // atomically fail if the target now exists, closing the TOCTOU gap the pre-check alone
+    // cannot close.
+    await writeSafeOverwrite(standalonePath, standaloneFeature, force);
     return { path: standalonePath, mode: 'standalone' };
   }
   const markerIndex = existing.indexOf(GherkinGenerator.NFR_SECTION_MARKER);
   if (markerIndex === -1) {
-    await writeSafeOverwrite(featurePath, existing + section);
+    // Always an intentional overwrite: `existing` was just read from this same file, and we're
+    // writing back its content plus the new section -- not subject to exclusive-create-or-force.
+    await writeSafeOverwrite(featurePath, existing + section, true);
     return { path: featurePath, mode: 'appended' };
   }
   if (!force) return { path: featurePath, mode: 'already-present' };
   const prefix = existing.slice(0, markerIndex).replace(/\n+$/, '');
-  await writeSafeOverwrite(featurePath, prefix + section);
+  await writeSafeOverwrite(featurePath, prefix + section, true);
   return { path: featurePath, mode: 'rebuilt' };
 }
 
