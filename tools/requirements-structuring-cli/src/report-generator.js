@@ -20,7 +20,7 @@ class ReportGenerator {
     return reportPath;
   }
 
-  formatNFRReport({ notice, input, inputKind, options, classifications }) {
+  formatNFRReport({ notice, input, inputKind, options, classifications, confidenceSummary }) {
     const display = (value) => sanitizeTerminalValue(value);
     return [
       `# NFR Report: ${display(input.useCaseId)}`,
@@ -44,8 +44,20 @@ class ReportGenerator {
       `- Confidence threshold: ${options.confidenceThreshold ?? 'unspecified'}`,
       `- Overlay: ${display(options.overlay)} (explicit selection; additive patterns)`,
       '',
-      'Metric/Gherkin integration (#1110) and the confidence review gate (#1111) remain follow-ups.',
-      'Confidence values are model estimates, not calibrated probabilities; no threshold gate was applied.',
+      'Metric/Gherkin integration (#1110) is complete.',
+      '',
+      '## Review Status',
+      '',
+      `- Readiness: **${confidenceSummary.readinessLabel}**`,
+      `- Confidence threshold: ${confidenceSummary.threshold}`,
+      `- Accepted (confidence ≥ threshold): ${confidenceSummary.accepted}`,
+      `- Needs review (confidence < threshold): ${confidenceSummary.review}`,
+      `- Total candidates: ${confidenceSummary.total}`,
+      '',
+      'Confidence values are model estimates, not calibrated probabilities. Almonte et al.',
+      '(arXiv:2503.15248) report 80.4% exact attribute-classification agreement against expert',
+      'review (11.3% mismatch) — the documented reason candidates below the confidence threshold',
+      'require explicit human confirmation before use as acceptance criteria, not an automated pass.',
       '',
       '## Attribute Classifications',
       '',

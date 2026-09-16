@@ -55,6 +55,31 @@ function spinnerFail(spinner, message) {
   process.stderr.write(`${safeMessage}\n`);
 }
 
+/**
+ * #1111: mirrors Phase 0's ambiguity gate (below) -- computed elsewhere (NFRGenerator.run(),
+ * via nfr-confidence.js) as a pure value, prompted on here, the same separation Phase 0 keeps
+ * between AmbiguityDetector (computes readinessScore) and this file (gates on it). Called from
+ * both the standalone generate-nfr command and the pipeline's NFR phase so the two invocation
+ * paths behave identically. READY never prompts. NEEDS CLARIFICATION defaults to proceeding
+ * (matches Phase 0's warnings gate). NOT READY still only prompts (default: decline) rather than
+ * hard-blocking like Phase 0's not_ready: every candidate already ships with unbound
+ * `[NEEDS INPUT: ...]` placeholders needing human binding regardless of confidence, so nothing
+ * here is ever auto-approved the way an unresolved ambiguous requirement could let downstream
+ * structuring silently fabricate intent -- the AC asks for an interactive pause, not an
+ * unconditional halt.
+ * @returns {Promise<boolean>} true to proceed, false if the user declined
+ */
+async function gateOnConfidence(confidenceSummary) {
+  const { readinessLabel, review, total, threshold } = confidenceSummary;
+  if (readinessLabel === 'READY') return true;
+  const message = `NFR review: ${review} of ${total} candidate(s) are below the confidence `
+    + `threshold (${threshold}) — readiness: ${readinessLabel}. Proceed anyway?`;
+  const { proceedAnyway } = await inquirer.prompt([
+    { type: 'confirm', name: 'proceedAnyway', message, default: readinessLabel !== 'NOT READY' },
+  ]);
+  return proceedAnyway;
+}
+
 // CLI Header
 terminalLog(
   chalk.blue.bold(`
@@ -341,6 +366,13 @@ addNFROptions(program.command('generate-nfr [input-file]'))
       terminalLog(chalk.yellow(result.notice));
       terminalLog(chalk.green(`✓ NFR candidate report saved to ${result.reportPath}`));
       terminalLog(chalk.green(`✓ NFR classification JSON handoff saved to ${result.classificationPath}`));
+      terminalLog(`  Readiness: ${result.confidenceSummary.readinessLabel} `
+        + `(${result.confidenceSummary.accepted} accepted, ${result.confidenceSummary.review} need review, `
+        + `${result.confidenceSummary.total} total)`);
+      if (!(await gateOnConfidence(result.confidenceSummary))) {
+        terminalLog(chalk.yellow('  Declined — review the low-confidence candidates before treating this run as final.'));
+        process.exitCode = 1;
+      }
     } catch (err) {
       spinnerFail(spinner, err && err.message ? err.message : String(err));
       process.exitCode = 1;
@@ -453,6 +485,10 @@ addNFROptions(program.command('pipeline <input-file>'))
       const nfrResult = await nfrGenerator.run(ucsJSON2, { ...nfrOptions, output: outputDir, baseName });
       terminalLog(chalk.yellow(nfrResult.notice));
       terminalLog(chalk.dim(`  → ${nfrResult.reportPath}`));
+      terminalLog(`  Readiness: ${nfrResult.confidenceSummary.readinessLabel} `
+        + `(${nfrResult.confidenceSummary.accepted} accepted, ${nfrResult.confidenceSummary.review} need review, `
+        + `${nfrResult.confidenceSummary.total} total)`);
+      if (!(await gateOnConfidence(nfrResult.confidenceSummary))) return;
 
       const { proceed: proceed2 } = await inquirer.prompt([
         { type: 'confirm', name: 'proceed', message: 'Review complete. Proceed to Phase 3?', default: true },
@@ -577,4 +613,5 @@ module.exports = {
   sanitizeErrorPayload,
   safeWriteText: require('./security').safeWriteText,
   safeWriteJSON: require('./security').safeWriteJSON,
+  gateOnConfidence,
 };

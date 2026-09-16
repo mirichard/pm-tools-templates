@@ -307,7 +307,13 @@ module.exports = async (runner) => {
       const report = await fs.readFile(result.reportPath, 'utf8');
       assert.match(report, /Attribute Classifications/);
       assert.match(report, /Generated NFR Candidates/);
-      assert.match(report, /no threshold gate was applied/);
+      // #1111: the gate is now real -- confirm the readiness label/summary counts render and
+      // reflect the actual per-candidate confidences against this run's 0.95 threshold, replacing
+      // the old static "no threshold gate was applied" line that this now contradicts.
+      assert.match(report, /## Review Status/);
+      assert.match(report, new RegExp(`Readiness: \\*\\*${result.confidenceSummary.readinessLabel}\\*\\*`));
+      assert.match(report, new RegExp(`Accepted \\(confidence ≥ threshold\\): ${result.confidenceSummary.accepted}`));
+      assert.match(report, new RegExp(`Needs review \\(confidence < threshold\\): ${result.confidenceSummary.review}`));
       assert.doesNotMatch(report, /#1108\/#1109|No classification/);
       // #1110: also writes the rendered-candidates JSON and a standalone .feature (no base
       // .feature exists in this temp dir, since generate-gherkin/pipeline never ran here).

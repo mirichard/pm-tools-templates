@@ -8,8 +8,7 @@ mechanism is introduced. Humans edit the report today.
 
 Generation uses deterministic template substitution, with renderer version 1.0.0;
 no generation LLM call or prompt is necessary. Classification still uses the
-existing provider. #1110 integration (below) is implemented; #1111's review
-gate is not.
+existing provider. #1110 and #1111 integration (below) are both implemented.
 
 ## Selection, rendering and evidence
 
@@ -112,11 +111,18 @@ renders the quantifiable candidates as `Scenario Outline` + `Examples` and the
 qualitative ones as a plain `Scenario`/`Then`, wired into `.feature` output as
 described above.
 
-#1111: insert the confidence/review decision stage after generation and before
-report writing. Stable candidate IDs combine use-case ID, source pointer and
-pattern ID. Replace the interim force policy in `src/nfr-output.js` with explicit
-review-decision preservation. No confidence gate, approval record, ratification,
-or automated binding validation for human report edits exists in this story.
+#1111 (implemented): `src/nfr-confidence.js`'s `computeConfidenceSummary`
+rolls per-candidate `confidence` up against `--confidence-threshold` (default
+`DEFAULT_CONFIDENCE_THRESHOLD`, see that module's doc comment for why 0.75 and
+not a value derived from Almonte et al.'s 80.4%/11.3% figures) into a
+READY/NEEDS CLARIFICATION/NOT READY label plus accepted/review/total counts,
+mirroring Phase 0's terms. `NFRGenerator.run()` computes this as a pure value
+(`result.confidenceSummary`) with no prompt of its own; `src/index.js`'s
+`gateOnConfidence()` does the actual interactive pause, identically for both
+`generate-nfr` and `pipeline`. Rendered in the NFR report's `## Review Status`
+section. No approval record, ratification, or automated binding validation
+for human report edits exists yet -- this story is the confidence signal and
+the pause, not a persisted accept/reject decision log.
 
 ## Validation
 

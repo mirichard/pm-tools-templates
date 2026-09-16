@@ -16,11 +16,23 @@ NFR candidates follow below; placeholders are not approved acceptance criteria.
 - Provider: gemini
 - Model: gemini-2.5-flash
 - Attributes: functional-suitability, performance-efficiency, compatibility, interaction-capability, reliability, security, maintainability, flexibility, safety
-- Confidence threshold: unspecified
+- Confidence threshold: 0.75
 - Overlay: neutral (explicit selection; additive patterns)
 
-Metric/Gherkin integration (#1110) and the confidence review gate (#1111) remain follow-ups.
-Confidence values are model estimates, not calibrated probabilities; no threshold gate was applied.
+Metric/Gherkin integration (#1110) is complete.
+
+## Review Status
+
+- Readiness: **NEEDS CLARIFICATION**
+- Confidence threshold: 0.75
+- Accepted (confidence ≥ threshold): 64
+- Needs review (confidence < threshold): 6
+- Total candidates: 70
+
+Confidence values are model estimates, not calibrated probabilities. Almonte et al.
+(arXiv:2503.15248) report 80.4% exact attribute-classification agreement against expert
+review (11.3% mismatch) — the documented reason candidates below the confidence threshold
+require explicit human confirmation before use as acceptance criteria, not an automated pass.
 
 ## Attribute Classifications
 

@@ -11,8 +11,10 @@ classification must carry that notice, not imply primary-standard approval.
 The existing LLM client, provider configuration, flags and input validation are
 consumed without modification.
 
-This story emits attribute mappings only. NFR statement generation is #1109;
-confidence-based review gates are #1111. Both remain follow-ups. The versioned output contract for #1109 is specified below.
+This story emits attribute mappings only. NFR statement generation (#1109) and
+confidence-based review gates (#1111) are both implemented as later stages
+consuming this classification contract; neither is part of this story's own
+output. The versioned output contract for #1109 is specified below.
 
 ## Versioned handoff for #1109
 
@@ -69,8 +71,10 @@ scores, not fixed expectations or default confidences):
 
 Assignments are unique and sorted by taxonomy order. Confidence must be a finite
 number in `[0, 1]`; missing, textual, out-of-range or non-finite scores fail.
-These are uncalibrated model estimates. Zero and low confidence are retained;
-`--confidence-threshold` is recorded without applying #1111's future review gate.
+These are uncalibrated model estimates. Zero and low confidence are retained
+by this classification step; `--confidence-threshold` is not applied here.
+#1111's review gate rolls these per-assignment confidences up downstream, in
+NFR generation (see `docs/nfr-generation.md`), not in classification itself.
 An empty array is an explicit unmapped result, not an invented classification.
 No global confidence score or synthetic fallback assignment is emitted.
 

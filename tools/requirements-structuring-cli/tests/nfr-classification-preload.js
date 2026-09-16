@@ -8,5 +8,9 @@ LLMClient.prototype.chat = async function ({ systemPrompt, userPrompt, mode }) {
   const input = JSON.parse(userPrompt);
   assert.ok(input.requirement.step.action);
   const subCharacteristic = input.taxonomy.characteristics[0].subCharacteristics[0].id;
-  return JSON.stringify({ assignments: [{ subCharacteristic, confidence: 0.85 }] });
+  // #1111: overridable so gate-behavior tests can force every assignment uniformly above or
+  // below --confidence-threshold; defaults to the existing fixed value so every test that
+  // doesn't care about confidence keeps behaving exactly as before.
+  const confidence = Number(process.env.NFR_TEST_CONFIDENCE ?? '0.85');
+  return JSON.stringify({ assignments: [{ subCharacteristic, confidence }] });
 };

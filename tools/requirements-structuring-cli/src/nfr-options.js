@@ -1,5 +1,6 @@
 const { InvalidArgumentError } = require('commander');
 const { selectOverlay } = require('./nfr-overlays');
+const { DEFAULT_CONFIDENCE_THRESHOLD } = require('./nfr-confidence');
 
 function nonEmpty(value) {
   if (!value.trim()) throw new InvalidArgumentError('Expected a non-empty value.');
@@ -36,7 +37,7 @@ function addNFROptions(command) {
     .option('--provider <name>', 'LLM provider (uses existing environment configuration)', parseProvider)
     .option('--model <name>', 'Override the configured LLM model', nonEmpty)
     .option('--attributes <names>', 'Comma-separated taxonomy characteristic names/IDs for classification (overrides NFR_ATTRIBUTES)', parseAttributes)
-    .option('--confidence-threshold <number>', 'Review threshold from 0 to 1 (stored for #1111)', parseConfidence)
+    .option('--confidence-threshold <number>', `Review threshold from 0 to 1; below-threshold candidates pause at an interactive gate (default ${DEFAULT_CONFIDENCE_THRESHOLD})`, parseConfidence)
     .option('--profile <name>', 'Domain overlay profile (alias for --overlay)', nonEmpty)
     .option('--overlay <name>', 'Domain overlay name; default is neutral core', nonEmpty);
 }
@@ -48,7 +49,10 @@ function normalizeNFROptions(options) {
   return {
     ...options,
     attributes: options.attributes || [],
-    confidenceThreshold: options.confidenceThreshold ?? null,
+    // #1111: the flag was accepted and stored since #1112 but never given an operative default
+    // (`?? null` meant "gate never actually runs unless a caller explicitly opts in"). See
+    // nfr-confidence.js for why 0.75 specifically.
+    confidenceThreshold: options.confidenceThreshold ?? DEFAULT_CONFIDENCE_THRESHOLD,
     overlay: selectOverlay(options.overlay || options.profile || 'neutral'),
   };
 }

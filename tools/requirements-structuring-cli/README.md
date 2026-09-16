@@ -202,7 +202,7 @@ review gate; all existing phase ordering and gates are preserved.
 | `--provider gemini\|anthropic\|openai` | Override existing `LLM_PROVIDER` selection for the invocation; `openai` also covers compatible APIs using `LLM_BASE_URL`. |
 | `--model <name>` | Override existing `LLM_MODEL` selection for the invocation. |
 | `--attributes <names>` | Comma-separated non-empty names; top-level taxonomy names/IDs restricting classification; overrides `NFR_ATTRIBUTES` from the environment. |
-| `--confidence-threshold <number>` | Finite number in `[0, 1]`; recorded only, no confidence calculation or review gate. |
+| `--confidence-threshold <number>` | Finite number in `[0, 1]`, default `0.75` (unresearched conservative default — see `docs/nfr-generation.md`). Below-threshold candidates pause at an interactive READY/NEEDS CLARIFICATION/NOT READY gate, mirroring Phase 0's gate. |
 | `--profile` / `--overlay` | Select an available name; default `neutral`. |
 | `-o` / `--output <dir>` | Report directory, default `./output`. Pipeline retains `--output-dir` and also accepts `--output`. |
 
