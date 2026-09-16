@@ -34,10 +34,18 @@ module.exports = async function testNFRDeterminism(runner) {
     const inputPath = path.join(temp, 'input.json');
     await fs.writeJSON(inputPath, fixture.input);
 
-    const runGenerateNFR = (outputDir) => {
-      const env = { ...process.env, LLM_PROVIDER: '', LLM_MODEL: '', LLM_API_KEY: '',
-        GEMINI_API_KEY: '', ANTHROPIC_API_KEY: '', OPENAI_API_KEY: '', SAVE_LLM_TRACES: 'false',
-        NFR_ATTRIBUTES: '', NFR_TEST_CONFIDENCE: '0.85' };
+    // NFR_TEST_GATE is a preload control var (tests/nfr-pipeline-fixture.js) that decides whether
+    // the mocked confidence gate accepts or declines. Every spawned env in this file must pin it
+    // explicitly (not just the preload-specific vars below) -- otherwise an ambient
+    // NFR_TEST_GATE=confidence-decline in the parent process/CI environment would leak through
+    // ...process.env, make a below-threshold run decline and exit 1, and fail this determinism
+    // check for a reason that has nothing to do with determinism.
+    const baseEnv = (confidence) => ({ ...process.env, LLM_PROVIDER: '', LLM_MODEL: '', LLM_API_KEY: '',
+      GEMINI_API_KEY: '', ANTHROPIC_API_KEY: '', OPENAI_API_KEY: '', SAVE_LLM_TRACES: 'false',
+      NFR_ATTRIBUTES: '', NFR_TEST_GATE: '', NFR_TEST_CONFIDENCE: confidence });
+
+    const runGenerateNFR = (outputDir, confidence = '0.85') => {
+      const env = baseEnv(confidence);
       const child = spawnSync(process.execPath,
         ['--require', path.join(__dirname, 'nfr-pipeline-fixture.js'), path.join(root, 'src/index.js'),
           'generate-nfr', inputPath, '-o', outputDir],
@@ -65,14 +73,7 @@ module.exports = async function testNFRDeterminism(runner) {
       const outputA = path.join(temp, 'run-drift-a');
       const outputC = path.join(temp, 'run-drift-c');
       runGenerateNFR(outputA);
-      const env = { ...process.env, LLM_PROVIDER: '', LLM_MODEL: '', LLM_API_KEY: '',
-        GEMINI_API_KEY: '', ANTHROPIC_API_KEY: '', OPENAI_API_KEY: '', SAVE_LLM_TRACES: 'false',
-        NFR_ATTRIBUTES: '', NFR_TEST_CONFIDENCE: '0.2' };
-      const child = spawnSync(process.execPath,
-        ['--require', path.join(__dirname, 'nfr-pipeline-fixture.js'), path.join(root, 'src/index.js'),
-          'generate-nfr', inputPath, '-o', outputC],
-        { cwd: temp, env, encoding: 'utf8', timeout: 15000 });
-      assert.strictEqual(child.status, 0, (child.stdout || '') + (child.stderr || ''));
+      runGenerateNFR(outputC, '0.2');
       const reportA = await fs.readFile(path.join(outputA, 'input-nfr-report.md'), 'utf8');
       const reportC = await fs.readFile(path.join(outputC, 'input-nfr-report.md'), 'utf8');
       assert.notStrictEqual(reportA, reportC,

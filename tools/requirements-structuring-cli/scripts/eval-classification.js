@@ -160,7 +160,13 @@ async function main(argv) {
     const resultsPath = buildContainedChildPath(outputDir, 'eval-classification-results.json');
     const results = { generatedAt: new Date().toISOString(), labelSetProvenance: labelSet.provenance,
       labelSetExpertVerified: labelSet.expertVerified, variants, live: args.live, rows: allRows, overall };
-    await writeSafe(resultsPath, validateAndSerializeJSON(results), args.force);
+    try {
+      await writeSafe(resultsPath, validateAndSerializeJSON(results), args.force);
+    } catch (error) {
+      // writeSafe's own message hard-codes "generate-nfr --force" (it's shared across every NFR
+      // output writer); translate it here so this script's own users get the right command name.
+      throw new Error(error.message.replace(/generate-nfr --force/g, 'eval-classification --force'));
+    }
     process.stdout.write(`\nResults written to ${resultsPath}\n`);
   }
 }
