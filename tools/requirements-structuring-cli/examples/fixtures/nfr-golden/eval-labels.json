@@ -8,7 +8,7 @@
   "taxonomySourceFile": "data/nfr/taxonomy.json",
   "taxonomyRevision": "0.1.0",
   "joinKey": "source.path (join each variant's own -nfr-classifications.json requirements[].source.path to this file's labels[].sourcePath; per docs/nfr-golden-example.md, do not join on stepId alone)",
-  "methodologyNote": "Each label is one independently-reasoned judgment: 'this requirement unit's text plausibly warrants this ISO/IEC 25010:2023 sub-characteristic, per its taxonomy definition.' A label set is intentionally small (5 real requirement units already present in the golden fixture, 11 total attribute judgments) rather than exhaustive -- absence of a label for a given (unit, sub-characteristic) pair means no judgment was made, not that the pair is judged inapplicable. The eval script (scripts/eval-classification.js) therefore only scores labeled pairs; it never penalizes the tool for assignments outside this small set.",
+  "methodologyNote": "Each label is one independently-reasoned judgment: 'this requirement unit's text plausibly warrants this ISO/IEC 25010:2023 sub-characteristic, per its taxonomy definition.' A label set is intentionally small (5 real requirement units already present in the golden fixture, 12 total attribute judgments) rather than exhaustive -- absence of a label for a given (unit, sub-characteristic) pair means no judgment was made, not that the pair is judged inapplicable. The eval script (scripts/eval-classification.js) therefore only scores labeled pairs; it never penalizes the tool for assignments outside this small set.",
   "labels": [
     {
       "sourcePath": "/basicFlow/steps/0",

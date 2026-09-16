@@ -123,6 +123,18 @@ module.exports = async function testEvalClassification(runner) {
     assert.match(result.stderr, /--variant must be one of/);
   });
 
+  await test('CLI: --output as the final argument (missing its value) errors instead of silently writing nothing', () => {
+    const result = runScript(['--output']);
+    assert.notStrictEqual(result.status, 0);
+    assert.match(result.stderr, /--output requires a value/);
+  });
+
+  await test('CLI: --variant as the final argument (missing its value) errors', () => {
+    const result = runScript(['--variant']);
+    assert.notStrictEqual(result.status, 0);
+    assert.match(result.stderr, /--variant requires a value/);
+  });
+
   await test('CLI: prints the labeled set\'s non-expert-verified warning on every run', () => {
     const result = runScript([]);
     assert.match(result.stdout, /NOT independently expert-verified/);
@@ -139,6 +151,10 @@ module.exports = async function testEvalClassification(runner) {
       const written = fs.readJsonSync(resultsPath);
       assert.strictEqual(written.overall.total, 24);
       assert.strictEqual(written.labelSetExpertVerified, false);
+      // The persisted file must carry its own honesty caveat, not just stdout -- a consumer who
+      // keeps only this JSON must still be able to see why the rates aren't accuracy.
+      assert.match(written.labelSetWarning, /NOT independently expert-verified/);
+      assert.match(written.labelSetOrderOfOperationsCaveat, /order-of-operations|blind independent validation/i);
 
       const second = runScript(['--output', outDir]);
       assert.notStrictEqual(second.status, 0, 'a second run without --force must not silently overwrite results');

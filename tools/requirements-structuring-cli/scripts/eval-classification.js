@@ -30,6 +30,12 @@ const { writeSafe } = require('../src/nfr-output');
 const GOLDEN_DIR = path.join(__dirname, '..', 'examples/fixtures/nfr-golden');
 const VARIANTS = ['neutral', 'pci-dss'];
 
+function requireValue(argv, i, flag) {
+  const value = argv[i + 1];
+  if (value === undefined) throw new Error(`${flag} requires a value.`);
+  return value;
+}
+
 function parseArgs(argv) {
   const args = { variant: 'both', live: false, output: null, force: false };
   for (let i = 0; i < argv.length; i += 1) {
@@ -37,8 +43,8 @@ function parseArgs(argv) {
     if (arg === '--help' || arg === '-h') { args.help = true; }
     else if (arg === '--live') { args.live = true; }
     else if (arg === '--force') { args.force = true; }
-    else if (arg === '--variant') { args.variant = argv[++i]; }
-    else if (arg === '--output') { args.output = argv[++i]; }
+    else if (arg === '--variant') { args.variant = requireValue(argv, i, '--variant'); i += 1; }
+    else if (arg === '--output') { args.output = requireValue(argv, i, '--output'); i += 1; }
     else throw new Error(`Unknown argument: ${arg}. Run with --help for usage.`);
   }
   return args;
@@ -159,7 +165,9 @@ async function main(argv) {
     await fs.ensureDir(outputDir);
     const resultsPath = buildContainedChildPath(outputDir, 'eval-classification-results.json');
     const results = { generatedAt: new Date().toISOString(), labelSetProvenance: labelSet.provenance,
-      labelSetExpertVerified: labelSet.expertVerified, variants, live: args.live, rows: allRows, overall };
+      labelSetExpertVerified: labelSet.expertVerified, labelSetWarning: labelSet.warning,
+      labelSetOrderOfOperationsCaveat: labelSet.orderOfOperationsCaveat,
+      variants, live: args.live, rows: allRows, overall };
     try {
       await writeSafe(resultsPath, validateAndSerializeJSON(results), args.force);
     } catch (error) {
