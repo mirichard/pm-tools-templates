@@ -466,7 +466,7 @@ requirements-structuring-cli/
 ├── templates/                   # Requirements input template
 ├── examples/                    # Web Store sample data (from paper) + golden NFR fixture (#1116)
 ├── docs/                        # NFR contract, classification, generation, traceability, golden-example docs
-└── tests/                       # 239 unit tests
+└── tests/                       # 240 unit tests
 ```
 
 ## Examples
@@ -500,7 +500,7 @@ generator, consistency checker, requirements parser, ambiguity detector,
 Gherkin generator, NFR classification/generation/overlays/confidence-gate,
 the classification evaluation harness (#1113), generate-nfr determinism,
 source traceability, the golden fixture, and a CLI version-drift regression
-check) — 239 tests as of this story (#1113; the v1.2.0 release itself
+check) — 240 tests as of this story (#1113; the v1.2.0 release itself
 shipped with 172, up from 29 at v1.1.0). `npm run
 eval:classification` runs the separate labeled classification eval described
 above; it is not part of `npm test`'s pass/fail gate (its numbers are

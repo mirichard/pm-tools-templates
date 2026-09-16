@@ -27,7 +27,7 @@ const path = require('path');
 require('dotenv').config({ path: path.resolve(__dirname, '..', '.env') });
 const LLMClient = require('../src/llm-client');
 const { NFRClassifier } = require('../src/nfr-classifier');
-const { buildSafeOutputPath, buildContainedChildPath, validateAndSerializeJSON } = require('../src/security');
+const { buildSafeOutputPath, buildContainedChildPath, validateAndSerializeJSON, sanitizeTerminalValue } = require('../src/security');
 const { writeSafe } = require('../src/nfr-output');
 
 const GOLDEN_DIR = path.join(__dirname, '..', 'examples/fixtures/nfr-golden');
@@ -190,7 +190,10 @@ async function main(argv) {
 
 if (require.main === module) {
   main(process.argv.slice(2)).catch((error) => {
-    process.stderr.write(`${error.message}\n`);
+    // --output accepts an arbitrary user-supplied path, which can end up quoted back in a thrown
+    // error message; sanitize before writing to the terminal, same as the main CLI's
+    // terminalError/spinnerFail, so a crafted path can't inject ANSI/control sequences into stderr.
+    process.stderr.write(`${sanitizeTerminalValue(error.message)}\n`);
     process.exitCode = 1;
   });
 }

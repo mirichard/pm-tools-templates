@@ -123,6 +123,15 @@ module.exports = async function testEvalClassification(runner) {
     assert.match(result.stderr, /--variant must be one of/);
   });
 
+  await test('CLI: an error echoing a user-supplied value strips ANSI/control sequences before writing to stderr', () => {
+    // --variant must be one of... embeds the raw --variant value verbatim; a crafted value
+    // containing ANSI escapes must not reach stderr un-sanitized (terminal-injection risk).
+    const result = runScript(['--variant', '\x1b[31mFAKE\x1b[0m']);
+    assert.notStrictEqual(result.status, 0);
+    assert.doesNotMatch(result.stderr, /\x1b\[/, 'raw ANSI escape bytes must not appear in stderr');
+    assert.match(result.stderr, /got "FAKE"/, 'the underlying text should still be visible, just stripped of escape codes');
+  });
+
   await test('CLI: --output as the final argument (missing its value) errors instead of silently writing nothing', () => {
     const result = runScript(['--output']);
     assert.notStrictEqual(result.status, 0);
