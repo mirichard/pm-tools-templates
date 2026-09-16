@@ -95,7 +95,7 @@ v1.1.0 already delivers a full 6-phase pipeline — formal requirement structuri
 
 - 🎯 **NFR Generation & ISO/IEC 25010 Mapping**: Classifies every FR/UCS step against a curated quality-attribute taxonomy and generates deterministic NFR candidate statements alongside your existing functional output
 - 📐 **Curated Pattern Library**: 40 neutral NFR patterns plus 5 opt-in domain overlays — FDA 21 CFR 11, HIPAA, PCI-DSS, WCAG 2.2, Section 508
-- 🔗 **Source Requirement Traceability**: Every generated UCS, test case, and Gherkin artifact now carries its source requirement ID and text end to end
+- 🔗 **Source Requirement Traceability**: Generated UCS, test case, and Gherkin artifacts now carry their source requirement ID and text through generation
 - 🥒 **Gherkin/BDD Output**: Generates `.feature` files from test cases — wire directly into Cucumber, pytest-bdd, or SpecFlow
 - 🤖 **Multi-Provider LLM**: Supports Gemini (free tier), Claude, OpenAI, and any OpenAI-compatible endpoint
 - 🧪 **218 Unit Tests** (up from 29 in v1.1.0)
