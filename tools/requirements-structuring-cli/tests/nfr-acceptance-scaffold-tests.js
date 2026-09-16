@@ -13,7 +13,7 @@ const { generateCandidates, buildAcceptanceCriterion } = require('../src/nfr-can
 const GherkinGenerator = require('../src/gherkin-generator');
 const NFRGenerator = require('../src/nfr-generator');
 const { writeNFRGherkinScenarios } = require('../src/nfr-generator');
-const { writeSafe, appendSafeExisting, removeIfSameFile } = require('../src/nfr-output');
+const { writeSafe, appendSectionIfMissing, removeIfSameFile } = require('../src/nfr-output');
 const TestGenerator = require('../src/test-generator');
 const { UCSTemplate } = require('../src/ucs-template');
 const classificationFixture = require('./fixtures/nfr-classification.json');
@@ -260,6 +260,31 @@ module.exports = async function testNFRAcceptanceScaffold(runner) {
 
   // ─── Safe-I/O redesign (#1110 cycle-5 findings) ──────────────────────────
 
+  await test('NFR safe-I/O review-round-2 — a non-regular base .feature (symlink) is rejected before classification runs, not mistaken for "absent"', async () => {
+    const temp = await fs.mkdtemp(path.join(os.tmpdir(), 'nfr-safeio-basepreflight-'));
+    const secretFile = path.join(os.tmpdir(), `nfr-safeio-basepreflight-secret-${Date.now()}.feature`);
+    try {
+      await fs.writeFile(secretFile, 'DO NOT OVERWRITE');
+      await fs.symlink(secretFile, path.join(temp, 'requirements.feature'));
+      let classifyCalls = 0;
+      const stubLlm = {
+        provider: 'fixture', model: 'offline-model',
+        async loadPrompt(name) { return fs.readFile(path.join(root, 'prompts', name), 'utf8'); },
+        async chatJSON() { classifyCalls++; return JSON.parse(JSON.stringify(classificationFixture.responses[0])); },
+      };
+      await assert.rejects(
+        new NFRGenerator({ llm: stubLlm }).run(classificationFixture.input, { output: temp, force: false }),
+        /Unsafe NFR output/,
+      );
+      assert.equal(classifyCalls, 0,
+        'a symlinked base .feature must be rejected as unsafe before classification runs, not treated as "no base file, go standalone"');
+      assert.equal(await fs.readFile(secretFile, 'utf8'), 'DO NOT OVERWRITE');
+    } finally {
+      await fs.remove(temp);
+      await fs.remove(secretFile);
+    }
+  });
+
   await test('NFR safe-I/O finding 1 — the standalone Gherkin destination is preflighted before classification runs, not just before the write', async () => {
     const temp = await fs.mkdtemp(path.join(os.tmpdir(), 'nfr-safeio-preflight-'));
     try {
@@ -341,15 +366,37 @@ module.exports = async function testNFRAcceptanceScaffold(runner) {
       const file = path.join(temp, 'requirements.feature');
       await fs.writeFile(file, 'Feature: original\n');
       // Simulate a concurrent editor appending content between this run's read of the file and
-      // its own append -- appendSafeExisting must never reconstruct the file from what it read
-      // earlier (an O_TRUNC-based read-modify-write-back would silently discard this), so it
-      // must survive.
+      // its own append -- appendSectionIfMissing must never reconstruct the file from what it
+      // read earlier (an O_TRUNC-based read-modify-write-back would silently discard this), so
+      // it must survive.
       await fs.appendFile(file, 'Scenario: concurrently added by another process\n');
-      await appendSafeExisting(file, '  # NFR section\n');
+      const appended = await appendSectionIfMissing(file, '# MARKER', '  # NFR section\n');
+      assert.equal(appended, true);
       const content = await fs.readFile(file, 'utf8');
       assert.ok(content.startsWith('Feature: original\nScenario: concurrently added by another process\n'),
         'a concurrent edit made after this run last read the file must survive the append');
       assert.ok(content.endsWith('  # NFR section\n'), 'the new section must still land at the end');
+    } finally {
+      await fs.remove(temp);
+    }
+  });
+
+  await test('NFR safe-I/O finding 6b — appendSectionIfMissing re-checks the marker on its own descriptor, so two callers that both saw it absent do not both append', async () => {
+    const temp = await fs.mkdtemp(path.join(os.tmpdir(), 'nfr-safeio-append-concurrent-'));
+    try {
+      const file = path.join(temp, 'requirements.feature');
+      await fs.writeFile(file, 'Feature: original\n');
+      const marker = '# MARKER';
+      const first = await appendSectionIfMissing(file, marker, `${marker}\nsection one\n`);
+      // Simulate a second caller that made its own "marker absent" decision from an earlier
+      // read (before the first caller's append landed) reaching this primitive afterward --
+      // it must still see the marker on its own fresh read and decline to append again.
+      const second = await appendSectionIfMissing(file, marker, `${marker}\nsection two\n`);
+      assert.equal(first, true, 'the first caller must append since the marker was genuinely absent');
+      assert.equal(second, false, 'the second caller must decline once its own read finds the marker');
+      const content = await fs.readFile(file, 'utf8');
+      assert.equal((content.match(new RegExp(marker, 'g')) || []).length, 1,
+        'the marker (and its section) must appear exactly once, not duplicated');
     } finally {
       await fs.remove(temp);
     }

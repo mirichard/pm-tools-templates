@@ -11,7 +11,7 @@ const { formatCandidateReport } = require('./nfr-candidate-report');
 const {
   assertGenerationOutputAvailable,
   writeSafe,
-  appendSafeExisting,
+  appendSectionIfMissing,
   readSafeIfExists,
   removeIfSameFile,
 } = require('./nfr-output');
@@ -33,7 +33,6 @@ const GherkinGenerator = require('./gherkin-generator');
 async function writeNFRGherkinScenarios(outputDir, baseName, candidates, useCaseId, force = false) {
   const section = new GherkinGenerator().generateNFRScenarios(candidates, useCaseId);
   const featurePath = buildContainedChildPath(outputDir, `${baseName}.feature`);
-  const standalonePath = buildContainedChildPath(outputDir, `${baseName}-nfr.feature`);
   const existing = await readSafeIfExists(featurePath);
   if (existing === null) {
     // No base .feature to append to: this file has to be valid Gherkin on its own, so it
@@ -43,29 +42,34 @@ async function writeNFRGherkinScenarios(outputDir, baseName, candidates, useCase
     // JSON outputs, not the pipeline .feature file's idempotent-append semantics.
     // Fast-fail pre-check (redundant with, but not a substitute for, the atomic O_EXCL inside
     // writeSafe below).
+    const standalonePath = buildContainedChildPath(outputDir, `${baseName}-nfr.feature`);
     assertGenerationOutputAvailable(standalonePath, force);
     const standaloneFeature = `Feature: ${GherkinGenerator.sanitizeGherkinLine(useCaseId)} — NFR acceptance-criteria scaffolds\n`
       + section.replace(/^\n+/, '');
     // force is threaded through here (unlike the append/rebuild branches below) because this
     // path owns the exclusive-create-or-force contract: without it, O_EXCL makes file creation
     // itself atomically fail if the target now exists, closing the TOCTOU gap the pre-check
-    // alone cannot close.
-    await writeSafe(standalonePath, standaloneFeature, force);
+    // alone cannot close. Re-derive the path fresh (rather than reuse one computed earlier) so
+    // any ancestor-directory swap since that computation is caught by buildContainedChildPath's
+    // own realpath check as close to the write as possible.
+    await writeSafe(buildContainedChildPath(outputDir, `${baseName}-nfr.feature`), standaloneFeature, force);
     return { path: standalonePath, mode: 'standalone' };
   }
   const markerIndex = existing.indexOf(GherkinGenerator.NFR_SECTION_MARKER);
   if (markerIndex === -1) {
-    // Pure append, regardless of the caller's `force`: appendSafeExisting never reconstructs
-    // the file from `existing` (used here only to decide this is the append branch, not to
-    // rebuild content), so a concurrent edit made to the file after the readSafeIfExists above
-    // but before this write survives instead of being silently discarded by a
-    // read-modify-truncate-back.
-    await appendSafeExisting(featurePath, section);
-    return { path: featurePath, mode: 'appended' };
+    // appendSectionIfMissing re-checks the marker on its own freshly-opened descriptor
+    // immediately before writing, independent of the `existing` read above (which only decides
+    // which branch of this function to take) -- so two concurrent callers that both observed
+    // the marker absent don't both append a duplicate section, and a concurrent edit to the
+    // file's other content survives (O_APPEND never reconstructs from `existing`).
+    const appended = await appendSectionIfMissing(
+      buildContainedChildPath(outputDir, `${baseName}.feature`), GherkinGenerator.NFR_SECTION_MARKER, section,
+    );
+    return { path: featurePath, mode: appended ? 'appended' : 'already-present' };
   }
   if (!force) return { path: featurePath, mode: 'already-present' };
   const prefix = existing.slice(0, markerIndex).replace(/\n+$/, '');
-  await writeSafe(featurePath, prefix + section, true);
+  await writeSafe(buildContainedChildPath(outputDir, `${baseName}.feature`), prefix + section, true);
   return { path: featurePath, mode: 'rebuilt' };
 }
 
@@ -96,7 +100,14 @@ class NFRGenerator {
     const standalonePath = buildContainedChildPath(outputDir, `${baseName}-nfr.feature`);
     let baseFeatureExists;
     try {
-      baseFeatureExists = fs.lstatSync(featurePath).isFile();
+      const stat = fs.lstatSync(featurePath);
+      // A symlink, FIFO, directory, or other non-regular file at the base .feature path is not
+      // "absent" -- readSafeIfExists will refuse it later regardless, but only after
+      // classification and 3 writes have already run. Reject it here too, so an unsafe base
+      // destination fails before those side effects instead of being mistaken for "no base
+      // .feature, fall back to standalone".
+      if (!stat.isFile()) throw new Error(`Unsafe NFR output: ${featurePath}`);
+      baseFeatureExists = true;
     } catch (error) {
       if (error.code !== 'ENOENT') throw error;
       baseFeatureExists = false;
@@ -134,12 +145,22 @@ class NFRGenerator {
     // force bypasses the exclusive-create check that causes this failure mode in the first place.
     const createdByThisRun = [];
     try {
+      // Each path is re-derived via buildContainedChildPath immediately before its write
+      // (rather than reusing reportPath/classificationPath/candidatesPath, computed above
+      // before the classification call) so an ancestor-directory swap during that call is
+      // still caught by buildContainedChildPath's own realpath containment check, as close to
+      // the write as this layer can get without directory-fd-based path resolution (see
+      // writeSafe's doc in nfr-output.js for why that residual can't be fully closed here).
       // Exclusive creation protects manual report edits even if another run races us.
-      createdByThisRun.push(await writeSafe(reportPath, report, force));
-      createdByThisRun.push(await writeSafe(classificationPath, validateAndSerializeJSON(classifications), force));
+      createdByThisRun.push(await writeSafe(buildContainedChildPath(outputDir, `${baseName}-nfr-report.md`), report, force));
+      createdByThisRun.push(await writeSafe(
+        buildContainedChildPath(outputDir, `${baseName}-nfr-classifications.json`), validateAndSerializeJSON(classifications), force,
+      ));
       // #1110: the rendered candidates (with the structured acceptanceCriterion scaffold) as
       // their own machine-consumable artifact — distinct from the classifier's raw handoff above.
-      createdByThisRun.push(await writeSafe(candidatesPath, validateAndSerializeJSON(generation), force));
+      createdByThisRun.push(await writeSafe(
+        buildContainedChildPath(outputDir, `${baseName}-nfr-candidates.json`), validateAndSerializeJSON(generation), force,
+      ));
       const gherkinResult = await writeNFRGherkinScenarios(outputDir, baseName, generation.candidates, generation.useCaseId, force);
       result.gherkinPath = gherkinResult.path;
       result.gherkinMode = gherkinResult.mode;

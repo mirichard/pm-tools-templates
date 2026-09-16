@@ -35,10 +35,11 @@ proof of testability until humans fill and approve its placeholders.
 
 `NFRGenerator.run` writes four artifacts into `-o`: `<base>-nfr-report.md`
 (prose report), `<base>-nfr-classifications.json` (the classifier's raw
-handoff, unchanged), `<base>-nfr-candidates.json` (the rendered
-`generation.candidates`, each with its `acceptanceCriterion` scaffold — see
-below), and either an appended NFR section in the pipeline's own
-`<base>.feature` or, if that file doesn't exist, a standalone
+handoff, unchanged), `<base>-nfr-candidates.json` (the full `generation`
+object returned by `generateCandidates` — renderer metadata and coverage
+summary alongside the `candidates` array, each with its `acceptanceCriterion`
+scaffold — see below), and either an appended NFR section in the pipeline's
+own `<base>.feature` or, if that file doesn't exist, a standalone
 `<base>-nfr.feature`. Generation makes no provider call; classification still
 requires credentials. Rendering the same classification/library/overlay
 produces identical candidates. A fresh classification can vary with the
@@ -56,16 +57,30 @@ opens the target with `O_NOFOLLOW` (refuses a symlinked destination) and
 `O_NONBLOCK` plus a post-open regular-file check (refuses a FIFO or other
 non-regular target rather than hanging or writing through it), and uses
 `O_EXCL` (atomic create-or-fail) on a non-force run or `O_TRUNC` on a force
-run — the existence/type check and the write are the same syscall, so nothing
-can change the target in the window between a separate check and a later
-write. The one exception is appending the NFR section to an already-existing
-`<base>.feature`: that uses `O_APPEND` instead, so it never re-truncates the
-file from content read moments earlier and can't discard a concurrent edit.
-A failed non-force run rolls back exactly the outputs it created — identified
-by the device/inode `writeSafe` captured at write time, not by path, so a file
-another process put at one of those paths afterward is never collaterally
-deleted — leaving pre-existing files (report, classifications, candidates, or
-the standalone `.feature`) untouched.
+run. The existence/type guarantee and the write both act on the same
+already-open file descriptor, with no path relookup in between — not one
+single syscall, but no window between a separate check and a later write for
+anything to change the target in. The one exception is appending the NFR
+section to an already-existing `<base>.feature`: that re-checks the section
+marker on that same already-open descriptor immediately before writing
+(`appendSectionIfMissing`), then uses `O_APPEND`, so it never re-truncates the
+file from content read moments earlier, can't discard a concurrent edit, and
+two overlapping runs that both saw the marker absent don't both append a
+duplicate section. A failed non-force run rolls back exactly the outputs it
+created — identified by the device/inode `writeSafe` captured at write time,
+not by path, so a file another process put at one of those paths afterward is
+not collaterally deleted in the common case — leaving pre-existing files
+(report, classifications, candidates, or the standalone `.feature`) untouched.
+
+Two residuals this layer does not fully close, documented rather than hidden:
+`O_NOFOLLOW` governs only a path's final component, so an ancestor directory
+swapped for a symlink between path construction and the write is still
+followed (narrowed, not eliminated, by re-deriving each path immediately
+before its write); and the rollback's own identity check is a
+lstat()-then-unlink() pair, not a single atomic operation, so a same-path
+replacement that happens to reuse the original file's exact device+inode
+within that pair would still be removed. Both would need directory-fd/openat
+or compare-and-unlink primitives Node's `fs` module does not expose portably.
 
 ## Follow-up extension seams
 
