@@ -8,6 +8,7 @@ const { buildSafeOutputPath, buildContainedChildPath, validateAndSerializeJSON }
 const ReportGenerator = require('./report-generator');
 const { generateCandidates } = require('./nfr-candidates');
 const { formatCandidateReport } = require('./nfr-candidate-report');
+const { computeConfidenceSummary } = require('./nfr-confidence');
 const {
   assertGenerationOutputAvailable,
   writeSafe,
@@ -139,6 +140,10 @@ class NFRGenerator {
     const llm = this.llm || new LLMClient();
     const classifications = await new NFRClassifier({ llm }).classify(data, normalized);
     const generation = generateCandidates(classifications, normalized);
+    // #1111: a pure computation, no interactive prompt here -- NFRGenerator.run() is called
+    // directly (with no inquirer mock) by tests and must never block on stdin itself. The
+    // interactive gate lives in src/index.js, which consumes this summary; see nfr-confidence.js.
+    const confidenceSummary = computeConfidenceSummary(generation.candidates, normalized.confidenceThreshold);
     const result = {
       status: 'generated',
       notice: 'NFR candidates generated; human input required for all unbound parameters.',
@@ -146,6 +151,7 @@ class NFRGenerator {
       input: data,
       inputKind: kind,
       classifications,
+      confidenceSummary,
       options: { ...normalized, provider: llm.provider, model: llm.model },
     };
     result.classificationPath = classificationPath;
