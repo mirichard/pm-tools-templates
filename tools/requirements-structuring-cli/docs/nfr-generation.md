@@ -73,8 +73,9 @@ invocations of this tool — that would need an inter-process lock, which this
 redesign deliberately doesn't add (a stale lock left by a crashed process
 would block every future run against that output directory, a worse
 day-to-day failure mode than the narrow benign-race residual it would close;
-the actual threat model here, a malicious symlink or FIFO, is fully closed
-regardless of this residual). A failed non-force run rolls back exactly the
+a final-component symlink or FIFO planted by an attacker is refused
+regardless of this residual — see the Residuals list below for what is and
+isn't covered). A failed non-force run rolls back exactly the
 outputs it created — identified by the device/inode `writeSafe` captured at
 write time, not by path, so a file another process put at one of those paths
 afterward is not collaterally deleted in the common case — leaving

@@ -370,14 +370,19 @@ module.exports = async function testNFRAcceptanceScaffold(runner) {
       nativeFs.promises.open = async (...args) => {
         const handle = await originalOpen(...args);
         const originalReadFile = handle.readFile.bind(handle);
-        // Land the "concurrent edit" for real, immediately before this call's own internal read
-        // actually executes, so both the on-disk state and what this call reads are consistent
-        // with the edit having happened -- editing the file before the call even starts (and
-        // being read normally) would prove nothing, since any implementation (including the old
-        // read-modify-O_TRUNC-write-back one this replaced) would see it on its first read too.
+        // Land the "concurrent edit" for real strictly *after* this call's own internal read
+        // resolves -- so `current` inside appendSectionIfMissing is deliberately stale relative
+        // to what's actually on disk by the time the write executes -- and return that stale
+        // content as the read result. If the edit landed before the read instead, it would just
+        // be part of the one snapshot any implementation (including the old
+        // read-modify-O_TRUNC-write-back one this replaced) reads, proving nothing about the
+        // read-then-write gap this fix closes. What actually closes that gap is that the write
+        // is O_APPEND: it depends on the file's true end-of-file at write time, never on
+        // `current`, so it must land after this edit regardless of `current` being stale.
         handle.readFile = async (...readArgs) => {
+          const content = await originalReadFile(...readArgs);
           await fs.appendFile(file, 'Scenario: concurrently added by another process\n');
-          return originalReadFile(...readArgs);
+          return content;
         };
         return handle;
       };
@@ -457,46 +462,37 @@ module.exports = async function testNFRAcceptanceScaffold(runner) {
     }
   });
 
-  await test('NFR safe-I/O review-round-4 — rebuildSectionSafe rebuilds against content edited for real between its own internal read and its own write, not a stale earlier snapshot', async () => {
-    const temp = await fs.mkdtemp(path.join(os.tmpdir(), 'nfr-safeio-rebuild-concurrent-'));
+  await test('NFR safe-I/O review-round-4 — rebuildSectionSafe rebuilds from a fresh read at call time, not a stale snapshot an earlier, separate caller took', async () => {
+    const temp = await fs.mkdtemp(path.join(os.tmpdir(), 'nfr-safeio-rebuild-fresh-'));
     try {
       const file = path.join(temp, 'requirements.feature');
       const marker = '# MARKER';
-      await fs.writeFile(file, `Feature: original\n${marker}\nold section\n`);
-      const nativeFs = require('fs');
-      const originalOpen = nativeFs.promises.open;
-      nativeFs.promises.open = async (...args) => {
-        const handle = await originalOpen(...args);
-        const originalReadFile = handle.readFile.bind(handle);
-        // Land the "concurrent edit" for real, immediately before this call's own internal read
-        // actually executes, so both the on-disk state and what this call reads (and therefore
-        // the prefix/offset it computes) are consistent with the edit having happened --
-        // editing the file before the call even starts would prove nothing, since the
-        // primitive's first read would see it regardless of whether the read-then-write gap
-        // this fix closes exists at all.
-        handle.readFile = async (...readArgs) => {
-          await fs.writeFile(file, `Feature: original\nScenario: concurrently added\n${marker}\nold section\n`);
-          return originalReadFile(...readArgs);
-        };
-        return handle;
-      };
-      try {
-        // Mirrors the real section shape from GherkinGenerator.generateNFRScenarios: it always
-        // starts with a leading blank line before the marker, which is what restores the
-        // newline this rebuild's own prefix-trim removes.
-        await rebuildSectionSafe(file, marker, `\n${marker}\nnew section\n`);
-      } finally {
-        nativeFs.promises.open = originalOpen;
-      }
+      // In the real pipeline, writeNFRGherkinScenarios's own earlier, separate
+      // readSafeIfExists() call would have captured this file's content well before
+      // rebuildSectionSafe is invoked (e.g. with a classification API call in between).
+      // rebuildSectionSafe takes no such snapshot as a parameter at all -- it always re-reads
+      // the file itself, right when called -- so simulate the file having since changed (a
+      // concurrent editor, or simply time passing) by the time it actually runs.
+      await fs.writeFile(file, `Feature: original\nScenario: concurrently added\n${marker}\nold section\n`);
+      // Mirrors the real section shape from GherkinGenerator.generateNFRScenarios: it always
+      // starts with a leading blank line before the marker, which is what restores the
+      // newline this rebuild's own prefix-trim removes.
+      await rebuildSectionSafe(file, marker, `\n${marker}\nnew section\n`);
       const content = await fs.readFile(file, 'utf8');
       assert.ok(content.startsWith('Feature: original\nScenario: concurrently added\n'),
-        'content edited between this call\'s own read and write must survive the rebuild');
+        'content that changed since an earlier, separate caller\'s own read must survive the rebuild');
       assert.ok(content.endsWith(`${marker}\nnew section\n`), 'the rebuilt section must reflect the fresh content');
       assert.equal((content.match(new RegExp(marker, 'g')) || []).length, 1, 'the marker must not be duplicated');
     } finally {
       await fs.remove(temp);
     }
   });
+  // Note: rebuildSectionSafe's own single read-then-truncate-then-write is not itself atomic --
+  // an edit landing strictly between ITS OWN internal read and its own write (as opposed to
+  // before it's called at all, which the test above covers) can still be discarded. That is the
+  // same class of residual as the cross-process marker-check race declined and documented in
+  // writeNFRGherkinScenarios's doc comment (nfr-generator.js) and docs/nfr-generation.md, not a
+  // gap unique to this test.
 
   await test('NFR safe-I/O review-round-4 — rebuildSectionSafe throws rather than guessing if the marker is no longer present on its own fresh read', async () => {
     const temp = await fs.mkdtemp(path.join(os.tmpdir(), 'nfr-safeio-rebuild-missing-marker-'));
@@ -549,6 +545,39 @@ module.exports = async function testNFRAcceptanceScaffold(runner) {
       await fs.remove(temp);
     }
   });
+
+  await test('NFR safe-I/O review-round-8 — a hard-linked target is refused, not silently written through to the other link', async () => {
+    const temp = await fs.mkdtemp(path.join(os.tmpdir(), 'nfr-safeio-hardlink-'));
+    try {
+      const nativeFs = require('fs');
+      const linkedElsewhere = path.join(temp, 'shared-content.txt');
+      await fs.writeFile(linkedElsewhere, 'DO NOT OVERWRITE');
+      const target = path.join(temp, 'requirements-nfr-report.md');
+      nativeFs.linkSync(linkedElsewhere, target);
+      await assert.rejects(writeSafe(target, 'new content', true), /Unsafe NFR output/);
+      assert.equal(await fs.readFile(linkedElsewhere, 'utf8'), 'DO NOT OVERWRITE',
+        'writeSafe must refuse a hard-linked force target rather than modifying the shared inode');
+
+      const featureFile = path.join(temp, 'requirements.feature');
+      await fs.writeFile(featureFile, 'Feature: original\n');
+      const featureLink = path.join(temp, 'requirements-link.feature');
+      nativeFs.linkSync(featureFile, featureLink);
+      await assert.rejects(appendSectionIfMissing(featureLink, '# MARKER', '# MARKER\nsection\n'), /Unsafe NFR output/);
+      assert.equal(await fs.readFile(featureFile, 'utf8'), 'Feature: original\n',
+        'appendSectionIfMissing must refuse a hard-linked target rather than modifying the shared inode');
+    } finally {
+      await fs.remove(temp);
+    }
+  });
+
+  // Note: nfr-output.js's module-load guard (throws if a required fs.constants flag isn't a
+  // number) is not covered by a dedicated test here -- Node freezes fs.constants
+  // (Object.defineProperty on it throws "Cannot redefine property" even with configurable:
+  // true passed), so there is no way to simulate a missing flag against the real object
+  // without a module-mocking layer this test runner doesn't have. The guard itself is a
+  // simple, directly-inspectable loop; every flag it checks is guaranteed present on every
+  // platform/Node version this package supports, which is exactly why the guard exists as an
+  // unreachable-in-practice defensive belt rather than a normally-exercised path.
 
   await test('NFR safe-I/O review-round-4 — a force write against a brand-new (non-existent) target self-cleans on a partial write failure', async () => {
     const temp = await fs.mkdtemp(path.join(os.tmpdir(), 'nfr-safeio-force-fresh-'));

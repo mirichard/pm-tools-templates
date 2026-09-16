@@ -1,6 +1,18 @@
 const fs = require('fs');
 const { validateDocumentContent } = require('./security');
 
+// The whole safe-I/O contract below rests on these flags actually being the numbers they claim
+// to be. `fs.constants` is platform-dependent (e.g. not every flag exists on every OS Node
+// supports); if one were ever missing, `undefined | otherFlag` would silently coerce to 0 via
+// JS's bitwise-OR ToInt32 conversion, and every open() below would silently drop that
+// protection instead of failing. Fail loudly and immediately at module load instead of ever
+// letting that happen unnoticed.
+for (const flagName of ['O_WRONLY', 'O_RDONLY', 'O_RDWR', 'O_CREAT', 'O_EXCL', 'O_TRUNC', 'O_APPEND', 'O_NOFOLLOW', 'O_NONBLOCK']) {
+  if (typeof fs.constants[flagName] !== 'number') {
+    throw new Error(`nfr-output.js requires fs.constants.${flagName}, which is not defined on this platform/Node version -- refusing to silently downgrade file-write safety guarantees.`);
+  }
+}
+
 // Every open() below ORs this in. O_NOFOLLOW refuses a symlinked destination outright rather
 // than writing/reading through it. O_NONBLOCK stops an open() on a FIFO with no counterpart
 // from hanging indefinitely (read side: never blocks with O_NONBLOCK; write side: fails fast
@@ -14,10 +26,20 @@ function translateOpenError(file, error) {
   return error;
 }
 
+// A hard link is a second directory entry for the exact same inode -- an entirely ordinary
+// regular file by every check above (O_NOFOLLOW doesn't apply; isFile() is true), so without
+// this check, writing to a hard-linked NFR output would silently also modify whatever other
+// path an attacker (or a stray backup/dedup tool) linked to the same inode. nlink === 1 means
+// this path is the only name for this inode.
+function assertSingleHardLink(file, stat) {
+  if (stat.nlink > 1) throw new Error(`Unsafe NFR output: ${file}`);
+}
+
 function assertGenerationOutputAvailable(file, force = false) {
   try {
     const stat = fs.lstatSync(file);
     if (!stat.isFile() || stat.isSymbolicLink()) throw new Error(`Unsafe NFR output: ${file}`);
+    assertSingleHardLink(file, stat);
     if (!force) throw new Error(`NFR output already exists: ${file}. Preserve your edits or use generate-nfr --force to overwrite.`);
   } catch (error) { if (error.code !== 'ENOENT') throw error; }
 }
@@ -76,14 +98,21 @@ async function writeSafe(file, text, force = false) {
   const exclusiveFlags = fs.constants.O_WRONLY | fs.constants.O_CREAT | NOFOLLOW_NONBLOCK | fs.constants.O_EXCL;
   let handle;
   let selfCleanAllowed = !force;
+  let needsExplicitTruncate = false;
   try {
     try {
       handle = await fs.promises.open(file, exclusiveFlags, 0o600);
       selfCleanAllowed = true;
     } catch (openError) {
       if (!force || openError.code !== 'EEXIST') throw openError;
-      const truncateFlags = fs.constants.O_WRONLY | fs.constants.O_CREAT | fs.constants.O_TRUNC | NOFOLLOW_NONBLOCK;
-      handle = await fs.promises.open(file, truncateFlags, 0o600);
+      // Deliberately NOT O_TRUNC here: O_TRUNC truncates as part of open() itself, before this
+      // function ever gets a chance to check isFile()/hard-link status on what it opened --
+      // by the time such a check could run, a hard-linked or otherwise unsafe target would
+      // already have been destroyed. Opening O_RDWR instead defers the truncate to an explicit,
+      // separate handle.truncate(0) call below, made only after the checks below pass.
+      const overwriteFlags = fs.constants.O_WRONLY | fs.constants.O_CREAT | NOFOLLOW_NONBLOCK;
+      handle = await fs.promises.open(file, overwriteFlags, 0o600);
+      needsExplicitTruncate = true;
     }
     let createdIdentity = null;
     if (selfCleanAllowed) {
@@ -93,6 +122,8 @@ async function writeSafe(file, text, force = false) {
     try {
       const preWriteStat = await handle.stat();
       if (!preWriteStat.isFile()) throw new Error(`Unsafe NFR output: ${file}`);
+      if (!selfCleanAllowed) assertSingleHardLink(file, preWriteStat);
+      if (needsExplicitTruncate) await handle.truncate(0);
       await handle.writeFile(validated, 'utf8');
       const written = await handle.stat();
       return { path: file, dev: written.dev, ino: written.ino };
@@ -152,6 +183,7 @@ async function appendSectionIfMissing(file, marker, section) {
     handle = await fs.promises.open(file, flags);
     const stat = await handle.stat();
     if (!stat.isFile()) throw new Error(`Unsafe NFR output: ${file}`);
+    assertSingleHardLink(file, stat);
     const current = await handle.readFile('utf8');
     if (current.includes(marker)) return false;
     try {
@@ -204,6 +236,7 @@ async function rebuildSectionSafe(file, marker, section) {
     handle = await fs.promises.open(file, fs.constants.O_RDWR | NOFOLLOW_NONBLOCK);
     const stat = await handle.stat();
     if (!stat.isFile()) throw new Error(`Unsafe NFR output: ${file}`);
+    assertSingleHardLink(file, stat);
     const current = await handle.readFile('utf8');
     const markerIndex = current.indexOf(marker);
     if (markerIndex === -1) {
@@ -222,7 +255,16 @@ async function rebuildSectionSafe(file, marker, section) {
     } catch (writeError) {
       try {
         await handle.truncate(prefixBytes);
-        await handle.write(originalSuffix, 0, originalSuffix.length, prefixBytes);
+        // Restore in a loop, not a single unchecked write: the restoration write is just as
+        // subject to a short write as the original one was, and silently accepting a partial
+        // restore would leave the file corrupted while only ever reporting the *original*
+        // error below.
+        let restored = 0;
+        while (restored < originalSuffix.length) {
+          const { bytesWritten } = await handle.write(originalSuffix, restored, originalSuffix.length - restored, prefixBytes + restored);
+          if (bytesWritten === 0) break;
+          restored += bytesWritten;
+        }
       } catch (_) { /* best-effort recovery */ }
       throw writeError;
     }
