@@ -412,10 +412,15 @@ module.exports = async function testNFRAcceptanceScaffold(runner) {
       const originalOpen = nativeFs.promises.open;
       nativeFs.promises.open = async (...args) => {
         const handle = await originalOpen(...args);
-        // Real open()/read() run for real -- only the write step is faked, simulating a
-        // mid-write failure (e.g. ENOSPC) that could otherwise leave a truncated, possibly
-        // marker-containing prefix of the section appended.
-        handle.writeFile = async () => { throw new Error('SIMULATED DISK FULL'); };
+        // Real open()/read() run for real. The write step actually lands a real partial prefix
+        // (via the descriptor's own real .write()) before throwing -- a stub that fails before
+        // writing any bytes at all would pass this test even if the truncate-back recovery in
+        // appendSectionIfMissing's catch block were deleted, since there'd be nothing to
+        // truncate away either way.
+        handle.writeFile = async () => {
+          await handle.write(Buffer.from('# MARKER\npartial section that must not survi'));
+          throw new Error('SIMULATED DISK FULL');
+        };
         return handle;
       };
       try {

@@ -41,9 +41,12 @@ const GherkinGenerator = require('./gherkin-generator');
  * added here: a lock file would introduce a new failure mode (a crashed process leaving a stale
  * lock that blocks every future run against this output directory until manually cleared) that
  * is a worse outcome, for this single-invocation CLI tool's realistic usage, than the narrow
- * residual race it would close. The threat model this redesign targets -- a malicious symlink
- * or FIFO swapped in by an attacker -- is fully closed regardless; this residual is about two
- * legitimate, benign runs overlapping by coincidence.
+ * residual race it would close. This is a distinct residual from -- not a restatement of -- the
+ * ancestor-directory symlink-swap gap documented on writeSafe in nfr-output.js: a final-component
+ * symlink or FIFO planted by an attacker is refused by every primitive in this file regardless of
+ * concurrency, but an ancestor-directory swap is not fully closed either, for the reasons
+ * documented there. Neither residual is eliminated by this comment; both are accepted tradeoffs
+ * documented so they're visible, not overstated as "fully closed" by this file alone.
  */
 async function writeNFRGherkinScenarios(outputDir, baseName, candidates, useCaseId, force = false) {
   const section = new GherkinGenerator().generateNFRScenarios(candidates, useCaseId);
