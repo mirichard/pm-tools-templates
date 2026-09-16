@@ -45,50 +45,64 @@ function assertGenerationOutputAvailable(file, force = false) {
  * eliminate) the window by re-deriving the path via buildContainedChildPath immediately before
  * calling this function, rather than reusing a path computed long before the write.
  *
- * On a non-force (O_EXCL) call, a successful open() means this call alone just created `file` --
- * nothing else could have raced it, since O_EXCL would have failed with EEXIST otherwise. A
- * force (O_TRUNC) call can go either way: O_TRUNC succeeds whether `file` existed before or not,
- * so an `lstat` immediately before the open() (bookkeeping only -- it never affects what gets
- * written or the O_EXCL/O_TRUNC contract itself, both enforced solely by the open() flags below)
- * decides which case this call is in. If the write or the post-write stat() then fails (e.g.
- * ENOSPC mid-write) on a call that created `file` fresh (whether via O_EXCL, or O_TRUNC against
- * a path that didn't exist a moment ago), this function removes that file itself before
- * rethrowing -- verifying identity first (via removeIfSameFile, the same check the caller's own
- * rollback uses) rather than an unchecked pathname unlink, so a replacement another process put
- * at this path in the interim isn't deleted -- rather than leaving an orphaned partial file that
- * no caller-side rollback could ever find (the caller only learns a file's identity from a
- * *fulfilled* call, so a rejected one never gets registered for removeIfSameFile there). A force
- * call against a path that already existed is never self-cleaned: this call didn't create that
- * content and has no right to remove it on a failed overwrite.
+ * On a non-force call, O_EXCL means a successful open() is proof this call alone just created
+ * `file` -- nothing else could have raced it, since O_EXCL would have failed with EEXIST
+ * otherwise. A force call needs the same proof before it can safely self-clean on failure, so it
+ * doesn't just infer non-existence from a separate `lstat` (a plain pre-check can't establish
+ * ownership: another process could create the file in the gap between that check and the open,
+ * and this call would then open, self-clean, and delete *their* file on a later failure, having
+ * never actually created anything itself). Instead, a force call first attempts the exact same
+ * O_EXCL open non-force uses: if that succeeds, this call has the same airtight proof of
+ * ownership non-force gets, and behaves identically from here (self-cleans on failure). Only if
+ * O_EXCL fails with EEXIST -- meaning the file provably already existed at that exact moment --
+ * does it fall back to a plain O_TRUNC open to perform the actual overwrite, with no self-clean
+ * registered: this call never created that content and has no right to remove it on a failed
+ * overwrite. (The two-open fallback still has its own narrow window -- the file could be removed
+ * between the failed O_EXCL and the O_TRUNC open, which would then recreate it -- but that
+ * window no longer causes ownership to be misattributed: the O_TRUNC path unconditionally
+ * declines to self-clean, so at worst it fails to clean up a file it happened to (re)create,
+ * never deletes one it didn't.)
+ *
+ * On any call that does hold self-clean rights, if the write or the post-write stat() then fails
+ * (e.g. ENOSPC mid-write), this function removes that file before rethrowing -- verifying
+ * identity first (via removeIfSameFile, the same check the caller's own rollback uses) rather
+ * than an unchecked pathname unlink, so a replacement another process put at this path in the
+ * interim isn't deleted -- rather than leaving an orphaned partial file that no caller-side
+ * rollback could ever find (the caller only learns a file's identity from a *fulfilled* call, so
+ * a rejected one never gets registered for removeIfSameFile there).
  */
 async function writeSafe(file, text, force = false) {
   const validated = validateDocumentContent(text);
-  const flags = fs.constants.O_WRONLY | fs.constants.O_CREAT | NOFOLLOW_NONBLOCK
-    | (force ? fs.constants.O_TRUNC : fs.constants.O_EXCL);
-  let existedBefore = true;
-  if (force) {
-    try { await fs.promises.lstat(file); } catch (error) {
-      if (error.code !== 'ENOENT') throw error;
-      existedBefore = false;
-    }
-  }
+  const exclusiveFlags = fs.constants.O_WRONLY | fs.constants.O_CREAT | NOFOLLOW_NONBLOCK | fs.constants.O_EXCL;
   let handle;
-  let createdIdentity = null;
+  let selfCleanAllowed = !force;
   try {
-    handle = await fs.promises.open(file, flags, 0o600);
-    if (!force || !existedBefore) {
+    try {
+      handle = await fs.promises.open(file, exclusiveFlags, 0o600);
+      selfCleanAllowed = true;
+    } catch (openError) {
+      if (!force || openError.code !== 'EEXIST') throw openError;
+      const truncateFlags = fs.constants.O_WRONLY | fs.constants.O_CREAT | fs.constants.O_TRUNC | NOFOLLOW_NONBLOCK;
+      handle = await fs.promises.open(file, truncateFlags, 0o600);
+    }
+    let createdIdentity = null;
+    if (selfCleanAllowed) {
       const created = await handle.stat();
       createdIdentity = { path: file, dev: created.dev, ino: created.ino };
     }
-    const preWriteStat = await handle.stat();
-    if (!preWriteStat.isFile()) throw new Error(`Unsafe NFR output: ${file}`);
-    await handle.writeFile(validated, 'utf8');
-    const written = await handle.stat();
-    return { path: file, dev: written.dev, ino: written.ino };
-  } catch (error) {
-    if (createdIdentity) {
-      try { await removeIfSameFile(createdIdentity); } catch (_) { /* best-effort self-cleanup */ }
+    try {
+      const preWriteStat = await handle.stat();
+      if (!preWriteStat.isFile()) throw new Error(`Unsafe NFR output: ${file}`);
+      await handle.writeFile(validated, 'utf8');
+      const written = await handle.stat();
+      return { path: file, dev: written.dev, ino: written.ino };
+    } catch (error) {
+      if (createdIdentity) {
+        try { await removeIfSameFile(createdIdentity); } catch (_) { /* best-effort self-cleanup */ }
+      }
+      throw error;
     }
+  } catch (error) {
     throw translateOpenError(file, error);
   } finally {
     if (handle) await handle.close();
@@ -120,6 +134,15 @@ async function writeSafe(file, text, force = false) {
  * append never leaves that corrupt partial section behind (this run's own caller, in
  * nfr-generator.js, doesn't roll this back either, since it modifies a pre-existing file rather
  * than creating one -- recovery has to happen here).
+ *
+ * Residual, not closed by this recovery: `stat.size` is a snapshot taken before the read and
+ * write. If another process also appends to this exact file in the narrow window between that
+ * snapshot and this call's own write failing, the truncate-back uses the stale, smaller size and
+ * discards that other process's bytes too, not just this call's own partial write. Closing this
+ * fully needs the same inter-process coordination already declined for the marker-check race
+ * above (see writeNFRGherkinScenarios's doc in nfr-generator.js) -- a genuine disk-full/ENOSPC
+ * condition also generally prevents any other writer from succeeding at the same moment, which
+ * bounds how often this compound scenario can actually arise in practice.
  */
 async function appendSectionIfMissing(file, marker, section) {
   const validated = validateDocumentContent(section);
@@ -164,6 +187,11 @@ async function appendSectionIfMissing(file, marker, section) {
  * concurrent process invocations (two callers could both open, both find the marker, and both
  * truncate/write) -- see writeNFRGherkinScenarios's own doc in nfr-generator.js for why this
  * redesign accepts that residual rather than adding inter-process locking.
+ *
+ * `write()` can complete with fewer bytes than requested even without throwing (POSIX permits a
+ * short write for a regular file, though it is rare); checking `bytesWritten` against the
+ * requested length turns that into a loud failure instead of a silently truncated `.feature`
+ * that a later run's marker check might still (wrongly) treat as complete.
  */
 async function rebuildSectionSafe(file, marker, section) {
   const validated = validateDocumentContent(section);
@@ -181,7 +209,10 @@ async function rebuildSectionSafe(file, marker, section) {
     const prefixBytes = Buffer.byteLength(prefix, 'utf8');
     await handle.truncate(prefixBytes);
     const sectionBytes = Buffer.from(validated, 'utf8');
-    await handle.write(sectionBytes, 0, sectionBytes.length, prefixBytes);
+    const { bytesWritten } = await handle.write(sectionBytes, 0, sectionBytes.length, prefixBytes);
+    if (bytesWritten !== sectionBytes.length) {
+      throw new Error(`Incomplete write to NFR output: ${file} (wrote ${bytesWritten} of ${sectionBytes.length} bytes).`);
+    }
   } catch (error) {
     throw translateOpenError(file, error);
   } finally {
