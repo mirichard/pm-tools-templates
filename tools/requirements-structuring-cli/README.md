@@ -308,20 +308,32 @@ same safe-I/O layer as `generate-nfr` (exclusive-create by default, `--force`
 to overwrite). Run `node scripts/eval-classification.js --help` for the full
 flag reference.
 
-**No genuine expert-labeled set exists in this repository.** Both the golden
-fixture's own README and `docs/nfr-golden-example.md` say plainly that its
-captured classifications are model output, not expert labels. The labeled
-set this script compares against was constructed instead: 5 real requirement
-units already present in the golden fixture (no invented steps), 12 attribute
-judgments reasoned directly from the quoted ISO/IEC 25010:2023
-sub-characteristic definitions in `data/nfr/taxonomy.json`.
-`eval-labels.json` marks this in its own top-level `warning` field — not
-just a code comment — and the eval script prints that same warning on every
-run, before any results. Treat the reported rates as a small, honestly-
-sourced sanity check against taxonomy-literate reasoning, not as
-independently-verified accuracy against expert judgment; `eval-labels.json`
-also documents an order-of-operations caveat about how these particular
-labels were written. Running this eval against the golden fixture does not
+**No genuine expert-labeled set exists in this repository, and this eval does
+not produce one.** Both the golden fixture's own README and
+`docs/nfr-golden-example.md` say plainly that its captured classifications
+are model output, not expert labels. The labeled set this script compares
+against was constructed instead: 5 real requirement units already present in
+the golden fixture (no invented steps), 12 attribute judgments reasoned by an
+AI coding agent — not a human with ISO/IEC 25010 classification expertise —
+directly from this repository's own taxonomy descriptions in
+`data/nfr/taxonomy.json`. Those descriptions are themselves reconstructed
+from secondary/public sources, not the primary ISO/IEC 25010:2023 document
+(paywalled), and `taxonomy.json`'s own `accuracyNotice` requires human
+verification against the purchased standard before treating them as
+authoritative — so this label set carries two independent layers of
+unverified reasoning, not one, both disclosed in full in
+`eval-labels.json`'s own `warning` and `taxonomyAccuracyCaveat` fields, not
+just a code comment; the eval script prints the `warning` on every run,
+before any results. Treat the reported rates as a small, honestly-sourced
+sanity check against this repository's own unverified taxonomy reasoning,
+never as independently-verified accuracy against ISO/IEC 25010:2023 or
+against expert judgment; `eval-labels.json` also documents an
+order-of-operations caveat about how these particular labels were written.
+Story #1113's acceptance criteria call for "expert-assigned attributes" —
+this construction does not satisfy that criterion and cannot substitute for
+independent domain-expert review; treat any reported eval rate accordingly
+until real expert labels are sourced or the story's criteria are explicitly
+amended. Running this eval against the golden fixture does not
 touch the open [`accountability` investigation (#1163)](#overlay-caveat-fda-21-cfr-11-and-hipaa):
 none of the 5 labeled units reasons to `accountability` as a fitting label,
 so this harness neither confirms nor newly discovers that gap on its own.
@@ -454,7 +466,7 @@ requirements-structuring-cli/
 ├── templates/                   # Requirements input template
 ├── examples/                    # Web Store sample data (from paper) + golden NFR fixture (#1116)
 ├── docs/                        # NFR contract, classification, generation, traceability, golden-example docs
-└── tests/                       # 172 unit tests
+└── tests/                       # 239 unit tests
 ```
 
 ## Examples
@@ -488,7 +500,8 @@ generator, consistency checker, requirements parser, ambiguity detector,
 Gherkin generator, NFR classification/generation/overlays/confidence-gate,
 the classification evaluation harness (#1113), generate-nfr determinism,
 source traceability, the golden fixture, and a CLI version-drift regression
-check) — 235 tests as of v1.2.0, up from 29 at v1.1.0. `npm run
+check) — 239 tests as of this story (#1113; the v1.2.0 release itself
+shipped with 172, up from 29 at v1.1.0). `npm run
 eval:classification` runs the separate labeled classification eval described
 above; it is not part of `npm test`'s pass/fail gate (its numbers are
 reported, not asserted, since they measure the classifier's model behavior,

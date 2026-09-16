@@ -34,15 +34,17 @@ module.exports = async function testNFRDeterminism(runner) {
     const inputPath = path.join(temp, 'input.json');
     await fs.writeJSON(inputPath, fixture.input);
 
-    // NFR_TEST_GATE is a preload control var (tests/nfr-pipeline-fixture.js) that decides whether
-    // the mocked confidence gate accepts or declines. Every spawned env in this file must pin it
-    // explicitly (not just the preload-specific vars below) -- otherwise an ambient
-    // NFR_TEST_GATE=confidence-decline in the parent process/CI environment would leak through
-    // ...process.env, make a below-threshold run decline and exit 1, and fail this determinism
-    // check for a reason that has nothing to do with determinism.
+    // NFR_TEST_GATE and NFR_TEST_EVENTS are preload control vars (tests/nfr-pipeline-fixture.js)
+    // -- the former decides whether the mocked confidence gate accepts or declines, the latter is
+    // an event-log path nfr-pipeline-fixture.js appends to on every mocked stage. Every spawned
+    // env in this file must pin both explicitly (not just the preload-specific vars below) --
+    // otherwise an ambient NFR_TEST_GATE=confidence-decline would make a below-threshold run
+    // decline and exit 1 for a reason unrelated to determinism, and an ambient NFR_TEST_EVENTS
+    // would make this test append to (or fail against) an unrelated path from the parent
+    // process/CI environment.
     const baseEnv = (confidence) => ({ ...process.env, LLM_PROVIDER: '', LLM_MODEL: '', LLM_API_KEY: '',
       GEMINI_API_KEY: '', ANTHROPIC_API_KEY: '', OPENAI_API_KEY: '', SAVE_LLM_TRACES: 'false',
-      NFR_ATTRIBUTES: '', NFR_TEST_GATE: '', NFR_TEST_CONFIDENCE: confidence });
+      NFR_ATTRIBUTES: '', NFR_TEST_GATE: '', NFR_TEST_EVENTS: '', NFR_TEST_CONFIDENCE: confidence });
 
     const runGenerateNFR = (outputDir, confidence = '0.85') => {
       const env = baseEnv(confidence);

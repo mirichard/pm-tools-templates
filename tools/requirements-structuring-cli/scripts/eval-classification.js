@@ -22,6 +22,9 @@
  * well under this project's 15-call live-eval cap, and is opt-in only.
  */
 const path = require('path');
+// Same package-relative .env loading as src/index.js, so --live works with the documented
+// `cp .env.example .env` setup instead of requiring manually exported environment variables.
+require('dotenv').config({ path: path.resolve(__dirname, '..', '.env') });
 const LLMClient = require('../src/llm-client');
 const { NFRClassifier } = require('../src/nfr-classifier');
 const { buildSafeOutputPath, buildContainedChildPath, validateAndSerializeJSON } = require('../src/security');
@@ -32,7 +35,12 @@ const VARIANTS = ['neutral', 'pci-dss'];
 
 function requireValue(argv, i, flag) {
   const value = argv[i + 1];
-  if (value === undefined) throw new Error(`${flag} requires a value.`);
+  // Reject a missing value AND an option-looking token (e.g. `--output --force` must not treat
+  // "--force" as the output path) -- neither this flag nor any other in parseArgs takes a value
+  // that legitimately starts with "-", so this is a safe, unambiguous rejection.
+  if (value === undefined || value.startsWith('-')) {
+    throw new Error(`${flag} requires a value.`);
+  }
   return value;
 }
 

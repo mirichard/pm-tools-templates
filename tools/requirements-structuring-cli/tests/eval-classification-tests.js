@@ -135,6 +135,32 @@ module.exports = async function testEvalClassification(runner) {
     assert.match(result.stderr, /--variant requires a value/);
   });
 
+  await test('CLI: --output followed by another flag (e.g. --output --force) rejects the flag as a path instead of using it', () => {
+    const result = runScript(['--output', '--force']);
+    assert.notStrictEqual(result.status, 0, 'must not silently treat --force as the output directory');
+    assert.match(result.stderr, /--output requires a value/);
+  });
+
+  await test('--live loads the package .env like the main CLI, not just manually exported vars', async () => {
+    const envPath = path.join(root, '.env');
+    const existed = await fs.pathExists(envPath);
+    const backup = existed ? await fs.readFile(envPath, 'utf8') : null;
+    await fs.writeFile(envPath, 'EVAL_DOTENV_PROBE=loaded\n');
+    delete process.env.EVAL_DOTENV_PROBE;
+    const scriptPath = require.resolve('../scripts/eval-classification');
+    delete require.cache[scriptPath];
+    try {
+      require('../scripts/eval-classification');
+      assert.strictEqual(process.env.EVAL_DOTENV_PROBE, 'loaded',
+        'scripts/eval-classification.js must load the package .env via dotenv (same as src/index.js), '
+        + 'so --live works with the documented `cp .env.example .env` setup instead of requiring manually exported vars');
+    } finally {
+      if (existed) await fs.writeFile(envPath, backup); else await fs.remove(envPath);
+      delete process.env.EVAL_DOTENV_PROBE;
+      delete require.cache[scriptPath];
+    }
+  });
+
   await test('CLI: prints the labeled set\'s non-expert-verified warning on every run', () => {
     const result = runScript([]);
     assert.match(result.stdout, /NOT independently expert-verified/);
