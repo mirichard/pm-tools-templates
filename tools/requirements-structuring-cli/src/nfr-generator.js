@@ -15,12 +15,17 @@ const GherkinGenerator = require('./gherkin-generator');
 /** Read a path expected to be a plain file, refusing a symlink or other non-regular file.
  * Opens with O_NOFOLLOW and stats/reads that same open file descriptor, rather than a
  * separate lstat-then-read (which CodeQL flagged as a TOCTOU race: the path could be
- * replaced with a symlink between the check and the read). Returns null if the path
- * doesn't exist. */
+ * replaced with a symlink between the check and the read). O_NONBLOCK guards against an
+ * untrusted path being a FIFO with no writer, which would otherwise hang this open() call
+ * indefinitely; the stat() check below still rejects non-regular files (a FIFO included)
+ * before any read is attempted, and the descriptor is reopened in blocking mode implicitly
+ * once confirmed regular (opening a regular file with O_NONBLOCK has no effect on it).
+ * Returns null if the path doesn't exist. */
 async function readSafeIfExists(file) {
   let handle;
   try {
-    handle = await fsNative.promises.open(file, fsNative.constants.O_RDONLY | fsNative.constants.O_NOFOLLOW);
+    handle = await fsNative.promises.open(file,
+      fsNative.constants.O_RDONLY | fsNative.constants.O_NOFOLLOW | fsNative.constants.O_NONBLOCK);
   } catch (error) {
     if (error.code === 'ENOENT') return null;
     if (error.code === 'ELOOP') throw new Error(`Unsafe NFR output: ${file}`);
