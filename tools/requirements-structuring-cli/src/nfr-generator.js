@@ -123,15 +123,38 @@ class NFRGenerator {
     const reportGenerator = new ReportGenerator();
     const report = reportGenerator.formatNFRReport(result) + '\n' + formatCandidateReport(generation);
     await fs.ensureDir(outputDir);
-    // Exclusive creation protects manual report edits even if another run races us.
-    await writeGenerationReport(reportPath, report, force);
-    await safeWriteJSON(classificationPath, classifications, { rootDir: outputDir });
-    // #1110: the rendered candidates (with the structured acceptanceCriterion scaffold) as
-    // their own machine-consumable artifact — distinct from the classifier's raw handoff above.
-    await safeWriteJSON(candidatesPath, generation, { rootDir: outputDir });
-    const gherkinResult = await writeNFRGherkinScenarios(outputDir, baseName, generation.candidates, generation.useCaseId, force);
-    result.gherkinPath = gherkinResult.path;
-    result.gherkinMode = gherkinResult.mode;
+    // #1110: on a non-force run, the three writes below are each individually guaranteed (by
+    // the pre-checks above plus finding 2's O_EXCL fix) to have created a file that did not
+    // exist before this run started -- so if a later step in this same run fails (most
+    // concretely: the standalone .feature path's own exclusive-create rejecting a pre-existing
+    // <base>-nfr.feature), roll back only those freshly-created files, leaving a clean output
+    // directory rather than a partial one, and never touch anything that pre-existed. A force
+    // run is deliberately excluded: force intentionally overwrites pre-existing content this
+    // run didn't back up, so "restore the prior state" isn't a well-defined rollback there --
+    // that's a distinct concern from this partial-directory finding, which only ever manifests
+    // on a non-force run (force bypasses the exclusive-create check that causes it).
+    const createdByThisRun = [];
+    try {
+      // Exclusive creation protects manual report edits even if another run races us.
+      await writeGenerationReport(reportPath, report, force);
+      createdByThisRun.push(reportPath);
+      await safeWriteJSON(classificationPath, classifications, { rootDir: outputDir });
+      createdByThisRun.push(classificationPath);
+      // #1110: the rendered candidates (with the structured acceptanceCriterion scaffold) as
+      // their own machine-consumable artifact — distinct from the classifier's raw handoff above.
+      await safeWriteJSON(candidatesPath, generation, { rootDir: outputDir });
+      createdByThisRun.push(candidatesPath);
+      const gherkinResult = await writeNFRGherkinScenarios(outputDir, baseName, generation.candidates, generation.useCaseId, force);
+      result.gherkinPath = gherkinResult.path;
+      result.gherkinMode = gherkinResult.mode;
+    } catch (error) {
+      if (!force) {
+        for (const createdPath of createdByThisRun) {
+          try { await fs.remove(createdPath); } catch (_) { /* best-effort rollback */ }
+        }
+      }
+      throw error;
+    }
     return result;
   }
 }
