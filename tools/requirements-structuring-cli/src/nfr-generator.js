@@ -12,6 +12,7 @@ const {
   assertGenerationOutputAvailable,
   writeSafe,
   appendSectionIfMissing,
+  rebuildSectionSafe,
   readSafeIfExists,
   removeIfSameFile,
 } = require('./nfr-output');
@@ -29,6 +30,20 @@ const GherkinGenerator = require('./gherkin-generator');
  * scaffold is never silently dropped. All reads/writes go through the shared primitives in
  * nfr-output.js, which carry the same symlink/non-regular-file protection as the
  * report/classification/candidates JSON outputs.
+ *
+ * appendSectionIfMissing and rebuildSectionSafe each independently re-verify the marker on
+ * their own freshly-opened descriptor immediately before writing, rather than trusting the
+ * `existing` snapshot this function read earlier -- so a concurrent edit to the file made after
+ * that read but before the actual write is never silently discarded. That still falls short of
+ * making the whole read-decide-write sequence atomic across two genuinely concurrent process
+ * invocations of this tool (two callers could both open, both observe the same marker state,
+ * and both act on it): closing that fully would need an inter-process lock. Deliberately not
+ * added here: a lock file would introduce a new failure mode (a crashed process leaving a stale
+ * lock that blocks every future run against this output directory until manually cleared) that
+ * is a worse outcome, for this single-invocation CLI tool's realistic usage, than the narrow
+ * residual race it would close. The threat model this redesign targets -- a malicious symlink
+ * or FIFO swapped in by an attacker -- is fully closed regardless; this residual is about two
+ * legitimate, benign runs overlapping by coincidence.
  */
 async function writeNFRGherkinScenarios(outputDir, baseName, candidates, useCaseId, force = false) {
   const section = new GherkinGenerator().generateNFRScenarios(candidates, useCaseId);
@@ -68,8 +83,13 @@ async function writeNFRGherkinScenarios(outputDir, baseName, candidates, useCase
     return { path: featurePath, mode: appended ? 'appended' : 'already-present' };
   }
   if (!force) return { path: featurePath, mode: 'already-present' };
-  const prefix = existing.slice(0, markerIndex).replace(/\n+$/, '');
-  await writeSafe(buildContainedChildPath(outputDir, `${baseName}.feature`), prefix + section, true);
+  // rebuildSectionSafe re-reads the file and re-finds the marker on its own descriptor, rather
+  // than reusing the prefix computed from `existing` above, so a concurrent edit to the file's
+  // prefix (or the section itself) since that earlier read is not silently discarded by a
+  // stale-content O_TRUNC rewrite.
+  await rebuildSectionSafe(
+    buildContainedChildPath(outputDir, `${baseName}.feature`), GherkinGenerator.NFR_SECTION_MARKER, section,
+  );
   return { path: featurePath, mode: 'rebuilt' };
 }
 

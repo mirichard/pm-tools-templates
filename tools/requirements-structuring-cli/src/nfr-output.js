@@ -46,32 +46,48 @@ function assertGenerationOutputAvailable(file, force = false) {
  * calling this function, rather than reusing a path computed long before the write.
  *
  * On a non-force (O_EXCL) call, a successful open() means this call alone just created `file` --
- * nothing else could have raced it, since O_EXCL would have failed with EEXIST otherwise. If the
- * write or the post-write stat() then fails (e.g. ENOSPC mid-write), this function unlinks that
- * just-created file itself before rethrowing, rather than leaving an orphaned partial file that
- * no caller-side rollback could ever find -- the caller only learns a file's identity from a
- * *fulfilled* call, so a rejected one never gets registered for removeIfSameFile in the first
- * place. A force (O_TRUNC) failure is never self-cleaned: the file pre-existed this call, so
- * deleting it on a failed overwrite would destroy content this call didn't create and has no
- * right to remove.
+ * nothing else could have raced it, since O_EXCL would have failed with EEXIST otherwise. A
+ * force (O_TRUNC) call can go either way: O_TRUNC succeeds whether `file` existed before or not,
+ * so an `lstat` immediately before the open() (bookkeeping only -- it never affects what gets
+ * written or the O_EXCL/O_TRUNC contract itself, both enforced solely by the open() flags below)
+ * decides which case this call is in. If the write or the post-write stat() then fails (e.g.
+ * ENOSPC mid-write) on a call that created `file` fresh (whether via O_EXCL, or O_TRUNC against
+ * a path that didn't exist a moment ago), this function removes that file itself before
+ * rethrowing -- verifying identity first (via removeIfSameFile, the same check the caller's own
+ * rollback uses) rather than an unchecked pathname unlink, so a replacement another process put
+ * at this path in the interim isn't deleted -- rather than leaving an orphaned partial file that
+ * no caller-side rollback could ever find (the caller only learns a file's identity from a
+ * *fulfilled* call, so a rejected one never gets registered for removeIfSameFile there). A force
+ * call against a path that already existed is never self-cleaned: this call didn't create that
+ * content and has no right to remove it on a failed overwrite.
  */
 async function writeSafe(file, text, force = false) {
   const validated = validateDocumentContent(text);
   const flags = fs.constants.O_WRONLY | fs.constants.O_CREAT | NOFOLLOW_NONBLOCK
     | (force ? fs.constants.O_TRUNC : fs.constants.O_EXCL);
+  let existedBefore = true;
+  if (force) {
+    try { await fs.promises.lstat(file); } catch (error) {
+      if (error.code !== 'ENOENT') throw error;
+      existedBefore = false;
+    }
+  }
   let handle;
-  let createdFresh = false;
+  let createdIdentity = null;
   try {
     handle = await fs.promises.open(file, flags, 0o600);
-    createdFresh = !force;
+    if (!force || !existedBefore) {
+      const created = await handle.stat();
+      createdIdentity = { path: file, dev: created.dev, ino: created.ino };
+    }
     const preWriteStat = await handle.stat();
     if (!preWriteStat.isFile()) throw new Error(`Unsafe NFR output: ${file}`);
     await handle.writeFile(validated, 'utf8');
     const written = await handle.stat();
     return { path: file, dev: written.dev, ino: written.ino };
   } catch (error) {
-    if (createdFresh) {
-      try { await fs.promises.unlink(file); } catch (_) { /* best-effort self-cleanup */ }
+    if (createdIdentity) {
+      try { await removeIfSameFile(createdIdentity); } catch (_) { /* best-effort self-cleanup */ }
     }
     throw translateOpenError(file, error);
   } finally {
@@ -122,6 +138,50 @@ async function appendSectionIfMissing(file, marker, section) {
       throw writeError;
     }
     return true;
+  } catch (error) {
+    throw translateOpenError(file, error);
+  } finally {
+    if (handle) await handle.close();
+  }
+}
+
+/**
+ * Rebuild-in-place counterpart to appendSectionIfMissing, for the force+marker-already-present
+ * branch of writeNFRGherkinScenarios: re-reads the file on this same descriptor and re-finds
+ * `marker` in that fresh content, rather than trusting the prefix an earlier, separate
+ * readSafeIfExists() call computed -- closing the same read-then-later-write gap
+ * appendSectionIfMissing closes for the marker-absent case, here for the marker-present/force
+ * case (a concurrent edit to the file's prefix, or to the section itself, between that earlier
+ * read and this call is no longer silently discarded by a stale-prefix O_TRUNC rewrite). Trims
+ * trailing newlines from the prefix exactly as the caller's own trim did, computes its UTF-8
+ * byte length (not `.length`, which counts JS characters, not bytes -- multi-byte prefix content
+ * would otherwise truncate at the wrong offset), truncates to that offset, and writes `section`
+ * at that exact position. If the marker is no longer present on this fresh read (the file
+ * changed in a way this caller didn't anticipate since its own read), throws rather than
+ * guessing what to rebuild.
+ *
+ * This still does not make the marker-check-and-replace sequence atomic across two genuinely
+ * concurrent process invocations (two callers could both open, both find the marker, and both
+ * truncate/write) -- see writeNFRGherkinScenarios's own doc in nfr-generator.js for why this
+ * redesign accepts that residual rather than adding inter-process locking.
+ */
+async function rebuildSectionSafe(file, marker, section) {
+  const validated = validateDocumentContent(section);
+  let handle;
+  try {
+    handle = await fs.promises.open(file, fs.constants.O_RDWR | NOFOLLOW_NONBLOCK);
+    const stat = await handle.stat();
+    if (!stat.isFile()) throw new Error(`Unsafe NFR output: ${file}`);
+    const current = await handle.readFile('utf8');
+    const markerIndex = current.indexOf(marker);
+    if (markerIndex === -1) {
+      throw new Error(`NFR output changed since it was last read: ${file}. Re-run to pick up the current content.`);
+    }
+    const prefix = current.slice(0, markerIndex).replace(/\n+$/, '');
+    const prefixBytes = Buffer.byteLength(prefix, 'utf8');
+    await handle.truncate(prefixBytes);
+    const sectionBytes = Buffer.from(validated, 'utf8');
+    await handle.write(sectionBytes, 0, sectionBytes.length, prefixBytes);
   } catch (error) {
     throw translateOpenError(file, error);
   } finally {
@@ -187,6 +247,7 @@ module.exports = {
   assertGenerationOutputAvailable,
   writeSafe,
   appendSectionIfMissing,
+  rebuildSectionSafe,
   readSafeIfExists,
   removeIfSameFile,
 };

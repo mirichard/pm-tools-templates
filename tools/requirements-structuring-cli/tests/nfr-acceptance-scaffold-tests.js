@@ -13,7 +13,7 @@ const { generateCandidates, buildAcceptanceCriterion } = require('../src/nfr-can
 const GherkinGenerator = require('../src/gherkin-generator');
 const NFRGenerator = require('../src/nfr-generator');
 const { writeNFRGherkinScenarios } = require('../src/nfr-generator');
-const { writeSafe, appendSectionIfMissing, removeIfSameFile } = require('../src/nfr-output');
+const { writeSafe, appendSectionIfMissing, rebuildSectionSafe, removeIfSameFile } = require('../src/nfr-output');
 const TestGenerator = require('../src/test-generator');
 const { UCSTemplate } = require('../src/ucs-template');
 const classificationFixture = require('./fixtures/nfr-classification.json');
@@ -429,6 +429,91 @@ module.exports = async function testNFRAcceptanceScaffold(runner) {
       assert.equal(await fs.readFile(file, 'utf8'), original,
         'a failed append must leave the file at exactly its pre-write length and content, not a corrupt partial section');
     } finally {
+      await fs.remove(temp);
+    }
+  });
+
+  await test('NFR safe-I/O review-round-4 — rebuildSectionSafe re-reads the file on its own descriptor, so a concurrently-edited prefix survives a force rebuild', async () => {
+    const temp = await fs.mkdtemp(path.join(os.tmpdir(), 'nfr-safeio-rebuild-concurrent-'));
+    try {
+      const file = path.join(temp, 'requirements.feature');
+      const marker = '# MARKER';
+      await fs.writeFile(file, `Feature: original\n${marker}\nold section\n`);
+      // Simulate a concurrent editor changing the prefix (before the marker) after some earlier
+      // caller read the file but before rebuildSectionSafe itself runs -- rebuildSectionSafe
+      // must rebuild against this current content, not a stale prefix an earlier read captured.
+      await fs.writeFile(file, `Feature: original\nScenario: concurrently added\n${marker}\nold section\n`);
+      // Mirrors the real section shape from GherkinGenerator.generateNFRScenarios: it always
+      // starts with a leading blank line before the marker, which is what restores the newline
+      // this rebuild's own prefix-trim removes.
+      await rebuildSectionSafe(file, marker, `\n${marker}\nnew section\n`);
+      const content = await fs.readFile(file, 'utf8');
+      assert.ok(content.startsWith('Feature: original\nScenario: concurrently added\n'),
+        'the concurrently-added prefix content must survive the rebuild');
+      assert.ok(content.endsWith(`${marker}\nnew section\n`), 'the rebuilt section must reflect the fresh content');
+      assert.equal((content.match(new RegExp(marker, 'g')) || []).length, 1, 'the marker must not be duplicated');
+    } finally {
+      await fs.remove(temp);
+    }
+  });
+
+  await test('NFR safe-I/O review-round-4 — rebuildSectionSafe throws rather than guessing if the marker is no longer present on its own fresh read', async () => {
+    const temp = await fs.mkdtemp(path.join(os.tmpdir(), 'nfr-safeio-rebuild-missing-marker-'));
+    try {
+      const file = path.join(temp, 'requirements.feature');
+      await fs.writeFile(file, 'Feature: original\nno marker here\n');
+      await assert.rejects(
+        rebuildSectionSafe(file, '# MARKER', '# MARKER\nsection\n'),
+        /NFR output changed since it was last read/,
+      );
+      assert.equal(await fs.readFile(file, 'utf8'), 'Feature: original\nno marker here\n',
+        'a failed rebuild (marker not found) must not modify the file');
+    } finally {
+      await fs.remove(temp);
+    }
+  });
+
+  await test('NFR safe-I/O review-round-4 — a force write against a brand-new (non-existent) target self-cleans on a partial write failure', async () => {
+    const temp = await fs.mkdtemp(path.join(os.tmpdir(), 'nfr-safeio-force-fresh-'));
+    const target = path.join(temp, 'requirements-nfr-report.md');
+    const nativeFs = require('fs');
+    const originalOpen = nativeFs.promises.open;
+    nativeFs.promises.open = async (...args) => {
+      const handle = await originalOpen(...args);
+      handle.writeFile = async () => { throw new Error('SIMULATED DISK FULL'); };
+      return handle;
+    };
+    try {
+      // force:true against a path that does not exist yet -- O_TRUNC|O_CREAT creates it fresh,
+      // exactly like a first-ever --force run into an empty output directory. A prior version
+      // of createdFresh assumed force always means "pre-existing" and would have left this
+      // partial file behind.
+      await assert.rejects(writeSafe(target, 'report text', true), /SIMULATED DISK FULL/);
+      assert.equal(fs.existsSync(target), false,
+        'a force write that created a brand-new file must self-clean that file on write failure');
+    } finally {
+      nativeFs.promises.open = originalOpen;
+      await fs.remove(temp);
+    }
+  });
+
+  await test('NFR safe-I/O review-round-4 — a force write against a pre-existing target is never self-cleaned on write failure', async () => {
+    const temp = await fs.mkdtemp(path.join(os.tmpdir(), 'nfr-safeio-force-existing-'));
+    const target = path.join(temp, 'requirements-nfr-report.md');
+    await fs.writeFile(target, 'ORIGINAL CONTENT');
+    const nativeFs = require('fs');
+    const originalOpen = nativeFs.promises.open;
+    nativeFs.promises.open = async (...args) => {
+      const handle = await originalOpen(...args);
+      handle.writeFile = async () => { throw new Error('SIMULATED DISK FULL'); };
+      return handle;
+    };
+    try {
+      await assert.rejects(writeSafe(target, 'new report text', true), /SIMULATED DISK FULL/);
+      assert.equal(fs.existsSync(target), true,
+        'a force write against a file that pre-existed this call must never be deleted on write failure');
+    } finally {
+      nativeFs.promises.open = originalOpen;
       await fs.remove(temp);
     }
   });

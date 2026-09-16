@@ -60,27 +60,45 @@ non-regular target rather than hanging or writing through it), and uses
 run. The existence/type guarantee and the write both act on the same
 already-open file descriptor, with no path relookup in between — not one
 single syscall, but no window between a separate check and a later write for
-anything to change the target in. The one exception is appending the NFR
-section to an already-existing `<base>.feature`: that re-checks the section
-marker on that same already-open descriptor immediately before writing
-(`appendSectionIfMissing`), then uses `O_APPEND`, so it never re-truncates the
-file from content read moments earlier, can't discard a concurrent edit, and
-two overlapping runs that both saw the marker absent don't both append a
-duplicate section. A failed non-force run rolls back exactly the outputs it
-created — identified by the device/inode `writeSafe` captured at write time,
-not by path, so a file another process put at one of those paths afterward is
-not collaterally deleted in the common case — leaving pre-existing files
-(report, classifications, candidates, or the standalone `.feature`) untouched.
+anything to change the target in. The two exceptions are the base
+`<base>.feature` append and rebuild branches: `appendSectionIfMissing`
+re-checks the section marker on its own freshly-opened descriptor immediately
+before an `O_APPEND` write (never re-truncating the file from content read
+moments earlier — a concurrent edit to the rest of the file survives), and
+`rebuildSectionSafe` (the force+marker-present branch) similarly re-reads and
+re-finds the marker on its own descriptor before truncating and rewriting,
+rather than reusing a prefix computed from an earlier read. Neither makes the
+read-decide-write sequence atomic across two genuinely concurrent process
+invocations of this tool — that would need an inter-process lock, which this
+redesign deliberately doesn't add (a stale lock left by a crashed process
+would block every future run against that output directory, a worse
+day-to-day failure mode than the narrow benign-race residual it would close;
+the actual threat model here, a malicious symlink or FIFO, is fully closed
+regardless of this residual). A failed non-force run rolls back exactly the
+outputs it created — identified by the device/inode `writeSafe` captured at
+write time, not by path, so a file another process put at one of those paths
+afterward is not collaterally deleted in the common case — leaving
+pre-existing files (report, classifications, candidates, or the standalone
+`.feature`) untouched. A partial write (e.g. `ENOSPC`) is recovered from at
+the point of failure: `writeSafe` removes a file it just created before
+rethrowing, and `appendSectionIfMissing`/`rebuildSectionSafe` truncate back
+to the pre-write length, so a failed write never leaves corrupt partial
+content — including a truncated section that could fool a later run's own
+marker check — behind.
 
-Two residuals this layer does not fully close, documented rather than hidden:
+Residuals this layer does not fully close, documented rather than hidden:
 `O_NOFOLLOW` governs only a path's final component, so an ancestor directory
 swapped for a symlink between path construction and the write is still
 followed (narrowed, not eliminated, by re-deriving each path immediately
-before its write); and the rollback's own identity check is a
+before its write); the rollback's own identity check is a
 lstat()-then-unlink() pair, not a single atomic operation, so a same-path
 replacement that happens to reuse the original file's exact device+inode
-within that pair would still be removed. Both would need directory-fd/openat
-or compare-and-unlink primitives Node's `fs` module does not expose portably.
+within that pair would still be removed; and, as above, two genuinely
+concurrent invocations of this tool against the same output directory can
+still both pass a marker check before either writes. The first two would
+need directory-fd/openat or compare-and-unlink primitives Node's `fs` module
+does not expose portably; the third is an accepted tradeoff, not a missing
+primitive.
 
 ## Follow-up extension seams
 
