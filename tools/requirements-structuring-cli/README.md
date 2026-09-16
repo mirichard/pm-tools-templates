@@ -281,6 +281,51 @@ comparison (rendering the `pci-dss` capture's own classification through both
 libraries). See the fixture README for the full methodology, the accepted
 "Password is not a separate business object" finding, and other caveats.
 
+#### Classification evaluation harness (#1113)
+
+`node scripts/eval-classification.js` (or `npm run eval:classification`)
+compares the classifier's actual output against a small labeled set —
+[`examples/fixtures/nfr-golden/eval-labels.json`](examples/fixtures/nfr-golden/eval-labels.json)
+— and reports **exact-match**, **near-miss**, and **mismatch** counts and
+rates. These are the script's own definitions, for one labeled
+(requirement, sub-characteristic) judgment at a time, joined to the tool's
+output by `source.path` (not `stepId` alone — see
+[`docs/nfr-golden-example.md`](docs/nfr-golden-example.md)):
+
+- **exact-match** — the tool assigned that exact sub-characteristic to the requirement.
+- **near-miss** — the tool assigned a *different* sub-characteristic under the *same* top-level characteristic (it identified the right general quality area, not the specific one).
+- **mismatch** — the tool assigned nothing at all under that characteristic for the requirement.
+
+No live LLM calls by default: it reads each golden-fixture variant's
+already-committed `-nfr-classifications.json`. Against both variants it
+reports 20/24 (83.3%) exact-match, 2/24 (8.3%) near-miss, 2/24 (8.3%)
+mismatch. Pass `--live` to re-classify one named variant instead (`--variant
+neutral` or `--variant pci-dss`, never `both`, to stay at or under the
+project's 15-live-call eval cap); it reuses the same `LLM_*`/`*_API_KEY`
+[environment variables](#llm-configuration) as every other command. Pass
+`--output <dir>` to also write `eval-classification-results.json` through the
+same safe-I/O layer as `generate-nfr` (exclusive-create by default, `--force`
+to overwrite). Run `node scripts/eval-classification.js --help` for the full
+flag reference.
+
+**No genuine expert-labeled set exists in this repository.** Both the golden
+fixture's own README and `docs/nfr-golden-example.md` say plainly that its
+captured classifications are model output, not expert labels. The labeled
+set this script compares against was constructed instead: 5 real requirement
+units already present in the golden fixture (no invented steps), 12 attribute
+judgments reasoned directly from the quoted ISO/IEC 25010:2023
+sub-characteristic definitions in `data/nfr/taxonomy.json`.
+`eval-labels.json` marks this in its own top-level `warning` field — not
+just a code comment — and the eval script prints that same warning on every
+run, before any results. Treat the reported rates as a small, honestly-
+sourced sanity check against taxonomy-literate reasoning, not as
+independently-verified accuracy against expert judgment; `eval-labels.json`
+also documents an order-of-operations caveat about how these particular
+labels were written. Running this eval against the golden fixture does not
+touch the open [`accountability` investigation (#1163)](#overlay-caveat-fda-21-cfr-11-and-hipaa):
+none of the 5 labeled units reasons to `accountability` as a fitting label,
+so this harness neither confirms nor newly discovers that gap on its own.
+
 ### `validate <ucs-file>`
 
 Validate UCS consistency against activity diagrams and/or state machines (Algorithms 2 & 3).
@@ -440,9 +485,14 @@ npm test
 
 Runs the full unit-test suite (business object model, UCS template model, test
 generator, consistency checker, requirements parser, ambiguity detector,
-Gherkin generator, NFR classification/generation/overlays, source
-traceability, the golden fixture, and a CLI version-drift regression check) —
-172 tests as of v1.2.0, up from 29 at v1.1.0.
+Gherkin generator, NFR classification/generation/overlays/confidence-gate,
+the classification evaluation harness (#1113), generate-nfr determinism,
+source traceability, the golden fixture, and a CLI version-drift regression
+check) — 235 tests as of v1.2.0, up from 29 at v1.1.0. `npm run
+eval:classification` runs the separate labeled classification eval described
+above; it is not part of `npm test`'s pass/fail gate (its numbers are
+reported, not asserted, since they measure the classifier's model behavior,
+not this codebase's correctness) but its own categorization logic is.
 
 ---
 
