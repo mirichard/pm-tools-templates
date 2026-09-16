@@ -67,6 +67,9 @@ inquirer.prompt = async (questions) => {
   const gate = process.env.NFR_TEST_GATE;
   const decline = gate === 'clarification' ||
     (gate === 'phase1' && question.message.includes('Phase 2')) ||
-    (gate === 'phase2' && question.message.includes('Phase 3'));
+    (gate === 'phase2' && question.message.includes('Phase 3')) ||
+    // #1111: the confidence gate's own message (gateOnConfidence, src/index.js) always mentions
+    // "confidence threshold" -- distinct from every other gate's message in this file.
+    (gate === 'confidence-decline' && question.message.includes('confidence threshold'));
   return { [question.name]: !decline };
 };
