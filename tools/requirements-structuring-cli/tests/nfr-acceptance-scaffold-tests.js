@@ -402,6 +402,28 @@ module.exports = async function testNFRAcceptanceScaffold(runner) {
     }
   });
 
+  await test('NFR safe-I/O review-round-2 — writeSafe self-cleans a file it just created if the write itself fails partway through', async () => {
+    const temp = await fs.mkdtemp(path.join(os.tmpdir(), 'nfr-safeio-partial-write-'));
+    const target = path.join(temp, 'requirements-nfr-candidates.json');
+    const nativeFs = require('fs');
+    const originalOpen = nativeFs.promises.open;
+    nativeFs.promises.open = async (...args) => {
+      const handle = await originalOpen(...args);
+      // Real open()/O_EXCL runs for real -- only the write step is faked, simulating a
+      // mid-write failure (e.g. ENOSPC) after the file has already been created.
+      handle.writeFile = async () => { throw new Error('SIMULATED DISK FULL'); };
+      return handle;
+    };
+    try {
+      await assert.rejects(writeSafe(target, '{"a":1}', false), /SIMULATED DISK FULL/);
+      assert.equal(fs.existsSync(target), false,
+        'a file this call created but failed to finish writing must not survive as an orphan no rollback can find');
+    } finally {
+      nativeFs.promises.open = originalOpen;
+      await fs.remove(temp);
+    }
+  });
+
   await test('NFR safe-I/O finding 7 — writeSafe force path (O_TRUNC) refuses a FIFO without hanging', async () => {
     const temp = await fs.mkdtemp(path.join(os.tmpdir(), 'nfr-safeio-fifo-force-'));
     const fifoPath = path.join(temp, 'target.feature');

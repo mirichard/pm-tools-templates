@@ -44,20 +44,35 @@ function assertGenerationOutputAvailable(file, force = false) {
  * every path segment, which Node's fs module does not expose portably; callers narrow (not
  * eliminate) the window by re-deriving the path via buildContainedChildPath immediately before
  * calling this function, rather than reusing a path computed long before the write.
+ *
+ * On a non-force (O_EXCL) call, a successful open() means this call alone just created `file` --
+ * nothing else could have raced it, since O_EXCL would have failed with EEXIST otherwise. If the
+ * write or the post-write stat() then fails (e.g. ENOSPC mid-write), this function unlinks that
+ * just-created file itself before rethrowing, rather than leaving an orphaned partial file that
+ * no caller-side rollback could ever find -- the caller only learns a file's identity from a
+ * *fulfilled* call, so a rejected one never gets registered for removeIfSameFile in the first
+ * place. A force (O_TRUNC) failure is never self-cleaned: the file pre-existed this call, so
+ * deleting it on a failed overwrite would destroy content this call didn't create and has no
+ * right to remove.
  */
 async function writeSafe(file, text, force = false) {
   const validated = validateDocumentContent(text);
   const flags = fs.constants.O_WRONLY | fs.constants.O_CREAT | NOFOLLOW_NONBLOCK
     | (force ? fs.constants.O_TRUNC : fs.constants.O_EXCL);
   let handle;
+  let createdFresh = false;
   try {
     handle = await fs.promises.open(file, flags, 0o600);
+    createdFresh = !force;
     const preWriteStat = await handle.stat();
     if (!preWriteStat.isFile()) throw new Error(`Unsafe NFR output: ${file}`);
     await handle.writeFile(validated, 'utf8');
     const written = await handle.stat();
     return { path: file, dev: written.dev, ino: written.ino };
   } catch (error) {
+    if (createdFresh) {
+      try { await fs.promises.unlink(file); } catch (_) { /* best-effort self-cleanup */ }
+    }
     throw translateOpenError(file, error);
   } finally {
     if (handle) await handle.close();
