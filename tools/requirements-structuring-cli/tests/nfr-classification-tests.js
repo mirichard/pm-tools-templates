@@ -309,7 +309,10 @@ module.exports = async (runner) => {
       assert.match(report, /Generated NFR Candidates/);
       assert.match(report, /no threshold gate was applied/);
       assert.doesNotMatch(report, /#1108\/#1109|No classification/);
-      assert.deepStrictEqual((await fs.readdir(output)).sort(), ['fixture-nfr-classifications.json', 'fixture-nfr-report.md']);
+      // #1110: also writes the rendered-candidates JSON and a standalone .feature (no base
+      // .feature exists in this temp dir, since generate-gherkin/pipeline never ran here).
+      assert.deepStrictEqual((await fs.readdir(output)).sort(),
+        ['fixture-nfr-candidates.json', 'fixture-nfr-classifications.json', 'fixture-nfr-report.md', 'fixture-nfr.feature']);
     });
     await test('a later provider failure writes no partial classification artifacts', async () => {
       const output = path.join(temp, 'failure');

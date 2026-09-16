@@ -255,8 +255,18 @@ module.exports = async function testNFR(runner) {
       assert.deepStrictEqual(await fs.readJSON(base + '-ucs.json'), runtime);
       const expectedTests = new TestGenerator().generate(runtime);
       assert.deepStrictEqual(await fs.readJSON(base + '-tests.json'), expectedTests);
-      assert.strictEqual(await fs.readFile(base + '.feature', 'utf8'), new GherkinGenerator().generate(expectedTests, runtime));
-      for (const suffix of ['-ambiguity-report.md', '-use-case-spec.md', '-test-cases.md', '-summary.md', '-validation-report.md', '-nfr-report.md']) {
+      // #1110: the NFR phase now appends acceptance-criterion scaffolds to this same .feature
+      // file, after it's written by the Gherkin phase above. Assert the original UCS-driven
+      // content is preserved byte-for-byte as a prefix (proving the NFR append never disturbs
+      // it, including the #1168 trigger-action placement it carries), and that a real NFR
+      // scaffold was actually appended — not a full re-derivation of the classifier-driven
+      // NFR section itself, which is covered against real recorded data in nfr-golden-tests.js.
+      const plainGherkin = new GherkinGenerator().generate(expectedTests, runtime);
+      const featureContent = await fs.readFile(base + '.feature', 'utf8');
+      assert.ok(featureContent.startsWith(plainGherkin), 'UCS-driven Gherkin content must be an unmodified prefix');
+      assert.match(featureContent, /NFR acceptance-criteria scaffolds \(Story #1110\)/);
+      assert.match(featureContent, /Scenario Outline: NFR —/);
+      for (const suffix of ['-ambiguity-report.md', '-use-case-spec.md', '-test-cases.md', '-summary.md', '-validation-report.md', '-nfr-report.md', '-nfr-candidates.json']) {
         assert.ok(await fs.pathExists(base + suffix), suffix);
       }
     });

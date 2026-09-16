@@ -120,6 +120,51 @@ class GherkinGenerator {
     return safeOutput;
   }
 
+  /**
+   * #1110: render NFR candidates as executable-shaped Gherkin — a Scenario
+   * Outline + Examples table per quantifiable candidate (the threshold cell
+   * carries the same unbound `[NEEDS INPUT: <param>]` placeholder as the
+   * candidate's own `bindings`, never a fabricated value), or a plain
+   * Scenario with a `Then` step for a qualitative candidate. Entirely
+   * separate from `generate()` — does not touch UCS test-case rendering or
+   * the negative-scenario trigger-action placement fixed in #1168.
+   * @param {Array} candidates - generateCandidates()'s `generation.candidates`
+   * @param {string} useCaseId - for the section header only
+   * @returns {string} Gherkin text to append to, or stand alone as, a .feature file
+   */
+  generateNFRScenarios(candidates, useCaseId) {
+    // Gherkin injection guard: validateNFRInput only requires useCaseId to be a non-empty
+    // string, so an untrusted value could contain CR/LF and break out of this `#` comment to
+    // inject arbitrary Gherkin lines. Collapse line breaks before interpolating it anywhere.
+    const safeUseCaseId = GherkinGenerator.sanitizeGherkinLine(useCaseId);
+    const lines = [];
+    lines.push('');
+    lines.push(GherkinGenerator.NFR_SECTION_MARKER);
+    lines.push(`  # Generated from ${safeUseCaseId}'s NFR candidates — every threshold below is`);
+    lines.push('  # an explicit placeholder pending human input, never a fabricated value.');
+    lines.push('');
+    for (const candidate of candidates) {
+      const title = `NFR — ${candidate.patternId} (${candidate.subCharacteristic}, ${candidate.source.path})`;
+      if (candidate.acceptanceCriterion.kind === 'quantifiable') {
+        const ac = candidate.acceptanceCriterion;
+        lines.push(`  Scenario Outline: ${title}`);
+        lines.push(`    # ${candidate.text}`);
+        lines.push('    Then the measured <metric> shall be <operator> <threshold> <unit>');
+        lines.push('');
+        lines.push('    Examples:');
+        lines.push('      | metric | operator | threshold | unit |');
+        lines.push(`      | ${ac.metric} | ${ac.operator} | ${ac.threshold} | ${ac.unit} |`);
+        lines.push('');
+      } else {
+        lines.push(`  Scenario: ${title}`);
+        lines.push(`    # ${candidate.text}`);
+        lines.push(`    Then ${candidate.acceptanceCriterion.criterion}`);
+        lines.push('');
+      }
+    }
+    return lines.join('\n');
+  }
+
   // ─── Step normalization helpers ──────────────────────────────────────────
 
   _isActorAction(actor) {
@@ -174,5 +219,13 @@ class GherkinGenerator {
     return str.charAt(0).toLowerCase() + str.slice(1);
   }
 }
+
+// Marker guarding NFR-section appends from duplicating on repeated pipeline/generate-nfr runs.
+GherkinGenerator.NFR_SECTION_MARKER = '  # ─── NFR acceptance-criteria scaffolds (Story #1110) ───';
+
+// Collapse CR/LF so a value that reaches here only validated as "a non-empty string" (e.g.
+// useCaseId) can never break out of a Gherkin `#` comment or `Feature:` line to inject
+// arbitrary content. Reused by nfr-generator.js for the standalone .feature header.
+GherkinGenerator.sanitizeGherkinLine = (value) => String(value).replace(/[\r\n]+/g, ' ');
 
 module.exports = GherkinGenerator;

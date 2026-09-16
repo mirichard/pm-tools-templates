@@ -50,6 +50,7 @@ class TestRunner {
     await require('./nfr-generation-tests')(this);
     await require('./nfr-golden-tests')(this);
     await require('./cli-version-tests')(this);
+    await require('./nfr-acceptance-scaffold-tests')(this);
 
     this.printResults();
   }
