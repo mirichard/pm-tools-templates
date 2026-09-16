@@ -16,6 +16,8 @@ const { Command } = require('commander');
 const { computeConfidenceSummary, DEFAULT_CONFIDENCE_THRESHOLD } = require('../src/nfr-confidence');
 const { addNFROptions, normalizeNFROptions } = require('../src/nfr-options');
 const { generateCandidates } = require('../src/nfr-candidates');
+const { gateOnConfidence } = require('../src/index');
+const inquirer = require('inquirer');
 const fixture = require('./fixtures/nfr-classification.json');
 
 module.exports = async function testNFRConfidence(runner) {
@@ -82,6 +84,56 @@ module.exports = async function testNFRConfidence(runner) {
       command.parse([], { from: 'user' });
       const options = normalizeNFROptions(command.opts());
       assert.strictEqual(options.confidenceThreshold, DEFAULT_CONFIDENCE_THRESHOLD);
+    });
+
+    // ─── gateOnConfidence seam: prompt default at all three tiers ─────────────
+    // Direct unit tests against src/index.js's gateOnConfidence, mocking inquirer.prompt
+    // in-process to capture the exact `default` passed -- not just the accept/decline
+    // behavior the CLI-level tests below exercise. This closes the gap the CLI-level tests
+    // leave: they only exercise READY (no prompt at all) and an all-candidates-below-threshold
+    // NOT READY set, never the middle NEEDS CLARIFICATION tier's `default: true` value.
+    const withMockedPrompt = async (mockFn, fn) => {
+      const original = inquirer.prompt;
+      inquirer.prompt = mockFn;
+      try {
+        return await fn();
+      } finally {
+        inquirer.prompt = original;
+      }
+    };
+
+    await test('gateOnConfidence: READY never calls inquirer.prompt', async () => {
+      let called = false;
+      await withMockedPrompt(async () => { called = true; return { proceedAnyway: true }; }, async () => {
+        const proceed = await gateOnConfidence({ readinessLabel: 'READY', review: 0, total: 5, threshold: 0.75 });
+        assert.strictEqual(proceed, true);
+      });
+      assert.strictEqual(called, false, 'READY must skip the prompt entirely');
+    });
+
+    await test('gateOnConfidence: NEEDS CLARIFICATION prompts with default: true (proceed)', async () => {
+      let capturedDefault;
+      await withMockedPrompt(async ([question]) => {
+        capturedDefault = question.default;
+        return { proceedAnyway: question.default };
+      }, async () => {
+        const proceed = await gateOnConfidence({ readinessLabel: 'NEEDS CLARIFICATION', review: 2, total: 5, threshold: 0.75 });
+        assert.strictEqual(proceed, true);
+      });
+      assert.strictEqual(capturedDefault, true,
+        'NEEDS CLARIFICATION must default to proceeding, mirroring Phase 0\'s warnings gate');
+    });
+
+    await test('gateOnConfidence: NOT READY prompts with default: false (decline)', async () => {
+      let capturedDefault;
+      await withMockedPrompt(async ([question]) => {
+        capturedDefault = question.default;
+        return { proceedAnyway: question.default };
+      }, async () => {
+        const proceed = await gateOnConfidence({ readinessLabel: 'NOT READY', review: 5, total: 5, threshold: 0.75 });
+        assert.strictEqual(proceed, false);
+      });
+      assert.strictEqual(capturedDefault, false, 'NOT READY must default to declining');
     });
 
     // ─── CLI-level interactive gate ───────────────────────────────────────────

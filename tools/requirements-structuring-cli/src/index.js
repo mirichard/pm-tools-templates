@@ -613,4 +613,5 @@ module.exports = {
   sanitizeErrorPayload,
   safeWriteText: require('./security').safeWriteText,
   safeWriteJSON: require('./security').safeWriteJSON,
+  gateOnConfidence,
 };
