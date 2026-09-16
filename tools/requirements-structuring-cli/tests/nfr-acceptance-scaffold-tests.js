@@ -13,7 +13,7 @@ const { generateCandidates, buildAcceptanceCriterion } = require('../src/nfr-can
 const GherkinGenerator = require('../src/gherkin-generator');
 const NFRGenerator = require('../src/nfr-generator');
 const { writeNFRGherkinScenarios } = require('../src/nfr-generator');
-const { writeSafeOverwrite } = require('../src/nfr-output');
+const { writeSafe, appendSafeExisting, removeIfSameFile } = require('../src/nfr-output');
 const TestGenerator = require('../src/test-generator');
 const { UCSTemplate } = require('../src/ucs-template');
 const classificationFixture = require('./fixtures/nfr-classification.json');
@@ -215,7 +215,7 @@ module.exports = async function testNFRAcceptanceScaffold(runner) {
     }
   });
 
-  await test('NFR acceptance scaffold: cycle-4 finding 2 — writeSafeOverwrite itself (not a prior check) rejects a pre-existing file without --force', async () => {
+  await test('NFR acceptance scaffold: cycle-4 finding 2 — writeSafe itself (not a prior check) rejects a pre-existing file without --force', async () => {
     const temp = await fs.mkdtemp(path.join(os.tmpdir(), 'nfr-scaffold-toctou-'));
     try {
       const target = path.join(temp, 'password-reset-input-nfr.feature');
@@ -223,11 +223,11 @@ module.exports = async function testNFRAcceptanceScaffold(runner) {
       // is what rejects it, simulating a file created after a prior check would have passed.
       await fs.writeFile(target, 'Feature: pre-existing manual edit\n');
       await assert.rejects(
-        writeSafeOverwrite(target, 'Feature: fresh content\n', false),
+        writeSafe(target, 'Feature: fresh content\n', false),
         /NFR output already exists/,
       );
       assert.equal(await fs.readFile(target, 'utf8'), 'Feature: pre-existing manual edit\n');
-      await writeSafeOverwrite(target, 'Feature: forced overwrite\n', true);
+      await writeSafe(target, 'Feature: forced overwrite\n', true);
       assert.equal(await fs.readFile(target, 'utf8'), 'Feature: forced overwrite\n');
     } finally {
       await fs.remove(temp);
@@ -256,5 +256,133 @@ module.exports = async function testNFRAcceptanceScaffold(runner) {
     } finally {
       await fs.remove(temp);
     }
+  });
+
+  // ─── Safe-I/O redesign (#1110 cycle-5 findings) ──────────────────────────
+
+  await test('NFR safe-I/O finding 1 — the standalone Gherkin destination is preflighted before classification runs, not just before the write', async () => {
+    const temp = await fs.mkdtemp(path.join(os.tmpdir(), 'nfr-safeio-preflight-'));
+    try {
+      await fs.writeFile(path.join(temp, 'requirements-nfr.feature'), 'Feature: pre-existing\n');
+      let classifyCalls = 0;
+      const stubLlm = {
+        provider: 'fixture', model: 'offline-model',
+        async loadPrompt(name) { return fs.readFile(path.join(root, 'prompts', name), 'utf8'); },
+        async chatJSON() { classifyCalls++; return JSON.parse(JSON.stringify(classificationFixture.responses[0])); },
+      };
+      await assert.rejects(
+        new NFRGenerator({ llm: stubLlm }).run(classificationFixture.input, { output: temp, force: false }),
+        /NFR output already exists/,
+      );
+      assert.equal(classifyCalls, 0,
+        'classification (and its provider calls) must never run once the standalone .feature destination is already known to conflict');
+    } finally {
+      await fs.remove(temp);
+    }
+  });
+
+  await test('NFR safe-I/O finding 2 — docs/nfr-generation.md reflects the shipped #1110 integration, not the stale "not implemented" note', () => {
+    const doc = fs.readFileSync(path.join(root, 'docs/nfr-generation.md'), 'utf8');
+    assert.doesNotMatch(doc, /No #1110 integration.*is implemented/i);
+    assert.match(doc, /#1110 \(implemented\)/);
+    assert.match(doc, /acceptanceCriterion/);
+  });
+
+  await test('NFR safe-I/O finding 3 — writeSafe itself (not just the run()-level preflight) refuses a symlinked target and enforces exclusive-create for JSON-shaped output', async () => {
+    const temp = await fs.mkdtemp(path.join(os.tmpdir(), 'nfr-safeio-json-'));
+    const secretFile = path.join(os.tmpdir(), `nfr-safeio-json-secret-${Date.now()}.json`);
+    try {
+      await fs.writeFile(secretFile, '{"do":"not overwrite"}');
+      const link = path.join(temp, 'requirements-nfr-candidates.json');
+      await fs.symlink(secretFile, link);
+      // O_CREAT|O_EXCL rejects any existing path (symlink included) with EEXIST before
+      // O_NOFOLLOW is ever consulted -- that's still a safe refusal (nothing is written through
+      // the symlink), just a different error than the force/O_TRUNC branch below, where
+      // O_NOFOLLOW is what does the rejecting since O_EXCL isn't in play.
+      await assert.rejects(writeSafe(link, '{"ok":true}', false), /NFR output already exists/);
+      await assert.rejects(writeSafe(link, '{"ok":true}', true), /Unsafe NFR output/);
+      assert.equal(await fs.readFile(secretFile, 'utf8'), '{"do":"not overwrite"}');
+      const target = path.join(temp, 'requirements-nfr-classifications.json');
+      await writeSafe(target, '{"a":1}', false);
+      await assert.rejects(writeSafe(target, '{"b":2}', false), /NFR output already exists/);
+    } finally {
+      await fs.remove(temp);
+      await fs.remove(secretFile);
+    }
+  });
+
+  await test('NFR safe-I/O finding 4 — rollback is identity-based: a file replaced after creation (a different inode at the same path) is never collaterally deleted', async () => {
+    const temp = await fs.mkdtemp(path.join(os.tmpdir(), 'nfr-safeio-rollback-identity-'));
+    try {
+      const target = path.join(temp, 'requirements-nfr-classifications.json');
+      const identity = await writeSafe(target, '{"first":true}', false);
+      // Simulate another process replacing the path with a different file in the window between
+      // this run's write and its own rollback, by exercising removeIfSameFile with a
+      // deliberately wrong inode rather than relying on unlink+recreate (whose real inode number
+      // a filesystem is free to reuse immediately, which would make this assertion flaky).
+      const staleIdentity = { path: target, dev: identity.dev, ino: identity.ino + 1 };
+      await removeIfSameFile(staleIdentity);
+      assert.equal(await fs.readFile(target, 'utf8'), '{"first":true}',
+        'a file whose inode does not match the identity passed to removeIfSameFile must survive');
+      // Positive case: an untouched, correctly-identified file is still removed.
+      const target2 = path.join(temp, 'requirements-nfr-candidates.json');
+      const identity2 = await writeSafe(target2, '{"second":true}', false);
+      await removeIfSameFile(identity2);
+      assert.equal(fs.existsSync(target2), false,
+        'a file whose identity is unchanged since this run created it must still be removed by rollback');
+    } finally {
+      await fs.remove(temp);
+    }
+  });
+
+  await test('NFR safe-I/O finding 6 — appending the NFR section never truncates or discards content written to the file after it was last read', async () => {
+    const temp = await fs.mkdtemp(path.join(os.tmpdir(), 'nfr-safeio-append-'));
+    try {
+      const file = path.join(temp, 'requirements.feature');
+      await fs.writeFile(file, 'Feature: original\n');
+      // Simulate a concurrent editor appending content between this run's read of the file and
+      // its own append -- appendSafeExisting must never reconstruct the file from what it read
+      // earlier (an O_TRUNC-based read-modify-write-back would silently discard this), so it
+      // must survive.
+      await fs.appendFile(file, 'Scenario: concurrently added by another process\n');
+      await appendSafeExisting(file, '  # NFR section\n');
+      const content = await fs.readFile(file, 'utf8');
+      assert.ok(content.startsWith('Feature: original\nScenario: concurrently added by another process\n'),
+        'a concurrent edit made after this run last read the file must survive the append');
+      assert.ok(content.endsWith('  # NFR section\n'), 'the new section must still land at the end');
+    } finally {
+      await fs.remove(temp);
+    }
+  });
+
+  await test('NFR safe-I/O finding 7 — writeSafe force path (O_TRUNC) refuses a FIFO without hanging', async () => {
+    const temp = await fs.mkdtemp(path.join(os.tmpdir(), 'nfr-safeio-fifo-force-'));
+    const fifoPath = path.join(temp, 'target.feature');
+    try {
+      execFileSync('mkfifo', [fifoPath]);
+      const withTimeout = (promise, ms) => {
+        let timer;
+        const timeout = new Promise((_, reject) => {
+          timer = setTimeout(() => reject(new Error(`TIMEOUT: did not return within ${ms}ms — HUNG`)), ms);
+        });
+        return Promise.race([promise, timeout]).finally(() => clearTimeout(timer));
+      };
+      await assert.rejects(withTimeout(writeSafe(fifoPath, 'Feature: x\n', true), 2000));
+    } finally {
+      await fs.remove(temp);
+    }
+  });
+
+  await test('NFR safe-I/O structural guard: nfr-generator.js performs no raw fs opens/writes of its own, and every open() in nfr-output.js uses the shared O_NOFOLLOW|O_NONBLOCK flags', () => {
+    const generatorSource = fs.readFileSync(path.join(root, 'src/nfr-generator.js'), 'utf8');
+    assert.doesNotMatch(generatorSource, /\bfs\.promises\.open\(|\bfsNative\b|createWriteStream|writeFileSync/,
+      'nfr-generator.js must route every read/write through the nfr-output.js primitives, never open a file descriptor itself');
+    const outputSource = fs.readFileSync(path.join(root, 'src/nfr-output.js'), 'utf8');
+    const openCalls = outputSource.match(/fs\.promises\.open\(/g) || [];
+    const flagsReferences = outputSource.match(/NOFOLLOW_NONBLOCK/g) || [];
+    assert.ok(openCalls.length >= 3, 'expected writeSafe, appendSafeExisting and readSafeIfExists to each open a descriptor');
+    // +1 accounts for NOFOLLOW_NONBLOCK's own definition, which isn't itself an open() call site.
+    assert.equal(flagsReferences.length, openCalls.length + 1,
+      'every open() call in nfr-output.js must use the shared NOFOLLOW_NONBLOCK flags constant -- no ad hoc, unguarded open() calls allowed');
   });
 };

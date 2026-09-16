@@ -8,7 +8,8 @@ mechanism is introduced. Humans edit the report today.
 
 Generation uses deterministic template substitution, with renderer version 1.0.0;
 no generation LLM call or prompt is necessary. Classification still uses the
-existing provider. No #1110 integration or #1111 review gate is implemented.
+existing provider. #1110 integration (below) is implemented; #1111's review
+gate is not.
 
 ## Selection, rendering and evidence
 
@@ -32,29 +33,50 @@ proof of testability until humans fill and approve its placeholders.
 
 ## Output and re-run policy
 
-Both entry points append candidate sections to `<base>-nfr-report.md` in `-o`.
-The existing `<base>-nfr-classifications.json` handoff remains unchanged.
-Generation makes no provider call; classification still requires credentials.
-Rendering the same classification/library/overlay produces identical candidates.
-A fresh classification can vary with the provider; rendering determinism does not
-claim otherwise.
+`NFRGenerator.run` writes four artifacts into `-o`: `<base>-nfr-report.md`
+(prose report), `<base>-nfr-classifications.json` (the classifier's raw
+handoff, unchanged), `<base>-nfr-candidates.json` (the rendered
+`generation.candidates`, each with its `acceptanceCriterion` scaffold — see
+below), and either an appended NFR section in the pipeline's own
+`<base>.feature` or, if that file doesn't exist, a standalone
+`<base>-nfr.feature`. Generation makes no provider call; classification still
+requires credentials. Rendering the same classification/library/overlay
+produces identical candidates. A fresh classification can vary with the
+provider; rendering determinism does not claim otherwise.
 
-Before classification, existing NFR report or classification output blocks the
-run. Copy/archive manual edits or use standalone `generate-nfr --force` to replace
-them deliberately. No binding file, binding flag or interactive binding prompt
-is added. The pipeline has no force flag: use a fresh output directory to retain
+Before classification, existing NFR report, classification, candidates, or
+(for the standalone-`.feature` case) Gherkin output blocks the run. Copy/archive
+manual edits or use standalone `generate-nfr --force` to replace them
+deliberately. No binding file, binding flag or interactive binding prompt is
+added. The pipeline has no force flag: use a fresh output directory to retain
 previous outputs. Earlier pipeline stages retain their existing behavior.
-Exclusive report creation protects against concurrent non-force runs, and links
-or non-regular output files are rejected. Output of the report and classification
-JSON is not a multi-file transaction: a later disk-write error can leave a report;
-a subsequent run will block on it instead of silently overwriting it.
+
+All four outputs share one safe-I/O layer (`src/nfr-output.js`): every write
+opens the target with `O_NOFOLLOW` (refuses a symlinked destination) and
+`O_NONBLOCK` plus a post-open regular-file check (refuses a FIFO or other
+non-regular target rather than hanging or writing through it), and uses
+`O_EXCL` (atomic create-or-fail) on a non-force run or `O_TRUNC` on a force
+run — the existence/type check and the write are the same syscall, so nothing
+can change the target in the window between a separate check and a later
+write. The one exception is appending the NFR section to an already-existing
+`<base>.feature`: that uses `O_APPEND` instead, so it never re-truncates the
+file from content read moments earlier and can't discard a concurrent edit.
+A failed non-force run rolls back exactly the outputs it created — identified
+by the device/inode `writeSafe` captured at write time, not by path, so a file
+another process put at one of those paths afterward is never collaterally
+deleted — leaving pre-existing files (report, classifications, candidates, or
+the standalone `.feature`) untouched.
 
 ## Follow-up extension seams
 
-#1110: consume `result.generation.candidates` after `generateCandidates` in
-`NFRGenerator.run`. Each candidate exposes `metric`, `unboundParameters`, source
-identity and provenance. Add metric scaffolding/Gherkin integration there only
-in that story; current code merely carries existing pattern metadata.
+#1110 (implemented): `NFRGenerator.run` consumes `result.generation.candidates`
+after `generateCandidates`. Each candidate carries `metric`,
+`acceptanceCriterion` (`{kind: 'quantifiable', metric, unit, operator,
+threshold, measurement}` or `{kind: 'qualitative', criterion}`),
+`unboundParameters`, source identity and provenance. `src/gherkin-generator.js`
+renders the quantifiable candidates as `Scenario Outline` + `Examples` and the
+qualitative ones as a plain `Scenario`/`Then`, wired into `.feature` output as
+described above.
 
 #1111: insert the confidence/review decision stage after generation and before
 report writing. Stable candidate IDs combine use-case ID, source pointer and
