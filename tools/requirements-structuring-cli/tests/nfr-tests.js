@@ -75,7 +75,11 @@ module.exports = async function testNFR(runner) {
       const options = parse([]);
       assert.strictEqual(options.overlay, 'neutral');
       assert.deepStrictEqual(options.attributes, []);
-      assert.strictEqual(options.confidenceThreshold, null);
+      // #1111: confidenceThreshold now has a real operative default (DEFAULT_CONFIDENCE_THRESHOLD
+      // from nfr-confidence.js) rather than null -- a review-sensitivity setting, not a fabricated
+      // classification score, so this doesn't conflict with the "without inventing scores" guarantee
+      // this test's name refers to (no attribute name or confidence value is ever invented).
+      assert.strictEqual(options.confidenceThreshold, require('../src/nfr-confidence').DEFAULT_CONFIDENCE_THRESHOLD);
       assert.strictEqual(options.provider, undefined);
     });
     await test('NFR rejects malformed attributes, thresholds, providers and empty models', () => {

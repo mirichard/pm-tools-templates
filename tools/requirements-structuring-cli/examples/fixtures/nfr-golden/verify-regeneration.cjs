@@ -10,6 +10,7 @@ const ReportGenerator = require(path.join(root, 'src/report-generator'));
 const { UCSTemplate } = require(path.join(root, 'src/ucs-template'));
 const { generateCandidates } = require(path.join(root, 'src/nfr-candidates'));
 const { formatCandidateReport } = require(path.join(root, 'src/nfr-candidate-report'));
+const { computeConfidenceSummary, DEFAULT_CONFIDENCE_THRESHOLD } = require(path.join(root, 'src/nfr-confidence'));
 const output = fs.mkdtempSync(path.join(os.tmpdir(), 'nfr-golden-regeneration-'));
 const base = 'password-reset-input';
 for (const overlay of ['neutral', 'pci-dss']) {
@@ -21,10 +22,14 @@ for (const overlay of ['neutral', 'pci-dss']) {
   const generation = generateCandidates(classifications, { overlay });
   assert(generation.candidates.every(c => Object.entries(c.bindings)
     .every(([name, value]) => value === `[NEEDS INPUT: ${name}]`)));
+  // #1111: mirrors what NFRGenerator.run() actually computes now (a real, non-null default
+  // threshold), since this script hand-builds the same `result` shape run() passes to
+  // formatNFRReport rather than calling run() itself.
+  const confidenceSummary = computeConfidenceSummary(generation.candidates, DEFAULT_CONFIDENCE_THRESHOLD);
   const report = new ReportGenerator().formatNFRReport({
     notice: 'NFR candidates generated; human input required for all unbound parameters.',
-    input, inputKind: 'ucs', classifications,
-    options: { provider: 'gemini', model: 'gemini-2.5-flash', attributes: [], confidenceThreshold: null, overlay },
+    input, inputKind: 'ucs', classifications, confidenceSummary,
+    options: { provider: 'gemini', model: 'gemini-2.5-flash', attributes: [], confidenceThreshold: DEFAULT_CONFIDENCE_THRESHOLD, overlay },
   }) + '\n' + formatCandidateReport(generation);
   const files = {
     [base + '-tests.json']: JSON.stringify(tests, null, 2),
