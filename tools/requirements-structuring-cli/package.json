@@ -13,7 +13,8 @@
     "test:quick": "node tests/test-runner.js --quick",
     "validate": "npm test && echo 'CLI validation complete'",
     "prepublishOnly": "npm test",
-    "validate:nfr-library": "node src/nfr-library.js"
+    "validate:nfr-library": "node src/nfr-library.js",
+    "eval:classification": "node scripts/eval-classification.js"
   },
   "keywords": [
     "requirements-engineering",
@@ -41,6 +42,7 @@
   },
   "files": [
     "src/**/*",
+    "scripts/**/*",
     "prompts/**/*",
     "schemas/**/*",
     "templates/**/*",
