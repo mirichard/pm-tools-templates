@@ -8,11 +8,15 @@ const assert = require('assert/strict');
 const fs = require('fs-extra');
 const os = require('os');
 const path = require('path');
+const { execFileSync } = require('child_process');
 const { generateCandidates, buildAcceptanceCriterion } = require('../src/nfr-candidates');
 const GherkinGenerator = require('../src/gherkin-generator');
+const NFRGenerator = require('../src/nfr-generator');
 const { writeNFRGherkinScenarios } = require('../src/nfr-generator');
+const { writeSafeOverwrite } = require('../src/nfr-output');
 const TestGenerator = require('../src/test-generator');
 const { UCSTemplate } = require('../src/ucs-template');
+const classificationFixture = require('./fixtures/nfr-classification.json');
 
 const root = path.resolve(__dirname, '..');
 const goldenDir = path.join(root, 'examples/fixtures/nfr-golden/neutral');
@@ -188,5 +192,69 @@ module.exports = async function testNFRAcceptanceScaffold(runner) {
     const thenRejected = feature.indexOf('Then the System rejects the new password', whenSubmit);
     assert.ok(givenInvalid > -1 && whenSubmit > givenInvalid && thenRejected > whenSubmit,
       '#1168: expected Given (deviation) → When (synthesized action) → Then (rejection) ordering for the invalid-password scenario');
+  });
+
+  await test('NFR acceptance scaffold: cycle-4 finding 1 — an untrusted .feature path that is a FIFO is rejected without hanging', async () => {
+    const temp = await fs.mkdtemp(path.join(os.tmpdir(), 'nfr-scaffold-fifo-'));
+    const fifoPath = path.join(temp, 'password-reset-input.feature');
+    try {
+      execFileSync('mkfifo', [fifoPath]);
+      const withTimeout = (promise, ms) => {
+        let timer;
+        const timeout = new Promise((_, reject) => {
+          timer = setTimeout(() => reject(new Error(`TIMEOUT: did not return within ${ms}ms — HUNG`)), ms);
+        });
+        return Promise.race([promise, timeout]).finally(() => clearTimeout(timer));
+      };
+      await assert.rejects(
+        withTimeout(writeNFRGherkinScenarios(temp, 'password-reset-input', generation.candidates, generation.useCaseId), 2000),
+        /Unsafe NFR output/,
+      );
+    } finally {
+      await fs.remove(temp);
+    }
+  });
+
+  await test('NFR acceptance scaffold: cycle-4 finding 2 — writeSafeOverwrite itself (not a prior check) rejects a pre-existing file without --force', async () => {
+    const temp = await fs.mkdtemp(path.join(os.tmpdir(), 'nfr-scaffold-toctou-'));
+    try {
+      const target = path.join(temp, 'password-reset-input-nfr.feature');
+      // No assertGenerationOutputAvailable call at all here -- proves the write's own O_EXCL
+      // is what rejects it, simulating a file created after a prior check would have passed.
+      await fs.writeFile(target, 'Feature: pre-existing manual edit\n');
+      await assert.rejects(
+        writeSafeOverwrite(target, 'Feature: fresh content\n', false),
+        /NFR output already exists/,
+      );
+      assert.equal(await fs.readFile(target, 'utf8'), 'Feature: pre-existing manual edit\n');
+      await writeSafeOverwrite(target, 'Feature: forced overwrite\n', true);
+      assert.equal(await fs.readFile(target, 'utf8'), 'Feature: forced overwrite\n');
+    } finally {
+      await fs.remove(temp);
+    }
+  });
+
+  await test('NFR acceptance scaffold: cycle-4 finding 3 — a non-force run rolls back its own writes on failure, leaving pre-existing files untouched', async () => {
+    const temp = await fs.mkdtemp(path.join(os.tmpdir(), 'nfr-scaffold-rollback-'));
+    try {
+      await fs.writeFile(path.join(temp, 'requirements-nfr.feature'), 'Feature: manually edited\n');
+      let callIndex = 0;
+      const stubLlm = {
+        provider: 'fixture', model: 'offline-model',
+        async loadPrompt(name) { return fs.readFile(path.join(root, 'prompts', name), 'utf8'); },
+        async chatJSON() { return JSON.parse(JSON.stringify(classificationFixture.responses[callIndex++])); },
+      };
+      await assert.rejects(
+        new NFRGenerator({ llm: stubLlm }).run(classificationFixture.input, { output: temp, force: false }),
+        /NFR output already exists/,
+      );
+      const remaining = (await fs.readdir(temp)).sort();
+      assert.deepEqual(remaining, ['requirements-nfr.feature'],
+        'report/classification/candidates written during the failed run must be rolled back');
+      assert.equal(await fs.readFile(path.join(temp, 'requirements-nfr.feature'), 'utf8'), 'Feature: manually edited\n',
+        'the pre-existing standalone .feature must be untouched');
+    } finally {
+      await fs.remove(temp);
+    }
   });
 };
