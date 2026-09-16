@@ -96,6 +96,14 @@ async function writeSafe(file, text, force = false) {
  * editor's unrelated change still survives, with this section landing after it. No
  * O_CREAT/O_EXCL/O_TRUNC: the caller has already confirmed the file exists (via
  * readSafeIfExists), and this primitive intentionally cannot create one.
+ *
+ * writeFile() is not failure-atomic: a mid-write error (e.g. ENOSPC) can leave a prefix of
+ * `section` appended -- possibly including `marker` itself, which would make a later run's own
+ * marker check believe a truncated section is already complete. On a write failure this
+ * function truncates the file back to the length observed just before the write, so a failed
+ * append never leaves that corrupt partial section behind (this run's own caller, in
+ * nfr-generator.js, doesn't roll this back either, since it modifies a pre-existing file rather
+ * than creating one -- recovery has to happen here).
  */
 async function appendSectionIfMissing(file, marker, section) {
   const validated = validateDocumentContent(section);
@@ -107,7 +115,12 @@ async function appendSectionIfMissing(file, marker, section) {
     if (!stat.isFile()) throw new Error(`Unsafe NFR output: ${file}`);
     const current = await handle.readFile('utf8');
     if (current.includes(marker)) return false;
-    await handle.writeFile(validated, 'utf8');
+    try {
+      await handle.writeFile(validated, 'utf8');
+    } catch (writeError) {
+      try { await handle.truncate(stat.size); } catch (_) { /* best-effort recovery */ }
+      throw writeError;
+    }
     return true;
   } catch (error) {
     throw translateOpenError(file, error);

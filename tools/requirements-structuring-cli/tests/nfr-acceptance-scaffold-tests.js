@@ -402,6 +402,37 @@ module.exports = async function testNFRAcceptanceScaffold(runner) {
     }
   });
 
+  await test('NFR safe-I/O review-round-3 — appendSectionIfMissing truncates back to the pre-write length if the append itself fails partway through', async () => {
+    const temp = await fs.mkdtemp(path.join(os.tmpdir(), 'nfr-safeio-append-partial-'));
+    try {
+      const file = path.join(temp, 'requirements.feature');
+      const original = 'Feature: original\n';
+      await fs.writeFile(file, original);
+      const nativeFs = require('fs');
+      const originalOpen = nativeFs.promises.open;
+      nativeFs.promises.open = async (...args) => {
+        const handle = await originalOpen(...args);
+        // Real open()/read() run for real -- only the write step is faked, simulating a
+        // mid-write failure (e.g. ENOSPC) that could otherwise leave a truncated, possibly
+        // marker-containing prefix of the section appended.
+        handle.writeFile = async () => { throw new Error('SIMULATED DISK FULL'); };
+        return handle;
+      };
+      try {
+        await assert.rejects(
+          appendSectionIfMissing(file, '# MARKER', '# MARKER\nsection\n'),
+          /SIMULATED DISK FULL/,
+        );
+      } finally {
+        nativeFs.promises.open = originalOpen;
+      }
+      assert.equal(await fs.readFile(file, 'utf8'), original,
+        'a failed append must leave the file at exactly its pre-write length and content, not a corrupt partial section');
+    } finally {
+      await fs.remove(temp);
+    }
+  });
+
   await test('NFR safe-I/O review-round-2 — writeSafe self-cleans a file it just created if the write itself fails partway through', async () => {
     const temp = await fs.mkdtemp(path.join(os.tmpdir(), 'nfr-safeio-partial-write-'));
     const target = path.join(temp, 'requirements-nfr-candidates.json');
@@ -436,7 +467,10 @@ module.exports = async function testNFRAcceptanceScaffold(runner) {
         });
         return Promise.race([promise, timeout]).finally(() => clearTimeout(timer));
       };
-      await assert.rejects(withTimeout(writeSafe(fifoPath, 'Feature: x\n', true), 2000));
+      // Must assert the actual rejection reason, not just "rejects" -- assert.rejects with no
+      // pattern would also pass if writeSafe hung and withTimeout's own TIMEOUT rejection fired
+      // instead, which would silently stop this test from guarding the FIFO regression it names.
+      await assert.rejects(withTimeout(writeSafe(fifoPath, 'Feature: x\n', true), 2000), /Unsafe NFR output/);
     } finally {
       await fs.remove(temp);
     }
