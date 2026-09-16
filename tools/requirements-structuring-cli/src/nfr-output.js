@@ -191,7 +191,11 @@ async function appendSectionIfMissing(file, marker, section) {
  * `write()` can complete with fewer bytes than requested even without throwing (POSIX permits a
  * short write for a regular file, though it is rare); checking `bytesWritten` against the
  * requested length turns that into a loud failure instead of a silently truncated `.feature`
- * that a later run's marker check might still (wrongly) treat as complete.
+ * that a later run's marker check might still (wrongly) treat as complete. And, symmetric with
+ * appendSectionIfMissing's own recovery: if the truncate succeeds but the write then fails or is
+ * short, this function restores the exact original bytes it just truncated away (captured before
+ * truncating) rather than leaving the file mid-rebuild -- a failed rebuild must leave the file
+ * exactly as it was, not truncated or partially rewritten.
  */
 async function rebuildSectionSafe(file, marker, section) {
   const validated = validateDocumentContent(section);
@@ -207,11 +211,20 @@ async function rebuildSectionSafe(file, marker, section) {
     }
     const prefix = current.slice(0, markerIndex).replace(/\n+$/, '');
     const prefixBytes = Buffer.byteLength(prefix, 'utf8');
+    const originalSuffix = Buffer.from(current, 'utf8').subarray(prefixBytes);
     await handle.truncate(prefixBytes);
     const sectionBytes = Buffer.from(validated, 'utf8');
-    const { bytesWritten } = await handle.write(sectionBytes, 0, sectionBytes.length, prefixBytes);
-    if (bytesWritten !== sectionBytes.length) {
-      throw new Error(`Incomplete write to NFR output: ${file} (wrote ${bytesWritten} of ${sectionBytes.length} bytes).`);
+    try {
+      const { bytesWritten } = await handle.write(sectionBytes, 0, sectionBytes.length, prefixBytes);
+      if (bytesWritten !== sectionBytes.length) {
+        throw new Error(`Incomplete write to NFR output: ${file} (wrote ${bytesWritten} of ${sectionBytes.length} bytes).`);
+      }
+    } catch (writeError) {
+      try {
+        await handle.truncate(prefixBytes);
+        await handle.write(originalSuffix, 0, originalSuffix.length, prefixBytes);
+      } catch (_) { /* best-effort recovery */ }
+      throw writeError;
     }
   } catch (error) {
     throw translateOpenError(file, error);
