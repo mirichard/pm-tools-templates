@@ -8,7 +8,8 @@ mechanism is introduced. Humans edit the report today.
 
 Generation uses deterministic template substitution, with renderer version 1.0.0;
 no generation LLM call or prompt is necessary. Classification still uses the
-existing provider. No #1110 integration or #1111 review gate is implemented.
+existing provider. #1110 integration (below) is implemented; #1111's review
+gate is not.
 
 ## Selection, rendering and evidence
 
@@ -32,29 +33,84 @@ proof of testability until humans fill and approve its placeholders.
 
 ## Output and re-run policy
 
-Both entry points append candidate sections to `<base>-nfr-report.md` in `-o`.
-The existing `<base>-nfr-classifications.json` handoff remains unchanged.
-Generation makes no provider call; classification still requires credentials.
-Rendering the same classification/library/overlay produces identical candidates.
-A fresh classification can vary with the provider; rendering determinism does not
-claim otherwise.
+`NFRGenerator.run` writes four artifacts into `-o`: `<base>-nfr-report.md`
+(prose report), `<base>-nfr-classifications.json` (the classifier's raw
+handoff, unchanged), `<base>-nfr-candidates.json` (the full `generation`
+object returned by `generateCandidates` — renderer metadata and coverage
+summary alongside the `candidates` array, each with its `acceptanceCriterion`
+scaffold — see below), and either an appended NFR section in the pipeline's
+own `<base>.feature` or, if that file doesn't exist, a standalone
+`<base>-nfr.feature`. Generation makes no provider call; classification still
+requires credentials. Rendering the same classification/library/overlay
+produces identical candidates. A fresh classification can vary with the
+provider; rendering determinism does not claim otherwise.
 
-Before classification, existing NFR report or classification output blocks the
-run. Copy/archive manual edits or use standalone `generate-nfr --force` to replace
-them deliberately. No binding file, binding flag or interactive binding prompt
-is added. The pipeline has no force flag: use a fresh output directory to retain
+Before classification, existing NFR report, classification, candidates, or
+(for the standalone-`.feature` case) Gherkin output blocks the run. Copy/archive
+manual edits or use standalone `generate-nfr --force` to replace them
+deliberately. No binding file, binding flag or interactive binding prompt is
+added. The pipeline has no force flag: use a fresh output directory to retain
 previous outputs. Earlier pipeline stages retain their existing behavior.
-Exclusive report creation protects against concurrent non-force runs, and links
-or non-regular output files are rejected. Output of the report and classification
-JSON is not a multi-file transaction: a later disk-write error can leave a report;
-a subsequent run will block on it instead of silently overwriting it.
+
+All four outputs share one safe-I/O layer (`src/nfr-output.js`): every write
+opens the target with `O_NOFOLLOW` (refuses a symlinked destination) and
+`O_NONBLOCK` plus a post-open regular-file check (refuses a FIFO or other
+non-regular target rather than hanging or writing through it), and uses
+`O_EXCL` (atomic create-or-fail) on a non-force run or `O_TRUNC` on a force
+run. The existence/type guarantee and the write both act on the same
+already-open file descriptor, with no path relookup in between — not one
+single syscall, but no window between a separate check and a later write for
+anything to change the target in. The two exceptions are the base
+`<base>.feature` append and rebuild branches: `appendSectionIfMissing`
+re-checks the section marker on its own freshly-opened descriptor immediately
+before an `O_APPEND` write (never re-truncating the file from content read
+moments earlier — a concurrent edit to the rest of the file survives), and
+`rebuildSectionSafe` (the force+marker-present branch) similarly re-reads and
+re-finds the marker on its own descriptor before truncating and rewriting,
+rather than reusing a prefix computed from an earlier read. Neither makes the
+read-decide-write sequence atomic across two genuinely concurrent process
+invocations of this tool — that would need an inter-process lock, which this
+redesign deliberately doesn't add (a stale lock left by a crashed process
+would block every future run against that output directory, a worse
+day-to-day failure mode than the narrow benign-race residual it would close;
+a final-component symlink or FIFO planted by an attacker is refused
+regardless of this residual — see the Residuals list below for what is and
+isn't covered). A failed non-force run rolls back exactly the
+outputs it created — identified by the device/inode `writeSafe` captured at
+write time, not by path, so a file another process put at one of those paths
+afterward is not collaterally deleted in the common case — leaving
+pre-existing files (report, classifications, candidates, or the standalone
+`.feature`) untouched. A partial write (e.g. `ENOSPC`) is recovered from at
+the point of failure: `writeSafe` removes a file it just created before
+rethrowing, and `appendSectionIfMissing`/`rebuildSectionSafe` truncate back
+to the pre-write length, so a failed write never leaves corrupt partial
+content — including a truncated section that could fool a later run's own
+marker check — behind.
+
+Residuals this layer does not fully close, documented rather than hidden:
+`O_NOFOLLOW` governs only a path's final component, so an ancestor directory
+swapped for a symlink between path construction and the write is still
+followed (narrowed, not eliminated, by re-deriving each path immediately
+before its write); the rollback's own identity check is a
+lstat()-then-unlink() pair, not a single atomic operation, so a same-path
+replacement that happens to reuse the original file's exact device+inode
+within that pair would still be removed; and, as above, two genuinely
+concurrent invocations of this tool against the same output directory can
+still both pass a marker check before either writes. The first two would
+need directory-fd/openat or compare-and-unlink primitives Node's `fs` module
+does not expose portably; the third is an accepted tradeoff, not a missing
+primitive.
 
 ## Follow-up extension seams
 
-#1110: consume `result.generation.candidates` after `generateCandidates` in
-`NFRGenerator.run`. Each candidate exposes `metric`, `unboundParameters`, source
-identity and provenance. Add metric scaffolding/Gherkin integration there only
-in that story; current code merely carries existing pattern metadata.
+#1110 (implemented): `NFRGenerator.run` consumes `result.generation.candidates`
+after `generateCandidates`. Each candidate carries `metric`,
+`acceptanceCriterion` (`{kind: 'quantifiable', metric, unit, operator,
+threshold, measurement}` or `{kind: 'qualitative', criterion}`),
+`unboundParameters`, source identity and provenance. `src/gherkin-generator.js`
+renders the quantifiable candidates as `Scenario Outline` + `Examples` and the
+qualitative ones as a plain `Scenario`/`Then`, wired into `.feature` output as
+described above.
 
 #1111: insert the confidence/review decision stage after generation and before
 report writing. Stable candidate IDs combine use-case ID, source pointer and

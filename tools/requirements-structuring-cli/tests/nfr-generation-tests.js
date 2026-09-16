@@ -7,7 +7,7 @@ const { NFRClassifier } = require('../src/nfr-classifier');
 const { loadNFRLibrary } = require('../src/nfr-library');
 const { matchingPatterns, generateCandidates } = require('../src/nfr-candidates');
 const { formatCandidateReport } = require('../src/nfr-candidate-report');
-const { assertGenerationOutputAvailable, writeGenerationReport } = require('../src/nfr-output');
+const { assertGenerationOutputAvailable, writeSafe } = require('../src/nfr-output');
 const NFRGenerator = require('../src/nfr-generator');
 const fixture = require('./fixtures/nfr-classification.json');
 
@@ -109,8 +109,8 @@ module.exports = async function(runner) {
       await assert.rejects(new NFRGenerator({llm}).run(fixture.input,{output}), /already exists/);
     });
     await test('exclusive report writes and symlink refusal protect existing files', async () => {
-      const file=path.join(temp,'exclusive.md');await writeGenerationReport(file,'first');
-      await assert.rejects(writeGenerationReport(file,'second'),/already exists/);
+      const file=path.join(temp,'exclusive.md');await writeSafe(file,'first');
+      await assert.rejects(writeSafe(file,'second'),/already exists/);
       const link=path.join(temp,'link.md');await fs.symlink(file,link);
       assert.throws(()=>assertGenerationOutputAvailable(link,true),/Unsafe/);
       assert.strictEqual(await fs.readFile(file,'utf8'),'first');
