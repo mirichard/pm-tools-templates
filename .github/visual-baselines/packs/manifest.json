@@ -1,28 +1,22 @@
 {
-  "schema_version": 1,
-  "generated_at": "2026-09-14T16:44:55.209152+00:00",
-  "source_workflow_run": 34869545373,
-  "source_commit": "a25a7d7700959a11115460204e5c42c34cffa470",
-  "format": "webp",
-  "width": 256,
-  "maximum_dimension": 16383,
-  "quality": 85,
-  "method": 4,
-  "total_screenshots": 16,
+  "source_run": "34905813387",
+  "source_commit": "4dc6b95c078fd2546106569a5c4508733f5fb164",
+  "preserved_baseline_commit": "354bdbea38393e5befa0a5bd1e699f32df3399eb",
+  "total_screenshots": 18,
   "packs": [
     {
       "file": "chromium-desktop-shard-0.zip",
       "browser_resolution": "chromium_desktop",
-      "screenshots": 8,
-      "bytes": 39736,
-      "sha256": "679205a7db9345ddfc2d681d8bfb4d6a5bd91f44aadbad67bd81f930b3cf4bae"
+      "screenshots": 9,
+      "bytes": 48500,
+      "sha256": "eff4cb274e9e373ec5680e48ecab4559cf916225d04ce476b77e203fd7bbac02"
     },
     {
       "file": "chromium-mobile-shard-0.zip",
       "browser_resolution": "chromium_mobile",
-      "screenshots": 8,
-      "bytes": 301606,
-      "sha256": "47f0cbb0345e733254ae09ffc5bc56c4b6b12f2176c576779cecaef6e2345923"
+      "screenshots": 9,
+      "bytes": 379818,
+      "sha256": "71a33ee7ff3a69486a1c4acc4575f28d98331ef6450e4b542806713ddc4768c1"
     }
   ]
 }
