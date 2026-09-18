@@ -1,7 +1,7 @@
 # PM Tools Templates - Project Health Dashboard
 
-**Last Updated:** Fri Sep 18 19:51:45 UTC 2026  
-**Project Health:** 🟢 excellent  
+**Last Updated:** Fri Sep 18 20:40:04 UTC 2026  
+**Project Health:** 🟠 fair  
 **Overall Progress:** 100%
 
 ---
@@ -10,10 +10,10 @@
 
 | 🎯 Key Metric | Value | Trend | Status |
 |---------------|-------|-------|--------|
-| **Project Completion** | 100% | 📈 Positive | 🟢 |
+| **Project Completion** | 100% | 📈 Positive | 🟠 |
 | **Strategic Progress** | 60% | 📈 On Track | 🟢 |
 | **Weekly Velocity** | 25 issues/week | 📈 Strong | 🟢 |
-| **Risk Score** | 0 points | 📉 Decreasing | 🟢 |
+| **Risk Score** | 200 points | 📈 Elevated | 🔴 |
 
 ## 📈 Progress Overview
 
@@ -24,9 +24,9 @@
 - **Completion Rate:** 100%
 
 ### Recent Activity (Last 7 Days)
-- **Issues Opened:** 4
+- **Issues Opened:** 12
 - **Issues Closed:** 25
-- **Net Progress:** 21 issues
+- **Net Progress:** 13 issues
 
 ## 🎯 Strategic Roadmap Progress
 
@@ -41,17 +41,17 @@
 ## ⚠️ Risk Assessment
 
 ### Current Risk Factors
-- **Critical Issues:** 0 (25 points each)
+- **Critical Issues:** 8 (25 points each)
 - **High Priority Issues:** 0 (15 points each)
 - **Open Bugs:** 0 (5 points each)
-- **Total Risk Score:** 0 points
+- **Total Risk Score:** 200 points
 
-### Risk Level: 🟢 LOW
-🟡 MEDIUM
+### Risk Level: 🔴 HIGH
 
-**🟢 LOW RISK:** Continue current approach
-- Maintain regular monitoring
-- Focus on maintaining velocity
+**⚠️ HIGH RISK ALERT:** Immediate attention required!
+- Schedule risk mitigation meeting
+- Review critical issues and assign owners
+- Consider additional resource allocation
 
 ## 📊 Issue Type Breakdown
 
@@ -59,7 +59,7 @@
 |------|-------|------------|
 | Enhancement | 28 | 93% |
 | Bug | 0 | 0% |
-| Critical | 0 | 0% |
+| Critical | 8 | 26% |
 | High Priority | 0 | 0% |
 
 ## 🎯 Performance Indicators
@@ -71,21 +71,29 @@
 
 ### Quality Metrics
 - **Bug Rate:** 0% of open issues
-- **Critical Issue Rate:** 0% of open issues
+- **Critical Issue Rate:** 26% of open issues
 
 ## 📅 Upcoming Focus Areas
 
 ### High Priority Items (Next 7 Days)
 
 ### Critical Path Items
+- 🚨 #1201: 🚨 Workflow Health Alert: critical (Score: 48.74/100)
+- 🚨 #1202: 🚨 Workflow Health Alert: critical (Score: 49.13/100)
+- 🚨 #1199: 🚨 Workflow Health Alert: critical (Score: 49.02/100)
+- 🚨 #1200: 🚨 Workflow Health Alert: critical (Score: 49.54/100)
+- 🚨 #1195: 🚨 Workflow Health Alert: critical (Score: 48.99/100)
+- 🚨 #1196: 🚨 Workflow Health Alert: critical (Score: 49.29/100)
+- 🚨 #1197: 🚨 Workflow Health Alert: critical (Score: 49.54/100)
+- 🚨 #1198: 🚨 Workflow Health Alert: critical (Score: 49.13/100)
 
 ---
 
 ## 📊 Dashboard Information
 
 - **Auto-generated:** Every 6 hours
-- **Last Update:** Fri Sep 18 19:51:46 UTC 2026
-- **Next Update:** 01:51 UTC
+- **Last Update:** Fri Sep 18 20:40:07 UTC 2026
+- **Next Update:** 02:40 UTC
 - **Data Source:** GitHub Issues API
 - **Methodology:** Automated metric collection and analysis
 
