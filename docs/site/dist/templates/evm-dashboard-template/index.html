@@ -1,0 +1,367 @@
+<!DOCTYPE html><html lang="en" data-astro-cid-ju4pidww><head><meta charset="UTF-8"><meta name="description" content="Advanced template browser with previews and version history"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="icon" type="image/svg+xml" href="/pm-tools-templates/favicon.svg"><title>Evm Dashboard Template</title><link rel="stylesheet" href="/pm-tools-templates/assets/Layout.ChXqTIwx.css"></head><body data-astro-cid-ju4pidww><main data-astro-cid-ju4pidww><style>astro-island,astro-slot,astro-static-slot{display:contents}</style><script>(()=>{var e=async t=>{await(await t())()};(self.Astro||(self.Astro={})).load=e;window.dispatchEvent(new Event("astro:load"));})();</script><script>(()=>{var g=Object.defineProperty;var w=(a,s,c)=>s in a?g(a,s,{enumerable:!0,configurable:!0,writable:!0,value:c}):a[s]=c;var l=(a,s,c)=>w(a,typeof s!="symbol"?s+"":s,c);var E=new Set(["__proto__","constructor","prototype"]);{let a={0:t=>y(t),1:t=>c(t),2:t=>new RegExp(t),3:t=>new Date(t),4:t=>new Map(c(t)),5:t=>new Set(c(t)),6:t=>BigInt(t),7:t=>new URL(t),8:t=>new Uint8Array(t),9:t=>new Uint16Array(t),10:t=>new Uint32Array(t),11:t=>Number.POSITIVE_INFINITY*t},s=t=>{let[p,e]=t;return p in a?a[p](e):void 0},c=t=>t.map(s),y=t=>typeof t!="object"||t===null?t:Object.fromEntries(Object.entries(t).map(([p,e])=>[p,s(e)]));class f extends HTMLElement{constructor(){super(...arguments);l(this,"Component");l(this,"hydrator");l(this,"hydrate",async()=>{var b;if(!this.hydrator||!this.isConnected)return;let e=(b=this.parentElement)==null?void 0:b.closest("astro-island[ssr]");if(e){e.addEventListener("astro:hydrate",this.hydrate,{once:!0});return}let r=this.querySelectorAll("astro-slot"),n={},d=this.querySelectorAll("template[data-astro-template]");for(let o of d){let i=o.closest(this.tagName);i!=null&&i.isSameNode(this)&&(n[o.getAttribute("data-astro-template")||"default"]=o.innerHTML,o.remove())}for(let o of r){let i=o.closest(this.tagName);i!=null&&i.isSameNode(this)&&(n[o.getAttribute("name")||"default"]=o.innerHTML)}let u;try{u=this.hasAttribute("props")?y(JSON.parse(this.getAttribute("props"))):{}}catch(o){let i=this.getAttribute("component-url")||"<unknown>",v=this.getAttribute("component-export");throw v&&(i+=` (export ${v})`),console.error(`[hydrate] Error parsing props for component ${i}`,this.getAttribute("props"),o),o}let h;await this.hydrator(this)(this.Component,u,n,{client:this.getAttribute("client")}),this.removeAttribute("ssr"),this.dispatchEvent(new CustomEvent("astro:hydrate"))});l(this,"unmount",()=>{this.isConnected||this.dispatchEvent(new CustomEvent("astro:unmount"))})}disconnectedCallback(){document.removeEventListener("astro:after-swap",this.unmount),document.addEventListener("astro:after-swap",this.unmount,{once:!0})}connectedCallback(){if(!this.hasAttribute("await-children")||document.readyState==="interactive"||document.readyState==="complete")this.childrenConnectedCallback();else{let e=()=>{document.removeEventListener("DOMContentLoaded",e),r.disconnect(),this.childrenConnectedCallback()},r=new MutationObserver(()=>{var n;((n=this.lastChild)==null?void 0:n.nodeType)===Node.COMMENT_NODE&&this.lastChild.nodeValue==="astro:end"&&(this.lastChild.remove(),e())});r.observe(this,{childList:!0}),document.addEventListener("DOMContentLoaded",e)}}async childrenConnectedCallback(){let e=this.getAttribute("before-hydration-url");e&&await import(e),this.start()}getRetryImportUrl(e){let r=new URL(e,document.baseURI);return r.searchParams.set("astro-retry",Date.now().toString()),r.toString()}async importWithRetry(e){try{return await import(e)}catch(r){return await new Promise(n=>setTimeout(n,1e3)),import(this.getRetryImportUrl(e))}}handleHydrationError(e){let r=this.getAttribute("component-url"),n=new CustomEvent("astro:hydration-error",{cancelable:!0,bubbles:!0,composed:!0,detail:{error:e,componentUrl:r}});this.dispatchEvent(n)&&console.error(`[astro-island] Error hydrating ${r}`,e)}async start(){let e=JSON.parse(this.getAttribute("opts")),r=this.getAttribute("client");if(Astro[r]===void 0){window.addEventListener(`astro:${r}`,()=>this.start(),{once:!0});return}try{await Astro[r](async()=>{let n=this.getAttribute("renderer-url");try{let[d,{default:u}]=await Promise.all([this.importWithRetry(this.getAttribute("component-url")),n?this.importWithRetry(n):Promise.resolve({default:()=>()=>{}})]),h=this.getAttribute("component-export")||"default";if(h.includes(".")){this.Component=d;for(let m of h.split(".")){if(E.has(m)||!this.Component||typeof this.Component!="object"&&typeof this.Component!="function"||!Object.hasOwn(this.Component,m))throw new Error(`Invalid component export path: ${h}`);this.Component=this.Component[m]}}else{if(E.has(h))throw new Error(`Invalid component export path: ${h}`);this.Component=d[h]}return this.hydrator=u,this.hydrate}catch(d){return this.handleHydrationError(d),()=>{}}},e,this)}catch(n){this.handleHydrationError(n)}}attributeChangedCallback(){this.hydrate()}}l(f,"observedAttributes",["props"]),customElements.get("astro-island")||customElements.define("astro-island",f)}})();</script><astro-island uid="1aR6pX" prefix="r1" component-url="/pm-tools-templates/assets/TemplateViewer.BJxWH0dD.js" component-export="default" renderer-url="/pm-tools-templates/assets/client.REQV_TkY.js" props="{&quot;templateId&quot;:[0,&quot;evm-dashboard-template&quot;],&quot;filePath&quot;:[0,&quot;domains/stakeholder/business-stakeholder-suite/financial-governance/enhanced-business-cases/evm-dashboard-template.md&quot;],&quot;title&quot;:[0,&quot;Evm Dashboard Template&quot;],&quot;content&quot;:[0,&quot;---\ntitle: Evm Dashboard Template\nmethodology: universal\ncomplexity: advanced\nowner: mirichard\nupdated: &#39;2025-08-05&#39;\nprimary_principles:\n- value-focus\n- evidence-based-decisions\nsecondary_principles:\n- stewardship\n- risk-optimization\nprinciple_rationale: Makes earned value performance and project exposure visible for\n  investment decisions.\n---\n\n# Earned Value Management (EVM) Dashboard Template\n\n**Professional EVM tracking with advanced performance analytics and executive reporting**\n\n**Project Name:** [Project Name]  \n**Report Period:** [Start Date] - [End Date]  \n**Report Date:** [Current Date]  \n**Prepared By:** [Project Manager]  \n**Status Date:** [Data as of Date]\n\n---\n\n## Executive Summary Dashboard\n\n### Project Health Overview\n| Metric | Current Value | Status | Trend | Target |\n|--------|---------------|--------|-------|--------|\n| **Schedule Performance Index (SPI)** | [0.XX] | 🔴🟡🟢 | ↗️➡️↘️ | ≥ 0.95 |\n| **Cost Performance Index (CPI)** | [0.XX] | 🔴🟡🟢 | ↗️➡️↘️ | ≥ 0.95 |\n| **Budget at Completion (BAC)** | $[Amount] | - | - | - |\n| **Estimate at Completion (EAC)** | $[Amount] | 🔴🟡🟢 | ↗️➡️↘️ | ≤ BAC |\n| **% Complete (Physical)** | [XX%] | - | ↗️ | [Target%] |\n| **% Schedule Complete** | [XX%] | - | ↗️ | [Target%] |\n\n### Performance Status\n- **Overall Project Health:** 🔴 **Critical** / 🟡 **At Risk** / 🟢 **On Track**\n- **Schedule Status:** [Days ahead/behind schedule]\n- **Budget Status:** [Amount over/under budget]\n- **Quality Status:** [Quality score/issues]\n\n---\n\n## Core EVM Metrics\n\n### Primary EVM Values\n| Metric | Symbol | Value | Definition |\n|--------|--------|-------|------------|\n| **Planned Value** | PV | $[Amount] | Budgeted cost of work scheduled |\n| **Earned Value** | EV | $[Amount] | Budgeted cost of work performed |\n| **Actual Cost** | AC | $[Amount] | Actual cost of work performed |\n| **Budget at Completion** | BAC | $[Amount] | Total project budget |\n\n### Performance Indices\n| Index | Formula | Current Value | Status | Interpretation |\n|-------|---------|---------------|--------|----------------|\n| **Schedule Performance Index** | EV ÷ PV | [0.XX] | 🔴🟡🟢 | \\u003c0.95: Behind, ≥0.95: On track |\n| **Cost Performance Index** | EV ÷ AC | [0.XX] | 🔴🟡🟢 | \\u003c0.95: Over budget, ≥0.95: On budget |\n| **Schedule Compliance Index** | SPI × SCI | [0.XX] | 🔴🟡🟢 | Combined schedule performance |\n| **To Complete Performance Index** | (BAC - EV) ÷ (BAC - AC) | [0.XX] | 🔴🟡🟢 | Required efficiency for remaining work |\n\n### Variance Analysis\n| Variance | Formula | Current Value | Status | Impact |\n|----------|---------|---------------|--------|--------|\n| **Schedule Variance** | EV - PV | $[Amount] | 🔴🟡🟢 | Negative = behind schedule |\n| **Cost Variance** | EV - AC | $[Amount] | 🔴🟡🟢 | Negative = over budget |\n| **Variance at Completion** | BAC - EAC | $[Amount] | 🔴🟡🟢 | Expected final variance |\n\n---\n\n## Forecasting and Projections\n\n### Estimate at Completion (EAC) Analysis\n| EAC Method | Formula | Value | Use Case |\n|------------|---------|-------|----------|\n| **Current Performance Continues** | AC + ((BAC - EV) ÷ CPI) | $[Amount] | Current cost trends continue |\n| **Schedule Impact Included** | AC + ((BAC - EV) ÷ (CPI × SPI)) | $[Amount] | Both cost and schedule issues |\n| **Bottom-Up Re-estimate** | AC + Remaining Work Estimate | $[Amount] | New detailed estimate |\n| **Management Forecast** | AC + Management ETC | $[Amount] | Management judgment |\n\n### Completion Projections\n| Projection | Current Estimate | Original Plan | Variance |\n|------------|------------------|---------------|----------|\n| **Estimated Completion Date** | [Date] | [Date] | [Days early/late] |\n| **Estimated Final Cost** | $[Amount] | $[Amount] | $[Over/Under budget] |\n| **Time to Complete** | [Days/Weeks] | [Days/Weeks] | [Variance] |\n\n### Performance Trend Analysis\n**13-Week Performance Trend:**\n```\nWeek:  1   2   3   4   5   6   7   8   9  10  11  12  13\nSPI: [X.XX][X.XX][X.XX][X.XX][X.XX][X.XX][X.XX][X.XX][X.XX][X.XX][X.XX][X.XX][X.XX]\nCPI: [X.XX][X.XX][X.XX][X.XX][X.XX][X.XX][X.XX][X.XX][X.XX][X.XX][X.XX][X.XX][X.XX]\n```\n\n---\n\n## Detailed Performance Analysis\n\n### Work Breakdown Structure (WBS) Performance\n| WBS Element | % Complete | PV | EV | AC | SPI | CPI | Status |\n|-------------|------------|----|----|----|----|-----|--------|\n| [WBS 1.0] | [XX%] | $[Amount] | $[Amount] | $[Amount] | [X.XX] | [X.XX] | 🔴🟡🟢 |\n| [WBS 2.0] | [XX%] | $[Amount] | $[Amount] | $[Amount] | [X.XX] | [X.XX] | 🔴🟡🟢 |\n| [WBS 3.0] | [XX%] | $[Amount] | $[Amount] | $[Amount] | [X.XX] | [X.XX] | 🔴🟡🟢 |\n| [WBS 4.0] | [XX%] | $[Amount] | $[Amount] | $[Amount] | [X.XX] | [X.XX] | 🔴🟡🟢 |\n| **TOTAL** | **[XX%]** | **$[Amount]** | **$[Amount]** | **$[Amount]** | **[X.XX]** | **[X.XX]** | **🔴🟡🟢** |\n\n### Control Account Performance\n| Control Account | Manager | Budget | EV | AC | CV | SV | Issues |\n|-----------------|---------|--------|----|----|----|----|--------|\n| [Account 1] | [Name] | $[Amount] | $[Amount] | $[Amount] | $[Amount] | $[Amount] | [Status] |\n| [Account 2] | [Name] | $[Amount] | $[Amount] | $[Amount] | $[Amount] | $[Amount] | [Status] |\n| [Account 3] | [Name] | $[Amount] | $[Amount] | $[Amount] | $[Amount] | $[Amount] | [Status] |\n\n### Milestone Performance\n| Milestone | Planned Date | Forecast Date | Variance | EV | Status |\n|-----------|--------------|---------------|----------|----| -------|\n| [Milestone 1] | [Date] | [Date] | [Days] | $[Amount] | ✅❌⏳ |\n| [Milestone 2] | [Date] | [Date] | [Days] | $[Amount] | ✅❌⏳ |\n| [Milestone 3] | [Date] | [Date] | [Days] | $[Amount] | ✅❌⏳ |\n\n---\n\n## Risk and Issue Impact Analysis\n\n### Performance Risks\n| Risk | Impact on EVM | Probability | Cost Impact | Schedule Impact | Mitigation |\n|------|---------------|-------------|-------------|-----------------|------------|\n| [Risk 1] | [SPI/CPI impact] | [H/M/L] | $[Amount] | [Days] | [Action] |\n| [Risk 2] | [SPI/CPI impact] | [H/M/L] | $[Amount] | [Days] | [Action] |\n| [Risk 3] | [SPI/CPI impact] | [H/M/L] | $[Amount] | [Days] | [Action] |\n\n### Current Issues Affecting Performance\n| Issue | Impact on EVM | Resolution Target | Cost Impact | Owner |\n|-------|---------------|-------------------|-------------|-------|\n| [Issue 1] | [Description] | [Date] | $[Amount] | [Name] |\n| [Issue 2] | [Description] | [Date] | $[Amount] | [Name] |\n| [Issue 3] | [Description] | [Date] | $[Amount] | [Name] |\n\n### Performance Improvement Actions\n| Action | Expected SPI Impact | Expected CPI Impact | Target Date | Owner | Status |\n|--------|---------------------|---------------------|-------------|-------|--------|\n| [Action 1] | [+/-X.XX] | [+/-X.XX] | [Date] | [Name] | [Status] |\n| [Action 2] | [+/-X.XX] | [+/-X.XX] | [Date] | [Name] | [Status] |\n| [Action 3] | [+/-X.XX] | [+/-X.XX] | [Date] | [Name] | [Status] |\n\n---\n\n## Financial Analysis and Cash Flow\n\n### Budget Utilization\n| Category | Budget | Actual | Committed | Available | % Utilized |\n|----------|--------|--------|-----------|-----------|------------|\n| **Labor** | $[Amount] | $[Amount] | $[Amount] | $[Amount] | [XX%] |\n| **Materials** | $[Amount] | $[Amount] | $[Amount] | $[Amount] | [XX%] |\n| **Equipment** | $[Amount] | $[Amount] | $[Amount] | $[Amount] | [XX%] |\n| **Subcontractors** | $[Amount] | $[Amount] | $[Amount] | $[Amount] | [XX%] |\n| **Other Direct** | $[Amount] | $[Amount] | $[Amount] | $[Amount] | [XX%] |\n| **Indirect** | $[Amount] | $[Amount] | $[Amount] | $[Amount] | [XX%] |\n| **TOTAL** | **$[Amount]** | **$[Amount]** | **$[Amount]** | **$[Amount]** | **[XX%]** |\n\n### Cash Flow Analysis\n| Month | Planned Cash Flow | Actual Cash Flow | Variance | Cumulative Variance |\n|-------|-------------------|------------------|----------|---------------------|\n| [Month 1] | $[Amount] | $[Amount] | $[Amount] | $[Amount] |\n| [Month 2] | $[Amount] | $[Amount] | $[Amount] | $[Amount] |\n| [Month 3] | $[Amount] | $[Amount] | $[Amount] | $[Amount] |\n| [Current Month] | **$[Amount]** | **$[Amount]** | **$[Amount]** | **$[Amount]** |\n\n### Funding Requirements\n| Period | Required Funding | Approved Funding | Funding Gap | Status |\n|--------|------------------|------------------|-------------|--------|\n| **Current Quarter** | $[Amount] | $[Amount] | $[Amount] | 🔴🟡🟢 |\n| **Next Quarter** | $[Amount] | $[Amount] | $[Amount] | 🔴🟡🟢 |\n| **Remaining Project** | $[Amount] | $[Amount] | $[Amount] | 🔴🟡🟢 |\n\n---\n\n## Performance Alerts and Thresholds\n\n### Automated Alert Status\n| Alert Type | Threshold | Current Value | Status | Last Triggered |\n|------------|-----------|---------------|--------|----------------|\n| **SPI Below Threshold** | \\u003c 0.95 | [X.XX] | 🔴🟡🟢 | [Date/Never] |\n| **CPI Below Threshold** | \\u003c 0.95 | [X.XX] | 🔴🟡🟢 | [Date/Never] |\n| **EAC Exceeds BAC** | \\u003e BAC | $[Amount] | 🔴🟡🟢 | [Date/Never] |\n| **Critical Path Delay** | \\u003e 5 days | [X days] | 🔴🟡🟢 | [Date/Never] |\n| **Budget Variance** | \\u003e 10% | [XX%] | 🔴🟡🟢 | [Date/Never] |\n\n### Management Attention Required\n- **🔴 Critical Issues:** [Count] items requiring immediate executive attention\n- **🟡 Warnings:** [Count] items requiring management review\n- **🟢 Information:** [Count] items for awareness only\n\n---\n\n## Corrective Action Planning\n\n### Current Performance Issues\n**Schedule Performance (SPI = [X.XX]):**\n- Root Cause: [Analysis of why schedule performance is off]\n- Impact: [Description of schedule impact]\n- Corrective Actions: [Planned actions to improve SPI]\n\n**Cost Performance (CPI = [X.XX]):**\n- Root Cause: [Analysis of why cost performance is off]\n- Impact: [Description of cost impact]\n- Corrective Actions: [Planned actions to improve CPI]\n\n### Recovery Plan\n| Recovery Action | Impact on SPI | Impact on CPI | Cost | Timeline | Owner |\n|-----------------|---------------|---------------|------|----------|-------|\n| [Action 1] | [+X.XX] | [+X.XX] | $[Amount] | [Duration] | [Name] |\n| [Action 2] | [+X.XX] | [+X.XX] | $[Amount] | [Duration] | [Name] |\n| [Action 3] | [+X.XX] | [+X.XX] | $[Amount] | [Duration] | [Name] |\n\n### Performance Targets\n| Metric | Current | 30-Day Target | 60-Day Target | 90-Day Target |\n|--------|---------|---------------|---------------|---------------|\n| **SPI** | [X.XX] | [X.XX] | [X.XX] | [X.XX] |\n| **CPI** | [X.XX] | [X.XX] | [X.XX] | [X.XX] |\n| **EAC** | $[Amount] | $[Amount] | $[Amount] | $[Amount] |\n\n---\n\n## Stakeholder Communication\n\n### Executive Summary for Leadership\n**Key Messages:**\n- [Key message 1 about project performance]\n- [Key message 2 about risks or issues]\n- [Key message 3 about required decisions]\n\n**Decisions Required:**\n1. [Decision 1] - [Urgency level] - [Decision needed by date]\n2. [Decision 2] - [Urgency level] - [Decision needed by date]\n3. [Decision 3] - [Urgency level] - [Decision needed by date]\n\n### Team Communication\n**Performance Highlights:**\n- [Positive performance area 1]\n- [Positive performance area 2]\n- [Area needing improvement]\n\n**Action Items for Team:**\n1. [Action item 1] - [Owner] - [Due date]\n2. [Action item 2] - [Owner] - [Due date]\n3. [Action item 3] - [Owner] - [Due date]\n\n---\n\n## Quality and Scope Management\n\n### Scope Performance\n| Scope Element | % Complete | Quality Score | Issues | Forecast |\n|---------------|------------|---------------|--------|----------|\n| [Scope 1] | [XX%] | [Score]/10 | [Count] | [On track/At risk] |\n| [Scope 2] | [XX%] | [Score]/10 | [Count] | [On track/At risk] |\n| [Scope 3] | [XX%] | [Score]/10 | [Count] | [On track/At risk] |\n\n### Quality Metrics\n| Quality Metric | Target | Actual | Variance | Trend |\n|----------------|--------|--------|----------|-------|\n| **Defect Rate** | [X%] | [X%] | [X%] | ↗️➡️↘️ |\n| **Rework Rate** | [X%] | [X%] | [X%] | ↗️➡️↘️ |\n| **Customer Satisfaction** | [Score]/10 | [Score]/10 | [Variance] | ↗️➡️↘️ |\n\n---\n\n## Historical Performance Data\n\n### Monthly Performance Summary\n| Month | PV | EV | AC | SPI | CPI | Notes |\n|-------|----|----|----|----|-----|-------|\n| [Month -2] | $[Amount] | $[Amount] | $[Amount] | [X.XX] | [X.XX] | [Notes] |\n| [Month -1] | $[Amount] | $[Amount] | $[Amount] | [X.XX] | [X.XX] | [Notes] |\n| [Current] | $[Amount] | $[Amount] | $[Amount] | [X.XX] | [X.XX] | [Notes] |\n\n### Baseline Changes\n| Change | Date | Reason | Budget Impact | Schedule Impact | Approval |\n|--------|------|--------|---------------|-----------------|----------|\n| [Change 1] | [Date] | [Reason] | $[Amount] | [Days] | [Authority] |\n| [Change 2] | [Date] | [Reason] | $[Amount] | [Days] | [Authority] |\n| [Current Baseline] | [Date] | [Current approved baseline] | $[Amount] | [Duration] | [Authority] |\n\n---\n\n## Data Quality and Assumptions\n\n### Data Collection Notes\n**Data Sources:**\n- Timesheet system: [System name] - Updated [frequency]\n- Financial system: [System name] - Updated [frequency]\n- Project schedule: [Tool name] - Updated [frequency]\n- Progress reports: [Source] - Updated [frequency]\n\n**Data Quality Issues:**\n- [Issue 1]: [Impact on EVM accuracy]\n- [Issue 2]: [Impact on EVM accuracy]\n- [Resolution timeline]: [Expected resolution]\n\n### Key Assumptions\n1. [Assumption 1]: [Impact if assumption changes]\n2. [Assumption 2]: [Impact if assumption changes]\n3. [Assumption 3]: [Impact if assumption changes]\n\n---\n\n## Appendices\n\n### Appendix A: Detailed WBS Performance\n[Reference to detailed work package performance data]\n\n### Appendix B: Variance Analysis Reports\n[Reference to detailed variance analysis by category]\n\n### Appendix C: Change Control Documentation\n[Reference to approved scope and budget changes]\n\n### Appendix D: Performance Improvement Plans\n[Reference to detailed corrective action plans]\n\n---\n\n## When to Use\n\nUse throughout the project lifecycle to identify, assess, and track risks. This template is essential for projects with significant complexity, multiple stakeholders, or high business impact, where structured risk management provides decision-making value.\n\n## When NOT to Use\n\nDo not use for very low-risk, short-duration tasks where informal risk awareness is sufficient. Avoid this template if your governance framework requires a different risk management approach or if stakeholders prefer real-time risk dashboards over static registers.\n\n## Report Approval and Distribution\n\n**Prepared by:**\nName: _______________________ Date: _______\n[Project Manager]\n\n**Reviewed by:**\nName: _______________________ Date: _______\n[Program Manager]\n\n**Approved by:**\nName: _______________________ Date: _______\n[Project Sponsor]\n\n**Distribution List:**\n- Executive Sponsor\n- Project Steering Committee\n- Program Management Office\n- Finance Director\n- Project Team Leads\n\n---\n\n*This EVM Dashboard provides comprehensive earned value analysis for project performance monitoring and control. It should be updated regularly with accurate data from project management and financial systems.*\n\n**Next Report Date:** [Date]  \n**Report Frequency:** [Weekly/Monthly]\n\n&quot;]}" ssr client="load" opts="{&quot;name&quot;:&quot;TemplateViewer&quot;,&quot;value&quot;:true}" await-children><div><h1>Evm Dashboard Template</h1><div style="margin-bottom:2rem"><button style="background:var(--accent-color);color:white;border:1px solid var(--border-color);padding:0.5rem 1rem;border-radius:4px 4px 0 0;cursor:pointer;margin-right:1px">Preview</button><button style="background:var(--code-bg);color:var(--text-color);border:1px solid var(--border-color);padding:0.5rem 1rem;border-radius:4px 4px 0 0;cursor:pointer">Version History</button></div><div style="border:1px solid var(--border-color);border-radius:0 8px 8px 8px;min-height:400px"><div style="background:var(--bg-primary);border-radius:var(--radius-lg)"><div style="padding:1rem 1.5rem;border-bottom:1px solid var(--border-light);display:flex;align-items:center;justify-content:space-between;background:var(--bg-secondary);border-radius:var(--radius-lg) var(--radius-lg) 0 0"><div style="display:flex;align-items:center;gap:0.5rem"><span style="font-size:1.5rem">📄</span><div><div style="font-weight:600;color:var(--text-primary)">evm-dashboard-template.md</div><div style="font-size:0.75rem;color:var(--text-muted)">Markdown • <!-- -->15,150 bytes</div></div></div><a href="/pm-tools-templates/downloads/evm-dashboard-template.md" download="" class="btn btn-secondary" style="font-size:0.75rem;padding:0.5rem 0.75rem">💾 Download</a></div><pre aria-label="Markdown source of Evm Dashboard Template" style="padding:1.5rem;max-height:600px;overflow:auto;white-space:pre-wrap;overflow-wrap:anywhere">---
+title: Evm Dashboard Template
+methodology: universal
+complexity: advanced
+owner: mirichard
+updated: &#x27;2025-08-05&#x27;
+primary_principles:
+- value-focus
+- evidence-based-decisions
+secondary_principles:
+- stewardship
+- risk-optimization
+principle_rationale: Makes earned value performance and project exposure visible for
+  investment decisions.
+---
+
+# Earned Value Management (EVM) Dashboard Template
+
+**Professional EVM tracking with advanced performance analytics and executive reporting**
+
+**Project Name:** [Project Name]  
+**Report Period:** [Start Date] - [End Date]  
+**Report Date:** [Current Date]  
+**Prepared By:** [Project Manager]  
+**Status Date:** [Data as of Date]
+
+---
+
+## Executive Summary Dashboard
+
+### Project Health Overview
+| Metric | Current Value | Status | Trend | Target |
+|--------|---------------|--------|-------|--------|
+| **Schedule Performance Index (SPI)** | [0.XX] | 🔴🟡🟢 | ↗️➡️↘️ | ≥ 0.95 |
+| **Cost Performance Index (CPI)** | [0.XX] | 🔴🟡🟢 | ↗️➡️↘️ | ≥ 0.95 |
+| **Budget at Completion (BAC)** | $[Amount] | - | - | - |
+| **Estimate at Completion (EAC)** | $[Amount] | 🔴🟡🟢 | ↗️➡️↘️ | ≤ BAC |
+| **% Complete (Physical)** | [XX%] | - | ↗️ | [Target%] |
+| **% Schedule Complete** | [XX%] | - | ↗️ | [Target%] |
+
+### Performance Status
+- **Overall Project Health:** 🔴 **Critical** / 🟡 **At Risk** / 🟢 **On Track**
+- **Schedule Status:** [Days ahead/behind schedule]
+- **Budget Status:** [Amount over/under budget]
+- **Quality Status:** [Quality score/issues]
+
+---
+
+## Core EVM Metrics
+
+### Primary EVM Values
+| Metric | Symbol | Value | Definition |
+|--------|--------|-------|------------|
+| **Planned Value** | PV | $[Amount] | Budgeted cost of work scheduled |
+| **Earned Value** | EV | $[Amount] | Budgeted cost of work performed |
+| **Actual Cost** | AC | $[Amount] | Actual cost of work performed |
+| **Budget at Completion** | BAC | $[Amount] | Total project budget |
+
+### Performance Indices
+| Index | Formula | Current Value | Status | Interpretation |
+|-------|---------|---------------|--------|----------------|
+| **Schedule Performance Index** | EV ÷ PV | [0.XX] | 🔴🟡🟢 | \u003c0.95: Behind, ≥0.95: On track |
+| **Cost Performance Index** | EV ÷ AC | [0.XX] | 🔴🟡🟢 | \u003c0.95: Over budget, ≥0.95: On budget |
+| **Schedule Compliance Index** | SPI × SCI | [0.XX] | 🔴🟡🟢 | Combined schedule performance |
+| **To Complete Performance Index** | (BAC - EV) ÷ (BAC - AC) | [0.XX] | 🔴🟡🟢 | Required efficiency for remaining work |
+
+### Variance Analysis
+| Variance | Formula | Current Value | Status | Impact |
+|----------|---------|---------------|--------|--------|
+| **Schedule Variance** | EV - PV | $[Amount] | 🔴🟡🟢 | Negative = behind schedule |
+| **Cost Variance** | EV - AC | $[Amount] | 🔴🟡🟢 | Negative = over budget |
+| **Variance at Completion** | BAC - EAC | $[Amount] | 🔴🟡🟢 | Expected final variance |
+
+---
+
+## Forecasting and Projections
+
+### Estimate at Completion (EAC) Analysis
+| EAC Method | Formula | Value | Use Case |
+|------------|---------|-------|----------|
+| **Current Performance Continues** | AC + ((BAC - EV) ÷ CPI) | $[Amount] | Current cost trends continue |
+| **Schedule Impact Included** | AC + ((BAC - EV) ÷ (CPI × SPI)) | $[Amount] | Both cost and schedule issues |
+| **Bottom-Up Re-estimate** | AC + Remaining Work Estimate | $[Amount] | New detailed estimate |
+| **Management Forecast** | AC + Management ETC | $[Amount] | Management judgment |
+
+### Completion Projections
+| Projection | Current Estimate | Original Plan | Variance |
+|------------|------------------|---------------|----------|
+| **Estimated Completion Date** | [Date] | [Date] | [Days early/late] |
+| **Estimated Final Cost** | $[Amount] | $[Amount] | $[Over/Under budget] |
+| **Time to Complete** | [Days/Weeks] | [Days/Weeks] | [Variance] |
+
+### Performance Trend Analysis
+**13-Week Performance Trend:**
+```
+Week:  1   2   3   4   5   6   7   8   9  10  11  12  13
+SPI: [X.XX][X.XX][X.XX][X.XX][X.XX][X.XX][X.XX][X.XX][X.XX][X.XX][X.XX][X.XX][X.XX]
+CPI: [X.XX][X.XX][X.XX][X.XX][X.XX][X.XX][X.XX][X.XX][X.XX][X.XX][X.XX][X.XX][X.XX]
+```
+
+---
+
+## Detailed Performance Analysis
+
+### Work Breakdown Structure (WBS) Performance
+| WBS Element | % Complete | PV | EV | AC | SPI | CPI | Status |
+|-------------|------------|----|----|----|----|-----|--------|
+| [WBS 1.0] | [XX%] | $[Amount] | $[Amount] | $[Amount] | [X.XX] | [X.XX] | 🔴🟡🟢 |
+| [WBS 2.0] | [XX%] | $[Amount] | $[Amount] | $[Amount] | [X.XX] | [X.XX] | 🔴🟡🟢 |
+| [WBS 3.0] | [XX%] | $[Amount] | $[Amount] | $[Amount] | [X.XX] | [X.XX] | 🔴🟡🟢 |
+| [WBS 4.0] | [XX%] | $[Amount] | $[Amount] | $[Amount] | [X.XX] | [X.XX] | 🔴🟡🟢 |
+| **TOTAL** | **[XX%]** | **$[Amount]** | **$[Amount]** | **$[Amount]** | **[X.XX]** | **[X.XX]** | **🔴🟡🟢** |
+
+### Control Account Performance
+| Control Account | Manager | Budget | EV | AC | CV | SV | Issues |
+|-----------------|---------|--------|----|----|----|----|--------|
+| [Account 1] | [Name] | $[Amount] | $[Amount] | $[Amount] | $[Amount] | $[Amount] | [Status] |
+| [Account 2] | [Name] | $[Amount] | $[Amount] | $[Amount] | $[Amount] | $[Amount] | [Status] |
+| [Account 3] | [Name] | $[Amount] | $[Amount] | $[Amount] | $[Amount] | $[Amount] | [Status] |
+
+### Milestone Performance
+| Milestone | Planned Date | Forecast Date | Variance | EV | Status |
+|-----------|--------------|---------------|----------|----| -------|
+| [Milestone 1] | [Date] | [Date] | [Days] | $[Amount] | ✅❌⏳ |
+| [Milestone 2] | [Date] | [Date] | [Days] | $[Amount] | ✅❌⏳ |
+| [Milestone 3] | [Date] | [Date] | [Days] | $[Amount] | ✅❌⏳ |
+
+---
+
+## Risk and Issue Impact Analysis
+
+### Performance Risks
+| Risk | Impact on EVM | Probability | Cost Impact | Schedule Impact | Mitigation |
+|------|---------------|-------------|-------------|-----------------|------------|
+| [Risk 1] | [SPI/CPI impact] | [H/M/L] | $[Amount] | [Days] | [Action] |
+| [Risk 2] | [SPI/CPI impact] | [H/M/L] | $[Amount] | [Days] | [Action] |
+| [Risk 3] | [SPI/CPI impact] | [H/M/L] | $[Amount] | [Days] | [Action] |
+
+### Current Issues Affecting Performance
+| Issue | Impact on EVM | Resolution Target | Cost Impact | Owner |
+|-------|---------------|-------------------|-------------|-------|
+| [Issue 1] | [Description] | [Date] | $[Amount] | [Name] |
+| [Issue 2] | [Description] | [Date] | $[Amount] | [Name] |
+| [Issue 3] | [Description] | [Date] | $[Amount] | [Name] |
+
+### Performance Improvement Actions
+| Action | Expected SPI Impact | Expected CPI Impact | Target Date | Owner | Status |
+|--------|---------------------|---------------------|-------------|-------|--------|
+| [Action 1] | [+/-X.XX] | [+/-X.XX] | [Date] | [Name] | [Status] |
+| [Action 2] | [+/-X.XX] | [+/-X.XX] | [Date] | [Name] | [Status] |
+| [Action 3] | [+/-X.XX] | [+/-X.XX] | [Date] | [Name] | [Status] |
+
+---
+
+## Financial Analysis and Cash Flow
+
+### Budget Utilization
+| Category | Budget | Actual | Committed | Available | % Utilized |
+|----------|--------|--------|-----------|-----------|------------|
+| **Labor** | $[Amount] | $[Amount] | $[Amount] | $[Amount] | [XX%] |
+| **Materials** | $[Amount] | $[Amount] | $[Amount] | $[Amount] | [XX%] |
+| **Equipment** | $[Amount] | $[Amount] | $[Amount] | $[Amount] | [XX%] |
+| **Subcontractors** | $[Amount] | $[Amount] | $[Amount] | $[Amount] | [XX%] |
+| **Other Direct** | $[Amount] | $[Amount] | $[Amount] | $[Amount] | [XX%] |
+| **Indirect** | $[Amount] | $[Amount] | $[Amount] | $[Amount] | [XX%] |
+| **TOTAL** | **$[Amount]** | **$[Amount]** | **$[Amount]** | **$[Amount]** | **[XX%]** |
+
+### Cash Flow Analysis
+| Month | Planned Cash Flow | Actual Cash Flow | Variance | Cumulative Variance |
+|-------|-------------------|------------------|----------|---------------------|
+| [Month 1] | $[Amount] | $[Amount] | $[Amount] | $[Amount] |
+| [Month 2] | $[Amount] | $[Amount] | $[Amount] | $[Amount] |
+| [Month 3] | $[Amount] | $[Amount] | $[Amount] | $[Amount] |
+| [Current Month] | **$[Amount]** | **$[Amount]** | **$[Amount]** | **$[Amount]** |
+
+### Funding Requirements
+| Period | Required Funding | Approved Funding | Funding Gap | Status |
+|--------|------------------|------------------|-------------|--------|
+| **Current Quarter** | $[Amount] | $[Amount] | $[Amount] | 🔴🟡🟢 |
+| **Next Quarter** | $[Amount] | $[Amount] | $[Amount] | 🔴🟡🟢 |
+| **Remaining Project** | $[Amount] | $[Amount] | $[Amount] | 🔴🟡🟢 |
+
+---
+
+## Performance Alerts and Thresholds
+
+### Automated Alert Status
+| Alert Type | Threshold | Current Value | Status | Last Triggered |
+|------------|-----------|---------------|--------|----------------|
+| **SPI Below Threshold** | \u003c 0.95 | [X.XX] | 🔴🟡🟢 | [Date/Never] |
+| **CPI Below Threshold** | \u003c 0.95 | [X.XX] | 🔴🟡🟢 | [Date/Never] |
+| **EAC Exceeds BAC** | \u003e BAC | $[Amount] | 🔴🟡🟢 | [Date/Never] |
+| **Critical Path Delay** | \u003e 5 days | [X days] | 🔴🟡🟢 | [Date/Never] |
+| **Budget Variance** | \u003e 10% | [XX%] | 🔴🟡🟢 | [Date/Never] |
+
+### Management Attention Required
+- **🔴 Critical Issues:** [Count] items requiring immediate executive attention
+- **🟡 Warnings:** [Count] items requiring management review
+- **🟢 Information:** [Count] items for awareness only
+
+---
+
+## Corrective Action Planning
+
+### Current Performance Issues
+**Schedule Performance (SPI = [X.XX]):**
+- Root Cause: [Analysis of why schedule performance is off]
+- Impact: [Description of schedule impact]
+- Corrective Actions: [Planned actions to improve SPI]
+
+**Cost Performance (CPI = [X.XX]):**
+- Root Cause: [Analysis of why cost performance is off]
+- Impact: [Description of cost impact]
+- Corrective Actions: [Planned actions to improve CPI]
+
+### Recovery Plan
+| Recovery Action | Impact on SPI | Impact on CPI | Cost | Timeline | Owner |
+|-----------------|---------------|---------------|------|----------|-------|
+| [Action 1] | [+X.XX] | [+X.XX] | $[Amount] | [Duration] | [Name] |
+| [Action 2] | [+X.XX] | [+X.XX] | $[Amount] | [Duration] | [Name] |
+| [Action 3] | [+X.XX] | [+X.XX] | $[Amount] | [Duration] | [Name] |
+
+### Performance Targets
+| Metric | Current | 30-Day Target | 60-Day Target | 90-Day Target |
+|--------|---------|---------------|---------------|---------------|
+| **SPI** | [X.XX] | [X.XX] | [X.XX] | [X.XX] |
+| **CPI** | [X.XX] | [X.XX] | [X.XX] | [X.XX] |
+| **EAC** | $[Amount] | $[Amount] | $[Amount] | $[Amount] |
+
+---
+
+## Stakeholder Communication
+
+### Executive Summary for Leadership
+**Key Messages:**
+- [Key message 1 about project performance]
+- [Key message 2 about risks or issues]
+- [Key message 3 about required decisions]
+
+**Decisions Required:**
+1. [Decision 1] - [Urgency level] - [Decision needed by date]
+2. [Decision 2] - [Urgency level] - [Decision needed by date]
+3. [Decision 3] - [Urgency level] - [Decision needed by date]
+
+### Team Communication
+**Performance Highlights:**
+- [Positive performance area 1]
+- [Positive performance area 2]
+- [Area needing improvement]
+
+**Action Items for Team:**
+1. [Action item 1] - [Owner] - [Due date]
+2. [Action item 2] - [Owner] - [Due date]
+3. [Action item 3] - [Owner] - [Due date]
+
+---
+
+## Quality and Scope Management
+
+### Scope Performance
+| Scope Element | % Complete | Quality Score | Issues | Forecast |
+|---------------|------------|---------------|--------|----------|
+| [Scope 1] | [XX%] | [Score]/10 | [Count] | [On track/At risk] |
+| [Scope 2] | [XX%] | [Score]/10 | [Count] | [On track/At risk] |
+| [Scope 3] | [XX%] | [Score]/10 | [Count] | [On track/At risk] |
+
+### Quality Metrics
+| Quality Metric | Target | Actual | Variance | Trend |
+|----------------|--------|--------|----------|-------|
+| **Defect Rate** | [X%] | [X%] | [X%] | ↗️➡️↘️ |
+| **Rework Rate** | [X%] | [X%] | [X%] | ↗️➡️↘️ |
+| **Customer Satisfaction** | [Score]/10 | [Score]/10 | [Variance] | ↗️➡️↘️ |
+
+---
+
+## Historical Performance Data
+
+### Monthly Performance Summary
+| Month | PV | EV | AC | SPI | CPI | Notes |
+|-------|----|----|----|----|-----|-------|
+| [Month -2] | $[Amount] | $[Amount] | $[Amount] | [X.XX] | [X.XX] | [Notes] |
+| [Month -1] | $[Amount] | $[Amount] | $[Amount] | [X.XX] | [X.XX] | [Notes] |
+| [Current] | $[Amount] | $[Amount] | $[Amount] | [X.XX] | [X.XX] | [Notes] |
+
+### Baseline Changes
+| Change | Date | Reason | Budget Impact | Schedule Impact | Approval |
+|--------|------|--------|---------------|-----------------|----------|
+| [Change 1] | [Date] | [Reason] | $[Amount] | [Days] | [Authority] |
+| [Change 2] | [Date] | [Reason] | $[Amount] | [Days] | [Authority] |
+| [Current Baseline] | [Date] | [Current approved baseline] | $[Amount] | [Duration] | [Authority] |
+
+---
+
+## Data Quality and Assumptions
+
+### Data Collection Notes
+**Data Sources:**
+- Timesheet system: [System name] - Updated [frequency]
+- Financial system: [System name] - Updated [frequency]
+- Project schedule: [Tool name] - Updated [frequency]
+- Progress reports: [Source] - Updated [frequency]
+
+**Data Quality Issues:**
+- [Issue 1]: [Impact on EVM accuracy]
+- [Issue 2]: [Impact on EVM accuracy]
+- [Resolution timeline]: [Expected resolution]
+
+### Key Assumptions
+1. [Assumption 1]: [Impact if assumption changes]
+2. [Assumption 2]: [Impact if assumption changes]
+3. [Assumption 3]: [Impact if assumption changes]
+
+---
+
+## Appendices
+
+### Appendix A: Detailed WBS Performance
+[Reference to detailed work package performance data]
+
+### Appendix B: Variance Analysis Reports
+[Reference to detailed variance analysis by category]
+
+### Appendix C: Change Control Documentation
+[Reference to approved scope and budget changes]
+
+### Appendix D: Performance Improvement Plans
+[Reference to detailed corrective action plans]
+
+---
+
+## When to Use
+
+Use throughout the project lifecycle to identify, assess, and track risks. This template is essential for projects with significant complexity, multiple stakeholders, or high business impact, where structured risk management provides decision-making value.
+
+## When NOT to Use
+
+Do not use for very low-risk, short-duration tasks where informal risk awareness is sufficient. Avoid this template if your governance framework requires a different risk management approach or if stakeholders prefer real-time risk dashboards over static registers.
+
+## Report Approval and Distribution
+
+**Prepared by:**
+Name: _______________________ Date: _______
+[Project Manager]
+
+**Reviewed by:**
+Name: _______________________ Date: _______
+[Program Manager]
+
+**Approved by:**
+Name: _______________________ Date: _______
+[Project Sponsor]
+
+**Distribution List:**
+- Executive Sponsor
+- Project Steering Committee
+- Program Management Office
+- Finance Director
+- Project Team Leads
+
+---
+
+*This EVM Dashboard provides comprehensive earned value analysis for project performance monitoring and control. It should be updated regularly with accurate data from project management and financial systems.*
+
+**Next Report Date:** [Date]  
+**Report Frequency:** [Weekly/Monthly]
+
+</pre></div></div></div><!--astro:end--></astro-island></main></body></html>

@@ -1,0 +1,298 @@
+<!DOCTYPE html><html lang="en" data-astro-cid-ju4pidww><head><meta charset="UTF-8"><meta name="description" content="Advanced template browser with previews and version history"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="icon" type="image/svg+xml" href="/pm-tools-templates/favicon.svg"><title>Change Management Plan Template</title><link rel="stylesheet" href="/pm-tools-templates/assets/Layout.ChXqTIwx.css"></head><body data-astro-cid-ju4pidww><main data-astro-cid-ju4pidww><style>astro-island,astro-slot,astro-static-slot{display:contents}</style><script>(()=>{var e=async t=>{await(await t())()};(self.Astro||(self.Astro={})).load=e;window.dispatchEvent(new Event("astro:load"));})();</script><script>(()=>{var g=Object.defineProperty;var w=(a,s,c)=>s in a?g(a,s,{enumerable:!0,configurable:!0,writable:!0,value:c}):a[s]=c;var l=(a,s,c)=>w(a,typeof s!="symbol"?s+"":s,c);var E=new Set(["__proto__","constructor","prototype"]);{let a={0:t=>y(t),1:t=>c(t),2:t=>new RegExp(t),3:t=>new Date(t),4:t=>new Map(c(t)),5:t=>new Set(c(t)),6:t=>BigInt(t),7:t=>new URL(t),8:t=>new Uint8Array(t),9:t=>new Uint16Array(t),10:t=>new Uint32Array(t),11:t=>Number.POSITIVE_INFINITY*t},s=t=>{let[p,e]=t;return p in a?a[p](e):void 0},c=t=>t.map(s),y=t=>typeof t!="object"||t===null?t:Object.fromEntries(Object.entries(t).map(([p,e])=>[p,s(e)]));class f extends HTMLElement{constructor(){super(...arguments);l(this,"Component");l(this,"hydrator");l(this,"hydrate",async()=>{var b;if(!this.hydrator||!this.isConnected)return;let e=(b=this.parentElement)==null?void 0:b.closest("astro-island[ssr]");if(e){e.addEventListener("astro:hydrate",this.hydrate,{once:!0});return}let r=this.querySelectorAll("astro-slot"),n={},d=this.querySelectorAll("template[data-astro-template]");for(let o of d){let i=o.closest(this.tagName);i!=null&&i.isSameNode(this)&&(n[o.getAttribute("data-astro-template")||"default"]=o.innerHTML,o.remove())}for(let o of r){let i=o.closest(this.tagName);i!=null&&i.isSameNode(this)&&(n[o.getAttribute("name")||"default"]=o.innerHTML)}let u;try{u=this.hasAttribute("props")?y(JSON.parse(this.getAttribute("props"))):{}}catch(o){let i=this.getAttribute("component-url")||"<unknown>",v=this.getAttribute("component-export");throw v&&(i+=` (export ${v})`),console.error(`[hydrate] Error parsing props for component ${i}`,this.getAttribute("props"),o),o}let h;await this.hydrator(this)(this.Component,u,n,{client:this.getAttribute("client")}),this.removeAttribute("ssr"),this.dispatchEvent(new CustomEvent("astro:hydrate"))});l(this,"unmount",()=>{this.isConnected||this.dispatchEvent(new CustomEvent("astro:unmount"))})}disconnectedCallback(){document.removeEventListener("astro:after-swap",this.unmount),document.addEventListener("astro:after-swap",this.unmount,{once:!0})}connectedCallback(){if(!this.hasAttribute("await-children")||document.readyState==="interactive"||document.readyState==="complete")this.childrenConnectedCallback();else{let e=()=>{document.removeEventListener("DOMContentLoaded",e),r.disconnect(),this.childrenConnectedCallback()},r=new MutationObserver(()=>{var n;((n=this.lastChild)==null?void 0:n.nodeType)===Node.COMMENT_NODE&&this.lastChild.nodeValue==="astro:end"&&(this.lastChild.remove(),e())});r.observe(this,{childList:!0}),document.addEventListener("DOMContentLoaded",e)}}async childrenConnectedCallback(){let e=this.getAttribute("before-hydration-url");e&&await import(e),this.start()}getRetryImportUrl(e){let r=new URL(e,document.baseURI);return r.searchParams.set("astro-retry",Date.now().toString()),r.toString()}async importWithRetry(e){try{return await import(e)}catch(r){return await new Promise(n=>setTimeout(n,1e3)),import(this.getRetryImportUrl(e))}}handleHydrationError(e){let r=this.getAttribute("component-url"),n=new CustomEvent("astro:hydration-error",{cancelable:!0,bubbles:!0,composed:!0,detail:{error:e,componentUrl:r}});this.dispatchEvent(n)&&console.error(`[astro-island] Error hydrating ${r}`,e)}async start(){let e=JSON.parse(this.getAttribute("opts")),r=this.getAttribute("client");if(Astro[r]===void 0){window.addEventListener(`astro:${r}`,()=>this.start(),{once:!0});return}try{await Astro[r](async()=>{let n=this.getAttribute("renderer-url");try{let[d,{default:u}]=await Promise.all([this.importWithRetry(this.getAttribute("component-url")),n?this.importWithRetry(n):Promise.resolve({default:()=>()=>{}})]),h=this.getAttribute("component-export")||"default";if(h.includes(".")){this.Component=d;for(let m of h.split(".")){if(E.has(m)||!this.Component||typeof this.Component!="object"&&typeof this.Component!="function"||!Object.hasOwn(this.Component,m))throw new Error(`Invalid component export path: ${h}`);this.Component=this.Component[m]}}else{if(E.has(h))throw new Error(`Invalid component export path: ${h}`);this.Component=d[h]}return this.hydrator=u,this.hydrate}catch(d){return this.handleHydrationError(d),()=>{}}},e,this)}catch(n){this.handleHydrationError(n)}}attributeChangedCallback(){this.hydrate()}}l(f,"observedAttributes",["props"]),customElements.get("astro-island")||customElements.define("astro-island",f)}})();</script><astro-island uid="1HQk3h" prefix="r1" component-url="/pm-tools-templates/assets/TemplateViewer.BJxWH0dD.js" component-export="default" renderer-url="/pm-tools-templates/assets/client.REQV_TkY.js" props="{&quot;templateId&quot;:[0,&quot;change_management_plan_template&quot;],&quot;filePath&quot;:[0,&quot;domains/delivery/templates/traditional/Traditional/Templates/change_management_plan_template.md&quot;],&quot;title&quot;:[0,&quot;Change Management Plan Template&quot;],&quot;content&quot;:[0,&quot;---\ntitle: \&quot;Change Management Plan Template\&quot;\nmethodology: \&quot;traditional\&quot;\ncomplexity: \&quot;advanced\&quot;\nowner: \&quot;mirichard\&quot;\nupdated: \&quot;2025-08-05\&quot;\nprimary_principles: [\&quot;stakeholder-engagement\&quot;, \&quot;adaptability\&quot;]\nsecondary_principles: [\&quot;systems-thinking\&quot;, \&quot;collaborative-leadership\&quot;]\nprinciple_rationale: \&quot;Plans adaptive change through stakeholder participation, leadership, and system awareness.\&quot;\n---\n\n# Change Management Plan Template\n\n## Document Information\n| Field | Value |\n|-------|-------|\n| **Project Name** | [Enter project name] |\n| **Document Version** | [e.g., 1.0] |\n| **Date** | [Current date] |\n| **Prepared By** | [Project Manager/Change Manager name] |\n| **Approved By** | [Sponsor name] |\n| **Next Review Date** | [Date for next review] |\n\n## Executive Summary\n\n### Purpose\n[Briefly describe the purpose of this change management plan and its relationship to the overall project]\n\n### Scope of Change\n[Describe what aspects of the organization will be impacted by this change]\n\n### Change Management Approach\n[High-level description of the change management methodology and approach being used]\n\n## Change Overview\n\n### Current State\n[Describe the current state of the organization, processes, systems, and people that will be affected]\n\n### Future State\n[Describe the desired future state after the change has been implemented]\n\n### Change Impact Summary\n| Impact Area | Current State | Future State | Impact Level (High/Medium/Low) |\n|-------------|---------------|--------------|--------------------------------|\n| Processes | | | |\n| Technology | | | |\n| Organization Structure | | | |\n| Roles &amp; Responsibilities | | | |\n| Skills &amp; Competencies | | | |\n| Culture &amp; Behaviors | | | |\n\n## Stakeholder Analysis\n\n### Stakeholder Groups\n| Stakeholder Group | Size | Impact Level | Influence Level | Readiness for Change | Change Strategy |\n|-------------------|------|--------------|-----------------|---------------------|------------------|\n| [Group 1] | | | | | |\n| [Group 2] | | | | | |\n| [Group 3] | | | | | |\n\n### Key Stakeholders\n| Name | Role | Impact | Influence | Support Level | Engagement Strategy |\n|------|------|--------|-----------|---------------|--------------------|\n| [Name] | | | | | |\n| [Name] | | | | | |\n\n## Change Management Strategy\n\n### Change Management Objectives\n1. [Objective 1 - e.g., Achieve 95% user adoption within 6 months]\n2. [Objective 2 - e.g., Minimize productivity loss during transition]\n3. [Objective 3 - e.g., Ensure sustainable change through training and support]\n\n### Change Management Principles\n- [Principle 1 - e.g., Transparent communication throughout the process]\n- [Principle 2 - e.g., Stakeholder involvement in change design]\n- [Principle 3 - e.g., Phased implementation to manage risk]\n\n### Success Criteria\n| Success Measure | Target | Measurement Method | Responsible Party |\n|-----------------|--------|-------------------|-------------------|\n| [Measure 1] | | | |\n| [Measure 2] | | | |\n| [Measure 3] | | | |\n\n## Change Management Activities\n\n### Phase 1: Preparation and Planning\n| Activity | Description | Owner | Start Date | End Date | Deliverables |\n|----------|-------------|-------|------------|----------|--------------|\n| Change Readiness Assessment | | | | | |\n| Stakeholder Impact Analysis | | | | | |\n| Communication Plan Development | | | | | |\n| Training Needs Analysis | | | | | |\n\n### Phase 2: Implementation\n| Activity | Description | Owner | Start Date | End Date | Deliverables |\n|----------|-------------|-------|------------|----------|--------------|\n| Awareness Building | | | | | |\n| Training Delivery | | | | | |\n| Support System Activation | | | | | |\n| Feedback Collection | | | | | |\n\n### Phase 3: Sustainment\n| Activity | Description | Owner | Start Date | End Date | Deliverables |\n|----------|-------------|-------|------------|----------|--------------|\n| Adoption Monitoring | | | | | |\n| Reinforcement Activities | | | | | |\n| Continuous Improvement | | | | | |\n| Knowledge Transfer | | | | | |\n\n## Communication Strategy\n\n### Communication Objectives\n- [Objective 1 - e.g., Build awareness of the need for change]\n- [Objective 2 - e.g., Generate support and commitment]\n- [Objective 3 - e.g., Provide timely updates on progress]\n\n### Key Messages\n| Audience | Key Message | Delivery Method | Frequency | Owner |\n|----------|-------------|-----------------|-----------|-------|\n| [Audience 1] | | | | |\n| [Audience 2] | | | | |\n| [Audience 3] | | | | |\n\n### Communication Channels\n- [Channel 1 - e.g., Town hall meetings]\n- [Channel 2 - e.g., Email updates]\n- [Channel 3 - e.g., Intranet portal]\n- [Channel 4 - e.g., Team meetings]\n\n## Training and Development\n\n### Training Needs Assessment\n| Role/Group | Current Competency | Required Competency | Gap | Training Approach |\n|------------|--------------------|--------------------|-----|-------------------|\n| [Role 1] | | | | |\n| [Role 2] | | | | |\n| [Role 3] | | | | |\n\n### Training Strategy\n| Training Component | Target Audience | Delivery Method | Duration | Timeline |\n|--------------------|-----------------|-----------------|----------|----------|\n| [Component 1] | | | | |\n| [Component 2] | | | | |\n| [Component 3] | | | | |\n\n### Support Structure\n- **Change Champions**: [Describe role and selection criteria]\n- **Help Desk**: [Describe support structure and escalation process]\n- **Documentation**: [List key support materials and location]\n- **Mentoring/Coaching**: [Describe ongoing support approach]\n\n## Risk Management\n\n### Change-Related Risks\n| Risk | Probability | Impact | Risk Score | Mitigation Strategy | Owner |\n|------|-------------|--------|------------|--------------------|---------|\n| [Risk 1] | | | | | |\n| [Risk 2] | | | | | |\n| [Risk 3] | | | | | |\n\n### Resistance Management\n| Source of Resistance | Reason | Impact | Response Strategy | Owner |\n|---------------------|--------|--------|------------------|---------|\n| [Source 1] | | | | |\n| [Source 2] | | | | |\n\n## Measurement and Monitoring\n\n### Key Performance Indicators (KPIs)\n| KPI | Target | Current Baseline | Measurement Method | Frequency | Owner |\n|-----|--------|------------------|-------------------|-----------|-------|\n| Adoption Rate | | | | | |\n| User Satisfaction | | | | | |\n| Productivity Impact | | | | | |\n| Training Effectiveness | | | | | |\n| Support Ticket Volume | | | | | |\n\n### Reporting Structure\n| Report | Audience | Frequency | Content | Owner |\n|--------|----------|-----------|---------|-------|\n| Change Dashboard | Steering Committee | Weekly | KPI status, issues, risks | |\n| Progress Report | Project Sponsor | Bi-weekly | Activities completed, upcoming milestones | |\n| Stakeholder Update | All Stakeholders | Monthly | High-level progress, success stories | |\n\n## Budget and Resources\n\n### Change Management Budget\n| Category | Budget Allocation | Actual Spend | Variance |\n|----------|-------------------|--------------|----------|\n| Communication | | | |\n| Training Development | | | |\n| Training Delivery | | | |\n| Support Tools | | | |\n| Change Management Team | | | |\n| **Total** | | | |\n\n### Resource Requirements\n| Resource | Role | Time Commitment | Duration |\n|----------|------|-----------------|----------|\n| Change Manager | Lead change activities | Full-time | Project duration |\n| Communications Specialist | Develop and deliver communications | 50% | 6 months |\n| Training Developer | Create training materials | 25% | 3 months |\n| Change Champions | Support adoption in their areas | 10% | 9 months |\n\n## Timeline and Milestones\n\n### Key Milestones\n| Milestone | Target Date | Status | Notes |\n|-----------|-------------|--------|---------|\n| Change Readiness Assessment Complete | | | |\n| Communication Plan Approved | | | |\n| Training Materials Developed | | | |\n| Pilot Group Training Complete | | | |\n| Full Rollout Complete | | | |\n| Adoption Target Achieved | | | |\n\n### Dependencies\n- [Dependency 1 - e.g., System testing completion]\n- [Dependency 2 - e.g., Organizational restructure approval]\n- [Dependency 3 - e.g., Training facility availability]\n\n## Governance and Decision Making\n\n### Change Control Board\n| Role | Name | Responsibilities |\n|------|------|------------------|\n| Chair | | Overall change approval and direction |\n| Sponsor | | Business case and resource approval |\n| Project Manager | | Implementation coordination |\n| Change Manager | | Change strategy and execution |\n| Business Representative | | User perspective and requirements |\n\n### Decision Framework\n| Decision Type | Decision Maker | Escalation Path | Timeline |\n|---------------|----------------|-----------------|----------|\n| Change approach modifications | Change Manager | Project Manager | 2 days |\n| Resource allocation changes | Project Manager | Project Sponsor | 5 days |\n| Scope changes | Project Sponsor | Steering Committee | 10 days |\n\n## Lessons Learned and Continuous Improvement\n\n### Lessons Learned Process\n1. **Collection**: Regular feedback sessions and retrospectives\n2. **Analysis**: Identify patterns and root causes\n3. **Documentation**: Capture lessons in project knowledge base\n4. **Application**: Implement improvements in subsequent phases\n5. **Sharing**: Communicate lessons to other projects\n\n### Continuous Improvement Approach\n- Monthly review of change metrics and stakeholder feedback\n- Quarterly assessment of change management effectiveness\n- Adjustment of strategies based on lessons learned\n- Integration of best practices from industry and organization\n\n## When to Use\n\nUse throughout the project lifecycle to identify, assess, and track risks. This template is essential for projects with significant complexity, multiple stakeholders, or high business impact, where structured risk management provides decision-making value.\n\n## When NOT to Use\n\nDo not use for very low-risk, short-duration tasks where informal risk awareness is sufficient. Avoid this template if your governance framework requires a different risk management approach or if stakeholders prefer real-time risk dashboards over static registers.\n\n## Appendices\n\n### Appendix A: Stakeholder Register\n[Detailed stakeholder information and contact details]\n\n### Appendix B: Communication Templates\n[Standard communication templates and messaging]\n\n### Appendix C: Training Materials\n[Links to or copies of training materials]\n\n### Appendix D: Change Readiness Assessment Results\n[Detailed assessment findings and analysis]\n\n### Appendix E: Risk Register\n[Detailed change-related risk register]\n\n---\n\n**Instructions for Use:**\n1. Replace all bracketed placeholders with project-specific information\n2. Customize sections based on the complexity and scope of your change\n3. Remove sections that are not applicable to your project\n4. Ensure alignment with overall project management plan\n5. Regular updates throughout the project lifecycle\n6. Use this template in conjunction with other Traditional planning documents\n\n**Related Templates:**\n- [Stakeholder Register Template](../Process_Groups/Initiating/stakeholder_register_template.md)\n- [Communication Plan Template](communication_plan_template.md)\n- [Risk Register Template](risk_register_template.md)\n- [Training Plan Template](training_plan_template.md)\n&quot;]}" ssr client="load" opts="{&quot;name&quot;:&quot;TemplateViewer&quot;,&quot;value&quot;:true}" await-children><div><h1>Change Management Plan Template</h1><div style="margin-bottom:2rem"><button style="background:var(--accent-color);color:white;border:1px solid var(--border-color);padding:0.5rem 1rem;border-radius:4px 4px 0 0;cursor:pointer;margin-right:1px">Preview</button><button style="background:var(--code-bg);color:var(--text-color);border:1px solid var(--border-color);padding:0.5rem 1rem;border-radius:4px 4px 0 0;cursor:pointer">Version History</button></div><div style="border:1px solid var(--border-color);border-radius:0 8px 8px 8px;min-height:400px"><div style="background:var(--bg-primary);border-radius:var(--radius-lg)"><div style="padding:1rem 1.5rem;border-bottom:1px solid var(--border-light);display:flex;align-items:center;justify-content:space-between;background:var(--bg-secondary);border-radius:var(--radius-lg) var(--radius-lg) 0 0"><div style="display:flex;align-items:center;gap:0.5rem"><span style="font-size:1.5rem">📄</span><div><div style="font-weight:600;color:var(--text-primary)">change_management_plan_template.md</div><div style="font-size:0.75rem;color:var(--text-muted)">Markdown • <!-- -->11,191 bytes</div></div></div><a href="/pm-tools-templates/downloads/change_management_plan_template.md" download="" class="btn btn-secondary" style="font-size:0.75rem;padding:0.5rem 0.75rem">💾 Download</a></div><pre aria-label="Markdown source of Change Management Plan Template" style="padding:1.5rem;max-height:600px;overflow:auto;white-space:pre-wrap;overflow-wrap:anywhere">---
+title: &quot;Change Management Plan Template&quot;
+methodology: &quot;traditional&quot;
+complexity: &quot;advanced&quot;
+owner: &quot;mirichard&quot;
+updated: &quot;2025-08-05&quot;
+primary_principles: [&quot;stakeholder-engagement&quot;, &quot;adaptability&quot;]
+secondary_principles: [&quot;systems-thinking&quot;, &quot;collaborative-leadership&quot;]
+principle_rationale: &quot;Plans adaptive change through stakeholder participation, leadership, and system awareness.&quot;
+---
+
+# Change Management Plan Template
+
+## Document Information
+| Field | Value |
+|-------|-------|
+| **Project Name** | [Enter project name] |
+| **Document Version** | [e.g., 1.0] |
+| **Date** | [Current date] |
+| **Prepared By** | [Project Manager/Change Manager name] |
+| **Approved By** | [Sponsor name] |
+| **Next Review Date** | [Date for next review] |
+
+## Executive Summary
+
+### Purpose
+[Briefly describe the purpose of this change management plan and its relationship to the overall project]
+
+### Scope of Change
+[Describe what aspects of the organization will be impacted by this change]
+
+### Change Management Approach
+[High-level description of the change management methodology and approach being used]
+
+## Change Overview
+
+### Current State
+[Describe the current state of the organization, processes, systems, and people that will be affected]
+
+### Future State
+[Describe the desired future state after the change has been implemented]
+
+### Change Impact Summary
+| Impact Area | Current State | Future State | Impact Level (High/Medium/Low) |
+|-------------|---------------|--------------|--------------------------------|
+| Processes | | | |
+| Technology | | | |
+| Organization Structure | | | |
+| Roles &amp; Responsibilities | | | |
+| Skills &amp; Competencies | | | |
+| Culture &amp; Behaviors | | | |
+
+## Stakeholder Analysis
+
+### Stakeholder Groups
+| Stakeholder Group | Size | Impact Level | Influence Level | Readiness for Change | Change Strategy |
+|-------------------|------|--------------|-----------------|---------------------|------------------|
+| [Group 1] | | | | | |
+| [Group 2] | | | | | |
+| [Group 3] | | | | | |
+
+### Key Stakeholders
+| Name | Role | Impact | Influence | Support Level | Engagement Strategy |
+|------|------|--------|-----------|---------------|--------------------|
+| [Name] | | | | | |
+| [Name] | | | | | |
+
+## Change Management Strategy
+
+### Change Management Objectives
+1. [Objective 1 - e.g., Achieve 95% user adoption within 6 months]
+2. [Objective 2 - e.g., Minimize productivity loss during transition]
+3. [Objective 3 - e.g., Ensure sustainable change through training and support]
+
+### Change Management Principles
+- [Principle 1 - e.g., Transparent communication throughout the process]
+- [Principle 2 - e.g., Stakeholder involvement in change design]
+- [Principle 3 - e.g., Phased implementation to manage risk]
+
+### Success Criteria
+| Success Measure | Target | Measurement Method | Responsible Party |
+|-----------------|--------|-------------------|-------------------|
+| [Measure 1] | | | |
+| [Measure 2] | | | |
+| [Measure 3] | | | |
+
+## Change Management Activities
+
+### Phase 1: Preparation and Planning
+| Activity | Description | Owner | Start Date | End Date | Deliverables |
+|----------|-------------|-------|------------|----------|--------------|
+| Change Readiness Assessment | | | | | |
+| Stakeholder Impact Analysis | | | | | |
+| Communication Plan Development | | | | | |
+| Training Needs Analysis | | | | | |
+
+### Phase 2: Implementation
+| Activity | Description | Owner | Start Date | End Date | Deliverables |
+|----------|-------------|-------|------------|----------|--------------|
+| Awareness Building | | | | | |
+| Training Delivery | | | | | |
+| Support System Activation | | | | | |
+| Feedback Collection | | | | | |
+
+### Phase 3: Sustainment
+| Activity | Description | Owner | Start Date | End Date | Deliverables |
+|----------|-------------|-------|------------|----------|--------------|
+| Adoption Monitoring | | | | | |
+| Reinforcement Activities | | | | | |
+| Continuous Improvement | | | | | |
+| Knowledge Transfer | | | | | |
+
+## Communication Strategy
+
+### Communication Objectives
+- [Objective 1 - e.g., Build awareness of the need for change]
+- [Objective 2 - e.g., Generate support and commitment]
+- [Objective 3 - e.g., Provide timely updates on progress]
+
+### Key Messages
+| Audience | Key Message | Delivery Method | Frequency | Owner |
+|----------|-------------|-----------------|-----------|-------|
+| [Audience 1] | | | | |
+| [Audience 2] | | | | |
+| [Audience 3] | | | | |
+
+### Communication Channels
+- [Channel 1 - e.g., Town hall meetings]
+- [Channel 2 - e.g., Email updates]
+- [Channel 3 - e.g., Intranet portal]
+- [Channel 4 - e.g., Team meetings]
+
+## Training and Development
+
+### Training Needs Assessment
+| Role/Group | Current Competency | Required Competency | Gap | Training Approach |
+|------------|--------------------|--------------------|-----|-------------------|
+| [Role 1] | | | | |
+| [Role 2] | | | | |
+| [Role 3] | | | | |
+
+### Training Strategy
+| Training Component | Target Audience | Delivery Method | Duration | Timeline |
+|--------------------|-----------------|-----------------|----------|----------|
+| [Component 1] | | | | |
+| [Component 2] | | | | |
+| [Component 3] | | | | |
+
+### Support Structure
+- **Change Champions**: [Describe role and selection criteria]
+- **Help Desk**: [Describe support structure and escalation process]
+- **Documentation**: [List key support materials and location]
+- **Mentoring/Coaching**: [Describe ongoing support approach]
+
+## Risk Management
+
+### Change-Related Risks
+| Risk | Probability | Impact | Risk Score | Mitigation Strategy | Owner |
+|------|-------------|--------|------------|--------------------|---------|
+| [Risk 1] | | | | | |
+| [Risk 2] | | | | | |
+| [Risk 3] | | | | | |
+
+### Resistance Management
+| Source of Resistance | Reason | Impact | Response Strategy | Owner |
+|---------------------|--------|--------|------------------|---------|
+| [Source 1] | | | | |
+| [Source 2] | | | | |
+
+## Measurement and Monitoring
+
+### Key Performance Indicators (KPIs)
+| KPI | Target | Current Baseline | Measurement Method | Frequency | Owner |
+|-----|--------|------------------|-------------------|-----------|-------|
+| Adoption Rate | | | | | |
+| User Satisfaction | | | | | |
+| Productivity Impact | | | | | |
+| Training Effectiveness | | | | | |
+| Support Ticket Volume | | | | | |
+
+### Reporting Structure
+| Report | Audience | Frequency | Content | Owner |
+|--------|----------|-----------|---------|-------|
+| Change Dashboard | Steering Committee | Weekly | KPI status, issues, risks | |
+| Progress Report | Project Sponsor | Bi-weekly | Activities completed, upcoming milestones | |
+| Stakeholder Update | All Stakeholders | Monthly | High-level progress, success stories | |
+
+## Budget and Resources
+
+### Change Management Budget
+| Category | Budget Allocation | Actual Spend | Variance |
+|----------|-------------------|--------------|----------|
+| Communication | | | |
+| Training Development | | | |
+| Training Delivery | | | |
+| Support Tools | | | |
+| Change Management Team | | | |
+| **Total** | | | |
+
+### Resource Requirements
+| Resource | Role | Time Commitment | Duration |
+|----------|------|-----------------|----------|
+| Change Manager | Lead change activities | Full-time | Project duration |
+| Communications Specialist | Develop and deliver communications | 50% | 6 months |
+| Training Developer | Create training materials | 25% | 3 months |
+| Change Champions | Support adoption in their areas | 10% | 9 months |
+
+## Timeline and Milestones
+
+### Key Milestones
+| Milestone | Target Date | Status | Notes |
+|-----------|-------------|--------|---------|
+| Change Readiness Assessment Complete | | | |
+| Communication Plan Approved | | | |
+| Training Materials Developed | | | |
+| Pilot Group Training Complete | | | |
+| Full Rollout Complete | | | |
+| Adoption Target Achieved | | | |
+
+### Dependencies
+- [Dependency 1 - e.g., System testing completion]
+- [Dependency 2 - e.g., Organizational restructure approval]
+- [Dependency 3 - e.g., Training facility availability]
+
+## Governance and Decision Making
+
+### Change Control Board
+| Role | Name | Responsibilities |
+|------|------|------------------|
+| Chair | | Overall change approval and direction |
+| Sponsor | | Business case and resource approval |
+| Project Manager | | Implementation coordination |
+| Change Manager | | Change strategy and execution |
+| Business Representative | | User perspective and requirements |
+
+### Decision Framework
+| Decision Type | Decision Maker | Escalation Path | Timeline |
+|---------------|----------------|-----------------|----------|
+| Change approach modifications | Change Manager | Project Manager | 2 days |
+| Resource allocation changes | Project Manager | Project Sponsor | 5 days |
+| Scope changes | Project Sponsor | Steering Committee | 10 days |
+
+## Lessons Learned and Continuous Improvement
+
+### Lessons Learned Process
+1. **Collection**: Regular feedback sessions and retrospectives
+2. **Analysis**: Identify patterns and root causes
+3. **Documentation**: Capture lessons in project knowledge base
+4. **Application**: Implement improvements in subsequent phases
+5. **Sharing**: Communicate lessons to other projects
+
+### Continuous Improvement Approach
+- Monthly review of change metrics and stakeholder feedback
+- Quarterly assessment of change management effectiveness
+- Adjustment of strategies based on lessons learned
+- Integration of best practices from industry and organization
+
+## When to Use
+
+Use throughout the project lifecycle to identify, assess, and track risks. This template is essential for projects with significant complexity, multiple stakeholders, or high business impact, where structured risk management provides decision-making value.
+
+## When NOT to Use
+
+Do not use for very low-risk, short-duration tasks where informal risk awareness is sufficient. Avoid this template if your governance framework requires a different risk management approach or if stakeholders prefer real-time risk dashboards over static registers.
+
+## Appendices
+
+### Appendix A: Stakeholder Register
+[Detailed stakeholder information and contact details]
+
+### Appendix B: Communication Templates
+[Standard communication templates and messaging]
+
+### Appendix C: Training Materials
+[Links to or copies of training materials]
+
+### Appendix D: Change Readiness Assessment Results
+[Detailed assessment findings and analysis]
+
+### Appendix E: Risk Register
+[Detailed change-related risk register]
+
+---
+
+**Instructions for Use:**
+1. Replace all bracketed placeholders with project-specific information
+2. Customize sections based on the complexity and scope of your change
+3. Remove sections that are not applicable to your project
+4. Ensure alignment with overall project management plan
+5. Regular updates throughout the project lifecycle
+6. Use this template in conjunction with other Traditional planning documents
+
+**Related Templates:**
+- [Stakeholder Register Template](../Process_Groups/Initiating/stakeholder_register_template.md)
+- [Communication Plan Template](communication_plan_template.md)
+- [Risk Register Template](risk_register_template.md)
+- [Training Plan Template](training_plan_template.md)
+</pre></div></div></div><!--astro:end--></astro-island></main></body></html>

@@ -1,0 +1,156 @@
+<!DOCTYPE html><html lang="en" data-astro-cid-ju4pidww><head><meta charset="UTF-8"><meta name="description" content="Advanced template browser with previews and version history"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="icon" type="image/svg+xml" href="/pm-tools-templates/favicon.svg"><title>Problem Management Process Template</title><link rel="stylesheet" href="/pm-tools-templates/assets/Layout.ChXqTIwx.css"></head><body data-astro-cid-ju4pidww><main data-astro-cid-ju4pidww><style>astro-island,astro-slot,astro-static-slot{display:contents}</style><script>(()=>{var e=async t=>{await(await t())()};(self.Astro||(self.Astro={})).load=e;window.dispatchEvent(new Event("astro:load"));})();</script><script>(()=>{var g=Object.defineProperty;var w=(a,s,c)=>s in a?g(a,s,{enumerable:!0,configurable:!0,writable:!0,value:c}):a[s]=c;var l=(a,s,c)=>w(a,typeof s!="symbol"?s+"":s,c);var E=new Set(["__proto__","constructor","prototype"]);{let a={0:t=>y(t),1:t=>c(t),2:t=>new RegExp(t),3:t=>new Date(t),4:t=>new Map(c(t)),5:t=>new Set(c(t)),6:t=>BigInt(t),7:t=>new URL(t),8:t=>new Uint8Array(t),9:t=>new Uint16Array(t),10:t=>new Uint32Array(t),11:t=>Number.POSITIVE_INFINITY*t},s=t=>{let[p,e]=t;return p in a?a[p](e):void 0},c=t=>t.map(s),y=t=>typeof t!="object"||t===null?t:Object.fromEntries(Object.entries(t).map(([p,e])=>[p,s(e)]));class f extends HTMLElement{constructor(){super(...arguments);l(this,"Component");l(this,"hydrator");l(this,"hydrate",async()=>{var b;if(!this.hydrator||!this.isConnected)return;let e=(b=this.parentElement)==null?void 0:b.closest("astro-island[ssr]");if(e){e.addEventListener("astro:hydrate",this.hydrate,{once:!0});return}let r=this.querySelectorAll("astro-slot"),n={},d=this.querySelectorAll("template[data-astro-template]");for(let o of d){let i=o.closest(this.tagName);i!=null&&i.isSameNode(this)&&(n[o.getAttribute("data-astro-template")||"default"]=o.innerHTML,o.remove())}for(let o of r){let i=o.closest(this.tagName);i!=null&&i.isSameNode(this)&&(n[o.getAttribute("name")||"default"]=o.innerHTML)}let u;try{u=this.hasAttribute("props")?y(JSON.parse(this.getAttribute("props"))):{}}catch(o){let i=this.getAttribute("component-url")||"<unknown>",v=this.getAttribute("component-export");throw v&&(i+=` (export ${v})`),console.error(`[hydrate] Error parsing props for component ${i}`,this.getAttribute("props"),o),o}let h;await this.hydrator(this)(this.Component,u,n,{client:this.getAttribute("client")}),this.removeAttribute("ssr"),this.dispatchEvent(new CustomEvent("astro:hydrate"))});l(this,"unmount",()=>{this.isConnected||this.dispatchEvent(new CustomEvent("astro:unmount"))})}disconnectedCallback(){document.removeEventListener("astro:after-swap",this.unmount),document.addEventListener("astro:after-swap",this.unmount,{once:!0})}connectedCallback(){if(!this.hasAttribute("await-children")||document.readyState==="interactive"||document.readyState==="complete")this.childrenConnectedCallback();else{let e=()=>{document.removeEventListener("DOMContentLoaded",e),r.disconnect(),this.childrenConnectedCallback()},r=new MutationObserver(()=>{var n;((n=this.lastChild)==null?void 0:n.nodeType)===Node.COMMENT_NODE&&this.lastChild.nodeValue==="astro:end"&&(this.lastChild.remove(),e())});r.observe(this,{childList:!0}),document.addEventListener("DOMContentLoaded",e)}}async childrenConnectedCallback(){let e=this.getAttribute("before-hydration-url");e&&await import(e),this.start()}getRetryImportUrl(e){let r=new URL(e,document.baseURI);return r.searchParams.set("astro-retry",Date.now().toString()),r.toString()}async importWithRetry(e){try{return await import(e)}catch(r){return await new Promise(n=>setTimeout(n,1e3)),import(this.getRetryImportUrl(e))}}handleHydrationError(e){let r=this.getAttribute("component-url"),n=new CustomEvent("astro:hydration-error",{cancelable:!0,bubbles:!0,composed:!0,detail:{error:e,componentUrl:r}});this.dispatchEvent(n)&&console.error(`[astro-island] Error hydrating ${r}`,e)}async start(){let e=JSON.parse(this.getAttribute("opts")),r=this.getAttribute("client");if(Astro[r]===void 0){window.addEventListener(`astro:${r}`,()=>this.start(),{once:!0});return}try{await Astro[r](async()=>{let n=this.getAttribute("renderer-url");try{let[d,{default:u}]=await Promise.all([this.importWithRetry(this.getAttribute("component-url")),n?this.importWithRetry(n):Promise.resolve({default:()=>()=>{}})]),h=this.getAttribute("component-export")||"default";if(h.includes(".")){this.Component=d;for(let m of h.split(".")){if(E.has(m)||!this.Component||typeof this.Component!="object"&&typeof this.Component!="function"||!Object.hasOwn(this.Component,m))throw new Error(`Invalid component export path: ${h}`);this.Component=this.Component[m]}}else{if(E.has(h))throw new Error(`Invalid component export path: ${h}`);this.Component=d[h]}return this.hydrator=u,this.hydrate}catch(d){return this.handleHydrationError(d),()=>{}}},e,this)}catch(n){this.handleHydrationError(n)}}attributeChangedCallback(){this.hydrate()}}l(f,"observedAttributes",["props"]),customElements.get("astro-island")||customElements.define("astro-island",f)}})();</script><astro-island uid="Z12Bfbw" prefix="r1" component-url="/pm-tools-templates/assets/TemplateViewer.BJxWH0dD.js" component-export="default" renderer-url="/pm-tools-templates/assets/client.REQV_TkY.js" props="{&quot;templateId&quot;:[0,&quot;problem_management_process_template&quot;],&quot;filePath&quot;:[0,&quot;domains/delivery/industry-specializations/information-technology/service-management/problem_management_process_template.md&quot;],&quot;title&quot;:[0,&quot;Problem Management Process Template&quot;],&quot;content&quot;:[0,&quot;---\ntitle: Problem Management Process Template\nmethodology: universal\ncomplexity: advanced\nowner: mirichard\nupdated: &#39;2025-08-05&#39;\nprimary_principles:\n- stewardship\n- quality-by-design\nsecondary_principles:\n- evidence-based-decisions\n- risk-optimization\nprinciple_rationale: Maintains regulatory compliance through evidence-based quality\n  controls and accountability.\n---\n\n# Problem Management Process Template\n\n## Document Control\n\n| Field | Details |\n|---|---|\n| **Document Owner** | [e.g., Head of IT Operations] |\n| **Process Manager** | [e.g., Lead Problem Manager] |\n| **Version** | 1.0 |\n| **Status** | Draft |\n| **Approval Date** | [Date] |\n| **Next Review Date** | [Date] |\n\n---\n\n## 1. Purpose and Scope\n\n### 1.1 Purpose\nThe purpose of the Problem Management process is to minimize the adverse impact of Incidents and Problems on the business caused by errors within the IT infrastructure, and to prevent the recurrence of Incidents related to these errors.\n\nTo achieve this, Problem Management seeks to:\n- Identify the root cause of Incidents.\n- Implement permanent solutions or workarounds.\n- Document and manage Known Errors.\n- Proactively prevent future Incidents.\n\n### 1.2 Scope\nThis process applies to all IT services and infrastructure components managed by [Your Organization Name]. It is triggered by one or more of the following:\n- A major Incident.\n- Recurring Incidents with a similar theme.\n- Proactive analysis of trends in Incident data.\n- Notification from technical teams about a potential underlying issue.\n\nThis process is integrated with, but distinct from, Incident Management (which focuses on immediate restoration) and Change Management (which governs the implementation of fixes).\n\n---\n\n## 2. Roles and Responsibilities\n\n| Role | Responsibilities |\n|---|---|\n| **Problem Manager** | - Owns and governs the Problem Management process.&lt;br&gt;- Chairs Problem Review meetings.&lt;br&gt;- Ensures all Problems are logged, prioritized, and investigated.&lt;br&gt;- Manages the Known Error Database (KEDB).&lt;br&gt;- Coordinates with technical teams and other process managers. |\n| **Technical Teams / SMEs** | - Participate in root cause analysis (RCA).&lt;br&gt;- Develop and test workarounds and permanent solutions.&lt;br&gt;- Implement fixes via the Change Management process.&lt;br&gt;- Provide specialist knowledge for investigation. |\n| **Incident Manager** | - Identifies and escalates potential Problems from Incidents.&lt;br&gt;- Collaborates with the Problem Manager on major Incidents. |\n| **Change Manager** | - Reviews and approves Requests for Change (RFCs) raised to fix Problems.&lt;br&gt;- Coordinates implementation of fixes. |\n| **Service Desk** | - Logs Incidents and identifies trends.&lt;br&gt;- Applies documented workarounds from the KEDB to resolve Incidents. |\n\n---\n\n## 3. Problem Management Process Flow\n\n### Stage 1: Problem Detection &amp; Logging\n1.  **Detection**: A problem is identified through:\n    -   Analysis of recurring Incidents.\n    -   A Major Incident review.\n    -   Proactive trend analysis by technical teams.\n2.  **Logging**: A formal Problem Record is created in the IT Service Management (ITSM) tool. All related Incidents are linked to the Problem Record.\n\n### Stage 2: Categorization &amp; Prioritization\n1.  **Categorization**: The Problem is categorized based on the affected service, technology, and impact area (e.g., \&quot;Networking,\&quot; \&quot;Database,\&quot; \&quot;Application A\&quot;).\n2.  **Prioritization**: Priority is assigned based on a matrix of **Impact** (number of users affected, financial loss, reputational damage) and **Urgency** (how quickly the business needs a resolution).\n\n| | **High Impact** | **Medium Impact** | **Low Impact** |\n|---|---|---|---|\n| **High Urgency** | Priority 1 | Priority 2 | Priority 3 |\n| **Medium Urgency** | Priority 2 | Priority 3 | Priority 4 |\n| **Low Urgency** | Priority 3 | Priority 4 | Priority 5 |\n\n### Stage 3: Investigation &amp; Diagnosis (Root Cause Analysis)\n1.  **Assign Investigation**: The Problem Manager assigns the Problem Record to the appropriate technical team or Subject Matter Expert (SME).\n2.  **Conduct RCA**: The assigned team investigates the Problem to identify the underlying root cause. Common techniques include:\n    -   The \&quot;5 Whys\&quot;\n    -   Fishbone (Ishikawa) Diagram\n    -   Kepner-Tregoe Analysis\n3.  **Document Findings**: The root cause is documented in the Problem Record.\n\n### Stage 4: Workaround &amp; Known Error Identification\n1.  **Identify Workaround**: If a permanent fix is not immediately available, the team develops a temporary workaround to restore service or mitigate business impact for future Incidents.\n2.  **Document Known Error**: Once the root cause and a workaround are identified, the Problem is reclassified as a **Known Error**. A record is created in the Known Error Database (KEDB), detailing the symptoms, root cause, and workaround steps. This allows the Service Desk to resolve future Incidents more quickly.\n\n### Stage 5: Resolution &amp; Change Implementation\n1.  **Propose Fix**: The technical team proposes a permanent solution to eliminate the root cause.\n2.  **Raise RFC**: A formal Request for Change (RFC) is raised to implement the permanent fix. The RFC must be linked to the Problem Record.\n3.  **Implement Change**: The fix is implemented following the standard Change Management process.\n\n### Stage 6: Problem Closure &amp; Review\n1.  **Confirm Fix**: After the change is implemented, the Problem Manager monitors the system to confirm that the fix has been effective and that no new Incidents related to the root cause are occurring.\n2.  **Close Problem Record**: Once the fix is confirmed, the Problem Record and any associated Incident records are formally closed.\n3.  **Post-Problem Review**: For major problems, a review is conducted to document lessons learned and identify opportunities for process improvement.\n\n---\n\n## 4. Key Metrics and KPIs\n\n| Metric | Description | Target |\n|---|---|---|\n| **Number of Recurring Incidents** | Count of Incidents linked to the same root cause before a Problem is resolved. | &lt; [Target #] per month |\n| **Time to Identify Root Cause** | Average time from Problem creation to RCA completion. | &lt; [Target Hours/Days] |\n| **Time to Implement Workaround** | Average time from Problem creation to KEDB entry. | &lt; [Target Hours/Days] |\n| **Problem Backlog** | Number of open Problem records, aged by priority. | &lt; [Target #] older than 30 days |\n| **Reduction in Major Incidents** | Percentage decrease in P1/P2 Incidents year-over-year. | &gt; [Target %] reduction |\n\n---\n\n## 5. Process Integration\n\n-   **Incident Management**: Provides the primary input for reactive Problem Management. Workarounds from the KEDB are used by Incident Management to improve first-call resolution rates.\n-   **Change Management**: Provides the mechanism for implementing permanent fixes for Problems. All changes to resolve problems must go through formal Change Management.\n-   **Configuration Management**: The Configuration Management Database (CMDB) provides critical information about CIs (Configuration Items) to aid in root cause analysis.\n-   **Knowledge Management**: The Known Error Database (KEDB) is a key output of Problem Management and a subset of the overall knowledge base.\n\n---\n\n## When to Use\n\nUse this template when problem management process template aligns with your project needs and governance requirements. This template is designed to support your project by providing structure and ensuring key considerations are documented.\n\n## When NOT to Use\n\nDo not use this template if your organization has established alternative processes or standards for this function, or if the level of detail exceeds your project&#39;s needs or governance requirements.\n\n## 6. Appendix: Problem Record Template\n\nA standard Problem Record in the ITSM tool should contain the following fields:\n-   Problem ID\n-   Date Logged\n-   Problem Submitter\n-   Problem Description\n-   Category &amp; Priority\n-   Affected Service(s) / CI(s)\n-   Linked Incident(s)\n-   Assigned Team/Owner\n-   Root Cause Analysis Details\n-   Workaround Details\n-   Known Error Status (Yes/No)\n-   Resolution Details\n-   Linked RFC ID\n-   Date Closed\n\n&quot;]}" ssr client="load" opts="{&quot;name&quot;:&quot;TemplateViewer&quot;,&quot;value&quot;:true}" await-children><div><h1>Problem Management Process Template</h1><div style="margin-bottom:2rem"><button style="background:var(--accent-color);color:white;border:1px solid var(--border-color);padding:0.5rem 1rem;border-radius:4px 4px 0 0;cursor:pointer;margin-right:1px">Preview</button><button style="background:var(--code-bg);color:var(--text-color);border:1px solid var(--border-color);padding:0.5rem 1rem;border-radius:4px 4px 0 0;cursor:pointer">Version History</button></div><div style="border:1px solid var(--border-color);border-radius:0 8px 8px 8px;min-height:400px"><div style="background:var(--bg-primary);border-radius:var(--radius-lg)"><div style="padding:1rem 1.5rem;border-bottom:1px solid var(--border-light);display:flex;align-items:center;justify-content:space-between;background:var(--bg-secondary);border-radius:var(--radius-lg) var(--radius-lg) 0 0"><div style="display:flex;align-items:center;gap:0.5rem"><span style="font-size:1.5rem">📄</span><div><div style="font-weight:600;color:var(--text-primary)">problem_management_process_template.md</div><div style="font-size:0.75rem;color:var(--text-muted)">Markdown • <!-- -->8,143 bytes</div></div></div><a href="/pm-tools-templates/downloads/problem_management_process_template.md" download="" class="btn btn-secondary" style="font-size:0.75rem;padding:0.5rem 0.75rem">💾 Download</a></div><pre aria-label="Markdown source of Problem Management Process Template" style="padding:1.5rem;max-height:600px;overflow:auto;white-space:pre-wrap;overflow-wrap:anywhere">---
+title: Problem Management Process Template
+methodology: universal
+complexity: advanced
+owner: mirichard
+updated: &#x27;2025-08-05&#x27;
+primary_principles:
+- stewardship
+- quality-by-design
+secondary_principles:
+- evidence-based-decisions
+- risk-optimization
+principle_rationale: Maintains regulatory compliance through evidence-based quality
+  controls and accountability.
+---
+
+# Problem Management Process Template
+
+## Document Control
+
+| Field | Details |
+|---|---|
+| **Document Owner** | [e.g., Head of IT Operations] |
+| **Process Manager** | [e.g., Lead Problem Manager] |
+| **Version** | 1.0 |
+| **Status** | Draft |
+| **Approval Date** | [Date] |
+| **Next Review Date** | [Date] |
+
+---
+
+## 1. Purpose and Scope
+
+### 1.1 Purpose
+The purpose of the Problem Management process is to minimize the adverse impact of Incidents and Problems on the business caused by errors within the IT infrastructure, and to prevent the recurrence of Incidents related to these errors.
+
+To achieve this, Problem Management seeks to:
+- Identify the root cause of Incidents.
+- Implement permanent solutions or workarounds.
+- Document and manage Known Errors.
+- Proactively prevent future Incidents.
+
+### 1.2 Scope
+This process applies to all IT services and infrastructure components managed by [Your Organization Name]. It is triggered by one or more of the following:
+- A major Incident.
+- Recurring Incidents with a similar theme.
+- Proactive analysis of trends in Incident data.
+- Notification from technical teams about a potential underlying issue.
+
+This process is integrated with, but distinct from, Incident Management (which focuses on immediate restoration) and Change Management (which governs the implementation of fixes).
+
+---
+
+## 2. Roles and Responsibilities
+
+| Role | Responsibilities |
+|---|---|
+| **Problem Manager** | - Owns and governs the Problem Management process.&lt;br&gt;- Chairs Problem Review meetings.&lt;br&gt;- Ensures all Problems are logged, prioritized, and investigated.&lt;br&gt;- Manages the Known Error Database (KEDB).&lt;br&gt;- Coordinates with technical teams and other process managers. |
+| **Technical Teams / SMEs** | - Participate in root cause analysis (RCA).&lt;br&gt;- Develop and test workarounds and permanent solutions.&lt;br&gt;- Implement fixes via the Change Management process.&lt;br&gt;- Provide specialist knowledge for investigation. |
+| **Incident Manager** | - Identifies and escalates potential Problems from Incidents.&lt;br&gt;- Collaborates with the Problem Manager on major Incidents. |
+| **Change Manager** | - Reviews and approves Requests for Change (RFCs) raised to fix Problems.&lt;br&gt;- Coordinates implementation of fixes. |
+| **Service Desk** | - Logs Incidents and identifies trends.&lt;br&gt;- Applies documented workarounds from the KEDB to resolve Incidents. |
+
+---
+
+## 3. Problem Management Process Flow
+
+### Stage 1: Problem Detection &amp; Logging
+1.  **Detection**: A problem is identified through:
+    -   Analysis of recurring Incidents.
+    -   A Major Incident review.
+    -   Proactive trend analysis by technical teams.
+2.  **Logging**: A formal Problem Record is created in the IT Service Management (ITSM) tool. All related Incidents are linked to the Problem Record.
+
+### Stage 2: Categorization &amp; Prioritization
+1.  **Categorization**: The Problem is categorized based on the affected service, technology, and impact area (e.g., &quot;Networking,&quot; &quot;Database,&quot; &quot;Application A&quot;).
+2.  **Prioritization**: Priority is assigned based on a matrix of **Impact** (number of users affected, financial loss, reputational damage) and **Urgency** (how quickly the business needs a resolution).
+
+| | **High Impact** | **Medium Impact** | **Low Impact** |
+|---|---|---|---|
+| **High Urgency** | Priority 1 | Priority 2 | Priority 3 |
+| **Medium Urgency** | Priority 2 | Priority 3 | Priority 4 |
+| **Low Urgency** | Priority 3 | Priority 4 | Priority 5 |
+
+### Stage 3: Investigation &amp; Diagnosis (Root Cause Analysis)
+1.  **Assign Investigation**: The Problem Manager assigns the Problem Record to the appropriate technical team or Subject Matter Expert (SME).
+2.  **Conduct RCA**: The assigned team investigates the Problem to identify the underlying root cause. Common techniques include:
+    -   The &quot;5 Whys&quot;
+    -   Fishbone (Ishikawa) Diagram
+    -   Kepner-Tregoe Analysis
+3.  **Document Findings**: The root cause is documented in the Problem Record.
+
+### Stage 4: Workaround &amp; Known Error Identification
+1.  **Identify Workaround**: If a permanent fix is not immediately available, the team develops a temporary workaround to restore service or mitigate business impact for future Incidents.
+2.  **Document Known Error**: Once the root cause and a workaround are identified, the Problem is reclassified as a **Known Error**. A record is created in the Known Error Database (KEDB), detailing the symptoms, root cause, and workaround steps. This allows the Service Desk to resolve future Incidents more quickly.
+
+### Stage 5: Resolution &amp; Change Implementation
+1.  **Propose Fix**: The technical team proposes a permanent solution to eliminate the root cause.
+2.  **Raise RFC**: A formal Request for Change (RFC) is raised to implement the permanent fix. The RFC must be linked to the Problem Record.
+3.  **Implement Change**: The fix is implemented following the standard Change Management process.
+
+### Stage 6: Problem Closure &amp; Review
+1.  **Confirm Fix**: After the change is implemented, the Problem Manager monitors the system to confirm that the fix has been effective and that no new Incidents related to the root cause are occurring.
+2.  **Close Problem Record**: Once the fix is confirmed, the Problem Record and any associated Incident records are formally closed.
+3.  **Post-Problem Review**: For major problems, a review is conducted to document lessons learned and identify opportunities for process improvement.
+
+---
+
+## 4. Key Metrics and KPIs
+
+| Metric | Description | Target |
+|---|---|---|
+| **Number of Recurring Incidents** | Count of Incidents linked to the same root cause before a Problem is resolved. | &lt; [Target #] per month |
+| **Time to Identify Root Cause** | Average time from Problem creation to RCA completion. | &lt; [Target Hours/Days] |
+| **Time to Implement Workaround** | Average time from Problem creation to KEDB entry. | &lt; [Target Hours/Days] |
+| **Problem Backlog** | Number of open Problem records, aged by priority. | &lt; [Target #] older than 30 days |
+| **Reduction in Major Incidents** | Percentage decrease in P1/P2 Incidents year-over-year. | &gt; [Target %] reduction |
+
+---
+
+## 5. Process Integration
+
+-   **Incident Management**: Provides the primary input for reactive Problem Management. Workarounds from the KEDB are used by Incident Management to improve first-call resolution rates.
+-   **Change Management**: Provides the mechanism for implementing permanent fixes for Problems. All changes to resolve problems must go through formal Change Management.
+-   **Configuration Management**: The Configuration Management Database (CMDB) provides critical information about CIs (Configuration Items) to aid in root cause analysis.
+-   **Knowledge Management**: The Known Error Database (KEDB) is a key output of Problem Management and a subset of the overall knowledge base.
+
+---
+
+## When to Use
+
+Use this template when problem management process template aligns with your project needs and governance requirements. This template is designed to support your project by providing structure and ensuring key considerations are documented.
+
+## When NOT to Use
+
+Do not use this template if your organization has established alternative processes or standards for this function, or if the level of detail exceeds your project&#x27;s needs or governance requirements.
+
+## 6. Appendix: Problem Record Template
+
+A standard Problem Record in the ITSM tool should contain the following fields:
+-   Problem ID
+-   Date Logged
+-   Problem Submitter
+-   Problem Description
+-   Category &amp; Priority
+-   Affected Service(s) / CI(s)
+-   Linked Incident(s)
+-   Assigned Team/Owner
+-   Root Cause Analysis Details
+-   Workaround Details
+-   Known Error Status (Yes/No)
+-   Resolution Details
+-   Linked RFC ID
+-   Date Closed
+
+</pre></div></div></div><!--astro:end--></astro-island></main></body></html>

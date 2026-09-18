@@ -1,0 +1,336 @@
+<!DOCTYPE html><html lang="en" data-astro-cid-ju4pidww><head><meta charset="UTF-8"><meta name="description" content="Advanced template browser with previews and version history"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="icon" type="image/svg+xml" href="/pm-tools-templates/favicon.svg"><title>Team Charter Template</title><link rel="stylesheet" href="/pm-tools-templates/assets/Layout.ChXqTIwx.css"></head><body data-astro-cid-ju4pidww><main data-astro-cid-ju4pidww><style>astro-island,astro-slot,astro-static-slot{display:contents}</style><script>(()=>{var e=async t=>{await(await t())()};(self.Astro||(self.Astro={})).load=e;window.dispatchEvent(new Event("astro:load"));})();</script><script>(()=>{var g=Object.defineProperty;var w=(a,s,c)=>s in a?g(a,s,{enumerable:!0,configurable:!0,writable:!0,value:c}):a[s]=c;var l=(a,s,c)=>w(a,typeof s!="symbol"?s+"":s,c);var E=new Set(["__proto__","constructor","prototype"]);{let a={0:t=>y(t),1:t=>c(t),2:t=>new RegExp(t),3:t=>new Date(t),4:t=>new Map(c(t)),5:t=>new Set(c(t)),6:t=>BigInt(t),7:t=>new URL(t),8:t=>new Uint8Array(t),9:t=>new Uint16Array(t),10:t=>new Uint32Array(t),11:t=>Number.POSITIVE_INFINITY*t},s=t=>{let[p,e]=t;return p in a?a[p](e):void 0},c=t=>t.map(s),y=t=>typeof t!="object"||t===null?t:Object.fromEntries(Object.entries(t).map(([p,e])=>[p,s(e)]));class f extends HTMLElement{constructor(){super(...arguments);l(this,"Component");l(this,"hydrator");l(this,"hydrate",async()=>{var b;if(!this.hydrator||!this.isConnected)return;let e=(b=this.parentElement)==null?void 0:b.closest("astro-island[ssr]");if(e){e.addEventListener("astro:hydrate",this.hydrate,{once:!0});return}let r=this.querySelectorAll("astro-slot"),n={},d=this.querySelectorAll("template[data-astro-template]");for(let o of d){let i=o.closest(this.tagName);i!=null&&i.isSameNode(this)&&(n[o.getAttribute("data-astro-template")||"default"]=o.innerHTML,o.remove())}for(let o of r){let i=o.closest(this.tagName);i!=null&&i.isSameNode(this)&&(n[o.getAttribute("name")||"default"]=o.innerHTML)}let u;try{u=this.hasAttribute("props")?y(JSON.parse(this.getAttribute("props"))):{}}catch(o){let i=this.getAttribute("component-url")||"<unknown>",v=this.getAttribute("component-export");throw v&&(i+=` (export ${v})`),console.error(`[hydrate] Error parsing props for component ${i}`,this.getAttribute("props"),o),o}let h;await this.hydrator(this)(this.Component,u,n,{client:this.getAttribute("client")}),this.removeAttribute("ssr"),this.dispatchEvent(new CustomEvent("astro:hydrate"))});l(this,"unmount",()=>{this.isConnected||this.dispatchEvent(new CustomEvent("astro:unmount"))})}disconnectedCallback(){document.removeEventListener("astro:after-swap",this.unmount),document.addEventListener("astro:after-swap",this.unmount,{once:!0})}connectedCallback(){if(!this.hasAttribute("await-children")||document.readyState==="interactive"||document.readyState==="complete")this.childrenConnectedCallback();else{let e=()=>{document.removeEventListener("DOMContentLoaded",e),r.disconnect(),this.childrenConnectedCallback()},r=new MutationObserver(()=>{var n;((n=this.lastChild)==null?void 0:n.nodeType)===Node.COMMENT_NODE&&this.lastChild.nodeValue==="astro:end"&&(this.lastChild.remove(),e())});r.observe(this,{childList:!0}),document.addEventListener("DOMContentLoaded",e)}}async childrenConnectedCallback(){let e=this.getAttribute("before-hydration-url");e&&await import(e),this.start()}getRetryImportUrl(e){let r=new URL(e,document.baseURI);return r.searchParams.set("astro-retry",Date.now().toString()),r.toString()}async importWithRetry(e){try{return await import(e)}catch(r){return await new Promise(n=>setTimeout(n,1e3)),import(this.getRetryImportUrl(e))}}handleHydrationError(e){let r=this.getAttribute("component-url"),n=new CustomEvent("astro:hydration-error",{cancelable:!0,bubbles:!0,composed:!0,detail:{error:e,componentUrl:r}});this.dispatchEvent(n)&&console.error(`[astro-island] Error hydrating ${r}`,e)}async start(){let e=JSON.parse(this.getAttribute("opts")),r=this.getAttribute("client");if(Astro[r]===void 0){window.addEventListener(`astro:${r}`,()=>this.start(),{once:!0});return}try{await Astro[r](async()=>{let n=this.getAttribute("renderer-url");try{let[d,{default:u}]=await Promise.all([this.importWithRetry(this.getAttribute("component-url")),n?this.importWithRetry(n):Promise.resolve({default:()=>()=>{}})]),h=this.getAttribute("component-export")||"default";if(h.includes(".")){this.Component=d;for(let m of h.split(".")){if(E.has(m)||!this.Component||typeof this.Component!="object"&&typeof this.Component!="function"||!Object.hasOwn(this.Component,m))throw new Error(`Invalid component export path: ${h}`);this.Component=this.Component[m]}}else{if(E.has(h))throw new Error(`Invalid component export path: ${h}`);this.Component=d[h]}return this.hydrator=u,this.hydrate}catch(d){return this.handleHydrationError(d),()=>{}}},e,this)}catch(n){this.handleHydrationError(n)}}attributeChangedCallback(){this.hydrate()}}l(f,"observedAttributes",["props"]),customElements.get("astro-island")||customElements.define("astro-island",f)}})();</script><astro-island uid="Z1HCmwc" prefix="r1" component-url="/pm-tools-templates/assets/TemplateViewer.BJxWH0dD.js" component-export="default" renderer-url="/pm-tools-templates/assets/client.REQV_TkY.js" props="{&quot;templateId&quot;:[0,&quot;team-charter-template&quot;],&quot;filePath&quot;:[0,&quot;domains/team/project-lifecycle/02-planning/resource-planning/team-charter-template.md&quot;],&quot;title&quot;:[0,&quot;Team Charter Template&quot;],&quot;content&quot;:[0,&quot;---\ntitle: Team Charter Template\nmethodology: universal\ncomplexity: advanced\nowner: mirichard\nupdated: &#39;2025-08-05&#39;\nprimary_principles:\n- value-focus\n- evidence-based-decisions\nsecondary_principles:\n- stewardship\n- risk-optimization\nprinciple_rationale: Drives investment approval through measurable value and evidence-based\n  risk assessment.\n---\n\n# Team Charter Template\n\n## Purpose/Overview\nThis team charter template establishes clear expectations, roles, and working agreements for project teams. It serves as a foundational document that aligns team members on goals, responsibilities, communication protocols, and performance standards. The charter promotes team cohesion, reduces conflicts, and provides a reference for decision-making and accountability.\n\n## Usage Instructions\n1. **Team Workshop**: Create the charter collaboratively with all team members present\n2. **Leadership Review**: Involve project sponsors and stakeholders in goal-setting sections\n3. **Regular Updates**: Review and revise the charter at project milestones\n4. **Reference Document**: Use during team meetings to resolve conflicts and clarify expectations\n5. **New Member Onboarding**: Share with new team members as part of orientation\n6. **Performance Management**: Reference working agreements during performance discussions\n7. **Continuous Improvement**: Update based on retrospective feedback and lessons learned\n8. **Visibility**: Keep the charter accessible to all team members and stakeholders\n\n## Team Information\n- **Project Name**: [Enter Project Name]\n- **Team Name**: [Enter Team Name]\n- **Project Manager**: [Name]\n- **Team Lead**: [Name]\n- **Charter Date**: [Date]\n- **Version**: 1.0\n\n## 1. Team Purpose and Mission\n\n### 1.1 Team Mission Statement\n[One clear sentence describing the team&#39;s purpose and what they aim to achieve]\n\n*Example: \&quot;To deliver a high-quality customer portal that improves user experience and reduces support calls by 40% within 6 months.\&quot;*\n\n### 1.2 Project Objectives\n- **Primary Objective**: [Main goal the team is working toward]\n- **Secondary Objectives**:\n  - [Supporting objective 1]\n  - [Supporting objective 2]\n  - [Supporting objective 3]\n\n### 1.3 Success Criteria\n| Criterion | Target | Measurement Method |\n|-----------|--------|--------------------|\n| [Criterion 1] | [Specific target] | [How success will be measured] |\n| [Criterion 2] | [Specific target] | [How success will be measured] |\n| [Criterion 3] | [Specific target] | [How success will be measured] |\n\n## 2. Team Composition and Roles\n\n### 2.1 Team Structure\n\n```\nProject Manager\n      ↓\n   Team Lead\n      ↓\n├── [Role 1]\n├── [Role 2] \n├── [Role 3]\n└── [Role 4]\n```\n\n### 2.2 Team Member Profiles\n\n#### Project Manager: [Name]\n- **Primary Responsibilities**: Overall project leadership, stakeholder management, planning and monitoring\n- **Key Skills**: Project management, communication, leadership\n- **Contact**: [Email, Phone]\n- **Availability**: [Days/Hours]\n\n#### Team Lead: [Name]\n- **Primary Responsibilities**: Technical leadership, team coordination, quality oversight\n- **Key Skills**: Technical expertise, team management, problem-solving\n- **Contact**: [Email, Phone]\n- **Availability**: [Days/Hours]\n\n#### [Role Name]: [Name]\n- **Primary Responsibilities**: [Specific responsibilities]\n- **Key Skills**: [Relevant skills]\n- **Contact**: [Email, Phone]\n- **Availability**: [Days/Hours]\n\n### 2.3 RACI Matrix\n\n| Activity/Decision | PM | Team Lead | Developer | Analyst | QA | Stakeholder |\n|------------------|----|-----------|-----------|---------|----|-------------|\n| Project planning | A | R | C | C | C | I |\n| Technical design | I | A | R | C | C | I |\n| Code development | I | A | R | I | I | I |\n| Testing | I | A | C | I | R | I |\n| Deployment | A | R | C | I | C | I |\n\n*R=Responsible, A=Accountable, C=Consulted, I=Informed*\n\n## 3. Team Goals and Deliverables\n\n### 3.1 Team Goals\n| Goal | Description | Target Date | Success Metrics |\n|------|-------------|-------------|-----------------|\n| [Goal 1] | [Description] | [Date] | [Metrics] |\n| [Goal 2] | [Description] | [Date] | [Metrics] |\n| [Goal 3] | [Description] | [Date] | [Metrics] |\n\n### 3.2 Key Deliverables\n| Deliverable | Owner | Due Date | Quality Criteria |\n|-------------|-------|----------|------------------|\n| [Deliverable 1] | [Name] | [Date] | [Criteria] |\n| [Deliverable 2] | [Name] | [Date] | [Criteria] |\n| [Deliverable 3] | [Name] | [Date] | [Criteria] |\n\n### 3.3 Dependencies and Constraints\n**Dependencies:**\n- [Internal dependency 1]\n- [External dependency 2]\n- [Resource dependency 3]\n\n**Constraints:**\n- [Time constraint]\n- [Budget constraint]\n- [Technical constraint]\n\n## 4. Team Working Agreements\n\n### 4.1 Core Working Principles\n- **Collaboration**: We work together toward common goals\n- **Transparency**: We communicate openly and honestly\n- **Accountability**: We take ownership of our commitments\n- **Quality**: We deliver high-quality work consistently\n- **Continuous Improvement**: We learn and adapt regularly\n- **Respect**: We value diverse perspectives and treat each other with respect\n\n### 4.2 Communication Guidelines\n\n#### Communication Channels\n| Purpose | Channel | Frequency | Participants |\n|---------|---------|-----------|--------------|\n| Daily coordination | Standup meeting | Daily | Core team |\n| Project updates | Email/Slack | Weekly | All stakeholders |\n| Issue escalation | Direct call/Slack | As needed | Relevant parties |\n| Status reporting | Team meeting | Weekly | Full team |\n\n#### Communication Standards\n- **Response Time**: Email within 24 hours, Slack within 4 hours during business hours\n- **Meeting Etiquette**: Start on time, come prepared, stay engaged, end with clear actions\n- **Documentation**: Record key decisions and share meeting notes within 24 hours\n- **Escalation**: Use defined escalation paths for issues requiring higher-level input\n\n### 4.3 Meeting Protocols\n\n#### Daily Standup\n- **Time**: [Day/Time]\n- **Duration**: 15 minutes maximum\n- **Format**: What did you do yesterday? What will you do today? Any blockers?\n- **Ground Rules**: Stand up, stay focused, park detailed discussions\n\n#### Weekly Team Meeting\n- **Time**: [Day/Time]\n- **Duration**: 1 hour\n- **Agenda**: Progress review, upcoming work, issues and risks, team announcements\n- **Preparation**: Come with status updates and agenda items\n\n#### Retrospectives\n- **Frequency**: End of each sprint/milestone\n- **Duration**: 1-2 hours\n- **Focus**: What went well, what could improve, action items for next period\n\n### 4.4 Decision-Making Process\n\n#### Decision Authority Levels\n| Decision Type | Authority Level | Process |\n|---------------|-----------------|---------|\n| Daily work decisions | Individual team member | Self-directed |\n| Technical approach | Team Lead + relevant experts | Team discussion and consensus |\n| Scope changes | Project Manager | Formal change request process |\n| Resource allocation | Project Manager + Sponsor | Business case and approval |\n\n#### Consensus Building\n- **Discussion**: Open dialogue to understand all perspectives\n- **Options**: Identify and evaluate alternatives\n- **Decision**: Seek consensus; use PM as tiebreaker if needed\n- **Commitment**: All team members commit to decisions once made\n\n## 5. Team Performance Standards\n\n### 5.1 Quality Standards\n- **Code Quality**: All code must pass peer review and automated testing\n- **Documentation**: Key decisions and technical designs must be documented\n- **Testing**: All deliverables must meet defined acceptance criteria\n- **Standards Compliance**: Follow organizational and industry standards\n\n### 5.2 Productivity Expectations\n- **Availability**: Core hours [specify hours] with flexibility for personal needs\n- **Commitment**: Honor estimates and deadlines; communicate early if at risk\n- **Focus**: Minimize distractions during focused work time\n- **Continuous Learning**: Invest time in skill development and knowledge sharing\n\n### 5.3 Collaboration Standards\n- **Knowledge Sharing**: Proactively share information that could help others\n- **Support**: Help team members when they face challenges\n- **Feedback**: Give and receive constructive feedback regularly\n- **Conflict Resolution**: Address disagreements professionally and promptly\n\n## 6. Team Development Plan\n\n### 6.1 Skill Development Goals\n| Team Member | Current Strengths | Development Areas | Learning Plan |\n|-------------|-------------------|-------------------|---------------|\n| [Name] | [Strengths] | [Areas] | [Plan] |\n| [Name] | [Strengths] | [Areas] | [Plan] |\n| [Name] | [Strengths] | [Areas] | [Plan] |\n\n### 6.2 Team Building Activities\n- **Kickoff Workshop**: Team introduction and charter creation\n- **Regular Check-ins**: Weekly team building moments\n- **Learning Sessions**: Monthly knowledge sharing sessions\n- **Social Events**: Quarterly team social activities\n- **Retrospectives**: Regular team improvement discussions\n\n### 6.3 Knowledge Management\n- **Documentation Repository**: Central location for all team documents\n- **Knowledge Sharing**: Regular sessions to share learnings and best practices\n- **Mentoring**: Pair experienced team members with those developing skills\n- **External Learning**: Encourage attendance at conferences and training\n\n## 7. Conflict Resolution\n\n### 7.1 Conflict Resolution Process\n1. **Direct Discussion**: Individuals attempt to resolve directly\n2. **Team Lead Mediation**: Team lead facilitates discussion if needed\n3. **Project Manager Involvement**: PM helps resolve if team lead unsuccessful\n4. **Escalation**: Involve functional managers or sponsors if necessary\n\n### 7.2 Ground Rules for Conflict Resolution\n- **Focus on Issues**: Address the problem, not the person\n- **Listen Actively**: Understand all perspectives before responding\n- **Seek Solutions**: Focus on finding mutually acceptable solutions\n- **Learn and Improve**: Use conflicts as opportunities to improve processes\n\n## 8. Recognition and Rewards\n\n### 8.1 Recognition Principles\n- **Timely**: Recognize achievements close to when they occur\n- **Specific**: Be clear about what is being recognized\n- **Public**: Share recognition with the broader team when appropriate\n- **Varied**: Use different forms of recognition for different people\n\n### 8.2 Recognition Methods\n- **Peer Recognition**: Team members nominate each other for contributions\n- **Management Recognition**: Formal recognition from project leadership\n- **Public Recognition**: Sharing achievements in team meetings or newsletters\n- **Professional Development**: Opportunities for growth and new responsibilities\n\n## 9. Risk and Issue Management\n\n### 9.1 Team-Level Risks\n| Risk | Impact | Probability | Mitigation | Owner |\n|------|--------|-------------|------------|-------|\n| [Risk 1] | [H/M/L] | [H/M/L] | [Strategy] | [Name] |\n| [Risk 2] | [H/M/L] | [H/M/L] | [Strategy] | [Name] |\n\n### 9.2 Issue Escalation\n- **Team Level**: Issues that can be resolved within the team\n- **Project Level**: Issues requiring PM or stakeholder involvement\n- **Organizational Level**: Issues requiring senior management attention\n\n## 10. Charter Review and Updates\n\n### 10.1 Review Schedule\n- **Monthly**: Quick review of working agreements and effectiveness\n- **Quarterly**: Comprehensive review of charter and team performance\n- **As Needed**: Updates when team composition or project scope changes\n\n### 10.2 Change Process\n1. **Identify Need**: Team member identifies need for charter change\n2. **Discuss**: Team discusses proposed changes\n3. **Agree**: Team reaches consensus on changes\n4. **Update**: Charter is updated and redistributed\n5. **Communicate**: Changes are communicated to stakeholders\n\n## 11. Success Metrics\n\n### 11.1 Team Performance Metrics\n- **Delivery**: On-time delivery of commitments\n- **Quality**: Defect rates and rework requirements\n- **Productivity**: Velocity and throughput measures\n- **Satisfaction**: Team member satisfaction scores\n\n### 11.2 Collaboration Metrics\n- **Communication**: Frequency and effectiveness of team communications\n- **Knowledge Sharing**: Documentation quality and knowledge transfer\n- **Conflict Resolution**: Time to resolve conflicts and team harmony\n- **Continuous Improvement**: Number of improvements implemented\n\n---\n\n## When to Use\n\nUse throughout the project lifecycle to identify, assess, and track risks. This template is essential for projects with significant complexity, multiple stakeholders, or high business impact, where structured risk management provides decision-making value.\n\n## When NOT to Use\n\nDo not use for very low-risk, short-duration tasks where informal risk awareness is sufficient. Avoid this template if your governance framework requires a different risk management approach or if stakeholders prefer real-time risk dashboards over static registers.\n\n## Charter Acceptance\n\n**By signing below, team members commit to following this charter and working together to achieve the project objectives.**\n\n| Role | Name | Signature | Date |\n|------|------|-----------|------|\n| Project Manager | [Name] | | |\n| Team Lead | [Name] | | |\n| Team Member | [Name] | | |\n| Team Member | [Name] | | |\n| Team Member | [Name] | | |\n| Team Member | [Name] | | |\n\n---\n\n**Next Review Date**: [Date]\n\n*This team charter is a living document that should be reviewed and updated regularly to ensure it continues to serve the team&#39;s needs effectively.*\n\n&quot;]}" ssr client="load" opts="{&quot;name&quot;:&quot;TemplateViewer&quot;,&quot;value&quot;:true}" await-children><div><h1>Team Charter Template</h1><div style="margin-bottom:2rem"><button style="background:var(--accent-color);color:white;border:1px solid var(--border-color);padding:0.5rem 1rem;border-radius:4px 4px 0 0;cursor:pointer;margin-right:1px">Preview</button><button style="background:var(--code-bg);color:var(--text-color);border:1px solid var(--border-color);padding:0.5rem 1rem;border-radius:4px 4px 0 0;cursor:pointer">Version History</button></div><div style="border:1px solid var(--border-color);border-radius:0 8px 8px 8px;min-height:400px"><div style="background:var(--bg-primary);border-radius:var(--radius-lg)"><div style="padding:1rem 1.5rem;border-bottom:1px solid var(--border-light);display:flex;align-items:center;justify-content:space-between;background:var(--bg-secondary);border-radius:var(--radius-lg) var(--radius-lg) 0 0"><div style="display:flex;align-items:center;gap:0.5rem"><span style="font-size:1.5rem">📄</span><div><div style="font-weight:600;color:var(--text-primary)">team-charter-template.md</div><div style="font-size:0.75rem;color:var(--text-muted)">Markdown • <!-- -->13,404 bytes</div></div></div><a href="/pm-tools-templates/downloads/team-charter-template.md" download="" class="btn btn-secondary" style="font-size:0.75rem;padding:0.5rem 0.75rem">💾 Download</a></div><pre aria-label="Markdown source of Team Charter Template" style="padding:1.5rem;max-height:600px;overflow:auto;white-space:pre-wrap;overflow-wrap:anywhere">---
+title: Team Charter Template
+methodology: universal
+complexity: advanced
+owner: mirichard
+updated: &#x27;2025-08-05&#x27;
+primary_principles:
+- value-focus
+- evidence-based-decisions
+secondary_principles:
+- stewardship
+- risk-optimization
+principle_rationale: Drives investment approval through measurable value and evidence-based
+  risk assessment.
+---
+
+# Team Charter Template
+
+## Purpose/Overview
+This team charter template establishes clear expectations, roles, and working agreements for project teams. It serves as a foundational document that aligns team members on goals, responsibilities, communication protocols, and performance standards. The charter promotes team cohesion, reduces conflicts, and provides a reference for decision-making and accountability.
+
+## Usage Instructions
+1. **Team Workshop**: Create the charter collaboratively with all team members present
+2. **Leadership Review**: Involve project sponsors and stakeholders in goal-setting sections
+3. **Regular Updates**: Review and revise the charter at project milestones
+4. **Reference Document**: Use during team meetings to resolve conflicts and clarify expectations
+5. **New Member Onboarding**: Share with new team members as part of orientation
+6. **Performance Management**: Reference working agreements during performance discussions
+7. **Continuous Improvement**: Update based on retrospective feedback and lessons learned
+8. **Visibility**: Keep the charter accessible to all team members and stakeholders
+
+## Team Information
+- **Project Name**: [Enter Project Name]
+- **Team Name**: [Enter Team Name]
+- **Project Manager**: [Name]
+- **Team Lead**: [Name]
+- **Charter Date**: [Date]
+- **Version**: 1.0
+
+## 1. Team Purpose and Mission
+
+### 1.1 Team Mission Statement
+[One clear sentence describing the team&#x27;s purpose and what they aim to achieve]
+
+*Example: &quot;To deliver a high-quality customer portal that improves user experience and reduces support calls by 40% within 6 months.&quot;*
+
+### 1.2 Project Objectives
+- **Primary Objective**: [Main goal the team is working toward]
+- **Secondary Objectives**:
+  - [Supporting objective 1]
+  - [Supporting objective 2]
+  - [Supporting objective 3]
+
+### 1.3 Success Criteria
+| Criterion | Target | Measurement Method |
+|-----------|--------|--------------------|
+| [Criterion 1] | [Specific target] | [How success will be measured] |
+| [Criterion 2] | [Specific target] | [How success will be measured] |
+| [Criterion 3] | [Specific target] | [How success will be measured] |
+
+## 2. Team Composition and Roles
+
+### 2.1 Team Structure
+
+```
+Project Manager
+      ↓
+   Team Lead
+      ↓
+├── [Role 1]
+├── [Role 2] 
+├── [Role 3]
+└── [Role 4]
+```
+
+### 2.2 Team Member Profiles
+
+#### Project Manager: [Name]
+- **Primary Responsibilities**: Overall project leadership, stakeholder management, planning and monitoring
+- **Key Skills**: Project management, communication, leadership
+- **Contact**: [Email, Phone]
+- **Availability**: [Days/Hours]
+
+#### Team Lead: [Name]
+- **Primary Responsibilities**: Technical leadership, team coordination, quality oversight
+- **Key Skills**: Technical expertise, team management, problem-solving
+- **Contact**: [Email, Phone]
+- **Availability**: [Days/Hours]
+
+#### [Role Name]: [Name]
+- **Primary Responsibilities**: [Specific responsibilities]
+- **Key Skills**: [Relevant skills]
+- **Contact**: [Email, Phone]
+- **Availability**: [Days/Hours]
+
+### 2.3 RACI Matrix
+
+| Activity/Decision | PM | Team Lead | Developer | Analyst | QA | Stakeholder |
+|------------------|----|-----------|-----------|---------|----|-------------|
+| Project planning | A | R | C | C | C | I |
+| Technical design | I | A | R | C | C | I |
+| Code development | I | A | R | I | I | I |
+| Testing | I | A | C | I | R | I |
+| Deployment | A | R | C | I | C | I |
+
+*R=Responsible, A=Accountable, C=Consulted, I=Informed*
+
+## 3. Team Goals and Deliverables
+
+### 3.1 Team Goals
+| Goal | Description | Target Date | Success Metrics |
+|------|-------------|-------------|-----------------|
+| [Goal 1] | [Description] | [Date] | [Metrics] |
+| [Goal 2] | [Description] | [Date] | [Metrics] |
+| [Goal 3] | [Description] | [Date] | [Metrics] |
+
+### 3.2 Key Deliverables
+| Deliverable | Owner | Due Date | Quality Criteria |
+|-------------|-------|----------|------------------|
+| [Deliverable 1] | [Name] | [Date] | [Criteria] |
+| [Deliverable 2] | [Name] | [Date] | [Criteria] |
+| [Deliverable 3] | [Name] | [Date] | [Criteria] |
+
+### 3.3 Dependencies and Constraints
+**Dependencies:**
+- [Internal dependency 1]
+- [External dependency 2]
+- [Resource dependency 3]
+
+**Constraints:**
+- [Time constraint]
+- [Budget constraint]
+- [Technical constraint]
+
+## 4. Team Working Agreements
+
+### 4.1 Core Working Principles
+- **Collaboration**: We work together toward common goals
+- **Transparency**: We communicate openly and honestly
+- **Accountability**: We take ownership of our commitments
+- **Quality**: We deliver high-quality work consistently
+- **Continuous Improvement**: We learn and adapt regularly
+- **Respect**: We value diverse perspectives and treat each other with respect
+
+### 4.2 Communication Guidelines
+
+#### Communication Channels
+| Purpose | Channel | Frequency | Participants |
+|---------|---------|-----------|--------------|
+| Daily coordination | Standup meeting | Daily | Core team |
+| Project updates | Email/Slack | Weekly | All stakeholders |
+| Issue escalation | Direct call/Slack | As needed | Relevant parties |
+| Status reporting | Team meeting | Weekly | Full team |
+
+#### Communication Standards
+- **Response Time**: Email within 24 hours, Slack within 4 hours during business hours
+- **Meeting Etiquette**: Start on time, come prepared, stay engaged, end with clear actions
+- **Documentation**: Record key decisions and share meeting notes within 24 hours
+- **Escalation**: Use defined escalation paths for issues requiring higher-level input
+
+### 4.3 Meeting Protocols
+
+#### Daily Standup
+- **Time**: [Day/Time]
+- **Duration**: 15 minutes maximum
+- **Format**: What did you do yesterday? What will you do today? Any blockers?
+- **Ground Rules**: Stand up, stay focused, park detailed discussions
+
+#### Weekly Team Meeting
+- **Time**: [Day/Time]
+- **Duration**: 1 hour
+- **Agenda**: Progress review, upcoming work, issues and risks, team announcements
+- **Preparation**: Come with status updates and agenda items
+
+#### Retrospectives
+- **Frequency**: End of each sprint/milestone
+- **Duration**: 1-2 hours
+- **Focus**: What went well, what could improve, action items for next period
+
+### 4.4 Decision-Making Process
+
+#### Decision Authority Levels
+| Decision Type | Authority Level | Process |
+|---------------|-----------------|---------|
+| Daily work decisions | Individual team member | Self-directed |
+| Technical approach | Team Lead + relevant experts | Team discussion and consensus |
+| Scope changes | Project Manager | Formal change request process |
+| Resource allocation | Project Manager + Sponsor | Business case and approval |
+
+#### Consensus Building
+- **Discussion**: Open dialogue to understand all perspectives
+- **Options**: Identify and evaluate alternatives
+- **Decision**: Seek consensus; use PM as tiebreaker if needed
+- **Commitment**: All team members commit to decisions once made
+
+## 5. Team Performance Standards
+
+### 5.1 Quality Standards
+- **Code Quality**: All code must pass peer review and automated testing
+- **Documentation**: Key decisions and technical designs must be documented
+- **Testing**: All deliverables must meet defined acceptance criteria
+- **Standards Compliance**: Follow organizational and industry standards
+
+### 5.2 Productivity Expectations
+- **Availability**: Core hours [specify hours] with flexibility for personal needs
+- **Commitment**: Honor estimates and deadlines; communicate early if at risk
+- **Focus**: Minimize distractions during focused work time
+- **Continuous Learning**: Invest time in skill development and knowledge sharing
+
+### 5.3 Collaboration Standards
+- **Knowledge Sharing**: Proactively share information that could help others
+- **Support**: Help team members when they face challenges
+- **Feedback**: Give and receive constructive feedback regularly
+- **Conflict Resolution**: Address disagreements professionally and promptly
+
+## 6. Team Development Plan
+
+### 6.1 Skill Development Goals
+| Team Member | Current Strengths | Development Areas | Learning Plan |
+|-------------|-------------------|-------------------|---------------|
+| [Name] | [Strengths] | [Areas] | [Plan] |
+| [Name] | [Strengths] | [Areas] | [Plan] |
+| [Name] | [Strengths] | [Areas] | [Plan] |
+
+### 6.2 Team Building Activities
+- **Kickoff Workshop**: Team introduction and charter creation
+- **Regular Check-ins**: Weekly team building moments
+- **Learning Sessions**: Monthly knowledge sharing sessions
+- **Social Events**: Quarterly team social activities
+- **Retrospectives**: Regular team improvement discussions
+
+### 6.3 Knowledge Management
+- **Documentation Repository**: Central location for all team documents
+- **Knowledge Sharing**: Regular sessions to share learnings and best practices
+- **Mentoring**: Pair experienced team members with those developing skills
+- **External Learning**: Encourage attendance at conferences and training
+
+## 7. Conflict Resolution
+
+### 7.1 Conflict Resolution Process
+1. **Direct Discussion**: Individuals attempt to resolve directly
+2. **Team Lead Mediation**: Team lead facilitates discussion if needed
+3. **Project Manager Involvement**: PM helps resolve if team lead unsuccessful
+4. **Escalation**: Involve functional managers or sponsors if necessary
+
+### 7.2 Ground Rules for Conflict Resolution
+- **Focus on Issues**: Address the problem, not the person
+- **Listen Actively**: Understand all perspectives before responding
+- **Seek Solutions**: Focus on finding mutually acceptable solutions
+- **Learn and Improve**: Use conflicts as opportunities to improve processes
+
+## 8. Recognition and Rewards
+
+### 8.1 Recognition Principles
+- **Timely**: Recognize achievements close to when they occur
+- **Specific**: Be clear about what is being recognized
+- **Public**: Share recognition with the broader team when appropriate
+- **Varied**: Use different forms of recognition for different people
+
+### 8.2 Recognition Methods
+- **Peer Recognition**: Team members nominate each other for contributions
+- **Management Recognition**: Formal recognition from project leadership
+- **Public Recognition**: Sharing achievements in team meetings or newsletters
+- **Professional Development**: Opportunities for growth and new responsibilities
+
+## 9. Risk and Issue Management
+
+### 9.1 Team-Level Risks
+| Risk | Impact | Probability | Mitigation | Owner |
+|------|--------|-------------|------------|-------|
+| [Risk 1] | [H/M/L] | [H/M/L] | [Strategy] | [Name] |
+| [Risk 2] | [H/M/L] | [H/M/L] | [Strategy] | [Name] |
+
+### 9.2 Issue Escalation
+- **Team Level**: Issues that can be resolved within the team
+- **Project Level**: Issues requiring PM or stakeholder involvement
+- **Organizational Level**: Issues requiring senior management attention
+
+## 10. Charter Review and Updates
+
+### 10.1 Review Schedule
+- **Monthly**: Quick review of working agreements and effectiveness
+- **Quarterly**: Comprehensive review of charter and team performance
+- **As Needed**: Updates when team composition or project scope changes
+
+### 10.2 Change Process
+1. **Identify Need**: Team member identifies need for charter change
+2. **Discuss**: Team discusses proposed changes
+3. **Agree**: Team reaches consensus on changes
+4. **Update**: Charter is updated and redistributed
+5. **Communicate**: Changes are communicated to stakeholders
+
+## 11. Success Metrics
+
+### 11.1 Team Performance Metrics
+- **Delivery**: On-time delivery of commitments
+- **Quality**: Defect rates and rework requirements
+- **Productivity**: Velocity and throughput measures
+- **Satisfaction**: Team member satisfaction scores
+
+### 11.2 Collaboration Metrics
+- **Communication**: Frequency and effectiveness of team communications
+- **Knowledge Sharing**: Documentation quality and knowledge transfer
+- **Conflict Resolution**: Time to resolve conflicts and team harmony
+- **Continuous Improvement**: Number of improvements implemented
+
+---
+
+## When to Use
+
+Use throughout the project lifecycle to identify, assess, and track risks. This template is essential for projects with significant complexity, multiple stakeholders, or high business impact, where structured risk management provides decision-making value.
+
+## When NOT to Use
+
+Do not use for very low-risk, short-duration tasks where informal risk awareness is sufficient. Avoid this template if your governance framework requires a different risk management approach or if stakeholders prefer real-time risk dashboards over static registers.
+
+## Charter Acceptance
+
+**By signing below, team members commit to following this charter and working together to achieve the project objectives.**
+
+| Role | Name | Signature | Date |
+|------|------|-----------|------|
+| Project Manager | [Name] | | |
+| Team Lead | [Name] | | |
+| Team Member | [Name] | | |
+| Team Member | [Name] | | |
+| Team Member | [Name] | | |
+| Team Member | [Name] | | |
+
+---
+
+**Next Review Date**: [Date]
+
+*This team charter is a living document that should be reviewed and updated regularly to ensure it continues to serve the team&#x27;s needs effectively.*
+
+</pre></div></div></div><!--astro:end--></astro-island></main></body></html>

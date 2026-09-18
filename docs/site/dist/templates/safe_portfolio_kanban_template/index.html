@@ -1,0 +1,409 @@
+<!DOCTYPE html><html lang="en" data-astro-cid-ju4pidww><head><meta charset="UTF-8"><meta name="description" content="Advanced template browser with previews and version history"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="icon" type="image/svg+xml" href="/pm-tools-templates/favicon.svg"><title>Safe Portfolio Kanban Template</title><link rel="stylesheet" href="/pm-tools-templates/assets/Layout.ChXqTIwx.css"></head><body data-astro-cid-ju4pidww><main data-astro-cid-ju4pidww><style>astro-island,astro-slot,astro-static-slot{display:contents}</style><script>(()=>{var e=async t=>{await(await t())()};(self.Astro||(self.Astro={})).load=e;window.dispatchEvent(new Event("astro:load"));})();</script><script>(()=>{var g=Object.defineProperty;var w=(a,s,c)=>s in a?g(a,s,{enumerable:!0,configurable:!0,writable:!0,value:c}):a[s]=c;var l=(a,s,c)=>w(a,typeof s!="symbol"?s+"":s,c);var E=new Set(["__proto__","constructor","prototype"]);{let a={0:t=>y(t),1:t=>c(t),2:t=>new RegExp(t),3:t=>new Date(t),4:t=>new Map(c(t)),5:t=>new Set(c(t)),6:t=>BigInt(t),7:t=>new URL(t),8:t=>new Uint8Array(t),9:t=>new Uint16Array(t),10:t=>new Uint32Array(t),11:t=>Number.POSITIVE_INFINITY*t},s=t=>{let[p,e]=t;return p in a?a[p](e):void 0},c=t=>t.map(s),y=t=>typeof t!="object"||t===null?t:Object.fromEntries(Object.entries(t).map(([p,e])=>[p,s(e)]));class f extends HTMLElement{constructor(){super(...arguments);l(this,"Component");l(this,"hydrator");l(this,"hydrate",async()=>{var b;if(!this.hydrator||!this.isConnected)return;let e=(b=this.parentElement)==null?void 0:b.closest("astro-island[ssr]");if(e){e.addEventListener("astro:hydrate",this.hydrate,{once:!0});return}let r=this.querySelectorAll("astro-slot"),n={},d=this.querySelectorAll("template[data-astro-template]");for(let o of d){let i=o.closest(this.tagName);i!=null&&i.isSameNode(this)&&(n[o.getAttribute("data-astro-template")||"default"]=o.innerHTML,o.remove())}for(let o of r){let i=o.closest(this.tagName);i!=null&&i.isSameNode(this)&&(n[o.getAttribute("name")||"default"]=o.innerHTML)}let u;try{u=this.hasAttribute("props")?y(JSON.parse(this.getAttribute("props"))):{}}catch(o){let i=this.getAttribute("component-url")||"<unknown>",v=this.getAttribute("component-export");throw v&&(i+=` (export ${v})`),console.error(`[hydrate] Error parsing props for component ${i}`,this.getAttribute("props"),o),o}let h;await this.hydrator(this)(this.Component,u,n,{client:this.getAttribute("client")}),this.removeAttribute("ssr"),this.dispatchEvent(new CustomEvent("astro:hydrate"))});l(this,"unmount",()=>{this.isConnected||this.dispatchEvent(new CustomEvent("astro:unmount"))})}disconnectedCallback(){document.removeEventListener("astro:after-swap",this.unmount),document.addEventListener("astro:after-swap",this.unmount,{once:!0})}connectedCallback(){if(!this.hasAttribute("await-children")||document.readyState==="interactive"||document.readyState==="complete")this.childrenConnectedCallback();else{let e=()=>{document.removeEventListener("DOMContentLoaded",e),r.disconnect(),this.childrenConnectedCallback()},r=new MutationObserver(()=>{var n;((n=this.lastChild)==null?void 0:n.nodeType)===Node.COMMENT_NODE&&this.lastChild.nodeValue==="astro:end"&&(this.lastChild.remove(),e())});r.observe(this,{childList:!0}),document.addEventListener("DOMContentLoaded",e)}}async childrenConnectedCallback(){let e=this.getAttribute("before-hydration-url");e&&await import(e),this.start()}getRetryImportUrl(e){let r=new URL(e,document.baseURI);return r.searchParams.set("astro-retry",Date.now().toString()),r.toString()}async importWithRetry(e){try{return await import(e)}catch(r){return await new Promise(n=>setTimeout(n,1e3)),import(this.getRetryImportUrl(e))}}handleHydrationError(e){let r=this.getAttribute("component-url"),n=new CustomEvent("astro:hydration-error",{cancelable:!0,bubbles:!0,composed:!0,detail:{error:e,componentUrl:r}});this.dispatchEvent(n)&&console.error(`[astro-island] Error hydrating ${r}`,e)}async start(){let e=JSON.parse(this.getAttribute("opts")),r=this.getAttribute("client");if(Astro[r]===void 0){window.addEventListener(`astro:${r}`,()=>this.start(),{once:!0});return}try{await Astro[r](async()=>{let n=this.getAttribute("renderer-url");try{let[d,{default:u}]=await Promise.all([this.importWithRetry(this.getAttribute("component-url")),n?this.importWithRetry(n):Promise.resolve({default:()=>()=>{}})]),h=this.getAttribute("component-export")||"default";if(h.includes(".")){this.Component=d;for(let m of h.split(".")){if(E.has(m)||!this.Component||typeof this.Component!="object"&&typeof this.Component!="function"||!Object.hasOwn(this.Component,m))throw new Error(`Invalid component export path: ${h}`);this.Component=this.Component[m]}}else{if(E.has(h))throw new Error(`Invalid component export path: ${h}`);this.Component=d[h]}return this.hydrator=u,this.hydrate}catch(d){return this.handleHydrationError(d),()=>{}}},e,this)}catch(n){this.handleHydrationError(n)}}attributeChangedCallback(){this.hydrate()}}l(f,"observedAttributes",["props"]),customElements.get("astro-island")||customElements.define("astro-island",f)}})();</script><astro-island uid="1nnHAv" prefix="r1" component-url="/pm-tools-templates/assets/TemplateViewer.BJxWH0dD.js" component-export="default" renderer-url="/pm-tools-templates/assets/client.REQV_TkY.js" props="{&quot;templateId&quot;:[0,&quot;safe_portfolio_kanban_template&quot;],&quot;filePath&quot;:[0,&quot;domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_portfolio_kanban_template.md&quot;],&quot;title&quot;:[0,&quot;Safe Portfolio Kanban Template&quot;],&quot;content&quot;:[0,&quot;---\ntitle: Safe Portfolio Kanban Template\nmethodology: agile\ncomplexity: advanced\nowner: mirichard\nupdated: &#39;2025-08-05&#39;\nprimary_principles:\n- systems-thinking\n- collaborative-leadership\nsecondary_principles:\n- adaptability\n- value-focus\nprinciple_rationale: Coordinates cross-team dependencies and value flow through adaptive\n  leadership.\n---\n\n# SAFe Portfolio Kanban Template\n\n**Enterprise:** [Enterprise Name]  \n**Portfolio:** [Portfolio Name]  \n**Created By:** [Name/Role]  \n**Last Updated:** [YYYY-MM-DD]  \n**Version:** [1.0]\n\n## 📋 Portfolio Kanban Overview\n\nThe Portfolio Kanban system visualizes the flow of business and enabler epics from concept to completion, helping to:\n\n- Limit work in progress (WIP) to improve flow\n- Make portfolio work visible to all stakeholders\n- Establish clear policies for work movement\n- Implement a structured approach to portfolio prioritization\n- Provide transparency into the enterprise&#39;s most significant initiatives\n\nThis template provides a framework for implementing a SAFe Portfolio Kanban system following Scaled Agile Framework best practices.\n\n## 🔄 Kanban Board Structure\n\n### Epic Workflow States\n\n| State | Description | Entry Criteria | Exit Criteria | WIP Limit | Owner/Participants |\n|-------|-------------|----------------|---------------|-----------|-------------------|\n| **Funnel** | Initial capture of epic ideas | None - all epics start here | Epic has a brief description and identified business sponsor | None | Anyone |\n| **Reviewing** | Initial analysis and evaluation | Sponsor identified; Description created | WSJF calculated; Initial analysis complete | 10 epics | LPM Team, Epic Owners |\n| **Analyzing** | Detailed analysis, business case development | WSJF calculated; LPM team approval to analyze | Lean business case complete; Solution intent defined | 5 epics | Epic Owner, Subject Matter Experts |\n| **Portfolio Backlog** | Approved epics awaiting implementation capacity | Lean business case approved; Epic meets minimum WSJF threshold | Committed for implementation; Resources allocated | 15 epics | LPM Team |\n| **Implementing** | Epic is being implemented by one or more ARTs | Resources allocated; Added to PI Planning | All features implemented; Acceptance criteria met | 8 epics | ARTs, Epic Owner |\n| **Done** | Epic completed and benefits being realized | All acceptance criteria met; Solution validated | None - terminal state | None | Epic Owner, LPM Team |\n| **Archived** | Historic record of completed or rejected epics | Epic completed or explicitly rejected | None - terminal state | None | System Administrator |\n\n### Visual Representation\n\n```\n┌─────────────┐ ┌─────────────┐ ┌─────────────┐ ┌─────────────┐ ┌─────────────┐ ┌─────────────┐ ┌─────────────┐\n│             │ │             │ │             │ │             │ │             │ │             │ │             │\n│   FUNNEL    │ │  REVIEWING  │ │  ANALYZING  │ │ PORTFOLIO   │ │IMPLEMENTING │ │    DONE     │ │  ARCHIVED   │\n│             │ │             │ │             │ │  BACKLOG    │ │             │ │             │ │             │\n│ No WIP Limit│ │ WIP Limit:10│ │ WIP Limit: 5│ │ WIP Limit:15│ │ WIP Limit: 8│ │ No WIP Limit│ │ No WIP Limit│\n└─────────────┘ └─────────────┘ └─────────────┘ └─────────────┘ └─────────────┘ └─────────────┘ └─────────────┘\n      ↑               ↑               ↑               ↑               ↑               ↑               ↑\n   All Ideas    Initial Review    Deep Analysis    Approved for     In Progress     Completed      Historical\n                                                  Implementation                                     Record\n```\n\n## 📝 Epic Card Template\n\nEach epic on the Kanban board should contain the following information:\n\n### Basic Information\n- **Epic ID:** [Unique Identifier]\n- **Epic Name:** [Descriptive title]\n- **Epic Owner:** [Person responsible]\n- **Epic Type:** [Business/Enabler]\n- **Strategic Theme:** [Alignment to strategic themes]\n- **Current State:** [Kanban state]\n- **Start Date:** [When work began]\n- **Target Completion:** [Expected completion]\n\n### Business Information\n- **Business Outcome:** [Measurable outcome expected]\n- **Leading Indicators:** [Early measures of success]\n- **WSJF Score:** [Weighted Shortest Job First calculation]\n- **Cost of Delay:** [$ value/time period]\n- **Job Size:** [Relative size estimate]\n\n### Implementation Information\n- **Impacted ARTs:** [ARTs involved in implementation]\n- **Key Dependencies:** [Other epics, capabilities, or systems]\n- **Key Milestones:** [Major achievement points]\n- **Progress:** [% complete or feature count]\n\n## 🔄 Portfolio Kanban Policies\n\n### General Policies\n1. **Card Movement:** Only move cards during Portfolio Sync meetings or with LPM approval\n2. **WIP Limits:** Only exceed WIP limits with explicit approval from Portfolio Management\n3. **Age Monitoring:** Epics in any state for more than 30 days require escalation and review\n4. **Blockers:** Blocked epics must be clearly marked and discussed in Portfolio Sync\n5. **Prioritization:** WSJF is the primary prioritization mechanism for epics\n\n### State-Specific Policies\n\n#### Funnel Policies\n- New epics can be added by anyone in the organization\n- Each epic requires a brief description and identified sponsor\n- Funnel is reviewed and groomed monthly\n- Epics without activity for 90+ days may be removed\n\n#### Reviewing Policies\n- Epic review occurs weekly during Portfolio Sync\n- Initial WSJF calculation must be completed before advancing\n- Business and enabler epics must align with at least one strategic theme\n- Maximum time in state: 4 weeks\n\n#### Analyzing Policies\n- Analysis requires involvement of subject matter experts from relevant areas\n- Lean business case must include benefits hypothesis and success metrics\n- Architectural and UX conceptual designs must be completed\n- Maximum time in state: 8 weeks\n\n#### Portfolio Backlog Policies\n- Epics must be sequenced based on WSJF and dependencies\n- Epics can only be pulled when implementation capacity is available\n- Quarterly review of backlog to ensure continued strategic alignment\n- Epic details and documentation must be current before implementation\n\n#### Implementing Policies\n- Implementation must be coordinated across affected ARTs\n- Status must be updated at least bi-weekly\n- Impediments must be raised to Portfolio Sync meetings\n- Significant scope changes require re-analysis and approval\n\n#### Done/Archived Policies\n- Benefit measurement plan must be in place for at least 3 months post-completion\n- Retrospective must be conducted and documented\n- All documentation must be finalized and stored in knowledge repository\n\n## 💹 WSJF Calculation\n\nWeighted Shortest Job First (WSJF) is calculated as:\n\n**WSJF = Cost of Delay ÷ Job Size**\n\nWhere **Cost of Delay** = (Business Value + Time Criticality + Risk Reduction/Opportunity Enablement)\n\n### Scoring Guidelines\n\n| Score | Business Value | Time Criticality | Risk Reduction | Job Size |\n|-------|---------------|------------------|----------------|----------|\n| **1** | Minimal value | No urgency | Minimal risk reduction | Extra Large |\n| **3** | Moderate value | Low urgency | Some risk reduction | Large |\n| **5** | Significant value | Moderate urgency | Significant risk reduction | Medium |\n| **8** | High value | High urgency | Substantial risk reduction | Small |\n| **13** | Very high value | Very high urgency | Very high risk reduction | Extra Small |\n| **20** | Extreme value | Extreme urgency | Major risk reduction | - |\n\n### WSJF Example\n\n| Epic | Business Value | Time Criticality | Risk Reduction | CoD (Sum) | Job Size | WSJF (CoD ÷ Job Size) | Rank |\n|------|---------------|------------------|----------------|-----------|----------|----------------------|------|\n| Customer Portal | 13 | 8 | 5 | 26 | 5 | 5.2 | 2 |\n| Payment Gateway | 20 | 13 | 8 | 41 | 8 | 5.1 | 3 |\n| Data Migration | 8 | 20 | 13 | 41 | 3 | 13.7 | 1 |\n| UX Redesign | 13 | 5 | 5 | 23 | 8 | 2.9 | 5 |\n| Security Update | 8 | 13 | 20 | 41 | 13 | 3.2 | 4 |\n\n## 📊 Lean Business Case Template\n\n### Epic Summary\n**Epic Name:** [Name]  \n**Epic Owner:** [Name]  \n**Problem Statement:** [Clear articulation of the problem being solved]\n\n### Business Outcomes\n- **Primary Outcome:** [Specific measurable outcome]\n- **Secondary Outcomes:** [Other benefits]\n- **Leading Indicators:** [Early signals of success]\n\n### Solution Overview\n- **Proposed Approach:** [High-level solution]\n- **Alternative Approaches Considered:** [Other options evaluated]\n- **Estimated Effort:** [T-shirt size or range estimate]\n- **Impacted Systems/Areas:** [Systems, teams, or processes affected]\n\n### Strategic Alignment\n- **Strategic Themes:** [Connection to enterprise strategy]\n- **Portfolio Vision:** [How this advances portfolio goals]\n\n### Implementation Considerations\n- **Key Dependencies:** [Other initiatives, systems, or decisions]\n- **Key Risks:** [Major risks to success]\n- **Timing Constraints:** [Market or regulatory windows]\n\n### Financial Analysis\n- **Estimated Costs:** [Implementation costs]\n- **Expected Benefits:** [Financial benefits]\n- **Payback Period:** [Time to recoup investment]\n- **Funding Source:** [Budget allocation]\n\n### Recommendation\n- **Go/No-Go Decision:** [Recommendation with rationale]\n- **Next Steps:** [Immediate actions if approved]\n\n## 📈 Portfolio Kanban Metrics\n\n### Flow Metrics\n\n| Metric | Description | Target | Current | Trend |\n|--------|-------------|--------|---------|-------|\n| **Throughput** | Number of epics completed per time period | 4 per quarter | [Value] | [↑/↓/→] |\n| **Cycle Time** | Average time from Analyzing to Done | 6 months | [Value] | [↑/↓/→] |\n| **Lead Time** | Average time from Funnel to Done | 9 months | [Value] | [↑/↓/→] |\n| **WIP** | Current number of epics in progress | ≤ 8 | [Value] | [↑/↓/→] |\n| **Flow Efficiency** | % of time epics are actively worked vs. waiting | &gt;40% | [Value] | [↑/↓/→] |\n| **Blockers** | Number of blocked epics | 0 | [Value] | [↑/↓/→] |\n\n### Process Health Metrics\n\n| Metric | Description | Target | Current | Trend |\n|--------|-------------|--------|---------|-------|\n| **Aging WIP** | Epics in progress &gt; 90 days | ≤ 3 | [Value] | [↑/↓/→] |\n| **Escaped Defects** | Defects found after implementation | ≤ 3 per epic | [Value] | [↑/↓/→] |\n| **Forecast Accuracy** | Actual vs. estimated completion date | ±20% | [Value] | [↑/↓/→] |\n| **Strategic Alignment** | % of epics aligned to strategic themes | &gt;90% | [Value] | [↑/↓/→] |\n| **Feedback Cycle** | Average time from feedback to action | ≤ 14 days | [Value] | [↑/↓/→] |\n\n### Business Outcome Metrics\n\n| Metric | Description | Target | Current | Trend |\n|--------|-------------|--------|---------|-------|\n| **Benefits Realization** | % of epics achieving stated benefits | &gt;75% | [Value] | [↑/↓/→] |\n| **Customer Satisfaction** | Customer satisfaction with delivered solutions | &gt;4.2/5 | [Value] | [↑/↓/→] |\n| **Time to Market** | Time from idea to customer availability | -10% YoY | [Value] | [↑/↓/→] |\n| **Innovation Rate** | % of epics that represent new capabilities | &gt;30% | [Value] | [↑/↓/→] |\n| **Technical Debt Reduction** | % of enabler epics addressing tech debt | 20-30% | [Value] | [↑/↓/→] |\n\n## 🔍 Portfolio Kanban Cadence\n\n### Meeting Structure\n\n| Meeting | Frequency | Duration | Participants | Purpose |\n|---------|-----------|----------|--------------|---------|\n| **Portfolio Sync** | Weekly | 1 hour | LPM Team, Epic Owners | Review kanban board, move epics, address blockers |\n| **Epic Review** | Bi-weekly | 2 hours | LPM Team, Epic Owners, SMEs | Review epics in Analysis, make go/no-go decisions |\n| **Portfolio Steering** | Monthly | 2 hours | Executives, LPM Team | Strategic alignment review, resource allocation decisions |\n| **Portfolio Retrospective** | Quarterly | 3 hours | LPM Team, Sample of Epic Owners | Process improvement, metrics review |\n\n### Portfolio Sync Agenda Template\n\n1. **Review Metrics** (10 min)\n   - Flow metrics\n   - Blockers and impediments\n   - Aging WIP\n\n2. **Kanban Board Review** (30 min)\n   - Right-to-left review of epics\n   - Update epic status\n   - Identify and discuss blockers\n   - Move epics that meet exit criteria\n\n3. **WIP Management** (10 min)\n   - Address WIP limit violations\n   - Discuss capacity allocation\n\n4. **Next Steps &amp; Action Items** (10 min)\n   - Assign action items\n   - Confirm next meeting\n\n## 📱 Portfolio Kanban Implementation Examples\n\n### Physical Board Example\n\n```\n┌─────────────────────────────────────────────────────────────────────────────────┐\n│                           PORTFOLIO KANBAN BOARD                                │\n└─────────────────────────────────────────────────────────────────────────────────┘\n\n┌─────────────┐ ┌─────────────┐ ┌─────────────┐ ┌─────────────┐ ┌─────────────┐ ┌─────────────┐\n│   FUNNEL    │ │  REVIEWING  │ │  ANALYZING  │ │ PORTFOLIO   │ │IMPLEMENTING │ │    DONE     │\n│             │ │             │ │             │ │  BACKLOG    │ │             │ │             │\n├─────────────┤ ├─────────────┤ ├─────────────┤ ├─────────────┤ ├─────────────┤ ├─────────────┤\n│ Mobile App  │ │ Customer    │ │ Payment     │ │ Data        │ │ Security    │ │ API         │\n│ Redesign    │ │ Portal      │ │ Gateway     │ │ Migration   │ │ Update      │ │ Gateway     │\n├─────────────┤ ├─────────────┤ ├─────────────┤ ├─────────────┤ ├─────────────┤ ├─────────────┤\n│ Blockchain  │ │ Reporting   │ │ DevOps      │ │ UX          │ │ Cloud       │ │ Customer    │\n│ Integration │ │ Dashboard   │ │ Pipeline    │ │ Redesign    │ │ Migration   │ │ Onboarding  │\n├─────────────┤ ├─────────────┤ ├─────────────┤ ├─────────────┤ ├─────────────┤ ├─────────────┤\n│ AI-powered  │ │ Regulatory  │ │             │ │ Mobile      │ │ Compliance  │ │             │\n│ Analytics   │ │ Compliance  │ │             │ │ App v2      │ │ Framework   │ │             │\n├─────────────┤ ├─────────────┤ │             │ ├─────────────┤ ├─────────────┤ │             │\n│ Voice       │ │             │ │             │ │ Analytics   │ │ CRM         │ │             │\n│ Assistant   │ │             │ │             │ │ Platform    │ │ Integration │ │             │\n├─────────────┤ │             │ │             │ ├─────────────┤ │             │ │             │\n│ IoT         │ │             │ │             │ │ Legacy      │ │             │ │             │\n│ Platform    │ │             │ │             │ │ Migration   │ │             │ │             │\n└─────────────┘ └─────────────┘ └─────────────┘ └─────────────┘ └─────────────┘ └─────────────┘\n    No Limit        WIP: 3          WIP: 2         WIP: 5          WIP: 5         No Limit\n```\n\n### Digital Tool Example (Jira/Rally/Azure DevOps)\n\nFor digital implementation:\n\n1. **Create Epic Type Custom Field**\n   - Business Epic\n   - Enabler Epic\n\n2. **Create Portfolio States as Workflow Status**\n   - Funnel\n   - Reviewing\n   - Analyzing\n   - Portfolio Backlog\n   - Implementing\n   - Done\n   - Archived\n\n3. **Configure Custom Fields**\n   - Business Value (1-20)\n   - Time Criticality (1-20)\n   - Risk Reduction/Opportunity Enablement (1-20)\n   - Job Size (1-13)\n   - WSJF (Calculated)\n   - Strategic Theme (List)\n   - Business Outcome (Text)\n\n4. **Configure Board**\n   - Columns represent states\n   - WIP limits displayed on columns\n   - Swimlanes can represent strategic themes or epic types\n   - Cards show epic ID, name, owner, and WSJF score\n\n5. **Configure Dashboard**\n   - Cycle time and lead time charts\n   - Throughput chart\n   - Aging WIP chart\n   - Cumulative flow diagram\n\n## 🛠️ Portfolio Kanban Implementation Steps\n\n1. **Define Portfolio Vision &amp; Strategy**\n   - Clearly articulate portfolio vision\n   - Identify strategic themes\n   - Define value streams and ARTs\n\n2. **Design Portfolio Kanban**\n   - Define workflow states\n   - Set initial WIP limits\n   - Create policies for each state\n   - Design epic card template\n\n3. **Configure Tools**\n   - Set up physical or digital board\n   - Configure metrics collection\n   - Establish reporting mechanisms\n\n4. **Train Participants**\n   - Train LPM team on Kanban principles\n   - Train epic owners on process\n   - Train executives on portfolio governance\n\n5. **Launch &amp; Monitor**\n   - Begin with current epics\n   - Hold regular Portfolio Sync meetings\n   - Collect and analyze metrics\n\n6. **Continuous Improvement**\n   - Review and adjust WIP limits\n   - Refine policies\n   - Update workflow as needed\n\n## 🔄 Portfolio Kanban Anti-patterns\n\n| Anti-pattern | Description | Solution |\n|--------------|-------------|----------|\n| **Kanban Theater** | Following the form but not the principles | Focus on flow, limiting WIP, and making policies explicit |\n| **WIP Limit Violations** | Regularly exceeding WIP limits | Enforce limits, escalate violations, address root causes |\n| **Stale Epics** | Epics staying in one state for extended periods | Implement aging policies, regular review of aged items |\n| **Bypassing Process** | Moving epics without meeting exit criteria | Reinforce policies, require formal approval for exceptions |\n| **Micro-portfolio Management** | Portfolio team making all decisions | Empower ARTs/teams, focus portfolio on strategic decisions |\n| **Focusing on Activity, Not Outcomes** | Measuring busyness instead of value | Shift metrics to outcomes, measure benefits realization |\n\n---\n\n## When to Use\n\nUse throughout the project lifecycle to identify, assess, and track risks. This template is essential for projects with significant complexity, multiple stakeholders, or high business impact, where structured risk management provides decision-making value.\n\n## When NOT to Use\n\nDo not use for very low-risk, short-duration tasks where informal risk awareness is sufficient. Avoid this template if your governance framework requires a different risk management approach or if stakeholders prefer real-time risk dashboards over static registers.\n\n## Appendix A: SAFe Portfolio Level Roles\n\n- **Enterprise Architect:** Defines strategic technical direction\n- **Epic Owner:** Responsible for defining, analyzing, and driving implementation of an epic\n- **Lean Portfolio Management (LPM):** Governs the portfolio, allocates budget, and defines strategic themes\n- **Product Management:** Represents customer needs at the portfolio level\n- **Business Owners:** Responsible for ROI, business results, and implementation\n\n## Appendix B: Additional Resources\n\n- SAFe Framework: [www.scaledagileframework.com](https://www.scaledagileframework.com/)\n- Portfolio Kanban article: [www.scaledagileframework.com/portfolio-kanban](https://www.scaledagileframework.com/portfolio-kanban/)\n- Lean Portfolio Management: [www.scaledagileframework.com/lean-portfolio-management](https://www.scaledagileframework.com/lean-portfolio-management/)\n\n---\n\n*This template follows the Scaled Agile Framework (SAFe) Portfolio Kanban practices. Customize as needed for your organization&#39;s specific implementation of SAFe.*\n&quot;]}" ssr client="load" opts="{&quot;name&quot;:&quot;TemplateViewer&quot;,&quot;value&quot;:true}" await-children><div><h1>Safe Portfolio Kanban Template</h1><div style="margin-bottom:2rem"><button style="background:var(--accent-color);color:white;border:1px solid var(--border-color);padding:0.5rem 1rem;border-radius:4px 4px 0 0;cursor:pointer;margin-right:1px">Preview</button><button style="background:var(--code-bg);color:var(--text-color);border:1px solid var(--border-color);padding:0.5rem 1rem;border-radius:4px 4px 0 0;cursor:pointer">Version History</button></div><div style="border:1px solid var(--border-color);border-radius:0 8px 8px 8px;min-height:400px"><div style="background:var(--bg-primary);border-radius:var(--radius-lg)"><div style="padding:1rem 1.5rem;border-bottom:1px solid var(--border-light);display:flex;align-items:center;justify-content:space-between;background:var(--bg-secondary);border-radius:var(--radius-lg) var(--radius-lg) 0 0"><div style="display:flex;align-items:center;gap:0.5rem"><span style="font-size:1.5rem">📄</span><div><div style="font-weight:600;color:var(--text-primary)">safe_portfolio_kanban_template.md</div><div style="font-size:0.75rem;color:var(--text-muted)">Markdown • <!-- -->21,322 bytes</div></div></div><a href="/pm-tools-templates/downloads/safe_portfolio_kanban_template.md" download="" class="btn btn-secondary" style="font-size:0.75rem;padding:0.5rem 0.75rem">💾 Download</a></div><pre aria-label="Markdown source of Safe Portfolio Kanban Template" style="padding:1.5rem;max-height:600px;overflow:auto;white-space:pre-wrap;overflow-wrap:anywhere">---
+title: Safe Portfolio Kanban Template
+methodology: agile
+complexity: advanced
+owner: mirichard
+updated: &#x27;2025-08-05&#x27;
+primary_principles:
+- systems-thinking
+- collaborative-leadership
+secondary_principles:
+- adaptability
+- value-focus
+principle_rationale: Coordinates cross-team dependencies and value flow through adaptive
+  leadership.
+---
+
+# SAFe Portfolio Kanban Template
+
+**Enterprise:** [Enterprise Name]  
+**Portfolio:** [Portfolio Name]  
+**Created By:** [Name/Role]  
+**Last Updated:** [YYYY-MM-DD]  
+**Version:** [1.0]
+
+## 📋 Portfolio Kanban Overview
+
+The Portfolio Kanban system visualizes the flow of business and enabler epics from concept to completion, helping to:
+
+- Limit work in progress (WIP) to improve flow
+- Make portfolio work visible to all stakeholders
+- Establish clear policies for work movement
+- Implement a structured approach to portfolio prioritization
+- Provide transparency into the enterprise&#x27;s most significant initiatives
+
+This template provides a framework for implementing a SAFe Portfolio Kanban system following Scaled Agile Framework best practices.
+
+## 🔄 Kanban Board Structure
+
+### Epic Workflow States
+
+| State | Description | Entry Criteria | Exit Criteria | WIP Limit | Owner/Participants |
+|-------|-------------|----------------|---------------|-----------|-------------------|
+| **Funnel** | Initial capture of epic ideas | None - all epics start here | Epic has a brief description and identified business sponsor | None | Anyone |
+| **Reviewing** | Initial analysis and evaluation | Sponsor identified; Description created | WSJF calculated; Initial analysis complete | 10 epics | LPM Team, Epic Owners |
+| **Analyzing** | Detailed analysis, business case development | WSJF calculated; LPM team approval to analyze | Lean business case complete; Solution intent defined | 5 epics | Epic Owner, Subject Matter Experts |
+| **Portfolio Backlog** | Approved epics awaiting implementation capacity | Lean business case approved; Epic meets minimum WSJF threshold | Committed for implementation; Resources allocated | 15 epics | LPM Team |
+| **Implementing** | Epic is being implemented by one or more ARTs | Resources allocated; Added to PI Planning | All features implemented; Acceptance criteria met | 8 epics | ARTs, Epic Owner |
+| **Done** | Epic completed and benefits being realized | All acceptance criteria met; Solution validated | None - terminal state | None | Epic Owner, LPM Team |
+| **Archived** | Historic record of completed or rejected epics | Epic completed or explicitly rejected | None - terminal state | None | System Administrator |
+
+### Visual Representation
+
+```
+┌─────────────┐ ┌─────────────┐ ┌─────────────┐ ┌─────────────┐ ┌─────────────┐ ┌─────────────┐ ┌─────────────┐
+│             │ │             │ │             │ │             │ │             │ │             │ │             │
+│   FUNNEL    │ │  REVIEWING  │ │  ANALYZING  │ │ PORTFOLIO   │ │IMPLEMENTING │ │    DONE     │ │  ARCHIVED   │
+│             │ │             │ │             │ │  BACKLOG    │ │             │ │             │ │             │
+│ No WIP Limit│ │ WIP Limit:10│ │ WIP Limit: 5│ │ WIP Limit:15│ │ WIP Limit: 8│ │ No WIP Limit│ │ No WIP Limit│
+└─────────────┘ └─────────────┘ └─────────────┘ └─────────────┘ └─────────────┘ └─────────────┘ └─────────────┘
+      ↑               ↑               ↑               ↑               ↑               ↑               ↑
+   All Ideas    Initial Review    Deep Analysis    Approved for     In Progress     Completed      Historical
+                                                  Implementation                                     Record
+```
+
+## 📝 Epic Card Template
+
+Each epic on the Kanban board should contain the following information:
+
+### Basic Information
+- **Epic ID:** [Unique Identifier]
+- **Epic Name:** [Descriptive title]
+- **Epic Owner:** [Person responsible]
+- **Epic Type:** [Business/Enabler]
+- **Strategic Theme:** [Alignment to strategic themes]
+- **Current State:** [Kanban state]
+- **Start Date:** [When work began]
+- **Target Completion:** [Expected completion]
+
+### Business Information
+- **Business Outcome:** [Measurable outcome expected]
+- **Leading Indicators:** [Early measures of success]
+- **WSJF Score:** [Weighted Shortest Job First calculation]
+- **Cost of Delay:** [$ value/time period]
+- **Job Size:** [Relative size estimate]
+
+### Implementation Information
+- **Impacted ARTs:** [ARTs involved in implementation]
+- **Key Dependencies:** [Other epics, capabilities, or systems]
+- **Key Milestones:** [Major achievement points]
+- **Progress:** [% complete or feature count]
+
+## 🔄 Portfolio Kanban Policies
+
+### General Policies
+1. **Card Movement:** Only move cards during Portfolio Sync meetings or with LPM approval
+2. **WIP Limits:** Only exceed WIP limits with explicit approval from Portfolio Management
+3. **Age Monitoring:** Epics in any state for more than 30 days require escalation and review
+4. **Blockers:** Blocked epics must be clearly marked and discussed in Portfolio Sync
+5. **Prioritization:** WSJF is the primary prioritization mechanism for epics
+
+### State-Specific Policies
+
+#### Funnel Policies
+- New epics can be added by anyone in the organization
+- Each epic requires a brief description and identified sponsor
+- Funnel is reviewed and groomed monthly
+- Epics without activity for 90+ days may be removed
+
+#### Reviewing Policies
+- Epic review occurs weekly during Portfolio Sync
+- Initial WSJF calculation must be completed before advancing
+- Business and enabler epics must align with at least one strategic theme
+- Maximum time in state: 4 weeks
+
+#### Analyzing Policies
+- Analysis requires involvement of subject matter experts from relevant areas
+- Lean business case must include benefits hypothesis and success metrics
+- Architectural and UX conceptual designs must be completed
+- Maximum time in state: 8 weeks
+
+#### Portfolio Backlog Policies
+- Epics must be sequenced based on WSJF and dependencies
+- Epics can only be pulled when implementation capacity is available
+- Quarterly review of backlog to ensure continued strategic alignment
+- Epic details and documentation must be current before implementation
+
+#### Implementing Policies
+- Implementation must be coordinated across affected ARTs
+- Status must be updated at least bi-weekly
+- Impediments must be raised to Portfolio Sync meetings
+- Significant scope changes require re-analysis and approval
+
+#### Done/Archived Policies
+- Benefit measurement plan must be in place for at least 3 months post-completion
+- Retrospective must be conducted and documented
+- All documentation must be finalized and stored in knowledge repository
+
+## 💹 WSJF Calculation
+
+Weighted Shortest Job First (WSJF) is calculated as:
+
+**WSJF = Cost of Delay ÷ Job Size**
+
+Where **Cost of Delay** = (Business Value + Time Criticality + Risk Reduction/Opportunity Enablement)
+
+### Scoring Guidelines
+
+| Score | Business Value | Time Criticality | Risk Reduction | Job Size |
+|-------|---------------|------------------|----------------|----------|
+| **1** | Minimal value | No urgency | Minimal risk reduction | Extra Large |
+| **3** | Moderate value | Low urgency | Some risk reduction | Large |
+| **5** | Significant value | Moderate urgency | Significant risk reduction | Medium |
+| **8** | High value | High urgency | Substantial risk reduction | Small |
+| **13** | Very high value | Very high urgency | Very high risk reduction | Extra Small |
+| **20** | Extreme value | Extreme urgency | Major risk reduction | - |
+
+### WSJF Example
+
+| Epic | Business Value | Time Criticality | Risk Reduction | CoD (Sum) | Job Size | WSJF (CoD ÷ Job Size) | Rank |
+|------|---------------|------------------|----------------|-----------|----------|----------------------|------|
+| Customer Portal | 13 | 8 | 5 | 26 | 5 | 5.2 | 2 |
+| Payment Gateway | 20 | 13 | 8 | 41 | 8 | 5.1 | 3 |
+| Data Migration | 8 | 20 | 13 | 41 | 3 | 13.7 | 1 |
+| UX Redesign | 13 | 5 | 5 | 23 | 8 | 2.9 | 5 |
+| Security Update | 8 | 13 | 20 | 41 | 13 | 3.2 | 4 |
+
+## 📊 Lean Business Case Template
+
+### Epic Summary
+**Epic Name:** [Name]  
+**Epic Owner:** [Name]  
+**Problem Statement:** [Clear articulation of the problem being solved]
+
+### Business Outcomes
+- **Primary Outcome:** [Specific measurable outcome]
+- **Secondary Outcomes:** [Other benefits]
+- **Leading Indicators:** [Early signals of success]
+
+### Solution Overview
+- **Proposed Approach:** [High-level solution]
+- **Alternative Approaches Considered:** [Other options evaluated]
+- **Estimated Effort:** [T-shirt size or range estimate]
+- **Impacted Systems/Areas:** [Systems, teams, or processes affected]
+
+### Strategic Alignment
+- **Strategic Themes:** [Connection to enterprise strategy]
+- **Portfolio Vision:** [How this advances portfolio goals]
+
+### Implementation Considerations
+- **Key Dependencies:** [Other initiatives, systems, or decisions]
+- **Key Risks:** [Major risks to success]
+- **Timing Constraints:** [Market or regulatory windows]
+
+### Financial Analysis
+- **Estimated Costs:** [Implementation costs]
+- **Expected Benefits:** [Financial benefits]
+- **Payback Period:** [Time to recoup investment]
+- **Funding Source:** [Budget allocation]
+
+### Recommendation
+- **Go/No-Go Decision:** [Recommendation with rationale]
+- **Next Steps:** [Immediate actions if approved]
+
+## 📈 Portfolio Kanban Metrics
+
+### Flow Metrics
+
+| Metric | Description | Target | Current | Trend |
+|--------|-------------|--------|---------|-------|
+| **Throughput** | Number of epics completed per time period | 4 per quarter | [Value] | [↑/↓/→] |
+| **Cycle Time** | Average time from Analyzing to Done | 6 months | [Value] | [↑/↓/→] |
+| **Lead Time** | Average time from Funnel to Done | 9 months | [Value] | [↑/↓/→] |
+| **WIP** | Current number of epics in progress | ≤ 8 | [Value] | [↑/↓/→] |
+| **Flow Efficiency** | % of time epics are actively worked vs. waiting | &gt;40% | [Value] | [↑/↓/→] |
+| **Blockers** | Number of blocked epics | 0 | [Value] | [↑/↓/→] |
+
+### Process Health Metrics
+
+| Metric | Description | Target | Current | Trend |
+|--------|-------------|--------|---------|-------|
+| **Aging WIP** | Epics in progress &gt; 90 days | ≤ 3 | [Value] | [↑/↓/→] |
+| **Escaped Defects** | Defects found after implementation | ≤ 3 per epic | [Value] | [↑/↓/→] |
+| **Forecast Accuracy** | Actual vs. estimated completion date | ±20% | [Value] | [↑/↓/→] |
+| **Strategic Alignment** | % of epics aligned to strategic themes | &gt;90% | [Value] | [↑/↓/→] |
+| **Feedback Cycle** | Average time from feedback to action | ≤ 14 days | [Value] | [↑/↓/→] |
+
+### Business Outcome Metrics
+
+| Metric | Description | Target | Current | Trend |
+|--------|-------------|--------|---------|-------|
+| **Benefits Realization** | % of epics achieving stated benefits | &gt;75% | [Value] | [↑/↓/→] |
+| **Customer Satisfaction** | Customer satisfaction with delivered solutions | &gt;4.2/5 | [Value] | [↑/↓/→] |
+| **Time to Market** | Time from idea to customer availability | -10% YoY | [Value] | [↑/↓/→] |
+| **Innovation Rate** | % of epics that represent new capabilities | &gt;30% | [Value] | [↑/↓/→] |
+| **Technical Debt Reduction** | % of enabler epics addressing tech debt | 20-30% | [Value] | [↑/↓/→] |
+
+## 🔍 Portfolio Kanban Cadence
+
+### Meeting Structure
+
+| Meeting | Frequency | Duration | Participants | Purpose |
+|---------|-----------|----------|--------------|---------|
+| **Portfolio Sync** | Weekly | 1 hour | LPM Team, Epic Owners | Review kanban board, move epics, address blockers |
+| **Epic Review** | Bi-weekly | 2 hours | LPM Team, Epic Owners, SMEs | Review epics in Analysis, make go/no-go decisions |
+| **Portfolio Steering** | Monthly | 2 hours | Executives, LPM Team | Strategic alignment review, resource allocation decisions |
+| **Portfolio Retrospective** | Quarterly | 3 hours | LPM Team, Sample of Epic Owners | Process improvement, metrics review |
+
+### Portfolio Sync Agenda Template
+
+1. **Review Metrics** (10 min)
+   - Flow metrics
+   - Blockers and impediments
+   - Aging WIP
+
+2. **Kanban Board Review** (30 min)
+   - Right-to-left review of epics
+   - Update epic status
+   - Identify and discuss blockers
+   - Move epics that meet exit criteria
+
+3. **WIP Management** (10 min)
+   - Address WIP limit violations
+   - Discuss capacity allocation
+
+4. **Next Steps &amp; Action Items** (10 min)
+   - Assign action items
+   - Confirm next meeting
+
+## 📱 Portfolio Kanban Implementation Examples
+
+### Physical Board Example
+
+```
+┌─────────────────────────────────────────────────────────────────────────────────┐
+│                           PORTFOLIO KANBAN BOARD                                │
+└─────────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────┐ ┌─────────────┐ ┌─────────────┐ ┌─────────────┐ ┌─────────────┐ ┌─────────────┐
+│   FUNNEL    │ │  REVIEWING  │ │  ANALYZING  │ │ PORTFOLIO   │ │IMPLEMENTING │ │    DONE     │
+│             │ │             │ │             │ │  BACKLOG    │ │             │ │             │
+├─────────────┤ ├─────────────┤ ├─────────────┤ ├─────────────┤ ├─────────────┤ ├─────────────┤
+│ Mobile App  │ │ Customer    │ │ Payment     │ │ Data        │ │ Security    │ │ API         │
+│ Redesign    │ │ Portal      │ │ Gateway     │ │ Migration   │ │ Update      │ │ Gateway     │
+├─────────────┤ ├─────────────┤ ├─────────────┤ ├─────────────┤ ├─────────────┤ ├─────────────┤
+│ Blockchain  │ │ Reporting   │ │ DevOps      │ │ UX          │ │ Cloud       │ │ Customer    │
+│ Integration │ │ Dashboard   │ │ Pipeline    │ │ Redesign    │ │ Migration   │ │ Onboarding  │
+├─────────────┤ ├─────────────┤ ├─────────────┤ ├─────────────┤ ├─────────────┤ ├─────────────┤
+│ AI-powered  │ │ Regulatory  │ │             │ │ Mobile      │ │ Compliance  │ │             │
+│ Analytics   │ │ Compliance  │ │             │ │ App v2      │ │ Framework   │ │             │
+├─────────────┤ ├─────────────┤ │             │ ├─────────────┤ ├─────────────┤ │             │
+│ Voice       │ │             │ │             │ │ Analytics   │ │ CRM         │ │             │
+│ Assistant   │ │             │ │             │ │ Platform    │ │ Integration │ │             │
+├─────────────┤ │             │ │             │ ├─────────────┤ │             │ │             │
+│ IoT         │ │             │ │             │ │ Legacy      │ │             │ │             │
+│ Platform    │ │             │ │             │ │ Migration   │ │             │ │             │
+└─────────────┘ └─────────────┘ └─────────────┘ └─────────────┘ └─────────────┘ └─────────────┘
+    No Limit        WIP: 3          WIP: 2         WIP: 5          WIP: 5         No Limit
+```
+
+### Digital Tool Example (Jira/Rally/Azure DevOps)
+
+For digital implementation:
+
+1. **Create Epic Type Custom Field**
+   - Business Epic
+   - Enabler Epic
+
+2. **Create Portfolio States as Workflow Status**
+   - Funnel
+   - Reviewing
+   - Analyzing
+   - Portfolio Backlog
+   - Implementing
+   - Done
+   - Archived
+
+3. **Configure Custom Fields**
+   - Business Value (1-20)
+   - Time Criticality (1-20)
+   - Risk Reduction/Opportunity Enablement (1-20)
+   - Job Size (1-13)
+   - WSJF (Calculated)
+   - Strategic Theme (List)
+   - Business Outcome (Text)
+
+4. **Configure Board**
+   - Columns represent states
+   - WIP limits displayed on columns
+   - Swimlanes can represent strategic themes or epic types
+   - Cards show epic ID, name, owner, and WSJF score
+
+5. **Configure Dashboard**
+   - Cycle time and lead time charts
+   - Throughput chart
+   - Aging WIP chart
+   - Cumulative flow diagram
+
+## 🛠️ Portfolio Kanban Implementation Steps
+
+1. **Define Portfolio Vision &amp; Strategy**
+   - Clearly articulate portfolio vision
+   - Identify strategic themes
+   - Define value streams and ARTs
+
+2. **Design Portfolio Kanban**
+   - Define workflow states
+   - Set initial WIP limits
+   - Create policies for each state
+   - Design epic card template
+
+3. **Configure Tools**
+   - Set up physical or digital board
+   - Configure metrics collection
+   - Establish reporting mechanisms
+
+4. **Train Participants**
+   - Train LPM team on Kanban principles
+   - Train epic owners on process
+   - Train executives on portfolio governance
+
+5. **Launch &amp; Monitor**
+   - Begin with current epics
+   - Hold regular Portfolio Sync meetings
+   - Collect and analyze metrics
+
+6. **Continuous Improvement**
+   - Review and adjust WIP limits
+   - Refine policies
+   - Update workflow as needed
+
+## 🔄 Portfolio Kanban Anti-patterns
+
+| Anti-pattern | Description | Solution |
+|--------------|-------------|----------|
+| **Kanban Theater** | Following the form but not the principles | Focus on flow, limiting WIP, and making policies explicit |
+| **WIP Limit Violations** | Regularly exceeding WIP limits | Enforce limits, escalate violations, address root causes |
+| **Stale Epics** | Epics staying in one state for extended periods | Implement aging policies, regular review of aged items |
+| **Bypassing Process** | Moving epics without meeting exit criteria | Reinforce policies, require formal approval for exceptions |
+| **Micro-portfolio Management** | Portfolio team making all decisions | Empower ARTs/teams, focus portfolio on strategic decisions |
+| **Focusing on Activity, Not Outcomes** | Measuring busyness instead of value | Shift metrics to outcomes, measure benefits realization |
+
+---
+
+## When to Use
+
+Use throughout the project lifecycle to identify, assess, and track risks. This template is essential for projects with significant complexity, multiple stakeholders, or high business impact, where structured risk management provides decision-making value.
+
+## When NOT to Use
+
+Do not use for very low-risk, short-duration tasks where informal risk awareness is sufficient. Avoid this template if your governance framework requires a different risk management approach or if stakeholders prefer real-time risk dashboards over static registers.
+
+## Appendix A: SAFe Portfolio Level Roles
+
+- **Enterprise Architect:** Defines strategic technical direction
+- **Epic Owner:** Responsible for defining, analyzing, and driving implementation of an epic
+- **Lean Portfolio Management (LPM):** Governs the portfolio, allocates budget, and defines strategic themes
+- **Product Management:** Represents customer needs at the portfolio level
+- **Business Owners:** Responsible for ROI, business results, and implementation
+
+## Appendix B: Additional Resources
+
+- SAFe Framework: [www.scaledagileframework.com](https://www.scaledagileframework.com/)
+- Portfolio Kanban article: [www.scaledagileframework.com/portfolio-kanban](https://www.scaledagileframework.com/portfolio-kanban/)
+- Lean Portfolio Management: [www.scaledagileframework.com/lean-portfolio-management](https://www.scaledagileframework.com/lean-portfolio-management/)
+
+---
+
+*This template follows the Scaled Agile Framework (SAFe) Portfolio Kanban practices. Customize as needed for your organization&#x27;s specific implementation of SAFe.*
+</pre></div></div></div><!--astro:end--></astro-island></main></body></html>

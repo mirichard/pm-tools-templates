@@ -1,0 +1,182 @@
+<!DOCTYPE html><html lang="en" data-astro-cid-ju4pidww><head><meta charset="UTF-8"><meta name="description" content="Advanced template browser with previews and version history"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="icon" type="image/svg+xml" href="/pm-tools-templates/favicon.svg"><title>Product Vision Template</title><link rel="stylesheet" href="/pm-tools-templates/assets/Layout.ChXqTIwx.css"></head><body data-astro-cid-ju4pidww><main data-astro-cid-ju4pidww><style>astro-island,astro-slot,astro-static-slot{display:contents}</style><script>(()=>{var e=async t=>{await(await t())()};(self.Astro||(self.Astro={})).load=e;window.dispatchEvent(new Event("astro:load"));})();</script><script>(()=>{var g=Object.defineProperty;var w=(a,s,c)=>s in a?g(a,s,{enumerable:!0,configurable:!0,writable:!0,value:c}):a[s]=c;var l=(a,s,c)=>w(a,typeof s!="symbol"?s+"":s,c);var E=new Set(["__proto__","constructor","prototype"]);{let a={0:t=>y(t),1:t=>c(t),2:t=>new RegExp(t),3:t=>new Date(t),4:t=>new Map(c(t)),5:t=>new Set(c(t)),6:t=>BigInt(t),7:t=>new URL(t),8:t=>new Uint8Array(t),9:t=>new Uint16Array(t),10:t=>new Uint32Array(t),11:t=>Number.POSITIVE_INFINITY*t},s=t=>{let[p,e]=t;return p in a?a[p](e):void 0},c=t=>t.map(s),y=t=>typeof t!="object"||t===null?t:Object.fromEntries(Object.entries(t).map(([p,e])=>[p,s(e)]));class f extends HTMLElement{constructor(){super(...arguments);l(this,"Component");l(this,"hydrator");l(this,"hydrate",async()=>{var b;if(!this.hydrator||!this.isConnected)return;let e=(b=this.parentElement)==null?void 0:b.closest("astro-island[ssr]");if(e){e.addEventListener("astro:hydrate",this.hydrate,{once:!0});return}let r=this.querySelectorAll("astro-slot"),n={},d=this.querySelectorAll("template[data-astro-template]");for(let o of d){let i=o.closest(this.tagName);i!=null&&i.isSameNode(this)&&(n[o.getAttribute("data-astro-template")||"default"]=o.innerHTML,o.remove())}for(let o of r){let i=o.closest(this.tagName);i!=null&&i.isSameNode(this)&&(n[o.getAttribute("name")||"default"]=o.innerHTML)}let u;try{u=this.hasAttribute("props")?y(JSON.parse(this.getAttribute("props"))):{}}catch(o){let i=this.getAttribute("component-url")||"<unknown>",v=this.getAttribute("component-export");throw v&&(i+=` (export ${v})`),console.error(`[hydrate] Error parsing props for component ${i}`,this.getAttribute("props"),o),o}let h;await this.hydrator(this)(this.Component,u,n,{client:this.getAttribute("client")}),this.removeAttribute("ssr"),this.dispatchEvent(new CustomEvent("astro:hydrate"))});l(this,"unmount",()=>{this.isConnected||this.dispatchEvent(new CustomEvent("astro:unmount"))})}disconnectedCallback(){document.removeEventListener("astro:after-swap",this.unmount),document.addEventListener("astro:after-swap",this.unmount,{once:!0})}connectedCallback(){if(!this.hasAttribute("await-children")||document.readyState==="interactive"||document.readyState==="complete")this.childrenConnectedCallback();else{let e=()=>{document.removeEventListener("DOMContentLoaded",e),r.disconnect(),this.childrenConnectedCallback()},r=new MutationObserver(()=>{var n;((n=this.lastChild)==null?void 0:n.nodeType)===Node.COMMENT_NODE&&this.lastChild.nodeValue==="astro:end"&&(this.lastChild.remove(),e())});r.observe(this,{childList:!0}),document.addEventListener("DOMContentLoaded",e)}}async childrenConnectedCallback(){let e=this.getAttribute("before-hydration-url");e&&await import(e),this.start()}getRetryImportUrl(e){let r=new URL(e,document.baseURI);return r.searchParams.set("astro-retry",Date.now().toString()),r.toString()}async importWithRetry(e){try{return await import(e)}catch(r){return await new Promise(n=>setTimeout(n,1e3)),import(this.getRetryImportUrl(e))}}handleHydrationError(e){let r=this.getAttribute("component-url"),n=new CustomEvent("astro:hydration-error",{cancelable:!0,bubbles:!0,composed:!0,detail:{error:e,componentUrl:r}});this.dispatchEvent(n)&&console.error(`[astro-island] Error hydrating ${r}`,e)}async start(){let e=JSON.parse(this.getAttribute("opts")),r=this.getAttribute("client");if(Astro[r]===void 0){window.addEventListener(`astro:${r}`,()=>this.start(),{once:!0});return}try{await Astro[r](async()=>{let n=this.getAttribute("renderer-url");try{let[d,{default:u}]=await Promise.all([this.importWithRetry(this.getAttribute("component-url")),n?this.importWithRetry(n):Promise.resolve({default:()=>()=>{}})]),h=this.getAttribute("component-export")||"default";if(h.includes(".")){this.Component=d;for(let m of h.split(".")){if(E.has(m)||!this.Component||typeof this.Component!="object"&&typeof this.Component!="function"||!Object.hasOwn(this.Component,m))throw new Error(`Invalid component export path: ${h}`);this.Component=this.Component[m]}}else{if(E.has(h))throw new Error(`Invalid component export path: ${h}`);this.Component=d[h]}return this.hydrator=u,this.hydrate}catch(d){return this.handleHydrationError(d),()=>{}}},e,this)}catch(n){this.handleHydrationError(n)}}attributeChangedCallback(){this.hydrate()}}l(f,"observedAttributes",["props"]),customElements.get("astro-island")||customElements.define("astro-island",f)}})();</script><astro-island uid="Z16JCkJ" prefix="r1" component-url="/pm-tools-templates/assets/TemplateViewer.BJxWH0dD.js" component-export="default" renderer-url="/pm-tools-templates/assets/client.REQV_TkY.js" props="{&quot;templateId&quot;:[0,&quot;product-vision-template&quot;],&quot;filePath&quot;:[0,&quot;domains/uncertainty/role-based-toolkits/product-owner/product-vision-template.md&quot;],&quot;title&quot;:[0,&quot;Product Vision Template&quot;],&quot;content&quot;:[0,&quot;---\ntitle: Product Vision Template\nmethodology: universal\ncomplexity: advanced\nowner: mirichard\nupdated: &#39;2025-08-05&#39;\npurpose: Create a compelling, shared vision of the product&#39;s direction, target market,\n  and success criteria to align stakeholders and guide product strategy.\nwhen_to_use: &#39;- Initiating a new product or major product iteration\n\n  - Realigning product strategy with changing market conditions or business priorities\n\n  - Onboarding new product teams or leadership\n\n  - Communicating product direction to stakeholders and investors\n\n  - Establishing clear success criteria and strategic goals\n\n  &#39;\nprimary_principles:\n- evidence-based-decisions\n- adaptability\nsecondary_principles:\n- continuous-learning\n- quality-by-design\nprinciple_rationale: Makes performance visible and actionable through evidence-based\n  analysis.\n---\n\n# Product Vision Template\n\n## Product Information\n- **Product Name**: [Product Name]\n- **Product Owner**: [Name]\n- **Date**: [Date]\n- **Version**: [Version]\n\n## Vision Statement\n[One clear, compelling sentence that describes the product&#39;s ultimate purpose and aspirational goal]\n\n*Example: \&quot;To be the world&#39;s most user-friendly project management platform that empowers teams to deliver exceptional results.\&quot;*\n\n## Product Mission\n[2-3 sentences describing what the product does, for whom, and how it creates value]\n\n## Target Market\n\n### Primary Users\n- **Who**: [Primary user persona]\n- **Needs**: [Key needs and pain points]\n- **Goals**: [What they want to achieve]\n\n### Secondary Users\n- **Who**: [Secondary user persona]  \n- **Needs**: [Key needs and pain points]\n- **Goals**: [What they want to achieve]\n\n## Value Proposition\n[Clear statement of the unique value the product provides to users]\n\n### Key Benefits\n1. **[Benefit 1]**: [Description]\n2. **[Benefit 2]**: [Description]\n3. **[Benefit 3]**: [Description]\n\n## Product Goals\n\n### Business Goals\n- [Goal 1]: [Measurable objective]\n- [Goal 2]: [Measurable objective]\n- [Goal 3]: [Measurable objective]\n\n### User Goals\n- [Goal 1]: [User outcome]\n- [Goal 2]: [User outcome]\n- [Goal 3]: [User outcome]\n\n## Success Metrics\n\n### Key Performance Indicators (KPIs)\n| Metric | Target | Measurement Method | Frequency |\n|--------|--------|--------------------|-----------|\n| [Metric 1] | [Target] | [Method] | [Frequency] |\n| [Metric 2] | [Target] | [Method] | [Frequency] |\n| [Metric 3] | [Target] | [Method] | [Frequency] |\n\n### Leading Indicators\n- [Indicator 1]: [Target]\n- [Indicator 2]: [Target]\n- [Indicator 3]: [Target]\n\n## Competitive Landscape\n\n### Direct Competitors\n| Competitor | Strengths | Weaknesses | Our Advantage |\n|------------|-----------|------------|---------------|\n| [Competitor 1] | [Strengths] | [Weaknesses] | [Our Advantage] |\n| [Competitor 2] | [Strengths] | [Weaknesses] | [Our Advantage] |\n\n### Differentiation Strategy\n[How this product will differentiate itself in the market]\n\n## Product Roadmap Vision\n\n### Short-term (3-6 months)\n- [Key capability 1]\n- [Key capability 2]\n- [Key capability 3]\n\n### Medium-term (6-12 months)\n- [Key capability 1]\n- [Key capability 2]\n- [Key capability 3]\n\n### Long-term (12+ months)\n- [Vision element 1]\n- [Vision element 2]\n- [Vision element 3]\n\n## Constraints and Assumptions\n\n### Constraints\n- **Technical**: [Technical limitations]\n- **Resource**: [Resource constraints]\n- **Market**: [Market constraints]\n- **Regulatory**: [Compliance requirements]\n\n### Assumptions\n- [Assumption 1]\n- [Assumption 2]\n- [Assumption 3]\n\n## Risks and Mitigation\n\n### Key Risks\n| Risk | Impact | Probability | Mitigation Strategy |\n|------|--------|-------------|-------------------|\n| [Risk 1] | [Impact] | [Probability] | [Strategy] |\n| [Risk 2] | [Impact] | [Probability] | [Strategy] |\n\n## Stakeholder Alignment\n\n### Key Stakeholders\n| Stakeholder | Role | Key Interests | Engagement Strategy |\n|-------------|------|---------------|-------------------|\n| [Stakeholder 1] | [Role] | [Interests] | [Strategy] |\n| [Stakeholder 2] | [Role] | [Interests] | [Strategy] |\n\n## Vision Validation\n\n### Validation Methods\n- [Method 1]: [Description]\n- [Method 2]: [Description]\n- [Method 3]: [Description]\n\n### Success Criteria\n- [Criterion 1]\n- [Criterion 2]\n- [Criterion 3]\n\n## When to Use\n\nUse throughout the project lifecycle to identify, assess, and track risks. This template is essential for projects with significant complexity, multiple stakeholders, or high business impact, where structured risk management provides decision-making value.\n\n## When NOT to Use\n\nDo not use for very low-risk, short-duration tasks where informal risk awareness is sufficient. Avoid this template if your governance framework requires a different risk management approach or if stakeholders prefer real-time risk dashboards over static registers.\n\n## Communication Plan\n- **Internal Teams**: [How vision will be communicated internally]\n- **External Stakeholders**: [How vision will be shared externally]\n- **Review Frequency**: [How often vision will be reviewed and updated]\n\n---\n\n**Prepared by**: [Product Owner Name]  \n**Reviewed by**: [Stakeholder Names]  \n**Next Review**: [Date]\n\n*Strategic product direction and inspiration*\n\n&quot;]}" ssr client="load" opts="{&quot;name&quot;:&quot;TemplateViewer&quot;,&quot;value&quot;:true}" await-children><div><h1>Product Vision Template</h1><div style="margin-bottom:2rem"><button style="background:var(--accent-color);color:white;border:1px solid var(--border-color);padding:0.5rem 1rem;border-radius:4px 4px 0 0;cursor:pointer;margin-right:1px">Preview</button><button style="background:var(--code-bg);color:var(--text-color);border:1px solid var(--border-color);padding:0.5rem 1rem;border-radius:4px 4px 0 0;cursor:pointer">Version History</button></div><div style="border:1px solid var(--border-color);border-radius:0 8px 8px 8px;min-height:400px"><div style="background:var(--bg-primary);border-radius:var(--radius-lg)"><div style="padding:1rem 1.5rem;border-bottom:1px solid var(--border-light);display:flex;align-items:center;justify-content:space-between;background:var(--bg-secondary);border-radius:var(--radius-lg) var(--radius-lg) 0 0"><div style="display:flex;align-items:center;gap:0.5rem"><span style="font-size:1.5rem">📄</span><div><div style="font-weight:600;color:var(--text-primary)">product-vision-template.md</div><div style="font-size:0.75rem;color:var(--text-muted)">Markdown • <!-- -->5,165 bytes</div></div></div><a href="/pm-tools-templates/downloads/product-vision-template.md" download="" class="btn btn-secondary" style="font-size:0.75rem;padding:0.5rem 0.75rem">💾 Download</a></div><pre aria-label="Markdown source of Product Vision Template" style="padding:1.5rem;max-height:600px;overflow:auto;white-space:pre-wrap;overflow-wrap:anywhere">---
+title: Product Vision Template
+methodology: universal
+complexity: advanced
+owner: mirichard
+updated: &#x27;2025-08-05&#x27;
+purpose: Create a compelling, shared vision of the product&#x27;s direction, target market,
+  and success criteria to align stakeholders and guide product strategy.
+when_to_use: &#x27;- Initiating a new product or major product iteration
+
+  - Realigning product strategy with changing market conditions or business priorities
+
+  - Onboarding new product teams or leadership
+
+  - Communicating product direction to stakeholders and investors
+
+  - Establishing clear success criteria and strategic goals
+
+  &#x27;
+primary_principles:
+- evidence-based-decisions
+- adaptability
+secondary_principles:
+- continuous-learning
+- quality-by-design
+principle_rationale: Makes performance visible and actionable through evidence-based
+  analysis.
+---
+
+# Product Vision Template
+
+## Product Information
+- **Product Name**: [Product Name]
+- **Product Owner**: [Name]
+- **Date**: [Date]
+- **Version**: [Version]
+
+## Vision Statement
+[One clear, compelling sentence that describes the product&#x27;s ultimate purpose and aspirational goal]
+
+*Example: &quot;To be the world&#x27;s most user-friendly project management platform that empowers teams to deliver exceptional results.&quot;*
+
+## Product Mission
+[2-3 sentences describing what the product does, for whom, and how it creates value]
+
+## Target Market
+
+### Primary Users
+- **Who**: [Primary user persona]
+- **Needs**: [Key needs and pain points]
+- **Goals**: [What they want to achieve]
+
+### Secondary Users
+- **Who**: [Secondary user persona]  
+- **Needs**: [Key needs and pain points]
+- **Goals**: [What they want to achieve]
+
+## Value Proposition
+[Clear statement of the unique value the product provides to users]
+
+### Key Benefits
+1. **[Benefit 1]**: [Description]
+2. **[Benefit 2]**: [Description]
+3. **[Benefit 3]**: [Description]
+
+## Product Goals
+
+### Business Goals
+- [Goal 1]: [Measurable objective]
+- [Goal 2]: [Measurable objective]
+- [Goal 3]: [Measurable objective]
+
+### User Goals
+- [Goal 1]: [User outcome]
+- [Goal 2]: [User outcome]
+- [Goal 3]: [User outcome]
+
+## Success Metrics
+
+### Key Performance Indicators (KPIs)
+| Metric | Target | Measurement Method | Frequency |
+|--------|--------|--------------------|-----------|
+| [Metric 1] | [Target] | [Method] | [Frequency] |
+| [Metric 2] | [Target] | [Method] | [Frequency] |
+| [Metric 3] | [Target] | [Method] | [Frequency] |
+
+### Leading Indicators
+- [Indicator 1]: [Target]
+- [Indicator 2]: [Target]
+- [Indicator 3]: [Target]
+
+## Competitive Landscape
+
+### Direct Competitors
+| Competitor | Strengths | Weaknesses | Our Advantage |
+|------------|-----------|------------|---------------|
+| [Competitor 1] | [Strengths] | [Weaknesses] | [Our Advantage] |
+| [Competitor 2] | [Strengths] | [Weaknesses] | [Our Advantage] |
+
+### Differentiation Strategy
+[How this product will differentiate itself in the market]
+
+## Product Roadmap Vision
+
+### Short-term (3-6 months)
+- [Key capability 1]
+- [Key capability 2]
+- [Key capability 3]
+
+### Medium-term (6-12 months)
+- [Key capability 1]
+- [Key capability 2]
+- [Key capability 3]
+
+### Long-term (12+ months)
+- [Vision element 1]
+- [Vision element 2]
+- [Vision element 3]
+
+## Constraints and Assumptions
+
+### Constraints
+- **Technical**: [Technical limitations]
+- **Resource**: [Resource constraints]
+- **Market**: [Market constraints]
+- **Regulatory**: [Compliance requirements]
+
+### Assumptions
+- [Assumption 1]
+- [Assumption 2]
+- [Assumption 3]
+
+## Risks and Mitigation
+
+### Key Risks
+| Risk | Impact | Probability | Mitigation Strategy |
+|------|--------|-------------|-------------------|
+| [Risk 1] | [Impact] | [Probability] | [Strategy] |
+| [Risk 2] | [Impact] | [Probability] | [Strategy] |
+
+## Stakeholder Alignment
+
+### Key Stakeholders
+| Stakeholder | Role | Key Interests | Engagement Strategy |
+|-------------|------|---------------|-------------------|
+| [Stakeholder 1] | [Role] | [Interests] | [Strategy] |
+| [Stakeholder 2] | [Role] | [Interests] | [Strategy] |
+
+## Vision Validation
+
+### Validation Methods
+- [Method 1]: [Description]
+- [Method 2]: [Description]
+- [Method 3]: [Description]
+
+### Success Criteria
+- [Criterion 1]
+- [Criterion 2]
+- [Criterion 3]
+
+## When to Use
+
+Use throughout the project lifecycle to identify, assess, and track risks. This template is essential for projects with significant complexity, multiple stakeholders, or high business impact, where structured risk management provides decision-making value.
+
+## When NOT to Use
+
+Do not use for very low-risk, short-duration tasks where informal risk awareness is sufficient. Avoid this template if your governance framework requires a different risk management approach or if stakeholders prefer real-time risk dashboards over static registers.
+
+## Communication Plan
+- **Internal Teams**: [How vision will be communicated internally]
+- **External Stakeholders**: [How vision will be shared externally]
+- **Review Frequency**: [How often vision will be reviewed and updated]
+
+---
+
+**Prepared by**: [Product Owner Name]  
+**Reviewed by**: [Stakeholder Names]  
+**Next Review**: [Date]
+
+*Strategic product direction and inspiration*
+
+</pre></div></div></div><!--astro:end--></astro-island></main></body></html>

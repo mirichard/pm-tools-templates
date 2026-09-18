@@ -1,0 +1,703 @@
+<!DOCTYPE html><html lang="en" data-astro-cid-ju4pidww><head><meta charset="UTF-8"><meta name="description" content="Advanced template browser with previews and version history"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="icon" type="image/svg+xml" href="/pm-tools-templates/favicon.svg"><title>Safe Metrics Dashboard Template</title><link rel="stylesheet" href="/pm-tools-templates/assets/Layout.ChXqTIwx.css"></head><body data-astro-cid-ju4pidww><main data-astro-cid-ju4pidww><style>astro-island,astro-slot,astro-static-slot{display:contents}</style><script>(()=>{var e=async t=>{await(await t())()};(self.Astro||(self.Astro={})).load=e;window.dispatchEvent(new Event("astro:load"));})();</script><script>(()=>{var g=Object.defineProperty;var w=(a,s,c)=>s in a?g(a,s,{enumerable:!0,configurable:!0,writable:!0,value:c}):a[s]=c;var l=(a,s,c)=>w(a,typeof s!="symbol"?s+"":s,c);var E=new Set(["__proto__","constructor","prototype"]);{let a={0:t=>y(t),1:t=>c(t),2:t=>new RegExp(t),3:t=>new Date(t),4:t=>new Map(c(t)),5:t=>new Set(c(t)),6:t=>BigInt(t),7:t=>new URL(t),8:t=>new Uint8Array(t),9:t=>new Uint16Array(t),10:t=>new Uint32Array(t),11:t=>Number.POSITIVE_INFINITY*t},s=t=>{let[p,e]=t;return p in a?a[p](e):void 0},c=t=>t.map(s),y=t=>typeof t!="object"||t===null?t:Object.fromEntries(Object.entries(t).map(([p,e])=>[p,s(e)]));class f extends HTMLElement{constructor(){super(...arguments);l(this,"Component");l(this,"hydrator");l(this,"hydrate",async()=>{var b;if(!this.hydrator||!this.isConnected)return;let e=(b=this.parentElement)==null?void 0:b.closest("astro-island[ssr]");if(e){e.addEventListener("astro:hydrate",this.hydrate,{once:!0});return}let r=this.querySelectorAll("astro-slot"),n={},d=this.querySelectorAll("template[data-astro-template]");for(let o of d){let i=o.closest(this.tagName);i!=null&&i.isSameNode(this)&&(n[o.getAttribute("data-astro-template")||"default"]=o.innerHTML,o.remove())}for(let o of r){let i=o.closest(this.tagName);i!=null&&i.isSameNode(this)&&(n[o.getAttribute("name")||"default"]=o.innerHTML)}let u;try{u=this.hasAttribute("props")?y(JSON.parse(this.getAttribute("props"))):{}}catch(o){let i=this.getAttribute("component-url")||"<unknown>",v=this.getAttribute("component-export");throw v&&(i+=` (export ${v})`),console.error(`[hydrate] Error parsing props for component ${i}`,this.getAttribute("props"),o),o}let h;await this.hydrator(this)(this.Component,u,n,{client:this.getAttribute("client")}),this.removeAttribute("ssr"),this.dispatchEvent(new CustomEvent("astro:hydrate"))});l(this,"unmount",()=>{this.isConnected||this.dispatchEvent(new CustomEvent("astro:unmount"))})}disconnectedCallback(){document.removeEventListener("astro:after-swap",this.unmount),document.addEventListener("astro:after-swap",this.unmount,{once:!0})}connectedCallback(){if(!this.hasAttribute("await-children")||document.readyState==="interactive"||document.readyState==="complete")this.childrenConnectedCallback();else{let e=()=>{document.removeEventListener("DOMContentLoaded",e),r.disconnect(),this.childrenConnectedCallback()},r=new MutationObserver(()=>{var n;((n=this.lastChild)==null?void 0:n.nodeType)===Node.COMMENT_NODE&&this.lastChild.nodeValue==="astro:end"&&(this.lastChild.remove(),e())});r.observe(this,{childList:!0}),document.addEventListener("DOMContentLoaded",e)}}async childrenConnectedCallback(){let e=this.getAttribute("before-hydration-url");e&&await import(e),this.start()}getRetryImportUrl(e){let r=new URL(e,document.baseURI);return r.searchParams.set("astro-retry",Date.now().toString()),r.toString()}async importWithRetry(e){try{return await import(e)}catch(r){return await new Promise(n=>setTimeout(n,1e3)),import(this.getRetryImportUrl(e))}}handleHydrationError(e){let r=this.getAttribute("component-url"),n=new CustomEvent("astro:hydration-error",{cancelable:!0,bubbles:!0,composed:!0,detail:{error:e,componentUrl:r}});this.dispatchEvent(n)&&console.error(`[astro-island] Error hydrating ${r}`,e)}async start(){let e=JSON.parse(this.getAttribute("opts")),r=this.getAttribute("client");if(Astro[r]===void 0){window.addEventListener(`astro:${r}`,()=>this.start(),{once:!0});return}try{await Astro[r](async()=>{let n=this.getAttribute("renderer-url");try{let[d,{default:u}]=await Promise.all([this.importWithRetry(this.getAttribute("component-url")),n?this.importWithRetry(n):Promise.resolve({default:()=>()=>{}})]),h=this.getAttribute("component-export")||"default";if(h.includes(".")){this.Component=d;for(let m of h.split(".")){if(E.has(m)||!this.Component||typeof this.Component!="object"&&typeof this.Component!="function"||!Object.hasOwn(this.Component,m))throw new Error(`Invalid component export path: ${h}`);this.Component=this.Component[m]}}else{if(E.has(h))throw new Error(`Invalid component export path: ${h}`);this.Component=d[h]}return this.hydrator=u,this.hydrate}catch(d){return this.handleHydrationError(d),()=>{}}},e,this)}catch(n){this.handleHydrationError(n)}}attributeChangedCallback(){this.hydrate()}}l(f,"observedAttributes",["props"]),customElements.get("astro-island")||customElements.define("astro-island",f)}})();</script><astro-island uid="ZWQ6Rk" prefix="r1" component-url="/pm-tools-templates/assets/TemplateViewer.BJxWH0dD.js" component-export="default" renderer-url="/pm-tools-templates/assets/client.REQV_TkY.js" props="{&quot;templateId&quot;:[0,&quot;safe_metrics_dashboard_template&quot;],&quot;filePath&quot;:[0,&quot;domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_metrics_dashboard_template.md&quot;],&quot;title&quot;:[0,&quot;Safe Metrics Dashboard Template&quot;],&quot;content&quot;:[0,&quot;---\ntitle: Safe Metrics Dashboard Template\nmethodology: agile\ncomplexity: advanced\nowner: mirichard\nupdated: &#39;2025-08-05&#39;\nprimary_principles:\n- systems-thinking\n- collaborative-leadership\nsecondary_principles:\n- adaptability\n- value-focus\nprinciple_rationale: Enables enterprise alignment through systems perspective and\n  collaborative governance.\n---\n\n# SAFe Metrics Dashboard Template\n\n**Enterprise:** [Enterprise Name]  \n**Portfolio:** [Portfolio Name]  \n**Created By:** [Name/Role]  \n**Last Updated:** [YYYY-MM-DD]  \n**Version:** [1.0]\n\n## 📋 Metrics Dashboard Overview\n\nA comprehensive metrics dashboard is essential for effective measurement and improvement in a SAFe environment. This template provides a structured approach to implementing metrics at all levels of the Scaled Agile Framework:\n\n- **Team Level:** Focused on iteration delivery and team performance\n- **Program Level:** Measuring ART effectiveness and program increment success\n- **Large Solution Level:** Tracking solution train coordination and capability delivery\n- **Portfolio Level:** Monitoring strategic alignment and business outcomes\n\nThis template follows SAFe best practices for metrics and measurement, emphasizing flow, outcomes, competency, and predictability.\n\n## 🔄 SAFe Measurement Framework\n\n### Core Measurement Domains\n\n| Domain | Focus | Purpose | Examples |\n|--------|-------|---------|----------|\n| **Flow** | Efficiency of value delivery | Measure how value moves through the system | Lead time, cycle time, throughput, WIP |\n| **Outcomes** | Business and customer results | Measure actual benefits delivered | Revenue, customer satisfaction, cost savings |\n| **Competency** | Organizational capabilities | Measure maturity in SAFe practices | Training completion, practice adoption |\n| **Predictability** | Planning reliability | Measure accuracy of forecasts | PI commitments met, estimation accuracy |\n\n### Big Picture: Metrics Alignment with SAFe Levels\n\n```\n┌─────────────────────────────────────────────────────────────┐\n│                     Portfolio Level                         │\n│  • Epic throughput and lead time                            │\n│  • Investment distribution across value streams              │\n│  • Business outcomes and strategic alignment                 │\n│  • Portfolio ROI and financial metrics                       │\n├─────────────────────────────────────────────────────────────┤\n│                 Large Solution Level                        │\n│  • Capability delivery and integration                       │\n│  • Solution quality and performance                          │\n│  • Cross-ART coordination                                    │\n│  • Solution train synchronization                            │\n├─────────────────────────────────────────────────────────────┤\n│                    Program Level                            │\n│  • Feature flow and delivery                                 │\n│  • Program increment predictability                          │\n│  • Business value achievement                                │\n│  • ART performance and dependencies                          │\n├─────────────────────────────────────────────────────────────┤\n│                     Team Level                              │\n│  • Story completion and velocity                             │\n│  • Team quality and technical metrics                        │\n│  • Iteration goals achievement                               │\n│  • Team health and improvement                               │\n└─────────────────────────────────────────────────────────────┘\n```\n\n## 📊 Team-Level Metrics Dashboard\n\n### Agile Team Performance Metrics\n\n#### Iteration/Sprint Flow Metrics\n\n| Metric | Current | Target | Trend | Purpose |\n|--------|---------|--------|-------|---------|\n| **Velocity (points)** | 52 | 45-55 | ↑ | Measure team capacity |\n| **Predictability %** | 92% | &gt;90% | → | % of committed work completed |\n| **Cycle Time (days)** | 3.2 | &lt;4 | ↓ | Time from start to completion |\n| **Lead Time (days)** | 8.1 | &lt;10 | ↓ | Time from request to delivery |\n| **WIP (stories)** | 5 | 4-6 | → | Work in progress at any time |\n\n#### Team Velocity Chart Example\n\n```\nTeam Velocity (Story Points)\n\nIteration:  1   2   3   4   5   6   7   8   9  10\nActual:    42  45  48  52  49  51  47  53  55  52\nCommitted: 45  45  50  50  50  50  50  50  50  50\n        ┌─────────────────────────────────────┐\n     60 │                    ●               │\n     55 │            ●   ●   ● ●   ●   ●     │ ● Actual\n     50 │    ●   ●   ●       ●       ●       │ ■ Committed  \n     45 │■■■ ●■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■│\n     40 │●                                   │\n        └─────────────────────────────────────┘\n```\n\n#### Team Quality Metrics\n\n| Metric | Current | Target | Trend | Purpose |\n|--------|---------|--------|-------|---------|\n| **Defect Density** | 0.8/story | &lt;1.0 | ↓ | Quality of delivered work |\n| **Test Coverage %** | 87% | &gt;85% | ↑ | Code covered by automated tests |\n| **Technical Debt Hours** | 24 | &lt;30 | ↓ | Hours allocated to tech debt |\n| **Build Success Rate** | 95% | &gt;95% | → | % of successful builds |\n| **Code Review Coverage** | 100% | 100% | → | % of code reviewed before merge |\n\n#### Team Health Radar\n\n```\nTeam Health Assessment\n                   Leadership\n                       5\n                       │\n                       │\n     Learning  4       │       4  Fun\n                 ●─────┼─────●\n             3   │     │     │   3\n                 │     │     │\n                 │     │     │\n     Process  4 ●│─────┼─────│● 5  Delivery\n                 │     │     │\n                 │     │     │\n             3   │     │     │   3\n                 ●─────┼─────●\n  Collaboration         │         Technical\n                       4           Practices\n                       \nTeam Health Score: 4.0/5.0 (Good)\n```\n\n### Team Dashboard Implementation Example\n\n#### Daily Standup Board\n\n```\nTeam Alpha - Iteration 7 Dashboard\n\n┌────────────────┐  ┌────────────────┐  ┌────────────────┐\n│  TO DO (4)     │  │  IN PROGRESS (5)│  │  DONE (8)      │\n├────────────────┤  ├────────────────┤  ├────────────────┤\n│ STORY-128      │  │ STORY-123      │  │ STORY-115      │\n│ User Settings  │  │ User Login     │  │ Profile Page   │\n│                │  │ (Sarah)        │  │ (Alex)         │\n├────────────────┤  ├────────────────┤  ├────────────────┤\n│ STORY-129      │  │ STORY-124      │  │ STORY-116      │\n│ Report Export  │  │ Dashboard      │  │ Bug Fix #345   │\n│                │  │ (Tom)          │  │ (Lisa)         │\n├────────────────┤  ├────────────────┤  ├────────────────┤\n│ STORY-130      │  │ STORY-125      │  │ STORY-117      │\n│ Email Notif.   │  │ Data Import    │  │ Database Query │\n│                │  │ (Mike)         │  │ (Chris)        │\n├────────────────┤  ├────────────────┤  ├────────────────┤\n│ STORY-131      │  │ STORY-126 🚩   │  │ STORY-118      │\n│ Password Reset │  │ Payment API    │  │ Login Security │\n│                │  │ (David)        │  │ (Sarah)        │\n│                │  ├────────────────┤  ├────────────────┤\n│                │  │ STORY-127      │  │ ...more        │\n│                │  │ Error Handling │  │                │\n│                │  │ (Lisa)         │  │                │\n└────────────────┘  └────────────────┘  └────────────────┘\n\nBLOCKERS:\n- STORY-126: External API dependency - waiting for credentials\n```\n\n#### Data Collection Guidelines\n\n1. **Velocity and Predictability:**\n   - Track in ALM tool (Jira, Azure DevOps, etc.)\n   - Measure at end of each iteration\n   - Include team commitment vs. actual\n\n2. **Quality Metrics:**\n   - Pull from CI/CD pipeline and code analysis tools\n   - Update daily or with each build\n   - Track trends over time with control limits\n\n3. **Team Health:**\n   - Monthly team self-assessment\n   - Facilitated by Scrum Master\n   - Anonymous input with group discussion\n\n## 📈 Program (ART) Level Metrics Dashboard\n\n### Program Increment (PI) Performance\n\n#### PI Objectives Achievement\n\n| Team | PI Objectives | Business Value | Actual Achievement | Predictability |\n|------|---------------|----------------|-------------------|---------------|\n| Team Alpha | 5 | 40 | 37 (93%) | On Target |\n| Team Beta | 4 | 35 | 31 (89%) | On Target |\n| Team Gamma | 6 | 45 | 43 (96%) | On Target |\n| Team Delta | 4 | 30 | 24 (80%) | At Risk |\n| **ART Total** | **19** | **150** | **135 (90%)** | **On Target** |\n\n#### Program Predictability Measure\n\n```\nProgram Predictability Trend\n\nPI:        1    2    3    4    5    Current\nActual:   82%  90%  85%  88%  90%  90%\n       ┌─────────────────────────────────────┐\n   100%│                                     │\n       │                                     │\n    90%│     ●──●     ●─────●               │\n       │         │   ╱                       │\n    80%│●        │  ╱                        │ ──── Target Range (80-100%)\n       │         │╱                          │ ●     Actual\n    70%│         ╱                           │\n       │        ╱                            │\n    60%│                                     │\n       └─────────────────────────────────────┘\n        PI-1   PI-2   PI-3   PI-4   PI-5  Current\n```\n\n### Feature Flow Metrics\n\n#### Feature Flow Dashboard\n\n| Metric | Current PI | Previous PI | Trend | Target |\n|--------|------------|-------------|-------|--------|\n| **Features Planned** | 22 | 20 | ↑ | Based on capacity |\n| **Features Completed** | 18 | 17 | ↑ | &gt;80% of planned |\n| **Average Feature Cycle Time** | 3.2 weeks | 3.5 weeks | ↓ | &lt;3.5 weeks |\n| **Feature Lead Time** | 6.1 weeks | 6.8 weeks | ↓ | &lt;7 weeks |\n| **Features in Progress** | 12 | 14 | ↓ | WIP Limit: 15 |\n\n#### Cumulative Flow Diagram\n\n```\nFeature Cumulative Flow Diagram - Current PI\n       ┌───────────────────────────────────────────┐\n    40 │                                           │\n       │                         Done              │\n    35 │                   ●─────●─────●─────●─────│\n       │              ●────┤                       │\n    30 │         ●────┤    │                       │\n       │    ●────┤    │    │                       │\n    25 │────┤    │    │    │                       │\n       │    │    │    │    │     Testing           │\n    20 │    │    │    │    │                       │\n       │    │    │    │●────●─────●─────●─────●────│\n    15 │    │    │●───┤    │                       │\n       │    │●───┤    │    │                       │\n    10 │●───┤    │    │    │  In Development       │\n       │    │    │    │    │                       │\n     5 │    │    │    │●────●─────●─────●─────●────│\n       │    │    │●───┤    │                       │\n     0 │────────────────────────────────────────────│\n       │  W1   W2   W3   W4   W5    W6    W7    W8 │\n       └───────────────────────────────────────────┘\n```\n\n### Program-Level Dependencies\n\n#### Dependency Tracking Board\n\n| ID | Type | Provider | Consumer | Deliverable | Required By | Status | Risk |\n|----|------|----------|----------|------------|-------------|--------|------|\n| D001 | Internal | Team Alpha | Team Beta | User Auth API | Iteration 2 | Complete | - |\n| D002 | Internal | Team Gamma | Team Delta | Reporting Engine | Iteration 3 | At Risk | Medium |\n| D003 | External | Vendor | Team Alpha | SDK Update | Iteration 3 | On Track | Low |\n| D004 | ART-to-ART | ART Falcon | This ART | Payment Gateway | PI Boundary | Delayed | High |\n\n#### Program Risk Management\n\n```\nROAM Board - Current PI\n\n┌────────────────┐  ┌────────────────┐  ┌────────────────┐  ┌────────────────┐\n│  RESOLVED (3)  │  │  OWNED (4)     │  │  ACCEPTED (2)  │  │  MITIGATED (3) │\n├────────────────┤  ├────────────────┤  ├────────────────┤  ├────────────────┤\n│ R001: Dev Env  │  │ R005: API      │  │ R011: Release  │  │ R015: Security │\n│ performance    │  │ performance    │  │ date fixed     │  │ vulnerability  │\n├────────────────┤  ├────────────────┤  ├────────────────┤  ├────────────────┤\n│ R002: Team     │  │ R006: Database │  │ R012: Budget   │  │ R016: Browser  │\n│ onboarding     │  │ migration      │  │ constraints    │  │ compatibility  │\n├────────────────┤  ├────────────────┤  │                │  ├────────────────┤\n│ R003: Tooling  │  │ R007: External │  │                │  │ R017: Data     │\n│ licenses       │  │ dependency     │  │                │  │ migration      │\n│                │  ├────────────────┤  │                │  │                │\n│                │  │ R008: Testing  │  │                │  │                │\n│                │  │ automation     │  │                │  │                │\n└────────────────┘  └────────────────┘  └────────────────┘  └────────────────┘\n```\n\n### ART Quality and Delivery Metrics\n\n| Metric | Current | Target | Trend | Purpose |\n|--------|---------|--------|-------|---------|\n| **Defect Escape Rate** | 2.5% | &lt;3% | ↓ | % of defects found post-release |\n| **Mean Time to Repair** | 3.2 hrs | &lt;4 hrs | ↓ | Time to fix production issues |\n| **Release Frequency** | 2 wks | 2 wks | → | How often software is released |\n| **Integration Success** | 92% | &gt;90% | ↑ | % of successful integrations |\n| **Technical Debt Ratio** | 14% | &lt;15% | → | % of effort on technical debt |\n\n#### Data Collection Guidelines\n\n1. **Program Increment Metrics:**\n   - Collect at PI boundaries\n   - Aggregate team-level data\n   - RTE responsible for dashboard maintenance\n\n2. **Feature Flow Metrics:**\n   - Track in program-level backlogs\n   - Update weekly in ART sync\n   - Product Management reviews for business alignment\n\n3. **Dependency and Risk Tracking:**\n   - Update in weekly ART sync meetings\n   - Maintain ROAM board for risk management\n   - Automate status updates where possible\n\n## 🌐 Large Solution Level Dashboard\n\n### Solution Train Metrics\n\n#### Capability Tracking\n\n| Capability | Contributing ARTs | Progress | Planned Release | Status |\n|------------|------------------|----------|----------------|---------|\n| Customer Portal | ART Alpha, ART Beta | 75% | Q2 2023 | On Track |\n| Payment Processing | ART Beta, ART Gamma | 60% | Q3 2023 | At Risk |\n| Data Analytics | ART Alpha, ART Delta | 45% | Q4 2023 | On Track |\n| Mobile Platform | ART Gamma | 80% | Q2 2023 | On Track |\n\n#### Solution Integration Health\n\n```\nSolution Integration Success Rate\n\nSprint:    1    2    3    4    5    6    7    8\nSuccess %: 70   75   80   85   90   88   92   95\n       ┌────────────────────────────────────────┐\n   100%│                                ●       │\n       │                         ●─────╱        │\n    90%│                    ●────╱              │ ● Success Rate\n       │               ●────╱                   │ ----- Trend\n    80%│          ●────╱                        │\n       │     ●────╱                             │\n    70%│●────╱                                  │\n       │                                        │\n    60%│                                        │\n       └────────────────────────────────────────┘\n```\n\n### Cross-ART Coordination\n\n#### Solution Train Dependencies\n\n| Provider ART | Consumer ART | Capability | Dependency | Due Date | Status |\n|--------------|--------------|------------|------------|----------|---------|\n| ART Alpha | ART Beta | Customer Portal | Authentication | PI 4-I2 | Complete |\n| ART Beta | ART Gamma | Payment Processing | API Gateway | PI 4-I3 | At Risk |\n| ART Gamma | ART Delta | Mobile Platform | SDK Integration | PI 4-I4 | On Track |\n| ART Delta | ART Alpha | Data Analytics | Reporting Engine | PI 5-I1 | Not Started |\n\n#### Solution Roadmap Progress\n\n```\nSolution Roadmap - 2023\n\n                Q1               Q2               Q3               Q4\n        ┌────────────────┬────────────────┬────────────────┬────────────────┐\nAuth    │████████████████│                │                │                │\nSystem  │   COMPLETED    │                │                │                │\n        ├────────────────┼────────────────┼────────────────┼────────────────┤\nCustomer│                │████████████████│████████▒▒▒▒▒▒▒▒│                │\nPortal  │                │  IN PROGRESS   │  PLANNED       │                │\n        ├────────────────┼────────────────┼────────────────┼────────────────┤\nPayment │                │▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒│████████████████│████████▒▒▒▒▒▒▒▒│\nSystem  │                │  PLANNED       │  PLANNED       │  PLANNED       │\n        ├────────────────┼────────────────┼────────────────┼────────────────┤\nData    │                │                │▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒│████████████████│\nPlatform│                │                │  PLANNED       │  PLANNED       │\n        ├────────────────┼────────────────┼────────────────┼────────────────┤\nMobile  │                │████████████████│████████████████│                │\nApp     │                │  IN PROGRESS   │  PLANNED       │                │\n        └────────────────┴────────────────┴────────────────┴────────────────┘\n```\n\n### Solution Quality Metrics\n\n| Metric | Current | Target | Trend | Purpose |\n|--------|---------|--------|-------|---------|\n| **End-to-End Quality** | 89% | &gt;90% | ↑ | System-level quality assessment |\n| **System Performance** | 97% | &gt;95% | → | Performance against SLAs |\n| **Integration Success** | 92% | &gt;90% | ↑ | Success rate of integrations |\n| **Security Compliance** | 100% | 100% | → | Adherence to security standards |\n\n#### Data Collection Guidelines\n\n1. **Capability Tracking:**\n   - Solution Management maintains capability roadmap\n   - Update status bi-weekly in Solution Train sync\n   - Verify with ARTs and stakeholders\n\n2. **Cross-ART Dependencies:**\n   - Document during Pre-PI Planning\n   - Review in Solution Train sync meetings\n   - Solution Train Engineer maintains dashboard\n\n3. **Solution Integration:**\n   - Measure during solution demos\n   - System Team collects technical metrics\n   - Update after each integration point\n\n## 📈 Portfolio Level Dashboard\n\n### Epic Flow Metrics\n\n#### Portfolio Kanban Flow\n\n| Epic State | Current Count | WIP Limit | Avg. Time in State | Trend |\n|------------|---------------|-----------|-------------------|-------|\n| **Funnel** | 25 | None | N/A | ↑ |\n| **Reviewing** | 8 | 10 | 2.5 weeks | → |\n| **Analyzing** | 5 | 5 | 3.2 weeks | → |\n| **Portfolio Backlog** | 12 | 15 | 5.5 weeks | ↓ |\n| **Implementing** | 14 | 8 | 12.3 weeks | ↑ |\n| **Done** | 6 (this quarter) | None | N/A | ↑ |\n\n#### Epic Lead Time Breakdown\n\n```\nEpic Lead Time Distribution (Weeks)\n\n                    0    5    10   15   20   25   30   35\n                    ├────┼────┼────┼────┼────┼────┼────┤\nFunnel to           ▒▒▒▒▒▒▒▒▒▒\nReviewing           [2.1 weeks avg]\n\nReviewing to        ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒\nAnalyzing           [3.2 weeks avg]\n\nAnalyzing to        ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒\nPortfolio Backlog   [4.3 weeks avg]\n\nBacklog to          ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒\nImplementing        [5.1 weeks avg]\n\nImplementing to     ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒\nDone                [12.3 weeks avg]\n                    ├────┼────┼────┼────┼────┼────┼────┤\n                    0    5    10   15   20   25   30   35\n\nTotal Epic Lead Time (Funnel to Done): 27.0 weeks average\n```\n\n### Strategic Portfolio Metrics\n\n#### Investment Distribution\n\n```\nPortfolio Investment Distribution\n\n┌───────────────────────────────────────────────────────┐\n│                                                       │\n│  ┌─────────┐                            ┌─────────┐   │\n│  │         │                            │         │   │\n│  │  40%    │        Growth             │   25%   │   │\n│  │         │        Business           │         │   │\n│  │         │                           │         │   │\n│  └─────────┘                           └─────────┘   │\n│                                                       │\n│                                                       │\n│  ┌─────────┐                            ┌─────────┐   │\n│  │         │                            │         │   │\n│  │  20%    │        Operational        │   15%   │   │\n│  │         │        Excellence         │         │   │\n│  │         │                           │         │   │\n│  └─────────┘                           └─────────┘   │\n│                                                       │\n└───────────────────────────────────────────────────────┘\n\nTarget Split: 40% Growth / 25% Transformation / 20% Operations / 15% Compliance\nActual Split: 38% Growth / 27% Transformation / 22% Operations / 13% Compliance\n```\n\n#### Business Outcomes Dashboard\n\n| Outcome | Metric | Target | Actual | Status |\n|---------|--------|--------|--------|--------|\n| **Revenue Growth** | Q2 Incremental Revenue | $2.5M | $2.8M | Exceeding |\n| **Customer Retention** | Renewal Rate | 90% | 94% | Exceeding |\n| **Operational Efficiency** | Process Cost | -10% | -8% | At Risk |\n| **Product Quality** | CSAT Score | 4.2/5 | 4.3/5 | On Target |\n| **Time to Market** | Concept to Cash | 6 months | 7.2 months | At Risk |\n\n### Portfolio ROI Tracking\n\n| Epic | Investment | Target ROI | Actual/Projected ROI | Status |\n|------|------------|------------|---------------------|---------|\n| Customer Portal | $1.2M | 200% | 230% | Complete |\n| Data Analytics | $850K | 150% | 160% | In Progress |\n| Mobile App v2 | $950K | 180% | 150% | At Risk |\n| Security Overhaul | $500K | 120% | 140% | On Target |\n\n#### Data Collection Guidelines\n\n1. **Epic Flow Metrics:**\n   - LPM team tracks in portfolio management tool\n   - Update weekly during portfolio sync\n   - Calculate lead and cycle times monthly\n\n2. **Investment Distribution:**\n   - Finance team provides quarterly updates\n   - Lean Portfolio Management reviews alignment\n   - Adjust allocations based on strategic themes\n\n3. **Business Outcomes:**\n   - Product Management collects customer metrics\n   - Finance provides business performance data\n   - Monthly executive dashboard review\n\n## 📊 Competency and Maturity Metrics\n\n### SAFe Practice Adoption\n\n#### Core Competency Radar\n\n```\nSAFe Competency Radar\n                   Lean-Agile \n                   Leadership\n                       4\n                       │\n                       │\nContinuous   3         │        3   Team and Technical\nLearning     ●─────────┼─────────●  Agility\nCulture                │\n                       │\n                       │\n                3      │        4\nOrganizational ●───────┼────────● Agile Product\nAgility                │          Delivery\n                       │\n                       │\n                 2     │      3\nEnterprise      ●──────┼──────● Lean Portfolio\nSolution Delivery      │        Management\n                       \nMaturity Scale: 1-Beginning, 2-Developing, 3-Performing, 4-Optimizing, 5-Leading\n```\n\n#### Training and Certification Progress\n\n| Role | Required Training | Completion % | Target % | Gap |\n|------|------------------|--------------|---------|-----|\n| **Executives** | Leading SAFe | 85% | 100% | 15% |\n| **Product Owners** | SAFe PO/PM | 90% | 95% | 5% |\n| **Scrum Masters** | SAFe SM | 95% | 100% | 5% |\n| **Team Members** | SAFe for Teams | 85% | 90% | 5% |\n| **Architects** | SAFe for Architects | 75% | 85% | 10% |\n\n### Continuous Improvement Metrics\n\n| Metric | Current | Target | Trend | Purpose |\n|--------|---------|--------|-------|---------|\n| **Inspect &amp; Adapt Actions** | 24 | N/A | ↑ | # of improvement actions |\n| **I&amp;A Completion Rate** | 80% | &gt;85% | ↑ | % of actions completed |\n| **Innovation Rate** | 15% | &gt;10% | → | % of time on innovation |\n| **Process Improvement ROI** | 3.5x | &gt;3x | ↑ | Return on improvement efforts |\n\n#### Data Collection Guidelines\n\n1. **Competency Assessment:**\n   - Quarterly facilitated assessments\n   - RTE and LACE team collaborate\n   - Include representative cross-section of roles\n\n2. **Training Metrics:**\n   - HR systems track certification data\n   - Quarterly reporting to leadership\n   - Include both formal and informal learning\n\n3. **Improvement Metrics:**\n   - Track in action management system\n   - Review during PI ceremonies\n   - RTE/STE responsible for follow-up\n\n## 📉 Visualization and Reporting Guidelines\n\n### Dashboard Design Best Practices\n\n1. **Information Hierarchy:**\n   - **Level 1:** Executive summary with key performance indicators\n   - **Level 2:** Drill-down dashboards for specific domains\n   - **Level 3:** Detailed metrics for analysis and action\n\n2. **Visual Design Elements:**\n   - Use consistent color coding (Red/Yellow/Green)\n   - Include trend indicators (↑/↓/→)\n   - Provide historical context with trend lines\n   - Use appropriate chart types for data representation\n\n3. **Dashboard Organization:**\n   - Group related metrics together\n   - Provide both leading and lagging indicators\n   - Include targets and thresholds\n   - Allow filtering by timeframe and organizational unit\n\n### Tool Implementation Options\n\n| Tool Type | Examples | Best For | Considerations |\n|-----------|----------|----------|---------------|\n| **ALM Tools** | Jira, Azure DevOps, Rally | Team-level metrics | Limited customization |\n| **BI Tools** | Tableau, Power BI | Executive dashboards | Integration effort |\n| **Custom Dashboards** | Grafana, ELK Stack | DevOps, technical metrics | Technical expertise |\n| **SAFe-Specific** | SAFe Metrics app | Comprehensive SAFe metrics | Cost, vendor lock-in |\n\n### Implementation Example\n\n```\nData Pipeline Architecture\n\nSources          →   Collection    →   Processing     →   Presentation\n┌─────────────┐      ┌─────────┐      ┌─────────┐      ┌─────────────┐\n│ ALM Tool    │      │         │      │         │      │ Executive   │\n│ (Jira)      │──┐   │         │      │         │      │ Dashboard   │\n└─────────────┘  │   │         │      │         │      └─────────────┘\n                 │   │ Data    │      │ Analytics│\n┌─────────────┐  ├──▶│ Lake    │─────▶│ Engine  │─────▶┌─────────────┐\n│ CI/CD       │  │   │         │      │         │      │ Program     │\n│ (Jenkins)   │──┘   │         │      │         │      │ Dashboard   │\n└─────────────┘      │         │      │         │      └─────────────┘\n                     └─────────┘      └─────────┘\n┌─────────────┐                                        ┌─────────────┐\n│ Financial   │                                        │ Team        │\n│ Systems     │──────────────────────────────────────▶│ Dashboard   │\n└─────────────┘                                        └─────────────┘\n```\n\n## 🔄 Metrics Governance and Improvement\n\n### Metrics Lifecycle Management\n\n1. **Introduction Process:**\n   - Define business purpose and hypothesis\n   - Establish calculation method and data sources\n   - Set initial targets and thresholds\n   - Create visualization and reporting\n\n2. **Review Process:**\n   - Quarterly metrics review with stakeholders\n   - Validate continued relevance and accuracy\n   - Adjust targets based on trends and goals\n   - Address data quality issues\n\n3. **Retirement Process:**\n   - Identify metrics with low value or usage\n   - Validate with stakeholders before removal\n   - Archive historical data for reference\n   - Document decision and rationale\n\n### Common Anti-Patterns\n\n| Anti-pattern | Description | Solution |\n|--------------|-------------|----------|\n| **Metrics Overload** | Too many metrics without focus | Focus on 5-7 key metrics per level |\n| **Vanity Metrics** | Metrics that look good but drive no action | Tie metrics to business outcomes |\n| **Measurement Theater** | Collecting metrics without using them | Review utilization and decisions driven |\n| **Gaming the System** | Behaviors that improve metrics but not outcomes | Balance metrics and focus on outcomes |\n| **Analysis Paralysis** | Excessive data without action | Time-box analysis and require actions |\n\n## 📄 Additional Resources\n\n- **SAFe Framework:** [www.scaledagileframework.com](https://www.scaledagileframework.com/)\n- **SAFe Metrics Article:** [www.scaledagileframework.com/metrics](https://www.scaledagileframework.com/metrics/)\n- **Flow Metrics:** [www.scaledagileframework.com/flow-metrics](https://www.scaledagileframework.com/flow-metrics/)\n- **Measure and Grow Article:** [www.scaledagileframework.com/measure-and-grow](https://www.scaledagileframework.com/measure-and-grow/)\n\n## When to Use\n\nUse throughout the project lifecycle to identify, assess, and track risks. This template is essential for projects with significant complexity, multiple stakeholders, or high business impact, where structured risk management provides decision-making value.\n\n## When NOT to Use\n\nDo not use for very low-risk, short-duration tasks where informal risk awareness is sufficient. Avoid this template if your governance framework requires a different risk management approach or if stakeholders prefer real-time risk dashboards over static registers.\n\n## 🔄 Related Templates\n\n- [PI Planning Template](./safe_program_increment_planning_template.md)\n- [Portfolio Kanban Template](./safe_portfolio_kanban_template.md)\n- [ART Coordination Template](./safe_art_coordination_template.md)\n\n---\n\n*This template follows the Scaled Agile Framework (SAFe) practices for metrics and measurement. Customize as needed for your organization&#39;s specific implementation of SAFe.*\n&quot;]}" ssr client="load" opts="{&quot;name&quot;:&quot;TemplateViewer&quot;,&quot;value&quot;:true}" await-children><div><h1>Safe Metrics Dashboard Template</h1><div style="margin-bottom:2rem"><button style="background:var(--accent-color);color:white;border:1px solid var(--border-color);padding:0.5rem 1rem;border-radius:4px 4px 0 0;cursor:pointer;margin-right:1px">Preview</button><button style="background:var(--code-bg);color:var(--text-color);border:1px solid var(--border-color);padding:0.5rem 1rem;border-radius:4px 4px 0 0;cursor:pointer">Version History</button></div><div style="border:1px solid var(--border-color);border-radius:0 8px 8px 8px;min-height:400px"><div style="background:var(--bg-primary);border-radius:var(--radius-lg)"><div style="padding:1rem 1.5rem;border-bottom:1px solid var(--border-light);display:flex;align-items:center;justify-content:space-between;background:var(--bg-secondary);border-radius:var(--radius-lg) var(--radius-lg) 0 0"><div style="display:flex;align-items:center;gap:0.5rem"><span style="font-size:1.5rem">📄</span><div><div style="font-weight:600;color:var(--text-primary)">safe_metrics_dashboard_template.md</div><div style="font-size:0.75rem;color:var(--text-muted)">Markdown • <!-- -->36,272 bytes</div></div></div><a href="/pm-tools-templates/downloads/safe_metrics_dashboard_template.md" download="" class="btn btn-secondary" style="font-size:0.75rem;padding:0.5rem 0.75rem">💾 Download</a></div><pre aria-label="Markdown source of Safe Metrics Dashboard Template" style="padding:1.5rem;max-height:600px;overflow:auto;white-space:pre-wrap;overflow-wrap:anywhere">---
+title: Safe Metrics Dashboard Template
+methodology: agile
+complexity: advanced
+owner: mirichard
+updated: &#x27;2025-08-05&#x27;
+primary_principles:
+- systems-thinking
+- collaborative-leadership
+secondary_principles:
+- adaptability
+- value-focus
+principle_rationale: Enables enterprise alignment through systems perspective and
+  collaborative governance.
+---
+
+# SAFe Metrics Dashboard Template
+
+**Enterprise:** [Enterprise Name]  
+**Portfolio:** [Portfolio Name]  
+**Created By:** [Name/Role]  
+**Last Updated:** [YYYY-MM-DD]  
+**Version:** [1.0]
+
+## 📋 Metrics Dashboard Overview
+
+A comprehensive metrics dashboard is essential for effective measurement and improvement in a SAFe environment. This template provides a structured approach to implementing metrics at all levels of the Scaled Agile Framework:
+
+- **Team Level:** Focused on iteration delivery and team performance
+- **Program Level:** Measuring ART effectiveness and program increment success
+- **Large Solution Level:** Tracking solution train coordination and capability delivery
+- **Portfolio Level:** Monitoring strategic alignment and business outcomes
+
+This template follows SAFe best practices for metrics and measurement, emphasizing flow, outcomes, competency, and predictability.
+
+## 🔄 SAFe Measurement Framework
+
+### Core Measurement Domains
+
+| Domain | Focus | Purpose | Examples |
+|--------|-------|---------|----------|
+| **Flow** | Efficiency of value delivery | Measure how value moves through the system | Lead time, cycle time, throughput, WIP |
+| **Outcomes** | Business and customer results | Measure actual benefits delivered | Revenue, customer satisfaction, cost savings |
+| **Competency** | Organizational capabilities | Measure maturity in SAFe practices | Training completion, practice adoption |
+| **Predictability** | Planning reliability | Measure accuracy of forecasts | PI commitments met, estimation accuracy |
+
+### Big Picture: Metrics Alignment with SAFe Levels
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│                     Portfolio Level                         │
+│  • Epic throughput and lead time                            │
+│  • Investment distribution across value streams              │
+│  • Business outcomes and strategic alignment                 │
+│  • Portfolio ROI and financial metrics                       │
+├─────────────────────────────────────────────────────────────┤
+│                 Large Solution Level                        │
+│  • Capability delivery and integration                       │
+│  • Solution quality and performance                          │
+│  • Cross-ART coordination                                    │
+│  • Solution train synchronization                            │
+├─────────────────────────────────────────────────────────────┤
+│                    Program Level                            │
+│  • Feature flow and delivery                                 │
+│  • Program increment predictability                          │
+│  • Business value achievement                                │
+│  • ART performance and dependencies                          │
+├─────────────────────────────────────────────────────────────┤
+│                     Team Level                              │
+│  • Story completion and velocity                             │
+│  • Team quality and technical metrics                        │
+│  • Iteration goals achievement                               │
+│  • Team health and improvement                               │
+└─────────────────────────────────────────────────────────────┘
+```
+
+## 📊 Team-Level Metrics Dashboard
+
+### Agile Team Performance Metrics
+
+#### Iteration/Sprint Flow Metrics
+
+| Metric | Current | Target | Trend | Purpose |
+|--------|---------|--------|-------|---------|
+| **Velocity (points)** | 52 | 45-55 | ↑ | Measure team capacity |
+| **Predictability %** | 92% | &gt;90% | → | % of committed work completed |
+| **Cycle Time (days)** | 3.2 | &lt;4 | ↓ | Time from start to completion |
+| **Lead Time (days)** | 8.1 | &lt;10 | ↓ | Time from request to delivery |
+| **WIP (stories)** | 5 | 4-6 | → | Work in progress at any time |
+
+#### Team Velocity Chart Example
+
+```
+Team Velocity (Story Points)
+
+Iteration:  1   2   3   4   5   6   7   8   9  10
+Actual:    42  45  48  52  49  51  47  53  55  52
+Committed: 45  45  50  50  50  50  50  50  50  50
+        ┌─────────────────────────────────────┐
+     60 │                    ●               │
+     55 │            ●   ●   ● ●   ●   ●     │ ● Actual
+     50 │    ●   ●   ●       ●       ●       │ ■ Committed  
+     45 │■■■ ●■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■│
+     40 │●                                   │
+        └─────────────────────────────────────┘
+```
+
+#### Team Quality Metrics
+
+| Metric | Current | Target | Trend | Purpose |
+|--------|---------|--------|-------|---------|
+| **Defect Density** | 0.8/story | &lt;1.0 | ↓ | Quality of delivered work |
+| **Test Coverage %** | 87% | &gt;85% | ↑ | Code covered by automated tests |
+| **Technical Debt Hours** | 24 | &lt;30 | ↓ | Hours allocated to tech debt |
+| **Build Success Rate** | 95% | &gt;95% | → | % of successful builds |
+| **Code Review Coverage** | 100% | 100% | → | % of code reviewed before merge |
+
+#### Team Health Radar
+
+```
+Team Health Assessment
+                   Leadership
+                       5
+                       │
+                       │
+     Learning  4       │       4  Fun
+                 ●─────┼─────●
+             3   │     │     │   3
+                 │     │     │
+                 │     │     │
+     Process  4 ●│─────┼─────│● 5  Delivery
+                 │     │     │
+                 │     │     │
+             3   │     │     │   3
+                 ●─────┼─────●
+  Collaboration         │         Technical
+                       4           Practices
+                       
+Team Health Score: 4.0/5.0 (Good)
+```
+
+### Team Dashboard Implementation Example
+
+#### Daily Standup Board
+
+```
+Team Alpha - Iteration 7 Dashboard
+
+┌────────────────┐  ┌────────────────┐  ┌────────────────┐
+│  TO DO (4)     │  │  IN PROGRESS (5)│  │  DONE (8)      │
+├────────────────┤  ├────────────────┤  ├────────────────┤
+│ STORY-128      │  │ STORY-123      │  │ STORY-115      │
+│ User Settings  │  │ User Login     │  │ Profile Page   │
+│                │  │ (Sarah)        │  │ (Alex)         │
+├────────────────┤  ├────────────────┤  ├────────────────┤
+│ STORY-129      │  │ STORY-124      │  │ STORY-116      │
+│ Report Export  │  │ Dashboard      │  │ Bug Fix #345   │
+│                │  │ (Tom)          │  │ (Lisa)         │
+├────────────────┤  ├────────────────┤  ├────────────────┤
+│ STORY-130      │  │ STORY-125      │  │ STORY-117      │
+│ Email Notif.   │  │ Data Import    │  │ Database Query │
+│                │  │ (Mike)         │  │ (Chris)        │
+├────────────────┤  ├────────────────┤  ├────────────────┤
+│ STORY-131      │  │ STORY-126 🚩   │  │ STORY-118      │
+│ Password Reset │  │ Payment API    │  │ Login Security │
+│                │  │ (David)        │  │ (Sarah)        │
+│                │  ├────────────────┤  ├────────────────┤
+│                │  │ STORY-127      │  │ ...more        │
+│                │  │ Error Handling │  │                │
+│                │  │ (Lisa)         │  │                │
+└────────────────┘  └────────────────┘  └────────────────┘
+
+BLOCKERS:
+- STORY-126: External API dependency - waiting for credentials
+```
+
+#### Data Collection Guidelines
+
+1. **Velocity and Predictability:**
+   - Track in ALM tool (Jira, Azure DevOps, etc.)
+   - Measure at end of each iteration
+   - Include team commitment vs. actual
+
+2. **Quality Metrics:**
+   - Pull from CI/CD pipeline and code analysis tools
+   - Update daily or with each build
+   - Track trends over time with control limits
+
+3. **Team Health:**
+   - Monthly team self-assessment
+   - Facilitated by Scrum Master
+   - Anonymous input with group discussion
+
+## 📈 Program (ART) Level Metrics Dashboard
+
+### Program Increment (PI) Performance
+
+#### PI Objectives Achievement
+
+| Team | PI Objectives | Business Value | Actual Achievement | Predictability |
+|------|---------------|----------------|-------------------|---------------|
+| Team Alpha | 5 | 40 | 37 (93%) | On Target |
+| Team Beta | 4 | 35 | 31 (89%) | On Target |
+| Team Gamma | 6 | 45 | 43 (96%) | On Target |
+| Team Delta | 4 | 30 | 24 (80%) | At Risk |
+| **ART Total** | **19** | **150** | **135 (90%)** | **On Target** |
+
+#### Program Predictability Measure
+
+```
+Program Predictability Trend
+
+PI:        1    2    3    4    5    Current
+Actual:   82%  90%  85%  88%  90%  90%
+       ┌─────────────────────────────────────┐
+   100%│                                     │
+       │                                     │
+    90%│     ●──●     ●─────●               │
+       │         │   ╱                       │
+    80%│●        │  ╱                        │ ──── Target Range (80-100%)
+       │         │╱                          │ ●     Actual
+    70%│         ╱                           │
+       │        ╱                            │
+    60%│                                     │
+       └─────────────────────────────────────┘
+        PI-1   PI-2   PI-3   PI-4   PI-5  Current
+```
+
+### Feature Flow Metrics
+
+#### Feature Flow Dashboard
+
+| Metric | Current PI | Previous PI | Trend | Target |
+|--------|------------|-------------|-------|--------|
+| **Features Planned** | 22 | 20 | ↑ | Based on capacity |
+| **Features Completed** | 18 | 17 | ↑ | &gt;80% of planned |
+| **Average Feature Cycle Time** | 3.2 weeks | 3.5 weeks | ↓ | &lt;3.5 weeks |
+| **Feature Lead Time** | 6.1 weeks | 6.8 weeks | ↓ | &lt;7 weeks |
+| **Features in Progress** | 12 | 14 | ↓ | WIP Limit: 15 |
+
+#### Cumulative Flow Diagram
+
+```
+Feature Cumulative Flow Diagram - Current PI
+       ┌───────────────────────────────────────────┐
+    40 │                                           │
+       │                         Done              │
+    35 │                   ●─────●─────●─────●─────│
+       │              ●────┤                       │
+    30 │         ●────┤    │                       │
+       │    ●────┤    │    │                       │
+    25 │────┤    │    │    │                       │
+       │    │    │    │    │     Testing           │
+    20 │    │    │    │    │                       │
+       │    │    │    │●────●─────●─────●─────●────│
+    15 │    │    │●───┤    │                       │
+       │    │●───┤    │    │                       │
+    10 │●───┤    │    │    │  In Development       │
+       │    │    │    │    │                       │
+     5 │    │    │    │●────●─────●─────●─────●────│
+       │    │    │●───┤    │                       │
+     0 │────────────────────────────────────────────│
+       │  W1   W2   W3   W4   W5    W6    W7    W8 │
+       └───────────────────────────────────────────┘
+```
+
+### Program-Level Dependencies
+
+#### Dependency Tracking Board
+
+| ID | Type | Provider | Consumer | Deliverable | Required By | Status | Risk |
+|----|------|----------|----------|------------|-------------|--------|------|
+| D001 | Internal | Team Alpha | Team Beta | User Auth API | Iteration 2 | Complete | - |
+| D002 | Internal | Team Gamma | Team Delta | Reporting Engine | Iteration 3 | At Risk | Medium |
+| D003 | External | Vendor | Team Alpha | SDK Update | Iteration 3 | On Track | Low |
+| D004 | ART-to-ART | ART Falcon | This ART | Payment Gateway | PI Boundary | Delayed | High |
+
+#### Program Risk Management
+
+```
+ROAM Board - Current PI
+
+┌────────────────┐  ┌────────────────┐  ┌────────────────┐  ┌────────────────┐
+│  RESOLVED (3)  │  │  OWNED (4)     │  │  ACCEPTED (2)  │  │  MITIGATED (3) │
+├────────────────┤  ├────────────────┤  ├────────────────┤  ├────────────────┤
+│ R001: Dev Env  │  │ R005: API      │  │ R011: Release  │  │ R015: Security │
+│ performance    │  │ performance    │  │ date fixed     │  │ vulnerability  │
+├────────────────┤  ├────────────────┤  ├────────────────┤  ├────────────────┤
+│ R002: Team     │  │ R006: Database │  │ R012: Budget   │  │ R016: Browser  │
+│ onboarding     │  │ migration      │  │ constraints    │  │ compatibility  │
+├────────────────┤  ├────────────────┤  │                │  ├────────────────┤
+│ R003: Tooling  │  │ R007: External │  │                │  │ R017: Data     │
+│ licenses       │  │ dependency     │  │                │  │ migration      │
+│                │  ├────────────────┤  │                │  │                │
+│                │  │ R008: Testing  │  │                │  │                │
+│                │  │ automation     │  │                │  │                │
+└────────────────┘  └────────────────┘  └────────────────┘  └────────────────┘
+```
+
+### ART Quality and Delivery Metrics
+
+| Metric | Current | Target | Trend | Purpose |
+|--------|---------|--------|-------|---------|
+| **Defect Escape Rate** | 2.5% | &lt;3% | ↓ | % of defects found post-release |
+| **Mean Time to Repair** | 3.2 hrs | &lt;4 hrs | ↓ | Time to fix production issues |
+| **Release Frequency** | 2 wks | 2 wks | → | How often software is released |
+| **Integration Success** | 92% | &gt;90% | ↑ | % of successful integrations |
+| **Technical Debt Ratio** | 14% | &lt;15% | → | % of effort on technical debt |
+
+#### Data Collection Guidelines
+
+1. **Program Increment Metrics:**
+   - Collect at PI boundaries
+   - Aggregate team-level data
+   - RTE responsible for dashboard maintenance
+
+2. **Feature Flow Metrics:**
+   - Track in program-level backlogs
+   - Update weekly in ART sync
+   - Product Management reviews for business alignment
+
+3. **Dependency and Risk Tracking:**
+   - Update in weekly ART sync meetings
+   - Maintain ROAM board for risk management
+   - Automate status updates where possible
+
+## 🌐 Large Solution Level Dashboard
+
+### Solution Train Metrics
+
+#### Capability Tracking
+
+| Capability | Contributing ARTs | Progress | Planned Release | Status |
+|------------|------------------|----------|----------------|---------|
+| Customer Portal | ART Alpha, ART Beta | 75% | Q2 2023 | On Track |
+| Payment Processing | ART Beta, ART Gamma | 60% | Q3 2023 | At Risk |
+| Data Analytics | ART Alpha, ART Delta | 45% | Q4 2023 | On Track |
+| Mobile Platform | ART Gamma | 80% | Q2 2023 | On Track |
+
+#### Solution Integration Health
+
+```
+Solution Integration Success Rate
+
+Sprint:    1    2    3    4    5    6    7    8
+Success %: 70   75   80   85   90   88   92   95
+       ┌────────────────────────────────────────┐
+   100%│                                ●       │
+       │                         ●─────╱        │
+    90%│                    ●────╱              │ ● Success Rate
+       │               ●────╱                   │ ----- Trend
+    80%│          ●────╱                        │
+       │     ●────╱                             │
+    70%│●────╱                                  │
+       │                                        │
+    60%│                                        │
+       └────────────────────────────────────────┘
+```
+
+### Cross-ART Coordination
+
+#### Solution Train Dependencies
+
+| Provider ART | Consumer ART | Capability | Dependency | Due Date | Status |
+|--------------|--------------|------------|------------|----------|---------|
+| ART Alpha | ART Beta | Customer Portal | Authentication | PI 4-I2 | Complete |
+| ART Beta | ART Gamma | Payment Processing | API Gateway | PI 4-I3 | At Risk |
+| ART Gamma | ART Delta | Mobile Platform | SDK Integration | PI 4-I4 | On Track |
+| ART Delta | ART Alpha | Data Analytics | Reporting Engine | PI 5-I1 | Not Started |
+
+#### Solution Roadmap Progress
+
+```
+Solution Roadmap - 2023
+
+                Q1               Q2               Q3               Q4
+        ┌────────────────┬────────────────┬────────────────┬────────────────┐
+Auth    │████████████████│                │                │                │
+System  │   COMPLETED    │                │                │                │
+        ├────────────────┼────────────────┼────────────────┼────────────────┤
+Customer│                │████████████████│████████▒▒▒▒▒▒▒▒│                │
+Portal  │                │  IN PROGRESS   │  PLANNED       │                │
+        ├────────────────┼────────────────┼────────────────┼────────────────┤
+Payment │                │▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒│████████████████│████████▒▒▒▒▒▒▒▒│
+System  │                │  PLANNED       │  PLANNED       │  PLANNED       │
+        ├────────────────┼────────────────┼────────────────┼────────────────┤
+Data    │                │                │▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒│████████████████│
+Platform│                │                │  PLANNED       │  PLANNED       │
+        ├────────────────┼────────────────┼────────────────┼────────────────┤
+Mobile  │                │████████████████│████████████████│                │
+App     │                │  IN PROGRESS   │  PLANNED       │                │
+        └────────────────┴────────────────┴────────────────┴────────────────┘
+```
+
+### Solution Quality Metrics
+
+| Metric | Current | Target | Trend | Purpose |
+|--------|---------|--------|-------|---------|
+| **End-to-End Quality** | 89% | &gt;90% | ↑ | System-level quality assessment |
+| **System Performance** | 97% | &gt;95% | → | Performance against SLAs |
+| **Integration Success** | 92% | &gt;90% | ↑ | Success rate of integrations |
+| **Security Compliance** | 100% | 100% | → | Adherence to security standards |
+
+#### Data Collection Guidelines
+
+1. **Capability Tracking:**
+   - Solution Management maintains capability roadmap
+   - Update status bi-weekly in Solution Train sync
+   - Verify with ARTs and stakeholders
+
+2. **Cross-ART Dependencies:**
+   - Document during Pre-PI Planning
+   - Review in Solution Train sync meetings
+   - Solution Train Engineer maintains dashboard
+
+3. **Solution Integration:**
+   - Measure during solution demos
+   - System Team collects technical metrics
+   - Update after each integration point
+
+## 📈 Portfolio Level Dashboard
+
+### Epic Flow Metrics
+
+#### Portfolio Kanban Flow
+
+| Epic State | Current Count | WIP Limit | Avg. Time in State | Trend |
+|------------|---------------|-----------|-------------------|-------|
+| **Funnel** | 25 | None | N/A | ↑ |
+| **Reviewing** | 8 | 10 | 2.5 weeks | → |
+| **Analyzing** | 5 | 5 | 3.2 weeks | → |
+| **Portfolio Backlog** | 12 | 15 | 5.5 weeks | ↓ |
+| **Implementing** | 14 | 8 | 12.3 weeks | ↑ |
+| **Done** | 6 (this quarter) | None | N/A | ↑ |
+
+#### Epic Lead Time Breakdown
+
+```
+Epic Lead Time Distribution (Weeks)
+
+                    0    5    10   15   20   25   30   35
+                    ├────┼────┼────┼────┼────┼────┼────┤
+Funnel to           ▒▒▒▒▒▒▒▒▒▒
+Reviewing           [2.1 weeks avg]
+
+Reviewing to        ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒
+Analyzing           [3.2 weeks avg]
+
+Analyzing to        ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒
+Portfolio Backlog   [4.3 weeks avg]
+
+Backlog to          ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒
+Implementing        [5.1 weeks avg]
+
+Implementing to     ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒
+Done                [12.3 weeks avg]
+                    ├────┼────┼────┼────┼────┼────┼────┤
+                    0    5    10   15   20   25   30   35
+
+Total Epic Lead Time (Funnel to Done): 27.0 weeks average
+```
+
+### Strategic Portfolio Metrics
+
+#### Investment Distribution
+
+```
+Portfolio Investment Distribution
+
+┌───────────────────────────────────────────────────────┐
+│                                                       │
+│  ┌─────────┐                            ┌─────────┐   │
+│  │         │                            │         │   │
+│  │  40%    │        Growth             │   25%   │   │
+│  │         │        Business           │         │   │
+│  │         │                           │         │   │
+│  └─────────┘                           └─────────┘   │
+│                                                       │
+│                                                       │
+│  ┌─────────┐                            ┌─────────┐   │
+│  │         │                            │         │   │
+│  │  20%    │        Operational        │   15%   │   │
+│  │         │        Excellence         │         │   │
+│  │         │                           │         │   │
+│  └─────────┘                           └─────────┘   │
+│                                                       │
+└───────────────────────────────────────────────────────┘
+
+Target Split: 40% Growth / 25% Transformation / 20% Operations / 15% Compliance
+Actual Split: 38% Growth / 27% Transformation / 22% Operations / 13% Compliance
+```
+
+#### Business Outcomes Dashboard
+
+| Outcome | Metric | Target | Actual | Status |
+|---------|--------|--------|--------|--------|
+| **Revenue Growth** | Q2 Incremental Revenue | $2.5M | $2.8M | Exceeding |
+| **Customer Retention** | Renewal Rate | 90% | 94% | Exceeding |
+| **Operational Efficiency** | Process Cost | -10% | -8% | At Risk |
+| **Product Quality** | CSAT Score | 4.2/5 | 4.3/5 | On Target |
+| **Time to Market** | Concept to Cash | 6 months | 7.2 months | At Risk |
+
+### Portfolio ROI Tracking
+
+| Epic | Investment | Target ROI | Actual/Projected ROI | Status |
+|------|------------|------------|---------------------|---------|
+| Customer Portal | $1.2M | 200% | 230% | Complete |
+| Data Analytics | $850K | 150% | 160% | In Progress |
+| Mobile App v2 | $950K | 180% | 150% | At Risk |
+| Security Overhaul | $500K | 120% | 140% | On Target |
+
+#### Data Collection Guidelines
+
+1. **Epic Flow Metrics:**
+   - LPM team tracks in portfolio management tool
+   - Update weekly during portfolio sync
+   - Calculate lead and cycle times monthly
+
+2. **Investment Distribution:**
+   - Finance team provides quarterly updates
+   - Lean Portfolio Management reviews alignment
+   - Adjust allocations based on strategic themes
+
+3. **Business Outcomes:**
+   - Product Management collects customer metrics
+   - Finance provides business performance data
+   - Monthly executive dashboard review
+
+## 📊 Competency and Maturity Metrics
+
+### SAFe Practice Adoption
+
+#### Core Competency Radar
+
+```
+SAFe Competency Radar
+                   Lean-Agile 
+                   Leadership
+                       4
+                       │
+                       │
+Continuous   3         │        3   Team and Technical
+Learning     ●─────────┼─────────●  Agility
+Culture                │
+                       │
+                       │
+                3      │        4
+Organizational ●───────┼────────● Agile Product
+Agility                │          Delivery
+                       │
+                       │
+                 2     │      3
+Enterprise      ●──────┼──────● Lean Portfolio
+Solution Delivery      │        Management
+                       
+Maturity Scale: 1-Beginning, 2-Developing, 3-Performing, 4-Optimizing, 5-Leading
+```
+
+#### Training and Certification Progress
+
+| Role | Required Training | Completion % | Target % | Gap |
+|------|------------------|--------------|---------|-----|
+| **Executives** | Leading SAFe | 85% | 100% | 15% |
+| **Product Owners** | SAFe PO/PM | 90% | 95% | 5% |
+| **Scrum Masters** | SAFe SM | 95% | 100% | 5% |
+| **Team Members** | SAFe for Teams | 85% | 90% | 5% |
+| **Architects** | SAFe for Architects | 75% | 85% | 10% |
+
+### Continuous Improvement Metrics
+
+| Metric | Current | Target | Trend | Purpose |
+|--------|---------|--------|-------|---------|
+| **Inspect &amp; Adapt Actions** | 24 | N/A | ↑ | # of improvement actions |
+| **I&amp;A Completion Rate** | 80% | &gt;85% | ↑ | % of actions completed |
+| **Innovation Rate** | 15% | &gt;10% | → | % of time on innovation |
+| **Process Improvement ROI** | 3.5x | &gt;3x | ↑ | Return on improvement efforts |
+
+#### Data Collection Guidelines
+
+1. **Competency Assessment:**
+   - Quarterly facilitated assessments
+   - RTE and LACE team collaborate
+   - Include representative cross-section of roles
+
+2. **Training Metrics:**
+   - HR systems track certification data
+   - Quarterly reporting to leadership
+   - Include both formal and informal learning
+
+3. **Improvement Metrics:**
+   - Track in action management system
+   - Review during PI ceremonies
+   - RTE/STE responsible for follow-up
+
+## 📉 Visualization and Reporting Guidelines
+
+### Dashboard Design Best Practices
+
+1. **Information Hierarchy:**
+   - **Level 1:** Executive summary with key performance indicators
+   - **Level 2:** Drill-down dashboards for specific domains
+   - **Level 3:** Detailed metrics for analysis and action
+
+2. **Visual Design Elements:**
+   - Use consistent color coding (Red/Yellow/Green)
+   - Include trend indicators (↑/↓/→)
+   - Provide historical context with trend lines
+   - Use appropriate chart types for data representation
+
+3. **Dashboard Organization:**
+   - Group related metrics together
+   - Provide both leading and lagging indicators
+   - Include targets and thresholds
+   - Allow filtering by timeframe and organizational unit
+
+### Tool Implementation Options
+
+| Tool Type | Examples | Best For | Considerations |
+|-----------|----------|----------|---------------|
+| **ALM Tools** | Jira, Azure DevOps, Rally | Team-level metrics | Limited customization |
+| **BI Tools** | Tableau, Power BI | Executive dashboards | Integration effort |
+| **Custom Dashboards** | Grafana, ELK Stack | DevOps, technical metrics | Technical expertise |
+| **SAFe-Specific** | SAFe Metrics app | Comprehensive SAFe metrics | Cost, vendor lock-in |
+
+### Implementation Example
+
+```
+Data Pipeline Architecture
+
+Sources          →   Collection    →   Processing     →   Presentation
+┌─────────────┐      ┌─────────┐      ┌─────────┐      ┌─────────────┐
+│ ALM Tool    │      │         │      │         │      │ Executive   │
+│ (Jira)      │──┐   │         │      │         │      │ Dashboard   │
+└─────────────┘  │   │         │      │         │      └─────────────┘
+                 │   │ Data    │      │ Analytics│
+┌─────────────┐  ├──▶│ Lake    │─────▶│ Engine  │─────▶┌─────────────┐
+│ CI/CD       │  │   │         │      │         │      │ Program     │
+│ (Jenkins)   │──┘   │         │      │         │      │ Dashboard   │
+└─────────────┘      │         │      │         │      └─────────────┘
+                     └─────────┘      └─────────┘
+┌─────────────┐                                        ┌─────────────┐
+│ Financial   │                                        │ Team        │
+│ Systems     │──────────────────────────────────────▶│ Dashboard   │
+└─────────────┘                                        └─────────────┘
+```
+
+## 🔄 Metrics Governance and Improvement
+
+### Metrics Lifecycle Management
+
+1. **Introduction Process:**
+   - Define business purpose and hypothesis
+   - Establish calculation method and data sources
+   - Set initial targets and thresholds
+   - Create visualization and reporting
+
+2. **Review Process:**
+   - Quarterly metrics review with stakeholders
+   - Validate continued relevance and accuracy
+   - Adjust targets based on trends and goals
+   - Address data quality issues
+
+3. **Retirement Process:**
+   - Identify metrics with low value or usage
+   - Validate with stakeholders before removal
+   - Archive historical data for reference
+   - Document decision and rationale
+
+### Common Anti-Patterns
+
+| Anti-pattern | Description | Solution |
+|--------------|-------------|----------|
+| **Metrics Overload** | Too many metrics without focus | Focus on 5-7 key metrics per level |
+| **Vanity Metrics** | Metrics that look good but drive no action | Tie metrics to business outcomes |
+| **Measurement Theater** | Collecting metrics without using them | Review utilization and decisions driven |
+| **Gaming the System** | Behaviors that improve metrics but not outcomes | Balance metrics and focus on outcomes |
+| **Analysis Paralysis** | Excessive data without action | Time-box analysis and require actions |
+
+## 📄 Additional Resources
+
+- **SAFe Framework:** [www.scaledagileframework.com](https://www.scaledagileframework.com/)
+- **SAFe Metrics Article:** [www.scaledagileframework.com/metrics](https://www.scaledagileframework.com/metrics/)
+- **Flow Metrics:** [www.scaledagileframework.com/flow-metrics](https://www.scaledagileframework.com/flow-metrics/)
+- **Measure and Grow Article:** [www.scaledagileframework.com/measure-and-grow](https://www.scaledagileframework.com/measure-and-grow/)
+
+## When to Use
+
+Use throughout the project lifecycle to identify, assess, and track risks. This template is essential for projects with significant complexity, multiple stakeholders, or high business impact, where structured risk management provides decision-making value.
+
+## When NOT to Use
+
+Do not use for very low-risk, short-duration tasks where informal risk awareness is sufficient. Avoid this template if your governance framework requires a different risk management approach or if stakeholders prefer real-time risk dashboards over static registers.
+
+## 🔄 Related Templates
+
+- [PI Planning Template](./safe_program_increment_planning_template.md)
+- [Portfolio Kanban Template](./safe_portfolio_kanban_template.md)
+- [ART Coordination Template](./safe_art_coordination_template.md)
+
+---
+
+*This template follows the Scaled Agile Framework (SAFe) practices for metrics and measurement. Customize as needed for your organization&#x27;s specific implementation of SAFe.*
+</pre></div></div></div><!--astro:end--></astro-island></main></body></html>

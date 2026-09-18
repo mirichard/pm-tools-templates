@@ -1,0 +1,1506 @@
+<!DOCTYPE html><html lang="en" data-astro-cid-ju4pidww><head><meta charset="UTF-8"><meta name="description" content="Advanced template browser with previews and version history"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="icon" type="image/svg+xml" href="/pm-tools-templates/favicon.svg"><title>Devsecops Template</title><link rel="stylesheet" href="/pm-tools-templates/assets/Layout.ChXqTIwx.css"></head><body data-astro-cid-ju4pidww><main data-astro-cid-ju4pidww><style>astro-island,astro-slot,astro-static-slot{display:contents}</style><script>(()=>{var e=async t=>{await(await t())()};(self.Astro||(self.Astro={})).load=e;window.dispatchEvent(new Event("astro:load"));})();</script><script>(()=>{var g=Object.defineProperty;var w=(a,s,c)=>s in a?g(a,s,{enumerable:!0,configurable:!0,writable:!0,value:c}):a[s]=c;var l=(a,s,c)=>w(a,typeof s!="symbol"?s+"":s,c);var E=new Set(["__proto__","constructor","prototype"]);{let a={0:t=>y(t),1:t=>c(t),2:t=>new RegExp(t),3:t=>new Date(t),4:t=>new Map(c(t)),5:t=>new Set(c(t)),6:t=>BigInt(t),7:t=>new URL(t),8:t=>new Uint8Array(t),9:t=>new Uint16Array(t),10:t=>new Uint32Array(t),11:t=>Number.POSITIVE_INFINITY*t},s=t=>{let[p,e]=t;return p in a?a[p](e):void 0},c=t=>t.map(s),y=t=>typeof t!="object"||t===null?t:Object.fromEntries(Object.entries(t).map(([p,e])=>[p,s(e)]));class f extends HTMLElement{constructor(){super(...arguments);l(this,"Component");l(this,"hydrator");l(this,"hydrate",async()=>{var b;if(!this.hydrator||!this.isConnected)return;let e=(b=this.parentElement)==null?void 0:b.closest("astro-island[ssr]");if(e){e.addEventListener("astro:hydrate",this.hydrate,{once:!0});return}let r=this.querySelectorAll("astro-slot"),n={},d=this.querySelectorAll("template[data-astro-template]");for(let o of d){let i=o.closest(this.tagName);i!=null&&i.isSameNode(this)&&(n[o.getAttribute("data-astro-template")||"default"]=o.innerHTML,o.remove())}for(let o of r){let i=o.closest(this.tagName);i!=null&&i.isSameNode(this)&&(n[o.getAttribute("name")||"default"]=o.innerHTML)}let u;try{u=this.hasAttribute("props")?y(JSON.parse(this.getAttribute("props"))):{}}catch(o){let i=this.getAttribute("component-url")||"<unknown>",v=this.getAttribute("component-export");throw v&&(i+=` (export ${v})`),console.error(`[hydrate] Error parsing props for component ${i}`,this.getAttribute("props"),o),o}let h;await this.hydrator(this)(this.Component,u,n,{client:this.getAttribute("client")}),this.removeAttribute("ssr"),this.dispatchEvent(new CustomEvent("astro:hydrate"))});l(this,"unmount",()=>{this.isConnected||this.dispatchEvent(new CustomEvent("astro:unmount"))})}disconnectedCallback(){document.removeEventListener("astro:after-swap",this.unmount),document.addEventListener("astro:after-swap",this.unmount,{once:!0})}connectedCallback(){if(!this.hasAttribute("await-children")||document.readyState==="interactive"||document.readyState==="complete")this.childrenConnectedCallback();else{let e=()=>{document.removeEventListener("DOMContentLoaded",e),r.disconnect(),this.childrenConnectedCallback()},r=new MutationObserver(()=>{var n;((n=this.lastChild)==null?void 0:n.nodeType)===Node.COMMENT_NODE&&this.lastChild.nodeValue==="astro:end"&&(this.lastChild.remove(),e())});r.observe(this,{childList:!0}),document.addEventListener("DOMContentLoaded",e)}}async childrenConnectedCallback(){let e=this.getAttribute("before-hydration-url");e&&await import(e),this.start()}getRetryImportUrl(e){let r=new URL(e,document.baseURI);return r.searchParams.set("astro-retry",Date.now().toString()),r.toString()}async importWithRetry(e){try{return await import(e)}catch(r){return await new Promise(n=>setTimeout(n,1e3)),import(this.getRetryImportUrl(e))}}handleHydrationError(e){let r=this.getAttribute("component-url"),n=new CustomEvent("astro:hydration-error",{cancelable:!0,bubbles:!0,composed:!0,detail:{error:e,componentUrl:r}});this.dispatchEvent(n)&&console.error(`[astro-island] Error hydrating ${r}`,e)}async start(){let e=JSON.parse(this.getAttribute("opts")),r=this.getAttribute("client");if(Astro[r]===void 0){window.addEventListener(`astro:${r}`,()=>this.start(),{once:!0});return}try{await Astro[r](async()=>{let n=this.getAttribute("renderer-url");try{let[d,{default:u}]=await Promise.all([this.importWithRetry(this.getAttribute("component-url")),n?this.importWithRetry(n):Promise.resolve({default:()=>()=>{}})]),h=this.getAttribute("component-export")||"default";if(h.includes(".")){this.Component=d;for(let m of h.split(".")){if(E.has(m)||!this.Component||typeof this.Component!="object"&&typeof this.Component!="function"||!Object.hasOwn(this.Component,m))throw new Error(`Invalid component export path: ${h}`);this.Component=this.Component[m]}}else{if(E.has(h))throw new Error(`Invalid component export path: ${h}`);this.Component=d[h]}return this.hydrator=u,this.hydrate}catch(d){return this.handleHydrationError(d),()=>{}}},e,this)}catch(n){this.handleHydrationError(n)}}attributeChangedCallback(){this.hydrate()}}l(f,"observedAttributes",["props"]),customElements.get("astro-island")||customElements.define("astro-island",f)}})();</script><astro-island uid="ZrylwW" prefix="r1" component-url="/pm-tools-templates/assets/TemplateViewer.BJxWH0dD.js" component-export="default" renderer-url="/pm-tools-templates/assets/client.REQV_TkY.js" props="{&quot;templateId&quot;:[0,&quot;devsecops_template&quot;],&quot;filePath&quot;:[0,&quot;domains/measurement/methodology-frameworks/emerging-methods/devops/devsecops_template.md&quot;],&quot;title&quot;:[0,&quot;Devsecops Template&quot;],&quot;content&quot;:[0,&quot;---\ntitle: Devsecops Template\nmethodology: universal\ncomplexity: advanced\nowner: mirichard\nupdated: &#39;2025-08-05&#39;\nprimary_principles:\n- quality-by-design\n- risk-optimization\nsecondary_principles:\n- evidence-based-decisions\n- stewardship\nprinciple_rationale: Integrates security assurance and risk controls into continuous\n  delivery process.\n---\n\n# DevSecOps Integration Template\n\n## Overview\nThis template provides a comprehensive framework for integrating security practices into DevOps workflows, covering security automation, vulnerability management, compliance, and security monitoring throughout the software development lifecycle.\n\n## Template Information\n- **Methodology:** DevSecOps (Development, Security, Operations)\n- **Purpose:** Integrate security practices into DevOps workflows and automation\n- **Audience:** Security Engineers, DevOps Teams, Development Teams, Compliance Teams\n- **Timeline:** 12-20 weeks for full implementation\n- **Prerequisites:** Existing DevOps practices, security awareness, compliance requirements\n\n---\n\n## DevSecOps Strategy Framework\n\n### Security-First Approach\n\n#### DevSecOps Principles\n```\nDevSecOps Foundation\n\nShift-Left Security:\n├── Security by design\n├── Early vulnerability detection\n├── Security testing in CI/CD\n└── Developer security training\n\nAutomation-First:\n├── Automated security scanning\n├── Policy as code enforcement\n├── Automated compliance checking\n└── Security orchestration\n\nContinuous Monitoring:\n├── Real-time threat detection\n├── Security metrics tracking\n├── Incident response automation\n└── Compliance monitoring\n\nShared Responsibility:\n├── Security as everyone&#39;s responsibility\n├── Cross-functional security teams\n├── Security champions program\n└── Collaborative security culture\n```\n\n#### DevSecOps Maturity Model\n| Level | Description | Characteristics | Security Practices |\n|-------|-------------|-----------------|-------------------|\n| Level 1 | Basic | Manual security checks | Periodic security reviews |\n| Level 2 | Reactive | Some automated scanning | Vulnerability management |\n| Level 3 | Proactive | Integrated security testing | Security in CI/CD |\n| Level 4 | Predictive | Advanced threat detection | ML-based security |\n| Level 5 | Adaptive | Self-healing security | Autonomous security |\n\n### Security Integration Architecture\n\n#### Security Layer Integration\n```yaml\n# DevSecOps Architecture Layers\nsecurity_layers:\n  development_layer:\n    description: \&quot;Security in development environment\&quot;\n    components:\n      - secure_coding: \&quot;Secure coding practices and guidelines\&quot;\n      - sast: \&quot;Static Application Security Testing\&quot;\n      - dependency_scanning: \&quot;Third-party dependency vulnerability scanning\&quot;\n      - secret_management: \&quot;Secrets detection and management\&quot;\n    tools: [\&quot;sonarqube\&quot;, \&quot;snyk\&quot;, \&quot;veracode\&quot;, \&quot;trufflehog\&quot;]\n    \n  pipeline_layer:\n    description: \&quot;Security in CI/CD pipelines\&quot;\n    components:\n      - dast: \&quot;Dynamic Application Security Testing\&quot;\n      - container_scanning: \&quot;Container image vulnerability scanning\&quot;\n      - infrastructure_scanning: \&quot;Infrastructure as Code security scanning\&quot;\n      - compliance_testing: \&quot;Automated compliance validation\&quot;\n    tools: [\&quot;owasp_zap\&quot;, \&quot;trivy\&quot;, \&quot;checkov\&quot;, \&quot;inspec\&quot;]\n    \n  runtime_layer:\n    description: \&quot;Security in production environment\&quot;\n    components:\n      - runtime_protection: \&quot;Runtime application self-protection\&quot;\n      - threat_detection: \&quot;Real-time threat detection and response\&quot;\n      - compliance_monitoring: \&quot;Continuous compliance monitoring\&quot;\n      - incident_response: \&quot;Automated incident response\&quot;\n    tools: [\&quot;falco\&quot;, \&quot;wazuh\&quot;, \&quot;splunk\&quot;, \&quot;pagerduty\&quot;]\n    \n  governance_layer:\n    description: \&quot;Security governance and policy\&quot;\n    components:\n      - policy_as_code: \&quot;Security policies as code\&quot;\n      - risk_management: \&quot;Continuous risk assessment\&quot;\n      - audit_logging: \&quot;Comprehensive audit trails\&quot;\n      - training: \&quot;Security awareness and training\&quot;\n    tools: [\&quot;opa\&quot;, \&quot;aws_config\&quot;, \&quot;cloudtrail\&quot;, \&quot;security_training_platforms\&quot;]\n```\n\n---\n\n## Security Testing Integration\n\n### Static Application Security Testing (SAST)\n\n#### SAST Pipeline Integration\n```yaml\n# CI/CD Pipeline Security Integration\nsast_integration:\n  pre_commit_hooks:\n    - secret_detection: \&quot;Detect secrets before commit\&quot;\n    - code_quality: \&quot;Static code analysis for security issues\&quot;\n    - license_checking: \&quot;Check for license compliance\&quot;\n    \n  build_stage:\n    - dependency_scanning: \&quot;Scan dependencies for vulnerabilities\&quot;\n    - static_analysis: \&quot;Comprehensive static security analysis\&quot;\n    - security_linting: \&quot;Security-focused code linting\&quot;\n    \n  quality_gates:\n    - vulnerability_threshold: \&quot;Block builds with high/critical vulnerabilities\&quot;\n    - code_coverage: \&quot;Ensure adequate test coverage\&quot;\n    - security_hotspots: \&quot;Review security-sensitive code changes\&quot;\n```\n\n#### SonarQube Security Configuration\n```yaml\n# sonar-project.properties\nsonar.projectKey=company-application\nsonar.projectName=Company Application\nsonar.projectVersion=1.0\n\n# Source code settings\nsonar.sources=src\nsonar.tests=tests\nsonar.exclusions=**/node_modules/**,**/vendor/**\nsonar.test.exclusions=**/*_test.go,**/*.test.js\n\n# Security-specific settings\nsonar.security.hotspots.severity=BLOCKER\nsonar.security.review.priority=HIGH\n\n# Quality gate settings\nsonar.qualitygate.wait=true\nsonar.coverage.exclusions=**/*_test.go,**/main.go\n\n# Security rules\nsonar.security.rules=security\n```\n\n#### Snyk Integration Example\n```yaml\n# .github/workflows/security.yml\nname: Security Scanning\n\non:\n  push:\n    branches: [main, develop]\n  pull_request:\n    branches: [main]\n\njobs:\n  security-scan:\n    runs-on: ubuntu-latest\n    steps:\n      - name: Checkout code\n        uses: actions/checkout@v4\n\n      - name: Setup Node.js\n        uses: actions/setup-node@v4\n        with:\n          node-version: &#39;18&#39;\n\n      - name: Install dependencies\n        run: npm ci\n\n      - name: Run Snyk to check for vulnerabilities\n        uses: snyk/actions/node@master\n        env:\n          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}\n        with:\n          args: --severity-threshold=high\n\n      - name: Upload result to GitHub Code Scanning\n        uses: github/codeql-action/upload-sarif@v2\n        with:\n          sarif_file: snyk.sarif\n\n      - name: Run Snyk to check Docker image\n        uses: snyk/actions/docker@master\n        env:\n          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}\n        with:\n          image: company/app:latest\n          args: --severity-threshold=high\n```\n\n### Dynamic Application Security Testing (DAST)\n\n#### OWASP ZAP Integration\n```yaml\n# k8s/security-testing/zap-baseline.yaml\napiVersion: batch/v1\nkind: Job\nmetadata:\n  name: zap-baseline-scan\n  namespace: security-testing\nspec:\n  template:\n    spec:\n      containers:\n      - name: zap-baseline\n        image: owasp/zap2docker-stable:latest\n        command: [\&quot;/bin/bash\&quot;]\n        args:\n          - -c\n          - |\n            zap-baseline.py -t https://app.staging.company.com \\\n              -J zap-baseline-report.json \\\n              -r zap-baseline-report.html \\\n              -x zap-baseline-report.xml \\\n              -I -d\n        volumeMounts:\n        - name: zap-reports\n          mountPath: /zap/wrk\n      volumes:\n      - name: zap-reports\n        persistentVolumeClaim:\n          claimName: zap-reports-pvc\n      restartPolicy: Never\n  backoffLimit: 0\n```\n\n#### API Security Testing\n```yaml\n# security-testing/api-security-tests.yaml\napi_security_tests:\n  authentication_tests:\n    - test: \&quot;JWT token validation\&quot;\n      endpoint: \&quot;/api/v1/auth/validate\&quot;\n      method: \&quot;POST\&quot;\n      expected_response: 401\n      payload: &#39;{\&quot;token\&quot;: \&quot;invalid_token\&quot;}&#39;\n      \n    - test: \&quot;Rate limiting\&quot;\n      endpoint: \&quot;/api/v1/users\&quot;\n      method: \&quot;GET\&quot;\n      requests_per_minute: 100\n      expected_response: 429\n      \n  authorization_tests:\n    - test: \&quot;RBAC enforcement\&quot;\n      endpoint: \&quot;/api/v1/admin/users\&quot;\n      method: \&quot;GET\&quot;\n      user_role: \&quot;user\&quot;\n      expected_response: 403\n      \n    - test: \&quot;Resource-based access control\&quot;\n      endpoint: \&quot;/api/v1/users/{user_id}\&quot;\n      method: \&quot;GET\&quot;\n      user_id: \&quot;other_user\&quot;\n      expected_response: 403\n      \n  input_validation_tests:\n    - test: \&quot;SQL injection protection\&quot;\n      endpoint: \&quot;/api/v1/search\&quot;\n      method: \&quot;GET\&quot;\n      query: \&quot;&#39;; DROP TABLE users; --\&quot;\n      expected_response: 400\n      \n    - test: \&quot;XSS protection\&quot;\n      endpoint: \&quot;/api/v1/comments\&quot;\n      method: \&quot;POST\&quot;\n      payload: &#39;{\&quot;comment\&quot;: \&quot;&lt;script&gt;alert(\\\&quot;xss\\\&quot;)&lt;/script&gt;\&quot;}&#39;\n      expected_response: 400\n```\n\n### Container Security\n\n#### Container Image Scanning\n```yaml\n# .github/workflows/container-security.yml\nname: Container Security Scanning\n\non:\n  push:\n    branches: [main]\n  pull_request:\n    branches: [main]\n\njobs:\n  container-scan:\n    runs-on: ubuntu-latest\n    steps:\n      - name: Checkout code\n        uses: actions/checkout@v4\n\n      - name: Build Docker image\n        run: |\n          docker build -t app:${{ github.sha }} .\n\n      - name: Run Trivy vulnerability scanner\n        uses: aquasecurity/trivy-action@master\n        with:\n          image-ref: &#39;app:${{ github.sha }}&#39;\n          format: &#39;sarif&#39;\n          output: &#39;trivy-results.sarif&#39;\n\n      - name: Upload Trivy scan results to GitHub Security\n        uses: github/codeql-action/upload-sarif@v2\n        with:\n          sarif_file: &#39;trivy-results.sarif&#39;\n\n      - name: Run Hadolint\n        uses: hadolint/hadolint-action@v3.1.0\n        with:\n          dockerfile: Dockerfile\n          format: sarif\n          output-file: hadolint-results.sarif\n\n      - name: Upload Hadolint scan results\n        uses: github/codeql-action/upload-sarif@v2\n        with:\n          sarif_file: hadolint-results.sarif\n```\n\n#### Dockerfile Security Best Practices\n```dockerfile\n# Dockerfile with security best practices\nFROM node:18-alpine AS builder\n\n# Create non-root user\nRUN addgroup -g 1001 -S nodejs &amp;&amp; \\\n    adduser -S nextjs -u 1001\n\n# Install dependencies\nWORKDIR /app\nCOPY package*.json ./\nRUN npm ci --only=production &amp;&amp; npm cache clean --force\n\n# Build application\nCOPY . .\nRUN npm run build\n\n# Production image\nFROM node:18-alpine AS runner\n\n# Security updates\nRUN apk update &amp;&amp; apk upgrade &amp;&amp; \\\n    apk add --no-cache dumb-init &amp;&amp; \\\n    rm -rf /var/cache/apk/*\n\n# Create non-root user\nRUN addgroup -g 1001 -S nodejs &amp;&amp; \\\n    adduser -S nextjs -u 1001\n\nWORKDIR /app\n\n# Copy built application\nCOPY --from=builder --chown=nextjs:nodejs /app/dist ./dist\nCOPY --from=builder --chown=nextjs:nodejs /app/node_modules ./node_modules\nCOPY --from=builder --chown=nextjs:nodejs /app/package.json ./package.json\n\n# Switch to non-root user\nUSER nextjs\n\n# Use dumb-init to handle signals properly\nENTRYPOINT [\&quot;dumb-init\&quot;, \&quot;--\&quot;]\n\n# Health check\nHEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \\\n  CMD node health-check.js\n\nEXPOSE 3000\n\nCMD [\&quot;node\&quot;, \&quot;dist/index.js\&quot;]\n```\n\n#### Container Runtime Security\n```yaml\n# k8s/security/pod-security-policy.yaml\napiVersion: policy/v1beta1\nkind: PodSecurityPolicy\nmetadata:\n  name: restricted-psp\nspec:\n  privileged: false\n  allowPrivilegeEscalation: false\n  requiredDropCapabilities:\n    - ALL\n  volumes:\n    - &#39;configMap&#39;\n    - &#39;emptyDir&#39;\n    - &#39;projected&#39;\n    - &#39;secret&#39;\n    - &#39;downwardAPI&#39;\n    - &#39;persistentVolumeClaim&#39;\n  runAsUser:\n    rule: &#39;MustRunAsNonRoot&#39;\n  seLinux:\n    rule: &#39;RunAsAny&#39;\n  fsGroup:\n    rule: &#39;RunAsAny&#39;\n  readOnlyRootFilesystem: true\n\n---\napiVersion: networking.k8s.io/v1\nkind: NetworkPolicy\nmetadata:\n  name: deny-all-default\n  namespace: production\nspec:\n  podSelector: {}\n  policyTypes:\n  - Ingress\n  - Egress\n\n---\napiVersion: networking.k8s.io/v1\nkind: NetworkPolicy\nmetadata:\n  name: allow-app-communication\n  namespace: production\nspec:\n  podSelector:\n    matchLabels:\n      app: web-app\n  policyTypes:\n  - Ingress\n  - Egress\n  ingress:\n  - from:\n    - namespaceSelector:\n        matchLabels:\n          name: ingress-nginx\n    ports:\n    - protocol: TCP\n      port: 3000\n  egress:\n  - to:\n    - namespaceSelector:\n        matchLabels:\n          name: database\n    ports:\n    - protocol: TCP\n      port: 5432\n```\n\n---\n\n## Infrastructure Security\n\n### Infrastructure as Code Security\n\n#### Checkov Integration\n```yaml\n# .github/workflows/iac-security.yml\nname: Infrastructure Security Scanning\n\non:\n  push:\n    paths:\n      - &#39;terraform/**&#39;\n      - &#39;k8s/**&#39;\n  pull_request:\n    paths:\n      - &#39;terraform/**&#39;\n      - &#39;k8s/**&#39;\n\njobs:\n  iac-security:\n    runs-on: ubuntu-latest\n    steps:\n      - name: Checkout code\n        uses: actions/checkout@v4\n\n      - name: Run Checkov\n        id: checkov\n        uses: bridgecrewio/checkov-action@master\n        with:\n          directory: .\n          framework: terraform,kubernetes\n          output_format: sarif\n          output_file_path: checkov-results.sarif\n          skip_check: CKV_AWS_20,CKV_AWS_57\n\n      - name: Upload Checkov scan results\n        uses: github/codeql-action/upload-sarif@v2\n        with:\n          sarif_file: checkov-results.sarif\n\n      - name: Run tfsec\n        uses: aquasecurity/tfsec-action@v1.0.0\n        with:\n          working_directory: terraform/\n          soft_fail: true\n\n      - name: Run kube-score\n        run: |\n          wget -O kube-score https://github.com/zegl/kube-score/releases/latest/download/kube-score_linux_amd64\n          chmod +x kube-score\n          find k8s/ -name \&quot;*.yaml\&quot; -exec ./kube-score score {} \\;\n```\n\n#### Terraform Security Configuration\n```hcl\n# modules/security/main.tf\n# KMS key for encryption\nresource \&quot;aws_kms_key\&quot; \&quot;main\&quot; {\n  description             = \&quot;KMS key for ${var.environment} environment\&quot;\n  deletion_window_in_days = 7\n  enable_key_rotation     = true\n\n  policy = jsonencode({\n    Version = \&quot;2012-10-17\&quot;\n    Statement = [\n      {\n        Sid    = \&quot;Enable IAM User Permissions\&quot;\n        Effect = \&quot;Allow\&quot;\n        Principal = {\n          AWS = \&quot;arn:aws:iam::${data.aws_caller_identity.current.account_id}:root\&quot;\n        }\n        Action   = \&quot;kms:*\&quot;\n        Resource = \&quot;*\&quot;\n      }\n    ]\n  })\n\n  tags = merge(var.common_tags, {\n    Name = \&quot;${var.environment}-kms-key\&quot;\n  })\n}\n\n# Security group with restrictive rules\nresource \&quot;aws_security_group\&quot; \&quot;app\&quot; {\n  name_prefix = \&quot;${var.environment}-app-\&quot;\n  vpc_id      = var.vpc_id\n\n  # Ingress rules\n  ingress {\n    description = \&quot;HTTPS from ALB\&quot;\n    from_port   = 443\n    to_port     = 443\n    protocol    = \&quot;tcp\&quot;\n    security_groups = [aws_security_group.alb.id]\n  }\n\n  ingress {\n    description = \&quot;Health check from ALB\&quot;\n    from_port   = 8080\n    to_port     = 8080\n    protocol    = \&quot;tcp\&quot;\n    security_groups = [aws_security_group.alb.id]\n  }\n\n  # Egress rules\n  egress {\n    description = \&quot;HTTPS to internet\&quot;\n    from_port   = 443\n    to_port     = 443\n    protocol    = \&quot;tcp\&quot;\n    cidr_blocks = [\&quot;0.0.0.0/0\&quot;]\n  }\n\n  egress {\n    description = \&quot;Database access\&quot;\n    from_port   = 5432\n    to_port     = 5432\n    protocol    = \&quot;tcp\&quot;\n    security_groups = [aws_security_group.database.id]\n  }\n\n  tags = merge(var.common_tags, {\n    Name = \&quot;${var.environment}-app-sg\&quot;\n  })\n\n  lifecycle {\n    create_before_destroy = true\n  }\n}\n\n# WAF configuration\nresource \&quot;aws_wafv2_web_acl\&quot; \&quot;main\&quot; {\n  name  = \&quot;${var.environment}-web-acl\&quot;\n  scope = \&quot;REGIONAL\&quot;\n\n  default_action {\n    allow {}\n  }\n\n  rule {\n    name     = \&quot;AWSManagedRulesCommonRuleSet\&quot;\n    priority = 1\n\n    override_action {\n      none {}\n    }\n\n    statement {\n      managed_rule_group_statement {\n        name        = \&quot;AWSManagedRulesCommonRuleSet\&quot;\n        vendor_name = \&quot;AWS\&quot;\n      }\n    }\n\n    visibility_config {\n      cloudwatch_metrics_enabled = true\n      metric_name                = \&quot;CommonRuleSetMetric\&quot;\n      sampled_requests_enabled   = true\n    }\n  }\n\n  rule {\n    name     = \&quot;AWSManagedRulesKnownBadInputsRuleSet\&quot;\n    priority = 2\n\n    override_action {\n      none {}\n    }\n\n    statement {\n      managed_rule_group_statement {\n        name        = \&quot;AWSManagedRulesKnownBadInputsRuleSet\&quot;\n        vendor_name = \&quot;AWS\&quot;\n      }\n    }\n\n    visibility_config {\n      cloudwatch_metrics_enabled = true\n      metric_name                = \&quot;KnownBadInputsRuleSetMetric\&quot;\n      sampled_requests_enabled   = true\n    }\n  }\n\n  tags = merge(var.common_tags, {\n    Name = \&quot;${var.environment}-waf\&quot;\n  })\n}\n```\n\n### Secrets Management\n\n#### AWS Secrets Manager Integration\n```hcl\n# modules/secrets/main.tf\nresource \&quot;aws_secretsmanager_secret\&quot; \&quot;app_secrets\&quot; {\n  name                    = \&quot;${var.environment}/app/secrets\&quot;\n  description             = \&quot;Application secrets for ${var.environment}\&quot;\n  recovery_window_in_days = 7\n  kms_key_id             = var.kms_key_id\n\n  replica {\n    region = var.backup_region\n  }\n\n  tags = merge(var.common_tags, {\n    Name = \&quot;${var.environment}-app-secrets\&quot;\n  })\n}\n\nresource \&quot;aws_secretsmanager_secret_version\&quot; \&quot;app_secrets\&quot; {\n  secret_id = aws_secretsmanager_secret.app_secrets.id\n  secret_string = jsonencode({\n    database_url = var.database_url\n    api_key      = var.api_key\n    jwt_secret   = var.jwt_secret\n  })\n}\n\n# IAM role for secret access\nresource \&quot;aws_iam_role\&quot; \&quot;secrets_access\&quot; {\n  name = \&quot;${var.environment}-secrets-access-role\&quot;\n\n  assume_role_policy = jsonencode({\n    Version = \&quot;2012-10-17\&quot;\n    Statement = [\n      {\n        Action = \&quot;sts:AssumeRole\&quot;\n        Effect = \&quot;Allow\&quot;\n        Principal = {\n          Service = \&quot;ecs-tasks.amazonaws.com\&quot;\n        }\n      }\n    ]\n  })\n}\n\nresource \&quot;aws_iam_policy\&quot; \&quot;secrets_access\&quot; {\n  name = \&quot;${var.environment}-secrets-access-policy\&quot;\n\n  policy = jsonencode({\n    Version = \&quot;2012-10-17\&quot;\n    Statement = [\n      {\n        Effect = \&quot;Allow\&quot;\n        Action = [\n          \&quot;secretsmanager:GetSecretValue\&quot;\n        ]\n        Resource = [\n          aws_secretsmanager_secret.app_secrets.arn\n        ]\n      }\n    ]\n  })\n}\n\nresource \&quot;aws_iam_role_policy_attachment\&quot; \&quot;secrets_access\&quot; {\n  role       = aws_iam_role.secrets_access.name\n  policy_arn = aws_iam_policy.secrets_access.arn\n}\n```\n\n#### Kubernetes Secrets Integration\n```yaml\n# k8s/security/external-secrets.yaml\napiVersion: external-secrets.io/v1beta1\nkind: SecretStore\nmetadata:\n  name: aws-secretsmanager\n  namespace: production\nspec:\n  provider:\n    aws:\n      service: SecretsManager\n      region: &lt;AWS_REGION&gt; &lt;!-- redacted by security sweep 2025-08-06 --&gt;\n      auth:\n        serviceAccount:\n          name: external-secrets-sa\n\n---\napiVersion: external-secrets.io/v1beta1\nkind: ExternalSecret\nmetadata:\n  name: app-secrets\n  namespace: production\nspec:\n  refreshInterval: 15s\n  secretStoreRef:\n    name: aws-secretsmanager\n    kind: SecretStore\n  target:\n    name: app-secrets\n    creationPolicy: Owner\n  data:\n    - secretKey: database-url\n      remoteRef:\n        key: production/app/secrets\n        property: database_url\n    - secretKey: api-key\n      remoteRef:\n        key: production/app/secrets\n        property: api_key\n    - secretKey: jwt-secret\n      remoteRef:\n        key: production/app/secrets\n        property: jwt_secret\n```\n\n#### Secret Scanning\n```yaml\n# .github/workflows/secret-scanning.yml\nname: Secret Scanning\n\non:\n  push:\n  pull_request:\n\njobs:\n  secret-scan:\n    runs-on: ubuntu-latest\n    steps:\n      - name: Checkout code\n        uses: actions/checkout@v4\n        with:\n          fetch-depth: 0\n\n      - name: Run TruffleHog\n        uses: trufflesecurity/trufflehog@main\n        with:\n          path: ./\n          base: main\n          head: HEAD\n          extra_args: --debug --only-verified\n\n      - name: Run GitLeaks\n        uses: gitleaks/gitleaks-action@v2\n        env:\n          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}\n          GITLEAKS_LICENSE: ${{ secrets.GITLEAKS_LICENSE }}\n\n      - name: Run detect-secrets\n        run: |\n          pip install detect-secrets\n          detect-secrets scan --all-files --baseline .secrets.baseline\n```\n\n---\n\n## Security Monitoring and Incident Response\n\n### Runtime Security Monitoring\n\n#### Falco Configuration\n```yaml\n# k8s/security/falco-config.yaml\napiVersion: v1\nkind: ConfigMap\nmetadata:\n  name: falco-config\n  namespace: falco-system\ndata:\n  falco.yaml: |\n    rules_file:\n      - /etc/falco/falco_rules.yaml\n      - /etc/falco/falco_rules.local.yaml\n      - /etc/falco/k8s_audit_rules.yaml\n      - /etc/falco/rules.d\n\n    time_format_iso_8601: true\n    json_output: true\n    json_include_output_property: true\n\n    log_stderr: true\n    log_syslog: true\n    log_level: info\n\n    priority: debug\n    buffered_outputs: false\n\n    syscall_event_drops:\n      actions:\n        - log\n        - alert\n      rate: 0.03333\n      max_burst: 1000\n\n    outputs:\n      rate: 1\n      max_burst: 1000\n\n    http_output:\n      enabled: true\n      url: \&quot;http://falcosidekick:2801/\&quot;\n\n  custom_rules.yaml: |\n    - rule: Detect crypto miners\n      desc: Detect process that mine cryptocurrency\n      condition: &gt;\n        spawned_process and \n        (proc.name in (crypto_miners) or\n         proc.cmdline contains \&quot;stratum\&quot; or\n         proc.cmdline contains \&quot;mining\&quot;)\n      output: &gt;\n        Cryptocurrency miner detected (user=%user.name command=%proc.cmdline \n        container=%container.info image=%container.image.repository)\n      priority: CRITICAL\n      tags: [cryptocurrency, malware]\n\n    - rule: Detect outbound network activity\n      desc: Detect suspicious outbound network connections\n      condition: &gt;\n        outbound and not trusted_outbound_destinations and\n        not proc.name in (allowed_outbound_processes)\n      output: &gt;\n        Suspicious outbound connection (user=%user.name command=%proc.cmdline \n        connection=%fd.name container=%container.info)\n      priority: WARNING\n      tags: [network, suspicious]\n```\n\n#### Security Event Processing\n```yaml\n# security-monitoring/splunk-integration.yaml\napiVersion: apps/v1\nkind: Deployment\nmetadata:\n  name: splunk-forwarder\n  namespace: security-monitoring\nspec:\n  replicas: 1\n  selector:\n    matchLabels:\n      app: splunk-forwarder\n  template:\n    metadata:\n      labels:\n        app: splunk-forwarder\n    spec:\n      containers:\n      - name: splunk-forwarder\n        image: splunk/universalforwarder:latest\n        env:\n        - name: SPLUNK_START_ARGS\n          value: \&quot;--accept-license --answer-yes\&quot;\n        - name: SPLUNK_PASSWORD\n          valueFrom:\n            secretKeyRef:\n              name: splunk-credentials\n              key: password\n        volumeMounts:\n        - name: falco-logs\n          mountPath: /var/log/falco\n        - name: k8s-logs\n          mountPath: /var/log/pods\n          readOnly: true\n        - name: splunk-config\n          mountPath: /opt/splunkforwarder/etc/system/local\n      volumes:\n      - name: falco-logs\n        hostPath:\n          path: /var/log/falco\n      - name: k8s-logs\n        hostPath:\n          path: /var/log/pods\n      - name: splunk-config\n        configMap:\n          name: splunk-forwarder-config\n```\n\n### Security Incident Response\n\n#### Automated Incident Response\n```yaml\n# incident-response/security-playbook.yaml\napiVersion: argoproj.io/v1alpha1\nkind: WorkflowTemplate\nmetadata:\n  name: security-incident-response\n  namespace: security\nspec:\n  entrypoint: incident-response\n  templates:\n  - name: incident-response\n    steps:\n    - - name: detect-threat\n        template: threat-detection\n    - - name: isolate-container\n        template: container-isolation\n        when: \&quot;{{steps.detect-threat.outputs.parameters.threat-level}} == critical\&quot;\n    - - name: collect-evidence\n        template: evidence-collection\n    - - name: notify-team\n        template: team-notification\n\n  - name: threat-detection\n    script:\n      image: security/threat-analyzer:latest\n      command: [python]\n      source: |\n        import json\n        import sys\n        \n        # Analyze security event\n        event = json.loads(&#39;{{workflow.parameters.security-event}}&#39;)\n        \n        # Determine threat level\n        threat_level = analyze_threat(event)\n        \n        # Output result\n        result = {\n            \&quot;threat-level\&quot;: threat_level,\n            \&quot;container-id\&quot;: event.get(\&quot;container_id\&quot;),\n            \&quot;pod-name\&quot;: event.get(\&quot;pod_name\&quot;)\n        }\n        \n        print(json.dumps(result))\n\n  - name: container-isolation\n    script:\n      image: kubectl:latest\n      command: [sh]\n      source: |\n        # Isolate compromised container\n        kubectl patch pod {{workflow.parameters.pod-name}} \\\n          -p &#39;{\&quot;spec\&quot;:{\&quot;containers\&quot;:[{\&quot;name\&quot;:\&quot;app\&quot;,\&quot;securityContext\&quot;:{\&quot;readOnlyRootFilesystem\&quot;:true}}]}}&#39;\n        \n        # Apply network policy to block traffic\n        kubectl apply -f - &lt;&lt;EOF\n        apiVersion: networking.k8s.io/v1\n        kind: NetworkPolicy\n        metadata:\n          name: isolate-{{workflow.parameters.pod-name}}\n        spec:\n          podSelector:\n            matchLabels:\n              app: {{workflow.parameters.pod-name}}\n          policyTypes:\n          - Ingress\n          - Egress\n        EOF\n\n  - name: evidence-collection\n    script:\n      image: security/forensics:latest\n      command: [sh]\n      source: |\n        # Collect container logs\n        kubectl logs {{workflow.parameters.pod-name}} &gt; /evidence/container.log\n        \n        # Collect process information\n        kubectl exec {{workflow.parameters.pod-name}} -- ps aux &gt; /evidence/processes.txt\n        \n        # Collect network connections\n        kubectl exec {{workflow.parameters.pod-name}} -- netstat -an &gt; /evidence/network.txt\n        \n        # Upload evidence to secure storage\n        aws s3 cp /evidence/ s3://security-evidence-bucket/{{workflow.name}}/ --recursive\n\n  - name: team-notification\n    http:\n      url: https://hooks.slack.com/services/YOUR/SLACK/WEBHOOK\n      method: POST\n      headers:\n        Content-Type: application/json\n      body: |\n        {\n          \&quot;text\&quot;: \&quot;Security Incident Detected\&quot;,\n          \&quot;attachments\&quot;: [\n            {\n              \&quot;color\&quot;: \&quot;danger\&quot;,\n              \&quot;fields\&quot;: [\n                {\n                  \&quot;title\&quot;: \&quot;Threat Level\&quot;,\n                  \&quot;value\&quot;: \&quot;{{workflow.parameters.threat-level}}\&quot;,\n                  \&quot;short\&quot;: true\n                },\n                {\n                  \&quot;title\&quot;: \&quot;Affected Container\&quot;,\n                  \&quot;value\&quot;: \&quot;{{workflow.parameters.pod-name}}\&quot;,\n                  \&quot;short\&quot;: true\n                }\n              ]\n            }\n          ]\n        }\n```\n\n#### Security Metrics and KPIs\n```yaml\n# security-metrics/security-dashboard.yaml\nsecurity_metrics:\n  vulnerability_metrics:\n    - metric: \&quot;total_vulnerabilities\&quot;\n      description: \&quot;Total number of vulnerabilities detected\&quot;\n      source: \&quot;vulnerability_scanners\&quot;\n      frequency: \&quot;hourly\&quot;\n      \n    - metric: \&quot;critical_vulnerabilities\&quot;\n      description: \&quot;Number of critical vulnerabilities\&quot;\n      source: \&quot;vulnerability_scanners\&quot;\n      frequency: \&quot;real-time\&quot;\n      alert_threshold: 0\n      \n    - metric: \&quot;vulnerability_remediation_time\&quot;\n      description: \&quot;Average time to remediate vulnerabilities\&quot;\n      source: \&quot;ticket_system\&quot;\n      frequency: \&quot;daily\&quot;\n      target: \&quot;&lt; 24 hours\&quot;\n      \n  security_incidents:\n    - metric: \&quot;security_incidents_total\&quot;\n      description: \&quot;Total number of security incidents\&quot;\n      source: \&quot;siem_system\&quot;\n      frequency: \&quot;real-time\&quot;\n      \n    - metric: \&quot;mean_time_to_detection\&quot;\n      description: \&quot;Average time to detect security incidents\&quot;\n      source: \&quot;siem_system\&quot;\n      frequency: \&quot;daily\&quot;\n      target: \&quot;&lt; 15 minutes\&quot;\n      \n    - metric: \&quot;mean_time_to_response\&quot;\n      description: \&quot;Average time to respond to incidents\&quot;\n      source: \&quot;incident_management\&quot;\n      frequency: \&quot;daily\&quot;\n      target: \&quot;&lt; 30 minutes\&quot;\n      \n  compliance_metrics:\n    - metric: \&quot;compliance_score\&quot;\n      description: \&quot;Overall compliance score\&quot;\n      source: \&quot;compliance_scanner\&quot;\n      frequency: \&quot;daily\&quot;\n      target: \&quot;&gt; 95%\&quot;\n      \n    - metric: \&quot;policy_violations\&quot;\n      description: \&quot;Number of policy violations\&quot;\n      source: \&quot;policy_engine\&quot;\n      frequency: \&quot;real-time\&quot;\n      alert_threshold: 0\n```\n\n---\n\n## Compliance and Governance\n\n### Policy as Code\n\n#### Open Policy Agent (OPA) Configuration\n```yaml\n# k8s/security/opa-gatekeeper.yaml\napiVersion: templates.gatekeeper.sh/v1beta1\nkind: ConstraintTemplate\nmetadata:\n  name: k8srequiredsecuritycontext\nspec:\n  crd:\n    spec:\n      names:\n        kind: K8sRequiredSecurityContext\n      validation:\n        openAPIV3Schema:\n          type: object\n          properties:\n            runAsNonRoot:\n              type: boolean\n            readOnlyRootFilesystem:\n              type: boolean\n            allowPrivilegeEscalation:\n              type: boolean\n  targets:\n    - target: admission.k8s.gatekeeper.sh\n      rego: |\n        package k8srequiredsecuritycontext\n        \n        violation[{\&quot;msg\&quot;: msg}] {\n          container := input.review.object.spec.containers[_]\n          not container.securityContext.runAsNonRoot\n          msg := \&quot;Container must run as non-root user\&quot;\n        }\n        \n        violation[{\&quot;msg\&quot;: msg}] {\n          container := input.review.object.spec.containers[_]\n          not container.securityContext.readOnlyRootFilesystem\n          msg := \&quot;Container must have read-only root filesystem\&quot;\n        }\n        \n        violation[{\&quot;msg\&quot;: msg}] {\n          container := input.review.object.spec.containers[_]\n          container.securityContext.allowPrivilegeEscalation != false\n          msg := \&quot;Container must not allow privilege escalation\&quot;\n        }\n\n---\napiVersion: constraints.gatekeeper.sh/v1beta1\nkind: K8sRequiredSecurityContext\nmetadata:\n  name: must-have-security-context\nspec:\n  match:\n    kinds:\n      - apiGroups: [\&quot;apps\&quot;]\n        kinds: [\&quot;Deployment\&quot;]\n  parameters:\n    runAsNonRoot: true\n    readOnlyRootFilesystem: true\n    allowPrivilegeEscalation: false\n```\n\n#### Compliance Scanning\n```yaml\n# compliance/inspec-profile.rb\n# InSpec compliance profile for security requirements\n\ncontrol &#39;system-01&#39; do\n  impact 1.0\n  title &#39;Ensure system is up to date&#39;\n  desc &#39;System packages should be updated regularly&#39;\n  \n  describe command(&#39;apt list --upgradable&#39;) do\n    its(&#39;stdout&#39;) { should_not match /upgradable/ }\n  end\nend\n\ncontrol &#39;docker-01&#39; do\n  impact 1.0\n  title &#39;Ensure Docker is configured securely&#39;\n  desc &#39;Docker daemon should be configured with security best practices&#39;\n  \n  describe json(&#39;/etc/docker/daemon.json&#39;) do\n    its([&#39;log-driver&#39;]) { should eq &#39;json-file&#39; }\n    its([&#39;log-opts&#39;, &#39;max-size&#39;]) { should eq &#39;10m&#39; }\n    its([&#39;log-opts&#39;, &#39;max-file&#39;]) { should eq &#39;3&#39; }\n  end\nend\n\ncontrol &#39;k8s-01&#39; do\n  impact 1.0\n  title &#39;Ensure Kubernetes is configured securely&#39;\n  desc &#39;Kubernetes cluster should follow security best practices&#39;\n  \n  describe yaml(&#39;/etc/kubernetes/manifests/kube-apiserver.yaml&#39;) do\n    its([&#39;spec&#39;, &#39;containers&#39;, 0, &#39;command&#39;]) { should include &#39;--audit-log-path=/var/log/audit.log&#39; }\n    its([&#39;spec&#39;, &#39;containers&#39;, 0, &#39;command&#39;]) { should include &#39;--audit-log-maxage=30&#39; }\n  end\nend\n\ncontrol &#39;network-01&#39; do\n  impact 1.0\n  title &#39;Ensure network security&#39;\n  desc &#39;Network should be properly secured&#39;\n  \n  describe port(22) do\n    it { should_not be_listening }\n  end\n  \n  describe iptables do\n    it { should have_rule(&#39;-P INPUT DROP&#39;) }\n    it { should have_rule(&#39;-P FORWARD DROP&#39;) }\n  end\nend\n```\n\n### Audit Logging\n\n#### Comprehensive Audit Configuration\n```yaml\n# audit-logging/audit-policy.yaml\napiVersion: audit.k8s.io/v1\nkind: Policy\nrules:\n  # Log security-related events at Request level\n  - level: Request\n    namespaces: [\&quot;kube-system\&quot;, \&quot;security\&quot;]\n    resources:\n    - group: \&quot;\&quot;\n      resources: [\&quot;secrets\&quot;, \&quot;configmaps\&quot;]\n    - group: \&quot;rbac.authorization.k8s.io\&quot;\n      resources: [\&quot;roles\&quot;, \&quot;rolebindings\&quot;, \&quot;clusterroles\&quot;, \&quot;clusterrolebindings\&quot;]\n\n  # Log all authentication events\n  - level: Request\n    users: [\&quot;system:unauthenticated\&quot;]\n    namespaces: [\&quot;\&quot;]\n    \n  # Log admin activities\n  - level: Request\n    userGroups: [\&quot;system:masters\&quot;]\n\n  # Log pod creation and deletion\n  - level: Request\n    resources:\n    - group: \&quot;\&quot;\n      resources: [\&quot;pods\&quot;]\n    verbs: [\&quot;create\&quot;, \&quot;delete\&quot;, \&quot;patch\&quot;]\n\n  # Log service account token access\n  - level: Request\n    resources:\n    - group: \&quot;\&quot;\n      resources: [\&quot;serviceaccounts/token\&quot;]\n\n  # Default rule - log at Metadata level\n  - level: Metadata\n    omitStages:\n      - RequestReceived\n```\n\n#### Audit Log Processing\n```yaml\n# audit-processing/fluentd-audit.yaml\napiVersion: v1\nkind: ConfigMap\nmetadata:\n  name: fluentd-audit-config\n  namespace: logging\ndata:\n  fluent.conf: |\n    &lt;source&gt;\n      @type tail\n      path /var/log/audit/audit.log\n      pos_file /var/log/fluentd-audit.log.pos\n      tag kubernetes.audit\n      format json\n      time_key timestamp\n      time_format %Y-%m-%dT%H:%M:%S.%NZ\n    &lt;/source&gt;\n\n    &lt;filter kubernetes.audit&gt;\n      @type record_transformer\n      &lt;record&gt;\n        cluster_name \&quot;#{ENV[&#39;CLUSTER_NAME&#39;]}\&quot;\n        environment \&quot;#{ENV[&#39;ENVIRONMENT&#39;]}\&quot;\n      &lt;/record&gt;\n    &lt;/filter&gt;\n\n    # Send critical security events to SIEM\n    &lt;match kubernetes.audit&gt;\n      @type copy\n      &lt;store&gt;\n        @type splunk_hec\n        hec_host splunk.company.com\n        hec_port 8088\n        hec_token \&quot;#{ENV[&#39;SPLUNK_HEC_TOKEN&#39;]}\&quot;\n        index k8s_audit\n        source fluentd\n      &lt;/store&gt;\n      &lt;store&gt;\n        @type s3\n        aws_key_id \&quot;#{ENV[&#39;AWS_ACCESS_KEY_ID&#39;]}\&quot;\n        aws_sec_key \&quot;#{ENV[&#39;AWS_SECRET_ACCESS_KEY&#39;]}\&quot;\n        s3_bucket audit-logs-bucket\n        s3_region us-west-2\n        path audit/%Y/%m/%d/\n        time_slice_format %Y%m%d%H\n        time_slice_wait 10m\n      &lt;/store&gt;\n    &lt;/match&gt;\n```\n\n---\n\n## Security Training and Culture\n\n### Security Champions Program\n\n#### Security Champions Framework\n```yaml\n# security-training/champions-program.yaml\nsecurity_champions_program:\n  objectives:\n    - \&quot;Embed security knowledge across development teams\&quot;\n    - \&quot;Create security advocates and mentors\&quot;\n    - \&quot;Improve security awareness and practices\&quot;\n    - \&quot;Bridge gap between security and development\&quot;\n    \n  responsibilities:\n    - \&quot;Conduct security reviews for their team\&quot;\n    - \&quot;Participate in threat modeling sessions\&quot;\n    - \&quot;Provide security training to team members\&quot;\n    - \&quot;Stay updated on security best practices\&quot;\n    - \&quot;Report security issues and concerns\&quot;\n    \n  selection_criteria:\n    - \&quot;Interest in security topics\&quot;\n    - \&quot;Good communication skills\&quot;\n    - \&quot;Team leadership qualities\&quot;\n    - \&quot;Technical proficiency\&quot;\n    - \&quot;Commitment to continuous learning\&quot;\n    \n  training_modules:\n    - module: \&quot;Secure Coding Practices\&quot;\n      duration: \&quot;4 hours\&quot;\n      topics: [\&quot;Input validation\&quot;, \&quot;Authentication\&quot;, \&quot;Authorization\&quot;, \&quot;Cryptography\&quot;]\n      \n    - module: \&quot;Threat Modeling\&quot;\n      duration: \&quot;3 hours\&quot;\n      topics: [\&quot;STRIDE methodology\&quot;, \&quot;Attack trees\&quot;, \&quot;Risk assessment\&quot;]\n      \n    - module: \&quot;Security Testing\&quot;\n      duration: \&quot;4 hours\&quot;\n      topics: [\&quot;SAST\&quot;, \&quot;DAST\&quot;, \&quot;IAST\&quot;, \&quot;Penetration testing\&quot;]\n      \n    - module: \&quot;Incident Response\&quot;\n      duration: \&quot;2 hours\&quot;\n      topics: [\&quot;Incident classification\&quot;, \&quot;Response procedures\&quot;, \&quot;Evidence collection\&quot;]\n```\n\n#### Security Awareness Metrics\n```yaml\n# security-metrics/awareness-metrics.yaml\nsecurity_awareness_metrics:\n  training_metrics:\n    - metric: \&quot;training_completion_rate\&quot;\n      description: \&quot;Percentage of employees who completed security training\&quot;\n      target: \&quot;&gt; 95%\&quot;\n      frequency: \&quot;quarterly\&quot;\n      \n    - metric: \&quot;security_assessment_scores\&quot;\n      description: \&quot;Average scores on security knowledge assessments\&quot;\n      target: \&quot;&gt; 85%\&quot;\n      frequency: \&quot;quarterly\&quot;\n      \n  behavioral_metrics:\n    - metric: \&quot;phishing_click_rate\&quot;\n      description: \&quot;Percentage of employees who click on simulated phishing emails\&quot;\n      target: \&quot;&lt; 5%\&quot;\n      frequency: \&quot;monthly\&quot;\n      \n    - metric: \&quot;security_incident_reports\&quot;\n      description: \&quot;Number of security incidents reported by employees\&quot;\n      target: \&quot;Increasing trend\&quot;\n      frequency: \&quot;monthly\&quot;\n      \n    - metric: \&quot;security_policy_violations\&quot;\n      description: \&quot;Number of security policy violations\&quot;\n      target: \&quot;Decreasing trend\&quot;\n      frequency: \&quot;monthly\&quot;\n```\n\n---\n\n## Continuous Improvement\n\n### Security Maturity Assessment\n\n#### DevSecOps Maturity Scorecard\n| Category | Level 1 | Level 2 | Level 3 | Level 4 | Level 5 |\n|----------|---------|---------|---------|---------|---------|\n| Security Testing | Manual testing | Basic SAST | Integrated SAST/DAST | Advanced testing | AI-driven testing |\n| Vulnerability Management | Reactive patching | Scheduled scanning | Automated scanning | Risk-based prioritization | Predictive analysis |\n| Incident Response | Manual response | Basic automation | Orchestrated response | Self-healing systems | Autonomous response |\n| Compliance | Manual audits | Automated scanning | Continuous monitoring | Adaptive compliance | Predictive compliance |\n| Culture | Security awareness | Security training | Security champions | Security-first mindset | Security innovation |\n\n### Security Improvement Roadmap\n\n#### Quarterly Security Initiatives\n```yaml\n# security-roadmap/quarterly-initiatives.yaml\nq1_initiatives:\n  - name: \&quot;Implement SAST in CI/CD\&quot;\n    priority: \&quot;High\&quot;\n    effort: \&quot;4 weeks\&quot;\n    dependencies: [\&quot;CI/CD pipeline\&quot;, \&quot;Tool selection\&quot;]\n    success_criteria: [\&quot;100% code coverage\&quot;, \&quot;&lt; 2 min scan time\&quot;]\n    \n  - name: \&quot;Container security scanning\&quot;\n    priority: \&quot;High\&quot;\n    effort: \&quot;3 weeks\&quot;\n    dependencies: [\&quot;Container registry\&quot;, \&quot;Scanning tools\&quot;]\n    success_criteria: [\&quot;Zero critical vulnerabilities\&quot;, \&quot;Automated blocking\&quot;]\n\nq2_initiatives:\n  - name: \&quot;Dynamic security testing\&quot;\n    priority: \&quot;Medium\&quot;\n    effort: \&quot;6 weeks\&quot;\n    dependencies: [\&quot;Test environments\&quot;, \&quot;DAST tools\&quot;]\n    success_criteria: [\&quot;Automated API testing\&quot;, \&quot;Integration with CD\&quot;]\n    \n  - name: \&quot;Security metrics dashboard\&quot;\n    priority: \&quot;Medium\&quot;\n    effort: \&quot;4 weeks\&quot;\n    dependencies: [\&quot;Monitoring tools\&quot;, \&quot;Data sources\&quot;]\n    success_criteria: [\&quot;Real-time visibility\&quot;, \&quot;Automated reporting\&quot;]\n\nq3_initiatives:\n  - name: \&quot;Infrastructure security automation\&quot;\n    priority: \&quot;High\&quot;\n    effort: \&quot;8 weeks\&quot;\n    dependencies: [\&quot;IaC tools\&quot;, \&quot;Policy definitions\&quot;]\n    success_criteria: [\&quot;Policy as code\&quot;, \&quot;Automated remediation\&quot;]\n    \n  - name: \&quot;Security champions program\&quot;\n    priority: \&quot;Medium\&quot;\n    effort: \&quot;12 weeks\&quot;\n    dependencies: [\&quot;Training materials\&quot;, \&quot;Champion selection\&quot;]\n    success_criteria: [\&quot;25% team coverage\&quot;, \&quot;Measurable improvement\&quot;]\n\nq4_initiatives:\n  - name: \&quot;Advanced threat detection\&quot;\n    priority: \&quot;Medium\&quot;\n    effort: \&quot;10 weeks\&quot;\n    dependencies: [\&quot;ML platform\&quot;, \&quot;Security data\&quot;]\n    success_criteria: [\&quot;Reduced false positives\&quot;, \&quot;Faster detection\&quot;]\n    \n  - name: \&quot;Compliance automation\&quot;\n    priority: \&quot;High\&quot;\n    effort: \&quot;6 weeks\&quot;\n    dependencies: [\&quot;Compliance requirements\&quot;, \&quot;Automation tools\&quot;]\n    success_criteria: [\&quot;Automated reporting\&quot;, \&quot;Continuous compliance\&quot;]\n```\n\n---\n\n## When to Use\n\nUse throughout the project lifecycle to identify, assess, and track risks. This template is essential for projects with significant complexity, multiple stakeholders, or high business impact, where structured risk management provides decision-making value.\n\n## When NOT to Use\n\nDo not use for very low-risk, short-duration tasks where informal risk awareness is sufficient. Avoid this template if your governance framework requires a different risk management approach or if stakeholders prefer real-time risk dashboards over static registers.\n\n## Related Templates\n- [CI/CD Pipeline Planning](../../../domains/measurement/methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md)\n- [Release Management Workflow](../../../domains/measurement/methodology-frameworks/emerging-methods/devops/release_management_template.md)\n- [DevOps Monitoring and Alerting](./monitoring_alerting_template.md)\n- [Infrastructure as Code](./infrastructure_as_code_template.md)\n\n---\n\n## Version History\n| Version | Date | Changes | Author |\n|---------|------|---------|--------|\n| 1.0 | [Date] | Initial DevSecOps Integration template | [Author] |\n\n---\n\n*This template is part of the PM Tools Templates library. For more information and additional templates, visit [repository root](../../../README.md).*\n\n&quot;]}" ssr client="load" opts="{&quot;name&quot;:&quot;TemplateViewer&quot;,&quot;value&quot;:true}" await-children><div><h1>Devsecops Template</h1><div style="margin-bottom:2rem"><button style="background:var(--accent-color);color:white;border:1px solid var(--border-color);padding:0.5rem 1rem;border-radius:4px 4px 0 0;cursor:pointer;margin-right:1px">Preview</button><button style="background:var(--code-bg);color:var(--text-color);border:1px solid var(--border-color);padding:0.5rem 1rem;border-radius:4px 4px 0 0;cursor:pointer">Version History</button></div><div style="border:1px solid var(--border-color);border-radius:0 8px 8px 8px;min-height:400px"><div style="background:var(--bg-primary);border-radius:var(--radius-lg)"><div style="padding:1rem 1.5rem;border-bottom:1px solid var(--border-light);display:flex;align-items:center;justify-content:space-between;background:var(--bg-secondary);border-radius:var(--radius-lg) var(--radius-lg) 0 0"><div style="display:flex;align-items:center;gap:0.5rem"><span style="font-size:1.5rem">📄</span><div><div style="font-weight:600;color:var(--text-primary)">devsecops_template.md</div><div style="font-size:0.75rem;color:var(--text-muted)">Markdown • <!-- -->39,933 bytes</div></div></div><a href="/pm-tools-templates/downloads/devsecops_template.md" download="" class="btn btn-secondary" style="font-size:0.75rem;padding:0.5rem 0.75rem">💾 Download</a></div><pre aria-label="Markdown source of Devsecops Template" style="padding:1.5rem;max-height:600px;overflow:auto;white-space:pre-wrap;overflow-wrap:anywhere">---
+title: Devsecops Template
+methodology: universal
+complexity: advanced
+owner: mirichard
+updated: &#x27;2025-08-05&#x27;
+primary_principles:
+- quality-by-design
+- risk-optimization
+secondary_principles:
+- evidence-based-decisions
+- stewardship
+principle_rationale: Integrates security assurance and risk controls into continuous
+  delivery process.
+---
+
+# DevSecOps Integration Template
+
+## Overview
+This template provides a comprehensive framework for integrating security practices into DevOps workflows, covering security automation, vulnerability management, compliance, and security monitoring throughout the software development lifecycle.
+
+## Template Information
+- **Methodology:** DevSecOps (Development, Security, Operations)
+- **Purpose:** Integrate security practices into DevOps workflows and automation
+- **Audience:** Security Engineers, DevOps Teams, Development Teams, Compliance Teams
+- **Timeline:** 12-20 weeks for full implementation
+- **Prerequisites:** Existing DevOps practices, security awareness, compliance requirements
+
+---
+
+## DevSecOps Strategy Framework
+
+### Security-First Approach
+
+#### DevSecOps Principles
+```
+DevSecOps Foundation
+
+Shift-Left Security:
+├── Security by design
+├── Early vulnerability detection
+├── Security testing in CI/CD
+└── Developer security training
+
+Automation-First:
+├── Automated security scanning
+├── Policy as code enforcement
+├── Automated compliance checking
+└── Security orchestration
+
+Continuous Monitoring:
+├── Real-time threat detection
+├── Security metrics tracking
+├── Incident response automation
+└── Compliance monitoring
+
+Shared Responsibility:
+├── Security as everyone&#x27;s responsibility
+├── Cross-functional security teams
+├── Security champions program
+└── Collaborative security culture
+```
+
+#### DevSecOps Maturity Model
+| Level | Description | Characteristics | Security Practices |
+|-------|-------------|-----------------|-------------------|
+| Level 1 | Basic | Manual security checks | Periodic security reviews |
+| Level 2 | Reactive | Some automated scanning | Vulnerability management |
+| Level 3 | Proactive | Integrated security testing | Security in CI/CD |
+| Level 4 | Predictive | Advanced threat detection | ML-based security |
+| Level 5 | Adaptive | Self-healing security | Autonomous security |
+
+### Security Integration Architecture
+
+#### Security Layer Integration
+```yaml
+# DevSecOps Architecture Layers
+security_layers:
+  development_layer:
+    description: &quot;Security in development environment&quot;
+    components:
+      - secure_coding: &quot;Secure coding practices and guidelines&quot;
+      - sast: &quot;Static Application Security Testing&quot;
+      - dependency_scanning: &quot;Third-party dependency vulnerability scanning&quot;
+      - secret_management: &quot;Secrets detection and management&quot;
+    tools: [&quot;sonarqube&quot;, &quot;snyk&quot;, &quot;veracode&quot;, &quot;trufflehog&quot;]
+    
+  pipeline_layer:
+    description: &quot;Security in CI/CD pipelines&quot;
+    components:
+      - dast: &quot;Dynamic Application Security Testing&quot;
+      - container_scanning: &quot;Container image vulnerability scanning&quot;
+      - infrastructure_scanning: &quot;Infrastructure as Code security scanning&quot;
+      - compliance_testing: &quot;Automated compliance validation&quot;
+    tools: [&quot;owasp_zap&quot;, &quot;trivy&quot;, &quot;checkov&quot;, &quot;inspec&quot;]
+    
+  runtime_layer:
+    description: &quot;Security in production environment&quot;
+    components:
+      - runtime_protection: &quot;Runtime application self-protection&quot;
+      - threat_detection: &quot;Real-time threat detection and response&quot;
+      - compliance_monitoring: &quot;Continuous compliance monitoring&quot;
+      - incident_response: &quot;Automated incident response&quot;
+    tools: [&quot;falco&quot;, &quot;wazuh&quot;, &quot;splunk&quot;, &quot;pagerduty&quot;]
+    
+  governance_layer:
+    description: &quot;Security governance and policy&quot;
+    components:
+      - policy_as_code: &quot;Security policies as code&quot;
+      - risk_management: &quot;Continuous risk assessment&quot;
+      - audit_logging: &quot;Comprehensive audit trails&quot;
+      - training: &quot;Security awareness and training&quot;
+    tools: [&quot;opa&quot;, &quot;aws_config&quot;, &quot;cloudtrail&quot;, &quot;security_training_platforms&quot;]
+```
+
+---
+
+## Security Testing Integration
+
+### Static Application Security Testing (SAST)
+
+#### SAST Pipeline Integration
+```yaml
+# CI/CD Pipeline Security Integration
+sast_integration:
+  pre_commit_hooks:
+    - secret_detection: &quot;Detect secrets before commit&quot;
+    - code_quality: &quot;Static code analysis for security issues&quot;
+    - license_checking: &quot;Check for license compliance&quot;
+    
+  build_stage:
+    - dependency_scanning: &quot;Scan dependencies for vulnerabilities&quot;
+    - static_analysis: &quot;Comprehensive static security analysis&quot;
+    - security_linting: &quot;Security-focused code linting&quot;
+    
+  quality_gates:
+    - vulnerability_threshold: &quot;Block builds with high/critical vulnerabilities&quot;
+    - code_coverage: &quot;Ensure adequate test coverage&quot;
+    - security_hotspots: &quot;Review security-sensitive code changes&quot;
+```
+
+#### SonarQube Security Configuration
+```yaml
+# sonar-project.properties
+sonar.projectKey=company-application
+sonar.projectName=Company Application
+sonar.projectVersion=1.0
+
+# Source code settings
+sonar.sources=src
+sonar.tests=tests
+sonar.exclusions=**/node_modules/**,**/vendor/**
+sonar.test.exclusions=**/*_test.go,**/*.test.js
+
+# Security-specific settings
+sonar.security.hotspots.severity=BLOCKER
+sonar.security.review.priority=HIGH
+
+# Quality gate settings
+sonar.qualitygate.wait=true
+sonar.coverage.exclusions=**/*_test.go,**/main.go
+
+# Security rules
+sonar.security.rules=security
+```
+
+#### Snyk Integration Example
+```yaml
+# .github/workflows/security.yml
+name: Security Scanning
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main]
+
+jobs:
+  security-scan:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: &#x27;18&#x27;
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run Snyk to check for vulnerabilities
+        uses: snyk/actions/node@master
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+        with:
+          args: --severity-threshold=high
+
+      - name: Upload result to GitHub Code Scanning
+        uses: github/codeql-action/upload-sarif@v2
+        with:
+          sarif_file: snyk.sarif
+
+      - name: Run Snyk to check Docker image
+        uses: snyk/actions/docker@master
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+        with:
+          image: company/app:latest
+          args: --severity-threshold=high
+```
+
+### Dynamic Application Security Testing (DAST)
+
+#### OWASP ZAP Integration
+```yaml
+# k8s/security-testing/zap-baseline.yaml
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: zap-baseline-scan
+  namespace: security-testing
+spec:
+  template:
+    spec:
+      containers:
+      - name: zap-baseline
+        image: owasp/zap2docker-stable:latest
+        command: [&quot;/bin/bash&quot;]
+        args:
+          - -c
+          - |
+            zap-baseline.py -t https://app.staging.company.com \
+              -J zap-baseline-report.json \
+              -r zap-baseline-report.html \
+              -x zap-baseline-report.xml \
+              -I -d
+        volumeMounts:
+        - name: zap-reports
+          mountPath: /zap/wrk
+      volumes:
+      - name: zap-reports
+        persistentVolumeClaim:
+          claimName: zap-reports-pvc
+      restartPolicy: Never
+  backoffLimit: 0
+```
+
+#### API Security Testing
+```yaml
+# security-testing/api-security-tests.yaml
+api_security_tests:
+  authentication_tests:
+    - test: &quot;JWT token validation&quot;
+      endpoint: &quot;/api/v1/auth/validate&quot;
+      method: &quot;POST&quot;
+      expected_response: 401
+      payload: &#x27;{&quot;token&quot;: &quot;invalid_token&quot;}&#x27;
+      
+    - test: &quot;Rate limiting&quot;
+      endpoint: &quot;/api/v1/users&quot;
+      method: &quot;GET&quot;
+      requests_per_minute: 100
+      expected_response: 429
+      
+  authorization_tests:
+    - test: &quot;RBAC enforcement&quot;
+      endpoint: &quot;/api/v1/admin/users&quot;
+      method: &quot;GET&quot;
+      user_role: &quot;user&quot;
+      expected_response: 403
+      
+    - test: &quot;Resource-based access control&quot;
+      endpoint: &quot;/api/v1/users/{user_id}&quot;
+      method: &quot;GET&quot;
+      user_id: &quot;other_user&quot;
+      expected_response: 403
+      
+  input_validation_tests:
+    - test: &quot;SQL injection protection&quot;
+      endpoint: &quot;/api/v1/search&quot;
+      method: &quot;GET&quot;
+      query: &quot;&#x27;; DROP TABLE users; --&quot;
+      expected_response: 400
+      
+    - test: &quot;XSS protection&quot;
+      endpoint: &quot;/api/v1/comments&quot;
+      method: &quot;POST&quot;
+      payload: &#x27;{&quot;comment&quot;: &quot;&lt;script&gt;alert(\&quot;xss\&quot;)&lt;/script&gt;&quot;}&#x27;
+      expected_response: 400
+```
+
+### Container Security
+
+#### Container Image Scanning
+```yaml
+# .github/workflows/container-security.yml
+name: Container Security Scanning
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  container-scan:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Build Docker image
+        run: |
+          docker build -t app:${{ github.sha }} .
+
+      - name: Run Trivy vulnerability scanner
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: &#x27;app:${{ github.sha }}&#x27;
+          format: &#x27;sarif&#x27;
+          output: &#x27;trivy-results.sarif&#x27;
+
+      - name: Upload Trivy scan results to GitHub Security
+        uses: github/codeql-action/upload-sarif@v2
+        with:
+          sarif_file: &#x27;trivy-results.sarif&#x27;
+
+      - name: Run Hadolint
+        uses: hadolint/hadolint-action@v3.1.0
+        with:
+          dockerfile: Dockerfile
+          format: sarif
+          output-file: hadolint-results.sarif
+
+      - name: Upload Hadolint scan results
+        uses: github/codeql-action/upload-sarif@v2
+        with:
+          sarif_file: hadolint-results.sarif
+```
+
+#### Dockerfile Security Best Practices
+```dockerfile
+# Dockerfile with security best practices
+FROM node:18-alpine AS builder
+
+# Create non-root user
+RUN addgroup -g 1001 -S nodejs &amp;&amp; \
+    adduser -S nextjs -u 1001
+
+# Install dependencies
+WORKDIR /app
+COPY package*.json ./
+RUN npm ci --only=production &amp;&amp; npm cache clean --force
+
+# Build application
+COPY . .
+RUN npm run build
+
+# Production image
+FROM node:18-alpine AS runner
+
+# Security updates
+RUN apk update &amp;&amp; apk upgrade &amp;&amp; \
+    apk add --no-cache dumb-init &amp;&amp; \
+    rm -rf /var/cache/apk/*
+
+# Create non-root user
+RUN addgroup -g 1001 -S nodejs &amp;&amp; \
+    adduser -S nextjs -u 1001
+
+WORKDIR /app
+
+# Copy built application
+COPY --from=builder --chown=nextjs:nodejs /app/dist ./dist
+COPY --from=builder --chown=nextjs:nodejs /app/node_modules ./node_modules
+COPY --from=builder --chown=nextjs:nodejs /app/package.json ./package.json
+
+# Switch to non-root user
+USER nextjs
+
+# Use dumb-init to handle signals properly
+ENTRYPOINT [&quot;dumb-init&quot;, &quot;--&quot;]
+
+# Health check
+HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
+  CMD node health-check.js
+
+EXPOSE 3000
+
+CMD [&quot;node&quot;, &quot;dist/index.js&quot;]
+```
+
+#### Container Runtime Security
+```yaml
+# k8s/security/pod-security-policy.yaml
+apiVersion: policy/v1beta1
+kind: PodSecurityPolicy
+metadata:
+  name: restricted-psp
+spec:
+  privileged: false
+  allowPrivilegeEscalation: false
+  requiredDropCapabilities:
+    - ALL
+  volumes:
+    - &#x27;configMap&#x27;
+    - &#x27;emptyDir&#x27;
+    - &#x27;projected&#x27;
+    - &#x27;secret&#x27;
+    - &#x27;downwardAPI&#x27;
+    - &#x27;persistentVolumeClaim&#x27;
+  runAsUser:
+    rule: &#x27;MustRunAsNonRoot&#x27;
+  seLinux:
+    rule: &#x27;RunAsAny&#x27;
+  fsGroup:
+    rule: &#x27;RunAsAny&#x27;
+  readOnlyRootFilesystem: true
+
+---
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: deny-all-default
+  namespace: production
+spec:
+  podSelector: {}
+  policyTypes:
+  - Ingress
+  - Egress
+
+---
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: allow-app-communication
+  namespace: production
+spec:
+  podSelector:
+    matchLabels:
+      app: web-app
+  policyTypes:
+  - Ingress
+  - Egress
+  ingress:
+  - from:
+    - namespaceSelector:
+        matchLabels:
+          name: ingress-nginx
+    ports:
+    - protocol: TCP
+      port: 3000
+  egress:
+  - to:
+    - namespaceSelector:
+        matchLabels:
+          name: database
+    ports:
+    - protocol: TCP
+      port: 5432
+```
+
+---
+
+## Infrastructure Security
+
+### Infrastructure as Code Security
+
+#### Checkov Integration
+```yaml
+# .github/workflows/iac-security.yml
+name: Infrastructure Security Scanning
+
+on:
+  push:
+    paths:
+      - &#x27;terraform/**&#x27;
+      - &#x27;k8s/**&#x27;
+  pull_request:
+    paths:
+      - &#x27;terraform/**&#x27;
+      - &#x27;k8s/**&#x27;
+
+jobs:
+  iac-security:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Run Checkov
+        id: checkov
+        uses: bridgecrewio/checkov-action@master
+        with:
+          directory: .
+          framework: terraform,kubernetes
+          output_format: sarif
+          output_file_path: checkov-results.sarif
+          skip_check: CKV_AWS_20,CKV_AWS_57
+
+      - name: Upload Checkov scan results
+        uses: github/codeql-action/upload-sarif@v2
+        with:
+          sarif_file: checkov-results.sarif
+
+      - name: Run tfsec
+        uses: aquasecurity/tfsec-action@v1.0.0
+        with:
+          working_directory: terraform/
+          soft_fail: true
+
+      - name: Run kube-score
+        run: |
+          wget -O kube-score https://github.com/zegl/kube-score/releases/latest/download/kube-score_linux_amd64
+          chmod +x kube-score
+          find k8s/ -name &quot;*.yaml&quot; -exec ./kube-score score {} \;
+```
+
+#### Terraform Security Configuration
+```hcl
+# modules/security/main.tf
+# KMS key for encryption
+resource &quot;aws_kms_key&quot; &quot;main&quot; {
+  description             = &quot;KMS key for ${var.environment} environment&quot;
+  deletion_window_in_days = 7
+  enable_key_rotation     = true
+
+  policy = jsonencode({
+    Version = &quot;2012-10-17&quot;
+    Statement = [
+      {
+        Sid    = &quot;Enable IAM User Permissions&quot;
+        Effect = &quot;Allow&quot;
+        Principal = {
+          AWS = &quot;arn:aws:iam::${data.aws_caller_identity.current.account_id}:root&quot;
+        }
+        Action   = &quot;kms:*&quot;
+        Resource = &quot;*&quot;
+      }
+    ]
+  })
+
+  tags = merge(var.common_tags, {
+    Name = &quot;${var.environment}-kms-key&quot;
+  })
+}
+
+# Security group with restrictive rules
+resource &quot;aws_security_group&quot; &quot;app&quot; {
+  name_prefix = &quot;${var.environment}-app-&quot;
+  vpc_id      = var.vpc_id
+
+  # Ingress rules
+  ingress {
+    description = &quot;HTTPS from ALB&quot;
+    from_port   = 443
+    to_port     = 443
+    protocol    = &quot;tcp&quot;
+    security_groups = [aws_security_group.alb.id]
+  }
+
+  ingress {
+    description = &quot;Health check from ALB&quot;
+    from_port   = 8080
+    to_port     = 8080
+    protocol    = &quot;tcp&quot;
+    security_groups = [aws_security_group.alb.id]
+  }
+
+  # Egress rules
+  egress {
+    description = &quot;HTTPS to internet&quot;
+    from_port   = 443
+    to_port     = 443
+    protocol    = &quot;tcp&quot;
+    cidr_blocks = [&quot;0.0.0.0/0&quot;]
+  }
+
+  egress {
+    description = &quot;Database access&quot;
+    from_port   = 5432
+    to_port     = 5432
+    protocol    = &quot;tcp&quot;
+    security_groups = [aws_security_group.database.id]
+  }
+
+  tags = merge(var.common_tags, {
+    Name = &quot;${var.environment}-app-sg&quot;
+  })
+
+  lifecycle {
+    create_before_destroy = true
+  }
+}
+
+# WAF configuration
+resource &quot;aws_wafv2_web_acl&quot; &quot;main&quot; {
+  name  = &quot;${var.environment}-web-acl&quot;
+  scope = &quot;REGIONAL&quot;
+
+  default_action {
+    allow {}
+  }
+
+  rule {
+    name     = &quot;AWSManagedRulesCommonRuleSet&quot;
+    priority = 1
+
+    override_action {
+      none {}
+    }
+
+    statement {
+      managed_rule_group_statement {
+        name        = &quot;AWSManagedRulesCommonRuleSet&quot;
+        vendor_name = &quot;AWS&quot;
+      }
+    }
+
+    visibility_config {
+      cloudwatch_metrics_enabled = true
+      metric_name                = &quot;CommonRuleSetMetric&quot;
+      sampled_requests_enabled   = true
+    }
+  }
+
+  rule {
+    name     = &quot;AWSManagedRulesKnownBadInputsRuleSet&quot;
+    priority = 2
+
+    override_action {
+      none {}
+    }
+
+    statement {
+      managed_rule_group_statement {
+        name        = &quot;AWSManagedRulesKnownBadInputsRuleSet&quot;
+        vendor_name = &quot;AWS&quot;
+      }
+    }
+
+    visibility_config {
+      cloudwatch_metrics_enabled = true
+      metric_name                = &quot;KnownBadInputsRuleSetMetric&quot;
+      sampled_requests_enabled   = true
+    }
+  }
+
+  tags = merge(var.common_tags, {
+    Name = &quot;${var.environment}-waf&quot;
+  })
+}
+```
+
+### Secrets Management
+
+#### AWS Secrets Manager Integration
+```hcl
+# modules/secrets/main.tf
+resource &quot;aws_secretsmanager_secret&quot; &quot;app_secrets&quot; {
+  name                    = &quot;${var.environment}/app/secrets&quot;
+  description             = &quot;Application secrets for ${var.environment}&quot;
+  recovery_window_in_days = 7
+  kms_key_id             = var.kms_key_id
+
+  replica {
+    region = var.backup_region
+  }
+
+  tags = merge(var.common_tags, {
+    Name = &quot;${var.environment}-app-secrets&quot;
+  })
+}
+
+resource &quot;aws_secretsmanager_secret_version&quot; &quot;app_secrets&quot; {
+  secret_id = aws_secretsmanager_secret.app_secrets.id
+  secret_string = jsonencode({
+    database_url = var.database_url
+    api_key      = var.api_key
+    jwt_secret   = var.jwt_secret
+  })
+}
+
+# IAM role for secret access
+resource &quot;aws_iam_role&quot; &quot;secrets_access&quot; {
+  name = &quot;${var.environment}-secrets-access-role&quot;
+
+  assume_role_policy = jsonencode({
+    Version = &quot;2012-10-17&quot;
+    Statement = [
+      {
+        Action = &quot;sts:AssumeRole&quot;
+        Effect = &quot;Allow&quot;
+        Principal = {
+          Service = &quot;ecs-tasks.amazonaws.com&quot;
+        }
+      }
+    ]
+  })
+}
+
+resource &quot;aws_iam_policy&quot; &quot;secrets_access&quot; {
+  name = &quot;${var.environment}-secrets-access-policy&quot;
+
+  policy = jsonencode({
+    Version = &quot;2012-10-17&quot;
+    Statement = [
+      {
+        Effect = &quot;Allow&quot;
+        Action = [
+          &quot;secretsmanager:GetSecretValue&quot;
+        ]
+        Resource = [
+          aws_secretsmanager_secret.app_secrets.arn
+        ]
+      }
+    ]
+  })
+}
+
+resource &quot;aws_iam_role_policy_attachment&quot; &quot;secrets_access&quot; {
+  role       = aws_iam_role.secrets_access.name
+  policy_arn = aws_iam_policy.secrets_access.arn
+}
+```
+
+#### Kubernetes Secrets Integration
+```yaml
+# k8s/security/external-secrets.yaml
+apiVersion: external-secrets.io/v1beta1
+kind: SecretStore
+metadata:
+  name: aws-secretsmanager
+  namespace: production
+spec:
+  provider:
+    aws:
+      service: SecretsManager
+      region: &lt;AWS_REGION&gt; &lt;!-- redacted by security sweep 2025-08-06 --&gt;
+      auth:
+        serviceAccount:
+          name: external-secrets-sa
+
+---
+apiVersion: external-secrets.io/v1beta1
+kind: ExternalSecret
+metadata:
+  name: app-secrets
+  namespace: production
+spec:
+  refreshInterval: 15s
+  secretStoreRef:
+    name: aws-secretsmanager
+    kind: SecretStore
+  target:
+    name: app-secrets
+    creationPolicy: Owner
+  data:
+    - secretKey: database-url
+      remoteRef:
+        key: production/app/secrets
+        property: database_url
+    - secretKey: api-key
+      remoteRef:
+        key: production/app/secrets
+        property: api_key
+    - secretKey: jwt-secret
+      remoteRef:
+        key: production/app/secrets
+        property: jwt_secret
+```
+
+#### Secret Scanning
+```yaml
+# .github/workflows/secret-scanning.yml
+name: Secret Scanning
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  secret-scan:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Run TruffleHog
+        uses: trufflesecurity/trufflehog@main
+        with:
+          path: ./
+          base: main
+          head: HEAD
+          extra_args: --debug --only-verified
+
+      - name: Run GitLeaks
+        uses: gitleaks/gitleaks-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITLEAKS_LICENSE: ${{ secrets.GITLEAKS_LICENSE }}
+
+      - name: Run detect-secrets
+        run: |
+          pip install detect-secrets
+          detect-secrets scan --all-files --baseline .secrets.baseline
+```
+
+---
+
+## Security Monitoring and Incident Response
+
+### Runtime Security Monitoring
+
+#### Falco Configuration
+```yaml
+# k8s/security/falco-config.yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: falco-config
+  namespace: falco-system
+data:
+  falco.yaml: |
+    rules_file:
+      - /etc/falco/falco_rules.yaml
+      - /etc/falco/falco_rules.local.yaml
+      - /etc/falco/k8s_audit_rules.yaml
+      - /etc/falco/rules.d
+
+    time_format_iso_8601: true
+    json_output: true
+    json_include_output_property: true
+
+    log_stderr: true
+    log_syslog: true
+    log_level: info
+
+    priority: debug
+    buffered_outputs: false
+
+    syscall_event_drops:
+      actions:
+        - log
+        - alert
+      rate: 0.03333
+      max_burst: 1000
+
+    outputs:
+      rate: 1
+      max_burst: 1000
+
+    http_output:
+      enabled: true
+      url: &quot;http://falcosidekick:2801/&quot;
+
+  custom_rules.yaml: |
+    - rule: Detect crypto miners
+      desc: Detect process that mine cryptocurrency
+      condition: &gt;
+        spawned_process and 
+        (proc.name in (crypto_miners) or
+         proc.cmdline contains &quot;stratum&quot; or
+         proc.cmdline contains &quot;mining&quot;)
+      output: &gt;
+        Cryptocurrency miner detected (user=%user.name command=%proc.cmdline 
+        container=%container.info image=%container.image.repository)
+      priority: CRITICAL
+      tags: [cryptocurrency, malware]
+
+    - rule: Detect outbound network activity
+      desc: Detect suspicious outbound network connections
+      condition: &gt;
+        outbound and not trusted_outbound_destinations and
+        not proc.name in (allowed_outbound_processes)
+      output: &gt;
+        Suspicious outbound connection (user=%user.name command=%proc.cmdline 
+        connection=%fd.name container=%container.info)
+      priority: WARNING
+      tags: [network, suspicious]
+```
+
+#### Security Event Processing
+```yaml
+# security-monitoring/splunk-integration.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: splunk-forwarder
+  namespace: security-monitoring
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: splunk-forwarder
+  template:
+    metadata:
+      labels:
+        app: splunk-forwarder
+    spec:
+      containers:
+      - name: splunk-forwarder
+        image: splunk/universalforwarder:latest
+        env:
+        - name: SPLUNK_START_ARGS
+          value: &quot;--accept-license --answer-yes&quot;
+        - name: SPLUNK_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: splunk-credentials
+              key: password
+        volumeMounts:
+        - name: falco-logs
+          mountPath: /var/log/falco
+        - name: k8s-logs
+          mountPath: /var/log/pods
+          readOnly: true
+        - name: splunk-config
+          mountPath: /opt/splunkforwarder/etc/system/local
+      volumes:
+      - name: falco-logs
+        hostPath:
+          path: /var/log/falco
+      - name: k8s-logs
+        hostPath:
+          path: /var/log/pods
+      - name: splunk-config
+        configMap:
+          name: splunk-forwarder-config
+```
+
+### Security Incident Response
+
+#### Automated Incident Response
+```yaml
+# incident-response/security-playbook.yaml
+apiVersion: argoproj.io/v1alpha1
+kind: WorkflowTemplate
+metadata:
+  name: security-incident-response
+  namespace: security
+spec:
+  entrypoint: incident-response
+  templates:
+  - name: incident-response
+    steps:
+    - - name: detect-threat
+        template: threat-detection
+    - - name: isolate-container
+        template: container-isolation
+        when: &quot;{{steps.detect-threat.outputs.parameters.threat-level}} == critical&quot;
+    - - name: collect-evidence
+        template: evidence-collection
+    - - name: notify-team
+        template: team-notification
+
+  - name: threat-detection
+    script:
+      image: security/threat-analyzer:latest
+      command: [python]
+      source: |
+        import json
+        import sys
+        
+        # Analyze security event
+        event = json.loads(&#x27;{{workflow.parameters.security-event}}&#x27;)
+        
+        # Determine threat level
+        threat_level = analyze_threat(event)
+        
+        # Output result
+        result = {
+            &quot;threat-level&quot;: threat_level,
+            &quot;container-id&quot;: event.get(&quot;container_id&quot;),
+            &quot;pod-name&quot;: event.get(&quot;pod_name&quot;)
+        }
+        
+        print(json.dumps(result))
+
+  - name: container-isolation
+    script:
+      image: kubectl:latest
+      command: [sh]
+      source: |
+        # Isolate compromised container
+        kubectl patch pod {{workflow.parameters.pod-name}} \
+          -p &#x27;{&quot;spec&quot;:{&quot;containers&quot;:[{&quot;name&quot;:&quot;app&quot;,&quot;securityContext&quot;:{&quot;readOnlyRootFilesystem&quot;:true}}]}}&#x27;
+        
+        # Apply network policy to block traffic
+        kubectl apply -f - &lt;&lt;EOF
+        apiVersion: networking.k8s.io/v1
+        kind: NetworkPolicy
+        metadata:
+          name: isolate-{{workflow.parameters.pod-name}}
+        spec:
+          podSelector:
+            matchLabels:
+              app: {{workflow.parameters.pod-name}}
+          policyTypes:
+          - Ingress
+          - Egress
+        EOF
+
+  - name: evidence-collection
+    script:
+      image: security/forensics:latest
+      command: [sh]
+      source: |
+        # Collect container logs
+        kubectl logs {{workflow.parameters.pod-name}} &gt; /evidence/container.log
+        
+        # Collect process information
+        kubectl exec {{workflow.parameters.pod-name}} -- ps aux &gt; /evidence/processes.txt
+        
+        # Collect network connections
+        kubectl exec {{workflow.parameters.pod-name}} -- netstat -an &gt; /evidence/network.txt
+        
+        # Upload evidence to secure storage
+        aws s3 cp /evidence/ s3://security-evidence-bucket/{{workflow.name}}/ --recursive
+
+  - name: team-notification
+    http:
+      url: https://hooks.slack.com/services/YOUR/SLACK/WEBHOOK
+      method: POST
+      headers:
+        Content-Type: application/json
+      body: |
+        {
+          &quot;text&quot;: &quot;Security Incident Detected&quot;,
+          &quot;attachments&quot;: [
+            {
+              &quot;color&quot;: &quot;danger&quot;,
+              &quot;fields&quot;: [
+                {
+                  &quot;title&quot;: &quot;Threat Level&quot;,
+                  &quot;value&quot;: &quot;{{workflow.parameters.threat-level}}&quot;,
+                  &quot;short&quot;: true
+                },
+                {
+                  &quot;title&quot;: &quot;Affected Container&quot;,
+                  &quot;value&quot;: &quot;{{workflow.parameters.pod-name}}&quot;,
+                  &quot;short&quot;: true
+                }
+              ]
+            }
+          ]
+        }
+```
+
+#### Security Metrics and KPIs
+```yaml
+# security-metrics/security-dashboard.yaml
+security_metrics:
+  vulnerability_metrics:
+    - metric: &quot;total_vulnerabilities&quot;
+      description: &quot;Total number of vulnerabilities detected&quot;
+      source: &quot;vulnerability_scanners&quot;
+      frequency: &quot;hourly&quot;
+      
+    - metric: &quot;critical_vulnerabilities&quot;
+      description: &quot;Number of critical vulnerabilities&quot;
+      source: &quot;vulnerability_scanners&quot;
+      frequency: &quot;real-time&quot;
+      alert_threshold: 0
+      
+    - metric: &quot;vulnerability_remediation_time&quot;
+      description: &quot;Average time to remediate vulnerabilities&quot;
+      source: &quot;ticket_system&quot;
+      frequency: &quot;daily&quot;
+      target: &quot;&lt; 24 hours&quot;
+      
+  security_incidents:
+    - metric: &quot;security_incidents_total&quot;
+      description: &quot;Total number of security incidents&quot;
+      source: &quot;siem_system&quot;
+      frequency: &quot;real-time&quot;
+      
+    - metric: &quot;mean_time_to_detection&quot;
+      description: &quot;Average time to detect security incidents&quot;
+      source: &quot;siem_system&quot;
+      frequency: &quot;daily&quot;
+      target: &quot;&lt; 15 minutes&quot;
+      
+    - metric: &quot;mean_time_to_response&quot;
+      description: &quot;Average time to respond to incidents&quot;
+      source: &quot;incident_management&quot;
+      frequency: &quot;daily&quot;
+      target: &quot;&lt; 30 minutes&quot;
+      
+  compliance_metrics:
+    - metric: &quot;compliance_score&quot;
+      description: &quot;Overall compliance score&quot;
+      source: &quot;compliance_scanner&quot;
+      frequency: &quot;daily&quot;
+      target: &quot;&gt; 95%&quot;
+      
+    - metric: &quot;policy_violations&quot;
+      description: &quot;Number of policy violations&quot;
+      source: &quot;policy_engine&quot;
+      frequency: &quot;real-time&quot;
+      alert_threshold: 0
+```
+
+---
+
+## Compliance and Governance
+
+### Policy as Code
+
+#### Open Policy Agent (OPA) Configuration
+```yaml
+# k8s/security/opa-gatekeeper.yaml
+apiVersion: templates.gatekeeper.sh/v1beta1
+kind: ConstraintTemplate
+metadata:
+  name: k8srequiredsecuritycontext
+spec:
+  crd:
+    spec:
+      names:
+        kind: K8sRequiredSecurityContext
+      validation:
+        openAPIV3Schema:
+          type: object
+          properties:
+            runAsNonRoot:
+              type: boolean
+            readOnlyRootFilesystem:
+              type: boolean
+            allowPrivilegeEscalation:
+              type: boolean
+  targets:
+    - target: admission.k8s.gatekeeper.sh
+      rego: |
+        package k8srequiredsecuritycontext
+        
+        violation[{&quot;msg&quot;: msg}] {
+          container := input.review.object.spec.containers[_]
+          not container.securityContext.runAsNonRoot
+          msg := &quot;Container must run as non-root user&quot;
+        }
+        
+        violation[{&quot;msg&quot;: msg}] {
+          container := input.review.object.spec.containers[_]
+          not container.securityContext.readOnlyRootFilesystem
+          msg := &quot;Container must have read-only root filesystem&quot;
+        }
+        
+        violation[{&quot;msg&quot;: msg}] {
+          container := input.review.object.spec.containers[_]
+          container.securityContext.allowPrivilegeEscalation != false
+          msg := &quot;Container must not allow privilege escalation&quot;
+        }
+
+---
+apiVersion: constraints.gatekeeper.sh/v1beta1
+kind: K8sRequiredSecurityContext
+metadata:
+  name: must-have-security-context
+spec:
+  match:
+    kinds:
+      - apiGroups: [&quot;apps&quot;]
+        kinds: [&quot;Deployment&quot;]
+  parameters:
+    runAsNonRoot: true
+    readOnlyRootFilesystem: true
+    allowPrivilegeEscalation: false
+```
+
+#### Compliance Scanning
+```yaml
+# compliance/inspec-profile.rb
+# InSpec compliance profile for security requirements
+
+control &#x27;system-01&#x27; do
+  impact 1.0
+  title &#x27;Ensure system is up to date&#x27;
+  desc &#x27;System packages should be updated regularly&#x27;
+  
+  describe command(&#x27;apt list --upgradable&#x27;) do
+    its(&#x27;stdout&#x27;) { should_not match /upgradable/ }
+  end
+end
+
+control &#x27;docker-01&#x27; do
+  impact 1.0
+  title &#x27;Ensure Docker is configured securely&#x27;
+  desc &#x27;Docker daemon should be configured with security best practices&#x27;
+  
+  describe json(&#x27;/etc/docker/daemon.json&#x27;) do
+    its([&#x27;log-driver&#x27;]) { should eq &#x27;json-file&#x27; }
+    its([&#x27;log-opts&#x27;, &#x27;max-size&#x27;]) { should eq &#x27;10m&#x27; }
+    its([&#x27;log-opts&#x27;, &#x27;max-file&#x27;]) { should eq &#x27;3&#x27; }
+  end
+end
+
+control &#x27;k8s-01&#x27; do
+  impact 1.0
+  title &#x27;Ensure Kubernetes is configured securely&#x27;
+  desc &#x27;Kubernetes cluster should follow security best practices&#x27;
+  
+  describe yaml(&#x27;/etc/kubernetes/manifests/kube-apiserver.yaml&#x27;) do
+    its([&#x27;spec&#x27;, &#x27;containers&#x27;, 0, &#x27;command&#x27;]) { should include &#x27;--audit-log-path=/var/log/audit.log&#x27; }
+    its([&#x27;spec&#x27;, &#x27;containers&#x27;, 0, &#x27;command&#x27;]) { should include &#x27;--audit-log-maxage=30&#x27; }
+  end
+end
+
+control &#x27;network-01&#x27; do
+  impact 1.0
+  title &#x27;Ensure network security&#x27;
+  desc &#x27;Network should be properly secured&#x27;
+  
+  describe port(22) do
+    it { should_not be_listening }
+  end
+  
+  describe iptables do
+    it { should have_rule(&#x27;-P INPUT DROP&#x27;) }
+    it { should have_rule(&#x27;-P FORWARD DROP&#x27;) }
+  end
+end
+```
+
+### Audit Logging
+
+#### Comprehensive Audit Configuration
+```yaml
+# audit-logging/audit-policy.yaml
+apiVersion: audit.k8s.io/v1
+kind: Policy
+rules:
+  # Log security-related events at Request level
+  - level: Request
+    namespaces: [&quot;kube-system&quot;, &quot;security&quot;]
+    resources:
+    - group: &quot;&quot;
+      resources: [&quot;secrets&quot;, &quot;configmaps&quot;]
+    - group: &quot;rbac.authorization.k8s.io&quot;
+      resources: [&quot;roles&quot;, &quot;rolebindings&quot;, &quot;clusterroles&quot;, &quot;clusterrolebindings&quot;]
+
+  # Log all authentication events
+  - level: Request
+    users: [&quot;system:unauthenticated&quot;]
+    namespaces: [&quot;&quot;]
+    
+  # Log admin activities
+  - level: Request
+    userGroups: [&quot;system:masters&quot;]
+
+  # Log pod creation and deletion
+  - level: Request
+    resources:
+    - group: &quot;&quot;
+      resources: [&quot;pods&quot;]
+    verbs: [&quot;create&quot;, &quot;delete&quot;, &quot;patch&quot;]
+
+  # Log service account token access
+  - level: Request
+    resources:
+    - group: &quot;&quot;
+      resources: [&quot;serviceaccounts/token&quot;]
+
+  # Default rule - log at Metadata level
+  - level: Metadata
+    omitStages:
+      - RequestReceived
+```
+
+#### Audit Log Processing
+```yaml
+# audit-processing/fluentd-audit.yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: fluentd-audit-config
+  namespace: logging
+data:
+  fluent.conf: |
+    &lt;source&gt;
+      @type tail
+      path /var/log/audit/audit.log
+      pos_file /var/log/fluentd-audit.log.pos
+      tag kubernetes.audit
+      format json
+      time_key timestamp
+      time_format %Y-%m-%dT%H:%M:%S.%NZ
+    &lt;/source&gt;
+
+    &lt;filter kubernetes.audit&gt;
+      @type record_transformer
+      &lt;record&gt;
+        cluster_name &quot;#{ENV[&#x27;CLUSTER_NAME&#x27;]}&quot;
+        environment &quot;#{ENV[&#x27;ENVIRONMENT&#x27;]}&quot;
+      &lt;/record&gt;
+    &lt;/filter&gt;
+
+    # Send critical security events to SIEM
+    &lt;match kubernetes.audit&gt;
+      @type copy
+      &lt;store&gt;
+        @type splunk_hec
+        hec_host splunk.company.com
+        hec_port 8088
+        hec_token &quot;#{ENV[&#x27;SPLUNK_HEC_TOKEN&#x27;]}&quot;
+        index k8s_audit
+        source fluentd
+      &lt;/store&gt;
+      &lt;store&gt;
+        @type s3
+        aws_key_id &quot;#{ENV[&#x27;AWS_ACCESS_KEY_ID&#x27;]}&quot;
+        aws_sec_key &quot;#{ENV[&#x27;AWS_SECRET_ACCESS_KEY&#x27;]}&quot;
+        s3_bucket audit-logs-bucket
+        s3_region us-west-2
+        path audit/%Y/%m/%d/
+        time_slice_format %Y%m%d%H
+        time_slice_wait 10m
+      &lt;/store&gt;
+    &lt;/match&gt;
+```
+
+---
+
+## Security Training and Culture
+
+### Security Champions Program
+
+#### Security Champions Framework
+```yaml
+# security-training/champions-program.yaml
+security_champions_program:
+  objectives:
+    - &quot;Embed security knowledge across development teams&quot;
+    - &quot;Create security advocates and mentors&quot;
+    - &quot;Improve security awareness and practices&quot;
+    - &quot;Bridge gap between security and development&quot;
+    
+  responsibilities:
+    - &quot;Conduct security reviews for their team&quot;
+    - &quot;Participate in threat modeling sessions&quot;
+    - &quot;Provide security training to team members&quot;
+    - &quot;Stay updated on security best practices&quot;
+    - &quot;Report security issues and concerns&quot;
+    
+  selection_criteria:
+    - &quot;Interest in security topics&quot;
+    - &quot;Good communication skills&quot;
+    - &quot;Team leadership qualities&quot;
+    - &quot;Technical proficiency&quot;
+    - &quot;Commitment to continuous learning&quot;
+    
+  training_modules:
+    - module: &quot;Secure Coding Practices&quot;
+      duration: &quot;4 hours&quot;
+      topics: [&quot;Input validation&quot;, &quot;Authentication&quot;, &quot;Authorization&quot;, &quot;Cryptography&quot;]
+      
+    - module: &quot;Threat Modeling&quot;
+      duration: &quot;3 hours&quot;
+      topics: [&quot;STRIDE methodology&quot;, &quot;Attack trees&quot;, &quot;Risk assessment&quot;]
+      
+    - module: &quot;Security Testing&quot;
+      duration: &quot;4 hours&quot;
+      topics: [&quot;SAST&quot;, &quot;DAST&quot;, &quot;IAST&quot;, &quot;Penetration testing&quot;]
+      
+    - module: &quot;Incident Response&quot;
+      duration: &quot;2 hours&quot;
+      topics: [&quot;Incident classification&quot;, &quot;Response procedures&quot;, &quot;Evidence collection&quot;]
+```
+
+#### Security Awareness Metrics
+```yaml
+# security-metrics/awareness-metrics.yaml
+security_awareness_metrics:
+  training_metrics:
+    - metric: &quot;training_completion_rate&quot;
+      description: &quot;Percentage of employees who completed security training&quot;
+      target: &quot;&gt; 95%&quot;
+      frequency: &quot;quarterly&quot;
+      
+    - metric: &quot;security_assessment_scores&quot;
+      description: &quot;Average scores on security knowledge assessments&quot;
+      target: &quot;&gt; 85%&quot;
+      frequency: &quot;quarterly&quot;
+      
+  behavioral_metrics:
+    - metric: &quot;phishing_click_rate&quot;
+      description: &quot;Percentage of employees who click on simulated phishing emails&quot;
+      target: &quot;&lt; 5%&quot;
+      frequency: &quot;monthly&quot;
+      
+    - metric: &quot;security_incident_reports&quot;
+      description: &quot;Number of security incidents reported by employees&quot;
+      target: &quot;Increasing trend&quot;
+      frequency: &quot;monthly&quot;
+      
+    - metric: &quot;security_policy_violations&quot;
+      description: &quot;Number of security policy violations&quot;
+      target: &quot;Decreasing trend&quot;
+      frequency: &quot;monthly&quot;
+```
+
+---
+
+## Continuous Improvement
+
+### Security Maturity Assessment
+
+#### DevSecOps Maturity Scorecard
+| Category | Level 1 | Level 2 | Level 3 | Level 4 | Level 5 |
+|----------|---------|---------|---------|---------|---------|
+| Security Testing | Manual testing | Basic SAST | Integrated SAST/DAST | Advanced testing | AI-driven testing |
+| Vulnerability Management | Reactive patching | Scheduled scanning | Automated scanning | Risk-based prioritization | Predictive analysis |
+| Incident Response | Manual response | Basic automation | Orchestrated response | Self-healing systems | Autonomous response |
+| Compliance | Manual audits | Automated scanning | Continuous monitoring | Adaptive compliance | Predictive compliance |
+| Culture | Security awareness | Security training | Security champions | Security-first mindset | Security innovation |
+
+### Security Improvement Roadmap
+
+#### Quarterly Security Initiatives
+```yaml
+# security-roadmap/quarterly-initiatives.yaml
+q1_initiatives:
+  - name: &quot;Implement SAST in CI/CD&quot;
+    priority: &quot;High&quot;
+    effort: &quot;4 weeks&quot;
+    dependencies: [&quot;CI/CD pipeline&quot;, &quot;Tool selection&quot;]
+    success_criteria: [&quot;100% code coverage&quot;, &quot;&lt; 2 min scan time&quot;]
+    
+  - name: &quot;Container security scanning&quot;
+    priority: &quot;High&quot;
+    effort: &quot;3 weeks&quot;
+    dependencies: [&quot;Container registry&quot;, &quot;Scanning tools&quot;]
+    success_criteria: [&quot;Zero critical vulnerabilities&quot;, &quot;Automated blocking&quot;]
+
+q2_initiatives:
+  - name: &quot;Dynamic security testing&quot;
+    priority: &quot;Medium&quot;
+    effort: &quot;6 weeks&quot;
+    dependencies: [&quot;Test environments&quot;, &quot;DAST tools&quot;]
+    success_criteria: [&quot;Automated API testing&quot;, &quot;Integration with CD&quot;]
+    
+  - name: &quot;Security metrics dashboard&quot;
+    priority: &quot;Medium&quot;
+    effort: &quot;4 weeks&quot;
+    dependencies: [&quot;Monitoring tools&quot;, &quot;Data sources&quot;]
+    success_criteria: [&quot;Real-time visibility&quot;, &quot;Automated reporting&quot;]
+
+q3_initiatives:
+  - name: &quot;Infrastructure security automation&quot;
+    priority: &quot;High&quot;
+    effort: &quot;8 weeks&quot;
+    dependencies: [&quot;IaC tools&quot;, &quot;Policy definitions&quot;]
+    success_criteria: [&quot;Policy as code&quot;, &quot;Automated remediation&quot;]
+    
+  - name: &quot;Security champions program&quot;
+    priority: &quot;Medium&quot;
+    effort: &quot;12 weeks&quot;
+    dependencies: [&quot;Training materials&quot;, &quot;Champion selection&quot;]
+    success_criteria: [&quot;25% team coverage&quot;, &quot;Measurable improvement&quot;]
+
+q4_initiatives:
+  - name: &quot;Advanced threat detection&quot;
+    priority: &quot;Medium&quot;
+    effort: &quot;10 weeks&quot;
+    dependencies: [&quot;ML platform&quot;, &quot;Security data&quot;]
+    success_criteria: [&quot;Reduced false positives&quot;, &quot;Faster detection&quot;]
+    
+  - name: &quot;Compliance automation&quot;
+    priority: &quot;High&quot;
+    effort: &quot;6 weeks&quot;
+    dependencies: [&quot;Compliance requirements&quot;, &quot;Automation tools&quot;]
+    success_criteria: [&quot;Automated reporting&quot;, &quot;Continuous compliance&quot;]
+```
+
+---
+
+## When to Use
+
+Use throughout the project lifecycle to identify, assess, and track risks. This template is essential for projects with significant complexity, multiple stakeholders, or high business impact, where structured risk management provides decision-making value.
+
+## When NOT to Use
+
+Do not use for very low-risk, short-duration tasks where informal risk awareness is sufficient. Avoid this template if your governance framework requires a different risk management approach or if stakeholders prefer real-time risk dashboards over static registers.
+
+## Related Templates
+- [CI/CD Pipeline Planning](../../../domains/measurement/methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md)
+- [Release Management Workflow](../../../domains/measurement/methodology-frameworks/emerging-methods/devops/release_management_template.md)
+- [DevOps Monitoring and Alerting](./monitoring_alerting_template.md)
+- [Infrastructure as Code](./infrastructure_as_code_template.md)
+
+---
+
+## Version History
+| Version | Date | Changes | Author |
+|---------|------|---------|--------|
+| 1.0 | [Date] | Initial DevSecOps Integration template | [Author] |
+
+---
+
+*This template is part of the PM Tools Templates library. For more information and additional templates, visit [repository root](../../../README.md).*
+
+</pre></div></div></div><!--astro:end--></astro-island></main></body></html>

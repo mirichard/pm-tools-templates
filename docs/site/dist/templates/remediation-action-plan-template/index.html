@@ -1,0 +1,425 @@
+<!DOCTYPE html><html lang="en" data-astro-cid-ju4pidww><head><meta charset="UTF-8"><meta name="description" content="Advanced template browser with previews and version history"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="icon" type="image/svg+xml" href="/pm-tools-templates/favicon.svg"><title>Remediation Action Plan Template</title><link rel="stylesheet" href="/pm-tools-templates/assets/Layout.ChXqTIwx.css"></head><body data-astro-cid-ju4pidww><main data-astro-cid-ju4pidww><style>astro-island,astro-slot,astro-static-slot{display:contents}</style><script>(()=>{var e=async t=>{await(await t())()};(self.Astro||(self.Astro={})).load=e;window.dispatchEvent(new Event("astro:load"));})();</script><script>(()=>{var g=Object.defineProperty;var w=(a,s,c)=>s in a?g(a,s,{enumerable:!0,configurable:!0,writable:!0,value:c}):a[s]=c;var l=(a,s,c)=>w(a,typeof s!="symbol"?s+"":s,c);var E=new Set(["__proto__","constructor","prototype"]);{let a={0:t=>y(t),1:t=>c(t),2:t=>new RegExp(t),3:t=>new Date(t),4:t=>new Map(c(t)),5:t=>new Set(c(t)),6:t=>BigInt(t),7:t=>new URL(t),8:t=>new Uint8Array(t),9:t=>new Uint16Array(t),10:t=>new Uint32Array(t),11:t=>Number.POSITIVE_INFINITY*t},s=t=>{let[p,e]=t;return p in a?a[p](e):void 0},c=t=>t.map(s),y=t=>typeof t!="object"||t===null?t:Object.fromEntries(Object.entries(t).map(([p,e])=>[p,s(e)]));class f extends HTMLElement{constructor(){super(...arguments);l(this,"Component");l(this,"hydrator");l(this,"hydrate",async()=>{var b;if(!this.hydrator||!this.isConnected)return;let e=(b=this.parentElement)==null?void 0:b.closest("astro-island[ssr]");if(e){e.addEventListener("astro:hydrate",this.hydrate,{once:!0});return}let r=this.querySelectorAll("astro-slot"),n={},d=this.querySelectorAll("template[data-astro-template]");for(let o of d){let i=o.closest(this.tagName);i!=null&&i.isSameNode(this)&&(n[o.getAttribute("data-astro-template")||"default"]=o.innerHTML,o.remove())}for(let o of r){let i=o.closest(this.tagName);i!=null&&i.isSameNode(this)&&(n[o.getAttribute("name")||"default"]=o.innerHTML)}let u;try{u=this.hasAttribute("props")?y(JSON.parse(this.getAttribute("props"))):{}}catch(o){let i=this.getAttribute("component-url")||"<unknown>",v=this.getAttribute("component-export");throw v&&(i+=` (export ${v})`),console.error(`[hydrate] Error parsing props for component ${i}`,this.getAttribute("props"),o),o}let h;await this.hydrator(this)(this.Component,u,n,{client:this.getAttribute("client")}),this.removeAttribute("ssr"),this.dispatchEvent(new CustomEvent("astro:hydrate"))});l(this,"unmount",()=>{this.isConnected||this.dispatchEvent(new CustomEvent("astro:unmount"))})}disconnectedCallback(){document.removeEventListener("astro:after-swap",this.unmount),document.addEventListener("astro:after-swap",this.unmount,{once:!0})}connectedCallback(){if(!this.hasAttribute("await-children")||document.readyState==="interactive"||document.readyState==="complete")this.childrenConnectedCallback();else{let e=()=>{document.removeEventListener("DOMContentLoaded",e),r.disconnect(),this.childrenConnectedCallback()},r=new MutationObserver(()=>{var n;((n=this.lastChild)==null?void 0:n.nodeType)===Node.COMMENT_NODE&&this.lastChild.nodeValue==="astro:end"&&(this.lastChild.remove(),e())});r.observe(this,{childList:!0}),document.addEventListener("DOMContentLoaded",e)}}async childrenConnectedCallback(){let e=this.getAttribute("before-hydration-url");e&&await import(e),this.start()}getRetryImportUrl(e){let r=new URL(e,document.baseURI);return r.searchParams.set("astro-retry",Date.now().toString()),r.toString()}async importWithRetry(e){try{return await import(e)}catch(r){return await new Promise(n=>setTimeout(n,1e3)),import(this.getRetryImportUrl(e))}}handleHydrationError(e){let r=this.getAttribute("component-url"),n=new CustomEvent("astro:hydration-error",{cancelable:!0,bubbles:!0,composed:!0,detail:{error:e,componentUrl:r}});this.dispatchEvent(n)&&console.error(`[astro-island] Error hydrating ${r}`,e)}async start(){let e=JSON.parse(this.getAttribute("opts")),r=this.getAttribute("client");if(Astro[r]===void 0){window.addEventListener(`astro:${r}`,()=>this.start(),{once:!0});return}try{await Astro[r](async()=>{let n=this.getAttribute("renderer-url");try{let[d,{default:u}]=await Promise.all([this.importWithRetry(this.getAttribute("component-url")),n?this.importWithRetry(n):Promise.resolve({default:()=>()=>{}})]),h=this.getAttribute("component-export")||"default";if(h.includes(".")){this.Component=d;for(let m of h.split(".")){if(E.has(m)||!this.Component||typeof this.Component!="object"&&typeof this.Component!="function"||!Object.hasOwn(this.Component,m))throw new Error(`Invalid component export path: ${h}`);this.Component=this.Component[m]}}else{if(E.has(h))throw new Error(`Invalid component export path: ${h}`);this.Component=d[h]}return this.hydrator=u,this.hydrate}catch(d){return this.handleHydrationError(d),()=>{}}},e,this)}catch(n){this.handleHydrationError(n)}}attributeChangedCallback(){this.hydrate()}}l(f,"observedAttributes",["props"]),customElements.get("astro-island")||customElements.define("astro-island",f)}})();</script><astro-island uid="Z1Xc92y" prefix="r1" component-url="/pm-tools-templates/assets/TemplateViewer.BJxWH0dD.js" component-export="default" renderer-url="/pm-tools-templates/assets/client.REQV_TkY.js" props="{&quot;templateId&quot;:[0,&quot;remediation-action-plan-template&quot;],&quot;filePath&quot;:[0,&quot;domains/measurement/project-assessment-suite/remediation-action-plan-template.md&quot;],&quot;title&quot;:[0,&quot;Remediation Action Plan Template&quot;],&quot;content&quot;:[0,&quot;---\ntitle: Remediation Action Plan Template\nmethodology: universal\ncomplexity: advanced\nowner: mirichard\nupdated: &#39;2025-08-05&#39;\nprimary_principles:\n- evidence-based-decisions\n- adaptability\nsecondary_principles:\n- continuous-learning\n- quality-by-design\nprinciple_rationale: Enables data-driven decisions and continuous learning from assessment\n  results.\n---\n\n# Remediation Action Plan Template\n\n## Plan Information\n\n| Field | Details |\n|-------|---------|\n| **Project Name** | |\n| **Plan Date** | |\n| **Plan Owner** | |\n| **Planning Period** | |\n| **Assessment Reference** | |\n| **Stakeholders Involved** | |\n| **Approval Authority** | |\n\n## Executive Summary\n\n### Plan Overview\n**Total Actions Planned:** ___  \n**Total Estimated Effort:** ___ person-hours  \n**Total Estimated Cost:** $______  \n**Expected Completion:** ______  \n\n### Priority Distribution\n- **Critical (0-30 days):** ___ actions\n- **High (1-3 months):** ___ actions  \n- **Medium (3-6 months):** ___ actions\n- **Low (6+ months):** ___ actions\n\n### Expected Benefits\n| Benefit Category | Current State | Target State | Expected Improvement |\n|------------------|---------------|--------------|---------------------|\n| Project Health Score | ___/100 | ___/100 | +___ points |\n| Schedule Performance | SPI: ___ | SPI: 1.0+ | +___% |\n| Cost Performance | CPI: ___ | CPI: 1.0+ | +___% |\n| Quality Score | ___% | ___% | +___% |\n| Stakeholder Satisfaction | ___% | ___% | +___% |\n\n## Action Plan Matrix\n\n### Critical Priority Actions (0-30 days)\n\n| Action ID | Gap/Issue Addressed | Action Description | Owner | Start Date | End Date | Status | Dependencies | Success Criteria |\n|-----------|-------------------|-------------------|-------|------------|----------|--------|--------------|-------------------|\n| A001 | | | | | | ☐ Not Started ☐ In Progress ☐ Complete | | |\n| A002 | | | | | | ☐ Not Started ☐ In Progress ☐ Complete | | |\n| A003 | | | | | | ☐ Not Started ☐ In Progress ☐ Complete | | |\n\n### High Priority Actions (1-3 months)\n\n| Action ID | Gap/Issue Addressed | Action Description | Owner | Start Date | End Date | Status | Dependencies | Success Criteria |\n|-----------|-------------------|-------------------|-------|------------|----------|--------|--------------|-------------------|\n| A004 | | | | | | ☐ Not Started ☐ In Progress ☐ Complete | | |\n| A005 | | | | | | ☐ Not Started ☐ In Progress ☐ Complete | | |\n| A006 | | | | | | ☐ Not Started ☐ In Progress ☐ Complete | | |\n\n### Medium Priority Actions (3-6 months)\n\n| Action ID | Gap/Issue Addressed | Action Description | Owner | Start Date | End Date | Status | Dependencies | Success Criteria |\n|-----------|-------------------|-------------------|-------|------------|----------|--------|--------------|-------------------|\n| A007 | | | | | | ☐ Not Started ☐ In Progress ☐ Complete | | |\n| A008 | | | | | | ☐ Not Started ☐ In Progress ☐ Complete | | |\n| A009 | | | | | | ☐ Not Started ☐ In Progress ☐ Complete | | |\n\n### Low Priority Actions (6+ months)\n\n| Action ID | Gap/Issue Addressed | Action Description | Owner | Start Date | End Date | Status | Dependencies | Success Criteria |\n|-----------|-------------------|-------------------|-------|------------|----------|--------|--------------|-------------------|\n| A010 | | | | | | ☐ Not Started ☐ In Progress ☐ Complete | | |\n| A011 | | | | | | ☐ Not Started ☐ In Progress ☐ Complete | | |\n| A012 | | | | | | ☐ Not Started ☐ In Progress ☐ Complete | | |\n\n## Detailed Action Plans\n\n### Action A001: [Action Title]\n**Priority:** ☐ Critical ☐ High ☐ Medium ☐ Low  \n**Gap Addressed:** \n**Target Outcome:** \n\n#### Action Details\n| Element | Details |\n|---------|---------|\n| **Description** | |\n| **Rationale** | |\n| **Scope** | |\n| **Approach** | |\n| **Success Criteria** | |\n\n#### Resource Requirements\n| Resource Type | Requirement | Source | Availability |\n|---------------|-------------|--------|--------------|\n| **Personnel** | | ☐ Internal ☐ External | |\n| **Budget** | $______ | ☐ Current ☐ Additional | |\n| **Tools/Technology** | | ☐ Existing ☐ New | |\n| **Training** | | ☐ None ☐ Required | |\n\n#### Timeline and Milestones\n| Milestone | Target Date | Dependencies | Success Criteria |\n|-----------|-------------|--------------|-------------------|\n| Planning Complete | | | |\n| Implementation Start | | | |\n| Mid-point Review | | | |\n| Implementation Complete | | | |\n| Validation Complete | | | |\n\n#### Risk Assessment\n| Risk | Probability | Impact | Mitigation Strategy |\n|------|-------------|--------|-------------------|\n| | ☐ High ☐ Med ☐ Low | ☐ High ☐ Med ☐ Low | |\n| | ☐ High ☐ Med ☐ Low | ☐ High ☐ Med ☐ Low | |\n\n#### Communication Plan\n| Stakeholder | Information | Frequency | Method |\n|-------------|-------------|-----------|--------|\n| | | | |\n\n### Action A002: [Action Title]\n**Priority:** ☐ Critical ☐ High ☐ Medium ☐ Low  \n**Gap Addressed:** \n**Target Outcome:** \n\n#### Action Details\n| Element | Details |\n|---------|---------|\n| **Description** | |\n| **Rationale** | |\n| **Scope** | |\n| **Approach** | |\n| **Success Criteria** | |\n\n#### Resource Requirements\n| Resource Type | Requirement | Source | Availability |\n|---------------|-------------|--------|--------------|\n| **Personnel** | | ☐ Internal ☐ External | |\n| **Budget** | $______ | ☐ Current ☐ Additional | |\n| **Tools/Technology** | | ☐ Existing ☐ New | |\n| **Training** | | ☐ None ☐ Required | |\n\n#### Timeline and Milestones\n| Milestone | Target Date | Dependencies | Success Criteria |\n|-----------|-------------|--------------|-------------------|\n| Planning Complete | | | |\n| Implementation Start | | | |\n| Mid-point Review | | | |\n| Implementation Complete | | | |\n| Validation Complete | | | |\n\n#### Risk Assessment\n| Risk | Probability | Impact | Mitigation Strategy |\n|------|-------------|--------|-------------------|\n| | ☐ High ☐ Med ☐ Low | ☐ High ☐ Med ☐ Low | |\n| | ☐ High ☐ Med ☐ Low | ☐ High ☐ Med ☐ Low | |\n\n#### Communication Plan\n| Stakeholder | Information | Frequency | Method |\n|-------------|-------------|-----------|--------|\n| | | | |\n\n## Implementation Framework\n\n### Phase 1: Foundation (0-3 months)\n**Objective:** Establish foundation for improvement\n\n#### Key Actions\n1. \n2. \n3. \n\n#### Success Criteria\n- [ ] All critical gaps addressed\n- [ ] Foundation processes implemented\n- [ ] Team trained and ready\n- [ ] Tools and systems operational\n\n#### Milestones\n| Milestone | Target Date | Owner | Status |\n|-----------|-------------|--------|--------|\n| Foundation Planning Complete | | | ☐ Not Started ☐ Complete |\n| Critical Actions Implemented | | | ☐ Not Started ☐ Complete |\n| Team Training Complete | | | ☐ Not Started ☐ Complete |\n| Tools Deployed | | | ☐ Not Started ☐ Complete |\n\n### Phase 2: Optimization (3-6 months)\n**Objective:** Optimize processes and performance\n\n#### Key Actions\n1. \n2. \n3. \n\n#### Success Criteria\n- [ ] High priority gaps closed\n- [ ] Process optimization complete\n- [ ] Performance targets achieved\n- [ ] Stakeholder satisfaction improved\n\n#### Milestones\n| Milestone | Target Date | Owner | Status |\n|-----------|-------------|--------|--------|\n| Optimization Planning Complete | | | ☐ Not Started ☐ Complete |\n| High Priority Actions Complete | | | ☐ Not Started ☐ Complete |\n| Performance Targets Met | | | ☐ Not Started ☐ Complete |\n| Stakeholder Review Complete | | | ☐ Not Started ☐ Complete |\n\n### Phase 3: Sustainability (6+ months)\n**Objective:** Ensure sustainable improvement\n\n#### Key Actions\n1. \n2. \n3. \n\n#### Success Criteria\n- [ ] All remaining gaps addressed\n- [ ] Continuous improvement processes established\n- [ ] Knowledge transfer complete\n- [ ] Sustainability plan implemented\n\n#### Milestones\n| Milestone | Target Date | Owner | Status |\n|-----------|-------------|--------|--------|\n| Sustainability Planning Complete | | | ☐ Not Started ☐ Complete |\n| All Actions Complete | | | ☐ Not Started ☐ Complete |\n| Knowledge Transfer Complete | | | ☐ Not Started ☐ Complete |\n| Continuous Improvement Active | | | ☐ Not Started ☐ Complete |\n\n## Resource Management\n\n### Budget Summary\n| Category | Planned Budget | Committed | Spent | Remaining | Variance |\n|----------|---------------|-----------|-------|-----------|----------|\n| **Personnel** | $______ | $______ | $______ | $______ | $______ |\n| **Training** | $______ | $______ | $______ | $______ | $______ |\n| **Tools/Technology** | $______ | $______ | $______ | $______ | $______ |\n| **External Support** | $______ | $______ | $______ | $______ | $______ |\n| **Other** | $______ | $______ | $______ | $______ | $______ |\n| **Total** | $______ | $______ | $______ | $______ | $______ |\n\n### Personnel Allocation\n| Role | Person | Allocation % | Period | Actions Assigned |\n|------|--------|-------------|--------|------------------|\n| **Plan Manager** | | ___% | | |\n| **Action Owner 1** | | ___% | | |\n| **Action Owner 2** | | ___% | | |\n| **Subject Matter Expert** | | ___% | | |\n| **Change Agent** | | ___% | | |\n\n### External Resources\n| Resource Type | Provider | Service | Duration | Cost |\n|---------------|----------|---------|----------|------|\n| **Consulting** | | | | $______ |\n| **Training** | | | | $______ |\n| **Tools/Licenses** | | | | $______ |\n\n## Progress Tracking\n\n### Overall Progress Metrics\n| Metric | Target | Current | Variance | Trend |\n|--------|--------|---------|----------|-------|\n| **Actions Completed** | ___% | ___% | ___% | ☐ ↑ ☐ → ☐ ↓ |\n| **Budget Utilized** | ___% | ___% | ___% | ☐ ↑ ☐ → ☐ ↓ |\n| **Timeline Performance** | On Track | | | ☐ ↑ ☐ → ☐ ↓ |\n| **Quality Score** | ___% | ___% | ___% | ☐ ↑ ☐ → ☐ ↓ |\n\n### Action Completion Status\n| Priority Level | Total Actions | Not Started | In Progress | Complete | % Complete |\n|----------------|---------------|-------------|-------------|----------|------------|\n| **Critical** | | | | | ___% |\n| **High** | | | | | ___% |\n| **Medium** | | | | | ___% |\n| **Low** | | | | | ___% |\n| **Total** | | | | | ___% |\n\n### Key Performance Indicators\n| KPI | Baseline | Current | Target | Progress |\n|-----|----------|---------|--------|----------|\n| Project Health Score | ___/100 | ___/100 | ___/100 | ___% |\n| Schedule Performance Index | | | 1.0+ | ___% |\n| Cost Performance Index | | | 1.0+ | ___% |\n| Stakeholder Satisfaction | ___% | ___% | ___% | ___% |\n| Risk Exposure Reduction | | | ___% | ___% |\n\n## Risk Management\n\n### Plan Risks\n| Risk ID | Risk Description | Probability | Impact | Risk Score | Mitigation Strategy | Owner |\n|---------|------------------|-------------|--------|------------|-------------------|-------|\n| R001 | | ☐ H ☐ M ☐ L | ☐ H ☐ M ☐ L | | | |\n| R002 | | ☐ H ☐ M ☐ L | ☐ H ☐ M ☐ L | | | |\n| R003 | | ☐ H ☐ M ☐ L | ☐ H ☐ M ☐ L | | | |\n\n### Risk Monitoring\n| Risk ID | Status | Last Review | Next Review | Action Required |\n|---------|--------|-------------|-------------|----------------|\n| R001 | ☐ Open ☐ Mitigated ☐ Closed | | | |\n| R002 | ☐ Open ☐ Mitigated ☐ Closed | | | |\n| R003 | ☐ Open ☐ Mitigated ☐ Closed | | | |\n\n## Change Management\n\n### Change Impact Assessment\n| Stakeholder Group | Impact Level | Change Readiness | Support Strategy |\n|-------------------|--------------|------------------|------------------|\n| **Project Team** | ☐ High ☐ Med ☐ Low | ☐ High ☐ Med ☐ Low | |\n| **Management** | ☐ High ☐ Med ☐ Low | ☐ High ☐ Med ☐ Low | |\n| **Customers** | ☐ High ☐ Med ☐ Low | ☐ High ☐ Med ☐ Low | |\n| **End Users** | ☐ High ☐ Med ☐ Low | ☐ High ☐ Med ☐ Low | |\n\n### Communication Strategy\n| Phase | Message | Audience | Channel | Frequency | Owner |\n|-------|---------|----------|---------|-----------|-------|\n| **Awareness** | | | | | |\n| **Understanding** | | | | | |\n| **Adoption** | | | | | |\n| **Reinforcement** | | | | | |\n\n### Training Plan\n| Training Topic | Audience | Delivery Method | Duration | Provider | Schedule |\n|----------------|----------|----------------|----------|----------|----------|\n| | | ☐ Online ☐ Classroom ☐ OJT | | | |\n| | | ☐ Online ☐ Classroom ☐ OJT | | | |\n| | | ☐ Online ☐ Classroom ☐ OJT | | | |\n\n## Quality Assurance\n\n### Quality Gates\n| Gate | Criteria | Review Date | Reviewer | Status | Comments |\n|------|----------|-------------|----------|--------|----------|\n| **30-Day Review** | Critical actions 80% complete | | | ☐ Pass ☐ Fail | |\n| **90-Day Review** | High priority actions 80% complete | | | ☐ Pass ☐ Fail | |\n| **6-Month Review** | All priority actions complete | | | ☐ Pass ☐ Fail | |\n| **Final Review** | All actions complete and validated | | | ☐ Pass ☐ Fail | |\n\n### Success Validation\n| Success Criteria | Measurement Method | Target | Current | Status |\n|------------------|-------------------|--------|---------|--------|\n| Project health improvement | Health assessment | +___ points | | ☐ Met ☐ Not Met |\n| Schedule performance | SPI calculation | 1.0+ | | ☐ Met ☐ Not Met |\n| Cost performance | CPI calculation | 1.0+ | | ☐ Met ☐ Not Met |\n| Stakeholder satisfaction | Survey results | ___% | | ☐ Met ☐ Not Met |\n\n## Lessons Learned\n\n### What Worked Well\n1.\n2.\n3.\n\n### What Could Be Improved\n1.\n2.\n3.\n\n### Recommendations for Future\n1.\n2.\n3.\n\n### Best Practices Identified\n1.\n2.\n3.\n\n## When to Use\n\nUse throughout the project lifecycle to identify, assess, and track risks. This template is essential for projects with significant complexity, multiple stakeholders, or high business impact, where structured risk management provides decision-making value.\n\n## When NOT to Use\n\nDo not use for very low-risk, short-duration tasks where informal risk awareness is sufficient. Avoid this template if your governance framework requires a different risk management approach or if stakeholders prefer real-time risk dashboards over static registers.\n\n## Plan Governance\n\n### Review Schedule\n| Review Type | Frequency | Participants | Agenda Items |\n|-------------|-----------|--------------|--------------|\n| **Status Review** | Weekly | Action owners, Plan manager | Progress, issues, decisions |\n| **Steering Committee** | Monthly | Sponsors, key stakeholders | Progress, budget, risks |\n| **Quality Gate** | As scheduled | Review board | Quality criteria, go/no-go |\n| **Lessons Learned** | Quarterly | All participants | Improvements, best practices |\n\n### Decision Authority\n| Decision Type | Authority | Approval Required |\n|---------------|-----------|-------------------|\n| **Action Scope Changes** | Plan Manager | ☐ Yes ☐ No |\n| **Budget Changes &lt;$X** | Plan Manager | ☐ Yes ☐ No |\n| **Budget Changes &gt;$X** | Sponsor | ☐ Yes ☐ No |\n| **Timeline Changes** | Steering Committee | ☐ Yes ☐ No |\n| **Plan Cancellation** | Executive Sponsor | ☐ Yes ☐ No |\n\n### Approval and Sign-off\n\n**Plan Approved By:**\n- Plan Manager: _________________ Date: _________\n- Project Manager: _________________ Date: _________\n- Sponsor: _________________ Date: _________\n- Executive Sponsor: _________________ Date: _________\n\n**Next Review Date:** _________________\n\n**Plan Status:** ☐ Draft ☐ Approved ☐ In Progress ☐ Complete ☐ Cancelled\n\n**Template Usage Notes:**\n- Customize action details based on specific gaps identified\n- Adjust timeline and priority based on project constraints\n- Ensure resource requirements are realistic and approved\n- Regular review and updates are essential for success\n- Use this template in conjunction with Gap Analysis Matrix\n\n&quot;]}" ssr client="load" opts="{&quot;name&quot;:&quot;TemplateViewer&quot;,&quot;value&quot;:true}" await-children><div><h1>Remediation Action Plan Template</h1><div style="margin-bottom:2rem"><button style="background:var(--accent-color);color:white;border:1px solid var(--border-color);padding:0.5rem 1rem;border-radius:4px 4px 0 0;cursor:pointer;margin-right:1px">Preview</button><button style="background:var(--code-bg);color:var(--text-color);border:1px solid var(--border-color);padding:0.5rem 1rem;border-radius:4px 4px 0 0;cursor:pointer">Version History</button></div><div style="border:1px solid var(--border-color);border-radius:0 8px 8px 8px;min-height:400px"><div style="background:var(--bg-primary);border-radius:var(--radius-lg)"><div style="padding:1rem 1.5rem;border-bottom:1px solid var(--border-light);display:flex;align-items:center;justify-content:space-between;background:var(--bg-secondary);border-radius:var(--radius-lg) var(--radius-lg) 0 0"><div style="display:flex;align-items:center;gap:0.5rem"><span style="font-size:1.5rem">📄</span><div><div style="font-weight:600;color:var(--text-primary)">remediation-action-plan-template.md</div><div style="font-size:0.75rem;color:var(--text-muted)">Markdown • <!-- -->15,699 bytes</div></div></div><a href="/pm-tools-templates/downloads/remediation-action-plan-template.md" download="" class="btn btn-secondary" style="font-size:0.75rem;padding:0.5rem 0.75rem">💾 Download</a></div><pre aria-label="Markdown source of Remediation Action Plan Template" style="padding:1.5rem;max-height:600px;overflow:auto;white-space:pre-wrap;overflow-wrap:anywhere">---
+title: Remediation Action Plan Template
+methodology: universal
+complexity: advanced
+owner: mirichard
+updated: &#x27;2025-08-05&#x27;
+primary_principles:
+- evidence-based-decisions
+- adaptability
+secondary_principles:
+- continuous-learning
+- quality-by-design
+principle_rationale: Enables data-driven decisions and continuous learning from assessment
+  results.
+---
+
+# Remediation Action Plan Template
+
+## Plan Information
+
+| Field | Details |
+|-------|---------|
+| **Project Name** | |
+| **Plan Date** | |
+| **Plan Owner** | |
+| **Planning Period** | |
+| **Assessment Reference** | |
+| **Stakeholders Involved** | |
+| **Approval Authority** | |
+
+## Executive Summary
+
+### Plan Overview
+**Total Actions Planned:** ___  
+**Total Estimated Effort:** ___ person-hours  
+**Total Estimated Cost:** $______  
+**Expected Completion:** ______  
+
+### Priority Distribution
+- **Critical (0-30 days):** ___ actions
+- **High (1-3 months):** ___ actions  
+- **Medium (3-6 months):** ___ actions
+- **Low (6+ months):** ___ actions
+
+### Expected Benefits
+| Benefit Category | Current State | Target State | Expected Improvement |
+|------------------|---------------|--------------|---------------------|
+| Project Health Score | ___/100 | ___/100 | +___ points |
+| Schedule Performance | SPI: ___ | SPI: 1.0+ | +___% |
+| Cost Performance | CPI: ___ | CPI: 1.0+ | +___% |
+| Quality Score | ___% | ___% | +___% |
+| Stakeholder Satisfaction | ___% | ___% | +___% |
+
+## Action Plan Matrix
+
+### Critical Priority Actions (0-30 days)
+
+| Action ID | Gap/Issue Addressed | Action Description | Owner | Start Date | End Date | Status | Dependencies | Success Criteria |
+|-----------|-------------------|-------------------|-------|------------|----------|--------|--------------|-------------------|
+| A001 | | | | | | ☐ Not Started ☐ In Progress ☐ Complete | | |
+| A002 | | | | | | ☐ Not Started ☐ In Progress ☐ Complete | | |
+| A003 | | | | | | ☐ Not Started ☐ In Progress ☐ Complete | | |
+
+### High Priority Actions (1-3 months)
+
+| Action ID | Gap/Issue Addressed | Action Description | Owner | Start Date | End Date | Status | Dependencies | Success Criteria |
+|-----------|-------------------|-------------------|-------|------------|----------|--------|--------------|-------------------|
+| A004 | | | | | | ☐ Not Started ☐ In Progress ☐ Complete | | |
+| A005 | | | | | | ☐ Not Started ☐ In Progress ☐ Complete | | |
+| A006 | | | | | | ☐ Not Started ☐ In Progress ☐ Complete | | |
+
+### Medium Priority Actions (3-6 months)
+
+| Action ID | Gap/Issue Addressed | Action Description | Owner | Start Date | End Date | Status | Dependencies | Success Criteria |
+|-----------|-------------------|-------------------|-------|------------|----------|--------|--------------|-------------------|
+| A007 | | | | | | ☐ Not Started ☐ In Progress ☐ Complete | | |
+| A008 | | | | | | ☐ Not Started ☐ In Progress ☐ Complete | | |
+| A009 | | | | | | ☐ Not Started ☐ In Progress ☐ Complete | | |
+
+### Low Priority Actions (6+ months)
+
+| Action ID | Gap/Issue Addressed | Action Description | Owner | Start Date | End Date | Status | Dependencies | Success Criteria |
+|-----------|-------------------|-------------------|-------|------------|----------|--------|--------------|-------------------|
+| A010 | | | | | | ☐ Not Started ☐ In Progress ☐ Complete | | |
+| A011 | | | | | | ☐ Not Started ☐ In Progress ☐ Complete | | |
+| A012 | | | | | | ☐ Not Started ☐ In Progress ☐ Complete | | |
+
+## Detailed Action Plans
+
+### Action A001: [Action Title]
+**Priority:** ☐ Critical ☐ High ☐ Medium ☐ Low  
+**Gap Addressed:** 
+**Target Outcome:** 
+
+#### Action Details
+| Element | Details |
+|---------|---------|
+| **Description** | |
+| **Rationale** | |
+| **Scope** | |
+| **Approach** | |
+| **Success Criteria** | |
+
+#### Resource Requirements
+| Resource Type | Requirement | Source | Availability |
+|---------------|-------------|--------|--------------|
+| **Personnel** | | ☐ Internal ☐ External | |
+| **Budget** | $______ | ☐ Current ☐ Additional | |
+| **Tools/Technology** | | ☐ Existing ☐ New | |
+| **Training** | | ☐ None ☐ Required | |
+
+#### Timeline and Milestones
+| Milestone | Target Date | Dependencies | Success Criteria |
+|-----------|-------------|--------------|-------------------|
+| Planning Complete | | | |
+| Implementation Start | | | |
+| Mid-point Review | | | |
+| Implementation Complete | | | |
+| Validation Complete | | | |
+
+#### Risk Assessment
+| Risk | Probability | Impact | Mitigation Strategy |
+|------|-------------|--------|-------------------|
+| | ☐ High ☐ Med ☐ Low | ☐ High ☐ Med ☐ Low | |
+| | ☐ High ☐ Med ☐ Low | ☐ High ☐ Med ☐ Low | |
+
+#### Communication Plan
+| Stakeholder | Information | Frequency | Method |
+|-------------|-------------|-----------|--------|
+| | | | |
+
+### Action A002: [Action Title]
+**Priority:** ☐ Critical ☐ High ☐ Medium ☐ Low  
+**Gap Addressed:** 
+**Target Outcome:** 
+
+#### Action Details
+| Element | Details |
+|---------|---------|
+| **Description** | |
+| **Rationale** | |
+| **Scope** | |
+| **Approach** | |
+| **Success Criteria** | |
+
+#### Resource Requirements
+| Resource Type | Requirement | Source | Availability |
+|---------------|-------------|--------|--------------|
+| **Personnel** | | ☐ Internal ☐ External | |
+| **Budget** | $______ | ☐ Current ☐ Additional | |
+| **Tools/Technology** | | ☐ Existing ☐ New | |
+| **Training** | | ☐ None ☐ Required | |
+
+#### Timeline and Milestones
+| Milestone | Target Date | Dependencies | Success Criteria |
+|-----------|-------------|--------------|-------------------|
+| Planning Complete | | | |
+| Implementation Start | | | |
+| Mid-point Review | | | |
+| Implementation Complete | | | |
+| Validation Complete | | | |
+
+#### Risk Assessment
+| Risk | Probability | Impact | Mitigation Strategy |
+|------|-------------|--------|-------------------|
+| | ☐ High ☐ Med ☐ Low | ☐ High ☐ Med ☐ Low | |
+| | ☐ High ☐ Med ☐ Low | ☐ High ☐ Med ☐ Low | |
+
+#### Communication Plan
+| Stakeholder | Information | Frequency | Method |
+|-------------|-------------|-----------|--------|
+| | | | |
+
+## Implementation Framework
+
+### Phase 1: Foundation (0-3 months)
+**Objective:** Establish foundation for improvement
+
+#### Key Actions
+1. 
+2. 
+3. 
+
+#### Success Criteria
+- [ ] All critical gaps addressed
+- [ ] Foundation processes implemented
+- [ ] Team trained and ready
+- [ ] Tools and systems operational
+
+#### Milestones
+| Milestone | Target Date | Owner | Status |
+|-----------|-------------|--------|--------|
+| Foundation Planning Complete | | | ☐ Not Started ☐ Complete |
+| Critical Actions Implemented | | | ☐ Not Started ☐ Complete |
+| Team Training Complete | | | ☐ Not Started ☐ Complete |
+| Tools Deployed | | | ☐ Not Started ☐ Complete |
+
+### Phase 2: Optimization (3-6 months)
+**Objective:** Optimize processes and performance
+
+#### Key Actions
+1. 
+2. 
+3. 
+
+#### Success Criteria
+- [ ] High priority gaps closed
+- [ ] Process optimization complete
+- [ ] Performance targets achieved
+- [ ] Stakeholder satisfaction improved
+
+#### Milestones
+| Milestone | Target Date | Owner | Status |
+|-----------|-------------|--------|--------|
+| Optimization Planning Complete | | | ☐ Not Started ☐ Complete |
+| High Priority Actions Complete | | | ☐ Not Started ☐ Complete |
+| Performance Targets Met | | | ☐ Not Started ☐ Complete |
+| Stakeholder Review Complete | | | ☐ Not Started ☐ Complete |
+
+### Phase 3: Sustainability (6+ months)
+**Objective:** Ensure sustainable improvement
+
+#### Key Actions
+1. 
+2. 
+3. 
+
+#### Success Criteria
+- [ ] All remaining gaps addressed
+- [ ] Continuous improvement processes established
+- [ ] Knowledge transfer complete
+- [ ] Sustainability plan implemented
+
+#### Milestones
+| Milestone | Target Date | Owner | Status |
+|-----------|-------------|--------|--------|
+| Sustainability Planning Complete | | | ☐ Not Started ☐ Complete |
+| All Actions Complete | | | ☐ Not Started ☐ Complete |
+| Knowledge Transfer Complete | | | ☐ Not Started ☐ Complete |
+| Continuous Improvement Active | | | ☐ Not Started ☐ Complete |
+
+## Resource Management
+
+### Budget Summary
+| Category | Planned Budget | Committed | Spent | Remaining | Variance |
+|----------|---------------|-----------|-------|-----------|----------|
+| **Personnel** | $______ | $______ | $______ | $______ | $______ |
+| **Training** | $______ | $______ | $______ | $______ | $______ |
+| **Tools/Technology** | $______ | $______ | $______ | $______ | $______ |
+| **External Support** | $______ | $______ | $______ | $______ | $______ |
+| **Other** | $______ | $______ | $______ | $______ | $______ |
+| **Total** | $______ | $______ | $______ | $______ | $______ |
+
+### Personnel Allocation
+| Role | Person | Allocation % | Period | Actions Assigned |
+|------|--------|-------------|--------|------------------|
+| **Plan Manager** | | ___% | | |
+| **Action Owner 1** | | ___% | | |
+| **Action Owner 2** | | ___% | | |
+| **Subject Matter Expert** | | ___% | | |
+| **Change Agent** | | ___% | | |
+
+### External Resources
+| Resource Type | Provider | Service | Duration | Cost |
+|---------------|----------|---------|----------|------|
+| **Consulting** | | | | $______ |
+| **Training** | | | | $______ |
+| **Tools/Licenses** | | | | $______ |
+
+## Progress Tracking
+
+### Overall Progress Metrics
+| Metric | Target | Current | Variance | Trend |
+|--------|--------|---------|----------|-------|
+| **Actions Completed** | ___% | ___% | ___% | ☐ ↑ ☐ → ☐ ↓ |
+| **Budget Utilized** | ___% | ___% | ___% | ☐ ↑ ☐ → ☐ ↓ |
+| **Timeline Performance** | On Track | | | ☐ ↑ ☐ → ☐ ↓ |
+| **Quality Score** | ___% | ___% | ___% | ☐ ↑ ☐ → ☐ ↓ |
+
+### Action Completion Status
+| Priority Level | Total Actions | Not Started | In Progress | Complete | % Complete |
+|----------------|---------------|-------------|-------------|----------|------------|
+| **Critical** | | | | | ___% |
+| **High** | | | | | ___% |
+| **Medium** | | | | | ___% |
+| **Low** | | | | | ___% |
+| **Total** | | | | | ___% |
+
+### Key Performance Indicators
+| KPI | Baseline | Current | Target | Progress |
+|-----|----------|---------|--------|----------|
+| Project Health Score | ___/100 | ___/100 | ___/100 | ___% |
+| Schedule Performance Index | | | 1.0+ | ___% |
+| Cost Performance Index | | | 1.0+ | ___% |
+| Stakeholder Satisfaction | ___% | ___% | ___% | ___% |
+| Risk Exposure Reduction | | | ___% | ___% |
+
+## Risk Management
+
+### Plan Risks
+| Risk ID | Risk Description | Probability | Impact | Risk Score | Mitigation Strategy | Owner |
+|---------|------------------|-------------|--------|------------|-------------------|-------|
+| R001 | | ☐ H ☐ M ☐ L | ☐ H ☐ M ☐ L | | | |
+| R002 | | ☐ H ☐ M ☐ L | ☐ H ☐ M ☐ L | | | |
+| R003 | | ☐ H ☐ M ☐ L | ☐ H ☐ M ☐ L | | | |
+
+### Risk Monitoring
+| Risk ID | Status | Last Review | Next Review | Action Required |
+|---------|--------|-------------|-------------|----------------|
+| R001 | ☐ Open ☐ Mitigated ☐ Closed | | | |
+| R002 | ☐ Open ☐ Mitigated ☐ Closed | | | |
+| R003 | ☐ Open ☐ Mitigated ☐ Closed | | | |
+
+## Change Management
+
+### Change Impact Assessment
+| Stakeholder Group | Impact Level | Change Readiness | Support Strategy |
+|-------------------|--------------|------------------|------------------|
+| **Project Team** | ☐ High ☐ Med ☐ Low | ☐ High ☐ Med ☐ Low | |
+| **Management** | ☐ High ☐ Med ☐ Low | ☐ High ☐ Med ☐ Low | |
+| **Customers** | ☐ High ☐ Med ☐ Low | ☐ High ☐ Med ☐ Low | |
+| **End Users** | ☐ High ☐ Med ☐ Low | ☐ High ☐ Med ☐ Low | |
+
+### Communication Strategy
+| Phase | Message | Audience | Channel | Frequency | Owner |
+|-------|---------|----------|---------|-----------|-------|
+| **Awareness** | | | | | |
+| **Understanding** | | | | | |
+| **Adoption** | | | | | |
+| **Reinforcement** | | | | | |
+
+### Training Plan
+| Training Topic | Audience | Delivery Method | Duration | Provider | Schedule |
+|----------------|----------|----------------|----------|----------|----------|
+| | | ☐ Online ☐ Classroom ☐ OJT | | | |
+| | | ☐ Online ☐ Classroom ☐ OJT | | | |
+| | | ☐ Online ☐ Classroom ☐ OJT | | | |
+
+## Quality Assurance
+
+### Quality Gates
+| Gate | Criteria | Review Date | Reviewer | Status | Comments |
+|------|----------|-------------|----------|--------|----------|
+| **30-Day Review** | Critical actions 80% complete | | | ☐ Pass ☐ Fail | |
+| **90-Day Review** | High priority actions 80% complete | | | ☐ Pass ☐ Fail | |
+| **6-Month Review** | All priority actions complete | | | ☐ Pass ☐ Fail | |
+| **Final Review** | All actions complete and validated | | | ☐ Pass ☐ Fail | |
+
+### Success Validation
+| Success Criteria | Measurement Method | Target | Current | Status |
+|------------------|-------------------|--------|---------|--------|
+| Project health improvement | Health assessment | +___ points | | ☐ Met ☐ Not Met |
+| Schedule performance | SPI calculation | 1.0+ | | ☐ Met ☐ Not Met |
+| Cost performance | CPI calculation | 1.0+ | | ☐ Met ☐ Not Met |
+| Stakeholder satisfaction | Survey results | ___% | | ☐ Met ☐ Not Met |
+
+## Lessons Learned
+
+### What Worked Well
+1.
+2.
+3.
+
+### What Could Be Improved
+1.
+2.
+3.
+
+### Recommendations for Future
+1.
+2.
+3.
+
+### Best Practices Identified
+1.
+2.
+3.
+
+## When to Use
+
+Use throughout the project lifecycle to identify, assess, and track risks. This template is essential for projects with significant complexity, multiple stakeholders, or high business impact, where structured risk management provides decision-making value.
+
+## When NOT to Use
+
+Do not use for very low-risk, short-duration tasks where informal risk awareness is sufficient. Avoid this template if your governance framework requires a different risk management approach or if stakeholders prefer real-time risk dashboards over static registers.
+
+## Plan Governance
+
+### Review Schedule
+| Review Type | Frequency | Participants | Agenda Items |
+|-------------|-----------|--------------|--------------|
+| **Status Review** | Weekly | Action owners, Plan manager | Progress, issues, decisions |
+| **Steering Committee** | Monthly | Sponsors, key stakeholders | Progress, budget, risks |
+| **Quality Gate** | As scheduled | Review board | Quality criteria, go/no-go |
+| **Lessons Learned** | Quarterly | All participants | Improvements, best practices |
+
+### Decision Authority
+| Decision Type | Authority | Approval Required |
+|---------------|-----------|-------------------|
+| **Action Scope Changes** | Plan Manager | ☐ Yes ☐ No |
+| **Budget Changes &lt;$X** | Plan Manager | ☐ Yes ☐ No |
+| **Budget Changes &gt;$X** | Sponsor | ☐ Yes ☐ No |
+| **Timeline Changes** | Steering Committee | ☐ Yes ☐ No |
+| **Plan Cancellation** | Executive Sponsor | ☐ Yes ☐ No |
+
+### Approval and Sign-off
+
+**Plan Approved By:**
+- Plan Manager: _________________ Date: _________
+- Project Manager: _________________ Date: _________
+- Sponsor: _________________ Date: _________
+- Executive Sponsor: _________________ Date: _________
+
+**Next Review Date:** _________________
+
+**Plan Status:** ☐ Draft ☐ Approved ☐ In Progress ☐ Complete ☐ Cancelled
+
+**Template Usage Notes:**
+- Customize action details based on specific gaps identified
+- Adjust timeline and priority based on project constraints
+- Ensure resource requirements are realistic and approved
+- Regular review and updates are essential for success
+- Use this template in conjunction with Gap Analysis Matrix
+
+</pre></div></div></div><!--astro:end--></astro-island></main></body></html>

@@ -1,0 +1,428 @@
+<!DOCTYPE html><html lang="en" data-astro-cid-ju4pidww><head><meta charset="UTF-8"><meta name="description" content="Advanced template browser with previews and version history"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="icon" type="image/svg+xml" href="/pm-tools-templates/favicon.svg"><title>Operational Qualification Protocol Template</title><link rel="stylesheet" href="/pm-tools-templates/assets/Layout.ChXqTIwx.css"></head><body data-astro-cid-ju4pidww><main data-astro-cid-ju4pidww><style>astro-island,astro-slot,astro-static-slot{display:contents}</style><script>(()=>{var e=async t=>{await(await t())()};(self.Astro||(self.Astro={})).load=e;window.dispatchEvent(new Event("astro:load"));})();</script><script>(()=>{var g=Object.defineProperty;var w=(a,s,c)=>s in a?g(a,s,{enumerable:!0,configurable:!0,writable:!0,value:c}):a[s]=c;var l=(a,s,c)=>w(a,typeof s!="symbol"?s+"":s,c);var E=new Set(["__proto__","constructor","prototype"]);{let a={0:t=>y(t),1:t=>c(t),2:t=>new RegExp(t),3:t=>new Date(t),4:t=>new Map(c(t)),5:t=>new Set(c(t)),6:t=>BigInt(t),7:t=>new URL(t),8:t=>new Uint8Array(t),9:t=>new Uint16Array(t),10:t=>new Uint32Array(t),11:t=>Number.POSITIVE_INFINITY*t},s=t=>{let[p,e]=t;return p in a?a[p](e):void 0},c=t=>t.map(s),y=t=>typeof t!="object"||t===null?t:Object.fromEntries(Object.entries(t).map(([p,e])=>[p,s(e)]));class f extends HTMLElement{constructor(){super(...arguments);l(this,"Component");l(this,"hydrator");l(this,"hydrate",async()=>{var b;if(!this.hydrator||!this.isConnected)return;let e=(b=this.parentElement)==null?void 0:b.closest("astro-island[ssr]");if(e){e.addEventListener("astro:hydrate",this.hydrate,{once:!0});return}let r=this.querySelectorAll("astro-slot"),n={},d=this.querySelectorAll("template[data-astro-template]");for(let o of d){let i=o.closest(this.tagName);i!=null&&i.isSameNode(this)&&(n[o.getAttribute("data-astro-template")||"default"]=o.innerHTML,o.remove())}for(let o of r){let i=o.closest(this.tagName);i!=null&&i.isSameNode(this)&&(n[o.getAttribute("name")||"default"]=o.innerHTML)}let u;try{u=this.hasAttribute("props")?y(JSON.parse(this.getAttribute("props"))):{}}catch(o){let i=this.getAttribute("component-url")||"<unknown>",v=this.getAttribute("component-export");throw v&&(i+=` (export ${v})`),console.error(`[hydrate] Error parsing props for component ${i}`,this.getAttribute("props"),o),o}let h;await this.hydrator(this)(this.Component,u,n,{client:this.getAttribute("client")}),this.removeAttribute("ssr"),this.dispatchEvent(new CustomEvent("astro:hydrate"))});l(this,"unmount",()=>{this.isConnected||this.dispatchEvent(new CustomEvent("astro:unmount"))})}disconnectedCallback(){document.removeEventListener("astro:after-swap",this.unmount),document.addEventListener("astro:after-swap",this.unmount,{once:!0})}connectedCallback(){if(!this.hasAttribute("await-children")||document.readyState==="interactive"||document.readyState==="complete")this.childrenConnectedCallback();else{let e=()=>{document.removeEventListener("DOMContentLoaded",e),r.disconnect(),this.childrenConnectedCallback()},r=new MutationObserver(()=>{var n;((n=this.lastChild)==null?void 0:n.nodeType)===Node.COMMENT_NODE&&this.lastChild.nodeValue==="astro:end"&&(this.lastChild.remove(),e())});r.observe(this,{childList:!0}),document.addEventListener("DOMContentLoaded",e)}}async childrenConnectedCallback(){let e=this.getAttribute("before-hydration-url");e&&await import(e),this.start()}getRetryImportUrl(e){let r=new URL(e,document.baseURI);return r.searchParams.set("astro-retry",Date.now().toString()),r.toString()}async importWithRetry(e){try{return await import(e)}catch(r){return await new Promise(n=>setTimeout(n,1e3)),import(this.getRetryImportUrl(e))}}handleHydrationError(e){let r=this.getAttribute("component-url"),n=new CustomEvent("astro:hydration-error",{cancelable:!0,bubbles:!0,composed:!0,detail:{error:e,componentUrl:r}});this.dispatchEvent(n)&&console.error(`[astro-island] Error hydrating ${r}`,e)}async start(){let e=JSON.parse(this.getAttribute("opts")),r=this.getAttribute("client");if(Astro[r]===void 0){window.addEventListener(`astro:${r}`,()=>this.start(),{once:!0});return}try{await Astro[r](async()=>{let n=this.getAttribute("renderer-url");try{let[d,{default:u}]=await Promise.all([this.importWithRetry(this.getAttribute("component-url")),n?this.importWithRetry(n):Promise.resolve({default:()=>()=>{}})]),h=this.getAttribute("component-export")||"default";if(h.includes(".")){this.Component=d;for(let m of h.split(".")){if(E.has(m)||!this.Component||typeof this.Component!="object"&&typeof this.Component!="function"||!Object.hasOwn(this.Component,m))throw new Error(`Invalid component export path: ${h}`);this.Component=this.Component[m]}}else{if(E.has(h))throw new Error(`Invalid component export path: ${h}`);this.Component=d[h]}return this.hydrator=u,this.hydrate}catch(d){return this.handleHydrationError(d),()=>{}}},e,this)}catch(n){this.handleHydrationError(n)}}attributeChangedCallback(){this.hydrate()}}l(f,"observedAttributes",["props"]),customElements.get("astro-island")||customElements.define("astro-island",f)}})();</script><astro-island uid="ZMIl2R" prefix="r1" component-url="/pm-tools-templates/assets/TemplateViewer.BJxWH0dD.js" component-export="default" renderer-url="/pm-tools-templates/assets/client.REQV_TkY.js" props="{&quot;templateId&quot;:[0,&quot;operational_qualification_protocol_template&quot;],&quot;filePath&quot;:[0,&quot;domains/delivery/industry-specializations/healthcare-pharmaceutical/validation/operational_qualification_protocol_template.md&quot;],&quot;title&quot;:[0,&quot;Operational Qualification Protocol Template&quot;],&quot;content&quot;:[0,&quot;---\ntitle: Operational Qualification Protocol Template\nmethodology: universal\ncomplexity: advanced\nowner: mirichard\nupdated: &#39;2025-08-05&#39;\nprimary_principles:\n- stewardship\n- quality-by-design\nsecondary_principles:\n- evidence-based-decisions\n- risk-optimization\nprinciple_rationale: Protects safety and integrity through quality-by-design and stewardship\n  principles.\n---\n\n# Operational Qualification (OQ) Protocol Template\n\n## Document Control\n\n**Document ID:** OQ-PROTO-[SYSTEM_ID]  \n**Version:** 1.0  \n**Effective Date:** [EFFECTIVE_DATE]  \n**Review Date:** [REVIEW_DATE]  \n**Supersedes:** N/A (Initial Version)\n\n### Revision History\n\n| Version | Date | Description of Change | Author | Approved By |\n|---------|------|------------------------|--------|-------------|\n| 1.0 | [DATE] | Initial Release | [NAME] | [NAME] |\n\n### Approvals\n\n| Role | Name | Signature | Date |\n|------|------|-----------|------|\n| Protocol Author | | | |\n| Quality Assurance | | | |\n| IT/Engineering | | | |\n| Validation Lead | | | |\n| System Owner | | | |\n| Quality Control (if applicable) | | | |\n\n## 1. Introduction and Purpose\n\n### 1.1 Purpose\nThis Operational Qualification (OQ) Protocol defines the approach, methodology, and acceptance criteria for verifying that the [SYSTEM_NAME] functions according to its intended operational specifications. This protocol is designed to document evidence that all system functions operate correctly under normal and challenging conditions, meeting user requirements and regulatory expectations.\n\n### 1.2 Scope\nThis protocol covers the operational qualification of [SYSTEM_NAME], including functional testing, security testing, interface testing, error handling, data integrity verification, and audit trail testing. The OQ verifies that the system operates as specified and is suitable for its intended use in the production environment.\n\n### 1.3 Regulatory Framework\nThis protocol follows:\n- FDA 21 CFR Part 11 (Electronic Records and Electronic Signatures)\n- FDA 21 CFR Part 210/211 (cGMP for Finished Pharmaceuticals)\n- EU GMP Annex 11 (Computerized Systems)\n- EU GMP Annex 15 (Qualification and Validation)\n- GAMP 5 Guidelines (Good Automated Manufacturing Practice)\n- [OTHER APPLICABLE REGULATIONS]\n\n## 2. System Description\n\n### 2.1 System Overview\n[Provide a brief description of the system, its intended use, and its components]\n\n### 2.2 System Configuration\n- **Hardware Components:** [List all hardware components with model numbers, serial numbers, etc.]\n- **Software Components:** [List all software with version numbers]\n- **Interfaces:** [List all interfaces with other systems]\n- **Operating Environment:** [Describe the operating environment]\n\n### 2.3 System Classification\nAccording to GAMP 5 categorization, this system is classified as Category [X] software.\n\n### 2.4 Prerequisite Conditions\n- Successfully completed Installation Qualification (IQ)\n- [OTHER PREREQUISITES]\n\n## 3. Personnel Responsibilities and Qualifications\n\n### 3.1 Roles and Responsibilities\n\n| Role | Responsibilities |\n|------|-----------------|\n| Validation Lead | Overall responsibility for the validation activities |\n| System Owner | Business owner of the system with ultimate responsibility |\n| IT/Engineering | Technical support and troubleshooting |\n| Quality Assurance | Review and approval of validation activities |\n| Test Executor | Execution of test scripts |\n| Subject Matter Expert | Provides domain expertise for testing |\n\n### 3.2 Required Qualifications\n[Describe minimum qualifications and training requirements for personnel involved in OQ activities]\n\n## 4. Test Strategy\n\n### 4.1 Functional Testing Strategy\nFunctional testing will verify that all system functions operate as specified in the User Requirements Specification (URS) and Functional Specification (FS). Testing will cover:\n- Core business functions\n- Workflow processes\n- Calculations and algorithms\n- Report generation\n- Data processing\n- User interface functionality\n\n### 4.2 Security Testing Strategy\nSecurity testing will verify that the system implements appropriate security controls:\n- User management functionality\n- Role-based access controls\n- Password policies and enforcement\n- Electronic signature functionality (if applicable)\n- Account lockout functionality\n- Session timeout functionality\n\n### 4.3 Interface Testing Strategy\nInterface testing will verify correct communication with other systems:\n- Data import/export functionality\n- Integration with other systems\n- File transfer capabilities\n- API functionality (if applicable)\n- Communication protocols\n\n### 4.4 Error Handling Testing Strategy\nError handling testing will verify system responses to error conditions:\n- Input validation\n- Error messages\n- System recovery capabilities\n- Data integrity during errors\n- Exception handling\n\n### 4.5 Data Integrity Testing Strategy\nData integrity testing will verify that data remains accurate and consistent:\n- Data entry validation\n- Data storage integrity\n- Data retrieval accuracy\n- Backup and recovery functionality\n- Data archiving functionality\n\n### 4.6 Audit Trail Testing Strategy\nAudit trail testing will verify the system&#39;s ability to track activities:\n- User actions logging\n- System event logging\n- Data changes tracking\n- Audit trail review functionality\n- Audit trail protection\n\n## 5. Test Cases with Expected Results\n\n### 5.1 Test Case Format\nEach test case includes:\n- Unique test case ID\n- Test objective\n- Prerequisites\n- Test procedure\n- Expected results\n- Actual results\n- Pass/fail determination\n- Comments/observations\n- Tester signature and date\n- Reviewer signature and date\n\n### 5.2 Normal Conditions Test Cases\n[Include detailed test cases for system functionality under normal operating conditions]\n\n#### 5.2.1 Functional Test Cases\n\n| Test ID | Test Objective | Test Procedure | Expected Results | Acceptance Criteria |\n|---------|---------------|----------------|------------------|---------------------|\n| OQ-FUNC-001 | | | | |\n| OQ-FUNC-002 | | | | |\n\n#### 5.2.2 Security Test Cases\n\n| Test ID | Test Objective | Test Procedure | Expected Results | Acceptance Criteria |\n|---------|---------------|----------------|------------------|---------------------|\n| OQ-SEC-001 | | | | |\n| OQ-SEC-002 | | | | |\n\n#### 5.2.3 Interface Test Cases\n\n| Test ID | Test Objective | Test Procedure | Expected Results | Acceptance Criteria |\n|---------|---------------|----------------|------------------|---------------------|\n| OQ-INT-001 | | | | |\n| OQ-INT-002 | | | | |\n\n#### 5.2.4 Audit Trail Test Cases\n\n| Test ID | Test Objective | Test Procedure | Expected Results | Acceptance Criteria |\n|---------|---------------|----------------|------------------|---------------------|\n| OQ-AUD-001 | | | | |\n| OQ-AUD-002 | | | | |\n\n### 5.3 Boundary Conditions Test Cases\n[Include detailed test cases for system functionality at the limits of operational parameters]\n\n#### 5.3.1 Maximum Load Test Cases\n\n| Test ID | Test Objective | Test Procedure | Expected Results | Acceptance Criteria |\n|---------|---------------|----------------|------------------|---------------------|\n| OQ-BND-001 | | | | |\n| OQ-BND-002 | | | | |\n\n#### 5.3.2 Minimum/Maximum Input Value Test Cases\n\n| Test ID | Test Objective | Test Procedure | Expected Results | Acceptance Criteria |\n|---------|---------------|----------------|------------------|---------------------|\n| OQ-BND-003 | | | | |\n| OQ-BND-004 | | | | |\n\n### 5.4 Error Conditions Test Cases\n[Include detailed test cases for system functionality under error conditions]\n\n#### 5.4.1 Input Error Test Cases\n\n| Test ID | Test Objective | Test Procedure | Expected Results | Acceptance Criteria |\n|---------|---------------|----------------|------------------|---------------------|\n| OQ-ERR-001 | | | | |\n| OQ-ERR-002 | | | | |\n\n#### 5.4.2 System Error Test Cases\n\n| Test ID | Test Objective | Test Procedure | Expected Results | Acceptance Criteria |\n|---------|---------------|----------------|------------------|---------------------|\n| OQ-ERR-003 | | | | |\n| OQ-ERR-004 | | | | |\n\n### 5.5 Data Integrity Test Cases\n\n| Test ID | Test Objective | Test Procedure | Expected Results | Acceptance Criteria |\n|---------|---------------|----------------|------------------|---------------------|\n| OQ-DAT-001 | | | | |\n| OQ-DAT-002 | | | | |\n\n## 6. Acceptance Criteria\n\n### 6.1 General Acceptance Criteria\n- All test cases must be executed\n- All critical and major test cases must pass\n- Any test failures must be documented, investigated, and resolved\n- All deviations must be documented and addressed\n\n### 6.2 Function-Specific Acceptance Criteria\n[Define specific acceptance criteria for key system functions]\n\n### 6.3 Performance Acceptance Criteria\n[Define performance-related acceptance criteria]\n\n## 7. Test Execution\n\n### 7.1 Test Summary Table\n\n| Test ID | Test Description | Status (Pass/Fail) | Executed By | Date | Comments |\n|---------|------------------|-------------------|------------|------|----------|\n| | | | | | |\n| | | | | | |\n\n### 7.2 Test Case Detail Sheets\n[Provide space for test execution documentation]\n\n## 8. Deviation Management\n\n### 8.1 Deviation Recording\nAll deviations encountered during execution of this protocol must be documented using the Deviation Form included in Appendix A.\n\n### 8.2 Deviation Classification\n- Critical: Directly impacts system functionality or regulatory compliance\n- Major: Impacts system performance but not critical functionality\n- Minor: No significant impact on system functionality or compliance\n\n### 8.3 Deviation Resolution\nAll deviations must be investigated, and appropriate corrective and preventive actions must be implemented before final approval of this protocol.\n\n### 8.4 Deviation Log\n\n| Deviation ID | Description | Classification | Impact Assessment | Resolution | Status | Closed By | Date |\n|--------------|-------------|----------------|-------------------|------------|--------|-----------|------|\n| | | | | | | | |\n\n## 9. Results Documentation\n\n### 9.1 Required Documentation\nThe following documentation must be included or referenced as attachments to this protocol:\n- Test result records\n- Screenshots of critical functions\n- System logs\n- Audit trail reports\n- Error logs\n- Performance data\n- Deviation reports (if applicable)\n\n### 9.2 Documentation Control\nAll documentation generated during OQ execution must be controlled according to the organization&#39;s document control procedures.\n\n## 10. Approval and Reporting\n\n### 10.1 Operational Qualification Summary\n[Provide space for summary of OQ execution]\n\n### 10.2 Conclusion Statement\n[Provide space for conclusion statement regarding OQ results]\n\n### 10.3 Final Approval\nBased on the results documented in this protocol, the operational qualification of [SYSTEM_NAME] is:\n- [ ] Approved\n- [ ] Approved with conditions (see attached)\n- [ ] Rejected\n\n### 10.4 Approval Signatures\n\n| Role | Name | Signature | Date |\n|------|------|-----------|------|\n| Validation Lead | | | |\n| System Owner | | | |\n| Quality Assurance | | | |\n| IT/Engineering | | | |\n\n## When to Use\n\nUse this template when operational qualification protocol template aligns with your project needs and governance requirements. This template is designed to support your project by providing structure and ensuring key considerations are documented.\n\n## When NOT to Use\n\nDo not use this template if your organization has established alternative processes or standards for this function, or if the level of detail exceeds your project&#39;s needs or governance requirements.\n\n## Appendices\n\n### Appendix A: Deviation Form Template\n\n**Deviation ID:** [DEVIATION_ID]  \n**Protocol/Test Case Reference:** [REFERENCE]  \n**Date Observed:** [DATE]  \n**Observed By:** [NAME]\n\n**Description of Deviation:**  \n[Provide detailed description]\n\n**Classification:**  \n- [ ] Critical\n- [ ] Major\n- [ ] Minor\n\n**Impact Assessment:**  \n[Describe impact on system, process, product, validation]\n\n**Root Cause Analysis:**  \n[Describe root cause]\n\n**Corrective Action:**  \n[Describe corrective action]\n\n**Preventive Action:**  \n[Describe preventive action]\n\n**Resolution:**  \n[Describe resolution]\n\n**Verification of Effectiveness:**  \n[Describe verification of effectiveness]\n\n**Approval of Resolution:**\n\n| Role | Name | Signature | Date |\n|------|------|-----------|------|\n| Validation Lead | | | |\n| System Owner | | | |\n| Quality Assurance | | | |\n\n### Appendix B: Test Case Examples\n\n#### Example Functional Test Case\n**Test ID:** OQ-FUNC-001  \n**Test Objective:** To verify that the system allows users to create a new record with valid data  \n**Prerequisites:**\n- System access with appropriate permissions\n- Test data available\n\n**Test Procedure:**\n1. Log in to the system with valid credentials\n2. Navigate to the record creation screen\n3. Enter valid data in all required fields\n4. Click the &#39;Save&#39; button\n5. Verify the record is saved\n6. Verify all entered data is correctly stored\n\n**Expected Results:**\n- System accepts all valid data\n- Record is successfully created\n- Confirmation message is displayed\n- Record appears in the database with correct data\n\n**Actual Results:** [To be completed during testing]  \n**Pass/Fail:** [To be completed during testing]  \n**Comments:** [To be completed during testing]\n\n#### Example Error Handling Test Case\n**Test ID:** OQ-ERR-001  \n**Test Objective:** To verify that the system properly validates required fields  \n**Prerequisites:**\n- System access with appropriate permissions\n\n**Test Procedure:**\n1. Log in to the system with valid credentials\n2. Navigate to the record creation screen\n3. Leave required fields blank\n4. Click the &#39;Save&#39; button\n5. Observe system response\n\n**Expected Results:**\n- System prevents record creation\n- Error messages identify missing required fields\n- Data entered in other fields is retained\n- No partial/incomplete record is saved\n\n**Actual Results:** [To be completed during testing]  \n**Pass/Fail:** [To be completed during testing]  \n**Comments:** [To be completed during testing]\n\n### Appendix C: Glossary\n[Include definitions of key terms used in the protocol]\n\n### Appendix D: References\n- FDA 21 CFR Part 11\n- FDA 21 CFR Part 210/211\n- EU GMP Annex 11\n- EU GMP Annex 15\n- GAMP 5 Guidelines\n- [OTHER REFERENCES]\n&quot;]}" ssr client="load" opts="{&quot;name&quot;:&quot;TemplateViewer&quot;,&quot;value&quot;:true}" await-children><div><h1>Operational Qualification Protocol Template</h1><div style="margin-bottom:2rem"><button style="background:var(--accent-color);color:white;border:1px solid var(--border-color);padding:0.5rem 1rem;border-radius:4px 4px 0 0;cursor:pointer;margin-right:1px">Preview</button><button style="background:var(--code-bg);color:var(--text-color);border:1px solid var(--border-color);padding:0.5rem 1rem;border-radius:4px 4px 0 0;cursor:pointer">Version History</button></div><div style="border:1px solid var(--border-color);border-radius:0 8px 8px 8px;min-height:400px"><div style="background:var(--bg-primary);border-radius:var(--radius-lg)"><div style="padding:1rem 1.5rem;border-bottom:1px solid var(--border-light);display:flex;align-items:center;justify-content:space-between;background:var(--bg-secondary);border-radius:var(--radius-lg) var(--radius-lg) 0 0"><div style="display:flex;align-items:center;gap:0.5rem"><span style="font-size:1.5rem">📄</span><div><div style="font-weight:600;color:var(--text-primary)">operational_qualification_protocol_template.md</div><div style="font-size:0.75rem;color:var(--text-muted)">Markdown • <!-- -->14,246 bytes</div></div></div><a href="/pm-tools-templates/downloads/operational_qualification_protocol_template.md" download="" class="btn btn-secondary" style="font-size:0.75rem;padding:0.5rem 0.75rem">💾 Download</a></div><pre aria-label="Markdown source of Operational Qualification Protocol Template" style="padding:1.5rem;max-height:600px;overflow:auto;white-space:pre-wrap;overflow-wrap:anywhere">---
+title: Operational Qualification Protocol Template
+methodology: universal
+complexity: advanced
+owner: mirichard
+updated: &#x27;2025-08-05&#x27;
+primary_principles:
+- stewardship
+- quality-by-design
+secondary_principles:
+- evidence-based-decisions
+- risk-optimization
+principle_rationale: Protects safety and integrity through quality-by-design and stewardship
+  principles.
+---
+
+# Operational Qualification (OQ) Protocol Template
+
+## Document Control
+
+**Document ID:** OQ-PROTO-[SYSTEM_ID]  
+**Version:** 1.0  
+**Effective Date:** [EFFECTIVE_DATE]  
+**Review Date:** [REVIEW_DATE]  
+**Supersedes:** N/A (Initial Version)
+
+### Revision History
+
+| Version | Date | Description of Change | Author | Approved By |
+|---------|------|------------------------|--------|-------------|
+| 1.0 | [DATE] | Initial Release | [NAME] | [NAME] |
+
+### Approvals
+
+| Role | Name | Signature | Date |
+|------|------|-----------|------|
+| Protocol Author | | | |
+| Quality Assurance | | | |
+| IT/Engineering | | | |
+| Validation Lead | | | |
+| System Owner | | | |
+| Quality Control (if applicable) | | | |
+
+## 1. Introduction and Purpose
+
+### 1.1 Purpose
+This Operational Qualification (OQ) Protocol defines the approach, methodology, and acceptance criteria for verifying that the [SYSTEM_NAME] functions according to its intended operational specifications. This protocol is designed to document evidence that all system functions operate correctly under normal and challenging conditions, meeting user requirements and regulatory expectations.
+
+### 1.2 Scope
+This protocol covers the operational qualification of [SYSTEM_NAME], including functional testing, security testing, interface testing, error handling, data integrity verification, and audit trail testing. The OQ verifies that the system operates as specified and is suitable for its intended use in the production environment.
+
+### 1.3 Regulatory Framework
+This protocol follows:
+- FDA 21 CFR Part 11 (Electronic Records and Electronic Signatures)
+- FDA 21 CFR Part 210/211 (cGMP for Finished Pharmaceuticals)
+- EU GMP Annex 11 (Computerized Systems)
+- EU GMP Annex 15 (Qualification and Validation)
+- GAMP 5 Guidelines (Good Automated Manufacturing Practice)
+- [OTHER APPLICABLE REGULATIONS]
+
+## 2. System Description
+
+### 2.1 System Overview
+[Provide a brief description of the system, its intended use, and its components]
+
+### 2.2 System Configuration
+- **Hardware Components:** [List all hardware components with model numbers, serial numbers, etc.]
+- **Software Components:** [List all software with version numbers]
+- **Interfaces:** [List all interfaces with other systems]
+- **Operating Environment:** [Describe the operating environment]
+
+### 2.3 System Classification
+According to GAMP 5 categorization, this system is classified as Category [X] software.
+
+### 2.4 Prerequisite Conditions
+- Successfully completed Installation Qualification (IQ)
+- [OTHER PREREQUISITES]
+
+## 3. Personnel Responsibilities and Qualifications
+
+### 3.1 Roles and Responsibilities
+
+| Role | Responsibilities |
+|------|-----------------|
+| Validation Lead | Overall responsibility for the validation activities |
+| System Owner | Business owner of the system with ultimate responsibility |
+| IT/Engineering | Technical support and troubleshooting |
+| Quality Assurance | Review and approval of validation activities |
+| Test Executor | Execution of test scripts |
+| Subject Matter Expert | Provides domain expertise for testing |
+
+### 3.2 Required Qualifications
+[Describe minimum qualifications and training requirements for personnel involved in OQ activities]
+
+## 4. Test Strategy
+
+### 4.1 Functional Testing Strategy
+Functional testing will verify that all system functions operate as specified in the User Requirements Specification (URS) and Functional Specification (FS). Testing will cover:
+- Core business functions
+- Workflow processes
+- Calculations and algorithms
+- Report generation
+- Data processing
+- User interface functionality
+
+### 4.2 Security Testing Strategy
+Security testing will verify that the system implements appropriate security controls:
+- User management functionality
+- Role-based access controls
+- Password policies and enforcement
+- Electronic signature functionality (if applicable)
+- Account lockout functionality
+- Session timeout functionality
+
+### 4.3 Interface Testing Strategy
+Interface testing will verify correct communication with other systems:
+- Data import/export functionality
+- Integration with other systems
+- File transfer capabilities
+- API functionality (if applicable)
+- Communication protocols
+
+### 4.4 Error Handling Testing Strategy
+Error handling testing will verify system responses to error conditions:
+- Input validation
+- Error messages
+- System recovery capabilities
+- Data integrity during errors
+- Exception handling
+
+### 4.5 Data Integrity Testing Strategy
+Data integrity testing will verify that data remains accurate and consistent:
+- Data entry validation
+- Data storage integrity
+- Data retrieval accuracy
+- Backup and recovery functionality
+- Data archiving functionality
+
+### 4.6 Audit Trail Testing Strategy
+Audit trail testing will verify the system&#x27;s ability to track activities:
+- User actions logging
+- System event logging
+- Data changes tracking
+- Audit trail review functionality
+- Audit trail protection
+
+## 5. Test Cases with Expected Results
+
+### 5.1 Test Case Format
+Each test case includes:
+- Unique test case ID
+- Test objective
+- Prerequisites
+- Test procedure
+- Expected results
+- Actual results
+- Pass/fail determination
+- Comments/observations
+- Tester signature and date
+- Reviewer signature and date
+
+### 5.2 Normal Conditions Test Cases
+[Include detailed test cases for system functionality under normal operating conditions]
+
+#### 5.2.1 Functional Test Cases
+
+| Test ID | Test Objective | Test Procedure | Expected Results | Acceptance Criteria |
+|---------|---------------|----------------|------------------|---------------------|
+| OQ-FUNC-001 | | | | |
+| OQ-FUNC-002 | | | | |
+
+#### 5.2.2 Security Test Cases
+
+| Test ID | Test Objective | Test Procedure | Expected Results | Acceptance Criteria |
+|---------|---------------|----------------|------------------|---------------------|
+| OQ-SEC-001 | | | | |
+| OQ-SEC-002 | | | | |
+
+#### 5.2.3 Interface Test Cases
+
+| Test ID | Test Objective | Test Procedure | Expected Results | Acceptance Criteria |
+|---------|---------------|----------------|------------------|---------------------|
+| OQ-INT-001 | | | | |
+| OQ-INT-002 | | | | |
+
+#### 5.2.4 Audit Trail Test Cases
+
+| Test ID | Test Objective | Test Procedure | Expected Results | Acceptance Criteria |
+|---------|---------------|----------------|------------------|---------------------|
+| OQ-AUD-001 | | | | |
+| OQ-AUD-002 | | | | |
+
+### 5.3 Boundary Conditions Test Cases
+[Include detailed test cases for system functionality at the limits of operational parameters]
+
+#### 5.3.1 Maximum Load Test Cases
+
+| Test ID | Test Objective | Test Procedure | Expected Results | Acceptance Criteria |
+|---------|---------------|----------------|------------------|---------------------|
+| OQ-BND-001 | | | | |
+| OQ-BND-002 | | | | |
+
+#### 5.3.2 Minimum/Maximum Input Value Test Cases
+
+| Test ID | Test Objective | Test Procedure | Expected Results | Acceptance Criteria |
+|---------|---------------|----------------|------------------|---------------------|
+| OQ-BND-003 | | | | |
+| OQ-BND-004 | | | | |
+
+### 5.4 Error Conditions Test Cases
+[Include detailed test cases for system functionality under error conditions]
+
+#### 5.4.1 Input Error Test Cases
+
+| Test ID | Test Objective | Test Procedure | Expected Results | Acceptance Criteria |
+|---------|---------------|----------------|------------------|---------------------|
+| OQ-ERR-001 | | | | |
+| OQ-ERR-002 | | | | |
+
+#### 5.4.2 System Error Test Cases
+
+| Test ID | Test Objective | Test Procedure | Expected Results | Acceptance Criteria |
+|---------|---------------|----------------|------------------|---------------------|
+| OQ-ERR-003 | | | | |
+| OQ-ERR-004 | | | | |
+
+### 5.5 Data Integrity Test Cases
+
+| Test ID | Test Objective | Test Procedure | Expected Results | Acceptance Criteria |
+|---------|---------------|----------------|------------------|---------------------|
+| OQ-DAT-001 | | | | |
+| OQ-DAT-002 | | | | |
+
+## 6. Acceptance Criteria
+
+### 6.1 General Acceptance Criteria
+- All test cases must be executed
+- All critical and major test cases must pass
+- Any test failures must be documented, investigated, and resolved
+- All deviations must be documented and addressed
+
+### 6.2 Function-Specific Acceptance Criteria
+[Define specific acceptance criteria for key system functions]
+
+### 6.3 Performance Acceptance Criteria
+[Define performance-related acceptance criteria]
+
+## 7. Test Execution
+
+### 7.1 Test Summary Table
+
+| Test ID | Test Description | Status (Pass/Fail) | Executed By | Date | Comments |
+|---------|------------------|-------------------|------------|------|----------|
+| | | | | | |
+| | | | | | |
+
+### 7.2 Test Case Detail Sheets
+[Provide space for test execution documentation]
+
+## 8. Deviation Management
+
+### 8.1 Deviation Recording
+All deviations encountered during execution of this protocol must be documented using the Deviation Form included in Appendix A.
+
+### 8.2 Deviation Classification
+- Critical: Directly impacts system functionality or regulatory compliance
+- Major: Impacts system performance but not critical functionality
+- Minor: No significant impact on system functionality or compliance
+
+### 8.3 Deviation Resolution
+All deviations must be investigated, and appropriate corrective and preventive actions must be implemented before final approval of this protocol.
+
+### 8.4 Deviation Log
+
+| Deviation ID | Description | Classification | Impact Assessment | Resolution | Status | Closed By | Date |
+|--------------|-------------|----------------|-------------------|------------|--------|-----------|------|
+| | | | | | | | |
+
+## 9. Results Documentation
+
+### 9.1 Required Documentation
+The following documentation must be included or referenced as attachments to this protocol:
+- Test result records
+- Screenshots of critical functions
+- System logs
+- Audit trail reports
+- Error logs
+- Performance data
+- Deviation reports (if applicable)
+
+### 9.2 Documentation Control
+All documentation generated during OQ execution must be controlled according to the organization&#x27;s document control procedures.
+
+## 10. Approval and Reporting
+
+### 10.1 Operational Qualification Summary
+[Provide space for summary of OQ execution]
+
+### 10.2 Conclusion Statement
+[Provide space for conclusion statement regarding OQ results]
+
+### 10.3 Final Approval
+Based on the results documented in this protocol, the operational qualification of [SYSTEM_NAME] is:
+- [ ] Approved
+- [ ] Approved with conditions (see attached)
+- [ ] Rejected
+
+### 10.4 Approval Signatures
+
+| Role | Name | Signature | Date |
+|------|------|-----------|------|
+| Validation Lead | | | |
+| System Owner | | | |
+| Quality Assurance | | | |
+| IT/Engineering | | | |
+
+## When to Use
+
+Use this template when operational qualification protocol template aligns with your project needs and governance requirements. This template is designed to support your project by providing structure and ensuring key considerations are documented.
+
+## When NOT to Use
+
+Do not use this template if your organization has established alternative processes or standards for this function, or if the level of detail exceeds your project&#x27;s needs or governance requirements.
+
+## Appendices
+
+### Appendix A: Deviation Form Template
+
+**Deviation ID:** [DEVIATION_ID]  
+**Protocol/Test Case Reference:** [REFERENCE]  
+**Date Observed:** [DATE]  
+**Observed By:** [NAME]
+
+**Description of Deviation:**  
+[Provide detailed description]
+
+**Classification:**  
+- [ ] Critical
+- [ ] Major
+- [ ] Minor
+
+**Impact Assessment:**  
+[Describe impact on system, process, product, validation]
+
+**Root Cause Analysis:**  
+[Describe root cause]
+
+**Corrective Action:**  
+[Describe corrective action]
+
+**Preventive Action:**  
+[Describe preventive action]
+
+**Resolution:**  
+[Describe resolution]
+
+**Verification of Effectiveness:**  
+[Describe verification of effectiveness]
+
+**Approval of Resolution:**
+
+| Role | Name | Signature | Date |
+|------|------|-----------|------|
+| Validation Lead | | | |
+| System Owner | | | |
+| Quality Assurance | | | |
+
+### Appendix B: Test Case Examples
+
+#### Example Functional Test Case
+**Test ID:** OQ-FUNC-001  
+**Test Objective:** To verify that the system allows users to create a new record with valid data  
+**Prerequisites:**
+- System access with appropriate permissions
+- Test data available
+
+**Test Procedure:**
+1. Log in to the system with valid credentials
+2. Navigate to the record creation screen
+3. Enter valid data in all required fields
+4. Click the &#x27;Save&#x27; button
+5. Verify the record is saved
+6. Verify all entered data is correctly stored
+
+**Expected Results:**
+- System accepts all valid data
+- Record is successfully created
+- Confirmation message is displayed
+- Record appears in the database with correct data
+
+**Actual Results:** [To be completed during testing]  
+**Pass/Fail:** [To be completed during testing]  
+**Comments:** [To be completed during testing]
+
+#### Example Error Handling Test Case
+**Test ID:** OQ-ERR-001  
+**Test Objective:** To verify that the system properly validates required fields  
+**Prerequisites:**
+- System access with appropriate permissions
+
+**Test Procedure:**
+1. Log in to the system with valid credentials
+2. Navigate to the record creation screen
+3. Leave required fields blank
+4. Click the &#x27;Save&#x27; button
+5. Observe system response
+
+**Expected Results:**
+- System prevents record creation
+- Error messages identify missing required fields
+- Data entered in other fields is retained
+- No partial/incomplete record is saved
+
+**Actual Results:** [To be completed during testing]  
+**Pass/Fail:** [To be completed during testing]  
+**Comments:** [To be completed during testing]
+
+### Appendix C: Glossary
+[Include definitions of key terms used in the protocol]
+
+### Appendix D: References
+- FDA 21 CFR Part 11
+- FDA 21 CFR Part 210/211
+- EU GMP Annex 11
+- EU GMP Annex 15
+- GAMP 5 Guidelines
+- [OTHER REFERENCES]
+</pre></div></div></div><!--astro:end--></astro-island></main></body></html>

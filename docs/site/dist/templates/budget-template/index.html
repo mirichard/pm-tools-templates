@@ -1,0 +1,377 @@
+<!DOCTYPE html><html lang="en" data-astro-cid-ju4pidww><head><meta charset="UTF-8"><meta name="description" content="Advanced template browser with previews and version history"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="icon" type="image/svg+xml" href="/pm-tools-templates/favicon.svg"><title>Budget Template</title><link rel="stylesheet" href="/pm-tools-templates/assets/Layout.ChXqTIwx.css"></head><body data-astro-cid-ju4pidww><main data-astro-cid-ju4pidww><style>astro-island,astro-slot,astro-static-slot{display:contents}</style><script>(()=>{var e=async t=>{await(await t())()};(self.Astro||(self.Astro={})).load=e;window.dispatchEvent(new Event("astro:load"));})();</script><script>(()=>{var g=Object.defineProperty;var w=(a,s,c)=>s in a?g(a,s,{enumerable:!0,configurable:!0,writable:!0,value:c}):a[s]=c;var l=(a,s,c)=>w(a,typeof s!="symbol"?s+"":s,c);var E=new Set(["__proto__","constructor","prototype"]);{let a={0:t=>y(t),1:t=>c(t),2:t=>new RegExp(t),3:t=>new Date(t),4:t=>new Map(c(t)),5:t=>new Set(c(t)),6:t=>BigInt(t),7:t=>new URL(t),8:t=>new Uint8Array(t),9:t=>new Uint16Array(t),10:t=>new Uint32Array(t),11:t=>Number.POSITIVE_INFINITY*t},s=t=>{let[p,e]=t;return p in a?a[p](e):void 0},c=t=>t.map(s),y=t=>typeof t!="object"||t===null?t:Object.fromEntries(Object.entries(t).map(([p,e])=>[p,s(e)]));class f extends HTMLElement{constructor(){super(...arguments);l(this,"Component");l(this,"hydrator");l(this,"hydrate",async()=>{var b;if(!this.hydrator||!this.isConnected)return;let e=(b=this.parentElement)==null?void 0:b.closest("astro-island[ssr]");if(e){e.addEventListener("astro:hydrate",this.hydrate,{once:!0});return}let r=this.querySelectorAll("astro-slot"),n={},d=this.querySelectorAll("template[data-astro-template]");for(let o of d){let i=o.closest(this.tagName);i!=null&&i.isSameNode(this)&&(n[o.getAttribute("data-astro-template")||"default"]=o.innerHTML,o.remove())}for(let o of r){let i=o.closest(this.tagName);i!=null&&i.isSameNode(this)&&(n[o.getAttribute("name")||"default"]=o.innerHTML)}let u;try{u=this.hasAttribute("props")?y(JSON.parse(this.getAttribute("props"))):{}}catch(o){let i=this.getAttribute("component-url")||"<unknown>",v=this.getAttribute("component-export");throw v&&(i+=` (export ${v})`),console.error(`[hydrate] Error parsing props for component ${i}`,this.getAttribute("props"),o),o}let h;await this.hydrator(this)(this.Component,u,n,{client:this.getAttribute("client")}),this.removeAttribute("ssr"),this.dispatchEvent(new CustomEvent("astro:hydrate"))});l(this,"unmount",()=>{this.isConnected||this.dispatchEvent(new CustomEvent("astro:unmount"))})}disconnectedCallback(){document.removeEventListener("astro:after-swap",this.unmount),document.addEventListener("astro:after-swap",this.unmount,{once:!0})}connectedCallback(){if(!this.hasAttribute("await-children")||document.readyState==="interactive"||document.readyState==="complete")this.childrenConnectedCallback();else{let e=()=>{document.removeEventListener("DOMContentLoaded",e),r.disconnect(),this.childrenConnectedCallback()},r=new MutationObserver(()=>{var n;((n=this.lastChild)==null?void 0:n.nodeType)===Node.COMMENT_NODE&&this.lastChild.nodeValue==="astro:end"&&(this.lastChild.remove(),e())});r.observe(this,{childList:!0}),document.addEventListener("DOMContentLoaded",e)}}async childrenConnectedCallback(){let e=this.getAttribute("before-hydration-url");e&&await import(e),this.start()}getRetryImportUrl(e){let r=new URL(e,document.baseURI);return r.searchParams.set("astro-retry",Date.now().toString()),r.toString()}async importWithRetry(e){try{return await import(e)}catch(r){return await new Promise(n=>setTimeout(n,1e3)),import(this.getRetryImportUrl(e))}}handleHydrationError(e){let r=this.getAttribute("component-url"),n=new CustomEvent("astro:hydration-error",{cancelable:!0,bubbles:!0,composed:!0,detail:{error:e,componentUrl:r}});this.dispatchEvent(n)&&console.error(`[astro-island] Error hydrating ${r}`,e)}async start(){let e=JSON.parse(this.getAttribute("opts")),r=this.getAttribute("client");if(Astro[r]===void 0){window.addEventListener(`astro:${r}`,()=>this.start(),{once:!0});return}try{await Astro[r](async()=>{let n=this.getAttribute("renderer-url");try{let[d,{default:u}]=await Promise.all([this.importWithRetry(this.getAttribute("component-url")),n?this.importWithRetry(n):Promise.resolve({default:()=>()=>{}})]),h=this.getAttribute("component-export")||"default";if(h.includes(".")){this.Component=d;for(let m of h.split(".")){if(E.has(m)||!this.Component||typeof this.Component!="object"&&typeof this.Component!="function"||!Object.hasOwn(this.Component,m))throw new Error(`Invalid component export path: ${h}`);this.Component=this.Component[m]}}else{if(E.has(h))throw new Error(`Invalid component export path: ${h}`);this.Component=d[h]}return this.hydrator=u,this.hydrate}catch(d){return this.handleHydrationError(d),()=>{}}},e,this)}catch(n){this.handleHydrationError(n)}}attributeChangedCallback(){this.hydrate()}}l(f,"observedAttributes",["props"]),customElements.get("astro-island")||customElements.define("astro-island",f)}})();</script><astro-island uid="Zbhti7" prefix="r1" component-url="/pm-tools-templates/assets/TemplateViewer.BJxWH0dD.js" component-export="default" renderer-url="/pm-tools-templates/assets/client.REQV_TkY.js" props="{&quot;templateId&quot;:[0,&quot;budget-template&quot;],&quot;filePath&quot;:[0,&quot;domains/planning/role-based-toolkits/project-manager/essential-templates/budget-template.md&quot;],&quot;title&quot;:[0,&quot;Budget Template&quot;],&quot;content&quot;:[0,&quot;---\ntitle: \&quot;Budget Template\&quot;\nmethodology: \&quot;universal\&quot;\ncomplexity: \&quot;advanced\&quot;\nowner: \&quot;mirichard\&quot;\nupdated: \&quot;2025-08-05\&quot;\nprimary_principles: [\&quot;stewardship\&quot;, \&quot;value-focus\&quot;]\nsecondary_principles: [\&quot;evidence-based-decisions\&quot;, \&quot;risk-optimization\&quot;]\nprinciple_rationale: \&quot;Plans responsible resource use against value assumptions and financial uncertainty.\&quot;\n---\n\n# Project Budget Template\n\n## Budget Overview\n\n### Project Information\n- **Project Name**: [Project Name]\n- **Project Manager**: [Name]\n- **Budget Prepared By**: [Name]\n- **Date Created**: [Date]\n- **Budget Period**: [Start Date] to [End Date]\n- **Version**: [Version Number]\n- **Last Updated**: [Date]\n\n### Budget Summary\n- **Total Project Budget**: $[Total Amount]\n- **Approved Budget**: $[Approved Amount]\n- **Committed Costs**: $[Committed Amount]\n- **Actual Costs to Date**: $[Actual Amount]\n- **Remaining Budget**: $[Remaining Amount]\n- **Budget Performance**: [On Track/Over/Under Budget]\n\n### Budget Methodology\n- **Estimation Method**: [Bottom-up/Top-down/Analogous/Parametric]\n- **Currency**: [Currency]\n- **Contingency Reserve**: [Percentage]% ($[Amount])\n- **Management Reserve**: [Percentage]% ($[Amount])\n- **Budget Accuracy**: +/- [Percentage]%\n\n## Budget Breakdown Structure\n\n### Cost Categories Overview\n| Category | Budgeted Amount | Actual Amount | Committed | Remaining | Variance | % of Total |\n|----------|----------------|---------------|-----------|-----------|----------|------------|\n| **Personnel** | $[Amount] | $[Amount] | $[Amount] | $[Amount] | $[Variance] | [XX%] |\n| **Equipment** | $[Amount] | $[Amount] | $[Amount] | $[Amount] | $[Variance] | [XX%] |\n| **Materials** | $[Amount] | $[Amount] | $[Amount] | $[Amount] | $[Variance] | [XX%] |\n| **Services** | $[Amount] | $[Amount] | $[Amount] | $[Amount] | $[Variance] | [XX%] |\n| **Travel** | $[Amount] | $[Amount] | $[Amount] | $[Amount] | $[Variance] | [XX%] |\n| **Training** | $[Amount] | $[Amount] | $[Amount] | $[Amount] | $[Variance] | [XX%] |\n| **Other** | $[Amount] | $[Amount] | $[Amount] | $[Amount] | $[Variance] | [XX%] |\n| **Contingency** | $[Amount] | $[Amount] | $[Amount] | $[Amount] | $[Variance] | [XX%] |\n| **Total** | **$[Total]** | **$[Total]** | **$[Total]** | **$[Total]** | **$[Total]** | **100%** |\n\n### Budget by Work Breakdown Structure\n| WBS Element | WBS Code | Budgeted Cost | Actual Cost | Variance | % Complete | EAC |\n|-------------|----------|---------------|-------------|----------|------------|-----|\n| [WBS Element 1] | 1.1 | $[Amount] | $[Amount] | $[Variance] | [XX%] | $[EAC] |\n| [WBS Element 2] | 1.2 | $[Amount] | $[Amount] | $[Variance] | [XX%] | $[EAC] |\n| [WBS Element 3] | 1.3 | $[Amount] | $[Amount] | $[Variance] | [XX%] | $[EAC] |\n| **Project Total** | 1.0 | **$[Total]** | **$[Total]** | **$[Variance]** | **[XX%]** | **$[EAC]** |\n\n## Personnel Costs\n\n### Labor Categories\n| Role/Category | Rate | Planned Hours | Total Budget | Actual Hours | Actual Cost | Variance |\n|---------------|------|---------------|--------------|--------------|-------------|----------|\n| **Project Manager** | $[Rate]/hr | [Hours] | $[Amount] | [Hours] | $[Amount] | $[Variance] |\n| **Technical Lead** | $[Rate]/hr | [Hours] | $[Amount] | [Hours] | $[Amount] | $[Variance] |\n| **Senior Developer** | $[Rate]/hr | [Hours] | $[Amount] | [Hours] | $[Amount] | $[Variance] |\n| **Junior Developer** | $[Rate]/hr | [Hours] | $[Amount] | [Hours] | $[Amount] | $[Variance] |\n| **Business Analyst** | $[Rate]/hr | [Hours] | $[Amount] | [Hours] | $[Amount] | $[Variance] |\n| **QA Engineer** | $[Rate]/hr | [Hours] | $[Amount] | [Hours] | $[Amount] | $[Variance] |\n| **Subject Matter Expert** | $[Rate]/hr | [Hours] | $[Amount] | [Hours] | $[Amount] | $[Variance] |\n| **Total Personnel** | | **[Hours]** | **$[Amount]** | **[Hours]** | **$[Amount]** | **$[Variance]** |\n\n### Benefits and Overhead\n| Cost Element | Rate | Base | Amount | Notes |\n|--------------|------|------|--------|-------|\n| **Payroll Taxes** | [XX%] | $[Base] | $[Amount] | Social Security, Medicare, etc. |\n| **Benefits** | [XX%] | $[Base] | $[Amount] | Health, dental, retirement |\n| **Overhead** | [XX%] | $[Base] | $[Amount] | Facilities, utilities, admin |\n| **Total Burden** | **[XX%]** | **$[Base]** | **$[Amount]** | |\n\n### External Personnel\n| Resource Type | Vendor | Rate | Planned Hours | Budget | Actual Cost | Contract # |\n|---------------|--------|------|---------------|--------|-------------|------------|\n| [External Role 1] | [Vendor] | $[Rate]/hr | [Hours] | $[Amount] | $[Amount] | [Contract] |\n| [External Role 2] | [Vendor] | $[Rate]/hr | [Hours] | $[Amount] | $[Amount] | [Contract] |\n| **Total External** | | | **[Hours]** | **$[Amount]** | **$[Amount]** | |\n\n## Equipment and Technology Costs\n\n### Hardware Budget\n| Equipment | Quantity | Unit Cost | Total Budget | Purchase Date | Actual Cost | Vendor |\n|-----------|----------|-----------|--------------|---------------|-------------|--------|\n| [Equipment 1] | [Qty] | $[Cost] | $[Total] | [Date] | $[Actual] | [Vendor] |\n| [Equipment 2] | [Qty] | $[Cost] | $[Total] | [Date] | $[Actual] | [Vendor] |\n| [Equipment 3] | [Qty] | $[Cost] | $[Total] | [Date] | $[Actual] | [Vendor] |\n| **Total Hardware** | | | **$[Total]** | | **$[Total]** | |\n\n### Software Budget\n| Software | License Type | Quantity | Unit Cost | Total Budget | Actual Cost | Duration |\n|----------|--------------|----------|-----------|--------------|-------------|----------|\n| [Software 1] | [Type] | [Qty] | $[Cost] | $[Total] | $[Actual] | [Duration] |\n| [Software 2] | [Type] | [Qty] | $[Cost] | $[Total] | $[Actual] | [Duration] |\n| [Software 3] | [Type] | [Qty] | $[Cost] | $[Total] | $[Actual] | [Duration] |\n| **Total Software** | | | | **$[Total]** | **$[Total]** | |\n\n### Infrastructure and Cloud Services\n| Service | Provider | Monthly Cost | Duration | Total Budget | Actual Cost | Notes |\n|---------|----------|--------------|----------|--------------|-------------|-------|\n| [Service 1] | [Provider] | $[Monthly] | [Months] | $[Total] | $[Actual] | [Notes] |\n| [Service 2] | [Provider] | $[Monthly] | [Months] | $[Total] | $[Actual] | [Notes] |\n| **Total Infrastructure** | | | | **$[Total]** | **$[Total]** | |\n\n## Materials and Supplies\n\n### Materials Budget\n| Material | Unit | Quantity | Unit Cost | Total Budget | Actual Cost | Supplier |\n|----------|------|----------|-----------|--------------|-------------|----------|\n| [Material 1] | [Unit] | [Qty] | $[Cost] | $[Total] | $[Actual] | [Supplier] |\n| [Material 2] | [Unit] | [Qty] | $[Cost] | $[Total] | $[Actual] | [Supplier] |\n| [Material 3] | [Unit] | [Qty] | $[Cost] | $[Total] | $[Actual] | [Supplier] |\n| **Total Materials** | | | | **$[Total]** | **$[Total]** | |\n\n### Office Supplies and Consumables\n| Item | Monthly Budget | Project Duration | Total Budget | Actual Cost | Variance |\n|------|----------------|------------------|--------------|-------------|----------|\n| Office Supplies | $[Monthly] | [Months] | $[Total] | $[Actual] | $[Variance] |\n| Printing/Communications | $[Monthly] | [Months] | $[Total] | $[Actual] | $[Variance] |\n| **Total Supplies** | | | **$[Total]** | **$[Total]** | **$[Variance]** |\n\n## External Services\n\n### Professional Services\n| Service Type | Provider | Description | Budget | Actual Cost | Contract # | Status |\n|--------------|----------|-------------|--------|-------------|------------|--------|\n| [Service 1] | [Provider] | [Description] | $[Amount] | $[Actual] | [Contract] | [Status] |\n| [Service 2] | [Provider] | [Description] | $[Amount] | $[Actual] | [Contract] | [Status] |\n| [Service 3] | [Provider] | [Description] | $[Amount] | $[Actual] | [Contract] | [Status] |\n| **Total Services** | | | **$[Total]** | **$[Total]** | | |\n\n### Vendor Contracts\n| Vendor | Contract Value | Payment Terms | Start Date | End Date | Deliverables | Risk Level |\n|--------|----------------|---------------|------------|----------|--------------|------------|\n| [Vendor 1] | $[Value] | [Terms] | [Date] | [Date] | [Deliverables] | [Level] |\n| [Vendor 2] | $[Value] | [Terms] | [Date] | [Date] | [Deliverables] | [Level] |\n\n## Travel and Training Costs\n\n### Travel Budget\n| Travel Type | Purpose | Estimated Trips | Cost per Trip | Total Budget | Actual Cost | Variance |\n|-------------|---------|----------------|---------------|--------------|-------------|----------|\n| Project Meetings | [Purpose] | [Trips] | $[Cost] | $[Total] | $[Actual] | $[Variance] |\n| Training Travel | [Purpose] | [Trips] | $[Cost] | $[Total] | $[Actual] | $[Variance] |\n| Stakeholder Visits | [Purpose] | [Trips] | $[Cost] | $[Total] | $[Actual] | $[Variance] |\n| **Total Travel** | | | | **$[Total]** | **$[Total]** | **$[Variance]** |\n\n### Training Budget\n| Training | Target Audience | Duration | Cost per Person | Participants | Total Budget | Actual Cost |\n|----------|----------------|----------|----------------|--------------|--------------|-------------|\n| [Training 1] | [Audience] | [Duration] | $[Cost] | [Count] | $[Total] | $[Actual] |\n| [Training 2] | [Audience] | [Duration] | $[Cost] | [Count] | $[Total] | $[Actual] |\n| **Total Training** | | | | | **$[Total]** | **$[Total]** |\n\n## Budget Timeline and Cash Flow\n\n### Monthly Budget Distribution\n| Month | Personnel | Equipment | Materials | Services | Travel | Training | Other | Total | Cumulative |\n|-------|-----------|-----------|-----------|----------|--------|----------|-------|-------|------------|\n| [Month 1] | $[Amount] | $[Amount] | $[Amount] | $[Amount] | $[Amount] | $[Amount] | $[Amount] | $[Total] | $[Cumulative] |\n| [Month 2] | $[Amount] | $[Amount] | $[Amount] | $[Amount] | $[Amount] | $[Amount] | $[Amount] | $[Total] | $[Cumulative] |\n| [Month 3] | $[Amount] | $[Amount] | $[Amount] | $[Amount] | $[Amount] | $[Amount] | $[Amount] | $[Total] | $[Cumulative] |\n| **Total** | **$[Total]** | **$[Total]** | **$[Total]** | **$[Total]** | **$[Total]** | **$[Total]** | **$[Total]** | **$[Total]** | |\n\n### Cash Flow Projection\n```\nMonthly Cash Flow\n\n$Amount\n  150K |     ████\n       |   ██████\n  100K | ████████\n       | ████████\n   50K | ████████████\n       | ████████████\n     0 |_____________\n       M1 M2 M3 M4 M5 M6\n\nLegend:\n██ Planned Expenditure\n░░ Actual Expenditure\n```\n\n### Funding Requirements\n| Funding Milestone | Date | Amount | Approval Status | Funding Source | Risk |\n|------------------|------|--------|-----------------|----------------|------|\n| Initial Funding | [Date] | $[Amount] | [Status] | [Source] | [Risk] |\n| Phase 2 Funding | [Date] | $[Amount] | [Status] | [Source] | [Risk] |\n| Final Funding | [Date] | $[Amount] | [Status] | [Source] | [Risk] |\n\n## Cost Performance Analysis\n\n### Earned Value Metrics\n| Metric | Value | Status | Trend | Target |\n|--------|-------|--------|-------|--------|\n| **Planned Value (PV)** | $[Amount] | | [↗️/↘️/➡️] | $[Target] |\n| **Earned Value (EV)** | $[Amount] | | [↗️/↘️/➡️] | $[Target] |\n| **Actual Cost (AC)** | $[Amount] | | [↗️/↘️/➡️] | $[Target] |\n| **Cost Variance (CV)** | $[Amount] | [Status] | [↗️/↘️/➡️] | $0 |\n| **Cost Performance Index (CPI)** | [X.XX] | [Status] | [↗️/↘️/➡️] | 1.00 |\n| **Estimate at Completion (EAC)** | $[Amount] | [Status] | [↗️/↘️/➡️] | $[Budget] |\n| **Estimate to Complete (ETC)** | $[Amount] | [Status] | [↗️/↘️/➡️] | $[Budget] |\n| **Variance at Completion (VAC)** | $[Amount] | [Status] | [↗️/↘️/➡️] | $0 |\n\n### Performance Indicators\n- **CPI &gt; 1.0**: Under budget (good performance)\n- **CPI = 1.0**: On budget (target performance)\n- **CPI &lt; 1.0**: Over budget (poor performance)\n\n### Variance Analysis\n| Cost Category | Budget | Actual | Variance | % Variance | Cause | Corrective Action |\n|---------------|--------|--------|----------|------------|-------|-------------------|\n| [Category 1] | $[Budget] | $[Actual] | $[Variance] | [%] | [Cause] | [Action] |\n| [Category 2] | $[Budget] | $[Actual] | $[Variance] | [%] | [Cause] | [Action] |\n| [Category 3] | $[Budget] | $[Actual] | $[Variance] | [%] | [Cause] | [Action] |\n\n## Budget Risk Management\n\n### Budget Risks\n| Risk | Probability | Impact | Risk Score | Mitigation Strategy | Contingency Plan |\n|------|-------------|--------|------------|-------------------|------------------|\n| Cost escalation | Medium | High | 15 | Fixed-price contracts | Additional funding |\n| Scope creep | High | Medium | 12 | Change control process | Scope reduction |\n| Resource unavailability | Low | High | 8 | Resource planning | Higher-cost alternatives |\n\n### Risk Response Budget\n| Risk Category | Contingency Amount | Trigger | Usage Authorization | Remaining |\n|---------------|-------------------|---------|-------------------|-----------|\n| Technical Risks | $[Amount] | [Trigger] | [Authority] | $[Remaining] |\n| Schedule Risks | $[Amount] | [Trigger] | [Authority] | $[Remaining] |\n| Resource Risks | $[Amount] | [Trigger] | [Authority] | $[Remaining] |\n| **Total Contingency** | **$[Amount]** | | | **$[Remaining]** |\n\n### Management Reserve\n- **Amount**: $[Amount] ([XX%] of budget)\n- **Purpose**: Unknown unknowns and major scope changes\n- **Authorization**: [Authority level required]\n- **Usage to Date**: $[Amount]\n- **Remaining**: $[Amount]\n\n## Budget Control and Change Management\n\n### Budget Change Control Process\n1. **Change Request**: Submit formal budget change request\n2. **Impact Analysis**: Analyze impact on project objectives\n3. **Approval**: Obtain required approvals based on change amount\n4. **Implementation**: Update budget and communicate changes\n5. **Documentation**: Record change in change log\n\n### Approval Authority Matrix\n| Change Amount | Approval Authority | Required Documentation | Timeline |\n|---------------|-------------------|----------------------|----------|\n| &lt; $5,000 | Project Manager | Informal request | 1 day |\n| $5,000 - $25,000 | Project Sponsor | Formal change request | 3 days |\n| $25,000 - $100,000 | Finance Director | Business case | 1 week |\n| &gt; $100,000 | Executive Committee | Comprehensive analysis | 2 weeks |\n\n### Budget Change Log\n| Date | Change Description | Amount | Approved By | New Budget | Reason |\n|------|-------------------|--------|-------------|------------|--------|\n| [Date] | [Description] | $[Amount] | [Name] | $[Budget] | [Reason] |\n| [Date] | [Description] | $[Amount] | [Name] | $[Budget] | [Reason] |\n\n## Budget Monitoring and Reporting\n\n### Financial Reports\n| Report | Frequency | Audience | Content | Next Report |\n|--------|-----------|----------|---------|-------------|\n| **Weekly Status** | Weekly | Project Manager | Quick budget status | [Date] |\n| **Monthly Report** | Monthly | Stakeholders | Detailed analysis | [Date] |\n| **Quarterly Review** | Quarterly | Executive Team | Performance trends | [Date] |\n| **Exception Report** | As needed | Sponsor | Critical issues | As needed |\n\n### Budget Dashboard Metrics\n```yaml\n# Key Performance Indicators\nbudget_utilization: 75%\ncost_performance_index: 1.05\nremaining_budget: $125,000\nprojected_overrun: $0\ncritical_variances: 2\n```\n\n### Alert Thresholds\n- **Green**: Cost variance &lt; 5%\n- **Yellow**: Cost variance 5-10%\n- **Red**: Cost variance &gt; 10%\n\n## Budget Optimization\n\n### Cost Reduction Opportunities\n| Opportunity | Potential Savings | Implementation Effort | Risk | Timeline | Owner |\n|-------------|------------------|----------------------|------|----------|-------|\n| [Opportunity 1] | $[Amount] | [Effort] | [Risk] | [Timeline] | [Owner] |\n| [Opportunity 2] | $[Amount] | [Effort] | [Risk] | [Timeline] | [Owner] |\n\n### Value Engineering\n| Component | Current Cost | Alternative | New Cost | Savings | Impact |\n|-----------|--------------|-------------|----------|---------|--------|\n| [Component 1] | $[Cost] | [Alternative] | $[New Cost] | $[Savings] | [Impact] |\n| [Component 2] | $[Cost] | [Alternative] | $[New Cost] | $[Savings] | [Impact] |\n\n### Procurement Optimization\n- **Bulk purchasing opportunities**: [Description]\n- **Vendor consolidation**: [Description]\n- **Contract renegotiation**: [Description]\n- **Make vs. buy analysis**: [Description]\n\n## When to Use\n\nUse throughout the project lifecycle to identify, assess, and track risks. This template is essential for projects with significant complexity, multiple stakeholders, or high business impact, where structured risk management provides decision-making value.\n\n## When NOT to Use\n\nDo not use for very low-risk, short-duration tasks where informal risk awareness is sufficient. Avoid this template if your governance framework requires a different risk management approach or if stakeholders prefer real-time risk dashboards over static registers.\n\n## Budget Closure\n\n### Final Budget Reconciliation\n| Category | Final Budget | Final Actual | Final Variance | % Variance |\n|----------|--------------|--------------|----------------|------------|\n| Personnel | $[Budget] | $[Actual] | $[Variance] | [%] |\n| Equipment | $[Budget] | $[Actual] | $[Variance] | [%] |\n| Materials | $[Budget] | $[Actual] | $[Variance] | [%] |\n| Services | $[Budget] | $[Actual] | $[Variance] | [%] |\n| **Total** | **$[Budget]** | **$[Actual]** | **$[Variance]** | **[%]** |\n\n### Lessons Learned\n| Lesson | Category | Impact | Recommendation | Application |\n|--------|----------|--------|----------------|-------------|\n| [Lesson 1] | [Category] | [Impact] | [Recommendation] | [Future projects] |\n| [Lesson 2] | [Category] | [Impact] | [Recommendation] | [Future projects] |\n\n### Budget Performance Assessment\n- **Budget Accuracy**: [Excellent/Good/Fair/Poor]\n- **Cost Control Effectiveness**: [Rating]\n- **Estimating Accuracy**: [+/- XX%]\n- **Overall Budget Management**: [Rating]\n\n---\n\n**Document Control**\n- **Document Owner**: [Project Manager Name]\n- **Created Date**: [Date]\n- **Last Modified**: [Date]\n- **Next Review Date**: [Date]\n- **Version**: [Version Number]\n\n**Approvals**\n| Role | Name | Signature | Date |\n|------|------|-----------|------|\n| **Project Manager** | [Name] | [Signature] | [Date] |\n| **Finance Manager** | [Name] | [Signature] | [Date] |\n| **Project Sponsor** | [Name] | [Signature] | [Date] |\n\n**Related Documents**\n- [Project Charter]\n- [Scope Statement]\n- [Work Breakdown Structure]\n- [Resource Plan]\n- [Risk Register]\n- [Procurement Plan]\n\n*This budget serves as the financial baseline for project execution and control.*\n&quot;]}" ssr client="load" opts="{&quot;name&quot;:&quot;TemplateViewer&quot;,&quot;value&quot;:true}" await-children><div><h1>Budget Template</h1><div style="margin-bottom:2rem"><button style="background:var(--accent-color);color:white;border:1px solid var(--border-color);padding:0.5rem 1rem;border-radius:4px 4px 0 0;cursor:pointer;margin-right:1px">Preview</button><button style="background:var(--code-bg);color:var(--text-color);border:1px solid var(--border-color);padding:0.5rem 1rem;border-radius:4px 4px 0 0;cursor:pointer">Version History</button></div><div style="border:1px solid var(--border-color);border-radius:0 8px 8px 8px;min-height:400px"><div style="background:var(--bg-primary);border-radius:var(--radius-lg)"><div style="padding:1rem 1.5rem;border-bottom:1px solid var(--border-light);display:flex;align-items:center;justify-content:space-between;background:var(--bg-secondary);border-radius:var(--radius-lg) var(--radius-lg) 0 0"><div style="display:flex;align-items:center;gap:0.5rem"><span style="font-size:1.5rem">📄</span><div><div style="font-weight:600;color:var(--text-primary)">budget-template.md</div><div style="font-size:0.75rem;color:var(--text-muted)">Markdown • <!-- -->18,464 bytes</div></div></div><a href="/pm-tools-templates/downloads/budget-template.md" download="" class="btn btn-secondary" style="font-size:0.75rem;padding:0.5rem 0.75rem">💾 Download</a></div><pre aria-label="Markdown source of Budget Template" style="padding:1.5rem;max-height:600px;overflow:auto;white-space:pre-wrap;overflow-wrap:anywhere">---
+title: &quot;Budget Template&quot;
+methodology: &quot;universal&quot;
+complexity: &quot;advanced&quot;
+owner: &quot;mirichard&quot;
+updated: &quot;2025-08-05&quot;
+primary_principles: [&quot;stewardship&quot;, &quot;value-focus&quot;]
+secondary_principles: [&quot;evidence-based-decisions&quot;, &quot;risk-optimization&quot;]
+principle_rationale: &quot;Plans responsible resource use against value assumptions and financial uncertainty.&quot;
+---
+
+# Project Budget Template
+
+## Budget Overview
+
+### Project Information
+- **Project Name**: [Project Name]
+- **Project Manager**: [Name]
+- **Budget Prepared By**: [Name]
+- **Date Created**: [Date]
+- **Budget Period**: [Start Date] to [End Date]
+- **Version**: [Version Number]
+- **Last Updated**: [Date]
+
+### Budget Summary
+- **Total Project Budget**: $[Total Amount]
+- **Approved Budget**: $[Approved Amount]
+- **Committed Costs**: $[Committed Amount]
+- **Actual Costs to Date**: $[Actual Amount]
+- **Remaining Budget**: $[Remaining Amount]
+- **Budget Performance**: [On Track/Over/Under Budget]
+
+### Budget Methodology
+- **Estimation Method**: [Bottom-up/Top-down/Analogous/Parametric]
+- **Currency**: [Currency]
+- **Contingency Reserve**: [Percentage]% ($[Amount])
+- **Management Reserve**: [Percentage]% ($[Amount])
+- **Budget Accuracy**: +/- [Percentage]%
+
+## Budget Breakdown Structure
+
+### Cost Categories Overview
+| Category | Budgeted Amount | Actual Amount | Committed | Remaining | Variance | % of Total |
+|----------|----------------|---------------|-----------|-----------|----------|------------|
+| **Personnel** | $[Amount] | $[Amount] | $[Amount] | $[Amount] | $[Variance] | [XX%] |
+| **Equipment** | $[Amount] | $[Amount] | $[Amount] | $[Amount] | $[Variance] | [XX%] |
+| **Materials** | $[Amount] | $[Amount] | $[Amount] | $[Amount] | $[Variance] | [XX%] |
+| **Services** | $[Amount] | $[Amount] | $[Amount] | $[Amount] | $[Variance] | [XX%] |
+| **Travel** | $[Amount] | $[Amount] | $[Amount] | $[Amount] | $[Variance] | [XX%] |
+| **Training** | $[Amount] | $[Amount] | $[Amount] | $[Amount] | $[Variance] | [XX%] |
+| **Other** | $[Amount] | $[Amount] | $[Amount] | $[Amount] | $[Variance] | [XX%] |
+| **Contingency** | $[Amount] | $[Amount] | $[Amount] | $[Amount] | $[Variance] | [XX%] |
+| **Total** | **$[Total]** | **$[Total]** | **$[Total]** | **$[Total]** | **$[Total]** | **100%** |
+
+### Budget by Work Breakdown Structure
+| WBS Element | WBS Code | Budgeted Cost | Actual Cost | Variance | % Complete | EAC |
+|-------------|----------|---------------|-------------|----------|------------|-----|
+| [WBS Element 1] | 1.1 | $[Amount] | $[Amount] | $[Variance] | [XX%] | $[EAC] |
+| [WBS Element 2] | 1.2 | $[Amount] | $[Amount] | $[Variance] | [XX%] | $[EAC] |
+| [WBS Element 3] | 1.3 | $[Amount] | $[Amount] | $[Variance] | [XX%] | $[EAC] |
+| **Project Total** | 1.0 | **$[Total]** | **$[Total]** | **$[Variance]** | **[XX%]** | **$[EAC]** |
+
+## Personnel Costs
+
+### Labor Categories
+| Role/Category | Rate | Planned Hours | Total Budget | Actual Hours | Actual Cost | Variance |
+|---------------|------|---------------|--------------|--------------|-------------|----------|
+| **Project Manager** | $[Rate]/hr | [Hours] | $[Amount] | [Hours] | $[Amount] | $[Variance] |
+| **Technical Lead** | $[Rate]/hr | [Hours] | $[Amount] | [Hours] | $[Amount] | $[Variance] |
+| **Senior Developer** | $[Rate]/hr | [Hours] | $[Amount] | [Hours] | $[Amount] | $[Variance] |
+| **Junior Developer** | $[Rate]/hr | [Hours] | $[Amount] | [Hours] | $[Amount] | $[Variance] |
+| **Business Analyst** | $[Rate]/hr | [Hours] | $[Amount] | [Hours] | $[Amount] | $[Variance] |
+| **QA Engineer** | $[Rate]/hr | [Hours] | $[Amount] | [Hours] | $[Amount] | $[Variance] |
+| **Subject Matter Expert** | $[Rate]/hr | [Hours] | $[Amount] | [Hours] | $[Amount] | $[Variance] |
+| **Total Personnel** | | **[Hours]** | **$[Amount]** | **[Hours]** | **$[Amount]** | **$[Variance]** |
+
+### Benefits and Overhead
+| Cost Element | Rate | Base | Amount | Notes |
+|--------------|------|------|--------|-------|
+| **Payroll Taxes** | [XX%] | $[Base] | $[Amount] | Social Security, Medicare, etc. |
+| **Benefits** | [XX%] | $[Base] | $[Amount] | Health, dental, retirement |
+| **Overhead** | [XX%] | $[Base] | $[Amount] | Facilities, utilities, admin |
+| **Total Burden** | **[XX%]** | **$[Base]** | **$[Amount]** | |
+
+### External Personnel
+| Resource Type | Vendor | Rate | Planned Hours | Budget | Actual Cost | Contract # |
+|---------------|--------|------|---------------|--------|-------------|------------|
+| [External Role 1] | [Vendor] | $[Rate]/hr | [Hours] | $[Amount] | $[Amount] | [Contract] |
+| [External Role 2] | [Vendor] | $[Rate]/hr | [Hours] | $[Amount] | $[Amount] | [Contract] |
+| **Total External** | | | **[Hours]** | **$[Amount]** | **$[Amount]** | |
+
+## Equipment and Technology Costs
+
+### Hardware Budget
+| Equipment | Quantity | Unit Cost | Total Budget | Purchase Date | Actual Cost | Vendor |
+|-----------|----------|-----------|--------------|---------------|-------------|--------|
+| [Equipment 1] | [Qty] | $[Cost] | $[Total] | [Date] | $[Actual] | [Vendor] |
+| [Equipment 2] | [Qty] | $[Cost] | $[Total] | [Date] | $[Actual] | [Vendor] |
+| [Equipment 3] | [Qty] | $[Cost] | $[Total] | [Date] | $[Actual] | [Vendor] |
+| **Total Hardware** | | | **$[Total]** | | **$[Total]** | |
+
+### Software Budget
+| Software | License Type | Quantity | Unit Cost | Total Budget | Actual Cost | Duration |
+|----------|--------------|----------|-----------|--------------|-------------|----------|
+| [Software 1] | [Type] | [Qty] | $[Cost] | $[Total] | $[Actual] | [Duration] |
+| [Software 2] | [Type] | [Qty] | $[Cost] | $[Total] | $[Actual] | [Duration] |
+| [Software 3] | [Type] | [Qty] | $[Cost] | $[Total] | $[Actual] | [Duration] |
+| **Total Software** | | | | **$[Total]** | **$[Total]** | |
+
+### Infrastructure and Cloud Services
+| Service | Provider | Monthly Cost | Duration | Total Budget | Actual Cost | Notes |
+|---------|----------|--------------|----------|--------------|-------------|-------|
+| [Service 1] | [Provider] | $[Monthly] | [Months] | $[Total] | $[Actual] | [Notes] |
+| [Service 2] | [Provider] | $[Monthly] | [Months] | $[Total] | $[Actual] | [Notes] |
+| **Total Infrastructure** | | | | **$[Total]** | **$[Total]** | |
+
+## Materials and Supplies
+
+### Materials Budget
+| Material | Unit | Quantity | Unit Cost | Total Budget | Actual Cost | Supplier |
+|----------|------|----------|-----------|--------------|-------------|----------|
+| [Material 1] | [Unit] | [Qty] | $[Cost] | $[Total] | $[Actual] | [Supplier] |
+| [Material 2] | [Unit] | [Qty] | $[Cost] | $[Total] | $[Actual] | [Supplier] |
+| [Material 3] | [Unit] | [Qty] | $[Cost] | $[Total] | $[Actual] | [Supplier] |
+| **Total Materials** | | | | **$[Total]** | **$[Total]** | |
+
+### Office Supplies and Consumables
+| Item | Monthly Budget | Project Duration | Total Budget | Actual Cost | Variance |
+|------|----------------|------------------|--------------|-------------|----------|
+| Office Supplies | $[Monthly] | [Months] | $[Total] | $[Actual] | $[Variance] |
+| Printing/Communications | $[Monthly] | [Months] | $[Total] | $[Actual] | $[Variance] |
+| **Total Supplies** | | | **$[Total]** | **$[Total]** | **$[Variance]** |
+
+## External Services
+
+### Professional Services
+| Service Type | Provider | Description | Budget | Actual Cost | Contract # | Status |
+|--------------|----------|-------------|--------|-------------|------------|--------|
+| [Service 1] | [Provider] | [Description] | $[Amount] | $[Actual] | [Contract] | [Status] |
+| [Service 2] | [Provider] | [Description] | $[Amount] | $[Actual] | [Contract] | [Status] |
+| [Service 3] | [Provider] | [Description] | $[Amount] | $[Actual] | [Contract] | [Status] |
+| **Total Services** | | | **$[Total]** | **$[Total]** | | |
+
+### Vendor Contracts
+| Vendor | Contract Value | Payment Terms | Start Date | End Date | Deliverables | Risk Level |
+|--------|----------------|---------------|------------|----------|--------------|------------|
+| [Vendor 1] | $[Value] | [Terms] | [Date] | [Date] | [Deliverables] | [Level] |
+| [Vendor 2] | $[Value] | [Terms] | [Date] | [Date] | [Deliverables] | [Level] |
+
+## Travel and Training Costs
+
+### Travel Budget
+| Travel Type | Purpose | Estimated Trips | Cost per Trip | Total Budget | Actual Cost | Variance |
+|-------------|---------|----------------|---------------|--------------|-------------|----------|
+| Project Meetings | [Purpose] | [Trips] | $[Cost] | $[Total] | $[Actual] | $[Variance] |
+| Training Travel | [Purpose] | [Trips] | $[Cost] | $[Total] | $[Actual] | $[Variance] |
+| Stakeholder Visits | [Purpose] | [Trips] | $[Cost] | $[Total] | $[Actual] | $[Variance] |
+| **Total Travel** | | | | **$[Total]** | **$[Total]** | **$[Variance]** |
+
+### Training Budget
+| Training | Target Audience | Duration | Cost per Person | Participants | Total Budget | Actual Cost |
+|----------|----------------|----------|----------------|--------------|--------------|-------------|
+| [Training 1] | [Audience] | [Duration] | $[Cost] | [Count] | $[Total] | $[Actual] |
+| [Training 2] | [Audience] | [Duration] | $[Cost] | [Count] | $[Total] | $[Actual] |
+| **Total Training** | | | | | **$[Total]** | **$[Total]** |
+
+## Budget Timeline and Cash Flow
+
+### Monthly Budget Distribution
+| Month | Personnel | Equipment | Materials | Services | Travel | Training | Other | Total | Cumulative |
+|-------|-----------|-----------|-----------|----------|--------|----------|-------|-------|------------|
+| [Month 1] | $[Amount] | $[Amount] | $[Amount] | $[Amount] | $[Amount] | $[Amount] | $[Amount] | $[Total] | $[Cumulative] |
+| [Month 2] | $[Amount] | $[Amount] | $[Amount] | $[Amount] | $[Amount] | $[Amount] | $[Amount] | $[Total] | $[Cumulative] |
+| [Month 3] | $[Amount] | $[Amount] | $[Amount] | $[Amount] | $[Amount] | $[Amount] | $[Amount] | $[Total] | $[Cumulative] |
+| **Total** | **$[Total]** | **$[Total]** | **$[Total]** | **$[Total]** | **$[Total]** | **$[Total]** | **$[Total]** | **$[Total]** | |
+
+### Cash Flow Projection
+```
+Monthly Cash Flow
+
+$Amount
+  150K |     ████
+       |   ██████
+  100K | ████████
+       | ████████
+   50K | ████████████
+       | ████████████
+     0 |_____________
+       M1 M2 M3 M4 M5 M6
+
+Legend:
+██ Planned Expenditure
+░░ Actual Expenditure
+```
+
+### Funding Requirements
+| Funding Milestone | Date | Amount | Approval Status | Funding Source | Risk |
+|------------------|------|--------|-----------------|----------------|------|
+| Initial Funding | [Date] | $[Amount] | [Status] | [Source] | [Risk] |
+| Phase 2 Funding | [Date] | $[Amount] | [Status] | [Source] | [Risk] |
+| Final Funding | [Date] | $[Amount] | [Status] | [Source] | [Risk] |
+
+## Cost Performance Analysis
+
+### Earned Value Metrics
+| Metric | Value | Status | Trend | Target |
+|--------|-------|--------|-------|--------|
+| **Planned Value (PV)** | $[Amount] | | [↗️/↘️/➡️] | $[Target] |
+| **Earned Value (EV)** | $[Amount] | | [↗️/↘️/➡️] | $[Target] |
+| **Actual Cost (AC)** | $[Amount] | | [↗️/↘️/➡️] | $[Target] |
+| **Cost Variance (CV)** | $[Amount] | [Status] | [↗️/↘️/➡️] | $0 |
+| **Cost Performance Index (CPI)** | [X.XX] | [Status] | [↗️/↘️/➡️] | 1.00 |
+| **Estimate at Completion (EAC)** | $[Amount] | [Status] | [↗️/↘️/➡️] | $[Budget] |
+| **Estimate to Complete (ETC)** | $[Amount] | [Status] | [↗️/↘️/➡️] | $[Budget] |
+| **Variance at Completion (VAC)** | $[Amount] | [Status] | [↗️/↘️/➡️] | $0 |
+
+### Performance Indicators
+- **CPI &gt; 1.0**: Under budget (good performance)
+- **CPI = 1.0**: On budget (target performance)
+- **CPI &lt; 1.0**: Over budget (poor performance)
+
+### Variance Analysis
+| Cost Category | Budget | Actual | Variance | % Variance | Cause | Corrective Action |
+|---------------|--------|--------|----------|------------|-------|-------------------|
+| [Category 1] | $[Budget] | $[Actual] | $[Variance] | [%] | [Cause] | [Action] |
+| [Category 2] | $[Budget] | $[Actual] | $[Variance] | [%] | [Cause] | [Action] |
+| [Category 3] | $[Budget] | $[Actual] | $[Variance] | [%] | [Cause] | [Action] |
+
+## Budget Risk Management
+
+### Budget Risks
+| Risk | Probability | Impact | Risk Score | Mitigation Strategy | Contingency Plan |
+|------|-------------|--------|------------|-------------------|------------------|
+| Cost escalation | Medium | High | 15 | Fixed-price contracts | Additional funding |
+| Scope creep | High | Medium | 12 | Change control process | Scope reduction |
+| Resource unavailability | Low | High | 8 | Resource planning | Higher-cost alternatives |
+
+### Risk Response Budget
+| Risk Category | Contingency Amount | Trigger | Usage Authorization | Remaining |
+|---------------|-------------------|---------|-------------------|-----------|
+| Technical Risks | $[Amount] | [Trigger] | [Authority] | $[Remaining] |
+| Schedule Risks | $[Amount] | [Trigger] | [Authority] | $[Remaining] |
+| Resource Risks | $[Amount] | [Trigger] | [Authority] | $[Remaining] |
+| **Total Contingency** | **$[Amount]** | | | **$[Remaining]** |
+
+### Management Reserve
+- **Amount**: $[Amount] ([XX%] of budget)
+- **Purpose**: Unknown unknowns and major scope changes
+- **Authorization**: [Authority level required]
+- **Usage to Date**: $[Amount]
+- **Remaining**: $[Amount]
+
+## Budget Control and Change Management
+
+### Budget Change Control Process
+1. **Change Request**: Submit formal budget change request
+2. **Impact Analysis**: Analyze impact on project objectives
+3. **Approval**: Obtain required approvals based on change amount
+4. **Implementation**: Update budget and communicate changes
+5. **Documentation**: Record change in change log
+
+### Approval Authority Matrix
+| Change Amount | Approval Authority | Required Documentation | Timeline |
+|---------------|-------------------|----------------------|----------|
+| &lt; $5,000 | Project Manager | Informal request | 1 day |
+| $5,000 - $25,000 | Project Sponsor | Formal change request | 3 days |
+| $25,000 - $100,000 | Finance Director | Business case | 1 week |
+| &gt; $100,000 | Executive Committee | Comprehensive analysis | 2 weeks |
+
+### Budget Change Log
+| Date | Change Description | Amount | Approved By | New Budget | Reason |
+|------|-------------------|--------|-------------|------------|--------|
+| [Date] | [Description] | $[Amount] | [Name] | $[Budget] | [Reason] |
+| [Date] | [Description] | $[Amount] | [Name] | $[Budget] | [Reason] |
+
+## Budget Monitoring and Reporting
+
+### Financial Reports
+| Report | Frequency | Audience | Content | Next Report |
+|--------|-----------|----------|---------|-------------|
+| **Weekly Status** | Weekly | Project Manager | Quick budget status | [Date] |
+| **Monthly Report** | Monthly | Stakeholders | Detailed analysis | [Date] |
+| **Quarterly Review** | Quarterly | Executive Team | Performance trends | [Date] |
+| **Exception Report** | As needed | Sponsor | Critical issues | As needed |
+
+### Budget Dashboard Metrics
+```yaml
+# Key Performance Indicators
+budget_utilization: 75%
+cost_performance_index: 1.05
+remaining_budget: $125,000
+projected_overrun: $0
+critical_variances: 2
+```
+
+### Alert Thresholds
+- **Green**: Cost variance &lt; 5%
+- **Yellow**: Cost variance 5-10%
+- **Red**: Cost variance &gt; 10%
+
+## Budget Optimization
+
+### Cost Reduction Opportunities
+| Opportunity | Potential Savings | Implementation Effort | Risk | Timeline | Owner |
+|-------------|------------------|----------------------|------|----------|-------|
+| [Opportunity 1] | $[Amount] | [Effort] | [Risk] | [Timeline] | [Owner] |
+| [Opportunity 2] | $[Amount] | [Effort] | [Risk] | [Timeline] | [Owner] |
+
+### Value Engineering
+| Component | Current Cost | Alternative | New Cost | Savings | Impact |
+|-----------|--------------|-------------|----------|---------|--------|
+| [Component 1] | $[Cost] | [Alternative] | $[New Cost] | $[Savings] | [Impact] |
+| [Component 2] | $[Cost] | [Alternative] | $[New Cost] | $[Savings] | [Impact] |
+
+### Procurement Optimization
+- **Bulk purchasing opportunities**: [Description]
+- **Vendor consolidation**: [Description]
+- **Contract renegotiation**: [Description]
+- **Make vs. buy analysis**: [Description]
+
+## When to Use
+
+Use throughout the project lifecycle to identify, assess, and track risks. This template is essential for projects with significant complexity, multiple stakeholders, or high business impact, where structured risk management provides decision-making value.
+
+## When NOT to Use
+
+Do not use for very low-risk, short-duration tasks where informal risk awareness is sufficient. Avoid this template if your governance framework requires a different risk management approach or if stakeholders prefer real-time risk dashboards over static registers.
+
+## Budget Closure
+
+### Final Budget Reconciliation
+| Category | Final Budget | Final Actual | Final Variance | % Variance |
+|----------|--------------|--------------|----------------|------------|
+| Personnel | $[Budget] | $[Actual] | $[Variance] | [%] |
+| Equipment | $[Budget] | $[Actual] | $[Variance] | [%] |
+| Materials | $[Budget] | $[Actual] | $[Variance] | [%] |
+| Services | $[Budget] | $[Actual] | $[Variance] | [%] |
+| **Total** | **$[Budget]** | **$[Actual]** | **$[Variance]** | **[%]** |
+
+### Lessons Learned
+| Lesson | Category | Impact | Recommendation | Application |
+|--------|----------|--------|----------------|-------------|
+| [Lesson 1] | [Category] | [Impact] | [Recommendation] | [Future projects] |
+| [Lesson 2] | [Category] | [Impact] | [Recommendation] | [Future projects] |
+
+### Budget Performance Assessment
+- **Budget Accuracy**: [Excellent/Good/Fair/Poor]
+- **Cost Control Effectiveness**: [Rating]
+- **Estimating Accuracy**: [+/- XX%]
+- **Overall Budget Management**: [Rating]
+
+---
+
+**Document Control**
+- **Document Owner**: [Project Manager Name]
+- **Created Date**: [Date]
+- **Last Modified**: [Date]
+- **Next Review Date**: [Date]
+- **Version**: [Version Number]
+
+**Approvals**
+| Role | Name | Signature | Date |
+|------|------|-----------|------|
+| **Project Manager** | [Name] | [Signature] | [Date] |
+| **Finance Manager** | [Name] | [Signature] | [Date] |
+| **Project Sponsor** | [Name] | [Signature] | [Date] |
+
+**Related Documents**
+- [Project Charter]
+- [Scope Statement]
+- [Work Breakdown Structure]
+- [Resource Plan]
+- [Risk Register]
+- [Procurement Plan]
+
+*This budget serves as the financial baseline for project execution and control.*
+</pre></div></div></div><!--astro:end--></astro-island></main></body></html>

@@ -1,0 +1,865 @@
+<!DOCTYPE html><html lang="en" data-astro-cid-ju4pidww><head><meta charset="UTF-8"><meta name="description" content="Advanced template browser with previews and version history"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="icon" type="image/svg+xml" href="/pm-tools-templates/favicon.svg"><title>Api Documentation Template</title><link rel="stylesheet" href="/pm-tools-templates/assets/Layout.ChXqTIwx.css"></head><body data-astro-cid-ju4pidww><main data-astro-cid-ju4pidww><style>astro-island,astro-slot,astro-static-slot{display:contents}</style><script>(()=>{var e=async t=>{await(await t())()};(self.Astro||(self.Astro={})).load=e;window.dispatchEvent(new Event("astro:load"));})();</script><script>(()=>{var g=Object.defineProperty;var w=(a,s,c)=>s in a?g(a,s,{enumerable:!0,configurable:!0,writable:!0,value:c}):a[s]=c;var l=(a,s,c)=>w(a,typeof s!="symbol"?s+"":s,c);var E=new Set(["__proto__","constructor","prototype"]);{let a={0:t=>y(t),1:t=>c(t),2:t=>new RegExp(t),3:t=>new Date(t),4:t=>new Map(c(t)),5:t=>new Set(c(t)),6:t=>BigInt(t),7:t=>new URL(t),8:t=>new Uint8Array(t),9:t=>new Uint16Array(t),10:t=>new Uint32Array(t),11:t=>Number.POSITIVE_INFINITY*t},s=t=>{let[p,e]=t;return p in a?a[p](e):void 0},c=t=>t.map(s),y=t=>typeof t!="object"||t===null?t:Object.fromEntries(Object.entries(t).map(([p,e])=>[p,s(e)]));class f extends HTMLElement{constructor(){super(...arguments);l(this,"Component");l(this,"hydrator");l(this,"hydrate",async()=>{var b;if(!this.hydrator||!this.isConnected)return;let e=(b=this.parentElement)==null?void 0:b.closest("astro-island[ssr]");if(e){e.addEventListener("astro:hydrate",this.hydrate,{once:!0});return}let r=this.querySelectorAll("astro-slot"),n={},d=this.querySelectorAll("template[data-astro-template]");for(let o of d){let i=o.closest(this.tagName);i!=null&&i.isSameNode(this)&&(n[o.getAttribute("data-astro-template")||"default"]=o.innerHTML,o.remove())}for(let o of r){let i=o.closest(this.tagName);i!=null&&i.isSameNode(this)&&(n[o.getAttribute("name")||"default"]=o.innerHTML)}let u;try{u=this.hasAttribute("props")?y(JSON.parse(this.getAttribute("props"))):{}}catch(o){let i=this.getAttribute("component-url")||"<unknown>",v=this.getAttribute("component-export");throw v&&(i+=` (export ${v})`),console.error(`[hydrate] Error parsing props for component ${i}`,this.getAttribute("props"),o),o}let h;await this.hydrator(this)(this.Component,u,n,{client:this.getAttribute("client")}),this.removeAttribute("ssr"),this.dispatchEvent(new CustomEvent("astro:hydrate"))});l(this,"unmount",()=>{this.isConnected||this.dispatchEvent(new CustomEvent("astro:unmount"))})}disconnectedCallback(){document.removeEventListener("astro:after-swap",this.unmount),document.addEventListener("astro:after-swap",this.unmount,{once:!0})}connectedCallback(){if(!this.hasAttribute("await-children")||document.readyState==="interactive"||document.readyState==="complete")this.childrenConnectedCallback();else{let e=()=>{document.removeEventListener("DOMContentLoaded",e),r.disconnect(),this.childrenConnectedCallback()},r=new MutationObserver(()=>{var n;((n=this.lastChild)==null?void 0:n.nodeType)===Node.COMMENT_NODE&&this.lastChild.nodeValue==="astro:end"&&(this.lastChild.remove(),e())});r.observe(this,{childList:!0}),document.addEventListener("DOMContentLoaded",e)}}async childrenConnectedCallback(){let e=this.getAttribute("before-hydration-url");e&&await import(e),this.start()}getRetryImportUrl(e){let r=new URL(e,document.baseURI);return r.searchParams.set("astro-retry",Date.now().toString()),r.toString()}async importWithRetry(e){try{return await import(e)}catch(r){return await new Promise(n=>setTimeout(n,1e3)),import(this.getRetryImportUrl(e))}}handleHydrationError(e){let r=this.getAttribute("component-url"),n=new CustomEvent("astro:hydration-error",{cancelable:!0,bubbles:!0,composed:!0,detail:{error:e,componentUrl:r}});this.dispatchEvent(n)&&console.error(`[astro-island] Error hydrating ${r}`,e)}async start(){let e=JSON.parse(this.getAttribute("opts")),r=this.getAttribute("client");if(Astro[r]===void 0){window.addEventListener(`astro:${r}`,()=>this.start(),{once:!0});return}try{await Astro[r](async()=>{let n=this.getAttribute("renderer-url");try{let[d,{default:u}]=await Promise.all([this.importWithRetry(this.getAttribute("component-url")),n?this.importWithRetry(n):Promise.resolve({default:()=>()=>{}})]),h=this.getAttribute("component-export")||"default";if(h.includes(".")){this.Component=d;for(let m of h.split(".")){if(E.has(m)||!this.Component||typeof this.Component!="object"&&typeof this.Component!="function"||!Object.hasOwn(this.Component,m))throw new Error(`Invalid component export path: ${h}`);this.Component=this.Component[m]}}else{if(E.has(h))throw new Error(`Invalid component export path: ${h}`);this.Component=d[h]}return this.hydrator=u,this.hydrate}catch(d){return this.handleHydrationError(d),()=>{}}},e,this)}catch(n){this.handleHydrationError(n)}}attributeChangedCallback(){this.hydrate()}}l(f,"observedAttributes",["props"]),customElements.get("astro-island")||customElements.define("astro-island",f)}})();</script><astro-island uid="Z1hkAB8" prefix="r1" component-url="/pm-tools-templates/assets/TemplateViewer.BJxWH0dD.js" component-export="default" renderer-url="/pm-tools-templates/assets/client.REQV_TkY.js" props="{&quot;templateId&quot;:[0,&quot;api_documentation_template&quot;],&quot;filePath&quot;:[0,&quot;domains/delivery/industry-specializations/information-technology/software-development/api_documentation_template.md&quot;],&quot;title&quot;:[0,&quot;Api Documentation Template&quot;],&quot;content&quot;:[0,&quot;---\ntitle: \&quot;Api Documentation Template\&quot;\nmethodology: \&quot;universal\&quot;\ncomplexity: \&quot;advanced\&quot;\nowner: \&quot;mirichard\&quot;\nupdated: \&quot;2025-08-05\&quot;\nprimary_principles: [\&quot;quality-by-design\&quot;, \&quot;stewardship\&quot;]\nsecondary_principles: [\&quot;systems-thinking\&quot;, \&quot;stakeholder-engagement\&quot;]\nprinciple_rationale: \&quot;Makes interface quality, ownership, dependencies, and consumer needs explicit.\&quot;\n---\n\n# API Documentation Template\n\n**API Name:** [API Name]  \n**Version:** [Version Number]  \n**Last Updated:** [YYYY-MM-DD]  \n**Status:** [Draft/Beta/Production]  \n**Document ID:** [DOC-API-XXX]\n\n## Table of Contents\n\n1. [Introduction](#1-introduction)\n2. [API Overview](#2-api-overview)\n3. [Getting Started](#3-getting-started)\n4. [Authentication](#4-authentication)\n5. [Base URL](#5-base-url)\n6. [API Versioning](#6-api-versioning)\n7. [Resource Endpoints](#7-resource-endpoints)\n8. [Error Handling](#8-error-handling)\n9. [Rate Limiting](#9-rate-limiting)\n10. [Security Considerations](#10-security-considerations)\n11. [Data Types](#11-data-types)\n12. [Pagination](#12-pagination)\n13. [Webhooks](#13-webhooks)\n14. [SDKs and Client Libraries](#14-sdks-and-client-libraries)\n15. [Changelog](#15-changelog)\n16. [Support](#16-support)\n17. [Appendix](#17-appendix)\n\n---\n\n## 1. Introduction\n\n### 1.1 Purpose\n\n[Describe the purpose of this API documentation and what the API is designed to accomplish]\n\n### 1.2 Audience\n\n[Identify the intended audience for this documentation (e.g., developers, system integrators, partners)]\n\n### 1.3 Scope\n\n[Define what is covered in this documentation and any limitations]\n\n### 1.4 Related Documents\n\n| Document | Description | Link |\n|----------|-------------|------|\n| Software Requirements Specification | Detailed requirements for the system | [Link to SRS] |\n| Technical Design Document | System architecture and design | [Link to TDD] |\n| Test Plan | Testing strategy for API | [Link to Test Plan] |\n\n---\n\n## 2. API Overview\n\n### 2.1 Architectural Style\n\n[Describe the architectural style of the API (e.g., RESTful, GraphQL, SOAP)]\n\n### 2.2 Protocol\n\n[Specify the protocol(s) used (e.g., HTTPS)]\n\n### 2.3 Data Format\n\n[Describe the data format(s) supported (e.g., JSON, XML)]\n\n### 2.4 Core Concepts\n\n[Explain the core concepts, entities, and relationships of the API]\n\n### 2.5 Use Cases\n\n[Provide high-level use cases that demonstrate when and why to use this API]\n\n---\n\n## 3. Getting Started\n\n### 3.1 Development Environment Setup\n\n[Instructions for setting up a development environment]\n\n### 3.2 Registration and API Key Acquisition\n\n[Step-by-step guide for obtaining API credentials]\n\n### 3.3 Your First Request\n\n```bash\n# Example cURL request to get started\ncurl -X GET \&quot;https://api.example.com/v1/resources\&quot; \\\n  -H \&quot;Authorization: Bearer YOUR_API_KEY\&quot; \\\n  -H \&quot;Content-Type: application/json\&quot;\n```\n\n### 3.4 Sample Applications\n\n[Links to sample applications or repositories that demonstrate API usage]\n\n---\n\n## 4. Authentication\n\n### 4.1 Authentication Methods\n\n[Describe the supported authentication methods (e.g., API Key, OAuth 2.0, JWT)]\n\n### 4.2 OAuth 2.0 Flow (if applicable)\n\n[Detailed description of OAuth 2.0 implementation with diagrams]\n\n#### 4.2.1 Authorization Code Flow\n\n[Step-by-step instructions with examples]\n\n#### 4.2.2 Client Credentials Flow\n\n[Step-by-step instructions with examples]\n\n### 4.3 Token Management\n\n[Information about token lifetimes, refresh procedures, and best practices]\n\n### 4.4 Example Authentication\n\n```http\n# Request\nPOST /oauth/token HTTP/1.1\nHost: api.example.com\nContent-Type: application/x-www-form-urlencoded\n\ngrant_type=client_credentials&amp;client_id=YOUR_CLIENT_ID&amp;client_secret=YOUR_CLIENT_SECRET\n\n# Response\n{\n  \&quot;access_token\&quot;: \&quot;eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...\&quot;,\n  \&quot;token_type\&quot;: \&quot;bearer\&quot;,\n  \&quot;expires_in\&quot;: 3600,\n  \&quot;refresh_token\&quot;: \&quot;eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...\&quot;\n}\n```\n\n---\n\n## 5. Base URL\n\nAll API requests should be made to the following base URL:\n\n```\nhttps://api.example.com/v1\n```\n\nEnvironment-specific base URLs:\n\n| Environment | Base URL |\n|-------------|----------|\n| Production | `https://api.example.com/v1` |\n| Staging | `https://staging-api.example.com/v1` |\n| Development | `https://dev-api.example.com/v1` |\n\n---\n\n## 6. API Versioning\n\n### 6.1 Versioning Strategy\n\n[Explain how API versioning is implemented (e.g., URL path, query parameter, header)]\n\n### 6.2 Current Versions\n\n| Version | Status | Release Date | End-of-Life Date |\n|---------|--------|--------------|------------------|\n| v1 | Active | YYYY-MM-DD | YYYY-MM-DD |\n| v2 | Beta | YYYY-MM-DD | N/A |\n\n### 6.3 Version Lifecycle Policy\n\n[Describe how versions are maintained, deprecated, and retired]\n\n---\n\n## 7. Resource Endpoints\n\n### 7.1 Resources Overview\n\n| Resource | Description | Base Path |\n|----------|-------------|-----------|\n| Users | User management operations | `/users` |\n| Products | Product management operations | `/products` |\n| Orders | Order management operations | `/orders` |\n\n### 7.2 Users\n\n#### 7.2.1 List Users\n\n```http\nGET /users\n```\n\nQuery Parameters:\n\n| Parameter | Type | Required | Description |\n|-----------|------|----------|-------------|\n| limit | integer | No | Maximum number of records to return (default: 20, max: 100) |\n| offset | integer | No | Number of records to skip (default: 0) |\n| sort | string | No | Field to sort by (e.g., &#39;created_at&#39;) |\n| order | string | No | Sort order (&#39;asc&#39; or &#39;desc&#39;, default: &#39;asc&#39;) |\n\nRequest Example:\n\n```bash\ncurl -X GET \&quot;https://api.example.com/v1/users?limit=10&amp;offset=0\&quot; \\\n  -H \&quot;Authorization: Bearer YOUR_API_KEY\&quot; \\\n  -H \&quot;Content-Type: application/json\&quot;\n```\n\nResponse Example:\n\n```json\n{\n  \&quot;data\&quot;: [\n    {\n      \&quot;id\&quot;: \&quot;usr_123456789\&quot;,\n      \&quot;email\&quot;: \&quot;user@example.com\&quot;,\n      \&quot;name\&quot;: \&quot;John Doe\&quot;,\n      \&quot;created_at\&quot;: \&quot;2023-01-15T08:30:00Z\&quot;,\n      \&quot;updated_at\&quot;: \&quot;2023-01-20T12:45:00Z\&quot;\n    },\n    ...\n  ],\n  \&quot;meta\&quot;: {\n    \&quot;total\&quot;: 245,\n    \&quot;limit\&quot;: 10,\n    \&quot;offset\&quot;: 0\n  }\n}\n```\n\n#### 7.2.2 Get User\n\n```http\nGET /users/{user_id}\n```\n\nPath Parameters:\n\n| Parameter | Type | Required | Description |\n|-----------|------|----------|-------------|\n| user_id | string | Yes | Unique identifier of the user |\n\nRequest Example:\n\n```bash\ncurl -X GET \&quot;https://api.example.com/v1/users/usr_123456789\&quot; \\\n  -H \&quot;Authorization: Bearer YOUR_API_KEY\&quot; \\\n  -H \&quot;Content-Type: application/json\&quot;\n```\n\nResponse Example:\n\n```json\n{\n  \&quot;data\&quot;: {\n    \&quot;id\&quot;: \&quot;usr_123456789\&quot;,\n    \&quot;email\&quot;: \&quot;user@example.com\&quot;,\n    \&quot;name\&quot;: \&quot;John Doe\&quot;,\n    \&quot;created_at\&quot;: \&quot;2023-01-15T08:30:00Z\&quot;,\n    \&quot;updated_at\&quot;: \&quot;2023-01-20T12:45:00Z\&quot;,\n    \&quot;address\&quot;: {\n      \&quot;street\&quot;: \&quot;123 Main St\&quot;,\n      \&quot;city\&quot;: \&quot;Anytown\&quot;,\n      \&quot;state\&quot;: \&quot;CA\&quot;,\n      \&quot;postal_code\&quot;: \&quot;12345\&quot;,\n      \&quot;country\&quot;: \&quot;US\&quot;\n    }\n  }\n}\n```\n\n#### 7.2.3 Create User\n\n```http\nPOST /users\n```\n\nRequest Body:\n\n| Parameter | Type | Required | Description |\n|-----------|------|----------|-------------|\n| email | string | Yes | User&#39;s email address |\n| name | string | Yes | User&#39;s full name |\n| password | string | Yes | User&#39;s password (min 8 characters) |\n| address | object | No | User&#39;s address information |\n\nRequest Example:\n\n```bash\ncurl -X POST \&quot;https://api.example.com/v1/users\&quot; \\\n  -H \&quot;Authorization: Bearer YOUR_API_KEY\&quot; \\\n  -H \&quot;Content-Type: application/json\&quot; \\\n  -d &#39;{\n    \&quot;email\&quot;: \&quot;newuser@example.com\&quot;,\n    \&quot;name\&quot;: \&quot;Jane Smith\&quot;,\n    \&quot;password\&quot;: \&quot;securePassword123\&quot;,\n    \&quot;address\&quot;: {\n      \&quot;street\&quot;: \&quot;456 Oak Ave\&quot;,\n      \&quot;city\&quot;: \&quot;Somewhere\&quot;,\n      \&quot;state\&quot;: \&quot;NY\&quot;,\n      \&quot;postal_code\&quot;: \&quot;67890\&quot;,\n      \&quot;country\&quot;: \&quot;US\&quot;\n    }\n  }&#39;\n```\n\nResponse Example:\n\n```json\n{\n  \&quot;data\&quot;: {\n    \&quot;id\&quot;: \&quot;usr_987654321\&quot;,\n    \&quot;email\&quot;: \&quot;newuser@example.com\&quot;,\n    \&quot;name\&quot;: \&quot;Jane Smith\&quot;,\n    \&quot;created_at\&quot;: \&quot;2023-02-10T14:22:30Z\&quot;,\n    \&quot;updated_at\&quot;: \&quot;2023-02-10T14:22:30Z\&quot;,\n    \&quot;address\&quot;: {\n      \&quot;street\&quot;: \&quot;456 Oak Ave\&quot;,\n      \&quot;city\&quot;: \&quot;Somewhere\&quot;,\n      \&quot;state\&quot;: \&quot;NY\&quot;,\n      \&quot;postal_code\&quot;: \&quot;67890\&quot;,\n      \&quot;country\&quot;: \&quot;US\&quot;\n    }\n  }\n}\n```\n\n#### 7.2.4 Update User\n\n```http\nPUT /users/{user_id}\n```\n\nPath Parameters:\n\n| Parameter | Type | Required | Description |\n|-----------|------|----------|-------------|\n| user_id | string | Yes | Unique identifier of the user |\n\nRequest Body:\n\n| Parameter | Type | Required | Description |\n|-----------|------|----------|-------------|\n| name | string | No | User&#39;s full name |\n| address | object | No | User&#39;s address information |\n\nRequest Example:\n\n```bash\ncurl -X PUT \&quot;https://api.example.com/v1/users/usr_987654321\&quot; \\\n  -H \&quot;Authorization: Bearer YOUR_API_KEY\&quot; \\\n  -H \&quot;Content-Type: application/json\&quot; \\\n  -d &#39;{\n    \&quot;name\&quot;: \&quot;Jane A. Smith\&quot;,\n    \&quot;address\&quot;: {\n      \&quot;street\&quot;: \&quot;789 Maple Blvd\&quot;,\n      \&quot;city\&quot;: \&quot;Somewhere\&quot;,\n      \&quot;state\&quot;: \&quot;NY\&quot;,\n      \&quot;postal_code\&quot;: \&quot;67890\&quot;,\n      \&quot;country\&quot;: \&quot;US\&quot;\n    }\n  }&#39;\n```\n\nResponse Example:\n\n```json\n{\n  \&quot;data\&quot;: {\n    \&quot;id\&quot;: \&quot;usr_987654321\&quot;,\n    \&quot;email\&quot;: \&quot;newuser@example.com\&quot;,\n    \&quot;name\&quot;: \&quot;Jane A. Smith\&quot;,\n    \&quot;created_at\&quot;: \&quot;2023-02-10T14:22:30Z\&quot;,\n    \&quot;updated_at\&quot;: \&quot;2023-02-15T09:10:45Z\&quot;,\n    \&quot;address\&quot;: {\n      \&quot;street\&quot;: \&quot;789 Maple Blvd\&quot;,\n      \&quot;city\&quot;: \&quot;Somewhere\&quot;,\n      \&quot;state\&quot;: \&quot;NY\&quot;,\n      \&quot;postal_code\&quot;: \&quot;67890\&quot;,\n      \&quot;country\&quot;: \&quot;US\&quot;\n    }\n  }\n}\n```\n\n#### 7.2.5 Delete User\n\n```http\nDELETE /users/{user_id}\n```\n\nPath Parameters:\n\n| Parameter | Type | Required | Description |\n|-----------|------|----------|-------------|\n| user_id | string | Yes | Unique identifier of the user |\n\nRequest Example:\n\n```bash\ncurl -X DELETE \&quot;https://api.example.com/v1/users/usr_987654321\&quot; \\\n  -H \&quot;Authorization: Bearer YOUR_API_KEY\&quot; \\\n  -H \&quot;Content-Type: application/json\&quot;\n```\n\nResponse Example:\n\n```json\n{\n  \&quot;data\&quot;: {\n    \&quot;id\&quot;: \&quot;usr_987654321\&quot;,\n    \&quot;deleted\&quot;: true\n  }\n}\n```\n\n### 7.3 Products\n\n[Document the Products resource endpoints in the same format as the Users resource]\n\n### 7.4 Orders\n\n[Document the Orders resource endpoints in the same format as the Users resource]\n\n---\n\n## 8. Error Handling\n\n### 8.1 Error Response Format\n\nAll API errors follow a consistent format:\n\n```json\n{\n  \&quot;error\&quot;: {\n    \&quot;code\&quot;: \&quot;error_code\&quot;,\n    \&quot;message\&quot;: \&quot;Human-readable error message\&quot;,\n    \&quot;details\&quot;: [\n      {\n        \&quot;field\&quot;: \&quot;field_name\&quot;,\n        \&quot;message\&quot;: \&quot;Specific error for this field\&quot;\n      }\n    ],\n    \&quot;request_id\&quot;: \&quot;req_abcdef123456\&quot;\n  }\n}\n```\n\n### 8.2 HTTP Status Codes\n\n| Status Code | Description |\n|-------------|-------------|\n| 200 | OK - The request was successful |\n| 201 | Created - A new resource was successfully created |\n| 204 | No Content - The request was successful but returns no content |\n| 400 | Bad Request - The request was malformed or contains invalid parameters |\n| 401 | Unauthorized - Authentication is required or failed |\n| 403 | Forbidden - The authenticated user doesn&#39;t have permission |\n| 404 | Not Found - The requested resource doesn&#39;t exist |\n| 409 | Conflict - The request conflicts with the current state of the resource |\n| 422 | Unprocessable Entity - The request was well-formed but contains semantic errors |\n| 429 | Too Many Requests - Rate limit exceeded |\n| 500 | Internal Server Error - Something went wrong on the server |\n| 503 | Service Unavailable - The service is temporarily unavailable |\n\n### 8.3 Error Codes\n\n| Error Code | Description |\n|------------|-------------|\n| authentication_failed | The provided credentials are invalid |\n| invalid_request | The request is malformed or contains invalid parameters |\n| resource_not_found | The requested resource doesn&#39;t exist |\n| permission_denied | The authenticated user doesn&#39;t have permission |\n| rate_limit_exceeded | The rate limit has been exceeded |\n| validation_failed | The request contains validation errors |\n| server_error | An unexpected error occurred on the server |\n\n### 8.4 Error Handling Examples\n\n#### Authentication Error\n\n```http\nHTTP/1.1 401 Unauthorized\nContent-Type: application/json\n\n{\n  \&quot;error\&quot;: {\n    \&quot;code\&quot;: \&quot;authentication_failed\&quot;,\n    \&quot;message\&quot;: \&quot;Invalid API key provided\&quot;,\n    \&quot;details\&quot;: [],\n    \&quot;request_id\&quot;: \&quot;req_abcdef123456\&quot;\n  }\n}\n```\n\n#### Validation Error\n\n```http\nHTTP/1.1 422 Unprocessable Entity\nContent-Type: application/json\n\n{\n  \&quot;error\&quot;: {\n    \&quot;code\&quot;: \&quot;validation_failed\&quot;,\n    \&quot;message\&quot;: \&quot;The request contains invalid parameters\&quot;,\n    \&quot;details\&quot;: [\n      {\n        \&quot;field\&quot;: \&quot;email\&quot;,\n        \&quot;message\&quot;: \&quot;Email address is invalid\&quot;\n      },\n      {\n        \&quot;field\&quot;: \&quot;password\&quot;,\n        \&quot;message\&quot;: \&quot;Password must be at least 8 characters long\&quot;\n      }\n    ],\n    \&quot;request_id\&quot;: \&quot;req_abcdef123456\&quot;\n  }\n}\n```\n\n---\n\n## 9. Rate Limiting\n\n### 9.1 Rate Limit Policy\n\n[Describe your rate limiting policy, including limits per endpoint/resource]\n\n### 9.2 Rate Limit Headers\n\nThe API includes the following headers in responses to help track rate limit usage:\n\n| Header | Description |\n|--------|-------------|\n| X-RateLimit-Limit | The maximum number of requests allowed in the current time window |\n| X-RateLimit-Remaining | The number of requests remaining in the current time window |\n| X-RateLimit-Reset | The time (in UTC seconds) when the rate limit window resets |\n\n### 9.3 Rate Limit Exceeded Response\n\n```http\nHTTP/1.1 429 Too Many Requests\nContent-Type: application/json\nX-RateLimit-Limit: 100\nX-RateLimit-Remaining: 0\nX-RateLimit-Reset: 1612345678\n\n{\n  \&quot;error\&quot;: {\n    \&quot;code\&quot;: \&quot;rate_limit_exceeded\&quot;,\n    \&quot;message\&quot;: \&quot;Rate limit exceeded. Please retry after 2023-02-15T10:30:00Z\&quot;,\n    \&quot;details\&quot;: [],\n    \&quot;request_id\&quot;: \&quot;req_abcdef123456\&quot;\n  }\n}\n```\n\n### 9.4 Best Practices for Handling Rate Limits\n\n[Provide guidance on how to handle rate limits, including exponential backoff strategies]\n\n---\n\n## 10. Security Considerations\n\n### 10.1 Transport Layer Security\n\nAll API requests must use HTTPS to ensure data encryption in transit. HTTP requests will be rejected.\n\n### 10.2 API Key Security\n\n[Guidance on securely storing and handling API keys]\n\n### 10.3 Cross-Origin Resource Sharing (CORS)\n\n[CORS policy and configuration]\n\n### 10.4 Input Validation\n\n[Recommendations for validating input before sending to the API]\n\n### 10.5 Content Security Policy\n\n[Information about the Content Security Policy implemented]\n\n### 10.6 Security Headers\n\n[List of security headers implemented]\n\n### 10.7 Vulnerability Reporting\n\n[Instructions for reporting security vulnerabilities]\n\n---\n\n## 11. Data Types\n\n### 11.1 Common Data Types\n\n| Type | Format | Description |\n|------|--------|-------------|\n| uuid | string | Universally unique identifier (e.g., \&quot;550e8400-e29b-41d4-a716-446655440000\&quot;) |\n| timestamp | string | ISO 8601 date and time (e.g., \&quot;2023-02-15T14:30:00Z\&quot;) |\n| email | string | Valid email address (e.g., \&quot;user@example.com\&quot;) |\n| currency | string | Three-letter ISO currency code (e.g., \&quot;USD\&quot;) |\n| country | string | Two-letter ISO country code (e.g., \&quot;US\&quot;) |\n| phone | string | E.164 formatted phone number (e.g., \&quot;+12125551234\&quot;) |\n\n### 11.2 User Object\n\n[Document the structure of the User object with example]\n\n### 11.3 Product Object\n\n[Document the structure of the Product object with example]\n\n### 11.4 Order Object\n\n[Document the structure of the Order object with example]\n\n---\n\n## 12. Pagination\n\n### 12.1 Limit-Offset Pagination\n\n[Describe limit-offset pagination implementation]\n\nParameters:\n\n| Parameter | Type | Default | Description |\n|-----------|------|---------|-------------|\n| limit | integer | 20 | Number of records to return (max: 100) |\n| offset | integer | 0 | Number of records to skip |\n\nResponse Format:\n\n```json\n{\n  \&quot;data\&quot;: [...],\n  \&quot;meta\&quot;: {\n    \&quot;total\&quot;: 245,\n    \&quot;limit\&quot;: 20,\n    \&quot;offset\&quot;: 40\n  }\n}\n```\n\n### 12.2 Cursor-Based Pagination\n\n[Describe cursor-based pagination implementation, if applicable]\n\nParameters:\n\n| Parameter | Type | Default | Description |\n|-----------|------|---------|-------------|\n| limit | integer | 20 | Number of records to return (max: 100) |\n| cursor | string | null | Cursor for the next page |\n\nResponse Format:\n\n```json\n{\n  \&quot;data\&quot;: [...],\n  \&quot;meta\&quot;: {\n    \&quot;has_more\&quot;: true,\n    \&quot;next_cursor\&quot;: \&quot;dXNyXzEyMzQ1Njc4OQ==\&quot;\n  }\n}\n```\n\n---\n\n## 13. Webhooks\n\n### 13.1 Overview\n\n[Describe the webhook system, including use cases and benefits]\n\n### 13.2 Event Types\n\n| Event Type | Description |\n|------------|-------------|\n| user.created | Triggered when a new user is created |\n| user.updated | Triggered when a user is updated |\n| order.created | Triggered when a new order is placed |\n| order.updated | Triggered when an order is updated |\n| order.fulfilled | Triggered when an order is fulfilled |\n\n### 13.3 Webhook Payload Format\n\n```json\n{\n  \&quot;event\&quot;: \&quot;user.created\&quot;,\n  \&quot;timestamp\&quot;: \&quot;2023-02-15T14:30:00Z\&quot;,\n  \&quot;data\&quot;: {\n    \&quot;id\&quot;: \&quot;usr_123456789\&quot;,\n    \&quot;email\&quot;: \&quot;user@example.com\&quot;,\n    \&quot;name\&quot;: \&quot;John Doe\&quot;,\n    \&quot;created_at\&quot;: \&quot;2023-02-15T14:30:00Z\&quot;\n  }\n}\n```\n\n### 13.4 Webhook Setup\n\n[Instructions for setting up webhooks, including registering endpoints]\n\n### 13.5 Security\n\n[Webhook security best practices, including signature verification]\n\nSignature Verification Example:\n\n```javascript\nconst crypto = require(&#39;crypto&#39;);\n\nfunction verifyWebhookSignature(payload, signature, secret) {\n  const hmac = crypto.createHmac(&#39;sha256&#39;, secret);\n  const expectedSignature = hmac.update(payload).digest(&#39;hex&#39;);\n  return crypto.timingSafeEqual(\n    Buffer.from(signature),\n    Buffer.from(expectedSignature)\n  );\n}\n```\n\n### 13.6 Retries and Failures\n\n[Describe the retry policy for failed webhook deliveries]\n\n---\n\n## 14. SDKs and Client Libraries\n\n### 14.1 Official SDKs\n\n| Language | Repository | Documentation |\n|----------|------------|---------------|\n| JavaScript | [GitHub Link] | [Documentation Link] |\n| Python | [GitHub Link] | [Documentation Link] |\n| Java | [GitHub Link] | [Documentation Link] |\n| Ruby | [GitHub Link] | [Documentation Link] |\n| PHP | [GitHub Link] | [Documentation Link] |\n| Go | [GitHub Link] | [Documentation Link] |\n\n### 14.2 Community Libraries\n\n[List community-maintained client libraries, if available]\n\n---\n\n## 15. Changelog\n\n| Date | Version | Description |\n|------|---------|-------------|\n| YYYY-MM-DD | v1.0.0 | Initial release |\n| YYYY-MM-DD | v1.1.0 | Added new endpoints for Orders resource |\n| YYYY-MM-DD | v1.2.0 | Added webhook support |\n\n---\n\n## 16. Support\n\n### 16.1 Documentation Resources\n\n[Links to additional documentation resources]\n\n### 16.2 Community Forums\n\n[Links to community forums or discussion platforms]\n\n### 16.3 Contact Information\n\n[Contact information for API support]\n\n### 16.4 Status Page\n\n[Link to API status page]\n\n---\n\n## 17. Appendix\n\n### 17.1 Glossary\n\n[Define key terms and concepts used throughout the documentation]\n\n### 17.2 OpenAPI Specification\n\n[Link to the OpenAPI/Swagger specification file]\n\n```yaml\nopenapi: 3.0.0\ninfo:\n  title: Example API\n  version: &#39;1.0&#39;\n  description: Example API for demonstrating API documentation\nservers:\n  - url: https://api.example.com/v1\n    description: Production\n  - url: https://staging-api.example.com/v1\n    description: Staging\npaths:\n  /users:\n    get:\n      summary: List users\n      # ... OpenAPI specification continues\n```\n\n### 17.3 Postman Collection\n\n[Link to a Postman collection for testing the API]\n\n---\n\n## When to Use\n\nUse this template when api documentation template aligns with your project needs and governance requirements. This template is designed to support your project by providing structure and ensuring key considerations are documented.\n\n## When NOT to Use\n\nDo not use this template if your organization has established alternative processes or standards for this function, or if the level of detail exceeds your project&#39;s needs or governance requirements.\n\n## Using This Template\n\nThis template provides a structured format for documenting your API. When using this template:\n\n1. Replace placeholder text (enclosed in [square brackets]) with your actual API information\n2. Remove sections that are not applicable to your API\n3. Add additional sections as needed for your specific API\n4. Include real examples based on your actual API responses\n5. Ensure all links to related documents are valid\n6. Update the table of contents if you add or remove sections\n\nRemember that good API documentation should be:\n- Clear and concise\n- Well-organized and easy to navigate\n- Complete with accurate examples\n- Up-to-date with the current API implementation\n- Accessible to developers of different experience levels\n\nRegular updates to this documentation are essential as your API evolves.\n&quot;]}" ssr client="load" opts="{&quot;name&quot;:&quot;TemplateViewer&quot;,&quot;value&quot;:true}" await-children><div><h1>Api Documentation Template</h1><div style="margin-bottom:2rem"><button style="background:var(--accent-color);color:white;border:1px solid var(--border-color);padding:0.5rem 1rem;border-radius:4px 4px 0 0;cursor:pointer;margin-right:1px">Preview</button><button style="background:var(--code-bg);color:var(--text-color);border:1px solid var(--border-color);padding:0.5rem 1rem;border-radius:4px 4px 0 0;cursor:pointer">Version History</button></div><div style="border:1px solid var(--border-color);border-radius:0 8px 8px 8px;min-height:400px"><div style="background:var(--bg-primary);border-radius:var(--radius-lg)"><div style="padding:1rem 1.5rem;border-bottom:1px solid var(--border-light);display:flex;align-items:center;justify-content:space-between;background:var(--bg-secondary);border-radius:var(--radius-lg) var(--radius-lg) 0 0"><div style="display:flex;align-items:center;gap:0.5rem"><span style="font-size:1.5rem">📄</span><div><div style="font-weight:600;color:var(--text-primary)">api_documentation_template.md</div><div style="font-size:0.75rem;color:var(--text-muted)">Markdown • <!-- -->20,189 bytes</div></div></div><a href="/pm-tools-templates/downloads/api_documentation_template.md" download="" class="btn btn-secondary" style="font-size:0.75rem;padding:0.5rem 0.75rem">💾 Download</a></div><pre aria-label="Markdown source of Api Documentation Template" style="padding:1.5rem;max-height:600px;overflow:auto;white-space:pre-wrap;overflow-wrap:anywhere">---
+title: &quot;Api Documentation Template&quot;
+methodology: &quot;universal&quot;
+complexity: &quot;advanced&quot;
+owner: &quot;mirichard&quot;
+updated: &quot;2025-08-05&quot;
+primary_principles: [&quot;quality-by-design&quot;, &quot;stewardship&quot;]
+secondary_principles: [&quot;systems-thinking&quot;, &quot;stakeholder-engagement&quot;]
+principle_rationale: &quot;Makes interface quality, ownership, dependencies, and consumer needs explicit.&quot;
+---
+
+# API Documentation Template
+
+**API Name:** [API Name]  
+**Version:** [Version Number]  
+**Last Updated:** [YYYY-MM-DD]  
+**Status:** [Draft/Beta/Production]  
+**Document ID:** [DOC-API-XXX]
+
+## Table of Contents
+
+1. [Introduction](#1-introduction)
+2. [API Overview](#2-api-overview)
+3. [Getting Started](#3-getting-started)
+4. [Authentication](#4-authentication)
+5. [Base URL](#5-base-url)
+6. [API Versioning](#6-api-versioning)
+7. [Resource Endpoints](#7-resource-endpoints)
+8. [Error Handling](#8-error-handling)
+9. [Rate Limiting](#9-rate-limiting)
+10. [Security Considerations](#10-security-considerations)
+11. [Data Types](#11-data-types)
+12. [Pagination](#12-pagination)
+13. [Webhooks](#13-webhooks)
+14. [SDKs and Client Libraries](#14-sdks-and-client-libraries)
+15. [Changelog](#15-changelog)
+16. [Support](#16-support)
+17. [Appendix](#17-appendix)
+
+---
+
+## 1. Introduction
+
+### 1.1 Purpose
+
+[Describe the purpose of this API documentation and what the API is designed to accomplish]
+
+### 1.2 Audience
+
+[Identify the intended audience for this documentation (e.g., developers, system integrators, partners)]
+
+### 1.3 Scope
+
+[Define what is covered in this documentation and any limitations]
+
+### 1.4 Related Documents
+
+| Document | Description | Link |
+|----------|-------------|------|
+| Software Requirements Specification | Detailed requirements for the system | [Link to SRS] |
+| Technical Design Document | System architecture and design | [Link to TDD] |
+| Test Plan | Testing strategy for API | [Link to Test Plan] |
+
+---
+
+## 2. API Overview
+
+### 2.1 Architectural Style
+
+[Describe the architectural style of the API (e.g., RESTful, GraphQL, SOAP)]
+
+### 2.2 Protocol
+
+[Specify the protocol(s) used (e.g., HTTPS)]
+
+### 2.3 Data Format
+
+[Describe the data format(s) supported (e.g., JSON, XML)]
+
+### 2.4 Core Concepts
+
+[Explain the core concepts, entities, and relationships of the API]
+
+### 2.5 Use Cases
+
+[Provide high-level use cases that demonstrate when and why to use this API]
+
+---
+
+## 3. Getting Started
+
+### 3.1 Development Environment Setup
+
+[Instructions for setting up a development environment]
+
+### 3.2 Registration and API Key Acquisition
+
+[Step-by-step guide for obtaining API credentials]
+
+### 3.3 Your First Request
+
+```bash
+# Example cURL request to get started
+curl -X GET &quot;https://api.example.com/v1/resources&quot; \
+  -H &quot;Authorization: Bearer YOUR_API_KEY&quot; \
+  -H &quot;Content-Type: application/json&quot;
+```
+
+### 3.4 Sample Applications
+
+[Links to sample applications or repositories that demonstrate API usage]
+
+---
+
+## 4. Authentication
+
+### 4.1 Authentication Methods
+
+[Describe the supported authentication methods (e.g., API Key, OAuth 2.0, JWT)]
+
+### 4.2 OAuth 2.0 Flow (if applicable)
+
+[Detailed description of OAuth 2.0 implementation with diagrams]
+
+#### 4.2.1 Authorization Code Flow
+
+[Step-by-step instructions with examples]
+
+#### 4.2.2 Client Credentials Flow
+
+[Step-by-step instructions with examples]
+
+### 4.3 Token Management
+
+[Information about token lifetimes, refresh procedures, and best practices]
+
+### 4.4 Example Authentication
+
+```http
+# Request
+POST /oauth/token HTTP/1.1
+Host: api.example.com
+Content-Type: application/x-www-form-urlencoded
+
+grant_type=client_credentials&amp;client_id=YOUR_CLIENT_ID&amp;client_secret=YOUR_CLIENT_SECRET
+
+# Response
+{
+  &quot;access_token&quot;: &quot;eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...&quot;,
+  &quot;token_type&quot;: &quot;bearer&quot;,
+  &quot;expires_in&quot;: 3600,
+  &quot;refresh_token&quot;: &quot;eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...&quot;
+}
+```
+
+---
+
+## 5. Base URL
+
+All API requests should be made to the following base URL:
+
+```
+https://api.example.com/v1
+```
+
+Environment-specific base URLs:
+
+| Environment | Base URL |
+|-------------|----------|
+| Production | `https://api.example.com/v1` |
+| Staging | `https://staging-api.example.com/v1` |
+| Development | `https://dev-api.example.com/v1` |
+
+---
+
+## 6. API Versioning
+
+### 6.1 Versioning Strategy
+
+[Explain how API versioning is implemented (e.g., URL path, query parameter, header)]
+
+### 6.2 Current Versions
+
+| Version | Status | Release Date | End-of-Life Date |
+|---------|--------|--------------|------------------|
+| v1 | Active | YYYY-MM-DD | YYYY-MM-DD |
+| v2 | Beta | YYYY-MM-DD | N/A |
+
+### 6.3 Version Lifecycle Policy
+
+[Describe how versions are maintained, deprecated, and retired]
+
+---
+
+## 7. Resource Endpoints
+
+### 7.1 Resources Overview
+
+| Resource | Description | Base Path |
+|----------|-------------|-----------|
+| Users | User management operations | `/users` |
+| Products | Product management operations | `/products` |
+| Orders | Order management operations | `/orders` |
+
+### 7.2 Users
+
+#### 7.2.1 List Users
+
+```http
+GET /users
+```
+
+Query Parameters:
+
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| limit | integer | No | Maximum number of records to return (default: 20, max: 100) |
+| offset | integer | No | Number of records to skip (default: 0) |
+| sort | string | No | Field to sort by (e.g., &#x27;created_at&#x27;) |
+| order | string | No | Sort order (&#x27;asc&#x27; or &#x27;desc&#x27;, default: &#x27;asc&#x27;) |
+
+Request Example:
+
+```bash
+curl -X GET &quot;https://api.example.com/v1/users?limit=10&amp;offset=0&quot; \
+  -H &quot;Authorization: Bearer YOUR_API_KEY&quot; \
+  -H &quot;Content-Type: application/json&quot;
+```
+
+Response Example:
+
+```json
+{
+  &quot;data&quot;: [
+    {
+      &quot;id&quot;: &quot;usr_123456789&quot;,
+      &quot;email&quot;: &quot;user@example.com&quot;,
+      &quot;name&quot;: &quot;John Doe&quot;,
+      &quot;created_at&quot;: &quot;2023-01-15T08:30:00Z&quot;,
+      &quot;updated_at&quot;: &quot;2023-01-20T12:45:00Z&quot;
+    },
+    ...
+  ],
+  &quot;meta&quot;: {
+    &quot;total&quot;: 245,
+    &quot;limit&quot;: 10,
+    &quot;offset&quot;: 0
+  }
+}
+```
+
+#### 7.2.2 Get User
+
+```http
+GET /users/{user_id}
+```
+
+Path Parameters:
+
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| user_id | string | Yes | Unique identifier of the user |
+
+Request Example:
+
+```bash
+curl -X GET &quot;https://api.example.com/v1/users/usr_123456789&quot; \
+  -H &quot;Authorization: Bearer YOUR_API_KEY&quot; \
+  -H &quot;Content-Type: application/json&quot;
+```
+
+Response Example:
+
+```json
+{
+  &quot;data&quot;: {
+    &quot;id&quot;: &quot;usr_123456789&quot;,
+    &quot;email&quot;: &quot;user@example.com&quot;,
+    &quot;name&quot;: &quot;John Doe&quot;,
+    &quot;created_at&quot;: &quot;2023-01-15T08:30:00Z&quot;,
+    &quot;updated_at&quot;: &quot;2023-01-20T12:45:00Z&quot;,
+    &quot;address&quot;: {
+      &quot;street&quot;: &quot;123 Main St&quot;,
+      &quot;city&quot;: &quot;Anytown&quot;,
+      &quot;state&quot;: &quot;CA&quot;,
+      &quot;postal_code&quot;: &quot;12345&quot;,
+      &quot;country&quot;: &quot;US&quot;
+    }
+  }
+}
+```
+
+#### 7.2.3 Create User
+
+```http
+POST /users
+```
+
+Request Body:
+
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| email | string | Yes | User&#x27;s email address |
+| name | string | Yes | User&#x27;s full name |
+| password | string | Yes | User&#x27;s password (min 8 characters) |
+| address | object | No | User&#x27;s address information |
+
+Request Example:
+
+```bash
+curl -X POST &quot;https://api.example.com/v1/users&quot; \
+  -H &quot;Authorization: Bearer YOUR_API_KEY&quot; \
+  -H &quot;Content-Type: application/json&quot; \
+  -d &#x27;{
+    &quot;email&quot;: &quot;newuser@example.com&quot;,
+    &quot;name&quot;: &quot;Jane Smith&quot;,
+    &quot;password&quot;: &quot;securePassword123&quot;,
+    &quot;address&quot;: {
+      &quot;street&quot;: &quot;456 Oak Ave&quot;,
+      &quot;city&quot;: &quot;Somewhere&quot;,
+      &quot;state&quot;: &quot;NY&quot;,
+      &quot;postal_code&quot;: &quot;67890&quot;,
+      &quot;country&quot;: &quot;US&quot;
+    }
+  }&#x27;
+```
+
+Response Example:
+
+```json
+{
+  &quot;data&quot;: {
+    &quot;id&quot;: &quot;usr_987654321&quot;,
+    &quot;email&quot;: &quot;newuser@example.com&quot;,
+    &quot;name&quot;: &quot;Jane Smith&quot;,
+    &quot;created_at&quot;: &quot;2023-02-10T14:22:30Z&quot;,
+    &quot;updated_at&quot;: &quot;2023-02-10T14:22:30Z&quot;,
+    &quot;address&quot;: {
+      &quot;street&quot;: &quot;456 Oak Ave&quot;,
+      &quot;city&quot;: &quot;Somewhere&quot;,
+      &quot;state&quot;: &quot;NY&quot;,
+      &quot;postal_code&quot;: &quot;67890&quot;,
+      &quot;country&quot;: &quot;US&quot;
+    }
+  }
+}
+```
+
+#### 7.2.4 Update User
+
+```http
+PUT /users/{user_id}
+```
+
+Path Parameters:
+
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| user_id | string | Yes | Unique identifier of the user |
+
+Request Body:
+
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| name | string | No | User&#x27;s full name |
+| address | object | No | User&#x27;s address information |
+
+Request Example:
+
+```bash
+curl -X PUT &quot;https://api.example.com/v1/users/usr_987654321&quot; \
+  -H &quot;Authorization: Bearer YOUR_API_KEY&quot; \
+  -H &quot;Content-Type: application/json&quot; \
+  -d &#x27;{
+    &quot;name&quot;: &quot;Jane A. Smith&quot;,
+    &quot;address&quot;: {
+      &quot;street&quot;: &quot;789 Maple Blvd&quot;,
+      &quot;city&quot;: &quot;Somewhere&quot;,
+      &quot;state&quot;: &quot;NY&quot;,
+      &quot;postal_code&quot;: &quot;67890&quot;,
+      &quot;country&quot;: &quot;US&quot;
+    }
+  }&#x27;
+```
+
+Response Example:
+
+```json
+{
+  &quot;data&quot;: {
+    &quot;id&quot;: &quot;usr_987654321&quot;,
+    &quot;email&quot;: &quot;newuser@example.com&quot;,
+    &quot;name&quot;: &quot;Jane A. Smith&quot;,
+    &quot;created_at&quot;: &quot;2023-02-10T14:22:30Z&quot;,
+    &quot;updated_at&quot;: &quot;2023-02-15T09:10:45Z&quot;,
+    &quot;address&quot;: {
+      &quot;street&quot;: &quot;789 Maple Blvd&quot;,
+      &quot;city&quot;: &quot;Somewhere&quot;,
+      &quot;state&quot;: &quot;NY&quot;,
+      &quot;postal_code&quot;: &quot;67890&quot;,
+      &quot;country&quot;: &quot;US&quot;
+    }
+  }
+}
+```
+
+#### 7.2.5 Delete User
+
+```http
+DELETE /users/{user_id}
+```
+
+Path Parameters:
+
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| user_id | string | Yes | Unique identifier of the user |
+
+Request Example:
+
+```bash
+curl -X DELETE &quot;https://api.example.com/v1/users/usr_987654321&quot; \
+  -H &quot;Authorization: Bearer YOUR_API_KEY&quot; \
+  -H &quot;Content-Type: application/json&quot;
+```
+
+Response Example:
+
+```json
+{
+  &quot;data&quot;: {
+    &quot;id&quot;: &quot;usr_987654321&quot;,
+    &quot;deleted&quot;: true
+  }
+}
+```
+
+### 7.3 Products
+
+[Document the Products resource endpoints in the same format as the Users resource]
+
+### 7.4 Orders
+
+[Document the Orders resource endpoints in the same format as the Users resource]
+
+---
+
+## 8. Error Handling
+
+### 8.1 Error Response Format
+
+All API errors follow a consistent format:
+
+```json
+{
+  &quot;error&quot;: {
+    &quot;code&quot;: &quot;error_code&quot;,
+    &quot;message&quot;: &quot;Human-readable error message&quot;,
+    &quot;details&quot;: [
+      {
+        &quot;field&quot;: &quot;field_name&quot;,
+        &quot;message&quot;: &quot;Specific error for this field&quot;
+      }
+    ],
+    &quot;request_id&quot;: &quot;req_abcdef123456&quot;
+  }
+}
+```
+
+### 8.2 HTTP Status Codes
+
+| Status Code | Description |
+|-------------|-------------|
+| 200 | OK - The request was successful |
+| 201 | Created - A new resource was successfully created |
+| 204 | No Content - The request was successful but returns no content |
+| 400 | Bad Request - The request was malformed or contains invalid parameters |
+| 401 | Unauthorized - Authentication is required or failed |
+| 403 | Forbidden - The authenticated user doesn&#x27;t have permission |
+| 404 | Not Found - The requested resource doesn&#x27;t exist |
+| 409 | Conflict - The request conflicts with the current state of the resource |
+| 422 | Unprocessable Entity - The request was well-formed but contains semantic errors |
+| 429 | Too Many Requests - Rate limit exceeded |
+| 500 | Internal Server Error - Something went wrong on the server |
+| 503 | Service Unavailable - The service is temporarily unavailable |
+
+### 8.3 Error Codes
+
+| Error Code | Description |
+|------------|-------------|
+| authentication_failed | The provided credentials are invalid |
+| invalid_request | The request is malformed or contains invalid parameters |
+| resource_not_found | The requested resource doesn&#x27;t exist |
+| permission_denied | The authenticated user doesn&#x27;t have permission |
+| rate_limit_exceeded | The rate limit has been exceeded |
+| validation_failed | The request contains validation errors |
+| server_error | An unexpected error occurred on the server |
+
+### 8.4 Error Handling Examples
+
+#### Authentication Error
+
+```http
+HTTP/1.1 401 Unauthorized
+Content-Type: application/json
+
+{
+  &quot;error&quot;: {
+    &quot;code&quot;: &quot;authentication_failed&quot;,
+    &quot;message&quot;: &quot;Invalid API key provided&quot;,
+    &quot;details&quot;: [],
+    &quot;request_id&quot;: &quot;req_abcdef123456&quot;
+  }
+}
+```
+
+#### Validation Error
+
+```http
+HTTP/1.1 422 Unprocessable Entity
+Content-Type: application/json
+
+{
+  &quot;error&quot;: {
+    &quot;code&quot;: &quot;validation_failed&quot;,
+    &quot;message&quot;: &quot;The request contains invalid parameters&quot;,
+    &quot;details&quot;: [
+      {
+        &quot;field&quot;: &quot;email&quot;,
+        &quot;message&quot;: &quot;Email address is invalid&quot;
+      },
+      {
+        &quot;field&quot;: &quot;password&quot;,
+        &quot;message&quot;: &quot;Password must be at least 8 characters long&quot;
+      }
+    ],
+    &quot;request_id&quot;: &quot;req_abcdef123456&quot;
+  }
+}
+```
+
+---
+
+## 9. Rate Limiting
+
+### 9.1 Rate Limit Policy
+
+[Describe your rate limiting policy, including limits per endpoint/resource]
+
+### 9.2 Rate Limit Headers
+
+The API includes the following headers in responses to help track rate limit usage:
+
+| Header | Description |
+|--------|-------------|
+| X-RateLimit-Limit | The maximum number of requests allowed in the current time window |
+| X-RateLimit-Remaining | The number of requests remaining in the current time window |
+| X-RateLimit-Reset | The time (in UTC seconds) when the rate limit window resets |
+
+### 9.3 Rate Limit Exceeded Response
+
+```http
+HTTP/1.1 429 Too Many Requests
+Content-Type: application/json
+X-RateLimit-Limit: 100
+X-RateLimit-Remaining: 0
+X-RateLimit-Reset: 1612345678
+
+{
+  &quot;error&quot;: {
+    &quot;code&quot;: &quot;rate_limit_exceeded&quot;,
+    &quot;message&quot;: &quot;Rate limit exceeded. Please retry after 2023-02-15T10:30:00Z&quot;,
+    &quot;details&quot;: [],
+    &quot;request_id&quot;: &quot;req_abcdef123456&quot;
+  }
+}
+```
+
+### 9.4 Best Practices for Handling Rate Limits
+
+[Provide guidance on how to handle rate limits, including exponential backoff strategies]
+
+---
+
+## 10. Security Considerations
+
+### 10.1 Transport Layer Security
+
+All API requests must use HTTPS to ensure data encryption in transit. HTTP requests will be rejected.
+
+### 10.2 API Key Security
+
+[Guidance on securely storing and handling API keys]
+
+### 10.3 Cross-Origin Resource Sharing (CORS)
+
+[CORS policy and configuration]
+
+### 10.4 Input Validation
+
+[Recommendations for validating input before sending to the API]
+
+### 10.5 Content Security Policy
+
+[Information about the Content Security Policy implemented]
+
+### 10.6 Security Headers
+
+[List of security headers implemented]
+
+### 10.7 Vulnerability Reporting
+
+[Instructions for reporting security vulnerabilities]
+
+---
+
+## 11. Data Types
+
+### 11.1 Common Data Types
+
+| Type | Format | Description |
+|------|--------|-------------|
+| uuid | string | Universally unique identifier (e.g., &quot;550e8400-e29b-41d4-a716-446655440000&quot;) |
+| timestamp | string | ISO 8601 date and time (e.g., &quot;2023-02-15T14:30:00Z&quot;) |
+| email | string | Valid email address (e.g., &quot;user@example.com&quot;) |
+| currency | string | Three-letter ISO currency code (e.g., &quot;USD&quot;) |
+| country | string | Two-letter ISO country code (e.g., &quot;US&quot;) |
+| phone | string | E.164 formatted phone number (e.g., &quot;+12125551234&quot;) |
+
+### 11.2 User Object
+
+[Document the structure of the User object with example]
+
+### 11.3 Product Object
+
+[Document the structure of the Product object with example]
+
+### 11.4 Order Object
+
+[Document the structure of the Order object with example]
+
+---
+
+## 12. Pagination
+
+### 12.1 Limit-Offset Pagination
+
+[Describe limit-offset pagination implementation]
+
+Parameters:
+
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| limit | integer | 20 | Number of records to return (max: 100) |
+| offset | integer | 0 | Number of records to skip |
+
+Response Format:
+
+```json
+{
+  &quot;data&quot;: [...],
+  &quot;meta&quot;: {
+    &quot;total&quot;: 245,
+    &quot;limit&quot;: 20,
+    &quot;offset&quot;: 40
+  }
+}
+```
+
+### 12.2 Cursor-Based Pagination
+
+[Describe cursor-based pagination implementation, if applicable]
+
+Parameters:
+
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| limit | integer | 20 | Number of records to return (max: 100) |
+| cursor | string | null | Cursor for the next page |
+
+Response Format:
+
+```json
+{
+  &quot;data&quot;: [...],
+  &quot;meta&quot;: {
+    &quot;has_more&quot;: true,
+    &quot;next_cursor&quot;: &quot;dXNyXzEyMzQ1Njc4OQ==&quot;
+  }
+}
+```
+
+---
+
+## 13. Webhooks
+
+### 13.1 Overview
+
+[Describe the webhook system, including use cases and benefits]
+
+### 13.2 Event Types
+
+| Event Type | Description |
+|------------|-------------|
+| user.created | Triggered when a new user is created |
+| user.updated | Triggered when a user is updated |
+| order.created | Triggered when a new order is placed |
+| order.updated | Triggered when an order is updated |
+| order.fulfilled | Triggered when an order is fulfilled |
+
+### 13.3 Webhook Payload Format
+
+```json
+{
+  &quot;event&quot;: &quot;user.created&quot;,
+  &quot;timestamp&quot;: &quot;2023-02-15T14:30:00Z&quot;,
+  &quot;data&quot;: {
+    &quot;id&quot;: &quot;usr_123456789&quot;,
+    &quot;email&quot;: &quot;user@example.com&quot;,
+    &quot;name&quot;: &quot;John Doe&quot;,
+    &quot;created_at&quot;: &quot;2023-02-15T14:30:00Z&quot;
+  }
+}
+```
+
+### 13.4 Webhook Setup
+
+[Instructions for setting up webhooks, including registering endpoints]
+
+### 13.5 Security
+
+[Webhook security best practices, including signature verification]
+
+Signature Verification Example:
+
+```javascript
+const crypto = require(&#x27;crypto&#x27;);
+
+function verifyWebhookSignature(payload, signature, secret) {
+  const hmac = crypto.createHmac(&#x27;sha256&#x27;, secret);
+  const expectedSignature = hmac.update(payload).digest(&#x27;hex&#x27;);
+  return crypto.timingSafeEqual(
+    Buffer.from(signature),
+    Buffer.from(expectedSignature)
+  );
+}
+```
+
+### 13.6 Retries and Failures
+
+[Describe the retry policy for failed webhook deliveries]
+
+---
+
+## 14. SDKs and Client Libraries
+
+### 14.1 Official SDKs
+
+| Language | Repository | Documentation |
+|----------|------------|---------------|
+| JavaScript | [GitHub Link] | [Documentation Link] |
+| Python | [GitHub Link] | [Documentation Link] |
+| Java | [GitHub Link] | [Documentation Link] |
+| Ruby | [GitHub Link] | [Documentation Link] |
+| PHP | [GitHub Link] | [Documentation Link] |
+| Go | [GitHub Link] | [Documentation Link] |
+
+### 14.2 Community Libraries
+
+[List community-maintained client libraries, if available]
+
+---
+
+## 15. Changelog
+
+| Date | Version | Description |
+|------|---------|-------------|
+| YYYY-MM-DD | v1.0.0 | Initial release |
+| YYYY-MM-DD | v1.1.0 | Added new endpoints for Orders resource |
+| YYYY-MM-DD | v1.2.0 | Added webhook support |
+
+---
+
+## 16. Support
+
+### 16.1 Documentation Resources
+
+[Links to additional documentation resources]
+
+### 16.2 Community Forums
+
+[Links to community forums or discussion platforms]
+
+### 16.3 Contact Information
+
+[Contact information for API support]
+
+### 16.4 Status Page
+
+[Link to API status page]
+
+---
+
+## 17. Appendix
+
+### 17.1 Glossary
+
+[Define key terms and concepts used throughout the documentation]
+
+### 17.2 OpenAPI Specification
+
+[Link to the OpenAPI/Swagger specification file]
+
+```yaml
+openapi: 3.0.0
+info:
+  title: Example API
+  version: &#x27;1.0&#x27;
+  description: Example API for demonstrating API documentation
+servers:
+  - url: https://api.example.com/v1
+    description: Production
+  - url: https://staging-api.example.com/v1
+    description: Staging
+paths:
+  /users:
+    get:
+      summary: List users
+      # ... OpenAPI specification continues
+```
+
+### 17.3 Postman Collection
+
+[Link to a Postman collection for testing the API]
+
+---
+
+## When to Use
+
+Use this template when api documentation template aligns with your project needs and governance requirements. This template is designed to support your project by providing structure and ensuring key considerations are documented.
+
+## When NOT to Use
+
+Do not use this template if your organization has established alternative processes or standards for this function, or if the level of detail exceeds your project&#x27;s needs or governance requirements.
+
+## Using This Template
+
+This template provides a structured format for documenting your API. When using this template:
+
+1. Replace placeholder text (enclosed in [square brackets]) with your actual API information
+2. Remove sections that are not applicable to your API
+3. Add additional sections as needed for your specific API
+4. Include real examples based on your actual API responses
+5. Ensure all links to related documents are valid
+6. Update the table of contents if you add or remove sections
+
+Remember that good API documentation should be:
+- Clear and concise
+- Well-organized and easy to navigate
+- Complete with accurate examples
+- Up-to-date with the current API implementation
+- Accessible to developers of different experience levels
+
+Regular updates to this documentation are essential as your API evolves.
+</pre></div></div></div><!--astro:end--></astro-island></main></body></html>

@@ -1,0 +1,546 @@
+<!DOCTYPE html><html lang="en" data-astro-cid-ju4pidww><head><meta charset="UTF-8"><meta name="description" content="Advanced template browser with previews and version history"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="icon" type="image/svg+xml" href="/pm-tools-templates/favicon.svg"><title>Safe Art Coordination Template</title><link rel="stylesheet" href="/pm-tools-templates/assets/Layout.ChXqTIwx.css"></head><body data-astro-cid-ju4pidww><main data-astro-cid-ju4pidww><style>astro-island,astro-slot,astro-static-slot{display:contents}</style><script>(()=>{var e=async t=>{await(await t())()};(self.Astro||(self.Astro={})).load=e;window.dispatchEvent(new Event("astro:load"));})();</script><script>(()=>{var g=Object.defineProperty;var w=(a,s,c)=>s in a?g(a,s,{enumerable:!0,configurable:!0,writable:!0,value:c}):a[s]=c;var l=(a,s,c)=>w(a,typeof s!="symbol"?s+"":s,c);var E=new Set(["__proto__","constructor","prototype"]);{let a={0:t=>y(t),1:t=>c(t),2:t=>new RegExp(t),3:t=>new Date(t),4:t=>new Map(c(t)),5:t=>new Set(c(t)),6:t=>BigInt(t),7:t=>new URL(t),8:t=>new Uint8Array(t),9:t=>new Uint16Array(t),10:t=>new Uint32Array(t),11:t=>Number.POSITIVE_INFINITY*t},s=t=>{let[p,e]=t;return p in a?a[p](e):void 0},c=t=>t.map(s),y=t=>typeof t!="object"||t===null?t:Object.fromEntries(Object.entries(t).map(([p,e])=>[p,s(e)]));class f extends HTMLElement{constructor(){super(...arguments);l(this,"Component");l(this,"hydrator");l(this,"hydrate",async()=>{var b;if(!this.hydrator||!this.isConnected)return;let e=(b=this.parentElement)==null?void 0:b.closest("astro-island[ssr]");if(e){e.addEventListener("astro:hydrate",this.hydrate,{once:!0});return}let r=this.querySelectorAll("astro-slot"),n={},d=this.querySelectorAll("template[data-astro-template]");for(let o of d){let i=o.closest(this.tagName);i!=null&&i.isSameNode(this)&&(n[o.getAttribute("data-astro-template")||"default"]=o.innerHTML,o.remove())}for(let o of r){let i=o.closest(this.tagName);i!=null&&i.isSameNode(this)&&(n[o.getAttribute("name")||"default"]=o.innerHTML)}let u;try{u=this.hasAttribute("props")?y(JSON.parse(this.getAttribute("props"))):{}}catch(o){let i=this.getAttribute("component-url")||"<unknown>",v=this.getAttribute("component-export");throw v&&(i+=` (export ${v})`),console.error(`[hydrate] Error parsing props for component ${i}`,this.getAttribute("props"),o),o}let h;await this.hydrator(this)(this.Component,u,n,{client:this.getAttribute("client")}),this.removeAttribute("ssr"),this.dispatchEvent(new CustomEvent("astro:hydrate"))});l(this,"unmount",()=>{this.isConnected||this.dispatchEvent(new CustomEvent("astro:unmount"))})}disconnectedCallback(){document.removeEventListener("astro:after-swap",this.unmount),document.addEventListener("astro:after-swap",this.unmount,{once:!0})}connectedCallback(){if(!this.hasAttribute("await-children")||document.readyState==="interactive"||document.readyState==="complete")this.childrenConnectedCallback();else{let e=()=>{document.removeEventListener("DOMContentLoaded",e),r.disconnect(),this.childrenConnectedCallback()},r=new MutationObserver(()=>{var n;((n=this.lastChild)==null?void 0:n.nodeType)===Node.COMMENT_NODE&&this.lastChild.nodeValue==="astro:end"&&(this.lastChild.remove(),e())});r.observe(this,{childList:!0}),document.addEventListener("DOMContentLoaded",e)}}async childrenConnectedCallback(){let e=this.getAttribute("before-hydration-url");e&&await import(e),this.start()}getRetryImportUrl(e){let r=new URL(e,document.baseURI);return r.searchParams.set("astro-retry",Date.now().toString()),r.toString()}async importWithRetry(e){try{return await import(e)}catch(r){return await new Promise(n=>setTimeout(n,1e3)),import(this.getRetryImportUrl(e))}}handleHydrationError(e){let r=this.getAttribute("component-url"),n=new CustomEvent("astro:hydration-error",{cancelable:!0,bubbles:!0,composed:!0,detail:{error:e,componentUrl:r}});this.dispatchEvent(n)&&console.error(`[astro-island] Error hydrating ${r}`,e)}async start(){let e=JSON.parse(this.getAttribute("opts")),r=this.getAttribute("client");if(Astro[r]===void 0){window.addEventListener(`astro:${r}`,()=>this.start(),{once:!0});return}try{await Astro[r](async()=>{let n=this.getAttribute("renderer-url");try{let[d,{default:u}]=await Promise.all([this.importWithRetry(this.getAttribute("component-url")),n?this.importWithRetry(n):Promise.resolve({default:()=>()=>{}})]),h=this.getAttribute("component-export")||"default";if(h.includes(".")){this.Component=d;for(let m of h.split(".")){if(E.has(m)||!this.Component||typeof this.Component!="object"&&typeof this.Component!="function"||!Object.hasOwn(this.Component,m))throw new Error(`Invalid component export path: ${h}`);this.Component=this.Component[m]}}else{if(E.has(h))throw new Error(`Invalid component export path: ${h}`);this.Component=d[h]}return this.hydrator=u,this.hydrate}catch(d){return this.handleHydrationError(d),()=>{}}},e,this)}catch(n){this.handleHydrationError(n)}}attributeChangedCallback(){this.hydrate()}}l(f,"observedAttributes",["props"]),customElements.get("astro-island")||customElements.define("astro-island",f)}})();</script><astro-island uid="1O2duL" prefix="r1" component-url="/pm-tools-templates/assets/TemplateViewer.BJxWH0dD.js" component-export="default" renderer-url="/pm-tools-templates/assets/client.REQV_TkY.js" props="{&quot;templateId&quot;:[0,&quot;safe_art_coordination_template&quot;],&quot;filePath&quot;:[0,&quot;domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_art_coordination_template.md&quot;],&quot;title&quot;:[0,&quot;Safe Art Coordination Template&quot;],&quot;content&quot;:[0,&quot;---\ntitle: Safe Art Coordination Template\nmethodology: agile\ncomplexity: advanced\nowner: mirichard\nupdated: &#39;2025-08-05&#39;\nprimary_principles:\n- systems-thinking\n- collaborative-leadership\nsecondary_principles:\n- adaptability\n- value-focus\nprinciple_rationale: Coordinates cross-team dependencies and value flow through adaptive\n  leadership.\n---\n\n# SAFe ART Coordination Template\n\n**Enterprise:** [Enterprise Name]  \n**Portfolio:** [Portfolio Name]  \n**Created By:** [Name/Role]  \n**Last Updated:** [YYYY-MM-DD]  \n**Version:** [1.0]\n\n## 📋 ART Coordination Overview\n\nAgile Release Train (ART) coordination is essential for synchronizing the work of multiple agile teams (5-12 teams, 50-125 people) working together on a common solution. This template provides a comprehensive framework for:\n\n- Synchronizing teams within and across ARTs\n- Managing dependencies between teams and with external groups\n- Coordinating releases and deployments\n- Measuring program-level progress and health\n- Establishing effective coordination ceremonies and cadence\n\nThis template follows SAFe (Scaled Agile Framework) best practices for program-level coordination.\n\n## 🏗️ ART Structure and Roles\n\n### ART Team Composition\n```\nAgile Release Train (ART)\n├── Release Train Engineer (RTE)\n├── Product Management\n├── System Architect/Engineering\n├── Business Owners\n├── Agile Teams (5-12 teams)\n│   ├── Team 1: Scrum Master + Product Owner + Dev Team\n│   ├── Team 2: Scrum Master + Product Owner + Dev Team\n│   ├── Team 3: Scrum Master + Product Owner + Dev Team\n│   └── ...\n├── System Team (optional)\n├── Shared Services (optional)\n└── DevOps (optional)\n```\n\n### Key Roles and Responsibilities\n\n#### Release Train Engineer (RTE)\n- **Primary Responsibility:** Facilitate ART events and processes\n- **Key Activities:**\n  - Lead PI Planning and other ART events\n  - Manage risks, impediments, and dependencies\n  - Facilitate cross-team coordination\n  - Coach teams and other stakeholders\n  - Drive continuous improvement\n\n#### Product Management\n- **Primary Responsibility:** Define and prioritize Program Backlog\n- **Key Activities:**\n  - Develop and communicate product vision\n  - Prioritize features and capabilities\n  - Participate in solution planning\n  - Validate business value delivery\n\n#### System Architect/Engineering\n- **Primary Responsibility:** Provide technical leadership\n- **Key Activities:**\n  - Define system architecture and design\n  - Guide technology decisions\n  - Facilitate architectural runway\n  - Support teams with technical guidance\n\n## 🔄 ART Synchronization Framework\n\n### Program Increment (PI) Structure\n```\nPI Planning (2 days) → Development (4 iterations) → System Demo → Inspect &amp; Adapt → Innovation &amp; Planning (1 iteration) → Next PI\n```\n\n### Iteration Structure Within PI\n```\nIteration 1: Development + Team Demo + System Demo\nIteration 2: Development + Team Demo + System Demo\nIteration 3: Development + Team Demo + System Demo\nIteration 4: Development + Team Demo + System Demo\nIteration 5: Innovation &amp; Planning + PI Planning\n```\n\n### ART Synchronization Events\n\n| Event | Frequency | Duration | Participants | Purpose |\n|-------|-----------|----------|--------------|---------|\n| **PI Planning** | Every PI (8-12 weeks) | 2 days | All ART members, stakeholders | Plan next Program Increment |\n| **ART Sync** | Weekly | 30-60 min | Scrum Masters, RTE, Product Management | Cross-team coordination |\n| **PO Sync** | Weekly | 30-45 min | Product Owners, Product Management | Feature alignment |\n| **System Demo** | End of each iteration | 1-2 hours | All ART members, stakeholders | Demo integrated functionality |\n| **Inspect &amp; Adapt** | End of each PI | 4-6 hours | All ART members | Retrospective and improvement |\n\n### Weekly ART Sync (Scrum of Scrums) Agenda\n\n1. **Team Updates (20-40 minutes)**\n   - Each team provides update (2-3 minutes per team)\n   - Progress toward PI objectives\n   - Blockers and impediments\n   - Dependencies needing coordination\n\n2. **Cross-Team Coordination (10-15 minutes)**\n   - Dependency resolution\n   - Integration planning\n   - Resource coordination\n   - Risk mitigation\n\n3. **Action Items and Follow-ups (5 minutes)**\n   - Assign owners to action items\n   - Schedule follow-up meetings\n   - Escalate issues if needed\n\n### Product Owner (PO) Sync Agenda\n\n1. **Program Backlog Review (15-20 minutes)**\n   - Upcoming feature priorities\n   - Backlog refinement needs\n   - Market feedback and insights\n\n2. **Feature Coordination (15-20 minutes)**\n   - Feature dependencies\n   - Integration requirements\n   - Business value alignment\n\n3. **Customer Feedback (5-10 minutes)**\n   - User feedback review\n   - Market insights\n   - Competitive analysis updates\n\n### Multi-ART Synchronization (for Large Solutions)\n\nWhen multiple ARTs must coordinate, additional synchronization mechanisms are needed:\n\n| Event | Frequency | Duration | Participants | Purpose |\n|-------|-----------|----------|--------------|---------|\n| **Solution Train Sync** | Weekly | 60 min | RTEs, Solution Management, Solution Architect | Cross-ART coordination |\n| **Solution Demo** | End of PI | 2-3 hours | ART representatives, stakeholders | Demo end-to-end solution |\n| **Pre-PI Planning** | Before PI Planning | 1 day | RTEs, Product Management, System Architects | Align ARTs on solution vision |\n| **Post-PI Planning** | After PI Planning | 4 hours | RTEs, Product Management, System Architects | Resolve cross-ART dependencies |\n\n## 📊 Dependency Management\n\n### Dependency Types\n\n#### Internal Dependencies (Within ART)\n- **Team-to-Team:** Dependencies between teams within the same ART\n- **Common examples:** API contracts, shared components, data models\n\n#### External Dependencies (Outside ART)\n- **ART-to-ART:** Dependencies between ARTs within the same solution\n- **ART-to-Supplier:** Dependencies on external vendors or partners\n- **ART-to-Platform:** Dependencies on shared infrastructure or services\n\n### Dependency Visualization - Program Board\n\nThe Program Board visualizes features, dependencies, and milestones across all teams and iterations.\n\n```\nTeam/Item        | Iteration 1 | Iteration 2 | Iteration 3 | Iteration 4 | Iteration 5\n-----------------|-------------|-------------|-------------|-------------|-------------\nTeam Alpha       | Feature A1  | Feature A2  | Feature A3  | Feature A4  | Innovation\n                 |      ↓      |             |             |      ↓      |\nTeam Beta        | Feature B1  | Feature B2  | Feature B3  | Feature B4  | Innovation\n                 |             |      ↓      |             |             |\nTeam Gamma       | Feature G1  | Feature G2  | Feature G3  | Feature G4  | Innovation\n                 |             |      ↑      |      ↓      |             |\nTeam Delta       | Feature D1  | Feature D2  | Feature D3  | Feature D4  | Innovation\nMilestones       | M1         | M2          | M3          | PI Demo     | Inspect &amp; Adapt\n```\n\n**Legend:**\n- **↓ or ↑:** Direction of dependency (provider to consumer)\n- **Red arrows:** Critical dependencies on critical path\n- **Dotted arrows:** External dependencies (outside ART)\n\n### Dependency Management Process\n\n#### 1. Identification (During PI Planning)\n- Teams identify dependencies on Program Board\n- Document in Dependency Tracking System\n- Classify as internal or external\n\n#### 2. Planning and Negotiation\n- Establish delivery dates with provider teams\n- Agree on acceptance criteria and interfaces\n- Document agreements in Dependency Register\n\n#### 3. Tracking and Monitoring\n- Review status in weekly ART Sync\n- Visualize on Program Board\n- Update Dependency Register\n\n#### 4. Resolution and Closure\n- Verify acceptance criteria met\n- Mark as resolved in tracking system\n- Capture lessons learned\n\n### Dependency Register Template\n\n| ID | Type | Provider | Consumer | Deliverable | Required By | Status | Risk | Last Updated |\n|----|------|----------|----------|------------|-------------|--------|------|--------------|\n| D001 | Internal | Team Alpha | Team Beta | Authentication API | Iteration 2 | On Track | Low | YYYY-MM-DD |\n| D002 | External | ART Falcon | ART Eagle | Payment Service | Iteration 3 | At Risk | High | YYYY-MM-DD |\n| D003 | Supplier | Vendor X | Team Delta | SDK Update | Iteration 1 | Complete | - | YYYY-MM-DD |\n\n### Dependency Agreement Template\n\n**Dependency ID:** [D###]  \n**Provider:** [Team/ART/Supplier Name]  \n**Consumer:** [Team/ART Name]  \n**Deliverable:** [Description of what is needed]\n\n**Details:**\n- **Format:** [API, Component, Data, etc.]\n- **Interface Definition:** [Technical specifications]\n- **Acceptance Criteria:** [How consumer will validate]\n- **Quality Standards:** [Performance, security requirements]\n\n**Timeline:**\n- **Start Date:** [When work begins]\n- **Delivery Date:** [When deliverable is available]\n- **Integration Date:** [When consumer integrates]\n\n**Communication:**\n- **Primary Contacts:** Provider: [Name], Consumer: [Name]\n- **Escalation Path:** [Chain of escalation]\n- **Update Frequency:** [How often status is shared]\n\n**Risks:**\n- **Provider Risks:** [Risks to delivering on time]\n- **Consumer Risks:** [Risks to integration]\n- **Mitigation Plans:** [Plans to address risks]\n\n## 🚀 Release Coordination\n\n### Release Types in SAFe\n\n| Release Type | Timing | Scope | Planning Horizon |\n|--------------|--------|-------|------------------|\n| **Feature Release** | As completed | Individual features | 1-2 iterations |\n| **Capability Release** | Mid-PI or end of PI | Set of related features | 1 PI |\n| **Solution Release** | End of PI or multi-PI | Full solution increment | 1-2 PIs |\n| **Fixed-Date Release** | Calendar-driven | Features ready by date | Varies |\n\n### Release Management Roles\n\n- **Release Management Team:** Coordinates releases across ARTs\n- **Release Train Engineer (RTE):** Facilitates ART-level release activities\n- **System Team:** Provides integration, testing, and deployment support\n- **DevOps Team:** Manages CI/CD pipeline and release infrastructure\n\n### Release Planning Process\n\n#### Pre-Release Planning (1-2 weeks before PI Planning)\n- Define release objectives and scope\n- Identify key milestones and dates\n- Review architectural runway\n- Prepare infrastructure and environments\n\n#### Release Planning (During PI Planning)\n- Allocate features to iterations\n- Identify integration points\n- Establish release criteria\n- Plan deployment strategy\n\n#### Release Execution (During PI)\n- Track progress in weekly ART Sync\n- Manage scope changes\n- Coordinate integration and testing\n- Address risks and impediments\n\n#### Release Readiness (1-2 weeks before release)\n- Conduct go/no-go assessment\n- Verify acceptance criteria\n- Prepare deployment plans\n- Coordinate stakeholder communications\n\n### Release Coordination Board\n\n| Feature | Status | Owner | Integration Status | UAT Status | Release Readiness | Issues |\n|---------|--------|-------|-------------------|------------|-------------------|--------|\n| F001 | Dev Complete | Team Alpha | Integrated | Passed | Ready | None |\n| F002 | Testing | Team Beta | Integrated | In Progress | At Risk | Issue #123 |\n| F003 | In Progress | Team Gamma | Not Started | Not Started | Not Ready | Dependency D002 |\n\n### Release Readiness Checklist\n\n**Feature Readiness:**\n- [ ] All features complete and tested\n- [ ] Feature documentation complete\n- [ ] Feature demos approved by Product Management\n\n**Technical Readiness:**\n- [ ] All integration tests passed\n- [ ] Performance testing complete\n- [ ] Security testing complete\n- [ ] Technical documentation updated\n\n**Operational Readiness:**\n- [ ] Deployment plan approved\n- [ ] Rollback plan prepared\n- [ ] Monitoring in place\n- [ ] Support team trained\n\n**Business Readiness:**\n- [ ] User documentation complete\n- [ ] Training materials prepared\n- [ ] Marketing materials ready\n- [ ] Stakeholders notified\n\n### Go/No-Go Meeting Agenda\n\n1. **Release Content Review (15 minutes)**\n   - Features included and excluded\n   - Known issues and workarounds\n\n2. **Readiness Assessment (20 minutes)**\n   - Technical readiness\n   - Business readiness\n   - Operational readiness\n\n3. **Risk Review (15 minutes)**\n   - Outstanding risks\n   - Mitigation plans\n\n4. **Decision and Next Steps (10 minutes)**\n   - Go/No-Go decision\n   - Action items for release execution\n\n## 📈 Metrics and Reporting Across ARTs\n\n### Program Level Metrics\n\n#### Flow Metrics\n- **Program Velocity:** Story points completed per iteration\n- **Features Delivered:** Number of features completed per PI\n- **Cycle Time:** Average time from feature start to completion\n- **WIP:** Number of features in progress\n\n#### Predictability Metrics\n- **Program Predictability Measure:** % of PI objectives achieved\n- **Feature Completion Rate:** % of planned features completed\n- **Milestone Achievement:** % of milestones met on time\n\n#### Quality Metrics\n- **Defect Density:** Defects per feature\n- **Escaped Defects:** Defects found after release\n- **Technical Debt:** Story points allocated to technical debt\n- **Test Automation Coverage:** % of tests automated\n\n### ART Coordination Metrics\n\n#### Dependency Health\n- **Dependency Resolution Rate:** % of dependencies resolved on time\n- **Dependency Delays:** Average delay caused by dependencies\n- **Cross-ART Dependency Count:** Number of dependencies between ARTs\n\n#### Integration Effectiveness\n- **Integration Frequency:** How often teams integrate\n- **Integration Success Rate:** % of successful integrations\n- **Build Stability:** % of successful builds\n\n#### Collaboration Effectiveness\n- **Meeting Efficiency:** Value rating of coordination meetings\n- **Information Flow:** Survey rating of cross-team communication\n- **Impediment Resolution Time:** Average time to resolve impediments\n\n### ART Health Dashboard\n\n```\nART Health Dashboard - PI [X] - Iteration [Y]\n\nProgram Predictability: 85% (▲5%)\nFeature Completion:    78% (▼3%)\nDependency Resolution: 92% (▲2%)\nDefect Density:        2.3 per feature (▼0.5)\n\n┌─────────────┬──────────┬──────────┬────────────┬──────────┐\n│ Team        │ Velocity │ Features │ PI Obj     │ Health   │\n│             │ (points) │ Complete │ Progress   │ Score    │\n├─────────────┼──────────┼──────────┼────────────┼──────────┤\n│ Team Alpha  │ 34       │ 3/4      │ 65%        │ 🟢       │\n│ Team Beta   │ 28       │ 2/4      │ 45%        │ 🟡       │\n│ Team Gamma  │ 41       │ 4/5      │ 78%        │ 🟢       │\n│ Team Delta  │ 32       │ 3/5      │ 55%        │ 🟡       │\n└─────────────┴──────────┴──────────┴────────────┴──────────┘\n\nDependencies:\n- Total: 24\n- On Track: 18 (75%)\n- At Risk: 4 (17%)\n- Blocked: 2 (8%)\n\nRisks:\n- High: 2\n- Medium: 5\n- Low: 8\n```\n\n### Multi-ART Coordination Dashboard\n\nFor large solutions with multiple ARTs, a higher-level dashboard helps track cross-ART coordination:\n\n```\nSolution Train Dashboard - PI [X]\n\n┌─────────────┬───────────┬───────────┬───────────┬────────────┐\n│ ART         │ PI Pred.  │ Cross-ART │ Release   │ Solution   │\n│             │ Measure   │ Deps      │ Readiness │ Demo Ready │\n├─────────────┼───────────┼───────────┼───────────┼────────────┤\n│ ART Eagle   │ 85%       │ 8/10      │ 🟢        │ 🟢         │\n│ ART Falcon  │ 78%       │ 7/12      │ 🟡        │ 🟡         │\n│ ART Griffin │ 92%       │ 9/9       │ 🟢        │ 🟢         │\n│ ART Phoenix │ 65%       │ 5/11      │ 🔴        │ 🟡         │\n└─────────────┴───────────┴───────────┴───────────┴────────────┘\n\nSolution Level Metrics:\n- Feature Completion: 80%\n- Integration Success: 85%\n- Customer Satisfaction: 4.2/5\n- Time-to-Market: -15% YoY\n```\n\n### Reporting Cadence\n\n| Report | Frequency | Audience | Purpose |\n|--------|-----------|----------|---------|\n| **Team Dashboard** | Daily | Team members | Daily tracking and planning |\n| **ART Dashboard** | Weekly | ART members, RTE | ART-level progress tracking |\n| **PI Status Report** | Bi-weekly | Portfolio stakeholders | Executive visibility |\n| **Solution Train Dashboard** | Bi-weekly | Solution management | Multi-ART coordination |\n\n## 🔄 Implementing ART Coordination\n\n### Implementation Steps\n\n1. **Assess Current State**\n   - Evaluate team structure and maturity\n   - Identify existing coordination mechanisms\n   - Assess tooling and metrics capabilities\n\n2. **Design ART Structure**\n   - Define ART boundaries and teams\n   - Assign key roles (RTE, Product Management, etc.)\n   - Establish cadence and ceremonies\n\n3. **Establish Coordination Mechanisms**\n   - Configure Program Board\n   - Set up dependency tracking\n   - Design metrics dashboard\n\n4. **Pilot First PI**\n   - Conduct first PI Planning\n   - Implement coordination events\n   - Monitor and adjust as needed\n\n5. **Continuous Improvement**\n   - Conduct regular Inspect &amp; Adapt\n   - Refine coordination mechanisms\n   - Evolve metrics and reporting\n\n### Common Anti-patterns\n\n| Anti-pattern | Description | Solution |\n|--------------|-------------|----------|\n| **Coordination Theater** | Going through motions without real coordination | Focus on value-driven outcomes |\n| **Excessive Meetings** | Too many coordination touchpoints | Consolidate and make events outcome-focused |\n| **Dependency Debt** | Accumulation of unresolved dependencies | Prioritize dependency resolution |\n| **Siloed ARTs** | ARTs operating independently | Strengthen Solution Train coordination |\n| **Metrics Overload** | Too many metrics without actionable insights | Focus on core flow and predictability metrics |\n\n### Example: Multi-ART Coordination for a Financial System\n\n**Context:** A large financial institution developing a new trading platform with 3 ARTs:\n- **ART 1 (Trading Core):** Core trading engine\n- **ART 2 (User Experience):** Trading UI and client-facing features\n- **ART 3 (Analytics):** Reporting and analytics capabilities\n\n**Coordination Approach:**\n\n1. **Structure**\n   - Solution Train with Solution Train Engineer\n   - Weekly Solution Train Sync with RTEs from all ARTs\n   - Shared System Team for integration\n\n2. **Integration Strategy**\n   - Continuous integration environment\n   - Daily integration builds\n   - Bi-weekly end-to-end testing\n\n3. **Dependency Management**\n   - API contracts defined before implementation\n   - Cross-ART architectural runway\n   - Shared Component Teams for common services\n\n4. **Release Coordination**\n   - Synchronized PI cadence\n   - Joint Solution Demo\n   - Phased deployment strategy\n\n5. **Metrics Focus**\n   - Feature completion across ARTs\n   - Cross-ART dependency health\n   - Integration stability\n   - End-to-end quality metrics\n\n## 📄 Additional Resources\n\n- **SAFe Framework:** [www.scaledagileframework.com](https://www.scaledagileframework.com/)\n- **Program Board article:** [www.scaledagileframework.com/program-board](https://www.scaledagileframework.com/program-board/)\n- **PI Planning article:** [www.scaledagileframework.com/pi-planning](https://www.scaledagileframework.com/pi-planning/)\n- **Agile Release Train article:** [www.scaledagileframework.com/agile-release-train](https://www.scaledagileframework.com/agile-release-train/)\n\n## When to Use\n\nUse throughout the project lifecycle to identify, assess, and track risks. This template is essential for projects with significant complexity, multiple stakeholders, or high business impact, where structured risk management provides decision-making value.\n\n## When NOT to Use\n\nDo not use for very low-risk, short-duration tasks where informal risk awareness is sufficient. Avoid this template if your governance framework requires a different risk management approach or if stakeholders prefer real-time risk dashboards over static registers.\n\n## 🔄 Related Templates\n\n- [PI Planning Template](./safe_program_increment_planning_template.md)\n- [Portfolio Kanban Template](./safe_portfolio_kanban_template.md)\n- [SAFe Metrics Dashboard Template](./metrics_dashboard_template.md)\n\n---\n\n*This template follows the Scaled Agile Framework (SAFe) practices for ART coordination. Customize as needed for your organization&#39;s specific implementation of SAFe.*\n&quot;]}" ssr client="load" opts="{&quot;name&quot;:&quot;TemplateViewer&quot;,&quot;value&quot;:true}" await-children><div><h1>Safe Art Coordination Template</h1><div style="margin-bottom:2rem"><button style="background:var(--accent-color);color:white;border:1px solid var(--border-color);padding:0.5rem 1rem;border-radius:4px 4px 0 0;cursor:pointer;margin-right:1px">Preview</button><button style="background:var(--code-bg);color:var(--text-color);border:1px solid var(--border-color);padding:0.5rem 1rem;border-radius:4px 4px 0 0;cursor:pointer">Version History</button></div><div style="border:1px solid var(--border-color);border-radius:0 8px 8px 8px;min-height:400px"><div style="background:var(--bg-primary);border-radius:var(--radius-lg)"><div style="padding:1rem 1.5rem;border-bottom:1px solid var(--border-light);display:flex;align-items:center;justify-content:space-between;background:var(--bg-secondary);border-radius:var(--radius-lg) var(--radius-lg) 0 0"><div style="display:flex;align-items:center;gap:0.5rem"><span style="font-size:1.5rem">📄</span><div><div style="font-weight:600;color:var(--text-primary)">safe_art_coordination_template.md</div><div style="font-size:0.75rem;color:var(--text-muted)">Markdown • <!-- -->21,025 bytes</div></div></div><a href="/pm-tools-templates/downloads/safe_art_coordination_template.md" download="" class="btn btn-secondary" style="font-size:0.75rem;padding:0.5rem 0.75rem">💾 Download</a></div><pre aria-label="Markdown source of Safe Art Coordination Template" style="padding:1.5rem;max-height:600px;overflow:auto;white-space:pre-wrap;overflow-wrap:anywhere">---
+title: Safe Art Coordination Template
+methodology: agile
+complexity: advanced
+owner: mirichard
+updated: &#x27;2025-08-05&#x27;
+primary_principles:
+- systems-thinking
+- collaborative-leadership
+secondary_principles:
+- adaptability
+- value-focus
+principle_rationale: Coordinates cross-team dependencies and value flow through adaptive
+  leadership.
+---
+
+# SAFe ART Coordination Template
+
+**Enterprise:** [Enterprise Name]  
+**Portfolio:** [Portfolio Name]  
+**Created By:** [Name/Role]  
+**Last Updated:** [YYYY-MM-DD]  
+**Version:** [1.0]
+
+## 📋 ART Coordination Overview
+
+Agile Release Train (ART) coordination is essential for synchronizing the work of multiple agile teams (5-12 teams, 50-125 people) working together on a common solution. This template provides a comprehensive framework for:
+
+- Synchronizing teams within and across ARTs
+- Managing dependencies between teams and with external groups
+- Coordinating releases and deployments
+- Measuring program-level progress and health
+- Establishing effective coordination ceremonies and cadence
+
+This template follows SAFe (Scaled Agile Framework) best practices for program-level coordination.
+
+## 🏗️ ART Structure and Roles
+
+### ART Team Composition
+```
+Agile Release Train (ART)
+├── Release Train Engineer (RTE)
+├── Product Management
+├── System Architect/Engineering
+├── Business Owners
+├── Agile Teams (5-12 teams)
+│   ├── Team 1: Scrum Master + Product Owner + Dev Team
+│   ├── Team 2: Scrum Master + Product Owner + Dev Team
+│   ├── Team 3: Scrum Master + Product Owner + Dev Team
+│   └── ...
+├── System Team (optional)
+├── Shared Services (optional)
+└── DevOps (optional)
+```
+
+### Key Roles and Responsibilities
+
+#### Release Train Engineer (RTE)
+- **Primary Responsibility:** Facilitate ART events and processes
+- **Key Activities:**
+  - Lead PI Planning and other ART events
+  - Manage risks, impediments, and dependencies
+  - Facilitate cross-team coordination
+  - Coach teams and other stakeholders
+  - Drive continuous improvement
+
+#### Product Management
+- **Primary Responsibility:** Define and prioritize Program Backlog
+- **Key Activities:**
+  - Develop and communicate product vision
+  - Prioritize features and capabilities
+  - Participate in solution planning
+  - Validate business value delivery
+
+#### System Architect/Engineering
+- **Primary Responsibility:** Provide technical leadership
+- **Key Activities:**
+  - Define system architecture and design
+  - Guide technology decisions
+  - Facilitate architectural runway
+  - Support teams with technical guidance
+
+## 🔄 ART Synchronization Framework
+
+### Program Increment (PI) Structure
+```
+PI Planning (2 days) → Development (4 iterations) → System Demo → Inspect &amp; Adapt → Innovation &amp; Planning (1 iteration) → Next PI
+```
+
+### Iteration Structure Within PI
+```
+Iteration 1: Development + Team Demo + System Demo
+Iteration 2: Development + Team Demo + System Demo
+Iteration 3: Development + Team Demo + System Demo
+Iteration 4: Development + Team Demo + System Demo
+Iteration 5: Innovation &amp; Planning + PI Planning
+```
+
+### ART Synchronization Events
+
+| Event | Frequency | Duration | Participants | Purpose |
+|-------|-----------|----------|--------------|---------|
+| **PI Planning** | Every PI (8-12 weeks) | 2 days | All ART members, stakeholders | Plan next Program Increment |
+| **ART Sync** | Weekly | 30-60 min | Scrum Masters, RTE, Product Management | Cross-team coordination |
+| **PO Sync** | Weekly | 30-45 min | Product Owners, Product Management | Feature alignment |
+| **System Demo** | End of each iteration | 1-2 hours | All ART members, stakeholders | Demo integrated functionality |
+| **Inspect &amp; Adapt** | End of each PI | 4-6 hours | All ART members | Retrospective and improvement |
+
+### Weekly ART Sync (Scrum of Scrums) Agenda
+
+1. **Team Updates (20-40 minutes)**
+   - Each team provides update (2-3 minutes per team)
+   - Progress toward PI objectives
+   - Blockers and impediments
+   - Dependencies needing coordination
+
+2. **Cross-Team Coordination (10-15 minutes)**
+   - Dependency resolution
+   - Integration planning
+   - Resource coordination
+   - Risk mitigation
+
+3. **Action Items and Follow-ups (5 minutes)**
+   - Assign owners to action items
+   - Schedule follow-up meetings
+   - Escalate issues if needed
+
+### Product Owner (PO) Sync Agenda
+
+1. **Program Backlog Review (15-20 minutes)**
+   - Upcoming feature priorities
+   - Backlog refinement needs
+   - Market feedback and insights
+
+2. **Feature Coordination (15-20 minutes)**
+   - Feature dependencies
+   - Integration requirements
+   - Business value alignment
+
+3. **Customer Feedback (5-10 minutes)**
+   - User feedback review
+   - Market insights
+   - Competitive analysis updates
+
+### Multi-ART Synchronization (for Large Solutions)
+
+When multiple ARTs must coordinate, additional synchronization mechanisms are needed:
+
+| Event | Frequency | Duration | Participants | Purpose |
+|-------|-----------|----------|--------------|---------|
+| **Solution Train Sync** | Weekly | 60 min | RTEs, Solution Management, Solution Architect | Cross-ART coordination |
+| **Solution Demo** | End of PI | 2-3 hours | ART representatives, stakeholders | Demo end-to-end solution |
+| **Pre-PI Planning** | Before PI Planning | 1 day | RTEs, Product Management, System Architects | Align ARTs on solution vision |
+| **Post-PI Planning** | After PI Planning | 4 hours | RTEs, Product Management, System Architects | Resolve cross-ART dependencies |
+
+## 📊 Dependency Management
+
+### Dependency Types
+
+#### Internal Dependencies (Within ART)
+- **Team-to-Team:** Dependencies between teams within the same ART
+- **Common examples:** API contracts, shared components, data models
+
+#### External Dependencies (Outside ART)
+- **ART-to-ART:** Dependencies between ARTs within the same solution
+- **ART-to-Supplier:** Dependencies on external vendors or partners
+- **ART-to-Platform:** Dependencies on shared infrastructure or services
+
+### Dependency Visualization - Program Board
+
+The Program Board visualizes features, dependencies, and milestones across all teams and iterations.
+
+```
+Team/Item        | Iteration 1 | Iteration 2 | Iteration 3 | Iteration 4 | Iteration 5
+-----------------|-------------|-------------|-------------|-------------|-------------
+Team Alpha       | Feature A1  | Feature A2  | Feature A3  | Feature A4  | Innovation
+                 |      ↓      |             |             |      ↓      |
+Team Beta        | Feature B1  | Feature B2  | Feature B3  | Feature B4  | Innovation
+                 |             |      ↓      |             |             |
+Team Gamma       | Feature G1  | Feature G2  | Feature G3  | Feature G4  | Innovation
+                 |             |      ↑      |      ↓      |             |
+Team Delta       | Feature D1  | Feature D2  | Feature D3  | Feature D4  | Innovation
+Milestones       | M1         | M2          | M3          | PI Demo     | Inspect &amp; Adapt
+```
+
+**Legend:**
+- **↓ or ↑:** Direction of dependency (provider to consumer)
+- **Red arrows:** Critical dependencies on critical path
+- **Dotted arrows:** External dependencies (outside ART)
+
+### Dependency Management Process
+
+#### 1. Identification (During PI Planning)
+- Teams identify dependencies on Program Board
+- Document in Dependency Tracking System
+- Classify as internal or external
+
+#### 2. Planning and Negotiation
+- Establish delivery dates with provider teams
+- Agree on acceptance criteria and interfaces
+- Document agreements in Dependency Register
+
+#### 3. Tracking and Monitoring
+- Review status in weekly ART Sync
+- Visualize on Program Board
+- Update Dependency Register
+
+#### 4. Resolution and Closure
+- Verify acceptance criteria met
+- Mark as resolved in tracking system
+- Capture lessons learned
+
+### Dependency Register Template
+
+| ID | Type | Provider | Consumer | Deliverable | Required By | Status | Risk | Last Updated |
+|----|------|----------|----------|------------|-------------|--------|------|--------------|
+| D001 | Internal | Team Alpha | Team Beta | Authentication API | Iteration 2 | On Track | Low | YYYY-MM-DD |
+| D002 | External | ART Falcon | ART Eagle | Payment Service | Iteration 3 | At Risk | High | YYYY-MM-DD |
+| D003 | Supplier | Vendor X | Team Delta | SDK Update | Iteration 1 | Complete | - | YYYY-MM-DD |
+
+### Dependency Agreement Template
+
+**Dependency ID:** [D###]  
+**Provider:** [Team/ART/Supplier Name]  
+**Consumer:** [Team/ART Name]  
+**Deliverable:** [Description of what is needed]
+
+**Details:**
+- **Format:** [API, Component, Data, etc.]
+- **Interface Definition:** [Technical specifications]
+- **Acceptance Criteria:** [How consumer will validate]
+- **Quality Standards:** [Performance, security requirements]
+
+**Timeline:**
+- **Start Date:** [When work begins]
+- **Delivery Date:** [When deliverable is available]
+- **Integration Date:** [When consumer integrates]
+
+**Communication:**
+- **Primary Contacts:** Provider: [Name], Consumer: [Name]
+- **Escalation Path:** [Chain of escalation]
+- **Update Frequency:** [How often status is shared]
+
+**Risks:**
+- **Provider Risks:** [Risks to delivering on time]
+- **Consumer Risks:** [Risks to integration]
+- **Mitigation Plans:** [Plans to address risks]
+
+## 🚀 Release Coordination
+
+### Release Types in SAFe
+
+| Release Type | Timing | Scope | Planning Horizon |
+|--------------|--------|-------|------------------|
+| **Feature Release** | As completed | Individual features | 1-2 iterations |
+| **Capability Release** | Mid-PI or end of PI | Set of related features | 1 PI |
+| **Solution Release** | End of PI or multi-PI | Full solution increment | 1-2 PIs |
+| **Fixed-Date Release** | Calendar-driven | Features ready by date | Varies |
+
+### Release Management Roles
+
+- **Release Management Team:** Coordinates releases across ARTs
+- **Release Train Engineer (RTE):** Facilitates ART-level release activities
+- **System Team:** Provides integration, testing, and deployment support
+- **DevOps Team:** Manages CI/CD pipeline and release infrastructure
+
+### Release Planning Process
+
+#### Pre-Release Planning (1-2 weeks before PI Planning)
+- Define release objectives and scope
+- Identify key milestones and dates
+- Review architectural runway
+- Prepare infrastructure and environments
+
+#### Release Planning (During PI Planning)
+- Allocate features to iterations
+- Identify integration points
+- Establish release criteria
+- Plan deployment strategy
+
+#### Release Execution (During PI)
+- Track progress in weekly ART Sync
+- Manage scope changes
+- Coordinate integration and testing
+- Address risks and impediments
+
+#### Release Readiness (1-2 weeks before release)
+- Conduct go/no-go assessment
+- Verify acceptance criteria
+- Prepare deployment plans
+- Coordinate stakeholder communications
+
+### Release Coordination Board
+
+| Feature | Status | Owner | Integration Status | UAT Status | Release Readiness | Issues |
+|---------|--------|-------|-------------------|------------|-------------------|--------|
+| F001 | Dev Complete | Team Alpha | Integrated | Passed | Ready | None |
+| F002 | Testing | Team Beta | Integrated | In Progress | At Risk | Issue #123 |
+| F003 | In Progress | Team Gamma | Not Started | Not Started | Not Ready | Dependency D002 |
+
+### Release Readiness Checklist
+
+**Feature Readiness:**
+- [ ] All features complete and tested
+- [ ] Feature documentation complete
+- [ ] Feature demos approved by Product Management
+
+**Technical Readiness:**
+- [ ] All integration tests passed
+- [ ] Performance testing complete
+- [ ] Security testing complete
+- [ ] Technical documentation updated
+
+**Operational Readiness:**
+- [ ] Deployment plan approved
+- [ ] Rollback plan prepared
+- [ ] Monitoring in place
+- [ ] Support team trained
+
+**Business Readiness:**
+- [ ] User documentation complete
+- [ ] Training materials prepared
+- [ ] Marketing materials ready
+- [ ] Stakeholders notified
+
+### Go/No-Go Meeting Agenda
+
+1. **Release Content Review (15 minutes)**
+   - Features included and excluded
+   - Known issues and workarounds
+
+2. **Readiness Assessment (20 minutes)**
+   - Technical readiness
+   - Business readiness
+   - Operational readiness
+
+3. **Risk Review (15 minutes)**
+   - Outstanding risks
+   - Mitigation plans
+
+4. **Decision and Next Steps (10 minutes)**
+   - Go/No-Go decision
+   - Action items for release execution
+
+## 📈 Metrics and Reporting Across ARTs
+
+### Program Level Metrics
+
+#### Flow Metrics
+- **Program Velocity:** Story points completed per iteration
+- **Features Delivered:** Number of features completed per PI
+- **Cycle Time:** Average time from feature start to completion
+- **WIP:** Number of features in progress
+
+#### Predictability Metrics
+- **Program Predictability Measure:** % of PI objectives achieved
+- **Feature Completion Rate:** % of planned features completed
+- **Milestone Achievement:** % of milestones met on time
+
+#### Quality Metrics
+- **Defect Density:** Defects per feature
+- **Escaped Defects:** Defects found after release
+- **Technical Debt:** Story points allocated to technical debt
+- **Test Automation Coverage:** % of tests automated
+
+### ART Coordination Metrics
+
+#### Dependency Health
+- **Dependency Resolution Rate:** % of dependencies resolved on time
+- **Dependency Delays:** Average delay caused by dependencies
+- **Cross-ART Dependency Count:** Number of dependencies between ARTs
+
+#### Integration Effectiveness
+- **Integration Frequency:** How often teams integrate
+- **Integration Success Rate:** % of successful integrations
+- **Build Stability:** % of successful builds
+
+#### Collaboration Effectiveness
+- **Meeting Efficiency:** Value rating of coordination meetings
+- **Information Flow:** Survey rating of cross-team communication
+- **Impediment Resolution Time:** Average time to resolve impediments
+
+### ART Health Dashboard
+
+```
+ART Health Dashboard - PI [X] - Iteration [Y]
+
+Program Predictability: 85% (▲5%)
+Feature Completion:    78% (▼3%)
+Dependency Resolution: 92% (▲2%)
+Defect Density:        2.3 per feature (▼0.5)
+
+┌─────────────┬──────────┬──────────┬────────────┬──────────┐
+│ Team        │ Velocity │ Features │ PI Obj     │ Health   │
+│             │ (points) │ Complete │ Progress   │ Score    │
+├─────────────┼──────────┼──────────┼────────────┼──────────┤
+│ Team Alpha  │ 34       │ 3/4      │ 65%        │ 🟢       │
+│ Team Beta   │ 28       │ 2/4      │ 45%        │ 🟡       │
+│ Team Gamma  │ 41       │ 4/5      │ 78%        │ 🟢       │
+│ Team Delta  │ 32       │ 3/5      │ 55%        │ 🟡       │
+└─────────────┴──────────┴──────────┴────────────┴──────────┘
+
+Dependencies:
+- Total: 24
+- On Track: 18 (75%)
+- At Risk: 4 (17%)
+- Blocked: 2 (8%)
+
+Risks:
+- High: 2
+- Medium: 5
+- Low: 8
+```
+
+### Multi-ART Coordination Dashboard
+
+For large solutions with multiple ARTs, a higher-level dashboard helps track cross-ART coordination:
+
+```
+Solution Train Dashboard - PI [X]
+
+┌─────────────┬───────────┬───────────┬───────────┬────────────┐
+│ ART         │ PI Pred.  │ Cross-ART │ Release   │ Solution   │
+│             │ Measure   │ Deps      │ Readiness │ Demo Ready │
+├─────────────┼───────────┼───────────┼───────────┼────────────┤
+│ ART Eagle   │ 85%       │ 8/10      │ 🟢        │ 🟢         │
+│ ART Falcon  │ 78%       │ 7/12      │ 🟡        │ 🟡         │
+│ ART Griffin │ 92%       │ 9/9       │ 🟢        │ 🟢         │
+│ ART Phoenix │ 65%       │ 5/11      │ 🔴        │ 🟡         │
+└─────────────┴───────────┴───────────┴───────────┴────────────┘
+
+Solution Level Metrics:
+- Feature Completion: 80%
+- Integration Success: 85%
+- Customer Satisfaction: 4.2/5
+- Time-to-Market: -15% YoY
+```
+
+### Reporting Cadence
+
+| Report | Frequency | Audience | Purpose |
+|--------|-----------|----------|---------|
+| **Team Dashboard** | Daily | Team members | Daily tracking and planning |
+| **ART Dashboard** | Weekly | ART members, RTE | ART-level progress tracking |
+| **PI Status Report** | Bi-weekly | Portfolio stakeholders | Executive visibility |
+| **Solution Train Dashboard** | Bi-weekly | Solution management | Multi-ART coordination |
+
+## 🔄 Implementing ART Coordination
+
+### Implementation Steps
+
+1. **Assess Current State**
+   - Evaluate team structure and maturity
+   - Identify existing coordination mechanisms
+   - Assess tooling and metrics capabilities
+
+2. **Design ART Structure**
+   - Define ART boundaries and teams
+   - Assign key roles (RTE, Product Management, etc.)
+   - Establish cadence and ceremonies
+
+3. **Establish Coordination Mechanisms**
+   - Configure Program Board
+   - Set up dependency tracking
+   - Design metrics dashboard
+
+4. **Pilot First PI**
+   - Conduct first PI Planning
+   - Implement coordination events
+   - Monitor and adjust as needed
+
+5. **Continuous Improvement**
+   - Conduct regular Inspect &amp; Adapt
+   - Refine coordination mechanisms
+   - Evolve metrics and reporting
+
+### Common Anti-patterns
+
+| Anti-pattern | Description | Solution |
+|--------------|-------------|----------|
+| **Coordination Theater** | Going through motions without real coordination | Focus on value-driven outcomes |
+| **Excessive Meetings** | Too many coordination touchpoints | Consolidate and make events outcome-focused |
+| **Dependency Debt** | Accumulation of unresolved dependencies | Prioritize dependency resolution |
+| **Siloed ARTs** | ARTs operating independently | Strengthen Solution Train coordination |
+| **Metrics Overload** | Too many metrics without actionable insights | Focus on core flow and predictability metrics |
+
+### Example: Multi-ART Coordination for a Financial System
+
+**Context:** A large financial institution developing a new trading platform with 3 ARTs:
+- **ART 1 (Trading Core):** Core trading engine
+- **ART 2 (User Experience):** Trading UI and client-facing features
+- **ART 3 (Analytics):** Reporting and analytics capabilities
+
+**Coordination Approach:**
+
+1. **Structure**
+   - Solution Train with Solution Train Engineer
+   - Weekly Solution Train Sync with RTEs from all ARTs
+   - Shared System Team for integration
+
+2. **Integration Strategy**
+   - Continuous integration environment
+   - Daily integration builds
+   - Bi-weekly end-to-end testing
+
+3. **Dependency Management**
+   - API contracts defined before implementation
+   - Cross-ART architectural runway
+   - Shared Component Teams for common services
+
+4. **Release Coordination**
+   - Synchronized PI cadence
+   - Joint Solution Demo
+   - Phased deployment strategy
+
+5. **Metrics Focus**
+   - Feature completion across ARTs
+   - Cross-ART dependency health
+   - Integration stability
+   - End-to-end quality metrics
+
+## 📄 Additional Resources
+
+- **SAFe Framework:** [www.scaledagileframework.com](https://www.scaledagileframework.com/)
+- **Program Board article:** [www.scaledagileframework.com/program-board](https://www.scaledagileframework.com/program-board/)
+- **PI Planning article:** [www.scaledagileframework.com/pi-planning](https://www.scaledagileframework.com/pi-planning/)
+- **Agile Release Train article:** [www.scaledagileframework.com/agile-release-train](https://www.scaledagileframework.com/agile-release-train/)
+
+## When to Use
+
+Use throughout the project lifecycle to identify, assess, and track risks. This template is essential for projects with significant complexity, multiple stakeholders, or high business impact, where structured risk management provides decision-making value.
+
+## When NOT to Use
+
+Do not use for very low-risk, short-duration tasks where informal risk awareness is sufficient. Avoid this template if your governance framework requires a different risk management approach or if stakeholders prefer real-time risk dashboards over static registers.
+
+## 🔄 Related Templates
+
+- [PI Planning Template](./safe_program_increment_planning_template.md)
+- [Portfolio Kanban Template](./safe_portfolio_kanban_template.md)
+- [SAFe Metrics Dashboard Template](./metrics_dashboard_template.md)
+
+---
+
+*This template follows the Scaled Agile Framework (SAFe) practices for ART coordination. Customize as needed for your organization&#x27;s specific implementation of SAFe.*
+</pre></div></div></div><!--astro:end--></astro-island></main></body></html>

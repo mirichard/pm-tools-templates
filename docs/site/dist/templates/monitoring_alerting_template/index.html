@@ -1,0 +1,879 @@
+<!DOCTYPE html><html lang="en" data-astro-cid-ju4pidww><head><meta charset="UTF-8"><meta name="description" content="Advanced template browser with previews and version history"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="icon" type="image/svg+xml" href="/pm-tools-templates/favicon.svg"><title>Monitoring Alerting Template</title><link rel="stylesheet" href="/pm-tools-templates/assets/Layout.ChXqTIwx.css"></head><body data-astro-cid-ju4pidww><main data-astro-cid-ju4pidww><style>astro-island,astro-slot,astro-static-slot{display:contents}</style><script>(()=>{var e=async t=>{await(await t())()};(self.Astro||(self.Astro={})).load=e;window.dispatchEvent(new Event("astro:load"));})();</script><script>(()=>{var g=Object.defineProperty;var w=(a,s,c)=>s in a?g(a,s,{enumerable:!0,configurable:!0,writable:!0,value:c}):a[s]=c;var l=(a,s,c)=>w(a,typeof s!="symbol"?s+"":s,c);var E=new Set(["__proto__","constructor","prototype"]);{let a={0:t=>y(t),1:t=>c(t),2:t=>new RegExp(t),3:t=>new Date(t),4:t=>new Map(c(t)),5:t=>new Set(c(t)),6:t=>BigInt(t),7:t=>new URL(t),8:t=>new Uint8Array(t),9:t=>new Uint16Array(t),10:t=>new Uint32Array(t),11:t=>Number.POSITIVE_INFINITY*t},s=t=>{let[p,e]=t;return p in a?a[p](e):void 0},c=t=>t.map(s),y=t=>typeof t!="object"||t===null?t:Object.fromEntries(Object.entries(t).map(([p,e])=>[p,s(e)]));class f extends HTMLElement{constructor(){super(...arguments);l(this,"Component");l(this,"hydrator");l(this,"hydrate",async()=>{var b;if(!this.hydrator||!this.isConnected)return;let e=(b=this.parentElement)==null?void 0:b.closest("astro-island[ssr]");if(e){e.addEventListener("astro:hydrate",this.hydrate,{once:!0});return}let r=this.querySelectorAll("astro-slot"),n={},d=this.querySelectorAll("template[data-astro-template]");for(let o of d){let i=o.closest(this.tagName);i!=null&&i.isSameNode(this)&&(n[o.getAttribute("data-astro-template")||"default"]=o.innerHTML,o.remove())}for(let o of r){let i=o.closest(this.tagName);i!=null&&i.isSameNode(this)&&(n[o.getAttribute("name")||"default"]=o.innerHTML)}let u;try{u=this.hasAttribute("props")?y(JSON.parse(this.getAttribute("props"))):{}}catch(o){let i=this.getAttribute("component-url")||"<unknown>",v=this.getAttribute("component-export");throw v&&(i+=` (export ${v})`),console.error(`[hydrate] Error parsing props for component ${i}`,this.getAttribute("props"),o),o}let h;await this.hydrator(this)(this.Component,u,n,{client:this.getAttribute("client")}),this.removeAttribute("ssr"),this.dispatchEvent(new CustomEvent("astro:hydrate"))});l(this,"unmount",()=>{this.isConnected||this.dispatchEvent(new CustomEvent("astro:unmount"))})}disconnectedCallback(){document.removeEventListener("astro:after-swap",this.unmount),document.addEventListener("astro:after-swap",this.unmount,{once:!0})}connectedCallback(){if(!this.hasAttribute("await-children")||document.readyState==="interactive"||document.readyState==="complete")this.childrenConnectedCallback();else{let e=()=>{document.removeEventListener("DOMContentLoaded",e),r.disconnect(),this.childrenConnectedCallback()},r=new MutationObserver(()=>{var n;((n=this.lastChild)==null?void 0:n.nodeType)===Node.COMMENT_NODE&&this.lastChild.nodeValue==="astro:end"&&(this.lastChild.remove(),e())});r.observe(this,{childList:!0}),document.addEventListener("DOMContentLoaded",e)}}async childrenConnectedCallback(){let e=this.getAttribute("before-hydration-url");e&&await import(e),this.start()}getRetryImportUrl(e){let r=new URL(e,document.baseURI);return r.searchParams.set("astro-retry",Date.now().toString()),r.toString()}async importWithRetry(e){try{return await import(e)}catch(r){return await new Promise(n=>setTimeout(n,1e3)),import(this.getRetryImportUrl(e))}}handleHydrationError(e){let r=this.getAttribute("component-url"),n=new CustomEvent("astro:hydration-error",{cancelable:!0,bubbles:!0,composed:!0,detail:{error:e,componentUrl:r}});this.dispatchEvent(n)&&console.error(`[astro-island] Error hydrating ${r}`,e)}async start(){let e=JSON.parse(this.getAttribute("opts")),r=this.getAttribute("client");if(Astro[r]===void 0){window.addEventListener(`astro:${r}`,()=>this.start(),{once:!0});return}try{await Astro[r](async()=>{let n=this.getAttribute("renderer-url");try{let[d,{default:u}]=await Promise.all([this.importWithRetry(this.getAttribute("component-url")),n?this.importWithRetry(n):Promise.resolve({default:()=>()=>{}})]),h=this.getAttribute("component-export")||"default";if(h.includes(".")){this.Component=d;for(let m of h.split(".")){if(E.has(m)||!this.Component||typeof this.Component!="object"&&typeof this.Component!="function"||!Object.hasOwn(this.Component,m))throw new Error(`Invalid component export path: ${h}`);this.Component=this.Component[m]}}else{if(E.has(h))throw new Error(`Invalid component export path: ${h}`);this.Component=d[h]}return this.hydrator=u,this.hydrate}catch(d){return this.handleHydrationError(d),()=>{}}},e,this)}catch(n){this.handleHydrationError(n)}}attributeChangedCallback(){this.hydrate()}}l(f,"observedAttributes",["props"]),customElements.get("astro-island")||customElements.define("astro-island",f)}})();</script><astro-island uid="ZhrWYk" prefix="r1" component-url="/pm-tools-templates/assets/TemplateViewer.BJxWH0dD.js" component-export="default" renderer-url="/pm-tools-templates/assets/client.REQV_TkY.js" props="{&quot;templateId&quot;:[0,&quot;monitoring_alerting_template&quot;],&quot;filePath&quot;:[0,&quot;domains/measurement/methodology-frameworks/emerging-methods/devops/monitoring_alerting_template.md&quot;],&quot;title&quot;:[0,&quot;Monitoring Alerting Template&quot;],&quot;content&quot;:[0,&quot;---\ntitle: Monitoring Alerting Template\nmethodology: universal\ncomplexity: advanced\nowner: mirichard\nupdated: &#39;2025-08-05&#39;\nprimary_principles:\n- risk-optimization\n- evidence-based-decisions\nsecondary_principles:\n- quality-by-design\n- stewardship\nprinciple_rationale: Identifies and responds to operational risks through continuous,\n  evidence-based monitoring.\n---\n\n# DevOps Monitoring and Alerting Strategy Template\n\n## Overview\nThis template provides a comprehensive framework for implementing monitoring and alerting strategies in DevOps environments, covering observability, incident response, and continuous improvement of system reliability and performance.\n\n## Template Information\n- **Methodology:** DevOps Monitoring and Observability\n- **Purpose:** Establish comprehensive monitoring, alerting, and observability practices\n- **Audience:** DevOps Engineers, SREs, Platform Teams, Development Teams\n- **Timeline:** 8-12 weeks for full implementation\n- **Prerequisites:** Infrastructure deployed, basic logging in place\n\n---\n\n## Monitoring Strategy Framework\n\n### Observability Pillars\n\n#### Three Pillars of Observability\n```\nObservability Architecture\n\nMetrics (What is happening):\n├── Application metrics (business and technical)\n├── Infrastructure metrics (CPU, memory, disk, network)\n├── Service metrics (latency, throughput, errors)\n└── Custom metrics (domain-specific KPIs)\n\nLogs (What happened):\n├── Application logs (events, errors, warnings)\n├── Infrastructure logs (system events, security)\n├── Service logs (access, audit, performance)\n└── Structured logging (JSON, key-value pairs)\n\nTraces (How it happened):\n├── Distributed tracing (request flow)\n├── Service dependencies mapping\n├── Performance bottleneck identification\n└── Error propagation tracking\n```\n\n#### Monitoring Levels\n| Level | Focus | Tools | Frequency | Stakeholders |\n|-------|-------|-------|-----------|--------------|\n| Business | KPIs, SLAs, User Experience | Dashboards, Reports | Real-time/Daily | Executives, Product |\n| Application | Feature performance, Errors | APM, Custom metrics | Real-time | Development, Product |\n| Service | API health, Dependencies | Service mesh, Synthetic | Real-time | DevOps, Platform |\n| Infrastructure | Resources, Capacity | System monitoring | Real-time | Infrastructure, DevOps |\n\n### Service Level Objectives (SLOs)\n\n#### SLO Definition Framework\n```yaml\n# Service Level Objectives Template\nservice_slos:\n  user_facing_service:\n    availability:\n      definition: \&quot;Percentage of successful requests\&quot;\n      target: \&quot;99.9%\&quot;\n      measurement_window: \&quot;30 days\&quot;\n      error_budget: \&quot;0.1% (43.2 minutes/month)\&quot;\n      \n    latency:\n      definition: \&quot;95th percentile response time\&quot;\n      target: \&quot;&lt; 200ms\&quot;\n      measurement_window: \&quot;5 minutes\&quot;\n      error_budget: \&quot;5% of requests &gt; 200ms\&quot;\n      \n    throughput:\n      definition: \&quot;Requests per second capacity\&quot;\n      target: \&quot;&gt; 1000 RPS\&quot;\n      measurement_window: \&quot;1 minute\&quot;\n      error_budget: \&quot;&lt; 1000 RPS for 5% of time\&quot;\n      \n  data_processing_service:\n    completeness:\n      definition: \&quot;Percentage of data successfully processed\&quot;\n      target: \&quot;99.95%\&quot;\n      measurement_window: \&quot;24 hours\&quot;\n      error_budget: \&quot;0.05% data loss\&quot;\n      \n    freshness:\n      definition: \&quot;Data processing latency\&quot;\n      target: \&quot;&lt; 15 minutes\&quot;\n      measurement_window: \&quot;1 hour\&quot;\n      error_budget: \&quot;&gt; 15 minutes for 1% of data\&quot;\n```\n\n#### Error Budget Management\n```\nError Budget Calculation and Management\n\nError Budget = (1 - SLO) × Time Period\n\nExample for 99.9% availability SLO:\n├── Monthly error budget: 0.1% × 30 days = 43.2 minutes\n├── Weekly error budget: 0.1% × 7 days = 10.08 minutes\n├── Daily error budget: 0.1% × 1 day = 1.44 minutes\n└── Hourly error budget: 0.1% × 1 hour = 3.6 seconds\n\nError Budget Policies:\n├── &gt; 90% remaining: Focus on new features\n├── 50-90% remaining: Balance features and reliability\n├── 10-50% remaining: Prioritize reliability work\n└── &lt; 10% remaining: Freeze feature releases\n```\n\n---\n\n## Metrics and Monitoring Implementation\n\n### Application Metrics\n\n#### Business Metrics\n```yaml\n# Business Metrics Configuration\nbusiness_metrics:\n  user_engagement:\n    - metric: \&quot;active_users\&quot;\n      type: \&quot;gauge\&quot;\n      labels: [\&quot;region\&quot;, \&quot;user_type\&quot;]\n      description: \&quot;Number of active users\&quot;\n      \n    - metric: \&quot;session_duration\&quot;\n      type: \&quot;histogram\&quot;\n      labels: [\&quot;page\&quot;, \&quot;user_type\&quot;]\n      description: \&quot;User session duration\&quot;\n      \n  revenue_metrics:\n    - metric: \&quot;transactions_total\&quot;\n      type: \&quot;counter\&quot;\n      labels: [\&quot;payment_method\&quot;, \&quot;region\&quot;]\n      description: \&quot;Total completed transactions\&quot;\n      \n    - metric: \&quot;revenue_amount\&quot;\n      type: \&quot;gauge\&quot;\n      labels: [\&quot;currency\&quot;, \&quot;product\&quot;]\n      description: \&quot;Revenue generated\&quot;\n      \n  operational_metrics:\n    - metric: \&quot;feature_flags_enabled\&quot;\n      type: \&quot;gauge\&quot;\n      labels: [\&quot;feature\&quot;, \&quot;environment\&quot;]\n      description: \&quot;Feature flag status\&quot;\n```\n\n#### Technical Metrics\n```yaml\n# Technical Metrics Configuration\ntechnical_metrics:\n  performance_metrics:\n    - metric: \&quot;http_requests_total\&quot;\n      type: \&quot;counter\&quot;\n      labels: [\&quot;method\&quot;, \&quot;endpoint\&quot;, \&quot;status\&quot;]\n      description: \&quot;Total HTTP requests\&quot;\n      \n    - metric: \&quot;http_request_duration_seconds\&quot;\n      type: \&quot;histogram\&quot;\n      labels: [\&quot;method\&quot;, \&quot;endpoint\&quot;]\n      description: \&quot;HTTP request duration\&quot;\n      \n    - metric: \&quot;database_queries_total\&quot;\n      type: \&quot;counter\&quot;\n      labels: [\&quot;query_type\&quot;, \&quot;table\&quot;]\n      description: \&quot;Database query count\&quot;\n      \n  error_metrics:\n    - metric: \&quot;application_errors_total\&quot;\n      type: \&quot;counter\&quot;\n      labels: [\&quot;error_type\&quot;, \&quot;severity\&quot;]\n      description: \&quot;Application errors\&quot;\n      \n    - metric: \&quot;error_rate\&quot;\n      type: \&quot;gauge\&quot;\n      labels: [\&quot;service\&quot;, \&quot;endpoint\&quot;]\n      description: \&quot;Error rate percentage\&quot;\n```\n\n### Infrastructure Metrics\n\n#### System Metrics\n```yaml\n# Infrastructure Metrics Configuration\ninfrastructure_metrics:\n  compute_metrics:\n    - metric: \&quot;cpu_usage_percent\&quot;\n      type: \&quot;gauge\&quot;\n      labels: [\&quot;instance\&quot;, \&quot;core\&quot;]\n      description: \&quot;CPU utilization\&quot;\n      \n    - metric: \&quot;memory_usage_bytes\&quot;\n      type: \&quot;gauge\&quot;\n      labels: [\&quot;instance\&quot;, \&quot;type\&quot;]\n      description: \&quot;Memory consumption\&quot;\n      \n    - metric: \&quot;disk_usage_percent\&quot;\n      type: \&quot;gauge\&quot;\n      labels: [\&quot;instance\&quot;, \&quot;mount\&quot;]\n      description: \&quot;Disk utilization\&quot;\n      \n  network_metrics:\n    - metric: \&quot;network_bytes_transmitted\&quot;\n      type: \&quot;counter\&quot;\n      labels: [\&quot;instance\&quot;, \&quot;interface\&quot;]\n      description: \&quot;Network bytes sent\&quot;\n      \n    - metric: \&quot;network_packets_dropped\&quot;\n      type: \&quot;counter\&quot;\n      labels: [\&quot;instance\&quot;, \&quot;interface\&quot;]\n      description: \&quot;Dropped network packets\&quot;\n```\n\n#### Container Metrics\n```yaml\n# Container Metrics Configuration\ncontainer_metrics:\n  kubernetes_metrics:\n    - metric: \&quot;pod_cpu_usage\&quot;\n      type: \&quot;gauge\&quot;\n      labels: [\&quot;namespace\&quot;, \&quot;pod\&quot;, \&quot;container\&quot;]\n      description: \&quot;Pod CPU usage\&quot;\n      \n    - metric: \&quot;pod_memory_usage\&quot;\n      type: \&quot;gauge\&quot;\n      labels: [\&quot;namespace\&quot;, \&quot;pod\&quot;, \&quot;container\&quot;]\n      description: \&quot;Pod memory usage\&quot;\n      \n    - metric: \&quot;pod_restart_count\&quot;\n      type: \&quot;counter\&quot;\n      labels: [\&quot;namespace\&quot;, \&quot;pod\&quot;]\n      description: \&quot;Pod restart count\&quot;\n      \n  service_mesh_metrics:\n    - metric: \&quot;service_request_latency\&quot;\n      type: \&quot;histogram\&quot;\n      labels: [\&quot;source_service\&quot;, \&quot;destination_service\&quot;]\n      description: \&quot;Inter-service request latency\&quot;\n```\n\n---\n\n## Logging Strategy\n\n### Structured Logging\n\n#### Log Format Standards\n```yaml\n# Structured Logging Format\nlog_format:\n  timestamp: \&quot;2025-01-27T10:30:00.000Z\&quot;\n  level: \&quot;INFO|WARN|ERROR|DEBUG\&quot;\n  service: \&quot;user-service\&quot;\n  version: \&quot;1.2.3\&quot;\n  environment: \&quot;production\&quot;\n  trace_id: \&quot;abc123def456\&quot;\n  span_id: \&quot;789ghi012\&quot;\n  user_id: \&quot;user_12345\&quot;\n  session_id: \&quot;session_67890\&quot;\n  request_id: \&quot;req_abcdef\&quot;\n  message: \&quot;User login successful\&quot;\n  metadata:\n    endpoint: \&quot;/api/v1/login\&quot;\n    method: \&quot;POST\&quot;\n    status_code: 200\n    duration_ms: 150\n    ip_address: \&quot;192.168.1.100\&quot;\n```\n\n#### Log Levels and Usage\n| Level | Usage | Examples | Retention |\n|-------|-------|----------|-----------|\n| ERROR | System errors, exceptions | Database connection failed, API timeout | 90 days |\n| WARN | Potential issues, degraded performance | High response time, retry attempts | 30 days |\n| INFO | Important business events | User registration, payment processed | 30 days |\n| DEBUG | Detailed diagnostic information | Function entry/exit, variable values | 7 days |\n\n### Log Aggregation and Analysis\n\n#### Centralized Logging Architecture\n```yaml\n# Centralized Logging Stack\nlogging_stack:\n  collection:\n    - fluentd: \&quot;Log collection and forwarding\&quot;\n    - filebeat: \&quot;Lightweight log shipper\&quot;\n    - logstash: \&quot;Log processing and transformation\&quot;\n    \n  storage:\n    - elasticsearch: \&quot;Log storage and indexing\&quot;\n    - s3: \&quot;Long-term log archival\&quot;\n    - clickhouse: \&quot;High-performance analytics\&quot;\n    \n  visualization:\n    - kibana: \&quot;Log search and visualization\&quot;\n    - grafana: \&quot;Metrics and logs correlation\&quot;\n    - custom_dashboards: \&quot;Business-specific views\&quot;\n    \n  analysis:\n    - elastic_ml: \&quot;Anomaly detection\&quot;\n    - custom_alerts: \&quot;Pattern-based alerting\&quot;\n    - log_analysis: \&quot;Automated log parsing\&quot;\n```\n\n#### Log Analysis Patterns\n```yaml\n# Log Analysis Configuration\nlog_analysis:\n  error_patterns:\n    - pattern: \&quot;ERROR.*database.*connection\&quot;\n      description: \&quot;Database connection errors\&quot;\n      severity: \&quot;high\&quot;\n      action: \&quot;alert_oncall\&quot;\n      \n    - pattern: \&quot;WARN.*response_time.*[5-9][0-9]{3}\&quot;\n      description: \&quot;High response time warning\&quot;\n      severity: \&quot;medium\&quot;\n      action: \&quot;create_ticket\&quot;\n      \n  business_patterns:\n    - pattern: \&quot;INFO.*user_registration.*successful\&quot;\n      description: \&quot;User registration events\&quot;\n      metric: \&quot;user_registrations_total\&quot;\n      labels: [\&quot;region\&quot;, \&quot;source\&quot;]\n      \n  security_patterns:\n    - pattern: \&quot;WARN.*authentication.*failed\&quot;\n      description: \&quot;Failed authentication attempts\&quot;\n      severity: \&quot;high\&quot;\n      action: \&quot;security_alert\&quot;\n```\n\n---\n\n## Distributed Tracing\n\n### Tracing Implementation\n\n#### Trace Context Propagation\n```yaml\n# Distributed Tracing Configuration\ntracing_config:\n  trace_context:\n    - trace_id: \&quot;Unique identifier for entire request\&quot;\n    - span_id: \&quot;Unique identifier for current operation\&quot;\n    - parent_span_id: \&quot;Parent operation identifier\&quot;\n    - baggage: \&quot;Key-value pairs propagated across services\&quot;\n    \n  instrumentation:\n    automatic:\n      - http_requests: \&quot;Incoming and outgoing HTTP calls\&quot;\n      - database_queries: \&quot;SQL and NoSQL operations\&quot;\n      - message_queues: \&quot;Publish/subscribe operations\&quot;\n      \n    manual:\n      - business_operations: \&quot;Domain-specific operations\&quot;\n      - external_apis: \&quot;Third-party service calls\&quot;\n      - background_jobs: \&quot;Asynchronous processing\&quot;\n      \n  sampling:\n    strategy: \&quot;adaptive\&quot;\n    rules:\n      - error_traces: \&quot;100% sampling\&quot;\n      - slow_traces: \&quot;100% sampling (&gt;1s)\&quot;\n      - normal_traces: \&quot;1% sampling\&quot;\n```\n\n#### Service Dependency Mapping\n```yaml\n# Service Dependency Visualization\nservice_dependencies:\n  user_service:\n    dependencies:\n      - auth_service: \&quot;Authentication validation\&quot;\n      - profile_service: \&quot;User profile data\&quot;\n      - audit_service: \&quot;Activity logging\&quot;\n    called_by:\n      - web_frontend: \&quot;User interface\&quot;\n      - mobile_app: \&quot;Mobile application\&quot;\n      \n  payment_service:\n    dependencies:\n      - user_service: \&quot;User validation\&quot;\n      - fraud_service: \&quot;Fraud detection\&quot;\n      - notification_service: \&quot;Payment notifications\&quot;\n      - external_payment_gateway: \&quot;Payment processing\&quot;\n    called_by:\n      - order_service: \&quot;Order processing\&quot;\n      - subscription_service: \&quot;Recurring payments\&quot;\n```\n\n---\n\n## Alerting Strategy\n\n### Alert Configuration\n\n#### Alert Severity Levels\n| Severity | Description | Response SLA | Escalation |\n|----------|-------------|--------------|------------|\n| P0 (Critical) | Service down, critical functionality unavailable | 5 minutes | Immediate page |\n| P1 (High) | Degraded performance, some functionality affected | 15 minutes | Phone call |\n| P2 (Medium) | Non-critical issues, workarounds available | 1 hour | Email/Slack |\n| P3 (Low) | Minor issues, informational | 24 hours | Ticket creation |\n\n#### Alert Rules Configuration\n```yaml\n# Alert Rules Definition\nalert_rules:\n  availability_alerts:\n    - alert: \&quot;ServiceDown\&quot;\n      expr: \&quot;up{job=&#39;user-service&#39;} == 0\&quot;\n      for: \&quot;30s\&quot;\n      severity: \&quot;critical\&quot;\n      summary: \&quot;Service {{ $labels.instance }} is down\&quot;\n      \n    - alert: \&quot;HighErrorRate\&quot;\n      expr: \&quot;rate(http_requests_total{status=~&#39;5..&#39;}[5m]) &gt; 0.1\&quot;\n      for: \&quot;2m\&quot;\n      severity: \&quot;high\&quot;\n      summary: \&quot;High error rate on {{ $labels.service }}\&quot;\n      \n  performance_alerts:\n    - alert: \&quot;HighLatency\&quot;\n      expr: \&quot;histogram_quantile(0.95, rate(http_request_duration_seconds_bucket[5m])) &gt; 0.5\&quot;\n      for: \&quot;5m\&quot;\n      severity: \&quot;medium\&quot;\n      summary: \&quot;High latency on {{ $labels.endpoint }}\&quot;\n      \n  resource_alerts:\n    - alert: \&quot;HighCPUUsage\&quot;\n      expr: \&quot;cpu_usage_percent &gt; 80\&quot;\n      for: \&quot;10m\&quot;\n      severity: \&quot;medium\&quot;\n      summary: \&quot;High CPU usage on {{ $labels.instance }}\&quot;\n      \n    - alert: \&quot;HighMemoryUsage\&quot;\n      expr: \&quot;memory_usage_percent &gt; 90\&quot;\n      for: \&quot;5m\&quot;\n      severity: \&quot;high\&quot;\n      summary: \&quot;High memory usage on {{ $labels.instance }}\&quot;\n```\n\n### Alert Routing and Escalation\n\n#### Alert Routing Matrix\n```yaml\n# Alert Routing Configuration\nalert_routing:\n  routes:\n    - match:\n        severity: \&quot;critical\&quot;\n      receiver: \&quot;oncall-team\&quot;\n      group_wait: \&quot;10s\&quot;\n      group_interval: \&quot;10s\&quot;\n      repeat_interval: \&quot;1h\&quot;\n      \n    - match:\n        severity: \&quot;high\&quot;\n      receiver: \&quot;dev-team\&quot;\n      group_wait: \&quot;30s\&quot;\n      group_interval: \&quot;5m\&quot;\n      repeat_interval: \&quot;4h\&quot;\n      \n    - match:\n        service: \&quot;payment-service\&quot;\n      receiver: \&quot;payment-team\&quot;\n      group_wait: \&quot;1m\&quot;\n      group_interval: \&quot;10m\&quot;\n      repeat_interval: \&quot;12h\&quot;\n      \n  receivers:\n    - name: \&quot;oncall-team\&quot;\n      pagerduty_configs:\n        - service_key: \&quot;{{ .pagerduty.service_key }}\&quot;\n          description: \&quot;{{ .GroupLabels.alertname }}\&quot;\n          \n    - name: \&quot;dev-team\&quot;\n      slack_configs:\n        - api_url: \&quot;{{ .slack.webhook_url }}\&quot;\n          channel: \&quot;#alerts\&quot;\n          title: \&quot;{{ .GroupLabels.alertname }}\&quot;\n```\n\n#### Escalation Procedures\n```\nAlert Escalation Timeline\n\nInitial Alert (T+0):\n├── [ ] Automated alert triggered\n├── [ ] Primary on-call notified\n├── [ ] Incident tracking started\n└── [ ] Initial assessment begins\n\nFirst Escalation (T+15min):\n├── [ ] Secondary on-call notified\n├── [ ] Team lead informed\n├── [ ] Incident severity assessed\n└── [ ] Response team assembled\n\nSecond Escalation (T+30min):\n├── [ ] Engineering manager notified\n├── [ ] Customer support alerted\n├── [ ] Status page updated\n└── [ ] Executive notification (if P0)\n\nThird Escalation (T+60min):\n├── [ ] Cross-functional team engaged\n├── [ ] External vendor contact (if needed)\n├── [ ] Customer communication initiated\n└── [ ] Post-incident review scheduled\n```\n\n---\n\n## Dashboard and Visualization\n\n### Dashboard Design Principles\n\n#### Dashboard Hierarchy\n```\nDashboard Organization Structure\n\nExecutive Dashboards:\n├── Business KPIs and SLAs\n├── High-level service health\n├── Customer impact metrics\n└── Cost and capacity overview\n\nOperational Dashboards:\n├── Service performance metrics\n├── Infrastructure health\n├── Alert status and trends\n└── Deployment success rates\n\nTeam-Specific Dashboards:\n├── Development team metrics\n├── Platform team metrics\n├── Security team metrics\n└── Customer support metrics\n\nTroubleshooting Dashboards:\n├── Detailed service metrics\n├── Log correlation views\n├── Trace analysis\n└── Root cause analysis tools\n```\n\n#### Dashboard Template\n```yaml\n# Dashboard Configuration Template\ndashboard_config:\n  metadata:\n    title: \&quot;Service Health Dashboard\&quot;\n    description: \&quot;Real-time service performance and health metrics\&quot;\n    tags: [\&quot;service\&quot;, \&quot;health\&quot;, \&quot;performance\&quot;]\n    refresh_interval: \&quot;30s\&quot;\n    \n  variables:\n    - name: \&quot;service\&quot;\n      type: \&quot;query\&quot;\n      query: \&quot;label_values(service)\&quot;\n      \n    - name: \&quot;environment\&quot;\n      type: \&quot;query\&quot; \n      query: \&quot;label_values(environment)\&quot;\n      \n  panels:\n    - title: \&quot;Request Rate\&quot;\n      type: \&quot;graph\&quot;\n      targets:\n        - expr: \&quot;rate(http_requests_total{service=&#39;$service&#39;}[5m])\&quot;\n          legend: \&quot;{{ method }} {{ endpoint }}\&quot;\n          \n    - title: \&quot;Error Rate\&quot;\n      type: \&quot;stat\&quot;\n      targets:\n        - expr: \&quot;rate(http_requests_total{service=&#39;$service&#39;,status=~&#39;5..&#39;}[5m]) / rate(http_requests_total{service=&#39;$service&#39;}[5m]) * 100\&quot;\n          legend: \&quot;Error Rate %\&quot;\n          \n    - title: \&quot;Response Time\&quot;\n      type: \&quot;histogram\&quot;\n      targets:\n        - expr: \&quot;histogram_quantile(0.95, rate(http_request_duration_seconds_bucket{service=&#39;$service&#39;}[5m]))\&quot;\n          legend: \&quot;95th Percentile\&quot;\n```\n\n### Key Dashboard Components\n\n#### Golden Signals Dashboard\n```yaml\n# Golden Signals Dashboard\ngolden_signals:\n  latency:\n    - metric: \&quot;95th percentile response time\&quot;\n    - target: \&quot;&lt; 200ms\&quot;\n    - visualization: \&quot;time_series\&quot;\n    - alert_threshold: \&quot;&gt; 500ms\&quot;\n    \n  traffic:\n    - metric: \&quot;Requests per second\&quot;\n    - target: \&quot;Baseline ± 20%\&quot;\n    - visualization: \&quot;time_series\&quot;\n    - alert_threshold: \&quot;&lt; 50% of baseline\&quot;\n    \n  errors:\n    - metric: \&quot;Error rate percentage\&quot;\n    - target: \&quot;&lt; 1%\&quot;\n    - visualization: \&quot;stat_panel\&quot;\n    - alert_threshold: \&quot;&gt; 5%\&quot;\n    \n  saturation:\n    - metric: \&quot;Resource utilization\&quot;\n    - target: \&quot;&lt; 70%\&quot;\n    - visualization: \&quot;gauge\&quot;\n    - alert_threshold: \&quot;&gt; 90%\&quot;\n```\n\n---\n\n## Incident Response Integration\n\n### Monitoring-Driven Incident Response\n\n#### Incident Detection Workflow\n```yaml\n# Incident Detection and Response\nincident_workflow:\n  detection:\n    - automated_alerts: \&quot;Monitoring system triggers\&quot;\n    - user_reports: \&quot;Customer complaints or support tickets\&quot;\n    - team_observations: \&quot;Manual detection during operations\&quot;\n    \n  classification:\n    - severity_assessment: \&quot;Impact and urgency evaluation\&quot;\n    - service_identification: \&quot;Affected services and dependencies\&quot;\n    - customer_impact: \&quot;Number of affected users\&quot;\n    \n  response_initiation:\n    - team_notification: \&quot;Alert relevant teams\&quot;\n    - war_room_setup: \&quot;Communication channel creation\&quot;\n    - status_page_update: \&quot;Customer communication\&quot;\n    \n  resolution_tracking:\n    - mitigation_actions: \&quot;Immediate fixes and workarounds\&quot;\n    - root_cause_analysis: \&quot;Systematic investigation\&quot;\n    - permanent_fixes: \&quot;Long-term resolution\&quot;\n    - documentation: \&quot;Incident report and lessons learned\&quot;\n```\n\n#### Runbook Integration\n```yaml\n# Runbook-Driven Response\nrunbook_integration:\n  alert_runbooks:\n    - alert: \&quot;HighCPUUsage\&quot;\n      runbook_url: \&quot;https://wiki.company.com/runbooks/high-cpu\&quot;\n      automated_actions:\n        - \&quot;Scale up instances\&quot;\n        - \&quot;Analyze top processes\&quot;\n        - \&quot;Check for memory leaks\&quot;\n        \n    - alert: \&quot;DatabaseConnectionError\&quot;\n      runbook_url: \&quot;https://wiki.company.com/runbooks/db-connection\&quot;\n      automated_actions:\n        - \&quot;Restart connection pool\&quot;\n        - \&quot;Check database status\&quot;\n        - \&quot;Verify network connectivity\&quot;\n```\n\n---\n\n## Monitoring Tool Stack\n\n### Tool Selection and Integration\n\n#### Monitoring Stack Architecture\n```yaml\n# Complete Monitoring Stack\nmonitoring_stack:\n  metrics_collection:\n    - prometheus: \&quot;Metrics collection and storage\&quot;\n    - grafana: \&quot;Visualization and dashboards\&quot;\n    - alertmanager: \&quot;Alert routing and management\&quot;\n    \n  logging:\n    - elasticsearch: \&quot;Log storage and search\&quot;\n    - logstash: \&quot;Log processing\&quot;\n    - kibana: \&quot;Log visualization\&quot;\n    - fluent_bit: \&quot;Log collection\&quot;\n    \n  tracing:\n    - jaeger: \&quot;Distributed tracing\&quot;\n    - zipkin: \&quot;Alternative tracing solution\&quot;\n    - opencensus: \&quot;Tracing instrumentation\&quot;\n    \n  apm:\n    - datadog: \&quot;Application performance monitoring\&quot;\n    - newrelic: \&quot;Full-stack observability\&quot;\n    - custom_solutions: \&quot;In-house monitoring tools\&quot;\n    \n  incident_management:\n    - pagerduty: \&quot;On-call scheduling and alerting\&quot;\n    - slack: \&quot;Team communication\&quot;\n    - statuspage: \&quot;Customer communication\&quot;\n```\n\n#### Tool Integration Patterns\n```yaml\n# Integration Configuration\ntool_integrations:\n  prometheus_to_grafana:\n    - data_source: \&quot;prometheus\&quot;\n    - connection: \&quot;http://prometheus:9090\&quot;\n    - authentication: \&quot;bearer_token\&quot;\n    \n  grafana_to_pagerduty:\n    - notification_channel: \&quot;pagerduty\&quot;\n    - integration_key: \&quot;{{ .pagerduty.integration_key }}\&quot;\n    - auto_resolve: true\n    \n  logs_to_metrics:\n    - source: \&quot;elasticsearch\&quot;\n    - pattern: \&quot;ERROR.*database\&quot;\n    - metric: \&quot;database_errors_total\&quot;\n    - labels: [\&quot;service\&quot;, \&quot;environment\&quot;]\n    \n  traces_to_alerts:\n    - source: \&quot;jaeger\&quot;\n    - condition: \&quot;error_rate &gt; 0.05\&quot;\n    - alert: \&quot;HighErrorRate\&quot;\n    - duration: \&quot;5m\&quot;\n```\n\n---\n\n## Monitoring Automation\n\n### Automated Monitoring Deployment\n\n#### Infrastructure as Code for Monitoring\n```yaml\n# Terraform Configuration for Monitoring Stack\nterraform_monitoring:\n  prometheus:\n    instance_type: \&quot;t3.medium\&quot;\n    storage_size: \&quot;100GB\&quot;\n    retention_period: \&quot;30d\&quot;\n    scrape_interval: \&quot;15s\&quot;\n    \n  grafana:\n    instance_type: \&quot;t3.small\&quot;\n    high_availability: true\n    database: \&quot;postgresql\&quot;\n    authentication: \&quot;oauth\&quot;\n    \n  alertmanager:\n    instance_type: \&quot;t3.small\&quot;\n    cluster_size: 3\n    storage_type: \&quot;persistent\&quot;\n    retention_period: \&quot;24h\&quot;\n```\n\n#### Automated Rule Deployment\n```yaml\n# CI/CD Pipeline for Monitoring Rules\nmonitoring_cicd:\n  pipeline_stages:\n    - validate_rules: \&quot;Syntax and logic validation\&quot;\n    - test_rules: \&quot;Test against sample data\&quot;\n    - deploy_staging: \&quot;Deploy to staging environment\&quot;\n    - integration_test: \&quot;End-to-end testing\&quot;\n    - deploy_production: \&quot;Production deployment\&quot;\n    - monitor_deployment: \&quot;Monitor rule effectiveness\&quot;\n    \n  rule_testing:\n    - unit_tests: \&quot;Individual rule validation\&quot;\n    - integration_tests: \&quot;Cross-rule dependencies\&quot;\n    - performance_tests: \&quot;Query performance impact\&quot;\n    - alert_tests: \&quot;Alert firing validation\&quot;\n```\n\n---\n\n## Continuous Improvement\n\n### Monitoring Effectiveness\n\n#### Monitoring Metrics\n```yaml\n# Monitoring System Metrics\nmonitoring_effectiveness:\n  alert_quality:\n    - alert_accuracy: \&quot;True positive rate\&quot;\n    - alert_noise: \&quot;False positive rate\&quot;\n    - alert_coverage: \&quot;Incident detection rate\&quot;\n    - alert_timeliness: \&quot;Time to detection\&quot;\n    \n  dashboard_usage:\n    - dashboard_views: \&quot;Usage frequency\&quot;\n    - user_engagement: \&quot;Time spent on dashboards\&quot;\n    - dashboard_effectiveness: \&quot;Problem resolution rate\&quot;\n    \n  system_performance:\n    - monitoring_overhead: \&quot;Resource consumption\&quot;\n    - query_performance: \&quot;Dashboard load times\&quot;\n    - data_retention: \&quot;Storage efficiency\&quot;\n    - availability: \&quot;Monitoring system uptime\&quot;\n```\n\n#### Optimization Process\n```\nMonitoring Optimization Cycle\n\nMonthly Review:\n├── [ ] Alert effectiveness analysis\n├── [ ] Dashboard usage review\n├── [ ] Performance optimization\n├── [ ] Tool evaluation\n└── [ ] Team feedback collection\n\nQuarterly Planning:\n├── [ ] Monitoring strategy review\n├── [ ] Tool stack evaluation\n├── [ ] Capacity planning\n├── [ ] Training needs assessment\n└── [ ] Budget planning\n\nAnnual Assessment:\n├── [ ] Full stack review\n├── [ ] Industry benchmark comparison\n├── [ ] Technology refresh planning\n├── [ ] Skill development roadmap\n└── [ ] Strategic alignment review\n```\n\n---\n\n## When to Use\n\nUse at project initiation to establish scope, schedule, resources, and key milestones. This template is essential for complex projects with multiple workstreams, external dependencies, or strict compliance requirements where detailed planning drives success.\n\n## When NOT to Use\n\nDo not use for small, self-contained tasks or fully agile teams that manage planning through iterative ceremonies instead of upfront documentation. Avoid using this as a substitute for continuously updated project dashboards or dynamic scheduling tools.\n\n## Related Templates\n- [CI/CD Pipeline Planning](../../../domains/measurement/methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md)\n- [Release Management Workflow](../../../domains/measurement/methodology-frameworks/emerging-methods/devops/release_management_template.md)\n- [DevSecOps Integration](./devsecops_template.md)\n- [Infrastructure as Code](./infrastructure_as_code_template.md)\n\n---\n\n## Version History\n| Version | Date | Changes | Author |\n|---------|------|---------|--------|\n| 1.0 | [Date] | Initial Monitoring and Alerting template | [Author] |\n\n---\n\n*This template is part of the PM Tools Templates library. For more information and additional templates, visit [repository root](../../../README.md).*\n\n&quot;]}" ssr client="load" opts="{&quot;name&quot;:&quot;TemplateViewer&quot;,&quot;value&quot;:true}" await-children><div><h1>Monitoring Alerting Template</h1><div style="margin-bottom:2rem"><button style="background:var(--accent-color);color:white;border:1px solid var(--border-color);padding:0.5rem 1rem;border-radius:4px 4px 0 0;cursor:pointer;margin-right:1px">Preview</button><button style="background:var(--code-bg);color:var(--text-color);border:1px solid var(--border-color);padding:0.5rem 1rem;border-radius:4px 4px 0 0;cursor:pointer">Version History</button></div><div style="border:1px solid var(--border-color);border-radius:0 8px 8px 8px;min-height:400px"><div style="background:var(--bg-primary);border-radius:var(--radius-lg)"><div style="padding:1rem 1.5rem;border-bottom:1px solid var(--border-light);display:flex;align-items:center;justify-content:space-between;background:var(--bg-secondary);border-radius:var(--radius-lg) var(--radius-lg) 0 0"><div style="display:flex;align-items:center;gap:0.5rem"><span style="font-size:1.5rem">📄</span><div><div style="font-weight:600;color:var(--text-primary)">monitoring_alerting_template.md</div><div style="font-size:0.75rem;color:var(--text-muted)">Markdown • <!-- -->24,912 bytes</div></div></div><a href="/pm-tools-templates/downloads/monitoring_alerting_template.md" download="" class="btn btn-secondary" style="font-size:0.75rem;padding:0.5rem 0.75rem">💾 Download</a></div><pre aria-label="Markdown source of Monitoring Alerting Template" style="padding:1.5rem;max-height:600px;overflow:auto;white-space:pre-wrap;overflow-wrap:anywhere">---
+title: Monitoring Alerting Template
+methodology: universal
+complexity: advanced
+owner: mirichard
+updated: &#x27;2025-08-05&#x27;
+primary_principles:
+- risk-optimization
+- evidence-based-decisions
+secondary_principles:
+- quality-by-design
+- stewardship
+principle_rationale: Identifies and responds to operational risks through continuous,
+  evidence-based monitoring.
+---
+
+# DevOps Monitoring and Alerting Strategy Template
+
+## Overview
+This template provides a comprehensive framework for implementing monitoring and alerting strategies in DevOps environments, covering observability, incident response, and continuous improvement of system reliability and performance.
+
+## Template Information
+- **Methodology:** DevOps Monitoring and Observability
+- **Purpose:** Establish comprehensive monitoring, alerting, and observability practices
+- **Audience:** DevOps Engineers, SREs, Platform Teams, Development Teams
+- **Timeline:** 8-12 weeks for full implementation
+- **Prerequisites:** Infrastructure deployed, basic logging in place
+
+---
+
+## Monitoring Strategy Framework
+
+### Observability Pillars
+
+#### Three Pillars of Observability
+```
+Observability Architecture
+
+Metrics (What is happening):
+├── Application metrics (business and technical)
+├── Infrastructure metrics (CPU, memory, disk, network)
+├── Service metrics (latency, throughput, errors)
+└── Custom metrics (domain-specific KPIs)
+
+Logs (What happened):
+├── Application logs (events, errors, warnings)
+├── Infrastructure logs (system events, security)
+├── Service logs (access, audit, performance)
+└── Structured logging (JSON, key-value pairs)
+
+Traces (How it happened):
+├── Distributed tracing (request flow)
+├── Service dependencies mapping
+├── Performance bottleneck identification
+└── Error propagation tracking
+```
+
+#### Monitoring Levels
+| Level | Focus | Tools | Frequency | Stakeholders |
+|-------|-------|-------|-----------|--------------|
+| Business | KPIs, SLAs, User Experience | Dashboards, Reports | Real-time/Daily | Executives, Product |
+| Application | Feature performance, Errors | APM, Custom metrics | Real-time | Development, Product |
+| Service | API health, Dependencies | Service mesh, Synthetic | Real-time | DevOps, Platform |
+| Infrastructure | Resources, Capacity | System monitoring | Real-time | Infrastructure, DevOps |
+
+### Service Level Objectives (SLOs)
+
+#### SLO Definition Framework
+```yaml
+# Service Level Objectives Template
+service_slos:
+  user_facing_service:
+    availability:
+      definition: &quot;Percentage of successful requests&quot;
+      target: &quot;99.9%&quot;
+      measurement_window: &quot;30 days&quot;
+      error_budget: &quot;0.1% (43.2 minutes/month)&quot;
+      
+    latency:
+      definition: &quot;95th percentile response time&quot;
+      target: &quot;&lt; 200ms&quot;
+      measurement_window: &quot;5 minutes&quot;
+      error_budget: &quot;5% of requests &gt; 200ms&quot;
+      
+    throughput:
+      definition: &quot;Requests per second capacity&quot;
+      target: &quot;&gt; 1000 RPS&quot;
+      measurement_window: &quot;1 minute&quot;
+      error_budget: &quot;&lt; 1000 RPS for 5% of time&quot;
+      
+  data_processing_service:
+    completeness:
+      definition: &quot;Percentage of data successfully processed&quot;
+      target: &quot;99.95%&quot;
+      measurement_window: &quot;24 hours&quot;
+      error_budget: &quot;0.05% data loss&quot;
+      
+    freshness:
+      definition: &quot;Data processing latency&quot;
+      target: &quot;&lt; 15 minutes&quot;
+      measurement_window: &quot;1 hour&quot;
+      error_budget: &quot;&gt; 15 minutes for 1% of data&quot;
+```
+
+#### Error Budget Management
+```
+Error Budget Calculation and Management
+
+Error Budget = (1 - SLO) × Time Period
+
+Example for 99.9% availability SLO:
+├── Monthly error budget: 0.1% × 30 days = 43.2 minutes
+├── Weekly error budget: 0.1% × 7 days = 10.08 minutes
+├── Daily error budget: 0.1% × 1 day = 1.44 minutes
+└── Hourly error budget: 0.1% × 1 hour = 3.6 seconds
+
+Error Budget Policies:
+├── &gt; 90% remaining: Focus on new features
+├── 50-90% remaining: Balance features and reliability
+├── 10-50% remaining: Prioritize reliability work
+└── &lt; 10% remaining: Freeze feature releases
+```
+
+---
+
+## Metrics and Monitoring Implementation
+
+### Application Metrics
+
+#### Business Metrics
+```yaml
+# Business Metrics Configuration
+business_metrics:
+  user_engagement:
+    - metric: &quot;active_users&quot;
+      type: &quot;gauge&quot;
+      labels: [&quot;region&quot;, &quot;user_type&quot;]
+      description: &quot;Number of active users&quot;
+      
+    - metric: &quot;session_duration&quot;
+      type: &quot;histogram&quot;
+      labels: [&quot;page&quot;, &quot;user_type&quot;]
+      description: &quot;User session duration&quot;
+      
+  revenue_metrics:
+    - metric: &quot;transactions_total&quot;
+      type: &quot;counter&quot;
+      labels: [&quot;payment_method&quot;, &quot;region&quot;]
+      description: &quot;Total completed transactions&quot;
+      
+    - metric: &quot;revenue_amount&quot;
+      type: &quot;gauge&quot;
+      labels: [&quot;currency&quot;, &quot;product&quot;]
+      description: &quot;Revenue generated&quot;
+      
+  operational_metrics:
+    - metric: &quot;feature_flags_enabled&quot;
+      type: &quot;gauge&quot;
+      labels: [&quot;feature&quot;, &quot;environment&quot;]
+      description: &quot;Feature flag status&quot;
+```
+
+#### Technical Metrics
+```yaml
+# Technical Metrics Configuration
+technical_metrics:
+  performance_metrics:
+    - metric: &quot;http_requests_total&quot;
+      type: &quot;counter&quot;
+      labels: [&quot;method&quot;, &quot;endpoint&quot;, &quot;status&quot;]
+      description: &quot;Total HTTP requests&quot;
+      
+    - metric: &quot;http_request_duration_seconds&quot;
+      type: &quot;histogram&quot;
+      labels: [&quot;method&quot;, &quot;endpoint&quot;]
+      description: &quot;HTTP request duration&quot;
+      
+    - metric: &quot;database_queries_total&quot;
+      type: &quot;counter&quot;
+      labels: [&quot;query_type&quot;, &quot;table&quot;]
+      description: &quot;Database query count&quot;
+      
+  error_metrics:
+    - metric: &quot;application_errors_total&quot;
+      type: &quot;counter&quot;
+      labels: [&quot;error_type&quot;, &quot;severity&quot;]
+      description: &quot;Application errors&quot;
+      
+    - metric: &quot;error_rate&quot;
+      type: &quot;gauge&quot;
+      labels: [&quot;service&quot;, &quot;endpoint&quot;]
+      description: &quot;Error rate percentage&quot;
+```
+
+### Infrastructure Metrics
+
+#### System Metrics
+```yaml
+# Infrastructure Metrics Configuration
+infrastructure_metrics:
+  compute_metrics:
+    - metric: &quot;cpu_usage_percent&quot;
+      type: &quot;gauge&quot;
+      labels: [&quot;instance&quot;, &quot;core&quot;]
+      description: &quot;CPU utilization&quot;
+      
+    - metric: &quot;memory_usage_bytes&quot;
+      type: &quot;gauge&quot;
+      labels: [&quot;instance&quot;, &quot;type&quot;]
+      description: &quot;Memory consumption&quot;
+      
+    - metric: &quot;disk_usage_percent&quot;
+      type: &quot;gauge&quot;
+      labels: [&quot;instance&quot;, &quot;mount&quot;]
+      description: &quot;Disk utilization&quot;
+      
+  network_metrics:
+    - metric: &quot;network_bytes_transmitted&quot;
+      type: &quot;counter&quot;
+      labels: [&quot;instance&quot;, &quot;interface&quot;]
+      description: &quot;Network bytes sent&quot;
+      
+    - metric: &quot;network_packets_dropped&quot;
+      type: &quot;counter&quot;
+      labels: [&quot;instance&quot;, &quot;interface&quot;]
+      description: &quot;Dropped network packets&quot;
+```
+
+#### Container Metrics
+```yaml
+# Container Metrics Configuration
+container_metrics:
+  kubernetes_metrics:
+    - metric: &quot;pod_cpu_usage&quot;
+      type: &quot;gauge&quot;
+      labels: [&quot;namespace&quot;, &quot;pod&quot;, &quot;container&quot;]
+      description: &quot;Pod CPU usage&quot;
+      
+    - metric: &quot;pod_memory_usage&quot;
+      type: &quot;gauge&quot;
+      labels: [&quot;namespace&quot;, &quot;pod&quot;, &quot;container&quot;]
+      description: &quot;Pod memory usage&quot;
+      
+    - metric: &quot;pod_restart_count&quot;
+      type: &quot;counter&quot;
+      labels: [&quot;namespace&quot;, &quot;pod&quot;]
+      description: &quot;Pod restart count&quot;
+      
+  service_mesh_metrics:
+    - metric: &quot;service_request_latency&quot;
+      type: &quot;histogram&quot;
+      labels: [&quot;source_service&quot;, &quot;destination_service&quot;]
+      description: &quot;Inter-service request latency&quot;
+```
+
+---
+
+## Logging Strategy
+
+### Structured Logging
+
+#### Log Format Standards
+```yaml
+# Structured Logging Format
+log_format:
+  timestamp: &quot;2025-01-27T10:30:00.000Z&quot;
+  level: &quot;INFO|WARN|ERROR|DEBUG&quot;
+  service: &quot;user-service&quot;
+  version: &quot;1.2.3&quot;
+  environment: &quot;production&quot;
+  trace_id: &quot;abc123def456&quot;
+  span_id: &quot;789ghi012&quot;
+  user_id: &quot;user_12345&quot;
+  session_id: &quot;session_67890&quot;
+  request_id: &quot;req_abcdef&quot;
+  message: &quot;User login successful&quot;
+  metadata:
+    endpoint: &quot;/api/v1/login&quot;
+    method: &quot;POST&quot;
+    status_code: 200
+    duration_ms: 150
+    ip_address: &quot;192.168.1.100&quot;
+```
+
+#### Log Levels and Usage
+| Level | Usage | Examples | Retention |
+|-------|-------|----------|-----------|
+| ERROR | System errors, exceptions | Database connection failed, API timeout | 90 days |
+| WARN | Potential issues, degraded performance | High response time, retry attempts | 30 days |
+| INFO | Important business events | User registration, payment processed | 30 days |
+| DEBUG | Detailed diagnostic information | Function entry/exit, variable values | 7 days |
+
+### Log Aggregation and Analysis
+
+#### Centralized Logging Architecture
+```yaml
+# Centralized Logging Stack
+logging_stack:
+  collection:
+    - fluentd: &quot;Log collection and forwarding&quot;
+    - filebeat: &quot;Lightweight log shipper&quot;
+    - logstash: &quot;Log processing and transformation&quot;
+    
+  storage:
+    - elasticsearch: &quot;Log storage and indexing&quot;
+    - s3: &quot;Long-term log archival&quot;
+    - clickhouse: &quot;High-performance analytics&quot;
+    
+  visualization:
+    - kibana: &quot;Log search and visualization&quot;
+    - grafana: &quot;Metrics and logs correlation&quot;
+    - custom_dashboards: &quot;Business-specific views&quot;
+    
+  analysis:
+    - elastic_ml: &quot;Anomaly detection&quot;
+    - custom_alerts: &quot;Pattern-based alerting&quot;
+    - log_analysis: &quot;Automated log parsing&quot;
+```
+
+#### Log Analysis Patterns
+```yaml
+# Log Analysis Configuration
+log_analysis:
+  error_patterns:
+    - pattern: &quot;ERROR.*database.*connection&quot;
+      description: &quot;Database connection errors&quot;
+      severity: &quot;high&quot;
+      action: &quot;alert_oncall&quot;
+      
+    - pattern: &quot;WARN.*response_time.*[5-9][0-9]{3}&quot;
+      description: &quot;High response time warning&quot;
+      severity: &quot;medium&quot;
+      action: &quot;create_ticket&quot;
+      
+  business_patterns:
+    - pattern: &quot;INFO.*user_registration.*successful&quot;
+      description: &quot;User registration events&quot;
+      metric: &quot;user_registrations_total&quot;
+      labels: [&quot;region&quot;, &quot;source&quot;]
+      
+  security_patterns:
+    - pattern: &quot;WARN.*authentication.*failed&quot;
+      description: &quot;Failed authentication attempts&quot;
+      severity: &quot;high&quot;
+      action: &quot;security_alert&quot;
+```
+
+---
+
+## Distributed Tracing
+
+### Tracing Implementation
+
+#### Trace Context Propagation
+```yaml
+# Distributed Tracing Configuration
+tracing_config:
+  trace_context:
+    - trace_id: &quot;Unique identifier for entire request&quot;
+    - span_id: &quot;Unique identifier for current operation&quot;
+    - parent_span_id: &quot;Parent operation identifier&quot;
+    - baggage: &quot;Key-value pairs propagated across services&quot;
+    
+  instrumentation:
+    automatic:
+      - http_requests: &quot;Incoming and outgoing HTTP calls&quot;
+      - database_queries: &quot;SQL and NoSQL operations&quot;
+      - message_queues: &quot;Publish/subscribe operations&quot;
+      
+    manual:
+      - business_operations: &quot;Domain-specific operations&quot;
+      - external_apis: &quot;Third-party service calls&quot;
+      - background_jobs: &quot;Asynchronous processing&quot;
+      
+  sampling:
+    strategy: &quot;adaptive&quot;
+    rules:
+      - error_traces: &quot;100% sampling&quot;
+      - slow_traces: &quot;100% sampling (&gt;1s)&quot;
+      - normal_traces: &quot;1% sampling&quot;
+```
+
+#### Service Dependency Mapping
+```yaml
+# Service Dependency Visualization
+service_dependencies:
+  user_service:
+    dependencies:
+      - auth_service: &quot;Authentication validation&quot;
+      - profile_service: &quot;User profile data&quot;
+      - audit_service: &quot;Activity logging&quot;
+    called_by:
+      - web_frontend: &quot;User interface&quot;
+      - mobile_app: &quot;Mobile application&quot;
+      
+  payment_service:
+    dependencies:
+      - user_service: &quot;User validation&quot;
+      - fraud_service: &quot;Fraud detection&quot;
+      - notification_service: &quot;Payment notifications&quot;
+      - external_payment_gateway: &quot;Payment processing&quot;
+    called_by:
+      - order_service: &quot;Order processing&quot;
+      - subscription_service: &quot;Recurring payments&quot;
+```
+
+---
+
+## Alerting Strategy
+
+### Alert Configuration
+
+#### Alert Severity Levels
+| Severity | Description | Response SLA | Escalation |
+|----------|-------------|--------------|------------|
+| P0 (Critical) | Service down, critical functionality unavailable | 5 minutes | Immediate page |
+| P1 (High) | Degraded performance, some functionality affected | 15 minutes | Phone call |
+| P2 (Medium) | Non-critical issues, workarounds available | 1 hour | Email/Slack |
+| P3 (Low) | Minor issues, informational | 24 hours | Ticket creation |
+
+#### Alert Rules Configuration
+```yaml
+# Alert Rules Definition
+alert_rules:
+  availability_alerts:
+    - alert: &quot;ServiceDown&quot;
+      expr: &quot;up{job=&#x27;user-service&#x27;} == 0&quot;
+      for: &quot;30s&quot;
+      severity: &quot;critical&quot;
+      summary: &quot;Service {{ $labels.instance }} is down&quot;
+      
+    - alert: &quot;HighErrorRate&quot;
+      expr: &quot;rate(http_requests_total{status=~&#x27;5..&#x27;}[5m]) &gt; 0.1&quot;
+      for: &quot;2m&quot;
+      severity: &quot;high&quot;
+      summary: &quot;High error rate on {{ $labels.service }}&quot;
+      
+  performance_alerts:
+    - alert: &quot;HighLatency&quot;
+      expr: &quot;histogram_quantile(0.95, rate(http_request_duration_seconds_bucket[5m])) &gt; 0.5&quot;
+      for: &quot;5m&quot;
+      severity: &quot;medium&quot;
+      summary: &quot;High latency on {{ $labels.endpoint }}&quot;
+      
+  resource_alerts:
+    - alert: &quot;HighCPUUsage&quot;
+      expr: &quot;cpu_usage_percent &gt; 80&quot;
+      for: &quot;10m&quot;
+      severity: &quot;medium&quot;
+      summary: &quot;High CPU usage on {{ $labels.instance }}&quot;
+      
+    - alert: &quot;HighMemoryUsage&quot;
+      expr: &quot;memory_usage_percent &gt; 90&quot;
+      for: &quot;5m&quot;
+      severity: &quot;high&quot;
+      summary: &quot;High memory usage on {{ $labels.instance }}&quot;
+```
+
+### Alert Routing and Escalation
+
+#### Alert Routing Matrix
+```yaml
+# Alert Routing Configuration
+alert_routing:
+  routes:
+    - match:
+        severity: &quot;critical&quot;
+      receiver: &quot;oncall-team&quot;
+      group_wait: &quot;10s&quot;
+      group_interval: &quot;10s&quot;
+      repeat_interval: &quot;1h&quot;
+      
+    - match:
+        severity: &quot;high&quot;
+      receiver: &quot;dev-team&quot;
+      group_wait: &quot;30s&quot;
+      group_interval: &quot;5m&quot;
+      repeat_interval: &quot;4h&quot;
+      
+    - match:
+        service: &quot;payment-service&quot;
+      receiver: &quot;payment-team&quot;
+      group_wait: &quot;1m&quot;
+      group_interval: &quot;10m&quot;
+      repeat_interval: &quot;12h&quot;
+      
+  receivers:
+    - name: &quot;oncall-team&quot;
+      pagerduty_configs:
+        - service_key: &quot;{{ .pagerduty.service_key }}&quot;
+          description: &quot;{{ .GroupLabels.alertname }}&quot;
+          
+    - name: &quot;dev-team&quot;
+      slack_configs:
+        - api_url: &quot;{{ .slack.webhook_url }}&quot;
+          channel: &quot;#alerts&quot;
+          title: &quot;{{ .GroupLabels.alertname }}&quot;
+```
+
+#### Escalation Procedures
+```
+Alert Escalation Timeline
+
+Initial Alert (T+0):
+├── [ ] Automated alert triggered
+├── [ ] Primary on-call notified
+├── [ ] Incident tracking started
+└── [ ] Initial assessment begins
+
+First Escalation (T+15min):
+├── [ ] Secondary on-call notified
+├── [ ] Team lead informed
+├── [ ] Incident severity assessed
+└── [ ] Response team assembled
+
+Second Escalation (T+30min):
+├── [ ] Engineering manager notified
+├── [ ] Customer support alerted
+├── [ ] Status page updated
+└── [ ] Executive notification (if P0)
+
+Third Escalation (T+60min):
+├── [ ] Cross-functional team engaged
+├── [ ] External vendor contact (if needed)
+├── [ ] Customer communication initiated
+└── [ ] Post-incident review scheduled
+```
+
+---
+
+## Dashboard and Visualization
+
+### Dashboard Design Principles
+
+#### Dashboard Hierarchy
+```
+Dashboard Organization Structure
+
+Executive Dashboards:
+├── Business KPIs and SLAs
+├── High-level service health
+├── Customer impact metrics
+└── Cost and capacity overview
+
+Operational Dashboards:
+├── Service performance metrics
+├── Infrastructure health
+├── Alert status and trends
+└── Deployment success rates
+
+Team-Specific Dashboards:
+├── Development team metrics
+├── Platform team metrics
+├── Security team metrics
+└── Customer support metrics
+
+Troubleshooting Dashboards:
+├── Detailed service metrics
+├── Log correlation views
+├── Trace analysis
+└── Root cause analysis tools
+```
+
+#### Dashboard Template
+```yaml
+# Dashboard Configuration Template
+dashboard_config:
+  metadata:
+    title: &quot;Service Health Dashboard&quot;
+    description: &quot;Real-time service performance and health metrics&quot;
+    tags: [&quot;service&quot;, &quot;health&quot;, &quot;performance&quot;]
+    refresh_interval: &quot;30s&quot;
+    
+  variables:
+    - name: &quot;service&quot;
+      type: &quot;query&quot;
+      query: &quot;label_values(service)&quot;
+      
+    - name: &quot;environment&quot;
+      type: &quot;query&quot; 
+      query: &quot;label_values(environment)&quot;
+      
+  panels:
+    - title: &quot;Request Rate&quot;
+      type: &quot;graph&quot;
+      targets:
+        - expr: &quot;rate(http_requests_total{service=&#x27;$service&#x27;}[5m])&quot;
+          legend: &quot;{{ method }} {{ endpoint }}&quot;
+          
+    - title: &quot;Error Rate&quot;
+      type: &quot;stat&quot;
+      targets:
+        - expr: &quot;rate(http_requests_total{service=&#x27;$service&#x27;,status=~&#x27;5..&#x27;}[5m]) / rate(http_requests_total{service=&#x27;$service&#x27;}[5m]) * 100&quot;
+          legend: &quot;Error Rate %&quot;
+          
+    - title: &quot;Response Time&quot;
+      type: &quot;histogram&quot;
+      targets:
+        - expr: &quot;histogram_quantile(0.95, rate(http_request_duration_seconds_bucket{service=&#x27;$service&#x27;}[5m]))&quot;
+          legend: &quot;95th Percentile&quot;
+```
+
+### Key Dashboard Components
+
+#### Golden Signals Dashboard
+```yaml
+# Golden Signals Dashboard
+golden_signals:
+  latency:
+    - metric: &quot;95th percentile response time&quot;
+    - target: &quot;&lt; 200ms&quot;
+    - visualization: &quot;time_series&quot;
+    - alert_threshold: &quot;&gt; 500ms&quot;
+    
+  traffic:
+    - metric: &quot;Requests per second&quot;
+    - target: &quot;Baseline ± 20%&quot;
+    - visualization: &quot;time_series&quot;
+    - alert_threshold: &quot;&lt; 50% of baseline&quot;
+    
+  errors:
+    - metric: &quot;Error rate percentage&quot;
+    - target: &quot;&lt; 1%&quot;
+    - visualization: &quot;stat_panel&quot;
+    - alert_threshold: &quot;&gt; 5%&quot;
+    
+  saturation:
+    - metric: &quot;Resource utilization&quot;
+    - target: &quot;&lt; 70%&quot;
+    - visualization: &quot;gauge&quot;
+    - alert_threshold: &quot;&gt; 90%&quot;
+```
+
+---
+
+## Incident Response Integration
+
+### Monitoring-Driven Incident Response
+
+#### Incident Detection Workflow
+```yaml
+# Incident Detection and Response
+incident_workflow:
+  detection:
+    - automated_alerts: &quot;Monitoring system triggers&quot;
+    - user_reports: &quot;Customer complaints or support tickets&quot;
+    - team_observations: &quot;Manual detection during operations&quot;
+    
+  classification:
+    - severity_assessment: &quot;Impact and urgency evaluation&quot;
+    - service_identification: &quot;Affected services and dependencies&quot;
+    - customer_impact: &quot;Number of affected users&quot;
+    
+  response_initiation:
+    - team_notification: &quot;Alert relevant teams&quot;
+    - war_room_setup: &quot;Communication channel creation&quot;
+    - status_page_update: &quot;Customer communication&quot;
+    
+  resolution_tracking:
+    - mitigation_actions: &quot;Immediate fixes and workarounds&quot;
+    - root_cause_analysis: &quot;Systematic investigation&quot;
+    - permanent_fixes: &quot;Long-term resolution&quot;
+    - documentation: &quot;Incident report and lessons learned&quot;
+```
+
+#### Runbook Integration
+```yaml
+# Runbook-Driven Response
+runbook_integration:
+  alert_runbooks:
+    - alert: &quot;HighCPUUsage&quot;
+      runbook_url: &quot;https://wiki.company.com/runbooks/high-cpu&quot;
+      automated_actions:
+        - &quot;Scale up instances&quot;
+        - &quot;Analyze top processes&quot;
+        - &quot;Check for memory leaks&quot;
+        
+    - alert: &quot;DatabaseConnectionError&quot;
+      runbook_url: &quot;https://wiki.company.com/runbooks/db-connection&quot;
+      automated_actions:
+        - &quot;Restart connection pool&quot;
+        - &quot;Check database status&quot;
+        - &quot;Verify network connectivity&quot;
+```
+
+---
+
+## Monitoring Tool Stack
+
+### Tool Selection and Integration
+
+#### Monitoring Stack Architecture
+```yaml
+# Complete Monitoring Stack
+monitoring_stack:
+  metrics_collection:
+    - prometheus: &quot;Metrics collection and storage&quot;
+    - grafana: &quot;Visualization and dashboards&quot;
+    - alertmanager: &quot;Alert routing and management&quot;
+    
+  logging:
+    - elasticsearch: &quot;Log storage and search&quot;
+    - logstash: &quot;Log processing&quot;
+    - kibana: &quot;Log visualization&quot;
+    - fluent_bit: &quot;Log collection&quot;
+    
+  tracing:
+    - jaeger: &quot;Distributed tracing&quot;
+    - zipkin: &quot;Alternative tracing solution&quot;
+    - opencensus: &quot;Tracing instrumentation&quot;
+    
+  apm:
+    - datadog: &quot;Application performance monitoring&quot;
+    - newrelic: &quot;Full-stack observability&quot;
+    - custom_solutions: &quot;In-house monitoring tools&quot;
+    
+  incident_management:
+    - pagerduty: &quot;On-call scheduling and alerting&quot;
+    - slack: &quot;Team communication&quot;
+    - statuspage: &quot;Customer communication&quot;
+```
+
+#### Tool Integration Patterns
+```yaml
+# Integration Configuration
+tool_integrations:
+  prometheus_to_grafana:
+    - data_source: &quot;prometheus&quot;
+    - connection: &quot;http://prometheus:9090&quot;
+    - authentication: &quot;bearer_token&quot;
+    
+  grafana_to_pagerduty:
+    - notification_channel: &quot;pagerduty&quot;
+    - integration_key: &quot;{{ .pagerduty.integration_key }}&quot;
+    - auto_resolve: true
+    
+  logs_to_metrics:
+    - source: &quot;elasticsearch&quot;
+    - pattern: &quot;ERROR.*database&quot;
+    - metric: &quot;database_errors_total&quot;
+    - labels: [&quot;service&quot;, &quot;environment&quot;]
+    
+  traces_to_alerts:
+    - source: &quot;jaeger&quot;
+    - condition: &quot;error_rate &gt; 0.05&quot;
+    - alert: &quot;HighErrorRate&quot;
+    - duration: &quot;5m&quot;
+```
+
+---
+
+## Monitoring Automation
+
+### Automated Monitoring Deployment
+
+#### Infrastructure as Code for Monitoring
+```yaml
+# Terraform Configuration for Monitoring Stack
+terraform_monitoring:
+  prometheus:
+    instance_type: &quot;t3.medium&quot;
+    storage_size: &quot;100GB&quot;
+    retention_period: &quot;30d&quot;
+    scrape_interval: &quot;15s&quot;
+    
+  grafana:
+    instance_type: &quot;t3.small&quot;
+    high_availability: true
+    database: &quot;postgresql&quot;
+    authentication: &quot;oauth&quot;
+    
+  alertmanager:
+    instance_type: &quot;t3.small&quot;
+    cluster_size: 3
+    storage_type: &quot;persistent&quot;
+    retention_period: &quot;24h&quot;
+```
+
+#### Automated Rule Deployment
+```yaml
+# CI/CD Pipeline for Monitoring Rules
+monitoring_cicd:
+  pipeline_stages:
+    - validate_rules: &quot;Syntax and logic validation&quot;
+    - test_rules: &quot;Test against sample data&quot;
+    - deploy_staging: &quot;Deploy to staging environment&quot;
+    - integration_test: &quot;End-to-end testing&quot;
+    - deploy_production: &quot;Production deployment&quot;
+    - monitor_deployment: &quot;Monitor rule effectiveness&quot;
+    
+  rule_testing:
+    - unit_tests: &quot;Individual rule validation&quot;
+    - integration_tests: &quot;Cross-rule dependencies&quot;
+    - performance_tests: &quot;Query performance impact&quot;
+    - alert_tests: &quot;Alert firing validation&quot;
+```
+
+---
+
+## Continuous Improvement
+
+### Monitoring Effectiveness
+
+#### Monitoring Metrics
+```yaml
+# Monitoring System Metrics
+monitoring_effectiveness:
+  alert_quality:
+    - alert_accuracy: &quot;True positive rate&quot;
+    - alert_noise: &quot;False positive rate&quot;
+    - alert_coverage: &quot;Incident detection rate&quot;
+    - alert_timeliness: &quot;Time to detection&quot;
+    
+  dashboard_usage:
+    - dashboard_views: &quot;Usage frequency&quot;
+    - user_engagement: &quot;Time spent on dashboards&quot;
+    - dashboard_effectiveness: &quot;Problem resolution rate&quot;
+    
+  system_performance:
+    - monitoring_overhead: &quot;Resource consumption&quot;
+    - query_performance: &quot;Dashboard load times&quot;
+    - data_retention: &quot;Storage efficiency&quot;
+    - availability: &quot;Monitoring system uptime&quot;
+```
+
+#### Optimization Process
+```
+Monitoring Optimization Cycle
+
+Monthly Review:
+├── [ ] Alert effectiveness analysis
+├── [ ] Dashboard usage review
+├── [ ] Performance optimization
+├── [ ] Tool evaluation
+└── [ ] Team feedback collection
+
+Quarterly Planning:
+├── [ ] Monitoring strategy review
+├── [ ] Tool stack evaluation
+├── [ ] Capacity planning
+├── [ ] Training needs assessment
+└── [ ] Budget planning
+
+Annual Assessment:
+├── [ ] Full stack review
+├── [ ] Industry benchmark comparison
+├── [ ] Technology refresh planning
+├── [ ] Skill development roadmap
+└── [ ] Strategic alignment review
+```
+
+---
+
+## When to Use
+
+Use at project initiation to establish scope, schedule, resources, and key milestones. This template is essential for complex projects with multiple workstreams, external dependencies, or strict compliance requirements where detailed planning drives success.
+
+## When NOT to Use
+
+Do not use for small, self-contained tasks or fully agile teams that manage planning through iterative ceremonies instead of upfront documentation. Avoid using this as a substitute for continuously updated project dashboards or dynamic scheduling tools.
+
+## Related Templates
+- [CI/CD Pipeline Planning](../../../domains/measurement/methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md)
+- [Release Management Workflow](../../../domains/measurement/methodology-frameworks/emerging-methods/devops/release_management_template.md)
+- [DevSecOps Integration](./devsecops_template.md)
+- [Infrastructure as Code](./infrastructure_as_code_template.md)
+
+---
+
+## Version History
+| Version | Date | Changes | Author |
+|---------|------|---------|--------|
+| 1.0 | [Date] | Initial Monitoring and Alerting template | [Author] |
+
+---
+
+*This template is part of the PM Tools Templates library. For more information and additional templates, visit [repository root](../../../README.md).*
+
+</pre></div></div></div><!--astro:end--></astro-island></main></body></html>

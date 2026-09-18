@@ -1,0 +1,335 @@
+<!DOCTYPE html><html lang="en" data-astro-cid-ju4pidww><head><meta charset="UTF-8"><meta name="description" content="Advanced template browser with previews and version history"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="icon" type="image/svg+xml" href="/pm-tools-templates/favicon.svg"><title>Risk Assessment Template</title><link rel="stylesheet" href="/pm-tools-templates/assets/Layout.ChXqTIwx.css"></head><body data-astro-cid-ju4pidww><main data-astro-cid-ju4pidww><style>astro-island,astro-slot,astro-static-slot{display:contents}</style><script>(()=>{var e=async t=>{await(await t())()};(self.Astro||(self.Astro={})).load=e;window.dispatchEvent(new Event("astro:load"));})();</script><script>(()=>{var g=Object.defineProperty;var w=(a,s,c)=>s in a?g(a,s,{enumerable:!0,configurable:!0,writable:!0,value:c}):a[s]=c;var l=(a,s,c)=>w(a,typeof s!="symbol"?s+"":s,c);var E=new Set(["__proto__","constructor","prototype"]);{let a={0:t=>y(t),1:t=>c(t),2:t=>new RegExp(t),3:t=>new Date(t),4:t=>new Map(c(t)),5:t=>new Set(c(t)),6:t=>BigInt(t),7:t=>new URL(t),8:t=>new Uint8Array(t),9:t=>new Uint16Array(t),10:t=>new Uint32Array(t),11:t=>Number.POSITIVE_INFINITY*t},s=t=>{let[p,e]=t;return p in a?a[p](e):void 0},c=t=>t.map(s),y=t=>typeof t!="object"||t===null?t:Object.fromEntries(Object.entries(t).map(([p,e])=>[p,s(e)]));class f extends HTMLElement{constructor(){super(...arguments);l(this,"Component");l(this,"hydrator");l(this,"hydrate",async()=>{var b;if(!this.hydrator||!this.isConnected)return;let e=(b=this.parentElement)==null?void 0:b.closest("astro-island[ssr]");if(e){e.addEventListener("astro:hydrate",this.hydrate,{once:!0});return}let r=this.querySelectorAll("astro-slot"),n={},d=this.querySelectorAll("template[data-astro-template]");for(let o of d){let i=o.closest(this.tagName);i!=null&&i.isSameNode(this)&&(n[o.getAttribute("data-astro-template")||"default"]=o.innerHTML,o.remove())}for(let o of r){let i=o.closest(this.tagName);i!=null&&i.isSameNode(this)&&(n[o.getAttribute("name")||"default"]=o.innerHTML)}let u;try{u=this.hasAttribute("props")?y(JSON.parse(this.getAttribute("props"))):{}}catch(o){let i=this.getAttribute("component-url")||"<unknown>",v=this.getAttribute("component-export");throw v&&(i+=` (export ${v})`),console.error(`[hydrate] Error parsing props for component ${i}`,this.getAttribute("props"),o),o}let h;await this.hydrator(this)(this.Component,u,n,{client:this.getAttribute("client")}),this.removeAttribute("ssr"),this.dispatchEvent(new CustomEvent("astro:hydrate"))});l(this,"unmount",()=>{this.isConnected||this.dispatchEvent(new CustomEvent("astro:unmount"))})}disconnectedCallback(){document.removeEventListener("astro:after-swap",this.unmount),document.addEventListener("astro:after-swap",this.unmount,{once:!0})}connectedCallback(){if(!this.hasAttribute("await-children")||document.readyState==="interactive"||document.readyState==="complete")this.childrenConnectedCallback();else{let e=()=>{document.removeEventListener("DOMContentLoaded",e),r.disconnect(),this.childrenConnectedCallback()},r=new MutationObserver(()=>{var n;((n=this.lastChild)==null?void 0:n.nodeType)===Node.COMMENT_NODE&&this.lastChild.nodeValue==="astro:end"&&(this.lastChild.remove(),e())});r.observe(this,{childList:!0}),document.addEventListener("DOMContentLoaded",e)}}async childrenConnectedCallback(){let e=this.getAttribute("before-hydration-url");e&&await import(e),this.start()}getRetryImportUrl(e){let r=new URL(e,document.baseURI);return r.searchParams.set("astro-retry",Date.now().toString()),r.toString()}async importWithRetry(e){try{return await import(e)}catch(r){return await new Promise(n=>setTimeout(n,1e3)),import(this.getRetryImportUrl(e))}}handleHydrationError(e){let r=this.getAttribute("component-url"),n=new CustomEvent("astro:hydration-error",{cancelable:!0,bubbles:!0,composed:!0,detail:{error:e,componentUrl:r}});this.dispatchEvent(n)&&console.error(`[astro-island] Error hydrating ${r}`,e)}async start(){let e=JSON.parse(this.getAttribute("opts")),r=this.getAttribute("client");if(Astro[r]===void 0){window.addEventListener(`astro:${r}`,()=>this.start(),{once:!0});return}try{await Astro[r](async()=>{let n=this.getAttribute("renderer-url");try{let[d,{default:u}]=await Promise.all([this.importWithRetry(this.getAttribute("component-url")),n?this.importWithRetry(n):Promise.resolve({default:()=>()=>{}})]),h=this.getAttribute("component-export")||"default";if(h.includes(".")){this.Component=d;for(let m of h.split(".")){if(E.has(m)||!this.Component||typeof this.Component!="object"&&typeof this.Component!="function"||!Object.hasOwn(this.Component,m))throw new Error(`Invalid component export path: ${h}`);this.Component=this.Component[m]}}else{if(E.has(h))throw new Error(`Invalid component export path: ${h}`);this.Component=d[h]}return this.hydrator=u,this.hydrate}catch(d){return this.handleHydrationError(d),()=>{}}},e,this)}catch(n){this.handleHydrationError(n)}}attributeChangedCallback(){this.hydrate()}}l(f,"observedAttributes",["props"]),customElements.get("astro-island")||customElements.define("astro-island",f)}})();</script><astro-island uid="ZUtUFB" prefix="r1" component-url="/pm-tools-templates/assets/TemplateViewer.BJxWH0dD.js" component-export="default" renderer-url="/pm-tools-templates/assets/client.REQV_TkY.js" props="{&quot;templateId&quot;:[0,&quot;risk_assessment_template&quot;],&quot;filePath&quot;:[0,&quot;domains/measurement/industry-specializations/information-technology/cybersecurity/risk_assessment_template.md&quot;],&quot;title&quot;:[0,&quot;Risk Assessment Template&quot;],&quot;content&quot;:[0,&quot;---\ntitle: Risk Assessment Template\nmethodology: universal\ncomplexity: advanced\nowner: mirichard\nupdated: &#39;2025-08-05&#39;\nprimary_principles:\n- stewardship\n- quality-by-design\nsecondary_principles:\n- evidence-based-decisions\n- risk-optimization\nprinciple_rationale: Protects safety and integrity through quality-by-design and stewardship\n  principles.\n---\n\n# Cybersecurity Risk Assessment Template\n\n**Version:** 1.0  \n**Last Updated:** [Date]  \n**Document Owner:** [Security Manager/CISO]  \n**Approved By:** [Name], [Title]\n\n---\n\n## Executive Summary\n\nThis cybersecurity risk assessment template provides a systematic approach to identifying, analyzing, and evaluating cybersecurity risks within IT projects and infrastructure. It aligns with industry frameworks including NIST Cybersecurity Framework, ISO 27001, and CIS Controls.\n\n---\n\n## Assessment Overview\n\n### Assessment Scope\n**Project/System Name:** [Name]  \n**Assessment Date:** [Date]  \n**Assessment Period:** [Start Date] to [End Date]  \n**Assessment Team:** [Team Members and Roles]  \n**Assessment Framework:** [NIST CSF / ISO 27001 / Custom]\n\n### Business Context\n**Business Criticality:** [Critical/High/Medium/Low]  \n**Regulatory Requirements:** [SOX, HIPAA, PCI-DSS, GDPR, etc.]  \n**Data Classification:** [Public/Internal/Confidential/Restricted]  \n**System Dependencies:** [Critical dependencies]\n\n---\n\n## Asset Inventory and Classification\n\n### Information Assets\n| Asset Type | Description | Classification | Owner | Location |\n|------------|-------------|----------------|-------|----------|\n| Customer Data | [Description] | Restricted | [Owner] | [Location] |\n| Financial Records | [Description] | Confidential | [Owner] | [Location] |\n| Intellectual Property | [Description] | Confidential | [Owner] | [Location] |\n| Employee Data | [Description] | Confidential | [Owner] | [Location] |\n| System Configurations | [Description] | Internal | [Owner] | [Location] |\n\n### Technical Assets\n| Asset Type | Description | Criticality | Owner | Network Zone |\n|------------|-------------|-------------|-------|--------------|\n| Web Servers | [Description] | High | [Owner] | DMZ |\n| Database Servers | [Description] | Critical | [Owner] | Internal |\n| Application Servers | [Description] | High | [Owner] | Internal |\n| Network Equipment | [Description] | Critical | [Owner] | Infrastructure |\n| Security Tools | [Description] | Critical | [Owner] | Security |\n\n### Third-Party Assets\n| Vendor | Service/Product | Data Access | Risk Level | Contract Terms |\n|--------|-----------------|-------------|------------|----------------|\n| [Vendor] | [Service] | [Data Types] | [High/Med/Low] | [Key Terms] |\n\n---\n\n## Threat Landscape Analysis\n\n### External Threats\n| Threat Actor | Motivation | Capability | Likelihood | Target Assets |\n|--------------|------------|------------|------------|---------------|\n| Cybercriminals | Financial | High | High | Financial data, PII |\n| Nation-State | Espionage | Very High | Medium | IP, Strategic data |\n| Hacktivists | Ideological | Medium | Low | Public systems |\n| Competitors | Competitive | Medium | Medium | Trade secrets |\n\n### Internal Threats\n| Threat Source | Risk Type | Likelihood | Impact | Mitigation Priority |\n|---------------|-----------|------------|--------|-------------------|\n| Privileged Users | Malicious | Low | High | High |\n| Employees | Negligent | Medium | Medium | Medium |\n| Contractors | Malicious/Negligent | Medium | Medium | High |\n| Third Parties | Data breach | Medium | High | High |\n\n### Technical Threats\n| Threat Vector | Description | Likelihood | Impact | Current Controls |\n|---------------|-------------|------------|--------|------------------|\n| Malware | Ransomware, viruses | High | High | Antivirus, EDR |\n| Phishing | Email-based attacks | High | Medium | Email security, training |\n| DDoS | Service disruption | Medium | Medium | DDoS protection |\n| Insider Threat | Privileged access abuse | Low | High | Access controls, monitoring |\n| Supply Chain | Third-party compromise | Medium | High | Vendor assessments |\n\n---\n\n## Vulnerability Assessment\n\n### Technical Vulnerabilities\n| Vulnerability | Severity | CVSS Score | Affected Systems | Exploitation Likelihood |\n|---------------|----------|------------|------------------|----------------------|\n| [CVE ID] | Critical | 9.8 | [Systems] | High |\n| [CVE ID] | High | 8.1 | [Systems] | Medium |\n| [Description] | Medium | 6.5 | [Systems] | Low |\n\n### Process Vulnerabilities\n| Process Gap | Risk Area | Impact | Likelihood | Remediation Effort |\n|-------------|-----------|--------|------------|-------------------|\n| Weak password policy | Authentication | High | High | Low |\n| No security training | Human factor | Medium | High | Medium |\n| Inadequate backup | Business continuity | High | Medium | High |\n| Missing encryption | Data protection | High | Low | Medium |\n\n### Architectural Vulnerabilities\n| Security Gap | Description | Risk Level | Affected Components | Remediation Priority |\n|--------------|-------------|------------|-------------------|-------------------|\n| Network segmentation | Flat network topology | High | All systems | High |\n| Privileged access | Over-privileged accounts | Medium | Admin systems | Medium |\n| Monitoring gaps | Limited visibility | Medium | Critical systems | High |\n\n---\n\n## Risk Analysis and Evaluation\n\n### Risk Calculation Matrix\n**Risk = Threat Likelihood × Vulnerability × Impact**\n\n| Risk Level | Score Range | Description | Response Required |\n|------------|-------------|-------------|-------------------|\n| Critical | 81-100 | Immediate threat to business | Immediate action |\n| High | 61-80 | Significant business impact | Action within 30 days |\n| Medium | 31-60 | Moderate business impact | Action within 90 days |\n| Low | 1-30 | Minimal business impact | Monitor and review |\n\n### Identified Risks\n| Risk ID | Risk Description | Threat | Vulnerability | Impact | Likelihood | Risk Score | Risk Level |\n|---------|------------------|--------|---------------|--------|------------|------------|------------|\n| CR-001 | Data breach via SQL injection | Cybercriminals | Unpatched web app | High (8) | Medium (6) | 48 | Medium |\n| CR-002 | Ransomware attack | Cybercriminals | Email phishing | Critical (10) | High (8) | 80 | High |\n| CR-003 | Insider data theft | Malicious insider | Excessive privileges | High (8) | Low (3) | 24 | Low |\n| CR-004 | DDoS service disruption | Competitors | No DDoS protection | Medium (6) | Medium (5) | 30 | Medium |\n\n### Risk Heat Map\n```\n         IMPACT\n    Low  Med  High Critical\nL  │ Low │ Low │ Med │ High │\ni  │ Low │ Med │ Med │ High │\nk  │ Med │ Med │High │Crit  │\ne  │ Med │High │High │Crit  │\nl  │High │High │Crit │Crit  │\ni\nh\no\no\nd\n```\n\n---\n\n## Risk Treatment Options\n\n### Risk Treatment Strategies\n1. **Accept** - Risk within tolerance level\n2. **Avoid** - Eliminate the risk source\n3. **Mitigate** - Reduce likelihood or impact\n4. **Transfer** - Share or shift risk (insurance, outsourcing)\n\n### Risk Treatment Plan\n| Risk ID | Treatment Strategy | Recommended Controls | Owner | Timeline | Cost Estimate |\n|---------|-------------------|---------------------|-------|----------|---------------|\n| CR-001 | Mitigate | Web application firewall, code review | Dev Team | 30 days | $15K |\n| CR-002 | Mitigate | Email security, user training, backup | IT Security | 60 days | $25K |\n| CR-003 | Mitigate | PAM solution, access review | IT Admin | 90 days | $40K |\n| CR-004 | Transfer/Mitigate | DDoS protection service | Network Team | 15 days | $5K |\n\n---\n\n## Security Controls Assessment\n\n### Current Control Effectiveness\n| Control Category | Control Description | Implementation Status | Effectiveness | Gaps Identified |\n|------------------|--------------------|--------------------|---------------|----------------|\n| Access Control | Multi-factor authentication | Partial | Medium | Not enforced for all users |\n| Data Protection | Encryption at rest | Implemented | High | Key management process |\n| Network Security | Firewall rules | Implemented | Medium | Rule review needed |\n| Monitoring | SIEM deployment | Partial | Low | Limited log sources |\n| Incident Response | Response procedures | Documented | Medium | Testing needed |\n\n### NIST CSF Alignment\n| Function | Category | Current Maturity | Target Maturity | Gap Analysis |\n|----------|----------|------------------|-----------------|--------------|\n| Identify | Asset Management | Level 2 | Level 3 | Asset inventory incomplete |\n| Protect | Access Control | Level 2 | Level 4 | PAM solution needed |\n| Detect | Monitoring | Level 1 | Level 3 | SIEM enhancement required |\n| Respond | Response Planning | Level 2 | Level 3 | Automation needed |\n| Recover | Recovery Planning | Level 1 | Level 3 | Disaster recovery testing |\n\n---\n\n## Recommendations and Action Plan\n\n### High Priority Actions (0-30 days)\n1. **Patch Critical Vulnerabilities**\n   - Owner: [IT Team]\n   - Timeline: 7 days\n   - Cost: $5K\n\n2. **Implement Email Security Controls**\n   - Owner: [Security Team]\n   - Timeline: 30 days\n   - Cost: $15K\n\n3. **Enhance Monitoring Capabilities**\n   - Owner: [SOC Team]\n   - Timeline: 30 days\n   - Cost: $20K\n\n### Medium Priority Actions (30-90 days)\n1. **Deploy PAM Solution**\n   - Owner: [IT Security]\n   - Timeline: 90 days\n   - Cost: $40K\n\n2. **Conduct Security Awareness Training**\n   - Owner: [HR/Security]\n   - Timeline: 60 days\n   - Cost: $10K\n\n3. **Implement Network Segmentation**\n   - Owner: [Network Team]\n   - Timeline: 90 days\n   - Cost: $25K\n\n### Long-term Actions (90+ days)\n1. **Enhance SIEM Capabilities**\n   - Owner: [Security Team]\n   - Timeline: 120 days\n   - Cost: $50K\n\n2. **Disaster Recovery Testing Program**\n   - Owner: [BCP Team]\n   - Timeline: 180 days\n   - Cost: $15K\n\n---\n\n## Metrics and KPIs\n\n### Security Metrics\n- **Risk Reduction:** Target 30% reduction in high/critical risks\n- **Vulnerability Management:** 95% of critical vulnerabilities patched within 30 days\n- **Incident Response:** Mean time to detection &lt; 4 hours\n- **Compliance:** 100% compliance with regulatory requirements\n- **Training:** 95% completion rate for security awareness training\n\n### Cost-Benefit Analysis\n| Investment Category | Cost | Risk Reduction | ROI |\n|-------------------|------|----------------|-----|\n| Technical Controls | $75K | 60% | 3:1 |\n| Process Improvements | $25K | 25% | 2:1 |\n| Training &amp; Awareness | $15K | 15% | 4:1 |\n| **Total** | **$115K** | **100%** | **2.8:1** |\n\n---\n\n## Review and Approval\n\n### Assessment Review\n- [ ] Technical accuracy reviewed\n- [ ] Business impact validated\n- [ ] Risk calculations verified\n- [ ] Recommendations prioritized\n- [ ] Budget estimates confirmed\n\n### Stakeholder Approval\n| Role | Name | Signature | Date |\n|------|------|-----------|------|\n| CISO | [Name] | [Signature] | [Date] |\n| IT Director | [Name] | [Signature] | [Date] |\n| Business Owner | [Name] | [Signature] | [Date] |\n| Risk Manager | [Name] | [Signature] | [Date] |\n\n---\n\n## Appendices\n\n### Appendix A: Detailed Vulnerability Scan Results\n[Attach technical scan reports]\n\n### Appendix B: Threat Intelligence Sources\n[List of threat intelligence feeds and sources]\n\n### Appendix C: Regulatory Compliance Mapping\n[Specific compliance requirements and controls mapping]\n\n### Appendix D: Risk Register Template\n[Detailed risk register with all identified risks]\n\n---\n\n## When to Use\n\nUse throughout the project lifecycle to identify, assess, and track risks. This template is essential for projects with significant complexity, multiple stakeholders, or high business impact, where structured risk management provides decision-making value.\n\n## When NOT to Use\n\nDo not use for very low-risk, short-duration tasks where informal risk awareness is sufficient. Avoid this template if your governance framework requires a different risk management approach or if stakeholders prefer real-time risk dashboards over static registers.\n\n## Template Usage Guidelines\n\n### Customization Notes\n- **Healthcare:** Add HIPAA-specific controls and risk scenarios\n- **Financial:** Include PCI-DSS, SOX compliance requirements\n- **Manufacturing:** Consider OT/IoT security risks\n- **Government:** Add FedRAMP, FISMA control requirements\n\n### Regular Review Schedule\n- **Quarterly:** Risk landscape and threat intelligence updates\n- **Semi-annually:** Control effectiveness assessment\n- **Annually:** Complete risk assessment refresh\n- **Ad-hoc:** After major incidents or changes\n\n---\n\n*This cybersecurity risk assessment should be conducted by qualified security professionals and reviewed regularly to maintain currency with evolving threats and business changes.*\n&quot;]}" ssr client="load" opts="{&quot;name&quot;:&quot;TemplateViewer&quot;,&quot;value&quot;:true}" await-children><div><h1>Risk Assessment Template</h1><div style="margin-bottom:2rem"><button style="background:var(--accent-color);color:white;border:1px solid var(--border-color);padding:0.5rem 1rem;border-radius:4px 4px 0 0;cursor:pointer;margin-right:1px">Preview</button><button style="background:var(--code-bg);color:var(--text-color);border:1px solid var(--border-color);padding:0.5rem 1rem;border-radius:4px 4px 0 0;cursor:pointer">Version History</button></div><div style="border:1px solid var(--border-color);border-radius:0 8px 8px 8px;min-height:400px"><div style="background:var(--bg-primary);border-radius:var(--radius-lg)"><div style="padding:1rem 1.5rem;border-bottom:1px solid var(--border-light);display:flex;align-items:center;justify-content:space-between;background:var(--bg-secondary);border-radius:var(--radius-lg) var(--radius-lg) 0 0"><div style="display:flex;align-items:center;gap:0.5rem"><span style="font-size:1.5rem">📄</span><div><div style="font-weight:600;color:var(--text-primary)">risk_assessment_template.md</div><div style="font-size:0.75rem;color:var(--text-muted)">Markdown • <!-- -->12,713 bytes</div></div></div><a href="/pm-tools-templates/downloads/risk_assessment_template.md" download="" class="btn btn-secondary" style="font-size:0.75rem;padding:0.5rem 0.75rem">💾 Download</a></div><pre aria-label="Markdown source of Risk Assessment Template" style="padding:1.5rem;max-height:600px;overflow:auto;white-space:pre-wrap;overflow-wrap:anywhere">---
+title: Risk Assessment Template
+methodology: universal
+complexity: advanced
+owner: mirichard
+updated: &#x27;2025-08-05&#x27;
+primary_principles:
+- stewardship
+- quality-by-design
+secondary_principles:
+- evidence-based-decisions
+- risk-optimization
+principle_rationale: Protects safety and integrity through quality-by-design and stewardship
+  principles.
+---
+
+# Cybersecurity Risk Assessment Template
+
+**Version:** 1.0  
+**Last Updated:** [Date]  
+**Document Owner:** [Security Manager/CISO]  
+**Approved By:** [Name], [Title]
+
+---
+
+## Executive Summary
+
+This cybersecurity risk assessment template provides a systematic approach to identifying, analyzing, and evaluating cybersecurity risks within IT projects and infrastructure. It aligns with industry frameworks including NIST Cybersecurity Framework, ISO 27001, and CIS Controls.
+
+---
+
+## Assessment Overview
+
+### Assessment Scope
+**Project/System Name:** [Name]  
+**Assessment Date:** [Date]  
+**Assessment Period:** [Start Date] to [End Date]  
+**Assessment Team:** [Team Members and Roles]  
+**Assessment Framework:** [NIST CSF / ISO 27001 / Custom]
+
+### Business Context
+**Business Criticality:** [Critical/High/Medium/Low]  
+**Regulatory Requirements:** [SOX, HIPAA, PCI-DSS, GDPR, etc.]  
+**Data Classification:** [Public/Internal/Confidential/Restricted]  
+**System Dependencies:** [Critical dependencies]
+
+---
+
+## Asset Inventory and Classification
+
+### Information Assets
+| Asset Type | Description | Classification | Owner | Location |
+|------------|-------------|----------------|-------|----------|
+| Customer Data | [Description] | Restricted | [Owner] | [Location] |
+| Financial Records | [Description] | Confidential | [Owner] | [Location] |
+| Intellectual Property | [Description] | Confidential | [Owner] | [Location] |
+| Employee Data | [Description] | Confidential | [Owner] | [Location] |
+| System Configurations | [Description] | Internal | [Owner] | [Location] |
+
+### Technical Assets
+| Asset Type | Description | Criticality | Owner | Network Zone |
+|------------|-------------|-------------|-------|--------------|
+| Web Servers | [Description] | High | [Owner] | DMZ |
+| Database Servers | [Description] | Critical | [Owner] | Internal |
+| Application Servers | [Description] | High | [Owner] | Internal |
+| Network Equipment | [Description] | Critical | [Owner] | Infrastructure |
+| Security Tools | [Description] | Critical | [Owner] | Security |
+
+### Third-Party Assets
+| Vendor | Service/Product | Data Access | Risk Level | Contract Terms |
+|--------|-----------------|-------------|------------|----------------|
+| [Vendor] | [Service] | [Data Types] | [High/Med/Low] | [Key Terms] |
+
+---
+
+## Threat Landscape Analysis
+
+### External Threats
+| Threat Actor | Motivation | Capability | Likelihood | Target Assets |
+|--------------|------------|------------|------------|---------------|
+| Cybercriminals | Financial | High | High | Financial data, PII |
+| Nation-State | Espionage | Very High | Medium | IP, Strategic data |
+| Hacktivists | Ideological | Medium | Low | Public systems |
+| Competitors | Competitive | Medium | Medium | Trade secrets |
+
+### Internal Threats
+| Threat Source | Risk Type | Likelihood | Impact | Mitigation Priority |
+|---------------|-----------|------------|--------|-------------------|
+| Privileged Users | Malicious | Low | High | High |
+| Employees | Negligent | Medium | Medium | Medium |
+| Contractors | Malicious/Negligent | Medium | Medium | High |
+| Third Parties | Data breach | Medium | High | High |
+
+### Technical Threats
+| Threat Vector | Description | Likelihood | Impact | Current Controls |
+|---------------|-------------|------------|--------|------------------|
+| Malware | Ransomware, viruses | High | High | Antivirus, EDR |
+| Phishing | Email-based attacks | High | Medium | Email security, training |
+| DDoS | Service disruption | Medium | Medium | DDoS protection |
+| Insider Threat | Privileged access abuse | Low | High | Access controls, monitoring |
+| Supply Chain | Third-party compromise | Medium | High | Vendor assessments |
+
+---
+
+## Vulnerability Assessment
+
+### Technical Vulnerabilities
+| Vulnerability | Severity | CVSS Score | Affected Systems | Exploitation Likelihood |
+|---------------|----------|------------|------------------|----------------------|
+| [CVE ID] | Critical | 9.8 | [Systems] | High |
+| [CVE ID] | High | 8.1 | [Systems] | Medium |
+| [Description] | Medium | 6.5 | [Systems] | Low |
+
+### Process Vulnerabilities
+| Process Gap | Risk Area | Impact | Likelihood | Remediation Effort |
+|-------------|-----------|--------|------------|-------------------|
+| Weak password policy | Authentication | High | High | Low |
+| No security training | Human factor | Medium | High | Medium |
+| Inadequate backup | Business continuity | High | Medium | High |
+| Missing encryption | Data protection | High | Low | Medium |
+
+### Architectural Vulnerabilities
+| Security Gap | Description | Risk Level | Affected Components | Remediation Priority |
+|--------------|-------------|------------|-------------------|-------------------|
+| Network segmentation | Flat network topology | High | All systems | High |
+| Privileged access | Over-privileged accounts | Medium | Admin systems | Medium |
+| Monitoring gaps | Limited visibility | Medium | Critical systems | High |
+
+---
+
+## Risk Analysis and Evaluation
+
+### Risk Calculation Matrix
+**Risk = Threat Likelihood × Vulnerability × Impact**
+
+| Risk Level | Score Range | Description | Response Required |
+|------------|-------------|-------------|-------------------|
+| Critical | 81-100 | Immediate threat to business | Immediate action |
+| High | 61-80 | Significant business impact | Action within 30 days |
+| Medium | 31-60 | Moderate business impact | Action within 90 days |
+| Low | 1-30 | Minimal business impact | Monitor and review |
+
+### Identified Risks
+| Risk ID | Risk Description | Threat | Vulnerability | Impact | Likelihood | Risk Score | Risk Level |
+|---------|------------------|--------|---------------|--------|------------|------------|------------|
+| CR-001 | Data breach via SQL injection | Cybercriminals | Unpatched web app | High (8) | Medium (6) | 48 | Medium |
+| CR-002 | Ransomware attack | Cybercriminals | Email phishing | Critical (10) | High (8) | 80 | High |
+| CR-003 | Insider data theft | Malicious insider | Excessive privileges | High (8) | Low (3) | 24 | Low |
+| CR-004 | DDoS service disruption | Competitors | No DDoS protection | Medium (6) | Medium (5) | 30 | Medium |
+
+### Risk Heat Map
+```
+         IMPACT
+    Low  Med  High Critical
+L  │ Low │ Low │ Med │ High │
+i  │ Low │ Med │ Med │ High │
+k  │ Med │ Med │High │Crit  │
+e  │ Med │High │High │Crit  │
+l  │High │High │Crit │Crit  │
+i
+h
+o
+o
+d
+```
+
+---
+
+## Risk Treatment Options
+
+### Risk Treatment Strategies
+1. **Accept** - Risk within tolerance level
+2. **Avoid** - Eliminate the risk source
+3. **Mitigate** - Reduce likelihood or impact
+4. **Transfer** - Share or shift risk (insurance, outsourcing)
+
+### Risk Treatment Plan
+| Risk ID | Treatment Strategy | Recommended Controls | Owner | Timeline | Cost Estimate |
+|---------|-------------------|---------------------|-------|----------|---------------|
+| CR-001 | Mitigate | Web application firewall, code review | Dev Team | 30 days | $15K |
+| CR-002 | Mitigate | Email security, user training, backup | IT Security | 60 days | $25K |
+| CR-003 | Mitigate | PAM solution, access review | IT Admin | 90 days | $40K |
+| CR-004 | Transfer/Mitigate | DDoS protection service | Network Team | 15 days | $5K |
+
+---
+
+## Security Controls Assessment
+
+### Current Control Effectiveness
+| Control Category | Control Description | Implementation Status | Effectiveness | Gaps Identified |
+|------------------|--------------------|--------------------|---------------|----------------|
+| Access Control | Multi-factor authentication | Partial | Medium | Not enforced for all users |
+| Data Protection | Encryption at rest | Implemented | High | Key management process |
+| Network Security | Firewall rules | Implemented | Medium | Rule review needed |
+| Monitoring | SIEM deployment | Partial | Low | Limited log sources |
+| Incident Response | Response procedures | Documented | Medium | Testing needed |
+
+### NIST CSF Alignment
+| Function | Category | Current Maturity | Target Maturity | Gap Analysis |
+|----------|----------|------------------|-----------------|--------------|
+| Identify | Asset Management | Level 2 | Level 3 | Asset inventory incomplete |
+| Protect | Access Control | Level 2 | Level 4 | PAM solution needed |
+| Detect | Monitoring | Level 1 | Level 3 | SIEM enhancement required |
+| Respond | Response Planning | Level 2 | Level 3 | Automation needed |
+| Recover | Recovery Planning | Level 1 | Level 3 | Disaster recovery testing |
+
+---
+
+## Recommendations and Action Plan
+
+### High Priority Actions (0-30 days)
+1. **Patch Critical Vulnerabilities**
+   - Owner: [IT Team]
+   - Timeline: 7 days
+   - Cost: $5K
+
+2. **Implement Email Security Controls**
+   - Owner: [Security Team]
+   - Timeline: 30 days
+   - Cost: $15K
+
+3. **Enhance Monitoring Capabilities**
+   - Owner: [SOC Team]
+   - Timeline: 30 days
+   - Cost: $20K
+
+### Medium Priority Actions (30-90 days)
+1. **Deploy PAM Solution**
+   - Owner: [IT Security]
+   - Timeline: 90 days
+   - Cost: $40K
+
+2. **Conduct Security Awareness Training**
+   - Owner: [HR/Security]
+   - Timeline: 60 days
+   - Cost: $10K
+
+3. **Implement Network Segmentation**
+   - Owner: [Network Team]
+   - Timeline: 90 days
+   - Cost: $25K
+
+### Long-term Actions (90+ days)
+1. **Enhance SIEM Capabilities**
+   - Owner: [Security Team]
+   - Timeline: 120 days
+   - Cost: $50K
+
+2. **Disaster Recovery Testing Program**
+   - Owner: [BCP Team]
+   - Timeline: 180 days
+   - Cost: $15K
+
+---
+
+## Metrics and KPIs
+
+### Security Metrics
+- **Risk Reduction:** Target 30% reduction in high/critical risks
+- **Vulnerability Management:** 95% of critical vulnerabilities patched within 30 days
+- **Incident Response:** Mean time to detection &lt; 4 hours
+- **Compliance:** 100% compliance with regulatory requirements
+- **Training:** 95% completion rate for security awareness training
+
+### Cost-Benefit Analysis
+| Investment Category | Cost | Risk Reduction | ROI |
+|-------------------|------|----------------|-----|
+| Technical Controls | $75K | 60% | 3:1 |
+| Process Improvements | $25K | 25% | 2:1 |
+| Training &amp; Awareness | $15K | 15% | 4:1 |
+| **Total** | **$115K** | **100%** | **2.8:1** |
+
+---
+
+## Review and Approval
+
+### Assessment Review
+- [ ] Technical accuracy reviewed
+- [ ] Business impact validated
+- [ ] Risk calculations verified
+- [ ] Recommendations prioritized
+- [ ] Budget estimates confirmed
+
+### Stakeholder Approval
+| Role | Name | Signature | Date |
+|------|------|-----------|------|
+| CISO | [Name] | [Signature] | [Date] |
+| IT Director | [Name] | [Signature] | [Date] |
+| Business Owner | [Name] | [Signature] | [Date] |
+| Risk Manager | [Name] | [Signature] | [Date] |
+
+---
+
+## Appendices
+
+### Appendix A: Detailed Vulnerability Scan Results
+[Attach technical scan reports]
+
+### Appendix B: Threat Intelligence Sources
+[List of threat intelligence feeds and sources]
+
+### Appendix C: Regulatory Compliance Mapping
+[Specific compliance requirements and controls mapping]
+
+### Appendix D: Risk Register Template
+[Detailed risk register with all identified risks]
+
+---
+
+## When to Use
+
+Use throughout the project lifecycle to identify, assess, and track risks. This template is essential for projects with significant complexity, multiple stakeholders, or high business impact, where structured risk management provides decision-making value.
+
+## When NOT to Use
+
+Do not use for very low-risk, short-duration tasks where informal risk awareness is sufficient. Avoid this template if your governance framework requires a different risk management approach or if stakeholders prefer real-time risk dashboards over static registers.
+
+## Template Usage Guidelines
+
+### Customization Notes
+- **Healthcare:** Add HIPAA-specific controls and risk scenarios
+- **Financial:** Include PCI-DSS, SOX compliance requirements
+- **Manufacturing:** Consider OT/IoT security risks
+- **Government:** Add FedRAMP, FISMA control requirements
+
+### Regular Review Schedule
+- **Quarterly:** Risk landscape and threat intelligence updates
+- **Semi-annually:** Control effectiveness assessment
+- **Annually:** Complete risk assessment refresh
+- **Ad-hoc:** After major incidents or changes
+
+---
+
+*This cybersecurity risk assessment should be conducted by qualified security professionals and reviewed regularly to maintain currency with evolving threats and business changes.*
+</pre></div></div></div><!--astro:end--></astro-island></main></body></html>

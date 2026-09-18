@@ -1,0 +1,420 @@
+<!DOCTYPE html><html lang="en" data-astro-cid-ju4pidww><head><meta charset="UTF-8"><meta name="description" content="Advanced template browser with previews and version history"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="icon" type="image/svg+xml" href="/pm-tools-templates/favicon.svg"><title>Incident Response Template</title><link rel="stylesheet" href="/pm-tools-templates/assets/Layout.ChXqTIwx.css"></head><body data-astro-cid-ju4pidww><main data-astro-cid-ju4pidww><style>astro-island,astro-slot,astro-static-slot{display:contents}</style><script>(()=>{var e=async t=>{await(await t())()};(self.Astro||(self.Astro={})).load=e;window.dispatchEvent(new Event("astro:load"));})();</script><script>(()=>{var g=Object.defineProperty;var w=(a,s,c)=>s in a?g(a,s,{enumerable:!0,configurable:!0,writable:!0,value:c}):a[s]=c;var l=(a,s,c)=>w(a,typeof s!="symbol"?s+"":s,c);var E=new Set(["__proto__","constructor","prototype"]);{let a={0:t=>y(t),1:t=>c(t),2:t=>new RegExp(t),3:t=>new Date(t),4:t=>new Map(c(t)),5:t=>new Set(c(t)),6:t=>BigInt(t),7:t=>new URL(t),8:t=>new Uint8Array(t),9:t=>new Uint16Array(t),10:t=>new Uint32Array(t),11:t=>Number.POSITIVE_INFINITY*t},s=t=>{let[p,e]=t;return p in a?a[p](e):void 0},c=t=>t.map(s),y=t=>typeof t!="object"||t===null?t:Object.fromEntries(Object.entries(t).map(([p,e])=>[p,s(e)]));class f extends HTMLElement{constructor(){super(...arguments);l(this,"Component");l(this,"hydrator");l(this,"hydrate",async()=>{var b;if(!this.hydrator||!this.isConnected)return;let e=(b=this.parentElement)==null?void 0:b.closest("astro-island[ssr]");if(e){e.addEventListener("astro:hydrate",this.hydrate,{once:!0});return}let r=this.querySelectorAll("astro-slot"),n={},d=this.querySelectorAll("template[data-astro-template]");for(let o of d){let i=o.closest(this.tagName);i!=null&&i.isSameNode(this)&&(n[o.getAttribute("data-astro-template")||"default"]=o.innerHTML,o.remove())}for(let o of r){let i=o.closest(this.tagName);i!=null&&i.isSameNode(this)&&(n[o.getAttribute("name")||"default"]=o.innerHTML)}let u;try{u=this.hasAttribute("props")?y(JSON.parse(this.getAttribute("props"))):{}}catch(o){let i=this.getAttribute("component-url")||"<unknown>",v=this.getAttribute("component-export");throw v&&(i+=` (export ${v})`),console.error(`[hydrate] Error parsing props for component ${i}`,this.getAttribute("props"),o),o}let h;await this.hydrator(this)(this.Component,u,n,{client:this.getAttribute("client")}),this.removeAttribute("ssr"),this.dispatchEvent(new CustomEvent("astro:hydrate"))});l(this,"unmount",()=>{this.isConnected||this.dispatchEvent(new CustomEvent("astro:unmount"))})}disconnectedCallback(){document.removeEventListener("astro:after-swap",this.unmount),document.addEventListener("astro:after-swap",this.unmount,{once:!0})}connectedCallback(){if(!this.hasAttribute("await-children")||document.readyState==="interactive"||document.readyState==="complete")this.childrenConnectedCallback();else{let e=()=>{document.removeEventListener("DOMContentLoaded",e),r.disconnect(),this.childrenConnectedCallback()},r=new MutationObserver(()=>{var n;((n=this.lastChild)==null?void 0:n.nodeType)===Node.COMMENT_NODE&&this.lastChild.nodeValue==="astro:end"&&(this.lastChild.remove(),e())});r.observe(this,{childList:!0}),document.addEventListener("DOMContentLoaded",e)}}async childrenConnectedCallback(){let e=this.getAttribute("before-hydration-url");e&&await import(e),this.start()}getRetryImportUrl(e){let r=new URL(e,document.baseURI);return r.searchParams.set("astro-retry",Date.now().toString()),r.toString()}async importWithRetry(e){try{return await import(e)}catch(r){return await new Promise(n=>setTimeout(n,1e3)),import(this.getRetryImportUrl(e))}}handleHydrationError(e){let r=this.getAttribute("component-url"),n=new CustomEvent("astro:hydration-error",{cancelable:!0,bubbles:!0,composed:!0,detail:{error:e,componentUrl:r}});this.dispatchEvent(n)&&console.error(`[astro-island] Error hydrating ${r}`,e)}async start(){let e=JSON.parse(this.getAttribute("opts")),r=this.getAttribute("client");if(Astro[r]===void 0){window.addEventListener(`astro:${r}`,()=>this.start(),{once:!0});return}try{await Astro[r](async()=>{let n=this.getAttribute("renderer-url");try{let[d,{default:u}]=await Promise.all([this.importWithRetry(this.getAttribute("component-url")),n?this.importWithRetry(n):Promise.resolve({default:()=>()=>{}})]),h=this.getAttribute("component-export")||"default";if(h.includes(".")){this.Component=d;for(let m of h.split(".")){if(E.has(m)||!this.Component||typeof this.Component!="object"&&typeof this.Component!="function"||!Object.hasOwn(this.Component,m))throw new Error(`Invalid component export path: ${h}`);this.Component=this.Component[m]}}else{if(E.has(h))throw new Error(`Invalid component export path: ${h}`);this.Component=d[h]}return this.hydrator=u,this.hydrate}catch(d){return this.handleHydrationError(d),()=>{}}},e,this)}catch(n){this.handleHydrationError(n)}}attributeChangedCallback(){this.hydrate()}}l(f,"observedAttributes",["props"]),customElements.get("astro-island")||customElements.define("astro-island",f)}})();</script><astro-island uid="2B96A" prefix="r1" component-url="/pm-tools-templates/assets/TemplateViewer.BJxWH0dD.js" component-export="default" renderer-url="/pm-tools-templates/assets/client.REQV_TkY.js" props="{&quot;templateId&quot;:[0,&quot;incident_response_template&quot;],&quot;filePath&quot;:[0,&quot;domains/measurement/industry-specializations/information-technology/cybersecurity/incident_response_template.md&quot;],&quot;title&quot;:[0,&quot;Incident Response Template&quot;],&quot;content&quot;:[0,&quot;---\ntitle: Incident Response Template\nmethodology: universal\ncomplexity: advanced\nowner: mirichard\nupdated: &#39;2025-08-05&#39;\nprimary_principles:\n- stewardship\n- quality-by-design\nsecondary_principles:\n- evidence-based-decisions\n- risk-optimization\nprinciple_rationale: Maintains regulatory compliance through evidence-based quality\n  controls and accountability.\n---\n\n# Cybersecurity Incident Response Template\n\n**Version:** 1.0  \n**Last Updated:** [Date]  \n**Document Owner:** [CISO/Security Manager]  \n**Approved By:** [Name], [Title]\n\n---\n\n## Executive Summary\n\nThis cybersecurity incident response template provides a structured approach to detecting, analyzing, containing, and recovering from cybersecurity incidents. It aligns with NIST SP 800-61 Computer Security Incident Handling Guide and industry best practices.\n\n---\n\n## Incident Classification\n\n### Incident Severity Levels\n| Level | Description | Response Time | Escalation Required |\n|-------|-------------|---------------|-------------------|\n| **Critical** | Immediate threat to business operations, data breach, ransomware | 15 minutes | CISO, C-Level |\n| **High** | Significant security impact, system compromise | 1 hour | Security Manager |\n| **Medium** | Moderate security impact, potential threat | 4 hours | Team Lead |\n| **Low** | Minor security events, informational | 24 hours | Security Analyst |\n\n### Incident Categories\n- **Malware** - Viruses, ransomware, trojans\n- **Phishing** - Email-based social engineering attacks\n- **Data Breach** - Unauthorized access to sensitive data\n- **System Intrusion** - Unauthorized system access\n- **Denial of Service** - Service availability attacks\n- **Insider Threat** - Malicious or negligent internal actions\n- **Physical Security** - Unauthorized physical access\n- **Supply Chain** - Third-party security incidents\n\n---\n\n## Incident Response Team (IRT)\n\n### Core Team Roles\n| Role | Responsibilities | Primary Contact | Backup Contact |\n|------|-----------------|----------------|----------------|\n| **Incident Commander** | Overall response coordination | [Name/Phone] | [Name/Phone] |\n| **Security Analyst** | Technical investigation | [Name/Phone] | [Name/Phone] |\n| **IT Operations** | System restoration | [Name/Phone] | [Name/Phone] |\n| **Communications** | Stakeholder updates | [Name/Phone] | [Name/Phone] |\n| **Legal Counsel** | Legal and regulatory guidance | [Name/Phone] | [Name/Phone] |\n| **HR Representative** | Employee-related incidents | [Name/Phone] | [Name/Phone] |\n\n### Extended Team (as needed)\n- **External Forensics** - [Vendor contact]\n- **Law Enforcement** - [Local FBI/Police contact]\n- **Cyber Insurance** - [Insurance contact]\n- **Regulatory Contacts** - [Industry-specific contacts]\n\n---\n\n## Incident Response Process\n\n### Phase 1: Preparation\n**Ongoing Activities**\n- [ ] Incident response plan updated and tested\n- [ ] Team contact information current\n- [ ] Tools and technologies operational\n- [ ] Staff training completed\n- [ ] Communication templates ready\n\n### Phase 2: Detection and Analysis\n**Initial Detection (0-15 minutes)**\n- [ ] Incident identified through monitoring/reporting\n- [ ] Initial assessment of scope and impact\n- [ ] Incident severity level assigned\n- [ ] Incident response team notified\n- [ ] Incident tracking number assigned\n\n**Detailed Analysis (15 minutes - 4 hours)**\n- [ ] Evidence collection and preservation\n- [ ] Attack vector identification\n- [ ] Scope and impact assessment\n- [ ] Root cause analysis initiated\n- [ ] Timeline reconstruction\n\n### Phase 3: Containment, Eradication, and Recovery\n**Short-term Containment (Immediate)**\n- [ ] Isolate affected systems\n- [ ] Preserve evidence\n- [ ] Prevent further damage\n- [ ] Maintain business operations\n\n**Long-term Containment (1-24 hours)**\n- [ ] Implement temporary fixes\n- [ ] System hardening\n- [ ] Enhanced monitoring\n- [ ] Stakeholder communication\n\n**Eradication (1-7 days)**\n- [ ] Remove malware/threats\n- [ ] Vulnerability patching\n- [ ] System rebuilding if needed\n- [ ] Security control enhancement\n\n**Recovery (1-30 days)**\n- [ ] System restoration\n- [ ] Enhanced monitoring implementation\n- [ ] Vulnerability testing\n- [ ] Return to normal operations\n\n### Phase 4: Post-Incident Activity\n**Lessons Learned (Within 30 days)**\n- [ ] Incident report completion\n- [ ] Root cause analysis\n- [ ] Process improvement recommendations\n- [ ] Plan updates\n- [ ] Staff debriefing\n\n---\n\n## Incident Response Playbooks\n\n### Ransomware Response Playbook\n**Immediate Actions (0-30 minutes)**\n1. **ISOLATE** - Disconnect infected systems from network\n2. **ASSESS** - Determine scope of encryption\n3. **PRESERVE** - Secure backup systems\n4. **NOTIFY** - Alert incident response team\n5. **DOCUMENT** - Record all actions taken\n\n**Investigation Actions (30 minutes - 4 hours)**\n1. Identify ransomware variant\n2. Assess data impact and encryption scope\n3. Evaluate backup integrity\n4. Determine attack vector\n5. Notify law enforcement if required\n\n**Recovery Actions (4+ hours)**\n1. Evaluate ransom payment decision\n2. Begin system restoration from backups\n3. Patch vulnerabilities used in attack\n4. Enhance monitoring and detection\n5. Communicate with stakeholders\n\n### Data Breach Response Playbook\n**Immediate Actions (0-1 hour)**\n1. **SECURE** - Stop ongoing data access\n2. **ASSESS** - Determine data types affected\n3. **PRESERVE** - Secure evidence\n4. **NOTIFY** - Alert legal and privacy teams\n5. **DOCUMENT** - Begin incident documentation\n\n**Investigation Actions (1-24 hours)**\n1. Determine breach scope and timeline\n2. Identify affected data subjects\n3. Assess regulatory notification requirements\n4. Evaluate containment options\n5. Prepare preliminary impact assessment\n\n**Notification Actions (24-72 hours)**\n1. Notify regulatory authorities (if required)\n2. Prepare customer/public notifications\n3. Coordinate with legal counsel\n4. Implement credit monitoring (if applicable)\n5. Document compliance activities\n\n### Phishing Response Playbook\n**Immediate Actions (0-30 minutes)**\n1. **VERIFY** - Confirm phishing attempt\n2. **BLOCK** - Block malicious emails/URLs\n3. **IDENTIFY** - Find affected users\n4. **QUARANTINE** - Isolate compromised accounts\n5. **ALERT** - Warn other users\n\n**Investigation Actions (30 minutes - 2 hours)**\n1. Analyze phishing email/website\n2. Identify compromised credentials\n3. Check for lateral movement\n4. Assess data access\n5. Implement additional blocking\n\n**Recovery Actions (2+ hours)**\n1. Reset compromised passwords\n2. Review account activities\n3. Enhance email security controls\n4. Conduct user awareness training\n5. Update phishing protection\n\n---\n\n## Communication Templates\n\n### Initial Incident Alert\n**TO:** Incident Response Team  \n**SUBJECT:** INCIDENT ALERT - [Severity] - [Incident ID]  \n**PRIORITY:** [High/Critical]\n\n**INCIDENT SUMMARY:**\n- Incident ID: [ID]\n- Detection Time: [Time]\n- Incident Type: [Category]\n- Severity: [Level]\n- Affected Systems: [Systems]\n- Initial Impact: [Description]\n\n**IMMEDIATE ACTIONS REQUIRED:**\n- [Action 1]\n- [Action 2]\n- [Action 3]\n\n**INCIDENT COMMANDER:** [Name/Contact]\n**NEXT UPDATE:** [Time]\n\n### Executive Status Update\n**TO:** Executive Team  \n**SUBJECT:** Security Incident Status Update - [Incident ID]\n\n**EXECUTIVE SUMMARY:**\n[Brief description of incident and current status]\n\n**IMPACT ASSESSMENT:**\n- Business Operations: [Impact]\n- Data/Systems: [Impact]\n- Customers: [Impact]\n- Financial: [Estimated cost]\n\n**CURRENT STATUS:**\n- Containment: [Status]\n- Investigation: [Status]\n- Recovery: [Status]\n\n**NEXT STEPS:**\n- [Action 1] - [Timeline]\n- [Action 2] - [Timeline]\n\n**ESTIMATED RESOLUTION:** [Time]\n\n### External Communication Template\n**FOR:** Customers/Public  \n**RE:** Security Incident Notification\n\nWe are writing to inform you of a security incident that may have affected your information. We take this matter very seriously and want to provide you with details about what happened and what we are doing about it.\n\n**WHAT HAPPENED:**\n[Brief description of incident]\n\n**INFORMATION INVOLVED:**\n[Types of data that may have been accessed]\n\n**WHAT WE ARE DOING:**\n[Steps taken to investigate and address the incident]\n\n**WHAT YOU CAN DO:**\n[Recommended actions for affected parties]\n\n**CONTACT INFORMATION:**\n[How to get more information or ask questions]\n\n---\n\n## Evidence Collection and Preservation\n\n### Digital Evidence Handling\n**Chain of Custody Requirements**\n- [ ] Evidence properly labeled and documented\n- [ ] Handling personnel identified\n- [ ] Transfer logs maintained\n- [ ] Storage security ensured\n- [ ] Access controls implemented\n\n**Evidence Types**\n- **System Logs** - Security, application, network logs\n- **Memory Dumps** - RAM contents at time of incident\n- **Disk Images** - Complete forensic copies\n- **Network Captures** - Packet-level network data\n- **Communications** - Email, chat, phone records\n\n### Forensic Tools and Techniques\n| Tool Category | Examples | Use Case |\n|---------------|----------|----------|\n| Memory Analysis | Volatility, Rekall | Live memory investigation |\n| Disk Forensics | EnCase, FTK, Autopsy | File system analysis |\n| Network Analysis | Wireshark, tcpdump | Network traffic analysis |\n| Malware Analysis | IDA Pro, Ghidra | Reverse engineering |\n| Timeline Analysis | Plaso, log2timeline | Event correlation |\n\n---\n\n## Legal and Regulatory Considerations\n\n### Notification Requirements\n| Regulation | Notification Timeline | Regulatory Body | Contact Information |\n|------------|---------------------|-----------------|-------------------|\n| GDPR | 72 hours | Data Protection Authority | [Contact] |\n| HIPAA | 60 days | HHS OCR | [Contact] |\n| PCI DSS | Immediately | Card Brands | [Contact] |\n| SOX | Immediately | SEC | [Contact] |\n| State Laws | Varies | State AG Office | [Contact] |\n\n### Legal Considerations Checklist\n- [ ] Attorney-client privilege maintained\n- [ ] Evidence preservation requirements met\n- [ ] Regulatory notification obligations assessed\n- [ ] Contract breach implications evaluated\n- [ ] Insurance coverage notification completed\n- [ ] Law enforcement reporting considered\n\n---\n\n## Metrics and Reporting\n\n### Key Performance Indicators\n| Metric | Target | Current | Trend |\n|--------|--------|---------|-------|\n| Mean Time to Detection (MTTD) | &lt; 4 hours | [Current] | [Trend] |\n| Mean Time to Containment (MTTC) | &lt; 2 hours | [Current] | [Trend] |\n| Mean Time to Recovery (MTTR) | &lt; 24 hours | [Current] | [Trend] |\n| False Positive Rate | &lt; 10% | [Current] | [Trend] |\n| Incident Recurrence Rate | &lt; 5% | [Current] | [Trend] |\n\n### Incident Report Template\n**INCIDENT SUMMARY REPORT**\n\n**Incident ID:** [ID]  \n**Date Range:** [Start] to [End]  \n**Incident Commander:** [Name]\n\n**EXECUTIVE SUMMARY:**\n[High-level description of incident and response]\n\n**TIMELINE:**\n- [Time] - Initial detection\n- [Time] - Response team activated\n- [Time] - Containment achieved\n- [Time] - Recovery completed\n\n**ROOT CAUSE:**\n[Technical and process factors that led to incident]\n\n**IMPACT ASSESSMENT:**\n- Systems affected: [List]\n- Data compromised: [Description]\n- Business impact: [Duration/Cost]\n- Customer impact: [Number affected]\n\n**RESPONSE EFFECTIVENESS:**\n- What worked well: [Successes]\n- Areas for improvement: [Gaps]\n- Lessons learned: [Key takeaways]\n\n**RECOMMENDATIONS:**\n1. [Recommendation 1] - [Priority] - [Owner] - [Timeline]\n2. [Recommendation 2] - [Priority] - [Owner] - [Timeline]\n3. [Recommendation 3] - [Priority] - [Owner] - [Timeline]\n\n---\n\n## Plan Maintenance and Testing\n\n### Plan Review Schedule\n- **Monthly:** Contact information updates\n- **Quarterly:** Process and procedure review\n- **Semi-annually:** Full plan review and updates\n- **Annually:** Comprehensive plan overhaul\n\n### Testing and Exercises\n| Exercise Type | Frequency | Participants | Objectives |\n|---------------|-----------|--------------|------------|\n| Tabletop Exercise | Quarterly | Core IRT | Process validation |\n| Simulation Exercise | Semi-annually | Extended team | Coordination testing |\n| Red Team Exercise | Annually | Full organization | Detection capabilities |\n| Recovery Testing | Annually | IT Operations | Recovery procedures |\n\n### Training Requirements\n- **All Staff:** Annual security awareness training\n- **IRT Members:** Quarterly incident response training\n- **Technical Staff:** Specialized forensics and analysis training\n- **Management:** Executive briefings on incident response\n\n---\n\n## When to Use\n\nUse early in the project lifecycle to map stakeholders, understand their interests and influence, and develop engagement strategies. This template is critical for complex organizational change, cross-functional initiatives, or projects with diverse competing interests.\n\n## When NOT to Use\n\nDo not use for internal team-only initiatives with minimal external stakeholder involvement. Avoid using this template if you already have a well-established stakeholder management framework specific to your organization.\n\n## Appendices\n\n### Appendix A: Emergency Contact List\n[Complete contact information for all team members and external resources]\n\n### Appendix B: Technical Response Procedures\n[Detailed technical steps for common incident types]\n\n### Appendix C: Communication Templates\n[Additional templates for various communication scenarios]\n\n### Appendix D: Legal and Regulatory Reference\n[Specific requirements for applicable regulations]\n\n---\n\n*This incident response plan should be tested regularly and updated based on lessons learned from exercises and actual incidents. All team members should be familiar with their roles and responsibilities.*\n&quot;]}" ssr client="load" opts="{&quot;name&quot;:&quot;TemplateViewer&quot;,&quot;value&quot;:true}" await-children><div><h1>Incident Response Template</h1><div style="margin-bottom:2rem"><button style="background:var(--accent-color);color:white;border:1px solid var(--border-color);padding:0.5rem 1rem;border-radius:4px 4px 0 0;cursor:pointer;margin-right:1px">Preview</button><button style="background:var(--code-bg);color:var(--text-color);border:1px solid var(--border-color);padding:0.5rem 1rem;border-radius:4px 4px 0 0;cursor:pointer">Version History</button></div><div style="border:1px solid var(--border-color);border-radius:0 8px 8px 8px;min-height:400px"><div style="background:var(--bg-primary);border-radius:var(--radius-lg)"><div style="padding:1rem 1.5rem;border-bottom:1px solid var(--border-light);display:flex;align-items:center;justify-content:space-between;background:var(--bg-secondary);border-radius:var(--radius-lg) var(--radius-lg) 0 0"><div style="display:flex;align-items:center;gap:0.5rem"><span style="font-size:1.5rem">📄</span><div><div style="font-weight:600;color:var(--text-primary)">incident_response_template.md</div><div style="font-size:0.75rem;color:var(--text-muted)">Markdown • <!-- -->13,585 bytes</div></div></div><a href="/pm-tools-templates/downloads/incident_response_template.md" download="" class="btn btn-secondary" style="font-size:0.75rem;padding:0.5rem 0.75rem">💾 Download</a></div><pre aria-label="Markdown source of Incident Response Template" style="padding:1.5rem;max-height:600px;overflow:auto;white-space:pre-wrap;overflow-wrap:anywhere">---
+title: Incident Response Template
+methodology: universal
+complexity: advanced
+owner: mirichard
+updated: &#x27;2025-08-05&#x27;
+primary_principles:
+- stewardship
+- quality-by-design
+secondary_principles:
+- evidence-based-decisions
+- risk-optimization
+principle_rationale: Maintains regulatory compliance through evidence-based quality
+  controls and accountability.
+---
+
+# Cybersecurity Incident Response Template
+
+**Version:** 1.0  
+**Last Updated:** [Date]  
+**Document Owner:** [CISO/Security Manager]  
+**Approved By:** [Name], [Title]
+
+---
+
+## Executive Summary
+
+This cybersecurity incident response template provides a structured approach to detecting, analyzing, containing, and recovering from cybersecurity incidents. It aligns with NIST SP 800-61 Computer Security Incident Handling Guide and industry best practices.
+
+---
+
+## Incident Classification
+
+### Incident Severity Levels
+| Level | Description | Response Time | Escalation Required |
+|-------|-------------|---------------|-------------------|
+| **Critical** | Immediate threat to business operations, data breach, ransomware | 15 minutes | CISO, C-Level |
+| **High** | Significant security impact, system compromise | 1 hour | Security Manager |
+| **Medium** | Moderate security impact, potential threat | 4 hours | Team Lead |
+| **Low** | Minor security events, informational | 24 hours | Security Analyst |
+
+### Incident Categories
+- **Malware** - Viruses, ransomware, trojans
+- **Phishing** - Email-based social engineering attacks
+- **Data Breach** - Unauthorized access to sensitive data
+- **System Intrusion** - Unauthorized system access
+- **Denial of Service** - Service availability attacks
+- **Insider Threat** - Malicious or negligent internal actions
+- **Physical Security** - Unauthorized physical access
+- **Supply Chain** - Third-party security incidents
+
+---
+
+## Incident Response Team (IRT)
+
+### Core Team Roles
+| Role | Responsibilities | Primary Contact | Backup Contact |
+|------|-----------------|----------------|----------------|
+| **Incident Commander** | Overall response coordination | [Name/Phone] | [Name/Phone] |
+| **Security Analyst** | Technical investigation | [Name/Phone] | [Name/Phone] |
+| **IT Operations** | System restoration | [Name/Phone] | [Name/Phone] |
+| **Communications** | Stakeholder updates | [Name/Phone] | [Name/Phone] |
+| **Legal Counsel** | Legal and regulatory guidance | [Name/Phone] | [Name/Phone] |
+| **HR Representative** | Employee-related incidents | [Name/Phone] | [Name/Phone] |
+
+### Extended Team (as needed)
+- **External Forensics** - [Vendor contact]
+- **Law Enforcement** - [Local FBI/Police contact]
+- **Cyber Insurance** - [Insurance contact]
+- **Regulatory Contacts** - [Industry-specific contacts]
+
+---
+
+## Incident Response Process
+
+### Phase 1: Preparation
+**Ongoing Activities**
+- [ ] Incident response plan updated and tested
+- [ ] Team contact information current
+- [ ] Tools and technologies operational
+- [ ] Staff training completed
+- [ ] Communication templates ready
+
+### Phase 2: Detection and Analysis
+**Initial Detection (0-15 minutes)**
+- [ ] Incident identified through monitoring/reporting
+- [ ] Initial assessment of scope and impact
+- [ ] Incident severity level assigned
+- [ ] Incident response team notified
+- [ ] Incident tracking number assigned
+
+**Detailed Analysis (15 minutes - 4 hours)**
+- [ ] Evidence collection and preservation
+- [ ] Attack vector identification
+- [ ] Scope and impact assessment
+- [ ] Root cause analysis initiated
+- [ ] Timeline reconstruction
+
+### Phase 3: Containment, Eradication, and Recovery
+**Short-term Containment (Immediate)**
+- [ ] Isolate affected systems
+- [ ] Preserve evidence
+- [ ] Prevent further damage
+- [ ] Maintain business operations
+
+**Long-term Containment (1-24 hours)**
+- [ ] Implement temporary fixes
+- [ ] System hardening
+- [ ] Enhanced monitoring
+- [ ] Stakeholder communication
+
+**Eradication (1-7 days)**
+- [ ] Remove malware/threats
+- [ ] Vulnerability patching
+- [ ] System rebuilding if needed
+- [ ] Security control enhancement
+
+**Recovery (1-30 days)**
+- [ ] System restoration
+- [ ] Enhanced monitoring implementation
+- [ ] Vulnerability testing
+- [ ] Return to normal operations
+
+### Phase 4: Post-Incident Activity
+**Lessons Learned (Within 30 days)**
+- [ ] Incident report completion
+- [ ] Root cause analysis
+- [ ] Process improvement recommendations
+- [ ] Plan updates
+- [ ] Staff debriefing
+
+---
+
+## Incident Response Playbooks
+
+### Ransomware Response Playbook
+**Immediate Actions (0-30 minutes)**
+1. **ISOLATE** - Disconnect infected systems from network
+2. **ASSESS** - Determine scope of encryption
+3. **PRESERVE** - Secure backup systems
+4. **NOTIFY** - Alert incident response team
+5. **DOCUMENT** - Record all actions taken
+
+**Investigation Actions (30 minutes - 4 hours)**
+1. Identify ransomware variant
+2. Assess data impact and encryption scope
+3. Evaluate backup integrity
+4. Determine attack vector
+5. Notify law enforcement if required
+
+**Recovery Actions (4+ hours)**
+1. Evaluate ransom payment decision
+2. Begin system restoration from backups
+3. Patch vulnerabilities used in attack
+4. Enhance monitoring and detection
+5. Communicate with stakeholders
+
+### Data Breach Response Playbook
+**Immediate Actions (0-1 hour)**
+1. **SECURE** - Stop ongoing data access
+2. **ASSESS** - Determine data types affected
+3. **PRESERVE** - Secure evidence
+4. **NOTIFY** - Alert legal and privacy teams
+5. **DOCUMENT** - Begin incident documentation
+
+**Investigation Actions (1-24 hours)**
+1. Determine breach scope and timeline
+2. Identify affected data subjects
+3. Assess regulatory notification requirements
+4. Evaluate containment options
+5. Prepare preliminary impact assessment
+
+**Notification Actions (24-72 hours)**
+1. Notify regulatory authorities (if required)
+2. Prepare customer/public notifications
+3. Coordinate with legal counsel
+4. Implement credit monitoring (if applicable)
+5. Document compliance activities
+
+### Phishing Response Playbook
+**Immediate Actions (0-30 minutes)**
+1. **VERIFY** - Confirm phishing attempt
+2. **BLOCK** - Block malicious emails/URLs
+3. **IDENTIFY** - Find affected users
+4. **QUARANTINE** - Isolate compromised accounts
+5. **ALERT** - Warn other users
+
+**Investigation Actions (30 minutes - 2 hours)**
+1. Analyze phishing email/website
+2. Identify compromised credentials
+3. Check for lateral movement
+4. Assess data access
+5. Implement additional blocking
+
+**Recovery Actions (2+ hours)**
+1. Reset compromised passwords
+2. Review account activities
+3. Enhance email security controls
+4. Conduct user awareness training
+5. Update phishing protection
+
+---
+
+## Communication Templates
+
+### Initial Incident Alert
+**TO:** Incident Response Team  
+**SUBJECT:** INCIDENT ALERT - [Severity] - [Incident ID]  
+**PRIORITY:** [High/Critical]
+
+**INCIDENT SUMMARY:**
+- Incident ID: [ID]
+- Detection Time: [Time]
+- Incident Type: [Category]
+- Severity: [Level]
+- Affected Systems: [Systems]
+- Initial Impact: [Description]
+
+**IMMEDIATE ACTIONS REQUIRED:**
+- [Action 1]
+- [Action 2]
+- [Action 3]
+
+**INCIDENT COMMANDER:** [Name/Contact]
+**NEXT UPDATE:** [Time]
+
+### Executive Status Update
+**TO:** Executive Team  
+**SUBJECT:** Security Incident Status Update - [Incident ID]
+
+**EXECUTIVE SUMMARY:**
+[Brief description of incident and current status]
+
+**IMPACT ASSESSMENT:**
+- Business Operations: [Impact]
+- Data/Systems: [Impact]
+- Customers: [Impact]
+- Financial: [Estimated cost]
+
+**CURRENT STATUS:**
+- Containment: [Status]
+- Investigation: [Status]
+- Recovery: [Status]
+
+**NEXT STEPS:**
+- [Action 1] - [Timeline]
+- [Action 2] - [Timeline]
+
+**ESTIMATED RESOLUTION:** [Time]
+
+### External Communication Template
+**FOR:** Customers/Public  
+**RE:** Security Incident Notification
+
+We are writing to inform you of a security incident that may have affected your information. We take this matter very seriously and want to provide you with details about what happened and what we are doing about it.
+
+**WHAT HAPPENED:**
+[Brief description of incident]
+
+**INFORMATION INVOLVED:**
+[Types of data that may have been accessed]
+
+**WHAT WE ARE DOING:**
+[Steps taken to investigate and address the incident]
+
+**WHAT YOU CAN DO:**
+[Recommended actions for affected parties]
+
+**CONTACT INFORMATION:**
+[How to get more information or ask questions]
+
+---
+
+## Evidence Collection and Preservation
+
+### Digital Evidence Handling
+**Chain of Custody Requirements**
+- [ ] Evidence properly labeled and documented
+- [ ] Handling personnel identified
+- [ ] Transfer logs maintained
+- [ ] Storage security ensured
+- [ ] Access controls implemented
+
+**Evidence Types**
+- **System Logs** - Security, application, network logs
+- **Memory Dumps** - RAM contents at time of incident
+- **Disk Images** - Complete forensic copies
+- **Network Captures** - Packet-level network data
+- **Communications** - Email, chat, phone records
+
+### Forensic Tools and Techniques
+| Tool Category | Examples | Use Case |
+|---------------|----------|----------|
+| Memory Analysis | Volatility, Rekall | Live memory investigation |
+| Disk Forensics | EnCase, FTK, Autopsy | File system analysis |
+| Network Analysis | Wireshark, tcpdump | Network traffic analysis |
+| Malware Analysis | IDA Pro, Ghidra | Reverse engineering |
+| Timeline Analysis | Plaso, log2timeline | Event correlation |
+
+---
+
+## Legal and Regulatory Considerations
+
+### Notification Requirements
+| Regulation | Notification Timeline | Regulatory Body | Contact Information |
+|------------|---------------------|-----------------|-------------------|
+| GDPR | 72 hours | Data Protection Authority | [Contact] |
+| HIPAA | 60 days | HHS OCR | [Contact] |
+| PCI DSS | Immediately | Card Brands | [Contact] |
+| SOX | Immediately | SEC | [Contact] |
+| State Laws | Varies | State AG Office | [Contact] |
+
+### Legal Considerations Checklist
+- [ ] Attorney-client privilege maintained
+- [ ] Evidence preservation requirements met
+- [ ] Regulatory notification obligations assessed
+- [ ] Contract breach implications evaluated
+- [ ] Insurance coverage notification completed
+- [ ] Law enforcement reporting considered
+
+---
+
+## Metrics and Reporting
+
+### Key Performance Indicators
+| Metric | Target | Current | Trend |
+|--------|--------|---------|-------|
+| Mean Time to Detection (MTTD) | &lt; 4 hours | [Current] | [Trend] |
+| Mean Time to Containment (MTTC) | &lt; 2 hours | [Current] | [Trend] |
+| Mean Time to Recovery (MTTR) | &lt; 24 hours | [Current] | [Trend] |
+| False Positive Rate | &lt; 10% | [Current] | [Trend] |
+| Incident Recurrence Rate | &lt; 5% | [Current] | [Trend] |
+
+### Incident Report Template
+**INCIDENT SUMMARY REPORT**
+
+**Incident ID:** [ID]  
+**Date Range:** [Start] to [End]  
+**Incident Commander:** [Name]
+
+**EXECUTIVE SUMMARY:**
+[High-level description of incident and response]
+
+**TIMELINE:**
+- [Time] - Initial detection
+- [Time] - Response team activated
+- [Time] - Containment achieved
+- [Time] - Recovery completed
+
+**ROOT CAUSE:**
+[Technical and process factors that led to incident]
+
+**IMPACT ASSESSMENT:**
+- Systems affected: [List]
+- Data compromised: [Description]
+- Business impact: [Duration/Cost]
+- Customer impact: [Number affected]
+
+**RESPONSE EFFECTIVENESS:**
+- What worked well: [Successes]
+- Areas for improvement: [Gaps]
+- Lessons learned: [Key takeaways]
+
+**RECOMMENDATIONS:**
+1. [Recommendation 1] - [Priority] - [Owner] - [Timeline]
+2. [Recommendation 2] - [Priority] - [Owner] - [Timeline]
+3. [Recommendation 3] - [Priority] - [Owner] - [Timeline]
+
+---
+
+## Plan Maintenance and Testing
+
+### Plan Review Schedule
+- **Monthly:** Contact information updates
+- **Quarterly:** Process and procedure review
+- **Semi-annually:** Full plan review and updates
+- **Annually:** Comprehensive plan overhaul
+
+### Testing and Exercises
+| Exercise Type | Frequency | Participants | Objectives |
+|---------------|-----------|--------------|------------|
+| Tabletop Exercise | Quarterly | Core IRT | Process validation |
+| Simulation Exercise | Semi-annually | Extended team | Coordination testing |
+| Red Team Exercise | Annually | Full organization | Detection capabilities |
+| Recovery Testing | Annually | IT Operations | Recovery procedures |
+
+### Training Requirements
+- **All Staff:** Annual security awareness training
+- **IRT Members:** Quarterly incident response training
+- **Technical Staff:** Specialized forensics and analysis training
+- **Management:** Executive briefings on incident response
+
+---
+
+## When to Use
+
+Use early in the project lifecycle to map stakeholders, understand their interests and influence, and develop engagement strategies. This template is critical for complex organizational change, cross-functional initiatives, or projects with diverse competing interests.
+
+## When NOT to Use
+
+Do not use for internal team-only initiatives with minimal external stakeholder involvement. Avoid using this template if you already have a well-established stakeholder management framework specific to your organization.
+
+## Appendices
+
+### Appendix A: Emergency Contact List
+[Complete contact information for all team members and external resources]
+
+### Appendix B: Technical Response Procedures
+[Detailed technical steps for common incident types]
+
+### Appendix C: Communication Templates
+[Additional templates for various communication scenarios]
+
+### Appendix D: Legal and Regulatory Reference
+[Specific requirements for applicable regulations]
+
+---
+
+*This incident response plan should be tested regularly and updated based on lessons learned from exercises and actual incidents. All team members should be familiar with their roles and responsibilities.*
+</pre></div></div></div><!--astro:end--></astro-island></main></body></html>

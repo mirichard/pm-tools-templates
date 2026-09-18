@@ -1,0 +1,576 @@
+<!DOCTYPE html><html lang="en" data-astro-cid-ju4pidww><head><meta charset="UTF-8"><meta name="description" content="Advanced template browser with previews and version history"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="icon" type="image/svg+xml" href="/pm-tools-templates/favicon.svg"><title>Batch Record Template</title><link rel="stylesheet" href="/pm-tools-templates/assets/Layout.ChXqTIwx.css"></head><body data-astro-cid-ju4pidww><main data-astro-cid-ju4pidww><style>astro-island,astro-slot,astro-static-slot{display:contents}</style><script>(()=>{var e=async t=>{await(await t())()};(self.Astro||(self.Astro={})).load=e;window.dispatchEvent(new Event("astro:load"));})();</script><script>(()=>{var g=Object.defineProperty;var w=(a,s,c)=>s in a?g(a,s,{enumerable:!0,configurable:!0,writable:!0,value:c}):a[s]=c;var l=(a,s,c)=>w(a,typeof s!="symbol"?s+"":s,c);var E=new Set(["__proto__","constructor","prototype"]);{let a={0:t=>y(t),1:t=>c(t),2:t=>new RegExp(t),3:t=>new Date(t),4:t=>new Map(c(t)),5:t=>new Set(c(t)),6:t=>BigInt(t),7:t=>new URL(t),8:t=>new Uint8Array(t),9:t=>new Uint16Array(t),10:t=>new Uint32Array(t),11:t=>Number.POSITIVE_INFINITY*t},s=t=>{let[p,e]=t;return p in a?a[p](e):void 0},c=t=>t.map(s),y=t=>typeof t!="object"||t===null?t:Object.fromEntries(Object.entries(t).map(([p,e])=>[p,s(e)]));class f extends HTMLElement{constructor(){super(...arguments);l(this,"Component");l(this,"hydrator");l(this,"hydrate",async()=>{var b;if(!this.hydrator||!this.isConnected)return;let e=(b=this.parentElement)==null?void 0:b.closest("astro-island[ssr]");if(e){e.addEventListener("astro:hydrate",this.hydrate,{once:!0});return}let r=this.querySelectorAll("astro-slot"),n={},d=this.querySelectorAll("template[data-astro-template]");for(let o of d){let i=o.closest(this.tagName);i!=null&&i.isSameNode(this)&&(n[o.getAttribute("data-astro-template")||"default"]=o.innerHTML,o.remove())}for(let o of r){let i=o.closest(this.tagName);i!=null&&i.isSameNode(this)&&(n[o.getAttribute("name")||"default"]=o.innerHTML)}let u;try{u=this.hasAttribute("props")?y(JSON.parse(this.getAttribute("props"))):{}}catch(o){let i=this.getAttribute("component-url")||"<unknown>",v=this.getAttribute("component-export");throw v&&(i+=` (export ${v})`),console.error(`[hydrate] Error parsing props for component ${i}`,this.getAttribute("props"),o),o}let h;await this.hydrator(this)(this.Component,u,n,{client:this.getAttribute("client")}),this.removeAttribute("ssr"),this.dispatchEvent(new CustomEvent("astro:hydrate"))});l(this,"unmount",()=>{this.isConnected||this.dispatchEvent(new CustomEvent("astro:unmount"))})}disconnectedCallback(){document.removeEventListener("astro:after-swap",this.unmount),document.addEventListener("astro:after-swap",this.unmount,{once:!0})}connectedCallback(){if(!this.hasAttribute("await-children")||document.readyState==="interactive"||document.readyState==="complete")this.childrenConnectedCallback();else{let e=()=>{document.removeEventListener("DOMContentLoaded",e),r.disconnect(),this.childrenConnectedCallback()},r=new MutationObserver(()=>{var n;((n=this.lastChild)==null?void 0:n.nodeType)===Node.COMMENT_NODE&&this.lastChild.nodeValue==="astro:end"&&(this.lastChild.remove(),e())});r.observe(this,{childList:!0}),document.addEventListener("DOMContentLoaded",e)}}async childrenConnectedCallback(){let e=this.getAttribute("before-hydration-url");e&&await import(e),this.start()}getRetryImportUrl(e){let r=new URL(e,document.baseURI);return r.searchParams.set("astro-retry",Date.now().toString()),r.toString()}async importWithRetry(e){try{return await import(e)}catch(r){return await new Promise(n=>setTimeout(n,1e3)),import(this.getRetryImportUrl(e))}}handleHydrationError(e){let r=this.getAttribute("component-url"),n=new CustomEvent("astro:hydration-error",{cancelable:!0,bubbles:!0,composed:!0,detail:{error:e,componentUrl:r}});this.dispatchEvent(n)&&console.error(`[astro-island] Error hydrating ${r}`,e)}async start(){let e=JSON.parse(this.getAttribute("opts")),r=this.getAttribute("client");if(Astro[r]===void 0){window.addEventListener(`astro:${r}`,()=>this.start(),{once:!0});return}try{await Astro[r](async()=>{let n=this.getAttribute("renderer-url");try{let[d,{default:u}]=await Promise.all([this.importWithRetry(this.getAttribute("component-url")),n?this.importWithRetry(n):Promise.resolve({default:()=>()=>{}})]),h=this.getAttribute("component-export")||"default";if(h.includes(".")){this.Component=d;for(let m of h.split(".")){if(E.has(m)||!this.Component||typeof this.Component!="object"&&typeof this.Component!="function"||!Object.hasOwn(this.Component,m))throw new Error(`Invalid component export path: ${h}`);this.Component=this.Component[m]}}else{if(E.has(h))throw new Error(`Invalid component export path: ${h}`);this.Component=d[h]}return this.hydrator=u,this.hydrate}catch(d){return this.handleHydrationError(d),()=>{}}},e,this)}catch(n){this.handleHydrationError(n)}}attributeChangedCallback(){this.hydrate()}}l(f,"observedAttributes",["props"]),customElements.get("astro-island")||customElements.define("astro-island",f)}})();</script><astro-island uid="Z2kTFaW" prefix="r1" component-url="/pm-tools-templates/assets/TemplateViewer.BJxWH0dD.js" component-export="default" renderer-url="/pm-tools-templates/assets/client.REQV_TkY.js" props="{&quot;templateId&quot;:[0,&quot;batch_record_template&quot;],&quot;filePath&quot;:[0,&quot;domains/delivery/industry-specializations/healthcare-pharmaceutical/manufacturing/batch_record_template.md&quot;],&quot;title&quot;:[0,&quot;Batch Record Template&quot;],&quot;content&quot;:[0,&quot;---\ntitle: \&quot;Batch Record Template\&quot;\nmethodology: \&quot;universal\&quot;\ncomplexity: \&quot;advanced\&quot;\nowner: \&quot;mirichard\&quot;\nupdated: \&quot;2025-08-05\&quot;\nprimary_principles: [\&quot;stewardship\&quot;, \&quot;quality-by-design\&quot;]\nsecondary_principles: [\&quot;evidence-based-decisions\&quot;, \&quot;risk-optimization\&quot;]\nprinciple_rationale: \&quot;Preserves controlled evidence, product quality, accountability, and risk response.\&quot;\n---\n\n# Manufacturing Batch Record Template\n\n## Document Control\n\n**Document ID:** [MBR-XXX]  \n**Version:** [1.0]  \n**Effective Date:** [YYYY-MM-DD]  \n**Review Date:** [YYYY-MM-DD]  \n**Supersedes:** [Previous version, if applicable]\n\n### Document History\n\n| Version | Date | Description of Change | Author | Approved By |\n|---------|------|------------------------|--------|------------|\n| 1.0 | YYYY-MM-DD | Initial release | [Name] | [Name] |\n\n### Distribution List\n\n| Name | Department/Role | Date Distributed |\n|------|----------------|------------------|\n| [Name] | [Department/Role] | [YYYY-MM-DD] |\n| [Name] | [Department/Role] | [YYYY-MM-DD] |\n\n---\n\n## 1. Batch Record Header\n\n### 1.1 Product Information\n\n| Field | Information |\n|-------|-------------|\n| **Product Name** | [Product name as per marketing authorization] |\n| **Product Code** | [Internal product code] |\n| **Dosage Form** | [Tablet/Capsule/Injectable/Cream/etc.] |\n| **Strength** | [e.g., 10 mg, 50 mg/ml, etc.] |\n| **Batch Size** | [Standard batch size, e.g., 100,000 tablets] |\n| **Pharmacopeia Reference** | [USP/BP/EP/JP/IP, etc.] |\n| **Marketing Authorization Number** | [If applicable] |\n\n### 1.2 Batch Identification\n\n| Field | Information | Verified By | Date |\n|-------|-------------|-------------|------|\n| **Batch Number** | [Unique batch identifier] | | |\n| **Manufacturing Date** | [YYYY-MM-DD] | | |\n| **Expiry Date** | [YYYY-MM-DD] | | |\n| **Campaign Number** | [If applicable] | | |\n\n### 1.3 Manufacturing Authorization\n\n| Role | Name | Signature | Date |\n|------|------|-----------|------|\n| **Production Manager** | | | |\n| **Quality Assurance** | | | |\n\n&gt; **Note:** Production shall not commence without proper authorization. Ensure all pre-production checks are completed and documented.\n\n---\n\n## 2. Material Section\n\n### 2.1 Raw Materials\n\n| Material Name | Material Code | Required Quantity | Batch Number | Expiry Date | Weighed Quantity | Weighed By | Verified By | Date |\n|---------------|--------------|-------------------|--------------|-------------|------------------|-----------|------------|------|\n| [Material 1] | [Code] | [Quantity with units] | | | | | | |\n| [Material 2] | [Code] | [Quantity with units] | | | | | | |\n| [Material 3] | [Code] | [Quantity with units] | | | | | | |\n\n### 2.2 Material Verification Checklist\n\n- [ ] All raw materials verified against specifications\n- [ ] All raw materials are within expiry date\n- [ ] All raw material containers are intact and properly labeled\n- [ ] All raw materials have passed quality control testing\n- [ ] All material dispensing performed in appropriate conditions (temperature, humidity)\n- [ ] Cross-contamination prevention measures followed\n- [ ] Balance/scale calibration verified and within valid date\n- [ ] Material weighing calculations double-checked\n\n### 2.3 Packaging Materials\n\n| Material Name | Material Code | Required Quantity | Batch Number | Expiry Date | Issued Quantity | Issued By | Verified By | Date |\n|---------------|--------------|-------------------|--------------|-------------|-----------------|-----------|------------|------|\n| [Primary container] | [Code] | [Quantity with units] | | | | | | |\n| [Closure system] | [Code] | [Quantity with units] | | | | | | |\n| [Label] | [Code] | [Quantity with units] | | | | | | |\n| [Carton] | [Code] | [Quantity with units] | | | | | | |\n\n### 2.4 Label Verification\n\n| Check | Verified By | Date |\n|-------|------------|------|\n| Label content matches product specification | | |\n| Batch number correctly printed | | |\n| Expiry date correctly printed | | |\n| Storage conditions correctly stated | | |\n| Barcode/serialization (if applicable) verified | | |\n\n---\n\n## 3. Equipment and Room Preparation\n\n### 3.1 Manufacturing Rooms\n\n| Room ID | Purpose | Required Conditions | Actual Conditions | Verified By | Date |\n|---------|---------|---------------------|------------------|------------|------|\n| [Room ID] | [e.g., Weighing] | Temperature: [20-25°C]&lt;br&gt;Humidity: [30-60% RH]&lt;br&gt;Differential Pressure: [≥10 Pa] | Temp: [     ]&lt;br&gt;Humidity: [     ]&lt;br&gt;Diff Pressure: [     ] | | |\n| [Room ID] | [e.g., Granulation] | Temperature: [20-25°C]&lt;br&gt;Humidity: [30-60% RH]&lt;br&gt;Differential Pressure: [≥10 Pa] | Temp: [     ]&lt;br&gt;Humidity: [     ]&lt;br&gt;Diff Pressure: [     ] | | |\n| [Room ID] | [e.g., Compression] | Temperature: [20-25°C]&lt;br&gt;Humidity: [30-60% RH]&lt;br&gt;Differential Pressure: [≥10 Pa] | Temp: [     ]&lt;br&gt;Humidity: [     ]&lt;br&gt;Diff Pressure: [     ] | | |\n\n### 3.2 Line Clearance\n\n| Check | Status | Verified By | Date |\n|-------|--------|------------|------|\n| Previous batch materials removed | | | |\n| Equipment cleaned and status labeled | | | |\n| Room cleaned and status labeled | | | |\n| No materials from other products present | | | |\n| Line clearance approved by QA | | | |\n\n### 3.3 Equipment List\n\n| Equipment | Equipment ID | Calibration Due Date | Clean Status | Verified By | Date |\n|-----------|-------------|----------------------|--------------|------------|------|\n| [Equipment 1, e.g., Mixer] | [ID] | [YYYY-MM-DD] | | | |\n| [Equipment 2, e.g., Mill] | [ID] | [YYYY-MM-DD] | | | |\n| [Equipment 3, e.g., Tablet Press] | [ID] | [YYYY-MM-DD] | | | |\n| [Equipment 4, e.g., Coating System] | [ID] | [YYYY-MM-DD] | | | |\n\n### 3.4 Equipment Setup and Verification\n\n| Equipment | Parameter | Specification | Actual Setting | Verified By | Date |\n|-----------|-----------|---------------|---------------|------------|------|\n| [Equipment 1] | [e.g., Speed] | [e.g., 20-25 RPM] | | | |\n| [Equipment 1] | [e.g., Time] | [e.g., 15 ± 1 min] | | | |\n| [Equipment 2] | [e.g., Speed] | [e.g., 50-60 RPM] | | | |\n| [Equipment 2] | [e.g., Temperature] | [e.g., 50 ± 2°C] | | | |\n\n---\n\n## 4. Manufacturing Instructions\n\n### 4.1 Process Step 1: [Step Name, e.g., Raw Material Dispensing]\n\n**Purpose:** [Brief description of the step purpose]\n\n**Materials Required:**\n- [Material 1]\n- [Material 2]\n\n**Equipment Required:**\n- [Equipment 1]\n- [Equipment 2]\n\n**Procedure:**\n\n1. [Detailed instruction]\n   - Critical Parameter: [Specification]\n   - Acceptance Criteria: [Criteria]\n   - Actual Value: _____________ Operator: _____________ Date: _____________\n   - Verified By: _____________ Date: _____________\n\n2. [Detailed instruction]\n   - Critical Parameter: [Specification]\n   - Acceptance Criteria: [Criteria]\n   - Actual Value: _____________ Operator: _____________ Date: _____________\n   - Verified By: _____________ Date: _____________\n\n3. [Detailed instruction]\n   - Critical Parameter: [Specification]\n   - Acceptance Criteria: [Criteria]\n   - Actual Value: _____________ Operator: _____________ Date: _____________\n   - Verified By: _____________ Date: _____________\n\n**In-Process Control:**\n\n| Test | Specification | Result | Tested By | Verified By | Date |\n|------|---------------|--------|-----------|------------|------|\n| [IPC Test 1] | [Specification] | | | | |\n| [IPC Test 2] | [Specification] | | | | |\n\n### 4.2 Process Step 2: [Step Name, e.g., Granulation]\n\n**Purpose:** [Brief description of the step purpose]\n\n**Materials Required:**\n- [Material 1]\n- [Material 2]\n\n**Equipment Required:**\n- [Equipment 1]\n- [Equipment 2]\n\n**Procedure:**\n\n1. [Detailed instruction]\n   - Critical Parameter: [Specification]\n   - Acceptance Criteria: [Criteria]\n   - Actual Value: _____________ Operator: _____________ Date: _____________\n   - Verified By: _____________ Date: _____________\n\n2. [Detailed instruction]\n   - Critical Parameter: [Specification]\n   - Acceptance Criteria: [Criteria]\n   - Actual Value: _____________ Operator: _____________ Date: _____________\n   - Verified By: _____________ Date: _____________\n\n3. [Detailed instruction]\n   - Critical Parameter: [Specification]\n   - Acceptance Criteria: [Criteria]\n   - Actual Value: _____________ Operator: _____________ Date: _____________\n   - Verified By: _____________ Date: _____________\n\n**In-Process Control:**\n\n| Test | Specification | Result | Tested By | Verified By | Date |\n|------|---------------|--------|-----------|------------|------|\n| [IPC Test 1] | [Specification] | | | | |\n| [IPC Test 2] | [Specification] | | | | |\n\n### 4.3 Process Step 3: [Step Name, e.g., Compression/Filling/etc.]\n\n**Purpose:** [Brief description of the step purpose]\n\n**Materials Required:**\n- [Material 1]\n- [Material 2]\n\n**Equipment Required:**\n- [Equipment 1]\n- [Equipment 2]\n\n**Procedure:**\n\n1. [Detailed instruction]\n   - Critical Parameter: [Specification]\n   - Acceptance Criteria: [Criteria]\n   - Actual Value: _____________ Operator: _____________ Date: _____________\n   - Verified By: _____________ Date: _____________\n\n2. [Detailed instruction]\n   - Critical Parameter: [Specification]\n   - Acceptance Criteria: [Criteria]\n   - Actual Value: _____________ Operator: _____________ Date: _____________\n   - Verified By: _____________ Date: _____________\n\n3. [Detailed instruction]\n   - Critical Parameter: [Specification]\n   - Acceptance Criteria: [Criteria]\n   - Actual Value: _____________ Operator: _____________ Date: _____________\n   - Verified By: _____________ Date: _____________\n\n**In-Process Control:**\n\n| Test | Specification | Sampling Frequency | Results | Tested By | Verified By | Date |\n|------|---------------|-------------------|---------|-----------|------------|------|\n| [IPC Test 1] | [Specification] | [e.g., Every 30 minutes] | | | | |\n| [IPC Test 2] | [Specification] | [e.g., Start, middle, end] | | | | |\n\n### 4.4 Critical Process Parameters Summary\n\n| Process Step | Parameter | Specification | Action Limit | Critical Limit | Frequency of Monitoring |\n|--------------|-----------|---------------|--------------|----------------|-------------------------|\n| [Process Step 1] | [Parameter] | [Specification] | [Action Limit] | [Critical Limit] | [Frequency] |\n| [Process Step 2] | [Parameter] | [Specification] | [Action Limit] | [Critical Limit] | [Frequency] |\n| [Process Step 3] | [Parameter] | [Specification] | [Action Limit] | [Critical Limit] | [Frequency] |\n\n---\n\n## 5. Environmental Monitoring Requirements\n\n### 5.1 Non-Viable Particle Monitoring\n\n| Location | Acceptance Criteria | Results | Performed By | Verified By | Date |\n|----------|---------------------|---------|--------------|------------|------|\n| [Location 1] | Class [X] (≤[Y] particles ≥0.5µm per m³) | | | | |\n| [Location 2] | Class [X] (≤[Y] particles ≥0.5µm per m³) | | | | |\n| [Location 3] | Class [X] (≤[Y] particles ≥0.5µm per m³) | | | | |\n\n### 5.2 Viable Monitoring\n\n| Location | Method | Acceptance Criteria | Results | Performed By | Verified By | Date |\n|----------|--------|---------------------|---------|--------------|------------|------|\n| [Location 1] | [e.g., Active air, Settle plate] | ≤[X] CFU/plate or m³ | | | | |\n| [Location 2] | [e.g., Surface sample] | ≤[X] CFU/contact plate | | | | |\n| [Location 3] | [e.g., Glove print] | ≤[X] CFU/glove | | | | |\n\n### 5.3 Environmental Conditions Monitoring\n\n| Parameter | Location | Frequency | Specification | Reading Time | Result | Performed By | Verified By |\n|-----------|----------|-----------|---------------|--------------|--------|--------------|------------|\n| Temperature | [Location] | [Frequency] | [Specification] | [Time 1] | | | |\n| | | | | [Time 2] | | | |\n| Humidity | [Location] | [Frequency] | [Specification] | [Time 1] | | | |\n| | | | | [Time 2] | | | |\n| Differential Pressure | [Location] | [Frequency] | [Specification] | [Time 1] | | | |\n| | | | | [Time 2] | | | |\n\n---\n\n## 6. Cleaning Verification\n\n### 6.1 Equipment Cleaning\n\n| Equipment | Cleaning Procedure | Acceptance Criteria | Result | Verified By | Date |\n|-----------|-------------------|---------------------|--------|------------|------|\n| [Equipment 1] | [SOP Reference] | Visual inspection: No residue&lt;br&gt;pH test: [Specification]&lt;br&gt;Swab test: [Specification] | | | |\n| [Equipment 2] | [SOP Reference] | Visual inspection: No residue&lt;br&gt;pH test: [Specification]&lt;br&gt;Swab test: [Specification] | | | |\n| [Equipment 3] | [SOP Reference] | Visual inspection: No residue&lt;br&gt;pH test: [Specification]&lt;br&gt;Swab test: [Specification] | | | |\n\n### 6.2 Room Cleaning\n\n| Room | Cleaning Procedure | Acceptance Criteria | Result | Verified By | Date |\n|------|-------------------|---------------------|--------|------------|------|\n| [Room 1] | [SOP Reference] | Visual inspection: Clean&lt;br&gt;No residues from previous batch | | | |\n| [Room 2] | [SOP Reference] | Visual inspection: Clean&lt;br&gt;No residues from previous batch | | | |\n\n### 6.3 Line Clearance for Next Batch\n\n| Check | Status | Verified By | Date |\n|-------|--------|------------|------|\n| All product containers removed | | | |\n| All documentation removed | | | |\n| All labels removed | | | |\n| Equipment cleaned and status updated | | | |\n| Room cleaned and status updated | | | |\n| Line clearance approved by QA | | | |\n\n---\n\n## 7. Batch Reconciliation\n\n### 7.1 Raw Material Reconciliation\n\n| Material | Initial Quantity | Used Quantity | Returned Quantity | Loss | % Loss | Acceptable Loss | Acceptable (Y/N) |\n|----------|-----------------|---------------|-------------------|------|--------|----------------|-----------------|\n| [Material 1] | | | | | | ≤[X]% | |\n| [Material 2] | | | | | | ≤[X]% | |\n| [Material 3] | | | | | | ≤[X]% | |\n\n### 7.2 Packaging Material Reconciliation\n\n| Material | Initial Quantity | Used Quantity | Returned Quantity | Rejected Quantity | Reconciliation | Acceptable (Y/N) |\n|----------|-----------------|---------------|-------------------|-------------------|----------------|-----------------|\n| [Material 1] | | | | | | |\n| [Material 2] | | | | | | |\n| [Material 3] | | | | | | |\n\n### 7.3 Yield Reconciliation\n\n| Stage | Theoretical Yield | Actual Yield | % Yield | Acceptable Range | Acceptable (Y/N) |\n|-------|------------------|--------------|---------|-----------------|-----------------|\n| [Stage 1] | | | | [e.g., 95.0-102.0%] | |\n| [Stage 2] | | | | [e.g., 95.0-102.0%] | |\n| Final Product | | | | [e.g., 95.0-102.0%] | |\n\n### 7.4 Reconciliation Approval\n\n| Role | Name | Signature | Date |\n|------|------|-----------|------|\n| **Production Supervisor** | | | |\n| **Quality Assurance** | | | |\n\n&gt; **Note:** Any discrepancy outside acceptable limits must be investigated and documented as a deviation.\n\n---\n\n## 8. Deviation Recording\n\n### 8.1 Process Deviations\n\n| Deviation No. | Description | Process Step | Date Observed | Reported By | Impact Assessment | CAPA | Status |\n|---------------|-------------|--------------|--------------|------------|-------------------|------|--------|\n| | | | | | | | |\n| | | | | | | | |\n\n### 8.2 Equipment Deviations\n\n| Deviation No. | Equipment | Description | Date Observed | Reported By | Impact Assessment | CAPA | Status |\n|---------------|-----------|-------------|--------------|------------|-------------------|------|--------|\n| | | | | | | | |\n| | | | | | | | |\n\n### 8.3 Environmental Deviations\n\n| Deviation No. | Parameter | Description | Date Observed | Reported By | Impact Assessment | CAPA | Status |\n|---------------|-----------|-------------|--------------|------------|-------------------|------|--------|\n| | | | | | | | |\n| | | | | | | | |\n\n---\n\n## 9. Quality Review and Disposition\n\n### 9.1 Batch Record Review Checklist\n\n| Check | Status | Comments | Reviewed By | Date |\n|-------|--------|----------|------------|------|\n| All pages present and in order | | | | |\n| All required signatures present | | | | |\n| All critical process parameters within specification | | | | |\n| All in-process controls within specification | | | | |\n| Batch reconciliation acceptable | | | | |\n| All deviations documented and resolved | | | | |\n| Environmental monitoring results acceptable | | | | |\n| Cleaning verification acceptable | | | | |\n\n### 9.2 Quality Control Test Results\n\n| Test | Specification | Results | Compliance (Y/N) | Tested By | Date | Verified By | Date |\n|------|---------------|---------|------------------|-----------|------|------------|------|\n| [Test 1] | [Specification] | | | | | | |\n| [Test 2] | [Specification] | | | | | | |\n| [Test 3] | [Specification] | | | | | | |\n| [Test 4] | [Specification] | | | | | | |\n\n### 9.3 Batch Disposition\n\n| Disposition | Comments |\n|-------------|----------|\n| [ ] Released | |\n| [ ] Released with deviation | |\n| [ ] Rejected | |\n| [ ] Pending further testing | |\n\n### 9.4 Final Approval\n\n| Role | Name | Signature | Date |\n|------|------|-----------|------|\n| **Production Manager** | | | |\n| **Quality Control Manager** | | | |\n| **Quality Assurance Manager** | | | |\n| **Qualified Person/QA Release** | | | |\n\n---\n\n## When to Use\n\nUse throughout the project lifecycle to identify, assess, and track risks. This template is essential for projects with significant complexity, multiple stakeholders, or high business impact, where structured risk management provides decision-making value.\n\n## When NOT to Use\n\nDo not use for very low-risk, short-duration tasks where informal risk awareness is sufficient. Avoid this template if your governance framework requires a different risk management approach or if stakeholders prefer real-time risk dashboards over static registers.\n\n## Appendices\n\n### Appendix A: Batch Manufacturing Formula\n\n[Detailed manufacturing formula including all ingredients, their quantities, and manufacturing overages]\n\n### Appendix B: Equipment Printouts\n\n[List and attach all equipment printouts, e.g., temperature charts, process parameter logs]\n\n### Appendix C: Analytical Test Methods\n\n[Reference to analytical test methods used for in-process and finished product testing]\n\n### Appendix D: Reference Documents\n\n1. Master Manufacturing Formula [Document ID]\n2. Relevant Standard Operating Procedures:\n   - SOP-XXX: Equipment Operation\n   - SOP-XXX: Line Clearance\n   - SOP-XXX: Cleaning Procedures\n   - SOP-XXX: Environmental Monitoring\n   - SOP-XXX: Deviation Management\n   - SOP-XXX: Batch Record Review\n\n### Appendix E: GMP Guidance for Batch Record Completion\n\n#### General Guidelines:\n1. **Data Recording:**\n   - All entries must be made in indelible ink (blue or black)\n   - All entries must be clear, legible, and contemporaneous\n   - No blank spaces should be left - draw a line through any space not used\n   - Never use correction fluid or completely obscure an entry\n\n2. **Error Correction:**\n   - Draw a single line through the error\n   - Enter the correct information\n   - Initial and date the correction\n   - Provide reason for correction where needed\n\n3. **Critical Information:**\n   - All critical process parameters must be verified by a second person\n   - All calculations must be independently checked and verified\n   - Any deviation from specifications must be immediately reported and documented\n\n4. **Electronic Records:** (if applicable)\n   - Follow system access controls\n   - Ensure audit trail functionality is active\n   - Electronic signatures must comply with 21 CFR Part 11\n   - Backup procedures must be followed\n\n#### Regulatory References:\n- FDA 21 CFR Part 211 - Current Good Manufacturing Practice for Finished Pharmaceuticals\n- FDA 21 CFR Part 211.186 - Master Production and Control Records\n- FDA 21 CFR Part 211.188 - Batch Production and Control Records\n- FDA 21 CFR Part 211.192 - Production Record Review\n- EU GMP Chapter 4 - Documentation\n- ICH Q7 - Good Manufacturing Practice Guide for Active Pharmaceutical Ingredients\n- ICH Q9 - Quality Risk Management\n- ICH Q10 - Pharmaceutical Quality System\n\n### Appendix F: Example Batch Record Entry\n\n#### Example of Properly Completed Manufacturing Step:\n\n**Process Step: Blending**\n\n**Procedure:**\n1. Transfer sifted materials to the blender.\n   - Critical Parameter: Transfer time after sifting\n   - Acceptance Criteria: ≤ 30 minutes\n   - Actual Value: _20 minutes_ Operator: _JSmith_ Date: _2025-06-15_\n   - Verified By: _MJones_ Date: _2025-06-15_\n\n2. Blend for specified time.\n   - Critical Parameter: Blending time\n   - Acceptance Criteria: 15 ± 1 minutes\n   - Actual Value: _15.5 minutes_ Operator: _JSmith_ Date: _2025-06-15_\n   - Verified By: _MJones_ Date: _2025-06-15_\n\n3. Record blender settings.\n   - Critical Parameter: Blender speed\n   - Acceptance Criteria: 20 ± 2 RPM\n   - Actual Value: _19 RPM_ Operator: _JSmith_ Date: _2025-06-15_\n   - Verified By: _MJones_ Date: _2025-06-15_\n\n**In-Process Control:**\n\n| Test | Specification | Result | Tested By | Verified By | Date |\n|------|---------------|--------|-----------|------------|------|\n| Blend uniformity | RSD ≤ 5.0% | 3.2% | JSmith | MJones | 2025-06-15 |\n| Bulk density | 0.45-0.55 g/mL | 0.51 g/mL | JSmith | MJones | 2025-06-15 |\n\n#### Example of Error Correction:\n\n**Procedure:**\n1. Add ingredient slowly over specified time.\n   - Critical Parameter: Addition time\n   - Acceptance Criteria: 5 ± 1 minutes\n   - Actual Value: ~~10 minutes~~ 6 minutes JS 2025-06-15 (Transcription error) Operator: _JSmith_ Date: _2025-06-15_\n   - Verified By: _MJones_ Date: _2025-06-15_\n\n#### Example of Deviation Recording:\n\n**Deviation No.:** DEV-2025-123\n\n**Description:** During compression, tablet hardness was found to be 12.5 kP at 10:30 check, which exceeds the upper specification limit of 12.0 kP.\n\n**Process Step:** Compression\n\n**Date Observed:** 2025-06-15\n\n**Reported By:** JSmith\n\n**Impact Assessment:** 100 tablets produced between 10:00-10:30 potentially affected. Batch segregated for further evaluation.\n\n**CAPA:** Compression force adjusted to lower setting. Additional hardness testing performed on subsequent tablets which were within specification.\n\n**Status:** Closed - QA approved continuation of batch with segregation of affected tablets. See Deviation Report DEV-2025-123 for full details.\n&quot;]}" ssr client="load" opts="{&quot;name&quot;:&quot;TemplateViewer&quot;,&quot;value&quot;:true}" await-children><div><h1>Batch Record Template</h1><div style="margin-bottom:2rem"><button style="background:var(--accent-color);color:white;border:1px solid var(--border-color);padding:0.5rem 1rem;border-radius:4px 4px 0 0;cursor:pointer;margin-right:1px">Preview</button><button style="background:var(--code-bg);color:var(--text-color);border:1px solid var(--border-color);padding:0.5rem 1rem;border-radius:4px 4px 0 0;cursor:pointer">Version History</button></div><div style="border:1px solid var(--border-color);border-radius:0 8px 8px 8px;min-height:400px"><div style="background:var(--bg-primary);border-radius:var(--radius-lg)"><div style="padding:1rem 1.5rem;border-bottom:1px solid var(--border-light);display:flex;align-items:center;justify-content:space-between;background:var(--bg-secondary);border-radius:var(--radius-lg) var(--radius-lg) 0 0"><div style="display:flex;align-items:center;gap:0.5rem"><span style="font-size:1.5rem">📄</span><div><div style="font-weight:600;color:var(--text-primary)">batch_record_template.md</div><div style="font-size:0.75rem;color:var(--text-muted)">Markdown • <!-- -->22,053 bytes</div></div></div><a href="/pm-tools-templates/downloads/batch_record_template.md" download="" class="btn btn-secondary" style="font-size:0.75rem;padding:0.5rem 0.75rem">💾 Download</a></div><pre aria-label="Markdown source of Batch Record Template" style="padding:1.5rem;max-height:600px;overflow:auto;white-space:pre-wrap;overflow-wrap:anywhere">---
+title: &quot;Batch Record Template&quot;
+methodology: &quot;universal&quot;
+complexity: &quot;advanced&quot;
+owner: &quot;mirichard&quot;
+updated: &quot;2025-08-05&quot;
+primary_principles: [&quot;stewardship&quot;, &quot;quality-by-design&quot;]
+secondary_principles: [&quot;evidence-based-decisions&quot;, &quot;risk-optimization&quot;]
+principle_rationale: &quot;Preserves controlled evidence, product quality, accountability, and risk response.&quot;
+---
+
+# Manufacturing Batch Record Template
+
+## Document Control
+
+**Document ID:** [MBR-XXX]  
+**Version:** [1.0]  
+**Effective Date:** [YYYY-MM-DD]  
+**Review Date:** [YYYY-MM-DD]  
+**Supersedes:** [Previous version, if applicable]
+
+### Document History
+
+| Version | Date | Description of Change | Author | Approved By |
+|---------|------|------------------------|--------|------------|
+| 1.0 | YYYY-MM-DD | Initial release | [Name] | [Name] |
+
+### Distribution List
+
+| Name | Department/Role | Date Distributed |
+|------|----------------|------------------|
+| [Name] | [Department/Role] | [YYYY-MM-DD] |
+| [Name] | [Department/Role] | [YYYY-MM-DD] |
+
+---
+
+## 1. Batch Record Header
+
+### 1.1 Product Information
+
+| Field | Information |
+|-------|-------------|
+| **Product Name** | [Product name as per marketing authorization] |
+| **Product Code** | [Internal product code] |
+| **Dosage Form** | [Tablet/Capsule/Injectable/Cream/etc.] |
+| **Strength** | [e.g., 10 mg, 50 mg/ml, etc.] |
+| **Batch Size** | [Standard batch size, e.g., 100,000 tablets] |
+| **Pharmacopeia Reference** | [USP/BP/EP/JP/IP, etc.] |
+| **Marketing Authorization Number** | [If applicable] |
+
+### 1.2 Batch Identification
+
+| Field | Information | Verified By | Date |
+|-------|-------------|-------------|------|
+| **Batch Number** | [Unique batch identifier] | | |
+| **Manufacturing Date** | [YYYY-MM-DD] | | |
+| **Expiry Date** | [YYYY-MM-DD] | | |
+| **Campaign Number** | [If applicable] | | |
+
+### 1.3 Manufacturing Authorization
+
+| Role | Name | Signature | Date |
+|------|------|-----------|------|
+| **Production Manager** | | | |
+| **Quality Assurance** | | | |
+
+&gt; **Note:** Production shall not commence without proper authorization. Ensure all pre-production checks are completed and documented.
+
+---
+
+## 2. Material Section
+
+### 2.1 Raw Materials
+
+| Material Name | Material Code | Required Quantity | Batch Number | Expiry Date | Weighed Quantity | Weighed By | Verified By | Date |
+|---------------|--------------|-------------------|--------------|-------------|------------------|-----------|------------|------|
+| [Material 1] | [Code] | [Quantity with units] | | | | | | |
+| [Material 2] | [Code] | [Quantity with units] | | | | | | |
+| [Material 3] | [Code] | [Quantity with units] | | | | | | |
+
+### 2.2 Material Verification Checklist
+
+- [ ] All raw materials verified against specifications
+- [ ] All raw materials are within expiry date
+- [ ] All raw material containers are intact and properly labeled
+- [ ] All raw materials have passed quality control testing
+- [ ] All material dispensing performed in appropriate conditions (temperature, humidity)
+- [ ] Cross-contamination prevention measures followed
+- [ ] Balance/scale calibration verified and within valid date
+- [ ] Material weighing calculations double-checked
+
+### 2.3 Packaging Materials
+
+| Material Name | Material Code | Required Quantity | Batch Number | Expiry Date | Issued Quantity | Issued By | Verified By | Date |
+|---------------|--------------|-------------------|--------------|-------------|-----------------|-----------|------------|------|
+| [Primary container] | [Code] | [Quantity with units] | | | | | | |
+| [Closure system] | [Code] | [Quantity with units] | | | | | | |
+| [Label] | [Code] | [Quantity with units] | | | | | | |
+| [Carton] | [Code] | [Quantity with units] | | | | | | |
+
+### 2.4 Label Verification
+
+| Check | Verified By | Date |
+|-------|------------|------|
+| Label content matches product specification | | |
+| Batch number correctly printed | | |
+| Expiry date correctly printed | | |
+| Storage conditions correctly stated | | |
+| Barcode/serialization (if applicable) verified | | |
+
+---
+
+## 3. Equipment and Room Preparation
+
+### 3.1 Manufacturing Rooms
+
+| Room ID | Purpose | Required Conditions | Actual Conditions | Verified By | Date |
+|---------|---------|---------------------|------------------|------------|------|
+| [Room ID] | [e.g., Weighing] | Temperature: [20-25°C]&lt;br&gt;Humidity: [30-60% RH]&lt;br&gt;Differential Pressure: [≥10 Pa] | Temp: [     ]&lt;br&gt;Humidity: [     ]&lt;br&gt;Diff Pressure: [     ] | | |
+| [Room ID] | [e.g., Granulation] | Temperature: [20-25°C]&lt;br&gt;Humidity: [30-60% RH]&lt;br&gt;Differential Pressure: [≥10 Pa] | Temp: [     ]&lt;br&gt;Humidity: [     ]&lt;br&gt;Diff Pressure: [     ] | | |
+| [Room ID] | [e.g., Compression] | Temperature: [20-25°C]&lt;br&gt;Humidity: [30-60% RH]&lt;br&gt;Differential Pressure: [≥10 Pa] | Temp: [     ]&lt;br&gt;Humidity: [     ]&lt;br&gt;Diff Pressure: [     ] | | |
+
+### 3.2 Line Clearance
+
+| Check | Status | Verified By | Date |
+|-------|--------|------------|------|
+| Previous batch materials removed | | | |
+| Equipment cleaned and status labeled | | | |
+| Room cleaned and status labeled | | | |
+| No materials from other products present | | | |
+| Line clearance approved by QA | | | |
+
+### 3.3 Equipment List
+
+| Equipment | Equipment ID | Calibration Due Date | Clean Status | Verified By | Date |
+|-----------|-------------|----------------------|--------------|------------|------|
+| [Equipment 1, e.g., Mixer] | [ID] | [YYYY-MM-DD] | | | |
+| [Equipment 2, e.g., Mill] | [ID] | [YYYY-MM-DD] | | | |
+| [Equipment 3, e.g., Tablet Press] | [ID] | [YYYY-MM-DD] | | | |
+| [Equipment 4, e.g., Coating System] | [ID] | [YYYY-MM-DD] | | | |
+
+### 3.4 Equipment Setup and Verification
+
+| Equipment | Parameter | Specification | Actual Setting | Verified By | Date |
+|-----------|-----------|---------------|---------------|------------|------|
+| [Equipment 1] | [e.g., Speed] | [e.g., 20-25 RPM] | | | |
+| [Equipment 1] | [e.g., Time] | [e.g., 15 ± 1 min] | | | |
+| [Equipment 2] | [e.g., Speed] | [e.g., 50-60 RPM] | | | |
+| [Equipment 2] | [e.g., Temperature] | [e.g., 50 ± 2°C] | | | |
+
+---
+
+## 4. Manufacturing Instructions
+
+### 4.1 Process Step 1: [Step Name, e.g., Raw Material Dispensing]
+
+**Purpose:** [Brief description of the step purpose]
+
+**Materials Required:**
+- [Material 1]
+- [Material 2]
+
+**Equipment Required:**
+- [Equipment 1]
+- [Equipment 2]
+
+**Procedure:**
+
+1. [Detailed instruction]
+   - Critical Parameter: [Specification]
+   - Acceptance Criteria: [Criteria]
+   - Actual Value: _____________ Operator: _____________ Date: _____________
+   - Verified By: _____________ Date: _____________
+
+2. [Detailed instruction]
+   - Critical Parameter: [Specification]
+   - Acceptance Criteria: [Criteria]
+   - Actual Value: _____________ Operator: _____________ Date: _____________
+   - Verified By: _____________ Date: _____________
+
+3. [Detailed instruction]
+   - Critical Parameter: [Specification]
+   - Acceptance Criteria: [Criteria]
+   - Actual Value: _____________ Operator: _____________ Date: _____________
+   - Verified By: _____________ Date: _____________
+
+**In-Process Control:**
+
+| Test | Specification | Result | Tested By | Verified By | Date |
+|------|---------------|--------|-----------|------------|------|
+| [IPC Test 1] | [Specification] | | | | |
+| [IPC Test 2] | [Specification] | | | | |
+
+### 4.2 Process Step 2: [Step Name, e.g., Granulation]
+
+**Purpose:** [Brief description of the step purpose]
+
+**Materials Required:**
+- [Material 1]
+- [Material 2]
+
+**Equipment Required:**
+- [Equipment 1]
+- [Equipment 2]
+
+**Procedure:**
+
+1. [Detailed instruction]
+   - Critical Parameter: [Specification]
+   - Acceptance Criteria: [Criteria]
+   - Actual Value: _____________ Operator: _____________ Date: _____________
+   - Verified By: _____________ Date: _____________
+
+2. [Detailed instruction]
+   - Critical Parameter: [Specification]
+   - Acceptance Criteria: [Criteria]
+   - Actual Value: _____________ Operator: _____________ Date: _____________
+   - Verified By: _____________ Date: _____________
+
+3. [Detailed instruction]
+   - Critical Parameter: [Specification]
+   - Acceptance Criteria: [Criteria]
+   - Actual Value: _____________ Operator: _____________ Date: _____________
+   - Verified By: _____________ Date: _____________
+
+**In-Process Control:**
+
+| Test | Specification | Result | Tested By | Verified By | Date |
+|------|---------------|--------|-----------|------------|------|
+| [IPC Test 1] | [Specification] | | | | |
+| [IPC Test 2] | [Specification] | | | | |
+
+### 4.3 Process Step 3: [Step Name, e.g., Compression/Filling/etc.]
+
+**Purpose:** [Brief description of the step purpose]
+
+**Materials Required:**
+- [Material 1]
+- [Material 2]
+
+**Equipment Required:**
+- [Equipment 1]
+- [Equipment 2]
+
+**Procedure:**
+
+1. [Detailed instruction]
+   - Critical Parameter: [Specification]
+   - Acceptance Criteria: [Criteria]
+   - Actual Value: _____________ Operator: _____________ Date: _____________
+   - Verified By: _____________ Date: _____________
+
+2. [Detailed instruction]
+   - Critical Parameter: [Specification]
+   - Acceptance Criteria: [Criteria]
+   - Actual Value: _____________ Operator: _____________ Date: _____________
+   - Verified By: _____________ Date: _____________
+
+3. [Detailed instruction]
+   - Critical Parameter: [Specification]
+   - Acceptance Criteria: [Criteria]
+   - Actual Value: _____________ Operator: _____________ Date: _____________
+   - Verified By: _____________ Date: _____________
+
+**In-Process Control:**
+
+| Test | Specification | Sampling Frequency | Results | Tested By | Verified By | Date |
+|------|---------------|-------------------|---------|-----------|------------|------|
+| [IPC Test 1] | [Specification] | [e.g., Every 30 minutes] | | | | |
+| [IPC Test 2] | [Specification] | [e.g., Start, middle, end] | | | | |
+
+### 4.4 Critical Process Parameters Summary
+
+| Process Step | Parameter | Specification | Action Limit | Critical Limit | Frequency of Monitoring |
+|--------------|-----------|---------------|--------------|----------------|-------------------------|
+| [Process Step 1] | [Parameter] | [Specification] | [Action Limit] | [Critical Limit] | [Frequency] |
+| [Process Step 2] | [Parameter] | [Specification] | [Action Limit] | [Critical Limit] | [Frequency] |
+| [Process Step 3] | [Parameter] | [Specification] | [Action Limit] | [Critical Limit] | [Frequency] |
+
+---
+
+## 5. Environmental Monitoring Requirements
+
+### 5.1 Non-Viable Particle Monitoring
+
+| Location | Acceptance Criteria | Results | Performed By | Verified By | Date |
+|----------|---------------------|---------|--------------|------------|------|
+| [Location 1] | Class [X] (≤[Y] particles ≥0.5µm per m³) | | | | |
+| [Location 2] | Class [X] (≤[Y] particles ≥0.5µm per m³) | | | | |
+| [Location 3] | Class [X] (≤[Y] particles ≥0.5µm per m³) | | | | |
+
+### 5.2 Viable Monitoring
+
+| Location | Method | Acceptance Criteria | Results | Performed By | Verified By | Date |
+|----------|--------|---------------------|---------|--------------|------------|------|
+| [Location 1] | [e.g., Active air, Settle plate] | ≤[X] CFU/plate or m³ | | | | |
+| [Location 2] | [e.g., Surface sample] | ≤[X] CFU/contact plate | | | | |
+| [Location 3] | [e.g., Glove print] | ≤[X] CFU/glove | | | | |
+
+### 5.3 Environmental Conditions Monitoring
+
+| Parameter | Location | Frequency | Specification | Reading Time | Result | Performed By | Verified By |
+|-----------|----------|-----------|---------------|--------------|--------|--------------|------------|
+| Temperature | [Location] | [Frequency] | [Specification] | [Time 1] | | | |
+| | | | | [Time 2] | | | |
+| Humidity | [Location] | [Frequency] | [Specification] | [Time 1] | | | |
+| | | | | [Time 2] | | | |
+| Differential Pressure | [Location] | [Frequency] | [Specification] | [Time 1] | | | |
+| | | | | [Time 2] | | | |
+
+---
+
+## 6. Cleaning Verification
+
+### 6.1 Equipment Cleaning
+
+| Equipment | Cleaning Procedure | Acceptance Criteria | Result | Verified By | Date |
+|-----------|-------------------|---------------------|--------|------------|------|
+| [Equipment 1] | [SOP Reference] | Visual inspection: No residue&lt;br&gt;pH test: [Specification]&lt;br&gt;Swab test: [Specification] | | | |
+| [Equipment 2] | [SOP Reference] | Visual inspection: No residue&lt;br&gt;pH test: [Specification]&lt;br&gt;Swab test: [Specification] | | | |
+| [Equipment 3] | [SOP Reference] | Visual inspection: No residue&lt;br&gt;pH test: [Specification]&lt;br&gt;Swab test: [Specification] | | | |
+
+### 6.2 Room Cleaning
+
+| Room | Cleaning Procedure | Acceptance Criteria | Result | Verified By | Date |
+|------|-------------------|---------------------|--------|------------|------|
+| [Room 1] | [SOP Reference] | Visual inspection: Clean&lt;br&gt;No residues from previous batch | | | |
+| [Room 2] | [SOP Reference] | Visual inspection: Clean&lt;br&gt;No residues from previous batch | | | |
+
+### 6.3 Line Clearance for Next Batch
+
+| Check | Status | Verified By | Date |
+|-------|--------|------------|------|
+| All product containers removed | | | |
+| All documentation removed | | | |
+| All labels removed | | | |
+| Equipment cleaned and status updated | | | |
+| Room cleaned and status updated | | | |
+| Line clearance approved by QA | | | |
+
+---
+
+## 7. Batch Reconciliation
+
+### 7.1 Raw Material Reconciliation
+
+| Material | Initial Quantity | Used Quantity | Returned Quantity | Loss | % Loss | Acceptable Loss | Acceptable (Y/N) |
+|----------|-----------------|---------------|-------------------|------|--------|----------------|-----------------|
+| [Material 1] | | | | | | ≤[X]% | |
+| [Material 2] | | | | | | ≤[X]% | |
+| [Material 3] | | | | | | ≤[X]% | |
+
+### 7.2 Packaging Material Reconciliation
+
+| Material | Initial Quantity | Used Quantity | Returned Quantity | Rejected Quantity | Reconciliation | Acceptable (Y/N) |
+|----------|-----------------|---------------|-------------------|-------------------|----------------|-----------------|
+| [Material 1] | | | | | | |
+| [Material 2] | | | | | | |
+| [Material 3] | | | | | | |
+
+### 7.3 Yield Reconciliation
+
+| Stage | Theoretical Yield | Actual Yield | % Yield | Acceptable Range | Acceptable (Y/N) |
+|-------|------------------|--------------|---------|-----------------|-----------------|
+| [Stage 1] | | | | [e.g., 95.0-102.0%] | |
+| [Stage 2] | | | | [e.g., 95.0-102.0%] | |
+| Final Product | | | | [e.g., 95.0-102.0%] | |
+
+### 7.4 Reconciliation Approval
+
+| Role | Name | Signature | Date |
+|------|------|-----------|------|
+| **Production Supervisor** | | | |
+| **Quality Assurance** | | | |
+
+&gt; **Note:** Any discrepancy outside acceptable limits must be investigated and documented as a deviation.
+
+---
+
+## 8. Deviation Recording
+
+### 8.1 Process Deviations
+
+| Deviation No. | Description | Process Step | Date Observed | Reported By | Impact Assessment | CAPA | Status |
+|---------------|-------------|--------------|--------------|------------|-------------------|------|--------|
+| | | | | | | | |
+| | | | | | | | |
+
+### 8.2 Equipment Deviations
+
+| Deviation No. | Equipment | Description | Date Observed | Reported By | Impact Assessment | CAPA | Status |
+|---------------|-----------|-------------|--------------|------------|-------------------|------|--------|
+| | | | | | | | |
+| | | | | | | | |
+
+### 8.3 Environmental Deviations
+
+| Deviation No. | Parameter | Description | Date Observed | Reported By | Impact Assessment | CAPA | Status |
+|---------------|-----------|-------------|--------------|------------|-------------------|------|--------|
+| | | | | | | | |
+| | | | | | | | |
+
+---
+
+## 9. Quality Review and Disposition
+
+### 9.1 Batch Record Review Checklist
+
+| Check | Status | Comments | Reviewed By | Date |
+|-------|--------|----------|------------|------|
+| All pages present and in order | | | | |
+| All required signatures present | | | | |
+| All critical process parameters within specification | | | | |
+| All in-process controls within specification | | | | |
+| Batch reconciliation acceptable | | | | |
+| All deviations documented and resolved | | | | |
+| Environmental monitoring results acceptable | | | | |
+| Cleaning verification acceptable | | | | |
+
+### 9.2 Quality Control Test Results
+
+| Test | Specification | Results | Compliance (Y/N) | Tested By | Date | Verified By | Date |
+|------|---------------|---------|------------------|-----------|------|------------|------|
+| [Test 1] | [Specification] | | | | | | |
+| [Test 2] | [Specification] | | | | | | |
+| [Test 3] | [Specification] | | | | | | |
+| [Test 4] | [Specification] | | | | | | |
+
+### 9.3 Batch Disposition
+
+| Disposition | Comments |
+|-------------|----------|
+| [ ] Released | |
+| [ ] Released with deviation | |
+| [ ] Rejected | |
+| [ ] Pending further testing | |
+
+### 9.4 Final Approval
+
+| Role | Name | Signature | Date |
+|------|------|-----------|------|
+| **Production Manager** | | | |
+| **Quality Control Manager** | | | |
+| **Quality Assurance Manager** | | | |
+| **Qualified Person/QA Release** | | | |
+
+---
+
+## When to Use
+
+Use throughout the project lifecycle to identify, assess, and track risks. This template is essential for projects with significant complexity, multiple stakeholders, or high business impact, where structured risk management provides decision-making value.
+
+## When NOT to Use
+
+Do not use for very low-risk, short-duration tasks where informal risk awareness is sufficient. Avoid this template if your governance framework requires a different risk management approach or if stakeholders prefer real-time risk dashboards over static registers.
+
+## Appendices
+
+### Appendix A: Batch Manufacturing Formula
+
+[Detailed manufacturing formula including all ingredients, their quantities, and manufacturing overages]
+
+### Appendix B: Equipment Printouts
+
+[List and attach all equipment printouts, e.g., temperature charts, process parameter logs]
+
+### Appendix C: Analytical Test Methods
+
+[Reference to analytical test methods used for in-process and finished product testing]
+
+### Appendix D: Reference Documents
+
+1. Master Manufacturing Formula [Document ID]
+2. Relevant Standard Operating Procedures:
+   - SOP-XXX: Equipment Operation
+   - SOP-XXX: Line Clearance
+   - SOP-XXX: Cleaning Procedures
+   - SOP-XXX: Environmental Monitoring
+   - SOP-XXX: Deviation Management
+   - SOP-XXX: Batch Record Review
+
+### Appendix E: GMP Guidance for Batch Record Completion
+
+#### General Guidelines:
+1. **Data Recording:**
+   - All entries must be made in indelible ink (blue or black)
+   - All entries must be clear, legible, and contemporaneous
+   - No blank spaces should be left - draw a line through any space not used
+   - Never use correction fluid or completely obscure an entry
+
+2. **Error Correction:**
+   - Draw a single line through the error
+   - Enter the correct information
+   - Initial and date the correction
+   - Provide reason for correction where needed
+
+3. **Critical Information:**
+   - All critical process parameters must be verified by a second person
+   - All calculations must be independently checked and verified
+   - Any deviation from specifications must be immediately reported and documented
+
+4. **Electronic Records:** (if applicable)
+   - Follow system access controls
+   - Ensure audit trail functionality is active
+   - Electronic signatures must comply with 21 CFR Part 11
+   - Backup procedures must be followed
+
+#### Regulatory References:
+- FDA 21 CFR Part 211 - Current Good Manufacturing Practice for Finished Pharmaceuticals
+- FDA 21 CFR Part 211.186 - Master Production and Control Records
+- FDA 21 CFR Part 211.188 - Batch Production and Control Records
+- FDA 21 CFR Part 211.192 - Production Record Review
+- EU GMP Chapter 4 - Documentation
+- ICH Q7 - Good Manufacturing Practice Guide for Active Pharmaceutical Ingredients
+- ICH Q9 - Quality Risk Management
+- ICH Q10 - Pharmaceutical Quality System
+
+### Appendix F: Example Batch Record Entry
+
+#### Example of Properly Completed Manufacturing Step:
+
+**Process Step: Blending**
+
+**Procedure:**
+1. Transfer sifted materials to the blender.
+   - Critical Parameter: Transfer time after sifting
+   - Acceptance Criteria: ≤ 30 minutes
+   - Actual Value: _20 minutes_ Operator: _JSmith_ Date: _2025-06-15_
+   - Verified By: _MJones_ Date: _2025-06-15_
+
+2. Blend for specified time.
+   - Critical Parameter: Blending time
+   - Acceptance Criteria: 15 ± 1 minutes
+   - Actual Value: _15.5 minutes_ Operator: _JSmith_ Date: _2025-06-15_
+   - Verified By: _MJones_ Date: _2025-06-15_
+
+3. Record blender settings.
+   - Critical Parameter: Blender speed
+   - Acceptance Criteria: 20 ± 2 RPM
+   - Actual Value: _19 RPM_ Operator: _JSmith_ Date: _2025-06-15_
+   - Verified By: _MJones_ Date: _2025-06-15_
+
+**In-Process Control:**
+
+| Test | Specification | Result | Tested By | Verified By | Date |
+|------|---------------|--------|-----------|------------|------|
+| Blend uniformity | RSD ≤ 5.0% | 3.2% | JSmith | MJones | 2025-06-15 |
+| Bulk density | 0.45-0.55 g/mL | 0.51 g/mL | JSmith | MJones | 2025-06-15 |
+
+#### Example of Error Correction:
+
+**Procedure:**
+1. Add ingredient slowly over specified time.
+   - Critical Parameter: Addition time
+   - Acceptance Criteria: 5 ± 1 minutes
+   - Actual Value: ~~10 minutes~~ 6 minutes JS 2025-06-15 (Transcription error) Operator: _JSmith_ Date: _2025-06-15_
+   - Verified By: _MJones_ Date: _2025-06-15_
+
+#### Example of Deviation Recording:
+
+**Deviation No.:** DEV-2025-123
+
+**Description:** During compression, tablet hardness was found to be 12.5 kP at 10:30 check, which exceeds the upper specification limit of 12.0 kP.
+
+**Process Step:** Compression
+
+**Date Observed:** 2025-06-15
+
+**Reported By:** JSmith
+
+**Impact Assessment:** 100 tablets produced between 10:00-10:30 potentially affected. Batch segregated for further evaluation.
+
+**CAPA:** Compression force adjusted to lower setting. Additional hardness testing performed on subsequent tablets which were within specification.
+
+**Status:** Closed - QA approved continuation of batch with segregation of affected tablets. See Deviation Report DEV-2025-123 for full details.
+</pre></div></div></div><!--astro:end--></astro-island></main></body></html>

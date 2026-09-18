@@ -1,0 +1,85 @@
+<!DOCTYPE html><html lang="en" data-astro-cid-ju4pidww><head><meta charset="UTF-8"><meta name="description" content="Advanced template browser with previews and version history"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="icon" type="image/svg+xml" href="/pm-tools-templates/favicon.svg"><title>Governance Assessment Template</title><link rel="stylesheet" href="/pm-tools-templates/assets/Layout.ChXqTIwx.css"></head><body data-astro-cid-ju4pidww><main data-astro-cid-ju4pidww><style>astro-island,astro-slot,astro-static-slot{display:contents}</style><script>(()=>{var e=async t=>{await(await t())()};(self.Astro||(self.Astro={})).load=e;window.dispatchEvent(new Event("astro:load"));})();</script><script>(()=>{var g=Object.defineProperty;var w=(a,s,c)=>s in a?g(a,s,{enumerable:!0,configurable:!0,writable:!0,value:c}):a[s]=c;var l=(a,s,c)=>w(a,typeof s!="symbol"?s+"":s,c);var E=new Set(["__proto__","constructor","prototype"]);{let a={0:t=>y(t),1:t=>c(t),2:t=>new RegExp(t),3:t=>new Date(t),4:t=>new Map(c(t)),5:t=>new Set(c(t)),6:t=>BigInt(t),7:t=>new URL(t),8:t=>new Uint8Array(t),9:t=>new Uint16Array(t),10:t=>new Uint32Array(t),11:t=>Number.POSITIVE_INFINITY*t},s=t=>{let[p,e]=t;return p in a?a[p](e):void 0},c=t=>t.map(s),y=t=>typeof t!="object"||t===null?t:Object.fromEntries(Object.entries(t).map(([p,e])=>[p,s(e)]));class f extends HTMLElement{constructor(){super(...arguments);l(this,"Component");l(this,"hydrator");l(this,"hydrate",async()=>{var b;if(!this.hydrator||!this.isConnected)return;let e=(b=this.parentElement)==null?void 0:b.closest("astro-island[ssr]");if(e){e.addEventListener("astro:hydrate",this.hydrate,{once:!0});return}let r=this.querySelectorAll("astro-slot"),n={},d=this.querySelectorAll("template[data-astro-template]");for(let o of d){let i=o.closest(this.tagName);i!=null&&i.isSameNode(this)&&(n[o.getAttribute("data-astro-template")||"default"]=o.innerHTML,o.remove())}for(let o of r){let i=o.closest(this.tagName);i!=null&&i.isSameNode(this)&&(n[o.getAttribute("name")||"default"]=o.innerHTML)}let u;try{u=this.hasAttribute("props")?y(JSON.parse(this.getAttribute("props"))):{}}catch(o){let i=this.getAttribute("component-url")||"<unknown>",v=this.getAttribute("component-export");throw v&&(i+=` (export ${v})`),console.error(`[hydrate] Error parsing props for component ${i}`,this.getAttribute("props"),o),o}let h;await this.hydrator(this)(this.Component,u,n,{client:this.getAttribute("client")}),this.removeAttribute("ssr"),this.dispatchEvent(new CustomEvent("astro:hydrate"))});l(this,"unmount",()=>{this.isConnected||this.dispatchEvent(new CustomEvent("astro:unmount"))})}disconnectedCallback(){document.removeEventListener("astro:after-swap",this.unmount),document.addEventListener("astro:after-swap",this.unmount,{once:!0})}connectedCallback(){if(!this.hasAttribute("await-children")||document.readyState==="interactive"||document.readyState==="complete")this.childrenConnectedCallback();else{let e=()=>{document.removeEventListener("DOMContentLoaded",e),r.disconnect(),this.childrenConnectedCallback()},r=new MutationObserver(()=>{var n;((n=this.lastChild)==null?void 0:n.nodeType)===Node.COMMENT_NODE&&this.lastChild.nodeValue==="astro:end"&&(this.lastChild.remove(),e())});r.observe(this,{childList:!0}),document.addEventListener("DOMContentLoaded",e)}}async childrenConnectedCallback(){let e=this.getAttribute("before-hydration-url");e&&await import(e),this.start()}getRetryImportUrl(e){let r=new URL(e,document.baseURI);return r.searchParams.set("astro-retry",Date.now().toString()),r.toString()}async importWithRetry(e){try{return await import(e)}catch(r){return await new Promise(n=>setTimeout(n,1e3)),import(this.getRetryImportUrl(e))}}handleHydrationError(e){let r=this.getAttribute("component-url"),n=new CustomEvent("astro:hydration-error",{cancelable:!0,bubbles:!0,composed:!0,detail:{error:e,componentUrl:r}});this.dispatchEvent(n)&&console.error(`[astro-island] Error hydrating ${r}`,e)}async start(){let e=JSON.parse(this.getAttribute("opts")),r=this.getAttribute("client");if(Astro[r]===void 0){window.addEventListener(`astro:${r}`,()=>this.start(),{once:!0});return}try{await Astro[r](async()=>{let n=this.getAttribute("renderer-url");try{let[d,{default:u}]=await Promise.all([this.importWithRetry(this.getAttribute("component-url")),n?this.importWithRetry(n):Promise.resolve({default:()=>()=>{}})]),h=this.getAttribute("component-export")||"default";if(h.includes(".")){this.Component=d;for(let m of h.split(".")){if(E.has(m)||!this.Component||typeof this.Component!="object"&&typeof this.Component!="function"||!Object.hasOwn(this.Component,m))throw new Error(`Invalid component export path: ${h}`);this.Component=this.Component[m]}}else{if(E.has(h))throw new Error(`Invalid component export path: ${h}`);this.Component=d[h]}return this.hydrator=u,this.hydrate}catch(d){return this.handleHydrationError(d),()=>{}}},e,this)}catch(n){this.handleHydrationError(n)}}attributeChangedCallback(){this.hydrate()}}l(f,"observedAttributes",["props"]),customElements.get("astro-island")||customElements.define("astro-island",f)}})();</script><astro-island uid="2072On" prefix="r1" component-url="/pm-tools-templates/assets/TemplateViewer.BJxWH0dD.js" component-export="default" renderer-url="/pm-tools-templates/assets/client.REQV_TkY.js" props="{&quot;templateId&quot;:[0,&quot;governance-assessment-template&quot;],&quot;filePath&quot;:[0,&quot;domains/measurement/project-assessment-suite/governance-assessment-template.md&quot;],&quot;title&quot;:[0,&quot;Governance Assessment Template&quot;],&quot;content&quot;:[0,&quot;---\ntitle: Project Governance Assessment Template\nmethodology: universal\ncomplexity: basic\nprocess_group: initiating\nindustry: financial\nrole: stakeholder\ntags:\n- initiating\n- stakeholder-management\n- quality\nversion: 1.0.0\nowner: mirichard\nupdated: &#39;2025-08-06&#39;\nestimated_completion_time: 15-30 minutes\nprimary_principles:\n- evidence-based-decisions\n- quality-by-design\nsecondary_principles:\n- stewardship\n- risk-optimization\nprinciple_rationale: Assesses control maturity through evidence to ensure quality\n  governance and compliance.\n---\n\ntitle: \&quot;Governance Assessment Template\&quot;\nmethodology: \&quot;universal\&quot;\ncomplexity: \&quot;starter\&quot;\nowner: \&quot;mirichard\&quot;\nupdated: \&quot;2025-08-05\&quot;\n\n# Project Governance Assessment Template\n\n## Executive Summary\nThis template provides a comprehensive framework for assessing project governance effectiveness and identifying improvement opportunities.\n\n## Assessment Overview\n**Project/Program:** [Name of project or program being assessed]\n**Assessment Date:** [Date of assessment]\n**Assessor:** [Name and role of person conducting assessment]\n**Assessment Scope:** [What aspects of governance are being evaluated]\n\n## When to Use\n\nUse early in the project lifecycle to map stakeholders, understand their interests and influence, and develop engagement strategies. This template is critical for complex organizational change, cross-functional initiatives, or projects with diverse competing interests.\n\n## When NOT to Use\n\nDo not use for internal team-only initiatives with minimal external stakeholder involvement. Avoid using this template if you already have a well-established stakeholder management framework specific to your organization.\n\n## Governance Framework Assessment\n\n### 1. Governance Structure\n**Evaluation Criteria:**\n- [ ] Clear governance hierarchy and roles\n- [ ] Defined decision-making authority\n- [ ] Appropriate stakeholder representation\n- [ ] Regular governance meetings and reviews\n\n**Assessment Questions:**\n1. Is there a clearly defined governance structure? (Yes/No/Partial)\n2. Are roles and responsibilities well documented? (Yes/No/Partial)\n3. Do governance members have appropriate authority? (Yes/No/Partial)\n4. Are decision-making processes clear and followed? (Yes/No/Partial)\n\n**Current State:** [Description of existing governance structure]\n**Maturity Level:** [1-5 scale] \n**Recommendations:** [Specific improvement actions]\n\n### 2. Policy and Procedures\n**Assessment Areas:**\n- [ ] Policy framework completeness\n- [ ] Procedure documentation quality\n- [ ] Policy compliance monitoring\n- [ ] Update and maintenance processes\n\n**Scoring:** [1-5 scale for each area]\n**Strengths:** [What&#39;s working well]\n**Gaps:** [Areas needing improvement]\n**Action Items:** [Specific recommendations]\n\nRelated Resources:\n- [Governance Tools](../role-based-toolkits/project-manager/governance-tools/)\n- [Decision Authority Matrix](../role-based-toolkits/project-manager/governance-tools/decision-authority.md)\n&quot;]}" ssr client="load" opts="{&quot;name&quot;:&quot;TemplateViewer&quot;,&quot;value&quot;:true}" await-children><div><h1>Governance Assessment Template</h1><div style="margin-bottom:2rem"><button style="background:var(--accent-color);color:white;border:1px solid var(--border-color);padding:0.5rem 1rem;border-radius:4px 4px 0 0;cursor:pointer;margin-right:1px">Preview</button><button style="background:var(--code-bg);color:var(--text-color);border:1px solid var(--border-color);padding:0.5rem 1rem;border-radius:4px 4px 0 0;cursor:pointer">Version History</button></div><div style="border:1px solid var(--border-color);border-radius:0 8px 8px 8px;min-height:400px"><div style="background:var(--bg-primary);border-radius:var(--radius-lg)"><div style="padding:1rem 1.5rem;border-bottom:1px solid var(--border-light);display:flex;align-items:center;justify-content:space-between;background:var(--bg-secondary);border-radius:var(--radius-lg) var(--radius-lg) 0 0"><div style="display:flex;align-items:center;gap:0.5rem"><span style="font-size:1.5rem">📄</span><div><div style="font-weight:600;color:var(--text-primary)">governance-assessment-template.md</div><div style="font-size:0.75rem;color:var(--text-muted)">Markdown • <!-- -->2,956 bytes</div></div></div><a href="/pm-tools-templates/downloads/governance-assessment-template.md" download="" class="btn btn-secondary" style="font-size:0.75rem;padding:0.5rem 0.75rem">💾 Download</a></div><pre aria-label="Markdown source of Governance Assessment Template" style="padding:1.5rem;max-height:600px;overflow:auto;white-space:pre-wrap;overflow-wrap:anywhere">---
+title: Project Governance Assessment Template
+methodology: universal
+complexity: basic
+process_group: initiating
+industry: financial
+role: stakeholder
+tags:
+- initiating
+- stakeholder-management
+- quality
+version: 1.0.0
+owner: mirichard
+updated: &#x27;2025-08-06&#x27;
+estimated_completion_time: 15-30 minutes
+primary_principles:
+- evidence-based-decisions
+- quality-by-design
+secondary_principles:
+- stewardship
+- risk-optimization
+principle_rationale: Assesses control maturity through evidence to ensure quality
+  governance and compliance.
+---
+
+title: &quot;Governance Assessment Template&quot;
+methodology: &quot;universal&quot;
+complexity: &quot;starter&quot;
+owner: &quot;mirichard&quot;
+updated: &quot;2025-08-05&quot;
+
+# Project Governance Assessment Template
+
+## Executive Summary
+This template provides a comprehensive framework for assessing project governance effectiveness and identifying improvement opportunities.
+
+## Assessment Overview
+**Project/Program:** [Name of project or program being assessed]
+**Assessment Date:** [Date of assessment]
+**Assessor:** [Name and role of person conducting assessment]
+**Assessment Scope:** [What aspects of governance are being evaluated]
+
+## When to Use
+
+Use early in the project lifecycle to map stakeholders, understand their interests and influence, and develop engagement strategies. This template is critical for complex organizational change, cross-functional initiatives, or projects with diverse competing interests.
+
+## When NOT to Use
+
+Do not use for internal team-only initiatives with minimal external stakeholder involvement. Avoid using this template if you already have a well-established stakeholder management framework specific to your organization.
+
+## Governance Framework Assessment
+
+### 1. Governance Structure
+**Evaluation Criteria:**
+- [ ] Clear governance hierarchy and roles
+- [ ] Defined decision-making authority
+- [ ] Appropriate stakeholder representation
+- [ ] Regular governance meetings and reviews
+
+**Assessment Questions:**
+1. Is there a clearly defined governance structure? (Yes/No/Partial)
+2. Are roles and responsibilities well documented? (Yes/No/Partial)
+3. Do governance members have appropriate authority? (Yes/No/Partial)
+4. Are decision-making processes clear and followed? (Yes/No/Partial)
+
+**Current State:** [Description of existing governance structure]
+**Maturity Level:** [1-5 scale] 
+**Recommendations:** [Specific improvement actions]
+
+### 2. Policy and Procedures
+**Assessment Areas:**
+- [ ] Policy framework completeness
+- [ ] Procedure documentation quality
+- [ ] Policy compliance monitoring
+- [ ] Update and maintenance processes
+
+**Scoring:** [1-5 scale for each area]
+**Strengths:** [What&#x27;s working well]
+**Gaps:** [Areas needing improvement]
+**Action Items:** [Specific recommendations]
+
+Related Resources:
+- [Governance Tools](../role-based-toolkits/project-manager/governance-tools/)
+- [Decision Authority Matrix](../role-based-toolkits/project-manager/governance-tools/decision-authority.md)
+</pre></div></div></div><!--astro:end--></astro-island></main></body></html>

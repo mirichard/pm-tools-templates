@@ -1,0 +1,102 @@
+<!DOCTYPE html><html lang="en" data-astro-cid-ju4pidww><head><meta charset="UTF-8"><meta name="description" content="Advanced template browser with previews and version history"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="icon" type="image/svg+xml" href="/pm-tools-templates/favicon.svg"><title>Benefits Review Template</title><link rel="stylesheet" href="/pm-tools-templates/assets/Layout.ChXqTIwx.css"></head><body data-astro-cid-ju4pidww><main data-astro-cid-ju4pidww><style>astro-island,astro-slot,astro-static-slot{display:contents}</style><script>(()=>{var e=async t=>{await(await t())()};(self.Astro||(self.Astro={})).load=e;window.dispatchEvent(new Event("astro:load"));})();</script><script>(()=>{var g=Object.defineProperty;var w=(a,s,c)=>s in a?g(a,s,{enumerable:!0,configurable:!0,writable:!0,value:c}):a[s]=c;var l=(a,s,c)=>w(a,typeof s!="symbol"?s+"":s,c);var E=new Set(["__proto__","constructor","prototype"]);{let a={0:t=>y(t),1:t=>c(t),2:t=>new RegExp(t),3:t=>new Date(t),4:t=>new Map(c(t)),5:t=>new Set(c(t)),6:t=>BigInt(t),7:t=>new URL(t),8:t=>new Uint8Array(t),9:t=>new Uint16Array(t),10:t=>new Uint32Array(t),11:t=>Number.POSITIVE_INFINITY*t},s=t=>{let[p,e]=t;return p in a?a[p](e):void 0},c=t=>t.map(s),y=t=>typeof t!="object"||t===null?t:Object.fromEntries(Object.entries(t).map(([p,e])=>[p,s(e)]));class f extends HTMLElement{constructor(){super(...arguments);l(this,"Component");l(this,"hydrator");l(this,"hydrate",async()=>{var b;if(!this.hydrator||!this.isConnected)return;let e=(b=this.parentElement)==null?void 0:b.closest("astro-island[ssr]");if(e){e.addEventListener("astro:hydrate",this.hydrate,{once:!0});return}let r=this.querySelectorAll("astro-slot"),n={},d=this.querySelectorAll("template[data-astro-template]");for(let o of d){let i=o.closest(this.tagName);i!=null&&i.isSameNode(this)&&(n[o.getAttribute("data-astro-template")||"default"]=o.innerHTML,o.remove())}for(let o of r){let i=o.closest(this.tagName);i!=null&&i.isSameNode(this)&&(n[o.getAttribute("name")||"default"]=o.innerHTML)}let u;try{u=this.hasAttribute("props")?y(JSON.parse(this.getAttribute("props"))):{}}catch(o){let i=this.getAttribute("component-url")||"<unknown>",v=this.getAttribute("component-export");throw v&&(i+=` (export ${v})`),console.error(`[hydrate] Error parsing props for component ${i}`,this.getAttribute("props"),o),o}let h;await this.hydrator(this)(this.Component,u,n,{client:this.getAttribute("client")}),this.removeAttribute("ssr"),this.dispatchEvent(new CustomEvent("astro:hydrate"))});l(this,"unmount",()=>{this.isConnected||this.dispatchEvent(new CustomEvent("astro:unmount"))})}disconnectedCallback(){document.removeEventListener("astro:after-swap",this.unmount),document.addEventListener("astro:after-swap",this.unmount,{once:!0})}connectedCallback(){if(!this.hasAttribute("await-children")||document.readyState==="interactive"||document.readyState==="complete")this.childrenConnectedCallback();else{let e=()=>{document.removeEventListener("DOMContentLoaded",e),r.disconnect(),this.childrenConnectedCallback()},r=new MutationObserver(()=>{var n;((n=this.lastChild)==null?void 0:n.nodeType)===Node.COMMENT_NODE&&this.lastChild.nodeValue==="astro:end"&&(this.lastChild.remove(),e())});r.observe(this,{childList:!0}),document.addEventListener("DOMContentLoaded",e)}}async childrenConnectedCallback(){let e=this.getAttribute("before-hydration-url");e&&await import(e),this.start()}getRetryImportUrl(e){let r=new URL(e,document.baseURI);return r.searchParams.set("astro-retry",Date.now().toString()),r.toString()}async importWithRetry(e){try{return await import(e)}catch(r){return await new Promise(n=>setTimeout(n,1e3)),import(this.getRetryImportUrl(e))}}handleHydrationError(e){let r=this.getAttribute("component-url"),n=new CustomEvent("astro:hydration-error",{cancelable:!0,bubbles:!0,composed:!0,detail:{error:e,componentUrl:r}});this.dispatchEvent(n)&&console.error(`[astro-island] Error hydrating ${r}`,e)}async start(){let e=JSON.parse(this.getAttribute("opts")),r=this.getAttribute("client");if(Astro[r]===void 0){window.addEventListener(`astro:${r}`,()=>this.start(),{once:!0});return}try{await Astro[r](async()=>{let n=this.getAttribute("renderer-url");try{let[d,{default:u}]=await Promise.all([this.importWithRetry(this.getAttribute("component-url")),n?this.importWithRetry(n):Promise.resolve({default:()=>()=>{}})]),h=this.getAttribute("component-export")||"default";if(h.includes(".")){this.Component=d;for(let m of h.split(".")){if(E.has(m)||!this.Component||typeof this.Component!="object"&&typeof this.Component!="function"||!Object.hasOwn(this.Component,m))throw new Error(`Invalid component export path: ${h}`);this.Component=this.Component[m]}}else{if(E.has(h))throw new Error(`Invalid component export path: ${h}`);this.Component=d[h]}return this.hydrator=u,this.hydrate}catch(d){return this.handleHydrationError(d),()=>{}}},e,this)}catch(n){this.handleHydrationError(n)}}attributeChangedCallback(){this.hydrate()}}l(f,"observedAttributes",["props"]),customElements.get("astro-island")||customElements.define("astro-island",f)}})();</script><astro-island uid="Z1uOIoA" prefix="r1" component-url="/pm-tools-templates/assets/TemplateViewer.BJxWH0dD.js" component-export="default" renderer-url="/pm-tools-templates/assets/client.REQV_TkY.js" props="{&quot;templateId&quot;:[0,&quot;benefits-review-template&quot;],&quot;filePath&quot;:[0,&quot;templates/universal/benefits-review-template.md&quot;],&quot;title&quot;:[0,&quot;Benefits Review Template&quot;],&quot;content&quot;:[0,&quot;---\ntitle: \&quot;Benefits Review Template\&quot;\nmethodology: \&quot;universal\&quot;\ncomplexity: \&quot;intermediate\&quot;\nowner: \&quot;benefits-owner\&quot;\nupdated: \&quot;2026-09-02\&quot;\ndomain: \&quot;Measurement\&quot;\ntags: [\&quot;benefits-realization\&quot;, \&quot;value-delivery\&quot;, \&quot;governance\&quot;, \&quot;closure\&quot;]\nprimary_principles: [\&quot;value-focus\&quot;, \&quot;evidence-based-decisions\&quot;]\nsecondary_principles: [\&quot;stewardship\&quot;, \&quot;continuous-learning\&quot;]\nprinciple_rationale: \&quot;Connects benefit decisions to traceable outcome evidence and accountable learning.\&quot;\n---\n\n# Benefits Review\n\nUse with the [Benefits Review Process](../../docs/benefits/benefits-review-process.md) and [variance template](benefits-variance-analysis-template.md).\n\n## When to use\n\nAt the approved midpoint, closure, 30/60/90-day checkpoints, or an event-driven review for a project with measurable benefit targets.\n\n## When not to use\n\nFor emergent research outcomes without approved targets; use learning hypotheses until measurable benefits can be baselined.\n\n## Review control\n\n| Field | Entry |\n|---|---|\n| Project / portfolio | |\n| Review checkpoint | Mid-project / Closure / Day 30 / Day 60 / Day 90 / Event-driven |\n| Review date and evidence as-of date | |\n| Sponsor / decision owner | |\n| Benefits owner | |\n| Operational owner | |\n| Facilitator / recorder | |\n| Attendees and required absences | |\n| Prior review record | |\n\n## Input readiness\n\n| Input | Location/version | Owner | Status | Limitation/action |\n|---|---|---|---|---|\n| Approved business case and benefits | | | READY / NOT READY | |\n| Benefits register | | | READY / NOT READY | |\n| Source data and validation | | | READY / NOT READY | |\n| Delivery/adoption/operating evidence | | | READY / NOT READY | |\n| Risks, issues and approved changes | | | READY / NOT READY | |\n\n## Benefit assessment\n\nComplete and attach the [Benefits Variance Analysis](benefits-variance-analysis-template.md).\n\n| Benefit ID | Achievement % | Expected % | Variance points | Status | Confidence | Owner recommendation |\n|---|---:|---:|---:|---|---|---|\n| | | | | GREEN / AMBER / RED / CRITICAL / NOT MEASURABLE | HIGH / MEDIUM / LOW | |\n\n## Assumptions, dependencies and disbenefits\n\n| ID | Observation/evidence | Effect on value | Owner | Response/due date |\n|---|---|---|---|---|\n| | | | | |\n\n## Decision\n\n**Decision:** CONTINUE / CORRECT / CHANGE / ESCALATE / EXTEND / ACCEPT\n**Decision owner:**\n**Rationale and evidence:**\n**Dissent or conflict disclosed:**\n**Change-control reference, if applicable:**\n**Closure decision:** NOT APPLICABLE / HOLD / CONDITIONAL / APPROVE\n\n## Actions and escalation\n\n| Action | Owner | Due date | Success measure | Escalate to/on | Status |\n|---|---|---|---|---|---|\n| | | | | | OPEN |\n\n## Knowledge and forward planning\n\n- Lessons-learned record: [link]\n- Business-case or portfolio forecast updated: [link]\n- Operational handover/open action record: [link]\n- Next review or deep PIR: [date/link]\n\n## When to Use\n\nUse at project closure, post-implementation review, or periodic benefit realization checkpoints when you need evidence-based assessment of actual vs. expected benefits. This template is most valuable when benefits are measurable and you have reliable baseline data for comparison.\n\n## When NOT to Use\n\nDo not use for exploratory or research projects where benefits cannot yet be quantified; use learning hypotheses instead. Avoid this template as a substitute for ongoing benefit tracking during delivery—it is designed for periodic reviews, not continuous monitoring.\n\n## Approval and retention\n\n| Role | Name | Decision/date | Evidence/signature reference |\n|---|---|---|---|\n| Benefits owner | | | |\n| Sponsor / authorized delegate | | | |\n\nRecord location and retention rule: [location/rule]\n&quot;]}" ssr client="load" opts="{&quot;name&quot;:&quot;TemplateViewer&quot;,&quot;value&quot;:true}" await-children><div><h1>Benefits Review Template</h1><div style="margin-bottom:2rem"><button style="background:var(--accent-color);color:white;border:1px solid var(--border-color);padding:0.5rem 1rem;border-radius:4px 4px 0 0;cursor:pointer;margin-right:1px">Preview</button><button style="background:var(--code-bg);color:var(--text-color);border:1px solid var(--border-color);padding:0.5rem 1rem;border-radius:4px 4px 0 0;cursor:pointer">Version History</button></div><div style="border:1px solid var(--border-color);border-radius:0 8px 8px 8px;min-height:400px"><div style="background:var(--bg-primary);border-radius:var(--radius-lg)"><div style="padding:1rem 1.5rem;border-bottom:1px solid var(--border-light);display:flex;align-items:center;justify-content:space-between;background:var(--bg-secondary);border-radius:var(--radius-lg) var(--radius-lg) 0 0"><div style="display:flex;align-items:center;gap:0.5rem"><span style="font-size:1.5rem">📄</span><div><div style="font-weight:600;color:var(--text-primary)">benefits-review-template.md</div><div style="font-size:0.75rem;color:var(--text-muted)">Markdown • <!-- -->3,676 bytes</div></div></div><a href="/pm-tools-templates/downloads/benefits-review-template.md" download="" class="btn btn-secondary" style="font-size:0.75rem;padding:0.5rem 0.75rem">💾 Download</a></div><pre aria-label="Markdown source of Benefits Review Template" style="padding:1.5rem;max-height:600px;overflow:auto;white-space:pre-wrap;overflow-wrap:anywhere">---
+title: &quot;Benefits Review Template&quot;
+methodology: &quot;universal&quot;
+complexity: &quot;intermediate&quot;
+owner: &quot;benefits-owner&quot;
+updated: &quot;2026-09-02&quot;
+domain: &quot;Measurement&quot;
+tags: [&quot;benefits-realization&quot;, &quot;value-delivery&quot;, &quot;governance&quot;, &quot;closure&quot;]
+primary_principles: [&quot;value-focus&quot;, &quot;evidence-based-decisions&quot;]
+secondary_principles: [&quot;stewardship&quot;, &quot;continuous-learning&quot;]
+principle_rationale: &quot;Connects benefit decisions to traceable outcome evidence and accountable learning.&quot;
+---
+
+# Benefits Review
+
+Use with the [Benefits Review Process](../../docs/benefits/benefits-review-process.md) and [variance template](benefits-variance-analysis-template.md).
+
+## When to use
+
+At the approved midpoint, closure, 30/60/90-day checkpoints, or an event-driven review for a project with measurable benefit targets.
+
+## When not to use
+
+For emergent research outcomes without approved targets; use learning hypotheses until measurable benefits can be baselined.
+
+## Review control
+
+| Field | Entry |
+|---|---|
+| Project / portfolio | |
+| Review checkpoint | Mid-project / Closure / Day 30 / Day 60 / Day 90 / Event-driven |
+| Review date and evidence as-of date | |
+| Sponsor / decision owner | |
+| Benefits owner | |
+| Operational owner | |
+| Facilitator / recorder | |
+| Attendees and required absences | |
+| Prior review record | |
+
+## Input readiness
+
+| Input | Location/version | Owner | Status | Limitation/action |
+|---|---|---|---|---|
+| Approved business case and benefits | | | READY / NOT READY | |
+| Benefits register | | | READY / NOT READY | |
+| Source data and validation | | | READY / NOT READY | |
+| Delivery/adoption/operating evidence | | | READY / NOT READY | |
+| Risks, issues and approved changes | | | READY / NOT READY | |
+
+## Benefit assessment
+
+Complete and attach the [Benefits Variance Analysis](benefits-variance-analysis-template.md).
+
+| Benefit ID | Achievement % | Expected % | Variance points | Status | Confidence | Owner recommendation |
+|---|---:|---:|---:|---|---|---|
+| | | | | GREEN / AMBER / RED / CRITICAL / NOT MEASURABLE | HIGH / MEDIUM / LOW | |
+
+## Assumptions, dependencies and disbenefits
+
+| ID | Observation/evidence | Effect on value | Owner | Response/due date |
+|---|---|---|---|---|
+| | | | | |
+
+## Decision
+
+**Decision:** CONTINUE / CORRECT / CHANGE / ESCALATE / EXTEND / ACCEPT
+**Decision owner:**
+**Rationale and evidence:**
+**Dissent or conflict disclosed:**
+**Change-control reference, if applicable:**
+**Closure decision:** NOT APPLICABLE / HOLD / CONDITIONAL / APPROVE
+
+## Actions and escalation
+
+| Action | Owner | Due date | Success measure | Escalate to/on | Status |
+|---|---|---|---|---|---|
+| | | | | | OPEN |
+
+## Knowledge and forward planning
+
+- Lessons-learned record: [link]
+- Business-case or portfolio forecast updated: [link]
+- Operational handover/open action record: [link]
+- Next review or deep PIR: [date/link]
+
+## When to Use
+
+Use at project closure, post-implementation review, or periodic benefit realization checkpoints when you need evidence-based assessment of actual vs. expected benefits. This template is most valuable when benefits are measurable and you have reliable baseline data for comparison.
+
+## When NOT to Use
+
+Do not use for exploratory or research projects where benefits cannot yet be quantified; use learning hypotheses instead. Avoid this template as a substitute for ongoing benefit tracking during delivery—it is designed for periodic reviews, not continuous monitoring.
+
+## Approval and retention
+
+| Role | Name | Decision/date | Evidence/signature reference |
+|---|---|---|---|
+| Benefits owner | | | |
+| Sponsor / authorized delegate | | | |
+
+Record location and retention rule: [location/rule]
+</pre></div></div></div><!--astro:end--></astro-island></main></body></html>
