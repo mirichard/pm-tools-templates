@@ -57,7 +57,7 @@
     "inquirer": "^8.2.5",
     "joi": "^17.9.2",
     "lodash": "^4.17.21",
-    "node-cron": "^3.0.2",
+    "node-cron": "^4.6.0",
     "winston": "^3.10.0"
   },
   "devDependencies": {
