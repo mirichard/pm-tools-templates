@@ -55,6 +55,37 @@ class DashboardServer {
     this.app.use(express.json());
     this.app.use(express.static(path.join(__dirname, '../dashboard-ui')));
     
+    // Rate limiting middleware - max 100 requests per 15 minutes
+    const requestCounts = new Map();
+    const RATE_LIMIT_WINDOW = 15 * 60 * 1000; // 15 minutes
+    const RATE_LIMIT_MAX = 100;
+    
+    this.app.use((req, res, next) => {
+      const clientIp = req.ip || req.connection.remoteAddress || 'unknown';
+      const now = Date.now();
+      
+      if (!requestCounts.has(clientIp)) {
+        requestCounts.set(clientIp, []);
+      }
+      
+      const timestamps = requestCounts.get(clientIp);
+      const recentRequests = timestamps.filter(t => now - t < RATE_LIMIT_WINDOW);
+      
+      if (recentRequests.length >= RATE_LIMIT_MAX) {
+        return res.status(429).json({ error: 'Too many requests, please try again later.' });
+      }
+      
+      recentRequests.push(now);
+      requestCounts.set(clientIp, recentRequests);
+      
+      // Cleanup old entries
+      if (requestCounts.size > 1000) {
+        requestCounts.clear();
+      }
+      
+      next();
+    });
+    
     // CORS for development
     this.app.use((req, res, next) => {
       res.header('Access-Control-Allow-Origin', '*');

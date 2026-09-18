@@ -260,8 +260,14 @@ class AIInsightsResult {
     
     if (data && typeof data === 'object') {
       const sanitized = {};
+      const prototypeKeys = ['__proto__', 'constructor', 'prototype'];
+      
       for (const [key, value] of Object.entries(data)) {
-        sanitized[this.sanitizeData(key)] = this.sanitizeData(value);
+        // Prevent prototype pollution by rejecting dangerous keys
+        if (prototypeKeys.includes(key)) {
+          continue;
+        }
+        sanitized[key] = this.sanitizeData(value);
       }
       return sanitized;
     }

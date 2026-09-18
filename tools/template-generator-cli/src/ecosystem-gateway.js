@@ -211,7 +211,8 @@ class UsageAnalyticsCollector {
   }
 
   generateSessionId() {
-    return `session-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
+    const crypto = require('crypto');
+    return `session-${Date.now()}-${crypto.randomBytes(4).toString('hex')}`;
   }
 
   async getUsageInsights() {
