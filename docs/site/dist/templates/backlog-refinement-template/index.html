@@ -1,0 +1,277 @@
+<!DOCTYPE html><html lang="en" data-astro-cid-ju4pidww><head><meta charset="UTF-8"><meta name="description" content="Advanced template browser with previews and version history"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="icon" type="image/svg+xml" href="/pm-tools-templates/favicon.svg"><title>Backlog Refinement Template</title><link rel="stylesheet" href="/pm-tools-templates/assets/Layout.ChXqTIwx.css"></head><body data-astro-cid-ju4pidww><main data-astro-cid-ju4pidww><style>astro-island,astro-slot,astro-static-slot{display:contents}</style><script>(()=>{var e=async t=>{await(await t())()};(self.Astro||(self.Astro={})).load=e;window.dispatchEvent(new Event("astro:load"));})();</script><script>(()=>{var g=Object.defineProperty;var w=(a,s,c)=>s in a?g(a,s,{enumerable:!0,configurable:!0,writable:!0,value:c}):a[s]=c;var l=(a,s,c)=>w(a,typeof s!="symbol"?s+"":s,c);var E=new Set(["__proto__","constructor","prototype"]);{let a={0:t=>y(t),1:t=>c(t),2:t=>new RegExp(t),3:t=>new Date(t),4:t=>new Map(c(t)),5:t=>new Set(c(t)),6:t=>BigInt(t),7:t=>new URL(t),8:t=>new Uint8Array(t),9:t=>new Uint16Array(t),10:t=>new Uint32Array(t),11:t=>Number.POSITIVE_INFINITY*t},s=t=>{let[p,e]=t;return p in a?a[p](e):void 0},c=t=>t.map(s),y=t=>typeof t!="object"||t===null?t:Object.fromEntries(Object.entries(t).map(([p,e])=>[p,s(e)]));class f extends HTMLElement{constructor(){super(...arguments);l(this,"Component");l(this,"hydrator");l(this,"hydrate",async()=>{var b;if(!this.hydrator||!this.isConnected)return;let e=(b=this.parentElement)==null?void 0:b.closest("astro-island[ssr]");if(e){e.addEventListener("astro:hydrate",this.hydrate,{once:!0});return}let r=this.querySelectorAll("astro-slot"),n={},d=this.querySelectorAll("template[data-astro-template]");for(let o of d){let i=o.closest(this.tagName);i!=null&&i.isSameNode(this)&&(n[o.getAttribute("data-astro-template")||"default"]=o.innerHTML,o.remove())}for(let o of r){let i=o.closest(this.tagName);i!=null&&i.isSameNode(this)&&(n[o.getAttribute("name")||"default"]=o.innerHTML)}let u;try{u=this.hasAttribute("props")?y(JSON.parse(this.getAttribute("props"))):{}}catch(o){let i=this.getAttribute("component-url")||"<unknown>",v=this.getAttribute("component-export");throw v&&(i+=` (export ${v})`),console.error(`[hydrate] Error parsing props for component ${i}`,this.getAttribute("props"),o),o}let h;await this.hydrator(this)(this.Component,u,n,{client:this.getAttribute("client")}),this.removeAttribute("ssr"),this.dispatchEvent(new CustomEvent("astro:hydrate"))});l(this,"unmount",()=>{this.isConnected||this.dispatchEvent(new CustomEvent("astro:unmount"))})}disconnectedCallback(){document.removeEventListener("astro:after-swap",this.unmount),document.addEventListener("astro:after-swap",this.unmount,{once:!0})}connectedCallback(){if(!this.hasAttribute("await-children")||document.readyState==="interactive"||document.readyState==="complete")this.childrenConnectedCallback();else{let e=()=>{document.removeEventListener("DOMContentLoaded",e),r.disconnect(),this.childrenConnectedCallback()},r=new MutationObserver(()=>{var n;((n=this.lastChild)==null?void 0:n.nodeType)===Node.COMMENT_NODE&&this.lastChild.nodeValue==="astro:end"&&(this.lastChild.remove(),e())});r.observe(this,{childList:!0}),document.addEventListener("DOMContentLoaded",e)}}async childrenConnectedCallback(){let e=this.getAttribute("before-hydration-url");e&&await import(e),this.start()}getRetryImportUrl(e){let r=new URL(e,document.baseURI);return r.searchParams.set("astro-retry",Date.now().toString()),r.toString()}async importWithRetry(e){try{return await import(e)}catch(r){return await new Promise(n=>setTimeout(n,1e3)),import(this.getRetryImportUrl(e))}}handleHydrationError(e){let r=this.getAttribute("component-url"),n=new CustomEvent("astro:hydration-error",{cancelable:!0,bubbles:!0,composed:!0,detail:{error:e,componentUrl:r}});this.dispatchEvent(n)&&console.error(`[astro-island] Error hydrating ${r}`,e)}async start(){let e=JSON.parse(this.getAttribute("opts")),r=this.getAttribute("client");if(Astro[r]===void 0){window.addEventListener(`astro:${r}`,()=>this.start(),{once:!0});return}try{await Astro[r](async()=>{let n=this.getAttribute("renderer-url");try{let[d,{default:u}]=await Promise.all([this.importWithRetry(this.getAttribute("component-url")),n?this.importWithRetry(n):Promise.resolve({default:()=>()=>{}})]),h=this.getAttribute("component-export")||"default";if(h.includes(".")){this.Component=d;for(let m of h.split(".")){if(E.has(m)||!this.Component||typeof this.Component!="object"&&typeof this.Component!="function"||!Object.hasOwn(this.Component,m))throw new Error(`Invalid component export path: ${h}`);this.Component=this.Component[m]}}else{if(E.has(h))throw new Error(`Invalid component export path: ${h}`);this.Component=d[h]}return this.hydrator=u,this.hydrate}catch(d){return this.handleHydrationError(d),()=>{}}},e,this)}catch(n){this.handleHydrationError(n)}}attributeChangedCallback(){this.hydrate()}}l(f,"observedAttributes",["props"]),customElements.get("astro-island")||customElements.define("astro-island",f)}})();</script><astro-island uid="ZSTgO9" prefix="r1" component-url="/pm-tools-templates/assets/TemplateViewer.BJxWH0dD.js" component-export="default" renderer-url="/pm-tools-templates/assets/client.REQV_TkY.js" props="{&quot;templateId&quot;:[0,&quot;backlog-refinement-template&quot;],&quot;filePath&quot;:[0,&quot;domains/team/role-based-toolkits/scrum-master/agile-ceremonies/backlog-refinement-template.md&quot;],&quot;title&quot;:[0,&quot;Backlog Refinement Template&quot;],&quot;content&quot;:[0,&quot;---\ntitle: \&quot;Backlog Refinement Template\&quot;\nmethodology: \&quot;agile\&quot;\ncomplexity: \&quot;advanced\&quot;\nowner: \&quot;mirichard\&quot;\nupdated: \&quot;2025-08-05\&quot;\nprimary_principles: [\&quot;collaborative-leadership\&quot;, \&quot;adaptability\&quot;]\nsecondary_principles: [\&quot;value-focus\&quot;, \&quot;continuous-learning\&quot;]\nprinciple_rationale: \&quot;Supports collaborative refinement as priorities, evidence, and learning evolve.\&quot;\n---\n\n# Backlog Refinement Template\n\n## Meeting Information\n- **Date**: [Date]\n- **Duration**: 1-2 hours (typically 10% of sprint capacity)\n- **Facilitator**: [Product Owner/Scrum Master]\n- **Participants**: [Product Owner, Development Team, Scrum Master]\n- **Sprint Context**: [Current sprint number and upcoming sprint focus]\n\n## Meeting Objectives\n- Refine user stories for upcoming sprint(s)\n- Ensure stories meet Definition of Ready\n- Estimate refined stories\n- Clarify requirements and acceptance criteria\n- Identify dependencies and risks\n\n## Stories for Refinement\n\n### High Priority Stories (Next Sprint Candidates)\n| Story ID | Title | Priority | Current State | Target Sprint |\n|----------|-------|----------|---------------|---------------|\n| [US-001] | [Story Title] | P0 | Draft | Sprint N+1 |\n| [US-002] | [Story Title] | P1 | Needs Clarification | Sprint N+1 |\n| [US-003] | [Story Title] | P1 | Ready for Estimation | Sprint N+1 |\n\n### Medium Priority Stories (Future Sprints)\n| Story ID | Title | Priority | Current State | Target Sprint |\n|----------|-------|----------|---------------|---------------|\n| [US-004] | [Story Title] | P2 | Draft | Sprint N+2 |\n| [US-005] | [Story Title] | P2 | Needs Research | Sprint N+2 |\n\n## Story Refinement Process\n\n### Story Template Review\nFor each story, ensure it follows the standard format:\n\n**As a** [type of user]  \n**I want** [some goal or objective]  \n**So that** [some reason or benefit]\n\n### Definition of Ready Checklist\nFor each story, verify:\n- [ ] Story is clearly written and understandable\n- [ ] Acceptance criteria are defined and testable\n- [ ] Story is estimated by the development team\n- [ ] Dependencies are identified and managed\n- [ ] UI/UX mockups or wireframes available (if applicable)\n- [ ] Performance criteria defined (if applicable)\n- [ ] Security requirements identified (if applicable)\n\n## Story Refinement Details\n\n### Story: [US-001] [Story Title]\n\n#### Original Story\n[Current story description]\n\n#### Refined Story\n**As a** [refined user type]  \n**I want** [refined goal]  \n**So that** [refined benefit]\n\n#### Acceptance Criteria\n1. **Given** [context] **When** [action] **Then** [outcome]\n2. **Given** [context] **When** [action] **Then** [outcome]\n3. **Given** [context] **When** [action] **Then** [outcome]\n\n#### Technical Considerations\n- [Technical requirement 1]\n- [Technical requirement 2]\n- [Technical constraint or consideration]\n\n#### Dependencies\n- **Internal**: [Other stories or components needed]\n- **External**: [Third-party dependencies or external teams]\n- **Technical**: [Infrastructure or technology dependencies]\n\n#### Questions and Clarifications\n| Question | Answer | Impact |\n|----------|--------|--------|\n| [Question 1] | [Answer] | [Impact on story] |\n| [Question 2] | [Answer] | [Impact on story] |\n\n#### Estimation\n- **Initial Estimate**: [Story points] \n- **Final Estimate**: [Story points after discussion]\n- **Estimation Method**: [Planning poker, T-shirt sizes, etc.]\n- **Confidence Level**: High/Medium/Low\n\n#### Definition of Done Criteria\n- [ ] All acceptance criteria met\n- [ ] Code reviewed and approved\n- [ ] Unit tests written and passing\n- [ ] Integration tests passing\n- [ ] Documentation updated\n- [ ] Product Owner acceptance received\n\n### Story: [US-002] [Story Title]\n\n#### Original Story\n[Current story description]\n\n#### Refinement Status\n- **Status**: Needs More Information\n- **Blocking Issues**: [What&#39;s preventing refinement]\n- **Next Steps**: [What needs to happen next]\n- **Owner**: [Who will resolve blocking issues]\n- **Target Date**: [When to revisit]\n\n#### Outstanding Questions\n1. [Question 1] - Owner: [Name] - Due: [Date]\n2. [Question 2] - Owner: [Name] - Due: [Date]\n\n## Estimation Session\n\n### Estimation Method Used\n- [ ] Planning Poker\n- [ ] T-Shirt Sizing\n- [ ] Affinity Estimation\n- [ ] Relative Sizing\n\n### Story Point Reference\n| Points | Description | Example |\n|--------|-------------|---------|\n| 1 | Trivial change | Fix typo, small config change |\n| 2 | Simple story | Add field to form |\n| 3 | Small story | Simple CRUD operation |\n| 5 | Medium story | Complex form with validation |\n| 8 | Large story | Integration with external service |\n| 13 | Very large | Major feature, consider splitting |\n\n### Estimation Results\n| Story | Initial Estimates | Discussion Points | Final Estimate | Confidence |\n|-------|------------------|-------------------|----------------|------------|\n| [US-001] | 2,3,5,3 | [Key discussion points] | 3 | High |\n| [US-002] | ?,8,13,5 | [Key discussion points] | 8 | Medium |\n\n## Risk and Dependency Analysis\n\n### Risks Identified\n| Risk | Impact | Probability | Mitigation | Owner |\n|------|--------|-------------|------------|-------|\n| [Risk 1] | High/Med/Low | High/Med/Low | [Mitigation strategy] | [Owner] |\n| [Risk 2] | High/Med/Low | High/Med/Low | [Mitigation strategy] | [Owner] |\n\n### Dependencies Mapped\n| Story | Depends On | Type | Status | Impact |\n|-------|------------|------|--------|--------|\n| [US-001] | [Dependency] | Internal/External | [Status] | [Impact if not resolved] |\n| [US-002] | [Dependency] | Internal/External | [Status] | [Impact if not resolved] |\n\n### Architectural Decisions Required\n- [Decision 1]: [Description] - Owner: [Name] - Due: [Date]\n- [Decision 2]: [Description] - Owner: [Name] - Due: [Date]\n\n## Backlog Health Assessment\n\n### Backlog Metrics\n- **Stories Ready for Next Sprint**: [Number] ([Target: Sprint capacity + 20%])\n- **Stories in Definition of Ready**: [Number]\n- **Average Estimation Confidence**: [High/Medium/Low]\n- **Dependency Resolution Rate**: [Percentage]\n\n### Quality Indicators\n- **Story Clarity**: [Score 1-5]\n- **Acceptance Criteria Quality**: [Score 1-5]\n- **Technical Feasibility Confidence**: [Score 1-5]\n- **Business Value Clarity**: [Score 1-5]\n\n## Action Items\n\n### Story Actions\n| Action | Story | Owner | Due Date | Status |\n|--------|-------|-------|----------|--------|\n| [Action 1] | [US-001] | [Owner] | [Date] | [Status] |\n| [Action 2] | [US-002] | [Owner] | [Date] | [Status] |\n\n### Process Improvements\n- [ ] [Improvement 1] - Owner: [Name] - Due: [Date]\n- [ ] [Improvement 2] - Owner: [Name] - Due: [Date]\n\n### Research Tasks\n- [ ] [Research 1] - Owner: [Name] - Due: [Date]\n- [ ] [Research 2] - Owner: [Name] - Due: [Date]\n\n## Sprint Planning Readiness\n\n### Next Sprint Capacity\n- **Team Capacity**: [Available story points]\n- **Ready Stories Total**: [Story points available]\n- **Capacity Buffer**: [Percentage above capacity]\n\n### Sprint Planning Prerequisites\n- [ ] Sufficient stories refined and estimated\n- [ ] Critical dependencies resolved\n- [ ] Sprint goal candidates identified\n- [ ] Team capacity confirmed\n- [ ] Major risks mitigated\n\n### Recommended Sprint Backlog\nBased on refinement session:\n1. [US-001] - [Points] - [Rationale]\n2. [US-002] - [Points] - [Rationale]\n3. [US-003] - [Points] - [Rationale]\n\n**Total**: [Points] ([Percentage] of capacity)\n\n## Follow-up Activities\n\n### Immediate Actions (Next 24 Hours)\n- [ ] [Action 1] - Owner: [Name]\n- [ ] [Action 2] - Owner: [Name]\n\n### Before Next Sprint Planning\n- [ ] [Action 1] - Owner: [Name] - Due: [Date]\n- [ ] [Action 2] - Owner: [Name] - Due: [Date]\n\n### Next Refinement Session\n- **Date**: [Next refinement date]\n- **Focus**: [Areas to focus on next time]\n- **Stories to Cover**: [Story IDs for next session]\n\n## Meeting Effectiveness\n\n### What Worked Well\n- [Success 1]\n- [Success 2]\n\n### Areas for Improvement\n- [Improvement 1]\n- [Improvement 2]\n\n### Refinement Process Feedback\n- **Meeting Length**: Too Short / Just Right / Too Long\n- **Participant Engagement**: Low / Medium / High\n- **Story Quality Improvement**: Low / Medium / High\n- **Estimation Confidence**: Low / Medium / High\n\n## When to Use\n\nUse throughout the project lifecycle to identify, assess, and track risks. This template is essential for projects with significant complexity, multiple stakeholders, or high business impact, where structured risk management provides decision-making value.\n\n## When NOT to Use\n\nDo not use for very low-risk, short-duration tasks where informal risk awareness is sufficient. Avoid this template if your governance framework requires a different risk management approach or if stakeholders prefer real-time risk dashboards over static registers.\n\n## Backlog Prioritization Updates\n\n### Priority Changes Made\n| Story | Old Priority | New Priority | Reason |\n|-------|--------------|--------------|--------|\n| [US-XXX] | P1 | P0 | [Reason] |\n| [US-YYY] | P2 | P3 | [Reason] |\n\n### Product Owner Decisions\n- [Decision 1]: [Description and rationale]\n- [Decision 2]: [Description and rationale]\n\n---\n\n**Meeting Facilitated by**: [Facilitator Name]  \n**Date**: [Date]  \n**Next Refinement**: [Date]\n\n*Preparing the backlog for successful sprint execution*\n&quot;]}" ssr client="load" opts="{&quot;name&quot;:&quot;TemplateViewer&quot;,&quot;value&quot;:true}" await-children><div><h1>Backlog Refinement Template</h1><div style="margin-bottom:2rem"><button style="background:var(--accent-color);color:white;border:1px solid var(--border-color);padding:0.5rem 1rem;border-radius:4px 4px 0 0;cursor:pointer;margin-right:1px">Preview</button><button style="background:var(--code-bg);color:var(--text-color);border:1px solid var(--border-color);padding:0.5rem 1rem;border-radius:4px 4px 0 0;cursor:pointer">Version History</button></div><div style="border:1px solid var(--border-color);border-radius:0 8px 8px 8px;min-height:400px"><div style="background:var(--bg-primary);border-radius:var(--radius-lg)"><div style="padding:1rem 1.5rem;border-bottom:1px solid var(--border-light);display:flex;align-items:center;justify-content:space-between;background:var(--bg-secondary);border-radius:var(--radius-lg) var(--radius-lg) 0 0"><div style="display:flex;align-items:center;gap:0.5rem"><span style="font-size:1.5rem">📄</span><div><div style="font-weight:600;color:var(--text-primary)">backlog-refinement-template.md</div><div style="font-size:0.75rem;color:var(--text-muted)">Markdown • <!-- -->9,160 bytes</div></div></div><a href="/pm-tools-templates/downloads/backlog-refinement-template.md" download="" class="btn btn-secondary" style="font-size:0.75rem;padding:0.5rem 0.75rem">💾 Download</a></div><pre aria-label="Markdown source of Backlog Refinement Template" style="padding:1.5rem;max-height:600px;overflow:auto;white-space:pre-wrap;overflow-wrap:anywhere">---
+title: &quot;Backlog Refinement Template&quot;
+methodology: &quot;agile&quot;
+complexity: &quot;advanced&quot;
+owner: &quot;mirichard&quot;
+updated: &quot;2025-08-05&quot;
+primary_principles: [&quot;collaborative-leadership&quot;, &quot;adaptability&quot;]
+secondary_principles: [&quot;value-focus&quot;, &quot;continuous-learning&quot;]
+principle_rationale: &quot;Supports collaborative refinement as priorities, evidence, and learning evolve.&quot;
+---
+
+# Backlog Refinement Template
+
+## Meeting Information
+- **Date**: [Date]
+- **Duration**: 1-2 hours (typically 10% of sprint capacity)
+- **Facilitator**: [Product Owner/Scrum Master]
+- **Participants**: [Product Owner, Development Team, Scrum Master]
+- **Sprint Context**: [Current sprint number and upcoming sprint focus]
+
+## Meeting Objectives
+- Refine user stories for upcoming sprint(s)
+- Ensure stories meet Definition of Ready
+- Estimate refined stories
+- Clarify requirements and acceptance criteria
+- Identify dependencies and risks
+
+## Stories for Refinement
+
+### High Priority Stories (Next Sprint Candidates)
+| Story ID | Title | Priority | Current State | Target Sprint |
+|----------|-------|----------|---------------|---------------|
+| [US-001] | [Story Title] | P0 | Draft | Sprint N+1 |
+| [US-002] | [Story Title] | P1 | Needs Clarification | Sprint N+1 |
+| [US-003] | [Story Title] | P1 | Ready for Estimation | Sprint N+1 |
+
+### Medium Priority Stories (Future Sprints)
+| Story ID | Title | Priority | Current State | Target Sprint |
+|----------|-------|----------|---------------|---------------|
+| [US-004] | [Story Title] | P2 | Draft | Sprint N+2 |
+| [US-005] | [Story Title] | P2 | Needs Research | Sprint N+2 |
+
+## Story Refinement Process
+
+### Story Template Review
+For each story, ensure it follows the standard format:
+
+**As a** [type of user]  
+**I want** [some goal or objective]  
+**So that** [some reason or benefit]
+
+### Definition of Ready Checklist
+For each story, verify:
+- [ ] Story is clearly written and understandable
+- [ ] Acceptance criteria are defined and testable
+- [ ] Story is estimated by the development team
+- [ ] Dependencies are identified and managed
+- [ ] UI/UX mockups or wireframes available (if applicable)
+- [ ] Performance criteria defined (if applicable)
+- [ ] Security requirements identified (if applicable)
+
+## Story Refinement Details
+
+### Story: [US-001] [Story Title]
+
+#### Original Story
+[Current story description]
+
+#### Refined Story
+**As a** [refined user type]  
+**I want** [refined goal]  
+**So that** [refined benefit]
+
+#### Acceptance Criteria
+1. **Given** [context] **When** [action] **Then** [outcome]
+2. **Given** [context] **When** [action] **Then** [outcome]
+3. **Given** [context] **When** [action] **Then** [outcome]
+
+#### Technical Considerations
+- [Technical requirement 1]
+- [Technical requirement 2]
+- [Technical constraint or consideration]
+
+#### Dependencies
+- **Internal**: [Other stories or components needed]
+- **External**: [Third-party dependencies or external teams]
+- **Technical**: [Infrastructure or technology dependencies]
+
+#### Questions and Clarifications
+| Question | Answer | Impact |
+|----------|--------|--------|
+| [Question 1] | [Answer] | [Impact on story] |
+| [Question 2] | [Answer] | [Impact on story] |
+
+#### Estimation
+- **Initial Estimate**: [Story points] 
+- **Final Estimate**: [Story points after discussion]
+- **Estimation Method**: [Planning poker, T-shirt sizes, etc.]
+- **Confidence Level**: High/Medium/Low
+
+#### Definition of Done Criteria
+- [ ] All acceptance criteria met
+- [ ] Code reviewed and approved
+- [ ] Unit tests written and passing
+- [ ] Integration tests passing
+- [ ] Documentation updated
+- [ ] Product Owner acceptance received
+
+### Story: [US-002] [Story Title]
+
+#### Original Story
+[Current story description]
+
+#### Refinement Status
+- **Status**: Needs More Information
+- **Blocking Issues**: [What&#x27;s preventing refinement]
+- **Next Steps**: [What needs to happen next]
+- **Owner**: [Who will resolve blocking issues]
+- **Target Date**: [When to revisit]
+
+#### Outstanding Questions
+1. [Question 1] - Owner: [Name] - Due: [Date]
+2. [Question 2] - Owner: [Name] - Due: [Date]
+
+## Estimation Session
+
+### Estimation Method Used
+- [ ] Planning Poker
+- [ ] T-Shirt Sizing
+- [ ] Affinity Estimation
+- [ ] Relative Sizing
+
+### Story Point Reference
+| Points | Description | Example |
+|--------|-------------|---------|
+| 1 | Trivial change | Fix typo, small config change |
+| 2 | Simple story | Add field to form |
+| 3 | Small story | Simple CRUD operation |
+| 5 | Medium story | Complex form with validation |
+| 8 | Large story | Integration with external service |
+| 13 | Very large | Major feature, consider splitting |
+
+### Estimation Results
+| Story | Initial Estimates | Discussion Points | Final Estimate | Confidence |
+|-------|------------------|-------------------|----------------|------------|
+| [US-001] | 2,3,5,3 | [Key discussion points] | 3 | High |
+| [US-002] | ?,8,13,5 | [Key discussion points] | 8 | Medium |
+
+## Risk and Dependency Analysis
+
+### Risks Identified
+| Risk | Impact | Probability | Mitigation | Owner |
+|------|--------|-------------|------------|-------|
+| [Risk 1] | High/Med/Low | High/Med/Low | [Mitigation strategy] | [Owner] |
+| [Risk 2] | High/Med/Low | High/Med/Low | [Mitigation strategy] | [Owner] |
+
+### Dependencies Mapped
+| Story | Depends On | Type | Status | Impact |
+|-------|------------|------|--------|--------|
+| [US-001] | [Dependency] | Internal/External | [Status] | [Impact if not resolved] |
+| [US-002] | [Dependency] | Internal/External | [Status] | [Impact if not resolved] |
+
+### Architectural Decisions Required
+- [Decision 1]: [Description] - Owner: [Name] - Due: [Date]
+- [Decision 2]: [Description] - Owner: [Name] - Due: [Date]
+
+## Backlog Health Assessment
+
+### Backlog Metrics
+- **Stories Ready for Next Sprint**: [Number] ([Target: Sprint capacity + 20%])
+- **Stories in Definition of Ready**: [Number]
+- **Average Estimation Confidence**: [High/Medium/Low]
+- **Dependency Resolution Rate**: [Percentage]
+
+### Quality Indicators
+- **Story Clarity**: [Score 1-5]
+- **Acceptance Criteria Quality**: [Score 1-5]
+- **Technical Feasibility Confidence**: [Score 1-5]
+- **Business Value Clarity**: [Score 1-5]
+
+## Action Items
+
+### Story Actions
+| Action | Story | Owner | Due Date | Status |
+|--------|-------|-------|----------|--------|
+| [Action 1] | [US-001] | [Owner] | [Date] | [Status] |
+| [Action 2] | [US-002] | [Owner] | [Date] | [Status] |
+
+### Process Improvements
+- [ ] [Improvement 1] - Owner: [Name] - Due: [Date]
+- [ ] [Improvement 2] - Owner: [Name] - Due: [Date]
+
+### Research Tasks
+- [ ] [Research 1] - Owner: [Name] - Due: [Date]
+- [ ] [Research 2] - Owner: [Name] - Due: [Date]
+
+## Sprint Planning Readiness
+
+### Next Sprint Capacity
+- **Team Capacity**: [Available story points]
+- **Ready Stories Total**: [Story points available]
+- **Capacity Buffer**: [Percentage above capacity]
+
+### Sprint Planning Prerequisites
+- [ ] Sufficient stories refined and estimated
+- [ ] Critical dependencies resolved
+- [ ] Sprint goal candidates identified
+- [ ] Team capacity confirmed
+- [ ] Major risks mitigated
+
+### Recommended Sprint Backlog
+Based on refinement session:
+1. [US-001] - [Points] - [Rationale]
+2. [US-002] - [Points] - [Rationale]
+3. [US-003] - [Points] - [Rationale]
+
+**Total**: [Points] ([Percentage] of capacity)
+
+## Follow-up Activities
+
+### Immediate Actions (Next 24 Hours)
+- [ ] [Action 1] - Owner: [Name]
+- [ ] [Action 2] - Owner: [Name]
+
+### Before Next Sprint Planning
+- [ ] [Action 1] - Owner: [Name] - Due: [Date]
+- [ ] [Action 2] - Owner: [Name] - Due: [Date]
+
+### Next Refinement Session
+- **Date**: [Next refinement date]
+- **Focus**: [Areas to focus on next time]
+- **Stories to Cover**: [Story IDs for next session]
+
+## Meeting Effectiveness
+
+### What Worked Well
+- [Success 1]
+- [Success 2]
+
+### Areas for Improvement
+- [Improvement 1]
+- [Improvement 2]
+
+### Refinement Process Feedback
+- **Meeting Length**: Too Short / Just Right / Too Long
+- **Participant Engagement**: Low / Medium / High
+- **Story Quality Improvement**: Low / Medium / High
+- **Estimation Confidence**: Low / Medium / High
+
+## When to Use
+
+Use throughout the project lifecycle to identify, assess, and track risks. This template is essential for projects with significant complexity, multiple stakeholders, or high business impact, where structured risk management provides decision-making value.
+
+## When NOT to Use
+
+Do not use for very low-risk, short-duration tasks where informal risk awareness is sufficient. Avoid this template if your governance framework requires a different risk management approach or if stakeholders prefer real-time risk dashboards over static registers.
+
+## Backlog Prioritization Updates
+
+### Priority Changes Made
+| Story | Old Priority | New Priority | Reason |
+|-------|--------------|--------------|--------|
+| [US-XXX] | P1 | P0 | [Reason] |
+| [US-YYY] | P2 | P3 | [Reason] |
+
+### Product Owner Decisions
+- [Decision 1]: [Description and rationale]
+- [Decision 2]: [Description and rationale]
+
+---
+
+**Meeting Facilitated by**: [Facilitator Name]  
+**Date**: [Date]  
+**Next Refinement**: [Date]
+
+*Preparing the backlog for successful sprint execution*
+</pre></div></div></div><!--astro:end--></astro-island></main></body></html>

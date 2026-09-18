@@ -1,0 +1,361 @@
+<!DOCTYPE html><html lang="en" data-astro-cid-ju4pidww><head><meta charset="UTF-8"><meta name="description" content="Advanced template browser with previews and version history"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="icon" type="image/svg+xml" href="/pm-tools-templates/favicon.svg"><title>Project Health Assessment Template</title><link rel="stylesheet" href="/pm-tools-templates/assets/Layout.ChXqTIwx.css"></head><body data-astro-cid-ju4pidww><main data-astro-cid-ju4pidww><style>astro-island,astro-slot,astro-static-slot{display:contents}</style><script>(()=>{var e=async t=>{await(await t())()};(self.Astro||(self.Astro={})).load=e;window.dispatchEvent(new Event("astro:load"));})();</script><script>(()=>{var g=Object.defineProperty;var w=(a,s,c)=>s in a?g(a,s,{enumerable:!0,configurable:!0,writable:!0,value:c}):a[s]=c;var l=(a,s,c)=>w(a,typeof s!="symbol"?s+"":s,c);var E=new Set(["__proto__","constructor","prototype"]);{let a={0:t=>y(t),1:t=>c(t),2:t=>new RegExp(t),3:t=>new Date(t),4:t=>new Map(c(t)),5:t=>new Set(c(t)),6:t=>BigInt(t),7:t=>new URL(t),8:t=>new Uint8Array(t),9:t=>new Uint16Array(t),10:t=>new Uint32Array(t),11:t=>Number.POSITIVE_INFINITY*t},s=t=>{let[p,e]=t;return p in a?a[p](e):void 0},c=t=>t.map(s),y=t=>typeof t!="object"||t===null?t:Object.fromEntries(Object.entries(t).map(([p,e])=>[p,s(e)]));class f extends HTMLElement{constructor(){super(...arguments);l(this,"Component");l(this,"hydrator");l(this,"hydrate",async()=>{var b;if(!this.hydrator||!this.isConnected)return;let e=(b=this.parentElement)==null?void 0:b.closest("astro-island[ssr]");if(e){e.addEventListener("astro:hydrate",this.hydrate,{once:!0});return}let r=this.querySelectorAll("astro-slot"),n={},d=this.querySelectorAll("template[data-astro-template]");for(let o of d){let i=o.closest(this.tagName);i!=null&&i.isSameNode(this)&&(n[o.getAttribute("data-astro-template")||"default"]=o.innerHTML,o.remove())}for(let o of r){let i=o.closest(this.tagName);i!=null&&i.isSameNode(this)&&(n[o.getAttribute("name")||"default"]=o.innerHTML)}let u;try{u=this.hasAttribute("props")?y(JSON.parse(this.getAttribute("props"))):{}}catch(o){let i=this.getAttribute("component-url")||"<unknown>",v=this.getAttribute("component-export");throw v&&(i+=` (export ${v})`),console.error(`[hydrate] Error parsing props for component ${i}`,this.getAttribute("props"),o),o}let h;await this.hydrator(this)(this.Component,u,n,{client:this.getAttribute("client")}),this.removeAttribute("ssr"),this.dispatchEvent(new CustomEvent("astro:hydrate"))});l(this,"unmount",()=>{this.isConnected||this.dispatchEvent(new CustomEvent("astro:unmount"))})}disconnectedCallback(){document.removeEventListener("astro:after-swap",this.unmount),document.addEventListener("astro:after-swap",this.unmount,{once:!0})}connectedCallback(){if(!this.hasAttribute("await-children")||document.readyState==="interactive"||document.readyState==="complete")this.childrenConnectedCallback();else{let e=()=>{document.removeEventListener("DOMContentLoaded",e),r.disconnect(),this.childrenConnectedCallback()},r=new MutationObserver(()=>{var n;((n=this.lastChild)==null?void 0:n.nodeType)===Node.COMMENT_NODE&&this.lastChild.nodeValue==="astro:end"&&(this.lastChild.remove(),e())});r.observe(this,{childList:!0}),document.addEventListener("DOMContentLoaded",e)}}async childrenConnectedCallback(){let e=this.getAttribute("before-hydration-url");e&&await import(e),this.start()}getRetryImportUrl(e){let r=new URL(e,document.baseURI);return r.searchParams.set("astro-retry",Date.now().toString()),r.toString()}async importWithRetry(e){try{return await import(e)}catch(r){return await new Promise(n=>setTimeout(n,1e3)),import(this.getRetryImportUrl(e))}}handleHydrationError(e){let r=this.getAttribute("component-url"),n=new CustomEvent("astro:hydration-error",{cancelable:!0,bubbles:!0,composed:!0,detail:{error:e,componentUrl:r}});this.dispatchEvent(n)&&console.error(`[astro-island] Error hydrating ${r}`,e)}async start(){let e=JSON.parse(this.getAttribute("opts")),r=this.getAttribute("client");if(Astro[r]===void 0){window.addEventListener(`astro:${r}`,()=>this.start(),{once:!0});return}try{await Astro[r](async()=>{let n=this.getAttribute("renderer-url");try{let[d,{default:u}]=await Promise.all([this.importWithRetry(this.getAttribute("component-url")),n?this.importWithRetry(n):Promise.resolve({default:()=>()=>{}})]),h=this.getAttribute("component-export")||"default";if(h.includes(".")){this.Component=d;for(let m of h.split(".")){if(E.has(m)||!this.Component||typeof this.Component!="object"&&typeof this.Component!="function"||!Object.hasOwn(this.Component,m))throw new Error(`Invalid component export path: ${h}`);this.Component=this.Component[m]}}else{if(E.has(h))throw new Error(`Invalid component export path: ${h}`);this.Component=d[h]}return this.hydrator=u,this.hydrate}catch(d){return this.handleHydrationError(d),()=>{}}},e,this)}catch(n){this.handleHydrationError(n)}}attributeChangedCallback(){this.hydrate()}}l(f,"observedAttributes",["props"]),customElements.get("astro-island")||customElements.define("astro-island",f)}})();</script><astro-island uid="Z19h2iY" prefix="r1" component-url="/pm-tools-templates/assets/TemplateViewer.BJxWH0dD.js" component-export="default" renderer-url="/pm-tools-templates/assets/client.REQV_TkY.js" props="{&quot;templateId&quot;:[0,&quot;project-health-assessment-template&quot;],&quot;filePath&quot;:[0,&quot;domains/measurement/project-assessment-suite/project-health-assessment-template.md&quot;],&quot;title&quot;:[0,&quot;Project Health Assessment Template&quot;],&quot;content&quot;:[0,&quot;---\ntitle: Project Health Assessment Template\nmethodology: traditional\ncomplexity: intermediate\nprocess_group: initiating\nindustry: financial\nrole: stakeholder\ntags:\n- traditional\n- initiating\n- risk-management\n- stakeholder-management\n- communication\n- planning\n- quality\nversion: 1.0.0\nowner: mirichard\nupdated: &#39;2025-08-06&#39;\nestimated_completion_time: 30-45 minutes\nprimary_principles:\n- evidence-based-decisions\n- adaptability\nsecondary_principles:\n- continuous-learning\n- quality-by-design\nprinciple_rationale: Makes performance visible and actionable through evidence-based\n  analysis.\n---\n\ntitle: \&quot;Project Health Assessment Template\&quot;\nmethodology: \&quot;universal\&quot;\ncomplexity: \&quot;advanced\&quot;\nowner: \&quot;mirichard\&quot;\nupdated: \&quot;2025-08-05\&quot;\n\n# Project Health Assessment Template\n\n## Project Information\n\n| Field | Details |\n|-------|---------|\n| **Project Name** | |\n| **Project Manager** | |\n| **Assessment Date** | |\n| **Assessment Period** | |\n| **Project Phase** | |\n| **Project Methodology** | ☐ Agile ☐ Waterfall ☐ Hybrid ☐ Other: |\n| **Assessed By** | |\n| **Stakeholders Involved** | |\n\n## Executive Summary\n\n### Overall Health Score: ___/100\n\n### Health Status:\n☐ **Green (80-100)** - Project is healthy and on track  \n☐ **Yellow (60-79)** - Project has manageable issues requiring attention  \n☐ **Red (40-59)** - Project has significant issues requiring immediate action  \n☐ **Critical (&lt;40)** - Project is in crisis and requires intervention  \n\n### Key Findings Summary:\n| Strength Areas | Risk Areas | Critical Issues |\n|---------------|------------|----------------|\n| | | |\n\n## Detailed Assessment Dimensions\n\n### 1. Scope Management\n**Score: ___/10**\n\n| Criteria | Score (1-5) | Evidence/Comments |\n|----------|-------------|-------------------|\n| Scope definition clarity | | |\n| Scope change control | | |\n| Requirements management | | |\n| Deliverable acceptance | | |\n\n**Key Observations:**\n- [ ] Scope is clearly defined and documented\n- [ ] Change control process is established and followed\n- [ ] Requirements are well-managed and traceable\n- [ ] Stakeholders agree on scope boundaries\n\n**Issues Identified:**\n1.\n2.\n3.\n\n### 2. Schedule Management\n**Score: ___/10**\n\n| Criteria | Score (1-5) | Evidence/Comments |\n|----------|-------------|-------------------|\n| Schedule accuracy | | |\n| Milestone achievement | | |\n| Critical path management | | |\n| Schedule change control | | |\n\n**Key Observations:**\n- [ ] Realistic and achievable schedule\n- [ ] Milestones are being met consistently\n- [ ] Critical path is identified and managed\n- [ ] Schedule updates are regular and accurate\n\n**Current Status:**\n- **Planned Completion Date:** \n- **Forecasted Completion Date:** \n- **Schedule Variance:** \n- **Critical Path Status:** \n\n### 3. Budget Management\n**Score: ___/10**\n\n| Criteria | Score (1-5) | Evidence/Comments |\n|----------|-------------|-------------------|\n| Budget accuracy | | |\n| Cost control | | |\n| Earned value management | | |\n| Financial reporting | | |\n\n**Key Observations:**\n- [ ] Budget is realistic and well-planned\n- [ ] Costs are tracked and controlled effectively\n- [ ] Earned value metrics are positive\n- [ ] Financial reporting is accurate and timely\n\n**Current Status:**\n- **Total Budget:** \n- **Spent to Date:** \n- **Forecasted Final Cost:** \n- **Cost Variance:** \n- **CPI (Cost Performance Index):** \n- **SPI (Schedule Performance Index):** \n\n### 4. Quality Management\n**Score: ___/10**\n\n| Criteria | Score (1-5) | Evidence/Comments |\n|----------|-------------|-------------------|\n| Quality standards | | |\n| Quality assurance | | |\n| Quality control | | |\n| Defect management | | |\n\n**Key Observations:**\n- [ ] Quality standards are defined and communicated\n- [ ] QA processes are established and followed\n- [ ] QC activities are conducted regularly\n- [ ] Defects are tracked and resolved effectively\n\n**Quality Metrics:**\n- **Defect Rate:** \n- **Rework Percentage:** \n- **Customer Satisfaction:** \n- **Quality Gate Compliance:** \n\n### 5. Risk Management\n**Score: ___/10**\n\n| Criteria | Score (1-5) | Evidence/Comments |\n|----------|-------------|-------------------|\n| Risk identification | | |\n| Risk analysis | | |\n| Risk response planning | | |\n| Risk monitoring | | |\n\n**Key Observations:**\n- [ ] Risks are proactively identified\n- [ ] Risk analysis is thorough and accurate\n- [ ] Response plans are developed and implemented\n- [ ] Risk monitoring is continuous and effective\n\n**Risk Status:**\n- **High Risks:** \n- **Medium Risks:** \n- **Low Risks:** \n- **Risks Realized:** \n\n### 6. Stakeholder Management\n**Score: ___/10**\n\n| Criteria | Score (1-5) | Evidence/Comments |\n|----------|-------------|-------------------|\n| Stakeholder identification | | |\n| Engagement planning | | |\n| Communication effectiveness | | |\n| Stakeholder satisfaction | | |\n\n**Key Observations:**\n- [ ] All stakeholders are identified and analyzed\n- [ ] Engagement strategies are defined and executed\n- [ ] Communication is regular and effective\n- [ ] Stakeholder satisfaction is monitored\n\n**Stakeholder Health:**\n- **Sponsor Engagement:** ☐ High ☐ Medium ☐ Low\n- **Team Morale:** ☐ High ☐ Medium ☐ Low\n- **Customer Satisfaction:** ☐ High ☐ Medium ☐ Low\n\n### 7. Resource Management\n**Score: ___/10**\n\n| Criteria | Score (1-5) | Evidence/Comments |\n|----------|-------------|-------------------|\n| Resource planning | | |\n| Resource allocation | | |\n| Team performance | | |\n| Resource utilization | | |\n\n**Key Observations:**\n- [ ] Resources are planned and allocated effectively\n- [ ] Team has necessary skills and availability\n- [ ] Resource utilization is optimized\n- [ ] Resource conflicts are managed\n\n**Resource Status:**\n- **Team Availability:** \n- **Skill Gaps:** \n- **Resource Conflicts:** \n- **Team Productivity:** \n\n### 8. Communication Management\n**Score: ___/10**\n\n| Criteria | Score (1-5) | Evidence/Comments |\n|----------|-------------|-------------------|\n| Communication planning | | |\n| Information distribution | | |\n| Reporting effectiveness | | |\n| Knowledge management | | |\n\n**Key Observations:**\n- [ ] Communication plan is comprehensive and followed\n- [ ] Information is distributed effectively\n- [ ] Reports are timely and accurate\n- [ ] Knowledge is captured and shared\n\n### 9. Governance and Process Adherence\n**Score: ___/10**\n\n| Criteria | Score (1-5) | Evidence/Comments |\n|----------|-------------|-------------------|\n| Governance structure | | |\n| Process compliance | | |\n| Decision making | | |\n| Accountability | | |\n\n**Key Observations:**\n- [ ] Governance structure is clear and effective\n- [ ] Processes are followed consistently\n- [ ] Decisions are made efficiently\n- [ ] Roles and responsibilities are clear\n\n### 10. Change Management\n**Score: ___/10**\n\n| Criteria | Score (1-5) | Evidence/Comments |\n|----------|-------------|-------------------|\n| Change identification | | |\n| Change assessment | | |\n| Change approval | | |\n| Change implementation | | |\n\n**Key Observations:**\n- [ ] Changes are identified early\n- [ ] Impact assessment is thorough\n- [ ] Change approval process is followed\n- [ ] Implementation is controlled\n\n## Overall Assessment Summary\n\n### Health Score Calculation\n| Dimension | Weight | Score | Weighted Score |\n|-----------|--------|-------|----------------|\n| Scope Management | 10% | ___/10 | |\n| Schedule Management | 15% | ___/10 | |\n| Budget Management | 15% | ___/10 | |\n| Quality Management | 10% | ___/10 | |\n| Risk Management | 10% | ___/10 | |\n| Stakeholder Management | 10% | ___/10 | |\n| Resource Management | 10% | ___/10 | |\n| Communication Management | 8% | ___/10 | |\n| Governance | 7% | ___/10 | |\n| Change Management | 5% | ___/10 | |\n| **Total** | **100%** | | **___/100** |\n\n### Critical Success Factors Assessment\n\n| Factor | Status | Comments |\n|--------|--------|----------|\n| Executive Sponsorship | ☐ Strong ☐ Adequate ☐ Weak | |\n| Clear Objectives | ☐ Yes ☐ Partial ☐ No | |\n| Adequate Resources | ☐ Yes ☐ Partial ☐ No | |\n| Stakeholder Buy-in | ☐ High ☐ Medium ☐ Low | |\n| Methodology Fit | ☐ Good ☐ Adequate ☐ Poor | |\n\n### Top Strengths (Maintain and Leverage)\n1.\n2.\n3.\n\n### Top Risks/Issues (Immediate Attention Required)\n1.\n2.\n3.\n\n### Recommended Actions\n| Priority | Action | Owner | Timeline | Success Measure |\n|----------|--------|--------|----------|----------------|\n| High | | | | |\n| High | | | | |\n| Medium | | | | |\n| Medium | | | | |\n| Low | | | | |\n\n## Follow-up Plan\n\n### Next Assessment Date: \n### Assessment Frequency: ☐ Weekly ☐ Bi-weekly ☐ Monthly ☐ Quarterly\n\n### Key Metrics to Monitor:\n- [ ] Schedule Performance Index (SPI)\n- [ ] Cost Performance Index (CPI)\n- [ ] Quality metrics\n- [ ] Risk exposure\n- [ ] Stakeholder satisfaction\n- [ ] Team velocity/productivity\n\n### Stakeholder Communication Plan:\n| Stakeholder | Information | Frequency | Method |\n|-------------|-------------|-----------|--------|\n| | | | |\n\n## When to Use\n\nUse throughout the project lifecycle to identify, assess, and track risks. This template is essential for projects with significant complexity, multiple stakeholders, or high business impact, where structured risk management provides decision-making value.\n\n## When NOT to Use\n\nDo not use for very low-risk, short-duration tasks where informal risk awareness is sufficient. Avoid this template if your governance framework requires a different risk management approach or if stakeholders prefer real-time risk dashboards over static registers.\n\n## Assessment Validation\n\n**Assessment Reviewed By:**\n- Project Manager: _________________ Date: _________\n- Sponsor: _________________ Date: _________\n- Key Stakeholder: _________________ Date: _________\n\n**Confidence Level in Assessment:** ☐ High ☐ Medium ☐ Low\n\n**Additional Comments:**\n\n**Assessment Methodology Note:** \nThis assessment uses a 1-5 scoring scale where:\n- 5 = Excellent (exceeds expectations)\n- 4 = Good (meets expectations)\n- 3 = Satisfactory (acceptable with minor concerns)\n- 2 = Poor (below expectations, needs improvement)\n- 1 = Critical (unacceptable, immediate action required)\n\n&quot;]}" ssr client="load" opts="{&quot;name&quot;:&quot;TemplateViewer&quot;,&quot;value&quot;:true}" await-children><div><h1>Project Health Assessment Template</h1><div style="margin-bottom:2rem"><button style="background:var(--accent-color);color:white;border:1px solid var(--border-color);padding:0.5rem 1rem;border-radius:4px 4px 0 0;cursor:pointer;margin-right:1px">Preview</button><button style="background:var(--code-bg);color:var(--text-color);border:1px solid var(--border-color);padding:0.5rem 1rem;border-radius:4px 4px 0 0;cursor:pointer">Version History</button></div><div style="border:1px solid var(--border-color);border-radius:0 8px 8px 8px;min-height:400px"><div style="background:var(--bg-primary);border-radius:var(--radius-lg)"><div style="padding:1rem 1.5rem;border-bottom:1px solid var(--border-light);display:flex;align-items:center;justify-content:space-between;background:var(--bg-secondary);border-radius:var(--radius-lg) var(--radius-lg) 0 0"><div style="display:flex;align-items:center;gap:0.5rem"><span style="font-size:1.5rem">📄</span><div><div style="font-weight:600;color:var(--text-primary)">project-health-assessment-template.md</div><div style="font-size:0.75rem;color:var(--text-muted)">Markdown • <!-- -->10,099 bytes</div></div></div><a href="/pm-tools-templates/downloads/project-health-assessment-template.md" download="" class="btn btn-secondary" style="font-size:0.75rem;padding:0.5rem 0.75rem">💾 Download</a></div><pre aria-label="Markdown source of Project Health Assessment Template" style="padding:1.5rem;max-height:600px;overflow:auto;white-space:pre-wrap;overflow-wrap:anywhere">---
+title: Project Health Assessment Template
+methodology: traditional
+complexity: intermediate
+process_group: initiating
+industry: financial
+role: stakeholder
+tags:
+- traditional
+- initiating
+- risk-management
+- stakeholder-management
+- communication
+- planning
+- quality
+version: 1.0.0
+owner: mirichard
+updated: &#x27;2025-08-06&#x27;
+estimated_completion_time: 30-45 minutes
+primary_principles:
+- evidence-based-decisions
+- adaptability
+secondary_principles:
+- continuous-learning
+- quality-by-design
+principle_rationale: Makes performance visible and actionable through evidence-based
+  analysis.
+---
+
+title: &quot;Project Health Assessment Template&quot;
+methodology: &quot;universal&quot;
+complexity: &quot;advanced&quot;
+owner: &quot;mirichard&quot;
+updated: &quot;2025-08-05&quot;
+
+# Project Health Assessment Template
+
+## Project Information
+
+| Field | Details |
+|-------|---------|
+| **Project Name** | |
+| **Project Manager** | |
+| **Assessment Date** | |
+| **Assessment Period** | |
+| **Project Phase** | |
+| **Project Methodology** | ☐ Agile ☐ Waterfall ☐ Hybrid ☐ Other: |
+| **Assessed By** | |
+| **Stakeholders Involved** | |
+
+## Executive Summary
+
+### Overall Health Score: ___/100
+
+### Health Status:
+☐ **Green (80-100)** - Project is healthy and on track  
+☐ **Yellow (60-79)** - Project has manageable issues requiring attention  
+☐ **Red (40-59)** - Project has significant issues requiring immediate action  
+☐ **Critical (&lt;40)** - Project is in crisis and requires intervention  
+
+### Key Findings Summary:
+| Strength Areas | Risk Areas | Critical Issues |
+|---------------|------------|----------------|
+| | | |
+
+## Detailed Assessment Dimensions
+
+### 1. Scope Management
+**Score: ___/10**
+
+| Criteria | Score (1-5) | Evidence/Comments |
+|----------|-------------|-------------------|
+| Scope definition clarity | | |
+| Scope change control | | |
+| Requirements management | | |
+| Deliverable acceptance | | |
+
+**Key Observations:**
+- [ ] Scope is clearly defined and documented
+- [ ] Change control process is established and followed
+- [ ] Requirements are well-managed and traceable
+- [ ] Stakeholders agree on scope boundaries
+
+**Issues Identified:**
+1.
+2.
+3.
+
+### 2. Schedule Management
+**Score: ___/10**
+
+| Criteria | Score (1-5) | Evidence/Comments |
+|----------|-------------|-------------------|
+| Schedule accuracy | | |
+| Milestone achievement | | |
+| Critical path management | | |
+| Schedule change control | | |
+
+**Key Observations:**
+- [ ] Realistic and achievable schedule
+- [ ] Milestones are being met consistently
+- [ ] Critical path is identified and managed
+- [ ] Schedule updates are regular and accurate
+
+**Current Status:**
+- **Planned Completion Date:** 
+- **Forecasted Completion Date:** 
+- **Schedule Variance:** 
+- **Critical Path Status:** 
+
+### 3. Budget Management
+**Score: ___/10**
+
+| Criteria | Score (1-5) | Evidence/Comments |
+|----------|-------------|-------------------|
+| Budget accuracy | | |
+| Cost control | | |
+| Earned value management | | |
+| Financial reporting | | |
+
+**Key Observations:**
+- [ ] Budget is realistic and well-planned
+- [ ] Costs are tracked and controlled effectively
+- [ ] Earned value metrics are positive
+- [ ] Financial reporting is accurate and timely
+
+**Current Status:**
+- **Total Budget:** 
+- **Spent to Date:** 
+- **Forecasted Final Cost:** 
+- **Cost Variance:** 
+- **CPI (Cost Performance Index):** 
+- **SPI (Schedule Performance Index):** 
+
+### 4. Quality Management
+**Score: ___/10**
+
+| Criteria | Score (1-5) | Evidence/Comments |
+|----------|-------------|-------------------|
+| Quality standards | | |
+| Quality assurance | | |
+| Quality control | | |
+| Defect management | | |
+
+**Key Observations:**
+- [ ] Quality standards are defined and communicated
+- [ ] QA processes are established and followed
+- [ ] QC activities are conducted regularly
+- [ ] Defects are tracked and resolved effectively
+
+**Quality Metrics:**
+- **Defect Rate:** 
+- **Rework Percentage:** 
+- **Customer Satisfaction:** 
+- **Quality Gate Compliance:** 
+
+### 5. Risk Management
+**Score: ___/10**
+
+| Criteria | Score (1-5) | Evidence/Comments |
+|----------|-------------|-------------------|
+| Risk identification | | |
+| Risk analysis | | |
+| Risk response planning | | |
+| Risk monitoring | | |
+
+**Key Observations:**
+- [ ] Risks are proactively identified
+- [ ] Risk analysis is thorough and accurate
+- [ ] Response plans are developed and implemented
+- [ ] Risk monitoring is continuous and effective
+
+**Risk Status:**
+- **High Risks:** 
+- **Medium Risks:** 
+- **Low Risks:** 
+- **Risks Realized:** 
+
+### 6. Stakeholder Management
+**Score: ___/10**
+
+| Criteria | Score (1-5) | Evidence/Comments |
+|----------|-------------|-------------------|
+| Stakeholder identification | | |
+| Engagement planning | | |
+| Communication effectiveness | | |
+| Stakeholder satisfaction | | |
+
+**Key Observations:**
+- [ ] All stakeholders are identified and analyzed
+- [ ] Engagement strategies are defined and executed
+- [ ] Communication is regular and effective
+- [ ] Stakeholder satisfaction is monitored
+
+**Stakeholder Health:**
+- **Sponsor Engagement:** ☐ High ☐ Medium ☐ Low
+- **Team Morale:** ☐ High ☐ Medium ☐ Low
+- **Customer Satisfaction:** ☐ High ☐ Medium ☐ Low
+
+### 7. Resource Management
+**Score: ___/10**
+
+| Criteria | Score (1-5) | Evidence/Comments |
+|----------|-------------|-------------------|
+| Resource planning | | |
+| Resource allocation | | |
+| Team performance | | |
+| Resource utilization | | |
+
+**Key Observations:**
+- [ ] Resources are planned and allocated effectively
+- [ ] Team has necessary skills and availability
+- [ ] Resource utilization is optimized
+- [ ] Resource conflicts are managed
+
+**Resource Status:**
+- **Team Availability:** 
+- **Skill Gaps:** 
+- **Resource Conflicts:** 
+- **Team Productivity:** 
+
+### 8. Communication Management
+**Score: ___/10**
+
+| Criteria | Score (1-5) | Evidence/Comments |
+|----------|-------------|-------------------|
+| Communication planning | | |
+| Information distribution | | |
+| Reporting effectiveness | | |
+| Knowledge management | | |
+
+**Key Observations:**
+- [ ] Communication plan is comprehensive and followed
+- [ ] Information is distributed effectively
+- [ ] Reports are timely and accurate
+- [ ] Knowledge is captured and shared
+
+### 9. Governance and Process Adherence
+**Score: ___/10**
+
+| Criteria | Score (1-5) | Evidence/Comments |
+|----------|-------------|-------------------|
+| Governance structure | | |
+| Process compliance | | |
+| Decision making | | |
+| Accountability | | |
+
+**Key Observations:**
+- [ ] Governance structure is clear and effective
+- [ ] Processes are followed consistently
+- [ ] Decisions are made efficiently
+- [ ] Roles and responsibilities are clear
+
+### 10. Change Management
+**Score: ___/10**
+
+| Criteria | Score (1-5) | Evidence/Comments |
+|----------|-------------|-------------------|
+| Change identification | | |
+| Change assessment | | |
+| Change approval | | |
+| Change implementation | | |
+
+**Key Observations:**
+- [ ] Changes are identified early
+- [ ] Impact assessment is thorough
+- [ ] Change approval process is followed
+- [ ] Implementation is controlled
+
+## Overall Assessment Summary
+
+### Health Score Calculation
+| Dimension | Weight | Score | Weighted Score |
+|-----------|--------|-------|----------------|
+| Scope Management | 10% | ___/10 | |
+| Schedule Management | 15% | ___/10 | |
+| Budget Management | 15% | ___/10 | |
+| Quality Management | 10% | ___/10 | |
+| Risk Management | 10% | ___/10 | |
+| Stakeholder Management | 10% | ___/10 | |
+| Resource Management | 10% | ___/10 | |
+| Communication Management | 8% | ___/10 | |
+| Governance | 7% | ___/10 | |
+| Change Management | 5% | ___/10 | |
+| **Total** | **100%** | | **___/100** |
+
+### Critical Success Factors Assessment
+
+| Factor | Status | Comments |
+|--------|--------|----------|
+| Executive Sponsorship | ☐ Strong ☐ Adequate ☐ Weak | |
+| Clear Objectives | ☐ Yes ☐ Partial ☐ No | |
+| Adequate Resources | ☐ Yes ☐ Partial ☐ No | |
+| Stakeholder Buy-in | ☐ High ☐ Medium ☐ Low | |
+| Methodology Fit | ☐ Good ☐ Adequate ☐ Poor | |
+
+### Top Strengths (Maintain and Leverage)
+1.
+2.
+3.
+
+### Top Risks/Issues (Immediate Attention Required)
+1.
+2.
+3.
+
+### Recommended Actions
+| Priority | Action | Owner | Timeline | Success Measure |
+|----------|--------|--------|----------|----------------|
+| High | | | | |
+| High | | | | |
+| Medium | | | | |
+| Medium | | | | |
+| Low | | | | |
+
+## Follow-up Plan
+
+### Next Assessment Date: 
+### Assessment Frequency: ☐ Weekly ☐ Bi-weekly ☐ Monthly ☐ Quarterly
+
+### Key Metrics to Monitor:
+- [ ] Schedule Performance Index (SPI)
+- [ ] Cost Performance Index (CPI)
+- [ ] Quality metrics
+- [ ] Risk exposure
+- [ ] Stakeholder satisfaction
+- [ ] Team velocity/productivity
+
+### Stakeholder Communication Plan:
+| Stakeholder | Information | Frequency | Method |
+|-------------|-------------|-----------|--------|
+| | | | |
+
+## When to Use
+
+Use throughout the project lifecycle to identify, assess, and track risks. This template is essential for projects with significant complexity, multiple stakeholders, or high business impact, where structured risk management provides decision-making value.
+
+## When NOT to Use
+
+Do not use for very low-risk, short-duration tasks where informal risk awareness is sufficient. Avoid this template if your governance framework requires a different risk management approach or if stakeholders prefer real-time risk dashboards over static registers.
+
+## Assessment Validation
+
+**Assessment Reviewed By:**
+- Project Manager: _________________ Date: _________
+- Sponsor: _________________ Date: _________
+- Key Stakeholder: _________________ Date: _________
+
+**Confidence Level in Assessment:** ☐ High ☐ Medium ☐ Low
+
+**Additional Comments:**
+
+**Assessment Methodology Note:** 
+This assessment uses a 1-5 scoring scale where:
+- 5 = Excellent (exceeds expectations)
+- 4 = Good (meets expectations)
+- 3 = Satisfactory (acceptable with minor concerns)
+- 2 = Poor (below expectations, needs improvement)
+- 1 = Critical (unacceptable, immediate action required)
+
+</pre></div></div></div><!--astro:end--></astro-island></main></body></html>

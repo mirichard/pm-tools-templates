@@ -1,11 +1,61 @@
-# Hybrid Project Assessment Template — Moved
+# Hybrid Project Assessment Template
 
-## Purpose and overview
+## Executive Summary
+This template assesses projects using hybrid methodologies that combine traditional and agile approaches.
 
-This legacy path is retained so existing repository links and external bookmarks continue to reach the Hybrid Project Assessment Template after its domain migration. The maintained canonical template now resides in the Delivery domain; this file contains navigation guidance only and is not a second template copy.
+## Hybrid Methodology Assessment
+**Project:** [Project name]
+**Hybrid Approach:** [Combination description]
+**Assessment Date:** [Date]
+**Traditional Components:** [List]
+**Agile Components:** [List]
 
-**Canonical location:** [Open the Hybrid Project Assessment Template](../domains/delivery/project-assessment-suite/hybrid-project-assessment-template.md)
+## Hybrid Integration Assessment
 
-## Usage instructions
+### 1. Methodology Integration
+**Integration Effectiveness:**
+- [ ] Approach selection rationale
+- [ ] Integration point management
+- [ ] Process coordination
+- [ ] Tool and system integration
 
-Follow the canonical-location link above to view, copy, or update the template. Update only the canonical file when proposing content changes. References to this legacy path remain supported for backward compatibility, but new documentation and catalog entries should link directly to the canonical domain path.
+**Integration Maturity:** [1-5 scale]
+
+### 2. Governance Hybrid Model
+**Governance Assessment:**
+- [ ] Decision-making authority clarity
+- [ ] Escalation process effectiveness
+- [ ] Reporting and communication
+- [ ] Risk and change management
+
+### 3. Team Adaptation
+**Team Effectiveness:**
+- [ ] Multi-methodology competency
+- [ ] Role clarity in hybrid context
+- [ ] Communication across approaches
+- [ ] Tool and process adaptation
+
+### 4. Value Delivery
+**Delivery Assessment:**
+- [ ] Incremental value delivery
+- [ ] Stakeholder satisfaction
+- [ ] Quality maintenance
+- [ ] Timeline adherence
+
+## Hybrid Success Factors
+**Critical Success Elements:**
+- [ ] Clear methodology boundaries
+- [ ] Effective integration processes
+- [ ] Team capability and training
+- [ ] Stakeholder understanding
+
+## Optimization Recommendations
+**Improvement Areas:**
+1. [Integration improvements]
+2. [Process optimizations]
+3. [Team development needs]
+
+---
+Related Resources:
+- [Hybrid Methodology](../methodology-frameworks/hybrid/)
+- [Integration Strategies](../methodology-frameworks/hybrid/integration-strategies/)

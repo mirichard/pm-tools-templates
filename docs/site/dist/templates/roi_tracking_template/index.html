@@ -1,0 +1,409 @@
+<!DOCTYPE html><html lang="en" data-astro-cid-ju4pidww><head><meta charset="UTF-8"><meta name="description" content="Advanced template browser with previews and version history"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="icon" type="image/svg+xml" href="/pm-tools-templates/favicon.svg"><title>Roi Tracking Template</title><link rel="stylesheet" href="/pm-tools-templates/assets/Layout.ChXqTIwx.css"></head><body data-astro-cid-ju4pidww><main data-astro-cid-ju4pidww><style>astro-island,astro-slot,astro-static-slot{display:contents}</style><script>(()=>{var e=async t=>{await(await t())()};(self.Astro||(self.Astro={})).load=e;window.dispatchEvent(new Event("astro:load"));})();</script><script>(()=>{var g=Object.defineProperty;var w=(a,s,c)=>s in a?g(a,s,{enumerable:!0,configurable:!0,writable:!0,value:c}):a[s]=c;var l=(a,s,c)=>w(a,typeof s!="symbol"?s+"":s,c);var E=new Set(["__proto__","constructor","prototype"]);{let a={0:t=>y(t),1:t=>c(t),2:t=>new RegExp(t),3:t=>new Date(t),4:t=>new Map(c(t)),5:t=>new Set(c(t)),6:t=>BigInt(t),7:t=>new URL(t),8:t=>new Uint8Array(t),9:t=>new Uint16Array(t),10:t=>new Uint32Array(t),11:t=>Number.POSITIVE_INFINITY*t},s=t=>{let[p,e]=t;return p in a?a[p](e):void 0},c=t=>t.map(s),y=t=>typeof t!="object"||t===null?t:Object.fromEntries(Object.entries(t).map(([p,e])=>[p,s(e)]));class f extends HTMLElement{constructor(){super(...arguments);l(this,"Component");l(this,"hydrator");l(this,"hydrate",async()=>{var b;if(!this.hydrator||!this.isConnected)return;let e=(b=this.parentElement)==null?void 0:b.closest("astro-island[ssr]");if(e){e.addEventListener("astro:hydrate",this.hydrate,{once:!0});return}let r=this.querySelectorAll("astro-slot"),n={},d=this.querySelectorAll("template[data-astro-template]");for(let o of d){let i=o.closest(this.tagName);i!=null&&i.isSameNode(this)&&(n[o.getAttribute("data-astro-template")||"default"]=o.innerHTML,o.remove())}for(let o of r){let i=o.closest(this.tagName);i!=null&&i.isSameNode(this)&&(n[o.getAttribute("name")||"default"]=o.innerHTML)}let u;try{u=this.hasAttribute("props")?y(JSON.parse(this.getAttribute("props"))):{}}catch(o){let i=this.getAttribute("component-url")||"<unknown>",v=this.getAttribute("component-export");throw v&&(i+=` (export ${v})`),console.error(`[hydrate] Error parsing props for component ${i}`,this.getAttribute("props"),o),o}let h;await this.hydrator(this)(this.Component,u,n,{client:this.getAttribute("client")}),this.removeAttribute("ssr"),this.dispatchEvent(new CustomEvent("astro:hydrate"))});l(this,"unmount",()=>{this.isConnected||this.dispatchEvent(new CustomEvent("astro:unmount"))})}disconnectedCallback(){document.removeEventListener("astro:after-swap",this.unmount),document.addEventListener("astro:after-swap",this.unmount,{once:!0})}connectedCallback(){if(!this.hasAttribute("await-children")||document.readyState==="interactive"||document.readyState==="complete")this.childrenConnectedCallback();else{let e=()=>{document.removeEventListener("DOMContentLoaded",e),r.disconnect(),this.childrenConnectedCallback()},r=new MutationObserver(()=>{var n;((n=this.lastChild)==null?void 0:n.nodeType)===Node.COMMENT_NODE&&this.lastChild.nodeValue==="astro:end"&&(this.lastChild.remove(),e())});r.observe(this,{childList:!0}),document.addEventListener("DOMContentLoaded",e)}}async childrenConnectedCallback(){let e=this.getAttribute("before-hydration-url");e&&await import(e),this.start()}getRetryImportUrl(e){let r=new URL(e,document.baseURI);return r.searchParams.set("astro-retry",Date.now().toString()),r.toString()}async importWithRetry(e){try{return await import(e)}catch(r){return await new Promise(n=>setTimeout(n,1e3)),import(this.getRetryImportUrl(e))}}handleHydrationError(e){let r=this.getAttribute("component-url"),n=new CustomEvent("astro:hydration-error",{cancelable:!0,bubbles:!0,composed:!0,detail:{error:e,componentUrl:r}});this.dispatchEvent(n)&&console.error(`[astro-island] Error hydrating ${r}`,e)}async start(){let e=JSON.parse(this.getAttribute("opts")),r=this.getAttribute("client");if(Astro[r]===void 0){window.addEventListener(`astro:${r}`,()=>this.start(),{once:!0});return}try{await Astro[r](async()=>{let n=this.getAttribute("renderer-url");try{let[d,{default:u}]=await Promise.all([this.importWithRetry(this.getAttribute("component-url")),n?this.importWithRetry(n):Promise.resolve({default:()=>()=>{}})]),h=this.getAttribute("component-export")||"default";if(h.includes(".")){this.Component=d;for(let m of h.split(".")){if(E.has(m)||!this.Component||typeof this.Component!="object"&&typeof this.Component!="function"||!Object.hasOwn(this.Component,m))throw new Error(`Invalid component export path: ${h}`);this.Component=this.Component[m]}}else{if(E.has(h))throw new Error(`Invalid component export path: ${h}`);this.Component=d[h]}return this.hydrator=u,this.hydrate}catch(d){return this.handleHydrationError(d),()=>{}}},e,this)}catch(n){this.handleHydrationError(n)}}attributeChangedCallback(){this.hydrate()}}l(f,"observedAttributes",["props"]),customElements.get("astro-island")||customElements.define("astro-island",f)}})();</script><astro-island uid="1zqodl" prefix="r1" component-url="/pm-tools-templates/assets/TemplateViewer.BJxWH0dD.js" component-export="default" renderer-url="/pm-tools-templates/assets/client.REQV_TkY.js" props="{&quot;templateId&quot;:[0,&quot;roi_tracking_template&quot;],&quot;filePath&quot;:[0,&quot;domains/delivery/templates/traditional/Traditional/Knowledge_Areas/Project_Cost_Management/roi_tracking_template.md&quot;],&quot;title&quot;:[0,&quot;Roi Tracking Template&quot;],&quot;content&quot;:[0,&quot;---\ntitle: Roi Tracking Template\nmethodology: traditional\ncomplexity: advanced\nowner: mirichard\nupdated: &#39;2025-08-05&#39;\nprimary_principles:\n- value-focus\n- evidence-based-decisions\nsecondary_principles:\n- stewardship\n- risk-optimization\nprinciple_rationale: Evaluates business value and financial exposure through traceable\n  evidence and accountability.\n---\n\n# ROI Tracking Template\n\n## Overview\n\nThis template provides a comprehensive framework for tracking Return on Investment (ROI) throughout the project lifecycle, aligned with Traditional Guide Project Cost Management knowledge area. Use this template to measure, monitor, and report on project value creation and financial performance.\n\n## ROI Calculation Framework\n\n### Basic ROI Formula\n```\nROI = (Financial Benefit - Project Cost) / Project Cost × 100%\n```\n\n### Net Present Value (NPV) Calculation\n```\nNPV = Σ [Benefit(t) / (1 + r)^t] - Initial Investment\nWhere:\n- t = time period\n- r = discount rate\n- Benefit(t) = net benefit in period t\n```\n\n### Internal Rate of Return (IRR)\n```\nIRR = Discount rate where NPV = 0\n```\n\n## Project Financial Overview\n\n### Project Information\n- **Project Name:** {{ project_name }}\n- **Project ID:** {{ project_id }}\n- **Project Manager:** {{ project_manager }}\n- **Start Date:** {{ start_date }}\n- **End Date:** {{ end_date }}\n- **Business Case Reference:** {{ business_case_ref }}\n\n### Investment Summary\n- **Total Project Investment:** ${{ total_investment }}\n- **Initial Capital Investment:** ${{ initial_investment }}\n- **Operational Investment:** ${{ operational_investment }}\n- **Implementation Costs:** ${{ implementation_costs }}\n- **Training and Change Management:** ${{ training_costs }}\n\n## Cost Tracking\n\n### Project Costs Breakdown\n\n| Cost Category | Budgeted Amount | Actual Amount | Variance | Variance % |\n|---------------|----------------|---------------|----------|------------|\n| Personnel Costs | ${{ personnel_budget }} | ${{ personnel_actual }} | ${{ personnel_variance }} | {{ personnel_variance_pct }}% |\n| Technology/Equipment | ${{ technology_budget }} | ${{ technology_actual }} | ${{ technology_variance }} | {{ technology_variance_pct }}% |\n| Software Licenses | ${{ software_budget }} | ${{ software_actual }} | ${{ software_variance }} | {{ software_variance_pct }}% |\n| Training &amp; Development | ${{ training_budget }} | ${{ training_actual }} | ${{ training_variance }} | {{ training_variance_pct }}% |\n| External Services | ${{ external_budget }} | ${{ external_actual }} | ${{ external_variance }} | {{ external_variance_pct }}% |\n| Infrastructure | ${{ infrastructure_budget }} | ${{ infrastructure_actual }} | ${{ infrastructure_variance }} | {{ infrastructure_variance_pct }}% |\n| Other Costs | ${{ other_budget }} | ${{ other_actual }} | ${{ other_variance }} | {{ other_variance_pct }}% |\n| **TOTAL** | **${{ total_budget }}** | **${{ total_actual }}** | **${{ total_variance }}** | **{{ total_variance_pct }}%** |\n\n### Cost Performance Indicators\n- **Cost Performance Index (CPI):** {{ cpi }} ({{ cpi_status }})\n- **Budget at Completion (BAC):** ${{ bac }}\n- **Estimate at Completion (EAC):** ${{ eac }}\n- **Estimate to Complete (ETC):** ${{ etc }}\n- **Variance at Completion (VAC):** ${{ vac }}\n\n## Benefits Tracking\n\n### Financial Benefits\n\n#### Direct Financial Benefits\n\n| Benefit Category | Year 1 | Year 2 | Year 3 | Year 4 | Year 5 | Total |\n|------------------|--------|--------|--------|--------|--------|-------|\n| Cost Savings | ${{ y1_cost_savings }} | ${{ y2_cost_savings }} | ${{ y3_cost_savings }} | ${{ y4_cost_savings }} | ${{ y5_cost_savings }} | ${{ total_cost_savings }} |\n| Revenue Increase | ${{ y1_revenue_increase }} | ${{ y2_revenue_increase }} | ${{ y3_revenue_increase }} | ${{ y4_revenue_increase }} | ${{ y5_revenue_increase }} | ${{ total_revenue_increase }} |\n| Cost Avoidance | ${{ y1_cost_avoidance }} | ${{ y2_cost_avoidance }} | ${{ y3_cost_avoidance }} | ${{ y4_cost_avoidance }} | ${{ y5_cost_avoidance }} | ${{ total_cost_avoidance }} |\n| **Total Benefits** | **${{ y1_total_benefits }}** | **${{ y2_total_benefits }}** | **${{ y3_total_benefits }}** | **${{ y4_total_benefits }}** | **${{ y5_total_benefits }}** | **${{ total_benefits }}** |\n\n#### Operational Cost Savings\n\n| Savings Category | Annual Savings | Description | Realization Status |\n|------------------|----------------|-------------|-------------------|\n| Process Automation | ${{ automation_savings }} | {{ automation_description }} | {{ automation_status }} |\n| Resource Optimization | ${{ resource_savings }} | {{ resource_description }} | {{ resource_status }} |\n| Efficiency Improvements | ${{ efficiency_savings }} | {{ efficiency_description }} | {{ efficiency_status }} |\n| Error Reduction | ${{ error_savings }} | {{ error_description }} | {{ error_status }} |\n| Compliance Improvements | ${{ compliance_savings }} | {{ compliance_description }} | {{ compliance_status }} |\n\n#### Revenue Enhancement\n\n| Revenue Stream | Annual Impact | Description | Realization Status |\n|----------------|---------------|-------------|-------------------|\n| New Products/Services | ${{ new_product_revenue }} | {{ new_product_description }} | {{ new_product_status }} |\n| Market Expansion | ${{ market_expansion_revenue }} | {{ market_description }} | {{ market_status }} |\n| Customer Retention | ${{ retention_revenue }} | {{ retention_description }} | {{ retention_status }} |\n| Pricing Optimization | ${{ pricing_revenue }} | {{ pricing_description }} | {{ pricing_status }} |\n| Cross-selling/Upselling | ${{ cross_sell_revenue }} | {{ cross_sell_description }} | {{ cross_sell_status }} |\n\n### Non-Financial Benefits\n\n#### Quantifiable Non-Financial Benefits\n\n| Benefit | Baseline | Target | Current | Achievement % | Business Value |\n|---------|----------|--------|---------|---------------|----------------|\n| Customer Satisfaction Score | {{ customer_baseline }} | {{ customer_target }} | {{ customer_current }} | {{ customer_achievement }}% | {{ customer_value }} |\n| Employee Productivity | {{ productivity_baseline }} | {{ productivity_target }} | {{ productivity_current }} | {{ productivity_achievement }}% | {{ productivity_value }} |\n| Process Cycle Time | {{ cycle_baseline }} | {{ cycle_target }} | {{ cycle_current }} | {{ cycle_achievement }}% | {{ cycle_value }} |\n| Quality Improvement | {{ quality_baseline }} | {{ quality_target }} | {{ quality_current }} | {{ quality_achievement }}% | {{ quality_value }} |\n| Compliance Score | {{ compliance_baseline }} | {{ compliance_target }} | {{ compliance_current }} | {{ compliance_achievement }}% | {{ compliance_value }} |\n\n#### Qualitative Benefits\n\n**Strategic Benefits:**\n- {{ strategic_benefit_1 }}\n- {{ strategic_benefit_2 }}\n- {{ strategic_benefit_3 }}\n\n**Operational Benefits:**\n- {{ operational_benefit_1 }}\n- {{ operational_benefit_2 }}\n- {{ operational_benefit_3 }}\n\n**Stakeholder Benefits:**\n- {{ stakeholder_benefit_1 }}\n- {{ stakeholder_benefit_2 }}\n- {{ stakeholder_benefit_3 }}\n\n## ROI Analysis\n\n### Current ROI Calculations\n\n#### Simple ROI\n```\nCurrent ROI = ({{ total_benefits_realized }} - {{ total_costs_actual }}) / {{ total_costs_actual }} × 100%\nCurrent ROI = {{ simple_roi }}%\n```\n\n#### Net Present Value (NPV)\n```\nNPV Calculation (Discount Rate: {{ discount_rate }}%):\nYear 0: -${{ year0_cashflow }}\nYear 1: ${{ year1_cashflow_pv }}\nYear 2: ${{ year2_cashflow_pv }}\nYear 3: ${{ year3_cashflow_pv }}\nYear 4: ${{ year4_cashflow_pv }}\nYear 5: ${{ year5_cashflow_pv }}\n\nNet Present Value: ${{ npv_total }}\n```\n\n#### Internal Rate of Return (IRR)\n```\nIRR = {{ irr_percentage }}%\n```\n\n#### Payback Period\n```\nSimple Payback Period: {{ simple_payback }} years\nDiscounted Payback Period: {{ discounted_payback }} years\n```\n\n### ROI Performance Tracking\n\n| Metric | Planned | Actual | Variance | Status |\n|--------|---------|--------|----------|---------|\n| Simple ROI | {{ planned_roi }}% | {{ actual_roi }}% | {{ roi_variance }}% | {{ roi_status }} |\n| NPV | ${{ planned_npv }} | ${{ actual_npv }} | ${{ npv_variance }} | {{ npv_status }} |\n| IRR | {{ planned_irr }}% | {{ actual_irr }}% | {{ irr_variance }}% | {{ irr_status }} |\n| Payback Period | {{ planned_payback }} years | {{ actual_payback }} years | {{ payback_variance }} years | {{ payback_status }} |\n\n### ROI Trend Analysis\n\n#### Monthly ROI Tracking\n| Month | Cumulative Investment | Cumulative Benefits | ROI % | Trend |\n|-------|----------------------|-------------------|-------|--------|\n| {{ month1 }} | ${{ month1_investment }} | ${{ month1_benefits }} | {{ month1_roi }}% | {{ month1_trend }} |\n| {{ month2 }} | ${{ month2_investment }} | ${{ month2_benefits }} | {{ month2_roi }}% | {{ month2_trend }} |\n| {{ month3 }} | ${{ month3_investment }} | ${{ month3_benefits }} | {{ month3_roi }}% | {{ month3_trend }} |\n| {{ month4 }} | ${{ month4_investment }} | ${{ month4_benefits }} | {{ month4_roi }}% | {{ month4_trend }} |\n| {{ month5 }} | ${{ month5_investment }} | ${{ month5_benefits }} | {{ month5_roi }}% | {{ month5_trend }} |\n| {{ month6 }} | ${{ month6_investment }} | ${{ month6_benefits }} | {{ month6_roi }}% | {{ month6_trend }} |\n\n## Benefit Realization Management\n\n### Benefit Realization Plan\n\n| Benefit | Owner | Target Date | Realization Approach | Success Criteria | Status |\n|---------|--------|-------------|---------------------|------------------|---------|\n| {{ benefit1_name }} | {{ benefit1_owner }} | {{ benefit1_date }} | {{ benefit1_approach }} | {{ benefit1_criteria }} | {{ benefit1_status }} |\n| {{ benefit2_name }} | {{ benefit2_owner }} | {{ benefit2_date }} | {{ benefit2_approach }} | {{ benefit2_criteria }} | {{ benefit2_status }} |\n| {{ benefit3_name }} | {{ benefit3_owner }} | {{ benefit3_date }} | {{ benefit3_approach }} | {{ benefit3_criteria }} | {{ benefit3_status }} |\n\n### Benefit Tracking Schedule\n\n#### Phase 1: Implementation (Months 1-6)\n- **Expected Benefits:** ${{ phase1_benefits }}\n- **Key Milestones:** {{ phase1_milestones }}\n- **Risk Factors:** {{ phase1_risks }}\n\n#### Phase 2: Early Adoption (Months 7-12)\n- **Expected Benefits:** ${{ phase2_benefits }}\n- **Key Milestones:** {{ phase2_milestones }}\n- **Risk Factors:** {{ phase2_risks }}\n\n#### Phase 3: Full Realization (Months 13-24)\n- **Expected Benefits:** ${{ phase3_benefits }}\n- **Key Milestones:** {{ phase3_milestones }}\n- **Risk Factors:** {{ phase3_risks }}\n\n### Benefit Realization Risks\n\n| Risk | Impact | Probability | Mitigation Strategy | Owner | Status |\n|------|--------|-------------|-------------------|--------|---------|\n| {{ risk1_description }} | {{ risk1_impact }} | {{ risk1_probability }} | {{ risk1_mitigation }} | {{ risk1_owner }} | {{ risk1_status }} |\n| {{ risk2_description }} | {{ risk2_impact }} | {{ risk2_probability }} | {{ risk2_mitigation }} | {{ risk2_owner }} | {{ risk2_status }} |\n| {{ risk3_description }} | {{ risk3_impact }} | {{ risk3_probability }} | {{ risk3_mitigation }} | {{ risk3_owner }} | {{ risk3_status }} |\n\n## Performance Dashboard\n\n### Key Performance Indicators\n\n#### Financial KPIs\n- **Current ROI:** {{ current_roi }}% (Target: {{ target_roi }}%)\n- **Cost Performance Index:** {{ current_cpi }} (Target: ≥ 1.0)\n- **Benefits Realization Rate:** {{ benefits_realization_rate }}% (Target: {{ target_realization_rate }}%)\n- **Payback Achievement:** {{ payback_achievement }}% complete\n\n#### Operational KPIs\n- **Milestone Achievement:** {{ milestone_achievement }}%\n- **Benefit Owner Engagement:** {{ owner_engagement }}%\n- **Risk Mitigation Effectiveness:** {{ risk_mitigation_effectiveness }}%\n- **Stakeholder Satisfaction:** {{ stakeholder_satisfaction }}/10\n\n### ROI Visualization\n\n#### ROI Trend Chart\n```\nROI Progress Over Time:\nMonth 1: [████░░░░░░] {{ month1_roi }}%\nMonth 2: [█████░░░░░] {{ month2_roi }}%\nMonth 3: [██████░░░░] {{ month3_roi }}%\nMonth 4: [███████░░░] {{ month4_roi }}%\nMonth 5: [████████░░] {{ month5_roi }}%\nMonth 6: [█████████░] {{ month6_roi }}%\nTarget:  [██████████] {{ target_roi }}%\n```\n\n#### Benefits vs. Costs Comparison\n```\nCumulative Benefits: ${{ cumulative_benefits }}\nCumulative Costs:    ${{ cumulative_costs }}\nNet Value:           ${{ net_value }}\n```\n\n## Governance and Reporting\n\n### ROI Governance Structure\n\n#### ROI Steering Committee\n- **Chair:** {{ steering_chair }}\n- **Members:** {{ steering_members }}\n- **Meeting Frequency:** {{ steering_frequency }}\n- **Responsibilities:** {{ steering_responsibilities }}\n\n#### Benefits Review Board\n- **Chair:** {{ benefits_chair }}\n- **Members:** {{ benefits_members }}\n- **Meeting Frequency:** {{ benefits_frequency }}\n- **Responsibilities:** {{ benefits_responsibilities }}\n\n### Reporting Schedule\n\n#### Monthly Reports\n- **Audience:** Project team, benefit owners\n- **Content:** Cost tracking, benefit realization progress, risk updates\n- **Format:** Dashboard summary, detailed variance analysis\n\n#### Quarterly Reviews\n- **Audience:** Steering committee, senior stakeholders\n- **Content:** ROI performance, trend analysis, corrective actions\n- **Format:** Executive presentation, comprehensive analysis\n\n#### Annual Assessment\n- **Audience:** Executive leadership, board of directors\n- **Content:** Full ROI realization, lessons learned, future recommendations\n- **Format:** Comprehensive report, business case validation\n\n### Report Templates\n\n#### Monthly ROI Report Template\n```\nProject: {{ project_name }}\nReporting Period: {{ reporting_period }}\n\nExecutive Summary:\n- Current ROI: {{ current_roi }}%\n- Benefits Realized: ${{ benefits_realized }}\n- Costs Incurred: ${{ costs_incurred }}\n- Key Issues: {{ key_issues }}\n\nDetailed Analysis:\n[Include detailed cost and benefit breakdown]\n\nRecommendations:\n[Include actionable recommendations]\n\nNext Steps:\n[Include planned activities for next period]\n```\n\n## Continuous Improvement\n\n### ROI Optimization Opportunities\n\n#### Cost Optimization\n- {{ cost_optimization_1 }}\n- {{ cost_optimization_2 }}\n- {{ cost_optimization_3 }}\n\n#### Benefit Enhancement\n- {{ benefit_enhancement_1 }}\n- {{ benefit_enhancement_2 }}\n- {{ benefit_enhancement_3 }}\n\n#### Process Improvements\n- {{ process_improvement_1 }}\n- {{ process_improvement_2 }}\n- {{ process_improvement_3 }}\n\n### Lessons Learned\n\n#### What Worked Well\n- {{ success_factor_1 }}\n- {{ success_factor_2 }}\n- {{ success_factor_3 }}\n\n#### Areas for Improvement\n- {{ improvement_area_1 }}\n- {{ improvement_area_2 }}\n- {{ improvement_area_3 }}\n\n#### Best Practices Identified\n- {{ best_practice_1 }}\n- {{ best_practice_2 }}\n- {{ best_practice_3 }}\n\n## Appendices\n\n### Appendix A: Calculation Methodologies\n[Detailed explanation of all ROI calculation methods used]\n\n### Appendix B: Data Sources and Assumptions\n[Documentation of all data sources and key assumptions]\n\n### Appendix C: Risk Register\n[Complete risk register with detailed risk analysis]\n\n### Appendix D: Stakeholder Analysis\n[Analysis of stakeholder impact and engagement]\n\n---\n\n## When to Use\n\nUse throughout the project lifecycle to identify, assess, and track risks. This template is essential for projects with significant complexity, multiple stakeholders, or high business impact, where structured risk management provides decision-making value.\n\n## When NOT to Use\n\nDo not use for very low-risk, short-duration tasks where informal risk awareness is sufficient. Avoid this template if your governance framework requires a different risk management approach or if stakeholders prefer real-time risk dashboards over static registers.\n\n## Related Templates\n\n- [Business Case Template](../../../Waterfall/Templates/business_case_template.md)\n- [Project Budget Template](./project_budget_template.md)\n- [Cost-Benefit Analysis Template](./cost_benefit_analysis_template.md)\n- [Financial Dashboard Template](../../business-stakeholder-suite/safe-executive-dashboards/financial-dashboard-template.md)\n\n---\n\n**Document Control:**\n- **Version:** 2.1\n- **Last Updated:** {{ current_date }}\n- **Next Review:** {{ next_review_date }}\n- **Document Owner:** {{ document_owner }}\n- **Approved By:** {{ approved_by }}\n\n**Traditional Guide Alignment:**\n- **Knowledge Area:** Project Cost Management\n- **Process Group:** Monitoring and Controlling\n- **Related Processes:** Control Costs, Control Schedule, Monitor and Control Project Work\n\n&quot;]}" ssr client="load" opts="{&quot;name&quot;:&quot;TemplateViewer&quot;,&quot;value&quot;:true}" await-children><div><h1>Roi Tracking Template</h1><div style="margin-bottom:2rem"><button style="background:var(--accent-color);color:white;border:1px solid var(--border-color);padding:0.5rem 1rem;border-radius:4px 4px 0 0;cursor:pointer;margin-right:1px">Preview</button><button style="background:var(--code-bg);color:var(--text-color);border:1px solid var(--border-color);padding:0.5rem 1rem;border-radius:4px 4px 0 0;cursor:pointer">Version History</button></div><div style="border:1px solid var(--border-color);border-radius:0 8px 8px 8px;min-height:400px"><div style="background:var(--bg-primary);border-radius:var(--radius-lg)"><div style="padding:1rem 1.5rem;border-bottom:1px solid var(--border-light);display:flex;align-items:center;justify-content:space-between;background:var(--bg-secondary);border-radius:var(--radius-lg) var(--radius-lg) 0 0"><div style="display:flex;align-items:center;gap:0.5rem"><span style="font-size:1.5rem">📄</span><div><div style="font-weight:600;color:var(--text-primary)">roi_tracking_template.md</div><div style="font-size:0.75rem;color:var(--text-muted)">Markdown • <!-- -->16,384 bytes</div></div></div><a href="/pm-tools-templates/downloads/roi_tracking_template.md" download="" class="btn btn-secondary" style="font-size:0.75rem;padding:0.5rem 0.75rem">💾 Download</a></div><pre aria-label="Markdown source of Roi Tracking Template" style="padding:1.5rem;max-height:600px;overflow:auto;white-space:pre-wrap;overflow-wrap:anywhere">---
+title: Roi Tracking Template
+methodology: traditional
+complexity: advanced
+owner: mirichard
+updated: &#x27;2025-08-05&#x27;
+primary_principles:
+- value-focus
+- evidence-based-decisions
+secondary_principles:
+- stewardship
+- risk-optimization
+principle_rationale: Evaluates business value and financial exposure through traceable
+  evidence and accountability.
+---
+
+# ROI Tracking Template
+
+## Overview
+
+This template provides a comprehensive framework for tracking Return on Investment (ROI) throughout the project lifecycle, aligned with Traditional Guide Project Cost Management knowledge area. Use this template to measure, monitor, and report on project value creation and financial performance.
+
+## ROI Calculation Framework
+
+### Basic ROI Formula
+```
+ROI = (Financial Benefit - Project Cost) / Project Cost × 100%
+```
+
+### Net Present Value (NPV) Calculation
+```
+NPV = Σ [Benefit(t) / (1 + r)^t] - Initial Investment
+Where:
+- t = time period
+- r = discount rate
+- Benefit(t) = net benefit in period t
+```
+
+### Internal Rate of Return (IRR)
+```
+IRR = Discount rate where NPV = 0
+```
+
+## Project Financial Overview
+
+### Project Information
+- **Project Name:** {{ project_name }}
+- **Project ID:** {{ project_id }}
+- **Project Manager:** {{ project_manager }}
+- **Start Date:** {{ start_date }}
+- **End Date:** {{ end_date }}
+- **Business Case Reference:** {{ business_case_ref }}
+
+### Investment Summary
+- **Total Project Investment:** ${{ total_investment }}
+- **Initial Capital Investment:** ${{ initial_investment }}
+- **Operational Investment:** ${{ operational_investment }}
+- **Implementation Costs:** ${{ implementation_costs }}
+- **Training and Change Management:** ${{ training_costs }}
+
+## Cost Tracking
+
+### Project Costs Breakdown
+
+| Cost Category | Budgeted Amount | Actual Amount | Variance | Variance % |
+|---------------|----------------|---------------|----------|------------|
+| Personnel Costs | ${{ personnel_budget }} | ${{ personnel_actual }} | ${{ personnel_variance }} | {{ personnel_variance_pct }}% |
+| Technology/Equipment | ${{ technology_budget }} | ${{ technology_actual }} | ${{ technology_variance }} | {{ technology_variance_pct }}% |
+| Software Licenses | ${{ software_budget }} | ${{ software_actual }} | ${{ software_variance }} | {{ software_variance_pct }}% |
+| Training &amp; Development | ${{ training_budget }} | ${{ training_actual }} | ${{ training_variance }} | {{ training_variance_pct }}% |
+| External Services | ${{ external_budget }} | ${{ external_actual }} | ${{ external_variance }} | {{ external_variance_pct }}% |
+| Infrastructure | ${{ infrastructure_budget }} | ${{ infrastructure_actual }} | ${{ infrastructure_variance }} | {{ infrastructure_variance_pct }}% |
+| Other Costs | ${{ other_budget }} | ${{ other_actual }} | ${{ other_variance }} | {{ other_variance_pct }}% |
+| **TOTAL** | **${{ total_budget }}** | **${{ total_actual }}** | **${{ total_variance }}** | **{{ total_variance_pct }}%** |
+
+### Cost Performance Indicators
+- **Cost Performance Index (CPI):** {{ cpi }} ({{ cpi_status }})
+- **Budget at Completion (BAC):** ${{ bac }}
+- **Estimate at Completion (EAC):** ${{ eac }}
+- **Estimate to Complete (ETC):** ${{ etc }}
+- **Variance at Completion (VAC):** ${{ vac }}
+
+## Benefits Tracking
+
+### Financial Benefits
+
+#### Direct Financial Benefits
+
+| Benefit Category | Year 1 | Year 2 | Year 3 | Year 4 | Year 5 | Total |
+|------------------|--------|--------|--------|--------|--------|-------|
+| Cost Savings | ${{ y1_cost_savings }} | ${{ y2_cost_savings }} | ${{ y3_cost_savings }} | ${{ y4_cost_savings }} | ${{ y5_cost_savings }} | ${{ total_cost_savings }} |
+| Revenue Increase | ${{ y1_revenue_increase }} | ${{ y2_revenue_increase }} | ${{ y3_revenue_increase }} | ${{ y4_revenue_increase }} | ${{ y5_revenue_increase }} | ${{ total_revenue_increase }} |
+| Cost Avoidance | ${{ y1_cost_avoidance }} | ${{ y2_cost_avoidance }} | ${{ y3_cost_avoidance }} | ${{ y4_cost_avoidance }} | ${{ y5_cost_avoidance }} | ${{ total_cost_avoidance }} |
+| **Total Benefits** | **${{ y1_total_benefits }}** | **${{ y2_total_benefits }}** | **${{ y3_total_benefits }}** | **${{ y4_total_benefits }}** | **${{ y5_total_benefits }}** | **${{ total_benefits }}** |
+
+#### Operational Cost Savings
+
+| Savings Category | Annual Savings | Description | Realization Status |
+|------------------|----------------|-------------|-------------------|
+| Process Automation | ${{ automation_savings }} | {{ automation_description }} | {{ automation_status }} |
+| Resource Optimization | ${{ resource_savings }} | {{ resource_description }} | {{ resource_status }} |
+| Efficiency Improvements | ${{ efficiency_savings }} | {{ efficiency_description }} | {{ efficiency_status }} |
+| Error Reduction | ${{ error_savings }} | {{ error_description }} | {{ error_status }} |
+| Compliance Improvements | ${{ compliance_savings }} | {{ compliance_description }} | {{ compliance_status }} |
+
+#### Revenue Enhancement
+
+| Revenue Stream | Annual Impact | Description | Realization Status |
+|----------------|---------------|-------------|-------------------|
+| New Products/Services | ${{ new_product_revenue }} | {{ new_product_description }} | {{ new_product_status }} |
+| Market Expansion | ${{ market_expansion_revenue }} | {{ market_description }} | {{ market_status }} |
+| Customer Retention | ${{ retention_revenue }} | {{ retention_description }} | {{ retention_status }} |
+| Pricing Optimization | ${{ pricing_revenue }} | {{ pricing_description }} | {{ pricing_status }} |
+| Cross-selling/Upselling | ${{ cross_sell_revenue }} | {{ cross_sell_description }} | {{ cross_sell_status }} |
+
+### Non-Financial Benefits
+
+#### Quantifiable Non-Financial Benefits
+
+| Benefit | Baseline | Target | Current | Achievement % | Business Value |
+|---------|----------|--------|---------|---------------|----------------|
+| Customer Satisfaction Score | {{ customer_baseline }} | {{ customer_target }} | {{ customer_current }} | {{ customer_achievement }}% | {{ customer_value }} |
+| Employee Productivity | {{ productivity_baseline }} | {{ productivity_target }} | {{ productivity_current }} | {{ productivity_achievement }}% | {{ productivity_value }} |
+| Process Cycle Time | {{ cycle_baseline }} | {{ cycle_target }} | {{ cycle_current }} | {{ cycle_achievement }}% | {{ cycle_value }} |
+| Quality Improvement | {{ quality_baseline }} | {{ quality_target }} | {{ quality_current }} | {{ quality_achievement }}% | {{ quality_value }} |
+| Compliance Score | {{ compliance_baseline }} | {{ compliance_target }} | {{ compliance_current }} | {{ compliance_achievement }}% | {{ compliance_value }} |
+
+#### Qualitative Benefits
+
+**Strategic Benefits:**
+- {{ strategic_benefit_1 }}
+- {{ strategic_benefit_2 }}
+- {{ strategic_benefit_3 }}
+
+**Operational Benefits:**
+- {{ operational_benefit_1 }}
+- {{ operational_benefit_2 }}
+- {{ operational_benefit_3 }}
+
+**Stakeholder Benefits:**
+- {{ stakeholder_benefit_1 }}
+- {{ stakeholder_benefit_2 }}
+- {{ stakeholder_benefit_3 }}
+
+## ROI Analysis
+
+### Current ROI Calculations
+
+#### Simple ROI
+```
+Current ROI = ({{ total_benefits_realized }} - {{ total_costs_actual }}) / {{ total_costs_actual }} × 100%
+Current ROI = {{ simple_roi }}%
+```
+
+#### Net Present Value (NPV)
+```
+NPV Calculation (Discount Rate: {{ discount_rate }}%):
+Year 0: -${{ year0_cashflow }}
+Year 1: ${{ year1_cashflow_pv }}
+Year 2: ${{ year2_cashflow_pv }}
+Year 3: ${{ year3_cashflow_pv }}
+Year 4: ${{ year4_cashflow_pv }}
+Year 5: ${{ year5_cashflow_pv }}
+
+Net Present Value: ${{ npv_total }}
+```
+
+#### Internal Rate of Return (IRR)
+```
+IRR = {{ irr_percentage }}%
+```
+
+#### Payback Period
+```
+Simple Payback Period: {{ simple_payback }} years
+Discounted Payback Period: {{ discounted_payback }} years
+```
+
+### ROI Performance Tracking
+
+| Metric | Planned | Actual | Variance | Status |
+|--------|---------|--------|----------|---------|
+| Simple ROI | {{ planned_roi }}% | {{ actual_roi }}% | {{ roi_variance }}% | {{ roi_status }} |
+| NPV | ${{ planned_npv }} | ${{ actual_npv }} | ${{ npv_variance }} | {{ npv_status }} |
+| IRR | {{ planned_irr }}% | {{ actual_irr }}% | {{ irr_variance }}% | {{ irr_status }} |
+| Payback Period | {{ planned_payback }} years | {{ actual_payback }} years | {{ payback_variance }} years | {{ payback_status }} |
+
+### ROI Trend Analysis
+
+#### Monthly ROI Tracking
+| Month | Cumulative Investment | Cumulative Benefits | ROI % | Trend |
+|-------|----------------------|-------------------|-------|--------|
+| {{ month1 }} | ${{ month1_investment }} | ${{ month1_benefits }} | {{ month1_roi }}% | {{ month1_trend }} |
+| {{ month2 }} | ${{ month2_investment }} | ${{ month2_benefits }} | {{ month2_roi }}% | {{ month2_trend }} |
+| {{ month3 }} | ${{ month3_investment }} | ${{ month3_benefits }} | {{ month3_roi }}% | {{ month3_trend }} |
+| {{ month4 }} | ${{ month4_investment }} | ${{ month4_benefits }} | {{ month4_roi }}% | {{ month4_trend }} |
+| {{ month5 }} | ${{ month5_investment }} | ${{ month5_benefits }} | {{ month5_roi }}% | {{ month5_trend }} |
+| {{ month6 }} | ${{ month6_investment }} | ${{ month6_benefits }} | {{ month6_roi }}% | {{ month6_trend }} |
+
+## Benefit Realization Management
+
+### Benefit Realization Plan
+
+| Benefit | Owner | Target Date | Realization Approach | Success Criteria | Status |
+|---------|--------|-------------|---------------------|------------------|---------|
+| {{ benefit1_name }} | {{ benefit1_owner }} | {{ benefit1_date }} | {{ benefit1_approach }} | {{ benefit1_criteria }} | {{ benefit1_status }} |
+| {{ benefit2_name }} | {{ benefit2_owner }} | {{ benefit2_date }} | {{ benefit2_approach }} | {{ benefit2_criteria }} | {{ benefit2_status }} |
+| {{ benefit3_name }} | {{ benefit3_owner }} | {{ benefit3_date }} | {{ benefit3_approach }} | {{ benefit3_criteria }} | {{ benefit3_status }} |
+
+### Benefit Tracking Schedule
+
+#### Phase 1: Implementation (Months 1-6)
+- **Expected Benefits:** ${{ phase1_benefits }}
+- **Key Milestones:** {{ phase1_milestones }}
+- **Risk Factors:** {{ phase1_risks }}
+
+#### Phase 2: Early Adoption (Months 7-12)
+- **Expected Benefits:** ${{ phase2_benefits }}
+- **Key Milestones:** {{ phase2_milestones }}
+- **Risk Factors:** {{ phase2_risks }}
+
+#### Phase 3: Full Realization (Months 13-24)
+- **Expected Benefits:** ${{ phase3_benefits }}
+- **Key Milestones:** {{ phase3_milestones }}
+- **Risk Factors:** {{ phase3_risks }}
+
+### Benefit Realization Risks
+
+| Risk | Impact | Probability | Mitigation Strategy | Owner | Status |
+|------|--------|-------------|-------------------|--------|---------|
+| {{ risk1_description }} | {{ risk1_impact }} | {{ risk1_probability }} | {{ risk1_mitigation }} | {{ risk1_owner }} | {{ risk1_status }} |
+| {{ risk2_description }} | {{ risk2_impact }} | {{ risk2_probability }} | {{ risk2_mitigation }} | {{ risk2_owner }} | {{ risk2_status }} |
+| {{ risk3_description }} | {{ risk3_impact }} | {{ risk3_probability }} | {{ risk3_mitigation }} | {{ risk3_owner }} | {{ risk3_status }} |
+
+## Performance Dashboard
+
+### Key Performance Indicators
+
+#### Financial KPIs
+- **Current ROI:** {{ current_roi }}% (Target: {{ target_roi }}%)
+- **Cost Performance Index:** {{ current_cpi }} (Target: ≥ 1.0)
+- **Benefits Realization Rate:** {{ benefits_realization_rate }}% (Target: {{ target_realization_rate }}%)
+- **Payback Achievement:** {{ payback_achievement }}% complete
+
+#### Operational KPIs
+- **Milestone Achievement:** {{ milestone_achievement }}%
+- **Benefit Owner Engagement:** {{ owner_engagement }}%
+- **Risk Mitigation Effectiveness:** {{ risk_mitigation_effectiveness }}%
+- **Stakeholder Satisfaction:** {{ stakeholder_satisfaction }}/10
+
+### ROI Visualization
+
+#### ROI Trend Chart
+```
+ROI Progress Over Time:
+Month 1: [████░░░░░░] {{ month1_roi }}%
+Month 2: [█████░░░░░] {{ month2_roi }}%
+Month 3: [██████░░░░] {{ month3_roi }}%
+Month 4: [███████░░░] {{ month4_roi }}%
+Month 5: [████████░░] {{ month5_roi }}%
+Month 6: [█████████░] {{ month6_roi }}%
+Target:  [██████████] {{ target_roi }}%
+```
+
+#### Benefits vs. Costs Comparison
+```
+Cumulative Benefits: ${{ cumulative_benefits }}
+Cumulative Costs:    ${{ cumulative_costs }}
+Net Value:           ${{ net_value }}
+```
+
+## Governance and Reporting
+
+### ROI Governance Structure
+
+#### ROI Steering Committee
+- **Chair:** {{ steering_chair }}
+- **Members:** {{ steering_members }}
+- **Meeting Frequency:** {{ steering_frequency }}
+- **Responsibilities:** {{ steering_responsibilities }}
+
+#### Benefits Review Board
+- **Chair:** {{ benefits_chair }}
+- **Members:** {{ benefits_members }}
+- **Meeting Frequency:** {{ benefits_frequency }}
+- **Responsibilities:** {{ benefits_responsibilities }}
+
+### Reporting Schedule
+
+#### Monthly Reports
+- **Audience:** Project team, benefit owners
+- **Content:** Cost tracking, benefit realization progress, risk updates
+- **Format:** Dashboard summary, detailed variance analysis
+
+#### Quarterly Reviews
+- **Audience:** Steering committee, senior stakeholders
+- **Content:** ROI performance, trend analysis, corrective actions
+- **Format:** Executive presentation, comprehensive analysis
+
+#### Annual Assessment
+- **Audience:** Executive leadership, board of directors
+- **Content:** Full ROI realization, lessons learned, future recommendations
+- **Format:** Comprehensive report, business case validation
+
+### Report Templates
+
+#### Monthly ROI Report Template
+```
+Project: {{ project_name }}
+Reporting Period: {{ reporting_period }}
+
+Executive Summary:
+- Current ROI: {{ current_roi }}%
+- Benefits Realized: ${{ benefits_realized }}
+- Costs Incurred: ${{ costs_incurred }}
+- Key Issues: {{ key_issues }}
+
+Detailed Analysis:
+[Include detailed cost and benefit breakdown]
+
+Recommendations:
+[Include actionable recommendations]
+
+Next Steps:
+[Include planned activities for next period]
+```
+
+## Continuous Improvement
+
+### ROI Optimization Opportunities
+
+#### Cost Optimization
+- {{ cost_optimization_1 }}
+- {{ cost_optimization_2 }}
+- {{ cost_optimization_3 }}
+
+#### Benefit Enhancement
+- {{ benefit_enhancement_1 }}
+- {{ benefit_enhancement_2 }}
+- {{ benefit_enhancement_3 }}
+
+#### Process Improvements
+- {{ process_improvement_1 }}
+- {{ process_improvement_2 }}
+- {{ process_improvement_3 }}
+
+### Lessons Learned
+
+#### What Worked Well
+- {{ success_factor_1 }}
+- {{ success_factor_2 }}
+- {{ success_factor_3 }}
+
+#### Areas for Improvement
+- {{ improvement_area_1 }}
+- {{ improvement_area_2 }}
+- {{ improvement_area_3 }}
+
+#### Best Practices Identified
+- {{ best_practice_1 }}
+- {{ best_practice_2 }}
+- {{ best_practice_3 }}
+
+## Appendices
+
+### Appendix A: Calculation Methodologies
+[Detailed explanation of all ROI calculation methods used]
+
+### Appendix B: Data Sources and Assumptions
+[Documentation of all data sources and key assumptions]
+
+### Appendix C: Risk Register
+[Complete risk register with detailed risk analysis]
+
+### Appendix D: Stakeholder Analysis
+[Analysis of stakeholder impact and engagement]
+
+---
+
+## When to Use
+
+Use throughout the project lifecycle to identify, assess, and track risks. This template is essential for projects with significant complexity, multiple stakeholders, or high business impact, where structured risk management provides decision-making value.
+
+## When NOT to Use
+
+Do not use for very low-risk, short-duration tasks where informal risk awareness is sufficient. Avoid this template if your governance framework requires a different risk management approach or if stakeholders prefer real-time risk dashboards over static registers.
+
+## Related Templates
+
+- [Business Case Template](../../../Waterfall/Templates/business_case_template.md)
+- [Project Budget Template](./project_budget_template.md)
+- [Cost-Benefit Analysis Template](./cost_benefit_analysis_template.md)
+- [Financial Dashboard Template](../../business-stakeholder-suite/safe-executive-dashboards/financial-dashboard-template.md)
+
+---
+
+**Document Control:**
+- **Version:** 2.1
+- **Last Updated:** {{ current_date }}
+- **Next Review:** {{ next_review_date }}
+- **Document Owner:** {{ document_owner }}
+- **Approved By:** {{ approved_by }}
+
+**Traditional Guide Alignment:**
+- **Knowledge Area:** Project Cost Management
+- **Process Group:** Monitoring and Controlling
+- **Related Processes:** Control Costs, Control Schedule, Monitor and Control Project Work
+
+</pre></div></div></div><!--astro:end--></astro-island></main></body></html>

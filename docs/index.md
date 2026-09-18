@@ -1,41 +1,83 @@
-# Project Management Templates Documentation
+---
+layout: default
+title: PM Tools & Templates Library
+description: Comprehensive project management resources organized for modern PM practice
+---
 
-> Complete documentation for all templates, including usage analytics and quality scoring.
+# PM Tools & Templates Library
 
-## 📊 Repository Statistics
+**Comprehensive project management resources organized for modern PM practice**
 
-| Metric | Value |
-|---|---|
-| **Total Templates** | 154 |
-| **Recently Updated** | 154 templates in last 30 days |
-| **Most Common Tag** | risk-management |
+> 🚧 **IMPORTANT**: This repository is currently being reorganized for better user experience. **[Click here for current template locations →](REPOSITORY_STATUS.md)**
 
-## 📈 Template Analytics
+This library provides proven templates, tools, and guidance for project managers across all methodologies and experience levels. Designed following industry best practices from PMI, Scrum Alliance, and SAFe.
 
-### By Methodology
+---
 
-- **Universal**: 97 templates
-- **Agile**: 23 templates
-- **Traditional**: 25 templates
-- **Hybrid**: 7 templates
-- **Traditional**: 1 templates
-- **Scrum**: 1 templates
+## 🚀 Quick Start
 
-### By Complexity
+### New to Project Management?
+👉 **[Start Here: Getting Started Guide](getting-started/README.md)**
 
-- **Advanced**: 128 templates
-- **Starter**: 14 templates
-- **Intermediate**: 12 templates
+### Need Templates Now?
+👉 **[Find Templates: Template Selector](getting-started/template-selector.md)**
 
-### Top 10 Tags
+### Choosing Your Methodology?
+👉 **[Decide: Methodology Selector](getting-started/methodology-selector.md)**
 
-- **risk-management**: 126 templates
-- **stakeholder-management**: 116 templates
-- **quality**: 110 templates
-- **planning**: 102 templates
-- **communication**: 101 templates
-- **monitoring**: 89 templates
-- **technology**: 85 templates
-- **agile**: 29 templates
-- **traditional**: 27 templates
-- **healthcare**: 26 templates
+### Executive Reporting?
+👉 **[Business Stakeholder Suite](../business-stakeholder-suite/)**
+
+---
+
+## 🎯 What's Available Right Now
+
+### ✅ **READY TO USE** - Full Content Available
+
+**Traditional/Waterfall Templates:**
+- [Waterfall Process Groups](../Waterfall/Process_Groups/) - Complete Traditional-aligned templates
+- [Waterfall Templates](../Waterfall/Templates/) - Ready-to-use documents
+
+**Agile/Scrum Templates:**
+- [Agile Frameworks](../Agile/) - Scrum, Kanban, and scaled agile templates
+
+**Hybrid Approaches:**
+- [Hybrid Templates](../Hybrid/) - Mixed methodology resources
+
+**Industry-Specific Templates:**
+- [Industry Templates](../industry_templates/) - Customized for specific sectors
+
+**Quick Start Resources:**
+- [First-Time PM Kit](../quick-start-kits/first-time-pm-starter/) - Beginner-friendly templates
+
+---
+
+## 📊 Repository Stats
+
+- **150+ Templates** across all methodologies and roles
+- **5 Major Toolkits** for different PM roles
+- **7 Industry Specializations** with adapted templates
+- **20+ Tool Integrations** for popular PM software
+- **Methodology-Agnostic** design for maximum flexibility
+
+---
+
+## 🔗 Quick Links
+
+- **[Browse Repository Files]({{ site.github.repository_url }})**
+- **[Download ZIP]({{ site.github.zip_url }})**
+- **[Clone Repository]({{ site.github.clone_url }})**
+- **[Repository Status](../REPOSITORY_STATUS.md)**
+- **[Navigation Guide](../NAVIGATION_GUIDE.md)**
+- **[Issues Management](issues-management.md)** - Track project progress
+- **[Dashboard MVP Demo](dashboard-mvp-demo.md)** - Interactive project health dashboard (`npm run dashboard-demo`)
+
+- **[Dashboard MVP Demo](dashboard-mvp-demo.md)** - Interactive project health dashboard (`npm run dashboard-demo`)
+=======
+- **[Dashboard MVP Demo](dashboard-mvp-demo.md)** - Interactive project health dashboard
+
+
+---
+
+**Ready to get started?** 👆 Choose your path above or **[browse all templates]({{ site.github.repository_url }})**
+

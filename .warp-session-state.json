@@ -1,0 +1,20 @@
+{
+  "session_id": "20250723-130218",
+  "started_at": "2025-07-23T13:02:18-04:00",
+  "context": {
+    "current_directory": "/Users/michael/pm-tools-templates",
+    "git_branch": "main",
+    "last_commit": "1249bf27 Add working Enhanced Clean Status Workflow for Issue #314",
+    "active_tasks": [],
+    "user_preferences": {
+      "verbosity": "medium",
+      "technical_depth": "high",
+      "communication_style": "professional"
+    },
+    "debug_status": "GitHub CLI and metrics collection working properly",
+    "task_status": "Enhanced workflow created, tested components individually, awaiting GitHub Actions cache refresh"
+  },
+  "interaction_count": 2,
+  "successful_patterns": [],
+  "failed_patterns": []
+}

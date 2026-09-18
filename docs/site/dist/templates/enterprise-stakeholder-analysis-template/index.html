@@ -1,0 +1,279 @@
+<!DOCTYPE html><html lang="en" data-astro-cid-ju4pidww><head><meta charset="UTF-8"><meta name="description" content="Advanced template browser with previews and version history"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="icon" type="image/svg+xml" href="/pm-tools-templates/favicon.svg"><title>Enterprise Stakeholder Analysis Template</title><link rel="stylesheet" href="/pm-tools-templates/assets/Layout.ChXqTIwx.css"></head><body data-astro-cid-ju4pidww><main data-astro-cid-ju4pidww><style>astro-island,astro-slot,astro-static-slot{display:contents}</style><script>(()=>{var e=async t=>{await(await t())()};(self.Astro||(self.Astro={})).load=e;window.dispatchEvent(new Event("astro:load"));})();</script><script>(()=>{var g=Object.defineProperty;var w=(a,s,c)=>s in a?g(a,s,{enumerable:!0,configurable:!0,writable:!0,value:c}):a[s]=c;var l=(a,s,c)=>w(a,typeof s!="symbol"?s+"":s,c);var E=new Set(["__proto__","constructor","prototype"]);{let a={0:t=>y(t),1:t=>c(t),2:t=>new RegExp(t),3:t=>new Date(t),4:t=>new Map(c(t)),5:t=>new Set(c(t)),6:t=>BigInt(t),7:t=>new URL(t),8:t=>new Uint8Array(t),9:t=>new Uint16Array(t),10:t=>new Uint32Array(t),11:t=>Number.POSITIVE_INFINITY*t},s=t=>{let[p,e]=t;return p in a?a[p](e):void 0},c=t=>t.map(s),y=t=>typeof t!="object"||t===null?t:Object.fromEntries(Object.entries(t).map(([p,e])=>[p,s(e)]));class f extends HTMLElement{constructor(){super(...arguments);l(this,"Component");l(this,"hydrator");l(this,"hydrate",async()=>{var b;if(!this.hydrator||!this.isConnected)return;let e=(b=this.parentElement)==null?void 0:b.closest("astro-island[ssr]");if(e){e.addEventListener("astro:hydrate",this.hydrate,{once:!0});return}let r=this.querySelectorAll("astro-slot"),n={},d=this.querySelectorAll("template[data-astro-template]");for(let o of d){let i=o.closest(this.tagName);i!=null&&i.isSameNode(this)&&(n[o.getAttribute("data-astro-template")||"default"]=o.innerHTML,o.remove())}for(let o of r){let i=o.closest(this.tagName);i!=null&&i.isSameNode(this)&&(n[o.getAttribute("name")||"default"]=o.innerHTML)}let u;try{u=this.hasAttribute("props")?y(JSON.parse(this.getAttribute("props"))):{}}catch(o){let i=this.getAttribute("component-url")||"<unknown>",v=this.getAttribute("component-export");throw v&&(i+=` (export ${v})`),console.error(`[hydrate] Error parsing props for component ${i}`,this.getAttribute("props"),o),o}let h;await this.hydrator(this)(this.Component,u,n,{client:this.getAttribute("client")}),this.removeAttribute("ssr"),this.dispatchEvent(new CustomEvent("astro:hydrate"))});l(this,"unmount",()=>{this.isConnected||this.dispatchEvent(new CustomEvent("astro:unmount"))})}disconnectedCallback(){document.removeEventListener("astro:after-swap",this.unmount),document.addEventListener("astro:after-swap",this.unmount,{once:!0})}connectedCallback(){if(!this.hasAttribute("await-children")||document.readyState==="interactive"||document.readyState==="complete")this.childrenConnectedCallback();else{let e=()=>{document.removeEventListener("DOMContentLoaded",e),r.disconnect(),this.childrenConnectedCallback()},r=new MutationObserver(()=>{var n;((n=this.lastChild)==null?void 0:n.nodeType)===Node.COMMENT_NODE&&this.lastChild.nodeValue==="astro:end"&&(this.lastChild.remove(),e())});r.observe(this,{childList:!0}),document.addEventListener("DOMContentLoaded",e)}}async childrenConnectedCallback(){let e=this.getAttribute("before-hydration-url");e&&await import(e),this.start()}getRetryImportUrl(e){let r=new URL(e,document.baseURI);return r.searchParams.set("astro-retry",Date.now().toString()),r.toString()}async importWithRetry(e){try{return await import(e)}catch(r){return await new Promise(n=>setTimeout(n,1e3)),import(this.getRetryImportUrl(e))}}handleHydrationError(e){let r=this.getAttribute("component-url"),n=new CustomEvent("astro:hydration-error",{cancelable:!0,bubbles:!0,composed:!0,detail:{error:e,componentUrl:r}});this.dispatchEvent(n)&&console.error(`[astro-island] Error hydrating ${r}`,e)}async start(){let e=JSON.parse(this.getAttribute("opts")),r=this.getAttribute("client");if(Astro[r]===void 0){window.addEventListener(`astro:${r}`,()=>this.start(),{once:!0});return}try{await Astro[r](async()=>{let n=this.getAttribute("renderer-url");try{let[d,{default:u}]=await Promise.all([this.importWithRetry(this.getAttribute("component-url")),n?this.importWithRetry(n):Promise.resolve({default:()=>()=>{}})]),h=this.getAttribute("component-export")||"default";if(h.includes(".")){this.Component=d;for(let m of h.split(".")){if(E.has(m)||!this.Component||typeof this.Component!="object"&&typeof this.Component!="function"||!Object.hasOwn(this.Component,m))throw new Error(`Invalid component export path: ${h}`);this.Component=this.Component[m]}}else{if(E.has(h))throw new Error(`Invalid component export path: ${h}`);this.Component=d[h]}return this.hydrator=u,this.hydrate}catch(d){return this.handleHydrationError(d),()=>{}}},e,this)}catch(n){this.handleHydrationError(n)}}attributeChangedCallback(){this.hydrate()}}l(f,"observedAttributes",["props"]),customElements.get("astro-island")||customElements.define("astro-island",f)}})();</script><astro-island uid="Z2mo1P1" prefix="r1" component-url="/pm-tools-templates/assets/TemplateViewer.BJxWH0dD.js" component-export="default" renderer-url="/pm-tools-templates/assets/client.REQV_TkY.js" props="{&quot;templateId&quot;:[0,&quot;enterprise-stakeholder-analysis-template&quot;],&quot;filePath&quot;:[0,&quot;domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/enterprise-stakeholder-analysis-template.md&quot;],&quot;title&quot;:[0,&quot;Enterprise Stakeholder Analysis Template&quot;],&quot;content&quot;:[0,&quot;---\ntitle: Enterprise Stakeholder Analysis Template\nmethodology: universal\ncomplexity: advanced\nowner: mirichard\nupdated: &#39;2025-08-05&#39;\nprimary_principles:\n- stakeholder-engagement\n- systems-thinking\nsecondary_principles:\n- collaborative-leadership\n- adaptability\nprinciple_rationale: Maps enterprise relationships so engagement adapts to influence,\n  impact, and context.\n---\n\n# Enterprise Stakeholder Analysis Template\n\n## Project Information\n- **Project/Program Name**: [Name]\n- **Project Manager**: [Name]\n- **Date**: [Date]\n- **Scope**: [Enterprise/Portfolio/Program level]\n- **Duration**: [Project timeline]\n\n## Executive Summary\n[Brief overview of the stakeholder landscape, key challenges, and strategic importance of stakeholder management for this enterprise initiative]\n\n## Stakeholder Ecosystem Mapping\n\n### Executive Level\n| Stakeholder | Role | Organization | Influence | Interest | Power Level |\n|-------------|------|--------------|-----------|----------|-------------|\n| [Name] | CEO/President | [Organization] | Very High | [Level] | Strategic |\n| [Name] | COO | [Organization] | Very High | [Level] | Strategic |\n| [Name] | CTO/CIO | [Organization] | High | [Level] | Strategic |\n| [Name] | CFO | [Organization] | High | [Level] | Strategic |\n\n### Senior Management\n| Stakeholder | Role | Organization | Influence | Interest | Power Level |\n|-------------|------|--------------|-----------|----------|-------------|\n| [Name] | VP Engineering | [Organization] | High | [Level] | Operational |\n| [Name] | VP Sales | [Organization] | High | [Level] | Operational |\n| [Name] | VP Marketing | [Organization] | Medium | [Level] | Operational |\n\n### Middle Management\n| Stakeholder | Role | Department | Influence | Interest | Impact Area |\n|-------------|------|------------|-----------|----------|-------------|\n| [Name] | Director | [Department] | Medium | [Level] | [Area] |\n| [Name] | Manager | [Department] | Medium | [Level] | [Area] |\n\n### Operational Level\n| Stakeholder | Role | Team | Influence | Interest | Involvement Type |\n|-------------|------|------|-----------|----------|------------------|\n| [Name] | Team Lead | [Team] | Low-Medium | [Level] | [Type] |\n| [Name] | Subject Matter Expert | [Team] | Medium | [Level] | [Type] |\n\n## External Stakeholders\n\n### Customers and Partners\n| Stakeholder | Organization | Relationship | Influence | Interest | Engagement Strategy |\n|-------------|--------------|--------------|-----------|----------|-------------------|\n| [Name] | [Company] | Key Customer | High | [Level] | [Strategy] |\n| [Name] | [Company] | Strategic Partner | Medium | [Level] | [Strategy] |\n\n### Vendors and Suppliers\n| Stakeholder | Company | Service/Product | Influence | Interest | Management Approach |\n|-------------|---------|-----------------|-----------|----------|-------------------|\n| [Name] | [Company] | [Service] | Medium | [Level] | [Approach] |\n\n### Regulatory and Compliance\n| Stakeholder | Organization | Jurisdiction | Influence | Interest | Compliance Requirements |\n|-------------|--------------|--------------|-----------|----------|----------------------|\n| [Name] | [Agency] | [Region] | High | [Level] | [Requirements] |\n\n## Stakeholder Analysis Matrix\n\n### Power/Interest Grid\n\n#### High Power, High Interest (Manage Closely)\n**Key Players - Require Active Management**\n- **[Stakeholder 1]**: [Name, Role]\n  - **Engagement Strategy**: Weekly updates, direct involvement in decisions\n  - **Communication Method**: Face-to-face meetings, executive reports\n  - **Key Concerns**: [Primary concerns and motivations]\n  - **Success Criteria**: [What they need to see to support the project]\n\n- **[Stakeholder 2]**: [Name, Role]\n  - **Engagement Strategy**: [Strategy]\n  - **Communication Method**: [Method]\n  - **Key Concerns**: [Concerns]\n  - **Success Criteria**: [Criteria]\n\n#### High Power, Low Interest (Keep Satisfied)\n**Context Setters - Need Periodic Updates**\n- **[Stakeholder 1]**: [Name, Role]\n  - **Engagement Strategy**: Monthly summaries, escalate only critical issues\n  - **Communication Method**: Executive dashboards, formal reports\n  - **Monitoring Approach**: [How to track their satisfaction]\n\n#### Low Power, High Interest (Keep Informed)\n**Subjects - Provide Regular Information**\n- **[Stakeholder 1]**: [Name, Role]\n  - **Engagement Strategy**: Regular communication, involvement in relevant activities\n  - **Communication Method**: Newsletters, team meetings, updates\n  - **Value Contribution**: [How they can contribute to project success]\n\n#### Low Power, Low Interest (Monitor)\n**Crowd - Minimal Effort Required**\n- **[Stakeholder 1]**: [Name, Role]\n  - **Monitoring Approach**: Periodic check-ins, watch for changes in interest/power\n  - **Communication Method**: General announcements, broadcast updates\n\n## Stakeholder Influence Network\n\n### Influence Relationships\n| Stakeholder | Influences | Influenced By | Influence Type |\n|-------------|------------|---------------|----------------|\n| [Name] | [Names] | [Names] | Formal/Informal |\n| [Name] | [Names] | [Names] | Formal/Informal |\n\n### Coalition Building Opportunities\n- **Pro-Project Coalition**: [Stakeholders who strongly support the project]\n- **Neutral Stakeholders**: [Stakeholders who could be influenced either way]\n- **Potential Opposition**: [Stakeholders who might resist the project]\n\n### Key Influencers\n1. **[Name]**: [Role and why they&#39;re influential]\n2. **[Name]**: [Role and why they&#39;re influential]\n3. **[Name]**: [Role and why they&#39;re influential]\n\n## Communication Strategy\n\n### Communication Matrix\n| Stakeholder Group | Information Needs | Method | Frequency | Owner | Format |\n|------------------|-------------------|--------|-----------|-------|--------|\n| Executive Team | Strategic progress, ROI, risks | Face-to-face, Executive reports | Monthly | PM | Dashboard |\n| Senior Management | Operational impact, resource needs | Meetings, Status reports | Bi-weekly | PM | Detailed reports |\n| Middle Management | Team impact, process changes | Presentations, Email | Weekly | PM/Team Leads | Summaries |\n| Project Teams | Task assignments, dependencies | Daily standups, Tools | Daily | Team Leads | Operational |\n\n### Escalation Matrix\n| Issue Level | Stakeholder | Escalation Path | Timeline | Method |\n|-------------|-------------|-----------------|----------|--------|\n| Operational | Team Lead | Project Manager | 24 hours | Email/Call |\n| Tactical | Project Manager | Program Manager | 48 hours | Meeting |\n| Strategic | Program Manager | Executive Sponsor | 72 hours | Formal presentation |\n| Critical | Executive Sponsor | CEO/Board | Immediate | Emergency meeting |\n\n## Risk Assessment\n\n### Stakeholder-Related Risks\n| Risk | Stakeholder | Impact | Probability | Mitigation Strategy | Owner |\n|------|-------------|--------|-------------|-------------------|-------|\n| Loss of executive support | [Executive] | High | Medium | Regular engagement, quick wins | PM |\n| Resource reallocation | [Manager] | Medium | High | Clear business case, alternatives | PM |\n| Scope creep pressure | [User Group] | Medium | High | Change control process | PO |\n\n### Resistance Analysis\n| Stakeholder | Resistance Level | Reasons | Mitigation Approach |\n|-------------|------------------|---------|-------------------|\n| [Name] | High | [Reasons] | [Approach] |\n| [Name] | Medium | [Reasons] | [Approach] |\n\n## Engagement Plan\n\n### Phase-Based Engagement\n#### Initiation Phase\n- **Key Activities**: Stakeholder identification, initial buy-in\n- **Primary Stakeholders**: Executive sponsors, key influencers\n- **Success Criteria**: Project approval, resource allocation\n\n#### Planning Phase\n- **Key Activities**: Detailed planning, resource commitments\n- **Primary Stakeholders**: Operational managers, technical leads\n- **Success Criteria**: Approved plans, committed resources\n\n#### Execution Phase\n- **Key Activities**: Regular updates, issue resolution\n- **Primary Stakeholders**: All active stakeholders\n- **Success Criteria**: Maintained support, issue resolution\n\n#### Closure Phase\n- **Key Activities**: Benefit realization, lessons learned\n- **Primary Stakeholders**: Sponsors, end users\n- **Success Criteria**: Achieved benefits, stakeholder satisfaction\n\n### Stakeholder Events Calendar\n| Event | Stakeholders | Frequency | Objective |\n|-------|-------------|-----------|-----------|\n| Executive Review | Executive team | Monthly | Strategic alignment |\n| Steering Committee | Senior management | Bi-weekly | Operational oversight |\n| User Group Meetings | End users | Weekly | Feedback and buy-in |\n| Vendor Reviews | External partners | Quarterly | Performance management |\n\n## Success Metrics\n\n### Stakeholder Satisfaction Metrics\n| Metric | Target | Measurement Method | Frequency |\n|--------|--------|--------------------|-----------|\n| Executive Satisfaction | &gt;4.0/5.0 | Survey | Quarterly |\n| User Adoption Rate | &gt;80% | Usage analytics | Monthly |\n| Support Level | &gt;85% | Stakeholder survey | Bi-annually |\n\n### Engagement Effectiveness\n- **Communication Response Rate**: Target &gt;90%\n- **Meeting Attendance**: Target &gt;85% for key stakeholders\n- **Issue Resolution Time**: Target &lt;48 hours for critical stakeholder issues\n- **Feedback Quality**: Measured through structured feedback forms\n\n## Action Plans\n\n### Immediate Actions (Next 30 Days)\n| Action | Stakeholder | Owner | Due Date | Success Criteria |\n|--------|-------------|-------|----------|------------------|\n| [Action 1] | [Stakeholder] | [Owner] | [Date] | [Criteria] |\n| [Action 2] | [Stakeholder] | [Owner] | [Date] | [Criteria] |\n\n### Relationship Building Initiatives\n- **[Initiative 1]**: [Description, stakeholders involved, timeline]\n- **[Initiative 2]**: [Description, stakeholders involved, timeline]\n\n### Conflict Resolution Plans\n- **[Potential Conflict 1]**: [Description, stakeholders, resolution approach]\n- **[Potential Conflict 2]**: [Description, stakeholders, resolution approach]\n\n## Governance and Decision Making\n\n### Decision Authority Matrix (RACI)\n| Decision Type | Executive | Senior Mgmt | Project Team | External |\n|---------------|-----------|-------------|--------------|----------|\n| Strategic Direction | A | R | C | I |\n| Resource Allocation | A | R | C | I |\n| Scope Changes | A | R | R | C |\n| Technical Decisions | I | C | A/R | C |\n\n### Governance Bodies\n- **Executive Steering Committee**: [Members, frequency, authority]\n- **Project Management Office**: [Role, reporting, authority]\n- **Change Control Board**: [Members, frequency, authority]\n\n## When to Use\n\nUse throughout the project lifecycle to identify, assess, and track risks. This template is essential for projects with significant complexity, multiple stakeholders, or high business impact, where structured risk management provides decision-making value.\n\n## When NOT to Use\n\nDo not use for very low-risk, short-duration tasks where informal risk awareness is sufficient. Avoid this template if your governance framework requires a different risk management approach or if stakeholders prefer real-time risk dashboards over static registers.\n\n## Review and Updates\n\n### Regular Review Schedule\n- **Weekly**: Operational stakeholder status\n- **Monthly**: Management stakeholder review\n- **Quarterly**: Complete stakeholder analysis update\n- **Semi-annually**: Stakeholder strategy review\n\n### Update Triggers\n- Major project milestones\n- Significant organizational changes\n- New stakeholder identification\n- Changes in stakeholder power/interest\n- Project scope or timeline changes\n\n### Continuous Improvement\n- **Stakeholder Feedback Integration**: Process for incorporating feedback\n- **Engagement Strategy Optimization**: Regular assessment and improvement\n- **Best Practice Documentation**: Capturing and sharing lessons learned\n\n---\n\n**Prepared by**: [Project Manager Name]  \n**Reviewed by**: [Sponsor Name]  \n**Last Updated**: [Date]  \n**Next Review**: [Date]\n\n*Comprehensive stakeholder management for enterprise success*\n\n&quot;]}" ssr client="load" opts="{&quot;name&quot;:&quot;TemplateViewer&quot;,&quot;value&quot;:true}" await-children><div><h1>Enterprise Stakeholder Analysis Template</h1><div style="margin-bottom:2rem"><button style="background:var(--accent-color);color:white;border:1px solid var(--border-color);padding:0.5rem 1rem;border-radius:4px 4px 0 0;cursor:pointer;margin-right:1px">Preview</button><button style="background:var(--code-bg);color:var(--text-color);border:1px solid var(--border-color);padding:0.5rem 1rem;border-radius:4px 4px 0 0;cursor:pointer">Version History</button></div><div style="border:1px solid var(--border-color);border-radius:0 8px 8px 8px;min-height:400px"><div style="background:var(--bg-primary);border-radius:var(--radius-lg)"><div style="padding:1rem 1.5rem;border-bottom:1px solid var(--border-light);display:flex;align-items:center;justify-content:space-between;background:var(--bg-secondary);border-radius:var(--radius-lg) var(--radius-lg) 0 0"><div style="display:flex;align-items:center;gap:0.5rem"><span style="font-size:1.5rem">📄</span><div><div style="font-weight:600;color:var(--text-primary)">enterprise-stakeholder-analysis-template.md</div><div style="font-size:0.75rem;color:var(--text-muted)">Markdown • <!-- -->11,975 bytes</div></div></div><a href="/pm-tools-templates/downloads/enterprise-stakeholder-analysis-template.md" download="" class="btn btn-secondary" style="font-size:0.75rem;padding:0.5rem 0.75rem">💾 Download</a></div><pre aria-label="Markdown source of Enterprise Stakeholder Analysis Template" style="padding:1.5rem;max-height:600px;overflow:auto;white-space:pre-wrap;overflow-wrap:anywhere">---
+title: Enterprise Stakeholder Analysis Template
+methodology: universal
+complexity: advanced
+owner: mirichard
+updated: &#x27;2025-08-05&#x27;
+primary_principles:
+- stakeholder-engagement
+- systems-thinking
+secondary_principles:
+- collaborative-leadership
+- adaptability
+principle_rationale: Maps enterprise relationships so engagement adapts to influence,
+  impact, and context.
+---
+
+# Enterprise Stakeholder Analysis Template
+
+## Project Information
+- **Project/Program Name**: [Name]
+- **Project Manager**: [Name]
+- **Date**: [Date]
+- **Scope**: [Enterprise/Portfolio/Program level]
+- **Duration**: [Project timeline]
+
+## Executive Summary
+[Brief overview of the stakeholder landscape, key challenges, and strategic importance of stakeholder management for this enterprise initiative]
+
+## Stakeholder Ecosystem Mapping
+
+### Executive Level
+| Stakeholder | Role | Organization | Influence | Interest | Power Level |
+|-------------|------|--------------|-----------|----------|-------------|
+| [Name] | CEO/President | [Organization] | Very High | [Level] | Strategic |
+| [Name] | COO | [Organization] | Very High | [Level] | Strategic |
+| [Name] | CTO/CIO | [Organization] | High | [Level] | Strategic |
+| [Name] | CFO | [Organization] | High | [Level] | Strategic |
+
+### Senior Management
+| Stakeholder | Role | Organization | Influence | Interest | Power Level |
+|-------------|------|--------------|-----------|----------|-------------|
+| [Name] | VP Engineering | [Organization] | High | [Level] | Operational |
+| [Name] | VP Sales | [Organization] | High | [Level] | Operational |
+| [Name] | VP Marketing | [Organization] | Medium | [Level] | Operational |
+
+### Middle Management
+| Stakeholder | Role | Department | Influence | Interest | Impact Area |
+|-------------|------|------------|-----------|----------|-------------|
+| [Name] | Director | [Department] | Medium | [Level] | [Area] |
+| [Name] | Manager | [Department] | Medium | [Level] | [Area] |
+
+### Operational Level
+| Stakeholder | Role | Team | Influence | Interest | Involvement Type |
+|-------------|------|------|-----------|----------|------------------|
+| [Name] | Team Lead | [Team] | Low-Medium | [Level] | [Type] |
+| [Name] | Subject Matter Expert | [Team] | Medium | [Level] | [Type] |
+
+## External Stakeholders
+
+### Customers and Partners
+| Stakeholder | Organization | Relationship | Influence | Interest | Engagement Strategy |
+|-------------|--------------|--------------|-----------|----------|-------------------|
+| [Name] | [Company] | Key Customer | High | [Level] | [Strategy] |
+| [Name] | [Company] | Strategic Partner | Medium | [Level] | [Strategy] |
+
+### Vendors and Suppliers
+| Stakeholder | Company | Service/Product | Influence | Interest | Management Approach |
+|-------------|---------|-----------------|-----------|----------|-------------------|
+| [Name] | [Company] | [Service] | Medium | [Level] | [Approach] |
+
+### Regulatory and Compliance
+| Stakeholder | Organization | Jurisdiction | Influence | Interest | Compliance Requirements |
+|-------------|--------------|--------------|-----------|----------|----------------------|
+| [Name] | [Agency] | [Region] | High | [Level] | [Requirements] |
+
+## Stakeholder Analysis Matrix
+
+### Power/Interest Grid
+
+#### High Power, High Interest (Manage Closely)
+**Key Players - Require Active Management**
+- **[Stakeholder 1]**: [Name, Role]
+  - **Engagement Strategy**: Weekly updates, direct involvement in decisions
+  - **Communication Method**: Face-to-face meetings, executive reports
+  - **Key Concerns**: [Primary concerns and motivations]
+  - **Success Criteria**: [What they need to see to support the project]
+
+- **[Stakeholder 2]**: [Name, Role]
+  - **Engagement Strategy**: [Strategy]
+  - **Communication Method**: [Method]
+  - **Key Concerns**: [Concerns]
+  - **Success Criteria**: [Criteria]
+
+#### High Power, Low Interest (Keep Satisfied)
+**Context Setters - Need Periodic Updates**
+- **[Stakeholder 1]**: [Name, Role]
+  - **Engagement Strategy**: Monthly summaries, escalate only critical issues
+  - **Communication Method**: Executive dashboards, formal reports
+  - **Monitoring Approach**: [How to track their satisfaction]
+
+#### Low Power, High Interest (Keep Informed)
+**Subjects - Provide Regular Information**
+- **[Stakeholder 1]**: [Name, Role]
+  - **Engagement Strategy**: Regular communication, involvement in relevant activities
+  - **Communication Method**: Newsletters, team meetings, updates
+  - **Value Contribution**: [How they can contribute to project success]
+
+#### Low Power, Low Interest (Monitor)
+**Crowd - Minimal Effort Required**
+- **[Stakeholder 1]**: [Name, Role]
+  - **Monitoring Approach**: Periodic check-ins, watch for changes in interest/power
+  - **Communication Method**: General announcements, broadcast updates
+
+## Stakeholder Influence Network
+
+### Influence Relationships
+| Stakeholder | Influences | Influenced By | Influence Type |
+|-------------|------------|---------------|----------------|
+| [Name] | [Names] | [Names] | Formal/Informal |
+| [Name] | [Names] | [Names] | Formal/Informal |
+
+### Coalition Building Opportunities
+- **Pro-Project Coalition**: [Stakeholders who strongly support the project]
+- **Neutral Stakeholders**: [Stakeholders who could be influenced either way]
+- **Potential Opposition**: [Stakeholders who might resist the project]
+
+### Key Influencers
+1. **[Name]**: [Role and why they&#x27;re influential]
+2. **[Name]**: [Role and why they&#x27;re influential]
+3. **[Name]**: [Role and why they&#x27;re influential]
+
+## Communication Strategy
+
+### Communication Matrix
+| Stakeholder Group | Information Needs | Method | Frequency | Owner | Format |
+|------------------|-------------------|--------|-----------|-------|--------|
+| Executive Team | Strategic progress, ROI, risks | Face-to-face, Executive reports | Monthly | PM | Dashboard |
+| Senior Management | Operational impact, resource needs | Meetings, Status reports | Bi-weekly | PM | Detailed reports |
+| Middle Management | Team impact, process changes | Presentations, Email | Weekly | PM/Team Leads | Summaries |
+| Project Teams | Task assignments, dependencies | Daily standups, Tools | Daily | Team Leads | Operational |
+
+### Escalation Matrix
+| Issue Level | Stakeholder | Escalation Path | Timeline | Method |
+|-------------|-------------|-----------------|----------|--------|
+| Operational | Team Lead | Project Manager | 24 hours | Email/Call |
+| Tactical | Project Manager | Program Manager | 48 hours | Meeting |
+| Strategic | Program Manager | Executive Sponsor | 72 hours | Formal presentation |
+| Critical | Executive Sponsor | CEO/Board | Immediate | Emergency meeting |
+
+## Risk Assessment
+
+### Stakeholder-Related Risks
+| Risk | Stakeholder | Impact | Probability | Mitigation Strategy | Owner |
+|------|-------------|--------|-------------|-------------------|-------|
+| Loss of executive support | [Executive] | High | Medium | Regular engagement, quick wins | PM |
+| Resource reallocation | [Manager] | Medium | High | Clear business case, alternatives | PM |
+| Scope creep pressure | [User Group] | Medium | High | Change control process | PO |
+
+### Resistance Analysis
+| Stakeholder | Resistance Level | Reasons | Mitigation Approach |
+|-------------|------------------|---------|-------------------|
+| [Name] | High | [Reasons] | [Approach] |
+| [Name] | Medium | [Reasons] | [Approach] |
+
+## Engagement Plan
+
+### Phase-Based Engagement
+#### Initiation Phase
+- **Key Activities**: Stakeholder identification, initial buy-in
+- **Primary Stakeholders**: Executive sponsors, key influencers
+- **Success Criteria**: Project approval, resource allocation
+
+#### Planning Phase
+- **Key Activities**: Detailed planning, resource commitments
+- **Primary Stakeholders**: Operational managers, technical leads
+- **Success Criteria**: Approved plans, committed resources
+
+#### Execution Phase
+- **Key Activities**: Regular updates, issue resolution
+- **Primary Stakeholders**: All active stakeholders
+- **Success Criteria**: Maintained support, issue resolution
+
+#### Closure Phase
+- **Key Activities**: Benefit realization, lessons learned
+- **Primary Stakeholders**: Sponsors, end users
+- **Success Criteria**: Achieved benefits, stakeholder satisfaction
+
+### Stakeholder Events Calendar
+| Event | Stakeholders | Frequency | Objective |
+|-------|-------------|-----------|-----------|
+| Executive Review | Executive team | Monthly | Strategic alignment |
+| Steering Committee | Senior management | Bi-weekly | Operational oversight |
+| User Group Meetings | End users | Weekly | Feedback and buy-in |
+| Vendor Reviews | External partners | Quarterly | Performance management |
+
+## Success Metrics
+
+### Stakeholder Satisfaction Metrics
+| Metric | Target | Measurement Method | Frequency |
+|--------|--------|--------------------|-----------|
+| Executive Satisfaction | &gt;4.0/5.0 | Survey | Quarterly |
+| User Adoption Rate | &gt;80% | Usage analytics | Monthly |
+| Support Level | &gt;85% | Stakeholder survey | Bi-annually |
+
+### Engagement Effectiveness
+- **Communication Response Rate**: Target &gt;90%
+- **Meeting Attendance**: Target &gt;85% for key stakeholders
+- **Issue Resolution Time**: Target &lt;48 hours for critical stakeholder issues
+- **Feedback Quality**: Measured through structured feedback forms
+
+## Action Plans
+
+### Immediate Actions (Next 30 Days)
+| Action | Stakeholder | Owner | Due Date | Success Criteria |
+|--------|-------------|-------|----------|------------------|
+| [Action 1] | [Stakeholder] | [Owner] | [Date] | [Criteria] |
+| [Action 2] | [Stakeholder] | [Owner] | [Date] | [Criteria] |
+
+### Relationship Building Initiatives
+- **[Initiative 1]**: [Description, stakeholders involved, timeline]
+- **[Initiative 2]**: [Description, stakeholders involved, timeline]
+
+### Conflict Resolution Plans
+- **[Potential Conflict 1]**: [Description, stakeholders, resolution approach]
+- **[Potential Conflict 2]**: [Description, stakeholders, resolution approach]
+
+## Governance and Decision Making
+
+### Decision Authority Matrix (RACI)
+| Decision Type | Executive | Senior Mgmt | Project Team | External |
+|---------------|-----------|-------------|--------------|----------|
+| Strategic Direction | A | R | C | I |
+| Resource Allocation | A | R | C | I |
+| Scope Changes | A | R | R | C |
+| Technical Decisions | I | C | A/R | C |
+
+### Governance Bodies
+- **Executive Steering Committee**: [Members, frequency, authority]
+- **Project Management Office**: [Role, reporting, authority]
+- **Change Control Board**: [Members, frequency, authority]
+
+## When to Use
+
+Use throughout the project lifecycle to identify, assess, and track risks. This template is essential for projects with significant complexity, multiple stakeholders, or high business impact, where structured risk management provides decision-making value.
+
+## When NOT to Use
+
+Do not use for very low-risk, short-duration tasks where informal risk awareness is sufficient. Avoid this template if your governance framework requires a different risk management approach or if stakeholders prefer real-time risk dashboards over static registers.
+
+## Review and Updates
+
+### Regular Review Schedule
+- **Weekly**: Operational stakeholder status
+- **Monthly**: Management stakeholder review
+- **Quarterly**: Complete stakeholder analysis update
+- **Semi-annually**: Stakeholder strategy review
+
+### Update Triggers
+- Major project milestones
+- Significant organizational changes
+- New stakeholder identification
+- Changes in stakeholder power/interest
+- Project scope or timeline changes
+
+### Continuous Improvement
+- **Stakeholder Feedback Integration**: Process for incorporating feedback
+- **Engagement Strategy Optimization**: Regular assessment and improvement
+- **Best Practice Documentation**: Capturing and sharing lessons learned
+
+---
+
+**Prepared by**: [Project Manager Name]  
+**Reviewed by**: [Sponsor Name]  
+**Last Updated**: [Date]  
+**Next Review**: [Date]
+
+*Comprehensive stakeholder management for enterprise success*
+
+</pre></div></div></div><!--astro:end--></astro-island></main></body></html>

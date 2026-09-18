@@ -1,0 +1,93 @@
+<!DOCTYPE html><html lang="en" data-astro-cid-ju4pidww><head><meta charset="UTF-8"><meta name="description" content="Advanced template browser with previews and version history"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="icon" type="image/svg+xml" href="/pm-tools-templates/favicon.svg"><title>Agile Project Assessment Template</title><link rel="stylesheet" href="/pm-tools-templates/assets/Layout.ChXqTIwx.css"></head><body data-astro-cid-ju4pidww><main data-astro-cid-ju4pidww><style>astro-island,astro-slot,astro-static-slot{display:contents}</style><script>(()=>{var e=async t=>{await(await t())()};(self.Astro||(self.Astro={})).load=e;window.dispatchEvent(new Event("astro:load"));})();</script><script>(()=>{var g=Object.defineProperty;var w=(a,s,c)=>s in a?g(a,s,{enumerable:!0,configurable:!0,writable:!0,value:c}):a[s]=c;var l=(a,s,c)=>w(a,typeof s!="symbol"?s+"":s,c);var E=new Set(["__proto__","constructor","prototype"]);{let a={0:t=>y(t),1:t=>c(t),2:t=>new RegExp(t),3:t=>new Date(t),4:t=>new Map(c(t)),5:t=>new Set(c(t)),6:t=>BigInt(t),7:t=>new URL(t),8:t=>new Uint8Array(t),9:t=>new Uint16Array(t),10:t=>new Uint32Array(t),11:t=>Number.POSITIVE_INFINITY*t},s=t=>{let[p,e]=t;return p in a?a[p](e):void 0},c=t=>t.map(s),y=t=>typeof t!="object"||t===null?t:Object.fromEntries(Object.entries(t).map(([p,e])=>[p,s(e)]));class f extends HTMLElement{constructor(){super(...arguments);l(this,"Component");l(this,"hydrator");l(this,"hydrate",async()=>{var b;if(!this.hydrator||!this.isConnected)return;let e=(b=this.parentElement)==null?void 0:b.closest("astro-island[ssr]");if(e){e.addEventListener("astro:hydrate",this.hydrate,{once:!0});return}let r=this.querySelectorAll("astro-slot"),n={},d=this.querySelectorAll("template[data-astro-template]");for(let o of d){let i=o.closest(this.tagName);i!=null&&i.isSameNode(this)&&(n[o.getAttribute("data-astro-template")||"default"]=o.innerHTML,o.remove())}for(let o of r){let i=o.closest(this.tagName);i!=null&&i.isSameNode(this)&&(n[o.getAttribute("name")||"default"]=o.innerHTML)}let u;try{u=this.hasAttribute("props")?y(JSON.parse(this.getAttribute("props"))):{}}catch(o){let i=this.getAttribute("component-url")||"<unknown>",v=this.getAttribute("component-export");throw v&&(i+=` (export ${v})`),console.error(`[hydrate] Error parsing props for component ${i}`,this.getAttribute("props"),o),o}let h;await this.hydrator(this)(this.Component,u,n,{client:this.getAttribute("client")}),this.removeAttribute("ssr"),this.dispatchEvent(new CustomEvent("astro:hydrate"))});l(this,"unmount",()=>{this.isConnected||this.dispatchEvent(new CustomEvent("astro:unmount"))})}disconnectedCallback(){document.removeEventListener("astro:after-swap",this.unmount),document.addEventListener("astro:after-swap",this.unmount,{once:!0})}connectedCallback(){if(!this.hasAttribute("await-children")||document.readyState==="interactive"||document.readyState==="complete")this.childrenConnectedCallback();else{let e=()=>{document.removeEventListener("DOMContentLoaded",e),r.disconnect(),this.childrenConnectedCallback()},r=new MutationObserver(()=>{var n;((n=this.lastChild)==null?void 0:n.nodeType)===Node.COMMENT_NODE&&this.lastChild.nodeValue==="astro:end"&&(this.lastChild.remove(),e())});r.observe(this,{childList:!0}),document.addEventListener("DOMContentLoaded",e)}}async childrenConnectedCallback(){let e=this.getAttribute("before-hydration-url");e&&await import(e),this.start()}getRetryImportUrl(e){let r=new URL(e,document.baseURI);return r.searchParams.set("astro-retry",Date.now().toString()),r.toString()}async importWithRetry(e){try{return await import(e)}catch(r){return await new Promise(n=>setTimeout(n,1e3)),import(this.getRetryImportUrl(e))}}handleHydrationError(e){let r=this.getAttribute("component-url"),n=new CustomEvent("astro:hydration-error",{cancelable:!0,bubbles:!0,composed:!0,detail:{error:e,componentUrl:r}});this.dispatchEvent(n)&&console.error(`[astro-island] Error hydrating ${r}`,e)}async start(){let e=JSON.parse(this.getAttribute("opts")),r=this.getAttribute("client");if(Astro[r]===void 0){window.addEventListener(`astro:${r}`,()=>this.start(),{once:!0});return}try{await Astro[r](async()=>{let n=this.getAttribute("renderer-url");try{let[d,{default:u}]=await Promise.all([this.importWithRetry(this.getAttribute("component-url")),n?this.importWithRetry(n):Promise.resolve({default:()=>()=>{}})]),h=this.getAttribute("component-export")||"default";if(h.includes(".")){this.Component=d;for(let m of h.split(".")){if(E.has(m)||!this.Component||typeof this.Component!="object"&&typeof this.Component!="function"||!Object.hasOwn(this.Component,m))throw new Error(`Invalid component export path: ${h}`);this.Component=this.Component[m]}}else{if(E.has(h))throw new Error(`Invalid component export path: ${h}`);this.Component=d[h]}return this.hydrator=u,this.hydrate}catch(d){return this.handleHydrationError(d),()=>{}}},e,this)}catch(n){this.handleHydrationError(n)}}attributeChangedCallback(){this.hydrate()}}l(f,"observedAttributes",["props"]),customElements.get("astro-island")||customElements.define("astro-island",f)}})();</script><astro-island uid="Z159hoL" prefix="r1" component-url="/pm-tools-templates/assets/TemplateViewer.BJxWH0dD.js" component-export="default" renderer-url="/pm-tools-templates/assets/client.REQV_TkY.js" props="{&quot;templateId&quot;:[0,&quot;agile-project-assessment-template&quot;],&quot;filePath&quot;:[0,&quot;domains/delivery/project-assessment-suite/agile-project-assessment-template.md&quot;],&quot;title&quot;:[0,&quot;Agile Project Assessment Template&quot;],&quot;content&quot;:[0,&quot;---\ntitle: \&quot;Agile Project Assessment Template\&quot;\nmethodology: \&quot;agile\&quot;\ncomplexity: \&quot;basic\&quot;\nprocess_group: \&quot;initiating\&quot;\nindustry: \&quot;universal\&quot;\nrole: \&quot;po\&quot;\ntags: [\&quot;agile\&quot;, \&quot;initiating\&quot;, \&quot;stakeholder-management\&quot;, \&quot;communication\&quot;, \&quot;planning\&quot;, \&quot;quality\&quot;]\nversion: \&quot;1.0.0\&quot;\nowner: \&quot;mirichard\&quot;\nupdated: \&quot;2025-08-06\&quot;\nestimated_completion_time: \&quot;15-30 minutes\&quot;\nprimary_principles: [\&quot;adaptability\&quot;, \&quot;evidence-based-decisions\&quot;]\nsecondary_principles: [\&quot;stakeholder-engagement\&quot;, \&quot;continuous-learning\&quot;]\nprinciple_rationale: \&quot;Uses evidence and feedback to tailor an agile approach to project context.\&quot;\n---\n\ntitle: \&quot;Agile Project Assessment Template\&quot;\nmethodology: \&quot;universal\&quot;\ncomplexity: \&quot;starter\&quot;\nowner: \&quot;mirichard\&quot;\nupdated: \&quot;2025-08-05\&quot;\n\n# Agile Project Assessment Template\n\n## Executive Summary\nThis template provides an assessment framework specifically designed for Agile projects and teams.\n\n## Agile Assessment Overview\n**Team/Project:** [Name]\n**Methodology:** [Scrum/Kanban/SAFe/Other]\n**Assessment Date:** [Date]\n**Team Size:** [Number of team members]\n**Sprint Duration:** [Length]\n\n## Agile Practices Assessment\n\n### 1. Scrum Events Effectiveness\n**Event Assessment:**\n- [ ] **Sprint Planning:** Quality and outcomes\n- [ ] **Daily Scrum:** Effectiveness and value\n- [ ] **Sprint Review:** Stakeholder engagement\n- [ ] **Sprint Retrospective:** Continuous improvement\n\n**Maturity Score:** [1-5 for each event]\n\n### 2. Team Collaboration\n**Collaboration Indicators:**\n- [ ] Cross-functional team composition\n- [ ] Self-organization capability\n- [ ] Communication effectiveness\n- [ ] Collective ownership mindset\n\n### 3. Customer Collaboration\n**Customer Engagement:**\n- [ ] Product Owner involvement\n- [ ] Stakeholder feedback incorporation\n- [ ] User story quality\n- [ ] Acceptance criteria clarity\n\n### 4. Technical Practices\n**Engineering Practices:**\n- [ ] Test-driven development\n- [ ] Continuous integration\n- [ ] Code quality standards\n- [ ] Technical debt management\n\n## Agile Metrics Assessment\n**Key Metrics:**\n- Velocity trends\n- Sprint goal achievement\n- Customer satisfaction\n- Team satisfaction\n- Defect rates\n\n## When to Use\n\nUse at project initiation to establish scope, schedule, resources, and key milestones. This template is essential for complex projects with multiple workstreams, external dependencies, or strict compliance requirements where detailed planning drives success.\n\n## When NOT to Use\n\nDo not use for small, self-contained tasks or fully agile teams that manage planning through iterative ceremonies instead of upfront documentation. Avoid using this as a substitute for continuously updated project dashboards or dynamic scheduling tools.\n\n## Improvement Recommendations\n**Focus Areas:**\n1. [High priority improvement]\n2. [Medium priority improvement]\n3. [Continuous improvement suggestions]\n\nRelated Resources:\n- [Agile Scrum Framework](../methodology-frameworks/agile-scrum/)\n- [Sprint Planning](../methodology-frameworks/agile-scrum/sprint-planning/)\n&quot;]}" ssr client="load" opts="{&quot;name&quot;:&quot;TemplateViewer&quot;,&quot;value&quot;:true}" await-children><div><h1>Agile Project Assessment Template</h1><div style="margin-bottom:2rem"><button style="background:var(--accent-color);color:white;border:1px solid var(--border-color);padding:0.5rem 1rem;border-radius:4px 4px 0 0;cursor:pointer;margin-right:1px">Preview</button><button style="background:var(--code-bg);color:var(--text-color);border:1px solid var(--border-color);padding:0.5rem 1rem;border-radius:4px 4px 0 0;cursor:pointer">Version History</button></div><div style="border:1px solid var(--border-color);border-radius:0 8px 8px 8px;min-height:400px"><div style="background:var(--bg-primary);border-radius:var(--radius-lg)"><div style="padding:1rem 1.5rem;border-bottom:1px solid var(--border-light);display:flex;align-items:center;justify-content:space-between;background:var(--bg-secondary);border-radius:var(--radius-lg) var(--radius-lg) 0 0"><div style="display:flex;align-items:center;gap:0.5rem"><span style="font-size:1.5rem">📄</span><div><div style="font-weight:600;color:var(--text-primary)">agile-project-assessment-template.md</div><div style="font-size:0.75rem;color:var(--text-muted)">Markdown • <!-- -->2,978 bytes</div></div></div><a href="/pm-tools-templates/downloads/agile-project-assessment-template.md" download="" class="btn btn-secondary" style="font-size:0.75rem;padding:0.5rem 0.75rem">💾 Download</a></div><pre aria-label="Markdown source of Agile Project Assessment Template" style="padding:1.5rem;max-height:600px;overflow:auto;white-space:pre-wrap;overflow-wrap:anywhere">---
+title: &quot;Agile Project Assessment Template&quot;
+methodology: &quot;agile&quot;
+complexity: &quot;basic&quot;
+process_group: &quot;initiating&quot;
+industry: &quot;universal&quot;
+role: &quot;po&quot;
+tags: [&quot;agile&quot;, &quot;initiating&quot;, &quot;stakeholder-management&quot;, &quot;communication&quot;, &quot;planning&quot;, &quot;quality&quot;]
+version: &quot;1.0.0&quot;
+owner: &quot;mirichard&quot;
+updated: &quot;2025-08-06&quot;
+estimated_completion_time: &quot;15-30 minutes&quot;
+primary_principles: [&quot;adaptability&quot;, &quot;evidence-based-decisions&quot;]
+secondary_principles: [&quot;stakeholder-engagement&quot;, &quot;continuous-learning&quot;]
+principle_rationale: &quot;Uses evidence and feedback to tailor an agile approach to project context.&quot;
+---
+
+title: &quot;Agile Project Assessment Template&quot;
+methodology: &quot;universal&quot;
+complexity: &quot;starter&quot;
+owner: &quot;mirichard&quot;
+updated: &quot;2025-08-05&quot;
+
+# Agile Project Assessment Template
+
+## Executive Summary
+This template provides an assessment framework specifically designed for Agile projects and teams.
+
+## Agile Assessment Overview
+**Team/Project:** [Name]
+**Methodology:** [Scrum/Kanban/SAFe/Other]
+**Assessment Date:** [Date]
+**Team Size:** [Number of team members]
+**Sprint Duration:** [Length]
+
+## Agile Practices Assessment
+
+### 1. Scrum Events Effectiveness
+**Event Assessment:**
+- [ ] **Sprint Planning:** Quality and outcomes
+- [ ] **Daily Scrum:** Effectiveness and value
+- [ ] **Sprint Review:** Stakeholder engagement
+- [ ] **Sprint Retrospective:** Continuous improvement
+
+**Maturity Score:** [1-5 for each event]
+
+### 2. Team Collaboration
+**Collaboration Indicators:**
+- [ ] Cross-functional team composition
+- [ ] Self-organization capability
+- [ ] Communication effectiveness
+- [ ] Collective ownership mindset
+
+### 3. Customer Collaboration
+**Customer Engagement:**
+- [ ] Product Owner involvement
+- [ ] Stakeholder feedback incorporation
+- [ ] User story quality
+- [ ] Acceptance criteria clarity
+
+### 4. Technical Practices
+**Engineering Practices:**
+- [ ] Test-driven development
+- [ ] Continuous integration
+- [ ] Code quality standards
+- [ ] Technical debt management
+
+## Agile Metrics Assessment
+**Key Metrics:**
+- Velocity trends
+- Sprint goal achievement
+- Customer satisfaction
+- Team satisfaction
+- Defect rates
+
+## When to Use
+
+Use at project initiation to establish scope, schedule, resources, and key milestones. This template is essential for complex projects with multiple workstreams, external dependencies, or strict compliance requirements where detailed planning drives success.
+
+## When NOT to Use
+
+Do not use for small, self-contained tasks or fully agile teams that manage planning through iterative ceremonies instead of upfront documentation. Avoid using this as a substitute for continuously updated project dashboards or dynamic scheduling tools.
+
+## Improvement Recommendations
+**Focus Areas:**
+1. [High priority improvement]
+2. [Medium priority improvement]
+3. [Continuous improvement suggestions]
+
+Related Resources:
+- [Agile Scrum Framework](../methodology-frameworks/agile-scrum/)
+- [Sprint Planning](../methodology-frameworks/agile-scrum/sprint-planning/)
+</pre></div></div></div><!--astro:end--></astro-island></main></body></html>

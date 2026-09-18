@@ -23,7 +23,7 @@ This is your central template repository containing the most frequently used and
 templates/
 ├── agile/              # Agile-specific template variations
 ├── hybrid/             # Hybrid methodology templates
-├── traditional/        # Traditional template variations
+├── traditional/        # Traditional/PMBOK template variations
 └── test-samples/       # Example implementations and demos
 ```
 
@@ -43,7 +43,7 @@ Begin with: **Project Initiation Templates** → Charter, stakeholder analysis, 
 
 ### **2. Know Your Methodology?**
 - **Agile Projects:** → `agile/` directory for sprint-based templates
-- **Traditional Projects:** → `traditional/` directory for Traditional-aligned templates  
+- **Traditional Projects:** → `traditional/` directory for PMBOK-aligned templates  
 - **Mixed Approach:** → `hybrid/` directory for combined methodology templates
 
 ### **3. Need Specific Template Type?**
@@ -133,18 +133,14 @@ Check: `test-samples/` → Real-world template applications and case studies
 ## 🛠️ **Template Formats & Tools**
 
 ### **📄 Available Formats**
-| Format | Availability | Best For | Tools |
-|--------|--------------|----------|-------|
-| **Markdown** | Common | Version-controlled documentation | Git, GitHub, text editors |
-| **Microsoft Excel** | Select templates (see templates/excel) | Calculations, tracking, analysis | Excel, Google Sheets |
-| **Microsoft Word** | Limited | Documents, reports, plans | Word, Google Docs |
-| **Microsoft PowerPoint** | Limited | Presentations, dashboards | PowerPoint, Google Slides |
-| **PDF** | Export only (as needed) | Printed forms, official documents | Any PDF reader |
-| **CSV** | As provided | Data import/export | Any spreadsheet tool |
-
-Notes
-- Office formats (Word/PowerPoint) are not universally available; prefer Markdown for portability and Excel for calculators/dashboards where present (see templates/excel/).
-- If you contribute Office versions, include both the source file and a Markdown overview.
+| Format | Best For | Tools |
+|--------|----------|-------|
+| **Microsoft Word** | Documents, reports, plans | Word, Google Docs |
+| **Microsoft Excel** | Calculations, tracking, analysis | Excel, Google Sheets |
+| **Microsoft PowerPoint** | Presentations, dashboards | PowerPoint, Google Slides |
+| **PDF** | Printed forms, official documents | Any PDF reader |
+| **CSV** | Data import/export | Any spreadsheet tool |
+| **Markdown** | Version-controlled documentation | Git, GitHub, text editors |
 
 ### **🔧 Tool Integration**
 - **Project Management Tools** - Import into JIRA, Asana, Monday.com, etc.
@@ -217,7 +213,7 @@ Notes
 
 ### **Within This Repository:**
 - [`/Agile/`](../Agile/) - Complete agile methodology toolkit
-- [`/Traditional/`](../Traditional/) - Full Traditional-aligned resources
+- [`/Traditional/`](../Traditional/) - Full PMBOK-aligned resources
 - [`/Hybrid/`](../Hybrid/) - Hybrid methodology frameworks
 - [`/role-based-toolkits/`](../role-based-toolkits/) - Role-specific template collections
 - [`/industry-specializations/`](../industry-specializations/) - Industry-adapted templates
@@ -228,12 +224,6 @@ Notes
 - [`/examples/`](../examples/) - Real-world template applications
 
 ---
-
-## ♿ **Accessibility**
-
-- Follow the Accessibility Checklist: see docs/accessibility.md
-- Use true headings, descriptive links, alt text, and sufficient contrast
-- Prefer canonical links and simple, readable layouts
 
 ## 📞 **Support & Contribution**
 

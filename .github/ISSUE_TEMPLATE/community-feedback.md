@@ -1,13 +1,9 @@
 ---
 name: 💬 Community Feedback
-about: Share your thoughts, suggestions, and ideas to help improve our PM tools and templates (No technical knowledge required!)
+about: Share your thoughts, suggestions, and ideas to help improve our PM tools and templates
 title: '[FEEDBACK] '
 labels: ['enhancement', 'community-feedback']
 assignees: ''
-
----
-
-> **Discussion Link:** [Join our GitHub Discussions Forum](https://github.com/mirichard/pm-tools-templates/discussions)
 
 ---
 

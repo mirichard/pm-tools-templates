@@ -57,17 +57,8 @@ class AIInsightsServer {
     }));
 
     // CORS configuration
-    const allowedOrigins = new Set(
-      (process.env.CORS_ORIGIN || 'http://localhost:3000')
-        .split(',')
-        .map(origin => origin.trim())
-        .filter(origin => origin && origin !== '*')
-    );
     this.app.use(cors({
-      origin(origin, callback) {
-        if (!origin || allowedOrigins.has(origin)) return callback(null, true);
-        return callback(new Error('Origin is not allowed by CORS'));
-      },
+      origin: process.env.CORS_ORIGIN || '*',
       credentials: true
     }));
 
@@ -362,3 +353,4 @@ if (import.meta.url === `file://${process.argv[1]}`) {
 }
 
 export default AIInsightsServer;
+

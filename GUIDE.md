@@ -1,5 +1,4 @@
-<a id="project-management-tools-templates-guide"></a>
-# Project Management Tools \u0026 Templates Guide
+# Project Management Tools & Templates Guide
 
 ## Introduction
 
@@ -17,7 +16,6 @@ This guide will help you understand:
 
 ## Methodology Overview
 
-<a id="traditionaltraditional-approach"></a>
 ### Traditional/Traditional Approach
 
 **Best suited for projects with**:

@@ -22,17 +22,12 @@ jobs:
 
     steps:
       - name: 📥 Checkout Repository
-        uses: actions/checkout@v7
-        with:
-          fetch-depth: 1
+        uses: actions/checkout@v4
 
       - name: 📊 Sprint Status Check
-        env:
-          SPRINT_ACTION_INPUT: ${{ github.event.inputs.action }}
         run: |
-          SPRINT_ACTION="$SPRINT_ACTION_INPUT"
           echo "🚀 Sprint Management System"
-          printf 'Action: %s\n' "$SPRINT_ACTION"
+          echo "Action: ${{ github.event.inputs.action }}"
           echo "Date: $(date +%Y-%m-%d)"
           echo "Status: Operational"
           echo "✅ Sprint management workflow completed successfully"

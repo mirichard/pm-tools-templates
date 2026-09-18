@@ -1,0 +1,191 @@
+<!DOCTYPE html><html lang="en" data-astro-cid-ju4pidww><head><meta charset="UTF-8"><meta name="description" content="Advanced template browser with previews and version history"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="icon" type="image/svg+xml" href="/pm-tools-templates/favicon.svg"><title>Agile Stakeholder Map Template</title><link rel="stylesheet" href="/pm-tools-templates/assets/Layout.ChXqTIwx.css"></head><body data-astro-cid-ju4pidww><main data-astro-cid-ju4pidww><style>astro-island,astro-slot,astro-static-slot{display:contents}</style><script>(()=>{var e=async t=>{await(await t())()};(self.Astro||(self.Astro={})).load=e;window.dispatchEvent(new Event("astro:load"));})();</script><script>(()=>{var g=Object.defineProperty;var w=(a,s,c)=>s in a?g(a,s,{enumerable:!0,configurable:!0,writable:!0,value:c}):a[s]=c;var l=(a,s,c)=>w(a,typeof s!="symbol"?s+"":s,c);var E=new Set(["__proto__","constructor","prototype"]);{let a={0:t=>y(t),1:t=>c(t),2:t=>new RegExp(t),3:t=>new Date(t),4:t=>new Map(c(t)),5:t=>new Set(c(t)),6:t=>BigInt(t),7:t=>new URL(t),8:t=>new Uint8Array(t),9:t=>new Uint16Array(t),10:t=>new Uint32Array(t),11:t=>Number.POSITIVE_INFINITY*t},s=t=>{let[p,e]=t;return p in a?a[p](e):void 0},c=t=>t.map(s),y=t=>typeof t!="object"||t===null?t:Object.fromEntries(Object.entries(t).map(([p,e])=>[p,s(e)]));class f extends HTMLElement{constructor(){super(...arguments);l(this,"Component");l(this,"hydrator");l(this,"hydrate",async()=>{var b;if(!this.hydrator||!this.isConnected)return;let e=(b=this.parentElement)==null?void 0:b.closest("astro-island[ssr]");if(e){e.addEventListener("astro:hydrate",this.hydrate,{once:!0});return}let r=this.querySelectorAll("astro-slot"),n={},d=this.querySelectorAll("template[data-astro-template]");for(let o of d){let i=o.closest(this.tagName);i!=null&&i.isSameNode(this)&&(n[o.getAttribute("data-astro-template")||"default"]=o.innerHTML,o.remove())}for(let o of r){let i=o.closest(this.tagName);i!=null&&i.isSameNode(this)&&(n[o.getAttribute("name")||"default"]=o.innerHTML)}let u;try{u=this.hasAttribute("props")?y(JSON.parse(this.getAttribute("props"))):{}}catch(o){let i=this.getAttribute("component-url")||"<unknown>",v=this.getAttribute("component-export");throw v&&(i+=` (export ${v})`),console.error(`[hydrate] Error parsing props for component ${i}`,this.getAttribute("props"),o),o}let h;await this.hydrator(this)(this.Component,u,n,{client:this.getAttribute("client")}),this.removeAttribute("ssr"),this.dispatchEvent(new CustomEvent("astro:hydrate"))});l(this,"unmount",()=>{this.isConnected||this.dispatchEvent(new CustomEvent("astro:unmount"))})}disconnectedCallback(){document.removeEventListener("astro:after-swap",this.unmount),document.addEventListener("astro:after-swap",this.unmount,{once:!0})}connectedCallback(){if(!this.hasAttribute("await-children")||document.readyState==="interactive"||document.readyState==="complete")this.childrenConnectedCallback();else{let e=()=>{document.removeEventListener("DOMContentLoaded",e),r.disconnect(),this.childrenConnectedCallback()},r=new MutationObserver(()=>{var n;((n=this.lastChild)==null?void 0:n.nodeType)===Node.COMMENT_NODE&&this.lastChild.nodeValue==="astro:end"&&(this.lastChild.remove(),e())});r.observe(this,{childList:!0}),document.addEventListener("DOMContentLoaded",e)}}async childrenConnectedCallback(){let e=this.getAttribute("before-hydration-url");e&&await import(e),this.start()}getRetryImportUrl(e){let r=new URL(e,document.baseURI);return r.searchParams.set("astro-retry",Date.now().toString()),r.toString()}async importWithRetry(e){try{return await import(e)}catch(r){return await new Promise(n=>setTimeout(n,1e3)),import(this.getRetryImportUrl(e))}}handleHydrationError(e){let r=this.getAttribute("component-url"),n=new CustomEvent("astro:hydration-error",{cancelable:!0,bubbles:!0,composed:!0,detail:{error:e,componentUrl:r}});this.dispatchEvent(n)&&console.error(`[astro-island] Error hydrating ${r}`,e)}async start(){let e=JSON.parse(this.getAttribute("opts")),r=this.getAttribute("client");if(Astro[r]===void 0){window.addEventListener(`astro:${r}`,()=>this.start(),{once:!0});return}try{await Astro[r](async()=>{let n=this.getAttribute("renderer-url");try{let[d,{default:u}]=await Promise.all([this.importWithRetry(this.getAttribute("component-url")),n?this.importWithRetry(n):Promise.resolve({default:()=>()=>{}})]),h=this.getAttribute("component-export")||"default";if(h.includes(".")){this.Component=d;for(let m of h.split(".")){if(E.has(m)||!this.Component||typeof this.Component!="object"&&typeof this.Component!="function"||!Object.hasOwn(this.Component,m))throw new Error(`Invalid component export path: ${h}`);this.Component=this.Component[m]}}else{if(E.has(h))throw new Error(`Invalid component export path: ${h}`);this.Component=d[h]}return this.hydrator=u,this.hydrate}catch(d){return this.handleHydrationError(d),()=>{}}},e,this)}catch(n){this.handleHydrationError(n)}}attributeChangedCallback(){this.hydrate()}}l(f,"observedAttributes",["props"]),customElements.get("astro-island")||customElements.define("astro-island",f)}})();</script><astro-island uid="ZBlHBE" prefix="r1" component-url="/pm-tools-templates/assets/TemplateViewer.BJxWH0dD.js" component-export="default" renderer-url="/pm-tools-templates/assets/client.REQV_TkY.js" props="{&quot;templateId&quot;:[0,&quot;agile-stakeholder-map-template&quot;],&quot;filePath&quot;:[0,&quot;domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/agile-stakeholder-map-template.md&quot;],&quot;title&quot;:[0,&quot;Agile Stakeholder Map Template&quot;],&quot;content&quot;:[0,&quot;---\ntitle: \&quot;Agile Stakeholder Map Template\&quot;\nmethodology: \&quot;universal\&quot;\ncomplexity: \&quot;intermediate\&quot;\nowner: \&quot;mirichard\&quot;\nupdated: \&quot;2025-08-05\&quot;\nprimary_principles: [\&quot;stakeholder-engagement\&quot;, \&quot;systems-thinking\&quot;]\nsecondary_principles: [\&quot;adaptability\&quot;, \&quot;collaborative-leadership\&quot;]\nprinciple_rationale: \&quot;Maps stakeholder relationships so engagement adapts to influence, impact, and feedback.\&quot;\n---\n\n# Agile Stakeholder Map Template\n\n## Purpose/Overview\nThis agile stakeholder map template is designed specifically for agile and iterative project environments. It focuses on collaborative stakeholder engagement, continuous feedback loops, and adaptive communication strategies. The template emphasizes user-centric approaches and supports the dynamic nature of agile projects where stakeholder needs and project requirements evolve continuously.\n\n## Usage Instructions\n1. **Core Team Setup**: Start by identifying your core agile team roles and responsibilities\n2. **Stakeholder Mapping**: Map all product stakeholders using the influence/interest matrix\n3. **Ceremony Planning**: Define who participates in which agile ceremonies and their roles\n4. **Communication Rhythms**: Establish regular touchpoints and communication frequencies\n5. **User Representation**: Ensure strong user personas and feedback channels are established\n6. **Decision Rights**: Clarify decision-making authority to avoid delays and conflicts\n7. **Feedback Mechanisms**: Set up continuous and structured feedback loops\n8. **Regular Updates**: Review and adapt the stakeholder map each sprint or release cycle\n\n## Project Information\n- **Project/Product Name**: [Name]\n- **Product Owner**: [Name]\n- **Date**: [Date]\n- **Release/Sprint**: [Current Release/Sprint]\n\n## Stakeholder Ecosystem\n\n### Core Team\n| Role | Name | Responsibilities | Availability | Location |\n|------|------|------------------|--------------|----------|\n| Product Owner | [Name] | Product vision, backlog prioritization | [%] | [Location] |\n| Scrum Master | [Name] | Process facilitation, impediment removal | [%] | [Location] |\n| Development Team | [Names] | Product development, estimation | [%] | [Location] |\n\n### Product Stakeholders\n| Stakeholder | Role | Interest Level | Influence Level | Engagement Frequency |\n|-------------|------|----------------|-----------------|---------------------|\n| [Name] | Business Sponsor | High | High | Weekly |\n| [Name] | End User Representative | High | Medium | Sprint Reviews |\n| [Name] | Technical Architect | Medium | High | As Needed |\n\n## Stakeholder Analysis Matrix\n\n### High Influence, High Interest (Collaborate)\n**These stakeholders need active engagement and close collaboration**\n- [Stakeholder 1]: [Engagement strategy]\n- [Stakeholder 2]: [Engagement strategy]\n\n### High Influence, Low Interest (Satisfy)\n**Keep these stakeholders satisfied with high-level updates**\n- [Stakeholder 1]: [Communication approach]\n- [Stakeholder 2]: [Communication approach]\n\n### Low Influence, High Interest (Inform)\n**Keep these stakeholders informed and engaged**\n- [Stakeholder 1]: [Information sharing method]\n- [Stakeholder 2]: [Information sharing method]\n\n### Low Influence, Low Interest (Monitor)\n**Minimal effort required, but monitor for changes**\n- [Stakeholder 1]: [Monitoring approach]\n- [Stakeholder 2]: [Monitoring approach]\n\n## Agile Ceremony Participation\n\n### Sprint Planning\n**Participants**: [List of stakeholders]\n**Role**: [Their role in the ceremony]\n\n### Sprint Review/Demo\n**Participants**: [List of stakeholders]\n**Role**: [Feedback providers, decision makers]\n\n### Backlog Refinement\n**Participants**: [List of stakeholders]\n**Role**: [Subject matter experts, clarifiers]\n\n## Communication Strategy\n\n### Regular Touchpoints\n| Stakeholder | Method | Frequency | Content | Owner |\n|-------------|--------|-----------|---------|-------|\n| [Name] | Email Update | Weekly | Sprint progress | PO |\n| [Name] | Demo Session | Bi-weekly | Working software | Team |\n| [Name] | Check-in Meeting | Monthly | Strategic alignment | PO |\n\n### Ad-hoc Communication\n- **Urgent Issues**: [Escalation path and methods]\n- **Feedback Collection**: [Methods for gathering input]\n- **Decision Making**: [Process for stakeholder decisions]\n\n## User Personas and Representatives\n\n### Primary Users\n| Persona | Representative | Contact | Feedback Method |\n|---------|----------------|---------|-----------------|\n| [Persona 1] | [Name] | [Contact] | [Method] |\n| [Persona 2] | [Name] | [Contact] | [Method] |\n\n### Secondary Users\n| Persona | Representative | Contact | Feedback Method |\n|---------|----------------|---------|-----------------|\n| [Persona 1] | [Name] | [Contact] | [Method] |\n| [Persona 2] | [Name] | [Contact] | [Method] |\n\n## Decision Authority Matrix\n\n### Product Decisions\n| Decision Type | Authority | Consultation Required | Timeline |\n|---------------|-----------|----------------------|----------|\n| Feature Prioritization | Product Owner | Stakeholders | Ongoing |\n| Scope Changes | Product Owner + Sponsor | Team | Within Sprint |\n| Technical Approach | Development Team | Product Owner | Sprint Planning |\n\n### Business Decisions\n| Decision Type | Authority | Consultation Required | Timeline |\n|---------------|-----------|----------------------|----------|\n| Budget Changes | Sponsor | Product Owner | As Needed |\n| Resource Allocation | Sponsor | Scrum Master | Sprint Planning |\n| Release Dates | Product Owner + Sponsor | Team | Release Planning |\n\n## Feedback Loops\n\n### Continuous Feedback\n- **Daily Standups**: Team feedback and blockers\n- **Sprint Reviews**: Stakeholder feedback on deliverables\n- **Retrospectives**: Process improvement feedback\n\n### Structured Feedback\n- **User Testing**: [Frequency and methods]\n- **Stakeholder Surveys**: [Frequency and topics]\n- **Business Reviews**: [Frequency and metrics]\n\n## Conflict Resolution\n\n### Common Conflict Areas\n| Conflict Type | Stakeholders Involved | Resolution Process |\n|---------------|----------------------|-------------------|\n| Priority Disputes | PO vs Stakeholders | [Process] |\n| Resource Conflicts | Team vs Management | [Process] |\n| Scope Disagreements | Users vs Business | [Process] |\n\n### Escalation Path\n1. **Team Level**: Scrum Master facilitates\n2. **Product Level**: Product Owner decides\n3. **Business Level**: Sponsor involvement\n4. **Executive Level**: [Executive contact]\n\n## Success Metrics\n\n### Stakeholder Satisfaction\n- **Engagement Score**: [Measurement method]\n- **Feedback Quality**: [Assessment criteria]\n- **Response Time**: [Target response times]\n\n### Collaboration Effectiveness\n- **Decision Speed**: [Average time to decision]\n- **Feedback Implementation**: [% of feedback acted upon]\n- **Conflict Resolution**: [Time to resolve conflicts]\n\n## Action Items\n- [ ] [Action 1] - Owner: [Name] - Due: [Date]\n- [ ] [Action 2] - Owner: [Name] - Due: [Date]\n- [ ] [Action 3] - Owner: [Name] - Due: [Date]\n\n## When to Use\n\nUse at project initiation to establish scope, schedule, resources, and key milestones. This template is essential for complex projects with multiple workstreams, external dependencies, or strict compliance requirements where detailed planning drives success.\n\n## When NOT to Use\n\nDo not use for small, self-contained tasks or fully agile teams that manage planning through iterative ceremonies instead of upfront documentation. Avoid using this as a substitute for continuously updated project dashboards or dynamic scheduling tools.\n\n## Review and Updates\n- **Review Frequency**: [How often to review stakeholder map]\n- **Update Triggers**: [What events trigger updates]\n- **Owner**: [Who maintains this document]\n\n**Prepared by**: [Product Owner/Scrum Master Name]  \n**Date**: [Date]  \n**Next Review**: [Date]\n\n*Agile-focused stakeholder engagement for collaborative success*\n&quot;]}" ssr client="load" opts="{&quot;name&quot;:&quot;TemplateViewer&quot;,&quot;value&quot;:true}" await-children><div><h1>Agile Stakeholder Map Template</h1><div style="margin-bottom:2rem"><button style="background:var(--accent-color);color:white;border:1px solid var(--border-color);padding:0.5rem 1rem;border-radius:4px 4px 0 0;cursor:pointer;margin-right:1px">Preview</button><button style="background:var(--code-bg);color:var(--text-color);border:1px solid var(--border-color);padding:0.5rem 1rem;border-radius:4px 4px 0 0;cursor:pointer">Version History</button></div><div style="border:1px solid var(--border-color);border-radius:0 8px 8px 8px;min-height:400px"><div style="background:var(--bg-primary);border-radius:var(--radius-lg)"><div style="padding:1rem 1.5rem;border-bottom:1px solid var(--border-light);display:flex;align-items:center;justify-content:space-between;background:var(--bg-secondary);border-radius:var(--radius-lg) var(--radius-lg) 0 0"><div style="display:flex;align-items:center;gap:0.5rem"><span style="font-size:1.5rem">📄</span><div><div style="font-weight:600;color:var(--text-primary)">agile-stakeholder-map-template.md</div><div style="font-size:0.75rem;color:var(--text-muted)">Markdown • <!-- -->7,795 bytes</div></div></div><a href="/pm-tools-templates/downloads/agile-stakeholder-map-template.md" download="" class="btn btn-secondary" style="font-size:0.75rem;padding:0.5rem 0.75rem">💾 Download</a></div><pre aria-label="Markdown source of Agile Stakeholder Map Template" style="padding:1.5rem;max-height:600px;overflow:auto;white-space:pre-wrap;overflow-wrap:anywhere">---
+title: &quot;Agile Stakeholder Map Template&quot;
+methodology: &quot;universal&quot;
+complexity: &quot;intermediate&quot;
+owner: &quot;mirichard&quot;
+updated: &quot;2025-08-05&quot;
+primary_principles: [&quot;stakeholder-engagement&quot;, &quot;systems-thinking&quot;]
+secondary_principles: [&quot;adaptability&quot;, &quot;collaborative-leadership&quot;]
+principle_rationale: &quot;Maps stakeholder relationships so engagement adapts to influence, impact, and feedback.&quot;
+---
+
+# Agile Stakeholder Map Template
+
+## Purpose/Overview
+This agile stakeholder map template is designed specifically for agile and iterative project environments. It focuses on collaborative stakeholder engagement, continuous feedback loops, and adaptive communication strategies. The template emphasizes user-centric approaches and supports the dynamic nature of agile projects where stakeholder needs and project requirements evolve continuously.
+
+## Usage Instructions
+1. **Core Team Setup**: Start by identifying your core agile team roles and responsibilities
+2. **Stakeholder Mapping**: Map all product stakeholders using the influence/interest matrix
+3. **Ceremony Planning**: Define who participates in which agile ceremonies and their roles
+4. **Communication Rhythms**: Establish regular touchpoints and communication frequencies
+5. **User Representation**: Ensure strong user personas and feedback channels are established
+6. **Decision Rights**: Clarify decision-making authority to avoid delays and conflicts
+7. **Feedback Mechanisms**: Set up continuous and structured feedback loops
+8. **Regular Updates**: Review and adapt the stakeholder map each sprint or release cycle
+
+## Project Information
+- **Project/Product Name**: [Name]
+- **Product Owner**: [Name]
+- **Date**: [Date]
+- **Release/Sprint**: [Current Release/Sprint]
+
+## Stakeholder Ecosystem
+
+### Core Team
+| Role | Name | Responsibilities | Availability | Location |
+|------|------|------------------|--------------|----------|
+| Product Owner | [Name] | Product vision, backlog prioritization | [%] | [Location] |
+| Scrum Master | [Name] | Process facilitation, impediment removal | [%] | [Location] |
+| Development Team | [Names] | Product development, estimation | [%] | [Location] |
+
+### Product Stakeholders
+| Stakeholder | Role | Interest Level | Influence Level | Engagement Frequency |
+|-------------|------|----------------|-----------------|---------------------|
+| [Name] | Business Sponsor | High | High | Weekly |
+| [Name] | End User Representative | High | Medium | Sprint Reviews |
+| [Name] | Technical Architect | Medium | High | As Needed |
+
+## Stakeholder Analysis Matrix
+
+### High Influence, High Interest (Collaborate)
+**These stakeholders need active engagement and close collaboration**
+- [Stakeholder 1]: [Engagement strategy]
+- [Stakeholder 2]: [Engagement strategy]
+
+### High Influence, Low Interest (Satisfy)
+**Keep these stakeholders satisfied with high-level updates**
+- [Stakeholder 1]: [Communication approach]
+- [Stakeholder 2]: [Communication approach]
+
+### Low Influence, High Interest (Inform)
+**Keep these stakeholders informed and engaged**
+- [Stakeholder 1]: [Information sharing method]
+- [Stakeholder 2]: [Information sharing method]
+
+### Low Influence, Low Interest (Monitor)
+**Minimal effort required, but monitor for changes**
+- [Stakeholder 1]: [Monitoring approach]
+- [Stakeholder 2]: [Monitoring approach]
+
+## Agile Ceremony Participation
+
+### Sprint Planning
+**Participants**: [List of stakeholders]
+**Role**: [Their role in the ceremony]
+
+### Sprint Review/Demo
+**Participants**: [List of stakeholders]
+**Role**: [Feedback providers, decision makers]
+
+### Backlog Refinement
+**Participants**: [List of stakeholders]
+**Role**: [Subject matter experts, clarifiers]
+
+## Communication Strategy
+
+### Regular Touchpoints
+| Stakeholder | Method | Frequency | Content | Owner |
+|-------------|--------|-----------|---------|-------|
+| [Name] | Email Update | Weekly | Sprint progress | PO |
+| [Name] | Demo Session | Bi-weekly | Working software | Team |
+| [Name] | Check-in Meeting | Monthly | Strategic alignment | PO |
+
+### Ad-hoc Communication
+- **Urgent Issues**: [Escalation path and methods]
+- **Feedback Collection**: [Methods for gathering input]
+- **Decision Making**: [Process for stakeholder decisions]
+
+## User Personas and Representatives
+
+### Primary Users
+| Persona | Representative | Contact | Feedback Method |
+|---------|----------------|---------|-----------------|
+| [Persona 1] | [Name] | [Contact] | [Method] |
+| [Persona 2] | [Name] | [Contact] | [Method] |
+
+### Secondary Users
+| Persona | Representative | Contact | Feedback Method |
+|---------|----------------|---------|-----------------|
+| [Persona 1] | [Name] | [Contact] | [Method] |
+| [Persona 2] | [Name] | [Contact] | [Method] |
+
+## Decision Authority Matrix
+
+### Product Decisions
+| Decision Type | Authority | Consultation Required | Timeline |
+|---------------|-----------|----------------------|----------|
+| Feature Prioritization | Product Owner | Stakeholders | Ongoing |
+| Scope Changes | Product Owner + Sponsor | Team | Within Sprint |
+| Technical Approach | Development Team | Product Owner | Sprint Planning |
+
+### Business Decisions
+| Decision Type | Authority | Consultation Required | Timeline |
+|---------------|-----------|----------------------|----------|
+| Budget Changes | Sponsor | Product Owner | As Needed |
+| Resource Allocation | Sponsor | Scrum Master | Sprint Planning |
+| Release Dates | Product Owner + Sponsor | Team | Release Planning |
+
+## Feedback Loops
+
+### Continuous Feedback
+- **Daily Standups**: Team feedback and blockers
+- **Sprint Reviews**: Stakeholder feedback on deliverables
+- **Retrospectives**: Process improvement feedback
+
+### Structured Feedback
+- **User Testing**: [Frequency and methods]
+- **Stakeholder Surveys**: [Frequency and topics]
+- **Business Reviews**: [Frequency and metrics]
+
+## Conflict Resolution
+
+### Common Conflict Areas
+| Conflict Type | Stakeholders Involved | Resolution Process |
+|---------------|----------------------|-------------------|
+| Priority Disputes | PO vs Stakeholders | [Process] |
+| Resource Conflicts | Team vs Management | [Process] |
+| Scope Disagreements | Users vs Business | [Process] |
+
+### Escalation Path
+1. **Team Level**: Scrum Master facilitates
+2. **Product Level**: Product Owner decides
+3. **Business Level**: Sponsor involvement
+4. **Executive Level**: [Executive contact]
+
+## Success Metrics
+
+### Stakeholder Satisfaction
+- **Engagement Score**: [Measurement method]
+- **Feedback Quality**: [Assessment criteria]
+- **Response Time**: [Target response times]
+
+### Collaboration Effectiveness
+- **Decision Speed**: [Average time to decision]
+- **Feedback Implementation**: [% of feedback acted upon]
+- **Conflict Resolution**: [Time to resolve conflicts]
+
+## Action Items
+- [ ] [Action 1] - Owner: [Name] - Due: [Date]
+- [ ] [Action 2] - Owner: [Name] - Due: [Date]
+- [ ] [Action 3] - Owner: [Name] - Due: [Date]
+
+## When to Use
+
+Use at project initiation to establish scope, schedule, resources, and key milestones. This template is essential for complex projects with multiple workstreams, external dependencies, or strict compliance requirements where detailed planning drives success.
+
+## When NOT to Use
+
+Do not use for small, self-contained tasks or fully agile teams that manage planning through iterative ceremonies instead of upfront documentation. Avoid using this as a substitute for continuously updated project dashboards or dynamic scheduling tools.
+
+## Review and Updates
+- **Review Frequency**: [How often to review stakeholder map]
+- **Update Triggers**: [What events trigger updates]
+- **Owner**: [Who maintains this document]
+
+**Prepared by**: [Product Owner/Scrum Master Name]  
+**Date**: [Date]  
+**Next Review**: [Date]
+
+*Agile-focused stakeholder engagement for collaborative success*
+</pre></div></div></div><!--astro:end--></astro-island></main></body></html>

@@ -1,0 +1,367 @@
+<!DOCTYPE html><html lang="en" data-astro-cid-ju4pidww><head><meta charset="UTF-8"><meta name="description" content="Advanced template browser with previews and version history"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="icon" type="image/svg+xml" href="/pm-tools-templates/favicon.svg"><title>Installation Qualification Protocol Template</title><link rel="stylesheet" href="/pm-tools-templates/assets/Layout.ChXqTIwx.css"></head><body data-astro-cid-ju4pidww><main data-astro-cid-ju4pidww><style>astro-island,astro-slot,astro-static-slot{display:contents}</style><script>(()=>{var e=async t=>{await(await t())()};(self.Astro||(self.Astro={})).load=e;window.dispatchEvent(new Event("astro:load"));})();</script><script>(()=>{var g=Object.defineProperty;var w=(a,s,c)=>s in a?g(a,s,{enumerable:!0,configurable:!0,writable:!0,value:c}):a[s]=c;var l=(a,s,c)=>w(a,typeof s!="symbol"?s+"":s,c);var E=new Set(["__proto__","constructor","prototype"]);{let a={0:t=>y(t),1:t=>c(t),2:t=>new RegExp(t),3:t=>new Date(t),4:t=>new Map(c(t)),5:t=>new Set(c(t)),6:t=>BigInt(t),7:t=>new URL(t),8:t=>new Uint8Array(t),9:t=>new Uint16Array(t),10:t=>new Uint32Array(t),11:t=>Number.POSITIVE_INFINITY*t},s=t=>{let[p,e]=t;return p in a?a[p](e):void 0},c=t=>t.map(s),y=t=>typeof t!="object"||t===null?t:Object.fromEntries(Object.entries(t).map(([p,e])=>[p,s(e)]));class f extends HTMLElement{constructor(){super(...arguments);l(this,"Component");l(this,"hydrator");l(this,"hydrate",async()=>{var b;if(!this.hydrator||!this.isConnected)return;let e=(b=this.parentElement)==null?void 0:b.closest("astro-island[ssr]");if(e){e.addEventListener("astro:hydrate",this.hydrate,{once:!0});return}let r=this.querySelectorAll("astro-slot"),n={},d=this.querySelectorAll("template[data-astro-template]");for(let o of d){let i=o.closest(this.tagName);i!=null&&i.isSameNode(this)&&(n[o.getAttribute("data-astro-template")||"default"]=o.innerHTML,o.remove())}for(let o of r){let i=o.closest(this.tagName);i!=null&&i.isSameNode(this)&&(n[o.getAttribute("name")||"default"]=o.innerHTML)}let u;try{u=this.hasAttribute("props")?y(JSON.parse(this.getAttribute("props"))):{}}catch(o){let i=this.getAttribute("component-url")||"<unknown>",v=this.getAttribute("component-export");throw v&&(i+=` (export ${v})`),console.error(`[hydrate] Error parsing props for component ${i}`,this.getAttribute("props"),o),o}let h;await this.hydrator(this)(this.Component,u,n,{client:this.getAttribute("client")}),this.removeAttribute("ssr"),this.dispatchEvent(new CustomEvent("astro:hydrate"))});l(this,"unmount",()=>{this.isConnected||this.dispatchEvent(new CustomEvent("astro:unmount"))})}disconnectedCallback(){document.removeEventListener("astro:after-swap",this.unmount),document.addEventListener("astro:after-swap",this.unmount,{once:!0})}connectedCallback(){if(!this.hasAttribute("await-children")||document.readyState==="interactive"||document.readyState==="complete")this.childrenConnectedCallback();else{let e=()=>{document.removeEventListener("DOMContentLoaded",e),r.disconnect(),this.childrenConnectedCallback()},r=new MutationObserver(()=>{var n;((n=this.lastChild)==null?void 0:n.nodeType)===Node.COMMENT_NODE&&this.lastChild.nodeValue==="astro:end"&&(this.lastChild.remove(),e())});r.observe(this,{childList:!0}),document.addEventListener("DOMContentLoaded",e)}}async childrenConnectedCallback(){let e=this.getAttribute("before-hydration-url");e&&await import(e),this.start()}getRetryImportUrl(e){let r=new URL(e,document.baseURI);return r.searchParams.set("astro-retry",Date.now().toString()),r.toString()}async importWithRetry(e){try{return await import(e)}catch(r){return await new Promise(n=>setTimeout(n,1e3)),import(this.getRetryImportUrl(e))}}handleHydrationError(e){let r=this.getAttribute("component-url"),n=new CustomEvent("astro:hydration-error",{cancelable:!0,bubbles:!0,composed:!0,detail:{error:e,componentUrl:r}});this.dispatchEvent(n)&&console.error(`[astro-island] Error hydrating ${r}`,e)}async start(){let e=JSON.parse(this.getAttribute("opts")),r=this.getAttribute("client");if(Astro[r]===void 0){window.addEventListener(`astro:${r}`,()=>this.start(),{once:!0});return}try{await Astro[r](async()=>{let n=this.getAttribute("renderer-url");try{let[d,{default:u}]=await Promise.all([this.importWithRetry(this.getAttribute("component-url")),n?this.importWithRetry(n):Promise.resolve({default:()=>()=>{}})]),h=this.getAttribute("component-export")||"default";if(h.includes(".")){this.Component=d;for(let m of h.split(".")){if(E.has(m)||!this.Component||typeof this.Component!="object"&&typeof this.Component!="function"||!Object.hasOwn(this.Component,m))throw new Error(`Invalid component export path: ${h}`);this.Component=this.Component[m]}}else{if(E.has(h))throw new Error(`Invalid component export path: ${h}`);this.Component=d[h]}return this.hydrator=u,this.hydrate}catch(d){return this.handleHydrationError(d),()=>{}}},e,this)}catch(n){this.handleHydrationError(n)}}attributeChangedCallback(){this.hydrate()}}l(f,"observedAttributes",["props"]),customElements.get("astro-island")||customElements.define("astro-island",f)}})();</script><astro-island uid="2iOt8j" prefix="r1" component-url="/pm-tools-templates/assets/TemplateViewer.BJxWH0dD.js" component-export="default" renderer-url="/pm-tools-templates/assets/client.REQV_TkY.js" props="{&quot;templateId&quot;:[0,&quot;installation_qualification_protocol_template&quot;],&quot;filePath&quot;:[0,&quot;domains/delivery/industry-specializations/healthcare-pharmaceutical/validation/installation_qualification_protocol_template.md&quot;],&quot;title&quot;:[0,&quot;Installation Qualification Protocol Template&quot;],&quot;content&quot;:[0,&quot;---\ntitle: Installation Qualification Protocol Template\nmethodology: universal\ncomplexity: advanced\nowner: mirichard\nupdated: &#39;2025-08-05&#39;\nprimary_principles:\n- stewardship\n- quality-by-design\nsecondary_principles:\n- evidence-based-decisions\n- risk-optimization\nprinciple_rationale: Addresses domain requirements through auditable evidence and\n  quality governance.\n---\n\n# Installation Qualification (IQ) Protocol Template\n\n## Document Control\n\n**Document ID:** IQ-PROTO-[SYSTEM_ID]  \n**Version:** 1.0  \n**Effective Date:** [EFFECTIVE_DATE]  \n**Review Date:** [REVIEW_DATE]  \n**Supersedes:** N/A (Initial Version)\n\n### Revision History\n\n| Version | Date | Description of Change | Author | Approved By |\n|---------|------|------------------------|--------|-------------|\n| 1.0 | [DATE] | Initial Release | [NAME] | [NAME] |\n\n### Approvals\n\n| Role | Name | Signature | Date |\n|------|------|-----------|------|\n| Protocol Author | | | |\n| Quality Assurance | | | |\n| IT/Engineering | | | |\n| Validation Lead | | | |\n| System Owner | | | |\n| Quality Control (if applicable) | | | |\n\n## 1. Introduction and Purpose\n\n### 1.1 Purpose\nThis Installation Qualification (IQ) Protocol defines the approach, methodology, and acceptance criteria for verifying that the [SYSTEM_NAME] has been properly received, installed, and configured according to manufacturer specifications and regulatory requirements. This protocol is designed to document evidence that all key aspects of the installation comply with approved design specifications and recommendations.\n\n### 1.2 Scope\nThis protocol covers the installation qualification of [SYSTEM_NAME], including hardware components, software installation, network configuration, security configuration, and backup system configuration. The IQ verifies that the system has been properly delivered, installed, and configured in the intended environment.\n\n### 1.3 Regulatory Framework\nThis protocol follows:\n- FDA 21 CFR Part 11 (Electronic Records and Electronic Signatures)\n- FDA 21 CFR Part 210/211 (cGMP for Finished Pharmaceuticals)\n- EU GMP Annex 11 (Computerized Systems)\n- EU GMP Annex 15 (Qualification and Validation)\n- GAMP 5 Guidelines (Good Automated Manufacturing Practice)\n- [OTHER APPLICABLE REGULATIONS]\n\n## 2. System Description\n\n### 2.1 System Overview\n[Provide a brief description of the system, its intended use, and its components]\n\n### 2.2 System Configuration\n- **Hardware Components:** [List all hardware components with model numbers, serial numbers, etc.]\n- **Software Components:** [List all software with version numbers]\n- **Interfaces:** [List all interfaces with other systems]\n- **Operating Environment:** [Describe the operating environment]\n\n### 2.3 System Classification\nAccording to GAMP 5 categorization, this system is classified as Category [X] software.\n\n## 3. Personnel Responsibilities and Qualifications\n\n### 3.1 Roles and Responsibilities\n\n| Role | Responsibilities |\n|------|-----------------|\n| Validation Lead | Overall responsibility for the validation activities |\n| System Owner | Business owner of the system with ultimate responsibility |\n| IT/Engineering | Technical installation and configuration |\n| Quality Assurance | Review and approval of validation activities |\n| Vendor/Supplier (if applicable) | Technical support for installation |\n\n### 3.2 Required Qualifications\n[Describe minimum qualifications and training requirements for personnel involved in IQ activities]\n\n## 4. Prerequisites and Installation Conditions\n\n### 4.1 Pre-Installation Requirements\n- Approved User Requirements Specification (URS)\n- Approved Functional Specification (FS)\n- Approved Design Specification (DS)\n- Completed Risk Assessment\n- Approved Validation Plan\n- Completed Site Preparation\n- Verification of Environmental Conditions\n- [OTHER PREREQUISITES]\n\n### 4.2 Required Documentation\n- Vendor manuals and installation guides\n- System drawings and schematics\n- Manufacturer specifications\n- Calibration certificates (if applicable)\n- Software licenses\n- SOPs for system operation\n\n### 4.3 Environmental and Facility Requirements\n- Power requirements\n- Temperature and humidity specifications\n- Space requirements\n- Network requirements\n- Physical security requirements\n\n## 5. Installation Verification Requirements\n\n### 5.1 Hardware Installation Verification\n- Receipt verification (condition upon arrival)\n- Component verification (all required components received)\n- Hardware installation verification\n- Physical connections verification\n- Power supply verification\n- Hardware configuration verification\n- Serial numbers documentation\n\n#### 5.1.1 Hardware Components Checklist\n\n| Component | Model/Part Number | Serial Number | Condition | Verified By | Date |\n|-----------|-------------------|---------------|-----------|------------|------|\n| | | | | | |\n| | | | | | |\n\n### 5.2 Software Installation Verification\n- Installation media verification\n- Installation process documentation\n- Version verification\n- License verification\n- Default settings documentation\n- Installation logs review\n- Software configuration verification\n\n#### 5.2.1 Software Components Checklist\n\n| Software | Version | License Information | Installation Path | Verified By | Date |\n|----------|---------|---------------------|------------------|------------|------|\n| | | | | | |\n| | | | | | |\n\n### 5.3 Network Configuration Verification\n- Network connectivity verification\n- IP address configuration\n- DNS configuration\n- Firewall settings\n- Network security verification\n- Communication with interfaced systems\n\n#### 5.3.1 Network Configuration Details\n\n| Parameter | Expected Value | Actual Value | Verified By | Date |\n|-----------|----------------|--------------|------------|------|\n| IP Address | | | | |\n| Subnet Mask | | | | |\n| Gateway | | | | |\n| DNS Servers | | | | |\n| Hostname | | | | |\n\n### 5.4 Security Configuration Verification\n- User account setup\n- Password policies\n- Access controls\n- Authentication mechanisms\n- Audit trail configuration\n- Security patches/updates verification\n\n#### 5.4.1 Security Settings Checklist\n\n| Security Parameter | Expected Configuration | Actual Configuration | Verified By | Date |\n|-------------------|------------------------|----------------------|------------|------|\n| Password Complexity | | | | |\n| Account Lockout | | | | |\n| Session Timeout | | | | |\n| Audit Trail Settings | | | | |\n\n### 5.5 Backup System Configuration\n- Backup software installation\n- Backup schedule configuration\n- Backup storage location\n- Backup access controls\n- Restoration procedure verification\n\n#### 5.5.1 Backup Configuration Details\n\n| Backup Parameter | Configuration | Verified By | Date |\n|-----------------|---------------|------------|------|\n| Backup Schedule | | | |\n| Backup Location | | | |\n| Retention Period | | | |\n| Responsible Person | | | |\n\n## 6. Test Cases with Pass/Fail Criteria\n\n### 6.1 Test Case Format\nEach test case includes:\n- Unique test case ID\n- Test objective\n- Prerequisites\n- Test procedure\n- Expected results\n- Actual results\n- Pass/fail determination\n- Comments/observations\n- Tester signature and date\n- Reviewer signature and date\n\n### 6.2 Hardware Installation Test Cases\n[Include detailed test cases for hardware installation verification]\n\n### 6.3 Software Installation Test Cases\n[Include detailed test cases for software installation verification]\n\n### 6.4 Network Configuration Test Cases\n[Include detailed test cases for network configuration verification]\n\n### 6.5 Security Configuration Test Cases\n[Include detailed test cases for security configuration verification]\n\n### 6.6 Backup Configuration Test Cases\n[Include detailed test cases for backup configuration verification]\n\n## 7. Test Execution\n\n### 7.1 Test Summary Table\n\n| Test ID | Test Description | Status (Pass/Fail) | Executed By | Date | Comments |\n|---------|------------------|-------------------|------------|------|----------|\n| | | | | | |\n| | | | | | |\n\n### 7.2 Test Case Detail Sheets\n[Provide space for test execution documentation]\n\n## 8. Deviation Management\n\n### 8.1 Deviation Recording\nAll deviations encountered during execution of this protocol must be documented using the Deviation Form included in Appendix A.\n\n### 8.2 Deviation Classification\n- Critical: Directly impacts system functionality or regulatory compliance\n- Major: Impacts system performance but not critical functionality\n- Minor: No significant impact on system functionality or compliance\n\n### 8.3 Deviation Resolution\nAll deviations must be investigated, and appropriate corrective and preventive actions must be implemented before final approval of this protocol.\n\n### 8.4 Deviation Log\n\n| Deviation ID | Description | Classification | Impact Assessment | Resolution | Status | Closed By | Date |\n|--------------|-------------|----------------|-------------------|------------|--------|-----------|------|\n| | | | | | | | |\n\n## 9. Documentation Requirements\n\n### 9.1 Required Documentation\nThe following documentation must be included or referenced as attachments to this protocol:\n- Vendor installation records\n- Configuration worksheets\n- Calibration certificates (if applicable)\n- Network diagrams\n- System architecture diagrams\n- Installation checklists\n- Screenshots of critical configurations\n- Test result documentation\n- Deviation reports (if applicable)\n\n### 9.2 Documentation Control\nAll documentation generated during IQ execution must be controlled according to the organization&#39;s document control procedures.\n\n## 10. Approval and Reporting\n\n### 10.1 Installation Qualification Summary\n[Provide space for summary of IQ execution]\n\n### 10.2 Conclusion Statement\n[Provide space for conclusion statement regarding IQ results]\n\n### 10.3 Final Approval\nBased on the results documented in this protocol, the installation qualification of [SYSTEM_NAME] is:\n- [ ] Approved\n- [ ] Approved with conditions (see attached)\n- [ ] Rejected\n\n### 10.4 Approval Signatures\n\n| Role | Name | Signature | Date |\n|------|------|-----------|------|\n| Validation Lead | | | |\n| System Owner | | | |\n| Quality Assurance | | | |\n| IT/Engineering | | | |\n\n## When to Use\n\nUse throughout the project lifecycle to identify, assess, and track risks. This template is essential for projects with significant complexity, multiple stakeholders, or high business impact, where structured risk management provides decision-making value.\n\n## When NOT to Use\n\nDo not use for very low-risk, short-duration tasks where informal risk awareness is sufficient. Avoid this template if your governance framework requires a different risk management approach or if stakeholders prefer real-time risk dashboards over static registers.\n\n## Appendices\n\n### Appendix A: Deviation Form Template\n\n**Deviation ID:** [DEVIATION_ID]  \n**Protocol/Test Case Reference:** [REFERENCE]  \n**Date Observed:** [DATE]  \n**Observed By:** [NAME]\n\n**Description of Deviation:**  \n[Provide detailed description]\n\n**Classification:**  \n- [ ] Critical\n- [ ] Major\n- [ ] Minor\n\n**Impact Assessment:**  \n[Describe impact on system, process, product, validation]\n\n**Root Cause Analysis:**  \n[Describe root cause]\n\n**Corrective Action:**  \n[Describe corrective action]\n\n**Preventive Action:**  \n[Describe preventive action]\n\n**Resolution:**  \n[Describe resolution]\n\n**Verification of Effectiveness:**  \n[Describe verification of effectiveness]\n\n**Approval of Resolution:**\n\n| Role | Name | Signature | Date |\n|------|------|-----------|------|\n| Validation Lead | | | |\n| System Owner | | | |\n| Quality Assurance | | | |\n\n### Appendix B: IQ Checklist Template\n[Include a comprehensive checklist for IQ activities]\n\n### Appendix C: Glossary\n[Include definitions of key terms used in the protocol]\n\n### Appendix D: References\n- FDA 21 CFR Part 11\n- FDA 21 CFR Part 210/211\n- EU GMP Annex 11\n- EU GMP Annex 15\n- GAMP 5 Guidelines\n- [OTHER REFERENCES]\n&quot;]}" ssr client="load" opts="{&quot;name&quot;:&quot;TemplateViewer&quot;,&quot;value&quot;:true}" await-children><div><h1>Installation Qualification Protocol Template</h1><div style="margin-bottom:2rem"><button style="background:var(--accent-color);color:white;border:1px solid var(--border-color);padding:0.5rem 1rem;border-radius:4px 4px 0 0;cursor:pointer;margin-right:1px">Preview</button><button style="background:var(--code-bg);color:var(--text-color);border:1px solid var(--border-color);padding:0.5rem 1rem;border-radius:4px 4px 0 0;cursor:pointer">Version History</button></div><div style="border:1px solid var(--border-color);border-radius:0 8px 8px 8px;min-height:400px"><div style="background:var(--bg-primary);border-radius:var(--radius-lg)"><div style="padding:1rem 1.5rem;border-bottom:1px solid var(--border-light);display:flex;align-items:center;justify-content:space-between;background:var(--bg-secondary);border-radius:var(--radius-lg) var(--radius-lg) 0 0"><div style="display:flex;align-items:center;gap:0.5rem"><span style="font-size:1.5rem">📄</span><div><div style="font-weight:600;color:var(--text-primary)">installation_qualification_protocol_template.md</div><div style="font-size:0.75rem;color:var(--text-muted)">Markdown • <!-- -->11,867 bytes</div></div></div><a href="/pm-tools-templates/downloads/installation_qualification_protocol_template.md" download="" class="btn btn-secondary" style="font-size:0.75rem;padding:0.5rem 0.75rem">💾 Download</a></div><pre aria-label="Markdown source of Installation Qualification Protocol Template" style="padding:1.5rem;max-height:600px;overflow:auto;white-space:pre-wrap;overflow-wrap:anywhere">---
+title: Installation Qualification Protocol Template
+methodology: universal
+complexity: advanced
+owner: mirichard
+updated: &#x27;2025-08-05&#x27;
+primary_principles:
+- stewardship
+- quality-by-design
+secondary_principles:
+- evidence-based-decisions
+- risk-optimization
+principle_rationale: Addresses domain requirements through auditable evidence and
+  quality governance.
+---
+
+# Installation Qualification (IQ) Protocol Template
+
+## Document Control
+
+**Document ID:** IQ-PROTO-[SYSTEM_ID]  
+**Version:** 1.0  
+**Effective Date:** [EFFECTIVE_DATE]  
+**Review Date:** [REVIEW_DATE]  
+**Supersedes:** N/A (Initial Version)
+
+### Revision History
+
+| Version | Date | Description of Change | Author | Approved By |
+|---------|------|------------------------|--------|-------------|
+| 1.0 | [DATE] | Initial Release | [NAME] | [NAME] |
+
+### Approvals
+
+| Role | Name | Signature | Date |
+|------|------|-----------|------|
+| Protocol Author | | | |
+| Quality Assurance | | | |
+| IT/Engineering | | | |
+| Validation Lead | | | |
+| System Owner | | | |
+| Quality Control (if applicable) | | | |
+
+## 1. Introduction and Purpose
+
+### 1.1 Purpose
+This Installation Qualification (IQ) Protocol defines the approach, methodology, and acceptance criteria for verifying that the [SYSTEM_NAME] has been properly received, installed, and configured according to manufacturer specifications and regulatory requirements. This protocol is designed to document evidence that all key aspects of the installation comply with approved design specifications and recommendations.
+
+### 1.2 Scope
+This protocol covers the installation qualification of [SYSTEM_NAME], including hardware components, software installation, network configuration, security configuration, and backup system configuration. The IQ verifies that the system has been properly delivered, installed, and configured in the intended environment.
+
+### 1.3 Regulatory Framework
+This protocol follows:
+- FDA 21 CFR Part 11 (Electronic Records and Electronic Signatures)
+- FDA 21 CFR Part 210/211 (cGMP for Finished Pharmaceuticals)
+- EU GMP Annex 11 (Computerized Systems)
+- EU GMP Annex 15 (Qualification and Validation)
+- GAMP 5 Guidelines (Good Automated Manufacturing Practice)
+- [OTHER APPLICABLE REGULATIONS]
+
+## 2. System Description
+
+### 2.1 System Overview
+[Provide a brief description of the system, its intended use, and its components]
+
+### 2.2 System Configuration
+- **Hardware Components:** [List all hardware components with model numbers, serial numbers, etc.]
+- **Software Components:** [List all software with version numbers]
+- **Interfaces:** [List all interfaces with other systems]
+- **Operating Environment:** [Describe the operating environment]
+
+### 2.3 System Classification
+According to GAMP 5 categorization, this system is classified as Category [X] software.
+
+## 3. Personnel Responsibilities and Qualifications
+
+### 3.1 Roles and Responsibilities
+
+| Role | Responsibilities |
+|------|-----------------|
+| Validation Lead | Overall responsibility for the validation activities |
+| System Owner | Business owner of the system with ultimate responsibility |
+| IT/Engineering | Technical installation and configuration |
+| Quality Assurance | Review and approval of validation activities |
+| Vendor/Supplier (if applicable) | Technical support for installation |
+
+### 3.2 Required Qualifications
+[Describe minimum qualifications and training requirements for personnel involved in IQ activities]
+
+## 4. Prerequisites and Installation Conditions
+
+### 4.1 Pre-Installation Requirements
+- Approved User Requirements Specification (URS)
+- Approved Functional Specification (FS)
+- Approved Design Specification (DS)
+- Completed Risk Assessment
+- Approved Validation Plan
+- Completed Site Preparation
+- Verification of Environmental Conditions
+- [OTHER PREREQUISITES]
+
+### 4.2 Required Documentation
+- Vendor manuals and installation guides
+- System drawings and schematics
+- Manufacturer specifications
+- Calibration certificates (if applicable)
+- Software licenses
+- SOPs for system operation
+
+### 4.3 Environmental and Facility Requirements
+- Power requirements
+- Temperature and humidity specifications
+- Space requirements
+- Network requirements
+- Physical security requirements
+
+## 5. Installation Verification Requirements
+
+### 5.1 Hardware Installation Verification
+- Receipt verification (condition upon arrival)
+- Component verification (all required components received)
+- Hardware installation verification
+- Physical connections verification
+- Power supply verification
+- Hardware configuration verification
+- Serial numbers documentation
+
+#### 5.1.1 Hardware Components Checklist
+
+| Component | Model/Part Number | Serial Number | Condition | Verified By | Date |
+|-----------|-------------------|---------------|-----------|------------|------|
+| | | | | | |
+| | | | | | |
+
+### 5.2 Software Installation Verification
+- Installation media verification
+- Installation process documentation
+- Version verification
+- License verification
+- Default settings documentation
+- Installation logs review
+- Software configuration verification
+
+#### 5.2.1 Software Components Checklist
+
+| Software | Version | License Information | Installation Path | Verified By | Date |
+|----------|---------|---------------------|------------------|------------|------|
+| | | | | | |
+| | | | | | |
+
+### 5.3 Network Configuration Verification
+- Network connectivity verification
+- IP address configuration
+- DNS configuration
+- Firewall settings
+- Network security verification
+- Communication with interfaced systems
+
+#### 5.3.1 Network Configuration Details
+
+| Parameter | Expected Value | Actual Value | Verified By | Date |
+|-----------|----------------|--------------|------------|------|
+| IP Address | | | | |
+| Subnet Mask | | | | |
+| Gateway | | | | |
+| DNS Servers | | | | |
+| Hostname | | | | |
+
+### 5.4 Security Configuration Verification
+- User account setup
+- Password policies
+- Access controls
+- Authentication mechanisms
+- Audit trail configuration
+- Security patches/updates verification
+
+#### 5.4.1 Security Settings Checklist
+
+| Security Parameter | Expected Configuration | Actual Configuration | Verified By | Date |
+|-------------------|------------------------|----------------------|------------|------|
+| Password Complexity | | | | |
+| Account Lockout | | | | |
+| Session Timeout | | | | |
+| Audit Trail Settings | | | | |
+
+### 5.5 Backup System Configuration
+- Backup software installation
+- Backup schedule configuration
+- Backup storage location
+- Backup access controls
+- Restoration procedure verification
+
+#### 5.5.1 Backup Configuration Details
+
+| Backup Parameter | Configuration | Verified By | Date |
+|-----------------|---------------|------------|------|
+| Backup Schedule | | | |
+| Backup Location | | | |
+| Retention Period | | | |
+| Responsible Person | | | |
+
+## 6. Test Cases with Pass/Fail Criteria
+
+### 6.1 Test Case Format
+Each test case includes:
+- Unique test case ID
+- Test objective
+- Prerequisites
+- Test procedure
+- Expected results
+- Actual results
+- Pass/fail determination
+- Comments/observations
+- Tester signature and date
+- Reviewer signature and date
+
+### 6.2 Hardware Installation Test Cases
+[Include detailed test cases for hardware installation verification]
+
+### 6.3 Software Installation Test Cases
+[Include detailed test cases for software installation verification]
+
+### 6.4 Network Configuration Test Cases
+[Include detailed test cases for network configuration verification]
+
+### 6.5 Security Configuration Test Cases
+[Include detailed test cases for security configuration verification]
+
+### 6.6 Backup Configuration Test Cases
+[Include detailed test cases for backup configuration verification]
+
+## 7. Test Execution
+
+### 7.1 Test Summary Table
+
+| Test ID | Test Description | Status (Pass/Fail) | Executed By | Date | Comments |
+|---------|------------------|-------------------|------------|------|----------|
+| | | | | | |
+| | | | | | |
+
+### 7.2 Test Case Detail Sheets
+[Provide space for test execution documentation]
+
+## 8. Deviation Management
+
+### 8.1 Deviation Recording
+All deviations encountered during execution of this protocol must be documented using the Deviation Form included in Appendix A.
+
+### 8.2 Deviation Classification
+- Critical: Directly impacts system functionality or regulatory compliance
+- Major: Impacts system performance but not critical functionality
+- Minor: No significant impact on system functionality or compliance
+
+### 8.3 Deviation Resolution
+All deviations must be investigated, and appropriate corrective and preventive actions must be implemented before final approval of this protocol.
+
+### 8.4 Deviation Log
+
+| Deviation ID | Description | Classification | Impact Assessment | Resolution | Status | Closed By | Date |
+|--------------|-------------|----------------|-------------------|------------|--------|-----------|------|
+| | | | | | | | |
+
+## 9. Documentation Requirements
+
+### 9.1 Required Documentation
+The following documentation must be included or referenced as attachments to this protocol:
+- Vendor installation records
+- Configuration worksheets
+- Calibration certificates (if applicable)
+- Network diagrams
+- System architecture diagrams
+- Installation checklists
+- Screenshots of critical configurations
+- Test result documentation
+- Deviation reports (if applicable)
+
+### 9.2 Documentation Control
+All documentation generated during IQ execution must be controlled according to the organization&#x27;s document control procedures.
+
+## 10. Approval and Reporting
+
+### 10.1 Installation Qualification Summary
+[Provide space for summary of IQ execution]
+
+### 10.2 Conclusion Statement
+[Provide space for conclusion statement regarding IQ results]
+
+### 10.3 Final Approval
+Based on the results documented in this protocol, the installation qualification of [SYSTEM_NAME] is:
+- [ ] Approved
+- [ ] Approved with conditions (see attached)
+- [ ] Rejected
+
+### 10.4 Approval Signatures
+
+| Role | Name | Signature | Date |
+|------|------|-----------|------|
+| Validation Lead | | | |
+| System Owner | | | |
+| Quality Assurance | | | |
+| IT/Engineering | | | |
+
+## When to Use
+
+Use throughout the project lifecycle to identify, assess, and track risks. This template is essential for projects with significant complexity, multiple stakeholders, or high business impact, where structured risk management provides decision-making value.
+
+## When NOT to Use
+
+Do not use for very low-risk, short-duration tasks where informal risk awareness is sufficient. Avoid this template if your governance framework requires a different risk management approach or if stakeholders prefer real-time risk dashboards over static registers.
+
+## Appendices
+
+### Appendix A: Deviation Form Template
+
+**Deviation ID:** [DEVIATION_ID]  
+**Protocol/Test Case Reference:** [REFERENCE]  
+**Date Observed:** [DATE]  
+**Observed By:** [NAME]
+
+**Description of Deviation:**  
+[Provide detailed description]
+
+**Classification:**  
+- [ ] Critical
+- [ ] Major
+- [ ] Minor
+
+**Impact Assessment:**  
+[Describe impact on system, process, product, validation]
+
+**Root Cause Analysis:**  
+[Describe root cause]
+
+**Corrective Action:**  
+[Describe corrective action]
+
+**Preventive Action:**  
+[Describe preventive action]
+
+**Resolution:**  
+[Describe resolution]
+
+**Verification of Effectiveness:**  
+[Describe verification of effectiveness]
+
+**Approval of Resolution:**
+
+| Role | Name | Signature | Date |
+|------|------|-----------|------|
+| Validation Lead | | | |
+| System Owner | | | |
+| Quality Assurance | | | |
+
+### Appendix B: IQ Checklist Template
+[Include a comprehensive checklist for IQ activities]
+
+### Appendix C: Glossary
+[Include definitions of key terms used in the protocol]
+
+### Appendix D: References
+- FDA 21 CFR Part 11
+- FDA 21 CFR Part 210/211
+- EU GMP Annex 11
+- EU GMP Annex 15
+- GAMP 5 Guidelines
+- [OTHER REFERENCES]
+</pre></div></div></div><!--astro:end--></astro-island></main></body></html>

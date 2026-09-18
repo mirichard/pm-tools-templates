@@ -1,0 +1,861 @@
+<!DOCTYPE html><html lang="en" data-astro-cid-ju4pidww><head><meta charset="UTF-8"><meta name="description" content="Advanced template browser with previews and version history"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="icon" type="image/svg+xml" href="/pm-tools-templates/favicon.svg"><title>Infrastructure Assessment Template</title><link rel="stylesheet" href="/pm-tools-templates/assets/Layout.ChXqTIwx.css"></head><body data-astro-cid-ju4pidww><main data-astro-cid-ju4pidww><style>astro-island,astro-slot,astro-static-slot{display:contents}</style><script>(()=>{var e=async t=>{await(await t())()};(self.Astro||(self.Astro={})).load=e;window.dispatchEvent(new Event("astro:load"));})();</script><script>(()=>{var g=Object.defineProperty;var w=(a,s,c)=>s in a?g(a,s,{enumerable:!0,configurable:!0,writable:!0,value:c}):a[s]=c;var l=(a,s,c)=>w(a,typeof s!="symbol"?s+"":s,c);var E=new Set(["__proto__","constructor","prototype"]);{let a={0:t=>y(t),1:t=>c(t),2:t=>new RegExp(t),3:t=>new Date(t),4:t=>new Map(c(t)),5:t=>new Set(c(t)),6:t=>BigInt(t),7:t=>new URL(t),8:t=>new Uint8Array(t),9:t=>new Uint16Array(t),10:t=>new Uint32Array(t),11:t=>Number.POSITIVE_INFINITY*t},s=t=>{let[p,e]=t;return p in a?a[p](e):void 0},c=t=>t.map(s),y=t=>typeof t!="object"||t===null?t:Object.fromEntries(Object.entries(t).map(([p,e])=>[p,s(e)]));class f extends HTMLElement{constructor(){super(...arguments);l(this,"Component");l(this,"hydrator");l(this,"hydrate",async()=>{var b;if(!this.hydrator||!this.isConnected)return;let e=(b=this.parentElement)==null?void 0:b.closest("astro-island[ssr]");if(e){e.addEventListener("astro:hydrate",this.hydrate,{once:!0});return}let r=this.querySelectorAll("astro-slot"),n={},d=this.querySelectorAll("template[data-astro-template]");for(let o of d){let i=o.closest(this.tagName);i!=null&&i.isSameNode(this)&&(n[o.getAttribute("data-astro-template")||"default"]=o.innerHTML,o.remove())}for(let o of r){let i=o.closest(this.tagName);i!=null&&i.isSameNode(this)&&(n[o.getAttribute("name")||"default"]=o.innerHTML)}let u;try{u=this.hasAttribute("props")?y(JSON.parse(this.getAttribute("props"))):{}}catch(o){let i=this.getAttribute("component-url")||"<unknown>",v=this.getAttribute("component-export");throw v&&(i+=` (export ${v})`),console.error(`[hydrate] Error parsing props for component ${i}`,this.getAttribute("props"),o),o}let h;await this.hydrator(this)(this.Component,u,n,{client:this.getAttribute("client")}),this.removeAttribute("ssr"),this.dispatchEvent(new CustomEvent("astro:hydrate"))});l(this,"unmount",()=>{this.isConnected||this.dispatchEvent(new CustomEvent("astro:unmount"))})}disconnectedCallback(){document.removeEventListener("astro:after-swap",this.unmount),document.addEventListener("astro:after-swap",this.unmount,{once:!0})}connectedCallback(){if(!this.hasAttribute("await-children")||document.readyState==="interactive"||document.readyState==="complete")this.childrenConnectedCallback();else{let e=()=>{document.removeEventListener("DOMContentLoaded",e),r.disconnect(),this.childrenConnectedCallback()},r=new MutationObserver(()=>{var n;((n=this.lastChild)==null?void 0:n.nodeType)===Node.COMMENT_NODE&&this.lastChild.nodeValue==="astro:end"&&(this.lastChild.remove(),e())});r.observe(this,{childList:!0}),document.addEventListener("DOMContentLoaded",e)}}async childrenConnectedCallback(){let e=this.getAttribute("before-hydration-url");e&&await import(e),this.start()}getRetryImportUrl(e){let r=new URL(e,document.baseURI);return r.searchParams.set("astro-retry",Date.now().toString()),r.toString()}async importWithRetry(e){try{return await import(e)}catch(r){return await new Promise(n=>setTimeout(n,1e3)),import(this.getRetryImportUrl(e))}}handleHydrationError(e){let r=this.getAttribute("component-url"),n=new CustomEvent("astro:hydration-error",{cancelable:!0,bubbles:!0,composed:!0,detail:{error:e,componentUrl:r}});this.dispatchEvent(n)&&console.error(`[astro-island] Error hydrating ${r}`,e)}async start(){let e=JSON.parse(this.getAttribute("opts")),r=this.getAttribute("client");if(Astro[r]===void 0){window.addEventListener(`astro:${r}`,()=>this.start(),{once:!0});return}try{await Astro[r](async()=>{let n=this.getAttribute("renderer-url");try{let[d,{default:u}]=await Promise.all([this.importWithRetry(this.getAttribute("component-url")),n?this.importWithRetry(n):Promise.resolve({default:()=>()=>{}})]),h=this.getAttribute("component-export")||"default";if(h.includes(".")){this.Component=d;for(let m of h.split(".")){if(E.has(m)||!this.Component||typeof this.Component!="object"&&typeof this.Component!="function"||!Object.hasOwn(this.Component,m))throw new Error(`Invalid component export path: ${h}`);this.Component=this.Component[m]}}else{if(E.has(h))throw new Error(`Invalid component export path: ${h}`);this.Component=d[h]}return this.hydrator=u,this.hydrate}catch(d){return this.handleHydrationError(d),()=>{}}},e,this)}catch(n){this.handleHydrationError(n)}}attributeChangedCallback(){this.hydrate()}}l(f,"observedAttributes",["props"]),customElements.get("astro-island")||customElements.define("astro-island",f)}})();</script><astro-island uid="Z2kkO9i" prefix="r1" component-url="/pm-tools-templates/assets/TemplateViewer.BJxWH0dD.js" component-export="default" renderer-url="/pm-tools-templates/assets/client.REQV_TkY.js" props="{&quot;templateId&quot;:[0,&quot;infrastructure_assessment_template&quot;],&quot;filePath&quot;:[0,&quot;domains/measurement/industry-specializations/information-technology/infrastructure/infrastructure_assessment_template.md&quot;],&quot;title&quot;:[0,&quot;Infrastructure Assessment Template&quot;],&quot;content&quot;:[0,&quot;---\ntitle: Infrastructure Assessment Template\nmethodology: universal\ncomplexity: advanced\nowner: mirichard\nupdated: &#39;2025-08-05&#39;\nprimary_principles:\n- stewardship\n- quality-by-design\nsecondary_principles:\n- evidence-based-decisions\n- risk-optimization\nprinciple_rationale: Protects safety and integrity through quality-by-design and stewardship\n  principles.\n---\n\n# Infrastructure Assessment Template\n\n## Document Control\n\n**Document ID:** IAT-2025-001  \n**Version:** 1.0  \n**Creation Date:** 2025-06-20  \n**Last Modified:** 2025-06-20  \n**Author:** [Author Name]  \n**Owner:** [IT Department]  \n**Classification:** Internal Use Only  \n\n| Version | Date | Description | Author | Approver |\n|---------|------|-------------|--------|----------|\n| 1.0 | 2025-06-20 | Initial version | [Author Name] | [Approver Name] |\n\n## 1. Executive Summary\n\nThis section provides a high-level overview of the infrastructure assessment, including key findings, critical recommendations, and strategic insights. This should be written last but presented first, aimed at executive stakeholders.\n\n### 1.1 Assessment Objectives\n\nClearly state the purpose and objectives of the infrastructure assessment:\n\n- Evaluate current state of IT infrastructure components\n- Identify performance issues, bottlenecks, and risks\n- Analyze capacity and scalability constraints\n- Assess technology stack for obsolescence and supportability\n- Determine alignment with business requirements and strategic objectives\n- Provide actionable recommendations for improvement\n\n### 1.2 Assessment Scope\n\nDefine the boundaries of the assessment:\n\n- Infrastructure components included/excluded\n- Physical locations and environments covered\n- Time period of data collection\n- Organizational units involved\n- Assessment methodologies employed\n\n### 1.3 Key Findings Summary\n\nHighlight 3-5 most significant findings requiring attention:\n\n| Category | Finding | Impact | Priority |\n|----------|---------|--------|----------|\n| [Hardware/Network/Security/etc.] | [Brief description of finding] | [High/Medium/Low] | [Critical/High/Medium/Low] |\n\n### 1.4 Strategic Recommendations Overview\n\nSummarize the most important recommendations:\n\n| Recommendation | Business Value | Implementation Complexity | Priority |\n|----------------|----------------|---------------------------|----------|\n| [Brief recommendation] | [Brief value statement] | [High/Medium/Low] | [Critical/High/Medium/Low] |\n\n## 2. Current Infrastructure Overview\n\n### 2.1 Hardware Inventory\n\n#### 2.1.1 Server Infrastructure\n\n| Server Type | Quantity | Manufacturer/Model | Age | OS/Version | End-of-Life Date | Utilization | Status |\n|-------------|----------|-------------------|-----|------------|------------------|-------------|--------|\n| Production | | | | | | | |\n| Development | | | | | | | |\n| Test/QA | | | | | | | |\n| Backup/Recovery | | | | | | | |\n\n#### 2.1.2 End-User Computing Devices\n\n| Device Type | Quantity | Models | Age Range | OS/Version | Refresh Cycle Status | Notes |\n|-------------|----------|--------|-----------|------------|----------------------|-------|\n| Desktops | | | | | | |\n| Laptops | | | | | | |\n| Mobile Devices | | | | | | |\n| Specialty Workstations | | | | | | |\n\n#### 2.1.3 Infrastructure Appliances\n\n| Appliance Type | Quantity | Manufacturer/Model | Age | Firmware Version | End-of-Support Date | Purpose | Status |\n|----------------|----------|-------------------|-----|------------------|---------------------|---------|--------|\n| Load Balancers | | | | | | | |\n| Firewalls | | | | | | | |\n| Storage Arrays | | | | | | | |\n| Backup Devices | | | | | | | |\n\n#### 2.1.4 Hardware Age Analysis\n\n```\n[PLACEHOLDER FOR HARDWARE AGE DISTRIBUTION CHART]\n```\n\n*Guidance: Include a bar or pie chart showing the distribution of hardware by age ranges (0-1 years, 1-3 years, 3-5 years, 5+ years)*\n\n### 2.2 Network Architecture\n\n#### 2.2.1 Network Topology\n\n*Guidance: Include a high-level network diagram showing key components and connections*\n\n```\n[PLACEHOLDER FOR NETWORK TOPOLOGY DIAGRAM]\n```\n\n#### 2.2.2 Network Equipment Inventory\n\n| Component Type | Quantity | Manufacturer/Model | Age | OS/Firmware | End-of-Support | Utilization | Status |\n|----------------|----------|-------------------|-----|-------------|----------------|-------------|--------|\n| Core Switches | | | | | | | |\n| Distribution Switches | | | | | | | |\n| Access Switches | | | | | | | |\n| Routers | | | | | | | |\n| Wireless Controllers | | | | | | | |\n| Wireless Access Points | | | | | | | |\n\n#### 2.2.3 Network Segmentation and VLANs\n\n| VLAN ID | Name | Purpose | IP Range | Access Controls | Routing Policies |\n|---------|------|---------|----------|----------------|------------------|\n| | | | | | |\n\n#### 2.2.4 WAN Connectivity\n\n| Connection Type | Provider | Bandwidth | Redundancy | Cost | SLA | Utilization | Notes |\n|-----------------|----------|-----------|------------|------|-----|-------------|-------|\n| Primary Internet | | | | | | | |\n| Backup Internet | | | | | | | |\n| MPLS/SD-WAN | | | | | | | |\n| Site-to-Site VPN | | | | | | | |\n\n### 2.3 Software Systems\n\n#### 2.3.1 Operating Systems\n\n| OS Type | Version | Quantity | End-of-Support | Patch Status | Compliance Status | Migration Plan |\n|---------|---------|----------|----------------|--------------|-------------------|---------------|\n| | | | | | | |\n\n#### 2.3.2 Virtualization Platforms\n\n| Platform | Version | Host Count | VM Count | Resource Allocation | Utilization | Licensing Status |\n|----------|---------|------------|----------|---------------------|-------------|------------------|\n| | | | | | | |\n\n#### 2.3.3 Database Systems\n\n| Database Type | Version | Instance Count | Size (Total) | End-of-Support | Performance Status | Licensing Status |\n|---------------|---------|----------------|--------------|----------------|-------------------|------------------|\n| | | | | | | |\n\n#### 2.3.4 Middleware and Application Platforms\n\n| Platform Type | Product | Version | Instance Count | End-of-Support | Dependency Map | Criticality |\n|---------------|---------|---------|----------------|----------------|----------------|-------------|\n| | | | | | | |\n\n### 2.4 Security Controls\n\n#### 2.4.1 Perimeter Security\n\n| Control Type | Product/Technology | Version | Coverage | Last Assessment | Effectiveness | Notes |\n|--------------|-------------------|---------|----------|-----------------|---------------|-------|\n| Firewalls | | | | | | |\n| IDS/IPS | | | | | | |\n| DDoS Protection | | | | | | |\n| Email Security | | | | | | |\n| Web Filtering | | | | | | |\n\n#### 2.4.2 Endpoint Security\n\n| Control Type | Product/Technology | Version | Coverage (%) | Effectiveness | Update Status | Notes |\n|--------------|-------------------|---------|--------------|---------------|---------------|-------|\n| Antivirus/EDR | | | | | | |\n| Host Firewall | | | | | | |\n| Disk Encryption | | | | | | |\n| Application Control | | | | | | |\n| Vulnerability Management | | | | | | |\n\n#### 2.4.3 Identity and Access Management\n\n| Component | Technology/Product | Version | Coverage | Integration Status | Maturity Level | Issues |\n|-----------|-------------------|---------|----------|---------------------|---------------|--------|\n| Directory Services | | | | | | |\n| Authentication | | | | | | |\n| MFA Implementation | | | | | | |\n| Privileged Access | | | | | | |\n| Access Recertification | | | | | | |\n\n#### 2.4.4 Security Monitoring and Response\n\n| Capability | Technology/Product | Coverage | Effectiveness | Maturity Level | Integration Status | Notes |\n|------------|-------------------|----------|---------------|----------------|-------------------|-------|\n| SIEM | | | | | | |\n| SOC Operations | | | | | | |\n| Threat Intelligence | | | | | | |\n| Incident Response | | | | | | |\n| Vulnerability Scanning | | | | | | |\n\n### 2.5 Data Centers/Cloud Resources\n\n#### 2.5.1 Physical Data Centers\n\n| Facility | Purpose | Tier Level | Square Footage | Rack Capacity | Power Capacity | Cooling Capacity | Occupancy Rate |\n|----------|---------|------------|---------------|---------------|---------------|------------------|----------------|\n| | | | | | | | |\n\n#### 2.5.2 Environmental Controls\n\n| Control Type | Technology | Redundancy | Last Tested | Effectiveness | Issues | Notes |\n|--------------|------------|------------|------------|---------------|--------|-------|\n| Power | | | | | | |\n| Cooling | | | | | | |\n| Fire Suppression | | | | | | |\n| Physical Security | | | | | | |\n| Environmental Monitoring | | | | | | |\n\n#### 2.5.3 Cloud Infrastructure\n\n| Provider | Service Model | Resource Types | Monthly Cost | Governance Model | Integration Status | Optimization Status |\n|----------|--------------|----------------|--------------|------------------|-------------------|---------------------|\n| | | | | | | |\n\n#### 2.5.4 Hybrid Infrastructure\n\n| Component | On-Premises | Cloud | Integration Method | Data Flow | Performance | Issues |\n|-----------|-------------|-------|-------------------|-----------|-------------|--------|\n| | | | | | | |\n\n## 3. Performance Analysis\n\n### 3.1 System Performance Metrics\n\n#### 3.1.1 Server Performance\n\n| Server Category | CPU Utilization | Memory Utilization | Disk I/O | Network I/O | Response Time | Trend |\n|-----------------|----------------|-------------------|----------|------------|---------------|-------|\n| Production Average | | | | | | |\n| Development Average | | | | | | |\n| Top 5 Critical Servers | | | | | | |\n| Bottom 5 Performers | | | | | | |\n\n```\n[PLACEHOLDER FOR SERVER PERFORMANCE TREND CHART]\n```\n\n*Guidance: Include line charts showing performance trends over time (3-6 months) for critical metrics*\n\n#### 3.1.2 Network Performance\n\n| Segment | Bandwidth Utilization | Latency | Packet Loss | Jitter | Error Rates | Trend |\n|---------|----------------------|---------|------------|--------|------------|-------|\n| Internet Connection | | | | | | |\n| WAN Links | | | | | | |\n| Core Network | | | | | | |\n| Campus Network | | | | | | |\n\n```\n[PLACEHOLDER FOR NETWORK PERFORMANCE TREND CHART]\n```\n\n*Guidance: Include line charts showing bandwidth utilization and latency over time*\n\n#### 3.1.3 Application Performance\n\n| Application | Response Time | Availability | Transaction Rate | Error Rate | User Satisfaction | Trend |\n|-------------|--------------|--------------|------------------|------------|-------------------|-------|\n| | | | | | | |\n\n#### 3.1.4 Storage Performance\n\n| Storage System | IOPS | Throughput | Latency | Queue Depth | Cache Hit Rate | Trend |\n|----------------|------|------------|---------|------------|----------------|-------|\n| | | | | | | |\n\n### 3.2 Capacity Utilization\n\n#### 3.2.1 Compute Capacity\n\n| Resource Pool | Allocated Capacity | Used Capacity | Utilization % | Growth Rate | Time to Threshold | Recommendation |\n|---------------|-------------------|--------------|--------------|------------|------------------|----------------|\n| CPU Cores | | | | | | |\n| Memory | | | | | | |\n| VM Allocation | | | | | | |\n| Container Resources | | | | | | |\n\n```\n[PLACEHOLDER FOR CAPACITY TREND AND FORECAST CHART]\n```\n\n*Guidance: Include line chart showing utilization over time with forecast line*\n\n#### 3.2.2 Storage Capacity\n\n| Storage System | Total Capacity | Allocated | Used | Growth Rate | Time to Threshold | Recommendation |\n|----------------|----------------|-----------|------|------------|------------------|----------------|\n| Primary Storage | | | | | | |\n| Secondary Storage | | | | | | |\n| Backup Storage | | | | | | |\n| Archive Storage | | | | | | |\n\n#### 3.2.3 Network Capacity\n\n| Network Segment | Bandwidth Capacity | Peak Utilization | Average Utilization | Growth Rate | Time to Threshold | Recommendation |\n|-----------------|-------------------|-----------------|---------------------|------------|------------------|----------------|\n| | | | | | | |\n\n#### 3.2.4 License Utilization\n\n| Software | License Type | Purchased | Deployed | Actively Used | Utilization % | Cost Optimization Potential |\n|----------|--------------|-----------|----------|--------------|--------------|------------------------------|\n| | | | | | | |\n\n### 3.3 Bottlenecks and Constraints\n\n#### 3.3.1 Identified System Bottlenecks\n\n| Component | Bottleneck Description | Impact Level | Performance Impact | Business Impact | Root Cause | Recommendation |\n|-----------|------------------------|-------------|-------------------|----------------|-----------|----------------|\n| | | | | | | |\n\n#### 3.3.2 Architectural Constraints\n\n| Constraint Type | Description | Affected Systems | Business Impact | Technical Debt Factor | Recommendation |\n|-----------------|------------|-----------------|----------------|----------------------|----------------|\n| | | | | | |\n\n#### 3.3.3 Resource Contention Analysis\n\n| Resource | Contention Pattern | Peak Times | Affected Services | Impact | Mitigation Options |\n|----------|-------------------|-----------|-------------------|--------|-------------------|\n| | | | | | |\n\n### 3.4 Performance Optimization Opportunities\n\n| Opportunity | Current State | Target State | Complexity | Expected Benefit | Investment Required | ROI Estimate |\n|-------------|--------------|--------------|------------|------------------|---------------------|-------------|\n| | | | | | | |\n\n## 4. Risk Assessment\n\n### 4.1 Technical Debt\n\n#### 4.1.1 Technical Debt Inventory\n\n| Category | Description | Age | Impact | Remediation Complexity | Risk Level | Estimated Cost |\n|----------|------------|-----|--------|------------------------|-----------|----------------|\n| Architecture | | | | | | |\n| Infrastructure | | | | | | |\n| Application | | | | | | |\n| Integration | | | | | | |\n| Documentation | | | | | | |\n\n#### 4.1.2 Technical Debt Heat Map\n\n```\n[PLACEHOLDER FOR TECHNICAL DEBT HEAT MAP]\n```\n\n*Guidance: Include a heat map showing impact vs. remediation complexity*\n\n#### 4.1.3 Technical Debt Remediation Roadmap\n\n| Item | Priority | Remediation Approach | Timeline | Resources Required | Dependencies | Success Criteria |\n|------|----------|----------------------|----------|-------------------|--------------|------------------|\n| | | | | | | |\n\n### 4.2 Security Vulnerabilities\n\n#### 4.2.1 Vulnerability Summary\n\n| Category | Critical | High | Medium | Low | Total | Trend |\n|----------|---------|------|--------|-----|-------|-------|\n| Operating Systems | | | | | | |\n| Applications | | | | | | |\n| Network Devices | | | | | | |\n| Databases | | | | | | |\n| Cloud Resources | | | | | | |\n| Totals | | | | | | |\n\n#### 4.2.2 Top Vulnerability Findings\n\n| Vulnerability | Affected Systems | CVSS Score | Exploit Availability | Business Impact | Remediation Plan | Timeline |\n|---------------|-----------------|-----------|---------------------|----------------|-----------------|----------|\n| | | | | | | |\n\n#### 4.2.3 Security Control Gaps\n\n| Control Category | Gap Description | Risk Level | Compliance Impact | Remediation Approach | Timeline | Resources Required |\n|-----------------|-----------------|-----------|-------------------|----------------------|----------|-------------------|\n| | | | | | | |\n\n### 4.3 Compliance Gaps\n\n#### 4.3.1 Regulatory Compliance Status\n\n| Regulation | Compliance Area | Status | Gap Description | Risk Level | Remediation Plan | Timeline |\n|------------|----------------|--------|----------------|-----------|-----------------|----------|\n| | | | | | | |\n\n#### 4.3.2 Industry Standard Compliance\n\n| Standard | Compliance Area | Status | Gap Description | Risk Level | Remediation Plan | Timeline |\n|----------|----------------|--------|----------------|-----------|-----------------|----------|\n| | | | | | | |\n\n#### 4.3.3 Policy Compliance\n\n| Policy | Compliance Area | Status | Gap Description | Risk Level | Remediation Plan | Timeline |\n|--------|----------------|--------|----------------|-----------|-----------------|----------|\n| | | | | | | |\n\n### 4.4 Business Continuity Risks\n\n#### 4.4.1 Single Points of Failure\n\n| Component | Description | Criticality | Business Impact | Current Mitigation | Recommended Mitigation | Priority |\n|-----------|------------|------------|----------------|-------------------|------------------------|----------|\n| | | | | | | |\n\n#### 4.4.2 Recovery Capability Assessment\n\n| System | RTO Target | Current RTO | RPO Target | Current RPO | Gap | Remediation Plan |\n|--------|-----------|------------|-----------|------------|-----|-----------------|\n| | | | | | | |\n\n#### 4.4.3 Disaster Recovery Readiness\n\n| Capability | Status | Last Tested | Test Results | Gap Analysis | Improvement Plan | Priority |\n|------------|--------|------------|--------------|--------------|------------------|----------|\n| | | | | | | |\n\n## 5. Gap Analysis\n\n### 5.1 Current vs. Required State\n\n#### 5.1.1 Capability Maturity Assessment\n\n| Capability Area | Current Maturity Level | Target Maturity Level | Gap Description | Business Impact | Improvement Actions |\n|-----------------|------------------------|----------------------|----------------|----------------|---------------------|\n| Infrastructure Management | | | | | |\n| Service Management | | | | | |\n| Security Operations | | | | | |\n| Cloud Operations | | | | | |\n| DevOps Enablement | | | | | |\n| Data Management | | | | | |\n\n*Guidance: Use a maturity scale of 1-5 (Initial, Repeatable, Defined, Managed, Optimized)*\n\n#### 5.1.2 Business Requirements Alignment\n\n| Business Requirement | Current Capability | Required Capability | Gap | Impact | Priority | Remediation Actions |\n|----------------------|-------------------|---------------------|-----|--------|----------|---------------------|\n| | | | | | | |\n\n#### 5.1.3 SLA and Performance Requirements\n\n| Service | Current Performance | Required Performance | Gap | Business Impact | Remediation Options | Priority |\n|---------|---------------------|----------------------|-----|----------------|---------------------|----------|\n| | | | | | | |\n\n### 5.2 Technology Stack Evaluation\n\n#### 5.2.1 Technology Lifecycle Status\n\n| Technology | Current Version | Vendor Support Status | End-of-Life Date | Migration Complexity | Business Impact | Recommendation |\n|------------|----------------|----------------------|------------------|----------------------|----------------|----------------|\n| | | | | | | |\n\n#### 5.2.2 Technology Fitness Assessment\n\n| Technology Area | Current Solution | Fitness Score | Strengths | Weaknesses | Alternatives | Recommendation |\n|-----------------|-----------------|--------------|-----------|------------|--------------|----------------|\n| | | | | | | |\n\n*Guidance: Use fitness score of 1-5 (1=Poor fit, 5=Excellent fit)*\n\n#### 5.2.3 Software Currency Assessment\n\n| Software Category | Current | One Version Behind | Two+ Versions Behind | Unsupported | Risk Level |\n|-------------------|---------|---------------------|----------------------|------------|-----------|\n| Operating Systems | % | % | % | % | |\n| Databases | % | % | % | % | |\n| Middleware | % | % | % | % | |\n| Virtualization | % | % | % | % | |\n| Security Tools | % | % | % | % | |\n\n```\n[PLACEHOLDER FOR SOFTWARE CURRENCY CHART]\n```\n\n*Guidance: Include a stacked bar chart showing version distribution by category*\n\n### 5.3 Scalability Assessment\n\n#### 5.3.1 Growth Projection Analysis\n\n| Resource | Current Utilization | 1-Year Projection | 3-Year Projection | Scaling Capacity | Scaling Constraints | Recommendation |\n|----------|---------------------|-------------------|-------------------|-----------------|-------------------|----------------|\n| Compute | | | | | | |\n| Storage | | | | | | |\n| Network | | | | | | |\n| Database | | | | | | |\n| Application Tiers | | | | | | |\n\n#### 5.3.2 Scalability Limitations\n\n| Component | Current Limit | Projected Exhaustion | Scaling Options | Complexity | Cost Implications | Recommendation |\n|-----------|--------------|----------------------|----------------|------------|-------------------|----------------|\n| | | | | | | |\n\n#### 5.3.3 Elasticity Assessment\n\n| Environment | Current Elasticity | Requirements | Gap | Business Impact | Implementation Options | Priority |\n|-------------|-------------------|--------------|-----|----------------|------------------------|----------|\n| | | | | | | |\n\n### 5.4 Integration Points\n\n#### 5.4.1 Integration Inventory\n\n| Integration | Type | Connected Systems | Protocol | Data Flow | Performance | Reliability | Issues |\n|-------------|------|-------------------|----------|-----------|------------|------------|--------|\n| | | | | | | | |\n\n#### 5.4.2 Integration Architecture Assessment\n\n| Aspect | Current State | Best Practice | Gap | Business Impact | Recommendation | Priority |\n|--------|--------------|--------------|-----|----------------|----------------|----------|\n| | | | | | | |\n\n#### 5.4.3 Integration Performance and Reliability\n\n| Integration | Average Throughput | Peak Throughput | Latency | Error Rate | Availability | Improvement Options |\n|-------------|-------------------|----------------|---------|------------|--------------|---------------------|\n| | | | | | | |\n\n## 6. Recommendations\n\n### 6.1 Short-term Improvements\n\n| ID | Recommendation | Addressed Issue | Business Benefit | Effort | Cost | Timeline | Dependencies | Priority |\n|----|----------------|----------------|-----------------|--------|------|----------|--------------|----------|\n| ST-1 | | | | | | | | |\n| ST-2 | | | | | | | | |\n| ST-3 | | | | | | | | |\n\n### 6.2 Long-term Strategic Initiatives\n\n| ID | Initiative | Strategic Alignment | Business Outcomes | Complexity | Investment Range | Timeline | Key Dependencies | Priority |\n|----|-----------|---------------------|-------------------|------------|-----------------|----------|-----------------|----------|\n| LT-1 | | | | | | | | |\n| LT-2 | | | | | | | | |\n| LT-3 | | | | | | | | |\n\n### 6.3 Resource Requirements\n\n#### 6.3.1 Personnel Resources\n\n| Initiative | Role | Skill Requirements | Allocation | Duration | Internal/External | Cost Estimate |\n|------------|------|-------------------|------------|----------|-------------------|---------------|\n| | | | | | | |\n\n#### 6.3.2 Technology Investments\n\n| Initiative | Technology | Purpose | Selection Criteria | Alternatives Considered | Cost Range | Timeline |\n|------------|------------|---------|-------------------|------------------------|-----------|----------|\n| | | | | | | |\n\n#### 6.3.3 Operational Impacts\n\n| Initiative | Operational Impact | Transition Requirements | Training Needs | Process Changes | Risk Mitigation |\n|------------|-------------------|------------------------|---------------|-----------------|----------------|\n| | | | | | |\n\n### 6.4 Implementation Roadmap\n\n#### 6.4.1 Implementation Timeline\n\n```\n[PLACEHOLDER FOR GANTT CHART OR TIMELINE DIAGRAM]\n```\n\n*Guidance: Include a visual roadmap of key initiatives across 6-24 month timeframe*\n\n#### 6.4.2 Critical Path and Dependencies\n\n| Initiative | Predecessor | Successor | Dependency Type | Risk Level | Mitigation Strategy |\n|------------|------------|-----------|----------------|-----------|---------------------|\n| | | | | | |\n\n#### 6.4.3 Quick Wins\n\n| Initiative | Effort | Business Impact | Timeline | Key Resources | Success Criteria |\n|------------|--------|----------------|----------|--------------|------------------|\n| | | | | | |\n\n## 7. Cost Analysis\n\n### 7.1 Current Operating Costs\n\n#### 7.1.1 Infrastructure Cost Breakdown\n\n| Category | Annual Cost | % of Total | Cost per User | Cost Trend | Industry Benchmark | Notes |\n|----------|------------|-----------|--------------|-----------|-------------------|-------|\n| Hardware | | | | | | |\n| Software | | | | | | |\n| Maintenance | | | | | | |\n| Staff | | | | | | |\n| Facilities | | | | | | |\n| Cloud Services | | | | | | |\n| Network Services | | | | | | |\n| Support Services | | | | | | |\n| **Total** | | | | | | |\n\n```\n[PLACEHOLDER FOR COST BREAKDOWN PIE CHART]\n```\n\n*Guidance: Include a pie chart showing distribution of costs by category*\n\n#### 7.1.2 Cost Efficiency Analysis\n\n| Metric | Current Value | Industry Benchmark | Gap | Improvement Potential | Recommendation |\n|--------|--------------|-------------------|-----|----------------------|----------------|\n| IT spend as % of revenue | | | | | |\n| IT spend per employee | | | | | |\n| Infrastructure cost per workload | | | | | |\n| Support cost per ticket | | | | | |\n| Cost per storage GB | | | | | |\n| Server-to-admin ratio | | | | | |\n\n### 7.2 Proposed Investment\n\n#### 7.2.1 Investment Summary\n\n| Initiative | Capital Expenditure | Operational Expenditure | Year 1 | Year 2 | Year 3 | Total |\n|------------|---------------------|--------------------------|--------|--------|--------|-------|\n| | | | | | | |\n| **Total** | | | | | | |\n\n#### 7.2.2 Funding Options\n\n| Option | Description | Advantages | Disadvantages | Requirements | Recommendation |\n|--------|------------|------------|--------------|--------------|----------------|\n| Capital budget | | | | | |\n| Operational budget | | | | | |\n| Leasing/Financing | | | | | |\n| Managed services | | | | | |\n| Cloud migration | | | | | |\n\n### 7.3 Expected ROI\n\n#### 7.3.1 Quantitative Benefits\n\n| Benefit Category | Description | Year 1 | Year 2 | Year 3 | Total | Confidence Level |\n|------------------|------------|--------|--------|--------|-------|-----------------|\n| Cost Reduction | | | | | | |\n| Productivity Improvement | | | | | | |\n| Revenue Impact | | | | | | |\n| Risk Reduction | | | | | | |\n| **Total Benefits** | | | | | | |\n\n#### 7.3.2 ROI Calculation\n\n| Metric | Year 1 | Year 2 | Year 3 | 3-Year Total |\n|--------|--------|--------|--------|--------------|\n| Total Investment | | | | |\n| Total Benefits | | | | |\n| Net Benefits | | | | |\n| ROI % | | | | |\n| Payback Period | | | | |\n| NPV | | | | |\n\n#### 7.3.3 Qualitative Benefits\n\n| Benefit Category | Description | Business Impact | Measurement Approach |\n|------------------|------------|----------------|---------------------|\n| | | | |\n\n### 7.4 TCO Calculations\n\n#### 7.4.1 Current vs. Future TCO\n\n| Cost Component | Current Annual Cost | Year 1 | Year 2 | Year 3 | 3-Year TCO | % Change |\n|----------------|---------------------|--------|--------|--------|-----------|----------|\n| Hardware | | | | | | |\n| Software | | | | | | |\n| Maintenance | | | | | | |\n| Staff | | | | | | |\n| Facilities | | | | | | |\n| Cloud Services | | | | | | |\n| Network Services | | | | | | |\n| Support Services | | | | | | |\n| **Total** | | | | | | |\n\n```\n[PLACEHOLDER FOR TCO COMPARISON CHART]\n```\n\n*Guidance: Include a stacked bar chart comparing current vs. future TCO*\n\n#### 7.4.2 Cost Optimization Opportunities\n\n| Opportunity | Description | Estimated Annual Savings | Implementation Cost | Net Benefit (3-Year) | Complexity | Priority |\n|-------------|------------|--------------------------|---------------------|----------------------|------------|----------|\n| | | | | | | |\n\n## 8. Implementation Plan\n\n### 8.1 Phasing Strategy\n\n#### 8.1.1 Implementation Phases\n\n| Phase | Timeframe | Scope | Key Deliverables | Success Criteria | Resources | Budget |\n|-------|-----------|-------|-----------------|-----------------|-----------|--------|\n| Phase 1 | | | | | | |\n| Phase 2 | | | | | | |\n| Phase 3 | | | | | | |\n\n#### 8.1.2 Transition Approach\n\n| Aspect | Current Approach | Target Approach | Transition Method | Risks | Mitigations |\n|--------|-----------------|----------------|-------------------|-------|------------|\n| | | | | | |\n\n### 8.2 Dependencies\n\n#### 8.2.1 Project Dependencies\n\n| Dependent Project | Relationship | Critical Path Item | Impact if Delayed | Coordination Approach |\n|-------------------|--------------|-------------------|-------------------|----------------------|\n| | | | | |\n\n#### 8.2.2 External Dependencies\n\n| Dependency | Type | Owner | Timeline | Risk Level | Mitigation Strategy |\n|------------|------|-------|----------|-----------|---------------------|\n| | | | | | |\n\n### 8.3 Timeline\n\n#### 8.3.1 High-Level Timeline\n\n```\n[PLACEHOLDER FOR TIMELINE CHART]\n```\n\n*Guidance: Include a visual timeline showing key activities and milestones*\n\n#### 8.3.2 Key Milestones\n\n| Milestone | Target Date | Deliverables | Dependencies | Owner | Status |\n|-----------|------------|--------------|--------------|-------|--------|\n| | | | | | |\n\n### 8.4 Resource Allocation\n\n#### 8.4.1 Team Structure\n\n| Role | Responsibility | Skills Required | Allocation | Internal/External | Timeline |\n|------|----------------|----------------|------------|-------------------|----------|\n| | | | | | |\n\n#### 8.4.2 Resource Loading\n\n```\n[PLACEHOLDER FOR RESOURCE LOADING CHART]\n```\n\n*Guidance: Include a chart showing resource utilization over the implementation timeline*\n\n#### 8.4.3 Governance Structure\n\n| Role | Responsibility | Authority | Meeting Cadence | Escalation Path |\n|------|----------------|-----------|-----------------|-----------------|\n| Steering Committee | | | | |\n| Project Sponsor | | | | |\n| Program Manager | | | | |\n| Technical Lead | | | | |\n| Business Representative | | | | |\n\n## When to Use\n\nUse throughout the project lifecycle to identify, assess, and track risks. This template is essential for projects with significant complexity, multiple stakeholders, or high business impact, where structured risk management provides decision-making value.\n\n## When NOT to Use\n\nDo not use for very low-risk, short-duration tasks where informal risk awareness is sufficient. Avoid this template if your governance framework requires a different risk management approach or if stakeholders prefer real-time risk dashboards over static registers.\n\n## 9. Appendices\n\n### 9.1 Detailed Inventory Lists\n\n*Guidance: Include or reference comprehensive inventory data too detailed for the main report*\n\n### 9.2 Performance Reports\n\n*Guidance: Include detailed performance metrics, trend charts, and analysis data*\n\n### 9.3 Compliance Requirements\n\n*Guidance: Include detailed regulatory and compliance requirements relevant to the infrastructure*\n\n#### 9.3.1 Regulatory Requirements\n\n| Regulation | Requirement | Applicability | Current Status | Gap | Remediation Plan |\n|------------|------------|--------------|---------------|-----|-----------------|\n| | | | | | |\n\n#### 9.3.2 Security Standards\n\n| Standard | Requirement | Applicability | Current Status | Gap | Remediation Plan |\n|----------|------------|--------------|---------------|-----|-----------------|\n| | | | | | |\n\n#### 9.3.3 Internal Policies\n\n| Policy | Requirement | Applicability | Current Status | Gap | Remediation Plan |\n|--------|------------|--------------|---------------|-----|-----------------|\n| | | | | | |\n\n### 9.4 Technical Specifications\n\n*Guidance: Include detailed technical specifications and reference architectures*\n\n#### 9.4.1 Reference Architectures\n\n*Guidance: Include diagrams and documentation of reference architectures relevant to recommendations*\n\n#### 9.4.2 Technology Standards\n\n| Technology Area | Current Standard | Recommended Standard | Transition Plan | Timeline |\n|-----------------|-----------------|----------------------|----------------|----------|\n| | | | | |\n\n#### 9.4.3 Detailed Requirements\n\n*Guidance: Include detailed technical requirements for recommended solutions*\n\n---\n\n*End of Document*\n&quot;]}" ssr client="load" opts="{&quot;name&quot;:&quot;TemplateViewer&quot;,&quot;value&quot;:true}" await-children><div><h1>Infrastructure Assessment Template</h1><div style="margin-bottom:2rem"><button style="background:var(--accent-color);color:white;border:1px solid var(--border-color);padding:0.5rem 1rem;border-radius:4px 4px 0 0;cursor:pointer;margin-right:1px">Preview</button><button style="background:var(--code-bg);color:var(--text-color);border:1px solid var(--border-color);padding:0.5rem 1rem;border-radius:4px 4px 0 0;cursor:pointer">Version History</button></div><div style="border:1px solid var(--border-color);border-radius:0 8px 8px 8px;min-height:400px"><div style="background:var(--bg-primary);border-radius:var(--radius-lg)"><div style="padding:1rem 1.5rem;border-bottom:1px solid var(--border-light);display:flex;align-items:center;justify-content:space-between;background:var(--bg-secondary);border-radius:var(--radius-lg) var(--radius-lg) 0 0"><div style="display:flex;align-items:center;gap:0.5rem"><span style="font-size:1.5rem">📄</span><div><div style="font-weight:600;color:var(--text-primary)">infrastructure_assessment_template.md</div><div style="font-size:0.75rem;color:var(--text-muted)">Markdown • <!-- -->31,220 bytes</div></div></div><a href="/pm-tools-templates/downloads/infrastructure_assessment_template.md" download="" class="btn btn-secondary" style="font-size:0.75rem;padding:0.5rem 0.75rem">💾 Download</a></div><pre aria-label="Markdown source of Infrastructure Assessment Template" style="padding:1.5rem;max-height:600px;overflow:auto;white-space:pre-wrap;overflow-wrap:anywhere">---
+title: Infrastructure Assessment Template
+methodology: universal
+complexity: advanced
+owner: mirichard
+updated: &#x27;2025-08-05&#x27;
+primary_principles:
+- stewardship
+- quality-by-design
+secondary_principles:
+- evidence-based-decisions
+- risk-optimization
+principle_rationale: Protects safety and integrity through quality-by-design and stewardship
+  principles.
+---
+
+# Infrastructure Assessment Template
+
+## Document Control
+
+**Document ID:** IAT-2025-001  
+**Version:** 1.0  
+**Creation Date:** 2025-06-20  
+**Last Modified:** 2025-06-20  
+**Author:** [Author Name]  
+**Owner:** [IT Department]  
+**Classification:** Internal Use Only  
+
+| Version | Date | Description | Author | Approver |
+|---------|------|-------------|--------|----------|
+| 1.0 | 2025-06-20 | Initial version | [Author Name] | [Approver Name] |
+
+## 1. Executive Summary
+
+This section provides a high-level overview of the infrastructure assessment, including key findings, critical recommendations, and strategic insights. This should be written last but presented first, aimed at executive stakeholders.
+
+### 1.1 Assessment Objectives
+
+Clearly state the purpose and objectives of the infrastructure assessment:
+
+- Evaluate current state of IT infrastructure components
+- Identify performance issues, bottlenecks, and risks
+- Analyze capacity and scalability constraints
+- Assess technology stack for obsolescence and supportability
+- Determine alignment with business requirements and strategic objectives
+- Provide actionable recommendations for improvement
+
+### 1.2 Assessment Scope
+
+Define the boundaries of the assessment:
+
+- Infrastructure components included/excluded
+- Physical locations and environments covered
+- Time period of data collection
+- Organizational units involved
+- Assessment methodologies employed
+
+### 1.3 Key Findings Summary
+
+Highlight 3-5 most significant findings requiring attention:
+
+| Category | Finding | Impact | Priority |
+|----------|---------|--------|----------|
+| [Hardware/Network/Security/etc.] | [Brief description of finding] | [High/Medium/Low] | [Critical/High/Medium/Low] |
+
+### 1.4 Strategic Recommendations Overview
+
+Summarize the most important recommendations:
+
+| Recommendation | Business Value | Implementation Complexity | Priority |
+|----------------|----------------|---------------------------|----------|
+| [Brief recommendation] | [Brief value statement] | [High/Medium/Low] | [Critical/High/Medium/Low] |
+
+## 2. Current Infrastructure Overview
+
+### 2.1 Hardware Inventory
+
+#### 2.1.1 Server Infrastructure
+
+| Server Type | Quantity | Manufacturer/Model | Age | OS/Version | End-of-Life Date | Utilization | Status |
+|-------------|----------|-------------------|-----|------------|------------------|-------------|--------|
+| Production | | | | | | | |
+| Development | | | | | | | |
+| Test/QA | | | | | | | |
+| Backup/Recovery | | | | | | | |
+
+#### 2.1.2 End-User Computing Devices
+
+| Device Type | Quantity | Models | Age Range | OS/Version | Refresh Cycle Status | Notes |
+|-------------|----------|--------|-----------|------------|----------------------|-------|
+| Desktops | | | | | | |
+| Laptops | | | | | | |
+| Mobile Devices | | | | | | |
+| Specialty Workstations | | | | | | |
+
+#### 2.1.3 Infrastructure Appliances
+
+| Appliance Type | Quantity | Manufacturer/Model | Age | Firmware Version | End-of-Support Date | Purpose | Status |
+|----------------|----------|-------------------|-----|------------------|---------------------|---------|--------|
+| Load Balancers | | | | | | | |
+| Firewalls | | | | | | | |
+| Storage Arrays | | | | | | | |
+| Backup Devices | | | | | | | |
+
+#### 2.1.4 Hardware Age Analysis
+
+```
+[PLACEHOLDER FOR HARDWARE AGE DISTRIBUTION CHART]
+```
+
+*Guidance: Include a bar or pie chart showing the distribution of hardware by age ranges (0-1 years, 1-3 years, 3-5 years, 5+ years)*
+
+### 2.2 Network Architecture
+
+#### 2.2.1 Network Topology
+
+*Guidance: Include a high-level network diagram showing key components and connections*
+
+```
+[PLACEHOLDER FOR NETWORK TOPOLOGY DIAGRAM]
+```
+
+#### 2.2.2 Network Equipment Inventory
+
+| Component Type | Quantity | Manufacturer/Model | Age | OS/Firmware | End-of-Support | Utilization | Status |
+|----------------|----------|-------------------|-----|-------------|----------------|-------------|--------|
+| Core Switches | | | | | | | |
+| Distribution Switches | | | | | | | |
+| Access Switches | | | | | | | |
+| Routers | | | | | | | |
+| Wireless Controllers | | | | | | | |
+| Wireless Access Points | | | | | | | |
+
+#### 2.2.3 Network Segmentation and VLANs
+
+| VLAN ID | Name | Purpose | IP Range | Access Controls | Routing Policies |
+|---------|------|---------|----------|----------------|------------------|
+| | | | | | |
+
+#### 2.2.4 WAN Connectivity
+
+| Connection Type | Provider | Bandwidth | Redundancy | Cost | SLA | Utilization | Notes |
+|-----------------|----------|-----------|------------|------|-----|-------------|-------|
+| Primary Internet | | | | | | | |
+| Backup Internet | | | | | | | |
+| MPLS/SD-WAN | | | | | | | |
+| Site-to-Site VPN | | | | | | | |
+
+### 2.3 Software Systems
+
+#### 2.3.1 Operating Systems
+
+| OS Type | Version | Quantity | End-of-Support | Patch Status | Compliance Status | Migration Plan |
+|---------|---------|----------|----------------|--------------|-------------------|---------------|
+| | | | | | | |
+
+#### 2.3.2 Virtualization Platforms
+
+| Platform | Version | Host Count | VM Count | Resource Allocation | Utilization | Licensing Status |
+|----------|---------|------------|----------|---------------------|-------------|------------------|
+| | | | | | | |
+
+#### 2.3.3 Database Systems
+
+| Database Type | Version | Instance Count | Size (Total) | End-of-Support | Performance Status | Licensing Status |
+|---------------|---------|----------------|--------------|----------------|-------------------|------------------|
+| | | | | | | |
+
+#### 2.3.4 Middleware and Application Platforms
+
+| Platform Type | Product | Version | Instance Count | End-of-Support | Dependency Map | Criticality |
+|---------------|---------|---------|----------------|----------------|----------------|-------------|
+| | | | | | | |
+
+### 2.4 Security Controls
+
+#### 2.4.1 Perimeter Security
+
+| Control Type | Product/Technology | Version | Coverage | Last Assessment | Effectiveness | Notes |
+|--------------|-------------------|---------|----------|-----------------|---------------|-------|
+| Firewalls | | | | | | |
+| IDS/IPS | | | | | | |
+| DDoS Protection | | | | | | |
+| Email Security | | | | | | |
+| Web Filtering | | | | | | |
+
+#### 2.4.2 Endpoint Security
+
+| Control Type | Product/Technology | Version | Coverage (%) | Effectiveness | Update Status | Notes |
+|--------------|-------------------|---------|--------------|---------------|---------------|-------|
+| Antivirus/EDR | | | | | | |
+| Host Firewall | | | | | | |
+| Disk Encryption | | | | | | |
+| Application Control | | | | | | |
+| Vulnerability Management | | | | | | |
+
+#### 2.4.3 Identity and Access Management
+
+| Component | Technology/Product | Version | Coverage | Integration Status | Maturity Level | Issues |
+|-----------|-------------------|---------|----------|---------------------|---------------|--------|
+| Directory Services | | | | | | |
+| Authentication | | | | | | |
+| MFA Implementation | | | | | | |
+| Privileged Access | | | | | | |
+| Access Recertification | | | | | | |
+
+#### 2.4.4 Security Monitoring and Response
+
+| Capability | Technology/Product | Coverage | Effectiveness | Maturity Level | Integration Status | Notes |
+|------------|-------------------|----------|---------------|----------------|-------------------|-------|
+| SIEM | | | | | | |
+| SOC Operations | | | | | | |
+| Threat Intelligence | | | | | | |
+| Incident Response | | | | | | |
+| Vulnerability Scanning | | | | | | |
+
+### 2.5 Data Centers/Cloud Resources
+
+#### 2.5.1 Physical Data Centers
+
+| Facility | Purpose | Tier Level | Square Footage | Rack Capacity | Power Capacity | Cooling Capacity | Occupancy Rate |
+|----------|---------|------------|---------------|---------------|---------------|------------------|----------------|
+| | | | | | | | |
+
+#### 2.5.2 Environmental Controls
+
+| Control Type | Technology | Redundancy | Last Tested | Effectiveness | Issues | Notes |
+|--------------|------------|------------|------------|---------------|--------|-------|
+| Power | | | | | | |
+| Cooling | | | | | | |
+| Fire Suppression | | | | | | |
+| Physical Security | | | | | | |
+| Environmental Monitoring | | | | | | |
+
+#### 2.5.3 Cloud Infrastructure
+
+| Provider | Service Model | Resource Types | Monthly Cost | Governance Model | Integration Status | Optimization Status |
+|----------|--------------|----------------|--------------|------------------|-------------------|---------------------|
+| | | | | | | |
+
+#### 2.5.4 Hybrid Infrastructure
+
+| Component | On-Premises | Cloud | Integration Method | Data Flow | Performance | Issues |
+|-----------|-------------|-------|-------------------|-----------|-------------|--------|
+| | | | | | | |
+
+## 3. Performance Analysis
+
+### 3.1 System Performance Metrics
+
+#### 3.1.1 Server Performance
+
+| Server Category | CPU Utilization | Memory Utilization | Disk I/O | Network I/O | Response Time | Trend |
+|-----------------|----------------|-------------------|----------|------------|---------------|-------|
+| Production Average | | | | | | |
+| Development Average | | | | | | |
+| Top 5 Critical Servers | | | | | | |
+| Bottom 5 Performers | | | | | | |
+
+```
+[PLACEHOLDER FOR SERVER PERFORMANCE TREND CHART]
+```
+
+*Guidance: Include line charts showing performance trends over time (3-6 months) for critical metrics*
+
+#### 3.1.2 Network Performance
+
+| Segment | Bandwidth Utilization | Latency | Packet Loss | Jitter | Error Rates | Trend |
+|---------|----------------------|---------|------------|--------|------------|-------|
+| Internet Connection | | | | | | |
+| WAN Links | | | | | | |
+| Core Network | | | | | | |
+| Campus Network | | | | | | |
+
+```
+[PLACEHOLDER FOR NETWORK PERFORMANCE TREND CHART]
+```
+
+*Guidance: Include line charts showing bandwidth utilization and latency over time*
+
+#### 3.1.3 Application Performance
+
+| Application | Response Time | Availability | Transaction Rate | Error Rate | User Satisfaction | Trend |
+|-------------|--------------|--------------|------------------|------------|-------------------|-------|
+| | | | | | | |
+
+#### 3.1.4 Storage Performance
+
+| Storage System | IOPS | Throughput | Latency | Queue Depth | Cache Hit Rate | Trend |
+|----------------|------|------------|---------|------------|----------------|-------|
+| | | | | | | |
+
+### 3.2 Capacity Utilization
+
+#### 3.2.1 Compute Capacity
+
+| Resource Pool | Allocated Capacity | Used Capacity | Utilization % | Growth Rate | Time to Threshold | Recommendation |
+|---------------|-------------------|--------------|--------------|------------|------------------|----------------|
+| CPU Cores | | | | | | |
+| Memory | | | | | | |
+| VM Allocation | | | | | | |
+| Container Resources | | | | | | |
+
+```
+[PLACEHOLDER FOR CAPACITY TREND AND FORECAST CHART]
+```
+
+*Guidance: Include line chart showing utilization over time with forecast line*
+
+#### 3.2.2 Storage Capacity
+
+| Storage System | Total Capacity | Allocated | Used | Growth Rate | Time to Threshold | Recommendation |
+|----------------|----------------|-----------|------|------------|------------------|----------------|
+| Primary Storage | | | | | | |
+| Secondary Storage | | | | | | |
+| Backup Storage | | | | | | |
+| Archive Storage | | | | | | |
+
+#### 3.2.3 Network Capacity
+
+| Network Segment | Bandwidth Capacity | Peak Utilization | Average Utilization | Growth Rate | Time to Threshold | Recommendation |
+|-----------------|-------------------|-----------------|---------------------|------------|------------------|----------------|
+| | | | | | | |
+
+#### 3.2.4 License Utilization
+
+| Software | License Type | Purchased | Deployed | Actively Used | Utilization % | Cost Optimization Potential |
+|----------|--------------|-----------|----------|--------------|--------------|------------------------------|
+| | | | | | | |
+
+### 3.3 Bottlenecks and Constraints
+
+#### 3.3.1 Identified System Bottlenecks
+
+| Component | Bottleneck Description | Impact Level | Performance Impact | Business Impact | Root Cause | Recommendation |
+|-----------|------------------------|-------------|-------------------|----------------|-----------|----------------|
+| | | | | | | |
+
+#### 3.3.2 Architectural Constraints
+
+| Constraint Type | Description | Affected Systems | Business Impact | Technical Debt Factor | Recommendation |
+|-----------------|------------|-----------------|----------------|----------------------|----------------|
+| | | | | | |
+
+#### 3.3.3 Resource Contention Analysis
+
+| Resource | Contention Pattern | Peak Times | Affected Services | Impact | Mitigation Options |
+|----------|-------------------|-----------|-------------------|--------|-------------------|
+| | | | | | |
+
+### 3.4 Performance Optimization Opportunities
+
+| Opportunity | Current State | Target State | Complexity | Expected Benefit | Investment Required | ROI Estimate |
+|-------------|--------------|--------------|------------|------------------|---------------------|-------------|
+| | | | | | | |
+
+## 4. Risk Assessment
+
+### 4.1 Technical Debt
+
+#### 4.1.1 Technical Debt Inventory
+
+| Category | Description | Age | Impact | Remediation Complexity | Risk Level | Estimated Cost |
+|----------|------------|-----|--------|------------------------|-----------|----------------|
+| Architecture | | | | | | |
+| Infrastructure | | | | | | |
+| Application | | | | | | |
+| Integration | | | | | | |
+| Documentation | | | | | | |
+
+#### 4.1.2 Technical Debt Heat Map
+
+```
+[PLACEHOLDER FOR TECHNICAL DEBT HEAT MAP]
+```
+
+*Guidance: Include a heat map showing impact vs. remediation complexity*
+
+#### 4.1.3 Technical Debt Remediation Roadmap
+
+| Item | Priority | Remediation Approach | Timeline | Resources Required | Dependencies | Success Criteria |
+|------|----------|----------------------|----------|-------------------|--------------|------------------|
+| | | | | | | |
+
+### 4.2 Security Vulnerabilities
+
+#### 4.2.1 Vulnerability Summary
+
+| Category | Critical | High | Medium | Low | Total | Trend |
+|----------|---------|------|--------|-----|-------|-------|
+| Operating Systems | | | | | | |
+| Applications | | | | | | |
+| Network Devices | | | | | | |
+| Databases | | | | | | |
+| Cloud Resources | | | | | | |
+| Totals | | | | | | |
+
+#### 4.2.2 Top Vulnerability Findings
+
+| Vulnerability | Affected Systems | CVSS Score | Exploit Availability | Business Impact | Remediation Plan | Timeline |
+|---------------|-----------------|-----------|---------------------|----------------|-----------------|----------|
+| | | | | | | |
+
+#### 4.2.3 Security Control Gaps
+
+| Control Category | Gap Description | Risk Level | Compliance Impact | Remediation Approach | Timeline | Resources Required |
+|-----------------|-----------------|-----------|-------------------|----------------------|----------|-------------------|
+| | | | | | | |
+
+### 4.3 Compliance Gaps
+
+#### 4.3.1 Regulatory Compliance Status
+
+| Regulation | Compliance Area | Status | Gap Description | Risk Level | Remediation Plan | Timeline |
+|------------|----------------|--------|----------------|-----------|-----------------|----------|
+| | | | | | | |
+
+#### 4.3.2 Industry Standard Compliance
+
+| Standard | Compliance Area | Status | Gap Description | Risk Level | Remediation Plan | Timeline |
+|----------|----------------|--------|----------------|-----------|-----------------|----------|
+| | | | | | | |
+
+#### 4.3.3 Policy Compliance
+
+| Policy | Compliance Area | Status | Gap Description | Risk Level | Remediation Plan | Timeline |
+|--------|----------------|--------|----------------|-----------|-----------------|----------|
+| | | | | | | |
+
+### 4.4 Business Continuity Risks
+
+#### 4.4.1 Single Points of Failure
+
+| Component | Description | Criticality | Business Impact | Current Mitigation | Recommended Mitigation | Priority |
+|-----------|------------|------------|----------------|-------------------|------------------------|----------|
+| | | | | | | |
+
+#### 4.4.2 Recovery Capability Assessment
+
+| System | RTO Target | Current RTO | RPO Target | Current RPO | Gap | Remediation Plan |
+|--------|-----------|------------|-----------|------------|-----|-----------------|
+| | | | | | | |
+
+#### 4.4.3 Disaster Recovery Readiness
+
+| Capability | Status | Last Tested | Test Results | Gap Analysis | Improvement Plan | Priority |
+|------------|--------|------------|--------------|--------------|------------------|----------|
+| | | | | | | |
+
+## 5. Gap Analysis
+
+### 5.1 Current vs. Required State
+
+#### 5.1.1 Capability Maturity Assessment
+
+| Capability Area | Current Maturity Level | Target Maturity Level | Gap Description | Business Impact | Improvement Actions |
+|-----------------|------------------------|----------------------|----------------|----------------|---------------------|
+| Infrastructure Management | | | | | |
+| Service Management | | | | | |
+| Security Operations | | | | | |
+| Cloud Operations | | | | | |
+| DevOps Enablement | | | | | |
+| Data Management | | | | | |
+
+*Guidance: Use a maturity scale of 1-5 (Initial, Repeatable, Defined, Managed, Optimized)*
+
+#### 5.1.2 Business Requirements Alignment
+
+| Business Requirement | Current Capability | Required Capability | Gap | Impact | Priority | Remediation Actions |
+|----------------------|-------------------|---------------------|-----|--------|----------|---------------------|
+| | | | | | | |
+
+#### 5.1.3 SLA and Performance Requirements
+
+| Service | Current Performance | Required Performance | Gap | Business Impact | Remediation Options | Priority |
+|---------|---------------------|----------------------|-----|----------------|---------------------|----------|
+| | | | | | | |
+
+### 5.2 Technology Stack Evaluation
+
+#### 5.2.1 Technology Lifecycle Status
+
+| Technology | Current Version | Vendor Support Status | End-of-Life Date | Migration Complexity | Business Impact | Recommendation |
+|------------|----------------|----------------------|------------------|----------------------|----------------|----------------|
+| | | | | | | |
+
+#### 5.2.2 Technology Fitness Assessment
+
+| Technology Area | Current Solution | Fitness Score | Strengths | Weaknesses | Alternatives | Recommendation |
+|-----------------|-----------------|--------------|-----------|------------|--------------|----------------|
+| | | | | | | |
+
+*Guidance: Use fitness score of 1-5 (1=Poor fit, 5=Excellent fit)*
+
+#### 5.2.3 Software Currency Assessment
+
+| Software Category | Current | One Version Behind | Two+ Versions Behind | Unsupported | Risk Level |
+|-------------------|---------|---------------------|----------------------|------------|-----------|
+| Operating Systems | % | % | % | % | |
+| Databases | % | % | % | % | |
+| Middleware | % | % | % | % | |
+| Virtualization | % | % | % | % | |
+| Security Tools | % | % | % | % | |
+
+```
+[PLACEHOLDER FOR SOFTWARE CURRENCY CHART]
+```
+
+*Guidance: Include a stacked bar chart showing version distribution by category*
+
+### 5.3 Scalability Assessment
+
+#### 5.3.1 Growth Projection Analysis
+
+| Resource | Current Utilization | 1-Year Projection | 3-Year Projection | Scaling Capacity | Scaling Constraints | Recommendation |
+|----------|---------------------|-------------------|-------------------|-----------------|-------------------|----------------|
+| Compute | | | | | | |
+| Storage | | | | | | |
+| Network | | | | | | |
+| Database | | | | | | |
+| Application Tiers | | | | | | |
+
+#### 5.3.2 Scalability Limitations
+
+| Component | Current Limit | Projected Exhaustion | Scaling Options | Complexity | Cost Implications | Recommendation |
+|-----------|--------------|----------------------|----------------|------------|-------------------|----------------|
+| | | | | | | |
+
+#### 5.3.3 Elasticity Assessment
+
+| Environment | Current Elasticity | Requirements | Gap | Business Impact | Implementation Options | Priority |
+|-------------|-------------------|--------------|-----|----------------|------------------------|----------|
+| | | | | | | |
+
+### 5.4 Integration Points
+
+#### 5.4.1 Integration Inventory
+
+| Integration | Type | Connected Systems | Protocol | Data Flow | Performance | Reliability | Issues |
+|-------------|------|-------------------|----------|-----------|------------|------------|--------|
+| | | | | | | | |
+
+#### 5.4.2 Integration Architecture Assessment
+
+| Aspect | Current State | Best Practice | Gap | Business Impact | Recommendation | Priority |
+|--------|--------------|--------------|-----|----------------|----------------|----------|
+| | | | | | | |
+
+#### 5.4.3 Integration Performance and Reliability
+
+| Integration | Average Throughput | Peak Throughput | Latency | Error Rate | Availability | Improvement Options |
+|-------------|-------------------|----------------|---------|------------|--------------|---------------------|
+| | | | | | | |
+
+## 6. Recommendations
+
+### 6.1 Short-term Improvements
+
+| ID | Recommendation | Addressed Issue | Business Benefit | Effort | Cost | Timeline | Dependencies | Priority |
+|----|----------------|----------------|-----------------|--------|------|----------|--------------|----------|
+| ST-1 | | | | | | | | |
+| ST-2 | | | | | | | | |
+| ST-3 | | | | | | | | |
+
+### 6.2 Long-term Strategic Initiatives
+
+| ID | Initiative | Strategic Alignment | Business Outcomes | Complexity | Investment Range | Timeline | Key Dependencies | Priority |
+|----|-----------|---------------------|-------------------|------------|-----------------|----------|-----------------|----------|
+| LT-1 | | | | | | | | |
+| LT-2 | | | | | | | | |
+| LT-3 | | | | | | | | |
+
+### 6.3 Resource Requirements
+
+#### 6.3.1 Personnel Resources
+
+| Initiative | Role | Skill Requirements | Allocation | Duration | Internal/External | Cost Estimate |
+|------------|------|-------------------|------------|----------|-------------------|---------------|
+| | | | | | | |
+
+#### 6.3.2 Technology Investments
+
+| Initiative | Technology | Purpose | Selection Criteria | Alternatives Considered | Cost Range | Timeline |
+|------------|------------|---------|-------------------|------------------------|-----------|----------|
+| | | | | | | |
+
+#### 6.3.3 Operational Impacts
+
+| Initiative | Operational Impact | Transition Requirements | Training Needs | Process Changes | Risk Mitigation |
+|------------|-------------------|------------------------|---------------|-----------------|----------------|
+| | | | | | |
+
+### 6.4 Implementation Roadmap
+
+#### 6.4.1 Implementation Timeline
+
+```
+[PLACEHOLDER FOR GANTT CHART OR TIMELINE DIAGRAM]
+```
+
+*Guidance: Include a visual roadmap of key initiatives across 6-24 month timeframe*
+
+#### 6.4.2 Critical Path and Dependencies
+
+| Initiative | Predecessor | Successor | Dependency Type | Risk Level | Mitigation Strategy |
+|------------|------------|-----------|----------------|-----------|---------------------|
+| | | | | | |
+
+#### 6.4.3 Quick Wins
+
+| Initiative | Effort | Business Impact | Timeline | Key Resources | Success Criteria |
+|------------|--------|----------------|----------|--------------|------------------|
+| | | | | | |
+
+## 7. Cost Analysis
+
+### 7.1 Current Operating Costs
+
+#### 7.1.1 Infrastructure Cost Breakdown
+
+| Category | Annual Cost | % of Total | Cost per User | Cost Trend | Industry Benchmark | Notes |
+|----------|------------|-----------|--------------|-----------|-------------------|-------|
+| Hardware | | | | | | |
+| Software | | | | | | |
+| Maintenance | | | | | | |
+| Staff | | | | | | |
+| Facilities | | | | | | |
+| Cloud Services | | | | | | |
+| Network Services | | | | | | |
+| Support Services | | | | | | |
+| **Total** | | | | | | |
+
+```
+[PLACEHOLDER FOR COST BREAKDOWN PIE CHART]
+```
+
+*Guidance: Include a pie chart showing distribution of costs by category*
+
+#### 7.1.2 Cost Efficiency Analysis
+
+| Metric | Current Value | Industry Benchmark | Gap | Improvement Potential | Recommendation |
+|--------|--------------|-------------------|-----|----------------------|----------------|
+| IT spend as % of revenue | | | | | |
+| IT spend per employee | | | | | |
+| Infrastructure cost per workload | | | | | |
+| Support cost per ticket | | | | | |
+| Cost per storage GB | | | | | |
+| Server-to-admin ratio | | | | | |
+
+### 7.2 Proposed Investment
+
+#### 7.2.1 Investment Summary
+
+| Initiative | Capital Expenditure | Operational Expenditure | Year 1 | Year 2 | Year 3 | Total |
+|------------|---------------------|--------------------------|--------|--------|--------|-------|
+| | | | | | | |
+| **Total** | | | | | | |
+
+#### 7.2.2 Funding Options
+
+| Option | Description | Advantages | Disadvantages | Requirements | Recommendation |
+|--------|------------|------------|--------------|--------------|----------------|
+| Capital budget | | | | | |
+| Operational budget | | | | | |
+| Leasing/Financing | | | | | |
+| Managed services | | | | | |
+| Cloud migration | | | | | |
+
+### 7.3 Expected ROI
+
+#### 7.3.1 Quantitative Benefits
+
+| Benefit Category | Description | Year 1 | Year 2 | Year 3 | Total | Confidence Level |
+|------------------|------------|--------|--------|--------|-------|-----------------|
+| Cost Reduction | | | | | | |
+| Productivity Improvement | | | | | | |
+| Revenue Impact | | | | | | |
+| Risk Reduction | | | | | | |
+| **Total Benefits** | | | | | | |
+
+#### 7.3.2 ROI Calculation
+
+| Metric | Year 1 | Year 2 | Year 3 | 3-Year Total |
+|--------|--------|--------|--------|--------------|
+| Total Investment | | | | |
+| Total Benefits | | | | |
+| Net Benefits | | | | |
+| ROI % | | | | |
+| Payback Period | | | | |
+| NPV | | | | |
+
+#### 7.3.3 Qualitative Benefits
+
+| Benefit Category | Description | Business Impact | Measurement Approach |
+|------------------|------------|----------------|---------------------|
+| | | | |
+
+### 7.4 TCO Calculations
+
+#### 7.4.1 Current vs. Future TCO
+
+| Cost Component | Current Annual Cost | Year 1 | Year 2 | Year 3 | 3-Year TCO | % Change |
+|----------------|---------------------|--------|--------|--------|-----------|----------|
+| Hardware | | | | | | |
+| Software | | | | | | |
+| Maintenance | | | | | | |
+| Staff | | | | | | |
+| Facilities | | | | | | |
+| Cloud Services | | | | | | |
+| Network Services | | | | | | |
+| Support Services | | | | | | |
+| **Total** | | | | | | |
+
+```
+[PLACEHOLDER FOR TCO COMPARISON CHART]
+```
+
+*Guidance: Include a stacked bar chart comparing current vs. future TCO*
+
+#### 7.4.2 Cost Optimization Opportunities
+
+| Opportunity | Description | Estimated Annual Savings | Implementation Cost | Net Benefit (3-Year) | Complexity | Priority |
+|-------------|------------|--------------------------|---------------------|----------------------|------------|----------|
+| | | | | | | |
+
+## 8. Implementation Plan
+
+### 8.1 Phasing Strategy
+
+#### 8.1.1 Implementation Phases
+
+| Phase | Timeframe | Scope | Key Deliverables | Success Criteria | Resources | Budget |
+|-------|-----------|-------|-----------------|-----------------|-----------|--------|
+| Phase 1 | | | | | | |
+| Phase 2 | | | | | | |
+| Phase 3 | | | | | | |
+
+#### 8.1.2 Transition Approach
+
+| Aspect | Current Approach | Target Approach | Transition Method | Risks | Mitigations |
+|--------|-----------------|----------------|-------------------|-------|------------|
+| | | | | | |
+
+### 8.2 Dependencies
+
+#### 8.2.1 Project Dependencies
+
+| Dependent Project | Relationship | Critical Path Item | Impact if Delayed | Coordination Approach |
+|-------------------|--------------|-------------------|-------------------|----------------------|
+| | | | | |
+
+#### 8.2.2 External Dependencies
+
+| Dependency | Type | Owner | Timeline | Risk Level | Mitigation Strategy |
+|------------|------|-------|----------|-----------|---------------------|
+| | | | | | |
+
+### 8.3 Timeline
+
+#### 8.3.1 High-Level Timeline
+
+```
+[PLACEHOLDER FOR TIMELINE CHART]
+```
+
+*Guidance: Include a visual timeline showing key activities and milestones*
+
+#### 8.3.2 Key Milestones
+
+| Milestone | Target Date | Deliverables | Dependencies | Owner | Status |
+|-----------|------------|--------------|--------------|-------|--------|
+| | | | | | |
+
+### 8.4 Resource Allocation
+
+#### 8.4.1 Team Structure
+
+| Role | Responsibility | Skills Required | Allocation | Internal/External | Timeline |
+|------|----------------|----------------|------------|-------------------|----------|
+| | | | | | |
+
+#### 8.4.2 Resource Loading
+
+```
+[PLACEHOLDER FOR RESOURCE LOADING CHART]
+```
+
+*Guidance: Include a chart showing resource utilization over the implementation timeline*
+
+#### 8.4.3 Governance Structure
+
+| Role | Responsibility | Authority | Meeting Cadence | Escalation Path |
+|------|----------------|-----------|-----------------|-----------------|
+| Steering Committee | | | | |
+| Project Sponsor | | | | |
+| Program Manager | | | | |
+| Technical Lead | | | | |
+| Business Representative | | | | |
+
+## When to Use
+
+Use throughout the project lifecycle to identify, assess, and track risks. This template is essential for projects with significant complexity, multiple stakeholders, or high business impact, where structured risk management provides decision-making value.
+
+## When NOT to Use
+
+Do not use for very low-risk, short-duration tasks where informal risk awareness is sufficient. Avoid this template if your governance framework requires a different risk management approach or if stakeholders prefer real-time risk dashboards over static registers.
+
+## 9. Appendices
+
+### 9.1 Detailed Inventory Lists
+
+*Guidance: Include or reference comprehensive inventory data too detailed for the main report*
+
+### 9.2 Performance Reports
+
+*Guidance: Include detailed performance metrics, trend charts, and analysis data*
+
+### 9.3 Compliance Requirements
+
+*Guidance: Include detailed regulatory and compliance requirements relevant to the infrastructure*
+
+#### 9.3.1 Regulatory Requirements
+
+| Regulation | Requirement | Applicability | Current Status | Gap | Remediation Plan |
+|------------|------------|--------------|---------------|-----|-----------------|
+| | | | | | |
+
+#### 9.3.2 Security Standards
+
+| Standard | Requirement | Applicability | Current Status | Gap | Remediation Plan |
+|----------|------------|--------------|---------------|-----|-----------------|
+| | | | | | |
+
+#### 9.3.3 Internal Policies
+
+| Policy | Requirement | Applicability | Current Status | Gap | Remediation Plan |
+|--------|------------|--------------|---------------|-----|-----------------|
+| | | | | | |
+
+### 9.4 Technical Specifications
+
+*Guidance: Include detailed technical specifications and reference architectures*
+
+#### 9.4.1 Reference Architectures
+
+*Guidance: Include diagrams and documentation of reference architectures relevant to recommendations*
+
+#### 9.4.2 Technology Standards
+
+| Technology Area | Current Standard | Recommended Standard | Transition Plan | Timeline |
+|-----------------|-----------------|----------------------|----------------|----------|
+| | | | | |
+
+#### 9.4.3 Detailed Requirements
+
+*Guidance: Include detailed technical requirements for recommended solutions*
+
+---
+
+*End of Document*
+</pre></div></div></div><!--astro:end--></astro-island></main></body></html>

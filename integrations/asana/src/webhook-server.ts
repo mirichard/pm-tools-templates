@@ -1,5 +1,4 @@
 import express, { Request, Response, NextFunction } from 'express';
-import { rateLimit } from 'express-rate-limit';
 import { createHash, createHmac } from 'crypto';
 import { EventEmitter } from 'events';
 import winston from 'winston';
@@ -44,7 +43,6 @@ export interface WebhookServerConfig {
     windowMs: number;
     maxRequests: number;
   };
-  trustProxy?: boolean | number | string;
   cors?: {
     origin: string[];
     methods: string[];
@@ -69,7 +67,7 @@ export class AsanaWebhookServer extends EventEmitter {
   private app: express.Application;
   private server: any;
   private config: WebhookServerConfig;
-  private logger!: winston.Logger;
+  private logger: winston.Logger;
   private subscriptions: Map<string, WebhookSubscription> = new Map();
   private eventStats: Map<string, number> = new Map();
 
@@ -77,7 +75,6 @@ export class AsanaWebhookServer extends EventEmitter {
     super();
     this.config = config;
     this.app = express();
-    if (config.trustProxy !== undefined) this.app.set('trust proxy', config.trustProxy);
     
     // Set up logging
     this.setupLogging();
@@ -148,6 +145,36 @@ export class AsanaWebhookServer extends EventEmitter {
       });
     }
 
+    // Rate limiting middleware
+    if (this.config.rateLimit) {
+      const rateLimitMap = new Map<string, { count: number; resetTime: number }>();
+      
+      this.app.use((req: Request, res: Response, next: NextFunction) => {
+        const clientIp = req.ip || req.connection.remoteAddress || 'unknown';
+        const now = Date.now();
+        const windowMs = this.config.rateLimit!.windowMs;
+        const maxRequests = this.config.rateLimit!.maxRequests;
+
+        const clientData = rateLimitMap.get(clientIp) || { count: 0, resetTime: now + windowMs };
+
+        if (now > clientData.resetTime) {
+          clientData.count = 1;
+          clientData.resetTime = now + windowMs;
+        } else {
+          clientData.count++;
+        }
+
+        rateLimitMap.set(clientIp, clientData);
+
+        if (clientData.count > maxRequests) {
+          res.status(429).json({ error: 'Too many requests' });
+          return;
+        }
+
+        next();
+      });
+    }
+
     // Request logging
     this.app.use((req: Request, res: Response, next: NextFunction) => {
       this.logger.info('Incoming request', {
@@ -175,20 +202,11 @@ export class AsanaWebhookServer extends EventEmitter {
     });
 
     // Webhook endpoint for Asana with additional rate limiting
-    this.app.post(
-      '/webhooks/asana',
-      rateLimit({
-        windowMs: this.config.rateLimit?.windowMs ?? 60000,
-        limit: this.config.rateLimit?.maxRequests ?? 30,
-        standardHeaders: 'draft-8',
-        legacyHeaders: false,
-      }),
-      this.handleAsanaWebhook.bind(this)
-    );
+    this.app.post('/webhooks/asana', this.webhookRateLimit.bind(this), this.handleAsanaWebhook.bind(this));
 
     // Subscription management endpoints
     this.app.post('/subscriptions', this.createSubscription.bind(this));
-    this.app.get('/subscriptions', this.listSubscriptions.bind(this));
+    this.app.get('/subscriptions', this.getSubscriptions.bind(this));
     this.app.get('/subscriptions/:id', this.getSubscription.bind(this));
     this.app.put('/subscriptions/:id', this.updateSubscription.bind(this));
     this.app.delete('/subscriptions/:id', this.deleteSubscription.bind(this));
@@ -200,6 +218,48 @@ export class AsanaWebhookServer extends EventEmitter {
     this.app.use('*', (req: Request, res: Response) => {
       res.status(404).json({ error: 'Endpoint not found' });
     });
+  }
+
+  /**
+   * Additional rate limiting specifically for webhook endpoint
+   */
+  private webhookRateLimit(req: Request, res: Response, next: NextFunction): void {
+    const clientIp = req.ip || req.connection.remoteAddress || 'unknown';
+    const webhookKey = `webhook:${clientIp}`;
+    const now = Date.now();
+    const windowMs = 60000; // 1 minute window
+    const maxWebhookRequests = 10; // Max 10 webhook requests per minute per IP
+    
+    // Get or create rate limit data for this IP
+    const rateLimitData = this.eventStats.get(webhookKey) || 0;
+    const requestCount = rateLimitData;
+    
+    // Reset counter if window expired
+    const lastReset = this.eventStats.get(`${webhookKey}:reset`) || 0;
+    if (now - lastReset > windowMs) {
+      this.eventStats.set(webhookKey, 1);
+      this.eventStats.set(`${webhookKey}:reset`, now);
+      next();
+      return;
+    }
+    
+    // Check if limit exceeded
+    if (requestCount >= maxWebhookRequests) {
+      this.logger.warn('Webhook rate limit exceeded', { 
+        ip: clientIp, 
+        requestCount, 
+        maxAllowed: maxWebhookRequests 
+      });
+      res.status(429).json({ 
+        error: 'Webhook rate limit exceeded. Please slow down.',
+        retryAfter: Math.ceil((windowMs - (now - lastReset)) / 1000)
+      });
+      return;
+    }
+    
+    // Increment counter and proceed
+    this.eventStats.set(webhookKey, requestCount + 1);
+    next();
   }
 
   /**
@@ -404,6 +464,14 @@ export class AsanaWebhookServer extends EventEmitter {
   }
 
   /**
+   * Get all webhook subscriptions
+   */
+  private async getSubscriptions(req: Request, res: Response): Promise<void> {
+    const subscriptions = Array.from(this.subscriptions.values());
+    res.json({ subscriptions });
+  }
+
+  /**
    * Get specific webhook subscription
    */
   private async getSubscription(req: Request, res: Response): Promise<void> {
@@ -590,15 +658,10 @@ export class AsanaWebhookServer extends EventEmitter {
   }
 
   /**
-   * Get current subscriptions snapshot
+   * Get current subscriptions
    */
   getSubscriptions(): WebhookSubscription[] {
     return Array.from(this.subscriptions.values());
-  }
-
-  private async listSubscriptions(req: Request, res: Response): Promise<void> {
-    const subscriptions = Array.from(this.subscriptions.values());
-    res.json({ subscriptions });
   }
 
   /**
@@ -610,3 +673,4 @@ export class AsanaWebhookServer extends EventEmitter {
 }
 
 export default AsanaWebhookServer;
+

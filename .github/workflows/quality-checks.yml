@@ -17,12 +17,10 @@ jobs:
     
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v7
-      with:
-        fetch-depth: 1
+      uses: actions/checkout@v4
       
     - name: Setup Node.js
-      uses: actions/setup-node@v7
+      uses: actions/setup-node@v4
       with:
         node-version: '20'
         
@@ -50,12 +48,10 @@ jobs:
     
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v7
-      with:
-        fetch-depth: 1
+      uses: actions/checkout@v4
       
     - name: Setup Node.js
-      uses: actions/setup-node@v7
+      uses: actions/setup-node@v4
       with:
         node-version: '20'
         
@@ -97,9 +93,7 @@ jobs:
     
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v7
-      with:
-        fetch-depth: 1
+      uses: actions/checkout@v4
       
     - name: Validate repository structure
       run: |
@@ -146,9 +140,7 @@ jobs:
     
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v7
-      with:
-        fetch-depth: 1
+      uses: actions/checkout@v4
       
     - name: Security scan for sensitive data
       run: |
@@ -191,9 +183,7 @@ jobs:
     
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v7
-      with:
-        fetch-depth: 1
+      uses: actions/checkout@v4
       
     - name: Validate template files
       run: |

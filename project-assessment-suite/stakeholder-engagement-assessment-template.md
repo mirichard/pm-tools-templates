@@ -1,11 +1,54 @@
-# Stakeholder Engagement Assessment Template — Moved
+# Stakeholder Engagement Assessment Template
 
-## Purpose and overview
+## Executive Summary
+This template evaluates the effectiveness of stakeholder engagement processes and identifies opportunities for improvement.
 
-This legacy path is retained so existing repository links and external bookmarks continue to reach the Stakeholder Engagement Assessment Template after its domain migration. The maintained canonical template now resides in the Stakeholder domain; this file contains navigation guidance only and is not a second template copy.
+## Assessment Framework
+**Project:** [Project name]
+**Assessment Period:** [Time period]
+**Assessor:** [Name and role]
+**Stakeholder Count:** [Number of stakeholders assessed]
 
-**Canonical location:** [Open the Stakeholder Engagement Assessment Template](../domains/stakeholder/project-assessment-suite/stakeholder-engagement-assessment-template.md)
+## Stakeholder Engagement Maturity
 
-## Usage instructions
+### 1. Stakeholder Identification
+**Assessment Areas:**
+- [ ] Completeness of stakeholder identification
+- [ ] Stakeholder mapping accuracy
+- [ ] Influence and interest analysis quality
+- [ ] Documentation and maintenance processes
 
-Follow the canonical-location link above to view, copy, or update the template. Update only the canonical file when proposing content changes. References to this legacy path remain supported for backward compatibility, but new documentation and catalog entries should link directly to the canonical domain path.
+**Current Maturity:** [1-5 scale]
+**Evidence:** [Supporting data/observations]
+
+### 2. Engagement Strategy
+**Strategy Effectiveness:**
+- [ ] Engagement approach appropriateness
+- [ ] Communication channel selection
+- [ ] Frequency and timing optimization
+- [ ] Customization for different stakeholder groups
+
+### 3. Communication Quality
+**Communication Assessment:**
+- [ ] Message clarity and relevance
+- [ ] Two-way communication effectiveness
+- [ ] Feedback collection and response
+- [ ] Cultural and language considerations
+
+### 4. Relationship Management
+**Relationship Quality Indicators:**
+- [ ] Trust and credibility levels
+- [ ] Stakeholder satisfaction scores
+- [ ] Conflict resolution effectiveness
+- [ ] Long-term relationship sustainability
+
+## Improvement Recommendations
+**Priority Actions:**
+1. [High priority improvement]
+2. [Medium priority improvement]
+3. [Low priority improvement]
+
+---
+Related Resources:
+- [Stakeholder Engagement](../role-based-toolkits/project-manager/stakeholder-engagement/)
+- [Communication Planning](../project-lifecycle/02-planning/communication-planning/)

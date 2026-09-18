@@ -1,0 +1,1914 @@
+<!DOCTYPE html><html lang="en" data-astro-cid-ju4pidww><head><meta charset="UTF-8"><meta name="description" content="Advanced template browser with previews and version history"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="icon" type="image/svg+xml" href="/pm-tools-templates/favicon.svg"><title>Infrastructure As Code Template</title><link rel="stylesheet" href="/pm-tools-templates/assets/Layout.ChXqTIwx.css"></head><body data-astro-cid-ju4pidww><main data-astro-cid-ju4pidww><style>astro-island,astro-slot,astro-static-slot{display:contents}</style><script>(()=>{var e=async t=>{await(await t())()};(self.Astro||(self.Astro={})).load=e;window.dispatchEvent(new Event("astro:load"));})();</script><script>(()=>{var g=Object.defineProperty;var w=(a,s,c)=>s in a?g(a,s,{enumerable:!0,configurable:!0,writable:!0,value:c}):a[s]=c;var l=(a,s,c)=>w(a,typeof s!="symbol"?s+"":s,c);var E=new Set(["__proto__","constructor","prototype"]);{let a={0:t=>y(t),1:t=>c(t),2:t=>new RegExp(t),3:t=>new Date(t),4:t=>new Map(c(t)),5:t=>new Set(c(t)),6:t=>BigInt(t),7:t=>new URL(t),8:t=>new Uint8Array(t),9:t=>new Uint16Array(t),10:t=>new Uint32Array(t),11:t=>Number.POSITIVE_INFINITY*t},s=t=>{let[p,e]=t;return p in a?a[p](e):void 0},c=t=>t.map(s),y=t=>typeof t!="object"||t===null?t:Object.fromEntries(Object.entries(t).map(([p,e])=>[p,s(e)]));class f extends HTMLElement{constructor(){super(...arguments);l(this,"Component");l(this,"hydrator");l(this,"hydrate",async()=>{var b;if(!this.hydrator||!this.isConnected)return;let e=(b=this.parentElement)==null?void 0:b.closest("astro-island[ssr]");if(e){e.addEventListener("astro:hydrate",this.hydrate,{once:!0});return}let r=this.querySelectorAll("astro-slot"),n={},d=this.querySelectorAll("template[data-astro-template]");for(let o of d){let i=o.closest(this.tagName);i!=null&&i.isSameNode(this)&&(n[o.getAttribute("data-astro-template")||"default"]=o.innerHTML,o.remove())}for(let o of r){let i=o.closest(this.tagName);i!=null&&i.isSameNode(this)&&(n[o.getAttribute("name")||"default"]=o.innerHTML)}let u;try{u=this.hasAttribute("props")?y(JSON.parse(this.getAttribute("props"))):{}}catch(o){let i=this.getAttribute("component-url")||"<unknown>",v=this.getAttribute("component-export");throw v&&(i+=` (export ${v})`),console.error(`[hydrate] Error parsing props for component ${i}`,this.getAttribute("props"),o),o}let h;await this.hydrator(this)(this.Component,u,n,{client:this.getAttribute("client")}),this.removeAttribute("ssr"),this.dispatchEvent(new CustomEvent("astro:hydrate"))});l(this,"unmount",()=>{this.isConnected||this.dispatchEvent(new CustomEvent("astro:unmount"))})}disconnectedCallback(){document.removeEventListener("astro:after-swap",this.unmount),document.addEventListener("astro:after-swap",this.unmount,{once:!0})}connectedCallback(){if(!this.hasAttribute("await-children")||document.readyState==="interactive"||document.readyState==="complete")this.childrenConnectedCallback();else{let e=()=>{document.removeEventListener("DOMContentLoaded",e),r.disconnect(),this.childrenConnectedCallback()},r=new MutationObserver(()=>{var n;((n=this.lastChild)==null?void 0:n.nodeType)===Node.COMMENT_NODE&&this.lastChild.nodeValue==="astro:end"&&(this.lastChild.remove(),e())});r.observe(this,{childList:!0}),document.addEventListener("DOMContentLoaded",e)}}async childrenConnectedCallback(){let e=this.getAttribute("before-hydration-url");e&&await import(e),this.start()}getRetryImportUrl(e){let r=new URL(e,document.baseURI);return r.searchParams.set("astro-retry",Date.now().toString()),r.toString()}async importWithRetry(e){try{return await import(e)}catch(r){return await new Promise(n=>setTimeout(n,1e3)),import(this.getRetryImportUrl(e))}}handleHydrationError(e){let r=this.getAttribute("component-url"),n=new CustomEvent("astro:hydration-error",{cancelable:!0,bubbles:!0,composed:!0,detail:{error:e,componentUrl:r}});this.dispatchEvent(n)&&console.error(`[astro-island] Error hydrating ${r}`,e)}async start(){let e=JSON.parse(this.getAttribute("opts")),r=this.getAttribute("client");if(Astro[r]===void 0){window.addEventListener(`astro:${r}`,()=>this.start(),{once:!0});return}try{await Astro[r](async()=>{let n=this.getAttribute("renderer-url");try{let[d,{default:u}]=await Promise.all([this.importWithRetry(this.getAttribute("component-url")),n?this.importWithRetry(n):Promise.resolve({default:()=>()=>{}})]),h=this.getAttribute("component-export")||"default";if(h.includes(".")){this.Component=d;for(let m of h.split(".")){if(E.has(m)||!this.Component||typeof this.Component!="object"&&typeof this.Component!="function"||!Object.hasOwn(this.Component,m))throw new Error(`Invalid component export path: ${h}`);this.Component=this.Component[m]}}else{if(E.has(h))throw new Error(`Invalid component export path: ${h}`);this.Component=d[h]}return this.hydrator=u,this.hydrate}catch(d){return this.handleHydrationError(d),()=>{}}},e,this)}catch(n){this.handleHydrationError(n)}}attributeChangedCallback(){this.hydrate()}}l(f,"observedAttributes",["props"]),customElements.get("astro-island")||customElements.define("astro-island",f)}})();</script><astro-island uid="ZY0lFt" prefix="r1" component-url="/pm-tools-templates/assets/TemplateViewer.BJxWH0dD.js" component-export="default" renderer-url="/pm-tools-templates/assets/client.REQV_TkY.js" props="{&quot;templateId&quot;:[0,&quot;infrastructure_as_code_template&quot;],&quot;filePath&quot;:[0,&quot;domains/measurement/methodology-frameworks/emerging-methods/devops/infrastructure_as_code_template.md&quot;],&quot;title&quot;:[0,&quot;Infrastructure As Code Template&quot;],&quot;content&quot;:[0,&quot;---\ntitle: Infrastructure As Code Template\nmethodology: universal\ncomplexity: advanced\nowner: mirichard\nupdated: &#39;2025-08-05&#39;\nprimary_principles:\n- quality-by-design\n- systems-thinking\nsecondary_principles:\n- evidence-based-decisions\n- continuous-learning\nprinciple_rationale: Builds infrastructure quality and system coherence through documented,\n  testable code.\n---\n\n# Infrastructure as Code (IaC) Template\n\n## Overview\nThis template provides a comprehensive framework for implementing Infrastructure as Code practices, covering infrastructure provisioning, configuration management, and infrastructure lifecycle management through code-based approaches.\n\n## Template Information\n- **Methodology:** DevOps Infrastructure as Code\n- **Purpose:** Standardize infrastructure provisioning and management through code\n- **Audience:** DevOps Engineers, Platform Teams, Infrastructure Engineers, Cloud Architects\n- **Timeline:** 10-16 weeks for full implementation\n- **Prerequisites:** Cloud accounts, version control, basic automation tools\n\n---\n\n## IaC Strategy Framework\n\n### Infrastructure as Code Principles\n\n#### Core IaC Principles\n```\nInfrastructure as Code Foundation\n\nDeclarative Configuration:\n├── Define desired end state, not steps\n├── Idempotent operations (repeatable)\n├── Self-documenting infrastructure\n└── Version-controlled infrastructure definitions\n\nImmutable Infrastructure:\n├── Replace rather than modify\n├── Consistent environments\n├── Reduced configuration drift\n└── Simplified rollback procedures\n\nEverything as Code:\n├── Infrastructure provisioning\n├── Configuration management\n├── Security policies\n├── Monitoring and alerting\n└── Documentation and runbooks\n```\n\n#### IaC Maturity Model\n| Level | Description | Characteristics | Tools &amp; Practices |\n|-------|-------------|-----------------|-------------------|\n| Level 1 | Manual | Click-ops, documentation | AWS Console, manual scripts |\n| Level 2 | Scripted | Automation scripts | Bash, PowerShell, CLI tools |\n| Level 3 | Declarative | Infrastructure definitions | Terraform, CloudFormation |\n| Level 4 | GitOps | Git-driven workflows | CI/CD, automated deployment |\n| Level 5 | Self-Service | Platform abstraction | Internal platforms, APIs |\n\n### IaC Architecture Design\n\n#### Multi-Layer Architecture\n```yaml\n# IaC Architecture Layers\ninfrastructure_layers:\n  foundation_layer:\n    description: \&quot;Core cloud infrastructure\&quot;\n    components:\n      - networking: \&quot;VPCs, subnets, routing\&quot;\n      - security: \&quot;IAM, security groups, policies\&quot;\n      - monitoring: \&quot;CloudWatch, logging setup\&quot;\n    tools: [\&quot;terraform\&quot;, \&quot;cloudformation\&quot;]\n    ownership: \&quot;platform_team\&quot;\n    \n  platform_layer:\n    description: \&quot;Shared platform services\&quot;\n    components:\n      - kubernetes: \&quot;EKS/GKE clusters\&quot;\n      - databases: \&quot;RDS, ElastiCache instances\&quot;\n      - load_balancers: \&quot;ALB, NLB configuration\&quot;\n    tools: [\&quot;terraform\&quot;, \&quot;helm\&quot;]\n    ownership: \&quot;platform_team\&quot;\n    \n  application_layer:\n    description: \&quot;Application-specific resources\&quot;\n    components:\n      - application_infra: \&quot;App-specific resources\&quot;\n      - service_mesh: \&quot;Istio, Linkerd configuration\&quot;\n      - secrets: \&quot;Application secrets management\&quot;\n    tools: [\&quot;terraform\&quot;, \&quot;kustomize\&quot;, \&quot;helm\&quot;]\n    ownership: \&quot;development_teams\&quot;\n    \n  observability_layer:\n    description: \&quot;Monitoring and observability\&quot;\n    components:\n      - monitoring: \&quot;Prometheus, Grafana\&quot;\n      - logging: \&quot;ELK stack, Fluentd\&quot;\n      - tracing: \&quot;Jaeger, Zipkin\&quot;\n    tools: [\&quot;terraform\&quot;, \&quot;helm\&quot;, \&quot;operators\&quot;]\n    ownership: \&quot;sre_team\&quot;\n```\n\n---\n\n## Terraform Implementation\n\n### Terraform Project Structure\n\n#### Recommended Directory Structure\n```\nterraform/\n├── environments/\n│   ├── dev/\n│   │   ├── main.tf\n│   │   ├── variables.tf\n│   │   ├── terraform.tfvars\n│   │   └── outputs.tf\n│   ├── staging/\n│   │   ├── main.tf\n│   │   ├── variables.tf\n│   │   ├── terraform.tfvars\n│   │   └── outputs.tf\n│   └── production/\n│       ├── main.tf\n│       ├── variables.tf\n│       ├── terraform.tfvars\n│       └── outputs.tf\n├── modules/\n│   ├── networking/\n│   │   ├── main.tf\n│   │   ├── variables.tf\n│   │   ├── outputs.tf\n│   │   └── README.md\n│   ├── compute/\n│   │   ├── main.tf\n│   │   ├── variables.tf\n│   │   ├── outputs.tf\n│   │   └── README.md\n│   └── database/\n│       ├── main.tf\n│       ├── variables.tf\n│       ├── outputs.tf\n│       └── README.md\n├── shared/\n│   ├── backend.tf\n│   ├── providers.tf\n│   └── common-variables.tf\n└── scripts/\n    ├── plan.sh\n    ├── apply.sh\n    └── destroy.sh\n```\n\n#### Terraform Module Example\n```hcl\n# modules/networking/main.tf\nresource \&quot;aws_vpc\&quot; \&quot;main\&quot; {\n  cidr_block           = var.vpc_cidr\n  enable_dns_hostnames = true\n  enable_dns_support   = true\n\n  tags = merge(var.common_tags, {\n    Name = \&quot;${var.environment}-vpc\&quot;\n    Type = \&quot;networking\&quot;\n  })\n}\n\nresource \&quot;aws_subnet\&quot; \&quot;private\&quot; {\n  count             = length(var.private_subnet_cidrs)\n  vpc_id            = aws_vpc.main.id\n  cidr_block        = var.private_subnet_cidrs[count.index]\n  availability_zone = data.aws_availability_zones.available.names[count.index]\n\n  tags = merge(var.common_tags, {\n    Name = \&quot;${var.environment}-private-subnet-${count.index + 1}\&quot;\n    Type = \&quot;private\&quot;\n  })\n}\n\nresource \&quot;aws_subnet\&quot; \&quot;public\&quot; {\n  count                   = length(var.public_subnet_cidrs)\n  vpc_id                  = aws_vpc.main.id\n  cidr_block              = var.public_subnet_cidrs[count.index]\n  availability_zone       = data.aws_availability_zones.available.names[count.index]\n  map_public_ip_on_launch = true\n\n  tags = merge(var.common_tags, {\n    Name = \&quot;${var.environment}-public-subnet-${count.index + 1}\&quot;\n    Type = \&quot;public\&quot;\n  })\n}\n\n# Internet Gateway\nresource \&quot;aws_internet_gateway\&quot; \&quot;main\&quot; {\n  vpc_id = aws_vpc.main.id\n\n  tags = merge(var.common_tags, {\n    Name = \&quot;${var.environment}-igw\&quot;\n  })\n}\n\n# NAT Gateway\nresource \&quot;aws_eip\&quot; \&quot;nat\&quot; {\n  count  = length(var.public_subnet_cidrs)\n  domain = \&quot;vpc\&quot;\n\n  tags = merge(var.common_tags, {\n    Name = \&quot;${var.environment}-nat-eip-${count.index + 1}\&quot;\n  })\n\n  depends_on = [aws_internet_gateway.main]\n}\n\nresource \&quot;aws_nat_gateway\&quot; \&quot;main\&quot; {\n  count         = length(var.public_subnet_cidrs)\n  allocation_id = aws_eip.nat[count.index].id\n  subnet_id     = aws_subnet.public[count.index].id\n\n  tags = merge(var.common_tags, {\n    Name = \&quot;${var.environment}-nat-gw-${count.index + 1}\&quot;\n  })\n\n  depends_on = [aws_internet_gateway.main]\n}\n```\n\n```hcl\n# modules/networking/variables.tf\nvariable \&quot;environment\&quot; {\n  description = \&quot;Environment name\&quot;\n  type        = string\n}\n\nvariable \&quot;vpc_cidr\&quot; {\n  description = \&quot;CIDR block for VPC\&quot;\n  type        = string\n}\n\nvariable \&quot;private_subnet_cidrs\&quot; {\n  description = \&quot;CIDR blocks for private subnets\&quot;\n  type        = list(string)\n}\n\nvariable \&quot;public_subnet_cidrs\&quot; {\n  description = \&quot;CIDR blocks for public subnets\&quot;\n  type        = list(string)\n}\n\nvariable \&quot;common_tags\&quot; {\n  description = \&quot;Common tags to apply to all resources\&quot;\n  type        = map(string)\n  default     = {}\n}\n```\n\n```hcl\n# modules/networking/outputs.tf\noutput \&quot;vpc_id\&quot; {\n  description = \&quot;ID of the VPC\&quot;\n  value       = aws_vpc.main.id\n}\n\noutput \&quot;vpc_cidr_block\&quot; {\n  description = \&quot;CIDR block of the VPC\&quot;\n  value       = aws_vpc.main.cidr_block\n}\n\noutput \&quot;private_subnet_ids\&quot; {\n  description = \&quot;IDs of the private subnets\&quot;\n  value       = aws_subnet.private[*].id\n}\n\noutput \&quot;public_subnet_ids\&quot; {\n  description = \&quot;IDs of the public subnets\&quot;\n  value       = aws_subnet.public[*].id\n}\n\noutput \&quot;internet_gateway_id\&quot; {\n  description = \&quot;ID of the Internet Gateway\&quot;\n  value       = aws_internet_gateway.main.id\n}\n\noutput \&quot;nat_gateway_ids\&quot; {\n  description = \&quot;IDs of the NAT Gateways\&quot;\n  value       = aws_nat_gateway.main[*].id\n}\n```\n\n### Terraform State Management\n\n#### Remote State Configuration\n```hcl\n# shared/backend.tf\nterraform {\n  backend \&quot;s3\&quot; {\n    bucket         = \&quot;company-terraform-state\&quot;\n    key            = \&quot;infrastructure/terraform.tfstate\&quot;\n    region         = \&quot;us-west-2\&quot;\n    encrypt        = true\n    dynamodb_table = \&quot;terraform-state-lock\&quot;\n    \n    # Workspace-based state management\n    workspace_key_prefix = \&quot;environments\&quot;\n  }\n}\n\n# S3 bucket configuration for state storage\nresource \&quot;aws_s3_bucket\&quot; \&quot;terraform_state\&quot; {\n  bucket = \&quot;company-terraform-state\&quot;\n  \n  lifecycle {\n    prevent_destroy = true\n  }\n\n  tags = {\n    Name        = \&quot;Terraform State Storage\&quot;\n    Environment = \&quot;shared\&quot;\n  }\n}\n\nresource \&quot;aws_s3_bucket_versioning\&quot; \&quot;terraform_state\&quot; {\n  bucket = aws_s3_bucket.terraform_state.id\n  versioning_configuration {\n    status = \&quot;Enabled\&quot;\n  }\n}\n\nresource \&quot;aws_s3_bucket_server_side_encryption_configuration\&quot; \&quot;terraform_state\&quot; {\n  bucket = aws_s3_bucket.terraform_state.id\n\n  rule {\n    apply_server_side_encryption_by_default {\n      sse_algorithm = \&quot;AES256\&quot;\n    }\n  }\n}\n\n# DynamoDB table for state locking\nresource \&quot;aws_dynamodb_table\&quot; \&quot;terraform_state_lock\&quot; {\n  name           = \&quot;terraform-state-lock\&quot;\n  billing_mode   = \&quot;PAY_PER_REQUEST\&quot;\n  hash_key       = \&quot;LockID\&quot;\n\n  attribute {\n    name = \&quot;LockID\&quot;\n    type = \&quot;S\&quot;\n  }\n\n  tags = {\n    Name        = \&quot;Terraform State Lock Table\&quot;\n    Environment = \&quot;shared\&quot;\n  }\n}\n```\n\n#### Environment-Specific Configuration\n```hcl\n# environments/production/main.tf\nterraform {\n  required_version = \&quot;&gt;= 1.0\&quot;\n  required_providers {\n    aws = {\n      source  = \&quot;hashicorp/aws\&quot;\n      version = \&quot;~&gt; 5.0\&quot;\n    }\n  }\n}\n\nprovider \&quot;aws\&quot; {\n  region = var.aws_region\n  \n  default_tags {\n    tags = {\n      Environment   = var.environment\n      Project       = var.project_name\n      ManagedBy     = \&quot;terraform\&quot;\n      Owner         = var.team_name\n      CostCenter    = var.cost_center\n    }\n  }\n}\n\n# Data sources\ndata \&quot;aws_caller_identity\&quot; \&quot;current\&quot; {}\ndata \&quot;aws_availability_zones\&quot; \&quot;available\&quot; {\n  state = \&quot;available\&quot;\n}\n\n# Networking module\nmodule \&quot;networking\&quot; {\n  source = \&quot;../../modules/networking\&quot;\n  \n  environment            = var.environment\n  vpc_cidr              = var.vpc_cidr\n  private_subnet_cidrs  = var.private_subnet_cidrs\n  public_subnet_cidrs   = var.public_subnet_cidrs\n  common_tags           = local.common_tags\n}\n\n# Compute module\nmodule \&quot;compute\&quot; {\n  source = \&quot;../../modules/compute\&quot;\n  \n  environment       = var.environment\n  vpc_id           = module.networking.vpc_id\n  private_subnet_ids = module.networking.private_subnet_ids\n  public_subnet_ids  = module.networking.public_subnet_ids\n  common_tags      = local.common_tags\n}\n\n# Database module\nmodule \&quot;database\&quot; {\n  source = \&quot;../../modules/database\&quot;\n  \n  environment       = var.environment\n  vpc_id           = module.networking.vpc_id\n  private_subnet_ids = module.networking.private_subnet_ids\n  common_tags      = local.common_tags\n}\n\nlocals {\n  common_tags = {\n    Environment = var.environment\n    Project     = var.project_name\n    ManagedBy   = \&quot;terraform\&quot;\n    Owner       = var.team_name\n    CostCenter  = var.cost_center\n  }\n}\n```\n\n```hcl\n# environments/production/terraform.tfvars\n# Environment configuration\nenvironment  = \&quot;production\&quot;\nproject_name = \&quot;company-platform\&quot;\nteam_name    = \&quot;platform-team\&quot;\ncost_center  = \&quot;engineering\&quot;\naws_region   = \&quot;us-west-2\&quot;\n\n# Networking configuration\nvpc_cidr = \&quot;10.0.0.0/16\&quot;\nprivate_subnet_cidrs = [\n  \&quot;10.0.1.0/24\&quot;,\n  \&quot;10.0.2.0/24\&quot;,\n  \&quot;10.0.3.0/24\&quot;\n]\npublic_subnet_cidrs = [\n  \&quot;10.0.101.0/24\&quot;,\n  \&quot;10.0.102.0/24\&quot;,\n  \&quot;10.0.103.0/24\&quot;\n]\n\n# Compute configuration\ninstance_types = {\n  web_servers = \&quot;t3.medium\&quot;\n  api_servers = \&quot;c5.large\&quot;\n  workers     = \&quot;m5.large\&quot;\n}\n\n# Database configuration\ndb_instance_class = \&quot;db.r5.xlarge\&quot;\ndb_allocated_storage = 100\ndb_backup_retention_period = 7\n```\n\n---\n\n## Kubernetes Infrastructure\n\n### Kubernetes Cluster Configuration\n\n#### EKS Cluster with Terraform\n```hcl\n# modules/eks/main.tf\nresource \&quot;aws_eks_cluster\&quot; \&quot;main\&quot; {\n  name     = \&quot;${var.environment}-eks-cluster\&quot;\n  role_arn = aws_iam_role.cluster.arn\n  version  = var.kubernetes_version\n\n  vpc_config {\n    subnet_ids              = concat(var.private_subnet_ids, var.public_subnet_ids)\n    endpoint_private_access = true\n    endpoint_public_access  = var.endpoint_public_access\n    public_access_cidrs     = var.public_access_cidrs\n    \n    security_group_ids = [aws_security_group.cluster.id]\n  }\n\n  encryption_config {\n    provider {\n      key_arn = aws_kms_key.eks.arn\n    }\n    resources = [\&quot;secrets\&quot;]\n  }\n\n  enabled_cluster_log_types = [\&quot;api\&quot;, \&quot;audit\&quot;, \&quot;authenticator\&quot;, \&quot;controllerManager\&quot;, \&quot;scheduler\&quot;]\n\n  depends_on = [\n    aws_iam_role_policy_attachment.cluster_AmazonEKSClusterPolicy,\n    aws_cloudwatch_log_group.eks_cluster,\n  ]\n\n  tags = merge(var.common_tags, {\n    Name = \&quot;${var.environment}-eks-cluster\&quot;\n  })\n}\n\n# Node Groups\nresource \&quot;aws_eks_node_group\&quot; \&quot;main\&quot; {\n  for_each = var.node_groups\n\n  cluster_name    = aws_eks_cluster.main.name\n  node_group_name = \&quot;${var.environment}-${each.key}\&quot;\n  node_role_arn   = aws_iam_role.node_group.arn\n  subnet_ids      = var.private_subnet_ids\n\n  scaling_config {\n    desired_size = each.value.desired_size\n    max_size     = each.value.max_size\n    min_size     = each.value.min_size\n  }\n\n  update_config {\n    max_unavailable = each.value.max_unavailable\n  }\n\n  instance_types = each.value.instance_types\n  capacity_type  = each.value.capacity_type\n  disk_size      = each.value.disk_size\n\n  # Optional: Launch template for advanced configuration\n  dynamic \&quot;launch_template\&quot; {\n    for_each = each.value.launch_template != null ? [each.value.launch_template] : []\n    content {\n      id      = launch_template.value.id\n      version = launch_template.value.version\n    }\n  }\n\n  labels = merge(each.value.labels, {\n    Environment = var.environment\n    NodeGroup   = each.key\n  })\n\n  dynamic \&quot;taint\&quot; {\n    for_each = each.value.taints\n    content {\n      key    = taint.value.key\n      value  = taint.value.value\n      effect = taint.value.effect\n    }\n  }\n\n  tags = merge(var.common_tags, {\n    Name = \&quot;${var.environment}-${each.key}-node-group\&quot;\n  })\n\n  depends_on = [\n    aws_iam_role_policy_attachment.node_group_AmazonEKSWorkerNodePolicy,\n    aws_iam_role_policy_attachment.node_group_AmazonEKS_CNI_Policy,\n    aws_iam_role_policy_attachment.node_group_AmazonEC2ContainerRegistryReadOnly,\n  ]\n}\n\n# EKS Add-ons\nresource \&quot;aws_eks_addon\&quot; \&quot;main\&quot; {\n  for_each = var.cluster_addons\n\n  cluster_name = aws_eks_cluster.main.name\n  addon_name   = each.key\n  addon_version = each.value.version\n  resolve_conflicts = each.value.resolve_conflicts\n\n  tags = merge(var.common_tags, {\n    Name = \&quot;${var.environment}-${each.key}-addon\&quot;\n  })\n}\n```\n\n#### Helm Chart Deployments\n```yaml\n# helm/ingress-nginx/values.yaml\ncontroller:\n  service:\n    type: LoadBalancer\n    annotations:\n      service.beta.kubernetes.io/aws-load-balancer-type: \&quot;nlb\&quot;\n      service.beta.kubernetes.io/aws-load-balancer-cross-zone-load-balancing-enabled: \&quot;true\&quot;\n      service.beta.kubernetes.io/aws-load-balancer-backend-protocol: \&quot;tcp\&quot;\n      \n  resources:\n    requests:\n      cpu: 100m\n      memory: 128Mi\n    limits:\n      cpu: 500m\n      memory: 512Mi\n      \n  nodeSelector:\n    node-role: \&quot;system\&quot;\n    \n  tolerations:\n    - key: \&quot;system\&quot;\n      operator: \&quot;Equal\&quot;\n      value: \&quot;true\&quot;\n      effect: \&quot;NoSchedule\&quot;\n      \n  affinity:\n    podAntiAffinity:\n      preferredDuringSchedulingIgnoredDuringExecution:\n        - weight: 100\n          podAffinityTerm:\n            labelSelector:\n              matchExpressions:\n                - key: app.kubernetes.io/name\n                  operator: In\n                  values:\n                    - ingress-nginx\n            topologyKey: kubernetes.io/hostname\n\n  config:\n    use-forwarded-headers: \&quot;true\&quot;\n    compute-full-forwarded-for: \&quot;true\&quot;\n    use-proxy-protocol: \&quot;false\&quot;\n    \n  metrics:\n    enabled: true\n    serviceMonitor:\n      enabled: true\n```\n\n```hcl\n# modules/helm-releases/main.tf\nresource \&quot;helm_release\&quot; \&quot;ingress_nginx\&quot; {\n  name       = \&quot;ingress-nginx\&quot;\n  repository = \&quot;https://kubernetes.github.io/ingress-nginx\&quot;\n  chart      = \&quot;ingress-nginx\&quot;\n  version    = var.ingress_nginx_version\n  namespace  = \&quot;ingress-nginx\&quot;\n  create_namespace = true\n\n  values = [\n    file(\&quot;${path.module}/values/ingress-nginx.yaml\&quot;)\n  ]\n\n  set {\n    name  = \&quot;controller.service.annotations.service\\\\.beta\\\\.kubernetes\\\\.io/aws-load-balancer-ssl-cert\&quot;\n    value = var.ssl_certificate_arn\n  }\n\n  depends_on = [var.cluster_endpoint]\n}\n\nresource \&quot;helm_release\&quot; \&quot;cert_manager\&quot; {\n  name       = \&quot;cert-manager\&quot;\n  repository = \&quot;https://charts.jetstack.io\&quot;\n  chart      = \&quot;cert-manager\&quot;\n  version    = var.cert_manager_version\n  namespace  = \&quot;cert-manager\&quot;\n  create_namespace = true\n\n  set {\n    name  = \&quot;installCRDs\&quot;\n    value = \&quot;true\&quot;\n  }\n\n  set {\n    name  = \&quot;global.leaderElection.namespace\&quot;\n    value = \&quot;cert-manager\&quot;\n  }\n\n  depends_on = [helm_release.ingress_nginx]\n}\n```\n\n### Kubernetes Manifests with Kustomize\n\n#### Base Kubernetes Resources\n```yaml\n# k8s/base/deployment.yaml\napiVersion: apps/v1\nkind: Deployment\nmetadata:\n  name: app\n  labels:\n    app: sample-app\n    version: v1\nspec:\n  replicas: 3\n  selector:\n    matchLabels:\n      app: sample-app\n      version: v1\n  template:\n    metadata:\n      labels:\n        app: sample-app\n        version: v1\n    spec:\n      containers:\n      - name: app\n        image: nginx:1.21\n        ports:\n        - containerPort: 80\n        resources:\n          requests:\n            cpu: 100m\n            memory: 128Mi\n          limits:\n            cpu: 500m\n            memory: 512Mi\n        livenessProbe:\n          httpGet:\n            path: /health\n            port: 80\n          initialDelaySeconds: 30\n          periodSeconds: 10\n        readinessProbe:\n          httpGet:\n            path: /ready\n            port: 80\n          initialDelaySeconds: 5\n          periodSeconds: 5\n        env:\n        - name: ENVIRONMENT\n          value: \&quot;placeholder\&quot;\n        - name: LOG_LEVEL\n          value: \&quot;info\&quot;\n```\n\n```yaml\n# k8s/base/service.yaml\napiVersion: v1\nkind: Service\nmetadata:\n  name: app-service\n  labels:\n    app: sample-app\nspec:\n  selector:\n    app: sample-app\n  ports:\n  - port: 80\n    targetPort: 80\n    protocol: TCP\n  type: ClusterIP\n```\n\n```yaml\n# k8s/base/kustomization.yaml\napiVersion: kustomize.config.k8s.io/v1beta1\nkind: Kustomization\n\nresources:\n- deployment.yaml\n- service.yaml\n- configmap.yaml\n- ingress.yaml\n\ncommonLabels:\n  managed-by: kustomize\n  \nimages:\n- name: nginx\n  newTag: \&quot;1.21\&quot;\n```\n\n#### Environment Overlays\n```yaml\n# k8s/overlays/production/kustomization.yaml\napiVersion: kustomize.config.k8s.io/v1beta1\nkind: Kustomization\n\nnamespace: production\n\nresources:\n- ../../base\n\npatchesStrategicMerge:\n- deployment-patch.yaml\n- service-patch.yaml\n\nreplicas:\n- name: app\n  count: 5\n\nimages:\n- name: nginx\n  newName: company/sample-app\n  newTag: \&quot;v1.2.3\&quot;\n\nconfigMapGenerator:\n- name: app-config\n  files:\n  - config.properties\n  - application.yaml\n\nsecretGenerator:\n- name: app-secrets\n  files:\n  - database-url\n  - api-key\n```\n\n```yaml\n# k8s/overlays/production/deployment-patch.yaml\napiVersion: apps/v1\nkind: Deployment\nmetadata:\n  name: app\nspec:\n  template:\n    spec:\n      containers:\n      - name: app\n        resources:\n          requests:\n            cpu: 500m\n            memory: 512Mi\n          limits:\n            cpu: 2000m\n            memory: 2Gi\n        env:\n        - name: ENVIRONMENT\n          value: \&quot;production\&quot;\n        - name: LOG_LEVEL\n          value: \&quot;warn\&quot;\n        - name: DATABASE_URL\n          valueFrom:\n            secretKeyRef:\n              name: app-secrets\n              key: database-url\n```\n\n---\n\n## Configuration Management\n\n### Ansible Integration\n\n#### Ansible Project Structure\n```\nansible/\n├── inventories/\n│   ├── dev/\n│   │   ├── hosts.yml\n│   │   └── group_vars/\n│   ├── staging/\n│   │   ├── hosts.yml\n│   │   └── group_vars/\n│   └── production/\n│       ├── hosts.yml\n│       └── group_vars/\n├── roles/\n│   ├── common/\n│   │   ├── tasks/main.yml\n│   │   ├── handlers/main.yml\n│   │   ├── templates/\n│   │   └── vars/main.yml\n│   ├── webserver/\n│   │   ├── tasks/main.yml\n│   │   ├── handlers/main.yml\n│   │   ├── templates/\n│   │   └── vars/main.yml\n│   └── database/\n│       ├── tasks/main.yml\n│       ├── handlers/main.yml\n│       ├── templates/\n│       └── vars/main.yml\n├── playbooks/\n│   ├── site.yml\n│   ├── webservers.yml\n│   └── databases.yml\n├── group_vars/\n│   ├── all.yml\n│   ├── webservers.yml\n│   └── databases.yml\n└── ansible.cfg\n```\n\n#### Ansible Playbook Example\n```yaml\n# playbooks/site.yml\n---\n- name: Configure all servers\n  hosts: all\n  become: yes\n  roles:\n    - common\n\n- name: Configure web servers\n  hosts: webservers\n  become: yes\n  roles:\n    - webserver\n  vars:\n    nginx_version: \&quot;1.21\&quot;\n    ssl_enabled: true\n\n- name: Configure database servers\n  hosts: databases\n  become: yes\n  roles:\n    - database\n  vars:\n    mysql_version: \&quot;8.0\&quot;\n    backup_enabled: true\n```\n\n```yaml\n# roles/common/tasks/main.yml\n---\n- name: Update package cache\n  apt:\n    update_cache: yes\n    cache_valid_time: 3600\n  when: ansible_os_family == \&quot;Debian\&quot;\n\n- name: Install essential packages\n  package:\n    name: \&quot;{{ item }}\&quot;\n    state: present\n  loop:\n    - curl\n    - wget\n    - git\n    - unzip\n    - htop\n    - vim\n\n- name: Configure timezone\n  timezone:\n    name: \&quot;{{ system_timezone | default(&#39;UTC&#39;) }}\&quot;\n\n- name: Create application user\n  user:\n    name: \&quot;{{ app_user }}\&quot;\n    shell: /bin/bash\n    home: \&quot;/home/{{ app_user }}\&quot;\n    create_home: yes\n    groups: sudo\n    append: yes\n\n- name: Configure SSH\n  template:\n    src: sshd_config.j2\n    dest: /etc/ssh/sshd_config\n    backup: yes\n  notify: restart ssh\n\n- name: Configure firewall\n  ufw:\n    rule: \&quot;{{ item.rule }}\&quot;\n    port: \&quot;{{ item.port }}\&quot;\n    proto: \&quot;{{ item.proto | default(&#39;tcp&#39;) }}\&quot;\n  loop: \&quot;{{ firewall_rules }}\&quot;\n  notify: reload firewall\n```\n\n### Cloud-Init Configuration\n\n#### Cloud-Init Template\n```yaml\n# cloud-init/user-data.yaml\n#cloud-config\npackage_update: true\npackage_upgrade: true\n\npackages:\n  - docker.io\n  - docker-compose\n  - awscli\n  - jq\n  - curl\n  - wget\n\nusers:\n  - name: deploy\n    sudo: ALL=(ALL) NOPASSWD:ALL\n    shell: /bin/bash\n    ssh_authorized_keys:\n      - ${ssh_public_key}\n\nwrite_files:\n  - path: /etc/docker/daemon.json\n    content: |\n      {\n        \&quot;log-driver\&quot;: \&quot;json-file\&quot;,\n        \&quot;log-opts\&quot;: {\n          \&quot;max-size\&quot;: \&quot;10m\&quot;,\n          \&quot;max-file\&quot;: \&quot;3\&quot;\n        },\n        \&quot;storage-driver\&quot;: \&quot;overlay2\&quot;\n      }\n    permissions: &#39;0644&#39;\n\n  - path: /opt/app/docker-compose.yml\n    content: |\n      version: &#39;3.8&#39;\n      services:\n        app:\n          image: ${app_image}\n          ports:\n            - \&quot;80:8080\&quot;\n          environment:\n            - ENV=${environment}\n            - LOG_LEVEL=info\n          restart: unless-stopped\n    permissions: &#39;0644&#39;\n\nruncmd:\n  - systemctl enable docker\n  - systemctl start docker\n  - usermod -aG docker deploy\n  - cd /opt/app &amp;&amp; docker-compose up -d\n  - systemctl enable amazon-cloudwatch-agent\n  - systemctl start amazon-cloudwatch-agent\n\nfinal_message: \&quot;System setup completed successfully\&quot;\n```\n\n---\n\n## CI/CD Integration\n\n### GitOps Workflow\n\n#### GitOps Repository Structure\n```\ngitops-repo/\n├── environments/\n│   ├── dev/\n│   │   ├── infrastructure/\n│   │   │   ├── terraform/\n│   │   │   └── kustomization.yaml\n│   │   └── applications/\n│   │       ├── app1/\n│   │       └── app2/\n│   ├── staging/\n│   │   ├── infrastructure/\n│   │   └── applications/\n│   └── production/\n│       ├── infrastructure/\n│       └── applications/\n├── shared/\n│   ├── terraform-modules/\n│   ├── helm-charts/\n│   └── policies/\n└── docs/\n    ├── runbooks/\n    └── architecture/\n```\n\n#### ArgoCD Application Configuration\n```yaml\n# argocd/applications/infrastructure.yaml\napiVersion: argoproj.io/v1alpha1\nkind: Application\nmetadata:\n  name: infrastructure-dev\n  namespace: argocd\n  finalizers:\n    - resources-finalizer.argocd.argoproj.io\nspec:\n  project: default\n  source:\n    repoURL: https://github.com/company/gitops-repo\n    targetRevision: HEAD\n    path: environments/dev/infrastructure\n    kustomize:\n      images:\n        - nginx=nginx:1.21\n  destination:\n    server: https://kubernetes.default.svc\n    namespace: infrastructure\n  syncPolicy:\n    automated:\n      prune: true\n      selfHeal: true\n      allowEmpty: false\n    syncOptions:\n      - CreateNamespace=true\n    retry:\n      limit: 5\n      backoff:\n        duration: 5s\n        factor: 2\n        maxDuration: 3m\n```\n\n### Infrastructure CI/CD Pipeline\n\n#### GitHub Actions Workflow\n```yaml\n# .github/workflows/infrastructure.yml\nname: Infrastructure CI/CD\n\non:\n  push:\n    branches: [main]\n    paths: \n      - &#39;terraform/**&#39;\n      - &#39;k8s/**&#39;\n  pull_request:\n    branches: [main]\n    paths:\n      - &#39;terraform/**&#39;\n      - &#39;k8s/**&#39;\n\nenv:\n  TF_VERSION: &#39;1.6.0&#39;\n  AWS_REGION: &#39;us-west-2&#39;\n\njobs:\n  terraform-validate:\n    name: Terraform Validate\n    runs-on: ubuntu-latest\n    steps:\n      - name: Checkout\n        uses: actions/checkout@v4\n\n      - name: Setup Terraform\n        uses: hashicorp/setup-terraform@v3\n        with:\n          terraform_version: ${{ env.TF_VERSION }}\n\n      - name: Terraform Format Check\n        run: terraform fmt -check -recursive\n        working-directory: terraform/\n\n      - name: Terraform Validate\n        run: |\n          cd terraform/environments/dev\n          terraform init -backend=false\n          terraform validate\n\n  terraform-plan:\n    name: Terraform Plan\n    runs-on: ubuntu-latest\n    needs: terraform-validate\n    if: github.event_name == &#39;pull_request&#39;\n    steps:\n      - name: Checkout\n        uses: actions/checkout@v4\n\n      - name: Configure AWS Credentials\n        uses: aws-actions/configure-aws-credentials@v4\n        with:\n          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}\n          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}\n          aws-region: ${{ env.AWS_REGION }}\n\n      - name: Setup Terraform\n        uses: hashicorp/setup-terraform@v3\n        with:\n          terraform_version: ${{ env.TF_VERSION }}\n\n      - name: Terraform Plan\n        run: |\n          cd terraform/environments/dev\n          terraform init\n          terraform plan -out=tfplan\n        env:\n          TF_VAR_environment: dev\n\n      - name: Comment PR\n        uses: actions/github-script@v7\n        with:\n          script: |\n            const output = `#### Terraform Plan 📖\n            \n            &lt;details&gt;&lt;summary&gt;Show Plan&lt;/summary&gt;\n            \n            \\`\\`\\`terraform\n            ${process.env.PLAN}\n            \\`\\`\\`\n            \n            &lt;/details&gt;\n            \n            *Pushed by: @${{ github.actor }}, Action: \\`${{ github.event_name }}\\`*`;\n            \n            github.rest.issues.createComment({\n              issue_number: context.issue.number,\n              owner: context.repo.owner,\n              repo: context.repo.repo,\n              body: output\n            })\n\n  terraform-apply:\n    name: Terraform Apply\n    runs-on: ubuntu-latest\n    needs: terraform-validate\n    if: github.ref == &#39;refs/heads/main&#39; &amp;&amp; github.event_name == &#39;push&#39;\n    steps:\n      - name: Checkout\n        uses: actions/checkout@v4\n\n      - name: Configure AWS Credentials\n        uses: aws-actions/configure-aws-credentials@v4\n        with:\n          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}\n          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}\n          aws-region: ${{ env.AWS_REGION }}\n\n      - name: Setup Terraform\n        uses: hashicorp/setup-terraform@v3\n        with:\n          terraform_version: ${{ env.TF_VERSION }}\n\n      - name: Terraform Apply\n        run: |\n          cd terraform/environments/dev\n          terraform init\n          terraform apply -auto-approve\n        env:\n          TF_VAR_environment: dev\n\n  kubernetes-validate:\n    name: Kubernetes Validate\n    runs-on: ubuntu-latest\n    steps:\n      - name: Checkout\n        uses: actions/checkout@v4\n\n      - name: Setup Kustomize\n        uses: imranismail/setup-kustomize@v1\n\n      - name: Validate Kubernetes Manifests\n        run: |\n          find k8s/ -name \&quot;kustomization.yaml\&quot; -exec dirname {} \\; | while read dir; do\n            echo \&quot;Validating $dir\&quot;\n            kustomize build \&quot;$dir\&quot; | kubeval\n          done\n\n      - name: Security Scan\n        uses: azure/k8s-lint@v1\n        with:\n          manifests: |\n            k8s/base/*.yaml\n            k8s/overlays/*/\n\n  deploy-kubernetes:\n    name: Deploy Kubernetes\n    runs-on: ubuntu-latest\n    needs: [kubernetes-validate, terraform-apply]\n    if: github.ref == &#39;refs/heads/main&#39; &amp;&amp; github.event_name == &#39;push&#39;\n    steps:\n      - name: Checkout\n        uses: actions/checkout@v4\n\n      - name: Configure AWS Credentials\n        uses: aws-actions/configure-aws-credentials@v4\n        with:\n          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}\n          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}\n          aws-region: ${{ env.AWS_REGION }}\n\n      - name: Update kubeconfig\n        run: |\n          aws eks update-kubeconfig --region ${{ env.AWS_REGION }} --name dev-eks-cluster\n\n      - name: Deploy with Kustomize\n        run: |\n          kubectl apply -k k8s/overlays/dev/\n\n      - name: Verify Deployment\n        run: |\n          kubectl rollout status deployment/app -n dev\n          kubectl get pods -n dev\n```\n\n---\n\n## Security and Compliance\n\n### Infrastructure Security\n\n#### Security Best Practices\n```yaml\n# Security Configuration Framework\nsecurity_framework:\n  network_security:\n    - vpc_isolation: \&quot;Isolated VPCs per environment\&quot;\n    - private_subnets: \&quot;Database and compute in private subnets\&quot;\n    - security_groups: \&quot;Least privilege network rules\&quot;\n    - nacls: \&quot;Additional network-level protection\&quot;\n    \n  identity_and_access:\n    - iam_roles: \&quot;Service-specific IAM roles\&quot;\n    - least_privilege: \&quot;Minimal required permissions\&quot;\n    - mfa_enforcement: \&quot;Multi-factor authentication required\&quot;\n    - service_accounts: \&quot;Kubernetes service accounts with IRSA\&quot;\n    \n  data_protection:\n    - encryption_at_rest: \&quot;All data encrypted at rest\&quot;\n    - encryption_in_transit: \&quot;TLS/SSL for all communications\&quot;\n    - key_management: \&quot;AWS KMS or similar key management\&quot;\n    - backup_encryption: \&quot;Encrypted backups with retention\&quot;\n    \n  monitoring_and_auditing:\n    - cloudtrail: \&quot;All API calls logged\&quot;\n    - vpc_flow_logs: \&quot;Network traffic monitoring\&quot;\n    - security_monitoring: \&quot;Real-time security alerts\&quot;\n    - compliance_scanning: \&quot;Automated compliance checks\&quot;\n```\n\n#### Policy as Code\n```hcl\n# modules/security/iam-policies.tf\n# IAM Policy for EKS Node Groups\ndata \&quot;aws_iam_policy_document\&quot; \&quot;node_group_assume_role\&quot; {\n  statement {\n    effect = \&quot;Allow\&quot;\n    \n    principals {\n      type        = \&quot;Service\&quot;\n      identifiers = [\&quot;ec2.amazonaws.com\&quot;]\n    }\n    \n    actions = [\&quot;sts:AssumeRole\&quot;]\n  }\n}\n\nresource \&quot;aws_iam_role\&quot; \&quot;node_group\&quot; {\n  name               = \&quot;${var.environment}-eks-node-group-role\&quot;\n  assume_role_policy = data.aws_iam_policy_document.node_group_assume_role.json\n  \n  tags = merge(var.common_tags, {\n    Name = \&quot;${var.environment}-eks-node-group-role\&quot;\n  })\n}\n\n# Custom policy for additional permissions\ndata \&quot;aws_iam_policy_document\&quot; \&quot;node_group_additional\&quot; {\n  statement {\n    effect = \&quot;Allow\&quot;\n    \n    actions = [\n      \&quot;s3:GetObject\&quot;,\n      \&quot;s3:ListBucket\&quot;\n    ]\n    \n    resources = [\n      \&quot;arn:aws:s3:::${var.environment}-app-artifacts\&quot;,\n      \&quot;arn:aws:s3:::${var.environment}-app-artifacts/*\&quot;\n    ]\n  }\n  \n  statement {\n    effect = \&quot;Allow\&quot;\n    \n    actions = [\n      \&quot;secretsmanager:GetSecretValue\&quot;\n    ]\n    \n    resources = [\n      \&quot;arn:aws:secretsmanager:${var.aws_region}:${data.aws_caller_identity.current.account_id}:secret:${var.environment}/*\&quot;\n    ]\n  }\n}\n\nresource \&quot;aws_iam_policy\&quot; \&quot;node_group_additional\&quot; {\n  name        = \&quot;${var.environment}-eks-node-group-additional\&quot;\n  description = \&quot;Additional permissions for EKS node group\&quot;\n  policy      = data.aws_iam_policy_document.node_group_additional.json\n}\n```\n\n#### OPA/Gatekeeper Policies\n```yaml\n# k8s/policies/required-labels.yaml\napiVersion: templates.gatekeeper.sh/v1beta1\nkind: ConstraintTemplate\nmetadata:\n  name: k8srequiredlabels\nspec:\n  crd:\n    spec:\n      names:\n        kind: K8sRequiredLabels\n      validation:\n        openAPIV3Schema:\n          type: object\n          properties:\n            labels:\n              type: array\n              items:\n                type: string\n  targets:\n    - target: admission.k8s.gatekeeper.sh\n      rego: |\n        package k8srequiredlabels\n        \n        violation[{\&quot;msg\&quot;: msg}] {\n          required := input.parameters.labels\n          provided := input.review.object.metadata.labels\n          missing := required[_]\n          not provided[missing]\n          msg := sprintf(\&quot;Missing required label: %v\&quot;, [missing])\n        }\n\n---\napiVersion: constraints.gatekeeper.sh/v1beta1\nkind: K8sRequiredLabels\nmetadata:\n  name: must-have-environment\nspec:\n  match:\n    kinds:\n      - apiGroups: [\&quot;apps\&quot;]\n        kinds: [\&quot;Deployment\&quot;]\n      - apiGroups: [\&quot;\&quot;]\n        kinds: [\&quot;Service\&quot;]\n  parameters:\n    labels: [\&quot;environment\&quot;, \&quot;app\&quot;, \&quot;version\&quot;]\n```\n\n---\n\n## Cost Optimization\n\n### Resource Tagging Strategy\n\n#### Comprehensive Tagging Framework\n```yaml\n# Tagging Strategy\ntagging_strategy:\n  mandatory_tags:\n    - Environment: \&quot;dev|staging|production\&quot;\n    - Project: \&quot;project-name\&quot;\n    - Owner: \&quot;team-email\&quot;\n    - CostCenter: \&quot;cost-center-code\&quot;\n    - ManagedBy: \&quot;terraform|manual\&quot;\n    \n  optional_tags:\n    - Application: \&quot;application-name\&quot;\n    - Version: \&quot;application-version\&quot;\n    - BackupSchedule: \&quot;daily|weekly|none\&quot;\n    - Compliance: \&quot;pci|hipaa|sox|none\&quot;\n    - MonitoringLevel: \&quot;basic|standard|enhanced\&quot;\n    \n  automation_tags:\n    - CreatedBy: \&quot;automation-tool\&quot;\n    - CreatedDate: \&quot;yyyy-mm-dd\&quot;\n    - LastModified: \&quot;yyyy-mm-dd\&quot;\n    - ScheduledShutdown: \&quot;enabled|disabled\&quot;\n```\n\n#### Cost Allocation Tags\n```hcl\n# modules/cost-optimization/main.tf\nlocals {\n  cost_allocation_tags = {\n    # Business tags\n    BusinessUnit    = var.business_unit\n    CostCenter     = var.cost_center\n    Project        = var.project_name\n    Owner          = var.team_email\n    \n    # Technical tags\n    Environment    = var.environment\n    Application    = var.application_name\n    Component      = var.component_name\n    ManagedBy      = \&quot;terraform\&quot;\n    \n    # Operational tags\n    BackupRequired = var.backup_required ? \&quot;yes\&quot; : \&quot;no\&quot;\n    Monitoring     = var.monitoring_level\n    Schedule       = var.shutdown_schedule\n    \n    # Compliance tags\n    DataClass      = var.data_classification\n    Compliance     = join(\&quot;,\&quot;, var.compliance_requirements)\n  }\n}\n\n# Default tags for all resources\nresource \&quot;aws_default_tags\&quot; \&quot;default\&quot; {\n  tags = local.cost_allocation_tags\n}\n```\n\n### Auto-Scaling Configuration\n\n#### EC2 Auto Scaling\n```hcl\n# modules/autoscaling/main.tf\nresource \&quot;aws_autoscaling_group\&quot; \&quot;main\&quot; {\n  name                = \&quot;${var.environment}-${var.application_name}-asg\&quot;\n  vpc_zone_identifier = var.private_subnet_ids\n  target_group_arns   = var.target_group_arns\n  health_check_type   = \&quot;ELB\&quot;\n  health_check_grace_period = 300\n\n  min_size         = var.min_size\n  max_size         = var.max_size\n  desired_capacity = var.desired_capacity\n\n  launch_template {\n    id      = aws_launch_template.main.id\n    version = \&quot;$Latest\&quot;\n  }\n\n  # Scaling policies\n  enabled_metrics = [\n    \&quot;GroupMinSize\&quot;,\n    \&quot;GroupMaxSize\&quot;,\n    \&quot;GroupDesiredCapacity\&quot;,\n    \&quot;GroupInServiceInstances\&quot;,\n    \&quot;GroupTotalInstances\&quot;\n  ]\n\n  tag {\n    key                 = \&quot;Name\&quot;\n    value               = \&quot;${var.environment}-${var.application_name}-instance\&quot;\n    propagate_at_launch = true\n  }\n\n  dynamic \&quot;tag\&quot; {\n    for_each = var.additional_tags\n    content {\n      key                 = tag.key\n      value               = tag.value\n      propagate_at_launch = true\n    }\n  }\n\n  lifecycle {\n    create_before_destroy = true\n  }\n}\n\n# CloudWatch-based scaling policies\nresource \&quot;aws_autoscaling_policy\&quot; \&quot;scale_up\&quot; {\n  name                   = \&quot;${var.environment}-${var.application_name}-scale-up\&quot;\n  scaling_adjustment     = 2\n  adjustment_type        = \&quot;ChangeInCapacity\&quot;\n  cooldown               = 300\n  autoscaling_group_name = aws_autoscaling_group.main.name\n}\n\nresource \&quot;aws_autoscaling_policy\&quot; \&quot;scale_down\&quot; {\n  name                   = \&quot;${var.environment}-${var.application_name}-scale-down\&quot;\n  scaling_adjustment     = -1\n  adjustment_type        = \&quot;ChangeInCapacity\&quot;\n  cooldown               = 300\n  autoscaling_group_name = aws_autoscaling_group.main.name\n}\n\n# CloudWatch alarms\nresource \&quot;aws_cloudwatch_metric_alarm\&quot; \&quot;cpu_high\&quot; {\n  alarm_name          = \&quot;${var.environment}-${var.application_name}-cpu-high\&quot;\n  comparison_operator = \&quot;GreaterThanThreshold\&quot;\n  evaluation_periods  = \&quot;2\&quot;\n  metric_name         = \&quot;CPUUtilization\&quot;\n  namespace           = \&quot;AWS/EC2\&quot;\n  period              = \&quot;300\&quot;\n  statistic           = \&quot;Average\&quot;\n  threshold           = \&quot;80\&quot;\n  alarm_description   = \&quot;This metric monitors ec2 cpu utilization\&quot;\n  alarm_actions       = [aws_autoscaling_policy.scale_up.arn]\n\n  dimensions = {\n    AutoScalingGroupName = aws_autoscaling_group.main.name\n  }\n}\n```\n\n#### Kubernetes HPA and VPA\n```yaml\n# k8s/base/hpa.yaml\napiVersion: autoscaling/v2\nkind: HorizontalPodAutoscaler\nmetadata:\n  name: app-hpa\nspec:\n  scaleTargetRef:\n    apiVersion: apps/v1\n    kind: Deployment\n    name: app\n  minReplicas: 2\n  maxReplicas: 20\n  metrics:\n  - type: Resource\n    resource:\n      name: cpu\n      target:\n        type: Utilization\n        averageUtilization: 70\n  - type: Resource\n    resource:\n      name: memory\n      target:\n        type: Utilization\n        averageUtilization: 80\n  behavior:\n    scaleDown:\n      stabilizationWindowSeconds: 300\n      policies:\n      - type: Percent\n        value: 10\n        periodSeconds: 60\n    scaleUp:\n      stabilizationWindowSeconds: 60\n      policies:\n      - type: Percent\n        value: 100\n        periodSeconds: 15\n      - type: Pods\n        value: 4\n        periodSeconds: 60\n      selectPolicy: Max\n\n---\napiVersion: autoscaling.k8s.io/v1\nkind: VerticalPodAutoscaler\nmetadata:\n  name: app-vpa\nspec:\n  targetRef:\n    apiVersion: apps/v1\n    kind: Deployment\n    name: app\n  updatePolicy:\n    updateMode: \&quot;Auto\&quot;\n  resourcePolicy:\n    containerPolicies:\n    - containerName: app\n      maxAllowed:\n        cpu: 2\n        memory: 4Gi\n      minAllowed:\n        cpu: 100m\n        memory: 128Mi\n      controlledResources: [\&quot;cpu\&quot;, \&quot;memory\&quot;]\n```\n\n---\n\n## Disaster Recovery and Backup\n\n### Backup Strategy\n\n#### Automated Backup Configuration\n```hcl\n# modules/backup/main.tf\nresource \&quot;aws_backup_vault\&quot; \&quot;main\&quot; {\n  name        = \&quot;${var.environment}-backup-vault\&quot;\n  kms_key_arn = aws_kms_key.backup.arn\n\n  tags = merge(var.common_tags, {\n    Name = \&quot;${var.environment}-backup-vault\&quot;\n  })\n}\n\nresource \&quot;aws_backup_plan\&quot; \&quot;main\&quot; {\n  name = \&quot;${var.environment}-backup-plan\&quot;\n\n  rule {\n    rule_name         = \&quot;daily_backup\&quot;\n    target_vault_name = aws_backup_vault.main.name\n    schedule          = \&quot;cron(0 5 ? * * *)\&quot;\n\n    lifecycle {\n      cold_storage_after = 30\n      delete_after       = 365\n    }\n\n    recovery_point_tags = merge(var.common_tags, {\n      BackupType = \&quot;daily\&quot;\n    })\n  }\n\n  rule {\n    rule_name         = \&quot;weekly_backup\&quot;\n    target_vault_name = aws_backup_vault.main.name\n    schedule          = \&quot;cron(0 5 ? * SUN *)\&quot;\n\n    lifecycle {\n      cold_storage_after = 7\n      delete_after       = 2555  # 7 years\n    }\n\n    recovery_point_tags = merge(var.common_tags, {\n      BackupType = \&quot;weekly\&quot;\n    })\n  }\n\n  tags = merge(var.common_tags, {\n    Name = \&quot;${var.environment}-backup-plan\&quot;\n  })\n}\n\n# Backup selection\nresource \&quot;aws_backup_selection\&quot; \&quot;main\&quot; {\n  iam_role_arn = aws_iam_role.backup.arn\n  name         = \&quot;${var.environment}-backup-selection\&quot;\n  plan_id      = aws_backup_plan.main.id\n\n  resources = var.backup_resources\n\n  condition {\n    string_equals {\n      key   = \&quot;aws:ResourceTag/BackupRequired\&quot;\n      value = \&quot;yes\&quot;\n    }\n  }\n}\n```\n\n#### Database Backup Strategy\n```yaml\n# Database Backup Configuration\ndatabase_backup:\n  rds_automated_backup:\n    backup_retention_period: 30\n    backup_window: \&quot;03:00-04:00\&quot;\n    maintenance_window: \&quot;sun:04:00-sun:05:00\&quot;\n    skip_final_snapshot: false\n    final_snapshot_identifier: \&quot;${var.environment}-final-snapshot\&quot;\n    \n  manual_snapshots:\n    frequency: \&quot;weekly\&quot;\n    retention: \&quot;1 year\&quot;\n    cross_region_copy: true\n    destination_region: \&quot;us-east-1\&quot;\n    \n  point_in_time_recovery:\n    enabled: true\n    retention_period: 7\n```\n\n### Multi-Region Strategy\n\n#### Cross-Region Infrastructure\n```hcl\n# multi-region/main.tf\n# Primary region configuration\nmodule \&quot;primary_infrastructure\&quot; {\n  source = \&quot;../modules/infrastructure\&quot;\n  \n  providers = {\n    aws = aws.primary\n  }\n  \n  environment = var.environment\n  region_role = \&quot;primary\&quot;\n  \n  # Primary-specific configuration\n  enable_cross_region_backup = true\n  backup_destination_region  = var.secondary_region\n}\n\n# Secondary region configuration\nmodule \&quot;secondary_infrastructure\&quot; {\n  source = \&quot;../modules/infrastructure\&quot;\n  \n  providers = {\n    aws = aws.secondary\n  }\n  \n  environment = var.environment\n  region_role = \&quot;secondary\&quot;\n  \n  # Secondary-specific configuration\n  enable_read_replicas = true\n  primary_region       = var.primary_region\n}\n\n# Cross-region resources\nresource \&quot;aws_s3_bucket_replication_configuration\&quot; \&quot;main\&quot; {\n  provider = aws.primary\n  \n  role   = aws_iam_role.replication.arn\n  bucket = module.primary_infrastructure.s3_bucket_id\n\n  rule {\n    id     = \&quot;replicate_to_secondary\&quot;\n    status = \&quot;Enabled\&quot;\n\n    destination {\n      bucket        = module.secondary_infrastructure.s3_bucket_arn\n      storage_class = \&quot;STANDARD_IA\&quot;\n    }\n  }\n\n  depends_on = [aws_s3_bucket_versioning.main]\n}\n```\n\n---\n\n## Monitoring and Observability\n\n### Infrastructure Monitoring\n\n#### Prometheus Configuration for Infrastructure\n```yaml\n# monitoring/prometheus/infrastructure-rules.yaml\ngroups:\n- name: infrastructure.rules\n  rules:\n  - alert: HighCPUUsage\n    expr: 100 - (avg by(instance) (irate(node_cpu_seconds_total{mode=\&quot;idle\&quot;}[5m])) * 100) &gt; 80\n    for: 5m\n    labels:\n      severity: warning\n    annotations:\n      summary: \&quot;High CPU usage detected\&quot;\n      description: \&quot;CPU usage is above 80% on {{ $labels.instance }}\&quot;\n\n  - alert: HighMemoryUsage\n    expr: (1 - (node_memory_MemAvailable_bytes / node_memory_MemTotal_bytes)) * 100 &gt; 90\n    for: 5m\n    labels:\n      severity: critical\n    annotations:\n      summary: \&quot;High memory usage detected\&quot;\n      description: \&quot;Memory usage is above 90% on {{ $labels.instance }}\&quot;\n\n  - alert: DiskSpaceRunningLow\n    expr: (1 - (node_filesystem_avail_bytes / node_filesystem_size_bytes)) * 100 &gt; 85\n    for: 5m\n    labels:\n      severity: warning\n    annotations:\n      summary: \&quot;Disk space running low\&quot;\n      description: \&quot;Disk usage is above 85% on {{ $labels.instance }} mount {{ $labels.mountpoint }}\&quot;\n\n  - alert: KubernetesNodeNotReady\n    expr: kube_node_status_condition{condition=\&quot;Ready\&quot;,status=\&quot;true\&quot;} == 0\n    for: 5m\n    labels:\n      severity: critical\n    annotations:\n      summary: \&quot;Kubernetes node not ready\&quot;\n      description: \&quot;Node {{ $labels.node }} is not ready\&quot;\n```\n\n#### Infrastructure Dashboards\n```json\n{\n  \&quot;dashboard\&quot;: {\n    \&quot;title\&quot;: \&quot;Infrastructure Overview\&quot;,\n    \&quot;panels\&quot;: [\n      {\n        \&quot;title\&quot;: \&quot;CPU Usage\&quot;,\n        \&quot;type\&quot;: \&quot;graph\&quot;,\n        \&quot;targets\&quot;: [\n          {\n            \&quot;expr\&quot;: \&quot;100 - (avg by(instance) (irate(node_cpu_seconds_total{mode=\\\&quot;idle\\\&quot;}[5m])) * 100)\&quot;\n          }\n        ]\n      },\n      {\n        \&quot;title\&quot;: \&quot;Memory Usage\&quot;,\n        \&quot;type\&quot;: \&quot;graph\&quot;,\n        \&quot;targets\&quot;: [\n          {\n            \&quot;expr\&quot;: \&quot;(1 - (node_memory_MemAvailable_bytes / node_memory_MemTotal_bytes)) * 100\&quot;\n          }\n        ]\n      },\n      {\n        \&quot;title\&quot;: \&quot;Disk Usage\&quot;,\n        \&quot;type\&quot;: \&quot;graph\&quot;,\n        \&quot;targets\&quot;: [\n          {\n            \&quot;expr\&quot;: \&quot;(1 - (node_filesystem_avail_bytes / node_filesystem_size_bytes)) * 100\&quot;\n          }\n        ]\n      }\n    ]\n  }\n}\n```\n\n---\n\n## When to Use\n\nUse at project initiation to establish scope, schedule, resources, and key milestones. This template is essential for complex projects with multiple workstreams, external dependencies, or strict compliance requirements where detailed planning drives success.\n\n## When NOT to Use\n\nDo not use for small, self-contained tasks or fully agile teams that manage planning through iterative ceremonies instead of upfront documentation. Avoid using this as a substitute for continuously updated project dashboards or dynamic scheduling tools.\n\n## Related Templates\n- [CI/CD Pipeline Planning](../../../domains/measurement/methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md)\n- [Release Management Workflow](../../../domains/measurement/methodology-frameworks/emerging-methods/devops/release_management_template.md)\n- [DevOps Monitoring and Alerting](./monitoring_alerting_template.md)\n- [DevSecOps Integration](./devsecops_template.md)\n\n---\n\n## Version History\n| Version | Date | Changes | Author |\n|---------|------|---------|--------|\n| 1.0 | [Date] | Initial Infrastructure as Code template | [Author] |\n\n---\n\n*This template is part of the PM Tools Templates library. For more information and additional templates, visit [repository root](../../../README.md).*\n\n&quot;]}" ssr client="load" opts="{&quot;name&quot;:&quot;TemplateViewer&quot;,&quot;value&quot;:true}" await-children><div><h1>Infrastructure As Code Template</h1><div style="margin-bottom:2rem"><button style="background:var(--accent-color);color:white;border:1px solid var(--border-color);padding:0.5rem 1rem;border-radius:4px 4px 0 0;cursor:pointer;margin-right:1px">Preview</button><button style="background:var(--code-bg);color:var(--text-color);border:1px solid var(--border-color);padding:0.5rem 1rem;border-radius:4px 4px 0 0;cursor:pointer">Version History</button></div><div style="border:1px solid var(--border-color);border-radius:0 8px 8px 8px;min-height:400px"><div style="background:var(--bg-primary);border-radius:var(--radius-lg)"><div style="padding:1rem 1.5rem;border-bottom:1px solid var(--border-light);display:flex;align-items:center;justify-content:space-between;background:var(--bg-secondary);border-radius:var(--radius-lg) var(--radius-lg) 0 0"><div style="display:flex;align-items:center;gap:0.5rem"><span style="font-size:1.5rem">📄</span><div><div style="font-weight:600;color:var(--text-primary)">infrastructure_as_code_template.md</div><div style="font-size:0.75rem;color:var(--text-muted)">Markdown • <!-- -->45,791 bytes</div></div></div><a href="/pm-tools-templates/downloads/infrastructure_as_code_template.md" download="" class="btn btn-secondary" style="font-size:0.75rem;padding:0.5rem 0.75rem">💾 Download</a></div><pre aria-label="Markdown source of Infrastructure As Code Template" style="padding:1.5rem;max-height:600px;overflow:auto;white-space:pre-wrap;overflow-wrap:anywhere">---
+title: Infrastructure As Code Template
+methodology: universal
+complexity: advanced
+owner: mirichard
+updated: &#x27;2025-08-05&#x27;
+primary_principles:
+- quality-by-design
+- systems-thinking
+secondary_principles:
+- evidence-based-decisions
+- continuous-learning
+principle_rationale: Builds infrastructure quality and system coherence through documented,
+  testable code.
+---
+
+# Infrastructure as Code (IaC) Template
+
+## Overview
+This template provides a comprehensive framework for implementing Infrastructure as Code practices, covering infrastructure provisioning, configuration management, and infrastructure lifecycle management through code-based approaches.
+
+## Template Information
+- **Methodology:** DevOps Infrastructure as Code
+- **Purpose:** Standardize infrastructure provisioning and management through code
+- **Audience:** DevOps Engineers, Platform Teams, Infrastructure Engineers, Cloud Architects
+- **Timeline:** 10-16 weeks for full implementation
+- **Prerequisites:** Cloud accounts, version control, basic automation tools
+
+---
+
+## IaC Strategy Framework
+
+### Infrastructure as Code Principles
+
+#### Core IaC Principles
+```
+Infrastructure as Code Foundation
+
+Declarative Configuration:
+├── Define desired end state, not steps
+├── Idempotent operations (repeatable)
+├── Self-documenting infrastructure
+└── Version-controlled infrastructure definitions
+
+Immutable Infrastructure:
+├── Replace rather than modify
+├── Consistent environments
+├── Reduced configuration drift
+└── Simplified rollback procedures
+
+Everything as Code:
+├── Infrastructure provisioning
+├── Configuration management
+├── Security policies
+├── Monitoring and alerting
+└── Documentation and runbooks
+```
+
+#### IaC Maturity Model
+| Level | Description | Characteristics | Tools &amp; Practices |
+|-------|-------------|-----------------|-------------------|
+| Level 1 | Manual | Click-ops, documentation | AWS Console, manual scripts |
+| Level 2 | Scripted | Automation scripts | Bash, PowerShell, CLI tools |
+| Level 3 | Declarative | Infrastructure definitions | Terraform, CloudFormation |
+| Level 4 | GitOps | Git-driven workflows | CI/CD, automated deployment |
+| Level 5 | Self-Service | Platform abstraction | Internal platforms, APIs |
+
+### IaC Architecture Design
+
+#### Multi-Layer Architecture
+```yaml
+# IaC Architecture Layers
+infrastructure_layers:
+  foundation_layer:
+    description: &quot;Core cloud infrastructure&quot;
+    components:
+      - networking: &quot;VPCs, subnets, routing&quot;
+      - security: &quot;IAM, security groups, policies&quot;
+      - monitoring: &quot;CloudWatch, logging setup&quot;
+    tools: [&quot;terraform&quot;, &quot;cloudformation&quot;]
+    ownership: &quot;platform_team&quot;
+    
+  platform_layer:
+    description: &quot;Shared platform services&quot;
+    components:
+      - kubernetes: &quot;EKS/GKE clusters&quot;
+      - databases: &quot;RDS, ElastiCache instances&quot;
+      - load_balancers: &quot;ALB, NLB configuration&quot;
+    tools: [&quot;terraform&quot;, &quot;helm&quot;]
+    ownership: &quot;platform_team&quot;
+    
+  application_layer:
+    description: &quot;Application-specific resources&quot;
+    components:
+      - application_infra: &quot;App-specific resources&quot;
+      - service_mesh: &quot;Istio, Linkerd configuration&quot;
+      - secrets: &quot;Application secrets management&quot;
+    tools: [&quot;terraform&quot;, &quot;kustomize&quot;, &quot;helm&quot;]
+    ownership: &quot;development_teams&quot;
+    
+  observability_layer:
+    description: &quot;Monitoring and observability&quot;
+    components:
+      - monitoring: &quot;Prometheus, Grafana&quot;
+      - logging: &quot;ELK stack, Fluentd&quot;
+      - tracing: &quot;Jaeger, Zipkin&quot;
+    tools: [&quot;terraform&quot;, &quot;helm&quot;, &quot;operators&quot;]
+    ownership: &quot;sre_team&quot;
+```
+
+---
+
+## Terraform Implementation
+
+### Terraform Project Structure
+
+#### Recommended Directory Structure
+```
+terraform/
+├── environments/
+│   ├── dev/
+│   │   ├── main.tf
+│   │   ├── variables.tf
+│   │   ├── terraform.tfvars
+│   │   └── outputs.tf
+│   ├── staging/
+│   │   ├── main.tf
+│   │   ├── variables.tf
+│   │   ├── terraform.tfvars
+│   │   └── outputs.tf
+│   └── production/
+│       ├── main.tf
+│       ├── variables.tf
+│       ├── terraform.tfvars
+│       └── outputs.tf
+├── modules/
+│   ├── networking/
+│   │   ├── main.tf
+│   │   ├── variables.tf
+│   │   ├── outputs.tf
+│   │   └── README.md
+│   ├── compute/
+│   │   ├── main.tf
+│   │   ├── variables.tf
+│   │   ├── outputs.tf
+│   │   └── README.md
+│   └── database/
+│       ├── main.tf
+│       ├── variables.tf
+│       ├── outputs.tf
+│       └── README.md
+├── shared/
+│   ├── backend.tf
+│   ├── providers.tf
+│   └── common-variables.tf
+└── scripts/
+    ├── plan.sh
+    ├── apply.sh
+    └── destroy.sh
+```
+
+#### Terraform Module Example
+```hcl
+# modules/networking/main.tf
+resource &quot;aws_vpc&quot; &quot;main&quot; {
+  cidr_block           = var.vpc_cidr
+  enable_dns_hostnames = true
+  enable_dns_support   = true
+
+  tags = merge(var.common_tags, {
+    Name = &quot;${var.environment}-vpc&quot;
+    Type = &quot;networking&quot;
+  })
+}
+
+resource &quot;aws_subnet&quot; &quot;private&quot; {
+  count             = length(var.private_subnet_cidrs)
+  vpc_id            = aws_vpc.main.id
+  cidr_block        = var.private_subnet_cidrs[count.index]
+  availability_zone = data.aws_availability_zones.available.names[count.index]
+
+  tags = merge(var.common_tags, {
+    Name = &quot;${var.environment}-private-subnet-${count.index + 1}&quot;
+    Type = &quot;private&quot;
+  })
+}
+
+resource &quot;aws_subnet&quot; &quot;public&quot; {
+  count                   = length(var.public_subnet_cidrs)
+  vpc_id                  = aws_vpc.main.id
+  cidr_block              = var.public_subnet_cidrs[count.index]
+  availability_zone       = data.aws_availability_zones.available.names[count.index]
+  map_public_ip_on_launch = true
+
+  tags = merge(var.common_tags, {
+    Name = &quot;${var.environment}-public-subnet-${count.index + 1}&quot;
+    Type = &quot;public&quot;
+  })
+}
+
+# Internet Gateway
+resource &quot;aws_internet_gateway&quot; &quot;main&quot; {
+  vpc_id = aws_vpc.main.id
+
+  tags = merge(var.common_tags, {
+    Name = &quot;${var.environment}-igw&quot;
+  })
+}
+
+# NAT Gateway
+resource &quot;aws_eip&quot; &quot;nat&quot; {
+  count  = length(var.public_subnet_cidrs)
+  domain = &quot;vpc&quot;
+
+  tags = merge(var.common_tags, {
+    Name = &quot;${var.environment}-nat-eip-${count.index + 1}&quot;
+  })
+
+  depends_on = [aws_internet_gateway.main]
+}
+
+resource &quot;aws_nat_gateway&quot; &quot;main&quot; {
+  count         = length(var.public_subnet_cidrs)
+  allocation_id = aws_eip.nat[count.index].id
+  subnet_id     = aws_subnet.public[count.index].id
+
+  tags = merge(var.common_tags, {
+    Name = &quot;${var.environment}-nat-gw-${count.index + 1}&quot;
+  })
+
+  depends_on = [aws_internet_gateway.main]
+}
+```
+
+```hcl
+# modules/networking/variables.tf
+variable &quot;environment&quot; {
+  description = &quot;Environment name&quot;
+  type        = string
+}
+
+variable &quot;vpc_cidr&quot; {
+  description = &quot;CIDR block for VPC&quot;
+  type        = string
+}
+
+variable &quot;private_subnet_cidrs&quot; {
+  description = &quot;CIDR blocks for private subnets&quot;
+  type        = list(string)
+}
+
+variable &quot;public_subnet_cidrs&quot; {
+  description = &quot;CIDR blocks for public subnets&quot;
+  type        = list(string)
+}
+
+variable &quot;common_tags&quot; {
+  description = &quot;Common tags to apply to all resources&quot;
+  type        = map(string)
+  default     = {}
+}
+```
+
+```hcl
+# modules/networking/outputs.tf
+output &quot;vpc_id&quot; {
+  description = &quot;ID of the VPC&quot;
+  value       = aws_vpc.main.id
+}
+
+output &quot;vpc_cidr_block&quot; {
+  description = &quot;CIDR block of the VPC&quot;
+  value       = aws_vpc.main.cidr_block
+}
+
+output &quot;private_subnet_ids&quot; {
+  description = &quot;IDs of the private subnets&quot;
+  value       = aws_subnet.private[*].id
+}
+
+output &quot;public_subnet_ids&quot; {
+  description = &quot;IDs of the public subnets&quot;
+  value       = aws_subnet.public[*].id
+}
+
+output &quot;internet_gateway_id&quot; {
+  description = &quot;ID of the Internet Gateway&quot;
+  value       = aws_internet_gateway.main.id
+}
+
+output &quot;nat_gateway_ids&quot; {
+  description = &quot;IDs of the NAT Gateways&quot;
+  value       = aws_nat_gateway.main[*].id
+}
+```
+
+### Terraform State Management
+
+#### Remote State Configuration
+```hcl
+# shared/backend.tf
+terraform {
+  backend &quot;s3&quot; {
+    bucket         = &quot;company-terraform-state&quot;
+    key            = &quot;infrastructure/terraform.tfstate&quot;
+    region         = &quot;us-west-2&quot;
+    encrypt        = true
+    dynamodb_table = &quot;terraform-state-lock&quot;
+    
+    # Workspace-based state management
+    workspace_key_prefix = &quot;environments&quot;
+  }
+}
+
+# S3 bucket configuration for state storage
+resource &quot;aws_s3_bucket&quot; &quot;terraform_state&quot; {
+  bucket = &quot;company-terraform-state&quot;
+  
+  lifecycle {
+    prevent_destroy = true
+  }
+
+  tags = {
+    Name        = &quot;Terraform State Storage&quot;
+    Environment = &quot;shared&quot;
+  }
+}
+
+resource &quot;aws_s3_bucket_versioning&quot; &quot;terraform_state&quot; {
+  bucket = aws_s3_bucket.terraform_state.id
+  versioning_configuration {
+    status = &quot;Enabled&quot;
+  }
+}
+
+resource &quot;aws_s3_bucket_server_side_encryption_configuration&quot; &quot;terraform_state&quot; {
+  bucket = aws_s3_bucket.terraform_state.id
+
+  rule {
+    apply_server_side_encryption_by_default {
+      sse_algorithm = &quot;AES256&quot;
+    }
+  }
+}
+
+# DynamoDB table for state locking
+resource &quot;aws_dynamodb_table&quot; &quot;terraform_state_lock&quot; {
+  name           = &quot;terraform-state-lock&quot;
+  billing_mode   = &quot;PAY_PER_REQUEST&quot;
+  hash_key       = &quot;LockID&quot;
+
+  attribute {
+    name = &quot;LockID&quot;
+    type = &quot;S&quot;
+  }
+
+  tags = {
+    Name        = &quot;Terraform State Lock Table&quot;
+    Environment = &quot;shared&quot;
+  }
+}
+```
+
+#### Environment-Specific Configuration
+```hcl
+# environments/production/main.tf
+terraform {
+  required_version = &quot;&gt;= 1.0&quot;
+  required_providers {
+    aws = {
+      source  = &quot;hashicorp/aws&quot;
+      version = &quot;~&gt; 5.0&quot;
+    }
+  }
+}
+
+provider &quot;aws&quot; {
+  region = var.aws_region
+  
+  default_tags {
+    tags = {
+      Environment   = var.environment
+      Project       = var.project_name
+      ManagedBy     = &quot;terraform&quot;
+      Owner         = var.team_name
+      CostCenter    = var.cost_center
+    }
+  }
+}
+
+# Data sources
+data &quot;aws_caller_identity&quot; &quot;current&quot; {}
+data &quot;aws_availability_zones&quot; &quot;available&quot; {
+  state = &quot;available&quot;
+}
+
+# Networking module
+module &quot;networking&quot; {
+  source = &quot;../../modules/networking&quot;
+  
+  environment            = var.environment
+  vpc_cidr              = var.vpc_cidr
+  private_subnet_cidrs  = var.private_subnet_cidrs
+  public_subnet_cidrs   = var.public_subnet_cidrs
+  common_tags           = local.common_tags
+}
+
+# Compute module
+module &quot;compute&quot; {
+  source = &quot;../../modules/compute&quot;
+  
+  environment       = var.environment
+  vpc_id           = module.networking.vpc_id
+  private_subnet_ids = module.networking.private_subnet_ids
+  public_subnet_ids  = module.networking.public_subnet_ids
+  common_tags      = local.common_tags
+}
+
+# Database module
+module &quot;database&quot; {
+  source = &quot;../../modules/database&quot;
+  
+  environment       = var.environment
+  vpc_id           = module.networking.vpc_id
+  private_subnet_ids = module.networking.private_subnet_ids
+  common_tags      = local.common_tags
+}
+
+locals {
+  common_tags = {
+    Environment = var.environment
+    Project     = var.project_name
+    ManagedBy   = &quot;terraform&quot;
+    Owner       = var.team_name
+    CostCenter  = var.cost_center
+  }
+}
+```
+
+```hcl
+# environments/production/terraform.tfvars
+# Environment configuration
+environment  = &quot;production&quot;
+project_name = &quot;company-platform&quot;
+team_name    = &quot;platform-team&quot;
+cost_center  = &quot;engineering&quot;
+aws_region   = &quot;us-west-2&quot;
+
+# Networking configuration
+vpc_cidr = &quot;10.0.0.0/16&quot;
+private_subnet_cidrs = [
+  &quot;10.0.1.0/24&quot;,
+  &quot;10.0.2.0/24&quot;,
+  &quot;10.0.3.0/24&quot;
+]
+public_subnet_cidrs = [
+  &quot;10.0.101.0/24&quot;,
+  &quot;10.0.102.0/24&quot;,
+  &quot;10.0.103.0/24&quot;
+]
+
+# Compute configuration
+instance_types = {
+  web_servers = &quot;t3.medium&quot;
+  api_servers = &quot;c5.large&quot;
+  workers     = &quot;m5.large&quot;
+}
+
+# Database configuration
+db_instance_class = &quot;db.r5.xlarge&quot;
+db_allocated_storage = 100
+db_backup_retention_period = 7
+```
+
+---
+
+## Kubernetes Infrastructure
+
+### Kubernetes Cluster Configuration
+
+#### EKS Cluster with Terraform
+```hcl
+# modules/eks/main.tf
+resource &quot;aws_eks_cluster&quot; &quot;main&quot; {
+  name     = &quot;${var.environment}-eks-cluster&quot;
+  role_arn = aws_iam_role.cluster.arn
+  version  = var.kubernetes_version
+
+  vpc_config {
+    subnet_ids              = concat(var.private_subnet_ids, var.public_subnet_ids)
+    endpoint_private_access = true
+    endpoint_public_access  = var.endpoint_public_access
+    public_access_cidrs     = var.public_access_cidrs
+    
+    security_group_ids = [aws_security_group.cluster.id]
+  }
+
+  encryption_config {
+    provider {
+      key_arn = aws_kms_key.eks.arn
+    }
+    resources = [&quot;secrets&quot;]
+  }
+
+  enabled_cluster_log_types = [&quot;api&quot;, &quot;audit&quot;, &quot;authenticator&quot;, &quot;controllerManager&quot;, &quot;scheduler&quot;]
+
+  depends_on = [
+    aws_iam_role_policy_attachment.cluster_AmazonEKSClusterPolicy,
+    aws_cloudwatch_log_group.eks_cluster,
+  ]
+
+  tags = merge(var.common_tags, {
+    Name = &quot;${var.environment}-eks-cluster&quot;
+  })
+}
+
+# Node Groups
+resource &quot;aws_eks_node_group&quot; &quot;main&quot; {
+  for_each = var.node_groups
+
+  cluster_name    = aws_eks_cluster.main.name
+  node_group_name = &quot;${var.environment}-${each.key}&quot;
+  node_role_arn   = aws_iam_role.node_group.arn
+  subnet_ids      = var.private_subnet_ids
+
+  scaling_config {
+    desired_size = each.value.desired_size
+    max_size     = each.value.max_size
+    min_size     = each.value.min_size
+  }
+
+  update_config {
+    max_unavailable = each.value.max_unavailable
+  }
+
+  instance_types = each.value.instance_types
+  capacity_type  = each.value.capacity_type
+  disk_size      = each.value.disk_size
+
+  # Optional: Launch template for advanced configuration
+  dynamic &quot;launch_template&quot; {
+    for_each = each.value.launch_template != null ? [each.value.launch_template] : []
+    content {
+      id      = launch_template.value.id
+      version = launch_template.value.version
+    }
+  }
+
+  labels = merge(each.value.labels, {
+    Environment = var.environment
+    NodeGroup   = each.key
+  })
+
+  dynamic &quot;taint&quot; {
+    for_each = each.value.taints
+    content {
+      key    = taint.value.key
+      value  = taint.value.value
+      effect = taint.value.effect
+    }
+  }
+
+  tags = merge(var.common_tags, {
+    Name = &quot;${var.environment}-${each.key}-node-group&quot;
+  })
+
+  depends_on = [
+    aws_iam_role_policy_attachment.node_group_AmazonEKSWorkerNodePolicy,
+    aws_iam_role_policy_attachment.node_group_AmazonEKS_CNI_Policy,
+    aws_iam_role_policy_attachment.node_group_AmazonEC2ContainerRegistryReadOnly,
+  ]
+}
+
+# EKS Add-ons
+resource &quot;aws_eks_addon&quot; &quot;main&quot; {
+  for_each = var.cluster_addons
+
+  cluster_name = aws_eks_cluster.main.name
+  addon_name   = each.key
+  addon_version = each.value.version
+  resolve_conflicts = each.value.resolve_conflicts
+
+  tags = merge(var.common_tags, {
+    Name = &quot;${var.environment}-${each.key}-addon&quot;
+  })
+}
+```
+
+#### Helm Chart Deployments
+```yaml
+# helm/ingress-nginx/values.yaml
+controller:
+  service:
+    type: LoadBalancer
+    annotations:
+      service.beta.kubernetes.io/aws-load-balancer-type: &quot;nlb&quot;
+      service.beta.kubernetes.io/aws-load-balancer-cross-zone-load-balancing-enabled: &quot;true&quot;
+      service.beta.kubernetes.io/aws-load-balancer-backend-protocol: &quot;tcp&quot;
+      
+  resources:
+    requests:
+      cpu: 100m
+      memory: 128Mi
+    limits:
+      cpu: 500m
+      memory: 512Mi
+      
+  nodeSelector:
+    node-role: &quot;system&quot;
+    
+  tolerations:
+    - key: &quot;system&quot;
+      operator: &quot;Equal&quot;
+      value: &quot;true&quot;
+      effect: &quot;NoSchedule&quot;
+      
+  affinity:
+    podAntiAffinity:
+      preferredDuringSchedulingIgnoredDuringExecution:
+        - weight: 100
+          podAffinityTerm:
+            labelSelector:
+              matchExpressions:
+                - key: app.kubernetes.io/name
+                  operator: In
+                  values:
+                    - ingress-nginx
+            topologyKey: kubernetes.io/hostname
+
+  config:
+    use-forwarded-headers: &quot;true&quot;
+    compute-full-forwarded-for: &quot;true&quot;
+    use-proxy-protocol: &quot;false&quot;
+    
+  metrics:
+    enabled: true
+    serviceMonitor:
+      enabled: true
+```
+
+```hcl
+# modules/helm-releases/main.tf
+resource &quot;helm_release&quot; &quot;ingress_nginx&quot; {
+  name       = &quot;ingress-nginx&quot;
+  repository = &quot;https://kubernetes.github.io/ingress-nginx&quot;
+  chart      = &quot;ingress-nginx&quot;
+  version    = var.ingress_nginx_version
+  namespace  = &quot;ingress-nginx&quot;
+  create_namespace = true
+
+  values = [
+    file(&quot;${path.module}/values/ingress-nginx.yaml&quot;)
+  ]
+
+  set {
+    name  = &quot;controller.service.annotations.service\\.beta\\.kubernetes\\.io/aws-load-balancer-ssl-cert&quot;
+    value = var.ssl_certificate_arn
+  }
+
+  depends_on = [var.cluster_endpoint]
+}
+
+resource &quot;helm_release&quot; &quot;cert_manager&quot; {
+  name       = &quot;cert-manager&quot;
+  repository = &quot;https://charts.jetstack.io&quot;
+  chart      = &quot;cert-manager&quot;
+  version    = var.cert_manager_version
+  namespace  = &quot;cert-manager&quot;
+  create_namespace = true
+
+  set {
+    name  = &quot;installCRDs&quot;
+    value = &quot;true&quot;
+  }
+
+  set {
+    name  = &quot;global.leaderElection.namespace&quot;
+    value = &quot;cert-manager&quot;
+  }
+
+  depends_on = [helm_release.ingress_nginx]
+}
+```
+
+### Kubernetes Manifests with Kustomize
+
+#### Base Kubernetes Resources
+```yaml
+# k8s/base/deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app
+  labels:
+    app: sample-app
+    version: v1
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: sample-app
+      version: v1
+  template:
+    metadata:
+      labels:
+        app: sample-app
+        version: v1
+    spec:
+      containers:
+      - name: app
+        image: nginx:1.21
+        ports:
+        - containerPort: 80
+        resources:
+          requests:
+            cpu: 100m
+            memory: 128Mi
+          limits:
+            cpu: 500m
+            memory: 512Mi
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 80
+          initialDelaySeconds: 30
+          periodSeconds: 10
+        readinessProbe:
+          httpGet:
+            path: /ready
+            port: 80
+          initialDelaySeconds: 5
+          periodSeconds: 5
+        env:
+        - name: ENVIRONMENT
+          value: &quot;placeholder&quot;
+        - name: LOG_LEVEL
+          value: &quot;info&quot;
+```
+
+```yaml
+# k8s/base/service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: app-service
+  labels:
+    app: sample-app
+spec:
+  selector:
+    app: sample-app
+  ports:
+  - port: 80
+    targetPort: 80
+    protocol: TCP
+  type: ClusterIP
+```
+
+```yaml
+# k8s/base/kustomization.yaml
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+- deployment.yaml
+- service.yaml
+- configmap.yaml
+- ingress.yaml
+
+commonLabels:
+  managed-by: kustomize
+  
+images:
+- name: nginx
+  newTag: &quot;1.21&quot;
+```
+
+#### Environment Overlays
+```yaml
+# k8s/overlays/production/kustomization.yaml
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+namespace: production
+
+resources:
+- ../../base
+
+patchesStrategicMerge:
+- deployment-patch.yaml
+- service-patch.yaml
+
+replicas:
+- name: app
+  count: 5
+
+images:
+- name: nginx
+  newName: company/sample-app
+  newTag: &quot;v1.2.3&quot;
+
+configMapGenerator:
+- name: app-config
+  files:
+  - config.properties
+  - application.yaml
+
+secretGenerator:
+- name: app-secrets
+  files:
+  - database-url
+  - api-key
+```
+
+```yaml
+# k8s/overlays/production/deployment-patch.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app
+spec:
+  template:
+    spec:
+      containers:
+      - name: app
+        resources:
+          requests:
+            cpu: 500m
+            memory: 512Mi
+          limits:
+            cpu: 2000m
+            memory: 2Gi
+        env:
+        - name: ENVIRONMENT
+          value: &quot;production&quot;
+        - name: LOG_LEVEL
+          value: &quot;warn&quot;
+        - name: DATABASE_URL
+          valueFrom:
+            secretKeyRef:
+              name: app-secrets
+              key: database-url
+```
+
+---
+
+## Configuration Management
+
+### Ansible Integration
+
+#### Ansible Project Structure
+```
+ansible/
+├── inventories/
+│   ├── dev/
+│   │   ├── hosts.yml
+│   │   └── group_vars/
+│   ├── staging/
+│   │   ├── hosts.yml
+│   │   └── group_vars/
+│   └── production/
+│       ├── hosts.yml
+│       └── group_vars/
+├── roles/
+│   ├── common/
+│   │   ├── tasks/main.yml
+│   │   ├── handlers/main.yml
+│   │   ├── templates/
+│   │   └── vars/main.yml
+│   ├── webserver/
+│   │   ├── tasks/main.yml
+│   │   ├── handlers/main.yml
+│   │   ├── templates/
+│   │   └── vars/main.yml
+│   └── database/
+│       ├── tasks/main.yml
+│       ├── handlers/main.yml
+│       ├── templates/
+│       └── vars/main.yml
+├── playbooks/
+│   ├── site.yml
+│   ├── webservers.yml
+│   └── databases.yml
+├── group_vars/
+│   ├── all.yml
+│   ├── webservers.yml
+│   └── databases.yml
+└── ansible.cfg
+```
+
+#### Ansible Playbook Example
+```yaml
+# playbooks/site.yml
+---
+- name: Configure all servers
+  hosts: all
+  become: yes
+  roles:
+    - common
+
+- name: Configure web servers
+  hosts: webservers
+  become: yes
+  roles:
+    - webserver
+  vars:
+    nginx_version: &quot;1.21&quot;
+    ssl_enabled: true
+
+- name: Configure database servers
+  hosts: databases
+  become: yes
+  roles:
+    - database
+  vars:
+    mysql_version: &quot;8.0&quot;
+    backup_enabled: true
+```
+
+```yaml
+# roles/common/tasks/main.yml
+---
+- name: Update package cache
+  apt:
+    update_cache: yes
+    cache_valid_time: 3600
+  when: ansible_os_family == &quot;Debian&quot;
+
+- name: Install essential packages
+  package:
+    name: &quot;{{ item }}&quot;
+    state: present
+  loop:
+    - curl
+    - wget
+    - git
+    - unzip
+    - htop
+    - vim
+
+- name: Configure timezone
+  timezone:
+    name: &quot;{{ system_timezone | default(&#x27;UTC&#x27;) }}&quot;
+
+- name: Create application user
+  user:
+    name: &quot;{{ app_user }}&quot;
+    shell: /bin/bash
+    home: &quot;/home/{{ app_user }}&quot;
+    create_home: yes
+    groups: sudo
+    append: yes
+
+- name: Configure SSH
+  template:
+    src: sshd_config.j2
+    dest: /etc/ssh/sshd_config
+    backup: yes
+  notify: restart ssh
+
+- name: Configure firewall
+  ufw:
+    rule: &quot;{{ item.rule }}&quot;
+    port: &quot;{{ item.port }}&quot;
+    proto: &quot;{{ item.proto | default(&#x27;tcp&#x27;) }}&quot;
+  loop: &quot;{{ firewall_rules }}&quot;
+  notify: reload firewall
+```
+
+### Cloud-Init Configuration
+
+#### Cloud-Init Template
+```yaml
+# cloud-init/user-data.yaml
+#cloud-config
+package_update: true
+package_upgrade: true
+
+packages:
+  - docker.io
+  - docker-compose
+  - awscli
+  - jq
+  - curl
+  - wget
+
+users:
+  - name: deploy
+    sudo: ALL=(ALL) NOPASSWD:ALL
+    shell: /bin/bash
+    ssh_authorized_keys:
+      - ${ssh_public_key}
+
+write_files:
+  - path: /etc/docker/daemon.json
+    content: |
+      {
+        &quot;log-driver&quot;: &quot;json-file&quot;,
+        &quot;log-opts&quot;: {
+          &quot;max-size&quot;: &quot;10m&quot;,
+          &quot;max-file&quot;: &quot;3&quot;
+        },
+        &quot;storage-driver&quot;: &quot;overlay2&quot;
+      }
+    permissions: &#x27;0644&#x27;
+
+  - path: /opt/app/docker-compose.yml
+    content: |
+      version: &#x27;3.8&#x27;
+      services:
+        app:
+          image: ${app_image}
+          ports:
+            - &quot;80:8080&quot;
+          environment:
+            - ENV=${environment}
+            - LOG_LEVEL=info
+          restart: unless-stopped
+    permissions: &#x27;0644&#x27;
+
+runcmd:
+  - systemctl enable docker
+  - systemctl start docker
+  - usermod -aG docker deploy
+  - cd /opt/app &amp;&amp; docker-compose up -d
+  - systemctl enable amazon-cloudwatch-agent
+  - systemctl start amazon-cloudwatch-agent
+
+final_message: &quot;System setup completed successfully&quot;
+```
+
+---
+
+## CI/CD Integration
+
+### GitOps Workflow
+
+#### GitOps Repository Structure
+```
+gitops-repo/
+├── environments/
+│   ├── dev/
+│   │   ├── infrastructure/
+│   │   │   ├── terraform/
+│   │   │   └── kustomization.yaml
+│   │   └── applications/
+│   │       ├── app1/
+│   │       └── app2/
+│   ├── staging/
+│   │   ├── infrastructure/
+│   │   └── applications/
+│   └── production/
+│       ├── infrastructure/
+│       └── applications/
+├── shared/
+│   ├── terraform-modules/
+│   ├── helm-charts/
+│   └── policies/
+└── docs/
+    ├── runbooks/
+    └── architecture/
+```
+
+#### ArgoCD Application Configuration
+```yaml
+# argocd/applications/infrastructure.yaml
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: infrastructure-dev
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/company/gitops-repo
+    targetRevision: HEAD
+    path: environments/dev/infrastructure
+    kustomize:
+      images:
+        - nginx=nginx:1.21
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: infrastructure
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+      allowEmpty: false
+    syncOptions:
+      - CreateNamespace=true
+    retry:
+      limit: 5
+      backoff:
+        duration: 5s
+        factor: 2
+        maxDuration: 3m
+```
+
+### Infrastructure CI/CD Pipeline
+
+#### GitHub Actions Workflow
+```yaml
+# .github/workflows/infrastructure.yml
+name: Infrastructure CI/CD
+
+on:
+  push:
+    branches: [main]
+    paths: 
+      - &#x27;terraform/**&#x27;
+      - &#x27;k8s/**&#x27;
+  pull_request:
+    branches: [main]
+    paths:
+      - &#x27;terraform/**&#x27;
+      - &#x27;k8s/**&#x27;
+
+env:
+  TF_VERSION: &#x27;1.6.0&#x27;
+  AWS_REGION: &#x27;us-west-2&#x27;
+
+jobs:
+  terraform-validate:
+    name: Terraform Validate
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: ${{ env.TF_VERSION }}
+
+      - name: Terraform Format Check
+        run: terraform fmt -check -recursive
+        working-directory: terraform/
+
+      - name: Terraform Validate
+        run: |
+          cd terraform/environments/dev
+          terraform init -backend=false
+          terraform validate
+
+  terraform-plan:
+    name: Terraform Plan
+    runs-on: ubuntu-latest
+    needs: terraform-validate
+    if: github.event_name == &#x27;pull_request&#x27;
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ env.AWS_REGION }}
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: ${{ env.TF_VERSION }}
+
+      - name: Terraform Plan
+        run: |
+          cd terraform/environments/dev
+          terraform init
+          terraform plan -out=tfplan
+        env:
+          TF_VAR_environment: dev
+
+      - name: Comment PR
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const output = `#### Terraform Plan 📖
+            
+            &lt;details&gt;&lt;summary&gt;Show Plan&lt;/summary&gt;
+            
+            \`\`\`terraform
+            ${process.env.PLAN}
+            \`\`\`
+            
+            &lt;/details&gt;
+            
+            *Pushed by: @${{ github.actor }}, Action: \`${{ github.event_name }}\`*`;
+            
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: output
+            })
+
+  terraform-apply:
+    name: Terraform Apply
+    runs-on: ubuntu-latest
+    needs: terraform-validate
+    if: github.ref == &#x27;refs/heads/main&#x27; &amp;&amp; github.event_name == &#x27;push&#x27;
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ env.AWS_REGION }}
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: ${{ env.TF_VERSION }}
+
+      - name: Terraform Apply
+        run: |
+          cd terraform/environments/dev
+          terraform init
+          terraform apply -auto-approve
+        env:
+          TF_VAR_environment: dev
+
+  kubernetes-validate:
+    name: Kubernetes Validate
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Kustomize
+        uses: imranismail/setup-kustomize@v1
+
+      - name: Validate Kubernetes Manifests
+        run: |
+          find k8s/ -name &quot;kustomization.yaml&quot; -exec dirname {} \; | while read dir; do
+            echo &quot;Validating $dir&quot;
+            kustomize build &quot;$dir&quot; | kubeval
+          done
+
+      - name: Security Scan
+        uses: azure/k8s-lint@v1
+        with:
+          manifests: |
+            k8s/base/*.yaml
+            k8s/overlays/*/
+
+  deploy-kubernetes:
+    name: Deploy Kubernetes
+    runs-on: ubuntu-latest
+    needs: [kubernetes-validate, terraform-apply]
+    if: github.ref == &#x27;refs/heads/main&#x27; &amp;&amp; github.event_name == &#x27;push&#x27;
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ env.AWS_REGION }}
+
+      - name: Update kubeconfig
+        run: |
+          aws eks update-kubeconfig --region ${{ env.AWS_REGION }} --name dev-eks-cluster
+
+      - name: Deploy with Kustomize
+        run: |
+          kubectl apply -k k8s/overlays/dev/
+
+      - name: Verify Deployment
+        run: |
+          kubectl rollout status deployment/app -n dev
+          kubectl get pods -n dev
+```
+
+---
+
+## Security and Compliance
+
+### Infrastructure Security
+
+#### Security Best Practices
+```yaml
+# Security Configuration Framework
+security_framework:
+  network_security:
+    - vpc_isolation: &quot;Isolated VPCs per environment&quot;
+    - private_subnets: &quot;Database and compute in private subnets&quot;
+    - security_groups: &quot;Least privilege network rules&quot;
+    - nacls: &quot;Additional network-level protection&quot;
+    
+  identity_and_access:
+    - iam_roles: &quot;Service-specific IAM roles&quot;
+    - least_privilege: &quot;Minimal required permissions&quot;
+    - mfa_enforcement: &quot;Multi-factor authentication required&quot;
+    - service_accounts: &quot;Kubernetes service accounts with IRSA&quot;
+    
+  data_protection:
+    - encryption_at_rest: &quot;All data encrypted at rest&quot;
+    - encryption_in_transit: &quot;TLS/SSL for all communications&quot;
+    - key_management: &quot;AWS KMS or similar key management&quot;
+    - backup_encryption: &quot;Encrypted backups with retention&quot;
+    
+  monitoring_and_auditing:
+    - cloudtrail: &quot;All API calls logged&quot;
+    - vpc_flow_logs: &quot;Network traffic monitoring&quot;
+    - security_monitoring: &quot;Real-time security alerts&quot;
+    - compliance_scanning: &quot;Automated compliance checks&quot;
+```
+
+#### Policy as Code
+```hcl
+# modules/security/iam-policies.tf
+# IAM Policy for EKS Node Groups
+data &quot;aws_iam_policy_document&quot; &quot;node_group_assume_role&quot; {
+  statement {
+    effect = &quot;Allow&quot;
+    
+    principals {
+      type        = &quot;Service&quot;
+      identifiers = [&quot;ec2.amazonaws.com&quot;]
+    }
+    
+    actions = [&quot;sts:AssumeRole&quot;]
+  }
+}
+
+resource &quot;aws_iam_role&quot; &quot;node_group&quot; {
+  name               = &quot;${var.environment}-eks-node-group-role&quot;
+  assume_role_policy = data.aws_iam_policy_document.node_group_assume_role.json
+  
+  tags = merge(var.common_tags, {
+    Name = &quot;${var.environment}-eks-node-group-role&quot;
+  })
+}
+
+# Custom policy for additional permissions
+data &quot;aws_iam_policy_document&quot; &quot;node_group_additional&quot; {
+  statement {
+    effect = &quot;Allow&quot;
+    
+    actions = [
+      &quot;s3:GetObject&quot;,
+      &quot;s3:ListBucket&quot;
+    ]
+    
+    resources = [
+      &quot;arn:aws:s3:::${var.environment}-app-artifacts&quot;,
+      &quot;arn:aws:s3:::${var.environment}-app-artifacts/*&quot;
+    ]
+  }
+  
+  statement {
+    effect = &quot;Allow&quot;
+    
+    actions = [
+      &quot;secretsmanager:GetSecretValue&quot;
+    ]
+    
+    resources = [
+      &quot;arn:aws:secretsmanager:${var.aws_region}:${data.aws_caller_identity.current.account_id}:secret:${var.environment}/*&quot;
+    ]
+  }
+}
+
+resource &quot;aws_iam_policy&quot; &quot;node_group_additional&quot; {
+  name        = &quot;${var.environment}-eks-node-group-additional&quot;
+  description = &quot;Additional permissions for EKS node group&quot;
+  policy      = data.aws_iam_policy_document.node_group_additional.json
+}
+```
+
+#### OPA/Gatekeeper Policies
+```yaml
+# k8s/policies/required-labels.yaml
+apiVersion: templates.gatekeeper.sh/v1beta1
+kind: ConstraintTemplate
+metadata:
+  name: k8srequiredlabels
+spec:
+  crd:
+    spec:
+      names:
+        kind: K8sRequiredLabels
+      validation:
+        openAPIV3Schema:
+          type: object
+          properties:
+            labels:
+              type: array
+              items:
+                type: string
+  targets:
+    - target: admission.k8s.gatekeeper.sh
+      rego: |
+        package k8srequiredlabels
+        
+        violation[{&quot;msg&quot;: msg}] {
+          required := input.parameters.labels
+          provided := input.review.object.metadata.labels
+          missing := required[_]
+          not provided[missing]
+          msg := sprintf(&quot;Missing required label: %v&quot;, [missing])
+        }
+
+---
+apiVersion: constraints.gatekeeper.sh/v1beta1
+kind: K8sRequiredLabels
+metadata:
+  name: must-have-environment
+spec:
+  match:
+    kinds:
+      - apiGroups: [&quot;apps&quot;]
+        kinds: [&quot;Deployment&quot;]
+      - apiGroups: [&quot;&quot;]
+        kinds: [&quot;Service&quot;]
+  parameters:
+    labels: [&quot;environment&quot;, &quot;app&quot;, &quot;version&quot;]
+```
+
+---
+
+## Cost Optimization
+
+### Resource Tagging Strategy
+
+#### Comprehensive Tagging Framework
+```yaml
+# Tagging Strategy
+tagging_strategy:
+  mandatory_tags:
+    - Environment: &quot;dev|staging|production&quot;
+    - Project: &quot;project-name&quot;
+    - Owner: &quot;team-email&quot;
+    - CostCenter: &quot;cost-center-code&quot;
+    - ManagedBy: &quot;terraform|manual&quot;
+    
+  optional_tags:
+    - Application: &quot;application-name&quot;
+    - Version: &quot;application-version&quot;
+    - BackupSchedule: &quot;daily|weekly|none&quot;
+    - Compliance: &quot;pci|hipaa|sox|none&quot;
+    - MonitoringLevel: &quot;basic|standard|enhanced&quot;
+    
+  automation_tags:
+    - CreatedBy: &quot;automation-tool&quot;
+    - CreatedDate: &quot;yyyy-mm-dd&quot;
+    - LastModified: &quot;yyyy-mm-dd&quot;
+    - ScheduledShutdown: &quot;enabled|disabled&quot;
+```
+
+#### Cost Allocation Tags
+```hcl
+# modules/cost-optimization/main.tf
+locals {
+  cost_allocation_tags = {
+    # Business tags
+    BusinessUnit    = var.business_unit
+    CostCenter     = var.cost_center
+    Project        = var.project_name
+    Owner          = var.team_email
+    
+    # Technical tags
+    Environment    = var.environment
+    Application    = var.application_name
+    Component      = var.component_name
+    ManagedBy      = &quot;terraform&quot;
+    
+    # Operational tags
+    BackupRequired = var.backup_required ? &quot;yes&quot; : &quot;no&quot;
+    Monitoring     = var.monitoring_level
+    Schedule       = var.shutdown_schedule
+    
+    # Compliance tags
+    DataClass      = var.data_classification
+    Compliance     = join(&quot;,&quot;, var.compliance_requirements)
+  }
+}
+
+# Default tags for all resources
+resource &quot;aws_default_tags&quot; &quot;default&quot; {
+  tags = local.cost_allocation_tags
+}
+```
+
+### Auto-Scaling Configuration
+
+#### EC2 Auto Scaling
+```hcl
+# modules/autoscaling/main.tf
+resource &quot;aws_autoscaling_group&quot; &quot;main&quot; {
+  name                = &quot;${var.environment}-${var.application_name}-asg&quot;
+  vpc_zone_identifier = var.private_subnet_ids
+  target_group_arns   = var.target_group_arns
+  health_check_type   = &quot;ELB&quot;
+  health_check_grace_period = 300
+
+  min_size         = var.min_size
+  max_size         = var.max_size
+  desired_capacity = var.desired_capacity
+
+  launch_template {
+    id      = aws_launch_template.main.id
+    version = &quot;$Latest&quot;
+  }
+
+  # Scaling policies
+  enabled_metrics = [
+    &quot;GroupMinSize&quot;,
+    &quot;GroupMaxSize&quot;,
+    &quot;GroupDesiredCapacity&quot;,
+    &quot;GroupInServiceInstances&quot;,
+    &quot;GroupTotalInstances&quot;
+  ]
+
+  tag {
+    key                 = &quot;Name&quot;
+    value               = &quot;${var.environment}-${var.application_name}-instance&quot;
+    propagate_at_launch = true
+  }
+
+  dynamic &quot;tag&quot; {
+    for_each = var.additional_tags
+    content {
+      key                 = tag.key
+      value               = tag.value
+      propagate_at_launch = true
+    }
+  }
+
+  lifecycle {
+    create_before_destroy = true
+  }
+}
+
+# CloudWatch-based scaling policies
+resource &quot;aws_autoscaling_policy&quot; &quot;scale_up&quot; {
+  name                   = &quot;${var.environment}-${var.application_name}-scale-up&quot;
+  scaling_adjustment     = 2
+  adjustment_type        = &quot;ChangeInCapacity&quot;
+  cooldown               = 300
+  autoscaling_group_name = aws_autoscaling_group.main.name
+}
+
+resource &quot;aws_autoscaling_policy&quot; &quot;scale_down&quot; {
+  name                   = &quot;${var.environment}-${var.application_name}-scale-down&quot;
+  scaling_adjustment     = -1
+  adjustment_type        = &quot;ChangeInCapacity&quot;
+  cooldown               = 300
+  autoscaling_group_name = aws_autoscaling_group.main.name
+}
+
+# CloudWatch alarms
+resource &quot;aws_cloudwatch_metric_alarm&quot; &quot;cpu_high&quot; {
+  alarm_name          = &quot;${var.environment}-${var.application_name}-cpu-high&quot;
+  comparison_operator = &quot;GreaterThanThreshold&quot;
+  evaluation_periods  = &quot;2&quot;
+  metric_name         = &quot;CPUUtilization&quot;
+  namespace           = &quot;AWS/EC2&quot;
+  period              = &quot;300&quot;
+  statistic           = &quot;Average&quot;
+  threshold           = &quot;80&quot;
+  alarm_description   = &quot;This metric monitors ec2 cpu utilization&quot;
+  alarm_actions       = [aws_autoscaling_policy.scale_up.arn]
+
+  dimensions = {
+    AutoScalingGroupName = aws_autoscaling_group.main.name
+  }
+}
+```
+
+#### Kubernetes HPA and VPA
+```yaml
+# k8s/base/hpa.yaml
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: app-hpa
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: app
+  minReplicas: 2
+  maxReplicas: 20
+  metrics:
+  - type: Resource
+    resource:
+      name: cpu
+      target:
+        type: Utilization
+        averageUtilization: 70
+  - type: Resource
+    resource:
+      name: memory
+      target:
+        type: Utilization
+        averageUtilization: 80
+  behavior:
+    scaleDown:
+      stabilizationWindowSeconds: 300
+      policies:
+      - type: Percent
+        value: 10
+        periodSeconds: 60
+    scaleUp:
+      stabilizationWindowSeconds: 60
+      policies:
+      - type: Percent
+        value: 100
+        periodSeconds: 15
+      - type: Pods
+        value: 4
+        periodSeconds: 60
+      selectPolicy: Max
+
+---
+apiVersion: autoscaling.k8s.io/v1
+kind: VerticalPodAutoscaler
+metadata:
+  name: app-vpa
+spec:
+  targetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: app
+  updatePolicy:
+    updateMode: &quot;Auto&quot;
+  resourcePolicy:
+    containerPolicies:
+    - containerName: app
+      maxAllowed:
+        cpu: 2
+        memory: 4Gi
+      minAllowed:
+        cpu: 100m
+        memory: 128Mi
+      controlledResources: [&quot;cpu&quot;, &quot;memory&quot;]
+```
+
+---
+
+## Disaster Recovery and Backup
+
+### Backup Strategy
+
+#### Automated Backup Configuration
+```hcl
+# modules/backup/main.tf
+resource &quot;aws_backup_vault&quot; &quot;main&quot; {
+  name        = &quot;${var.environment}-backup-vault&quot;
+  kms_key_arn = aws_kms_key.backup.arn
+
+  tags = merge(var.common_tags, {
+    Name = &quot;${var.environment}-backup-vault&quot;
+  })
+}
+
+resource &quot;aws_backup_plan&quot; &quot;main&quot; {
+  name = &quot;${var.environment}-backup-plan&quot;
+
+  rule {
+    rule_name         = &quot;daily_backup&quot;
+    target_vault_name = aws_backup_vault.main.name
+    schedule          = &quot;cron(0 5 ? * * *)&quot;
+
+    lifecycle {
+      cold_storage_after = 30
+      delete_after       = 365
+    }
+
+    recovery_point_tags = merge(var.common_tags, {
+      BackupType = &quot;daily&quot;
+    })
+  }
+
+  rule {
+    rule_name         = &quot;weekly_backup&quot;
+    target_vault_name = aws_backup_vault.main.name
+    schedule          = &quot;cron(0 5 ? * SUN *)&quot;
+
+    lifecycle {
+      cold_storage_after = 7
+      delete_after       = 2555  # 7 years
+    }
+
+    recovery_point_tags = merge(var.common_tags, {
+      BackupType = &quot;weekly&quot;
+    })
+  }
+
+  tags = merge(var.common_tags, {
+    Name = &quot;${var.environment}-backup-plan&quot;
+  })
+}
+
+# Backup selection
+resource &quot;aws_backup_selection&quot; &quot;main&quot; {
+  iam_role_arn = aws_iam_role.backup.arn
+  name         = &quot;${var.environment}-backup-selection&quot;
+  plan_id      = aws_backup_plan.main.id
+
+  resources = var.backup_resources
+
+  condition {
+    string_equals {
+      key   = &quot;aws:ResourceTag/BackupRequired&quot;
+      value = &quot;yes&quot;
+    }
+  }
+}
+```
+
+#### Database Backup Strategy
+```yaml
+# Database Backup Configuration
+database_backup:
+  rds_automated_backup:
+    backup_retention_period: 30
+    backup_window: &quot;03:00-04:00&quot;
+    maintenance_window: &quot;sun:04:00-sun:05:00&quot;
+    skip_final_snapshot: false
+    final_snapshot_identifier: &quot;${var.environment}-final-snapshot&quot;
+    
+  manual_snapshots:
+    frequency: &quot;weekly&quot;
+    retention: &quot;1 year&quot;
+    cross_region_copy: true
+    destination_region: &quot;us-east-1&quot;
+    
+  point_in_time_recovery:
+    enabled: true
+    retention_period: 7
+```
+
+### Multi-Region Strategy
+
+#### Cross-Region Infrastructure
+```hcl
+# multi-region/main.tf
+# Primary region configuration
+module &quot;primary_infrastructure&quot; {
+  source = &quot;../modules/infrastructure&quot;
+  
+  providers = {
+    aws = aws.primary
+  }
+  
+  environment = var.environment
+  region_role = &quot;primary&quot;
+  
+  # Primary-specific configuration
+  enable_cross_region_backup = true
+  backup_destination_region  = var.secondary_region
+}
+
+# Secondary region configuration
+module &quot;secondary_infrastructure&quot; {
+  source = &quot;../modules/infrastructure&quot;
+  
+  providers = {
+    aws = aws.secondary
+  }
+  
+  environment = var.environment
+  region_role = &quot;secondary&quot;
+  
+  # Secondary-specific configuration
+  enable_read_replicas = true
+  primary_region       = var.primary_region
+}
+
+# Cross-region resources
+resource &quot;aws_s3_bucket_replication_configuration&quot; &quot;main&quot; {
+  provider = aws.primary
+  
+  role   = aws_iam_role.replication.arn
+  bucket = module.primary_infrastructure.s3_bucket_id
+
+  rule {
+    id     = &quot;replicate_to_secondary&quot;
+    status = &quot;Enabled&quot;
+
+    destination {
+      bucket        = module.secondary_infrastructure.s3_bucket_arn
+      storage_class = &quot;STANDARD_IA&quot;
+    }
+  }
+
+  depends_on = [aws_s3_bucket_versioning.main]
+}
+```
+
+---
+
+## Monitoring and Observability
+
+### Infrastructure Monitoring
+
+#### Prometheus Configuration for Infrastructure
+```yaml
+# monitoring/prometheus/infrastructure-rules.yaml
+groups:
+- name: infrastructure.rules
+  rules:
+  - alert: HighCPUUsage
+    expr: 100 - (avg by(instance) (irate(node_cpu_seconds_total{mode=&quot;idle&quot;}[5m])) * 100) &gt; 80
+    for: 5m
+    labels:
+      severity: warning
+    annotations:
+      summary: &quot;High CPU usage detected&quot;
+      description: &quot;CPU usage is above 80% on {{ $labels.instance }}&quot;
+
+  - alert: HighMemoryUsage
+    expr: (1 - (node_memory_MemAvailable_bytes / node_memory_MemTotal_bytes)) * 100 &gt; 90
+    for: 5m
+    labels:
+      severity: critical
+    annotations:
+      summary: &quot;High memory usage detected&quot;
+      description: &quot;Memory usage is above 90% on {{ $labels.instance }}&quot;
+
+  - alert: DiskSpaceRunningLow
+    expr: (1 - (node_filesystem_avail_bytes / node_filesystem_size_bytes)) * 100 &gt; 85
+    for: 5m
+    labels:
+      severity: warning
+    annotations:
+      summary: &quot;Disk space running low&quot;
+      description: &quot;Disk usage is above 85% on {{ $labels.instance }} mount {{ $labels.mountpoint }}&quot;
+
+  - alert: KubernetesNodeNotReady
+    expr: kube_node_status_condition{condition=&quot;Ready&quot;,status=&quot;true&quot;} == 0
+    for: 5m
+    labels:
+      severity: critical
+    annotations:
+      summary: &quot;Kubernetes node not ready&quot;
+      description: &quot;Node {{ $labels.node }} is not ready&quot;
+```
+
+#### Infrastructure Dashboards
+```json
+{
+  &quot;dashboard&quot;: {
+    &quot;title&quot;: &quot;Infrastructure Overview&quot;,
+    &quot;panels&quot;: [
+      {
+        &quot;title&quot;: &quot;CPU Usage&quot;,
+        &quot;type&quot;: &quot;graph&quot;,
+        &quot;targets&quot;: [
+          {
+            &quot;expr&quot;: &quot;100 - (avg by(instance) (irate(node_cpu_seconds_total{mode=\&quot;idle\&quot;}[5m])) * 100)&quot;
+          }
+        ]
+      },
+      {
+        &quot;title&quot;: &quot;Memory Usage&quot;,
+        &quot;type&quot;: &quot;graph&quot;,
+        &quot;targets&quot;: [
+          {
+            &quot;expr&quot;: &quot;(1 - (node_memory_MemAvailable_bytes / node_memory_MemTotal_bytes)) * 100&quot;
+          }
+        ]
+      },
+      {
+        &quot;title&quot;: &quot;Disk Usage&quot;,
+        &quot;type&quot;: &quot;graph&quot;,
+        &quot;targets&quot;: [
+          {
+            &quot;expr&quot;: &quot;(1 - (node_filesystem_avail_bytes / node_filesystem_size_bytes)) * 100&quot;
+          }
+        ]
+      }
+    ]
+  }
+}
+```
+
+---
+
+## When to Use
+
+Use at project initiation to establish scope, schedule, resources, and key milestones. This template is essential for complex projects with multiple workstreams, external dependencies, or strict compliance requirements where detailed planning drives success.
+
+## When NOT to Use
+
+Do not use for small, self-contained tasks or fully agile teams that manage planning through iterative ceremonies instead of upfront documentation. Avoid using this as a substitute for continuously updated project dashboards or dynamic scheduling tools.
+
+## Related Templates
+- [CI/CD Pipeline Planning](../../../domains/measurement/methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md)
+- [Release Management Workflow](../../../domains/measurement/methodology-frameworks/emerging-methods/devops/release_management_template.md)
+- [DevOps Monitoring and Alerting](./monitoring_alerting_template.md)
+- [DevSecOps Integration](./devsecops_template.md)
+
+---
+
+## Version History
+| Version | Date | Changes | Author |
+|---------|------|---------|--------|
+| 1.0 | [Date] | Initial Infrastructure as Code template | [Author] |
+
+---
+
+*This template is part of the PM Tools Templates library. For more information and additional templates, visit [repository root](../../../README.md).*
+
+</pre></div></div></div><!--astro:end--></astro-island></main></body></html>

@@ -1,0 +1,319 @@
+<!DOCTYPE html><html lang="en" data-astro-cid-ju4pidww><head><meta charset="UTF-8"><meta name="description" content="Advanced template browser with previews and version history"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="icon" type="image/svg+xml" href="/pm-tools-templates/favicon.svg"><title>Executive Summary Template</title><link rel="stylesheet" href="/pm-tools-templates/assets/Layout.ChXqTIwx.css"></head><body data-astro-cid-ju4pidww><main data-astro-cid-ju4pidww><style>astro-island,astro-slot,astro-static-slot{display:contents}</style><script>(()=>{var e=async t=>{await(await t())()};(self.Astro||(self.Astro={})).load=e;window.dispatchEvent(new Event("astro:load"));})();</script><script>(()=>{var g=Object.defineProperty;var w=(a,s,c)=>s in a?g(a,s,{enumerable:!0,configurable:!0,writable:!0,value:c}):a[s]=c;var l=(a,s,c)=>w(a,typeof s!="symbol"?s+"":s,c);var E=new Set(["__proto__","constructor","prototype"]);{let a={0:t=>y(t),1:t=>c(t),2:t=>new RegExp(t),3:t=>new Date(t),4:t=>new Map(c(t)),5:t=>new Set(c(t)),6:t=>BigInt(t),7:t=>new URL(t),8:t=>new Uint8Array(t),9:t=>new Uint16Array(t),10:t=>new Uint32Array(t),11:t=>Number.POSITIVE_INFINITY*t},s=t=>{let[p,e]=t;return p in a?a[p](e):void 0},c=t=>t.map(s),y=t=>typeof t!="object"||t===null?t:Object.fromEntries(Object.entries(t).map(([p,e])=>[p,s(e)]));class f extends HTMLElement{constructor(){super(...arguments);l(this,"Component");l(this,"hydrator");l(this,"hydrate",async()=>{var b;if(!this.hydrator||!this.isConnected)return;let e=(b=this.parentElement)==null?void 0:b.closest("astro-island[ssr]");if(e){e.addEventListener("astro:hydrate",this.hydrate,{once:!0});return}let r=this.querySelectorAll("astro-slot"),n={},d=this.querySelectorAll("template[data-astro-template]");for(let o of d){let i=o.closest(this.tagName);i!=null&&i.isSameNode(this)&&(n[o.getAttribute("data-astro-template")||"default"]=o.innerHTML,o.remove())}for(let o of r){let i=o.closest(this.tagName);i!=null&&i.isSameNode(this)&&(n[o.getAttribute("name")||"default"]=o.innerHTML)}let u;try{u=this.hasAttribute("props")?y(JSON.parse(this.getAttribute("props"))):{}}catch(o){let i=this.getAttribute("component-url")||"<unknown>",v=this.getAttribute("component-export");throw v&&(i+=` (export ${v})`),console.error(`[hydrate] Error parsing props for component ${i}`,this.getAttribute("props"),o),o}let h;await this.hydrator(this)(this.Component,u,n,{client:this.getAttribute("client")}),this.removeAttribute("ssr"),this.dispatchEvent(new CustomEvent("astro:hydrate"))});l(this,"unmount",()=>{this.isConnected||this.dispatchEvent(new CustomEvent("astro:unmount"))})}disconnectedCallback(){document.removeEventListener("astro:after-swap",this.unmount),document.addEventListener("astro:after-swap",this.unmount,{once:!0})}connectedCallback(){if(!this.hasAttribute("await-children")||document.readyState==="interactive"||document.readyState==="complete")this.childrenConnectedCallback();else{let e=()=>{document.removeEventListener("DOMContentLoaded",e),r.disconnect(),this.childrenConnectedCallback()},r=new MutationObserver(()=>{var n;((n=this.lastChild)==null?void 0:n.nodeType)===Node.COMMENT_NODE&&this.lastChild.nodeValue==="astro:end"&&(this.lastChild.remove(),e())});r.observe(this,{childList:!0}),document.addEventListener("DOMContentLoaded",e)}}async childrenConnectedCallback(){let e=this.getAttribute("before-hydration-url");e&&await import(e),this.start()}getRetryImportUrl(e){let r=new URL(e,document.baseURI);return r.searchParams.set("astro-retry",Date.now().toString()),r.toString()}async importWithRetry(e){try{return await import(e)}catch(r){return await new Promise(n=>setTimeout(n,1e3)),import(this.getRetryImportUrl(e))}}handleHydrationError(e){let r=this.getAttribute("component-url"),n=new CustomEvent("astro:hydration-error",{cancelable:!0,bubbles:!0,composed:!0,detail:{error:e,componentUrl:r}});this.dispatchEvent(n)&&console.error(`[astro-island] Error hydrating ${r}`,e)}async start(){let e=JSON.parse(this.getAttribute("opts")),r=this.getAttribute("client");if(Astro[r]===void 0){window.addEventListener(`astro:${r}`,()=>this.start(),{once:!0});return}try{await Astro[r](async()=>{let n=this.getAttribute("renderer-url");try{let[d,{default:u}]=await Promise.all([this.importWithRetry(this.getAttribute("component-url")),n?this.importWithRetry(n):Promise.resolve({default:()=>()=>{}})]),h=this.getAttribute("component-export")||"default";if(h.includes(".")){this.Component=d;for(let m of h.split(".")){if(E.has(m)||!this.Component||typeof this.Component!="object"&&typeof this.Component!="function"||!Object.hasOwn(this.Component,m))throw new Error(`Invalid component export path: ${h}`);this.Component=this.Component[m]}}else{if(E.has(h))throw new Error(`Invalid component export path: ${h}`);this.Component=d[h]}return this.hydrator=u,this.hydrate}catch(d){return this.handleHydrationError(d),()=>{}}},e,this)}catch(n){this.handleHydrationError(n)}}attributeChangedCallback(){this.hydrate()}}l(f,"observedAttributes",["props"]),customElements.get("astro-island")||customElements.define("astro-island",f)}})();</script><astro-island uid="Z1pHr07" prefix="r1" component-url="/pm-tools-templates/assets/TemplateViewer.BJxWH0dD.js" component-export="default" renderer-url="/pm-tools-templates/assets/client.REQV_TkY.js" props="{&quot;templateId&quot;:[0,&quot;executive-summary-template&quot;],&quot;filePath&quot;:[0,&quot;domains/measurement/project-assessment-suite/executive-summary-template.md&quot;],&quot;title&quot;:[0,&quot;Executive Summary Template&quot;],&quot;content&quot;:[0,&quot;---\ntitle: Executive Summary Template\nmethodology: traditional\ncomplexity: intermediate\nprocess_group: executing\nindustry: universal\nrole: stakeholder\ntags:\n- traditional\n- executing\n- risk-management\n- stakeholder-management\n- communication\n- planning\n- quality\nversion: 1.0.0\nowner: mirichard\nupdated: &#39;2025-08-06&#39;\nestimated_completion_time: 30-45 minutes\nprimary_principles:\n- evidence-based-decisions\n- value-focus\nsecondary_principles:\n- stewardship\n- systems-thinking\nprinciple_rationale: Distills assessment evidence into actionable insights for accountable\n  leadership.\n---\n\ntitle: \&quot;Executive Summary Template\&quot;\nmethodology: \&quot;universal\&quot;\ncomplexity: \&quot;advanced\&quot;\nowner: \&quot;mirichard\&quot;\nupdated: \&quot;2025-08-05\&quot;\n\n# Executive Summary Template\n\n## Project Assessment Executive Summary\n\n### Project Overview\n| Field | Details |\n|-------|---------|\n| **Project Name** | |\n| **Assessment Date** | |\n| **Assessment Period** | |\n| **Assessment Team** | |\n| **Project Manager** | |\n| **Executive Sponsor** | |\n| **Project Phase** | ☐ Initiation ☐ Planning ☐ Execution ☐ Monitoring ☐ Closing |\n| **Project Methodology** | ☐ Agile ☐ Waterfall ☐ Hybrid ☐ Other: |\n\n## Assessment Results at a Glance\n\n### Overall Project Health Score: **___/100**\n\n### Health Status: \n☐ **🟢 Green (80-100)** - Project is healthy and on track  \n☐ **🟡 Yellow (60-79)** - Project has manageable issues requiring attention  \n☐ **🔴 Red (40-59)** - Project has significant issues requiring immediate action  \n☐ **🔥 Critical (&lt;40)** - Project is in crisis and requires intervention  \n\n### Assessment Confidence Level: ☐ High ☐ Medium ☐ Low\n\n## Key Performance Indicators\n\n| Metric | Current | Target | Status | Trend |\n|--------|---------|--------|--------|-------|\n| **Schedule Performance (SPI)** | | 1.0+ | ☐ 🟢 ☐ 🟡 ☐ 🔴 | ☐ ↑ ☐ → ☐ ↓ |\n| **Cost Performance (CPI)** | | 1.0+ | ☐ 🟢 ☐ 🟡 ☐ 🔴 | ☐ ↑ ☐ → ☐ ↓ |\n| **Quality Score** | ___% | ___% | ☐ 🟢 ☐ 🟡 ☐ 🔴 | ☐ ↑ ☐ → ☐ ↓ |\n| **Stakeholder Satisfaction** | ___% | ___% | ☐ 🟢 ☐ 🟡 ☐ 🔴 | ☐ ↑ ☐ → ☐ ↓ |\n| **Risk Exposure** | $______ | &lt;$______ | ☐ 🟢 ☐ 🟡 ☐ 🔴 | ☐ ↑ ☐ → ☐ ↓ |\n\n## Critical Findings\n\n### 🎯 Top Strengths (Leverage and Maintain)\n1. **[Strength Area]**: Brief description of what&#39;s working well and why it&#39;s important\n2. **[Strength Area]**: Brief description of what&#39;s working well and why it&#39;s important  \n3. **[Strength Area]**: Brief description of what&#39;s working well and why it&#39;s important\n\n### ⚠️ Critical Issues (Immediate Attention Required)\n1. **[Issue Area]**: Brief description of the issue and immediate impact\n   - **Impact**: High/Medium/Low business impact\n   - **Urgency**: Immediate/Short-term/Medium-term action needed\n   - **Root Cause**: Primary underlying cause\n\n2. **[Issue Area]**: Brief description of the issue and immediate impact\n   - **Impact**: High/Medium/Low business impact\n   - **Urgency**: Immediate/Short-term/Medium-term action needed\n   - **Root Cause**: Primary underlying cause\n\n3. **[Issue Area]**: Brief description of the issue and immediate impact\n   - **Impact**: High/Medium/Low business impact\n   - **Urgency**: Immediate/Short-term/Medium-term action needed\n   - **Root Cause**: Primary underlying cause\n\n### 🔍 Areas of Concern (Monitor Closely)\n1. **[Concern Area]**: Brief description and potential impact if not addressed\n2. **[Concern Area]**: Brief description and potential impact if not addressed\n3. **[Concern Area]**: Brief description and potential impact if not addressed\n\n## Priority Recommendations\n\n### 🚨 Critical Priority (0-30 days)\n| Action | Owner | Impact | Effort | Expected Outcome |\n|--------|-------|--------|--------|------------------|\n| **[Action Description]** | [Role/Name] | ☐ High ☐ Med ☐ Low | ☐ High ☐ Med ☐ Low | Brief description of expected result |\n| **[Action Description]** | [Role/Name] | ☐ High ☐ Med ☐ Low | ☐ High ☐ Med ☐ Low | Brief description of expected result |\n\n### 🎯 High Priority (1-3 months)\n| Action | Owner | Impact | Effort | Expected Outcome |\n|--------|-------|--------|--------|------------------|\n| **[Action Description]** | [Role/Name] | ☐ High ☐ Med ☐ Low | ☐ High ☐ Med ☐ Low | Brief description of expected result |\n| **[Action Description]** | [Role/Name] | ☐ High ☐ Med ☐ Low | ☐ High ☐ Med ☐ Low | Brief description of expected result |\n\n### 📈 Medium Priority (3-6 months)\n| Action | Owner | Impact | Effort | Expected Outcome |\n|--------|-------|--------|--------|------------------|\n| **[Action Description]** | [Role/Name] | ☐ High ☐ Med ☐ Low | ☐ High ☐ Med ☐ Low | Brief description of expected result |\n\n## Resource Requirements\n\n### Immediate Investment Needed\n| Resource Type | Requirement | Justification | Timeline |\n|---------------|-------------|---------------|----------|\n| **Additional Personnel** | [Specify roles/skills] | Critical gap in [area] | [Timeline] |\n| **Budget Allocation** | $______ | [Purpose and impact] | [Timeline] |\n| **Tools/Technology** | [Specify tools] | [Capability gap] | [Timeline] |\n| **Training/Development** | [Specify training] | [Skill gap] | [Timeline] |\n| **External Support** | [Specify service] | [Expertise gap] | [Timeline] |\n\n### Total Estimated Investment: **$______**\n\n## Risk Assessment\n\n### High-Impact Risks Requiring Immediate Attention\n| Risk | Probability | Impact | Mitigation Status | Owner |\n|------|-------------|--------|------------------|-------|\n| **[Risk Description]** | ☐ High ☐ Med ☐ Low | ☐ High ☐ Med ☐ Low | ☐ Addressed ☐ In Progress ☐ Not Started | [Role/Name] |\n| **[Risk Description]** | ☐ High ☐ Med ☐ Low | ☐ High ☐ Med ☐ Low | ☐ Addressed ☐ In Progress ☐ Not Started | [Role/Name] |\n\n### Risk Exposure Summary\n- **Total Identified Risks**: ___\n- **High Priority Risks**: ___\n- **Risks with No Mitigation**: ___\n- **Overall Risk Level**: ☐ High ☐ Medium ☐ Low\n\n## Success Projections\n\n### With Recommended Actions Implemented\n| Metric | Current | 3-Month Target | 6-Month Target | Expected Improvement |\n|--------|---------|----------------|----------------|---------------------|\n| **Project Health Score** | ___/100 | ___/100 | ___/100 | +___ points |\n| **Schedule Performance** | SPI: ___ | SPI: ___ | SPI: 1.0+ | ___% improvement |\n| **Cost Performance** | CPI: ___ | CPI: ___ | CPI: 1.0+ | ___% improvement |\n| **Quality Score** | ___% | ___% | ___% | +___% |\n| **Stakeholder Satisfaction** | ___% | ___% | ___% | +___% |\n\n### Without Action (Risk Scenario)\n| Potential Impact | Probability | Timeline | Mitigation Required |\n|------------------|-------------|----------|-------------------|\n| **Schedule Delay** | ☐ High ☐ Med ☐ Low | ___ weeks/months | [Brief mitigation] |\n| **Budget Overrun** | ☐ High ☐ Med ☐ Low | $______ | [Brief mitigation] |\n| **Quality Issues** | ☐ High ☐ Med ☐ Low | [Timeline] | [Brief mitigation] |\n| **Stakeholder Dissatisfaction** | ☐ High ☐ Med ☐ Low | [Timeline] | [Brief mitigation] |\n\n## Decision Points\n\n### Immediate Decisions Required\n| Decision | Options | Recommendation | Rationale | Decision Date |\n|----------|---------|----------------|-----------|---------------|\n| **[Decision Topic]** | 1. [Option A]&lt;br&gt;2. [Option B] | [Recommended Option] | [Brief rationale] | [Date] |\n| **[Decision Topic]** | 1. [Option A]&lt;br&gt;2. [Option B] | [Recommended Option] | [Brief rationale] | [Date] |\n\n### Approval Requests\n| Request | Justification | Amount/Resource | Urgency |\n|---------|---------------|-----------------|---------|\n| **Budget Increase** | [Reason] | $______ | ☐ Immediate ☐ This Month ☐ Next Quarter |\n| **Resource Addition** | [Reason] | [Specify] | ☐ Immediate ☐ This Month ☐ Next Quarter |\n| **Scope Change** | [Reason] | [Specify] | ☐ Immediate ☐ This Month ☐ Next Quarter |\n| **Timeline Extension** | [Reason] | [Duration] | ☐ Immediate ☐ This Month ☐ Next Quarter |\n\n## Implementation Roadmap\n\n### Phase 1: Stabilization (0-1 month)\n**Objective**: Address critical issues and stabilize project\n\n**Key Actions**:\n- [ ] [Action 1]\n- [ ] [Action 2]  \n- [ ] [Action 3]\n\n**Success Criteria**: [Specific measurable outcomes]\n\n### Phase 2: Optimization (1-3 months)\n**Objective**: Implement improvements and optimize performance\n\n**Key Actions**:\n- [ ] [Action 1]\n- [ ] [Action 2]\n- [ ] [Action 3]\n\n**Success Criteria**: [Specific measurable outcomes]\n\n### Phase 3: Sustainability (3-6 months)\n**Objective**: Ensure sustainable improvement and best practices\n\n**Key Actions**:\n- [ ] [Action 1]\n- [ ] [Action 2]\n- [ ] [Action 3]\n\n**Success Criteria**: [Specific measurable outcomes]\n\n## Stakeholder Impact\n\n### Impact on Key Stakeholders\n| Stakeholder | Current Satisfaction | Concerns | Required Actions | Expected Outcome |\n|-------------|---------------------|----------|------------------|------------------|\n| **Executive Sponsor** | ☐ High ☐ Med ☐ Low | [Primary concerns] | [Key actions] | [Expected satisfaction] |\n| **Project Team** | ☐ High ☐ Med ☐ Low | [Primary concerns] | [Key actions] | [Expected satisfaction] |\n| **Customers/End Users** | ☐ High ☐ Med ☐ Low | [Primary concerns] | [Key actions] | [Expected satisfaction] |\n| **Business Stakeholders** | ☐ High ☐ Med ☐ Low | [Primary concerns] | [Key actions] | [Expected satisfaction] |\n\n## Communication Plan\n\n### Immediate Communications (Next 1-2 weeks)\n| Audience | Message | Method | Timeline | Owner |\n|----------|---------|--------|----------|-------|\n| **Project Team** | Assessment results and next steps | Team meeting + detailed report | [Date] | [Name] |\n| **Steering Committee** | Key findings and resource requests | Presentation + executive summary | [Date] | [Name] |\n| **Key Stakeholders** | Relevant findings and impacts | Individual briefings | [Date] | [Name] |\n\n### Ongoing Communications\n| Type | Frequency | Audience | Content |\n|------|-----------|----------|---------|\n| **Progress Updates** | Weekly | Project team | Action progress, issues |\n| **Executive Briefings** | Bi-weekly | Leadership | Status, decisions needed |\n| **Stakeholder Updates** | Monthly | All stakeholders | Progress, impacts |\n\n## Success Metrics and Monitoring\n\n### Key Performance Indicators to Track\n| KPI | Baseline | Target | Measurement Frequency | Owner |\n|-----|----------|--------|--------------------|-------|\n| **Project Health Score** | ___/100 | ___/100 | Monthly | [Name] |\n| **Schedule Performance Index** | ___ | 1.0+ | Weekly | [Name] |\n| **Cost Performance Index** | ___ | 1.0+ | Weekly | [Name] |\n| **Quality Metrics** | ___% | ___% | Weekly | [Name] |\n| **Stakeholder Satisfaction** | ___% | ___% | Monthly | [Name] |\n\n### Review Schedule\n- **30-Day Review**: Progress on critical actions\n- **90-Day Review**: Health improvement assessment  \n- **6-Month Review**: Full re-assessment\n\n## Executive Sponsor Actions Required\n\n### Immediate Actions (This Week)\n- [ ] **Approve Resource Requests**: $______ for [purpose]\n- [ ] **Make Key Decisions**: [List critical decisions needed]\n- [ ] **Communicate Support**: [To team/stakeholders]\n- [ ] **Remove Barriers**: [Specific obstacles to address]\n\n### Short-term Actions (This Month)\n- [ ] **Review and Approve Action Plan**: Detailed remediation plan\n- [ ] **Assign Executive Champion**: For critical initiatives\n- [ ] **Escalate Issues**: [To senior leadership/board if needed]\n- [ ] **Monitor Progress**: Regular review meetings\n\n## Assessment Team Recommendations\n\n### Continue Assessment Program\n☐ **Yes** - Regular health assessments recommended  \n☐ **No** - One-time assessment sufficient  \n☐ **Modified** - Focused assessments on specific areas\n\n**Recommended Frequency**: ☐ Monthly ☐ Quarterly ☐ Bi-annually\n\n### Process Improvements for Future\n1. **[Improvement Area]**: [Specific recommendation]\n2. **[Improvement Area]**: [Specific recommendation]\n3. **[Improvement Area]**: [Specific recommendation]\n\n## Appendices Available\n\n- **Appendix A**: Detailed Assessment Report\n- **Appendix B**: Gap Analysis Matrix\n- **Appendix C**: Remediation Action Plan\n- **Appendix D**: Stakeholder Interview Summaries\n- **Appendix E**: Supporting Data and Evidence\n- **Appendix F**: Risk Register and Mitigation Plans\n\n## When to Use\n\nUse throughout the project lifecycle to identify, assess, and track risks. This template is essential for projects with significant complexity, multiple stakeholders, or high business impact, where structured risk management provides decision-making value.\n\n## When NOT to Use\n\nDo not use for very low-risk, short-duration tasks where informal risk awareness is sufficient. Avoid this template if your governance framework requires a different risk management approach or if stakeholders prefer real-time risk dashboards over static registers.\n\n## Contact Information\n\n| Role | Name | Email | Phone |\n|------|------|-------|-------|\n| **Assessment Lead** | | | |\n| **Project Manager** | | | |\n| **Executive Sponsor** | | | |\n\n**For Questions or Follow-up**: [Primary contact information]\n\n**Assessment Completed**: [Date]  \n**Report Prepared By**: [Assessment Team]  \n**Next Review**: [Date]  \n**Document Status**: ☐ Draft ☐ Final ☐ Approved\n\n**Key Message**: *This assessment provides a comprehensive view of project health with specific, actionable recommendations for improvement. Immediate action on critical priorities will significantly improve project outcomes and reduce risk exposure.*\n\n&quot;]}" ssr client="load" opts="{&quot;name&quot;:&quot;TemplateViewer&quot;,&quot;value&quot;:true}" await-children><div><h1>Executive Summary Template</h1><div style="margin-bottom:2rem"><button style="background:var(--accent-color);color:white;border:1px solid var(--border-color);padding:0.5rem 1rem;border-radius:4px 4px 0 0;cursor:pointer;margin-right:1px">Preview</button><button style="background:var(--code-bg);color:var(--text-color);border:1px solid var(--border-color);padding:0.5rem 1rem;border-radius:4px 4px 0 0;cursor:pointer">Version History</button></div><div style="border:1px solid var(--border-color);border-radius:0 8px 8px 8px;min-height:400px"><div style="background:var(--bg-primary);border-radius:var(--radius-lg)"><div style="padding:1rem 1.5rem;border-bottom:1px solid var(--border-light);display:flex;align-items:center;justify-content:space-between;background:var(--bg-secondary);border-radius:var(--radius-lg) var(--radius-lg) 0 0"><div style="display:flex;align-items:center;gap:0.5rem"><span style="font-size:1.5rem">📄</span><div><div style="font-weight:600;color:var(--text-primary)">executive-summary-template.md</div><div style="font-size:0.75rem;color:var(--text-muted)">Markdown • <!-- -->13,610 bytes</div></div></div><a href="/pm-tools-templates/downloads/executive-summary-template.md" download="" class="btn btn-secondary" style="font-size:0.75rem;padding:0.5rem 0.75rem">💾 Download</a></div><pre aria-label="Markdown source of Executive Summary Template" style="padding:1.5rem;max-height:600px;overflow:auto;white-space:pre-wrap;overflow-wrap:anywhere">---
+title: Executive Summary Template
+methodology: traditional
+complexity: intermediate
+process_group: executing
+industry: universal
+role: stakeholder
+tags:
+- traditional
+- executing
+- risk-management
+- stakeholder-management
+- communication
+- planning
+- quality
+version: 1.0.0
+owner: mirichard
+updated: &#x27;2025-08-06&#x27;
+estimated_completion_time: 30-45 minutes
+primary_principles:
+- evidence-based-decisions
+- value-focus
+secondary_principles:
+- stewardship
+- systems-thinking
+principle_rationale: Distills assessment evidence into actionable insights for accountable
+  leadership.
+---
+
+title: &quot;Executive Summary Template&quot;
+methodology: &quot;universal&quot;
+complexity: &quot;advanced&quot;
+owner: &quot;mirichard&quot;
+updated: &quot;2025-08-05&quot;
+
+# Executive Summary Template
+
+## Project Assessment Executive Summary
+
+### Project Overview
+| Field | Details |
+|-------|---------|
+| **Project Name** | |
+| **Assessment Date** | |
+| **Assessment Period** | |
+| **Assessment Team** | |
+| **Project Manager** | |
+| **Executive Sponsor** | |
+| **Project Phase** | ☐ Initiation ☐ Planning ☐ Execution ☐ Monitoring ☐ Closing |
+| **Project Methodology** | ☐ Agile ☐ Waterfall ☐ Hybrid ☐ Other: |
+
+## Assessment Results at a Glance
+
+### Overall Project Health Score: **___/100**
+
+### Health Status: 
+☐ **🟢 Green (80-100)** - Project is healthy and on track  
+☐ **🟡 Yellow (60-79)** - Project has manageable issues requiring attention  
+☐ **🔴 Red (40-59)** - Project has significant issues requiring immediate action  
+☐ **🔥 Critical (&lt;40)** - Project is in crisis and requires intervention  
+
+### Assessment Confidence Level: ☐ High ☐ Medium ☐ Low
+
+## Key Performance Indicators
+
+| Metric | Current | Target | Status | Trend |
+|--------|---------|--------|--------|-------|
+| **Schedule Performance (SPI)** | | 1.0+ | ☐ 🟢 ☐ 🟡 ☐ 🔴 | ☐ ↑ ☐ → ☐ ↓ |
+| **Cost Performance (CPI)** | | 1.0+ | ☐ 🟢 ☐ 🟡 ☐ 🔴 | ☐ ↑ ☐ → ☐ ↓ |
+| **Quality Score** | ___% | ___% | ☐ 🟢 ☐ 🟡 ☐ 🔴 | ☐ ↑ ☐ → ☐ ↓ |
+| **Stakeholder Satisfaction** | ___% | ___% | ☐ 🟢 ☐ 🟡 ☐ 🔴 | ☐ ↑ ☐ → ☐ ↓ |
+| **Risk Exposure** | $______ | &lt;$______ | ☐ 🟢 ☐ 🟡 ☐ 🔴 | ☐ ↑ ☐ → ☐ ↓ |
+
+## Critical Findings
+
+### 🎯 Top Strengths (Leverage and Maintain)
+1. **[Strength Area]**: Brief description of what&#x27;s working well and why it&#x27;s important
+2. **[Strength Area]**: Brief description of what&#x27;s working well and why it&#x27;s important  
+3. **[Strength Area]**: Brief description of what&#x27;s working well and why it&#x27;s important
+
+### ⚠️ Critical Issues (Immediate Attention Required)
+1. **[Issue Area]**: Brief description of the issue and immediate impact
+   - **Impact**: High/Medium/Low business impact
+   - **Urgency**: Immediate/Short-term/Medium-term action needed
+   - **Root Cause**: Primary underlying cause
+
+2. **[Issue Area]**: Brief description of the issue and immediate impact
+   - **Impact**: High/Medium/Low business impact
+   - **Urgency**: Immediate/Short-term/Medium-term action needed
+   - **Root Cause**: Primary underlying cause
+
+3. **[Issue Area]**: Brief description of the issue and immediate impact
+   - **Impact**: High/Medium/Low business impact
+   - **Urgency**: Immediate/Short-term/Medium-term action needed
+   - **Root Cause**: Primary underlying cause
+
+### 🔍 Areas of Concern (Monitor Closely)
+1. **[Concern Area]**: Brief description and potential impact if not addressed
+2. **[Concern Area]**: Brief description and potential impact if not addressed
+3. **[Concern Area]**: Brief description and potential impact if not addressed
+
+## Priority Recommendations
+
+### 🚨 Critical Priority (0-30 days)
+| Action | Owner | Impact | Effort | Expected Outcome |
+|--------|-------|--------|--------|------------------|
+| **[Action Description]** | [Role/Name] | ☐ High ☐ Med ☐ Low | ☐ High ☐ Med ☐ Low | Brief description of expected result |
+| **[Action Description]** | [Role/Name] | ☐ High ☐ Med ☐ Low | ☐ High ☐ Med ☐ Low | Brief description of expected result |
+
+### 🎯 High Priority (1-3 months)
+| Action | Owner | Impact | Effort | Expected Outcome |
+|--------|-------|--------|--------|------------------|
+| **[Action Description]** | [Role/Name] | ☐ High ☐ Med ☐ Low | ☐ High ☐ Med ☐ Low | Brief description of expected result |
+| **[Action Description]** | [Role/Name] | ☐ High ☐ Med ☐ Low | ☐ High ☐ Med ☐ Low | Brief description of expected result |
+
+### 📈 Medium Priority (3-6 months)
+| Action | Owner | Impact | Effort | Expected Outcome |
+|--------|-------|--------|--------|------------------|
+| **[Action Description]** | [Role/Name] | ☐ High ☐ Med ☐ Low | ☐ High ☐ Med ☐ Low | Brief description of expected result |
+
+## Resource Requirements
+
+### Immediate Investment Needed
+| Resource Type | Requirement | Justification | Timeline |
+|---------------|-------------|---------------|----------|
+| **Additional Personnel** | [Specify roles/skills] | Critical gap in [area] | [Timeline] |
+| **Budget Allocation** | $______ | [Purpose and impact] | [Timeline] |
+| **Tools/Technology** | [Specify tools] | [Capability gap] | [Timeline] |
+| **Training/Development** | [Specify training] | [Skill gap] | [Timeline] |
+| **External Support** | [Specify service] | [Expertise gap] | [Timeline] |
+
+### Total Estimated Investment: **$______**
+
+## Risk Assessment
+
+### High-Impact Risks Requiring Immediate Attention
+| Risk | Probability | Impact | Mitigation Status | Owner |
+|------|-------------|--------|------------------|-------|
+| **[Risk Description]** | ☐ High ☐ Med ☐ Low | ☐ High ☐ Med ☐ Low | ☐ Addressed ☐ In Progress ☐ Not Started | [Role/Name] |
+| **[Risk Description]** | ☐ High ☐ Med ☐ Low | ☐ High ☐ Med ☐ Low | ☐ Addressed ☐ In Progress ☐ Not Started | [Role/Name] |
+
+### Risk Exposure Summary
+- **Total Identified Risks**: ___
+- **High Priority Risks**: ___
+- **Risks with No Mitigation**: ___
+- **Overall Risk Level**: ☐ High ☐ Medium ☐ Low
+
+## Success Projections
+
+### With Recommended Actions Implemented
+| Metric | Current | 3-Month Target | 6-Month Target | Expected Improvement |
+|--------|---------|----------------|----------------|---------------------|
+| **Project Health Score** | ___/100 | ___/100 | ___/100 | +___ points |
+| **Schedule Performance** | SPI: ___ | SPI: ___ | SPI: 1.0+ | ___% improvement |
+| **Cost Performance** | CPI: ___ | CPI: ___ | CPI: 1.0+ | ___% improvement |
+| **Quality Score** | ___% | ___% | ___% | +___% |
+| **Stakeholder Satisfaction** | ___% | ___% | ___% | +___% |
+
+### Without Action (Risk Scenario)
+| Potential Impact | Probability | Timeline | Mitigation Required |
+|------------------|-------------|----------|-------------------|
+| **Schedule Delay** | ☐ High ☐ Med ☐ Low | ___ weeks/months | [Brief mitigation] |
+| **Budget Overrun** | ☐ High ☐ Med ☐ Low | $______ | [Brief mitigation] |
+| **Quality Issues** | ☐ High ☐ Med ☐ Low | [Timeline] | [Brief mitigation] |
+| **Stakeholder Dissatisfaction** | ☐ High ☐ Med ☐ Low | [Timeline] | [Brief mitigation] |
+
+## Decision Points
+
+### Immediate Decisions Required
+| Decision | Options | Recommendation | Rationale | Decision Date |
+|----------|---------|----------------|-----------|---------------|
+| **[Decision Topic]** | 1. [Option A]&lt;br&gt;2. [Option B] | [Recommended Option] | [Brief rationale] | [Date] |
+| **[Decision Topic]** | 1. [Option A]&lt;br&gt;2. [Option B] | [Recommended Option] | [Brief rationale] | [Date] |
+
+### Approval Requests
+| Request | Justification | Amount/Resource | Urgency |
+|---------|---------------|-----------------|---------|
+| **Budget Increase** | [Reason] | $______ | ☐ Immediate ☐ This Month ☐ Next Quarter |
+| **Resource Addition** | [Reason] | [Specify] | ☐ Immediate ☐ This Month ☐ Next Quarter |
+| **Scope Change** | [Reason] | [Specify] | ☐ Immediate ☐ This Month ☐ Next Quarter |
+| **Timeline Extension** | [Reason] | [Duration] | ☐ Immediate ☐ This Month ☐ Next Quarter |
+
+## Implementation Roadmap
+
+### Phase 1: Stabilization (0-1 month)
+**Objective**: Address critical issues and stabilize project
+
+**Key Actions**:
+- [ ] [Action 1]
+- [ ] [Action 2]  
+- [ ] [Action 3]
+
+**Success Criteria**: [Specific measurable outcomes]
+
+### Phase 2: Optimization (1-3 months)
+**Objective**: Implement improvements and optimize performance
+
+**Key Actions**:
+- [ ] [Action 1]
+- [ ] [Action 2]
+- [ ] [Action 3]
+
+**Success Criteria**: [Specific measurable outcomes]
+
+### Phase 3: Sustainability (3-6 months)
+**Objective**: Ensure sustainable improvement and best practices
+
+**Key Actions**:
+- [ ] [Action 1]
+- [ ] [Action 2]
+- [ ] [Action 3]
+
+**Success Criteria**: [Specific measurable outcomes]
+
+## Stakeholder Impact
+
+### Impact on Key Stakeholders
+| Stakeholder | Current Satisfaction | Concerns | Required Actions | Expected Outcome |
+|-------------|---------------------|----------|------------------|------------------|
+| **Executive Sponsor** | ☐ High ☐ Med ☐ Low | [Primary concerns] | [Key actions] | [Expected satisfaction] |
+| **Project Team** | ☐ High ☐ Med ☐ Low | [Primary concerns] | [Key actions] | [Expected satisfaction] |
+| **Customers/End Users** | ☐ High ☐ Med ☐ Low | [Primary concerns] | [Key actions] | [Expected satisfaction] |
+| **Business Stakeholders** | ☐ High ☐ Med ☐ Low | [Primary concerns] | [Key actions] | [Expected satisfaction] |
+
+## Communication Plan
+
+### Immediate Communications (Next 1-2 weeks)
+| Audience | Message | Method | Timeline | Owner |
+|----------|---------|--------|----------|-------|
+| **Project Team** | Assessment results and next steps | Team meeting + detailed report | [Date] | [Name] |
+| **Steering Committee** | Key findings and resource requests | Presentation + executive summary | [Date] | [Name] |
+| **Key Stakeholders** | Relevant findings and impacts | Individual briefings | [Date] | [Name] |
+
+### Ongoing Communications
+| Type | Frequency | Audience | Content |
+|------|-----------|----------|---------|
+| **Progress Updates** | Weekly | Project team | Action progress, issues |
+| **Executive Briefings** | Bi-weekly | Leadership | Status, decisions needed |
+| **Stakeholder Updates** | Monthly | All stakeholders | Progress, impacts |
+
+## Success Metrics and Monitoring
+
+### Key Performance Indicators to Track
+| KPI | Baseline | Target | Measurement Frequency | Owner |
+|-----|----------|--------|--------------------|-------|
+| **Project Health Score** | ___/100 | ___/100 | Monthly | [Name] |
+| **Schedule Performance Index** | ___ | 1.0+ | Weekly | [Name] |
+| **Cost Performance Index** | ___ | 1.0+ | Weekly | [Name] |
+| **Quality Metrics** | ___% | ___% | Weekly | [Name] |
+| **Stakeholder Satisfaction** | ___% | ___% | Monthly | [Name] |
+
+### Review Schedule
+- **30-Day Review**: Progress on critical actions
+- **90-Day Review**: Health improvement assessment  
+- **6-Month Review**: Full re-assessment
+
+## Executive Sponsor Actions Required
+
+### Immediate Actions (This Week)
+- [ ] **Approve Resource Requests**: $______ for [purpose]
+- [ ] **Make Key Decisions**: [List critical decisions needed]
+- [ ] **Communicate Support**: [To team/stakeholders]
+- [ ] **Remove Barriers**: [Specific obstacles to address]
+
+### Short-term Actions (This Month)
+- [ ] **Review and Approve Action Plan**: Detailed remediation plan
+- [ ] **Assign Executive Champion**: For critical initiatives
+- [ ] **Escalate Issues**: [To senior leadership/board if needed]
+- [ ] **Monitor Progress**: Regular review meetings
+
+## Assessment Team Recommendations
+
+### Continue Assessment Program
+☐ **Yes** - Regular health assessments recommended  
+☐ **No** - One-time assessment sufficient  
+☐ **Modified** - Focused assessments on specific areas
+
+**Recommended Frequency**: ☐ Monthly ☐ Quarterly ☐ Bi-annually
+
+### Process Improvements for Future
+1. **[Improvement Area]**: [Specific recommendation]
+2. **[Improvement Area]**: [Specific recommendation]
+3. **[Improvement Area]**: [Specific recommendation]
+
+## Appendices Available
+
+- **Appendix A**: Detailed Assessment Report
+- **Appendix B**: Gap Analysis Matrix
+- **Appendix C**: Remediation Action Plan
+- **Appendix D**: Stakeholder Interview Summaries
+- **Appendix E**: Supporting Data and Evidence
+- **Appendix F**: Risk Register and Mitigation Plans
+
+## When to Use
+
+Use throughout the project lifecycle to identify, assess, and track risks. This template is essential for projects with significant complexity, multiple stakeholders, or high business impact, where structured risk management provides decision-making value.
+
+## When NOT to Use
+
+Do not use for very low-risk, short-duration tasks where informal risk awareness is sufficient. Avoid this template if your governance framework requires a different risk management approach or if stakeholders prefer real-time risk dashboards over static registers.
+
+## Contact Information
+
+| Role | Name | Email | Phone |
+|------|------|-------|-------|
+| **Assessment Lead** | | | |
+| **Project Manager** | | | |
+| **Executive Sponsor** | | | |
+
+**For Questions or Follow-up**: [Primary contact information]
+
+**Assessment Completed**: [Date]  
+**Report Prepared By**: [Assessment Team]  
+**Next Review**: [Date]  
+**Document Status**: ☐ Draft ☐ Final ☐ Approved
+
+**Key Message**: *This assessment provides a comprehensive view of project health with specific, actionable recommendations for improvement. Immediate action on critical priorities will significantly improve project outcomes and reduce risk exposure.*
+
+</pre></div></div></div><!--astro:end--></astro-island></main></body></html>

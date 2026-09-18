@@ -1,0 +1,431 @@
+<!DOCTYPE html><html lang="en" data-astro-cid-ju4pidww><head><meta charset="UTF-8"><meta name="description" content="Advanced template browser with previews and version history"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="icon" type="image/svg+xml" href="/pm-tools-templates/favicon.svg"><title>Product Backlog Template</title><link rel="stylesheet" href="/pm-tools-templates/assets/Layout.ChXqTIwx.css"></head><body data-astro-cid-ju4pidww><main data-astro-cid-ju4pidww><style>astro-island,astro-slot,astro-static-slot{display:contents}</style><script>(()=>{var e=async t=>{await(await t())()};(self.Astro||(self.Astro={})).load=e;window.dispatchEvent(new Event("astro:load"));})();</script><script>(()=>{var g=Object.defineProperty;var w=(a,s,c)=>s in a?g(a,s,{enumerable:!0,configurable:!0,writable:!0,value:c}):a[s]=c;var l=(a,s,c)=>w(a,typeof s!="symbol"?s+"":s,c);var E=new Set(["__proto__","constructor","prototype"]);{let a={0:t=>y(t),1:t=>c(t),2:t=>new RegExp(t),3:t=>new Date(t),4:t=>new Map(c(t)),5:t=>new Set(c(t)),6:t=>BigInt(t),7:t=>new URL(t),8:t=>new Uint8Array(t),9:t=>new Uint16Array(t),10:t=>new Uint32Array(t),11:t=>Number.POSITIVE_INFINITY*t},s=t=>{let[p,e]=t;return p in a?a[p](e):void 0},c=t=>t.map(s),y=t=>typeof t!="object"||t===null?t:Object.fromEntries(Object.entries(t).map(([p,e])=>[p,s(e)]));class f extends HTMLElement{constructor(){super(...arguments);l(this,"Component");l(this,"hydrator");l(this,"hydrate",async()=>{var b;if(!this.hydrator||!this.isConnected)return;let e=(b=this.parentElement)==null?void 0:b.closest("astro-island[ssr]");if(e){e.addEventListener("astro:hydrate",this.hydrate,{once:!0});return}let r=this.querySelectorAll("astro-slot"),n={},d=this.querySelectorAll("template[data-astro-template]");for(let o of d){let i=o.closest(this.tagName);i!=null&&i.isSameNode(this)&&(n[o.getAttribute("data-astro-template")||"default"]=o.innerHTML,o.remove())}for(let o of r){let i=o.closest(this.tagName);i!=null&&i.isSameNode(this)&&(n[o.getAttribute("name")||"default"]=o.innerHTML)}let u;try{u=this.hasAttribute("props")?y(JSON.parse(this.getAttribute("props"))):{}}catch(o){let i=this.getAttribute("component-url")||"<unknown>",v=this.getAttribute("component-export");throw v&&(i+=` (export ${v})`),console.error(`[hydrate] Error parsing props for component ${i}`,this.getAttribute("props"),o),o}let h;await this.hydrator(this)(this.Component,u,n,{client:this.getAttribute("client")}),this.removeAttribute("ssr"),this.dispatchEvent(new CustomEvent("astro:hydrate"))});l(this,"unmount",()=>{this.isConnected||this.dispatchEvent(new CustomEvent("astro:unmount"))})}disconnectedCallback(){document.removeEventListener("astro:after-swap",this.unmount),document.addEventListener("astro:after-swap",this.unmount,{once:!0})}connectedCallback(){if(!this.hasAttribute("await-children")||document.readyState==="interactive"||document.readyState==="complete")this.childrenConnectedCallback();else{let e=()=>{document.removeEventListener("DOMContentLoaded",e),r.disconnect(),this.childrenConnectedCallback()},r=new MutationObserver(()=>{var n;((n=this.lastChild)==null?void 0:n.nodeType)===Node.COMMENT_NODE&&this.lastChild.nodeValue==="astro:end"&&(this.lastChild.remove(),e())});r.observe(this,{childList:!0}),document.addEventListener("DOMContentLoaded",e)}}async childrenConnectedCallback(){let e=this.getAttribute("before-hydration-url");e&&await import(e),this.start()}getRetryImportUrl(e){let r=new URL(e,document.baseURI);return r.searchParams.set("astro-retry",Date.now().toString()),r.toString()}async importWithRetry(e){try{return await import(e)}catch(r){return await new Promise(n=>setTimeout(n,1e3)),import(this.getRetryImportUrl(e))}}handleHydrationError(e){let r=this.getAttribute("component-url"),n=new CustomEvent("astro:hydration-error",{cancelable:!0,bubbles:!0,composed:!0,detail:{error:e,componentUrl:r}});this.dispatchEvent(n)&&console.error(`[astro-island] Error hydrating ${r}`,e)}async start(){let e=JSON.parse(this.getAttribute("opts")),r=this.getAttribute("client");if(Astro[r]===void 0){window.addEventListener(`astro:${r}`,()=>this.start(),{once:!0});return}try{await Astro[r](async()=>{let n=this.getAttribute("renderer-url");try{let[d,{default:u}]=await Promise.all([this.importWithRetry(this.getAttribute("component-url")),n?this.importWithRetry(n):Promise.resolve({default:()=>()=>{}})]),h=this.getAttribute("component-export")||"default";if(h.includes(".")){this.Component=d;for(let m of h.split(".")){if(E.has(m)||!this.Component||typeof this.Component!="object"&&typeof this.Component!="function"||!Object.hasOwn(this.Component,m))throw new Error(`Invalid component export path: ${h}`);this.Component=this.Component[m]}}else{if(E.has(h))throw new Error(`Invalid component export path: ${h}`);this.Component=d[h]}return this.hydrator=u,this.hydrate}catch(d){return this.handleHydrationError(d),()=>{}}},e,this)}catch(n){this.handleHydrationError(n)}}attributeChangedCallback(){this.hydrate()}}l(f,"observedAttributes",["props"]),customElements.get("astro-island")||customElements.define("astro-island",f)}})();</script><astro-island uid="CBuO9" prefix="r1" component-url="/pm-tools-templates/assets/TemplateViewer.BJxWH0dD.js" component-export="default" renderer-url="/pm-tools-templates/assets/client.REQV_TkY.js" props="{&quot;templateId&quot;:[0,&quot;product_backlog_template&quot;],&quot;filePath&quot;:[0,&quot;domains/delivery/templates/agile/product_backlog_template.md&quot;],&quot;title&quot;:[0,&quot;Product Backlog Template&quot;],&quot;content&quot;:[0,&quot;---\ntitle: Product Backlog Template\nmethodology: agile\ncomplexity: advanced\nowner: mirichard\nupdated: &#39;2025-08-05&#39;\nprimary_principles:\n- evidence-based-decisions\n- adaptability\nsecondary_principles:\n- continuous-learning\n- quality-by-design\nprinciple_rationale: Makes performance visible and actionable through evidence-based\n  analysis.\n---\n\n# PRODUCT BACKLOG\n\n## Document Information\n**Product/Project Name:** *[Customer Portal Application]*  \n**Product Owner:** *[Jane Smith]*  \n**Document Version:** *1.0*  \n**Last Updated:** *[YYYY-MM-DD]*  \n\n---\n\n## Document Purpose\n*This Product Backlog serves as the single source of truth for all work to be completed on the [Product/Project Name]. It contains all features, requirements, enhancements, and fixes that constitute the changes to be made to the product in future releases. This is a living document that is continuously refined and prioritized by the Product Owner in collaboration with the Scrum Team and stakeholders.*\n\n---\n\n## Table of Contents\n1. [Backlog Structure and Organization](#1-backlog-structure-and-organization)\n2. [User Story Format](#2-user-story-format)\n3. [Estimation Guidelines](#3-estimation-guidelines)\n4. [Prioritization Framework](#4-prioritization-framework)\n5. [Backlog Refinement Process](#5-backlog-refinement-process)\n6. [Definition of Ready](#6-definition-of-ready)\n7. [Current Product Backlog](#7-current-product-backlog)\n   - [Epics](#epics)\n   - [User Stories](#user-stories)\n8. [Backlog Management Tools](#8-backlog-management-tools)\n\n---\n\n## 1. Backlog Structure and Organization\n\n### 1.1 Backlog Hierarchy\nThe Product Backlog is organized using a hierarchical structure to manage complexity and provide appropriate levels of detail:\n\n**Epics**\n- Large bodies of work that can be broken down into smaller components\n- Typically span multiple sprints or releases\n- Provide a high-level view of major features or capabilities\n\n**Features**\n- Specific functionality that delivers value to users\n- Typically broken down from epics\n- May span one or more sprints\n\n**User Stories**\n- Small, independent, valuable pieces of functionality\n- Typically completable within a single sprint\n- Written from user perspective\n\n**Tasks**\n- Technical activities required to complete a user story\n- Typically assigned to individual team members\n- Usually completed within a few days\n\n### 1.2 Backlog Sections\nThe Product Backlog is organized into the following sections:\n\n**Current Release**  \nItems planned for the upcoming release, with high level of detail and refinement.\n\n**Future Releases**  \nItems planned for future releases, with less detail and refinement.\n\n**Technical Debt**  \nNon-functional improvements, refactoring, and other technical items needed to maintain product quality.\n\n**Research Spikes**  \nInvestigations needed to understand complex problems before creating detailed user stories.\n\n## 2. User Story Format\n\n### 2.1 User Story Template\nUser stories follow this format:\n\n```\nAs a [type of user],\nI want [an action or feature]\nSo that [benefit/value]\n```\n\n### 2.2 Acceptance Criteria\nEach user story includes clear acceptance criteria that define when the story is complete. Acceptance criteria follow the Given-When-Then format:\n\n```\nGiven [precondition]\nWhen [action]\nThen [expected result]\n```\n\n### 2.3 Additional Story Attributes\n\n**Epic Link**  \nThe epic to which this story belongs\n\n**Business Value**  \nNumeric indicator (1-10) of value to the business\n\n**Dependencies**  \nOther stories that must be completed before this one\n\n**Attachments**  \nMockups, diagrams, or other supporting documents\n\n**Notes**  \nAdditional context or information\n\n### 2.4 User Story Example\n\n```\nID: US-123\nTitle: User Login\n\nAs a registered user,\nI want to log in to my account using my email and password\nSo that I can access my personal dashboard and settings\n\nAcceptance Criteria:\n1. Given I am on the login page\n   When I enter a valid email and password\n   Then I should be successfully logged in and redirected to my dashboard\n\n2. Given I am on the login page\n   When I enter an invalid email or password\n   Then I should see an appropriate error message\n\n3. Given I am on the login page\n   When I click the \&quot;Forgot Password\&quot; link\n   Then I should be directed to the password reset page\n\n4. Given I am logged in\n   When I click the logout button\n   Then I should be logged out and redirected to the login page\n\nEpic Link: User Authentication\nBusiness Value: 8\nStory Points: 5\nDependencies: US-100 (User Registration)\nAttachments: login_screen_mockup.png\nNotes: Implement using OAuth 2.0 protocol\n```\n\n## 3. Estimation Guidelines\n\n### 3.1 Story Point Scale\nThis product backlog uses the Fibonacci sequence for story point estimation:\n\n| Points | Complexity | Example |\n|--------|------------|---------|\n| 1 | Trivial | Text change, simple UI update |\n| 2 | Simple | Basic form with minimal validation |\n| 3 | Small | Feature with simple business logic |\n| 5 | Medium | Feature with moderate complexity |\n| 8 | Large | Complex feature with multiple components |\n| 13 | Very Large | Feature with significant complexity and dependencies |\n| 21 | Extra Large | Should be broken down into smaller stories |\n\n### 3.2 Relative Sizing\nStory points represent relative effort, not absolute time. Consider these factors when estimating:\n- Complexity\n- Uncertainty/Risk\n- Effort required\n- Volume of work\n\n### 3.3 Estimation Process\n1. **Planning Poker**: Team members estimate stories simultaneously to avoid anchoring bias\n2. **Reference Stories**: Compare new stories to previously estimated ones\n3. **Team Consensus**: Discuss differences in estimates to reach agreement\n4. **Continuous Calibration**: Regularly review and adjust estimation accuracy\n\n### 3.4 Velocity Calculation\nTeam velocity is calculated as the average number of story points completed over the last 3 sprints. Current team velocity: [XX] points per sprint.\n\n## 4. Prioritization Framework\n\n### 4.1 Prioritization Factors\nItems in the Product Backlog are prioritized based on these factors:\n\n**Business Value**  \nHow much value does this item deliver to customers or the business?\n\n**Cost of Delay**  \nWhat is the impact of not implementing this item now?\n\n**Risk/Opportunity**  \nDoes this item mitigate significant risks or unlock key opportunities?\n\n**Dependencies**  \nDoes this item unblock other high-value work?\n\n**Effort/Complexity**  \nHow complex or time-consuming is the implementation?\n\n### 4.2 Priority Levels\nThe Product Backlog uses these priority levels:\n\n| Priority | Description | Timeframe |\n|----------|-------------|-----------|\n| Critical | Must have for the current release | Current sprint or next sprint |\n| High | Important for current release | Within next 2-3 sprints |\n| Medium | Desired for current release but could be deferred | Current release |\n| Low | Nice to have, can be deferred to future releases | Future release |\n\n### 4.3 WSJF Scoring (Optional)\nFor complex prioritization decisions, Weighted Shortest Job First (WSJF) may be used:\n\nWSJF = Cost of Delay / Job Size\n\nWhere Cost of Delay combines:\n- Business value\n- Time criticality\n- Risk reduction/opportunity enablement\n\n### 4.4 MoSCoW Method (Optional)\nFor release planning, items may be categorized using the MoSCoW method:\n- **Must Have**: Required for the release to be successful\n- **Should Have**: Important but not necessary for initial release\n- **Could Have**: Desirable if time and resources permit\n- **Won&#39;t Have**: Out of scope for this release but may be considered later\n\n## 5. Backlog Refinement Process\n\n### 5.1 Refinement Cadence\nBacklog refinement is an ongoing process with dedicated sessions held:\n- Formal refinement meeting: Weekly, [Day] at [Time]\n- Duration: 1-2 hours\n- Participants: Product Owner, Scrum Master, Development Team\n\n### 5.2 Refinement Activities\n1. **Review and Update**: Examine existing backlog items\n2. **Breaking Down**: Split larger items into smaller, sprint-sized stories\n3. **Adding Detail**: Clarify requirements and acceptance criteria\n4. **Estimating**: Size new or updated items\n5. **Prioritizing**: Review and adjust item priorities\n6. **Identifying Dependencies**: Flag and address dependencies between items\n\n### 5.3 Preparation for Refinement\n**Product Owner**:\n- Pre-identify items for discussion\n- Prepare initial detail for new items\n- Consider business priorities\n\n**Development Team**:\n- Review items before the meeting\n- Note questions and concerns\n- Consider technical implications\n\n**Scrum Master**:\n- Facilitate the process\n- Keep focus on highest priority items\n- Time-box discussions\n\n### 5.4 Ready for Sprint Planning\nThe top items in the Product Backlog should be refined to be \&quot;Ready\&quot; for Sprint Planning. The goal is to have at least 2 sprints&#39; worth of \&quot;Ready\&quot; stories at all times.\n\n## 6. Definition of Ready\n\nFor a Product Backlog Item to be considered \&quot;Ready\&quot; for Sprint Planning, it must meet these criteria:\n\n### 6.1 Story Readiness Checklist\n- [ ] Written in user story format (As a... I want... So that...)\n- [ ] Clear, testable acceptance criteria defined\n- [ ] Dependencies identified and resolved or planned for\n- [ ] Estimated by the Development Team\n- [ ] Understood by the Development Team (no open questions)\n- [ ] Small enough to complete within one sprint\n- [ ] User interface designs or mockups attached (if applicable)\n- [ ] Technical approach discussed and agreed upon\n- [ ] Performance criteria specified (if applicable)\n- [ ] No impediments that would prevent the story from being completed\n- [ ] Acceptance testing approach defined\n\n### 6.2 Epic Readiness\nFor Epics, which will be refined into user stories, readiness means:\n- [ ] Clear business objective defined\n- [ ] Target users/personas identified\n- [ ] High-level scope boundaries established\n- [ ] Initial acceptance criteria for the overall epic\n- [ ] Rough size estimate (t-shirt sizing: S, M, L, XL)\n- [ ] Dependencies and constraints identified\n- [ ] Success metrics defined\n\n## 7. Current Product Backlog\n\n### Epics\n\n| Epic ID | Epic Name | Description | Status | Priority |\n|---------|----------|-------------|--------|----------|\n| E-001 | User Authentication | User registration, login, profile management, and security features | In Progress | Critical |\n| E-002 | Dashboard | Personalized user dashboard with customizable widgets | Not Started | High |\n| E-003 | Reporting | Data visualization and report generation capabilities | Not Started | Medium |\n| E-004 | Admin Controls | Administrative functions for user management and system configuration | Not Started | High |\n| E-005 | Notification System | Email, in-app, and push notification capabilities | Not Started | Medium |\n\n### User Stories\n\n#### Sprint Ready (Next Sprint)\n\n| ID | User Story | Acceptance Criteria | Epic | Priority | Points | Dependencies |\n|----|------------|---------------------|------|----------|--------|-------------|\n| US-101 | As a visitor, I want to create an account so that I can access the system | 1. Email validation&lt;br&gt;2. Password requirements&lt;br&gt;3. Confirmation email&lt;br&gt;4. GDPR compliance | E-001 | Critical | 5 | None |\n| US-102 | As a user, I want to log in with my credentials so that I can access my account | 1. Email/password login&lt;br&gt;2. Error handling&lt;br&gt;3. Remember me option&lt;br&gt;4. Logout functionality | E-001 | Critical | 3 | US-101 |\n| US-103 | As a user, I want to reset my password if I forget it so that I can regain access to my account | 1. Email reset flow&lt;br&gt;2. Secure token generation&lt;br&gt;3. Password update form&lt;br&gt;4. Notification of change | E-001 | High | 3 | US-101 |\n| US-104 | As a user, I want to edit my profile information so that my account details stay up to date | 1. Edit form with validation&lt;br&gt;2. Profile picture upload&lt;br&gt;3. Email change verification&lt;br&gt;4. Save confirmation | E-001 | Medium | 5 | US-102 |\n\n#### Refined (Future Sprints)\n\n| ID | User Story | Acceptance Criteria | Epic | Priority | Points | Dependencies |\n|----|------------|---------------------|------|----------|--------|-------------|\n| US-201 | As a user, I want to see a dashboard when I log in so that I can access key information | 1. Dashboard layout&lt;br&gt;2. Default widgets&lt;br&gt;3. Loading states&lt;br&gt;4. Responsive design | E-002 | High | 8 | US-102 |\n| US-202 | As a user, I want to customize my dashboard layout so that I can focus on relevant information | 1. Drag and drop widgets&lt;br&gt;2. Add/remove widgets&lt;br&gt;3. Save layout&lt;br&gt;4. Reset to default | E-002 | Medium | 8 | US-201 |\n| US-301 | As an admin, I want to manage user accounts so that I can help users with account issues | 1. User search&lt;br&gt;2. Edit capabilities&lt;br&gt;3. Account lock/unlock&lt;br&gt;4. Permission changes | E-004 | High | 8 | US-101 |\n\n#### Unrefined (Initial Ideas)\n\n| ID | User Story | Epic | Priority | Notes |\n|----|------------|------|----------|-------|\n| US-401 | As a user, I want to create custom reports | E-003 | Medium | Needs discussion with data team |\n| US-402 | As a user, I want to schedule automated reports | E-003 | Low | Dependencies on email system |\n| US-501 | As a user, I want to set notification preferences | E-005 | Medium | Needs UX design |\n\n## 8. Backlog Management Tools\n\n### 8.1 Tools Used\nThe Product Backlog is managed using the following tool(s):\n- Primary Tool: [Jira/Trello/Azure DevOps/etc.]\n- Backup: This Markdown document, updated [frequency]\n\n### 8.2 Workflow Status\nItems in the backlog follow this workflow:\n1. **New**: Initially created, minimal details\n2. **Refining**: Adding details, under discussion\n3. **Ready**: Meets Definition of Ready, available for sprint planning\n4. **In Sprint**: Currently being worked on\n5. **Done**: Completed and meets Definition of Done\n\n### 8.3 Backlog Visualization\nThe Product Owner maintains these views of the backlog:\n- Release Roadmap (quarterly view)\n- Sprint Pipeline (next 3 sprints)\n- Current Sprint Plan\n\n---\n\n## When to Use\n\nUse throughout the project lifecycle to identify, assess, and track risks. This template is essential for projects with significant complexity, multiple stakeholders, or high business impact, where structured risk management provides decision-making value.\n\n## When NOT to Use\n\nDo not use for very low-risk, short-duration tasks where informal risk awareness is sufficient. Avoid this template if your governance framework requires a different risk management approach or if stakeholders prefer real-time risk dashboards over static registers.\n\n## Appendix A: Product Backlog Item Template\n\n```\n# Product Backlog Item\n\n## Basic Information\n**ID:** [unique identifier]\n**Type:** [Epic/Feature/User Story/Bug/Technical Debt]\n**Title:** [short descriptive title]\n**Sprint:** [if assigned]\n\n## Description\nAs a [type of user],\nI want [an action or feature]\nSo that [benefit/value]\n\n## Acceptance Criteria\n1. Given [precondition]\n   When [action]\n   Then [expected result]\n\n2. Given [precondition]\n   When [action]\n   Then [expected result]\n\n3. [Additional criteria as needed]\n\n## Details\n**Epic Link:** [parent epic if applicable]\n**Business Value:** [1-10]\n**Priority:** [Critical/High/Medium/Low]\n**Story Points:** [1,2,3,5,8,13,21]\n**Dependencies:** [list of dependent items]\n**Components:** [technical components affected]\n\n## Additional Information\n**Mockups/Designs:** [links or attachments]\n**Technical Notes:** [implementation details, constraints]\n**Testing Notes:** [special testing considerations]\n**Stakeholder Input:** [relevant stakeholder feedback]\n```\n\n## Appendix B: Definition of Ready Checklist\n\n```\n# Definition of Ready Checklist\n\n## User Story Information\n- [ ] Written in user story format \n- [ ] Title is clear and descriptive\n- [ ] Business value is clearly articulated\n- [ ] Priority is assigned\n\n## Acceptance Criteria\n- [ ] Written in Given-When-Then format\n- [ ] All scenarios covered\n- [ ] Testable and specific\n- [ ] No ambiguous language\n\n## Size and Scope\n- [ ] Estimated by the team\n- [ ] Can be complete\n\n&quot;]}" ssr client="load" opts="{&quot;name&quot;:&quot;TemplateViewer&quot;,&quot;value&quot;:true}" await-children><div><h1>Product Backlog Template</h1><div style="margin-bottom:2rem"><button style="background:var(--accent-color);color:white;border:1px solid var(--border-color);padding:0.5rem 1rem;border-radius:4px 4px 0 0;cursor:pointer;margin-right:1px">Preview</button><button style="background:var(--code-bg);color:var(--text-color);border:1px solid var(--border-color);padding:0.5rem 1rem;border-radius:4px 4px 0 0;cursor:pointer">Version History</button></div><div style="border:1px solid var(--border-color);border-radius:0 8px 8px 8px;min-height:400px"><div style="background:var(--bg-primary);border-radius:var(--radius-lg)"><div style="padding:1rem 1.5rem;border-bottom:1px solid var(--border-light);display:flex;align-items:center;justify-content:space-between;background:var(--bg-secondary);border-radius:var(--radius-lg) var(--radius-lg) 0 0"><div style="display:flex;align-items:center;gap:0.5rem"><span style="font-size:1.5rem">📄</span><div><div style="font-weight:600;color:var(--text-primary)">product_backlog_template.md</div><div style="font-size:0.75rem;color:var(--text-muted)">Markdown • <!-- -->15,925 bytes</div></div></div><a href="/pm-tools-templates/downloads/product_backlog_template.md" download="" class="btn btn-secondary" style="font-size:0.75rem;padding:0.5rem 0.75rem">💾 Download</a></div><pre aria-label="Markdown source of Product Backlog Template" style="padding:1.5rem;max-height:600px;overflow:auto;white-space:pre-wrap;overflow-wrap:anywhere">---
+title: Product Backlog Template
+methodology: agile
+complexity: advanced
+owner: mirichard
+updated: &#x27;2025-08-05&#x27;
+primary_principles:
+- evidence-based-decisions
+- adaptability
+secondary_principles:
+- continuous-learning
+- quality-by-design
+principle_rationale: Makes performance visible and actionable through evidence-based
+  analysis.
+---
+
+# PRODUCT BACKLOG
+
+## Document Information
+**Product/Project Name:** *[Customer Portal Application]*  
+**Product Owner:** *[Jane Smith]*  
+**Document Version:** *1.0*  
+**Last Updated:** *[YYYY-MM-DD]*  
+
+---
+
+## Document Purpose
+*This Product Backlog serves as the single source of truth for all work to be completed on the [Product/Project Name]. It contains all features, requirements, enhancements, and fixes that constitute the changes to be made to the product in future releases. This is a living document that is continuously refined and prioritized by the Product Owner in collaboration with the Scrum Team and stakeholders.*
+
+---
+
+## Table of Contents
+1. [Backlog Structure and Organization](#1-backlog-structure-and-organization)
+2. [User Story Format](#2-user-story-format)
+3. [Estimation Guidelines](#3-estimation-guidelines)
+4. [Prioritization Framework](#4-prioritization-framework)
+5. [Backlog Refinement Process](#5-backlog-refinement-process)
+6. [Definition of Ready](#6-definition-of-ready)
+7. [Current Product Backlog](#7-current-product-backlog)
+   - [Epics](#epics)
+   - [User Stories](#user-stories)
+8. [Backlog Management Tools](#8-backlog-management-tools)
+
+---
+
+## 1. Backlog Structure and Organization
+
+### 1.1 Backlog Hierarchy
+The Product Backlog is organized using a hierarchical structure to manage complexity and provide appropriate levels of detail:
+
+**Epics**
+- Large bodies of work that can be broken down into smaller components
+- Typically span multiple sprints or releases
+- Provide a high-level view of major features or capabilities
+
+**Features**
+- Specific functionality that delivers value to users
+- Typically broken down from epics
+- May span one or more sprints
+
+**User Stories**
+- Small, independent, valuable pieces of functionality
+- Typically completable within a single sprint
+- Written from user perspective
+
+**Tasks**
+- Technical activities required to complete a user story
+- Typically assigned to individual team members
+- Usually completed within a few days
+
+### 1.2 Backlog Sections
+The Product Backlog is organized into the following sections:
+
+**Current Release**  
+Items planned for the upcoming release, with high level of detail and refinement.
+
+**Future Releases**  
+Items planned for future releases, with less detail and refinement.
+
+**Technical Debt**  
+Non-functional improvements, refactoring, and other technical items needed to maintain product quality.
+
+**Research Spikes**  
+Investigations needed to understand complex problems before creating detailed user stories.
+
+## 2. User Story Format
+
+### 2.1 User Story Template
+User stories follow this format:
+
+```
+As a [type of user],
+I want [an action or feature]
+So that [benefit/value]
+```
+
+### 2.2 Acceptance Criteria
+Each user story includes clear acceptance criteria that define when the story is complete. Acceptance criteria follow the Given-When-Then format:
+
+```
+Given [precondition]
+When [action]
+Then [expected result]
+```
+
+### 2.3 Additional Story Attributes
+
+**Epic Link**  
+The epic to which this story belongs
+
+**Business Value**  
+Numeric indicator (1-10) of value to the business
+
+**Dependencies**  
+Other stories that must be completed before this one
+
+**Attachments**  
+Mockups, diagrams, or other supporting documents
+
+**Notes**  
+Additional context or information
+
+### 2.4 User Story Example
+
+```
+ID: US-123
+Title: User Login
+
+As a registered user,
+I want to log in to my account using my email and password
+So that I can access my personal dashboard and settings
+
+Acceptance Criteria:
+1. Given I am on the login page
+   When I enter a valid email and password
+   Then I should be successfully logged in and redirected to my dashboard
+
+2. Given I am on the login page
+   When I enter an invalid email or password
+   Then I should see an appropriate error message
+
+3. Given I am on the login page
+   When I click the &quot;Forgot Password&quot; link
+   Then I should be directed to the password reset page
+
+4. Given I am logged in
+   When I click the logout button
+   Then I should be logged out and redirected to the login page
+
+Epic Link: User Authentication
+Business Value: 8
+Story Points: 5
+Dependencies: US-100 (User Registration)
+Attachments: login_screen_mockup.png
+Notes: Implement using OAuth 2.0 protocol
+```
+
+## 3. Estimation Guidelines
+
+### 3.1 Story Point Scale
+This product backlog uses the Fibonacci sequence for story point estimation:
+
+| Points | Complexity | Example |
+|--------|------------|---------|
+| 1 | Trivial | Text change, simple UI update |
+| 2 | Simple | Basic form with minimal validation |
+| 3 | Small | Feature with simple business logic |
+| 5 | Medium | Feature with moderate complexity |
+| 8 | Large | Complex feature with multiple components |
+| 13 | Very Large | Feature with significant complexity and dependencies |
+| 21 | Extra Large | Should be broken down into smaller stories |
+
+### 3.2 Relative Sizing
+Story points represent relative effort, not absolute time. Consider these factors when estimating:
+- Complexity
+- Uncertainty/Risk
+- Effort required
+- Volume of work
+
+### 3.3 Estimation Process
+1. **Planning Poker**: Team members estimate stories simultaneously to avoid anchoring bias
+2. **Reference Stories**: Compare new stories to previously estimated ones
+3. **Team Consensus**: Discuss differences in estimates to reach agreement
+4. **Continuous Calibration**: Regularly review and adjust estimation accuracy
+
+### 3.4 Velocity Calculation
+Team velocity is calculated as the average number of story points completed over the last 3 sprints. Current team velocity: [XX] points per sprint.
+
+## 4. Prioritization Framework
+
+### 4.1 Prioritization Factors
+Items in the Product Backlog are prioritized based on these factors:
+
+**Business Value**  
+How much value does this item deliver to customers or the business?
+
+**Cost of Delay**  
+What is the impact of not implementing this item now?
+
+**Risk/Opportunity**  
+Does this item mitigate significant risks or unlock key opportunities?
+
+**Dependencies**  
+Does this item unblock other high-value work?
+
+**Effort/Complexity**  
+How complex or time-consuming is the implementation?
+
+### 4.2 Priority Levels
+The Product Backlog uses these priority levels:
+
+| Priority | Description | Timeframe |
+|----------|-------------|-----------|
+| Critical | Must have for the current release | Current sprint or next sprint |
+| High | Important for current release | Within next 2-3 sprints |
+| Medium | Desired for current release but could be deferred | Current release |
+| Low | Nice to have, can be deferred to future releases | Future release |
+
+### 4.3 WSJF Scoring (Optional)
+For complex prioritization decisions, Weighted Shortest Job First (WSJF) may be used:
+
+WSJF = Cost of Delay / Job Size
+
+Where Cost of Delay combines:
+- Business value
+- Time criticality
+- Risk reduction/opportunity enablement
+
+### 4.4 MoSCoW Method (Optional)
+For release planning, items may be categorized using the MoSCoW method:
+- **Must Have**: Required for the release to be successful
+- **Should Have**: Important but not necessary for initial release
+- **Could Have**: Desirable if time and resources permit
+- **Won&#x27;t Have**: Out of scope for this release but may be considered later
+
+## 5. Backlog Refinement Process
+
+### 5.1 Refinement Cadence
+Backlog refinement is an ongoing process with dedicated sessions held:
+- Formal refinement meeting: Weekly, [Day] at [Time]
+- Duration: 1-2 hours
+- Participants: Product Owner, Scrum Master, Development Team
+
+### 5.2 Refinement Activities
+1. **Review and Update**: Examine existing backlog items
+2. **Breaking Down**: Split larger items into smaller, sprint-sized stories
+3. **Adding Detail**: Clarify requirements and acceptance criteria
+4. **Estimating**: Size new or updated items
+5. **Prioritizing**: Review and adjust item priorities
+6. **Identifying Dependencies**: Flag and address dependencies between items
+
+### 5.3 Preparation for Refinement
+**Product Owner**:
+- Pre-identify items for discussion
+- Prepare initial detail for new items
+- Consider business priorities
+
+**Development Team**:
+- Review items before the meeting
+- Note questions and concerns
+- Consider technical implications
+
+**Scrum Master**:
+- Facilitate the process
+- Keep focus on highest priority items
+- Time-box discussions
+
+### 5.4 Ready for Sprint Planning
+The top items in the Product Backlog should be refined to be &quot;Ready&quot; for Sprint Planning. The goal is to have at least 2 sprints&#x27; worth of &quot;Ready&quot; stories at all times.
+
+## 6. Definition of Ready
+
+For a Product Backlog Item to be considered &quot;Ready&quot; for Sprint Planning, it must meet these criteria:
+
+### 6.1 Story Readiness Checklist
+- [ ] Written in user story format (As a... I want... So that...)
+- [ ] Clear, testable acceptance criteria defined
+- [ ] Dependencies identified and resolved or planned for
+- [ ] Estimated by the Development Team
+- [ ] Understood by the Development Team (no open questions)
+- [ ] Small enough to complete within one sprint
+- [ ] User interface designs or mockups attached (if applicable)
+- [ ] Technical approach discussed and agreed upon
+- [ ] Performance criteria specified (if applicable)
+- [ ] No impediments that would prevent the story from being completed
+- [ ] Acceptance testing approach defined
+
+### 6.2 Epic Readiness
+For Epics, which will be refined into user stories, readiness means:
+- [ ] Clear business objective defined
+- [ ] Target users/personas identified
+- [ ] High-level scope boundaries established
+- [ ] Initial acceptance criteria for the overall epic
+- [ ] Rough size estimate (t-shirt sizing: S, M, L, XL)
+- [ ] Dependencies and constraints identified
+- [ ] Success metrics defined
+
+## 7. Current Product Backlog
+
+### Epics
+
+| Epic ID | Epic Name | Description | Status | Priority |
+|---------|----------|-------------|--------|----------|
+| E-001 | User Authentication | User registration, login, profile management, and security features | In Progress | Critical |
+| E-002 | Dashboard | Personalized user dashboard with customizable widgets | Not Started | High |
+| E-003 | Reporting | Data visualization and report generation capabilities | Not Started | Medium |
+| E-004 | Admin Controls | Administrative functions for user management and system configuration | Not Started | High |
+| E-005 | Notification System | Email, in-app, and push notification capabilities | Not Started | Medium |
+
+### User Stories
+
+#### Sprint Ready (Next Sprint)
+
+| ID | User Story | Acceptance Criteria | Epic | Priority | Points | Dependencies |
+|----|------------|---------------------|------|----------|--------|-------------|
+| US-101 | As a visitor, I want to create an account so that I can access the system | 1. Email validation&lt;br&gt;2. Password requirements&lt;br&gt;3. Confirmation email&lt;br&gt;4. GDPR compliance | E-001 | Critical | 5 | None |
+| US-102 | As a user, I want to log in with my credentials so that I can access my account | 1. Email/password login&lt;br&gt;2. Error handling&lt;br&gt;3. Remember me option&lt;br&gt;4. Logout functionality | E-001 | Critical | 3 | US-101 |
+| US-103 | As a user, I want to reset my password if I forget it so that I can regain access to my account | 1. Email reset flow&lt;br&gt;2. Secure token generation&lt;br&gt;3. Password update form&lt;br&gt;4. Notification of change | E-001 | High | 3 | US-101 |
+| US-104 | As a user, I want to edit my profile information so that my account details stay up to date | 1. Edit form with validation&lt;br&gt;2. Profile picture upload&lt;br&gt;3. Email change verification&lt;br&gt;4. Save confirmation | E-001 | Medium | 5 | US-102 |
+
+#### Refined (Future Sprints)
+
+| ID | User Story | Acceptance Criteria | Epic | Priority | Points | Dependencies |
+|----|------------|---------------------|------|----------|--------|-------------|
+| US-201 | As a user, I want to see a dashboard when I log in so that I can access key information | 1. Dashboard layout&lt;br&gt;2. Default widgets&lt;br&gt;3. Loading states&lt;br&gt;4. Responsive design | E-002 | High | 8 | US-102 |
+| US-202 | As a user, I want to customize my dashboard layout so that I can focus on relevant information | 1. Drag and drop widgets&lt;br&gt;2. Add/remove widgets&lt;br&gt;3. Save layout&lt;br&gt;4. Reset to default | E-002 | Medium | 8 | US-201 |
+| US-301 | As an admin, I want to manage user accounts so that I can help users with account issues | 1. User search&lt;br&gt;2. Edit capabilities&lt;br&gt;3. Account lock/unlock&lt;br&gt;4. Permission changes | E-004 | High | 8 | US-101 |
+
+#### Unrefined (Initial Ideas)
+
+| ID | User Story | Epic | Priority | Notes |
+|----|------------|------|----------|-------|
+| US-401 | As a user, I want to create custom reports | E-003 | Medium | Needs discussion with data team |
+| US-402 | As a user, I want to schedule automated reports | E-003 | Low | Dependencies on email system |
+| US-501 | As a user, I want to set notification preferences | E-005 | Medium | Needs UX design |
+
+## 8. Backlog Management Tools
+
+### 8.1 Tools Used
+The Product Backlog is managed using the following tool(s):
+- Primary Tool: [Jira/Trello/Azure DevOps/etc.]
+- Backup: This Markdown document, updated [frequency]
+
+### 8.2 Workflow Status
+Items in the backlog follow this workflow:
+1. **New**: Initially created, minimal details
+2. **Refining**: Adding details, under discussion
+3. **Ready**: Meets Definition of Ready, available for sprint planning
+4. **In Sprint**: Currently being worked on
+5. **Done**: Completed and meets Definition of Done
+
+### 8.3 Backlog Visualization
+The Product Owner maintains these views of the backlog:
+- Release Roadmap (quarterly view)
+- Sprint Pipeline (next 3 sprints)
+- Current Sprint Plan
+
+---
+
+## When to Use
+
+Use throughout the project lifecycle to identify, assess, and track risks. This template is essential for projects with significant complexity, multiple stakeholders, or high business impact, where structured risk management provides decision-making value.
+
+## When NOT to Use
+
+Do not use for very low-risk, short-duration tasks where informal risk awareness is sufficient. Avoid this template if your governance framework requires a different risk management approach or if stakeholders prefer real-time risk dashboards over static registers.
+
+## Appendix A: Product Backlog Item Template
+
+```
+# Product Backlog Item
+
+## Basic Information
+**ID:** [unique identifier]
+**Type:** [Epic/Feature/User Story/Bug/Technical Debt]
+**Title:** [short descriptive title]
+**Sprint:** [if assigned]
+
+## Description
+As a [type of user],
+I want [an action or feature]
+So that [benefit/value]
+
+## Acceptance Criteria
+1. Given [precondition]
+   When [action]
+   Then [expected result]
+
+2. Given [precondition]
+   When [action]
+   Then [expected result]
+
+3. [Additional criteria as needed]
+
+## Details
+**Epic Link:** [parent epic if applicable]
+**Business Value:** [1-10]
+**Priority:** [Critical/High/Medium/Low]
+**Story Points:** [1,2,3,5,8,13,21]
+**Dependencies:** [list of dependent items]
+**Components:** [technical components affected]
+
+## Additional Information
+**Mockups/Designs:** [links or attachments]
+**Technical Notes:** [implementation details, constraints]
+**Testing Notes:** [special testing considerations]
+**Stakeholder Input:** [relevant stakeholder feedback]
+```
+
+## Appendix B: Definition of Ready Checklist
+
+```
+# Definition of Ready Checklist
+
+## User Story Information
+- [ ] Written in user story format 
+- [ ] Title is clear and descriptive
+- [ ] Business value is clearly articulated
+- [ ] Priority is assigned
+
+## Acceptance Criteria
+- [ ] Written in Given-When-Then format
+- [ ] All scenarios covered
+- [ ] Testable and specific
+- [ ] No ambiguous language
+
+## Size and Scope
+- [ ] Estimated by the team
+- [ ] Can be complete
+
+</pre></div></div></div><!--astro:end--></astro-island></main></body></html>

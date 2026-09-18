@@ -1,0 +1,381 @@
+<!DOCTYPE html><html lang="en" data-astro-cid-ju4pidww><head><meta charset="UTF-8"><meta name="description" content="Advanced template browser with previews and version history"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="icon" type="image/svg+xml" href="/pm-tools-templates/favicon.svg"><title>Issue Log Template</title><link rel="stylesheet" href="/pm-tools-templates/assets/Layout.ChXqTIwx.css"></head><body data-astro-cid-ju4pidww><main data-astro-cid-ju4pidww><style>astro-island,astro-slot,astro-static-slot{display:contents}</style><script>(()=>{var e=async t=>{await(await t())()};(self.Astro||(self.Astro={})).load=e;window.dispatchEvent(new Event("astro:load"));})();</script><script>(()=>{var g=Object.defineProperty;var w=(a,s,c)=>s in a?g(a,s,{enumerable:!0,configurable:!0,writable:!0,value:c}):a[s]=c;var l=(a,s,c)=>w(a,typeof s!="symbol"?s+"":s,c);var E=new Set(["__proto__","constructor","prototype"]);{let a={0:t=>y(t),1:t=>c(t),2:t=>new RegExp(t),3:t=>new Date(t),4:t=>new Map(c(t)),5:t=>new Set(c(t)),6:t=>BigInt(t),7:t=>new URL(t),8:t=>new Uint8Array(t),9:t=>new Uint16Array(t),10:t=>new Uint32Array(t),11:t=>Number.POSITIVE_INFINITY*t},s=t=>{let[p,e]=t;return p in a?a[p](e):void 0},c=t=>t.map(s),y=t=>typeof t!="object"||t===null?t:Object.fromEntries(Object.entries(t).map(([p,e])=>[p,s(e)]));class f extends HTMLElement{constructor(){super(...arguments);l(this,"Component");l(this,"hydrator");l(this,"hydrate",async()=>{var b;if(!this.hydrator||!this.isConnected)return;let e=(b=this.parentElement)==null?void 0:b.closest("astro-island[ssr]");if(e){e.addEventListener("astro:hydrate",this.hydrate,{once:!0});return}let r=this.querySelectorAll("astro-slot"),n={},d=this.querySelectorAll("template[data-astro-template]");for(let o of d){let i=o.closest(this.tagName);i!=null&&i.isSameNode(this)&&(n[o.getAttribute("data-astro-template")||"default"]=o.innerHTML,o.remove())}for(let o of r){let i=o.closest(this.tagName);i!=null&&i.isSameNode(this)&&(n[o.getAttribute("name")||"default"]=o.innerHTML)}let u;try{u=this.hasAttribute("props")?y(JSON.parse(this.getAttribute("props"))):{}}catch(o){let i=this.getAttribute("component-url")||"<unknown>",v=this.getAttribute("component-export");throw v&&(i+=` (export ${v})`),console.error(`[hydrate] Error parsing props for component ${i}`,this.getAttribute("props"),o),o}let h;await this.hydrator(this)(this.Component,u,n,{client:this.getAttribute("client")}),this.removeAttribute("ssr"),this.dispatchEvent(new CustomEvent("astro:hydrate"))});l(this,"unmount",()=>{this.isConnected||this.dispatchEvent(new CustomEvent("astro:unmount"))})}disconnectedCallback(){document.removeEventListener("astro:after-swap",this.unmount),document.addEventListener("astro:after-swap",this.unmount,{once:!0})}connectedCallback(){if(!this.hasAttribute("await-children")||document.readyState==="interactive"||document.readyState==="complete")this.childrenConnectedCallback();else{let e=()=>{document.removeEventListener("DOMContentLoaded",e),r.disconnect(),this.childrenConnectedCallback()},r=new MutationObserver(()=>{var n;((n=this.lastChild)==null?void 0:n.nodeType)===Node.COMMENT_NODE&&this.lastChild.nodeValue==="astro:end"&&(this.lastChild.remove(),e())});r.observe(this,{childList:!0}),document.addEventListener("DOMContentLoaded",e)}}async childrenConnectedCallback(){let e=this.getAttribute("before-hydration-url");e&&await import(e),this.start()}getRetryImportUrl(e){let r=new URL(e,document.baseURI);return r.searchParams.set("astro-retry",Date.now().toString()),r.toString()}async importWithRetry(e){try{return await import(e)}catch(r){return await new Promise(n=>setTimeout(n,1e3)),import(this.getRetryImportUrl(e))}}handleHydrationError(e){let r=this.getAttribute("component-url"),n=new CustomEvent("astro:hydration-error",{cancelable:!0,bubbles:!0,composed:!0,detail:{error:e,componentUrl:r}});this.dispatchEvent(n)&&console.error(`[astro-island] Error hydrating ${r}`,e)}async start(){let e=JSON.parse(this.getAttribute("opts")),r=this.getAttribute("client");if(Astro[r]===void 0){window.addEventListener(`astro:${r}`,()=>this.start(),{once:!0});return}try{await Astro[r](async()=>{let n=this.getAttribute("renderer-url");try{let[d,{default:u}]=await Promise.all([this.importWithRetry(this.getAttribute("component-url")),n?this.importWithRetry(n):Promise.resolve({default:()=>()=>{}})]),h=this.getAttribute("component-export")||"default";if(h.includes(".")){this.Component=d;for(let m of h.split(".")){if(E.has(m)||!this.Component||typeof this.Component!="object"&&typeof this.Component!="function"||!Object.hasOwn(this.Component,m))throw new Error(`Invalid component export path: ${h}`);this.Component=this.Component[m]}}else{if(E.has(h))throw new Error(`Invalid component export path: ${h}`);this.Component=d[h]}return this.hydrator=u,this.hydrate}catch(d){return this.handleHydrationError(d),()=>{}}},e,this)}catch(n){this.handleHydrationError(n)}}attributeChangedCallback(){this.hydrate()}}l(f,"observedAttributes",["props"]),customElements.get("astro-island")||customElements.define("astro-island",f)}})();</script><astro-island uid="20Wppf" prefix="r1" component-url="/pm-tools-templates/assets/TemplateViewer.BJxWH0dD.js" component-export="default" renderer-url="/pm-tools-templates/assets/client.REQV_TkY.js" props="{&quot;templateId&quot;:[0,&quot;issue_log_template&quot;],&quot;filePath&quot;:[0,&quot;domains/delivery/templates/traditional/Traditional/Templates/issue_log_template.md&quot;],&quot;title&quot;:[0,&quot;Issue Log Template&quot;],&quot;content&quot;:[0,&quot;---\ntitle: Issue Log Template\nmethodology: traditional\ncomplexity: advanced\nowner: mirichard\nupdated: &#39;2025-08-05&#39;\nprimary_principles:\n- adaptability\n- quality-by-design\nsecondary_principles:\n- evidence-based-decisions\n- risk-optimization\nprinciple_rationale: Tailors controls to context while ensuring quality and auditable\n  decision-making.\n---\n\n# PROJECT ISSUE LOG\n\n## Document Control Information\n**Project/Program Name:** *[Enterprise Resource Planning Implementation]*  \n**Document Version:** *1.0*  \n**Prepared By:** *[Jane Smith, Project Management Professional]*  \n**Preparation Date:** *[YYYY-MM-DD]*  \n**Last Updated By:** *[Jane Smith, Project Management Professional]*  \n**Last Revision Date:** *[YYYY-MM-DD]*  \n\n---\n\n## Document Purpose\n*This Issue Log documents and tracks all identified issues for the [Project Name]. It serves as the central repository for capturing problems, defects, or concerns that have already materialized and require resolution. Unlike risks (which may or may not occur), issues are current problems that need to be addressed to maintain project progress and success.*\n\n---\n\n## Table of Contents\n1. [Issue Management Approach](#1-issue-management-approach)\n2. [Issue Identification and Categorization](#2-issue-identification-and-categorization)\n3. [Priority and Severity Assessment](#3-priority-and-severity-assessment)\n4. [Impact Analysis](#4-impact-analysis)\n5. [Resolution Planning and Tracking](#5-resolution-planning-and-tracking)\n6. [Escalation Procedures](#6-escalation-procedures)\n7. [Issue Log](#7-issue-log)\n8. [Issue History Log](#7-issue-log)\n9. [Approval](#3-priority-and-severity-assessment)\n\n---\n\n## 1. Issue Management Approach\n\n### 1.1 Issue Management Process Overview\n*Briefly describe the issue management approach for the project, including how issues will be identified, logged, analyzed, resolved, and closed.*\n\n*Example: This project follows a structured issue management process to ensure all problems are identified, documented, and resolved in a timely manner. Issues may be identified by any project stakeholder and should be reported to the project manager or designated issue coordinator. All issues will be logged, assessed for priority and impact, assigned to an owner for resolution, tracked until closure, and reviewed for lessons learned. Status updates on active issues will be provided in weekly status meetings, with high-priority issues escalated according to the defined procedures.*\n\n### 1.2 Roles and Responsibilities\n\n*Define who is responsible for various issue management activities.*\n\n*Example:*\n\n| Role | Responsibilities |\n|------|------------------|\n| Project Manager | Overall accountability for issue management, issue prioritization, escalation decisions, status reporting to stakeholders |\n| Issue Coordinator | Maintaining the Issue Log, following up with issue owners, preparing issue status reports |\n| Issue Owner | Developing and implementing resolution plans, providing regular status updates, coordinating with other team members as needed |\n| Project Team Member | Identifying and reporting issues, supporting issue resolution when assigned |\n| Subject Matter Expert | Providing expertise for issue analysis and resolution |\n| Steering Committee | Making decisions on escalated issues, approving additional resources for resolution |\n\n### 1.3 Issue Management Workflow\n\n*Outline the workflow for managing issues from identification to closure.*\n\n*Example:*\n\n1. **Issue Identification**\n   - Issue identified by stakeholder\n   - Initial information gathered\n\n2. **Issue Logging**\n   - Issue entered in Issue Log with unique ID\n   - Initial categorization and description\n\n3. **Issue Assessment**\n   - Priority and severity determined\n   - Impact analysis performed\n\n4. **Resolution Planning**\n   - Issue assigned to owner\n   - Resolution approach determined\n   - Resources identified\n\n5. **Resolution Implementation**\n   - Resolution actions executed\n   - Progress updates provided\n\n6. **Verification**\n   - Resolution effectiveness verified\n   - Stakeholder approval obtained\n\n7. **Closure**\n   - Issue formally closed\n   - Lessons learned documented\n\n8. **Monitoring**\n   - Closed issues monitored to prevent recurrence\n   - Trends analyzed for systemic improvements\n\n---\n\n## 2. Issue Identification and Categorization\n\n### 2.1 Issue Categories\n\n*Define the categories used to organize issues.*\n\n*Example:*\n\n| Issue Category | Description | Examples |\n|----------------|-------------|----------|\n| Technical | Issues related to technology, software, hardware, infrastructure | System errors, performance problems, compatibility issues |\n| Process | Issues related to business processes, workflows, procedures | Inefficient workflows, process gaps, procedural problems |\n| Resource | Issues related to human resources, skills, staffing | Resource shortages, skill gaps, availability conflicts |\n| Scope | Issues related to project scope, requirements, deliverables | Scope gaps, unclear requirements, scope disagreements |\n| Quality | Issues related to quality standards, defects, testing | Failed test cases, quality standards not met, defects |\n| Vendor/Supplier | Issues related to vendors, suppliers, third parties | Delivery delays, quality concerns, contract issues |\n| Documentation | Issues related to project documentation, artifacts | Inaccurate documentation, missing information |\n| Communication | Issues related to communication, information sharing | Miscommunication, information not received, unclear messaging |\n| Organizational | Issues related to organizational structure, politics, decisions | Decision delays, organizational conflicts |\n\n### 2.2 Issue ID Format\n\n*Define the format for issue identification numbers.*\n\n*Example: Issue IDs follow the format ISS-[Category Code]-[Sequential Number]:*\n* *ISS-T-001: First technical issue*\n* *ISS-P-001: First process issue*\n* *ISS-R-001: First resource issue*\n* *ISS-S-001: First scope issue*\n* *ISS-Q-001: First quality issue*\n* *ISS-V-001: First vendor/supplier issue*\n* *ISS-D-001: First documentation issue*\n* *ISS-C-001: First communication issue*\n* *ISS-O-001: First organizational issue*\n\n### 2.3 Issue Sources\n\n*Identify potential sources of issues to help with proactive identification.*\n\n*Example:*\n\n* Team member observations\n* Status meetings\n* Quality reviews\n* Testing activities\n* Stakeholder feedback\n* Vendor deliverable reviews\n* Process execution\n* Materialized risks\n* External events\n* Audit findings\n\n---\n\n## 3. Priority and Severity Assessment\n\n### 3.1 Priority Levels\n\n*Define the priority levels for issues based on urgency and need for resolution.*\n\n*Example:*\n\n| Priority Level | Description | Response Time | Example |\n|----------------|-------------|---------------|---------|\n| **Critical** | Immediate action required; project is blocked or significant objectives threatened | Same day response; continuous work until resolved or mitigated | Production system down preventing all work |\n| **High** | Urgent issue requiring prompt attention; significant impact on project component | Response within 24 hours; resolution efforts prioritized | Critical path activity blocked, major deliverable at risk |\n| **Medium** | Important issue requiring scheduled resolution; moderate impact on project component | Response within 2-3 days; resolution according to planned schedule | Non-critical path activity impacted, manageable workaround exists |\n| **Low** | Issue requires resolution but is not time-sensitive; minimal impact on project | Response within 1 week; resolution as resources permit | Minor inconvenience, cosmetic issues, documentation error |\n\n### 3.2 Severity Levels\n\n*Define the severity levels for issues based on impact to the project.*\n\n*Example:*\n\n| Severity Level | Description | Impact |\n|----------------|-------------|--------|\n| **Showstopper** | Catastrophic impact; prevents essential functions from being performed | Prevents project continuation, critical business functions cannot be executed |\n| **Major** | Significant impact; severely restricts functionality | Major project components or deliverables affected, limited workaround available |\n| **Moderate** | Noticeable impact; some functions affected but overall functionality maintained | Specific project activities affected, workarounds available but not optimal |\n| **Minor** | Minimal impact; minor inconvenience but no functional restriction | Limited effect on project activities, easy workaround available |\n\n### 3.3 Priority-Severity Matrix\n\n*Provide a visual representation of the relationship between priority and severity.*\n\n*Example:*\n\n| Priority/Severity | Showstopper | Major | Moderate | Minor |\n|-------------------|-------------|-------|----------|-------|\n| **Critical** | Critical-1 | Critical-1 | Critical-2 | High-1 |\n| **High** | Critical-1 | High-1 | High-2 | Medium-1 |\n| **Medium** | High-1 | High-2 | Medium-1 | Low-1 |\n| **Low** | High-2 | Medium-1 | Low-1 | Low-2 |\n\n*Legend:*\n* *Critical-1: Highest urgency, immediate executive notification, all-hands resolution*\n* *Critical-2: Immediate resolution team, daily executive updates*\n* *High-1: Dedicated resources, reported to steering committee*\n* *High-2: Scheduled resolution team, reported in status reports*\n* *Medium-1: Planned resolution, weekly tracking*\n* *Low-1: Resolution during normal activities*\n* *Low-2: Resolution when resources available*\n\n---\n\n## 4. Impact Analysis\n\n### 4.1 Impact Areas\n\n*Define the areas to consider when analyzing the impact of issues.*\n\n*Example:*\n\n| Impact Area | Description | Assessment Considerations |\n|-------------|-------------|----------------------------|\n| Schedule | Impact on project timeline and milestones | Schedule delay (days/weeks), critical path affected, milestone jeopardy |\n| Budget | Financial impact on project | Additional cost ($), percentage of budget impact |\n| Scope | Impact on project scope and deliverables | Features/functions affected, quality compromised, requirements not met |\n| Resources | Impact on human and material resources | Additional resource needs, reassignment requirements |\n| Quality | Impact on product/service quality | Quality metrics affected, standards compromised |\n| Risk | New risks introduced or existing risks elevated | Additional risk exposure, risk rating changes |\n| Stakeholders | Impact on stakeholder satisfaction | Stakeholder groups affected, level of concern |\n| Benefits | Impact on project benefits and business case | ROI affected, benefit delivery delayed or reduced |\n\n### 4.2 Impact Assessment Process\n\n*Describe the process for analyzing the impact of issues.*\n\n*Example:*\n\n1. **Initial Screening**\n   - Quick assessment of immediate impact\n   - Determination if emergency response needed\n\n2. **Comprehensive Analysis**\n   - Detailed evaluation across all impact areas\n   - Consultation with relevant subject matter experts\n   - Documentation of specific impacts\n\n3. **Stakeholder Impact Assessment**\n   - Identification of affected stakeholders\n   - Assessment of stakeholder concerns\n\n4. **Cumulative Impact Assessment**\n   - Evaluation of combined impact with other active issues\n   - Assessment of impact on overall project health\n\n5. **Impact Documentation**\n   - Clear documentation in Issue Log\n   - Communication to relevant stakeholders\n\n---\n\n## 5. Resolution Planning and Tracking\n\n### 5.1 Resolution Approach Options\n\n*Outline different approaches to issue resolution.*\n\n*Example:*\n\n| Approach | Description | When to Use |\n|----------|-------------|-------------|\n| **Fix** | Directly solve the issue by addressing root cause | When root cause is clear and fixable within project constraints |\n| **Workaround** | Implement alternative solution that mitigates impact without addressing root cause | When immediate resolution needed or root cause cannot be addressed |\n| **Defer** | Postpone resolution to a later phase or project | For low-priority issues that don&#39;t threaten project objectives |\n| **Accept** | Acknowledge the issue without resolution action | When resolution cost exceeds benefit or impact is minimal |\n| **Transfer** | Shift responsibility for resolution to another party | When issue best addressed by external party (vendor, other department) |\n\n### 5.2 Resolution Plan Components\n\n*Define what should be included in an issue resolution plan.*\n\n*Example: Issue resolution plans should include:*\n\n* Specific actions to be taken\n* Resources required\n* Timeline for implementation\n* Dependencies and prerequisites\n* Potential risks of the resolution approach\n* Success criteria for resolution verification\n* Stakeholder communication needs\n* Follow-up actions to prevent recurrence\n\n### 5.3 Resolution Progress Tracking\n\n*Define how progress toward issue resolution will be tracked and reported.*\n\n*Example:*\n\n| Progress Status | Description |\n|-----------------|-------------|\n| **Not Started** | Resolution planning may be complete but implementation not begun |\n| **In Progress** | Resolution actions underway, with percentage complete indicator |\n| **Blocked** | Resolution implementation halted due to dependencies or obstacles |\n| **Verification** | Resolution implemented, effectiveness being verified |\n| **Resolved** | Resolution complete and verified effective, pending closure approval |\n| **Closed** | Issue formally closed, lessons learned documented |\n| **Reopened** | Previously closed issue that has recurred |\n\n---\n\n## 6. Escalation Procedures\n\n### 6.1 Escalation Triggers\n\n*Define the conditions that trigger issue escalation.*\n\n*Example:*\n\n* Issue with Critical priority not responded to within 4 hours\n* High priority issue not resolved within agreed timeframe\n* Issue resolution repeatedly blocked or delayed\n* Issue impact assessment reveals critical business impact\n* Resource conflicts preventing issue resolution\n* Stakeholder disagreement on issue priority or resolution approach\n* Issue resolution requires authority beyond assigned owner\n* Multiple related issues indicating systemic problem\n\n### 6.2 Escalation Levels\n\n*Define the hierarchy for issue escalation.*\n\n*Example:*\n\n| Level | Escalated To | Timeframe | Communication Method |\n|-------|--------------|-----------|----------------------|\n| 1 | Project Manager | Immediate | Direct contact (phone/in-person) |\n| 2 | Project Sponsor/Functional Manager | Within 4 hours | Email + phone call |\n| 3 | Steering Committee | Within 24 hours | Formal memo + emergency meeting |\n| 4 | Executive Leadership | Within 48 hours | Executive briefing |\n\n### 6.3 Escalation Information Requirements\n\n*Define the information needed when escalating an issue.*\n\n*Example: Issue escalation should include:*\n\n* Issue ID and description\n* Current priority and severity\n* Complete impact assessment\n* Resolution efforts attempted\n* Reason for escalation\n* Recommended action\n* Decision needed\n* Timeframe for decision\n* Consequences of delayed decision\n\n---\n\n## When to Use\n\nUse throughout the project lifecycle to identify, assess, and track risks. This template is essential for projects with significant complexity, multiple stakeholders, or high business impact, where structured risk management provides decision-making value.\n\n## When NOT to Use\n\nDo not use for very low-risk, short-duration tasks where informal risk awareness is sufficient. Avoid this template if your governance framework requires a different risk management approach or if stakeholders prefer real-time risk dashboards over static registers.\n\n## 7. Issue Log\n\n*The main issue log table containing all identified issues and their assessment, resolution planning, and status information.*\n\n| Issue ID | Issue Description | Category | Identified By | Identification Date | Priority | Severity | Impact Summary | Resolution Approach | Owner | Status | Target Resolution Date | Actual Resolution Date | Comments |\n|----------|------------------|----------|---------------|---------------------|----------|----------|----------------|---------------------|-------|--------|------------------------|------------------------|----------|\n| *ISS-T-001* | *System integration with finance module fails when processing transactions over $10,000* | *Technical* | *John Smith* | *YYYY-MM-DD* | *High* | *Major* | *Financial reporting delayed, manual workaround required* | *Fix: Modify code to handle large transactions* | *Jane Doe* | *In Progress (75%)* | *YYYY-MM-DD* | | *Root cause identified as buffer size limitation. Code fix in development.* |\n| *ISS-R-001* | *Lead developer resigned unexpectedly* | *Resource* | *HR Department* | *YYYY-MM-DD* | *Critical* | *Major* | *Technical development delayed, knowledge transfer incomplete* | *Mitigate: Promote senior developer, hire contractor* | *Mike Johnson* | *In Progress (50%)* | *YYYY-MM-DD* | | *Senior developer assuming lead role, contractor interviews scheduled.* |\n| *ISS-V-001* | *Vendor delivered training materials with significant quality issues* | *Vendor* | *Training Team* | *YYYY-MM-DD* | *Medium* | *Moderate* | *Training preparation delayed, materials require rework* | *Transfer: Return to vendor for correction with expedited timeline* | *Sarah Williams* | *Resolved* | *YYYY-MM-DD* | *YYYY-MM-DD* | *Vendor redelivered corrected materials, verified by training team.* |\n| *ISS-S-001* | *Reporting requirements were underestimated in initial scope* | *Scope* | *Business Analyst* | *YYYY-MM-DD* | *High* | *Moderate* | *Additional development effort required, potential delay to reporting module* | *Fix: Add required reports, adjust schedule and resources* | *Robert Brown* | *In Progress (30%)* | *YYYY-MM-DD* | | *Impact assessment complete, change request in process for additional resources.* |\n| *ISS-C-001* | *Change Management team not receiving timely information about system changes* | *Communication* | *Change Manager* | *YYYY-MM-DD\n\n&quot;]}" ssr client="load" opts="{&quot;name&quot;:&quot;TemplateViewer&quot;,&quot;value&quot;:true}" await-children><div><h1>Issue Log Template</h1><div style="margin-bottom:2rem"><button style="background:var(--accent-color);color:white;border:1px solid var(--border-color);padding:0.5rem 1rem;border-radius:4px 4px 0 0;cursor:pointer;margin-right:1px">Preview</button><button style="background:var(--code-bg);color:var(--text-color);border:1px solid var(--border-color);padding:0.5rem 1rem;border-radius:4px 4px 0 0;cursor:pointer">Version History</button></div><div style="border:1px solid var(--border-color);border-radius:0 8px 8px 8px;min-height:400px"><div style="background:var(--bg-primary);border-radius:var(--radius-lg)"><div style="padding:1rem 1.5rem;border-bottom:1px solid var(--border-light);display:flex;align-items:center;justify-content:space-between;background:var(--bg-secondary);border-radius:var(--radius-lg) var(--radius-lg) 0 0"><div style="display:flex;align-items:center;gap:0.5rem"><span style="font-size:1.5rem">📄</span><div><div style="font-weight:600;color:var(--text-primary)">issue_log_template.md</div><div style="font-size:0.75rem;color:var(--text-muted)">Markdown • <!-- -->17,859 bytes</div></div></div><a href="/pm-tools-templates/downloads/issue_log_template.md" download="" class="btn btn-secondary" style="font-size:0.75rem;padding:0.5rem 0.75rem">💾 Download</a></div><pre aria-label="Markdown source of Issue Log Template" style="padding:1.5rem;max-height:600px;overflow:auto;white-space:pre-wrap;overflow-wrap:anywhere">---
+title: Issue Log Template
+methodology: traditional
+complexity: advanced
+owner: mirichard
+updated: &#x27;2025-08-05&#x27;
+primary_principles:
+- adaptability
+- quality-by-design
+secondary_principles:
+- evidence-based-decisions
+- risk-optimization
+principle_rationale: Tailors controls to context while ensuring quality and auditable
+  decision-making.
+---
+
+# PROJECT ISSUE LOG
+
+## Document Control Information
+**Project/Program Name:** *[Enterprise Resource Planning Implementation]*  
+**Document Version:** *1.0*  
+**Prepared By:** *[Jane Smith, Project Management Professional]*  
+**Preparation Date:** *[YYYY-MM-DD]*  
+**Last Updated By:** *[Jane Smith, Project Management Professional]*  
+**Last Revision Date:** *[YYYY-MM-DD]*  
+
+---
+
+## Document Purpose
+*This Issue Log documents and tracks all identified issues for the [Project Name]. It serves as the central repository for capturing problems, defects, or concerns that have already materialized and require resolution. Unlike risks (which may or may not occur), issues are current problems that need to be addressed to maintain project progress and success.*
+
+---
+
+## Table of Contents
+1. [Issue Management Approach](#1-issue-management-approach)
+2. [Issue Identification and Categorization](#2-issue-identification-and-categorization)
+3. [Priority and Severity Assessment](#3-priority-and-severity-assessment)
+4. [Impact Analysis](#4-impact-analysis)
+5. [Resolution Planning and Tracking](#5-resolution-planning-and-tracking)
+6. [Escalation Procedures](#6-escalation-procedures)
+7. [Issue Log](#7-issue-log)
+8. [Issue History Log](#7-issue-log)
+9. [Approval](#3-priority-and-severity-assessment)
+
+---
+
+## 1. Issue Management Approach
+
+### 1.1 Issue Management Process Overview
+*Briefly describe the issue management approach for the project, including how issues will be identified, logged, analyzed, resolved, and closed.*
+
+*Example: This project follows a structured issue management process to ensure all problems are identified, documented, and resolved in a timely manner. Issues may be identified by any project stakeholder and should be reported to the project manager or designated issue coordinator. All issues will be logged, assessed for priority and impact, assigned to an owner for resolution, tracked until closure, and reviewed for lessons learned. Status updates on active issues will be provided in weekly status meetings, with high-priority issues escalated according to the defined procedures.*
+
+### 1.2 Roles and Responsibilities
+
+*Define who is responsible for various issue management activities.*
+
+*Example:*
+
+| Role | Responsibilities |
+|------|------------------|
+| Project Manager | Overall accountability for issue management, issue prioritization, escalation decisions, status reporting to stakeholders |
+| Issue Coordinator | Maintaining the Issue Log, following up with issue owners, preparing issue status reports |
+| Issue Owner | Developing and implementing resolution plans, providing regular status updates, coordinating with other team members as needed |
+| Project Team Member | Identifying and reporting issues, supporting issue resolution when assigned |
+| Subject Matter Expert | Providing expertise for issue analysis and resolution |
+| Steering Committee | Making decisions on escalated issues, approving additional resources for resolution |
+
+### 1.3 Issue Management Workflow
+
+*Outline the workflow for managing issues from identification to closure.*
+
+*Example:*
+
+1. **Issue Identification**
+   - Issue identified by stakeholder
+   - Initial information gathered
+
+2. **Issue Logging**
+   - Issue entered in Issue Log with unique ID
+   - Initial categorization and description
+
+3. **Issue Assessment**
+   - Priority and severity determined
+   - Impact analysis performed
+
+4. **Resolution Planning**
+   - Issue assigned to owner
+   - Resolution approach determined
+   - Resources identified
+
+5. **Resolution Implementation**
+   - Resolution actions executed
+   - Progress updates provided
+
+6. **Verification**
+   - Resolution effectiveness verified
+   - Stakeholder approval obtained
+
+7. **Closure**
+   - Issue formally closed
+   - Lessons learned documented
+
+8. **Monitoring**
+   - Closed issues monitored to prevent recurrence
+   - Trends analyzed for systemic improvements
+
+---
+
+## 2. Issue Identification and Categorization
+
+### 2.1 Issue Categories
+
+*Define the categories used to organize issues.*
+
+*Example:*
+
+| Issue Category | Description | Examples |
+|----------------|-------------|----------|
+| Technical | Issues related to technology, software, hardware, infrastructure | System errors, performance problems, compatibility issues |
+| Process | Issues related to business processes, workflows, procedures | Inefficient workflows, process gaps, procedural problems |
+| Resource | Issues related to human resources, skills, staffing | Resource shortages, skill gaps, availability conflicts |
+| Scope | Issues related to project scope, requirements, deliverables | Scope gaps, unclear requirements, scope disagreements |
+| Quality | Issues related to quality standards, defects, testing | Failed test cases, quality standards not met, defects |
+| Vendor/Supplier | Issues related to vendors, suppliers, third parties | Delivery delays, quality concerns, contract issues |
+| Documentation | Issues related to project documentation, artifacts | Inaccurate documentation, missing information |
+| Communication | Issues related to communication, information sharing | Miscommunication, information not received, unclear messaging |
+| Organizational | Issues related to organizational structure, politics, decisions | Decision delays, organizational conflicts |
+
+### 2.2 Issue ID Format
+
+*Define the format for issue identification numbers.*
+
+*Example: Issue IDs follow the format ISS-[Category Code]-[Sequential Number]:*
+* *ISS-T-001: First technical issue*
+* *ISS-P-001: First process issue*
+* *ISS-R-001: First resource issue*
+* *ISS-S-001: First scope issue*
+* *ISS-Q-001: First quality issue*
+* *ISS-V-001: First vendor/supplier issue*
+* *ISS-D-001: First documentation issue*
+* *ISS-C-001: First communication issue*
+* *ISS-O-001: First organizational issue*
+
+### 2.3 Issue Sources
+
+*Identify potential sources of issues to help with proactive identification.*
+
+*Example:*
+
+* Team member observations
+* Status meetings
+* Quality reviews
+* Testing activities
+* Stakeholder feedback
+* Vendor deliverable reviews
+* Process execution
+* Materialized risks
+* External events
+* Audit findings
+
+---
+
+## 3. Priority and Severity Assessment
+
+### 3.1 Priority Levels
+
+*Define the priority levels for issues based on urgency and need for resolution.*
+
+*Example:*
+
+| Priority Level | Description | Response Time | Example |
+|----------------|-------------|---------------|---------|
+| **Critical** | Immediate action required; project is blocked or significant objectives threatened | Same day response; continuous work until resolved or mitigated | Production system down preventing all work |
+| **High** | Urgent issue requiring prompt attention; significant impact on project component | Response within 24 hours; resolution efforts prioritized | Critical path activity blocked, major deliverable at risk |
+| **Medium** | Important issue requiring scheduled resolution; moderate impact on project component | Response within 2-3 days; resolution according to planned schedule | Non-critical path activity impacted, manageable workaround exists |
+| **Low** | Issue requires resolution but is not time-sensitive; minimal impact on project | Response within 1 week; resolution as resources permit | Minor inconvenience, cosmetic issues, documentation error |
+
+### 3.2 Severity Levels
+
+*Define the severity levels for issues based on impact to the project.*
+
+*Example:*
+
+| Severity Level | Description | Impact |
+|----------------|-------------|--------|
+| **Showstopper** | Catastrophic impact; prevents essential functions from being performed | Prevents project continuation, critical business functions cannot be executed |
+| **Major** | Significant impact; severely restricts functionality | Major project components or deliverables affected, limited workaround available |
+| **Moderate** | Noticeable impact; some functions affected but overall functionality maintained | Specific project activities affected, workarounds available but not optimal |
+| **Minor** | Minimal impact; minor inconvenience but no functional restriction | Limited effect on project activities, easy workaround available |
+
+### 3.3 Priority-Severity Matrix
+
+*Provide a visual representation of the relationship between priority and severity.*
+
+*Example:*
+
+| Priority/Severity | Showstopper | Major | Moderate | Minor |
+|-------------------|-------------|-------|----------|-------|
+| **Critical** | Critical-1 | Critical-1 | Critical-2 | High-1 |
+| **High** | Critical-1 | High-1 | High-2 | Medium-1 |
+| **Medium** | High-1 | High-2 | Medium-1 | Low-1 |
+| **Low** | High-2 | Medium-1 | Low-1 | Low-2 |
+
+*Legend:*
+* *Critical-1: Highest urgency, immediate executive notification, all-hands resolution*
+* *Critical-2: Immediate resolution team, daily executive updates*
+* *High-1: Dedicated resources, reported to steering committee*
+* *High-2: Scheduled resolution team, reported in status reports*
+* *Medium-1: Planned resolution, weekly tracking*
+* *Low-1: Resolution during normal activities*
+* *Low-2: Resolution when resources available*
+
+---
+
+## 4. Impact Analysis
+
+### 4.1 Impact Areas
+
+*Define the areas to consider when analyzing the impact of issues.*
+
+*Example:*
+
+| Impact Area | Description | Assessment Considerations |
+|-------------|-------------|----------------------------|
+| Schedule | Impact on project timeline and milestones | Schedule delay (days/weeks), critical path affected, milestone jeopardy |
+| Budget | Financial impact on project | Additional cost ($), percentage of budget impact |
+| Scope | Impact on project scope and deliverables | Features/functions affected, quality compromised, requirements not met |
+| Resources | Impact on human and material resources | Additional resource needs, reassignment requirements |
+| Quality | Impact on product/service quality | Quality metrics affected, standards compromised |
+| Risk | New risks introduced or existing risks elevated | Additional risk exposure, risk rating changes |
+| Stakeholders | Impact on stakeholder satisfaction | Stakeholder groups affected, level of concern |
+| Benefits | Impact on project benefits and business case | ROI affected, benefit delivery delayed or reduced |
+
+### 4.2 Impact Assessment Process
+
+*Describe the process for analyzing the impact of issues.*
+
+*Example:*
+
+1. **Initial Screening**
+   - Quick assessment of immediate impact
+   - Determination if emergency response needed
+
+2. **Comprehensive Analysis**
+   - Detailed evaluation across all impact areas
+   - Consultation with relevant subject matter experts
+   - Documentation of specific impacts
+
+3. **Stakeholder Impact Assessment**
+   - Identification of affected stakeholders
+   - Assessment of stakeholder concerns
+
+4. **Cumulative Impact Assessment**
+   - Evaluation of combined impact with other active issues
+   - Assessment of impact on overall project health
+
+5. **Impact Documentation**
+   - Clear documentation in Issue Log
+   - Communication to relevant stakeholders
+
+---
+
+## 5. Resolution Planning and Tracking
+
+### 5.1 Resolution Approach Options
+
+*Outline different approaches to issue resolution.*
+
+*Example:*
+
+| Approach | Description | When to Use |
+|----------|-------------|-------------|
+| **Fix** | Directly solve the issue by addressing root cause | When root cause is clear and fixable within project constraints |
+| **Workaround** | Implement alternative solution that mitigates impact without addressing root cause | When immediate resolution needed or root cause cannot be addressed |
+| **Defer** | Postpone resolution to a later phase or project | For low-priority issues that don&#x27;t threaten project objectives |
+| **Accept** | Acknowledge the issue without resolution action | When resolution cost exceeds benefit or impact is minimal |
+| **Transfer** | Shift responsibility for resolution to another party | When issue best addressed by external party (vendor, other department) |
+
+### 5.2 Resolution Plan Components
+
+*Define what should be included in an issue resolution plan.*
+
+*Example: Issue resolution plans should include:*
+
+* Specific actions to be taken
+* Resources required
+* Timeline for implementation
+* Dependencies and prerequisites
+* Potential risks of the resolution approach
+* Success criteria for resolution verification
+* Stakeholder communication needs
+* Follow-up actions to prevent recurrence
+
+### 5.3 Resolution Progress Tracking
+
+*Define how progress toward issue resolution will be tracked and reported.*
+
+*Example:*
+
+| Progress Status | Description |
+|-----------------|-------------|
+| **Not Started** | Resolution planning may be complete but implementation not begun |
+| **In Progress** | Resolution actions underway, with percentage complete indicator |
+| **Blocked** | Resolution implementation halted due to dependencies or obstacles |
+| **Verification** | Resolution implemented, effectiveness being verified |
+| **Resolved** | Resolution complete and verified effective, pending closure approval |
+| **Closed** | Issue formally closed, lessons learned documented |
+| **Reopened** | Previously closed issue that has recurred |
+
+---
+
+## 6. Escalation Procedures
+
+### 6.1 Escalation Triggers
+
+*Define the conditions that trigger issue escalation.*
+
+*Example:*
+
+* Issue with Critical priority not responded to within 4 hours
+* High priority issue not resolved within agreed timeframe
+* Issue resolution repeatedly blocked or delayed
+* Issue impact assessment reveals critical business impact
+* Resource conflicts preventing issue resolution
+* Stakeholder disagreement on issue priority or resolution approach
+* Issue resolution requires authority beyond assigned owner
+* Multiple related issues indicating systemic problem
+
+### 6.2 Escalation Levels
+
+*Define the hierarchy for issue escalation.*
+
+*Example:*
+
+| Level | Escalated To | Timeframe | Communication Method |
+|-------|--------------|-----------|----------------------|
+| 1 | Project Manager | Immediate | Direct contact (phone/in-person) |
+| 2 | Project Sponsor/Functional Manager | Within 4 hours | Email + phone call |
+| 3 | Steering Committee | Within 24 hours | Formal memo + emergency meeting |
+| 4 | Executive Leadership | Within 48 hours | Executive briefing |
+
+### 6.3 Escalation Information Requirements
+
+*Define the information needed when escalating an issue.*
+
+*Example: Issue escalation should include:*
+
+* Issue ID and description
+* Current priority and severity
+* Complete impact assessment
+* Resolution efforts attempted
+* Reason for escalation
+* Recommended action
+* Decision needed
+* Timeframe for decision
+* Consequences of delayed decision
+
+---
+
+## When to Use
+
+Use throughout the project lifecycle to identify, assess, and track risks. This template is essential for projects with significant complexity, multiple stakeholders, or high business impact, where structured risk management provides decision-making value.
+
+## When NOT to Use
+
+Do not use for very low-risk, short-duration tasks where informal risk awareness is sufficient. Avoid this template if your governance framework requires a different risk management approach or if stakeholders prefer real-time risk dashboards over static registers.
+
+## 7. Issue Log
+
+*The main issue log table containing all identified issues and their assessment, resolution planning, and status information.*
+
+| Issue ID | Issue Description | Category | Identified By | Identification Date | Priority | Severity | Impact Summary | Resolution Approach | Owner | Status | Target Resolution Date | Actual Resolution Date | Comments |
+|----------|------------------|----------|---------------|---------------------|----------|----------|----------------|---------------------|-------|--------|------------------------|------------------------|----------|
+| *ISS-T-001* | *System integration with finance module fails when processing transactions over $10,000* | *Technical* | *John Smith* | *YYYY-MM-DD* | *High* | *Major* | *Financial reporting delayed, manual workaround required* | *Fix: Modify code to handle large transactions* | *Jane Doe* | *In Progress (75%)* | *YYYY-MM-DD* | | *Root cause identified as buffer size limitation. Code fix in development.* |
+| *ISS-R-001* | *Lead developer resigned unexpectedly* | *Resource* | *HR Department* | *YYYY-MM-DD* | *Critical* | *Major* | *Technical development delayed, knowledge transfer incomplete* | *Mitigate: Promote senior developer, hire contractor* | *Mike Johnson* | *In Progress (50%)* | *YYYY-MM-DD* | | *Senior developer assuming lead role, contractor interviews scheduled.* |
+| *ISS-V-001* | *Vendor delivered training materials with significant quality issues* | *Vendor* | *Training Team* | *YYYY-MM-DD* | *Medium* | *Moderate* | *Training preparation delayed, materials require rework* | *Transfer: Return to vendor for correction with expedited timeline* | *Sarah Williams* | *Resolved* | *YYYY-MM-DD* | *YYYY-MM-DD* | *Vendor redelivered corrected materials, verified by training team.* |
+| *ISS-S-001* | *Reporting requirements were underestimated in initial scope* | *Scope* | *Business Analyst* | *YYYY-MM-DD* | *High* | *Moderate* | *Additional development effort required, potential delay to reporting module* | *Fix: Add required reports, adjust schedule and resources* | *Robert Brown* | *In Progress (30%)* | *YYYY-MM-DD* | | *Impact assessment complete, change request in process for additional resources.* |
+| *ISS-C-001* | *Change Management team not receiving timely information about system changes* | *Communication* | *Change Manager* | *YYYY-MM-DD
+
+</pre></div></div></div><!--astro:end--></astro-island></main></body></html>

@@ -1,0 +1,613 @@
+<!DOCTYPE html><html lang="en" data-astro-cid-ju4pidww><head><meta charset="UTF-8"><meta name="description" content="Advanced template browser with previews and version history"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="icon" type="image/svg+xml" href="/pm-tools-templates/favicon.svg"><title>Portfolio Kanban Template</title><link rel="stylesheet" href="/pm-tools-templates/assets/Layout.ChXqTIwx.css"></head><body data-astro-cid-ju4pidww><main data-astro-cid-ju4pidww><style>astro-island,astro-slot,astro-static-slot{display:contents}</style><script>(()=>{var e=async t=>{await(await t())()};(self.Astro||(self.Astro={})).load=e;window.dispatchEvent(new Event("astro:load"));})();</script><script>(()=>{var g=Object.defineProperty;var w=(a,s,c)=>s in a?g(a,s,{enumerable:!0,configurable:!0,writable:!0,value:c}):a[s]=c;var l=(a,s,c)=>w(a,typeof s!="symbol"?s+"":s,c);var E=new Set(["__proto__","constructor","prototype"]);{let a={0:t=>y(t),1:t=>c(t),2:t=>new RegExp(t),3:t=>new Date(t),4:t=>new Map(c(t)),5:t=>new Set(c(t)),6:t=>BigInt(t),7:t=>new URL(t),8:t=>new Uint8Array(t),9:t=>new Uint16Array(t),10:t=>new Uint32Array(t),11:t=>Number.POSITIVE_INFINITY*t},s=t=>{let[p,e]=t;return p in a?a[p](e):void 0},c=t=>t.map(s),y=t=>typeof t!="object"||t===null?t:Object.fromEntries(Object.entries(t).map(([p,e])=>[p,s(e)]));class f extends HTMLElement{constructor(){super(...arguments);l(this,"Component");l(this,"hydrator");l(this,"hydrate",async()=>{var b;if(!this.hydrator||!this.isConnected)return;let e=(b=this.parentElement)==null?void 0:b.closest("astro-island[ssr]");if(e){e.addEventListener("astro:hydrate",this.hydrate,{once:!0});return}let r=this.querySelectorAll("astro-slot"),n={},d=this.querySelectorAll("template[data-astro-template]");for(let o of d){let i=o.closest(this.tagName);i!=null&&i.isSameNode(this)&&(n[o.getAttribute("data-astro-template")||"default"]=o.innerHTML,o.remove())}for(let o of r){let i=o.closest(this.tagName);i!=null&&i.isSameNode(this)&&(n[o.getAttribute("name")||"default"]=o.innerHTML)}let u;try{u=this.hasAttribute("props")?y(JSON.parse(this.getAttribute("props"))):{}}catch(o){let i=this.getAttribute("component-url")||"<unknown>",v=this.getAttribute("component-export");throw v&&(i+=` (export ${v})`),console.error(`[hydrate] Error parsing props for component ${i}`,this.getAttribute("props"),o),o}let h;await this.hydrator(this)(this.Component,u,n,{client:this.getAttribute("client")}),this.removeAttribute("ssr"),this.dispatchEvent(new CustomEvent("astro:hydrate"))});l(this,"unmount",()=>{this.isConnected||this.dispatchEvent(new CustomEvent("astro:unmount"))})}disconnectedCallback(){document.removeEventListener("astro:after-swap",this.unmount),document.addEventListener("astro:after-swap",this.unmount,{once:!0})}connectedCallback(){if(!this.hasAttribute("await-children")||document.readyState==="interactive"||document.readyState==="complete")this.childrenConnectedCallback();else{let e=()=>{document.removeEventListener("DOMContentLoaded",e),r.disconnect(),this.childrenConnectedCallback()},r=new MutationObserver(()=>{var n;((n=this.lastChild)==null?void 0:n.nodeType)===Node.COMMENT_NODE&&this.lastChild.nodeValue==="astro:end"&&(this.lastChild.remove(),e())});r.observe(this,{childList:!0}),document.addEventListener("DOMContentLoaded",e)}}async childrenConnectedCallback(){let e=this.getAttribute("before-hydration-url");e&&await import(e),this.start()}getRetryImportUrl(e){let r=new URL(e,document.baseURI);return r.searchParams.set("astro-retry",Date.now().toString()),r.toString()}async importWithRetry(e){try{return await import(e)}catch(r){return await new Promise(n=>setTimeout(n,1e3)),import(this.getRetryImportUrl(e))}}handleHydrationError(e){let r=this.getAttribute("component-url"),n=new CustomEvent("astro:hydration-error",{cancelable:!0,bubbles:!0,composed:!0,detail:{error:e,componentUrl:r}});this.dispatchEvent(n)&&console.error(`[astro-island] Error hydrating ${r}`,e)}async start(){let e=JSON.parse(this.getAttribute("opts")),r=this.getAttribute("client");if(Astro[r]===void 0){window.addEventListener(`astro:${r}`,()=>this.start(),{once:!0});return}try{await Astro[r](async()=>{let n=this.getAttribute("renderer-url");try{let[d,{default:u}]=await Promise.all([this.importWithRetry(this.getAttribute("component-url")),n?this.importWithRetry(n):Promise.resolve({default:()=>()=>{}})]),h=this.getAttribute("component-export")||"default";if(h.includes(".")){this.Component=d;for(let m of h.split(".")){if(E.has(m)||!this.Component||typeof this.Component!="object"&&typeof this.Component!="function"||!Object.hasOwn(this.Component,m))throw new Error(`Invalid component export path: ${h}`);this.Component=this.Component[m]}}else{if(E.has(h))throw new Error(`Invalid component export path: ${h}`);this.Component=d[h]}return this.hydrator=u,this.hydrate}catch(d){return this.handleHydrationError(d),()=>{}}},e,this)}catch(n){this.handleHydrationError(n)}}attributeChangedCallback(){this.hydrate()}}l(f,"observedAttributes",["props"]),customElements.get("astro-island")||customElements.define("astro-island",f)}})();</script><astro-island uid="6H367" prefix="r1" component-url="/pm-tools-templates/assets/TemplateViewer.BJxWH0dD.js" component-export="default" renderer-url="/pm-tools-templates/assets/client.REQV_TkY.js" props="{&quot;templateId&quot;:[0,&quot;portfolio_kanban_template&quot;],&quot;filePath&quot;:[0,&quot;domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/portfolio_kanban_template.md&quot;],&quot;title&quot;:[0,&quot;Portfolio Kanban Template&quot;],&quot;content&quot;:[0,&quot;---\ntitle: Portfolio Kanban Template\nmethodology: agile\ncomplexity: advanced\nowner: mirichard\nupdated: &#39;2025-08-05&#39;\nprimary_principles:\n- systems-thinking\n- collaborative-leadership\nsecondary_principles:\n- adaptability\n- value-focus\nprinciple_rationale: Coordinates cross-team dependencies and value flow through adaptive\n  leadership.\n---\n\n# SAFe Portfolio Kanban Template\n\n## Overview\nThis template provides a framework for implementing Portfolio Kanban in SAFe, enabling organizations to visualize and manage the flow of portfolio epics from ideation to implementation. Portfolio Kanban helps establish a pull-based system for portfolio investment decisions.\n\n## Template Information\n- **Framework:** SAFe (Scaled Agile Framework)\n- **Level:** Portfolio\n- **Purpose:** Epic flow management and investment decision-making\n- **Participants:** Portfolio Management, Epic Owners, Business Owners\n- **Review Frequency:** Weekly or bi-weekly\n\n---\n\n## Portfolio Kanban Board Structure\n\n### Board Layout\nThe Portfolio Kanban board consists of the following columns:\n\n```\n[Funnel] → [Reviewing] → [Analyzing] → [Portfolio Backlog] → [Implementing] → [Done]\n```\n\n### Column Definitions\n\n#### 1. Funnel\n**Purpose:** Capture all new epic ideas\n**WIP Limit:** No limit\n**Entry Criteria:** \n- [ ] Epic hypothesis is documented\n- [ ] Business opportunity is identified\n- [ ] Initial business case exists\n\n**Activities:**\n- Idea capture and initial documentation\n- High-level business case development\n- Stakeholder identification\n\n#### 2. Reviewing\n**Purpose:** Initial review and assessment\n**WIP Limit:** 10-15 epics\n**Entry Criteria:**\n- [ ] Epic meets minimum threshold criteria\n- [ ] Business sponsor is identified\n- [ ] Initial ROI estimate exists\n\n**Activities:**\n- Portfolio review board assessment\n- Initial prioritization\n- Go/no-go decision for analysis\n\n#### 3. Analyzing\n**Purpose:** Detailed analysis and business case development\n**WIP Limit:** 5-10 epics\n**Entry Criteria:**\n- [ ] Portfolio review board approval\n- [ ] Analysis resources are available\n- [ ] Epic owner is assigned\n\n**Activities:**\n- Detailed business case development\n- Market research and validation\n- Technical feasibility assessment\n- Investment analysis\n\n#### 4. Portfolio Backlog\n**Purpose:** Approved epics awaiting implementation capacity\n**WIP Limit:** No formal limit\n**Entry Criteria:**\n- [ ] Business case is approved\n- [ ] ROI meets portfolio threshold\n- [ ] Epic is sized and estimated\n\n**Activities:**\n- Epic prioritization and sequencing\n- Capacity planning\n- Solution context development\n\n#### 5. Implementing\n**Purpose:** Epics actively being developed\n**WIP Limit:** Based on ART capacity\n**Entry Criteria:**\n- [ ] Implementation capacity is available\n- [ ] Epic is ready for development\n- [ ] Success criteria are defined\n\n**Activities:**\n- Epic decomposition into features\n- Solution development\n- Progress tracking and reporting\n\n#### 6. Done\n**Purpose:** Completed epics with realized value\n**No WIP Limit**\n**Entry Criteria:**\n- [ ] Epic acceptance criteria met\n- [ ] Business benefits are realized\n- [ ] Value measurement completed\n\n**Activities:**\n- Value realization reporting\n- Lessons learned capture\n- Portfolio performance analysis\n\n---\n\n## Epic Card Template\n\n### Epic Card Information\nEach epic card should contain the following information:\n\n#### Epic Header\n```\nEpic ID: [E001]\nEpic Name: [Epic Title]\nEpic Owner: [Name]\nBusiness Sponsor: [Name]\n```\n\n#### Business Information\n```\nBusiness Value: [High/Medium/Low]\nStrategic Theme: [Theme Name]\nInvestment Category: [New Product/Market/Technology/Platform]\nTarget Market: [Market Segment]\n```\n\n#### Financial Information\n```\nTotal Investment: $[Amount]\nProjected ROI: [Percentage]%\nPayback Period: [Months]\nNPV: $[Amount]\nIRR: [Percentage]%\n```\n\n#### Timeline Information\n```\nAnalysis Start: [Date]\nAnalysis Complete: [Date]\nImplementation Start: [Date]\nExpected Completion: [Date]\n```\n\n#### Success Metrics\n```\nLeading Indicators:\n- [Metric 1]: [Target]\n- [Metric 2]: [Target]\n\nLagging Indicators:\n- [Metric 1]: [Target]\n- [Metric 2]: [Target]\n```\n\n---\n\n## Portfolio Review Process\n\n### Review Board Composition\n- **Portfolio Manager** (Chair)\n- **Business Owners**\n- **Solution/System Architects**\n- **Epic Owners**\n- **Finance Representative**\n\n### Review Cadence\n- **Frequency:** Weekly or bi-weekly\n- **Duration:** 2-3 hours\n- **Format:** In-person or virtual meeting\n\n### Review Agenda Template\n\n#### 1. Portfolio Metrics Review (15 minutes)\n- Portfolio flow metrics\n- Investment allocation review\n- Capacity utilization analysis\n- Value delivery trends\n\n#### 2. Funnel Review (20 minutes)\n- New epic presentations\n- Initial screening decisions\n- Move to Reviewing column\n\n#### 3. Reviewing Column (25 minutes)\n- Epic prioritization\n- Resource allocation decisions\n- Move to Analyzing or reject\n\n#### 4. Analyzing Column (30 minutes)\n- Business case presentations\n- Investment decisions\n- Move to Portfolio Backlog or reject\n\n#### 5. Portfolio Backlog (20 minutes)\n- Epic sequencing and prioritization\n- Capacity planning\n- Implementation timing decisions\n\n#### 6. Implementing Epics (15 minutes)\n- Progress updates\n- Issue escalation\n- Scope and timeline adjustments\n\n#### 7. Action Items and Next Steps (5 minutes)\n- Decision documentation\n- Follow-up assignments\n- Next meeting preparation\n\n---\n\n## Business Case Template\n\n### Executive Summary\n**Epic Name:** [Epic Title]\n**Business Sponsor:** [Name]\n**Epic Owner:** [Name]\n**Investment Request:** $[Amount]\n\n#### Problem Statement\n[Describe the business problem or opportunity this epic addresses]\n\n#### Proposed Solution\n[High-level description of the proposed solution]\n\n#### Expected Benefits\n[Key business benefits and value proposition]\n\n### Business Context\n\n#### Strategic Alignment\n- **Strategic Theme:** [Theme Name]\n- **Business Objective:** [Specific objective]\n- **Portfolio Priority:** [High/Medium/Low]\n\n#### Market Analysis\n- **Target Market:** [Market segment description]\n- **Market Size:** $[Amount]\n- **Competitive Landscape:** [Brief analysis]\n- **Market Trends:** [Relevant trends]\n\n### Solution Overview\n\n#### Scope and Features\n**In Scope:**\n- [Feature/capability 1]\n- [Feature/capability 2]\n- [Feature/capability 3]\n\n**Out of Scope:**\n- [Explicitly excluded items]\n\n#### Technical Approach\n- **Technology Stack:** [Technologies to be used]\n- **Integration Points:** [System integrations required]\n- **Architecture Considerations:** [Key architectural decisions]\n\n### Financial Analysis\n\n#### Investment Summary\n| Category | Amount | Percentage |\n|----------|--------|------------|\n| Development | $[Amount] | [%] |\n| Infrastructure | $[Amount] | [%] |\n| Third-party Tools | $[Amount] | [%] |\n| Training | $[Amount] | [%] |\n| Other | $[Amount] | [%] |\n| **Total** | **$[Amount]** | **100%** |\n\n#### Revenue Projections\n| Year | Revenue | Cost Savings | Total Benefit |\n|------|---------|--------------|---------------|\n| Year 1 | $[Amount] | $[Amount] | $[Amount] |\n| Year 2 | $[Amount] | $[Amount] | $[Amount] |\n| Year 3 | $[Amount] | $[Amount] | $[Amount] |\n\n#### Financial Metrics\n- **ROI:** [Percentage]%\n- **NPV:** $[Amount]\n- **IRR:** [Percentage]%\n- **Payback Period:** [Months] months\n- **Break-even Point:** [Date]\n\n### Risk Analysis\n\n#### Risk Assessment\n| Risk | Probability | Impact | Mitigation Strategy |\n|------|-------------|--------|-------------------|\n| [Risk 1] | High/Med/Low | High/Med/Low | [Strategy] |\n| [Risk 2] | High/Med/Low | High/Med/Low | [Strategy] |\n| [Risk 3] | High/Med/Low | High/Med/Low | [Strategy] |\n\n#### Assumptions\n- [Assumption 1]\n- [Assumption 2]\n- [Assumption 3]\n\n### Implementation Plan\n\n#### High-Level Timeline\n| Milestone | Target Date | Dependencies |\n|-----------|-------------|--------------|\n| Analysis Complete | [Date] | [Dependencies] |\n| Development Start | [Date] | [Dependencies] |\n| MVP Release | [Date] | [Dependencies] |\n| Full Implementation | [Date] | [Dependencies] |\n\n#### Resource Requirements\n- **Development Team:** [Size and duration]\n- **Subject Matter Experts:** [Expertise needed]\n- **Infrastructure:** [Infrastructure requirements]\n- **Budget:** $[Amount]\n\n### Success Criteria\n\n#### Business Outcomes\n- [Outcome 1]: [Target metric]\n- [Outcome 2]: [Target metric]\n- [Outcome 3]: [Target metric]\n\n#### Leading Indicators\n- [Indicator 1]: [Target]\n- [Indicator 2]: [Target]\n\n#### Acceptance Criteria\n- [ ] [Specific, measurable criterion]\n- [ ] [Specific, measurable criterion]\n- [ ] [Specific, measurable criterion]\n\n---\n\n## Flow Metrics Dashboard\n\n### Key Performance Indicators\n\n#### Throughput Metrics\n- **Epic Throughput:** [Number] epics completed per quarter\n- **Cycle Time:** [Days] average time from funnel to done\n- **Lead Time:** [Days] average time from idea to value delivery\n\n#### Flow Efficiency\n- **Work in Progress:** [Number] of epics in each column\n- **Flow Efficiency:** [Percentage]% of time adding value vs. waiting\n- **Blocked Items:** [Number] of epics currently blocked\n\n#### Investment Metrics\n- **Portfolio Investment:** $[Amount] currently in implementing\n- **Investment by Category:** [Breakdown by investment type]\n- **ROI Realization:** [Percentage]% of projected ROI achieved\n\n### Metrics Tracking Template\n\n#### Weekly Flow Metrics\n| Metric | This Week | Last Week | Trend | Target |\n|--------|-----------|-----------|--------|--------|\n| Epics in Funnel | [Number] | [Number] | ↑/↓/→ | [Target] |\n| Epics in Reviewing | [Number] | [Number] | ↑/↓/→ | [Target] |\n| Epics in Analyzing | [Number] | [Number] | ↑/↓/→ | [Target] |\n| Epics in Backlog | [Number] | [Number] | ↑/↓/→ | [Target] |\n| Epics Implementing | [Number] | [Number] | ↑/↓/→ | [Target] |\n| Epics Completed | [Number] | [Number] | ↑/↓/→ | [Target] |\n\n#### Quarterly Investment Review\n| Investment Category | Q1 | Q2 | Q3 | Q4 | Total |\n|-------------------|----|----|----|----|-------|\n| New Products | $[Amount] | $[Amount] | $[Amount] | $[Amount] | $[Amount] |\n| Market Expansion | $[Amount] | $[Amount] | $[Amount] | $[Amount] | $[Amount] |\n| Technology Platform | $[Amount] | $[Amount] | $[Amount] | $[Amount] | $[Amount] |\n| Operational Excellence | $[Amount] | $[Amount] | $[Amount] | $[Amount] | $[Amount] |\n\n---\n\n## Decision Framework\n\n### Investment Criteria\n\n#### Minimum Threshold Criteria\nAll epics must meet these criteria to proceed beyond Funnel:\n- [ ] Aligns with strategic themes\n- [ ] Minimum ROI of [Percentage]%\n- [ ] Market opportunity &gt; $[Amount]\n- [ ] Technical feasibility confirmed\n- [ ] Resource availability validated\n\n#### Prioritization Criteria\nWeight factors for epic prioritization:\n\n| Criteria | Weight | Score (1-5) | Weighted Score |\n|----------|--------|-------------|----------------|\n| Strategic Alignment | 30% | [Score] | [Calculation] |\n| Financial Return | 25% | [Score] | [Calculation] |\n| Market Opportunity | 20% | [Score] | [Calculation] |\n| Technical Risk | 15% | [Score] | [Calculation] |\n| Resource Availability | 10% | [Score] | [Calculation] |\n\n### Go/No-Go Decision Template\n\n#### Decision Criteria Checklist\n- [ ] **Strategic Fit:** Epic aligns with portfolio strategy\n- [ ] **Financial Viability:** ROI meets or exceeds threshold\n- [ ] **Market Validation:** Customer demand is validated\n- [ ] **Technical Feasibility:** Solution is technically achievable\n- [ ] **Resource Capacity:** Required resources are available\n- [ ] **Risk Tolerance:** Risk level is acceptable\n\n#### Decision Documentation\n**Epic:** [Epic Name]\n**Decision Date:** [Date]\n**Decision:** Go / No-Go / Defer\n**Rationale:** [Explanation of decision]\n**Conditions:** [Any conditions for go decision]\n**Next Review:** [Date for next review if deferred]\n\n---\n\n## Portfolio Kanban Ceremonies\n\n### Daily Portfolio Standup (Optional)\n**Participants:** Portfolio Manager, Epic Owners\n**Duration:** 15 minutes\n**Format:** Virtual or in-person\n\n**Agenda:**\n1. **Blockers and Impediments** (10 minutes)\n   - Identify portfolio-level blockers\n   - Escalate critical issues\n   - Coordinate resolution efforts\n\n2. **Key Decisions Needed** (5 minutes)\n   - Identify urgent decisions\n   - Schedule additional meetings if needed\n\n### Weekly Portfolio Review\n**Participants:** Portfolio Review Board\n**Duration:** 2-3 hours\n**Format:** Formal meeting\n\n**Agenda:** [Use agenda template above]\n\n### Monthly Portfolio Health Check\n**Participants:** Senior Leadership, Portfolio Manager\n**Duration:** 1 hour\n**Format:** Executive briefing\n\n**Agenda:**\n1. **Portfolio Performance** (20 minutes)\n   - Flow metrics review\n   - Investment performance\n   - Value delivery trends\n\n2. **Strategic Alignment** (20 minutes)\n   - Epic portfolio vs. strategy\n   - Market changes impact\n   - Competitive positioning\n\n3. **Risks and Issues** (15 minutes)\n   - Portfolio-level risks\n   - Escalated issues\n   - Mitigation strategies\n\n4. **Forward Looking** (5 minutes)\n   - Upcoming decisions\n   - Resource planning\n   - Strategic adjustments\n\n---\n\n## Tool Implementation\n\n### Physical Board Setup\n**Materials Needed:**\n- Large wall space or magnetic board\n- Sticky notes (different colors for epic types)\n- Magnetic cards or laminated epic cards\n- Markers and pens\n- Tape or magnetic strips\n\n**Board Layout:**\n```\n[Column Headers]\n[WIP Limits displayed prominently]\n[Epic cards organized by column]\n[Blocked items marked clearly]\n[Expedite lane if needed]\n```\n\n### Digital Tool Options\n\n#### Jira Portfolio Kanban\n- **Setup:** Create portfolio-level board\n- **Epic Cards:** Use epic issue type\n- **Custom Fields:** Add financial and business fields\n- **Workflows:** Configure column workflows\n- **Reporting:** Use built-in flow metrics\n\n#### Azure DevOps Portfolio Boards\n- **Setup:** Create portfolio-level board\n- **Work Items:** Use epic work item type\n- **Custom Fields:** Add business case fields\n- **Workflows:** Configure state transitions\n- **Analytics:** Use portfolio analytics\n\n#### Miro/Mural Digital Boards\n- **Setup:** Create collaborative board template\n- **Epic Cards:** Use digital sticky notes\n- **Workflow:** Manual movement between columns\n- **Collaboration:** Real-time editing and commenting\n\n---\n\n## Customization Guidelines\n\n### Organization Size Adaptations\n\n#### Small Organizations (1-3 ARTs)\n- Simplified approval process\n- Reduced documentation requirements\n- Combined roles (Portfolio Manager + Epic Owner)\n- Monthly instead of weekly reviews\n\n#### Medium Organizations (4-10 ARTs)\n- Standard template as provided\n- Dedicated portfolio management roles\n- Formal review processes\n- Weekly review cadence\n\n#### Large Organizations (10+ ARTs)\n- Enhanced governance processes\n- Multiple portfolio boards by value stream\n- Dedicated analysis teams\n- Daily portfolio standups\n\n### Industry Customizations\n\n#### Technology Companies\n- Emphasize technical feasibility analysis\n- Include architecture review gates\n- Add technology stack decisions\n- Focus on innovation metrics\n\n#### Financial Services\n- Include regulatory compliance review\n- Add risk management assessments\n- Emphasize security considerations\n- Include audit trail requirements\n\n#### Healthcare/Life Sciences\n- Add regulatory approval processes\n- Include patient safety assessments\n- Emphasize compliance requirements\n- Add clinical trial considerations\n\n---\n\n## When to Use\n\nUse throughout the project lifecycle to identify, assess, and track risks. This template is essential for projects with significant complexity, multiple stakeholders, or high business impact, where structured risk management provides decision-making value.\n\n## When NOT to Use\n\nDo not use for very low-risk, short-duration tasks where informal risk awareness is sufficient. Avoid this template if your governance framework requires a different risk management approach or if stakeholders prefer real-time risk dashboards over static registers.\n\n## Related Templates\n- [PI Planning Template](./pi_planning_template.md)\n- [ART Coordination Template](./art_coordination_template.md)\n- [SAFe Metrics Dashboard Template](./metrics_dashboard_template.md)\n- [Epic Business Case Template](./epic_business_case_template.md)\n- [Portfolio Management Role Guide](../../../role-based-toolkits/portfolio-manager/README.md)\n\n---\n\n## Success Metrics\n\n### Portfolio Flow Health\n- **Cycle Time:** ≤ 6 months from funnel to implementing\n- **Throughput:** Consistent epic completion rate\n- **Predictability:** 80%+ of epics complete on time\n- **Value Delivery:** 90%+ of epics meet ROI targets\n\n### Investment Efficiency\n- **Portfolio ROI:** Meets or exceeds organizational targets\n- **Investment Balance:** Appropriate mix across categories\n- **Resource Utilization:** 85%+ capacity utilization\n- **Time to Market:** Reduced time from idea to value\n\n---\n\n## Version History\n| Version | Date | Changes | Author |\n|---------|------|---------|--------|\n| 1.0 | [Date] | Initial template creation | [Author] |\n\n---\n\n*This template is part of the PM Tools Templates library. For more information and additional templates, visit [repository root](../../../../README.md).*\n\n&quot;]}" ssr client="load" opts="{&quot;name&quot;:&quot;TemplateViewer&quot;,&quot;value&quot;:true}" await-children><div><h1>Portfolio Kanban Template</h1><div style="margin-bottom:2rem"><button style="background:var(--accent-color);color:white;border:1px solid var(--border-color);padding:0.5rem 1rem;border-radius:4px 4px 0 0;cursor:pointer;margin-right:1px">Preview</button><button style="background:var(--code-bg);color:var(--text-color);border:1px solid var(--border-color);padding:0.5rem 1rem;border-radius:4px 4px 0 0;cursor:pointer">Version History</button></div><div style="border:1px solid var(--border-color);border-radius:0 8px 8px 8px;min-height:400px"><div style="background:var(--bg-primary);border-radius:var(--radius-lg)"><div style="padding:1rem 1.5rem;border-bottom:1px solid var(--border-light);display:flex;align-items:center;justify-content:space-between;background:var(--bg-secondary);border-radius:var(--radius-lg) var(--radius-lg) 0 0"><div style="display:flex;align-items:center;gap:0.5rem"><span style="font-size:1.5rem">📄</span><div><div style="font-weight:600;color:var(--text-primary)">portfolio_kanban_template.md</div><div style="font-size:0.75rem;color:var(--text-muted)">Markdown • <!-- -->17,057 bytes</div></div></div><a href="/pm-tools-templates/downloads/portfolio_kanban_template.md" download="" class="btn btn-secondary" style="font-size:0.75rem;padding:0.5rem 0.75rem">💾 Download</a></div><pre aria-label="Markdown source of Portfolio Kanban Template" style="padding:1.5rem;max-height:600px;overflow:auto;white-space:pre-wrap;overflow-wrap:anywhere">---
+title: Portfolio Kanban Template
+methodology: agile
+complexity: advanced
+owner: mirichard
+updated: &#x27;2025-08-05&#x27;
+primary_principles:
+- systems-thinking
+- collaborative-leadership
+secondary_principles:
+- adaptability
+- value-focus
+principle_rationale: Coordinates cross-team dependencies and value flow through adaptive
+  leadership.
+---
+
+# SAFe Portfolio Kanban Template
+
+## Overview
+This template provides a framework for implementing Portfolio Kanban in SAFe, enabling organizations to visualize and manage the flow of portfolio epics from ideation to implementation. Portfolio Kanban helps establish a pull-based system for portfolio investment decisions.
+
+## Template Information
+- **Framework:** SAFe (Scaled Agile Framework)
+- **Level:** Portfolio
+- **Purpose:** Epic flow management and investment decision-making
+- **Participants:** Portfolio Management, Epic Owners, Business Owners
+- **Review Frequency:** Weekly or bi-weekly
+
+---
+
+## Portfolio Kanban Board Structure
+
+### Board Layout
+The Portfolio Kanban board consists of the following columns:
+
+```
+[Funnel] → [Reviewing] → [Analyzing] → [Portfolio Backlog] → [Implementing] → [Done]
+```
+
+### Column Definitions
+
+#### 1. Funnel
+**Purpose:** Capture all new epic ideas
+**WIP Limit:** No limit
+**Entry Criteria:** 
+- [ ] Epic hypothesis is documented
+- [ ] Business opportunity is identified
+- [ ] Initial business case exists
+
+**Activities:**
+- Idea capture and initial documentation
+- High-level business case development
+- Stakeholder identification
+
+#### 2. Reviewing
+**Purpose:** Initial review and assessment
+**WIP Limit:** 10-15 epics
+**Entry Criteria:**
+- [ ] Epic meets minimum threshold criteria
+- [ ] Business sponsor is identified
+- [ ] Initial ROI estimate exists
+
+**Activities:**
+- Portfolio review board assessment
+- Initial prioritization
+- Go/no-go decision for analysis
+
+#### 3. Analyzing
+**Purpose:** Detailed analysis and business case development
+**WIP Limit:** 5-10 epics
+**Entry Criteria:**
+- [ ] Portfolio review board approval
+- [ ] Analysis resources are available
+- [ ] Epic owner is assigned
+
+**Activities:**
+- Detailed business case development
+- Market research and validation
+- Technical feasibility assessment
+- Investment analysis
+
+#### 4. Portfolio Backlog
+**Purpose:** Approved epics awaiting implementation capacity
+**WIP Limit:** No formal limit
+**Entry Criteria:**
+- [ ] Business case is approved
+- [ ] ROI meets portfolio threshold
+- [ ] Epic is sized and estimated
+
+**Activities:**
+- Epic prioritization and sequencing
+- Capacity planning
+- Solution context development
+
+#### 5. Implementing
+**Purpose:** Epics actively being developed
+**WIP Limit:** Based on ART capacity
+**Entry Criteria:**
+- [ ] Implementation capacity is available
+- [ ] Epic is ready for development
+- [ ] Success criteria are defined
+
+**Activities:**
+- Epic decomposition into features
+- Solution development
+- Progress tracking and reporting
+
+#### 6. Done
+**Purpose:** Completed epics with realized value
+**No WIP Limit**
+**Entry Criteria:**
+- [ ] Epic acceptance criteria met
+- [ ] Business benefits are realized
+- [ ] Value measurement completed
+
+**Activities:**
+- Value realization reporting
+- Lessons learned capture
+- Portfolio performance analysis
+
+---
+
+## Epic Card Template
+
+### Epic Card Information
+Each epic card should contain the following information:
+
+#### Epic Header
+```
+Epic ID: [E001]
+Epic Name: [Epic Title]
+Epic Owner: [Name]
+Business Sponsor: [Name]
+```
+
+#### Business Information
+```
+Business Value: [High/Medium/Low]
+Strategic Theme: [Theme Name]
+Investment Category: [New Product/Market/Technology/Platform]
+Target Market: [Market Segment]
+```
+
+#### Financial Information
+```
+Total Investment: $[Amount]
+Projected ROI: [Percentage]%
+Payback Period: [Months]
+NPV: $[Amount]
+IRR: [Percentage]%
+```
+
+#### Timeline Information
+```
+Analysis Start: [Date]
+Analysis Complete: [Date]
+Implementation Start: [Date]
+Expected Completion: [Date]
+```
+
+#### Success Metrics
+```
+Leading Indicators:
+- [Metric 1]: [Target]
+- [Metric 2]: [Target]
+
+Lagging Indicators:
+- [Metric 1]: [Target]
+- [Metric 2]: [Target]
+```
+
+---
+
+## Portfolio Review Process
+
+### Review Board Composition
+- **Portfolio Manager** (Chair)
+- **Business Owners**
+- **Solution/System Architects**
+- **Epic Owners**
+- **Finance Representative**
+
+### Review Cadence
+- **Frequency:** Weekly or bi-weekly
+- **Duration:** 2-3 hours
+- **Format:** In-person or virtual meeting
+
+### Review Agenda Template
+
+#### 1. Portfolio Metrics Review (15 minutes)
+- Portfolio flow metrics
+- Investment allocation review
+- Capacity utilization analysis
+- Value delivery trends
+
+#### 2. Funnel Review (20 minutes)
+- New epic presentations
+- Initial screening decisions
+- Move to Reviewing column
+
+#### 3. Reviewing Column (25 minutes)
+- Epic prioritization
+- Resource allocation decisions
+- Move to Analyzing or reject
+
+#### 4. Analyzing Column (30 minutes)
+- Business case presentations
+- Investment decisions
+- Move to Portfolio Backlog or reject
+
+#### 5. Portfolio Backlog (20 minutes)
+- Epic sequencing and prioritization
+- Capacity planning
+- Implementation timing decisions
+
+#### 6. Implementing Epics (15 minutes)
+- Progress updates
+- Issue escalation
+- Scope and timeline adjustments
+
+#### 7. Action Items and Next Steps (5 minutes)
+- Decision documentation
+- Follow-up assignments
+- Next meeting preparation
+
+---
+
+## Business Case Template
+
+### Executive Summary
+**Epic Name:** [Epic Title]
+**Business Sponsor:** [Name]
+**Epic Owner:** [Name]
+**Investment Request:** $[Amount]
+
+#### Problem Statement
+[Describe the business problem or opportunity this epic addresses]
+
+#### Proposed Solution
+[High-level description of the proposed solution]
+
+#### Expected Benefits
+[Key business benefits and value proposition]
+
+### Business Context
+
+#### Strategic Alignment
+- **Strategic Theme:** [Theme Name]
+- **Business Objective:** [Specific objective]
+- **Portfolio Priority:** [High/Medium/Low]
+
+#### Market Analysis
+- **Target Market:** [Market segment description]
+- **Market Size:** $[Amount]
+- **Competitive Landscape:** [Brief analysis]
+- **Market Trends:** [Relevant trends]
+
+### Solution Overview
+
+#### Scope and Features
+**In Scope:**
+- [Feature/capability 1]
+- [Feature/capability 2]
+- [Feature/capability 3]
+
+**Out of Scope:**
+- [Explicitly excluded items]
+
+#### Technical Approach
+- **Technology Stack:** [Technologies to be used]
+- **Integration Points:** [System integrations required]
+- **Architecture Considerations:** [Key architectural decisions]
+
+### Financial Analysis
+
+#### Investment Summary
+| Category | Amount | Percentage |
+|----------|--------|------------|
+| Development | $[Amount] | [%] |
+| Infrastructure | $[Amount] | [%] |
+| Third-party Tools | $[Amount] | [%] |
+| Training | $[Amount] | [%] |
+| Other | $[Amount] | [%] |
+| **Total** | **$[Amount]** | **100%** |
+
+#### Revenue Projections
+| Year | Revenue | Cost Savings | Total Benefit |
+|------|---------|--------------|---------------|
+| Year 1 | $[Amount] | $[Amount] | $[Amount] |
+| Year 2 | $[Amount] | $[Amount] | $[Amount] |
+| Year 3 | $[Amount] | $[Amount] | $[Amount] |
+
+#### Financial Metrics
+- **ROI:** [Percentage]%
+- **NPV:** $[Amount]
+- **IRR:** [Percentage]%
+- **Payback Period:** [Months] months
+- **Break-even Point:** [Date]
+
+### Risk Analysis
+
+#### Risk Assessment
+| Risk | Probability | Impact | Mitigation Strategy |
+|------|-------------|--------|-------------------|
+| [Risk 1] | High/Med/Low | High/Med/Low | [Strategy] |
+| [Risk 2] | High/Med/Low | High/Med/Low | [Strategy] |
+| [Risk 3] | High/Med/Low | High/Med/Low | [Strategy] |
+
+#### Assumptions
+- [Assumption 1]
+- [Assumption 2]
+- [Assumption 3]
+
+### Implementation Plan
+
+#### High-Level Timeline
+| Milestone | Target Date | Dependencies |
+|-----------|-------------|--------------|
+| Analysis Complete | [Date] | [Dependencies] |
+| Development Start | [Date] | [Dependencies] |
+| MVP Release | [Date] | [Dependencies] |
+| Full Implementation | [Date] | [Dependencies] |
+
+#### Resource Requirements
+- **Development Team:** [Size and duration]
+- **Subject Matter Experts:** [Expertise needed]
+- **Infrastructure:** [Infrastructure requirements]
+- **Budget:** $[Amount]
+
+### Success Criteria
+
+#### Business Outcomes
+- [Outcome 1]: [Target metric]
+- [Outcome 2]: [Target metric]
+- [Outcome 3]: [Target metric]
+
+#### Leading Indicators
+- [Indicator 1]: [Target]
+- [Indicator 2]: [Target]
+
+#### Acceptance Criteria
+- [ ] [Specific, measurable criterion]
+- [ ] [Specific, measurable criterion]
+- [ ] [Specific, measurable criterion]
+
+---
+
+## Flow Metrics Dashboard
+
+### Key Performance Indicators
+
+#### Throughput Metrics
+- **Epic Throughput:** [Number] epics completed per quarter
+- **Cycle Time:** [Days] average time from funnel to done
+- **Lead Time:** [Days] average time from idea to value delivery
+
+#### Flow Efficiency
+- **Work in Progress:** [Number] of epics in each column
+- **Flow Efficiency:** [Percentage]% of time adding value vs. waiting
+- **Blocked Items:** [Number] of epics currently blocked
+
+#### Investment Metrics
+- **Portfolio Investment:** $[Amount] currently in implementing
+- **Investment by Category:** [Breakdown by investment type]
+- **ROI Realization:** [Percentage]% of projected ROI achieved
+
+### Metrics Tracking Template
+
+#### Weekly Flow Metrics
+| Metric | This Week | Last Week | Trend | Target |
+|--------|-----------|-----------|--------|--------|
+| Epics in Funnel | [Number] | [Number] | ↑/↓/→ | [Target] |
+| Epics in Reviewing | [Number] | [Number] | ↑/↓/→ | [Target] |
+| Epics in Analyzing | [Number] | [Number] | ↑/↓/→ | [Target] |
+| Epics in Backlog | [Number] | [Number] | ↑/↓/→ | [Target] |
+| Epics Implementing | [Number] | [Number] | ↑/↓/→ | [Target] |
+| Epics Completed | [Number] | [Number] | ↑/↓/→ | [Target] |
+
+#### Quarterly Investment Review
+| Investment Category | Q1 | Q2 | Q3 | Q4 | Total |
+|-------------------|----|----|----|----|-------|
+| New Products | $[Amount] | $[Amount] | $[Amount] | $[Amount] | $[Amount] |
+| Market Expansion | $[Amount] | $[Amount] | $[Amount] | $[Amount] | $[Amount] |
+| Technology Platform | $[Amount] | $[Amount] | $[Amount] | $[Amount] | $[Amount] |
+| Operational Excellence | $[Amount] | $[Amount] | $[Amount] | $[Amount] | $[Amount] |
+
+---
+
+## Decision Framework
+
+### Investment Criteria
+
+#### Minimum Threshold Criteria
+All epics must meet these criteria to proceed beyond Funnel:
+- [ ] Aligns with strategic themes
+- [ ] Minimum ROI of [Percentage]%
+- [ ] Market opportunity &gt; $[Amount]
+- [ ] Technical feasibility confirmed
+- [ ] Resource availability validated
+
+#### Prioritization Criteria
+Weight factors for epic prioritization:
+
+| Criteria | Weight | Score (1-5) | Weighted Score |
+|----------|--------|-------------|----------------|
+| Strategic Alignment | 30% | [Score] | [Calculation] |
+| Financial Return | 25% | [Score] | [Calculation] |
+| Market Opportunity | 20% | [Score] | [Calculation] |
+| Technical Risk | 15% | [Score] | [Calculation] |
+| Resource Availability | 10% | [Score] | [Calculation] |
+
+### Go/No-Go Decision Template
+
+#### Decision Criteria Checklist
+- [ ] **Strategic Fit:** Epic aligns with portfolio strategy
+- [ ] **Financial Viability:** ROI meets or exceeds threshold
+- [ ] **Market Validation:** Customer demand is validated
+- [ ] **Technical Feasibility:** Solution is technically achievable
+- [ ] **Resource Capacity:** Required resources are available
+- [ ] **Risk Tolerance:** Risk level is acceptable
+
+#### Decision Documentation
+**Epic:** [Epic Name]
+**Decision Date:** [Date]
+**Decision:** Go / No-Go / Defer
+**Rationale:** [Explanation of decision]
+**Conditions:** [Any conditions for go decision]
+**Next Review:** [Date for next review if deferred]
+
+---
+
+## Portfolio Kanban Ceremonies
+
+### Daily Portfolio Standup (Optional)
+**Participants:** Portfolio Manager, Epic Owners
+**Duration:** 15 minutes
+**Format:** Virtual or in-person
+
+**Agenda:**
+1. **Blockers and Impediments** (10 minutes)
+   - Identify portfolio-level blockers
+   - Escalate critical issues
+   - Coordinate resolution efforts
+
+2. **Key Decisions Needed** (5 minutes)
+   - Identify urgent decisions
+   - Schedule additional meetings if needed
+
+### Weekly Portfolio Review
+**Participants:** Portfolio Review Board
+**Duration:** 2-3 hours
+**Format:** Formal meeting
+
+**Agenda:** [Use agenda template above]
+
+### Monthly Portfolio Health Check
+**Participants:** Senior Leadership, Portfolio Manager
+**Duration:** 1 hour
+**Format:** Executive briefing
+
+**Agenda:**
+1. **Portfolio Performance** (20 minutes)
+   - Flow metrics review
+   - Investment performance
+   - Value delivery trends
+
+2. **Strategic Alignment** (20 minutes)
+   - Epic portfolio vs. strategy
+   - Market changes impact
+   - Competitive positioning
+
+3. **Risks and Issues** (15 minutes)
+   - Portfolio-level risks
+   - Escalated issues
+   - Mitigation strategies
+
+4. **Forward Looking** (5 minutes)
+   - Upcoming decisions
+   - Resource planning
+   - Strategic adjustments
+
+---
+
+## Tool Implementation
+
+### Physical Board Setup
+**Materials Needed:**
+- Large wall space or magnetic board
+- Sticky notes (different colors for epic types)
+- Magnetic cards or laminated epic cards
+- Markers and pens
+- Tape or magnetic strips
+
+**Board Layout:**
+```
+[Column Headers]
+[WIP Limits displayed prominently]
+[Epic cards organized by column]
+[Blocked items marked clearly]
+[Expedite lane if needed]
+```
+
+### Digital Tool Options
+
+#### Jira Portfolio Kanban
+- **Setup:** Create portfolio-level board
+- **Epic Cards:** Use epic issue type
+- **Custom Fields:** Add financial and business fields
+- **Workflows:** Configure column workflows
+- **Reporting:** Use built-in flow metrics
+
+#### Azure DevOps Portfolio Boards
+- **Setup:** Create portfolio-level board
+- **Work Items:** Use epic work item type
+- **Custom Fields:** Add business case fields
+- **Workflows:** Configure state transitions
+- **Analytics:** Use portfolio analytics
+
+#### Miro/Mural Digital Boards
+- **Setup:** Create collaborative board template
+- **Epic Cards:** Use digital sticky notes
+- **Workflow:** Manual movement between columns
+- **Collaboration:** Real-time editing and commenting
+
+---
+
+## Customization Guidelines
+
+### Organization Size Adaptations
+
+#### Small Organizations (1-3 ARTs)
+- Simplified approval process
+- Reduced documentation requirements
+- Combined roles (Portfolio Manager + Epic Owner)
+- Monthly instead of weekly reviews
+
+#### Medium Organizations (4-10 ARTs)
+- Standard template as provided
+- Dedicated portfolio management roles
+- Formal review processes
+- Weekly review cadence
+
+#### Large Organizations (10+ ARTs)
+- Enhanced governance processes
+- Multiple portfolio boards by value stream
+- Dedicated analysis teams
+- Daily portfolio standups
+
+### Industry Customizations
+
+#### Technology Companies
+- Emphasize technical feasibility analysis
+- Include architecture review gates
+- Add technology stack decisions
+- Focus on innovation metrics
+
+#### Financial Services
+- Include regulatory compliance review
+- Add risk management assessments
+- Emphasize security considerations
+- Include audit trail requirements
+
+#### Healthcare/Life Sciences
+- Add regulatory approval processes
+- Include patient safety assessments
+- Emphasize compliance requirements
+- Add clinical trial considerations
+
+---
+
+## When to Use
+
+Use throughout the project lifecycle to identify, assess, and track risks. This template is essential for projects with significant complexity, multiple stakeholders, or high business impact, where structured risk management provides decision-making value.
+
+## When NOT to Use
+
+Do not use for very low-risk, short-duration tasks where informal risk awareness is sufficient. Avoid this template if your governance framework requires a different risk management approach or if stakeholders prefer real-time risk dashboards over static registers.
+
+## Related Templates
+- [PI Planning Template](./pi_planning_template.md)
+- [ART Coordination Template](./art_coordination_template.md)
+- [SAFe Metrics Dashboard Template](./metrics_dashboard_template.md)
+- [Epic Business Case Template](./epic_business_case_template.md)
+- [Portfolio Management Role Guide](../../../role-based-toolkits/portfolio-manager/README.md)
+
+---
+
+## Success Metrics
+
+### Portfolio Flow Health
+- **Cycle Time:** ≤ 6 months from funnel to implementing
+- **Throughput:** Consistent epic completion rate
+- **Predictability:** 80%+ of epics complete on time
+- **Value Delivery:** 90%+ of epics meet ROI targets
+
+### Investment Efficiency
+- **Portfolio ROI:** Meets or exceeds organizational targets
+- **Investment Balance:** Appropriate mix across categories
+- **Resource Utilization:** 85%+ capacity utilization
+- **Time to Market:** Reduced time from idea to value
+
+---
+
+## Version History
+| Version | Date | Changes | Author |
+|---------|------|---------|--------|
+| 1.0 | [Date] | Initial template creation | [Author] |
+
+---
+
+*This template is part of the PM Tools Templates library. For more information and additional templates, visit [repository root](../../../../README.md).*
+
+</pre></div></div></div><!--astro:end--></astro-island></main></body></html>

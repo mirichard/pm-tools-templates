@@ -160,6 +160,6 @@ This template provides a comprehensive matrix for mapping security controls to c
 
 ---
 Related Resources:
-- [Risk Assessment Template](../../../domains/measurement/industry-specializations/information-technology/cybersecurity/risk_assessment_template.md)
+- [Risk Assessment Template](./risk_assessment_template.md)
 - [Vulnerability Management Plan](./vulnerability_management_plan.md)
 - [Security Implementation Roadmap](./security_implementation_roadmap.md)

@@ -433,7 +433,7 @@ Core Capabilities:
 Integration Requirements:
 - Enterprise Resource Planning (ERP)
 - Customer Relationship Management (CRM)
-- Project Management Information Systems (Industry StandardS)
+- Project Management Information Systems (PMIS)
 - Business Intelligence and Analytics
 - Financial Management Systems
 ```

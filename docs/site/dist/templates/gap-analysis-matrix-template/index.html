@@ -1,0 +1,326 @@
+<!DOCTYPE html><html lang="en" data-astro-cid-ju4pidww><head><meta charset="UTF-8"><meta name="description" content="Advanced template browser with previews and version history"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="icon" type="image/svg+xml" href="/pm-tools-templates/favicon.svg"><title>Gap Analysis Matrix Template</title><link rel="stylesheet" href="/pm-tools-templates/assets/Layout.ChXqTIwx.css"></head><body data-astro-cid-ju4pidww><main data-astro-cid-ju4pidww><style>astro-island,astro-slot,astro-static-slot{display:contents}</style><script>(()=>{var e=async t=>{await(await t())()};(self.Astro||(self.Astro={})).load=e;window.dispatchEvent(new Event("astro:load"));})();</script><script>(()=>{var g=Object.defineProperty;var w=(a,s,c)=>s in a?g(a,s,{enumerable:!0,configurable:!0,writable:!0,value:c}):a[s]=c;var l=(a,s,c)=>w(a,typeof s!="symbol"?s+"":s,c);var E=new Set(["__proto__","constructor","prototype"]);{let a={0:t=>y(t),1:t=>c(t),2:t=>new RegExp(t),3:t=>new Date(t),4:t=>new Map(c(t)),5:t=>new Set(c(t)),6:t=>BigInt(t),7:t=>new URL(t),8:t=>new Uint8Array(t),9:t=>new Uint16Array(t),10:t=>new Uint32Array(t),11:t=>Number.POSITIVE_INFINITY*t},s=t=>{let[p,e]=t;return p in a?a[p](e):void 0},c=t=>t.map(s),y=t=>typeof t!="object"||t===null?t:Object.fromEntries(Object.entries(t).map(([p,e])=>[p,s(e)]));class f extends HTMLElement{constructor(){super(...arguments);l(this,"Component");l(this,"hydrator");l(this,"hydrate",async()=>{var b;if(!this.hydrator||!this.isConnected)return;let e=(b=this.parentElement)==null?void 0:b.closest("astro-island[ssr]");if(e){e.addEventListener("astro:hydrate",this.hydrate,{once:!0});return}let r=this.querySelectorAll("astro-slot"),n={},d=this.querySelectorAll("template[data-astro-template]");for(let o of d){let i=o.closest(this.tagName);i!=null&&i.isSameNode(this)&&(n[o.getAttribute("data-astro-template")||"default"]=o.innerHTML,o.remove())}for(let o of r){let i=o.closest(this.tagName);i!=null&&i.isSameNode(this)&&(n[o.getAttribute("name")||"default"]=o.innerHTML)}let u;try{u=this.hasAttribute("props")?y(JSON.parse(this.getAttribute("props"))):{}}catch(o){let i=this.getAttribute("component-url")||"<unknown>",v=this.getAttribute("component-export");throw v&&(i+=` (export ${v})`),console.error(`[hydrate] Error parsing props for component ${i}`,this.getAttribute("props"),o),o}let h;await this.hydrator(this)(this.Component,u,n,{client:this.getAttribute("client")}),this.removeAttribute("ssr"),this.dispatchEvent(new CustomEvent("astro:hydrate"))});l(this,"unmount",()=>{this.isConnected||this.dispatchEvent(new CustomEvent("astro:unmount"))})}disconnectedCallback(){document.removeEventListener("astro:after-swap",this.unmount),document.addEventListener("astro:after-swap",this.unmount,{once:!0})}connectedCallback(){if(!this.hasAttribute("await-children")||document.readyState==="interactive"||document.readyState==="complete")this.childrenConnectedCallback();else{let e=()=>{document.removeEventListener("DOMContentLoaded",e),r.disconnect(),this.childrenConnectedCallback()},r=new MutationObserver(()=>{var n;((n=this.lastChild)==null?void 0:n.nodeType)===Node.COMMENT_NODE&&this.lastChild.nodeValue==="astro:end"&&(this.lastChild.remove(),e())});r.observe(this,{childList:!0}),document.addEventListener("DOMContentLoaded",e)}}async childrenConnectedCallback(){let e=this.getAttribute("before-hydration-url");e&&await import(e),this.start()}getRetryImportUrl(e){let r=new URL(e,document.baseURI);return r.searchParams.set("astro-retry",Date.now().toString()),r.toString()}async importWithRetry(e){try{return await import(e)}catch(r){return await new Promise(n=>setTimeout(n,1e3)),import(this.getRetryImportUrl(e))}}handleHydrationError(e){let r=this.getAttribute("component-url"),n=new CustomEvent("astro:hydration-error",{cancelable:!0,bubbles:!0,composed:!0,detail:{error:e,componentUrl:r}});this.dispatchEvent(n)&&console.error(`[astro-island] Error hydrating ${r}`,e)}async start(){let e=JSON.parse(this.getAttribute("opts")),r=this.getAttribute("client");if(Astro[r]===void 0){window.addEventListener(`astro:${r}`,()=>this.start(),{once:!0});return}try{await Astro[r](async()=>{let n=this.getAttribute("renderer-url");try{let[d,{default:u}]=await Promise.all([this.importWithRetry(this.getAttribute("component-url")),n?this.importWithRetry(n):Promise.resolve({default:()=>()=>{}})]),h=this.getAttribute("component-export")||"default";if(h.includes(".")){this.Component=d;for(let m of h.split(".")){if(E.has(m)||!this.Component||typeof this.Component!="object"&&typeof this.Component!="function"||!Object.hasOwn(this.Component,m))throw new Error(`Invalid component export path: ${h}`);this.Component=this.Component[m]}}else{if(E.has(h))throw new Error(`Invalid component export path: ${h}`);this.Component=d[h]}return this.hydrator=u,this.hydrate}catch(d){return this.handleHydrationError(d),()=>{}}},e,this)}catch(n){this.handleHydrationError(n)}}attributeChangedCallback(){this.hydrate()}}l(f,"observedAttributes",["props"]),customElements.get("astro-island")||customElements.define("astro-island",f)}})();</script><astro-island uid="Zz6eLh" prefix="r1" component-url="/pm-tools-templates/assets/TemplateViewer.BJxWH0dD.js" component-export="default" renderer-url="/pm-tools-templates/assets/client.REQV_TkY.js" props="{&quot;templateId&quot;:[0,&quot;gap-analysis-matrix-template&quot;],&quot;filePath&quot;:[0,&quot;domains/measurement/project-assessment-suite/gap-analysis-matrix-template.md&quot;],&quot;title&quot;:[0,&quot;Gap Analysis Matrix Template&quot;],&quot;content&quot;:[0,&quot;---\ntitle: Gap Analysis Matrix Template\nmethodology: traditional\ncomplexity: intermediate\nprocess_group: initiating\nindustry: financial\nrole: stakeholder\ntags:\n- traditional\n- initiating\n- risk-management\n- stakeholder-management\n- communication\n- planning\n- quality\nversion: 1.0.0\nowner: mirichard\nupdated: &#39;2025-08-06&#39;\nestimated_completion_time: 30-45 minutes\nprimary_principles:\n- evidence-based-decisions\n- adaptability\nsecondary_principles:\n- quality-by-design\n- continuous-learning\nprinciple_rationale: Documents gaps with evidence to tailor improvement plans and\n  build quality responses.\n---\n\ntitle: \&quot;Gap Analysis Matrix Template\&quot;\nmethodology: \&quot;universal\&quot;\ncomplexity: \&quot;advanced\&quot;\nowner: \&quot;mirichard\&quot;\nupdated: \&quot;2025-08-05\&quot;\n\n# Gap Analysis Matrix Template\n\n## Project Information\n\n| Field | Details |\n|-------|---------|\n| **Project Name** | |\n| **Analysis Date** | |\n| **Analyst** | |\n| **Review Period** | |\n| **Stakeholders Consulted** | |\n\n## Gap Analysis Overview\n\n### Purpose\nSystematically identify, analyze, and prioritize gaps between current state and desired future state using leading practices.\n\n### Methodology\n1. **Current State Assessment** - Document actual current practices and performance\n2. **Future State Definition** - Define target state using industry best practices\n3. **Gap Identification** - Identify specific differences between current and future state\n4. **Impact Assessment** - Evaluate business impact of each gap\n5. **Prioritization** - Rank gaps by impact, urgency, and feasibility\n\n## Current State vs Future State Analysis\n\n### 1. Project Management Framework\n\n| Aspect | Current State | Future State (Best Practice) | Gap Identified | Impact Level |\n|--------|---------------|------------------------------|----------------|--------------|\n| **Methodology** | | Leading practice: Methodology aligned to project characteristics and organizational culture | | ☐ High ☐ Medium ☐ Low |\n| **Process Maturity** | | Leading practice: Standardized, optimized processes with continuous improvement | | ☐ High ☐ Medium ☐ Low |\n| **Tool Integration** | | Leading practice: Integrated tool ecosystem supporting end-to-end workflow | | ☐ High ☐ Medium ☐ Low |\n| **Governance Structure** | | Leading practice: Clear governance with defined roles, responsibilities, and decision rights | | ☐ High ☐ Medium ☐ Low |\n\n### 2. Scope Management\n\n| Aspect | Current State | Future State (Best Practice) | Gap Identified | Impact Level |\n|--------|---------------|------------------------------|----------------|--------------|\n| **Requirements Management** | | Leading practice: Structured requirements with traceability and change control | | ☐ High ☐ Medium ☐ Low |\n| **Scope Definition** | | Leading practice: Clear, measurable scope with stakeholder agreement | | ☐ High ☐ Medium ☐ Low |\n| **Change Control** | | Leading practice: Formal change control with impact assessment and approval | | ☐ High ☐ Medium ☐ Low |\n| **Scope Verification** | | Leading practice: Regular scope verification and customer acceptance | | ☐ High ☐ Medium ☐ Low |\n\n### 3. Schedule Management\n\n| Aspect | Current State | Future State (Best Practice) | Gap Identified | Impact Level |\n|--------|---------------|------------------------------|----------------|--------------|\n| **Planning Approach** | | Leading practice: Bottom-up planning with team input and realistic estimates | | ☐ High ☐ Medium ☐ Low |\n| **Critical Path Management** | | Leading practice: Continuous critical path monitoring and optimization | | ☐ High ☐ Medium ☐ Low |\n| **Schedule Optimization** | | Leading practice: Resource leveling and schedule compression techniques | | ☐ High ☐ Medium ☐ Low |\n| **Progress Tracking** | | Leading practice: Real-time progress tracking with predictive analytics | | ☐ High ☐ Medium ☐ Low |\n\n### 4. Cost Management\n\n| Aspect | Current State | Future State (Best Practice) | Gap Identified | Impact Level |\n|--------|---------------|------------------------------|----------------|--------------|\n| **Cost Estimation** | | Leading practice: Multi-point estimation with historical data analysis | | ☐ High ☐ Medium ☐ Low |\n| **Budget Control** | | Leading practice: Real-time cost tracking with variance analysis | | ☐ High ☐ Medium ☐ Low |\n| **Earned Value Management** | | Leading practice: Integrated EVM with trend analysis and forecasting | | ☐ High ☐ Medium ☐ Low |\n| **Cost Optimization** | | Leading practice: Continuous cost optimization and value engineering | | ☐ High ☐ Medium ☐ Low |\n\n### 5. Quality Management\n\n| Aspect | Current State | Future State (Best Practice) | Gap Identified | Impact Level |\n|--------|---------------|------------------------------|----------------|--------------|\n| **Quality Planning** | | Leading practice: Comprehensive quality plan with defined standards and metrics | | ☐ High ☐ Medium ☐ Low |\n| **Quality Assurance** | | Leading practice: Proactive QA with process audits and continuous improvement | | ☐ High ☐ Medium ☐ Low |\n| **Quality Control** | | Leading practice: Automated testing and inspection with defect prevention | | ☐ High ☐ Medium ☐ Low |\n| **Customer Focus** | | Leading practice: Customer-centric quality with regular feedback loops | | ☐ High ☐ Medium ☐ Low |\n\n### 6. Risk Management\n\n| Aspect | Current State | Future State (Best Practice) | Gap Identified | Impact Level |\n|--------|---------------|------------------------------|----------------|--------------|\n| **Risk Identification** | | Leading practice: Systematic risk identification with multiple techniques | | ☐ High ☐ Medium ☐ Low |\n| **Risk Analysis** | | Leading practice: Quantitative and qualitative analysis with modeling | | ☐ High ☐ Medium ☐ Low |\n| **Risk Response** | | Leading practice: Proactive response strategies with contingency planning | | ☐ High ☐ Medium ☐ Low |\n| **Risk Monitoring** | | Leading practice: Continuous monitoring with early warning indicators | | ☐ High ☐ Medium ☐ Low |\n\n### 7. Stakeholder Management\n\n| Aspect | Current State | Future State (Best Practice) | Gap Identified | Impact Level |\n|--------|---------------|------------------------------|----------------|--------------|\n| **Stakeholder Analysis** | | Leading practice: Comprehensive stakeholder mapping with influence/interest analysis | | ☐ High ☐ Medium ☐ Low |\n| **Engagement Strategy** | | Leading practice: Tailored engagement strategies with regular assessment | | ☐ High ☐ Medium ☐ Low |\n| **Communication** | | Leading practice: Multi-channel communication with feedback mechanisms | | ☐ High ☐ Medium ☐ Low |\n| **Relationship Management** | | Leading practice: Active relationship building with conflict resolution | | ☐ High ☐ Medium ☐ Low |\n\n### 8. Resource Management\n\n| Aspect | Current State | Future State (Best Practice) | Gap Identified | Impact Level |\n|--------|---------------|------------------------------|----------------|--------------|\n| **Resource Planning** | | Leading practice: Comprehensive resource planning with skills matrix | | ☐ High ☐ Medium ☐ Low |\n| **Team Development** | | Leading practice: Continuous team development with career planning | | ☐ High ☐ Medium ☐ Low |\n| **Performance Management** | | Leading practice: Regular performance feedback with improvement plans | | ☐ High ☐ Medium ☐ Low |\n| **Resource Optimization** | | Leading practice: Dynamic resource allocation with utilization optimization | | ☐ High ☐ Medium ☐ Low |\n\n### 9. Communication Management\n\n| Aspect | Current State | Future State (Best Practice) | Gap Identified | Impact Level |\n|--------|---------------|------------------------------|----------------|--------------|\n| **Communication Planning** | | Leading practice: Comprehensive communication plan with stakeholder mapping | | ☐ High ☐ Medium ☐ Low |\n| **Information Management** | | Leading practice: Centralized information management with version control | | ☐ High ☐ Medium ☐ Low |\n| **Reporting** | | Leading practice: Automated reporting with real-time dashboards | | ☐ High ☐ Medium ☐ Low |\n| **Knowledge Management** | | Leading practice: Systematic knowledge capture and sharing | | ☐ High ☐ Medium ☐ Low |\n\n### 10. Integration Management\n\n| Aspect | Current State | Future State (Best Practice) | Gap Identified | Impact Level |\n|--------|---------------|------------------------------|----------------|--------------|\n| **Project Integration** | | Leading practice: Seamless integration across all project areas | | ☐ High ☐ Medium ☐ Low |\n| **Change Integration** | | Leading practice: Integrated change management across all dimensions | | ☐ High ☐ Medium ☐ Low |\n| **Process Integration** | | Leading practice: End-to-end process integration with workflow automation | | ☐ High ☐ Medium ☐ Low |\n| **Tool Integration** | | Leading practice: Integrated toolchain with single source of truth | | ☐ High ☐ Medium ☐ Low |\n\n## Gap Priority Matrix\n\n### High Priority Gaps (Immediate Action Required)\n\n| Gap ID | Gap Description | Current Impact | Risk of Inaction | Effort to Close | Priority Score |\n|--------|-----------------|----------------|------------------|-----------------|----------------|\n| G001 | | ☐ High ☐ Med ☐ Low | ☐ High ☐ Med ☐ Low | ☐ High ☐ Med ☐ Low | |\n| G002 | | ☐ High ☐ Med ☐ Low | ☐ High ☐ Med ☐ Low | ☐ High ☐ Med ☐ Low | |\n| G003 | | ☐ High ☐ Med ☐ Low | ☐ High ☐ Med ☐ Low | ☐ High ☐ Med ☐ Low | |\n\n### Medium Priority Gaps (Address in Next Phase)\n\n| Gap ID | Gap Description | Current Impact | Risk of Inaction | Effort to Close | Priority Score |\n|--------|-----------------|----------------|------------------|-----------------|----------------|\n| G004 | | ☐ High ☐ Med ☐ Low | ☐ High ☐ Med ☐ Low | ☐ High ☐ Med ☐ Low | |\n| G005 | | ☐ High ☐ Med ☐ Low | ☐ High ☐ Med ☐ Low | ☐ High ☐ Med ☐ Low | |\n| G006 | | ☐ High ☐ Med ☐ Low | ☐ High ☐ Med ☐ Low | ☐ High ☐ Med ☐ Low | |\n\n### Low Priority Gaps (Long-term Improvement)\n\n| Gap ID | Gap Description | Current Impact | Risk of Inaction | Effort to Close | Priority Score |\n|--------|-----------------|----------------|------------------|-----------------|----------------|\n| G007 | | ☐ High ☐ Med ☐ Low | ☐ High ☐ Med ☐ Low | ☐ High ☐ Med ☐ Low | |\n| G008 | | ☐ High ☐ Med ☐ Low | ☐ High ☐ Med ☐ Low | ☐ High ☐ Med ☐ Low | |\n| G009 | | ☐ High ☐ Med ☐ Low | ☐ High ☐ Med ☐ Low | ☐ High ☐ Med ☐ Low | |\n\n## Root Cause Analysis\n\n### Top 5 Critical Gaps - Root Cause Analysis\n\n| Gap | Root Cause Category | Primary Root Cause | Contributing Factors | Systemic Issues |\n|-----|---------------------|-------------------|---------------------|-----------------|\n| G001 | ☐ Process ☐ People ☐ Technology ☐ Culture | | | |\n| G002 | ☐ Process ☐ People ☐ Technology ☐ Culture | | | |\n| G003 | ☐ Process ☐ People ☐ Technology ☐ Culture | | | |\n| G004 | ☐ Process ☐ People ☐ Technology ☐ Culture | | | |\n| G005 | ☐ Process ☐ People ☐ Technology ☐ Culture | | | |\n\n## Impact Assessment\n\n### Business Impact Analysis\n\n| Impact Category | Current State Impact | Projected Impact if Unresolved | Benefit of Closing Gap |\n|-----------------|---------------------|--------------------------------|------------------------|\n| **Schedule** | | | |\n| **Budget** | | | |\n| **Quality** | | | |\n| **Risk Exposure** | | | |\n| **Stakeholder Satisfaction** | | | |\n| **Team Morale** | | | |\n| **Organizational Learning** | | | |\n\n### Quantitative Impact (where measurable)\n\n| Metric | Current Performance | Target Performance | Gap Size | Business Value |\n|--------|-------------------|-------------------|----------|----------------|\n| Schedule Performance Index (SPI) | | 1.0 or better | | |\n| Cost Performance Index (CPI) | | 1.0 or better | | |\n| Quality Score | | Target: ___% | | |\n| Stakeholder Satisfaction | | Target: ___% | | |\n| Risk Exposure Value | | Target: $______ | | |\n\n## Gap Closure Strategy\n\n### Strategic Approach\n\n| Strategy Element | Description | Success Criteria |\n|------------------|-------------|------------------|\n| **Overall Approach** | ☐ Phased implementation ☐ Big bang ☐ Pilot program ☐ Hybrid | |\n| **Resource Strategy** | ☐ Internal resources ☐ External support ☐ Hybrid approach | |\n| **Timeline Strategy** | ☐ Immediate (0-3 months) ☐ Short-term (3-6 months) ☐ Long-term (6+ months) | |\n| **Change Strategy** | ☐ Top-down ☐ Bottom-up ☐ Middle-out ☐ Collaborative | |\n\n### Implementation Considerations\n\n| Factor | Assessment | Mitigation Strategy |\n|--------|------------|-------------------|\n| **Organizational Readiness** | ☐ High ☐ Medium ☐ Low | |\n| **Resource Availability** | ☐ Adequate ☐ Limited ☐ Insufficient | |\n| **Change Resistance** | ☐ Low ☐ Medium ☐ High | |\n| **Technical Complexity** | ☐ Low ☐ Medium ☐ High | |\n| **Stakeholder Support** | ☐ Strong ☐ Moderate ☐ Weak | |\n\n## Recommendations Summary\n\n### Immediate Actions (0-30 days)\n1.\n2.\n3.\n\n### Short-term Actions (1-3 months)\n1.\n2.\n3.\n\n### Medium-term Actions (3-6 months)\n1.\n2.\n3.\n\n### Long-term Actions (6+ months)\n1.\n2.\n3.\n\n### Resource Requirements\n\n| Resource Type | Requirement | Source | Timeline |\n|---------------|-------------|--------|----------|\n| **Project Management** | | ☐ Internal ☐ External | |\n| **Subject Matter Experts** | | ☐ Internal ☐ External | |\n| **Technology/Tools** | | ☐ Existing ☐ New | |\n| **Training/Development** | | ☐ Internal ☐ External | |\n| **Budget** | | ☐ Current ☐ Additional | |\n\n## Success Measures\n\n### Key Performance Indicators\n\n| KPI | Baseline | Target | Measurement Method | Frequency |\n|-----|----------|--------|-------------------|-----------|\n| Overall Project Health Score | ___/100 | ___/100 | Health Assessment | Monthly |\n| Schedule Performance Index | | 1.0+ | EVM Analysis | Weekly |\n| Cost Performance Index | | 1.0+ | EVM Analysis | Weekly |\n| Quality Score | | ___% | Quality Metrics | Weekly |\n| Stakeholder Satisfaction | | ___% | Surveys | Monthly |\n| Risk Exposure | | Reduced by ___% | Risk Register | Weekly |\n\n### Leading Indicators\n\n| Indicator | Current | Target | Tracking Method |\n|-----------|---------|--------|----------------|\n| Process Compliance Rate | | 95%+ | Process Audits |\n| Team Engagement Score | | 4.0+/5.0 | Team Surveys |\n| Issue Resolution Time | | &lt;5 days avg | Issue Tracking |\n| Change Request Cycle Time | | &lt;10 days avg | Change Log |\n\n## Follow-up Plan\n\n### Review Schedule\n- **30-Day Review:** Progress on immediate actions\n- **90-Day Review:** Short-term action completion and medium-term planning\n- **6-Month Review:** Comprehensive gap closure assessment\n- **Annual Review:** Strategic gap analysis and continuous improvement\n\n### Stakeholder Communication\n| Stakeholder | Information Needs | Frequency | Method |\n|-------------|------------------|-----------|--------|\n| Executive Sponsor | Progress summary, major issues | Monthly | Dashboard + briefing |\n| Project Team | Detailed progress, specific actions | Weekly | Team meetings |\n| Key Stakeholders | Relevant updates, impact on them | Bi-weekly | Status reports |\n\n## When to Use\n\nUse throughout the project lifecycle to identify, assess, and track risks. This template is essential for projects with significant complexity, multiple stakeholders, or high business impact, where structured risk management provides decision-making value.\n\n## When NOT to Use\n\nDo not use for very low-risk, short-duration tasks where informal risk awareness is sufficient. Avoid this template if your governance framework requires a different risk management approach or if stakeholders prefer real-time risk dashboards over static registers.\n\n## Analysis Validation\n\n**Gap Analysis Reviewed By:**\n- Project Manager: _________________ Date: _________\n- Sponsor: _________________ Date: _________\n- Process Expert: _________________ Date: _________\n- Key Stakeholder: _________________ Date: _________\n\n**Confidence Level in Analysis:** ☐ High ☐ Medium ☐ Low\n\n**Next Review Date:** _________________\n\n**Additional Comments:**\n\n&quot;]}" ssr client="load" opts="{&quot;name&quot;:&quot;TemplateViewer&quot;,&quot;value&quot;:true}" await-children><div><h1>Gap Analysis Matrix Template</h1><div style="margin-bottom:2rem"><button style="background:var(--accent-color);color:white;border:1px solid var(--border-color);padding:0.5rem 1rem;border-radius:4px 4px 0 0;cursor:pointer;margin-right:1px">Preview</button><button style="background:var(--code-bg);color:var(--text-color);border:1px solid var(--border-color);padding:0.5rem 1rem;border-radius:4px 4px 0 0;cursor:pointer">Version History</button></div><div style="border:1px solid var(--border-color);border-radius:0 8px 8px 8px;min-height:400px"><div style="background:var(--bg-primary);border-radius:var(--radius-lg)"><div style="padding:1rem 1.5rem;border-bottom:1px solid var(--border-light);display:flex;align-items:center;justify-content:space-between;background:var(--bg-secondary);border-radius:var(--radius-lg) var(--radius-lg) 0 0"><div style="display:flex;align-items:center;gap:0.5rem"><span style="font-size:1.5rem">📄</span><div><div style="font-weight:600;color:var(--text-primary)">gap-analysis-matrix-template.md</div><div style="font-size:0.75rem;color:var(--text-muted)">Markdown • <!-- -->16,379 bytes</div></div></div><a href="/pm-tools-templates/downloads/gap-analysis-matrix-template.md" download="" class="btn btn-secondary" style="font-size:0.75rem;padding:0.5rem 0.75rem">💾 Download</a></div><pre aria-label="Markdown source of Gap Analysis Matrix Template" style="padding:1.5rem;max-height:600px;overflow:auto;white-space:pre-wrap;overflow-wrap:anywhere">---
+title: Gap Analysis Matrix Template
+methodology: traditional
+complexity: intermediate
+process_group: initiating
+industry: financial
+role: stakeholder
+tags:
+- traditional
+- initiating
+- risk-management
+- stakeholder-management
+- communication
+- planning
+- quality
+version: 1.0.0
+owner: mirichard
+updated: &#x27;2025-08-06&#x27;
+estimated_completion_time: 30-45 minutes
+primary_principles:
+- evidence-based-decisions
+- adaptability
+secondary_principles:
+- quality-by-design
+- continuous-learning
+principle_rationale: Documents gaps with evidence to tailor improvement plans and
+  build quality responses.
+---
+
+title: &quot;Gap Analysis Matrix Template&quot;
+methodology: &quot;universal&quot;
+complexity: &quot;advanced&quot;
+owner: &quot;mirichard&quot;
+updated: &quot;2025-08-05&quot;
+
+# Gap Analysis Matrix Template
+
+## Project Information
+
+| Field | Details |
+|-------|---------|
+| **Project Name** | |
+| **Analysis Date** | |
+| **Analyst** | |
+| **Review Period** | |
+| **Stakeholders Consulted** | |
+
+## Gap Analysis Overview
+
+### Purpose
+Systematically identify, analyze, and prioritize gaps between current state and desired future state using leading practices.
+
+### Methodology
+1. **Current State Assessment** - Document actual current practices and performance
+2. **Future State Definition** - Define target state using industry best practices
+3. **Gap Identification** - Identify specific differences between current and future state
+4. **Impact Assessment** - Evaluate business impact of each gap
+5. **Prioritization** - Rank gaps by impact, urgency, and feasibility
+
+## Current State vs Future State Analysis
+
+### 1. Project Management Framework
+
+| Aspect | Current State | Future State (Best Practice) | Gap Identified | Impact Level |
+|--------|---------------|------------------------------|----------------|--------------|
+| **Methodology** | | Leading practice: Methodology aligned to project characteristics and organizational culture | | ☐ High ☐ Medium ☐ Low |
+| **Process Maturity** | | Leading practice: Standardized, optimized processes with continuous improvement | | ☐ High ☐ Medium ☐ Low |
+| **Tool Integration** | | Leading practice: Integrated tool ecosystem supporting end-to-end workflow | | ☐ High ☐ Medium ☐ Low |
+| **Governance Structure** | | Leading practice: Clear governance with defined roles, responsibilities, and decision rights | | ☐ High ☐ Medium ☐ Low |
+
+### 2. Scope Management
+
+| Aspect | Current State | Future State (Best Practice) | Gap Identified | Impact Level |
+|--------|---------------|------------------------------|----------------|--------------|
+| **Requirements Management** | | Leading practice: Structured requirements with traceability and change control | | ☐ High ☐ Medium ☐ Low |
+| **Scope Definition** | | Leading practice: Clear, measurable scope with stakeholder agreement | | ☐ High ☐ Medium ☐ Low |
+| **Change Control** | | Leading practice: Formal change control with impact assessment and approval | | ☐ High ☐ Medium ☐ Low |
+| **Scope Verification** | | Leading practice: Regular scope verification and customer acceptance | | ☐ High ☐ Medium ☐ Low |
+
+### 3. Schedule Management
+
+| Aspect | Current State | Future State (Best Practice) | Gap Identified | Impact Level |
+|--------|---------------|------------------------------|----------------|--------------|
+| **Planning Approach** | | Leading practice: Bottom-up planning with team input and realistic estimates | | ☐ High ☐ Medium ☐ Low |
+| **Critical Path Management** | | Leading practice: Continuous critical path monitoring and optimization | | ☐ High ☐ Medium ☐ Low |
+| **Schedule Optimization** | | Leading practice: Resource leveling and schedule compression techniques | | ☐ High ☐ Medium ☐ Low |
+| **Progress Tracking** | | Leading practice: Real-time progress tracking with predictive analytics | | ☐ High ☐ Medium ☐ Low |
+
+### 4. Cost Management
+
+| Aspect | Current State | Future State (Best Practice) | Gap Identified | Impact Level |
+|--------|---------------|------------------------------|----------------|--------------|
+| **Cost Estimation** | | Leading practice: Multi-point estimation with historical data analysis | | ☐ High ☐ Medium ☐ Low |
+| **Budget Control** | | Leading practice: Real-time cost tracking with variance analysis | | ☐ High ☐ Medium ☐ Low |
+| **Earned Value Management** | | Leading practice: Integrated EVM with trend analysis and forecasting | | ☐ High ☐ Medium ☐ Low |
+| **Cost Optimization** | | Leading practice: Continuous cost optimization and value engineering | | ☐ High ☐ Medium ☐ Low |
+
+### 5. Quality Management
+
+| Aspect | Current State | Future State (Best Practice) | Gap Identified | Impact Level |
+|--------|---------------|------------------------------|----------------|--------------|
+| **Quality Planning** | | Leading practice: Comprehensive quality plan with defined standards and metrics | | ☐ High ☐ Medium ☐ Low |
+| **Quality Assurance** | | Leading practice: Proactive QA with process audits and continuous improvement | | ☐ High ☐ Medium ☐ Low |
+| **Quality Control** | | Leading practice: Automated testing and inspection with defect prevention | | ☐ High ☐ Medium ☐ Low |
+| **Customer Focus** | | Leading practice: Customer-centric quality with regular feedback loops | | ☐ High ☐ Medium ☐ Low |
+
+### 6. Risk Management
+
+| Aspect | Current State | Future State (Best Practice) | Gap Identified | Impact Level |
+|--------|---------------|------------------------------|----------------|--------------|
+| **Risk Identification** | | Leading practice: Systematic risk identification with multiple techniques | | ☐ High ☐ Medium ☐ Low |
+| **Risk Analysis** | | Leading practice: Quantitative and qualitative analysis with modeling | | ☐ High ☐ Medium ☐ Low |
+| **Risk Response** | | Leading practice: Proactive response strategies with contingency planning | | ☐ High ☐ Medium ☐ Low |
+| **Risk Monitoring** | | Leading practice: Continuous monitoring with early warning indicators | | ☐ High ☐ Medium ☐ Low |
+
+### 7. Stakeholder Management
+
+| Aspect | Current State | Future State (Best Practice) | Gap Identified | Impact Level |
+|--------|---------------|------------------------------|----------------|--------------|
+| **Stakeholder Analysis** | | Leading practice: Comprehensive stakeholder mapping with influence/interest analysis | | ☐ High ☐ Medium ☐ Low |
+| **Engagement Strategy** | | Leading practice: Tailored engagement strategies with regular assessment | | ☐ High ☐ Medium ☐ Low |
+| **Communication** | | Leading practice: Multi-channel communication with feedback mechanisms | | ☐ High ☐ Medium ☐ Low |
+| **Relationship Management** | | Leading practice: Active relationship building with conflict resolution | | ☐ High ☐ Medium ☐ Low |
+
+### 8. Resource Management
+
+| Aspect | Current State | Future State (Best Practice) | Gap Identified | Impact Level |
+|--------|---------------|------------------------------|----------------|--------------|
+| **Resource Planning** | | Leading practice: Comprehensive resource planning with skills matrix | | ☐ High ☐ Medium ☐ Low |
+| **Team Development** | | Leading practice: Continuous team development with career planning | | ☐ High ☐ Medium ☐ Low |
+| **Performance Management** | | Leading practice: Regular performance feedback with improvement plans | | ☐ High ☐ Medium ☐ Low |
+| **Resource Optimization** | | Leading practice: Dynamic resource allocation with utilization optimization | | ☐ High ☐ Medium ☐ Low |
+
+### 9. Communication Management
+
+| Aspect | Current State | Future State (Best Practice) | Gap Identified | Impact Level |
+|--------|---------------|------------------------------|----------------|--------------|
+| **Communication Planning** | | Leading practice: Comprehensive communication plan with stakeholder mapping | | ☐ High ☐ Medium ☐ Low |
+| **Information Management** | | Leading practice: Centralized information management with version control | | ☐ High ☐ Medium ☐ Low |
+| **Reporting** | | Leading practice: Automated reporting with real-time dashboards | | ☐ High ☐ Medium ☐ Low |
+| **Knowledge Management** | | Leading practice: Systematic knowledge capture and sharing | | ☐ High ☐ Medium ☐ Low |
+
+### 10. Integration Management
+
+| Aspect | Current State | Future State (Best Practice) | Gap Identified | Impact Level |
+|--------|---------------|------------------------------|----------------|--------------|
+| **Project Integration** | | Leading practice: Seamless integration across all project areas | | ☐ High ☐ Medium ☐ Low |
+| **Change Integration** | | Leading practice: Integrated change management across all dimensions | | ☐ High ☐ Medium ☐ Low |
+| **Process Integration** | | Leading practice: End-to-end process integration with workflow automation | | ☐ High ☐ Medium ☐ Low |
+| **Tool Integration** | | Leading practice: Integrated toolchain with single source of truth | | ☐ High ☐ Medium ☐ Low |
+
+## Gap Priority Matrix
+
+### High Priority Gaps (Immediate Action Required)
+
+| Gap ID | Gap Description | Current Impact | Risk of Inaction | Effort to Close | Priority Score |
+|--------|-----------------|----------------|------------------|-----------------|----------------|
+| G001 | | ☐ High ☐ Med ☐ Low | ☐ High ☐ Med ☐ Low | ☐ High ☐ Med ☐ Low | |
+| G002 | | ☐ High ☐ Med ☐ Low | ☐ High ☐ Med ☐ Low | ☐ High ☐ Med ☐ Low | |
+| G003 | | ☐ High ☐ Med ☐ Low | ☐ High ☐ Med ☐ Low | ☐ High ☐ Med ☐ Low | |
+
+### Medium Priority Gaps (Address in Next Phase)
+
+| Gap ID | Gap Description | Current Impact | Risk of Inaction | Effort to Close | Priority Score |
+|--------|-----------------|----------------|------------------|-----------------|----------------|
+| G004 | | ☐ High ☐ Med ☐ Low | ☐ High ☐ Med ☐ Low | ☐ High ☐ Med ☐ Low | |
+| G005 | | ☐ High ☐ Med ☐ Low | ☐ High ☐ Med ☐ Low | ☐ High ☐ Med ☐ Low | |
+| G006 | | ☐ High ☐ Med ☐ Low | ☐ High ☐ Med ☐ Low | ☐ High ☐ Med ☐ Low | |
+
+### Low Priority Gaps (Long-term Improvement)
+
+| Gap ID | Gap Description | Current Impact | Risk of Inaction | Effort to Close | Priority Score |
+|--------|-----------------|----------------|------------------|-----------------|----------------|
+| G007 | | ☐ High ☐ Med ☐ Low | ☐ High ☐ Med ☐ Low | ☐ High ☐ Med ☐ Low | |
+| G008 | | ☐ High ☐ Med ☐ Low | ☐ High ☐ Med ☐ Low | ☐ High ☐ Med ☐ Low | |
+| G009 | | ☐ High ☐ Med ☐ Low | ☐ High ☐ Med ☐ Low | ☐ High ☐ Med ☐ Low | |
+
+## Root Cause Analysis
+
+### Top 5 Critical Gaps - Root Cause Analysis
+
+| Gap | Root Cause Category | Primary Root Cause | Contributing Factors | Systemic Issues |
+|-----|---------------------|-------------------|---------------------|-----------------|
+| G001 | ☐ Process ☐ People ☐ Technology ☐ Culture | | | |
+| G002 | ☐ Process ☐ People ☐ Technology ☐ Culture | | | |
+| G003 | ☐ Process ☐ People ☐ Technology ☐ Culture | | | |
+| G004 | ☐ Process ☐ People ☐ Technology ☐ Culture | | | |
+| G005 | ☐ Process ☐ People ☐ Technology ☐ Culture | | | |
+
+## Impact Assessment
+
+### Business Impact Analysis
+
+| Impact Category | Current State Impact | Projected Impact if Unresolved | Benefit of Closing Gap |
+|-----------------|---------------------|--------------------------------|------------------------|
+| **Schedule** | | | |
+| **Budget** | | | |
+| **Quality** | | | |
+| **Risk Exposure** | | | |
+| **Stakeholder Satisfaction** | | | |
+| **Team Morale** | | | |
+| **Organizational Learning** | | | |
+
+### Quantitative Impact (where measurable)
+
+| Metric | Current Performance | Target Performance | Gap Size | Business Value |
+|--------|-------------------|-------------------|----------|----------------|
+| Schedule Performance Index (SPI) | | 1.0 or better | | |
+| Cost Performance Index (CPI) | | 1.0 or better | | |
+| Quality Score | | Target: ___% | | |
+| Stakeholder Satisfaction | | Target: ___% | | |
+| Risk Exposure Value | | Target: $______ | | |
+
+## Gap Closure Strategy
+
+### Strategic Approach
+
+| Strategy Element | Description | Success Criteria |
+|------------------|-------------|------------------|
+| **Overall Approach** | ☐ Phased implementation ☐ Big bang ☐ Pilot program ☐ Hybrid | |
+| **Resource Strategy** | ☐ Internal resources ☐ External support ☐ Hybrid approach | |
+| **Timeline Strategy** | ☐ Immediate (0-3 months) ☐ Short-term (3-6 months) ☐ Long-term (6+ months) | |
+| **Change Strategy** | ☐ Top-down ☐ Bottom-up ☐ Middle-out ☐ Collaborative | |
+
+### Implementation Considerations
+
+| Factor | Assessment | Mitigation Strategy |
+|--------|------------|-------------------|
+| **Organizational Readiness** | ☐ High ☐ Medium ☐ Low | |
+| **Resource Availability** | ☐ Adequate ☐ Limited ☐ Insufficient | |
+| **Change Resistance** | ☐ Low ☐ Medium ☐ High | |
+| **Technical Complexity** | ☐ Low ☐ Medium ☐ High | |
+| **Stakeholder Support** | ☐ Strong ☐ Moderate ☐ Weak | |
+
+## Recommendations Summary
+
+### Immediate Actions (0-30 days)
+1.
+2.
+3.
+
+### Short-term Actions (1-3 months)
+1.
+2.
+3.
+
+### Medium-term Actions (3-6 months)
+1.
+2.
+3.
+
+### Long-term Actions (6+ months)
+1.
+2.
+3.
+
+### Resource Requirements
+
+| Resource Type | Requirement | Source | Timeline |
+|---------------|-------------|--------|----------|
+| **Project Management** | | ☐ Internal ☐ External | |
+| **Subject Matter Experts** | | ☐ Internal ☐ External | |
+| **Technology/Tools** | | ☐ Existing ☐ New | |
+| **Training/Development** | | ☐ Internal ☐ External | |
+| **Budget** | | ☐ Current ☐ Additional | |
+
+## Success Measures
+
+### Key Performance Indicators
+
+| KPI | Baseline | Target | Measurement Method | Frequency |
+|-----|----------|--------|-------------------|-----------|
+| Overall Project Health Score | ___/100 | ___/100 | Health Assessment | Monthly |
+| Schedule Performance Index | | 1.0+ | EVM Analysis | Weekly |
+| Cost Performance Index | | 1.0+ | EVM Analysis | Weekly |
+| Quality Score | | ___% | Quality Metrics | Weekly |
+| Stakeholder Satisfaction | | ___% | Surveys | Monthly |
+| Risk Exposure | | Reduced by ___% | Risk Register | Weekly |
+
+### Leading Indicators
+
+| Indicator | Current | Target | Tracking Method |
+|-----------|---------|--------|----------------|
+| Process Compliance Rate | | 95%+ | Process Audits |
+| Team Engagement Score | | 4.0+/5.0 | Team Surveys |
+| Issue Resolution Time | | &lt;5 days avg | Issue Tracking |
+| Change Request Cycle Time | | &lt;10 days avg | Change Log |
+
+## Follow-up Plan
+
+### Review Schedule
+- **30-Day Review:** Progress on immediate actions
+- **90-Day Review:** Short-term action completion and medium-term planning
+- **6-Month Review:** Comprehensive gap closure assessment
+- **Annual Review:** Strategic gap analysis and continuous improvement
+
+### Stakeholder Communication
+| Stakeholder | Information Needs | Frequency | Method |
+|-------------|------------------|-----------|--------|
+| Executive Sponsor | Progress summary, major issues | Monthly | Dashboard + briefing |
+| Project Team | Detailed progress, specific actions | Weekly | Team meetings |
+| Key Stakeholders | Relevant updates, impact on them | Bi-weekly | Status reports |
+
+## When to Use
+
+Use throughout the project lifecycle to identify, assess, and track risks. This template is essential for projects with significant complexity, multiple stakeholders, or high business impact, where structured risk management provides decision-making value.
+
+## When NOT to Use
+
+Do not use for very low-risk, short-duration tasks where informal risk awareness is sufficient. Avoid this template if your governance framework requires a different risk management approach or if stakeholders prefer real-time risk dashboards over static registers.
+
+## Analysis Validation
+
+**Gap Analysis Reviewed By:**
+- Project Manager: _________________ Date: _________
+- Sponsor: _________________ Date: _________
+- Process Expert: _________________ Date: _________
+- Key Stakeholder: _________________ Date: _________
+
+**Confidence Level in Analysis:** ☐ High ☐ Medium ☐ Low
+
+**Next Review Date:** _________________
+
+**Additional Comments:**
+
+</pre></div></div></div><!--astro:end--></astro-island></main></body></html>

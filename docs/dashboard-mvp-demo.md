@@ -15,23 +15,35 @@ The `dashboard-mvp` project provides a production-ready Next.js dashboard for mo
 - Node.js 18+
 - npm or yarn
 
-### Quick start
+### Steps
 1. **Clone the repository**
    ```bash
    git clone https://github.com/mirichard/pm-tools-templates.git
+
+=======
+
+
+
+=======
    cd pm-tools-templates
    ```
-2. **Start the demo** from the repository root
+
+2. **Start the demo** using the provided script or npm command
    ```bash
    npm run dashboard-demo
+   # or
+   ./scripts/start-dashboard-demo.sh
    ```
+   The script automatically installs dependencies on first run and creates `.env.local` if needed.
    Visit [http://localhost:3000](http://localhost:3000) to view the dashboard.
 
-### Manual setup
-Use this path if you want to run lint or tests, or control each step yourself.
+### Production build
+Run these commands inside the `dashboard-mvp` folder:
+```bash
+cd dashboard-mvp
 
-1. **Change into the dashboard directory**
-   ```bash
+=======
+=======
    cd pm-tools-templates/dashboard-mvp
    ```
 2. **Install dependencies**
@@ -42,9 +54,11 @@ Use this path if you want to run lint or tests, or control each step yourself.
    ```bash
    npm run lint
    ```
-4. **Optional: configure environment variables**
-   Create `dashboard-mvp/.env.local` and set `NEXT_PUBLIC_API_BASE_URL` if you
-   need to point the dashboard at a non-default API host. The demo runs without it.
+4. **Create environment file**
+   ```bash
+   cp .env.example .env.local
+   # Update NEXT_PUBLIC_API_BASE_URL as needed
+   ```
 5. **Start the development server**
    ```bash
    npm run dev
@@ -52,9 +66,12 @@ Use this path if you want to run lint or tests, or control each step yourself.
    Visit [http://localhost:3000](http://localhost:3000) to view the dashboard.
 
 ### Production build
-Run these commands inside the `dashboard-mvp` folder:
 ```bash
-cd dashboard-mvp
+
+=======
+
+
+
 npm run build
 npm start
 ```

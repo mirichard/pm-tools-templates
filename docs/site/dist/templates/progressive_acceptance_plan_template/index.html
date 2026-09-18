@@ -1,0 +1,507 @@
+<!DOCTYPE html><html lang="en" data-astro-cid-ju4pidww><head><meta charset="UTF-8"><meta name="description" content="Advanced template browser with previews and version history"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="icon" type="image/svg+xml" href="/pm-tools-templates/favicon.svg"><title>Progressive Acceptance Plan Template</title><link rel="stylesheet" href="/pm-tools-templates/assets/Layout.ChXqTIwx.css"></head><body data-astro-cid-ju4pidww><main data-astro-cid-ju4pidww><style>astro-island,astro-slot,astro-static-slot{display:contents}</style><script>(()=>{var e=async t=>{await(await t())()};(self.Astro||(self.Astro={})).load=e;window.dispatchEvent(new Event("astro:load"));})();</script><script>(()=>{var g=Object.defineProperty;var w=(a,s,c)=>s in a?g(a,s,{enumerable:!0,configurable:!0,writable:!0,value:c}):a[s]=c;var l=(a,s,c)=>w(a,typeof s!="symbol"?s+"":s,c);var E=new Set(["__proto__","constructor","prototype"]);{let a={0:t=>y(t),1:t=>c(t),2:t=>new RegExp(t),3:t=>new Date(t),4:t=>new Map(c(t)),5:t=>new Set(c(t)),6:t=>BigInt(t),7:t=>new URL(t),8:t=>new Uint8Array(t),9:t=>new Uint16Array(t),10:t=>new Uint32Array(t),11:t=>Number.POSITIVE_INFINITY*t},s=t=>{let[p,e]=t;return p in a?a[p](e):void 0},c=t=>t.map(s),y=t=>typeof t!="object"||t===null?t:Object.fromEntries(Object.entries(t).map(([p,e])=>[p,s(e)]));class f extends HTMLElement{constructor(){super(...arguments);l(this,"Component");l(this,"hydrator");l(this,"hydrate",async()=>{var b;if(!this.hydrator||!this.isConnected)return;let e=(b=this.parentElement)==null?void 0:b.closest("astro-island[ssr]");if(e){e.addEventListener("astro:hydrate",this.hydrate,{once:!0});return}let r=this.querySelectorAll("astro-slot"),n={},d=this.querySelectorAll("template[data-astro-template]");for(let o of d){let i=o.closest(this.tagName);i!=null&&i.isSameNode(this)&&(n[o.getAttribute("data-astro-template")||"default"]=o.innerHTML,o.remove())}for(let o of r){let i=o.closest(this.tagName);i!=null&&i.isSameNode(this)&&(n[o.getAttribute("name")||"default"]=o.innerHTML)}let u;try{u=this.hasAttribute("props")?y(JSON.parse(this.getAttribute("props"))):{}}catch(o){let i=this.getAttribute("component-url")||"<unknown>",v=this.getAttribute("component-export");throw v&&(i+=` (export ${v})`),console.error(`[hydrate] Error parsing props for component ${i}`,this.getAttribute("props"),o),o}let h;await this.hydrator(this)(this.Component,u,n,{client:this.getAttribute("client")}),this.removeAttribute("ssr"),this.dispatchEvent(new CustomEvent("astro:hydrate"))});l(this,"unmount",()=>{this.isConnected||this.dispatchEvent(new CustomEvent("astro:unmount"))})}disconnectedCallback(){document.removeEventListener("astro:after-swap",this.unmount),document.addEventListener("astro:after-swap",this.unmount,{once:!0})}connectedCallback(){if(!this.hasAttribute("await-children")||document.readyState==="interactive"||document.readyState==="complete")this.childrenConnectedCallback();else{let e=()=>{document.removeEventListener("DOMContentLoaded",e),r.disconnect(),this.childrenConnectedCallback()},r=new MutationObserver(()=>{var n;((n=this.lastChild)==null?void 0:n.nodeType)===Node.COMMENT_NODE&&this.lastChild.nodeValue==="astro:end"&&(this.lastChild.remove(),e())});r.observe(this,{childList:!0}),document.addEventListener("DOMContentLoaded",e)}}async childrenConnectedCallback(){let e=this.getAttribute("before-hydration-url");e&&await import(e),this.start()}getRetryImportUrl(e){let r=new URL(e,document.baseURI);return r.searchParams.set("astro-retry",Date.now().toString()),r.toString()}async importWithRetry(e){try{return await import(e)}catch(r){return await new Promise(n=>setTimeout(n,1e3)),import(this.getRetryImportUrl(e))}}handleHydrationError(e){let r=this.getAttribute("component-url"),n=new CustomEvent("astro:hydration-error",{cancelable:!0,bubbles:!0,composed:!0,detail:{error:e,componentUrl:r}});this.dispatchEvent(n)&&console.error(`[astro-island] Error hydrating ${r}`,e)}async start(){let e=JSON.parse(this.getAttribute("opts")),r=this.getAttribute("client");if(Astro[r]===void 0){window.addEventListener(`astro:${r}`,()=>this.start(),{once:!0});return}try{await Astro[r](async()=>{let n=this.getAttribute("renderer-url");try{let[d,{default:u}]=await Promise.all([this.importWithRetry(this.getAttribute("component-url")),n?this.importWithRetry(n):Promise.resolve({default:()=>()=>{}})]),h=this.getAttribute("component-export")||"default";if(h.includes(".")){this.Component=d;for(let m of h.split(".")){if(E.has(m)||!this.Component||typeof this.Component!="object"&&typeof this.Component!="function"||!Object.hasOwn(this.Component,m))throw new Error(`Invalid component export path: ${h}`);this.Component=this.Component[m]}}else{if(E.has(h))throw new Error(`Invalid component export path: ${h}`);this.Component=d[h]}return this.hydrator=u,this.hydrate}catch(d){return this.handleHydrationError(d),()=>{}}},e,this)}catch(n){this.handleHydrationError(n)}}attributeChangedCallback(){this.hydrate()}}l(f,"observedAttributes",["props"]),customElements.get("astro-island")||customElements.define("astro-island",f)}})();</script><astro-island uid="1BeaNi" prefix="r1" component-url="/pm-tools-templates/assets/TemplateViewer.BJxWH0dD.js" component-export="default" renderer-url="/pm-tools-templates/assets/client.REQV_TkY.js" props="{&quot;templateId&quot;:[0,&quot;progressive_acceptance_plan_template&quot;],&quot;filePath&quot;:[0,&quot;domains/delivery/templates/hybrid/Hybrid/Templates/progressive_acceptance_plan_template.md&quot;],&quot;title&quot;:[0,&quot;Progressive Acceptance Plan Template&quot;],&quot;content&quot;:[0,&quot;---\ntitle: Progressive Acceptance Plan Template\nmethodology: hybrid\ncomplexity: advanced\nowner: mirichard\nupdated: &#39;2025-08-05&#39;\nprimary_principles:\n- evidence-based-decisions\n- adaptability\nsecondary_principles:\n- continuous-learning\n- quality-by-design\nprinciple_rationale: Enables data-driven decisions and continuous learning from assessment\n  results.\n---\n\n# Progressive Acceptance Plan Template\n\n## Document Information\n| Field | Value |\n|-------|-------|\n| **Program/Project Name** | [Enter program/project name] |\n| **Document Version** | [e.g., 1.0] |\n| **Date** | [Current date] |\n| **Prepared By** | [UAT Manager/Program Manager name] |\n| **Approved By** | [Program Sponsor name] |\n| **Next Review Date** | [Date for next review] |\n\n## Executive Summary\n\n### Purpose\n[Describe the purpose of this progressive acceptance plan and its relationship to the overall program]\n\n### Hybrid Approach Rationale\n[Explain why a hybrid UAT methodology is appropriate for this initiative]\n\n### Acceptance Philosophy\n[High-level description of the balanced formal and adaptive acceptance approach]\n\n## Program Context\n\n### Program Overview\n[Brief description of the program and its major components/deliverables]\n\n### Component Architecture\n| Component | Type | Acceptance Approach | Rationale |\n|-----------|------|---------------------|----------|\n| [Component 1] | Core Platform | Formal UAT | Critical foundation, high risk |\n| [Component 2] | User Features | Agile acceptance | Evolutionary requirements |\n| [Component 3] | Integrations | Hybrid approach | Mixed complexity levels |\n| [Component 4] | Reporting | Formal UAT | Compliance requirements |\n\n## Multi-Level Acceptance Strategy\n\n### Strategic Level Acceptance\n\n#### Program-Level Success Criteria\n| Criteria | Measurement | Target | Review Frequency |\n|----------|-------------|--------|------------------|\n| Business Value Realization | [ROI, cost savings, efficiency] | [Target value] | Quarterly |\n| Stakeholder Satisfaction | [Survey scores, feedback] | [Target score] | Bi-annually |\n| Compliance Achievement | [Audit results, certifications] | [Target compliance %] | Annually |\n| Organizational Readiness | [Change adoption metrics] | [Target readiness level] | Quarterly |\n\n#### Strategic Acceptance Gates\n1. **Program Initiation Gate**: Strategic alignment and business case validation\n2. **Mid-Program Gate**: Value delivery confirmation and strategic adjustment\n3. **Program Completion Gate**: Overall success criteria achievement\n4. **Benefits Realization Gate**: Post-implementation value confirmation\n\n### Tactical Level Acceptance\n\n#### Phase-Based Acceptance Framework\n| Phase | Duration | Formal Elements | Agile Elements | Integration Method |\n|-------|----------|-----------------|----------------|--------------------|\n| **Phase 1: Foundation** | [Timeframe] | Infrastructure acceptance | User experience validation | Milestone reviews with user feedback |\n| **Phase 2: Core Build** | [Timeframe] | System integration testing | Feature acceptance | Sprint reviews with formal checkpoints |\n| **Phase 3: Enhancement** | [Timeframe] | Performance validation | User story acceptance | Continuous testing with gate reviews |\n| **Phase 4: Deployment** | [Timeframe] | Go-live readiness | User adoption monitoring | Formal approval with adaptive support |\n\n#### Cross-Phase Acceptance Activities\n- **User Engagement**: Continuous user involvement with formal decision points\n- **Quality Assurance**: Structured testing with iterative improvements\n- **Risk Management**: Formal risk assessment with agile response\n- **Stakeholder Alignment**: Regular formal reviews with ongoing collaboration\n\n### Operational Level Acceptance\n\n#### Sprint-Level Acceptance Process\n- **Sprint Duration**: [e.g., 2-3 weeks]\n- **Acceptance Frequency**: [e.g., End of each sprint + milestone gates]\n- **User Involvement**: [e.g., Weekly feedback sessions + formal reviews]\n\n#### Feature-Level Acceptance\n| Feature Category | Acceptance Method | Criteria Source | Decision Authority |\n|------------------|-------------------|-----------------|--------------------|\n| **Core Business Functions** | Formal UAT | Business requirements | Business Sponsor |\n| **User Experience Features** | Agile acceptance | User stories | Product Owner |\n| **Technical Integrations** | Hybrid approach | Technical + user requirements | Technical Lead + Users |\n| **Compliance Features** | Formal UAT | Regulatory requirements | Compliance Officer |\n\n## Acceptance Criteria Framework\n\n### Multi-Level Criteria Definition\n\n#### Level 1: Strategic Criteria (Program)\n| Criteria ID | Description | Success Measure | Stakeholder | Review Cycle |\n|-------------|-------------|-----------------|-------------|---------------|\n| [SC-001] | [Overall business value] | [Quantitative target] | Executive Sponsor | Quarterly |\n| [SC-002] | [Strategic alignment] | [Qualitative assessment] | Steering Committee | Quarterly |\n| [SC-003] | [Organizational impact] | [Change adoption metrics] | Change Manager | Bi-annually |\n\n#### Level 2: Tactical Criteria (Phase/Release)\n| Criteria ID | Description | Success Measure | Stakeholder | Review Cycle |\n|-------------|-------------|-----------------|-------------|---------------|\n| [TC-001] | [Phase deliverable completion] | [% completion against plan] | Program Manager | Monthly |\n| [TC-002] | [User satisfaction] | [Satisfaction score] | Business Users | Bi-weekly |\n| [TC-003] | [Quality gates] | [Defect rates, performance] | Quality Manager | Sprint-based |\n\n#### Level 3: Operational Criteria (Feature/Story)\n| Criteria ID | Description | Success Measure | Stakeholder | Review Cycle |\n|-------------|-------------|-----------------|-------------|---------------|\n| [OC-001] | [Feature functionality] | [Acceptance tests pass] | Product Owner | Sprint |\n| [OC-002] | [User story completion] | [Definition of done met] | Development Team | Sprint |\n| [OC-003] | [User experience] | [Usability metrics] | UX Lead | Sprint |\n\n### Acceptance Criteria Relationships\n\n```\nStrategic Criteria (Program Level)\n        ↑\n        | Supports\n        |\nTactical Criteria (Phase/Release Level)\n        ↑\n        | Enables\n        |\nOperational Criteria (Feature/Story Level)\n```\n\n## Stakeholder Engagement Model\n\n### Multi-Tier Engagement Strategy\n\n#### Executive Level (Strategic)\n| Stakeholder | Role | Engagement Method | Frequency | Decision Authority |\n|-------------|------|------------------|-----------|--------------------|\n| Program Sponsor | Strategic oversight | Formal reviews | Quarterly | Program direction |\n| Business Executive | Value validation | Executive briefings | Bi-annually | Business case |\n| IT Executive | Technical strategy | Architecture reviews | Quarterly | Technical direction |\n\n#### Management Level (Tactical)\n| Stakeholder | Role | Engagement Method | Frequency | Decision Authority |\n|-------------|------|------------------|-----------|--------------------|\n| Business Managers | Requirements validation | Phase reviews | Monthly | Feature prioritization |\n| IT Managers | Solution delivery | Sprint reviews | Bi-weekly | Technical implementation |\n| Process Owners | Workflow validation | User testing sessions | Weekly | Process acceptance |\n\n#### Operational Level (Agile)\n| Stakeholder | Role | Engagement Method | Frequency | Decision Authority |\n|-------------|------|------------------|-----------|--------------------|\n| End Users | Feature validation | Sprint demos | Sprint-based | Feature acceptance |\n| Business Analysts | Requirement refinement | Daily collaboration | Daily | Requirement clarity |\n| Developers | Solution building | Stand-ups, reviews | Daily | Technical solutions |\n\n### Engagement Integration Points\n\n#### Formal-to-Agile Integration\n- **Monthly Alignment Sessions**: Connect sprint outcomes to formal milestones\n- **Quarterly Reviews**: Validate agile delivery against formal commitments\n- **Risk Escalation**: Move agile-identified risks to formal governance\n\n#### Agile-to-Formal Integration\n- **Sprint Summary Reports**: Inform formal stakeholders of agile progress\n- **User Feedback Integration**: Include agile insights in formal decisions\n- **Continuous Planning**: Use agile learnings to adjust formal plans\n\n## Test Environment Strategy\n\n### Multi-Environment Approach\n\n#### Formal Testing Environments\n| Environment | Purpose | Characteristics | Access Control |\n|-------------|---------|-----------------|----------------|\n| **System Integration** | Formal component testing | Stable, controlled | Restricted |\n| **Pre-Production** | Final acceptance testing | Production-like | Formal approval |\n| **Production Parallel** | Go-live validation | Exact production copy | Business approval |\n\n#### Agile Testing Environments\n| Environment | Purpose | Characteristics | Access Control |\n|-------------|---------|-----------------|----------------|\n| **Development** | Continuous integration | Dynamic, evolving | Team access |\n| **Feature Testing** | Sprint acceptance | User-accessible | Business user access |\n| **Staging** | Release preparation | Flexible, realistic | Product owner approval |\n\n#### Hybrid Environment Management\n- **Environment Promotion**: Structured process from agile to formal environments\n- **Data Management**: Consistent test data across environment types\n- **Access Bridge**: Seamless user experience across environment types\n- **Configuration Control**: Balanced change management for different environment needs\n\n### Environment Lifecycle\n\n#### Environment Setup\n1. **Agile Environments**: Rapid provisioning for sprint needs\n2. **Formal Environments**: Structured setup with documentation\n3. **Integration Points**: Careful coordination between environment types\n4. **Validation**: Acceptance criteria for environment readiness\n\n#### Environment Maintenance\n- **Agile Refresh**: Frequent updates to support iteration\n- **Formal Stability**: Controlled changes with approval processes\n- **Data Refresh**: Regular updates while maintaining test scenarios\n- **Performance Monitoring**: Continuous monitoring with formal reporting\n\n## Progressive Testing Approach\n\n### Testing Evolution Model\n\n#### Phase 1: Agile Foundation\n- **Focus**: Core functionality and user experience\n- **Method**: Sprint-based acceptance testing\n- **Stakeholders**: Development team and product owners\n- **Criteria**: User story acceptance and basic quality gates\n\n#### Phase 2: Hybrid Integration\n- **Focus**: Component integration and workflow testing\n- **Method**: Combination of sprint testing and formal test cycles\n- **Stakeholders**: Extended team including business users\n- **Criteria**: Feature integration and business process validation\n\n#### Phase 3: Formal Validation\n- **Focus**: End-to-end system testing and compliance\n- **Method**: Structured UAT with formal approval processes\n- **Stakeholders**: Business sponsors and formal approval authorities\n- **Criteria**: Complete business acceptance and regulatory compliance\n\n### Test Execution Framework\n\n#### Sprint-Level Testing (Agile)\n| Activity | Frequency | Participants | Outputs |\n|----------|-----------|--------------|----------|\n| Feature demos | End of sprint | Product owner, users | Feature acceptance |\n| User story testing | Continuous | Development team | Story completion |\n| Feedback sessions | Weekly | Business users | User insights |\n| Sprint retrospectives | End of sprint | Scrum team | Process improvements |\n\n#### Phase-Level Testing (Formal)\n| Activity | Frequency | Participants | Outputs |\n|----------|-----------|--------------|----------|\n| Integration testing | End of phase | Technical team | System validation |\n| Business process testing | Mid/end phase | Business users | Process acceptance |\n| Performance testing | End of phase | Technical + business | Performance validation |\n| Security testing | End of phase | Security team | Security approval |\n\n#### Cross-Level Integration\n- **Sprint-to-Phase**: Aggregate sprint outcomes for phase evaluation\n- **Phase-to-Program**: Consolidate phase results for program assessment\n- **Feedback Loops**: Continuous improvement across all levels\n\n## Quality Management\n\n### Multi-Level Quality Framework\n\n#### Strategic Quality (Program Level)\n- **Quality Objectives**: Overall program quality goals\n- **Quality Metrics**: High-level quality indicators\n- **Quality Reviews**: Quarterly quality assessments\n- **Quality Governance**: Executive quality oversight\n\n#### Tactical Quality (Phase Level)\n- **Quality Plans**: Phase-specific quality approaches\n- **Quality Gates**: Formal quality checkpoints\n- **Quality Metrics**: Phase-level quality measurements\n- **Quality Coordination**: Cross-team quality alignment\n\n#### Operational Quality (Sprint Level)\n- **Definition of Done**: Sprint-level quality criteria\n- **Quality Practices**: Daily quality activities\n- **Quality Feedback**: Continuous quality improvement\n- **Quality Integration**: Sprint quality contribution to higher levels\n\n### Quality Metrics Integration\n\n| Level | Metrics | Targets | Review Frequency | Action Triggers |\n|-------|---------|---------|------------------|------------------|\n| **Strategic** | Program ROI, stakeholder satisfaction | [Targets] | Quarterly | &lt;80% target achievement |\n| **Tactical** | Phase milestones, user adoption | [Targets] | Monthly | &gt;2 week milestone delay |\n| **Operational** | Sprint velocity, defect rates | [Targets] | Sprint-based | &gt;20% variance from target |\n\n## Risk and Issue Management\n\n### Multi-Level Risk Framework\n\n#### Strategic Risks (Program Level)\n| Risk Category | Examples | Management Approach | Escalation Trigger |\n|---------------|----------|---------------------|--------------------|\n| Business Value | ROI not achieved | Formal risk register | Sponsor concern |\n| Stakeholder Alignment | Executive resistance | Governance escalation | Multiple stakeholder issues |\n| Regulatory Compliance | Audit failure | Compliance framework | Compliance officer alert |\n\n#### Tactical Risks (Phase Level)\n| Risk Category | Examples | Management Approach | Escalation Trigger |\n|---------------|----------|---------------------|--------------------|\n| Delivery Timeline | Phase delays | Project risk management | &gt;2 week delay |\n| Resource Availability | Team member unavailability | Resource management | Critical role unavailable |\n| Integration Issues | Component compatibility | Technical risk management | Integration failure |\n\n#### Operational Risks (Sprint Level)\n| Risk Category | Examples | Management Approach | Escalation Trigger |\n|---------------|----------|---------------------|--------------------|\n| Feature Quality | User story defects | Agile risk management | Multiple sprint failures |\n| User Acceptance | Feature rejection | User feedback management | Low acceptance scores |\n| Technical Issues | Development blockers | Development team management | Sprint goal at risk |\n\n### Risk Escalation Model\n\n```\nStrategic Level (Program Governance)\n        ↑\n        | Escalates when tactical approaches insufficient\n        |\nTactical Level (Phase Management)\n        ↑\n        | Escalates when operational approaches insufficient\n        |\nOperational Level (Sprint Management)\n```\n\n## Decision Framework\n\n### Multi-Level Decision Authority\n\n#### Strategic Decisions\n| Decision Type | Authority | Input Sources | Timeline |\n|---------------|-----------|---------------|----------|\n| Program direction changes | Executive Sponsor | All levels | 30 days |\n| Major scope changes | Steering Committee | Tactical + Strategic | 21 days |\n| Resource reallocation | Program Manager | Tactical recommendations | 14 days |\n\n#### Tactical Decisions\n| Decision Type | Authority | Input Sources | Timeline |\n|---------------|-----------|---------------|----------|\n| Phase approach changes | Program Manager | Operational + Strategic | 7 days |\n| Feature prioritization | Product Council | Operational feedback | 3 days |\n| Quality gate approvals | Quality Board | All levels | 5 days |\n\n#### Operational Decisions\n| Decision Type | Authority | Input Sources | Timeline |\n|---------------|-----------|---------------|----------|\n| Sprint planning | Product Owner | Team + users | 1 day |\n| Story acceptance | Product Owner | Development team | Immediate |\n| Technical implementation | Development Team | Product owner guidance | Immediate |\n\n### Decision Integration Process\n\n#### Bottom-Up Influence\n- **Sprint Insights**: Operational learnings inform tactical decisions\n- **Phase Outcomes**: Tactical results influence strategic direction\n- **User Feedback**: End-user input impacts all decision levels\n\n#### Top-Down Guidance\n- **Strategic Direction**: Program goals guide phase planning\n- **Tactical Priorities**: Phase objectives direct sprint planning\n- **Quality Standards**: Program standards enforced at all levels\n\n## Communication and Reporting\n\n### Multi-Channel Communication Strategy\n\n#### Formal Channels (Predictive)\n| Channel | Audience | Frequency | Content |\n|---------|----------|-----------|----------|\n| Executive Dashboard | Senior leadership | Monthly | Strategic progress, risks |\n| Steering Committee Reports | Program sponsors | Bi-weekly | Tactical status, decisions needed |\n| Phase Completion Reports | All stakeholders | Phase end | Formal acceptance results |\n\n#### Informal Channels (Adaptive)\n| Channel | Audience | Frequency | Content |\n|---------|----------|-----------|----------|\n| Sprint Reviews | Users + stakeholders | Sprint end | Feature demos, feedback |\n| Daily Standups | Development teams | Daily | Progress, blockers |\n| User Feedback Sessions | Business community | Weekly | User insights, issues |\n\n### Integrated Reporting Framework\n\n#### Reporting Hierarchy\n```\nExecutive Summary (Strategic)\n    ↑\n    | Summarizes\n    |\nPhase Progress Reports (Tactical)\n    ↑\n    | Consolidates\n    |\nSprint Reports (Operational)\n```\n\n#### Report Integration Process\n- **Sprint → Phase**: Weekly aggregation of sprint outcomes\n- **Phase → Program**: Monthly consolidation of phase progress\n- **Real-time Updates**: Continuous integration of agile insights\n- **Formal Reviews**: Quarterly comprehensive program assessment\n\n## Success Measurement\n\n### Integrated Metrics Framework\n\n#### Leading Indicators\n| Metric | Strategic Source | Tactical Source | Operational Source |\n|--------|------------------|-----------------|--------------------|\n| Stakeholder Engagement | Executive feedback | User participation | Sprint attendance |\n| Quality Trends | Audit findings | Phase defect rates | Sprint defect trends |\n| User Readiness | Change assessments | Training completion | Feature adoption rates |\n\n#### Lagging Indicators\n| Metric | Target | Measurement Method | Review Frequency |\n|--------|--------|-------------------|------------------|\n| Business Value Realization | [Target] | ROI calculation | Quarterly |\n| User Adoption Rate | [Target] | Usage analytics | Monthly |\n| System Performance | [Target] | Performance monitoring | Weekly |\n| Stakeholder Satisfaction | [Target] | Survey results | Bi-annually |\n\n### Success Validation Process\n\n#### Multi-Level Validation\n1. **Operational Validation**: Sprint-level success confirmation\n2. **Tactical Validation**: Phase-level success assessment\n3. **Strategic Validation**: Program-level success verification\n4. **Post-Implementation**: Long-term value realization confirmation\n\n## Continuous Improvement\n\n### Learning Integration Model\n\n#### Operational Learning (Sprint Level)\n- **Sprint Retrospectives**: Team-level improvements\n- **User Feedback Integration**: Direct user input incorporation\n- **Technical Learning**: Development practice enhancement\n\n#### Tactical Learning (Phase Level)\n- **Phase Retrospectives**: Cross-team learning\n- **Process Optimization**: Workflow improvement\n- **Stakeholder Learning**: Engagement effectiveness\n\n#### Strategic Learning (Program Level)\n- **Program Retrospectives**: Organizational learning\n- **Methodology Refinement**: Approach optimization\n- **Knowledge Transfer**: Cross-program learning\n\n### Improvement Implementation\n\n#### Agile Improvements\n- **Immediate**: Within current sprint\n- **Next Sprint**: Following sprint planning\n- **Release**: Next release cycle\n\n#### Formal Improvements\n- **Phase Changes**: Next phase planning\n- **Program Updates**: Program-level adjustments\n- **Organizational**: Enterprise-wide adoption\n\n## When to Use\n\nUse throughout the project lifecycle to identify, assess, and track risks. This template is essential for projects with significant complexity, multiple stakeholders, or high business impact, where structured risk management provides decision-making value.\n\n## When NOT to Use\n\nDo not use for very low-risk, short-duration tasks where informal risk awareness is sufficient. Avoid this template if your governance framework requires a different risk management approach or if stakeholders prefer real-time risk dashboards over static registers.\n\n## Appendices\n\n### Appendix A: Detailed Acceptance Criteria Catalog\n[Comprehensive acceptance criteria for all levels]\n\n### Appendix B: Test Case Library\n[Formal and agile test cases organized by component]\n\n### Appendix C: Stakeholder Engagement Calendar\n[Detailed schedule of all engagement activities]\n\n### Appendix D: Risk Register\n[Complete risk inventory across all levels]\n\n### Appendix E: Communication Templates\n[Templates for all communication channels]\n\n### Appendix F: Quality Checklists\n[Quality criteria and checklists for each level]\n\n---\n\n**Usage Instructions:**\n1. Customize the template based on your specific program context\n2. Adjust the balance of formal vs. agile elements based on organizational needs\n3. Ensure alignment with overall program management approach\n4. Regular reviews and updates as the program evolves\n5. Use in conjunction with component-specific acceptance plans\n\n**Related Templates:**\n- [UAT Plan Template (Traditional)](../../Traditional/Templates/uat_plan_template.md)\n- [UAT Feedback Canvas (Agile)](../../Agile/Tools/uat_feedback_canvas.md)\n- [Integrated Change Strategy](integrated_change_strategy_template.md)\n- [UAT Governance Framework](uat_governance_framework_template.md)\n\n&quot;]}" ssr client="load" opts="{&quot;name&quot;:&quot;TemplateViewer&quot;,&quot;value&quot;:true}" await-children><div><h1>Progressive Acceptance Plan Template</h1><div style="margin-bottom:2rem"><button style="background:var(--accent-color);color:white;border:1px solid var(--border-color);padding:0.5rem 1rem;border-radius:4px 4px 0 0;cursor:pointer;margin-right:1px">Preview</button><button style="background:var(--code-bg);color:var(--text-color);border:1px solid var(--border-color);padding:0.5rem 1rem;border-radius:4px 4px 0 0;cursor:pointer">Version History</button></div><div style="border:1px solid var(--border-color);border-radius:0 8px 8px 8px;min-height:400px"><div style="background:var(--bg-primary);border-radius:var(--radius-lg)"><div style="padding:1rem 1.5rem;border-bottom:1px solid var(--border-light);display:flex;align-items:center;justify-content:space-between;background:var(--bg-secondary);border-radius:var(--radius-lg) var(--radius-lg) 0 0"><div style="display:flex;align-items:center;gap:0.5rem"><span style="font-size:1.5rem">📄</span><div><div style="font-weight:600;color:var(--text-primary)">progressive_acceptance_plan_template.md</div><div style="font-size:0.75rem;color:var(--text-muted)">Markdown • <!-- -->22,182 bytes</div></div></div><a href="/pm-tools-templates/downloads/progressive_acceptance_plan_template.md" download="" class="btn btn-secondary" style="font-size:0.75rem;padding:0.5rem 0.75rem">💾 Download</a></div><pre aria-label="Markdown source of Progressive Acceptance Plan Template" style="padding:1.5rem;max-height:600px;overflow:auto;white-space:pre-wrap;overflow-wrap:anywhere">---
+title: Progressive Acceptance Plan Template
+methodology: hybrid
+complexity: advanced
+owner: mirichard
+updated: &#x27;2025-08-05&#x27;
+primary_principles:
+- evidence-based-decisions
+- adaptability
+secondary_principles:
+- continuous-learning
+- quality-by-design
+principle_rationale: Enables data-driven decisions and continuous learning from assessment
+  results.
+---
+
+# Progressive Acceptance Plan Template
+
+## Document Information
+| Field | Value |
+|-------|-------|
+| **Program/Project Name** | [Enter program/project name] |
+| **Document Version** | [e.g., 1.0] |
+| **Date** | [Current date] |
+| **Prepared By** | [UAT Manager/Program Manager name] |
+| **Approved By** | [Program Sponsor name] |
+| **Next Review Date** | [Date for next review] |
+
+## Executive Summary
+
+### Purpose
+[Describe the purpose of this progressive acceptance plan and its relationship to the overall program]
+
+### Hybrid Approach Rationale
+[Explain why a hybrid UAT methodology is appropriate for this initiative]
+
+### Acceptance Philosophy
+[High-level description of the balanced formal and adaptive acceptance approach]
+
+## Program Context
+
+### Program Overview
+[Brief description of the program and its major components/deliverables]
+
+### Component Architecture
+| Component | Type | Acceptance Approach | Rationale |
+|-----------|------|---------------------|----------|
+| [Component 1] | Core Platform | Formal UAT | Critical foundation, high risk |
+| [Component 2] | User Features | Agile acceptance | Evolutionary requirements |
+| [Component 3] | Integrations | Hybrid approach | Mixed complexity levels |
+| [Component 4] | Reporting | Formal UAT | Compliance requirements |
+
+## Multi-Level Acceptance Strategy
+
+### Strategic Level Acceptance
+
+#### Program-Level Success Criteria
+| Criteria | Measurement | Target | Review Frequency |
+|----------|-------------|--------|------------------|
+| Business Value Realization | [ROI, cost savings, efficiency] | [Target value] | Quarterly |
+| Stakeholder Satisfaction | [Survey scores, feedback] | [Target score] | Bi-annually |
+| Compliance Achievement | [Audit results, certifications] | [Target compliance %] | Annually |
+| Organizational Readiness | [Change adoption metrics] | [Target readiness level] | Quarterly |
+
+#### Strategic Acceptance Gates
+1. **Program Initiation Gate**: Strategic alignment and business case validation
+2. **Mid-Program Gate**: Value delivery confirmation and strategic adjustment
+3. **Program Completion Gate**: Overall success criteria achievement
+4. **Benefits Realization Gate**: Post-implementation value confirmation
+
+### Tactical Level Acceptance
+
+#### Phase-Based Acceptance Framework
+| Phase | Duration | Formal Elements | Agile Elements | Integration Method |
+|-------|----------|-----------------|----------------|--------------------|
+| **Phase 1: Foundation** | [Timeframe] | Infrastructure acceptance | User experience validation | Milestone reviews with user feedback |
+| **Phase 2: Core Build** | [Timeframe] | System integration testing | Feature acceptance | Sprint reviews with formal checkpoints |
+| **Phase 3: Enhancement** | [Timeframe] | Performance validation | User story acceptance | Continuous testing with gate reviews |
+| **Phase 4: Deployment** | [Timeframe] | Go-live readiness | User adoption monitoring | Formal approval with adaptive support |
+
+#### Cross-Phase Acceptance Activities
+- **User Engagement**: Continuous user involvement with formal decision points
+- **Quality Assurance**: Structured testing with iterative improvements
+- **Risk Management**: Formal risk assessment with agile response
+- **Stakeholder Alignment**: Regular formal reviews with ongoing collaboration
+
+### Operational Level Acceptance
+
+#### Sprint-Level Acceptance Process
+- **Sprint Duration**: [e.g., 2-3 weeks]
+- **Acceptance Frequency**: [e.g., End of each sprint + milestone gates]
+- **User Involvement**: [e.g., Weekly feedback sessions + formal reviews]
+
+#### Feature-Level Acceptance
+| Feature Category | Acceptance Method | Criteria Source | Decision Authority |
+|------------------|-------------------|-----------------|--------------------|
+| **Core Business Functions** | Formal UAT | Business requirements | Business Sponsor |
+| **User Experience Features** | Agile acceptance | User stories | Product Owner |
+| **Technical Integrations** | Hybrid approach | Technical + user requirements | Technical Lead + Users |
+| **Compliance Features** | Formal UAT | Regulatory requirements | Compliance Officer |
+
+## Acceptance Criteria Framework
+
+### Multi-Level Criteria Definition
+
+#### Level 1: Strategic Criteria (Program)
+| Criteria ID | Description | Success Measure | Stakeholder | Review Cycle |
+|-------------|-------------|-----------------|-------------|---------------|
+| [SC-001] | [Overall business value] | [Quantitative target] | Executive Sponsor | Quarterly |
+| [SC-002] | [Strategic alignment] | [Qualitative assessment] | Steering Committee | Quarterly |
+| [SC-003] | [Organizational impact] | [Change adoption metrics] | Change Manager | Bi-annually |
+
+#### Level 2: Tactical Criteria (Phase/Release)
+| Criteria ID | Description | Success Measure | Stakeholder | Review Cycle |
+|-------------|-------------|-----------------|-------------|---------------|
+| [TC-001] | [Phase deliverable completion] | [% completion against plan] | Program Manager | Monthly |
+| [TC-002] | [User satisfaction] | [Satisfaction score] | Business Users | Bi-weekly |
+| [TC-003] | [Quality gates] | [Defect rates, performance] | Quality Manager | Sprint-based |
+
+#### Level 3: Operational Criteria (Feature/Story)
+| Criteria ID | Description | Success Measure | Stakeholder | Review Cycle |
+|-------------|-------------|-----------------|-------------|---------------|
+| [OC-001] | [Feature functionality] | [Acceptance tests pass] | Product Owner | Sprint |
+| [OC-002] | [User story completion] | [Definition of done met] | Development Team | Sprint |
+| [OC-003] | [User experience] | [Usability metrics] | UX Lead | Sprint |
+
+### Acceptance Criteria Relationships
+
+```
+Strategic Criteria (Program Level)
+        ↑
+        | Supports
+        |
+Tactical Criteria (Phase/Release Level)
+        ↑
+        | Enables
+        |
+Operational Criteria (Feature/Story Level)
+```
+
+## Stakeholder Engagement Model
+
+### Multi-Tier Engagement Strategy
+
+#### Executive Level (Strategic)
+| Stakeholder | Role | Engagement Method | Frequency | Decision Authority |
+|-------------|------|------------------|-----------|--------------------|
+| Program Sponsor | Strategic oversight | Formal reviews | Quarterly | Program direction |
+| Business Executive | Value validation | Executive briefings | Bi-annually | Business case |
+| IT Executive | Technical strategy | Architecture reviews | Quarterly | Technical direction |
+
+#### Management Level (Tactical)
+| Stakeholder | Role | Engagement Method | Frequency | Decision Authority |
+|-------------|------|------------------|-----------|--------------------|
+| Business Managers | Requirements validation | Phase reviews | Monthly | Feature prioritization |
+| IT Managers | Solution delivery | Sprint reviews | Bi-weekly | Technical implementation |
+| Process Owners | Workflow validation | User testing sessions | Weekly | Process acceptance |
+
+#### Operational Level (Agile)
+| Stakeholder | Role | Engagement Method | Frequency | Decision Authority |
+|-------------|------|------------------|-----------|--------------------|
+| End Users | Feature validation | Sprint demos | Sprint-based | Feature acceptance |
+| Business Analysts | Requirement refinement | Daily collaboration | Daily | Requirement clarity |
+| Developers | Solution building | Stand-ups, reviews | Daily | Technical solutions |
+
+### Engagement Integration Points
+
+#### Formal-to-Agile Integration
+- **Monthly Alignment Sessions**: Connect sprint outcomes to formal milestones
+- **Quarterly Reviews**: Validate agile delivery against formal commitments
+- **Risk Escalation**: Move agile-identified risks to formal governance
+
+#### Agile-to-Formal Integration
+- **Sprint Summary Reports**: Inform formal stakeholders of agile progress
+- **User Feedback Integration**: Include agile insights in formal decisions
+- **Continuous Planning**: Use agile learnings to adjust formal plans
+
+## Test Environment Strategy
+
+### Multi-Environment Approach
+
+#### Formal Testing Environments
+| Environment | Purpose | Characteristics | Access Control |
+|-------------|---------|-----------------|----------------|
+| **System Integration** | Formal component testing | Stable, controlled | Restricted |
+| **Pre-Production** | Final acceptance testing | Production-like | Formal approval |
+| **Production Parallel** | Go-live validation | Exact production copy | Business approval |
+
+#### Agile Testing Environments
+| Environment | Purpose | Characteristics | Access Control |
+|-------------|---------|-----------------|----------------|
+| **Development** | Continuous integration | Dynamic, evolving | Team access |
+| **Feature Testing** | Sprint acceptance | User-accessible | Business user access |
+| **Staging** | Release preparation | Flexible, realistic | Product owner approval |
+
+#### Hybrid Environment Management
+- **Environment Promotion**: Structured process from agile to formal environments
+- **Data Management**: Consistent test data across environment types
+- **Access Bridge**: Seamless user experience across environment types
+- **Configuration Control**: Balanced change management for different environment needs
+
+### Environment Lifecycle
+
+#### Environment Setup
+1. **Agile Environments**: Rapid provisioning for sprint needs
+2. **Formal Environments**: Structured setup with documentation
+3. **Integration Points**: Careful coordination between environment types
+4. **Validation**: Acceptance criteria for environment readiness
+
+#### Environment Maintenance
+- **Agile Refresh**: Frequent updates to support iteration
+- **Formal Stability**: Controlled changes with approval processes
+- **Data Refresh**: Regular updates while maintaining test scenarios
+- **Performance Monitoring**: Continuous monitoring with formal reporting
+
+## Progressive Testing Approach
+
+### Testing Evolution Model
+
+#### Phase 1: Agile Foundation
+- **Focus**: Core functionality and user experience
+- **Method**: Sprint-based acceptance testing
+- **Stakeholders**: Development team and product owners
+- **Criteria**: User story acceptance and basic quality gates
+
+#### Phase 2: Hybrid Integration
+- **Focus**: Component integration and workflow testing
+- **Method**: Combination of sprint testing and formal test cycles
+- **Stakeholders**: Extended team including business users
+- **Criteria**: Feature integration and business process validation
+
+#### Phase 3: Formal Validation
+- **Focus**: End-to-end system testing and compliance
+- **Method**: Structured UAT with formal approval processes
+- **Stakeholders**: Business sponsors and formal approval authorities
+- **Criteria**: Complete business acceptance and regulatory compliance
+
+### Test Execution Framework
+
+#### Sprint-Level Testing (Agile)
+| Activity | Frequency | Participants | Outputs |
+|----------|-----------|--------------|----------|
+| Feature demos | End of sprint | Product owner, users | Feature acceptance |
+| User story testing | Continuous | Development team | Story completion |
+| Feedback sessions | Weekly | Business users | User insights |
+| Sprint retrospectives | End of sprint | Scrum team | Process improvements |
+
+#### Phase-Level Testing (Formal)
+| Activity | Frequency | Participants | Outputs |
+|----------|-----------|--------------|----------|
+| Integration testing | End of phase | Technical team | System validation |
+| Business process testing | Mid/end phase | Business users | Process acceptance |
+| Performance testing | End of phase | Technical + business | Performance validation |
+| Security testing | End of phase | Security team | Security approval |
+
+#### Cross-Level Integration
+- **Sprint-to-Phase**: Aggregate sprint outcomes for phase evaluation
+- **Phase-to-Program**: Consolidate phase results for program assessment
+- **Feedback Loops**: Continuous improvement across all levels
+
+## Quality Management
+
+### Multi-Level Quality Framework
+
+#### Strategic Quality (Program Level)
+- **Quality Objectives**: Overall program quality goals
+- **Quality Metrics**: High-level quality indicators
+- **Quality Reviews**: Quarterly quality assessments
+- **Quality Governance**: Executive quality oversight
+
+#### Tactical Quality (Phase Level)
+- **Quality Plans**: Phase-specific quality approaches
+- **Quality Gates**: Formal quality checkpoints
+- **Quality Metrics**: Phase-level quality measurements
+- **Quality Coordination**: Cross-team quality alignment
+
+#### Operational Quality (Sprint Level)
+- **Definition of Done**: Sprint-level quality criteria
+- **Quality Practices**: Daily quality activities
+- **Quality Feedback**: Continuous quality improvement
+- **Quality Integration**: Sprint quality contribution to higher levels
+
+### Quality Metrics Integration
+
+| Level | Metrics | Targets | Review Frequency | Action Triggers |
+|-------|---------|---------|------------------|------------------|
+| **Strategic** | Program ROI, stakeholder satisfaction | [Targets] | Quarterly | &lt;80% target achievement |
+| **Tactical** | Phase milestones, user adoption | [Targets] | Monthly | &gt;2 week milestone delay |
+| **Operational** | Sprint velocity, defect rates | [Targets] | Sprint-based | &gt;20% variance from target |
+
+## Risk and Issue Management
+
+### Multi-Level Risk Framework
+
+#### Strategic Risks (Program Level)
+| Risk Category | Examples | Management Approach | Escalation Trigger |
+|---------------|----------|---------------------|--------------------|
+| Business Value | ROI not achieved | Formal risk register | Sponsor concern |
+| Stakeholder Alignment | Executive resistance | Governance escalation | Multiple stakeholder issues |
+| Regulatory Compliance | Audit failure | Compliance framework | Compliance officer alert |
+
+#### Tactical Risks (Phase Level)
+| Risk Category | Examples | Management Approach | Escalation Trigger |
+|---------------|----------|---------------------|--------------------|
+| Delivery Timeline | Phase delays | Project risk management | &gt;2 week delay |
+| Resource Availability | Team member unavailability | Resource management | Critical role unavailable |
+| Integration Issues | Component compatibility | Technical risk management | Integration failure |
+
+#### Operational Risks (Sprint Level)
+| Risk Category | Examples | Management Approach | Escalation Trigger |
+|---------------|----------|---------------------|--------------------|
+| Feature Quality | User story defects | Agile risk management | Multiple sprint failures |
+| User Acceptance | Feature rejection | User feedback management | Low acceptance scores |
+| Technical Issues | Development blockers | Development team management | Sprint goal at risk |
+
+### Risk Escalation Model
+
+```
+Strategic Level (Program Governance)
+        ↑
+        | Escalates when tactical approaches insufficient
+        |
+Tactical Level (Phase Management)
+        ↑
+        | Escalates when operational approaches insufficient
+        |
+Operational Level (Sprint Management)
+```
+
+## Decision Framework
+
+### Multi-Level Decision Authority
+
+#### Strategic Decisions
+| Decision Type | Authority | Input Sources | Timeline |
+|---------------|-----------|---------------|----------|
+| Program direction changes | Executive Sponsor | All levels | 30 days |
+| Major scope changes | Steering Committee | Tactical + Strategic | 21 days |
+| Resource reallocation | Program Manager | Tactical recommendations | 14 days |
+
+#### Tactical Decisions
+| Decision Type | Authority | Input Sources | Timeline |
+|---------------|-----------|---------------|----------|
+| Phase approach changes | Program Manager | Operational + Strategic | 7 days |
+| Feature prioritization | Product Council | Operational feedback | 3 days |
+| Quality gate approvals | Quality Board | All levels | 5 days |
+
+#### Operational Decisions
+| Decision Type | Authority | Input Sources | Timeline |
+|---------------|-----------|---------------|----------|
+| Sprint planning | Product Owner | Team + users | 1 day |
+| Story acceptance | Product Owner | Development team | Immediate |
+| Technical implementation | Development Team | Product owner guidance | Immediate |
+
+### Decision Integration Process
+
+#### Bottom-Up Influence
+- **Sprint Insights**: Operational learnings inform tactical decisions
+- **Phase Outcomes**: Tactical results influence strategic direction
+- **User Feedback**: End-user input impacts all decision levels
+
+#### Top-Down Guidance
+- **Strategic Direction**: Program goals guide phase planning
+- **Tactical Priorities**: Phase objectives direct sprint planning
+- **Quality Standards**: Program standards enforced at all levels
+
+## Communication and Reporting
+
+### Multi-Channel Communication Strategy
+
+#### Formal Channels (Predictive)
+| Channel | Audience | Frequency | Content |
+|---------|----------|-----------|----------|
+| Executive Dashboard | Senior leadership | Monthly | Strategic progress, risks |
+| Steering Committee Reports | Program sponsors | Bi-weekly | Tactical status, decisions needed |
+| Phase Completion Reports | All stakeholders | Phase end | Formal acceptance results |
+
+#### Informal Channels (Adaptive)
+| Channel | Audience | Frequency | Content |
+|---------|----------|-----------|----------|
+| Sprint Reviews | Users + stakeholders | Sprint end | Feature demos, feedback |
+| Daily Standups | Development teams | Daily | Progress, blockers |
+| User Feedback Sessions | Business community | Weekly | User insights, issues |
+
+### Integrated Reporting Framework
+
+#### Reporting Hierarchy
+```
+Executive Summary (Strategic)
+    ↑
+    | Summarizes
+    |
+Phase Progress Reports (Tactical)
+    ↑
+    | Consolidates
+    |
+Sprint Reports (Operational)
+```
+
+#### Report Integration Process
+- **Sprint → Phase**: Weekly aggregation of sprint outcomes
+- **Phase → Program**: Monthly consolidation of phase progress
+- **Real-time Updates**: Continuous integration of agile insights
+- **Formal Reviews**: Quarterly comprehensive program assessment
+
+## Success Measurement
+
+### Integrated Metrics Framework
+
+#### Leading Indicators
+| Metric | Strategic Source | Tactical Source | Operational Source |
+|--------|------------------|-----------------|--------------------|
+| Stakeholder Engagement | Executive feedback | User participation | Sprint attendance |
+| Quality Trends | Audit findings | Phase defect rates | Sprint defect trends |
+| User Readiness | Change assessments | Training completion | Feature adoption rates |
+
+#### Lagging Indicators
+| Metric | Target | Measurement Method | Review Frequency |
+|--------|--------|-------------------|------------------|
+| Business Value Realization | [Target] | ROI calculation | Quarterly |
+| User Adoption Rate | [Target] | Usage analytics | Monthly |
+| System Performance | [Target] | Performance monitoring | Weekly |
+| Stakeholder Satisfaction | [Target] | Survey results | Bi-annually |
+
+### Success Validation Process
+
+#### Multi-Level Validation
+1. **Operational Validation**: Sprint-level success confirmation
+2. **Tactical Validation**: Phase-level success assessment
+3. **Strategic Validation**: Program-level success verification
+4. **Post-Implementation**: Long-term value realization confirmation
+
+## Continuous Improvement
+
+### Learning Integration Model
+
+#### Operational Learning (Sprint Level)
+- **Sprint Retrospectives**: Team-level improvements
+- **User Feedback Integration**: Direct user input incorporation
+- **Technical Learning**: Development practice enhancement
+
+#### Tactical Learning (Phase Level)
+- **Phase Retrospectives**: Cross-team learning
+- **Process Optimization**: Workflow improvement
+- **Stakeholder Learning**: Engagement effectiveness
+
+#### Strategic Learning (Program Level)
+- **Program Retrospectives**: Organizational learning
+- **Methodology Refinement**: Approach optimization
+- **Knowledge Transfer**: Cross-program learning
+
+### Improvement Implementation
+
+#### Agile Improvements
+- **Immediate**: Within current sprint
+- **Next Sprint**: Following sprint planning
+- **Release**: Next release cycle
+
+#### Formal Improvements
+- **Phase Changes**: Next phase planning
+- **Program Updates**: Program-level adjustments
+- **Organizational**: Enterprise-wide adoption
+
+## When to Use
+
+Use throughout the project lifecycle to identify, assess, and track risks. This template is essential for projects with significant complexity, multiple stakeholders, or high business impact, where structured risk management provides decision-making value.
+
+## When NOT to Use
+
+Do not use for very low-risk, short-duration tasks where informal risk awareness is sufficient. Avoid this template if your governance framework requires a different risk management approach or if stakeholders prefer real-time risk dashboards over static registers.
+
+## Appendices
+
+### Appendix A: Detailed Acceptance Criteria Catalog
+[Comprehensive acceptance criteria for all levels]
+
+### Appendix B: Test Case Library
+[Formal and agile test cases organized by component]
+
+### Appendix C: Stakeholder Engagement Calendar
+[Detailed schedule of all engagement activities]
+
+### Appendix D: Risk Register
+[Complete risk inventory across all levels]
+
+### Appendix E: Communication Templates
+[Templates for all communication channels]
+
+### Appendix F: Quality Checklists
+[Quality criteria and checklists for each level]
+
+---
+
+**Usage Instructions:**
+1. Customize the template based on your specific program context
+2. Adjust the balance of formal vs. agile elements based on organizational needs
+3. Ensure alignment with overall program management approach
+4. Regular reviews and updates as the program evolves
+5. Use in conjunction with component-specific acceptance plans
+
+**Related Templates:**
+- [UAT Plan Template (Traditional)](../../Traditional/Templates/uat_plan_template.md)
+- [UAT Feedback Canvas (Agile)](../../Agile/Tools/uat_feedback_canvas.md)
+- [Integrated Change Strategy](integrated_change_strategy_template.md)
+- [UAT Governance Framework](uat_governance_framework_template.md)
+
+</pre></div></div></div><!--astro:end--></astro-island></main></body></html>

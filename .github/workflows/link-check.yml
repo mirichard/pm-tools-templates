@@ -20,12 +20,10 @@ jobs:
     
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v7
-      with:
-        fetch-depth: 1
+      uses: actions/checkout@v4
       
     - name: Set up Python
-      uses: actions/setup-python@v7
+      uses: actions/setup-python@v4
       with:
         python-version: '3.x'
       
@@ -33,7 +31,7 @@ jobs:
       id: link_check
       run: |
         echo "Running filtered anchor link health check..."
-        python3 scripts/check_anchor_links_filtered.py > link_report.txt 2>&1
+        python3 check_anchor_links_filtered.py > link_report.txt 2>&1
         
         # Extract broken links count and total files from the report
         BROKEN_LINKS=$(grep "Broken links:" link_report.txt | grep -o '[0-9]*' || echo "0")
@@ -51,14 +49,14 @@ jobs:
         echo "Link Health Score: ${HEALTH_SCORE}% (${WORKING_LINKS}/${TOTAL_FILES} files)"
         
     - name: Upload link report
-      uses: actions/upload-artifact@v7
+      uses: actions/upload-artifact@v4
       with:
         name: link-health-report
         path: link_report.txt
         
     - name: Comment on PR with link health
       if: github.event_name == 'pull_request'
-      uses: actions/github-script@v9
+      uses: actions/github-script@v6
       continue-on-error: true
       with:
         script: |
@@ -104,9 +102,8 @@ jobs:
     - name: Check link health threshold
       run: |
         HEALTH_SCORE=${{ steps.link_check.outputs.health_score }}
-        # Temporarily set to warning-only to allow PR merges
-        if [ "$HEALTH_SCORE" -lt 50 ]; then
-          echo "❌ Link health score ($HEALTH_SCORE%) is critically low"
+        if [ "$HEALTH_SCORE" -lt 85 ]; then
+          echo "❌ Link health score ($HEALTH_SCORE%) is below minimum threshold (85%)"
           echo "Please fix broken links before merging"
           exit 1
         elif [ "$HEALTH_SCORE" -lt 95 ]; then
@@ -118,7 +115,7 @@ jobs:
         
     - name: Create issue on low link health (scheduled runs only)
       if: github.event_name == 'schedule' && steps.link_check.outputs.health_score < 90
-      uses: actions/github-script@v9
+      uses: actions/github-script@v6
       with:
         script: |
           const healthScore = '${{ steps.link_check.outputs.health_score }}';
@@ -149,3 +146,4 @@ jobs:
             `,
             labels: ['maintenance', 'documentation', 'link-health']
           });
+

@@ -22,8 +22,8 @@ Software development projects require specialized approaches to manage requireme
 - [Software Requirements Specification Template](./software-development/requirements_specification_template.md)
 - [User Story Mapping Template](./software-development/user_story_mapping_template.md)
 - [Sprint Planning Template](../../methodology-frameworks/agile-scrum/sprint-planning/sprint_planning_template.md)
-- [Software Test Plan Template](../../domains/measurement/industry-specializations/information-technology/software-development/test_plan_template.md)
-- [Release Management Plan Template](../../domains/measurement/methodology-frameworks/emerging-methods/devops/release_management_template.md)
+- [Software Test Plan Template](./software-development/test_plan_template.md)
+- [Release Management Plan Template](./../../methodology-frameworks/emerging-methods/devops/release_management_template.md)
 - [CI/CD Pipeline Setup Guide](./software-development/ci_cd_pipeline_guide.md)
 
 #### Methodology Selection Guide
@@ -45,12 +45,12 @@ Infrastructure projects focus on designing, implementing, and managing the hardw
 - Coordinating across technology teams and vendors
 
 #### Recommended Templates
-- [Infrastructure Assessment Template](../../domains/measurement/industry-specializations/information-technology/infrastructure/infrastructure_assessment_template.md)
+- [Infrastructure Assessment Template](./infrastructure/infrastructure_assessment_template.md)
 - [Capacity Planning Worksheet](./infrastructure/capacity_planning_worksheet.md)
 - [Migration Plan Template](./infrastructure/migration_plan_template.md)
-- [Data Center Design Template](../../domains/planning/industry-specializations/information-technology/infrastructure/data_center_design_template.md)
+- [Data Center Design Template](./infrastructure/data_center_design_template.md)
 - [Infrastructure Deployment Checklist](./infrastructure/deployment_checklist.md)
-- [Disaster Recovery Plan Template](../../domains/planning/industry-specializations/information-technology/infrastructure/disaster_recovery_template.md)
+- [Disaster Recovery Plan Template](./infrastructure/disaster_recovery_template.md)
 
 #### Delivery Approach Selection
 - **Phased Rollout**: For large infrastructure changes with high risk of service disruption
@@ -71,11 +71,11 @@ Cybersecurity projects focus on protecting systems, networks, and data from digi
 - Justifying security investments to stakeholders
 
 #### Recommended Templates
-- [Security Risk Assessment Template](../../domains/measurement/industry-specializations/information-technology/cybersecurity/risk_assessment_template.md)
+- [Security Risk Assessment Template](./cybersecurity/risk_assessment_template.md)
 - [Vulnerability Management Plan](./cybersecurity/vulnerability_management_plan.md)
 - [Security Implementation Roadmap](./cybersecurity/security_implementation_roadmap.md)
 - [Security Controls Matrix](./cybersecurity/security_controls_matrix.md)
-- [Incident Response Plan Template](../../domains/measurement/industry-specializations/information-technology/cybersecurity/incident_response_template.md)
+- [Incident Response Plan Template](./cybersecurity/incident_response_template.md)
 - [Security Awareness Program Template](./cybersecurity/security_awareness_program.md)
 
 #### Security Framework Selection Guide
@@ -97,7 +97,7 @@ Digital transformation projects involve reimagining business processes through t
 - Sustaining momentum through multi-year initiatives
 
 #### Recommended Templates
-- [Digital Transformation Strategy Template](../../domains/measurement/industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md)
+- [Digital Transformation Strategy Template](./digital-transformation/digital_transformation_strategy_template.md)
 - [Process Digitization Workflow](./digital-transformation/process_digitization_workflow.md)
 - [Technology Adoption Roadmap](./digital-transformation/technology_adoption_roadmap.md)
 - [Digital Maturity Assessment](./digital-transformation/digital_maturity_assessment.md)
@@ -167,7 +167,7 @@ The templates provided in this directory are starting points designed to be cust
 
 ## Additional Resources
 
-- [IT Project Management Body of Knowledge (Traditional) Guide](https://www.pmi.org/traditional-guide-standards)
+- [IT Project Management Body of Knowledge (Traditional®) Guide](https://www.pmi.org/traditional-guide-standards)
 - [Agile Practice Guide](https://www.pmi.org/traditional-guide-standards/practice-guides/agile)
 - [ITIL Framework for IT Service Management](https://www.axelos.com/certifications/itil-service-management)
 - [DevOps Handbook](https://itrevolution.com/book/the-devops-handbook/)

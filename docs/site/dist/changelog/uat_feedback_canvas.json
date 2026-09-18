@@ -1,0 +1,18 @@
+{
+  "templateId": "uat_feedback_canvas",
+  "filePath": "templates/agile/uat_feedback_canvas.md",
+  "lastUpdated": "2025-08-05T23:14:06.581Z",
+  "totalChanges": 2,
+  "changes": [
+    {
+      "hash": "76f3a313a5153a040cf5adb75614e4c5f674ee18",
+      "date": "2025-08-05",
+      "message": "Phase 1 Repository Redesign: Structure, Metadata, CI & Governance (#358)"
+    },
+    {
+      "hash": "e9fbaad9ad550d08a3c8b4662de02b916d47abdd",
+      "date": "2025-06-07",
+      "message": "Create User Acceptance Testing Framework and Templates"
+    }
+  ]
+}

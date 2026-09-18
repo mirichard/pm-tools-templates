@@ -1,0 +1,263 @@
+<!DOCTYPE html><html lang="en" data-astro-cid-ju4pidww><head><meta charset="UTF-8"><meta name="description" content="Advanced template browser with previews and version history"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="icon" type="image/svg+xml" href="/pm-tools-templates/favicon.svg"><title>Budget Dashboard Template</title><link rel="stylesheet" href="/pm-tools-templates/assets/Layout.ChXqTIwx.css"></head><body data-astro-cid-ju4pidww><main data-astro-cid-ju4pidww><style>astro-island,astro-slot,astro-static-slot{display:contents}</style><script>(()=>{var e=async t=>{await(await t())()};(self.Astro||(self.Astro={})).load=e;window.dispatchEvent(new Event("astro:load"));})();</script><script>(()=>{var g=Object.defineProperty;var w=(a,s,c)=>s in a?g(a,s,{enumerable:!0,configurable:!0,writable:!0,value:c}):a[s]=c;var l=(a,s,c)=>w(a,typeof s!="symbol"?s+"":s,c);var E=new Set(["__proto__","constructor","prototype"]);{let a={0:t=>y(t),1:t=>c(t),2:t=>new RegExp(t),3:t=>new Date(t),4:t=>new Map(c(t)),5:t=>new Set(c(t)),6:t=>BigInt(t),7:t=>new URL(t),8:t=>new Uint8Array(t),9:t=>new Uint16Array(t),10:t=>new Uint32Array(t),11:t=>Number.POSITIVE_INFINITY*t},s=t=>{let[p,e]=t;return p in a?a[p](e):void 0},c=t=>t.map(s),y=t=>typeof t!="object"||t===null?t:Object.fromEntries(Object.entries(t).map(([p,e])=>[p,s(e)]));class f extends HTMLElement{constructor(){super(...arguments);l(this,"Component");l(this,"hydrator");l(this,"hydrate",async()=>{var b;if(!this.hydrator||!this.isConnected)return;let e=(b=this.parentElement)==null?void 0:b.closest("astro-island[ssr]");if(e){e.addEventListener("astro:hydrate",this.hydrate,{once:!0});return}let r=this.querySelectorAll("astro-slot"),n={},d=this.querySelectorAll("template[data-astro-template]");for(let o of d){let i=o.closest(this.tagName);i!=null&&i.isSameNode(this)&&(n[o.getAttribute("data-astro-template")||"default"]=o.innerHTML,o.remove())}for(let o of r){let i=o.closest(this.tagName);i!=null&&i.isSameNode(this)&&(n[o.getAttribute("name")||"default"]=o.innerHTML)}let u;try{u=this.hasAttribute("props")?y(JSON.parse(this.getAttribute("props"))):{}}catch(o){let i=this.getAttribute("component-url")||"<unknown>",v=this.getAttribute("component-export");throw v&&(i+=` (export ${v})`),console.error(`[hydrate] Error parsing props for component ${i}`,this.getAttribute("props"),o),o}let h;await this.hydrator(this)(this.Component,u,n,{client:this.getAttribute("client")}),this.removeAttribute("ssr"),this.dispatchEvent(new CustomEvent("astro:hydrate"))});l(this,"unmount",()=>{this.isConnected||this.dispatchEvent(new CustomEvent("astro:unmount"))})}disconnectedCallback(){document.removeEventListener("astro:after-swap",this.unmount),document.addEventListener("astro:after-swap",this.unmount,{once:!0})}connectedCallback(){if(!this.hasAttribute("await-children")||document.readyState==="interactive"||document.readyState==="complete")this.childrenConnectedCallback();else{let e=()=>{document.removeEventListener("DOMContentLoaded",e),r.disconnect(),this.childrenConnectedCallback()},r=new MutationObserver(()=>{var n;((n=this.lastChild)==null?void 0:n.nodeType)===Node.COMMENT_NODE&&this.lastChild.nodeValue==="astro:end"&&(this.lastChild.remove(),e())});r.observe(this,{childList:!0}),document.addEventListener("DOMContentLoaded",e)}}async childrenConnectedCallback(){let e=this.getAttribute("before-hydration-url");e&&await import(e),this.start()}getRetryImportUrl(e){let r=new URL(e,document.baseURI);return r.searchParams.set("astro-retry",Date.now().toString()),r.toString()}async importWithRetry(e){try{return await import(e)}catch(r){return await new Promise(n=>setTimeout(n,1e3)),import(this.getRetryImportUrl(e))}}handleHydrationError(e){let r=this.getAttribute("component-url"),n=new CustomEvent("astro:hydration-error",{cancelable:!0,bubbles:!0,composed:!0,detail:{error:e,componentUrl:r}});this.dispatchEvent(n)&&console.error(`[astro-island] Error hydrating ${r}`,e)}async start(){let e=JSON.parse(this.getAttribute("opts")),r=this.getAttribute("client");if(Astro[r]===void 0){window.addEventListener(`astro:${r}`,()=>this.start(),{once:!0});return}try{await Astro[r](async()=>{let n=this.getAttribute("renderer-url");try{let[d,{default:u}]=await Promise.all([this.importWithRetry(this.getAttribute("component-url")),n?this.importWithRetry(n):Promise.resolve({default:()=>()=>{}})]),h=this.getAttribute("component-export")||"default";if(h.includes(".")){this.Component=d;for(let m of h.split(".")){if(E.has(m)||!this.Component||typeof this.Component!="object"&&typeof this.Component!="function"||!Object.hasOwn(this.Component,m))throw new Error(`Invalid component export path: ${h}`);this.Component=this.Component[m]}}else{if(E.has(h))throw new Error(`Invalid component export path: ${h}`);this.Component=d[h]}return this.hydrator=u,this.hydrate}catch(d){return this.handleHydrationError(d),()=>{}}},e,this)}catch(n){this.handleHydrationError(n)}}attributeChangedCallback(){this.hydrate()}}l(f,"observedAttributes",["props"]),customElements.get("astro-island")||customElements.define("astro-island",f)}})();</script><astro-island uid="2oRR1J" prefix="r1" component-url="/pm-tools-templates/assets/TemplateViewer.BJxWH0dD.js" component-export="default" renderer-url="/pm-tools-templates/assets/client.REQV_TkY.js" props="{&quot;templateId&quot;:[0,&quot;budget-dashboard-template&quot;],&quot;filePath&quot;:[0,&quot;domains/stakeholder/business-stakeholder-suite/financial-governance/budget-dashboard-template.md&quot;],&quot;title&quot;:[0,&quot;Budget Dashboard Template&quot;],&quot;content&quot;:[0,&quot;---\ntitle: \&quot;Budget Dashboard Template\&quot;\nmethodology: \&quot;universal\&quot;\ncomplexity: \&quot;advanced\&quot;\nowner: \&quot;mirichard\&quot;\nupdated: \&quot;2025-08-05\&quot;\nprimary_principles: [\&quot;stewardship\&quot;, \&quot;evidence-based-decisions\&quot;]\nsecondary_principles: [\&quot;value-focus\&quot;, \&quot;risk-optimization\&quot;]\nprinciple_rationale: \&quot;Makes resource performance and financial exposure visible for value decisions.\&quot;\n---\n\n# Budget Dashboard Template\n\n## Dashboard Overview\n- **Purpose**: Real-time financial tracking and budget performance monitoring\n- **Audience**: CFO, Finance Teams, Project Sponsors, Portfolio Managers\n- **Update Frequency**: Weekly/Monthly\n- **Data Sources**: Financial systems, project management tools, ERP systems\n\n## Executive Summary Panel\n\n### Key Financial Metrics\n| Metric | Current | Budget | Variance | Status |\n|--------|---------|--------|----------|--------|\n| **Total Project Budget** | $[Amount] | $[Budget] | $[Variance] | 🟢/🟡/🔴 |\n| **Actual Spend (YTD)** | $[Amount] | $[Budget] | $[Variance] | 🟢/🟡/🔴 |\n| **Committed Costs** | $[Amount] | $[Budget] | $[Variance] | 🟢/🟡/🔴 |\n| **Remaining Budget** | $[Amount] | $[Budget] | $[Variance] | 🟢/🟡/🔴 |\n| **Burn Rate (Monthly)** | $[Amount] | $[Budget] | $[Variance] | 🟢/🟡/🔴 |\n| **Projected Final Cost** | $[Amount] | $[Budget] | $[Variance] | 🟢/🟡/🔴 |\n\n### Budget Health Indicators\n- **🟢 Green**: Within 5% of budget\n- **🟡 Yellow**: 5-10% variance from budget\n- **🔴 Red**: Over 10% variance from budget\n\n## Portfolio Budget Overview\n\n### Budget Allocation by Category\n```\nPersonnel Costs:     ████████████████████ 60% ($X.XM)\nTechnology/Tools:    ██████████ 25% ($X.XM)\nExternal Services:   ████ 10% ($X.XM)\nOther Expenses:      ██ 5% ($X.XM)\n```\n\n### Budget Status by Project\n| Project | Total Budget | Spent | Remaining | % Complete | Budget Health |\n|---------|--------------|-------|-----------|------------|---------------|\n| [Project A] | $[Amount] | $[Amount] | $[Amount] | [XX%] | 🟢/🟡/🔴 |\n| [Project B] | $[Amount] | $[Amount] | $[Amount] | [XX%] | 🟢/🟡/🔴 |\n| [Project C] | $[Amount] | $[Amount] | $[Amount] | [XX%] | 🟢/🟡/🔴 |\n\n## Detailed Financial Analysis\n\n### Monthly Burn Rate Trend\n```\nMonth:    Jan  Feb  Mar  Apr  May  Jun  Jul  Aug  Sep  Oct  Nov  Dec\nPlanned:  XXX  XXX  XXX  XXX  XXX  XXX  XXX  XXX  XXX  XXX  XXX  XXX\nActual:   XXX  XXX  XXX  XXX  ---  ---  ---  ---  ---  ---  ---  ---\nVariance: +XX  -XX  +XX  -XX  ---  ---  ---  ---  ---  ---  ---  ---\n```\n\n### Cost Performance Index (CPI) Tracking\n| Period | Budget | Actual | CPI | Trend | Action Required |\n|--------|---------|--------|-----|-------|-----------------|\n| Q1 | $[Amount] | $[Amount] | [X.XX] | ↗️/↘️ | [Action] |\n| Q2 | $[Amount] | $[Amount] | [X.XX] | ↗️/↘️ | [Action] |\n| Q3 | $[Amount] | $[Amount] | [X.XX] | ↗️/↘️ | [Action] |\n| Q4 | $[Amount] | $[Amount] | [X.XX] | ↗️/↘️ | [Action] |\n\n### Budget Variance Analysis\n#### Significant Variances (&gt;$10K or &gt;5%)\n- **[Category/Project]**: $[Amount] over/under budget\n  - **Reason**: [Explanation]\n  - **Impact**: [Business impact]\n  - **Mitigation**: [Action plan]\n\n## Resource Cost Analysis\n\n### Personnel Costs\n| Role/Team | Budgeted Hours | Actual Hours | Rate | Budget | Actual | Variance |\n|-----------|----------------|--------------|------|---------|--------|----------|\n| [Role 1] | [Hours] | [Hours] | $[Rate] | $[Amount] | $[Amount] | $[Variance] |\n| [Role 2] | [Hours] | [Hours] | $[Rate] | $[Amount] | $[Amount] | $[Variance] |\n| [Team A] | [Hours] | [Hours] | $[Rate] | $[Amount] | $[Amount] | $[Variance] |\n\n### Technology &amp; Infrastructure Costs\n| Item | Budget | Actual | Variance | Usage | Optimization Opportunity |\n|------|---------|--------|----------|-------|-------------------------|\n| [Software Licenses] | $[Amount] | $[Amount] | $[Variance] | [XX%] | [Opportunity] |\n| [Cloud Services] | $[Amount] | $[Amount] | $[Variance] | [XX%] | [Opportunity] |\n| [Hardware] | $[Amount] | $[Amount] | $[Variance] | [XX%] | [Opportunity] |\n\n## Cash Flow Projection\n\n### 6-Month Cash Flow Forecast\n| Month | Opening Balance | Planned Spend | Actual Spend | Closing Balance | Notes |\n|-------|----------------|---------------|--------------|-----------------|-------|\n| [Month] | $[Amount] | $[Amount] | $[Amount] | $[Amount] | [Notes] |\n| [Month+1] | $[Amount] | $[Amount] | -- | $[Amount] | [Notes] |\n| [Month+2] | $[Amount] | $[Amount] | -- | $[Amount] | [Notes] |\n\n### Funding Requirements\n- **Next Funding Milestone**: [Date]\n- **Amount Required**: $[Amount]\n- **Approval Status**: [Status]\n- **Risk to Timeline**: [High/Medium/Low]\n\n## Budget Alerts &amp; Actions\n\n### Current Alerts\n| Alert Level | Description | Amount | Action Required | Owner | Due Date |\n|-------------|-------------|---------|----------------|-------|----------|\n| 🔴 Critical | [Description] | $[Amount] | [Action] | [Owner] | [Date] |\n| 🟡 Warning | [Description] | $[Amount] | [Action] | [Owner] | [Date] |\n| 🔵 Info | [Description] | $[Amount] | [Action] | [Owner] | [Date] |\n\n### Required Actions\n1. **[Action Item 1]**\n   - **Owner**: [Name]\n   - **Due Date**: [Date]\n   - **Impact**: $[Amount] budget impact\n   - **Status**: [Status]\n\n2. **[Action Item 2]**\n   - **Owner**: [Name]\n   - **Due Date**: [Date]\n   - **Impact**: $[Amount] budget impact\n   - **Status**: [Status]\n\n## ROI and Business Value\n\n### Return on Investment Tracking\n| Investment Area | Investment | Current Value | Projected ROI | Realization Date |\n|----------------|------------|---------------|---------------|------------------|\n| [Area 1] | $[Amount] | $[Amount] | [XX%] | [Date] |\n| [Area 2] | $[Amount] | $[Amount] | [XX%] | [Date] |\n| [Area 3] | $[Amount] | $[Amount] | [XX%] | [Date] |\n\n### Value Realization Progress\n- **Target Business Value**: $[Amount]\n- **Realized Value (YTD)**: $[Amount]\n- **Percentage Achieved**: [XX%]\n- **Projected Final Value**: $[Amount]\n\n## Cost Optimization Opportunities\n\n### Identified Savings\n| Opportunity | Potential Savings | Implementation Cost | Net Benefit | Timeline | Owner |\n|-------------|------------------|-------------------|-------------|----------|-------|\n| [Opportunity 1] | $[Amount] | $[Amount] | $[Amount] | [Timeline] | [Owner] |\n| [Opportunity 2] | $[Amount] | $[Amount] | $[Amount] | [Timeline] | [Owner] |\n\n### Vendor Management\n| Vendor | Contract Value | Utilization | Renegotiation Date | Savings Opportunity |\n|--------|----------------|-------------|-------------------|---------------------|\n| [Vendor A] | $[Amount] | [XX%] | [Date] | $[Amount] |\n| [Vendor B] | $[Amount] | [XX%] | [Date] | $[Amount] |\n\n## Compliance &amp; Controls\n\n### Budget Approval Status\n| Approval Level | Amount Threshold | Current Status | Next Review |\n|----------------|------------------|----------------|-------------|\n| Project Manager | Up to $[Amount] | ✅ Approved | [Date] |\n| Finance Director | Up to $[Amount] | ✅ Approved | [Date] |\n| CFO | Up to $[Amount] | ⏳ Pending | [Date] |\n| Board | Above $[Amount] | ⏳ Pending | [Date] |\n\n### Audit Trail\n- **Last Financial Audit**: [Date]\n- **Findings**: [Summary]\n- **Remediation Status**: [Status]\n- **Next Audit**: [Date]\n\n## Dashboard Automation\n\n### Data Integration Status\n| Data Source | Connection Status | Last Update | Data Quality | Issues |\n|-------------|------------------|-------------|--------------|--------|\n| [ERP System] | 🟢 Connected | [Timestamp] | [XX%] | [Issues] |\n| [PM Tool] | 🟢 Connected | [Timestamp] | [XX%] | [Issues] |\n| [Time Tracking] | 🟡 Issues | [Timestamp] | [XX%] | [Issues] |\n\n### Refresh Schedule\n- **Real-time Data**: Budget alerts, cash flow\n- **Daily Updates**: Actual spend, commitments\n- **Weekly Updates**: Variance analysis, forecasts\n- **Monthly Updates**: ROI calculations, compliance reports\n\n## Configuration Settings\n\n### Dashboard Personalization\n```yaml\n# User Role Configuration\nexecutive_view:\n  - summary_metrics\n  - portfolio_overview\n  - roi_tracking\n  - alerts_critical_only\n\nfinance_manager_view:\n  - detailed_analysis\n  - cash_flow\n  - variance_analysis\n  - compliance_tracking\n\nproject_manager_view:\n  - project_specific_budget\n  - burn_rate\n  - resource_costs\n  - alerts_all_levels\n```\n\n### Alert Thresholds\n```yaml\n# Configurable Alert Levels\nbudget_variance:\n  warning: 5%      # Yellow alert\n  critical: 10%    # Red alert\n  \nburn_rate:\n  warning: 110%    # 10% over planned\n  critical: 120%   # 20% over planned\n  \ncash_flow:\n  warning: 30_days  # 30 days runway\n  critical: 15_days # 15 days runway\n```\n\n## When to Use\n\nUse throughout the project lifecycle to identify, assess, and track risks. This template is essential for projects with significant complexity, multiple stakeholders, or high business impact, where structured risk management provides decision-making value.\n\n## When NOT to Use\n\nDo not use for very low-risk, short-duration tasks where informal risk awareness is sufficient. Avoid this template if your governance framework requires a different risk management approach or if stakeholders prefer real-time risk dashboards over static registers.\n\n## Export &amp; Reporting\n\n### Available Export Formats\n- **📊 Excel Workbook**: Full dashboard data with charts\n- **📄 PDF Report**: Executive summary for stakeholders\n- **📈 PowerBI**: Integration with existing BI tools\n- **🔗 API Access**: Real-time data for other systems\n\n### Scheduled Reports\n| Report Type | Recipients | Frequency | Format | Next Send |\n|-------------|-----------|-----------|---------|-----------|\n| Executive Summary | [Email List] | Weekly | PDF | [Date] |\n| Detailed Analysis | [Email List] | Monthly | Excel | [Date] |\n| Board Report | [Email List] | Quarterly | PowerPoint | [Date] |\n\n---\n\n**Dashboard Last Updated**: [Timestamp]  \n**Data Sources**: [List of integrated systems]  \n**Contact**: [Dashboard Administrator]  \n**Support**: [Support contact information]\n\n*Real-time budget tracking for informed financial decision-making*\n&quot;]}" ssr client="load" opts="{&quot;name&quot;:&quot;TemplateViewer&quot;,&quot;value&quot;:true}" await-children><div><h1>Budget Dashboard Template</h1><div style="margin-bottom:2rem"><button style="background:var(--accent-color);color:white;border:1px solid var(--border-color);padding:0.5rem 1rem;border-radius:4px 4px 0 0;cursor:pointer;margin-right:1px">Preview</button><button style="background:var(--code-bg);color:var(--text-color);border:1px solid var(--border-color);padding:0.5rem 1rem;border-radius:4px 4px 0 0;cursor:pointer">Version History</button></div><div style="border:1px solid var(--border-color);border-radius:0 8px 8px 8px;min-height:400px"><div style="background:var(--bg-primary);border-radius:var(--radius-lg)"><div style="padding:1rem 1.5rem;border-bottom:1px solid var(--border-light);display:flex;align-items:center;justify-content:space-between;background:var(--bg-secondary);border-radius:var(--radius-lg) var(--radius-lg) 0 0"><div style="display:flex;align-items:center;gap:0.5rem"><span style="font-size:1.5rem">📄</span><div><div style="font-weight:600;color:var(--text-primary)">budget-dashboard-template.md</div><div style="font-size:0.75rem;color:var(--text-muted)">Markdown • <!-- -->10,035 bytes</div></div></div><a href="/pm-tools-templates/downloads/budget-dashboard-template.md" download="" class="btn btn-secondary" style="font-size:0.75rem;padding:0.5rem 0.75rem">💾 Download</a></div><pre aria-label="Markdown source of Budget Dashboard Template" style="padding:1.5rem;max-height:600px;overflow:auto;white-space:pre-wrap;overflow-wrap:anywhere">---
+title: &quot;Budget Dashboard Template&quot;
+methodology: &quot;universal&quot;
+complexity: &quot;advanced&quot;
+owner: &quot;mirichard&quot;
+updated: &quot;2025-08-05&quot;
+primary_principles: [&quot;stewardship&quot;, &quot;evidence-based-decisions&quot;]
+secondary_principles: [&quot;value-focus&quot;, &quot;risk-optimization&quot;]
+principle_rationale: &quot;Makes resource performance and financial exposure visible for value decisions.&quot;
+---
+
+# Budget Dashboard Template
+
+## Dashboard Overview
+- **Purpose**: Real-time financial tracking and budget performance monitoring
+- **Audience**: CFO, Finance Teams, Project Sponsors, Portfolio Managers
+- **Update Frequency**: Weekly/Monthly
+- **Data Sources**: Financial systems, project management tools, ERP systems
+
+## Executive Summary Panel
+
+### Key Financial Metrics
+| Metric | Current | Budget | Variance | Status |
+|--------|---------|--------|----------|--------|
+| **Total Project Budget** | $[Amount] | $[Budget] | $[Variance] | 🟢/🟡/🔴 |
+| **Actual Spend (YTD)** | $[Amount] | $[Budget] | $[Variance] | 🟢/🟡/🔴 |
+| **Committed Costs** | $[Amount] | $[Budget] | $[Variance] | 🟢/🟡/🔴 |
+| **Remaining Budget** | $[Amount] | $[Budget] | $[Variance] | 🟢/🟡/🔴 |
+| **Burn Rate (Monthly)** | $[Amount] | $[Budget] | $[Variance] | 🟢/🟡/🔴 |
+| **Projected Final Cost** | $[Amount] | $[Budget] | $[Variance] | 🟢/🟡/🔴 |
+
+### Budget Health Indicators
+- **🟢 Green**: Within 5% of budget
+- **🟡 Yellow**: 5-10% variance from budget
+- **🔴 Red**: Over 10% variance from budget
+
+## Portfolio Budget Overview
+
+### Budget Allocation by Category
+```
+Personnel Costs:     ████████████████████ 60% ($X.XM)
+Technology/Tools:    ██████████ 25% ($X.XM)
+External Services:   ████ 10% ($X.XM)
+Other Expenses:      ██ 5% ($X.XM)
+```
+
+### Budget Status by Project
+| Project | Total Budget | Spent | Remaining | % Complete | Budget Health |
+|---------|--------------|-------|-----------|------------|---------------|
+| [Project A] | $[Amount] | $[Amount] | $[Amount] | [XX%] | 🟢/🟡/🔴 |
+| [Project B] | $[Amount] | $[Amount] | $[Amount] | [XX%] | 🟢/🟡/🔴 |
+| [Project C] | $[Amount] | $[Amount] | $[Amount] | [XX%] | 🟢/🟡/🔴 |
+
+## Detailed Financial Analysis
+
+### Monthly Burn Rate Trend
+```
+Month:    Jan  Feb  Mar  Apr  May  Jun  Jul  Aug  Sep  Oct  Nov  Dec
+Planned:  XXX  XXX  XXX  XXX  XXX  XXX  XXX  XXX  XXX  XXX  XXX  XXX
+Actual:   XXX  XXX  XXX  XXX  ---  ---  ---  ---  ---  ---  ---  ---
+Variance: +XX  -XX  +XX  -XX  ---  ---  ---  ---  ---  ---  ---  ---
+```
+
+### Cost Performance Index (CPI) Tracking
+| Period | Budget | Actual | CPI | Trend | Action Required |
+|--------|---------|--------|-----|-------|-----------------|
+| Q1 | $[Amount] | $[Amount] | [X.XX] | ↗️/↘️ | [Action] |
+| Q2 | $[Amount] | $[Amount] | [X.XX] | ↗️/↘️ | [Action] |
+| Q3 | $[Amount] | $[Amount] | [X.XX] | ↗️/↘️ | [Action] |
+| Q4 | $[Amount] | $[Amount] | [X.XX] | ↗️/↘️ | [Action] |
+
+### Budget Variance Analysis
+#### Significant Variances (&gt;$10K or &gt;5%)
+- **[Category/Project]**: $[Amount] over/under budget
+  - **Reason**: [Explanation]
+  - **Impact**: [Business impact]
+  - **Mitigation**: [Action plan]
+
+## Resource Cost Analysis
+
+### Personnel Costs
+| Role/Team | Budgeted Hours | Actual Hours | Rate | Budget | Actual | Variance |
+|-----------|----------------|--------------|------|---------|--------|----------|
+| [Role 1] | [Hours] | [Hours] | $[Rate] | $[Amount] | $[Amount] | $[Variance] |
+| [Role 2] | [Hours] | [Hours] | $[Rate] | $[Amount] | $[Amount] | $[Variance] |
+| [Team A] | [Hours] | [Hours] | $[Rate] | $[Amount] | $[Amount] | $[Variance] |
+
+### Technology &amp; Infrastructure Costs
+| Item | Budget | Actual | Variance | Usage | Optimization Opportunity |
+|------|---------|--------|----------|-------|-------------------------|
+| [Software Licenses] | $[Amount] | $[Amount] | $[Variance] | [XX%] | [Opportunity] |
+| [Cloud Services] | $[Amount] | $[Amount] | $[Variance] | [XX%] | [Opportunity] |
+| [Hardware] | $[Amount] | $[Amount] | $[Variance] | [XX%] | [Opportunity] |
+
+## Cash Flow Projection
+
+### 6-Month Cash Flow Forecast
+| Month | Opening Balance | Planned Spend | Actual Spend | Closing Balance | Notes |
+|-------|----------------|---------------|--------------|-----------------|-------|
+| [Month] | $[Amount] | $[Amount] | $[Amount] | $[Amount] | [Notes] |
+| [Month+1] | $[Amount] | $[Amount] | -- | $[Amount] | [Notes] |
+| [Month+2] | $[Amount] | $[Amount] | -- | $[Amount] | [Notes] |
+
+### Funding Requirements
+- **Next Funding Milestone**: [Date]
+- **Amount Required**: $[Amount]
+- **Approval Status**: [Status]
+- **Risk to Timeline**: [High/Medium/Low]
+
+## Budget Alerts &amp; Actions
+
+### Current Alerts
+| Alert Level | Description | Amount | Action Required | Owner | Due Date |
+|-------------|-------------|---------|----------------|-------|----------|
+| 🔴 Critical | [Description] | $[Amount] | [Action] | [Owner] | [Date] |
+| 🟡 Warning | [Description] | $[Amount] | [Action] | [Owner] | [Date] |
+| 🔵 Info | [Description] | $[Amount] | [Action] | [Owner] | [Date] |
+
+### Required Actions
+1. **[Action Item 1]**
+   - **Owner**: [Name]
+   - **Due Date**: [Date]
+   - **Impact**: $[Amount] budget impact
+   - **Status**: [Status]
+
+2. **[Action Item 2]**
+   - **Owner**: [Name]
+   - **Due Date**: [Date]
+   - **Impact**: $[Amount] budget impact
+   - **Status**: [Status]
+
+## ROI and Business Value
+
+### Return on Investment Tracking
+| Investment Area | Investment | Current Value | Projected ROI | Realization Date |
+|----------------|------------|---------------|---------------|------------------|
+| [Area 1] | $[Amount] | $[Amount] | [XX%] | [Date] |
+| [Area 2] | $[Amount] | $[Amount] | [XX%] | [Date] |
+| [Area 3] | $[Amount] | $[Amount] | [XX%] | [Date] |
+
+### Value Realization Progress
+- **Target Business Value**: $[Amount]
+- **Realized Value (YTD)**: $[Amount]
+- **Percentage Achieved**: [XX%]
+- **Projected Final Value**: $[Amount]
+
+## Cost Optimization Opportunities
+
+### Identified Savings
+| Opportunity | Potential Savings | Implementation Cost | Net Benefit | Timeline | Owner |
+|-------------|------------------|-------------------|-------------|----------|-------|
+| [Opportunity 1] | $[Amount] | $[Amount] | $[Amount] | [Timeline] | [Owner] |
+| [Opportunity 2] | $[Amount] | $[Amount] | $[Amount] | [Timeline] | [Owner] |
+
+### Vendor Management
+| Vendor | Contract Value | Utilization | Renegotiation Date | Savings Opportunity |
+|--------|----------------|-------------|-------------------|---------------------|
+| [Vendor A] | $[Amount] | [XX%] | [Date] | $[Amount] |
+| [Vendor B] | $[Amount] | [XX%] | [Date] | $[Amount] |
+
+## Compliance &amp; Controls
+
+### Budget Approval Status
+| Approval Level | Amount Threshold | Current Status | Next Review |
+|----------------|------------------|----------------|-------------|
+| Project Manager | Up to $[Amount] | ✅ Approved | [Date] |
+| Finance Director | Up to $[Amount] | ✅ Approved | [Date] |
+| CFO | Up to $[Amount] | ⏳ Pending | [Date] |
+| Board | Above $[Amount] | ⏳ Pending | [Date] |
+
+### Audit Trail
+- **Last Financial Audit**: [Date]
+- **Findings**: [Summary]
+- **Remediation Status**: [Status]
+- **Next Audit**: [Date]
+
+## Dashboard Automation
+
+### Data Integration Status
+| Data Source | Connection Status | Last Update | Data Quality | Issues |
+|-------------|------------------|-------------|--------------|--------|
+| [ERP System] | 🟢 Connected | [Timestamp] | [XX%] | [Issues] |
+| [PM Tool] | 🟢 Connected | [Timestamp] | [XX%] | [Issues] |
+| [Time Tracking] | 🟡 Issues | [Timestamp] | [XX%] | [Issues] |
+
+### Refresh Schedule
+- **Real-time Data**: Budget alerts, cash flow
+- **Daily Updates**: Actual spend, commitments
+- **Weekly Updates**: Variance analysis, forecasts
+- **Monthly Updates**: ROI calculations, compliance reports
+
+## Configuration Settings
+
+### Dashboard Personalization
+```yaml
+# User Role Configuration
+executive_view:
+  - summary_metrics
+  - portfolio_overview
+  - roi_tracking
+  - alerts_critical_only
+
+finance_manager_view:
+  - detailed_analysis
+  - cash_flow
+  - variance_analysis
+  - compliance_tracking
+
+project_manager_view:
+  - project_specific_budget
+  - burn_rate
+  - resource_costs
+  - alerts_all_levels
+```
+
+### Alert Thresholds
+```yaml
+# Configurable Alert Levels
+budget_variance:
+  warning: 5%      # Yellow alert
+  critical: 10%    # Red alert
+  
+burn_rate:
+  warning: 110%    # 10% over planned
+  critical: 120%   # 20% over planned
+  
+cash_flow:
+  warning: 30_days  # 30 days runway
+  critical: 15_days # 15 days runway
+```
+
+## When to Use
+
+Use throughout the project lifecycle to identify, assess, and track risks. This template is essential for projects with significant complexity, multiple stakeholders, or high business impact, where structured risk management provides decision-making value.
+
+## When NOT to Use
+
+Do not use for very low-risk, short-duration tasks where informal risk awareness is sufficient. Avoid this template if your governance framework requires a different risk management approach or if stakeholders prefer real-time risk dashboards over static registers.
+
+## Export &amp; Reporting
+
+### Available Export Formats
+- **📊 Excel Workbook**: Full dashboard data with charts
+- **📄 PDF Report**: Executive summary for stakeholders
+- **📈 PowerBI**: Integration with existing BI tools
+- **🔗 API Access**: Real-time data for other systems
+
+### Scheduled Reports
+| Report Type | Recipients | Frequency | Format | Next Send |
+|-------------|-----------|-----------|---------|-----------|
+| Executive Summary | [Email List] | Weekly | PDF | [Date] |
+| Detailed Analysis | [Email List] | Monthly | Excel | [Date] |
+| Board Report | [Email List] | Quarterly | PowerPoint | [Date] |
+
+---
+
+**Dashboard Last Updated**: [Timestamp]  
+**Data Sources**: [List of integrated systems]  
+**Contact**: [Dashboard Administrator]  
+**Support**: [Support contact information]
+
+*Real-time budget tracking for informed financial decision-making*
+</pre></div></div></div><!--astro:end--></astro-island></main></body></html>

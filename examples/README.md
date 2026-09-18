@@ -96,7 +96,7 @@ examples/
 
 ---
 
-### **Healthcare Implementation - Traditional**
+### **Healthcare Implementation - Traditional PMBOK**
 **Project:** Electronic Health Records (EHR) System Implementation  
 **Industry:** Healthcare/Hospital Network  
 **Duration:** 24 months  
@@ -109,7 +109,7 @@ examples/
 - Integrate with 50+ existing healthcare systems
 
 **Methodology Applied:**
-- **Traditional** - Structured phase-gate approach
+- **Traditional PMBOK** - Structured phase-gate approach
 - **Risk-Heavy Planning** - Extensive risk management due to patient safety
 - **Vendor Management** - Complex multi-vendor coordination
 
@@ -346,7 +346,7 @@ Sprint: Launch Sprint 2
 - [`/lessons-learned/`](../lessons-learned/) - Additional learning resources
 
 ### **External Case Study Sources:**
-- **Industry Case Studies** - Professional case study library
+- **PMI Case Studies** - Professional case study library
 - **Harvard Business Review** - Management and project case studies
 - **Industry Publications** - Sector-specific project examples
 - **Academic Research** - Peer-reviewed project management studies
