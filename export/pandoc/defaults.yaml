@@ -1,0 +1,11 @@
+from: markdown
+pdf-engine: pdflatex
+standalone: true
+toc: false
+number-sections: false
+variables:
+  geometry: margin=1in
+  fontsize: 11pt
+  linkcolor: blue
+metadata:
+  title: "PM Tools Export"

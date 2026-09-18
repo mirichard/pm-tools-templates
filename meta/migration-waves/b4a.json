@@ -1,0 +1,471 @@
+{
+  "schema_version": 1,
+  "wave_id": "B4A",
+  "phase": "executed",
+  "source_batch": 4,
+  "primary_domain": "Measurement",
+  "generated_from": "meta/migration-inventory.json",
+  "inventory_generated": "2026-09-02",
+  "pre_batch_sha": "8f680af6990f65b4de5aedf16871e23f86ffc5c2",
+  "rollback_owner": "mirichard",
+  "max_assets": 15,
+  "asset_count": 15,
+  "assets": [
+    {
+      "order": 1,
+      "source": "industry-specializations/financial-services/compliance/compliance-management-template.md",
+      "destination": "domains/measurement/industry-specializations/financial-services/compliance/compliance-management-template.md",
+      "primary_domain": "Measurement",
+      "secondary_domains": [
+        "Planning"
+      ],
+      "pre_move_sha256": "1719184880167489dc260a7a0044f5e627c3b3c13df27741f7073c2d6a1f877c",
+      "dependencies": [
+        {
+          "path": "domains/stakeholder/business-stakeholder-suite/financial-governance/enhanced-business-cases/evm-dashboard-template.md",
+          "status": "satisfied-executed",
+          "resolved_path": "domains/stakeholder/business-stakeholder-suite/financial-governance/enhanced-business-cases/evm-dashboard-template.md"
+        },
+        {
+          "path": "methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md",
+          "status": "same-wave",
+          "resolved_path": "domains/measurement/methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md"
+        },
+        {
+          "path": "methodology-frameworks/emerging-methods/devops/release_management_template.md",
+          "status": "same-wave",
+          "resolved_path": "domains/measurement/methodology-frameworks/emerging-methods/devops/release_management_template.md"
+        }
+      ],
+      "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move"
+    },
+    {
+      "order": 2,
+      "source": "industry-specializations/information-technology/cybersecurity/incident_response_template.md",
+      "destination": "domains/measurement/industry-specializations/information-technology/cybersecurity/incident_response_template.md",
+      "primary_domain": "Measurement",
+      "secondary_domains": [
+        "Stakeholder"
+      ],
+      "pre_move_sha256": "53c41ca421b970020c66faf05f1afa0691e72a0ee3627f4b553eafcb4366519a",
+      "dependencies": [
+        {
+          "path": "project-lifecycle/04-monitoring-control/issue-management/issue-log-template.md",
+          "status": "satisfied-existing-deferred",
+          "resolved_path": "project-lifecycle/04-monitoring-control/issue-management/issue-log-template.md"
+        },
+        {
+          "path": "industry-specializations/information-technology/security/cybersecurity_assessment_template.md",
+          "status": "same-wave",
+          "resolved_path": "domains/measurement/industry-specializations/information-technology/security/cybersecurity_assessment_template.md"
+        },
+        {
+          "path": "domains/stakeholder/business-stakeholder-suite/executive-dashboards/Word/Executive-Report-Templates.md",
+          "status": "satisfied-executed",
+          "resolved_path": "domains/stakeholder/business-stakeholder-suite/executive-dashboards/Word/Executive-Report-Templates.md"
+        }
+      ],
+      "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move"
+    },
+    {
+      "order": 3,
+      "source": "industry-specializations/information-technology/cybersecurity/risk_assessment_template.md",
+      "destination": "domains/measurement/industry-specializations/information-technology/cybersecurity/risk_assessment_template.md",
+      "primary_domain": "Measurement",
+      "secondary_domains": [
+        "Stakeholder",
+        "Uncertainty"
+      ],
+      "pre_move_sha256": "06c0c9d00e9cfc4c104ece6a4834bb0b7c579d01049d3a56af9795e781ed992d",
+      "dependencies": [
+        {
+          "path": "domains/planning/role-based-toolkits/project-manager/essential-templates/budget-template.md",
+          "status": "satisfied-executed",
+          "resolved_path": "domains/planning/role-based-toolkits/project-manager/essential-templates/budget-template.md"
+        },
+        {
+          "path": "industry-specializations/information-technology/software-development/test_plan_template.md",
+          "status": "same-wave",
+          "resolved_path": "domains/measurement/industry-specializations/information-technology/software-development/test_plan_template.md"
+        },
+        {
+          "path": "business-stakeholder-suite/executive-dashboards/tableau-integration/executive-dashboard-template.md",
+          "status": "satisfied-existing-deferred",
+          "resolved_path": "business-stakeholder-suite/executive-dashboards/tableau-integration/executive-dashboard-template.md"
+        }
+      ],
+      "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move"
+    },
+    {
+      "order": 4,
+      "source": "industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md",
+      "destination": "domains/measurement/industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md",
+      "primary_domain": "Measurement",
+      "secondary_domains": [
+        "Stakeholder",
+        "Uncertainty"
+      ],
+      "pre_move_sha256": "2448e97d65f180380bca8037edd8bd6c497ee285c8fb9ebdf03392b48aa38cce",
+      "dependencies": [
+        {
+          "path": "project-assessment-suite/current-state-analysis-template.md",
+          "status": "same-wave",
+          "resolved_path": "domains/measurement/project-assessment-suite/current-state-analysis-template.md"
+        },
+        {
+          "path": "domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/enterprise-stakeholder-analysis-template.md",
+          "status": "satisfied-executed",
+          "resolved_path": "domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/enterprise-stakeholder-analysis-template.md"
+        },
+        {
+          "path": "project-assessment-suite/executive-summary-template.md",
+          "status": "same-wave",
+          "resolved_path": "domains/measurement/project-assessment-suite/executive-summary-template.md"
+        }
+      ],
+      "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move"
+    },
+    {
+      "order": 5,
+      "source": "industry-specializations/information-technology/infrastructure/infrastructure_assessment_template.md",
+      "destination": "domains/measurement/industry-specializations/information-technology/infrastructure/infrastructure_assessment_template.md",
+      "primary_domain": "Measurement",
+      "secondary_domains": [
+        "Stakeholder",
+        "Uncertainty"
+      ],
+      "pre_move_sha256": "a75ac25c38b9304995c9549189e6d310178497eb96f554856a6dae2d9cee0931",
+      "dependencies": [
+        {
+          "path": "project-lifecycle/02-planning/business-requirements/business_requirements_document_template.md",
+          "status": "same-wave",
+          "resolved_path": "domains/measurement/project-lifecycle/02-planning/business-requirements/business_requirements_document_template.md"
+        },
+        {
+          "path": "domains/stakeholder/business-stakeholder-suite/executive-dashboards/powerbi-integration/executive-dashboard-template.md",
+          "status": "satisfied-executed",
+          "resolved_path": "domains/stakeholder/business-stakeholder-suite/executive-dashboards/powerbi-integration/executive-dashboard-template.md"
+        },
+        {
+          "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/clinical-trials/clinical_trial_protocol_template.md",
+          "status": "satisfied-executed",
+          "resolved_path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/clinical-trials/clinical_trial_protocol_template.md"
+        }
+      ],
+      "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move"
+    },
+    {
+      "order": 6,
+      "source": "industry-specializations/information-technology/security/cybersecurity_assessment_template.md",
+      "destination": "domains/measurement/industry-specializations/information-technology/security/cybersecurity_assessment_template.md",
+      "primary_domain": "Measurement",
+      "secondary_domains": [
+        "Stakeholder",
+        "Uncertainty"
+      ],
+      "pre_move_sha256": "9c7640128c87dd00bc96b64412c0036d234d8536c469ef90b53c6f403b12c829",
+      "dependencies": [
+        {
+          "path": "domains/stakeholder/business-stakeholder-suite/executive-dashboards/Word/Executive-Report-Templates.md",
+          "status": "satisfied-executed",
+          "resolved_path": "domains/stakeholder/business-stakeholder-suite/executive-dashboards/Word/Executive-Report-Templates.md"
+        },
+        {
+          "path": "domains/planning/role-based-toolkits/project-manager/essential-templates/budget-template.md",
+          "status": "satisfied-executed",
+          "resolved_path": "domains/planning/role-based-toolkits/project-manager/essential-templates/budget-template.md"
+        },
+        {
+          "path": "project-lifecycle/02-planning/business-requirements/business_requirements_document_template.md",
+          "status": "same-wave",
+          "resolved_path": "domains/measurement/project-lifecycle/02-planning/business-requirements/business_requirements_document_template.md"
+        }
+      ],
+      "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move"
+    },
+    {
+      "order": 7,
+      "source": "project-lifecycle/02-planning/business-requirements/business_requirements_document_template.md",
+      "destination": "domains/measurement/project-lifecycle/02-planning/business-requirements/business_requirements_document_template.md",
+      "primary_domain": "Measurement",
+      "secondary_domains": [
+        "Stakeholder",
+        "Uncertainty"
+      ],
+      "pre_move_sha256": "68ce143df4327ffae340b42292a52a14e9ef24df0501b452ae3c003f015aa1b5",
+      "dependencies": [
+        {
+          "path": "industry-specializations/information-technology/security/cybersecurity_assessment_template.md",
+          "status": "same-wave",
+          "resolved_path": "domains/measurement/industry-specializations/information-technology/security/cybersecurity_assessment_template.md"
+        },
+        {
+          "path": "domains/stakeholder/business-stakeholder-suite/executive-dashboards/Word/Executive-Report-Templates.md",
+          "status": "satisfied-executed",
+          "resolved_path": "domains/stakeholder/business-stakeholder-suite/executive-dashboards/Word/Executive-Report-Templates.md"
+        },
+        {
+          "path": "industry-specializations/information-technology/infrastructure/infrastructure_assessment_template.md",
+          "status": "same-wave",
+          "resolved_path": "domains/measurement/industry-specializations/information-technology/infrastructure/infrastructure_assessment_template.md"
+        }
+      ],
+      "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move"
+    },
+    {
+      "order": 8,
+      "source": "industry-specializations/information-technology/software-development/technical_design_document_template.md",
+      "destination": "domains/measurement/industry-specializations/information-technology/software-development/technical_design_document_template.md",
+      "primary_domain": "Measurement",
+      "secondary_domains": [
+        "Uncertainty"
+      ],
+      "pre_move_sha256": "260838d45353513cd1ffa16b484517a6bf0cb37460492bb2049a6427f16bf2fa",
+      "dependencies": [
+        {
+          "path": "project-assessment-suite/current-state-analysis-template.md",
+          "status": "same-wave",
+          "resolved_path": "domains/measurement/project-assessment-suite/current-state-analysis-template.md"
+        },
+        {
+          "path": "industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md",
+          "status": "same-wave",
+          "resolved_path": "domains/measurement/industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md"
+        },
+        {
+          "path": "domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/enterprise-stakeholder-analysis-template.md",
+          "status": "satisfied-executed",
+          "resolved_path": "domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/enterprise-stakeholder-analysis-template.md"
+        }
+      ],
+      "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move"
+    },
+    {
+      "order": 9,
+      "source": "industry-specializations/information-technology/software-development/test_plan_template.md",
+      "destination": "domains/measurement/industry-specializations/information-technology/software-development/test_plan_template.md",
+      "primary_domain": "Measurement",
+      "secondary_domains": [
+        "Stakeholder",
+        "Uncertainty"
+      ],
+      "pre_move_sha256": "d2874996ef634c94ef623e631fd37fedb49fb609be1d9f8e55f34143b5b1f374",
+      "dependencies": [
+        {
+          "path": "project-assessment-suite/current-state-analysis-template.md",
+          "status": "same-wave",
+          "resolved_path": "domains/measurement/project-assessment-suite/current-state-analysis-template.md"
+        },
+        {
+          "path": "industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md",
+          "status": "same-wave",
+          "resolved_path": "domains/measurement/industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md"
+        },
+        {
+          "path": "domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/enterprise-stakeholder-analysis-template.md",
+          "status": "satisfied-executed",
+          "resolved_path": "domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/enterprise-stakeholder-analysis-template.md"
+        }
+      ],
+      "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move"
+    },
+    {
+      "order": 10,
+      "source": "methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md",
+      "destination": "domains/measurement/methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md",
+      "primary_domain": "Measurement",
+      "secondary_domains": [
+        "Stakeholder",
+        "Uncertainty"
+      ],
+      "pre_move_sha256": "05b492617a09417baf7de2a755b6028f1fe844b50877ecd6809bfdb429e19f95",
+      "dependencies": [
+        {
+          "path": "methodology-frameworks/emerging-methods/devops/release_management_template.md",
+          "status": "same-wave",
+          "resolved_path": "domains/measurement/methodology-frameworks/emerging-methods/devops/release_management_template.md"
+        },
+        {
+          "path": "project-lifecycle/02-planning/resource-planning/resource-management-plan-template.md",
+          "status": "same-wave",
+          "resolved_path": "domains/measurement/project-lifecycle/02-planning/resource-planning/resource-management-plan-template.md"
+        },
+        {
+          "path": "project-lifecycle/02-planning/risk-management/risk-management-plan-template.md",
+          "status": "same-wave",
+          "resolved_path": "domains/measurement/project-lifecycle/02-planning/risk-management/risk-management-plan-template.md"
+        }
+      ],
+      "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move"
+    },
+    {
+      "order": 11,
+      "source": "methodology-frameworks/emerging-methods/devops/release_management_template.md",
+      "destination": "domains/measurement/methodology-frameworks/emerging-methods/devops/release_management_template.md",
+      "primary_domain": "Measurement",
+      "secondary_domains": [
+        "Stakeholder",
+        "Uncertainty"
+      ],
+      "pre_move_sha256": "0ebf8b0f77543353af7be4cafe19986c6af515d81e399763ae80cc8e475b6778",
+      "dependencies": [
+        {
+          "path": "methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md",
+          "status": "same-wave",
+          "resolved_path": "domains/measurement/methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md"
+        },
+        {
+          "path": "project-lifecycle/02-planning/resource-planning/resource-management-plan-template.md",
+          "status": "same-wave",
+          "resolved_path": "domains/measurement/project-lifecycle/02-planning/resource-planning/resource-management-plan-template.md"
+        },
+        {
+          "path": "project-lifecycle/02-planning/risk-management/risk-management-plan-template.md",
+          "status": "same-wave",
+          "resolved_path": "domains/measurement/project-lifecycle/02-planning/risk-management/risk-management-plan-template.md"
+        }
+      ],
+      "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move"
+    },
+    {
+      "order": 12,
+      "source": "project-assessment-suite/current-state-analysis-template.md",
+      "destination": "domains/measurement/project-assessment-suite/current-state-analysis-template.md",
+      "primary_domain": "Measurement",
+      "secondary_domains": [
+        "Stakeholder",
+        "Uncertainty"
+      ],
+      "pre_move_sha256": "f9b0cb20451849ec72f7afc170d624bf6b4b6ab3ed4c2c789cbe838c5523fe3c",
+      "dependencies": [
+        {
+          "path": "industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md",
+          "status": "same-wave",
+          "resolved_path": "domains/measurement/industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md"
+        },
+        {
+          "path": "domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/enterprise-stakeholder-analysis-template.md",
+          "status": "satisfied-executed",
+          "resolved_path": "domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/enterprise-stakeholder-analysis-template.md"
+        },
+        {
+          "path": "project-assessment-suite/executive-summary-template.md",
+          "status": "same-wave",
+          "resolved_path": "domains/measurement/project-assessment-suite/executive-summary-template.md"
+        }
+      ],
+      "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move"
+    },
+    {
+      "order": 13,
+      "source": "project-assessment-suite/executive-summary-template.md",
+      "destination": "domains/measurement/project-assessment-suite/executive-summary-template.md",
+      "primary_domain": "Measurement",
+      "secondary_domains": [
+        "Stakeholder",
+        "Uncertainty"
+      ],
+      "pre_move_sha256": "f9db1eb1ff403b140873fcb4dd27eb8361b4e6d6ca8f2365e4b9b135a0ef9662",
+      "dependencies": [
+        {
+          "path": "project-assessment-suite/current-state-analysis-template.md",
+          "status": "same-wave",
+          "resolved_path": "domains/measurement/project-assessment-suite/current-state-analysis-template.md"
+        },
+        {
+          "path": "industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md",
+          "status": "same-wave",
+          "resolved_path": "domains/measurement/industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md"
+        },
+        {
+          "path": "domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/enterprise-stakeholder-analysis-template.md",
+          "status": "satisfied-executed",
+          "resolved_path": "domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/enterprise-stakeholder-analysis-template.md"
+        }
+      ],
+      "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move"
+    },
+    {
+      "order": 14,
+      "source": "project-lifecycle/02-planning/resource-planning/resource-management-plan-template.md",
+      "destination": "domains/measurement/project-lifecycle/02-planning/resource-planning/resource-management-plan-template.md",
+      "primary_domain": "Measurement",
+      "secondary_domains": [
+        "Stakeholder",
+        "Uncertainty"
+      ],
+      "pre_move_sha256": "ff7fda80410dbe59428077dbc9000149f9c5f969b842e1c58bf9be239627e93c",
+      "dependencies": [
+        {
+          "path": "methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md",
+          "status": "same-wave",
+          "resolved_path": "domains/measurement/methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md"
+        },
+        {
+          "path": "methodology-frameworks/emerging-methods/devops/release_management_template.md",
+          "status": "same-wave",
+          "resolved_path": "domains/measurement/methodology-frameworks/emerging-methods/devops/release_management_template.md"
+        },
+        {
+          "path": "project-lifecycle/02-planning/risk-management/risk-management-plan-template.md",
+          "status": "same-wave",
+          "resolved_path": "domains/measurement/project-lifecycle/02-planning/risk-management/risk-management-plan-template.md"
+        }
+      ],
+      "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move"
+    },
+    {
+      "order": 15,
+      "source": "project-lifecycle/02-planning/risk-management/risk-management-plan-template.md",
+      "destination": "domains/measurement/project-lifecycle/02-planning/risk-management/risk-management-plan-template.md",
+      "primary_domain": "Measurement",
+      "secondary_domains": [
+        "Stakeholder",
+        "Uncertainty"
+      ],
+      "pre_move_sha256": "5bc34126cd641661d98b88879810de59dc8f516742e388bdde1e9c4d7f190ab1",
+      "dependencies": [
+        {
+          "path": "methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md",
+          "status": "same-wave",
+          "resolved_path": "domains/measurement/methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md"
+        },
+        {
+          "path": "methodology-frameworks/emerging-methods/devops/release_management_template.md",
+          "status": "same-wave",
+          "resolved_path": "domains/measurement/methodology-frameworks/emerging-methods/devops/release_management_template.md"
+        },
+        {
+          "path": "project-lifecycle/02-planning/resource-planning/resource-management-plan-template.md",
+          "status": "same-wave",
+          "resolved_path": "domains/measurement/project-lifecycle/02-planning/resource-planning/resource-management-plan-template.md"
+        }
+      ],
+      "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move"
+    }
+  ],
+  "checkpoints": [
+    "baseline-and-hashes",
+    "canonical-moves",
+    "legacy-pointers",
+    "canonical-references",
+    "affected-scope-validation",
+    "reviewed-visual-regression",
+    "post-merge-verification"
+  ],
+  "validation_commands": [
+    "node scripts/validate-migration-wave.mjs --manifest <manifest>",
+    "node scripts/generate-sprint-10-metadata.mjs",
+    "node scripts/validate-sprint-10.mjs --require-annotations",
+    "node scripts/validate-curated-templates.js",
+    "node scripts/validate-canonical-paths.js --strict",
+    "python3 scripts/check_migration_links.py --manifest <manifest>",
+    "npm run test:ci"
+  ],
+  "rollback": {
+    "strategy": "revert-wave-merge-commit",
+    "command": "git revert <wave-merge-sha>",
+    "granularity": "wave",
+    "asset_hashes_preserved": true
+  }
+}

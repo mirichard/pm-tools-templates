@@ -1,0 +1,1027 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Executive Budget Variance Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/date-fns@2.29.3/index.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background-color: #f8fafc;
+            color: #334155;
+            line-height: 1.6;
+        }
+
+        .dashboard-header {
+            background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+            color: white;
+            padding: 2rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .dashboard-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .dashboard-subtitle {
+            font-size: 1rem;
+            opacity: 0.8;
+        }
+
+        .header-stats {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .header-stat {
+            text-align: center;
+        }
+
+        .header-stat-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+        }
+
+        .header-stat-label {
+            font-size: 0.875rem;
+            opacity: 0.8;
+        }
+
+        .dashboard-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .dashboard-card {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+            border: 1px solid #e2e8f0;
+            transition: all 0.3s ease;
+        }
+
+        .dashboard-card:hover {
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            transform: translateY(-2px);
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .card-title {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: #1f2937;
+        }
+
+        .card-icon {
+            font-size: 1.5rem;
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .budget-health-indicator {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .health-score-circle {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            position: relative;
+        }
+
+        .health-score-circle.excellent { background: linear-gradient(135deg, #059669, #10b981); }
+        .health-score-circle.good { background: linear-gradient(135deg, #16a34a, #22c55e); }
+        .health-score-circle.caution { background: linear-gradient(135deg, #d97706, #f59e0b); }
+        .health-score-circle.warning { background: linear-gradient(135deg, #ea580c, #f97316); }
+        .health-score-circle.critical { background: linear-gradient(135deg, #dc2626, #ef4444); }
+
+        .health-score {
+            font-size: 1.5rem;
+            line-height: 1;
+        }
+
+        .health-status {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05rem;
+        }
+
+        .variance-details {
+            flex: 1;
+        }
+
+        .variance-amount {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+        }
+
+        .variance-amount.positive { color: #059669; }
+        .variance-amount.negative { color: #dc2626; }
+
+        .variance-percent {
+            font-size: 1rem;
+            color: #6b7280;
+            margin-bottom: 0.5rem;
+        }
+
+        .variance-trend {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.875rem;
+            color: #6b7280;
+        }
+
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .category-card {
+            background: white;
+            border-radius: 8px;
+            padding: 1rem;
+            border-left: 4px solid #e2e8f0;
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .category-card:hover {
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            transform: translateY(-1px);
+        }
+
+        .category-card.high-impact { border-left-color: #dc2626; }
+        .category-card.medium-impact { border-left-color: #f59e0b; }
+        .category-card.low-impact { border-left-color: #10b981; }
+
+        .category-name {
+            font-weight: 600;
+            color: #1f2937;
+            margin-bottom: 0.5rem;
+        }
+
+        .category-variance {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+        }
+
+        .category-impact {
+            font-size: 0.875rem;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            text-transform: uppercase;
+            font-weight: 600;
+            letter-spacing: 0.025rem;
+        }
+
+        .category-impact.high {
+            background-color: #fee2e2;
+            color: #991b1b;
+        }
+
+        .category-impact.medium {
+            background-color: #fef3c7;
+            color: #92400e;
+        }
+
+        .category-impact.low {
+            background-color: #d1fae5;
+            color: #065f46;
+        }
+
+        .wide-card {
+            grid-column: 1 / -1;
+        }
+
+        .chart-container {
+            position: relative;
+            height: 400px;
+            margin-top: 1rem;
+        }
+
+        .alert-panel {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+        }
+
+        .alert-header {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .alert-item {
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 0.5rem;
+            border-left: 4px solid;
+        }
+
+        .alert-item.emergency {
+            background-color: #fef2f2;
+            border-left-color: #dc2626;
+        }
+
+        .alert-item.critical {
+            background-color: #fff7ed;
+            border-left-color: #ea580c;
+        }
+
+        .alert-item.warning {
+            background-color: #fffbeb;
+            border-left-color: #f59e0b;
+        }
+
+        .alert-title {
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .alert-message {
+            color: #6b7280;
+            font-size: 0.875rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .alert-actions {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .alert-action {
+            padding: 0.25rem 0.5rem;
+            background-color: #f1f5f9;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            color: #475569;
+        }
+
+        .update-indicator {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 0.75rem 1rem;
+            background: #10b981;
+            color: white;
+            border-radius: 8px;
+            font-size: 0.875rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            animation: slideIn 0.3s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        .refresh-button {
+            background: #3b82f6;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.875rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: background-color 0.2s;
+        }
+
+        .refresh-button:hover {
+            background: #2563eb;
+        }
+
+        .refresh-button:disabled {
+            background: #9ca3af;
+            cursor: not-allowed;
+        }
+
+        .loading-spinner {
+            width: 16px;
+            height: 16px;
+            border: 2px solid #ffffff40;
+            border-top: 2px solid #ffffff;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @media (max-width: 768px) {
+            .dashboard-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+            
+            .header-stats {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .budget-health-indicator {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .chart-container {
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="dashboard-header">
+        <div class="header-content">
+            <div>
+                <h1 class="dashboard-title">Executive Budget Dashboard</h1>
+                <p class="dashboard-subtitle">Real-time budget variance analysis and forecasting</p>
+            </div>
+            <div class="header-stats">
+                <div class="header-stat">
+                    <div class="header-stat-value" id="totalBudget">$2.4M</div>
+                    <div class="header-stat-label">Total Budget</div>
+                </div>
+                <div class="header-stat">
+                    <div class="header-stat-value" id="actualSpend">$2.1M</div>
+                    <div class="header-stat-label">Actual Spend</div>
+                </div>
+                <div class="header-stat">
+                    <div class="header-stat-value" id="remainingBudget">$300K</div>
+                    <div class="header-stat-label">Remaining</div>
+                </div>
+                <button class="refresh-button" id="refreshButton">
+                    <span>🔄</span>
+                    <span>Refresh</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <div class="dashboard-container">
+        <!-- Alert Panel -->
+        <div class="alert-panel" id="alertPanel">
+            <div class="alert-header">
+                <span style="font-size: 1.5rem;">🚨</span>
+                <h3>Active Alerts</h3>
+                <span id="alertCount" style="background: #ef4444; color: white; padding: 0.25rem 0.5rem; border-radius: 12px; font-size: 0.75rem;">0</span>
+            </div>
+            <div id="alertList">
+                <p style="color: #6b7280; font-style: italic;">No active alerts</p>
+            </div>
+        </div>
+
+        <!-- Main Dashboard Grid -->
+        <div class="dashboard-grid">
+            <!-- Budget Health Card -->
+            <div class="dashboard-card">
+                <div class="card-header">
+                    <h3 class="card-title">Budget Health</h3>
+                    <div class="card-icon" style="background: #dbeafe; color: #3b82f6;">📊</div>
+                </div>
+                <div class="budget-health-indicator">
+                    <div class="health-score-circle excellent" id="healthScoreCircle">
+                        <div class="health-score" id="healthScore">92</div>
+                        <div class="health-status" id="healthStatus">GOOD</div>
+                    </div>
+                    <div class="variance-details">
+                        <div class="variance-amount positive" id="varianceAmount">+$150K</div>
+                        <div class="variance-percent" id="variancePercent">+6.25% variance</div>
+                        <div class="variance-trend" id="varianceTrend">
+                            <span>📈</span>
+                            <span>Improving trend</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Burn Rate Card -->
+            <div class="dashboard-card">
+                <div class="card-header">
+                    <h3 class="card-title">Burn Rate Analysis</h3>
+                    <div class="card-icon" style="background: #fef3c7; color: #f59e0b;">🔥</div>
+                </div>
+                <div>
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                        <span>Current Rate:</span>
+                        <span style="font-weight: 600;" id="currentBurnRate">$125K/week</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                        <span>Planned Rate:</span>
+                        <span style="font-weight: 600;" id="plannedBurnRate">$120K/week</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 1rem;">
+                        <span>Variance:</span>
+                        <span style="font-weight: 600; color: #f59e0b;" id="burnRateVariance">+4.2%</span>
+                    </div>
+                    <div style="background: #f1f5f9; padding: 0.75rem; border-radius: 6px;">
+                        <div style="font-size: 0.875rem; color: #6b7280; margin-bottom: 0.25rem;">Budget Runway</div>
+                        <div style="font-size: 1.25rem; font-weight: 700;" id="budgetRunway">45 days</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Forecast Summary Card -->
+            <div class="dashboard-card">
+                <div class="card-header">
+                    <h3 class="card-title">Forecast Summary</h3>
+                    <div class="card-icon" style="background: #f0fdf4; color: #16a34a;">🎯</div>
+                </div>
+                <div>
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                        <span>EAC (Current):</span>
+                        <span style="font-weight: 600;" id="forecastEAC">$2.35M</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                        <span>Confidence:</span>
+                        <span style="font-weight: 600; color: #16a34a;" id="forecastConfidence">87%</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 1rem;">
+                        <span>Variance at Completion:</span>
+                        <span style="font-weight: 600; color: #16a34a;" id="forecastVariance">+$50K</span>
+                    </div>
+                    <div style="background: #f0fdf4; padding: 0.75rem; border-radius: 6px;">
+                        <div style="font-size: 0.875rem; color: #6b7280; margin-bottom: 0.25rem;">Overrun Probability</div>
+                        <div style="font-size: 1.25rem; font-weight: 700; color: #16a34a;" id="overrunProbability">15%</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Category Breakdown -->
+        <div class="dashboard-card wide-card">
+            <div class="card-header">
+                <h3 class="card-title">Budget Categories</h3>
+                <div class="card-icon" style="background: #faf5ff; color: #8b5cf6;">📋</div>
+            </div>
+            <div class="category-grid" id="categoryGrid">
+                <!-- Categories will be populated by JavaScript -->
+            </div>
+        </div>
+
+        <!-- Budget Forecast Chart -->
+        <div class="dashboard-card wide-card">
+            <div class="card-header">
+                <h3 class="card-title">Budget vs Actual Trend</h3>
+                <div class="card-icon" style="background: #ecfdf5; color: #10b981;">📈</div>
+            </div>
+            <div class="chart-container">
+                <canvas id="budgetChart"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <!-- Include the Budget Variance Engine -->
+    <script src="budget-variance-engine.js"></script>
+    
+    <script>
+        class ExecutiveBudgetDashboard {
+            constructor() {
+                this.budgetEngine = new BudgetVarianceEngine({
+                    refreshInterval: 300000, // 5 minutes
+                    varianceThresholds: {
+                        excellent: 2,
+                        good: 5,
+                        caution: 10,
+                        warning: 15
+                    }
+                });
+                
+                this.chart = null;
+                this.isLoading = false;
+                
+                this.initializeDashboard();
+                this.setupEventListeners();
+                this.startRealTimeUpdates();
+            }
+
+            async initializeDashboard() {
+                try {
+                    this.showLoading();
+                    const budgetData = await this.fetchBudgetData();
+                    this.updateDashboard(budgetData);
+                    this.hideLoading();
+                } catch (error) {
+                    console.error('Failed to initialize dashboard:', error);
+                    this.showError('Failed to load budget data');
+                    this.hideLoading();
+                }
+            }
+
+            setupEventListeners() {
+                const refreshButton = document.getElementById('refreshButton');
+                refreshButton.addEventListener('click', () => this.refreshData());
+
+                // Subscribe to budget engine updates
+                this.budgetEngine.subscribe((data) => {
+                    this.updateDashboard(data);
+                    this.showUpdateIndicator();
+                });
+            }
+
+            async fetchBudgetData() {
+                // Simulate API call with realistic data
+                return new Promise((resolve) => {
+                    setTimeout(() => {
+                        const mockData = {
+                            approvedBudget: 2400000,
+                            actualSpend: 2100000,
+                            earnedValue: 2150000,
+                            timeElapsed: 40,
+                            totalDuration: 52,
+                            historicalSpend: [
+                                { week: 1, actualSpend: 100000, variancePercent: 2.5 },
+                                { week: 2, actualSpend: 250000, variancePercent: 1.8 },
+                                { week: 3, actualSpend: 420000, variancePercent: -1.2 },
+                                { week: 4, actualSpend: 580000, variancePercent: 0.5 },
+                                { week: 5, actualSpend: 780000, variancePercent: 3.2 },
+                                { week: 6, actualSpend: 1050000, variancePercent: 4.1 }
+                            ],
+                            categories: {
+                                labor: {
+                                    approved: 1200000,
+                                    actual: 1050000,
+                                    forecast: 1180000,
+                                    actualRate: 125,
+                                    plannedRate: 120,
+                                    actualQuantity: 8400,
+                                    plannedQuantity: 8000
+                                },
+                                vendor: {
+                                    approved: 600000,
+                                    actual: 680000,
+                                    forecast: 720000,
+                                    actualRate: 850,
+                                    plannedRate: 750,
+                                    actualQuantity: 800,
+                                    plannedQuantity: 800
+                                },
+                                infrastructure: {
+                                    approved: 400000,
+                                    actual: 250000,
+                                    forecast: 380000,
+                                    actualRate: 5000,
+                                    plannedRate: 5000,
+                                    actualQuantity: 50,
+                                    plannedQuantity: 80
+                                },
+                                training: {
+                                    approved: 150000,
+                                    actual: 95000,
+                                    forecast: 140000,
+                                    actualRate: 1500,
+                                    plannedRate: 1500,
+                                    actualQuantity: 63,
+                                    plannedQuantity: 100
+                                },
+                                contingency: {
+                                    approved: 50000,
+                                    actual: 25000,
+                                    forecast: 40000
+                                }
+                            },
+                            plannedValue: 2000000,
+                            budgetAtCompletion: 2400000
+                        };
+                        resolve(mockData);
+                    }, 1000);
+                });
+            }
+
+            updateDashboard(rawData) {
+                try {
+                    // Process data through budget engine
+                    const budgetAnalysis = this.budgetEngine.calculateBudgetPerformance(rawData);
+                    const categoryAnalysis = this.budgetEngine.analyzeCategoryVariances(rawData);
+                    const forecast = this.budgetEngine.generateAdvancedForecast(rawData);
+                    const alerts = this.budgetEngine.processRealTimeAlerts(budgetAnalysis, rawData.historicalSpend);
+
+                    // Update header stats
+                    this.updateHeaderStats(rawData, budgetAnalysis);
+                    
+                    // Update budget health
+                    this.updateBudgetHealth(budgetAnalysis);
+                    
+                    // Update burn rate
+                    this.updateBurnRate(budgetAnalysis.burnRateAnalysis);
+                    
+                    // Update forecast
+                    this.updateForecast(forecast);
+                    
+                    // Update categories
+                    this.updateCategories(categoryAnalysis);
+                    
+                    // Update chart
+                    this.updateChart(rawData);
+                    
+                    // Update alerts
+                    this.updateAlerts(alerts);
+
+                } catch (error) {
+                    console.error('Error updating dashboard:', error);
+                    this.showError('Failed to update dashboard');
+                }
+            }
+
+            updateHeaderStats(data, analysis) {
+                document.getElementById('totalBudget').textContent = 
+                    this.formatCurrency(data.approvedBudget);
+                document.getElementById('actualSpend').textContent = 
+                    this.formatCurrency(data.actualSpend);
+                document.getElementById('remainingBudget').textContent = 
+                    this.formatCurrency(data.approvedBudget - data.actualSpend);
+            }
+
+            updateBudgetHealth(analysis) {
+                const healthCircle = document.getElementById('healthScoreCircle');
+                const healthScore = document.getElementById('healthScore');
+                const healthStatus = document.getElementById('healthStatus');
+                const varianceAmount = document.getElementById('varianceAmount');
+                const variancePercent = document.getElementById('variancePercent');
+                const varianceTrend = document.getElementById('varianceTrend');
+
+                // Update health score (0-100 scale)
+                const score = Math.max(0, Math.min(100, 100 - Math.abs(analysis.budgetVariancePercent) * 2));
+                healthScore.textContent = Math.round(score);
+                healthStatus.textContent = analysis.healthStatus.status;
+                
+                // Update health circle class
+                healthCircle.className = `health-score-circle ${analysis.healthStatus.level}`;
+                
+                // Update variance display
+                const isPositive = analysis.budgetVariance >= 0;
+                varianceAmount.textContent = 
+                    `${isPositive ? '+' : ''}${this.formatCurrency(analysis.budgetVariance)}`;
+                varianceAmount.className = `variance-amount ${isPositive ? 'positive' : 'negative'}`;
+                
+                variancePercent.textContent = 
+                    `${isPositive ? '+' : ''}${analysis.budgetVariancePercent.toFixed(2)}% variance`;
+                
+                // Update trend
+                const trendIcon = this.getTrendIcon(analysis.varianceTrend.trend);
+                const trendText = analysis.varianceTrend.trend.toLowerCase().replace('_', ' ');
+                varianceTrend.innerHTML = `<span>${trendIcon}</span><span>${trendText} trend</span>`;
+            }
+
+            updateBurnRate(burnRateData) {
+                if (!burnRateData) return;
+
+                document.getElementById('currentBurnRate').textContent = 
+                    this.formatCurrency(burnRateData.actualBurnRate * 4, true) + '/week';
+                document.getElementById('plannedBurnRate').textContent = 
+                    this.formatCurrency(burnRateData.plannedBurnRate * 4, true) + '/week';
+                
+                const variance = ((burnRateData.burnRateRatio - 1) * 100);
+                const varianceElement = document.getElementById('burnRateVariance');
+                varianceElement.textContent = `${variance >= 0 ? '+' : ''}${variance.toFixed(1)}%`;
+                varianceElement.style.color = variance > 10 ? '#dc2626' : variance > 5 ? '#f59e0b' : '#16a34a';
+                
+                document.getElementById('budgetRunway').textContent = 
+                    `${Math.round(burnRateData.runway)} days`;
+            }
+
+            updateForecast(forecast) {
+                if (!forecast || !forecast.forecasts) return;
+
+                const consensus = forecast.consensusForecast || forecast.forecasts.cpiBasedForecast;
+                
+                document.getElementById('forecastEAC').textContent = 
+                    this.formatCurrency(consensus.estimateAtCompletion);
+                document.getElementById('forecastConfidence').textContent = 
+                    `${Math.round(consensus.confidence * 100)}%`;
+                
+                const variance = consensus.estimateAtCompletion - 2400000; // vs approved budget
+                const varianceElement = document.getElementById('forecastVariance');
+                varianceElement.textContent = 
+                    `${variance >= 0 ? '+' : ''}${this.formatCurrency(variance)}`;
+                varianceElement.style.color = variance > 0 ? '#dc2626' : '#16a34a';
+                
+                // Mock overrun probability
+                const overrunProb = Math.max(0, Math.min(100, (variance / 100000) * 10));
+                document.getElementById('overrunProbability').textContent = 
+                    `${Math.round(overrunProb)}%`;
+            }
+
+            updateCategories(categoryAnalysis) {
+                const categoryGrid = document.getElementById('categoryGrid');
+                categoryGrid.innerHTML = '';
+
+                Object.entries(categoryAnalysis.categories).forEach(([category, data]) => {
+                    const impactLevel = Math.abs(data.variancePercent) > 15 ? 'high' : 
+                                      Math.abs(data.variancePercent) > 5 ? 'medium' : 'low';
+                    
+                    const categoryCard = document.createElement('div');
+                    categoryCard.className = `category-card ${impactLevel}-impact`;
+                    categoryCard.innerHTML = `
+                        <div class="category-name">${this.formatCategoryName(category)}</div>
+                        <div class="category-variance ${data.variance >= 0 ? 'positive' : 'negative'}">
+                            ${data.variance >= 0 ? '+' : ''}${this.formatCurrency(data.variance)}
+                        </div>
+                        <div class="category-impact ${impactLevel}">
+                            ${impactLevel} impact
+                        </div>
+                    `;
+                    
+                    categoryCard.addEventListener('click', () => {
+                        this.showCategoryDetails(category, data);
+                    });
+                    
+                    categoryGrid.appendChild(categoryCard);
+                });
+            }
+
+            updateChart(data) {
+                const ctx = document.getElementById('budgetChart').getContext('2d');
+                
+                if (this.chart) {
+                    this.chart.destroy();
+                }
+
+                // Generate chart data
+                const weeks = Array.from({length: 12}, (_, i) => `Week ${i + 1}`);
+                const approvedBudgetData = weeks.map((_, i) => 
+                    (data.approvedBudget / 52) * (i + 1)
+                );
+                const actualSpendData = data.historicalSpend.map(item => item.actualSpend)
+                    .concat(Array(weeks.length - data.historicalSpend.length).fill(null));
+                const forecastData = actualSpendData.map((actual, i) => 
+                    actual || (data.actualSpend + (data.approvedBudget - data.actualSpend) * (i / weeks.length))
+                );
+
+                this.chart = new Chart(ctx, {
+                    type: 'line',
+                    data: {
+                        labels: weeks,
+                        datasets: [
+                            {
+                                label: 'Approved Budget',
+                                data: approvedBudgetData,
+                                borderColor: '#3b82f6',
+                                backgroundColor: 'transparent',
+                                borderWidth: 2,
+                                pointRadius: 4,
+                                pointHoverRadius: 6
+                            },
+                            {
+                                label: 'Actual Spend',
+                                data: actualSpendData,
+                                borderColor: '#ef4444',
+                                backgroundColor: 'rgba(239, 68, 68, 0.1)',
+                                borderWidth: 2,
+                                fill: true,
+                                pointRadius: 4,
+                                pointHoverRadius: 6
+                            },
+                            {
+                                label: 'Forecast',
+                                data: forecastData,
+                                borderColor: '#f59e0b',
+                                backgroundColor: 'transparent',
+                                borderWidth: 2,
+                                borderDash: [5, 5],
+                                pointRadius: 4,
+                                pointHoverRadius: 6
+                            }
+                        ]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        interaction: {
+                            mode: 'index',
+                            intersect: false,
+                        },
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                ticks: {
+                                    callback: (value) => this.formatCurrency(value, true)
+                                }
+                            }
+                        },
+                        plugins: {
+                            tooltip: {
+                                callbacks: {
+                                    label: (context) => 
+                                        `${context.dataset.label}: ${this.formatCurrency(context.parsed.y)}`
+                                }
+                            },
+                            legend: {
+                                position: 'bottom'
+                            }
+                        }
+                    }
+                });
+            }
+
+            updateAlerts(alertData) {
+                const alertCount = document.getElementById('alertCount');
+                const alertList = document.getElementById('alertList');
+                
+                if (!alertData.alerts || alertData.alerts.length === 0) {
+                    alertCount.textContent = '0';
+                    alertList.innerHTML = '<p style="color: #6b7280; font-style: italic;">No active alerts</p>';
+                    return;
+                }
+
+                alertCount.textContent = alertData.alerts.length;
+                alertList.innerHTML = '';
+
+                alertData.alerts.forEach(alert => {
+                    const alertElement = document.createElement('div');
+                    alertElement.className = `alert-item ${alert.level.toLowerCase()}`;
+                    alertElement.innerHTML = `
+                        <div class="alert-title">${alert.title}</div>
+                        <div class="alert-message">${alert.message}</div>
+                        <div class="alert-actions">
+                            ${alert.actions.map(action => 
+                                `<span class="alert-action">${action}</span>`
+                            ).join('')}
+                        </div>
+                    `;
+                    alertList.appendChild(alertElement);
+                });
+            }
+
+            async refreshData() {
+                if (this.isLoading) return;
+                
+                try {
+                    this.showLoading();
+                    const budgetData = await this.fetchBudgetData();
+                    this.updateDashboard(budgetData);
+                    this.showUpdateIndicator();
+                } catch (error) {
+                    console.error('Failed to refresh data:', error);
+                    this.showError('Failed to refresh data');
+                } finally {
+                    this.hideLoading();
+                }
+            }
+
+            startRealTimeUpdates() {
+                // Simulate real-time updates every 30 seconds
+                setInterval(() => {
+                    if (!this.isLoading) {
+                        this.refreshData();
+                    }
+                }, 30000);
+            }
+
+            showLoading() {
+                this.isLoading = true;
+                const refreshButton = document.getElementById('refreshButton');
+                refreshButton.disabled = true;
+                refreshButton.innerHTML = '<div class="loading-spinner"></div><span>Loading...</span>';
+            }
+
+            hideLoading() {
+                this.isLoading = false;
+                const refreshButton = document.getElementById('refreshButton');
+                refreshButton.disabled = false;
+                refreshButton.innerHTML = '<span>🔄</span><span>Refresh</span>';
+            }
+
+            showUpdateIndicator() {
+                const indicator = document.createElement('div');
+                indicator.className = 'update-indicator';
+                indicator.textContent = '✅ Dashboard updated';
+                document.body.appendChild(indicator);
+
+                setTimeout(() => {
+                    indicator.remove();
+                }, 3000);
+            }
+
+            showError(message) {
+                const indicator = document.createElement('div');
+                indicator.className = 'update-indicator';
+                indicator.style.background = '#ef4444';
+                indicator.textContent = `❌ ${message}`;
+                document.body.appendChild(indicator);
+
+                setTimeout(() => {
+                    indicator.remove();
+                }, 5000);
+            }
+
+            formatCurrency(amount, abbreviated = false) {
+                if (abbreviated && Math.abs(amount) >= 1000000) {
+                    return `$${(amount / 1000000).toFixed(1)}M`;
+                } else if (abbreviated && Math.abs(amount) >= 1000) {
+                    return `$${(amount / 1000).toFixed(0)}K`;
+                }
+                return new Intl.NumberFormat('en-US', {
+                    style: 'currency',
+                    currency: 'USD',
+                    minimumFractionDigits: 0,
+                    maximumFractionDigits: 0
+                }).format(amount);
+            }
+
+            formatCategoryName(category) {
+                return category.split('_').map(word => 
+                    word.charAt(0).toUpperCase() + word.slice(1)
+                ).join(' ');
+            }
+
+            getTrendIcon(trend) {
+                switch (trend) {
+                    case 'IMPROVING': return '📈';
+                    case 'DETERIORATING': return '📉';
+                    case 'STABLE': return '➡️';
+                    default: return '❓';
+                }
+            }
+
+            showCategoryDetails(category, data) {
+                // Mock category drill-down
+                alert(`${this.formatCategoryName(category)} Details:\n\n` +
+                      `Approved: ${this.formatCurrency(data.approved)}\n` +
+                      `Actual: ${this.formatCurrency(data.actual)}\n` +
+                      `Variance: ${this.formatCurrency(data.variance)}\n` +
+                      `Variance %: ${data.variancePercent.toFixed(1)}%`);
+            }
+        }
+
+        // Initialize dashboard when page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            new ExecutiveBudgetDashboard();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+{
+  "processId": "BP-01",
+  "processName": "Order Processing",
+  "activityNodes": [
+    { "nodeId": "a1", "name": "Add to shopping cart", "associatedUseCaseId": "UC-01" },
+    { "nodeId": "a2", "name": "Check out", "associatedUseCaseId": "UC-01" },
+    { "nodeId": "a3", "name": "Receive order" },
+    { "nodeId": "a4", "name": "Fill order" },
+    { "nodeId": "a5", "name": "Ship order" },
+    { "nodeId": "a6", "name": "Send invoice" },
+    { "nodeId": "a7", "name": "Make payment" },
+    { "nodeId": "a8", "name": "Accept payment" },
+    { "nodeId": "a9", "name": "Close order" }
+  ],
+  "controlNodes": [
+    { "nodeId": "cn1", "type": "initial" },
+    { "nodeId": "cn2", "type": "decision", "guardCondition": "Order accepted or rejected" },
+    { "nodeId": "cn3", "type": "fork" },
+    { "nodeId": "cn4", "type": "join" },
+    { "nodeId": "cn5", "type": "final" }
+  ],
+  "objectNodes": [
+    { "nodeId": "on1", "businessObjectType": "Product", "state": null },
+    { "nodeId": "on2", "businessObjectType": "Shopping Cart", "state": "Filled" },
+    { "nodeId": "on3", "businessObjectType": "Account", "state": null },
+    { "nodeId": "on4", "businessObjectType": "Order", "state": "Filled" },
+    { "nodeId": "on5", "businessObjectType": "Invoice", "state": null }
+  ],
+  "controlEdges": [
+    { "sourceNodeId": "cn1", "targetNodeId": "a1" },
+    { "sourceNodeId": "a1", "targetNodeId": "a2" },
+    { "sourceNodeId": "a2", "targetNodeId": "a3" },
+    { "sourceNodeId": "a3", "targetNodeId": "cn2" },
+    { "sourceNodeId": "cn2", "targetNodeId": "a4", "guardCondition": "Order accepted" },
+    { "sourceNodeId": "cn2", "targetNodeId": "cn5", "guardCondition": "Order rejected" },
+    { "sourceNodeId": "a4", "targetNodeId": "cn3" },
+    { "sourceNodeId": "cn3", "targetNodeId": "a5" },
+    { "sourceNodeId": "cn3", "targetNodeId": "a6" },
+    { "sourceNodeId": "a5", "targetNodeId": "cn4" },
+    { "sourceNodeId": "a6", "targetNodeId": "cn4" },
+    { "sourceNodeId": "cn4", "targetNodeId": "a7" },
+    { "sourceNodeId": "a7", "targetNodeId": "a8" },
+    { "sourceNodeId": "a8", "targetNodeId": "a9" },
+    { "sourceNodeId": "a9", "targetNodeId": "cn5" }
+  ],
+  "objectEdges": [
+    { "sourceNodeId": "on1", "targetNodeId": "a1" },
+    { "sourceNodeId": "a1", "targetNodeId": "on2" },
+    { "sourceNodeId": "on2", "targetNodeId": "a2" },
+    { "sourceNodeId": "on3", "targetNodeId": "a2" },
+    { "sourceNodeId": "a2", "targetNodeId": "on4" },
+    { "sourceNodeId": "on4", "targetNodeId": "a3" },
+    { "sourceNodeId": "a6", "targetNodeId": "on5" }
+  ],
+  "businessObjectTypes": [
+    { "name": "Product", "allowedStates": [] },
+    { "name": "Shopping Cart", "allowedStates": ["Filled", "Converted"] },
+    { "name": "Account", "allowedStates": [] },
+    { "name": "Order", "allowedStates": ["Filled", "Accepted", "Shipped", "Paid", "Closed"] },
+    { "name": "Invoice", "allowedStates": [] }
+  ]
+}

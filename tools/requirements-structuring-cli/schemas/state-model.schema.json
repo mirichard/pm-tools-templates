@@ -1,0 +1,65 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "state-model.schema.json",
+  "title": "State Model",
+  "description": "Simplified UML state machine diagram per Li & Zheng (2025) Definition 5: SM = (S, Trans, A)",
+  "type": "object",
+  "required": ["businessObjectName", "states", "transitions"],
+  "properties": {
+    "businessObjectName": {
+      "type": "string",
+      "description": "The business object this state model describes (e.g., 'Order', 'Shopping Cart')"
+    },
+    "states": {
+      "type": "array",
+      "description": "S ⊆ BO.S_allowed — finite set of states",
+      "items": {
+        "type": "object",
+        "required": ["stateId", "name"],
+        "properties": {
+          "stateId": { "type": "string" },
+          "name": {
+            "type": "string",
+            "description": "State name (e.g., 'Filled', 'Shipped', 'Closed')"
+          },
+          "isInitial": {
+            "type": "boolean",
+            "default": false
+          },
+          "isFinal": {
+            "type": "boolean",
+            "default": false
+          }
+        }
+      },
+      "minItems": 1
+    },
+    "transitions": {
+      "type": "array",
+      "description": "Trans ⊆ S × S — permissible state changes",
+      "items": {
+        "type": "object",
+        "required": ["transitionId", "sourceStateId", "targetStateId", "triggerAction"],
+        "properties": {
+          "transitionId": { "type": "string" },
+          "sourceStateId": {
+            "type": "string",
+            "description": "Source state ID"
+          },
+          "targetStateId": {
+            "type": "string",
+            "description": "Target state ID"
+          },
+          "triggerAction": {
+            "type": "string",
+            "description": "The action (a ∈ A) that triggers this transition"
+          },
+          "guardCondition": {
+            "type": "string",
+            "description": "Optional condition that must hold for the transition"
+          }
+        }
+      }
+    }
+  }
+}

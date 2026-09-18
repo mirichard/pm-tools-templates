@@ -1,0 +1,62 @@
+name: Bug Report
+description: File a bug report to help us improve
+title: "[Bug]: "
+labels: ["bug", "needs-triage"]
+assignees:
+  - mirichard
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to fill out this bug report!
+
+  - type: input
+    id: template
+    attributes:
+      label: Template Name
+      description: Which template is affected?
+      placeholder: e.g., Sprint Planning Template
+    validations:
+      required: true
+
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: Also tell us, what did you expect to happen?
+      placeholder: Tell us what you see!
+    validations:
+      required: true
+
+  - type: dropdown
+    id: methodology
+    attributes:
+      label: Methodology
+      description: Which methodology does this template belong to?
+      options:
+        - Traditional
+        - Agile
+        - Hybrid
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: How can we reproduce this issue?
+      placeholder: |
+        1. Go to...
+        2. Click on...
+        3. See error...
+    validations:
+      required: false
+
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: Additional context
+      description: Add any other context about the problem here
+    validations:
+      required: false

@@ -1,0 +1,526 @@
+# Requirements Structuring & Validation CLI
+
+**LLM-Assisted Use Case Specification Framework for Sprint Teams**
+
+A CLI tool that converts natural language requirements into formally structured Use Case Specifications (UCS), detects ambiguities before engineering begins, generates acceptance test cases and Gherkin/BDD feature files, and validates consistency against UML diagrams.
+
+Built for sprint teams — Product Owners, Business Analysts, Engineers, QA, and Scrum Masters — to close the gap between business requirements and what gets built.
+
+Based on: Li & Zheng (2025) *"Enhancing Requirements via Structured Formalization and Process-State Consistency Validation: An LLM-Assisted Test-Driven Framework"* — IET Software.
+
+NFR classification and generation (`generate-nfr`, below) are based on: Almonte et al. (2025) *"Automated Non-Functional Requirements Generation in Software Engineering with LLMs: A Comparative Study"* — [arXiv:2503.15248](https://arxiv.org/abs/2503.15248). Reported median validity & applicability 5.0/5, with 80.4% of attribute assignments matching expert classification (8.3% near miss, 11.3% mismatch) — the mismatch rate is why generated candidates require human review before use as acceptance criteria.
+
+---
+
+## How It Works
+
+```
+Business Stakeholder Interview
+        ↓
+  BA/PO fills in requirements template (Markdown)
+        ↓
+  ┌─────────────────────────────────────────────────────────────────┐
+  │  Phase 0  Ambiguity Detection         → blockers & warnings    │
+  │  Phase 1  Requirement Structuring      → formal structure JSON  │
+  │  Phase 2  UCS + Test Cases + Gherkin   → UCS, tests, .feature  │
+  │  NFR      Classification + Generation  → NFR classifications,  │
+  │           (generate-nfr, auto-run here)  candidates, report    │
+  │  Phase 3  Feedback Loop                → refined UCS            │
+  │  Phase 4  Activity Diagram Validation  → Rule 1 & 2 checks     │
+  │  Phase 5  State Machine Validation     → Rule 3 checks         │
+  └─────────────────────────────────────────────────────────────────┘
+        ↓
+  Sprint team receives:
+  • Ambiguity report (questions for stakeholders)
+  • Formal Use Case Specification
+  • Acceptance test cases
+  • Gherkin .feature file (wire into Cucumber/pytest-bdd/SpecFlow)
+  • NFR report (ISO/IEC 25010 classification + candidate statements)
+  • Validation report
+```
+
+Each phase has a review gate — you approve before the pipeline continues.
+
+---
+
+## Prerequisites
+
+- **Node.js** 16.0.0 or higher
+- **LLM API Key** — one of the following (auto-detected):
+  - **Google Gemini** (`GEMINI_API_KEY`) — free tier, recommended to start. Get a key at [aistudio.google.com/apikey](https://aistudio.google.com/apikey)
+  - **Anthropic Claude** (`ANTHROPIC_API_KEY`) — [console.anthropic.com/settings/keys](https://console.anthropic.com/settings/keys)
+  - **OpenAI** (`OPENAI_API_KEY`) — [platform.openai.com/api-keys](https://platform.openai.com/api-keys)
+  - **Any OpenAI-compatible** (`LLM_API_KEY` + `LLM_BASE_URL`) — Ollama, Together, Groq, Azure OpenAI, LM Studio, etc.
+
+## Installation
+
+```bash
+cd tools/requirements-structuring-cli
+npm install
+
+# Configure your LLM provider
+cp .env.example .env
+# Edit .env and add your API key (e.g. GEMINI_API_KEY=your-key-here)
+```
+
+Optional global install:
+
+```bash
+npm link
+# Now available as: pm-requirements <command>
+```
+
+---
+
+## Quick Start
+
+```bash
+# 1. Copy the requirements template to your working directory
+npm start init
+
+# 2. Fill in requirements-input.md with your NL requirements
+#    (gathered from stakeholder interviews)
+
+# 3. Run the full pipeline
+npm start pipeline requirements-input.md -o ./output
+
+# 4. Review the output:
+#    output/
+#    ├── *-ambiguity-report.md     ← Questions for PO/stakeholders
+#    ├── *-structured.json         ← Formal structure (Eq. 1)
+#    ├── *-ucs.json                ← Use Case Specification
+#    ├── *-ucs-refined.json        ← UCS after feedback loop
+#    ├── *-tests.json              ← Test cases (all flow paths)
+#    ├── *.feature                 ← Gherkin/BDD feature file
+#    ├── *-summary.md              ← Executive summary
+#    ├── *-use-case-spec.md        ← Human-readable UCS
+#    ├── *-test-cases.md           ← Human-readable test cases
+#    └── *-ambiguity.json          ← Raw ambiguity findings
+```
+
+---
+
+## CLI Commands
+
+### `init`
+
+Copy the blank requirements input template to the current directory.
+
+```bash
+npm start init
+```
+
+### `detect <input-file>`
+
+**Phase 0**: Scan raw requirements for ambiguities before structuring. Identifies vague qualifiers, undefined references, missing boundaries, implicit assumptions, and ambiguous business rules.
+
+```bash
+npm start detect requirements-input.md
+npm start detect requirements-input.md -o ambiguity-report.md
+```
+
+Output includes a readiness score:
+- **READY** — 0 blockers, ≤2 warnings. Clear to proceed.
+- **NEEDS CLARIFICATION** — warnings present. Document assumptions or confirm with PO.
+- **NOT READY** — 3+ blockers. Requirements need rework before the team can plan.
+
+### `structure <input-file>`
+
+**Phase 1**: Convert natural language requirements to formal structure per Equation 1:
+`<Pre-conditions [Previous Step]; Actor; Action; Business Objects; [To actor]; [Post-conditions]>`
+
+```bash
+npm start structure requirements-input.md
+npm start structure requirements-input.md -o my-structured.json
+```
+
+### `transform <structured-file>`
+
+**Phase 2**: Convert formal structure to UCS template with basic, alternative, and exception flows.
+
+```bash
+npm start transform requirements-input-structured.json
+npm start transform requirements-input-structured.json --deterministic  # No LLM needed
+```
+
+### `generate-tests <ucs-file>`
+
+Generate test cases from UCS flows (Algorithm 1 — GenTestCase). Produces one test case per flow path.
+
+```bash
+npm start generate-tests requirements-input-ucs.json
+```
+
+### `generate-gherkin <test-cases-file>`
+
+Generate a Gherkin `.feature` file from test cases. Maps UCS steps to Given/When/Then:
+- Preconditions → `Given`
+- Actor actions → `When`
+- System responses → `Then`
+- Postconditions → `Then`
+
+```bash
+npm start generate-gherkin my-tests.json --ucs my-ucs.json
+npm start generate-gherkin my-tests.json --ucs my-ucs.json -o my-feature.feature
+```
+
+The `.feature` file can be wired directly into Cucumber, pytest-bdd, SpecFlow, or any Gherkin-compatible test framework.
+
+### `generate-nfr [input-file]`
+
+Accepts an existing structured or UCS JSON artifact and classifies each step
+against the quality taxonomy (#1108), then renders library-based NFR candidates
+with explicit placeholders for every unsupplied parameter (#1109).
+See the [classification handoff contract](docs/nfr-classification.md).
+See the [NFR input contract](docs/nfr-input-contract.md) for required fields,
+shape validation, and compatibility decisions. No version marker is required.
+
+```bash
+npm start -- generate-nfr --list-overlays
+npm start -- generate-nfr examples/web-store-ucs.json --profile neutral -o ./output
+```
+
+`--profile <name>` and `--overlay <name>` select the same registry entry. If both
+are supplied, they must agree. The default is `neutral` (no domain overlay);
+listing also shows the opt-in review candidates `fda-21-cfr-11`, `hipaa`,
+`pci-dss`, `wcag-22`, and `section-508`. Unknown names fail clearly.
+The [curated library and review requirements](docs/nfr-taxonomy.md) describe
+40 neutral patterns, provenance, overlay scope and versioning. The taxonomy
+requires human verification against the purchased ISO/IEC 25010:2023 standard
+before authoritative release. Selecting an overlay does not establish compliance.
+Listing needs no input file or API credentials and writes no report.
+
+The command writes `<base>-nfr-report.md` through a protected Markdown report
+writer, explicitly labeled `NFR candidates generated; human input required for all unbound parameters.`, plus
+a machine-readable `<base>-nfr-classifications.json` artifact. Classification
+uses the configured LLM; candidate parameters remain unbound. `pipeline` automatically
+runs the same step after Phase 2 UCS, test cases and Gherkin, before the Phase 3
+review gate; all existing phase ordering and gates are preserved.
+
+| Flag | Behavior |
+| --- | --- |
+| `--provider gemini\|anthropic\|openai` | Override existing `LLM_PROVIDER` selection for the invocation; `openai` also covers compatible APIs using `LLM_BASE_URL`. |
+| `--model <name>` | Override existing `LLM_MODEL` selection for the invocation. |
+| `--attributes <names>` | Comma-separated non-empty names; top-level taxonomy names/IDs restricting classification; overrides `NFR_ATTRIBUTES` from the environment. |
+| `--confidence-threshold <number>` | Finite number in `[0, 1]`, default `0.75` (unresearched conservative default — see `docs/nfr-generation.md`). Below-threshold candidates pause at an interactive READY/NEEDS CLARIFICATION/NOT READY gate, mirroring Phase 0's gate. |
+| `--profile` / `--overlay` | Select an available name; default `neutral`. |
+| `-o` / `--output <dir>` | Report directory, default `./output`. Pipeline retains `--output-dir` and also accepts `--output`. |
+
+Standalone `--force` explicitly permits replacing existing NFR output and manual
+edits. It is not a pipeline flag; use a fresh output directory for pipeline reruns.
+
+All the selection flags in the table also apply to `pipeline`. Upstream pipeline phases
+still use the configured LLM and interactive gates. Standalone classification requires the existing provider credentials;
+overlay listing does not require API credentials. Provider/model flags reuse
+the existing environment loader/client and restore overrides after execution.
+
+```bash
+npm start -- generate-nfr examples/web-store-ucs.json --attributes reliability,security --confidence-threshold 0.8 -o ./output
+npm start -- pipeline examples/web-store-input.md --provider gemini --overlay neutral -o ./output
+```
+
+#### NFR candidate generation (#1109)
+
+Classification output feeds deterministic library-based candidate rendering.
+Targets, measurement conditions and other unsupplied bindings are explicit
+`[NEEDS INPUT: <name>]` placeholders — no values are invented. The existing
+NFR Markdown report includes candidates grouped by FR and characteristic, plus
+characteristic/parameter coverage gaps. Existing NFR output blocks reruns;
+standalone `--force` explicitly permits overwriting manual edits. See the
+[generation contract and extension points](docs/nfr-generation.md).
+
+#### Overlay caveat: `fda-21-cfr-11` and `hipaa`
+
+Both overlays key exclusively on the ISO/IEC 25010 `accountability`
+sub-characteristic. As of [#1163](https://github.com/mirichard/pm-tools-templates/issues/1163)
+(open, unresolved), the classifier has not been observed to produce
+`accountability` on any pipeline output generated after PR #1139 — so
+selecting either overlay has added no additional NFR candidates on every
+capture measured so far. Whether this is a classifier limitation or specific
+to sources tested to date (none has yet included an explicitly auditable
+requirement) is exactly what #1163 is still investigating — it is not yet
+established that either overlay is a no-op for every possible input.
+`pci-dss`, `wcag-22`, and `section-508` are not known to have this issue.
+Selecting any overlay never establishes compliance on its own; all rendered
+targets remain placeholders pending human review.
+
+#### Worked example: golden password-reset fixture (#1116)
+
+[`examples/fixtures/nfr-golden/`](examples/fixtures/nfr-golden/README.md)
+(anchor guide: [`docs/nfr-golden-example.md`](docs/nfr-golden-example.md))
+contains a full, recorded reference run: a `neutral` and a `pci-dss` capture
+of the same password-reset source, all eight pipeline artifacts through NFR
+generation, and a deterministic regeneration check that makes no provider
+calls (`node examples/fixtures/nfr-golden/verify-regeneration.cjs`).
+
+```bash
+node src/index.js pipeline examples/fixtures/nfr-golden/password-reset-input.md \
+  --provider gemini --model gemini-2.5-flash -o ./output
+```
+
+Sample excerpt from the committed `neutral` capture's
+`password-reset-input-nfr-report.md`:
+
+```markdown
+### FR /basicFlow/steps/0
+
+#### functional-suitability
+
+Candidate: UC-PASSWORD-RESET:/basicFlow/steps/0:core.functional-completeness
+
+\[NEEDS INPUT: system\] shall provide implemented functions for at least \[NEEDS INPUT: target\] percent of the required tasks in \[NEEDS INPUT: scope\] under \[NEEDS INPUT: conditions\].
+
+Source step: 1; sub-characteristic: functional-completeness; confidence: 0.9.
+Pattern: core.functional-completeness; library: 0.1.0; taxonomy: 0.1.0.
+```
+
+Measured captures: 70 classification assignments / 70 candidates / 280
+unbound placeholder bindings (`neutral`); 73 / 78 / 312 (`pci-dss`), with five
+additional `pci-dss.confidentiality` candidates isolated via same-handoff
+comparison (rendering the `pci-dss` capture's own classification through both
+libraries). See the fixture README for the full methodology, the accepted
+"Password is not a separate business object" finding, and other caveats.
+
+#### Classification evaluation harness (#1113)
+
+`node scripts/eval-classification.js` (or `npm run eval:classification`)
+compares the classifier's actual output against a small labeled set —
+[`examples/fixtures/nfr-golden/eval-labels.json`](examples/fixtures/nfr-golden/eval-labels.json)
+— and reports **exact-match**, **near-miss**, and **mismatch** counts and
+rates. These are the script's own definitions, for one labeled
+(requirement, sub-characteristic) judgment at a time, joined to the tool's
+output by `source.path` (not `stepId` alone — see
+[`docs/nfr-golden-example.md`](docs/nfr-golden-example.md)):
+
+- **exact-match** — the tool assigned that exact sub-characteristic to the requirement.
+- **near-miss** — the tool assigned a *different* sub-characteristic under the *same* top-level characteristic (it identified the right general quality area, not the specific one).
+- **mismatch** — the tool assigned nothing at all under that characteristic for the requirement.
+
+No live LLM calls by default: it reads each golden-fixture variant's
+already-committed `-nfr-classifications.json`. Against both variants it
+reports 20/24 (83.3%) exact-match, 2/24 (8.3%) near-miss, 2/24 (8.3%)
+mismatch. Pass `--live` to re-classify one named variant instead (`--variant
+neutral` or `--variant pci-dss`, never `both`, to stay at or under the
+project's 15-live-call eval cap); it reuses the same `LLM_*`/`*_API_KEY`
+[environment variables](#llm-configuration) as every other command. Pass
+`--output <dir>` to also write `eval-classification-results.json` through the
+same safe-I/O layer as `generate-nfr` (exclusive-create by default, `--force`
+to overwrite). Run `node scripts/eval-classification.js --help` for the full
+flag reference.
+
+**No genuine expert-labeled set exists in this repository, and this eval does
+not produce one.** Both the golden fixture's own README and
+`docs/nfr-golden-example.md` say plainly that its captured classifications
+are model output, not expert labels. The labeled set this script compares
+against was constructed instead: 5 real requirement units already present in
+the golden fixture (no invented steps), 12 attribute judgments reasoned by an
+AI coding agent — not a human with ISO/IEC 25010 classification expertise —
+directly from this repository's own taxonomy descriptions in
+`data/nfr/taxonomy.json`. Those descriptions are themselves reconstructed
+from secondary/public sources, not the primary ISO/IEC 25010:2023 document
+(paywalled), and `taxonomy.json`'s own `accuracyNotice` requires human
+verification against the purchased standard before treating them as
+authoritative — so this label set carries two independent layers of
+unverified reasoning, not one, both disclosed in full in
+`eval-labels.json`'s own `warning` and `taxonomyAccuracyCaveat` fields, not
+just a code comment; the eval script prints the `warning` on every run,
+before any results. Treat the reported rates as a small, honestly-sourced
+sanity check against this repository's own unverified taxonomy reasoning,
+never as independently-verified accuracy against ISO/IEC 25010:2023 or
+against expert judgment; `eval-labels.json` also documents an
+order-of-operations caveat about how these particular labels were written.
+Story #1113's acceptance criteria call for "expert-assigned attributes" —
+this construction does not satisfy that criterion and cannot substitute for
+independent domain-expert review; treat any reported eval rate accordingly
+until real expert labels are sourced or the story's criteria are explicitly
+amended. Running this eval against the golden fixture does not
+touch the open [`accountability` investigation (#1163)](#overlay-caveat-fda-21-cfr-11-and-hipaa):
+none of the 5 labeled units reasons to `accountability` as a fitting label,
+so this harness neither confirms nor newly discovers that gap on its own.
+
+### `validate <ucs-file>`
+
+Validate UCS consistency against activity diagrams and/or state machines (Algorithms 2 & 3).
+
+```bash
+npm start validate my-ucs.json --activity activity-diagram.json --state cart-state.json order-state.json
+```
+
+### `review <ucs-file> <test-cases-file>`
+
+Run the interactive feedback loop — three LLM analysis passes:
+1. Gap & contradiction analysis
+2. Coverage expansion (suggest additional test cases)
+3. Implicit requirement discovery
+
+Each suggestion is presented for interactive accept/reject.
+
+```bash
+npm start review my-ucs.json my-tests.json
+```
+
+### `pipeline <input-file>`
+
+Run the complete 6-phase pipeline with interactive review gates between each phase.
+
+```bash
+# Minimal (Phases 0-3 + reports)
+npm start pipeline requirements-input.md -o ./output
+
+# Full validation (all 6 phases)
+npm start pipeline requirements-input.md \
+  --activity activity-diagram.json \
+  --state claim-state.json contract-state.json \
+  -o ./output
+```
+
+---
+
+## Consistency Rules
+
+The tool implements three formal consistency rules from the paper:
+
+**Rule 1 — Semantic Consistency** (Activity Diagram)
+Every business object referenced in the activity diagram must appear in the associated UCS flows. Catches missing domain objects.
+
+**Rule 2 — Process Consistency** (Activity Diagram)
+If the activity diagram shows BO-X as input and BO-Y as output for an activity, then BO-X must appear before BO-Y in the UCS step sequence. Catches ordering violations.
+
+**Rule 3 — State Consistency** (State Machine)
+If the state machine requires action-A before action-B (because A's target state is B's source state), the UCS must have them in that same order. Catches lifecycle violations.
+
+Rules 1 & 2 require an activity diagram JSON (`--activity`). Rule 3 requires state machine JSON (`--state`). See `schemas/` for the expected formats.
+
+---
+
+## LLM Configuration
+
+The tool auto-detects your provider from whichever API key is set.
+Priority: `GEMINI_API_KEY` → `ANTHROPIC_API_KEY` → `OPENAI_API_KEY` → `LLM_API_KEY`.
+
+### Environment Variables
+
+- `GEMINI_API_KEY` — Google Gemini API key
+- `ANTHROPIC_API_KEY` — Anthropic Claude API key
+- `OPENAI_API_KEY` — OpenAI API key
+- `LLM_API_KEY` — Generic key for any OpenAI-compatible endpoint
+- `LLM_PROVIDER` — Force provider: `gemini`, `anthropic`, or `openai` (default: auto)
+- `LLM_MODEL` — Override the model name (defaults per provider)
+- `LLM_BASE_URL` — Base URL for OpenAI-compatible APIs
+- `LLM_MAX_TOKENS` — Max output tokens (default: `16384`)
+- `LLM_TEMPERATURE_STRUCTURE` — Temperature for structuring tasks (default: `0.2`)
+- `LLM_TEMPERATURE_CREATIVE` — Temperature for analysis/creative tasks (default: `0.5`)
+- `LLM_TIMEOUT` — Request timeout in ms (default: `120000`)
+- `SAVE_LLM_TRACES` — Save raw LLM request/response pairs (default: `false`)
+- `LLM_TRACE_DIR` — Directory for trace files (default: `./traces`)
+
+### Example `.env` for Gemini (free tier)
+
+```env
+GEMINI_API_KEY=your-key-here
+```
+
+### Example `.env` for local Ollama
+
+```env
+LLM_API_KEY=ollama
+LLM_BASE_URL=http://localhost:11434/v1/chat/completions
+LLM_MODEL=llama3
+```
+
+---
+
+## Project Structure
+
+```
+requirements-structuring-cli/
+├── src/
+│   ├── index.js                       # CLI entry point (10 commands)
+│   ├── parser.js                      # NL input reader
+│   ├── structurer.js                  # Phase 1: NL → formal structure (Eq. 1)
+│   ├── ucs-transformer.js             # Phase 2: structure → UCS template
+│   ├── ambiguity-detector.js          # Phase 0: ambiguity scanner
+│   ├── gherkin-generator.js           # Gherkin/BDD .feature generator
+│   ├── actor-role.js                  # Shared system-actor classification
+│   ├── business-object.js             # BO model: (N, Att, S_allowed, M, C)
+│   ├── ucs-template.js                # UCS data model
+│   ├── test-generator.js              # Algorithm 1 (GenTestCase)
+│   ├── consistency-checker.js         # Algorithms 2 & 3
+│   ├── feedback-loop.js               # Interactive 3-pass refinement loop
+│   ├── report-generator.js            # Human-readable Markdown reports
+│   ├── source-traceability.js         # Source requirement ID/text provenance
+│   ├── nfr-classifier.js              # #1108: FR/UCS → 25010 attribute classification
+│   ├── nfr-classification-taxonomy.js # Taxonomy loading/validation for classification
+│   ├── nfr-candidates.js              # #1109: classification → candidate matching
+│   ├── nfr-candidate-report.js        # Candidate Markdown rendering
+│   ├── nfr-library.js                 # #1115: curated 25010 taxonomy + pattern library
+│   ├── nfr-overlays.js                # Domain overlay registry (opt-in, additive)
+│   ├── nfr-input.js                   # #1112/#1164: NFR input validation contract
+│   ├── nfr-options.js                 # generate-nfr/pipeline shared CLI flags
+│   ├── nfr-output.js                  # Protected report/classification file writer
+│   ├── nfr-generator.js               # #1112: generate-nfr command + pipeline phase
+│   └── llm-client.js                  # Multi-provider LLM wrapper
+├── prompts/                     # 9 LLM prompt templates (00–08)
+├── schemas/                     # JSON Schemas for all data formats, incl. NFR taxonomy/patterns/overlays
+├── data/nfr/                    # Curated ISO/IEC 25010 taxonomy, pattern library, overlays (#1115)
+├── templates/                   # Requirements input template
+├── examples/                    # Web Store sample data (from paper) + golden NFR fixture (#1116)
+├── docs/                        # NFR contract, classification, generation, traceability, golden-example docs
+└── tests/                       # 240 unit tests
+```
+
+## Examples
+
+### Web Store (from the paper)
+
+The `examples/` directory contains data from the paper's GAMMA-J Web Store experiment:
+- `web-store-input.md` — Natural language requirements
+- `web-store-activity.json` — Activity diagram (BPM schema)
+- `web-store-state.json` — Shopping Cart state machine
+
+```bash
+npm start pipeline examples/web-store-input.md -o ./web-store-output
+```
+
+### Golden NFR reference example (password-reset fixture, #1116)
+
+See [Worked example: golden password-reset fixture (#1116)](#worked-example-golden-password-reset-fixture-1116)
+above under `generate-nfr` for the full NFR-augmented worked example.
+
+---
+
+## Testing
+
+```bash
+npm test
+```
+
+Runs the full unit-test suite (business object model, UCS template model, test
+generator, consistency checker, requirements parser, ambiguity detector,
+Gherkin generator, NFR classification/generation/overlays/confidence-gate,
+the classification evaluation harness (#1113), generate-nfr determinism,
+source traceability, the golden fixture, and a CLI version-drift regression
+check) — 240 tests as of this story (#1113; the v1.2.0 release itself
+shipped with 172, up from 29 at v1.1.0). `npm run
+eval:classification` runs the separate labeled classification eval described
+above; it is not part of `npm test`'s pass/fail gate (its numbers are
+reported, not asserted, since they measure the classifier's model behavior,
+not this codebase's correctness) but its own categorization logic is.
+
+---
+
+## Intended Workflow
+
+1. **BA/PO interviews business stakeholders** and captures requirements
+2. **BA fills in the requirements template** (`npm start init`)
+3. **Run the pipeline** (`npm start pipeline ...`) — tool detects ambiguities, structures requirements, generates UCS, test cases, and Gherkin
+4. **PO resolves blockers** using the ambiguity report's clarification questions
+5. **Sprint team reviews** the UCS spec and test cases
+6. **QA wires up Gherkin** feature files into the test framework
+7. **Engineers use the UCS** as design input for architecture, API design, and data model
+
+---
+
+## License
+
+MIT — See the repository root LICENSE file.

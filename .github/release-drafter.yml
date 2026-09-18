@@ -1,0 +1,81 @@
+name-template: 'v$RESOLVED_VERSION'
+tag-template: 'v$RESOLVED_VERSION'
+
+categories:
+  - title: '🚀 New Features'
+    labels:
+      - 'enhancement'
+      - 'feature'
+      - 'new-template'
+  - title: '🐛 Bug Fixes'
+    labels:
+      - 'bug'
+      - 'bugfix'
+      - 'fix'
+  - title: '📚 Documentation'
+    labels:
+      - 'documentation'
+      - 'docs'
+  - title: '🔧 Template Updates'
+    labels:
+      - 'template-update'
+      - 'template-improvement'
+      - 'metadata'
+  - title: '⚙️ Infrastructure & CI/CD'
+    labels:
+      - 'ci'
+      - 'infrastructure'
+      - 'workflows'
+      - 'security'
+  - title: '🤝 Community & Governance'
+    labels:
+      - 'governance'
+      - 'community'
+      - 'contributor-experience'
+
+change-template: '- $TITLE @$AUTHOR (#$NUMBER)'
+change-title-escapes: '\<*_&' # You can add # and @ to disable mentions, and add ` to disable code blocks.
+
+version-resolver:
+  major:
+    labels:
+      - 'major'
+  minor:
+    labels:
+      - 'minor'
+      - 'enhancement'
+      - 'feature'
+  patch:
+    labels:
+      - 'patch'
+      - 'bug'
+      - 'documentation'
+  default: patch
+
+template: |
+  ## What's Changed in v$RESOLVED_VERSION
+
+  $CHANGES
+
+  ### 📊 Repository Statistics
+  
+  - **Total Templates**: 154+
+  - **Methodologies Supported**: Traditional, Agile, Hybrid, Universal
+  - **Industry Specializations**: Healthcare, IT, Financial Services, and more
+  
+  ### 🔗 Quick Links
+  
+  - [📋 Browse All Templates](https://github.com/mirichard/pm-tools-templates/blob/main/TEMPLATE_INDEX.md)
+  - [🎯 Interactive Template Browser](https://github.com/mirichard/pm-tools-templates/blob/main/templates/index.html)
+  - [🤝 Contributing Guidelines](https://github.com/mirichard/pm-tools-templates/blob/main/CONTRIBUTING.md)
+  
+  ### 💬 Community Feedback
+  
+  Have feedback on this release? We'd love to hear from you!
+  - [🐛 Report a Bug](https://github.com/mirichard/pm-tools-templates/issues/new?template=bug_report.yml)
+  - [💡 Request a Feature](https://github.com/mirichard/pm-tools-templates/issues/new?template=enhancement.yml)
+  - [📝 Share Success Stories](https://github.com/mirichard/pm-tools-templates/discussions)
+  
+  ---
+  
+  **Full Changelog**: https://github.com/$OWNER/$REPOSITORY/compare/$PREVIOUS_TAG...v$RESOLVED_VERSION

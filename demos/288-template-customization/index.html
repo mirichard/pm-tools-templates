@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Epic 288 Demo</title>
+    <style>
+      body { margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; }
+      .container { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; padding: 16px; }
+      @media (max-width: 960px) { .container { grid-template-columns: 1fr; } }
+      .panel { border: 1px solid #ddd; border-radius: 8px; padding: 16px; }
+      .panel h2 { margin-top: 0; }
+      label { display: block; margin-top: 12px; font-weight: 600; }
+      input, textarea, select { width: 100%; padding: 8px; margin-top: 6px; border: 1px solid #ccc; border-radius: 6px; font: inherit; }
+      .error { color: #b00020; font-size: 0.9em; }
+      .toolbar { display: flex; gap: 8px; margin-bottom: 12px; flex-wrap: wrap; }
+      .badge { display: inline-block; background: #efefef; border-radius: 12px; padding: 2px 8px; font-size: 12px; }
+      pre { white-space: pre-wrap; }
+      .skip-link { position: absolute; left: -999px; top: -999px; background: #000; color: #fff; padding: 8px 12px; z-index: 1000; }
+      .skip-link:focus { left: 8px; top: 8px; outline: 2px solid #fff; }
+      :focus { outline: 2px solid #005fcc; outline-offset: 2px; }
+      button { padding: 6px 10px; border-radius: 6px; border: 1px solid #ccc; background: #f7f7f7; cursor: pointer; }
+    </style>
+  </head>
+  <body>
+    <a href="#main" class="skip-link">Skip to main content</a>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

@@ -1,0 +1,15 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import TemplateViewer from '../../components/TemplateViewer.tsx';
+import { templates } from '../../data/templates';
+
+export function getStaticPaths() {
+  return templates.map(template => ({ params: { id: template.id }, props: { template } }));
+}
+
+const { template } = Astro.props;
+---
+
+<Layout title={template.title}>
+  <TemplateViewer templateId={template.id} filePath={template.path} title={template.title} content={template.content} client:load />
+</Layout>

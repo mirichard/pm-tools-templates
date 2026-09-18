@@ -1,0 +1,18 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://pm-tools-templates/schemas/web-mvp/executive_status_report.schema.json",
+  "title": "Executive Status Report",
+  "type": "object",
+  "properties": {
+    "reportingPeriod": { "type": "string", "title": "Reporting Period" },
+    "overallHealth": { "type": "string", "enum": ["Green", "Yellow", "Red"] },
+    "schedule": { "type": "string", "enum": ["On Track", "At Risk", "Off Track"] },
+    "budget": { "type": "string", "enum": ["On Track", "At Risk", "Off Track"] },
+    "scope": { "type": "string", "enum": ["On Track", "At Risk", "Off Track"] },
+    "highlights": { "type": "string" },
+    "risks": { "type": "string" },
+    "nextSteps": { "type": "string" }
+  },
+  "required": ["reportingPeriod", "overallHealth"],
+  "additionalProperties": false
+}

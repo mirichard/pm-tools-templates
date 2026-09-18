@@ -1,0 +1,5 @@
+Trigger CI for site-related checks (no functional changes).
+Timestamp: 2025-08-18T19:43:15Z
+Branch: fix/templates-and-lockfile-validation
+Reason: Ensure Web MVP (site) CI and a11y jobs run via paths filter.
+

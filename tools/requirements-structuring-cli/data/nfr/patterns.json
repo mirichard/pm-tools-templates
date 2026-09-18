@@ -1,0 +1,1906 @@
+{
+  "revision": "0.1.0",
+  "taxonomyRevision": "0.1.0",
+  "releaseStatus": "requires-human-verification",
+  "frameworks": [
+    {
+      "id": "istqb",
+      "title": "ISTQB Certified Tester Foundation Level",
+      "edition": "4.0.1 (2024-09-15)",
+      "url": "https://istqb.org/wp-content/uploads/2024/11/ISTQB_CTFL_Syllabus_v4.0.1.pdf",
+      "accessedOn": "2026-09-11"
+    },
+    {
+      "id": "wcag22",
+      "title": "Web Content Accessibility Guidelines",
+      "edition": "2.2 Recommendation 2024-12-12",
+      "url": "https://www.w3.org/TR/2024/REC-WCAG22-20241212/",
+      "accessedOn": "2026-09-11"
+    },
+    {
+      "id": "sre-slo",
+      "title": "Google Site Reliability Engineering: Service Level Objectives",
+      "edition": "2016, chapter 4",
+      "url": "https://sre.google/sre-book/service-level-objectives/",
+      "accessedOn": "2026-09-11"
+    },
+    {
+      "id": "sre-monitor",
+      "title": "Google Site Reliability Engineering: Monitoring Distributed Systems",
+      "edition": "2016, chapter 6",
+      "url": "https://sre.google/sre-book/monitoring-distributed-systems/",
+      "accessedOn": "2026-09-11"
+    },
+    {
+      "id": "sre-testing",
+      "title": "Google Site Reliability Engineering: Testing for Reliability",
+      "edition": "2016, chapter 17",
+      "url": "https://sre.google/sre-book/testing-reliability/",
+      "accessedOn": "2026-09-11"
+    },
+    {
+      "id": "sre-simplicity",
+      "title": "Google Site Reliability Engineering: Simplicity",
+      "edition": "2016, chapter 9",
+      "url": "https://sre.google/sre-book/simplicity/",
+      "accessedOn": "2026-09-11"
+    },
+    {
+      "id": "sre-release",
+      "title": "Google Site Reliability Engineering: Release Engineering",
+      "edition": "2016, chapter 8",
+      "url": "https://sre.google/sre-book/release-engineering/",
+      "accessedOn": "2026-09-11"
+    },
+    {
+      "id": "nist-recovery",
+      "title": "NIST Contingency Planning Guide for Federal Information Systems",
+      "edition": "SP 800-34 Revision 1 (2010)",
+      "url": "https://csrc.nist.gov/pubs/sp/800/34/r1/final",
+      "accessedOn": "2026-09-11"
+    },
+    {
+      "id": "asvs",
+      "title": "OWASP Application Security Verification Standard",
+      "edition": "5.0.0",
+      "url": "https://github.com/OWASP/ASVS/tree/v5.0.0/5.0/en",
+      "accessedOn": "2026-09-11"
+    },
+    {
+      "id": "ssdf",
+      "title": "NIST Secure Software Development Framework",
+      "edition": "SP 800-218, SSDF 1.1 (2022)",
+      "url": "https://doi.org/10.6028/NIST.SP.800-218",
+      "accessedOn": "2026-09-11"
+    },
+    {
+      "id": "nasa-safety",
+      "title": "NASA Software Assurance and Software Safety Standard",
+      "edition": "NASA-STD-8739.8B (2022)",
+      "url": "https://sma.nasa.gov/docs/default-source/policies/nasa-std-8739-8b.pdf",
+      "accessedOn": "2026-09-11"
+    },
+    {
+      "id": "cfr11",
+      "title": "Controls for closed systems",
+      "edition": "21 CFR 11.10, eCFR snapshot accessed 2026-09-11",
+      "url": "https://www.ecfr.gov/current/title-21/chapter-I/subchapter-A/part-11/subpart-B/section-11.10",
+      "accessedOn": "2026-09-11"
+    },
+    {
+      "id": "hipaa",
+      "title": "Technical safeguards",
+      "edition": "45 CFR 164.312, eCFR snapshot accessed 2026-09-11",
+      "url": "https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-C/part-164/subpart-C/section-164.312",
+      "accessedOn": "2026-09-11"
+    },
+    {
+      "id": "pci",
+      "title": "PCI SSC FAQ 1154: account-data retention",
+      "edition": "PCI DSS requirement 3.3.1, FAQ accessed 2026-09-11",
+      "url": "https://www.pcisecuritystandards.org/faqs/1154/",
+      "accessedOn": "2026-09-11"
+    },
+    {
+      "id": "section508",
+      "title": "Revised 508 Standards and 255 Guidelines",
+      "edition": "2017 rule, E205.4; accessed 2026-09-11",
+      "url": "https://www.access-board.gov/ict/",
+      "accessedOn": "2026-09-11"
+    },
+    {
+      "id": "wcag20",
+      "title": "Web Content Accessibility Guidelines",
+      "edition": "2.0 Recommendation 2008-12-11",
+      "url": "https://www.w3.org/TR/2008/REC-WCAG20-20081211/",
+      "accessedOn": "2026-09-11"
+    }
+  ],
+  "patterns": [
+    {
+      "id": "core.functional-completeness",
+      "subCharacteristic": "functional-completeness",
+      "characteristic": "functional-suitability",
+      "template": "{{system}} shall provide implemented functions for at least {{target}} percent of the required tasks in {{scope}} under {{conditions}}.",
+      "parameters": {
+        "system": {
+          "type": "string",
+          "description": "System or component under assessment."
+        },
+        "scope": {
+          "type": "string",
+          "description": "Named, versioned task, interface, event or scenario inventory; must be nonempty."
+        },
+        "conditions": {
+          "type": "string",
+          "description": "Approved measurement plan: environment, workload/cohort, observation window, oracle, aggregation and exclusions."
+        },
+        "target": {
+          "type": "number",
+          "description": "Stakeholder-approved acceptance bound; no framework-prescribed default is implied.",
+          "minimum": 0,
+          "maximum": 100
+        }
+      },
+      "metric": {
+        "type": "coverage",
+        "unit": "percent",
+        "operator": ">=",
+        "targetParameter": "target",
+        "measurement": "Count tasks with an implemented function divided by all required tasks; freeze the task inventory before assessment."
+      },
+      "provenance": {
+        "standardEdition": "ISO/IEC 25010:2023",
+        "subCharacteristic": "functional-completeness",
+        "frameworks": [
+          {
+            "id": "istqb",
+            "section": "5.3.1 Metrics Used in Testing"
+          }
+        ],
+        "derivation": "curator-authored; framework-informed measurement, not a normative ISO mapping"
+      },
+      "reviewStatus": "requires-human-verification"
+    },
+    {
+      "id": "core.functional-correctness",
+      "subCharacteristic": "functional-correctness",
+      "characteristic": "functional-suitability",
+      "template": "{{system}} shall produce the expected result in at least {{target}} percent of the oracle-backed cases in {{scope}} under {{conditions}}.",
+      "parameters": {
+        "system": {
+          "type": "string",
+          "description": "System or component under assessment."
+        },
+        "scope": {
+          "type": "string",
+          "description": "Named, versioned task, interface, event or scenario inventory; must be nonempty."
+        },
+        "conditions": {
+          "type": "string",
+          "description": "Approved measurement plan: environment, workload/cohort, observation window, oracle, aggregation and exclusions."
+        },
+        "target": {
+          "type": "number",
+          "description": "Stakeholder-approved acceptance bound; no framework-prescribed default is implied.",
+          "minimum": 0,
+          "maximum": 100
+        }
+      },
+      "metric": {
+        "type": "success-rate",
+        "unit": "percent",
+        "operator": ">=",
+        "targetParameter": "target",
+        "measurement": "Compare actual results with independently approved expected results; denominator includes every executed case."
+      },
+      "provenance": {
+        "standardEdition": "ISO/IEC 25010:2023",
+        "subCharacteristic": "functional-correctness",
+        "frameworks": [
+          {
+            "id": "istqb",
+            "section": "5.3.1 Metrics Used in Testing"
+          }
+        ],
+        "derivation": "curator-authored; framework-informed measurement, not a normative ISO mapping"
+      },
+      "reviewStatus": "requires-human-verification"
+    },
+    {
+      "id": "core.functional-appropriateness",
+      "subCharacteristic": "functional-appropriateness",
+      "characteristic": "functional-suitability",
+      "template": "{{system}} shall enable completion of {{scope}} in at most {{target}} user actions per task under {{conditions}}.",
+      "parameters": {
+        "system": {
+          "type": "string",
+          "description": "System or component under assessment."
+        },
+        "scope": {
+          "type": "string",
+          "description": "Named, versioned task, interface, event or scenario inventory; must be nonempty."
+        },
+        "conditions": {
+          "type": "string",
+          "description": "Approved measurement plan: environment, workload/cohort, observation window, oracle, aggregation and exclusions."
+        },
+        "target": {
+          "type": "number",
+          "description": "Stakeholder-approved acceptance bound; no framework-prescribed default is implied.",
+          "minimum": 0
+        }
+      },
+      "metric": {
+        "type": "count",
+        "unit": "actions",
+        "operator": "<=",
+        "targetParameter": "target",
+        "measurement": "Count actions from task start to successful goal; report the maximum across the predefined task set."
+      },
+      "provenance": {
+        "standardEdition": "ISO/IEC 25010:2023",
+        "subCharacteristic": "functional-appropriateness",
+        "frameworks": [
+          {
+            "id": "istqb",
+            "section": "2.2.2 Test Types; non-functional testing"
+          }
+        ],
+        "derivation": "curator-authored; framework-informed measurement, not a normative ISO mapping"
+      },
+      "reviewStatus": "requires-human-verification"
+    },
+    {
+      "id": "core.time-behaviour",
+      "subCharacteristic": "time-behaviour",
+      "characteristic": "performance-efficiency",
+      "template": "{{system}} shall complete {{scope}} with a measured response-time percentile of at most {{target}} milliseconds under {{conditions}}.",
+      "parameters": {
+        "system": {
+          "type": "string",
+          "description": "System or component under assessment."
+        },
+        "scope": {
+          "type": "string",
+          "description": "Named, versioned task, interface, event or scenario inventory; must be nonempty."
+        },
+        "conditions": {
+          "type": "string",
+          "description": "Approved measurement plan: environment, workload/cohort, observation window, oracle, aggregation and exclusions."
+        },
+        "target": {
+          "type": "number",
+          "description": "Stakeholder-approved acceptance bound; no framework-prescribed default is implied.",
+          "minimum": 0
+        }
+      },
+      "metric": {
+        "type": "duration",
+        "unit": "milliseconds",
+        "operator": "<=",
+        "targetParameter": "target",
+        "measurement": "Specify percentile, workload, observation window, request boundaries and timeout handling in conditions."
+      },
+      "provenance": {
+        "standardEdition": "ISO/IEC 25010:2023",
+        "subCharacteristic": "time-behaviour",
+        "frameworks": [
+          {
+            "id": "sre-slo",
+            "section": "Indicators; Objectives in Practice"
+          }
+        ],
+        "derivation": "curator-authored; framework-informed measurement, not a normative ISO mapping"
+      },
+      "reviewStatus": "requires-human-verification"
+    },
+    {
+      "id": "core.resource-utilization",
+      "subCharacteristic": "resource-utilization",
+      "characteristic": "performance-efficiency",
+      "template": "{{system}} shall use at most {{target}} percent of the allocated resource for {{scope}} under {{conditions}}.",
+      "parameters": {
+        "system": {
+          "type": "string",
+          "description": "System or component under assessment."
+        },
+        "scope": {
+          "type": "string",
+          "description": "Named, versioned task, interface, event or scenario inventory; must be nonempty."
+        },
+        "conditions": {
+          "type": "string",
+          "description": "Approved measurement plan: environment, workload/cohort, observation window, oracle, aggregation and exclusions."
+        },
+        "target": {
+          "type": "number",
+          "description": "Stakeholder-approved acceptance bound; no framework-prescribed default is implied.",
+          "minimum": 0,
+          "maximum": 100
+        }
+      },
+      "metric": {
+        "type": "utilization",
+        "unit": "percent",
+        "operator": "<=",
+        "targetParameter": "target",
+        "measurement": "Select one resource and its allocation; measure peak usage/allocation across the fixed workload window."
+      },
+      "provenance": {
+        "standardEdition": "ISO/IEC 25010:2023",
+        "subCharacteristic": "resource-utilization",
+        "frameworks": [
+          {
+            "id": "sre-monitor",
+            "section": "The Four Golden Signals: Saturation"
+          }
+        ],
+        "derivation": "curator-authored; framework-informed measurement, not a normative ISO mapping"
+      },
+      "reviewStatus": "requires-human-verification"
+    },
+    {
+      "id": "core.capacity",
+      "subCharacteristic": "capacity",
+      "characteristic": "performance-efficiency",
+      "template": "{{system}} shall sustain at least {{target}} simultaneous active sessions for {{scope}} under {{conditions}}.",
+      "parameters": {
+        "system": {
+          "type": "string",
+          "description": "System or component under assessment."
+        },
+        "scope": {
+          "type": "string",
+          "description": "Named, versioned task, interface, event or scenario inventory; must be nonempty."
+        },
+        "conditions": {
+          "type": "string",
+          "description": "Approved measurement plan: environment, workload/cohort, observation window, oracle, aggregation and exclusions."
+        },
+        "target": {
+          "type": "number",
+          "description": "Stakeholder-approved acceptance bound; no framework-prescribed default is implied.",
+          "minimum": 0
+        }
+      },
+      "metric": {
+        "type": "count",
+        "unit": "sessions",
+        "operator": ">=",
+        "targetParameter": "target",
+        "measurement": "Conditions define session activity, workload duration and acceptance bounds; count sessions meeting those bounds."
+      },
+      "provenance": {
+        "standardEdition": "ISO/IEC 25010:2023",
+        "subCharacteristic": "capacity",
+        "frameworks": [
+          {
+            "id": "sre-monitor",
+            "section": "The Four Golden Signals: Traffic and Saturation"
+          }
+        ],
+        "derivation": "curator-authored; framework-informed measurement, not a normative ISO mapping"
+      },
+      "reviewStatus": "requires-human-verification"
+    },
+    {
+      "id": "core.co-existence",
+      "subCharacteristic": "co-existence",
+      "characteristic": "compatibility",
+      "template": "{{system}} shall limit response-time increase of the co-resident workload {{scope}} to at most {{target}} percent under {{conditions}}.",
+      "parameters": {
+        "system": {
+          "type": "string",
+          "description": "System or component under assessment."
+        },
+        "scope": {
+          "type": "string",
+          "description": "Named, versioned task, interface, event or scenario inventory; must be nonempty."
+        },
+        "conditions": {
+          "type": "string",
+          "description": "Approved measurement plan: environment, workload/cohort, observation window, oracle, aggregation and exclusions."
+        },
+        "target": {
+          "type": "number",
+          "description": "Stakeholder-approved acceptance bound; no framework-prescribed default is implied.",
+          "minimum": 0
+        }
+      },
+      "metric": {
+        "type": "degradation",
+        "unit": "percent",
+        "operator": "<=",
+        "targetParameter": "target",
+        "measurement": "Compare the same workload with and without this system; use a nonzero baseline and fixed resource allocation."
+      },
+      "provenance": {
+        "standardEdition": "ISO/IEC 25010:2023",
+        "subCharacteristic": "co-existence",
+        "frameworks": [
+          {
+            "id": "sre-monitor",
+            "section": "The Four Golden Signals: Latency and Saturation"
+          }
+        ],
+        "derivation": "curator-authored; framework-informed measurement, not a normative ISO mapping"
+      },
+      "reviewStatus": "requires-human-verification"
+    },
+    {
+      "id": "core.interoperability",
+      "subCharacteristic": "interoperability",
+      "characteristic": "compatibility",
+      "template": "{{system}} shall exchange and correctly interpret at least {{target}} percent of the interface cases in {{scope}} under {{conditions}}.",
+      "parameters": {
+        "system": {
+          "type": "string",
+          "description": "System or component under assessment."
+        },
+        "scope": {
+          "type": "string",
+          "description": "Named, versioned task, interface, event or scenario inventory; must be nonempty."
+        },
+        "conditions": {
+          "type": "string",
+          "description": "Approved measurement plan: environment, workload/cohort, observation window, oracle, aggregation and exclusions."
+        },
+        "target": {
+          "type": "number",
+          "description": "Stakeholder-approved acceptance bound; no framework-prescribed default is implied.",
+          "minimum": 0,
+          "maximum": 100
+        }
+      },
+      "metric": {
+        "type": "success-rate",
+        "unit": "percent",
+        "operator": ">=",
+        "targetParameter": "target",
+        "measurement": "Use independently specified peer/version combinations and semantic expectations; failed exchanges remain in the denominator."
+      },
+      "provenance": {
+        "standardEdition": "ISO/IEC 25010:2023",
+        "subCharacteristic": "interoperability",
+        "frameworks": [
+          {
+            "id": "istqb",
+            "section": "2.2.1 Test Levels; system integration testing"
+          }
+        ],
+        "derivation": "curator-authored; framework-informed measurement, not a normative ISO mapping"
+      },
+      "reviewStatus": "requires-human-verification"
+    },
+    {
+      "id": "core.appropriateness-recognizability",
+      "subCharacteristic": "appropriateness-recognizability",
+      "characteristic": "interaction-capability",
+      "template": "{{system}} shall enable at least {{target}} percent of participants to identify its suitability for {{scope}} under {{conditions}}.",
+      "parameters": {
+        "system": {
+          "type": "string",
+          "description": "System or component under assessment."
+        },
+        "scope": {
+          "type": "string",
+          "description": "Named, versioned task, interface, event or scenario inventory; must be nonempty."
+        },
+        "conditions": {
+          "type": "string",
+          "description": "Approved measurement plan: environment, workload/cohort, observation window, oracle, aggregation and exclusions."
+        },
+        "target": {
+          "type": "number",
+          "description": "Stakeholder-approved acceptance bound; no framework-prescribed default is implied.",
+          "minimum": 0,
+          "maximum": 100
+        }
+      },
+      "metric": {
+        "type": "success-rate",
+        "unit": "percent",
+        "operator": ">=",
+        "targetParameter": "target",
+        "measurement": "Use unprompted suitability decisions against an agreed task rubric and a predefined participant cohort."
+      },
+      "provenance": {
+        "standardEdition": "ISO/IEC 25010:2023",
+        "subCharacteristic": "appropriateness-recognizability",
+        "frameworks": [
+          {
+            "id": "wcag22",
+            "section": "2.4.6 Headings and Labels; curator-derived usability study"
+          }
+        ],
+        "derivation": "curator-authored; framework-informed measurement, not a normative ISO mapping"
+      },
+      "reviewStatus": "requires-human-verification"
+    },
+    {
+      "id": "core.learnability",
+      "subCharacteristic": "learnability",
+      "characteristic": "interaction-capability",
+      "template": "{{system}} shall enable first-time users to learn {{scope}} in at most {{target}} minutes under {{conditions}}.",
+      "parameters": {
+        "system": {
+          "type": "string",
+          "description": "System or component under assessment."
+        },
+        "scope": {
+          "type": "string",
+          "description": "Named, versioned task, interface, event or scenario inventory; must be nonempty."
+        },
+        "conditions": {
+          "type": "string",
+          "description": "Approved measurement plan: environment, workload/cohort, observation window, oracle, aggregation and exclusions."
+        },
+        "target": {
+          "type": "number",
+          "description": "Stakeholder-approved acceptance bound; no framework-prescribed default is implied.",
+          "minimum": 0
+        }
+      },
+      "metric": {
+        "type": "duration",
+        "unit": "minutes",
+        "operator": "<=",
+        "targetParameter": "target",
+        "measurement": "Measure elapsed training time until independent task success; conditions specify cohort, success rubric and aggregation."
+      },
+      "provenance": {
+        "standardEdition": "ISO/IEC 25010:2023",
+        "subCharacteristic": "learnability",
+        "frameworks": [
+          {
+            "id": "wcag22",
+            "section": "3.3.2 Labels or Instructions; curator-derived learning measure"
+          }
+        ],
+        "derivation": "curator-authored; framework-informed measurement, not a normative ISO mapping"
+      },
+      "reviewStatus": "requires-human-verification"
+    },
+    {
+      "id": "core.operability",
+      "subCharacteristic": "operability",
+      "characteristic": "interaction-capability",
+      "template": "{{system}} shall enable at least {{target}} percent of participants to complete {{scope}} without operator assistance under {{conditions}}.",
+      "parameters": {
+        "system": {
+          "type": "string",
+          "description": "System or component under assessment."
+        },
+        "scope": {
+          "type": "string",
+          "description": "Named, versioned task, interface, event or scenario inventory; must be nonempty."
+        },
+        "conditions": {
+          "type": "string",
+          "description": "Approved measurement plan: environment, workload/cohort, observation window, oracle, aggregation and exclusions."
+        },
+        "target": {
+          "type": "number",
+          "description": "Stakeholder-approved acceptance bound; no framework-prescribed default is implied.",
+          "minimum": 0,
+          "maximum": 100
+        }
+      },
+      "metric": {
+        "type": "success-rate",
+        "unit": "percent",
+        "operator": ">=",
+        "targetParameter": "target",
+        "measurement": "Use a declared task-success rubric; denominator includes all enrolled participants who attempt the task."
+      },
+      "provenance": {
+        "standardEdition": "ISO/IEC 25010:2023",
+        "subCharacteristic": "operability",
+        "frameworks": [
+          {
+            "id": "wcag22",
+            "section": "2.1.1 Keyboard; curator-derived operation measure"
+          }
+        ],
+        "derivation": "curator-authored; framework-informed measurement, not a normative ISO mapping"
+      },
+      "reviewStatus": "requires-human-verification"
+    },
+    {
+      "id": "core.user-error-protection",
+      "subCharacteristic": "user-error-protection",
+      "characteristic": "interaction-capability",
+      "template": "{{system}} shall prevent at least {{target}} percent of the erroneous actions in {{scope}} from causing the defined unwanted outcome under {{conditions}}.",
+      "parameters": {
+        "system": {
+          "type": "string",
+          "description": "System or component under assessment."
+        },
+        "scope": {
+          "type": "string",
+          "description": "Named, versioned task, interface, event or scenario inventory; must be nonempty."
+        },
+        "conditions": {
+          "type": "string",
+          "description": "Approved measurement plan: environment, workload/cohort, observation window, oracle, aggregation and exclusions."
+        },
+        "target": {
+          "type": "number",
+          "description": "Stakeholder-approved acceptance bound; no framework-prescribed default is implied.",
+          "minimum": 0,
+          "maximum": 100
+        }
+      },
+      "metric": {
+        "type": "success-rate",
+        "unit": "percent",
+        "operator": ">=",
+        "targetParameter": "target",
+        "measurement": "Inject the frozen error catalogue; count blocked or safely corrected outcomes over all injected errors."
+      },
+      "provenance": {
+        "standardEdition": "ISO/IEC 25010:2023",
+        "subCharacteristic": "user-error-protection",
+        "frameworks": [
+          {
+            "id": "wcag22",
+            "section": "3.3.6 Error Prevention (All); curator-derived error measure"
+          }
+        ],
+        "derivation": "curator-authored; framework-informed measurement, not a normative ISO mapping"
+      },
+      "reviewStatus": "requires-human-verification"
+    },
+    {
+      "id": "core.user-engagement",
+      "subCharacteristic": "user-engagement",
+      "characteristic": "interaction-capability",
+      "template": "{{system}} shall obtain a voluntary task-continuation rate of at least {{target}} percent for {{scope}} under {{conditions}}.",
+      "parameters": {
+        "system": {
+          "type": "string",
+          "description": "System or component under assessment."
+        },
+        "scope": {
+          "type": "string",
+          "description": "Named, versioned task, interface, event or scenario inventory; must be nonempty."
+        },
+        "conditions": {
+          "type": "string",
+          "description": "Approved measurement plan: environment, workload/cohort, observation window, oracle, aggregation and exclusions."
+        },
+        "target": {
+          "type": "number",
+          "description": "Stakeholder-approved acceptance bound; no framework-prescribed default is implied.",
+          "minimum": 0,
+          "maximum": 100
+        }
+      },
+      "metric": {
+        "type": "success-rate",
+        "unit": "percent",
+        "operator": ">=",
+        "targetParameter": "target",
+        "measurement": "Measure participants choosing to continue after the agreed trial, excluding coercion; this proxy requires product-specific review."
+      },
+      "provenance": {
+        "standardEdition": "ISO/IEC 25010:2023",
+        "subCharacteristic": "user-engagement",
+        "frameworks": [
+          {
+            "id": "istqb",
+            "section": "2.2.2 Test Types; curator-derived non-functional acceptance measure"
+          }
+        ],
+        "derivation": "curator-authored; framework-informed measurement, not a normative ISO mapping"
+      },
+      "reviewStatus": "requires-human-verification"
+    },
+    {
+      "id": "core.inclusivity",
+      "subCharacteristic": "inclusivity",
+      "characteristic": "interaction-capability",
+      "template": "{{system}} shall enable task success for at least {{target}} percent of participants in each declared user group for {{scope}} under {{conditions}}.",
+      "parameters": {
+        "system": {
+          "type": "string",
+          "description": "System or component under assessment."
+        },
+        "scope": {
+          "type": "string",
+          "description": "Named, versioned task, interface, event or scenario inventory; must be nonempty."
+        },
+        "conditions": {
+          "type": "string",
+          "description": "Approved measurement plan: environment, workload/cohort, observation window, oracle, aggregation and exclusions."
+        },
+        "target": {
+          "type": "number",
+          "description": "Stakeholder-approved acceptance bound; no framework-prescribed default is implied.",
+          "minimum": 0,
+          "maximum": 100
+        }
+      },
+      "metric": {
+        "type": "success-rate",
+        "unit": "percent",
+        "operator": ">=",
+        "targetParameter": "target",
+        "measurement": "Declare groups, accommodations and tasks before the study; assess each group separately to avoid hiding an excluded group."
+      },
+      "provenance": {
+        "standardEdition": "ISO/IEC 25010:2023",
+        "subCharacteristic": "inclusivity",
+        "frameworks": [
+          {
+            "id": "wcag22",
+            "section": "Introduction; curator-derived inclusive task measure"
+          }
+        ],
+        "derivation": "curator-authored; framework-informed measurement, not a normative ISO mapping"
+      },
+      "reviewStatus": "requires-human-verification"
+    },
+    {
+      "id": "core.user-assistance",
+      "subCharacteristic": "user-assistance",
+      "characteristic": "interaction-capability",
+      "template": "{{system}} shall enable at least {{target}} percent of participants to resolve {{scope}} using the provided help under {{conditions}}.",
+      "parameters": {
+        "system": {
+          "type": "string",
+          "description": "System or component under assessment."
+        },
+        "scope": {
+          "type": "string",
+          "description": "Named, versioned task, interface, event or scenario inventory; must be nonempty."
+        },
+        "conditions": {
+          "type": "string",
+          "description": "Approved measurement plan: environment, workload/cohort, observation window, oracle, aggregation and exclusions."
+        },
+        "target": {
+          "type": "number",
+          "description": "Stakeholder-approved acceptance bound; no framework-prescribed default is implied.",
+          "minimum": 0,
+          "maximum": 100
+        }
+      },
+      "metric": {
+        "type": "success-rate",
+        "unit": "percent",
+        "operator": ">=",
+        "targetParameter": "target",
+        "measurement": "Use a fixed problem set and success rubric; include unsuccessful help searches in the denominator."
+      },
+      "provenance": {
+        "standardEdition": "ISO/IEC 25010:2023",
+        "subCharacteristic": "user-assistance",
+        "frameworks": [
+          {
+            "id": "wcag22",
+            "section": "3.2.6 Consistent Help; curator-derived assistance measure"
+          }
+        ],
+        "derivation": "curator-authored; framework-informed measurement, not a normative ISO mapping"
+      },
+      "reviewStatus": "requires-human-verification"
+    },
+    {
+      "id": "core.self-descriptiveness",
+      "subCharacteristic": "self-descriptiveness",
+      "characteristic": "interaction-capability",
+      "template": "{{system}} shall enable at least {{target}} percent of participants to explain the current state and next valid action for {{scope}} under {{conditions}}.",
+      "parameters": {
+        "system": {
+          "type": "string",
+          "description": "System or component under assessment."
+        },
+        "scope": {
+          "type": "string",
+          "description": "Named, versioned task, interface, event or scenario inventory; must be nonempty."
+        },
+        "conditions": {
+          "type": "string",
+          "description": "Approved measurement plan: environment, workload/cohort, observation window, oracle, aggregation and exclusions."
+        },
+        "target": {
+          "type": "number",
+          "description": "Stakeholder-approved acceptance bound; no framework-prescribed default is implied.",
+          "minimum": 0,
+          "maximum": 100
+        }
+      },
+      "metric": {
+        "type": "success-rate",
+        "unit": "percent",
+        "operator": ">=",
+        "targetParameter": "target",
+        "measurement": "Score explanations using an independent state/action rubric without external instructions."
+      },
+      "provenance": {
+        "standardEdition": "ISO/IEC 25010:2023",
+        "subCharacteristic": "self-descriptiveness",
+        "frameworks": [
+          {
+            "id": "wcag22",
+            "section": "4.1.3 Status Messages; curator-derived comprehension measure"
+          }
+        ],
+        "derivation": "curator-authored; framework-informed measurement, not a normative ISO mapping"
+      },
+      "reviewStatus": "requires-human-verification"
+    },
+    {
+      "id": "core.faultlessness",
+      "subCharacteristic": "faultlessness",
+      "characteristic": "reliability",
+      "template": "{{system}} shall complete at least {{target}} percent of the operations in {{scope}} without a defined failure under {{conditions}}.",
+      "parameters": {
+        "system": {
+          "type": "string",
+          "description": "System or component under assessment."
+        },
+        "scope": {
+          "type": "string",
+          "description": "Named, versioned task, interface, event or scenario inventory; must be nonempty."
+        },
+        "conditions": {
+          "type": "string",
+          "description": "Approved measurement plan: environment, workload/cohort, observation window, oracle, aggregation and exclusions."
+        },
+        "target": {
+          "type": "number",
+          "description": "Stakeholder-approved acceptance bound; no framework-prescribed default is implied.",
+          "minimum": 0,
+          "maximum": 100
+        }
+      },
+      "metric": {
+        "type": "success-rate",
+        "unit": "percent",
+        "operator": ">=",
+        "targetParameter": "target",
+        "measurement": "Freeze failure criteria and observation window; denominator includes timeouts and failed operations."
+      },
+      "provenance": {
+        "standardEdition": "ISO/IEC 25010:2023",
+        "subCharacteristic": "faultlessness",
+        "frameworks": [
+          {
+            "id": "sre-slo",
+            "section": "Indicators; error rate"
+          }
+        ],
+        "derivation": "curator-authored; framework-informed measurement, not a normative ISO mapping"
+      },
+      "reviewStatus": "requires-human-verification"
+    },
+    {
+      "id": "core.availability",
+      "subCharacteristic": "availability",
+      "characteristic": "reliability",
+      "template": "{{system}} shall remain ready for {{scope}} for at least {{target}} percent of the observation time under {{conditions}}.",
+      "parameters": {
+        "system": {
+          "type": "string",
+          "description": "System or component under assessment."
+        },
+        "scope": {
+          "type": "string",
+          "description": "Named, versioned task, interface, event or scenario inventory; must be nonempty."
+        },
+        "conditions": {
+          "type": "string",
+          "description": "Approved measurement plan: environment, workload/cohort, observation window, oracle, aggregation and exclusions."
+        },
+        "target": {
+          "type": "number",
+          "description": "Stakeholder-approved acceptance bound; no framework-prescribed default is implied.",
+          "minimum": 0,
+          "maximum": 100
+        }
+      },
+      "metric": {
+        "type": "availability",
+        "unit": "percent",
+        "operator": ">=",
+        "targetParameter": "target",
+        "measurement": "Divide ready time by total in-scope time using fixed probes and interval; disclose maintenance and exclusions."
+      },
+      "provenance": {
+        "standardEdition": "ISO/IEC 25010:2023",
+        "subCharacteristic": "availability",
+        "frameworks": [
+          {
+            "id": "sre-slo",
+            "section": "Indicators; availability"
+          }
+        ],
+        "derivation": "curator-authored; framework-informed measurement, not a normative ISO mapping"
+      },
+      "reviewStatus": "requires-human-verification"
+    },
+    {
+      "id": "core.fault-tolerance",
+      "subCharacteristic": "fault-tolerance",
+      "characteristic": "reliability",
+      "template": "{{system}} shall complete at least {{target}} percent of the operations in {{scope}} during injected faults under {{conditions}}.",
+      "parameters": {
+        "system": {
+          "type": "string",
+          "description": "System or component under assessment."
+        },
+        "scope": {
+          "type": "string",
+          "description": "Named, versioned task, interface, event or scenario inventory; must be nonempty."
+        },
+        "conditions": {
+          "type": "string",
+          "description": "Approved measurement plan: environment, workload/cohort, observation window, oracle, aggregation and exclusions."
+        },
+        "target": {
+          "type": "number",
+          "description": "Stakeholder-approved acceptance bound; no framework-prescribed default is implied.",
+          "minimum": 0,
+          "maximum": 100
+        }
+      },
+      "metric": {
+        "type": "success-rate",
+        "unit": "percent",
+        "operator": ">=",
+        "targetParameter": "target",
+        "measurement": "Specify fault catalogue, injection timing and accepted degraded behavior; count failed operations."
+      },
+      "provenance": {
+        "standardEdition": "ISO/IEC 25010:2023",
+        "subCharacteristic": "fault-tolerance",
+        "frameworks": [
+          {
+            "id": "sre-testing",
+            "section": "Testing at Scale; testing failure behavior"
+          }
+        ],
+        "derivation": "curator-authored; framework-informed measurement, not a normative ISO mapping"
+      },
+      "reviewStatus": "requires-human-verification"
+    },
+    {
+      "id": "core.recoverability",
+      "subCharacteristic": "recoverability",
+      "characteristic": "reliability",
+      "template": "{{system}} shall restore {{scope}} within {{target}} minutes after the declared disruption under {{conditions}}.",
+      "parameters": {
+        "system": {
+          "type": "string",
+          "description": "System or component under assessment."
+        },
+        "scope": {
+          "type": "string",
+          "description": "Named, versioned task, interface, event or scenario inventory; must be nonempty."
+        },
+        "conditions": {
+          "type": "string",
+          "description": "Approved measurement plan: environment, workload/cohort, observation window, oracle, aggregation and exclusions."
+        },
+        "target": {
+          "type": "number",
+          "description": "Stakeholder-approved acceptance bound; no framework-prescribed default is implied.",
+          "minimum": 0
+        }
+      },
+      "metric": {
+        "type": "duration",
+        "unit": "minutes",
+        "operator": "<=",
+        "targetParameter": "target",
+        "measurement": "Time from disruption to verified service restoration across every scenario; review data-loss/RPO constraints separately."
+      },
+      "provenance": {
+        "standardEdition": "ISO/IEC 25010:2023",
+        "subCharacteristic": "recoverability",
+        "frameworks": [
+          {
+            "id": "nist-recovery",
+            "section": "3.2 Business Impact Analysis; recovery time objective"
+          }
+        ],
+        "derivation": "curator-authored; framework-informed measurement, not a normative ISO mapping"
+      },
+      "reviewStatus": "requires-human-verification"
+    },
+    {
+      "id": "core.confidentiality",
+      "subCharacteristic": "confidentiality",
+      "characteristic": "security",
+      "template": "{{system}} shall reject at least {{target}} percent of unauthorized disclosure attempts against {{scope}} under {{conditions}}.",
+      "parameters": {
+        "system": {
+          "type": "string",
+          "description": "System or component under assessment."
+        },
+        "scope": {
+          "type": "string",
+          "description": "Named, versioned task, interface, event or scenario inventory; must be nonempty."
+        },
+        "conditions": {
+          "type": "string",
+          "description": "Approved measurement plan: environment, workload/cohort, observation window, oracle, aggregation and exclusions."
+        },
+        "target": {
+          "type": "number",
+          "description": "Stakeholder-approved acceptance bound; no framework-prescribed default is implied.",
+          "minimum": 0,
+          "maximum": 100
+        }
+      },
+      "metric": {
+        "type": "success-rate",
+        "unit": "percent",
+        "operator": ">=",
+        "targetParameter": "target",
+        "measurement": "Use an approved access matrix and negative tests; this finite test metric is not a claim of universal protection."
+      },
+      "provenance": {
+        "standardEdition": "ISO/IEC 25010:2023",
+        "subCharacteristic": "confidentiality",
+        "frameworks": [
+          {
+            "id": "asvs",
+            "section": "V8 Authorization; V14 Data Protection"
+          }
+        ],
+        "derivation": "curator-authored; framework-informed measurement, not a normative ISO mapping"
+      },
+      "reviewStatus": "requires-human-verification"
+    },
+    {
+      "id": "core.integrity",
+      "subCharacteristic": "integrity",
+      "characteristic": "security",
+      "template": "{{system}} shall detect at least {{target}} percent of unauthorized modifications to {{scope}} under {{conditions}}.",
+      "parameters": {
+        "system": {
+          "type": "string",
+          "description": "System or component under assessment."
+        },
+        "scope": {
+          "type": "string",
+          "description": "Named, versioned task, interface, event or scenario inventory; must be nonempty."
+        },
+        "conditions": {
+          "type": "string",
+          "description": "Approved measurement plan: environment, workload/cohort, observation window, oracle, aggregation and exclusions."
+        },
+        "target": {
+          "type": "number",
+          "description": "Stakeholder-approved acceptance bound; no framework-prescribed default is implied.",
+          "minimum": 0,
+          "maximum": 100
+        }
+      },
+      "metric": {
+        "type": "success-rate",
+        "unit": "percent",
+        "operator": ">=",
+        "targetParameter": "target",
+        "measurement": "Apply a declared tampering corpus and verify detection with an independent oracle."
+      },
+      "provenance": {
+        "standardEdition": "ISO/IEC 25010:2023",
+        "subCharacteristic": "integrity",
+        "frameworks": [
+          {
+            "id": "asvs",
+            "section": "V11 Cryptography; V14 Data Protection"
+          }
+        ],
+        "derivation": "curator-authored; framework-informed measurement, not a normative ISO mapping"
+      },
+      "reviewStatus": "requires-human-verification"
+    },
+    {
+      "id": "core.non-repudiation",
+      "subCharacteristic": "non-repudiation",
+      "characteristic": "security",
+      "template": "{{system}} shall produce verifiable origin evidence for at least {{target}} percent of the transactions in {{scope}} under {{conditions}}.",
+      "parameters": {
+        "system": {
+          "type": "string",
+          "description": "System or component under assessment."
+        },
+        "scope": {
+          "type": "string",
+          "description": "Named, versioned task, interface, event or scenario inventory; must be nonempty."
+        },
+        "conditions": {
+          "type": "string",
+          "description": "Approved measurement plan: environment, workload/cohort, observation window, oracle, aggregation and exclusions."
+        },
+        "target": {
+          "type": "number",
+          "description": "Stakeholder-approved acceptance bound; no framework-prescribed default is implied.",
+          "minimum": 0,
+          "maximum": 100
+        }
+      },
+      "metric": {
+        "type": "coverage",
+        "unit": "percent",
+        "operator": ">=",
+        "targetParameter": "target",
+        "measurement": "Verify evidence binds actor and transaction and resists the declared tampering tests; legal evidentiary sufficiency is outside this metric."
+      },
+      "provenance": {
+        "standardEdition": "ISO/IEC 25010:2023",
+        "subCharacteristic": "non-repudiation",
+        "frameworks": [
+          {
+            "id": "asvs",
+            "section": "V11 Cryptography; V16 Security Logging and Error Handling; curator-derived evidence mapping"
+          }
+        ],
+        "derivation": "curator-authored; framework-informed measurement, not a normative ISO mapping"
+      },
+      "reviewStatus": "requires-human-verification"
+    },
+    {
+      "id": "core.accountability",
+      "subCharacteristic": "accountability",
+      "characteristic": "security",
+      "template": "{{system}} shall retain attributable audit events for at least {{target}} percent of the actions in {{scope}} under {{conditions}}.",
+      "parameters": {
+        "system": {
+          "type": "string",
+          "description": "System or component under assessment."
+        },
+        "scope": {
+          "type": "string",
+          "description": "Named, versioned task, interface, event or scenario inventory; must be nonempty."
+        },
+        "conditions": {
+          "type": "string",
+          "description": "Approved measurement plan: environment, workload/cohort, observation window, oracle, aggregation and exclusions."
+        },
+        "target": {
+          "type": "number",
+          "description": "Stakeholder-approved acceptance bound; no framework-prescribed default is implied.",
+          "minimum": 0,
+          "maximum": 100
+        }
+      },
+      "metric": {
+        "type": "coverage",
+        "unit": "percent",
+        "operator": ">=",
+        "targetParameter": "target",
+        "measurement": "Verify actor, action, outcome and timestamp against the executed event corpus."
+      },
+      "provenance": {
+        "standardEdition": "ISO/IEC 25010:2023",
+        "subCharacteristic": "accountability",
+        "frameworks": [
+          {
+            "id": "asvs",
+            "section": "V16 Security Logging and Error Handling"
+          }
+        ],
+        "derivation": "curator-authored; framework-informed measurement, not a normative ISO mapping"
+      },
+      "reviewStatus": "requires-human-verification"
+    },
+    {
+      "id": "core.authenticity",
+      "subCharacteristic": "authenticity",
+      "characteristic": "security",
+      "template": "{{system}} shall reject at least {{target}} percent of the impersonation attempts in {{scope}} under {{conditions}}.",
+      "parameters": {
+        "system": {
+          "type": "string",
+          "description": "System or component under assessment."
+        },
+        "scope": {
+          "type": "string",
+          "description": "Named, versioned task, interface, event or scenario inventory; must be nonempty."
+        },
+        "conditions": {
+          "type": "string",
+          "description": "Approved measurement plan: environment, workload/cohort, observation window, oracle, aggregation and exclusions."
+        },
+        "target": {
+          "type": "number",
+          "description": "Stakeholder-approved acceptance bound; no framework-prescribed default is implied.",
+          "minimum": 0,
+          "maximum": 100
+        }
+      },
+      "metric": {
+        "type": "success-rate",
+        "unit": "percent",
+        "operator": ">=",
+        "targetParameter": "target",
+        "measurement": "Use a declared authentication threat corpus and expected identities; count all attempts."
+      },
+      "provenance": {
+        "standardEdition": "ISO/IEC 25010:2023",
+        "subCharacteristic": "authenticity",
+        "frameworks": [
+          {
+            "id": "asvs",
+            "section": "V6 Authentication"
+          }
+        ],
+        "derivation": "curator-authored; framework-informed measurement, not a normative ISO mapping"
+      },
+      "reviewStatus": "requires-human-verification"
+    },
+    {
+      "id": "core.resistance",
+      "subCharacteristic": "resistance",
+      "characteristic": "security",
+      "template": "{{system}} shall block at least {{target}} percent of the attack cases in {{scope}} under {{conditions}}.",
+      "parameters": {
+        "system": {
+          "type": "string",
+          "description": "System or component under assessment."
+        },
+        "scope": {
+          "type": "string",
+          "description": "Named, versioned task, interface, event or scenario inventory; must be nonempty."
+        },
+        "conditions": {
+          "type": "string",
+          "description": "Approved measurement plan: environment, workload/cohort, observation window, oracle, aggregation and exclusions."
+        },
+        "target": {
+          "type": "number",
+          "description": "Stakeholder-approved acceptance bound; no framework-prescribed default is implied.",
+          "minimum": 0,
+          "maximum": 100
+        }
+      },
+      "metric": {
+        "type": "success-rate",
+        "unit": "percent",
+        "operator": ">=",
+        "targetParameter": "target",
+        "measurement": "Freeze the attack corpus and success oracle; passing does not imply protection from untested attacks."
+      },
+      "provenance": {
+        "standardEdition": "ISO/IEC 25010:2023",
+        "subCharacteristic": "resistance",
+        "frameworks": [
+          {
+            "id": "asvs",
+            "section": "V1 Encoding and Sanitization; V2 Validation and Business Logic"
+          }
+        ],
+        "derivation": "curator-authored; framework-informed measurement, not a normative ISO mapping"
+      },
+      "reviewStatus": "requires-human-verification"
+    },
+    {
+      "id": "core.modularity",
+      "subCharacteristic": "modularity",
+      "characteristic": "maintainability",
+      "template": "{{system}} shall require modifications to at most {{target}} components outside {{scope}} for each declared local change under {{conditions}}.",
+      "parameters": {
+        "system": {
+          "type": "string",
+          "description": "System or component under assessment."
+        },
+        "scope": {
+          "type": "string",
+          "description": "Named, versioned task, interface, event or scenario inventory; must be nonempty."
+        },
+        "conditions": {
+          "type": "string",
+          "description": "Approved measurement plan: environment, workload/cohort, observation window, oracle, aggregation and exclusions."
+        },
+        "target": {
+          "type": "number",
+          "description": "Stakeholder-approved acceptance bound; no framework-prescribed default is implied.",
+          "minimum": 0
+        }
+      },
+      "metric": {
+        "type": "count",
+        "unit": "components",
+        "operator": "<=",
+        "targetParameter": "target",
+        "measurement": "Count components requiring changes outside the designated module boundary for each change scenario."
+      },
+      "provenance": {
+        "standardEdition": "ISO/IEC 25010:2023",
+        "subCharacteristic": "modularity",
+        "frameworks": [
+          {
+            "id": "sre-simplicity",
+            "section": "Modularity"
+          }
+        ],
+        "derivation": "curator-authored; framework-informed measurement, not a normative ISO mapping"
+      },
+      "reviewStatus": "requires-human-verification"
+    },
+    {
+      "id": "core.reusability",
+      "subCharacteristic": "reusability",
+      "characteristic": "maintainability",
+      "template": "{{system}} shall support reuse of {{scope}} without source modification in at least {{target}} distinct contexts under {{conditions}}.",
+      "parameters": {
+        "system": {
+          "type": "string",
+          "description": "System or component under assessment."
+        },
+        "scope": {
+          "type": "string",
+          "description": "Named, versioned task, interface, event or scenario inventory; must be nonempty."
+        },
+        "conditions": {
+          "type": "string",
+          "description": "Approved measurement plan: environment, workload/cohort, observation window, oracle, aggregation and exclusions."
+        },
+        "target": {
+          "type": "number",
+          "description": "Stakeholder-approved acceptance bound; no framework-prescribed default is implied.",
+          "minimum": 0
+        }
+      },
+      "metric": {
+        "type": "count",
+        "unit": "contexts",
+        "operator": ">=",
+        "targetParameter": "target",
+        "measurement": "Identify distinct host contexts and run the same acceptance contract in each; configuration is allowed if declared."
+      },
+      "provenance": {
+        "standardEdition": "ISO/IEC 25010:2023",
+        "subCharacteristic": "reusability",
+        "frameworks": [
+          {
+            "id": "ssdf",
+            "section": "PW.4 Reuse Existing, Well-Secured Software; curator-derived reuse measure"
+          }
+        ],
+        "derivation": "curator-authored; framework-informed measurement, not a normative ISO mapping"
+      },
+      "reviewStatus": "requires-human-verification"
+    },
+    {
+      "id": "core.analysability",
+      "subCharacteristic": "analysability",
+      "characteristic": "maintainability",
+      "template": "{{system}} shall enable maintainers to locate the cause of each seeded defect in {{scope}} within {{target}} minutes under {{conditions}}.",
+      "parameters": {
+        "system": {
+          "type": "string",
+          "description": "System or component under assessment."
+        },
+        "scope": {
+          "type": "string",
+          "description": "Named, versioned task, interface, event or scenario inventory; must be nonempty."
+        },
+        "conditions": {
+          "type": "string",
+          "description": "Approved measurement plan: environment, workload/cohort, observation window, oracle, aggregation and exclusions."
+        },
+        "target": {
+          "type": "number",
+          "description": "Stakeholder-approved acceptance bound; no framework-prescribed default is implied.",
+          "minimum": 0
+        }
+      },
+      "metric": {
+        "type": "duration",
+        "unit": "minutes",
+        "operator": "<=",
+        "targetParameter": "target",
+        "measurement": "Use blinded defects, declared diagnostic tools and a cause-confirmation oracle; measure time to confirmed diagnosis."
+      },
+      "provenance": {
+        "standardEdition": "ISO/IEC 25010:2023",
+        "subCharacteristic": "analysability",
+        "frameworks": [
+          {
+            "id": "sre-monitor",
+            "section": "Symptoms Versus Causes; curator-derived diagnostic measure"
+          }
+        ],
+        "derivation": "curator-authored; framework-informed measurement, not a normative ISO mapping"
+      },
+      "reviewStatus": "requires-human-verification"
+    },
+    {
+      "id": "core.modifiability",
+      "subCharacteristic": "modifiability",
+      "characteristic": "maintainability",
+      "template": "{{system}} shall enable completion of each change in {{scope}} within {{target}} person-hours under {{conditions}}.",
+      "parameters": {
+        "system": {
+          "type": "string",
+          "description": "System or component under assessment."
+        },
+        "scope": {
+          "type": "string",
+          "description": "Named, versioned task, interface, event or scenario inventory; must be nonempty."
+        },
+        "conditions": {
+          "type": "string",
+          "description": "Approved measurement plan: environment, workload/cohort, observation window, oracle, aggregation and exclusions."
+        },
+        "target": {
+          "type": "number",
+          "description": "Stakeholder-approved acceptance bound; no framework-prescribed default is implied.",
+          "minimum": 0
+        }
+      },
+      "metric": {
+        "type": "effort",
+        "unit": "person-hours",
+        "operator": "<=",
+        "targetParameter": "target",
+        "measurement": "Include implementation and acceptance regression checks; freeze maintainer skill assumptions and change complexity."
+      },
+      "provenance": {
+        "standardEdition": "ISO/IEC 25010:2023",
+        "subCharacteristic": "modifiability",
+        "frameworks": [
+          {
+            "id": "sre-simplicity",
+            "section": "System Stability Versus Agility; curator-derived change measure"
+          }
+        ],
+        "derivation": "curator-authored; framework-informed measurement, not a normative ISO mapping"
+      },
+      "reviewStatus": "requires-human-verification"
+    },
+    {
+      "id": "core.testability",
+      "subCharacteristic": "testability",
+      "characteristic": "maintainability",
+      "template": "{{system}} shall expose controllable inputs and observable outcomes for at least {{target}} percent of the test conditions in {{scope}} under {{conditions}}.",
+      "parameters": {
+        "system": {
+          "type": "string",
+          "description": "System or component under assessment."
+        },
+        "scope": {
+          "type": "string",
+          "description": "Named, versioned task, interface, event or scenario inventory; must be nonempty."
+        },
+        "conditions": {
+          "type": "string",
+          "description": "Approved measurement plan: environment, workload/cohort, observation window, oracle, aggregation and exclusions."
+        },
+        "target": {
+          "type": "number",
+          "description": "Stakeholder-approved acceptance bound; no framework-prescribed default is implied.",
+          "minimum": 0,
+          "maximum": 100
+        }
+      },
+      "metric": {
+        "type": "coverage",
+        "unit": "percent",
+        "operator": ">=",
+        "targetParameter": "target",
+        "measurement": "Count independently executable and assertable test conditions against the frozen inventory."
+      },
+      "provenance": {
+        "standardEdition": "ISO/IEC 25010:2023",
+        "subCharacteristic": "testability",
+        "frameworks": [
+          {
+            "id": "ssdf",
+            "section": "PW.8 Test Executable Code; curator-derived testability measure"
+          }
+        ],
+        "derivation": "curator-authored; framework-informed measurement, not a normative ISO mapping"
+      },
+      "reviewStatus": "requires-human-verification"
+    },
+    {
+      "id": "core.adaptability",
+      "subCharacteristic": "adaptability",
+      "characteristic": "flexibility",
+      "template": "{{system}} shall pass the acceptance contract for {{scope}} in at least {{target}} distinct target environments under {{conditions}}.",
+      "parameters": {
+        "system": {
+          "type": "string",
+          "description": "System or component under assessment."
+        },
+        "scope": {
+          "type": "string",
+          "description": "Named, versioned task, interface, event or scenario inventory; must be nonempty."
+        },
+        "conditions": {
+          "type": "string",
+          "description": "Approved measurement plan: environment, workload/cohort, observation window, oracle, aggregation and exclusions."
+        },
+        "target": {
+          "type": "number",
+          "description": "Stakeholder-approved acceptance bound; no framework-prescribed default is implied.",
+          "minimum": 0
+        }
+      },
+      "metric": {
+        "type": "count",
+        "unit": "environments",
+        "operator": ">=",
+        "targetParameter": "target",
+        "measurement": "Freeze environment differences and allowed configuration adaptations; count environments passing the whole contract."
+      },
+      "provenance": {
+        "standardEdition": "ISO/IEC 25010:2023",
+        "subCharacteristic": "adaptability",
+        "frameworks": [
+          {
+            "id": "istqb",
+            "section": "2.2.2 Test Types; curator-derived portability measure"
+          }
+        ],
+        "derivation": "curator-authored; framework-informed measurement, not a normative ISO mapping"
+      },
+      "reviewStatus": "requires-human-verification"
+    },
+    {
+      "id": "core.scalability",
+      "subCharacteristic": "scalability",
+      "characteristic": "flexibility",
+      "template": "{{system}} shall increase accepted throughput for {{scope}} by at least {{target}} percent after the declared resource change under {{conditions}}.",
+      "parameters": {
+        "system": {
+          "type": "string",
+          "description": "System or component under assessment."
+        },
+        "scope": {
+          "type": "string",
+          "description": "Named, versioned task, interface, event or scenario inventory; must be nonempty."
+        },
+        "conditions": {
+          "type": "string",
+          "description": "Approved measurement plan: environment, workload/cohort, observation window, oracle, aggregation and exclusions."
+        },
+        "target": {
+          "type": "number",
+          "description": "Stakeholder-approved acceptance bound; no framework-prescribed default is implied.",
+          "minimum": 0
+        }
+      },
+      "metric": {
+        "type": "growth",
+        "unit": "percent",
+        "operator": ">=",
+        "targetParameter": "target",
+        "measurement": "Compare fixed workloads and nonzero baseline throughput with identical acceptance limits; record the resource increase."
+      },
+      "provenance": {
+        "standardEdition": "ISO/IEC 25010:2023",
+        "subCharacteristic": "scalability",
+        "frameworks": [
+          {
+            "id": "sre-slo",
+            "section": "Indicators; throughput"
+          }
+        ],
+        "derivation": "curator-authored; framework-informed measurement, not a normative ISO mapping"
+      },
+      "reviewStatus": "requires-human-verification"
+    },
+    {
+      "id": "core.installability",
+      "subCharacteristic": "installability",
+      "characteristic": "flexibility",
+      "template": "{{system}} shall complete installation of {{scope}} within {{target}} minutes under {{conditions}}.",
+      "parameters": {
+        "system": {
+          "type": "string",
+          "description": "System or component under assessment."
+        },
+        "scope": {
+          "type": "string",
+          "description": "Named, versioned task, interface, event or scenario inventory; must be nonempty."
+        },
+        "conditions": {
+          "type": "string",
+          "description": "Approved measurement plan: environment, workload/cohort, observation window, oracle, aggregation and exclusions."
+        },
+        "target": {
+          "type": "number",
+          "description": "Stakeholder-approved acceptance bound; no framework-prescribed default is implied.",
+          "minimum": 0
+        }
+      },
+      "metric": {
+        "type": "duration",
+        "unit": "minutes",
+        "operator": "<=",
+        "targetParameter": "target",
+        "measurement": "Time from installation start to a passing readiness check in every declared clean target environment."
+      },
+      "provenance": {
+        "standardEdition": "ISO/IEC 25010:2023",
+        "subCharacteristic": "installability",
+        "frameworks": [
+          {
+            "id": "sre-release",
+            "section": "Deployment; curator-derived installation measure"
+          }
+        ],
+        "derivation": "curator-authored; framework-informed measurement, not a normative ISO mapping"
+      },
+      "reviewStatus": "requires-human-verification"
+    },
+    {
+      "id": "core.replaceability",
+      "subCharacteristic": "replaceability",
+      "characteristic": "flexibility",
+      "template": "{{system}} shall preserve at least {{target}} percent of the external acceptance cases in {{scope}} after substitution under {{conditions}}.",
+      "parameters": {
+        "system": {
+          "type": "string",
+          "description": "System or component under assessment."
+        },
+        "scope": {
+          "type": "string",
+          "description": "Named, versioned task, interface, event or scenario inventory; must be nonempty."
+        },
+        "conditions": {
+          "type": "string",
+          "description": "Approved measurement plan: environment, workload/cohort, observation window, oracle, aggregation and exclusions."
+        },
+        "target": {
+          "type": "number",
+          "description": "Stakeholder-approved acceptance bound; no framework-prescribed default is implied.",
+          "minimum": 0,
+          "maximum": 100
+        }
+      },
+      "metric": {
+        "type": "success-rate",
+        "unit": "percent",
+        "operator": ">=",
+        "targetParameter": "target",
+        "measurement": "Declare replaced component, substitute and external contract; count cases passing unchanged after substitution."
+      },
+      "provenance": {
+        "standardEdition": "ISO/IEC 25010:2023",
+        "subCharacteristic": "replaceability",
+        "frameworks": [
+          {
+            "id": "sre-simplicity",
+            "section": "Modularity; API versioning"
+          }
+        ],
+        "derivation": "curator-authored; framework-informed measurement, not a normative ISO mapping"
+      },
+      "reviewStatus": "requires-human-verification"
+    },
+    {
+      "id": "core.operational-constraint",
+      "subCharacteristic": "operational-constraint",
+      "characteristic": "safety",
+      "template": "{{system}} shall reject at least {{target}} percent of commands that violate the operating limits in {{scope}} under {{conditions}}.",
+      "parameters": {
+        "system": {
+          "type": "string",
+          "description": "System or component under assessment."
+        },
+        "scope": {
+          "type": "string",
+          "description": "Named, versioned task, interface, event or scenario inventory; must be nonempty."
+        },
+        "conditions": {
+          "type": "string",
+          "description": "Approved measurement plan: environment, workload/cohort, observation window, oracle, aggregation and exclusions."
+        },
+        "target": {
+          "type": "number",
+          "description": "Stakeholder-approved acceptance bound; no framework-prescribed default is implied.",
+          "minimum": 0,
+          "maximum": 100
+        }
+      },
+      "metric": {
+        "type": "success-rate",
+        "unit": "percent",
+        "operator": ">=",
+        "targetParameter": "target",
+        "measurement": "Generate boundary violations from an approved limits table and check rejection before hazardous effects."
+      },
+      "provenance": {
+        "standardEdition": "ISO/IEC 25010:2023",
+        "subCharacteristic": "operational-constraint",
+        "frameworks": [
+          {
+            "id": "nasa-safety",
+            "section": "3.7.3; curator-derived operating-limit measure"
+          }
+        ],
+        "derivation": "curator-authored; framework-informed measurement, not a normative ISO mapping"
+      },
+      "reviewStatus": "requires-human-verification"
+    },
+    {
+      "id": "core.risk-identification",
+      "subCharacteristic": "risk-identification",
+      "characteristic": "safety",
+      "template": "{{system}} shall detect at least {{target}} percent of the hazardous conditions in {{scope}} under {{conditions}}.",
+      "parameters": {
+        "system": {
+          "type": "string",
+          "description": "System or component under assessment."
+        },
+        "scope": {
+          "type": "string",
+          "description": "Named, versioned task, interface, event or scenario inventory; must be nonempty."
+        },
+        "conditions": {
+          "type": "string",
+          "description": "Approved measurement plan: environment, workload/cohort, observation window, oracle, aggregation and exclusions."
+        },
+        "target": {
+          "type": "number",
+          "description": "Stakeholder-approved acceptance bound; no framework-prescribed default is implied.",
+          "minimum": 0,
+          "maximum": 100
+        }
+      },
+      "metric": {
+        "type": "success-rate",
+        "unit": "percent",
+        "operator": ">=",
+        "targetParameter": "target",
+        "measurement": "Use a reviewed hazard catalogue and controlled simulations with an independent detection oracle."
+      },
+      "provenance": {
+        "standardEdition": "ISO/IEC 25010:2023",
+        "subCharacteristic": "risk-identification",
+        "frameworks": [
+          {
+            "id": "nasa-safety",
+            "section": "3.7 Software Safety; curator-derived hazard-detection measure"
+          }
+        ],
+        "derivation": "curator-authored; framework-informed measurement, not a normative ISO mapping"
+      },
+      "reviewStatus": "requires-human-verification"
+    },
+    {
+      "id": "core.fail-safe",
+      "subCharacteristic": "fail-safe",
+      "characteristic": "safety",
+      "template": "{{system}} shall reach the defined safe state for {{scope}} within {{target}} milliseconds after each declared failure under {{conditions}}.",
+      "parameters": {
+        "system": {
+          "type": "string",
+          "description": "System or component under assessment."
+        },
+        "scope": {
+          "type": "string",
+          "description": "Named, versioned task, interface, event or scenario inventory; must be nonempty."
+        },
+        "conditions": {
+          "type": "string",
+          "description": "Approved measurement plan: environment, workload/cohort, observation window, oracle, aggregation and exclusions."
+        },
+        "target": {
+          "type": "number",
+          "description": "Stakeholder-approved acceptance bound; no framework-prescribed default is implied.",
+          "minimum": 0
+        }
+      },
+      "metric": {
+        "type": "duration",
+        "unit": "milliseconds",
+        "operator": "<=",
+        "targetParameter": "target",
+        "measurement": "Specify safe-state predicates and failure triggers before testing; measure the maximum transition delay."
+      },
+      "provenance": {
+        "standardEdition": "ISO/IEC 25010:2023",
+        "subCharacteristic": "fail-safe",
+        "frameworks": [
+          {
+            "id": "nasa-safety",
+            "section": "3.7.3; safe states"
+          }
+        ],
+        "derivation": "curator-authored; framework-informed measurement, not a normative ISO mapping"
+      },
+      "reviewStatus": "requires-human-verification"
+    },
+    {
+      "id": "core.hazard-warning",
+      "subCharacteristic": "hazard-warning",
+      "characteristic": "safety",
+      "template": "{{system}} shall emit the defined warning for {{scope}} within {{target}} milliseconds after each declared hazard becomes detectable under {{conditions}}.",
+      "parameters": {
+        "system": {
+          "type": "string",
+          "description": "System or component under assessment."
+        },
+        "scope": {
+          "type": "string",
+          "description": "Named, versioned task, interface, event or scenario inventory; must be nonempty."
+        },
+        "conditions": {
+          "type": "string",
+          "description": "Approved measurement plan: environment, workload/cohort, observation window, oracle, aggregation and exclusions."
+        },
+        "target": {
+          "type": "number",
+          "description": "Stakeholder-approved acceptance bound; no framework-prescribed default is implied.",
+          "minimum": 0
+        }
+      },
+      "metric": {
+        "type": "duration",
+        "unit": "milliseconds",
+        "operator": "<=",
+        "targetParameter": "target",
+        "measurement": "Fix hazard onset, detection conditions and observable warning output; measure maximum warning delay."
+      },
+      "provenance": {
+        "standardEdition": "ISO/IEC 25010:2023",
+        "subCharacteristic": "hazard-warning",
+        "frameworks": [
+          {
+            "id": "nasa-safety",
+            "section": "3.7 Software Safety; curator-derived warning measure"
+          }
+        ],
+        "derivation": "curator-authored; framework-informed measurement, not a normative ISO mapping"
+      },
+      "reviewStatus": "requires-human-verification"
+    },
+    {
+      "id": "core.safe-integration",
+      "subCharacteristic": "safe-integration",
+      "characteristic": "safety",
+      "template": "{{system}} shall satisfy the agreed safety predicates in at least {{target}} percent of integration scenarios for {{scope}} under {{conditions}}.",
+      "parameters": {
+        "system": {
+          "type": "string",
+          "description": "System or component under assessment."
+        },
+        "scope": {
+          "type": "string",
+          "description": "Named, versioned task, interface, event or scenario inventory; must be nonempty."
+        },
+        "conditions": {
+          "type": "string",
+          "description": "Approved measurement plan: environment, workload/cohort, observation window, oracle, aggregation and exclusions."
+        },
+        "target": {
+          "type": "number",
+          "description": "Stakeholder-approved acceptance bound; no framework-prescribed default is implied.",
+          "minimum": 0,
+          "maximum": 100
+        }
+      },
+      "metric": {
+        "type": "success-rate",
+        "unit": "percent",
+        "operator": ">=",
+        "targetParameter": "target",
+        "measurement": "Use reviewed interface fault scenarios and whole-system safety predicates; include failed scenarios in the denominator."
+      },
+      "provenance": {
+        "standardEdition": "ISO/IEC 25010:2023",
+        "subCharacteristic": "safe-integration",
+        "frameworks": [
+          {
+            "id": "nasa-safety",
+            "section": "3.7 Software Safety; curator-derived integration measure"
+          }
+        ],
+        "derivation": "curator-authored; framework-informed measurement, not a normative ISO mapping"
+      },
+      "reviewStatus": "requires-human-verification"
+    }
+  ]
+}

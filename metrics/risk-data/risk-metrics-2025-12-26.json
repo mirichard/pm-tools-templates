@@ -1,0 +1,19 @@
+{
+  "assessment_date": "2025-12-26T10:00:56+00:00",
+  "total_risk_score": 0,
+  "risk_level": "MEDIUM",
+  "risk_breakdown": {
+    "critical_risks": 0,
+    "high_risks": 0,
+    "blockers": 0
+  },
+  "score_breakdown": {
+    "critical_score": 0,
+    "high_score": 0,
+    "blocker_score": 0
+  },
+  "thresholds": {
+    "critical_threshold": 20,
+    "high_threshold": 15
+  }
+}

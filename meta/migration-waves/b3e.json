@@ -1,0 +1,387 @@
+{
+  "schema_version": 1,
+  "wave_id": "B3E",
+  "phase": "executed",
+  "source_batch": 3,
+  "primary_domain": "Delivery",
+  "generated_from": "meta/migration-inventory.json",
+  "inventory_generated": "2026-09-02",
+  "pre_batch_sha": "fba39481fb7dbad8cdd45e251cce3ad0217d9f94",
+  "rollback_owner": "mirichard",
+  "max_assets": 12,
+  "asset_count": 12,
+  "assets": [
+    {
+      "order": 1,
+      "source": "project-lifecycle/02-planning/project-management-plan/traditional-project-management-plan-template.md",
+      "destination": "domains/delivery/project-lifecycle/02-planning/project-management-plan/traditional-project-management-plan-template.md",
+      "primary_domain": "Delivery",
+      "secondary_domains": [
+        "Stakeholder",
+        "Uncertainty"
+      ],
+      "pre_move_sha256": "377a8035beec71d6b87bd4a86f994ad282a31316ceec3a58e3c3e9645e5fcf33",
+      "dependencies": [
+        {
+          "path": "project-assessment-suite/current-state-analysis-template.md",
+          "status": "satisfied-existing-deferred",
+          "resolved_path": "project-assessment-suite/current-state-analysis-template.md"
+        },
+        {
+          "path": "industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md",
+          "status": "satisfied-existing-deferred",
+          "resolved_path": "industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md"
+        },
+        {
+          "path": "domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/enterprise-stakeholder-analysis-template.md",
+          "status": "satisfied-executed",
+          "resolved_path": "domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/enterprise-stakeholder-analysis-template.md"
+        }
+      ],
+      "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move"
+    },
+    {
+      "order": 2,
+      "source": "templates/hybrid/Hybrid/Templates/hybrid_quality_management_template.md",
+      "destination": "domains/delivery/templates/hybrid/Hybrid/Templates/hybrid_quality_management_template.md",
+      "primary_domain": "Delivery",
+      "secondary_domains": [
+        "Stakeholder",
+        "Uncertainty"
+      ],
+      "pre_move_sha256": "242395430e8c1541260b0446931d505f1b63a0aacd40a328c7ae71d63005ee82",
+      "dependencies": [
+        {
+          "path": "domains/delivery/methodology-frameworks/hybrid/infrastructure/hybrid-infrastructure-template.md",
+          "status": "satisfied-executed",
+          "resolved_path": "domains/delivery/methodology-frameworks/hybrid/infrastructure/hybrid-infrastructure-template.md"
+        },
+        {
+          "path": "domains/delivery/templates/hybrid/Hybrid/Templates/integrated_change_strategy_template.md",
+          "status": "satisfied-executed",
+          "resolved_path": "domains/delivery/templates/hybrid/Hybrid/Templates/integrated_change_strategy_template.md"
+        },
+        {
+          "path": "domains/delivery/templates/hybrid/Hybrid/Templates/progressive_acceptance_plan_template.md",
+          "status": "satisfied-executed",
+          "resolved_path": "domains/delivery/templates/hybrid/Hybrid/Templates/progressive_acceptance_plan_template.md"
+        }
+      ],
+      "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move"
+    },
+    {
+      "order": 3,
+      "source": "project-lifecycle/02-planning/project-management-plan/agile-release-plan-template.md",
+      "destination": "domains/delivery/project-lifecycle/02-planning/project-management-plan/agile-release-plan-template.md",
+      "primary_domain": "Delivery",
+      "secondary_domains": [
+        "Stakeholder",
+        "Uncertainty"
+      ],
+      "pre_move_sha256": "0da71dc599bfc989493568314b3c3505d45c1cf45353b0fb0aed194de0d86f6f",
+      "dependencies": [
+        {
+          "path": "project-lifecycle/02-planning/risk-management/agile-risk-board-template.md",
+          "status": "same-wave",
+          "resolved_path": "domains/delivery/project-lifecycle/02-planning/risk-management/agile-risk-board-template.md"
+        },
+        {
+          "path": "methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md",
+          "status": "satisfied-existing-deferred",
+          "resolved_path": "methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md"
+        },
+        {
+          "path": "methodology-frameworks/emerging-methods/devops/release_management_template.md",
+          "status": "satisfied-existing-deferred",
+          "resolved_path": "methodology-frameworks/emerging-methods/devops/release_management_template.md"
+        }
+      ],
+      "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move"
+    },
+    {
+      "order": 4,
+      "source": "project-lifecycle/02-planning/risk-management/agile-risk-board-template.md",
+      "destination": "domains/delivery/project-lifecycle/02-planning/risk-management/agile-risk-board-template.md",
+      "primary_domain": "Delivery",
+      "secondary_domains": [
+        "Stakeholder",
+        "Uncertainty"
+      ],
+      "pre_move_sha256": "c21471c497e2d5c5d03beb1dc1ba6c16c71ee0968346560a745069d6c2b2cdd2",
+      "dependencies": [
+        {
+          "path": "project-lifecycle/02-planning/project-management-plan/agile-release-plan-template.md",
+          "status": "same-wave",
+          "resolved_path": "domains/delivery/project-lifecycle/02-planning/project-management-plan/agile-release-plan-template.md"
+        },
+        {
+          "path": "methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md",
+          "status": "satisfied-existing-deferred",
+          "resolved_path": "methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md"
+        },
+        {
+          "path": "methodology-frameworks/emerging-methods/devops/release_management_template.md",
+          "status": "satisfied-existing-deferred",
+          "resolved_path": "methodology-frameworks/emerging-methods/devops/release_management_template.md"
+        }
+      ],
+      "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move"
+    },
+    {
+      "order": 5,
+      "source": "templates/agile/product_backlog_template.md",
+      "destination": "domains/delivery/templates/agile/product_backlog_template.md",
+      "primary_domain": "Delivery",
+      "secondary_domains": [
+        "Stakeholder",
+        "Uncertainty"
+      ],
+      "pre_move_sha256": "2235c7af0329590b42886dc552c6314367fdeb2abed577382906e071a58ed8a2",
+      "dependencies": [
+        {
+          "path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_program_increment_planning_template.md",
+          "status": "satisfied-executed",
+          "resolved_path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_program_increment_planning_template.md"
+        },
+        {
+          "path": "domains/team/templates/agile/sprint_review_template.md",
+          "status": "satisfied-executed",
+          "resolved_path": "domains/team/templates/agile/sprint_review_template.md"
+        },
+        {
+          "path": "templates/agile/sprint_planning_template.md",
+          "status": "same-wave",
+          "resolved_path": "domains/delivery/templates/agile/sprint_planning_template.md"
+        }
+      ],
+      "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move"
+    },
+    {
+      "order": 6,
+      "source": "templates/agile/sprint_planning_template.md",
+      "destination": "domains/delivery/templates/agile/sprint_planning_template.md",
+      "primary_domain": "Delivery",
+      "secondary_domains": [
+        "Stakeholder",
+        "Uncertainty"
+      ],
+      "pre_move_sha256": "f36813b5adb50ce997ed84e1c9c0ae4558cb3f09d11a05876492383b96dc9815",
+      "dependencies": [
+        {
+          "path": "templates/agile/product_backlog_template.md",
+          "status": "same-wave",
+          "resolved_path": "domains/delivery/templates/agile/product_backlog_template.md"
+        },
+        {
+          "path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_program_increment_planning_template.md",
+          "status": "satisfied-executed",
+          "resolved_path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_program_increment_planning_template.md"
+        },
+        {
+          "path": "domains/team/templates/agile/sprint_review_template.md",
+          "status": "satisfied-executed",
+          "resolved_path": "domains/team/templates/agile/sprint_review_template.md"
+        }
+      ],
+      "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move"
+    },
+    {
+      "order": 7,
+      "source": "templates/traditional/Traditional/Knowledge_Areas/Project_Cost_Management/roi_tracking_template.md",
+      "destination": "domains/delivery/templates/traditional/Traditional/Knowledge_Areas/Project_Cost_Management/roi_tracking_template.md",
+      "primary_domain": "Delivery",
+      "secondary_domains": [
+        "Stakeholder",
+        "Uncertainty"
+      ],
+      "pre_move_sha256": "c0c8ee1ebc50582bae668d50ee44a4a51a394ec248be5ab881b9c2c8bbc6bcad",
+      "dependencies": [
+        {
+          "path": "templates/traditional/Traditional/Process_Groups/Executing/requirements_traceability_matrix_template.md",
+          "status": "same-wave",
+          "resolved_path": "domains/delivery/templates/traditional/Traditional/Process_Groups/Executing/requirements_traceability_matrix_template.md"
+        },
+        {
+          "path": "templates/traditional/Traditional/Templates/status_report_template.md",
+          "status": "satisfied-existing-deferred",
+          "resolved_path": "templates/traditional/Traditional/Templates/status_report_template.md"
+        },
+        {
+          "path": "domains/planning/templates/traditional/Traditional/Templates/business_case_template.md",
+          "status": "satisfied-executed",
+          "resolved_path": "domains/planning/templates/traditional/Traditional/Templates/business_case_template.md"
+        }
+      ],
+      "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move"
+    },
+    {
+      "order": 8,
+      "source": "templates/traditional/Traditional/Process_Groups/Executing/requirements_traceability_matrix_template.md",
+      "destination": "domains/delivery/templates/traditional/Traditional/Process_Groups/Executing/requirements_traceability_matrix_template.md",
+      "primary_domain": "Delivery",
+      "secondary_domains": [
+        "Stakeholder",
+        "Uncertainty"
+      ],
+      "pre_move_sha256": "90077cdd46763e468f39c04831323ed39d5993c8d815c729f4118be4afce7767",
+      "dependencies": [
+        {
+          "path": "templates/traditional/Traditional/Knowledge_Areas/Project_Cost_Management/roi_tracking_template.md",
+          "status": "same-wave",
+          "resolved_path": "domains/delivery/templates/traditional/Traditional/Knowledge_Areas/Project_Cost_Management/roi_tracking_template.md"
+        },
+        {
+          "path": "templates/traditional/Traditional/Templates/status_report_template.md",
+          "status": "satisfied-existing-deferred",
+          "resolved_path": "templates/traditional/Traditional/Templates/status_report_template.md"
+        },
+        {
+          "path": "domains/planning/templates/traditional/Traditional/Templates/business_case_template.md",
+          "status": "satisfied-executed",
+          "resolved_path": "domains/planning/templates/traditional/Traditional/Templates/business_case_template.md"
+        }
+      ],
+      "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move"
+    },
+    {
+      "order": 9,
+      "source": "templates/traditional/Traditional/Process_Groups/Closing/project_closure_report_template.md",
+      "destination": "domains/delivery/templates/traditional/Traditional/Process_Groups/Closing/project_closure_report_template.md",
+      "primary_domain": "Delivery",
+      "secondary_domains": [
+        "Stakeholder",
+        "Uncertainty"
+      ],
+      "pre_move_sha256": "3f7d84648b990561627e5ebc761f3eb133e0350ac2a17858871be83124da7565",
+      "dependencies": [
+        {
+          "path": "templates/traditional/Traditional/Templates/issue_log_template.md",
+          "status": "same-wave",
+          "resolved_path": "domains/delivery/templates/traditional/Traditional/Templates/issue_log_template.md"
+        },
+        {
+          "path": "domains/planning/templates/traditional/Traditional/Templates/program_charter_template.md",
+          "status": "satisfied-executed",
+          "resolved_path": "domains/planning/templates/traditional/Traditional/Templates/program_charter_template.md"
+        },
+        {
+          "path": "templates/traditional/Traditional/Templates/program_management_plan_template.md",
+          "status": "same-wave",
+          "resolved_path": "domains/delivery/templates/traditional/Traditional/Templates/program_management_plan_template.md"
+        }
+      ],
+      "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move"
+    },
+    {
+      "order": 10,
+      "source": "templates/traditional/Traditional/Process_Groups/Executing/project_execution_status_report_template.md",
+      "destination": "domains/delivery/templates/traditional/Traditional/Process_Groups/Executing/project_execution_status_report_template.md",
+      "primary_domain": "Delivery",
+      "secondary_domains": [
+        "Stakeholder",
+        "Uncertainty"
+      ],
+      "pre_move_sha256": "11646ab5f94555586b4d565b67b3b705437d07a242ffbac2b5e7862973c50c25",
+      "dependencies": [
+        {
+          "path": "templates/traditional/Traditional/Templates/issue_log_template.md",
+          "status": "same-wave",
+          "resolved_path": "domains/delivery/templates/traditional/Traditional/Templates/issue_log_template.md"
+        },
+        {
+          "path": "domains/planning/templates/traditional/Traditional/Templates/program_charter_template.md",
+          "status": "satisfied-executed",
+          "resolved_path": "domains/planning/templates/traditional/Traditional/Templates/program_charter_template.md"
+        },
+        {
+          "path": "templates/traditional/Traditional/Templates/program_management_plan_template.md",
+          "status": "same-wave",
+          "resolved_path": "domains/delivery/templates/traditional/Traditional/Templates/program_management_plan_template.md"
+        }
+      ],
+      "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move"
+    },
+    {
+      "order": 11,
+      "source": "templates/traditional/Traditional/Templates/issue_log_template.md",
+      "destination": "domains/delivery/templates/traditional/Traditional/Templates/issue_log_template.md",
+      "primary_domain": "Delivery",
+      "secondary_domains": [
+        "Stakeholder",
+        "Uncertainty"
+      ],
+      "pre_move_sha256": "279b6222363708b2d872aec2a78a8db3459288ab549306ee1d786c78e5b304c1",
+      "dependencies": [
+        {
+          "path": "domains/planning/templates/traditional/Traditional/Templates/program_charter_template.md",
+          "status": "satisfied-executed",
+          "resolved_path": "domains/planning/templates/traditional/Traditional/Templates/program_charter_template.md"
+        },
+        {
+          "path": "templates/traditional/Traditional/Templates/program_management_plan_template.md",
+          "status": "same-wave",
+          "resolved_path": "domains/delivery/templates/traditional/Traditional/Templates/program_management_plan_template.md"
+        },
+        {
+          "path": "templates/traditional/Traditional/Process_Groups/Closing/project_closure_report_template.md",
+          "status": "same-wave",
+          "resolved_path": "domains/delivery/templates/traditional/Traditional/Process_Groups/Closing/project_closure_report_template.md"
+        }
+      ],
+      "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move"
+    },
+    {
+      "order": 12,
+      "source": "templates/traditional/Traditional/Templates/program_management_plan_template.md",
+      "destination": "domains/delivery/templates/traditional/Traditional/Templates/program_management_plan_template.md",
+      "primary_domain": "Delivery",
+      "secondary_domains": [
+        "Stakeholder",
+        "Uncertainty"
+      ],
+      "pre_move_sha256": "6440f148aabedc18dfd20d11d3589ddc01973a81a657ba30a4a2c0991505cfea",
+      "dependencies": [
+        {
+          "path": "templates/traditional/Traditional/Templates/issue_log_template.md",
+          "status": "same-wave",
+          "resolved_path": "domains/delivery/templates/traditional/Traditional/Templates/issue_log_template.md"
+        },
+        {
+          "path": "domains/planning/templates/traditional/Traditional/Templates/program_charter_template.md",
+          "status": "satisfied-executed",
+          "resolved_path": "domains/planning/templates/traditional/Traditional/Templates/program_charter_template.md"
+        },
+        {
+          "path": "templates/traditional/Traditional/Process_Groups/Closing/project_closure_report_template.md",
+          "status": "same-wave",
+          "resolved_path": "domains/delivery/templates/traditional/Traditional/Process_Groups/Closing/project_closure_report_template.md"
+        }
+      ],
+      "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move"
+    }
+  ],
+  "checkpoints": [
+    "baseline-and-hashes",
+    "canonical-moves",
+    "legacy-pointers",
+    "canonical-references",
+    "affected-scope-validation",
+    "reviewed-visual-regression",
+    "post-merge-verification"
+  ],
+  "validation_commands": [
+    "node scripts/validate-migration-wave.mjs --manifest <manifest>",
+    "node scripts/generate-sprint-10-metadata.mjs",
+    "node scripts/validate-sprint-10.mjs --require-annotations",
+    "node scripts/validate-curated-templates.js",
+    "node scripts/validate-canonical-paths.js --strict",
+    "python3 scripts/check_migration_links.py --manifest <manifest>",
+    "npm run test:ci"
+  ],
+  "rollback": {
+    "strategy": "revert-wave-merge-commit",
+    "command": "git revert <wave-merge-sha>",
+    "granularity": "wave",
+    "asset_hashes_preserved": true
+  }
+}

@@ -1,0 +1,80 @@
+{
+  "useCaseId": "UC-01",
+  "useCaseName": "Add Item to Cart and Checkout Order",
+  "intent": "Allow customer to add items to cart and complete checkout",
+  "role": "Customer",
+  "preconditions": [
+    "The customer must be logged in on the system"
+  ],
+  "postconditions": [
+    "The customer has completed the checkout process and received a confirmation email"
+  ],
+  "basicFlow": {
+    "steps": [
+      { "stepId": "1", "actor": "Customer", "action": "adds products into", "businessObject": "Shopping Cart" },
+      { "stepId": "2", "actor": "System", "action": "displays items and total cost of", "businessObject": "Shopping Cart" },
+      { "stepId": "3", "actor": "Customer", "action": "adds or removes products from", "businessObject": "Shopping Cart" },
+      { "stepId": "4", "actor": "Customer", "action": "checks out", "businessObject": "Order" },
+      { "stepId": "5", "actor": "Customer", "action": "confirms", "businessObject": "Order" },
+      { "stepId": "6", "actor": "Customer", "action": "updates", "businessObject": "Order" },
+      { "stepId": "7", "actor": "System", "action": "sends confirmation email with details of", "businessObject": "Order" }
+    ]
+  },
+  "alternativeFlows": [
+    {
+      "flowId": "1a",
+      "deviationPoint": "1",
+      "triggerCondition": "Product is out of stock",
+      "steps": [
+        { "stepId": "1a1", "actor": "System", "action": "displays out-of-stock error for", "businessObject": "Product" }
+      ]
+    },
+    {
+      "flowId": "4a",
+      "deviationPoint": "4",
+      "triggerCondition": "Order is incorrect",
+      "steps": [
+        { "stepId": "4a1", "actor": "System", "action": "displays error message for", "businessObject": "Order" },
+        { "stepId": "4a2", "actor": "Customer", "action": "cancels and replaces", "businessObject": "Order" }
+      ],
+      "rejoinPoint": "4"
+    },
+    {
+      "flowId": "5a",
+      "deviationPoint": "5",
+      "triggerCondition": "Payment fails",
+      "steps": [
+        { "stepId": "5a1", "actor": "System", "action": "prompts retry payment for", "businessObject": "Order" },
+        { "stepId": "5a2", "actor": "System", "action": "suggests alternative payment methods for", "businessObject": "Account" }
+      ],
+      "rejoinPoint": "5"
+    },
+    {
+      "flowId": "6a",
+      "deviationPoint": "6",
+      "triggerCondition": "Order revision attempted after deadline",
+      "steps": [
+        { "stepId": "6a1", "actor": "System", "action": "displays revision-not-allowed notification for", "businessObject": "Order" }
+      ]
+    },
+    {
+      "flowId": "7a",
+      "deviationPoint": "7",
+      "triggerCondition": "Email delivery failure",
+      "steps": [
+        { "stepId": "7a1", "actor": "System", "action": "displays email error for", "businessObject": "Order" },
+        { "stepId": "7a2", "actor": "System", "action": "prompts customer to check email settings of", "businessObject": "Account" }
+      ]
+    }
+  ],
+  "exceptionFlows": [
+    {
+      "flowId": "5b",
+      "deviationPoint": "5",
+      "triggerCondition": "Payment fails after retry",
+      "steps": [
+        { "stepId": "5b1", "actor": "System", "action": "cancels transaction for", "businessObject": "Order" }
+      ]
+    }
+  ]
+}

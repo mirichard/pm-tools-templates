@@ -1,0 +1,9 @@
+---
+import Layout from '../layouts/Layout.astro';
+import FavoritesPage from '../components/FavoritesPage.tsx';
+import { templateCards } from '../data/templates';
+---
+
+<Layout title="Favorite Templates">
+  <FavoritesPage templates={templateCards} client:load />
+</Layout>

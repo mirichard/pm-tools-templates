@@ -1,0 +1,20 @@
+{
+  "name": "PM Tools API",
+  "version": "1.0.0",
+  "base_url": "https://api.pmtools.example.com",
+  "endpoints": [
+    "templates",
+    "projects", 
+    "users",
+    "health"
+  ],
+  "auth": {
+    "type": "bearer",
+    "required": true
+  },
+  "rate_limits": {
+    "requests_per_minute": 100
+  },
+  "methods": ["GET", "POST", "PUT", "DELETE"],
+  "content_type": "application/json"
+}

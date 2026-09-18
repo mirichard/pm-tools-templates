@@ -1,0 +1,285 @@
+{
+  "schema_version": 1,
+  "wave_id": "B2A",
+  "phase": "executed",
+  "source_batch": 2,
+  "primary_domain": "Team",
+  "generated_from": "meta/migration-inventory.json",
+  "inventory_generated": "2026-09-02",
+  "pre_batch_sha": "b521b58792f7de09c391f3665cc3f56a5a22b752",
+  "rollback_owner": "mirichard",
+  "max_assets": 12,
+  "asset_count": 9,
+  "assets": [
+    {
+      "order": 1,
+      "source": "methodology-frameworks/agile-scrum/scaling-frameworks/less/less_retrospective_template.md",
+      "destination": "domains/team/methodology-frameworks/agile-scrum/scaling-frameworks/less/less_retrospective_template.md",
+      "primary_domain": "Team",
+      "secondary_domains": [
+        "Stakeholder"
+      ],
+      "pre_move_sha256": "a96a2a8c38e7231f2d4354d465d5e47efddd1d7c226cb0eef5e4c524cae9189f",
+      "dependencies": [
+        {
+          "path": "methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md",
+          "status": "satisfied-existing-deferred",
+          "resolved_path": "methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md"
+        },
+        {
+          "path": "methodology-frameworks/agile-scrum/scaling-frameworks/less/cross_team_coordination_template.md",
+          "status": "satisfied-existing-deferred",
+          "resolved_path": "methodology-frameworks/agile-scrum/scaling-frameworks/less/cross_team_coordination_template.md"
+        },
+        {
+          "path": "methodology-frameworks/agile-scrum/scaling-frameworks/less/less_sprint_planning_template.md",
+          "status": "satisfied-existing-deferred",
+          "resolved_path": "methodology-frameworks/agile-scrum/scaling-frameworks/less/less_sprint_planning_template.md"
+        }
+      ],
+      "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move"
+    },
+    {
+      "order": 2,
+      "source": "project-lifecycle/01-initiation/project-charter/agile-team-charter-template.md",
+      "destination": "domains/team/project-lifecycle/01-initiation/project-charter/agile-team-charter-template.md",
+      "primary_domain": "Team",
+      "secondary_domains": [],
+      "pre_move_sha256": "0f0673726f23f2778e520fd5b9f59c9de8ba17f64cc3c4ab56f6f542fc61e5df",
+      "dependencies": [
+        {
+          "path": "domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/stakeholder-register-template.md",
+          "status": "satisfied-executed",
+          "resolved_path": "domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/stakeholder-register-template.md"
+        },
+        {
+          "path": "domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/agile-stakeholder-map-template.md",
+          "status": "satisfied-executed",
+          "resolved_path": "domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/agile-stakeholder-map-template.md"
+        },
+        {
+          "path": "project-assessment-suite/agile-project-assessment-template.md",
+          "status": "satisfied-existing-deferred",
+          "resolved_path": "project-assessment-suite/agile-project-assessment-template.md"
+        }
+      ],
+      "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move"
+    },
+    {
+      "order": 3,
+      "source": "project-lifecycle/02-planning/resource-planning/skills-matrix-template.md",
+      "destination": "domains/team/project-lifecycle/02-planning/resource-planning/skills-matrix-template.md",
+      "primary_domain": "Team",
+      "secondary_domains": [
+        "Stakeholder"
+      ],
+      "pre_move_sha256": "89caff225adae1dd3db08729141472ea80946d18f6098333d039275748bcf158",
+      "dependencies": [
+        {
+          "path": "methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md",
+          "status": "satisfied-existing-deferred",
+          "resolved_path": "methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md"
+        },
+        {
+          "path": "role-based-toolkits/project-manager/essential-templates/meeting-templates.md",
+          "status": "satisfied-existing-deferred",
+          "resolved_path": "role-based-toolkits/project-manager/essential-templates/meeting-templates.md"
+        },
+        {
+          "path": "methodology-frameworks/emerging-methods/devops/release_management_template.md",
+          "status": "satisfied-existing-deferred",
+          "resolved_path": "methodology-frameworks/emerging-methods/devops/release_management_template.md"
+        }
+      ],
+      "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move"
+    },
+    {
+      "order": 4,
+      "source": "project-lifecycle/02-planning/resource-planning/team-charter-template.md",
+      "destination": "domains/team/project-lifecycle/02-planning/resource-planning/team-charter-template.md",
+      "primary_domain": "Team",
+      "secondary_domains": [
+        "Stakeholder"
+      ],
+      "pre_move_sha256": "66814df1b812d05e9caf5e8f4dc524082eea0926100478f93752a98882b4712d",
+      "dependencies": [
+        {
+          "path": "methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md",
+          "status": "satisfied-existing-deferred",
+          "resolved_path": "methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md"
+        },
+        {
+          "path": "methodology-frameworks/emerging-methods/devops/release_management_template.md",
+          "status": "satisfied-existing-deferred",
+          "resolved_path": "methodology-frameworks/emerging-methods/devops/release_management_template.md"
+        },
+        {
+          "path": "project-lifecycle/02-planning/resource-planning/resource-management-plan-template.md",
+          "status": "satisfied-existing-deferred",
+          "resolved_path": "project-lifecycle/02-planning/resource-planning/resource-management-plan-template.md"
+        }
+      ],
+      "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move"
+    },
+    {
+      "order": 5,
+      "source": "role-based-toolkits/scrum-master/agile-ceremonies/backlog-refinement-template.md",
+      "destination": "domains/team/role-based-toolkits/scrum-master/agile-ceremonies/backlog-refinement-template.md",
+      "primary_domain": "Team",
+      "secondary_domains": [],
+      "pre_move_sha256": "42e010dfd3e6392835182f16b440d091ae4228cae96b91f98517ad2fbfdeb632",
+      "dependencies": [
+        {
+          "path": "role-based-toolkits/scrum-master/agile-ceremonies/sprint-planning-template.md",
+          "status": "satisfied-existing-deferred",
+          "resolved_path": "role-based-toolkits/scrum-master/agile-ceremonies/sprint-planning-template.md"
+        },
+        {
+          "path": "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_program_increment_planning_template.md",
+          "status": "satisfied-existing-deferred",
+          "resolved_path": "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_program_increment_planning_template.md"
+        },
+        {
+          "path": "role-based-toolkits/scrum-master/agile-ceremonies/sprint-retrospective-template.md",
+          "status": "satisfied-existing-deferred",
+          "resolved_path": "role-based-toolkits/scrum-master/agile-ceremonies/sprint-retrospective-template.md"
+        }
+      ],
+      "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move"
+    },
+    {
+      "order": 6,
+      "source": "role-based-toolkits/scrum-master/agile-ceremonies/daily-standup-template.md",
+      "destination": "domains/team/role-based-toolkits/scrum-master/agile-ceremonies/daily-standup-template.md",
+      "primary_domain": "Team",
+      "secondary_domains": [],
+      "pre_move_sha256": "51d78959b9bcb390984d708e42ec3e30a0f9dc6c4196d2583681b432e83b8b7b",
+      "dependencies": [
+        {
+          "path": "role-based-toolkits/scrum-master/agile-ceremonies/backlog-refinement-template.md",
+          "status": "same-wave",
+          "resolved_path": "domains/team/role-based-toolkits/scrum-master/agile-ceremonies/backlog-refinement-template.md"
+        },
+        {
+          "path": "methodology-frameworks/agile-scrum/scaling-frameworks/safe/pi_planning_template.md",
+          "status": "satisfied-existing-deferred",
+          "resolved_path": "methodology-frameworks/agile-scrum/scaling-frameworks/safe/pi_planning_template.md"
+        },
+        {
+          "path": "role-based-toolkits/scrum-master/agile-ceremonies/sprint-planning-template.md",
+          "status": "satisfied-existing-deferred",
+          "resolved_path": "role-based-toolkits/scrum-master/agile-ceremonies/sprint-planning-template.md"
+        }
+      ],
+      "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move"
+    },
+    {
+      "order": 7,
+      "source": "templates/agile/sprint_review_template.md",
+      "destination": "domains/team/templates/agile/sprint_review_template.md",
+      "primary_domain": "Team",
+      "secondary_domains": [
+        "Stakeholder"
+      ],
+      "pre_move_sha256": "3f37c1dbbc7f11b2ac603b6846eb99470550de0cf7fa7b4d61b98659c4996325",
+      "dependencies": [
+        {
+          "path": "methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md",
+          "status": "satisfied-existing-deferred",
+          "resolved_path": "methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md"
+        },
+        {
+          "path": "methodology-frameworks/agile-scrum/scaling-frameworks/less/cross_team_coordination_template.md",
+          "status": "satisfied-existing-deferred",
+          "resolved_path": "methodology-frameworks/agile-scrum/scaling-frameworks/less/cross_team_coordination_template.md"
+        },
+        {
+          "path": "methodology-frameworks/agile-scrum/scaling-frameworks/less/less_sprint_planning_template.md",
+          "status": "satisfied-existing-deferred",
+          "resolved_path": "methodology-frameworks/agile-scrum/scaling-frameworks/less/less_sprint_planning_template.md"
+        }
+      ],
+      "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move"
+    },
+    {
+      "order": 8,
+      "source": "templates/agile/sprint_retrospective_template.md",
+      "destination": "domains/team/templates/agile/sprint_retrospective_template.md",
+      "primary_domain": "Team",
+      "secondary_domains": [
+        "Stakeholder"
+      ],
+      "pre_move_sha256": "30d1d9549b91ad911ac934f3bc86da72813b850229f095c8afe6a4974f1bf47d",
+      "dependencies": [
+        {
+          "path": "templates/agile/sprint_review_template.md",
+          "status": "same-wave",
+          "resolved_path": "domains/team/templates/agile/sprint_review_template.md"
+        },
+        {
+          "path": "methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md",
+          "status": "satisfied-existing-deferred",
+          "resolved_path": "methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md"
+        },
+        {
+          "path": "methodology-frameworks/agile-scrum/scaling-frameworks/less/cross_team_coordination_template.md",
+          "status": "satisfied-existing-deferred",
+          "resolved_path": "methodology-frameworks/agile-scrum/scaling-frameworks/less/cross_team_coordination_template.md"
+        }
+      ],
+      "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move"
+    },
+    {
+      "order": 9,
+      "source": "templates/traditional/Traditional/Process_Groups/Executing/team_performance_assessment_template.md",
+      "destination": "domains/team/templates/traditional/Traditional/Process_Groups/Executing/team_performance_assessment_template.md",
+      "primary_domain": "Team",
+      "secondary_domains": [
+        "Stakeholder"
+      ],
+      "pre_move_sha256": "7d6268733b205ac301e8e55d9892a3c0b4999a923f1fa2deca188704907720aa",
+      "dependencies": [
+        {
+          "path": "templates/traditional/Traditional/Templates/change_request_template.md",
+          "status": "satisfied-existing-deferred",
+          "resolved_path": "templates/traditional/Traditional/Templates/change_request_template.md"
+        },
+        {
+          "path": "templates/traditional/Traditional/Templates/communication_plan_template.md",
+          "status": "satisfied-existing-deferred",
+          "resolved_path": "templates/traditional/Traditional/Templates/communication_plan_template.md"
+        },
+        {
+          "path": "domains/planning/templates/traditional/Traditional/Process_Groups/Initiating/project_charter_template.md",
+          "status": "satisfied-executed",
+          "resolved_path": "domains/planning/templates/traditional/Traditional/Process_Groups/Initiating/project_charter_template.md"
+        }
+      ],
+      "legacy_strategy": "replace-source-with-relative-pointer-after-approved-move"
+    }
+  ],
+  "checkpoints": [
+    "baseline-and-hashes",
+    "canonical-moves",
+    "legacy-pointers",
+    "canonical-references",
+    "affected-scope-validation",
+    "reviewed-visual-regression",
+    "post-merge-verification"
+  ],
+  "validation_commands": [
+    "node scripts/validate-migration-wave.mjs --manifest <manifest>",
+    "node scripts/generate-sprint-10-metadata.mjs",
+    "node scripts/validate-sprint-10.mjs --require-annotations",
+    "node scripts/validate-curated-templates.js",
+    "node scripts/validate-canonical-paths.js --strict",
+    "python3 scripts/check_anchor_links_filtered.py",
+    "npm run test:ci"
+  ],
+  "rollback": {
+    "strategy": "revert-wave-merge-commit",
+    "command": "git revert <wave-merge-sha>",
+    "granularity": "wave",
+    "asset_hashes_preserved": true
+  }
+}

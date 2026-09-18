@@ -1,0 +1,119 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "business-process.schema.json",
+  "title": "Business Process Model",
+  "description": "Simplified UML activity diagram per Li & Zheng (2025) Definition 4: BPM = (G, T) where G = (N, EC, EO)",
+  "type": "object",
+  "required": ["processId", "processName", "activityNodes", "controlEdges"],
+  "properties": {
+    "processId": {
+      "type": "string"
+    },
+    "processName": {
+      "type": "string"
+    },
+    "activityNodes": {
+      "type": "array",
+      "description": "A ∈ N — executable task nodes",
+      "items": {
+        "type": "object",
+        "required": ["nodeId", "name"],
+        "properties": {
+          "nodeId": { "type": "string" },
+          "name": {
+            "type": "string",
+            "description": "Activity name (e.g., 'Check out', 'Fill order')"
+          },
+          "associatedUseCaseId": {
+            "type": "string",
+            "description": "The use case ID associated with this activity"
+          }
+        }
+      }
+    },
+    "controlNodes": {
+      "type": "array",
+      "description": "CN ∈ N — fork, join, decision, merge nodes",
+      "items": {
+        "type": "object",
+        "required": ["nodeId", "type"],
+        "properties": {
+          "nodeId": { "type": "string" },
+          "type": {
+            "type": "string",
+            "enum": ["fork", "join", "decision", "merge", "initial", "final"]
+          },
+          "guardCondition": {
+            "type": "string",
+            "description": "For decision nodes: the condition expression"
+          }
+        }
+      }
+    },
+    "objectNodes": {
+      "type": "array",
+      "description": "ON ∈ N — instances of business objects flowing through the process",
+      "items": {
+        "type": "object",
+        "required": ["nodeId", "businessObjectType"],
+        "properties": {
+          "nodeId": { "type": "string" },
+          "businessObjectType": {
+            "type": "string",
+            "description": "The BO type name this node instantiates (type: ON → T)"
+          },
+          "state": {
+            "type": "string",
+            "description": "The state of the BO instance at this point in the process"
+          }
+        }
+      }
+    },
+    "controlEdges": {
+      "type": "array",
+      "description": "EC ⊆ N × N — temporal execution sequence edges",
+      "items": {
+        "type": "object",
+        "required": ["sourceNodeId", "targetNodeId"],
+        "properties": {
+          "sourceNodeId": { "type": "string" },
+          "targetNodeId": { "type": "string" },
+          "guardCondition": { "type": "string" }
+        }
+      }
+    },
+    "objectEdges": {
+      "type": "array",
+      "description": "EO ⊆ (ON × A) ∪ (A × ON) — object flow into/out of activities",
+      "items": {
+        "type": "object",
+        "required": ["sourceNodeId", "targetNodeId"],
+        "properties": {
+          "sourceNodeId": {
+            "type": "string",
+            "description": "Either an object node ID (input) or activity node ID (output)"
+          },
+          "targetNodeId": {
+            "type": "string",
+            "description": "Either an activity node ID (input) or object node ID (output)"
+          }
+        }
+      }
+    },
+    "businessObjectTypes": {
+      "type": "array",
+      "description": "T — the type system: set of business object definitions",
+      "items": {
+        "type": "object",
+        "required": ["name"],
+        "properties": {
+          "name": { "type": "string" },
+          "allowedStates": {
+            "type": "array",
+            "items": { "type": "string" }
+          }
+        }
+      }
+    }
+  }
+}

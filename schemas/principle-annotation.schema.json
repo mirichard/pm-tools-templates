@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/mirichard/pm-tools-templates/schemas/principle-annotation.schema.json",
+  "title": "Principle Annotation",
+  "type": "object",
+  "required": ["primary_principles", "secondary_principles", "principle_rationale"],
+  "properties": {
+    "primary_principles": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": { "$ref": "#/$defs/principle" }
+    },
+    "secondary_principles": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": { "$ref": "#/$defs/principle" }
+    },
+    "principle_rationale": { "type": "string", "minLength": 10, "maxLength": 240 }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "principle": {
+      "enum": [
+        "stewardship",
+        "value-focus",
+        "stakeholder-engagement",
+        "systems-thinking",
+        "adaptability",
+        "quality-by-design",
+        "evidence-based-decisions",
+        "risk-optimization",
+        "collaborative-leadership",
+        "continuous-learning"
+      ]
+    }
+  }
+}

@@ -1,0 +1,41 @@
+name: 🧪 Test Status Workflow
+
+on:
+  workflow_dispatch:
+    inputs:
+      test_mode:
+        description: 'Run in test mode'
+        required: false
+        default: 'true'
+        type: boolean
+      report_type:
+        description: 'Type of status report'
+        required: true
+        default: 'weekly'
+        type: choice
+        options:
+          - weekly
+          - monthly
+          - sprint
+
+jobs:
+  test-run:
+    name: Test Status Generation
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: 📥 Checkout Repository
+        uses: actions/checkout@v4
+        
+      - name: 🧪 Test Run
+        env:
+          TEST_MODE: ${{ github.event.inputs.test_mode || 'true' }}
+          REPORT_TYPE: ${{ github.event.inputs.report_type || 'weekly' }}
+        run: |
+          echo "🧪 Running test workflow"
+          echo "Test Mode: $TEST_MODE"
+          echo "Report Type: $REPORT_TYPE"
+          echo "This is a test of the workflow dispatch functionality"
+          
+          # Simple test to ensure the workflow can run
+          echo "✅ Test workflow completed successfully!"

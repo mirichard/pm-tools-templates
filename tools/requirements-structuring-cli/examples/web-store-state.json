@@ -1,0 +1,21 @@
+{
+  "businessObjectName": "Shopping Cart",
+  "states": [
+    { "stateId": "s1", "name": "Filled", "isInitial": true, "isFinal": false },
+    { "stateId": "s2", "name": "Converted", "isInitial": false, "isFinal": true }
+  ],
+  "transitions": [
+    {
+      "transitionId": "t1",
+      "sourceStateId": "s1",
+      "targetStateId": "s1",
+      "triggerAction": "add to shopping cart"
+    },
+    {
+      "transitionId": "t2",
+      "sourceStateId": "s1",
+      "targetStateId": "s2",
+      "triggerAction": "create order"
+    }
+  ]
+}

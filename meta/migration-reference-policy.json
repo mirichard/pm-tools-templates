@@ -1,0 +1,13 @@
+{
+  "historical_prefixes": [
+    "meta/architecture-research/",
+    "meta/migration-waves/",
+    "docs/vnext/",
+    "docs/archive/"
+  ],
+  "intentional_exact_files": [
+    "meta/migration-inventory.json",
+    "templates/templates.proposed.json",
+    "templates/templates.json.bak"
+  ]
+}

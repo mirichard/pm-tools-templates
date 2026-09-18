@@ -1,0 +1,19 @@
+# Code ownership for pm-tools-templates repository
+
+# Default owners for everything in the repo
+* @mirichard
+
+# Templates require review from the repository owner
+/templates/ @mirichard
+
+# Documentation requires review 
+/docs/ @mirichard
+README.md @mirichard
+
+# GitHub workflows and configuration
+/.github/ @mirichard
+
+# Governance files
+CODEOWNERS @mirichard
+CONTRIBUTING.md @mirichard
+LICENSE @mirichard

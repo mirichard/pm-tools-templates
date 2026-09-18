@@ -1,0 +1,150 @@
+name: 🔧 Template Improvement Suggestion
+description: Suggest specific improvements to existing templates
+title: "[IMPROVEMENT] Template: "
+labels: ["enhancement", "template-improvement", "community-feedback"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        # 🔧 Template Improvement Suggestion
+        
+        Help us improve specific templates with your expert insights and practical experience!
+
+  - type: dropdown
+    id: template_category
+    attributes:
+      label: Template Category
+      description: Which category does the template belong to?
+      options:
+        - "Agile/Scrum Templates"
+        - "Traditional/Waterfall Templates"
+        - "Hybrid Methodology Templates"
+        - "Industry-Specific Templates"
+        - "Role-Based Toolkits"
+        - "Quick-Start Kits"
+        - "Integration Templates"
+        - "Other"
+    validations:
+      required: true
+
+  - type: input
+    id: template_name
+    attributes:
+      label: Template Name
+      description: Which specific template needs improvement?
+      placeholder: e.g., Sprint Planning Template, Risk Register Template
+    validations:
+      required: true
+
+  - type: input
+    id: template_path
+    attributes:
+      label: Template File Path (if known)
+      description: Help us locate the template quickly
+      placeholder: e.g., Agile/Templates/sprint_planning_template.md
+
+  - type: dropdown
+    id: improvement_type
+    attributes:
+      label: Type of Improvement
+      description: What kind of improvement are you suggesting?
+      multiple: true
+      options:
+        - "Content Enhancement - Add missing sections"
+        - "Structure Improvement - Better organization"
+        - "Clarity & Instructions - Clearer guidance"
+        - "Examples & Samples - More practical examples"
+        - "Customization Options - More adaptable fields"
+        - "Integration Support - Better tool compatibility"
+        - "Visual Design - Better formatting/layout"
+        - "Accessibility - Easier for beginners"
+        - "Advanced Features - Power user functionality"
+        - "Industry Adaptation - Sector-specific versions"
+    validations:
+      required: true
+
+  - type: textarea
+    id: current_issues
+    attributes:
+      label: "🚫 Current Issues/Limitations"
+      description: What specific problems or limitations have you encountered?
+      placeholder: "Describe what's not working well or what's missing..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposed_improvements
+    attributes:
+      label: "💡 Proposed Improvements"
+      description: What specific changes would you like to see?
+      placeholder: "Be as detailed as possible about your suggestions..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: use_case_context
+    attributes:
+      label: "📋 Your Use Case"
+      description: How do you currently use this template? What's your context?
+      placeholder: "Describe your project type, team size, industry, etc..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected_benefits
+    attributes:
+      label: "🎯 Expected Benefits"
+      description: How would these improvements help you and others?
+      placeholder: "What would be the impact of these changes?"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: priority_level
+    attributes:
+      label: Priority Level
+      description: How important is this improvement to you?
+      options:
+        - "🔴 Critical - Blocking my work"
+        - "🟡 High - Significantly impacting efficiency"
+        - "🟢 Medium - Would be helpful"
+        - "🔵 Low - Nice to have"
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternative_solutions
+    attributes:
+      label: "🔄 Current Workarounds"
+      description: How are you currently handling this limitation?
+      placeholder: "What do you do instead? Any tools or processes you use?"
+
+  - type: textarea
+    id: examples_references
+    attributes:
+      label: "📚 Examples or References"
+      description: Any examples, links, or references that might help?
+      placeholder: "Links to similar templates, industry standards, or examples..."
+
+  - type: checkboxes
+    id: contribution_willingness
+    attributes:
+      label: "🤝 Contribution Interest"
+      description: Would you be willing to contribute to the improvement?
+      options:
+        - label: "💻 I can help draft content improvements"
+        - label: "📝 I can provide detailed examples"
+        - label: "🧪 I can test the improved template"
+        - label: "📖 I can review and provide feedback"
+        - label: "🎓 I can help with documentation"
+
+  - type: checkboxes
+    id: follow_up
+    attributes:
+      label: "📞 Follow-up Preferences"
+      description: How would you like to stay involved?
+      options:
+        - label: "📧 Contact me for clarification or more details"
+        - label: "🔔 Notify me when improvements are implemented"
+        - label: "🚀 I'd like to be included in testing the improvements"
+        - label: "💬 I'm available for a discussion/call about this"

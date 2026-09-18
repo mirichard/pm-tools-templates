@@ -1,0 +1,127 @@
+{
+  "provenance": "constructed",
+  "expertVerified": false,
+  "warning": "NOT independently expert-verified. Every attribute label below was reasoned by the task author (an AI coding agent, not a human with ISO/IEC 25010 classification expertise) directly from this repository's own taxonomy descriptions in data/nfr/taxonomy.json, then checked for plausibility against these same five real requirement units. Those descriptions are themselves reconstructed from secondary/public sources, not the primary ISO/IEC 25010:2023 document (paywalled), and require human verification against the purchased standard before being treated as authoritative -- see taxonomy.json's own accuracyNotice, quoted in taxonomyAccuracyCaveat below. So this label set carries two independent layers of unverified reasoning, not one. See tools/requirements-structuring-cli/README.md's 'Classification evaluation harness' section for the full caveat, including the order-of-operations note below.",
+  "taxonomyAccuracyCaveat": "Taxonomy structure and sub-characteristic descriptions are reconstructed from secondary/public sources, not the primary ISO/IEC 25010:2023 document (paywalled). REQUIRES human verification against the purchased standard before being treated as authoritative for a released product. (Quoted verbatim from data/nfr/taxonomy.json's own accuracyNotice field.)",
+  "orderOfOperationsCaveat": "The label author read this repository's already-committed golden-fixture classification output (examples/fixtures/nfr-golden/*/password-reset-input-nfr-classifications.json) during required discovery before writing these labels, so the high agreement rate below should not be read as blind independent validation -- the label author was not blind to the tool's actual answers when reasoning about most of these units, only genuinely independent on the one unit marked 'mismatch' and the one marked 'near-miss', where the label deliberately follows the taxonomy definition to a different conclusion than the tool reached (or reaches no conclusion the tool made at all).",
+  "sourceDocument": "examples/fixtures/nfr-golden/password-reset-input.md",
+  "appliesToVariants": ["neutral", "pci-dss"],
+  "taxonomySourceFile": "data/nfr/taxonomy.json",
+  "taxonomyRevision": "0.1.0",
+  "joinKey": "source.path (join each variant's own -nfr-classifications.json requirements[].source.path to this file's labels[].sourcePath; per docs/nfr-golden-example.md, do not join on stepId alone)",
+  "methodologyNote": "Each label is one independently-reasoned judgment: 'this requirement unit's text plausibly warrants this sub-characteristic, per this repository's own (unverified, secondary-source) taxonomy description for it.' A label set is intentionally small (5 real requirement units already present in the golden fixture, 12 total attribute judgments) rather than exhaustive -- absence of a label for a given (unit, sub-characteristic) pair means no judgment was made, not that the pair is judged inapplicable. The eval script (scripts/eval-classification.js) therefore only scores labeled pairs; it never penalizes the tool for assignments outside this small set.",
+  "labels": [
+    {
+      "sourcePath": "/basicFlow/steps/0",
+      "stepId": "1",
+      "requirementRef": "FR1",
+      "requirementText": "A user on the login page can click \"Forgot password\" to enter their registered email address and request a reset link.",
+      "attributes": [
+        {
+          "characteristic": "functional-suitability",
+          "subCharacteristic": "functional-completeness",
+          "taxonomyDescription": "Covers the intended task set.",
+          "reasoning": "Requesting a reset link is one of the system's intended tasks; the described entry point (click Forgot password, enter email, request link) is exactly what covering that task requires."
+        },
+        {
+          "characteristic": "functional-suitability",
+          "subCharacteristic": "functional-appropriateness",
+          "taxonomyDescription": "Helps users accomplish their objectives.",
+          "reasoning": "The flow (a labeled link, one email field, one request action) directly helps the user accomplish their objective of starting password recovery, with no unrelated steps in the way."
+        },
+        {
+          "characteristic": "interaction-capability",
+          "subCharacteristic": "operability",
+          "taxonomyDescription": "Makes operation and control straightforward.",
+          "reasoning": "Clicking a single labeled link and entering one field is a straightforward operation by this definition. Included specifically because the tool's real captured output for this source path assigns nothing at all under interaction-capability -- this is the set's one deliberate mismatch case, not picked to manufacture disagreement but because 'operability' is a defensible taxonomy-driven read of this step's plain UI action that a reasonable reviewer could independently reach."
+        }
+      ]
+    },
+    {
+      "sourcePath": "/basicFlow/steps/1",
+      "stepId": "2",
+      "requirementRef": "FR2",
+      "requirementText": "If the email matches a registered account, the system sends a reset link to that email; the link is valid for 30 minutes from send time. If the email does not match any account, the system shows the same generic confirmation message (no account-enumeration signal).",
+      "attributes": [
+        {
+          "characteristic": "functional-suitability",
+          "subCharacteristic": "functional-correctness",
+          "taxonomyDescription": "Produces the expected accurate results.",
+          "reasoning": "The requirement specifies two distinct branches (match vs. no match) with a precise expected result for each; producing exactly that differential behavior is functional-correctness by definition."
+        },
+        {
+          "characteristic": "security",
+          "subCharacteristic": "confidentiality",
+          "taxonomyDescription": "Restricts disclosure to authorized parties.",
+          "reasoning": "\"No account-enumeration signal\" is explicitly a disclosure-restriction requirement -- it forbids the system from revealing, to an unauthorized party, whether a given email is a registered account. This is a textbook confidentiality match."
+        }
+      ]
+    },
+    {
+      "sourcePath": "/basicFlow/steps/3",
+      "stepId": "4",
+      "requirementRef": "FR4",
+      "requirementText": "A new password must be at least 12 characters and contain at least one letter and one number. If it does not meet these rules, the system rejects it and shows the specific unmet rule(s).",
+      "attributes": [
+        {
+          "characteristic": "functional-suitability",
+          "subCharacteristic": "functional-correctness",
+          "taxonomyDescription": "Produces the expected accurate results.",
+          "reasoning": "Enforcing the exact stated rule set (length, letter, number) and rejecting anything that fails it is producing the specified accurate result for this validation task."
+        },
+        {
+          "characteristic": "interaction-capability",
+          "subCharacteristic": "user-error-protection",
+          "taxonomyDescription": "Prevents harmful user operation mistakes.",
+          "reasoning": "Validating the password before acceptance, rather than silently accepting a weak one, prevents the user's mistake from taking effect."
+        },
+        {
+          "characteristic": "interaction-capability",
+          "subCharacteristic": "self-descriptiveness",
+          "taxonomyDescription": "Explains available actions when needed.",
+          "reasoning": "The requirement's own text -- 'shows the specific unmet rule(s)' -- is explaining what the user needs to do next, which is self-descriptiveness by definition. Included as the set's one deliberate near-miss: this same requirement text is reasonably read as either user-error-protection (the validation itself) or self-descriptiveness (the explanation of what failed), and the tool's real captured output assigns only user-error-protection under interaction-capability for this exact source path, not self-descriptiveness -- a genuine case where two taxonomy-literate readings of one requirement diverge on which specific sub-characteristic fits best, not a fabricated disagreement."
+        }
+      ]
+    },
+    {
+      "sourcePath": "/alternativeFlows/1/steps/0",
+      "stepId": "4a1",
+      "requirementRef": "FR4",
+      "requirementText": "The System rejects the new password and displays the specific unmet password rules to the User.",
+      "attributes": [
+        {
+          "characteristic": "interaction-capability",
+          "subCharacteristic": "self-descriptiveness",
+          "taxonomyDescription": "Explains available actions when needed.",
+          "reasoning": "This step's whole action is displaying the specific unmet rules, i.e. explaining to the user what is needed to proceed -- this is the display/explanation step, distinct from FR4's own validation-rule step above."
+        },
+        {
+          "characteristic": "interaction-capability",
+          "subCharacteristic": "user-error-protection",
+          "taxonomyDescription": "Prevents harmful user operation mistakes.",
+          "reasoning": "Rejecting the invalid password outright (rather than accepting it) is the enforcement action that prevents the user's mistaken input from taking effect."
+        }
+      ]
+    },
+    {
+      "sourcePath": "/exceptionFlows/0/steps/0",
+      "stepId": "3b1",
+      "requirementRef": "FR6",
+      "requirementText": "If a reset link is expired or already used, the system shows an error and offers to send a new one (returning to FR1's flow).",
+      "attributes": [
+        {
+          "characteristic": "reliability",
+          "subCharacteristic": "recoverability",
+          "taxonomyDescription": "Restores affected data and operation.",
+          "reasoning": "Offering to send a new reset link after an expired/used one is exactly restoring the user's ability to complete the operation after a failure, which is recoverability by definition."
+        },
+        {
+          "characteristic": "interaction-capability",
+          "subCharacteristic": "user-assistance",
+          "taxonomyDescription": "Supports varied users achieving goals.",
+          "reasoning": "Rather than leaving the user stuck at a dead end, the system actively offers the next step toward their goal (a fresh link) -- directly supporting the user in achieving their goal despite the setback."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+Investment ID,Investment Name,Category,Sector,Initial Investment,Current Value,Total Returns,ROI %,Annualized ROI %,IRR %,NPV,Payback Period,Risk Score,Risk Category,Sharpe Ratio,Status,Start Date,End Date,Last Updated,Notes
+INV-001,Digital Transformation Platform,Technology,IT Infrastructure,2500000,3200000,700000,28.00%,18.50%,22.30%,1950000,2.1,6,Medium,1.85,Active,2023-01-15,,2025-01-02 14:30,Major enterprise platform upgrade
+INV-002,Customer Analytics System,Technology,Data & Analytics,1800000,2100000,300000,16.67%,12.40%,15.20%,890000,3.2,4,Low,2.10,Active,2023-03-10,,2025-01-02 14:30,AI-powered customer insights platform
+INV-003,Supply Chain Optimization,Operations,Logistics,3200000,3500000,300000,9.38%,7.20%,8.90%,1100000,4.8,3,Low,1.95,Active,2023-02-01,,2025-01-02 14:30,End-to-end supply chain modernization
+INV-004,Mobile Banking App,Technology,Financial Services,1500000,1950000,450000,30.00%,22.10%,28.50%,1250000,1.8,7,High,1.65,Active,2023-04-20,,2025-01-02 14:30,Next-generation mobile banking experience
+INV-005,Renewable Energy Initiative,Infrastructure,Sustainability,5000000,4800000,-200000,-4.00%,-3.20%,-2.80%,2800000,8.5,5,Medium,0.85,Active,2023-01-05,,2025-01-02 14:30,Solar and wind energy infrastructure
+INV-006,Marketing Automation Platform,Marketing,MarTech,850000,1100000,250000,29.41%,21.80%,26.40%,680000,2.0,4,Low,2.25,Active,2023-05-15,,2025-01-02 14:30,Comprehensive marketing automation suite
+INV-007,Cybersecurity Enhancement,Technology,Security,1200000,1320000,120000,10.00%,8.50%,9.20%,450000,5.2,3,Low,2.05,Active,2023-02-28,,2025-01-02 14:30,Enterprise security infrastructure upgrade
+INV-008,E-commerce Platform Expansion,Technology,E-commerce,2800000,3600000,800000,28.57%,19.80%,24.60%,2100000,2.3,6,Medium,1.75,Active,2023-01-30,,2025-01-02 14:30,Multi-region e-commerce platform
+INV-009,Warehouse Automation,Operations,Automation,2200000,2500000,300000,13.64%,10.80%,12.40%,890000,3.8,4,Low,1.95,Active,2023-03-25,,2025-01-02 14:30,Robotic warehouse management system
+INV-010,Employee Training Program,Human Resources,Learning & Development,650000,750000,100000,15.38%,12.60%,14.20%,280000,4.1,2,Low,2.40,Active,2023-04-10,,2025-01-02 14:30,Comprehensive skills development program
+INV-011,Cloud Migration Project,Technology,Cloud Infrastructure,1800000,2200000,400000,22.22%,16.40%,19.80%,1150000,2.8,5,Medium,1.85,Active,2023-02-15,,2025-01-02 14:30,Complete cloud infrastructure migration
+INV-012,Quality Management System,Operations,Quality Assurance,950000,1080000,130000,13.68%,11.20%,12.80%,380000,4.2,3,Low,2.15,Active,2023-03-08,,2025-01-02 14:30,ISO compliance and quality improvement
+INV-013,Business Intelligence Platform,Technology,Analytics,1400000,1750000,350000,25.00%,18.20%,22.10%,950000,2.5,4,Low,2.05,Active,2023-01-20,,2025-01-02 14:30,Enterprise-wide BI and reporting platform
+INV-014,Customer Service Automation,Technology,Customer Service,1100000,1300000,200000,18.18%,14.60%,16.80%,580000,3.5,3,Low,2.20,Active,2023-04-05,,2025-01-02 14:30,AI-powered customer service automation
+INV-015,Research & Development Lab,Research,Innovation,3500000,3200000,-300000,-8.57%,-6.80%,-5.90%,1800000,12.0,8,High,0.65,Active,2023-01-10,,2025-01-02 14:30,Advanced R&D facility and equipment
+INV-016,Fleet Management System,Operations,Transportation,800000,950000,150000,18.75%,15.20%,17.40%,420000,3.2,4,Low,2.10,Active,2023-03-20,,2025-01-02 14:30,GPS-enabled fleet tracking and optimization
+INV-017,Office Space Renovation,Infrastructure,Real Estate,1200000,1250000,50000,4.17%,3.50%,3.80%,180000,8.2,2,Low,1.40,Active,2023-02-10,,2025-01-02 14:30,Modern office space and amenities upgrade
+INV-018,ERP System Upgrade,Technology,Enterprise Software,2500000,2800000,300000,12.00%,9.80%,11.20%,890000,4.5,5,Medium,1.75,Active,2023-01-25,,2025-01-02 14:30,Next-generation ERP implementation
+INV-019,Social Media Marketing Campaign,Marketing,Digital Marketing,450000,620000,170000,37.78%,28.60%,35.20%,480000,1.5,6,Medium,2.35,Active,2023-05-01,,2025-01-02 14:30,Multi-platform social media initiative
+INV-020,Compliance Management System,Legal,RegTech,900000,1050000,150000,16.67%,13.80%,15.60%,420000,3.8,3,Low,2.25,Active,2023-02-20,,2025-01-02 14:30,Automated compliance monitoring and reporting
+INV-021,Product Development Platform,Technology,Innovation,1600000,1400000,-200000,-12.50%,-9.80%,-8.50%,650000,15.0,9,Very High,0.45,Monitoring,2023-01-08,,2025-01-02 14:30,New product development and testing platform
+INV-022,Financial Risk Management,Finance,FinTech,1300000,1520000,220000,16.92%,14.20%,16.40%,650000,3.6,4,Low,2.15,Active,2023-03-15,,2025-01-02 14:30,Advanced financial risk assessment tools
+INV-023,Sustainability Reporting System,Operations,ESG,650000,720000,70000,10.77%,9.20%,10.40%,210000,5.8,2,Low,2.05,Active,2023-04-12,,2025-01-02 14:30,Environmental and social impact tracking
+INV-024,Data Center Modernization,Technology,Infrastructure,4200000,4600000,400000,9.52%,7.80%,8.90%,1580000,5.2,4,Low,1.85,Active,2023-01-12,,2025-01-02 14:30,Next-generation data center infrastructure
+INV-025,Vendor Management Platform,Operations,Procurement,750000,850000,100000,13.33%,11.50%,12.80%,280000,4.5,3,Low,2.10,Active,2023-03-30,,2025-01-02 14:30,Comprehensive vendor relationship management

@@ -1,0 +1,122 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "formal-structure.schema.json",
+  "title": "Requirement Specification Structure",
+  "description": "JSON representation of the formal structure from Li & Zheng (2025), Equation 1: <Pre-conditions [Previous Step]; Actor; Action; Business Objects; [To actor]; [Post-conditions]>",
+  "type": "object",
+  "required": ["useCaseId", "useCaseName", "steps"],
+  "properties": {
+    "useCaseId": {
+      "type": "string",
+      "description": "Unique identifier for the use case (e.g., 'UC-01')"
+    },
+    "useCaseName": {
+      "type": "string",
+      "description": "Human-readable name (e.g., 'Add Item to Cart')"
+    },
+    "steps": {
+      "type": "array",
+      "description": "Ordered sequence of structured requirement steps",
+      "items": {
+        "$ref": "#/definitions/structuredStep"
+      },
+      "minItems": 1
+    },
+    "businessObjects": {
+      "type": "array",
+      "description": "Business objects identified during structuring",
+      "items": {
+        "type": "string"
+      }
+    },
+    "sourceRequirements": {
+      "type": "array",
+      "description": "Parser-owned original source lines; optional for legacy artifacts.",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "originalText"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "originalText": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "structuredStep": {
+      "type": "object",
+      "description": "A single requirement normalized into the formal structure (Eq. 1)",
+      "required": ["stepId", "actor", "action", "businessObject"],
+      "properties": {
+        "sourceRequirementId": {
+          "type": "string",
+          "description": "Originating parser requirement ID; optional for legacy artifacts."
+        },
+        "sourceText": {
+          "type": "string",
+          "description": "Exact original source line reattached by code; optional for legacy artifacts."
+        },
+        "stepId": {
+          "type": "string",
+          "description": "Step identifier (e.g., '1', '3a1')"
+        },
+        "precondition": {
+          "type": ["string", "null"],
+          "description": "Prerequisite state or condition for this step; null when the producer prompt has no precondition to report"
+        },
+        "previousStep": {
+          "type": ["string", "null"],
+          "description": "Explicit reference to the prior step in sequence; null for the first step in a flow"
+        },
+        "actor": {
+          "type": "string",
+          "description": "Entity initiating the action (e.g., 'Customer', 'System')"
+        },
+        "action": {
+          "type": "string",
+          "description": "Verb describing the action performed"
+        },
+        "businessObject": {
+          "type": "string",
+          "description": "The real-world business entity being acted upon (e.g., 'Order', NOT attributes like 'buyer name')"
+        },
+        "toActor": {
+          "type": ["string", "null"],
+          "description": "Recipient of the action, if directed toward another actor; null when the action has no recipient"
+        },
+        "postcondition": {
+          "type": ["string", "null"],
+          "description": "State that holds after successful execution of this step; null when the producer prompt has no postcondition to report"
+        },
+        "refUseCaseId": {
+          "type": ["string", "null"],
+          "description": "Pointer to an existing use case if this step is defined elsewhere (Eq. 2 simplified form); null when the step does not delegate"
+        },
+        "description": {
+          "type": "string",
+          "description": "Human-readable step description; not nullable, unlike the fields above (no generation prompt marks it \"(or null)\")"
+        },
+        "flowType": {
+          "type": "string",
+          "enum": ["basic", "alternative", "exception"],
+          "description": "Which flow this step belongs to"
+        },
+        "deviationPoint": {
+          "type": ["string", "null"],
+          "description": "For alternative/exception steps: the basic flow step this deviates from (e.g., '3' for step 3a1); null for basic-flow steps"
+        },
+        "rejoinPoint": {
+          "type": ["string", "null"],
+          "description": "For alternative/exception steps: the basic flow step to rejoin after this flow completes; null if it terminates the use case"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,44 @@
+name: Debug Enhanced Workflow
+
+on:
+  workflow_dispatch:
+
+jobs:
+  debug:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+    
+    - name: Test Basic Commands
+      env:
+        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        echo "Testing basic GitHub CLI commands..."
+        gh --version
+        echo "Repository: $(gh repo view --json name -q .name)"
+        echo "Issue count test..."
+        gh issue list --state all --limit 5
+        echo "✅ Basic commands work"
+        
+    - name: Test Metrics Collection
+      env:
+        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        echo "Testing metrics collection..."
+        TOTAL_ISSUES=$(gh issue list --state all --json number | jq length)
+        OPEN_ISSUES=$(gh issue list --state open --json number | jq length)
+        CLOSED_ISSUES=$(gh issue list --state closed --json number | jq length)
+        
+        echo "Total issues: $TOTAL_ISSUES"
+        echo "Open issues: $OPEN_ISSUES"
+        echo "Closed issues: $CLOSED_ISSUES"
+        
+        if [ $TOTAL_ISSUES -gt 0 ]; then
+          COMPLETION_RATE=$(( CLOSED_ISSUES * 100 / TOTAL_ISSUES ))
+        else
+          COMPLETION_RATE=100
+        fi
+        
+        echo "Completion rate: $COMPLETION_RATE%"
+        echo "✅ Metrics collection works"

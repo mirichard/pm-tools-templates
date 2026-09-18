@@ -1,0 +1,9 @@
+---
+import Layout from '../layouts/Layout.astro';
+import TemplateBrowser from '../components/TemplateBrowser.tsx';
+import { templateCards } from '../data/templates';
+---
+
+<Layout title="Template Browser">
+  <TemplateBrowser templates={templateCards} client:load />
+</Layout>

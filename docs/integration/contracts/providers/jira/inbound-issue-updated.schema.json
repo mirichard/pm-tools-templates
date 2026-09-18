@@ -1,0 +1,26 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Jira Issue Updated (Inbound)",
+  "type": "object",
+  "properties": {
+    "provider": { "const": "jira" },
+    "event": { "const": "issue_updated" },
+    "version": { "type": "string" },
+    "data": {
+      "type": "object",
+      "properties": {
+        "issue": {
+          "type": "object",
+          "properties": {
+            "key": { "type": "string" },
+            "fields": { "type": "object" }
+          },
+          "required": ["key"]
+        }
+      },
+      "required": ["issue"]
+    }
+  },
+  "required": ["provider", "event", "version", "data"]
+}
+
