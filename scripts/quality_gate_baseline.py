@@ -2,6 +2,7 @@
 """Resolve verified migration sources for the quality gate's existing debt policy."""
 import argparse
 import hashlib
+import hmac
 import json
 import os
 from pathlib import Path
@@ -49,7 +50,9 @@ def migration_sources(root, base):
         try:
             body = git_bytes(root, base, source)
             digest = move.get('execution', {}).get('pre_move_source_sha256')
-            if hashlib.sha256(body).hexdigest() != digest or regular_bytes(root, destination) != body:
+            if not isinstance(digest, str):
+                continue
+            if not hmac.compare_digest(hashlib.sha256(body).hexdigest(), digest) or not hmac.compare_digest(regular_bytes(root, destination), body):
                 continue
             pointer = regular_bytes(root, source).decode()
             if pointer_errors(root, source, pointer):
