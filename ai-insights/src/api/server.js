@@ -56,10 +56,12 @@ class AIInsightsServer {
       crossOriginEmbedderPolicy: false
     }));
 
-    // CORS configuration
+    // CORS configuration - restrict to known origins
     this.app.use(cors({
-      origin: process.env.CORS_ORIGIN || '*',
-      credentials: true
+      origin: (process.env.CORS_ORIGIN || 'http://localhost:3000').split(','),
+      credentials: true,
+      methods: ['GET', 'POST', 'PUT', 'DELETE'],
+      allowedHeaders: ['Content-Type', 'Authorization']
     }));
 
     // Compression

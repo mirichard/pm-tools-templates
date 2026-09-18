@@ -9,6 +9,14 @@ const { createServer } = require('http');
 const cron = require('node-cron');
 require('dotenv').config();
 
+// Sanitize function for log injection prevention
+function sanitizeForLogging(input) {
+  if (typeof input !== 'string') {
+    input = String(input);
+  }
+  return input.replace(/[\n\r\t]/g, ' ').replace(/[^\x20-\x7E]/g, '?').substring(0, 256);
+}
+
 /**
  * Advanced Executive Dashboard Server
  * 
@@ -464,7 +472,7 @@ class DashboardServer {
         break;
       
       default:
-        console.log('Unknown client message type:', data.type);
+        console.log('Unknown client message type:', sanitizeForLogging(data.type));
     }
   }
 

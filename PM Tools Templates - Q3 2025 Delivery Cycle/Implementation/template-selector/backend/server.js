@@ -1,3 +1,11 @@
+// Sanitize function for log injection prevention
+function sanitizeForLogging(input) {
+  if (typeof input !== "string") {
+    input = String(input);
+  }
+  return input.replace(/[\n\r\t]/g, " ").replace(/[^\x20-\x7E]/g, "?").substring(0, 256);
+}
+
 const express = require('express');
 const cors = require('cors');
 const path = require('path');
@@ -203,9 +211,9 @@ app.post('/api/templates/:id/rate', async (req, res) => {
     
     // In a real implementation, this would save to a database
     // For now, we'll just return success
-    console.log(`Rating submitted for template ${templateId}: ${rating}/5`);
+    console.log(`Rating submitted for template ${sanitizeForLogging(templateId)}: ${rating}/5`);
     if (feedback) {
-      console.log(`Feedback: ${feedback}`);
+      console.log(`Feedback: ${sanitizeForLogging(feedback)}`);
     }
     
     res.json({ message: 'Rating submitted successfully' });
