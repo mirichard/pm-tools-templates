@@ -43,6 +43,11 @@ class QualityBaselineTests(unittest.TestCase):
         self.save_inventory()
         self.assertEqual(baseline.migration_sources(self.root, self.base), {})
 
+    def test_non_string_hash_receives_no_debt_transfer(self):
+        self.move['execution']['pre_move_source_sha256'] = None
+        self.save_inventory()
+        self.assertEqual(baseline.migration_sources(self.root, self.base), {})
+
     def test_wrong_pointer_receives_no_debt_transfer(self):
         self.write(self.source, POINTER)
         self.assertEqual(baseline.migration_sources(self.root, self.base), {})

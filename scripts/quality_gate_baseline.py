@@ -50,6 +50,8 @@ def migration_sources(root, base):
         try:
             body = git_bytes(root, base, source)
             digest = move.get('execution', {}).get('pre_move_source_sha256')
+            if not isinstance(digest, str):
+                continue
             if not hmac.compare_digest(hashlib.sha256(body).hexdigest(), digest) or not hmac.compare_digest(regular_bytes(root, destination), body):
                 continue
             pointer = regular_bytes(root, source).decode()
