@@ -37,7 +37,7 @@ const Tooltip = ({ content, children, placement = 'top' }) => {
             whiteSpace: 'nowrap',
             zIndex: 1000,
             transition: shouldReduceMotion ? 'none' : 'opacity 150ms ease-in-out',
-            opacity: visible ? 1 : 0,
+            opacity: 1,
           }}
         >
           {content}

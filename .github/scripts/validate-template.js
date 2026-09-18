@@ -184,7 +184,6 @@ class TemplateValidator {
     let lineNumber = 0;
     let hasTable = false;
     let hasCodeBlock = false;
-    let hasLinks = false;
 
     for (const line of lines) {
       lineNumber++;
@@ -202,11 +201,6 @@ class TemplateValidator {
       // Check for code blocks
       if (line.includes('```') || line.includes('`')) {
         hasCodeBlock = true;
-      }
-
-      // Check for links
-      if (line.includes('[') && line.includes(']') && line.includes('(')) {
-        hasLinks = true;
       }
 
       // Check for very long lines
@@ -248,7 +242,7 @@ class TemplateValidator {
     let templateType = null;
 
     // Determine template type
-    for (const [type, requirements] of Object.entries(this.templateTypes)) {
+    for (const [type] of Object.entries(this.templateTypes)) {
       if (lowerFileName.includes(type) || content.toLowerCase().includes(type)) {
         templateType = type;
         break;
