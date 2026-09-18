@@ -1,11 +1,3 @@
----
-title: "Quality Management Review Template"
-methodology: "universal"
-complexity: "advanced"
-owner: "mirichard"
-updated: "2025-08-05"
----
-
 # Quality Management Review Template
 
 ## Document Control

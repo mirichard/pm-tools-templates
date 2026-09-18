@@ -1,11 +1,35 @@
-# Hybrid Project Management Plan Template — Moved
+# Hybrid Project Management Plan
 
-## Purpose and overview
+## Overview
+Project management plan template combining traditional and agile methodologies.
 
-This legacy path is retained so existing repository links and external bookmarks continue to reach the Hybrid Project Management Plan Template after its domain migration. The maintained canonical template now resides in the Delivery domain; this file contains navigation guidance only and is not a second template copy.
+## Usage
+This template provides a standardized approach for Hybrid Project Management Plan.
 
-**Canonical location:** [Open the Hybrid Project Management Plan Template](../../../domains/delivery/project-lifecycle/02-planning/project-management-plan/hybrid-project-management-plan-template.md)
+## Template Sections
 
-## Usage instructions
+### 1. Introduction
+Brief description of the purpose and scope.
 
-Follow the canonical-location link above to view, copy, or update the template. Update only the canonical file when proposing content changes. References to this legacy path remain supported for backward compatibility, but new documentation and catalog entries should link directly to the canonical domain path.
+### 2. Key Components
+List the main elements that should be included.
+
+### 3. Implementation Guidelines
+Step-by-step instructions for using this template.
+
+### 4. Best Practices
+- Follow established project management standards
+- Ensure stakeholder review and approval
+- Document all decisions and changes
+- Regular updates and maintenance
+
+## Related Templates
+- [Project Charter](../project-charter/)
+- [Risk Management](../risk-management/)
+- [Communication Plan](../communication-plan/)
+
+## Version History
+- v1.0 - Initial template creation
+
+---
+*This template is part of the PM Tools Templates repository.*

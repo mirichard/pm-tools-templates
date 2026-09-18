@@ -46,7 +46,7 @@ NEW: Traditional/Functional_Areas/
 |----------|----------|--------|
 | Traditional Templates | Traditional Templates | IP compliance |
 | Process Groups | Project Phases | Industry standard |
-| Knowledge Areas | Functional Areas | Avoid Industry Standard-specific terms |
+| Knowledge Areas | Functional Areas | Avoid PMI-specific terms |
 | Traditional-compliant | Industry-standard | Neutral positioning |
 
 ## Migration Steps for Users
@@ -112,7 +112,7 @@ We've implemented:
 Contributors should now:
 - Use new directory structure
 - Include appropriate disclaimers in new templates
-- Avoid Industry Standard-specific terminology
+- Avoid PMI-specific terminology
 - Follow updated naming conventions
 
 ### Template Creation

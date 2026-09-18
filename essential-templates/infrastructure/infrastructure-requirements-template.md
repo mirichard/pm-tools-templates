@@ -1,25 +1,3 @@
----
-title: "Infrastructure Requirements Template"
-methodology: "agile"
-complexity: "advanced"
-process_group: "initiating"
-industry: "healthcare"
-role: "pm"
-tags:
-  - "agile"
-  - "communication"
-  - "initiating"
-  - "planning"
-  - "quality"
-  - "reporting"
-  - "risk-management"
-  - "stakeholder-management"
-version: "1.0.0"
-owner: "mirichard"
-updated: "2025-08-06"
-estimated_completion_time: "90-120 minutes"
----
-
 # Infrastructure Requirements Template
 
 ## Document Control
@@ -542,8 +520,8 @@ This document defines the infrastructure requirements for [Project Name]. It spe
 
 ### Infrastructure Templates
 - [Deployment Checklist Template](./deployment-checklist-template.md)
-- [Hybrid Infrastructure Template](../../domains/delivery/methodology-frameworks/hybrid/infrastructure/hybrid-infrastructure-template.md)
-- [DevOps Pipeline Template](../../domains/measurement/methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md)
+- [Hybrid Infrastructure Template](../../methodology-frameworks/hybrid/infrastructure/hybrid-infrastructure-template.md)
+- [DevOps Pipeline Template](../../methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md)
 
 ### External Resources
 - [Cloud Architecture Best Practices](https://example.com/cloud-architecture)

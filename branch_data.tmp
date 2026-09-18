@@ -1,0 +1,21 @@
+origin/chore/branch-governance-setup|c098e45d|Michael Richard|2025-08-03 10:23:52 -0400|Fix branch names in workflows: use 'develop' instead of 'development'
+origin/codex/review-roadmap.md-and-suggest-themes|48f4605f|Dashboard Generator|2025-06-28 21:06:48 +0000|📊 Update project health dashboard - 2025-06-28 21:06
+origin/codex/test-mvp-dashboard|57ee6b5a|Michael Richard|2025-06-29 20:08:21 -0400|Merge branch 'main' into codex/test-mvp-dashboard
+origin/develop|0e6f794e|Michael Richard|2025-07-15 04:53:17 -0400|feat: Implement Priority 2 features for Q3 2025 delivery cycle
+origin/feature/add-contributing-guide|4bed44f0|Michael Richard|2025-06-08 14:41:37 -0400|Add comprehensive CONTRIBUTING.md guide
+origin/feature/add-github-actions-workflow|236576d1|Michael Richard|2025-06-10 15:20:36 -0400|Fix YAML syntax errors in welcome-new-contributors workflow
+origin/feature/add-template-checklist|91397cf3|Michael Richard|2025-06-08 16:21:19 -0400|Add Template Selection Checklist for improved user experience
+origin/feature/co-authored-enhancement|a19abbe5|Michael Richard|2025-06-10 11:39:53 -0400|fix: Update program manager toolkit links to point to README.md
+origin/feature/enhance-readme-badges|bd6c3e7c|Michael Richard|2025-06-08 14:42:27 -0400|Enhance README with GitHub badges and improved discoverability
+origin/feature/issue-327-executive-dashboard-enhancement|6c3598be|Michael Richard|2025-08-02 21:39:13 -0400|docs: Add Issue #327 completion status update
+origin/feature/product-owner-release-manager-epics|8eb15dc7|Michael Richard|2025-06-26 08:54:16 -0400|Merge branch 'main' of https://github.com/mirichard/pm-tools-templates into feature/product-owner-release-manager-epics
+origin/fix-broken-links-readme|64d9cf2c|Michael Richard|2025-06-09 08:51:59 -0400|Fix broken internal links in README.md
+origin/fix/add-program-manager-readme|52917978|Michael Richard|2025-06-10 12:23:20 -0400|Add Program Manager toolkit README files
+origin/fix/add-project-manager-readme|b27eb0e1|Michael Richard|2025-06-10 12:29:04 -0400|Add comprehensive README files for Project Manager toolkit
+origin/fix/jsx-syntax|74d35b11|Michael Richard|2025-07-16 17:51:07 -0400|feat: Implement Norman UI principles with mapping, progressive disclosure, and WCAG 2.1 AA accessibility
+origin/fix/status-reporting-20250722-125719|caf73b8d|Michael Richard|2025-07-22 13:06:52 -0400|final: Create production-ready status reporting workflow
+origin/main|04168130|Dashboard Generator|2025-08-03 12:11:22 +0000|📊 Update project health dashboard - 2025-08-03 12:11
+origin/mirichard-patch-1|af24213e|Michael Richard|2025-06-10 13:04:38 -0400|Update README.md
+origin/quickfix/readme-title-format|d822f9a2|Michael Richard|2025-06-08 16:24:28 -0400|Fix README title formatting for consistency
+origin/r4rbdf-codex/test-mvp-dashboard|5586b34a|Michael Richard|2025-06-29 15:33:01 -0400|Embed dashboard preview as base64
+origin/staging|6a0892a0|Michael Richard|2025-07-15 06:37:39 -0400|Fix JSX syntax in TemplateSelector - resolve CodeQL js/syntax-error

@@ -1,11 +1,35 @@
-# Assessment Report Template — Moved
+# Assessment Report Template
 
-## Purpose and overview
+## Overview
+A standardized template for generating comprehensive project assessment reports.
 
-This legacy path is retained so existing repository links and external bookmarks continue to reach the Assessment Report Template after its domain migration. The maintained canonical template now resides in the Uncertainty domain; this file contains navigation guidance only and is not a second template copy.
+## Usage
+This template provides a standardized approach for Assessment Report Template.
 
-**Canonical location:** [Open the Assessment Report Template](../domains/uncertainty/project-assessment-suite/assessment-report-template.md)
+## Template Sections
 
-## Usage instructions
+### 1. Introduction
+Brief description of the purpose and scope.
 
-Follow the canonical-location link above to view, copy, or update the template. Update only the canonical file when proposing content changes. References to this legacy path remain supported for backward compatibility, but new documentation and catalog entries should link directly to the canonical domain path.
+### 2. Key Components
+List the main elements that should be included.
+
+### 3. Implementation Guidelines
+Step-by-step instructions for using this template.
+
+### 4. Best Practices
+- Follow established project management standards
+- Ensure stakeholder review and approval
+- Document all decisions and changes
+- Regular updates and maintenance
+
+## Related Templates
+- [Project Charter](../project-charter/)
+- [Risk Management](../risk-management/)
+- [Communication Plan](../communication-plan/)
+
+## Version History
+- v1.0 - Initial template creation
+
+---
+*This template is part of the PM Tools Templates repository.*

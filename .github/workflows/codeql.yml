@@ -37,12 +37,10 @@ jobs:
 
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v7
-      with:
-        fetch-depth: 1
+      uses: actions/checkout@v4
 
     - name: Initialize CodeQL
-      uses: github/codeql-action/init@v4
+      uses: github/codeql-action/init@v3
       with:
         languages: ${{ matrix.language }}
         build-mode: ${{ matrix.build-mode }}
@@ -50,7 +48,7 @@ jobs:
         # languages: javascript, python, go, java, csharp, ruby, cpp
         
         # Configure CodeQL queries to run
-        queries: +security-extended
+        queries: +security-and-quality
         
         # Use custom configuration
         config-file: ./.github/codeql/codeql-config.yml
@@ -70,7 +68,7 @@ jobs:
     #     exit 1
 
     - name: Perform CodeQL Analysis
-      uses: github/codeql-action/analyze@v4
+      uses: github/codeql-action/analyze@v3
       with:
         category: "/language:${{matrix.language}}"
         # Upload results to GitHub Security tab automatically
@@ -80,7 +78,7 @@ jobs:
         
     # Optional: Upload results as artifacts for manual review
     - name: Upload analysis results
-      uses: actions/upload-artifact@v7
+      uses: actions/upload-artifact@v4
       if: always()
       with:
         name: codeql-results-${{ matrix.language }}
@@ -88,3 +86,4 @@ jobs:
         retention-days: 30
         # Continue even if SARIF file doesn't exist
         if-no-files-found: warn
+

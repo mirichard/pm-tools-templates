@@ -39,7 +39,7 @@ jobs:
     
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v7
+        uses: actions/checkout@v4
         with:
           # Fetch full history for proper diff analysis
           fetch-depth: 0
@@ -47,7 +47,7 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Set up Python
-        uses: actions/setup-python@v7
+        uses: actions/setup-python@v4
         with:
           python-version: '3.9'
 
@@ -97,7 +97,7 @@ jobs:
 
       - name: Upload anchor link report
         if: always()
-        uses: actions/upload-artifact@v7
+        uses: actions/upload-artifact@v4
         with:
           name: anchor-link-report
           path: |
@@ -108,7 +108,7 @@ jobs:
 
       - name: Create or update PR comment
         if: github.event_name == 'pull_request'
-        uses: actions/github-script@v9
+        uses: actions/github-script@v7
         with:
           script: |
             const fs = require('fs');
@@ -191,38 +191,34 @@ jobs:
             commentBody += fullOutput.slice(0, 2000); // Limit length
             commentBody += '\n```\n</details>';
             
-            try {
-              // Find existing comment
-              const { data: comments } = await github.rest.issues.listComments({
+            // Find existing comment
+            const { data: comments } = await github.rest.issues.listComments({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+            });
+            
+            const botComment = comments.find(comment => 
+              comment.user.type === 'Bot' && 
+              comment.body.includes('Anchor Link Check Results')
+            );
+            
+            if (botComment) {
+              // Update existing comment
+              await github.rest.issues.updateComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                comment_id: botComment.id,
+                body: commentBody
+              });
+            } else {
+              // Create new comment
+              await github.rest.issues.createComment({
                 owner: context.repo.owner,
                 repo: context.repo.repo,
                 issue_number: context.issue.number,
+                body: commentBody
               });
-              
-              const botComment = comments.find(comment => 
-                comment.user.type === 'Bot' && 
-                comment.body.includes('Anchor Link Check Results')
-              );
-              
-              if (botComment) {
-                // Update existing comment
-                await github.rest.issues.updateComment({
-                  owner: context.repo.owner,
-                  repo: context.repo.repo,
-                  comment_id: botComment.id,
-                  body: commentBody
-                });
-              } else {
-                // Create new comment
-                await github.rest.issues.createComment({
-                  owner: context.repo.owner,
-                  repo: context.repo.repo,
-                  issue_number: context.issue.number,
-                  body: commentBody
-                });
-              }
-            } catch (error) {
-              console.log(`Could not post anchor link PR comment: ${error.message}`);
             }
 
       - name: Commit auto-fixes
@@ -269,4 +265,5 @@ jobs:
           else
             echo "⚠️ Warnings or suggestions available - check the report"
           fi
+
 

@@ -5,6 +5,8 @@ disable-default-queries: false
 
 # Include additional query suites and queries
 queries:
+  - name: security-and-quality
+    uses: security-and-quality
   - name: security-extended
     uses: security-extended
 
@@ -19,7 +21,6 @@ paths:
 # Paths to ignore during analysis
 paths-ignore:
   - node_modules
-  - "**/coverage/**"
   - "**/*.min.js"
   - "**/*.bundle.js"
   - "**/*.generated.js"
@@ -41,3 +42,4 @@ packs:
     - "codeql/javascript-queries"
     # Add custom packs if available
     # - "my-org/my-custom-pack"
+

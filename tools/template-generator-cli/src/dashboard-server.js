@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 
 const express = require('express');
-const { rateLimit } = require('express-rate-limit');
 const fs = require('fs-extra');
 const path = require('path');
 const chalk = require('chalk');
@@ -21,16 +20,11 @@ require('dotenv').config();
  * - KPI metrics and trends
  */
 class DashboardServer {
-  constructor({ readRateLimit = {}, writeRateLimit = {} } = {}) {
+  constructor() {
     this.app = express();
     this.server = createServer(this.app);
     this.wss = new WebSocket.Server({ server: this.server });
     this.port = process.env.DASHBOARD_PORT || 3000;
-    if (process.env.DASHBOARD_TRUST_PROXY === 'true') {
-      this.app.set('trust proxy', 1);
-    }
-    this.readRateLimit = readRateLimit;
-    this.writeRateLimit = writeRateLimit;
     
     // Data repositories
     this.analyticsPath = path.resolve(__dirname, '../analytics');
@@ -54,10 +48,12 @@ class DashboardServer {
     this.setupRoutes();
     this.setupWebSocket();
     this.setupDataCollection();
+    this.startPeriodicUpdates();
   }
 
   setupMiddleware() {
     this.app.use(express.json());
+    this.app.use(express.static(path.join(__dirname, '../dashboard-ui')));
     
     // CORS for development
     this.app.use((req, res, next) => {
@@ -70,42 +66,22 @@ class DashboardServer {
 
   setupRoutes() {
     // Main dashboard view
-    const readLimiter = rateLimit({
-      windowMs: this.readRateLimit.windowMs ?? 60000,
-      limit: this.readRateLimit.maxRequests ?? 60,
-      standardHeaders: 'draft-8',
-      legacyHeaders: false
-    });
-    const writeLimiter = rateLimit({
-      windowMs: this.writeRateLimit.windowMs ?? 60000,
-      limit: this.writeRateLimit.maxRequests ?? 20,
-      standardHeaders: 'draft-8',
-      legacyHeaders: false
-    });
-
-    this.app.get('/', rateLimit({
-      windowMs: this.readRateLimit.windowMs ?? 60000,
-      limit: this.readRateLimit.maxRequests ?? 60,
-      standardHeaders: 'draft-8',
-      legacyHeaders: false
-    }), (req, res) => {
+    this.app.get('/', (req, res) => {
       res.sendFile(path.join(__dirname, '../dashboard-ui/index.html'));
     });
 
-    this.app.use(express.static(path.join(__dirname, '../dashboard-ui')));
-
     // API Endpoints
-    this.app.get('/api/dashboard/overview', readLimiter, this.getPortfolioOverview.bind(this));
-    this.app.get('/api/dashboard/projects', readLimiter, this.getProjectList.bind(this));
-    this.app.get('/api/dashboard/risks', readLimiter, this.getRiskDashboard.bind(this));
-    this.app.get('/api/dashboard/resources', readLimiter, this.getResourceDashboard.bind(this));
-    this.app.get('/api/dashboard/financials', readLimiter, this.getFinancialDashboard.bind(this));
-    this.app.get('/api/dashboard/kpis', readLimiter, this.getKPIDashboard.bind(this));
-    this.app.get('/api/dashboard/templates', readLimiter, this.getTemplateMetrics.bind(this));
+    this.app.get('/api/dashboard/overview', this.getPortfolioOverview.bind(this));
+    this.app.get('/api/dashboard/projects', this.getProjectList.bind(this));
+    this.app.get('/api/dashboard/risks', this.getRiskDashboard.bind(this));
+    this.app.get('/api/dashboard/resources', this.getResourceDashboard.bind(this));
+    this.app.get('/api/dashboard/financials', this.getFinancialDashboard.bind(this));
+    this.app.get('/api/dashboard/kpis', this.getKPIDashboard.bind(this));
+    this.app.get('/api/dashboard/templates', this.getTemplateMetrics.bind(this));
     
     // Real-time data endpoints
-    this.app.get('/api/dashboard/realtime', readLimiter, this.getRealTimeMetrics.bind(this));
-    this.app.post('/api/dashboard/alerts', writeLimiter, this.createAlert.bind(this));
+    this.app.get('/api/dashboard/realtime', this.getRealTimeMetrics.bind(this));
+    this.app.post('/api/dashboard/alerts', this.createAlert.bind(this));
     
     // Health check
     this.app.get('/api/dashboard/health', (req, res) => {
@@ -457,7 +433,7 @@ class DashboardServer {
         break;
       
       default:
-        console.log('Unknown client message type received');
+        console.log('Unknown client message type:', data.type);
     }
   }
 
@@ -623,7 +599,6 @@ class DashboardServer {
   async identifyTemplateGaps() { return []; }
 
   start() {
-    this.startPeriodicUpdates();
     this.server.listen(this.port, () => {
       console.log(chalk.green(`📊 Executive Dashboard running on port ${this.port}`));
       console.log(chalk.blue(`   Dashboard URL: http://localhost:${this.port}`));

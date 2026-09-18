@@ -72,7 +72,7 @@ jobs:
 
     steps:
       - name: 📥 Checkout Repository
-        uses: actions/checkout@v7
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
@@ -280,12 +280,12 @@ jobs:
     
     steps:
       - name: 📥 Checkout Repository
-        uses: actions/checkout@v7
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
       - name: 🚀 Initialize CodeQL
-        uses: github/codeql-action/init@v4
+        uses: github/codeql-action/init@v3
         with:
           languages: ${{ matrix.language }}
           config: |
@@ -294,8 +294,8 @@ jobs:
             disable-default-queries: false
             
             queries:
-              - name: security-extended
-                uses: security-extended
+              - name: security-and-quality
+                uses: security-and-quality
               - name: security-experimental
                 uses: security-experimental
             
@@ -305,7 +305,6 @@ jobs:
                   tags: ["maintainability"]
                   
             paths-ignore:
-              - "**/coverage/**"
               - "**/*.test.*"
               - "**/*.spec.*"
               - "**/test/**"
@@ -361,7 +360,7 @@ jobs:
           esac
 
       - name: 🔎 Perform CodeQL Analysis
-        uses: github/codeql-action/analyze@v4
+        uses: github/codeql-action/analyze@v3
         with:
           category: "/language:${{ matrix.language }}"
           upload: true
@@ -380,16 +379,16 @@ jobs:
     
     steps:
       - name: 📥 Checkout Repository
-        uses: actions/checkout@v7
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
       - name: 🗂️ Cache Security Tools
-        uses: actions/cache@v6
+        uses: actions/cache@v4
         with:
           path: |
             ~/.cache/semgrep
-            ~/.cache/pip
+            ~/.local/bin/semgrep
             ~/.trivy
           key: security-tools-${{ runner.os }}-v1
           restore-keys: |
@@ -398,69 +397,57 @@ jobs:
 
       - name: 🛡️ Configure Semgrep Rules
         id: configure
-        env:
-          HAS_JAVASCRIPT: ${{ needs.detect-languages.outputs.has_javascript }}
-          HAS_TYPESCRIPT: ${{ needs.detect-languages.outputs.has_typescript }}
-          HAS_PYTHON: ${{ needs.detect-languages.outputs.has_python }}
-          HAS_JAVA: ${{ needs.detect-languages.outputs.has_java }}
-          HAS_CSHARP: ${{ needs.detect-languages.outputs.has_csharp }}
-          HAS_GO: ${{ needs.detect-languages.outputs.has_go }}
-          HAS_RUST: ${{ needs.detect-languages.outputs.has_rust }}
-          HAS_PHP: ${{ needs.detect-languages.outputs.has_php }}
-          HAS_RUBY: ${{ needs.detect-languages.outputs.has_ruby }}
-          INCLUDE_EXPERIMENTAL: ${{ github.event.inputs.include_experimental }}
         run: |
           echo "🛡️ Configuring Semgrep rules based on detected languages..."
           
           RULES=()
           
           # Base security rules (always included)
-          RULES+=("p/github-actions")
           RULES+=("p/security-audit")
           RULES+=("p/secrets")
           RULES+=("p/owasp-top-ten")
           
           # Language-specific rules
-          if [[ "$HAS_JAVASCRIPT" == "true" || "$HAS_TYPESCRIPT" == "true" ]]; then
+          if [[ "${{ needs.detect-languages.outputs.has_javascript }}" == "true" || "${{ needs.detect-languages.outputs.has_typescript }}" == "true" ]]; then
             RULES+=("p/javascript")
             RULES+=("p/typescript")
             RULES+=("p/react")
             RULES+=("p/nodejs")
           fi
           
-          if [[ "$HAS_PYTHON" == "true" ]]; then
+          if [[ "${{ needs.detect-languages.outputs.has_python }}" == "true" ]]; then
             RULES+=("p/python")
             RULES+=("p/django")
             RULES+=("p/flask")
           fi
           
-          if [[ "$HAS_JAVA" == "true" ]]; then
+          if [[ "${{ needs.detect-languages.outputs.has_java }}" == "true" ]]; then
             RULES+=("p/java")
             RULES+=("p/spring")
           fi
           
-          if [[ "$HAS_CSHARP" == "true" ]]; then
+          if [[ "${{ needs.detect-languages.outputs.has_csharp }}" == "true" ]]; then
             RULES+=("p/csharp")
           fi
           
-          if [[ "$HAS_GO" == "true" ]]; then
+          if [[ "${{ needs.detect-languages.outputs.has_go }}" == "true" ]]; then
             RULES+=("p/golang")
           fi
           
-          if [[ "$HAS_RUST" == "true" ]]; then
+          if [[ "${{ needs.detect-languages.outputs.has_rust }}" == "true" ]]; then
             RULES+=("p/rust")
           fi
           
-          if [[ "$HAS_PHP" == "true" ]]; then
+          if [[ "${{ needs.detect-languages.outputs.has_php }}" == "true" ]]; then
             RULES+=("p/php")
           fi
           
-          if [[ "$HAS_RUBY" == "true" ]]; then
+          if [[ "${{ needs.detect-languages.outputs.has_ruby }}" == "true" ]]; then
             RULES+=("p/ruby")
           fi
           
           # Add experimental rules if requested
-          if [[ "$INCLUDE_EXPERIMENTAL" == "true" ]]; then
+          if [[ "${{ github.event.inputs.include_experimental }}" == "true" ]]; then
             RULES+=("p/experimental")
           fi
           
@@ -470,101 +457,20 @@ jobs:
           
           echo "🛡️ Configured rules: $RULES_STRING"
 
-      - name: 📦 Install Semgrep CLI
-        run: |
-          pipx install --force semgrep
-
       - name: 🛡️ Run Semgrep SAST
+        uses: semgrep/semgrep-action@v1
         continue-on-error: true
+        with:
+          config: ${{ steps.configure.outputs.rules }}
         env:
           SEMGREP_TIMEOUT: ${{ env.SEMGREP_TIMEOUT }}
           SEMGREP_RULES: ${{ steps.configure.outputs.rules }}
-        run: |
-          semgrep scan --sarif-output=semgrep.sarif .
-
-      - name: ✅ Verify Semgrep SARIF
-        if: always()
-        run: |
-          if [[ ! -s semgrep.sarif ]]; then
-            echo "semgrep.sarif is missing or empty" >&2
-            exit 1
-          fi
-
-          python3 - <<'PY'
-          import json
-          import os
-          import sys
-
-          sarif_path = "semgrep.sarif"
-
-          try:
-              with open(sarif_path, "r", encoding="utf-8") as sarif_file:
-                  sarif = json.load(sarif_file)
-          except Exception as exc:
-              print(f"Failed to parse {sarif_path} as JSON: {exc}", file=sys.stderr)
-              raise SystemExit(1)
-
-          if sarif.get("version") != "2.1.0":
-              print(
-                  f"Unexpected SARIF version in {sarif_path}: {sarif.get('version')!r}",
-                  file=sys.stderr,
-              )
-              raise SystemExit(1)
-
-          runs = sarif.get("runs")
-          if not isinstance(runs, list) or not runs:
-              print(f"Invalid SARIF runs in {sarif_path}: expected a nonempty list", file=sys.stderr)
-              raise SystemExit(1)
-
-          for run in runs:
-              tool = run.get("tool") if isinstance(run, dict) else None
-              driver = tool.get("driver") if isinstance(tool, dict) else None
-              if not isinstance(driver, dict):
-                print(
-                  f"Invalid SARIF run in {sarif_path}: missing tool.driver object",
-                  file=sys.stderr,
-                )
-                raise SystemExit(1)
-              driver["name"] = "Semgrep"
-
-          with open(sarif_path, "w", encoding="utf-8") as sarif_file:
-              json.dump(sarif, sarif_file, indent=2)
-              sarif_file.write("\n")
-
-          try:
-              with open(sarif_path, "r", encoding="utf-8") as sarif_file:
-                normalized_sarif = json.load(sarif_file)
-          except Exception as exc:
-              print(f"Failed to re-parse normalized {sarif_path} as JSON: {exc}", file=sys.stderr)
-              raise SystemExit(1)
-
-          normalized_runs = normalized_sarif.get("runs")
-          if not isinstance(normalized_runs, list) or not normalized_runs:
-              print(
-                f"Invalid normalized SARIF runs in {sarif_path}: expected a nonempty list",
-                file=sys.stderr,
-              )
-              raise SystemExit(1)
-
-          for run in normalized_runs:
-              tool = run.get("tool") if isinstance(run, dict) else None
-              driver = tool.get("driver") if isinstance(tool, dict) else None
-              if not isinstance(driver, dict) or driver.get("name") != "Semgrep":
-                print(
-                  f"Invalid normalized SARIF tool.driver.name in {sarif_path}: expected 'Semgrep'",
-                  file=sys.stderr,
-                )
-                raise SystemExit(1)
-
-          print(
-              f"Normalized {len(normalized_runs)} SARIF runs to Semgrep "
-              f"({os.path.getsize(sarif_path)} bytes)"
-          )
-          PY
+          # SEMGREP_APP_TOKEN is optional for basic usage
+          SEMGREP_APP_TOKEN: ${{ secrets.SEMGREP_APP_TOKEN }}
 
       - name: 📤 Upload Semgrep SARIF
-        if: always()
-        uses: github/codeql-action/upload-sarif@v4
+        if: always() && hashFiles('semgrep.sarif') != ''
+        uses: github/codeql-action/upload-sarif@v3
         with:
           sarif_file: semgrep.sarif
           category: semgrep
@@ -577,7 +483,7 @@ jobs:
     
     steps:
       - name: 📥 Checkout Repository
-        uses: actions/checkout@v7
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
@@ -635,94 +541,49 @@ jobs:
 
       - name: 📊 Generate Comprehensive Security Report
         if: always()
-        env:
-          GITHUB_REPOSITORY: ${{ github.repository }}
-          ANALYSIS_DEPTH: ${{ github.event.inputs.analysis_depth || 'comprehensive' }}
-          GITHUB_REF_NAME: ${{ github.ref_name }}
-          HAS_JAVASCRIPT: ${{ needs.detect-languages.outputs.has_javascript }}
-          HAS_TYPESCRIPT: ${{ needs.detect-languages.outputs.has_typescript }}
-          HAS_PYTHON: ${{ needs.detect-languages.outputs.has_python }}
-          HAS_JAVA: ${{ needs.detect-languages.outputs.has_java }}
-          HAS_CSHARP: ${{ needs.detect-languages.outputs.has_csharp }}
-          HAS_GO: ${{ needs.detect-languages.outputs.has_go }}
-          HAS_RUST: ${{ needs.detect-languages.outputs.has_rust }}
-          HAS_PHP: ${{ needs.detect-languages.outputs.has_php }}
-          HAS_RUBY: ${{ needs.detect-languages.outputs.has_ruby }}
         run: |
           mkdir -p security-reports
-
-          python3 - << 'EOF'
-          import os
-          from datetime import datetime
-          from pathlib import Path
-
-          github_repository = os.environ.get('GITHUB_REPOSITORY', '')
-          analysis_depth = os.environ.get('ANALYSIS_DEPTH', 'comprehensive')
-          github_ref_name = os.environ.get('GITHUB_REF_NAME', '')
-          has_javascript = os.environ.get('HAS_JAVASCRIPT', 'false')
-          has_typescript = os.environ.get('HAS_TYPESCRIPT', 'false')
-          has_python = os.environ.get('HAS_PYTHON', 'false')
-          has_java = os.environ.get('HAS_JAVA', 'false')
-          has_csharp = os.environ.get('HAS_CSHARP', 'false')
-          has_go = os.environ.get('HAS_GO', 'false')
-          has_rust = os.environ.get('HAS_RUST', 'false')
-          has_php = os.environ.get('HAS_PHP', 'false')
-          has_ruby = os.environ.get('HAS_RUBY', 'false')
-
-          hadolint_line = (
-              "✅ **Hadolint** - Dockerfile security"
-              if Path('hadolint-Dockerfile.json').exists()
-              else "⏭️ **Hadolint** - No Dockerfiles found"
-          )
-          checkov_line = (
-              "✅ **Checkov** - Infrastructure as Code"
-              if Path('terraform-security.json').exists()
-              else "⏭️ **Checkov** - No IaC files found"
-          )
-
-          report = f"""# 🔍 Comprehensive SAST Security Report
-
-          **Generated:** {datetime.now().isoformat()}
-          **Repository:** {github_repository}
-          **Analysis Depth:** {analysis_depth}
-          **Branch:** {github_ref_name}
-
+          
+          cat > security-reports/sast-comprehensive-report.md << 'EOF'
+          # 🔍 Comprehensive SAST Security Report
+          
+          **Generated:** $(date)
+          **Repository:** ${{ github.repository }}
+          **Analysis Depth:** ${{ github.event.inputs.analysis_depth || 'comprehensive' }}
+          **Branch:** ${{ github.ref_name }}
+          
           ## 📊 Analysis Overview
-
+          
           ### 🔍 Languages Detected
           | Language | Detected | Analysis Coverage |
           |----------|----------|-------------------|
-          | JavaScript | {has_javascript} | CodeQL + Semgrep |
-          | TypeScript | {has_typescript} | CodeQL + Semgrep |
-          | Python | {has_python} | CodeQL + Semgrep |
-          | Java | {has_java} | CodeQL + Semgrep |
-          | C# | {has_csharp} | CodeQL + Semgrep |
-          | Go | {has_go} | CodeQL + Semgrep |
-          | Rust | {has_rust} | Semgrep |
-          | PHP | {has_php} | Semgrep |
-          | Ruby | {has_ruby} | CodeQL + Semgrep |
-
+          | JavaScript | ${{ needs.detect-languages.outputs.has_javascript }} | CodeQL + Semgrep |
+          | TypeScript | ${{ needs.detect-languages.outputs.has_typescript }} | CodeQL + Semgrep |
+          | Python | ${{ needs.detect-languages.outputs.has_python }} | CodeQL + Semgrep |
+          | Java | ${{ needs.detect-languages.outputs.has_java }} | CodeQL + Semgrep |
+          | C# | ${{ needs.detect-languages.outputs.has_csharp }} | CodeQL + Semgrep |
+          | Go | ${{ needs.detect-languages.outputs.has_go }} | CodeQL + Semgrep |
+          | Rust | ${{ needs.detect-languages.outputs.has_rust }} | Semgrep |
+          | PHP | ${{ needs.detect-languages.outputs.has_php }} | Semgrep |
+          | Ruby | ${{ needs.detect-languages.outputs.has_ruby }} | CodeQL + Semgrep |
+          
           ### 🛡️ Analysis Tools Used
           - ✅ **GitHub CodeQL** - Semantic analysis and vulnerability detection
           - ✅ **Semgrep** - Rule-based static analysis
           - ✅ **TruffleHog** - Secrets detection
           - ✅ **Git-secrets** - AWS credentials scanning
-          - {hadolint_line}
-          - {checkov_line}
-
+          - $([ -f hadolint-Dockerfile.json ] && echo "✅ **Hadolint** - Dockerfile security" || echo "⏭️ **Hadolint** - No Dockerfiles found")
+          - $([ -f terraform-security.json ] && echo "✅ **Checkov** - Infrastructure as Code" || echo "⏭️ **Checkov** - No IaC files found")
+          
           ## 🔍 Security Findings Summary
-
+          
           ### CodeQL Results
-          📄 View detailed CodeQL results in the [Security tab](https://github.com/{github_repository}/security/code-scanning)
-
+          📄 View detailed CodeQL results in the [Security tab](https://github.com/${{ github.repository }}/security/code-scanning)
+          
           ### Semgrep Results
-          📄 View Semgrep findings in the [Security tab](https://github.com/{github_repository}/security/code-scanning)
-
+          📄 View Semgrep findings in the [Security tab](https://github.com/${{ github.repository }}/security/code-scanning)
+          
           ### Secrets Detection
-          """
-
-          with open('security-reports/sast-comprehensive-report.md', 'w', encoding='utf-8') as f:
-              f.write(report)
           EOF
           
           # Add secrets detection results
@@ -769,7 +630,7 @@ jobs:
 
       - name: 📤 Upload Security Analysis Artifacts
         if: always()
-        uses: actions/upload-artifact@v7
+        uses: actions/upload-artifact@v4
         with:
           name: sast-security-results-${{ github.run_number }}
           path: |
@@ -790,7 +651,7 @@ jobs:
     
     steps:
       - name: 📥 Checkout Repository
-        uses: actions/checkout@v7
+        uses: actions/checkout@v4
 
       - name: 📊 Generate Security Summary
         env:
@@ -827,16 +688,12 @@ jobs:
 
       - name: 💬 Comment on Pull Request
         if: github.event_name == 'pull_request'
-        uses: actions/github-script@v9
+        uses: actions/github-script@v7
         env:
           LANGUAGES_LIST: ${{ needs.detect-languages.outputs.languages }}
           CODEQL_STATUS: ${{ needs.codeql-analysis.result }}
           SEMGREP_STATUS: ${{ needs.semgrep-analysis.result }}
           ADVANCED_STATUS: ${{ needs.advanced-security.result }}
-          ANALYSIS_DEPTH: ${{ github.event.inputs.analysis_depth || 'comprehensive' }}
-          SECURITY_SEVERITY_THRESHOLD_VALUE: ${{ env.SECURITY_SEVERITY_THRESHOLD }}
-          GITHUB_REPOSITORY: ${{ github.repository }}
-          GITHUB_RUN_ID: ${{ github.run_id }}
         with:
           script: |
             const languagesList = process.env.LANGUAGES_LIST || '';
@@ -844,10 +701,6 @@ jobs:
             const codeqlStatus = process.env.CODEQL_STATUS;
             const semgrepStatus = process.env.SEMGREP_STATUS;
             const advancedStatus = process.env.ADVANCED_STATUS;
-            const analysisDepth = process.env.ANALYSIS_DEPTH || 'comprehensive';
-            const securitySeverityThreshold = process.env.SECURITY_SEVERITY_THRESHOLD_VALUE || 'medium';
-            const githubRepository = process.env.GITHUB_REPOSITORY || `${context.repo.owner}/${context.repo.repo}`;
-            const githubRunId = process.env.GITHUB_RUN_ID || String(context.runId || '');
             
             const statusIcon = (status) => {
               switch(status) {
@@ -863,8 +716,8 @@ jobs:
             
             ### 📊 Analysis Overview
             - **Languages Detected:** ${languages.join(', ')}
-            - **Analysis Depth:** ${analysisDepth}
-            - **Security Threshold:** ${securitySeverityThreshold}
+            - **Analysis Depth:** ${{ github.event.inputs.analysis_depth || 'comprehensive' }}
+            - **Security Threshold:** ${{ env.SECURITY_SEVERITY_THRESHOLD }}
             
             ### 🛡️ Security Analysis Status
             | Tool | Status | Coverage |
@@ -874,11 +727,11 @@ jobs:
             | Advanced Security | ${statusIcon(advancedStatus)} ${advancedStatus} | Secrets, Containers, IaC |
             
             ### 🔍 Next Steps
-            1. **Review Security Tab** - Check [Security alerts](https://github.com/${githubRepository}/security/code-scanning) for findings
+            1. **Review Security Tab** - Check [Security alerts](https://github.com/${{ github.repository }}/security/code-scanning) for findings
             2. **Address High Priority Issues** - Focus on critical and high severity vulnerabilities
             3. **Verify Fixes** - Re-run analysis after implementing fixes
             
-            📄 [View Full SAST Report](https://github.com/${githubRepository}/actions/runs/${githubRunId})
+            📄 [View Full SAST Report](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }})
             `;
             
             github.rest.issues.createComment({
@@ -892,8 +745,6 @@ jobs:
         if: failure() && (github.event_name == 'schedule' || github.event_name == 'push')
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          GITHUB_REPOSITORY: ${{ github.repository }}
-          GITHUB_REF_NAME: ${{ github.ref_name }}
         run: |
           gh issue create \
             --title "🚨 Critical SAST Security Findings Detected" \
@@ -901,8 +752,8 @@ jobs:
             --body "## 🔍 SAST Security Alert
           
           **Detection Date:** $(date)
-          **Repository:** $GITHUB_REPOSITORY
-          **Branch:** $GITHUB_REF_NAME
+          **Repository:** ${{ github.repository }}
+          **Branch:** ${{ github.ref_name }}
           **Analysis Type:** Static Application Security Testing (SAST)
           
           ### 🚨 Critical Security Issues Detected

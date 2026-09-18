@@ -21,7 +21,7 @@
 ```
 methodology-frameworks/
 ├── Agile-Scrum/
-├──  ̿Traditional/
+├── Traditional-PMBOK/
 ├── Hybrid/
 └── Comparisons/
 ```
@@ -29,7 +29,7 @@ methodology-frameworks/
 ### Sections:
 
 - **Agile-Scrum**: Comprehensive guides to the Agile methodology focusing on Scrum practices and roles.
-- **Traditional**: In-depth exploration of traditional approaches, project phases, and related standards.
+- **Traditional-PMBOK**: In-depth exploration of the PMBOK approach, project phases, and traditional methodologies.
 - **Hybrid**: Exploration of how to effectively blend Agile and Traditional practices.
 - **Comparisons**: Side-by-side analysis of different methodologies to aid in decision making.
 
@@ -44,8 +44,8 @@ methodology-frameworks/
   - Strategies for effective scrum ceremonies and backlog management
   - Best practices for agile scaling (e.g., SAFe, LeSS)
 
-- **Traditional**:
-  - Exploration of traditional knowledge areas and practices
+- **Traditional-PMBOK**:
+  - Exploration of the 10 PMBOK knowledge areas
   - Phase-specific guidance (Initiating, Planning, Executing, Monitoring & Controlling, Closing)
   - Quality assurance, risk management, and change control processes
 
@@ -77,12 +77,12 @@ methodology-frameworks/
 
 ### Within This Repository:
 - `/Agile/`: Templates, tools, and practices for Agile methodologies
-- `/Traditional/`: Templates and best practices aligned with Traditional methodologies
+- `/Traditional/`: Templates and best practices aligned with PMBOK
 - `/Hybrid/`: Adaptive strategies for combining different methodologies
 
 ### External References:
 - [Scrum Alliance](https://scrumalliance.org/): Certification and resources for Scrum practitioners
-- [Industry Standard](https://pmi.org/): Resources for standards and professional certification
+- [PMI](https://pmi.org/): Resources for PMBOK and professional certification
 - [Scaled Agile](https://scaledagileframework.com/): Framework for scaling agile across the enterprise
 
 ---

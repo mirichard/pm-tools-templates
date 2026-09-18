@@ -2,8 +2,8 @@ name: 🏥 Workflow Health Monitor
 
 on:
   schedule:
-    # Monitor workflow health every 12 hours to reduce alert fatigue
-    - cron: '0 */12 * * *'
+    # Monitor workflow health every 6 hours
+    - cron: '0 */6 * * *'
   workflow_run:
     workflows: ["🔒 Dependency Security Scan", "🔍 Static Application Security Testing (SAST)", "🏗️ Infrastructure Security Analysis"]
     types: [completed]
@@ -31,9 +31,9 @@ on:
         type: boolean
 
 env:
-  HEALTH_THRESHOLD_CRITICAL: 35
-  HEALTH_THRESHOLD_WARNING: 55
-  HEALTH_THRESHOLD_GOOD: 75
+  HEALTH_THRESHOLD_CRITICAL: 60
+  HEALTH_THRESHOLD_WARNING: 75
+  HEALTH_THRESHOLD_GOOD: 85
   MONITORING_RETENTION_DAYS: 30
 
 permissions:
@@ -54,9 +54,7 @@ jobs:
     
     steps:
       - name: 📥 Checkout Repository
-        uses: actions/checkout@v7
-        with:
-          fetch-depth: 1
+        uses: actions/checkout@v4
 
       - name: 📊 Collect Workflow Data
         id: collect
@@ -265,7 +263,7 @@ jobs:
           echo "status_summary=${STATUS_SUMMARY:-"{}"}" >> $GITHUB_OUTPUT
 
       - name: 📤 Upload Analysis Data
-        uses: actions/upload-artifact@v7
+        uses: actions/upload-artifact@v4
         with:
           name: workflow-analysis-data-${{ github.run_number }}
           path: |
@@ -282,9 +280,7 @@ jobs:
     
     steps:
       - name: 📥 Checkout Repository
-        uses: actions/checkout@v7
-        with:
-          fetch-depth: 1
+        uses: actions/checkout@v4
 
       - name: ⚡ Analyze Performance Metrics
         env:
@@ -485,7 +481,7 @@ jobs:
           EOF
 
       - name: 📤 Upload Performance Reports
-        uses: actions/upload-artifact@v7
+        uses: actions/upload-artifact@v4
         with:
           name: performance-analysis-${{ github.run_number }}
           path: |
@@ -502,22 +498,15 @@ jobs:
     
     steps:
       - name: 📥 Checkout Repository
-        uses: actions/checkout@v7
-        with:
-          fetch-depth: 1
+        uses: actions/checkout@v4
 
       - name: 🚨 Evaluate Health Alerts
         id: alerts
-        env:
-          HEALTH_SCORE: ${{ needs.collect-workflow-status.outputs.health_score }}
-          ALERT_THRESHOLD_INPUT: ${{ github.event.inputs.alert_threshold || '75' }}
-          HEALTH_THRESHOLD_CRITICAL_VALUE: ${{ env.HEALTH_THRESHOLD_CRITICAL }}
-          HEALTH_THRESHOLD_WARNING_VALUE: ${{ env.HEALTH_THRESHOLD_WARNING }}
-          HEALTH_THRESHOLD_GOOD_VALUE: ${{ env.HEALTH_THRESHOLD_GOOD }}
         run: |
           echo "🚨 Evaluating health alerts..."
           
-          ALERT_THRESHOLD="$ALERT_THRESHOLD_INPUT"
+          HEALTH_SCORE="${{ needs.collect-workflow-status.outputs.health_score }}"
+          ALERT_THRESHOLD="${{ github.event.inputs.alert_threshold || '75' }}"
           
           echo "Current Health Score: $HEALTH_SCORE"
           echo "Alert Threshold: $ALERT_THRESHOLD"
@@ -526,15 +515,15 @@ jobs:
           ALERT_LEVEL="info"
           ALERT_MESSAGE=""
           
-          if (( $(echo "$HEALTH_SCORE < $HEALTH_THRESHOLD_CRITICAL_VALUE" | bc -l) )); then
+          if (( $(echo "$HEALTH_SCORE < ${{ env.HEALTH_THRESHOLD_CRITICAL }}" | bc -l) )); then
             ALERT_NEEDED="true"
             ALERT_LEVEL="critical"
             ALERT_MESSAGE="🔴 CRITICAL: Workflow health is severely degraded (Score: $HEALTH_SCORE/100)"
-          elif (( $(echo "$HEALTH_SCORE < $HEALTH_THRESHOLD_WARNING_VALUE" | bc -l) )); then
+          elif (( $(echo "$HEALTH_SCORE < ${{ env.HEALTH_THRESHOLD_WARNING }}" | bc -l) )); then
             ALERT_NEEDED="true"
             ALERT_LEVEL="warning"
             ALERT_MESSAGE="🟡 WARNING: Workflow health is below acceptable levels (Score: $HEALTH_SCORE/100)"
-          elif (( $(echo "$HEALTH_SCORE < $HEALTH_THRESHOLD_GOOD_VALUE" | bc -l) )); then
+          elif (( $(echo "$HEALTH_SCORE < ${{ env.HEALTH_THRESHOLD_GOOD }}" | bc -l) )); then
             ALERT_NEEDED="true"
             ALERT_LEVEL="notice"
             ALERT_MESSAGE="🟠 NOTICE: Workflow health could be improved (Score: $HEALTH_SCORE/100)"
@@ -549,15 +538,10 @@ jobs:
           echo "$ALERT_MESSAGE"
 
       - name: 📋 Generate Health Report
-        env:
-          STATUS_SUMMARY: ${{ needs.collect-workflow-status.outputs.status_summary }}
-          GITHUB_REPOSITORY: ${{ github.repository }}
-          MONITORING_SCOPE: ${{ github.event.inputs.monitoring_scope || 'comprehensive' }}
-          ALERT_LEVEL_OUTPUT: ${{ steps.alerts.outputs.alert_level }}
-          ALERT_MESSAGE_OUTPUT: ${{ steps.alerts.outputs.alert_message }}
-          ALERT_NEEDED_OUTPUT: ${{ steps.alerts.outputs.alert_needed }}
         run: |
           echo "📋 Generating comprehensive health report..."
+          
+          STATUS_SUMMARY='${{ needs.collect-workflow-status.outputs.status_summary }}'
           
           # Debug: Check if STATUS_SUMMARY is available
           if [ -z "${STATUS_SUMMARY:-"{}"}" ]; then
@@ -589,8 +573,8 @@ jobs:
           report = f"""# 🏥 Workflow Health Report
           
           **Generated:** {datetime.now().isoformat()}
-          **Repository:** {os.environ.get('GITHUB_REPOSITORY', '')}
-          **Monitoring Scope:** {os.environ.get('MONITORING_SCOPE', 'comprehensive')}
+          **Repository:** ${{ github.repository }}
+          **Monitoring Scope:** ${{ github.event.inputs.monitoring_scope || 'comprehensive' }}
           
           ## 🎯 Health Summary
           
@@ -612,9 +596,9 @@ jobs:
           
           ## 🚨 Alert Status
           
-          - **Alert Level:** {os.environ.get('ALERT_LEVEL_OUTPUT', 'info')}
-          - **Alert Message:** {os.environ.get('ALERT_MESSAGE_OUTPUT', '')}
-          - **Alert Needed:** {os.environ.get('ALERT_NEEDED_OUTPUT', 'false')}
+          - **Alert Level:** ${{ steps.alerts.outputs.alert_level }}
+          - **Alert Message:** ${{ steps.alerts.outputs.alert_message }}
+          - **Alert Needed:** ${{ steps.alerts.outputs.alert_needed }}
           
           ## 🔍 Detailed Analysis
           
@@ -687,24 +671,8 @@ jobs:
           print("Health report generated")
           EOF
 
-      - name: 🔍 Check for Existing Critical Alerts
-        id: dedup
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          EXISTING_ALERTS=$(gh issue list --label "critical,workflow-health" --state open --json number | jq length)
-          echo "Found $EXISTING_ALERTS existing critical alerts"
-          
-          if [ "$EXISTING_ALERTS" -gt 3 ]; then
-            echo "Too many open alerts ($EXISTING_ALERTS), consolidating instead of creating new one"
-            echo "create_alert=false" >> $GITHUB_OUTPUT
-          else
-            echo "Alert count acceptable, proceeding with alert creation"
-            echo "create_alert=true" >> $GITHUB_OUTPUT
-          fi
-
       - name: 🔔 Create Health Issue (if needed)
-        if: steps.alerts.outputs.alert_needed == 'true' && (steps.alerts.outputs.alert_level == 'critical' || steps.alerts.outputs.alert_level == 'warning') && steps.dedup.outputs.create_alert == 'true'
+        if: steps.alerts.outputs.alert_needed == 'true' && (steps.alerts.outputs.alert_level == 'critical' || steps.alerts.outputs.alert_level == 'warning')
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
@@ -756,7 +724,7 @@ jobs:
             --label "workflow-health,monitoring,${{ steps.alerts.outputs.alert_level }}"
 
       - name: 📤 Upload Health Reports
-        uses: actions/upload-artifact@v7
+        uses: actions/upload-artifact@v4
         with:
           name: health-monitoring-reports-${{ github.run_number }}
           path: |
@@ -772,9 +740,7 @@ jobs:
     
     steps:
       - name: 📥 Checkout Repository
-        uses: actions/checkout@v7
-        with:
-          fetch-depth: 1
+        uses: actions/checkout@v4
 
       - name: 📈 Historical Trend Analysis
         env:
@@ -979,7 +945,7 @@ jobs:
           EOF
 
       - name: 📤 Upload Trend Analysis
-        uses: actions/upload-artifact@v7
+        uses: actions/upload-artifact@v4
         with:
           name: trend-analysis-${{ github.run_number }}
           path: |
@@ -1053,7 +1019,7 @@ jobs:
           echo "📋 Monitoring dashboard generated"
 
       - name: 📤 Upload Monitoring Dashboard
-        uses: actions/upload-artifact@v7
+        uses: actions/upload-artifact@v4
         with:
           name: monitoring-dashboard-${{ github.run_number }}
           path: monitoring-dashboard.md

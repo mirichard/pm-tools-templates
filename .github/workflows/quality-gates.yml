@@ -34,7 +34,7 @@ jobs:
 
     steps:
       - name: 📥 Checkout Repository
-        uses: actions/checkout@v7
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
@@ -60,34 +60,15 @@ jobs:
       - name: 📋 Template Validation
         id: template-validation
         if: github.event.inputs.check_type == 'template-validation' || github.event.inputs.check_type == 'comprehensive' || github.event_name == 'pull_request'
-        env:
-          CHANGED_FILES: ${{ steps.analysis.outputs.changed_files }}
-          BASE_SHA: ${{ github.event.pull_request.base.sha }}
         run: |
           # Initialize validation results
           VALIDATION_ERRORS=0
           VALIDATION_WARNINGS=0
           VALIDATION_REPORT=""
           
-          # Pull requests gate only changed template files so legacy warnings do
-          # not create nondeterministic pass/fail results. Manual runs retain a
-          # stable repository-wide sample for baseline monitoring.
-          if [ "${{ github.event_name }}" = "pull_request" ]; then
-            TEMPLATE_FILES=$(printf '%s\n' "$CHANGED_FILES" \
-              | grep -E '(^|/)(Templates/.*\.md$|[^/]*template[^/]*\.md$)' \
-              | sort -u || true)
-          else
-            TEMPLATE_FILES=$(find . -type f \( -path "*/Templates/*.md" -o -iname "*template*.md" \) \
-              | sort | head -20)
-          fi
+          # Find all template files
+          TEMPLATE_FILES=$(find . -name "*.md" -path "*/Templates/*" -o -name "*template*.md" | head -20)
           
-          # Resolve source baselines only for verified byte-preserving migrations.
-          MIGRATION_BASELINES="$RUNNER_TEMP/quality-migration-baselines.json"
-          printf '{}' > "$MIGRATION_BASELINES"
-          if [ -n "$BASE_SHA" ]; then
-            python3 scripts/quality_gate_baseline.py --base "$BASE_SHA" --output "$MIGRATION_BASELINES"
-          fi
-
           # Validate each template
           for file in $TEMPLATE_FILES; do
             if [ -f "$file" ]; then
@@ -102,36 +83,25 @@ jobs:
               
               # Check for required sections (basic check)
               CONTENT=$(cat "$file" | tr '[:upper:]' '[:lower:]')
-              BASE_CONTENT=""
-              BASE_EXISTS=false
-              BASE_FILE=$(python3 -c 'import json,sys; print(json.load(open(sys.argv[1])).get(sys.argv[2], sys.argv[2]))' "$MIGRATION_BASELINES" "$file")
-              if [ -n "$BASE_SHA" ] && git cat-file -e "$BASE_SHA:$BASE_FILE" 2>/dev/null; then
-                BASE_CONTENT=$(git show "$BASE_SHA:$BASE_FILE" | tr '[:upper:]' '[:lower:]')
-                BASE_EXISTS=true
-              fi
               
-              if ! grep -q "purpose\|overview\|description" <<< "$CONTENT" \
-                && { [ "$BASE_EXISTS" = false ] || grep -q "purpose\|overview\|description" <<< "$BASE_CONTENT"; }; then
+              if ! echo "$CONTENT" | grep -q "purpose\|overview\|description"; then
                 VALIDATION_WARNINGS=$((VALIDATION_WARNINGS + 1))
                 VALIDATION_REPORT="$VALIDATION_REPORT\n⚠️ $file: Missing purpose/overview section"
               fi
               
-              if ! grep -q "usage\|how to\|instructions" <<< "$CONTENT" \
-                && { [ "$BASE_EXISTS" = false ] || grep -q "usage\|how to\|instructions" <<< "$BASE_CONTENT"; }; then
+              if ! echo "$CONTENT" | grep -q "usage\|how to\|instructions"; then
                 VALIDATION_WARNINGS=$((VALIDATION_WARNINGS + 1))
                 VALIDATION_REPORT="$VALIDATION_REPORT\n⚠️ $file: Missing usage instructions"
               fi
               
               # Check for placeholder content
-              if grep -q "TODO\|TBD\|FIXME\|XXX" "$file" \
-                && { [ "$BASE_EXISTS" = false ] || ! grep -q "TODO\|TBD\|FIXME\|XXX" <<< "$BASE_CONTENT"; }; then
+              if grep -q "TODO\|TBD\|FIXME\|XXX" "$file"; then
                 VALIDATION_WARNINGS=$((VALIDATION_WARNINGS + 1))
                 VALIDATION_REPORT="$VALIDATION_REPORT\n⚠️ $file: Contains placeholder content (TODO/TBD/FIXME)"
               fi
               
               # Check for proper markdown formatting
-              if ! grep -q "^# " "$file" \
-                && { [ "$BASE_EXISTS" = false ] || grep -q "^# " <<< "$BASE_CONTENT"; }; then
+              if ! grep -q "^# " "$file"; then
                 VALIDATION_WARNINGS=$((VALIDATION_WARNINGS + 1))
                 VALIDATION_REPORT="$VALIDATION_REPORT\n⚠️ $file: Missing main heading (# Title)"
               fi
@@ -365,3 +335,4 @@ jobs:
           else
             echo "❌ Quality gate failed - action required"
           fi
+

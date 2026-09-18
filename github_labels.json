@@ -1,0 +1,272 @@
+[
+  {
+    "id": 8748617343,
+    "node_id": "LA_kwDOOmOlOM8AAAACCXVOfw",
+    "url": "https://api.github.com/repos/mirichard/pm-tools-templates/labels/ai-ml",
+    "name": "ai-ml",
+    "color": "9B59B6",
+    "default": false,
+    "description": "AI and machine learning features"
+  },
+  {
+    "id": 8803175683,
+    "node_id": "LA_kwDOOmOlOM8AAAACDLXNAw",
+    "url": "https://api.github.com/repos/mirichard/pm-tools-templates/labels/alert",
+    "name": "alert",
+    "color": "FF6B6B",
+    "default": false,
+    "description": "Automated alert notifications"
+  },
+  {
+    "id": 8802239344,
+    "node_id": "LA_kwDOOmOlOM8AAAACDKeDcA",
+    "url": "https://api.github.com/repos/mirichard/pm-tools-templates/labels/analytics",
+    "name": "analytics",
+    "color": "9c27b0",
+    "default": false,
+    "description": "Issues related to data analytics, metrics tracking, and insights"
+  },
+  {
+    "id": 8802585882,
+    "node_id": "LA_kwDOOmOlOM8AAAACDKzNGg",
+    "url": "https://api.github.com/repos/mirichard/pm-tools-templates/labels/ar-vr",
+    "name": "ar-vr",
+    "color": "ff4500",
+    "default": false,
+    "description": "Issues related to augmented reality and virtual reality interfaces"
+  },
+  {
+    "id": 8873728354,
+    "node_id": "LA_kwDOOmOlOM8AAAACEOpZYg",
+    "url": "https://api.github.com/repos/mirichard/pm-tools-templates/labels/Asana",
+    "name": "Asana",
+    "color": "7461ae",
+    "default": false,
+    "description": "Asana integration"
+  },
+  {
+    "id": 8748614901,
+    "node_id": "LA_kwDOOmOlOM8AAAACCXVE9Q",
+    "url": "https://api.github.com/repos/mirichard/pm-tools-templates/labels/automation",
+    "name": "automation",
+    "color": "F39C12",
+    "default": false,
+    "description": "Workflow and process automation"
+  },
+  {
+    "id": 8802587997,
+    "node_id": "LA_kwDOOmOlOM8AAAACDKzVXQ",
+    "url": "https://api.github.com/repos/mirichard/pm-tools-templates/labels/autonomous",
+    "name": "autonomous",
+    "color": "800080",
+    "default": false,
+    "description": "Issues related to autonomous systems and intelligent automation"
+  },
+  {
+    "id": 8998243355,
+    "node_id": "LA_kwDOOmOlOM8AAAACGFZMGw",
+    "url": "https://api.github.com/repos/mirichard/pm-tools-templates/labels/backlog",
+    "name": "backlog",
+    "color": "D93F0B",
+    "default": false,
+    "description": "Items in the product backlog for future development"
+  },
+  {
+    "id": 8802299134,
+    "node_id": "LA_kwDOOmOlOM8AAAACDKhs_g",
+    "url": "https://api.github.com/repos/mirichard/pm-tools-templates/labels/blockchain",
+    "name": "blockchain",
+    "color": "9b59b6",
+    "default": false,
+    "description": "Issues related to blockchain technology, smart contracts, and decentralized systems"
+  },
+  {
+    "id": 8803174519,
+    "node_id": "LA_kwDOOmOlOM8AAAACDLXIdw",
+    "url": "https://api.github.com/repos/mirichard/pm-tools-templates/labels/blocker",
+    "name": "blocker",
+    "color": "D73A4A",
+    "default": false,
+    "description": "Issues blocking other work or progress"
+  },
+  {
+    "id": 8577429789,
+    "node_id": "LA_kwDOOmOlOM8AAAAB_0ExHQ",
+    "url": "https://api.github.com/repos/mirichard/pm-tools-templates/labels/bug",
+    "name": "bug",
+    "color": "d73a4a",
+    "default": true,
+    "description": "Something isn't working"
+  },
+  {
+    "id": 8872927320,
+    "node_id": "LA_kwDOOmOlOM8AAAACEN4gWA",
+    "url": "https://api.github.com/repos/mirichard/pm-tools-templates/labels/business%20value",
+    "name": "business value",
+    "color": "3e3d88",
+    "default": false,
+    "description": ""
+  },
+  {
+    "id": 8802172149,
+    "node_id": "LA_kwDOOmOlOM8AAAACDKZ89Q",
+    "url": "https://api.github.com/repos/mirichard/pm-tools-templates/labels/business-model",
+    "name": "business-model",
+    "color": "0e8a16",
+    "default": false,
+    "description": "Issues related to business strategy, monetization, and revenue generation"
+  },
+  {
+    "id": 8802121584,
+    "node_id": "LA_kwDOOmOlOM8AAAACDKW3cA",
+    "url": "https://api.github.com/repos/mirichard/pm-tools-templates/labels/cli",
+    "name": "cli",
+    "color": "fbca04",
+    "default": false,
+    "description": "Issues related to command-line interface tools and automation"
+  },
+  {
+    "id": 8857173041,
+    "node_id": "LA_kwDOOmOlOM8AAAACD-28MQ",
+    "url": "https://api.github.com/repos/mirichard/pm-tools-templates/labels/codex",
+    "name": "codex",
+    "color": "ededed",
+    "default": false,
+    "description": null
+  },
+  {
+    "id": 8802109587,
+    "node_id": "LA_kwDOOmOlOM8AAAACDKWIkw",
+    "url": "https://api.github.com/repos/mirichard/pm-tools-templates/labels/community",
+    "name": "community",
+    "color": "7057ff",
+    "default": false,
+    "description": "Issues related to community engagement and contributions"
+  },
+  {
+    "id": 8828023799,
+    "node_id": "LA_kwDOOmOlOM8AAAACDjDz9w",
+    "url": "https://api.github.com/repos/mirichard/pm-tools-templates/labels/completed",
+    "name": "completed",
+    "color": "28a745",
+    "default": false,
+    "description": "Task completed successfully"
+  },
+  {
+    "id": 8802589269,
+    "node_id": "LA_kwDOOmOlOM8AAAACDKzaVQ",
+    "url": "https://api.github.com/repos/mirichard/pm-tools-templates/labels/compliance",
+    "name": "compliance",
+    "color": "dc143c",
+    "default": false,
+    "description": "Issues related to regulatory compliance and audit automation"
+  },
+  {
+    "id": 8998279551,
+    "node_id": "LA_kwDOOmOlOM8AAAACGFbZfw",
+    "url": "https://api.github.com/repos/mirichard/pm-tools-templates/labels/consolidation-candidate",
+    "name": "consolidation-candidate",
+    "color": "FEF2C0",
+    "default": false,
+    "description": "Issue could potentially be merged with related issues"
+  },
+  {
+    "id": 8803173690,
+    "node_id": "LA_kwDOOmOlOM8AAAACDLXFOg",
+    "url": "https://api.github.com/repos/mirichard/pm-tools-templates/labels/critical",
+    "name": "critical",
+    "color": "B60205",
+    "default": false,
+    "description": "Critical issues requiring immediate attention"
+  },
+  {
+    "id": 8873668989,
+    "node_id": "LA_kwDOOmOlOM8AAAACEOlxfQ",
+    "url": "https://api.github.com/repos/mirichard/pm-tools-templates/labels/data-driven",
+    "name": "data-driven",
+    "color": "152202",
+    "default": false,
+    "description": ""
+  },
+  {
+    "id": 8802378059,
+    "node_id": "LA_kwDOOmOlOM8AAAACDKmhSw",
+    "url": "https://api.github.com/repos/mirichard/pm-tools-templates/labels/data-science",
+    "name": "data-science",
+    "color": "2e8b57",
+    "default": false,
+    "description": "Issues related to data science, machine learning, and predictive analytics"
+  },
+  {
+    "id": 8961821762,
+    "node_id": "LA_kwDOOmOlOM8AAAACFiqMQg",
+    "url": "https://api.github.com/repos/mirichard/pm-tools-templates/labels/dependencies",
+    "name": "dependencies",
+    "color": "0366d6",
+    "default": false,
+    "description": "Pull requests that update a dependency file"
+  },
+  {
+    "id": 8802584358,
+    "node_id": "LA_kwDOOmOlOM8AAAACDKzHJg",
+    "url": "https://api.github.com/repos/mirichard/pm-tools-templates/labels/digital-twin",
+    "name": "digital-twin",
+    "color": "4169e1",
+    "default": false,
+    "description": "Issues related to digital twin technology and simulation"
+  },
+  {
+    "id": 8577429793,
+    "node_id": "LA_kwDOOmOlOM8AAAAB_0ExIQ",
+    "url": "https://api.github.com/repos/mirichard/pm-tools-templates/labels/documentation",
+    "name": "documentation",
+    "color": "0075ca",
+    "default": true,
+    "description": "Improvements or additions to documentation"
+  },
+  {
+    "id": 8577429796,
+    "node_id": "LA_kwDOOmOlOM8AAAAB_0ExJA",
+    "url": "https://api.github.com/repos/mirichard/pm-tools-templates/labels/duplicate",
+    "name": "duplicate",
+    "color": "cfd3d7",
+    "default": true,
+    "description": "This issue or pull request already exists"
+  },
+  {
+    "id": 8873084718,
+    "node_id": "LA_kwDOOmOlOM8AAAACEOCHLg",
+    "url": "https://api.github.com/repos/mirichard/pm-tools-templates/labels/engagement",
+    "name": "engagement",
+    "color": "2fbc8b",
+    "default": false,
+    "description": ""
+  },
+  {
+    "id": 8577429801,
+    "node_id": "LA_kwDOOmOlOM8AAAAB_0ExKQ",
+    "url": "https://api.github.com/repos/mirichard/pm-tools-templates/labels/enhancement",
+    "name": "enhancement",
+    "color": "a2eeef",
+    "default": true,
+    "description": "New feature or request"
+  },
+  {
+    "id": 8872926518,
+    "node_id": "LA_kwDOOmOlOM8AAAACEN4dNg",
+    "url": "https://api.github.com/repos/mirichard/pm-tools-templates/labels/enterprise",
+    "name": "enterprise",
+    "color": "188e48",
+    "default": false,
+    "description": ""
+  },
+  {
+    "id": 8748636576,
+    "node_id": "LA_kwDOOmOlOM8AAAACCXWZoA",
+    "url": "https://api.github.com/repos/mirichard/pm-tools-templates/labels/epic",
+    "name": "epic",
+    "color": "B60205",
+    "default": false,
+    "description": "Large feature spanning multiple issues"
+  }
+]

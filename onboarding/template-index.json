@@ -62,7 +62,7 @@
         {
           "name": "Stakeholder Analysis",
           "description": "Detailed stakeholder identification and management strategy",
-          "path": "domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/stakeholder-register-template.md",
+          "path": "project-lifecycle/01-initiation/stakeholder-analysis/stakeholder-register-template.md",
           "category": "initiation",
           "methodology": ["traditional", "agile", "hybrid"],
           "projectTypes": ["all"],
@@ -73,7 +73,7 @@
         {
           "name": "Risk Management Plan",
           "description": "Comprehensive risk identification and mitigation strategy",
-          "path": "domains/measurement/project-lifecycle/02-planning/risk-management/risk-management-plan-template.md",
+          "path": "project-lifecycle/02-planning/risk-management/risk-management-plan-template.md",
           "category": "planning",
           "methodology": ["traditional", "hybrid"],
           "projectTypes": ["all"],
@@ -321,7 +321,7 @@
         {
           "name": "User Story Template",
           "description": "Write effective user stories with acceptance criteria",
-          "path": "domains/uncertainty/role-based-toolkits/product-owner/user-story-template.md",
+          "path": "role-based-toolkits/product-owner/user-story-template.md",
           "category": "requirements",
           "methodology": ["agile"],
           "projectTypes": ["software", "product-launch"],

@@ -21,9 +21,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: 📋 Checkout Repository
-        uses: actions/checkout@v7
-        with:
-          fetch-depth: 1
+        uses: actions/checkout@v4
       
       - name: 🔍 Run Verification Checks
         id: verify
