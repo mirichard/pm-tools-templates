@@ -1,0 +1,232 @@
+{
+  "commit": "4525639da93fde99efef64295324e8d72e6c61d7",
+  "observed_at": "2026-09-19T19:18:44.611Z",
+  "total_count": 25,
+  "runs": [
+    {
+      "id": 35463634404,
+      "name": ".github/workflows/requirements-cli.yml",
+      "event": "push",
+      "status": "completed",
+      "conclusion": "failure",
+      "url": "https://github.com/mirichard/pm-tools-templates/actions/runs/35463634404",
+      "attempt": 1
+    },
+    {
+      "id": 35463634980,
+      "name": "CI",
+      "event": "push",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/mirichard/pm-tools-templates/actions/runs/35463634980",
+      "attempt": 1
+    },
+    {
+      "id": 35463634976,
+      "name": "🎯 Enhanced Template Validation",
+      "event": "push",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/mirichard/pm-tools-templates/actions/runs/35463634976",
+      "attempt": 1
+    },
+    {
+      "id": 35463634895,
+      "name": "Link Health Check",
+      "event": "push",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/mirichard/pm-tools-templates/actions/runs/35463634895",
+      "attempt": 1
+    },
+    {
+      "id": 35463634926,
+      "name": "Infrastructure Security Test",
+      "event": "push",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/mirichard/pm-tools-templates/actions/runs/35463634926",
+      "attempt": 1
+    },
+    {
+      "id": 35463634918,
+      "name": "Template Metadata Linter",
+      "event": "push",
+      "status": "completed",
+      "conclusion": "failure",
+      "url": "https://github.com/mirichard/pm-tools-templates/actions/runs/35463634918",
+      "attempt": 1
+    },
+    {
+      "id": 35463634978,
+      "name": "✅ Validate Canonical Template Paths",
+      "event": "push",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/mirichard/pm-tools-templates/actions/runs/35463634978",
+      "attempt": 1
+    },
+    {
+      "id": 35463634961,
+      "name": "Migration Post-Check",
+      "event": "push",
+      "status": "completed",
+      "conclusion": "failure",
+      "url": "https://github.com/mirichard/pm-tools-templates/actions/runs/35463634961",
+      "attempt": 1
+    },
+    {
+      "id": 35463634939,
+      "name": "Documentation Security & Relevance Check",
+      "event": "push",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/mirichard/pm-tools-templates/actions/runs/35463634939",
+      "attempt": 1
+    },
+    {
+      "id": 35463634889,
+      "name": "Validate Curated Templates",
+      "event": "push",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/mirichard/pm-tools-templates/actions/runs/35463634889",
+      "attempt": 1
+    },
+    {
+      "id": 35463634962,
+      "name": "Anchor Link Check",
+      "event": "push",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/mirichard/pm-tools-templates/actions/runs/35463634962",
+      "attempt": 1
+    },
+    {
+      "id": 35463634968,
+      "name": "Quality Checks",
+      "event": "push",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/mirichard/pm-tools-templates/actions/runs/35463634968",
+      "attempt": 1
+    },
+    {
+      "id": 35463634920,
+      "name": "Web MVP Accessibility (axe)",
+      "event": "push",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/mirichard/pm-tools-templates/actions/runs/35463634920",
+      "attempt": 1
+    },
+    {
+      "id": 35463634909,
+      "name": "👁️ Visual Regression Testing",
+      "event": "push",
+      "status": "in_progress",
+      "conclusion": null,
+      "url": "https://github.com/mirichard/pm-tools-templates/actions/runs/35463634909",
+      "attempt": 1
+    },
+    {
+      "id": 35463634963,
+      "name": "🔍 Static Application Security Testing (SAST)",
+      "event": "push",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/mirichard/pm-tools-templates/actions/runs/35463634963",
+      "attempt": 1
+    },
+    {
+      "id": 35463634979,
+      "name": "CodeQL Security Analysis",
+      "event": "push",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/mirichard/pm-tools-templates/actions/runs/35463634979",
+      "attempt": 1
+    },
+    {
+      "id": 35463634969,
+      "name": "Build and Deploy Advanced Template Browser",
+      "event": "push",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/mirichard/pm-tools-templates/actions/runs/35463634969",
+      "attempt": 1
+    },
+    {
+      "id": 35463633507,
+      "name": ".github/workflows/dependency-security.yml",
+      "event": "push",
+      "status": "completed",
+      "conclusion": "failure",
+      "url": "https://github.com/mirichard/pm-tools-templates/actions/runs/35463633507",
+      "attempt": 1
+    },
+    {
+      "id": 35463633931,
+      "name": ".github/workflows/status-reporting.yml",
+      "event": "push",
+      "status": "completed",
+      "conclusion": "failure",
+      "url": "https://github.com/mirichard/pm-tools-templates/actions/runs/35463633931",
+      "attempt": 1
+    },
+    {
+      "id": 35463632632,
+      "name": ".github/workflows/weekly-status-email.yml",
+      "event": "push",
+      "status": "completed",
+      "conclusion": "failure",
+      "url": "https://github.com/mirichard/pm-tools-templates/actions/runs/35463632632",
+      "attempt": 1
+    },
+    {
+      "id": 35463633139,
+      "name": ".github/workflows/issue-314-enhanced-status.yml",
+      "event": "push",
+      "status": "completed",
+      "conclusion": "failure",
+      "url": "https://github.com/mirichard/pm-tools-templates/actions/runs/35463633139",
+      "attempt": 1
+    },
+    {
+      "id": 35463632265,
+      "name": ".github/workflows/test-clean-status-simple.yml",
+      "event": "push",
+      "status": "completed",
+      "conclusion": "failure",
+      "url": "https://github.com/mirichard/pm-tools-templates/actions/runs/35463632265",
+      "attempt": 1
+    },
+    {
+      "id": 35463631894,
+      "name": ".github/workflows/enhanced-clean-status-workflow.yml",
+      "event": "push",
+      "status": "completed",
+      "conclusion": "failure",
+      "url": "https://github.com/mirichard/pm-tools-templates/actions/runs/35463631894",
+      "attempt": 1
+    },
+    {
+      "id": 35463630898,
+      "name": ".github/workflows/clean-status-workflow.yml",
+      "event": "push",
+      "status": "completed",
+      "conclusion": "failure",
+      "url": "https://github.com/mirichard/pm-tools-templates/actions/runs/35463630898",
+      "attempt": 1
+    },
+    {
+      "id": 35463631431,
+      "name": ".github/workflows/artifact-lifecycle-manager.yml",
+      "event": "push",
+      "status": "completed",
+      "conclusion": "failure",
+      "url": "https://github.com/mirichard/pm-tools-templates/actions/runs/35463631431",
+      "attempt": 1
+    }
+  ]
+}
