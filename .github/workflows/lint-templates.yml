@@ -8,6 +8,10 @@ on:
       - 'meta/migration-waves/*.json'
       - 'scripts/lint_template_metadata.py'
       - 'scripts/template_reviews.py'
+      - 'scripts/check_migrated_freshness.py'
+      - 'tests/test_migrated_freshness.py'
+      - 'tests/webhook-example.test.cjs'
+      - 'meta/migration-inventory.json'
       - 'meta/template-content-reviews.json'
       - 'tests/test_template_reviews.py'
       - 'tests/test_template_metadata.py'
@@ -27,6 +31,10 @@ on:
       - 'meta/migration-waves/*.json'
       - 'scripts/lint_template_metadata.py'
       - 'scripts/template_reviews.py'
+      - 'scripts/check_migrated_freshness.py'
+      - 'tests/test_migrated_freshness.py'
+      - 'tests/webhook-example.test.cjs'
+      - 'meta/migration-inventory.json'
       - 'meta/template-content-reviews.json'
       - 'tests/test_template_reviews.py'
       - 'tests/test_template_metadata.py'
@@ -58,9 +66,11 @@ jobs:
         run: python -m pip install PyYAML==6.0.3
       - name: Test metadata policy and safe report generation
         run: |
-          python -m unittest tests.test_template_metadata tests.test_template_reviews -v
+          python -m unittest tests.test_template_metadata tests.test_template_reviews tests.test_migrated_freshness -v
           python -m unittest tests.test_quality_gate_baseline -v
           python -m unittest discover -s tests -p test_clean_status.py -v
+      - name: Require zero migrated-template age warnings
+        run: python scripts/check_migrated_freshness.py --json-output migrated-freshness.json
       - name: Validate changed bodies and navigation; report inherited debt
         env:
           BASE_SHA: ${{ github.event.pull_request.base.sha || github.event.before }}
@@ -70,11 +80,27 @@ jobs:
           python scripts/lint_template_metadata.py
           --base "$BASE_SHA" --head "$HEAD_SHA" --event "$EVENT_NAME"
           --json-output metadata-validation.json
+      - name: Require zero age warnings across the linter scope
+        run: |
+          python - <<'PYCODE'
+          import json
+          import sys
+          result = json.load(open('metadata-validation.json'))
+          print(f"Repository age warnings: {len(result['warnings'])}")
+          sys.exit(bool(result['warnings']))
+          PYCODE
+      - uses: actions/setup-node@v7
+        with:
+          node-version: '24'
+      - name: Verify documented webhook signature example
+        run: node --test tests/webhook-example.test.cjs
       - name: Preserve denominator and inherited-debt evidence
         if: always()
         uses: actions/upload-artifact@v7
         with:
           name: metadata-validation
-          path: metadata-validation.json
+          path: |
+            metadata-validation.json
+            migrated-freshness.json
           if-no-files-found: error
           retention-days: 7

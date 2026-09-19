@@ -3,10 +3,15 @@ title: "Test Plan Template"
 methodology: "universal"
 complexity: "advanced"
 owner: "mirichard"
-updated: "2025-08-05"
+updated: "2026-09-19"
 ---
 
 # Test Plan Template
+
+## Example implementation contract
+
+Code, queries, configuration, versions, thresholds, and sample output illustrate the design; they are not a tested deployment bundle. Record the actual platform/version, supported dependencies, credentials source, least-privilege access, environment-specific values, and test results before use. Pin release artifacts and validate rollback and failure paths in the target environment. Never use sample secrets or sample approval results as operational evidence.
+
 
 | Document ID | [TEST-PLAN-PROJECT-ID] |
 |-------------|-------------------------|
@@ -107,7 +112,7 @@ updated: "2025-08-05"
 
 This Test Plan document outlines the comprehensive testing approach for the [System/Application Name]. It defines the testing strategy, methodologies, resource requirements, schedule, and deliverables necessary to ensure the system meets the quality standards and requirements specified in the Software Requirements Specification (SRS) and Technical Design Document (TDD).
 
-The Test Plan is designed to align with SAFe (Scaled Agile Framework) principles while adhering to IEEE 829 standards for test documentation, adapted for modern agile environments.
+This test-plan worksheet supports adaptable test planning. Record the applicable documentation standard and edition, required coverage, and approval criteria; the template does not assert conformance to a particular standard.
 
 ### 1.2 Scope
 
@@ -147,7 +152,7 @@ This document covers the testing scope for [System/Application Name], including:
 
 1. Software Requirements Specification (SRS) - [Document ID]
 2. Technical Design Document (TDD) - [Document ID]
-3. IEEE 829-2008 Standard for Software Test Documentation
+3. [Applicable test documentation standard, edition, and approved tailoring]
 4. SAFe Quality Management Framework
 5. [Organization] Testing Standards and Guidelines - [Document ID]
 6. [Additional reference documents]

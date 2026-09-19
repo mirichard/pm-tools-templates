@@ -3,17 +3,20 @@ title: "Overall Product Backlog Template"
 methodology: "agile"
 complexity: "advanced"
 owner: "mirichard"
-updated: "2025-08-05"
+updated: "2026-09-19"
 ---
 
 # LeSS Overall Product Backlog Management Template
+
+Use one defined product, shared Product Backlog and integrated product outcome. Coordination techniques and agenda durations here are optional facilitation examples, not additional mandatory roles or events. Adapt them consistently with the [LeSS framework](https://less.works/less/framework).
+
 
 ## Overview
 This template provides guidance for managing a unified Product Backlog in a LeSS (Large-Scale Scrum) environment. The goal is to ensure that all teams work from a coherent set of priorities, aligning with the product vision and strategy while maintaining the flexibility to adapt to change.
 
 ## Template Information
 - **Framework:** LeSS (Large-Scale Scrum)
-- **Scope:** Organization-wide Product Backlog
+- **Scope:** One Product Backlog for the defined product
 - **Goal:** Align teams on business priorities and product vision
 - **Participants:** Product Owner, Product Management, Stakeholders
 - **Update Frequency:** Continuous with formal reviews every sprint

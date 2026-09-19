@@ -3,7 +3,7 @@ title: "Batch Record Template"
 methodology: "universal"
 complexity: "advanced"
 owner: "mirichard"
-updated: "2025-08-05"
+updated: "2026-09-19"
 primary_principles: ["stewardship", "quality-by-design"]
 secondary_principles: ["evidence-based-decisions", "risk-optimization"]
 principle_rationale: "Preserves controlled evidence, product quality, accountability, and risk response."
@@ -11,9 +11,18 @@ principle_rationale: "Preserves controlled evidence, product quality, accountabi
 
 # Manufacturing Batch Record Template
 
+## Applying this template
+
+Treat filled examples, dates, numerical limits, sampling frequencies, and approval outcomes as illustrations. Before execution, replace them with the approved product/site requirements, scientific rationale, method references, responsible reviewer, and acceptance evidence. Record the applicable jurisdiction and current guidance edition; a completed worksheet alone does not demonstrate regulatory compliance.
+
+| Requirement or limit | Applicable source / edition | Product-specific rationale | Approval / date | Execution evidence |
+|---|---|---|---|---|
+| [Requirement] | [Source] | [Rationale] | [Reviewer / date] | [Record] |
+
+
 ## Document Control
 
-**Document ID:** [MBR-XXX]  
+**Document ID:** [MBR-XXX]\
 **Version:** [1.0]  
 **Effective Date:** [YYYY-MM-DD]  
 **Review Date:** [YYYY-MM-DD]  

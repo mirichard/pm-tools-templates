@@ -3,13 +3,18 @@ title: "Advanced Business Case Template"
 methodology: "universal"
 complexity: "advanced"
 owner: "mirichard"
-updated: "2025-08-05"
+updated: "2026-09-19"
 primary_principles: ["value-focus", "evidence-based-decisions"]
 secondary_principles: ["stewardship", "risk-optimization"]
 principle_rationale: "Tests investment value, assumptions, exposure, and accountable use of resources."
 ---
 
 # Advanced Business Case Template
+
+## Completing the worksheet
+
+Replace populated examples with project evidence before circulation. Record the reporting period, baseline, source, owner, and calculation for each measure; define thresholds and approval authority locally. Show unavailable values as unknown rather than zero or a favorable status. Reconcile totals and units, handle zero denominators explicitly, and retain the decision rationale and supporting evidence.
+
 
 **Comprehensive investment justification with enterprise-grade financial analysis**
 

@@ -3,7 +3,7 @@ title: "Safe Program Increment Planning Template"
 methodology: "agile"
 complexity: "advanced"
 owner: "mirichard"
-updated: "2025-08-05"
+updated: "2026-09-19"
 ---
 
 # SAFe Program Increment Planning Template
@@ -17,7 +17,7 @@ updated: "2025-08-05"
 
 ## 📋 PI Planning Overview
 
-Program Increment (PI) Planning is a cadence-based, face-to-face event that serves as the heartbeat of the Agile Release Train (ART), aligning all teams to a shared mission and vision. This two-day event brings together all ART members to:
+Program Increment (PI) Planning is a cadence-based collaborative event (in person, distributed, or hybrid) that serves as the heartbeat of the Agile Release Train (ART), aligning all teams to a shared mission and vision. This two-day event brings together all ART members to:
 
 - Align on a common mission and vision
 - Identify dependencies and foster cross-team collaboration
@@ -228,8 +228,8 @@ API Team -----> Data Team
 1. No confidence - Will not work, fundamental rework required
 2. Low confidence - Might work with significant adjustments
 3. Moderate confidence - Should work with minor adjustments
-4. High confidence - Will work as planned with minimal risk
-5. Very high confidence - Will definitely work as planned
+4. High confidence - Plan appears feasible; track identified risks and assumptions
+5. Very high confidence - Strong confidence in feasibility; this is not a delivery guarantee
 
 ### Plan Adjustments (Post-Vote)
 

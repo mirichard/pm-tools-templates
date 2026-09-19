@@ -1,0 +1,34 @@
+{
+  "date": "2026-09-19",
+  "comparison_commit": "be04694ffd0f39de3d5f306300c276fa7f810762",
+  "migrated_freshness": {
+    "date": "2026-09-19",
+    "migrated": 137,
+    "reviewed": 137,
+    "errors": [],
+    "age_warnings": []
+  },
+  "completed_reviews": 140,
+  "repository_metadata": {
+    "strict_errors": [],
+    "age_warnings": [],
+    "inherited_required_field_errors": 33
+  },
+  "links": {
+    "baseline_files": 286,
+    "extra_files": [
+      "business-stakeholder-suite/executive-dashboards/tableau-integration/executive-dashboard-template.md",
+      "templates/traditional/Traditional/Templates/risk_register_template.md",
+      "templates/traditional/Traditional/Templates/status_report_template.md",
+      "role-based-toolkits/product-owner/user-research-planning.md"
+    ],
+    "checked": 1201,
+    "failures": []
+  },
+  "local_tests": {
+    "node": 56,
+    "python": 46
+  },
+  "remote_ci": "Check pull request head; not established by local tests",
+  "visual_review": "Not performed or accepted"
+}

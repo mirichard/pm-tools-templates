@@ -3,10 +3,15 @@ title: "Release Management Template"
 methodology: "universal"
 complexity: "advanced"
 owner: "mirichard"
-updated: "2025-08-05"
+updated: "2026-09-19"
 ---
 
 # Release Management Workflow Template
+
+## Example implementation contract
+
+Code, queries, configuration, versions, thresholds, and sample output illustrate the design; they are not a tested deployment bundle. Record the actual platform/version, supported dependencies, credentials source, least-privilege access, environment-specific values, and test results before use. Pin release artifacts and validate rollback and failure paths in the target environment. Never use sample secrets or sample approval results as operational evidence.
+
 
 ## Overview
 This template provides a comprehensive framework for managing software releases in DevOps environments, integrating project management practices with automated release workflows. It covers planning, coordination, execution, and post-release activities to ensure reliable and predictable software delivery.

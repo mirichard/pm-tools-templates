@@ -3,7 +3,7 @@ title: "Okr Template"
 methodology: "universal"
 complexity: "advanced"
 owner: "mirichard"
-updated: "2025-08-05"
+updated: "2026-09-19"
 ---
 
 # OKR Template for Product Owners
@@ -101,7 +101,7 @@ This Objectives and Key Results (OKR) template provides Product Owners with a st
 
 #### Objective 1: Scale Product for Enterprise Market Segment
 
-**Key Result 1:** Achieve SOC 2 Type II compliance certification
+**Key Result 1:** Obtain a SOC 2 Type II examination report covering the agreed system, criteria, and reporting period
 **Key Result 2:** Launch Enterprise SSO and user management features
 **Key Result 3:** Secure 5 enterprise pilot customers (>$50K ARR each)
 
@@ -179,7 +179,7 @@ This Objectives and Key Results (OKR) template provides Product Owners with a st
 - **1.0:** Exceeded expectations (rare, may indicate target was too easy)
 
 ### Target Scoring Philosophy
-- **Ideal Average Score:** 0.6-0.7 across all OKRs
+- **Aspirational OKR example:** 0.6-0.7 may be an agreed stretch-outcome convention; committed objectives require their agreed completion criteria
 - **Stretch Goals:** Set ambitious targets that require 70% success rate
 - **Growth Mindset:** Failure to achieve 100% should drive learning, not punishment
 

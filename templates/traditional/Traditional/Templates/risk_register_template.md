@@ -3,7 +3,7 @@ title: "Risk Register Template"
 methodology: "traditional"
 complexity: "advanced"
 owner: "mirichard"
-updated: "2025-08-05"
+updated: "2026-09-19"
 ---
 
 # PROJECT RISK REGISTER
@@ -40,7 +40,7 @@ updated: "2025-08-05"
 ### 1.1 Risk Management Process Overview
 *Briefly describe the risk management approach for the project, including how risks will be identified, analyzed, responded to, and monitored.*
 
-*Example: This project follows a proactive risk management approach aligned with Industry Standard best practices. Risks will be identified through team brainstorming sessions, stakeholder interviews, expert judgment, and lessons learned from similar projects. Risks will be analyzed quantitatively and qualitatively, with appropriate response strategies developed for each. Key risks will be monitored at weekly status meetings, with the full Risk Register reviewed monthly by the Project Steering Committee.*
+*Example: This project follows a proactive risk management approach adapted to the organization’s approved risk policy. Risks will be identified through team brainstorming sessions, stakeholder interviews, expert judgment, and lessons learned from similar projects. Risks will be analyzed quantitatively and qualitatively, with appropriate response strategies developed for each. Key risks will be monitored at weekly status meetings, with the full Risk Register reviewed monthly by the Project Steering Committee.*
 
 ### 1.2 Roles and Responsibilities
 
@@ -133,10 +133,12 @@ updated: "2025-08-05"
 | Score | Level | Description | Probability Range |
 |-------|-------|-------------|------------------|
 | 5 | Very High | Almost certain to occur | >90% |
-| 4 | High | Likely to occur | 70-90% |
-| 3 | Medium | May occur | 30-70% |
-| 2 | Low | Unlikely to occur | 10-30% |
+| 4 | High | Likely to occur | >70% to 90% |
+| 3 | Medium | May occur | >30% to 70% |
+| 2 | Low | Unlikely to occur | 10% to 30% |
 | 1 | Very Low | Rare occurrence | <10% |
+
+Record the assessment horizon and evidence for each probability estimate. These ordinal scores prioritize attention; their product is not an expected monetary loss. Calibrate impact boundaries to the project, specify inclusive/exclusive limits in consistent units, and require explicit acceptance authority even for low-scoring severe consequences.
 
 ### 3.2 Impact Assessment
 
@@ -297,5 +299,5 @@ updated: "2025-08-05"
 
 | Name | Title | Signature | Date |
 |------|-------|-----------|------|
-| *John Doe* | *Project Sponsor*
+| [Name] | Project Sponsor | [Signature/approval reference] | [Date] |
 

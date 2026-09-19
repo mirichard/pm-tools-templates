@@ -73,13 +73,19 @@ class ReviewTests(unittest.TestCase):
         (self.root / 'alias.md').symlink_to(self.root / 'template.md')
         self.assertTrue(self.load([dict(self.record, path='alias.md')])[1])
 
-    def test_repository_ledger_covers_exact_migration_denominator(self):
+    def test_repository_ledger_covers_exact_migration_and_additional_denominators(self):
         root = Path(__file__).resolve().parents[1]
         inventory = json.loads((root / 'meta/migration-inventory.json').read_text())
         records = json.loads((root / REVIEW_FILE).read_text())['templates']
         expected = {move['destination'] for move in inventory['moves']}
-        self.assertEqual({record['path'] for record in records}, expected)
-        self.assertEqual(len(records), len(expected))
+        additional = {
+            'business-stakeholder-suite/executive-dashboards/tableau-integration/executive-dashboard-template.md',
+            'templates/traditional/Traditional/Templates/risk_register_template.md',
+            'templates/traditional/Traditional/Templates/status_report_template.md',
+        }
+        self.assertFalse(expected & additional)
+        self.assertEqual({record['path'] for record in records}, expected | additional)
+        self.assertEqual(len(records), len(expected) + len(additional))
         self.assertFalse(load_reviews(root, TODAY)[1])
 
     def test_missing_or_malformed_manifest(self):

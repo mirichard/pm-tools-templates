@@ -3,12 +3,14 @@ title: "Requirements Specification Template"
 methodology: "universal"
 complexity: "advanced"
 owner: "mirichard"
-updated: "2025-08-05"
+updated: "2026-09-19"
 ---
 
 # Software Requirements Specification (SRS)
 
-**Document ID:** [SRS-PROJ-VERSION]  
+Authentication examples require security-owner approval for the actual assurance level and user population. Use the current [NIST authentication guidance](https://pages.nist.gov/800-63-4/sp800-63b.html) when applicable and specify the chosen policy and verification tests.
+
+**Document ID:** [SRS-PROJ-VERSION]\
 **Version:** [1.0]  
 **Date:** [YYYY-MM-DD]  
 **Prepared by:** [Author Name(s)]  
@@ -392,7 +394,7 @@ updated: "2025-08-05"
 
 *REQ-SEC-05: The system shall automatically lock user accounts after five consecutive failed login attempts, requiring administrator intervention for reactivation.*
 
-*REQ-SEC-06: The system shall enforce password complexity requirements according to the organization's security policy (minimum 12 characters, mixture of character types, no common words).*
+*REQ-SEC-06: The system shall enforce the approved authentication policy, with explicit minimum length, compromised-password screening, rate limiting, and recovery requirements appropriate to the authentication method.*
 
 #### 3.3.3 Usability Requirements
 

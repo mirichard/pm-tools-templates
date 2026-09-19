@@ -2,60 +2,249 @@
   "version": 1,
   "repairs": [
     {
+      "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/clinical-trials/clinical_trial_protocol_template.md",
+      "base_commit": "be04694ffd0f39de3d5f306300c276fa7f810762",
+      "original_sha256": "45e3419297ecf5986bd2144134578b1237bf43cfb4f3f45d049ccb417405947e",
+      "reason": "Substantive content maintenance: file-specific findings, sources and section coverage in meta/template-content-reviews.json; scope and limitations in docs/vnext/post-migration-repair/resource-and-freshness-review.md. Original migration evidence preserved.",
+      "current_sha256": "bdb352a8b86ed940c84bf71c2339757e12671d6ba708a2fca443fbb477edb817"
+    },
+    {
+      "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/compliance/capa_management_template.md",
+      "base_commit": "be04694ffd0f39de3d5f306300c276fa7f810762",
+      "original_sha256": "c529b8195c0e169a00d64e8f397d765c873bb329bbd63340825abc62715445b4",
+      "reason": "Substantive content maintenance: file-specific findings, sources and section coverage in meta/template-content-reviews.json; scope and limitations in docs/vnext/post-migration-repair/resource-and-freshness-review.md. Original migration evidence preserved.",
+      "current_sha256": "41e2b981f814205f58df512169bf511ecb3fa7add41bc26dd0204645466203ff"
+    },
+    {
+      "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/compliance/gxp_training_plan_template.md",
+      "base_commit": "be04694ffd0f39de3d5f306300c276fa7f810762",
+      "original_sha256": "5ed332f0480642c30b255f26b7218f4b6dd7e71376b339015f3fcda28efe6f4a",
+      "reason": "Substantive content maintenance: file-specific findings, sources and section coverage in meta/template-content-reviews.json; scope and limitations in docs/vnext/post-migration-repair/resource-and-freshness-review.md. Original migration evidence preserved.",
+      "current_sha256": "9ee07caed49bc180da12d5c0151ec3333eb9571cb01ef85e41d987589d06a3e4"
+    },
+    {
       "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/lifecycle/pharmaceutical_qbd_template.md",
       "base_commit": "4525639da93fde99efef64295324e8d72e6c61d7",
       "original_sha256": "78d325c58e8f345939a6fb2efc82f82ba954f548b71befc1182f7d72930f93c0",
-      "current_sha256": "67f1fc9a481ad6ff3565627809d3e62ec6743b144770dbb775b992e5e3bc7d47",
-      "reason": "Post-migration quality repair: schema-valid complexity where applicable; maintained canonical references and documented local-link dispositions. See docs/vnext/post-migration-repair/link-dispositions.json and PR diff."
+      "current_sha256": "de1056a55661746e7dbef5007e01c4127beca2f1281a9f5d40718a49666597b7",
+      "reason": "Substantive content maintenance: file-specific findings, sources and section coverage in meta/template-content-reviews.json; scope and limitations in docs/vnext/post-migration-repair/resource-and-freshness-review.md. Original migration evidence preserved."
+    },
+    {
+      "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/manufacturing/batch_record_template.md",
+      "base_commit": "be04694ffd0f39de3d5f306300c276fa7f810762",
+      "original_sha256": "2028d72c48d76f6ca0e99291452e2c04f7ea855692cbd92816df4077c8b77643",
+      "reason": "Substantive content maintenance: file-specific findings, sources and section coverage in meta/template-content-reviews.json; scope and limitations in docs/vnext/post-migration-repair/resource-and-freshness-review.md. Original migration evidence preserved.",
+      "current_sha256": "a56872792b97eeea1e742e9d7ebc50f8da46cde11eae31d96946f072e07355e4"
+    },
+    {
+      "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/manufacturing/manufacturing_batch_record_template.md",
+      "base_commit": "be04694ffd0f39de3d5f306300c276fa7f810762",
+      "original_sha256": "25dc484b2e9e7ac300d207246e464cb901dba925113c4e5568a53817a7f22f17",
+      "reason": "Substantive content maintenance: file-specific findings, sources and section coverage in meta/template-content-reviews.json; scope and limitations in docs/vnext/post-migration-repair/resource-and-freshness-review.md. Original migration evidence preserved.",
+      "current_sha256": "8a8bf04af9061e36f6f5878cf69a19696107f3faadcdfbee12d19ad2ae880952"
+    },
+    {
+      "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/manufacturing/process_control_template.md",
+      "base_commit": "be04694ffd0f39de3d5f306300c276fa7f810762",
+      "original_sha256": "5294d183cbcfa7cd148e5f8553b606cd77d02d733ae4dac72ac652527bb1371a",
+      "reason": "Substantive content maintenance: file-specific findings, sources and section coverage in meta/template-content-reviews.json; scope and limitations in docs/vnext/post-migration-repair/resource-and-freshness-review.md. Original migration evidence preserved.",
+      "current_sha256": "dfd4619091da9aca63926357fa8fa2f27ee7b5ff3092cde4bfd08b19684fce06"
+    },
+    {
+      "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/quality/quality_management_review_template.md",
+      "base_commit": "be04694ffd0f39de3d5f306300c276fa7f810762",
+      "original_sha256": "1d0bb39160e464dc89a713e4ef865e31e8e18ab46ba1a6475a4a24f188d53181",
+      "reason": "Substantive content maintenance: file-specific findings, sources and section coverage in meta/template-content-reviews.json; scope and limitations in docs/vnext/post-migration-repair/resource-and-freshness-review.md. Original migration evidence preserved.",
+      "current_sha256": "db92bc656cb7260fbb1d1e57161fe6cf172aa55bea7fd87e739b043f61dcfea2"
+    },
+    {
+      "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/regulatory/compliance_risk_assessment_template.md",
+      "base_commit": "be04694ffd0f39de3d5f306300c276fa7f810762",
+      "original_sha256": "3bf28881e9e6cc38e2993f59658dff595fe57d3e6e18da2a873ad0409aa494d5",
+      "reason": "Substantive content maintenance: file-specific findings, sources and section coverage in meta/template-content-reviews.json; scope and limitations in docs/vnext/post-migration-repair/resource-and-freshness-review.md. Original migration evidence preserved.",
+      "current_sha256": "cb32cd2aaf383113bb7ea1ed21882a236175026a32b2b2031c2ae15dfc164321"
+    },
+    {
+      "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/regulatory/computer_system_validation_protocol_template.md",
+      "base_commit": "be04694ffd0f39de3d5f306300c276fa7f810762",
+      "original_sha256": "88a04353e540a4cd6c9a6e6f62a217c6026f95107d56fd0e3cbc10bb387b3711",
+      "reason": "Substantive content maintenance: file-specific findings, sources and section coverage in meta/template-content-reviews.json; scope and limitations in docs/vnext/post-migration-repair/resource-and-freshness-review.md. Original migration evidence preserved.",
+      "current_sha256": "c5b17f525e5884cc9ef7782c477f32bfd9fb55b521e63f49bb420de7ab3fbc5d"
+    },
+    {
+      "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/regulatory/health_authority_communication_plan_template.md",
+      "base_commit": "be04694ffd0f39de3d5f306300c276fa7f810762",
+      "original_sha256": "643053a540a351276fde3941240ccd4a3ee22eec7ca68cd9eb22f4e6498d0747",
+      "reason": "Substantive content maintenance: file-specific findings, sources and section coverage in meta/template-content-reviews.json; scope and limitations in docs/vnext/post-migration-repair/resource-and-freshness-review.md. Original migration evidence preserved.",
+      "current_sha256": "a66804fe41337d20b484dc1255055aca8d9b94f3b680c65a136617019365d41e"
+    },
+    {
+      "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/regulatory/process_validation_protocol_template.md",
+      "base_commit": "be04694ffd0f39de3d5f306300c276fa7f810762",
+      "original_sha256": "187d3224c4f0352fc2b447211c89168e43cdba82754902defa986086048a0c58",
+      "reason": "Substantive content maintenance: file-specific findings, sources and section coverage in meta/template-content-reviews.json; scope and limitations in docs/vnext/post-migration-repair/resource-and-freshness-review.md. Original migration evidence preserved.",
+      "current_sha256": "5d445c60d8ddc3775b3f39b93c7b87c5b1cb3b55dc20b07d8575fa97a7a34a43"
+    },
+    {
+      "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/regulatory/regulatory_inspection_readiness_plan_template.md",
+      "base_commit": "be04694ffd0f39de3d5f306300c276fa7f810762",
+      "original_sha256": "31ae486a00b0a8c8b9552492d0bf9e549e1433a7943e9562aa5a35a4e07f893f",
+      "reason": "Substantive content maintenance: file-specific findings, sources and section coverage in meta/template-content-reviews.json; scope and limitations in docs/vnext/post-migration-repair/resource-and-freshness-review.md. Original migration evidence preserved.",
+      "current_sha256": "c08e6771ad3966ea32890ac9c76f6158514e9f4f49b2fb78a9450ce046474026"
+    },
+    {
+      "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/regulatory/regulatory_strategy_plan_template.md",
+      "base_commit": "be04694ffd0f39de3d5f306300c276fa7f810762",
+      "original_sha256": "8fab37973f6e648d612016fc8e58c925065ae3320c0ac03a346c059b43f8676b",
+      "reason": "Substantive content maintenance: file-specific findings, sources and section coverage in meta/template-content-reviews.json; scope and limitations in docs/vnext/post-migration-repair/resource-and-freshness-review.md. Original migration evidence preserved.",
+      "current_sha256": "17201f81249409ffe880be627d469cd15f9377990668f81ed8951d1f777e5ce6"
+    },
+    {
+      "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/validation/cleaning_validation_protocol_template.md",
+      "base_commit": "be04694ffd0f39de3d5f306300c276fa7f810762",
+      "original_sha256": "78d19f4f25ccd2cf924fb577125d85f9866975882cf35df3525b7f67271f86d6",
+      "reason": "Substantive content maintenance: file-specific findings, sources and section coverage in meta/template-content-reviews.json; scope and limitations in docs/vnext/post-migration-repair/resource-and-freshness-review.md. Original migration evidence preserved.",
+      "current_sha256": "63f0318a159943116468a79fddb6055832ff386611a520aee02625f554ce812b"
+    },
+    {
+      "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/validation/equipment_qualification_protocol_template.md",
+      "base_commit": "be04694ffd0f39de3d5f306300c276fa7f810762",
+      "original_sha256": "fbc7a75cb552460d80e5f42b9a0694660b7230a9573dfd2766d1c721e7e22d92",
+      "reason": "Substantive content maintenance: file-specific findings, sources and section coverage in meta/template-content-reviews.json; scope and limitations in docs/vnext/post-migration-repair/resource-and-freshness-review.md. Original migration evidence preserved.",
+      "current_sha256": "aa1d7557a5913e1c53815501d98408e29eaf4a7081b387966f3a0b6060408494"
+    },
+    {
+      "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/validation/installation_qualification_protocol_template.md",
+      "base_commit": "be04694ffd0f39de3d5f306300c276fa7f810762",
+      "original_sha256": "9144caa3a3a6fcdc6c8aff2e5d9619a8d002637f25a6f994f07d7f2e526bce4c",
+      "reason": "Substantive content maintenance: file-specific findings, sources and section coverage in meta/template-content-reviews.json; scope and limitations in docs/vnext/post-migration-repair/resource-and-freshness-review.md. Original migration evidence preserved.",
+      "current_sha256": "b4f40cb4c50e5512c5d731c4dc787d3820ff7b17b497aae508db70813099a09a"
+    },
+    {
+      "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/validation/operational_qualification_protocol_template.md",
+      "base_commit": "be04694ffd0f39de3d5f306300c276fa7f810762",
+      "original_sha256": "5c7ab97179ecb2f4112dd9be78841ae0fd800ac4f1efad80df4af9907e395687",
+      "reason": "Substantive content maintenance: file-specific findings, sources and section coverage in meta/template-content-reviews.json; scope and limitations in docs/vnext/post-migration-repair/resource-and-freshness-review.md. Original migration evidence preserved.",
+      "current_sha256": "d3b706c1fbdfd603e21f146fb432a2f41e31fe2fa0e5c1e4e73ab45df07e54ac"
+    },
+    {
+      "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/validation/performance_qualification_protocol_template.md",
+      "base_commit": "be04694ffd0f39de3d5f306300c276fa7f810762",
+      "original_sha256": "0804914d1039f48703eb7cb79e17830dc2116b479544604b95f2d0822b11ec05",
+      "reason": "Substantive content maintenance: file-specific findings, sources and section coverage in meta/template-content-reviews.json; scope and limitations in docs/vnext/post-migration-repair/resource-and-freshness-review.md. Original migration evidence preserved.",
+      "current_sha256": "4ce35fa581668a5bbf2410866ec87f1bce3caacec7d3c282bff1cdbab64fe0af"
+    },
+    {
+      "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/validation/process_validation_master_plan_template.md",
+      "base_commit": "be04694ffd0f39de3d5f306300c276fa7f810762",
+      "original_sha256": "c0300e4f494b44312d3e17cc9a410dad3171cbabf61b9ee6d5e04774982ad8d5",
+      "reason": "Substantive content maintenance: file-specific findings, sources and section coverage in meta/template-content-reviews.json; scope and limitations in docs/vnext/post-migration-repair/resource-and-freshness-review.md. Original migration evidence preserved.",
+      "current_sha256": "e482a0f49be5ffd33361fff5f036ded588c502a87e0fde31816b6cfa3fb3afcf"
+    },
+    {
+      "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/validation/software_requirements_specification_template.md",
+      "base_commit": "be04694ffd0f39de3d5f306300c276fa7f810762",
+      "original_sha256": "7a355d601468185b3611d8435128cf4663b4a519c4c94bcc979afe0c8d226e04",
+      "reason": "Substantive content maintenance: file-specific findings, sources and section coverage in meta/template-content-reviews.json; scope and limitations in docs/vnext/post-migration-repair/resource-and-freshness-review.md. Original migration evidence preserved.",
+      "current_sha256": "69fa5f96c4ffaec535a236b5d31b540b52aaa0c7088e6283bb55508a2e0b617d"
+    },
+    {
+      "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/validation/validation_master_plan_template.md",
+      "base_commit": "be04694ffd0f39de3d5f306300c276fa7f810762",
+      "original_sha256": "770b558145b2ab79d322fdacf902cee25b0fe342bedfcd584fa0712752323414",
+      "reason": "Substantive content maintenance: file-specific findings, sources and section coverage in meta/template-content-reviews.json; scope and limitations in docs/vnext/post-migration-repair/resource-and-freshness-review.md. Original migration evidence preserved.",
+      "current_sha256": "36cc73af7b2c030790ed750feb6f3db838d28271afdffea0c35114ba8cf51aa4"
+    },
+    {
+      "path": "domains/delivery/industry-specializations/information-technology/software-development/api_documentation_template.md",
+      "base_commit": "be04694ffd0f39de3d5f306300c276fa7f810762",
+      "original_sha256": "615cb8ea6af39c4e06d7698b7483782a7df77c7dd2547a5f162ac1c416d5ea1b",
+      "reason": "Substantive content maintenance: file-specific findings, sources and section coverage in meta/template-content-reviews.json; scope and limitations in docs/vnext/post-migration-repair/resource-and-freshness-review.md. Original migration evidence preserved.",
+      "current_sha256": "4f61592d97abeca0e5a1a55dff2264c4f1f9361e6f406b7020a56cb0185fbb58"
     },
     {
       "path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/less/cross_team_coordination_template.md",
       "base_commit": "4525639da93fde99efef64295324e8d72e6c61d7",
       "original_sha256": "6e559a6e0a08d0a1ff658764865688006c263dc649319e2ace944032fadc8157",
-      "current_sha256": "601120dce5db31932c14a7f9aff41b070de5cb23aa2a529d0d22b78267a80589",
-      "reason": "Post-migration quality repair: schema-valid complexity where applicable; maintained canonical references and documented local-link dispositions. See docs/vnext/post-migration-repair/link-dispositions.json and PR diff."
+      "current_sha256": "649523bee5e856da6dc7e976be8b1a4a653331434fe1f703d7c06e98212c8212",
+      "reason": "Substantive content maintenance: file-specific findings, sources and section coverage in meta/template-content-reviews.json; scope and limitations in docs/vnext/post-migration-repair/resource-and-freshness-review.md. Original migration evidence preserved."
     },
     {
       "path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/less/less_sprint_planning_template.md",
       "base_commit": "4525639da93fde99efef64295324e8d72e6c61d7",
       "original_sha256": "61717ca810bc9f2be6a3dd07211989d46072e7b51683434b88f0c4fa68706ec6",
-      "current_sha256": "783db6b33150d38aad2042ab9c8a15209f3b7e43dade7e409dda1296b4f01c66",
-      "reason": "Post-migration quality repair: schema-valid complexity where applicable; maintained canonical references and documented local-link dispositions. See docs/vnext/post-migration-repair/link-dispositions.json and PR diff."
+      "current_sha256": "a40866432d3d23dd962f5a1fa4349caa74ca69d511fd1d87c22d4db6146cb5f7",
+      "reason": "Substantive content maintenance: file-specific findings, sources and section coverage in meta/template-content-reviews.json; scope and limitations in docs/vnext/post-migration-repair/resource-and-freshness-review.md. Original migration evidence preserved."
     },
     {
       "path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/less/overall_product_backlog_template.md",
       "base_commit": "4525639da93fde99efef64295324e8d72e6c61d7",
       "original_sha256": "74f2f476c9b8ea81beb045b3da8f818edf1ee5c728c58a6c0d25290175e26574",
-      "current_sha256": "c983dba2b5a44c229a997a2ad5ad67ad243ca71dd07049a7a6cb62668c1db615",
-      "reason": "Post-migration quality repair: schema-valid complexity where applicable; maintained canonical references and documented local-link dispositions. See docs/vnext/post-migration-repair/link-dispositions.json and PR diff."
+      "current_sha256": "2657c5f9d839d2976ad1e6fcb15ba2a795771c459848510b8832edae0fbf9a14",
+      "reason": "Substantive content maintenance: file-specific findings, sources and section coverage in meta/template-content-reviews.json; scope and limitations in docs/vnext/post-migration-repair/resource-and-freshness-review.md. Original migration evidence preserved."
     },
     {
       "path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md",
       "base_commit": "4525639da93fde99efef64295324e8d72e6c61d7",
       "original_sha256": "942e733db10117e8c638c33385383a501323925a3b7aaa21d29d361b62739e1f",
-      "current_sha256": "d0d0ee4dc62b537efbb357c706cc2c8fc4a042599c1ce27e4fa3c9e335d72de4",
-      "reason": "Post-migration quality repair: schema-valid complexity where applicable; maintained canonical references and documented local-link dispositions. See docs/vnext/post-migration-repair/link-dispositions.json and PR diff."
+      "current_sha256": "3471a163bb2137df4e766668d0926ec37d6c5b365942611488adcd7c21102771",
+      "reason": "Substantive content maintenance: file-specific findings, sources and section coverage in meta/template-content-reviews.json; scope and limitations in docs/vnext/post-migration-repair/resource-and-freshness-review.md. Original migration evidence preserved."
     },
     {
       "path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/metrics_dashboard_template.md",
       "base_commit": "4525639da93fde99efef64295324e8d72e6c61d7",
       "original_sha256": "1834bd7608cff4f719a20d8c8fea72ba73c36b0f1171a3dc40a399013daa2952",
-      "current_sha256": "7a720762db0dfbddc330058b04aef349f7a9caac882cafd67444d64af45506a9",
-      "reason": "Post-migration quality repair: schema-valid complexity where applicable; maintained canonical references and documented local-link dispositions. See docs/vnext/post-migration-repair/link-dispositions.json and PR diff."
+      "current_sha256": "8ae0bbe737b2cd9bd146659abda11a2b6be8c12d90e13ecb988f28b6f1c27bd1",
+      "reason": "Substantive content maintenance: file-specific findings, sources and section coverage in meta/template-content-reviews.json; scope and limitations in docs/vnext/post-migration-repair/resource-and-freshness-review.md. Original migration evidence preserved."
     },
     {
       "path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/pi_planning_template.md",
       "base_commit": "4525639da93fde99efef64295324e8d72e6c61d7",
       "original_sha256": "bfc54b6167e17f60324b219eee1ceca426243df72a3229895754ba474119c58b",
-      "current_sha256": "5baf352812b0d94d7fabfcd30c65befb961872e011adbbde629358cd2c36d205",
-      "reason": "Post-migration quality repair: schema-valid complexity where applicable; maintained canonical references and documented local-link dispositions. See docs/vnext/post-migration-repair/link-dispositions.json and PR diff."
+      "current_sha256": "725a867d28f46125323fd0e3cc98688ca715372174e336400304b8fb55d5c11d",
+      "reason": "Substantive content maintenance: file-specific findings, sources and section coverage in meta/template-content-reviews.json; scope and limitations in docs/vnext/post-migration-repair/resource-and-freshness-review.md. Original migration evidence preserved."
     },
     {
       "path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/portfolio_kanban_template.md",
       "base_commit": "4525639da93fde99efef64295324e8d72e6c61d7",
       "original_sha256": "6e106e086812a27dfdb0f6e24385e5e4c0d4798ded17d63fb2f16a1c83f5ce78",
-      "current_sha256": "93e3874a919c13c4d248192d01ef795f5b8b808bafeb77b1b6ec05049a203ea2",
-      "reason": "Reference and content maintenance documented in docs/vnext/post-migration-repair/resource-and-freshness-review.md and meta/template-content-reviews.json; original migration hash preserved."
+      "current_sha256": "d533062c85ffc320bb0a10089118ac36daeb2ee7a5c710d9a9783f19de47bad6",
+      "reason": "Substantive content maintenance: file-specific findings, sources and section coverage in meta/template-content-reviews.json; scope and limitations in docs/vnext/post-migration-repair/resource-and-freshness-review.md. Original migration evidence preserved."
+    },
+    {
+      "path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_art_coordination_template.md",
+      "base_commit": "be04694ffd0f39de3d5f306300c276fa7f810762",
+      "original_sha256": "77cac0ef7034cca657c7bd1b63910df6c525bfbc38979b50630051f791853a18",
+      "reason": "Substantive content maintenance: file-specific findings, sources and section coverage in meta/template-content-reviews.json; scope and limitations in docs/vnext/post-migration-repair/resource-and-freshness-review.md. Original migration evidence preserved.",
+      "current_sha256": "f7aaecfb81982cabd47304f4155cc5902a0d2f337042098b68f656222f34532c"
+    },
+    {
+      "path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_metrics_dashboard_template.md",
+      "base_commit": "be04694ffd0f39de3d5f306300c276fa7f810762",
+      "original_sha256": "ca79a4e46ff245402f41e561083d4bf28a914a6d5127d4f28a638a8a481626bb",
+      "reason": "Substantive content maintenance: file-specific findings, sources and section coverage in meta/template-content-reviews.json; scope and limitations in docs/vnext/post-migration-repair/resource-and-freshness-review.md. Original migration evidence preserved.",
+      "current_sha256": "76b072648722161a5a932d72857b5fc0bf99c90ec6888355c359d34d35dcd595"
+    },
+    {
+      "path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_metrics_reporting_template.md",
+      "base_commit": "be04694ffd0f39de3d5f306300c276fa7f810762",
+      "original_sha256": "971937d974b8f26eec47a08396126a4420b07722edd2c04c152e5b4c75e98576",
+      "reason": "Substantive content maintenance: file-specific findings, sources and section coverage in meta/template-content-reviews.json; scope and limitations in docs/vnext/post-migration-repair/resource-and-freshness-review.md. Original migration evidence preserved.",
+      "current_sha256": "ba10aca7835b3e33b073fc5424e87618dfa41bf74824684f5fdf5d895eac438e"
+    },
+    {
+      "path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_portfolio_kanban_template.md",
+      "base_commit": "be04694ffd0f39de3d5f306300c276fa7f810762",
+      "original_sha256": "06aa28142b43d23a20a74e92bfbf40cf3cd526ae9a58045164fdb160d54f7174",
+      "reason": "Substantive content maintenance: file-specific findings, sources and section coverage in meta/template-content-reviews.json; scope and limitations in docs/vnext/post-migration-repair/resource-and-freshness-review.md. Original migration evidence preserved.",
+      "current_sha256": "ee009f391a51af9355fca1c31eacc6f4105268a988eb9f9617212fef165e0b3b"
+    },
+    {
+      "path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_program_increment_planning_template.md",
+      "base_commit": "be04694ffd0f39de3d5f306300c276fa7f810762",
+      "original_sha256": "c69dfa1a6da85c2ad76911f228846544a6477a9b7343f1f0a8777d557f8a19c3",
+      "reason": "Substantive content maintenance: file-specific findings, sources and section coverage in meta/template-content-reviews.json; scope and limitations in docs/vnext/post-migration-repair/resource-and-freshness-review.md. Original migration evidence preserved.",
+      "current_sha256": "ee46de6172cbb5fd63f61d05ba6d6a28579874ee988667be39c0b651488ce4bd"
     },
     {
       "path": "domains/delivery/methodology-frameworks/hybrid/infrastructure/hybrid-infrastructure-template.md",
@@ -79,11 +268,53 @@
       "reason": "Reference and content maintenance documented in docs/vnext/post-migration-repair/resource-and-freshness-review.md and meta/template-content-reviews.json; original migration hash preserved."
     },
     {
+      "path": "domains/delivery/project-lifecycle/02-planning/project-management-plan/agile-release-plan-template.md",
+      "base_commit": "be04694ffd0f39de3d5f306300c276fa7f810762",
+      "original_sha256": "0da71dc599bfc989493568314b3c3505d45c1cf45353b0fb0aed194de0d86f6f",
+      "reason": "Substantive content maintenance: file-specific findings, sources and section coverage in meta/template-content-reviews.json; scope and limitations in docs/vnext/post-migration-repair/resource-and-freshness-review.md. Original migration evidence preserved.",
+      "current_sha256": "d05137c98f331e5a55384aeacb2c3e689bf92d544f0be7dfb6d64f8beff64abe"
+    },
+    {
       "path": "domains/delivery/project-lifecycle/02-planning/project-management-plan/hybrid-project-management-plan-template.md",
       "base_commit": "4525639da93fde99efef64295324e8d72e6c61d7",
       "original_sha256": "bd2120477962f8098e889728c96eda2ae0a035066af1bcb9f19c0e8faff3e64a",
       "current_sha256": "41758de3c93425091081c83d66df983f2f05778fe15acceeccea42ef80235ea4",
       "reason": "Reference and content maintenance documented in docs/vnext/post-migration-repair/resource-and-freshness-review.md and meta/template-content-reviews.json; original migration hash preserved."
+    },
+    {
+      "path": "domains/delivery/project-lifecycle/02-planning/project-management-plan/traditional-project-management-plan-template.md",
+      "base_commit": "be04694ffd0f39de3d5f306300c276fa7f810762",
+      "original_sha256": "377a8035beec71d6b87bd4a86f994ad282a31316ceec3a58e3c3e9645e5fcf33",
+      "reason": "Substantive content maintenance: file-specific findings, sources and section coverage in meta/template-content-reviews.json; scope and limitations in docs/vnext/post-migration-repair/resource-and-freshness-review.md. Original migration evidence preserved.",
+      "current_sha256": "e5b7c465888d907e6c218ec9ee23924226fd3f73805ac2ba8765d0b4746527d1"
+    },
+    {
+      "path": "domains/delivery/project-lifecycle/02-planning/risk-management/agile-risk-board-template.md",
+      "base_commit": "be04694ffd0f39de3d5f306300c276fa7f810762",
+      "original_sha256": "c21471c497e2d5c5d03beb1dc1ba6c16c71ee0968346560a745069d6c2b2cdd2",
+      "reason": "Substantive content maintenance: file-specific findings, sources and section coverage in meta/template-content-reviews.json; scope and limitations in docs/vnext/post-migration-repair/resource-and-freshness-review.md. Original migration evidence preserved.",
+      "current_sha256": "0e897552a71f03a27df09875161c8186574a3389f65a9d2597bddc7600183da5"
+    },
+    {
+      "path": "domains/delivery/role-based-toolkits/project-manager/essential-templates/timesheet-tracking-template.md",
+      "base_commit": "be04694ffd0f39de3d5f306300c276fa7f810762",
+      "original_sha256": "c80bbc3c57444f640c6c6820e2efce747f61ae50571dc4bf2afdc4a8b854f5b4",
+      "reason": "Substantive content maintenance: file-specific findings, sources and section coverage in meta/template-content-reviews.json; scope and limitations in docs/vnext/post-migration-repair/resource-and-freshness-review.md. Original migration evidence preserved.",
+      "current_sha256": "f1964796cc0e326984095ae07460760083957c6e68d2c0708bddbc76564faf7c"
+    },
+    {
+      "path": "domains/delivery/templates/agile/product_backlog_template.md",
+      "base_commit": "be04694ffd0f39de3d5f306300c276fa7f810762",
+      "original_sha256": "2235c7af0329590b42886dc552c6314367fdeb2abed577382906e071a58ed8a2",
+      "reason": "Substantive content maintenance: file-specific findings, sources and section coverage in meta/template-content-reviews.json; scope and limitations in docs/vnext/post-migration-repair/resource-and-freshness-review.md. Original migration evidence preserved.",
+      "current_sha256": "ed2760e603e9f9c1d1d9cd40c63f699da5607a4c20f3b85707a60bdc50871f8d"
+    },
+    {
+      "path": "domains/delivery/templates/agile/sprint_planning_template.md",
+      "base_commit": "be04694ffd0f39de3d5f306300c276fa7f810762",
+      "original_sha256": "f36813b5adb50ce997ed84e1c9c0ae4558cb3f09d11a05876492383b96dc9815",
+      "reason": "Substantive content maintenance: file-specific findings, sources and section coverage in meta/template-content-reviews.json; scope and limitations in docs/vnext/post-migration-repair/resource-and-freshness-review.md. Original migration evidence preserved.",
+      "current_sha256": "0b79ddb277f0eea7524c350b4b9fe7235761b48f8a33497f29659d39209e1610"
     },
     {
       "path": "domains/delivery/templates/hybrid/Hybrid/Templates/integrated_change_strategy_template.md",
@@ -103,8 +334,50 @@
       "path": "domains/delivery/templates/traditional/Traditional/Knowledge_Areas/Project_Cost_Management/roi_tracking_template.md",
       "base_commit": "4525639da93fde99efef64295324e8d72e6c61d7",
       "original_sha256": "c0c8ee1ebc50582bae668d50ee44a4a51a394ec248be5ab881b9c2c8bbc6bcad",
-      "current_sha256": "62318ffeb8f17fc75850d797e1f1f9f46419d06b2cf4e1ccdb9b719bf03d8e77",
-      "reason": "Reference and content maintenance documented in docs/vnext/post-migration-repair/resource-and-freshness-review.md and meta/template-content-reviews.json; original migration hash preserved."
+      "current_sha256": "ea8e7681d9c2c03088f50a94a8b758b803e49a1c29926e7f3e06545a06b26c28",
+      "reason": "Substantive content maintenance: file-specific findings, sources and section coverage in meta/template-content-reviews.json; scope and limitations in docs/vnext/post-migration-repair/resource-and-freshness-review.md. Original migration evidence preserved."
+    },
+    {
+      "path": "domains/delivery/templates/traditional/Traditional/Process_Groups/Closing/project_closure_report_template.md",
+      "base_commit": "be04694ffd0f39de3d5f306300c276fa7f810762",
+      "original_sha256": "3f7d84648b990561627e5ebc761f3eb133e0350ac2a17858871be83124da7565",
+      "reason": "Substantive content maintenance: file-specific findings, sources and section coverage in meta/template-content-reviews.json; scope and limitations in docs/vnext/post-migration-repair/resource-and-freshness-review.md. Original migration evidence preserved.",
+      "current_sha256": "ac9b3dea5024dc70276501d756e35184664a62f926a33942ea82cf19bf4fadaa"
+    },
+    {
+      "path": "domains/delivery/templates/traditional/Traditional/Process_Groups/Executing/project_execution_status_report_template.md",
+      "base_commit": "be04694ffd0f39de3d5f306300c276fa7f810762",
+      "original_sha256": "11646ab5f94555586b4d565b67b3b705437d07a242ffbac2b5e7862973c50c25",
+      "reason": "Substantive content maintenance: file-specific findings, sources and section coverage in meta/template-content-reviews.json; scope and limitations in docs/vnext/post-migration-repair/resource-and-freshness-review.md. Original migration evidence preserved.",
+      "current_sha256": "285ec47f44e03445f053342b9ce7e4961b5d455a3bb2fcfb64fe024bdc12935e"
+    },
+    {
+      "path": "domains/delivery/templates/traditional/Traditional/Process_Groups/Executing/requirements_traceability_matrix_template.md",
+      "base_commit": "be04694ffd0f39de3d5f306300c276fa7f810762",
+      "original_sha256": "90077cdd46763e468f39c04831323ed39d5993c8d815c729f4118be4afce7767",
+      "reason": "Substantive content maintenance: file-specific findings, sources and section coverage in meta/template-content-reviews.json; scope and limitations in docs/vnext/post-migration-repair/resource-and-freshness-review.md. Original migration evidence preserved.",
+      "current_sha256": "67f53de5806388d64678bf5b09cfbe4b343ee8a63d168413bfd9eb0a016902a3"
+    },
+    {
+      "path": "domains/delivery/templates/traditional/Traditional/Process_Groups/Monitoring_and_Controlling/project_performance_monitoring_template.md",
+      "base_commit": "be04694ffd0f39de3d5f306300c276fa7f810762",
+      "original_sha256": "8bfa9c5b021d3cddadb12e081976f092395f70605b11704b2fd0dd9938d007ba",
+      "reason": "Substantive content maintenance: file-specific findings, sources and section coverage in meta/template-content-reviews.json; scope and limitations in docs/vnext/post-migration-repair/resource-and-freshness-review.md. Original migration evidence preserved.",
+      "current_sha256": "9b3397e80415d35c9f413da136f26836953b0f5b05eb9a09680592dbc66f6ae5"
+    },
+    {
+      "path": "domains/delivery/templates/traditional/Traditional/Process_Groups/Planning/project_management_plan_template.md",
+      "base_commit": "be04694ffd0f39de3d5f306300c276fa7f810762",
+      "original_sha256": "d9d5d711fef826ae66669052bea13a0c96ea5bebe1f647337cc8abd54a9baa86",
+      "reason": "Substantive content maintenance: file-specific findings, sources and section coverage in meta/template-content-reviews.json; scope and limitations in docs/vnext/post-migration-repair/resource-and-freshness-review.md. Original migration evidence preserved.",
+      "current_sha256": "286d2055fe531d7dbc12060376d81cb6b4ff255e5d16c87a549e11a226d838fc"
+    },
+    {
+      "path": "domains/delivery/templates/traditional/Traditional/Process_Groups/Planning/work_breakdown_structure_template.md",
+      "base_commit": "be04694ffd0f39de3d5f306300c276fa7f810762",
+      "original_sha256": "315f67d04de2d3b5dc32be6132f60caede285666fd8cc2362c6b16c02b8d4f15",
+      "reason": "Substantive content maintenance: file-specific findings, sources and section coverage in meta/template-content-reviews.json; scope and limitations in docs/vnext/post-migration-repair/resource-and-freshness-review.md. Original migration evidence preserved.",
+      "current_sha256": "66e6d5371e507bff848f391f6dd01b07971f4bff89f4a292dd726d1236b9bf89"
     },
     {
       "path": "domains/delivery/templates/traditional/Traditional/Templates/change_management_plan_template.md",
@@ -114,46 +387,137 @@
       "reason": "Reference and content maintenance documented in docs/vnext/post-migration-repair/resource-and-freshness-review.md and meta/template-content-reviews.json; original migration hash preserved."
     },
     {
+      "path": "domains/delivery/templates/traditional/Traditional/Templates/change_request_template.md",
+      "base_commit": "be04694ffd0f39de3d5f306300c276fa7f810762",
+      "original_sha256": "33ecd1a3df1bf28e8ad3918b95967513bfc5ce43545fa749563b3c7c527ba544",
+      "reason": "Substantive content maintenance: file-specific findings, sources and section coverage in meta/template-content-reviews.json; scope and limitations in docs/vnext/post-migration-repair/resource-and-freshness-review.md. Original migration evidence preserved.",
+      "current_sha256": "3defe2839977a27282cb264e752a65467810ccbdbfc89c77078634228644359c"
+    },
+    {
+      "path": "domains/delivery/templates/traditional/Traditional/Templates/program_management_plan_template.md",
+      "base_commit": "be04694ffd0f39de3d5f306300c276fa7f810762",
+      "original_sha256": "6440f148aabedc18dfd20d11d3589ddc01973a81a657ba30a4a2c0991505cfea",
+      "reason": "Substantive content maintenance: file-specific findings, sources and section coverage in meta/template-content-reviews.json; scope and limitations in docs/vnext/post-migration-repair/resource-and-freshness-review.md. Original migration evidence preserved.",
+      "current_sha256": "1266d67cbfe7079656b166e62b8260d8e71b50f81d4210d41645e255f4259551"
+    },
+    {
+      "path": "domains/delivery/templates/traditional/Traditional/Templates/project_roadmap_template.md",
+      "base_commit": "be04694ffd0f39de3d5f306300c276fa7f810762",
+      "original_sha256": "47cf62cfa8a3716fd648e7aa80bbf01cbb9f2090a6c3fa396be04b2ec9bfbd99",
+      "reason": "Substantive content maintenance: file-specific findings, sources and section coverage in meta/template-content-reviews.json; scope and limitations in docs/vnext/post-migration-repair/resource-and-freshness-review.md. Original migration evidence preserved.",
+      "current_sha256": "d62d63aa77a9ea835f0e06b449e3cb584ed5f9c919797b7f574ea0b2dac29859"
+    },
+    {
+      "path": "domains/delivery/templates/traditional/Traditional/Templates/purchase_order_template.md",
+      "base_commit": "be04694ffd0f39de3d5f306300c276fa7f810762",
+      "original_sha256": "1774015a25b64d49da2cc535984350fa488dc52a0e4f07c7882454e0d032b4f6",
+      "reason": "Substantive content maintenance: file-specific findings, sources and section coverage in meta/template-content-reviews.json; scope and limitations in docs/vnext/post-migration-repair/resource-and-freshness-review.md. Original migration evidence preserved.",
+      "current_sha256": "8440f28fd358a2b82fb43be2e562ae4fac15b577180f3730a2a0c32be66e1d40"
+    },
+    {
       "path": "domains/delivery/templates/traditional/Traditional/Templates/uat_plan_template.md",
       "base_commit": "4525639da93fde99efef64295324e8d72e6c61d7",
       "original_sha256": "ee173547e1cd8905fc329ac748356545fd7dfb7a0c241a8e9e83151c20bb092f",
-      "current_sha256": "882327db5829be87c7cf63cf7f71cfa1de22e626b385c29599cc914b6c748f38",
-      "reason": "Reference and content maintenance documented in docs/vnext/post-migration-repair/resource-and-freshness-review.md and meta/template-content-reviews.json; original migration hash preserved."
+      "current_sha256": "748a5b3119b3e057e2a298fab9e5bb8bea75d1d48bc85eca6fa8404be50b2d5e",
+      "reason": "Substantive content maintenance: file-specific findings, sources and section coverage in meta/template-content-reviews.json; scope and limitations in docs/vnext/post-migration-repair/resource-and-freshness-review.md. Original migration evidence preserved."
+    },
+    {
+      "path": "domains/delivery/templates/traditional/Traditional/Templates/uat_strategy_template.md",
+      "base_commit": "be04694ffd0f39de3d5f306300c276fa7f810762",
+      "original_sha256": "aa9a0c9345aae72ef671fa4e03230dea2ba06cc1234a9d318069dfcc9f3847c8",
+      "reason": "Substantive content maintenance: file-specific findings, sources and section coverage in meta/template-content-reviews.json; scope and limitations in docs/vnext/post-migration-repair/resource-and-freshness-review.md. Original migration evidence preserved.",
+      "current_sha256": "eca595e2c26c4bbbb0235f3412503e5ac3b98c1bd6936028798f56e6bae1bbaf"
+    },
+    {
+      "path": "domains/measurement/industry-specializations/financial-services/compliance/compliance-management-template.md",
+      "base_commit": "be04694ffd0f39de3d5f306300c276fa7f810762",
+      "original_sha256": "1719184880167489dc260a7a0044f5e627c3b3c13df27741f7073c2d6a1f877c",
+      "reason": "Substantive content maintenance: file-specific findings, sources and section coverage in meta/template-content-reviews.json; scope and limitations in docs/vnext/post-migration-repair/resource-and-freshness-review.md. Original migration evidence preserved.",
+      "current_sha256": "d114389ebc25c416e30963abad3988b3c7547dc5bde8a4cbdded98aad6aa447b"
+    },
+    {
+      "path": "domains/measurement/industry-specializations/information-technology/cybersecurity/incident_response_template.md",
+      "base_commit": "be04694ffd0f39de3d5f306300c276fa7f810762",
+      "original_sha256": "53c41ca421b970020c66faf05f1afa0691e72a0ee3627f4b553eafcb4366519a",
+      "reason": "Substantive content maintenance: file-specific findings, sources and section coverage in meta/template-content-reviews.json; scope and limitations in docs/vnext/post-migration-repair/resource-and-freshness-review.md. Original migration evidence preserved.",
+      "current_sha256": "c80f5b56298630195845dba572061c05170d849e57fcaeee97bc28216fe20e56"
+    },
+    {
+      "path": "domains/measurement/industry-specializations/information-technology/cybersecurity/risk_assessment_template.md",
+      "base_commit": "be04694ffd0f39de3d5f306300c276fa7f810762",
+      "original_sha256": "06c0c9d00e9cfc4c104ece6a4834bb0b7c579d01049d3a56af9795e781ed992d",
+      "reason": "Substantive content maintenance: file-specific findings, sources and section coverage in meta/template-content-reviews.json; scope and limitations in docs/vnext/post-migration-repair/resource-and-freshness-review.md. Original migration evidence preserved.",
+      "current_sha256": "4a306cf761a2867d039f2df2e947e946fd73ead1d65b9ac140113c4fcb179e1b"
+    },
+    {
+      "path": "domains/measurement/industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md",
+      "base_commit": "be04694ffd0f39de3d5f306300c276fa7f810762",
+      "original_sha256": "2448e97d65f180380bca8037edd8bd6c497ee285c8fb9ebdf03392b48aa38cce",
+      "reason": "Substantive content maintenance: file-specific findings, sources and section coverage in meta/template-content-reviews.json; scope and limitations in docs/vnext/post-migration-repair/resource-and-freshness-review.md. Original migration evidence preserved.",
+      "current_sha256": "dd418fb40454cfc3280f26e9958dcfd9ff5e588469119e179bd6bc0676940696"
+    },
+    {
+      "path": "domains/measurement/industry-specializations/information-technology/infrastructure/infrastructure_assessment_template.md",
+      "base_commit": "be04694ffd0f39de3d5f306300c276fa7f810762",
+      "original_sha256": "a75ac25c38b9304995c9549189e6d310178497eb96f554856a6dae2d9cee0931",
+      "reason": "Substantive content maintenance: file-specific findings, sources and section coverage in meta/template-content-reviews.json; scope and limitations in docs/vnext/post-migration-repair/resource-and-freshness-review.md. Original migration evidence preserved.",
+      "current_sha256": "7b3bf26a02c83123e649ecfda0eef0b21c7dedfc424a3a8f8416c0dcbec6b112"
+    },
+    {
+      "path": "domains/measurement/industry-specializations/information-technology/security/cybersecurity_assessment_template.md",
+      "base_commit": "be04694ffd0f39de3d5f306300c276fa7f810762",
+      "original_sha256": "9c7640128c87dd00bc96b64412c0036d234d8536c469ef90b53c6f403b12c829",
+      "reason": "Substantive content maintenance: file-specific findings, sources and section coverage in meta/template-content-reviews.json; scope and limitations in docs/vnext/post-migration-repair/resource-and-freshness-review.md. Original migration evidence preserved.",
+      "current_sha256": "212f67e4354b73665d542d5122f8f6ecf243afca8ae497dfc26db7a0821bc77a"
+    },
+    {
+      "path": "domains/measurement/industry-specializations/information-technology/software-development/technical_design_document_template.md",
+      "base_commit": "be04694ffd0f39de3d5f306300c276fa7f810762",
+      "original_sha256": "260838d45353513cd1ffa16b484517a6bf0cb37460492bb2049a6427f16bf2fa",
+      "reason": "Substantive content maintenance: file-specific findings, sources and section coverage in meta/template-content-reviews.json; scope and limitations in docs/vnext/post-migration-repair/resource-and-freshness-review.md. Original migration evidence preserved.",
+      "current_sha256": "f9bec871977991523f3eadcc5c80e4eabf16ddc843ed75d3d94a731d18b0d754"
+    },
+    {
+      "path": "domains/measurement/industry-specializations/information-technology/software-development/test_plan_template.md",
+      "base_commit": "be04694ffd0f39de3d5f306300c276fa7f810762",
+      "original_sha256": "d2874996ef634c94ef623e631fd37fedb49fb609be1d9f8e55f34143b5b1f374",
+      "reason": "Substantive content maintenance: file-specific findings, sources and section coverage in meta/template-content-reviews.json; scope and limitations in docs/vnext/post-migration-repair/resource-and-freshness-review.md. Original migration evidence preserved.",
+      "current_sha256": "9bb9b54bd75eddd7f24fa60122eda3189fc1132b4525f2ecf0e7b307646c1610"
     },
     {
       "path": "domains/measurement/methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md",
       "base_commit": "4525639da93fde99efef64295324e8d72e6c61d7",
       "original_sha256": "05b492617a09417baf7de2a755b6028f1fe844b50877ecd6809bfdb429e19f95",
-      "current_sha256": "2bb1a29b4f737e18099cc0e3412a3087b9ad6b422ce3d7c983cdd1a6b26e477e",
-      "reason": "Reference and content maintenance documented in docs/vnext/post-migration-repair/resource-and-freshness-review.md and meta/template-content-reviews.json; original migration hash preserved."
+      "current_sha256": "1e8f072a71431eda7f76f04f984569a6aebb3927da09934159b6a1d8765cf8f0",
+      "reason": "Substantive content maintenance: file-specific findings, sources and section coverage in meta/template-content-reviews.json; scope and limitations in docs/vnext/post-migration-repair/resource-and-freshness-review.md. Original migration evidence preserved."
     },
     {
       "path": "domains/measurement/methodology-frameworks/emerging-methods/devops/devsecops_template.md",
       "base_commit": "4525639da93fde99efef64295324e8d72e6c61d7",
       "original_sha256": "829c36d2f1fb05b2c428ab8fe254e64b4e026d56e957738f90beff87cbf3cace",
-      "current_sha256": "24120d6e58c6edc7cfd760319986575ccf5d5f2d8f9647f54349a2f9ba640332",
-      "reason": "Reference and content maintenance documented in docs/vnext/post-migration-repair/resource-and-freshness-review.md and meta/template-content-reviews.json; original migration hash preserved."
+      "current_sha256": "7141e00030dce8483cf0435c364eb386dd43bff39ccfb5d6f0de0beca04a3960",
+      "reason": "Substantive content maintenance: file-specific findings, sources and section coverage in meta/template-content-reviews.json; scope and limitations in docs/vnext/post-migration-repair/resource-and-freshness-review.md. Original migration evidence preserved."
     },
     {
       "path": "domains/measurement/methodology-frameworks/emerging-methods/devops/infrastructure_as_code_template.md",
       "base_commit": "4525639da93fde99efef64295324e8d72e6c61d7",
       "original_sha256": "333e35748d8ea811a0927fb2736265c38a3cdc1c95027e2862574434ce2104ab",
-      "current_sha256": "c159941a84a3822e015d0f767fb6b31d4b35bb66b3b4e96b6194492008901984",
-      "reason": "Reference and content maintenance documented in docs/vnext/post-migration-repair/resource-and-freshness-review.md and meta/template-content-reviews.json; original migration hash preserved."
+      "current_sha256": "fe86497142d3f35f01455fc330e7915d633cc1b250909b0bb44c962fd6dd39b0",
+      "reason": "Substantive content maintenance: file-specific findings, sources and section coverage in meta/template-content-reviews.json; scope and limitations in docs/vnext/post-migration-repair/resource-and-freshness-review.md. Original migration evidence preserved."
     },
     {
       "path": "domains/measurement/methodology-frameworks/emerging-methods/devops/monitoring_alerting_template.md",
       "base_commit": "4525639da93fde99efef64295324e8d72e6c61d7",
       "original_sha256": "b62c1b48b334684a651420e9c867335c92d3cd6762b35d70063098f54ac5441b",
-      "current_sha256": "dd715dd0457ef8e17c99c2f0c5c7f61b864e3474f6d300215f8cc8024e9928d4",
-      "reason": "Reference and content maintenance documented in docs/vnext/post-migration-repair/resource-and-freshness-review.md and meta/template-content-reviews.json; original migration hash preserved."
+      "current_sha256": "e926262a34c2503346488bd6107a8d9b10f9ecd123cdac174910acb84b589b6c",
+      "reason": "Substantive content maintenance: file-specific findings, sources and section coverage in meta/template-content-reviews.json; scope and limitations in docs/vnext/post-migration-repair/resource-and-freshness-review.md. Original migration evidence preserved."
     },
     {
       "path": "domains/measurement/methodology-frameworks/emerging-methods/devops/release_management_template.md",
       "base_commit": "4525639da93fde99efef64295324e8d72e6c61d7",
       "original_sha256": "0ebf8b0f77543353af7be4cafe19986c6af515d81e399763ae80cc8e475b6778",
-      "current_sha256": "053110f2a418b825d5ed6495147b06b95b41978e7fcf1bfb1bdff4602828f457",
-      "reason": "Reference and content maintenance documented in docs/vnext/post-migration-repair/resource-and-freshness-review.md and meta/template-content-reviews.json; original migration hash preserved."
+      "current_sha256": "f4b34f505013e3c7935caf274178784a7ce491775bd6ca634474fc65ff75267b",
+      "reason": "Substantive content maintenance: file-specific findings, sources and section coverage in meta/template-content-reviews.json; scope and limitations in docs/vnext/post-migration-repair/resource-and-freshness-review.md. Original migration evidence preserved."
     },
     {
       "path": "domains/measurement/project-assessment-suite/current-state-analysis-template.md",
@@ -166,22 +530,22 @@
       "path": "domains/measurement/project-assessment-suite/executive-summary-template.md",
       "base_commit": "dc7146cc59387421b872dffbadd86b8b6f8dd3a2",
       "original_sha256": "f9db1eb1ff403b140873fcb4dd27eb8361b4e6d6ca8f2365e4b9b135a0ef9662",
-      "reason": "Reference and content maintenance documented in docs/vnext/post-migration-repair/resource-and-freshness-review.md and meta/template-content-reviews.json; original migration hash preserved.",
-      "current_sha256": "6e505d2e93c572fde1cea7d3b0c2fd14fb9ec5d4db75467ba891bba9bb762202"
+      "reason": "Substantive content maintenance: file-specific findings, sources and section coverage in meta/template-content-reviews.json; scope and limitations in docs/vnext/post-migration-repair/resource-and-freshness-review.md. Original migration evidence preserved.",
+      "current_sha256": "ff27d20777236a2341bd47e36f7753b290753e4fdb1ddad16d1ae0dbef5dfed2"
     },
     {
       "path": "domains/measurement/project-assessment-suite/future-state-blueprint-template.md",
       "base_commit": "4525639da93fde99efef64295324e8d72e6c61d7",
       "original_sha256": "76a480170b0a85dfac94be1cb12a13e8045c7c34d7c7523f424854c0c6895205",
-      "current_sha256": "4265efeb2e087908e0f146d83b8ae38fdfeb94c98d95275feb714cc4e1655970",
-      "reason": "Reference and content maintenance documented in docs/vnext/post-migration-repair/resource-and-freshness-review.md and meta/template-content-reviews.json; original migration hash preserved."
+      "current_sha256": "547abfd9ff677aa94fdc04a5746597582303a0ed6dd06a4ce6e7c3195dad7180",
+      "reason": "Substantive content maintenance: file-specific findings, sources and section coverage in meta/template-content-reviews.json; scope and limitations in docs/vnext/post-migration-repair/resource-and-freshness-review.md. Original migration evidence preserved."
     },
     {
       "path": "domains/measurement/project-assessment-suite/gap-analysis-matrix-template.md",
       "base_commit": "dc7146cc59387421b872dffbadd86b8b6f8dd3a2",
       "original_sha256": "feb2938dabf9aea1aac1f54f14e3c65b7c69d350050ff225825a204051511386",
-      "reason": "Reference and content maintenance documented in docs/vnext/post-migration-repair/resource-and-freshness-review.md and meta/template-content-reviews.json; original migration hash preserved.",
-      "current_sha256": "4d799e1086cd38991a81d7a7cf91e6a69757ccdd962aa59d9abe3ffd98fdf9c7"
+      "reason": "Substantive content maintenance: file-specific findings, sources and section coverage in meta/template-content-reviews.json; scope and limitations in docs/vnext/post-migration-repair/resource-and-freshness-review.md. Original migration evidence preserved.",
+      "current_sha256": "be9f7b979fb30217a9b2fc9e44613b1eb25702d7a1054a5b3cc60e87bdbc04f9"
     },
     {
       "path": "domains/measurement/project-assessment-suite/governance-assessment-template.md",
@@ -201,8 +565,15 @@
       "path": "domains/measurement/project-assessment-suite/project-health-assessment-template.md",
       "base_commit": "dc7146cc59387421b872dffbadd86b8b6f8dd3a2",
       "original_sha256": "f788a4a046bddd95b451def6c03fae9ac54733ac329ec2fb4e0a15609112f047",
-      "reason": "Reference and content maintenance documented in docs/vnext/post-migration-repair/resource-and-freshness-review.md and meta/template-content-reviews.json; original migration hash preserved.",
-      "current_sha256": "8dbabb1efbf6b149ac5a13e01547932a8b2d07ea3d57aeb0ebfcf99e9952dc75"
+      "reason": "Substantive content maintenance: file-specific findings, sources and section coverage in meta/template-content-reviews.json; scope and limitations in docs/vnext/post-migration-repair/resource-and-freshness-review.md. Original migration evidence preserved.",
+      "current_sha256": "43ce810dbcf6c26a490523d9354f74a9c92b16d44212505a953cc7c7cac545a5"
+    },
+    {
+      "path": "domains/measurement/project-assessment-suite/remediation-action-plan-template.md",
+      "base_commit": "be04694ffd0f39de3d5f306300c276fa7f810762",
+      "original_sha256": "b05e7086adf4b00b88cc8d1d395e9242e9c2d97bd27ce54ba54d3955bac4b5f0",
+      "reason": "Substantive content maintenance: file-specific findings, sources and section coverage in meta/template-content-reviews.json; scope and limitations in docs/vnext/post-migration-repair/resource-and-freshness-review.md. Original migration evidence preserved.",
+      "current_sha256": "a54f6925ffc0a6c0823e5e45da287be8528e2d14e47c84f6927f83e36fbaea25"
     },
     {
       "path": "domains/measurement/project-assessment-suite/resource-management-assessment-template.md",
@@ -219,6 +590,20 @@
       "reason": "Reference and content maintenance documented in docs/vnext/post-migration-repair/resource-and-freshness-review.md and meta/template-content-reviews.json; original migration hash preserved."
     },
     {
+      "path": "domains/measurement/project-lifecycle/02-planning/risk-management/risk-management-plan-template.md",
+      "base_commit": "be04694ffd0f39de3d5f306300c276fa7f810762",
+      "original_sha256": "5bc34126cd641661d98b88879810de59dc8f516742e388bdde1e9c4d7f190ab1",
+      "reason": "Substantive content maintenance: file-specific findings, sources and section coverage in meta/template-content-reviews.json; scope and limitations in docs/vnext/post-migration-repair/resource-and-freshness-review.md. Original migration evidence preserved.",
+      "current_sha256": "ec5e431377997543c619573faa9d355d223e3cb3e106c19ca01424512053e8c7"
+    },
+    {
+      "path": "domains/measurement/role-based-toolkits/project-manager/essential-templates/handover-template.md",
+      "base_commit": "be04694ffd0f39de3d5f306300c276fa7f810762",
+      "original_sha256": "88eb503bb348d07d7eb78b3c14b1e4e9be5f85faa11a349ee70ab3c9917fa4a3",
+      "reason": "Substantive content maintenance: file-specific findings, sources and section coverage in meta/template-content-reviews.json; scope and limitations in docs/vnext/post-migration-repair/resource-and-freshness-review.md. Original migration evidence preserved.",
+      "current_sha256": "ef02519733b4c30157c9152d8bc7b0b38bf1f329b3c048ca426b246d86bd76ba"
+    },
+    {
       "path": "domains/planning/industry-specializations/information-technology/infrastructure/data_center_design_template.md",
       "base_commit": "4525639da93fde99efef64295324e8d72e6c61d7",
       "original_sha256": "d7fd9270887a9ddaf7025bf5963df1cc4ecda89c63a76bd3b3af103c3fea0a07",
@@ -233,11 +618,67 @@
       "reason": "Reference and content maintenance documented in docs/vnext/post-migration-repair/resource-and-freshness-review.md and meta/template-content-reviews.json; original migration hash preserved."
     },
     {
+      "path": "domains/planning/role-based-toolkits/project-manager/essential-templates/budget-template.md",
+      "base_commit": "be04694ffd0f39de3d5f306300c276fa7f810762",
+      "original_sha256": "8152afa2b63d3917167714c8467e7950ee75498df38471a714dfcd9f7f055b32",
+      "reason": "Substantive content maintenance: file-specific findings, sources and section coverage in meta/template-content-reviews.json; scope and limitations in docs/vnext/post-migration-repair/resource-and-freshness-review.md. Original migration evidence preserved.",
+      "current_sha256": "f5201db07a86fb7ff5098acb2a38643bca71fc868b1d3af026cd85d3cfbf0b3b"
+    },
+    {
+      "path": "domains/planning/templates/traditional/Traditional/Process_Groups/Initiating/project_charter_template.md",
+      "base_commit": "be04694ffd0f39de3d5f306300c276fa7f810762",
+      "original_sha256": "1cf4e3a648bbbe5f188a6f9c7c8141620539ab94a68951722b71b0426cc7eb24",
+      "reason": "Substantive content maintenance: file-specific findings, sources and section coverage in meta/template-content-reviews.json; scope and limitations in docs/vnext/post-migration-repair/resource-and-freshness-review.md. Original migration evidence preserved.",
+      "current_sha256": "1f8fed9961b9a99c5a7265efe4971e19c2c37e8cb3833b8a3b3b5fc7da315003"
+    },
+    {
       "path": "domains/planning/templates/traditional/Traditional/Templates/business_case_template.md",
       "base_commit": "4525639da93fde99efef64295324e8d72e6c61d7",
       "original_sha256": "6eb3641724f91300a53af81496d77483f25a9a55910b59682202de01554f4ebe",
-      "current_sha256": "251e306f6675a096a91265e8bfd6fd8c767717410559a66d9bc71930ea8e4042",
-      "reason": "Reference and content maintenance documented in docs/vnext/post-migration-repair/resource-and-freshness-review.md and meta/template-content-reviews.json; original migration hash preserved."
+      "current_sha256": "24d40daf4d70ec5cf07b801907578e0333fc4bf261c125ab75a27c85a0838a82",
+      "reason": "Substantive content maintenance: file-specific findings, sources and section coverage in meta/template-content-reviews.json; scope and limitations in docs/vnext/post-migration-repair/resource-and-freshness-review.md. Original migration evidence preserved."
+    },
+    {
+      "path": "domains/planning/templates/traditional/Traditional/Templates/program_charter_template.md",
+      "base_commit": "be04694ffd0f39de3d5f306300c276fa7f810762",
+      "original_sha256": "cf362c0636f43d6fd6dfefe4e8b74ecc8b255c3686a7ade50d9e5dbb0ece821f",
+      "reason": "Substantive content maintenance: file-specific findings, sources and section coverage in meta/template-content-reviews.json; scope and limitations in docs/vnext/post-migration-repair/resource-and-freshness-review.md. Original migration evidence preserved.",
+      "current_sha256": "f8ce67a04eda5d8c01e2d650075665e5e9ba055f2080095fde7e0a0a39508367"
+    },
+    {
+      "path": "domains/stakeholder/business-stakeholder-suite/executive-dashboards/Word/Executive-Report-Templates.md",
+      "base_commit": "be04694ffd0f39de3d5f306300c276fa7f810762",
+      "original_sha256": "1338a81251bc9956211cbdf2a8473105aca45b45ee8607fbdac59a0524119381",
+      "reason": "Substantive content maintenance: file-specific findings, sources and section coverage in meta/template-content-reviews.json; scope and limitations in docs/vnext/post-migration-repair/resource-and-freshness-review.md. Original migration evidence preserved.",
+      "current_sha256": "01ff5b87a736534612c73b1b185bffbc1b3beb737459215000dff307fdaeaf4e"
+    },
+    {
+      "path": "domains/stakeholder/business-stakeholder-suite/executive-dashboards/powerbi-integration/executive-dashboard-template.md",
+      "base_commit": "be04694ffd0f39de3d5f306300c276fa7f810762",
+      "original_sha256": "2f7f07ed73be740db85f2e104d859701da83cf205f731b8a465a0e80e445872b",
+      "reason": "Substantive content maintenance: file-specific findings, sources and section coverage in meta/template-content-reviews.json; scope and limitations in docs/vnext/post-migration-repair/resource-and-freshness-review.md. Original migration evidence preserved.",
+      "current_sha256": "efd15411dd3b005de773f6960402e38ad73e539a41b798befafef7d0f1c32553"
+    },
+    {
+      "path": "domains/stakeholder/business-stakeholder-suite/financial-governance/budget-dashboard-template.md",
+      "base_commit": "be04694ffd0f39de3d5f306300c276fa7f810762",
+      "original_sha256": "167f338626bb4c864e00458699a36be5687b998c92d37103e1a286de53bd88ee",
+      "reason": "Substantive content maintenance: file-specific findings, sources and section coverage in meta/template-content-reviews.json; scope and limitations in docs/vnext/post-migration-repair/resource-and-freshness-review.md. Original migration evidence preserved.",
+      "current_sha256": "7e0f200bab4b01f56caddad2d608cb4ebb0b316220ee5aad2bcc0a6512e47ede"
+    },
+    {
+      "path": "domains/stakeholder/business-stakeholder-suite/financial-governance/enhanced-business-cases/advanced-business-case-template.md",
+      "base_commit": "be04694ffd0f39de3d5f306300c276fa7f810762",
+      "original_sha256": "b9fca0975cc801353e0ff7ddac459ea8631fdd7fc9498bf55c07d769b8ea04df",
+      "reason": "Substantive content maintenance: file-specific findings, sources and section coverage in meta/template-content-reviews.json; scope and limitations in docs/vnext/post-migration-repair/resource-and-freshness-review.md. Original migration evidence preserved.",
+      "current_sha256": "21e502c16c6477e994a9811ad8bc21f11acee3b3b46bfb4d87b0f0cf2734fee4"
+    },
+    {
+      "path": "domains/stakeholder/business-stakeholder-suite/financial-governance/enhanced-business-cases/evm-dashboard-template.md",
+      "base_commit": "be04694ffd0f39de3d5f306300c276fa7f810762",
+      "original_sha256": "4e10e837a2028a3bf287768652da91000487d140efc9799b5c19d0602fd901e5",
+      "reason": "Substantive content maintenance: file-specific findings, sources and section coverage in meta/template-content-reviews.json; scope and limitations in docs/vnext/post-migration-repair/resource-and-freshness-review.md. Original migration evidence preserved.",
+      "current_sha256": "7afa5ee604b75a1ea3e7ef51e06f06494776d924b38b4d3ec57084a0f260bb61"
     },
     {
       "path": "domains/stakeholder/project-assessment-suite/stakeholder-engagement-assessment-template.md",
@@ -254,18 +695,25 @@
       "reason": "Reference and content maintenance documented in docs/vnext/post-migration-repair/resource-and-freshness-review.md and meta/template-content-reviews.json; original migration hash preserved."
     },
     {
+      "path": "domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/agile-stakeholder-map-template.md",
+      "base_commit": "be04694ffd0f39de3d5f306300c276fa7f810762",
+      "original_sha256": "a9312efad04f7976d8e03c39f0ac59658001629c1c0d57150db91c44ccea9f17",
+      "reason": "Substantive content maintenance: file-specific findings, sources and section coverage in meta/template-content-reviews.json; scope and limitations in docs/vnext/post-migration-repair/resource-and-freshness-review.md. Original migration evidence preserved.",
+      "current_sha256": "2ee8c0a299c9fc25199774b2cc6ff08d70279c062779787bd55e4eefddb76c73"
+    },
+    {
       "path": "domains/stakeholder/role-based-toolkits/product-owner/okr-template.md",
       "base_commit": "4525639da93fde99efef64295324e8d72e6c61d7",
       "original_sha256": "8275b3a215747acf56a7a6324a5994ce78a312548bcfba25fda8b712a172e841",
-      "current_sha256": "899acfc1904675b0855f94e6aaa9c407101b4a5710df4f5d734ebde4237d8624",
-      "reason": "Reference and content maintenance documented in docs/vnext/post-migration-repair/resource-and-freshness-review.md and meta/template-content-reviews.json; original migration hash preserved."
+      "current_sha256": "5b1f6f39ef6a405826e34a60ae738eef96cc8fcf57611ea5114ed46837123930",
+      "reason": "Substantive content maintenance: file-specific findings, sources and section coverage in meta/template-content-reviews.json; scope and limitations in docs/vnext/post-migration-repair/resource-and-freshness-review.md. Original migration evidence preserved."
     },
     {
       "path": "domains/team/methodology-frameworks/agile-scrum/scaling-frameworks/less/less_retrospective_template.md",
       "base_commit": "4525639da93fde99efef64295324e8d72e6c61d7",
       "original_sha256": "a96a2a8c38e7231f2d4354d465d5e47efddd1d7c226cb0eef5e4c524cae9189f",
-      "current_sha256": "03debb15bdca4e74001db66a945fd06824892bedb0a133816d28ed99205c0b62",
-      "reason": "Post-migration quality repair: schema-valid complexity where applicable; maintained canonical references and documented local-link dispositions. See docs/vnext/post-migration-repair/link-dispositions.json and PR diff."
+      "current_sha256": "b901bc9bb70b3123de47f8971055896391332d025c69371437c9772ea2d84a46",
+      "reason": "Substantive content maintenance: file-specific findings, sources and section coverage in meta/template-content-reviews.json; scope and limitations in docs/vnext/post-migration-repair/resource-and-freshness-review.md. Original migration evidence preserved."
     },
     {
       "path": "domains/team/project-lifecycle/01-initiation/project-charter/agile-team-charter-template.md",
@@ -275,11 +723,46 @@
       "current_sha256": "483368ca54294deca286f93ea99cff451e79d278050bf31dda8407ab8d146235"
     },
     {
+      "path": "domains/team/project-lifecycle/02-planning/resource-planning/skills-matrix-template.md",
+      "base_commit": "be04694ffd0f39de3d5f306300c276fa7f810762",
+      "original_sha256": "89caff225adae1dd3db08729141472ea80946d18f6098333d039275748bcf158",
+      "reason": "Substantive content maintenance: file-specific findings, sources and section coverage in meta/template-content-reviews.json; scope and limitations in docs/vnext/post-migration-repair/resource-and-freshness-review.md. Original migration evidence preserved.",
+      "current_sha256": "4a2d5ecc362198eedad2aae20b072289158f249e0e581b5487302017cd70a349"
+    },
+    {
+      "path": "domains/team/project-lifecycle/02-planning/resource-planning/team-charter-template.md",
+      "base_commit": "be04694ffd0f39de3d5f306300c276fa7f810762",
+      "original_sha256": "66814df1b812d05e9caf5e8f4dc524082eea0926100478f93752a98882b4712d",
+      "reason": "Substantive content maintenance: file-specific findings, sources and section coverage in meta/template-content-reviews.json; scope and limitations in docs/vnext/post-migration-repair/resource-and-freshness-review.md. Original migration evidence preserved.",
+      "current_sha256": "60b055fb387c755be5652c52858d9d5e0ce60b20d6c28cd8a1db302df7e80042"
+    },
+    {
+      "path": "domains/team/role-based-toolkits/scrum-master/agile-ceremonies/backlog-refinement-template.md",
+      "base_commit": "be04694ffd0f39de3d5f306300c276fa7f810762",
+      "original_sha256": "42e010dfd3e6392835182f16b440d091ae4228cae96b91f98517ad2fbfdeb632",
+      "reason": "Substantive content maintenance: file-specific findings, sources and section coverage in meta/template-content-reviews.json; scope and limitations in docs/vnext/post-migration-repair/resource-and-freshness-review.md. Original migration evidence preserved.",
+      "current_sha256": "6444602ef5febb0027d656b71053a56b2a2ec9020c1e03ddd32800af11fbfd0a"
+    },
+    {
       "path": "domains/team/role-based-toolkits/scrum-master/agile-ceremonies/daily-standup-template.md",
       "base_commit": "dc7146cc59387421b872dffbadd86b8b6f8dd3a2",
       "original_sha256": "51d78959b9bcb390984d708e42ec3e30a0f9dc6c4196d2583681b432e83b8b7b",
       "reason": "Reference and content maintenance documented in docs/vnext/post-migration-repair/resource-and-freshness-review.md and meta/template-content-reviews.json; original migration hash preserved.",
       "current_sha256": "db4b8938260b0a87b62d64c2ca9e81c8c858b71758ec418c18c3daa4a616dce0"
+    },
+    {
+      "path": "domains/team/templates/agile/sprint_retrospective_template.md",
+      "base_commit": "be04694ffd0f39de3d5f306300c276fa7f810762",
+      "original_sha256": "30d1d9549b91ad911ac934f3bc86da72813b850229f095c8afe6a4974f1bf47d",
+      "reason": "Substantive content maintenance: file-specific findings, sources and section coverage in meta/template-content-reviews.json; scope and limitations in docs/vnext/post-migration-repair/resource-and-freshness-review.md. Original migration evidence preserved.",
+      "current_sha256": "560e8ee98486448707b692d4b0291098f8e9c5f6e1198f423bbdeb98b549f219"
+    },
+    {
+      "path": "domains/team/templates/agile/sprint_review_template.md",
+      "base_commit": "be04694ffd0f39de3d5f306300c276fa7f810762",
+      "original_sha256": "3f37c1dbbc7f11b2ac603b6846eb99470550de0cf7fa7b4d61b98659c4996325",
+      "reason": "Substantive content maintenance: file-specific findings, sources and section coverage in meta/template-content-reviews.json; scope and limitations in docs/vnext/post-migration-repair/resource-and-freshness-review.md. Original migration evidence preserved.",
+      "current_sha256": "53156a4f66e1a9f5b2d38f843595789ea73882a329bb5c5023417ec03ed96af5"
     },
     {
       "path": "domains/uncertainty/industry-specializations/information-technology/infrastructure/migration_plan_template.md",
@@ -289,11 +772,18 @@
       "current_sha256": "09286978263593f42da6c30a21f270d498468150b06d189bd1d018cdf49f17df"
     },
     {
+      "path": "domains/uncertainty/industry-specializations/information-technology/software-development/requirements_specification_template.md",
+      "base_commit": "be04694ffd0f39de3d5f306300c276fa7f810762",
+      "original_sha256": "04fe0e90e9df7e6502d8f244983a98e8e5c952ccb450e298c1acb0683eb1ff6b",
+      "reason": "Substantive content maintenance: file-specific findings, sources and section coverage in meta/template-content-reviews.json; scope and limitations in docs/vnext/post-migration-repair/resource-and-freshness-review.md. Original migration evidence preserved.",
+      "current_sha256": "d9b63233ea83c1f71f5bcd5c0ce21623cccb76a2e97ce4dbdba4c5fb517c3c6a"
+    },
+    {
       "path": "domains/uncertainty/industry-specializations/information-technology/software-development/user_story_mapping_template.md",
       "base_commit": "4525639da93fde99efef64295324e8d72e6c61d7",
       "original_sha256": "94d03a74e36dc1de37e0ce1e545c32557aef15ccd0951a40aff7d69077954f1d",
-      "current_sha256": "a82ba4cbae5bd66cd9c6fc7acc59f8158ef8f663dfff4b52e4764a5381231b96",
-      "reason": "Reference and content maintenance documented in docs/vnext/post-migration-repair/resource-and-freshness-review.md and meta/template-content-reviews.json; original migration hash preserved."
+      "current_sha256": "87eb30dfaea0a755958fdd8f2aefacd9b1602639063e56943588e39c087e5eac",
+      "reason": "Substantive content maintenance: file-specific findings, sources and section coverage in meta/template-content-reviews.json; scope and limitations in docs/vnext/post-migration-repair/resource-and-freshness-review.md. Original migration evidence preserved."
     },
     {
       "path": "domains/uncertainty/project-assessment-suite/assessment-report-template.md",
@@ -324,11 +814,32 @@
       "current_sha256": "e0b10ebe9358b3cdf37fa5300cf5676db0e067310f358919c854f3df6f9d84ec"
     },
     {
+      "path": "domains/uncertainty/project-lifecycle/04-monitoring-control/progress-tracking/status-report-template.md",
+      "base_commit": "be04694ffd0f39de3d5f306300c276fa7f810762",
+      "original_sha256": "aa10eee873c4fb6f9755e59c3dbe9a48f40dd8a2452d5231c92fa3e3361548ee",
+      "reason": "Substantive content maintenance: file-specific findings, sources and section coverage in meta/template-content-reviews.json; scope and limitations in docs/vnext/post-migration-repair/resource-and-freshness-review.md. Original migration evidence preserved.",
+      "current_sha256": "12208119a822332056447d6e317bf4adf621c297311c10bdf95aef68740c01bd"
+    },
+    {
+      "path": "domains/uncertainty/role-based-toolkits/product-owner/backlog-management-template.md",
+      "base_commit": "be04694ffd0f39de3d5f306300c276fa7f810762",
+      "original_sha256": "7a8a7148188a5d3587bb32017b6b90a3505f59e55e346d6e29751d0a06d29100",
+      "reason": "Substantive content maintenance: file-specific findings, sources and section coverage in meta/template-content-reviews.json; scope and limitations in docs/vnext/post-migration-repair/resource-and-freshness-review.md. Original migration evidence preserved.",
+      "current_sha256": "88cca113bdd85ccc4be35e878b4e387ac163ff83cb7a00e6303d56ada3479bb5"
+    },
+    {
       "path": "domains/uncertainty/role-based-toolkits/product-owner/user-story-template.md",
       "base_commit": "dc7146cc59387421b872dffbadd86b8b6f8dd3a2",
       "original_sha256": "370b2f8cba7d82ce45781c6d9a484b6b0e5c2695480553491b2668279077c118",
       "reason": "Reference and content maintenance documented in docs/vnext/post-migration-repair/resource-and-freshness-review.md and meta/template-content-reviews.json; original migration hash preserved.",
       "current_sha256": "77a05ce922c2e139a2980a76c6a6b8aaa116613db23952e8faea01a54626bf59"
+    },
+    {
+      "path": "domains/uncertainty/role-based-toolkits/project-manager/essential-templates/meeting-templates.md",
+      "base_commit": "be04694ffd0f39de3d5f306300c276fa7f810762",
+      "original_sha256": "733ce38e3062f418d3d18de128f1535433b8ac4e48ce113103847c14bd169302",
+      "reason": "Substantive content maintenance: file-specific findings, sources and section coverage in meta/template-content-reviews.json; scope and limitations in docs/vnext/post-migration-repair/resource-and-freshness-review.md. Original migration evidence preserved.",
+      "current_sha256": "f82b6b79a0c34d303344b203fa1d1240571d50eec294642279eae750daa6949d"
     },
     {
       "path": "domains/uncertainty/templates/test-samples/quality-test-plan-template.md",
