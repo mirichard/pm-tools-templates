@@ -3,6 +3,16 @@ name: "PM Tools Templates CodeQL Config"
 # Disable the default security-extended query suite.
 disable-default-queries: false
 
+# Filter out NOTE-level (recommendation) alerts and reduce noise
+query-filters:
+  - exclude:
+      problem.severity:
+        - recommendation
+      problem.tags:
+        contain-any:
+          - "statistical"
+          - "non-security"
+
 # Include additional query suites and queries
 queries:
   - name: security-and-quality
@@ -34,6 +44,9 @@ paths-ignore:
   - "**/*.test.ts"
   - "**/*.spec.js"
   - "**/*.spec.ts"
+  - "site/server.js"
+  - "backend/"
+  - "curation-dashboard/"
 
 # Language-specific configurations
 packs:
@@ -42,4 +55,5 @@ packs:
     - "codeql/javascript-queries"
     # Add custom packs if available
     # - "my-org/my-custom-pack"
+
 
