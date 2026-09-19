@@ -36,7 +36,8 @@
           ],
           "similarity": 90
         }
-      ]
+      ],
+      "domain": "Measurement"
     },
     {
       "path": "templates/universal/benefits-variance-analysis-template.md",
@@ -72,7 +73,8 @@
           ],
           "similarity": 90
         }
-      ]
+      ],
+      "domain": "Measurement"
     },
     {
       "path": "domains/stakeholder/business-stakeholder-suite/financial-governance/enhanced-business-cases/advanced-business-case-template.md",
@@ -167,7 +169,8 @@
           ],
           "similarity": 79
         }
-      ]
+      ],
+      "domain": "Stakeholder"
     },
     {
       "path": "domains/delivery/project-assessment-suite/agile-project-assessment-template.md",
@@ -265,7 +268,8 @@
       ],
       "alternate_paths": [
         "project-assessment-suite/agile-project-assessment-template.md"
-      ]
+      ],
+      "domain": "Delivery"
     },
     {
       "path": "domains/delivery/project-lifecycle/02-planning/project-management-plan/agile-release-plan-template.md",
@@ -351,7 +355,8 @@
       ],
       "alternate_paths": [
         "project-lifecycle/02-planning/project-management-plan/agile-release-plan-template.md"
-      ]
+      ],
+      "domain": "Delivery"
     },
     {
       "path": "domains/delivery/project-lifecycle/02-planning/risk-management/agile-risk-board-template.md",
@@ -437,7 +442,8 @@
       ],
       "alternate_paths": [
         "project-lifecycle/02-planning/risk-management/agile-risk-board-template.md"
-      ]
+      ],
+      "domain": "Delivery"
     },
     {
       "path": "domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/agile-stakeholder-map-template.md",
@@ -534,7 +540,8 @@
           ],
           "similarity": 79
         }
-      ]
+      ],
+      "domain": "Stakeholder"
     },
     {
       "path": "domains/team/project-lifecycle/01-initiation/project-charter/agile-team-charter-template.md",
@@ -630,7 +637,8 @@
       ],
       "alternate_paths": [
         "project-lifecycle/01-initiation/project-charter/agile-team-charter-template.md"
-      ]
+      ],
+      "domain": "Team"
     },
     {
       "path": "domains/delivery/industry-specializations/information-technology/software-development/api_documentation_template.md",
@@ -707,7 +715,8 @@
       ],
       "alternate_paths": [
         "industry-specializations/information-technology/software-development/api_documentation_template.md"
-      ]
+      ],
+      "domain": "Delivery"
     },
     {
       "path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md",
@@ -812,7 +821,8 @@
       ],
       "alternate_paths": [
         "methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md"
-      ]
+      ],
+      "domain": "Delivery"
     },
     {
       "path": "domains/uncertainty/project-assessment-suite/assessment-report-template.md",
@@ -902,7 +912,8 @@
       ],
       "alternate_paths": [
         "project-assessment-suite/assessment-report-template.md"
-      ]
+      ],
+      "domain": "Uncertainty"
     },
     {
       "path": "domains/uncertainty/role-based-toolkits/product-owner/backlog-management-template.md",
@@ -994,7 +1005,8 @@
       ],
       "alternate_paths": [
         "role-based-toolkits/product-owner/backlog-management-template.md"
-      ]
+      ],
+      "domain": "Uncertainty"
     },
     {
       "path": "domains/team/role-based-toolkits/scrum-master/agile-ceremonies/backlog-refinement-template.md",
@@ -1096,7 +1108,8 @@
       ],
       "alternate_paths": [
         "role-based-toolkits/scrum-master/agile-ceremonies/backlog-refinement-template.md"
-      ]
+      ],
+      "domain": "Team"
     },
     {
       "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/manufacturing/batch_record_template.md",
@@ -1183,7 +1196,8 @@
       ],
       "alternate_paths": [
         "industry-specializations/healthcare-pharmaceutical/manufacturing/batch_record_template.md"
-      ]
+      ],
+      "domain": "Delivery"
     },
     {
       "path": "domains/stakeholder/business-stakeholder-suite/financial-governance/budget-dashboard-template.md",
@@ -1280,7 +1294,8 @@
           ],
           "similarity": 81
         }
-      ]
+      ],
+      "domain": "Stakeholder"
     },
     {
       "path": "domains/planning/role-based-toolkits/project-manager/essential-templates/budget-template.md",
@@ -1383,7 +1398,8 @@
           ],
           "similarity": 93
         }
-      ]
+      ],
+      "domain": "Planning"
     },
     {
       "path": "domains/planning/templates/traditional/Traditional/Templates/business_case_template.md",
@@ -1483,7 +1499,8 @@
       ],
       "alternate_paths": [
         "templates/traditional/Traditional/Templates/business_case_template.md"
-      ]
+      ],
+      "domain": "Planning"
     },
     {
       "path": "domains/measurement/project-lifecycle/02-planning/business-requirements/business_requirements_document_template.md",
@@ -1574,7 +1591,8 @@
       ],
       "alternate_paths": [
         "project-lifecycle/02-planning/business-requirements/business_requirements_document_template.md"
-      ]
+      ],
+      "domain": "Measurement"
     },
     {
       "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/compliance/capa_management_template.md",
@@ -1675,7 +1693,8 @@
       ],
       "alternate_paths": [
         "industry-specializations/healthcare-pharmaceutical/compliance/capa_management_template.md"
-      ]
+      ],
+      "domain": "Delivery"
     },
     {
       "path": "domains/delivery/templates/traditional/Traditional/Templates/change_management_plan_template.md",
@@ -1783,7 +1802,8 @@
       ],
       "alternate_paths": [
         "templates/traditional/Traditional/Templates/change_management_plan_template.md"
-      ]
+      ],
+      "domain": "Delivery"
     },
     {
       "path": "domains/delivery/templates/traditional/Traditional/Templates/change_request_template.md",
@@ -1889,7 +1909,8 @@
       ],
       "alternate_paths": [
         "templates/traditional/Traditional/Templates/change_request_template.md"
-      ]
+      ],
+      "domain": "Delivery"
     },
     {
       "path": "domains/measurement/methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md",
@@ -1973,7 +1994,8 @@
       ],
       "alternate_paths": [
         "methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md"
-      ]
+      ],
+      "domain": "Measurement"
     },
     {
       "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/validation/cleaning_validation_protocol_template.md",
@@ -2058,7 +2080,8 @@
       ],
       "alternate_paths": [
         "industry-specializations/healthcare-pharmaceutical/validation/cleaning_validation_protocol_template.md"
-      ]
+      ],
+      "domain": "Delivery"
     },
     {
       "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/clinical-trials/clinical_trial_protocol_template.md",
@@ -2151,7 +2174,8 @@
       ],
       "alternate_paths": [
         "industry-specializations/healthcare-pharmaceutical/clinical-trials/clinical_trial_protocol_template.md"
-      ]
+      ],
+      "domain": "Delivery"
     },
     {
       "path": "domains/delivery/templates/traditional/Traditional/Templates/communication_plan_template.md",
@@ -2257,7 +2281,8 @@
       ],
       "alternate_paths": [
         "templates/traditional/Traditional/Templates/communication_plan_template.md"
-      ]
+      ],
+      "domain": "Delivery"
     },
     {
       "path": "domains/measurement/industry-specializations/financial-services/compliance/compliance-management-template.md",
@@ -2344,7 +2369,8 @@
       ],
       "alternate_paths": [
         "industry-specializations/financial-services/compliance/compliance-management-template.md"
-      ]
+      ],
+      "domain": "Measurement"
     },
     {
       "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/regulatory/compliance_risk_assessment_template.md",
@@ -2446,7 +2472,8 @@
       ],
       "alternate_paths": [
         "industry-specializations/healthcare-pharmaceutical/regulatory/compliance_risk_assessment_template.md"
-      ]
+      ],
+      "domain": "Delivery"
     },
     {
       "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/regulatory/computer_system_validation_protocol_template.md",
@@ -2531,7 +2558,8 @@
       ],
       "alternate_paths": [
         "industry-specializations/healthcare-pharmaceutical/regulatory/computer_system_validation_protocol_template.md"
-      ]
+      ],
+      "domain": "Delivery"
     },
     {
       "path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/less/cross_team_coordination_template.md",
@@ -2636,7 +2664,8 @@
       ],
       "alternate_paths": [
         "methodology-frameworks/agile-scrum/scaling-frameworks/less/cross_team_coordination_template.md"
-      ]
+      ],
+      "domain": "Delivery"
     },
     {
       "path": "domains/measurement/project-assessment-suite/current-state-analysis-template.md",
@@ -2740,7 +2769,8 @@
       ],
       "alternate_paths": [
         "project-assessment-suite/current-state-analysis-template.md"
-      ]
+      ],
+      "domain": "Measurement"
     },
     {
       "path": "domains/measurement/industry-specializations/information-technology/security/cybersecurity_assessment_template.md",
@@ -2830,7 +2860,8 @@
       ],
       "alternate_paths": [
         "industry-specializations/information-technology/security/cybersecurity_assessment_template.md"
-      ]
+      ],
+      "domain": "Measurement"
     },
     {
       "path": "domains/team/role-based-toolkits/scrum-master/agile-ceremonies/daily-standup-template.md",
@@ -2925,7 +2956,8 @@
       ],
       "alternate_paths": [
         "role-based-toolkits/scrum-master/agile-ceremonies/daily-standup-template.md"
-      ]
+      ],
+      "domain": "Team"
     },
     {
       "path": "domains/planning/industry-specializations/information-technology/infrastructure/data_center_design_template.md",
@@ -3006,7 +3038,8 @@
           ],
           "similarity": 58
         }
-      ]
+      ],
+      "domain": "Planning"
     },
     {
       "path": "domains/measurement/methodology-frameworks/emerging-methods/devops/devsecops_template.md",
@@ -3089,7 +3122,8 @@
       ],
       "alternate_paths": [
         "methodology-frameworks/emerging-methods/devops/devsecops_template.md"
-      ]
+      ],
+      "domain": "Measurement"
     },
     {
       "path": "domains/measurement/industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md",
@@ -3193,7 +3227,8 @@
       ],
       "alternate_paths": [
         "industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md"
-      ]
+      ],
+      "domain": "Measurement"
     },
     {
       "path": "domains/planning/industry-specializations/information-technology/infrastructure/disaster_recovery_template.md",
@@ -3274,7 +3309,8 @@
           ],
           "similarity": 58
         }
-      ]
+      ],
+      "domain": "Planning"
     },
     {
       "path": "domains/uncertainty/project-lifecycle/02-planning/risk-management/enterprise-risk-assessment-template.md",
@@ -3359,7 +3395,8 @@
       ],
       "alternate_paths": [
         "project-lifecycle/02-planning/risk-management/enterprise-risk-assessment-template.md"
-      ]
+      ],
+      "domain": "Uncertainty"
     },
     {
       "path": "domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/enterprise-stakeholder-analysis-template.md",
@@ -3463,7 +3500,8 @@
           ],
           "similarity": 100
         }
-      ]
+      ],
+      "domain": "Stakeholder"
     },
     {
       "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/validation/equipment_qualification_protocol_template.md",
@@ -3550,7 +3588,8 @@
       ],
       "alternate_paths": [
         "industry-specializations/healthcare-pharmaceutical/validation/equipment_qualification_protocol_template.md"
-      ]
+      ],
+      "domain": "Delivery"
     },
     {
       "path": "domains/stakeholder/business-stakeholder-suite/financial-governance/enhanced-business-cases/evm-dashboard-template.md",
@@ -3655,7 +3694,8 @@
           ],
           "similarity": 94
         }
-      ]
+      ],
+      "domain": "Stakeholder"
     },
     {
       "path": "domains/stakeholder/business-stakeholder-suite/executive-dashboards/powerbi-integration/executive-dashboard-template.md",
@@ -3745,7 +3785,8 @@
           ],
           "similarity": 83
         }
-      ]
+      ],
+      "domain": "Stakeholder"
     },
     {
       "path": "domains/stakeholder/business-stakeholder-suite/executive-dashboards/Word/Executive-Report-Templates.md",
@@ -3835,7 +3876,8 @@
           ],
           "similarity": 90
         }
-      ]
+      ],
+      "domain": "Stakeholder"
     },
     {
       "path": "domains/measurement/project-assessment-suite/executive-summary-template.md",
@@ -3939,7 +3981,8 @@
       ],
       "alternate_paths": [
         "project-assessment-suite/executive-summary-template.md"
-      ]
+      ],
+      "domain": "Measurement"
     },
     {
       "path": "domains/measurement/project-assessment-suite/future-state-blueprint-template.md",
@@ -4043,7 +4086,8 @@
       ],
       "alternate_paths": [
         "project-assessment-suite/future-state-blueprint-template.md"
-      ]
+      ],
+      "domain": "Measurement"
     },
     {
       "path": "domains/measurement/project-assessment-suite/gap-analysis-matrix-template.md",
@@ -4147,7 +4191,8 @@
       ],
       "alternate_paths": [
         "project-assessment-suite/gap-analysis-matrix-template.md"
-      ]
+      ],
+      "domain": "Measurement"
     },
     {
       "path": "domains/measurement/project-assessment-suite/governance-assessment-template.md",
@@ -4243,7 +4288,8 @@
       ],
       "alternate_paths": [
         "project-assessment-suite/governance-assessment-template.md"
-      ]
+      ],
+      "domain": "Measurement"
     },
     {
       "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/compliance/gxp_training_plan_template.md",
@@ -4344,7 +4390,8 @@
       ],
       "alternate_paths": [
         "industry-specializations/healthcare-pharmaceutical/compliance/gxp_training_plan_template.md"
-      ]
+      ],
+      "domain": "Delivery"
     },
     {
       "path": "domains/measurement/role-based-toolkits/project-manager/essential-templates/handover-template.md",
@@ -4448,7 +4495,8 @@
       ],
       "alternate_paths": [
         "role-based-toolkits/project-manager/essential-templates/handover-template.md"
-      ]
+      ],
+      "domain": "Measurement"
     },
     {
       "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/regulatory/health_authority_communication_plan_template.md",
@@ -4546,7 +4594,8 @@
       ],
       "alternate_paths": [
         "industry-specializations/healthcare-pharmaceutical/regulatory/health_authority_communication_plan_template.md"
-      ]
+      ],
+      "domain": "Delivery"
     },
     {
       "path": "domains/delivery/methodology-frameworks/hybrid/infrastructure/hybrid-infrastructure-template.md",
@@ -4648,7 +4697,8 @@
       ],
       "alternate_paths": [
         "methodology-frameworks/hybrid/infrastructure/hybrid-infrastructure-template.md"
-      ]
+      ],
+      "domain": "Delivery"
     },
     {
       "path": "domains/delivery/project-assessment-suite/hybrid-project-assessment-template.md",
@@ -4739,7 +4789,8 @@
       ],
       "alternate_paths": [
         "project-assessment-suite/hybrid-project-assessment-template.md"
-      ]
+      ],
+      "domain": "Delivery"
     },
     {
       "path": "domains/planning/templates/hybrid/Hybrid/Templates/hybrid_project_charter_template.md",
@@ -4839,7 +4890,8 @@
       ],
       "alternate_paths": [
         "templates/hybrid/Hybrid/Templates/hybrid_project_charter_template.md"
-      ]
+      ],
+      "domain": "Planning"
     },
     {
       "path": "domains/delivery/project-lifecycle/02-planning/project-management-plan/hybrid-project-management-plan-template.md",
@@ -4928,7 +4980,8 @@
       ],
       "alternate_paths": [
         "project-lifecycle/02-planning/project-management-plan/hybrid-project-management-plan-template.md"
-      ]
+      ],
+      "domain": "Delivery"
     },
     {
       "path": "domains/delivery/templates/hybrid/Hybrid/Templates/hybrid_quality_management_template.md",
@@ -5029,7 +5082,8 @@
       ],
       "alternate_paths": [
         "templates/hybrid/Hybrid/Templates/hybrid_quality_management_template.md"
-      ]
+      ],
+      "domain": "Delivery"
     },
     {
       "path": "domains/delivery/templates/hybrid/Hybrid/Templates/hybrid_release_planning_template.md",
@@ -5129,7 +5183,8 @@
       ],
       "alternate_paths": [
         "templates/hybrid/Hybrid/Templates/hybrid_release_planning_template.md"
-      ]
+      ],
+      "domain": "Delivery"
     },
     {
       "path": "domains/delivery/templates/hybrid/Hybrid/Templates/hybrid_team_management_template.md",
@@ -5229,7 +5284,8 @@
       ],
       "alternate_paths": [
         "templates/hybrid/Hybrid/Templates/hybrid_team_management_template.md"
-      ]
+      ],
+      "domain": "Delivery"
     },
     {
       "path": "domains/measurement/industry-specializations/information-technology/cybersecurity/incident_response_template.md",
@@ -5321,7 +5377,8 @@
       ],
       "alternate_paths": [
         "industry-specializations/information-technology/cybersecurity/incident_response_template.md"
-      ]
+      ],
+      "domain": "Measurement"
     },
     {
       "path": "domains/measurement/methodology-frameworks/emerging-methods/devops/infrastructure_as_code_template.md",
@@ -5401,7 +5458,8 @@
       ],
       "alternate_paths": [
         "methodology-frameworks/emerging-methods/devops/infrastructure_as_code_template.md"
-      ]
+      ],
+      "domain": "Measurement"
     },
     {
       "path": "domains/measurement/industry-specializations/information-technology/infrastructure/infrastructure_assessment_template.md",
@@ -5489,7 +5547,8 @@
       ],
       "alternate_paths": [
         "industry-specializations/information-technology/infrastructure/infrastructure_assessment_template.md"
-      ]
+      ],
+      "domain": "Measurement"
     },
     {
       "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/validation/installation_qualification_protocol_template.md",
@@ -5576,7 +5635,8 @@
       ],
       "alternate_paths": [
         "industry-specializations/healthcare-pharmaceutical/validation/installation_qualification_protocol_template.md"
-      ]
+      ],
+      "domain": "Delivery"
     },
     {
       "path": "domains/delivery/templates/hybrid/Hybrid/Templates/integrated_change_strategy_template.md",
@@ -5678,7 +5738,8 @@
       ],
       "alternate_paths": [
         "templates/hybrid/Hybrid/Templates/integrated_change_strategy_template.md"
-      ]
+      ],
+      "domain": "Delivery"
     },
     {
       "path": "domains/delivery/templates/traditional/Traditional/Templates/issue_log_template.md",
@@ -5788,7 +5849,8 @@
       ],
       "alternate_paths": [
         "templates/traditional/Traditional/Templates/issue_log_template.md"
-      ]
+      ],
+      "domain": "Delivery"
     },
     {
       "path": "domains/team/methodology-frameworks/agile-scrum/scaling-frameworks/less/less_retrospective_template.md",
@@ -5893,7 +5955,8 @@
       ],
       "alternate_paths": [
         "methodology-frameworks/agile-scrum/scaling-frameworks/less/less_retrospective_template.md"
-      ]
+      ],
+      "domain": "Team"
     },
     {
       "path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/less/less_sprint_planning_template.md",
@@ -5998,7 +6061,8 @@
       ],
       "alternate_paths": [
         "methodology-frameworks/agile-scrum/scaling-frameworks/less/less_sprint_planning_template.md"
-      ]
+      ],
+      "domain": "Delivery"
     },
     {
       "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/manufacturing/manufacturing_batch_record_template.md",
@@ -6085,7 +6149,8 @@
       ],
       "alternate_paths": [
         "industry-specializations/healthcare-pharmaceutical/manufacturing/manufacturing_batch_record_template.md"
-      ]
+      ],
+      "domain": "Delivery"
     },
     {
       "path": "domains/uncertainty/role-based-toolkits/project-manager/essential-templates/meeting-templates.md",
@@ -6188,7 +6253,8 @@
       ],
       "alternate_paths": [
         "role-based-toolkits/project-manager/essential-templates/meeting-templates.md"
-      ]
+      ],
+      "domain": "Uncertainty"
     },
     {
       "path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/metrics_dashboard_template.md",
@@ -6292,7 +6358,8 @@
       ],
       "alternate_paths": [
         "methodology-frameworks/agile-scrum/scaling-frameworks/safe/metrics_dashboard_template.md"
-      ]
+      ],
+      "domain": "Delivery"
     },
     {
       "path": "domains/uncertainty/industry-specializations/information-technology/infrastructure/migration_plan_template.md",
@@ -6371,7 +6438,8 @@
       ],
       "alternate_paths": [
         "industry-specializations/information-technology/infrastructure/migration_plan_template.md"
-      ]
+      ],
+      "domain": "Uncertainty"
     },
     {
       "path": "domains/measurement/methodology-frameworks/emerging-methods/devops/monitoring_alerting_template.md",
@@ -6474,7 +6542,8 @@
       ],
       "alternate_paths": [
         "methodology-frameworks/emerging-methods/devops/monitoring_alerting_template.md"
-      ]
+      ],
+      "domain": "Measurement"
     },
     {
       "path": "domains/stakeholder/role-based-toolkits/product-owner/okr-template.md",
@@ -6572,7 +6641,8 @@
           ],
           "similarity": 86
         }
-      ]
+      ],
+      "domain": "Stakeholder"
     },
     {
       "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/validation/operational_qualification_protocol_template.md",
@@ -6659,7 +6729,8 @@
       ],
       "alternate_paths": [
         "industry-specializations/healthcare-pharmaceutical/validation/operational_qualification_protocol_template.md"
-      ]
+      ],
+      "domain": "Delivery"
     },
     {
       "path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/less/overall_product_backlog_template.md",
@@ -6763,7 +6834,8 @@
       ],
       "alternate_paths": [
         "methodology-frameworks/agile-scrum/scaling-frameworks/less/overall_product_backlog_template.md"
-      ]
+      ],
+      "domain": "Delivery"
     },
     {
       "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/validation/performance_qualification_protocol_template.md",
@@ -6846,7 +6918,8 @@
       ],
       "alternate_paths": [
         "industry-specializations/healthcare-pharmaceutical/validation/performance_qualification_protocol_template.md"
-      ]
+      ],
+      "domain": "Delivery"
     },
     {
       "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/lifecycle/pharmaceutical_qbd_template.md",
@@ -6933,7 +7006,8 @@
       ],
       "alternate_paths": [
         "industry-specializations/healthcare-pharmaceutical/lifecycle/pharmaceutical_qbd_template.md"
-      ]
+      ],
+      "domain": "Delivery"
     },
     {
       "path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/pi_planning_template.md",
@@ -7032,7 +7106,8 @@
       ],
       "alternate_paths": [
         "methodology-frameworks/agile-scrum/scaling-frameworks/safe/pi_planning_template.md"
-      ]
+      ],
+      "domain": "Delivery"
     },
     {
       "path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/portfolio_kanban_template.md",
@@ -7131,7 +7206,8 @@
       ],
       "alternate_paths": [
         "methodology-frameworks/agile-scrum/scaling-frameworks/safe/portfolio_kanban_template.md"
-      ]
+      ],
+      "domain": "Delivery"
     },
     {
       "path": "domains/delivery/industry-specializations/information-technology/service-management/problem_management_process_template.md",
@@ -7218,7 +7294,8 @@
       ],
       "alternate_paths": [
         "industry-specializations/information-technology/service-management/problem_management_process_template.md"
-      ]
+      ],
+      "domain": "Uncertainty"
     },
     {
       "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/manufacturing/process_control_template.md",
@@ -7315,7 +7392,8 @@
       ],
       "alternate_paths": [
         "industry-specializations/healthcare-pharmaceutical/manufacturing/process_control_template.md"
-      ]
+      ],
+      "domain": "Delivery"
     },
     {
       "path": "domains/measurement/project-assessment-suite/process-maturity-assessment-template.md",
@@ -7418,7 +7496,8 @@
       ],
       "alternate_paths": [
         "project-assessment-suite/process-maturity-assessment-template.md"
-      ]
+      ],
+      "domain": "Measurement"
     },
     {
       "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/validation/process_validation_master_plan_template.md",
@@ -7519,7 +7598,8 @@
       ],
       "alternate_paths": [
         "industry-specializations/healthcare-pharmaceutical/validation/process_validation_master_plan_template.md"
-      ]
+      ],
+      "domain": "Delivery"
     },
     {
       "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/regulatory/process_validation_protocol_template.md",
@@ -7610,7 +7690,8 @@
       ],
       "alternate_paths": [
         "industry-specializations/healthcare-pharmaceutical/regulatory/process_validation_protocol_template.md"
-      ]
+      ],
+      "domain": "Delivery"
     },
     {
       "path": "domains/delivery/templates/agile/product_backlog_template.md",
@@ -7708,7 +7789,8 @@
       ],
       "alternate_paths": [
         "templates/agile/product_backlog_template.md"
-      ]
+      ],
+      "domain": "Delivery"
     },
     {
       "path": "domains/uncertainty/role-based-toolkits/product-owner/product-vision-template.md",
@@ -7798,7 +7880,8 @@
       ],
       "alternate_paths": [
         "role-based-toolkits/product-owner/product-vision-template.md"
-      ]
+      ],
+      "domain": "Uncertainty"
     },
     {
       "path": "domains/planning/templates/traditional/Traditional/Templates/program_charter_template.md",
@@ -7908,7 +7991,8 @@
       ],
       "alternate_paths": [
         "templates/traditional/Traditional/Templates/program_charter_template.md"
-      ]
+      ],
+      "domain": "Planning"
     },
     {
       "path": "domains/delivery/templates/traditional/Traditional/Templates/program_management_plan_template.md",
@@ -8018,7 +8102,8 @@
       ],
       "alternate_paths": [
         "templates/traditional/Traditional/Templates/program_management_plan_template.md"
-      ]
+      ],
+      "domain": "Delivery"
     },
     {
       "path": "domains/delivery/templates/hybrid/Hybrid/Templates/progressive_acceptance_plan_template.md",
@@ -8120,7 +8205,8 @@
       ],
       "alternate_paths": [
         "templates/hybrid/Hybrid/Templates/progressive_acceptance_plan_template.md"
-      ]
+      ],
+      "domain": "Delivery"
     },
     {
       "path": "domains/planning/templates/traditional/Traditional/Process_Groups/Initiating/project_charter_template.md",
@@ -8227,7 +8313,8 @@
           ],
           "similarity": 94
         }
-      ]
+      ],
+      "domain": "Planning"
     },
     {
       "path": "domains/delivery/templates/traditional/Traditional/Process_Groups/Closing/project_closure_report_template.md",
@@ -8337,7 +8424,8 @@
       ],
       "alternate_paths": [
         "templates/traditional/Traditional/Process_Groups/Closing/project_closure_report_template.md"
-      ]
+      ],
+      "domain": "Delivery"
     },
     {
       "path": "domains/uncertainty/project-lifecycle/04-monitoring-control/progress-tracking/project-dashboard-template.md",
@@ -8429,7 +8517,8 @@
       ],
       "alternate_paths": [
         "project-lifecycle/04-monitoring-control/progress-tracking/project-dashboard-template.md"
-      ]
+      ],
+      "domain": "Uncertainty"
     },
     {
       "path": "domains/delivery/templates/traditional/Traditional/Process_Groups/Executing/project_execution_status_report_template.md",
@@ -8539,7 +8628,8 @@
       ],
       "alternate_paths": [
         "templates/traditional/Traditional/Process_Groups/Executing/project_execution_status_report_template.md"
-      ]
+      ],
+      "domain": "Delivery"
     },
     {
       "path": "domains/measurement/project-assessment-suite/project-health-assessment-template.md",
@@ -8643,7 +8733,8 @@
       ],
       "alternate_paths": [
         "project-assessment-suite/project-health-assessment-template.md"
-      ]
+      ],
+      "domain": "Measurement"
     },
     {
       "path": "domains/delivery/templates/traditional/Traditional/Process_Groups/Planning/project_management_plan_template.md",
@@ -8753,7 +8844,8 @@
       ],
       "alternate_paths": [
         "templates/traditional/Traditional/Process_Groups/Planning/project_management_plan_template.md"
-      ]
+      ],
+      "domain": "Delivery"
     },
     {
       "path": "domains/delivery/templates/traditional/Traditional/Process_Groups/Monitoring_and_Controlling/project_performance_monitoring_template.md",
@@ -8863,7 +8955,8 @@
       ],
       "alternate_paths": [
         "templates/traditional/Traditional/Process_Groups/Monitoring_and_Controlling/project_performance_monitoring_template.md"
-      ]
+      ],
+      "domain": "Delivery"
     },
     {
       "path": "domains/delivery/templates/traditional/Traditional/Templates/project_roadmap_template.md",
@@ -8971,7 +9064,8 @@
       ],
       "alternate_paths": [
         "templates/traditional/Traditional/Templates/project_roadmap_template.md"
-      ]
+      ],
+      "domain": "Delivery"
     },
     {
       "path": "domains/delivery/templates/traditional/Traditional/Process_Groups/Planning/project_schedule_template.md",
@@ -9077,7 +9171,8 @@
       ],
       "alternate_paths": [
         "templates/traditional/Traditional/Process_Groups/Planning/project_schedule_template.md"
-      ]
+      ],
+      "domain": "Delivery"
     },
     {
       "path": "domains/delivery/templates/traditional/Traditional/Templates/purchase_order_template.md",
@@ -9167,7 +9262,8 @@
       ],
       "alternate_paths": [
         "templates/traditional/Traditional/Templates/purchase_order_template.md"
-      ]
+      ],
+      "domain": "Delivery"
     },
     {
       "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/quality/quality_management_review_template.md",
@@ -9267,7 +9363,8 @@
       ],
       "alternate_paths": [
         "industry-specializations/healthcare-pharmaceutical/quality/quality_management_review_template.md"
-      ]
+      ],
+      "domain": "Delivery"
     },
     {
       "path": "domains/uncertainty/templates/test-samples/quality-test-plan-template.md",
@@ -9359,7 +9456,8 @@
       ],
       "alternate_paths": [
         "templates/test-samples/quality-test-plan-template.md"
-      ]
+      ],
+      "domain": "Uncertainty"
     },
     {
       "path": "domains/delivery/templates/traditional/Traditional/Templates/raid_log_template.md",
@@ -9450,7 +9548,8 @@
       ],
       "alternate_paths": [
         "templates/traditional/Traditional/Templates/raid_log_template.md"
-      ]
+      ],
+      "domain": "Delivery"
     },
     {
       "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/regulatory/regulatory_inspection_readiness_plan_template.md",
@@ -9550,7 +9649,8 @@
       ],
       "alternate_paths": [
         "industry-specializations/healthcare-pharmaceutical/regulatory/regulatory_inspection_readiness_plan_template.md"
-      ]
+      ],
+      "domain": "Delivery"
     },
     {
       "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/regulatory/regulatory_strategy_plan_template.md",
@@ -9637,7 +9737,8 @@
       ],
       "alternate_paths": [
         "industry-specializations/healthcare-pharmaceutical/regulatory/regulatory_strategy_plan_template.md"
-      ]
+      ],
+      "domain": "Delivery"
     },
     {
       "path": "domains/measurement/methodology-frameworks/emerging-methods/devops/release_management_template.md",
@@ -9721,7 +9822,8 @@
       ],
       "alternate_paths": [
         "methodology-frameworks/emerging-methods/devops/release_management_template.md"
-      ]
+      ],
+      "domain": "Measurement"
     },
     {
       "path": "domains/measurement/project-assessment-suite/remediation-action-plan-template.md",
@@ -9825,7 +9927,8 @@
       ],
       "alternate_paths": [
         "project-assessment-suite/remediation-action-plan-template.md"
-      ]
+      ],
+      "domain": "Measurement"
     },
     {
       "path": "domains/uncertainty/industry-specializations/information-technology/software-development/requirements_specification_template.md",
@@ -9917,7 +10020,8 @@
       ],
       "alternate_paths": [
         "industry-specializations/information-technology/software-development/requirements_specification_template.md"
-      ]
+      ],
+      "domain": "Uncertainty"
     },
     {
       "path": "domains/delivery/templates/traditional/Traditional/Process_Groups/Executing/requirements_traceability_matrix_template.md",
@@ -10019,7 +10123,8 @@
       ],
       "alternate_paths": [
         "templates/traditional/Traditional/Process_Groups/Executing/requirements_traceability_matrix_template.md"
-      ]
+      ],
+      "domain": "Delivery"
     },
     {
       "path": "domains/measurement/project-assessment-suite/resource-management-assessment-template.md",
@@ -10110,7 +10215,8 @@
       ],
       "alternate_paths": [
         "project-assessment-suite/resource-management-assessment-template.md"
-      ]
+      ],
+      "domain": "Measurement"
     },
     {
       "path": "domains/measurement/project-lifecycle/02-planning/resource-planning/resource-management-plan-template.md",
@@ -10194,7 +10300,8 @@
       ],
       "alternate_paths": [
         "project-lifecycle/02-planning/resource-planning/resource-management-plan-template.md"
-      ]
+      ],
+      "domain": "Measurement"
     },
     {
       "path": "domains/measurement/industry-specializations/information-technology/cybersecurity/risk_assessment_template.md",
@@ -10288,7 +10395,8 @@
       ],
       "alternate_paths": [
         "industry-specializations/information-technology/cybersecurity/risk_assessment_template.md"
-      ]
+      ],
+      "domain": "Measurement"
     },
     {
       "path": "domains/measurement/project-assessment-suite/risk-management-assessment-template.md",
@@ -10387,7 +10495,8 @@
       ],
       "alternate_paths": [
         "project-assessment-suite/risk-management-assessment-template.md"
-      ]
+      ],
+      "domain": "Measurement"
     },
     {
       "path": "domains/measurement/project-lifecycle/02-planning/risk-management/risk-management-plan-template.md",
@@ -10471,7 +10580,8 @@
       ],
       "alternate_paths": [
         "project-lifecycle/02-planning/risk-management/risk-management-plan-template.md"
-      ]
+      ],
+      "domain": "Measurement"
     },
     {
       "path": "domains/uncertainty/project-lifecycle/02-planning/risk-management/risk-register-template.md",
@@ -10540,7 +10650,8 @@
           ],
           "similarity": 83
         }
-      ]
+      ],
+      "domain": "Uncertainty"
     },
     {
       "path": "domains/delivery/templates/traditional/Traditional/Knowledge_Areas/Project_Cost_Management/roi_tracking_template.md",
@@ -10642,7 +10753,8 @@
       ],
       "alternate_paths": [
         "templates/traditional/Traditional/Knowledge_Areas/Project_Cost_Management/roi_tracking_template.md"
-      ]
+      ],
+      "domain": "Delivery"
     },
     {
       "path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_art_coordination_template.md",
@@ -10747,7 +10859,8 @@
       ],
       "alternate_paths": [
         "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_art_coordination_template.md"
-      ]
+      ],
+      "domain": "Delivery"
     },
     {
       "path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_metrics_dashboard_template.md",
@@ -10851,7 +10964,8 @@
       ],
       "alternate_paths": [
         "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_metrics_dashboard_template.md"
-      ]
+      ],
+      "domain": "Delivery"
     },
     {
       "path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_metrics_reporting_template.md",
@@ -10955,7 +11069,8 @@
       ],
       "alternate_paths": [
         "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_metrics_reporting_template.md"
-      ]
+      ],
+      "domain": "Delivery"
     },
     {
       "path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_portfolio_kanban_template.md",
@@ -11058,7 +11173,8 @@
       ],
       "alternate_paths": [
         "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_portfolio_kanban_template.md"
-      ]
+      ],
+      "domain": "Delivery"
     },
     {
       "path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_program_increment_planning_template.md",
@@ -11161,7 +11277,8 @@
       ],
       "alternate_paths": [
         "methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_program_increment_planning_template.md"
-      ]
+      ],
+      "domain": "Delivery"
     },
     {
       "path": "domains/team/project-lifecycle/02-planning/resource-planning/skills-matrix-template.md",
@@ -11230,7 +11347,8 @@
       ],
       "alternate_paths": [
         "project-lifecycle/02-planning/resource-planning/skills-matrix-template.md"
-      ]
+      ],
+      "domain": "Team"
     },
     {
       "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/validation/software_requirements_specification_template.md",
@@ -11327,7 +11445,8 @@
       ],
       "alternate_paths": [
         "industry-specializations/healthcare-pharmaceutical/validation/software_requirements_specification_template.md"
-      ]
+      ],
+      "domain": "Delivery"
     },
     {
       "path": "domains/delivery/templates/agile/sprint_planning_template.md",
@@ -11428,7 +11547,8 @@
           ],
           "similarity": 76
         }
-      ]
+      ],
+      "domain": "Delivery"
     },
     {
       "path": "domains/team/templates/agile/sprint_retrospective_template.md",
@@ -11527,7 +11647,8 @@
       ],
       "alternate_paths": [
         "templates/agile/sprint_retrospective_template.md"
-      ]
+      ],
+      "domain": "Team"
     },
     {
       "path": "domains/team/templates/agile/sprint_review_template.md",
@@ -11626,7 +11747,8 @@
       ],
       "alternate_paths": [
         "templates/agile/sprint_review_template.md"
-      ]
+      ],
+      "domain": "Team"
     },
     {
       "path": "domains/stakeholder/project-assessment-suite/stakeholder-engagement-assessment-template.md",
@@ -11721,7 +11843,8 @@
           ],
           "similarity": 82
         }
-      ]
+      ],
+      "domain": "Stakeholder"
     },
     {
       "path": "domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/stakeholder-register-template.md",
@@ -11817,7 +11940,8 @@
           ],
           "similarity": 75
         }
-      ]
+      ],
+      "domain": "Stakeholder"
     },
     {
       "path": "domains/uncertainty/project-lifecycle/04-monitoring-control/progress-tracking/status-report-template.md",
@@ -11911,7 +12035,8 @@
           ],
           "similarity": 90
         }
-      ]
+      ],
+      "domain": "Uncertainty"
     },
     {
       "path": "domains/team/project-lifecycle/02-planning/resource-planning/team-charter-template.md",
@@ -11995,7 +12120,8 @@
       ],
       "alternate_paths": [
         "project-lifecycle/02-planning/resource-planning/team-charter-template.md"
-      ]
+      ],
+      "domain": "Team"
     },
     {
       "path": "domains/team/templates/traditional/Traditional/Process_Groups/Executing/team_performance_assessment_template.md",
@@ -12095,7 +12221,8 @@
       ],
       "alternate_paths": [
         "templates/traditional/Traditional/Process_Groups/Executing/team_performance_assessment_template.md"
-      ]
+      ],
+      "domain": "Team"
     },
     {
       "path": "domains/measurement/industry-specializations/information-technology/software-development/technical_design_document_template.md",
@@ -12198,7 +12325,8 @@
       ],
       "alternate_paths": [
         "industry-specializations/information-technology/software-development/technical_design_document_template.md"
-      ]
+      ],
+      "domain": "Measurement"
     },
     {
       "path": "domains/measurement/industry-specializations/information-technology/software-development/test_plan_template.md",
@@ -12301,7 +12429,8 @@
       ],
       "alternate_paths": [
         "industry-specializations/information-technology/software-development/test_plan_template.md"
-      ]
+      ],
+      "domain": "Measurement"
     },
     {
       "path": "domains/delivery/role-based-toolkits/project-manager/essential-templates/timesheet-tracking-template.md",
@@ -12383,7 +12512,8 @@
       ],
       "alternate_paths": [
         "role-based-toolkits/project-manager/essential-templates/timesheet-tracking-template.md"
-      ]
+      ],
+      "domain": "Measurement"
     },
     {
       "path": "domains/planning/project-lifecycle/01-initiation/project-charter/traditional-project-charter-template.md",
@@ -12478,7 +12608,8 @@
       ],
       "alternate_paths": [
         "project-lifecycle/01-initiation/project-charter/traditional-project-charter-template.md"
-      ]
+      ],
+      "domain": "Planning"
     },
     {
       "path": "domains/delivery/project-lifecycle/02-planning/project-management-plan/traditional-project-management-plan-template.md",
@@ -12581,7 +12712,8 @@
       ],
       "alternate_paths": [
         "project-lifecycle/02-planning/project-management-plan/traditional-project-management-plan-template.md"
-      ]
+      ],
+      "domain": "Delivery"
     },
     {
       "path": "domains/delivery/templates/traditional/Traditional/Templates/uat_plan_template.md",
@@ -12691,7 +12823,8 @@
       ],
       "alternate_paths": [
         "templates/traditional/Traditional/Templates/uat_plan_template.md"
-      ]
+      ],
+      "domain": "Delivery"
     },
     {
       "path": "domains/delivery/templates/traditional/Traditional/Templates/uat_strategy_template.md",
@@ -12801,7 +12934,8 @@
       ],
       "alternate_paths": [
         "templates/traditional/Traditional/Templates/uat_strategy_template.md"
-      ]
+      ],
+      "domain": "Delivery"
     },
     {
       "path": "domains/uncertainty/industry-specializations/information-technology/software-development/user_story_mapping_template.md",
@@ -12888,7 +13022,8 @@
       ],
       "alternate_paths": [
         "industry-specializations/information-technology/software-development/user_story_mapping_template.md"
-      ]
+      ],
+      "domain": "Uncertainty"
     },
     {
       "path": "domains/uncertainty/role-based-toolkits/product-owner/user-story-template.md",
@@ -12969,7 +13104,8 @@
       ],
       "alternate_paths": [
         "role-based-toolkits/product-owner/user-story-template.md"
-      ]
+      ],
+      "domain": "Uncertainty"
     },
     {
       "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/validation/validation_master_plan_template.md",
@@ -13070,7 +13206,8 @@
       ],
       "alternate_paths": [
         "industry-specializations/healthcare-pharmaceutical/validation/validation_master_plan_template.md"
-      ]
+      ],
+      "domain": "Delivery"
     },
     {
       "path": "domains/stakeholder/project-assessment-suite/waterfall-project-assessment-template.md",
@@ -13171,7 +13308,8 @@
           ],
           "similarity": 69
         }
-      ]
+      ],
+      "domain": "Stakeholder"
     },
     {
       "path": "domains/delivery/templates/traditional/Traditional/Process_Groups/Planning/work_breakdown_structure_template.md",
@@ -13281,7 +13419,8 @@
       ],
       "alternate_paths": [
         "templates/traditional/Traditional/Process_Groups/Planning/work_breakdown_structure_template.md"
-      ]
+      ],
+      "domain": "Delivery"
     }
   ],
   "statistics": {
