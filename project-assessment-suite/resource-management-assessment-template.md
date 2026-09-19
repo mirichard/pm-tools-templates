@@ -1,58 +1,11 @@
-# Resource Management Assessment Template
+# Resource Management Assessment Template — Moved
 
-## Executive Summary
-This template evaluates resource management effectiveness including human resources, budget, and material resources.
+## Purpose and overview
 
-## Resource Management Assessment
-**Project/Organization:** [Name]
-**Assessment Period:** [Time period]
-**Resource Categories:** [Human, Financial, Material, Technology]
-**Assessment Date:** [Date]
+This legacy path preserves existing repository links and external bookmarks. The maintained template now resides in the Measurement domain; this file contains navigation only.
 
-## Resource Planning Assessment
+**Canonical location:** [Open the Resource Management Assessment Template](../domains/measurement/project-assessment-suite/resource-management-assessment-template.md)
 
-### 1. Resource Requirements Planning
-**Planning Effectiveness:**
-- [ ] Resource need identification accuracy
-- [ ] Skills and competency mapping
-- [ ] Capacity planning processes
-- [ ] Timeline and availability coordination
+## Usage instructions
 
-**Maturity Level:** [1-5]
-**Effectiveness Score:** [Percentage]
-
-### 2. Resource Allocation
-**Allocation Process Assessment:**
-- [ ] Resource assignment criteria
-- [ ] Prioritization mechanisms
-- [ ] Conflict resolution processes
-- [ ] Optimization techniques
-
-### 3. Resource Utilization
-**Utilization Metrics:**
-- [ ] Resource efficiency rates
-- [ ] Capacity utilization levels
-- [ ] Skill utilization optimization
-- [ ] Cross-training effectiveness
-
-### 4. Resource Monitoring and Control
-**Monitoring Effectiveness:**
-- [ ] Resource tracking mechanisms
-- [ ] Performance measurement
-- [ ] Issue identification and resolution
-- [ ] Reallocation processes
-
-## Assessment Results
-**Strengths:**
-- [Effective resource management practices]
-
-**Opportunities:**
-- [Areas for improvement]
-
-**Recommendations:**
-- [Specific improvement actions]
-
----
-Related Resources:
-- [Resource Planning](../project-lifecycle/02-planning/resource-planning/)
-- [Budget Planning](../project-lifecycle/02-planning/budget-planning/)
+Follow the canonical-location link to view, copy, or update the template. Update only the canonical file when proposing content changes. Use the canonical path for new references; this legacy path remains available for backward compatibility.

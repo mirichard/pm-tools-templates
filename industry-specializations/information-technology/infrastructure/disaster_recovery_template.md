@@ -1,18 +1,11 @@
-# IT Infrastructure Disaster Recovery Template
+# Disaster Recovery Template — Moved
 
-## Executive Summary
-Template for planning disaster recovery for IT infrastructure and systems.
+## Purpose and overview
 
-## Disaster Recovery Strategy
-[Overall DR approach and objectives]
+This legacy path is retained so existing repository links and external bookmarks continue to reach the Disaster Recovery Template after its domain migration. The maintained canonical template now resides in the Planning domain; this file contains navigation guidance only and is not a second template copy.
 
-## Recovery Procedures
-[Detailed recovery steps and procedures]
+**Canonical location:** [Open the Disaster Recovery Template](../../../domains/planning/industry-specializations/information-technology/infrastructure/disaster_recovery_template.md)
 
-## Testing and Maintenance
-[DR testing and plan maintenance procedures]
+## Usage instructions
 
----
-Related Resources:
-- [Infrastructure Requirements Template](../../../essential-templates/infrastructure/infrastructure-requirements-template.md)
-- [Infrastructure Assessment Template](./infrastructure_assessment_template.md)
+Follow the canonical-location link above to view, copy, or update the template. Update only the canonical file when proposing content changes. References to this legacy path remain supported for backward compatibility, but new documentation and catalog entries should link directly to the canonical domain path.

@@ -1,18 +1,11 @@
-# Data Center Design Template
+# Data Center Design Template — Moved
 
-## Executive Summary
-Template for designing and planning data center infrastructure for IT operations.
+## Purpose and overview
 
-## Design Requirements
-[Document data center requirements and constraints]
+This legacy path is retained so existing repository links and external bookmarks continue to reach the Data Center Design Template after its domain migration. The maintained canonical template now resides in the Planning domain; this file contains navigation guidance only and is not a second template copy.
 
-## Architecture Design
-[Data center layout and systems architecture]
+**Canonical location:** [Open the Data Center Design Template](../../../domains/planning/industry-specializations/information-technology/infrastructure/data_center_design_template.md)
 
-## Implementation Plan
-[Data center construction and deployment plan]
+## Usage instructions
 
----
-Related Resources:
-- [Infrastructure Requirements Template](../../../essential-templates/infrastructure/infrastructure-requirements-template.md)
-- [Infrastructure Assessment Template](./infrastructure_assessment_template.md)
+Follow the canonical-location link above to view, copy, or update the template. Update only the canonical file when proposing content changes. References to this legacy path remain supported for backward compatibility, but new documentation and catalog entries should link directly to the canonical domain path.

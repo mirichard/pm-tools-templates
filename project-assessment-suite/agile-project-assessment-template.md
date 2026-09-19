@@ -1,62 +1,11 @@
-# Agile Project Assessment Template
+# Agile Project Assessment Template — Moved
 
-## Executive Summary
-This template provides an assessment framework specifically designed for Agile projects and teams.
+## Purpose and overview
 
-## Agile Assessment Overview
-**Team/Project:** [Name]
-**Methodology:** [Scrum/Kanban/SAFe/Other]
-**Assessment Date:** [Date]
-**Team Size:** [Number of team members]
-**Sprint Duration:** [Length]
+This legacy path is retained so existing repository links and external bookmarks continue to reach the Agile Project Assessment Template after its domain migration. The maintained canonical template now resides in the Delivery domain; this file contains navigation guidance only and is not a second template copy.
 
-## Agile Practices Assessment
+**Canonical location:** [Open the Agile Project Assessment Template](../domains/delivery/project-assessment-suite/agile-project-assessment-template.md)
 
-### 1. Scrum Events Effectiveness
-**Event Assessment:**
-- [ ] **Sprint Planning:** Quality and outcomes
-- [ ] **Daily Scrum:** Effectiveness and value
-- [ ] **Sprint Review:** Stakeholder engagement
-- [ ] **Sprint Retrospective:** Continuous improvement
+## Usage instructions
 
-**Maturity Score:** [1-5 for each event]
-
-### 2. Team Collaboration
-**Collaboration Indicators:**
-- [ ] Cross-functional team composition
-- [ ] Self-organization capability
-- [ ] Communication effectiveness
-- [ ] Collective ownership mindset
-
-### 3. Customer Collaboration
-**Customer Engagement:**
-- [ ] Product Owner involvement
-- [ ] Stakeholder feedback incorporation
-- [ ] User story quality
-- [ ] Acceptance criteria clarity
-
-### 4. Technical Practices
-**Engineering Practices:**
-- [ ] Test-driven development
-- [ ] Continuous integration
-- [ ] Code quality standards
-- [ ] Technical debt management
-
-## Agile Metrics Assessment
-**Key Metrics:**
-- Velocity trends
-- Sprint goal achievement
-- Customer satisfaction
-- Team satisfaction
-- Defect rates
-
-## Improvement Recommendations
-**Focus Areas:**
-1. [High priority improvement]
-2. [Medium priority improvement]
-3. [Continuous improvement suggestions]
-
----
-Related Resources:
-- [Agile Scrum Framework](../methodology-frameworks/agile-scrum/)
-- [Sprint Planning](../methodology-frameworks/agile-scrum/sprint-planning/)
+Follow the canonical-location link above to view, copy, or update the template. Update only the canonical file when proposing content changes. References to this legacy path remain supported for backward compatibility, but new documentation and catalog entries should link directly to the canonical domain path.
