@@ -338,13 +338,13 @@ Traditional Planning ←→ Hybrid Integration ←→ Agile Planning
 - [DevOps Pipeline Template](../../emerging-methods/devops/cicd_pipeline_planning_template.md)
 
 ### Integration Resources
-- [Agile-Traditional Integration Guide](../integration-strategies.md)
-- [Tool Integration Playbook](../tool-integration-guide.md)
-- [Hybrid Team Formation](../team-formation-guide.md)
+- Agile-Traditional Integration Guide (linked resource unavailable)
+- Tool Integration Playbook (linked resource unavailable)
+- Hybrid Team Formation (linked resource unavailable)
 
 ### Industry-Specific Adaptations
-- [Healthcare Infrastructure](../../../industry-specializations/healthcare-pharmaceutical/infrastructure/)
-- [Financial Services Infrastructure](../../../industry-specializations/financial-services/infrastructure/)
+- Healthcare Infrastructure (linked resource unavailable)
+- Financial Services Infrastructure (linked resource unavailable)
 - [Technology Infrastructure](../../../industry-specializations/information-technology/infrastructure/)
 
 ---

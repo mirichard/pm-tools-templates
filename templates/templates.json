@@ -11848,9 +11848,10 @@
     },
     {
       "path": "domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/stakeholder-register-template.md",
-      "canonical_path": "role-based-toolkits/project-manager/essential-templates/stakeholder-register.md",
+      "canonical_path": "domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/stakeholder-register-template.md",
       "alternate_paths": [
-        "project-lifecycle/01-initiation/stakeholder-analysis/stakeholder-register-template.md"
+        "project-lifecycle/01-initiation/stakeholder-analysis/stakeholder-register-template.md",
+        "role-based-toolkits/project-manager/essential-templates/stakeholder-register.md"
       ],
       "title": "Stakeholder Register Template",
       "methodology": "universal",

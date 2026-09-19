@@ -247,14 +247,14 @@ Traditional Project ──> Traditional/Waterfall Templates
 ### P-R
 - [Product Backlog](../../methodology-frameworks/agile-scrum/product-backlog-template.md)
 - [Project Charter](../../project-lifecycle/01-initiation/project-charter/project-charter-template.md)
-- [Risk Register](../../project-lifecycle/02-planning/risk-management/risk-register-template.md)
+- [Risk Register](../../domains/uncertainty/project-lifecycle/02-planning/risk-management/risk-register-template.md)
 - [ROI Tracking](../../business-stakeholder-suite/financial-governance/roi-tracking.md)
 
 ### S-U
 - [Sprint Planning](../../methodology-frameworks/agile-scrum/sprint-planning-template.md)
 - [Sprint Review](../../methodology-frameworks/agile-scrum/sprint-review-template.md)
 - [Sprint Retrospective](../../methodology-frameworks/agile-scrum/sprint-retrospective-template.md)
-- [Stakeholder Register](../../project-lifecycle/01-initiation/stakeholder-analysis/stakeholder-register-template.md)
+- [Stakeholder Register](../../domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/stakeholder-register-template.md)
 - [Status Report](../../project-lifecycle/04-monitoring-control/status-reporting/status-report-template.md)
 - [User Stories](../../methodology-frameworks/agile-scrum/user-story-template.md)
 

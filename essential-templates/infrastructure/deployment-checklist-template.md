@@ -1,3 +1,11 @@
+---
+title: "Deployment Checklist Template"
+methodology: "universal"
+complexity: "intermediate"
+owner: "mirichard"
+updated: "2026-09-19"
+---
+
 # Deployment Checklist Template
 
 ## Document Control
@@ -341,8 +349,8 @@ This deployment checklist ensures all critical activities are completed for a su
 
 ### Deployment Resources
 - [Infrastructure Requirements Template](./infrastructure-requirements-template.md)
-- [Hybrid Infrastructure Template](../../methodology-frameworks/hybrid/infrastructure/hybrid-infrastructure-template.md)
-- [DevOps Pipeline Template](../../methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md)
+- [Hybrid Infrastructure Template](../../domains/delivery/methodology-frameworks/hybrid/infrastructure/hybrid-infrastructure-template.md)
+- [DevOps Pipeline Template](../../domains/measurement/methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md)
 
 ### Supporting Documentation
 - [Change Management Process](../../essential-templates/change-management/)

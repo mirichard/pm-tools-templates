@@ -3,9 +3,13 @@ import { test } from 'node:test';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
-import crypto from 'node:crypto';
+import { fileURLToPath } from 'node:url';
+import { loadContentRepairs, contentHashMatches } from '../scripts/lib/content-repairs.mjs';
 import { loadSiteTemplates } from '../scripts/lib/site-template-catalog.mjs';
 
+const root = fileURLToPath(new URL('../', import.meta.url));
+const inventory = JSON.parse(fs.readFileSync(new URL('../meta/migration-inventory.json', import.meta.url)));
+const repairs = loadContentRepairs(root, inventory);
 const templates = loadSiteTemplates();
 const plan = JSON.parse(fs.readFileSync(new URL('../meta/migration-waves/b3e.json', import.meta.url)));
 
@@ -15,7 +19,8 @@ test('B3E browser, detail and download data use canonical bytes and stable IDs',
     const matches = templates.filter(template => template.id === id);
     assert.equal(matches.length, 1);
     assert.equal(matches[0].path, asset.destination);
-    assert.equal(crypto.createHash('sha256').update(matches[0].content).digest('hex'), asset.pre_move_sha256);
+    assert.ok(contentHashMatches(matches[0].content, asset.destination, asset.pre_move_sha256, repairs));
+    assert.equal(matches[0].content, fs.readFileSync(path.join(root, asset.destination), 'utf8'));
     assert.ok(matches[0].title);
     assert.ok(matches[0].methodology);
     assert.ok(!templates.some(template => template.path === asset.source));
@@ -56,4 +61,13 @@ test('changelog regeneration selects the same canonical files as the browser', a
       assert.equal(record.filePath, template.path);
     }
   } finally { fs.rmSync(outputDirectory, { recursive: true, force: true }); }
+});
+
+test('all executed migrations expose exactly their recorded current bodies', () => {
+  for (const move of inventory.moves.filter(move => move.action === 'executed-move-with-legacy-pointer')) {
+    const matches = templates.filter(template => template.path === move.destination);
+    assert.equal(matches.length, 1, move.destination);
+    assert.ok(contentHashMatches(matches[0].content, move.destination,
+      move.execution.pre_move_source_sha256, repairs), move.destination);
+  }
 });

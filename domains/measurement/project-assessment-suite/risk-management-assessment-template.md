@@ -1,7 +1,7 @@
 ---
 title: "Risk Management Assessment Template"
 methodology: "universal"
-complexity: "basic"
+complexity: "starter"
 process_group: "planning"
 industry: "universal"
 role: "stakeholder"

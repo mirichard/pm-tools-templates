@@ -1,5 +1,10 @@
 <a id="project-management-tools-templates-library"></a>
 # Project Management Tools & Templates Library
+
+## Browse by performance domain
+
+[Stakeholder](domains/stakeholder/) · [Team](domains/team/) · [Delivery](domains/delivery/) · [Planning](domains/planning/) · [Uncertainty](domains/uncertainty/) · [Measurement](domains/measurement/)
+
 **For Project & Program Managers: practical templates for Agile, Waterfall, Risk, and more.**
 
 Maintained by **Michael Richard**, PMP, with 15+ years of enterprise project management experience.
@@ -36,7 +41,7 @@ Maintained by **Michael Richard**, PMP, with 15+ years of enterprise project man
 - [Specialized Collections](#specialized-collections)
 - [Template Index](TEMPLATE_INDEX.md)
 - [Help & Support](#help--support)
-- [Repository Statistics](#repository-statistics)
+- [Repository Statistics](#next-generation-features-roadmap)
 - [Next-Generation Features & Roadmap](#next-generation-features-roadmap)
 - [Community & Contributions](#community--contributions)
 
@@ -44,11 +49,11 @@ Maintained by **Michael Richard**, PMP, with 15+ years of enterprise project man
 | Template | Scenario / Methodology | Phase | Complexity |
 | --- | --- | --- | --- |
 | [Project Charter Template](Traditional/Process_Groups/Initiating/project_charter_template.md) | Formal project initiation (Traditional) | Initiating | Beginner |
-| [Stakeholder Register](project-lifecycle/01-initiation/stakeholder-analysis/stakeholder-register-template.md) | Identify and analyze stakeholders (Traditional) | Initiating | Beginner |
+| [Stakeholder Register](domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/stakeholder-register-template.md) | Identify and analyze stakeholders (Traditional) | Initiating | Beginner |
 | [Work Breakdown Structure](Traditional/Process_Groups/Planning/work_breakdown_structure_template.md) | Decompose deliverables into tasks (Traditional) | Planning | Intermediate |
 | [Sprint Planning Template](Agile/Templates/sprint_planning_template.md) | Plan sprint goals and backlog (Agile) | Executing | Beginner |
 | [Hybrid Project Charter](Hybrid/Templates/hybrid_project_charter_template.md) | Kick off a hybrid project (Hybrid) | Initiating | Intermediate |
-| [CI/CD Pipeline Planning](methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md) | Design automated delivery pipeline (DevOps) | Planning | Advanced |
+| [CI/CD Pipeline Planning](domains/measurement/methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md) | Design automated delivery pipeline (DevOps) | Planning | Advanced |
 | [Executive Dashboard Workbook](business-stakeholder-suite/executive-dashboards/Excel/Executive-Dashboard-Workbook.md) | Report progress to leadership | Monitoring & Controlling | Intermediate |
 ```mermaid
 flowchart TD
@@ -137,7 +142,7 @@ This library is organized around **how project managers actually work**, not jus
 
 **Initiating**
  - [Project Charter Template](Traditional/Process_Groups/Initiating/project_charter_template.md) - Professional project authorization
- - [Stakeholder Register](project-lifecycle/01-initiation/stakeholder-analysis/stakeholder-register-template.md) - Stakeholder identification & analysis
+ - [Stakeholder Register](domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/stakeholder-register-template.md) - Stakeholder identification & analysis
 
 **Planning**
  - [Work Breakdown Structure](Traditional/Process_Groups/Planning/work_breakdown_structure_template.md) - Project decomposition
@@ -171,7 +176,7 @@ This library is organized around **how project managers actually work**, not jus
 | Template | Phase | Complexity | Summary |
 | --- | --- | --- | --- |
 | [Project Charter Template](Traditional/Process_Groups/Initiating/project_charter_template.md) | Initiating | Beginner | Formal project authorization |
-| [Stakeholder Register](project-lifecycle/01-initiation/stakeholder-analysis/stakeholder-register-template.md) | Initiating | Beginner | Stakeholder identification & analysis |
+| [Stakeholder Register](domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/stakeholder-register-template.md) | Initiating | Beginner | Stakeholder identification & analysis |
 | [Work Breakdown Structure](Traditional/Process_Groups/Planning/work_breakdown_structure_template.md) | Planning | Intermediate | Project decomposition |
 | [Project Schedule Template](Traditional/Process_Groups/Planning/project_schedule_template.md) | Planning | Intermediate | Timeline & milestone planning |
 | [Project Management Plan](Traditional/Process_Groups/Planning/project_management_plan_template.md) | Planning | Advanced | Comprehensive planning document |
@@ -229,18 +234,18 @@ This library is organized around **how project managers actually work**, not jus
 **Large-scale agile implementation patterns**
 
 **SAFe (Scaled Agile Framework):**
-- [SAFe Program Increment Planning](methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_program_increment_planning_template.md) - PI planning and coordination
-- [SAFe Portfolio Kanban](methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_portfolio_kanban_template.md) - Portfolio-level management
-- [SAFe ART Coordination](methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_art_coordination_template.md) - Agile Release Train management
-- [SAFe Metrics Dashboard](methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_metrics_reporting_template.md) - Scaled metrics and reporting
+- [SAFe Program Increment Planning](domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_program_increment_planning_template.md) - PI planning and coordination
+- [SAFe Portfolio Kanban](domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_portfolio_kanban_template.md) - Portfolio-level management
+- [SAFe ART Coordination](domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_art_coordination_template.md) - Agile Release Train management
+- [SAFe Metrics Dashboard](domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_metrics_reporting_template.md) - Scaled metrics and reporting
 
 <a id="specialized-collections"></a>
 **LeSS (Large-Scale Scrum):**
 <a id="executive-business-stakeholder-tools"></a>
-- [LeSS Sprint Planning](methodology-frameworks/agile-scrum/scaling-frameworks/less/less_sprint_planning_template.md) - Multi-team sprint planning
-- [Overall Product Backlog Management](methodology-frameworks/agile-scrum/scaling-frameworks/less/overall_product_backlog_template.md) - Large-scale backlog coordination
-- [LeSS Retrospective](methodology-frameworks/agile-scrum/scaling-frameworks/less/less_retrospective_template.md) - Organization-wide improvement
-- [Cross-Team Coordination](methodology-frameworks/agile-scrum/scaling-frameworks/less/cross_team_coordination_template.md) - Team synchronization
+- [LeSS Sprint Planning](domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/less/less_sprint_planning_template.md) - Multi-team sprint planning
+- [Overall Product Backlog Management](domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/less/overall_product_backlog_template.md) - Large-scale backlog coordination
+- [LeSS Retrospective](domains/team/methodology-frameworks/agile-scrum/scaling-frameworks/less/less_retrospective_template.md) - Organization-wide improvement
+- [Cross-Team Coordination](domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/less/cross_team_coordination_template.md) - Team synchronization
 <a id="ready-to-use-executive-templates"></a>
 - [LeSS Adoption Roadmap](quick-start-kits/less-adoption/README.md) - Transformation planning
 
@@ -249,12 +254,12 @@ This library is organized around **how project managers actually work**, not jus
 
 <a id="ai-powered-project-intelligence"></a>
 **Core DevOps Templates:**
-- [CI/CD Pipeline Planning](methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md) - Automated delivery pipelines
-- [Release Management Workflow](methodology-frameworks/emerging-methods/devops/release_management_template.md) - Release orchestration and coordination
-- [DevOps Monitoring and Alerting](methodology-frameworks/emerging-methods/devops/monitoring_alerting_template.md) - Observability and incident response
+- [CI/CD Pipeline Planning](domains/measurement/methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md) - Automated delivery pipelines
+- [Release Management Workflow](domains/measurement/methodology-frameworks/emerging-methods/devops/release_management_template.md) - Release orchestration and coordination
+- [DevOps Monitoring and Alerting](domains/measurement/methodology-frameworks/emerging-methods/devops/monitoring_alerting_template.md) - Observability and incident response
 <a id="ai-driven-capabilities"></a>
-- [Infrastructure as Code](methodology-frameworks/emerging-methods/devops/infrastructure_as_code_template.md) - Infrastructure automation and management
-- [DevSecOps Integration](methodology-frameworks/emerging-methods/devops/devsecops_template.md) - Security-first development practices
+- [Infrastructure as Code](domains/measurement/methodology-frameworks/emerging-methods/devops/infrastructure_as_code_template.md) - Infrastructure automation and management
+- [DevSecOps Integration](domains/measurement/methodology-frameworks/emerging-methods/devops/devsecops_template.md) - Security-first development practices
 
 ---
 
@@ -278,7 +283,7 @@ This library is organized around **how project managers actually work**, not jus
 1. Go directly to [Business Stakeholder Suite](business-stakeholder-suite/)
 2. Use [Executive Dashboards](business-stakeholder-suite/executive-dashboards/) for reporting
 3. Implement [Financial Governance](business-stakeholder-suite/financial-governance/) for oversight
-4. Check [Strategic Alignment](business-stakeholder-suite/strategic-alignment/) tools
+4. Check Strategic Alignment (linked resource unavailable) tools
 
 ### By Project Type
 
@@ -299,11 +304,11 @@ This library is organized around **how project managers actually work**, not jus
 [**Project Assessment Suite Overview**](project-assessment-suite/README.md)
 
 **For Program Managers assessing projects in motion:**
-- [Project Health Assessment Template](project-assessment-suite/project-health-assessment-template.md) - Comprehensive 10-dimension project evaluation
-- [Gap Analysis Matrix](project-assessment-suite/gap-analysis-matrix-template.md) - Current vs. future state analysis with prioritization
-- [Remediation Action Plan](project-assessment-suite/remediation-action-plan-template.md) - Structured improvement planning and tracking
+- [Project Health Assessment Template](domains/measurement/project-assessment-suite/project-health-assessment-template.md) - Comprehensive 10-dimension project evaluation
+- [Gap Analysis Matrix](domains/measurement/project-assessment-suite/gap-analysis-matrix-template.md) - Current vs. future state analysis with prioritization
+- [Remediation Action Plan](domains/measurement/project-assessment-suite/remediation-action-plan-template.md) - Structured improvement planning and tracking
 - [Assessment Planning Guide](project-assessment-suite/assessment-planning-guide.md) - Step-by-step assessment methodology
-- [Executive Summary Template](project-assessment-suite/executive-summary-template.md) - Leadership reporting format
+- [Executive Summary Template](domains/measurement/project-assessment-suite/executive-summary-template.md) - Leadership reporting format
 
 **Key Features:**
 ✅ **Systematic Assessment Framework** - 5-phase methodology from current state to remediation tracking  
@@ -463,7 +468,7 @@ This library is organized around **how project managers actually work**, not jus
 
 ### Automation Options
 - **[GitHub Integration Templates](integration_guides/github_integration/)** - Development workflows
-- **[Email Templates](business-stakeholder-suite/communication-automation/email-templates/)** - Stakeholder updates (coming soon)
+- **Email Templates (linked resource unavailable)** - Stakeholder updates (coming soon)
 - **[Automated Reporting](integration_guides/)** - Dashboard automation
 - **[Custom Templates](docs/implementation/)** - Tailored solutions
 
@@ -502,8 +507,8 @@ This library is organized around **how project managers actually work**, not jus
 
 ### Quick Links
 - [📚 Full Documentation](docs/)
-- [🎯 Template Index](docs/getting-started/template-selector.md#template-index)
-- [📊 Examples & Case Studies](examples-case-studies/)
+- [🎯 Template Index](TEMPLATE_INDEX.md)
+- [📊 Examples & Case Studies](examples/)
 - [🔧 Tool Integration Guides](integration_guides/)
 
 ---

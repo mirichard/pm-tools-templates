@@ -1,3 +1,11 @@
+---
+title: "Infrastructure Requirements Template"
+methodology: "universal"
+complexity: "intermediate"
+owner: "mirichard"
+updated: "2026-09-19"
+---
+
 # Infrastructure Requirements Template
 
 ## Document Control
@@ -520,8 +528,8 @@ This document defines the infrastructure requirements for [Project Name]. It spe
 
 ### Infrastructure Templates
 - [Deployment Checklist Template](./deployment-checklist-template.md)
-- [Hybrid Infrastructure Template](../../methodology-frameworks/hybrid/infrastructure/hybrid-infrastructure-template.md)
-- [DevOps Pipeline Template](../../methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md)
+- [Hybrid Infrastructure Template](../../domains/delivery/methodology-frameworks/hybrid/infrastructure/hybrid-infrastructure-template.md)
+- [DevOps Pipeline Template](../../domains/measurement/methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md)
 
 ### External Resources
 - [Cloud Architecture Best Practices](https://example.com/cloud-architecture)

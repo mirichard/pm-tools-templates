@@ -465,10 +465,10 @@ Management Table
 ---
 
 ## Related Templates
-- [LeSS Sprint Planning Template](./less_sprint_planning_template.md)
-- [Overall Product Backlog Management](./overall_product_backlog_template.md)
-- [Cross-Team Coordination Template](./cross_team_coordination_template.md)
-- [LeSS Adoption Roadmap](../../quick-start-kits/less-adoption/README.md)
+- [LeSS Sprint Planning Template](../../../../../delivery/methodology-frameworks/agile-scrum/scaling-frameworks/less/less_sprint_planning_template.md)
+- [Overall Product Backlog Management](../../../../../delivery/methodology-frameworks/agile-scrum/scaling-frameworks/less/overall_product_backlog_template.md)
+- [Cross-Team Coordination Template](../../../../../delivery/methodology-frameworks/agile-scrum/scaling-frameworks/less/cross_team_coordination_template.md)
+- [LeSS Adoption Roadmap](../../../../../../quick-start-kits/less-adoption/README.md)
 
 ---
 

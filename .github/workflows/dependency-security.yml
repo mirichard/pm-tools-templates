@@ -26,7 +26,7 @@ env:
   # Enhanced scanning configuration
   SEVERITY_THRESHOLD: medium
   TIMEOUT_MINUTES: 5
-  
+
   # Scan resilience settings
   MAX_RETRIES: 3
   RETRY_DELAY_SECONDS: 5
@@ -37,8 +37,8 @@ jobs:
   security-scan:
     name: 🔒 Security Analysis
     runs-on: ubuntu-latest
-    timeout-minutes: ${{ env.TIMEOUT_MINUTES }}
-    
+    timeout-minutes: 5
+
     steps:
       - name: 📥 Checkout Repository
         uses: actions/checkout@v4
@@ -47,12 +47,12 @@ jobs:
         id: discover
         run: |
           echo "🔍 Discovering project dependencies..."
-          
+
           mkdir -p ./security-scan
-          
+
           # Check for dependency files
           FOUND_FILES=()
-          
+
           # JavaScript dependencies
           if [ -f "package.json" ]; then
             FOUND_FILES+=("javascript")
@@ -60,7 +60,7 @@ jobs:
             [ -f "package-lock.json" ] && cp package-lock.json ./security-scan/
             [ -f "yarn.lock" ] && cp yarn.lock ./security-scan/
           fi
-          
+
           # Python dependencies
           if [ -f "requirements.txt" ]; then
             FOUND_FILES+=("python")
@@ -68,17 +68,20 @@ jobs:
             [ -f "Pipfile" ] && cp Pipfile ./security-scan/
             [ -f "Pipfile.lock" ] && cp Pipfile.lock ./security-scan/
           fi
-          
+
           # Ruby dependencies
           if [ -f "Gemfile" ]; then
             FOUND_FILES+=("ruby")
             cp Gemfile ./security-scan/
             [ -f "Gemfile.lock" ] && cp Gemfile.lock ./security-scan/
           fi
-          
+
           # Generate report
           echo "Found dependencies: ${FOUND_FILES[@]:-none}"
-          
+
+          echo "has_node=$([ -f package.json ] && echo true || echo false)" >> "$GITHUB_OUTPUT"
+          echo "has_python=$([ -f requirements.txt ] && echo true || echo false)" >> "$GITHUB_OUTPUT"
+
           # Set output
           if [ ${#FOUND_FILES[@]} -eq 0 ]; then
             echo "found_dependencies=false" >> $GITHUB_OUTPUT
@@ -94,17 +97,17 @@ jobs:
         run: |
           echo "🔍 Analyzing dependencies..."
           SCAN_SCOPE="${{ github.event.inputs.scan_scope }}"
-          
+
           analyze_javascript() {
             if [ -f "./security-scan/package.json" ]; then
               echo "📦 Analyzing JavaScript dependencies..."
               MAX_RETRIES=3
               RETRY_COUNT=0
               SUCCESS=false
-              
+
               while [ $RETRY_COUNT -lt $MAX_RETRIES ] && [ "$SUCCESS" != "true" ]; do
                 echo "Attempt $((RETRY_COUNT + 1)) of $MAX_RETRIES for JavaScript analysis..."
-                
+
                 if [ -f "./security-scan/yarn.lock" ]; then
                   if yarn audit --json > javascript-audit.json 2>/dev/null; then
                     if jq -e '.' javascript-audit.json > /dev/null 2>&1; then
@@ -120,20 +123,20 @@ jobs:
                     fi
                   fi
                 fi
-                
+
                 if [ "$SUCCESS" != "true" ]; then
                   RETRY_COUNT=$((RETRY_COUNT + 1))
                   [ $RETRY_COUNT -lt $MAX_RETRIES ] && sleep 5
                 fi
               done
-              
+
               if [ "$SUCCESS" != "true" ]; then
                 echo "⚠️ Failed to analyze JavaScript dependencies after $MAX_RETRIES attempts"
                 echo '{"vulnerabilities":{}}' > javascript-audit.json
               fi
             fi
           }
-          
+
           analyze_python() {
             if [ -f "./security-scan/requirements.txt" ]; then
               echo "🐍 Analyzing Python dependencies..."
@@ -141,7 +144,7 @@ jobs:
               safety check -r ./security-scan/requirements.txt --json > python-audit.json || true
             fi
           }
-          
+
           analyze_ruby() {
             if [ -f "./security-scan/Gemfile" ]; then
               echo "💎 Analyzing Ruby dependencies..."
@@ -149,26 +152,26 @@ jobs:
               bundle audit check --format json > ruby-audit.json || true
             fi
           }
-          
+
           # Run analyses based on scope
           if [ "$SCAN_SCOPE" = "all" ] || [ "$SCAN_SCOPE" = "javascript" ]; then
             analyze_javascript
           fi
-          
+
           if [ "$SCAN_SCOPE" = "all" ] || [ "$SCAN_SCOPE" = "python" ]; then
             analyze_python
           fi
-          
+
           if [ "$SCAN_SCOPE" = "all" ] || [ "$SCAN_SCOPE" = "ruby" ]; then
             analyze_ruby
           fi
-          
+
           # Process results and generate summary
           python3 - << 'EOF'
           import json
           import os
           from datetime import datetime
-          
+
           def process_javascript_audit(file_path):
               try:
                   with open(file_path) as f:
@@ -176,7 +179,7 @@ jobs:
                   return len(data.get('vulnerabilities', {}))
               except:
                   return 0
-          
+
           def process_python_audit(file_path):
               try:
                   with open(file_path) as f:
@@ -184,7 +187,7 @@ jobs:
                   return len(data)
               except:
                   return 0
-          
+
           def process_ruby_audit(file_path):
               try:
                   with open(file_path) as f:
@@ -192,7 +195,7 @@ jobs:
                   return len(data.get('vulnerabilities', []))
               except:
                   return 0
-          
+
           report = {
               'timestamp': datetime.now().isoformat(),
               'summary': {
@@ -200,33 +203,33 @@ jobs:
                   'by_language': {}
               }
           }
-          
+
           # Process JavaScript
           if os.path.exists('javascript-audit.json'):
               js_vulns = process_javascript_audit('javascript-audit.json')
               report['summary']['by_language']['javascript'] = js_vulns
               report['summary']['total_vulnerabilities'] += js_vulns
-          
+
           # Process Python
           if os.path.exists('python-audit.json'):
               py_vulns = process_python_audit('python-audit.json')
               report['summary']['by_language']['python'] = py_vulns
               report['summary']['total_vulnerabilities'] += py_vulns
-          
+
           # Process Ruby
           if os.path.exists('ruby-audit.json'):
               rb_vulns = process_ruby_audit('ruby-audit.json')
               report['summary']['by_language']['ruby'] = rb_vulns
               report['summary']['total_vulnerabilities'] += rb_vulns
-          
+
           # Save report
           with open('security-report.json', 'w') as f:
               json.dump(report, f, indent=2)
-          
+
           # Print summary
           total = report['summary']['total_vulnerabilities']
           by_lang = report['summary']['by_language']
-          
+
           print(f"Found {total} total vulnerabilities:")
           for lang, count in by_lang.items():
               print(f"- {lang}: {count} vulnerabilities")
@@ -248,93 +251,93 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           TOTAL_VULNS=$(jq -r '.summary.total_vulnerabilities' security-report.json)
-          
+
           if [ "$TOTAL_VULNS" -gt 0 ]; then
             TITLE="🚨 Security Alert: Found $TOTAL_VULNS vulnerable dependencies"
-            
+
             # Generate alert body
             BODY="## 🔒 Dependency Security Alert
-            
+
             **Scan Details:**
             - Repository: ${{ github.repository }}
             - Scan Type: ${{ github.event.inputs.scan_type }}
             - Scan Scope: ${{ github.event.inputs.scan_scope }}
             - Time: $(date -u +'%Y-%m-%d %H:%M:%S UTC')
-            
+
             ### 📊 Vulnerability Summary
             $(jq -r '.summary.by_language | to_entries[] | "- **\(.key)**: \(.value) vulnerabilities"' security-report.json)
-            
+
             ### 🔍 Next Steps
             1. Review the detailed scan results in workflow artifacts
             2. Update vulnerable dependencies
             3. Re-run security scan to verify fixes
-            
+
             ### 📝 Resources
             - [Scan Results](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }})
             - [Security Best Practices](https://docs.github.com/en/code-security)
-            
+
             ---
             *This alert was automatically generated by the Dependency Security workflow*"
-            
+
             # Create issue
             gh issue create --title "$TITLE" --body "$BODY" --label "security,dependencies,alert"
           fi
           # 🔒 Dependency Security Report
-          
+
           **Generated:** $(date)
           **Repository:** $GITHUB_REPO
           **Scan Type:** $SCAN_TYPE
           **Threshold:** $VULN_THRESHOLD
-          
+
           ## 📊 Scan Summary
-          
+
           | Language | Scanned | Status |
           |----------|---------|--------|
-          | Node.js | ${{ steps.detect-languages.outputs.has_node }} | $([ "${{ steps.detect-languages.outputs.has_node }}" = "true" ] && echo "✅ Completed" || echo "⏭️ Skipped") |
-          | Python | ${{ steps.detect-languages.outputs.has_python }} | $([ "${{ steps.detect-languages.outputs.has_python }}" = "true" ] && echo "✅ Completed" || echo "⏭️ Skipped") |
+          | Node.js | ${{ steps.discover.outputs.has_node }} | $([ "${{ steps.discover.outputs.has_node }}" = "true" ] && echo "✅ Completed" || echo "⏭️ Skipped") |
+          | Python | ${{ steps.discover.outputs.has_python }} | $([ "${{ steps.discover.outputs.has_python }}" = "true" ] && echo "✅ Completed" || echo "⏭️ Skipped") |
           | SAST | Always | ✅ Completed |
           | Secrets | Always | ✅ Completed |
-          
+
           ## 🔍 Detailed Results
-          
+
           ### Node.js Dependencies
           EOF
-          
+
           # Add npm audit results if available
           if [ -f audit-summary.md ]; then
             cat audit-summary.md >> security-reports/dependency-security-report.md
           else
             echo "✅ No npm vulnerabilities found" >> security-reports/dependency-security-report.md
           fi
-          
+
           cat >> security-reports/dependency-security-report.md << EOF
-          
+
           ### Python Dependencies
           EOF
-          
+
           # Add Python results if available
           if [ -f safety-results.json ] && [ -s safety-results.json ]; then
             echo "⚠️ Safety scan found issues - see safety-results.json" >> security-reports/dependency-security-report.md
           else
             echo "✅ No Python vulnerabilities found" >> security-reports/dependency-security-report.md
           fi
-          
+
           cat >> security-reports/dependency-security-report.md << EOF
-          
+
           ## 📋 Recommendations
-          
+
           1. **Regular Updates:** Keep dependencies updated to latest secure versions
           2. **Automated Scanning:** This workflow runs weekly and on dependency changes
           3. **Security Monitoring:** Monitor security advisories for your dependencies
           4. **Least Privilege:** Review and minimize dependency permissions
-          
+
           ## 🔄 Next Steps
-          
+
           - Review any flagged vulnerabilities above
           - Update vulnerable dependencies to secure versions
           - Consider alternative packages if updates are not available
           - Add security headers and configurations as needed
-          
+
           ---
           *Generated by Dependency Security Workflow*
           EOF
@@ -359,9 +362,9 @@ jobs:
         with:
           script: |
             const fs = require('fs');
-            
+
             let commentBody = "## 🔒 Dependency Security Scan Results\n\n";
-            
+
             // Check if security report exists
             try {
               const report = fs.readFileSync('security-reports/dependency-security-report.md', 'utf8');
@@ -370,17 +373,17 @@ jobs:
             } catch (e) {
               commentBody += "Security scan completed. Check workflow logs for details.\n\n";
             }
-            
+
             commentBody += `
             ### 🛡️ Security Status
             - **Dependency Review:** ✅ Completed
-            - **SAST Scanning:** ✅ Completed  
+            - **SAST Scanning:** ✅ Completed
             - **Secrets Detection:** ✅ Completed
             - **Vulnerability Threshold:** ${{ env.VULNERABILITY_THRESHOLD }}
-            
+
             📄 [View Full Security Report](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }})
             `;
-            
+
             github.rest.issues.createComment({
               issue_number: context.issue.number,
               owner: context.repo.owner,
@@ -398,28 +401,28 @@ jobs:
             --title "🚨 Critical Security Vulnerabilities Detected" \
             --label "security,critical,vulnerability" \
             --body "## 🔒 Security Alert
-          
+
           **Detection Date:** $(date)
           **Workflow:** Dependency Security Scan
           **Severity:** Critical
-          
+
           ### 🚨 Action Required
-          
+
           Critical security vulnerabilities have been detected in project dependencies.
-          
+
           ### 📋 Immediate Steps
-          
+
           1. **Review** the security scan results in the workflow logs
           2. **Update** vulnerable dependencies to secure versions
           3. **Test** thoroughly after updates
           4. **Monitor** for any additional security advisories
-          
+
           ### 📊 Scan Details
-          
+
           - **Threshold:** ${{ env.VULNERABILITY_THRESHOLD }}
           - **Scan Type:** Comprehensive
           - **Workflow Run:** [View Details](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }})
-          
+
           ---
           *Auto-generated by Security Scanning Workflow*"
 
@@ -427,8 +430,8 @@ jobs:
         if: always()
         env:
           SCAN_TYPE: ${{ github.event.inputs.scan_type || 'comprehensive' }}
-          HAS_NODE: ${{ steps.detect-languages.outputs.has_node }}
-          HAS_PYTHON: ${{ steps.detect-languages.outputs.has_python }}
+          HAS_NODE: ${{ steps.discover.outputs.has_node }}
+          HAS_PYTHON: ${{ steps.discover.outputs.has_python }}
           VULN_THRESHOLD: ${{ env.VULNERABILITY_THRESHOLD }}
         run: |
           echo "🔒 Dependency Security Scan Summary"
