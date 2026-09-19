@@ -1,5 +1,7 @@
 # Epic 4 closeout validation
 
+> Historical closeout record. For the measured state after #1250/#1251, see the [09/19/2026 post-migration quality baseline](../post-migration-baseline/2026-09-19/README.md). Its open defects supersede earlier status claims for that revision.
+
 - Parent: #711
 - Stories: #739 and #740
 - Baseline: main after #1158 (`991cb72513d956cc49f5fed184cc6c6096b8a4a0`)
