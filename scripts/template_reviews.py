@@ -1,6 +1,7 @@
 """Validate content-bound review evidence independently of modification dates."""
 from datetime import date
 import hashlib
+import hmac
 import json
 from pathlib import Path
 import re
@@ -53,7 +54,7 @@ def load_reviews(root, today=None):
                 raise ValueError('specific review evidence is required')
             digest = record.get('sha256', '')
             if (not isinstance(digest, str) or not re.fullmatch(r'[0-9a-f]{64}', digest)
-                    or hashlib.sha256(candidate.read_bytes()).hexdigest() != digest):
+                    or not hmac.compare_digest(hashlib.sha256(candidate.read_bytes()).hexdigest(), digest)):
                 raise ValueError('review hash does not match current content; review the changes')
             reviews[path] = record
         except (OSError, ValueError, TypeError) as exc:
