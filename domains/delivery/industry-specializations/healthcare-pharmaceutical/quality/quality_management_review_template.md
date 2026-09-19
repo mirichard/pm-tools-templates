@@ -3,10 +3,27 @@ title: "Quality Management Review Template"
 methodology: "universal"
 complexity: "advanced"
 owner: "mirichard"
-updated: "2025-08-05"
+updated: "2026-09-19"
 ---
 
 # Quality Management Review Template
+
+## Completing the worksheet
+
+Replace populated examples with project evidence before circulation. Record the reporting period, baseline, source, owner, and calculation for each measure; define thresholds and approval authority locally. Show unavailable values as unknown rather than zero or a favorable status. Reconcile totals and units, handle zero denominators explicitly, and retain the decision rationale and supporting evidence.
+
+
+Reference check: [Current source](https://www.fda.gov/medical-devices/postmarket-requirements-devices/quality-management-system-regulation-qmsr).
+
+
+## Applying this template
+
+Treat filled examples, dates, numerical limits, sampling frequencies, and approval outcomes as illustrations. Before execution, replace them with the approved product/site requirements, scientific rationale, method references, responsible reviewer, and acceptance evidence. Record the applicable jurisdiction and current guidance edition; a completed worksheet alone does not demonstrate regulatory compliance.
+
+| Requirement or limit | Applicable source / edition | Product-specific rationale | Approval / date | Execution evidence |
+|---|---|---|---|---|
+| [Requirement] | [Source] | [Rationale] | [Reviewer / date] | [Record] |
+
 
 ## Document Control
 
@@ -78,7 +95,7 @@ This quality management review fulfills requirements in:
 - **FDA Requirements**:
   - 21 CFR 211.22 - Responsibilities of quality control unit
   - 21 CFR 211.180(e) - Requirements for management review of records and data
-  - 21 CFR 820.20(c) - Management review (for medical devices)
+  - 21 CFR Part 820 - QMSR (applicable medical-device management review requirements)
 
 - **EU GMP Requirements**:
   - EU GMP Chapter 1 - Pharmaceutical Quality System

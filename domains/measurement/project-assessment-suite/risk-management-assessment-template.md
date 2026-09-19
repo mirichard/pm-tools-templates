@@ -8,16 +8,10 @@ role: "stakeholder"
 tags: ["planning", "risk-management", "stakeholder-management", "communication", "planning"]
 version: "1.0.0"
 owner: "mirichard"
-updated: "2025-08-06"
+updated: "2026-09-19"
 estimated_completion_time: "15-30 minutes"
 ---
 
-
-title: "Risk Management Assessment Template"
-methodology: "universal"
-complexity: "starter"
-owner: "mirichard"
-updated: "2025-08-05"
 
 # Risk Management Assessment Template
 
@@ -67,6 +61,20 @@ This template provides a comprehensive framework for assessing risk management e
 - [ ] Risk indicator monitoring
 - [ ] Escalation procedures clarity
 - [ ] Reporting and communication effectiveness
+
+## Assessment method and evidence
+
+Tailor the criteria to the project before scoring. This is a lightweight internal assessment, not a certification or formal appraisal. Mark inapplicable criteria N/A with a rationale; distinguish missing evidence from poor performance.
+
+Use a locally agreed scale: 1 = absent/ad hoc; 2 = inconsistently applied; 3 = defined and routinely applied; 4 = measured and controlled; 5 = improved using measured outcomes. Record evidence for each rating. Do not average scores with N/A or unassessed items.
+
+| Criterion | Rating / N/A / not assessed | Dated evidence and rationale | Gap / impact | Action / owner / due date | Completion evidence |
+|---|---|---|---|---|---|
+| [Criterion] | [Rating] | [Source and observation] | [Gap] | [Action / name / date] | [Observable acceptance condition] |
+
+- **Assessment limitations:** [Sampling, unavailable information, assessor familiarity]
+- **Stakeholder review:** [Reviewer / date / disputed findings]
+- **Follow-up review:** [Date and accountable owner]
 
 Related Resources:
 - [Risk Management Plan](../project-lifecycle/02-planning/risk-management/)

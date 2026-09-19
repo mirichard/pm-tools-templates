@@ -486,5 +486,5 @@ Sprint Reports (Operational)
 - [UAT Plan Template (Traditional)](../../../../../../Traditional/Templates/uat_plan_template.md)
 - [UAT Feedback Canvas (Agile)](../../../../../../Agile/Tools/uat_feedback_canvas.md)
 - [Integrated Change Strategy](integrated_change_strategy_template.md)
-- UAT Governance Framework (linked resource unavailable)
+- [Acceptance Decision Framework](#decision-framework)
 

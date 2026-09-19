@@ -3,10 +3,13 @@ title: "Pharmaceutical Qbd Template"
 methodology: "universal"
 complexity: "advanced"
 owner: "mirichard"
-updated: "2025-08-05"
+updated: "2026-09-19"
 ---
 
 # Pharmaceutical Quality by Design (QbD) Template
+
+Complete this worksheet with product-specific development evidence. Select the applicable regulatory framework and obtain project quality approval before use. See [FDA Q8(R2)](https://www.fda.gov/regulatory-information/search-fda-guidance-documents/q8r2-pharmaceutical-development) and [Q9(R1)](https://www.fda.gov/regulatory-information/search-fda-guidance-documents/q9r1-quality-risk-management).
+
 
 ## Executive Summary
 This template implements ICH Q8, Q9, and Q10 Quality by Design principles for pharmaceutical development projects.
@@ -28,10 +31,10 @@ This template implements ICH Q8, Q9, and Q10 Quality by Design principles for ph
 | Stability | [Shelf life target] | [Commercial viability] |
 
 ### Critical Quality Attributes (CQAs)
-- [ ] **Assay:** [90-110% of label claim]
+- [ ] **Assay:** [Product-specific approved assay limits and scientific justification]
 - [ ] **Impurities:** [< specification limits]
 - [ ] **Dissolution:** [Target profile]
-- [ ] **Content Uniformity:** [AV ≤ 15.0]
+- [ ] **Content Uniformity:** [Applicable compendial acceptance criteria and method reference]
 - [ ] **Stability:** [ICH conditions]
 
 ## Risk Assessment (ICH Q9)
@@ -44,9 +47,9 @@ This template implements ICH Q8, Q9, and Q10 Quality by Design principles for ph
 | Dissolution | Poor bioavailability | High | Medium | High |
 
 ### Risk Control Strategy
-- High Risk → Design Space development required
-- Medium Risk → Enhanced controls and monitoring
-- Low Risk → Standard controls sufficient
+- For each risk, document the scientific rationale, controls, remaining uncertainty, and accountable approval. A risk label alone does not determine a regulatory requirement.
+- Evaluate whether a proposed design space is useful and justified; it is not automatically required for a high-risk item. If proposed, document the evidence and applicable regulatory assessment.
+- Confirm control effectiveness for every risk level.
 
 ## Design Space Development
 
@@ -73,9 +76,9 @@ This template implements ICH Q8, Q9, and Q10 Quality by Design principles for ph
 **Process Parameters:**
 | Parameter | Range | Impact on CQA |
 |-----------|-------|---------------|
-| Blend time | [5-15 min] | Content uniformity |
-| Compression force | [5-15 kN] | Hardness, dissolution |
-| Coating weight gain | [2-4%] | Appearance, stability |
+| Blend time | [Study-supported operating range and units] | Content uniformity |
+| Compression force | [Study-supported operating range and units] | Hardness, dissolution |
+| Coating weight gain | [Study-supported operating range and units] | Appearance, stability |
 
 ## Control Strategy
 

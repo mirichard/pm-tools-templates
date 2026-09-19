@@ -3,10 +3,22 @@ title: "Cleaning Validation Protocol Template"
 methodology: "universal"
 complexity: "advanced"
 owner: "mirichard"
-updated: "2025-08-05"
+updated: "2026-09-19"
 ---
 
 # Cleaning Validation Protocol Template
+
+Reference check: [Current source](https://www.fda.gov/regulatory-information/search-fda-guidance-documents/q2r2-validation-analytical-procedures).
+
+
+## Applying this template
+
+Treat filled examples, dates, numerical limits, sampling frequencies, and approval outcomes as illustrations. Before execution, replace them with the approved product/site requirements, scientific rationale, method references, responsible reviewer, and acceptance evidence. Record the applicable jurisdiction and current guidance edition; a completed worksheet alone does not demonstrate regulatory compliance.
+
+| Requirement or limit | Applicable source / edition | Product-specific rationale | Approval / date | Execution evidence |
+|---|---|---|---|---|
+| [Requirement] | [Source] | [Rationale] | [Reviewer / date] | [Record] |
+
 
 **Protocol Number:** [CV-XXXX]  
 **Version:** [1.0]  
@@ -195,22 +207,22 @@ Limit per surface area = 100,000 μg/kg × 100 kg / 5 m² = 2,000,000 μg/m² = 
 - Absence of specified organisms (e.g., E. coli, Salmonella, Pseudomonas aeruginosa, Staphylococcus aureus)
 
 #### 4.3.4 Recovery Study Acceptance Criteria
-- Recovery factor must be ≥ 70% for swab methods
-- Relative standard deviation (RSD) of recovery samples must be ≤ 15%
+- Specify and justify the recovery acceptance criterion for the analyte, surface, sampling method, and intended analytical use.
+- Define a scientifically justified precision criterion and sample size for recovery studies.
 
 ## 5. Test Procedures
 
 ### 5.1 Visual Inspection
 
 #### 5.1.1 Materials
-- Flashlight or other portable light source (minimum 500 lux)
+- Flashlight or other portable light source (an approved illumination criterion appropriate to the visual inspection method)
 - Inspection mirror for difficult-to-reach areas
 - Clean, lint-free gloves
 - Inspection checklist
 
 #### 5.1.2 Procedure
 1. Don appropriate PPE including clean gloves
-2. Ensure adequate lighting conditions (minimum 500 lux)
+2. Ensure adequate lighting conditions (an approved illumination criterion appropriate to the visual inspection method)
 3. Visually inspect all accessible product-contact surfaces
 4. Use inspection mirror for difficult-to-access areas
 5. Document observations on inspection form
@@ -284,9 +296,9 @@ Results must be below the established limits for:
 5. Analyze samples and calculate recovery percentage
 
 #### 5.4.3 Acceptance Criteria
-- Recovery factor must be ≥ 70% for swab methods
-- Relative standard deviation (RSD) of recovery samples must be ≤ 15%
-- Analytical method must be validated according to ICH Q2(R1) guidelines
+- Specify and justify the recovery acceptance criterion for the analyte, surface, sampling method, and intended analytical use.
+- Define a scientifically justified precision criterion and sample size for recovery studies.
+- Analytical method must be validated according to ICH Q2(R2) guidelines
 
 ## 6. Analytical Methods
 

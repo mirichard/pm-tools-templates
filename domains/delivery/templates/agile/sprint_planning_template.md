@@ -3,10 +3,15 @@ title: "Sprint Planning Template"
 methodology: "agile"
 complexity: "intermediate"
 owner: "mirichard"
-updated: "2025-08-05"
+updated: "2026-09-19"
 ---
 
 # SPRINT PLANNING
+
+## Scrum tailoring
+
+These worksheets and suggested agendas are optional practices. In Scrum, the Developers own the plan for delivering the Sprint Goal; selected work is a forecast that can be adapted. A Definition of Ready and story points are optional team practices. Use the product Definition of Done consistently, and treat the Sprint Review as inspection and adaptation rather than a release-approval gate. See the [Scrum Guide](https://scrumguides.org/scrum-guide.html).
+
 
 ## Document Information
 **Product/Project Name:** *[Customer Portal Application]*  
@@ -15,7 +20,7 @@ updated: "2025-08-05"
 **Sprint Duration:** *[2 weeks]*  
 **Scrum Master:** *[John Doe]*  
 **Product Owner:** *[Jane Smith]*  
-**Last Updated:** *[YYYY-MM-DD]*  
+**Last Updated:** *[YYYY-MM-DD]*\
 
 ---
 

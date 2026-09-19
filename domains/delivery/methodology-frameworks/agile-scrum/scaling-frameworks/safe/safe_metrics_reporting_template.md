@@ -3,10 +3,15 @@ title: "Safe Metrics Reporting Template"
 methodology: "agile"
 complexity: "advanced"
 owner: "mirichard"
-updated: "2025-08-05"
+updated: "2026-09-19"
 ---
 
 # SAFe Metrics Reporting Template
+
+## Completing the worksheet
+
+Replace populated examples with project evidence before circulation. Record the reporting period, baseline, source, owner, and calculation for each measure; define thresholds and approval authority locally. Show unavailable values as unknown rather than zero or a favorable status. Reconcile totals and units, handle zero denominators explicitly, and retain the decision rationale and supporting evidence.
+
 
 **Enterprise:** [Enterprise Name]  
 **Portfolio:** [Portfolio Name]  
@@ -537,7 +542,7 @@ Portfolio ROI Trend (12 Months)
 
 #### Program Level Metrics
 **Program Predictability:**
-- **Definition:** Percentage of PI objectives achieved vs. planned
+- **Definition:** Actual business value divided by planned business value for the defined committed-objective scope
 - **Calculation:** (Actual Business Value / Planned Business Value) × 100
 - **Target:** >80% consistently
 

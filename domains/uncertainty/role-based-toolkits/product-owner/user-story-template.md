@@ -3,7 +3,7 @@ title: "User Story Template"
 methodology: "universal"
 complexity: "advanced"
 owner: "mirichard"
-updated: "2025-08-05"
+updated: "2026-09-19"
 ---
 
 # User Story Template
@@ -39,6 +39,8 @@ Using the Given-When-Then format:
 **Then** [expected outcome or result]
 
 ## Definition of Ready Checklist
+
+This is an optional team working agreement, not a Scrum requirement. Tailor it to support refinement rather than create an approval handoff.
 - [ ] User story is clearly written and understandable
 - [ ] Acceptance criteria are defined and testable
 - [ ] Story is estimated by the development team
@@ -49,6 +51,8 @@ Using the Given-When-Then format:
 - [ ] Compliance requirements noted (if applicable)
 
 ## Definition of Done Checklist
+
+The items below are examples for a software product. Align them with the product Definition of Done; acceptance criteria describe this story, while the Definition of Done defines the quality of the Increment.
 - [ ] Code is complete and follows coding standards
 - [ ] Unit tests written and passing
 - [ ] Integration tests passing
@@ -58,7 +62,7 @@ Using the Given-When-Then format:
 - [ ] Performance requirements met
 - [ ] Security review completed (if applicable)
 - [ ] Documentation updated
-- [ ] Product Owner approval received
+- [ ] Required product acceptance evidence recorded; any organizational approval is separate from meeting the Definition of Done
 
 ## Additional Information
 
@@ -129,3 +133,5 @@ If this story is too large, consider splitting into:
 
 *Comprehensive user story documentation for agile development*
 
+
+Framework reference: [Scrum Guide, November 2020](https://scrumguides.org/scrum-guide.html).

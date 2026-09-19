@@ -3,7 +3,7 @@ title: "Api Documentation Template"
 methodology: "universal"
 complexity: "advanced"
 owner: "mirichard"
-updated: "2025-08-05"
+updated: "2026-09-19"
 primary_principles: ["quality-by-design", "stewardship"]
 secondary_principles: ["systems-thinking", "stakeholder-engagement"]
 principle_rationale: "Makes interface quality, ownership, dependencies, and consumer needs explicit."
@@ -11,9 +11,14 @@ principle_rationale: "Makes interface quality, ownership, dependencies, and cons
 
 # API Documentation Template
 
+## Example implementation contract
+
+Code, queries, configuration, versions, thresholds, and sample output illustrate the design; they are not a tested deployment bundle. Record the actual platform/version, supported dependencies, credentials source, least-privilege access, environment-specific values, and test results before use. Pin release artifacts and validate rollback and failure paths in the target environment. Never use sample secrets or sample approval results as operational evidence.
+
+
 **API Name:** [API Name]  
 **Version:** [Version Number]  
-**Last Updated:** [YYYY-MM-DD]  
+**Last Updated:** [YYYY-MM-DD]\
 **Status:** [Draft/Beta/Production]  
 **Document ID:** [DOC-API-XXX]
 
@@ -302,7 +307,7 @@ Request Body:
 |-----------|------|----------|-------------|
 | email | string | Yes | User's email address |
 | name | string | Yes | User's full name |
-| password | string | Yes | User's password (min 8 characters) |
+| password | string | Yes | User's password (validate against the approved authentication policy) |
 | address | object | No | User's address information |
 
 Request Example:
@@ -531,7 +536,7 @@ Content-Type: application/json
       },
       {
         "field": "password",
-        "message": "Password must be at least 8 characters long"
+        "message": "Password does not meet the configured authentication policy"
       }
     ],
     "request_id": "req_abcdef123456"
@@ -737,12 +742,12 @@ Signature Verification Example:
 const crypto = require('crypto');
 
 function verifyWebhookSignature(payload, signature, secret) {
-  const hmac = crypto.createHmac('sha256', secret);
-  const expectedSignature = hmac.update(payload).digest('hex');
-  return crypto.timingSafeEqual(
-    Buffer.from(signature),
-    Buffer.from(expectedSignature)
-  );
+  if (typeof signature !== 'string' || !/^[a-fA-F0-9]{64}$/.test(signature)) {
+    return false;
+  }
+  const expectedSignature = crypto.createHmac('sha256', secret).update(payload).digest();
+  const suppliedSignature = Buffer.from(signature, 'hex');
+  return crypto.timingSafeEqual(suppliedSignature, expectedSignature);
 }
 ```
 

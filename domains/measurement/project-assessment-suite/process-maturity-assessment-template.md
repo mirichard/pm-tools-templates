@@ -8,16 +8,10 @@ role: "stakeholder"
 tags: ["traditional", "initiating", "risk-management", "stakeholder-management", "communication", "planning", "quality"]
 version: "1.0.0"
 owner: "mirichard"
-updated: "2025-08-06"
+updated: "2026-09-19"
 estimated_completion_time: "15-30 minutes"
 ---
 
-
-title: "Process Maturity Assessment Template"
-methodology: "universal"
-complexity: "starter"
-owner: "mirichard"
-updated: "2025-08-05"
 
 # Process Maturity Assessment Template
 
@@ -28,7 +22,7 @@ This template provides a structured approach to assessing project management pro
 **Organization:** [Organization name]
 **Assessment Scope:** [Processes/areas covered]
 **Assessment Date:** [Date]
-**Methodology:** [CMMI/Industry Standard/Custom]
+**Methodology:** [Internal criteria and rationale; identify any external framework separately]
 
 ## Process Areas Assessment
 
@@ -81,6 +75,20 @@ This template provides a structured approach to assessing project management pro
 - Phase 1 (0-6 months): [Focus areas]
 - Phase 2 (6-12 months): [Development areas]
 - Phase 3 (12-18 months): [Advanced capabilities]
+
+## Assessment method and evidence
+
+Tailor the criteria to the project before scoring. This is a lightweight internal assessment, not a certification or formal appraisal. Mark inapplicable criteria N/A with a rationale; distinguish missing evidence from poor performance.
+
+Use a locally agreed scale: 1 = absent/ad hoc; 2 = inconsistently applied; 3 = defined and routinely applied; 4 = measured and controlled; 5 = improved using measured outcomes. Record evidence for each rating. Do not average scores with N/A or unassessed items.
+
+| Criterion | Rating / N/A / not assessed | Dated evidence and rationale | Gap / impact | Action / owner / due date | Completion evidence |
+|---|---|---|---|---|---|
+| [Criterion] | [Rating] | [Source and observation] | [Gap] | [Action / name / date] | [Observable acceptance condition] |
+
+- **Assessment limitations:** [Sampling, unavailable information, assessor familiarity]
+- **Stakeholder review:** [Reviewer / date / disputed findings]
+- **Follow-up review:** [Date and accountable owner]
 
 Related Resources:
 - [Governance Assessment](./governance-assessment-template.md)

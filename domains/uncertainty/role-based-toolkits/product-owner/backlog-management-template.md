@@ -3,13 +3,18 @@ title: "Backlog Management Template"
 methodology: "universal"
 complexity: "advanced"
 owner: "mirichard"
-updated: "2025-08-05"
+updated: "2026-09-19"
 primary_principles: ["value-focus", "adaptability"]
 secondary_principles: ["stakeholder-engagement", "evidence-based-decisions"]
 principle_rationale: "Orders adaptable delivery choices by stakeholder value and supporting evidence."
 ---
 
 # Backlog Management Template
+
+## Scrum tailoring
+
+These worksheets and suggested agendas are optional practices. In Scrum, the Developers own the plan for delivering the Sprint Goal; selected work is a forecast that can be adapted. A Definition of Ready and story points are optional team practices. Use the product Definition of Done consistently, and treat the Sprint Review as inspection and adaptation rather than a release-approval gate. See the [Scrum Guide](https://scrumguides.org/scrum-guide.html).
+
 
 ## Product Information
 - **Product Name**: [Product Name]
@@ -178,7 +183,7 @@ principle_rationale: "Orders adaptable delivery choices by stakeholder value and
 ---
 
 **Maintained by**: [Product Owner Name]  
-**Last Updated**: [Date]  
+**Last Updated**: [Date]\
 **Next Review**: [Date]
 
 *Systematic product backlog management for maximum value delivery*

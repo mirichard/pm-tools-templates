@@ -3,7 +3,7 @@ title: "Safe Art Coordination Template"
 methodology: "agile"
 complexity: "advanced"
 owner: "mirichard"
-updated: "2025-08-05"
+updated: "2026-09-19"
 ---
 
 # SAFe ART Coordination Template
@@ -11,7 +11,7 @@ updated: "2025-08-05"
 **Enterprise:** [Enterprise Name]  
 **Portfolio:** [Portfolio Name]  
 **Created By:** [Name/Role]  
-**Last Updated:** [YYYY-MM-DD]  
+**Last Updated:** [YYYY-MM-DD]\
 **Version:** [1.0]
 
 ## 📋 ART Coordination Overview
@@ -345,7 +345,7 @@ Milestones       | M1         | M2          | M3          | PI Demo     | Inspec
 - **WIP:** Number of features in progress
 
 #### Predictability Metrics
-- **Program Predictability Measure:** % of PI objectives achieved
+- **Program Predictability Measure:** Actual/planned business-value ratio for the defined committed-objective scope
 - **Feature Completion Rate:** % of planned features completed
 - **Milestone Achievement:** % of milestones met on time
 

@@ -8,18 +8,17 @@ role: "stakeholder"
 tags: ["traditional", "initiating", "risk-management", "stakeholder-management", "communication", "planning", "quality"]
 version: "1.0.0"
 owner: "mirichard"
-updated: "2025-08-06"
+updated: "2026-09-19"
 estimated_completion_time: "60-90 minutes"
 ---
 
 
-title: "Future State Blueprint Template"
-methodology: "universal"
-complexity: "advanced"
-owner: "mirichard"
-updated: "2025-08-05"
-
 # Future State Blueprint Template
+
+## Completing the worksheet
+
+Replace populated examples with project evidence before circulation. Record the reporting period, baseline, source, owner, and calculation for each measure; define thresholds and approval authority locally. Show unavailable values as unknown rather than zero or a favorable status. Reconcile totals and units, handle zero denominators explicitly, and retain the decision rationale and supporting evidence.
+
 
 ## Overview
 
@@ -524,8 +523,8 @@ CEO/Executive Level:
 
 - [Current State Analysis Template](../domains/measurement/project-assessment-suite/current-state-analysis-template.md)
 - [Gap Analysis Framework](gap-analysis-matrix-template.md)
-- Implementation Planning Template (linked resource unavailable)
-- Change Management Plan (linked resource unavailable)
+- [Remediation and Implementation Action Plan](remediation-action-plan-template.md)
+- [Change Management Plan](../../delivery/templates/traditional/Traditional/Templates/change_management_plan_template.md)
 
 
 **Blueprint Date:** {{ blueprint_date }}

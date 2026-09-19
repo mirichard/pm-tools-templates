@@ -3,10 +3,19 @@ title: "Process Validation Master Plan Template"
 methodology: "universal"
 complexity: "advanced"
 owner: "mirichard"
-updated: "2025-08-05"
+updated: "2026-09-19"
 ---
 
 # Process Validation Master Plan Template
+
+## Applying this template
+
+Treat filled examples, dates, numerical limits, sampling frequencies, and approval outcomes as illustrations. Before execution, replace them with the approved product/site requirements, scientific rationale, method references, responsible reviewer, and acceptance evidence. Record the applicable jurisdiction and current guidance edition; a completed worksheet alone does not demonstrate regulatory compliance.
+
+| Requirement or limit | Applicable source / edition | Product-specific rationale | Approval / date | Execution evidence |
+|---|---|---|---|---|
+| [Requirement] | [Source] | [Rationale] | [Reviewer / date] | [Record] |
+
 
 ## Document Control
 
@@ -583,7 +592,7 @@ The data review process will include:
 
 Process capability indices targets:
 - Cp ≥ 1.33 for critical parameters
-- Cpk ≥ 1.33 for critical parameters
+- Approved, scientifically justified capability criteria for critical parameters; document stability, distribution assumptions and sample-size rationale
 - Process capability will be assessed for critical parameters and quality attributes
 - Parameters not meeting capability targets will require enhanced control strategy or process improvements
 - For high-risk parameters, enhanced targets (Cp/Cpk ≥ 1.50) may be established

@@ -8,16 +8,10 @@ role: "stakeholder"
 tags: ["initiating", "stakeholder-management", "communication", "planning", "quality"]
 version: "1.0.0"
 owner: "mirichard"
-updated: "2025-08-06"
+updated: "2026-09-19"
 estimated_completion_time: "15-30 minutes"
 ---
 
-
-title: "Stakeholder Engagement Assessment Template"
-methodology: "universal"
-complexity: "starter"
-owner: "mirichard"
-updated: "2025-08-05"
 
 # Stakeholder Engagement Assessment Template
 
@@ -68,6 +62,20 @@ This template evaluates the effectiveness of stakeholder engagement processes an
 1. [High priority improvement]
 2. [Medium priority improvement]
 3. [Low priority improvement]
+
+## Assessment method and evidence
+
+Tailor the criteria to the project before scoring. This is a lightweight internal assessment, not a certification or formal appraisal. Mark inapplicable criteria N/A with a rationale; distinguish missing evidence from poor performance.
+
+Use a locally agreed scale: 1 = absent/ad hoc; 2 = inconsistently applied; 3 = defined and routinely applied; 4 = measured and controlled; 5 = improved using measured outcomes. Record evidence for each rating. Do not average scores with N/A or unassessed items.
+
+| Criterion | Rating / N/A / not assessed | Dated evidence and rationale | Gap / impact | Action / owner / due date | Completion evidence |
+|---|---|---|---|---|---|
+| [Criterion] | [Rating] | [Source and observation] | [Gap] | [Action / name / date] | [Observable acceptance condition] |
+
+- **Assessment limitations:** [Sampling, unavailable information, assessor familiarity]
+- **Stakeholder review:** [Reviewer / date / disputed findings]
+- **Follow-up review:** [Date and accountable owner]
 
 Related Resources:
 - [Stakeholder Engagement](../../../role-based-toolkits/project-manager/stakeholder-engagement/)

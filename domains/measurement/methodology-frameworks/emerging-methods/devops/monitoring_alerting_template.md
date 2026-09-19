@@ -3,10 +3,15 @@ title: "Monitoring Alerting Template"
 methodology: "universal"
 complexity: "advanced"
 owner: "mirichard"
-updated: "2025-08-05"
+updated: "2026-09-19"
 ---
 
 # DevOps Monitoring and Alerting Strategy Template
+
+## Example implementation contract
+
+Code, queries, configuration, versions, thresholds, and sample output illustrate the design; they are not a tested deployment bundle. Record the actual platform/version, supported dependencies, credentials source, least-privilege access, environment-specific values, and test results before use. Pin release artifacts and validate rollback and failure paths in the target environment. Never use sample secrets or sample approval results as operational evidence.
+
 
 ## Overview
 This template provides a comprehensive framework for implementing monitoring and alerting strategies in DevOps environments, covering observability, incident response, and continuous improvement of system reliability and performance.
@@ -848,7 +853,6 @@ Annual Assessment:
 - [Release Management Workflow](../../../domains/measurement/methodology-frameworks/emerging-methods/devops/release_management_template.md)
 - [DevSecOps Integration](./devsecops_template.md)
 - [Infrastructure as Code](./infrastructure_as_code_template.md)
-- Site Reliability Engineer Toolkit (linked resource unavailable)
 
 ---
 

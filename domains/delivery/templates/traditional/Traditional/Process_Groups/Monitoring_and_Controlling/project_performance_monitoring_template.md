@@ -3,10 +3,15 @@ title: "Project Performance Monitoring Template"
 methodology: "traditional"
 complexity: "advanced"
 owner: "mirichard"
-updated: "2025-08-05"
+updated: "2026-09-19"
 ---
 
 # PROJECT PERFORMANCE MONITORING REPORT
+
+## Completing the worksheet
+
+Replace populated examples with project evidence before circulation. Record the reporting period, baseline, source, owner, and calculation for each measure; define thresholds and approval authority locally. Show unavailable values as unknown rather than zero or a favorable status. Reconcile totals and units, handle zero denominators explicitly, and retain the decision rationale and supporting evidence.
+
 
 ## Document Control Information
 **Document Title:** Project Performance Monitoring Report  
@@ -421,7 +426,7 @@ updated: "2025-08-05"
 *Example:
 **Integrated Baseline Performance:**
 - **Schedule Performance Index (SPI)**: 0.92 (8% behind)
-- **Cost Performance Index (CPI)**: 1.02 (2% under budget)
+- **Cost Performance Index (CPI)**: 1.02 (earned value / actual cost; not a direct percentage below the total budget)
 - **Quality Performance Index (QPI)**: 1.05 (5% above target)
 - **To Complete Performance Index (TCPI)**: 0.98 (achievable)
 

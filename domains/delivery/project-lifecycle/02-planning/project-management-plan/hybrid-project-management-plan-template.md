@@ -3,41 +3,62 @@ title: "Hybrid Project Management Plan Template"
 methodology: "universal"
 complexity: "starter"
 owner: "mirichard"
-updated: "2025-08-05"
+updated: "2026-09-19"
 ---
 
 # Hybrid Project Management Plan
 
-## Overview
-Project management plan template combining traditional and agile methodologies.
+## Purpose and use
 
-## Usage
-This template provides a standardized approach for Hybrid Project Management Plan.
+Coordinate planned milestones with iterative delivery. Agree which decisions are fixed, which can adapt, and how teams integrate their work. Complete this plan with the sponsor and delivery leads before baselining it.
 
-## Template Sections
+## Project controls
 
-### 1. Introduction
-Brief description of the purpose and scope.
+- **Project / sponsor / project manager:** [Names]
+- **Business outcome and success measures:** [Outcome / baseline / target]
+- **Scope and exclusions:** [Deliverables and boundaries]
+- **Budget, milestones, and constraints:** [Approved limits and dates]
+- **Version / approval date / next review:** [Values]
 
-### 2. Key Components
-List the main elements that should be included.
+## Delivery approach
 
-### 3. Implementation Guidelines
-Step-by-step instructions for using this template.
+| Workstream | Predictive or iterative approach | Rationale | Deliverable / acceptance evidence | Lead |
+|---|---|---|---|---|
+| [Workstream] | [Approach] | [Uncertainty / constraints] | [Evidence] | [Name] |
 
-### 4. Best Practices
-- Follow established project management standards
-- Ensure stakeholder review and approval
-- Document all decisions and changes
-- Regular updates and maintenance
+## Integrated schedule and dependencies
+
+| Milestone or release | Target date | Required inputs / provider | Acceptance gate | Contingency |
+|---|---|---|---|---|
+| [Milestone] | [Date] | [Dependency and owner] | [Criteria and approver] | [Fallback] |
+
+Maintain one dependency register across teams. Reconcile sprint or iteration forecasts with milestone commitments at [cadence]; record assumptions and forecast changes.
+
+## Governance and change
+
+| Decision | Delegated authority | Threshold requiring escalation | Decision forum / timing |
+|---|---|---|---|
+| Backlog ordering | [Role] | [Constraint] | [Forum] |
+| Scope, cost, or milestone change | [Role] | [Threshold] | [Forum] |
+| Release acceptance | [Role] | [Risk tolerance] | [Forum] |
+
+Document the impact, alternatives, approval, and baseline change for each material change. Iterative reprioritization must respect agreed budget, compliance, and milestone constraints.
+
+## Quality, risk, and resources
+
+- **Quality criteria and shared completion standard:** [Criteria and test evidence]
+- **Risk owner and review cadence:** [Name / cadence / escalation route]
+- **Capacity and specialist availability:** [Allocation and conflicts]
+- **Reporting:** [Audience / outcome metrics / forecast / decisions needed / cadence]
+- **Handover:** [Operational owner / support readiness / acceptance evidence]
+
+## Approval and maintenance
+
+| Approver | Decision and conditions | Date | Next review |
+|---|---|---|---|
+| [Name / role] | [Approve / revise] | [Date] | [Date] |
 
 ## Related Templates
 - [Project Charter](../../../../../project-lifecycle/01-initiation/project-charter/)
 - [Risk Management](../risk-management/)
 - [Communication Plan](../../../../../project-lifecycle/02-planning/communication-planning/)
-
-## Version History
-- v1.0 - Initial template creation
-
----
-*This template is part of the PM Tools Templates repository.*

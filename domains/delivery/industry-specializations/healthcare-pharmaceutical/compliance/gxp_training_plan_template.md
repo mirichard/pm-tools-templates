@@ -3,14 +3,26 @@ title: "Gxp Training Plan Template"
 methodology: "universal"
 complexity: "advanced"
 owner: "mirichard"
-updated: "2025-08-05"
+updated: "2026-09-19"
 ---
 
 # GxP Training Plan Template
 
+Reference check: [Current source](https://www.fda.gov/regulatory-information/search-fda-guidance-documents/e6r3-good-clinical-practice-gcp), [Current source](https://www.fda.gov/medical-devices/postmarket-requirements-devices/quality-management-system-regulation-qmsr).
+
+
+## Applying this template
+
+Treat filled examples, dates, numerical limits, sampling frequencies, and approval outcomes as illustrations. Before execution, replace them with the approved product/site requirements, scientific rationale, method references, responsible reviewer, and acceptance evidence. Record the applicable jurisdiction and current guidance edition; a completed worksheet alone does not demonstrate regulatory compliance.
+
+| Requirement or limit | Applicable source / edition | Product-specific rationale | Approval / date | Execution evidence |
+|---|---|---|---|---|
+| [Requirement] | [Source] | [Rationale] | [Reviewer / date] | [Record] |
+
+
 ## Document Control
 
-**Document ID:** [Document ID]  
+**Document ID:** [Document ID]\
 **Version:** [Version Number]  
 **Effective Date:** [Effective Date]  
 **Review Date:** [Review Date]  
@@ -52,7 +64,7 @@ This training plan is designed to comply with the following regulatory requireme
 
 - **FDA Requirements**
   - 21 CFR 211.25 (GMP for Finished Pharmaceuticals, Personnel Qualifications)
-  - 21 CFR 820.25 (Quality System Regulation, Personnel)
+  - 21 CFR Part 820 (QMSR; applicable device quality-system competence requirements)
   - 21 CFR Part 11 (Electronic Records; Electronic Signatures)
 
 - **EMA Requirements**
@@ -61,7 +73,7 @@ This training plan is designed to comply with the following regulatory requireme
 
 - **ICH Guidelines**
   - ICH Q10 (Pharmaceutical Quality System)
-  - ICH E6(R2) (Good Clinical Practice)
+  - ICH E6(R3) (Good Clinical Practice)
 
 - **ISO Standards**
   - ISO 9001:2015 (Quality Management Systems)
@@ -1409,4 +1421,4 @@ Trainer Signature: ___________________________ Date: __________
 7. PIC/S Guide to Good Manufacturing Practice for Medicinal Products
 8. WHO Technical Report Series No. 996, Annex 3, WHO Good Manufacturing Practices for Pharmaceutical Products
 9. ISO 10015:2019 Quality Management - Guidelines for Competence Management and Training
-10. ICH E6(R2) Good Clinical Practice
+10. ICH E6(R3) Good Clinical Practice

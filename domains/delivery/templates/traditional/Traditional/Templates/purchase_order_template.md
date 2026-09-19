@@ -3,7 +3,7 @@ title: "Purchase Order Template"
 methodology: "traditional"
 complexity: "intermediate"
 owner: "mirichard"
-updated: "2025-08-05"
+updated: "2026-09-19"
 ---
 
 # Purchase Order Template
@@ -75,9 +75,9 @@ updated: "2025-08-05"
 
 1.  **Payment Terms**: [e.g., Net 30, Net 60]
 2.  **Invoice Instructions**: Invoices must reference the PO number above. Please send invoices to [Accounts Payable email/address].
-3.  **Cancellation Policy**: This PO may be cancelled in writing within [X] days of issuance.
-4.  **Confidentiality**: All information related to this purchase is confidential.
-5.  **Acceptance**: Vendor's fulfillment of this order constitutes acceptance of all terms and conditions.
+3.  **Cancellation Terms**: [Reference the approved contract clause, notice method, applicable conditions, and responsible contact.]
+4.  **Confidentiality**: [Reference the applicable agreement, information covered, exclusions, and permitted disclosures.]
+5.  **Acceptance and governing terms**: [Specify the agreed acceptance mechanism, incorporated terms, order of precedence, governing law, and conflict-resolution process.]
 
 ---
 
@@ -89,4 +89,4 @@ updated: "2025-08-05"
 
 ---
 
-*This document is legally binding upon fulfillment. Please contact us immediately with any questions or discrepancies.*
+Before issue, confirm purchasing authority and applicable terms with the authorized procurement/legal reviewer. This worksheet does not determine enforceability. For example, [UCC § 2-206](https://www.law.cornell.edu/ucc/2/2-206) makes acceptance context-dependent; applicable law and agreed terms control.

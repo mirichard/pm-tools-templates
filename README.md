@@ -283,7 +283,7 @@ This library is organized around **how project managers actually work**, not jus
 1. Go directly to [Business Stakeholder Suite](business-stakeholder-suite/)
 2. Use [Executive Dashboards](business-stakeholder-suite/executive-dashboards/) for reporting
 3. Implement [Financial Governance](business-stakeholder-suite/financial-governance/) for oversight
-4. Check Strategic Alignment (linked resource unavailable) tools
+4. Check [Strategic Alignment and Prioritization](role-based-toolkits/program-manager/portfolio-management/prioritization-model.md) tools
 
 ### By Project Type
 
@@ -468,7 +468,7 @@ This library is organized around **how project managers actually work**, not jus
 
 ### Automation Options
 - **[GitHub Integration Templates](integration_guides/github_integration/)** - Development workflows
-- **Email Templates (linked resource unavailable)** - Stakeholder updates (coming soon)
+- **[Email Templates](templates/email-templates/clean-status/)** - Stakeholder, team, and executive status updates
 - **[Automated Reporting](integration_guides/)** - Dashboard automation
 - **[Custom Templates](docs/implementation/)** - Tailored solutions
 

@@ -3,7 +3,7 @@ title: "Risk Management Plan Template"
 methodology: "universal"
 complexity: "advanced"
 owner: "mirichard"
-updated: "2025-08-05"
+updated: "2026-09-19"
 ---
 
 # Risk Management Plan Template
@@ -280,5 +280,4 @@ This plan covers all project-related risks including:
 | Risk Manager | [Name] | | |
 
 ---
-*This Risk Management Plan follows Industry Standard Risk Management standards and industry best practices.*
-
+*Tailor this worksheet to the selected organizational methodology and approval process.*
