@@ -3,10 +3,18 @@ title: "Roi Tracking Template"
 methodology: "traditional"
 complexity: "advanced"
 owner: "mirichard"
-updated: "2025-08-05"
+updated: "2026-09-19"
 ---
 
 # ROI Tracking Template
+
+## Completing the worksheet
+
+Replace populated examples with project evidence before circulation. Record the reporting period, baseline, source, owner, and calculation for each measure; define thresholds and approval authority locally. Show unavailable values as unknown rather than zero or a favorable status. Reconcile totals and units, handle zero denominators explicitly, and retain the decision rationale and supporting evidence.
+
+
+Use one currency, valuation date, time horizon, and consistent discount-period convention. Do not subtract initial investment twice. Define cash versus noncash benefits, avoid double-counting, and report an undefined ratio when its denominator is zero.
+
 
 ## Overview
 
@@ -21,7 +29,7 @@ ROI = (Financial Benefit - Project Cost) / Project Cost × 100%
 
 ### Net Present Value (NPV) Calculation
 ```
-NPV = Σ [Benefit(t) / (1 + r)^t] - Initial Investment
+NPV = -Initial Investment + Σ [(Cash Benefits(t) - Operating Costs(t)) / (1 + r)^t]
 Where:
 - t = time period
 - r = discount rate
@@ -373,8 +381,8 @@ Next Steps:
 
 - [Business Case Template](../../../../../../planning/templates/traditional/Traditional/Templates/business_case_template.md)
 - [Project Budget Template](../../../../../../planning/role-based-toolkits/project-manager/essential-templates/budget-template.md)
-- Cost-Benefit Analysis Template (linked resource unavailable)
-- Financial Dashboard Template (linked resource unavailable)
+- [Business Case Financial Analysis](../../../../../../planning/templates/traditional/Traditional/Templates/business_case_template.md#5-financial-analysis)
+- [ROI Tracking Dashboard](../../../../../../../business-stakeholder-suite/financial-governance/roi-tracking-dashboard.md)
 
 ---
 

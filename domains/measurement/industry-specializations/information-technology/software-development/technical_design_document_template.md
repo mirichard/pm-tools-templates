@@ -3,10 +3,15 @@ title: "Technical Design Document Template"
 methodology: "universal"
 complexity: "advanced"
 owner: "mirichard"
-updated: "2025-08-05"
+updated: "2026-09-19"
 ---
 
 # Technical Design Document (TDD)
+
+## Example implementation contract
+
+Code, queries, configuration, versions, thresholds, and sample output illustrate the design; they are not a tested deployment bundle. Record the actual platform/version, supported dependencies, credentials source, least-privilege access, environment-specific values, and test results before use. Pin release artifacts and validate rollback and failure paths in the target environment. Never use sample secrets or sample approval results as operational evidence.
+
 
 | Document ID | [TDD-PROJECT-ID] |
 |-------------|------------------|

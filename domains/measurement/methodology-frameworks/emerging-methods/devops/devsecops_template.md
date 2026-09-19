@@ -3,10 +3,15 @@ title: "Devsecops Template"
 methodology: "universal"
 complexity: "advanced"
 owner: "mirichard"
-updated: "2025-08-05"
+updated: "2026-09-19"
 ---
 
 # DevSecOps Integration Template
+
+## Example implementation contract
+
+Code, queries, configuration, versions, thresholds, and sample output illustrate the design; they are not a tested deployment bundle. Record the actual platform/version, supported dependencies, credentials source, least-privilege access, environment-specific values, and test results before use. Pin release artifacts and validate rollback and failure paths in the target environment. Never use sample secrets or sample approval results as operational evidence.
+
 
 ## Overview
 This template provides a comprehensive framework for integrating security practices into DevOps workflows, covering security automation, vulnerability management, compliance, and security monitoring throughout the software development lifecycle.
@@ -177,7 +182,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '18'
+          node-version: '24'
 
       - name: Install dependencies
         run: npm ci
@@ -335,7 +340,7 @@ jobs:
 #### Dockerfile Security Best Practices
 ```dockerfile
 # Dockerfile with security best practices
-FROM node:18-alpine AS builder
+FROM node:24-alpine AS builder
 
 # Create non-root user
 RUN addgroup -g 1001 -S nodejs && \
@@ -351,7 +356,7 @@ COPY . .
 RUN npm run build
 
 # Production image
-FROM node:18-alpine AS runner
+FROM node:24-alpine AS runner
 
 # Security updates
 RUN apk update && apk upgrade && \
@@ -1475,7 +1480,6 @@ q4_initiatives:
 - [Release Management Workflow](../../../domains/measurement/methodology-frameworks/emerging-methods/devops/release_management_template.md)
 - [DevOps Monitoring and Alerting](./monitoring_alerting_template.md)
 - [Infrastructure as Code](./infrastructure_as_code_template.md)
-- Security Engineer Toolkit (linked resource unavailable)
 
 ---
 

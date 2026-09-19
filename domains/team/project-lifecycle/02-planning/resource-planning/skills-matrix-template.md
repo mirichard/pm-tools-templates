@@ -3,10 +3,15 @@ title: "Skills Matrix Template"
 methodology: "universal"
 complexity: "advanced"
 owner: "mirichard"
-updated: "2025-08-05"
+updated: "2026-09-19"
 ---
 
 # Skills Matrix Template
+
+## Completing the worksheet
+
+Replace populated examples with project evidence before circulation. Record the reporting period, baseline, source, owner, and calculation for each measure; define thresholds and approval authority locally. Show unavailable values as unknown rather than zero or a favorable status. Reconcile totals and units, handle zero denominators explicitly, and retain the decision rationale and supporting evidence.
+
 
 ## Purpose/Overview
 This comprehensive skills matrix template enables project managers and resource managers to assess team capabilities, identify skill gaps, and plan for optimal resource allocation. It provides a structured approach to evaluating technical, business, and soft skills across team members, supporting strategic decisions about training, hiring, and project assignments.

@@ -3,12 +3,24 @@ title: "Clinical Trial Protocol Template"
 methodology: "universal"
 complexity: "advanced"
 owner: "mirichard"
-updated: "2025-08-05"
+updated: "2026-09-19"
 ---
 
 # Clinical Trial Protocol Template
 
-*This template is designed in accordance with ICH E6(R2) GCP guidelines and international regulatory requirements for clinical trials. It provides a standardized framework for developing comprehensive clinical trial protocols.*
+Reference check: [Current source](https://www.fda.gov/regulatory-information/search-fda-guidance-documents/e6r3-good-clinical-practice-gcp).
+
+
+## Applying this template
+
+Treat filled examples, dates, numerical limits, sampling frequencies, and approval outcomes as illustrations. Before execution, replace them with the approved product/site requirements, scientific rationale, method references, responsible reviewer, and acceptance evidence. Record the applicable jurisdiction and current guidance edition; a completed worksheet alone does not demonstrate regulatory compliance.
+
+| Requirement or limit | Applicable source / edition | Product-specific rationale | Approval / date | Execution evidence |
+|---|---|---|---|---|
+| [Requirement] | [Source] | [Rationale] | [Reviewer / date] | [Record] |
+
+
+This is a protocol-planning worksheet. Map the study to applicable ICH E6(R3) guidance and local requirements, including critical-to-quality factors, participant protection, proportionate risk controls, and sponsor/investigator responsibilities. Protocol approval and compliance require study-specific evidence.
 
 ## Document Control
 

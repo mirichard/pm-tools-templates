@@ -3,10 +3,22 @@ title: "Compliance Risk Assessment Template"
 methodology: "universal"
 complexity: "advanced"
 owner: "mirichard"
-updated: "2025-08-05"
+updated: "2026-09-19"
 ---
 
 # Compliance Risk Assessment Template
+
+Reference check: [Current source](https://www.fda.gov/regulatory-information/search-fda-guidance-documents/e6r3-good-clinical-practice-gcp).
+
+
+## Applying this template
+
+Treat filled examples, dates, numerical limits, sampling frequencies, and approval outcomes as illustrations. Before execution, replace them with the approved product/site requirements, scientific rationale, method references, responsible reviewer, and acceptance evidence. Record the applicable jurisdiction and current guidance edition; a completed worksheet alone does not demonstrate regulatory compliance.
+
+| Requirement or limit | Applicable source / edition | Product-specific rationale | Approval / date | Execution evidence |
+|---|---|---|---|---|
+| [Requirement] | [Source] | [Rationale] | [Reviewer / date] | [Record] |
+
 
 ## Document Control
 
@@ -134,7 +146,7 @@ Document all applicable GxP requirements:
 | GxP Area | Standard/Guidance | Key Requirements | Applicability |
 |----------|-------------------|------------------|---------------|
 | GMP | ICH Q7 | Good Manufacturing Practice | [Yes/No/Partial] |
-| GCP | ICH E6(R2) | Good Clinical Practice | [Yes/No/Partial] |
+| GCP | ICH E6(R3) | Good Clinical Practice | [Yes/No/Partial] |
 | GLP | OECD GLP Principles | Good Laboratory Practice | [Yes/No/Partial] |
 | GDP | WHO/EU GDP Guidelines | Good Distribution Practice | [Yes/No/Partial] |
 | [Other] | [Specify] | [Specify] | [Yes/No/Partial] |

@@ -3,24 +3,24 @@ title: "Digital Transformation Strategy Template"
 methodology: "universal"
 complexity: "advanced"
 owner: "mirichard"
-updated: "2025-08-05"
+updated: "2026-09-19"
 ---
 
 # Digital Transformation Strategy Template
 
 ## Document Control
 
-**Document ID:** DTS-2025-001  
+**Document ID:** [Document identifier]\
 **Version:** 1.0  
-**Creation Date:** 2025-06-20  
-**Last Modified:** 2025-06-20  
+**Creation Date:** [YYYY-MM-DD]\
+**Last Modified:** [YYYY-MM-DD]\
 **Author:** [Author Name]  
 **Owner:** [Business Transformation Office]  
 **Classification:** Internal Use Only  
 
 | Version | Date | Description | Author | Approver |
 |---------|------|-------------|--------|----------|
-| 1.0 | 2025-06-20 | Initial version | [Author Name] | [Approver Name] |
+| [Version] | [YYYY-MM-DD] | [Change description] | [Author Name] | [Approver Name] |
 
 ## 1. Executive Summary
 

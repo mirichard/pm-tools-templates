@@ -8,51 +8,51 @@ role: "stakeholder"
 tags: ["traditional", "initiating", "risk-management", "stakeholder-management", "communication", "planning"]
 version: "1.0.0"
 owner: "mirichard"
-updated: "2025-08-06"
+updated: "2026-09-19"
 estimated_completion_time: "15-30 minutes"
 primary_principles: ["evidence-based-decisions", "quality-by-design"]
 secondary_principles: ["stakeholder-engagement", "continuous-learning"]
 principle_rationale: "Turns assessed evidence into quality decisions, stakeholder insight, and improvement."
 ---
 
-
-title: "Assessment Report Template"
-methodology: "universal"
-complexity: "starter"
-owner: "mirichard"
-updated: "2025-08-05"
-
 # Assessment Report Template
 
-## Overview
-A standardized template for generating comprehensive project assessment reports.
+## Purpose and use
 
-## Usage
-This template provides a standardized approach for Assessment Report Template.
+Summarize an evidence-based assessment for a named decision maker. Define the scope before collecting evidence. Separate observations, interpretation, and recommendations; an unchecked criterion is not proof of failure.
 
-## Template Sections
+## Assessment context
 
-### 1. Introduction
-Brief description of the purpose and scope.
+- **Project / assessed period:** [Name / dates]
+- **Assessor and decision owner:** [Names and roles]
+- **Decision required and deadline:** [Decision / date]
+- **Scope and exclusions:** [Processes, teams, systems, and exclusions]
+- **Criteria and method:** [Agreed criteria, interviews, document sampling, observations]
+- **Limitations:** [Unavailable evidence, sample limitations, assessor familiarity]
 
-### 2. Key Components
-List the main elements that should be included.
+## Findings
 
-### 3. Implementation Guidelines
-Step-by-step instructions for using this template.
+| ID | Criterion | Observation and evidence location | Impact | Confidence / limitation | Priority |
+|---|---|---|---|---|---|
+| F-01 | [Expected condition] | [Observed condition and dated source] | [Delivery consequence] | [Supported / uncertain and why] | [High / medium / low] |
 
-### 4. Best Practices
-- Follow established project management standards
-- Ensure stakeholder review and approval
-- Document all decisions and changes
-- Regular updates and maintenance
+Use “not assessed” when evidence is missing. Explain the priority scale and distinguish a requirement failure from an improvement opportunity.
+
+## Recommendations and decisions
+
+| Finding | Recommended action | Accountable owner | Due date | Completion evidence | Decision |
+|---|---|---|---|---|---|
+| F-01 | [Action] | [Name] | [Date] | [Observable acceptance condition] | [Approve / defer / reject and reason] |
+
+## Follow-up
+
+- **Overall conclusion:** [Evidence-supported conclusion within assessed scope]
+- **Unresolved questions:** [Question / evidence needed / owner]
+- **Review with stakeholders:** [Participants / date / corrections]
+- **Reassessment date:** [Date and trigger for earlier review]
+- **Decision recorded by:** [Name / date]
 
 ## Related Templates
 - [Project Charter](../../../project-lifecycle/01-initiation/project-charter/)
 - [Risk Management](../../../project-lifecycle/02-planning/risk-management/)
 - [Communication Plan](../../../project-lifecycle/02-planning/communication-planning/)
-
-## Version History
-- v1.0 - Initial template creation
-
-*This template is part of the PM Tools Templates repository.*

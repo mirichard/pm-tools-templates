@@ -3,11 +3,16 @@ title: "Status Report Template"
 methodology: "universal"
 complexity: "advanced"
 owner: "mirichard"
-updated: "2025-08-05"
+updated: "2026-09-19"
 ---
 
 
 # Project Status Report Template
+
+## Completing the worksheet
+
+Replace populated examples with project evidence before circulation. Record the reporting period, baseline, source, owner, and calculation for each measure; define thresholds and approval authority locally. Show unavailable values as unknown rather than zero or a favorable status. Reconcile totals and units, handle zero denominators explicitly, and retain the decision rationale and supporting evidence.
+
 
 ## Purpose/Overview
 This comprehensive status report template provides a structured format for communicating project progress, health, and key information to stakeholders. It combines executive summaries with detailed metrics to serve multiple audiences, from senior leadership to project team members. The template ensures consistent, professional reporting while highlighting critical issues and decisions requiring attention.

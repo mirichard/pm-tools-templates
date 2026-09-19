@@ -3,10 +3,15 @@ title: "Sprint Retrospective Template"
 methodology: "agile"
 complexity: "advanced"
 owner: "mirichard"
-updated: "2025-08-05"
+updated: "2026-09-19"
 ---
 
 # Sprint Retrospective Template
+
+## Scrum tailoring
+
+These worksheets and suggested agendas are optional practices. In Scrum, the Developers own the plan for delivering the Sprint Goal; selected work is a forecast that can be adapted. A Definition of Ready and story points are optional team practices. Use the product Definition of Done consistently, and treat the Sprint Review as inspection and adaptation rather than a release-approval gate. See the [Scrum Guide](https://scrumguides.org/scrum-guide.html).
+
 
 ## Overview
 This template provides a structured approach to conducting effective Sprint Retrospectives, helping teams to continuously improve their processes, collaboration, and overall performance. Sprint Retrospectives are a critical part of the Scrum framework, providing teams with a dedicated time to reflect on their work, identify what went well, what didn't, and create action plans for improvement.
@@ -67,7 +72,7 @@ Ask team members to anonymously rate from 1-5:
 - **Stay solution-oriented**: Critique is valuable when paired with suggestions
 - **Equal voice**: Everyone gets time to speak
 - **No blame**: We're here to learn, not assign blame
-- **Confidentiality**: What's discussed stays within the team
+- **Confidentiality**: Agree how learning is shared without attributing personal comments; follow applicable safeguarding and reporting obligations
 - **Assume positive intent**: We're all working toward improvement
 
 ## Previous Action Items Review

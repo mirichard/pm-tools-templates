@@ -3,10 +3,19 @@ title: "Process Validation Protocol Template"
 methodology: "universal"
 complexity: "advanced"
 owner: "mirichard"
-updated: "2025-08-05"
+updated: "2026-09-19"
 ---
 
 # Process Validation Protocol Template
+
+## Applying this template
+
+Treat filled examples, dates, numerical limits, sampling frequencies, and approval outcomes as illustrations. Before execution, replace them with the approved product/site requirements, scientific rationale, method references, responsible reviewer, and acceptance evidence. Record the applicable jurisdiction and current guidance edition; a completed worksheet alone does not demonstrate regulatory compliance.
+
+| Requirement or limit | Applicable source / edition | Product-specific rationale | Approval / date | Execution evidence |
+|---|---|---|---|---|
+| [Requirement] | [Source] | [Rationale] | [Reviewer / date] | [Record] |
+
 
 ## Document Control
 
@@ -65,7 +74,7 @@ This protocol specifically addresses Stages 1 and 2, with Stage 3 covered in the
 The process will be considered validated when:
 1. All critical process parameters (CPPs) are consistently maintained within their specified ranges
 2. All critical quality attributes (CQAs) meet their predetermined acceptance criteria
-3. Process capability indices (Cpk) for critical parameters are ≥ 1.33
+3. Process capability criteria for critical parameters are predefined and scientifically justified for the intended process and risk.
 4. Process yields meet specified targets
 5. All deviations are satisfactorily investigated and resolved
 6. Statistical evaluation demonstrates process consistency and reproducibility
@@ -246,7 +255,7 @@ The following statistical methods will be used to analyze the validation data:
 ### 5.3 Data Evaluation Criteria
 Process capability indices will be calculated for critical parameters where applicable:
 - Cp ≥ 1.33 indicates the process is capable
-- Cpk ≥ 1.33 indicates the process is both capable and centered
+- Interpret Cpk against a predefined justified criterion and check stability, distribution assumptions, sample size, and centering separately; a threshold does not prove centering.
 
 For attributes that cannot be evaluated using process capability, the following criteria will be applied:
 - [Specify criteria, e.g., all results within specification, no adverse trends, etc.]

@@ -44,7 +44,13 @@ node scripts/sync-catalog-domains.js --check
 node --test tests/content-repairs.test.mjs tests/migration-wave.test.mjs tests/migration-post-check.test.mjs tests/domain-navigation.test.mjs tests/catalog-domains.test.cjs tests/reviewed-domain-mapping.test.mjs
 python3 -m unittest discover -s tests -p test_template_metadata.py
 python3 -m unittest discover -s tests -p test_clean_status.py
-python3 -m unittest tests.test_quality_gate_baseline
+python3 -m unittest tests.test_quality_gate_baseline tests.test_template_reviews tests.test_migrated_freshness
+python3 scripts/check_migrated_freshness.py
+node --test tests/webhook-example.test.cjs
 ```
 
 For scoped links, use `check_migration_links.check` on the `link_scope_files` list in PR #1252's baseline JSON. External HTTP availability and legacy section fragments remain outside that check. Preserve this before/after scope when reporting future results.
+
+## Follow-up resource and freshness review
+
+The figures above describe the initial repair commit `dc7146c`. See [Resource references and content freshness](resource-and-freshness-review.md) for the subsequent dispositions of all 34 unavailable-reference records, 137 completed migrated-template reviews plus three additional templates, and zero age warnings across the metadata linter scope. The original migration baseline remains unchanged.

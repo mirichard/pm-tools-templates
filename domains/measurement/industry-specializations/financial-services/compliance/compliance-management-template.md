@@ -3,10 +3,14 @@ title: "Compliance Management Template"
 methodology: "universal"
 complexity: "advanced"
 owner: "mirichard"
-updated: "2025-08-05"
+updated: "2026-09-19"
 ---
 
 # Financial Services Compliance Management Template
+
+## Applicability and evidence
+
+The regulatory lists, frequencies, limits, sample findings, and completed statuses below are illustrations. Before adoption, the compliance owner must record the applicable jurisdiction, entity, activity, source provision and version, effective date, control, test evidence, and approver. Do not infer that a named regulation applies to every project or that completing this worksheet establishes compliance. Review changes throughout delivery. For privacy processing, document the applicable lawful basis by purpose; see [GDPR Article 6](https://eur-lex.europa.eu/eli/reg/2016/679/oj/eng).
 
 ## Document Control
 
@@ -54,7 +58,7 @@ updated: "2025-08-05"
 ### Purpose and Scope
 
 **Purpose:**  
-This Compliance Management Template provides a structured framework for managing compliance requirements in financial services projects. It establishes a systematic approach to identifying, monitoring, and reporting compliance obligations throughout the project lifecycle, ensuring alignment with regulatory requirements and organizational compliance policies.
+This Compliance Management Template provides a structured framework for managing compliance requirements in financial services projects. It establishes a systematic approach to identifying, monitoring, and reporting compliance obligations throughout the project lifecycle, supporting assessment against applicable regulatory requirements and organizational compliance policies.
 
 **Scope:**  
 This framework applies to all projects within [Organization Name]'s financial services operations, including but not limited to:
@@ -196,7 +200,7 @@ The Regulatory Requirements Mapping provides a structured approach to identify a
 | Requirement ID | Requirement Description | Regulatory Source | Jurisdiction | Project Component | Owner | Priority | Implementation Approach | Verification Method |
 |----------------|-------------------------|-------------------|--------------|-------------------|-------|----------|--------------------------|---------------------|
 | REQ-AML-001 | Customer due diligence processes must collect and verify specified customer information | AML Act Section 352, FINCEN Rule 31 CFR 1010.220 | US | Customer onboarding module | KYC Team Lead | High | Enhanced data collection forms, identity verification service integration | Process walkthrough, sample testing |
-| REQ-DP-001 | Explicit consent must be obtained for all data processing activities | GDPR Article 6 | EU | Account opening process, marketing preferences | Data Privacy Officer | High | Consent management system, preference center | UI review, data flow assessment |
+| REQ-DP-001 | Identify and document the applicable lawful basis for each processing purpose; consent is one possible basis | GDPR Article 6 | EU | Account opening process, marketing preferences | Data Privacy Officer | High | Consent management system, preference center | UI review, data flow assessment |
 | REQ-SEC-001 | Best execution policy must be documented and followed for all client orders | MiFID II Article 27 | EU | Trading platform | Trading Desk Manager | Medium | Order routing rules, execution quality monitoring | Transaction sampling, policy review |
 
 #### Example - New Payment Platform Requirements:

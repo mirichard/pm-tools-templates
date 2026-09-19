@@ -384,6 +384,6 @@ Operational Level → Tactical Level → Strategic Level
 **Related Templates:**
 - [Change Management Plan (Traditional)](../../../../../../Traditional/Templates/change_management_plan_template.md)
 - [Change Vision Canvas (Agile)](../../../../../../Agile/Tools/change_vision_canvas.md)
-- Progressive Change Roadmap (linked resource unavailable)
-- Change Governance Framework (linked resource unavailable)
+- [Change Implementation Roadmap](#phase-based-roadmap)
+- [Change Governance Structure](#governance-structure)
 

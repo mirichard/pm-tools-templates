@@ -3,10 +3,15 @@ title: "Infrastructure As Code Template"
 methodology: "universal"
 complexity: "advanced"
 owner: "mirichard"
-updated: "2025-08-05"
+updated: "2026-09-19"
 ---
 
 # Infrastructure as Code (IaC) Template
+
+## Example implementation contract
+
+Code, queries, configuration, versions, thresholds, and sample output illustrate the design; they are not a tested deployment bundle. Record the actual platform/version, supported dependencies, credentials source, least-privilege access, environment-specific values, and test results before use. Pin release artifacts and validate rollback and failure paths in the target environment. Never use sample secrets or sample approval results as operational evidence.
+
 
 ## Overview
 This template provides a comprehensive framework for implementing Infrastructure as Code practices, covering infrastructure provisioning, configuration management, and infrastructure lifecycle management through code-based approaches.
@@ -1883,7 +1888,6 @@ groups:
 - [Release Management Workflow](../../../domains/measurement/methodology-frameworks/emerging-methods/devops/release_management_template.md)
 - [DevOps Monitoring and Alerting](./monitoring_alerting_template.md)
 - [DevSecOps Integration](./devsecops_template.md)
-- DevOps Engineer Toolkit (linked resource unavailable)
 
 ---
 

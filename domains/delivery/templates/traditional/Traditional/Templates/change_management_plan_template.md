@@ -286,4 +286,4 @@ principle_rationale: "Plans adaptive change through stakeholder participation, l
 - [Stakeholder Register Template](../../../../../stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/stakeholder-register-template.md)
 - [Communication Plan Template](communication_plan_template.md)
 - [Risk Register Template](risk_register_template.md)
-- Training Plan Template (linked resource unavailable)
+- [Training Needs and Delivery Plan](#training-and-development)
