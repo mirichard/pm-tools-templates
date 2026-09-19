@@ -3,13 +3,13 @@ title: "Pi Planning Template"
 methodology: "agile"
 complexity: "advanced"
 owner: "mirichard"
-updated: "2025-08-05"
+updated: "2026-09-19"
 ---
 
 # SAFe Program Increment (PI) Planning Template
 
 ## Overview
-This template provides a comprehensive framework for conducting SAFe Program Increment (PI) Planning events, typically held every 8-12 weeks to align multiple Agile Release Trains (ARTs) on a common mission and vision.
+This template provides a comprehensive framework for conducting SAFe Program Increment (PI) Planning events, typically held every 8-12 weeks to align teams within an Agile Release Train (ART) on a common mission and vision; coordinate multiple ARTs separately when needed.
 
 ## Template Information
 - **Framework:** SAFe (Scaled Agile Framework)
@@ -373,7 +373,7 @@ Milestones       | [Key Dates]| [Key Dates]| [Key Dates]| [Key Dates]| [Key Date
 - [SAFe Portfolio Kanban Template](./portfolio_kanban_template.md)
 - [ART Coordination Template](./art_coordination_template.md)
 - [SAFe Metrics Dashboard Template](./metrics_dashboard_template.md)
-- [Release Train Engineer Role Guide](../../role-based-toolkits/release-train-engineer/README.md)
+- [Release Train Engineer Role Guide](../../../../../../role-based-toolkits/release-train-engineer/README.md)
 
 ---
 

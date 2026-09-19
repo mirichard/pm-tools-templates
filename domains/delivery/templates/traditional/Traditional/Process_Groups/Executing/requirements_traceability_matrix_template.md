@@ -3,7 +3,7 @@ title: "Requirements Traceability Matrix Template"
 methodology: "traditional"
 complexity: "advanced"
 owner: "mirichard"
-updated: "2025-08-05"
+updated: "2026-09-19"
 ---
 
 # REQUIREMENTS TRACEABILITY MATRIX (RTM)
@@ -23,7 +23,7 @@ updated: "2025-08-05"
 
 ## Overview
 
-The Requirements Traceability Matrix (RTM) is a document that maps and traces user requirements with test cases. It ensures that all requirements defined for a project are tested in the testing phase and delivered in the final product. This matrix provides full traceability of requirements throughout the project lifecycle.
+The Requirements Traceability Matrix (RTM) is a document that maps and traces user requirements with test cases. It supports finding coverage gaps throughout the project lifecycle. Trace links alone do not prove delivery: record test results, unresolved defects, and acceptance evidence for each applicable requirement.
 
 **Purpose:**
 - Track requirements from inception through delivery

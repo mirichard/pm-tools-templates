@@ -3,13 +3,13 @@ title: "Executive Dashboard Template"
 methodology: "universal"
 complexity: "advanced"
 owner: "mirichard"
-updated: "2025-08-05"
+updated: "2026-09-19"
 ---
 
 # Tableau Executive Dashboard Template
 
 ## 📊 Overview
-This comprehensive Tableau template provides executive-level project management insights with interactive visualizations, real-time KPI tracking, and strategic alignment monitoring optimized for executive decision-making.
+This is a Tableau dashboard implementation specification, not a packaged or runtime-verified workbook. Build and test it against the selected Tableau version and governed data source. Refresh latency depends on the configured connection and schedule. All displayed values are illustrative.
 
 ## 🎯 Dashboard Architecture
 
@@ -52,6 +52,8 @@ This comprehensive Tableau template provides executive-level project management 
 
 ### Key Metrics & Calculated Fields
 
+Define the reporting date, one-row grain, currency, source fields and null treatment before building measures. Ratios with no valid denominator are unknown, not zero. Utilization and allocation use hours in the same period; ROI is a decimal. Preserve consistent [aggregation](https://help.tableau.com/current/pro/desktop/en-us/calculations_aggregation.htm). RAG thresholds are metric-specific: the 0–100 health score bands do not apply to CPI or SPI. Budget variance here is actual minus budget; earned-value CV is EV minus AC. Do not mix these definitions. EAC based on CPI assumes observed cost efficiency continues; no forecast is supplied when CPI is invalid.
+
 #### Portfolio Health Score
 ```sql
 -- Calculated Field: Portfolio Health Score
@@ -68,14 +70,13 @@ END
 #### Budget Performance Index
 ```sql
 -- Calculated Field: Budget Performance Index
-SUM([Earned Value]) / SUM([Actual Cost])
+IF SUM([Actual Cost]) > 0 THEN SUM([Earned Value]) / SUM([Actual Cost]) END
 ```
 
 #### Schedule Performance Index
 ```sql
 -- Calculated Field: Schedule Performance Index
-IF [Status] = 'Completed' OR ([Status] != 'Behind Schedule' AND [End Date] >= TODAY()) 
-THEN 1 ELSE 0 END
+IF SUM([Planned Value]) > 0 THEN SUM([Earned Value]) / SUM([Planned Value]) END
 ```
 
 #### Strategic Alignment Rate
@@ -103,7 +104,7 @@ IF ISNULL([Strategic Goal ID]) THEN 0 ELSE 1 END
 #### Trend Analysis Line Chart
 - **X-Axis**: Month-Year
 - **Y-Axis**: Portfolio health score (left), Budget utilization (right)
-- **Dual Axis**: Synchronized scales
+- **Dual Axis**: Label each unit; synchronize only when units and scales are comparable
 - **Trend Lines**: Linear with confidence bands
 
 ### Filters & Parameters
@@ -145,7 +146,7 @@ Values: 'Last 3 Months', 'Last 6 Months', 'Year to Date', 'Custom'
 #### Weighted Average ROI
 ```sql
 -- Calculated Field: Weighted ROI
-SUM([ROI] * [Budget]) / SUM([Budget])
+IF SUM([Budget]) > 0 THEN SUM([ROI] * [Budget]) / SUM([Budget]) END
 ```
 
 #### Cost Variance
@@ -157,13 +158,13 @@ SUM([ROI] * [Budget]) / SUM([Budget])
 #### Cost Variance Percentage
 ```sql
 -- Calculated Field: Cost Variance %
-([Actual Cost] - [Budget Allocated]) / [Budget Allocated] * 100
+IF [Budget Allocated] > 0 THEN ([Actual Cost] - [Budget Allocated]) / [Budget Allocated] * 100 END
 ```
 
 #### Forecast Accuracy
 ```sql
 -- Calculated Field: Forecast Accuracy
-100 - (ABS([Forecast Cost] - [Actual Spend]) / [Actual Spend] * 100)
+IF [Actual Spend] > 0 THEN 100 - (ABS([Forecast Cost] - [Actual Spend]) / [Actual Spend] * 100) END
 ```
 
 #### Earned Value Management
@@ -175,16 +176,16 @@ SUM([ROI] * [Budget]) / SUM([Budget])
 [Earned Value] - [Actual Cost]
 
 -- Calculated Field: Schedule Performance Index (SPI)
-[Earned Value] / [Planned Value]
+IF [Planned Value] > 0 THEN [Earned Value] / [Planned Value] END
 
 -- Calculated Field: Cost Performance Index (CPI)
-[Earned Value] / [Actual Cost]
+IF [Actual Cost] > 0 THEN [Earned Value] / [Actual Cost] END
 ```
 
 ### Financial Forecasting
 ```sql
 -- Calculated Field: Estimate at Completion (EAC)
-IF [CPI] > 0 THEN [Budget] / [CPI] ELSE [Budget] * 1.2 END
+IF [CPI] > 0 THEN [Budget] / [CPI] END
 
 -- Calculated Field: Estimate to Complete (ETC)
 [EAC] - [Actual Cost]
@@ -222,17 +223,16 @@ IF [CPI] > 0 THEN [Budget] / [CPI] ELSE [Budget] * 1.2 END
 [Impact] * [Probability]
 ```
 
-#### Portfolio Efficiency
+#### Portfolio Completion Rate
 ```sql
--- Calculated Field: Portfolio Efficiency
-([Projects Completed] / [Total Projects]) * 
-([Budget Utilized] / [Total Budget]) * 100
+-- Calculated Field: Portfolio Completion Rate
+IF [Total Projects] > 0 THEN [Projects Completed] / [Total Projects] * 100 END
 ```
 
 #### Resource Utilization
 ```sql
 -- Calculated Field: Resource Utilization %
-([Allocation] * [Utilization]) / [Allocation] * 100
+IF [Allocation] > 0 THEN [Utilization] / [Allocation] * 100 END
 ```
 
 #### Timeline Performance
@@ -256,8 +256,8 @@ DATEDIFF('day', [Planned End Date], [Actual End Date])
 -- Calculated Field: Project Duration
 DATEDIFF('day', [Start Date], [End Date])
 
--- Calculated Field: Days Completed
-DATEDIFF('day', [Start Date], TODAY()) * ([Percent Complete] / 100)
+-- Calculated Field: Duration Equivalent of Reported Progress (not elapsed days)
+DATEDIFF('day', [Start Date], [End Date]) * ([Percent Complete] / 100)
 
 -- Calculated Field: Timeline Status
 IF [End Date] < TODAY() AND [Status] != 'Completed' THEN 'Overdue'
@@ -291,32 +291,25 @@ ELSE 'On Track' END
 #### Goal Progress Percentage
 ```sql
 -- Calculated Field: Goal Progress %
-[Current Value] / [Target Value] * 100
+IF [Target Value] > 0 THEN [Current Value] / [Target Value] * 100 END
 ```
 
 #### Strategic Alignment Score
 ```sql
 -- Calculated Field: Strategic Alignment Score
-IF ISNULL([Strategic Goal ID]) THEN 0 
-ELSE [Budget] END / SUM([Budget]) * 100
+IF SUM([Budget]) > 0 THEN
+    SUM(IF ISNULL([Strategic Goal ID]) THEN 0 ELSE [Budget] END) / SUM([Budget]) * 100
+END
 ```
 
 #### Value Realization Rate
 ```sql
 -- Calculated Field: Value Realization Rate
-([Realized Benefits] / [Projected Benefits]) * 100
+IF [Projected Benefits] > 0 THEN [Realized Benefits] / [Projected Benefits] * 100 END
 ```
 
 #### Goal Achievement Forecast
-```sql
--- Calculated Field: Projected Achievement Date
-IF [Goal Progress %] > 0 THEN
-    DATEADD('day', 
-        ([Target Value] - [Current Value]) / 
-        ([Current Value] / DATEDIFF('day', [Start Date], TODAY())), 
-        TODAY())
-END
-```
+Record a separately approved forecast model, baseline date/value, observed rate, uncertainty interval and evidence. A linear extrapolation is not a reliable default for every strategic goal.
 
 ---
 
@@ -363,11 +356,12 @@ DATEDIFF('day', [Date Identified],
     IF ISNULL([Date Closed]) THEN TODAY() ELSE [Date Closed] END)
 ```
 
-#### Risk Mitigation Rate
+#### Risk Closure Rate
 ```sql
--- Calculated Field: Risk Mitigation Rate
-COUNTD(IF [Status] = 'Closed' THEN [Risk ID] END) / 
-COUNTD([Risk ID]) * 100
+-- Calculated Field: Risk Closure Rate (closure alone does not prove mitigation)
+IF COUNTD([Risk ID]) > 0 THEN
+    COUNTD(IF [Status] = 'Closed' THEN [Risk ID] END) / COUNTD([Risk ID]) * 100
+END
 ```
 
 ---
@@ -396,7 +390,7 @@ COUNTD([Risk ID]) * 100
 #### Utilization Rate
 ```sql
 -- Calculated Field: Actual Utilization %
-[Utilization] / [Allocation] * 100
+IF [Allocation] > 0 THEN [Utilization] / [Allocation] * 100 END
 ```
 
 #### Capacity Gap
@@ -408,14 +402,15 @@ COUNTD([Risk ID]) * 100
 #### Productivity Index
 ```sql
 -- Calculated Field: Team Productivity
-[Completed Work Value] / [Resource Cost]
+IF [Resource Cost] > 0 THEN [Completed Work Value] / [Resource Cost] END
 ```
 
 #### Skill Level Distribution
 ```sql
 -- Calculated Field: Senior Resource Ratio
-COUNTD(IF [Skill Level] = 'Senior' THEN [Resource ID] END) / 
-COUNTD([Resource ID]) * 100
+IF COUNTD([Resource ID]) > 0 THEN
+    COUNTD(IF [Skill Level] = 'Senior' THEN [Resource ID] END) / COUNTD([Resource ID]) * 100
+END
 ```
 
 ---
@@ -432,6 +427,8 @@ Username: tableau_reader
 ```
 
 ### Custom SQL Query
+
+Example only: constrain FinancialMetrics to one row per project for the selected reporting date and StrategicGoals to one row per goal before joining. Keep the many-row risk register as a separate logical dataset; joining it directly duplicates project financial totals. Map database names to workbook field names and reconcile totals before use.
 ```sql
 SELECT 
     p.ProjectID,
@@ -451,15 +448,11 @@ SELECT
     fm.NPV,
     fm.IRR,
     fm.EarnedValue,
-    rr.RiskScore,
-    rr.Impact,
-    rr.Probability,
     sg.GoalName,
     sg.CurrentValue,
     sg.TargetValue
 FROM Projects p
 LEFT JOIN FinancialMetrics fm ON p.ProjectID = fm.ProjectID
-LEFT JOIN RiskRegister rr ON p.ProjectID = rr.ProjectID
 LEFT JOIN StrategicGoals sg ON p.StrategicGoalID = sg.GoalID
 WHERE p.IsActive = 1
 ```
@@ -468,7 +461,7 @@ WHERE p.IsActive = 1
 ```
 File Path: \\shared\project-data\executive-dashboard-data.xlsx
 Sheets: Projects, FinancialMetrics, RiskRegister, StrategicGoals, Resources
-Connection: Live (refreshes every 15 minutes)
+Connection and refresh: [Choose live or extract; configure and verify actual refresh latency]
 ```
 
 ### REST API Connection
@@ -504,12 +497,7 @@ Connection: Live (refreshes every 15 minutes)
 4. **Portfolio Overview** (Optional)
 
 ### Mobile-Specific Calculations
-```sql
--- Calculated Field: Mobile Display Format
-IF SIZE() = 'Mobile' THEN 
-    LEFT([Project Name], 20) + '...'
-ELSE [Project Name] END
-```
+Use [device-specific layouts](https://help.tableau.com/current/pro/desktop/en-us/dashboards_dsd_create.htm) and preview each target screen. `SIZE()` counts rows in a partition; it does not identify a mobile device.
 
 ---
 
@@ -545,10 +533,7 @@ Background: #f8f9fa
 ## ⚡ Performance Optimization
 
 ### Data Extract Strategy
-```sql
--- Incremental Refresh Configuration
-WHERE [LastUpdated] >= DATEADD('day', -1, TODAY())
-```
+Choose a supported incremental-refresh key and record how late updates and deletions are reconciled. Verify refresh behavior with changed and deleted source rows; a rolling one-day filter is not a complete refresh strategy.
 
 ### Calculation Optimization
 - Use **Table Calculations** instead of row-level calculations where possible
@@ -575,13 +560,16 @@ WHERE [LastUpdated] >= DATEADD('day', -1, TODAY())
 ### Row-Level Security
 ```sql
 -- User Filter
-[Portfolio] = [User Portfolio] OR [User Role] = 'Executive'
+// Conceptual rule only: resolve entitlements from authenticated identity.
+// Do not trust user-editable parameters for authorization.
 ```
+
+Map permissions to authenticated users or a governed entitlement source and test allowed and denied access, including downloads and underlying data. See [Tableau row-level security](https://help.tableau.com/current/pro/desktop/en-us/publish_userfilters.htm).
 
 ### Publishing Settings
 - **Server**: Tableau Server (Enterprise)
 - **Site**: Executive Dashboards
-- **Project**: Q3 2025 Executive Suite
+- **Project**: [Approved publishing project]
 - **Permissions**: Role-based access control
 
 ---
@@ -630,6 +618,6 @@ WHERE [LastUpdated] >= DATEADD('day', -1, TODAY())
 ---
 
 **Template Version**: 1.0  
-**Last Updated**: August 3, 2025  
-**Compatibility**: Tableau Desktop 2021.4+, Tableau Server 2021.4+  
+**Last Updated**: September 19, 2026\
+**Compatibility**: [Record tested Desktop/Server/Cloud version and evidence before publishing]\
 **Created By**: Enterprise Executive Dashboard Suite - Issue #327

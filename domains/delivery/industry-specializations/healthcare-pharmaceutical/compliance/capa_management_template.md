@@ -3,13 +3,25 @@ title: "Capa Management Template"
 methodology: "universal"
 complexity: "advanced"
 owner: "mirichard"
-updated: "2025-08-05"
+updated: "2026-09-19"
 primary_principles: ["quality-by-design", "continuous-learning"]
 secondary_principles: ["stewardship", "evidence-based-decisions"]
 principle_rationale: "Uses controlled evidence and learning to correct causes and prevent recurrence."
 ---
 
 # Corrective and Preventive Action (CAPA) Management Template
+
+Reference check: [Current source](https://www.fda.gov/medical-devices/postmarket-requirements-devices/quality-management-system-regulation-qmsr).
+
+
+## Applying this template
+
+Treat filled examples, dates, numerical limits, sampling frequencies, and approval outcomes as illustrations. Before execution, replace them with the approved product/site requirements, scientific rationale, method references, responsible reviewer, and acceptance evidence. Record the applicable jurisdiction and current guidance edition; a completed worksheet alone does not demonstrate regulatory compliance.
+
+| Requirement or limit | Applicable source / edition | Product-specific rationale | Approval / date | Execution evidence |
+|---|---|---|---|---|
+| [Requirement] | [Source] | [Rationale] | [Reviewer / date] | [Record] |
+
 
 **Document Control**
 
@@ -730,7 +742,7 @@ Quality Assurance: ___________________   Date: ______________
 ## References
 
 1. FDA 21 CFR Part 211 - Current Good Manufacturing Practice for Finished Pharmaceuticals
-2. FDA 21 CFR Part 820.100 - Corrective and Preventive Action
+2. FDA 21 CFR Part 820 - Quality Management System Regulation (QMSR), where device requirements apply
 3. ICH Q10 - Pharmaceutical Quality System
 4. ISO 13485:2016 - Medical Devices - Quality Management Systems
 5. EU GMP Chapter 1 - Pharmaceutical Quality System

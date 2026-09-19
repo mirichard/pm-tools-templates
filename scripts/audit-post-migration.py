@@ -1,4 +1,4 @@
-import sys,json,hashlib,re,subprocess,collections,datetime,argparse
+import sys,json,hashlib,hmac,re,subprocess,collections,datetime,argparse
 parser=argparse.ArgumentParser(description="Audit a checked-out post-migration revision without changing templates")
 parser.add_argument("--output", required=True)
 parser.add_argument("--as-of", default=datetime.date.today().isoformat())
@@ -16,7 +16,7 @@ rows=[]
 for m in inv['moves']:
  p=m['destination'];content=Path(p).read_text();raw=Path(p).read_bytes();h=hashlib.sha256(raw).hexdigest();norm=hashlib.sha256(re.sub(r'\s+',' ',content).strip().encode()).hexdigest()
  errors,warnings=metadata(content,audit_date)
- rows.append({'path':p,'legacy_path':m['source'],'sha256':h,'recorded_sha256':m['execution']['pre_move_source_sha256'],'integrity_match':'raw' if h==m['execution']['pre_move_source_sha256'] else 'normalized' if norm==m['execution']['pre_move_source_sha256'] else 'FAIL','metadata_errors':errors,'metadata_warnings':warnings,'pointer_errors':pointer_errors(root,m['source'],Path(m['source']).read_text())})
+ rows.append({'path':p,'legacy_path':m['source'],'sha256':h,'recorded_sha256':m['execution']['pre_move_source_sha256'],'integrity_match':'raw' if hmac.compare_digest(h,m['execution']['pre_move_source_sha256']) else 'normalized' if hmac.compare_digest(norm,m['execution']['pre_move_source_sha256']) else 'FAIL','metadata_errors':errors,'metadata_warnings':warnings,'pointer_errors':pointer_errors(root,m['source'],Path(m['source']).read_text())})
 files=sorted({r['path'] for r in rows}|{r['legacy_path'] for r in rows}|{x['path'] for x in cat}|{x.get('canonical_path',x['path']) for x in cat}|{'README.md','TEMPLATE_INDEX.md','docs/domain-navigation-and-legacy-paths.md'}|{f'domains/{d}/README.md' for d in ['stakeholder','team','delivery','planning','uncertainty','measurement']})
 links=[];total=0
 for p in files:

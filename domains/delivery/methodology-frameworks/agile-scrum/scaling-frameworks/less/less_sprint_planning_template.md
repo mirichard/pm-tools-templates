@@ -3,10 +3,13 @@ title: "Less Sprint Planning Template"
 methodology: "agile"
 complexity: "advanced"
 owner: "mirichard"
-updated: "2025-08-05"
+updated: "2026-09-19"
 ---
 
 # LeSS Sprint Planning Template
+
+Use one defined product, shared Product Backlog and integrated product outcome. Coordination techniques and agenda durations here are optional facilitation examples, not additional mandatory roles or events. Adapt them consistently with the [LeSS framework](https://less.works/less/framework).
+
 
 ## Overview
 This template provides a comprehensive framework for conducting Sprint Planning in Large-Scale Scrum (LeSS) environments. LeSS Sprint Planning is designed to coordinate multiple teams working on the same Product Backlog, ensuring alignment and collaboration while maintaining the core Scrum principles.
@@ -474,7 +477,7 @@ Team C Table        │ ┌─┐ ┌─┐ ┌─┐ ┌─┐ │        Team 
 - [Overall Product Backlog Management](./overall_product_backlog_template.md)
 - [LeSS Retrospective Template](./less_retrospective_template.md)
 - [Cross-Team Coordination Template](./cross_team_coordination_template.md)
-- [LeSS Adoption Roadmap](../../quick-start-kits/less-adoption/README.md)
+- [LeSS Adoption Roadmap](../../../../../../quick-start-kits/less-adoption/README.md)
 
 ---
 

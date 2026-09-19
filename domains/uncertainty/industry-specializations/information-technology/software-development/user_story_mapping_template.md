@@ -3,10 +3,15 @@ title: "User Story Mapping Template"
 methodology: "universal"
 complexity: "advanced"
 owner: "mirichard"
-updated: "2025-08-05"
+updated: "2026-09-19"
 ---
 
 # User Story Mapping Template
+
+## Scrum tailoring
+
+These worksheets and suggested agendas are optional practices. In Scrum, the Developers own the plan for delivering the Sprint Goal; selected work is a forecast that can be adapted. A Definition of Ready and story points are optional team practices. Use the product Definition of Done consistently, and treat the Sprint Review as inspection and adaptation rather than a release-approval gate. See the [Scrum Guide](https://scrumguides.org/scrum-guide.html).
+
 
 ## Executive Summary
 This template provides a structured approach to user story mapping for software development projects, enabling better product planning and user experience design.
@@ -168,6 +173,6 @@ This template provides a structured approach to user story mapping for software 
 
 ---
 Related Resources:
-- [Agile Planning](../../../methodology-frameworks/agile-scrum/planning/)
-- [Sprint Planning](../../../methodology-frameworks/agile-scrum/sprint-zero/)
-- [Product Backlog Management](../../../methodology-frameworks/agile-scrum/planning/)
+- [Agile Release Planning](../../../../delivery/project-lifecycle/02-planning/project-management-plan/agile-release-plan-template.md)
+- [Sprint Planning](../../../../delivery/templates/agile/sprint_planning_template.md)
+- [Product Backlog Management](../../../../uncertainty/role-based-toolkits/product-owner/backlog-management-template.md)

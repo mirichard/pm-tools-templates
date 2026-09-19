@@ -3,7 +3,7 @@ title: "Project Dashboard Template"
 methodology: "universal"
 complexity: "advanced"
 owner: "mirichard"
-updated: "2025-08-05"
+updated: "2026-09-19"
 ---
 
 
@@ -30,6 +30,12 @@ This dashboard template provides a visual, at-a-glance view of project health an
 
 ## Executive Summary
 [Brief summary of project status, key achievements, and critical issues]
+
+## Metric definitions and status rules
+
+For each metric, record its source, data date, owner, target, and status thresholds. Use “not assessed” when evidence is unavailable. Agree the meaning of green/yellow/red before reporting.
+
+Cost variance below means actual cost minus the approved budget for the same reporting scope and period; positive is over budget. It is not an earned-value cost variance. Schedule variance below is actual or forecast milestone date minus baseline date in days; positive is late. Define the quality-score calculation before using it.
 
 ## Key Metrics
 

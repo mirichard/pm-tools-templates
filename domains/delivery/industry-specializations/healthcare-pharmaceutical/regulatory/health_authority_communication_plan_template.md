@@ -3,10 +3,22 @@ title: "Health Authority Communication Plan Template"
 methodology: "universal"
 complexity: "advanced"
 owner: "mirichard"
-updated: "2025-08-05"
+updated: "2026-09-19"
 ---
 
 # Health Authority Communication Plan
+
+Reference check: [Current source](https://www.fda.gov/regulatory-information/search-fda-guidance-documents/e6r3-good-clinical-practice-gcp).
+
+
+## Applying this template
+
+Treat filled examples, dates, numerical limits, sampling frequencies, and approval outcomes as illustrations. Before execution, replace them with the approved product/site requirements, scientific rationale, method references, responsible reviewer, and acceptance evidence. Record the applicable jurisdiction and current guidance edition; a completed worksheet alone does not demonstrate regulatory compliance.
+
+| Requirement or limit | Applicable source / edition | Product-specific rationale | Approval / date | Execution evidence |
+|---|---|---|---|---|
+| [Requirement] | [Source] | [Rationale] | [Reviewer / date] | [Record] |
+
 
 ## Document Control
 - **Document ID:** [Unique Identifier]
@@ -752,7 +764,7 @@ updated: "2025-08-05"
 2. FDA Guidance for Industry: Formal Meetings Between the FDA and Sponsors or Applicants of BsUFA Products
 3. EMA Pre-authorization Guidance
 4. EMA Guideline on Procedures for Scientific Advice
-5. ICH E6(R2): Good Clinical Practice
+5. ICH E6(R3): Good Clinical Practice
 6. ICH M4: Common Technical Document
 7. [Regional health authority communication guidances]
 8. [Company SOPs as referenced in Related SOPs section]

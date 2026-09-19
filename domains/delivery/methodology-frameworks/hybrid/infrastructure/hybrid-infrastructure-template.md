@@ -338,13 +338,11 @@ Traditional Planning ←→ Hybrid Integration ←→ Agile Planning
 - [DevOps Pipeline Template](../../emerging-methods/devops/cicd_pipeline_planning_template.md)
 
 ### Integration Resources
-- [Agile-Traditional Integration Guide](../integration-strategies.md)
-- [Tool Integration Playbook](../tool-integration-guide.md)
-- [Hybrid Team Formation](../team-formation-guide.md)
+- [Mixed Delivery Approach](../../../../planning/templates/hybrid/Hybrid/Templates/hybrid_project_charter_template.md#mixed-delivery-approach)
+- [Microsoft Project–Jira Integration Guide](../../../../../Hybrid/MPP-Jira-Integration/README.md)
+- [Hybrid Team Structure and Formation](../../../../delivery/templates/hybrid/Hybrid/Templates/hybrid_team_management_template.md#team-structure-and-organization-models)
 
 ### Industry-Specific Adaptations
-- [Healthcare Infrastructure](../../../industry-specializations/healthcare-pharmaceutical/infrastructure/)
-- [Financial Services Infrastructure](../../../industry-specializations/financial-services/infrastructure/)
 - [Technology Infrastructure](../../../industry-specializations/information-technology/infrastructure/)
 
 ---

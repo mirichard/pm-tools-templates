@@ -1,23 +1,17 @@
 ---
 title: "Waterfall Project Assessment Template"
 methodology: "traditional"
-complexity: "basic"
+complexity: "starter"
 process_group: "initiating"
 industry: "financial"
 role: "stakeholder"
 tags: ["traditional", "initiating", "stakeholder-management", "planning", "quality"]
 version: "1.0.0"
 owner: "mirichard"
-updated: "2025-08-06"
+updated: "2026-09-19"
 estimated_completion_time: "15-30 minutes"
 ---
 
-
-title: "Waterfall Project Assessment Template"
-methodology: "traditional"
-complexity: "starter"
-owner: "mirichard"
-updated: "2025-08-05"
 
 # Waterfall Project Assessment Template
 
@@ -72,6 +66,20 @@ This template provides assessment criteria specifically for traditional waterfal
 - [ ] Stakeholder approval obtained
 - [ ] Next phase readiness confirmed
 
+## Assessment method and evidence
+
+Tailor the criteria to the project before scoring. This is a lightweight internal assessment, not a certification or formal appraisal. Mark inapplicable criteria N/A with a rationale; distinguish missing evidence from poor performance.
+
+Use a locally agreed scale: 1 = absent/ad hoc; 2 = inconsistently applied; 3 = defined and routinely applied; 4 = measured and controlled; 5 = improved using measured outcomes. Record evidence for each rating. Do not average scores with N/A or unassessed items.
+
+| Criterion | Rating / N/A / not assessed | Dated evidence and rationale | Gap / impact | Action / owner / due date | Completion evidence |
+|---|---|---|---|---|---|
+| [Criterion] | [Rating] | [Source and observation] | [Gap] | [Action / name / date] | [Observable acceptance condition] |
+
+- **Assessment limitations:** [Sampling, unavailable information, assessor familiarity]
+- **Stakeholder review:** [Reviewer / date / disputed findings]
+- **Follow-up review:** [Date and accountable owner]
+
 Related Resources:
-- [Traditional Framework](../methodology-frameworks/traditional/)
+- [Traditional Framework](../../../templates/traditional/)
 - [Project Lifecycle](../project-lifecycle/)

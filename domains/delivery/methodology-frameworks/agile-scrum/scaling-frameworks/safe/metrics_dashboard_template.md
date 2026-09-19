@@ -3,10 +3,15 @@ title: "Metrics Dashboard Template"
 methodology: "agile"
 complexity: "advanced"
 owner: "mirichard"
-updated: "2025-08-05"
+updated: "2026-09-19"
 ---
 
 # SAFe Metrics and Reporting Dashboard Template
+
+## Completing the worksheet
+
+Replace populated examples with project evidence before circulation. Record the reporting period, baseline, source, owner, and calculation for each measure; define thresholds and approval authority locally. Show unavailable values as unknown rather than zero or a favorable status. Reconcile totals and units, handle zero denominators explicitly, and retain the decision rationale and supporting evidence.
+
 
 ## Overview
 This template provides a comprehensive framework for implementing SAFe metrics and reporting dashboards across all levels of the organization - Team, Program (ART), Large Solution, and Portfolio. It includes key performance indicators (KPIs), measurement practices, and dashboard designs that support decision-making and continuous improvement in SAFe implementations.
@@ -639,7 +644,7 @@ All metrics must include:
 - [PI Planning Template](./pi_planning_template.md)
 - [Portfolio Kanban Template](./portfolio_kanban_template.md)
 - [ART Coordination Template](./art_coordination_template.md)
-- [SAFe Executive Dashboard Templates](../../../business-stakeholder-suite/safe-executive-dashboards/README.md)
+- [SAFe Executive Dashboard Templates](../../../../../../business-stakeholder-suite/safe-executive-dashboards/README.md)
 
 ---
 

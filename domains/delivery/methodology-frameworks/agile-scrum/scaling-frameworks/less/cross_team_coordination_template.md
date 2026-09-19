@@ -3,10 +3,13 @@ title: "Cross Team Coordination Template"
 methodology: "agile"
 complexity: "advanced"
 owner: "mirichard"
-updated: "2025-08-05"
+updated: "2026-09-19"
 ---
 
 # LeSS Cross-Team Coordination Template
+
+Use one defined product, shared Product Backlog and integrated product outcome. Coordination techniques and agenda durations here are optional facilitation examples, not additional mandatory roles or events. Adapt them consistently with the [LeSS framework](https://less.works/less/framework).
+
 
 ## Overview
 This template provides frameworks and practices for effective cross-team coordination in Large-Scale Scrum (LeSS) environments. It focuses on mechanisms that enable multiple teams to work together on a shared Product Backlog while maintaining team autonomy and minimizing coordination overhead.
@@ -500,7 +503,7 @@ Dependencies          Integration          Knowledge
 - [LeSS Sprint Planning Template](./less_sprint_planning_template.md)
 - [Overall Product Backlog Management](./overall_product_backlog_template.md)
 - [LeSS Retrospective Template](./less_retrospective_template.md)
-- [LeSS Adoption Roadmap](../../quick-start-kits/less-adoption/README.md)
+- [LeSS Adoption Roadmap](../../../../../../quick-start-kits/less-adoption/README.md)
 
 ---
 

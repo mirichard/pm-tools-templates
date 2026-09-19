@@ -3,10 +3,13 @@ title: "Executive Dashboard Template"
 methodology: "universal"
 complexity: "advanced"
 owner: "mirichard"
-updated: "2025-08-05"
+updated: "2026-09-19"
 ---
 
 # Power BI Executive Dashboard Template
+
+Define model relationships and reporting-period filters before using the sample DAX. The schema blocks are conceptual, not executable DDL. Refresh frequency depends on the chosen connection mode; “real-time” is a requirement to configure and verify, not a capability delivered by this Markdown template.
+
 
 ## 📊 Overview
 This template provides a comprehensive Power BI dashboard designed specifically for executive-level project management insights. It includes real-time KPI tracking, portfolio performance analysis, and strategic alignment monitoring.
@@ -30,6 +33,7 @@ Projects (
     ProjectManager,
     StartDate,
     EndDate,
+    PlannedEndDate,
     Status,
     Priority,
     Portfolio,
@@ -50,6 +54,7 @@ Tasks (
     TaskName,
     StartDate,
     EndDate,
+    PlannedEndDate,
     Status,
     AssignedTo,
     PercentComplete,
@@ -120,6 +125,7 @@ Resources (
     Cost,
     StartDate,
     EndDate,
+    PlannedEndDate,
     Utilization,
     SkillLevel
 )
@@ -185,10 +191,12 @@ DIVIDE(
 ```dax
 // Weighted Average ROI
 Weighted ROI = 
-SUMX(
-    Projects,
-    Projects[Budget] * FinancialMetrics[ROI]
-) / SUM(Projects[Budget])
+// FinancialMetrics must be filtered to one reporting period.
+// ROI is stored consistently as a decimal return for that period.
+DIVIDE(
+    SUMX(FinancialMetrics, FinancialMetrics[BudgetAllocated] * FinancialMetrics[ROI]),
+    SUM(FinancialMetrics[BudgetAllocated])
+)
 
 // Cost Performance Index (CPI)
 Cost Performance Index = 
@@ -500,6 +508,6 @@ OR(
 ---
 
 **Template Version**: 1.0  
-**Last Updated**: August 3, 2025  
-**Compatibility**: Power BI Desktop 2.120+, Power BI Service  
+**Last Updated**: August 3, 2025\
+**Compatibility**: Power BI Desktop 2.120+, Power BI Service\
 **Created By**: Enterprise Executive Dashboard Suite - Issue #327

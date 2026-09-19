@@ -13,12 +13,6 @@ estimated_completion_time: "30-45 minutes"
 ---
 
 
-title: "Current State Analysis Template"
-methodology: "universal"
-complexity: "advanced"
-owner: "mirichard"
-updated: "2025-08-05"
-
 # Current State Analysis Template
 
 ## Overview
@@ -393,9 +387,9 @@ CEO/Executive Level:
 ## Related Resources
 
 - [Future State Blueprint Template](./future-state-blueprint-template.md)
-- [Gap Analysis Framework](./gap-analysis-framework.md)
+- [Gap Analysis Framework](gap-analysis-matrix-template.md)
 - [Process Maturity Assessment](./process-maturity-assessment-template.md)
-- [Risk Assessment Template](../project-lifecycle/02-planning/risk-management/risk-assessment-template.md)
+- [Risk Assessment Template](../../uncertainty/project-lifecycle/02-planning/risk-management/enterprise-risk-assessment-template.md)
 
 
 **Assessment Date:** {{ assessment_date }}

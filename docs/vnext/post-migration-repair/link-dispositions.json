@@ -1,0 +1,559 @@
+[
+  {
+    "source": "README.md",
+    "old_href": "#repository-statistics",
+    "target": "#next-generation-features-roadmap",
+    "disposition": "relinked to maintained matching resource"
+  },
+  {
+    "source": "README.md",
+    "old_href": "business-stakeholder-suite/strategic-alignment/",
+    "target": "role-based-toolkits/program-manager/portfolio-management/prioritization-model.md",
+    "disposition": "relinked to verified resource or substantive template section",
+    "reason": "Inspected destination content; revised label describes the actual resource rather than promising a nonexistent standalone template.",
+    "resolved_occurrences": 1
+  },
+  {
+    "source": "README.md",
+    "old_href": "business-stakeholder-suite/communication-automation/email-templates/",
+    "target": "templates/email-templates/clean-status/",
+    "disposition": "relinked to verified resource or substantive template section",
+    "reason": "Inspected destination content; revised label describes the actual resource rather than promising a nonexistent standalone template.",
+    "resolved_occurrences": 1
+  },
+  {
+    "source": "README.md",
+    "old_href": "docs/getting-started/template-selector.md#template-index",
+    "target": "TEMPLATE_INDEX.md",
+    "disposition": "relinked to maintained matching resource"
+  },
+  {
+    "source": "README.md",
+    "old_href": "examples-case-studies/",
+    "target": "examples/",
+    "disposition": "relinked to maintained matching resource"
+  },
+  {
+    "source": "TEMPLATE_INDEX.md",
+    "old_href": "templates/test-samples/quality-test-template.md",
+    "target": null,
+    "disposition": "retired obsolete recommendation",
+    "reason": "Retired deleted test fixture; deletion commit 6bec16e5. The maintained quality-test-plan template remains indexed.",
+    "resolved_occurrences": 1
+  },
+  {
+    "source": "domains/delivery/industry-specializations/healthcare-pharmaceutical/lifecycle/pharmaceutical_qbd_template.md",
+    "old_href": "../regulatory-compliance/",
+    "target": "industry-specializations/healthcare-pharmaceutical/compliance/",
+    "disposition": "relinked to maintained matching resource"
+  },
+  {
+    "source": "domains/delivery/industry-specializations/healthcare-pharmaceutical/lifecycle/pharmaceutical_qbd_template.md",
+    "old_href": "../clinical-research/",
+    "target": "industry-specializations/healthcare-pharmaceutical/clinical-trials/",
+    "disposition": "relinked to maintained matching resource"
+  },
+  {
+    "source": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/less/cross_team_coordination_template.md",
+    "old_href": "../../quick-start-kits/less-adoption/README.md",
+    "target": "quick-start-kits/less-adoption/README.md",
+    "disposition": "relinked to maintained matching resource"
+  },
+  {
+    "source": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/less/less_sprint_planning_template.md",
+    "old_href": "../../quick-start-kits/less-adoption/README.md",
+    "target": "quick-start-kits/less-adoption/README.md",
+    "disposition": "relinked to maintained matching resource"
+  },
+  {
+    "source": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/less/overall_product_backlog_template.md",
+    "old_href": "../../quick-start-kits/less-adoption/README.md",
+    "target": "quick-start-kits/less-adoption/README.md",
+    "disposition": "relinked to maintained matching resource"
+  },
+  {
+    "source": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md",
+    "old_href": "../../../role-based-toolkits/release-train-engineer/README.md",
+    "target": "role-based-toolkits/release-train-engineer/README.md",
+    "disposition": "relinked to maintained matching resource"
+  },
+  {
+    "source": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md",
+    "old_href": "../../../role-based-toolkits/scrum-master/README.md",
+    "target": "role-based-toolkits/scrum-master/README.md",
+    "disposition": "relinked to maintained matching resource"
+  },
+  {
+    "source": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/metrics_dashboard_template.md",
+    "old_href": "../../../business-stakeholder-suite/safe-executive-dashboards/README.md",
+    "target": "business-stakeholder-suite/safe-executive-dashboards/README.md",
+    "disposition": "relinked to maintained matching resource"
+  },
+  {
+    "source": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/pi_planning_template.md",
+    "old_href": "../../role-based-toolkits/release-train-engineer/README.md",
+    "target": "role-based-toolkits/release-train-engineer/README.md",
+    "disposition": "relinked to maintained matching resource"
+  },
+  {
+    "source": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/portfolio_kanban_template.md",
+    "old_href": "./epic_business_case_template.md",
+    "target": "domains/planning/templates/traditional/Traditional/Templates/business_case_template.md",
+    "disposition": "relinked to verified resource or substantive template section",
+    "reason": "Inspected destination content; revised label describes the actual resource rather than promising a nonexistent standalone template.",
+    "resolved_occurrences": 1
+  },
+  {
+    "source": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/portfolio_kanban_template.md",
+    "old_href": "../../../role-based-toolkits/portfolio-manager/README.md",
+    "target": "role-based-toolkits/program-manager/portfolio-management/README.md",
+    "disposition": "relinked to verified resource or substantive template section",
+    "reason": "Inspected destination content; revised label describes the actual resource rather than promising a nonexistent standalone template.",
+    "resolved_occurrences": 1
+  },
+  {
+    "source": "domains/delivery/methodology-frameworks/hybrid/infrastructure/hybrid-infrastructure-template.md",
+    "old_href": "../integration-strategies.md",
+    "target": "domains/planning/templates/hybrid/Hybrid/Templates/hybrid_project_charter_template.md#mixed-delivery-approach",
+    "disposition": "relinked to verified resource or substantive template section",
+    "reason": "Inspected destination content; revised label describes the actual resource rather than promising a nonexistent standalone template.",
+    "resolved_occurrences": 1
+  },
+  {
+    "source": "domains/delivery/methodology-frameworks/hybrid/infrastructure/hybrid-infrastructure-template.md",
+    "old_href": "../tool-integration-guide.md",
+    "target": "Hybrid/MPP-Jira-Integration/README.md",
+    "disposition": "relinked to verified resource or substantive template section",
+    "reason": "Inspected destination content; revised label describes the actual resource rather than promising a nonexistent standalone template.",
+    "resolved_occurrences": 1
+  },
+  {
+    "source": "domains/delivery/methodology-frameworks/hybrid/infrastructure/hybrid-infrastructure-template.md",
+    "old_href": "../team-formation-guide.md",
+    "target": "domains/delivery/templates/hybrid/Hybrid/Templates/hybrid_team_management_template.md#team-structure-and-organization-models",
+    "disposition": "relinked to verified resource or substantive template section",
+    "reason": "Inspected destination content; revised label describes the actual resource rather than promising a nonexistent standalone template.",
+    "resolved_occurrences": 1
+  },
+  {
+    "source": "domains/delivery/methodology-frameworks/hybrid/infrastructure/hybrid-infrastructure-template.md",
+    "old_href": "../../../industry-specializations/healthcare-pharmaceutical/infrastructure/",
+    "target": null,
+    "disposition": "retired obsolete recommendation",
+    "reason": "Retired optional healthcare-infrastructure collection recommendation; no such collection exists in reachable history. Industry tailoring remains a project responsibility.",
+    "resolved_occurrences": 1
+  },
+  {
+    "source": "domains/delivery/methodology-frameworks/hybrid/infrastructure/hybrid-infrastructure-template.md",
+    "old_href": "../../../industry-specializations/financial-services/infrastructure/",
+    "target": null,
+    "disposition": "retired obsolete recommendation",
+    "reason": "Retired optional financial-services infrastructure collection recommendation; no such collection exists in reachable history. Industry tailoring remains a project responsibility.",
+    "resolved_occurrences": 1
+  },
+  {
+    "source": "domains/delivery/project-assessment-suite/hybrid-project-assessment-template.md",
+    "old_href": "../methodology-frameworks/hybrid/integration-strategies/",
+    "target": "domains/planning/templates/hybrid/Hybrid/Templates/hybrid_project_charter_template.md#mixed-delivery-approach",
+    "disposition": "relinked to verified resource or substantive template section",
+    "reason": "Inspected destination content; revised label describes the actual resource rather than promising a nonexistent standalone template.",
+    "resolved_occurrences": 1
+  },
+  {
+    "source": "domains/delivery/project-lifecycle/02-planning/project-management-plan/hybrid-project-management-plan-template.md",
+    "old_href": "../project-charter/",
+    "target": "project-lifecycle/01-initiation/project-charter/",
+    "disposition": "relinked to maintained matching resource"
+  },
+  {
+    "source": "domains/delivery/project-lifecycle/02-planning/project-management-plan/hybrid-project-management-plan-template.md",
+    "old_href": "../communication-plan/",
+    "target": "project-lifecycle/02-planning/communication-planning/",
+    "disposition": "relinked to maintained matching resource"
+  },
+  {
+    "source": "domains/delivery/templates/hybrid/Hybrid/Templates/integrated_change_strategy_template.md",
+    "old_href": "../../Traditional/Templates/change_management_plan_template.md",
+    "target": "Traditional/Templates/change_management_plan_template.md",
+    "disposition": "relinked to maintained matching resource"
+  },
+  {
+    "source": "domains/delivery/templates/hybrid/Hybrid/Templates/integrated_change_strategy_template.md",
+    "old_href": "../../Agile/Tools/change_vision_canvas.md",
+    "target": "Agile/Tools/change_vision_canvas.md",
+    "disposition": "relinked to maintained matching resource"
+  },
+  {
+    "source": "domains/delivery/templates/hybrid/Hybrid/Templates/integrated_change_strategy_template.md",
+    "old_href": "progressive_change_roadmap_template.md",
+    "target": "domains/delivery/templates/hybrid/Hybrid/Templates/integrated_change_strategy_template.md#phase-based-roadmap",
+    "disposition": "relinked to verified resource or substantive template section",
+    "reason": "Inspected destination content; revised label describes the actual resource rather than promising a nonexistent standalone template.",
+    "resolved_occurrences": 1
+  },
+  {
+    "source": "domains/delivery/templates/hybrid/Hybrid/Templates/integrated_change_strategy_template.md",
+    "old_href": "change_governance_framework_template.md",
+    "target": "domains/delivery/templates/hybrid/Hybrid/Templates/integrated_change_strategy_template.md#governance-structure",
+    "disposition": "relinked to verified resource or substantive template section",
+    "reason": "Inspected destination content; revised label describes the actual resource rather than promising a nonexistent standalone template.",
+    "resolved_occurrences": 1
+  },
+  {
+    "source": "domains/delivery/templates/hybrid/Hybrid/Templates/progressive_acceptance_plan_template.md",
+    "old_href": "../../Traditional/Templates/uat_plan_template.md",
+    "target": "Traditional/Templates/uat_plan_template.md",
+    "disposition": "relinked to maintained matching resource"
+  },
+  {
+    "source": "domains/delivery/templates/hybrid/Hybrid/Templates/progressive_acceptance_plan_template.md",
+    "old_href": "../../Agile/Tools/uat_feedback_canvas.md",
+    "target": "Agile/Tools/uat_feedback_canvas.md",
+    "disposition": "relinked to maintained matching resource"
+  },
+  {
+    "source": "domains/delivery/templates/hybrid/Hybrid/Templates/progressive_acceptance_plan_template.md",
+    "old_href": "uat_governance_framework_template.md",
+    "target": "domains/delivery/templates/hybrid/Hybrid/Templates/progressive_acceptance_plan_template.md#decision-framework",
+    "disposition": "relinked to verified resource or substantive template section",
+    "reason": "Inspected destination content; revised label describes the actual resource rather than promising a nonexistent standalone template.",
+    "resolved_occurrences": 1
+  },
+  {
+    "source": "domains/delivery/templates/traditional/Traditional/Knowledge_Areas/Project_Cost_Management/roi_tracking_template.md",
+    "old_href": "../../../Waterfall/Templates/business_case_template.md",
+    "target": "domains/planning/templates/traditional/Traditional/Templates/business_case_template.md",
+    "disposition": "relinked to maintained matching resource"
+  },
+  {
+    "source": "domains/delivery/templates/traditional/Traditional/Knowledge_Areas/Project_Cost_Management/roi_tracking_template.md",
+    "old_href": "./project_budget_template.md",
+    "target": "domains/planning/role-based-toolkits/project-manager/essential-templates/budget-template.md",
+    "disposition": "relinked to maintained matching resource"
+  },
+  {
+    "source": "domains/delivery/templates/traditional/Traditional/Knowledge_Areas/Project_Cost_Management/roi_tracking_template.md",
+    "old_href": "./cost_benefit_analysis_template.md",
+    "target": "domains/planning/templates/traditional/Traditional/Templates/business_case_template.md#5-financial-analysis",
+    "disposition": "relinked to verified resource or substantive template section",
+    "reason": "Inspected destination content; revised label describes the actual resource rather than promising a nonexistent standalone template.",
+    "resolved_occurrences": 1
+  },
+  {
+    "source": "domains/delivery/templates/traditional/Traditional/Knowledge_Areas/Project_Cost_Management/roi_tracking_template.md",
+    "old_href": "../../business-stakeholder-suite/safe-executive-dashboards/financial-dashboard-template.md",
+    "target": "business-stakeholder-suite/financial-governance/roi-tracking-dashboard.md",
+    "disposition": "relinked to verified resource or substantive template section",
+    "reason": "Inspected destination content; revised label describes the actual resource rather than promising a nonexistent standalone template.",
+    "resolved_occurrences": 1
+  },
+  {
+    "source": "domains/delivery/templates/traditional/Traditional/Templates/change_management_plan_template.md",
+    "old_href": "../Process_Groups/Initiating/stakeholder_register_template.md",
+    "target": "domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/stakeholder-register-template.md",
+    "disposition": "relinked to maintained matching resource"
+  },
+  {
+    "source": "domains/delivery/templates/traditional/Traditional/Templates/change_management_plan_template.md",
+    "old_href": "training_plan_template.md",
+    "target": "domains/delivery/templates/traditional/Traditional/Templates/change_management_plan_template.md#training-and-development",
+    "disposition": "relinked to verified resource or substantive template section",
+    "reason": "Inspected destination content; revised label describes the actual resource rather than promising a nonexistent standalone template.",
+    "resolved_occurrences": 1
+  },
+  {
+    "source": "domains/delivery/templates/traditional/Traditional/Templates/uat_plan_template.md",
+    "old_href": "uat_test_case_template.md",
+    "target": "domains/delivery/templates/traditional/Traditional/Templates/uat_plan_template.md#test-case-template",
+    "disposition": "relinked to verified resource or substantive template section",
+    "reason": "Inspected destination content; revised label describes the actual resource rather than promising a nonexistent standalone template.",
+    "resolved_occurrences": 1
+  },
+  {
+    "source": "domains/delivery/templates/traditional/Traditional/Templates/uat_plan_template.md",
+    "old_href": "uat_execution_report_template.md",
+    "target": "domains/delivery/templates/traditional/Traditional/Templates/uat_plan_template.md#weekly-status-report-template",
+    "disposition": "relinked to verified resource or substantive template section",
+    "reason": "Inspected destination content; revised label describes the actual resource rather than promising a nonexistent standalone template.",
+    "resolved_occurrences": 1
+  },
+  {
+    "source": "domains/delivery/templates/traditional/Traditional/Templates/uat_plan_template.md",
+    "old_href": "uat_signoff_template.md",
+    "target": "domains/delivery/templates/traditional/Traditional/Templates/uat_plan_template.md#sign-off-process",
+    "disposition": "relinked to verified resource or substantive template section",
+    "reason": "Inspected destination content; revised label describes the actual resource rather than promising a nonexistent standalone template.",
+    "resolved_occurrences": 1
+  },
+  {
+    "source": "domains/delivery/templates/traditional/Traditional/Templates/uat_plan_template.md",
+    "old_href": "../Process_Groups/Planning/quality_management_plan_template.md",
+    "target": "domains/delivery/templates/traditional/Traditional/Process_Groups/Planning/project_management_plan_template.md#5-quality-management",
+    "disposition": "relinked to verified resource or substantive template section",
+    "reason": "Inspected destination content; revised label describes the actual resource rather than promising a nonexistent standalone template.",
+    "resolved_occurrences": 1
+  },
+  {
+    "source": "domains/measurement/methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md",
+    "old_href": "./devops_metrics_template.md",
+    "target": "domains/measurement/methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md#success-metrics-and-kpis",
+    "disposition": "relinked to verified resource or substantive template section",
+    "reason": "Inspected destination content; revised label describes the actual resource rather than promising a nonexistent standalone template.",
+    "resolved_occurrences": 1
+  },
+  {
+    "source": "domains/measurement/methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md",
+    "old_href": "../../role-based-toolkits/devops-engineer/README.md",
+    "target": null,
+    "disposition": "retired obsolete recommendation",
+    "reason": "Retired optional role-toolkit recommendation absent from reachable history; retained the existing practice-specific templates and their roles, escalation, and collaboration guidance.",
+    "resolved_occurrences": 1
+  },
+  {
+    "source": "domains/measurement/methodology-frameworks/emerging-methods/devops/devsecops_template.md",
+    "old_href": "../../role-based-toolkits/security-engineer/README.md",
+    "target": null,
+    "disposition": "retired obsolete recommendation",
+    "reason": "Retired optional role-toolkit recommendation absent from reachable history; retained the existing practice-specific templates and their roles, escalation, and collaboration guidance.",
+    "resolved_occurrences": 1
+  },
+  {
+    "source": "domains/measurement/methodology-frameworks/emerging-methods/devops/infrastructure_as_code_template.md",
+    "old_href": "../../role-based-toolkits/devops-engineer/README.md",
+    "target": null,
+    "disposition": "retired obsolete recommendation",
+    "reason": "Retired optional role-toolkit recommendation absent from reachable history; retained the existing practice-specific templates and their roles, escalation, and collaboration guidance.",
+    "resolved_occurrences": 1
+  },
+  {
+    "source": "domains/measurement/methodology-frameworks/emerging-methods/devops/monitoring_alerting_template.md",
+    "old_href": "../../role-based-toolkits/sre/README.md",
+    "target": null,
+    "disposition": "retired obsolete recommendation",
+    "reason": "Retired optional role-toolkit recommendation absent from reachable history; retained the existing practice-specific templates and their roles, escalation, and collaboration guidance.",
+    "resolved_occurrences": 1
+  },
+  {
+    "source": "domains/measurement/methodology-frameworks/emerging-methods/devops/release_management_template.md",
+    "old_href": "./devops_metrics_template.md",
+    "target": "domains/measurement/methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md#success-metrics-and-kpis",
+    "disposition": "relinked to verified resource or substantive template section",
+    "reason": "Inspected destination content; revised label describes the actual resource rather than promising a nonexistent standalone template.",
+    "resolved_occurrences": 1
+  },
+  {
+    "source": "domains/measurement/methodology-frameworks/emerging-methods/devops/release_management_template.md",
+    "old_href": "../../role-based-toolkits/devops-engineer/README.md",
+    "target": null,
+    "disposition": "retired obsolete recommendation",
+    "reason": "Retired optional role-toolkit recommendation absent from reachable history; retained the existing practice-specific templates and their roles, escalation, and collaboration guidance.",
+    "resolved_occurrences": 1
+  },
+  {
+    "source": "domains/measurement/project-assessment-suite/current-state-analysis-template.md",
+    "old_href": "./gap-analysis-framework.md",
+    "target": "domains/measurement/project-assessment-suite/gap-analysis-matrix-template.md",
+    "disposition": "relinked to maintained matching resource"
+  },
+  {
+    "source": "domains/measurement/project-assessment-suite/current-state-analysis-template.md",
+    "old_href": "../project-lifecycle/02-planning/risk-management/risk-assessment-template.md",
+    "target": "domains/uncertainty/project-lifecycle/02-planning/risk-management/enterprise-risk-assessment-template.md",
+    "disposition": "relinked to maintained matching resource"
+  },
+  {
+    "source": "domains/measurement/project-assessment-suite/future-state-blueprint-template.md",
+    "old_href": "./gap-analysis-framework.md",
+    "target": "domains/measurement/project-assessment-suite/gap-analysis-matrix-template.md",
+    "disposition": "relinked to maintained matching resource"
+  },
+  {
+    "source": "domains/measurement/project-assessment-suite/future-state-blueprint-template.md",
+    "old_href": "../project-lifecycle/02-planning/implementation-planning-template.md",
+    "target": "domains/measurement/project-assessment-suite/remediation-action-plan-template.md",
+    "disposition": "relinked to verified resource or substantive template section",
+    "reason": "Inspected destination content; revised label describes the actual resource rather than promising a nonexistent standalone template.",
+    "resolved_occurrences": 1
+  },
+  {
+    "source": "domains/measurement/project-assessment-suite/future-state-blueprint-template.md",
+    "old_href": "../organizational-change/change-management-plan-template.md",
+    "target": "domains/delivery/templates/traditional/Traditional/Templates/change_management_plan_template.md",
+    "disposition": "relinked to verified resource or substantive template section",
+    "reason": "Inspected destination content; revised label describes the actual resource rather than promising a nonexistent standalone template.",
+    "resolved_occurrences": 1
+  },
+  {
+    "source": "domains/measurement/project-assessment-suite/resource-management-assessment-template.md",
+    "old_href": "../project-lifecycle/02-planning/budget-planning/",
+    "target": "domains/planning/role-based-toolkits/project-manager/essential-templates/budget-template.md",
+    "disposition": "relinked to maintained matching resource"
+  },
+  {
+    "source": "domains/planning/industry-specializations/information-technology/infrastructure/data_center_design_template.md",
+    "old_href": "../../../essential-templates/infrastructure/infrastructure-requirements-template.md",
+    "target": "essential-templates/infrastructure/infrastructure-requirements-template.md",
+    "disposition": "relinked to maintained matching resource"
+  },
+  {
+    "source": "domains/planning/industry-specializations/information-technology/infrastructure/data_center_design_template.md",
+    "old_href": "./infrastructure_assessment_template.md",
+    "target": "domains/measurement/industry-specializations/information-technology/infrastructure/infrastructure_assessment_template.md",
+    "disposition": "relinked to maintained matching resource"
+  },
+  {
+    "source": "domains/planning/industry-specializations/information-technology/infrastructure/disaster_recovery_template.md",
+    "old_href": "../../../essential-templates/infrastructure/infrastructure-requirements-template.md",
+    "target": "essential-templates/infrastructure/infrastructure-requirements-template.md",
+    "disposition": "relinked to maintained matching resource"
+  },
+  {
+    "source": "domains/planning/industry-specializations/information-technology/infrastructure/disaster_recovery_template.md",
+    "old_href": "./infrastructure_assessment_template.md",
+    "target": "domains/measurement/industry-specializations/information-technology/infrastructure/infrastructure_assessment_template.md",
+    "disposition": "relinked to maintained matching resource"
+  },
+  {
+    "source": "domains/planning/templates/traditional/Traditional/Templates/business_case_template.md",
+    "old_href": "../../Traditional/Knowledge_Areas/Project_Cost_Management/roi_tracking_template.md",
+    "target": "Traditional/Knowledge_Areas/Project_Cost_Management/roi_tracking_template.md",
+    "disposition": "relinked to maintained matching resource"
+  },
+  {
+    "source": "domains/planning/templates/traditional/Traditional/Templates/business_case_template.md",
+    "old_href": "./project_charter_template.md",
+    "target": "domains/planning/templates/traditional/Traditional/Process_Groups/Initiating/project_charter_template.md",
+    "disposition": "relinked to maintained matching resource"
+  },
+  {
+    "source": "domains/planning/templates/traditional/Traditional/Templates/business_case_template.md",
+    "old_href": "./requirements_specification_template.md",
+    "target": "domains/uncertainty/industry-specializations/information-technology/software-development/requirements_specification_template.md",
+    "disposition": "relinked to maintained matching resource"
+  },
+  {
+    "source": "domains/planning/templates/traditional/Traditional/Templates/business_case_template.md",
+    "old_href": "./project_plan_template.md",
+    "target": "domains/delivery/templates/traditional/Traditional/Process_Groups/Planning/project_management_plan_template.md",
+    "disposition": "relinked to verified resource or substantive template section",
+    "reason": "Inspected destination content; revised label describes the actual resource rather than promising a nonexistent standalone template.",
+    "resolved_occurrences": 1
+  },
+  {
+    "source": "domains/stakeholder/project-assessment-suite/stakeholder-engagement-assessment-template.md",
+    "old_href": "../role-based-toolkits/project-manager/stakeholder-engagement/",
+    "target": "role-based-toolkits/project-manager/stakeholder-engagement/",
+    "disposition": "relinked to maintained matching resource"
+  },
+  {
+    "source": "domains/stakeholder/project-assessment-suite/stakeholder-engagement-assessment-template.md",
+    "old_href": "../project-lifecycle/02-planning/communication-planning/",
+    "target": "project-lifecycle/02-planning/communication-planning/",
+    "disposition": "relinked to maintained matching resource"
+  },
+  {
+    "source": "domains/stakeholder/project-assessment-suite/waterfall-project-assessment-template.md",
+    "old_href": "../methodology-frameworks/traditional/",
+    "target": "templates/traditional/",
+    "disposition": "relinked to maintained matching resource"
+  },
+  {
+    "source": "domains/stakeholder/role-based-toolkits/product-owner/okr-template.md",
+    "old_href": "./product-strategy-canvas.md",
+    "target": "role-based-toolkits/product-owner/product-strategy-canvas.md",
+    "disposition": "relinked to maintained matching resource"
+  },
+  {
+    "source": "domains/stakeholder/role-based-toolkits/product-owner/okr-template.md",
+    "old_href": "./product-metrics-dashboard.md",
+    "target": "role-based-toolkits/product-owner/product-metrics-dashboard.md",
+    "disposition": "relinked to maintained matching resource"
+  },
+  {
+    "source": "domains/stakeholder/role-based-toolkits/product-owner/okr-template.md",
+    "old_href": "./user-research-planning.md",
+    "target": "role-based-toolkits/product-owner/user-research-planning.md",
+    "disposition": "created missing resource",
+    "reason": "No research-planning document found in current tree or reachable history. Added a usable plan covering decisions, participants, neutral tasks, evidence, limitations, and follow-up.",
+    "resolved_occurrences": 1
+  },
+  {
+    "source": "domains/stakeholder/role-based-toolkits/product-owner/okr-template.md",
+    "old_href": "./stakeholder-collaboration-framework.md",
+    "target": "role-based-toolkits/product-owner/stakeholder-collaboration-framework.md",
+    "disposition": "relinked to maintained matching resource"
+  },
+  {
+    "source": "domains/team/methodology-frameworks/agile-scrum/scaling-frameworks/less/less_retrospective_template.md",
+    "old_href": "./less_sprint_planning_template.md",
+    "target": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/less/less_sprint_planning_template.md",
+    "disposition": "relinked to maintained matching resource"
+  },
+  {
+    "source": "domains/team/methodology-frameworks/agile-scrum/scaling-frameworks/less/less_retrospective_template.md",
+    "old_href": "./overall_product_backlog_template.md",
+    "target": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/less/overall_product_backlog_template.md",
+    "disposition": "relinked to maintained matching resource"
+  },
+  {
+    "source": "domains/team/methodology-frameworks/agile-scrum/scaling-frameworks/less/less_retrospective_template.md",
+    "old_href": "./cross_team_coordination_template.md",
+    "target": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/less/cross_team_coordination_template.md",
+    "disposition": "relinked to maintained matching resource"
+  },
+  {
+    "source": "domains/team/methodology-frameworks/agile-scrum/scaling-frameworks/less/less_retrospective_template.md",
+    "old_href": "../../quick-start-kits/less-adoption/README.md",
+    "target": "quick-start-kits/less-adoption/README.md",
+    "disposition": "relinked to maintained matching resource"
+  },
+  {
+    "source": "domains/uncertainty/industry-specializations/information-technology/software-development/user_story_mapping_template.md",
+    "old_href": "../../../methodology-frameworks/agile-scrum/planning/",
+    "target": "domains/delivery/project-lifecycle/02-planning/project-management-plan/agile-release-plan-template.md",
+    "disposition": "relinked to verified resource or substantive template section",
+    "reason": "Inspected destination content; revised label describes the actual resource rather than promising a nonexistent standalone template. Original URL served two labels; product-backlog label now has its own correct destination.",
+    "resolved_occurrences": 2,
+    "additional_targets": [
+      "domains/uncertainty/role-based-toolkits/product-owner/backlog-management-template.md"
+    ]
+  },
+  {
+    "source": "domains/uncertainty/industry-specializations/information-technology/software-development/user_story_mapping_template.md",
+    "old_href": "../../../methodology-frameworks/agile-scrum/sprint-zero/",
+    "target": "domains/delivery/templates/agile/sprint_planning_template.md",
+    "disposition": "relinked to verified resource or substantive template section",
+    "reason": "Inspected destination content; revised label describes the actual resource rather than promising a nonexistent standalone template.",
+    "resolved_occurrences": 1
+  },
+  {
+    "source": "domains/uncertainty/project-assessment-suite/assessment-report-template.md",
+    "old_href": "../project-charter/",
+    "target": "project-lifecycle/01-initiation/project-charter/",
+    "disposition": "relinked to maintained matching resource"
+  },
+  {
+    "source": "domains/uncertainty/project-assessment-suite/assessment-report-template.md",
+    "old_href": "../risk-management/",
+    "target": "project-lifecycle/02-planning/risk-management/",
+    "disposition": "relinked to maintained matching resource"
+  },
+  {
+    "source": "domains/uncertainty/project-assessment-suite/assessment-report-template.md",
+    "old_href": "../communication-plan/",
+    "target": "project-lifecycle/02-planning/communication-planning/",
+    "disposition": "relinked to maintained matching resource"
+  },
+  {
+    "source": "domains/uncertainty/project-lifecycle/02-planning/risk-management/enterprise-risk-assessment-template.md",
+    "old_href": "../project-charter/",
+    "target": "project-lifecycle/01-initiation/project-charter/",
+    "disposition": "relinked to maintained matching resource"
+  },
+  {
+    "source": "domains/uncertainty/project-lifecycle/02-planning/risk-management/enterprise-risk-assessment-template.md",
+    "old_href": "../communication-plan/",
+    "target": "project-lifecycle/02-planning/communication-planning/",
+    "disposition": "relinked to maintained matching resource"
+  }
+]

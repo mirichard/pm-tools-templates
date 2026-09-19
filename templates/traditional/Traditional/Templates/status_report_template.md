@@ -3,7 +3,7 @@ title: "Status Report Template"
 methodology: "traditional"
 complexity: "advanced"
 owner: "mirichard"
-updated: "2025-08-05"
+updated: "2026-09-19"
 ---
 
 # PROJECT/PROGRAM STATUS REPORT
@@ -59,7 +59,8 @@ updated: "2025-08-05"
 
 ### Schedule Metrics
 * **Schedule Performance Index (SPI):** *[0.95]* *(< 1.0 indicates behind schedule)*
-* **Schedule Variance (SV):** *[-10 days]*
+* **Milestone delay:** *[10 days late]* *(forecast minus baseline date; positive means late)*
+* **Earned-value Schedule Variance (SV):** *[EV minus PV in budget units]*
 * **Critical Path Slack:** *[5 days]*
 * **Current Phase:** *[Design/Development/Testing]*
 * **Phase Completion:** *[65%]*
@@ -72,6 +73,8 @@ updated: "2025-08-05"
 ---
 
 ## 3. Budget Status
+
+Variance in the summary is approved budget minus EAC; positive is forecast underspend. Percentage = variance / approved budget × 100, rounded for display. CPI = EV / AC, SPI = EV / PV, CV = EV − AC; use the same status date and cost basis and show unavailable ratios as N/A. Committed cost can overlap actual cost: do not add them without separating outstanding commitments.
 
 ### Financial Summary
 
@@ -86,7 +89,7 @@ updated: "2025-08-05"
 | **TOTAL** | **$1,125,000** | **$760,000** | **$695,000** | **$1,075,000** | **$50,000** | **4%** |
 
 ### Budget Metrics
-* **Cost Performance Index (CPI):** *[1.03]* *(> 1.0 indicates under budget)*
+* **Cost Performance Index (CPI):** *[1.03]* *(> 1.0 means earned value exceeds actual cost for work performed; it does not guarantee the final budget)*
 * **Cost Variance (CV):** *[$21,000]*
 * **Percent Budget Spent:** *[62%]*
 * **Contingency Remaining:** *[$50,000]* *(50% of original)*
@@ -132,13 +135,15 @@ updated: "2025-08-05"
 
 ## 5. RAID Log Summary (Risks, Actions, Issues, Decisions)
 
+This report uses the Risks/Actions/Issues/Decisions variant. Retain assumptions and dependencies in the linked project RAID register. For the example below use probability and impact ranks Low=1, Medium=2, High=3; score is their product. Calibrate the scale before actual reporting.
+
 ### Top Risks
 
 | Risk ID | Description | Probability | Impact | Score | Mitigation Strategy | Owner | Status |
 |---------|-------------|------------|--------|-------|-------------------|-------|--------|
-| *R-005* | *Data migration quality issues* | *Medium* | *High* | *12* | *Implement data validation & cleansing tools* | *John Smith* | *Mitigating* |
-| *R-008* | *Key SME availability limited* | *High* | *Medium* | *9* | *Secure dedicated time commitment from departments* | *Mary Jones* | *Mitigating* |
-| *R-012* | *Vendor resource constraints* | *Medium* | *Medium* | *6* | *Regular vendor management calls, establish escalation path* | *Bob Wilson* | *Monitoring* |
+| *R-005* | *Data migration quality issues* | *Medium* | *High* | *6* | *Implement data validation & cleansing tools* | *John Smith* | *Mitigating* |
+| *R-008* | *Key SME availability limited* | *High* | *Medium* | *6* | *Secure dedicated time commitment from departments* | *Mary Jones* | *Mitigating* |
+| *R-012* | *Vendor resource constraints* | *Medium* | *Medium* | *4* | *Regular vendor management calls, establish escalation path* | *Bob Wilson* | *Monitoring* |
 
 ### Top Issues
 
@@ -221,5 +226,5 @@ updated: "2025-08-05"
 ### Program Resource Allocation (Program Level)
 | Project | Planned Resources | Current Allocation | Resource Issues |
 |---------|------------------:|-------------------:|----------------|
-| *Project A* | *10.5 FTE* | *9.5 FTE*
+| *Project A* | *10.5 FTE* | *9.5 FTE* | *1.0 FTE shortfall; owner and action required* |
 

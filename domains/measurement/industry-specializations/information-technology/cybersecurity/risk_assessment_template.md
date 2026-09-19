@@ -3,13 +3,18 @@ title: "Risk Assessment Template"
 methodology: "universal"
 complexity: "advanced"
 owner: "mirichard"
-updated: "2025-08-05"
+updated: "2026-09-19"
 ---
 
 # Cybersecurity Risk Assessment Template
 
+## Framework and response applicability
+
+When using NIST CSF, map the assessment to the six CSF 2.0 functions, including Govern. Record decision authority, risk appetite, oversight, and supply-chain responsibilities as well as technical controls. The [NIST CSF 2.0 overview](https://www.nist.gov/news-events/news/2024/02/nist-releases-version-20-landmark-cybersecurity-framework) explains the governance addition. Example response times and notification periods must be replaced by the approved service, incident, and jurisdiction-specific requirements.
+
+
 **Version:** 1.0  
-**Last Updated:** [Date]  
+**Last Updated:** [Date]\
 **Document Owner:** [Security Manager/CISO]  
 **Approved By:** [Name], [Title]
 

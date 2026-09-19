@@ -3,10 +3,15 @@ title: "Cicd Pipeline Planning Template"
 methodology: "universal"
 complexity: "advanced"
 owner: "mirichard"
-updated: "2025-08-05"
+updated: "2026-09-19"
 ---
 
 # CI/CD Pipeline Planning Template
+
+## Example implementation contract
+
+Code, queries, configuration, versions, thresholds, and sample output illustrate the design; they are not a tested deployment bundle. Record the actual platform/version, supported dependencies, credentials source, least-privilege access, environment-specific values, and test results before use. Pin release artifacts and validate rollback and failure paths in the target environment. Never use sample secrets or sample approval results as operational evidence.
+
 
 ## Overview
 This template provides a comprehensive framework for planning and implementing Continuous Integration/Continuous Deployment (CI/CD) pipelines that bridge project management and DevOps practices. It focuses on integrating CI/CD planning into project workflows while ensuring reliable, automated delivery processes.
@@ -342,7 +347,7 @@ jobs:
     - name: Set up Node.js
       uses: actions/setup-node@v4
       with:
-        node-version: '18'
+        node-version: '24'
         cache: 'npm'
         
     - name: Install dependencies
@@ -1114,9 +1119,8 @@ Time to Recovery:
 
 ## Related Templates
 - [Release Management Workflow](./release_management_template.md)
-- [DevOps Metrics Dashboard](./devops_metrics_template.md)
+- [Pipeline Success Metrics and KPIs](#success-metrics-and-kpis)
 - [Infrastructure as Code Template](./infrastructure_as_code_template.md)
-- [DevOps Engineer Role Guide](../../role-based-toolkits/devops-engineer/README.md)
 - [Security Integration Template](./devsecops_template.md)
 
 ---

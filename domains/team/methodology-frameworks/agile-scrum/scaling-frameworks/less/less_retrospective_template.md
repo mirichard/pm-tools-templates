@@ -3,10 +3,13 @@ title: "Less Retrospective Template"
 methodology: "agile"
 complexity: "advanced"
 owner: "mirichard"
-updated: "2025-08-05"
+updated: "2026-09-19"
 ---
 
 # LeSS Retrospective Format Template
+
+Use one defined product, shared Product Backlog and integrated product outcome. Coordination techniques and agenda durations here are optional facilitation examples, not additional mandatory roles or events. Adapt them consistently with the [LeSS framework](https://less.works/less/framework).
+
 
 ## Overview
 This template provides structured formats for conducting retrospectives in Large-Scale Scrum (LeSS) environments. LeSS retrospectives focus on both team-level and organizational improvements, emphasizing systemic thinking and cross-team collaboration.
@@ -465,10 +468,10 @@ Management Table
 ---
 
 ## Related Templates
-- [LeSS Sprint Planning Template](./less_sprint_planning_template.md)
-- [Overall Product Backlog Management](./overall_product_backlog_template.md)
-- [Cross-Team Coordination Template](./cross_team_coordination_template.md)
-- [LeSS Adoption Roadmap](../../quick-start-kits/less-adoption/README.md)
+- [LeSS Sprint Planning Template](../../../../../delivery/methodology-frameworks/agile-scrum/scaling-frameworks/less/less_sprint_planning_template.md)
+- [Overall Product Backlog Management](../../../../../delivery/methodology-frameworks/agile-scrum/scaling-frameworks/less/overall_product_backlog_template.md)
+- [Cross-Team Coordination Template](../../../../../delivery/methodology-frameworks/agile-scrum/scaling-frameworks/less/cross_team_coordination_template.md)
+- [LeSS Adoption Roadmap](../../../../../../quick-start-kits/less-adoption/README.md)
 
 ---
 

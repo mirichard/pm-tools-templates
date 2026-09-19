@@ -3,7 +3,7 @@ title: "Art Coordination Template"
 methodology: "agile"
 complexity: "advanced"
 owner: "mirichard"
-updated: "2025-08-05"
+updated: "2026-09-19"
 primary_principles: ["systems-thinking", "collaborative-leadership"]
 secondary_principles: ["value-focus", "adaptability"]
 principle_rationale: "Coordinates teams and dependencies around shared value with adaptable leadership."
@@ -338,7 +338,7 @@ Resolved                Owned                   Accepted               Mitigated
 - **Customer Satisfaction:** Feedback scores from stakeholders
 
 #### Predictability Metrics
-- **PI Predictability:** Percentage of PI objectives achieved
+- **PI Predictability:** Business-value achievement against planned value for the defined committed-objective scope
 - **Feature Predictability:** Percentage of planned features delivered
 - **Iteration Predictability:** Percentage of iteration commitments met
 - **Dependency Reliability:** Percentage of dependencies delivered on time
@@ -560,8 +560,8 @@ Based on maturity assessment, prioritize coaching in:
 - [PI Planning Template](./pi_planning_template.md)
 - [Portfolio Kanban Template](./portfolio_kanban_template.md)
 - [SAFe Metrics Dashboard Template](./metrics_dashboard_template.md)
-- [Release Train Engineer Role Guide](../../../role-based-toolkits/release-train-engineer/README.md)
-- [Scrum Master Role Guide](../../../role-based-toolkits/scrum-master/README.md)
+- [Release Train Engineer Role Guide](../../../../../../role-based-toolkits/release-train-engineer/README.md)
+- [Scrum Master Role Guide](../../../../../../role-based-toolkits/scrum-master/README.md)
 
 ---
 
@@ -574,7 +574,7 @@ Based on maturity assessment, prioritize coaching in:
 - **Coordination Overhead:** <10% of team capacity spent on coordination
 
 ### Delivery Performance
-- **PI Predictability:** 80%+ of PI objectives achieved
+- **PI Predictability:** An agreed business-value achievement target, with calculation and objective scope documented
 - **Feature Delivery:** 85%+ of planned features delivered
 - **Quality Metrics:** Defect rates within acceptable thresholds
 - **Stakeholder Satisfaction:** High ratings from business stakeholders

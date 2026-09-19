@@ -3,10 +3,14 @@ title: "Team Charter Template"
 methodology: "universal"
 complexity: "advanced"
 owner: "mirichard"
-updated: "2025-08-05"
+updated: "2026-09-19"
 ---
 
 # Team Charter Template
+
+## Tailoring the working agreement
+
+Response times, meeting prompts, core hours, approval roles, and coding practices below are starting examples for team agreement. Adapt them to accessibility, time zones, the work, and organizational obligations. Review flow metrics at team level; do not compare individual productivity using velocity. Permit confidential escalation outside the team when appropriate.
 
 ## Purpose/Overview
 This team charter template establishes clear expectations, roles, and working agreements for project teams. It serves as a foundational document that aligns team members on goals, responsibilities, communication protocols, and performance standards. The charter promotes team cohesion, reduces conflicts, and provides a reference for decision-making and accountability.

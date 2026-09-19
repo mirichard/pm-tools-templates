@@ -3,10 +3,15 @@ title: "Uat Plan Template"
 methodology: "traditional"
 complexity: "advanced"
 owner: "mirichard"
-updated: "2025-08-05"
+updated: "2026-09-19"
 ---
 
 # User Acceptance Testing (UAT) Plan Template
+
+## Completing the worksheet
+
+Replace populated examples with project evidence before circulation. Record the reporting period, baseline, source, owner, and calculation for each measure; define thresholds and approval authority locally. Show unavailable values as unknown rather than zero or a favorable status. Reconcile totals and units, handle zero denominators explicitly, and retain the decision rationale and supporting evidence.
+
 
 ## Document Information
 | Field | Value |
@@ -529,8 +534,8 @@ updated: "2025-08-05"
 6. Use in conjunction with other Traditional testing and quality documents
 
 **Related Templates:**
-- [UAT Test Case Template](uat_test_case_template.md)
-- [UAT Execution Report Template](uat_execution_report_template.md)
-- [UAT Sign-off Template](uat_signoff_template.md)
-- [Quality Management Plan](../Process_Groups/Planning/quality_management_plan_template.md)
+- [UAT Test Case Fields](#test-case-template)
+- [UAT Weekly Execution Status Report](#weekly-status-report-template)
+- [UAT Sign-off Process and Required Evidence](#sign-off-process)
+- [Project Quality Management Plan](../Process_Groups/Planning/project_management_plan_template.md#5-quality-management)
 

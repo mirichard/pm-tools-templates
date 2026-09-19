@@ -3,24 +3,48 @@ title: "Data Center Design Template"
 methodology: "universal"
 complexity: "starter"
 owner: "mirichard"
-updated: "2025-08-05"
+updated: "2026-09-19"
 ---
 
 # Data Center Design Template
 
-## Executive Summary
-Template for designing and planning data center infrastructure for IT operations.
+## Purpose and use
 
-## Design Requirements
-[Document data center requirements and constraints]
+Capture requirements and design decisions for review by the facility, network, security, and operations leads. This planning worksheet does not prescribe engineering capacities or replace approved engineering drawings.
 
-## Architecture Design
-[Data center layout and systems architecture]
+## Design context
 
-## Implementation Plan
-[Data center construction and deployment plan]
+- **Project / site / design owner:** [Names]
+- **Business services and criticality:** [Services and consequences of interruption]
+- **Current load and growth assumptions:** [Measured demand / forecast / horizon]
+- **Constraints:** [Space, budget, schedule, existing systems, approvals]
 
----
-Related Resources:
-- [Infrastructure Requirements Template](../../../essential-templates/infrastructure/infrastructure-requirements-template.md)
-- [Infrastructure Assessment Template](./infrastructure_assessment_template.md)
+## Requirements and design decisions
+
+| System | Measured requirement and source | Proposed design / capacity | Redundancy and failure scenario | Reviewer / evidence |
+|---|---|---|---|---|
+| Power and backup | [Load / source] | [Design reference] | [Failure response] | [Name / calculation or test] |
+| Cooling | [Heat load / source] | [Design reference] | [Failure response] | [Name / evidence] |
+| Network and connectivity | [Traffic / latency needs] | [Design reference] | [Failure response] | [Name / evidence] |
+| Racks, cabling, and physical space | [Inventory / growth] | [Layout reference] | [Access / maintainability] | [Name / evidence] |
+| Physical access and environmental monitoring | [Policy / risk] | [Controls] | [Detection / response] | [Name / evidence] |
+
+Record applicable site requirements with the responsible specialist and approval reference. Do not copy example capacities without sizing evidence.
+
+## Implementation and acceptance
+
+| Work package | Dependency / outage window | Owner | Acceptance test and threshold | Evidence / approver |
+|---|---|---|---|---|
+| [Package] | [Dependency / window] | [Name] | [Test] | [Reference / name] |
+
+## Operational handover
+
+- **As-built documentation and inventory:** [Location / owner]
+- **Monitoring, maintenance, and support:** [Owners / schedules]
+- **Resilience test results and unresolved defects:** [Evidence / accepted exceptions]
+- **Acceptance decision and date:** [Approver / conditions / date]
+- **Next capacity review:** [Date / trigger]
+
+## Related Resources
+- [Infrastructure Requirements Template](../../../../../essential-templates/infrastructure/infrastructure-requirements-template.md)
+- [Infrastructure Assessment Template](../../../../measurement/industry-specializations/information-technology/infrastructure/infrastructure_assessment_template.md)

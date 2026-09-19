@@ -3,10 +3,22 @@ title: "Validation Master Plan Template"
 methodology: "universal"
 complexity: "advanced"
 owner: "mirichard"
-updated: "2025-08-05"
+updated: "2026-09-19"
 ---
 
 # Validation Master Plan Template
+
+Reference check: [Current source](https://www.fda.gov/medical-devices/postmarket-requirements-devices/quality-management-system-regulation-qmsr).
+
+
+## Applying this template
+
+Treat filled examples, dates, numerical limits, sampling frequencies, and approval outcomes as illustrations. Before execution, replace them with the approved product/site requirements, scientific rationale, method references, responsible reviewer, and acceptance evidence. Record the applicable jurisdiction and current guidance edition; a completed worksheet alone does not demonstrate regulatory compliance.
+
+| Requirement or limit | Applicable source / edition | Product-specific rationale | Approval / date | Execution evidence |
+|---|---|---|---|---|
+| [Requirement] | [Source] | [Rationale] | [Reviewer / date] | [Record] |
+
 
 ## Document Control & Approvals
 
@@ -47,7 +59,7 @@ This Validation Master Plan has been developed to meet the following regulatory 
 
 - FDA 21 CFR Part 11 (Electronic Records; Electronic Signatures)
 - FDA 21 CFR Part 210 & 211 (cGMP for Finished Pharmaceuticals)
-- FDA 21 CFR Part 820 (Quality System Regulation for Medical Devices)
+- FDA 21 CFR Part 820 (Quality Management System Regulation for medical devices)
 - EU GMP Annex 11 (Computerized Systems)
 - EU GMP Annex 15 (Qualification and Validation)
 - ICH Q8, Q9, Q10 Guidelines

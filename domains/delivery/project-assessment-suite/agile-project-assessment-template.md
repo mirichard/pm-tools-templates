@@ -1,26 +1,20 @@
 ---
 title: "Agile Project Assessment Template"
 methodology: "agile"
-complexity: "basic"
+complexity: "starter"
 process_group: "initiating"
 industry: "universal"
 role: "po"
 tags: ["agile", "initiating", "stakeholder-management", "communication", "planning", "quality"]
 version: "1.0.0"
 owner: "mirichard"
-updated: "2025-08-06"
+updated: "2026-09-19"
 estimated_completion_time: "15-30 minutes"
 primary_principles: ["adaptability", "evidence-based-decisions"]
 secondary_principles: ["stakeholder-engagement", "continuous-learning"]
 principle_rationale: "Uses evidence and feedback to tailor an agile approach to project context."
 ---
 
-
-title: "Agile Project Assessment Template"
-methodology: "universal"
-complexity: "starter"
-owner: "mirichard"
-updated: "2025-08-05"
 
 # Agile Project Assessment Template
 
@@ -79,6 +73,20 @@ This template provides an assessment framework specifically designed for Agile p
 1. [High priority improvement]
 2. [Medium priority improvement]
 3. [Continuous improvement suggestions]
+
+## Assessment method and evidence
+
+Tailor the criteria to the project before scoring. This is a lightweight internal assessment, not a certification or formal appraisal. Mark inapplicable criteria N/A with a rationale; distinguish missing evidence from poor performance.
+
+Use a locally agreed scale: 1 = absent/ad hoc; 2 = inconsistently applied; 3 = defined and routinely applied; 4 = measured and controlled; 5 = improved using measured outcomes. Record evidence for each rating. Do not average scores with N/A or unassessed items.
+
+| Criterion | Rating / N/A / not assessed | Dated evidence and rationale | Gap / impact | Action / owner / due date | Completion evidence |
+|---|---|---|---|---|---|
+| [Criterion] | [Rating] | [Source and observation] | [Gap] | [Action / name / date] | [Observable acceptance condition] |
+
+- **Assessment limitations:** [Sampling, unavailable information, assessor familiarity]
+- **Stakeholder review:** [Reviewer / date / disputed findings]
+- **Follow-up review:** [Date and accountable owner]
 
 Related Resources:
 - [Agile Scrum Framework](../methodology-frameworks/agile-scrum/)
