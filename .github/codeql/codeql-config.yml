@@ -8,10 +8,6 @@ query-filters:
   - exclude:
       problem.severity:
         - recommendation
-      problem.tags:
-        contain-any:
-          - "statistical"
-          - "non-security"
 
 # Include additional query suites and queries
 queries:
@@ -53,7 +49,4 @@ packs:
   javascript:
     # Include community packs for enhanced analysis
     - "codeql/javascript-queries"
-    # Add custom packs if available
-    # - "my-org/my-custom-pack"
-
 
