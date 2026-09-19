@@ -3,7 +3,7 @@ title: "Quality Test Plan Template"
 methodology: "universal"
 complexity: "advanced"
 owner: "mirichard"
-updated: "2025-08-05"
+updated: "2026-09-19"
 ---
 
 # Quality Test Plan Template
@@ -19,18 +19,20 @@ This document outlines the strategy and activities to verify that the product or
 
 ## Scope
 ### In Scope
+Tailor and approve the following example scope before execution:
 - Core system functionality
 - APIs and integrations
 - User interface flows
 - Security and access controls
 
 ### Out of Scope
+These are candidate exclusions, not default waivers. Record risk, rationale, and approval for each exclusion:
 - Legacy system regression outside core workflows
 - Performance testing beyond baseline metrics
 
 ## Test Items
 - Application modules or features (list specific components)
-- Data sets (e.g., sample patient data, product SKUs)
+- Data sets (e.g., synthetic user records, product SKUs)
 - Interfaces or third-party tools
 
 ## Types of Testing
@@ -38,7 +40,7 @@ This document outlines the strategy and activities to verify that the product or
 - **Regression Testing:** Confirm existing functionality is unaffected by changes
 - **Integration Testing:** Validate data and process flow between components
 - **User Acceptance Testing (UAT):** End-user validation against business scenarios
-- **Non-Functional Testing:** Optional—performance, usability, security
+- **Non-Functional Testing:** Select performance, accessibility, usability, and security checks based on requirements and risk; document and approve any exclusions
 
 ## Entry Criteria
 - Development complete and code committed
@@ -47,7 +49,7 @@ This document outlines the strategy and activities to verify that the product or
 - All critical defects from prior test cycles resolved
 
 ## Exit Criteria
-- All planned test cases executed
+- All planned test cases executed with retained results; blocked or omitted cases documented and dispositioned
 - No critical or high-severity defects remain open
 - UAT sign-off obtained from business stakeholders
 
@@ -56,6 +58,12 @@ This document outlines the strategy and activities to verify that the product or
 - Use of test case management tools (e.g., TestRail, Zephyr)
 - Daily triage meetings for defect resolution
 - Agile teams to test during sprint (if applicable)
+
+## Coverage and execution evidence
+
+| Requirement / risk | Test case | Expected result | Actual result and evidence | Defect / disposition |
+|---|---|---|---|---|
+| [ID] | [Case] | [Result] | [Record] | [ID / decision] |
 
 ## Environment & Tools
 - Test Environment: [Environment Name/URL]

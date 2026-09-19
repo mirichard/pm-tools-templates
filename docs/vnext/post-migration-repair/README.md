@@ -48,3 +48,7 @@ python3 -m unittest tests.test_quality_gate_baseline
 ```
 
 For scoped links, use `check_migration_links.check` on the `link_scope_files` list in PR #1252's baseline JSON. External HTTP availability and legacy section fragments remain outside that check. Preserve this before/after scope when reporting future results.
+
+## Follow-up resource and freshness review
+
+The figures above describe the initial repair commit `dc7146c`. See [Resource references and content freshness](resource-and-freshness-review.md) for the subsequent dispositions of all 34 unavailable-reference records, 24 completed content reviews, and the 113 remaining freshness warnings. The original migration baseline remains unchanged.

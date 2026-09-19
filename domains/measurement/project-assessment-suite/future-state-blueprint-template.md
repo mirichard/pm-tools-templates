@@ -13,12 +13,6 @@ estimated_completion_time: "60-90 minutes"
 ---
 
 
-title: "Future State Blueprint Template"
-methodology: "universal"
-complexity: "advanced"
-owner: "mirichard"
-updated: "2025-08-05"
-
 # Future State Blueprint Template
 
 ## Overview
@@ -524,8 +518,8 @@ CEO/Executive Level:
 
 - [Current State Analysis Template](../domains/measurement/project-assessment-suite/current-state-analysis-template.md)
 - [Gap Analysis Framework](gap-analysis-matrix-template.md)
-- Implementation Planning Template (linked resource unavailable)
-- Change Management Plan (linked resource unavailable)
+- [Remediation and Implementation Action Plan](remediation-action-plan-template.md)
+- [Change Management Plan](../../delivery/templates/traditional/Traditional/Templates/change_management_plan_template.md)
 
 
 **Blueprint Date:** {{ blueprint_date }}

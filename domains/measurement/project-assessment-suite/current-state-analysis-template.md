@@ -13,12 +13,6 @@ estimated_completion_time: "30-45 minutes"
 ---
 
 
-title: "Current State Analysis Template"
-methodology: "universal"
-complexity: "advanced"
-owner: "mirichard"
-updated: "2025-08-05"
-
 # Current State Analysis Template
 
 ## Overview

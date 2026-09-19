@@ -21,8 +21,10 @@ import yaml
 
 if __package__:
     from .migration_pointer import pointer_candidate, pointer_errors
+    from .template_reviews import load_reviews
 else:
     from migration_pointer import pointer_candidate, pointer_errors
+    from template_reviews import load_reviews
 
 CATALOG = 'templates/templates.json'
 ROOTS = {'templates', 'domains', 'role-based-toolkits', 'project-lifecycle',
@@ -94,7 +96,7 @@ def classify(path, content, identities):
     return 'canonical' if p.parts[0] == 'templates' else 'support'
 
 
-def metadata(content, today=None):
+def metadata(content, today=None, reviewed=None):
     errors, warnings = [], []
     today = today or date.today()
     match = re.match(r'\A---\n(.*?)\n---(?:\n|$)', content, re.S)
@@ -118,8 +120,17 @@ def metadata(content, today=None):
     if data.get('updated'):
         try:
             updated = date.fromisoformat(str(data['updated']))
-            if (today - updated).days > 365:
-                warnings.append('updated date is more than 365 days old')
+            if updated > today:
+                errors.append('updated date cannot be in the future')
+            freshness = updated
+            if reviewed is not None:
+                review_date = date.fromisoformat(str(reviewed))
+                if review_date > today or review_date < updated:
+                    errors.append('review date must be between updated and today')
+                else:
+                    freshness = review_date
+            if (today - freshness).days > 365:
+                warnings.append('content has no update or validated full-content review within 365 days')
         except ValueError:
             errors.append('updated must be a valid YYYY-MM-DD date')
     return errors, warnings
@@ -184,7 +195,8 @@ def lint(root, changed, old_identities=(), today=None, old_primary=None, migrati
     strict = set(changed) | (identities - set(old_identities))
     if old_primary is not None:
         strict.update(primary - set(old_primary))
-    errors, debt, warnings, classifications = [], [], [], {}
+    reviews, review_errors = load_reviews(root, today)
+    errors, debt, warnings, classifications = list(review_errors), [], [], {}
     files = set(git(root, 'ls-files', '-z', '*.md').decode().split('\0')) - {''}
     for path in sorted(files | identities | set(old_identities)):
         if not path.endswith('.md'): continue
@@ -202,8 +214,11 @@ def lint(root, changed, old_identities=(), today=None, old_primary=None, migrati
             if path in primary:
                 errors.append(f'{path}: catalog canonical body is a pointer')
         elif kind == 'canonical':
-            found, stale = metadata(content, today)
+            found, stale = metadata(content, today, reviews.get(path, {}).get('reviewed'))
             for error in found:
+                if path in reviews and error.startswith('review date '):
+                    errors.append(f'{path}: {error}')
+                    continue
                 inherited_error = error in (migration_debt or {}).get(path, [])
                 (errors if path in strict and not inherited_error else debt).append(f'{path}: {error}')
             warnings.extend(f'{path}: {w}' for w in stale)

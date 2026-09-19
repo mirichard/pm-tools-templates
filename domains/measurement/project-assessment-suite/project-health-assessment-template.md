@@ -13,12 +13,6 @@ estimated_completion_time: "30-45 minutes"
 ---
 
 
-title: "Project Health Assessment Template"
-methodology: "universal"
-complexity: "advanced"
-owner: "mirichard"
-updated: "2025-08-05"
-
 # Project Health Assessment Template
 
 ## Project Information

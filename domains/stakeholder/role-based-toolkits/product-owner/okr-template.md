@@ -301,7 +301,7 @@ Next Week Focus:
 
 - [Product Strategy Canvas](../../../../role-based-toolkits/product-owner/product-strategy-canvas.md)
 - [Product Metrics Dashboard](../../../../role-based-toolkits/product-owner/product-metrics-dashboard.md)
-- User Research Planning (linked resource unavailable)
+- [User Research Planning](../../../../role-based-toolkits/product-owner/user-research-planning.md)
 - [Stakeholder Collaboration Framework](../../../../role-based-toolkits/product-owner/stakeholder-collaboration-framework.md)
 
 ---

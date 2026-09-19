@@ -1114,9 +1114,8 @@ Time to Recovery:
 
 ## Related Templates
 - [Release Management Workflow](./release_management_template.md)
-- DevOps Metrics Dashboard (linked resource unavailable)
+- [Pipeline Success Metrics and KPIs](#success-metrics-and-kpis)
 - [Infrastructure as Code Template](./infrastructure_as_code_template.md)
-- DevOps Engineer Role Guide (linked resource unavailable)
 - [Security Integration Template](./devsecops_template.md)
 
 ---

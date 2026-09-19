@@ -3,7 +3,7 @@ title: "Risk Register Template"
 methodology: "universal"
 complexity: "advanced"
 owner: "mirichard"
-updated: "2025-08-05"
+updated: "2026-09-19"
 ---
 
 # Risk Register Template
@@ -30,7 +30,7 @@ This risk register template provides a systematic approach to identifying, asses
 
 | ID | Risk Description | Category | Probability | Impact | Risk Score | Mitigation Strategy | Owner | Status |
 |----|------------------|----------|-------------|--------|------------|-------------------|-------|--------|
-| R001 | [Risk description] | [Technical/Business/External] | [H/M/L] | [H/M/L] | [Calc] | [Strategy] | [Owner] | [Open/Closed] |
+| R001 | [Risk description] | [Technical/Business/External] | [H/M/L] | [H/M/L] | [1–9; P × I] | [Strategy] | [Owner] | [Open/Closed] |
 
 ## Risk Categories
 - **Technical Risks**: Technology, integration, performance
@@ -40,14 +40,17 @@ This risk register template provides a systematic approach to identifying, asses
 
 ## Risk Assessment Scale
 ### Probability
-- **High (H)**: 70-90% chance
-- **Medium (M)**: 30-70% chance  
-- **Low (L)**: 5-30% chance
+Define an assessment horizon and calibrate these illustrative bands with the team:
+- **High (H = 3)**: greater than 70% through 100%
+- **Medium (M = 2)**: greater than 30% through 70%
+- **Low (L = 1)**: 0% through 30%
+
+Record the evidence or uncertainty behind each estimate. Score = probability rank × impact rank (1–9); this is ordinal prioritization, not a monetary loss estimate. Agree escalation thresholds and record override reasons.
 
 ### Impact
-- **High (H)**: Major impact to scope, schedule, budget
-- **Medium (M)**: Moderate impact, manageable
-- **Low (L)**: Minor impact, minimal effect
+- **High (H = 3)**: Major impact to scope, schedule, budget
+- **Medium (M = 2)**: Moderate impact, manageable
+- **Low (L = 1)**: Minor impact, minimal effect
 
 ---
 *Traditional-aligned risk management template*

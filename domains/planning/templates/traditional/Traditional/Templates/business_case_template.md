@@ -464,7 +464,7 @@ principle_rationale: "Justifies investment through accountable value, evidence, 
 - [ROI Tracking Template](../../../../../../Traditional/Knowledge_Areas/Project_Cost_Management/roi_tracking_template.md)
 - [Project Charter Template](../Process_Groups/Initiating/project_charter_template.md)
 - [Requirements Specification Template](../../../../../uncertainty/industry-specializations/information-technology/software-development/requirements_specification_template.md)
-- Project Plan Template (linked resource unavailable)
+- [Project Management Plan](../../../../../delivery/templates/traditional/Traditional/Process_Groups/Planning/project_management_plan_template.md)
 
 ---
 

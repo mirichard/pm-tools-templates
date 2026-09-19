@@ -373,8 +373,8 @@ Next Steps:
 
 - [Business Case Template](../../../../../../planning/templates/traditional/Traditional/Templates/business_case_template.md)
 - [Project Budget Template](../../../../../../planning/role-based-toolkits/project-manager/essential-templates/budget-template.md)
-- Cost-Benefit Analysis Template (linked resource unavailable)
-- Financial Dashboard Template (linked resource unavailable)
+- [Business Case Financial Analysis](../../../../../../planning/templates/traditional/Traditional/Templates/business_case_template.md#5-financial-analysis)
+- [ROI Tracking Dashboard](../../../../../../../business-stakeholder-suite/financial-governance/roi-tracking-dashboard.md)
 
 ---
 

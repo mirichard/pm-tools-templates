@@ -1,0 +1,1338 @@
+{
+  "version": 1,
+  "base_commit": "dc7146cc59387421b872dffbadd86b8b6f8dd3a2",
+  "review_type": "AI content maintenance; no human acceptance or professional certification is asserted",
+  "templates": [
+    {
+      "path": "domains/stakeholder/business-stakeholder-suite/financial-governance/enhanced-business-cases/advanced-business-case-template.md",
+      "sha256": "b9fca0975cc801353e0ff7ddac459ea8631fdd7fc9498bf55c07d769b8ea04df",
+      "status": "pending",
+      "word_count": 2464,
+      "findings": [
+        "Full-content review not yet completed; structural/link validation does not establish content freshness."
+      ]
+    },
+    {
+      "path": "domains/delivery/project-assessment-suite/agile-project-assessment-template.md",
+      "sha256": "4742346efa62f0ba4604010b9126ef26590d55f562f350e3a2aef8763dd42e0d",
+      "status": "reviewed",
+      "word_count": 431,
+      "findings": [],
+      "scope": "full-content",
+      "reviewed": "2026-09-19",
+      "reviewer": "Codex (AI-assisted repository content review)",
+      "evidence": [
+        "Read the complete short assessment. Removed conflicting body metadata and added defined scoring, N/A handling, evidence, action ownership, and follow-up."
+      ]
+    },
+    {
+      "path": "domains/delivery/project-lifecycle/02-planning/project-management-plan/agile-release-plan-template.md",
+      "sha256": "0da71dc599bfc989493568314b3c3505d45c1cf45353b0fb0aed194de0d86f6f",
+      "status": "pending",
+      "word_count": 1224,
+      "findings": [
+        "Full-content review not yet completed; structural/link validation does not establish content freshness."
+      ]
+    },
+    {
+      "path": "domains/delivery/project-lifecycle/02-planning/risk-management/agile-risk-board-template.md",
+      "sha256": "c21471c497e2d5c5d03beb1dc1ba6c16c71ee0968346560a745069d6c2b2cdd2",
+      "status": "pending",
+      "word_count": 2014,
+      "findings": [
+        "Full-content review not yet completed; structural/link validation does not establish content freshness."
+      ]
+    },
+    {
+      "path": "domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/agile-stakeholder-map-template.md",
+      "sha256": "a9312efad04f7976d8e03c39f0ac59658001629c1c0d57150db91c44ccea9f17",
+      "status": "pending",
+      "word_count": 970,
+      "findings": [
+        "Full-content review not yet completed; structural/link validation does not establish content freshness."
+      ]
+    },
+    {
+      "path": "domains/team/project-lifecycle/01-initiation/project-charter/agile-team-charter-template.md",
+      "sha256": "483368ca54294deca286f93ea99cff451e79d278050bf31dda8407ab8d146235",
+      "status": "reviewed",
+      "word_count": 368,
+      "findings": [],
+      "scope": "full-content",
+      "reviewed": "2026-09-19",
+      "reviewer": "Codex (AI-assisted repository content review)",
+      "evidence": [
+        "Updated self-management and Developers terminology against the November 2020 Scrum Guide; retained team-owned working agreements."
+      ]
+    },
+    {
+      "path": "domains/delivery/industry-specializations/information-technology/software-development/api_documentation_template.md",
+      "sha256": "615cb8ea6af39c4e06d7698b7483782a7df77c7dd2547a5f162ac1c416d5ea1b",
+      "status": "pending",
+      "word_count": 2617,
+      "findings": [
+        "Full-content review not yet completed; structural/link validation does not establish content freshness."
+      ]
+    },
+    {
+      "path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md",
+      "sha256": "d0d0ee4dc62b537efbb357c706cc2c8fc4a042599c1ce27e4fa3c9e335d72de4",
+      "status": "pending",
+      "word_count": 2676,
+      "findings": [
+        "Full-content review not yet completed; structural/link validation does not establish content freshness."
+      ]
+    },
+    {
+      "path": "domains/uncertainty/project-assessment-suite/assessment-report-template.md",
+      "sha256": "62034655a008e3fa1c172ed9362f27ad770bddee0df9610b368d5ade928fb054",
+      "status": "reviewed",
+      "word_count": 306,
+      "findings": [],
+      "scope": "full-content",
+      "reviewed": "2026-09-19",
+      "reviewer": "Codex (AI-assisted repository content review)",
+      "evidence": [
+        "Replaced generic prose with scope, evidence, limitations, finding/action traceability, decisions and follow-up."
+      ]
+    },
+    {
+      "path": "domains/uncertainty/role-based-toolkits/product-owner/backlog-management-template.md",
+      "sha256": "7a8a7148188a5d3587bb32017b6b90a3505f59e55e346d6e29751d0a06d29100",
+      "status": "pending",
+      "word_count": 967,
+      "findings": [
+        "Full-content review not yet completed; structural/link validation does not establish content freshness."
+      ]
+    },
+    {
+      "path": "domains/team/role-based-toolkits/scrum-master/agile-ceremonies/backlog-refinement-template.md",
+      "sha256": "42e010dfd3e6392835182f16b440d091ae4228cae96b91f98517ad2fbfdeb632",
+      "status": "pending",
+      "word_count": 1314,
+      "findings": [
+        "Full-content review not yet completed; structural/link validation does not establish content freshness."
+      ]
+    },
+    {
+      "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/manufacturing/batch_record_template.md",
+      "sha256": "2028d72c48d76f6ca0e99291452e2c04f7ea855692cbd92816df4077c8b77643",
+      "status": "pending",
+      "word_count": 3209,
+      "findings": [
+        "Full-content review not yet completed; structural/link validation does not establish content freshness."
+      ]
+    },
+    {
+      "path": "domains/stakeholder/business-stakeholder-suite/financial-governance/budget-dashboard-template.md",
+      "sha256": "167f338626bb4c864e00458699a36be5687b998c92d37103e1a286de53bd88ee",
+      "status": "pending",
+      "word_count": 1345,
+      "findings": [
+        "Full-content review not yet completed; structural/link validation does not establish content freshness."
+      ]
+    },
+    {
+      "path": "domains/planning/role-based-toolkits/project-manager/essential-templates/budget-template.md",
+      "sha256": "8152afa2b63d3917167714c8467e7950ee75498df38471a714dfcd9f7f055b32",
+      "status": "pending",
+      "word_count": 2635,
+      "findings": [
+        "Full-content review not yet completed; structural/link validation does not establish content freshness."
+      ]
+    },
+    {
+      "path": "domains/planning/templates/traditional/Traditional/Templates/business_case_template.md",
+      "sha256": "251e306f6675a096a91265e8bfd6fd8c767717410559a66d9bc71930ea8e4042",
+      "status": "pending",
+      "word_count": 2654,
+      "findings": [
+        "Full-content review not yet completed; structural/link validation does not establish content freshness."
+      ]
+    },
+    {
+      "path": "domains/measurement/project-lifecycle/02-planning/business-requirements/business_requirements_document_template.md",
+      "sha256": "68ce143df4327ffae340b42292a52a14e9ef24df0501b452ae3c003f015aa1b5",
+      "status": "pending",
+      "word_count": 1786,
+      "findings": [
+        "Full-content review not yet completed; structural/link validation does not establish content freshness."
+      ]
+    },
+    {
+      "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/compliance/capa_management_template.md",
+      "sha256": "c529b8195c0e169a00d64e8f397d765c873bb329bbd63340825abc62715445b4",
+      "status": "pending",
+      "word_count": 2968,
+      "findings": [
+        "Full-content review not yet completed; structural/link validation does not establish content freshness."
+      ]
+    },
+    {
+      "path": "domains/delivery/templates/traditional/Traditional/Templates/change_management_plan_template.md",
+      "sha256": "beb51f7e63f8a813f435f1571a29bed86650210d9caf002b2d4ea83e74e28966",
+      "status": "pending",
+      "word_count": 1634,
+      "findings": [
+        "Full-content review not yet completed; structural/link validation does not establish content freshness."
+      ]
+    },
+    {
+      "path": "domains/delivery/templates/traditional/Traditional/Templates/change_request_template.md",
+      "sha256": "33ecd1a3df1bf28e8ad3918b95967513bfc5ce43545fa749563b3c7c527ba544",
+      "status": "pending",
+      "word_count": 2855,
+      "findings": [
+        "Full-content review not yet completed; structural/link validation does not establish content freshness."
+      ]
+    },
+    {
+      "path": "domains/measurement/methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md",
+      "sha256": "2bb1a29b4f737e18099cc0e3412a3087b9ad6b422ce3d7c983cdd1a6b26e477e",
+      "status": "pending",
+      "word_count": 3518,
+      "findings": [
+        "Full-content review not yet completed; structural/link validation does not establish content freshness."
+      ]
+    },
+    {
+      "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/validation/cleaning_validation_protocol_template.md",
+      "sha256": "78d19f4f25ccd2cf924fb577125d85f9866975882cf35df3525b7f67271f86d6",
+      "status": "pending",
+      "word_count": 3382,
+      "findings": [
+        "Full-content review not yet completed; structural/link validation does not establish content freshness."
+      ]
+    },
+    {
+      "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/clinical-trials/clinical_trial_protocol_template.md",
+      "sha256": "45e3419297ecf5986bd2144134578b1237bf43cfb4f3f45d049ccb417405947e",
+      "status": "pending",
+      "word_count": 1753,
+      "findings": [
+        "Full-content review not yet completed; structural/link validation does not establish content freshness."
+      ]
+    },
+    {
+      "path": "domains/delivery/templates/traditional/Traditional/Templates/communication_plan_template.md",
+      "sha256": "19c4977c07597ca7a4001bb5a33edcb39ed7bd08f5b262a782d8f9d6ffd0969c",
+      "status": "pending",
+      "word_count": 4007,
+      "findings": [
+        "Full-content review not yet completed; structural/link validation does not establish content freshness."
+      ]
+    },
+    {
+      "path": "domains/measurement/industry-specializations/financial-services/compliance/compliance-management-template.md",
+      "sha256": "1719184880167489dc260a7a0044f5e627c3b3c13df27741f7073c2d6a1f877c",
+      "status": "pending",
+      "word_count": 9903,
+      "findings": [
+        "Full-content review not yet completed; structural/link validation does not establish content freshness."
+      ]
+    },
+    {
+      "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/regulatory/compliance_risk_assessment_template.md",
+      "sha256": "3bf28881e9e6cc38e2993f59658dff595fe57d3e6e18da2a873ad0409aa494d5",
+      "status": "pending",
+      "word_count": 2621,
+      "findings": [
+        "Full-content review not yet completed; structural/link validation does not establish content freshness."
+      ]
+    },
+    {
+      "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/regulatory/computer_system_validation_protocol_template.md",
+      "sha256": "88a04353e540a4cd6c9a6e6f62a217c6026f95107d56fd0e3cbc10bb387b3711",
+      "status": "pending",
+      "word_count": 2952,
+      "findings": [
+        "Full-content review not yet completed; structural/link validation does not establish content freshness."
+      ]
+    },
+    {
+      "path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/less/cross_team_coordination_template.md",
+      "sha256": "601120dce5db31932c14a7f9aff41b070de5cb23aa2a529d0d22b78267a80589",
+      "status": "pending",
+      "word_count": 2229,
+      "findings": [
+        "Full-content review not yet completed; structural/link validation does not establish content freshness."
+      ]
+    },
+    {
+      "path": "domains/measurement/project-assessment-suite/current-state-analysis-template.md",
+      "sha256": "76ae35a6addfea13d2b93dba2522ce5b3f21153380d0519de433e835a4a0f7ef",
+      "status": "pending",
+      "word_count": 1989,
+      "findings": [
+        "Full-content review not yet completed; structural/link validation does not establish content freshness."
+      ]
+    },
+    {
+      "path": "domains/measurement/industry-specializations/information-technology/security/cybersecurity_assessment_template.md",
+      "sha256": "9c7640128c87dd00bc96b64412c0036d234d8536c469ef90b53c6f403b12c829",
+      "status": "pending",
+      "word_count": 3383,
+      "findings": [
+        "Full-content review not yet completed; structural/link validation does not establish content freshness."
+      ]
+    },
+    {
+      "path": "domains/team/role-based-toolkits/scrum-master/agile-ceremonies/daily-standup-template.md",
+      "sha256": "db4b8938260b0a87b62d64c2ca9e81c8c858b71758ec418c18c3daa4a616dce0",
+      "status": "reviewed",
+      "word_count": 668,
+      "findings": [],
+      "scope": "full-content",
+      "reviewed": "2026-09-19",
+      "reviewer": "Codex (AI-assisted repository content review)",
+      "evidence": [
+        "Corrected mandatory-looking three-question and Scrum-Master facilitation assumptions against the November 2020 Scrum Guide; templates remain optional aids to the Sprint Goal."
+      ]
+    },
+    {
+      "path": "domains/planning/industry-specializations/information-technology/infrastructure/data_center_design_template.md",
+      "sha256": "9e69de1193818b62938e3b13b60142f7242f23202eff6446889c90996a455125",
+      "status": "reviewed",
+      "word_count": 340,
+      "findings": [],
+      "scope": "full-content",
+      "reviewed": "2026-09-19",
+      "reviewer": "Codex (AI-assisted repository content review)",
+      "evidence": [
+        "Replaced three vague placeholders with sizing evidence, failure scenarios, design-review ownership, acceptance and handover fields. Explicitly a planning worksheet, not an engineering design."
+      ]
+    },
+    {
+      "path": "domains/measurement/methodology-frameworks/emerging-methods/devops/devsecops_template.md",
+      "sha256": "24120d6e58c6edc7cfd760319986575ccf5d5f2d8f9647f54349a2f9ba640332",
+      "status": "pending",
+      "word_count": 3640,
+      "findings": [
+        "Full-content review not yet completed; structural/link validation does not establish content freshness."
+      ]
+    },
+    {
+      "path": "domains/measurement/industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md",
+      "sha256": "2448e97d65f180380bca8037edd8bd6c497ee285c8fb9ebdf03392b48aa38cce",
+      "status": "pending",
+      "word_count": 5406,
+      "findings": [
+        "Full-content review not yet completed; structural/link validation does not establish content freshness."
+      ]
+    },
+    {
+      "path": "domains/planning/industry-specializations/information-technology/infrastructure/disaster_recovery_template.md",
+      "sha256": "5892ead78238245f856aa0c113584823be0dca84814fbd2fe289706fcc9a4704",
+      "status": "reviewed",
+      "word_count": 335,
+      "findings": [],
+      "scope": "full-content",
+      "reviewed": "2026-09-19",
+      "reviewer": "Codex (AI-assisted repository content review)",
+      "evidence": [
+        "Added service objectives, dependencies, activation authority, tested runbook references, measured exercise evidence, cutback and maintenance. No recovery capability is implied without tests."
+      ]
+    },
+    {
+      "path": "domains/uncertainty/project-lifecycle/02-planning/risk-management/enterprise-risk-assessment-template.md",
+      "sha256": "0b89aa773f52fe2980d60751105abae3e9d18989934e135099ceaf3b6ffea32b",
+      "status": "reviewed",
+      "word_count": 346,
+      "findings": [],
+      "scope": "full-content",
+      "reviewed": "2026-09-19",
+      "reviewer": "Codex (AI-assisted repository content review)",
+      "evidence": [
+        "Replaced generic prose with assessment boundaries, locally defined scoring, evidence, risk ownership, responses, residual exposure and escalation."
+      ]
+    },
+    {
+      "path": "domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/enterprise-stakeholder-analysis-template.md",
+      "sha256": "a63bf5c5e6d9c5fa3a2db03e6bd04bcd902bc013d61e9e890568f265363e6555",
+      "status": "pending",
+      "word_count": 1514,
+      "findings": [
+        "Full-content review not yet completed; structural/link validation does not establish content freshness."
+      ]
+    },
+    {
+      "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/validation/equipment_qualification_protocol_template.md",
+      "sha256": "fbc7a75cb552460d80e5f42b9a0694660b7230a9573dfd2766d1c721e7e22d92",
+      "status": "pending",
+      "word_count": 3870,
+      "findings": [
+        "Full-content review not yet completed; structural/link validation does not establish content freshness."
+      ]
+    },
+    {
+      "path": "domains/stakeholder/business-stakeholder-suite/financial-governance/enhanced-business-cases/evm-dashboard-template.md",
+      "sha256": "4e10e837a2028a3bf287768652da91000487d140efc9799b5c19d0602fd901e5",
+      "status": "pending",
+      "word_count": 2209,
+      "findings": [
+        "Full-content review not yet completed; structural/link validation does not establish content freshness."
+      ]
+    },
+    {
+      "path": "domains/stakeholder/business-stakeholder-suite/executive-dashboards/powerbi-integration/executive-dashboard-template.md",
+      "sha256": "2f7f07ed73be740db85f2e104d859701da83cf205f731b8a465a0e80e445872b",
+      "status": "pending",
+      "word_count": 1437,
+      "findings": [
+        "Full-content review not yet completed; structural/link validation does not establish content freshness."
+      ]
+    },
+    {
+      "path": "domains/stakeholder/business-stakeholder-suite/executive-dashboards/Word/Executive-Report-Templates.md",
+      "sha256": "1338a81251bc9956211cbdf2a8473105aca45b45ee8607fbdac59a0524119381",
+      "status": "pending",
+      "word_count": 1758,
+      "findings": [
+        "Full-content review not yet completed; structural/link validation does not establish content freshness."
+      ]
+    },
+    {
+      "path": "domains/measurement/project-assessment-suite/executive-summary-template.md",
+      "sha256": "6e505d2e93c572fde1cea7d3b0c2fd14fb9ec5d4db75467ba891bba9bb762202",
+      "status": "pending",
+      "word_count": 1900,
+      "findings": [
+        "Full-content review not yet completed; structural/link validation does not establish content freshness."
+      ]
+    },
+    {
+      "path": "domains/measurement/project-assessment-suite/future-state-blueprint-template.md",
+      "sha256": "4265efeb2e087908e0f146d83b8ae38fdfeb94c98d95275feb714cc4e1655970",
+      "status": "pending",
+      "word_count": 2457,
+      "findings": [
+        "Full-content review not yet completed; structural/link validation does not establish content freshness."
+      ]
+    },
+    {
+      "path": "domains/measurement/project-assessment-suite/gap-analysis-matrix-template.md",
+      "sha256": "4d799e1086cd38991a81d7a7cf91e6a69757ccdd962aa59d9abe3ffd98fdf9c7",
+      "status": "pending",
+      "word_count": 2411,
+      "findings": [
+        "Full-content review not yet completed; structural/link validation does not establish content freshness."
+      ]
+    },
+    {
+      "path": "domains/measurement/project-assessment-suite/governance-assessment-template.md",
+      "sha256": "2e8fd71c3fa3d6a67bcca5a702801f480ec24a412e73595782de90f8e421df9e",
+      "status": "reviewed",
+      "word_count": 390,
+      "findings": [],
+      "scope": "full-content",
+      "reviewed": "2026-09-19",
+      "reviewer": "Codex (AI-assisted repository content review)",
+      "evidence": [
+        "Read the complete short assessment. Removed conflicting body metadata and added defined scoring, N/A handling, evidence, action ownership, and follow-up."
+      ]
+    },
+    {
+      "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/compliance/gxp_training_plan_template.md",
+      "sha256": "5ed332f0480642c30b255f26b7218f4b6dd7e71376b339015f3fcda28efe6f4a",
+      "status": "pending",
+      "word_count": 6259,
+      "findings": [
+        "Full-content review not yet completed; structural/link validation does not establish content freshness."
+      ]
+    },
+    {
+      "path": "domains/measurement/role-based-toolkits/project-manager/essential-templates/handover-template.md",
+      "sha256": "88eb503bb348d07d7eb78b3c14b1e4e9be5f85faa11a349ee70ab3c9917fa4a3",
+      "status": "pending",
+      "word_count": 1581,
+      "findings": [
+        "Full-content review not yet completed; structural/link validation does not establish content freshness."
+      ]
+    },
+    {
+      "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/regulatory/health_authority_communication_plan_template.md",
+      "sha256": "643053a540a351276fde3941240ccd4a3ee22eec7ca68cd9eb22f4e6498d0747",
+      "status": "pending",
+      "word_count": 4180,
+      "findings": [
+        "Full-content review not yet completed; structural/link validation does not establish content freshness."
+      ]
+    },
+    {
+      "path": "domains/delivery/methodology-frameworks/hybrid/infrastructure/hybrid-infrastructure-template.md",
+      "sha256": "20bd6d442083f92f1ccea7e0fcd10a3a89d4570c75f72c02253a09c63ca3abc5",
+      "status": "pending",
+      "word_count": 2062,
+      "findings": [
+        "Full-content review not yet completed; structural/link validation does not establish content freshness."
+      ]
+    },
+    {
+      "path": "domains/delivery/project-assessment-suite/hybrid-project-assessment-template.md",
+      "sha256": "1bd00d54ff8db64122da485750068f447c8796bd63a485c90fe04353370039c6",
+      "status": "reviewed",
+      "word_count": 415,
+      "findings": [],
+      "scope": "full-content",
+      "reviewed": "2026-09-19",
+      "reviewer": "Codex (AI-assisted repository content review)",
+      "evidence": [
+        "Read the complete short assessment. Removed conflicting body metadata and added defined scoring, N/A handling, evidence, action ownership, and follow-up."
+      ]
+    },
+    {
+      "path": "domains/planning/templates/hybrid/Hybrid/Templates/hybrid_project_charter_template.md",
+      "sha256": "6e83701a99b292612c65cf5388b008a25a658728dccb134926ed7a0446fc9bb5",
+      "status": "pending",
+      "word_count": 2533,
+      "findings": [
+        "Full-content review not yet completed; structural/link validation does not establish content freshness."
+      ]
+    },
+    {
+      "path": "domains/delivery/project-lifecycle/02-planning/project-management-plan/hybrid-project-management-plan-template.md",
+      "sha256": "41758de3c93425091081c83d66df983f2f05778fe15acceeccea42ef80235ea4",
+      "status": "reviewed",
+      "word_count": 375,
+      "findings": [],
+      "scope": "full-content",
+      "reviewed": "2026-09-19",
+      "reviewer": "Codex (AI-assisted repository content review)",
+      "evidence": [
+        "Replaced generic prose with delivery selection, integration dependencies, delegated authority, change controls, quality and operational acceptance."
+      ]
+    },
+    {
+      "path": "domains/delivery/templates/hybrid/Hybrid/Templates/hybrid_quality_management_template.md",
+      "sha256": "242395430e8c1541260b0446931d505f1b63a0aacd40a328c7ae71d63005ee82",
+      "status": "pending",
+      "word_count": 6088,
+      "findings": [
+        "Full-content review not yet completed; structural/link validation does not establish content freshness."
+      ]
+    },
+    {
+      "path": "domains/delivery/templates/hybrid/Hybrid/Templates/hybrid_release_planning_template.md",
+      "sha256": "15deb9f7888d40448607bda46ff99ea779a5c5b6ecba01f3f6ddb6244a0ae316",
+      "status": "pending",
+      "word_count": 3324,
+      "findings": [
+        "Full-content review not yet completed; structural/link validation does not establish content freshness."
+      ]
+    },
+    {
+      "path": "domains/delivery/templates/hybrid/Hybrid/Templates/hybrid_team_management_template.md",
+      "sha256": "1457753bce63009ade9f4c7b313eb8bf5f5949473a8cadc22191909daf4d82fd",
+      "status": "pending",
+      "word_count": 4988,
+      "findings": [
+        "Full-content review not yet completed; structural/link validation does not establish content freshness."
+      ]
+    },
+    {
+      "path": "domains/measurement/industry-specializations/information-technology/cybersecurity/incident_response_template.md",
+      "sha256": "53c41ca421b970020c66faf05f1afa0691e72a0ee3627f4b553eafcb4366519a",
+      "status": "pending",
+      "word_count": 1847,
+      "findings": [
+        "Full-content review not yet completed; structural/link validation does not establish content freshness."
+      ]
+    },
+    {
+      "path": "domains/measurement/methodology-frameworks/emerging-methods/devops/infrastructure_as_code_template.md",
+      "sha256": "c159941a84a3822e015d0f767fb6b31d4b35bb66b3b4e96b6194492008901984",
+      "status": "pending",
+      "word_count": 4228,
+      "findings": [
+        "Full-content review not yet completed; structural/link validation does not establish content freshness."
+      ]
+    },
+    {
+      "path": "domains/measurement/industry-specializations/information-technology/infrastructure/infrastructure_assessment_template.md",
+      "sha256": "a75ac25c38b9304995c9549189e6d310178497eb96f554856a6dae2d9cee0931",
+      "status": "pending",
+      "word_count": 4495,
+      "findings": [
+        "Full-content review not yet completed; structural/link validation does not establish content freshness."
+      ]
+    },
+    {
+      "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/validation/installation_qualification_protocol_template.md",
+      "sha256": "9144caa3a3a6fcdc6c8aff2e5d9619a8d002637f25a6f994f07d7f2e526bce4c",
+      "status": "pending",
+      "word_count": 1567,
+      "findings": [
+        "Full-content review not yet completed; structural/link validation does not establish content freshness."
+      ]
+    },
+    {
+      "path": "domains/delivery/templates/hybrid/Hybrid/Templates/integrated_change_strategy_template.md",
+      "sha256": "93df95a5f51fd5427bfb2669f2fac1f5e16ca2477f1b4a277b777b7ff7e864e1",
+      "status": "pending",
+      "word_count": 1932,
+      "findings": [
+        "Full-content review not yet completed; structural/link validation does not establish content freshness."
+      ]
+    },
+    {
+      "path": "domains/delivery/templates/traditional/Traditional/Templates/issue_log_template.md",
+      "sha256": "279b6222363708b2d872aec2a78a8db3459288ab549306ee1d786c78e5b304c1",
+      "status": "pending",
+      "word_count": 2311,
+      "findings": [
+        "Full-content review not yet completed; structural/link validation does not establish content freshness."
+      ]
+    },
+    {
+      "path": "domains/team/methodology-frameworks/agile-scrum/scaling-frameworks/less/less_retrospective_template.md",
+      "sha256": "03debb15bdca4e74001db66a945fd06824892bedb0a133816d28ed99205c0b62",
+      "status": "pending",
+      "word_count": 2073,
+      "findings": [
+        "Full-content review not yet completed; structural/link validation does not establish content freshness."
+      ]
+    },
+    {
+      "path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/less/less_sprint_planning_template.md",
+      "sha256": "783db6b33150d38aad2042ab9c8a15209f3b7e43dade7e409dda1296b4f01c66",
+      "status": "pending",
+      "word_count": 2519,
+      "findings": [
+        "Full-content review not yet completed; structural/link validation does not establish content freshness."
+      ]
+    },
+    {
+      "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/manufacturing/manufacturing_batch_record_template.md",
+      "sha256": "25dc484b2e9e7ac300d207246e464cb901dba925113c4e5568a53817a7f22f17",
+      "status": "pending",
+      "word_count": 3819,
+      "findings": [
+        "Full-content review not yet completed; structural/link validation does not establish content freshness."
+      ]
+    },
+    {
+      "path": "domains/uncertainty/role-based-toolkits/project-manager/essential-templates/meeting-templates.md",
+      "sha256": "733ce38e3062f418d3d18de128f1535433b8ac4e48ce113103847c14bd169302",
+      "status": "pending",
+      "word_count": 3073,
+      "findings": [
+        "Full-content review not yet completed; structural/link validation does not establish content freshness."
+      ]
+    },
+    {
+      "path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/metrics_dashboard_template.md",
+      "sha256": "7a720762db0dfbddc330058b04aef349f7a9caac882cafd67444d64af45506a9",
+      "status": "pending",
+      "word_count": 3485,
+      "findings": [
+        "Full-content review not yet completed; structural/link validation does not establish content freshness."
+      ]
+    },
+    {
+      "path": "domains/uncertainty/industry-specializations/information-technology/infrastructure/migration_plan_template.md",
+      "sha256": "09286978263593f42da6c30a21f270d498468150b06d189bd1d018cdf49f17df",
+      "status": "reviewed",
+      "word_count": 347,
+      "findings": [],
+      "scope": "full-content",
+      "reviewed": "2026-09-19",
+      "reviewer": "Codex (AI-assisted repository content review)",
+      "evidence": [
+        "Added inventory, readiness evidence, execution validation, go/no-go and rollback controls, data reconciliation and source-retirement approvals."
+      ]
+    },
+    {
+      "path": "domains/measurement/methodology-frameworks/emerging-methods/devops/monitoring_alerting_template.md",
+      "sha256": "dd715dd0457ef8e17c99c2f0c5c7f61b864e3474f6d300215f8cc8024e9928d4",
+      "status": "pending",
+      "word_count": 2509,
+      "findings": [
+        "Full-content review not yet completed; structural/link validation does not establish content freshness."
+      ]
+    },
+    {
+      "path": "domains/stakeholder/role-based-toolkits/product-owner/okr-template.md",
+      "sha256": "899acfc1904675b0855f94e6aaa9c407101b4a5710df4f5d734ebde4237d8624",
+      "status": "pending",
+      "word_count": 1375,
+      "findings": [
+        "Full-content review not yet completed; structural/link validation does not establish content freshness."
+      ]
+    },
+    {
+      "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/validation/operational_qualification_protocol_template.md",
+      "sha256": "5c7ab97179ecb2f4112dd9be78841ae0fd800ac4f1efad80df4af9907e395687",
+      "status": "pending",
+      "word_count": 1946,
+      "findings": [
+        "Full-content review not yet completed; structural/link validation does not establish content freshness."
+      ]
+    },
+    {
+      "path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/less/overall_product_backlog_template.md",
+      "sha256": "c983dba2b5a44c229a997a2ad5ad67ad243ca71dd07049a7a6cb62668c1db615",
+      "status": "pending",
+      "word_count": 963,
+      "findings": [
+        "Full-content review not yet completed; structural/link validation does not establish content freshness."
+      ]
+    },
+    {
+      "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/validation/performance_qualification_protocol_template.md",
+      "sha256": "0804914d1039f48703eb7cb79e17830dc2116b479544604b95f2d0822b11ec05",
+      "status": "pending",
+      "word_count": 2604,
+      "findings": [
+        "Full-content review not yet completed; structural/link validation does not establish content freshness."
+      ]
+    },
+    {
+      "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/lifecycle/pharmaceutical_qbd_template.md",
+      "sha256": "67f1fc9a481ad6ff3565627809d3e62ec6743b144770dbb775b992e5e3bc7d47",
+      "status": "specialist-review",
+      "word_count": 620,
+      "findings": [
+        "Full body inspected. Product-specific assay/content-uniformity examples and the statement that high risk requires design-space development need pharmaceutical quality/regulatory validation before a current-content attestation. No freshness date granted."
+      ],
+      "inspection_date": "2026-09-19"
+    },
+    {
+      "path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/pi_planning_template.md",
+      "sha256": "5baf352812b0d94d7fabfcd30c65befb961872e011adbbde629358cd2c36d205",
+      "status": "pending",
+      "word_count": 1928,
+      "findings": [
+        "Full-content review not yet completed; structural/link validation does not establish content freshness."
+      ]
+    },
+    {
+      "path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/portfolio_kanban_template.md",
+      "sha256": "93e3874a919c13c4d248192d01ef795f5b8b808bafeb77b1b6ec05049a203ea2",
+      "status": "pending",
+      "word_count": 2290,
+      "findings": [
+        "Full-content review not yet completed; structural/link validation does not establish content freshness."
+      ]
+    },
+    {
+      "path": "domains/delivery/industry-specializations/information-technology/service-management/problem_management_process_template.md",
+      "sha256": "b1ce59a97f16087acdc55f8b043d6a2ee7bfe002dd991a96b0de5a83e4001e85",
+      "status": "pending",
+      "word_count": 1126,
+      "findings": [
+        "Full-content review not yet completed; structural/link validation does not establish content freshness."
+      ]
+    },
+    {
+      "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/manufacturing/process_control_template.md",
+      "sha256": "5294d183cbcfa7cd148e5f8553b606cd77d02d733ae4dac72ac652527bb1371a",
+      "status": "pending",
+      "word_count": 4456,
+      "findings": [
+        "Full-content review not yet completed; structural/link validation does not establish content freshness."
+      ]
+    },
+    {
+      "path": "domains/measurement/project-assessment-suite/process-maturity-assessment-template.md",
+      "sha256": "e91e781bd159d7050b8a487eecaa1ebbcd7ffced7ebe8dca8168d430aff977fc",
+      "status": "reviewed",
+      "word_count": 461,
+      "findings": [],
+      "scope": "full-content",
+      "reviewed": "2026-09-19",
+      "reviewer": "Codex (AI-assisted repository content review)",
+      "evidence": [
+        "Read the complete short assessment. Removed conflicting body metadata and added defined scoring, N/A handling, evidence, action ownership, and follow-up."
+      ]
+    },
+    {
+      "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/validation/process_validation_master_plan_template.md",
+      "sha256": "c0300e4f494b44312d3e17cc9a410dad3171cbabf61b9ee6d5e04774982ad8d5",
+      "status": "pending",
+      "word_count": 4788,
+      "findings": [
+        "Full-content review not yet completed; structural/link validation does not establish content freshness."
+      ]
+    },
+    {
+      "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/regulatory/process_validation_protocol_template.md",
+      "sha256": "187d3224c4f0352fc2b447211c89168e43cdba82754902defa986086048a0c58",
+      "status": "pending",
+      "word_count": 2685,
+      "findings": [
+        "Full-content review not yet completed; structural/link validation does not establish content freshness."
+      ]
+    },
+    {
+      "path": "domains/delivery/templates/agile/product_backlog_template.md",
+      "sha256": "2235c7af0329590b42886dc552c6314367fdeb2abed577382906e071a58ed8a2",
+      "status": "pending",
+      "word_count": 2322,
+      "findings": [
+        "Full-content review not yet completed; structural/link validation does not establish content freshness."
+      ]
+    },
+    {
+      "path": "domains/uncertainty/role-based-toolkits/product-owner/product-vision-template.md",
+      "sha256": "b3272316a959d181229a4ec00345ee07ac5d3bbed099bf4d0abea1ff9f50e01a",
+      "status": "reviewed",
+      "word_count": 557,
+      "findings": [],
+      "scope": "full-content",
+      "reviewed": "2026-09-19",
+      "reviewer": "Codex (AI-assisted repository content review)",
+      "evidence": [
+        "Reviewed purpose, user segments, value proposition, measurable goals, constraints, validation, and review cadence. Fields are usable planning prompts; no time-sensitive factual claim requires revision."
+      ]
+    },
+    {
+      "path": "domains/planning/templates/traditional/Traditional/Templates/program_charter_template.md",
+      "sha256": "cf362c0636f43d6fd6dfefe4e8b74ecc8b255c3686a7ade50d9e5dbb0ece821f",
+      "status": "pending",
+      "word_count": 3163,
+      "findings": [
+        "Full-content review not yet completed; structural/link validation does not establish content freshness."
+      ]
+    },
+    {
+      "path": "domains/delivery/templates/traditional/Traditional/Templates/program_management_plan_template.md",
+      "sha256": "6440f148aabedc18dfd20d11d3589ddc01973a81a657ba30a4a2c0991505cfea",
+      "status": "pending",
+      "word_count": 9940,
+      "findings": [
+        "Full-content review not yet completed; structural/link validation does not establish content freshness."
+      ]
+    },
+    {
+      "path": "domains/delivery/templates/hybrid/Hybrid/Templates/progressive_acceptance_plan_template.md",
+      "sha256": "07dd4231d74dc4f1145b1ac9ed9f1b3027da61e690da24f233ef4020f7b2dd4c",
+      "status": "pending",
+      "word_count": 2818,
+      "findings": [
+        "Full-content review not yet completed; structural/link validation does not establish content freshness."
+      ]
+    },
+    {
+      "path": "domains/planning/templates/traditional/Traditional/Process_Groups/Initiating/project_charter_template.md",
+      "sha256": "1cf4e3a648bbbe5f188a6f9c7c8141620539ab94a68951722b71b0426cc7eb24",
+      "status": "pending",
+      "word_count": 1564,
+      "findings": [
+        "Full-content review not yet completed; structural/link validation does not establish content freshness."
+      ]
+    },
+    {
+      "path": "domains/delivery/templates/traditional/Traditional/Process_Groups/Closing/project_closure_report_template.md",
+      "sha256": "3f7d84648b990561627e5ebc761f3eb133e0350ac2a17858871be83124da7565",
+      "status": "pending",
+      "word_count": 4085,
+      "findings": [
+        "Full-content review not yet completed; structural/link validation does not establish content freshness."
+      ]
+    },
+    {
+      "path": "domains/uncertainty/project-lifecycle/04-monitoring-control/progress-tracking/project-dashboard-template.md",
+      "sha256": "e0b10ebe9358b3cdf37fa5300cf5676db0e067310f358919c854f3df6f9d84ec",
+      "status": "reviewed",
+      "word_count": 419,
+      "findings": [],
+      "scope": "full-content",
+      "reviewed": "2026-09-19",
+      "reviewer": "Codex (AI-assisted repository content review)",
+      "evidence": [
+        "Defined metric provenance, reporting period, RAG rules and variance conventions; distinguished cost variance here from earned-value variance."
+      ]
+    },
+    {
+      "path": "domains/delivery/templates/traditional/Traditional/Process_Groups/Executing/project_execution_status_report_template.md",
+      "sha256": "11646ab5f94555586b4d565b67b3b705437d07a242ffbac2b5e7862973c50c25",
+      "status": "pending",
+      "word_count": 2811,
+      "findings": [
+        "Full-content review not yet completed; structural/link validation does not establish content freshness."
+      ]
+    },
+    {
+      "path": "domains/measurement/project-assessment-suite/project-health-assessment-template.md",
+      "sha256": "8dbabb1efbf6b149ac5a13e01547932a8b2d07ea3d57aeb0ebfcf99e9952dc75",
+      "status": "pending",
+      "word_count": 1452,
+      "findings": [
+        "Full-content review not yet completed; structural/link validation does not establish content freshness."
+      ]
+    },
+    {
+      "path": "domains/delivery/templates/traditional/Traditional/Process_Groups/Planning/project_management_plan_template.md",
+      "sha256": "d9d5d711fef826ae66669052bea13a0c96ea5bebe1f647337cc8abd54a9baa86",
+      "status": "pending",
+      "word_count": 5364,
+      "findings": [
+        "Full-content review not yet completed; structural/link validation does not establish content freshness."
+      ]
+    },
+    {
+      "path": "domains/delivery/templates/traditional/Traditional/Process_Groups/Monitoring_and_Controlling/project_performance_monitoring_template.md",
+      "sha256": "8bfa9c5b021d3cddadb12e081976f092395f70605b11704b2fd0dd9938d007ba",
+      "status": "pending",
+      "word_count": 3437,
+      "findings": [
+        "Full-content review not yet completed; structural/link validation does not establish content freshness."
+      ]
+    },
+    {
+      "path": "domains/delivery/templates/traditional/Traditional/Templates/project_roadmap_template.md",
+      "sha256": "47cf62cfa8a3716fd648e7aa80bbf01cbb9f2090a6c3fa396be04b2ec9bfbd99",
+      "status": "pending",
+      "word_count": 4483,
+      "findings": [
+        "Full-content review not yet completed; structural/link validation does not establish content freshness."
+      ]
+    },
+    {
+      "path": "domains/delivery/templates/traditional/Traditional/Process_Groups/Planning/project_schedule_template.md",
+      "sha256": "369379d571d8d8979138042f015ae2ed8989a486b99924a0c62f25be999778e5",
+      "status": "pending",
+      "word_count": 2106,
+      "findings": [
+        "Full-content review not yet completed; structural/link validation does not establish content freshness."
+      ]
+    },
+    {
+      "path": "domains/delivery/templates/traditional/Traditional/Templates/purchase_order_template.md",
+      "sha256": "1774015a25b64d49da2cc535984350fa488dc52a0e4f07c7882454e0d032b4f6",
+      "status": "specialist-review",
+      "word_count": 430,
+      "findings": [
+        "Full body inspected. Unqualified legally-binding and acceptance clauses require legal/procurement review for intended jurisdictions and approved purchasing terms. No freshness date granted."
+      ],
+      "inspection_date": "2026-09-19"
+    },
+    {
+      "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/quality/quality_management_review_template.md",
+      "sha256": "1d0bb39160e464dc89a713e4ef865e31e8e18ab46ba1a6475a4a24f188d53181",
+      "status": "pending",
+      "word_count": 5212,
+      "findings": [
+        "Full-content review not yet completed; structural/link validation does not establish content freshness."
+      ]
+    },
+    {
+      "path": "domains/uncertainty/templates/test-samples/quality-test-plan-template.md",
+      "sha256": "9556e4470c9f5dab62d743cdcac71c1feb4af9318a0f349274e349155265c40c",
+      "status": "reviewed",
+      "word_count": 564,
+      "findings": [],
+      "scope": "full-content",
+      "reviewed": "2026-09-19",
+      "reviewer": "Codex (AI-assisted repository content review)",
+      "evidence": [
+        "Removed default nonfunctional-testing waiver, required risk-based exclusions and retained execution/coverage evidence, and clarified example scope."
+      ]
+    },
+    {
+      "path": "domains/delivery/templates/traditional/Traditional/Templates/raid_log_template.md",
+      "sha256": "fe40e55482e765f09610b14f1a3f02b91048c9e0f77833b0952b61c3dfd1862b",
+      "status": "pending",
+      "word_count": 768,
+      "findings": [
+        "Full-content review not yet completed; structural/link validation does not establish content freshness."
+      ]
+    },
+    {
+      "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/regulatory/regulatory_inspection_readiness_plan_template.md",
+      "sha256": "31ae486a00b0a8c8b9552492d0bf9e549e1433a7943e9562aa5a35a4e07f893f",
+      "status": "pending",
+      "word_count": 2885,
+      "findings": [
+        "Full-content review not yet completed; structural/link validation does not establish content freshness."
+      ]
+    },
+    {
+      "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/regulatory/regulatory_strategy_plan_template.md",
+      "sha256": "8fab37973f6e648d612016fc8e58c925065ae3320c0ac03a346c059b43f8676b",
+      "status": "pending",
+      "word_count": 810,
+      "findings": [
+        "Full-content review not yet completed; structural/link validation does not establish content freshness."
+      ]
+    },
+    {
+      "path": "domains/measurement/methodology-frameworks/emerging-methods/devops/release_management_template.md",
+      "sha256": "053110f2a418b825d5ed6495147b06b95b41978e7fcf1bfb1bdff4602828f457",
+      "status": "pending",
+      "word_count": 3416,
+      "findings": [
+        "Full-content review not yet completed; structural/link validation does not establish content freshness."
+      ]
+    },
+    {
+      "path": "domains/measurement/project-assessment-suite/remediation-action-plan-template.md",
+      "sha256": "b05e7086adf4b00b88cc8d1d395e9242e9c2d97bd27ce54ba54d3955bac4b5f0",
+      "status": "pending",
+      "word_count": 2557,
+      "findings": [
+        "Full-content review not yet completed; structural/link validation does not establish content freshness."
+      ]
+    },
+    {
+      "path": "domains/uncertainty/industry-specializations/information-technology/software-development/requirements_specification_template.md",
+      "sha256": "04fe0e90e9df7e6502d8f244983a98e8e5c952ccb450e298c1acb0683eb1ff6b",
+      "status": "pending",
+      "word_count": 4935,
+      "findings": [
+        "Full-content review not yet completed; structural/link validation does not establish content freshness."
+      ]
+    },
+    {
+      "path": "domains/delivery/templates/traditional/Traditional/Process_Groups/Executing/requirements_traceability_matrix_template.md",
+      "sha256": "90077cdd46763e468f39c04831323ed39d5993c8d815c729f4118be4afce7767",
+      "status": "pending",
+      "word_count": 2413,
+      "findings": [
+        "Full-content review not yet completed; structural/link validation does not establish content freshness."
+      ]
+    },
+    {
+      "path": "domains/measurement/project-assessment-suite/resource-management-assessment-template.md",
+      "sha256": "c210a6369dac1c0b3ca78efa1b2c7734cc29cf781e9e7d490418096cc856c6cc",
+      "status": "reviewed",
+      "word_count": 393,
+      "findings": [],
+      "scope": "full-content",
+      "reviewed": "2026-09-19",
+      "reviewer": "Codex (AI-assisted repository content review)",
+      "evidence": [
+        "Read the complete short assessment. Removed conflicting body metadata and added defined scoring, N/A handling, evidence, action ownership, and follow-up."
+      ]
+    },
+    {
+      "path": "domains/measurement/project-lifecycle/02-planning/resource-planning/resource-management-plan-template.md",
+      "sha256": "ff7fda80410dbe59428077dbc9000149f9c5f969b842e1c58bf9be239627e93c",
+      "status": "pending",
+      "word_count": 1912,
+      "findings": [
+        "Full-content review not yet completed; structural/link validation does not establish content freshness."
+      ]
+    },
+    {
+      "path": "domains/measurement/industry-specializations/information-technology/cybersecurity/risk_assessment_template.md",
+      "sha256": "06c0c9d00e9cfc4c104ece6a4834bb0b7c579d01049d3a56af9795e781ed992d",
+      "status": "pending",
+      "word_count": 1807,
+      "findings": [
+        "Full-content review not yet completed; structural/link validation does not establish content freshness."
+      ]
+    },
+    {
+      "path": "domains/measurement/project-assessment-suite/risk-management-assessment-template.md",
+      "sha256": "c459ec2489955383f33e5336271d10bf35a9588f177a68ce3089c165ed3b17ed",
+      "status": "reviewed",
+      "word_count": 408,
+      "findings": [],
+      "scope": "full-content",
+      "reviewed": "2026-09-19",
+      "reviewer": "Codex (AI-assisted repository content review)",
+      "evidence": [
+        "Read the complete short assessment. Removed conflicting body metadata and added defined scoring, N/A handling, evidence, action ownership, and follow-up."
+      ]
+    },
+    {
+      "path": "domains/measurement/project-lifecycle/02-planning/risk-management/risk-management-plan-template.md",
+      "sha256": "5bc34126cd641661d98b88879810de59dc8f516742e388bdde1e9c4d7f190ab1",
+      "status": "pending",
+      "word_count": 1639,
+      "findings": [
+        "Full-content review not yet completed; structural/link validation does not establish content freshness."
+      ]
+    },
+    {
+      "path": "domains/uncertainty/project-lifecycle/02-planning/risk-management/risk-register-template.md",
+      "sha256": "d08983f03339580b848a6cb780145d93e29471d14f7d41811cd324e84b4c948f",
+      "status": "reviewed",
+      "word_count": 364,
+      "findings": [],
+      "scope": "full-content",
+      "reviewed": "2026-09-19",
+      "reviewer": "Codex (AI-assisted repository content review)",
+      "evidence": [
+        "Resolved missing score calculation and overlapping/incomplete probability bands; defined ordinal ranks, assessment horizon and calibrated thresholds."
+      ]
+    },
+    {
+      "path": "domains/delivery/templates/traditional/Traditional/Knowledge_Areas/Project_Cost_Management/roi_tracking_template.md",
+      "sha256": "62318ffeb8f17fc75850d797e1f1f9f46419d06b2cf4e1ccdb9b719bf03d8e77",
+      "status": "pending",
+      "word_count": 2192,
+      "findings": [
+        "Full-content review not yet completed; structural/link validation does not establish content freshness."
+      ]
+    },
+    {
+      "path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_art_coordination_template.md",
+      "sha256": "77cac0ef7034cca657c7bd1b63910df6c525bfbc38979b50630051f791853a18",
+      "status": "pending",
+      "word_count": 2674,
+      "findings": [
+        "Full-content review not yet completed; structural/link validation does not establish content freshness."
+      ]
+    },
+    {
+      "path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_metrics_dashboard_template.md",
+      "sha256": "ca79a4e46ff245402f41e561083d4bf28a914a6d5127d4f28a638a8a481626bb",
+      "status": "pending",
+      "word_count": 3629,
+      "findings": [
+        "Full-content review not yet completed; structural/link validation does not establish content freshness."
+      ]
+    },
+    {
+      "path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_metrics_reporting_template.md",
+      "sha256": "971937d974b8f26eec47a08396126a4420b07722edd2c04c152e5b4c75e98576",
+      "status": "pending",
+      "word_count": 3193,
+      "findings": [
+        "Full-content review not yet completed; structural/link validation does not establish content freshness."
+      ]
+    },
+    {
+      "path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_portfolio_kanban_template.md",
+      "sha256": "06aa28142b43d23a20a74e92bfbf40cf3cd526ae9a58045164fdb160d54f7174",
+      "status": "pending",
+      "word_count": 2625,
+      "findings": [
+        "Full-content review not yet completed; structural/link validation does not establish content freshness."
+      ]
+    },
+    {
+      "path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_program_increment_planning_template.md",
+      "sha256": "c69dfa1a6da85c2ad76911f228846544a6477a9b7343f1f0a8777d557f8a19c3",
+      "status": "pending",
+      "word_count": 2255,
+      "findings": [
+        "Full-content review not yet completed; structural/link validation does not establish content freshness."
+      ]
+    },
+    {
+      "path": "domains/team/project-lifecycle/02-planning/resource-planning/skills-matrix-template.md",
+      "sha256": "89caff225adae1dd3db08729141472ea80946d18f6098333d039275748bcf158",
+      "status": "pending",
+      "word_count": 2828,
+      "findings": [
+        "Full-content review not yet completed; structural/link validation does not establish content freshness."
+      ]
+    },
+    {
+      "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/validation/software_requirements_specification_template.md",
+      "sha256": "7a355d601468185b3611d8435128cf4663b4a519c4c94bcc979afe0c8d226e04",
+      "status": "pending",
+      "word_count": 2563,
+      "findings": [
+        "Full-content review not yet completed; structural/link validation does not establish content freshness."
+      ]
+    },
+    {
+      "path": "domains/delivery/templates/agile/sprint_planning_template.md",
+      "sha256": "f36813b5adb50ce997ed84e1c9c0ae4558cb3f09d11a05876492383b96dc9815",
+      "status": "pending",
+      "word_count": 3139,
+      "findings": [
+        "Full-content review not yet completed; structural/link validation does not establish content freshness."
+      ]
+    },
+    {
+      "path": "domains/team/templates/agile/sprint_retrospective_template.md",
+      "sha256": "30d1d9549b91ad911ac934f3bc86da72813b850229f095c8afe6a4974f1bf47d",
+      "status": "pending",
+      "word_count": 1753,
+      "findings": [
+        "Full-content review not yet completed; structural/link validation does not establish content freshness."
+      ]
+    },
+    {
+      "path": "domains/team/templates/agile/sprint_review_template.md",
+      "sha256": "3f37c1dbbc7f11b2ac603b6846eb99470550de0cf7fa7b4d61b98659c4996325",
+      "status": "pending",
+      "word_count": 3673,
+      "findings": [
+        "Full-content review not yet completed; structural/link validation does not establish content freshness."
+      ]
+    },
+    {
+      "path": "domains/stakeholder/project-assessment-suite/stakeholder-engagement-assessment-template.md",
+      "sha256": "1fb84b0bfda4f667aedd14d6f6a30e910b894a58eac0f57adc8718851354b103",
+      "status": "reviewed",
+      "word_count": 399,
+      "findings": [],
+      "scope": "full-content",
+      "reviewed": "2026-09-19",
+      "reviewer": "Codex (AI-assisted repository content review)",
+      "evidence": [
+        "Read the complete short assessment. Removed conflicting body metadata and added defined scoring, N/A handling, evidence, action ownership, and follow-up."
+      ]
+    },
+    {
+      "path": "domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/stakeholder-register-template.md",
+      "sha256": "64d7a7d1a8096b3d7f3410162abd61e7fc88e953c8ddae1935a47e786c7d3a57",
+      "status": "reviewed",
+      "word_count": 385,
+      "findings": [],
+      "scope": "full-content",
+      "reviewed": "2026-09-19",
+      "reviewer": "Codex (AI-assisted repository content review)",
+      "evidence": [
+        "Reviewed identification, influence/interest categorization, engagement and communication fields, and maintenance cadence. Existing body remains usable as a configurable register."
+      ]
+    },
+    {
+      "path": "domains/uncertainty/project-lifecycle/04-monitoring-control/progress-tracking/status-report-template.md",
+      "sha256": "aa10eee873c4fb6f9755e59c3dbe9a48f40dd8a2452d5231c92fa3e3361548ee",
+      "status": "pending",
+      "word_count": 1873,
+      "findings": [
+        "Full-content review not yet completed; structural/link validation does not establish content freshness."
+      ]
+    },
+    {
+      "path": "domains/team/project-lifecycle/02-planning/resource-planning/team-charter-template.md",
+      "sha256": "66814df1b812d05e9caf5e8f4dc524082eea0926100478f93752a98882b4712d",
+      "status": "pending",
+      "word_count": 1824,
+      "findings": [
+        "Full-content review not yet completed; structural/link validation does not establish content freshness."
+      ]
+    },
+    {
+      "path": "domains/team/templates/traditional/Traditional/Process_Groups/Executing/team_performance_assessment_template.md",
+      "sha256": "7d6268733b205ac301e8e55d9892a3c0b4999a923f1fa2deca188704907720aa",
+      "status": "reviewed",
+      "word_count": 391,
+      "findings": [],
+      "scope": "full-content",
+      "reviewed": "2026-09-19",
+      "reviewer": "Codex (AI-assisted repository content review)",
+      "evidence": [
+        "Reviewed criteria, defined rating scale, evaluations, action ownership, and sign-off. Examples are identified as examples; no change required."
+      ]
+    },
+    {
+      "path": "domains/measurement/industry-specializations/information-technology/software-development/technical_design_document_template.md",
+      "sha256": "260838d45353513cd1ffa16b484517a6bf0cb37460492bb2049a6427f16bf2fa",
+      "status": "pending",
+      "word_count": 3384,
+      "findings": [
+        "Full-content review not yet completed; structural/link validation does not establish content freshness."
+      ]
+    },
+    {
+      "path": "domains/measurement/industry-specializations/information-technology/software-development/test_plan_template.md",
+      "sha256": "d2874996ef634c94ef623e631fd37fedb49fb609be1d9f8e55f34143b5b1f374",
+      "status": "pending",
+      "word_count": 6890,
+      "findings": [
+        "Full-content review not yet completed; structural/link validation does not establish content freshness."
+      ]
+    },
+    {
+      "path": "domains/delivery/role-based-toolkits/project-manager/essential-templates/timesheet-tracking-template.md",
+      "sha256": "c80bbc3c57444f640c6c6820e2efce747f61ae50571dc4bf2afdc4a8b854f5b4",
+      "status": "pending",
+      "word_count": 994,
+      "findings": [
+        "Full-content review not yet completed; structural/link validation does not establish content freshness."
+      ]
+    },
+    {
+      "path": "domains/planning/project-lifecycle/01-initiation/project-charter/traditional-project-charter-template.md",
+      "sha256": "3b7cfab0abc66bc389bbe4c161330e19af41f1801fb6edafa06700e47acbf75f",
+      "status": "reviewed",
+      "word_count": 415,
+      "findings": [],
+      "scope": "full-content",
+      "reviewed": "2026-09-19",
+      "reviewer": "Codex (AI-assisted repository content review)",
+      "evidence": [
+        "Reviewed authorization purpose, scope, measurable success criteria, requirements, timeline, resources, risks, and sponsor approval. No substantive change required."
+      ]
+    },
+    {
+      "path": "domains/delivery/project-lifecycle/02-planning/project-management-plan/traditional-project-management-plan-template.md",
+      "sha256": "377a8035beec71d6b87bd4a86f994ad282a31316ceec3a58e3c3e9645e5fcf33",
+      "status": "pending",
+      "word_count": 913,
+      "findings": [
+        "Full-content review not yet completed; structural/link validation does not establish content freshness."
+      ]
+    },
+    {
+      "path": "domains/delivery/templates/traditional/Traditional/Templates/uat_plan_template.md",
+      "sha256": "882327db5829be87c7cf63cf7f71cfa1de22e626b385c29599cc914b6c748f38",
+      "status": "pending",
+      "word_count": 3086,
+      "findings": [
+        "Full-content review not yet completed; structural/link validation does not establish content freshness."
+      ]
+    },
+    {
+      "path": "domains/delivery/templates/traditional/Traditional/Templates/uat_strategy_template.md",
+      "sha256": "aa9a0c9345aae72ef671fa4e03230dea2ba06cc1234a9d318069dfcc9f3847c8",
+      "status": "pending",
+      "word_count": 5689,
+      "findings": [
+        "Full-content review not yet completed; structural/link validation does not establish content freshness."
+      ]
+    },
+    {
+      "path": "domains/uncertainty/industry-specializations/information-technology/software-development/user_story_mapping_template.md",
+      "sha256": "a82ba4cbae5bd66cd9c6fc7acc59f8158ef8f663dfff4b52e4764a5381231b96",
+      "status": "pending",
+      "word_count": 795,
+      "findings": [
+        "Full-content review not yet completed; structural/link validation does not establish content freshness."
+      ]
+    },
+    {
+      "path": "domains/uncertainty/role-based-toolkits/product-owner/user-story-template.md",
+      "sha256": "77a05ce922c2e139a2980a76c6a6b8aaa116613db23952e8faea01a54626bf59",
+      "status": "reviewed",
+      "word_count": 615,
+      "findings": [],
+      "scope": "full-content",
+      "reviewed": "2026-09-19",
+      "reviewer": "Codex (AI-assisted repository content review)",
+      "evidence": [
+        "Separated optional readiness guidance, story acceptance and product Definition of Done; removed implied Product Owner approval requirement for Done."
+      ]
+    },
+    {
+      "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/validation/validation_master_plan_template.md",
+      "sha256": "770b558145b2ab79d322fdacf902cee25b0fe342bedfcd584fa0712752323414",
+      "status": "pending",
+      "word_count": 3615,
+      "findings": [
+        "Full-content review not yet completed; structural/link validation does not establish content freshness."
+      ]
+    },
+    {
+      "path": "domains/stakeholder/project-assessment-suite/waterfall-project-assessment-template.md",
+      "sha256": "7cc95b67e252d283fc3ad8bd9337711f7da929f0fc1c243f12d09dc56606454d",
+      "status": "reviewed",
+      "word_count": 415,
+      "findings": [],
+      "scope": "full-content",
+      "reviewed": "2026-09-19",
+      "reviewer": "Codex (AI-assisted repository content review)",
+      "evidence": [
+        "Read the complete short assessment. Removed conflicting body metadata and added defined scoring, N/A handling, evidence, action ownership, and follow-up."
+      ]
+    },
+    {
+      "path": "domains/delivery/templates/traditional/Traditional/Process_Groups/Planning/work_breakdown_structure_template.md",
+      "sha256": "315f67d04de2d3b5dc32be6132f60caede285666fd8cc2362c6b16c02b8d4f15",
+      "status": "pending",
+      "word_count": 1795,
+      "findings": [
+        "Full-content review not yet completed; structural/link validation does not establish content freshness."
+      ]
+    }
+  ]
+}

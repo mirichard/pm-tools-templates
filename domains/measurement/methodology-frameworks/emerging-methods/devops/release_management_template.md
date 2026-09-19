@@ -846,10 +846,9 @@ tool_stack:
 
 ## Related Templates
 - [CI/CD Pipeline Planning](./cicd_pipeline_planning_template.md)
-- DevOps Metrics Dashboard (linked resource unavailable)
+- [Pipeline Success Metrics and KPIs](cicd_pipeline_planning_template.md#success-metrics-and-kpis)
 - [Infrastructure as Code](./infrastructure_as_code_template.md)
 - [DevSecOps Integration](./devsecops_template.md)
-- DevOps Engineer Toolkit (linked resource unavailable)
 
 ---
 

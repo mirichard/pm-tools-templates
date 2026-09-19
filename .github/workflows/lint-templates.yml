@@ -7,6 +7,9 @@ on:
       - 'templates/templates.json'
       - 'meta/migration-waves/*.json'
       - 'scripts/lint_template_metadata.py'
+      - 'scripts/template_reviews.py'
+      - 'meta/template-content-reviews.json'
+      - 'tests/test_template_reviews.py'
       - 'tests/test_template_metadata.py'
       - 'scripts/quality_gate_baseline.py'
       - 'scripts/migration_pointer.py'
@@ -23,6 +26,9 @@ on:
       - 'templates/templates.json'
       - 'meta/migration-waves/*.json'
       - 'scripts/lint_template_metadata.py'
+      - 'scripts/template_reviews.py'
+      - 'meta/template-content-reviews.json'
+      - 'tests/test_template_reviews.py'
       - 'tests/test_template_metadata.py'
       - 'scripts/quality_gate_baseline.py'
       - 'scripts/migration_pointer.py'
@@ -52,7 +58,7 @@ jobs:
         run: python -m pip install PyYAML==6.0.3
       - name: Test metadata policy and safe report generation
         run: |
-          python -m unittest discover -s tests -p test_template_metadata.py -v
+          python -m unittest tests.test_template_metadata tests.test_template_reviews -v
           python -m unittest tests.test_quality_gate_baseline -v
           python -m unittest discover -s tests -p test_clean_status.py -v
       - name: Validate changed bodies and navigation; report inherited debt

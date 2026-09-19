@@ -3,7 +3,7 @@ title: "Agile Team Charter Template"
 methodology: "universal"
 complexity: "intermediate"
 owner: "mirichard"
-updated: "2025-08-05"
+updated: "2026-09-19"
 primary_principles: ["collaborative-leadership", "continuous-learning"]
 secondary_principles: ["adaptability", "stewardship"]
 principle_rationale: "Creates accountable team agreements that support adaptation, trust, and learning."
@@ -13,7 +13,7 @@ principle_rationale: "Creates accountable team agreements that support adaptatio
 # Agile Team Charter Template
 
 ## Purpose/Overview
-This agile team charter template establishes the foundation for effective agile teams by defining mission, values, and working agreements. It serves as a living document that guides team behavior, decision-making, and collaboration within the Scrum framework. The charter promotes team self-organization and continuous improvement.
+This agile team charter template establishes the foundation for effective agile teams by defining mission, values, and working agreements. It serves as a living document that guides team behavior, decision-making, and collaboration within the Scrum framework. The charter promotes team self-management and continuous improvement.
 
 ## Usage Instructions
 1. **Team Workshop**: Create the charter collaboratively during a team formation workshop
@@ -69,7 +69,7 @@ This agile team charter template establishes the foundation for effective agile 
 |------|-----------------|
 | Product Owner | [Responsibilities] |
 | Scrum Master | [Responsibilities] |
-| Development Team | [Responsibilities] |
+| Developers | [Responsibilities] |
 
 ## Success Metrics
 - [Metric 1]
@@ -78,3 +78,5 @@ This agile team charter template establishes the foundation for effective agile 
 
 
 *Agile team charter following Scrum framework principles*
+
+Framework reference: [Scrum Guide, November 2020](https://scrumguides.org/scrum-guide.html).

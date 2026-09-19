@@ -8,16 +8,10 @@ role: "pm"
 tags: ["planning", "planning"]
 version: "1.0.0"
 owner: "mirichard"
-updated: "2025-08-06"
+updated: "2026-09-19"
 estimated_completion_time: "15-30 minutes"
 ---
 
-
-title: "Resource Management Assessment Template"
-methodology: "universal"
-complexity: "starter"
-owner: "mirichard"
-updated: "2025-08-05"
 
 # Resource Management Assessment Template
 
@@ -40,7 +34,7 @@ This template evaluates resource management effectiveness including human resour
 - [ ] Timeline and availability coordination
 
 **Maturity Level:** [1-5]
-**Effectiveness Score:** [Percentage]
+**Effectiveness Measure:** [Defined measure, numerator/denominator if a percentage, and evidence]
 
 ### 2. Resource Allocation
 **Allocation Process Assessment:**
@@ -72,6 +66,20 @@ This template evaluates resource management effectiveness including human resour
 
 **Recommendations:**
 - [Specific improvement actions]
+
+## Assessment method and evidence
+
+Tailor the criteria to the project before scoring. This is a lightweight internal assessment, not a certification or formal appraisal. Mark inapplicable criteria N/A with a rationale; distinguish missing evidence from poor performance.
+
+Use a locally agreed scale: 1 = absent/ad hoc; 2 = inconsistently applied; 3 = defined and routinely applied; 4 = measured and controlled; 5 = improved using measured outcomes. Record evidence for each rating. Do not average scores with N/A or unassessed items.
+
+| Criterion | Rating / N/A / not assessed | Dated evidence and rationale | Gap / impact | Action / owner / due date | Completion evidence |
+|---|---|---|---|---|---|
+| [Criterion] | [Rating] | [Source and observation] | [Gap] | [Action / name / date] | [Observable acceptance condition] |
+
+- **Assessment limitations:** [Sampling, unavailable information, assessor familiarity]
+- **Stakeholder review:** [Reviewer / date / disputed findings]
+- **Follow-up review:** [Date and accountable owner]
 
 Related Resources:
 - [Resource Planning](../project-lifecycle/02-planning/resource-planning/)

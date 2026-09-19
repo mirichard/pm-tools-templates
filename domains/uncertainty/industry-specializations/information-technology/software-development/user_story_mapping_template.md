@@ -168,6 +168,6 @@ This template provides a structured approach to user story mapping for software 
 
 ---
 Related Resources:
-- Agile Planning (linked resource unavailable)
-- Sprint Planning (linked resource unavailable)
-- Product Backlog Management (linked resource unavailable)
+- [Agile Release Planning](../../../../delivery/project-lifecycle/02-planning/project-management-plan/agile-release-plan-template.md)
+- [Sprint Planning](../../../../delivery/templates/agile/sprint_planning_template.md)
+- [Product Backlog Management](../../../../uncertainty/role-based-toolkits/product-owner/backlog-management-template.md)

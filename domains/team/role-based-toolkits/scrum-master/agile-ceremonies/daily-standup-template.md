@@ -3,7 +3,7 @@ title: "Daily Standup Template"
 methodology: "agile"
 complexity: "intermediate"
 owner: "mirichard"
-updated: "2025-08-05"
+updated: "2026-09-19"
 ---
 
 # Daily Standup Template
@@ -11,15 +11,19 @@ updated: "2025-08-05"
 ## Meeting Information
 - **Date**: [Date]
 - **Sprint**: [Sprint Number]
-- **Facilitator**: [Scrum Master Name]
+- **Facilitator**: [Developer-selected facilitator, if needed]
 - **Duration**: 15 minutes
 - **Time**: [Time]
 - **Location/Platform**: [Location or virtual platform]
 
+## Purpose and facilitation
+
+In Scrum, Developers use this 15-minute event to inspect progress toward the Sprint Goal and adjust their plan. They choose the format. Use only the sections that help that purpose; move detailed problem solving and announcements outside the event.
+
 ## Standup Format
 
-### Standard Questions
-Each team member answers these three questions:
+### Optional prompts
+These prompts are one possible format, not required Scrum questions:
 
 1. **What did you accomplish yesterday?**
 2. **What will you work on today?**
@@ -136,9 +140,11 @@ Each team member answers these three questions:
 
 ---
 
-**Meeting Facilitated by**: [Scrum Master Name]  
+**Meeting Facilitated by**: [Developer-selected facilitator, if needed]
 **Notes Taken by**: [Note taker]  
 **Next Standup**: [Date and Time]
 
 *Daily synchronization for team alignment and progress*
 
+
+Framework reference: [Scrum Guide, November 2020](https://scrumguides.org/scrum-guide.html).

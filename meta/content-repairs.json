@@ -2,45 +2,10 @@
   "version": 1,
   "repairs": [
     {
-      "path": "domains/delivery/project-assessment-suite/agile-project-assessment-template.md",
+      "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/lifecycle/pharmaceutical_qbd_template.md",
       "base_commit": "4525639da93fde99efef64295324e8d72e6c61d7",
-      "original_sha256": "d6c3d92cbc2d8160a13a4b10dd1bc28b4b0f5978d62651ca633581cbb7266318",
-      "current_sha256": "529fdb649f323facdf9b6fccda8ef042a78ab7ac717dab24dcd98c544ffb46bd",
-      "reason": "Post-migration quality repair: schema-valid complexity where applicable; maintained canonical references and documented local-link dispositions. See docs/vnext/post-migration-repair/link-dispositions.json and PR diff."
-    },
-    {
-      "path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md",
-      "base_commit": "4525639da93fde99efef64295324e8d72e6c61d7",
-      "original_sha256": "942e733db10117e8c638c33385383a501323925a3b7aaa21d29d361b62739e1f",
-      "current_sha256": "d0d0ee4dc62b537efbb357c706cc2c8fc4a042599c1ce27e4fa3c9e335d72de4",
-      "reason": "Post-migration quality repair: schema-valid complexity where applicable; maintained canonical references and documented local-link dispositions. See docs/vnext/post-migration-repair/link-dispositions.json and PR diff."
-    },
-    {
-      "path": "domains/uncertainty/project-assessment-suite/assessment-report-template.md",
-      "base_commit": "4525639da93fde99efef64295324e8d72e6c61d7",
-      "original_sha256": "542595e2691103808729b4a74d0b564867c013a92b8513f0aec08fcf4c2df523",
-      "current_sha256": "54cf17821967f0ca1bf9fa23ae899d4ed83942eadc6aa13ef8a9e266109c5f46",
-      "reason": "Post-migration quality repair: schema-valid complexity where applicable; maintained canonical references and documented local-link dispositions. See docs/vnext/post-migration-repair/link-dispositions.json and PR diff."
-    },
-    {
-      "path": "domains/planning/templates/traditional/Traditional/Templates/business_case_template.md",
-      "base_commit": "4525639da93fde99efef64295324e8d72e6c61d7",
-      "original_sha256": "6eb3641724f91300a53af81496d77483f25a9a55910b59682202de01554f4ebe",
-      "current_sha256": "77c53b5e4caf4af77be6506621c12d5b9cbac3f3cb52d044ea62584058a24948",
-      "reason": "Post-migration quality repair: schema-valid complexity where applicable; maintained canonical references and documented local-link dispositions. See docs/vnext/post-migration-repair/link-dispositions.json and PR diff."
-    },
-    {
-      "path": "domains/delivery/templates/traditional/Traditional/Templates/change_management_plan_template.md",
-      "base_commit": "4525639da93fde99efef64295324e8d72e6c61d7",
-      "original_sha256": "952d7cfe226ee061599688c1b9f1f6768ee3013e7a735e284e6bb6f5d2588e2b",
-      "current_sha256": "6e4dbf2192488315fb284df9b6c04d3bb103fd5f41156b285fdf55db020b0df8",
-      "reason": "Post-migration quality repair: schema-valid complexity where applicable; maintained canonical references and documented local-link dispositions. See docs/vnext/post-migration-repair/link-dispositions.json and PR diff."
-    },
-    {
-      "path": "domains/measurement/methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md",
-      "base_commit": "4525639da93fde99efef64295324e8d72e6c61d7",
-      "original_sha256": "05b492617a09417baf7de2a755b6028f1fe844b50877ecd6809bfdb429e19f95",
-      "current_sha256": "379e0c2c8c9cb6e8cc866ff013b68829f9c9b8a60f7550d6e35daece2d43da69",
+      "original_sha256": "78d325c58e8f345939a6fb2efc82f82ba954f548b71befc1182f7d72930f93c0",
+      "current_sha256": "67f1fc9a481ad6ff3565627809d3e62ec6743b144770dbb775b992e5e3bc7d47",
       "reason": "Post-migration quality repair: schema-valid complexity where applicable; maintained canonical references and documented local-link dispositions. See docs/vnext/post-migration-repair/link-dispositions.json and PR diff."
     },
     {
@@ -51,122 +16,10 @@
       "reason": "Post-migration quality repair: schema-valid complexity where applicable; maintained canonical references and documented local-link dispositions. See docs/vnext/post-migration-repair/link-dispositions.json and PR diff."
     },
     {
-      "path": "domains/measurement/project-assessment-suite/current-state-analysis-template.md",
-      "base_commit": "4525639da93fde99efef64295324e8d72e6c61d7",
-      "original_sha256": "f9b0cb20451849ec72f7afc170d624bf6b4b6ab3ed4c2c789cbe838c5523fe3c",
-      "current_sha256": "c6b2961ed72cb722f317064052044a79f7121722e8d21178f05c591f8b4a25e7",
-      "reason": "Post-migration quality repair: schema-valid complexity where applicable; maintained canonical references and documented local-link dispositions. See docs/vnext/post-migration-repair/link-dispositions.json and PR diff."
-    },
-    {
-      "path": "domains/planning/industry-specializations/information-technology/infrastructure/data_center_design_template.md",
-      "base_commit": "4525639da93fde99efef64295324e8d72e6c61d7",
-      "original_sha256": "d7fd9270887a9ddaf7025bf5963df1cc4ecda89c63a76bd3b3af103c3fea0a07",
-      "current_sha256": "2c517e2adc10c7b2899f1a3024e50a14f9b3967586dc0fa855eb7e7b545073e5",
-      "reason": "Post-migration quality repair: schema-valid complexity where applicable; maintained canonical references and documented local-link dispositions. See docs/vnext/post-migration-repair/link-dispositions.json and PR diff."
-    },
-    {
-      "path": "domains/measurement/methodology-frameworks/emerging-methods/devops/devsecops_template.md",
-      "base_commit": "4525639da93fde99efef64295324e8d72e6c61d7",
-      "original_sha256": "829c36d2f1fb05b2c428ab8fe254e64b4e026d56e957738f90beff87cbf3cace",
-      "current_sha256": "bb4e4b1b6ba92c2a69a300a6a13f80e6e75c6c89943df9a6bec5fa9975f8d78d",
-      "reason": "Post-migration quality repair: schema-valid complexity where applicable; maintained canonical references and documented local-link dispositions. See docs/vnext/post-migration-repair/link-dispositions.json and PR diff."
-    },
-    {
-      "path": "domains/planning/industry-specializations/information-technology/infrastructure/disaster_recovery_template.md",
-      "base_commit": "4525639da93fde99efef64295324e8d72e6c61d7",
-      "original_sha256": "e2f85f6387be817a220dfa32eb65083df02fc50ad3054ea62c5e3f56d52c00a5",
-      "current_sha256": "36e5b284adeb5bf8cda2818e7b46146f44401e923dccb43b0504998edd9d545f",
-      "reason": "Post-migration quality repair: schema-valid complexity where applicable; maintained canonical references and documented local-link dispositions. See docs/vnext/post-migration-repair/link-dispositions.json and PR diff."
-    },
-    {
-      "path": "domains/uncertainty/project-lifecycle/02-planning/risk-management/enterprise-risk-assessment-template.md",
-      "base_commit": "4525639da93fde99efef64295324e8d72e6c61d7",
-      "original_sha256": "309adc88633a4b0c437935cd4be6c7e56cead0c8395c0a7bfe0f7e591e5a4852",
-      "current_sha256": "a3d81b550b49cefe21a40b1f9458680de91d663b2bbb04c9ac83dd8bc4c4d255",
-      "reason": "Post-migration quality repair: schema-valid complexity where applicable; maintained canonical references and documented local-link dispositions. See docs/vnext/post-migration-repair/link-dispositions.json and PR diff."
-    },
-    {
-      "path": "domains/measurement/project-assessment-suite/future-state-blueprint-template.md",
-      "base_commit": "4525639da93fde99efef64295324e8d72e6c61d7",
-      "original_sha256": "76a480170b0a85dfac94be1cb12a13e8045c7c34d7c7523f424854c0c6895205",
-      "current_sha256": "13b08669e7912f4bc44bd7e6b8a38305b4c0bb66e673bed86c94bdd3020b00fa",
-      "reason": "Post-migration quality repair: schema-valid complexity where applicable; maintained canonical references and documented local-link dispositions. See docs/vnext/post-migration-repair/link-dispositions.json and PR diff."
-    },
-    {
-      "path": "domains/measurement/project-assessment-suite/governance-assessment-template.md",
-      "base_commit": "4525639da93fde99efef64295324e8d72e6c61d7",
-      "original_sha256": "b65b661fe88ac07616bd3115897c247633549fa2da6935d4cfadadb561b42534",
-      "current_sha256": "a2bfe3643cee093414c027bcb0846e70d8e8c6ea5a2bd561408e2c8f1fa49f86",
-      "reason": "Post-migration quality repair: schema-valid complexity where applicable; maintained canonical references and documented local-link dispositions. See docs/vnext/post-migration-repair/link-dispositions.json and PR diff."
-    },
-    {
-      "path": "domains/delivery/methodology-frameworks/hybrid/infrastructure/hybrid-infrastructure-template.md",
-      "base_commit": "4525639da93fde99efef64295324e8d72e6c61d7",
-      "original_sha256": "f4509b4bd1fd0623ad1a57b881eb3e27a48923f4fefce164ea7a4c229aa75882",
-      "current_sha256": "ecceaf33e2ae576d392a7c5dc5892e7243b7fa2933953ec517ef1f7464716232",
-      "reason": "Post-migration quality repair: schema-valid complexity where applicable; maintained canonical references and documented local-link dispositions. See docs/vnext/post-migration-repair/link-dispositions.json and PR diff."
-    },
-    {
-      "path": "domains/delivery/project-assessment-suite/hybrid-project-assessment-template.md",
-      "base_commit": "4525639da93fde99efef64295324e8d72e6c61d7",
-      "original_sha256": "1c8fa1600dd19af4f0423cf206686d82bd921f371607587c9b534d5dfbdca2b6",
-      "current_sha256": "6b016831401b07a00ea5f3dbb0621146e45ff9e079621b9bdfa51a714917b681",
-      "reason": "Post-migration quality repair: schema-valid complexity where applicable; maintained canonical references and documented local-link dispositions. See docs/vnext/post-migration-repair/link-dispositions.json and PR diff."
-    },
-    {
-      "path": "domains/delivery/project-lifecycle/02-planning/project-management-plan/hybrid-project-management-plan-template.md",
-      "base_commit": "4525639da93fde99efef64295324e8d72e6c61d7",
-      "original_sha256": "bd2120477962f8098e889728c96eda2ae0a035066af1bcb9f19c0e8faff3e64a",
-      "current_sha256": "ea44c9df2018c3e5c6efa0c62a321b820a75b6f1a393f76f6a592e2247780d46",
-      "reason": "Post-migration quality repair: schema-valid complexity where applicable; maintained canonical references and documented local-link dispositions. See docs/vnext/post-migration-repair/link-dispositions.json and PR diff."
-    },
-    {
-      "path": "domains/measurement/methodology-frameworks/emerging-methods/devops/infrastructure_as_code_template.md",
-      "base_commit": "4525639da93fde99efef64295324e8d72e6c61d7",
-      "original_sha256": "333e35748d8ea811a0927fb2736265c38a3cdc1c95027e2862574434ce2104ab",
-      "current_sha256": "225cce2f9af4add20caedebdbbd2677293de39e4c8fcabd49f10b148f9902df9",
-      "reason": "Post-migration quality repair: schema-valid complexity where applicable; maintained canonical references and documented local-link dispositions. See docs/vnext/post-migration-repair/link-dispositions.json and PR diff."
-    },
-    {
-      "path": "domains/delivery/templates/hybrid/Hybrid/Templates/integrated_change_strategy_template.md",
-      "base_commit": "4525639da93fde99efef64295324e8d72e6c61d7",
-      "original_sha256": "6e507133a8d33dd70efa9c37219528937b0cd507b4a612ce17ba9b200be3c490",
-      "current_sha256": "848be0692d2cc01740a7888155b9824aee860875333f75ca28ec3ac4fbdad7c4",
-      "reason": "Post-migration quality repair: schema-valid complexity where applicable; maintained canonical references and documented local-link dispositions. See docs/vnext/post-migration-repair/link-dispositions.json and PR diff."
-    },
-    {
-      "path": "domains/team/methodology-frameworks/agile-scrum/scaling-frameworks/less/less_retrospective_template.md",
-      "base_commit": "4525639da93fde99efef64295324e8d72e6c61d7",
-      "original_sha256": "a96a2a8c38e7231f2d4354d465d5e47efddd1d7c226cb0eef5e4c524cae9189f",
-      "current_sha256": "03debb15bdca4e74001db66a945fd06824892bedb0a133816d28ed99205c0b62",
-      "reason": "Post-migration quality repair: schema-valid complexity where applicable; maintained canonical references and documented local-link dispositions. See docs/vnext/post-migration-repair/link-dispositions.json and PR diff."
-    },
-    {
       "path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/less/less_sprint_planning_template.md",
       "base_commit": "4525639da93fde99efef64295324e8d72e6c61d7",
       "original_sha256": "61717ca810bc9f2be6a3dd07211989d46072e7b51683434b88f0c4fa68706ec6",
       "current_sha256": "783db6b33150d38aad2042ab9c8a15209f3b7e43dade7e409dda1296b4f01c66",
-      "reason": "Post-migration quality repair: schema-valid complexity where applicable; maintained canonical references and documented local-link dispositions. See docs/vnext/post-migration-repair/link-dispositions.json and PR diff."
-    },
-    {
-      "path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/metrics_dashboard_template.md",
-      "base_commit": "4525639da93fde99efef64295324e8d72e6c61d7",
-      "original_sha256": "1834bd7608cff4f719a20d8c8fea72ba73c36b0f1171a3dc40a399013daa2952",
-      "current_sha256": "7a720762db0dfbddc330058b04aef349f7a9caac882cafd67444d64af45506a9",
-      "reason": "Post-migration quality repair: schema-valid complexity where applicable; maintained canonical references and documented local-link dispositions. See docs/vnext/post-migration-repair/link-dispositions.json and PR diff."
-    },
-    {
-      "path": "domains/measurement/methodology-frameworks/emerging-methods/devops/monitoring_alerting_template.md",
-      "base_commit": "4525639da93fde99efef64295324e8d72e6c61d7",
-      "original_sha256": "b62c1b48b334684a651420e9c867335c92d3cd6762b35d70063098f54ac5441b",
-      "current_sha256": "e84100c9314c8b8c0fec5c60a483f449be91f547bfd5b2507f5a18210cf5d88a",
-      "reason": "Post-migration quality repair: schema-valid complexity where applicable; maintained canonical references and documented local-link dispositions. See docs/vnext/post-migration-repair/link-dispositions.json and PR diff."
-    },
-    {
-      "path": "domains/stakeholder/role-based-toolkits/product-owner/okr-template.md",
-      "base_commit": "4525639da93fde99efef64295324e8d72e6c61d7",
-      "original_sha256": "8275b3a215747acf56a7a6324a5994ce78a312548bcfba25fda8b712a172e841",
-      "current_sha256": "eb39b021c15f1c2ffd481885dc82c850e3fe98d22066a5959b545de1b814937b",
       "reason": "Post-migration quality repair: schema-valid complexity where applicable; maintained canonical references and documented local-link dispositions. See docs/vnext/post-migration-repair/link-dispositions.json and PR diff."
     },
     {
@@ -177,10 +30,17 @@
       "reason": "Post-migration quality repair: schema-valid complexity where applicable; maintained canonical references and documented local-link dispositions. See docs/vnext/post-migration-repair/link-dispositions.json and PR diff."
     },
     {
-      "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/lifecycle/pharmaceutical_qbd_template.md",
+      "path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md",
       "base_commit": "4525639da93fde99efef64295324e8d72e6c61d7",
-      "original_sha256": "78d325c58e8f345939a6fb2efc82f82ba954f548b71befc1182f7d72930f93c0",
-      "current_sha256": "67f1fc9a481ad6ff3565627809d3e62ec6743b144770dbb775b992e5e3bc7d47",
+      "original_sha256": "942e733db10117e8c638c33385383a501323925a3b7aaa21d29d361b62739e1f",
+      "current_sha256": "d0d0ee4dc62b537efbb357c706cc2c8fc4a042599c1ce27e4fa3c9e335d72de4",
+      "reason": "Post-migration quality repair: schema-valid complexity where applicable; maintained canonical references and documented local-link dispositions. See docs/vnext/post-migration-repair/link-dispositions.json and PR diff."
+    },
+    {
+      "path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/metrics_dashboard_template.md",
+      "base_commit": "4525639da93fde99efef64295324e8d72e6c61d7",
+      "original_sha256": "1834bd7608cff4f719a20d8c8fea72ba73c36b0f1171a3dc40a399013daa2952",
+      "current_sha256": "7a720762db0dfbddc330058b04aef349f7a9caac882cafd67444d64af45506a9",
       "reason": "Post-migration quality repair: schema-valid complexity where applicable; maintained canonical references and documented local-link dispositions. See docs/vnext/post-migration-repair/link-dispositions.json and PR diff."
     },
     {
@@ -194,78 +54,288 @@
       "path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/portfolio_kanban_template.md",
       "base_commit": "4525639da93fde99efef64295324e8d72e6c61d7",
       "original_sha256": "6e106e086812a27dfdb0f6e24385e5e4c0d4798ded17d63fb2f16a1c83f5ce78",
-      "current_sha256": "01ee0f2fcc619c10e38e9d526b7d3dcc11464d3db4e94ce8cd3aa04b72d8b7c0",
-      "reason": "Post-migration quality repair: schema-valid complexity where applicable; maintained canonical references and documented local-link dispositions. See docs/vnext/post-migration-repair/link-dispositions.json and PR diff."
+      "current_sha256": "93e3874a919c13c4d248192d01ef795f5b8b808bafeb77b1b6ec05049a203ea2",
+      "reason": "Reference and content maintenance documented in docs/vnext/post-migration-repair/resource-and-freshness-review.md and meta/template-content-reviews.json; original migration hash preserved."
     },
     {
-      "path": "domains/measurement/project-assessment-suite/process-maturity-assessment-template.md",
+      "path": "domains/delivery/methodology-frameworks/hybrid/infrastructure/hybrid-infrastructure-template.md",
       "base_commit": "4525639da93fde99efef64295324e8d72e6c61d7",
-      "original_sha256": "9ce118c133948c01760541baaa1c563bb08d2a6c3f4b2c3996f8094b630b5c54",
-      "current_sha256": "316db053af2eadeb43178507b1007e022ea84346c8b4a1db6d722df10cbca7f1",
-      "reason": "Post-migration quality repair: schema-valid complexity where applicable; maintained canonical references and documented local-link dispositions. See docs/vnext/post-migration-repair/link-dispositions.json and PR diff."
+      "original_sha256": "f4509b4bd1fd0623ad1a57b881eb3e27a48923f4fefce164ea7a4c229aa75882",
+      "current_sha256": "20bd6d442083f92f1ccea7e0fcd10a3a89d4570c75f72c02253a09c63ca3abc5",
+      "reason": "Reference and content maintenance documented in docs/vnext/post-migration-repair/resource-and-freshness-review.md and meta/template-content-reviews.json; original migration hash preserved."
+    },
+    {
+      "path": "domains/delivery/project-assessment-suite/agile-project-assessment-template.md",
+      "base_commit": "4525639da93fde99efef64295324e8d72e6c61d7",
+      "original_sha256": "d6c3d92cbc2d8160a13a4b10dd1bc28b4b0f5978d62651ca633581cbb7266318",
+      "current_sha256": "4742346efa62f0ba4604010b9126ef26590d55f562f350e3a2aef8763dd42e0d",
+      "reason": "Reference and content maintenance documented in docs/vnext/post-migration-repair/resource-and-freshness-review.md and meta/template-content-reviews.json; original migration hash preserved."
+    },
+    {
+      "path": "domains/delivery/project-assessment-suite/hybrid-project-assessment-template.md",
+      "base_commit": "4525639da93fde99efef64295324e8d72e6c61d7",
+      "original_sha256": "1c8fa1600dd19af4f0423cf206686d82bd921f371607587c9b534d5dfbdca2b6",
+      "current_sha256": "1bd00d54ff8db64122da485750068f447c8796bd63a485c90fe04353370039c6",
+      "reason": "Reference and content maintenance documented in docs/vnext/post-migration-repair/resource-and-freshness-review.md and meta/template-content-reviews.json; original migration hash preserved."
+    },
+    {
+      "path": "domains/delivery/project-lifecycle/02-planning/project-management-plan/hybrid-project-management-plan-template.md",
+      "base_commit": "4525639da93fde99efef64295324e8d72e6c61d7",
+      "original_sha256": "bd2120477962f8098e889728c96eda2ae0a035066af1bcb9f19c0e8faff3e64a",
+      "current_sha256": "41758de3c93425091081c83d66df983f2f05778fe15acceeccea42ef80235ea4",
+      "reason": "Reference and content maintenance documented in docs/vnext/post-migration-repair/resource-and-freshness-review.md and meta/template-content-reviews.json; original migration hash preserved."
+    },
+    {
+      "path": "domains/delivery/templates/hybrid/Hybrid/Templates/integrated_change_strategy_template.md",
+      "base_commit": "4525639da93fde99efef64295324e8d72e6c61d7",
+      "original_sha256": "6e507133a8d33dd70efa9c37219528937b0cd507b4a612ce17ba9b200be3c490",
+      "current_sha256": "93df95a5f51fd5427bfb2669f2fac1f5e16ca2477f1b4a277b777b7ff7e864e1",
+      "reason": "Reference and content maintenance documented in docs/vnext/post-migration-repair/resource-and-freshness-review.md and meta/template-content-reviews.json; original migration hash preserved."
     },
     {
       "path": "domains/delivery/templates/hybrid/Hybrid/Templates/progressive_acceptance_plan_template.md",
       "base_commit": "4525639da93fde99efef64295324e8d72e6c61d7",
       "original_sha256": "d1d1d8291915ed829c632e823e442e8667ea5a5f675b52e5f02e2e433030a20a",
-      "current_sha256": "be3b6d6c4c91b4d37390d3b1be343236cdab789dbde846eb34e81abb13692ff2",
-      "reason": "Post-migration quality repair: schema-valid complexity where applicable; maintained canonical references and documented local-link dispositions. See docs/vnext/post-migration-repair/link-dispositions.json and PR diff."
-    },
-    {
-      "path": "domains/measurement/methodology-frameworks/emerging-methods/devops/release_management_template.md",
-      "base_commit": "4525639da93fde99efef64295324e8d72e6c61d7",
-      "original_sha256": "0ebf8b0f77543353af7be4cafe19986c6af515d81e399763ae80cc8e475b6778",
-      "current_sha256": "0188589c922c12cdb5d30fc438883f245b9861edbd7746b7ca52235d5ac7fd89",
-      "reason": "Post-migration quality repair: schema-valid complexity where applicable; maintained canonical references and documented local-link dispositions. See docs/vnext/post-migration-repair/link-dispositions.json and PR diff."
-    },
-    {
-      "path": "domains/measurement/project-assessment-suite/resource-management-assessment-template.md",
-      "base_commit": "4525639da93fde99efef64295324e8d72e6c61d7",
-      "original_sha256": "b6484e6dc9fbda8ce29a97f40f51f71a6e86b0c78ca7054922bfc8ac76513f0b",
-      "current_sha256": "583ef17c0acc4886735762e779904ee865a9168492d377a3a8a8381d5a7b9d9f",
-      "reason": "Post-migration quality repair: schema-valid complexity where applicable; maintained canonical references and documented local-link dispositions. See docs/vnext/post-migration-repair/link-dispositions.json and PR diff."
-    },
-    {
-      "path": "domains/measurement/project-assessment-suite/risk-management-assessment-template.md",
-      "base_commit": "4525639da93fde99efef64295324e8d72e6c61d7",
-      "original_sha256": "8cc61fea63d4a7f8a8d36b2f27b2075a8e7311b57c3e3d4da67ae4fe1ccb2209",
-      "current_sha256": "1ad576c63c51beaa2fedd598eba186080f3fa709a0d6b77bcf1c362d412cf306",
-      "reason": "Post-migration quality repair: schema-valid complexity where applicable; maintained canonical references and documented local-link dispositions. See docs/vnext/post-migration-repair/link-dispositions.json and PR diff."
+      "current_sha256": "07dd4231d74dc4f1145b1ac9ed9f1b3027da61e690da24f233ef4020f7b2dd4c",
+      "reason": "Reference and content maintenance documented in docs/vnext/post-migration-repair/resource-and-freshness-review.md and meta/template-content-reviews.json; original migration hash preserved."
     },
     {
       "path": "domains/delivery/templates/traditional/Traditional/Knowledge_Areas/Project_Cost_Management/roi_tracking_template.md",
       "base_commit": "4525639da93fde99efef64295324e8d72e6c61d7",
       "original_sha256": "c0c8ee1ebc50582bae668d50ee44a4a51a394ec248be5ab881b9c2c8bbc6bcad",
-      "current_sha256": "e36eb6186f1045d7d52b356489ff5ee741e6504403f5f4424bfa0367b10dd7e8",
-      "reason": "Post-migration quality repair: schema-valid complexity where applicable; maintained canonical references and documented local-link dispositions. See docs/vnext/post-migration-repair/link-dispositions.json and PR diff."
+      "current_sha256": "62318ffeb8f17fc75850d797e1f1f9f46419d06b2cf4e1ccdb9b719bf03d8e77",
+      "reason": "Reference and content maintenance documented in docs/vnext/post-migration-repair/resource-and-freshness-review.md and meta/template-content-reviews.json; original migration hash preserved."
     },
     {
-      "path": "domains/stakeholder/project-assessment-suite/stakeholder-engagement-assessment-template.md",
+      "path": "domains/delivery/templates/traditional/Traditional/Templates/change_management_plan_template.md",
       "base_commit": "4525639da93fde99efef64295324e8d72e6c61d7",
-      "original_sha256": "f75d1438fe08ec594fda5f649f2fdb9c014677fcd2b8e46fc5eb04db35f19e2c",
-      "current_sha256": "f68ee9f799f33bce26fd74c286d93fe1020db5a3ae20b253d813ce587b34e346",
-      "reason": "Post-migration quality repair: schema-valid complexity where applicable; maintained canonical references and documented local-link dispositions. See docs/vnext/post-migration-repair/link-dispositions.json and PR diff."
+      "original_sha256": "952d7cfe226ee061599688c1b9f1f6768ee3013e7a735e284e6bb6f5d2588e2b",
+      "current_sha256": "beb51f7e63f8a813f435f1571a29bed86650210d9caf002b2d4ea83e74e28966",
+      "reason": "Reference and content maintenance documented in docs/vnext/post-migration-repair/resource-and-freshness-review.md and meta/template-content-reviews.json; original migration hash preserved."
     },
     {
       "path": "domains/delivery/templates/traditional/Traditional/Templates/uat_plan_template.md",
       "base_commit": "4525639da93fde99efef64295324e8d72e6c61d7",
       "original_sha256": "ee173547e1cd8905fc329ac748356545fd7dfb7a0c241a8e9e83151c20bb092f",
-      "current_sha256": "1ba2dba5cd0ee3b0f221243cf871ece98faa6caef7271a6f703f107ab26d58d9",
-      "reason": "Post-migration quality repair: schema-valid complexity where applicable; maintained canonical references and documented local-link dispositions. See docs/vnext/post-migration-repair/link-dispositions.json and PR diff."
+      "current_sha256": "882327db5829be87c7cf63cf7f71cfa1de22e626b385c29599cc914b6c748f38",
+      "reason": "Reference and content maintenance documented in docs/vnext/post-migration-repair/resource-and-freshness-review.md and meta/template-content-reviews.json; original migration hash preserved."
     },
     {
-      "path": "domains/uncertainty/industry-specializations/information-technology/software-development/user_story_mapping_template.md",
+      "path": "domains/measurement/methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md",
       "base_commit": "4525639da93fde99efef64295324e8d72e6c61d7",
-      "original_sha256": "94d03a74e36dc1de37e0ce1e545c32557aef15ccd0951a40aff7d69077954f1d",
-      "current_sha256": "a3c95eba22ed353d0e2c7bce0cc4627d5010c81803e37537410ca0244f98d2c9",
-      "reason": "Post-migration quality repair: schema-valid complexity where applicable; maintained canonical references and documented local-link dispositions. See docs/vnext/post-migration-repair/link-dispositions.json and PR diff."
+      "original_sha256": "05b492617a09417baf7de2a755b6028f1fe844b50877ecd6809bfdb429e19f95",
+      "current_sha256": "2bb1a29b4f737e18099cc0e3412a3087b9ad6b422ce3d7c983cdd1a6b26e477e",
+      "reason": "Reference and content maintenance documented in docs/vnext/post-migration-repair/resource-and-freshness-review.md and meta/template-content-reviews.json; original migration hash preserved."
+    },
+    {
+      "path": "domains/measurement/methodology-frameworks/emerging-methods/devops/devsecops_template.md",
+      "base_commit": "4525639da93fde99efef64295324e8d72e6c61d7",
+      "original_sha256": "829c36d2f1fb05b2c428ab8fe254e64b4e026d56e957738f90beff87cbf3cace",
+      "current_sha256": "24120d6e58c6edc7cfd760319986575ccf5d5f2d8f9647f54349a2f9ba640332",
+      "reason": "Reference and content maintenance documented in docs/vnext/post-migration-repair/resource-and-freshness-review.md and meta/template-content-reviews.json; original migration hash preserved."
+    },
+    {
+      "path": "domains/measurement/methodology-frameworks/emerging-methods/devops/infrastructure_as_code_template.md",
+      "base_commit": "4525639da93fde99efef64295324e8d72e6c61d7",
+      "original_sha256": "333e35748d8ea811a0927fb2736265c38a3cdc1c95027e2862574434ce2104ab",
+      "current_sha256": "c159941a84a3822e015d0f767fb6b31d4b35bb66b3b4e96b6194492008901984",
+      "reason": "Reference and content maintenance documented in docs/vnext/post-migration-repair/resource-and-freshness-review.md and meta/template-content-reviews.json; original migration hash preserved."
+    },
+    {
+      "path": "domains/measurement/methodology-frameworks/emerging-methods/devops/monitoring_alerting_template.md",
+      "base_commit": "4525639da93fde99efef64295324e8d72e6c61d7",
+      "original_sha256": "b62c1b48b334684a651420e9c867335c92d3cd6762b35d70063098f54ac5441b",
+      "current_sha256": "dd715dd0457ef8e17c99c2f0c5c7f61b864e3474f6d300215f8cc8024e9928d4",
+      "reason": "Reference and content maintenance documented in docs/vnext/post-migration-repair/resource-and-freshness-review.md and meta/template-content-reviews.json; original migration hash preserved."
+    },
+    {
+      "path": "domains/measurement/methodology-frameworks/emerging-methods/devops/release_management_template.md",
+      "base_commit": "4525639da93fde99efef64295324e8d72e6c61d7",
+      "original_sha256": "0ebf8b0f77543353af7be4cafe19986c6af515d81e399763ae80cc8e475b6778",
+      "current_sha256": "053110f2a418b825d5ed6495147b06b95b41978e7fcf1bfb1bdff4602828f457",
+      "reason": "Reference and content maintenance documented in docs/vnext/post-migration-repair/resource-and-freshness-review.md and meta/template-content-reviews.json; original migration hash preserved."
+    },
+    {
+      "path": "domains/measurement/project-assessment-suite/current-state-analysis-template.md",
+      "base_commit": "4525639da93fde99efef64295324e8d72e6c61d7",
+      "original_sha256": "f9b0cb20451849ec72f7afc170d624bf6b4b6ab3ed4c2c789cbe838c5523fe3c",
+      "current_sha256": "76ae35a6addfea13d2b93dba2522ce5b3f21153380d0519de433e835a4a0f7ef",
+      "reason": "Reference and content maintenance documented in docs/vnext/post-migration-repair/resource-and-freshness-review.md and meta/template-content-reviews.json; original migration hash preserved."
+    },
+    {
+      "path": "domains/measurement/project-assessment-suite/executive-summary-template.md",
+      "base_commit": "dc7146cc59387421b872dffbadd86b8b6f8dd3a2",
+      "original_sha256": "f9db1eb1ff403b140873fcb4dd27eb8361b4e6d6ca8f2365e4b9b135a0ef9662",
+      "reason": "Reference and content maintenance documented in docs/vnext/post-migration-repair/resource-and-freshness-review.md and meta/template-content-reviews.json; original migration hash preserved.",
+      "current_sha256": "6e505d2e93c572fde1cea7d3b0c2fd14fb9ec5d4db75467ba891bba9bb762202"
+    },
+    {
+      "path": "domains/measurement/project-assessment-suite/future-state-blueprint-template.md",
+      "base_commit": "4525639da93fde99efef64295324e8d72e6c61d7",
+      "original_sha256": "76a480170b0a85dfac94be1cb12a13e8045c7c34d7c7523f424854c0c6895205",
+      "current_sha256": "4265efeb2e087908e0f146d83b8ae38fdfeb94c98d95275feb714cc4e1655970",
+      "reason": "Reference and content maintenance documented in docs/vnext/post-migration-repair/resource-and-freshness-review.md and meta/template-content-reviews.json; original migration hash preserved."
+    },
+    {
+      "path": "domains/measurement/project-assessment-suite/gap-analysis-matrix-template.md",
+      "base_commit": "dc7146cc59387421b872dffbadd86b8b6f8dd3a2",
+      "original_sha256": "feb2938dabf9aea1aac1f54f14e3c65b7c69d350050ff225825a204051511386",
+      "reason": "Reference and content maintenance documented in docs/vnext/post-migration-repair/resource-and-freshness-review.md and meta/template-content-reviews.json; original migration hash preserved.",
+      "current_sha256": "4d799e1086cd38991a81d7a7cf91e6a69757ccdd962aa59d9abe3ffd98fdf9c7"
+    },
+    {
+      "path": "domains/measurement/project-assessment-suite/governance-assessment-template.md",
+      "base_commit": "4525639da93fde99efef64295324e8d72e6c61d7",
+      "original_sha256": "b65b661fe88ac07616bd3115897c247633549fa2da6935d4cfadadb561b42534",
+      "current_sha256": "2e8fd71c3fa3d6a67bcca5a702801f480ec24a412e73595782de90f8e421df9e",
+      "reason": "Reference and content maintenance documented in docs/vnext/post-migration-repair/resource-and-freshness-review.md and meta/template-content-reviews.json; original migration hash preserved."
+    },
+    {
+      "path": "domains/measurement/project-assessment-suite/process-maturity-assessment-template.md",
+      "base_commit": "4525639da93fde99efef64295324e8d72e6c61d7",
+      "original_sha256": "9ce118c133948c01760541baaa1c563bb08d2a6c3f4b2c3996f8094b630b5c54",
+      "current_sha256": "e91e781bd159d7050b8a487eecaa1ebbcd7ffced7ebe8dca8168d430aff977fc",
+      "reason": "Reference and content maintenance documented in docs/vnext/post-migration-repair/resource-and-freshness-review.md and meta/template-content-reviews.json; original migration hash preserved."
+    },
+    {
+      "path": "domains/measurement/project-assessment-suite/project-health-assessment-template.md",
+      "base_commit": "dc7146cc59387421b872dffbadd86b8b6f8dd3a2",
+      "original_sha256": "f788a4a046bddd95b451def6c03fae9ac54733ac329ec2fb4e0a15609112f047",
+      "reason": "Reference and content maintenance documented in docs/vnext/post-migration-repair/resource-and-freshness-review.md and meta/template-content-reviews.json; original migration hash preserved.",
+      "current_sha256": "8dbabb1efbf6b149ac5a13e01547932a8b2d07ea3d57aeb0ebfcf99e9952dc75"
+    },
+    {
+      "path": "domains/measurement/project-assessment-suite/resource-management-assessment-template.md",
+      "base_commit": "4525639da93fde99efef64295324e8d72e6c61d7",
+      "original_sha256": "b6484e6dc9fbda8ce29a97f40f51f71a6e86b0c78ca7054922bfc8ac76513f0b",
+      "current_sha256": "c210a6369dac1c0b3ca78efa1b2c7734cc29cf781e9e7d490418096cc856c6cc",
+      "reason": "Reference and content maintenance documented in docs/vnext/post-migration-repair/resource-and-freshness-review.md and meta/template-content-reviews.json; original migration hash preserved."
+    },
+    {
+      "path": "domains/measurement/project-assessment-suite/risk-management-assessment-template.md",
+      "base_commit": "4525639da93fde99efef64295324e8d72e6c61d7",
+      "original_sha256": "8cc61fea63d4a7f8a8d36b2f27b2075a8e7311b57c3e3d4da67ae4fe1ccb2209",
+      "current_sha256": "c459ec2489955383f33e5336271d10bf35a9588f177a68ce3089c165ed3b17ed",
+      "reason": "Reference and content maintenance documented in docs/vnext/post-migration-repair/resource-and-freshness-review.md and meta/template-content-reviews.json; original migration hash preserved."
+    },
+    {
+      "path": "domains/planning/industry-specializations/information-technology/infrastructure/data_center_design_template.md",
+      "base_commit": "4525639da93fde99efef64295324e8d72e6c61d7",
+      "original_sha256": "d7fd9270887a9ddaf7025bf5963df1cc4ecda89c63a76bd3b3af103c3fea0a07",
+      "current_sha256": "9e69de1193818b62938e3b13b60142f7242f23202eff6446889c90996a455125",
+      "reason": "Reference and content maintenance documented in docs/vnext/post-migration-repair/resource-and-freshness-review.md and meta/template-content-reviews.json; original migration hash preserved."
+    },
+    {
+      "path": "domains/planning/industry-specializations/information-technology/infrastructure/disaster_recovery_template.md",
+      "base_commit": "4525639da93fde99efef64295324e8d72e6c61d7",
+      "original_sha256": "e2f85f6387be817a220dfa32eb65083df02fc50ad3054ea62c5e3f56d52c00a5",
+      "current_sha256": "5892ead78238245f856aa0c113584823be0dca84814fbd2fe289706fcc9a4704",
+      "reason": "Reference and content maintenance documented in docs/vnext/post-migration-repair/resource-and-freshness-review.md and meta/template-content-reviews.json; original migration hash preserved."
+    },
+    {
+      "path": "domains/planning/templates/traditional/Traditional/Templates/business_case_template.md",
+      "base_commit": "4525639da93fde99efef64295324e8d72e6c61d7",
+      "original_sha256": "6eb3641724f91300a53af81496d77483f25a9a55910b59682202de01554f4ebe",
+      "current_sha256": "251e306f6675a096a91265e8bfd6fd8c767717410559a66d9bc71930ea8e4042",
+      "reason": "Reference and content maintenance documented in docs/vnext/post-migration-repair/resource-and-freshness-review.md and meta/template-content-reviews.json; original migration hash preserved."
+    },
+    {
+      "path": "domains/stakeholder/project-assessment-suite/stakeholder-engagement-assessment-template.md",
+      "base_commit": "4525639da93fde99efef64295324e8d72e6c61d7",
+      "original_sha256": "f75d1438fe08ec594fda5f649f2fdb9c014677fcd2b8e46fc5eb04db35f19e2c",
+      "current_sha256": "1fb84b0bfda4f667aedd14d6f6a30e910b894a58eac0f57adc8718851354b103",
+      "reason": "Reference and content maintenance documented in docs/vnext/post-migration-repair/resource-and-freshness-review.md and meta/template-content-reviews.json; original migration hash preserved."
     },
     {
       "path": "domains/stakeholder/project-assessment-suite/waterfall-project-assessment-template.md",
       "base_commit": "4525639da93fde99efef64295324e8d72e6c61d7",
       "original_sha256": "95165f9cbf36fa6dc2e812e45a845342b045c6fa072f3126994feab5a7128404",
-      "current_sha256": "06c3eea8b32262e10ac43d7353fa7783e459172c54b9ab97872d01b80e68e52f",
+      "current_sha256": "7cc95b67e252d283fc3ad8bd9337711f7da929f0fc1c243f12d09dc56606454d",
+      "reason": "Reference and content maintenance documented in docs/vnext/post-migration-repair/resource-and-freshness-review.md and meta/template-content-reviews.json; original migration hash preserved."
+    },
+    {
+      "path": "domains/stakeholder/role-based-toolkits/product-owner/okr-template.md",
+      "base_commit": "4525639da93fde99efef64295324e8d72e6c61d7",
+      "original_sha256": "8275b3a215747acf56a7a6324a5994ce78a312548bcfba25fda8b712a172e841",
+      "current_sha256": "899acfc1904675b0855f94e6aaa9c407101b4a5710df4f5d734ebde4237d8624",
+      "reason": "Reference and content maintenance documented in docs/vnext/post-migration-repair/resource-and-freshness-review.md and meta/template-content-reviews.json; original migration hash preserved."
+    },
+    {
+      "path": "domains/team/methodology-frameworks/agile-scrum/scaling-frameworks/less/less_retrospective_template.md",
+      "base_commit": "4525639da93fde99efef64295324e8d72e6c61d7",
+      "original_sha256": "a96a2a8c38e7231f2d4354d465d5e47efddd1d7c226cb0eef5e4c524cae9189f",
+      "current_sha256": "03debb15bdca4e74001db66a945fd06824892bedb0a133816d28ed99205c0b62",
       "reason": "Post-migration quality repair: schema-valid complexity where applicable; maintained canonical references and documented local-link dispositions. See docs/vnext/post-migration-repair/link-dispositions.json and PR diff."
+    },
+    {
+      "path": "domains/team/project-lifecycle/01-initiation/project-charter/agile-team-charter-template.md",
+      "base_commit": "dc7146cc59387421b872dffbadd86b8b6f8dd3a2",
+      "original_sha256": "0f0673726f23f2778e520fd5b9f59c9de8ba17f64cc3c4ab56f6f542fc61e5df",
+      "reason": "Reference and content maintenance documented in docs/vnext/post-migration-repair/resource-and-freshness-review.md and meta/template-content-reviews.json; original migration hash preserved.",
+      "current_sha256": "483368ca54294deca286f93ea99cff451e79d278050bf31dda8407ab8d146235"
+    },
+    {
+      "path": "domains/team/role-based-toolkits/scrum-master/agile-ceremonies/daily-standup-template.md",
+      "base_commit": "dc7146cc59387421b872dffbadd86b8b6f8dd3a2",
+      "original_sha256": "51d78959b9bcb390984d708e42ec3e30a0f9dc6c4196d2583681b432e83b8b7b",
+      "reason": "Reference and content maintenance documented in docs/vnext/post-migration-repair/resource-and-freshness-review.md and meta/template-content-reviews.json; original migration hash preserved.",
+      "current_sha256": "db4b8938260b0a87b62d64c2ca9e81c8c858b71758ec418c18c3daa4a616dce0"
+    },
+    {
+      "path": "domains/uncertainty/industry-specializations/information-technology/infrastructure/migration_plan_template.md",
+      "base_commit": "dc7146cc59387421b872dffbadd86b8b6f8dd3a2",
+      "original_sha256": "db8a336f4e9059f03b1c91cf0b750b1ac36455f12524fbc55fc79d09c80faa82",
+      "reason": "Reference and content maintenance documented in docs/vnext/post-migration-repair/resource-and-freshness-review.md and meta/template-content-reviews.json; original migration hash preserved.",
+      "current_sha256": "09286978263593f42da6c30a21f270d498468150b06d189bd1d018cdf49f17df"
+    },
+    {
+      "path": "domains/uncertainty/industry-specializations/information-technology/software-development/user_story_mapping_template.md",
+      "base_commit": "4525639da93fde99efef64295324e8d72e6c61d7",
+      "original_sha256": "94d03a74e36dc1de37e0ce1e545c32557aef15ccd0951a40aff7d69077954f1d",
+      "current_sha256": "a82ba4cbae5bd66cd9c6fc7acc59f8158ef8f663dfff4b52e4764a5381231b96",
+      "reason": "Reference and content maintenance documented in docs/vnext/post-migration-repair/resource-and-freshness-review.md and meta/template-content-reviews.json; original migration hash preserved."
+    },
+    {
+      "path": "domains/uncertainty/project-assessment-suite/assessment-report-template.md",
+      "base_commit": "4525639da93fde99efef64295324e8d72e6c61d7",
+      "original_sha256": "542595e2691103808729b4a74d0b564867c013a92b8513f0aec08fcf4c2df523",
+      "current_sha256": "62034655a008e3fa1c172ed9362f27ad770bddee0df9610b368d5ade928fb054",
+      "reason": "Reference and content maintenance documented in docs/vnext/post-migration-repair/resource-and-freshness-review.md and meta/template-content-reviews.json; original migration hash preserved."
+    },
+    {
+      "path": "domains/uncertainty/project-lifecycle/02-planning/risk-management/enterprise-risk-assessment-template.md",
+      "base_commit": "4525639da93fde99efef64295324e8d72e6c61d7",
+      "original_sha256": "309adc88633a4b0c437935cd4be6c7e56cead0c8395c0a7bfe0f7e591e5a4852",
+      "current_sha256": "0b89aa773f52fe2980d60751105abae3e9d18989934e135099ceaf3b6ffea32b",
+      "reason": "Reference and content maintenance documented in docs/vnext/post-migration-repair/resource-and-freshness-review.md and meta/template-content-reviews.json; original migration hash preserved."
+    },
+    {
+      "path": "domains/uncertainty/project-lifecycle/02-planning/risk-management/risk-register-template.md",
+      "base_commit": "dc7146cc59387421b872dffbadd86b8b6f8dd3a2",
+      "original_sha256": "88bff3d126d0d911dd0af1bce7a1dbba642c8a5fc3536d18144849225731a08e",
+      "reason": "Reference and content maintenance documented in docs/vnext/post-migration-repair/resource-and-freshness-review.md and meta/template-content-reviews.json; original migration hash preserved.",
+      "current_sha256": "d08983f03339580b848a6cb780145d93e29471d14f7d41811cd324e84b4c948f"
+    },
+    {
+      "path": "domains/uncertainty/project-lifecycle/04-monitoring-control/progress-tracking/project-dashboard-template.md",
+      "base_commit": "dc7146cc59387421b872dffbadd86b8b6f8dd3a2",
+      "original_sha256": "ef58c1f9ea8dded2f4c545637f4443d196619157455b32941a4b0207486d7a57",
+      "reason": "Reference and content maintenance documented in docs/vnext/post-migration-repair/resource-and-freshness-review.md and meta/template-content-reviews.json; original migration hash preserved.",
+      "current_sha256": "e0b10ebe9358b3cdf37fa5300cf5676db0e067310f358919c854f3df6f9d84ec"
+    },
+    {
+      "path": "domains/uncertainty/role-based-toolkits/product-owner/user-story-template.md",
+      "base_commit": "dc7146cc59387421b872dffbadd86b8b6f8dd3a2",
+      "original_sha256": "370b2f8cba7d82ce45781c6d9a484b6b0e5c2695480553491b2668279077c118",
+      "reason": "Reference and content maintenance documented in docs/vnext/post-migration-repair/resource-and-freshness-review.md and meta/template-content-reviews.json; original migration hash preserved.",
+      "current_sha256": "77a05ce922c2e139a2980a76c6a6b8aaa116613db23952e8faea01a54626bf59"
+    },
+    {
+      "path": "domains/uncertainty/templates/test-samples/quality-test-plan-template.md",
+      "base_commit": "dc7146cc59387421b872dffbadd86b8b6f8dd3a2",
+      "original_sha256": "2ba91662759324665fa4a19c8c2f5bdba016a0b2d9f8e96baaba8f5d47bc9d0c",
+      "reason": "Reference and content maintenance documented in docs/vnext/post-migration-repair/resource-and-freshness-review.md and meta/template-content-reviews.json; original migration hash preserved.",
+      "current_sha256": "9556e4470c9f5dab62d743cdcac71c1feb4af9318a0f349274e349155265c40c"
     }
   ]
 }
