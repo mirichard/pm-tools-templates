@@ -10,9 +10,9 @@ permissions:
   pages: write
   id-token: write
 
-# Keep Pages concurrency for deployments
+# Serialize production Pages deployments; validate each PR independently.
 concurrency:
-  group: "pages"
+  group: ${{ github.event_name == 'pull_request' && format('site-pr-{0}', github.event.pull_request.number) || 'pages' }}
   cancel-in-progress: false
 
 jobs:
