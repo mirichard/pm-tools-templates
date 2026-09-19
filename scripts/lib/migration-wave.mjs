@@ -2,6 +2,7 @@ import crypto from 'node:crypto';
 import fs from 'node:fs';
 import path from 'node:path';
 import { execFileSync } from 'node:child_process';
+import { loadContentRepairs, contentHashMatches } from './content-repairs.mjs';
 
 export const MAX_WAVE_ASSETS = 15;
 export const DEFAULT_WAVE_ASSETS = 12;
@@ -258,6 +259,7 @@ export function buildWavePlan({
 }
 
 export function validateWavePlan({ root, inventory, plan }) {
+  const contentRepairs = loadContentRepairs(root, inventory);
   const errors = [];
   const fail = message => errors.push(message);
   if (plan.schema_version !== 1) fail('schema_version must be 1');
@@ -394,7 +396,7 @@ export function validateWavePlan({ root, inventory, plan }) {
       }
     } else {
       try {
-        if (crypto.createHash('sha256').update(readRegularFile(destinationPath)).digest('hex') !== asset.pre_move_sha256) {
+        if (!contentHashMatches(readRegularFile(destinationPath), asset.destination, asset.pre_move_sha256, contentRepairs)) {
           fail(`destination hash mismatch: ${asset.destination}`);
         }
       } catch {

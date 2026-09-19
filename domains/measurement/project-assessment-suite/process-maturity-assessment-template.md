@@ -1,7 +1,7 @@
 ---
 title: "Process Maturity Assessment Template"
 methodology: "traditional"
-complexity: "basic"
+complexity: "starter"
 process_group: "initiating"
 industry: "universal"
 role: "stakeholder"

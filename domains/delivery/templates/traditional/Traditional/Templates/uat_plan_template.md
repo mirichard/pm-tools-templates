@@ -529,8 +529,8 @@ updated: "2025-08-05"
 6. Use in conjunction with other Traditional testing and quality documents
 
 **Related Templates:**
-- [UAT Test Case Template](uat_test_case_template.md)
-- [UAT Execution Report Template](uat_execution_report_template.md)
-- [UAT Sign-off Template](uat_signoff_template.md)
-- [Quality Management Plan](../Process_Groups/Planning/quality_management_plan_template.md)
+- UAT Test Case Template (linked resource unavailable)
+- UAT Execution Report Template (linked resource unavailable)
+- UAT Sign-off Template (linked resource unavailable)
+- Quality Management Plan (linked resource unavailable)
 

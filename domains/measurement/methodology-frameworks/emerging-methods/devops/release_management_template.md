@@ -846,10 +846,10 @@ tool_stack:
 
 ## Related Templates
 - [CI/CD Pipeline Planning](./cicd_pipeline_planning_template.md)
-- [DevOps Metrics Dashboard](./devops_metrics_template.md)
+- DevOps Metrics Dashboard (linked resource unavailable)
 - [Infrastructure as Code](./infrastructure_as_code_template.md)
 - [DevSecOps Integration](./devsecops_template.md)
-- [DevOps Engineer Toolkit](../../role-based-toolkits/devops-engineer/README.md)
+- DevOps Engineer Toolkit (linked resource unavailable)
 
 ---
 

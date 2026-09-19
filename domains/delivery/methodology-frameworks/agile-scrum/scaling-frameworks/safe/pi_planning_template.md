@@ -373,7 +373,7 @@ Milestones       | [Key Dates]| [Key Dates]| [Key Dates]| [Key Dates]| [Key Date
 - [SAFe Portfolio Kanban Template](./portfolio_kanban_template.md)
 - [ART Coordination Template](./art_coordination_template.md)
 - [SAFe Metrics Dashboard Template](./metrics_dashboard_template.md)
-- [Release Train Engineer Role Guide](../../role-based-toolkits/release-train-engineer/README.md)
+- [Release Train Engineer Role Guide](../../../../../../role-based-toolkits/release-train-engineer/README.md)
 
 ---
 

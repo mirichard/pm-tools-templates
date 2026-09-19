@@ -1,7 +1,7 @@
 ---
 title: "Assessment Report Template"
 methodology: "traditional"
-complexity: "basic"
+complexity: "starter"
 process_group: "initiating"
 industry: "universal"
 role: "stakeholder"
@@ -48,9 +48,9 @@ Step-by-step instructions for using this template.
 - Regular updates and maintenance
 
 ## Related Templates
-- [Project Charter](../project-charter/)
-- [Risk Management](../risk-management/)
-- [Communication Plan](../communication-plan/)
+- [Project Charter](../../../project-lifecycle/01-initiation/project-charter/)
+- [Risk Management](../../../project-lifecycle/02-planning/risk-management/)
+- [Communication Plan](../../../project-lifecycle/02-planning/communication-planning/)
 
 ## Version History
 - v1.0 - Initial template creation

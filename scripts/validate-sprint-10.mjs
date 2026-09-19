@@ -2,6 +2,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import crypto from 'node:crypto';
+import { loadContentRepairs, contentHashMatches } from './lib/content-repairs.mjs';
 
 const root = process.cwd();
 const errors = [];
@@ -102,6 +103,7 @@ for (const title of ['Benefits Review Template', 'Benefits Variance Analysis Tem
 }
 
 const migration = json('meta/migration-inventory.json');
+const contentRepairs = loadContentRepairs(root, migration);
 const domainMap = json('meta/domain-mapping.json');
 const cross = json('meta/cross-references.json');
 const executedActionSet = new Set(['executed-move-with-legacy-pointer']);
@@ -155,10 +157,8 @@ for (const move of executedMoves) {
   assert(exists(move.destination), `Executed migration destination missing: ${move.destination}`);
   assert(typeof move.execution?.pre_move_source_sha256 === 'string' && move.execution.pre_move_source_sha256.length > 10, `${move.source}: missing pre_move_source_sha256`);
   if (exists(move.destination) && move.execution?.pre_move_source_sha256) {
-    const destinationRawHash = hashSha256(read(move.destination));
-    const destinationNormalizedHash = hashSha256(normalizeContent(read(move.destination)));
     assert(
-      move.execution.pre_move_source_sha256 === destinationRawHash || move.execution.pre_move_source_sha256 === destinationNormalizedHash,
+      contentHashMatches(read(move.destination), move.destination, move.execution.pre_move_source_sha256, contentRepairs, true),
       `${move.source}: destination hash does not match pre-move source hash`
     );
   }

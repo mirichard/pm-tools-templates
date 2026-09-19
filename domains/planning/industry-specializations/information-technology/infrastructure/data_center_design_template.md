@@ -22,5 +22,5 @@ Template for designing and planning data center infrastructure for IT operations
 
 ---
 Related Resources:
-- [Infrastructure Requirements Template](../../../essential-templates/infrastructure/infrastructure-requirements-template.md)
-- [Infrastructure Assessment Template](./infrastructure_assessment_template.md)
+- [Infrastructure Requirements Template](../../../../../essential-templates/infrastructure/infrastructure-requirements-template.md)
+- [Infrastructure Assessment Template](../../../../measurement/industry-specializations/information-technology/infrastructure/infrastructure_assessment_template.md)

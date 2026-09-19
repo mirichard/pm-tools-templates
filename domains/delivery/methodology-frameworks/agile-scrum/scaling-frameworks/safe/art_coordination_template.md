@@ -560,8 +560,8 @@ Based on maturity assessment, prioritize coaching in:
 - [PI Planning Template](./pi_planning_template.md)
 - [Portfolio Kanban Template](./portfolio_kanban_template.md)
 - [SAFe Metrics Dashboard Template](./metrics_dashboard_template.md)
-- [Release Train Engineer Role Guide](../../../role-based-toolkits/release-train-engineer/README.md)
-- [Scrum Master Role Guide](../../../role-based-toolkits/scrum-master/README.md)
+- [Release Train Engineer Role Guide](../../../../../../role-based-toolkits/release-train-engineer/README.md)
+- [Scrum Master Role Guide](../../../../../../role-based-toolkits/scrum-master/README.md)
 
 ---
 

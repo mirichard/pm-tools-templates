@@ -33,7 +33,9 @@ jobs:
           node-version: '20'
 
       - name: Regression tests
-        run: npm run test:migration-post-check
+        run: |
+          npm run test:migration-post-check
+          node --test tests/content-repairs.test.mjs
 
       - name: Authoritative migration inventory validation
         run: node scripts/validate-sprint-10.mjs --require-annotations

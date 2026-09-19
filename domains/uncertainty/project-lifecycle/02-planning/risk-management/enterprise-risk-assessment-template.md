@@ -32,9 +32,9 @@ Step-by-step instructions for using this template.
 - Regular updates and maintenance
 
 ## Related Templates
-- [Project Charter](../project-charter/)
+- [Project Charter](../../../../../project-lifecycle/01-initiation/project-charter/)
 - [Risk Management](../risk-management/)
-- [Communication Plan](../communication-plan/)
+- [Communication Plan](../../../../../project-lifecycle/02-planning/communication-planning/)
 
 ## Version History
 - v1.0 - Initial template creation

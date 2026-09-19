@@ -1,7 +1,7 @@
 ---
 title: "Hybrid Project Assessment Template"
 methodology: "hybrid"
-complexity: "basic"
+complexity: "starter"
 process_group: "initiating"
 industry: "universal"
 role: "stakeholder"
@@ -78,4 +78,4 @@ This template assesses projects using hybrid methodologies that combine traditio
 
 Related Resources:
 - [Hybrid Methodology](../methodology-frameworks/hybrid/)
-- [Integration Strategies](../methodology-frameworks/hybrid/integration-strategies/)
+- Integration Strategies (linked resource unavailable)
