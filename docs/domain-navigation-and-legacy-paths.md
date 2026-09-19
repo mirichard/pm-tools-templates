@@ -18,6 +18,7 @@ The [domain taxonomy](../meta/architecture-research/772-performance-domain-taxon
 ## Bookmarks and external integrations
 
 - Domain classification is maintained in `meta/domain-mapping.json`; reviewed decisions are recorded in `meta/domain-review-decisions.json`. A later reclassification preserves the canonical URL, so its directory name can reflect an earlier classification. Use domain landing pages and mapping metadata for discovery.
+- The curated catalog also exports each template's primary `domain` as one of `Stakeholder`, `Team`, `Delivery`, `Planning`, `Uncertainty`, or `Measurement`. Run `node scripts/sync-catalog-domains.js` after classification changes. Reviewed decisions take precedence over mapping records; unmapped additions must declare an explicit top-level domain scalar in front matter. The command checks catalog paths and aliases without rewriting them or inferring classification from directory names. Missing or conflicting classifications fail before any catalog write. `node scripts/sync-catalog-domains.js --check` and the curated-template validator detect missing or stale exports.
 - Existing legacy file URLs remain supported as lightweight navigation documents pointing to the maintained canonical file.
 - New bookmarks and documentation should use canonical paths.
 - Integrations should read `templates/templates.json`, prefer `canonical_path` when present, and treat `alternate_paths` as compatibility aliases. Integrations must not infer canonical identity from directory enumeration.

@@ -26,3 +26,6 @@ jobs:
 
       - name: Validate templates/templates.json
         run: node scripts/validate-curated-templates.js
+
+      - name: Test catalog domain resolution
+        run: node --test tests/catalog-domains.test.cjs

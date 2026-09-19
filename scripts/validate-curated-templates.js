@@ -11,6 +11,7 @@
 
 const fs = require('fs');
 const path = require('path');
+const { domainResolver } = require('./sync-catalog-domains.js');
 
 function fail(msg) {
   console.error(`❌ templates.json validation failed: ${msg}`);
@@ -58,6 +59,12 @@ function warn(msg) {
     'project-assessment-suite',
   ]);
   const rootDir = process.cwd();
+  let resolveDomain;
+  try {
+    resolveDomain = domainResolver(rootDir);
+  } catch (error) {
+    fail(error.message);
+  }
 
   list.forEach((item, idx) => {
     const where = `templates[${idx}]`;
@@ -114,6 +121,17 @@ function warn(msg) {
 
     if (item.tags && !Array.isArray(item.tags)) {
       console.error(`- ${where} has invalid tags: expected array of strings`);
+      errors++;
+    }
+
+    try {
+      const expected = resolveDomain(item);
+      if (item.domain !== expected) {
+        console.error(`- ${where} domain must be ${expected}; run node scripts/sync-catalog-domains.js`);
+        errors++;
+      }
+    } catch (error) {
+      console.error(`- ${where} ${error.message}`);
       errors++;
     }
 
