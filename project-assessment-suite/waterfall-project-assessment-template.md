@@ -1,57 +1,11 @@
-# Waterfall Project Assessment Template
+# Waterfall Project Assessment Template — Moved
 
-## Executive Summary
-This template provides assessment criteria specifically for traditional waterfall project management approaches.
+## Purpose and overview
 
-## Waterfall Assessment Framework
-**Project:** [Project name]
-**Phase:** [Current project phase]
-**Assessment Date:** [Date]
-**Project Duration:** [Timeline]
+This legacy path is retained so existing repository links and external bookmarks continue to reach the Waterfall Project Assessment Template after its domain migration. The maintained canonical template now resides in the Stakeholder domain; this file contains navigation guidance only and is not a second template copy.
 
-## Phase Gate Assessment
+**Canonical location:** [Open the Waterfall Project Assessment Template](../domains/stakeholder/project-assessment-suite/waterfall-project-assessment-template.md)
 
-### 1. Requirements Management
-**Requirements Quality:**
-- [ ] Requirements completeness
-- [ ] Requirements clarity and testability
-- [ ] Change control effectiveness
-- [ ] Traceability maintenance
+## Usage instructions
 
-**Phase Gate Criteria:**
-- [ ] All requirements documented and approved
-- [ ] Stakeholder sign-off obtained
-- [ ] Change control process established
-
-### 2. Design and Architecture
-**Design Assessment:**
-- [ ] Architecture documentation quality
-- [ ] Design review completeness
-- [ ] Technical standards compliance
-- [ ] Integration planning adequacy
-
-### 3. Implementation Management
-**Implementation Effectiveness:**
-- [ ] Coding standards adherence
-- [ ] Quality assurance processes
-- [ ] Progress tracking accuracy
-- [ ] Issue resolution efficiency
-
-### 4. Testing and Quality
-**Quality Assurance:**
-- [ ] Test planning completeness
-- [ ] Test execution effectiveness
-- [ ] Defect management process
-- [ ] User acceptance testing
-
-## Phase Gate Approval
-**Gate Criteria Met:**
-- [ ] Phase deliverables completed
-- [ ] Quality criteria satisfied
-- [ ] Stakeholder approval obtained
-- [ ] Next phase readiness confirmed
-
----
-Related Resources:
-- [Traditional Framework](../methodology-frameworks/traditional/)
-- [Project Lifecycle](../project-lifecycle/)
+Follow the canonical-location link above to view, copy, or update the template. Update only the canonical file when proposing content changes. References to this legacy path remain supported for backward compatibility, but new documentation and catalog entries should link directly to the canonical domain path.
