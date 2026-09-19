@@ -9,7 +9,10 @@
     "test": "echo 'Basic test passed' && exit 0",
     "gateway": "node ecosystem-gateway.js",
     "quick-start": "node onboarding/interactive-onboarding.js",
-    "dashboard-demo": "npm --prefix dashboard-mvp run dev"
+    "dashboard-demo": "npm --prefix dashboard-mvp run dev",
+    "test:migration-post-check": "node --test tests/migration-post-check.test.mjs",
+    "validate:migration-post-check": "node scripts/migration-post-check.mjs",
+    "validate:domain-navigation": "node scripts/validate-domain-navigation.mjs"
   },
   "keywords": [
     "project-management",

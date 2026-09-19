@@ -500,7 +500,7 @@ Dependencies          Integration          Knowledge
 - [LeSS Sprint Planning Template](./less_sprint_planning_template.md)
 - [Overall Product Backlog Management](./overall_product_backlog_template.md)
 - [LeSS Retrospective Template](./less_retrospective_template.md)
-- [LeSS Adoption Roadmap](../../quick-start-kits/less-adoption/README.md)
+- [LeSS Adoption Roadmap](../../../../../../quick-start-kits/less-adoption/README.md)
 
 ---
 

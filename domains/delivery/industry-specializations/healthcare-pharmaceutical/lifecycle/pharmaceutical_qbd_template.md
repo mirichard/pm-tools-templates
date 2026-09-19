@@ -141,6 +141,6 @@ This template implements ICH Q8, Q9, and Q10 Quality by Design principles for ph
 
 ---
 Related Resources:
-- [Regulatory Compliance](../regulatory-compliance/)
+- [Regulatory Compliance](../../../../../industry-specializations/healthcare-pharmaceutical/compliance/)
 - [Quality Management](../quality-management/)
-- [Clinical Research](../clinical-research/)
+- [Clinical Research](../../../../../industry-specializations/healthcare-pharmaceutical/clinical-trials/)

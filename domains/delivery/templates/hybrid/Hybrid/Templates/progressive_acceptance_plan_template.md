@@ -483,8 +483,8 @@ Sprint Reports (Operational)
 5. Use in conjunction with component-specific acceptance plans
 
 **Related Templates:**
-- [UAT Plan Template (Traditional)](../../Traditional/Templates/uat_plan_template.md)
-- [UAT Feedback Canvas (Agile)](../../Agile/Tools/uat_feedback_canvas.md)
+- [UAT Plan Template (Traditional)](../../../../../../Traditional/Templates/uat_plan_template.md)
+- [UAT Feedback Canvas (Agile)](../../../../../../Agile/Tools/uat_feedback_canvas.md)
 - [Integrated Change Strategy](integrated_change_strategy_template.md)
-- [UAT Governance Framework](uat_governance_framework_template.md)
+- UAT Governance Framework (linked resource unavailable)
 

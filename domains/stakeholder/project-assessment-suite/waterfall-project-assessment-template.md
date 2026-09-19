@@ -1,7 +1,7 @@
 ---
 title: "Waterfall Project Assessment Template"
 methodology: "traditional"
-complexity: "basic"
+complexity: "starter"
 process_group: "initiating"
 industry: "financial"
 role: "stakeholder"
@@ -73,5 +73,5 @@ This template provides assessment criteria specifically for traditional waterfal
 - [ ] Next phase readiness confirmed
 
 Related Resources:
-- [Traditional Framework](../methodology-frameworks/traditional/)
+- [Traditional Framework](../../../templates/traditional/)
 - [Project Lifecycle](../project-lifecycle/)

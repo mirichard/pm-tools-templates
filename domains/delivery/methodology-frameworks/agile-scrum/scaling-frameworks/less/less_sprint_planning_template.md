@@ -474,7 +474,7 @@ Team C Table        │ ┌─┐ ┌─┐ ┌─┐ ┌─┐ │        Team 
 - [Overall Product Backlog Management](./overall_product_backlog_template.md)
 - [LeSS Retrospective Template](./less_retrospective_template.md)
 - [Cross-Team Coordination Template](./cross_team_coordination_template.md)
-- [LeSS Adoption Roadmap](../../quick-start-kits/less-adoption/README.md)
+- [LeSS Adoption Roadmap](../../../../../../quick-start-kits/less-adoption/README.md)
 
 ---
 

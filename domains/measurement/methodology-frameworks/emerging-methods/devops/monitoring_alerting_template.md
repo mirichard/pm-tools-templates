@@ -848,7 +848,7 @@ Annual Assessment:
 - [Release Management Workflow](../../../domains/measurement/methodology-frameworks/emerging-methods/devops/release_management_template.md)
 - [DevSecOps Integration](./devsecops_template.md)
 - [Infrastructure as Code](./infrastructure_as_code_template.md)
-- [Site Reliability Engineer Toolkit](../../role-based-toolkits/sre/README.md)
+- Site Reliability Engineer Toolkit (linked resource unavailable)
 
 ---
 

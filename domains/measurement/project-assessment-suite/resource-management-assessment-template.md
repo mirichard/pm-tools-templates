@@ -1,7 +1,7 @@
 ---
 title: "Resource Management Assessment Template"
 methodology: "universal"
-complexity: "basic"
+complexity: "starter"
 process_group: "planning"
 industry: "financial"
 role: "pm"
@@ -75,4 +75,4 @@ This template evaluates resource management effectiveness including human resour
 
 Related Resources:
 - [Resource Planning](../project-lifecycle/02-planning/resource-planning/)
-- [Budget Planning](../project-lifecycle/02-planning/budget-planning/)
+- [Budget Planning](../../planning/role-based-toolkits/project-manager/essential-templates/budget-template.md)

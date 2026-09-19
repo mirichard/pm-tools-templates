@@ -639,7 +639,7 @@ All metrics must include:
 - [PI Planning Template](./pi_planning_template.md)
 - [Portfolio Kanban Template](./portfolio_kanban_template.md)
 - [ART Coordination Template](./art_coordination_template.md)
-- [SAFe Executive Dashboard Templates](../../../business-stakeholder-suite/safe-executive-dashboards/README.md)
+- [SAFe Executive Dashboard Templates](../../../../../../business-stakeholder-suite/safe-executive-dashboards/README.md)
 
 ---
 

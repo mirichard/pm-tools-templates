@@ -1,7 +1,7 @@
 ---
 title: "Agile Project Assessment Template"
 methodology: "agile"
-complexity: "basic"
+complexity: "starter"
 process_group: "initiating"
 industry: "universal"
 role: "po"
