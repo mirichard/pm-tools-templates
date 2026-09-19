@@ -339,6 +339,10 @@ export class WorkflowEngine extends EventEmitter {
 
     const processObject = (obj) => {
       for (const key in obj) {
+        // Prevent prototype pollution by skipping dangerous keys
+        if (key === '__proto__' || key === 'constructor' || key === 'prototype') {
+          continue;
+        }
         if (typeof obj[key] === 'object' && obj[key] !== null) {
           processObject(obj[key]);
         } else {

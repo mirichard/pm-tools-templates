@@ -15,6 +15,29 @@ if (consent !== 'yes') {
 btnYes.onclick = () => { localStorage.setItem(consentKey, 'yes'); consentEl.style.display = 'none'; };
 btnNo.onclick = () => { localStorage.setItem(consentKey, 'no'); consentEl.style.display = 'none'; };
 
+// Simple HTML sanitizer for XSS prevention
+// Removes script tags and other dangerous elements
+function sanitizeHtml(html) {
+  const parser = new DOMParser();
+  const doc = parser.parseFromString(html, 'text/html');
+  
+  // Remove script tags and other dangerous elements
+  const dangerous = doc.querySelectorAll('script, iframe, object, embed, link[rel="stylesheet"]');
+  dangerous.forEach(el => el.remove());
+  
+  // Remove on* event handlers
+  const allElements = doc.querySelectorAll('*');
+  allElements.forEach(el => {
+    Array.from(el.attributes).forEach(attr => {
+      if (attr.name.startsWith('on')) {
+        el.removeAttribute(attr.name);
+      }
+    });
+  });
+  
+  return doc.body.innerHTML;
+}
+
 async function fetchIndex() {
   const res = await fetch('/api/index');
   const data = await res.json();
@@ -85,7 +108,7 @@ async function loadFile(file, liEl) {
   }
   const newEtag = res.headers.get('ETag') || '';
   const data = await res.json();
-  contentEl.innerHTML = data.html;
+  contentEl.innerHTML = sanitizeHtml(data.html);
   // Make task list checkboxes in markdown previews non-interactive/presentational
   for (const cb of contentEl.querySelectorAll('input[type="checkbox"]')) {
     cb.setAttribute('aria-hidden', 'true');

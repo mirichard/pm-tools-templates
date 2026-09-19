@@ -2,6 +2,18 @@ document.addEventListener('DOMContentLoaded', () => {
     let metricsData = null;
     let templatesData = [];
     
+    // HTML escape function to prevent XSS
+    function escapeHtml(text) {
+        const map = {
+            '&': '&amp;',
+            '<': '&lt;',
+            '>': '&gt;',
+            '"': '&quot;',
+            "'": '&#039;'
+        };
+        return String(text).replace(/[&<>"']/g, m => map[m]);
+    }
+    
     // Fetch curation metrics data
     async function fetchCurationData() {
         try {
@@ -146,8 +158,8 @@ document.addEventListener('DOMContentLoaded', () => {
         data.forEach(template => {
             const row = document.createElement('tr');
             row.innerHTML = `
-                <td class="px-6 py-4 whitespace-nowrap">${template.templateName}</td>
-                <td class="px-6 py-4"><span class="tier-badge tier-${template.tier.toLowerCase()}">${template.tier}</span></td>
+                <td class="px-6 py-4 whitespace-nowrap">${escapeHtml(template.templateName)}</td>
+                <td class="px-6 py-4"><span class="tier-badge tier-${escapeHtml(template.tier.toLowerCase())}">${escapeHtml(template.tier)}</span></td>
                 <td class="px-6 py-4">${template.overallScore.toFixed(1)}</td>
                 <td class="px-6 py-4">
                     Quality: ${template.categoryScores.quality},
@@ -156,7 +168,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     Maintenance: ${template.categoryScores.maintenance},
                     Innovation: ${template.categoryScores.innovation}
                 </td>
-                <td class="px-6 py-4">${template.lastUpdated}</td>
+                <td class="px-6 py-4">${escapeHtml(template.lastUpdated)}</td>
                 <td class="px-6 py-4">
                     <button class="text-blue-600 hover:text-blue-900">Details</button>
                 </td>

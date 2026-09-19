@@ -261,19 +261,21 @@ export class ConditionEvaluator {
    * Create a safe context for expression evaluation
    */
   createSafeContext(context) {
-    const safeContext = {};
+    const safeContext = Object.create(null);
     
     // Add context variables
     for (const [key, value] of context.variables.entries()) {
-      // Skip function variables for safety
-      if (typeof value !== 'function') {
+      // Skip dangerous keys and function variables for safety
+      if (key !== '__proto__' && key !== 'constructor' && key !== 'prototype' && typeof value !== 'function') {
         safeContext[key] = value;
       }
     }
     
     // Add built-in functions
     for (const [name, func] of Object.entries(this.functions)) {
-      safeContext[name] = func;
+      if (name !== '__proto__' && name !== 'constructor' && name !== 'prototype') {
+        safeContext[name] = func;
+      }
     }
     
     // Add safe Math operations
