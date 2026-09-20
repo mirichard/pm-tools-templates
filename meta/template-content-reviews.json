@@ -1472,9 +1472,9 @@
     },
     {
       "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/regulatory/compliance_risk_assessment_template.md",
-      "sha256": "3790053ea7fec060d664296c1429b8d947ecfa88b18c7df0b7edd427c7c42ed1",
+      "sha256": "0c7d0c161dca48b0895dd8bf4302ee217a11d7c504bcec883d2125456cd65f50",
       "status": "reviewed",
-      "word_count": 2841,
+      "word_count": 3030,
       "findings": [],
       "scope": "full-content",
       "reviewed": "2026-09-19",
@@ -1484,7 +1484,8 @@
         "Separated illustrative limits and completed sample results from approved operational requirements.",
         "Linked authoritative current guidance supporting corrected references.",
         "09/20/2026: Reviewed the applicability, exclusions, complementary links, and context-model guidance added for #743/#744. Prior body retained verbatim except two heading renames on the non-migrated benefit templates. Prior full-content review date retained; this is an additive-change review, not a new full-body review. Hash chain: meta/principles-story-completion.json.",
-        "09/20/2026: Reviewed additive three-line principle mapping and rationale for #1058 against current template purpose and content structure; all prior bytes and full-content review dates retained. Scoped annotation review only. Hash chain: meta/principle-annotation-reconciliation.json."
+        "09/20/2026: Reviewed additive three-line principle mapping and rationale for #1058 against current template purpose and content structure; all prior bytes and full-content review dates retained. Scoped annotation review only. Hash chain: meta/principle-annotation-reconciliation.json.",
+        "09/20/2026: Reviewed additive #747 governance-scaling guidance and framework link, including non-averaging, evidence gaps and retained tier/policy floors. Prior body and full-content review date preserved; scoped addition review only."
       ],
       "reviewed_sections": [
         "Applying this template",
@@ -1958,9 +1959,9 @@
     },
     {
       "path": "domains/uncertainty/project-lifecycle/02-planning/risk-management/enterprise-risk-assessment-template.md",
-      "sha256": "9ff569fbb2d5e8de5bf68372a8026b70a3ac7b8b1e99f22d0734cc3d599287aa",
+      "sha256": "c5ee350590f1009ee8f34ef44697b45c83a8cbd3186a1a902304e2e57f2be9f7",
       "status": "reviewed",
-      "word_count": 473,
+      "word_count": 634,
       "findings": [],
       "scope": "full-content",
       "reviewed": "2026-09-19",
@@ -1968,7 +1969,8 @@
       "evidence": [
         "Replaced generic prose with assessment boundaries, locally defined scoring, evidence, risk ownership, responses, residual exposure and escalation.",
         "09/20/2026: Reviewed the applicability, exclusions, complementary links, and context-model guidance added for #743/#744. Prior body retained verbatim except two heading renames on the non-migrated benefit templates. Prior full-content review date retained; this is an additive-change review, not a new full-body review. Hash chain: meta/principles-story-completion.json.",
-        "09/20/2026: Reviewed additive three-line principle mapping and rationale for #1058 against current template purpose and content structure; all prior bytes and full-content review dates retained. Scoped annotation review only. Hash chain: meta/principle-annotation-reconciliation.json."
+        "09/20/2026: Reviewed additive three-line principle mapping and rationale for #1058 against current template purpose and content structure; all prior bytes and full-content review dates retained. Scoped annotation review only. Hash chain: meta/principle-annotation-reconciliation.json.",
+        "09/20/2026: Reviewed additive #747 governance-scaling guidance and framework link, including non-averaging, evidence gaps and retained tier/policy floors. Prior body and full-content review date preserved; scoped addition review only."
       ]
     },
     {
@@ -6005,9 +6007,9 @@
     },
     {
       "path": "domains/measurement/industry-specializations/information-technology/cybersecurity/risk_assessment_template.md",
-      "sha256": "28b68820d1c0e5fe4d7472782e927a460724a1580d257e2e12125dc7a4f7a8f0",
+      "sha256": "cf4dbb2cc1f8cce93cf55efa9e247a85b5b9287ea4c66c8f26d74c75c0100200",
       "status": "reviewed",
-      "word_count": 1991,
+      "word_count": 2177,
       "findings": [],
       "scope": "full-content",
       "reviewed": "2026-09-19",
@@ -6015,7 +6017,8 @@
       "evidence": [
         "Add current governance coverage and prevent example response deadlines being treated as universal obligations.",
         "09/20/2026: Reviewed the applicability, exclusions, complementary links, and context-model guidance added for #743/#744. Prior body retained verbatim except two heading renames on the non-migrated benefit templates. Prior full-content review date retained; this is an additive-change review, not a new full-body review. Hash chain: meta/principles-story-completion.json.",
-        "09/20/2026: Reviewed additive three-line principle mapping and rationale for #1058 against current template purpose and content structure; all prior bytes and full-content review dates retained. Scoped annotation review only. Hash chain: meta/principle-annotation-reconciliation.json."
+        "09/20/2026: Reviewed additive three-line principle mapping and rationale for #1058 against current template purpose and content structure; all prior bytes and full-content review dates retained. Scoped annotation review only. Hash chain: meta/principle-annotation-reconciliation.json.",
+        "09/20/2026: Reviewed additive #747 governance-scaling guidance and framework link, including non-averaging, evidence gaps and retained tier/policy floors. Prior body and full-content review date preserved; scoped addition review only."
       ],
       "reviewed_sections": [
         "Framework and response applicability",
@@ -6071,9 +6074,9 @@
     },
     {
       "path": "domains/measurement/project-assessment-suite/risk-management-assessment-template.md",
-      "sha256": "cfbfe674c154969ef4f23c1ff3211e350b3c997f60519b28feec1001e49c6996",
+      "sha256": "6b02cc04a4e2ab656d45e63704b7ab13e0002d5fd4d08817a16c149d3295dcdd",
       "status": "reviewed",
-      "word_count": 533,
+      "word_count": 718,
       "findings": [],
       "scope": "full-content",
       "reviewed": "2026-09-19",
@@ -6081,7 +6084,8 @@
       "evidence": [
         "Read the complete short assessment. Removed conflicting body metadata and added defined scoring, N/A handling, evidence, action ownership, and follow-up.",
         "09/20/2026: Reviewed the applicability, exclusions, complementary links, and context-model guidance added for #743/#744. Prior body retained verbatim except two heading renames on the non-migrated benefit templates. Prior full-content review date retained; this is an additive-change review, not a new full-body review. Hash chain: meta/principles-story-completion.json.",
-        "09/20/2026: Reviewed additive three-line principle mapping and rationale for #1058 against current template purpose and content structure; all prior bytes and full-content review dates retained. Scoped annotation review only. Hash chain: meta/principle-annotation-reconciliation.json."
+        "09/20/2026: Reviewed additive three-line principle mapping and rationale for #1058 against current template purpose and content structure; all prior bytes and full-content review dates retained. Scoped annotation review only. Hash chain: meta/principle-annotation-reconciliation.json.",
+        "09/20/2026: Reviewed additive #747 governance-scaling guidance and framework link, including non-averaging, evidence gaps and retained tier/policy floors. Prior body and full-content review date preserved; scoped addition review only."
       ]
     },
     {
@@ -6152,9 +6156,9 @@
     },
     {
       "path": "domains/uncertainty/project-lifecycle/02-planning/risk-management/risk-register-template.md",
-      "sha256": "a561ca7836ff430ead8ea35db5de82a7630d133b5d03ff4299a18cf00a352be7",
+      "sha256": "669d3a39d831f7993e86b93cf6bdb860008d36eef74f72755d7135dbab86a27a",
       "status": "reviewed",
-      "word_count": 493,
+      "word_count": 654,
       "findings": [],
       "scope": "full-content",
       "reviewed": "2026-09-19",
@@ -6162,7 +6166,8 @@
       "evidence": [
         "Resolved missing score calculation and overlapping/incomplete probability bands; defined ordinal ranks, assessment horizon and calibrated thresholds.",
         "09/20/2026: Reviewed the applicability, exclusions, complementary links, and context-model guidance added for #743/#744. Prior body retained verbatim except two heading renames on the non-migrated benefit templates. Prior full-content review date retained; this is an additive-change review, not a new full-body review. Hash chain: meta/principles-story-completion.json.",
-        "09/20/2026: Reviewed additive three-line principle mapping and rationale for #1058 against current template purpose and content structure; all prior bytes and full-content review dates retained. Scoped annotation review only. Hash chain: meta/principle-annotation-reconciliation.json."
+        "09/20/2026: Reviewed additive three-line principle mapping and rationale for #1058 against current template purpose and content structure; all prior bytes and full-content review dates retained. Scoped annotation review only. Hash chain: meta/principle-annotation-reconciliation.json.",
+        "09/20/2026: Reviewed additive #747 governance-scaling guidance and framework link, including non-averaging, evidence gaps and retained tier/policy floors. Prior body and full-content review date preserved; scoped addition review only."
       ]
     },
     {
