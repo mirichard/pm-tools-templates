@@ -12,6 +12,23 @@ principle_rationale: "Creates accountable team agreements that support adaptatio
 
 # Agile Team Charter Template
 
+## When to Use
+
+- When forming or resetting an Agile team with shared product goals.
+- When team members need working agreements, decision rights, and a Definition of Done.
+
+## When NOT to Use
+
+- To impose a manager's task allocation in place of team planning.
+- Do not represent author self-checks as independent or authorized approval. See [Self-approval](../../../../../docs/principles/anti-patterns.md#self-approval).
+
+## Pairs Well With
+
+- [Team Charter Template](../../../../../domains/team/project-lifecycle/02-planning/resource-planning/team-charter-template.md).
+- [Sprint Planning Template](../../../../../domains/delivery/templates/agile/sprint_planning_template.md).
+
+Selection context: Team domain; universal methodology; intermediate complexity. Match the situations above to project phase, risk, team size, and industry using the [decision-engine context model](../../../../../meta/architecture-research/800-801-context-assessment-model.md).
+
 ## Purpose/Overview
 This agile team charter template establishes the foundation for effective agile teams by defining mission, values, and working agreements. It serves as a living document that guides team behavior, decision-making, and collaboration within the Scrum framework. The charter promotes team self-management and continuous improvement.
 

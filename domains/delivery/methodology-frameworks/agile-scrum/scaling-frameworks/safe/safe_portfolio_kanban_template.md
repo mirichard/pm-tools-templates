@@ -8,6 +8,23 @@ updated: "2026-09-19"
 
 # SAFe Portfolio Kanban Template
 
+## When to Use
+
+- When portfolio epics need explicit entry policies, evaluation, and work-in-progress limits.
+- When investment owners need lean business cases and transparent prioritization.
+
+## When NOT to Use
+
+- To substitute calculated priority scores for accountable investment judgment.
+- Do not infer realized value from completed outputs, spending, or activity counts. See [Value equals output](../../../../../../docs/principles/anti-patterns.md#value-output).
+
+## Pairs Well With
+
+- [Portfolio Kanban Template](../../../../../../domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/portfolio_kanban_template.md).
+- [Advanced Business Case Template](../../../../../../domains/stakeholder/business-stakeholder-suite/financial-governance/enhanced-business-cases/advanced-business-case-template.md).
+
+Selection context: Delivery domain; agile methodology; advanced complexity. Match the situations above to project phase, risk, team size, and industry using the [decision-engine context model](../../../../../../meta/architecture-research/800-801-context-assessment-model.md).
+
 ## Completing the worksheet
 
 Replace populated examples with project evidence before circulation. Record the reporting period, baseline, source, owner, and calculation for each measure; define thresholds and approval authority locally. Show unavailable values as unknown rather than zero or a favorable status. Reconcile totals and units, handle zero denominators explicitly, and retain the decision rationale and supporting evidence.

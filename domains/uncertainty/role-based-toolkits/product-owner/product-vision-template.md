@@ -8,6 +8,23 @@ updated: "2025-08-05"
 
 # Product Vision Template
 
+## When to Use
+
+- At product initiation or strategic reset when target users and value are unclear.
+- When the Product Owner must align the problem, value proposition, and goals.
+
+## When NOT to Use
+
+- As evidence that demand or benefit assumptions have already been validated.
+- Do not infer realized value from completed outputs, spending, or activity counts. See [Value equals output](../../../../docs/principles/anti-patterns.md#value-output).
+
+## Pairs Well With
+
+- [Okr Template](../../../../domains/stakeholder/role-based-toolkits/product-owner/okr-template.md).
+- [User Story Mapping Template](../../../../domains/uncertainty/industry-specializations/information-technology/software-development/user_story_mapping_template.md).
+
+Selection context: Uncertainty domain; universal methodology; advanced complexity. Match the situations above to project phase, risk, team size, and industry using the [decision-engine context model](../../../../meta/architecture-research/800-801-context-assessment-model.md).
+
 ## Product Information
 - **Product Name**: [Product Name]
 - **Product Owner**: [Name]

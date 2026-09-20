@@ -8,6 +8,23 @@ updated: "2026-09-19"
 
 # Quality Management Review Template
 
+## When to Use
+
+- When authorized management reviews a pharmaceutical quality system's performance.
+- When trends, risks, resource needs, and actions require documented oversight.
+
+## When NOT to Use
+
+- To infer quality effectiveness solely from favorable aggregate indicators.
+- Do not report sample values, unsupported ratings, or missing data as verified performance. See [Metric without source](../../../../../docs/principles/anti-patterns.md#metric-source).
+
+## Pairs Well With
+
+- [Capa Management Template](../../../../../domains/delivery/industry-specializations/healthcare-pharmaceutical/compliance/capa_management_template.md).
+- [Gxp Training Plan Template](../../../../../domains/delivery/industry-specializations/healthcare-pharmaceutical/compliance/gxp_training_plan_template.md).
+
+Selection context: Delivery domain; universal methodology; advanced complexity. Match the situations above to project phase, risk, team size, and industry using the [decision-engine context model](../../../../../meta/architecture-research/800-801-context-assessment-model.md).
+
 ## Completing the worksheet
 
 Replace populated examples with project evidence before circulation. Record the reporting period, baseline, source, owner, and calculation for each measure; define thresholds and approval authority locally. Show unavailable values as unknown rather than zero or a favorable status. Reconcile totals and units, handle zero denominators explicitly, and retain the decision rationale and supporting evidence.

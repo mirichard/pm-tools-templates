@@ -8,6 +8,23 @@ updated: "2026-09-19"
 
 # Cybersecurity Incident Response Template
 
+## When to Use
+
+- When preparing for or managing a cybersecurity incident with defined response authority.
+- When responders need classification, containment, evidence handling, and recovery coordination.
+
+## When NOT to Use
+
+- For routine service root-cause analysis without a security incident; use problem management.
+- Do not use a completed template or example configuration as proof of fitness for the actual environment. See [Template as substitute for judgment](../../../../../docs/principles/anti-patterns.md#template-judgment).
+
+## Pairs Well With
+
+- [Disaster Recovery Template](../../../../../domains/planning/industry-specializations/information-technology/infrastructure/disaster_recovery_template.md).
+- [Problem Management Process Template](../../../../../domains/delivery/industry-specializations/information-technology/service-management/problem_management_process_template.md).
+
+Selection context: Measurement domain; universal methodology; advanced complexity. Match the situations above to project phase, risk, team size, and industry using the [decision-engine context model](../../../../../meta/architecture-research/800-801-context-assessment-model.md).
+
 ## Framework and response applicability
 
 When using NIST CSF, map the assessment to the six CSF 2.0 functions, including Govern. Record decision authority, risk appetite, oversight, and supply-chain responsibilities as well as technical controls. The [NIST CSF 2.0 overview](https://www.nist.gov/news-events/news/2024/02/nist-releases-version-20-landmark-cybersecurity-framework) explains the governance addition. Example response times and notification periods must be replaced by the approved service, incident, and jurisdiction-specific requirements.

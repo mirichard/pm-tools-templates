@@ -8,6 +8,23 @@ updated: "2026-09-19"
 
 # Test Plan Template
 
+## When to Use
+
+- During software planning when test scope, environments, execution, and exit decisions need definition.
+- When testers must connect requirements, risk, automation, and defect handling.
+
+## When NOT to Use
+
+- To report successful verification without actual execution results.
+- Do not represent author self-checks as independent or authorized approval. See [Self-approval](../../../../../docs/principles/anti-patterns.md#self-approval).
+
+## Pairs Well With
+
+- [Requirements Traceability Matrix Template](../../../../../domains/delivery/templates/traditional/Traditional/Process_Groups/Executing/requirements_traceability_matrix_template.md).
+- [Uat Plan Template](../../../../../domains/delivery/templates/traditional/Traditional/Templates/uat_plan_template.md).
+
+Selection context: Measurement domain; universal methodology; advanced complexity. Match the situations above to project phase, risk, team size, and industry using the [decision-engine context model](../../../../../meta/architecture-research/800-801-context-assessment-model.md).
+
 ## Example implementation contract
 
 Code, queries, configuration, versions, thresholds, and sample output illustrate the design; they are not a tested deployment bundle. Record the actual platform/version, supported dependencies, credentials source, least-privilege access, environment-specific values, and test results before use. Pin release artifacts and validate rollback and failure paths in the target environment. Never use sample secrets or sample approval results as operational evidence.

@@ -8,6 +8,23 @@ updated: "2026-09-19"
 
 # Purchase Order Template
 
+## When to Use
+
+- When an approved procurement needs an order specifying vendor, items, terms, and authorization.
+- When purchasing staff must reconcile quantities, prices, delivery, and acceptance obligations.
+
+## When NOT to Use
+
+- As a substitute for supplier due diligence or applicable contracting approval.
+- Do not represent author self-checks as independent or authorized approval. See [Self-approval](../../../../../../docs/principles/anti-patterns.md#self-approval).
+
+## Pairs Well With
+
+- [Budget Template](../../../../../../domains/planning/role-based-toolkits/project-manager/essential-templates/budget-template.md).
+- [Change Request Template](../../../../../../domains/delivery/templates/traditional/Traditional/Templates/change_request_template.md).
+
+Selection context: Delivery domain; traditional methodology; intermediate complexity. Match the situations above to project phase, risk, team size, and industry using the [decision-engine context model](../../../../../../meta/architecture-research/800-801-context-assessment-model.md).
+
 ## Purchase Order Information
 
 | Field | Details |

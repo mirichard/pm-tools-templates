@@ -8,6 +8,23 @@ updated: "2026-09-19"
 
 # PROJECT CHANGE REQUEST FORM
 
+## When to Use
+
+- During execution when a proposed change affects approved scope, schedule, cost, or controls.
+- When the change authority needs alternatives, impact analysis, and a recorded decision.
+
+## When NOT to Use
+
+- To replace the original baseline with the requested change before approval.
+- Do not overwrite the original baseline to remove an unfavorable variance. See [Rebaseline to green](../../../../../../docs/principles/anti-patterns.md#baseline-green).
+
+## Pairs Well With
+
+- [Raid Log Template](../../../../../../domains/delivery/templates/traditional/Traditional/Templates/raid_log_template.md).
+- [Project Schedule Template](../../../../../../domains/delivery/templates/traditional/Traditional/Process_Groups/Planning/project_schedule_template.md).
+
+Selection context: Delivery domain; traditional methodology; advanced complexity. Match the situations above to project phase, risk, team size, and industry using the [decision-engine context model](../../../../../../meta/architecture-research/800-801-context-assessment-model.md).
+
 ## Document Control Information
 **Project/Program Name:** *[Enterprise Resource Planning Implementation]*  
 **Change Request ID:** *[CR-001]*  

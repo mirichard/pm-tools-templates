@@ -8,6 +8,23 @@ updated: "2026-09-19"
 
 # Cleaning Validation Protocol Template
 
+## When to Use
+
+- When qualified personnel plan evidence that a cleaning process meets approved acceptance limits.
+- When equipment, residues, sampling, and analytical methods need process-specific justification.
+
+## When NOT to Use
+
+- To infer acceptable residue limits or sampling adequacy from generic example values.
+- Do not represent author self-checks as independent or authorized approval. See [Self-approval](../../../../../docs/principles/anti-patterns.md#self-approval).
+
+## Pairs Well With
+
+- [Equipment Qualification Protocol Template](../../../../../domains/delivery/industry-specializations/healthcare-pharmaceutical/validation/equipment_qualification_protocol_template.md).
+- [Validation Master Plan Template](../../../../../domains/delivery/industry-specializations/healthcare-pharmaceutical/validation/validation_master_plan_template.md).
+
+Selection context: Delivery domain; universal methodology; advanced complexity. Match the situations above to project phase, risk, team size, and industry using the [decision-engine context model](../../../../../meta/architecture-research/800-801-context-assessment-model.md).
+
 Reference check: [Current source](https://www.fda.gov/regulatory-information/search-fda-guidance-documents/q2r2-validation-analytical-procedures).
 
 

@@ -18,6 +18,23 @@ principle_rationale: "Uses evidence and feedback to tailor an agile approach to 
 
 # Agile Project Assessment Template
 
+## When to Use
+
+- When reviewing an established Agile team's delivery practices and improvement priorities.
+- When iteration evidence, stakeholder feedback, and team observations can support a maturity discussion.
+
+## When NOT to Use
+
+- To rate a traditional project's phase gates; use the waterfall assessment.
+- Do not report sample values, unsupported ratings, or missing data as verified performance. See [Metric without source](../../../docs/principles/anti-patterns.md#metric-source).
+
+## Pairs Well With
+
+- [Hybrid Project Assessment Template](../../../domains/delivery/project-assessment-suite/hybrid-project-assessment-template.md).
+- [Project Health Assessment Template](../../../domains/measurement/project-assessment-suite/project-health-assessment-template.md).
+
+Selection context: Delivery domain; universal methodology; starter complexity. Match the situations above to project phase, risk, team size, and industry using the [decision-engine context model](../../../meta/architecture-research/800-801-context-assessment-model.md).
+
 ## Executive Summary
 This template provides an assessment framework specifically designed for Agile projects and teams.
 

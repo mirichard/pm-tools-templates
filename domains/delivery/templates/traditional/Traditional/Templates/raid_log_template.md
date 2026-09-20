@@ -8,6 +8,23 @@ updated: "2025-08-05"
 
 # RAID Log Template
 
+## When to Use
+
+- During planning and execution when risks, assumptions, issues, and dependencies need coordinated tracking.
+- When each record type needs an owner, review, and escalation path.
+
+## When NOT to Use
+
+- To mix actual issues and uncertain risks without distinguishing their response needs.
+- Do not use a completed template or example configuration as proof of fitness for the actual environment. See [Template as substitute for judgment](../../../../../../docs/principles/anti-patterns.md#template-judgment).
+
+## Pairs Well With
+
+- [Issue Log Template](../../../../../../domains/delivery/templates/traditional/Traditional/Templates/issue_log_template.md).
+- [Risk Register Template](../../../../../../domains/uncertainty/project-lifecycle/02-planning/risk-management/risk-register-template.md).
+
+Selection context: Delivery domain; traditional methodology; advanced complexity. Match the situations above to project phase, risk, team size, and industry using the [decision-engine context model](../../../../../../meta/architecture-research/800-801-context-assessment-model.md).
+
 ## Document Information
 
 | Field | Details |

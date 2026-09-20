@@ -9,6 +9,23 @@ updated: "2026-09-19"
 
 # Project Status Report Template
 
+## When to Use
+
+- During a reporting cycle when decision makers need progress, exceptions, and actions.
+- When the PM can state the reporting period, evidence, status rules, and requests.
+
+## When NOT to Use
+
+- To mark an unknown measure green or conceal an unresolved material exception.
+- Do not report sample values, unsupported ratings, or missing data as verified performance. See [Metric without source](../../../../../docs/principles/anti-patterns.md#metric-source).
+
+## Pairs Well With
+
+- [Project Dashboard Template](../../../../../domains/uncertainty/project-lifecycle/04-monitoring-control/progress-tracking/project-dashboard-template.md).
+- [Issue Log Template](../../../../../domains/delivery/templates/traditional/Traditional/Templates/issue_log_template.md).
+
+Selection context: Uncertainty domain; universal methodology; advanced complexity. Match the situations above to project phase, risk, team size, and industry using the [decision-engine context model](../../../../../meta/architecture-research/800-801-context-assessment-model.md).
+
 ## Completing the worksheet
 
 Replace populated examples with project evidence before circulation. Record the reporting period, baseline, source, owner, and calculation for each measure; define thresholds and approval authority locally. Show unavailable values as unknown rather than zero or a favorable status. Reconcile totals and units, handle zero denominators explicitly, and retain the decision rationale and supporting evidence.

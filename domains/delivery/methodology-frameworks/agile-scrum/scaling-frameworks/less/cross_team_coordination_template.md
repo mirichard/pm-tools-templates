@@ -8,6 +8,23 @@ updated: "2026-09-19"
 
 # LeSS Cross-Team Coordination Template
 
+## When to Use
+
+- When several LeSS teams share one product and must coordinate integrated delivery.
+- When cross-team dependencies need direct conversations and shared technical practices.
+
+## When NOT to Use
+
+- To introduce coordination layers for a single team or unrelated products.
+- Do not impose enterprise coordination or approval layers where team size and risk do not justify them. See [Maximum governance](../../../../../../docs/principles/anti-patterns.md#maximum-governance).
+
+## Pairs Well With
+
+- [Less Sprint Planning Template](../../../../../../domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/less/less_sprint_planning_template.md).
+- [Overall Product Backlog Template](../../../../../../domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/less/overall_product_backlog_template.md).
+
+Selection context: Delivery domain; agile methodology; advanced complexity. Match the situations above to project phase, risk, team size, and industry using the [decision-engine context model](../../../../../../meta/architecture-research/800-801-context-assessment-model.md).
+
 Use one defined product, shared Product Backlog and integrated product outcome. Coordination techniques and agenda durations here are optional facilitation examples, not additional mandatory roles or events. Adapt them consistently with the [LeSS framework](https://less.works/less/framework).
 
 

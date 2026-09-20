@@ -8,6 +8,23 @@ updated: "2026-09-19"
 
 # Infrastructure as Code (IaC) Template
 
+## When to Use
+
+- When infrastructure changes should be versioned, reviewed, and reproducible.
+- When IT teams need provisioning, environment, and rollback decisions alongside delivery controls.
+
+## When NOT to Use
+
+- To apply example infrastructure definitions directly to production without review and testing.
+- Do not represent author self-checks as independent or authorized approval. See [Self-approval](../../../../../docs/principles/anti-patterns.md#self-approval).
+
+## Pairs Well With
+
+- [Cicd Pipeline Planning Template](../../../../../domains/measurement/methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md).
+- [Infrastructure Assessment Template](../../../../../domains/measurement/industry-specializations/information-technology/infrastructure/infrastructure_assessment_template.md).
+
+Selection context: Measurement domain; universal methodology; advanced complexity. Match the situations above to project phase, risk, team size, and industry using the [decision-engine context model](../../../../../meta/architecture-research/800-801-context-assessment-model.md).
+
 ## Example implementation contract
 
 Code, queries, configuration, versions, thresholds, and sample output illustrate the design; they are not a tested deployment bundle. Record the actual platform/version, supported dependencies, credentials source, least-privilege access, environment-specific values, and test results before use. Pin release artifacts and validate rollback and failure paths in the target environment. Never use sample secrets or sample approval results as operational evidence.

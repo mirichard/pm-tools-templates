@@ -8,6 +8,23 @@ updated: "2026-09-19"
 
 # IT Infrastructure Migration Plan Template
 
+## When to Use
+
+- When moving infrastructure, systems, or data between controlled environments.
+- When cutover needs readiness checks, verification, rollback authority, and operational handover.
+
+## When NOT to Use
+
+- To proceed without tested recovery options for a material migration failure.
+- Do not waive essential controls solely because delivery is Agile, hybrid, or time-constrained. See [Tailoring by omission](../../../../../docs/principles/anti-patterns.md#tailoring-omission).
+
+## Pairs Well With
+
+- [Disaster Recovery Template](../../../../../domains/planning/industry-specializations/information-technology/infrastructure/disaster_recovery_template.md).
+- [Infrastructure Assessment Template](../../../../../domains/measurement/industry-specializations/information-technology/infrastructure/infrastructure_assessment_template.md).
+
+Selection context: Uncertainty domain; universal methodology; starter complexity. Match the situations above to project phase, risk, team size, and industry using the [decision-engine context model](../../../../../meta/architecture-research/800-801-context-assessment-model.md).
+
 ## Purpose and use
 
 Plan a controlled move from a defined source to a defined target. Agree validation, stop conditions, and rollback authority before scheduling execution. Use environment-specific runbooks for commands and technical procedures.

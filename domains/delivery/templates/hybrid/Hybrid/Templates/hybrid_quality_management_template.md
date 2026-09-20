@@ -9,6 +9,23 @@ updated: "2025-08-05"
 
 # Hybrid Quality Management Template
 
+## When to Use
+
+- When hybrid delivery needs consistent acceptance across formal gates and iterative testing.
+- When quality owners must assign assurance responsibilities and evidence requirements by work type.
+
+## When NOT to Use
+
+- To relax essential acceptance requirements merely because work is iterative.
+- Do not waive essential controls solely because delivery is Agile, hybrid, or time-constrained. See [Tailoring by omission](../../../../../../docs/principles/anti-patterns.md#tailoring-omission).
+
+## Pairs Well With
+
+- [Progressive Acceptance Plan Template](../../../../../../domains/delivery/templates/hybrid/Hybrid/Templates/progressive_acceptance_plan_template.md).
+- [Test Plan Template](../../../../../../domains/measurement/industry-specializations/information-technology/software-development/test_plan_template.md).
+
+Selection context: Delivery domain; hybrid methodology; advanced complexity. Match the situations above to project phase, risk, team size, and industry using the [decision-engine context model](../../../../../../meta/architecture-research/800-801-context-assessment-model.md).
+
 ## Overview
 This template provides a comprehensive framework for managing quality in hybrid project environments that combine traditional (predictive) and agile (adaptive) approaches. It enables teams to maintain appropriate quality standards and compliance requirements while supporting rapid, iterative delivery. Adapt sections as needed based on your specific project context, methodology balance, and organizational requirements.
 

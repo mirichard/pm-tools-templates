@@ -11,6 +11,23 @@ principle_rationale: "Justifies investment through accountable value, evidence, 
 
 # Business Case Template - Waterfall Methodology
 
+## When to Use
+
+- At initiation when a sponsor must compare an investment's options, value, and feasibility.
+- When expected benefits and costs must justify committing project resources.
+
+## When NOT to Use
+
+- For retrospective justification after the investment decision is already made.
+- Do not infer realized value from completed outputs, spending, or activity counts. See [Value equals output](../../../../../../docs/principles/anti-patterns.md#value-output).
+
+## Pairs Well With
+
+- [Advanced Business Case Template](../../../../../../domains/stakeholder/business-stakeholder-suite/financial-governance/enhanced-business-cases/advanced-business-case-template.md).
+- [Benefits Review Template](../../../../../../templates/universal/benefits-review-template.md).
+
+Selection context: Planning domain; traditional methodology; advanced complexity. Match the situations above to project phase, risk, team size, and industry using the [decision-engine context model](../../../../../../meta/architecture-research/800-801-context-assessment-model.md).
+
 ## Completing the worksheet
 
 Replace populated examples with project evidence before circulation. Record the reporting period, baseline, source, owner, and calculation for each measure; define thresholds and approval authority locally. Show unavailable values as unknown rather than zero or a favorable status. Reconcile totals and units, handle zero denominators explicitly, and retain the decision rationale and supporting evidence.

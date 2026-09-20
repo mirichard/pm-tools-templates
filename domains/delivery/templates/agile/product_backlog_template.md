@@ -8,6 +8,23 @@ updated: "2026-09-19"
 
 # PRODUCT BACKLOG
 
+## When to Use
+
+- During Agile product delivery when work needs transparent ordering and acceptance criteria.
+- When stakeholders and the team need visibility of scope, dependencies, and refinement readiness.
+
+## When NOT to Use
+
+- As a fixed scope contract that prevents evidence-based backlog adaptation.
+- Do not waive essential controls solely because delivery is Agile, hybrid, or time-constrained. See [Tailoring by omission](../../../../docs/principles/anti-patterns.md#tailoring-omission).
+
+## Pairs Well With
+
+- [User Story Template](../../../../domains/uncertainty/role-based-toolkits/product-owner/user-story-template.md).
+- [Sprint Planning Template](../../../../domains/delivery/templates/agile/sprint_planning_template.md).
+
+Selection context: Delivery domain; agile methodology; advanced complexity. Match the situations above to project phase, risk, team size, and industry using the [decision-engine context model](../../../../meta/architecture-research/800-801-context-assessment-model.md).
+
 ## Scrum tailoring
 
 These worksheets and suggested agendas are optional practices. In Scrum, the Developers own the plan for delivering the Sprint Goal; selected work is a forecast that can be adapted. A Definition of Ready and story points are optional team practices. Use the product Definition of Done consistently, and treat the Sprint Review as inspection and adaptation rather than a release-approval gate. See the [Scrum Guide](https://scrumguides.org/scrum-guide.html).

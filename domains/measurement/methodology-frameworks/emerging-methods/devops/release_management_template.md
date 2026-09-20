@@ -8,6 +8,23 @@ updated: "2026-09-19"
 
 # Release Management Workflow Template
 
+## When to Use
+
+- When coordinating a software release from preparation through validation and recovery.
+- When delivery and operations need explicit readiness, communication, and rollback decisions.
+
+## When NOT to Use
+
+- To equate successful deployment with user acceptance or realized value.
+- Do not infer realized value from completed outputs, spending, or activity counts. See [Value equals output](../../../../../docs/principles/anti-patterns.md#value-output).
+
+## Pairs Well With
+
+- [Cicd Pipeline Planning Template](../../../../../domains/measurement/methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md).
+- [Handover Template](../../../../../domains/measurement/role-based-toolkits/project-manager/essential-templates/handover-template.md).
+
+Selection context: Measurement domain; universal methodology; advanced complexity. Match the situations above to project phase, risk, team size, and industry using the [decision-engine context model](../../../../../meta/architecture-research/800-801-context-assessment-model.md).
+
 ## Example implementation contract
 
 Code, queries, configuration, versions, thresholds, and sample output illustrate the design; they are not a tested deployment bundle. Record the actual platform/version, supported dependencies, credentials source, least-privilege access, environment-specific values, and test results before use. Pin release artifacts and validate rollback and failure paths in the target environment. Never use sample secrets or sample approval results as operational evidence.

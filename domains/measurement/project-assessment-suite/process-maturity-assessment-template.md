@@ -15,6 +15,23 @@ estimated_completion_time: "15-30 minutes"
 
 # Process Maturity Assessment Template
 
+## When to Use
+
+- When assessing process capability to prioritize an improvement roadmap.
+- When teams can support maturity ratings with observable practices and outcomes.
+
+## When NOT to Use
+
+- To present maturity levels as certification or proof of business value.
+- Do not treat completed metadata or a filled checklist as evidence that the underlying work is done. See [Metadata theater](../../../docs/principles/anti-patterns.md#metadata-theater).
+
+## Pairs Well With
+
+- [Current State Analysis Template](../../../domains/measurement/project-assessment-suite/current-state-analysis-template.md).
+- [Remediation Action Plan Template](../../../domains/measurement/project-assessment-suite/remediation-action-plan-template.md).
+
+Selection context: Measurement domain; universal methodology; starter complexity. Match the situations above to project phase, risk, team size, and industry using the [decision-engine context model](../../../meta/architecture-research/800-801-context-assessment-model.md).
+
 ## Executive Summary
 This template provides a structured approach to assessing project management process maturity and organizational capability.
 

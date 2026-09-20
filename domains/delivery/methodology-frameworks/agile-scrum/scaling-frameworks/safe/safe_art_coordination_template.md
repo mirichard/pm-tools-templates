@@ -8,6 +8,23 @@ updated: "2026-09-19"
 
 # SAFe ART Coordination Template
 
+## When to Use
+
+- When an established SAFe train needs detailed synchronization and cross-train coordination.
+- When dependencies and release decisions require named train-level owners.
+
+## When NOT to Use
+
+- To add train governance to teams without a shared train-level delivery need.
+- Do not impose enterprise coordination or approval layers where team size and risk do not justify them. See [Maximum governance](../../../../../../docs/principles/anti-patterns.md#maximum-governance).
+
+## Pairs Well With
+
+- [Safe Program Increment Planning Template](../../../../../../domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_program_increment_planning_template.md).
+- [Safe Metrics Reporting Template](../../../../../../domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_metrics_reporting_template.md).
+
+Selection context: Delivery domain; agile methodology; advanced complexity. Match the situations above to project phase, risk, team size, and industry using the [decision-engine context model](../../../../../../meta/architecture-research/800-801-context-assessment-model.md).
+
 **Enterprise:** [Enterprise Name]  
 **Portfolio:** [Portfolio Name]  
 **Created By:** [Name/Role]  

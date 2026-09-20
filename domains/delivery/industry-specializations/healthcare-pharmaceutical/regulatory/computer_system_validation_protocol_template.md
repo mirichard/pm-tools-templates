@@ -8,6 +8,23 @@ updated: "2026-09-19"
 
 # Computer System Validation Protocol Template
 
+## When to Use
+
+- When planning validation of a computerized system used in an applicable regulated process.
+- When intended use, data integrity, access controls, and test evidence need traceability.
+
+## When NOT to Use
+
+- As proof of validation based only on completed template fields.
+- Do not represent author self-checks as independent or authorized approval. See [Self-approval](../../../../../docs/principles/anti-patterns.md#self-approval).
+
+## Pairs Well With
+
+- [Software Requirements Specification Template](../../../../../domains/delivery/industry-specializations/healthcare-pharmaceutical/validation/software_requirements_specification_template.md).
+- [Requirements Traceability Matrix Template](../../../../../domains/delivery/templates/traditional/Traditional/Process_Groups/Executing/requirements_traceability_matrix_template.md).
+
+Selection context: Delivery domain; universal methodology; advanced complexity. Match the situations above to project phase, risk, team size, and industry using the [decision-engine context model](../../../../../meta/architecture-research/800-801-context-assessment-model.md).
+
 ## Applying this template
 
 Treat filled examples, dates, numerical limits, sampling frequencies, and approval outcomes as illustrations. Before execution, replace them with the approved product/site requirements, scientific rationale, method references, responsible reviewer, and acceptance evidence. Record the applicable jurisdiction and current guidance edition; a completed worksheet alone does not demonstrate regulatory compliance.

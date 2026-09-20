@@ -8,6 +8,23 @@ updated: "2026-09-19"
 
 # SPRINT REVIEW
 
+## When to Use
+
+- At a Sprint Review when stakeholders and the team inspect outcomes and adapt direction.
+- When feedback on the increment can change product priorities.
+
+## When NOT to Use
+
+- As a presentation-only status meeting or a required release gate.
+- Do not represent attendance, distribution, or silence as stakeholder agreement. See [Stakeholder broadcast](../../../../docs/principles/anti-patterns.md#stakeholder-broadcast).
+
+## Pairs Well With
+
+- [Product Backlog Template](../../../../domains/delivery/templates/agile/product_backlog_template.md).
+- [Agile Stakeholder Map Template](../../../../domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/agile-stakeholder-map-template.md).
+
+Selection context: Team domain; agile methodology; advanced complexity. Match the situations above to project phase, risk, team size, and industry using the [decision-engine context model](../../../../meta/architecture-research/800-801-context-assessment-model.md).
+
 ## Scrum tailoring
 
 These worksheets and suggested agendas are optional practices. In Scrum, the Developers own the plan for delivering the Sprint Goal; selected work is a forecast that can be adapted. A Definition of Ready and story points are optional team practices. Use the product Definition of Done consistently, and treat the Sprint Review as inspection and adaptation rather than a release-approval gate. See the [Scrum Guide](https://scrumguides.org/scrum-guide.html).

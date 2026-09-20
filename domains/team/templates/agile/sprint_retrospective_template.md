@@ -8,6 +8,23 @@ updated: "2026-09-19"
 
 # Sprint Retrospective Template
 
+## When to Use
+
+- At a team's retrospective when evidence and experience can inform improvements.
+- When the team needs a safe discussion and a small set of owned experiments.
+
+## When NOT to Use
+
+- To attribute blame or archive lessons without checking the next action.
+- Do not close an improvement solely because it was documented or assigned. See [Lessons archive](../../../../docs/principles/anti-patterns.md#lessons-archive).
+
+## Pairs Well With
+
+- [Daily Standup Template](../../../../domains/team/role-based-toolkits/scrum-master/agile-ceremonies/daily-standup-template.md).
+- [Team Charter Template](../../../../domains/team/project-lifecycle/02-planning/resource-planning/team-charter-template.md).
+
+Selection context: Team domain; agile methodology; advanced complexity. Match the situations above to project phase, risk, team size, and industry using the [decision-engine context model](../../../../meta/architecture-research/800-801-context-assessment-model.md).
+
 ## Scrum tailoring
 
 These worksheets and suggested agendas are optional practices. In Scrum, the Developers own the plan for delivering the Sprint Goal; selected work is a forecast that can be adapted. A Definition of Ready and story points are optional team practices. Use the product Definition of Done consistently, and treat the Sprint Review as inspection and adaptation rather than a release-approval gate. See the [Scrum Guide](https://scrumguides.org/scrum-guide.html).

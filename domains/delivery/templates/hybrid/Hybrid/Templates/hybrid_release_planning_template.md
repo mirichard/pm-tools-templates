@@ -8,6 +8,23 @@ updated: "2025-08-05"
 
 # Hybrid Release Planning Template
 
+## When to Use
+
+- When a release combines iterative software with predictive dependencies or milestones.
+- When teams need a shared release roadmap, integration points, and readiness decisions.
+
+## When NOT to Use
+
+- To use fixed milestone dates as evidence that iterative work is ready.
+- Do not use a completed template or example configuration as proof of fitness for the actual environment. See [Template as substitute for judgment](../../../../../../docs/principles/anti-patterns.md#template-judgment).
+
+## Pairs Well With
+
+- [Agile Release Plan Template](../../../../../../domains/delivery/project-lifecycle/02-planning/project-management-plan/agile-release-plan-template.md).
+- [Release Management Template](../../../../../../domains/measurement/methodology-frameworks/emerging-methods/devops/release_management_template.md).
+
+Selection context: Delivery domain; hybrid methodology; advanced complexity. Match the situations above to project phase, risk, team size, and industry using the [decision-engine context model](../../../../../../meta/architecture-research/800-801-context-assessment-model.md).
+
 ## Overview
 This template provides a framework for planning and managing releases in hybrid project environments that combine traditional (predictive) and agile (adaptive) approaches. It enables teams to coordinate delivery across different methodologies while maintaining a coherent release strategy. Adapt sections as needed based on your specific project context, methodology balance, and organizational requirements.
 

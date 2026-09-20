@@ -15,6 +15,23 @@ estimated_completion_time: "15-30 minutes"
 
 # Project Governance Assessment Template
 
+## When to Use
+
+- When reviewing whether governance decisions, authorities, and controls fit project exposure.
+- When assessment evidence can identify excessive overhead or missing accountability.
+
+## When NOT to Use
+
+- To claim governance effectiveness from document existence alone.
+- Do not treat completed metadata or a filled checklist as evidence that the underlying work is done. See [Metadata theater](../../../docs/principles/anti-patterns.md#metadata-theater).
+
+## Pairs Well With
+
+- [Enterprise Risk Assessment Template](../../../domains/uncertainty/project-lifecycle/02-planning/risk-management/enterprise-risk-assessment-template.md).
+- [Remediation Action Plan Template](../../../domains/measurement/project-assessment-suite/remediation-action-plan-template.md).
+
+Selection context: Measurement domain; universal methodology; starter complexity. Match the situations above to project phase, risk, team size, and industry using the [decision-engine context model](../../../meta/architecture-research/800-801-context-assessment-model.md).
+
 ## Executive Summary
 This template provides a comprehensive framework for assessing project governance effectiveness and identifying improvement opportunities.
 

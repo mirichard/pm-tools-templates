@@ -8,6 +8,23 @@ updated: "2026-09-19"
 
 # SAFe Metrics Dashboard Template
 
+## When to Use
+
+- When SAFe leaders need dashboards spanning team, train, and portfolio levels.
+- When metric owners can maintain comparable definitions, sources, and trends.
+
+## When NOT to Use
+
+- To interpret every local metric as comparable across teams or contexts.
+- Do not report sample values, unsupported ratings, or missing data as verified performance. See [Metric without source](../../../../../../docs/principles/anti-patterns.md#metric-source).
+
+## Pairs Well With
+
+- [Safe Metrics Reporting Template](../../../../../../domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_metrics_reporting_template.md).
+- [Metrics Dashboard Template](../../../../../../domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/metrics_dashboard_template.md).
+
+Selection context: Delivery domain; agile methodology; advanced complexity. Match the situations above to project phase, risk, team size, and industry using the [decision-engine context model](../../../../../../meta/architecture-research/800-801-context-assessment-model.md).
+
 ## Completing the worksheet
 
 Replace populated examples with project evidence before circulation. Record the reporting period, baseline, source, owner, and calculation for each measure; define thresholds and approval authority locally. Show unavailable values as unknown rather than zero or a favorable status. Reconcile totals and units, handle zero denominators explicitly, and retain the decision rationale and supporting evidence.

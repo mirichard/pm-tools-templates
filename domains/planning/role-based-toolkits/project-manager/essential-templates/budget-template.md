@@ -11,6 +11,23 @@ principle_rationale: "Plans responsible resource use against value assumptions a
 
 # Project Budget Template
 
+## When to Use
+
+- During planning when a project needs a cost baseline and time-phased funding forecast.
+- When staffing, procurement, contingency, and cash-flow assumptions need explicit owners.
+
+## When NOT to Use
+
+- As authorization to spend without the organization's approval process.
+- Do not overwrite the original baseline to remove an unfavorable variance. See [Rebaseline to green](../../../../../docs/principles/anti-patterns.md#baseline-green).
+
+## Pairs Well With
+
+- [Business Case Template](../../../../../domains/planning/templates/traditional/Traditional/Templates/business_case_template.md).
+- [Purchase Order Template](../../../../../domains/delivery/templates/traditional/Traditional/Templates/purchase_order_template.md).
+
+Selection context: Planning domain; universal methodology; advanced complexity. Match the situations above to project phase, risk, team size, and industry using the [decision-engine context model](../../../../../meta/architecture-research/800-801-context-assessment-model.md).
+
 ## Completing the worksheet
 
 Replace populated examples with project evidence before circulation. Record the reporting period, baseline, source, owner, and calculation for each measure; define thresholds and approval authority locally. Show unavailable values as unknown rather than zero or a favorable status. Reconcile totals and units, handle zero denominators explicitly, and retain the decision rationale and supporting evidence.

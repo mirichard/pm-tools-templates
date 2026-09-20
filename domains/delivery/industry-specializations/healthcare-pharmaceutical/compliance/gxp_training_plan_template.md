@@ -8,6 +8,23 @@ updated: "2026-09-19"
 
 # GxP Training Plan Template
 
+## When to Use
+
+- When regulated roles require documented training and competence evidence.
+- When managers must map role requirements to training, assessment, and retraining triggers.
+
+## When NOT to Use
+
+- To treat course attendance alone as demonstrated job competence.
+- Do not use a completed template or example configuration as proof of fitness for the actual environment. See [Template as substitute for judgment](../../../../../docs/principles/anti-patterns.md#template-judgment).
+
+## Pairs Well With
+
+- [Skills Matrix Template](../../../../../domains/team/project-lifecycle/02-planning/resource-planning/skills-matrix-template.md).
+- [Quality Management Review Template](../../../../../domains/delivery/industry-specializations/healthcare-pharmaceutical/quality/quality_management_review_template.md).
+
+Selection context: Delivery domain; universal methodology; advanced complexity. Match the situations above to project phase, risk, team size, and industry using the [decision-engine context model](../../../../../meta/architecture-research/800-801-context-assessment-model.md).
+
 Reference check: [Current source](https://www.fda.gov/regulatory-information/search-fda-guidance-documents/e6r3-good-clinical-practice-gcp), [Current source](https://www.fda.gov/medical-devices/postmarket-requirements-devices/quality-management-system-regulation-qmsr).
 
 

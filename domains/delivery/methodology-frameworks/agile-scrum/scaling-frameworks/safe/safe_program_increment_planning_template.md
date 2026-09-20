@@ -8,6 +8,23 @@ updated: "2026-09-19"
 
 # SAFe Program Increment Planning Template
 
+## When to Use
+
+- When a SAFe planning interval needs program vision, team objectives, and dependency negotiation.
+- When several teams must surface risks and assess confidence in an integrated plan.
+
+## When NOT to Use
+
+- To treat a confidence vote as proof that all delivery risks are controlled.
+- Do not use a completed template or example configuration as proof of fitness for the actual environment. See [Template as substitute for judgment](../../../../../../docs/principles/anti-patterns.md#template-judgment).
+
+## Pairs Well With
+
+- [Safe Art Coordination Template](../../../../../../domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_art_coordination_template.md).
+- [Pi Planning Template](../../../../../../domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/pi_planning_template.md).
+
+Selection context: Delivery domain; agile methodology; advanced complexity. Match the situations above to project phase, risk, team size, and industry using the [decision-engine context model](../../../../../../meta/architecture-research/800-801-context-assessment-model.md).
+
 **Agile Release Train:** [ART Name]  
 **Program Increment:** [PI Number]  
 **PI Planning Dates:** [Start Date] - [End Date]  

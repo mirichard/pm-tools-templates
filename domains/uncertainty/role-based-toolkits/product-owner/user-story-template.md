@@ -8,6 +8,23 @@ updated: "2026-09-19"
 
 # User Story Template
 
+## When to Use
+
+- During backlog refinement when one user need requires a small, testable conversation record.
+- When the team must agree acceptance criteria, dependencies, and useful story splitting.
+
+## When NOT to Use
+
+- To replace stakeholder conversation with a rigid sentence format.
+- Do not treat completed metadata or a filled checklist as evidence that the underlying work is done. See [Metadata theater](../../../../docs/principles/anti-patterns.md#metadata-theater).
+
+## Pairs Well With
+
+- [Backlog Refinement Template](../../../../domains/team/role-based-toolkits/scrum-master/agile-ceremonies/backlog-refinement-template.md).
+- [Requirements Traceability Matrix Template](../../../../domains/delivery/templates/traditional/Traditional/Process_Groups/Executing/requirements_traceability_matrix_template.md).
+
+Selection context: Uncertainty domain; universal methodology; advanced complexity. Match the situations above to project phase, risk, team size, and industry using the [decision-engine context model](../../../../meta/architecture-research/800-801-context-assessment-model.md).
+
 ## Story Information
 - **Story ID**: [ID]
 - **Epic**: [Epic Name/ID]

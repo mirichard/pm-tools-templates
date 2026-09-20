@@ -8,6 +8,23 @@ updated: "2026-09-19"
 
 # Manufacturing Batch Record Template
 
+## When to Use
+
+- When preparing a manufacturing batch record tailored to the approved site process.
+- When operations and quality must capture execution, reconciliation, and deviations consistently.
+
+## When NOT to Use
+
+- As a second conflicting master record for a batch already governed by an approved system.
+- Do not treat completed metadata or a filled checklist as evidence that the underlying work is done. See [Metadata theater](../../../../../docs/principles/anti-patterns.md#metadata-theater).
+
+## Pairs Well With
+
+- [Batch Record Template](../../../../../domains/delivery/industry-specializations/healthcare-pharmaceutical/manufacturing/batch_record_template.md).
+- [Process Control Template](../../../../../domains/delivery/industry-specializations/healthcare-pharmaceutical/manufacturing/process_control_template.md).
+
+Selection context: Delivery domain; universal methodology; advanced complexity. Match the situations above to project phase, risk, team size, and industry using the [decision-engine context model](../../../../../meta/architecture-research/800-801-context-assessment-model.md).
+
 ## Applying this template
 
 Treat filled examples, dates, numerical limits, sampling frequencies, and approval outcomes as illustrations. Before execution, replace them with the approved product/site requirements, scientific rationale, method references, responsible reviewer, and acceptance evidence. Record the applicable jurisdiction and current guidance edition; a completed worksheet alone does not demonstrate regulatory compliance.

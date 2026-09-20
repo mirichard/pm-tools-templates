@@ -8,6 +8,23 @@ updated: "2026-09-19"
 
 # Enterprise Risk Assessment
 
+## When to Use
+
+- During planning or major change when material risks span multiple organizational functions.
+- When risk appetite, scoring, ownership, and escalation need a shared enterprise view.
+
+## When NOT to Use
+
+- For a small team's routine issue list without enterprise exposure.
+- Do not impose enterprise coordination or approval layers where team size and risk do not justify them. See [Maximum governance](../../../../../docs/principles/anti-patterns.md#maximum-governance).
+
+## Pairs Well With
+
+- [Risk Management Plan Template](../../../../../domains/measurement/project-lifecycle/02-planning/risk-management/risk-management-plan-template.md).
+- [Risk Register Template](../../../../../domains/uncertainty/project-lifecycle/02-planning/risk-management/risk-register-template.md).
+
+Selection context: Uncertainty domain; universal methodology; starter complexity. Match the situations above to project phase, risk, team size, and industry using the [decision-engine context model](../../../../../meta/architecture-research/800-801-context-assessment-model.md).
+
 ## Purpose and use
 
 Identify uncertain events that could affect enterprise objectives and agree accountable responses. Define assessment boundaries and thresholds before scoring. Record realized events in the issue log rather than treating them as future risks.

@@ -13,13 +13,30 @@ principle_rationale: "Connects benefit decisions to traceable outcome evidence a
 
 # Benefits Review
 
+## When to Use
+
+- At midpoint, closure, or post-delivery checkpoints with agreed benefit targets.
+- When benefit owners must decide whether to continue, adapt, or stop realization actions.
+
+## When NOT to Use
+
+- For exploratory outcomes without measurable targets; record learning hypotheses first.
+- Do not infer realized value from completed outputs, spending, or activity counts. See [Value equals output](../../docs/principles/anti-patterns.md#value-output).
+
+## Pairs Well With
+
+- [Benefits Variance Analysis Template](../../templates/universal/benefits-variance-analysis-template.md).
+- [Roi Tracking Template](../../domains/delivery/templates/traditional/Traditional/Knowledge_Areas/Project_Cost_Management/roi_tracking_template.md).
+
+Selection context: Measurement domain; universal methodology; intermediate complexity. Match the situations above to project phase, risk, team size, and industry using the [decision-engine context model](../../meta/architecture-research/800-801-context-assessment-model.md).
+
 Use with the [Benefits Review Process](../../docs/benefits/benefits-review-process.md) and [variance template](benefits-variance-analysis-template.md).
 
-## When to use
+## Additional use considerations
 
 At the approved midpoint, closure, 30/60/90-day checkpoints, or an event-driven review for a project with measurable benefit targets.
 
-## When not to use
+## Additional exclusions
 
 For emergent research outcomes without approved targets; use learning hypotheses until measurable benefits can be baselined.
 

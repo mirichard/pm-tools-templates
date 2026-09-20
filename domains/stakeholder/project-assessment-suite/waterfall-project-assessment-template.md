@@ -15,6 +15,23 @@ estimated_completion_time: "15-30 minutes"
 
 # Waterfall Project Assessment Template
 
+## When to Use
+
+- When assessing a predictive project's phase readiness and management practices.
+- When reviewers can evaluate gate evidence, baselines, and corrective actions.
+
+## When NOT to Use
+
+- To approve a phase merely because its checklist has been populated.
+- Do not represent author self-checks as independent or authorized approval. See [Self-approval](../../../docs/principles/anti-patterns.md#self-approval).
+
+## Pairs Well With
+
+- [Project Health Assessment Template](../../../domains/measurement/project-assessment-suite/project-health-assessment-template.md).
+- [Governance Assessment Template](../../../domains/measurement/project-assessment-suite/governance-assessment-template.md).
+
+Selection context: Stakeholder domain; traditional methodology; starter complexity. Match the situations above to project phase, risk, team size, and industry using the [decision-engine context model](../../../meta/architecture-research/800-801-context-assessment-model.md).
+
 ## Executive Summary
 This template provides assessment criteria specifically for traditional waterfall project management approaches.
 

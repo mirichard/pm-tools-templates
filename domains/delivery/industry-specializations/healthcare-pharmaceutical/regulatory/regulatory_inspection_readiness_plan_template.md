@@ -8,6 +8,23 @@ updated: "2026-09-19"
 
 # Regulatory Inspection Readiness Plan
 
+## When to Use
+
+- When preparing a regulated site or program for a possible inspection.
+- When authorized staff must coordinate evidence readiness, roles, responses, and follow-up.
+
+## When NOT to Use
+
+- To manufacture or backdate evidence to make a record appear inspection-ready.
+- Do not represent author self-checks as independent or authorized approval. See [Self-approval](../../../../../docs/principles/anti-patterns.md#self-approval).
+
+## Pairs Well With
+
+- [Health Authority Communication Plan Template](../../../../../domains/delivery/industry-specializations/healthcare-pharmaceutical/regulatory/health_authority_communication_plan_template.md).
+- [Quality Management Review Template](../../../../../domains/delivery/industry-specializations/healthcare-pharmaceutical/quality/quality_management_review_template.md).
+
+Selection context: Delivery domain; universal methodology; advanced complexity. Match the situations above to project phase, risk, team size, and industry using the [decision-engine context model](../../../../../meta/architecture-research/800-801-context-assessment-model.md).
+
 ## Applying this template
 
 Treat filled examples, dates, numerical limits, sampling frequencies, and approval outcomes as illustrations. Before execution, replace them with the approved product/site requirements, scientific rationale, method references, responsible reviewer, and acceptance evidence. Record the applicable jurisdiction and current guidance edition; a completed worksheet alone does not demonstrate regulatory compliance.

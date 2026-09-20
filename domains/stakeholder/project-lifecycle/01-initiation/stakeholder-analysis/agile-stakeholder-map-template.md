@@ -12,6 +12,23 @@ principle_rationale: "Maps stakeholder relationships so engagement adapts to inf
 
 # Agile Stakeholder Map Template
 
+## When to Use
+
+- During Agile initiation when product decisions need input from users, sponsors, and operational stakeholders.
+- When planning which affected groups should join reviews and how feedback will be closed.
+
+## When NOT to Use
+
+- As a mailing list without decisions or engagement responsibilities.
+- Do not represent attendance, distribution, or silence as stakeholder agreement. See [Stakeholder broadcast](../../../../../docs/principles/anti-patterns.md#stakeholder-broadcast).
+
+## Pairs Well With
+
+- [Stakeholder Register Template](../../../../../domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/stakeholder-register-template.md).
+- [Sprint Review Template](../../../../../domains/team/templates/agile/sprint_review_template.md).
+
+Selection context: Stakeholder domain; universal methodology; intermediate complexity. Match the situations above to project phase, risk, team size, and industry using the [decision-engine context model](../../../../../meta/architecture-research/800-801-context-assessment-model.md).
+
 ## Scrum tailoring
 
 These worksheets and suggested agendas are optional practices. In Scrum, the Developers own the plan for delivering the Sprint Goal; selected work is a forecast that can be adapted. A Definition of Ready and story points are optional team practices. Use the product Definition of Done consistently, and treat the Sprint Review as inspection and adaptation rather than a release-approval gate. See the [Scrum Guide](https://scrumguides.org/scrum-guide.html).

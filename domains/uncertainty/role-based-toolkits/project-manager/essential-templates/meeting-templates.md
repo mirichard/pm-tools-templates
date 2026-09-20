@@ -8,6 +8,23 @@ updated: "2026-09-19"
 
 # Meeting Templates Collection
 
+## When to Use
+
+- When choosing a meeting format for kickoff, planning, review, or problem resolution.
+- When an agenda must identify the decision, participants, and owned follow-up.
+
+## When NOT to Use
+
+- To schedule recurring meetings with no decision or coordination purpose.
+- Do not impose enterprise coordination or approval layers where team size and risk do not justify them. See [Maximum governance](../../../../../docs/principles/anti-patterns.md#maximum-governance).
+
+## Pairs Well With
+
+- [Communication Plan Template](../../../../../domains/delivery/templates/traditional/Traditional/Templates/communication_plan_template.md).
+- [Issue Log Template](../../../../../domains/delivery/templates/traditional/Traditional/Templates/issue_log_template.md).
+
+Selection context: Uncertainty domain; universal methodology; advanced complexity. Match the situations above to project phase, risk, team size, and industry using the [decision-engine context model](../../../../../meta/architecture-research/800-801-context-assessment-model.md).
+
 ## Scrum tailoring
 
 These worksheets and suggested agendas are optional practices. In Scrum, the Developers own the plan for delivering the Sprint Goal; selected work is a forecast that can be adapted. A Definition of Ready and story points are optional team practices. Use the product Definition of Done consistently, and treat the Sprint Review as inspection and adaptation rather than a release-approval gate. See the [Scrum Guide](https://scrumguides.org/scrum-guide.html).

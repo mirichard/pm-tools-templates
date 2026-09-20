@@ -8,6 +8,23 @@ updated: "2026-09-19"
 
 # ROI Tracking Template
 
+## When to Use
+
+- During delivery and post-delivery when investment costs and realized benefits need tracking.
+- When benefit owners must distinguish forecast returns from observed outcomes.
+
+## When NOT to Use
+
+- To count delivery completion or gross revenue as net realized benefit.
+- Do not infer realized value from completed outputs, spending, or activity counts. See [Value equals output](../../../../../../../docs/principles/anti-patterns.md#value-output).
+
+## Pairs Well With
+
+- [Benefits Review Template](../../../../../../../templates/universal/benefits-review-template.md).
+- [Benefits Variance Analysis Template](../../../../../../../templates/universal/benefits-variance-analysis-template.md).
+
+Selection context: Delivery domain; traditional methodology; advanced complexity. Match the situations above to project phase, risk, team size, and industry using the [decision-engine context model](../../../../../../../meta/architecture-research/800-801-context-assessment-model.md).
+
 ## Completing the worksheet
 
 Replace populated examples with project evidence before circulation. Record the reporting period, baseline, source, owner, and calculation for each measure; define thresholds and approval authority locally. Show unavailable values as unknown rather than zero or a favorable status. Reconcile totals and units, handle zero denominators explicitly, and retain the decision rationale and supporting evidence.

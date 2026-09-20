@@ -8,6 +8,23 @@ updated: "2026-09-19"
 
 # Process Validation Master Plan Template
 
+## When to Use
+
+- When planning a coordinated process-validation program across activities or products.
+- When quality owners need policy, responsibilities, sequencing, and lifecycle oversight.
+
+## When NOT to Use
+
+- As execution evidence for any individual process-validation protocol.
+- Do not represent author self-checks as independent or authorized approval. See [Self-approval](../../../../../docs/principles/anti-patterns.md#self-approval).
+
+## Pairs Well With
+
+- [Process Validation Protocol Template](../../../../../domains/delivery/industry-specializations/healthcare-pharmaceutical/regulatory/process_validation_protocol_template.md).
+- [Validation Master Plan Template](../../../../../domains/delivery/industry-specializations/healthcare-pharmaceutical/validation/validation_master_plan_template.md).
+
+Selection context: Delivery domain; universal methodology; advanced complexity. Match the situations above to project phase, risk, team size, and industry using the [decision-engine context model](../../../../../meta/architecture-research/800-801-context-assessment-model.md).
+
 ## Applying this template
 
 Treat filled examples, dates, numerical limits, sampling frequencies, and approval outcomes as illustrations. Before execution, replace them with the approved product/site requirements, scientific rationale, method references, responsible reviewer, and acceptance evidence. Record the applicable jurisdiction and current guidance edition; a completed worksheet alone does not demonstrate regulatory compliance.

@@ -11,6 +11,23 @@ principle_rationale: "Makes interface quality, ownership, dependencies, and cons
 
 # API Documentation Template
 
+## When to Use
+
+- When publishing an API contract for software consumers during design or delivery.
+- When consumers need authentication, versioning, endpoint, error, and example behavior in one reference.
+
+## When NOT to Use
+
+- As evidence that example authentication or webhook code is production-ready without environment testing.
+- Do not use a completed template or example configuration as proof of fitness for the actual environment. See [Template as substitute for judgment](../../../../../docs/principles/anti-patterns.md#template-judgment).
+
+## Pairs Well With
+
+- [Requirements Specification Template](../../../../../domains/uncertainty/industry-specializations/information-technology/software-development/requirements_specification_template.md).
+- [Test Plan Template](../../../../../domains/measurement/industry-specializations/information-technology/software-development/test_plan_template.md).
+
+Selection context: Delivery domain; universal methodology; advanced complexity. Match the situations above to project phase, risk, team size, and industry using the [decision-engine context model](../../../../../meta/architecture-research/800-801-context-assessment-model.md).
+
 ## Example implementation contract
 
 Code, queries, configuration, versions, thresholds, and sample output illustrate the design; they are not a tested deployment bundle. Record the actual platform/version, supported dependencies, credentials source, least-privilege access, environment-specific values, and test results before use. Pin release artifacts and validate rollback and failure paths in the target environment. Never use sample secrets or sample approval results as operational evidence.

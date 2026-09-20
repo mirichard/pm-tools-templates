@@ -8,6 +8,23 @@ updated: "2026-09-19"
 
 # Cybersecurity Assessment Template
 
+## When to Use
+
+- When assessing an IT environment's security posture before prioritizing improvements.
+- When threat, vulnerability, asset, and response evidence need a bounded assessment scope.
+
+## When NOT to Use
+
+- As certification of security or a replacement for authorized technical testing.
+- Do not use a completed template or example configuration as proof of fitness for the actual environment. See [Template as substitute for judgment](../../../../../docs/principles/anti-patterns.md#template-judgment).
+
+## Pairs Well With
+
+- [Risk Assessment Template](../../../../../domains/measurement/industry-specializations/information-technology/cybersecurity/risk_assessment_template.md).
+- [Incident Response Template](../../../../../domains/measurement/industry-specializations/information-technology/cybersecurity/incident_response_template.md).
+
+Selection context: Measurement domain; universal methodology; advanced complexity. Match the situations above to project phase, risk, team size, and industry using the [decision-engine context model](../../../../../meta/architecture-research/800-801-context-assessment-model.md).
+
 ## Framework and response applicability
 
 When using NIST CSF, map the assessment to the six CSF 2.0 functions, including Govern. Record decision authority, risk appetite, oversight, and supply-chain responsibilities as well as technical controls. The [NIST CSF 2.0 overview](https://www.nist.gov/news-events/news/2024/02/nist-releases-version-20-landmark-cybersecurity-framework) explains the governance addition. Example response times and notification periods must be replaced by the approved service, incident, and jurisdiction-specific requirements.

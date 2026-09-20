@@ -8,6 +8,23 @@ updated: "2026-09-19"
 
 # Infrastructure Assessment Template
 
+## When to Use
+
+- Before infrastructure investment or migration when current capacity and risks need assessment.
+- When IT owners need evidence-backed gaps and recommendations.
+
+## When NOT to Use
+
+- To approve a detailed target design solely from high-level assessment scores.
+- Do not report sample values, unsupported ratings, or missing data as verified performance. See [Metric without source](../../../../../docs/principles/anti-patterns.md#metric-source).
+
+## Pairs Well With
+
+- [Data Center Design Template](../../../../../domains/planning/industry-specializations/information-technology/infrastructure/data_center_design_template.md).
+- [Migration Plan Template](../../../../../domains/uncertainty/industry-specializations/information-technology/infrastructure/migration_plan_template.md).
+
+Selection context: Measurement domain; universal methodology; advanced complexity. Match the situations above to project phase, risk, team size, and industry using the [decision-engine context model](../../../../../meta/architecture-research/800-801-context-assessment-model.md).
+
 ## Document Control
 
 **Document ID:** [Document identifier]\

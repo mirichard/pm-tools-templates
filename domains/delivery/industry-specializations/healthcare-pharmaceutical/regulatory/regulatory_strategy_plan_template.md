@@ -8,6 +8,23 @@ updated: "2026-09-19"
 
 # Regulatory Strategy Plan
 
+## When to Use
+
+- During regulated product planning when market, classification, pathway, and submission choices need review.
+- When regulatory owners must document assumptions, dependencies, and decision evidence.
+
+## When NOT to Use
+
+- As an authoritative pathway determination without qualified product-specific review.
+- Do not use a completed template or example configuration as proof of fitness for the actual environment. See [Template as substitute for judgment](../../../../../docs/principles/anti-patterns.md#template-judgment).
+
+## Pairs Well With
+
+- [Health Authority Communication Plan Template](../../../../../domains/delivery/industry-specializations/healthcare-pharmaceutical/regulatory/health_authority_communication_plan_template.md).
+- [Compliance Risk Assessment Template](../../../../../domains/delivery/industry-specializations/healthcare-pharmaceutical/regulatory/compliance_risk_assessment_template.md).
+
+Selection context: Delivery domain; universal methodology; intermediate complexity. Match the situations above to project phase, risk, team size, and industry using the [decision-engine context model](../../../../../meta/architecture-research/800-801-context-assessment-model.md).
+
 ## Applying this template
 
 Treat filled examples, dates, numerical limits, sampling frequencies, and approval outcomes as illustrations. Before execution, replace them with the approved product/site requirements, scientific rationale, method references, responsible reviewer, and acceptance evidence. Record the applicable jurisdiction and current guidance edition; a completed worksheet alone does not demonstrate regulatory compliance.

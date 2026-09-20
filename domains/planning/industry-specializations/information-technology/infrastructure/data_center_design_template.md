@@ -8,6 +8,23 @@ updated: "2026-09-19"
 
 # Data Center Design Template
 
+## When to Use
+
+- During infrastructure planning when data-center capacity and design decisions need traceability.
+- When facilities and IT owners must agree resilience, power, cooling, and handover requirements.
+
+## When NOT to Use
+
+- As engineering approval or a construction-ready design without qualified review.
+- Do not use a completed template or example configuration as proof of fitness for the actual environment. See [Template as substitute for judgment](../../../../../docs/principles/anti-patterns.md#template-judgment).
+
+## Pairs Well With
+
+- [Infrastructure Assessment Template](../../../../../domains/measurement/industry-specializations/information-technology/infrastructure/infrastructure_assessment_template.md).
+- [Disaster Recovery Template](../../../../../domains/planning/industry-specializations/information-technology/infrastructure/disaster_recovery_template.md).
+
+Selection context: Planning domain; universal methodology; starter complexity. Match the situations above to project phase, risk, team size, and industry using the [decision-engine context model](../../../../../meta/architecture-research/800-801-context-assessment-model.md).
+
 ## Purpose and use
 
 Capture requirements and design decisions for review by the facility, network, security, and operations leads. This planning worksheet does not prescribe engineering capacities or replace approved engineering drawings.

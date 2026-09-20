@@ -15,6 +15,23 @@ estimated_completion_time: "30-45 minutes"
 
 # Gap Analysis Matrix Template
 
+## When to Use
+
+- When both current-state evidence and a defined target are available.
+- When decision makers need to prioritize capability gaps and assign closure actions.
+
+## When NOT to Use
+
+- To score gaps against an undefined or aspirational target without criteria.
+- Do not report sample values, unsupported ratings, or missing data as verified performance. See [Metric without source](../../../docs/principles/anti-patterns.md#metric-source).
+
+## Pairs Well With
+
+- [Current State Analysis Template](../../../domains/measurement/project-assessment-suite/current-state-analysis-template.md).
+- [Remediation Action Plan Template](../../../domains/measurement/project-assessment-suite/remediation-action-plan-template.md).
+
+Selection context: Measurement domain; universal methodology; advanced complexity. Match the situations above to project phase, risk, team size, and industry using the [decision-engine context model](../../../meta/architecture-research/800-801-context-assessment-model.md).
+
 ## Completing the worksheet
 
 Replace populated examples with project evidence before circulation. Record the reporting period, baseline, source, owner, and calculation for each measure; define thresholds and approval authority locally. Show unavailable values as unknown rather than zero or a favorable status. Reconcile totals and units, handle zero denominators explicitly, and retain the decision rationale and supporting evidence.

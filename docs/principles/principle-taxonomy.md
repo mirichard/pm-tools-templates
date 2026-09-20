@@ -120,3 +120,8 @@ The taxonomy synthesizes PMI's value-delivery, stewardship, stakeholder, team, t
 | Reviewer | Independence/qualification | Decision | Date | Review evidence |
 |---|---|---|---|---|
 | Repository owner/user (`mirichard`) | Human content owner, separate from the Codex author | APPROVED — “approved all content” | 2026-09-02 | Approval conveyed in the Codex execution session; annotations validated on the feature branch |
+
+## Apply the principles
+
+- [Usage anti-patterns and template examples](anti-patterns.md)
+- [Principle alignment self-assessment](self-assessment.md)

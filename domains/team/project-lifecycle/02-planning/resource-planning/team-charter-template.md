@@ -8,6 +8,23 @@ updated: "2026-09-19"
 
 # Team Charter Template
 
+## When to Use
+
+- When forming or resetting a team across any delivery approach.
+- When members need explicit purpose, decision rights, collaboration, and conflict agreements.
+
+## When NOT to Use
+
+- To make every role identical or replace discussion with a signed form.
+- Do not represent author self-checks as independent or authorized approval. See [Self-approval](../../../../../docs/principles/anti-patterns.md#self-approval).
+
+## Pairs Well With
+
+- [Skills Matrix Template](../../../../../domains/team/project-lifecycle/02-planning/resource-planning/skills-matrix-template.md).
+- [Agile Team Charter Template](../../../../../domains/team/project-lifecycle/01-initiation/project-charter/agile-team-charter-template.md).
+
+Selection context: Team domain; universal methodology; advanced complexity. Match the situations above to project phase, risk, team size, and industry using the [decision-engine context model](../../../../../meta/architecture-research/800-801-context-assessment-model.md).
+
 ## Tailoring the working agreement
 
 Response times, meeting prompts, core hours, approval roles, and coding practices below are starting examples for team agreement. Adapt them to accessibility, time zones, the work, and organizational obligations. Review flow metrics at team level; do not compare individual productivity using velocity. Permit confidential escalation outside the team when appropriate.

@@ -8,6 +8,23 @@ updated: "2026-09-19"
 
 # CI/CD Pipeline Planning Template
 
+## When to Use
+
+- During software delivery planning when integration and deployment need repeatable stages.
+- When teams must define build, test, security, promotion, and rollback responsibilities.
+
+## When NOT to Use
+
+- As a ready-to-run production pipeline without adapting and testing the examples.
+- Do not use a completed template or example configuration as proof of fitness for the actual environment. See [Template as substitute for judgment](../../../../../docs/principles/anti-patterns.md#template-judgment).
+
+## Pairs Well With
+
+- [Devsecops Template](../../../../../domains/measurement/methodology-frameworks/emerging-methods/devops/devsecops_template.md).
+- [Release Management Template](../../../../../domains/measurement/methodology-frameworks/emerging-methods/devops/release_management_template.md).
+
+Selection context: Measurement domain; universal methodology; advanced complexity. Match the situations above to project phase, risk, team size, and industry using the [decision-engine context model](../../../../../meta/architecture-research/800-801-context-assessment-model.md).
+
 ## Example implementation contract
 
 Code, queries, configuration, versions, thresholds, and sample output illustrate the design; they are not a tested deployment bundle. Record the actual platform/version, supported dependencies, credentials source, least-privilege access, environment-specific values, and test results before use. Pin release artifacts and validate rollback and failure paths in the target environment. Never use sample secrets or sample approval results as operational evidence.

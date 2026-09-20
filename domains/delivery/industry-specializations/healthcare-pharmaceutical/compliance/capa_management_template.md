@@ -11,6 +11,23 @@ principle_rationale: "Uses controlled evidence and learning to correct causes an
 
 # Corrective and Preventive Action (CAPA) Management Template
 
+## When to Use
+
+- When a quality event requires investigation, corrective action, and an effectiveness check.
+- When authorized quality personnel need traceable causes, action owners, and prevention evidence.
+
+## When NOT to Use
+
+- To close a recurring problem solely because an action was implemented, without checking effectiveness.
+- Do not close an improvement solely because it was documented or assigned. See [Lessons archive](../../../../../docs/principles/anti-patterns.md#lessons-archive).
+
+## Pairs Well With
+
+- [Problem Management Process Template](../../../../../domains/delivery/industry-specializations/information-technology/service-management/problem_management_process_template.md).
+- [Quality Management Review Template](../../../../../domains/delivery/industry-specializations/healthcare-pharmaceutical/quality/quality_management_review_template.md).
+
+Selection context: Delivery domain; universal methodology; advanced complexity. Match the situations above to project phase, risk, team size, and industry using the [decision-engine context model](../../../../../meta/architecture-research/800-801-context-assessment-model.md).
+
 Reference check: [Current source](https://www.fda.gov/medical-devices/postmarket-requirements-devices/quality-management-system-regulation-qmsr).
 
 

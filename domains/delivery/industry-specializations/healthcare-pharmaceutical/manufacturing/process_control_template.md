@@ -8,6 +8,23 @@ updated: "2026-09-19"
 
 # Process Control Template
 
+## When to Use
+
+- When a manufacturing process needs defined monitoring and response controls.
+- When qualified owners must connect critical attributes, parameters, trends, and deviations.
+
+## When NOT to Use
+
+- To adopt example control limits without process-specific justification.
+- Do not report sample values, unsupported ratings, or missing data as verified performance. See [Metric without source](../../../../../docs/principles/anti-patterns.md#metric-source).
+
+## Pairs Well With
+
+- [Pharmaceutical Qbd Template](../../../../../domains/delivery/industry-specializations/healthcare-pharmaceutical/lifecycle/pharmaceutical_qbd_template.md).
+- [Process Validation Protocol Template](../../../../../domains/delivery/industry-specializations/healthcare-pharmaceutical/regulatory/process_validation_protocol_template.md).
+
+Selection context: Delivery domain; universal methodology; advanced complexity. Match the situations above to project phase, risk, team size, and industry using the [decision-engine context model](../../../../../meta/architecture-research/800-801-context-assessment-model.md).
+
 ## Applying this template
 
 Treat filled examples, dates, numerical limits, sampling frequencies, and approval outcomes as illustrations. Before execution, replace them with the approved product/site requirements, scientific rationale, method references, responsible reviewer, and acceptance evidence. Record the applicable jurisdiction and current guidance edition; a completed worksheet alone does not demonstrate regulatory compliance.

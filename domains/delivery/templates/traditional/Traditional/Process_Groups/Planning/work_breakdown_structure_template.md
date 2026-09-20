@@ -8,6 +8,23 @@ updated: "2026-09-19"
 
 # WORK BREAKDOWN STRUCTURE (WBS)
 
+## When to Use
+
+- During scope planning when deliverables need decomposition into manageable work packages.
+- When estimating and scheduling need explicit boundaries, owners, and a WBS dictionary.
+
+## When NOT to Use
+
+- As a task schedule before dependencies and resources have been considered.
+- Do not use a completed template or example configuration as proof of fitness for the actual environment. See [Template as substitute for judgment](../../../../../../../docs/principles/anti-patterns.md#template-judgment).
+
+## Pairs Well With
+
+- [Project Schedule Template](../../../../../../../domains/delivery/templates/traditional/Traditional/Process_Groups/Planning/project_schedule_template.md).
+- [Project Management Plan Template](../../../../../../../domains/delivery/templates/traditional/Traditional/Process_Groups/Planning/project_management_plan_template.md).
+
+Selection context: Delivery domain; traditional methodology; advanced complexity. Match the situations above to project phase, risk, team size, and industry using the [decision-engine context model](../../../../../../../meta/architecture-research/800-801-context-assessment-model.md).
+
 ## Completing the worksheet
 
 Replace populated examples with project evidence before circulation. Record the reporting period, baseline, source, owner, and calculation for each measure; define thresholds and approval authority locally. Show unavailable values as unknown rather than zero or a favorable status. Reconcile totals and units, handle zero denominators explicitly, and retain the decision rationale and supporting evidence.

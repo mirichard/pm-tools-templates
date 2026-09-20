@@ -8,6 +8,23 @@ updated: "2026-09-19"
 
 # Traditional Project Management Plan Template
 
+## When to Use
+
+- During predictive planning when delivery baselines and subsidiary plans must be integrated.
+- When the PM needs coordinated scope, work breakdown, schedule, cost, and controls.
+
+## When NOT to Use
+
+- To copy a comprehensive plan unchanged into a small low-risk initiative.
+- Do not impose enterprise coordination or approval layers where team size and risk do not justify them. See [Maximum governance](../../../../../docs/principles/anti-patterns.md#maximum-governance).
+
+## Pairs Well With
+
+- [Project Schedule Template](../../../../../domains/delivery/templates/traditional/Traditional/Process_Groups/Planning/project_schedule_template.md).
+- [Risk Management Plan Template](../../../../../domains/measurement/project-lifecycle/02-planning/risk-management/risk-management-plan-template.md).
+
+Selection context: Delivery domain; universal methodology; intermediate complexity. Match the situations above to project phase, risk, team size, and industry using the [decision-engine context model](../../../../../meta/architecture-research/800-801-context-assessment-model.md).
+
 ## Completing the worksheet
 
 Replace populated examples with project evidence before circulation. Record the reporting period, baseline, source, owner, and calculation for each measure; define thresholds and approval authority locally. Show unavailable values as unknown rather than zero or a favorable status. Reconcile totals and units, handle zero denominators explicitly, and retain the decision rationale and supporting evidence.

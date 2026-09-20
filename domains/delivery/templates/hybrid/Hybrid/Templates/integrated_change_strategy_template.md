@@ -8,6 +8,23 @@ updated: "2025-08-05"
 
 # Integrated Change Strategy Template
 
+## When to Use
+
+- When organizational adoption and delivery changes need coordinated governance.
+- When sponsors must align stakeholder engagement, communications, and change decisions across levels.
+
+## When NOT to Use
+
+- To combine change logs while leaving authority and impact decisions unresolved.
+- Do not represent attendance, distribution, or silence as stakeholder agreement. See [Stakeholder broadcast](../../../../../../docs/principles/anti-patterns.md#stakeholder-broadcast).
+
+## Pairs Well With
+
+- [Change Management Plan Template](../../../../../../domains/delivery/templates/traditional/Traditional/Templates/change_management_plan_template.md).
+- [Change Request Template](../../../../../../domains/delivery/templates/traditional/Traditional/Templates/change_request_template.md).
+
+Selection context: Delivery domain; hybrid methodology; advanced complexity. Match the situations above to project phase, risk, team size, and industry using the [decision-engine context model](../../../../../../meta/architecture-research/800-801-context-assessment-model.md).
+
 ## Document Information
 | Field | Value |
 |-------|-------|

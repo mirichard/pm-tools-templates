@@ -8,6 +8,23 @@ updated: "2026-09-19"
 
 # Software Requirements Specification (SRS)
 
+## When to Use
+
+- During software planning when system behavior and constraints need a verifiable specification.
+- When engineering and business stakeholders must agree interfaces and nonfunctional requirements.
+
+## When NOT to Use
+
+- To use a specification as technical design approval or test execution evidence.
+- Do not use a completed template or example configuration as proof of fitness for the actual environment. See [Template as substitute for judgment](../../../../../docs/principles/anti-patterns.md#template-judgment).
+
+## Pairs Well With
+
+- [Business Requirements Document Template](../../../../../domains/measurement/project-lifecycle/02-planning/business-requirements/business_requirements_document_template.md).
+- [Requirements Traceability Matrix Template](../../../../../domains/delivery/templates/traditional/Traditional/Process_Groups/Executing/requirements_traceability_matrix_template.md).
+
+Selection context: Uncertainty domain; universal methodology; advanced complexity. Match the situations above to project phase, risk, team size, and industry using the [decision-engine context model](../../../../../meta/architecture-research/800-801-context-assessment-model.md).
+
 Authentication examples require security-owner approval for the actual assurance level and user population. Use the current [NIST authentication guidance](https://pages.nist.gov/800-63-4/sp800-63b.html) when applicable and specify the chosen policy and verification tests.
 
 **Document ID:** [SRS-PROJ-VERSION]\

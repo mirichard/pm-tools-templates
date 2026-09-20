@@ -8,6 +8,23 @@ updated: "2025-08-05"
 
 # Hybrid Project Charter Template
 
+## When to Use
+
+- At initiation when stable commitments and exploratory work must coexist in one charter.
+- When sponsors need explicit boundaries between predictive controls and adaptive decisions.
+
+## When NOT to Use
+
+- To label a project hybrid without deciding which work follows which approach.
+- Do not treat completed metadata or a filled checklist as evidence that the underlying work is done. See [Metadata theater](../../../../../../docs/principles/anti-patterns.md#metadata-theater).
+
+## Pairs Well With
+
+- [Hybrid Project Management Plan Template](../../../../../../domains/delivery/project-lifecycle/02-planning/project-management-plan/hybrid-project-management-plan-template.md).
+- [Project Charter Template](../../../../../../domains/planning/templates/traditional/Traditional/Process_Groups/Initiating/project_charter_template.md).
+
+Selection context: Planning domain; hybrid methodology; advanced complexity. Match the situations above to project phase, risk, team size, and industry using the [decision-engine context model](../../../../../../meta/architecture-research/800-801-context-assessment-model.md).
+
 ## Overview
 This template provides a framework for project charters in hybrid project environments that combine traditional (predictive) and agile (adaptive) approaches. It enables teams to establish formal project authorization while maintaining the flexibility needed for iterative delivery. Adapt sections as needed based on your specific project context, methodology balance, and organizational requirements.
 

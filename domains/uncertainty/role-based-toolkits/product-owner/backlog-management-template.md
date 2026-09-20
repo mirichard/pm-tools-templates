@@ -11,6 +11,23 @@ principle_rationale: "Orders adaptable delivery choices by stakeholder value and
 
 # Backlog Management Template
 
+## When to Use
+
+- During product planning and delivery when backlog ordering needs explicit value and acceptance criteria.
+- When a Product Owner must balance stakeholder requests, dependencies, and refinement readiness.
+
+## When NOT to Use
+
+- As a separate authoritative backlog that duplicates the team's active work system.
+- Do not treat completed metadata or a filled checklist as evidence that the underlying work is done. See [Metadata theater](../../../../docs/principles/anti-patterns.md#metadata-theater).
+
+## Pairs Well With
+
+- [User Story Template](../../../../domains/uncertainty/role-based-toolkits/product-owner/user-story-template.md).
+- [Backlog Refinement Template](../../../../domains/team/role-based-toolkits/scrum-master/agile-ceremonies/backlog-refinement-template.md).
+
+Selection context: Uncertainty domain; universal methodology; advanced complexity. Match the situations above to project phase, risk, team size, and industry using the [decision-engine context model](../../../../meta/architecture-research/800-801-context-assessment-model.md).
+
 ## Scrum tailoring
 
 These worksheets and suggested agendas are optional practices. In Scrum, the Developers own the plan for delivering the Sprint Goal; selected work is a forecast that can be adapted. A Definition of Ready and story points are optional team practices. Use the product Definition of Done consistently, and treat the Sprint Review as inspection and adaptation rather than a release-approval gate. See the [Scrum Guide](https://scrumguides.org/scrum-guide.html).

@@ -8,6 +8,23 @@ updated: "2026-09-19"
 
 # LeSS Retrospective Format Template
 
+## When to Use
+
+- When multiple LeSS teams need both team-level and whole-product improvement discussions.
+- When cross-team causes require shared follow-up beyond one retrospective.
+
+## When NOT to Use
+
+- To collect lessons without assigning and revisiting improvement actions.
+- Do not close an improvement solely because it was documented or assigned. See [Lessons archive](../../../../../../docs/principles/anti-patterns.md#lessons-archive).
+
+## Pairs Well With
+
+- [Sprint Retrospective Template](../../../../../../domains/team/templates/agile/sprint_retrospective_template.md).
+- [Cross Team Coordination Template](../../../../../../domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/less/cross_team_coordination_template.md).
+
+Selection context: Team domain; agile methodology; advanced complexity. Match the situations above to project phase, risk, team size, and industry using the [decision-engine context model](../../../../../../meta/architecture-research/800-801-context-assessment-model.md).
+
 Use one defined product, shared Product Backlog and integrated product outcome. Coordination techniques and agenda durations here are optional facilitation examples, not additional mandatory roles or events. Adapt them consistently with the [LeSS framework](https://less.works/less/framework).
 
 

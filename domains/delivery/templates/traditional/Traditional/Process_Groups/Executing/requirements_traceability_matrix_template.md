@@ -8,6 +8,23 @@ updated: "2026-09-19"
 
 # REQUIREMENTS TRACEABILITY MATRIX (RTM)
 
+## When to Use
+
+- When requirements must be traced through design, change, and acceptance evidence.
+- When reviewers need to identify untested requirements or unsupported scope changes.
+
+## When NOT to Use
+
+- To equate a populated traceability row with passing verification.
+- Do not treat completed metadata or a filled checklist as evidence that the underlying work is done. See [Metadata theater](../../../../../../../docs/principles/anti-patterns.md#metadata-theater).
+
+## Pairs Well With
+
+- [Requirements Specification Template](../../../../../../../domains/uncertainty/industry-specializations/information-technology/software-development/requirements_specification_template.md).
+- [Test Plan Template](../../../../../../../domains/measurement/industry-specializations/information-technology/software-development/test_plan_template.md).
+
+Selection context: Delivery domain; traditional methodology; advanced complexity. Match the situations above to project phase, risk, team size, and industry using the [decision-engine context model](../../../../../../../meta/architecture-research/800-801-context-assessment-model.md).
+
 ## Document Control Information
 **Document Title:** Requirements Traceability Matrix Template  
 **Project Name:** *[Project Name]*  

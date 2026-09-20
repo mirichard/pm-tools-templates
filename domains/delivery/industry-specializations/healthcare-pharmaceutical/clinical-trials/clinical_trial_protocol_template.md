@@ -8,6 +8,23 @@ updated: "2026-09-19"
 
 # Clinical Trial Protocol Template
 
+## When to Use
+
+- When a clinical research team drafts a protocol for qualified scientific and ethics review.
+- When objectives, endpoints, study population, and safety responsibilities need a coherent design.
+
+## When NOT to Use
+
+- To initiate participant recruitment or procedures without the required approvals.
+- Do not represent author self-checks as independent or authorized approval. See [Self-approval](../../../../../docs/principles/anti-patterns.md#self-approval).
+
+## Pairs Well With
+
+- [Health Authority Communication Plan Template](../../../../../domains/delivery/industry-specializations/healthcare-pharmaceutical/regulatory/health_authority_communication_plan_template.md).
+- [Regulatory Strategy Plan Template](../../../../../domains/delivery/industry-specializations/healthcare-pharmaceutical/regulatory/regulatory_strategy_plan_template.md).
+
+Selection context: Delivery domain; universal methodology; advanced complexity. Match the situations above to project phase, risk, team size, and industry using the [decision-engine context model](../../../../../meta/architecture-research/800-801-context-assessment-model.md).
+
 Reference check: [Current source](https://www.fda.gov/regulatory-information/search-fda-guidance-documents/e6r3-good-clinical-practice-gcp).
 
 

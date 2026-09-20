@@ -8,6 +8,23 @@ updated: "2026-09-19"
 
 # Cybersecurity Risk Assessment Template
 
+## When to Use
+
+- When a security decision needs asset, threat, vulnerability, and treatment analysis.
+- When risk owners must select controls proportionate to exposure.
+
+## When NOT to Use
+
+- As proof that a low numerical score removes the need to address a material threat.
+- Do not report sample values, unsupported ratings, or missing data as verified performance. See [Metric without source](../../../../../docs/principles/anti-patterns.md#metric-source).
+
+## Pairs Well With
+
+- [Cybersecurity Assessment Template](../../../../../domains/measurement/industry-specializations/information-technology/security/cybersecurity_assessment_template.md).
+- [Risk Management Plan Template](../../../../../domains/measurement/project-lifecycle/02-planning/risk-management/risk-management-plan-template.md).
+
+Selection context: Measurement domain; universal methodology; advanced complexity. Match the situations above to project phase, risk, team size, and industry using the [decision-engine context model](../../../../../meta/architecture-research/800-801-context-assessment-model.md).
+
 ## Framework and response applicability
 
 When using NIST CSF, map the assessment to the six CSF 2.0 functions, including Govern. Record decision authority, risk appetite, oversight, and supply-chain responsibilities as well as technical controls. The [NIST CSF 2.0 overview](https://www.nist.gov/news-events/news/2024/02/nist-releases-version-20-landmark-cybersecurity-framework) explains the governance addition. Example response times and notification periods must be replaced by the approved service, incident, and jurisdiction-specific requirements.

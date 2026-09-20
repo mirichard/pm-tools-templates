@@ -8,6 +8,23 @@ updated: "2026-09-19"
 
 # Risk Management Plan Template
 
+## When to Use
+
+- During planning when risk appetite, scoring, ownership, and escalation need agreement.
+- When the team needs rules for maintaining and acting on the risk register.
+
+## When NOT to Use
+
+- As a substitute for identifying and reviewing actual project risks.
+- Do not use a completed template or example configuration as proof of fitness for the actual environment. See [Template as substitute for judgment](../../../../../docs/principles/anti-patterns.md#template-judgment).
+
+## Pairs Well With
+
+- [Risk Register Template](../../../../../domains/uncertainty/project-lifecycle/02-planning/risk-management/risk-register-template.md).
+- [Enterprise Risk Assessment Template](../../../../../domains/uncertainty/project-lifecycle/02-planning/risk-management/enterprise-risk-assessment-template.md).
+
+Selection context: Measurement domain; universal methodology; advanced complexity. Match the situations above to project phase, risk, team size, and industry using the [decision-engine context model](../../../../../meta/architecture-research/800-801-context-assessment-model.md).
+
 ## Document Information
 - **Project Name**: [Enter Project Name]
 - **Project Manager**: [Name]

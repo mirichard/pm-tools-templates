@@ -8,6 +8,23 @@ updated: "2025-08-05"
 
 # Stakeholder Register Template
 
+## When to Use
+
+- At initiation and throughout delivery when affected groups and decision roles need tracking.
+- When communication and engagement plans need accurate stakeholder needs and ownership.
+
+## When NOT to Use
+
+- As a static contact list that is never checked after scope or organizational changes.
+- Do not represent attendance, distribution, or silence as stakeholder agreement. See [Stakeholder broadcast](../../../../../docs/principles/anti-patterns.md#stakeholder-broadcast).
+
+## Pairs Well With
+
+- [Enterprise Stakeholder Analysis Template](../../../../../domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/enterprise-stakeholder-analysis-template.md).
+- [Communication Plan Template](../../../../../domains/delivery/templates/traditional/Traditional/Templates/communication_plan_template.md).
+
+Selection context: Stakeholder domain; universal methodology; intermediate complexity. Match the situations above to project phase, risk, team size, and industry using the [decision-engine context model](../../../../../meta/architecture-research/800-801-context-assessment-model.md).
+
 ## Purpose/Overview
 This stakeholder register template provides a comprehensive approach to identifying, analyzing, and managing project stakeholders. It serves as a central repository for stakeholder information, influence levels, and engagement strategies. The template enables effective stakeholder communication and helps ensure project success through proper stakeholder management throughout the project lifecycle.
 

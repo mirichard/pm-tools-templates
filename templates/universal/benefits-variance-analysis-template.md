@@ -13,11 +13,28 @@ principle_rationale: "Makes benefit variance, confidence, thresholds, and decisi
 
 # Benefits Variance Analysis
 
-## When to use
+## When to Use
+
+- At a benefits checkpoint with actual and expected achievement for the same date.
+- When measurement owners need to explain variance, confidence, and corrective action.
+
+## When NOT to Use
+
+- To calculate achievement with missing evidence, incompatible units, or a zero denominator; record NOT MEASURABLE instead.
+- Do not overwrite the original baseline to remove an unfavorable variance. See [Rebaseline to green](../../docs/principles/anti-patterns.md#baseline-green).
+
+## Pairs Well With
+
+- [Benefits Review Template](../../templates/universal/benefits-review-template.md).
+- [Roi Tracking Template](../../domains/delivery/templates/traditional/Traditional/Knowledge_Areas/Project_Cost_Management/roi_tracking_template.md).
+
+Selection context: Measurement domain; universal methodology; intermediate complexity. Match the situations above to project phase, risk, team size, and industry using the [decision-engine context model](../../meta/architecture-research/800-801-context-assessment-model.md).
+
+## Additional use considerations
 
 At every benefits-review checkpoint to compare actual achievement with the approved expected achievement as of the same date.
 
-## When not to use
+## Additional exclusions
 
 Do not calculate a percentage when the baseline equals the target, units differ, evidence is unavailable, or the measure is purely qualitative. Mark `NOT MEASURABLE` and record corrective action instead.
 

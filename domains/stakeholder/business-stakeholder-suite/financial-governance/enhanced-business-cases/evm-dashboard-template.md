@@ -8,6 +8,23 @@ updated: "2026-09-19"
 
 # Earned Value Management (EVM) Dashboard Template
 
+## When to Use
+
+- During execution when earned value can be measured against an approved cost and schedule baseline.
+- When control-account owners need traceable CPI, SPI, and forecast interpretation.
+
+## When NOT to Use
+
+- When earned value is inferred from spending or unsupported percent-complete estimates.
+- Do not overwrite the original baseline to remove an unfavorable variance. See [Rebaseline to green](../../../../../docs/principles/anti-patterns.md#baseline-green).
+
+## Pairs Well With
+
+- [Budget Template](../../../../../domains/planning/role-based-toolkits/project-manager/essential-templates/budget-template.md).
+- [Project Performance Monitoring Template](../../../../../domains/delivery/templates/traditional/Traditional/Process_Groups/Monitoring_and_Controlling/project_performance_monitoring_template.md).
+
+Selection context: Stakeholder domain; universal methodology; advanced complexity. Match the situations above to project phase, risk, team size, and industry using the [decision-engine context model](../../../../../meta/architecture-research/800-801-context-assessment-model.md).
+
 ## Completing the worksheet
 
 Replace populated examples with project evidence before circulation. Record the reporting period, baseline, source, owner, and calculation for each measure; define thresholds and approval authority locally. Show unavailable values as unknown rather than zero or a favorable status. Reconcile totals and units, handle zero denominators explicitly, and retain the decision rationale and supporting evidence.
