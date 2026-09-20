@@ -1,97 +1,16 @@
-# IP Compliance Scripts
+# IP Compliance Tooling Inventory
 
-This directory contains scripts for implementing and monitoring PMI IP compliance.
+This directory contains legacy documentation for repository PMI/IP review. It does not contain the executable suite formerly advertised here. The earlier examples naming `run_ip_mitigation.sh`, `implement_ip_mitigation.sh` and `quick_compliance_fix.sh` do not identify available scripts at these documented locations.
 
-## Scripts Overview
+## Existing tool
 
-### Master Script
-- **run_ip_mitigation.sh**: Coordinates all mitigation activities
+The root-level [validate_ip_compliance.sh](../validate_ip_compliance.sh) inspects Markdown with keyword heuristics for PMI references and disclaimers. Its summary counters are not reliable because the scan loop updates them inside a pipeline/subshell. Individual flags also require human interpretation; a trademark reference is not by itself a legal finding. This inventory does not validate or repair the script.
 
-### Implementation Scripts  
-- **implement_ip_mitigation.sh**: Comprehensive IP mitigation implementation
-- **quick_compliance_fix.sh**: Emergency/immediate fixes
+If used for a content review, retain the script revision, individual observations, reviewer decisions and follow-up actions. Do not use an aggregate score as an acceptance gate or as evidence of regulatory compliance.
 
-### Monitoring Scripts
-- **validate_ip_compliance.sh**: Ongoing compliance validation
+## Governance integration
 
-## Usage
+- [Compliance integration framework](../docs/governance/compliance-integration-framework.md#integrate-the-repository-compliance-assets): link IP-review evidence separately from regulatory obligations.
+- [Historical IP mitigation status](../README_COMPLIANCE.md): background only; verify any current status before relying on it.
 
-### Quick Start
-```bash
-# Run complete mitigation process
-./run_ip_mitigation.sh
-```
-
-### Individual Scripts
-```bash
-# Emergency fixes only
-./quick_compliance_fix.sh
-
-# Full implementation
-./implement_ip_mitigation.sh
-
-# Check current compliance
-./validate_ip_compliance.sh
-```
-
-## Script Functions
-
-### run_ip_mitigation.sh
-- Orchestrates complete mitigation process
-- Runs validation before and after
-- Generates implementation reports
-- Creates summary documentation
-
-### implement_ip_mitigation.sh
-- Adds legal disclaimers to templates
-- Updates terminology throughout repository
-- Updates directory references
-- Creates migration aliases
-- Performs verification checks
-
-### quick_compliance_fix.sh
-- Immediate critical fixes for high-risk items
-- Adds disclaimers to README and critical files
-- Renames directories
-- Quick terminology replacements
-
-### validate_ip_compliance.sh
-- Scans all files for IP compliance issues
-- Categorizes risks as High/Medium/Low
-- Provides compliance scoring
-- Generates detailed reports
-
-## Implementation Status Tracking
-
-After running scripts, check these files:
-- **IP_MITIGATION_SUMMARY.md**: Implementation summary
-- **initial_compliance_report.txt**: Pre-mitigation status
-- **final_compliance_report.txt**: Post-mitigation status
-- **README_COMPLIANCE.md**: Ongoing compliance status
-
-## Maintenance
-
-### Regular Monitoring
-```bash
-# Weekly compliance check
-./validate_ip_compliance.sh
-```
-
-### After Template Updates
-```bash
-# Check new templates for compliance
-./validate_ip_compliance.sh
-```
-
-### Emergency Response
-```bash
-# Immediate fixes if IP issues discovered
-./quick_compliance_fix.sh
-```
-
----
-
-**Created**: June 2025  
-**Purpose**: PMI IP Risk Mitigation  
-**Maintainer**: Repository Compliance Team
-
+These resources do not validate GDPR, HIPAA, SOX, ISO/IEC 27001 or NIST controls and do not provide certification or legal approval.
