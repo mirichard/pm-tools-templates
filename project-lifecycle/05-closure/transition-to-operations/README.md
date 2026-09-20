@@ -1,9 +1,7 @@
-# Placeholder directory
+# Transition to Operations
 
-This area is currently a placeholder during ongoing reorganization.
+Use the existing [Transition to Operations Framework](../../../transition_to_operations_framework.md#operational-continuity-acceptance-record) to record support, maintenance, escalation, knowledge transfer and acceptance before the project team disbands.
 
-Go to canonical templates here:
-- templates/ (all canonical templates)
+The [operational continuity guide](../../../docs/delivery/operational-continuity-planning.md) explains warranty/support decisions and gives IT and non-IT examples. Link the completed record in the [canonical closure report](../../../domains/delivery/templates/traditional/Traditional/Process_Groups/Closing/project_closure_report_template.md). Keep unaccepted obligations with an explicit owner and follow-up date.
 
-See NAVIGATION_GUIDE.md for up-to-date guidance on where to find content.
-
+Return to [Project Closure](../README.md).

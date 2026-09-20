@@ -281,6 +281,7 @@ jobs:
               "blockers": ${{ steps.metrics.outputs.blockers }},
               "recent_closed": ${{ steps.metrics.outputs.recent_closed }}
             },
+            "flow_metrics": null,
             "health_indicators": {
               "overall_health": "$([ ${{ steps.metrics.outputs.completion_rate }} -ge 75 ] && echo "green" || echo "yellow")",
               "risk_level": "$([ ${{ steps.metrics.outputs.critical_risks }} -eq 0 ] && echo "low" || echo "high")",

@@ -704,7 +704,7 @@
     },
     {
       "path": "domains/delivery/templates/traditional/Traditional/Process_Groups/Closing/project_closure_report_template.md",
-      "sha256": "ff3be76d43d434576206e9506ff9c7450c879ad4de3aafc5b3ec033b2396128f",
+      "sha256": "38a16ef9ec76f20d059a90bd07624f76158c5ff17137e1eadb9c87bb161f3f7f",
       "annotation_lines": 3,
       "primary_principles": [
         "stewardship",
@@ -1728,7 +1728,7 @@
     },
     {
       "path": "domains/uncertainty/project-lifecycle/04-monitoring-control/progress-tracking/project-dashboard-template.md",
-      "sha256": "4ed41b8e820daeb9ca352a151e00b4668b6bab7cf8553f307fc802330d50a7c4",
+      "sha256": "cae7ddb27eb3aaf07e916624c458b5a6f7cfdf8b418e136030eafa54364e6d96",
       "annotation_lines": 3,
       "primary_principles": [
         "evidence-based-decisions"
