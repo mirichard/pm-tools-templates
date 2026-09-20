@@ -28,6 +28,16 @@ principle_rationale: "Connects build, test, security and promotion stages with r
 
 Selection context: Measurement domain; universal methodology; advanced complexity. Match the situations above to project phase, risk, team size, and industry using the [decision-engine context model](../../../../../meta/architecture-research/800-801-context-assessment-model.md).
 
+## Increment promotion contract
+
+For recurring releases, link each candidate to the [continuous delivery increment record](release_management_template.md#continuous-delivery-increment-record). Use the same immutable candidate through build, verification, authorized promotion, limited exposure, expansion and outcome review; rebuilds or material configuration changes require applicable revalidation.
+
+For each boundary record inputs/version, checks/evidence, accountable owner, promotion authority, decision/time and hold/recovery route. Automated checks supply evidence; they grant release authority only where an approved policy explicitly delegates it. Missing checks or unhealthy monitoring block promotion. Use the [canary and staged rollout decisions](release_management_template.md#canary-and-staged-rollout-decisions) rather than inventing another rollout checklist.
+
+Both scheduled and ready-event cadences use these controls. Separate deployment from user exposure where relevant; validate recovery for configuration/data changes. This is a planning contract, not an executable production pipeline. See [continuous delivery guidance](../../../../../docs/delivery/continuous-delivery-pipeline.md) for operation after project closure.
+
+
+
 ## Example implementation contract
 
 Code, queries, configuration, versions, thresholds, and sample output illustrate the design; they are not a tested deployment bundle. Record the actual platform/version, supported dependencies, credentials source, least-privilege access, environment-specific values, and test results before use. Pin release artifacts and validate rollback and failure paths in the target environment. Never use sample secrets or sample approval results as operational evidence.

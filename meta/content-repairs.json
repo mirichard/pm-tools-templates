@@ -271,8 +271,8 @@
       "path": "domains/delivery/project-lifecycle/02-planning/project-management-plan/agile-release-plan-template.md",
       "base_commit": "be04694ffd0f39de3d5f306300c276fa7f810762",
       "original_sha256": "0da71dc599bfc989493568314b3c3505d45c1cf45353b0fb0aed194de0d86f6f",
-      "reason": "Substantive content maintenance: file-specific findings, sources and section coverage in meta/template-content-reviews.json; scope and limitations in docs/vnext/post-migration-repair/resource-and-freshness-review.md. Original migration evidence preserved. Reviewed additive principles usage guidance for #743/#744; previous body preserved. Evidence: meta/principles-story-completion.json.",
-      "current_sha256": "e80741cf2184ff4f02b707c0870f67121682a2077d96d2babc20ed83e83320ad"
+      "reason": "Substantive content maintenance: file-specific findings, sources and section coverage in meta/template-content-reviews.json; scope and limitations in docs/vnext/post-migration-repair/resource-and-freshness-review.md. Original migration evidence preserved. Reviewed additive principles usage guidance for #743/#744; previous body preserved. Evidence: meta/principles-story-completion.json. Reviewed additive #752 continuous-delivery integration; prior body and dates retained.",
+      "current_sha256": "ab03714194f39c6b10a424329446699514997023a80ac25c9a7d017f76abaae3"
     },
     {
       "path": "domains/delivery/project-lifecycle/02-planning/project-management-plan/hybrid-project-management-plan-template.md",
@@ -488,8 +488,8 @@
       "path": "domains/measurement/methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md",
       "base_commit": "4525639da93fde99efef64295324e8d72e6c61d7",
       "original_sha256": "05b492617a09417baf7de2a755b6028f1fe844b50877ecd6809bfdb429e19f95",
-      "current_sha256": "2aea3d25f11f3760859b3d208a9e237412f35d587bd43d509dc53b0700a44a78",
-      "reason": "Substantive content maintenance: file-specific findings, sources and section coverage in meta/template-content-reviews.json; scope and limitations in docs/vnext/post-migration-repair/resource-and-freshness-review.md. Original migration evidence preserved. Reviewed additive principles usage guidance for #743/#744; previous body preserved. Evidence: meta/principles-story-completion.json. Added three-line principle annotation for #1058; prior body and metadata preserved. Hash chain: meta/principle-annotation-reconciliation.json."
+      "current_sha256": "5e276f185ad349c3730e1dfa97480a1c1ebed8cd9733ff72c577bcdf31fedc14",
+      "reason": "Substantive content maintenance: file-specific findings, sources and section coverage in meta/template-content-reviews.json; scope and limitations in docs/vnext/post-migration-repair/resource-and-freshness-review.md. Original migration evidence preserved. Reviewed additive principles usage guidance for #743/#744; previous body preserved. Evidence: meta/principles-story-completion.json. Added three-line principle annotation for #1058; prior body and metadata preserved. Hash chain: meta/principle-annotation-reconciliation.json. Reviewed additive #752 continuous-delivery integration; prior body and dates retained."
     },
     {
       "path": "domains/measurement/methodology-frameworks/emerging-methods/devops/devsecops_template.md",
@@ -516,8 +516,8 @@
       "path": "domains/measurement/methodology-frameworks/emerging-methods/devops/release_management_template.md",
       "base_commit": "4525639da93fde99efef64295324e8d72e6c61d7",
       "original_sha256": "0ebf8b0f77543353af7be4cafe19986c6af515d81e399763ae80cc8e475b6778",
-      "current_sha256": "2f66db0e72085ee0e8c3a2c9413982028fe64910bafc4d70594ea9e3ee917a9a",
-      "reason": "Substantive content maintenance: file-specific findings, sources and section coverage in meta/template-content-reviews.json; scope and limitations in docs/vnext/post-migration-repair/resource-and-freshness-review.md. Original migration evidence preserved. Reviewed additive principles usage guidance for #743/#744; previous body preserved. Evidence: meta/principles-story-completion.json. Added three-line principle annotation for #1058; prior body and metadata preserved. Hash chain: meta/principle-annotation-reconciliation.json."
+      "current_sha256": "48724f1eca9bd4924eb2764b6957bbd5e8c3a7b1609c39fb2136c565f00f33f8",
+      "reason": "Substantive content maintenance: file-specific findings, sources and section coverage in meta/template-content-reviews.json; scope and limitations in docs/vnext/post-migration-repair/resource-and-freshness-review.md. Original migration evidence preserved. Reviewed additive principles usage guidance for #743/#744; previous body preserved. Evidence: meta/principles-story-completion.json. Added three-line principle annotation for #1058; prior body and metadata preserved. Hash chain: meta/principle-annotation-reconciliation.json. Reviewed additive #752 continuous-delivery integration; prior body and dates retained."
     },
     {
       "path": "domains/measurement/project-assessment-suite/current-state-analysis-template.md",

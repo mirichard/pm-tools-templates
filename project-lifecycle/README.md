@@ -4,6 +4,11 @@
 
 This section provides templates organized by the traditional project lifecycle phases, but designed to work across all methodologies (Traditional, Agile, and Hybrid).
 
+
+## Continuing product delivery
+
+After bounded project closure, use the [continuous delivery guide](../docs/delivery/continuous-delivery-pipeline.md) to plan and verify the next increment under accepted product/service ownership. The loop reuses release, CI/CD, feedback and operational-continuity assets; select a [time-based or flow-based cadence](../docs/delivery/release-cadence-guide.md) while retaining required gates.
+
 ---
 
 <a id="how-this-section-works"></a>
