@@ -8,6 +8,10 @@
 
 ---
 
+## Governance tier
+
+After capturing project context, use the [adaptive governance decision matrix](../governance/governance-decision-matrix.md) to select Light, Standard or Rigorous controls. Assess project size and team size separately; high/regulatory risk and organizational minimums take precedence over small scale or PM experience. The matrix includes a reproducible selector for the seven-field v1 context profile.
+
 ## How It Works
 
 Answer 6 questions about your project. Each answer narrows the recommendations. At the end, you'll receive a tailored template set with links and rationale.

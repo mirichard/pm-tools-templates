@@ -1,5 +1,9 @@
 # Quality Gates Checklist
 
+**Governance tiers:** Light, Standard, Rigorous.
+
+Apply the [adaptive governance model](../../../docs/governance/governance-decision-matrix.md) to select required evidence, authorities and cadence. Tailor sample structures below to the approved charter; retain mandatory controls.
+
 ## Overview
 Quality gate criteria and checkpoints for project phases and deliverables.
 

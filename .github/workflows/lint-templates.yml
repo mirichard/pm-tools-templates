@@ -11,6 +11,9 @@ on:
       - 'scripts/check_migrated_freshness.py'
       - 'scripts/validate_principles_guidance.py'
       - 'scripts/validate_principle_coverage.py'
+      - 'scripts/select_governance_tier.py'
+      - 'tests/test_governance_tiers.py'
+      - 'meta/governance-tiers.json'
       - 'tests/test_principle_coverage.py'
       - 'schemas/principle-annotation.schema.json'
       - 'meta/principle-coverage.json'
@@ -43,6 +46,9 @@ on:
       - 'scripts/check_migrated_freshness.py'
       - 'scripts/validate_principles_guidance.py'
       - 'scripts/validate_principle_coverage.py'
+      - 'scripts/select_governance_tier.py'
+      - 'tests/test_governance_tiers.py'
+      - 'meta/governance-tiers.json'
       - 'tests/test_principle_coverage.py'
       - 'schemas/principle-annotation.schema.json'
       - 'meta/principle-coverage.json'
@@ -87,6 +93,7 @@ jobs:
           python -m unittest tests.test_template_metadata tests.test_template_reviews tests.test_migrated_freshness -v
           python -m unittest discover -s tests -p test_principles_guidance.py -v
           python scripts/validate_principles_guidance.py
+          python -m unittest tests.test_governance_tiers -v
           python -m unittest tests.test_principle_coverage -v
           python scripts/validate_principle_coverage.py --json-output principle-coverage-validation.json
           node --test tests/principle-assessment.test.cjs

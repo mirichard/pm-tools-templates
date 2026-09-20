@@ -1,0 +1,126 @@
+{
+  "version": 1,
+  "templates": [
+    {
+      "path": "role-based-toolkits/project-manager/governance-tools/change-control-process.md",
+      "tiers": [
+        "Light",
+        "Standard",
+        "Rigorous"
+      ]
+    },
+    {
+      "path": "role-based-toolkits/project-manager/governance-tools/decision-authority.md",
+      "tiers": [
+        "Light",
+        "Standard",
+        "Rigorous"
+      ]
+    },
+    {
+      "path": "role-based-toolkits/project-manager/governance-tools/decision-framework.md",
+      "tiers": [
+        "Light",
+        "Standard",
+        "Rigorous"
+      ]
+    },
+    {
+      "path": "role-based-toolkits/project-manager/governance-tools/escalation-matrix.md",
+      "tiers": [
+        "Light",
+        "Standard",
+        "Rigorous"
+      ]
+    },
+    {
+      "path": "role-based-toolkits/project-manager/governance-tools/governance-charter.md",
+      "tiers": [
+        "Light",
+        "Standard",
+        "Rigorous"
+      ]
+    },
+    {
+      "path": "role-based-toolkits/project-manager/governance-tools/governance-framework.md",
+      "tiers": [
+        "Light",
+        "Standard",
+        "Rigorous"
+      ]
+    },
+    {
+      "path": "role-based-toolkits/project-manager/governance-tools/governance-roles.md",
+      "tiers": [
+        "Light",
+        "Standard",
+        "Rigorous"
+      ]
+    },
+    {
+      "path": "role-based-toolkits/project-manager/governance-tools/quality-gates.md",
+      "tiers": [
+        "Light",
+        "Standard",
+        "Rigorous"
+      ]
+    },
+    {
+      "path": "role-based-toolkits/program-manager/governance-framework/change-control-board-charter.md",
+      "tiers": [
+        "Standard",
+        "Rigorous"
+      ]
+    },
+    {
+      "path": "role-based-toolkits/program-manager/governance-framework/decision-authority-matrix.md",
+      "tiers": [
+        "Standard",
+        "Rigorous"
+      ]
+    },
+    {
+      "path": "role-based-toolkits/program-manager/governance-framework/governance-charter.md",
+      "tiers": [
+        "Standard",
+        "Rigorous"
+      ]
+    },
+    {
+      "path": "role-based-toolkits/program-manager/governance-framework/program-quality-management-plan.md",
+      "tiers": [
+        "Standard",
+        "Rigorous"
+      ]
+    },
+    {
+      "path": "role-based-toolkits/program-manager/governance-framework/steering-committee-charter.md",
+      "tiers": [
+        "Standard",
+        "Rigorous"
+      ]
+    },
+    {
+      "path": "role-based-toolkits/program-manager/benefits-realization/benefits-governance.md",
+      "tiers": [
+        "Standard",
+        "Rigorous"
+      ]
+    },
+    {
+      "path": "role-based-toolkits/program-manager/portfolio-management/governance-cadence.md",
+      "tiers": [
+        "Standard",
+        "Rigorous"
+      ]
+    },
+    {
+      "path": "domains/measurement/project-assessment-suite/governance-assessment-template.md",
+      "tiers": [
+        "Light",
+        "Standard",
+        "Rigorous"
+      ]
+    }
+  ]
+}

@@ -551,8 +551,8 @@
       "path": "domains/measurement/project-assessment-suite/governance-assessment-template.md",
       "base_commit": "4525639da93fde99efef64295324e8d72e6c61d7",
       "original_sha256": "b65b661fe88ac07616bd3115897c247633549fa2da6935d4cfadadb561b42534",
-      "current_sha256": "40f5ec5e534ceafb1015f828a46663b1b0271b0c570a045c426b6a01b847e431",
-      "reason": "Reference and content maintenance documented in docs/vnext/post-migration-repair/resource-and-freshness-review.md and meta/template-content-reviews.json; original migration hash preserved. Reviewed additive principles usage guidance for #743/#744; previous body preserved. Evidence: meta/principles-story-completion.json. Added three-line principle annotation for #1058; prior body and metadata preserved. Hash chain: meta/principle-annotation-reconciliation.json."
+      "current_sha256": "00cb7e77e508f29ccd3ee174eca86ecdf78753e1ad620d310ef84073e296c98f",
+      "reason": "Reference and content maintenance documented in docs/vnext/post-migration-repair/resource-and-freshness-review.md and meta/template-content-reviews.json; original migration hash preserved. Reviewed additive principles usage guidance for #743/#744; previous body preserved. Evidence: meta/principles-story-completion.json. Added three-line principle annotation for #1058; prior body and metadata preserved. Hash chain: meta/principle-annotation-reconciliation.json. Reviewed additive #746 governance tier tag and model link; original body and review date preserved."
     },
     {
       "path": "domains/measurement/project-assessment-suite/process-maturity-assessment-template.md",

@@ -1,5 +1,9 @@
 # Change Control Process
 
+**Governance tiers:** Light, Standard, Rigorous.
+
+Apply the [adaptive governance model](../../../docs/governance/governance-decision-matrix.md) to select required evidence, authorities and cadence. Tailor sample structures below to the approved charter; retain mandatory controls.
+
 ## Overview
 Standardized process for managing and controlling project changes.
 
