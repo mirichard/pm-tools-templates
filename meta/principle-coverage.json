@@ -1715,7 +1715,7 @@
     },
     {
       "path": "domains/uncertainty/project-lifecycle/02-planning/risk-management/risk-register-template.md",
-      "sha256": "669d3a39d831f7993e86b93cf6bdb860008d36eef74f72755d7135dbab86a27a",
+      "sha256": "f2a1932563f2461a9451f919028ca18ab93251d76286588155dbea75a4d1acba",
       "annotation_lines": 3,
       "primary_principles": [
         "risk-optimization"
@@ -1728,7 +1728,7 @@
     },
     {
       "path": "domains/uncertainty/project-lifecycle/04-monitoring-control/progress-tracking/project-dashboard-template.md",
-      "sha256": "33435feed0be57a6b518b60a2b9812dd3dbb11bf2e722e15d3a440a3957514a7",
+      "sha256": "4ed41b8e820daeb9ca352a151e00b4668b6bab7cf8553f307fc802330d50a7c4",
       "annotation_lines": 3,
       "primary_principles": [
         "evidence-based-decisions"
@@ -1741,7 +1741,7 @@
     },
     {
       "path": "domains/uncertainty/project-lifecycle/04-monitoring-control/progress-tracking/status-report-template.md",
-      "sha256": "3885902d081cac884f666a003c06afff014c87810d30ddb4ce9d8aba0e90d457",
+      "sha256": "4f9ee51a53edec7a021b04aee0c874a6ec74996e23b0808b80e52bc264750796",
       "annotation_lines": 3,
       "primary_principles": [
         "evidence-based-decisions",

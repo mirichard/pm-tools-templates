@@ -803,22 +803,22 @@
       "path": "domains/uncertainty/project-lifecycle/02-planning/risk-management/risk-register-template.md",
       "base_commit": "dc7146cc59387421b872dffbadd86b8b6f8dd3a2",
       "original_sha256": "88bff3d126d0d911dd0af1bce7a1dbba642c8a5fc3536d18144849225731a08e",
-      "reason": "Reference and content maintenance documented in docs/vnext/post-migration-repair/resource-and-freshness-review.md and meta/template-content-reviews.json; original migration hash preserved. Reviewed additive principles usage guidance for #743/#744; previous body preserved. Evidence: meta/principles-story-completion.json. Added three-line principle annotation for #1058; prior body and metadata preserved. Hash chain: meta/principle-annotation-reconciliation.json. Reviewed additive #747 risk-based scaling guidance; prior body and review date preserved.",
-      "current_sha256": "669d3a39d831f7993e86b93cf6bdb860008d36eef74f72755d7135dbab86a27a"
+      "reason": "Reference and content maintenance documented in docs/vnext/post-migration-repair/resource-and-freshness-review.md and meta/template-content-reviews.json; original migration hash preserved. Reviewed additive principles usage guidance for #743/#744; previous body preserved. Evidence: meta/principles-story-completion.json. Added three-line principle annotation for #1058; prior body and metadata preserved. Hash chain: meta/principle-annotation-reconciliation.json. Reviewed additive #747 risk-based scaling guidance; prior body and review date preserved. Reviewed additive #748 event-control handoff and notification links; prior body and review date preserved.",
+      "current_sha256": "f2a1932563f2461a9451f919028ca18ab93251d76286588155dbea75a4d1acba"
     },
     {
       "path": "domains/uncertainty/project-lifecycle/04-monitoring-control/progress-tracking/project-dashboard-template.md",
       "base_commit": "dc7146cc59387421b872dffbadd86b8b6f8dd3a2",
       "original_sha256": "ef58c1f9ea8dded2f4c545637f4443d196619157455b32941a4b0207486d7a57",
-      "reason": "Reference and content maintenance documented in docs/vnext/post-migration-repair/resource-and-freshness-review.md and meta/template-content-reviews.json; original migration hash preserved. Reviewed additive principles usage guidance for #743/#744; previous body preserved. Evidence: meta/principles-story-completion.json. Added three-line principle annotation for #1058; prior body and metadata preserved. Hash chain: meta/principle-annotation-reconciliation.json.",
-      "current_sha256": "33435feed0be57a6b518b60a2b9812dd3dbb11bf2e722e15d3a440a3957514a7"
+      "reason": "Reference and content maintenance documented in docs/vnext/post-migration-repair/resource-and-freshness-review.md and meta/template-content-reviews.json; original migration hash preserved. Reviewed additive principles usage guidance for #743/#744; previous body preserved. Evidence: meta/principles-story-completion.json. Added three-line principle annotation for #1058; prior body and metadata preserved. Hash chain: meta/principle-annotation-reconciliation.json. Reviewed additive #748 event-control handoff and notification links; prior body and review date preserved.",
+      "current_sha256": "4ed41b8e820daeb9ca352a151e00b4668b6bab7cf8553f307fc802330d50a7c4"
     },
     {
       "path": "domains/uncertainty/project-lifecycle/04-monitoring-control/progress-tracking/status-report-template.md",
       "base_commit": "be04694ffd0f39de3d5f306300c276fa7f810762",
       "original_sha256": "aa10eee873c4fb6f9755e59c3dbe9a48f40dd8a2452d5231c92fa3e3361548ee",
-      "reason": "Substantive content maintenance: file-specific findings, sources and section coverage in meta/template-content-reviews.json; scope and limitations in docs/vnext/post-migration-repair/resource-and-freshness-review.md. Original migration evidence preserved. Reviewed additive principles usage guidance for #743/#744; previous body preserved. Evidence: meta/principles-story-completion.json. Added three-line principle annotation for #1058; prior body and metadata preserved. Hash chain: meta/principle-annotation-reconciliation.json.",
-      "current_sha256": "3885902d081cac884f666a003c06afff014c87810d30ddb4ce9d8aba0e90d457"
+      "reason": "Substantive content maintenance: file-specific findings, sources and section coverage in meta/template-content-reviews.json; scope and limitations in docs/vnext/post-migration-repair/resource-and-freshness-review.md. Original migration evidence preserved. Reviewed additive principles usage guidance for #743/#744; previous body preserved. Evidence: meta/principles-story-completion.json. Added three-line principle annotation for #1058; prior body and metadata preserved. Hash chain: meta/principle-annotation-reconciliation.json. Reviewed additive #748 event-control handoff and notification links; prior body and review date preserved.",
+      "current_sha256": "4f9ee51a53edec7a021b04aee0c874a6ec74996e23b0808b80e52bc264750796"
     },
     {
       "path": "domains/uncertainty/role-based-toolkits/product-owner/backlog-management-template.md",

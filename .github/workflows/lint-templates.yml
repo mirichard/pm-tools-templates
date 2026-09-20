@@ -14,6 +14,7 @@ on:
       - 'scripts/select_governance_tier.py'
       - 'scripts/scale_governance_risk.py'
       - 'tests/test_risk_scaling.py'
+      - 'tests/test_event_controls.py'
       - 'tests/test_governance_tiers.py'
       - 'meta/governance-tiers.json'
       - 'tests/test_principle_coverage.py'
@@ -51,6 +52,7 @@ on:
       - 'scripts/select_governance_tier.py'
       - 'scripts/scale_governance_risk.py'
       - 'tests/test_risk_scaling.py'
+      - 'tests/test_event_controls.py'
       - 'tests/test_governance_tiers.py'
       - 'meta/governance-tiers.json'
       - 'tests/test_principle_coverage.py'
@@ -97,7 +99,7 @@ jobs:
           python -m unittest tests.test_template_metadata tests.test_template_reviews tests.test_migrated_freshness -v
           python -m unittest discover -s tests -p test_principles_guidance.py -v
           python scripts/validate_principles_guidance.py
-          python -m unittest tests.test_governance_tiers tests.test_risk_scaling -v
+          python -m unittest tests.test_governance_tiers tests.test_risk_scaling tests.test_event_controls -v
           python -m unittest tests.test_principle_coverage -v
           python scripts/validate_principle_coverage.py --json-output principle-coverage-validation.json
           node --test tests/principle-assessment.test.cjs
