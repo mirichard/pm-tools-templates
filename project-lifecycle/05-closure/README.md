@@ -2,7 +2,13 @@
 
 **Ensuring successful completion and organizational learning**
 
-The closure phase marks the formal conclusion of the project lifecycle, focusing on finalizing deliverables, transferring ownership, capturing lessons learned, and transitioning team members. This critical phase ensures project value is fully realized and organizational knowledge is preserved for future initiatives.
+The closure phase marks the formal conclusion of the project lifecycle, focusing on finalizing deliverables, transferring ownership, capturing lessons learned, and transitioning team members. This phase preserves organizational knowledge and assigns ownership for verifying benefits after delivery; closure alone does not establish that value has been realized.
+
+
+## Continuing delivery after closure
+
+For ongoing products/services, close the bounded project while preserving accepted ownership, funding, support and backlog responsibility. Continue through the [continuous delivery pipeline guide](../../docs/delivery/continuous-delivery-pipeline.md) and [cadence decision guide](../../docs/delivery/release-cadence-guide.md). Link the receiving-owner decision through [transition to operations](transition-to-operations/README.md); unresolved ownership remains a handover gap. Project closure does not prove realized benefits or end continuing release obligations.
+
 
 ---
 

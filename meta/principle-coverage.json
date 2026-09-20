@@ -535,7 +535,7 @@
     },
     {
       "path": "domains/delivery/project-lifecycle/02-planning/project-management-plan/agile-release-plan-template.md",
-      "sha256": "e80741cf2184ff4f02b707c0870f67121682a2077d96d2babc20ed83e83320ad",
+      "sha256": "ab03714194f39c6b10a424329446699514997023a80ac25c9a7d017f76abaae3",
       "annotation_lines": 3,
       "primary_principles": [
         "adaptability",
@@ -1030,7 +1030,7 @@
     },
     {
       "path": "domains/measurement/methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md",
-      "sha256": "2aea3d25f11f3760859b3d208a9e237412f35d587bd43d509dc53b0700a44a78",
+      "sha256": "5e276f185ad349c3730e1dfa97480a1c1ebed8cd9733ff72c577bcdf31fedc14",
       "annotation_lines": 3,
       "primary_principles": [
         "quality-by-design",
@@ -1082,7 +1082,7 @@
     },
     {
       "path": "domains/measurement/methodology-frameworks/emerging-methods/devops/release_management_template.md",
-      "sha256": "2f66db0e72085ee0e8c3a2c9413982028fe64910bafc4d70594ea9e3ee917a9a",
+      "sha256": "48724f1eca9bd4924eb2764b6957bbd5e8c3a7b1609c39fb2136c565f00f33f8",
       "annotation_lines": 3,
       "primary_principles": [
         "quality-by-design",

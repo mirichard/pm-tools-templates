@@ -28,6 +28,53 @@ principle_rationale: "Coordinates release readiness, deployment handoffs and rol
 
 Selection context: Measurement domain; universal methodology; advanced complexity. Match the situations above to project phase, risk, team size, and industry using the [decision-engine context model](../../../../../meta/architecture-research/800-801-context-assessment-model.md).
 
+## Continuous delivery increment record
+
+Use this extension for repeatable increments under #752. It reuses this template's planning, go/no-go, cutover, rollback and communication sections and the [CI/CD planning template](cicd_pipeline_planning_template.md#increment-promotion-contract). See the [continuous delivery guide](../../../../../docs/delivery/continuous-delivery-pipeline.md) and [cadence decision guide](../../../../../docs/delivery/release-cadence-guide.md). Related [#373](https://github.com/mirichard/pm-tools-templates/issues/373) remains a separate automation initiative; this worksheet does not implement its workflow generator or automatic validation.
+
+Use when a maintained product/service releases repeatedly. For a single bounded deployment, use the existing release sections without imposing a recurring product process. Continuous delivery keeps changes releasable; production release can still require an authorized decision. Deployment and user exposure may be separate decisions.
+
+### Increment worksheet
+
+| Field | Complete for this increment |
+|---|---|
+| Identity | Release/increment ID, product/service, accountable product and release owners, on-call owner/backup, planned window or ready-event trigger. |
+| Value and scope | Outcome hypothesis/KPI, target users, smallest useful increment, included backlog IDs, exclusions, dependencies and acceptance evidence. |
+| Cadence | Time-based / flow-based / coordinated mix; decision rationale, approved constraints, next cadence review. |
+| Candidate | Immutable artifact/version/digest, source revision, configuration version, environment and linked build/test/security evidence. |
+| Readiness | Required controls and acceptance results, authorized go/no-go decision/time, support coverage, communication recipients and evidence locations. |
+| Rollout | Cohorts/stages, exposure limits, baseline/control, observation window and minimum evidence, metrics/source/freshness, thresholds, promotion owner and recorded decision. |
+| Recovery | Previous compatible version, tested rollback or recovery procedure, configuration/data compatibility, decision owner, recovery objective and test evidence. |
+| Outcome and next increment | Observed service health, user feedback and outcome evidence, unresolved work/owner/date, accepted operational ownership and next backlog/review decision. |
+
+Record both dates and event conditions where applicable. A scheduled date or ready item alone does not authorize release. Link existing records rather than copying evidence into another tracker.
+
+### Canary and staged rollout decisions
+
+A canary evaluates a limited exposure against a control before wider rollout. Use per-version/cohort observations, not just aggregate health that can hide a failing minority. This rationale follows [Google SRE: Canarying Releases](https://sre.google/workbook/canarying-releases/), reviewed 09/20/2026. The worksheet below is a proposed local decision record; select values for the actual service and risk.
+
+| Stage | Entry evidence | Observation and decision | Owner/evidence |
+|---|---|---|---|
+| Candidate ready | Same immutable candidate tested; approvals, support, recovery and dependency checks complete. | Go to limited exposure only on authorized readiness; otherwise hold. | Release authority records decision and evidence links. |
+| Limited canary/pilot | Selected representative cohort and exposure cap; control/baseline identified; isolation/compatibility checked. | Compare candidate and control plus absolute service objectives over the agreed window and sufficient sample. Missing/stale data or insufficient sample means hold, not pass. | On-call monitors; named promotion authority records promote/hold/recover. |
+| Expand by stages | Prior stage accepted; dependencies and capacity still valid. | Repeat health/acceptance checks for each expansion; pause on guardrail breach. Do not promote solely because time elapsed. | Release owner records actual exposure, timestamps and decision at every stage. |
+| Full exposure and follow-up | Final promotion authorized; recovery option retained through the agreed observation period. | Verify sustained health, communicate disposition and schedule outcome review; feed unresolved work into the backlog. | Service owner accepts continuing monitoring; benefits owner assesses outcomes separately. |
+
+Before rollout, fill in cohort selection, maximum exposure, minimum sample, observation duration, metric definitions/queries, absolute and relative guardrails, signal freshness and decision authority. Percentages and durations are local decisions, not universal defaults. For low traffic, extend observation or use other approved evidence; do not infer success from zero observed failures. Shared databases/dependencies can invalidate cohort isolation; document compatibility and impact beyond the canary.
+
+On a breached guardrail, stop expansion, notify the on-call/incident authority and use the approved mitigation route. Missing evidence pauses promotion and escalates to its owner; it is not proof of either success or failure. Route missed decisions to the backup. Follow stricter safety, contractual and regulatory controls.
+
+Recovery must cover data and configuration as well as binaries. If a schema change or external side effect makes rollback unsafe, agree a tested restore/forward-recovery plan and authority before release; hold if no acceptable recovery path exists. Preserve the previous compatible environment until the agreed recovery window ends. Disabling a feature flag does not undo writes or external effects.
+
+### Decision rehearsal examples
+
+- Time-based increment: the planned window arrives but readiness evidence is incomplete. Record hold, notify affected stakeholders and replan; the calendar is not approval.
+- Flow-based increment: a small candidate is ready, but support coverage is unavailable. Keep it releasable and wait for the authorized release conditions.
+- Canary: aggregate health is green but the candidate cohort breaches its error guardrail. Stop expansion and invoke the approved mitigation decision; aggregate green does not override the cohort result.
+- Low-volume canary: the window elapsed but the minimum evidence was not reached. Hold or extend under the agreed policy; never automatically mark it passed.
+
+
+
 ## Example implementation contract
 
 Code, queries, configuration, versions, thresholds, and sample output illustrate the design; they are not a tested deployment bundle. Record the actual platform/version, supported dependencies, credentials source, least-privilege access, environment-specific values, and test results before use. Pin release artifacts and validate rollback and failure paths in the target environment. Never use sample secrets or sample approval results as operational evidence.

@@ -93,16 +93,17 @@
     },
     {
       "path": "domains/delivery/project-lifecycle/02-planning/project-management-plan/agile-release-plan-template.md",
-      "sha256": "e80741cf2184ff4f02b707c0870f67121682a2077d96d2babc20ed83e83320ad",
+      "sha256": "ab03714194f39c6b10a424329446699514997023a80ac25c9a7d017f76abaae3",
       "status": "reviewed",
-      "word_count": 1394,
+      "word_count": 1490,
       "findings": [],
       "scope": "full-content",
       "reviewed": "2026-09-19",
       "reviewer": "Codex (AI-assisted repository content review)",
       "evidence": [
         "Clarify optional template conventions, forecasts, and Scrum accountabilities.",
-        "09/20/2026: Reviewed the applicability, exclusions, complementary links, and context-model guidance added for #743/#744. Prior body retained verbatim except two heading renames on the non-migrated benefit templates. Prior full-content review date retained; this is an additive-change review, not a new full-body review. Hash chain: meta/principles-story-completion.json."
+        "09/20/2026: Reviewed the applicability, exclusions, complementary links, and context-model guidance added for #743/#744. Prior body retained verbatim except two heading renames on the non-migrated benefit templates. Prior full-content review date retained; this is an additive-change review, not a new full-body review. Hash chain: meta/principles-story-completion.json.",
+        "09/20/2026: Reviewed additive #752 increment, staged-promotion or cadence guidance, evidence/hold/recovery decisions and canonical links. Prior body and full-content review dates retained; scoped additive review only."
       ],
       "reviewed_sections": [
         "Scrum tailoring",
@@ -1126,9 +1127,9 @@
     },
     {
       "path": "domains/measurement/methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md",
-      "sha256": "2aea3d25f11f3760859b3d208a9e237412f35d587bd43d509dc53b0700a44a78",
+      "sha256": "5e276f185ad349c3730e1dfa97480a1c1ebed8cd9733ff72c577bcdf31fedc14",
       "status": "reviewed",
-      "word_count": 3709,
+      "word_count": 3838,
       "findings": [],
       "scope": "full-content",
       "reviewed": "2026-09-19",
@@ -1137,7 +1138,8 @@
         "Replaced end-of-life Node 18 examples with Node 24 LTS; downstream compatibility still requires project testing.",
         "Make example code and configuration applicability explicit rather than implying deployment readiness.",
         "09/20/2026: Reviewed the applicability, exclusions, complementary links, and context-model guidance added for #743/#744. Prior body retained verbatim except two heading renames on the non-migrated benefit templates. Prior full-content review date retained; this is an additive-change review, not a new full-body review. Hash chain: meta/principles-story-completion.json.",
-        "09/20/2026: Reviewed additive three-line principle mapping and rationale for #1058 against current template purpose and content structure; all prior bytes and full-content review dates retained. Scoped annotation review only. Hash chain: meta/principle-annotation-reconciliation.json."
+        "09/20/2026: Reviewed additive three-line principle mapping and rationale for #1058 against current template purpose and content structure; all prior bytes and full-content review dates retained. Scoped annotation review only. Hash chain: meta/principle-annotation-reconciliation.json.",
+        "09/20/2026: Reviewed additive #752 increment, staged-promotion or cadence guidance, evidence/hold/recovery decisions and canonical links. Prior body and full-content review dates retained; scoped additive review only."
       ],
       "reviewed_sections": [
         "Example implementation contract",
@@ -5710,9 +5712,9 @@
     },
     {
       "path": "domains/measurement/methodology-frameworks/emerging-methods/devops/release_management_template.md",
-      "sha256": "2f66db0e72085ee0e8c3a2c9413982028fe64910bafc4d70594ea9e3ee917a9a",
+      "sha256": "48724f1eca9bd4924eb2764b6957bbd5e8c3a7b1609c39fb2136c565f00f33f8",
       "status": "reviewed",
-      "word_count": 3597,
+      "word_count": 4411,
       "findings": [],
       "scope": "full-content",
       "reviewed": "2026-09-19",
@@ -5720,7 +5722,8 @@
       "evidence": [
         "Make example code and configuration applicability explicit rather than implying deployment readiness.",
         "09/20/2026: Reviewed the applicability, exclusions, complementary links, and context-model guidance added for #743/#744. Prior body retained verbatim except two heading renames on the non-migrated benefit templates. Prior full-content review date retained; this is an additive-change review, not a new full-body review. Hash chain: meta/principles-story-completion.json.",
-        "09/20/2026: Reviewed additive three-line principle mapping and rationale for #1058 against current template purpose and content structure; all prior bytes and full-content review dates retained. Scoped annotation review only. Hash chain: meta/principle-annotation-reconciliation.json."
+        "09/20/2026: Reviewed additive three-line principle mapping and rationale for #1058 against current template purpose and content structure; all prior bytes and full-content review dates retained. Scoped annotation review only. Hash chain: meta/principle-annotation-reconciliation.json.",
+        "09/20/2026: Reviewed additive #752 increment, staged-promotion or cadence guidance, evidence/hold/recovery decisions and canonical links. Prior body and full-content review dates retained; scoped additive review only."
       ],
       "reviewed_sections": [
         "Example implementation contract",
