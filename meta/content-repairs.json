@@ -285,8 +285,8 @@
       "path": "domains/delivery/project-lifecycle/02-planning/project-management-plan/traditional-project-management-plan-template.md",
       "base_commit": "be04694ffd0f39de3d5f306300c276fa7f810762",
       "original_sha256": "377a8035beec71d6b87bd4a86f994ad282a31316ceec3a58e3c3e9645e5fcf33",
-      "reason": "Substantive content maintenance: file-specific findings, sources and section coverage in meta/template-content-reviews.json; scope and limitations in docs/vnext/post-migration-repair/resource-and-freshness-review.md. Original migration evidence preserved. Reviewed additive principles usage guidance for #743/#744; previous body preserved. Evidence: meta/principles-story-completion.json. Added three-line principle annotation for #1058; prior body and metadata preserved. Hash chain: meta/principle-annotation-reconciliation.json.",
-      "current_sha256": "3d63c1a727ba14e17fc95906f024f51553456834b7e4832c6fd66ab8ca25dfbf"
+      "reason": "Substantive content maintenance: file-specific findings, sources and section coverage in meta/template-content-reviews.json; scope and limitations in docs/vnext/post-migration-repair/resource-and-freshness-review.md. Original migration evidence preserved. Reviewed additive principles usage guidance for #743/#744; previous body preserved. Evidence: meta/principles-story-completion.json. Added three-line principle annotation for #1058; prior body and metadata preserved. Hash chain: meta/principle-annotation-reconciliation.json. Reviewed additive #751 product-mode applicability guidance; prior body and dates retained.",
+      "current_sha256": "82b4f90a49e9a94fa766fcf4104e9aaf6d47aa3a2ec824709cc6a130bc3f1668"
     },
     {
       "path": "domains/delivery/project-lifecycle/02-planning/risk-management/agile-risk-board-template.md",
@@ -341,8 +341,8 @@
       "path": "domains/delivery/templates/traditional/Traditional/Process_Groups/Closing/project_closure_report_template.md",
       "base_commit": "be04694ffd0f39de3d5f306300c276fa7f810762",
       "original_sha256": "3f7d84648b990561627e5ebc761f3eb133e0350ac2a17858871be83124da7565",
-      "reason": "Substantive content maintenance: file-specific findings, sources and section coverage in meta/template-content-reviews.json; scope and limitations in docs/vnext/post-migration-repair/resource-and-freshness-review.md. Original migration evidence preserved. Reviewed additive principles usage guidance for #743/#744; previous body preserved. Evidence: meta/principles-story-completion.json. Added three-line principle annotation for #1058; prior body and metadata preserved. Hash chain: meta/principle-annotation-reconciliation.json. Reviewed additive operational continuity / flow metrics integration for #754/#755; prior body and review dates retained.",
-      "current_sha256": "38a16ef9ec76f20d059a90bd07624f76158c5ff17137e1eadb9c87bb161f3f7f"
+      "reason": "Substantive content maintenance: file-specific findings, sources and section coverage in meta/template-content-reviews.json; scope and limitations in docs/vnext/post-migration-repair/resource-and-freshness-review.md. Original migration evidence preserved. Reviewed additive principles usage guidance for #743/#744; previous body preserved. Evidence: meta/principles-story-completion.json. Added three-line principle annotation for #1058; prior body and metadata preserved. Hash chain: meta/principle-annotation-reconciliation.json. Reviewed additive operational continuity / flow metrics integration for #754/#755; prior body and review dates retained. Reviewed additive #751 product-mode applicability guidance; prior body and dates retained.",
+      "current_sha256": "427f1b7dc81cede7bfba8bee060f4cf71ad52fed2dfee7d3755b184d8dfb0940"
     },
     {
       "path": "domains/delivery/templates/traditional/Traditional/Process_Groups/Executing/project_execution_status_report_template.md",
@@ -817,8 +817,8 @@
       "path": "domains/uncertainty/project-lifecycle/04-monitoring-control/progress-tracking/status-report-template.md",
       "base_commit": "be04694ffd0f39de3d5f306300c276fa7f810762",
       "original_sha256": "aa10eee873c4fb6f9755e59c3dbe9a48f40dd8a2452d5231c92fa3e3361548ee",
-      "reason": "Substantive content maintenance: file-specific findings, sources and section coverage in meta/template-content-reviews.json; scope and limitations in docs/vnext/post-migration-repair/resource-and-freshness-review.md. Original migration evidence preserved. Reviewed additive principles usage guidance for #743/#744; previous body preserved. Evidence: meta/principles-story-completion.json. Added three-line principle annotation for #1058; prior body and metadata preserved. Hash chain: meta/principle-annotation-reconciliation.json. Reviewed additive #748 event-control handoff and notification links; prior body and review date preserved.",
-      "current_sha256": "4f9ee51a53edec7a021b04aee0c874a6ec74996e23b0808b80e52bc264750796"
+      "reason": "Substantive content maintenance: file-specific findings, sources and section coverage in meta/template-content-reviews.json; scope and limitations in docs/vnext/post-migration-repair/resource-and-freshness-review.md. Original migration evidence preserved. Reviewed additive principles usage guidance for #743/#744; previous body preserved. Evidence: meta/principles-story-completion.json. Added three-line principle annotation for #1058; prior body and metadata preserved. Hash chain: meta/principle-annotation-reconciliation.json. Reviewed additive #748 event-control handoff and notification links; prior body and review date preserved. Reviewed additive #751 product-mode applicability guidance; prior body and dates retained.",
+      "current_sha256": "37bf67cfed76cecc58ab57ace0a3ccaf98aa9c4e3f09f879ee6e1193d383632f"
     },
     {
       "path": "domains/uncertainty/role-based-toolkits/product-owner/backlog-management-template.md",
@@ -957,8 +957,8 @@
       "path": "domains/planning/project-lifecycle/01-initiation/project-charter/traditional-project-charter-template.md",
       "base_commit": "11a47f0789ba120d23ee88526e5ac19340298bc9",
       "original_sha256": "3b7cfab0abc66bc389bbe4c161330e19af41f1801fb6edafa06700e47acbf75f",
-      "reason": "Principles usage guidance and anti-pattern links for #743/#744; prior body preserved. Evidence: meta/principles-story-completion.json. Added three-line principle annotation for #1058; prior body and metadata preserved. Hash chain: meta/principle-annotation-reconciliation.json.",
-      "current_sha256": "f8cb4bba4feeab2c2fb16ebb420f688684079e1611fd06366bfa051230003a94"
+      "reason": "Principles usage guidance and anti-pattern links for #743/#744; prior body preserved. Evidence: meta/principles-story-completion.json. Added three-line principle annotation for #1058; prior body and metadata preserved. Hash chain: meta/principle-annotation-reconciliation.json. Reviewed additive #751 product-mode applicability guidance; prior body and dates retained.",
+      "current_sha256": "0adbc2de934221c36a09267c2741a9a168b926a428a5a907b4becc3cee181274"
     }
   ]
 }

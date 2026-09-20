@@ -29,6 +29,13 @@ principle_rationale: "Reports defined-period progress, exceptions and decision r
 
 Selection context: Uncertainty domain; universal methodology; advanced complexity. Match the situations above to project phase, risk, team size, and industry using the [decision-engine context model](../../../../../meta/architecture-research/800-801-context-assessment-model.md).
 
+## Product-mode applicability
+
+Use this existing artifact for a bounded initiative or increment inside product delivery, including project-within-product and product-within-project arrangements. Show project delivery commitments alongside user/outcome evidence, experiments, operating health and the next product investment decision. Link the product backlog and KPI owner. Completion and throughput are outputs, not proof of realized value.
+
+Apply the [delivery-mode decision guide](../../../../../docs/delivery/product-thinking-framework.md) before adapting the worksheet. Pure product operation need not create a new project record for every routine change; retain required governance and acceptance evidence.
+
+
 ## Event-driven governance handoff
 
 Use the [event catalog and response process](../../../../../docs/governance/event-driven-controls.md) for exceptions between scheduled reviews; retain the approved reporting cadence and mandatory gates. Record occurrence/event ID, detected time, source/as-of date, condition and baseline version, owner/backup/authority, acknowledgement and response-plan deadlines, next update, linked records and closure evidence.

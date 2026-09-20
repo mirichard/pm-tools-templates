@@ -2,7 +2,7 @@
 """
 template-recommender.py — Context-based template recommendation engine
 
-Asks 7 project context questions, applies matching rules, and outputs
+Asks 7 project context questions plus an optional delivery-mode question, and outputs
 a personalized recommendation card with essential templates, toolkit,
 and use-case pathway suggestions.
 
@@ -63,6 +63,12 @@ QUESTIONS = [
         "prompt": "PM experience level?",
         "options": ["new", "intermediate", "advanced"],
         "default": "intermediate"
+    },
+    {
+        "key": "delivery_mode",
+        "prompt": "Delivery mode? (independent of methodology)",
+        "options": ["project", "product", "project_within_product", "product_within_project", "unsure"],
+        "default": "unsure"
     }
 ]
 
@@ -125,12 +131,48 @@ INDUSTRY_PATHS = {
 }
 
 
+DELIVERY_MODES = ("project", "product", "project_within_product", "product_within_project", "unsure")
+MODE_GUIDE = "docs/delivery/product-thinking-framework.md"
+MODE_PHASE_ASSETS = {
+    "starting": ("Project Charter", "domains/planning/project-lifecycle/01-initiation/project-charter/traditional-project-charter-template.md", "Record the bounded authorization and continuing outcome owner"),
+    "planning": ("Project Management Plan", "domains/delivery/project-lifecycle/02-planning/project-management-plan/traditional-project-management-plan-template.md", "Separate the bounded delivery baseline from ongoing investment and discovery"),
+    "in_progress": ("Status Report", "domains/uncertainty/project-lifecycle/04-monitoring-control/progress-tracking/status-report-template.md", "Report delivery progress alongside outcome evidence and next decisions"),
+    "closing": ("Project Closure Report", "domains/delivery/templates/traditional/Traditional/Process_Groups/Closing/project_closure_report_template.md", "Close the bounded work while preserving accepted product/service ownership"),
+}
+MODE_ASSETS = [
+    ("Product Vision", "role-based-toolkits/product-owner/product-vision-template.md", "State the user need, outcome hypothesis and accountable product owner"),
+    ("Product Backlog", "domains/uncertainty/role-based-toolkits/product-owner/backlog-management-template.md", "Prioritize experiments and changes against outcomes"),
+    ("Value KPI Mapping", "project-lifecycle/04-monitoring-control/progress-tracking/kpi-mapping-template.md", "Connect delivery measures to separately verified outcomes"),
+    ("Feedback Loops", "docs/delivery/feedback-loop-architecture.md", "Feed learning into the next investment decision"),
+]
+MODE_REASONS = {
+    "project": "Bounded delivery: retain scope, acceptance and closure; identify the receiving owner.",
+    "product": "Ongoing outcomes: retain funded ownership, discovery and improvement after individual deliveries.",
+    "project_within_product": "A bounded project serves a continuing product: retain project gates and product ownership.",
+    "product_within_project": "A project creates a continuing product: establish funding and ownership before project closure.",
+    "unsure": "Resolve duration, outcome ownership and funding using the mode guide before claiming product readiness.",
+}
+
+
+def delivery_mode_recommendations(ctx):
+    """Add mode-aware guidance without removing existing risk or phase controls."""
+    mode = ctx.get("delivery_mode", "project")
+    if mode not in DELIVERY_MODES:
+        raise ValueError("delivery_mode must be one of: " + ", ".join(DELIVERY_MODES))
+    assets = []
+    if mode in ("product", "project_within_product", "product_within_project"):
+        assets = [*MODE_ASSETS, MODE_PHASE_ASSETS[ctx["phase"]]]
+        if ctx["phase"] == "closing":
+            assets.append(("Operational Continuity", "transition_to_operations_framework.md", "Verify receiving-owner acceptance, support and unresolved obligations"))
+    return mode, assets
+
+
 # ── Interactive Input ─────────────────────────────────────────────────────────
 
 def ask_questions() -> dict:
     print("\n📋 PROJECT CONTEXT ASSESSMENT")
     print("=" * 50)
-    print("Answer 7 questions to get personalized template recommendations.\n")
+    print("Answer 7 context questions and an optional delivery-mode question.\n")
 
     context = {}
     for q in QUESTIONS:
@@ -164,6 +206,7 @@ def ask_questions() -> dict:
 # ── Recommendation Engine ─────────────────────────────────────────────────────
 
 def generate_recommendations(ctx: dict) -> str:
+    mode, mode_assets = delivery_mode_recommendations(ctx)
     meth = ctx["methodology"]
     phase = ctx["phase"]
     risk = ctx["risk_profile"]
@@ -241,6 +284,16 @@ def generate_recommendations(ctx: dict) -> str:
         lines.append(f"   • ROI Dashboard → business-stakeholder-suite/financial-governance/roi-tracking-dashboard.md")
         lines.append("")
 
+    if "delivery_mode" in ctx:
+        lines.append("DELIVERY MODE: " + mode)
+        lines.append(MODE_REASONS[mode])
+        lines.append("   → " + MODE_GUIDE)
+        for name, path, reason in mode_assets:
+            lines.append(f"   • {name} → {path}")
+            lines.append(f"      {reason}")
+        lines.append("Mode does not waive governance, risk, contractual or approval requirements.")
+        lines.append("")
+
     lines.append("=" * 60)
     return "\n".join(lines)
 
@@ -256,8 +309,13 @@ def main():
     else:
         ctx = ask_questions()
 
-    print(generate_recommendations(ctx))
+    try:
+        print(generate_recommendations(ctx))
+    except (ValueError, KeyError, TypeError) as exc:
+        print(f"No recommendations: {exc}", file=sys.stderr)
+        return 2
+    return 0
 
 
 if __name__ == "__main__":
-    main()
+    sys.exit(main())

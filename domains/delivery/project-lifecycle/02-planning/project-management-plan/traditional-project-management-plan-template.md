@@ -28,6 +28,13 @@ principle_rationale: "Coordinates predictive scope, work packages, schedule and 
 
 Selection context: Delivery domain; universal methodology; intermediate complexity. Match the situations above to project phase, risk, team size, and industry using the [decision-engine context model](../../../../../meta/architecture-research/800-801-context-assessment-model.md).
 
+## Product-mode applicability
+
+Use this existing artifact for a bounded initiative or increment inside product delivery, including project-within-product and product-within-project arrangements. Separate project scope, schedule and acceptance baselines from the ongoing product backlog and investment horizon. Link the product owner, discovery/review cadence and funding decisions; changes to approved project commitments still use change control.
+
+Apply the [delivery-mode decision guide](../../../../../docs/delivery/product-thinking-framework.md) before adapting the worksheet. Pure product operation need not create a new project record for every routine change; retain required governance and acceptance evidence.
+
+
 ## Completing the worksheet
 
 Replace populated examples with project evidence before circulation. Record the reporting period, baseline, source, owner, and calculation for each measure; define thresholds and approval authority locally. Show unavailable values as unknown rather than zero or a favorable status. Reconcile totals and units, handle zero denominators explicitly, and retain the decision rationale and supporting evidence.

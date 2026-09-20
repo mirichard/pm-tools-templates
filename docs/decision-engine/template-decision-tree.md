@@ -8,6 +8,12 @@
 
 ---
 
+## Delivery mode
+
+Before applying the six questions below, use the optional [product thinking decision guide](../delivery/product-thinking-framework.md) to distinguish project, product, project-within-product and product-within-project delivery. Methodology does not determine mode. If uncertain, record `unsure` and resolve lifetime, ownership and funding with the responsible authority.
+
+The [CLI recommender](../../scripts/template-recommender.py) accepts an optional `delivery_mode` field in the existing context profile and adds mode-specific rationale, product vision/backlog, feedback, value KPIs and an annotated phase artifact. Existing profiles without the field retain their previous output. Keep phase, risk and governance controls; product mode does not waive them.
+
 ## Governance tier
 
 After capturing project context, use the [adaptive governance decision matrix](../governance/governance-decision-matrix.md) to select Light, Standard or Rigorous controls. Assess project size and team size separately; high/regulatory risk and organizational minimums take precedence over small scale or PM experience. The matrix includes a reproducible selector for the seven-field v1 context profile.

@@ -29,6 +29,13 @@ principle_rationale: "Secures sponsor agreement on predictive project objectives
 
 Selection context: Planning domain; universal methodology; advanced complexity. Match the situations above to project phase, risk, team size, and industry using the [decision-engine context model](../../../../../meta/architecture-research/800-801-context-assessment-model.md).
 
+## Product-mode applicability
+
+Use this existing artifact for a bounded initiative or increment inside product delivery, including project-within-product and product-within-project arrangements. Record the ongoing outcome hypothesis and product owner beside the bounded authorization. Identify funding/review authority, project-to-product decision boundaries and who accepts continuing ownership. A charter authorizes the project; it does not fund indefinite operations.
+
+Apply the [delivery-mode decision guide](../../../../../docs/delivery/product-thinking-framework.md) before adapting the worksheet. Pure product operation need not create a new project record for every routine change; retain required governance and acceptance evidence.
+
+
 ## Purpose/Overview
 This traditional project charter template provides a comprehensive framework for project initiation following established project management practices. It serves as the formal authorization document that defines project scope, objectives, and governance structure. The charter establishes clear boundaries and expectations for all stakeholders.
 
