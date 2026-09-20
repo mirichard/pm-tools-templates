@@ -2451,9 +2451,9 @@
     },
     {
       "path": "domains/measurement/project-assessment-suite/governance-assessment-template.md",
-      "sha256": "40f5ec5e534ceafb1015f828a46663b1b0271b0c570a045c426b6a01b847e431",
+      "sha256": "00cb7e77e508f29ccd3ee174eca86ecdf78753e1ad620d310ef84073e296c98f",
       "status": "reviewed",
-      "word_count": 513,
+      "word_count": 541,
       "findings": [],
       "scope": "full-content",
       "reviewed": "2026-09-19",
@@ -2461,7 +2461,8 @@
       "evidence": [
         "Read the complete short assessment. Removed conflicting body metadata and added defined scoring, N/A handling, evidence, action ownership, and follow-up.",
         "09/20/2026: Reviewed the applicability, exclusions, complementary links, and context-model guidance added for #743/#744. Prior body retained verbatim except two heading renames on the non-migrated benefit templates. Prior full-content review date retained; this is an additive-change review, not a new full-body review. Hash chain: meta/principles-story-completion.json.",
-        "09/20/2026: Reviewed additive three-line principle mapping and rationale for #1058 against current template purpose and content structure; all prior bytes and full-content review dates retained. Scoped annotation review only. Hash chain: meta/principle-annotation-reconciliation.json."
+        "09/20/2026: Reviewed additive three-line principle mapping and rationale for #1058 against current template purpose and content structure; all prior bytes and full-content review dates retained. Scoped annotation review only. Hash chain: meta/principle-annotation-reconciliation.json.",
+        "09/20/2026: Reviewed additive #746 tier applicability and model link; assessment scoring remains advisory and cannot override tier floors. Existing body and full-content review date retained; scoped change review only."
       ]
     },
     {

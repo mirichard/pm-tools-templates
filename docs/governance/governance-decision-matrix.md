@@ -1,386 +1,133 @@
-# Governance Decision Matrix: Selection Guide
+# Adaptive Governance Model and Decision Matrix
 
-**Version**: Sprint 13 Draft  
-**Status**: ✅ Design Phase Complete — Ready for Gate 2 Validation (Sep 25)  
-**Related Issues**: #749 (Governance Decision Matrix), #713 (Epic 6: Governance Modernization)
+Story #746 · Parent #713 · Sprint 14
 
----
+Select **Light**, **Standard**, or **Rigorous** governance using the project's context. These are minimum controls, not assessments of compliance or permission to proceed. The sponsor approves the selection and names each authority before work is authorized.
 
-## Overview
+Use this model to make oversight proportional to project scale and exposure. Do not use it to waive fixed organizational, contractual, or regulatory controls. Mandatory controls take precedence at every tier; the responsible control owner confirms applicability. An industry label alone neither establishes nor excludes an obligation.
 
-This governance decision matrix synthesizes all governance options into a unified selection guide that helps organizations choose the right governance approach for their project context.
+## Select a tier
 
-**The matrix maps**:
-- Project characteristics (size, duration, risk, stakeholder complexity)
-- → Recommended governance model (adaptive tiers, risk-based scaling, event-driven controls)
-- → Specific governance templates and artifacts to use
+Use the seven fields in the [decision-engine context model](../../meta/architecture-research/800-801-context-assessment-model.md). Apply all rows and take the **highest** applicable tier, then apply the organization's minimum. Do not average risks or let a small team offset high risk.
 
----
+| Context field | Light floor | Standard floor | Rigorous floor |
+|---|---|---|---|
+| `risk_profile` | `low` | `medium` | `high`, `regulatory` |
+| `size` | `small` | `medium` | `large`, `enterprise` |
+| `team_size` | `solo`, `small` | `medium` | `large` |
 
-## Governance Models Available
+Light therefore requires low risk, small project size, and a solo or small team. Standard applies when at least one Standard condition holds and no Rigorous condition holds. Any Rigorous condition wins. If a field is missing or invalid, complete the assessment before selecting a tier; keep existing controls meanwhile.
 
-### 1. Adaptive Tier Model (Flexible, Risk-Responsive)
-**Characteristics**:
-- 4 governance tiers (Minimal, Moderate, Structured, Rigorous)
-- Scales governance intensity based on project risk profile
-- Flexible tier adjustment throughout project lifecycle
-- Best for: Projects with evolving risk, varying team experience, high uncertainty
+| Remaining context field | How to tailor without lowering the tier |
+|---|---|
+| `methodology` | `traditional`: phase gates; `agile`: release/increment gates may share ceremonies if evidence and approvers match; `hybrid`: align both; `unsure`: resolve method with the sponsor while retaining the selected controls. |
+| `industry` | `general`, `it`, `healthcare`, `financial`, `construction`: ask the accountable control owner which domain controls apply. Record confirmed obligations and add them to the baseline. |
+| `phase` | `starting`: approve authority; `planning`: approve baseline; `in_progress`: maintain evidence and review changes; `closing`: accept outcomes, transfer obligations and archive decisions. Joining mid-project requires a gap review, not retrospective approvals. |
+| `pm_experience` | `new`: provide coaching and simpler forms; `intermediate`: standard instructions; `advanced`: allow efficient tooling. Experience never removes evidence or approval requirements. |
 
-**When to Use**:
-- Agile/iterative projects with emerging requirements
-- Cross-functional teams learning new domains
-- Innovation/R&D initiatives with discovery phases
-- Startups and emerging organizations
-
-**Tier Definitions**:
-
-| Tier | Duration | Team Size | Risk Profile | Reporting | Review Cycle |
-|------|----------|-----------|--------------|-----------|--------------|
-| **Minimal** | < 3 months | 1-5 | Low | Monthly | Ad-hoc |
-| **Moderate** | 3-6 months | 5-15 | Medium | Bi-weekly | Fortnightly |
-| **Structured** | 6-12 months | 15-50 | Medium-High | Weekly | Weekly |
-| **Rigorous** | 12+ months | 50+ | High/Critical | Daily | Multiple per week |
-
----
-
-### 2. Risk-Based Scaling (Proportional Oversight)
-**Characteristics**:
-- Governance intensity scales with measured risk score
-- Risk evaluated across: technical complexity, stakeholder criticality, financial exposure, compliance obligations
-- Continuous risk reassessment triggers governance adjustments
-- Best for: Organizations with mature risk management, changing project portfolios
-
-**When to Use**:
-- Large enterprises with portfolio management
-- Organizations with significant financial or regulatory exposure
-- Projects with quantifiable risk metrics
-- Matrix/program management structures
-
-**Risk Scoring Factors**:
-1. **Technical Complexity** (0-5 scale)
-   - Score: Novelty + architectural risk + technical debt + dependency count
-
-2. **Stakeholder Criticality** (0-5 scale)
-   - Score: Executive visibility + customer impact + cross-team dependencies + political sensitivity
-
-3. **Financial Exposure** (0-5 scale)
-   - Score: Budget size + profit impact + investment recovery period
-
-4. **Compliance Obligations** (0-5 scale)
-   - Score: Regulatory frameworks + audit requirements + audit frequency
-
-**Governance Intensity** = (Technical + Stakeholder + Financial + Compliance) / 20 × 100%
-
-| Risk Score | Governance Intensity | Review Frequency | Approval Authority |
-|------------|---------------------|------------------|-------------------|
-| 0-25% | Lightweight | Ad-hoc | Team lead |
-| 26-50% | Moderate | Bi-weekly | Manager + sponsor |
-| 51-75% | Significant | Weekly | Director + PMO |
-| 76-100% | Rigorous | Daily | Executive steering committee |
-
----
-
-### 3. Event-Driven Controls (Trigger-Based Governance)
-**Characteristics**:
-- Governance activates based on specific project events/triggers
-- Triggers are predefined and monitored throughout project
-- Escalation and control procedures associated with each trigger
-- Best for: Organizations needing flexibility with safety guardrails
-
-**When to Use**:
-- Organizations wanting minimal baseline governance + strong safety controls
-- Projects where governance burden should only activate when problems emerge
-- Highly autonomous teams with strong self-governance culture
-
-**Common Governance Triggers**:
-
-| Event Trigger | Severity | Activation | Control |
-|---------------|----------|------------|---------|
-| **Scope creep** | > 15% unplanned increase | Immediate | Re-baseline + steering review |
-| **Budget overrun** | > 10% variance to forecast | Immediate | Finance review + re-forecast |
-| **Schedule slip** | > 2-week cumulative delay | Significant | Sponsor review + recovery plan |
-| **Quality defects** | Defect escape rate > baseline × 1.5 | Significant | QA deep-dive + process review |
-| **Key person departure** | Critical role vacancy > 1 week | Moderate | Knowledge transfer plan + coverage |
-| **Dependency failure** | External blocker > 3 days | Moderate | Escalation + mitigation planning |
-| **Stakeholder escalation** | Issue escalated to steering committee | Critical | Executive review + decision gate |
-| **Regulatory/compliance finding** | Non-compliance identified | Critical | Compliance review + remediation |
-
----
-
-## Governance Decision Matrix
-
-### Quick Selection Guide
-
-**Step 1: Assess Your Project Context**
-
-| Question | Answer | Notes |
-|----------|--------|-------|
-| How many months will this project run? | < 3 / 3-6 / 6-12 / 12+ | Duration |
-| What is your team size? | 1-5 / 5-15 / 15-50 / 50+ | Team scope |
-| What is the stakeholder complexity? | Low / Medium / High / Very High | Executive visibility, cross-team deps |
-| Are there regulatory/compliance obligations? | None / Some / Significant / Critical | Compliance scope |
-| What is the technical complexity? | Low / Medium / High / Very High | Novelty, architecture, dependencies |
-| How much financial exposure? | < $100K / $100K-$1M / $1M-$10M / > $10M | Budget impact |
-| What is your team's governance maturity? | Low / Moderate / High / Very High | Risk tolerance |
-
-**Step 2: Score Your Risk Profile**
-
-Use the Risk-Based Scaling model above to calculate governance intensity (0-100%).
-
-**Step 3: Select Governance Model**
-
-| Profile | Recommended Model | Rationale |
-|---------|------------------|-----------|
-| **Small, low-risk, co-located team** | Event-Driven | Minimal overhead; safety guardrails for issues |
-| **Medium project, emerging requirements** | Adaptive Tiers | Flexible intensity matching project risk evolution |
-| **Large, complex, regulated** | Risk-Based Scaling | Proportional governance to measured risk |
-| **Hybrid/portfolio context** | Risk-Based Scaling + Event-Driven | Baseline risk-driven + trigger-based escalation |
-| **Startup/high-autonomy culture** | Event-Driven + Minimal Adaptive Tier | Minimal baseline + activation on triggers |
-
----
-
-## Decision Flowchart
-
-```
-START: New Project Governance Selection
-│
-├─► Question 1: Duration + Team Size
-│   ├─ Small & Short (< 6 mo, < 15 ppl)  ──► Go to Q3 (Compliance)
-│   ├─ Medium (6-12 mo, 15-50 ppl)       ──► Go to Q2 (Stakeholder)
-│   └─ Large (12+ mo, 50+ ppl)           ──► Risk-Based Scaling likely
-│
-├─► Question 2: Stakeholder Complexity + Visibility
-│   ├─ Low/Internal  ──► Event-Driven likely
-│   ├─ Medium        ──► Adaptive Tiers or Risk-Based
-│   └─ High/Executive ──► Risk-Based Scaling required
-│
-├─► Question 3: Compliance Obligations
-│   ├─ None           ──► Event-Driven or Adaptive Tiers
-│   ├─ Some           ──► Adaptive Tiers
-│   └─ Significant+   ──► Risk-Based Scaling + compliance monitoring
-│
-├─► Question 4: Financial Exposure
-│   ├─ Low            ──► Event-Driven or Adaptive-Minimal
-│   ├─ Medium         ──► Adaptive-Moderate
-│   └─ High           ──► Risk-Based Scaling
-│
-└─► RECOMMENDATION: [Model] with intensity [Low/Moderate/High]
-    ├─ Start with recommended model
-    ├─ Apply adaptive tier/risk scoring for intensity
-    ├─ Activate event-driven triggers for safety
-    └─ Review + adjust at first project milestone
+```mermaid
+flowchart TD
+    A["Complete context"] --> B{"High risk or large scale?"}
+    B -->|Yes| R["Rigorous"]
+    B -->|No| C{"Medium risk or scale?"}
+    C -->|Yes| S["Standard"]
+    C -->|No| L["Light"]
+    R --> P["Apply policy floor and mandatory controls"]
+    S --> P
+    L --> P
+    P --> D["Sponsor approves recorded selection"]
 ```
 
----
+Here, high risk includes `regulatory`; large scale includes `size=enterprise` or `team_size=large`. Medium scale includes `size=medium` or `team_size=medium`.
 
-## Five Example Organizational Contexts
+### Reproducible selection
 
-### Example 1: Startup SaaS (Early-Stage)
+The [reference selector](../../scripts/select_governance_tier.py) accepts the existing v1 profile format; it does not change the context schema or the template-generator CLI. It returns a recommendation with reasons, not an approval. Additional profile fields are ignored; every required context field is validated.
 
-**Profile**:
-- Duration: 4 months (MVP release)
-- Team: 8 people (co-located)
-- Stakeholder Complexity: Medium (founders + angel investors)
-- Compliance: None
-- Technical Complexity: High (new architecture, emerging tech stack)
-- Financial Exposure: $500K seed investment
+```json
+{
+  "profile_version": "1.0",
+  "project_context": {
+    "size": "small",
+    "methodology": "agile",
+    "risk_profile": "low",
+    "team_size": "small",
+    "industry": "it",
+    "phase": "starting",
+    "pm_experience": "new"
+  }
+}
+```
 
-**Recommended Governance**:
-- **Primary Model**: Adaptive Tiers (Moderate tier)
-- **Intensity**: 35% (emerging risk profile)
-- **Rationale**: High technical risk + investor visibility requires structured oversight, but team autonomy is critical for innovation speed
-- **Governance Artifacts**:
-  - Bi-weekly steering reviews with investor updates
-  - Weekly technical architecture reviews
-  - Event-driven escalation: scope creep >20%, budget variance >15%, key technical decisions
-- **Templates to Use**:
-  - Adaptive-Governance/moderate-tier-template.md
-  - Stakeholder-Communication-Plan.md
-  - Risk-Register (weekly updates)
-  - Architecture Decision Record (ADR)
+Save that profile as `context.json`, then run from the repository root:
 
----
+```sh
+python scripts/select_governance_tier.py context.json
+python scripts/select_governance_tier.py context.json --minimum-tier standard
+```
 
-### Example 2: Enterprise Bank (Regulated)
+The first command selects Light; the second selects Standard. The policy floor is a separate input because it is not a context-model field. Set it from the organization's approved policy, not personal preference. Invalid input exits with status 2 and produces no recommendation.
 
-**Profile**:
-- Duration: 18 months (core platform modernization)
-- Team: 120 people (distributed, multiple teams)
-- Stakeholder Complexity: Very High (regulatory bodies, executives, legacy users)
-- Compliance: Critical (PCI-DSS, SOX, GDPR)
-- Technical Complexity: Very High (legacy integration, distributed architecture)
-- Financial Exposure: $25M+ budget
+## Required controls by tier
 
-**Recommended Governance**:
-- **Primary Model**: Risk-Based Scaling
-- **Intensity**: 92% (highly complex, highly regulated, massive financial exposure)
-- **Rationale**: Enterprise complexity + compliance obligations + financial exposure require rigorous governance with daily executive visibility
-- **Governance Artifacts**:
-  - Steering Committee (weekly, escalation to board monthly)
-  - PMO oversight (daily risk dashboards, weekly status reports)
-  - Compliance review board (weekly)
-  - Event-driven escalation: regulatory findings (immediate), budget >$1M variance (daily), schedule slip >2 weeks (immediate), defect escape rate anomaly (daily)
-  - Formal change control board
-- **Templates to Use**:
-  - Risk-Based-Scaling/rigorous-tier-template.md
-  - Compliance-Monitoring-Framework (GDPR, SOX, PCI-DSS)
-  - Executive-Steering-Committee-Charter
-  - PMO-Dashboard-Template
-  - Formal-Change-Control-Process
+Artifacts are evidence requirements: combine them in one maintained record for Light, link existing tools for other tiers, and avoid duplicate data entry. Every approval records the decision, approver, date, evidence and conditions. A meeting or completed form alone is not approval.
 
----
+| Tier | Required artifacts | Review gates | Approval authorities | Reporting cadence |
+|---|---|---|---|---|
+| **Light** | Short governance charter with tier rationale, scope and tolerances; named roles and decision rights; combined risk, issue, change and decision log; acceptance evidence and closure record. | Sponsor authorization before work; acceptance before release/handover; closure review; approval before exceeding an agreed tolerance. | Sponsor approves charter, baseline, exceptions and closure; PM decides within written delegation; named recipient accepts deliverables. No self-approval of reserved sponsor decisions. | PM updates the combined record weekly; sponsor reviews status at least monthly and before each gate. Escalate tolerance breaches promptly. |
+| **Standard** | All Light evidence, plus governance framework, explicit authority/escalation matrix, maintained risk register, change impact/approval records, gate checklist and status report. | Initiation authorization, planning baseline, each phase/release readiness, and closure; material changes require impact review before commitment. | Sponsor approves baseline and closure; sponsor-designated steering/change authority approves changes within its mandate; PM handles delegated decisions; delivery owner accepts outcomes. | Weekly team status/risk review; sponsor or steering review at least fortnightly; gate and exception reporting as needed. |
+| **Rigorous** | All Standard evidence, plus formal governance charter, steering/change board mandates, assurance plan and review evidence, obligation/control register with owners, traceable approvals and retained audit evidence. Add program coordination/benefit records when governing a program. | Formal authorization, baseline, phase/release readiness and closure; independent assurance at relevant gates; control owners approve applicable control evidence before release. Unmet mandatory conditions block approval. | Executive sponsor/steering authority approves funding and baselines; authorized change board decides material changes; independent assurance/control owners sign their areas; PM cannot waive reserved decisions. | Weekly formal status, risk and control report; steering review at least fortnightly; control-owner/assurance review at each applicable gate. Escalate material breaches immediately under the agreed escalation route. |
 
-### Example 3: Healthcare Organization (Mid-Size)
+Record stricter required cadences in the charter. Gate reviews supplement scheduled reviews. Time-critical decisions must follow the named escalation authority rather than waiting for the next meeting. Light projects can satisfy authorization and planning in one recorded sponsor review; they still need acceptance and closure evidence.
 
-**Profile**:
-- Duration: 10 months (EHR workflow redesign)
-- Team: 45 people (clinical + IT + operations)
-- Stakeholder Complexity: High (clinicians, patients, regulators, executives)
-- Compliance: Significant (HIPAA, state licensing)
-- Technical Complexity: Medium (integrating existing EHR platform)
-- Financial Exposure: $3M budget
+## Existing templates and tier tags
 
-**Recommended Governance**:
-- **Primary Model**: Adaptive Tiers (Structured tier) + Risk-Based Scaling
-- **Intensity**: 68% (significant complexity + healthcare regulations)
-- **Rationale**: Clinical safety is paramount; HIPAA compliance required; clinician involvement critical throughout
-- **Governance Artifacts**:
-  - Clinical Governance Committee (weekly review of clinical impact)
-  - Steering Committee (weekly for organizational + compliance oversight)
-  - Compliance Review (bi-weekly HIPAA checklist)
-  - Event-driven escalation: clinical safety concern (immediate escalation), HIPAA breach risk (immediate), workflow delay >3 days (same-day escalation)
-  - User acceptance testing governance (structured sign-off by clinician roles)
-- **Templates to Use**:
-  - Adaptive-Governance/structured-tier-template.md
-  - Clinical-Safety-Review-Process
-  - HIPAA-Compliance-Monitoring
-  - Stakeholder-EHR-Review-Meeting
-  - User-Acceptance-Testing-Governance
+Visible **Governance tiers** tags identify applicability, not a requirement to complete every template. Use the required evidence above to choose the smallest sufficient set. The [tier inventory](../../meta/governance-tiers.json) records the existing project/program governance assets and assessment; industry overlays and repository-maintenance checklists have separate purposes.
 
----
+| Purpose | Existing asset | Applicable tiers / tailoring |
+|---|---|---|
+| Establish authority | [Project governance charter](../../role-based-toolkits/project-manager/governance-tools/governance-charter.md) | All: short combined charter for Light; explicit board/assurance mandates for Rigorous. |
+| Operating controls | [Governance framework](../../role-based-toolkits/project-manager/governance-tools/governance-framework.md) | All: use only sections needed for tier evidence; sample committee structures are not mandatory for Light. |
+| Decision and escalation rights | [Decision authority](../../role-based-toolkits/project-manager/governance-tools/decision-authority.md), [roles](../../role-based-toolkits/project-manager/governance-tools/governance-roles.md), [decision framework](../../role-based-toolkits/project-manager/governance-tools/decision-framework.md), [escalation matrix](../../role-based-toolkits/project-manager/governance-tools/escalation-matrix.md) | All: name people, delegated limits and the next authority; combine for Light. |
+| Changes and gates | [Change control](../../role-based-toolkits/project-manager/governance-tools/change-control-process.md), [quality gates](../../role-based-toolkits/project-manager/governance-tools/quality-gates.md) | All: a logged sponsor decision can satisfy a Light change gate; Standard/Rigorous retain impact and review evidence. |
+| Program authority | [Program charter](../../role-based-toolkits/program-manager/governance-framework/governance-charter.md), [authority matrix](../../role-based-toolkits/program-manager/governance-framework/decision-authority-matrix.md), [steering charter](../../role-based-toolkits/program-manager/governance-framework/steering-committee-charter.md), [change board charter](../../role-based-toolkits/program-manager/governance-framework/change-control-board-charter.md) | Standard, Rigorous: use when program coordination requires these authorities. |
+| Program assurance and benefits | [Quality plan](../../role-based-toolkits/program-manager/governance-framework/program-quality-management-plan.md), [benefits governance](../../role-based-toolkits/program-manager/benefits-realization/benefits-governance.md), [portfolio cadence](../../role-based-toolkits/program-manager/portfolio-management/governance-cadence.md) | Standard, Rigorous: align program oversight with project reporting; portfolio cadence does not replace project gates. |
+| Check proportionality | [Governance assessment](../../domains/measurement/project-assessment-suite/governance-assessment-template.md) | All: review evidence and gaps at selection and when context changes; assessment scores do not override the tier floor. |
 
-### Example 4: Digital Agency (Project-Based)
+Some existing assets are outlines. Use this model's required controls to complete their sections; an empty outline does not satisfy a gate. Sample dates, cadences and committee structures in templates must be tailored to the approved charter, with mandatory controls retained.
 
-**Profile**:
-- Duration: 6 months (web platform redesign for client)
-- Team: 20 people (internal agency team + client stakeholders)
-- Stakeholder Complexity: High (multiple client decision-makers, end users)
-- Compliance: Some (website accessibility, data privacy for user data)
-- Technical Complexity: Medium (redesign existing platform)
-- Financial Exposure: $800K client contract
+## Changing tiers
 
-**Recommended Governance**:
-- **Primary Model**: Event-Driven Controls
-- **Intensity**: 45% (moderate — client engagement high, technical complexity moderate)
-- **Rationale**: Client satisfaction requires responsiveness to feedback; lightweight baseline governance + escalation on scope/quality issues
-- **Governance Artifacts**:
-  - Client steering meeting (bi-weekly for status + decision-making)
-  - Internal sprint reviews (weekly)
-  - Event-driven escalation: client scope change request (approval gate), design QA issues >critical (immediate fix), schedule variance >1 week (client discussion), accessibility audit failure (immediate remediation)
-  - Formal sign-off gates at key milestones (discovery, design, development, UAT, launch)
-- **Templates to Use**:
-  - Event-Driven-Controls/agency-template.md
-  - Client-Steering-Meeting-Charter
-  - Design-QA-Checklist
-  - Accessibility-Compliance-Checklist
-  - Client-Sign-Off-Template
+Reassess at each scheduled governance review and before a material change in risk, scope, team, obligations or organizational policy. Phase progression and PM experience alone do not justify a downgrade.
 
----
+1. **Record the change:** PM captures old/new context, supporting evidence, selector result, policy floor and affected controls in the decision log.
+2. **Moving up:** apply the higher tier as the interim baseline immediately. Notify the sponsor and control owners; identify missing artifacts, owners and due dates before further affected commitments. Pause any affected gate until its required evidence and authority are in place. Carry forward all existing obligations and decisions.
+3. **Moving down:** keep current controls until the sponsor and affected control owners approve. Demonstrate the lower context conditions, resolved/accepted residual risks and continued mandatory control coverage. A lower selector result alone is insufficient. Approval cannot lower the context or policy floor.
+4. **Activate and follow up:** update the charter, authority matrix, cadence and evidence locations; notify the team; retain the previous baseline and approval history. Check effectiveness at the next scheduled review.
 
-### Example 5: Internal IT Operations (Continuous Service)
+| Transition record field | Required content |
+|---|---|
+| Identity | Project, date, PM and current charter version |
+| Before / after | Seven context fields, previous tier, recommended tier and policy floor |
+| Evidence and controls | Reason, supporting links, mandatory controls retained, gaps and interim restrictions |
+| Authorization | Sponsor and affected control-owner decisions, conditions and effective date |
+| Implementation | Artifact/control owners, due dates, communication and next review |
 
-**Profile**:
-- Duration: Ongoing (no fixed end date — infrastructure maintenance & enhancement)
-- Team: 12 people (distributed ops team)
-- Stakeholder Complexity: Medium (multiple internal departments depend on services)
-- Compliance: Some (security standards, audit requirements)
-- Technical Complexity: Varies (mix of routine maintenance + innovations)
-- Financial Exposure: $2M annual ops budget
+## Worked contexts
 
-**Recommended Governance**:
-- **Primary Model**: Event-Driven Controls + Minimal Adaptive Tier
-- **Intensity**: 35% (baseline lightweight for routine work; escalation for incidents/changes)
-- **Rationale**: Operations need high autonomy for routine work; governance activates for changes, incidents, or issues
-- **Governance Artifacts**:
-  - Change Advisory Board (CAB) for major changes (infrastructure or cross-team impact)
-  - Incident management escalation (severity-based)
-  - Event-driven escalation: critical incident (immediate war room), major infrastructure change (CAB review + approval), security vulnerability (emergency response + patch)
-  - Service-level agreements (SLA) with escalation triggers
-  - Quarterly IT steering for strategic planning
-- **Templates to Use**:
-  - Event-Driven-Controls/ops-template.md
-  - Change-Advisory-Board-Charter
-  - Incident-Management-Escalation-Matrix
-  - Service-Level-Agreement-Template
-  - Security-Vulnerability-Response-Process
+These are illustrative inputs, not verified organizational assessments. Assume a Light policy floor unless stated; use the full seven-field profile in practice.
 
----
+| Context | `size` / `risk_profile` / `team_size` | Other tailoring | Tier and reason |
+|---|---|---|---|
+| Small internal improvement | small / low / solo | traditional, general, starting, new | **Light**; use a combined charter/log and sponsor gates. Coaching does not change the floor. |
+| Startup SaaS with high technical exposure | medium / high / small | agile, it, planning, intermediate | **Rigorous**; high risk wins despite the small team. Align assurance gates with releases. |
+| Enterprise bank program with confirmed obligations | enterprise / regulatory / large | hybrid, financial, in_progress, advanced | **Rigorous**; all three dimensions require it. Control owners confirm applicable evidence. |
+| Healthcare implementation with confirmed obligations | medium / regulatory / medium | traditional, healthcare, planning, intermediate | **Rigorous**; regulatory risk takes precedence over medium scale. |
+| Digital agency delivery | medium / medium / medium | agile, general, in_progress, advanced | **Standard**; use scheduled reviews plus change escalation and release gates. |
+| Internal IT service change | small / low / medium | hybrid, it, closing, advanced | **Standard**; team coordination requires it even during closure. |
 
-## Implementation Steps
+## Related governance work
 
-### At Project Initiation
+This reconciles the tier selection part of the existing #749 guide with #746. The former four-tier vocabulary and uncalibrated percentage scores are superseded here; reassess legacy selections from context rather than mechanically renaming them.
 
-1. **Complete the Decision Matrix** (30 minutes)
-   - Answer 7 assessment questions
-   - Calculate risk score (if using risk-based scaling)
-   - Identify recommended governance model
-
-2. **Select Governance Model Artifacts** (1-2 hours)
-   - Download recommended templates from domains/governance/
-   - Adapt examples to your organizational context
-   - Establish stakeholder review/approval process
-
-3. **Establish Governance Rhythm** (1 hour)
-   - Define meeting cadence (steering committee, reviews, escalations)
-   - Identify governance stakeholders (sponsors, PMO, compliance)
-   - Set up governance dashboards or tracking mechanisms
-
-4. **Document Triggers & Escalation Paths** (1-2 hours)
-   - Select relevant event-driven triggers
-   - Define escalation authority for each trigger
-   - Communicate trigger definitions to team
-
-### At Project Milestones
-
-- **Review & Adjust Governance**: Every milestone (month 1, 3, 6, etc.)
-  - Has project risk profile changed?
-  - Is current governance intensity appropriate?
-  - Should triggers be adjusted?
-
----
-
-## When NOT to Use This Guide
-
-- Organizations with pre-defined, non-negotiable governance standards
-- Projects operating within strict regulatory frameworks (use compliance-specific governance)
-- Organizations where governance decision-making is centralized at executive level (use as input, not as primary decision tool)
-
----
-
-## Related Templates
-
-- **Adaptive Governance Tier Templates** (domains/governance/adaptive-*)
-- **Risk-Based Scaling Framework** (domains/governance/risk-based-*)
-- **Event-Driven Controls** (domains/governance/event-driven-*)
-- **Compliance Integration Guide** (see Story #750)
-- **Executive Steering Committee Charter** (domains/governance/steering-committee-charter.md)
-- **Project Initiation Checklist** (domains/planning/project-initiation-checklist.md)
-
----
-
-## Acceptance Criteria Status
-
-- [x] Decision matrix maps project characteristics → governance approach
-- [x] Matrix integrates tier selection + risk scaling + event triggers
-- [x] Visual format (matrix + flowchart) enables rapid governance selection
-- [x] References specific templates for each governance path
-- [x] 5 example organizational contexts provided
-
-**Status**: ✅ COMPLETE — Ready for validation review (Gate 2, Sep 25)
-
----
-
-**Version**: Sprint 13 Design Phase  
-**Status**: Ready for Stakeholder Review  
-**Related Issue**: #749  
-**Next Gate**: Gate 2 (Sep 25) Validation
+Risk-based scaling (#747) will refine artifacts and review intensity within this baseline. Event-driven controls (#748) will define additional triggers and response ownership; they supplement scheduled reviews and cannot remove baseline gates. Those stories remain separate work. The [compliance integration framework](compliance-integration-framework.md) is a supporting reference; the accountable control owner determines the actual mandatory controls.

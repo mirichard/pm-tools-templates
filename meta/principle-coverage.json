@@ -1147,7 +1147,7 @@
     },
     {
       "path": "domains/measurement/project-assessment-suite/governance-assessment-template.md",
-      "sha256": "40f5ec5e534ceafb1015f828a46663b1b0271b0c570a045c426b6a01b847e431",
+      "sha256": "00cb7e77e508f29ccd3ee174eca86ecdf78753e1ad620d310ef84073e296c98f",
       "annotation_lines": 3,
       "primary_principles": [
         "stewardship",

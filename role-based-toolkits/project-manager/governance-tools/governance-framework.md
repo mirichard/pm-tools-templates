@@ -1,5 +1,9 @@
 # Project Governance Framework Template
 
+**Governance tiers:** Light, Standard, Rigorous.
+
+Apply the [adaptive governance model](../../../docs/governance/governance-decision-matrix.md) to select required evidence, authorities and cadence. Tailor sample structures below to the approved charter; retain mandatory controls.
+
 ## Framework Overview
 A comprehensive governance framework that establishes clear structures, processes, and accountability mechanisms for effective project oversight and decision-making. This framework ensures strategic alignment, risk management, and value delivery across all project activities.
 

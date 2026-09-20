@@ -1,5 +1,9 @@
 # Decision Authority Matrix
 
+**Governance tiers:** Light, Standard, Rigorous.
+
+Apply the [adaptive governance model](../../../docs/governance/governance-decision-matrix.md) to select required evidence, authorities and cadence. Tailor sample structures below to the approved charter; retain mandatory controls.
+
 **Version:** 1.0  
 **Last Updated:** [Date]  
 **Document Owner:** Project Manager  
