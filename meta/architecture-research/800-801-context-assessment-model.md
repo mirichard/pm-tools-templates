@@ -142,3 +142,7 @@ PROJECT CONTEXT: Medium Agile IT Project (High Risk)
 2. Read `templates.json` + `template-index.json` as the template catalog
 3. Accept context profile as CLI input (interactive prompts or JSON file)
 4. Output recommendation card in markdown format
+
+## Optional delivery-mode extension (#751)
+
+The implemented CLI supports `project_context.delivery_mode`: `project`, `product`, `project_within_product`, `product_within_project`, or `unsure`. This optional overlay is independent of methodology; it adds recommendations without removing the seven-field baseline. Missing mode preserves legacy output; invalid supplied modes are rejected. The governance tier selector retains its seven dimensions. See the [product thinking framework](../../docs/delivery/product-thinking-framework.md) for decisions, examples and the executable profile contract.

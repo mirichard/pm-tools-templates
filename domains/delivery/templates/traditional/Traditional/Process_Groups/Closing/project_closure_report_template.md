@@ -28,6 +28,13 @@ principle_rationale: "Records delivery acceptance, financial closure and residua
 
 Selection context: Delivery domain; traditional methodology; advanced complexity. Match the situations above to project phase, risk, team size, and industry using the [decision-engine context model](../../../../../../../meta/architecture-research/800-801-context-assessment-model.md).
 
+## Product-mode applicability
+
+Use this existing artifact for a bounded initiative or increment inside product delivery, including project-within-product and product-within-project arrangements. Close only the bounded project or increment. Record the continuing product/service owner, accepted support and funding, open obligations, backlog handoff and next benefits review. If no receiving owner accepts responsibility, record the gap and escalate; do not imply the product has ended or that ownership transferred automatically.
+
+Apply the [delivery-mode decision guide](../../../../../../../docs/delivery/product-thinking-framework.md) before adapting the worksheet. Pure product operation need not create a new project record for every routine change; retain required governance and acceptance evidence.
+
+
 ## Completing the worksheet
 
 Replace populated examples with project evidence before circulation. Record the reporting period, baseline, source, owner, and calculation for each measure; define thresholds and approval authority locally. Show unavailable values as unknown rather than zero or a favorable status. Reconcile totals and units, handle zero denominators explicitly, and retain the decision rationale and supporting evidence.

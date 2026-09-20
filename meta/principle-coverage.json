@@ -562,7 +562,7 @@
     },
     {
       "path": "domains/delivery/project-lifecycle/02-planning/project-management-plan/traditional-project-management-plan-template.md",
-      "sha256": "3d63c1a727ba14e17fc95906f024f51553456834b7e4832c6fd66ab8ca25dfbf",
+      "sha256": "82b4f90a49e9a94fa766fcf4104e9aaf6d47aa3a2ec824709cc6a130bc3f1668",
       "annotation_lines": 3,
       "primary_principles": [
         "systems-thinking",
@@ -704,7 +704,7 @@
     },
     {
       "path": "domains/delivery/templates/traditional/Traditional/Process_Groups/Closing/project_closure_report_template.md",
-      "sha256": "38a16ef9ec76f20d059a90bd07624f76158c5ff17137e1eadb9c87bb161f3f7f",
+      "sha256": "427f1b7dc81cede7bfba8bee060f4cf71ad52fed2dfee7d3755b184d8dfb0940",
       "annotation_lines": 3,
       "primary_principles": [
         "stewardship",
@@ -1304,7 +1304,7 @@
     },
     {
       "path": "domains/planning/project-lifecycle/01-initiation/project-charter/traditional-project-charter-template.md",
-      "sha256": "f8cb4bba4feeab2c2fb16ebb420f688684079e1611fd06366bfa051230003a94",
+      "sha256": "0adbc2de934221c36a09267c2741a9a168b926a428a5a907b4becc3cee181274",
       "annotation_lines": 3,
       "primary_principles": [
         "stewardship",
@@ -1741,7 +1741,7 @@
     },
     {
       "path": "domains/uncertainty/project-lifecycle/04-monitoring-control/progress-tracking/status-report-template.md",
-      "sha256": "4f9ee51a53edec7a021b04aee0c874a6ec74996e23b0808b80e52bc264750796",
+      "sha256": "37bf67cfed76cecc58ab57ace0a3ccaf98aa9c4e3f09f879ee6e1193d383632f",
       "annotation_lines": 3,
       "primary_principles": [
         "evidence-based-decisions",
