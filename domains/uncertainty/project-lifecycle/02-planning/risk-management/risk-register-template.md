@@ -28,6 +28,15 @@ principle_rationale: "Records threats and opportunities with assessed exposure, 
 
 Selection context: Uncertainty domain; universal methodology; advanced complexity. Match the situations above to project phase, risk, team size, and industry using the [decision-engine context model](../../../../../meta/architecture-research/800-801-context-assessment-model.md).
 
+## Event-driven governance handoff
+
+Use the [event catalog and response process](../../../../../docs/governance/event-driven-controls.md) for exceptions between scheduled reviews; retain the approved reporting cadence and mandatory gates. Record occurrence/event ID, detected time, source/as-of date, condition and baseline version, owner/backup/authority, acknowledgement and response-plan deadlines, next update, linked records and closure evidence.
+
+Link a materialized high/critical risk or contingency condition to E03 and an issue record. Record verified response effectiveness and residual exposure here; event closure alone does not lower risk ratings or governance controls.
+
+Use the [alert, escalation and closure notifications](../../../../../docs/governance/event-notifications.md). Missed response deadlines escalate to the backup/next authority; notification or silence never constitutes approval.
+
+
 ## Governance scaling recommendations
 
 Use the [risk-based governance framework](../../../../../docs/governance/risk-based-scaling.md) to assess **technical, schedule, budget, organizational and compliance** exposure. Record each as low, medium, high or unknown, with risk IDs, dated evidence, current controls, an owner and next review.

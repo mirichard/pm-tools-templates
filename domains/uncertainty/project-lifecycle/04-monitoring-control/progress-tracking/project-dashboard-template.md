@@ -29,6 +29,15 @@ principle_rationale: "Defines dashboard metrics, sources and status thresholds s
 
 Selection context: Uncertainty domain; universal methodology; advanced complexity. Match the situations above to project phase, risk, team size, and industry using the [decision-engine context model](../../../../../meta/architecture-research/800-801-context-assessment-model.md).
 
+## Event-driven governance handoff
+
+Use the [event catalog and response process](../../../../../docs/governance/event-driven-controls.md) for exceptions between scheduled reviews; retain the approved reporting cadence and mandatory gates. Record occurrence/event ID, detected time, source/as-of date, condition and baseline version, owner/backup/authority, acknowledgement and response-plan deadlines, next update, linked records and closure evidence.
+
+Evaluate approved metric thresholds using current evidence. E01 uses forecast total cost versus approved total budget, not this dashboard's actual-cost variance. Missing/stale evidence or an undefined denominator raises E12 and an unknown status; it must not produce green. Configure an independent source-health check.
+
+Use the [alert, escalation and closure notifications](../../../../../docs/governance/event-notifications.md). Missed response deadlines escalate to the backup/next authority; notification or silence never constitutes approval.
+
+
 ## Purpose/Overview
 This dashboard template provides a visual, at-a-glance view of project health and performance. Designed for quick status communication, it presents key metrics, milestones, and issues in a concise format ideal for stakeholder briefings, executive reporting, and team meetings. The template emphasizes visual indicators and trend data to facilitate rapid decision-making.
 

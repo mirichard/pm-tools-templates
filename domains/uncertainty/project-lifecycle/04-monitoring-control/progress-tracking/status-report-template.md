@@ -29,6 +29,15 @@ principle_rationale: "Reports defined-period progress, exceptions and decision r
 
 Selection context: Uncertainty domain; universal methodology; advanced complexity. Match the situations above to project phase, risk, team size, and industry using the [decision-engine context model](../../../../../meta/architecture-research/800-801-context-assessment-model.md).
 
+## Event-driven governance handoff
+
+Use the [event catalog and response process](../../../../../docs/governance/event-driven-controls.md) for exceptions between scheduled reviews; retain the approved reporting cadence and mandatory gates. Record occurrence/event ID, detected time, source/as-of date, condition and baseline version, owner/backup/authority, acknowledgement and response-plan deadlines, next update, linked records and closure evidence.
+
+Report open/overdue events and decisions here, but send Immediate/Urgent alerts when detected rather than waiting for this report. Include closed events in the next scheduled review.
+
+Use the [alert, escalation and closure notifications](../../../../../docs/governance/event-notifications.md). Missed response deadlines escalate to the backup/next authority; notification or silence never constitutes approval.
+
+
 ## Completing the worksheet
 
 Replace populated examples with project evidence before circulation. Record the reporting period, baseline, source, owner, and calculation for each measure; define thresholds and approval authority locally. Show unavailable values as unknown rather than zero or a favorable status. Reconcile totals and units, handle zero denominators explicitly, and retain the decision rationale and supporting evidence.

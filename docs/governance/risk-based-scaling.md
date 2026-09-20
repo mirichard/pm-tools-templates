@@ -107,4 +107,4 @@ python scripts/scale_governance_risk.py risk-context.json --minimum-tier light
 
 This selects Rigorous. All five dimension keys are required; extra/misspelled dimension keys or invalid values fail with exit status 2 and no recommendation. An explicit unknown produces a provisional recommendation; it is not authorization to pass a gate.
 
-Event catalogs, automated alerts and trigger-response templates remain in #748. This framework provides the risk evidence and proportional controls that those triggers will use.
+The [event-driven controls catalog (#748)](event-driven-controls.md) uses this risk evidence to define triggers, accountable responses and notification patterns. It supplements scheduled reviews. The catalog is configuration guidance; deployment of automated alerting requires integration with the organization's monitoring tools.
