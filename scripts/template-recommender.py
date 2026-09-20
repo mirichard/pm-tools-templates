@@ -140,7 +140,7 @@ MODE_PHASE_ASSETS = {
     "closing": ("Project Closure Report", "domains/delivery/templates/traditional/Traditional/Process_Groups/Closing/project_closure_report_template.md", "Close the bounded work while preserving accepted product/service ownership"),
 }
 MODE_ASSETS = [
-    ("Product Vision", "role-based-toolkits/product-owner/product-vision-template.md", "State the user need, outcome hypothesis and accountable product owner"),
+    ("Product Vision", "domains/uncertainty/role-based-toolkits/product-owner/product-vision-template.md", "State the user need, outcome hypothesis and accountable product owner"),
     ("Product Backlog", "domains/uncertainty/role-based-toolkits/product-owner/backlog-management-template.md", "Prioritize experiments and changes against outcomes"),
     ("Value KPI Mapping", "project-lifecycle/04-monitoring-control/progress-tracking/kpi-mapping-template.md", "Connect delivery measures to separately verified outcomes"),
     ("Feedback Loops", "docs/delivery/feedback-loop-architecture.md", "Feed learning into the next investment decision"),
