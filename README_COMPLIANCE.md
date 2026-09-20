@@ -1,5 +1,7 @@
 # IP Compliance Implementation Status
 
+> **Scope clarification (09/20/2026):** This is a historical repository PMI/IP mitigation record. Its status labels and scripts do not validate GDPR, HIPAA, SOX, ISO/IEC 27001 or NIST compliance. For current governance integration, use the [compliance integration framework](docs/governance/compliance-integration-framework.md#integrate-the-repository-compliance-assets), which identifies the available tooling and its evidence limits.
+
 ## 🔒 Current Compliance Status: ACTIVELY MITIGATING
 
 **Last Updated**: June 9, 2025  
