@@ -4,6 +4,9 @@ methodology: "universal"
 complexity: "advanced"
 owner: "mirichard"
 updated: "2025-08-05"
+primary_principles: ["stewardship", "value-focus"]
+secondary_principles: ["stakeholder-engagement"]
+principle_rationale: "Secures sponsor agreement on predictive project objectives, scope and authority before detailed planning begins."
 ---
 
 

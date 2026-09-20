@@ -4,6 +4,9 @@ methodology: "universal"
 complexity: "advanced"
 owner: "mirichard"
 updated: "2026-09-19"
+primary_principles: ["value-focus", "quality-by-design"]
+secondary_principles: ["stakeholder-engagement"]
+principle_rationale: "Expresses one user need through a shared conversation record with testable acceptance criteria and explicit dependencies."
 ---
 
 # User Story Template

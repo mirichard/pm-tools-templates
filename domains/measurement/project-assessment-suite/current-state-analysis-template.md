@@ -10,6 +10,9 @@ version: "1.0.0"
 owner: "mirichard"
 updated: "2025-08-06"
 estimated_completion_time: "30-45 minutes"
+primary_principles: ["evidence-based-decisions", "systems-thinking"]
+secondary_principles: ["continuous-learning"]
+principle_rationale: "Establishes a current-state baseline across processes, technology, capabilities and performance to identify connected improvement needs."
 ---
 
 

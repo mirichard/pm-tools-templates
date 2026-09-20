@@ -4,6 +4,9 @@ methodology: "traditional"
 complexity: "advanced"
 owner: "mirichard"
 updated: "2026-09-19"
+primary_principles: ["evidence-based-decisions", "quality-by-design"]
+secondary_principles: ["stewardship"]
+principle_rationale: "Traces requirements through design, changes and test evidence to expose coverage gaps and support controlled acceptance decisions."
 ---
 
 # REQUIREMENTS TRACEABILITY MATRIX (RTM)

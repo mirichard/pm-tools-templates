@@ -10,6 +10,9 @@ version: "1.0.0"
 owner: "mirichard"
 updated: "2026-09-19"
 estimated_completion_time: "15-30 minutes"
+primary_principles: ["evidence-based-decisions", "stewardship"]
+secondary_principles: ["continuous-learning"]
+principle_rationale: "Compares staffing, allocation and capability practices with delivery needs to identify responsible resource-management improvements."
 ---
 
 

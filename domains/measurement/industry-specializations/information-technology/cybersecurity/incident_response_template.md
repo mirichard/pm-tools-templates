@@ -4,6 +4,9 @@ methodology: "universal"
 complexity: "advanced"
 owner: "mirichard"
 updated: "2026-09-19"
+primary_principles: ["risk-optimization", "stewardship"]
+secondary_principles: ["collaborative-leadership"]
+principle_rationale: "Assigns incident authority and coordinated containment, evidence preservation and recovery actions according to cybersecurity exposure."
 ---
 
 # Cybersecurity Incident Response Template

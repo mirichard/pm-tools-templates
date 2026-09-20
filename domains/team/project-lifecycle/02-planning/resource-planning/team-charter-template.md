@@ -4,6 +4,9 @@ methodology: "universal"
 complexity: "advanced"
 owner: "mirichard"
 updated: "2026-09-19"
+primary_principles: ["collaborative-leadership", "stakeholder-engagement"]
+secondary_principles: ["adaptability"]
+principle_rationale: "Defines shared team purpose, decision rights and working agreements so members can coordinate work and resolve conflict constructively."
 ---
 
 # Team Charter Template

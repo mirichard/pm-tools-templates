@@ -4,6 +4,9 @@ methodology: "universal"
 complexity: "advanced"
 owner: "mirichard"
 updated: "2026-09-19"
+primary_principles: ["evidence-based-decisions"]
+secondary_principles: ["risk-optimization", "stakeholder-engagement"]
+principle_rationale: "Defines dashboard metrics, sources and status thresholds so stakeholders can identify exceptions and assign timely action."
 ---
 
 

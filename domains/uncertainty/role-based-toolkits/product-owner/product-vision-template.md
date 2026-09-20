@@ -4,6 +4,9 @@ methodology: "universal"
 complexity: "advanced"
 owner: "mirichard"
 updated: "2025-08-05"
+primary_principles: ["value-focus", "stakeholder-engagement"]
+secondary_principles: ["evidence-based-decisions"]
+principle_rationale: "Aligns target users, their problem and the product value proposition with goals, assumptions and vision-validation evidence."
 ---
 
 # Product Vision Template

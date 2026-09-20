@@ -4,6 +4,9 @@ methodology: "universal"
 complexity: "advanced"
 owner: "mirichard"
 updated: "2026-09-19"
+primary_principles: ["risk-optimization", "stewardship"]
+secondary_principles: ["evidence-based-decisions"]
+principle_rationale: "Connects pharmaceutical compliance obligations and evidence gaps to assessed exposure, mitigation owners and escalation decisions."
 ---
 
 # Compliance Risk Assessment Template

@@ -4,6 +4,9 @@ methodology: "traditional"
 complexity: "advanced"
 owner: "mirichard"
 updated: "2026-09-19"
+primary_principles: ["stewardship", "value-focus"]
+secondary_principles: ["evidence-based-decisions"]
+principle_rationale: "Establishes sponsor authorization, project-manager authority and scope boundaries around justified objectives and success criteria."
 ---
 
 # PROJECT CHARTER

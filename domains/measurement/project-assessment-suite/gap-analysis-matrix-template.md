@@ -10,6 +10,9 @@ version: "1.0.0"
 owner: "mirichard"
 updated: "2026-09-19"
 estimated_completion_time: "30-45 minutes"
+primary_principles: ["evidence-based-decisions", "value-focus"]
+secondary_principles: ["continuous-learning"]
+principle_rationale: "Compares current and target capabilities, investigates root causes and prioritizes owned gap-closure actions with follow-up measures."
 ---
 
 

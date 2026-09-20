@@ -4,6 +4,9 @@ methodology: "agile"
 complexity: "advanced"
 owner: "mirichard"
 updated: "2026-09-19"
+primary_principles: ["collaborative-leadership", "systems-thinking"]
+secondary_principles: ["risk-optimization"]
+principle_rationale: "Brings teams together to negotiate interval objectives, capacity and dependencies while exposing risks and assessing confidence in the plan."
 ---
 
 # SAFe Program Increment (PI) Planning Template

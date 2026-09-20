@@ -4,6 +4,9 @@ methodology: "universal"
 complexity: "advanced"
 owner: "mirichard"
 updated: "2025-08-05"
+primary_principles: ["continuous-learning", "evidence-based-decisions"]
+secondary_principles: ["quality-by-design"]
+principle_rationale: "Investigates recurring incidents to identify root causes, maintain known errors and track corrective changes that prevent recurrence."
 ---
 
 # Problem Management Process Template

@@ -4,6 +4,9 @@ methodology: "agile"
 complexity: "advanced"
 owner: "mirichard"
 updated: "2026-09-19"
+primary_principles: ["evidence-based-decisions", "value-focus"]
+secondary_principles: ["continuous-learning"]
+principle_rationale: "Interprets portfolio, delivery, quality and learning trends into recommendations and owned actions beyond dashboard reporting."
 ---
 
 # SAFe Metrics Reporting Template

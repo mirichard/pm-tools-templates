@@ -4,6 +4,9 @@ methodology: "universal"
 complexity: "advanced"
 owner: "mirichard"
 updated: "2026-09-19"
+primary_principles: ["quality-by-design"]
+secondary_principles: ["evidence-based-decisions", "stewardship"]
+principle_rationale: "Records installation prerequisites and specification checks with qualified execution, deviation handling and approval evidence."
 ---
 
 # Installation Qualification (IQ) Protocol Template

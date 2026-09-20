@@ -4,6 +4,9 @@ methodology: "universal"
 complexity: "advanced"
 owner: "mirichard"
 updated: "2026-09-19"
+primary_principles: ["risk-optimization", "stewardship"]
+secondary_principles: ["collaborative-leadership"]
+principle_rationale: "Establishes shared risk appetite, scoring, response ownership and escalation rules for maintaining and acting on the project risk register."
 ---
 
 # Risk Management Plan Template

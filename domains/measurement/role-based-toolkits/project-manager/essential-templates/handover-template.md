@@ -4,6 +4,9 @@ methodology: "universal"
 complexity: "advanced"
 owner: "mirichard"
 updated: "2026-09-19"
+primary_principles: ["stewardship", "systems-thinking"]
+secondary_principles: ["collaborative-leadership"]
+principle_rationale: "Transfers support responsibilities, knowledge, access and outstanding issues to operational owners with documented handover acceptance."
 ---
 
 # Project Handover Template

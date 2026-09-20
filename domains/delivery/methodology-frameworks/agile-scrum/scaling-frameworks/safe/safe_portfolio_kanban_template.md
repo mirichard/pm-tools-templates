@@ -4,6 +4,9 @@ methodology: "agile"
 complexity: "advanced"
 owner: "mirichard"
 updated: "2026-09-19"
+primary_principles: ["value-focus", "adaptability"]
+secondary_principles: ["stewardship"]
+principle_rationale: "Makes epic entry policies, lean business cases and work-in-progress limits explicit for transparent portfolio investment decisions."
 ---
 
 # SAFe Portfolio Kanban Template

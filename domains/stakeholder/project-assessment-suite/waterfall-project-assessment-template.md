@@ -10,6 +10,9 @@ version: "1.0.0"
 owner: "mirichard"
 updated: "2026-09-19"
 estimated_completion_time: "15-30 minutes"
+primary_principles: ["evidence-based-decisions", "quality-by-design"]
+secondary_principles: ["stewardship"]
+principle_rationale: "Assesses predictive phase readiness against requirements, baselines and test evidence to support accountable gate decisions and corrective action."
 ---
 
 

@@ -4,6 +4,9 @@ methodology: "universal"
 complexity: "advanced"
 owner: "mirichard"
 updated: "2026-09-19"
+primary_principles: ["stewardship", "quality-by-design"]
+secondary_principles: ["evidence-based-decisions"]
+principle_rationale: "Prepares inspection roles, controlled evidence and response procedures so authorized staff can support review and follow up findings."
 ---
 
 # Regulatory Inspection Readiness Plan

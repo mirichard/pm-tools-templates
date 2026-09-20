@@ -4,6 +4,9 @@ methodology: "universal"
 complexity: "advanced"
 owner: "mirichard"
 updated: "2025-08-05"
+primary_principles: ["stakeholder-engagement", "systems-thinking"]
+secondary_principles: ["collaborative-leadership"]
+principle_rationale: "Maps enterprise influence networks and affected groups to engagement strategies, communication responsibilities and escalation routes."
 ---
 
 # Enterprise Stakeholder Analysis Template

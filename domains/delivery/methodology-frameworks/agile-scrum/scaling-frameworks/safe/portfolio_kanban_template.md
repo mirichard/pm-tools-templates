@@ -4,6 +4,9 @@ methodology: "agile"
 complexity: "advanced"
 owner: "mirichard"
 updated: "2026-09-19"
+primary_principles: ["value-focus", "evidence-based-decisions"]
+secondary_principles: ["adaptability"]
+principle_rationale: "Makes portfolio candidates and flow limits visible so owners can evaluate investment evidence and capacity before committing to epics."
 ---
 
 # SAFe Portfolio Kanban Template

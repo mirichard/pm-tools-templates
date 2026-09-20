@@ -4,6 +4,9 @@ methodology: "universal"
 complexity: "advanced"
 owner: "mirichard"
 updated: "2026-09-19"
+primary_principles: ["stewardship", "continuous-learning"]
+secondary_principles: ["evidence-based-decisions"]
+principle_rationale: "Brings quality-system trends, risks and resource needs to management review with recorded decisions and owned improvement actions."
 ---
 
 # Quality Management Review Template

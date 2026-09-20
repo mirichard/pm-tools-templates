@@ -10,6 +10,9 @@ version: "1.0.0"
 owner: "mirichard"
 updated: "2026-09-19"
 estimated_completion_time: "15-30 minutes"
+primary_principles: ["stakeholder-engagement", "evidence-based-decisions"]
+secondary_principles: ["continuous-learning"]
+principle_rationale: "Assesses participation, decision influence and feedback closure to improve the effectiveness of stakeholder engagement."
 ---
 
 

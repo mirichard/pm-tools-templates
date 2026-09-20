@@ -4,6 +4,9 @@ methodology: "universal"
 complexity: "advanced"
 owner: "mirichard"
 updated: "2026-09-19"
+primary_principles: ["quality-by-design"]
+secondary_principles: ["evidence-based-decisions", "risk-optimization"]
+principle_rationale: "Uses planned runs, sampling and statistical evaluation to assess consistent equipment performance under intended routine conditions."
 ---
 
 # Performance Qualification (PQ) Protocol Template

@@ -10,6 +10,9 @@ version: "1.0.0"
 owner: "mirichard"
 updated: "2026-09-19"
 estimated_completion_time: "60-90 minutes"
+primary_principles: ["systems-thinking", "value-focus"]
+secondary_principles: ["adaptability"]
+principle_rationale: "Aligns target operating capabilities and technology architecture with a sequenced roadmap, benefit owners and success measures."
 ---
 
 

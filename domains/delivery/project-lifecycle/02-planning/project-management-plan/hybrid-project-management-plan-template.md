@@ -4,6 +4,9 @@ methodology: "universal"
 complexity: "starter"
 owner: "mirichard"
 updated: "2026-09-19"
+primary_principles: ["systems-thinking", "adaptability"]
+secondary_principles: ["stewardship"]
+principle_rationale: "Integrates predictive milestones and iterative increments through shared dependencies, change authority, quality controls and resource ownership."
 ---
 
 # Hybrid Project Management Plan

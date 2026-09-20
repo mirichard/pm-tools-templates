@@ -10,6 +10,9 @@ version: "1.0.0"
 owner: "mirichard"
 updated: "2026-09-19"
 estimated_completion_time: "15-30 minutes"
+primary_principles: ["adaptability", "systems-thinking"]
+secondary_principles: ["evidence-based-decisions"]
+principle_rationale: "Assesses predictive and iterative handoffs, integration practices and controls using evidence to improve the hybrid delivery approach."
 ---
 
 

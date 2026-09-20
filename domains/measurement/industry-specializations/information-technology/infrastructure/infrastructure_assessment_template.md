@@ -4,6 +4,9 @@ methodology: "universal"
 complexity: "advanced"
 owner: "mirichard"
 updated: "2026-09-19"
+primary_principles: ["evidence-based-decisions", "risk-optimization"]
+secondary_principles: ["value-focus"]
+principle_rationale: "Assesses infrastructure capacity, performance and exposure to justify prioritized investment or migration recommendations."
 ---
 
 # Infrastructure Assessment Template

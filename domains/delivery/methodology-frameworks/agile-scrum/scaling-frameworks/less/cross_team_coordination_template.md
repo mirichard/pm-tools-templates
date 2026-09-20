@@ -4,6 +4,9 @@ methodology: "agile"
 complexity: "advanced"
 owner: "mirichard"
 updated: "2026-09-19"
+primary_principles: ["systems-thinking", "collaborative-leadership"]
+secondary_principles: ["adaptability"]
+principle_rationale: "Makes LeSS team dependencies, integration practices and shared coordination visible so teams can deliver one coherent product."
 ---
 
 # LeSS Cross-Team Coordination Template

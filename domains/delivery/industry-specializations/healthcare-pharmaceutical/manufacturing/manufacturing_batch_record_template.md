@@ -4,6 +4,9 @@ methodology: "universal"
 complexity: "advanced"
 owner: "mirichard"
 updated: "2026-09-19"
+primary_principles: ["stewardship", "quality-by-design"]
+secondary_principles: ["evidence-based-decisions"]
+principle_rationale: "Captures manufacturing execution, material reconciliation and deviations in a controlled record for accountable quality review and disposition."
 ---
 
 # Manufacturing Batch Record Template

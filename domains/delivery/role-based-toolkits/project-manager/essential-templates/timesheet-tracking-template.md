@@ -4,6 +4,9 @@ methodology: "universal"
 complexity: "intermediate"
 owner: "mirichard"
 updated: "2026-09-19"
+primary_principles: ["stewardship", "evidence-based-decisions"]
+secondary_principles: []
+principle_rationale: "Records time by period and project with contributor certification and approval to support traceable cost allocation and reconciliation."
 ---
 
 # Timesheet Tracking Template

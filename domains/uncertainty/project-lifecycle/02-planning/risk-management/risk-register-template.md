@@ -4,6 +4,9 @@ methodology: "universal"
 complexity: "advanced"
 owner: "mirichard"
 updated: "2026-09-19"
+primary_principles: ["risk-optimization"]
+secondary_principles: ["evidence-based-decisions", "stewardship"]
+principle_rationale: "Records threats and opportunities with assessed exposure, triggers and accountable responses for continued risk review."
 ---
 
 # Risk Register Template

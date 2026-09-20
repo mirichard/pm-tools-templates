@@ -4,6 +4,9 @@ methodology: "universal"
 complexity: "starter"
 owner: "mirichard"
 updated: "2026-09-19"
+primary_principles: ["risk-optimization", "systems-thinking"]
+secondary_principles: ["stewardship"]
+principle_rationale: "Coordinates infrastructure cutover dependencies with readiness checks, validation, rollback authority and operational acceptance."
 ---
 
 # IT Infrastructure Migration Plan Template

@@ -4,6 +4,9 @@ methodology: "universal"
 complexity: "advanced"
 owner: "mirichard"
 updated: "2026-09-19"
+primary_principles: ["quality-by-design"]
+secondary_principles: ["evidence-based-decisions", "risk-optimization"]
+principle_rationale: "Defines process-validation prerequisites, sampling and acceptance criteria so test evidence and deviations support a traceable conclusion."
 ---
 
 # Process Validation Protocol Template

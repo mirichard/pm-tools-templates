@@ -4,6 +4,9 @@ methodology: "universal"
 complexity: "advanced"
 owner: "mirichard"
 updated: "2026-09-19"
+primary_principles: ["quality-by-design", "risk-optimization"]
+secondary_principles: ["evidence-based-decisions"]
+principle_rationale: "Links worst-case cleaning conditions and justified sampling to residue acceptance limits and documented test results."
 ---
 
 # Cleaning Validation Protocol Template

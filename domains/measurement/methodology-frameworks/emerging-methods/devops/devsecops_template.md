@@ -4,6 +4,9 @@ methodology: "universal"
 complexity: "advanced"
 owner: "mirichard"
 updated: "2026-09-19"
+primary_principles: ["quality-by-design", "risk-optimization"]
+secondary_principles: ["stewardship"]
+principle_rationale: "Builds security testing, monitoring and remediation responsibilities into delivery stages before software reaches production."
 ---
 
 # DevSecOps Integration Template

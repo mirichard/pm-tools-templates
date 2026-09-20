@@ -4,6 +4,9 @@ methodology: "traditional"
 complexity: "advanced"
 owner: "mirichard"
 updated: "2026-09-19"
+primary_principles: ["value-focus", "systems-thinking"]
+secondary_principles: ["stewardship"]
+principle_rationale: "Authorizes related projects around shared benefits, program boundaries, funding and accountable governance."
 ---
 
 # PROGRAM CHARTER TEMPLATE

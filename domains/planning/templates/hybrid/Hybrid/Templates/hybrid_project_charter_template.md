@@ -4,6 +4,9 @@ methodology: "hybrid"
 complexity: "advanced"
 owner: "mirichard"
 updated: "2025-08-05"
+primary_principles: ["adaptability", "value-focus"]
+secondary_principles: ["stewardship"]
+principle_rationale: "Authorizes a shared product vision and scope while defining which commitments use predictive controls and which decisions remain adaptive."
 ---
 
 # Hybrid Project Charter Template

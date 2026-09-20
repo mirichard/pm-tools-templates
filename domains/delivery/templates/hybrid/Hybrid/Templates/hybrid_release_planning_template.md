@@ -4,6 +4,9 @@ methodology: "hybrid"
 complexity: "advanced"
 owner: "mirichard"
 updated: "2025-08-05"
+primary_principles: ["systems-thinking", "adaptability"]
+secondary_principles: ["quality-by-design"]
+principle_rationale: "Coordinates iterative release scope with predictive dependencies, milestones and readiness criteria in one release roadmap."
 ---
 
 # Hybrid Release Planning Template

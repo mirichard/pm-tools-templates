@@ -10,6 +10,9 @@ version: "1.0.0"
 owner: "mirichard"
 updated: "2026-09-19"
 estimated_completion_time: "30-45 minutes"
+primary_principles: ["evidence-based-decisions", "risk-optimization"]
+secondary_principles: ["continuous-learning"]
+principle_rationale: "Assesses project health across delivery dimensions to prioritize evidence-backed interventions and track their follow-up."
 ---
 
 

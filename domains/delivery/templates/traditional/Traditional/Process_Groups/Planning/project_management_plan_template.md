@@ -4,6 +4,9 @@ methodology: "traditional"
 complexity: "advanced"
 owner: "mirichard"
 updated: "2026-09-19"
+primary_principles: ["systems-thinking", "stewardship"]
+secondary_principles: ["quality-by-design"]
+principle_rationale: "Integrates scope, schedule, cost and subsidiary plans with coordinated ownership, quality expectations and change control."
 ---
 
 # PROJECT MANAGEMENT PLAN

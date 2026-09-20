@@ -4,6 +4,9 @@ methodology: "agile"
 complexity: "advanced"
 owner: "mirichard"
 updated: "2026-09-19"
+primary_principles: ["continuous-learning", "systems-thinking"]
+secondary_principles: ["collaborative-leadership"]
+principle_rationale: "Combines team and whole-product retrospectives to investigate cross-team causes and assign shared improvement actions."
 ---
 
 # LeSS Retrospective Format Template

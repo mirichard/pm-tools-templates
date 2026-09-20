@@ -4,6 +4,9 @@ methodology: "agile"
 complexity: "advanced"
 owner: "mirichard"
 updated: "2026-09-19"
+primary_principles: ["collaborative-leadership", "systems-thinking"]
+secondary_principles: ["adaptability"]
+principle_rationale: "Coordinates shared product priorities and cross-team dependencies before LeSS teams form their individual sprint plans."
 ---
 
 # LeSS Sprint Planning Template

@@ -4,6 +4,9 @@ methodology: "universal"
 complexity: "advanced"
 owner: "mirichard"
 updated: "2026-09-19"
+primary_principles: ["continuous-learning", "stewardship"]
+secondary_principles: ["evidence-based-decisions"]
+principle_rationale: "Turns assessment findings into resourced corrective actions with owners, progress evidence and verification of improvement results."
 ---
 
 

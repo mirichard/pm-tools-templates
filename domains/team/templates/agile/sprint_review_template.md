@@ -4,6 +4,9 @@ methodology: "agile"
 complexity: "advanced"
 owner: "mirichard"
 updated: "2026-09-19"
+primary_principles: ["stakeholder-engagement", "adaptability"]
+secondary_principles: ["value-focus"]
+principle_rationale: "Invites stakeholders and the team to inspect the increment and use outcome feedback to adapt product priorities."
 ---
 
 # SPRINT REVIEW

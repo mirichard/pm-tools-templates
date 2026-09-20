@@ -4,6 +4,9 @@ methodology: "universal"
 complexity: "advanced"
 owner: "mirichard"
 updated: "2026-09-19"
+primary_principles: ["quality-by-design", "risk-optimization"]
+secondary_principles: ["collaborative-leadership"]
+principle_rationale: "Coordinates release readiness, deployment handoffs and rollback decisions with documented validation and response ownership."
 ---
 
 # Release Management Workflow Template

@@ -4,6 +4,9 @@ methodology: "agile"
 complexity: "advanced"
 owner: "mirichard"
 updated: "2026-09-19"
+primary_principles: ["collaborative-leadership", "systems-thinking"]
+secondary_principles: ["risk-optimization"]
+principle_rationale: "Aligns program vision and team objectives through dependency negotiation, risk review and a confidence assessment of the integrated plan."
 ---
 
 # SAFe Program Increment Planning Template

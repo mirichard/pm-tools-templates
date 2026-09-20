@@ -4,6 +4,9 @@ methodology: "universal"
 complexity: "advanced"
 owner: "mirichard"
 updated: "2026-09-19"
+primary_principles: ["stakeholder-engagement", "stewardship"]
+secondary_principles: ["evidence-based-decisions"]
+principle_rationale: "Coordinates authorized health-authority submissions, responses and commitments through assigned communication roles and retained records."
 ---
 
 # Health Authority Communication Plan

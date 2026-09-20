@@ -4,6 +4,9 @@ methodology: "hybrid"
 complexity: "advanced"
 owner: "mirichard"
 updated: "2025-08-05"
+primary_principles: ["quality-by-design", "adaptability"]
+secondary_principles: ["evidence-based-decisions"]
+principle_rationale: "Defines acceptance standards, testing and assurance responsibilities appropriate to both formal gates and iterative work."
 ---
 
 

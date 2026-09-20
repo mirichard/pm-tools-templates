@@ -4,6 +4,9 @@ methodology: "traditional"
 complexity: "advanced"
 owner: "mirichard"
 updated: "2026-09-19"
+primary_principles: ["systems-thinking", "stewardship"]
+secondary_principles: ["value-focus"]
+principle_rationale: "Coordinates program components, shared resources and decision authority to manage dependencies and realize benefits across projects."
 ---
 
 # PROGRAM MANAGEMENT PLAN TEMPLATE

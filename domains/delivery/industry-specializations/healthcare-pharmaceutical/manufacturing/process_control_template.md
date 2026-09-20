@@ -4,6 +4,9 @@ methodology: "universal"
 complexity: "advanced"
 owner: "mirichard"
 updated: "2026-09-19"
+primary_principles: ["quality-by-design", "evidence-based-decisions"]
+secondary_principles: ["risk-optimization"]
+principle_rationale: "Links critical process attributes and parameters to statistical monitoring, justified limits and documented responses to adverse trends."
 ---
 
 # Process Control Template

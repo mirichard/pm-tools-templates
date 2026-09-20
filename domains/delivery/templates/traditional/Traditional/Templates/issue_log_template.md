@@ -4,6 +4,9 @@ methodology: "traditional"
 complexity: "advanced"
 owner: "mirichard"
 updated: "2025-08-05"
+primary_principles: ["risk-optimization", "stewardship"]
+secondary_principles: ["evidence-based-decisions"]
+principle_rationale: "Assigns actual delivery problems a severity, owner, response and escalation path with evidence of resolution."
 ---
 
 # PROJECT ISSUE LOG

@@ -4,6 +4,9 @@ methodology: "hybrid"
 complexity: "advanced"
 owner: "mirichard"
 updated: "2025-08-05"
+primary_principles: ["adaptability", "systems-thinking"]
+secondary_principles: ["quality-by-design"]
+principle_rationale: "Aligns shared infrastructure and integration architecture with the different environment and control needs of predictive and iterative delivery."
 ---
 
 # Hybrid Infrastructure Template

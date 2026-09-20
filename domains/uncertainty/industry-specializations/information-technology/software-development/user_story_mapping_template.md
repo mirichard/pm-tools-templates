@@ -4,6 +4,9 @@ methodology: "universal"
 complexity: "advanced"
 owner: "mirichard"
 updated: "2026-09-19"
+primary_principles: ["value-focus", "systems-thinking"]
+secondary_principles: ["collaborative-leadership"]
+principle_rationale: "Organizes stories around user journeys so teams can negotiate coherent release slices rather than isolated feature lists."
 ---
 
 # User Story Mapping Template

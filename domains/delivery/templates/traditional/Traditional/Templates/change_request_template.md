@@ -4,6 +4,9 @@ methodology: "traditional"
 complexity: "advanced"
 owner: "mirichard"
 updated: "2026-09-19"
+primary_principles: ["adaptability", "risk-optimization"]
+secondary_principles: ["evidence-based-decisions"]
+principle_rationale: "Compares change alternatives and baseline impacts so the change authority can approve a proportionate response with recorded evidence."
 ---
 
 # PROJECT CHANGE REQUEST FORM

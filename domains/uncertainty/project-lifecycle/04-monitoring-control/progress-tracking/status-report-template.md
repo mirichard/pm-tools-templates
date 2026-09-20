@@ -4,6 +4,9 @@ methodology: "universal"
 complexity: "advanced"
 owner: "mirichard"
 updated: "2026-09-19"
+primary_principles: ["evidence-based-decisions", "stakeholder-engagement"]
+secondary_principles: ["stewardship"]
+principle_rationale: "Reports defined-period progress, exceptions and decision requests with stated evidence and accountable follow-up."
 ---
 
 
