@@ -8,6 +8,23 @@ updated: "2025-08-05"
 
 # PROJECT SCHEDULE
 
+## When to Use
+
+- During planning when task dependencies, resources, and milestones need a controlled schedule.
+- When approved changes or progress updates require impact analysis.
+
+## When NOT to Use
+
+- To forecast completion from task dates that ignore dependencies or resource availability.
+- Do not overwrite the original baseline to remove an unfavorable variance. See [Rebaseline to green](../../../../../../../docs/principles/anti-patterns.md#baseline-green).
+
+## Pairs Well With
+
+- [Work Breakdown Structure Template](../../../../../../../domains/delivery/templates/traditional/Traditional/Process_Groups/Planning/work_breakdown_structure_template.md).
+- [Change Request Template](../../../../../../../domains/delivery/templates/traditional/Traditional/Templates/change_request_template.md).
+
+Selection context: Delivery domain; traditional methodology; advanced complexity. Match the situations above to project phase, risk, team size, and industry using the [decision-engine context model](../../../../../../../meta/architecture-research/800-801-context-assessment-model.md).
+
 ## Document Control Information
 **Document Title:** Project Schedule  
 **Project Name:** [Project Name]  

@@ -15,6 +15,23 @@ estimated_completion_time: "60-90 minutes"
 
 # Future State Blueprint Template
 
+## When to Use
+
+- During transformation planning when a target operating model must be made explicit.
+- When future capabilities, architecture, roadmap, and benefits must align.
+
+## When NOT to Use
+
+- To commit a roadmap before testing feasibility and documenting dependencies.
+- Do not infer realized value from completed outputs, spending, or activity counts. See [Value equals output](../../../docs/principles/anti-patterns.md#value-output).
+
+## Pairs Well With
+
+- [Current State Analysis Template](../../../domains/measurement/project-assessment-suite/current-state-analysis-template.md).
+- [Gap Analysis Matrix Template](../../../domains/measurement/project-assessment-suite/gap-analysis-matrix-template.md).
+
+Selection context: Measurement domain; universal methodology; advanced complexity. Match the situations above to project phase, risk, team size, and industry using the [decision-engine context model](../../../meta/architecture-research/800-801-context-assessment-model.md).
+
 ## Completing the worksheet
 
 Replace populated examples with project evidence before circulation. Record the reporting period, baseline, source, owner, and calculation for each measure; define thresholds and approval authority locally. Show unavailable values as unknown rather than zero or a favorable status. Reconcile totals and units, handle zero denominators explicitly, and retain the decision rationale and supporting evidence.

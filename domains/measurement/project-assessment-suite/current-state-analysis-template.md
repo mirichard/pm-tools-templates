@@ -15,6 +15,23 @@ estimated_completion_time: "30-45 minutes"
 
 # Current State Analysis Template
 
+## When to Use
+
+- At the start of an assessment or transformation when the existing operating state is unclear.
+- When process, technology, capability, and performance evidence must establish a baseline.
+
+## When NOT to Use
+
+- To describe the desired future as though it were observed current performance.
+- Do not report sample values, unsupported ratings, or missing data as verified performance. See [Metric without source](../../../docs/principles/anti-patterns.md#metric-source).
+
+## Pairs Well With
+
+- [Future State Blueprint Template](../../../domains/measurement/project-assessment-suite/future-state-blueprint-template.md).
+- [Gap Analysis Matrix Template](../../../domains/measurement/project-assessment-suite/gap-analysis-matrix-template.md).
+
+Selection context: Measurement domain; universal methodology; advanced complexity. Match the situations above to project phase, risk, team size, and industry using the [decision-engine context model](../../../meta/architecture-research/800-801-context-assessment-model.md).
+
 ## Overview
 
 This template provides a comprehensive framework for analyzing the current state of an organization, process, system, or project before initiating change or transformation efforts. Use this analysis to establish baseline metrics, identify improvement opportunities, and inform strategic planning decisions.

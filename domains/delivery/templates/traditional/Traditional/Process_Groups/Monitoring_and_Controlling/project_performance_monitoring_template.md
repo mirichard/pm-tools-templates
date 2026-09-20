@@ -8,6 +8,23 @@ updated: "2026-09-19"
 
 # PROJECT PERFORMANCE MONITORING REPORT
 
+## When to Use
+
+- During monitoring when approved baselines and actual performance can be compared.
+- When control owners need scope, cost, schedule, quality, and risk trends to trigger action.
+
+## When NOT to Use
+
+- To erase variance by silently revising the baseline.
+- Do not overwrite the original baseline to remove an unfavorable variance. See [Rebaseline to green](../../../../../../../docs/principles/anti-patterns.md#baseline-green).
+
+## Pairs Well With
+
+- [Evm Dashboard Template](../../../../../../../domains/stakeholder/business-stakeholder-suite/financial-governance/enhanced-business-cases/evm-dashboard-template.md).
+- [Status Report Template](../../../../../../../domains/uncertainty/project-lifecycle/04-monitoring-control/progress-tracking/status-report-template.md).
+
+Selection context: Delivery domain; traditional methodology; advanced complexity. Match the situations above to project phase, risk, team size, and industry using the [decision-engine context model](../../../../../../../meta/architecture-research/800-801-context-assessment-model.md).
+
 ## Completing the worksheet
 
 Replace populated examples with project evidence before circulation. Record the reporting period, baseline, source, owner, and calculation for each measure; define thresholds and approval authority locally. Show unavailable values as unknown rather than zero or a favorable status. Reconcile totals and units, handle zero denominators explicitly, and retain the decision rationale and supporting evidence.

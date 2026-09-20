@@ -8,6 +8,23 @@ updated: "2026-09-19"
 
 # Financial Services Compliance Management Template
 
+## When to Use
+
+- When a financial-services project must map applicable obligations to controls and evidence owners.
+- When compliance teams need a monitoring and reporting record tied to the actual jurisdiction and activity.
+
+## When NOT to Use
+
+- As a determination of legal applicability without qualified review.
+- Do not represent author self-checks as independent or authorized approval. See [Self-approval](../../../../../docs/principles/anti-patterns.md#self-approval).
+
+## Pairs Well With
+
+- [Compliance Risk Assessment Template](../../../../../domains/delivery/industry-specializations/healthcare-pharmaceutical/regulatory/compliance_risk_assessment_template.md).
+- [Governance Assessment Template](../../../../../domains/measurement/project-assessment-suite/governance-assessment-template.md).
+
+Selection context: Measurement domain; universal methodology; advanced complexity. Match the situations above to project phase, risk, team size, and industry using the [decision-engine context model](../../../../../meta/architecture-research/800-801-context-assessment-model.md).
+
 ## Applicability and evidence
 
 The regulatory lists, frequencies, limits, sample findings, and completed statuses below are illustrations. Before adoption, the compliance owner must record the applicable jurisdiction, entity, activity, source provision and version, effective date, control, test evidence, and approver. Do not infer that a named regulation applies to every project or that completing this worksheet establishes compliance. Review changes throughout delivery. For privacy processing, document the applicable lawful basis by purpose; see [GDPR Article 6](https://eur-lex.europa.eu/eli/reg/2016/679/oj/eng).

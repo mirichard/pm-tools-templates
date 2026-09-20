@@ -1,0 +1,1127 @@
+{
+  "version": 1,
+  "base_commit": "11a47f0789ba120d23ee88526e5ac19340298bc9",
+  "scope": "Current templates/templates.json canonical records; aliases are not separate templates. Catalog additions must satisfy the same guidance validation.",
+  "domain_order": [
+    "Delivery",
+    "Measurement",
+    "Uncertainty",
+    "Stakeholder",
+    "Team",
+    "Planning"
+  ],
+  "reviews": [
+    {
+      "path": "domains/delivery/project-assessment-suite/agile-project-assessment-template.md",
+      "domain": "Delivery",
+      "previous_sha256": "4742346efa62f0ba4604010b9126ef26590d55f562f350e3a2aef8763dd42e0d",
+      "current_sha256": "5afea8ab5095d60142ebfc974a91b0271923786c5ae0659da2a2d38b6e25d8c3",
+      "anti_pattern": "metric-source",
+      "preserved_previous_body": true
+    },
+    {
+      "path": "domains/delivery/project-lifecycle/02-planning/project-management-plan/agile-release-plan-template.md",
+      "domain": "Delivery",
+      "previous_sha256": "d05137c98f331e5a55384aeacb2c3e689bf92d544f0be7dfb6d64f8beff64abe",
+      "current_sha256": "e80741cf2184ff4f02b707c0870f67121682a2077d96d2babc20ed83e83320ad",
+      "anti_pattern": "tailoring-omission",
+      "preserved_previous_body": true
+    },
+    {
+      "path": "domains/delivery/project-lifecycle/02-planning/risk-management/agile-risk-board-template.md",
+      "domain": "Delivery",
+      "previous_sha256": "0e897552a71f03a27df09875161c8186574a3389f65a9d2597bddc7600183da5",
+      "current_sha256": "5ffc71f3380841d4119bc6c5059c4eed9eabcd154d62f8915f15f0d246f0344a",
+      "anti_pattern": "template-judgment",
+      "preserved_previous_body": true
+    },
+    {
+      "path": "domains/delivery/industry-specializations/information-technology/software-development/api_documentation_template.md",
+      "domain": "Delivery",
+      "previous_sha256": "4f61592d97abeca0e5a1a55dff2264c4f1f9361e6f406b7020a56cb0185fbb58",
+      "current_sha256": "c92e553ba9c8467c483252838dda3ffc915e508b1d9b0a9179541084602124bd",
+      "anti_pattern": "template-judgment",
+      "preserved_previous_body": true
+    },
+    {
+      "path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md",
+      "domain": "Delivery",
+      "previous_sha256": "3471a163bb2137df4e766668d0926ec37d6c5b365942611488adcd7c21102771",
+      "current_sha256": "7697df9238ae485de425221b81063374c3a86e941156fb1ad3e42349ddb8eadf",
+      "anti_pattern": "maximum-governance",
+      "preserved_previous_body": true
+    },
+    {
+      "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/manufacturing/batch_record_template.md",
+      "domain": "Delivery",
+      "previous_sha256": "a56872792b97eeea1e742e9d7ebc50f8da46cde11eae31d96946f072e07355e4",
+      "current_sha256": "ffe9b009279323e3883568e29654992455d7efa5dd1b914e41ab2e3e8acf8a25",
+      "anti_pattern": "self-approval",
+      "preserved_previous_body": true
+    },
+    {
+      "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/compliance/capa_management_template.md",
+      "domain": "Delivery",
+      "previous_sha256": "41e2b981f814205f58df512169bf511ecb3fa7add41bc26dd0204645466203ff",
+      "current_sha256": "76234e629fadb086041813f82ee276a3c23085f08dba771359faad495e5c0e8d",
+      "anti_pattern": "lessons-archive",
+      "preserved_previous_body": true
+    },
+    {
+      "path": "domains/delivery/templates/traditional/Traditional/Templates/change_management_plan_template.md",
+      "domain": "Delivery",
+      "previous_sha256": "beb51f7e63f8a813f435f1571a29bed86650210d9caf002b2d4ea83e74e28966",
+      "current_sha256": "b15195c2761800f339186e11af501af99a5a96f6596b6f1ca80055f16fbfa145",
+      "anti_pattern": "stakeholder-broadcast",
+      "preserved_previous_body": true
+    },
+    {
+      "path": "domains/delivery/templates/traditional/Traditional/Templates/change_request_template.md",
+      "domain": "Delivery",
+      "previous_sha256": "3defe2839977a27282cb264e752a65467810ccbdbfc89c77078634228644359c",
+      "current_sha256": "886e1d4aaac48f4d91d656bf1663f421c8e181ad3a35a40aeb33653d26a2c973",
+      "anti_pattern": "baseline-green",
+      "preserved_previous_body": true
+    },
+    {
+      "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/validation/cleaning_validation_protocol_template.md",
+      "domain": "Delivery",
+      "previous_sha256": "63f0318a159943116468a79fddb6055832ff386611a520aee02625f554ce812b",
+      "current_sha256": "5076d25e29a1ba4ca60432f275869042a4d5c9a19016c66435f9b6248fc7b4e7",
+      "anti_pattern": "self-approval",
+      "preserved_previous_body": true
+    },
+    {
+      "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/clinical-trials/clinical_trial_protocol_template.md",
+      "domain": "Delivery",
+      "previous_sha256": "bdb352a8b86ed940c84bf71c2339757e12671d6ba708a2fca443fbb477edb817",
+      "current_sha256": "57d6056e14fc0c88b3b4dfa23c37c08972abf2838f2420522b66dbf861f6df19",
+      "anti_pattern": "self-approval",
+      "preserved_previous_body": true
+    },
+    {
+      "path": "domains/delivery/templates/traditional/Traditional/Templates/communication_plan_template.md",
+      "domain": "Delivery",
+      "previous_sha256": "19c4977c07597ca7a4001bb5a33edcb39ed7bd08f5b262a782d8f9d6ffd0969c",
+      "current_sha256": "75ba793306123df3e47c60952ca8bb4253078d64eac52e016301b346bf0b872c",
+      "anti_pattern": "stakeholder-broadcast",
+      "preserved_previous_body": true
+    },
+    {
+      "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/regulatory/compliance_risk_assessment_template.md",
+      "domain": "Delivery",
+      "previous_sha256": "cb32cd2aaf383113bb7ea1ed21882a236175026a32b2b2031c2ae15dfc164321",
+      "current_sha256": "230429e687a7d976bda155ba4489955232275220880c324bb5a3e2c7ab2c9b43",
+      "anti_pattern": "template-judgment",
+      "preserved_previous_body": true
+    },
+    {
+      "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/regulatory/computer_system_validation_protocol_template.md",
+      "domain": "Delivery",
+      "previous_sha256": "c5b17f525e5884cc9ef7782c477f32bfd9fb55b521e63f49bb420de7ab3fbc5d",
+      "current_sha256": "5a01c912c4ad06d1abb91d85823a2e2d51e2dd6e0b4a488d5909815b8808eb7b",
+      "anti_pattern": "self-approval",
+      "preserved_previous_body": true
+    },
+    {
+      "path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/less/cross_team_coordination_template.md",
+      "domain": "Delivery",
+      "previous_sha256": "649523bee5e856da6dc7e976be8b1a4a653331434fe1f703d7c06e98212c8212",
+      "current_sha256": "d404daa12c12f6ce5eadd3c4961c58113a9387e615028339a28e8ef40cf72ffb",
+      "anti_pattern": "maximum-governance",
+      "preserved_previous_body": true
+    },
+    {
+      "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/validation/equipment_qualification_protocol_template.md",
+      "domain": "Delivery",
+      "previous_sha256": "aa1d7557a5913e1c53815501d98408e29eaf4a7081b387966f3a0b6060408494",
+      "current_sha256": "f3e34b38a9c5f54667429824a99180bc5d73f47d74583fa7c942f43fa092d7f0",
+      "anti_pattern": "self-approval",
+      "preserved_previous_body": true
+    },
+    {
+      "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/compliance/gxp_training_plan_template.md",
+      "domain": "Delivery",
+      "previous_sha256": "9ee07caed49bc180da12d5c0151ec3333eb9571cb01ef85e41d987589d06a3e4",
+      "current_sha256": "58d988b82ec80c4ffa44879d805686160bcd446cb7a7db63b60c91e15cbad1a6",
+      "anti_pattern": "template-judgment",
+      "preserved_previous_body": true
+    },
+    {
+      "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/regulatory/health_authority_communication_plan_template.md",
+      "domain": "Delivery",
+      "previous_sha256": "a66804fe41337d20b484dc1255055aca8d9b94f3b680c65a136617019365d41e",
+      "current_sha256": "bc946a6e3714ee68f4091d8ad3a888e4a15641d7212f3031df911135b43cedfc",
+      "anti_pattern": "self-approval",
+      "preserved_previous_body": true
+    },
+    {
+      "path": "domains/delivery/methodology-frameworks/hybrid/infrastructure/hybrid-infrastructure-template.md",
+      "domain": "Delivery",
+      "previous_sha256": "20bd6d442083f92f1ccea7e0fcd10a3a89d4570c75f72c02253a09c63ca3abc5",
+      "current_sha256": "94dd07d0fa877d1d874c1c73dd3f0bb3b8368578d3bdc7f1f14b1d1605be3b6a",
+      "anti_pattern": "maximum-governance",
+      "preserved_previous_body": true
+    },
+    {
+      "path": "domains/delivery/project-assessment-suite/hybrid-project-assessment-template.md",
+      "domain": "Delivery",
+      "previous_sha256": "1bd00d54ff8db64122da485750068f447c8796bd63a485c90fe04353370039c6",
+      "current_sha256": "e5509c85ae16ada938f32cb2c9dcebf7628fdff7e871bf09be2d286ccda803cd",
+      "anti_pattern": "metric-source",
+      "preserved_previous_body": true
+    },
+    {
+      "path": "domains/delivery/project-lifecycle/02-planning/project-management-plan/hybrid-project-management-plan-template.md",
+      "domain": "Delivery",
+      "previous_sha256": "41758de3c93425091081c83d66df983f2f05778fe15acceeccea42ef80235ea4",
+      "current_sha256": "1f686865eb9330156151cfa7bf5df23fc783232cbe5a222c05e62569f0cec362",
+      "anti_pattern": "tailoring-omission",
+      "preserved_previous_body": true
+    },
+    {
+      "path": "domains/delivery/templates/hybrid/Hybrid/Templates/hybrid_quality_management_template.md",
+      "domain": "Delivery",
+      "previous_sha256": "242395430e8c1541260b0446931d505f1b63a0aacd40a328c7ae71d63005ee82",
+      "current_sha256": "537e3962ee1a2cf37a9eed08417d79e24a92a594a7db527e2432efc0cea3cf07",
+      "anti_pattern": "tailoring-omission",
+      "preserved_previous_body": true
+    },
+    {
+      "path": "domains/delivery/templates/hybrid/Hybrid/Templates/hybrid_release_planning_template.md",
+      "domain": "Delivery",
+      "previous_sha256": "15deb9f7888d40448607bda46ff99ea779a5c5b6ecba01f3f6ddb6244a0ae316",
+      "current_sha256": "b11cf20705e10cea2041047a2ad73bd0ed45491b4d5d8315b343655f5204b114",
+      "anti_pattern": "template-judgment",
+      "preserved_previous_body": true
+    },
+    {
+      "path": "domains/delivery/templates/hybrid/Hybrid/Templates/hybrid_team_management_template.md",
+      "domain": "Delivery",
+      "previous_sha256": "1457753bce63009ade9f4c7b313eb8bf5f5949473a8cadc22191909daf4d82fd",
+      "current_sha256": "6a287942b16b0cfbf9dba24f83a6288b5702ee825c9a056c9b281d36f6ae9a8d",
+      "anti_pattern": "maximum-governance",
+      "preserved_previous_body": true
+    },
+    {
+      "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/validation/installation_qualification_protocol_template.md",
+      "domain": "Delivery",
+      "previous_sha256": "b4f40cb4c50e5512c5d731c4dc787d3820ff7b17b497aae508db70813099a09a",
+      "current_sha256": "8f5a7df88431a96d2075ec80852b182ce1d81bd6747bf38349b806d46b61e78f",
+      "anti_pattern": "self-approval",
+      "preserved_previous_body": true
+    },
+    {
+      "path": "domains/delivery/templates/hybrid/Hybrid/Templates/integrated_change_strategy_template.md",
+      "domain": "Delivery",
+      "previous_sha256": "93df95a5f51fd5427bfb2669f2fac1f5e16ca2477f1b4a277b777b7ff7e864e1",
+      "current_sha256": "25c5f9b257cf8d45060800a7902a22ef59071e2c00a7318fecdfadb6b04fcfb9",
+      "anti_pattern": "stakeholder-broadcast",
+      "preserved_previous_body": true
+    },
+    {
+      "path": "domains/delivery/templates/traditional/Traditional/Templates/issue_log_template.md",
+      "domain": "Delivery",
+      "previous_sha256": "279b6222363708b2d872aec2a78a8db3459288ab549306ee1d786c78e5b304c1",
+      "current_sha256": "e65278f962fc8523384fe02194d80a47d2c5c299839ffe8c63222fc8db597eb3",
+      "anti_pattern": "template-judgment",
+      "preserved_previous_body": true
+    },
+    {
+      "path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/less/less_sprint_planning_template.md",
+      "domain": "Delivery",
+      "previous_sha256": "a40866432d3d23dd962f5a1fa4349caa74ca69d511fd1d87c22d4db6146cb5f7",
+      "current_sha256": "06f01730acc253d047291a7854737b1ec0ca4d6f92bcb8490918a5570babac7e",
+      "anti_pattern": "maximum-governance",
+      "preserved_previous_body": true
+    },
+    {
+      "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/manufacturing/manufacturing_batch_record_template.md",
+      "domain": "Delivery",
+      "previous_sha256": "8a8bf04af9061e36f6f5878cf69a19696107f3faadcdfbee12d19ad2ae880952",
+      "current_sha256": "bacbf413ec9872bae45e2667e18803c0fa686bdfb595d0c5b870f25eed3d28c7",
+      "anti_pattern": "metadata-theater",
+      "preserved_previous_body": true
+    },
+    {
+      "path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/metrics_dashboard_template.md",
+      "domain": "Delivery",
+      "previous_sha256": "8ae0bbe737b2cd9bd146659abda11a2b6be8c12d90e13ecb988f28b6f1c27bd1",
+      "current_sha256": "688b9d4099bff5c728b501cac50faa19b18bf229d69383a5deadee77a0946527",
+      "anti_pattern": "metric-source",
+      "preserved_previous_body": true
+    },
+    {
+      "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/validation/operational_qualification_protocol_template.md",
+      "domain": "Delivery",
+      "previous_sha256": "d3b706c1fbdfd603e21f146fb432a2f41e31fe2fa0e5c1e4e73ab45df07e54ac",
+      "current_sha256": "0004af8e1cd85ac83024f8a4e3efcda3a0d3716d828724060d24f5a2324c2584",
+      "anti_pattern": "self-approval",
+      "preserved_previous_body": true
+    },
+    {
+      "path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/less/overall_product_backlog_template.md",
+      "domain": "Delivery",
+      "previous_sha256": "2657c5f9d839d2976ad1e6fcb15ba2a795771c459848510b8832edae0fbf9a14",
+      "current_sha256": "8fa5a6de6519e5e5c847c3dc25f89e6eceea398bfcf82be3aaa1c97933a0bbc6",
+      "anti_pattern": "metadata-theater",
+      "preserved_previous_body": true
+    },
+    {
+      "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/validation/performance_qualification_protocol_template.md",
+      "domain": "Delivery",
+      "previous_sha256": "4ce35fa581668a5bbf2410866ec87f1bce3caacec7d3c282bff1cdbab64fe0af",
+      "current_sha256": "e98ae10691e98e1e56122865def844faf984287d96f3eb3e9aaf0df59644d27f",
+      "anti_pattern": "self-approval",
+      "preserved_previous_body": true
+    },
+    {
+      "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/lifecycle/pharmaceutical_qbd_template.md",
+      "domain": "Delivery",
+      "previous_sha256": "de1056a55661746e7dbef5007e01c4127beca2f1281a9f5d40718a49666597b7",
+      "current_sha256": "5b9c3ef355d85313642dac52dbebd6a3588d8fd76cb777797e6916e5028c4eab",
+      "anti_pattern": "template-judgment",
+      "preserved_previous_body": true
+    },
+    {
+      "path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/pi_planning_template.md",
+      "domain": "Delivery",
+      "previous_sha256": "725a867d28f46125323fd0e3cc98688ca715372174e336400304b8fb55d5c11d",
+      "current_sha256": "afc90aa3fe873aa8558adeeed992edaa9e38909c7e670649c2d910fe6402fb95",
+      "anti_pattern": "maximum-governance",
+      "preserved_previous_body": true
+    },
+    {
+      "path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/portfolio_kanban_template.md",
+      "domain": "Delivery",
+      "previous_sha256": "d533062c85ffc320bb0a10089118ac36daeb2ee7a5c710d9a9783f19de47bad6",
+      "current_sha256": "26945b322b2e39ed14c411dd2f5e6186167ca9c60d3f07c1c31abb32f964da86",
+      "anti_pattern": "value-output",
+      "preserved_previous_body": true
+    },
+    {
+      "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/manufacturing/process_control_template.md",
+      "domain": "Delivery",
+      "previous_sha256": "dfd4619091da9aca63926357fa8fa2f27ee7b5ff3092cde4bfd08b19684fce06",
+      "current_sha256": "8ac60be061542f865748b2e521fefdaaabb7dab403387e67da928174009ce4ce",
+      "anti_pattern": "metric-source",
+      "preserved_previous_body": true
+    },
+    {
+      "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/validation/process_validation_master_plan_template.md",
+      "domain": "Delivery",
+      "previous_sha256": "e482a0f49be5ffd33361fff5f036ded588c502a87e0fde31816b6cfa3fb3afcf",
+      "current_sha256": "6203dd4c6036fa87efe2bf4058520b2e70d5d26e920880dcae29c43629a168c1",
+      "anti_pattern": "self-approval",
+      "preserved_previous_body": true
+    },
+    {
+      "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/regulatory/process_validation_protocol_template.md",
+      "domain": "Delivery",
+      "previous_sha256": "5d445c60d8ddc3775b3f39b93c7b87c5b1cb3b55dc20b07d8575fa97a7a34a43",
+      "current_sha256": "696188368f2ac1e8f36ae8c9cc78d66961e363ce07a3f9099c15a33e6cd5e2b5",
+      "anti_pattern": "self-approval",
+      "preserved_previous_body": true
+    },
+    {
+      "path": "domains/delivery/templates/agile/product_backlog_template.md",
+      "domain": "Delivery",
+      "previous_sha256": "ed2760e603e9f9c1d1d9cd40c63f699da5607a4c20f3b85707a60bdc50871f8d",
+      "current_sha256": "ac603d2c77cc11926678ce43846989a1642f29ccc4d333641550387f90f6b356",
+      "anti_pattern": "tailoring-omission",
+      "preserved_previous_body": true
+    },
+    {
+      "path": "domains/delivery/templates/traditional/Traditional/Templates/program_management_plan_template.md",
+      "domain": "Delivery",
+      "previous_sha256": "1266d67cbfe7079656b166e62b8260d8e71b50f81d4210d41645e255f4259551",
+      "current_sha256": "6e254817579da056a6e6c3f78c1ed9bd096aa29d7487669f4e1da17c41533864",
+      "anti_pattern": "template-judgment",
+      "preserved_previous_body": true
+    },
+    {
+      "path": "domains/delivery/templates/hybrid/Hybrid/Templates/progressive_acceptance_plan_template.md",
+      "domain": "Delivery",
+      "previous_sha256": "07dd4231d74dc4f1145b1ac9ed9f1b3027da61e690da24f233ef4020f7b2dd4c",
+      "current_sha256": "c4b4f93d5b78ab269452944a758a29945e584cf8920ecd169a43332ad65bdf83",
+      "anti_pattern": "self-approval",
+      "preserved_previous_body": true
+    },
+    {
+      "path": "domains/delivery/templates/traditional/Traditional/Process_Groups/Closing/project_closure_report_template.md",
+      "domain": "Delivery",
+      "previous_sha256": "ac9b3dea5024dc70276501d756e35184664a62f926a33942ea82cf19bf4fadaa",
+      "current_sha256": "a46eb051d9b13e260430dd449c8a0b779404f2977aa8dbe9db4c73ec3a6ca5ba",
+      "anti_pattern": "value-output",
+      "preserved_previous_body": true
+    },
+    {
+      "path": "domains/delivery/templates/traditional/Traditional/Process_Groups/Executing/project_execution_status_report_template.md",
+      "domain": "Delivery",
+      "previous_sha256": "285ec47f44e03445f053342b9ce7e4961b5d455a3bb2fcfb64fe024bdc12935e",
+      "current_sha256": "17a41cef4a0325281d73c5a9c726d9bc8244fb9948a75591d230bd35ecfc9eb4",
+      "anti_pattern": "template-judgment",
+      "preserved_previous_body": true
+    },
+    {
+      "path": "domains/delivery/templates/traditional/Traditional/Process_Groups/Planning/project_management_plan_template.md",
+      "domain": "Delivery",
+      "previous_sha256": "286d2055fe531d7dbc12060376d81cb6b4ff255e5d16c87a549e11a226d838fc",
+      "current_sha256": "8115677b8f2476c0f73fb57861b0ba6f289d512632351c43feac3a70f5934399",
+      "anti_pattern": "maximum-governance",
+      "preserved_previous_body": true
+    },
+    {
+      "path": "domains/delivery/templates/traditional/Traditional/Process_Groups/Monitoring_and_Controlling/project_performance_monitoring_template.md",
+      "domain": "Delivery",
+      "previous_sha256": "9b3397e80415d35c9f413da136f26836953b0f5b05eb9a09680592dbc66f6ae5",
+      "current_sha256": "ca53a89ea67d4cadc425e8a489852a59c368afeaf9cd6586644147681fbe69f7",
+      "anti_pattern": "baseline-green",
+      "preserved_previous_body": true
+    },
+    {
+      "path": "domains/delivery/templates/traditional/Traditional/Templates/project_roadmap_template.md",
+      "domain": "Delivery",
+      "previous_sha256": "d62d63aa77a9ea835f0e06b449e3cb584ed5f9c919797b7f574ea0b2dac29859",
+      "current_sha256": "b73c0f01f7168f671762a9d5960410c03551015b6791c184d9358ba8b50c82db",
+      "anti_pattern": "template-judgment",
+      "preserved_previous_body": true
+    },
+    {
+      "path": "domains/delivery/templates/traditional/Traditional/Process_Groups/Planning/project_schedule_template.md",
+      "domain": "Delivery",
+      "previous_sha256": "369379d571d8d8979138042f015ae2ed8989a486b99924a0c62f25be999778e5",
+      "current_sha256": "f90f4c7c406cbd4a990e495ee318173f8c653c6bffb93c096f8ef3421cd7a211",
+      "anti_pattern": "baseline-green",
+      "preserved_previous_body": true
+    },
+    {
+      "path": "domains/delivery/templates/traditional/Traditional/Templates/purchase_order_template.md",
+      "domain": "Delivery",
+      "previous_sha256": "8440f28fd358a2b82fb43be2e562ae4fac15b577180f3730a2a0c32be66e1d40",
+      "current_sha256": "83135d33b88fc827d23936d34268b1da20727eec7a5cfbe0bbdc4daea7902e41",
+      "anti_pattern": "self-approval",
+      "preserved_previous_body": true
+    },
+    {
+      "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/quality/quality_management_review_template.md",
+      "domain": "Delivery",
+      "previous_sha256": "db92bc656cb7260fbb1d1e57161fe6cf172aa55bea7fd87e739b043f61dcfea2",
+      "current_sha256": "0bda0ef113f3b1ea65849a5b18426f10af6bd9b03ed17412ed68e9d41b6766d8",
+      "anti_pattern": "metric-source",
+      "preserved_previous_body": true
+    },
+    {
+      "path": "domains/delivery/templates/traditional/Traditional/Templates/raid_log_template.md",
+      "domain": "Delivery",
+      "previous_sha256": "fe40e55482e765f09610b14f1a3f02b91048c9e0f77833b0952b61c3dfd1862b",
+      "current_sha256": "90facb677aa14dace79b1fefa469c4f069094053ea28d12ace38f0ae14af805b",
+      "anti_pattern": "template-judgment",
+      "preserved_previous_body": true
+    },
+    {
+      "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/regulatory/regulatory_inspection_readiness_plan_template.md",
+      "domain": "Delivery",
+      "previous_sha256": "c08e6771ad3966ea32890ac9c76f6158514e9f4f49b2fb78a9450ce046474026",
+      "current_sha256": "31f068e684bab667bd7be932d284d078337a2efc980e9688e608c36113c060a4",
+      "anti_pattern": "self-approval",
+      "preserved_previous_body": true
+    },
+    {
+      "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/regulatory/regulatory_strategy_plan_template.md",
+      "domain": "Delivery",
+      "previous_sha256": "17201f81249409ffe880be627d469cd15f9377990668f81ed8951d1f777e5ce6",
+      "current_sha256": "454be052f44496d3d63cddd2eb43e41335fbbb813d6032aec0faf75bafda531d",
+      "anti_pattern": "template-judgment",
+      "preserved_previous_body": true
+    },
+    {
+      "path": "domains/delivery/templates/traditional/Traditional/Process_Groups/Executing/requirements_traceability_matrix_template.md",
+      "domain": "Delivery",
+      "previous_sha256": "67f53de5806388d64678bf5b09cfbe4b343ee8a63d168413bfd9eb0a016902a3",
+      "current_sha256": "014564185533eda590f7fb1f965046bab067edc83386a5d66c6bdedfcb3e3ad2",
+      "anti_pattern": "metadata-theater",
+      "preserved_previous_body": true
+    },
+    {
+      "path": "domains/delivery/templates/traditional/Traditional/Knowledge_Areas/Project_Cost_Management/roi_tracking_template.md",
+      "domain": "Delivery",
+      "previous_sha256": "ea8e7681d9c2c03088f50a94a8b758b803e49a1c29926e7f3e06545a06b26c28",
+      "current_sha256": "475cc960a74665184e180389b481a17e4515b14016cbffd525394a0a590d5d9a",
+      "anti_pattern": "value-output",
+      "preserved_previous_body": true
+    },
+    {
+      "path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_art_coordination_template.md",
+      "domain": "Delivery",
+      "previous_sha256": "f7aaecfb81982cabd47304f4155cc5902a0d2f337042098b68f656222f34532c",
+      "current_sha256": "bcd64087761ceea85e7da5f021b310bc69dc85e751d5fe571a9780586ba5bab7",
+      "anti_pattern": "maximum-governance",
+      "preserved_previous_body": true
+    },
+    {
+      "path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_metrics_dashboard_template.md",
+      "domain": "Delivery",
+      "previous_sha256": "76b072648722161a5a932d72857b5fc0bf99c90ec6888355c359d34d35dcd595",
+      "current_sha256": "1b853eb53b60519c5cf7cfcc16f5b3c3393b8260a6ff5eaf3a078848239d1c84",
+      "anti_pattern": "metric-source",
+      "preserved_previous_body": true
+    },
+    {
+      "path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_metrics_reporting_template.md",
+      "domain": "Delivery",
+      "previous_sha256": "ba10aca7835b3e33b073fc5424e87618dfa41bf74824684f5fdf5d895eac438e",
+      "current_sha256": "5f1f8c80e660234b49d48769f1ce0a7012b8dcf1eb3d787bf699b23bf81135a1",
+      "anti_pattern": "metric-source",
+      "preserved_previous_body": true
+    },
+    {
+      "path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_portfolio_kanban_template.md",
+      "domain": "Delivery",
+      "previous_sha256": "ee009f391a51af9355fca1c31eacc6f4105268a988eb9f9617212fef165e0b3b",
+      "current_sha256": "89615d1618fda1872155f1b318f496cee8b97842c403897fb7a90d92faae97bc",
+      "anti_pattern": "value-output",
+      "preserved_previous_body": true
+    },
+    {
+      "path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_program_increment_planning_template.md",
+      "domain": "Delivery",
+      "previous_sha256": "ee46de6172cbb5fd63f61d05ba6d6a28579874ee988667be39c0b651488ce4bd",
+      "current_sha256": "30bdd6a2215833f0cc74d63de297daa94af180da1dbaa975a066cde2fa63a39f",
+      "anti_pattern": "template-judgment",
+      "preserved_previous_body": true
+    },
+    {
+      "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/validation/software_requirements_specification_template.md",
+      "domain": "Delivery",
+      "previous_sha256": "69fa5f96c4ffaec535a236b5d31b540b52aaa0c7088e6283bb55508a2e0b617d",
+      "current_sha256": "272abbb19a91779681e252534cabb15d5bcf172128ccbe3eda93885ec4838c9d",
+      "anti_pattern": "self-approval",
+      "preserved_previous_body": true
+    },
+    {
+      "path": "domains/delivery/templates/agile/sprint_planning_template.md",
+      "domain": "Delivery",
+      "previous_sha256": "0b79ddb277f0eea7524c350b4b9fe7235761b48f8a33497f29659d39209e1610",
+      "current_sha256": "1d6312bc9eb24bf377bf5e1395198d6bef3f7554c9b1ce9a35a39f7b0bd46afb",
+      "anti_pattern": "maximum-governance",
+      "preserved_previous_body": true
+    },
+    {
+      "path": "domains/delivery/project-lifecycle/02-planning/project-management-plan/traditional-project-management-plan-template.md",
+      "domain": "Delivery",
+      "previous_sha256": "e5b7c465888d907e6c218ec9ee23924226fd3f73805ac2ba8765d0b4746527d1",
+      "current_sha256": "0b67b64e340de5b9f42b03fe454b3bcca72e5b9b57f0ed7a5e28bbd06724152d",
+      "anti_pattern": "maximum-governance",
+      "preserved_previous_body": true
+    },
+    {
+      "path": "domains/delivery/templates/traditional/Traditional/Templates/uat_plan_template.md",
+      "domain": "Delivery",
+      "previous_sha256": "748a5b3119b3e057e2a298fab9e5bb8bea75d1d48bc85eca6fa8404be50b2d5e",
+      "current_sha256": "2f465384aeddd34c16939113116098cc8ed552b19bc90212e304223afebfa187",
+      "anti_pattern": "self-approval",
+      "preserved_previous_body": true
+    },
+    {
+      "path": "domains/delivery/templates/traditional/Traditional/Templates/uat_strategy_template.md",
+      "domain": "Delivery",
+      "previous_sha256": "eca595e2c26c4bbbb0235f3412503e5ac3b98c1bd6936028798f56e6bae1bbaf",
+      "current_sha256": "9e6cd5df19208a71898e93170aaeb0802af5353276a6fc7965cf26b622528e80",
+      "anti_pattern": "self-approval",
+      "preserved_previous_body": true
+    },
+    {
+      "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/validation/validation_master_plan_template.md",
+      "domain": "Delivery",
+      "previous_sha256": "36cc73af7b2c030790ed750feb6f3db838d28271afdffea0c35114ba8cf51aa4",
+      "current_sha256": "af5ba934ab461ed77e79a075a496cc113886b50eb81994c77e70f1a1bb3d7bd7",
+      "anti_pattern": "self-approval",
+      "preserved_previous_body": true
+    },
+    {
+      "path": "domains/delivery/templates/traditional/Traditional/Process_Groups/Planning/work_breakdown_structure_template.md",
+      "domain": "Delivery",
+      "previous_sha256": "66e6d5371e507bff848f391f6dd01b07971f4bff89f4a292dd726d1236b9bf89",
+      "current_sha256": "b95d3e272393f2cfc3bf1f78c166401ab2656179d679ef91ad2e2ce31a450712",
+      "anti_pattern": "template-judgment",
+      "preserved_previous_body": true
+    },
+    {
+      "path": "templates/universal/benefits-review-template.md",
+      "domain": "Measurement",
+      "previous_sha256": "3278163995907b6a51a85ddea3296e80e8cca1d72618195fb3fdb0b6e029afc1",
+      "current_sha256": "8a81652b665372f3eb10fa3aab62363abd94de4b11cffb8337cdd56bab41bcca",
+      "anti_pattern": "value-output",
+      "preserved_previous_body": true
+    },
+    {
+      "path": "templates/universal/benefits-variance-analysis-template.md",
+      "domain": "Measurement",
+      "previous_sha256": "1a0d8c0521c32da4b4b778e45038ecc425d712ef40bd20db1c2d72572b7ed15e",
+      "current_sha256": "cdf05dfecbdf92d735c12db04f660d1b410b660bb8f6e03eb978cc0f1588dc1b",
+      "anti_pattern": "baseline-green",
+      "preserved_previous_body": true
+    },
+    {
+      "path": "domains/measurement/project-lifecycle/02-planning/business-requirements/business_requirements_document_template.md",
+      "domain": "Measurement",
+      "previous_sha256": "68ce143df4327ffae340b42292a52a14e9ef24df0501b452ae3c003f015aa1b5",
+      "current_sha256": "cf75b4452efa751c24e1ceb40a2d8b2569bf52106c5527f0f852a6f6ab7f4b73",
+      "anti_pattern": "stakeholder-broadcast",
+      "preserved_previous_body": true
+    },
+    {
+      "path": "domains/measurement/methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md",
+      "domain": "Measurement",
+      "previous_sha256": "1e8f072a71431eda7f76f04f984569a6aebb3927da09934159b6a1d8765cf8f0",
+      "current_sha256": "7f10d6f7f956ee30e30eb7b9f102ef59a48de6237758079f8547867290a603c9",
+      "anti_pattern": "template-judgment",
+      "preserved_previous_body": true
+    },
+    {
+      "path": "domains/measurement/industry-specializations/financial-services/compliance/compliance-management-template.md",
+      "domain": "Measurement",
+      "previous_sha256": "d114389ebc25c416e30963abad3988b3c7547dc5bde8a4cbdded98aad6aa447b",
+      "current_sha256": "02c62f54e07fedc0b504e5ad9b182799233ad0956aa3256aaa2b35328dbdb60a",
+      "anti_pattern": "self-approval",
+      "preserved_previous_body": true
+    },
+    {
+      "path": "domains/measurement/project-assessment-suite/current-state-analysis-template.md",
+      "domain": "Measurement",
+      "previous_sha256": "76ae35a6addfea13d2b93dba2522ce5b3f21153380d0519de433e835a4a0f7ef",
+      "current_sha256": "b7c677cf9cc2ab4100f6132996560be2d266debfbb7e306a8ce55652b86d112e",
+      "anti_pattern": "metric-source",
+      "preserved_previous_body": true
+    },
+    {
+      "path": "domains/measurement/industry-specializations/information-technology/security/cybersecurity_assessment_template.md",
+      "domain": "Measurement",
+      "previous_sha256": "212f67e4354b73665d542d5122f8f6ecf243afca8ae497dfc26db7a0821bc77a",
+      "current_sha256": "009377e2ee668f48011b4a7896d64db88e7dfe28539f354b39cfc33b896885a2",
+      "anti_pattern": "template-judgment",
+      "preserved_previous_body": true
+    },
+    {
+      "path": "domains/measurement/methodology-frameworks/emerging-methods/devops/devsecops_template.md",
+      "domain": "Measurement",
+      "previous_sha256": "7141e00030dce8483cf0435c364eb386dd43bff39ccfb5d6f0de0beca04a3960",
+      "current_sha256": "bb40479be82b02daabdc0dc4320bb721e62b50191ecd844a29722047fdb8864e",
+      "anti_pattern": "template-judgment",
+      "preserved_previous_body": true
+    },
+    {
+      "path": "domains/measurement/industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md",
+      "domain": "Measurement",
+      "previous_sha256": "dd418fb40454cfc3280f26e9958dcfd9ff5e588469119e179bd6bc0676940696",
+      "current_sha256": "4f5be29f59fb27cea1bb47d50f4a803b30671dc5a242ead2a6a99ffd570d1220",
+      "anti_pattern": "value-output",
+      "preserved_previous_body": true
+    },
+    {
+      "path": "domains/measurement/project-assessment-suite/executive-summary-template.md",
+      "domain": "Measurement",
+      "previous_sha256": "ff27d20777236a2341bd47e36f7753b290753e4fdb1ddad16d1ae0dbef5dfed2",
+      "current_sha256": "20c32e255faef12025e764a821d6d902c4e75da316d6c64c03a06aa41d5dea87",
+      "anti_pattern": "metric-source",
+      "preserved_previous_body": true
+    },
+    {
+      "path": "domains/measurement/project-assessment-suite/future-state-blueprint-template.md",
+      "domain": "Measurement",
+      "previous_sha256": "547abfd9ff677aa94fdc04a5746597582303a0ed6dd06a4ce6e7c3195dad7180",
+      "current_sha256": "9140dcf43a9096dd49348d691ba525006d9654eb751dc43bce135ad61f82b328",
+      "anti_pattern": "value-output",
+      "preserved_previous_body": true
+    },
+    {
+      "path": "domains/measurement/project-assessment-suite/gap-analysis-matrix-template.md",
+      "domain": "Measurement",
+      "previous_sha256": "be9f7b979fb30217a9b2fc9e44613b1eb25702d7a1054a5b3cc60e87bdbc04f9",
+      "current_sha256": "c86d98d013be365ddba04a003312cf6e3300c6b7c7f27a31efde59921464f03d",
+      "anti_pattern": "metric-source",
+      "preserved_previous_body": true
+    },
+    {
+      "path": "domains/measurement/project-assessment-suite/governance-assessment-template.md",
+      "domain": "Measurement",
+      "previous_sha256": "2e8fd71c3fa3d6a67bcca5a702801f480ec24a412e73595782de90f8e421df9e",
+      "current_sha256": "102e646a888f6f7f08c3cf25a7fa7d4fd785de6510c840ddb4629ee0ef30d452",
+      "anti_pattern": "metadata-theater",
+      "preserved_previous_body": true
+    },
+    {
+      "path": "domains/measurement/role-based-toolkits/project-manager/essential-templates/handover-template.md",
+      "domain": "Measurement",
+      "previous_sha256": "ef02519733b4c30157c9152d8bc7b0b38bf1f329b3c048ca426b246d86bd76ba",
+      "current_sha256": "2d9f204255b2a98fa237de14cba9f9e72f2803e5789bb1f837f7077d577cbb4c",
+      "anti_pattern": "self-approval",
+      "preserved_previous_body": true
+    },
+    {
+      "path": "domains/measurement/industry-specializations/information-technology/cybersecurity/incident_response_template.md",
+      "domain": "Measurement",
+      "previous_sha256": "c80f5b56298630195845dba572061c05170d849e57fcaeee97bc28216fe20e56",
+      "current_sha256": "634a3934686a53f0062703c939513fea40371baba5ac679cdd71635e4f010abc",
+      "anti_pattern": "template-judgment",
+      "preserved_previous_body": true
+    },
+    {
+      "path": "domains/measurement/methodology-frameworks/emerging-methods/devops/infrastructure_as_code_template.md",
+      "domain": "Measurement",
+      "previous_sha256": "fe86497142d3f35f01455fc330e7915d633cc1b250909b0bb44c962fd6dd39b0",
+      "current_sha256": "9bcac02a616da213bea5828a60b20d8d5fb0917b93248f1e43a131fc760db42d",
+      "anti_pattern": "self-approval",
+      "preserved_previous_body": true
+    },
+    {
+      "path": "domains/measurement/industry-specializations/information-technology/infrastructure/infrastructure_assessment_template.md",
+      "domain": "Measurement",
+      "previous_sha256": "7b3bf26a02c83123e649ecfda0eef0b21c7dedfc424a3a8f8416c0dcbec6b112",
+      "current_sha256": "01055fc59fb07db894426c2b8d94d88a5ad928e0f37edd079d11ddedb868693b",
+      "anti_pattern": "metric-source",
+      "preserved_previous_body": true
+    },
+    {
+      "path": "domains/measurement/methodology-frameworks/emerging-methods/devops/monitoring_alerting_template.md",
+      "domain": "Measurement",
+      "previous_sha256": "e926262a34c2503346488bd6107a8d9b10f9ecd123cdac174910acb84b589b6c",
+      "current_sha256": "dc14906965793d1bc3593a00a82f79d7fb2212abd1c014ec18a0e07cde74753e",
+      "anti_pattern": "metric-source",
+      "preserved_previous_body": true
+    },
+    {
+      "path": "domains/measurement/project-assessment-suite/process-maturity-assessment-template.md",
+      "domain": "Measurement",
+      "previous_sha256": "e91e781bd159d7050b8a487eecaa1ebbcd7ffced7ebe8dca8168d430aff977fc",
+      "current_sha256": "77c5e4d5a368247b1c4abf168e54f0a87b427b77488b8766c3be77fa76232fbd",
+      "anti_pattern": "metadata-theater",
+      "preserved_previous_body": true
+    },
+    {
+      "path": "domains/measurement/project-assessment-suite/project-health-assessment-template.md",
+      "domain": "Measurement",
+      "previous_sha256": "43ce810dbcf6c26a490523d9354f74a9c92b16d44212505a953cc7c7cac545a5",
+      "current_sha256": "d805fa54be0cca2e892cd863fc44c93332732a3fce946397dbd3b115d58e8eda",
+      "anti_pattern": "metric-source",
+      "preserved_previous_body": true
+    },
+    {
+      "path": "domains/measurement/methodology-frameworks/emerging-methods/devops/release_management_template.md",
+      "domain": "Measurement",
+      "previous_sha256": "f4b34f505013e3c7935caf274178784a7ce491775bd6ca634474fc65ff75267b",
+      "current_sha256": "81eec1777822fee590919c60210e689457bfa33bf2cb8217a441b8870388f010",
+      "anti_pattern": "value-output",
+      "preserved_previous_body": true
+    },
+    {
+      "path": "domains/measurement/project-assessment-suite/remediation-action-plan-template.md",
+      "domain": "Measurement",
+      "previous_sha256": "a54f6925ffc0a6c0823e5e45da287be8528e2d14e47c84f6927f83e36fbaea25",
+      "current_sha256": "7feeaf1398f6a86f97059a1e9ac4c22a6c32090d50a56e7fd1b1e53061667f26",
+      "anti_pattern": "lessons-archive",
+      "preserved_previous_body": true
+    },
+    {
+      "path": "domains/measurement/project-assessment-suite/resource-management-assessment-template.md",
+      "domain": "Measurement",
+      "previous_sha256": "c210a6369dac1c0b3ca78efa1b2c7734cc29cf781e9e7d490418096cc856c6cc",
+      "current_sha256": "605c5438d43eed843a7ba3d87b8391027641f7d9515eae69687b4e34a0987176",
+      "anti_pattern": "metric-source",
+      "preserved_previous_body": true
+    },
+    {
+      "path": "domains/measurement/project-lifecycle/02-planning/resource-planning/resource-management-plan-template.md",
+      "domain": "Measurement",
+      "previous_sha256": "ff7fda80410dbe59428077dbc9000149f9c5f969b842e1c58bf9be239627e93c",
+      "current_sha256": "1e85a50102b9bd35cb07c08f1e89eff2674f899386b2fa046957f843c72369fe",
+      "anti_pattern": "template-judgment",
+      "preserved_previous_body": true
+    },
+    {
+      "path": "domains/measurement/industry-specializations/information-technology/cybersecurity/risk_assessment_template.md",
+      "domain": "Measurement",
+      "previous_sha256": "4a306cf761a2867d039f2df2e947e946fd73ead1d65b9ac140113c4fcb179e1b",
+      "current_sha256": "2b8b70843179db881b20449ef3cbe3406a5aaf535b4eec23a1f5b007ce80569a",
+      "anti_pattern": "metric-source",
+      "preserved_previous_body": true
+    },
+    {
+      "path": "domains/measurement/project-assessment-suite/risk-management-assessment-template.md",
+      "domain": "Measurement",
+      "previous_sha256": "c459ec2489955383f33e5336271d10bf35a9588f177a68ce3089c165ed3b17ed",
+      "current_sha256": "45aebfece3a39e5314c2ebd997ef5a07643a183b1efd58bb78e3225f76373603",
+      "anti_pattern": "metadata-theater",
+      "preserved_previous_body": true
+    },
+    {
+      "path": "domains/measurement/project-lifecycle/02-planning/risk-management/risk-management-plan-template.md",
+      "domain": "Measurement",
+      "previous_sha256": "ec5e431377997543c619573faa9d355d223e3cb3e106c19ca01424512053e8c7",
+      "current_sha256": "c7675f0a06e169fe5c58fbcb408dae6333e8b1411b7d670b2701345cc59da250",
+      "anti_pattern": "template-judgment",
+      "preserved_previous_body": true
+    },
+    {
+      "path": "domains/measurement/industry-specializations/information-technology/software-development/technical_design_document_template.md",
+      "domain": "Measurement",
+      "previous_sha256": "f9bec871977991523f3eadcc5c80e4eabf16ddc843ed75d3d94a731d18b0d754",
+      "current_sha256": "822495756a5a57c4c6373be00e90cbeb7520027b06dc1e53ed6a47e8be1aeb7d",
+      "anti_pattern": "template-judgment",
+      "preserved_previous_body": true
+    },
+    {
+      "path": "domains/measurement/industry-specializations/information-technology/software-development/test_plan_template.md",
+      "domain": "Measurement",
+      "previous_sha256": "9bb9b54bd75eddd7f24fa60122eda3189fc1132b4525f2ecf0e7b307646c1610",
+      "current_sha256": "a38f3d78bd2a7771b86c95563b286b4defb90bc9f064f6e1f2da5be048d710f0",
+      "anti_pattern": "self-approval",
+      "preserved_previous_body": true
+    },
+    {
+      "path": "domains/delivery/role-based-toolkits/project-manager/essential-templates/timesheet-tracking-template.md",
+      "domain": "Measurement",
+      "previous_sha256": "f1964796cc0e326984095ae07460760083957c6e68d2c0708bddbc76564faf7c",
+      "current_sha256": "1527934d8bcc81af7c94f118c24cf8253118d3da7728559df97f1bec6d6cdb68",
+      "anti_pattern": "value-output",
+      "preserved_previous_body": true
+    },
+    {
+      "path": "domains/uncertainty/project-assessment-suite/assessment-report-template.md",
+      "domain": "Uncertainty",
+      "previous_sha256": "62034655a008e3fa1c172ed9362f27ad770bddee0df9610b368d5ade928fb054",
+      "current_sha256": "f5f868455e1027c074b9ef2a6ffd74750fff92b8762dba7ef1a0830383907273",
+      "anti_pattern": "metric-source",
+      "preserved_previous_body": true
+    },
+    {
+      "path": "domains/uncertainty/role-based-toolkits/product-owner/backlog-management-template.md",
+      "domain": "Uncertainty",
+      "previous_sha256": "88cca113bdd85ccc4be35e878b4e387ac163ff83cb7a00e6303d56ada3479bb5",
+      "current_sha256": "3a69645910dfebca06ee63b2a7b686b24b8b08d53314151f1167d17b62d2e738",
+      "anti_pattern": "metadata-theater",
+      "preserved_previous_body": true
+    },
+    {
+      "path": "domains/uncertainty/project-lifecycle/02-planning/risk-management/enterprise-risk-assessment-template.md",
+      "domain": "Uncertainty",
+      "previous_sha256": "0b89aa773f52fe2980d60751105abae3e9d18989934e135099ceaf3b6ffea32b",
+      "current_sha256": "59fa3187762be1ef4bf498242b1e15345daf2d992b37f008b06847e821b14803",
+      "anti_pattern": "maximum-governance",
+      "preserved_previous_body": true
+    },
+    {
+      "path": "domains/uncertainty/role-based-toolkits/project-manager/essential-templates/meeting-templates.md",
+      "domain": "Uncertainty",
+      "previous_sha256": "f82b6b79a0c34d303344b203fa1d1240571d50eec294642279eae750daa6949d",
+      "current_sha256": "93649fdd2ba1d7cbca2e4db0ff966911c06c75e5882608900acf5a142bced2ab",
+      "anti_pattern": "maximum-governance",
+      "preserved_previous_body": true
+    },
+    {
+      "path": "domains/uncertainty/industry-specializations/information-technology/infrastructure/migration_plan_template.md",
+      "domain": "Uncertainty",
+      "previous_sha256": "09286978263593f42da6c30a21f270d498468150b06d189bd1d018cdf49f17df",
+      "current_sha256": "5aa6e7c8a1f2f7f90775fb77998066be96d3fb23ed2b4c5dc8a7714c60c0f086",
+      "anti_pattern": "tailoring-omission",
+      "preserved_previous_body": true
+    },
+    {
+      "path": "domains/delivery/industry-specializations/information-technology/service-management/problem_management_process_template.md",
+      "domain": "Uncertainty",
+      "previous_sha256": "b1ce59a97f16087acdc55f8b043d6a2ee7bfe002dd991a96b0de5a83e4001e85",
+      "current_sha256": "88675c1ac95d1310b9fecb7dfb5f77045fcd07187c30fdea8f87aa583ded27e2",
+      "anti_pattern": "lessons-archive",
+      "preserved_previous_body": true
+    },
+    {
+      "path": "domains/uncertainty/role-based-toolkits/product-owner/product-vision-template.md",
+      "domain": "Uncertainty",
+      "previous_sha256": "b3272316a959d181229a4ec00345ee07ac5d3bbed099bf4d0abea1ff9f50e01a",
+      "current_sha256": "1ff1893c477be658f385ae953d4d5261ea2b6cf8d6aa479c11261f2563059585",
+      "anti_pattern": "value-output",
+      "preserved_previous_body": true
+    },
+    {
+      "path": "domains/uncertainty/project-lifecycle/04-monitoring-control/progress-tracking/project-dashboard-template.md",
+      "domain": "Uncertainty",
+      "previous_sha256": "e0b10ebe9358b3cdf37fa5300cf5676db0e067310f358919c854f3df6f9d84ec",
+      "current_sha256": "dbe0470c1d905bccad9bf7c8c47673813a40c2a0b413f9ef0c6bc482a686e786",
+      "anti_pattern": "metric-source",
+      "preserved_previous_body": true
+    },
+    {
+      "path": "domains/uncertainty/templates/test-samples/quality-test-plan-template.md",
+      "domain": "Uncertainty",
+      "previous_sha256": "9556e4470c9f5dab62d743cdcac71c1feb4af9318a0f349274e349155265c40c",
+      "current_sha256": "a156626e34c12ba443db70c544e236ad63d75c5a925e36d685ffab3856002875",
+      "anti_pattern": "self-approval",
+      "preserved_previous_body": true
+    },
+    {
+      "path": "domains/uncertainty/industry-specializations/information-technology/software-development/requirements_specification_template.md",
+      "domain": "Uncertainty",
+      "previous_sha256": "d9b63233ea83c1f71f5bcd5c0ce21623cccb76a2e97ce4dbdba4c5fb517c3c6a",
+      "current_sha256": "1712d0a702d4fd25fe68e4526561987df094b8c7fad329d0467c1eab7947fd5e",
+      "anti_pattern": "template-judgment",
+      "preserved_previous_body": true
+    },
+    {
+      "path": "domains/uncertainty/project-lifecycle/02-planning/risk-management/risk-register-template.md",
+      "domain": "Uncertainty",
+      "previous_sha256": "d08983f03339580b848a6cb780145d93e29471d14f7d41811cd324e84b4c948f",
+      "current_sha256": "09fe112aab888a528d9284288dc898264b098b463f536d5b13838e590e022362",
+      "anti_pattern": "template-judgment",
+      "preserved_previous_body": true
+    },
+    {
+      "path": "domains/uncertainty/project-lifecycle/04-monitoring-control/progress-tracking/status-report-template.md",
+      "domain": "Uncertainty",
+      "previous_sha256": "12208119a822332056447d6e317bf4adf621c297311c10bdf95aef68740c01bd",
+      "current_sha256": "d41879ceac9e1c0d72cce12a67fe4996cc4cad569f5ff5fa8f68d8ee5f8c9654",
+      "anti_pattern": "metric-source",
+      "preserved_previous_body": true
+    },
+    {
+      "path": "domains/uncertainty/industry-specializations/information-technology/software-development/user_story_mapping_template.md",
+      "domain": "Uncertainty",
+      "previous_sha256": "87eb30dfaea0a755958fdd8f2aefacd9b1602639063e56943588e39c087e5eac",
+      "current_sha256": "c5016688f8080084c01c8ce21a1e5dcd82bc10aa802691277c1a7de7b355c276",
+      "anti_pattern": "stakeholder-broadcast",
+      "preserved_previous_body": true
+    },
+    {
+      "path": "domains/uncertainty/role-based-toolkits/product-owner/user-story-template.md",
+      "domain": "Uncertainty",
+      "previous_sha256": "77a05ce922c2e139a2980a76c6a6b8aaa116613db23952e8faea01a54626bf59",
+      "current_sha256": "e543375b66c369284a066f23d78cc4469afc3e4c17dfecff1c2e3720fd2e218e",
+      "anti_pattern": "metadata-theater",
+      "preserved_previous_body": true
+    },
+    {
+      "path": "domains/stakeholder/business-stakeholder-suite/financial-governance/enhanced-business-cases/advanced-business-case-template.md",
+      "domain": "Stakeholder",
+      "previous_sha256": "21e502c16c6477e994a9811ad8bc21f11acee3b3b46bfb4d87b0f0cf2734fee4",
+      "current_sha256": "2f422c6e956af4c20aa70ccbc1cc22923a5f0b8d2538003fdb485d4351937d7b",
+      "anti_pattern": "value-output",
+      "preserved_previous_body": true
+    },
+    {
+      "path": "domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/agile-stakeholder-map-template.md",
+      "domain": "Stakeholder",
+      "previous_sha256": "2ee8c0a299c9fc25199774b2cc6ff08d70279c062779787bd55e4eefddb76c73",
+      "current_sha256": "11efb94105ad2a44755769c9d02e1387f2b0865e0041c025f70dfc079ad1ee75",
+      "anti_pattern": "stakeholder-broadcast",
+      "preserved_previous_body": true
+    },
+    {
+      "path": "domains/stakeholder/business-stakeholder-suite/financial-governance/budget-dashboard-template.md",
+      "domain": "Stakeholder",
+      "previous_sha256": "7e0f200bab4b01f56caddad2d608cb4ebb0b316220ee5aad2bcc0a6512e47ede",
+      "current_sha256": "a94bbcbbd6c4d6c74f3d9822a0b71afef2b5c6ee259218c31b39b82bfae2ecda",
+      "anti_pattern": "metric-source",
+      "preserved_previous_body": true
+    },
+    {
+      "path": "domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/enterprise-stakeholder-analysis-template.md",
+      "domain": "Stakeholder",
+      "previous_sha256": "a63bf5c5e6d9c5fa3a2db03e6bd04bcd902bc013d61e9e890568f265363e6555",
+      "current_sha256": "645265fe1b18e673eb76f98afbcd8c0f0ec3995032a1a95be4fb261fa7bdedd0",
+      "anti_pattern": "stakeholder-broadcast",
+      "preserved_previous_body": true
+    },
+    {
+      "path": "domains/stakeholder/business-stakeholder-suite/financial-governance/enhanced-business-cases/evm-dashboard-template.md",
+      "domain": "Stakeholder",
+      "previous_sha256": "7afa5ee604b75a1ea3e7ef51e06f06494776d924b38b4d3ec57084a0f260bb61",
+      "current_sha256": "15f296a6026268c555eab68889d14a8c590f5e11453a6ee7dc7e889ef4f81065",
+      "anti_pattern": "baseline-green",
+      "preserved_previous_body": true
+    },
+    {
+      "path": "domains/stakeholder/business-stakeholder-suite/executive-dashboards/powerbi-integration/executive-dashboard-template.md",
+      "domain": "Stakeholder",
+      "previous_sha256": "efd15411dd3b005de773f6960402e38ad73e539a41b798befafef7d0f1c32553",
+      "current_sha256": "427ab50f90b883bd9a7339c105a02ace8bdbca72a1359cfa5840d57555d2c5c6",
+      "anti_pattern": "metric-source",
+      "preserved_previous_body": true
+    },
+    {
+      "path": "domains/stakeholder/business-stakeholder-suite/executive-dashboards/Word/Executive-Report-Templates.md",
+      "domain": "Stakeholder",
+      "previous_sha256": "01ff5b87a736534612c73b1b185bffbc1b3beb737459215000dff307fdaeaf4e",
+      "current_sha256": "88f771166d6acbb4a4288edcf18eae3c4668d73f4f93008b158cef334b612f27",
+      "anti_pattern": "metric-source",
+      "preserved_previous_body": true
+    },
+    {
+      "path": "domains/stakeholder/role-based-toolkits/product-owner/okr-template.md",
+      "domain": "Stakeholder",
+      "previous_sha256": "5b1f6f39ef6a405826e34a60ae738eef96cc8fcf57611ea5114ed46837123930",
+      "current_sha256": "02e419a41755ccbdd6f0ffbefcb2171d0e1087b775af660e16f2cd2b988bd23f",
+      "anti_pattern": "value-output",
+      "preserved_previous_body": true
+    },
+    {
+      "path": "domains/stakeholder/project-assessment-suite/stakeholder-engagement-assessment-template.md",
+      "domain": "Stakeholder",
+      "previous_sha256": "1fb84b0bfda4f667aedd14d6f6a30e910b894a58eac0f57adc8718851354b103",
+      "current_sha256": "787815831fd2352ca7cb6178efc542486304623aebc0a7cfd558a2e6e3754509",
+      "anti_pattern": "stakeholder-broadcast",
+      "preserved_previous_body": true
+    },
+    {
+      "path": "domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/stakeholder-register-template.md",
+      "domain": "Stakeholder",
+      "previous_sha256": "64d7a7d1a8096b3d7f3410162abd61e7fc88e953c8ddae1935a47e786c7d3a57",
+      "current_sha256": "acf2b18fc7423d1315e8b9889c033ebcc7a0017b633280314cd9fd36ef58e84a",
+      "anti_pattern": "stakeholder-broadcast",
+      "preserved_previous_body": true
+    },
+    {
+      "path": "domains/stakeholder/project-assessment-suite/waterfall-project-assessment-template.md",
+      "domain": "Stakeholder",
+      "previous_sha256": "7cc95b67e252d283fc3ad8bd9337711f7da929f0fc1c243f12d09dc56606454d",
+      "current_sha256": "122034b778427af788245ad263be8b9d880bf87d83a92f16503b88b8cf059bcd",
+      "anti_pattern": "self-approval",
+      "preserved_previous_body": true
+    },
+    {
+      "path": "domains/team/project-lifecycle/01-initiation/project-charter/agile-team-charter-template.md",
+      "domain": "Team",
+      "previous_sha256": "483368ca54294deca286f93ea99cff451e79d278050bf31dda8407ab8d146235",
+      "current_sha256": "bd3f2d23f28d2fbd6e65d7929387a1fba2595ffa70cfe97298eb7565f483ac2a",
+      "anti_pattern": "self-approval",
+      "preserved_previous_body": true
+    },
+    {
+      "path": "domains/team/role-based-toolkits/scrum-master/agile-ceremonies/backlog-refinement-template.md",
+      "domain": "Team",
+      "previous_sha256": "6444602ef5febb0027d656b71053a56b2a2ec9020c1e03ddd32800af11fbfd0a",
+      "current_sha256": "d96cd68f81215554048cb0b31ff4a2bd7a9fc0023f34fd6018b0eabc3b38a5fd",
+      "anti_pattern": "maximum-governance",
+      "preserved_previous_body": true
+    },
+    {
+      "path": "domains/team/role-based-toolkits/scrum-master/agile-ceremonies/daily-standup-template.md",
+      "domain": "Team",
+      "previous_sha256": "db4b8938260b0a87b62d64c2ca9e81c8c858b71758ec418c18c3daa4a616dce0",
+      "current_sha256": "0a7bba13dba4f7c16fa1cc5f17021eed7bf24ee81ed3137211c14f63fcb373fe",
+      "anti_pattern": "maximum-governance",
+      "preserved_previous_body": true
+    },
+    {
+      "path": "domains/team/methodology-frameworks/agile-scrum/scaling-frameworks/less/less_retrospective_template.md",
+      "domain": "Team",
+      "previous_sha256": "b901bc9bb70b3123de47f8971055896391332d025c69371437c9772ea2d84a46",
+      "current_sha256": "beceb62ee2efb54578bfcb10af8ef6e6f9825a80618032f20fc7900bd869da00",
+      "anti_pattern": "lessons-archive",
+      "preserved_previous_body": true
+    },
+    {
+      "path": "domains/team/project-lifecycle/02-planning/resource-planning/skills-matrix-template.md",
+      "domain": "Team",
+      "previous_sha256": "4a2d5ecc362198eedad2aae20b072289158f249e0e581b5487302017cd70a349",
+      "current_sha256": "0aa90a5b53d2b8c045fc9f5d2c28d87ed06cf38bd2bc94a5f3bb66dca01a343a",
+      "anti_pattern": "metric-source",
+      "preserved_previous_body": true
+    },
+    {
+      "path": "domains/team/templates/agile/sprint_retrospective_template.md",
+      "domain": "Team",
+      "previous_sha256": "560e8ee98486448707b692d4b0291098f8e9c5f6e1198f423bbdeb98b549f219",
+      "current_sha256": "e329552e7c82e1923b918aae4c71dda54bdca34dc5d6e2c583fa104ef66f881d",
+      "anti_pattern": "lessons-archive",
+      "preserved_previous_body": true
+    },
+    {
+      "path": "domains/team/templates/agile/sprint_review_template.md",
+      "domain": "Team",
+      "previous_sha256": "53156a4f66e1a9f5b2d38f843595789ea73882a329bb5c5023417ec03ed96af5",
+      "current_sha256": "52f6a1ffbc48819fc24ba3a972d7d350d18793c955ee5d808cb4b4523926998a",
+      "anti_pattern": "stakeholder-broadcast",
+      "preserved_previous_body": true
+    },
+    {
+      "path": "domains/team/project-lifecycle/02-planning/resource-planning/team-charter-template.md",
+      "domain": "Team",
+      "previous_sha256": "60b055fb387c755be5652c52858d9d5e0ce60b20d6c28cd8a1db302df7e80042",
+      "current_sha256": "adefcd8b78e963ccce6bdb0fdb633dc9bbd47b42c2afdfca3659e79fbdec365b",
+      "anti_pattern": "self-approval",
+      "preserved_previous_body": true
+    },
+    {
+      "path": "domains/team/templates/traditional/Traditional/Process_Groups/Executing/team_performance_assessment_template.md",
+      "domain": "Team",
+      "previous_sha256": "7d6268733b205ac301e8e55d9892a3c0b4999a923f1fa2deca188704907720aa",
+      "current_sha256": "510f8afc3c4fad8169acddea5eb501b957b518107e10e3448101a0b43eaa2473",
+      "anti_pattern": "metric-source",
+      "preserved_previous_body": true
+    },
+    {
+      "path": "domains/planning/role-based-toolkits/project-manager/essential-templates/budget-template.md",
+      "domain": "Planning",
+      "previous_sha256": "f5201db07a86fb7ff5098acb2a38643bca71fc868b1d3af026cd85d3cfbf0b3b",
+      "current_sha256": "d396130d0bfa79ad7bada78c0d5a7a92aca4b27dd1e4c9ca10cf6931382bfe34",
+      "anti_pattern": "baseline-green",
+      "preserved_previous_body": true
+    },
+    {
+      "path": "domains/planning/templates/traditional/Traditional/Templates/business_case_template.md",
+      "domain": "Planning",
+      "previous_sha256": "24d40daf4d70ec5cf07b801907578e0333fc4bf261c125ab75a27c85a0838a82",
+      "current_sha256": "0ea10f2da0faa041fda40dcdf2f228503723bda1e2e82fbd56a75a18eded2884",
+      "anti_pattern": "value-output",
+      "preserved_previous_body": true
+    },
+    {
+      "path": "domains/planning/industry-specializations/information-technology/infrastructure/data_center_design_template.md",
+      "domain": "Planning",
+      "previous_sha256": "9e69de1193818b62938e3b13b60142f7242f23202eff6446889c90996a455125",
+      "current_sha256": "fe21a292e78b01e1c861ae31b08952da566b1e15db873ef73a32d700a5209949",
+      "anti_pattern": "template-judgment",
+      "preserved_previous_body": true
+    },
+    {
+      "path": "domains/planning/industry-specializations/information-technology/infrastructure/disaster_recovery_template.md",
+      "domain": "Planning",
+      "previous_sha256": "5892ead78238245f856aa0c113584823be0dca84814fbd2fe289706fcc9a4704",
+      "current_sha256": "83919aaf2b74af009bbf3c44382c8adc23d9490dcc7f69b652c1024ad4ff9a22",
+      "anti_pattern": "template-judgment",
+      "preserved_previous_body": true
+    },
+    {
+      "path": "domains/planning/templates/hybrid/Hybrid/Templates/hybrid_project_charter_template.md",
+      "domain": "Planning",
+      "previous_sha256": "6e83701a99b292612c65cf5388b008a25a658728dccb134926ed7a0446fc9bb5",
+      "current_sha256": "4b05cfd14f24291e5b0754c7dced7185e3fa0a73fdb8c7af9049fce77b896b82",
+      "anti_pattern": "metadata-theater",
+      "preserved_previous_body": true
+    },
+    {
+      "path": "domains/planning/templates/traditional/Traditional/Templates/program_charter_template.md",
+      "domain": "Planning",
+      "previous_sha256": "f8ce67a04eda5d8c01e2d650075665e5e9ba055f2080095fde7e0a0a39508367",
+      "current_sha256": "7ad64b97c7ff40e67b2c5a1a531300fc065106ddf6a9e4c97395c66bb0d513c4",
+      "anti_pattern": "maximum-governance",
+      "preserved_previous_body": true
+    },
+    {
+      "path": "domains/planning/templates/traditional/Traditional/Process_Groups/Initiating/project_charter_template.md",
+      "domain": "Planning",
+      "previous_sha256": "1f8fed9961b9a99c5a7265efe4971e19c2c37e8cb3833b8a3b3b5fc7da315003",
+      "current_sha256": "c561601386da611356058321294fec8374897c8a644dcd9a1173c3fd7f2dde0a",
+      "anti_pattern": "value-output",
+      "preserved_previous_body": true
+    },
+    {
+      "path": "domains/planning/project-lifecycle/01-initiation/project-charter/traditional-project-charter-template.md",
+      "domain": "Planning",
+      "previous_sha256": "3b7cfab0abc66bc389bbe4c161330e19af41f1801fb6edafa06700e47acbf75f",
+      "current_sha256": "0c0afe48408bdf83034707e61b24f906d94edc26a29ce8e7eb9e7aecca2e74d4",
+      "anti_pattern": "value-output",
+      "preserved_previous_body": true
+    }
+  ]
+}

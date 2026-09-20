@@ -8,6 +8,23 @@ updated: "2026-09-19"
 
 # Installation Qualification (IQ) Protocol Template
 
+## When to Use
+
+- When documenting that regulated equipment or a system is installed as specified.
+- When qualified personnel must record installation checks, prerequisites, and deviations.
+
+## When NOT to Use
+
+- To demonstrate operating-range or routine-performance suitability; those require separate evidence.
+- Do not represent author self-checks as independent or authorized approval. See [Self-approval](../../../../../docs/principles/anti-patterns.md#self-approval).
+
+## Pairs Well With
+
+- [Operational Qualification Protocol Template](../../../../../domains/delivery/industry-specializations/healthcare-pharmaceutical/validation/operational_qualification_protocol_template.md).
+- [Performance Qualification Protocol Template](../../../../../domains/delivery/industry-specializations/healthcare-pharmaceutical/validation/performance_qualification_protocol_template.md).
+
+Selection context: Delivery domain; universal methodology; advanced complexity. Match the situations above to project phase, risk, team size, and industry using the [decision-engine context model](../../../../../meta/architecture-research/800-801-context-assessment-model.md).
+
 ## Applying this template
 
 Treat filled examples, dates, numerical limits, sampling frequencies, and approval outcomes as illustrations. Before execution, replace them with the approved product/site requirements, scientific rationale, method references, responsible reviewer, and acceptance evidence. Record the applicable jurisdiction and current guidance edition; a completed worksheet alone does not demonstrate regulatory compliance.

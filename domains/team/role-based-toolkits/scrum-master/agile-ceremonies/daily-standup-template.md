@@ -8,6 +8,23 @@ updated: "2026-09-19"
 
 # Daily Standup Template
 
+## When to Use
+
+- During a Scrum sprint when developers inspect progress toward the Sprint Goal.
+- When a short coordination discussion can expose impediments and adjust the daily plan.
+
+## When NOT to Use
+
+- As individual status reporting to a manager rather than team coordination.
+- Do not impose enterprise coordination or approval layers where team size and risk do not justify them. See [Maximum governance](../../../../../docs/principles/anti-patterns.md#maximum-governance).
+
+## Pairs Well With
+
+- [Sprint Planning Template](../../../../../domains/delivery/templates/agile/sprint_planning_template.md).
+- [Issue Log Template](../../../../../domains/delivery/templates/traditional/Traditional/Templates/issue_log_template.md).
+
+Selection context: Team domain; agile methodology; intermediate complexity. Match the situations above to project phase, risk, team size, and industry using the [decision-engine context model](../../../../../meta/architecture-research/800-801-context-assessment-model.md).
+
 ## Meeting Information
 - **Date**: [Date]
 - **Sprint**: [Sprint Number]

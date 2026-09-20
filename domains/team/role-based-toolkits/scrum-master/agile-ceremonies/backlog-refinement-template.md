@@ -11,6 +11,23 @@ principle_rationale: "Supports collaborative refinement as priorities, evidence,
 
 # Backlog Refinement Template
 
+## When to Use
+
+- Before sprint planning when candidate stories need clarification, splitting, or estimation.
+- When developers and the Product Owner need a focused discussion of acceptance, risk, and dependencies.
+
+## When NOT to Use
+
+- As a mandatory approval gate that prevents useful learning during a sprint.
+- Do not impose enterprise coordination or approval layers where team size and risk do not justify them. See [Maximum governance](../../../../../docs/principles/anti-patterns.md#maximum-governance).
+
+## Pairs Well With
+
+- [User Story Template](../../../../../domains/uncertainty/role-based-toolkits/product-owner/user-story-template.md).
+- [Sprint Planning Template](../../../../../domains/delivery/templates/agile/sprint_planning_template.md).
+
+Selection context: Team domain; agile methodology; advanced complexity. Match the situations above to project phase, risk, team size, and industry using the [decision-engine context model](../../../../../meta/architecture-research/800-801-context-assessment-model.md).
+
 ## Scrum tailoring
 
 These worksheets and suggested agendas are optional practices. In Scrum, the Developers own the plan for delivering the Sprint Goal; selected work is a forecast that can be adapted. A Definition of Ready and story points are optional team practices. Use the product Definition of Done consistently, and treat the Sprint Review as inspection and adaptation rather than a release-approval gate. See the [Scrum Guide](https://scrumguides.org/scrum-guide.html).

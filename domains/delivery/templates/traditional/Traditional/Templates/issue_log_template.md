@@ -8,6 +8,23 @@ updated: "2025-08-05"
 
 # PROJECT ISSUE LOG
 
+## When to Use
+
+- During delivery when an actual problem needs an owner, action, and resolution decision.
+- When severity, workarounds, and escalation must be visible between reviews.
+
+## When NOT to Use
+
+- For uncertain future events that have not occurred; use the risk register.
+- Do not use a completed template or example configuration as proof of fitness for the actual environment. See [Template as substitute for judgment](../../../../../../docs/principles/anti-patterns.md#template-judgment).
+
+## Pairs Well With
+
+- [Risk Register Template](../../../../../../domains/uncertainty/project-lifecycle/02-planning/risk-management/risk-register-template.md).
+- [Raid Log Template](../../../../../../domains/delivery/templates/traditional/Traditional/Templates/raid_log_template.md).
+
+Selection context: Delivery domain; traditional methodology; advanced complexity. Match the situations above to project phase, risk, team size, and industry using the [decision-engine context model](../../../../../../meta/architecture-research/800-801-context-assessment-model.md).
+
 ## Document Control Information
 **Project/Program Name:** *[Enterprise Resource Planning Implementation]*  
 **Document Version:** *1.0*  

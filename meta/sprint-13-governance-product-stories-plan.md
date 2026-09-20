@@ -1,5 +1,7 @@
 # Sprint 13: Governance + Product Stories Design Plan
 
+> Principles correction (09/20/2026): the earlier completion claims do not establish acceptance of #743–745. See the [criterion-level audit and repair evidence](../docs/vnext/principles-story-completion/README.md). The current repair still requires merge verification and #745 timing acceptance.
+
 **Date**: 2026-09-18 19:35 UTC  
 **Sprint**: vNext – Sprint 13 (Sep 19–Oct 2)  
 **Phase**: Phase 3 (Governance Modernization + Continuous Delivery)  

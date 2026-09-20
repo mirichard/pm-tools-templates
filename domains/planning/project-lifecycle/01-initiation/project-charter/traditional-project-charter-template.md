@@ -9,6 +9,23 @@ updated: "2025-08-05"
 
 # Traditional Project Charter Template
 
+## When to Use
+
+- At initiation of a predictive project when authority and boundaries need sponsor agreement.
+- When objectives, scope, assumptions, timeline, and stakeholders must inform detailed planning.
+
+## When NOT to Use
+
+- To authorize significant funding without the required business-case decision.
+- Do not infer realized value from completed outputs, spending, or activity counts. See [Value equals output](../../../../../docs/principles/anti-patterns.md#value-output).
+
+## Pairs Well With
+
+- [Business Case Template](../../../../../domains/planning/templates/traditional/Traditional/Templates/business_case_template.md).
+- [Traditional Project Management Plan Template](../../../../../domains/delivery/project-lifecycle/02-planning/project-management-plan/traditional-project-management-plan-template.md).
+
+Selection context: Planning domain; universal methodology; advanced complexity. Match the situations above to project phase, risk, team size, and industry using the [decision-engine context model](../../../../../meta/architecture-research/800-801-context-assessment-model.md).
+
 ## Purpose/Overview
 This traditional project charter template provides a comprehensive framework for project initiation following established project management practices. It serves as the formal authorization document that defines project scope, objectives, and governance structure. The charter establishes clear boundaries and expectations for all stakeholders.
 

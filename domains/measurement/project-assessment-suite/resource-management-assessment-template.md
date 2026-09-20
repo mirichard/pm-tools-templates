@@ -15,6 +15,23 @@ estimated_completion_time: "15-30 minutes"
 
 # Resource Management Assessment Template
 
+## When to Use
+
+- When reviewing whether staffing and resource-management practices support delivery needs.
+- When assessors can compare planning, allocation, and capability evidence.
+
+## When NOT to Use
+
+- To rank individuals using unsupported aggregate resource scores.
+- Do not report sample values, unsupported ratings, or missing data as verified performance. See [Metric without source](../../../docs/principles/anti-patterns.md#metric-source).
+
+## Pairs Well With
+
+- [Resource Management Plan Template](../../../domains/measurement/project-lifecycle/02-planning/resource-planning/resource-management-plan-template.md).
+- [Skills Matrix Template](../../../domains/team/project-lifecycle/02-planning/resource-planning/skills-matrix-template.md).
+
+Selection context: Measurement domain; universal methodology; starter complexity. Match the situations above to project phase, risk, team size, and industry using the [decision-engine context model](../../../meta/architecture-research/800-801-context-assessment-model.md).
+
 ## Executive Summary
 This template evaluates resource management effectiveness including human resources, budget, and material resources.
 

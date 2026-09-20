@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Principle alignment self-assessment</title>
+<style>
+:root{font-family:system-ui,sans-serif;color:#172b3a;background:#f3f6f8;line-height:1.5}body{max-width:880px;margin:auto;padding:24px}h1{line-height:1.15}section,fieldset{background:white;border:1px solid #aebbc4;border-radius:8px;padding:20px;margin:18px 0}legend{font-weight:700;padding:0 8px}label{display:block;margin:12px 0}select,input,textarea,button{font:inherit;padding:8px;border:1px solid #607481;border-radius:4px}select{margin:6px 0;display:block}input,textarea{box-sizing:border-box;width:100%}button{background:#153f54;color:white;cursor:pointer}a{color:#135979}progress{width:180px;accent-color:#246d87}table{border-collapse:collapse;width:100%}td,th{text-align:left;padding:8px;border-bottom:1px solid #ccd5db}#status{font-weight:700}.hint{color:#405562}@media(max-width:550px){body{padding:12px}progress{width:90px}td,th{padding:5px}}@media print{body{background:white;padding:0;max-width:none}button{display:none}fieldset{break-inside:avoid}a{color:inherit}section{break-inside:avoid}}
+</style></head><body><h1>Principle alignment self-assessment</h1><p>Thirty questions. One practical improvement. This is a reflection aid, not certification or an approval gate.</p><p class="hint">Nine-minute first-pass target: 1 minute for scope, 6 for ratings, 1 for results, 1 for an action. Team discussion takes additional time. Responses stay in this page and are lost when it closes; print to keep a copy.</p>
+<section><h2>Scope and evidence</h2><label>Assessor(s), date, and project scope<input id="scope"></label><p>1 — no evidence; 2 — occasional; 3 — defined and usually applied; 4 — consistently evidenced; 5 — checked and improved. Leave unknown answers blank.</p></section>
+<form id="assessment"></form>
+<section aria-labelledby="results-title"><h2 id="results-title">Your alignment profile</h2><p id="status" role="status" aria-live="polite"></p><table><thead><tr><th>Principle</th><th>Mean / 5</th><th>Profile</th></tr></thead><tbody id="profile"></tbody></table><p id="recommendation"></p><p>Scores use equal weights. Review weak areas and material concerns even when the overall average is high. Use existing escalation processes for safety, legal, ethical, or integrity concerns.</p></section>
+<section><h2>One improvement</h2><label>Evidence, uncertainty, or team disagreement<textarea id="evidence" rows="3"></textarea></label><label>Action and template to use<textarea id="action" rows="2"></textarea></label><label>Owner and follow-up date<input id="owner"></label></section><button id="print" type="button">Print / save PDF</button> <button id="reset" type="button">Clear responses</button><p><a href="self-assessment.md">Instructions and paper worksheet</a> · <a href="principle-taxonomy.md">Taxonomy</a> · <a href="anti-patterns.md">Anti-patterns</a></p>
+<script src="self-assessment.js"></script><script>
+'use strict';
+const {principles, score} = PrincipleAssessment;
+const form = document.getElementById('assessment');
+principles.forEach((principle, p) => {
+ const group=document.createElement('fieldset'); const legend=document.createElement('legend');legend.textContent=principle.name;group.append(legend);
+ principle.questions.forEach((question,q)=>{
+  const label=document.createElement('label');label.textContent=question;const select=document.createElement('select');select.name=`q${p*3+q}`;
+  [['','Not yet rated'],['1','1 — No evidence'],['2','2 — Occasional'],['3','3 — Usually applied'],['4','4 — Consistently evidenced'],['5','5 — Checked and improved']].forEach(([value,text])=>{const option=document.createElement('option');option.value=value;option.textContent=text;select.append(option);});
+  label.append(select);group.append(label);
+ });
+ const links=document.createElement('p');links.append('Improvement tools: ');principle.templates.forEach((tool,i)=>{if(i)links.append(' · ');const a=document.createElement('a');a.href=tool.path;a.textContent=tool.title;links.append(a);});group.append(links);form.append(group);
+});
+function update(){
+ const result=score(Array.from(form.querySelectorAll('select'),s=>s.value===''?null:Number(s.value)));
+ document.getElementById('status').textContent=result.overall===null?`${result.completed}/30 rated — overall score incomplete`:`30/30 rated — overall alignment ${result.overall.toFixed(1)} / 5`;
+ const profile=document.getElementById('profile');profile.replaceChildren();
+ result.results.forEach((r,i)=>{const tr=document.createElement('tr');const title=document.createElement('th');title.scope='row';title.textContent=principles[i].name;const value=document.createElement('td');value.textContent=r.mean===null?'Incomplete':r.mean.toFixed(1);const barcell=document.createElement('td');if(r.mean!==null){const bar=document.createElement('progress');bar.max=5;bar.value=r.mean;bar.setAttribute('aria-label',`${principles[i].name}: ${r.mean.toFixed(1)} out of 5`);barcell.append(bar);}tr.append(title,value,barcell);profile.append(tr);});
+ const weak=result.results.filter(r=>r.mean!==null).sort((a,b)=>a.mean-b.mean).slice(0,2).map(r=>principles.find(p=>p.id===r.id).name);
+ document.getElementById('recommendation').textContent=weak.length?'Review these lowest complete scores first: '+weak.join(', ')+'. Use the improvement links under each principle.':'Complete a principle to see improvement priorities.';
+}
+form.addEventListener('change',update);document.getElementById('print').addEventListener('click',()=>window.print());document.getElementById('reset').addEventListener('click',()=>{if(window.confirm('Clear all ratings and notes?')){form.reset();['scope','evidence','action','owner'].forEach(id=>document.getElementById(id).value='');update();}});update();
+</script></body></html>

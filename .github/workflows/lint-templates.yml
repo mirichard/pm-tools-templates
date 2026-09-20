@@ -9,6 +9,11 @@ on:
       - 'scripts/lint_template_metadata.py'
       - 'scripts/template_reviews.py'
       - 'scripts/check_migrated_freshness.py'
+      - 'scripts/validate_principles_guidance.py'
+      - 'tests/test_principles_guidance.py'
+      - 'tests/principle-assessment.test.cjs'
+      - 'docs/principles/self-assessment.js'
+      - 'docs/principles/self-assessment.html'
       - 'tests/test_migrated_freshness.py'
       - 'tests/webhook-example.test.cjs'
       - 'meta/migration-inventory.json'
@@ -32,6 +37,11 @@ on:
       - 'scripts/lint_template_metadata.py'
       - 'scripts/template_reviews.py'
       - 'scripts/check_migrated_freshness.py'
+      - 'scripts/validate_principles_guidance.py'
+      - 'tests/test_principles_guidance.py'
+      - 'tests/principle-assessment.test.cjs'
+      - 'docs/principles/self-assessment.js'
+      - 'docs/principles/self-assessment.html'
       - 'tests/test_migrated_freshness.py'
       - 'tests/webhook-example.test.cjs'
       - 'meta/migration-inventory.json'
@@ -67,6 +77,9 @@ jobs:
       - name: Test metadata policy and safe report generation
         run: |
           python -m unittest tests.test_template_metadata tests.test_template_reviews tests.test_migrated_freshness -v
+          python -m unittest discover -s tests -p test_principles_guidance.py -v
+          python scripts/validate_principles_guidance.py
+          node --test tests/principle-assessment.test.cjs
           python -m unittest tests.test_quality_gate_baseline -v
           python -m unittest discover -s tests -p test_clean_status.py -v
       - name: Require zero migrated-template age warnings

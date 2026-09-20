@@ -15,6 +15,23 @@ estimated_completion_time: "15-30 minutes"
 
 # Hybrid Project Assessment Template
 
+## When to Use
+
+- When reviewing a project that deliberately combines predictive and iterative delivery.
+- When evidence is needed about handoffs, integration, and method-specific controls.
+
+## When NOT to Use
+
+- To score a purely Agile or purely traditional project with irrelevant hybrid criteria.
+- Do not report sample values, unsupported ratings, or missing data as verified performance. See [Metric without source](../../../docs/principles/anti-patterns.md#metric-source).
+
+## Pairs Well With
+
+- [Agile Project Assessment Template](../../../domains/delivery/project-assessment-suite/agile-project-assessment-template.md).
+- [Waterfall Project Assessment Template](../../../domains/stakeholder/project-assessment-suite/waterfall-project-assessment-template.md).
+
+Selection context: Delivery domain; universal methodology; starter complexity. Match the situations above to project phase, risk, team size, and industry using the [decision-engine context model](../../../meta/architecture-research/800-801-context-assessment-model.md).
+
 ## Executive Summary
 This template assesses projects using hybrid methodologies that combine traditional and agile approaches.
 

@@ -8,6 +8,23 @@ updated: "2026-09-19"
 
 # Pharmaceutical Quality by Design (QbD) Template
 
+## When to Use
+
+- During pharmaceutical development when product quality attributes and process understanding must guide design.
+- When specialists need to connect target profile, risk, design space, and control strategy.
+
+## When NOT to Use
+
+- As a validated design space or regulatory conclusion without product-specific evidence.
+- Do not use a completed template or example configuration as proof of fitness for the actual environment. See [Template as substitute for judgment](../../../../../docs/principles/anti-patterns.md#template-judgment).
+
+## Pairs Well With
+
+- [Process Control Template](../../../../../domains/delivery/industry-specializations/healthcare-pharmaceutical/manufacturing/process_control_template.md).
+- [Regulatory Strategy Plan Template](../../../../../domains/delivery/industry-specializations/healthcare-pharmaceutical/regulatory/regulatory_strategy_plan_template.md).
+
+Selection context: Delivery domain; universal methodology; advanced complexity. Match the situations above to project phase, risk, team size, and industry using the [decision-engine context model](../../../../../meta/architecture-research/800-801-context-assessment-model.md).
+
 Complete this worksheet with product-specific development evidence. Select the applicable regulatory framework and obtain project quality approval before use. See [FDA Q8(R2)](https://www.fda.gov/regulatory-information/search-fda-guidance-documents/q8r2-pharmaceutical-development) and [Q9(R1)](https://www.fda.gov/regulatory-information/search-fda-guidance-documents/q9r1-quality-risk-management).
 
 

@@ -8,6 +8,23 @@ updated: "2026-09-19"
 
 # Quality Test Plan Template
 
+## When to Use
+
+- When defining a test plan for a bounded quality-validation exercise.
+- When test owners need objectives, coverage, entry and exit criteria, and execution evidence.
+
+## When NOT to Use
+
+- As proof that tests were executed successfully merely because the plan is complete.
+- Do not represent author self-checks as independent or authorized approval. See [Self-approval](../../../../docs/principles/anti-patterns.md#self-approval).
+
+## Pairs Well With
+
+- [Test Plan Template](../../../../domains/measurement/industry-specializations/information-technology/software-development/test_plan_template.md).
+- [Requirements Traceability Matrix Template](../../../../domains/delivery/templates/traditional/Traditional/Process_Groups/Executing/requirements_traceability_matrix_template.md).
+
+Selection context: Uncertainty domain; universal methodology; advanced complexity. Match the situations above to project phase, risk, team size, and industry using the [decision-engine context model](../../../../meta/architecture-research/800-801-context-assessment-model.md).
+
 ## Overview
 This document outlines the strategy and activities to verify that the product or solution meets defined quality standards before release. It supports informed decision-making regarding readiness and ensures alignment between stakeholders, testers, and delivery teams.
 

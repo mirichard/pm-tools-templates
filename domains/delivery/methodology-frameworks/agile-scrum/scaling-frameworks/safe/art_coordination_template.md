@@ -11,6 +11,23 @@ principle_rationale: "Coordinates teams and dependencies around shared value wit
 
 # SAFe Agile Release Train (ART) Coordination Template
 
+## When to Use
+
+- When coordinating multiple teams operating within a SAFe Agile Release Train.
+- When shared cadence, dependencies, impediments, and release readiness exceed a single team's scope.
+
+## When NOT to Use
+
+- For a single independent team that has no train-level coordination need.
+- Do not impose enterprise coordination or approval layers where team size and risk do not justify them. See [Maximum governance](../../../../../../docs/principles/anti-patterns.md#maximum-governance).
+
+## Pairs Well With
+
+- [Pi Planning Template](../../../../../../domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/pi_planning_template.md).
+- [Metrics Dashboard Template](../../../../../../domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/metrics_dashboard_template.md).
+
+Selection context: Delivery domain; agile methodology; advanced complexity. Match the situations above to project phase, risk, team size, and industry using the [decision-engine context model](../../../../../../meta/architecture-research/800-801-context-assessment-model.md).
+
 ## Overview
 This template provides a comprehensive framework for coordinating and synchronizing multiple agile teams within a SAFe Agile Release Train (ART). It covers the essential ceremonies, artifacts, and practices needed to ensure effective collaboration and delivery across 5-12 agile teams working toward common PI objectives.
 

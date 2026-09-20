@@ -8,6 +8,23 @@ updated: "2026-09-19"
 
 # User Acceptance Testing (UAT) Strategy Template
 
+## When to Use
+
+- During planning when a project needs an overall approach to user acceptance.
+- When stakeholders must agree scope, acceptance levels, roles, and risk-based coverage.
+
+## When NOT to Use
+
+- As execution evidence or automatic acceptance of the delivered system.
+- Do not represent author self-checks as independent or authorized approval. See [Self-approval](../../../../../../docs/principles/anti-patterns.md#self-approval).
+
+## Pairs Well With
+
+- [Uat Plan Template](../../../../../../domains/delivery/templates/traditional/Traditional/Templates/uat_plan_template.md).
+- [Progressive Acceptance Plan Template](../../../../../../domains/delivery/templates/hybrid/Hybrid/Templates/progressive_acceptance_plan_template.md).
+
+Selection context: Delivery domain; traditional methodology; advanced complexity. Match the situations above to project phase, risk, team size, and industry using the [decision-engine context model](../../../../../../meta/architecture-research/800-801-context-assessment-model.md).
+
 ## Completing the worksheet
 
 Replace populated examples with project evidence before circulation. Record the reporting period, baseline, source, owner, and calculation for each measure; define thresholds and approval authority locally. Show unavailable values as unknown rather than zero or a favorable status. Reconcile totals and units, handle zero denominators explicitly, and retain the decision rationale and supporting evidence.

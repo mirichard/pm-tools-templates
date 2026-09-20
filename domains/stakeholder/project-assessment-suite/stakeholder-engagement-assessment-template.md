@@ -15,6 +15,23 @@ estimated_completion_time: "15-30 minutes"
 
 # Stakeholder Engagement Assessment Template
 
+## When to Use
+
+- When assessing whether stakeholder engagement influences decisions and closes feedback.
+- When assessors can inspect participation, impact, and follow-through evidence.
+
+## When NOT to Use
+
+- To infer engagement quality solely from meeting attendance.
+- Do not represent attendance, distribution, or silence as stakeholder agreement. See [Stakeholder broadcast](../../../docs/principles/anti-patterns.md#stakeholder-broadcast).
+
+## Pairs Well With
+
+- [Stakeholder Register Template](../../../domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/stakeholder-register-template.md).
+- [Communication Plan Template](../../../domains/delivery/templates/traditional/Traditional/Templates/communication_plan_template.md).
+
+Selection context: Stakeholder domain; universal methodology; starter complexity. Match the situations above to project phase, risk, team size, and industry using the [decision-engine context model](../../../meta/architecture-research/800-801-context-assessment-model.md).
+
 ## Executive Summary
 This template evaluates the effectiveness of stakeholder engagement processes and identifies opportunities for improvement.
 

@@ -8,6 +8,23 @@ updated: "2026-09-19"
 
 # Validation Master Plan Template
 
+## When to Use
+
+- When a regulated program needs an overall validation strategy and maintenance plan.
+- When authorized quality owners must coordinate scope, responsibilities, evidence, and change control.
+
+## When NOT to Use
+
+- As completed validation evidence for a system, process, or site.
+- Do not represent author self-checks as independent or authorized approval. See [Self-approval](../../../../../docs/principles/anti-patterns.md#self-approval).
+
+## Pairs Well With
+
+- [Process Validation Master Plan Template](../../../../../domains/delivery/industry-specializations/healthcare-pharmaceutical/validation/process_validation_master_plan_template.md).
+- [Computer System Validation Protocol Template](../../../../../domains/delivery/industry-specializations/healthcare-pharmaceutical/regulatory/computer_system_validation_protocol_template.md).
+
+Selection context: Delivery domain; universal methodology; advanced complexity. Match the situations above to project phase, risk, team size, and industry using the [decision-engine context model](../../../../../meta/architecture-research/800-801-context-assessment-model.md).
+
 Reference check: [Current source](https://www.fda.gov/medical-devices/postmarket-requirements-devices/quality-management-system-regulation-qmsr).
 
 

@@ -11,6 +11,23 @@ principle_rationale: "Translates stakeholder needs into verifiable quality requi
 
 # Business Requirements Document (BRD) Template
 
+## When to Use
+
+- During discovery and planning when business outcomes need traceable requirements.
+- When stakeholders need agreement on process changes, business rules, and acceptance expectations.
+
+## When NOT to Use
+
+- To prescribe a technical design before business needs have been agreed.
+- Do not represent attendance, distribution, or silence as stakeholder agreement. See [Stakeholder broadcast](../../../../../docs/principles/anti-patterns.md#stakeholder-broadcast).
+
+## Pairs Well With
+
+- [Requirements Specification Template](../../../../../domains/uncertainty/industry-specializations/information-technology/software-development/requirements_specification_template.md).
+- [Requirements Traceability Matrix Template](../../../../../domains/delivery/templates/traditional/Traditional/Process_Groups/Executing/requirements_traceability_matrix_template.md).
+
+Selection context: Measurement domain; universal methodology; advanced complexity. Match the situations above to project phase, risk, team size, and industry using the [decision-engine context model](../../../../../meta/architecture-research/800-801-context-assessment-model.md).
+
 ## Document Control
 
 | Document Information |                                          |

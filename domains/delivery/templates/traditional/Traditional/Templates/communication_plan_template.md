@@ -8,6 +8,23 @@ updated: "2025-08-05"
 
 # PROJECT COMMUNICATION PLAN
 
+## When to Use
+
+- During planning when stakeholder groups need different communication channels and cadences.
+- When reporting owners must define audiences, feedback routes, and escalation responsibilities.
+
+## When NOT to Use
+
+- To equate distributing updates with obtaining stakeholder input or consent.
+- Do not represent attendance, distribution, or silence as stakeholder agreement. See [Stakeholder broadcast](../../../../../../docs/principles/anti-patterns.md#stakeholder-broadcast).
+
+## Pairs Well With
+
+- [Stakeholder Register Template](../../../../../../domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/stakeholder-register-template.md).
+- [Agile Stakeholder Map Template](../../../../../../domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/agile-stakeholder-map-template.md).
+
+Selection context: Delivery domain; traditional methodology; advanced complexity. Match the situations above to project phase, risk, team size, and industry using the [decision-engine context model](../../../../../../meta/architecture-research/800-801-context-assessment-model.md).
+
 ## Document Control Information
 **Project/Program Name:** *[Enterprise Resource Planning Implementation]*  
 **Document Version:** *1.0*  

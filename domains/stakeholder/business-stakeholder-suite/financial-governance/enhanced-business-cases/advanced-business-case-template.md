@@ -11,6 +11,23 @@ principle_rationale: "Tests investment value, assumptions, exposure, and account
 
 # Advanced Business Case Template
 
+## When to Use
+
+- During initiation of a complex investment requiring comparison of strategic and financial alternatives.
+- When sponsors need sensitivity analysis, disbenefits, funding needs, and accountable benefit owners before authorization.
+
+## When NOT to Use
+
+- For a minor purchase already covered by an approved budget; use the purchase order process.
+- Do not infer realized value from completed outputs, spending, or activity counts. See [Value equals output](../../../../../docs/principles/anti-patterns.md#value-output).
+
+## Pairs Well With
+
+- [Business Case Template](../../../../../domains/planning/templates/traditional/Traditional/Templates/business_case_template.md).
+- [Budget Template](../../../../../domains/planning/role-based-toolkits/project-manager/essential-templates/budget-template.md).
+
+Selection context: Stakeholder domain; universal methodology; advanced complexity. Match the situations above to project phase, risk, team size, and industry using the [decision-engine context model](../../../../../meta/architecture-research/800-801-context-assessment-model.md).
+
 ## Completing the worksheet
 
 Replace populated examples with project evidence before circulation. Record the reporting period, baseline, source, owner, and calculation for each measure; define thresholds and approval authority locally. Show unavailable values as unknown rather than zero or a favorable status. Reconcile totals and units, handle zero denominators explicitly, and retain the decision rationale and supporting evidence.

@@ -8,6 +8,23 @@ updated: "2026-09-19"
 
 # Power BI Executive Dashboard Template
 
+## When to Use
+
+- When executives need a Power BI dashboard with governed sources and access rules.
+- When implementation teams must design measures, refresh, security, and report pages.
+
+## When NOT to Use
+
+- As an already deployed or validated Power BI application; this is an implementation specification.
+- Do not report sample values, unsupported ratings, or missing data as verified performance. See [Metric without source](../../../../../docs/principles/anti-patterns.md#metric-source).
+
+## Pairs Well With
+
+- [Budget Dashboard Template](../../../../../domains/stakeholder/business-stakeholder-suite/financial-governance/budget-dashboard-template.md).
+- [Executive Summary Template](../../../../../domains/measurement/project-assessment-suite/executive-summary-template.md).
+
+Selection context: Stakeholder domain; universal methodology; advanced complexity. Match the situations above to project phase, risk, team size, and industry using the [decision-engine context model](../../../../../meta/architecture-research/800-801-context-assessment-model.md).
+
 Define model relationships and reporting-period filters before using the sample DAX. The schema blocks are conceptual, not executable DDL. Refresh frequency depends on the chosen connection mode; “real-time” is a requirement to configure and verify, not a capability delivered by this Markdown template.
 
 

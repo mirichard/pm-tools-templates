@@ -17,6 +17,23 @@ principle_rationale: "Turns assessed evidence into quality decisions, stakeholde
 
 # Assessment Report Template
 
+## When to Use
+
+- After an assessment has produced evidence-backed findings and recommendations.
+- When sponsors need priorities, owners, and follow-up decisions across assessed areas.
+
+## When NOT to Use
+
+- To present a planned assessment as completed evidence.
+- Do not report sample values, unsupported ratings, or missing data as verified performance. See [Metric without source](../../../docs/principles/anti-patterns.md#metric-source).
+
+## Pairs Well With
+
+- [Project Health Assessment Template](../../../domains/measurement/project-assessment-suite/project-health-assessment-template.md).
+- [Remediation Action Plan Template](../../../domains/measurement/project-assessment-suite/remediation-action-plan-template.md).
+
+Selection context: Uncertainty domain; universal methodology; starter complexity. Match the situations above to project phase, risk, team size, and industry using the [decision-engine context model](../../../meta/architecture-research/800-801-context-assessment-model.md).
+
 ## Purpose and use
 
 Summarize an evidence-based assessment for a named decision maker. Define the scope before collecting evidence. Separate observations, interpretation, and recommendations; an unchecked criterion is not proof of failure.

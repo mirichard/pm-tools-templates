@@ -8,6 +8,23 @@ updated: "2026-09-19"
 
 # OKR Template for Product Owners
 
+## When to Use
+
+- When a product or team needs a small set of measurable outcome objectives.
+- When reviews should adjust priorities based on key-result evidence.
+
+## When NOT to Use
+
+- To label a task list as outcomes or treat numeric targets as guaranteed benefits.
+- Do not infer realized value from completed outputs, spending, or activity counts. See [Value equals output](../../../../docs/principles/anti-patterns.md#value-output).
+
+## Pairs Well With
+
+- [Product Vision Template](../../../../domains/uncertainty/role-based-toolkits/product-owner/product-vision-template.md).
+- [Benefits Review Template](../../../../templates/universal/benefits-review-template.md).
+
+Selection context: Stakeholder domain; universal methodology; advanced complexity. Match the situations above to project phase, risk, team size, and industry using the [decision-engine context model](../../../../meta/architecture-research/800-801-context-assessment-model.md).
+
 ## Overview
 
 This Objectives and Key Results (OKR) template provides Product Owners with a structured framework for setting, tracking, and achieving measurable product goals. Use this template to align product strategy with business objectives and drive focused execution.

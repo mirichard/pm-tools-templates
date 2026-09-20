@@ -8,6 +8,23 @@ updated: "2026-09-19"
 
 # DevSecOps Integration Template
 
+## When to Use
+
+- When integrating security practices into a software delivery pipeline.
+- When security owners need explicit testing, monitoring, and remediation responsibilities alongside release flow.
+
+## When NOT to Use
+
+- As assurance that illustrative tools or configurations cover the actual threat model.
+- Do not use a completed template or example configuration as proof of fitness for the actual environment. See [Template as substitute for judgment](../../../../../docs/principles/anti-patterns.md#template-judgment).
+
+## Pairs Well With
+
+- [Cicd Pipeline Planning Template](../../../../../domains/measurement/methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md).
+- [Risk Assessment Template](../../../../../domains/measurement/industry-specializations/information-technology/cybersecurity/risk_assessment_template.md).
+
+Selection context: Measurement domain; universal methodology; advanced complexity. Match the situations above to project phase, risk, team size, and industry using the [decision-engine context model](../../../../../meta/architecture-research/800-801-context-assessment-model.md).
+
 ## Example implementation contract
 
 Code, queries, configuration, versions, thresholds, and sample output illustrate the design; they are not a tested deployment bundle. Record the actual platform/version, supported dependencies, credentials source, least-privilege access, environment-specific values, and test results before use. Pin release artifacts and validate rollback and failure paths in the target environment. Never use sample secrets or sample approval results as operational evidence.

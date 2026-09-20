@@ -9,6 +9,23 @@ updated: "2026-09-19"
 
 # Remediation Action Plan Template
 
+## When to Use
+
+- After an assessment identifies gaps requiring owned corrective work.
+- When action owners must sequence resources, track completion, and verify results.
+
+## When NOT to Use
+
+- To close findings merely because actions have been assigned.
+- Do not close an improvement solely because it was documented or assigned. See [Lessons archive](../../../docs/principles/anti-patterns.md#lessons-archive).
+
+## Pairs Well With
+
+- [Gap Analysis Matrix Template](../../../domains/measurement/project-assessment-suite/gap-analysis-matrix-template.md).
+- [Project Health Assessment Template](../../../domains/measurement/project-assessment-suite/project-health-assessment-template.md).
+
+Selection context: Measurement domain; universal methodology; advanced complexity. Match the situations above to project phase, risk, team size, and industry using the [decision-engine context model](../../../meta/architecture-research/800-801-context-assessment-model.md).
+
 ## Completing the worksheet
 
 Replace populated examples with project evidence before circulation. Record the reporting period, baseline, source, owner, and calculation for each measure; define thresholds and approval authority locally. Show unavailable values as unknown rather than zero or a favorable status. Reconcile totals and units, handle zero denominators explicitly, and retain the decision rationale and supporting evidence.

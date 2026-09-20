@@ -8,6 +8,23 @@ updated: "2025-08-05"
 
 # Progressive Acceptance Plan Template
 
+## When to Use
+
+- When hybrid or incremental delivery requires acceptance at more than one level.
+- When stakeholders need clear criteria, evidence, and authority for each acceptance decision.
+
+## When NOT to Use
+
+- To treat partial acceptance as unconditional acceptance of the entire solution.
+- Do not represent author self-checks as independent or authorized approval. See [Self-approval](../../../../../../docs/principles/anti-patterns.md#self-approval).
+
+## Pairs Well With
+
+- [Hybrid Quality Management Template](../../../../../../domains/delivery/templates/hybrid/Hybrid/Templates/hybrid_quality_management_template.md).
+- [Uat Plan Template](../../../../../../domains/delivery/templates/traditional/Traditional/Templates/uat_plan_template.md).
+
+Selection context: Delivery domain; hybrid methodology; advanced complexity. Match the situations above to project phase, risk, team size, and industry using the [decision-engine context model](../../../../../../meta/architecture-research/800-801-context-assessment-model.md).
+
 ## Document Information
 | Field | Value |
 |-------|-------|

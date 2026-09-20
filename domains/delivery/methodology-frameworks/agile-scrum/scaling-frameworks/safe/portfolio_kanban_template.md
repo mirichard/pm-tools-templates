@@ -8,6 +8,23 @@ updated: "2026-09-19"
 
 # SAFe Portfolio Kanban Template
 
+## When to Use
+
+- When portfolio investment candidates need visible evaluation and flow limits.
+- When decision owners must compare epic value, evidence, and capacity before commitment.
+
+## When NOT to Use
+
+- To rank investments using unexamined example WSJF scores.
+- Do not infer realized value from completed outputs, spending, or activity counts. See [Value equals output](../../../../../../docs/principles/anti-patterns.md#value-output).
+
+## Pairs Well With
+
+- [Advanced Business Case Template](../../../../../../domains/stakeholder/business-stakeholder-suite/financial-governance/enhanced-business-cases/advanced-business-case-template.md).
+- [Okr Template](../../../../../../domains/stakeholder/role-based-toolkits/product-owner/okr-template.md).
+
+Selection context: Delivery domain; agile methodology; advanced complexity. Match the situations above to project phase, risk, team size, and industry using the [decision-engine context model](../../../../../../meta/architecture-research/800-801-context-assessment-model.md).
+
 ## Completing the worksheet
 
 Replace populated examples with project evidence before circulation. Record the reporting period, baseline, source, owner, and calculation for each measure; define thresholds and approval authority locally. Show unavailable values as unknown rather than zero or a favorable status. Reconcile totals and units, handle zero denominators explicitly, and retain the decision rationale and supporting evidence.

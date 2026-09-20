@@ -8,6 +8,23 @@ updated: "2026-09-19"
 
 # PROGRAM MANAGEMENT PLAN TEMPLATE
 
+## When to Use
+
+- When a program requires integrated oversight of related projects and shared resources.
+- When program managers must coordinate dependencies, benefits, governance, and reporting.
+
+## When NOT to Use
+
+- As a replacement for the detailed plans owned by constituent projects.
+- Do not use a completed template or example configuration as proof of fitness for the actual environment. See [Template as substitute for judgment](../../../../../../docs/principles/anti-patterns.md#template-judgment).
+
+## Pairs Well With
+
+- [Program Charter Template](../../../../../../domains/planning/templates/traditional/Traditional/Templates/program_charter_template.md).
+- [Resource Management Plan Template](../../../../../../domains/measurement/project-lifecycle/02-planning/resource-planning/resource-management-plan-template.md).
+
+Selection context: Delivery domain; traditional methodology; advanced complexity. Match the situations above to project phase, risk, team size, and industry using the [decision-engine context model](../../../../../../meta/architecture-research/800-801-context-assessment-model.md).
+
 ## Completing the worksheet
 
 Replace populated examples with project evidence before circulation. Record the reporting period, baseline, source, owner, and calculation for each measure; define thresholds and approval authority locally. Show unavailable values as unknown rather than zero or a favorable status. Reconcile totals and units, handle zero denominators explicitly, and retain the decision rationale and supporting evidence.

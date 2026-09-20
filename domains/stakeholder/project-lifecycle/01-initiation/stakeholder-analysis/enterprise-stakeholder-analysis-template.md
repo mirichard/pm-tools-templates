@@ -8,6 +8,23 @@ updated: "2025-08-05"
 
 # Enterprise Stakeholder Analysis Template
 
+## When to Use
+
+- At initiation of a complex program with many affected groups and decision authorities.
+- When influence networks, external parties, and conflicting needs require an engagement strategy.
+
+## When NOT to Use
+
+- For a small initiative where a concise stakeholder register already supports the decisions.
+- Do not represent attendance, distribution, or silence as stakeholder agreement. See [Stakeholder broadcast](../../../../../docs/principles/anti-patterns.md#stakeholder-broadcast).
+
+## Pairs Well With
+
+- [Stakeholder Register Template](../../../../../domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/stakeholder-register-template.md).
+- [Communication Plan Template](../../../../../domains/delivery/templates/traditional/Traditional/Templates/communication_plan_template.md).
+
+Selection context: Stakeholder domain; universal methodology; advanced complexity. Match the situations above to project phase, risk, team size, and industry using the [decision-engine context model](../../../../../meta/architecture-research/800-801-context-assessment-model.md).
+
 ## Project Information
 - **Project/Program Name**: [Name]
 - **Project Manager**: [Name]

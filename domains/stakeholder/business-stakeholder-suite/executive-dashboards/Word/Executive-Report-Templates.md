@@ -8,6 +8,23 @@ updated: "2026-09-19"
 
 # Word Executive Report Templates
 
+## When to Use
+
+- When executives need a written decision brief or periodic report.
+- When narrative, financial evidence, and approval records must accompany status indicators.
+
+## When NOT to Use
+
+- To treat sample performance figures as observed results.
+- Do not report sample values, unsupported ratings, or missing data as verified performance. See [Metric without source](../../../../../docs/principles/anti-patterns.md#metric-source).
+
+## Pairs Well With
+
+- [Executive Summary Template](../../../../../domains/measurement/project-assessment-suite/executive-summary-template.md).
+- [Status Report Template](../../../../../domains/uncertainty/project-lifecycle/04-monitoring-control/progress-tracking/status-report-template.md).
+
+Selection context: Stakeholder domain; universal methodology; advanced complexity. Match the situations above to project phase, risk, team size, and industry using the [decision-engine context model](../../../../../meta/architecture-research/800-801-context-assessment-model.md).
+
 ## Completing the worksheet
 
 Replace populated examples with project evidence before circulation. Record the reporting period, baseline, source, owner, and calculation for each measure; define thresholds and approval authority locally. Show unavailable values as unknown rather than zero or a favorable status. Reconcile totals and units, handle zero denominators explicitly, and retain the decision rationale and supporting evidence.

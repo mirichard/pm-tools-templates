@@ -8,6 +8,23 @@ updated: "2026-09-19"
 
 # Technical Design Document (TDD)
 
+## When to Use
+
+- During software design when architecture, interfaces, data, and quality decisions need review.
+- When implementers and reviewers must trace design choices to requirements and risks.
+
+## When NOT to Use
+
+- As proof that example components or configurations are secure and operable in production.
+- Do not use a completed template or example configuration as proof of fitness for the actual environment. See [Template as substitute for judgment](../../../../../docs/principles/anti-patterns.md#template-judgment).
+
+## Pairs Well With
+
+- [Requirements Specification Template](../../../../../domains/uncertainty/industry-specializations/information-technology/software-development/requirements_specification_template.md).
+- [Test Plan Template](../../../../../domains/measurement/industry-specializations/information-technology/software-development/test_plan_template.md).
+
+Selection context: Measurement domain; universal methodology; advanced complexity. Match the situations above to project phase, risk, team size, and industry using the [decision-engine context model](../../../../../meta/architecture-research/800-801-context-assessment-model.md).
+
 ## Example implementation contract
 
 Code, queries, configuration, versions, thresholds, and sample output illustrate the design; they are not a tested deployment bundle. Record the actual platform/version, supported dependencies, credentials source, least-privilege access, environment-specific values, and test results before use. Pin release artifacts and validate rollback and failure paths in the target environment. Never use sample secrets or sample approval results as operational evidence.

@@ -11,6 +11,23 @@ principle_rationale: "Plans adaptive change through stakeholder participation, l
 
 # Change Management Plan Template
 
+## When to Use
+
+- When a project changes roles, behaviors, or ways of working and adoption needs active support.
+- When stakeholder impacts require coordinated communication, training, and readiness activities.
+
+## When NOT to Use
+
+- For approval of a technical scope change alone; use the change request.
+- Do not represent attendance, distribution, or silence as stakeholder agreement. See [Stakeholder broadcast](../../../../../../docs/principles/anti-patterns.md#stakeholder-broadcast).
+
+## Pairs Well With
+
+- [Communication Plan Template](../../../../../../domains/delivery/templates/traditional/Traditional/Templates/communication_plan_template.md).
+- [Integrated Change Strategy Template](../../../../../../domains/delivery/templates/hybrid/Hybrid/Templates/integrated_change_strategy_template.md).
+
+Selection context: Delivery domain; traditional methodology; advanced complexity. Match the situations above to project phase, risk, team size, and industry using the [decision-engine context model](../../../../../../meta/architecture-research/800-801-context-assessment-model.md).
+
 ## Document Information
 | Field | Value |
 |-------|-------|

@@ -8,6 +8,23 @@ updated: "2025-08-05"
 
 # TEAM PERFORMANCE ASSESSMENT
 
+## When to Use
+
+- When a team needs an evidence-based review of performance and improvement needs.
+- When reviewers can agree criteria, discuss observations, and assign development actions.
+
+## When NOT to Use
+
+- To make employment decisions from unverified template ratings alone.
+- Do not report sample values, unsupported ratings, or missing data as verified performance. See [Metric without source](../../../../../../../docs/principles/anti-patterns.md#metric-source).
+
+## Pairs Well With
+
+- [Skills Matrix Template](../../../../../../../domains/team/project-lifecycle/02-planning/resource-planning/skills-matrix-template.md).
+- [Team Charter Template](../../../../../../../domains/team/project-lifecycle/02-planning/resource-planning/team-charter-template.md).
+
+Selection context: Team domain; traditional methodology; intermediate complexity. Match the situations above to project phase, risk, team size, and industry using the [decision-engine context model](../../../../../../../meta/architecture-research/800-801-context-assessment-model.md).
+
 ## Document Control Information
 **Document Title:** Team Performance Assessment
 **Project Name:** *[Project Name]*

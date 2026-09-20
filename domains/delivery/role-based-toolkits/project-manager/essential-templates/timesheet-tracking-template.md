@@ -8,6 +8,23 @@ updated: "2026-09-19"
 
 # Timesheet Tracking Template
 
+## When to Use
+
+- When a project requires time records for cost allocation or approved reporting.
+- When contributors and approvers need consistent periods, categories, and reconciliation.
+
+## When NOT to Use
+
+- To equate hours recorded with delivered value or individual productivity.
+- Do not infer realized value from completed outputs, spending, or activity counts. See [Value equals output](../../../../../docs/principles/anti-patterns.md#value-output).
+
+## Pairs Well With
+
+- [Budget Template](../../../../../domains/planning/role-based-toolkits/project-manager/essential-templates/budget-template.md).
+- [Resource Management Plan Template](../../../../../domains/measurement/project-lifecycle/02-planning/resource-planning/resource-management-plan-template.md).
+
+Selection context: Measurement domain; universal methodology; intermediate complexity. Match the situations above to project phase, risk, team size, and industry using the [decision-engine context model](../../../../../meta/architecture-research/800-801-context-assessment-model.md).
+
 ## Completing the worksheet
 
 Replace populated examples with project evidence before circulation. Record the reporting period, baseline, source, owner, and calculation for each measure; define thresholds and approval authority locally. Show unavailable values as unknown rather than zero or a favorable status. Reconcile totals and units, handle zero denominators explicitly, and retain the decision rationale and supporting evidence.

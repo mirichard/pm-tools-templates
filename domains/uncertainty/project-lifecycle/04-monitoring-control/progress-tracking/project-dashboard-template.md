@@ -9,6 +9,23 @@ updated: "2026-09-19"
 
 # Project Dashboard Template
 
+## When to Use
+
+- During execution when a concise dashboard supports exception decisions.
+- When owners can maintain metric definitions, sources, status thresholds, and actions.
+
+## When NOT to Use
+
+- To turn missing or stale data into a favorable status.
+- Do not report sample values, unsupported ratings, or missing data as verified performance. See [Metric without source](../../../../../docs/principles/anti-patterns.md#metric-source).
+
+## Pairs Well With
+
+- [Status Report Template](../../../../../domains/uncertainty/project-lifecycle/04-monitoring-control/progress-tracking/status-report-template.md).
+- [Project Performance Monitoring Template](../../../../../domains/delivery/templates/traditional/Traditional/Process_Groups/Monitoring_and_Controlling/project_performance_monitoring_template.md).
+
+Selection context: Uncertainty domain; universal methodology; advanced complexity. Match the situations above to project phase, risk, team size, and industry using the [decision-engine context model](../../../../../meta/architecture-research/800-801-context-assessment-model.md).
+
 ## Purpose/Overview
 This dashboard template provides a visual, at-a-glance view of project health and performance. Designed for quick status communication, it presents key metrics, milestones, and issues in a concise format ideal for stakeholder briefings, executive reporting, and team meetings. The template emphasizes visual indicators and trend data to facilitate rapid decision-making.
 

@@ -8,6 +8,23 @@ updated: "2026-09-19"
 
 # DevOps Monitoring and Alerting Strategy Template
 
+## When to Use
+
+- When operating services require actionable telemetry and alerts.
+- When service owners must connect metrics and logs to response thresholds and runbooks.
+
+## When NOT to Use
+
+- To alert on every available metric without an owner or response action.
+- Do not report sample values, unsupported ratings, or missing data as verified performance. See [Metric without source](../../../../../docs/principles/anti-patterns.md#metric-source).
+
+## Pairs Well With
+
+- [Incident Response Template](../../../../../domains/measurement/industry-specializations/information-technology/cybersecurity/incident_response_template.md).
+- [Problem Management Process Template](../../../../../domains/delivery/industry-specializations/information-technology/service-management/problem_management_process_template.md).
+
+Selection context: Measurement domain; universal methodology; advanced complexity. Match the situations above to project phase, risk, team size, and industry using the [decision-engine context model](../../../../../meta/architecture-research/800-801-context-assessment-model.md).
+
 ## Example implementation contract
 
 Code, queries, configuration, versions, thresholds, and sample output illustrate the design; they are not a tested deployment bundle. Record the actual platform/version, supported dependencies, credentials source, least-privilege access, environment-specific values, and test results before use. Pin release artifacts and validate rollback and failure paths in the target environment. Never use sample secrets or sample approval results as operational evidence.

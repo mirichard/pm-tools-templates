@@ -8,6 +8,23 @@ updated: "2026-09-19"
 
 # LeSS Overall Product Backlog Management Template
 
+## When to Use
+
+- When multiple LeSS teams need one ordered backlog for the same product.
+- When a Product Owner must balance whole-product priorities and shared refinement.
+
+## When NOT to Use
+
+- To maintain separate team backlogs that obscure the product's true ordering.
+- Do not treat completed metadata or a filled checklist as evidence that the underlying work is done. See [Metadata theater](../../../../../../docs/principles/anti-patterns.md#metadata-theater).
+
+## Pairs Well With
+
+- [Less Sprint Planning Template](../../../../../../domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/less/less_sprint_planning_template.md).
+- [User Story Template](../../../../../../domains/uncertainty/role-based-toolkits/product-owner/user-story-template.md).
+
+Selection context: Delivery domain; agile methodology; advanced complexity. Match the situations above to project phase, risk, team size, and industry using the [decision-engine context model](../../../../../../meta/architecture-research/800-801-context-assessment-model.md).
+
 Use one defined product, shared Product Backlog and integrated product outcome. Coordination techniques and agenda durations here are optional facilitation examples, not additional mandatory roles or events. Adapt them consistently with the [LeSS framework](https://less.works/less/framework).
 
 

@@ -11,6 +11,23 @@ principle_rationale: "Enables visible, collaborative, and adaptive responses to 
 
 # Agile Risk Board Template
 
+## When to Use
+
+- During iterative delivery when threats and opportunities need visible owners and frequent review.
+- When risks should feed refinement, planning, and escalation without a separate reporting cycle.
+
+## When NOT to Use
+
+- To record an event that has already occurred as an unresolved future risk; use the issue log.
+- Do not use a completed template or example configuration as proof of fitness for the actual environment. See [Template as substitute for judgment](../../../../../docs/principles/anti-patterns.md#template-judgment).
+
+## Pairs Well With
+
+- [Risk Register Template](../../../../../domains/uncertainty/project-lifecycle/02-planning/risk-management/risk-register-template.md).
+- [Issue Log Template](../../../../../domains/delivery/templates/traditional/Traditional/Templates/issue_log_template.md).
+
+Selection context: Delivery domain; universal methodology; advanced complexity. Match the situations above to project phase, risk, team size, and industry using the [decision-engine context model](../../../../../meta/architecture-research/800-801-context-assessment-model.md).
+
 ## Scrum tailoring
 
 These worksheets and suggested agendas are optional practices. In Scrum, the Developers own the plan for delivering the Sprint Goal; selected work is a forecast that can be adapted. A Definition of Ready and story points are optional team practices. Use the product Definition of Done consistently, and treat the Sprint Review as inspection and adaptation rather than a release-approval gate. See the [Scrum Guide](https://scrumguides.org/scrum-guide.html).

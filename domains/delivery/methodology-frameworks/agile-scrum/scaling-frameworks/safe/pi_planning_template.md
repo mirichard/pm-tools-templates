@@ -8,6 +8,23 @@ updated: "2026-09-19"
 
 # SAFe Program Increment (PI) Planning Template
 
+## When to Use
+
+- When a SAFe train needs coordinated planning across several teams.
+- When objectives, capacity, dependencies, and risks must be negotiated for the planning interval.
+
+## When NOT to Use
+
+- For a single team's sprint planning with no train-level dependencies.
+- Do not impose enterprise coordination or approval layers where team size and risk do not justify them. See [Maximum governance](../../../../../../docs/principles/anti-patterns.md#maximum-governance).
+
+## Pairs Well With
+
+- [Art Coordination Template](../../../../../../domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/art_coordination_template.md).
+- [Portfolio Kanban Template](../../../../../../domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/portfolio_kanban_template.md).
+
+Selection context: Delivery domain; agile methodology; advanced complexity. Match the situations above to project phase, risk, team size, and industry using the [decision-engine context model](../../../../../../meta/architecture-research/800-801-context-assessment-model.md).
+
 ## Overview
 This template provides a comprehensive framework for conducting SAFe Program Increment (PI) Planning events, typically held every 8-12 weeks to align teams within an Agile Release Train (ART) on a common mission and vision; coordinate multiple ARTs separately when needed.
 

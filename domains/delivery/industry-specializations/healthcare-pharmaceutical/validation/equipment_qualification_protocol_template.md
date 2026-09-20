@@ -8,6 +8,23 @@ updated: "2026-09-19"
 
 # Equipment Qualification Protocol Template
 
+## When to Use
+
+- When regulated equipment requires a planned qualification lifecycle.
+- When qualified owners need to connect installation, operation, and performance evidence.
+
+## When NOT to Use
+
+- To release equipment for use before applicable qualification and approval activities are complete.
+- Do not represent author self-checks as independent or authorized approval. See [Self-approval](../../../../../docs/principles/anti-patterns.md#self-approval).
+
+## Pairs Well With
+
+- [Installation Qualification Protocol Template](../../../../../domains/delivery/industry-specializations/healthcare-pharmaceutical/validation/installation_qualification_protocol_template.md).
+- [Operational Qualification Protocol Template](../../../../../domains/delivery/industry-specializations/healthcare-pharmaceutical/validation/operational_qualification_protocol_template.md).
+
+Selection context: Delivery domain; universal methodology; advanced complexity. Match the situations above to project phase, risk, team size, and industry using the [decision-engine context model](../../../../../meta/architecture-research/800-801-context-assessment-model.md).
+
 ## Applying this template
 
 Treat filled examples, dates, numerical limits, sampling frequencies, and approval outcomes as illustrations. Before execution, replace them with the approved product/site requirements, scientific rationale, method references, responsible reviewer, and acceptance evidence. Record the applicable jurisdiction and current guidance edition; a completed worksheet alone does not demonstrate regulatory compliance.

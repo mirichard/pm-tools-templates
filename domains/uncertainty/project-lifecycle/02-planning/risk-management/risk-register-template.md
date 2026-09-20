@@ -8,6 +8,23 @@ updated: "2026-09-19"
 
 # Risk Register Template
 
+## When to Use
+
+- When uncertain threats or opportunities need assessment and an accountable response.
+- When risk owners must track triggers, mitigation, contingency, and residual exposure.
+
+## When NOT to Use
+
+- For recording only events that have already occurred; use the issue log.
+- Do not use a completed template or example configuration as proof of fitness for the actual environment. See [Template as substitute for judgment](../../../../../docs/principles/anti-patterns.md#template-judgment).
+
+## Pairs Well With
+
+- [Risk Management Plan Template](../../../../../domains/measurement/project-lifecycle/02-planning/risk-management/risk-management-plan-template.md).
+- [Issue Log Template](../../../../../domains/delivery/templates/traditional/Traditional/Templates/issue_log_template.md).
+
+Selection context: Uncertainty domain; universal methodology; advanced complexity. Match the situations above to project phase, risk, team size, and industry using the [decision-engine context model](../../../../../meta/architecture-research/800-801-context-assessment-model.md).
+
 ## Purpose/Overview
 This risk register template provides a systematic approach to identifying, assessing, and managing project risks throughout the project lifecycle. It serves as a central repository for all project risks, enabling proactive risk management and supporting informed decision-making. The template follows traditional project management best practices for comprehensive risk management.
 

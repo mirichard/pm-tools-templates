@@ -8,6 +8,23 @@ updated: "2025-08-05"
 
 # Resource Management Plan Template
 
+## When to Use
+
+- During planning when staffing, availability, acquisition, and development need coordination.
+- When resource owners must balance capacity, cost, and delivery dependencies.
+
+## When NOT to Use
+
+- To allocate the same capacity to conflicting commitments without resolving tradeoffs.
+- Do not use a completed template or example configuration as proof of fitness for the actual environment. See [Template as substitute for judgment](../../../../../docs/principles/anti-patterns.md#template-judgment).
+
+## Pairs Well With
+
+- [Skills Matrix Template](../../../../../domains/team/project-lifecycle/02-planning/resource-planning/skills-matrix-template.md).
+- [Budget Template](../../../../../domains/planning/role-based-toolkits/project-manager/essential-templates/budget-template.md).
+
+Selection context: Measurement domain; universal methodology; advanced complexity. Match the situations above to project phase, risk, team size, and industry using the [decision-engine context model](../../../../../meta/architecture-research/800-801-context-assessment-model.md).
+
 ## Document Information
 - **Project Name**: [Enter Project Name]
 - **Project Manager**: [Name]

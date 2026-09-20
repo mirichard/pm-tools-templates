@@ -8,6 +8,23 @@ updated: "2026-09-19"
 
 # Digital Transformation Strategy Template
 
+## When to Use
+
+- When an organization plans a transformation spanning technology, capabilities, and operating practices.
+- When sponsors need a roadmap connecting current-state gaps to measurable outcomes.
+
+## When NOT to Use
+
+- For a standalone technology purchase with no operating-model change.
+- Do not infer realized value from completed outputs, spending, or activity counts. See [Value equals output](../../../../../docs/principles/anti-patterns.md#value-output).
+
+## Pairs Well With
+
+- [Current State Analysis Template](../../../../../domains/measurement/project-assessment-suite/current-state-analysis-template.md).
+- [Future State Blueprint Template](../../../../../domains/measurement/project-assessment-suite/future-state-blueprint-template.md).
+
+Selection context: Measurement domain; universal methodology; advanced complexity. Match the situations above to project phase, risk, team size, and industry using the [decision-engine context model](../../../../../meta/architecture-research/800-801-context-assessment-model.md).
+
 ## Document Control
 
 **Document ID:** [Document identifier]\

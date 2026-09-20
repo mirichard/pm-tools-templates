@@ -8,6 +8,23 @@ updated: "2025-08-05"
 
 # Hybrid Team Management Template
 
+## When to Use
+
+- When teams using different delivery methods share outcomes and dependencies.
+- When managers and team members need clear roles, coordination, and capability development.
+
+## When NOT to Use
+
+- To impose identical ceremonies on all teams despite different delivery needs.
+- Do not impose enterprise coordination or approval layers where team size and risk do not justify them. See [Maximum governance](../../../../../../docs/principles/anti-patterns.md#maximum-governance).
+
+## Pairs Well With
+
+- [Team Charter Template](../../../../../../domains/team/project-lifecycle/02-planning/resource-planning/team-charter-template.md).
+- [Skills Matrix Template](../../../../../../domains/team/project-lifecycle/02-planning/resource-planning/skills-matrix-template.md).
+
+Selection context: Delivery domain; hybrid methodology; advanced complexity. Match the situations above to project phase, risk, team size, and industry using the [decision-engine context model](../../../../../../meta/architecture-research/800-801-context-assessment-model.md).
+
 ## Overview
 This template provides a framework for structuring, managing, and optimizing teams in hybrid project environments that combine traditional (predictive) and agile (adaptive) approaches. It addresses the unique challenges of managing teams that must operate across different methodologies while maintaining cohesion and effectiveness. Adapt sections as needed based on your specific organizational context, methodology balance, and team composition.
 

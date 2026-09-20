@@ -8,6 +8,23 @@ updated: "2026-09-19"
 
 # Compliance Risk Assessment Template
 
+## When to Use
+
+- When a regulated pharmaceutical initiative needs assessment of compliance exposure.
+- When risk owners must connect specific obligations, evidence gaps, and mitigation decisions.
+
+## When NOT to Use
+
+- As a substitute for establishing which requirements apply to the product and activity.
+- Do not use a completed template or example configuration as proof of fitness for the actual environment. See [Template as substitute for judgment](../../../../../docs/principles/anti-patterns.md#template-judgment).
+
+## Pairs Well With
+
+- [Regulatory Strategy Plan Template](../../../../../domains/delivery/industry-specializations/healthcare-pharmaceutical/regulatory/regulatory_strategy_plan_template.md).
+- [Risk Register Template](../../../../../domains/uncertainty/project-lifecycle/02-planning/risk-management/risk-register-template.md).
+
+Selection context: Delivery domain; universal methodology; advanced complexity. Match the situations above to project phase, risk, team size, and industry using the [decision-engine context model](../../../../../meta/architecture-research/800-801-context-assessment-model.md).
+
 Reference check: [Current source](https://www.fda.gov/regulatory-information/search-fda-guidance-documents/e6r3-good-clinical-practice-gcp).
 
 

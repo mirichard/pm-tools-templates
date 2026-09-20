@@ -8,6 +8,23 @@ updated: "2026-09-19"
 
 # IT Infrastructure Disaster Recovery Template
 
+## When to Use
+
+- When a service needs an agreed recovery runbook and exercise schedule.
+- When operational owners must define recovery objectives, activation authority, and verification steps.
+
+## When NOT to Use
+
+- As proof that recovery objectives can be met without an exercise.
+- Do not use a completed template or example configuration as proof of fitness for the actual environment. See [Template as substitute for judgment](../../../../../docs/principles/anti-patterns.md#template-judgment).
+
+## Pairs Well With
+
+- [Migration Plan Template](../../../../../domains/uncertainty/industry-specializations/information-technology/infrastructure/migration_plan_template.md).
+- [Handover Template](../../../../../domains/measurement/role-based-toolkits/project-manager/essential-templates/handover-template.md).
+
+Selection context: Planning domain; universal methodology; starter complexity. Match the situations above to project phase, risk, team size, and industry using the [decision-engine context model](../../../../../meta/architecture-research/800-801-context-assessment-model.md).
+
 ## Purpose and use
 
 Prepare a service-specific recovery plan and validate it through exercises. Agree business recovery objectives before choosing technical procedures. Keep credentials in the approved secret store, not in this document.

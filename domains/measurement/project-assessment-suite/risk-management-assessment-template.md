@@ -15,6 +15,23 @@ estimated_completion_time: "15-30 minutes"
 
 # Risk Management Assessment Template
 
+## When to Use
+
+- When assessing whether risk-management practices work across a project or organization.
+- When evidence can support improvement in identification, ownership, response, and monitoring.
+
+## When NOT to Use
+
+- To confuse having a risk register with effective risk management.
+- Do not treat completed metadata or a filled checklist as evidence that the underlying work is done. See [Metadata theater](../../../docs/principles/anti-patterns.md#metadata-theater).
+
+## Pairs Well With
+
+- [Risk Management Plan Template](../../../domains/measurement/project-lifecycle/02-planning/risk-management/risk-management-plan-template.md).
+- [Remediation Action Plan Template](../../../domains/measurement/project-assessment-suite/remediation-action-plan-template.md).
+
+Selection context: Measurement domain; universal methodology; starter complexity. Match the situations above to project phase, risk, team size, and industry using the [decision-engine context model](../../../meta/architecture-research/800-801-context-assessment-model.md).
+
 ## Executive Summary
 This template provides a comprehensive framework for assessing risk management effectiveness across projects and organizations.
 

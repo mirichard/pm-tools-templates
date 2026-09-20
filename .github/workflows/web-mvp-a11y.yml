@@ -35,3 +35,14 @@ jobs:
 
       - name: Run axe a11y tests
         run: npm run test:a11y
+
+      - name: Test principle self-assessment journeys and accessibility
+        run: npx playwright test tests/principles-assessment.spec.ts
+
+      - name: Preserve principle worksheet visual evidence
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: principles-assessment-preview
+          path: web-mvp/test-results/**/principles-*.png
+          if-no-files-found: ignore

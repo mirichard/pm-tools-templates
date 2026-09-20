@@ -11,6 +11,23 @@ principle_rationale: "Connects adaptable release decisions to value, dependencie
 
 # Agile Release Plan Template
 
+## When to Use
+
+- During Agile planning when a product needs a release-level forecast across iterations.
+- When several features or teams require capacity, quality, and dependency coordination before release.
+
+## When NOT to Use
+
+- To turn a release forecast into a fixed sprint-scope commitment.
+- Do not waive essential controls solely because delivery is Agile, hybrid, or time-constrained. See [Tailoring by omission](../../../../../docs/principles/anti-patterns.md#tailoring-omission).
+
+## Pairs Well With
+
+- [Product Backlog Template](../../../../../domains/delivery/templates/agile/product_backlog_template.md).
+- [Release Management Template](../../../../../domains/measurement/methodology-frameworks/emerging-methods/devops/release_management_template.md).
+
+Selection context: Delivery domain; universal methodology; advanced complexity. Match the situations above to project phase, risk, team size, and industry using the [decision-engine context model](../../../../../meta/architecture-research/800-801-context-assessment-model.md).
+
 ## Scrum tailoring
 
 These worksheets and suggested agendas are optional practices. In Scrum, the Developers own the plan for delivering the Sprint Goal; selected work is a forecast that can be adapted. A Definition of Ready and story points are optional team practices. Use the product Definition of Done consistently, and treat the Sprint Review as inspection and adaptation rather than a release-approval gate. See the [Scrum Guide](https://scrumguides.org/scrum-guide.html).

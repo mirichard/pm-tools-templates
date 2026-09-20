@@ -8,6 +8,23 @@ updated: "2026-09-19"
 
 # Project Handover Template
 
+## When to Use
+
+- At project or service transition when an operational owner must accept support responsibilities.
+- When knowledge, access, outstanding issues, and acceptance evidence need a handover record.
+
+## When NOT to Use
+
+- To declare handover complete before the receiving owner can operate and support the deliverable.
+- Do not represent author self-checks as independent or authorized approval. See [Self-approval](../../../../../docs/principles/anti-patterns.md#self-approval).
+
+## Pairs Well With
+
+- [Project Closure Report Template](../../../../../domains/delivery/templates/traditional/Traditional/Process_Groups/Closing/project_closure_report_template.md).
+- [Disaster Recovery Template](../../../../../domains/planning/industry-specializations/information-technology/infrastructure/disaster_recovery_template.md).
+
+Selection context: Measurement domain; universal methodology; advanced complexity. Match the situations above to project phase, risk, team size, and industry using the [decision-engine context model](../../../../../meta/architecture-research/800-801-context-assessment-model.md).
+
 ## Template Overview
 A comprehensive template for transferring project responsibility from development/implementation teams to operational teams, or between project managers. Use it to plan transitions, record knowledge transfer, and verify operational readiness.
 

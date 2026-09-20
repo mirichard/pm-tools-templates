@@ -8,6 +8,23 @@ updated: "2025-08-05"
 
 # Hybrid Infrastructure Template
 
+## When to Use
+
+- When hybrid delivery requires infrastructure that supports both predictive and iterative work.
+- When teams need shared integration architecture and adaptable environments.
+
+## When NOT to Use
+
+- To add parallel infrastructure simply because two delivery methods are named.
+- Do not impose enterprise coordination or approval layers where team size and risk do not justify them. See [Maximum governance](../../../../../docs/principles/anti-patterns.md#maximum-governance).
+
+## Pairs Well With
+
+- [Hybrid Project Management Plan Template](../../../../../domains/delivery/project-lifecycle/02-planning/project-management-plan/hybrid-project-management-plan-template.md).
+- [Infrastructure Assessment Template](../../../../../domains/measurement/industry-specializations/information-technology/infrastructure/infrastructure_assessment_template.md).
+
+Selection context: Delivery domain; hybrid methodology; advanced complexity. Match the situations above to project phase, risk, team size, and industry using the [decision-engine context model](../../../../../meta/architecture-research/800-801-context-assessment-model.md).
+
 ## Executive Summary
 
 This template provides a flexible infrastructure framework that combines traditional project management infrastructure with agile and emerging methodologies. Use this to establish project infrastructure that can adapt to changing project needs and organizational requirements.

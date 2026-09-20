@@ -8,6 +8,23 @@ updated: "2026-09-19"
 
 # Health Authority Communication Plan
 
+## When to Use
+
+- When a regulated product needs planned communications with relevant health authorities.
+- When authorized regulatory staff must coordinate submissions, responses, and commitments.
+
+## When NOT to Use
+
+- As permission to contact an authority or make commitments without organizational authorization.
+- Do not represent author self-checks as independent or authorized approval. See [Self-approval](../../../../../docs/principles/anti-patterns.md#self-approval).
+
+## Pairs Well With
+
+- [Regulatory Strategy Plan Template](../../../../../domains/delivery/industry-specializations/healthcare-pharmaceutical/regulatory/regulatory_strategy_plan_template.md).
+- [Regulatory Inspection Readiness Plan Template](../../../../../domains/delivery/industry-specializations/healthcare-pharmaceutical/regulatory/regulatory_inspection_readiness_plan_template.md).
+
+Selection context: Delivery domain; universal methodology; advanced complexity. Match the situations above to project phase, risk, team size, and industry using the [decision-engine context model](../../../../../meta/architecture-research/800-801-context-assessment-model.md).
+
 Reference check: [Current source](https://www.fda.gov/regulatory-information/search-fda-guidance-documents/e6r3-good-clinical-practice-gcp).
 
 

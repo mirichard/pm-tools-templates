@@ -8,6 +8,23 @@ updated: "2025-08-05"
 
 # Problem Management Process Template
 
+## When to Use
+
+- When recurring service incidents require root-cause investigation and prevention.
+- When service owners need known errors, workarounds, and tracked corrective changes.
+
+## When NOT to Use
+
+- As a substitute for immediate incident containment and service restoration.
+- Do not close an improvement solely because it was documented or assigned. See [Lessons archive](../../../../../docs/principles/anti-patterns.md#lessons-archive).
+
+## Pairs Well With
+
+- [Incident Response Template](../../../../../domains/measurement/industry-specializations/information-technology/cybersecurity/incident_response_template.md).
+- [Capa Management Template](../../../../../domains/delivery/industry-specializations/healthcare-pharmaceutical/compliance/capa_management_template.md).
+
+Selection context: Uncertainty domain; universal methodology; advanced complexity. Match the situations above to project phase, risk, team size, and industry using the [decision-engine context model](../../../../../meta/architecture-research/800-801-context-assessment-model.md).
+
 ## Document Control
 
 | Field | Details |

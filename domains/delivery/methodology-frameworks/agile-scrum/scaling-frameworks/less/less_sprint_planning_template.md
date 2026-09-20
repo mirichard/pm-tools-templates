@@ -8,6 +8,23 @@ updated: "2026-09-19"
 
 # LeSS Sprint Planning Template
 
+## When to Use
+
+- When LeSS teams plan a shared sprint for one product.
+- When feature selection and cross-team coordination must precede team-level planning.
+
+## When NOT to Use
+
+- For unrelated products that do not share an integrated product goal.
+- Do not impose enterprise coordination or approval layers where team size and risk do not justify them. See [Maximum governance](../../../../../../docs/principles/anti-patterns.md#maximum-governance).
+
+## Pairs Well With
+
+- [Overall Product Backlog Template](../../../../../../domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/less/overall_product_backlog_template.md).
+- [Cross Team Coordination Template](../../../../../../domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/less/cross_team_coordination_template.md).
+
+Selection context: Delivery domain; agile methodology; advanced complexity. Match the situations above to project phase, risk, team size, and industry using the [decision-engine context model](../../../../../../meta/architecture-research/800-801-context-assessment-model.md).
+
 Use one defined product, shared Product Backlog and integrated product outcome. Coordination techniques and agenda durations here are optional facilitation examples, not additional mandatory roles or events. Adapt them consistently with the [LeSS framework](https://less.works/less/framework).
 
 

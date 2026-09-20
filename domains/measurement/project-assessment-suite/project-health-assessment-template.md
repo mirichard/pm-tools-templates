@@ -15,6 +15,23 @@ estimated_completion_time: "30-45 minutes"
 
 # Project Health Assessment Template
 
+## When to Use
+
+- At a project health checkpoint when multiple delivery dimensions need an evidence-based review.
+- When a sponsor needs intervention priorities and follow-up ownership.
+
+## When NOT to Use
+
+- To average away a critical risk or treat unexplained ratings as assurance.
+- Do not report sample values, unsupported ratings, or missing data as verified performance. See [Metric without source](../../../docs/principles/anti-patterns.md#metric-source).
+
+## Pairs Well With
+
+- [Assessment Report Template](../../../domains/uncertainty/project-assessment-suite/assessment-report-template.md).
+- [Remediation Action Plan Template](../../../domains/measurement/project-assessment-suite/remediation-action-plan-template.md).
+
+Selection context: Measurement domain; universal methodology; advanced complexity. Match the situations above to project phase, risk, team size, and industry using the [decision-engine context model](../../../meta/architecture-research/800-801-context-assessment-model.md).
+
 ## Completing the worksheet
 
 Replace populated examples with project evidence before circulation. Record the reporting period, baseline, source, owner, and calculation for each measure; define thresholds and approval authority locally. Show unavailable values as unknown rather than zero or a favorable status. Reconcile totals and units, handle zero denominators explicitly, and retain the decision rationale and supporting evidence.

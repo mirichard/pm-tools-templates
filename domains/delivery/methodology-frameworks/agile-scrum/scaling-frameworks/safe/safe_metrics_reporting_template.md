@@ -8,6 +8,23 @@ updated: "2026-09-19"
 
 # SAFe Metrics Reporting Template
 
+## When to Use
+
+- When a SAFe reporting cycle requires interpretation and decisions beyond dashboard indicators.
+- When leaders must connect portfolio, train, quality, and learning trends to actions.
+
+## When NOT to Use
+
+- To publish favorable aggregate figures while omitting material exceptions.
+- Do not report sample values, unsupported ratings, or missing data as verified performance. See [Metric without source](../../../../../../docs/principles/anti-patterns.md#metric-source).
+
+## Pairs Well With
+
+- [Safe Metrics Dashboard Template](../../../../../../domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_metrics_dashboard_template.md).
+- [Remediation Action Plan Template](../../../../../../domains/measurement/project-assessment-suite/remediation-action-plan-template.md).
+
+Selection context: Delivery domain; agile methodology; advanced complexity. Match the situations above to project phase, risk, team size, and industry using the [decision-engine context model](../../../../../../meta/architecture-research/800-801-context-assessment-model.md).
+
 ## Completing the worksheet
 
 Replace populated examples with project evidence before circulation. Record the reporting period, baseline, source, owner, and calculation for each measure; define thresholds and approval authority locally. Show unavailable values as unknown rather than zero or a favorable status. Reconcile totals and units, handle zero denominators explicitly, and retain the decision rationale and supporting evidence.
