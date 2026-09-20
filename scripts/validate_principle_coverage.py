@@ -2,6 +2,7 @@
 import argparse
 from collections import Counter
 import hashlib
+import hmac
 import json
 from pathlib import Path
 import re
@@ -152,7 +153,10 @@ def validate(root, check_manifest=True):
     manifest, errors = inspect(root)
     if check_manifest:
         try:
-            if json.loads((root / MANIFEST).read_text()) != manifest:
+            recorded = json.loads((root / MANIFEST).read_text())
+            expected_bytes = json.dumps(manifest, sort_keys=True).encode('utf-8')
+            recorded_bytes = json.dumps(recorded, sort_keys=True).encode('utf-8')
+            if not hmac.compare_digest(recorded_bytes, expected_bytes):
                 errors.append('coverage manifest is stale: regenerate from the live catalog')
         except (OSError, ValueError):
             errors.append('coverage manifest is missing or invalid')
