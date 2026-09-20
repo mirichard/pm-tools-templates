@@ -35,6 +35,21 @@ principle_rationale: "Evaluates risk identification, ownership, response and mon
 
 Selection context: Measurement domain; universal methodology; starter complexity. Match the situations above to project phase, risk, team size, and industry using the [decision-engine context model](../../../meta/architecture-research/800-801-context-assessment-model.md).
 
+## Governance scaling recommendations
+
+Use the [risk-based governance framework](../../../docs/governance/risk-based-scaling.md) to assess **technical, schedule, budget, organizational and compliance** exposure. Record each as low, medium, high or unknown, with risk IDs, dated evidence, current controls, an owner and next review.
+
+- **Low:** combine evidence where the effective tier permits; retain weekly updates and required sponsor/acceptance gates.
+- **Medium:** add dependency/contingency and change-impact evidence, weekly risk review and at least fortnightly sponsor review.
+- **High or unknown:** use Rigorous controls, formal risk/control reporting and assurance at affected gates; assign evidence-gap owners and dates for unknowns.
+
+Use the highest exposure, retaining higher context, size, team and policy floors; confirmed regulatory context remains Rigorous. Map local assessment scores to the approved exposure definitions with a rationale; do not average unlike scores. Reduce controls only after verified response effectiveness and sponsor/control-owner approval. Mandatory controls remain in force.
+
+**Scaling decision:** [Five ratings and evidence; assessed/effective risk; tier and policy floor; affected artifacts/cadence; approval and effective date; next review].
+
+This template evaluates process effectiveness. Its maturity ratings are not project exposure ratings: obtain the five-dimension assessment from risk owners before recommending governance changes.
+
+
 ## Executive Summary
 This template provides a comprehensive framework for assessing risk management effectiveness across projects and organizations.
 

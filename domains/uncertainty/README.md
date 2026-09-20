@@ -6,6 +6,10 @@ Use this domain to identify, analyze, respond to, and monitor risks, opportuniti
 
 Uncertainty covers risk and opportunity management, issue resolution, contingency planning, and risk-based decisions. Execution quality belongs in [Delivery](../delivery/); financial planning belongs in [Planning](../planning/); broader performance reporting belongs in [Measurement](../measurement/).
 
+## Governance scaling
+
+Translate assessed technical, schedule, budget, organizational and compliance exposure into proportional oversight using the [risk-based governance framework](../../docs/governance/risk-based-scaling.md). It links risk evidence to artifacts, gates, authorities and cadence while retaining mandatory controls and the adaptive tier floors.
+
 ## Start here
 
 - [Problem management process](../../domains/delivery/industry-specializations/information-technology/service-management/problem_management_process_template.md)
