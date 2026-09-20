@@ -341,8 +341,8 @@
       "path": "domains/delivery/templates/traditional/Traditional/Process_Groups/Closing/project_closure_report_template.md",
       "base_commit": "be04694ffd0f39de3d5f306300c276fa7f810762",
       "original_sha256": "3f7d84648b990561627e5ebc761f3eb133e0350ac2a17858871be83124da7565",
-      "reason": "Substantive content maintenance: file-specific findings, sources and section coverage in meta/template-content-reviews.json; scope and limitations in docs/vnext/post-migration-repair/resource-and-freshness-review.md. Original migration evidence preserved. Reviewed additive principles usage guidance for #743/#744; previous body preserved. Evidence: meta/principles-story-completion.json. Added three-line principle annotation for #1058; prior body and metadata preserved. Hash chain: meta/principle-annotation-reconciliation.json.",
-      "current_sha256": "ff3be76d43d434576206e9506ff9c7450c879ad4de3aafc5b3ec033b2396128f"
+      "reason": "Substantive content maintenance: file-specific findings, sources and section coverage in meta/template-content-reviews.json; scope and limitations in docs/vnext/post-migration-repair/resource-and-freshness-review.md. Original migration evidence preserved. Reviewed additive principles usage guidance for #743/#744; previous body preserved. Evidence: meta/principles-story-completion.json. Added three-line principle annotation for #1058; prior body and metadata preserved. Hash chain: meta/principle-annotation-reconciliation.json. Reviewed additive operational continuity / flow metrics integration for #754/#755; prior body and review dates retained.",
+      "current_sha256": "38a16ef9ec76f20d059a90bd07624f76158c5ff17137e1eadb9c87bb161f3f7f"
     },
     {
       "path": "domains/delivery/templates/traditional/Traditional/Process_Groups/Executing/project_execution_status_report_template.md",
@@ -810,8 +810,8 @@
       "path": "domains/uncertainty/project-lifecycle/04-monitoring-control/progress-tracking/project-dashboard-template.md",
       "base_commit": "dc7146cc59387421b872dffbadd86b8b6f8dd3a2",
       "original_sha256": "ef58c1f9ea8dded2f4c545637f4443d196619157455b32941a4b0207486d7a57",
-      "reason": "Reference and content maintenance documented in docs/vnext/post-migration-repair/resource-and-freshness-review.md and meta/template-content-reviews.json; original migration hash preserved. Reviewed additive principles usage guidance for #743/#744; previous body preserved. Evidence: meta/principles-story-completion.json. Added three-line principle annotation for #1058; prior body and metadata preserved. Hash chain: meta/principle-annotation-reconciliation.json. Reviewed additive #748 event-control handoff and notification links; prior body and review date preserved.",
-      "current_sha256": "4ed41b8e820daeb9ca352a151e00b4668b6bab7cf8553f307fc802330d50a7c4"
+      "reason": "Reference and content maintenance documented in docs/vnext/post-migration-repair/resource-and-freshness-review.md and meta/template-content-reviews.json; original migration hash preserved. Reviewed additive principles usage guidance for #743/#744; previous body preserved. Evidence: meta/principles-story-completion.json. Added three-line principle annotation for #1058; prior body and metadata preserved. Hash chain: meta/principle-annotation-reconciliation.json. Reviewed additive #748 event-control handoff and notification links; prior body and review date preserved. Reviewed additive operational continuity / flow metrics integration for #754/#755; prior body and review dates retained.",
+      "current_sha256": "cae7ddb27eb3aaf07e916624c458b5a6f7cfdf8b418e136030eafa54364e6d96"
     },
     {
       "path": "domains/uncertainty/project-lifecycle/04-monitoring-control/progress-tracking/status-report-template.md",

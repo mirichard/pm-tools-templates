@@ -33,6 +33,10 @@ Selection context: Delivery domain; traditional methodology; advanced complexity
 Replace populated examples with project evidence before circulation. Record the reporting period, baseline, source, owner, and calculation for each measure; define thresholds and approval authority locally. Show unavailable values as unknown rather than zero or a favorable status. Reconcile totals and units, handle zero denominators explicitly, and retain the decision rationale and supporting evidence.
 
 
+## Operational continuity acceptance
+
+Before disbanding the team, link the completed [operational continuity acceptance record](../../../../../../../transition_to_operations_framework.md#operational-continuity-acceptance-record). Record receiving owner/backup, maintenance/support funding, knowledge-transfer demonstration, warranty obligations, unresolved gaps, approval and next review. Use the [IT and non-IT examples](../../../../../../../docs/delivery/operational-continuity-planning.md) to tailor the handover. Closing this report does not discharge unaccepted obligations or prove realized benefits.
+
 ## Document Control Information
 **Document Title:** Project Closure Report  
 **Project Name:** *Enterprise Resource Planning Implementation*  

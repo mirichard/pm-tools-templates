@@ -38,6 +38,21 @@ Evaluate approved metric thresholds using current evidence. E01 uses forecast to
 Use the [alert, escalation and closure notifications](../../../../../docs/governance/event-notifications.md). Missed response deadlines escalate to the backup/next authority; notification or silence never constitutes approval.
 
 
+## Flow and value measurements
+
+Use the [delivery metrics definitions](../../../../../docs/delivery/delivery-metrics-framework.md) and [metrics record contract](../../../../../metrics/README.md) alongside the existing execution measures. Record workflow/version, item type, request/start/finish boundaries, time convention, reporting window, source/as-of date and owner. Link KPI IDs through the [four-level KPI mapping](../../../../../project-lifecycle/04-monitoring-control/progress-tracking/kpi-mapping-template.md).
+
+| Measure | Observed value and sample | Local baseline/target | Source and action owner |
+|---|---|---|---|
+| Throughput (items/window) | [Count, period, item type / not assessed] | [Comparable cohort] | [Source/date, owner/action] |
+| Cycle time (elapsed start to finish) | [Median/percentiles, units, method, n / not assessed] | [Same boundary] | [Source/date, owner/action] |
+| Lead time (elapsed request to finish) | [Median/percentiles, units, method, n / not assessed] | [Named request event] | [Source/date, owner/action] |
+| WIP and unfinished age | [Started unfinished count, age, as-of / not assessed] | [Agreed WIP policy] | [Include blocked/waiting items] |
+| Flow efficiency | [Active elapsed / total elapsed in same boundary × 100 / not assessed] | [Local baseline] | [Active-interval evidence and owner] |
+| Execution and value link | [Existing schedule/cost/quality measure and KPI IDs] | [Outcome baseline] | [Benefits owner and verification date] |
+
+Missing `flow_metrics` or a null field means not assessed, never zero or green. Keep story-point velocity separate from item throughput. In iteration delivery, unfinished work retains its age across sprint boundaries. Compare like-for-like work and track quality and realized outcomes before attributing value to faster flow.
+
 ## Purpose/Overview
 This dashboard template provides a visual, at-a-glance view of project health and performance. Designed for quick status communication, it presents key metrics, milestones, and issues in a concise format ideal for stakeholder briefings, executive reporting, and team meetings. The template emphasizes visual indicators and trend data to facilitate rapid decision-making.
 

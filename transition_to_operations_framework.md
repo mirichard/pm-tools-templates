@@ -17,6 +17,34 @@ This framework covers the critical period from project completion through operat
 
 ---
 
+## Operational continuity acceptance record
+
+Use this record for #754 with the [operational continuity guidance](docs/delivery/operational-continuity-planning.md). It extends this framework for software, facilities, equipment and business services. Existing timeline ranges and staffing examples are planning aids; agree actual dates, capability, coverage and contractual commitments for the deliverable.
+
+| Record | Complete with project evidence |
+|---|---|
+| Scope and ownership | Deliverables, receiving owner/backup, effective handover date, retained project responsibilities and approval authority. |
+| Support model | Dedicated/shared/self-service/hybrid, operating hours, demand/capacity assumptions, funded owner and coverage. |
+| Maintenance plan | Task/asset, frequency or trigger, accountable owner, dependencies/spares, downtime arrangements and completion evidence. |
+| Escalation | Intake channel, severity basis, first responder, backup, next authority, acknowledgement/response deadlines and emergency route. |
+| Knowledge base | Maintained location, access restrictions, update owner, runbooks/work instructions, known issues and decision rationale. |
+| Warranty/support obligations | Actual agreement and covered scope, start/end events, exclusions, costs, response/restoration commitments and unresolved-obligation owner. |
+| Acceptance and follow-up | Demonstration evidence, gaps/interim controls, action owners/dates, receiving-owner decision, stabilization review and benefits-review owner. |
+
+### Knowledge transfer checklist
+
+- [ ] Receiving owner and backup can locate the current instructions, contacts and known issues.
+- [ ] Required access, tools, spares and supplier support are verified; link secure credential storage without copying secrets.
+- [ ] Receiving staff demonstrate a representative routine task and an exceptional situation in a safe exercise; record results and assessor.
+- [ ] Maintenance responsibilities, budget and escalation routes are acknowledged by the receiving owner.
+- [ ] Unresolved defects, warranty obligations and deferred work have accepted owners, dates and interim controls.
+- [ ] Knowledge-base maintenance and successor training continue after project-team disbandment.
+- [ ] Acceptance authority records accept/conditional/defer with evidence and the next review date.
+
+Link this completed record from the [closure report](domains/delivery/templates/traditional/Traditional/Process_Groups/Closing/project_closure_report_template.md) through the [closure transition entry point](project-lifecycle/05-closure/transition-to-operations/README.md). Project closure does not automatically transfer unaccepted obligations.
+
+---
+
 ## Framework Components
 
 ### 1. Transition Planning Phase

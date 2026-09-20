@@ -4927,9 +4927,9 @@
     },
     {
       "path": "domains/delivery/templates/traditional/Traditional/Process_Groups/Closing/project_closure_report_template.md",
-      "sha256": "ff3be76d43d434576206e9506ff9c7450c879ad4de3aafc5b3ec033b2396128f",
+      "sha256": "38a16ef9ec76f20d059a90bd07624f76158c5ff17137e1eadb9c87bb161f3f7f",
       "status": "reviewed",
-      "word_count": 4268,
+      "word_count": 4320,
       "findings": [],
       "scope": "full-content",
       "reviewed": "2026-09-19",
@@ -4937,7 +4937,8 @@
       "evidence": [
         "Clarify sample-versus-actual data, measurement definitions, and evidence required for decisions.",
         "09/20/2026: Reviewed the applicability, exclusions, complementary links, and context-model guidance added for #743/#744. Prior body retained verbatim except two heading renames on the non-migrated benefit templates. Prior full-content review date retained; this is an additive-change review, not a new full-body review. Hash chain: meta/principles-story-completion.json.",
-        "09/20/2026: Reviewed additive three-line principle mapping and rationale for #1058 against current template purpose and content structure; all prior bytes and full-content review dates retained. Scoped annotation review only. Hash chain: meta/principle-annotation-reconciliation.json."
+        "09/20/2026: Reviewed additive three-line principle mapping and rationale for #1058 against current template purpose and content structure; all prior bytes and full-content review dates retained. Scoped annotation review only. Hash chain: meta/principle-annotation-reconciliation.json.",
+        "09/20/2026: Reviewed additive #754/#755 operational-acceptance or flow/value dashboard section and its resolved links. Prior body and full-content review date retained; this is a scoped additive review, not a renewed full-body review."
       ],
       "reviewed_sections": [
         "Completing the worksheet",
@@ -5005,9 +5006,9 @@
     },
     {
       "path": "domains/uncertainty/project-lifecycle/04-monitoring-control/progress-tracking/project-dashboard-template.md",
-      "sha256": "4ed41b8e820daeb9ca352a151e00b4668b6bab7cf8553f307fc802330d50a7c4",
+      "sha256": "cae7ddb27eb3aaf07e916624c458b5a6f7cfdf8b418e136030eafa54364e6d96",
       "status": "reviewed",
-      "word_count": 650,
+      "word_count": 888,
       "findings": [],
       "scope": "full-content",
       "reviewed": "2026-09-19",
@@ -5016,7 +5017,8 @@
         "Defined metric provenance, reporting period, RAG rules and variance conventions; distinguished cost variance here from earned-value variance.",
         "09/20/2026: Reviewed the applicability, exclusions, complementary links, and context-model guidance added for #743/#744. Prior body retained verbatim except two heading renames on the non-migrated benefit templates. Prior full-content review date retained; this is an additive-change review, not a new full-body review. Hash chain: meta/principles-story-completion.json.",
         "09/20/2026: Reviewed additive three-line principle mapping and rationale for #1058 against current template purpose and content structure; all prior bytes and full-content review dates retained. Scoped annotation review only. Hash chain: meta/principle-annotation-reconciliation.json.",
-        "09/20/2026: Reviewed additive #748 event-control handoff and notification links, preserving scheduled controls and distinguishing forecast budget from actual-cost variance. Prior body and full-content review date retained; scoped addition review only."
+        "09/20/2026: Reviewed additive #748 event-control handoff and notification links, preserving scheduled controls and distinguishing forecast budget from actual-cost variance. Prior body and full-content review date retained; scoped addition review only.",
+        "09/20/2026: Reviewed additive #754/#755 operational-acceptance or flow/value dashboard section and its resolved links. Prior body and full-content review date retained; this is a scoped additive review, not a renewed full-body review."
       ]
     },
     {
