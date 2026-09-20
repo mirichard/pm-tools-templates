@@ -120,12 +120,14 @@ Metrics data, status reports, and dashboards that track project health and deliv
 
 ---
 
-## Future Direction
+## Value Delivery System Upgrade (vNext)
 
-This repository is undergoing a **Value Delivery System Upgrade (vNext)** that will:
-- Reorganize content around 6 **performance domains** (Stakeholder, Team, Delivery, Planning, Uncertainty, Measurement)
-- Map every asset to a **value delivery flow** (Inputs → Activities → Outputs → Outcomes)
-- Consolidate duplicate directories and eliminate navigation confusion
-- Add benefits realization tracking, a template decision engine, and governance modernization
+The merged vNext work adds:
+- Six [performance domains](../domains/): Stakeholder, Team, Delivery, Planning, Uncertainty, and Measurement
+- Value-flow mapping and benefits tracking that connect project outputs to outcomes
+- A rules-based template decision engine and principle-based applicability guidance
+- Adaptive governance, product delivery, feedback, and operational-continuity guidance
 
-The current structure will be preserved during the transition with backward-compatible paths.
+Migration-era legacy paths remain supported through vNext and at least the next major release under the [compatibility policy](domain-navigation-and-legacy-paths.md). Domain mappings and the canonical catalog have distinct scopes; directory organization does not imply that every catalog record exports domain metadata.
+
+Release acceptance and publication are tracked separately in [closeout issue #1266](https://github.com/mirichard/pm-tools-templates/issues/1266).

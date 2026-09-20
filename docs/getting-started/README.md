@@ -5,6 +5,18 @@
 
 This guide helps you quickly get oriented and find the resources you need, whether you're new to project management or looking to improve your current practices.
 
+## Start with your first template
+
+For your first visit, use this short path before exploring the broader guides below. The goal is a useful first draft, not a completed or approved project charter.
+
+1. Open the [Simple Project Charter](../../quick-start-kits/first-time-pm-starter/project-charter-simple.md) and copy it into your preferred text or document editor.
+2. Replace the project name, date, and project manager fields.
+3. Write one sentence under **What Are We Building?** and one under **Why Are We Building It?** Use your own project details; the sample numbers are illustrations, not targets.
+4. Save your draft. Leave unknown fields marked for follow-up rather than inventing details.
+5. Next, review success criteria and stakeholders with your team. Use the [First-Time PM Starter Kit](../../quick-start-kits/first-time-pm-starter/README.md) for the next artifacts, or the [Template Selector](template-selector.md) when you need a different template.
+
+You can browse by [performance domain](../../domains/), [role](../../role-based-toolkits/), or [project phase](../../project-lifecycle/) as your needs grow.
+
 ---
 <a id="whats-your-situation"></a>
 
@@ -96,7 +108,7 @@ This guide helps you quickly get oriented and find the resources you need, wheth
 - Governance without losing agility
 
 ### Custom Hybrid Approach
-**[→ Use: Hybrid Approaches](../../methodology-frameworks/hybrid-approaches/)**
+**[→ Use: Hybrid Approaches](../../templates/hybrid/Hybrid/README.md)**
 - Design your own hybrid approach
 - Balance predictability with adaptability
 - Templates for mixed methodology projects
@@ -172,4 +184,3 @@ This guide helps you quickly get oriented and find the resources you need, wheth
 ---
 
 *Need specific help? Check our [Template Selector](template-selector.md) or browse the [Methodology Frameworks](../../methodology-frameworks/) for detailed guidance.*
-
