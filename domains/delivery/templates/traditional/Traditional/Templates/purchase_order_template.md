@@ -4,6 +4,9 @@ methodology: "traditional"
 complexity: "intermediate"
 owner: "mirichard"
 updated: "2026-09-19"
+primary_principles: ["stewardship"]
+secondary_principles: ["evidence-based-decisions", "quality-by-design"]
+principle_rationale: "Records authorized vendor quantities, prices, terms and delivery obligations so procurement can reconcile an order against agreed requirements."
 ---
 
 # Purchase Order Template

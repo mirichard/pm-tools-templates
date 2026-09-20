@@ -4,6 +4,9 @@ methodology: "universal"
 complexity: "starter"
 owner: "mirichard"
 updated: "2026-09-19"
+primary_principles: ["risk-optimization", "stewardship"]
+secondary_principles: ["quality-by-design"]
+principle_rationale: "Defines service recovery objectives, activation authority and runbook verification so owners can rehearse and execute accountable recovery."
 ---
 
 # IT Infrastructure Disaster Recovery Template

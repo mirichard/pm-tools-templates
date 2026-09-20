@@ -4,6 +4,9 @@ methodology: "universal"
 complexity: "advanced"
 owner: "mirichard"
 updated: "2026-09-19"
+primary_principles: ["quality-by-design", "stewardship"]
+secondary_principles: ["risk-optimization"]
+principle_rationale: "Coordinates process-validation policy, sequencing and lifecycle responsibilities with risk-based evidence and revalidation expectations."
 ---
 
 # Process Validation Master Plan Template

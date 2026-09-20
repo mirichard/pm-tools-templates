@@ -4,6 +4,9 @@ methodology: "universal"
 complexity: "intermediate"
 owner: "mirichard"
 updated: "2025-08-05"
+primary_principles: ["stakeholder-engagement"]
+secondary_principles: ["stewardship", "adaptability"]
+principle_rationale: "Maintains affected groups, decision roles and communication needs so engagement plans remain current and responsibly owned."
 ---
 
 # Stakeholder Register Template

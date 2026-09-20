@@ -4,6 +4,9 @@ methodology: "universal"
 complexity: "advanced"
 owner: "mirichard"
 updated: "2026-09-19"
+primary_principles: ["stewardship", "quality-by-design"]
+secondary_principles: ["evidence-based-decisions"]
+principle_rationale: "Connects study objectives, endpoints and safety responsibilities to a protocol that qualified scientific and ethics reviewers can evaluate."
 ---
 
 # Clinical Trial Protocol Template

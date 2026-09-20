@@ -10,6 +10,10 @@ on:
       - 'scripts/template_reviews.py'
       - 'scripts/check_migrated_freshness.py'
       - 'scripts/validate_principles_guidance.py'
+      - 'scripts/validate_principle_coverage.py'
+      - 'tests/test_principle_coverage.py'
+      - 'schemas/principle-annotation.schema.json'
+      - 'meta/principle-coverage.json'
       - 'tests/test_principles_guidance.py'
       - 'tests/principle-assessment.test.cjs'
       - 'docs/principles/self-assessment.js'
@@ -38,6 +42,10 @@ on:
       - 'scripts/template_reviews.py'
       - 'scripts/check_migrated_freshness.py'
       - 'scripts/validate_principles_guidance.py'
+      - 'scripts/validate_principle_coverage.py'
+      - 'tests/test_principle_coverage.py'
+      - 'schemas/principle-annotation.schema.json'
+      - 'meta/principle-coverage.json'
       - 'tests/test_principles_guidance.py'
       - 'tests/principle-assessment.test.cjs'
       - 'docs/principles/self-assessment.js'
@@ -79,6 +87,8 @@ jobs:
           python -m unittest tests.test_template_metadata tests.test_template_reviews tests.test_migrated_freshness -v
           python -m unittest discover -s tests -p test_principles_guidance.py -v
           python scripts/validate_principles_guidance.py
+          python -m unittest tests.test_principle_coverage -v
+          python scripts/validate_principle_coverage.py --json-output principle-coverage-validation.json
           node --test tests/principle-assessment.test.cjs
           python -m unittest tests.test_quality_gate_baseline -v
           python -m unittest discover -s tests -p test_clean_status.py -v
@@ -115,5 +125,6 @@ jobs:
           path: |
             metadata-validation.json
             migrated-freshness.json
+            principle-coverage-validation.json
           if-no-files-found: error
           retention-days: 7

@@ -4,6 +4,9 @@ methodology: "universal"
 complexity: "advanced"
 owner: "mirichard"
 updated: "2026-09-19"
+primary_principles: ["quality-by-design"]
+secondary_principles: ["evidence-based-decisions", "risk-optimization"]
+principle_rationale: "Traces regulated system intended use and data-integrity controls to risk-based qualification tests and recorded acceptance evidence."
 ---
 
 # Computer System Validation Protocol Template

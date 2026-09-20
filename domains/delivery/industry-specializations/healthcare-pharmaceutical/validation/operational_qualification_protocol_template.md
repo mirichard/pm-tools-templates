@@ -4,6 +4,9 @@ methodology: "universal"
 complexity: "advanced"
 owner: "mirichard"
 updated: "2026-09-19"
+primary_principles: ["quality-by-design"]
+secondary_principles: ["evidence-based-decisions", "risk-optimization"]
+principle_rationale: "Challenges equipment controls, alarms and operating limits against expected results to document operational qualification and deviations."
 ---
 
 # Operational Qualification (OQ) Protocol Template

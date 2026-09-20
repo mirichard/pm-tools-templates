@@ -4,6 +4,9 @@ methodology: "universal"
 complexity: "advanced"
 owner: "mirichard"
 updated: "2026-09-19"
+primary_principles: ["quality-by-design"]
+secondary_principles: ["evidence-based-decisions", "risk-optimization"]
+principle_rationale: "Defines bounded test coverage, entry and exit criteria and execution evidence so acceptance reflects the quality risks being evaluated."
 ---
 
 # Quality Test Plan Template

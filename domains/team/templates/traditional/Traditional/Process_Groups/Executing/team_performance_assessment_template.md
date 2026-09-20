@@ -4,6 +4,9 @@ methodology: "traditional"
 complexity: "intermediate"
 owner: "mirichard"
 updated: "2025-08-05"
+primary_principles: ["continuous-learning", "collaborative-leadership"]
+secondary_principles: ["evidence-based-decisions"]
+principle_rationale: "Uses agreed performance criteria and observations to discuss team strengths and assign concrete development actions."
 ---
 
 # TEAM PERFORMANCE ASSESSMENT

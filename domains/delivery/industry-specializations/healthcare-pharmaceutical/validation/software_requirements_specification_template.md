@@ -4,6 +4,9 @@ methodology: "universal"
 complexity: "advanced"
 owner: "mirichard"
 updated: "2026-09-19"
+primary_principles: ["quality-by-design"]
+secondary_principles: ["evidence-based-decisions", "stewardship"]
+principle_rationale: "Traces regulated software intended use, functional requirements and controls to agreed testing and validation acceptance criteria."
 ---
 
 # Software Requirements Specification (SRS) Template

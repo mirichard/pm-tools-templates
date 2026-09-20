@@ -4,6 +4,9 @@ methodology: "agile"
 complexity: "advanced"
 owner: "mirichard"
 updated: "2026-09-19"
+primary_principles: ["systems-thinking", "collaborative-leadership"]
+secondary_principles: ["adaptability"]
+principle_rationale: "Coordinates train-level synchronization, cross-train dependencies and release decisions through explicit ownership and shared visibility."
 ---
 
 # SAFe ART Coordination Template

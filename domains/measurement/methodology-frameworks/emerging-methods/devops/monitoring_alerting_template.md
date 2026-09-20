@@ -4,6 +4,9 @@ methodology: "universal"
 complexity: "advanced"
 owner: "mirichard"
 updated: "2026-09-19"
+primary_principles: ["evidence-based-decisions", "risk-optimization"]
+secondary_principles: ["quality-by-design"]
+principle_rationale: "Connects service objectives and telemetry to actionable alert thresholds, response responsibilities and operational runbooks."
 ---
 
 # DevOps Monitoring and Alerting Strategy Template

@@ -4,6 +4,9 @@ methodology: "universal"
 complexity: "advanced"
 owner: "mirichard"
 updated: "2026-09-19"
+primary_principles: ["stewardship", "risk-optimization"]
+secondary_principles: ["evidence-based-decisions"]
+principle_rationale: "Maps applicable financial-services obligations to accountable controls, monitoring evidence and reporting responsibilities."
 ---
 
 # Financial Services Compliance Management Template

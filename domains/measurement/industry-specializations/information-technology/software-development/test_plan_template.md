@@ -4,6 +4,9 @@ methodology: "universal"
 complexity: "advanced"
 owner: "mirichard"
 updated: "2026-09-19"
+primary_principles: ["quality-by-design", "risk-optimization"]
+secondary_principles: ["evidence-based-decisions"]
+principle_rationale: "Plans risk-based test scope, environments and execution with defect handling and evidence-based exit decisions."
 ---
 
 # Test Plan Template

@@ -4,6 +4,9 @@ methodology: "universal"
 complexity: "advanced"
 owner: "mirichard"
 updated: "2026-09-19"
+primary_principles: ["systems-thinking", "quality-by-design"]
+secondary_principles: ["risk-optimization"]
+principle_rationale: "Connects architecture, interfaces and data design to requirements, dependencies and quality risks for implementer and reviewer scrutiny."
 ---
 
 # Technical Design Document (TDD)

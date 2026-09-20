@@ -4,6 +4,9 @@ methodology: "universal"
 complexity: "advanced"
 owner: "mirichard"
 updated: "2026-09-19"
+primary_principles: ["continuous-learning", "collaborative-leadership"]
+secondary_principles: ["evidence-based-decisions"]
+principle_rationale: "Uses discussed proficiency evidence to identify team capability gaps and agree staffing and individual learning actions."
 ---
 
 # Skills Matrix Template

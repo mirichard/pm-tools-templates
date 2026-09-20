@@ -4,6 +4,9 @@ methodology: "universal"
 complexity: "advanced"
 owner: "mirichard"
 updated: "2026-09-19"
+primary_principles: ["quality-by-design", "stewardship"]
+secondary_principles: ["systems-thinking"]
+principle_rationale: "Makes infrastructure provisioning reproducible through versioned configuration, review, state management and controlled recovery practices."
 ---
 
 # Infrastructure as Code (IaC) Template

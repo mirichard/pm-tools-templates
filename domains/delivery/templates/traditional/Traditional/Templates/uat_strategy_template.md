@@ -4,6 +4,9 @@ methodology: "traditional"
 complexity: "advanced"
 owner: "mirichard"
 updated: "2026-09-19"
+primary_principles: ["quality-by-design", "stakeholder-engagement"]
+secondary_principles: ["risk-optimization"]
+principle_rationale: "Agrees user acceptance scope, roles and entry and exit criteria so coverage reflects business risk and stakeholder needs."
 ---
 
 # User Acceptance Testing (UAT) Strategy Template

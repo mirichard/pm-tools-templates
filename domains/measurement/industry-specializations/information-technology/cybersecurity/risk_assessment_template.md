@@ -4,6 +4,9 @@ methodology: "universal"
 complexity: "advanced"
 owner: "mirichard"
 updated: "2026-09-19"
+primary_principles: ["risk-optimization", "evidence-based-decisions"]
+secondary_principles: ["stewardship"]
+principle_rationale: "Assesses asset threats and vulnerabilities so accountable owners can choose security controls proportionate to exposure."
 ---
 
 # Cybersecurity Risk Assessment Template

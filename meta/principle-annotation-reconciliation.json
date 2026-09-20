@@ -1,0 +1,4831 @@
+{
+  "version": 1,
+  "base_commit": "4bd97b8f9b93fb72cc33669f4840934b91c21c6a",
+  "recovered_commit": "b803fab460987ee8c763cb31a63091038b549f40",
+  "reviewer": "Codex (AI-assisted annotation review)",
+  "review_scope": "Principle mappings and one-sentence rationales reviewed against current purpose, usage guidance and content structure; no new full-body, human or specialist review claimed. Existing 20 annotations retained.",
+  "changes": [
+    {
+      "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/clinical-trials/clinical_trial_protocol_template.md",
+      "domain": "delivery",
+      "prior_sha256": "57d6056e14fc0c88b3b4dfa23c37c08972abf2838f2420522b66dbf861f6df19",
+      "current_sha256": "ec75e32229f01367bc4a874d9df3c82d88731f13369811a9e2b3be6978f1a4d3",
+      "source_annotation": {
+        "primary_principles": [
+          "stewardship",
+          "quality-by-design"
+        ],
+        "secondary_principles": [
+          "evidence-based-decisions"
+        ],
+        "principle_rationale": "Ensures patient safety and compliance through accountable quality-driven protocol design"
+      },
+      "annotation": {
+        "primary_principles": [
+          "stewardship",
+          "quality-by-design"
+        ],
+        "secondary_principles": [
+          "evidence-based-decisions"
+        ],
+        "principle_rationale": "Connects study objectives, endpoints and safety responsibilities to a protocol that qualified scientific and ethics reviewers can evaluate."
+      },
+      "content_headings": [
+        "Clinical Trial Protocol Template",
+        "1. Protocol Summary and Administrative Information",
+        "1.1 Synopsis",
+        "1.2 Schedule of Assessments",
+        "1.3 List of Abbreviations",
+        "1.4 Protocol Signature Page",
+        "2. Background and Rationale",
+        "2.1 Background Information",
+        "2.2 Preclinical Experience",
+        "2.3 Clinical Experience",
+        "2.4 Study Rationale",
+        "2.5 Dose Rationale"
+      ]
+    },
+    {
+      "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/compliance/gxp_training_plan_template.md",
+      "domain": "delivery",
+      "prior_sha256": "58d988b82ec80c4ffa44879d805686160bcd446cb7a7db63b60c91e15cbad1a6",
+      "current_sha256": "c3fff935eafb2e1f557126db5748aea27d3160ac82355965e1a779c5e560b440",
+      "source_annotation": {
+        "primary_principles": [
+          "stewardship",
+          "quality-by-design"
+        ],
+        "secondary_principles": [
+          "evidence-based-decisions",
+          "risk-optimization"
+        ],
+        "principle_rationale": "Addresses domain requirements through auditable evidence and quality governance."
+      },
+      "annotation": {
+        "primary_principles": [
+          "quality-by-design",
+          "stewardship"
+        ],
+        "secondary_principles": [
+          "continuous-learning"
+        ],
+        "principle_rationale": "Maps regulated role requirements to training, competence assessment and retraining records so managers can address capability gaps responsibly."
+      },
+      "content_headings": [
+        "GxP Training Plan Template",
+        "Document Approval",
+        "Document Change History",
+        "1. Introduction",
+        "1.1 Purpose and Scope",
+        "1.2 Regulatory Framework",
+        "1.3 Training Program Overview",
+        "1.4 Roles and Responsibilities",
+        "2. Training Requirements",
+        "2.1 GMP Training Requirements",
+        "2.2 GCP Training Requirements",
+        "2.3 GLP Training Requirements"
+      ]
+    },
+    {
+      "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/lifecycle/pharmaceutical_qbd_template.md",
+      "domain": "delivery",
+      "prior_sha256": "5b9c3ef355d85313642dac52dbebd6a3588d8fd76cb777797e6916e5028c4eab",
+      "current_sha256": "b855cd6971996c75c691190cf6123722539543289f6a4c088bc72e475549e187",
+      "source_annotation": {
+        "primary_principles": [
+          "stewardship",
+          "quality-by-design"
+        ],
+        "secondary_principles": [
+          "evidence-based-decisions",
+          "risk-optimization"
+        ],
+        "principle_rationale": "Ensures compliance and product quality through validated, auditable procedures."
+      },
+      "annotation": {
+        "primary_principles": [
+          "quality-by-design",
+          "risk-optimization"
+        ],
+        "secondary_principles": [
+          "evidence-based-decisions"
+        ],
+        "principle_rationale": "Connects target product quality attributes, process understanding and risk assessment to justified design-space and control-strategy decisions."
+      },
+      "content_headings": [
+        "Pharmaceutical Quality by Design (QbD) Template",
+        "Executive Summary",
+        "QbD Framework Overview",
+        "Quality Target Product Profile (QTPP)",
+        "Product Characteristics",
+        "Critical Quality Attributes (CQAs)",
+        "Risk Assessment (ICH Q9)",
+        "Initial Risk Assessment",
+        "Risk Control Strategy",
+        "Design Space Development",
+        "Formulation Design Space",
+        "Manufacturing Process Design Space"
+      ]
+    },
+    {
+      "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/manufacturing/manufacturing_batch_record_template.md",
+      "domain": "delivery",
+      "prior_sha256": "bacbf413ec9872bae45e2667e18803c0fa686bdfb595d0c5b870f25eed3d28c7",
+      "current_sha256": "fc10563d46f4dd2fdf0eb2d9c25a3611e173982a54d784078b0e577beeb3f466",
+      "source_annotation": {
+        "primary_principles": [
+          "stewardship",
+          "quality-by-design"
+        ],
+        "secondary_principles": [
+          "evidence-based-decisions",
+          "risk-optimization"
+        ],
+        "principle_rationale": "Ensures compliance and product quality through validated, auditable procedures."
+      },
+      "annotation": {
+        "primary_principles": [
+          "stewardship",
+          "quality-by-design"
+        ],
+        "secondary_principles": [
+          "evidence-based-decisions"
+        ],
+        "principle_rationale": "Captures manufacturing execution, material reconciliation and deviations in a controlled record for accountable quality review and disposition."
+      },
+      "content_headings": [
+        "Manufacturing Batch Record Template",
+        "Document History",
+        "Distribution List",
+        "Retention Period",
+        "1. Batch Record Header",
+        "1.1 Product Information",
+        "1.2 Batch Identification",
+        "1.3 Manufacturing Authorization",
+        "2. Material Section",
+        "2.1 Raw Materials",
+        "2.2 Material Verification Checklist",
+        "2.3 Packaging Materials"
+      ]
+    },
+    {
+      "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/manufacturing/process_control_template.md",
+      "domain": "delivery",
+      "prior_sha256": "8ac60be061542f865748b2e521fefdaaabb7dab403387e67da928174009ce4ce",
+      "current_sha256": "f5bfc83c6543b8cb01c92eefabc0d9af3000e0d04031b04833e73cb7788928fa",
+      "source_annotation": {
+        "primary_principles": [
+          "adaptability",
+          "quality-by-design"
+        ],
+        "secondary_principles": [
+          "evidence-based-decisions",
+          "risk-optimization"
+        ],
+        "principle_rationale": "Enables responsive change control through evidence and quality assurance."
+      },
+      "annotation": {
+        "primary_principles": [
+          "quality-by-design",
+          "evidence-based-decisions"
+        ],
+        "secondary_principles": [
+          "risk-optimization"
+        ],
+        "principle_rationale": "Links critical process attributes and parameters to statistical monitoring, justified limits and documented responses to adverse trends."
+      },
+      "content_headings": [
+        "Process Control Template",
+        "Document History",
+        "Distribution List",
+        "Retention Period",
+        "1. Introduction and Purpose",
+        "1.1 Purpose",
+        "1.2 Scope",
+        "1.3 Regulatory Basis",
+        "2. Process Control Strategy Overview",
+        "2.1 Manufacturing Process Flow Diagram",
+        "2.2 Process Control Philosophy",
+        "2.3 Control Strategy Matrix"
+      ]
+    },
+    {
+      "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/quality/quality_management_review_template.md",
+      "domain": "delivery",
+      "prior_sha256": "0bda0ef113f3b1ea65849a5b18426f10af6bd9b03ed17412ed68e9d41b6766d8",
+      "current_sha256": "651ec847fd18ebc7e34cf416194a907f1dfb686ad56962e6d2a6bdf1da519158",
+      "source_annotation": {
+        "primary_principles": [
+          "stewardship",
+          "quality-by-design"
+        ],
+        "secondary_principles": [
+          "evidence-based-decisions",
+          "risk-optimization"
+        ],
+        "principle_rationale": "Maintains regulatory compliance through evidence-based quality controls and accountability."
+      },
+      "annotation": {
+        "primary_principles": [
+          "stewardship",
+          "continuous-learning"
+        ],
+        "secondary_principles": [
+          "evidence-based-decisions"
+        ],
+        "principle_rationale": "Brings quality-system trends, risks and resource needs to management review with recorded decisions and owned improvement actions."
+      },
+      "content_headings": [
+        "Quality Management Review Template",
+        "Revision History",
+        "Approval Matrix",
+        "Quality Management System Overview",
+        "Purpose",
+        "Scope",
+        "Regulatory Framework",
+        "Review Periodicity",
+        "Review Schedule and Participants",
+        "Scheduling Guidance",
+        "Required Participants",
+        "Optional Participants (Based on Agenda)"
+      ]
+    },
+    {
+      "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/regulatory/compliance_risk_assessment_template.md",
+      "domain": "delivery",
+      "prior_sha256": "230429e687a7d976bda155ba4489955232275220880c324bb5a3e2c7ab2c9b43",
+      "current_sha256": "3790053ea7fec060d664296c1429b8d947ecfa88b18c7df0b7edd427c7c42ed1",
+      "source_annotation": {
+        "primary_principles": [
+          "adaptability",
+          "quality-by-design"
+        ],
+        "secondary_principles": [
+          "evidence-based-decisions",
+          "risk-optimization"
+        ],
+        "principle_rationale": "Enables responsive change control through evidence and quality assurance."
+      },
+      "annotation": {
+        "primary_principles": [
+          "risk-optimization",
+          "stewardship"
+        ],
+        "secondary_principles": [
+          "evidence-based-decisions"
+        ],
+        "principle_rationale": "Connects pharmaceutical compliance obligations and evidence gaps to assessed exposure, mitigation owners and escalation decisions."
+      },
+      "content_headings": [
+        "Compliance Risk Assessment Template",
+        "Revision History",
+        "Approvals",
+        "1. Introduction",
+        "1.1 Purpose",
+        "1.2 Scope",
+        "1.3 References",
+        "2. Risk Assessment Methodology",
+        "2.1 Risk Management Process",
+        "2.2 Risk Assessment Team",
+        "2.3 Risk Assessment Approach",
+        "3. Compliance Requirements"
+      ]
+    },
+    {
+      "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/regulatory/computer_system_validation_protocol_template.md",
+      "domain": "delivery",
+      "prior_sha256": "5a01c912c4ad06d1abb91d85823a2e2d51e2dd6e0b4a488d5909815b8808eb7b",
+      "current_sha256": "a21705c28b19043b004724375e79258bdf3518886af3527f078d33dd6cb4a712",
+      "source_annotation": {
+        "primary_principles": [
+          "adaptability",
+          "quality-by-design"
+        ],
+        "secondary_principles": [
+          "evidence-based-decisions",
+          "risk-optimization"
+        ],
+        "principle_rationale": "Manages issues and risks through adaptive, quality-focused procedures."
+      },
+      "annotation": {
+        "primary_principles": [
+          "quality-by-design"
+        ],
+        "secondary_principles": [
+          "evidence-based-decisions",
+          "risk-optimization"
+        ],
+        "principle_rationale": "Traces regulated system intended use and data-integrity controls to risk-based qualification tests and recorded acceptance evidence."
+      },
+      "content_headings": [
+        "Computer System Validation Protocol Template",
+        "Document Owner",
+        "Approval Matrix",
+        "Revision History",
+        "1. Introduction",
+        "1.1 Purpose",
+        "1.2 Scope",
+        "1.3 Validation Approach Summary",
+        "2. System Overview",
+        "2.1 System Description and Intended Use",
+        "2.2 System Architecture and Components",
+        "2.3 GxP Impact Assessment"
+      ]
+    },
+    {
+      "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/regulatory/health_authority_communication_plan_template.md",
+      "domain": "delivery",
+      "prior_sha256": "bc946a6e3714ee68f4091d8ad3a888e4a15641d7212f3031df911135b43cedfc",
+      "current_sha256": "4fa86d10cd6ed7792ecae0c2b1a536b22512c75dc336bdb9d5bd0e65462a04e8",
+      "source_annotation": {
+        "primary_principles": [
+          "stakeholder-engagement",
+          "systems-thinking"
+        ],
+        "secondary_principles": [
+          "collaborative-leadership",
+          "adaptability"
+        ],
+        "principle_rationale": "Maps stakeholder relationships so engagement adapts to influence, impact, and feedback."
+      },
+      "annotation": {
+        "primary_principles": [
+          "stakeholder-engagement",
+          "stewardship"
+        ],
+        "secondary_principles": [
+          "evidence-based-decisions"
+        ],
+        "principle_rationale": "Coordinates authorized health-authority submissions, responses and commitments through assigned communication roles and retained records."
+      },
+      "content_headings": [
+        "Health Authority Communication Plan",
+        "Purpose and Scope",
+        "Purpose",
+        "Scope",
+        "Regulatory Framework",
+        "Communication Strategy",
+        "Pre-Submission Communications",
+        "During Review Communications",
+        "Post-Approval Communications",
+        "Roles and Responsibilities",
+        "Regulatory Affairs Team",
+        "Subject Matter Experts"
+      ]
+    },
+    {
+      "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/regulatory/process_validation_protocol_template.md",
+      "domain": "delivery",
+      "prior_sha256": "696188368f2ac1e8f36ae8c9cc78d66961e363ce07a3f9099c15a33e6cd5e2b5",
+      "current_sha256": "db554793dc3676da5181bfc6d6b703411b970ad32de71e330852d30271c847aa",
+      "source_annotation": {
+        "primary_principles": [
+          "adaptability",
+          "quality-by-design"
+        ],
+        "secondary_principles": [
+          "evidence-based-decisions",
+          "risk-optimization"
+        ],
+        "principle_rationale": "Tailors controls to context while ensuring quality and auditable decision-making."
+      },
+      "annotation": {
+        "primary_principles": [
+          "quality-by-design"
+        ],
+        "secondary_principles": [
+          "evidence-based-decisions",
+          "risk-optimization"
+        ],
+        "principle_rationale": "Defines process-validation prerequisites, sampling and acceptance criteria so test evidence and deviations support a traceable conclusion."
+      },
+      "content_headings": [
+        "Process Validation Protocol Template",
+        "Document History",
+        "Approval Signatures",
+        "1. Protocol Overview",
+        "1.1 Purpose",
+        "1.2 Scope",
+        "1.3 Validation Approach",
+        "1.4 Acceptance Criteria Overview",
+        "2. Prerequisites and Planning",
+        "2.1 Equipment/Facility Qualification Status",
+        "2.2 Risk Assessment Summary",
+        "2.3 Critical Process Parameters (CPPs)"
+      ]
+    },
+    {
+      "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/regulatory/regulatory_inspection_readiness_plan_template.md",
+      "domain": "delivery",
+      "prior_sha256": "31f068e684bab667bd7be932d284d078337a2efc980e9688e608c36113c060a4",
+      "current_sha256": "f84d8b46101b5e797c9073f4af089c06dbb20b6aacb085960b37d3b9425e97ef",
+      "source_annotation": {
+        "primary_principles": [
+          "stewardship",
+          "quality-by-design"
+        ],
+        "secondary_principles": [
+          "evidence-based-decisions",
+          "risk-optimization"
+        ],
+        "principle_rationale": "Ensures compliance and product quality through validated, auditable procedures."
+      },
+      "annotation": {
+        "primary_principles": [
+          "stewardship",
+          "quality-by-design"
+        ],
+        "secondary_principles": [
+          "evidence-based-decisions"
+        ],
+        "principle_rationale": "Prepares inspection roles, controlled evidence and response procedures so authorized staff can support review and follow up findings."
+      },
+      "content_headings": [
+        "Regulatory Inspection Readiness Plan",
+        "Purpose and Scope",
+        "Purpose",
+        "Scope",
+        "Regulatory Framework",
+        "Roles and Responsibilities",
+        "Inspection Management Team",
+        "Subject Matter Experts",
+        "Front Room/Back Room Staff",
+        "Pre-Inspection Preparation",
+        "Documentation Review",
+        "Facility Readiness"
+      ]
+    },
+    {
+      "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/regulatory/regulatory_strategy_plan_template.md",
+      "domain": "delivery",
+      "prior_sha256": "454be052f44496d3d63cddd2eb43e41335fbbb813d6032aec0faf75bafda531d",
+      "current_sha256": "6618ae0df18fa13a8ffaa16f41e89be566ffd0bd4a7ec4b45313041652086ceb",
+      "source_annotation": {
+        "primary_principles": [
+          "stewardship",
+          "quality-by-design"
+        ],
+        "secondary_principles": [
+          "evidence-based-decisions",
+          "risk-optimization"
+        ],
+        "principle_rationale": "Maintains regulatory compliance through evidence-based quality controls and accountability."
+      },
+      "annotation": {
+        "primary_principles": [
+          "stewardship",
+          "risk-optimization"
+        ],
+        "secondary_principles": [
+          "systems-thinking"
+        ],
+        "principle_rationale": "Connects product classification and target markets to regulatory pathways, submission dependencies and explicit decision assumptions."
+      },
+      "content_headings": [
+        "Regulatory Strategy Plan",
+        "Executive Summary",
+        "Product Description",
+        "Product Overview",
+        "Intended Use/Indication",
+        "Development Status",
+        "Regulatory Classification and Pathway",
+        "Product Classification",
+        "Regulatory Pathway",
+        "Precedent Products",
+        "Target Market Strategy",
+        "Primary Markets"
+      ]
+    },
+    {
+      "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/validation/cleaning_validation_protocol_template.md",
+      "domain": "delivery",
+      "prior_sha256": "5076d25e29a1ba4ca60432f275869042a4d5c9a19016c66435f9b6248fc7b4e7",
+      "current_sha256": "84518478ab827108ba6589a2e62dfb7455d4ac78180e6a1a0a407e72ae36b0f0",
+      "source_annotation": {
+        "primary_principles": [
+          "adaptability",
+          "quality-by-design"
+        ],
+        "secondary_principles": [
+          "evidence-based-decisions",
+          "risk-optimization"
+        ],
+        "principle_rationale": "Enables responsive change control through evidence and quality assurance."
+      },
+      "annotation": {
+        "primary_principles": [
+          "quality-by-design",
+          "risk-optimization"
+        ],
+        "secondary_principles": [
+          "evidence-based-decisions"
+        ],
+        "principle_rationale": "Links worst-case cleaning conditions and justified sampling to residue acceptance limits and documented test results."
+      },
+      "content_headings": [
+        "Cleaning Validation Protocol Template",
+        "1. Document Control",
+        "1.1 Version History",
+        "1.2 Distribution List",
+        "1.3 Approvals",
+        "2. Introduction",
+        "2.1 Purpose",
+        "2.2 Scope",
+        "2.3 Regulatory Requirements",
+        "3. Equipment and Process Description",
+        "3.1 Equipment Details",
+        "3.2 Cleaning Process Description"
+      ]
+    },
+    {
+      "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/validation/equipment_qualification_protocol_template.md",
+      "domain": "delivery",
+      "prior_sha256": "f3e34b38a9c5f54667429824a99180bc5d73f47d74583fa7c942f43fa092d7f0",
+      "current_sha256": "0dc090fef69b7b0b87f9acd9918a702bda1336ca541905be22aa1cf48ed6f67f",
+      "source_annotation": {
+        "primary_principles": [
+          "stewardship",
+          "quality-by-design"
+        ],
+        "secondary_principles": [
+          "evidence-based-decisions",
+          "risk-optimization"
+        ],
+        "principle_rationale": "Protects safety and integrity through quality-by-design and stewardship principles."
+      },
+      "annotation": {
+        "primary_principles": [
+          "quality-by-design"
+        ],
+        "secondary_principles": [
+          "evidence-based-decisions",
+          "risk-optimization"
+        ],
+        "principle_rationale": "Connects equipment risks and prerequisites to installation, operational and performance qualification with explicit acceptance and deviation records."
+      },
+      "content_headings": [
+        "Equipment Qualification Protocol Template",
+        "Document History",
+        "Distribution List",
+        "1. Introduction & Purpose",
+        "1.1 Introduction",
+        "1.2 Purpose",
+        "2. Scope",
+        "2.1 Equipment Identification",
+        "2.2 Qualification Scope",
+        "2.3 Exclusions",
+        "3. References",
+        "3.1 Regulatory References"
+      ]
+    },
+    {
+      "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/validation/installation_qualification_protocol_template.md",
+      "domain": "delivery",
+      "prior_sha256": "8f5a7df88431a96d2075ec80852b182ce1d81bd6747bf38349b806d46b61e78f",
+      "current_sha256": "6f3ed18e2057641dd72c4275f4114a8ad5685d0638c8f7b135173573eb54b9a4",
+      "source_annotation": {
+        "primary_principles": [
+          "stewardship",
+          "quality-by-design"
+        ],
+        "secondary_principles": [
+          "evidence-based-decisions",
+          "risk-optimization"
+        ],
+        "principle_rationale": "Addresses domain requirements through auditable evidence and quality governance."
+      },
+      "annotation": {
+        "primary_principles": [
+          "quality-by-design"
+        ],
+        "secondary_principles": [
+          "evidence-based-decisions",
+          "stewardship"
+        ],
+        "principle_rationale": "Records installation prerequisites and specification checks with qualified execution, deviation handling and approval evidence."
+      },
+      "content_headings": [
+        "Installation Qualification (IQ) Protocol Template",
+        "Revision History",
+        "Approvals",
+        "1. Introduction and Purpose",
+        "1.1 Purpose",
+        "1.2 Scope",
+        "1.3 Regulatory Framework",
+        "2. System Description",
+        "2.1 System Overview",
+        "2.2 System Configuration",
+        "2.3 System Classification",
+        "3. Personnel Responsibilities and Qualifications"
+      ]
+    },
+    {
+      "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/validation/operational_qualification_protocol_template.md",
+      "domain": "delivery",
+      "prior_sha256": "0004af8e1cd85ac83024f8a4e3efcda3a0d3716d828724060d24f5a2324c2584",
+      "current_sha256": "636e77805f267994416565a27b270898b052f17e7e9c7f0471510380c36836e7",
+      "source_annotation": {
+        "primary_principles": [
+          "stewardship",
+          "quality-by-design"
+        ],
+        "secondary_principles": [
+          "evidence-based-decisions",
+          "risk-optimization"
+        ],
+        "principle_rationale": "Protects safety and integrity through quality-by-design and stewardship principles."
+      },
+      "annotation": {
+        "primary_principles": [
+          "quality-by-design"
+        ],
+        "secondary_principles": [
+          "evidence-based-decisions",
+          "risk-optimization"
+        ],
+        "principle_rationale": "Challenges equipment controls, alarms and operating limits against expected results to document operational qualification and deviations."
+      },
+      "content_headings": [
+        "Operational Qualification (OQ) Protocol Template",
+        "Revision History",
+        "Approvals",
+        "1. Introduction and Purpose",
+        "1.1 Purpose",
+        "1.2 Scope",
+        "1.3 Regulatory Framework",
+        "2. System Description",
+        "2.1 System Overview",
+        "2.2 System Configuration",
+        "2.3 System Classification",
+        "2.4 Prerequisite Conditions"
+      ]
+    },
+    {
+      "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/validation/performance_qualification_protocol_template.md",
+      "domain": "delivery",
+      "prior_sha256": "e98ae10691e98e1e56122865def844faf984287d96f3eb3e9aaf0df59644d27f",
+      "current_sha256": "527243bf35f045dc99698c2707d32979a6e8aa84ab71db5b9b1f8ad32b0e5f97",
+      "source_annotation": {
+        "primary_principles": [
+          "stewardship",
+          "quality-by-design"
+        ],
+        "secondary_principles": [
+          "evidence-based-decisions",
+          "risk-optimization"
+        ],
+        "principle_rationale": "Addresses domain requirements through auditable evidence and quality governance."
+      },
+      "annotation": {
+        "primary_principles": [
+          "quality-by-design"
+        ],
+        "secondary_principles": [
+          "evidence-based-decisions",
+          "risk-optimization"
+        ],
+        "principle_rationale": "Uses planned runs, sampling and statistical evaluation to assess consistent equipment performance under intended routine conditions."
+      },
+      "content_headings": [
+        "Performance Qualification (PQ) Protocol Template",
+        "Revision History",
+        "Approvals",
+        "1. Introduction and Purpose",
+        "1.1 Purpose",
+        "1.2 Scope",
+        "1.3 Regulatory Framework",
+        "2. System Description",
+        "2.1 System Overview",
+        "2.2 System Configuration",
+        "2.3 System Classification",
+        "2.4 Prerequisite Conditions"
+      ]
+    },
+    {
+      "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/validation/process_validation_master_plan_template.md",
+      "domain": "delivery",
+      "prior_sha256": "6203dd4c6036fa87efe2bf4058520b2e70d5d26e920880dcae29c43629a168c1",
+      "current_sha256": "0202892e4a84083bf0005ca1913441f47745ab802ba1514364f867497a98774d",
+      "source_annotation": {
+        "primary_principles": [
+          "adaptability",
+          "quality-by-design"
+        ],
+        "secondary_principles": [
+          "evidence-based-decisions",
+          "risk-optimization"
+        ],
+        "principle_rationale": "Manages issues and risks through adaptive, quality-focused procedures."
+      },
+      "annotation": {
+        "primary_principles": [
+          "quality-by-design",
+          "stewardship"
+        ],
+        "secondary_principles": [
+          "risk-optimization"
+        ],
+        "principle_rationale": "Coordinates process-validation policy, sequencing and lifecycle responsibilities with risk-based evidence and revalidation expectations."
+      },
+      "content_headings": [
+        "Process Validation Master Plan Template",
+        "Document Revision History",
+        "Approvals",
+        "1. Introduction and Scope",
+        "1.1 Purpose",
+        "1.2 Scope",
+        "1.3 Product and Process Overview",
+        "1.4 Regulatory Requirements",
+        "2. Validation Policy and Approach",
+        "2.1 Validation Policy",
+        "2.2 Validation Lifecycle Approach",
+        "2.3 Quality by Design (QbD) Integration"
+      ]
+    },
+    {
+      "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/validation/software_requirements_specification_template.md",
+      "domain": "delivery",
+      "prior_sha256": "272abbb19a91779681e252534cabb15d5bcf172128ccbe3eda93885ec4838c9d",
+      "current_sha256": "6aaa87771ce6cec38da18769959a0229691159ed43dd75c6613aeac8b0716cbd",
+      "source_annotation": {
+        "primary_principles": [
+          "stewardship",
+          "quality-by-design"
+        ],
+        "secondary_principles": [
+          "evidence-based-decisions",
+          "risk-optimization"
+        ],
+        "principle_rationale": "Addresses domain requirements through auditable evidence and quality governance."
+      },
+      "annotation": {
+        "primary_principles": [
+          "quality-by-design"
+        ],
+        "secondary_principles": [
+          "evidence-based-decisions",
+          "stewardship"
+        ],
+        "principle_rationale": "Traces regulated software intended use, functional requirements and controls to agreed testing and validation acceptance criteria."
+      },
+      "content_headings": [
+        "Software Requirements Specification (SRS) Template",
+        "Revision History",
+        "Distribution List",
+        "1. Introduction",
+        "1.1 Purpose",
+        "1.2 Scope",
+        "1.3 System Overview",
+        "1.4 Definitions, Acronyms, and Abbreviations",
+        "1.5 References",
+        "2. System Architecture and Components",
+        "2.1 System Context Diagram",
+        "2.2 System Components"
+      ]
+    },
+    {
+      "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/validation/validation_master_plan_template.md",
+      "domain": "delivery",
+      "prior_sha256": "af5ba934ab461ed77e79a075a496cc113886b50eb81994c77e70f1a1bb3d7bd7",
+      "current_sha256": "7e904168f12d7ca68599e5cb462c33d2b49f1b515a78258b63c20ab42c0b1820",
+      "source_annotation": {
+        "primary_principles": [
+          "stewardship",
+          "quality-by-design"
+        ],
+        "secondary_principles": [
+          "evidence-based-decisions"
+        ],
+        "principle_rationale": "Ensures regulatory compliance and system integrity through rigorous quality design and evidence-based validation"
+      },
+      "annotation": {
+        "primary_principles": [
+          "quality-by-design",
+          "stewardship"
+        ],
+        "secondary_principles": [
+          "systems-thinking"
+        ],
+        "principle_rationale": "Coordinates validation scope, responsibilities and lifecycle evidence across systems and processes with controlled change and maintenance."
+      },
+      "content_headings": [
+        "Validation Master Plan Template",
+        "Document Control & Approvals",
+        "Document Revision History",
+        "Approvals",
+        "1. Introduction & Scope",
+        "1.1 Purpose",
+        "1.2 Regulatory Requirements",
+        "1.3 Facilities/Sites Covered",
+        "1.4 Systems/Processes In Scope",
+        "1.5 Systems/Processes Out of Scope",
+        "2. Validation Strategy & Approach",
+        "2.1 Risk-Based Validation Approach"
+      ]
+    },
+    {
+      "path": "domains/delivery/industry-specializations/information-technology/service-management/problem_management_process_template.md",
+      "domain": "delivery",
+      "prior_sha256": "88675c1ac95d1310b9fecb7dfb5f77045fcd07187c30fdea8f87aa583ded27e2",
+      "current_sha256": "4311cf961260e24aba65cc079f469c4947c226bb6b9ad289634b0ac34209948d",
+      "source_annotation": {
+        "primary_principles": [
+          "stewardship",
+          "quality-by-design"
+        ],
+        "secondary_principles": [
+          "evidence-based-decisions",
+          "risk-optimization"
+        ],
+        "principle_rationale": "Maintains regulatory compliance through evidence-based quality controls and accountability."
+      },
+      "annotation": {
+        "primary_principles": [
+          "continuous-learning",
+          "evidence-based-decisions"
+        ],
+        "secondary_principles": [
+          "quality-by-design"
+        ],
+        "principle_rationale": "Investigates recurring incidents to identify root causes, maintain known errors and track corrective changes that prevent recurrence."
+      },
+      "content_headings": [
+        "Problem Management Process Template",
+        "1. Purpose and Scope",
+        "1.1 Purpose",
+        "1.2 Scope",
+        "2. Roles and Responsibilities",
+        "3. Problem Management Process Flow",
+        "Stage 1: Problem Detection & Logging",
+        "Stage 2: Categorization & Prioritization",
+        "Stage 3: Investigation & Diagnosis (Root Cause Analysis)",
+        "Stage 4: Workaround & Known Error Identification",
+        "Stage 5: Resolution & Change Implementation",
+        "Stage 6: Problem Closure & Review"
+      ]
+    },
+    {
+      "path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/less/cross_team_coordination_template.md",
+      "domain": "delivery",
+      "prior_sha256": "d404daa12c12f6ce5eadd3c4961c58113a9387e615028339a28e8ef40cf72ffb",
+      "current_sha256": "84b7a266938c336841556bcdb87e831096dda8cd8fe57147ea84804abe69b90d",
+      "source_annotation": {
+        "primary_principles": [
+          "systems-thinking",
+          "collaborative-leadership"
+        ],
+        "secondary_principles": [
+          "adaptability",
+          "stakeholder-engagement"
+        ],
+        "principle_rationale": "Coordinates teams and dependencies around shared outcomes with adaptive leadership."
+      },
+      "annotation": {
+        "primary_principles": [
+          "systems-thinking",
+          "collaborative-leadership"
+        ],
+        "secondary_principles": [
+          "adaptability"
+        ],
+        "principle_rationale": "Makes LeSS team dependencies, integration practices and shared coordination visible so teams can deliver one coherent product."
+      },
+      "content_headings": [
+        "LeSS Cross-Team Coordination Template",
+        "Overview",
+        "Template Information",
+        "Coordination Principles",
+        "LeSS Coordination Principles",
+        "Types of Coordination Needed",
+        "Coordination Mechanisms",
+        "Daily Coordination",
+        "Weekly Coordination",
+        "Sprint-Level Coordination",
+        "Coordination Artifacts",
+        "Dependency Board"
+      ]
+    },
+    {
+      "path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/less/less_sprint_planning_template.md",
+      "domain": "delivery",
+      "prior_sha256": "06f01730acc253d047291a7854737b1ec0ca4d6f92bcb8490918a5570babac7e",
+      "current_sha256": "b9809f9d83a70fc5bb5328826eca4a3c0adb8e405de8026a51fca734944cc09e",
+      "source_annotation": {
+        "primary_principles": [
+          "systems-thinking",
+          "collaborative-leadership"
+        ],
+        "secondary_principles": [
+          "value-focus",
+          "adaptability"
+        ],
+        "principle_rationale": "Coordinates scaled teams around shared value with systemic awareness and collaboration."
+      },
+      "annotation": {
+        "primary_principles": [
+          "collaborative-leadership",
+          "systems-thinking"
+        ],
+        "secondary_principles": [
+          "adaptability"
+        ],
+        "principle_rationale": "Coordinates shared product priorities and cross-team dependencies before LeSS teams form their individual sprint plans."
+      },
+      "content_headings": [
+        "LeSS Sprint Planning Template",
+        "Overview",
+        "Template Information",
+        "LeSS Sprint Planning Structure",
+        "Two-Part Sprint Planning Process",
+        "Pre-Sprint Planning Preparation",
+        "One Week Before Sprint Planning",
+        "Part 1: Multi-Team Sprint Planning",
+        "Agenda Template (4 hours)",
+        "Part 2: Individual Team Sprint Planning",
+        "Team Sprint Planning Agenda (2-4 hours)",
+        "LeSS Sprint Planning Artifacts"
+      ]
+    },
+    {
+      "path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/less/overall_product_backlog_template.md",
+      "domain": "delivery",
+      "prior_sha256": "8fa5a6de6519e5e5c847c3dc25f89e6eceea398bfcf82be3aaa1c97933a0bbc6",
+      "current_sha256": "34601ac5cffa8a5fc128837bea0705544ab1e7c0b636614672a01d28859a7e87",
+      "source_annotation": {
+        "primary_principles": [
+          "value-focus",
+          "adaptability"
+        ],
+        "secondary_principles": [
+          "stakeholder-engagement",
+          "continuous-learning"
+        ],
+        "principle_rationale": "Orders adaptable delivery choices by stakeholder value with evidence and learning."
+      },
+      "annotation": {
+        "primary_principles": [
+          "value-focus",
+          "systems-thinking"
+        ],
+        "secondary_principles": [
+          "collaborative-leadership"
+        ],
+        "principle_rationale": "Maintains one ordered product backlog so multiple LeSS teams refine and deliver priorities that serve the whole product."
+      },
+      "content_headings": [
+        "LeSS Overall Product Backlog Management Template",
+        "Overview",
+        "Template Information",
+        "Product Backlog Structure",
+        "Product Backlog Item (PBI) Attributes",
+        "Backlog Organization by Theme",
+        "Product Backlog Management Processes",
+        "Backlog Grooming Sessions",
+        "Stakeholder Engagement",
+        "Backlog Review Metrics",
+        "Product Owner Responsibilities",
+        "Backlog Ownership"
+      ]
+    },
+    {
+      "path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/metrics_dashboard_template.md",
+      "domain": "delivery",
+      "prior_sha256": "688b9d4099bff5c728b501cac50faa19b18bf229d69383a5deadee77a0946527",
+      "current_sha256": "56b17bb1ccbb83e59ef2155157dc612e6322ca3713aad802608604c7501a3b38",
+      "source_annotation": {
+        "primary_principles": [
+          "evidence-based-decisions",
+          "systems-thinking"
+        ],
+        "secondary_principles": [
+          "value-focus",
+          "continuous-learning"
+        ],
+        "principle_rationale": "Makes scaled program metrics and systemic health visible for evidence-based decisions."
+      },
+      "annotation": {
+        "primary_principles": [
+          "evidence-based-decisions",
+          "systems-thinking"
+        ],
+        "secondary_principles": [
+          "continuous-learning"
+        ],
+        "principle_rationale": "Connects team, train and portfolio indicators through defined sources and interpretation to support coordinated improvement decisions."
+      },
+      "content_headings": [
+        "SAFe Metrics and Reporting Dashboard Template",
+        "Overview",
+        "Template Information",
+        "SAFe Measurement Framework",
+        "Four Measurement Domains",
+        "Metrics Collection Frequency",
+        "Team-Level Metrics Dashboard",
+        "Team Flow Metrics",
+        "Team Dashboard Template",
+        "Program (ART) Level Metrics Dashboard",
+        "ART Flow Metrics",
+        "ART Predictability Metrics"
+      ]
+    },
+    {
+      "path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/pi_planning_template.md",
+      "domain": "delivery",
+      "prior_sha256": "afc90aa3fe873aa8558adeeed992edaa9e38909c7e670649c2d910fe6402fb95",
+      "current_sha256": "5da127e319d3e57040c0e64fb690936c21419b5d2500cc485a1db86c49f26ffd",
+      "source_annotation": {
+        "primary_principles": [
+          "systems-thinking",
+          "collaborative-leadership"
+        ],
+        "secondary_principles": [
+          "adaptability",
+          "value-focus"
+        ],
+        "principle_rationale": "Scales delivery while maintaining systems view and collaborative decision-making."
+      },
+      "annotation": {
+        "primary_principles": [
+          "collaborative-leadership",
+          "systems-thinking"
+        ],
+        "secondary_principles": [
+          "risk-optimization"
+        ],
+        "principle_rationale": "Brings teams together to negotiate interval objectives, capacity and dependencies while exposing risks and assessing confidence in the plan."
+      },
+      "content_headings": [
+        "SAFe Program Increment (PI) Planning Template",
+        "Overview",
+        "Template Information",
+        "Pre-Planning Checklist",
+        "30 Days Before PI Planning",
+        "1 Week Before PI Planning",
+        "PI Planning Agenda Template",
+        "Day 1 Schedule",
+        "Day 2 Schedule",
+        "Team Breakout Session Template",
+        "Team Breakout Structure",
+        "Program Board Template"
+      ]
+    },
+    {
+      "path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/portfolio_kanban_template.md",
+      "domain": "delivery",
+      "prior_sha256": "26945b322b2e39ed14c411dd2f5e6186167ca9c60d3f07c1c31abb32f964da86",
+      "current_sha256": "265e47c244eaa31c3868c375bf6308acd9aede6f8ab45cdaba606f2fb196ebfc",
+      "source_annotation": {
+        "primary_principles": [
+          "systems-thinking",
+          "collaborative-leadership"
+        ],
+        "secondary_principles": [
+          "adaptability",
+          "value-focus"
+        ],
+        "principle_rationale": "Coordinates cross-team dependencies and value flow through adaptive leadership."
+      },
+      "annotation": {
+        "primary_principles": [
+          "value-focus",
+          "evidence-based-decisions"
+        ],
+        "secondary_principles": [
+          "adaptability"
+        ],
+        "principle_rationale": "Makes portfolio candidates and flow limits visible so owners can evaluate investment evidence and capacity before committing to epics."
+      },
+      "content_headings": [
+        "SAFe Portfolio Kanban Template",
+        "Overview",
+        "Template Information",
+        "Portfolio Kanban Board Structure",
+        "Board Layout",
+        "Column Definitions",
+        "Epic Card Template",
+        "Epic Card Information",
+        "Portfolio Review Process",
+        "Review Board Composition",
+        "Review Cadence",
+        "Review Agenda Template"
+      ]
+    },
+    {
+      "path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_art_coordination_template.md",
+      "domain": "delivery",
+      "prior_sha256": "bcd64087761ceea85e7da5f021b310bc69dc85e751d5fe571a9780586ba5bab7",
+      "current_sha256": "f1e8908645bc0a8d038e2543ee4ac2db40b4b9ea69e4ce0e5c409aa714cdd83f",
+      "source_annotation": {
+        "primary_principles": [
+          "systems-thinking",
+          "collaborative-leadership"
+        ],
+        "secondary_principles": [
+          "adaptability",
+          "value-focus"
+        ],
+        "principle_rationale": "Coordinates cross-team dependencies and value flow through adaptive leadership."
+      },
+      "annotation": {
+        "primary_principles": [
+          "systems-thinking",
+          "collaborative-leadership"
+        ],
+        "secondary_principles": [
+          "adaptability"
+        ],
+        "principle_rationale": "Coordinates train-level synchronization, cross-train dependencies and release decisions through explicit ownership and shared visibility."
+      },
+      "content_headings": [
+        "SAFe ART Coordination Template",
+        "\ud83d\udccb ART Coordination Overview",
+        "\ud83c\udfd7\ufe0f ART Structure and Roles",
+        "ART Team Composition",
+        "Key Roles and Responsibilities",
+        "\ud83d\udd04 ART Synchronization Framework",
+        "Program Increment (PI) Structure",
+        "Iteration Structure Within PI",
+        "ART Synchronization Events",
+        "Weekly ART Sync (Scrum of Scrums) Agenda",
+        "Product Owner (PO) Sync Agenda",
+        "Multi-ART Synchronization (for Large Solutions)"
+      ]
+    },
+    {
+      "path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_metrics_dashboard_template.md",
+      "domain": "delivery",
+      "prior_sha256": "1b853eb53b60519c5cf7cfcc16f5b3c3393b8260a6ff5eaf3a078848239d1c84",
+      "current_sha256": "823561987367fce89beb4173cf707fee3700b8b1f64e16cdcd2881f2a4923099",
+      "source_annotation": {
+        "primary_principles": [
+          "systems-thinking",
+          "collaborative-leadership"
+        ],
+        "secondary_principles": [
+          "adaptability",
+          "value-focus"
+        ],
+        "principle_rationale": "Enables enterprise alignment through systems perspective and collaborative governance."
+      },
+      "annotation": {
+        "primary_principles": [
+          "evidence-based-decisions",
+          "systems-thinking"
+        ],
+        "secondary_principles": [
+          "continuous-learning"
+        ],
+        "principle_rationale": "Organizes comparable metric definitions and trends across team, train and portfolio dashboards to guide improvement at the right level."
+      },
+      "content_headings": [
+        "SAFe Metrics Dashboard Template",
+        "\ud83d\udccb Metrics Dashboard Overview",
+        "\ud83d\udd04 SAFe Measurement Framework",
+        "Core Measurement Domains",
+        "Big Picture: Metrics Alignment with SAFe Levels",
+        "\ud83d\udcca Team-Level Metrics Dashboard",
+        "Agile Team Performance Metrics",
+        "Team Dashboard Implementation Example",
+        "\ud83d\udcc8 Program (ART) Level Metrics Dashboard",
+        "Program Increment (PI) Performance",
+        "Feature Flow Metrics",
+        "Program-Level Dependencies"
+      ]
+    },
+    {
+      "path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_metrics_reporting_template.md",
+      "domain": "delivery",
+      "prior_sha256": "5f1f8c80e660234b49d48769f1ce0a7012b8dcf1eb3d787bf699b23bf81135a1",
+      "current_sha256": "92ae1eb5bb6faf52240d1c6d35a9abc255452a1d4f7dab61e52d536297bf6389",
+      "source_annotation": {
+        "primary_principles": [
+          "systems-thinking",
+          "collaborative-leadership"
+        ],
+        "secondary_principles": [
+          "adaptability",
+          "value-focus"
+        ],
+        "principle_rationale": "Scales delivery while maintaining systems view and collaborative decision-making."
+      },
+      "annotation": {
+        "primary_principles": [
+          "evidence-based-decisions",
+          "value-focus"
+        ],
+        "secondary_principles": [
+          "continuous-learning"
+        ],
+        "principle_rationale": "Interprets portfolio, delivery, quality and learning trends into recommendations and owned actions beyond dashboard reporting."
+      },
+      "content_headings": [
+        "SAFe Metrics Reporting Template",
+        "\ud83d\udcca Executive Summary",
+        "Key Performance Indicators",
+        "Alert Summary",
+        "\ud83d\udcc8 Portfolio Level Metrics Report",
+        "Strategic Investment Performance",
+        "Business Outcomes Assessment",
+        "\ud83c\udfaf Large Solution Level Report",
+        "Solution Train Performance",
+        "Solution Integration Health",
+        "\ud83d\ude80 Program (ART) Level Reports",
+        "ART Performance Summary"
+      ]
+    },
+    {
+      "path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_portfolio_kanban_template.md",
+      "domain": "delivery",
+      "prior_sha256": "89615d1618fda1872155f1b318f496cee8b97842c403897fb7a90d92faae97bc",
+      "current_sha256": "9e7645c92b8432b1bc0f365087bd9b2dbce9a358859fe17848a5ac8d93c59497",
+      "source_annotation": {
+        "primary_principles": [
+          "systems-thinking",
+          "collaborative-leadership"
+        ],
+        "secondary_principles": [
+          "adaptability",
+          "value-focus"
+        ],
+        "principle_rationale": "Coordinates cross-team dependencies and value flow through adaptive leadership."
+      },
+      "annotation": {
+        "primary_principles": [
+          "value-focus",
+          "adaptability"
+        ],
+        "secondary_principles": [
+          "stewardship"
+        ],
+        "principle_rationale": "Makes epic entry policies, lean business cases and work-in-progress limits explicit for transparent portfolio investment decisions."
+      },
+      "content_headings": [
+        "SAFe Portfolio Kanban Template",
+        "\ud83d\udccb Portfolio Kanban Overview",
+        "\ud83d\udd04 Kanban Board Structure",
+        "Epic Workflow States",
+        "Visual Representation",
+        "\ud83d\udcdd Epic Card Template",
+        "Basic Information",
+        "Business Information",
+        "Implementation Information",
+        "\ud83d\udd04 Portfolio Kanban Policies",
+        "General Policies",
+        "State-Specific Policies"
+      ]
+    },
+    {
+      "path": "domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_program_increment_planning_template.md",
+      "domain": "delivery",
+      "prior_sha256": "30bdd6a2215833f0cc74d63de297daa94af180da1dbaa975a066cde2fa63a39f",
+      "current_sha256": "d610b7ec693c75729722bdbb841d8d1ea9160c988d6b44135684ba0b19abfb95",
+      "source_annotation": {
+        "primary_principles": [
+          "systems-thinking",
+          "collaborative-leadership"
+        ],
+        "secondary_principles": [
+          "adaptability",
+          "value-focus"
+        ],
+        "principle_rationale": "Enables enterprise alignment through systems perspective and collaborative governance."
+      },
+      "annotation": {
+        "primary_principles": [
+          "collaborative-leadership",
+          "systems-thinking"
+        ],
+        "secondary_principles": [
+          "risk-optimization"
+        ],
+        "principle_rationale": "Aligns program vision and team objectives through dependency negotiation, risk review and a confidence assessment of the integrated plan."
+      },
+      "content_headings": [
+        "SAFe Program Increment Planning Template",
+        "\ud83d\udccb PI Planning Overview",
+        "\ud83d\udd04 PI Planning Preparation Checklist",
+        "2-4 Weeks Before",
+        "1-2 Weeks Before",
+        "1-3 Days Before",
+        "\ud83d\udcc5 PI Planning Agenda",
+        "Day 1",
+        "Day 2",
+        "\ud83c\udfaf Program Vision",
+        "Strategic Themes",
+        "PI Goals"
+      ]
+    },
+    {
+      "path": "domains/delivery/methodology-frameworks/hybrid/infrastructure/hybrid-infrastructure-template.md",
+      "domain": "delivery",
+      "prior_sha256": "94dd07d0fa877d1d874c1c73dd3f0bb3b8368578d3bdc7f1f14b1d1605be3b6a",
+      "current_sha256": "c5a532a1caf392375b0372d6138d56fede89cb4ab85c3770d0278ef93f76c4db",
+      "source_annotation": {
+        "primary_principles": [
+          "evidence-based-decisions",
+          "adaptability"
+        ],
+        "secondary_principles": [
+          "continuous-learning",
+          "quality-by-design"
+        ],
+        "principle_rationale": "Makes performance visible and actionable through evidence-based analysis."
+      },
+      "annotation": {
+        "primary_principles": [
+          "adaptability",
+          "systems-thinking"
+        ],
+        "secondary_principles": [
+          "quality-by-design"
+        ],
+        "principle_rationale": "Aligns shared infrastructure and integration architecture with the different environment and control needs of predictive and iterative delivery."
+      },
+      "content_headings": [
+        "Hybrid Infrastructure Template",
+        "Executive Summary",
+        "Infrastructure Philosophy",
+        "Hybrid Approach Principles",
+        "Infrastructure Layers",
+        "Foundation Infrastructure",
+        "Core Project Management Infrastructure",
+        "Methodology-Specific Infrastructure",
+        "Agile Infrastructure Components",
+        "Traditional/Waterfall Infrastructure",
+        "DevOps Infrastructure Integration",
+        "Integration Architecture"
+      ]
+    },
+    {
+      "path": "domains/delivery/project-assessment-suite/hybrid-project-assessment-template.md",
+      "domain": "delivery",
+      "prior_sha256": "e5509c85ae16ada938f32cb2c9dcebf7628fdff7e871bf09be2d286ccda803cd",
+      "current_sha256": "8d0e772fd25d4e4185eff19237fb20f581e76597cc40bd5149e4e88f55c889aa",
+      "source_annotation": {
+        "primary_principles": [
+          "adaptability",
+          "evidence-based-decisions"
+        ],
+        "secondary_principles": [
+          "stakeholder-engagement",
+          "systems-thinking"
+        ],
+        "principle_rationale": "Uses evidence and feedback to assess hybrid fit and tailor approach to project context."
+      },
+      "annotation": {
+        "primary_principles": [
+          "adaptability",
+          "systems-thinking"
+        ],
+        "secondary_principles": [
+          "evidence-based-decisions"
+        ],
+        "principle_rationale": "Assesses predictive and iterative handoffs, integration practices and controls using evidence to improve the hybrid delivery approach."
+      },
+      "content_headings": [
+        "Hybrid Project Assessment Template",
+        "Executive Summary",
+        "Hybrid Methodology Assessment",
+        "Hybrid Integration Assessment",
+        "1. Methodology Integration",
+        "2. Governance Hybrid Model",
+        "3. Team Adaptation",
+        "4. Value Delivery",
+        "Hybrid Success Factors",
+        "Optimization Recommendations",
+        "Assessment method and evidence"
+      ]
+    },
+    {
+      "path": "domains/delivery/project-lifecycle/02-planning/project-management-plan/hybrid-project-management-plan-template.md",
+      "domain": "delivery",
+      "prior_sha256": "1f686865eb9330156151cfa7bf5df23fc783232cbe5a222c05e62569f0cec362",
+      "current_sha256": "8097c40e0e95941ad5467e58bc644624a8151d933ecfee3f34de760e37c19561",
+      "source_annotation": {
+        "primary_principles": [
+          "adaptability",
+          "value-focus"
+        ],
+        "secondary_principles": [
+          "collaborative-leadership",
+          "stakeholder-engagement"
+        ],
+        "principle_rationale": "Plans hybrid delivery with adaptable governance, value focus, and stakeholder input."
+      },
+      "annotation": {
+        "primary_principles": [
+          "systems-thinking",
+          "adaptability"
+        ],
+        "secondary_principles": [
+          "stewardship"
+        ],
+        "principle_rationale": "Integrates predictive milestones and iterative increments through shared dependencies, change authority, quality controls and resource ownership."
+      },
+      "content_headings": [
+        "Hybrid Project Management Plan",
+        "Purpose and use",
+        "Project controls",
+        "Delivery approach",
+        "Integrated schedule and dependencies",
+        "Governance and change",
+        "Quality, risk, and resources",
+        "Approval and maintenance",
+        "Related Templates"
+      ]
+    },
+    {
+      "path": "domains/delivery/project-lifecycle/02-planning/project-management-plan/traditional-project-management-plan-template.md",
+      "domain": "delivery",
+      "prior_sha256": "0b67b64e340de5b9f42b03fe454b3bcca72e5b9b57f0ed7a5e28bbd06724152d",
+      "current_sha256": "3d63c1a727ba14e17fc95906f024f51553456834b7e4832c6fd66ab8ca25dfbf",
+      "source_annotation": {
+        "primary_principles": [
+          "adaptability",
+          "quality-by-design"
+        ],
+        "secondary_principles": [
+          "evidence-based-decisions"
+        ],
+        "principle_rationale": "Governs delivery through adaptive planning and quality requirements with evidence oversight"
+      },
+      "annotation": {
+        "primary_principles": [
+          "systems-thinking",
+          "stewardship"
+        ],
+        "secondary_principles": [
+          "quality-by-design"
+        ],
+        "principle_rationale": "Coordinates predictive scope, work packages, schedule and cost baselines with quality expectations and delivery controls."
+      },
+      "content_headings": [
+        "Traditional Project Management Plan Template",
+        "Project Information",
+        "1. Executive Summary",
+        "1.1 Project Overview",
+        "1.2 Project Objectives",
+        "1.3 Success Criteria",
+        "2. Project Scope",
+        "2.1 Scope Statement",
+        "2.2 Project Deliverables",
+        "2.3 Out of Scope",
+        "2.4 Assumptions",
+        "2.5 Constraints"
+      ]
+    },
+    {
+      "path": "domains/delivery/role-based-toolkits/project-manager/essential-templates/timesheet-tracking-template.md",
+      "domain": "delivery",
+      "prior_sha256": "1527934d8bcc81af7c94f118c24cf8253118d3da7728559df97f1bec6d6cdb68",
+      "current_sha256": "a9888300334167877de7ecc9062ba5e8466af3f84b487c753ead4731de9a1f3d",
+      "source_annotation": {
+        "primary_principles": [
+          "evidence-based-decisions",
+          "adaptability"
+        ],
+        "secondary_principles": [
+          "continuous-learning",
+          "quality-by-design"
+        ],
+        "principle_rationale": "Uses evidence and feedback to assess context and drive adaptive improvements."
+      },
+      "annotation": {
+        "primary_principles": [
+          "stewardship",
+          "evidence-based-decisions"
+        ],
+        "secondary_principles": [],
+        "principle_rationale": "Records time by period and project with contributor certification and approval to support traceable cost allocation and reconciliation."
+      },
+      "content_headings": [
+        "Timesheet Tracking Template",
+        "Employee Information",
+        "Weekly Time Log",
+        "Monday - [Date: MM/DD/YYYY]",
+        "Tuesday - [Date: MM/DD/YYYY]",
+        "Wednesday - [Date: MM/DD/YYYY]",
+        "Thursday - [Date: MM/DD/YYYY]",
+        "Friday - [Date: MM/DD/YYYY]",
+        "Saturday - [Date: MM/DD/YYYY] (If Applicable)",
+        "Sunday - [Date: MM/DD/YYYY] (If Applicable)",
+        "Weekly Summary",
+        "Hours by Project"
+      ]
+    },
+    {
+      "path": "domains/delivery/templates/agile/product_backlog_template.md",
+      "domain": "delivery",
+      "prior_sha256": "ac603d2c77cc11926678ce43846989a1642f29ccc4d333641550387f90f6b356",
+      "current_sha256": "6af814f8c6500c20d72f7a78572acdbbc1583a1d9b2592dd9dfa76f9876088a1",
+      "source_annotation": {
+        "primary_principles": [
+          "evidence-based-decisions",
+          "adaptability"
+        ],
+        "secondary_principles": [
+          "continuous-learning",
+          "quality-by-design"
+        ],
+        "principle_rationale": "Makes performance visible and actionable through evidence-based analysis."
+      },
+      "annotation": {
+        "primary_principles": [
+          "value-focus",
+          "adaptability"
+        ],
+        "secondary_principles": [
+          "quality-by-design"
+        ],
+        "principle_rationale": "Orders product work transparently and refines user needs into acceptance criteria and manageable dependencies as priorities evolve."
+      },
+      "content_headings": [
+        "PRODUCT BACKLOG",
+        "Scrum tailoring",
+        "Document Purpose",
+        "1. Backlog Structure and Organization",
+        "1.1 Backlog Hierarchy",
+        "1.2 Backlog Sections",
+        "2. User Story Format",
+        "2.1 User Story Template",
+        "2.2 Acceptance Criteria",
+        "2.3 Additional Story Attributes",
+        "2.4 User Story Example",
+        "3. Estimation Guidelines"
+      ]
+    },
+    {
+      "path": "domains/delivery/templates/agile/sprint_planning_template.md",
+      "domain": "delivery",
+      "prior_sha256": "1d6312bc9eb24bf377bf5e1395198d6bef3f7554c9b1ce9a35a39f7b0bd46afb",
+      "current_sha256": "8e2354a883e751c6d8d767dec57a9cc9b08c11ef9a9b2f1cde03701172e41e0f",
+      "source_annotation": {
+        "primary_principles": [
+          "adaptability",
+          "collaborative-leadership"
+        ],
+        "secondary_principles": [
+          "continuous-learning",
+          "value-focus"
+        ],
+        "principle_rationale": "Enables teams to deliver through shared purpose, iterative feedback, and learning."
+      },
+      "annotation": {
+        "primary_principles": [
+          "collaborative-leadership",
+          "adaptability"
+        ],
+        "secondary_principles": [
+          "value-focus"
+        ],
+        "principle_rationale": "Helps a Scrum team agree a Sprint Goal and feasible work using developer capacity, dependencies and acceptance expectations."
+      },
+      "content_headings": [
+        "SPRINT PLANNING",
+        "Scrum tailoring",
+        "Document Purpose",
+        "1. Sprint Planning Meeting Structure",
+        "1.1 Meeting Logistics",
+        "1.2 Two-Part Structure",
+        "1.3 Meeting Facilitation Tips (For Scrum Master)",
+        "2. Sprint Goal",
+        "2.1 Sprint Goal Definition",
+        "2.2 Characteristics of Good Sprint Goals",
+        "2.3 Sprint Goal Creation Process",
+        "2.4 Sprint Goal Example"
+      ]
+    },
+    {
+      "path": "domains/delivery/templates/hybrid/Hybrid/Templates/hybrid_quality_management_template.md",
+      "domain": "delivery",
+      "prior_sha256": "537e3962ee1a2cf37a9eed08417d79e24a92a594a7db527e2432efc0cea3cf07",
+      "current_sha256": "488fdf06d7d4d91434497aeee19c8f025411c3c05dd0e00e70e45fc3e5bf9ae0",
+      "source_annotation": {
+        "primary_principles": [
+          "evidence-based-decisions",
+          "adaptability"
+        ],
+        "secondary_principles": [
+          "continuous-learning",
+          "quality-by-design"
+        ],
+        "principle_rationale": "Enables data-driven decisions and continuous learning from assessment results."
+      },
+      "annotation": {
+        "primary_principles": [
+          "quality-by-design",
+          "adaptability"
+        ],
+        "secondary_principles": [
+          "evidence-based-decisions"
+        ],
+        "principle_rationale": "Defines acceptance standards, testing and assurance responsibilities appropriate to both formal gates and iterative work."
+      },
+      "content_headings": [
+        "Hybrid Quality Management Template",
+        "Overview",
+        "Quality Strategy and Objectives",
+        "Quality Vision Statement",
+        "Quality Objectives",
+        "Methodology-Specific Quality Focus",
+        "Quality Standards and Criteria",
+        "Overall Quality Standards",
+        "Component-Specific Quality Standards",
+        "Definition of Quality",
+        "Definition of Done",
+        "Quality Assurance Approaches"
+      ]
+    },
+    {
+      "path": "domains/delivery/templates/hybrid/Hybrid/Templates/hybrid_release_planning_template.md",
+      "domain": "delivery",
+      "prior_sha256": "b11cf20705e10cea2041047a2ad73bd0ed45491b4d5d8315b343655f5204b114",
+      "current_sha256": "90a0f46bafa53c6822a12ece80c24ebe59b16a047027b91a1ed7254df0ac9153",
+      "source_annotation": {
+        "primary_principles": [
+          "adaptability",
+          "collaborative-leadership"
+        ],
+        "secondary_principles": [
+          "continuous-learning",
+          "value-focus"
+        ],
+        "principle_rationale": "Enables teams to deliver through shared purpose, iterative feedback, and learning."
+      },
+      "annotation": {
+        "primary_principles": [
+          "systems-thinking",
+          "adaptability"
+        ],
+        "secondary_principles": [
+          "quality-by-design"
+        ],
+        "principle_rationale": "Coordinates iterative release scope with predictive dependencies, milestones and readiness criteria in one release roadmap."
+      },
+      "content_headings": [
+        "Hybrid Release Planning Template",
+        "Overview",
+        "Release Strategy and Planning Approach",
+        "Release Vision and Goals",
+        "Release Cadence and Structure",
+        "Hybrid Planning Approach",
+        "Planning Horizons Matrix",
+        "Mixed Methodology Release Roadmap",
+        "Release Timeline Visualization",
+        "Release Mapping Template",
+        "Feature-to-Release Mapping",
+        "Dependency Management Framework"
+      ]
+    },
+    {
+      "path": "domains/delivery/templates/hybrid/Hybrid/Templates/hybrid_team_management_template.md",
+      "domain": "delivery",
+      "prior_sha256": "6a287942b16b0cfbf9dba24f83a6288b5702ee825c9a056c9b281d36f6ae9a8d",
+      "current_sha256": "06697ec1e532a31a8e25a4e1c612a9241b21e38890bdf4fa834cf74fdebe101c",
+      "source_annotation": {
+        "primary_principles": [
+          "evidence-based-decisions",
+          "adaptability"
+        ],
+        "secondary_principles": [
+          "continuous-learning",
+          "quality-by-design"
+        ],
+        "principle_rationale": "Makes performance visible and actionable through evidence-based analysis."
+      },
+      "annotation": {
+        "primary_principles": [
+          "collaborative-leadership",
+          "adaptability"
+        ],
+        "secondary_principles": [
+          "systems-thinking"
+        ],
+        "principle_rationale": "Clarifies roles, coordination practices and development needs for teams using different methods to deliver shared outcomes."
+      },
+      "content_headings": [
+        "Hybrid Team Management Template",
+        "Overview",
+        "Team Structure and Organization Models",
+        "Hybrid Team Models",
+        "Team Sizing Guidelines",
+        "Team Composition Considerations",
+        "Role Definitions and Responsibilities",
+        "Core Hybrid Team Roles",
+        "RACI Matrix Template",
+        "Role Interaction Guidelines",
+        "Cross-Methodology Coordination Practices",
+        "Key Integration Points"
+      ]
+    },
+    {
+      "path": "domains/delivery/templates/hybrid/Hybrid/Templates/integrated_change_strategy_template.md",
+      "domain": "delivery",
+      "prior_sha256": "25c5f9b257cf8d45060800a7902a22ef59071e2c00a7318fecdfadb6b04fcfb9",
+      "current_sha256": "95ce5f20b7f1375ba08f62aa1a2ff4e824683fd17b0b5ea96adde419091f872d",
+      "source_annotation": {
+        "primary_principles": [
+          "adaptability",
+          "quality-by-design"
+        ],
+        "secondary_principles": [
+          "evidence-based-decisions",
+          "risk-optimization"
+        ],
+        "principle_rationale": "Manages issues and risks through adaptive, quality-focused procedures."
+      },
+      "annotation": {
+        "primary_principles": [
+          "stakeholder-engagement",
+          "systems-thinking"
+        ],
+        "secondary_principles": [
+          "adaptability"
+        ],
+        "principle_rationale": "Coordinates organizational adoption and delivery changes through linked stakeholder engagement, communication, learning and governance decisions."
+      },
+      "content_headings": [
+        "Integrated Change Strategy Template",
+        "Executive Summary",
+        "Strategic Context",
+        "Hybrid Approach Rationale",
+        "Change Scope and Impact",
+        "Change Architecture",
+        "Methodology Integration Model",
+        "Multi-Level Change Strategy",
+        "Strategic Level (Predictive Approach)",
+        "Tactical Level (Hybrid Approach)",
+        "Operational Level (Adaptive Approach)",
+        "Stakeholder Engagement Framework"
+      ]
+    },
+    {
+      "path": "domains/delivery/templates/hybrid/Hybrid/Templates/progressive_acceptance_plan_template.md",
+      "domain": "delivery",
+      "prior_sha256": "c4b4f93d5b78ab269452944a758a29945e584cf8920ecd169a43332ad65bdf83",
+      "current_sha256": "79ecca6bcb4ec372be77adff1c92730d9a6fd0742ed050614d6a4d67d4ee980b",
+      "source_annotation": {
+        "primary_principles": [
+          "evidence-based-decisions",
+          "adaptability"
+        ],
+        "secondary_principles": [
+          "continuous-learning",
+          "quality-by-design"
+        ],
+        "principle_rationale": "Enables data-driven decisions and continuous learning from assessment results."
+      },
+      "annotation": {
+        "primary_principles": [
+          "quality-by-design",
+          "stakeholder-engagement"
+        ],
+        "secondary_principles": [
+          "evidence-based-decisions"
+        ],
+        "principle_rationale": "Defines progressive acceptance levels with stakeholder decision rights, explicit criteria and evidence for each increment."
+      },
+      "content_headings": [
+        "Progressive Acceptance Plan Template",
+        "Executive Summary",
+        "Purpose",
+        "Hybrid Approach Rationale",
+        "Acceptance Philosophy",
+        "Program Context",
+        "Program Overview",
+        "Component Architecture",
+        "Multi-Level Acceptance Strategy",
+        "Strategic Level Acceptance",
+        "Tactical Level Acceptance",
+        "Operational Level Acceptance"
+      ]
+    },
+    {
+      "path": "domains/delivery/templates/traditional/Traditional/Knowledge_Areas/Project_Cost_Management/roi_tracking_template.md",
+      "domain": "delivery",
+      "prior_sha256": "475cc960a74665184e180389b481a17e4515b14016cbffd525394a0a590d5d9a",
+      "current_sha256": "fa7faf4e2f9db3ac92a0c5a169d1ce8f2352cbb17bbd5d84a3b4db2f10cccf66",
+      "source_annotation": {
+        "primary_principles": [
+          "value-focus",
+          "evidence-based-decisions"
+        ],
+        "secondary_principles": [
+          "stewardship",
+          "risk-optimization"
+        ],
+        "principle_rationale": "Evaluates business value and financial exposure through traceable evidence and accountability."
+      },
+      "annotation": {
+        "primary_principles": [
+          "value-focus",
+          "evidence-based-decisions"
+        ],
+        "secondary_principles": [
+          "stewardship"
+        ],
+        "principle_rationale": "Tracks investment costs and observed benefits separately from forecasts so benefit owners can explain returns and realization gaps."
+      },
+      "content_headings": [
+        "ROI Tracking Template",
+        "Overview",
+        "ROI Calculation Framework",
+        "Basic ROI Formula",
+        "Net Present Value (NPV) Calculation",
+        "Internal Rate of Return (IRR)",
+        "Project Financial Overview",
+        "Project Information",
+        "Investment Summary",
+        "Cost Tracking",
+        "Project Costs Breakdown",
+        "Cost Performance Indicators"
+      ]
+    },
+    {
+      "path": "domains/delivery/templates/traditional/Traditional/Process_Groups/Closing/project_closure_report_template.md",
+      "domain": "delivery",
+      "prior_sha256": "a46eb051d9b13e260430dd449c8a0b779404f2977aa8dbe9db4c73ec3a6ca5ba",
+      "current_sha256": "ff3be76d43d434576206e9506ff9c7450c879ad4de3aafc5b3ec033b2396128f",
+      "source_annotation": {
+        "primary_principles": [
+          "stewardship",
+          "evidence-based-decisions"
+        ],
+        "secondary_principles": [
+          "value-focus",
+          "risk-optimization"
+        ],
+        "principle_rationale": "Ensures responsible resource use and quality through systematic, evidence-based governance."
+      },
+      "annotation": {
+        "primary_principles": [
+          "stewardship",
+          "evidence-based-decisions"
+        ],
+        "secondary_principles": [
+          "continuous-learning"
+        ],
+        "principle_rationale": "Records delivery acceptance, financial closure and residual obligations while preserving performance findings and lessons for future work."
+      },
+      "content_headings": [
+        "PROJECT CLOSURE REPORT",
+        "Executive Summary",
+        "1. Project Completion Summary",
+        "1.1 Project Objectives Achievement",
+        "1.2 Final Project Performance",
+        "1.3 Deliverables Completion Status",
+        "2. Final Deliverables and Handover",
+        "2.1 System Deliverables",
+        "2.2 Documentation Deliverables",
+        "2.3 Knowledge Transfer Completion",
+        "3. Project Performance Analysis",
+        "3.1 Schedule Performance Summary"
+      ]
+    },
+    {
+      "path": "domains/delivery/templates/traditional/Traditional/Process_Groups/Executing/project_execution_status_report_template.md",
+      "domain": "delivery",
+      "prior_sha256": "17a41cef4a0325281d73c5a9c726d9bc8244fb9948a75591d230bd35ecfc9eb4",
+      "current_sha256": "47ae08198b8120b5ed457c6ac0a2f1ebf151244685d371f45db730f961561358",
+      "source_annotation": {
+        "primary_principles": [
+          "adaptability",
+          "collaborative-leadership"
+        ],
+        "secondary_principles": [
+          "continuous-learning",
+          "value-focus"
+        ],
+        "principle_rationale": "Supports delivery through collaborative ceremonies and learning-driven adjustments."
+      },
+      "annotation": {
+        "primary_principles": [
+          "evidence-based-decisions",
+          "stewardship"
+        ],
+        "secondary_principles": [
+          "stakeholder-engagement"
+        ],
+        "principle_rationale": "Reports period-specific deliverable, resource and control evidence with issues and decision requests for accountable execution oversight."
+      },
+      "content_headings": [
+        "PROJECT EXECUTION REPORT",
+        "Executive Summary",
+        "1. Execution Progress Summary",
+        "1.1 Current Phase Status",
+        "1.2 Key Accomplishments This Period",
+        "1.3 Work Package Status",
+        "2. Resource Management",
+        "2.1 Team Performance",
+        "2.2 Resource Utilization",
+        "2.3 Resource Issues and Actions",
+        "3. Deliverable Management",
+        "3.1 Deliverables Completed This Period"
+      ]
+    },
+    {
+      "path": "domains/delivery/templates/traditional/Traditional/Process_Groups/Executing/requirements_traceability_matrix_template.md",
+      "domain": "delivery",
+      "prior_sha256": "014564185533eda590f7fb1f965046bab067edc83386a5d66c6bdedfcb3e3ad2",
+      "current_sha256": "89db2ac9797075f5718bbbab71f9a3283c00578eedbb73a45a6b4079b8649860",
+      "source_annotation": {
+        "primary_principles": [
+          "stewardship",
+          "evidence-based-decisions"
+        ],
+        "secondary_principles": [
+          "value-focus",
+          "risk-optimization"
+        ],
+        "principle_rationale": "Ensures responsible resource use and quality through systematic, evidence-based governance."
+      },
+      "annotation": {
+        "primary_principles": [
+          "evidence-based-decisions",
+          "quality-by-design"
+        ],
+        "secondary_principles": [
+          "stewardship"
+        ],
+        "principle_rationale": "Traces requirements through design, changes and test evidence to expose coverage gaps and support controlled acceptance decisions."
+      },
+      "content_headings": [
+        "REQUIREMENTS TRACEABILITY MATRIX (RTM)",
+        "Overview",
+        "Requirements Categories",
+        "Requirement Types",
+        "Requirement Priorities",
+        "Status Definitions",
+        "Requirements Traceability Matrix",
+        "Matrix Headers Explanation",
+        "Requirements Matrix",
+        "Detailed Requirements Specifications",
+        "REQ-001: Single Sign-On Authentication",
+        "REQ-002: Response Time Performance"
+      ]
+    },
+    {
+      "path": "domains/delivery/templates/traditional/Traditional/Process_Groups/Monitoring_and_Controlling/project_performance_monitoring_template.md",
+      "domain": "delivery",
+      "prior_sha256": "ca53a89ea67d4cadc425e8a489852a59c368afeaf9cd6586644147681fbe69f7",
+      "current_sha256": "2081f22271755f796ae6d874408fa51b7f81c8b77f44411ce332253d21875e4b",
+      "source_annotation": {
+        "primary_principles": [
+          "stewardship",
+          "evidence-based-decisions"
+        ],
+        "secondary_principles": [
+          "value-focus",
+          "risk-optimization"
+        ],
+        "principle_rationale": "Manages accountability and risk through formal documentation and control procedures."
+      },
+      "annotation": {
+        "primary_principles": [
+          "evidence-based-decisions",
+          "risk-optimization"
+        ],
+        "secondary_principles": [
+          "adaptability"
+        ],
+        "principle_rationale": "Compares actual performance with approved baselines across delivery dimensions to identify variance and trigger corrective action."
+      },
+      "content_headings": [
+        "PROJECT PERFORMANCE MONITORING REPORT",
+        "Executive Summary",
+        "1. Performance Dashboard",
+        "1.1 Key Performance Indicators (KPIs)",
+        "1.2 Overall Project Health",
+        "1.3 Performance Trends",
+        "2. Scope Performance Monitoring",
+        "2.1 Scope Baseline Compliance",
+        "2.2 Scope Change Management",
+        "2.3 Deliverable Verification",
+        "3. Schedule Performance Monitoring",
+        "3.1 Schedule Baseline Analysis"
+      ]
+    },
+    {
+      "path": "domains/delivery/templates/traditional/Traditional/Process_Groups/Planning/project_management_plan_template.md",
+      "domain": "delivery",
+      "prior_sha256": "8115677b8f2476c0f73fb57861b0ba6f289d512632351c43feac3a70f5934399",
+      "current_sha256": "502f5f78b9eb7f22427182f0a735ca5a5dfee64ced8d9f2e5e7df79655cd232f",
+      "source_annotation": {
+        "primary_principles": [
+          "stewardship",
+          "evidence-based-decisions"
+        ],
+        "secondary_principles": [
+          "value-focus",
+          "risk-optimization"
+        ],
+        "principle_rationale": "Establishes governance through documented, auditable decision points and control processes."
+      },
+      "annotation": {
+        "primary_principles": [
+          "systems-thinking",
+          "stewardship"
+        ],
+        "secondary_principles": [
+          "quality-by-design"
+        ],
+        "principle_rationale": "Integrates scope, schedule, cost and subsidiary plans with coordinated ownership, quality expectations and change control."
+      },
+      "content_headings": [
+        "PROJECT MANAGEMENT PLAN",
+        "Document Purpose",
+        "1. Introduction",
+        "1.1 Project Overview",
+        "1.2 Project Deliverables",
+        "1.3 Project Success Criteria",
+        "1.4 Assumptions and Constraints",
+        "2. Project Scope Management",
+        "2.1 Scope Management Approach",
+        "2.2 Scope Definition",
+        "2.3 Work Breakdown Structure (WBS)",
+        "2.4 Scope Verification"
+      ]
+    },
+    {
+      "path": "domains/delivery/templates/traditional/Traditional/Process_Groups/Planning/project_schedule_template.md",
+      "domain": "delivery",
+      "prior_sha256": "f90f4c7c406cbd4a990e495ee318173f8c653c6bffb93c096f8ef3421cd7a211",
+      "current_sha256": "dd3668c476ab3759c503ca4cadcbc09ec434ef37c381214cf390a5d12694ae6d",
+      "source_annotation": {
+        "primary_principles": [
+          "adaptability",
+          "collaborative-leadership"
+        ],
+        "secondary_principles": [
+          "continuous-learning",
+          "value-focus"
+        ],
+        "principle_rationale": "Enables teams to deliver through shared purpose, iterative feedback, and learning."
+      },
+      "annotation": {
+        "primary_principles": [
+          "systems-thinking",
+          "evidence-based-decisions"
+        ],
+        "secondary_principles": [
+          "adaptability"
+        ],
+        "principle_rationale": "Connects task dependencies and resource assumptions to an approved schedule baseline that supports progress and change-impact analysis."
+      },
+      "content_headings": [
+        "PROJECT SCHEDULE",
+        "Purpose and Overview",
+        "Instructions for Use",
+        "Schedule Development Process",
+        "Schedule Development Workflow",
+        "Activity Definition Guidelines",
+        "Activity Sequencing Methods",
+        "Duration Estimation Techniques",
+        "Schedule Components",
+        "Activity Attributes Template",
+        "Activity List Template",
+        "Milestone List Template"
+      ]
+    },
+    {
+      "path": "domains/delivery/templates/traditional/Traditional/Process_Groups/Planning/work_breakdown_structure_template.md",
+      "domain": "delivery",
+      "prior_sha256": "b95d3e272393f2cfc3bf1f78c166401ab2656179d679ef91ad2e2ce31a450712",
+      "current_sha256": "71fbe2b0e74943c770d0148882d8f8d0c4e852f0419b31bb010c258ac6bde815",
+      "source_annotation": {
+        "primary_principles": [
+          "stewardship",
+          "evidence-based-decisions"
+        ],
+        "secondary_principles": [
+          "value-focus",
+          "risk-optimization"
+        ],
+        "principle_rationale": "Establishes governance through documented, auditable decision points and control processes."
+      },
+      "annotation": {
+        "primary_principles": [
+          "systems-thinking",
+          "quality-by-design"
+        ],
+        "secondary_principles": [
+          "stewardship"
+        ],
+        "principle_rationale": "Decomposes deliverable scope into bounded work packages with owners and dictionary definitions to support consistent estimating and scheduling."
+      },
+      "content_headings": [
+        "WORK BREAKDOWN STRUCTURE (WBS)",
+        "Purpose and Overview",
+        "Instructions for Use",
+        "WBS Development Guidelines",
+        "Decomposition Process",
+        "Numbering Convention",
+        "Coding Structure",
+        "WBS Template Formats",
+        "Hierarchical Outline Format",
+        "Tabular Format",
+        "Graphical Format (Tree Structure)",
+        "Example WBS for Software Implementation Project"
+      ]
+    },
+    {
+      "path": "domains/delivery/templates/traditional/Traditional/Templates/change_request_template.md",
+      "domain": "delivery",
+      "prior_sha256": "886e1d4aaac48f4d91d656bf1663f421c8e181ad3a35a40aeb33653d26a2c973",
+      "current_sha256": "015369a5a67fa30513e7705b2bf61dff2200be39c3b97967416bf3f7b12935d5",
+      "source_annotation": {
+        "primary_principles": [
+          "adaptability",
+          "quality-by-design"
+        ],
+        "secondary_principles": [
+          "evidence-based-decisions",
+          "risk-optimization"
+        ],
+        "principle_rationale": "Enables responsive change control through evidence and quality assurance."
+      },
+      "annotation": {
+        "primary_principles": [
+          "adaptability",
+          "risk-optimization"
+        ],
+        "secondary_principles": [
+          "evidence-based-decisions"
+        ],
+        "principle_rationale": "Compares change alternatives and baseline impacts so the change authority can approve a proportionate response with recorded evidence."
+      },
+      "content_headings": [
+        "PROJECT CHANGE REQUEST FORM",
+        "Instructions for Using This Template",
+        "1. Change Request Identification",
+        "1.1 Change Requestor Information",
+        "1.2 Change Request Type",
+        "1.3 Change Request Priority",
+        "2. Change Description and Justification",
+        "2.1 Change Description",
+        "2.2 Change Justification",
+        "2.3 Business Case",
+        "2.4 Consequences of Not Implementing",
+        "3. Supporting Documentation"
+      ]
+    },
+    {
+      "path": "domains/delivery/templates/traditional/Traditional/Templates/communication_plan_template.md",
+      "domain": "delivery",
+      "prior_sha256": "75ba793306123df3e47c60952ca8bb4253078d64eac52e016301b346bf0b872c",
+      "current_sha256": "a71cb1abc6eea267a06611f8c8ef59842bc9ae5708f1b2650dc24d835406b546",
+      "source_annotation": {
+        "primary_principles": [
+          "stakeholder-engagement",
+          "systems-thinking"
+        ],
+        "secondary_principles": [
+          "collaborative-leadership",
+          "adaptability"
+        ],
+        "principle_rationale": "Engages stakeholders through adaptive communication aligned with their needs and context."
+      },
+      "annotation": {
+        "primary_principles": [
+          "stakeholder-engagement"
+        ],
+        "secondary_principles": [
+          "collaborative-leadership",
+          "adaptability"
+        ],
+        "principle_rationale": "Matches stakeholder information needs to communication channels, reporting owners and feedback routes throughout the project."
+      },
+      "content_headings": [
+        "PROJECT COMMUNICATION PLAN",
+        "Document Purpose",
+        "1. Communication Strategy and Objectives",
+        "1.1 Communication Strategy",
+        "1.2 Communication Objectives",
+        "1.3 Communication Success Criteria",
+        "2. Stakeholder Communication Matrix",
+        "2.1 Stakeholder Analysis Summary",
+        "2.2 Communication Matrix",
+        "3. Integrated Meeting Calendar",
+        "3.1 Regular Project Meetings",
+        "3.2 One-time/Special Meetings"
+      ]
+    },
+    {
+      "path": "domains/delivery/templates/traditional/Traditional/Templates/issue_log_template.md",
+      "domain": "delivery",
+      "prior_sha256": "e65278f962fc8523384fe02194d80a47d2c5c299839ffe8c63222fc8db597eb3",
+      "current_sha256": "853ceab4664889acace64cfee80781c92a20cce6439b576ab37fe76da04d0ca0",
+      "source_annotation": {
+        "primary_principles": [
+          "adaptability",
+          "quality-by-design"
+        ],
+        "secondary_principles": [
+          "evidence-based-decisions",
+          "risk-optimization"
+        ],
+        "principle_rationale": "Tailors controls to context while ensuring quality and auditable decision-making."
+      },
+      "annotation": {
+        "primary_principles": [
+          "risk-optimization",
+          "stewardship"
+        ],
+        "secondary_principles": [
+          "evidence-based-decisions"
+        ],
+        "principle_rationale": "Assigns actual delivery problems a severity, owner, response and escalation path with evidence of resolution."
+      },
+      "content_headings": [
+        "PROJECT ISSUE LOG",
+        "Document Purpose",
+        "1. Issue Management Approach",
+        "1.1 Issue Management Process Overview",
+        "1.2 Roles and Responsibilities",
+        "1.3 Issue Management Workflow",
+        "2. Issue Identification and Categorization",
+        "2.1 Issue Categories",
+        "2.2 Issue ID Format",
+        "2.3 Issue Sources",
+        "3. Priority and Severity Assessment",
+        "3.1 Priority Levels"
+      ]
+    },
+    {
+      "path": "domains/delivery/templates/traditional/Traditional/Templates/program_management_plan_template.md",
+      "domain": "delivery",
+      "prior_sha256": "6e254817579da056a6e6c3f78c1ed9bd096aa29d7487669f4e1da17c41533864",
+      "current_sha256": "f450c896a9873711e5dc351fdc60e619062b04733be0de8f6db11ad06b4d68b7",
+      "source_annotation": {
+        "primary_principles": [
+          "value-focus",
+          "evidence-based-decisions"
+        ],
+        "secondary_principles": [
+          "stewardship",
+          "risk-optimization"
+        ],
+        "principle_rationale": "Drives investment approval through measurable value and evidence-based risk assessment."
+      },
+      "annotation": {
+        "primary_principles": [
+          "systems-thinking",
+          "stewardship"
+        ],
+        "secondary_principles": [
+          "value-focus"
+        ],
+        "principle_rationale": "Coordinates program components, shared resources and decision authority to manage dependencies and realize benefits across projects."
+      },
+      "content_headings": [
+        "PROGRAM MANAGEMENT PLAN TEMPLATE",
+        "Document Purpose",
+        "1. Program Overview",
+        "1.1 Program Description",
+        "1.2 Program Objectives",
+        "1.3 Program Success Criteria",
+        "1.4 Program Scope",
+        "2. Program Management Approach",
+        "2.1 Program Management Methodology",
+        "2.2 Program Management Processes",
+        "2.3 Integration with Organizational Processes",
+        "2.4 Program Management Tools and Systems"
+      ]
+    },
+    {
+      "path": "domains/delivery/templates/traditional/Traditional/Templates/project_roadmap_template.md",
+      "domain": "delivery",
+      "prior_sha256": "b73c0f01f7168f671762a9d5960410c03551015b6791c184d9358ba8b50c82db",
+      "current_sha256": "2b68a6de1e5e1165af9e08c78fffadaa57d7f266523b709e0d27322038a04809",
+      "source_annotation": {
+        "primary_principles": [
+          "stewardship",
+          "evidence-based-decisions"
+        ],
+        "secondary_principles": [
+          "value-focus",
+          "risk-optimization"
+        ],
+        "principle_rationale": "Ensures responsible resource use and quality through systematic, evidence-based governance."
+      },
+      "annotation": {
+        "primary_principles": [
+          "systems-thinking",
+          "stakeholder-engagement"
+        ],
+        "secondary_principles": [
+          "value-focus"
+        ],
+        "principle_rationale": "Shows phases, milestones and operational transitions together so stakeholders can align dependencies with intended delivery outcomes."
+      },
+      "content_headings": [
+        "PROJECT ROADMAP",
+        "Document Purpose",
+        "1. Project Overview",
+        "1.1 Project Description",
+        "1.2 Project Scope Summary",
+        "1.3 Key Project Parameters",
+        "2. Project Phases Overview",
+        "2.1 Phase Entry and Exit Criteria",
+        "3. Key Activities and Deliverables by Phase",
+        "3.1 Initiation Phase",
+        "3.2 Planning Phase",
+        "3.3 Execution - Design Phase"
+      ]
+    },
+    {
+      "path": "domains/delivery/templates/traditional/Traditional/Templates/purchase_order_template.md",
+      "domain": "delivery",
+      "prior_sha256": "83135d33b88fc827d23936d34268b1da20727eec7a5cfbe0bbdc4daea7902e41",
+      "current_sha256": "12c08a44f2c1f3aec05f9663f020c9bf5943eddc4d82e0f7f54f6260c54ff7d2",
+      "source_annotation": {
+        "primary_principles": [
+          "stewardship",
+          "evidence-based-decisions"
+        ],
+        "secondary_principles": [
+          "value-focus",
+          "risk-optimization"
+        ],
+        "principle_rationale": "Establishes governance through documented, auditable decision points and control processes."
+      },
+      "annotation": {
+        "primary_principles": [
+          "stewardship"
+        ],
+        "secondary_principles": [
+          "evidence-based-decisions",
+          "quality-by-design"
+        ],
+        "principle_rationale": "Records authorized vendor quantities, prices, terms and delivery obligations so procurement can reconcile an order against agreed requirements."
+      },
+      "content_headings": [
+        "Purchase Order Template",
+        "Purchase Order Information",
+        "VENDOR INFORMATION",
+        "SHIPPING INFORMATION",
+        "ORDER DETAILS",
+        "ORDER TOTAL",
+        "TERMS AND CONDITIONS",
+        "AUTHORIZATION"
+      ]
+    },
+    {
+      "path": "domains/delivery/templates/traditional/Traditional/Templates/raid_log_template.md",
+      "domain": "delivery",
+      "prior_sha256": "90facb677aa14dace79b1fefa469c4f069094053ea28d12ace38f0ae14af805b",
+      "current_sha256": "1063eb017e43d2924ea14f2741038245985e87d51ad340e7630fbecc7ad0fbdd",
+      "source_annotation": {
+        "primary_principles": [
+          "adaptability",
+          "quality-by-design"
+        ],
+        "secondary_principles": [
+          "evidence-based-decisions",
+          "risk-optimization"
+        ],
+        "principle_rationale": "Manages issues and risks through adaptive, quality-focused procedures."
+      },
+      "annotation": {
+        "primary_principles": [
+          "risk-optimization",
+          "systems-thinking"
+        ],
+        "secondary_principles": [
+          "stewardship"
+        ],
+        "principle_rationale": "Distinguishes risks, assumptions, issues and dependencies while assigning owners, reviews and escalation across related records."
+      },
+      "content_headings": [
+        "RAID Log Template",
+        "Overview",
+        "How to Use This Log",
+        "RISKS",
+        "Risk Scoring Guide",
+        "ASSUMPTIONS",
+        "Assumption Status Guide",
+        "ISSUES",
+        "Issue Priority Guide",
+        "DEPENDENCIES",
+        "Dependency Types",
+        "Summary Dashboard"
+      ]
+    },
+    {
+      "path": "domains/delivery/templates/traditional/Traditional/Templates/uat_plan_template.md",
+      "domain": "delivery",
+      "prior_sha256": "2f465384aeddd34c16939113116098cc8ed552b19bc90212e304223afebfa187",
+      "current_sha256": "fad7dbce7cdad379d6b465fb482e403f5ea28da6980368746d66792349f36ca5",
+      "source_annotation": {
+        "primary_principles": [
+          "stewardship",
+          "evidence-based-decisions"
+        ],
+        "secondary_principles": [
+          "value-focus",
+          "risk-optimization"
+        ],
+        "principle_rationale": "Manages accountability and risk through formal documentation and control procedures."
+      },
+      "annotation": {
+        "primary_principles": [
+          "quality-by-design",
+          "stakeholder-engagement"
+        ],
+        "secondary_principles": [
+          "evidence-based-decisions"
+        ],
+        "principle_rationale": "Connects business-user scenarios and risks to acceptance criteria, test evidence and accountable user acceptance decisions."
+      },
+      "content_headings": [
+        "User Acceptance Testing (UAT) Plan Template",
+        "Template Usage Guide",
+        "Executive Summary",
+        "Purpose",
+        "Scope of UAT",
+        "UAT Objectives",
+        "Project Context",
+        "Project Overview",
+        "Business Requirements Summary",
+        "System/Solution Overview",
+        "UAT Scope and Objectives",
+        "In Scope"
+      ]
+    },
+    {
+      "path": "domains/delivery/templates/traditional/Traditional/Templates/uat_strategy_template.md",
+      "domain": "delivery",
+      "prior_sha256": "9e6cd5df19208a71898e93170aaeb0802af5353276a6fc7965cf26b622528e80",
+      "current_sha256": "955ac43e79fb1e6abd80d2dbc8f586cd3f5dd9be19eca5aaa0d7b7a2bea96f71",
+      "source_annotation": {
+        "primary_principles": [
+          "stewardship",
+          "evidence-based-decisions"
+        ],
+        "secondary_principles": [
+          "value-focus",
+          "risk-optimization"
+        ],
+        "principle_rationale": "Ensures responsible resource use and quality through systematic, evidence-based governance."
+      },
+      "annotation": {
+        "primary_principles": [
+          "quality-by-design",
+          "stakeholder-engagement"
+        ],
+        "secondary_principles": [
+          "risk-optimization"
+        ],
+        "principle_rationale": "Agrees user acceptance scope, roles and entry and exit criteria so coverage reflects business risk and stakeholder needs."
+      },
+      "content_headings": [
+        "User Acceptance Testing (UAT) Strategy Template",
+        "Related Templates",
+        "1. Executive Summary",
+        "1.1 Purpose and Scope",
+        "1.2 UAT Success Criteria",
+        "2. Stakeholder Identification & Analysis",
+        "2.1 Primary Stakeholder Groups",
+        "2.2 Stakeholder Engagement Matrix",
+        "2.3 Roles and Responsibilities",
+        "3. UAT Scope Definition",
+        "3.1 In-Scope Components",
+        "3.2 Out-of-Scope Components"
+      ]
+    },
+    {
+      "path": "domains/measurement/industry-specializations/financial-services/compliance/compliance-management-template.md",
+      "domain": "measurement",
+      "prior_sha256": "02c62f54e07fedc0b504e5ad9b182799233ad0956aa3256aaa2b35328dbdb60a",
+      "current_sha256": "f17f5301699996c5ab2fe7540282ec2ac8e64cc3fa30962f30ee52037d604865",
+      "source_annotation": {
+        "primary_principles": [
+          "adaptability",
+          "quality-by-design"
+        ],
+        "secondary_principles": [
+          "evidence-based-decisions",
+          "risk-optimization"
+        ],
+        "principle_rationale": "Tailors controls to context while ensuring quality and auditable decision-making."
+      },
+      "annotation": {
+        "primary_principles": [
+          "stewardship",
+          "risk-optimization"
+        ],
+        "secondary_principles": [
+          "evidence-based-decisions"
+        ],
+        "principle_rationale": "Maps applicable financial-services obligations to accountable controls, monitoring evidence and reporting responsibilities."
+      },
+      "content_headings": [
+        "Financial Services Compliance Management Template",
+        "Applicability and evidence",
+        "Overview",
+        "Purpose and Scope",
+        "Roles and Responsibilities",
+        "Regulatory Landscape Overview",
+        "Compliance Requirements Matrix",
+        "Regulatory Requirements Mapping",
+        "Control Frameworks",
+        "Reporting Obligations",
+        "Compliance Monitoring Program",
+        "Testing and Surveillance"
+      ]
+    },
+    {
+      "path": "domains/measurement/industry-specializations/information-technology/cybersecurity/incident_response_template.md",
+      "domain": "measurement",
+      "prior_sha256": "634a3934686a53f0062703c939513fea40371baba5ac679cdd71635e4f010abc",
+      "current_sha256": "fc49b3c627aa220a97665bcccd87d44d2969007a5a73d1945923044a9d373625",
+      "source_annotation": {
+        "primary_principles": [
+          "stewardship",
+          "quality-by-design"
+        ],
+        "secondary_principles": [
+          "evidence-based-decisions",
+          "risk-optimization"
+        ],
+        "principle_rationale": "Maintains regulatory compliance through evidence-based quality controls and accountability."
+      },
+      "annotation": {
+        "primary_principles": [
+          "risk-optimization",
+          "stewardship"
+        ],
+        "secondary_principles": [
+          "collaborative-leadership"
+        ],
+        "principle_rationale": "Assigns incident authority and coordinated containment, evidence preservation and recovery actions according to cybersecurity exposure."
+      },
+      "content_headings": [
+        "Cybersecurity Incident Response Template",
+        "Framework and response applicability",
+        "Executive Summary",
+        "Incident Classification",
+        "Incident Severity Levels",
+        "Incident Categories",
+        "Incident Response Team (IRT)",
+        "Core Team Roles",
+        "Extended Team (as needed)",
+        "Incident Response Process",
+        "Phase 1: Preparation",
+        "Phase 2: Detection and Analysis"
+      ]
+    },
+    {
+      "path": "domains/measurement/industry-specializations/information-technology/cybersecurity/risk_assessment_template.md",
+      "domain": "measurement",
+      "prior_sha256": "2b8b70843179db881b20449ef3cbe3406a5aaf535b4eec23a1f5b007ce80569a",
+      "current_sha256": "28b68820d1c0e5fe4d7472782e927a460724a1580d257e2e12125dc7a4f7a8f0",
+      "source_annotation": {
+        "primary_principles": [
+          "stewardship",
+          "quality-by-design"
+        ],
+        "secondary_principles": [
+          "evidence-based-decisions",
+          "risk-optimization"
+        ],
+        "principle_rationale": "Protects safety and integrity through quality-by-design and stewardship principles."
+      },
+      "annotation": {
+        "primary_principles": [
+          "risk-optimization",
+          "evidence-based-decisions"
+        ],
+        "secondary_principles": [
+          "stewardship"
+        ],
+        "principle_rationale": "Assesses asset threats and vulnerabilities so accountable owners can choose security controls proportionate to exposure."
+      },
+      "content_headings": [
+        "Cybersecurity Risk Assessment Template",
+        "Framework and response applicability",
+        "Executive Summary",
+        "Assessment Overview",
+        "Assessment Scope",
+        "Business Context",
+        "Asset Inventory and Classification",
+        "Information Assets",
+        "Technical Assets",
+        "Third-Party Assets",
+        "Threat Landscape Analysis",
+        "External Threats"
+      ]
+    },
+    {
+      "path": "domains/measurement/industry-specializations/information-technology/digital-transformation/digital_transformation_strategy_template.md",
+      "domain": "measurement",
+      "prior_sha256": "4f5be29f59fb27cea1bb47d50f4a803b30671dc5a242ead2a6a99ffd570d1220",
+      "current_sha256": "1a41c94934cdce1e7bbf9540a1aebac4492474f4f476259f9b4aafa5aca1ac4d",
+      "source_annotation": {
+        "primary_principles": [
+          "stewardship",
+          "quality-by-design"
+        ],
+        "secondary_principles": [
+          "evidence-based-decisions",
+          "risk-optimization"
+        ],
+        "principle_rationale": "Ensures compliance and product quality through validated, auditable procedures."
+      },
+      "annotation": {
+        "primary_principles": [
+          "value-focus",
+          "systems-thinking"
+        ],
+        "secondary_principles": [
+          "adaptability"
+        ],
+        "principle_rationale": "Connects current-state gaps, technology and operating capabilities to a transformation roadmap with measurable strategic outcomes."
+      },
+      "content_headings": [
+        "Digital Transformation Strategy Template",
+        "1. Executive Summary",
+        "1.1 Transformation Vision",
+        "1.2 Strategic Business Drivers",
+        "1.3 Scope and Timeline",
+        "1.4 Strategic Outcomes and Success Metrics",
+        "1.5 Investment Summary",
+        "2. Current State Assessment",
+        "2.1 Business Process Analysis",
+        "2.2 Technology Landscape",
+        "2.3 Digital Maturity Assessment",
+        "2.4 SWOT Analysis"
+      ]
+    },
+    {
+      "path": "domains/measurement/industry-specializations/information-technology/infrastructure/infrastructure_assessment_template.md",
+      "domain": "measurement",
+      "prior_sha256": "01055fc59fb07db894426c2b8d94d88a5ad928e0f37edd079d11ddedb868693b",
+      "current_sha256": "9a134356b06d8d5c4cba60127de64ed36d1006783701ed18d52d51ff74a817ac",
+      "source_annotation": {
+        "primary_principles": [
+          "stewardship",
+          "quality-by-design"
+        ],
+        "secondary_principles": [
+          "evidence-based-decisions",
+          "risk-optimization"
+        ],
+        "principle_rationale": "Protects safety and integrity through quality-by-design and stewardship principles."
+      },
+      "annotation": {
+        "primary_principles": [
+          "evidence-based-decisions",
+          "risk-optimization"
+        ],
+        "secondary_principles": [
+          "value-focus"
+        ],
+        "principle_rationale": "Assesses infrastructure capacity, performance and exposure to justify prioritized investment or migration recommendations."
+      },
+      "content_headings": [
+        "Infrastructure Assessment Template",
+        "1. Executive Summary",
+        "1.1 Assessment Objectives",
+        "1.2 Assessment Scope",
+        "1.3 Key Findings Summary",
+        "1.4 Strategic Recommendations Overview",
+        "2. Current Infrastructure Overview",
+        "2.1 Hardware Inventory",
+        "2.2 Network Architecture",
+        "2.3 Software Systems",
+        "2.4 Security Controls",
+        "2.5 Data Centers/Cloud Resources"
+      ]
+    },
+    {
+      "path": "domains/measurement/industry-specializations/information-technology/security/cybersecurity_assessment_template.md",
+      "domain": "measurement",
+      "prior_sha256": "009377e2ee668f48011b4a7896d64db88e7dfe28539f354b39cfc33b896885a2",
+      "current_sha256": "50d9eebd101e4971ee483b222f65f8b06a8aadea03564a8bd1f3529ef2e79167",
+      "source_annotation": {
+        "primary_principles": [
+          "stewardship",
+          "quality-by-design"
+        ],
+        "secondary_principles": [
+          "evidence-based-decisions",
+          "risk-optimization"
+        ],
+        "principle_rationale": "Protects safety and integrity through quality-by-design and stewardship principles."
+      },
+      "annotation": {
+        "primary_principles": [
+          "risk-optimization"
+        ],
+        "secondary_principles": [
+          "evidence-based-decisions",
+          "stewardship"
+        ],
+        "principle_rationale": "Bounds a security posture assessment around assets, threats and vulnerabilities so owners can prioritize evidence-backed protection measures."
+      },
+      "content_headings": [
+        "Cybersecurity Assessment Template",
+        "Framework and response applicability",
+        "Revision History",
+        "Document Approvals",
+        "1. Executive Summary",
+        "1.1 Assessment Overview",
+        "1.2 Key Findings Summary",
+        "1.3 Security Posture Summary",
+        "1.4 Recommendation Summary",
+        "2. Assessment Scope & Methodology",
+        "2.1 Scope Definition",
+        "2.2 Assessment Methodology"
+      ]
+    },
+    {
+      "path": "domains/measurement/industry-specializations/information-technology/software-development/technical_design_document_template.md",
+      "domain": "measurement",
+      "prior_sha256": "822495756a5a57c4c6373be00e90cbeb7520027b06dc1e53ed6a47e8be1aeb7d",
+      "current_sha256": "2baa041a301d3e552e31a4b5ce09cd18debe4fc6b2639eb1ef6cbd24f207dbf4",
+      "source_annotation": {
+        "primary_principles": [
+          "stewardship",
+          "quality-by-design"
+        ],
+        "secondary_principles": [
+          "evidence-based-decisions",
+          "risk-optimization"
+        ],
+        "principle_rationale": "Protects safety and integrity through quality-by-design and stewardship principles."
+      },
+      "annotation": {
+        "primary_principles": [
+          "systems-thinking",
+          "quality-by-design"
+        ],
+        "secondary_principles": [
+          "risk-optimization"
+        ],
+        "principle_rationale": "Connects architecture, interfaces and data design to requirements, dependencies and quality risks for implementer and reviewer scrutiny."
+      },
+      "content_headings": [
+        "Technical Design Document (TDD)",
+        "Example implementation contract",
+        "Document Revision History",
+        "1. Introduction",
+        "1.1 Purpose",
+        "1.2 Scope",
+        "1.3 Definitions, Acronyms, and Abbreviations",
+        "1.4 References",
+        "1.5 Document Overview",
+        "2. System Overview",
+        "2.1 System Context",
+        "2.2 Design Goals and Constraints"
+      ]
+    },
+    {
+      "path": "domains/measurement/industry-specializations/information-technology/software-development/test_plan_template.md",
+      "domain": "measurement",
+      "prior_sha256": "a38f3d78bd2a7771b86c95563b286b4defb90bc9f064f6e1f2da5be048d710f0",
+      "current_sha256": "7ac410a391d17f6cd908d0d90ded899555ce564e0cac0d41274bc76bb67a8312",
+      "source_annotation": {
+        "primary_principles": [
+          "quality-by-design",
+          "adaptability"
+        ],
+        "secondary_principles": [
+          "continuous-learning"
+        ],
+        "principle_rationale": "Embeds quality assurance and flexibility throughout testing to enable learning"
+      },
+      "annotation": {
+        "primary_principles": [
+          "quality-by-design",
+          "risk-optimization"
+        ],
+        "secondary_principles": [
+          "evidence-based-decisions"
+        ],
+        "principle_rationale": "Plans risk-based test scope, environments and execution with defect handling and evidence-based exit decisions."
+      },
+      "content_headings": [
+        "Test Plan Template",
+        "Example implementation contract",
+        "Document Revision History",
+        "1. Introduction",
+        "1.1 Purpose",
+        "1.2 Scope",
+        "1.3 Definitions, Acronyms, and Abbreviations",
+        "1.4 References",
+        "1.5 Document Overview",
+        "2. Test Strategy",
+        "2.1 Overall Approach",
+        "2.2 Testing Levels"
+      ]
+    },
+    {
+      "path": "domains/measurement/methodology-frameworks/emerging-methods/devops/cicd_pipeline_planning_template.md",
+      "domain": "measurement",
+      "prior_sha256": "7f10d6f7f956ee30e30eb7b9f102ef59a48de6237758079f8547867290a603c9",
+      "current_sha256": "2aea3d25f11f3760859b3d208a9e237412f35d587bd43d509dc53b0700a44a78",
+      "source_annotation": {
+        "primary_principles": [
+          "quality-by-design",
+          "systems-thinking"
+        ],
+        "secondary_principles": [
+          "evidence-based-decisions",
+          "stewardship"
+        ],
+        "principle_rationale": "Builds quality into delivery pipeline design through integrated testing and system awareness."
+      },
+      "annotation": {
+        "primary_principles": [
+          "quality-by-design",
+          "systems-thinking"
+        ],
+        "secondary_principles": [
+          "stewardship"
+        ],
+        "principle_rationale": "Connects build, test, security and promotion stages with rollback responsibilities to make software delivery verifiable and accountable."
+      },
+      "content_headings": [
+        "CI/CD Pipeline Planning Template",
+        "Example implementation contract",
+        "Overview",
+        "Template Information",
+        "CI/CD Pipeline Strategy",
+        "Strategic Objectives",
+        "Pipeline Maturity Assessment",
+        "Pipeline Architecture Design",
+        "Pipeline Components",
+        "Pipeline Branching Strategy",
+        "Project Integration Planning",
+        "Sprint Integration"
+      ]
+    },
+    {
+      "path": "domains/measurement/methodology-frameworks/emerging-methods/devops/devsecops_template.md",
+      "domain": "measurement",
+      "prior_sha256": "bb40479be82b02daabdc0dc4320bb721e62b50191ecd844a29722047fdb8864e",
+      "current_sha256": "6b52959eb1d3e3f688bc5fbbe39db5fbd57f66146401804a69f6973264925b35",
+      "source_annotation": {
+        "primary_principles": [
+          "quality-by-design",
+          "risk-optimization"
+        ],
+        "secondary_principles": [
+          "evidence-based-decisions",
+          "stewardship"
+        ],
+        "principle_rationale": "Integrates security assurance and risk controls into continuous delivery process."
+      },
+      "annotation": {
+        "primary_principles": [
+          "quality-by-design",
+          "risk-optimization"
+        ],
+        "secondary_principles": [
+          "stewardship"
+        ],
+        "principle_rationale": "Builds security testing, monitoring and remediation responsibilities into delivery stages before software reaches production."
+      },
+      "content_headings": [
+        "DevSecOps Integration Template",
+        "Example implementation contract",
+        "Overview",
+        "Template Information",
+        "DevSecOps Strategy Framework",
+        "Security-First Approach",
+        "Security Integration Architecture",
+        "DevSecOps Architecture Layers",
+        "Security Testing Integration",
+        "Static Application Security Testing (SAST)",
+        "CI/CD Pipeline Security Integration",
+        "sonar-project.properties"
+      ]
+    },
+    {
+      "path": "domains/measurement/methodology-frameworks/emerging-methods/devops/infrastructure_as_code_template.md",
+      "domain": "measurement",
+      "prior_sha256": "9bcac02a616da213bea5828a60b20d8d5fb0917b93248f1e43a131fc760db42d",
+      "current_sha256": "3eeeb3a9eceaeb463bbdb1364dce4b44b3d2737c249a0a209c95f68636682144",
+      "source_annotation": {
+        "primary_principles": [
+          "quality-by-design",
+          "systems-thinking"
+        ],
+        "secondary_principles": [
+          "evidence-based-decisions",
+          "continuous-learning"
+        ],
+        "principle_rationale": "Builds infrastructure quality and system coherence through documented, testable code."
+      },
+      "annotation": {
+        "primary_principles": [
+          "quality-by-design",
+          "stewardship"
+        ],
+        "secondary_principles": [
+          "systems-thinking"
+        ],
+        "principle_rationale": "Makes infrastructure provisioning reproducible through versioned configuration, review, state management and controlled recovery practices."
+      },
+      "content_headings": [
+        "Infrastructure as Code (IaC) Template",
+        "Example implementation contract",
+        "Overview",
+        "Template Information",
+        "IaC Strategy Framework",
+        "Infrastructure as Code Principles",
+        "IaC Architecture Design",
+        "IaC Architecture Layers",
+        "Terraform Implementation",
+        "Terraform Project Structure",
+        "modules/networking/main.tf",
+        "Internet Gateway"
+      ]
+    },
+    {
+      "path": "domains/measurement/methodology-frameworks/emerging-methods/devops/monitoring_alerting_template.md",
+      "domain": "measurement",
+      "prior_sha256": "dc14906965793d1bc3593a00a82f79d7fb2212abd1c014ec18a0e07cde74753e",
+      "current_sha256": "4777cfb9eeb70b91da057c658e544f5f1d5322570bdf9de8dfe7af55a2da134f",
+      "source_annotation": {
+        "primary_principles": [
+          "risk-optimization",
+          "evidence-based-decisions"
+        ],
+        "secondary_principles": [
+          "quality-by-design",
+          "stewardship"
+        ],
+        "principle_rationale": "Identifies and responds to operational risks through continuous, evidence-based monitoring."
+      },
+      "annotation": {
+        "primary_principles": [
+          "evidence-based-decisions",
+          "risk-optimization"
+        ],
+        "secondary_principles": [
+          "quality-by-design"
+        ],
+        "principle_rationale": "Connects service objectives and telemetry to actionable alert thresholds, response responsibilities and operational runbooks."
+      },
+      "content_headings": [
+        "DevOps Monitoring and Alerting Strategy Template",
+        "Example implementation contract",
+        "Overview",
+        "Template Information",
+        "Monitoring Strategy Framework",
+        "Observability Pillars",
+        "Service Level Objectives (SLOs)",
+        "Service Level Objectives Template",
+        "Metrics and Monitoring Implementation",
+        "Application Metrics",
+        "Business Metrics Configuration",
+        "Technical Metrics Configuration"
+      ]
+    },
+    {
+      "path": "domains/measurement/methodology-frameworks/emerging-methods/devops/release_management_template.md",
+      "domain": "measurement",
+      "prior_sha256": "81eec1777822fee590919c60210e689457bfa33bf2cb8217a441b8870388f010",
+      "current_sha256": "2f66db0e72085ee0e8c3a2c9413982028fe64910bafc4d70594ea9e3ee917a9a",
+      "source_annotation": {
+        "primary_principles": [
+          "adaptability",
+          "collaborative-leadership"
+        ],
+        "secondary_principles": [
+          "continuous-learning",
+          "value-focus"
+        ],
+        "principle_rationale": "Supports delivery through collaborative ceremonies and learning-driven adjustments."
+      },
+      "annotation": {
+        "primary_principles": [
+          "quality-by-design",
+          "risk-optimization"
+        ],
+        "secondary_principles": [
+          "collaborative-leadership"
+        ],
+        "principle_rationale": "Coordinates release readiness, deployment handoffs and rollback decisions with documented validation and response ownership."
+      },
+      "content_headings": [
+        "Release Management Workflow Template",
+        "Example implementation contract",
+        "Overview",
+        "Template Information",
+        "Release Strategy Framework",
+        "Release Types and Cadence",
+        "Release Planning Process",
+        "Release Workflow Stages",
+        "1. Release Planning Stage",
+        "Release Requirements Document",
+        "2. Development and Integration Stage",
+        "Quality Gates Configuration"
+      ]
+    },
+    {
+      "path": "domains/measurement/project-assessment-suite/current-state-analysis-template.md",
+      "domain": "measurement",
+      "prior_sha256": "b7c677cf9cc2ab4100f6132996560be2d266debfbb7e306a8ce55652b86d112e",
+      "current_sha256": "f5de495ce605e7e4fc3af9796d286bb5063fc631de135e478779b856f4250545",
+      "source_annotation": {
+        "primary_principles": [
+          "evidence-based-decisions",
+          "adaptability"
+        ],
+        "secondary_principles": [
+          "systems-thinking",
+          "continuous-learning"
+        ],
+        "principle_rationale": "Uses evidence and feedback to assess current state and tailor improvement approach."
+      },
+      "annotation": {
+        "primary_principles": [
+          "evidence-based-decisions",
+          "systems-thinking"
+        ],
+        "secondary_principles": [
+          "continuous-learning"
+        ],
+        "principle_rationale": "Establishes a current-state baseline across processes, technology, capabilities and performance to identify connected improvement needs."
+      },
+      "content_headings": [
+        "Current State Analysis Template",
+        "Overview",
+        "Executive Summary",
+        "Current State Overview",
+        "Key Findings Summary",
+        "1. Organizational Assessment",
+        "1.1 Organizational Structure Analysis",
+        "1.2 Culture and Change Readiness",
+        "2. Process Analysis",
+        "2.1 Current Process Mapping",
+        "2.2 Process Maturity Assessment",
+        "3. Technology and Systems Analysis"
+      ]
+    },
+    {
+      "path": "domains/measurement/project-assessment-suite/executive-summary-template.md",
+      "domain": "measurement",
+      "prior_sha256": "20c32e255faef12025e764a821d6d902c4e75da316d6c64c03a06aa41d5dea87",
+      "current_sha256": "6819502348519d938991273ee01f8e2a9bd90ce6205a7ea3a389e0b5efb51485",
+      "source_annotation": {
+        "primary_principles": [
+          "evidence-based-decisions",
+          "value-focus"
+        ],
+        "secondary_principles": [
+          "stewardship",
+          "systems-thinking"
+        ],
+        "principle_rationale": "Distills assessment evidence into actionable insights for accountable leadership."
+      },
+      "annotation": {
+        "primary_principles": [
+          "evidence-based-decisions",
+          "value-focus"
+        ],
+        "secondary_principles": [
+          "stakeholder-engagement"
+        ],
+        "principle_rationale": "Condenses assessment findings into executive priorities, resource implications and decision points tied to measurable improvement outcomes."
+      },
+      "content_headings": [
+        "Executive Summary Template",
+        "Project Assessment Executive Summary",
+        "Project Overview",
+        "Assessment Results at a Glance",
+        "Overall Project Health Score: **___/100**",
+        "Health Status: ",
+        "Assessment Confidence Level: \u2610 High \u2610 Medium \u2610 Low",
+        "Key Performance Indicators",
+        "Critical Findings",
+        "\ud83c\udfaf Top Strengths (Leverage and Maintain)",
+        "\u26a0\ufe0f Critical Issues (Immediate Attention Required)",
+        "\ud83d\udd0d Areas of Concern (Monitor Closely)"
+      ]
+    },
+    {
+      "path": "domains/measurement/project-assessment-suite/future-state-blueprint-template.md",
+      "domain": "measurement",
+      "prior_sha256": "9140dcf43a9096dd49348d691ba525006d9654eb751dc43bce135ad61f82b328",
+      "current_sha256": "d3b7f87a47e293384060cfb9708a1c02bc113944369b02b5f22b9ab63937f342",
+      "source_annotation": {
+        "primary_principles": [
+          "value-focus",
+          "systems-thinking"
+        ],
+        "secondary_principles": [
+          "stakeholder-engagement",
+          "evidence-based-decisions"
+        ],
+        "principle_rationale": "Aligns stakeholders on future vision through shared value and systemic understanding."
+      },
+      "annotation": {
+        "primary_principles": [
+          "systems-thinking",
+          "value-focus"
+        ],
+        "secondary_principles": [
+          "adaptability"
+        ],
+        "principle_rationale": "Aligns target operating capabilities and technology architecture with a sequenced roadmap, benefit owners and success measures."
+      },
+      "content_headings": [
+        "Future State Blueprint Template",
+        "Overview",
+        "Executive Summary",
+        "Future State Vision",
+        "Key Transformation Areas",
+        "1. Strategic Vision and Objectives",
+        "1.1 Vision Statement and Strategic Goals",
+        "1.2 Value Proposition and Benefits",
+        "2. Future State Operating Model",
+        "2.1 Organizational Design",
+        "2.2 Process Architecture",
+        "2.3 Culture and Change Management"
+      ]
+    },
+    {
+      "path": "domains/measurement/project-assessment-suite/gap-analysis-matrix-template.md",
+      "domain": "measurement",
+      "prior_sha256": "c86d98d013be365ddba04a003312cf6e3300c6b7c7f27a31efde59921464f03d",
+      "current_sha256": "19db8873130fc44f7ae384fd08dfac34c9e4156165f3022ef27572927631b15d",
+      "source_annotation": {
+        "primary_principles": [
+          "evidence-based-decisions",
+          "adaptability"
+        ],
+        "secondary_principles": [
+          "quality-by-design",
+          "continuous-learning"
+        ],
+        "principle_rationale": "Documents gaps with evidence to tailor improvement plans and build quality responses."
+      },
+      "annotation": {
+        "primary_principles": [
+          "evidence-based-decisions",
+          "value-focus"
+        ],
+        "secondary_principles": [
+          "continuous-learning"
+        ],
+        "principle_rationale": "Compares current and target capabilities, investigates root causes and prioritizes owned gap-closure actions with follow-up measures."
+      },
+      "content_headings": [
+        "Gap Analysis Matrix Template",
+        "Project Information",
+        "Gap Analysis Overview",
+        "Purpose",
+        "Methodology",
+        "Current State vs Future State Analysis",
+        "1. Project Management Framework",
+        "2. Scope Management",
+        "3. Schedule Management",
+        "4. Cost Management",
+        "5. Quality Management",
+        "6. Risk Management"
+      ]
+    },
+    {
+      "path": "domains/measurement/project-assessment-suite/governance-assessment-template.md",
+      "domain": "measurement",
+      "prior_sha256": "102e646a888f6f7f08c3cf25a7fa7d4fd785de6510c840ddb4629ee0ef30d452",
+      "current_sha256": "40f5ec5e534ceafb1015f828a46663b1b0271b0c570a045c426b6a01b847e431",
+      "source_annotation": {
+        "primary_principles": [
+          "evidence-based-decisions",
+          "quality-by-design"
+        ],
+        "secondary_principles": [
+          "stewardship",
+          "risk-optimization"
+        ],
+        "principle_rationale": "Assesses control maturity through evidence to ensure quality governance and compliance."
+      },
+      "annotation": {
+        "primary_principles": [
+          "stewardship",
+          "adaptability"
+        ],
+        "secondary_principles": [
+          "evidence-based-decisions"
+        ],
+        "principle_rationale": "Assesses decision authority and governance controls against project exposure to identify missing accountability or disproportionate overhead."
+      },
+      "content_headings": [
+        "Project Governance Assessment Template",
+        "Executive Summary",
+        "Assessment Overview",
+        "Governance Framework Assessment",
+        "1. Governance Structure",
+        "2. Policy and Procedures",
+        "Assessment method and evidence"
+      ]
+    },
+    {
+      "path": "domains/measurement/project-assessment-suite/process-maturity-assessment-template.md",
+      "domain": "measurement",
+      "prior_sha256": "77c5e4d5a368247b1c4abf168e54f0a87b427b77488b8766c3be77fa76232fbd",
+      "current_sha256": "8f5a0d9d2717ce31cb4aabb1877b59156fc225f16a582f2501e06cbbe1dc5c96",
+      "source_annotation": {
+        "primary_principles": [
+          "evidence-based-decisions",
+          "adaptability"
+        ],
+        "secondary_principles": [
+          "continuous-learning",
+          "quality-by-design"
+        ],
+        "principle_rationale": "Uses evidence and feedback to assess context and drive adaptive improvements."
+      },
+      "annotation": {
+        "primary_principles": [
+          "continuous-learning",
+          "evidence-based-decisions"
+        ],
+        "secondary_principles": [
+          "adaptability"
+        ],
+        "principle_rationale": "Uses observed process practices and outcomes to assess capability and prioritize a context-appropriate maturity improvement roadmap."
+      },
+      "content_headings": [
+        "Process Maturity Assessment Template",
+        "Executive Summary",
+        "Maturity Assessment Framework",
+        "Process Areas Assessment",
+        "1. Project Planning Maturity",
+        "2. Risk Management Maturity",
+        "3. Quality Management Maturity",
+        "4. Stakeholder Management Maturity",
+        "Organizational Capability Assessment",
+        "Maturity Roadmap",
+        "Assessment method and evidence"
+      ]
+    },
+    {
+      "path": "domains/measurement/project-assessment-suite/project-health-assessment-template.md",
+      "domain": "measurement",
+      "prior_sha256": "d805fa54be0cca2e892cd863fc44c93332732a3fce946397dbd3b115d58e8eda",
+      "current_sha256": "dc5121f85c9cf6d7302c853628f69ad0a56fb5883ac3a6f55487de9ca57cfcfa",
+      "source_annotation": {
+        "primary_principles": [
+          "evidence-based-decisions",
+          "adaptability"
+        ],
+        "secondary_principles": [
+          "continuous-learning",
+          "quality-by-design"
+        ],
+        "principle_rationale": "Makes performance visible and actionable through evidence-based analysis."
+      },
+      "annotation": {
+        "primary_principles": [
+          "evidence-based-decisions",
+          "risk-optimization"
+        ],
+        "secondary_principles": [
+          "continuous-learning"
+        ],
+        "principle_rationale": "Assesses project health across delivery dimensions to prioritize evidence-backed interventions and track their follow-up."
+      },
+      "content_headings": [
+        "Project Health Assessment Template",
+        "Project Information",
+        "Executive Summary",
+        "Overall Health Score: ___/100",
+        "Health Status:",
+        "Key Findings Summary:",
+        "Detailed Assessment Dimensions",
+        "1. Scope Management",
+        "2. Schedule Management",
+        "3. Budget Management",
+        "4. Quality Management",
+        "5. Risk Management"
+      ]
+    },
+    {
+      "path": "domains/measurement/project-assessment-suite/remediation-action-plan-template.md",
+      "domain": "measurement",
+      "prior_sha256": "7feeaf1398f6a86f97059a1e9ac4c22a6c32090d50a56e7fd1b1e53061667f26",
+      "current_sha256": "15707bb3bb655c692542981d78b7234c81bdd8952d4d0b7752e64255e8b5d59b",
+      "source_annotation": {
+        "primary_principles": [
+          "evidence-based-decisions",
+          "adaptability"
+        ],
+        "secondary_principles": [
+          "continuous-learning",
+          "quality-by-design"
+        ],
+        "principle_rationale": "Enables data-driven decisions and continuous learning from assessment results."
+      },
+      "annotation": {
+        "primary_principles": [
+          "continuous-learning",
+          "stewardship"
+        ],
+        "secondary_principles": [
+          "evidence-based-decisions"
+        ],
+        "principle_rationale": "Turns assessment findings into resourced corrective actions with owners, progress evidence and verification of improvement results."
+      },
+      "content_headings": [
+        "Remediation Action Plan Template",
+        "Plan Information",
+        "Executive Summary",
+        "Plan Overview",
+        "Priority Distribution",
+        "Expected Benefits",
+        "Action Plan Matrix",
+        "Critical Priority Actions (0-30 days)",
+        "High Priority Actions (1-3 months)",
+        "Medium Priority Actions (3-6 months)",
+        "Low Priority Actions (6+ months)",
+        "Detailed Action Plans"
+      ]
+    },
+    {
+      "path": "domains/measurement/project-assessment-suite/resource-management-assessment-template.md",
+      "domain": "measurement",
+      "prior_sha256": "605c5438d43eed843a7ba3d87b8391027641f7d9515eae69687b4e34a0987176",
+      "current_sha256": "cdb92013c7d18998b2e0325e447a6a464bbb7a1b694d8129351570602dd53955",
+      "source_annotation": {
+        "primary_principles": [
+          "evidence-based-decisions",
+          "adaptability"
+        ],
+        "secondary_principles": [
+          "continuous-learning",
+          "quality-by-design"
+        ],
+        "principle_rationale": "Makes performance visible and actionable through evidence-based analysis."
+      },
+      "annotation": {
+        "primary_principles": [
+          "evidence-based-decisions",
+          "stewardship"
+        ],
+        "secondary_principles": [
+          "continuous-learning"
+        ],
+        "principle_rationale": "Compares staffing, allocation and capability practices with delivery needs to identify responsible resource-management improvements."
+      },
+      "content_headings": [
+        "Resource Management Assessment Template",
+        "Executive Summary",
+        "Resource Management Assessment",
+        "Resource Planning Assessment",
+        "1. Resource Requirements Planning",
+        "2. Resource Allocation",
+        "3. Resource Utilization",
+        "4. Resource Monitoring and Control",
+        "Assessment Results",
+        "Assessment method and evidence"
+      ]
+    },
+    {
+      "path": "domains/measurement/project-assessment-suite/risk-management-assessment-template.md",
+      "domain": "measurement",
+      "prior_sha256": "45aebfece3a39e5314c2ebd997ef5a07643a183b1efd58bb78e3225f76373603",
+      "current_sha256": "cfbfe674c154969ef4f23c1ff3211e350b3c997f60519b28feec1001e49c6996",
+      "source_annotation": {
+        "primary_principles": [
+          "evidence-based-decisions",
+          "adaptability"
+        ],
+        "secondary_principles": [
+          "continuous-learning",
+          "quality-by-design"
+        ],
+        "principle_rationale": "Makes performance visible and actionable through evidence-based analysis."
+      },
+      "annotation": {
+        "primary_principles": [
+          "continuous-learning",
+          "risk-optimization"
+        ],
+        "secondary_principles": [
+          "evidence-based-decisions"
+        ],
+        "principle_rationale": "Evaluates risk identification, ownership, response and monitoring practices to target evidence-backed improvements in risk management."
+      },
+      "content_headings": [
+        "Risk Management Assessment Template",
+        "Executive Summary",
+        "Assessment Overview",
+        "Risk Management Framework Assessment",
+        "1. Risk Identification Process",
+        "2. Risk Analysis and Prioritization",
+        "3. Risk Response Planning",
+        "4. Risk Monitoring and Control",
+        "Assessment method and evidence"
+      ]
+    },
+    {
+      "path": "domains/measurement/project-lifecycle/02-planning/resource-planning/resource-management-plan-template.md",
+      "domain": "measurement",
+      "prior_sha256": "1e85a50102b9bd35cb07c08f1e89eff2674f899386b2fa046957f843c72369fe",
+      "current_sha256": "d8414b412925159e66dbe25933f7e5817ca6f5969c0784bf8015b047b2a86329",
+      "source_annotation": {
+        "primary_principles": [
+          "evidence-based-decisions",
+          "adaptability"
+        ],
+        "secondary_principles": [
+          "continuous-learning",
+          "quality-by-design"
+        ],
+        "principle_rationale": "Enables data-driven decisions and continuous learning from assessment results."
+      },
+      "annotation": {
+        "primary_principles": [
+          "stewardship",
+          "collaborative-leadership"
+        ],
+        "secondary_principles": [
+          "systems-thinking"
+        ],
+        "principle_rationale": "Coordinates resource availability, acquisition, development and release with cost constraints and delivery dependencies."
+      },
+      "content_headings": [
+        "Resource Management Plan Template",
+        "1. Executive Summary",
+        "1.1 Purpose",
+        "1.2 Scope",
+        "1.3 Resource Management Objectives",
+        "2. Resource Management Approach",
+        "2.1 Resource Management Methodology",
+        "2.2 Resource Categories",
+        "3. Human Resource Planning",
+        "3.1 Organizational Structure",
+        "3.2 Role Definitions",
+        "3.3 Resource Requirements Matrix"
+      ]
+    },
+    {
+      "path": "domains/measurement/project-lifecycle/02-planning/risk-management/risk-management-plan-template.md",
+      "domain": "measurement",
+      "prior_sha256": "c7675f0a06e169fe5c58fbcb408dae6333e8b1411b7d670b2701345cc59da250",
+      "current_sha256": "63d0088ca75947ac70aa1a279b81e0665343688fb09f3afca8b7ce193d9cacf9",
+      "source_annotation": {
+        "primary_principles": [
+          "evidence-based-decisions",
+          "adaptability"
+        ],
+        "secondary_principles": [
+          "continuous-learning",
+          "quality-by-design"
+        ],
+        "principle_rationale": "Enables data-driven decisions and continuous learning from assessment results."
+      },
+      "annotation": {
+        "primary_principles": [
+          "risk-optimization",
+          "stewardship"
+        ],
+        "secondary_principles": [
+          "collaborative-leadership"
+        ],
+        "principle_rationale": "Establishes shared risk appetite, scoring, response ownership and escalation rules for maintaining and acting on the project risk register."
+      },
+      "content_headings": [
+        "Risk Management Plan Template",
+        "1. Executive Summary",
+        "1.1 Purpose",
+        "1.2 Scope",
+        "1.3 Risk Management Objectives",
+        "2. Risk Management Methodology",
+        "2.1 Risk Management Process",
+        "2.2 Risk Categories",
+        "2.3 Risk Identification Techniques",
+        "3. Risk Assessment Framework",
+        "3.1 Probability Scale",
+        "3.2 Impact Scale"
+      ]
+    },
+    {
+      "path": "domains/measurement/role-based-toolkits/project-manager/essential-templates/handover-template.md",
+      "domain": "measurement",
+      "prior_sha256": "2d9f204255b2a98fa237de14cba9f9e72f2803e5789bb1f837f7077d577cbb4c",
+      "current_sha256": "1d869dab110f1513aa48ae2723559df64cedf61b7a569a3f6ca0993fa18bb36a",
+      "source_annotation": {
+        "primary_principles": [
+          "stewardship",
+          "continuous-learning"
+        ],
+        "secondary_principles": [
+          "stakeholder-engagement",
+          "quality-by-design"
+        ],
+        "principle_rationale": "Preserves knowledge and accountable transfer of ownership through documented learning."
+      },
+      "annotation": {
+        "primary_principles": [
+          "stewardship",
+          "systems-thinking"
+        ],
+        "secondary_principles": [
+          "collaborative-leadership"
+        ],
+        "principle_rationale": "Transfers support responsibilities, knowledge, access and outstanding issues to operational owners with documented handover acceptance."
+      },
+      "content_headings": [
+        "Project Handover Template",
+        "Template Overview",
+        "Handover Information",
+        "1. Project Summary",
+        "2. Deliverables and Outputs",
+        "3. System and Technical Information",
+        "4. Operations and Maintenance",
+        "5. Financial Information",
+        "6. Stakeholder Information",
+        "7. Risk and Issue Management",
+        "8. Knowledge Transfer",
+        "9. Training and Development"
+      ]
+    },
+    {
+      "path": "domains/planning/industry-specializations/information-technology/infrastructure/data_center_design_template.md",
+      "domain": "planning",
+      "prior_sha256": "fe21a292e78b01e1c861ae31b08952da566b1e15db873ef73a32d700a5209949",
+      "current_sha256": "d7cfec9d39f4986ca0f8d67e5b35cbf105b69fd5a7cc3feee192a91be6565407",
+      "source_annotation": {
+        "primary_principles": [
+          "stewardship",
+          "quality-by-design"
+        ],
+        "secondary_principles": [
+          "evidence-based-decisions",
+          "risk-optimization"
+        ],
+        "principle_rationale": "Addresses domain requirements through auditable evidence and quality governance."
+      },
+      "annotation": {
+        "primary_principles": [
+          "systems-thinking",
+          "quality-by-design"
+        ],
+        "secondary_principles": [
+          "risk-optimization"
+        ],
+        "principle_rationale": "Connects data-center capacity, power, cooling and resilience requirements to design decisions, acceptance checks and operational handover."
+      },
+      "content_headings": [
+        "Data Center Design Template",
+        "Purpose and use",
+        "Design context",
+        "Requirements and design decisions",
+        "Implementation and acceptance",
+        "Operational handover",
+        "Related Resources"
+      ]
+    },
+    {
+      "path": "domains/planning/industry-specializations/information-technology/infrastructure/disaster_recovery_template.md",
+      "domain": "planning",
+      "prior_sha256": "83919aaf2b74af009bbf3c44382c8adc23d9490dcc7f69b652c1024ad4ff9a22",
+      "current_sha256": "b596cf6ecd3fd957d61b4efa08d2f89f139601c47dfaebae134f5affceb87858",
+      "source_annotation": {
+        "primary_principles": [
+          "stewardship",
+          "quality-by-design"
+        ],
+        "secondary_principles": [
+          "evidence-based-decisions",
+          "risk-optimization"
+        ],
+        "principle_rationale": "Maintains regulatory compliance through evidence-based quality controls and accountability."
+      },
+      "annotation": {
+        "primary_principles": [
+          "risk-optimization",
+          "stewardship"
+        ],
+        "secondary_principles": [
+          "quality-by-design"
+        ],
+        "principle_rationale": "Defines service recovery objectives, activation authority and runbook verification so owners can rehearse and execute accountable recovery."
+      },
+      "content_headings": [
+        "IT Infrastructure Disaster Recovery Template",
+        "Purpose and use",
+        "Service and recovery objectives",
+        "Activation and communications",
+        "Recovery runbook",
+        "Exercise and maintenance record",
+        "Related Resources"
+      ]
+    },
+    {
+      "path": "domains/planning/project-lifecycle/01-initiation/project-charter/traditional-project-charter-template.md",
+      "domain": "planning",
+      "prior_sha256": "0c0afe48408bdf83034707e61b24f906d94edc26a29ce8e7eb9e7aecca2e74d4",
+      "current_sha256": "f8cb4bba4feeab2c2fb16ebb420f688684079e1611fd06366bfa051230003a94",
+      "source_annotation": {
+        "primary_principles": [
+          "value-focus",
+          "evidence-based-decisions"
+        ],
+        "secondary_principles": [
+          "stewardship"
+        ],
+        "principle_rationale": "Authorizes delivery through evidence-based business justification and governance"
+      },
+      "annotation": {
+        "primary_principles": [
+          "stewardship",
+          "value-focus"
+        ],
+        "secondary_principles": [
+          "stakeholder-engagement"
+        ],
+        "principle_rationale": "Secures sponsor agreement on predictive project objectives, scope and authority before detailed planning begins."
+      },
+      "content_headings": [
+        "Traditional Project Charter Template",
+        "Purpose/Overview",
+        "Usage Instructions",
+        "Project Information",
+        "Project Purpose and Justification",
+        "Project Objectives",
+        "Primary Objectives",
+        "Success Criteria",
+        "Project Scope",
+        "In Scope",
+        "Out of Scope",
+        "High-Level Requirements"
+      ]
+    },
+    {
+      "path": "domains/planning/templates/hybrid/Hybrid/Templates/hybrid_project_charter_template.md",
+      "domain": "planning",
+      "prior_sha256": "4b05cfd14f24291e5b0754c7dced7185e3fa0a73fdb8c7af9049fce77b896b82",
+      "current_sha256": "7f3cae2963e32bffe8d1e25caa7ca42047129447bcf9bf48233da303530bd5bc",
+      "source_annotation": {
+        "primary_principles": [
+          "value-focus",
+          "evidence-based-decisions"
+        ],
+        "secondary_principles": [
+          "stewardship",
+          "risk-optimization"
+        ],
+        "principle_rationale": "Evaluates business value and financial exposure through traceable evidence and accountability."
+      },
+      "annotation": {
+        "primary_principles": [
+          "adaptability",
+          "value-focus"
+        ],
+        "secondary_principles": [
+          "stewardship"
+        ],
+        "principle_rationale": "Authorizes a shared product vision and scope while defining which commitments use predictive controls and which decisions remain adaptive."
+      },
+      "content_headings": [
+        "Hybrid Project Charter Template",
+        "Overview",
+        "Executive Summary",
+        "Business Case",
+        "Problem Statement",
+        "Business Drivers",
+        "Cost-Benefit Analysis",
+        "Expected ROI",
+        "Alternatives Considered",
+        "Product Vision and Project Objectives",
+        "Product Vision Statement",
+        "Project Objectives"
+      ]
+    },
+    {
+      "path": "domains/planning/templates/traditional/Traditional/Process_Groups/Initiating/project_charter_template.md",
+      "domain": "planning",
+      "prior_sha256": "c561601386da611356058321294fec8374897c8a644dcd9a1173c3fd7f2dde0a",
+      "current_sha256": "bedd3a289b10ae819c4e551e2481d2cef81a99e016d9e19d006feece97071dd0",
+      "source_annotation": {
+        "primary_principles": [
+          "value-focus",
+          "evidence-based-decisions"
+        ],
+        "secondary_principles": [
+          "stewardship",
+          "risk-optimization"
+        ],
+        "principle_rationale": "Justifies investment decisions through evidence-based value alignment and responsible planning."
+      },
+      "annotation": {
+        "primary_principles": [
+          "stewardship",
+          "value-focus"
+        ],
+        "secondary_principles": [
+          "evidence-based-decisions"
+        ],
+        "principle_rationale": "Establishes sponsor authorization, project-manager authority and scope boundaries around justified objectives and success criteria."
+      },
+      "content_headings": [
+        "PROJECT CHARTER",
+        "Executive Summary",
+        "1. Project Definition",
+        "1.1 Purpose and Justification",
+        "1.2 Business Case",
+        "1.3 Project Objectives",
+        "1.4 Project Description",
+        "2. Success Criteria",
+        "3. Requirements and Deliverables",
+        "3.1 High-Level Requirements",
+        "3.2 Major Deliverables",
+        "4. Assumptions and Constraints"
+      ]
+    },
+    {
+      "path": "domains/planning/templates/traditional/Traditional/Templates/program_charter_template.md",
+      "domain": "planning",
+      "prior_sha256": "7ad64b97c7ff40e67b2c5a1a531300fc065106ddf6a9e4c97395c66bb0d513c4",
+      "current_sha256": "b6bf48b7261a8f5682516dfb7aef27d3ee328244dbfe579dd78ffa8160481240",
+      "source_annotation": {
+        "primary_principles": [
+          "value-focus",
+          "evidence-based-decisions"
+        ],
+        "secondary_principles": [
+          "stewardship",
+          "risk-optimization"
+        ],
+        "principle_rationale": "Evaluates business value and financial exposure through traceable evidence and accountability."
+      },
+      "annotation": {
+        "primary_principles": [
+          "value-focus",
+          "systems-thinking"
+        ],
+        "secondary_principles": [
+          "stewardship"
+        ],
+        "principle_rationale": "Authorizes related projects around shared benefits, program boundaries, funding and accountable governance."
+      },
+      "content_headings": [
+        "PROGRAM CHARTER TEMPLATE",
+        "Document Purpose",
+        "1. Executive Summary",
+        "1.1 Program Description",
+        "1.2 Business Justification",
+        "1.3 Expected Outcomes",
+        "2. Program Overview",
+        "2.1 Program Mission Statement",
+        "2.2 Program Vision",
+        "2.3 Program Components Overview",
+        "2.4 Program Boundaries",
+        "3. Strategic Alignment"
+      ]
+    },
+    {
+      "path": "domains/stakeholder/business-stakeholder-suite/executive-dashboards/Word/Executive-Report-Templates.md",
+      "domain": "stakeholder",
+      "prior_sha256": "88f771166d6acbb4a4288edcf18eae3c4668d73f4f93008b158cef334b612f27",
+      "current_sha256": "4598e1ec389ce0cc88d2f6d39a68ac11e7b4099475bb46edcb412c00c59234fe",
+      "source_annotation": {
+        "primary_principles": [
+          "evidence-based-decisions",
+          "stakeholder-engagement"
+        ],
+        "secondary_principles": [
+          "value-focus",
+          "systems-thinking"
+        ],
+        "principle_rationale": "Translates evidence into stakeholder-focused reports that inform strategic decisions."
+      },
+      "annotation": {
+        "primary_principles": [
+          "evidence-based-decisions",
+          "stakeholder-engagement"
+        ],
+        "secondary_principles": [
+          "stewardship"
+        ],
+        "principle_rationale": "Combines executive narrative, financial evidence and decision requests in a written report with accountable review and approval records."
+      },
+      "content_headings": [
+        "Word Executive Report Templates",
+        "\ud83d\udcc4 Document Template Collection",
+        "Template 1: Executive Status Report",
+        "Template 2: Risk Assessment Report",
+        "Template 3: Business Case Update",
+        "\ud83d\udcdd Word Template Features",
+        "Document Formatting",
+        "Style Guidelines",
+        "Table Formatting",
+        "Professional Elements",
+        "\ud83d\udd04 Template Customization",
+        "Organization Branding"
+      ]
+    },
+    {
+      "path": "domains/stakeholder/business-stakeholder-suite/executive-dashboards/powerbi-integration/executive-dashboard-template.md",
+      "domain": "stakeholder",
+      "prior_sha256": "427ab50f90b883bd9a7339c105a02ace8bdbca72a1359cfa5840d57555d2c5c6",
+      "current_sha256": "76b160d0bc0b9ce5ef983b4c0b9dc5620d65c578a3e0940d2fc212607580025d",
+      "source_annotation": {
+        "primary_principles": [
+          "value-focus",
+          "evidence-based-decisions"
+        ],
+        "secondary_principles": [
+          "stakeholder-engagement",
+          "systems-thinking"
+        ],
+        "principle_rationale": "Connects stakeholder needs to value metrics and systemic project performance."
+      },
+      "annotation": {
+        "primary_principles": [
+          "evidence-based-decisions",
+          "stewardship"
+        ],
+        "secondary_principles": [
+          "quality-by-design"
+        ],
+        "principle_rationale": "Defines Power BI measures, refresh behavior and access controls so executives can interpret governed data through usable dashboard pages."
+      },
+      "content_headings": [
+        "Power BI Executive Dashboard Template",
+        "\ud83d\udcca Overview",
+        "\ud83c\udfaf Executive Features",
+        "\ud83c\udfd7\ufe0f Data Model Architecture",
+        "Core Tables Required",
+        "\ud83d\udcc8 Dashboard Pages Structure",
+        "Page 1: Executive Summary",
+        "Page 2: Financial Performance",
+        "Page 3: Portfolio Performance",
+        "Page 4: Strategic Alignment",
+        "Page 5: Risk & Issues Dashboard",
+        "\ud83d\udd0c Data Source Connections"
+      ]
+    },
+    {
+      "path": "domains/stakeholder/business-stakeholder-suite/financial-governance/enhanced-business-cases/evm-dashboard-template.md",
+      "domain": "stakeholder",
+      "prior_sha256": "15f296a6026268c555eab68889d14a8c590f5e11453a6ee7dc7e889ef4f81065",
+      "current_sha256": "7ababa8395d6dfe1fd32b743edf693a38fdae2c99dae74d19e46a8de7ed51813",
+      "source_annotation": {
+        "primary_principles": [
+          "value-focus",
+          "evidence-based-decisions"
+        ],
+        "secondary_principles": [
+          "stewardship",
+          "risk-optimization"
+        ],
+        "principle_rationale": "Makes earned value performance and project exposure visible for investment decisions."
+      },
+      "annotation": {
+        "primary_principles": [
+          "evidence-based-decisions",
+          "value-focus"
+        ],
+        "secondary_principles": [
+          "stewardship"
+        ],
+        "principle_rationale": "Compares earned value with approved cost and schedule baselines to explain performance variance and support traceable forecasts and corrective action."
+      },
+      "content_headings": [
+        "Earned Value Management (EVM) Dashboard Template",
+        "Executive Summary Dashboard",
+        "Project Health Overview",
+        "Performance Status",
+        "Core EVM Metrics",
+        "Primary EVM Values",
+        "Performance Indices",
+        "Variance Analysis",
+        "Forecasting and Projections",
+        "Estimate at Completion (EAC) Analysis",
+        "Completion Projections",
+        "Performance Trend Analysis"
+      ]
+    },
+    {
+      "path": "domains/stakeholder/project-assessment-suite/stakeholder-engagement-assessment-template.md",
+      "domain": "stakeholder",
+      "prior_sha256": "787815831fd2352ca7cb6178efc542486304623aebc0a7cfd558a2e6e3754509",
+      "current_sha256": "d4763834d9904107f5de85753c430dc2caf154bfd00819562ea3af804ce5a7a8",
+      "source_annotation": {
+        "primary_principles": [
+          "evidence-based-decisions",
+          "adaptability"
+        ],
+        "secondary_principles": [
+          "continuous-learning",
+          "quality-by-design"
+        ],
+        "principle_rationale": "Uses evidence and feedback to assess context and drive adaptive improvements."
+      },
+      "annotation": {
+        "primary_principles": [
+          "stakeholder-engagement",
+          "evidence-based-decisions"
+        ],
+        "secondary_principles": [
+          "continuous-learning"
+        ],
+        "principle_rationale": "Assesses participation, decision influence and feedback closure to improve the effectiveness of stakeholder engagement."
+      },
+      "content_headings": [
+        "Stakeholder Engagement Assessment Template",
+        "Executive Summary",
+        "Assessment Framework",
+        "Stakeholder Engagement Maturity",
+        "1. Stakeholder Identification",
+        "2. Engagement Strategy",
+        "3. Communication Quality",
+        "4. Relationship Management",
+        "Improvement Recommendations",
+        "Assessment method and evidence"
+      ]
+    },
+    {
+      "path": "domains/stakeholder/project-assessment-suite/waterfall-project-assessment-template.md",
+      "domain": "stakeholder",
+      "prior_sha256": "122034b778427af788245ad263be8b9d880bf87d83a92f16503b88b8cf059bcd",
+      "current_sha256": "513836c0ace7a497cb2f51b2d43a6536320936ad2de680f527af87a6d9870f37",
+      "source_annotation": {
+        "primary_principles": [
+          "stewardship",
+          "evidence-based-decisions"
+        ],
+        "secondary_principles": [
+          "value-focus",
+          "risk-optimization"
+        ],
+        "principle_rationale": "Plans accountable delivery through formal evidence-based approval gates and risk management."
+      },
+      "annotation": {
+        "primary_principles": [
+          "evidence-based-decisions",
+          "quality-by-design"
+        ],
+        "secondary_principles": [
+          "stewardship"
+        ],
+        "principle_rationale": "Assesses predictive phase readiness against requirements, baselines and test evidence to support accountable gate decisions and corrective action."
+      },
+      "content_headings": [
+        "Waterfall Project Assessment Template",
+        "Executive Summary",
+        "Waterfall Assessment Framework",
+        "Phase Gate Assessment",
+        "1. Requirements Management",
+        "2. Design and Architecture",
+        "3. Implementation Management",
+        "4. Testing and Quality",
+        "Phase Gate Approval",
+        "Assessment method and evidence"
+      ]
+    },
+    {
+      "path": "domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/enterprise-stakeholder-analysis-template.md",
+      "domain": "stakeholder",
+      "prior_sha256": "645265fe1b18e673eb76f98afbcd8c0f0ec3995032a1a95be4fb261fa7bdedd0",
+      "current_sha256": "0d270f4fbc1f93ecf867f0053f871945dfa758ef35620d7c8175f9f47fb9e29a",
+      "source_annotation": {
+        "primary_principles": [
+          "stakeholder-engagement",
+          "systems-thinking"
+        ],
+        "secondary_principles": [
+          "collaborative-leadership",
+          "adaptability"
+        ],
+        "principle_rationale": "Maps enterprise relationships so engagement adapts to influence, impact, and context."
+      },
+      "annotation": {
+        "primary_principles": [
+          "stakeholder-engagement",
+          "systems-thinking"
+        ],
+        "secondary_principles": [
+          "collaborative-leadership"
+        ],
+        "principle_rationale": "Maps enterprise influence networks and affected groups to engagement strategies, communication responsibilities and escalation routes."
+      },
+      "content_headings": [
+        "Enterprise Stakeholder Analysis Template",
+        "Project Information",
+        "Executive Summary",
+        "Stakeholder Ecosystem Mapping",
+        "Executive Level",
+        "Senior Management",
+        "Middle Management",
+        "Operational Level",
+        "External Stakeholders",
+        "Customers and Partners",
+        "Vendors and Suppliers",
+        "Regulatory and Compliance"
+      ]
+    },
+    {
+      "path": "domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/stakeholder-register-template.md",
+      "domain": "stakeholder",
+      "prior_sha256": "acf2b18fc7423d1315e8b9889c033ebcc7a0017b633280314cd9fd36ef58e84a",
+      "current_sha256": "1514467dd6b8b5abdcdf468083a363fa95b659af51ca2cb231567a4d02b1eeb3",
+      "source_annotation": {
+        "primary_principles": [
+          "stakeholder-engagement",
+          "systems-thinking"
+        ],
+        "secondary_principles": [
+          "collaborative-leadership",
+          "adaptability"
+        ],
+        "principle_rationale": "Engages stakeholders through adaptive communication aligned with their needs and context."
+      },
+      "annotation": {
+        "primary_principles": [
+          "stakeholder-engagement"
+        ],
+        "secondary_principles": [
+          "stewardship",
+          "adaptability"
+        ],
+        "principle_rationale": "Maintains affected groups, decision roles and communication needs so engagement plans remain current and responsibly owned."
+      },
+      "content_headings": [
+        "Stakeholder Register Template",
+        "Purpose/Overview",
+        "Usage Instructions",
+        "Project Information",
+        "Stakeholder Information",
+        "Stakeholder Categories",
+        "Primary Stakeholders",
+        "Secondary Stakeholders  ",
+        "Key Stakeholders",
+        "Stakeholder Analysis",
+        "High Influence, High Interest (Manage Closely)",
+        "High Influence, Low Interest (Keep Satisfied)"
+      ]
+    },
+    {
+      "path": "domains/stakeholder/role-based-toolkits/product-owner/okr-template.md",
+      "domain": "stakeholder",
+      "prior_sha256": "02e419a41755ccbdd6f0ffbefcb2171d0e1087b775af660e16f2cd2b988bd23f",
+      "current_sha256": "fdd909cff7cbcc033c3d99e9739c56b6e859954575843f3b5b5333e475cb1780",
+      "source_annotation": {
+        "primary_principles": [
+          "value-focus",
+          "stakeholder-engagement"
+        ],
+        "secondary_principles": [
+          "evidence-based-decisions",
+          "adaptability"
+        ],
+        "principle_rationale": "Aligns organization around measurable value outcomes with stakeholder engagement and evidence."
+      },
+      "annotation": {
+        "primary_principles": [
+          "value-focus",
+          "evidence-based-decisions"
+        ],
+        "secondary_principles": [
+          "adaptability"
+        ],
+        "principle_rationale": "Links product objectives to measurable key results and uses review evidence to adjust priorities rather than count activity alone."
+      },
+      "content_headings": [
+        "OKR Template for Product Owners",
+        "Overview",
+        "OKR Framework Structure",
+        "Objective Definition",
+        "Key Results",
+        "Product Owner OKR Examples",
+        "Quarter 1 2024 OKRs",
+        "Quarter 2 2024 OKRs (Example)",
+        "OKR Planning Process",
+        "1. Strategic Alignment Workshop",
+        "2. Objective Setting Session",
+        "3. Key Results Definition Workshop"
+      ]
+    },
+    {
+      "path": "domains/team/methodology-frameworks/agile-scrum/scaling-frameworks/less/less_retrospective_template.md",
+      "domain": "team",
+      "prior_sha256": "beceb62ee2efb54578bfcb10af8ef6e6f9825a80618032f20fc7900bd869da00",
+      "current_sha256": "7d03c721f38dd59206bb81735d280067838f774fad72eec925d4c8e89aefe160",
+      "source_annotation": {
+        "primary_principles": [
+          "continuous-learning",
+          "collaborative-leadership"
+        ],
+        "secondary_principles": [
+          "adaptability",
+          "systems-thinking"
+        ],
+        "principle_rationale": "Enables shared learning and adaptive improvement across teams and system boundaries."
+      },
+      "annotation": {
+        "primary_principles": [
+          "continuous-learning",
+          "systems-thinking"
+        ],
+        "secondary_principles": [
+          "collaborative-leadership"
+        ],
+        "principle_rationale": "Combines team and whole-product retrospectives to investigate cross-team causes and assign shared improvement actions."
+      },
+      "content_headings": [
+        "LeSS Retrospective Format Template",
+        "Overview",
+        "Template Information",
+        "LeSS Retrospective Structure",
+        "Two-Level Retrospective Approach",
+        "Team Retrospective Format",
+        "Standard Team Retrospective Agenda (1.5 hours)",
+        "Overall Retrospective Format",
+        "Quarterly Overall Retrospective Agenda (3 hours)",
+        "LeSS Retrospective Techniques",
+        "Cross-Team Collaboration Analysis",
+        "Organizational Impediment Mapping"
+      ]
+    },
+    {
+      "path": "domains/team/project-lifecycle/02-planning/resource-planning/skills-matrix-template.md",
+      "domain": "team",
+      "prior_sha256": "0aa90a5b53d2b8c045fc9f5d2c28d87ed06cf38bd2bc94a5f3bb66dca01a343a",
+      "current_sha256": "e5a1b940e183ddbcc12761149197cbaef4faaea81af219df2cf00aebe86fd267",
+      "source_annotation": {
+        "primary_principles": [
+          "evidence-based-decisions",
+          "adaptability"
+        ],
+        "secondary_principles": [
+          "continuous-learning",
+          "quality-by-design"
+        ],
+        "principle_rationale": "Makes performance visible and actionable through evidence-based analysis."
+      },
+      "annotation": {
+        "primary_principles": [
+          "continuous-learning",
+          "collaborative-leadership"
+        ],
+        "secondary_principles": [
+          "evidence-based-decisions"
+        ],
+        "principle_rationale": "Uses discussed proficiency evidence to identify team capability gaps and agree staffing and individual learning actions."
+      },
+      "content_headings": [
+        "Skills Matrix Template",
+        "Purpose/Overview",
+        "Usage Instructions",
+        "1. Skills Matrix Overview",
+        "1.1 Purpose",
+        "1.2 Scope",
+        "1.3 Benefits",
+        "2. Skills Assessment Framework",
+        "2.1 Competency Levels",
+        "2.2 Skill Categories",
+        "3. Comprehensive Skills Matrix",
+        "3.1 Project Team Skills Matrix"
+      ]
+    },
+    {
+      "path": "domains/team/project-lifecycle/02-planning/resource-planning/team-charter-template.md",
+      "domain": "team",
+      "prior_sha256": "adefcd8b78e963ccce6bdb0fdb633dc9bbd47b42c2afdfca3659e79fbdec365b",
+      "current_sha256": "5baf89db20fb9a627844f4393ffca082e2f2f825ab8a8138aaf635702ff62435",
+      "source_annotation": {
+        "primary_principles": [
+          "value-focus",
+          "evidence-based-decisions"
+        ],
+        "secondary_principles": [
+          "stewardship",
+          "risk-optimization"
+        ],
+        "principle_rationale": "Drives investment approval through measurable value and evidence-based risk assessment."
+      },
+      "annotation": {
+        "primary_principles": [
+          "collaborative-leadership",
+          "stakeholder-engagement"
+        ],
+        "secondary_principles": [
+          "adaptability"
+        ],
+        "principle_rationale": "Defines shared team purpose, decision rights and working agreements so members can coordinate work and resolve conflict constructively."
+      },
+      "content_headings": [
+        "Team Charter Template",
+        "Tailoring the working agreement",
+        "Purpose/Overview",
+        "Usage Instructions",
+        "Team Information",
+        "1. Team Purpose and Mission",
+        "1.1 Team Mission Statement",
+        "1.2 Project Objectives",
+        "1.3 Success Criteria",
+        "2. Team Composition and Roles",
+        "2.1 Team Structure",
+        "2.2 Team Member Profiles"
+      ]
+    },
+    {
+      "path": "domains/team/role-based-toolkits/scrum-master/agile-ceremonies/daily-standup-template.md",
+      "domain": "team",
+      "prior_sha256": "0a7bba13dba4f7c16fa1cc5f17021eed7bf24ee81ed3137211c14f63fcb373fe",
+      "current_sha256": "d45a0593004649d17dbcf9471ef4b1882ac3c0f0277f9fb54c0a2d83201f2d0d",
+      "source_annotation": {
+        "primary_principles": [
+          "collaborative-leadership",
+          "continuous-learning"
+        ],
+        "secondary_principles": [
+          "adaptability",
+          "systems-thinking"
+        ],
+        "principle_rationale": "Enables team coordination through shared visibility, adaptability, and learning."
+      },
+      "annotation": {
+        "primary_principles": [
+          "collaborative-leadership",
+          "adaptability"
+        ],
+        "secondary_principles": [
+          "continuous-learning"
+        ],
+        "principle_rationale": "Helps developers inspect Sprint Goal progress, expose impediments and adapt their daily plan through a short shared discussion."
+      },
+      "content_headings": [
+        "Daily Standup Template",
+        "Meeting Information",
+        "Purpose and facilitation",
+        "Standup Format",
+        "Optional prompts",
+        "Team Member Updates",
+        "Sprint Progress Tracking",
+        "Sprint Goal Reminder",
+        "Sprint Backlog Status",
+        "Sprint Burndown",
+        "Impediments Tracking",
+        "New Impediments Raised"
+      ]
+    },
+    {
+      "path": "domains/team/templates/agile/sprint_retrospective_template.md",
+      "domain": "team",
+      "prior_sha256": "e329552e7c82e1923b918aae4c71dda54bdca34dc5d6e2c583fa104ef66f881d",
+      "current_sha256": "79e9b7b1a2e66c72c7c4874f5d1ed72f31732c35142a2d04658801025874d32e",
+      "source_annotation": {
+        "primary_principles": [
+          "adaptability",
+          "collaborative-leadership"
+        ],
+        "secondary_principles": [
+          "continuous-learning",
+          "value-focus"
+        ],
+        "principle_rationale": "Creates accountability and adaptation through team collaboration and continuous improvement."
+      },
+      "annotation": {
+        "primary_principles": [
+          "continuous-learning",
+          "collaborative-leadership"
+        ],
+        "secondary_principles": [
+          "adaptability"
+        ],
+        "principle_rationale": "Creates a safe retrospective discussion of experience and evidence that produces a small set of owned improvement experiments."
+      },
+      "content_headings": [
+        "Sprint Retrospective Template",
+        "Scrum tailoring",
+        "Overview",
+        "Meeting Information",
+        "Retrospective Pre-Work",
+        "Safety Check",
+        "Safety Check Exercise",
+        "Establishing Ground Rules",
+        "Previous Action Items Review",
+        "Effectiveness Assessment",
+        "Retrospective Formats",
+        "1. Start, Stop, Continue"
+      ]
+    },
+    {
+      "path": "domains/team/templates/agile/sprint_review_template.md",
+      "domain": "team",
+      "prior_sha256": "52f6a1ffbc48819fc24ba3a972d7d350d18793c955ee5d808cb4b4523926998a",
+      "current_sha256": "fc747170e3d817d930cc7b1b864f362be54faba455a593fb846bb1034b94903c",
+      "source_annotation": {
+        "primary_principles": [
+          "adaptability",
+          "collaborative-leadership"
+        ],
+        "secondary_principles": [
+          "continuous-learning",
+          "value-focus"
+        ],
+        "principle_rationale": "Supports delivery through collaborative ceremonies and learning-driven adjustments."
+      },
+      "annotation": {
+        "primary_principles": [
+          "stakeholder-engagement",
+          "adaptability"
+        ],
+        "secondary_principles": [
+          "value-focus"
+        ],
+        "principle_rationale": "Invites stakeholders and the team to inspect the increment and use outcome feedback to adapt product priorities."
+      },
+      "content_headings": [
+        "SPRINT REVIEW",
+        "Scrum tailoring",
+        "Document Purpose",
+        "1. Sprint Review Meeting Structure",
+        "1.1 Meeting Logistics",
+        "1.2 Attendees",
+        "1.3 Agenda",
+        "1.4 Meeting Guidelines",
+        "2. Sprint Goal Achievement",
+        "2.1 Sprint Goal",
+        "2.2 Achievement Assessment",
+        "2.3 Sprint Narrative"
+      ]
+    },
+    {
+      "path": "domains/team/templates/traditional/Traditional/Process_Groups/Executing/team_performance_assessment_template.md",
+      "domain": "team",
+      "prior_sha256": "510f8afc3c4fad8169acddea5eb501b957b518107e10e3448101a0b43eaa2473",
+      "current_sha256": "9cc8200d65a48e88b3a624a108cc921a6a3e8c2cb986be3361b1a495dcbad82e",
+      "source_annotation": {
+        "primary_principles": [
+          "stewardship",
+          "evidence-based-decisions"
+        ],
+        "secondary_principles": [
+          "value-focus",
+          "risk-optimization"
+        ],
+        "principle_rationale": "Establishes governance through documented, auditable decision points and control processes."
+      },
+      "annotation": {
+        "primary_principles": [
+          "continuous-learning",
+          "collaborative-leadership"
+        ],
+        "secondary_principles": [
+          "evidence-based-decisions"
+        ],
+        "principle_rationale": "Uses agreed performance criteria and observations to discuss team strengths and assign concrete development actions."
+      },
+      "content_headings": [
+        "TEAM PERFORMANCE ASSESSMENT",
+        "1. Purpose",
+        "2. Assessment Criteria",
+        "3. Rating Scale",
+        "4. Team Member Evaluation",
+        "5. Overall Team Assessment",
+        "6. Action Plan",
+        "7. Sign-Off"
+      ]
+    },
+    {
+      "path": "domains/uncertainty/industry-specializations/information-technology/infrastructure/migration_plan_template.md",
+      "domain": "uncertainty",
+      "prior_sha256": "5aa6e7c8a1f2f7f90775fb77998066be96d3fb23ed2b4c5dc8a7714c60c0f086",
+      "current_sha256": "60acc9b0a5c02402807601cb94868effe863aad2a0cc1482546b34a10935736e",
+      "source_annotation": {
+        "primary_principles": [
+          "stewardship",
+          "quality-by-design"
+        ],
+        "secondary_principles": [
+          "evidence-based-decisions",
+          "risk-optimization"
+        ],
+        "principle_rationale": "Maintains regulatory compliance through evidence-based quality controls and accountability."
+      },
+      "annotation": {
+        "primary_principles": [
+          "risk-optimization",
+          "systems-thinking"
+        ],
+        "secondary_principles": [
+          "stewardship"
+        ],
+        "principle_rationale": "Coordinates infrastructure cutover dependencies with readiness checks, validation, rollback authority and operational acceptance."
+      },
+      "content_headings": [
+        "IT Infrastructure Migration Plan Template",
+        "Purpose and use",
+        "Migration scope",
+        "Readiness and controls",
+        "Execution and validation",
+        "Go/no-go and rollback",
+        "Handover and closure",
+        "Related Resources"
+      ]
+    },
+    {
+      "path": "domains/uncertainty/industry-specializations/information-technology/software-development/requirements_specification_template.md",
+      "domain": "uncertainty",
+      "prior_sha256": "1712d0a702d4fd25fe68e4526561987df094b8c7fad329d0467c1eab7947fd5e",
+      "current_sha256": "bf2f1ee5998b25a0e56cc093baf2ec2fab171c1c77436f7242f7715b74516f67",
+      "source_annotation": {
+        "primary_principles": [
+          "stewardship",
+          "quality-by-design"
+        ],
+        "secondary_principles": [
+          "evidence-based-decisions",
+          "risk-optimization"
+        ],
+        "principle_rationale": "Addresses domain requirements through auditable evidence and quality governance."
+      },
+      "annotation": {
+        "primary_principles": [
+          "quality-by-design",
+          "systems-thinking"
+        ],
+        "secondary_principles": [
+          "stakeholder-engagement"
+        ],
+        "principle_rationale": "Makes agreed software behavior, interfaces and nonfunctional constraints explicit enough to guide engineering and verification."
+      },
+      "content_headings": [
+        "Software Requirements Specification (SRS)",
+        "Document Revision History",
+        "1. Introduction",
+        "1.1 Purpose",
+        "1.2 Scope",
+        "1.3 Definitions, Acronyms, and Abbreviations",
+        "1.4 References",
+        "1.5 Overview",
+        "2. Overall Description",
+        "2.1 Product Perspective",
+        "2.2 Product Functions",
+        "2.3 User Characteristics"
+      ]
+    },
+    {
+      "path": "domains/uncertainty/industry-specializations/information-technology/software-development/user_story_mapping_template.md",
+      "domain": "uncertainty",
+      "prior_sha256": "c5016688f8080084c01c8ce21a1e5dcd82bc10aa802691277c1a7de7b355c276",
+      "current_sha256": "1d93674f91b13a0b83f8ab7dc02792de7c3101e87fa8483cd43ff646fb02e651",
+      "source_annotation": {
+        "primary_principles": [
+          "adaptability",
+          "collaborative-leadership"
+        ],
+        "secondary_principles": [
+          "continuous-learning"
+        ],
+        "principle_rationale": "Enables adaptive prioritization and team collaboration for user-centric delivery"
+      },
+      "annotation": {
+        "primary_principles": [
+          "value-focus",
+          "systems-thinking"
+        ],
+        "secondary_principles": [
+          "collaborative-leadership"
+        ],
+        "principle_rationale": "Organizes stories around user journeys so teams can negotiate coherent release slices rather than isolated feature lists."
+      },
+      "content_headings": [
+        "User Story Mapping Template",
+        "Scrum tailoring",
+        "Executive Summary",
+        "User Story Mapping Overview",
+        "User Journey Backbone",
+        "High-Level User Activities",
+        "User Activities Definition",
+        "User Stories by Activity",
+        "Activity 1: [Activity Name]",
+        "Activity 2: [Activity Name]",
+        "Release Planning",
+        "Release 1: MVP (Minimum Viable Product)"
+      ]
+    },
+    {
+      "path": "domains/uncertainty/project-lifecycle/02-planning/risk-management/enterprise-risk-assessment-template.md",
+      "domain": "uncertainty",
+      "prior_sha256": "59fa3187762be1ef4bf498242b1e15345daf2d992b37f008b06847e821b14803",
+      "current_sha256": "9ff569fbb2d5e8de5bf68372a8026b70a3ac7b8b1e99f22d0734cc3d599287aa",
+      "source_annotation": {
+        "primary_principles": [
+          "risk-optimization",
+          "evidence-based-decisions"
+        ],
+        "secondary_principles": [
+          "stewardship",
+          "systems-thinking"
+        ],
+        "principle_rationale": "Addresses threats and opportunities at scale with traceable, accountable evidence."
+      },
+      "annotation": {
+        "primary_principles": [
+          "risk-optimization",
+          "systems-thinking"
+        ],
+        "secondary_principles": [
+          "evidence-based-decisions"
+        ],
+        "principle_rationale": "Assesses cross-functional exposure against shared risk appetite and scoring conventions with named response and escalation owners."
+      },
+      "content_headings": [
+        "Enterprise Risk Assessment",
+        "Purpose and use",
+        "Assessment context",
+        "Scoring conventions",
+        "Risk assessment and response",
+        "Review and escalation",
+        "Related Templates"
+      ]
+    },
+    {
+      "path": "domains/uncertainty/project-lifecycle/02-planning/risk-management/risk-register-template.md",
+      "domain": "uncertainty",
+      "prior_sha256": "09fe112aab888a528d9284288dc898264b098b463f536d5b13838e590e022362",
+      "current_sha256": "a561ca7836ff430ead8ea35db5de82a7630d133b5d03ff4299a18cf00a352be7",
+      "source_annotation": {
+        "primary_principles": [
+          "adaptability",
+          "quality-by-design"
+        ],
+        "secondary_principles": [
+          "evidence-based-decisions",
+          "risk-optimization"
+        ],
+        "principle_rationale": "Tailors controls to context while ensuring quality and auditable decision-making."
+      },
+      "annotation": {
+        "primary_principles": [
+          "risk-optimization"
+        ],
+        "secondary_principles": [
+          "evidence-based-decisions",
+          "stewardship"
+        ],
+        "principle_rationale": "Records threats and opportunities with assessed exposure, triggers and accountable responses for continued risk review."
+      },
+      "content_headings": [
+        "Risk Register Template",
+        "Purpose/Overview",
+        "Usage Instructions",
+        "Project Information",
+        "Risk Register",
+        "Risk Categories",
+        "Risk Assessment Scale",
+        "Probability",
+        "Impact"
+      ]
+    },
+    {
+      "path": "domains/uncertainty/project-lifecycle/04-monitoring-control/progress-tracking/project-dashboard-template.md",
+      "domain": "uncertainty",
+      "prior_sha256": "dbe0470c1d905bccad9bf7c8c47673813a40c2a0b413f9ef0c6bc482a686e786",
+      "current_sha256": "33435feed0be57a6b518b60a2b9812dd3dbb11bf2e722e15d3a440a3957514a7",
+      "source_annotation": {
+        "primary_principles": [
+          "evidence-based-decisions",
+          "adaptability"
+        ],
+        "secondary_principles": [
+          "continuous-learning",
+          "quality-by-design"
+        ],
+        "principle_rationale": "Uses evidence and feedback to assess context and drive adaptive improvements."
+      },
+      "annotation": {
+        "primary_principles": [
+          "evidence-based-decisions"
+        ],
+        "secondary_principles": [
+          "risk-optimization",
+          "stakeholder-engagement"
+        ],
+        "principle_rationale": "Defines dashboard metrics, sources and status thresholds so stakeholders can identify exceptions and assign timely action."
+      },
+      "content_headings": [
+        "Project Dashboard Template",
+        "Purpose/Overview",
+        "Usage Instructions",
+        "Project Overview",
+        "Executive Summary",
+        "Metric definitions and status rules",
+        "Key Metrics",
+        "Schedule Performance",
+        "Budget Performance  ",
+        "Quality Metrics",
+        "Milestone Status",
+        "Top Risks and Issues"
+      ]
+    },
+    {
+      "path": "domains/uncertainty/project-lifecycle/04-monitoring-control/progress-tracking/status-report-template.md",
+      "domain": "uncertainty",
+      "prior_sha256": "d41879ceac9e1c0d72cce12a67fe4996cc4cad569f5ff5fa8f68d8ee5f8c9654",
+      "current_sha256": "3885902d081cac884f666a003c06afff014c87810d30ddb4ce9d8aba0e90d457",
+      "source_annotation": {
+        "primary_principles": [
+          "evidence-based-decisions",
+          "adaptability"
+        ],
+        "secondary_principles": [
+          "continuous-learning",
+          "quality-by-design"
+        ],
+        "principle_rationale": "Makes performance visible and actionable through evidence-based analysis."
+      },
+      "annotation": {
+        "primary_principles": [
+          "evidence-based-decisions",
+          "stakeholder-engagement"
+        ],
+        "secondary_principles": [
+          "stewardship"
+        ],
+        "principle_rationale": "Reports defined-period progress, exceptions and decision requests with stated evidence and accountable follow-up."
+      },
+      "content_headings": [
+        "Project Status Report Template",
+        "Purpose/Overview",
+        "Usage Instructions",
+        "Executive Summary",
+        "Overall Project Status",
+        "Key Highlights",
+        "Quick Metrics",
+        "1. Project Progress",
+        "1.1 Schedule Status",
+        "1.2 Budget and Cost Status",
+        "1.3 Scope and Quality Status",
+        "2. Team Performance"
+      ]
+    },
+    {
+      "path": "domains/uncertainty/role-based-toolkits/product-owner/product-vision-template.md",
+      "domain": "uncertainty",
+      "prior_sha256": "1ff1893c477be658f385ae953d4d5261ea2b6cf8d6aa479c11261f2563059585",
+      "current_sha256": "b047239ced9d8ecddbd02bf32bfd816df7c7e7d8fa748f2f67861aeb469d243d",
+      "source_annotation": {
+        "primary_principles": [
+          "evidence-based-decisions",
+          "adaptability"
+        ],
+        "secondary_principles": [
+          "continuous-learning",
+          "quality-by-design"
+        ],
+        "principle_rationale": "Makes performance visible and actionable through evidence-based analysis."
+      },
+      "annotation": {
+        "primary_principles": [
+          "value-focus",
+          "stakeholder-engagement"
+        ],
+        "secondary_principles": [
+          "evidence-based-decisions"
+        ],
+        "principle_rationale": "Aligns target users, their problem and the product value proposition with goals, assumptions and vision-validation evidence."
+      },
+      "content_headings": [
+        "Product Vision Template",
+        "Product Information",
+        "Vision Statement",
+        "Product Mission",
+        "Target Market",
+        "Primary Users",
+        "Secondary Users",
+        "Value Proposition",
+        "Key Benefits",
+        "Product Goals",
+        "Business Goals",
+        "User Goals"
+      ]
+    },
+    {
+      "path": "domains/uncertainty/role-based-toolkits/product-owner/user-story-template.md",
+      "domain": "uncertainty",
+      "prior_sha256": "e543375b66c369284a066f23d78cc4469afc3e4c17dfecff1c2e3720fd2e218e",
+      "current_sha256": "969698e624bd6cbc57b6035e4dd892ddde803470c9fd911ad48d707f52b467ed",
+      "source_annotation": {
+        "primary_principles": [
+          "evidence-based-decisions",
+          "adaptability"
+        ],
+        "secondary_principles": [
+          "continuous-learning",
+          "quality-by-design"
+        ],
+        "principle_rationale": "Makes performance visible and actionable through evidence-based analysis."
+      },
+      "annotation": {
+        "primary_principles": [
+          "value-focus",
+          "quality-by-design"
+        ],
+        "secondary_principles": [
+          "stakeholder-engagement"
+        ],
+        "principle_rationale": "Expresses one user need through a shared conversation record with testable acceptance criteria and explicit dependencies."
+      },
+      "content_headings": [
+        "User Story Template",
+        "Story Information",
+        "User Story",
+        "Acceptance Criteria",
+        "Scenario 1: [Scenario Name]",
+        "Scenario 2: [Scenario Name]",
+        "Scenario 3: [Scenario Name]",
+        "Definition of Ready Checklist",
+        "Definition of Done Checklist",
+        "Additional Information",
+        "Business Value",
+        "User Impact"
+      ]
+    },
+    {
+      "path": "domains/uncertainty/role-based-toolkits/project-manager/essential-templates/meeting-templates.md",
+      "domain": "uncertainty",
+      "prior_sha256": "93649fdd2ba1d7cbca2e4db0ff966911c06c75e5882608900acf5a142bced2ab",
+      "current_sha256": "134d435461bae238c209cdd409a63c2ba45b27b79cc1bf42d2e1ce067edd3b9e",
+      "source_annotation": {
+        "primary_principles": [
+          "stakeholder-engagement",
+          "collaborative-leadership"
+        ],
+        "secondary_principles": [
+          "adaptability",
+          "continuous-learning"
+        ],
+        "principle_rationale": "Structures stakeholder engagement and collaborative decision-making through facilitation."
+      },
+      "annotation": {
+        "primary_principles": [
+          "collaborative-leadership",
+          "adaptability"
+        ],
+        "secondary_principles": [
+          "stakeholder-engagement"
+        ],
+        "principle_rationale": "Matches meeting formats to decision needs with relevant participants, explicit agendas and owned follow-up actions."
+      },
+      "content_headings": [
+        "Meeting Templates Collection",
+        "Scrum tailoring",
+        "Overview",
+        "Meeting Types Included",
+        "1. Project Kickoff Meeting",
+        "2. Weekly Team Meeting",
+        "3. Sprint Planning Meeting",
+        "4. Sprint Review Meeting",
+        "5. Sprint Retrospective",
+        "6. Stakeholder Review Meeting",
+        "7. Risk Review Meeting",
+        "8. Change Control Board Meeting"
+      ]
+    },
+    {
+      "path": "domains/uncertainty/templates/test-samples/quality-test-plan-template.md",
+      "domain": "uncertainty",
+      "prior_sha256": "a156626e34c12ba443db70c544e236ad63d75c5a925e36d685ffab3856002875",
+      "current_sha256": "dea0cf42acbaf52754dc758df47cce07a5f2600780d70453f670a4419fdf3bed",
+      "source_annotation": {
+        "primary_principles": [
+          "evidence-based-decisions",
+          "adaptability"
+        ],
+        "secondary_principles": [
+          "continuous-learning",
+          "quality-by-design"
+        ],
+        "principle_rationale": "Enables data-driven decisions and continuous learning from assessment results."
+      },
+      "annotation": {
+        "primary_principles": [
+          "quality-by-design"
+        ],
+        "secondary_principles": [
+          "evidence-based-decisions",
+          "risk-optimization"
+        ],
+        "principle_rationale": "Defines bounded test coverage, entry and exit criteria and execution evidence so acceptance reflects the quality risks being evaluated."
+      },
+      "content_headings": [
+        "Quality Test Plan Template",
+        "Overview",
+        "Test Objectives",
+        "Scope",
+        "In Scope",
+        "Out of Scope",
+        "Test Items",
+        "Types of Testing",
+        "Entry Criteria",
+        "Exit Criteria",
+        "Test Approach",
+        "Coverage and execution evidence"
+      ]
+    }
+  ]
+}

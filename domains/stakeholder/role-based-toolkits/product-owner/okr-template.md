@@ -4,6 +4,9 @@ methodology: "universal"
 complexity: "advanced"
 owner: "mirichard"
 updated: "2026-09-19"
+primary_principles: ["value-focus", "evidence-based-decisions"]
+secondary_principles: ["adaptability"]
+principle_rationale: "Links product objectives to measurable key results and uses review evidence to adjust priorities rather than count activity alone."
 ---
 
 # OKR Template for Product Owners

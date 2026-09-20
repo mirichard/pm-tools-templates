@@ -4,6 +4,9 @@ methodology: "universal"
 complexity: "advanced"
 owner: "mirichard"
 updated: "2026-09-19"
+primary_principles: ["evidence-based-decisions", "stewardship"]
+secondary_principles: ["quality-by-design"]
+principle_rationale: "Defines Power BI measures, refresh behavior and access controls so executives can interpret governed data through usable dashboard pages."
 ---
 
 # Power BI Executive Dashboard Template

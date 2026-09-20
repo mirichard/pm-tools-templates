@@ -4,6 +4,9 @@ methodology: "universal"
 complexity: "intermediate"
 owner: "mirichard"
 updated: "2026-09-19"
+primary_principles: ["stewardship", "risk-optimization"]
+secondary_principles: ["systems-thinking"]
+principle_rationale: "Connects product classification and target markets to regulatory pathways, submission dependencies and explicit decision assumptions."
 ---
 
 # Regulatory Strategy Plan

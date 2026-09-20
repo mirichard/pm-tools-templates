@@ -10,6 +10,9 @@ version: "1.0.0"
 owner: "mirichard"
 updated: "2026-09-19"
 estimated_completion_time: "15-30 minutes"
+primary_principles: ["continuous-learning", "evidence-based-decisions"]
+secondary_principles: ["adaptability"]
+principle_rationale: "Uses observed process practices and outcomes to assess capability and prioritize a context-appropriate maturity improvement roadmap."
 ---
 
 

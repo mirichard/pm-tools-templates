@@ -4,6 +4,9 @@ methodology: "universal"
 complexity: "advanced"
 owner: "mirichard"
 updated: "2026-09-19"
+primary_principles: ["evidence-based-decisions", "stakeholder-engagement"]
+secondary_principles: ["stewardship"]
+principle_rationale: "Combines executive narrative, financial evidence and decision requests in a written report with accountable review and approval records."
 ---
 
 # Word Executive Report Templates

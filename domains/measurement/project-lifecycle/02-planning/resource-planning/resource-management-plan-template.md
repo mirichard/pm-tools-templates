@@ -4,6 +4,9 @@ methodology: "universal"
 complexity: "advanced"
 owner: "mirichard"
 updated: "2025-08-05"
+primary_principles: ["stewardship", "collaborative-leadership"]
+secondary_principles: ["systems-thinking"]
+principle_rationale: "Coordinates resource availability, acquisition, development and release with cost constraints and delivery dependencies."
 ---
 
 # Resource Management Plan Template

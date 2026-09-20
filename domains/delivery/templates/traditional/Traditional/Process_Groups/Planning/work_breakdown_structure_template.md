@@ -4,6 +4,9 @@ methodology: "traditional"
 complexity: "advanced"
 owner: "mirichard"
 updated: "2026-09-19"
+primary_principles: ["systems-thinking", "quality-by-design"]
+secondary_principles: ["stewardship"]
+principle_rationale: "Decomposes deliverable scope into bounded work packages with owners and dictionary definitions to support consistent estimating and scheduling."
 ---
 
 # WORK BREAKDOWN STRUCTURE (WBS)

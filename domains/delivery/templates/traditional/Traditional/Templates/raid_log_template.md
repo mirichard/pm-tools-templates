@@ -4,6 +4,9 @@ methodology: "traditional"
 complexity: "advanced"
 owner: "mirichard"
 updated: "2025-08-05"
+primary_principles: ["risk-optimization", "systems-thinking"]
+secondary_principles: ["stewardship"]
+principle_rationale: "Distinguishes risks, assumptions, issues and dependencies while assigning owners, reviews and escalation across related records."
 ---
 
 # RAID Log Template

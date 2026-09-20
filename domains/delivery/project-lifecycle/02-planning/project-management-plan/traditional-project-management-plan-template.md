@@ -4,6 +4,9 @@ methodology: "universal"
 complexity: "intermediate"
 owner: "mirichard"
 updated: "2026-09-19"
+primary_principles: ["systems-thinking", "stewardship"]
+secondary_principles: ["quality-by-design"]
+principle_rationale: "Coordinates predictive scope, work packages, schedule and cost baselines with quality expectations and delivery controls."
 ---
 
 # Traditional Project Management Plan Template

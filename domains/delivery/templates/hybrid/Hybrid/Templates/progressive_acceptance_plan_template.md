@@ -4,6 +4,9 @@ methodology: "hybrid"
 complexity: "advanced"
 owner: "mirichard"
 updated: "2025-08-05"
+primary_principles: ["quality-by-design", "stakeholder-engagement"]
+secondary_principles: ["evidence-based-decisions"]
+principle_rationale: "Defines progressive acceptance levels with stakeholder decision rights, explicit criteria and evidence for each increment."
 ---
 
 # Progressive Acceptance Plan Template

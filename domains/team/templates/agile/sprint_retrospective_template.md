@@ -4,6 +4,9 @@ methodology: "agile"
 complexity: "advanced"
 owner: "mirichard"
 updated: "2026-09-19"
+primary_principles: ["continuous-learning", "collaborative-leadership"]
+secondary_principles: ["adaptability"]
+principle_rationale: "Creates a safe retrospective discussion of experience and evidence that produces a small set of owned improvement experiments."
 ---
 
 # Sprint Retrospective Template

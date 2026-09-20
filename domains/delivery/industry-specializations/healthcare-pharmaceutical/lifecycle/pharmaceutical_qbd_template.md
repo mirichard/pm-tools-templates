@@ -4,6 +4,9 @@ methodology: "universal"
 complexity: "advanced"
 owner: "mirichard"
 updated: "2026-09-19"
+primary_principles: ["quality-by-design", "risk-optimization"]
+secondary_principles: ["evidence-based-decisions"]
+principle_rationale: "Connects target product quality attributes, process understanding and risk assessment to justified design-space and control-strategy decisions."
 ---
 
 # Pharmaceutical Quality by Design (QbD) Template

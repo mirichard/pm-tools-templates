@@ -4,6 +4,9 @@ methodology: "universal"
 complexity: "advanced"
 owner: "mirichard"
 updated: "2026-09-19"
+primary_principles: ["quality-by-design", "systems-thinking"]
+secondary_principles: ["stewardship"]
+principle_rationale: "Connects build, test, security and promotion stages with rollback responsibilities to make software delivery verifiable and accountable."
 ---
 
 # CI/CD Pipeline Planning Template

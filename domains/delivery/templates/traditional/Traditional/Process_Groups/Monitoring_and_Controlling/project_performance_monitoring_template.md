@@ -4,6 +4,9 @@ methodology: "traditional"
 complexity: "advanced"
 owner: "mirichard"
 updated: "2026-09-19"
+primary_principles: ["evidence-based-decisions", "risk-optimization"]
+secondary_principles: ["adaptability"]
+principle_rationale: "Compares actual performance with approved baselines across delivery dimensions to identify variance and trigger corrective action."
 ---
 
 # PROJECT PERFORMANCE MONITORING REPORT

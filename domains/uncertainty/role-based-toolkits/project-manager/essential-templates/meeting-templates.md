@@ -4,6 +4,9 @@ methodology: "universal"
 complexity: "advanced"
 owner: "mirichard"
 updated: "2026-09-19"
+primary_principles: ["collaborative-leadership", "adaptability"]
+secondary_principles: ["stakeholder-engagement"]
+principle_rationale: "Matches meeting formats to decision needs with relevant participants, explicit agendas and owned follow-up actions."
 ---
 
 # Meeting Templates Collection

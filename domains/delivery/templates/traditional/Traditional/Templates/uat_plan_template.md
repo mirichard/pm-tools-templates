@@ -4,6 +4,9 @@ methodology: "traditional"
 complexity: "advanced"
 owner: "mirichard"
 updated: "2026-09-19"
+primary_principles: ["quality-by-design", "stakeholder-engagement"]
+secondary_principles: ["evidence-based-decisions"]
+principle_rationale: "Connects business-user scenarios and risks to acceptance criteria, test evidence and accountable user acceptance decisions."
 ---
 
 # User Acceptance Testing (UAT) Plan Template

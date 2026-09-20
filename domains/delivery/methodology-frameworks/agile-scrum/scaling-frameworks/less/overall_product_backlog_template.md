@@ -4,6 +4,9 @@ methodology: "agile"
 complexity: "advanced"
 owner: "mirichard"
 updated: "2026-09-19"
+primary_principles: ["value-focus", "systems-thinking"]
+secondary_principles: ["collaborative-leadership"]
+principle_rationale: "Maintains one ordered product backlog so multiple LeSS teams refine and deliver priorities that serve the whole product."
 ---
 
 # LeSS Overall Product Backlog Management Template

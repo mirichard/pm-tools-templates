@@ -4,6 +4,9 @@ methodology: "universal"
 complexity: "advanced"
 owner: "mirichard"
 updated: "2026-09-19"
+primary_principles: ["quality-by-design"]
+secondary_principles: ["evidence-based-decisions", "risk-optimization"]
+principle_rationale: "Connects equipment risks and prerequisites to installation, operational and performance qualification with explicit acceptance and deviation records."
 ---
 
 # Equipment Qualification Protocol Template

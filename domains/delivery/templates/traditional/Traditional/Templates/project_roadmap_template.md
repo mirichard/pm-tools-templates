@@ -4,6 +4,9 @@ methodology: "traditional"
 complexity: "advanced"
 owner: "mirichard"
 updated: "2026-09-19"
+primary_principles: ["systems-thinking", "stakeholder-engagement"]
+secondary_principles: ["value-focus"]
+principle_rationale: "Shows phases, milestones and operational transitions together so stakeholders can align dependencies with intended delivery outcomes."
 ---
 
 # PROJECT ROADMAP

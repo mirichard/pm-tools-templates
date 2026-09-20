@@ -4,6 +4,9 @@ methodology: "agile"
 complexity: "intermediate"
 owner: "mirichard"
 updated: "2026-09-19"
+primary_principles: ["collaborative-leadership", "adaptability"]
+secondary_principles: ["continuous-learning"]
+principle_rationale: "Helps developers inspect Sprint Goal progress, expose impediments and adapt their daily plan through a short shared discussion."
 ---
 
 # Daily Standup Template

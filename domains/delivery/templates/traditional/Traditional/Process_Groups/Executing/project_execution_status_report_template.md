@@ -4,6 +4,9 @@ methodology: "traditional"
 complexity: "advanced"
 owner: "mirichard"
 updated: "2026-09-19"
+primary_principles: ["evidence-based-decisions", "stewardship"]
+secondary_principles: ["stakeholder-engagement"]
+principle_rationale: "Reports period-specific deliverable, resource and control evidence with issues and decision requests for accountable execution oversight."
 ---
 
 # PROJECT EXECUTION REPORT

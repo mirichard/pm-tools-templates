@@ -4,6 +4,9 @@ methodology: "universal"
 complexity: "starter"
 owner: "mirichard"
 updated: "2026-09-19"
+primary_principles: ["systems-thinking", "quality-by-design"]
+secondary_principles: ["risk-optimization"]
+principle_rationale: "Connects data-center capacity, power, cooling and resilience requirements to design decisions, acceptance checks and operational handover."
 ---
 
 # Data Center Design Template

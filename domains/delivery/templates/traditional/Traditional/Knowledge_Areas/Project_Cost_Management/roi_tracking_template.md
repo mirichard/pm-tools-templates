@@ -4,6 +4,9 @@ methodology: "traditional"
 complexity: "advanced"
 owner: "mirichard"
 updated: "2026-09-19"
+primary_principles: ["value-focus", "evidence-based-decisions"]
+secondary_principles: ["stewardship"]
+principle_rationale: "Tracks investment costs and observed benefits separately from forecasts so benefit owners can explain returns and realization gaps."
 ---
 
 # ROI Tracking Template

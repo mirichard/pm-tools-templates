@@ -4,6 +4,9 @@ methodology: "agile"
 complexity: "advanced"
 owner: "mirichard"
 updated: "2026-09-19"
+primary_principles: ["evidence-based-decisions", "systems-thinking"]
+secondary_principles: ["continuous-learning"]
+principle_rationale: "Connects team, train and portfolio indicators through defined sources and interpretation to support coordinated improvement decisions."
 ---
 
 # SAFe Metrics and Reporting Dashboard Template

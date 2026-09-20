@@ -4,6 +4,9 @@ methodology: "universal"
 complexity: "advanced"
 owner: "mirichard"
 updated: "2026-09-19"
+primary_principles: ["value-focus", "systems-thinking"]
+secondary_principles: ["adaptability"]
+principle_rationale: "Connects current-state gaps, technology and operating capabilities to a transformation roadmap with measurable strategic outcomes."
 ---
 
 # Digital Transformation Strategy Template

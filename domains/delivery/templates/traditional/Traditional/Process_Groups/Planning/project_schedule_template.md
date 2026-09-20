@@ -4,6 +4,9 @@ methodology: "traditional"
 complexity: "advanced"
 owner: "mirichard"
 updated: "2025-08-05"
+primary_principles: ["systems-thinking", "evidence-based-decisions"]
+secondary_principles: ["adaptability"]
+principle_rationale: "Connects task dependencies and resource assumptions to an approved schedule baseline that supports progress and change-impact analysis."
 ---
 
 # PROJECT SCHEDULE

@@ -4,6 +4,9 @@ methodology: "hybrid"
 complexity: "advanced"
 owner: "mirichard"
 updated: "2025-08-05"
+primary_principles: ["collaborative-leadership", "adaptability"]
+secondary_principles: ["systems-thinking"]
+principle_rationale: "Clarifies roles, coordination practices and development needs for teams using different methods to deliver shared outcomes."
 ---
 
 # Hybrid Team Management Template

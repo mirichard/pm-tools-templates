@@ -4,6 +4,9 @@ methodology: "traditional"
 complexity: "advanced"
 owner: "mirichard"
 updated: "2026-09-19"
+primary_principles: ["stewardship", "evidence-based-decisions"]
+secondary_principles: ["continuous-learning"]
+principle_rationale: "Records delivery acceptance, financial closure and residual obligations while preserving performance findings and lessons for future work."
 ---
 
 # PROJECT CLOSURE REPORT

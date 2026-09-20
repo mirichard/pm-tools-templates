@@ -4,6 +4,9 @@ methodology: "universal"
 complexity: "advanced"
 owner: "mirichard"
 updated: "2026-09-19"
+primary_principles: ["evidence-based-decisions", "value-focus"]
+secondary_principles: ["stewardship"]
+principle_rationale: "Compares earned value with approved cost and schedule baselines to explain performance variance and support traceable forecasts and corrective action."
 ---
 
 # Earned Value Management (EVM) Dashboard Template

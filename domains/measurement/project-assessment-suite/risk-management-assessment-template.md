@@ -10,6 +10,9 @@ version: "1.0.0"
 owner: "mirichard"
 updated: "2026-09-19"
 estimated_completion_time: "15-30 minutes"
+primary_principles: ["continuous-learning", "risk-optimization"]
+secondary_principles: ["evidence-based-decisions"]
+principle_rationale: "Evaluates risk identification, ownership, response and monitoring practices to target evidence-backed improvements in risk management."
 ---
 
 

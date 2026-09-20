@@ -4,6 +4,9 @@ methodology: "universal"
 complexity: "advanced"
 owner: "mirichard"
 updated: "2026-09-19"
+primary_principles: ["quality-by-design", "stewardship"]
+secondary_principles: ["systems-thinking"]
+principle_rationale: "Coordinates validation scope, responsibilities and lifecycle evidence across systems and processes with controlled change and maintenance."
 ---
 
 # Validation Master Plan Template

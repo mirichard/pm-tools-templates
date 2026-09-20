@@ -4,6 +4,9 @@ methodology: "universal"
 complexity: "advanced"
 owner: "mirichard"
 updated: "2026-09-19"
+primary_principles: ["quality-by-design", "systems-thinking"]
+secondary_principles: ["stakeholder-engagement"]
+principle_rationale: "Makes agreed software behavior, interfaces and nonfunctional constraints explicit enough to guide engineering and verification."
 ---
 
 # Software Requirements Specification (SRS)

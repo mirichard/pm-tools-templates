@@ -4,6 +4,9 @@ methodology: "hybrid"
 complexity: "advanced"
 owner: "mirichard"
 updated: "2025-08-05"
+primary_principles: ["stakeholder-engagement", "systems-thinking"]
+secondary_principles: ["adaptability"]
+principle_rationale: "Coordinates organizational adoption and delivery changes through linked stakeholder engagement, communication, learning and governance decisions."
 ---
 
 # Integrated Change Strategy Template

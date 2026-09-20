@@ -4,6 +4,9 @@ methodology: "agile"
 complexity: "intermediate"
 owner: "mirichard"
 updated: "2026-09-19"
+primary_principles: ["collaborative-leadership", "adaptability"]
+secondary_principles: ["value-focus"]
+principle_rationale: "Helps a Scrum team agree a Sprint Goal and feasible work using developer capacity, dependencies and acceptance expectations."
 ---
 
 # SPRINT PLANNING

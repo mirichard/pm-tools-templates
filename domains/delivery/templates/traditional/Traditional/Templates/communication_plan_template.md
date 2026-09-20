@@ -4,6 +4,9 @@ methodology: "traditional"
 complexity: "advanced"
 owner: "mirichard"
 updated: "2025-08-05"
+primary_principles: ["stakeholder-engagement"]
+secondary_principles: ["collaborative-leadership", "adaptability"]
+principle_rationale: "Matches stakeholder information needs to communication channels, reporting owners and feedback routes throughout the project."
 ---
 
 # PROJECT COMMUNICATION PLAN

@@ -4,6 +4,9 @@ methodology: "agile"
 complexity: "advanced"
 owner: "mirichard"
 updated: "2026-09-19"
+primary_principles: ["value-focus", "adaptability"]
+secondary_principles: ["quality-by-design"]
+principle_rationale: "Orders product work transparently and refines user needs into acceptance criteria and manageable dependencies as priorities evolve."
 ---
 
 # PRODUCT BACKLOG

@@ -4,6 +4,9 @@ methodology: "universal"
 complexity: "advanced"
 owner: "mirichard"
 updated: "2026-09-19"
+primary_principles: ["quality-by-design", "stewardship"]
+secondary_principles: ["continuous-learning"]
+principle_rationale: "Maps regulated role requirements to training, competence assessment and retraining records so managers can address capability gaps responsibly."
 ---
 
 # GxP Training Plan Template
