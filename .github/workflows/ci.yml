@@ -100,22 +100,30 @@ jobs:
             [docs-site]=docs/site
           )
           echo "path=${DIRS[$APP]}" >> "$GITHUB_OUTPUT"
+      # working-directory: (a real shell chdir done by the runner), not
+      # npm's own --prefix, for the four npm invocations below. Both prefix
+      # orderings (`npm run <script> --prefix <dir>` and
+      # `npm --prefix <dir> run <script>`) reproduced the identical failure
+      # on dashboard-mvp - `next lint` reporting "Invalid project directory
+      # provided, no such directory: .../dashboard-mvp/lint" - even though a
+      # local reproduction confirmed --prefix correctly sets process.cwd()
+      # and forwards no extra argv. That points at Next's own CLI reading a
+      # different npm-set signal (most likely npm_config_local_prefix, which
+      # working-directory: never sets in the first place) rather than an
+      # argument-parsing bug on this repo's side. working-directory: is also
+      # the more standard mechanism for this in GitHub Actions.
       - name: Install dependencies
-        env:
-          APP_PATH: ${{ steps.dir.outputs.path }}
-        run: npm ci --prefix "$APP_PATH"
+        working-directory: ${{ steps.dir.outputs.path }}
+        run: npm ci
       - name: Lint
-        env:
-          APP_PATH: ${{ steps.dir.outputs.path }}
-        run: npm --prefix "$APP_PATH" run lint --if-present
+        working-directory: ${{ steps.dir.outputs.path }}
+        run: npm run lint --if-present
       - name: Build
-        env:
-          APP_PATH: ${{ steps.dir.outputs.path }}
-        run: npm --prefix "$APP_PATH" run build --if-present
+        working-directory: ${{ steps.dir.outputs.path }}
+        run: npm run build --if-present
       - name: Test
-        env:
-          APP_PATH: ${{ steps.dir.outputs.path }}
-        run: npm --prefix "$APP_PATH" test --if-present
+        working-directory: ${{ steps.dir.outputs.path }}
+        run: npm test --if-present
       - name: Dependency audit
         env:
           APP_PATH: ${{ steps.dir.outputs.path }}
