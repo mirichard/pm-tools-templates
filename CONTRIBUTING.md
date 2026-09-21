@@ -284,30 +284,42 @@ issue and has an expiry date — it does not exempt unrelated new failures in
 that check). `scripts/ci-coverage.mjs` and `scripts/run-app-check.mjs`
 consume that file; nothing about app coverage is duplicated in workflow YAML.
 
-**Running a check locally**, from the repo root:
+**Running a check locally**, from the repo root — install the app's own
+dependencies first (`npm ci` in the app directory itself; `run-app-check.mjs`
+does not do this for you, unlike CI's separate install step):
 ```bash
+npm ci --prefix <app-directory>
 node scripts/run-app-check.mjs <app-key> <lint|build|test|audit>
 # e.g.
+npm ci --prefix dashboard-mvp
 node scripts/run-app-check.mjs dashboard-mvp test
 ```
-This runs the exact command CI runs (`npm ci` first, same as CI's install
-step). `node scripts/ci-coverage.mjs list-apps` prints every valid app key.
+`node scripts/ci-coverage.mjs list-apps` prints every valid app key;
+`node scripts/ci-coverage.mjs app-path <app-key>` prints its directory.
 
-**Interpreting a result:** `passed` and `failed` mean what they say. `tolerated`
-means the failure matched a specific, tracked, currently-unexpired exception
-in `ci-coverage.json` (linked issue is the thing to actually go fix); any
-*other* failure of that same check — even in an app with an existing
-exception — is treated as real and fails CI. `not_implemented` means no real
-check exists yet for that app/check pair; it is never silently counted as
-passing.
+**Interpreting a result:** `passed` and `failed` mean what they say.
+`waived` means the check cannot execute meaningfully at all (a missing
+config file, a missing module, etc.) — it does not claim to protect against
+any other regression in that check, only that this specific, already-known,
+whole-command failure is expected. `tolerated` means a genuinely
+independent, per-test failure matched a specific permitted set recorded in
+`ci-coverage.json` — any failure outside that exact set is treated as real.
+Both are tied to a linked issue with an expiry date (the thing to actually
+go fix, and removed once it's fixed); any failure that doesn't match its
+recorded exception is treated as real and fails CI regardless of an
+exception being present. `not_implemented` means no real check exists yet
+for that app/check pair; it is never silently counted as passing.
 
-**Adding a new sub-app:** every `package.json` in the repo (outside
-`node_modules`) must be reconciled in `.github/ci-coverage.json` — added to
-`apps` with its real check commands, pointed at existing coverage in
-`covered_elsewhere` if another workflow already checks it, or listed in
-`excluded` with a reason. `node scripts/ci-coverage.mjs validate-inventory`
-runs on every PR and fails if a new manifest is unaccounted for; run it
-locally before opening a PR that adds one.
+**Adding a new sub-app:** every `package.json` **tracked in git** (found via
+`git ls-files`, so an untracked file won't be seen — stage it first) must be
+reconciled in `.github/ci-coverage.json` — added to `apps` with its real
+check commands, pointed at existing coverage in `covered_elsewhere` if
+another workflow already checks it, or listed in `excluded` with a reason.
+`node_modules` is excluded categorically regardless of tracking status.
+`node scripts/ci-coverage.mjs validate-inventory` runs on every PR and fails
+if a new manifest is unaccounted for, or if the contract itself is
+malformed (missing exception fields, bad dates, duplicate paths); run it
+locally before opening a PR that adds a new sub-app or exception.
 
 **Fork PRs:** these workflows use only the default `GITHUB_TOKEN` (scoped
 read-only per job — see `permissions:` in `.github/workflows/ci.yml`) and no
