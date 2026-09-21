@@ -30,9 +30,15 @@ class AsanaCLI {
                 this.config = JSON.parse(configFile);
             }
             // Override with environment variables
-            this.config.asanaAccessToken = process.env.ASANA_ACCESS_TOKEN || this.config.asanaAccessToken;
-            this.config.defaultWorkspace = process.env.ASANA_DEFAULT_WORKSPACE || this.config.defaultWorkspace;
-            this.config.webhookSecret = process.env.ASANA_WEBHOOK_SECRET || this.config.webhookSecret;
+            const asanaAccessToken = process.env.ASANA_ACCESS_TOKEN || this.config.asanaAccessToken;
+            if (asanaAccessToken !== undefined)
+                this.config.asanaAccessToken = asanaAccessToken;
+            const defaultWorkspace = process.env.ASANA_DEFAULT_WORKSPACE || this.config.defaultWorkspace;
+            if (defaultWorkspace !== undefined)
+                this.config.defaultWorkspace = defaultWorkspace;
+            const webhookSecret = process.env.ASANA_WEBHOOK_SECRET || this.config.webhookSecret;
+            if (webhookSecret !== undefined)
+                this.config.webhookSecret = webhookSecret;
             this.config.serverPort = parseInt(process.env.SERVER_PORT || '3000') || this.config.serverPort || 3000;
         }
         catch (error) {
@@ -56,7 +62,7 @@ class AsanaCLI {
         if (!this.connector) {
             this.connector = new connector_1.AsanaConnector({
                 accessToken: this.config.asanaAccessToken,
-                defaultWorkspace: this.config.defaultWorkspace
+                ...(this.config.defaultWorkspace !== undefined ? { defaultWorkspace: this.config.defaultWorkspace } : {})
             });
         }
         return this.connector;

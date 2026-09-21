@@ -10,6 +10,10 @@
  * @version 1.0.0
  * @author PM Tools Templates
  */
+import { AsanaConnector, type PMTemplate, type AsanaProject } from './connector';
+import { AsanaSyncEngine } from './sync-engine';
+import { AsanaWebhookServer } from './webhook-server';
+import AsanaCLI from './cli';
 export { AsanaConnector, type AsanaConnectorConfig, type PMTemplate, type TemplateField, type TemplateTask, type TaskDependency, type FieldMapping, type AsanaProject, type AsanaTask, type AsanaCustomField, type WorkspaceConfig, type SyncOptions, type SyncResult, type SyncError, type SyncConflict } from './connector';
 export { AsanaSyncEngine, type SyncJob, type ConflictResolution, type SyncState, type TaskSyncState, type FieldSyncState, type WebhookEvent } from './sync-engine';
 export { AsanaWebhookServer, type WebhookServerConfig, type WebhookSubscription } from './webhook-server';
@@ -72,10 +76,10 @@ export declare function createProjectFromTemplate(connector: AsanaConnector, tem
     teamId?: string;
 }): Promise<AsanaProject>;
 declare const _default: {
-    AsanaConnector: any;
-    AsanaSyncEngine: any;
-    AsanaWebhookServer: any;
-    AsanaCLI: any;
+    AsanaConnector: typeof AsanaConnector;
+    AsanaSyncEngine: typeof AsanaSyncEngine;
+    AsanaWebhookServer: typeof AsanaWebhookServer;
+    AsanaCLI: typeof AsanaCLI;
     AsanaIntegrationUtils: {
         /**
          * Validate template structure

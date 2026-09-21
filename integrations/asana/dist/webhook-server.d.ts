@@ -9,6 +9,7 @@ export interface WebhookServerConfig {
     connector: AsanaConnector;
     enableLogging?: boolean;
     logLevel?: string;
+    trustProxy?: string | number | boolean;
     rateLimit?: {
         windowMs: number;
         maxRequests: number;
@@ -77,6 +78,10 @@ export declare class AsanaWebhookServer extends EventEmitter {
      */
     private createSubscription;
     /**
+     * Get all webhook subscriptions
+     */
+    private getSubscriptions;
+    /**
      * Get specific webhook subscription
      */
     private getSubscription;
@@ -112,6 +117,10 @@ export declare class AsanaWebhookServer extends EventEmitter {
      * Get webhook server instance
      */
     getApp(): express.Application;
+    /**
+     * Get current subscriptions (public API)
+     */
+    getAllSubscriptions(): WebhookSubscription[];
     /**
      * Get event statistics
      */

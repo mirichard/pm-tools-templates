@@ -45,6 +45,10 @@ class AsanaWebhookServer extends events_1.EventEmitter {
         this.eventStats = new Map();
         this.config = config;
         this.app = (0, express_1.default)();
+        // Set up trust proxy if configured
+        if (config.trustProxy !== undefined) {
+            this.app.set('trust proxy', config.trustProxy);
+        }
         // Set up logging
         this.setupLogging();
         // Set up middleware
@@ -101,46 +105,33 @@ class AsanaWebhookServer extends events_1.EventEmitter {
                 }
             });
         }
-        // Rate limiting middleware
-        if (this.config.rateLimit) {
-            const rateLimitMap = new Map();
-            this.app.use((req, res, next) => {
-                const clientIp = req.ip || req.connection.remoteAddress || 'unknown';
-                const now = Date.now();
-                const windowMs = this.config.rateLimit.windowMs;
-                const maxRequests = this.config.rateLimit.maxRequests;
-                const clientData = rateLimitMap.get(clientIp) || { count: 0, resetTime: now + windowMs };
-                if (now > clientData.resetTime) {
-                    clientData.count = 1;
-                    clientData.resetTime = now + windowMs;
-                }
-                else {
-                    clientData.count++;
-                }
-                rateLimitMap.set(clientIp, clientData);
-                if (clientData.count > maxRequests) {
-                    res.status(429).json({ error: 'Too many requests' });
-                    return;
-                }
-                next();
-            });
-        }
-        // Initialize webhook-specific rate limiter using express-rate-limit
+        // Initialize webhook-specific rate limiter using express-rate-limit.
+        // (This replaces an earlier hand-rolled, app-wide rate limiter that ran
+        // ahead of this one in middleware order and rejected requests with a
+        // bare 429 - no Retry-After header, no logging - before this properly
+        // configured limiter ever got a chance to handle them.)
+        const windowMs = this.config.rateLimit?.windowMs ?? 60000;
         this.webhookRateLimiter = (0, express_rate_limit_1.rateLimit)({
-            windowMs: 60000, // 1 minute
-            limit: 10, // Max 10 requests per minute per IP
-            standardHeaders: true,
-            legacyHeaders: false,
+            windowMs, // Use config or default to 1 minute
+            limit: this.config.rateLimit?.maxRequests ?? 10, // Use config or default to 10 requests per minute
+            standardHeaders: true, // Return `RateLimit-*` headers
+            legacyHeaders: false, // Disable `X-RateLimit-*` headers
+            skip: () => false, // Don't skip any requests
+            keyGenerator: (req) => {
+                // Use IP from trust proxy if configured, otherwise use direct IP
+                return req.ip || 'unknown';
+            },
             handler: (req, res) => {
                 this.logger.warn('Webhook rate limit exceeded', {
                     ip: req.ip,
                     url: req.url
                 });
+                // Set retry-after header (seconds until reset)
+                const retryAfter = Math.ceil(windowMs / 1000);
+                res.setHeader('retry-after', String(retryAfter));
                 res.status(429).json({
                     error: 'Webhook rate limit exceeded. Please slow down.',
-                    retryAfter: req.rateLimit?.resetTime
-                        ? Math.ceil((req.rateLimit.resetTime - Date.now()) / 1000)
-                        : 60
+                    retryAfter
                 });
             }
         });
@@ -524,9 +515,9 @@ class AsanaWebhookServer extends events_1.EventEmitter {
         return this.app;
     }
     /**
-     * Get current subscriptions
+     * Get current subscriptions (public API)
      */
-    getSubscriptions() {
+    getAllSubscriptions() {
         return Array.from(this.subscriptions.values());
     }
     /**

@@ -1,5 +1,4 @@
 import { EventEmitter } from 'events';
-import { Client } from 'asana';
 import * as cron from 'node-cron';
 import { SyncOptions, SyncConflict } from './connector';
 export interface SyncJob {
@@ -79,7 +78,7 @@ export declare class AsanaSyncEngine extends EventEmitter {
     private syncStates;
     private webhookSecret;
     private isRunning;
-    constructor(client: Client, webhookSecret: string);
+    constructor(client: any, webhookSecret: string);
     /**
      * Start bi-directional synchronization between template and Asana project
      */

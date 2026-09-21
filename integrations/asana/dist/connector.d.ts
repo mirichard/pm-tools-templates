@@ -76,6 +76,7 @@ export interface AsanaTask {
     };
     completed: boolean;
     due_date?: string;
+    modified_at?: string;
     custom_fields: Record<string, any>;
     dependencies: AsanaTaskDependency[];
     subtasks: AsanaTask[];
@@ -125,7 +126,7 @@ export interface SyncResult {
     lastSyncTime: Date;
 }
 export interface SyncError {
-    type: 'api_error' | 'mapping_error' | 'validation_error';
+    type: 'api_error' | 'mapping_error' | 'validation_error' | 'sync_error';
     message: string;
     taskId?: string;
     fieldName?: string;

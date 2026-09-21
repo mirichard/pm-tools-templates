@@ -52,18 +52,22 @@ exports.DEFAULT_SYNC_FIELDS = exports.SUPPORTED_METHODOLOGIES = exports.VERSION 
 exports.quickSetup = quickSetup;
 exports.loadTemplate = loadTemplate;
 exports.createProjectFromTemplate = createProjectFromTemplate;
+const connector_1 = require("./connector");
+const sync_engine_1 = require("./sync-engine");
+const webhook_server_1 = require("./webhook-server");
+const cli_1 = __importDefault(require("./cli"));
 // Core Components
-var connector_1 = require("./connector");
-Object.defineProperty(exports, "AsanaConnector", { enumerable: true, get: function () { return connector_1.AsanaConnector; } });
+var connector_2 = require("./connector");
+Object.defineProperty(exports, "AsanaConnector", { enumerable: true, get: function () { return connector_2.AsanaConnector; } });
 // Sync Engine
-var sync_engine_1 = require("./sync-engine");
-Object.defineProperty(exports, "AsanaSyncEngine", { enumerable: true, get: function () { return sync_engine_1.AsanaSyncEngine; } });
+var sync_engine_2 = require("./sync-engine");
+Object.defineProperty(exports, "AsanaSyncEngine", { enumerable: true, get: function () { return sync_engine_2.AsanaSyncEngine; } });
 // Webhook Server
-var webhook_server_1 = require("./webhook-server");
-Object.defineProperty(exports, "AsanaWebhookServer", { enumerable: true, get: function () { return webhook_server_1.AsanaWebhookServer; } });
+var webhook_server_2 = require("./webhook-server");
+Object.defineProperty(exports, "AsanaWebhookServer", { enumerable: true, get: function () { return webhook_server_2.AsanaWebhookServer; } });
 // CLI Tool
-var cli_1 = require("./cli");
-Object.defineProperty(exports, "AsanaCLI", { enumerable: true, get: function () { return __importDefault(cli_1).default; } });
+var cli_2 = require("./cli");
+Object.defineProperty(exports, "AsanaCLI", { enumerable: true, get: function () { return __importDefault(cli_2).default; } });
 // Utility Functions
 exports.AsanaIntegrationUtils = {
     /**
@@ -181,7 +185,7 @@ exports.DEFAULT_SYNC_FIELDS = ['name', 'completed', 'due_date', 'assignee', 'pri
 async function quickSetup(options) {
     const { accessToken, workspaceId, webhookSecret } = options;
     // Initialize connector
-    const connector = new AsanaConnector({
+    const connector = new connector_1.AsanaConnector({
         accessToken,
         defaultWorkspace: workspaceId
     });
@@ -195,11 +199,11 @@ async function quickSetup(options) {
     // Initialize sync engine
     const { Client } = await Promise.resolve().then(() => __importStar(require('asana')));
     const client = Client.create().useAccessToken(accessToken);
-    const syncEngine = new AsanaSyncEngine(client, webhookSecret || 'default-secret');
+    const syncEngine = new sync_engine_1.AsanaSyncEngine(client, webhookSecret || 'default-secret');
     let webhookServer;
     // Initialize webhook server if secret provided
     if (webhookSecret) {
-        webhookServer = new AsanaWebhookServer({
+        webhookServer = new webhook_server_1.AsanaWebhookServer({
             port: 3000,
             webhookSecret,
             syncEngine,
@@ -210,7 +214,7 @@ async function quickSetup(options) {
     return {
         connector,
         syncEngine,
-        webhookServer
+        ...(webhookServer !== undefined ? { webhookServer } : {})
     };
 }
 /**
@@ -248,19 +252,19 @@ async function createProjectFromTemplate(connector, templatePath, projectData) {
         }
     });
     return connector.createProjectFromTemplate(template, projectData.workspaceId, {
-        teamId: projectData.teamId,
+        ...(projectData.teamId !== undefined ? { teamId: projectData.teamId } : {}),
         projectData: {
             name: projectData.name,
-            description: projectData.description
+            ...(projectData.description !== undefined ? { description: projectData.description } : {})
         }
     });
 }
 // Export default object for convenience
 exports.default = {
-    AsanaConnector,
-    AsanaSyncEngine,
-    AsanaWebhookServer,
-    AsanaCLI,
+    AsanaConnector: connector_1.AsanaConnector,
+    AsanaSyncEngine: sync_engine_1.AsanaSyncEngine,
+    AsanaWebhookServer: webhook_server_1.AsanaWebhookServer,
+    AsanaCLI: cli_1.default,
     AsanaIntegrationUtils: exports.AsanaIntegrationUtils,
     quickSetup,
     loadTemplate,

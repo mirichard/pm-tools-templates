@@ -144,7 +144,7 @@ class AsanaConnector extends events_1.EventEmitter {
         }
         // Check if field already exists
         const existingFields = await this.client.customFields.getCustomFieldsForWorkspace(workspaceId);
-        const existing = existingFields.data.find(f => f.name === mapping.asanaField);
+        const existing = existingFields.data.find((f) => f.name === mapping.asanaField);
         if (existing) {
             return existing;
         }
@@ -342,7 +342,7 @@ class AsanaConnector extends events_1.EventEmitter {
     async getWorkspaceTeams(workspaceId) {
         try {
             const teams = await this.client.teams.getTeamsForWorkspace(workspaceId);
-            return teams.data.map(team => ({
+            return teams.data.map((team) => ({
                 gid: team.gid,
                 name: team.name
             }));
