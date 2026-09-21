@@ -33,14 +33,15 @@ jobs:
       - name: Build ai-insights image
         run: docker build -t ai-insights:scan ./ai-insights
 
-      # Corrected from a nonexistent "0.28.0" tag (missing the required "v"
-      # prefix - confirmed against https://github.com/aquasecurity/trivy-action/releases,
-      # this action's own tags are v-prefixed). Left as a verified tag rather
-      # than a SHA: I could not independently verify a commit SHA for this
-      # action through the tools available in this session, and guessing one
-      # would repeat the exact mistake being fixed here.
+      # v0.28.0 (my first fix attempt, correcting a missing "v" prefix) does
+      # resolve but pulls a broken nested dependency
+      # (aquasecurity/setup-trivy@v0.2.1, which itself doesn't resolve) -
+      # confirmed by actually running it, not by re-guessing from memory.
+      # v0.33.1 is confirmed to exist via
+      # https://github.com/aquasecurity/trivy-action/releases; verify this
+      # resolves cleanly via this push's CI before trusting it further.
       - name: Scan image with Trivy
-        uses: aquasecurity/trivy-action@v0.28.0
+        uses: aquasecurity/trivy-action@v0.33.1
         with:
           image-ref: ai-insights:scan
           format: table
