@@ -29,6 +29,8 @@
     "scripts/run-app-check.mjs",
     "scripts/ci-gate.mjs",
     "scripts/lib/coverage-contract.mjs",
+    "scripts/lib/capture.mjs",
+    "scripts/applicability-gate.sh",
     "scripts/check-workflow-health.sh"
   ],
   "apps": {

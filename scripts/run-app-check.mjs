@@ -21,9 +21,10 @@
 // recorded status, not from this exit code alone, so a job-level
 // continue-on-error is never required here.
 import { spawnSync } from 'node:child_process';
-import { existsSync, mkdirSync, readFileSync, writeFileSync, openSync, closeSync, fstatSync, readSync } from 'node:fs';
+import { existsSync, mkdirSync, readFileSync, writeFileSync, openSync, closeSync } from 'node:fs';
 import { join } from 'node:path';
 import { evaluateCheckResult, isExpired } from './lib/coverage-contract.mjs';
+import { readTail } from './lib/capture.mjs';
 
 const TAIL_BYTES = 65536; // read at most this much of a captured log for signature matching
 
@@ -55,20 +56,6 @@ const logFile = join(logsDir, `${appKey}__${checkName}.log`);
 
 function record(status, extra = {}) {
   writeFileSync(resultFile, JSON.stringify({ app: appKey, check: checkName, status, ...extra }, null, 2));
-}
-
-function readTail(path, maxBytes) {
-  const fd = openSync(path, 'r');
-  try {
-    const size = fstatSync(fd).size;
-    const length = Math.min(size, maxBytes);
-    const position = size - length;
-    const buf = Buffer.alloc(length);
-    readSync(fd, buf, 0, length, position);
-    return buf.toString('utf8');
-  } finally {
-    closeSync(fd);
-  }
 }
 
 const today = process.env.CI_GATE_TODAY || new Date().toISOString().slice(0, 10);

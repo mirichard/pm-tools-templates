@@ -25,6 +25,21 @@ jobs:
       - run: npm run test:migration-post-check
       - run: npm run validate:migration-post-check
       - run: npm run validate:domain-navigation
+      - run: npm run test:ci-helpers
+      # actionlint is required by tests/test_workflow_health.py's lint-mode
+      # cases; same pinned version/checksum as workflow-health-improvements.yml.
+      - name: Install verified actionlint
+        run: |
+          set -euo pipefail
+          tool_dir="$RUNNER_TEMP/actionlint"
+          mkdir -p "$tool_dir"
+          curl --fail --silent --show-error --location --retry 3 --connect-timeout 10 --max-time 60 \
+            https://github.com/rhysd/actionlint/releases/download/v1.7.7/actionlint_1.7.7_linux_amd64.tar.gz \
+            -o "$tool_dir/actionlint.tar.gz"
+          echo "023070a287cd8cccd71515fedc843f1985bf96c436b7effaecce67290e7e0757  $tool_dir/actionlint.tar.gz" | sha256sum --check
+          tar --no-same-owner -xzf "$tool_dir/actionlint.tar.gz" -C "$tool_dir" actionlint
+          echo "$tool_dir" >> "$GITHUB_PATH"
+      - run: npm run test:ci-helpers-python
       - run: bash scripts/check-workflow-health.sh audit
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:

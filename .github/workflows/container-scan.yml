@@ -84,23 +84,14 @@ jobs:
     if: always()
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          persist-credentials: false
       - name: Evaluate
         env:
           CHANGES_RESULT: ${{ needs.changes.result }}
           APPLICABLE: ${{ needs.changes.outputs.applicable }}
           EVENT_NAME: ${{ github.event_name }}
-          TRIVY_RESULT: ${{ needs.trivy.result }}
-        run: |
-          if [[ "$CHANGES_RESULT" != "success" ]]; then
-            echo "::error::change detection failed (result: $CHANGES_RESULT) - cannot determine applicability."
-            exit 1
-          fi
-          if [[ "$APPLICABLE" != "true" && "$EVENT_NAME" != "push" ]]; then
-            echo "Not applicable to this PR (no ai-insights/** change); scan correctly skipped."
-            exit 0
-          fi
-          if [[ "$TRIVY_RESULT" != "success" ]]; then
-            echo "::error::container scan did not succeed (result: $TRIVY_RESULT) - either it found CRITICAL/HIGH vulnerabilities, or it produced no result at all."
-            exit 1
-          fi
-          echo "Container scan passed."
+          WORK_RESULT: ${{ needs.trivy.result }}
+          WORK_LABEL: "container scan (no ai-insights/** change)"
+        run: bash scripts/applicability-gate.sh

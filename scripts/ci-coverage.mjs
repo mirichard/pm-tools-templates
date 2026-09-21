@@ -34,8 +34,8 @@ const coverage = JSON.parse(readFileSync(coveragePath, 'utf8'));
 // to be tracked in git despite .gitignore (6,292 files - see #1303), which
 // this discovery mechanism correctly surfaced before this exclusion was
 // added, rather than silently hiding it the way the old skip-list did.
-function discoverManifests() {
-  const out = execFileSync('git', ['ls-files', '-z'], { cwd: repoRoot, encoding: 'utf8' });
+export function discoverManifests(root = repoRoot) {
+  const out = execFileSync('git', ['ls-files', '-z'], { cwd: root, encoding: 'utf8' });
   const files = out.split('\0').filter(Boolean);
   const manifestDirs = [];
   for (const file of files) {
@@ -58,6 +58,15 @@ function yamlQuote(str) {
   return `'${str.replace(/'/g, "''")}'`;
 }
 
+// Only run the CLI dispatch when this file is executed directly (`node
+// scripts/ci-coverage.mjs ...`), not when it's imported as a module (e.g.
+// by tests/ci-coverage.test.mjs, which imports discoverManifests directly).
+const isMain = process.argv[1] && fileURLToPath(import.meta.url) === fileURLToPath(new URL(process.argv[1], 'file://'));
+if (isMain) {
+runCli();
+}
+
+function runCli() {
 const [, , cmd, arg] = process.argv;
 
 if (cmd === 'list-apps') {
@@ -130,4 +139,5 @@ if (cmd === 'list-apps') {
 } else {
   console.error('Usage: ci-coverage.mjs {list-apps|gen-path-filters|app-path <key>|app-config <key>|validate-inventory}');
   process.exit(2);
+}
 }

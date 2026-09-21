@@ -103,23 +103,14 @@ jobs:
     if: always()
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          persist-credentials: false
       - name: Evaluate
         env:
           CHANGES_RESULT: ${{ needs.changes.result }}
           APPLICABLE: ${{ needs.changes.outputs.applicable }}
           EVENT_NAME: ${{ github.event_name }}
-          OAUTH_CHECK_RESULT: ${{ needs.oauth-check.result }}
-        run: |
-          if [[ "$CHANGES_RESULT" != "success" ]]; then
-            echo "::error::change detection failed (result: $CHANGES_RESULT) - cannot determine applicability."
-            exit 1
-          fi
-          if [[ "$APPLICABLE" != "true" && "$EVENT_NAME" != "push" ]]; then
-            echo "Not applicable to this PR (no integrations/jira-asana-sync/** change); check correctly skipped."
-            exit 0
-          fi
-          if [[ "$OAUTH_CHECK_RESULT" != "success" ]]; then
-            echo "::error::integration build/test did not succeed (result: $OAUTH_CHECK_RESULT)."
-            exit 1
-          fi
-          echo "Integration OAuth check passed."
+          WORK_RESULT: ${{ needs.oauth-check.result }}
+          WORK_LABEL: "integration OAuth check (no integrations/jira-asana-sync/** change)"
+        run: bash scripts/applicability-gate.sh

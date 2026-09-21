@@ -12,7 +12,9 @@
     "dashboard-demo": "npm --prefix dashboard-mvp run dev",
     "test:migration-post-check": "node --test tests/migration-post-check.test.mjs",
     "validate:migration-post-check": "node scripts/migration-post-check.mjs",
-    "validate:domain-navigation": "node scripts/validate-domain-navigation.mjs"
+    "validate:domain-navigation": "node scripts/validate-domain-navigation.mjs",
+    "test:ci-helpers": "node --test tests/coverage-contract.test.mjs tests/ci-coverage-inventory.test.mjs tests/capture.test.mjs tests/run-app-check.test.mjs tests/playwright-webserver-config.test.mjs",
+    "test:ci-helpers-python": "python3 -m unittest tests.test_workflow_health tests.test_applicability_gate -v"
   },
   "keywords": [
     "project-management",
