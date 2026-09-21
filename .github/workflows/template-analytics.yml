@@ -54,7 +54,7 @@ jobs:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
         with:
           persist-credentials: false
-      - uses: actions/github-script@373c709c69115d41ff229c7e5df9f8788daa9553 # v9
+      - uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9
         with:
           script: |
             await require('./scripts/template-analytics.cjs').track({github, context});
@@ -72,7 +72,7 @@ jobs:
         with:
           persist-credentials: false
       - name: Generate rating reports
-        uses: actions/github-script@373c709c69115d41ff229c7e5df9f8788daa9553 # v9
+        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9
         with:
           script: |
             const analytics = require('./scripts/template-analytics.cjs');
