@@ -469,12 +469,11 @@ jobs:
             performance-report.md
           retention-days: ${{ env.MONITORING_RETENTION_DAYS }}
 
-  # Health Alerting System
+  # Informational health reporting; scores do not create incidents.
   health-alerting:
     permissions:
       contents: read
-      issues: write
-    name: 🚨 Health Alerting
+    name: 📋 Health Reporting
     outputs:
       alert_level: ${{ steps.alerts.outputs.alert_level }}
       alert_message: ${{ steps.alerts.outputs.alert_message }}
@@ -486,10 +485,11 @@ jobs:
       - name: 📥 Checkout Repository
         uses: actions/checkout@v4
 
-      - name: 🚨 Evaluate Health Alerts
+      - name: Classify Historical Health Score
         id: alerts
         run: |
-          echo "🚨 Evaluating health alerts..."
+          echo "Classifying historical health for reporting only..."
+          echo "Historical scores are informational. This monitor does not create issues." >> "$GITHUB_STEP_SUMMARY"
           
           HEALTH_SCORE="${{ needs.collect-workflow-status.outputs.health_score }}"
           ALERT_THRESHOLD="${{ github.event.inputs.alert_threshold || '75' }}"
@@ -497,27 +497,22 @@ jobs:
           echo "Current Health Score: $HEALTH_SCORE"
           echo "Alert Threshold: $ALERT_THRESHOLD"
           
-          ALERT_NEEDED="false"
           ALERT_LEVEL="info"
           ALERT_MESSAGE=""
           
           if (( $(echo "$HEALTH_SCORE < ${{ env.HEALTH_THRESHOLD_CRITICAL }}" | bc -l) )); then
-            ALERT_NEEDED="true"
             ALERT_LEVEL="critical"
             ALERT_MESSAGE="🔴 CRITICAL: Workflow health is severely degraded (Score: $HEALTH_SCORE/100)"
           elif (( $(echo "$HEALTH_SCORE < ${{ env.HEALTH_THRESHOLD_WARNING }}" | bc -l) )); then
-            ALERT_NEEDED="true"
             ALERT_LEVEL="warning"
             ALERT_MESSAGE="🟡 WARNING: Workflow health is below acceptable levels (Score: $HEALTH_SCORE/100)"
           elif (( $(echo "$HEALTH_SCORE < ${{ env.HEALTH_THRESHOLD_GOOD }}" | bc -l) )); then
-            ALERT_NEEDED="true"
             ALERT_LEVEL="notice"
             ALERT_MESSAGE="🟠 NOTICE: Workflow health could be improved (Score: $HEALTH_SCORE/100)"
           else
             ALERT_MESSAGE="✅ Workflow health is good (Score: $HEALTH_SCORE/100)"
           fi
           
-          echo "alert_needed=$ALERT_NEEDED" >> $GITHUB_OUTPUT
           echo "alert_level=$ALERT_LEVEL" >> $GITHUB_OUTPUT
           echo "alert_message=$ALERT_MESSAGE" >> $GITHUB_OUTPUT
           
@@ -584,7 +579,7 @@ jobs:
           
           - **Alert Level:** ${{ steps.alerts.outputs.alert_level }}
           - **Alert Message:** ${{ steps.alerts.outputs.alert_message }}
-          - **Alert Needed:** ${{ steps.alerts.outputs.alert_needed }}
+          - **Reporting policy:** Historical scores are informational; automatic issue creation is disabled.
           
           ## 🔍 Detailed Analysis
           
@@ -656,58 +651,6 @@ jobs:
           
           print("Health report generated")
           EOF
-
-      - name: 🔔 Create Health Issue (if needed)
-        if: steps.alerts.outputs.alert_needed == 'true' && (steps.alerts.outputs.alert_level == 'critical' || steps.alerts.outputs.alert_level == 'warning')
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          echo "🔔 Creating health issue for ${{ steps.alerts.outputs.alert_level }} alert..."
-          
-          ISSUE_TITLE="🚨 Workflow Health Alert: ${{ steps.alerts.outputs.alert_level }} (Score: ${{ needs.collect-workflow-status.outputs.health_score }}/100)"
-          
-          ISSUE_BODY=$(cat << 'EOF'
-          ## 🏥 Workflow Health Alert
-          
-          **Alert Level:** ${{ steps.alerts.outputs.alert_level }}
-          **Health Score:** ${{ needs.collect-workflow-status.outputs.health_score }}/100
-          **Detection Time:** $(date -u +"%Y-%m-%d %H:%M:%S UTC")
-          **Monitoring Run:** [View Details](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }})
-          
-          ### 📊 Alert Details
-          
-          ${{ steps.alerts.outputs.alert_message }}
-          
-          ### 🔍 Investigation Steps
-          
-          1. **Review Workflow Runs**: Check recent workflow execution patterns
-          2. **Identify Failures**: Look for patterns in failed workflows
-          3. **Performance Analysis**: Review execution times and queue delays
-          4. **Resource Check**: Verify runner availability and performance
-          
-          ### 📋 Immediate Actions Required
-          
-          - [ ] Review workflow failure patterns
-          - [ ] Check for infrastructure issues
-          - [ ] Optimize slow-running workflows
-          - [ ] Update dependencies if needed
-          - [ ] Monitor for continued degradation
-          
-          ### 📈 Reports Available
-          
-          - Comprehensive health report available in workflow artifacts
-          - Performance analysis with timing details
-          - Category-specific breakdown and recommendations
-          
-          ---
-          *This issue was automatically created by the Workflow Health Monitor*
-          EOF
-          )
-          
-          gh issue create \
-            --title "$ISSUE_TITLE" \
-            --body "$ISSUE_BODY" \
-            --label "workflow-health,monitoring,${{ steps.alerts.outputs.alert_level }}"
 
       - name: 📤 Upload Health Reports
         uses: actions/upload-artifact@v4
