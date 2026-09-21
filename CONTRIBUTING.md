@@ -111,6 +111,16 @@ template-name/
 3. Squash-merge; branch auto-deletes
 4. Nightly job promotes `develop` → `staging` → `main`
 
+> **Note:** as of 2026-09-21, `develop` had drifted thousands of commits
+> behind `main`, and at least one active PR (#1287, this CI-infrastructure
+> work) was retargeted to `main` directly for that reason, at the
+> maintainer's direction. That is a stated exception for that PR, not a
+> change to the policy above — new contributions should still branch from
+> and target `develop` unless a maintainer says otherwise. If `develop` stays
+> the primary integration branch going forward, it should be resynced with
+> `main`; if `main`-targeting becomes the norm instead, this section should
+> be rewritten rather than left inconsistent with actual practice.
+
 ## 🚀 Submission Process
 
 ### Step 1: Prepare Your Contribution
@@ -256,6 +266,57 @@ markdownlint .
 - [Pandoc](https://pandoc.org/) for format conversion
 - [Draw.io](https://draw.io/) for diagrams
 - [Canva](https://canva.com/) for visual templates
+
+### For Code / Sub-App Contributors
+
+This repo's CI is internal infrastructure for contributors and maintainers — it
+has no effect on template content or the docs site's user-facing behavior.
+
+**Runtime:** Node 24 (current Active LTS) for every sub-app's CI checks and for
+the `ai-insights` and Q3 2025 template-selector Docker images. Use the same
+version locally (`nvm use 24` or equivalent) to reproduce a CI result.
+
+**What CI covers, and how:** `.github/ci-coverage.json` is the single source
+of truth for which code projects get checked, what each one's real
+lint/build/test/audit commands are, and any currently-tolerated, tracked
+exception for a known pre-existing failure (each exception links to a GitHub
+issue and has an expiry date — it does not exempt unrelated new failures in
+that check). `scripts/ci-coverage.mjs` and `scripts/run-app-check.mjs`
+consume that file; nothing about app coverage is duplicated in workflow YAML.
+
+**Running a check locally**, from the repo root:
+```bash
+node scripts/run-app-check.mjs <app-key> <lint|build|test|audit>
+# e.g.
+node scripts/run-app-check.mjs dashboard-mvp test
+```
+This runs the exact command CI runs (`npm ci` first, same as CI's install
+step). `node scripts/ci-coverage.mjs list-apps` prints every valid app key.
+
+**Interpreting a result:** `passed` and `failed` mean what they say. `tolerated`
+means the failure matched a specific, tracked, currently-unexpired exception
+in `ci-coverage.json` (linked issue is the thing to actually go fix); any
+*other* failure of that same check — even in an app with an existing
+exception — is treated as real and fails CI. `not_implemented` means no real
+check exists yet for that app/check pair; it is never silently counted as
+passing.
+
+**Adding a new sub-app:** every `package.json` in the repo (outside
+`node_modules`) must be reconciled in `.github/ci-coverage.json` — added to
+`apps` with its real check commands, pointed at existing coverage in
+`covered_elsewhere` if another workflow already checks it, or listed in
+`excluded` with a reason. `node scripts/ci-coverage.mjs validate-inventory`
+runs on every PR and fails if a new manifest is unaccounted for; run it
+locally before opening a PR that adds one.
+
+**Fork PRs:** these workflows use only the default `GITHUB_TOKEN` (scoped
+read-only per job — see `permissions:` in `.github/workflows/ci.yml`) and no
+repository secrets, so a fork's automatically-reduced token is sufficient to
+run every check. GitHub's own first-time-contributor gate still applies (a
+maintainer must approve a first-time contributor's workflow run before it
+executes), and Dependabot PRs run under GitHub's separate, similarly
+restricted default token — see [GitHub's docs on workflows in forked
+repositories](https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows#workflows-in-forked-repositories).
 
 ## 📜 Legal and Licensing
 
