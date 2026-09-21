@@ -4,6 +4,9 @@
 ~*
 ._*
 
+# Personal Claude Code settings overrides (not team policy)
+.claude/settings.local.json
+
 # Node.js dependencies
 node_modules/
 # Allow package-lock.json for security scanning
