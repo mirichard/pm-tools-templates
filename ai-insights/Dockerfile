@@ -1,5 +1,8 @@
 # AI-Powered Project Insights - Production Dockerfile
-FROM node:18-alpine
+# Node 24 (Active LTS as of 2026-09-21, maintenance starts 2026-10-20, end
+# 2028-04-30 — verified against nodejs/Release's schedule.json) to match the
+# rest of the repo's CI runtime; node:18 (used previously) is end-of-life.
+FROM node:24-alpine
 
 # Set working directory
 WORKDIR /app

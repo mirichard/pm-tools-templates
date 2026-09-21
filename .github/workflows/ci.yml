@@ -4,6 +4,9 @@ on:
     branches: [ main, staging, develop ]
   pull_request:
 
+permissions:
+  contents: read
+
 concurrency:
   group: ci-${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
@@ -12,120 +15,170 @@ jobs:
   build-test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with: { node-version: "20" }
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with: { node-version: "24" }
       - run: npm ci
       - run: npm test -- --coverage
       - run: npm run test:migration-post-check
       - run: npm run validate:migration-post-check
       - run: npm run validate:domain-navigation
       - run: bash scripts/check-workflow-health.sh audit
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
           name: coverage
           path: coverage
 
+  # Discovers which apps' checks need to run and validates that every code
+  # project in the repo is accounted for (covered, covered by another
+  # workflow, or explicitly excluded). .github/ci-coverage.json is the single
+  # source of truth for the app list, per-app paths, and shared-infra paths —
+  # nothing here duplicates that list.
   changes:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: read
     outputs:
       changes: ${{ steps.filter.outputs.changes }}
+      selected_apps: ${{ steps.select.outputs.selected }}
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
-      # dorny/paths-filter is left on a version tag, not a SHA: I could not
-      # independently verify a commit SHA for this action through the tools
-      # available in this session (see PR discussion), and pasting in an
-      # unverified SHA would repeat the exact mistake this PR was written to
-      # fix elsewhere (container-scan.yml). @v4 is confirmed correct and
-      # working via this job's own successful runs.
-      - uses: dorny/paths-filter@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with: { node-version: "24" }
+      - name: Generate path filters from ci-coverage.json
+        id: gen
+        run: |
+          {
+            echo 'filters<<CIFILTERSEOF'
+            node scripts/ci-coverage.mjs gen-path-filters
+            echo 'CIFILTERSEOF'
+            echo "all_apps=$(node scripts/ci-coverage.mjs list-apps)"
+          } >> "$GITHUB_OUTPUT"
+      - uses: dorny/paths-filter@ceb8a2b8f2d89434be7ff52d3de7ec3738c5cc9d # v4
         id: filter
         with:
-          filters: |
-            dashboard-mvp: [ 'dashboard-mvp/**' ]
-            web-mvp: [ 'web-mvp/**' ]
-            site: [ 'site/**' ]
-            ai-insights: [ 'ai-insights/**' ]
-            analytics-platform: [ 'analytics-platform/**' ]
-            workflow-orchestration: [ 'workflow-orchestration/**' ]
-            backend: [ 'backend/**' ]
-            requirements-cli: [ 'tools/requirements-structuring-cli/**' ]
-            template-generator-cli: [ 'tools/template-generator-cli/**' ]
-            docs-site: [ 'docs/site/**' ]
+          filters: ${{ steps.gen.outputs.filters }}
+      # Single place that decides which apps actually run this time, so the
+      # sub-app-checks matrix and the ci-gate job can never select a
+      # different set from one another. Selects every app when shared CI
+      # infrastructure changed (or on push, matching prior behavior) —
+      # "shared" itself is never a matrix entry. A malformed/failed filter
+      # step fails this job outright (no `continue-on-error` anywhere above),
+      # which skips sub-app-checks and ci-gate's prerequisite check fails the
+      # gate — never silently resolves to an empty, successful run.
+      - name: Resolve selected apps
+        id: select
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          CHANGES_JSON: ${{ steps.filter.outputs.changes }}
+          ALL_APPS_JSON: ${{ steps.gen.outputs.all_apps }}
+        run: |
+          node -e "
+            const changes = JSON.parse(process.env.CHANGES_JSON || '[]');
+            const allApps = JSON.parse(process.env.ALL_APPS_JSON || '[]');
+            const selected = (process.env.EVENT_NAME === 'push' || changes.includes('shared'))
+              ? allApps
+              : changes.filter((c) => allApps.includes(c));
+            console.log('selected=' + JSON.stringify(selected));
+          " >> "$GITHUB_OUTPUT"
 
-  # Runs each sub-app's own lint/build/test scripts (already present in their
-  # package.json, just never wired into CI before). Path-filtered on PRs so an
-  # unrelated change doesn't spin up all 10 jobs; full matrix runs on push to
-  # main/staging/develop. continue-on-error is intentional for this first pass:
-  # several of these apps have never been tested in CI and are expected to
-  # surface pre-existing breakage (see PR description) — flip to a hard gate
-  # once each app is green. NOTE: continue-on-error affects whether this job's
-  # failure fails the workflow run; it does NOT by itself control whether
-  # branch protection treats these checks as required — verify that
-  # separately if these are ever added as required status checks.
-  #
-  # Node 22 (not 20, matching build-test) because docs/site's real toolchain
-  # (Astro 7.3.2) requires >=22.12.0 — its own package.json engines field
-  # doesn't say so, this was only discovered by actually running it. 22
-  # remains compatible with every other sub-app's stated engines.node (all
-  # >=16 or >=18, or unconstrained).
+  # Independent of change-detection: on every run, discovers every
+  # package.json in the repo and fails if one has neither a coverage mapping
+  # nor a documented, reasoned exclusion in .github/ci-coverage.json. This is
+  # what catches a new app that nobody remembered to add to the filters above.
+  inventory:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with: { node-version: "24" }
+      - run: node scripts/ci-coverage.mjs validate-inventory
+
+  # Runs each app's lint/build/test/audit checks per .github/ci-coverage.json.
+  # lint/build/test are independent of each other but all require a
+  # successful install; audit only needs checkout + Node + the app's own
+  # lockfile, so it still runs even if install/lint/build/test fail (it must
+  # not be masked by an unrelated lint break). Every check's real outcome is
+  # recorded by run-app-check.mjs and uploaded as an artifact for ci-gate to
+  # aggregate; there is no job- or step-level continue-on-error — a specific,
+  # tracked exception (see ci-coverage.json) is evaluated by content, not by
+  # blanket tolerance.
   sub-app-checks:
     needs: changes
-    if: needs.changes.outputs.changes != '[]' || github.event_name == 'push'
+    if: needs.changes.outputs.selected_apps != '[]'
     runs-on: ubuntu-latest
-    continue-on-error: true
     strategy:
       fail-fast: false
       matrix:
-        app: ${{ (github.event_name == 'push' && fromJSON('["dashboard-mvp","web-mvp","site","ai-insights","analytics-platform","workflow-orchestration","backend","requirements-cli","template-generator-cli","docs-site"]')) || fromJSON(needs.changes.outputs.changes) }}
+        app: ${{ fromJSON(needs.changes.outputs.selected_apps) }}
+    env:
+      CHECK_RESULTS_DIR: ${{ github.workspace }}/health-reports/check-results
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          persist-credentials: false
       - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
-        with: { node-version: "22" }
+        with: { node-version: "24" }
       - name: Resolve app directory
         id: dir
-        env:
-          APP: ${{ matrix.app }}
-        run: |
-          declare -A DIRS=(
-            [dashboard-mvp]=dashboard-mvp
-            [web-mvp]=web-mvp
-            [site]=site
-            [ai-insights]=ai-insights
-            [analytics-platform]=analytics-platform
-            [workflow-orchestration]=workflow-orchestration
-            [backend]=backend
-            [requirements-cli]=tools/requirements-structuring-cli
-            [template-generator-cli]=tools/template-generator-cli
-            [docs-site]=docs/site
-          )
-          echo "path=${DIRS[$APP]}" >> "$GITHUB_OUTPUT"
-      # working-directory: (a real shell chdir done by the runner), not
-      # npm's own --prefix, for the four npm invocations below. Both prefix
-      # orderings (`npm run <script> --prefix <dir>` and
-      # `npm --prefix <dir> run <script>`) reproduced the identical failure
-      # on dashboard-mvp - `next lint` reporting "Invalid project directory
-      # provided, no such directory: .../dashboard-mvp/lint" - even though a
-      # local reproduction confirmed --prefix correctly sets process.cwd()
-      # and forwards no extra argv. That points at Next's own CLI reading a
-      # different npm-set signal (most likely npm_config_local_prefix, which
-      # working-directory: never sets in the first place) rather than an
-      # argument-parsing bug on this repo's side. working-directory: is also
-      # the more standard mechanism for this in GitHub Actions.
+        run: echo "path=$(node scripts/ci-coverage.mjs app-path '${{ matrix.app }}')" >> "$GITHUB_OUTPUT"
       - name: Install dependencies
+        id: install
         working-directory: ${{ steps.dir.outputs.path }}
         run: npm ci
       - name: Lint
-        working-directory: ${{ steps.dir.outputs.path }}
-        run: npm run lint --if-present
+        if: ${{ !cancelled() && steps.install.outcome == 'success' }}
+        run: node scripts/run-app-check.mjs '${{ matrix.app }}' lint
       - name: Build
-        working-directory: ${{ steps.dir.outputs.path }}
-        run: npm run build --if-present
+        if: ${{ !cancelled() && steps.install.outcome == 'success' }}
+        run: node scripts/run-app-check.mjs '${{ matrix.app }}' build
       - name: Test
-        working-directory: ${{ steps.dir.outputs.path }}
-        run: npm test --if-present
+        if: ${{ !cancelled() && steps.install.outcome == 'success' }}
+        run: node scripts/run-app-check.mjs '${{ matrix.app }}' test
       - name: Dependency audit
-        env:
-          APP_PATH: ${{ steps.dir.outputs.path }}
-        run: bash scripts/check-workflow-health.sh audit "$APP_PATH"
+        if: ${{ !cancelled() }}
+        run: node scripts/run-app-check.mjs '${{ matrix.app }}' audit
+      - name: Upload check results
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: check-result-${{ matrix.app }}
+          path: health-reports/check-results/
+          if-no-files-found: warn
 
+  # The one required status check: fails on a prerequisite job that didn't
+  # succeed, a required check with no recorded result (missing, cancelled, or
+  # timed out mid-run), a required check that genuinely failed, or a
+  # tolerated exception that has expired. See scripts/ci-gate.mjs.
+  ci-gate:
+    needs: [changes, inventory, build-test, sub-app-checks]
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with: { node-version: "24" }
+      - name: Download check results
+        if: needs.changes.outputs.selected_apps != '[]'
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4
+        with:
+          pattern: check-result-*
+          path: health-reports/check-results
+          merge-multiple: true
+      - name: Evaluate gate
+        env:
+          CHANGES_RESULT: ${{ needs.changes.result }}
+          INVENTORY_RESULT: ${{ needs.inventory.result }}
+          BUILD_TEST_RESULT: ${{ needs.build-test.result }}
+          SUB_APP_CHECKS_RESULT: ${{ needs.changes.outputs.selected_apps == '[]' && 'success' || needs.sub-app-checks.result }}
+          SELECTED_APPS: ${{ needs.changes.outputs.selected_apps || '[]' }}
+        run: node scripts/ci-gate.mjs

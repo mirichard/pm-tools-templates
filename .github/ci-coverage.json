@@ -1,0 +1,303 @@
+{
+  "_readme": [
+    "Single source of truth for which code projects this repo's CI covers, how, and why.",
+    "Consumed by scripts/ci-coverage.mjs (list-apps / app-config / validate-inventory) and",
+    "by .github/workflows/ci.yml's sub-app-checks matrix. Do not duplicate this app list",
+    "anywhere else in workflow YAML.",
+    "",
+    "Each app's 'checks' entry may be: {command, required, exception?} for a real check,",
+    "or {command: null, required: false, status: 'not_implemented', note} where no real",
+    "check exists yet. An 'exception' records a specific, currently-tolerated failure:",
+    "{issue, owner, recorded, expires, failure_signature, removal_condition}. The CI",
+    "evaluator only tolerates a failure whose captured output contains failure_signature;",
+    "any other failure of that step is treated as real and fails the run regardless of",
+    "the exception's presence.",
+    "",
+    "Node runtime: all entries below run on the single node_version at the top of this",
+    "file. Verified against https://raw.githubusercontent.com/nodejs/Release/main/schedule.json",
+    "on 2026-09-21: v20 (Iron) end=2026-04-30, already past end of life; v22 (Jod)",
+    "maintenance since 2025-10-21, end=2027-04-30, still supported but past Active LTS;",
+    "v24 (Krypton) lts since 2025-10-28, still in Active LTS (maintenance starts",
+    "2026-10-20), end=2028-04-30. v24 is the current Active LTS and is used here; it also",
+    "satisfies docs/site's real toolchain requirement (Astro 7.3.2 needs >=22.12.0)."
+  ],
+  "node_version": "24",
+  "shared_paths": [
+    ".github/workflows/ci.yml",
+    ".github/ci-coverage.json",
+    "scripts/ci-coverage.mjs",
+    "scripts/run-app-check.mjs",
+    "scripts/ci-gate.mjs",
+    "scripts/check-workflow-health.sh"
+  ],
+  "apps": {
+    "dashboard-mvp": {
+      "path": "dashboard-mvp",
+      "checks": {
+        "lint": {
+          "command": "npm run lint",
+          "required": true,
+          "exception": {
+            "issue": "https://github.com/mirichard/pm-tools-templates/issues/1292",
+            "owner": "mirichard",
+            "recorded": "2026-09-21",
+            "expires": "2026-12-21",
+            "failure_signature": "Invalid project directory provided",
+            "verified": "live-ci",
+            "removal_condition": "Remove once #1292 is fixed (next-lint-to-eslint-cli codemod applied) and lint passes on two consecutive runs."
+          }
+        },
+        "build": { "command": "npm run build", "required": true },
+        "test": { "command": "npm test", "required": true },
+        "audit": { "required": true }
+      }
+    },
+    "web-mvp": {
+      "path": "web-mvp",
+      "checks": {
+        "lint": {
+          "command": null,
+          "required": false,
+          "status": "not_implemented",
+          "note": "package.json's lint script is a placeholder stub (`echo 'add linter later'`); running it would only produce false confidence, so it is intentionally not invoked. Tracked as a real gap, not excused as passing."
+        },
+        "build": { "command": "npm run build", "required": true },
+        "test": {
+          "command": "npm run test:a11y",
+          "setup": "npx playwright install --with-deps chromium",
+          "required": true,
+          "note": "No plain `test` script exists; test:a11y (Playwright a11y spec) is the app's real, meaningful check."
+        },
+        "audit": { "required": true }
+      }
+    },
+    "site": {
+      "path": "site",
+      "checks": {
+        "lint": { "command": null, "required": false, "status": "not_implemented" },
+        "build": { "command": null, "required": false, "status": "not_implemented", "note": "Express server app; no build step." },
+        "test": {
+          "command": "npm run ci",
+          "required": true,
+          "note": "Runs the app's own existing composite script (starts server, Playwright e2e, Lighthouse CI, stops server) rather than reimplementing it here.",
+          "exception": {
+            "issue": "https://github.com/mirichard/pm-tools-templates/issues/1296",
+            "owner": "mirichard",
+            "recorded": "2026-09-21",
+            "expires": "2026-12-21",
+            "failure_signature": "Missing: degenerator@7.0.1 from lock file",
+            "verified": "reproduced-locally",
+            "applies_to_install": true,
+            "removal_condition": "Remove once #1296 is fixed (package-lock.json regenerated) and install/test pass on two consecutive runs."
+          }
+        },
+        "audit": { "required": true, "note": "Audit reads the lockfile directly; can still run even while the install exception above is open." }
+      }
+    },
+    "ai-insights": {
+      "path": "ai-insights",
+      "checks": {
+        "lint": {
+          "command": "npm run lint",
+          "required": true,
+          "exception": {
+            "issue": "https://github.com/mirichard/pm-tools-templates/issues/1293",
+            "owner": "mirichard",
+            "recorded": "2026-09-21",
+            "expires": "2026-12-21",
+            "failure_signature": "couldn't find an eslint.config",
+            "verified": "live-ci+reproduced-locally",
+            "removal_condition": "Remove once #1293 is fixed (eslint.config.js added) and lint passes on two consecutive runs."
+          }
+        },
+        "build": { "command": "npm run build", "required": true },
+        "test": { "command": "npm test", "required": true },
+        "audit": { "required": true }
+      }
+    },
+    "analytics-platform": {
+      "path": "analytics-platform",
+      "checks": {
+        "lint": { "command": "npm run lint", "required": true },
+        "build": {
+          "command": "npm run build",
+          "required": true,
+          "exception": {
+            "issue": "https://github.com/mirichard/pm-tools-templates/issues/1295",
+            "owner": "mirichard",
+            "recorded": "2026-09-21",
+            "expires": "2026-12-21",
+            "failure_signature": "dashboard",
+            "verified": "live-ci",
+            "residual_risk": "Signature is a broad substring (the missing directory's name) rather than a byte-exact captured error line, because a full local reproduction was blocked by this session's sandbox restrictions on installing dependencies. Any other analytics-platform build failure that happens to mention 'dashboard' in its output would also be tolerated until this is tightened.",
+            "removal_condition": "Remove once #1295 is fixed (dashboard/ subproject restored or build script corrected) and build passes on two consecutive runs."
+          }
+        },
+        "test": { "command": "npm test", "required": true },
+        "audit": { "required": true }
+      }
+    },
+    "workflow-orchestration": {
+      "path": "workflow-orchestration",
+      "checks": {
+        "lint": {
+          "command": "npm run lint",
+          "required": true,
+          "exception": {
+            "issue": "https://github.com/mirichard/pm-tools-templates/issues/1294",
+            "owner": "mirichard",
+            "recorded": "2026-09-21",
+            "expires": "2026-12-21",
+            "failure_signature": "couldn't find an eslint.config",
+            "verified": "inferred-same-class-as-ai-insights",
+            "residual_risk": "Not independently re-run this session (blocked by sandbox restrictions on installing dependencies); classified by directory inspection confirming no eslint config file exists, same root cause as ai-insights (#1293). Signature reused from that confirmed case.",
+            "removal_condition": "Remove once #1294 is fixed (eslint.config.js added) and lint passes on two consecutive runs."
+          }
+        },
+        "build": { "command": "npm run build", "required": true },
+        "test": { "command": "npm test", "required": true },
+        "audit": { "required": true }
+      }
+    },
+    "backend": {
+      "path": "backend",
+      "checks": {
+        "lint": { "command": null, "required": false, "status": "not_implemented" },
+        "build": { "command": null, "required": false, "status": "not_implemented" },
+        "test": { "command": null, "required": false, "status": "not_implemented" },
+        "audit": { "required": true }
+      }
+    },
+    "requirements-cli": {
+      "path": "tools/requirements-structuring-cli",
+      "checks": {
+        "lint": { "command": null, "required": false, "status": "not_implemented" },
+        "build": { "command": null, "required": false, "status": "not_implemented" },
+        "test": { "command": "npm test", "required": true },
+        "audit": { "required": true }
+      }
+    },
+    "template-generator-cli": {
+      "path": "tools/template-generator-cli",
+      "checks": {
+        "lint": { "command": null, "required": false, "status": "not_implemented" },
+        "build": { "command": null, "required": false, "status": "not_implemented" },
+        "test": { "command": "npm test", "required": true },
+        "audit": { "required": true }
+      }
+    },
+    "docs-site": {
+      "path": "docs/site",
+      "checks": {
+        "lint": { "command": null, "required": false, "status": "not_implemented" },
+        "build": { "command": "npm run build", "required": true },
+        "test": { "command": null, "required": false, "status": "not_implemented" },
+        "audit": { "required": true }
+      }
+    },
+    "integrations-asana": {
+      "path": "integrations/asana",
+      "checks": {
+        "lint": { "command": "npm run lint", "required": true },
+        "build": { "command": "npm run build", "required": true },
+        "test": { "command": "npm test", "required": true },
+        "audit": { "required": true }
+      }
+    },
+    "integrations-deployer-asana": {
+      "path": "integrations/deployer/asana",
+      "checks": {
+        "lint": { "command": null, "required": false, "status": "not_implemented" },
+        "build": { "command": null, "required": false, "status": "not_implemented", "note": "Runs TypeScript directly via tsx; no separate build step." },
+        "test": { "command": "npm test", "required": true },
+        "audit": { "required": true }
+      }
+    },
+    "integrations-deployer-jira": {
+      "path": "integrations/deployer/jira",
+      "checks": {
+        "lint": { "command": null, "required": false, "status": "not_implemented" },
+        "build": { "command": null, "required": false, "status": "not_implemented", "note": "Runs TypeScript directly via tsx; no separate build step." },
+        "test": { "command": "npm test", "required": true },
+        "audit": { "required": true }
+      }
+    },
+    "template-selector-mvp": {
+      "path": "PM Tools Templates - Q3 2025 Delivery Cycle/Implementation/template-selector",
+      "checks": {
+        "lint": { "command": null, "required": false, "status": "not_implemented" },
+        "build": { "command": "npm run build", "required": true },
+        "test": { "command": "npm test", "required": true, "note": "Frontend's own test script (package.json's plain `test`); the nested backend/ is a separate npm project with its own dependency tree, covered independently as template-selector-backend." },
+        "audit": { "required": true }
+      }
+    },
+    "template-selector-backend": {
+      "path": "PM Tools Templates - Q3 2025 Delivery Cycle/Implementation/template-selector/backend",
+      "checks": {
+        "lint": { "command": "npm run lint", "required": true },
+        "build": { "command": null, "required": false, "status": "not_implemented", "note": "Plain Node server (server.js); no build step." },
+        "test": { "command": "npm test", "required": true },
+        "audit": { "required": true }
+      }
+    },
+    "snowflake-demo-frontend": {
+      "path": "Snowflake Demo/frontend",
+      "checks": {
+        "lint": { "command": null, "required": false, "status": "not_implemented" },
+        "build": { "command": "npm run build", "required": true },
+        "test": { "command": "npm test", "required": true },
+        "audit": { "required": true }
+      }
+    },
+    "demo-288": {
+      "path": "demo/288",
+      "checks": {
+        "lint": { "command": null, "required": false, "status": "not_implemented" },
+        "build": { "command": "npm run build", "required": true },
+        "test": {
+          "command": "npm run test:a11y && npm run test:uat",
+          "setup": "npx playwright install --with-deps chromium",
+          "required": true,
+          "note": "No plain `test` script; both Playwright suites (a11y + uat) are this app's real coverage."
+        },
+        "audit": { "required": true }
+      }
+    },
+    "demos-288-template-customization": {
+      "path": "demos/288-template-customization",
+      "checks": {
+        "lint": { "command": null, "required": false, "status": "not_implemented" },
+        "build": { "command": "npm run build", "required": true },
+        "test": {
+          "command": "npm run test:a11y && npm run test:uat",
+          "setup": "npx playwright install --with-deps chromium",
+          "required": true,
+          "note": "No plain `test` script; both Playwright suites (a11y + uat) are this app's real coverage."
+        },
+        "audit": { "required": true }
+      }
+    },
+    "examples-backend-services": {
+      "path": "examples/backend-services",
+      "checks": {
+        "lint": { "command": null, "required": false, "status": "not_implemented" },
+        "build": { "command": null, "required": false, "status": "not_implemented" },
+        "test": { "command": null, "required": false, "status": "not_implemented", "note": "Runnable sample service (start/extract/dev scripts) with no test suite defined." },
+        "audit": { "required": true }
+      }
+    }
+  },
+  "covered_elsewhere": [
+    {
+      "path": "integrations/jira-asana-sync",
+      "workflow": ".github/workflows/integration-oauth-check.yml",
+      "reason": "Already builds (npm run build) and tests (npm test) this exact path on push/PR to integrations/jira-asana-sync/**. Not duplicated in the sub-app-checks matrix to avoid two independent, potentially divergent checks of the same code."
+    },
+    {
+      "path": "integrations/webhook-framework",
+      "workflow": "root package.json's test:webhook script, run via npm run test:webhook",
+      "reason": "No package.json in this directory (per CLAUDE.md); tested from the repo root, so it never surfaces as a discovered manifest in the first place, but is documented here for completeness."
+    }
+  ],
+  "excluded": []
+}
