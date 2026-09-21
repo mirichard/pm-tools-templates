@@ -152,7 +152,7 @@
         "build": {
           "command": "npm run build",
           "required": true,
-          "note": "npm ci itself currently fails for this app (ERESOLVE peer-dependency conflict) before this script ever runs; see #1295. Not excepted — no mechanism exists yet to except an install-level failure, so this shows as a genuine, visible 'missing' result, not a tolerated one."
+          "note": "#1295's ERESOLVE conflict (@typescript-eslint/eslint-plugin@7 vs eslint@9) fixed by bumping typescript-eslint to 8. Fixing install surfaced that this app had no eslint/tsc/jest config at all and most of its package.json scripts referenced an API server, dashboard, and DB migrations that were never written — see #1311. build/lint/test now run for real against what actually exists (src/sdk/)."
         },
         "test": { "command": "npm test", "required": true },
         "audit": { "required": true }

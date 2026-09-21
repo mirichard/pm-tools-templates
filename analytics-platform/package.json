@@ -5,18 +5,10 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "dev": "concurrently \"npm run dev:api\" \"npm run dev:dashboard\"",
-    "dev:api": "nodemon src/api/server.ts",
-    "dev:dashboard": "cd dashboard && npm run dev",
-    "build": "npm run build:api && npm run build:dashboard",
-    "build:api": "tsc && cp -r src/api/public dist/api/",
-    "build:dashboard": "cd dashboard && npm run build",
+    "build": "tsc",
     "test": "jest",
     "test:watch": "jest --watch",
-    "lint": "eslint src --ext .ts,.tsx",
-    "start": "node dist/api/server.js",
-    "db:migrate": "knex migrate:latest",
-    "db:seed": "knex seed:run"
+    "lint": "eslint src --ext .ts,.tsx"
   },
   "keywords": [
     "analytics",
@@ -58,8 +50,8 @@
     "@types/uuid": "^9.0.2",
     "@types/pg": "^8.10.2",
     "@types/jest": "^29.5.3",
-    "@typescript-eslint/eslint-plugin": "^7.0.0",
-    "@typescript-eslint/parser": "^7.0.0",
+    "@typescript-eslint/eslint-plugin": "^8.0.0",
+    "@typescript-eslint/parser": "^8.0.0",
     "typescript": "^5.1.6",
     "nodemon": "^3.0.1",
     "ts-node": "^10.9.1",
