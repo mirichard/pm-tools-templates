@@ -1,5 +1,6 @@
 """Exercise real generation and guard against unsafe dispatch/startup regressions."""
 import importlib.util
+import json
 import os
 from pathlib import Path
 import re
@@ -73,6 +74,92 @@ class CleanStatusTests(unittest.TestCase):
 
     def test_missing_output_fails(self):
         with self.assertRaises(ValueError): status.validate('', '')
+
+
+class LegacyReportingSafetyTests(unittest.TestCase):
+    """Check actual workflow guards across dispatch, schedule, and missing inputs."""
+
+    def test_delivery_and_preview_conditions(self):
+        # These conditions use the common JS/GitHub subset (strings, ==, &&, ||).
+        # Evaluate the expressions from YAML, not a second copy of the policy.
+        evaluator = """
+        const vm = require('node:vm');
+        const fs = require('node:fs');
+        const cases = JSON.parse(fs.readFileSync(0, 'utf8'));
+        process.stdout.write(JSON.stringify(cases.map(c =>
+          Boolean(vm.runInNewContext(c.expression, c.context, {timeout: 100})))));
+        """
+        scenarios = [
+            ('workflow_dispatch', 'true', False, True),
+            ('workflow_dispatch', '', False, True),
+            ('workflow_dispatch', 'unexpected', False, True),
+            ('workflow_dispatch', 'false', True, False),
+            ('schedule', '', True, False),
+            ('pull_request', 'false', False, False),
+        ]
+        for filename in ('status-reporting.yml', 'weekly-status-email.yml'):
+            workflow = yaml.safe_load((WORKFLOW.parent / filename).read_text())
+            trigger = workflow.get('on', workflow.get(True))
+            self.assertIs(trigger['workflow_dispatch']['inputs']['test_mode']['default'], True)
+            cases, expected = [], []
+            mutation_count = preview_count = 0
+            for job in workflow['jobs'].values():
+                for step in job['steps']:
+                    mail = step.get('uses', '').startswith('dawidd6/action-send-mail@')
+                    mutation = bool(re.search(r'\bgit\s+(?:commit|push)\b', step.get('run', '')))
+                    preview = step.get('uses', '').startswith('actions/upload-artifact@')
+                    if not (mail or mutation or preview):
+                        continue
+                    mutation_count += int(mail or mutation)
+                    preview_count += int(preview)
+                    self.assertIn('if', step, step['name'])
+                    expression = step['if'].removeprefix('${{').removesuffix('}}').strip()
+                    if preview:
+                        self.assertEqual(step['with']['if-no-files-found'], 'error')
+                        self.assertTrue(step['with']['path'])
+                    for event, mode, publish, want_preview in scenarios:
+                        for configured in ('true', 'false'):
+                            cases.append({
+                                'expression': expression,
+                                'context': {
+                                    'github': {'event_name': event, 'event': {'inputs': {'test_mode': mode}}},
+                                    'env': {'EMAIL_CONFIGURED': configured},
+                                },
+                            })
+                            expected.append(want_preview if preview else publish and (not mail or configured == 'true'))
+            self.assertEqual(mutation_count, 3 if filename == 'status-reporting.yml' else 2)
+            self.assertEqual(preview_count, 2)
+            result = subprocess.run(['node', '-e', evaluator], input=json.dumps(cases),
+                                    text=True, capture_output=True, check=True)
+            self.assertEqual(json.loads(result.stdout), expected, filename)
+
+    def test_email_summary_does_not_claim_skipped_delivery_succeeded(self):
+        for filename in ('status-reporting.yml', 'weekly-status-email.yml'):
+            workflow = yaml.safe_load((WORKFLOW.parent / filename).read_text())
+            steps = [s for j in workflow['jobs'].values() for s in j['steps']]
+            summary = next(s for s in steps if s['name'] == '📧 Email Status Summary')
+            self.assertEqual(summary['env']['DELIVERY_OUTCOME'], '${{ steps.send_email.outcome }}')
+            self.assertTrue(any(s.get('id') == 'send_email' for s in steps))
+            for preview, outcome, message in [
+                ('true', 'skipped', 'no reports committed and no email sent'),
+                ('false', 'skipped', 'Email not sent'),
+                ('false', 'success', 'completed successfully'),
+            ]:
+                env = dict(PATH=os.environ['PATH'], PREVIEW_ONLY=preview, DELIVERY_OUTCOME=outcome)
+                result = subprocess.run(['bash', '-euo', 'pipefail', '-c', summary['run']],
+                                        env=env, text=True, capture_output=True, check=True)
+                self.assertIn(message, result.stdout)
+                if outcome == 'skipped':
+                    self.assertNotIn('successfully', result.stdout)
+
+    def test_ci_runs_safety_checks_for_both_workflow_changes(self):
+        workflow = yaml.safe_load((WORKFLOW.parent / 'lint-templates.yml').read_text())
+        trigger = workflow.get('on', workflow.get(True))
+        for event in ('pull_request', 'push'):
+            for filename in ('status-reporting.yml', 'weekly-status-email.yml'):
+                self.assertIn('.github/workflows/' + filename, trigger[event]['paths'])
+        commands = '\n'.join(s.get('run', '') for j in workflow['jobs'].values() for s in j['steps'])
+        self.assertIn('test_clean_status.py', commands)
 
 
 if __name__ == '__main__':
