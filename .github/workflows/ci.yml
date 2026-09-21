@@ -31,7 +31,13 @@ jobs:
     outputs:
       changes: ${{ steps.filter.outputs.changes }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+      # dorny/paths-filter is left on a version tag, not a SHA: I could not
+      # independently verify a commit SHA for this action through the tools
+      # available in this session (see PR discussion), and pasting in an
+      # unverified SHA would repeat the exact mistake this PR was written to
+      # fix elsewhere (container-scan.yml). @v4 is confirmed correct and
+      # working via this job's own successful runs.
       - uses: dorny/paths-filter@v4
         id: filter
         with:
@@ -53,7 +59,16 @@ jobs:
   # main/staging/develop. continue-on-error is intentional for this first pass:
   # several of these apps have never been tested in CI and are expected to
   # surface pre-existing breakage (see PR description) — flip to a hard gate
-  # once each app is green.
+  # once each app is green. NOTE: continue-on-error affects whether this job's
+  # failure fails the workflow run; it does NOT by itself control whether
+  # branch protection treats these checks as required — verify that
+  # separately if these are ever added as required status checks.
+  #
+  # Node 22 (not 20, matching build-test) because docs/site's real toolchain
+  # (Astro 7.3.2) requires >=22.12.0 — its own package.json engines field
+  # doesn't say so, this was only discovered by actually running it. 22
+  # remains compatible with every other sub-app's stated engines.node (all
+  # >=16 or >=18, or unconstrained).
   sub-app-checks:
     needs: changes
     if: needs.changes.outputs.changes != '[]' || github.event_name == 'push'
@@ -64,11 +79,13 @@ jobs:
       matrix:
         app: ${{ (github.event_name == 'push' && fromJSON('["dashboard-mvp","web-mvp","site","ai-insights","analytics-platform","workflow-orchestration","backend","requirements-cli","template-generator-cli","docs-site"]')) || fromJSON(needs.changes.outputs.changes) }}
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with: { node-version: "20" }
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with: { node-version: "22" }
       - name: Resolve app directory
         id: dir
+        env:
+          APP: ${{ matrix.app }}
         run: |
           declare -A DIRS=(
             [dashboard-mvp]=dashboard-mvp
@@ -82,11 +99,25 @@ jobs:
             [template-generator-cli]=tools/template-generator-cli
             [docs-site]=docs/site
           )
-          echo "path=${DIRS[${{ matrix.app }}]}" >> "$GITHUB_OUTPUT"
-      - run: npm ci --prefix "${{ steps.dir.outputs.path }}"
-      - run: npm run lint --if-present --prefix "${{ steps.dir.outputs.path }}"
-      - run: npm run build --if-present --prefix "${{ steps.dir.outputs.path }}"
-      - run: npm test --if-present --prefix "${{ steps.dir.outputs.path }}"
+          echo "path=${DIRS[$APP]}" >> "$GITHUB_OUTPUT"
+      - name: Install dependencies
+        env:
+          APP_PATH: ${{ steps.dir.outputs.path }}
+        run: npm ci --prefix "$APP_PATH"
+      - name: Lint
+        env:
+          APP_PATH: ${{ steps.dir.outputs.path }}
+        run: npm --prefix "$APP_PATH" run lint --if-present
+      - name: Build
+        env:
+          APP_PATH: ${{ steps.dir.outputs.path }}
+        run: npm --prefix "$APP_PATH" run build --if-present
+      - name: Test
+        env:
+          APP_PATH: ${{ steps.dir.outputs.path }}
+        run: npm --prefix "$APP_PATH" test --if-present
       - name: Dependency audit
-        run: bash scripts/check-workflow-health.sh audit "${{ steps.dir.outputs.path }}"
+        env:
+          APP_PATH: ${{ steps.dir.outputs.path }}
+        run: bash scripts/check-workflow-health.sh audit "$APP_PATH"
 

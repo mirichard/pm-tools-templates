@@ -23,7 +23,14 @@ case "${1:-}" in
     report_name=$(echo "$target_dir" | tr '/.' '--' | sed 's/^-*//')
     report_path="health-reports/npm-audit${report_name:+-$report_name}.json"
     echo "Auditing runtime dependencies in $target_dir; failing at moderate severity or above."
-    if npm audit --prefix "$target_dir" --package-lock-only --ignore-scripts --omit=dev --audit-level=moderate --json > "$report_path"; then
+    # Only pass --prefix when a directory argument was actually given, so the
+    # no-argument (root) call keeps its exact original argv for callers/tests
+    # that depend on it.
+    prefix_args=()
+    if [[ -n "${2:-}" ]]; then
+      prefix_args=(--prefix "$target_dir")
+    fi
+    if npm audit "${prefix_args[@]}" --package-lock-only --ignore-scripts --omit=dev --audit-level=moderate --json > "$report_path"; then
       echo "Runtime dependency audit for $target_dir passed at the moderate threshold."
     else
       result=$?

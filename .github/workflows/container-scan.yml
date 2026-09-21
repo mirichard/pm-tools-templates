@@ -28,13 +28,19 @@ jobs:
     name: Scan ai-insights image
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
 
       - name: Build ai-insights image
         run: docker build -t ai-insights:scan ./ai-insights
 
+      # Corrected from a nonexistent "0.28.0" tag (missing the required "v"
+      # prefix - confirmed against https://github.com/aquasecurity/trivy-action/releases,
+      # this action's own tags are v-prefixed). Left as a verified tag rather
+      # than a SHA: I could not independently verify a commit SHA for this
+      # action through the tools available in this session, and guessing one
+      # would repeat the exact mistake being fixed here.
       - name: Scan image with Trivy
-        uses: aquasecurity/trivy-action@0.28.0
+        uses: aquasecurity/trivy-action@v0.28.0
         with:
           image-ref: ai-insights:scan
           format: table

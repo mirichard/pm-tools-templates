@@ -66,98 +66,21 @@ updates:
 
   # Sub-applications each have their own dependency tree; previously only the
   # repo root was watched, so their npm dependencies were invisible here.
+  # One entry with `directories:` (GA since mid-2024) instead of 10 separate
+  # `directory:` entries, so a future policy change (labels, schedule, ignore
+  # rules) only needs to be made once instead of kept in sync across 10 copies.
   - package-ecosystem: "npm"
-    directory: "/dashboard-mvp"
-    schedule: { interval: "weekly", day: "monday" }
-    open-pull-requests-limit: 5
-    labels: [ "dependencies", "security" ]
-    commit-message: { prefix: "Security", include: "scope" }
-    ignore:
-      - dependency-name: "*"
-        update-types: [ "version-update:semver-patch" ]
-
-  - package-ecosystem: "npm"
-    directory: "/web-mvp"
-    schedule: { interval: "weekly", day: "monday" }
-    open-pull-requests-limit: 5
-    labels: [ "dependencies", "security" ]
-    commit-message: { prefix: "Security", include: "scope" }
-    ignore:
-      - dependency-name: "*"
-        update-types: [ "version-update:semver-patch" ]
-
-  - package-ecosystem: "npm"
-    directory: "/site"
-    schedule: { interval: "weekly", day: "monday" }
-    open-pull-requests-limit: 5
-    labels: [ "dependencies", "security" ]
-    commit-message: { prefix: "Security", include: "scope" }
-    ignore:
-      - dependency-name: "*"
-        update-types: [ "version-update:semver-patch" ]
-
-  - package-ecosystem: "npm"
-    directory: "/ai-insights"
-    schedule: { interval: "weekly", day: "monday" }
-    open-pull-requests-limit: 5
-    labels: [ "dependencies", "security" ]
-    commit-message: { prefix: "Security", include: "scope" }
-    ignore:
-      - dependency-name: "*"
-        update-types: [ "version-update:semver-patch" ]
-
-  - package-ecosystem: "npm"
-    directory: "/analytics-platform"
-    schedule: { interval: "weekly", day: "monday" }
-    open-pull-requests-limit: 5
-    labels: [ "dependencies", "security" ]
-    commit-message: { prefix: "Security", include: "scope" }
-    ignore:
-      - dependency-name: "*"
-        update-types: [ "version-update:semver-patch" ]
-
-  - package-ecosystem: "npm"
-    directory: "/workflow-orchestration"
-    schedule: { interval: "weekly", day: "monday" }
-    open-pull-requests-limit: 5
-    labels: [ "dependencies", "security" ]
-    commit-message: { prefix: "Security", include: "scope" }
-    ignore:
-      - dependency-name: "*"
-        update-types: [ "version-update:semver-patch" ]
-
-  - package-ecosystem: "npm"
-    directory: "/backend"
-    schedule: { interval: "weekly", day: "monday" }
-    open-pull-requests-limit: 5
-    labels: [ "dependencies", "security" ]
-    commit-message: { prefix: "Security", include: "scope" }
-    ignore:
-      - dependency-name: "*"
-        update-types: [ "version-update:semver-patch" ]
-
-  - package-ecosystem: "npm"
-    directory: "/tools/requirements-structuring-cli"
-    schedule: { interval: "weekly", day: "monday" }
-    open-pull-requests-limit: 5
-    labels: [ "dependencies", "security" ]
-    commit-message: { prefix: "Security", include: "scope" }
-    ignore:
-      - dependency-name: "*"
-        update-types: [ "version-update:semver-patch" ]
-
-  - package-ecosystem: "npm"
-    directory: "/tools/template-generator-cli"
-    schedule: { interval: "weekly", day: "monday" }
-    open-pull-requests-limit: 5
-    labels: [ "dependencies", "security" ]
-    commit-message: { prefix: "Security", include: "scope" }
-    ignore:
-      - dependency-name: "*"
-        update-types: [ "version-update:semver-patch" ]
-
-  - package-ecosystem: "npm"
-    directory: "/docs/site"
+    directories:
+      - "/dashboard-mvp"
+      - "/web-mvp"
+      - "/site"
+      - "/ai-insights"
+      - "/analytics-platform"
+      - "/workflow-orchestration"
+      - "/backend"
+      - "/tools/requirements-structuring-cli"
+      - "/tools/template-generator-cli"
+      - "/docs/site"
     schedule: { interval: "weekly", day: "monday" }
     open-pull-requests-limit: 5
     labels: [ "dependencies", "security" ]
