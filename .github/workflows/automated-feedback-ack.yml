@@ -4,8 +4,14 @@ on:
   issues:
     types: [opened]
 
+permissions:
+  contents: read
+
 jobs:
   automated-response:
+    permissions:
+      contents: read
+      issues: write
     runs-on: ubuntu-latest
     steps:
       - name: Acknowledge Feedback
