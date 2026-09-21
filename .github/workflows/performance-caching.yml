@@ -487,7 +487,7 @@ jobs:
   cache-health-monitor:
     name: 🏥 Cache Health Monitor
     runs-on: ubuntu-latest
-    needs: [advanced-cache-features]
+    needs: [advanced-cache-features, node-cache, python-cache, security-tools-cache, infrastructure-tools-cache]
     if: always()
     
     steps:

@@ -37,8 +37,7 @@ jobs:
     steps:
     - name: CI timestamps
       run: |
-        echo "run_started_at=${{ github.run_started_at }}"
-        date -u +"now_utc=%Y-%m-%dT%H:%M:%SZ"
+        date -u +"step_started_at_utc=%Y-%m-%dT%H:%M:%SZ"
 
     - name: Checkout code
       uses: actions/checkout@v7
