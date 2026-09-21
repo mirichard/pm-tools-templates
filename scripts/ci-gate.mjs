@@ -9,6 +9,7 @@
 // failure whose exception has expired.
 import { existsSync, readFileSync, appendFileSync } from 'node:fs';
 import { join } from 'node:path';
+import { validateContract, isExpired } from './lib/coverage-contract.mjs';
 
 const repoRoot = new URL('..', import.meta.url).pathname;
 const coverage = JSON.parse(readFileSync(join(repoRoot, '.github', 'ci-coverage.json'), 'utf8'));
@@ -26,6 +27,16 @@ const prereqJobs = {
 
 const problems = [];
 const summaryLines = ['# CI gate', ''];
+
+// Defense in depth: the `inventory` job already runs the same validation,
+// but the gate does not simply trust that a prior job passed - it
+// independently re-validates the contract it is about to evaluate results
+// against, per round-6 QA finding F2 ("adding expiry validation only to the
+// runner does not fix the gate's trust in malformed artifacts").
+const contractProblems = validateContract(coverage);
+if (contractProblems.length > 0) {
+  for (const p of contractProblems) problems.push(`ci-coverage.json contract: ${p}`);
+}
 
 for (const [job, result] of Object.entries(prereqJobs)) {
   const ok = result === 'success' || (job === 'sub-app-checks' && result === 'success');
@@ -61,13 +72,17 @@ for (const appKey of selectedApps) {
     const r = JSON.parse(readFileSync(resultPath, 'utf8'));
     if (r.status === 'passed') {
       summaryLines.push(`| ${appKey} | ${checkName} | passed |`);
-    } else if (r.status === 'tolerated') {
-      const expired = r.expires && r.expires < today;
+    } else if (r.status === 'waived' || r.status === 'tolerated') {
+      // run-app-check.mjs already rejects an expired match at the source
+      // (never records 'waived'/'tolerated' for one), but the gate checks
+      // again independently rather than trust that artifact's own status
+      // field - see the contract re-validation above for the same reasoning.
+      const expired = isExpired({ expires: r.expires }, today);
       if (expired) {
-        problems.push(`${appKey}/${checkName}: tolerated exception ${r.issue} expired on ${r.expires} — no longer excused.`);
+        problems.push(`${appKey}/${checkName}: ${r.status} exception ${r.issue} expired on ${r.expires} — no longer excused.`);
         summaryLines.push(`| ${appKey} | ${checkName} | **expired exception** (${r.issue}, expired ${r.expires}) |`);
       } else {
-        summaryLines.push(`| ${appKey} | ${checkName} | tolerated (${r.issue}, expires ${r.expires}) |`);
+        summaryLines.push(`| ${appKey} | ${checkName} | ${r.status} (${r.issue}, expires ${r.expires}) |`);
       }
     } else {
       problems.push(`${appKey}/${checkName} is required and failed (status: ${r.status}).`);

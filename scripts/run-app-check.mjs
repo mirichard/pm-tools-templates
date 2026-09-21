@@ -4,15 +4,28 @@
 // job to aggregate later (matrix jobs can't share job outputs directly, so
 // each result is written to a file for actions/upload-artifact to carry).
 //
+// Output is captured to a file (fs.openSync + a raw fd passed to
+// spawnSync's stdio), never buffered into a bounded JS string - a command
+// that legitimately produces several MiB of output must not be
+// misreported as a failure just because of how it was captured (round-5/6
+// QA finding F6). Waiver/exception matching reads only the tail of that
+// file, not the whole thing back into memory, since a failure signature is
+// realistically near the end of output where a tool prints its final
+// error - the full log stays on disk (and gets uploaded as an artifact) for
+// a human to read in full if needed.
+//
 // Exit code is 0 whenever the *step* should be treated as non-fatal to the
-// rest of this matrix job (passed, not_implemented, or a tolerated/excepted
-// failure) and 1 for a genuine failure — but the authoritative pass/fail
+// rest of this matrix job (passed, not_implemented, or a waived/tolerated
+// failure) and 1 for a genuine failure - but the authoritative pass/fail
 // decision for the whole workflow is made later by ci-gate.mjs from the
 // recorded status, not from this exit code alone, so a job-level
 // continue-on-error is never required here.
-import { execSync } from 'node:child_process';
-import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
+import { spawnSync } from 'node:child_process';
+import { existsSync, mkdirSync, readFileSync, writeFileSync, openSync, closeSync, fstatSync, readSync } from 'node:fs';
 import { join } from 'node:path';
+import { evaluateCheckResult, isExpired } from './lib/coverage-contract.mjs';
+
+const TAIL_BYTES = 65536; // read at most this much of a captured log for signature matching
 
 const [, , appKey, checkName] = process.argv;
 if (!appKey || !checkName) {
@@ -34,12 +47,31 @@ if (!check) {
 }
 
 const resultsDir = process.env.CHECK_RESULTS_DIR || join(repoRoot, 'health-reports', 'check-results');
+const logsDir = process.env.CHECK_LOGS_DIR || join(repoRoot, 'health-reports', 'check-logs');
 mkdirSync(resultsDir, { recursive: true });
+mkdirSync(logsDir, { recursive: true });
 const resultFile = join(resultsDir, `${appKey}__${checkName}.json`);
+const logFile = join(logsDir, `${appKey}__${checkName}.log`);
 
 function record(status, extra = {}) {
   writeFileSync(resultFile, JSON.stringify({ app: appKey, check: checkName, status, ...extra }, null, 2));
 }
+
+function readTail(path, maxBytes) {
+  const fd = openSync(path, 'r');
+  try {
+    const size = fstatSync(fd).size;
+    const length = Math.min(size, maxBytes);
+    const position = size - length;
+    const buf = Buffer.alloc(length);
+    readSync(fd, buf, 0, length, position);
+    return buf.toString('utf8');
+  } finally {
+    closeSync(fd);
+  }
+}
+
+const today = process.env.CI_GATE_TODAY || new Date().toISOString().slice(0, 10);
 
 if (checkName === 'audit') {
   // Not an npm script: delegates to the existing, already-tested audit
@@ -62,44 +94,81 @@ if (!existsSync(cwd)) {
 }
 
 if (check.setup) {
-  try {
-    execSync(check.setup, { cwd, stdio: 'inherit' });
-  } catch {
+  // stdio: 'inherit' streams straight to this process's own stdout/stderr,
+  // which GitHub Actions (or a local terminal) captures on its own - never
+  // buffered into a JS string, so it was never subject to the F6 problem.
+  const setupResult = spawnSync(check.setup, { cwd, shell: true, stdio: 'inherit' });
+  if (setupResult.error || setupResult.status !== 0) {
     console.error(`[${appKey}/${checkName}] setup command failed: ${check.setup}`);
     record('failed', { required: !!check.required, reason: 'setup command failed' });
     process.exit(1);
   }
 }
 
-let output = '';
-let exitCode = 0;
+const outFd = openSync(logFile, 'w');
+let spawnResult;
 try {
-  output = execSync(check.command, { cwd, encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'] });
-  process.stdout.write(output);
-} catch (err) {
-  output = `${err.stdout || ''}${err.stderr || ''}`;
-  process.stdout.write(output);
-  exitCode = typeof err.status === 'number' ? err.status : 1;
+  spawnResult = spawnSync(check.command, {
+    cwd,
+    shell: true,
+    stdio: ['ignore', outFd, outFd],
+    env: { ...process.env, ...(check.env || {}) },
+  });
+} finally {
+  closeSync(outFd);
 }
 
-if (exitCode === 0) {
+if (spawnResult.error) {
+  // A real runner/process error (spawn failure) - never eligible for any
+  // exception/waiver, per F6: this is not the application failing, it's
+  // the check not running at all.
+  console.error(`[${appKey}/${checkName}] runner error: ${spawnResult.error.message}`);
+  record('failed', { required: !!check.required, reason: `runner error: ${spawnResult.error.message}` });
+  process.exit(1);
+}
+if (spawnResult.signal) {
+  console.error(`[${appKey}/${checkName}] killed by signal ${spawnResult.signal}`);
+  record('failed', { required: !!check.required, reason: `killed by signal ${spawnResult.signal}` });
+  process.exit(1);
+}
+
+const exitCode = spawnResult.status ?? 1;
+// Bounded tail, read once: echoed to the step's own log for quick inline
+// visibility, and reused for waiver/signature matching. The full file (not
+// this tail) is what gets uploaded and is authoritative.
+const outputTail = readTail(logFile, TAIL_BYTES);
+process.stdout.write(outputTail);
+
+const evaluation = evaluateCheckResult(
+  check,
+  { exitCode, output: outputTail },
+  undefined, // no structured-failure extraction implemented for any current check; see coverage-contract.mjs
+);
+
+if (evaluation.outcome === 'passed') {
   console.log(`[${appKey}/${checkName}] passed`);
   record('passed', { required: !!check.required });
   process.exit(0);
 }
 
-const exception = check.exception;
-if (exception && exception.failure_signature && output.includes(exception.failure_signature)) {
-  console.log(`[${appKey}/${checkName}] failed, but matches tracked exception ${exception.issue}`);
-  record('tolerated', {
+if (evaluation.outcome === 'waived' || evaluation.outcome === 'tolerated') {
+  const exc = evaluation.exception;
+  const expired = isExpired(exc, today);
+  if (expired) {
+    console.error(`[${appKey}/${checkName}] failed; matches a waived/tolerated exception, but it expired on ${exc.expires} - no longer excused`);
+    record('failed', { required: !!check.required, exit_code: exitCode, reason: `exception expired ${exc.expires}` });
+    process.exit(1);
+  }
+  console.log(`[${appKey}/${checkName}] failed, but is a recorded ${evaluation.outcome} (${exc.issue}, expires ${exc.expires})`);
+  record(evaluation.outcome, {
     required: !!check.required,
     exit_code: exitCode,
-    issue: exception.issue,
-    expires: exception.expires,
+    issue: exc.issue,
+    expires: exc.expires,
   });
   process.exit(0);
 }
 
-console.error(`[${appKey}/${checkName}] failed (exit ${exitCode})${exception ? ' — did NOT match the tracked exception signature, treating as a real failure' : ''}`);
-record('failed', { required: !!check.required, exit_code: exitCode });
+console.error(`[${appKey}/${checkName}] failed (exit ${exitCode}): ${evaluation.reason}`);
+record('failed', { required: !!check.required, exit_code: exitCode, reason: evaluation.reason });
 process.exit(1);

@@ -30,13 +30,48 @@ case "${1:-}" in
     if [[ -n "${2:-}" ]]; then
       prefix_args=(--prefix "$target_dir")
     fi
-    if npm audit "${prefix_args[@]}" --package-lock-only --ignore-scripts --omit=dev --audit-level=moderate --json > "$report_path"; then
-      echo "Runtime dependency audit for $target_dir passed at the moderate threshold."
+    npm_exit=0
+    npm audit "${prefix_args[@]}" --package-lock-only --ignore-scripts --omit=dev --audit-level=moderate --json > "$report_path" || npm_exit=$?
+
+    # Distinguish a real audit report (has both `vulnerabilities` and
+    # `auditReportVersion`, whatever the finding counts are) from an
+    # operational error response or malformed/non-JSON output. npm's exit
+    # code alone conflates these: a >=moderate finding and a registry/tool
+    # error can both exit non-zero, with completely unrelated JSON shapes -
+    # confirmed directly by forcing a registry error and comparing its
+    # output to a clean report's output, not assumed from npm's docs alone.
+    shape=$(python3 -c "
+import json, sys
+try:
+    with open('$report_path') as f:
+        data = json.load(f)
+except Exception as e:
+    print('malformed: ' + str(e))
+    sys.exit()
+if not isinstance(data, dict) or 'vulnerabilities' not in data or 'auditReportVersion' not in data:
+    print('operational_error')
+    sys.exit()
+print('report')
+" 2>&1)
+
+    if [[ "$shape" == "report" ]]; then
+      if [[ "$npm_exit" -eq 0 ]]; then
+        echo "Runtime dependency audit for $target_dir passed at the moderate threshold."
+      else
+        cat "$report_path"
+        echo "Dependency audit for $target_dir found vulnerabilities at or above the moderate threshold (exit $npm_exit); inspect $report_path." >&2
+        exit "$npm_exit"
+      fi
     else
-      result=$?
-      cat "$report_path"
-      echo "Dependency audit for $target_dir failed (exit $result); inspect $report_path." >&2
-      exit "$result"
+      cat "$report_path" >&2
+      echo "Dependency audit for $target_dir could not produce a valid report ($shape) - this is a tool/registry/parse error, not a vulnerability finding; inspect $report_path." >&2
+      # An invalid report shape is never a pass, even if npm itself somehow
+      # exited 0 - force a non-zero exit in that case rather than propagate
+      # the misleading success code.
+      if [[ "$npm_exit" -ne 0 ]]; then
+        exit "$npm_exit"
+      fi
+      exit 1
     fi
     ;;
   *)

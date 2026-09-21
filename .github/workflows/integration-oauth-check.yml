@@ -1,17 +1,43 @@
 name: Integration OAuth Check
 
 on:
-  workflow_dispatch:
   push:
-    paths:
-      - 'integrations/jira-asana-sync/**'
-      - '.github/workflows/integration-oauth-check.yml'
+    branches: [ main, staging, develop ]
   pull_request:
-    paths:
-      - 'integrations/jira-asana-sync/**'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: integration-oauth-check-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
+  # Same fix as container-scan.yml (round-6 QA finding F3): trigger on
+  # every push/PR rather than path-filtering the trigger itself, so this
+  # never becomes a required check stuck "waiting to be reported" on an
+  # unrelated PR. Applicability is a job output instead.
+  changes:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: read
+    outputs:
+      applicable: ${{ steps.filter.outputs.jira-asana-sync }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          persist-credentials: false
+      - uses: dorny/paths-filter@ceb8a2b8f2d89434be7ff52d3de7ec3738c5cc9d # v4
+        id: filter
+        with:
+          filters: |
+            jira-asana-sync: [ 'integrations/jira-asana-sync/**', '.github/workflows/integration-oauth-check.yml' ]
+
   oauth-check:
+    needs: changes
+    if: github.event_name == 'push' || needs.changes.outputs.applicable == 'true'
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -32,14 +58,15 @@ jobs:
       ASANA_REDIRECT_URI: ${{ secrets.ASANA_REDIRECT_URI }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v7
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
         with:
           fetch-depth: 1
+          persist-credentials: false
 
       - name: Setup Node.js
-        uses: actions/setup-node@v7
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
         with:
-          node-version: '20'
+          node-version: '24'
           cache: 'npm'
           cache-dependency-path: integrations/jira-asana-sync/package.json
 
@@ -54,6 +81,10 @@ jobs:
         run: |
           npm test -- --coverage=false || npm test
 
+      # The two steps below are the only ones that touch secrets, and they
+      # are already optional/best-effort (a missing credential just skips
+      # the step) - required build/test coverage above does not depend on
+      # any secret being present.
       - name: Dry-run authorize URL (Jira)
         if: env.JIRA_CLIENT_ID != '' && env.JIRA_CLIENT_SECRET != '' && env.JIRA_REDIRECT_URI != ''
         run: |
@@ -63,3 +94,32 @@ jobs:
         if: env.ASANA_CLIENT_ID != '' && env.ASANA_CLIENT_SECRET != '' && env.ASANA_REDIRECT_URI != ''
         run: |
           npm run dev -- --provider=asana --dry-run
+
+  # The one required status check for this workflow - see container-scan.yml's
+  # scan-gate for the same reasoning.
+  oauth-gate:
+    name: Integration OAuth check gate
+    needs: [changes, oauth-check]
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - name: Evaluate
+        env:
+          CHANGES_RESULT: ${{ needs.changes.result }}
+          APPLICABLE: ${{ needs.changes.outputs.applicable }}
+          EVENT_NAME: ${{ github.event_name }}
+          OAUTH_CHECK_RESULT: ${{ needs.oauth-check.result }}
+        run: |
+          if [[ "$CHANGES_RESULT" != "success" ]]; then
+            echo "::error::change detection failed (result: $CHANGES_RESULT) - cannot determine applicability."
+            exit 1
+          fi
+          if [[ "$APPLICABLE" != "true" && "$EVENT_NAME" != "push" ]]; then
+            echo "Not applicable to this PR (no integrations/jira-asana-sync/** change); check correctly skipped."
+            exit 0
+          fi
+          if [[ "$OAUTH_CHECK_RESULT" != "success" ]]; then
+            echo "::error::integration build/test did not succeed (result: $OAUTH_CHECK_RESULT)."
+            exit 1
+          fi
+          echo "Integration OAuth check passed."

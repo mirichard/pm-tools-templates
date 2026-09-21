@@ -28,6 +28,7 @@
     "scripts/ci-coverage.mjs",
     "scripts/run-app-check.mjs",
     "scripts/ci-gate.mjs",
+    "scripts/lib/coverage-contract.mjs",
     "scripts/check-workflow-health.sh"
   ],
   "apps": {
@@ -38,6 +39,9 @@
           "command": "npm run lint",
           "required": true,
           "exception": {
+            "type": "waiver",
+            "execution": "diagnostic-only",
+            "scope_statement": "next lint does not exist in Next.js 16 (removed upstream); the command cannot evaluate any lint rule at all, so this check provides no coverage, not partial coverage.",
             "issue": "https://github.com/mirichard/pm-tools-templates/issues/1292",
             "owner": "mirichard",
             "recorded": "2026-09-21",
@@ -97,6 +101,9 @@
             "expires": "2026-12-21",
             "failure_signature": "couldn't find a configuration file",
             "verified": "live-ci",
+            "type": "waiver",
+            "execution": "diagnostic-only",
+            "scope_statement": "ESLint has no config file to load in this directory; no file is evaluated by any rule, so this check provides no coverage, not partial coverage.",
             "removal_condition": "Remove once #1293 is fixed (eslint config added) and lint passes on two consecutive runs."
           }
         },
@@ -104,6 +111,9 @@
           "command": "npm run build",
           "required": true,
           "exception": {
+            "type": "waiver",
+            "execution": "diagnostic-only",
+            "scope_statement": "tsc has no tsconfig.json to build against in this directory; it prints its own CLI usage text instead of compiling anything, so this check provides no coverage.",
             "issue": "https://github.com/mirichard/pm-tools-templates/issues/1298",
             "owner": "mirichard",
             "recorded": "2026-09-21",
@@ -117,6 +127,9 @@
           "command": "npm test",
           "required": true,
           "exception": {
+            "type": "waiver",
+            "execution": "diagnostic-only",
+            "scope_statement": "All 3 Jest suites fail to parse (ESM import syntax) before any individual test executes; zero tests run, so this check provides no coverage.",
             "issue": "https://github.com/mirichard/pm-tools-templates/issues/1298",
             "owner": "mirichard",
             "recorded": "2026-09-21",
@@ -155,6 +168,9 @@
             "expires": "2026-12-21",
             "failure_signature": "couldn't find a configuration file",
             "verified": "live-ci",
+            "type": "waiver",
+            "execution": "diagnostic-only",
+            "scope_statement": "ESLint has no config file to load in this directory; no file is evaluated by any rule, so this check provides no coverage, not partial coverage.",
             "removal_condition": "Remove once #1294 is fixed (eslint config added) and lint passes on two consecutive runs."
           }
         },
@@ -162,6 +178,9 @@
           "command": "npm run build",
           "required": true,
           "exception": {
+            "type": "waiver",
+            "execution": "diagnostic-only",
+            "scope_statement": "The build script's target file (scripts/build.js) does not exist; the command fails before any compilation step runs, so this check provides no coverage.",
             "issue": "https://github.com/mirichard/pm-tools-templates/issues/1299",
             "owner": "mirichard",
             "recorded": "2026-09-21",
@@ -175,13 +194,16 @@
           "command": "npm test",
           "required": true,
           "exception": {
+            "type": "waiver",
+            "execution": "diagnostic-only",
+            "scope_statement": "Zero files match Jest's configured test pattern; no individual test ever executes, so this check provides no coverage.",
             "issue": "https://github.com/mirichard/pm-tools-templates/issues/1299",
             "owner": "mirichard",
             "recorded": "2026-09-21",
             "expires": "2026-12-21",
             "failure_signature": "No tests found, exiting with code 1",
             "verified": "live-ci",
-            "removal_condition": "Remove once #1299 is fixed (real test files added, or --passWithNoTests if intentional) and test passes on two consecutive runs."
+            "removal_condition": "Remove once #1299 is fixed by adding real test files. Do not close this by adding --passWithNoTests - that would report a pass without adding any actual test coverage, which does not close the underlying gap."
           }
         },
         "audit": { "required": true }
@@ -285,8 +307,9 @@
         "test": {
           "command": "npm run test:a11y && npm run test:uat",
           "setup": "npx playwright install --with-deps chromium",
+          "env": { "BASE_URL": "http://127.0.0.1:5179/" },
           "required": true,
-          "note": "No plain `test` script; both Playwright suites (a11y + uat) are this app's real coverage."
+          "note": "No plain `test` script; both Playwright suites (a11y + uat) are this app's real coverage. playwright.config.ts (added) starts the preview server itself via webServer, same pattern as web-mvp's already-working config. BASE_URL is set explicitly because this app's test files read process.env.BASE_URL directly (falling back to the wrong port, 5181) rather than Playwright's own baseURL mechanism."
         },
         "audit": { "required": true }
       }
@@ -300,7 +323,7 @@
           "command": "npm run test:a11y && npm run test:uat",
           "setup": "npx playwright install --with-deps chromium",
           "required": true,
-          "note": "No plain `test` script; both Playwright suites (a11y + uat) are this app's real coverage."
+          "note": "No plain `test` script; both Playwright suites (a11y + uat) are this app's real coverage. playwright.config.ts (added) starts the preview server itself via webServer, same pattern as web-mvp's already-working config. No BASE_URL override needed: this app's test files hardcode 127.0.0.1:5179 directly, which already matches the preview server's port."
         },
         "audit": { "required": true }
       }
@@ -322,10 +345,15 @@
       "reason": "Already builds (npm run build) and tests (npm test) this exact path on push/PR to integrations/jira-asana-sync/**. Not duplicated in the sub-app-checks matrix to avoid two independent, potentially divergent checks of the same code."
     },
     {
-      "path": "integrations/webhook-framework",
-      "workflow": "root package.json's test:webhook script, run via npm run test:webhook",
-      "reason": "No package.json in this directory (per CLAUDE.md); tested from the repo root, so it never surfaces as a discovered manifest in the first place, but is documented here for completeness."
+      "path": ".",
+      "workflow": ".github/workflows/ci.yml's build-test job",
+      "reason": "Root package.json/project; already covered by the pre-existing build-test job (npm ci, npm test, migration/navigation validation, audit) run directly against the repo root. Not part of the sub-app-checks matrix, which is for the sub-app directories specifically."
     }
   ],
-  "excluded": []
+  "excluded": [
+    {
+      "path": "integrations/webhook-framework",
+      "reason": "Has no package.json of its own (git ls-files-based discovery only finds package.json manifests, so this never surfaces as a discovered entry to reconcile in the first place). CLAUDE.md documents it as \"tested via root npm run test:webhook\", but that script does not exist anywhere in the repo and no workflow references this directory - verified directly, not assumed from the documentation. Real Jest test files and a jest.config.webhook.js exist here, but root package.json has no jest dependency, so wiring this up is a real dependency addition, not pure CI wiring. Tracked in #1302, listed here explicitly as an honest gap rather than a false covered_elsewhere claim."
+    }
+  ]
 }

@@ -6,31 +6,45 @@
 //   validate-inventory   -> discovers package.json manifests on disk and reconciles
 //                           them against apps / covered_elsewhere / excluded in the
 //                           coverage file; exits non-zero on any unreconciled manifest
-import { readFileSync, readdirSync } from 'node:fs';
-import { join, relative } from 'node:path';
+import { readFileSync } from 'node:fs';
+import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { execFileSync } from 'node:child_process';
+import { validateContract } from './lib/coverage-contract.mjs';
 
 const repoRoot = fileURLToPath(new URL('..', import.meta.url));
 const coveragePath = join(repoRoot, '.github', 'ci-coverage.json');
 const coverage = JSON.parse(readFileSync(coveragePath, 'utf8'));
 
-const SKIP_DIRS = new Set([
-  'node_modules', '.git', 'dist', 'build', '.next', 'coverage',
-  'health-reports', '.astro', 'test-results', 'playwright-report',
-]);
-
-function discoverManifests(dir, out = []) {
-  for (const entry of readdirSync(dir, { withFileTypes: true })) {
-    if (entry.name.startsWith('.') && entry.name !== '.github') continue;
-    const full = join(dir, entry.name);
-    if (entry.isDirectory()) {
-      if (SKIP_DIRS.has(entry.name)) continue;
-      discoverManifests(full, out);
-    } else if (entry.isFile() && entry.name === 'package.json') {
-      out.push(relative(repoRoot, dir) || '.');
-    }
+// Discovers every *tracked* package.json (via `git ls-files`, NUL-delimited
+// so paths containing spaces are handled correctly), not a filesystem walk
+// with a name-based skip-list. A package.json only needs to be staged
+// (`git add`) to be seen - it does not need to live outside any directory
+// whose *name* happens to look generated. The tradeoff, deliberately
+// accepted: an untracked manifest is invisible to this check. See
+// CONTRIBUTING.md's coverage section.
+//
+// node_modules is excluded explicitly below, categorically, regardless of
+// tracking status: npm's own dependency directory can never contain
+// first-party code, by definition of what npm puts there. This is not the
+// same kind of heuristic as excluding a directory because its *name* merely
+// suggests generated output (e.g. a "build" or "dist" that might contain
+// tracked source) - it is excluded on what the directory unambiguously *is*.
+// It was tested, not assumed: workflow-orchestration/node_modules turned out
+// to be tracked in git despite .gitignore (6,292 files - see #1303), which
+// this discovery mechanism correctly surfaced before this exclusion was
+// added, rather than silently hiding it the way the old skip-list did.
+function discoverManifests() {
+  const out = execFileSync('git', ['ls-files', '-z'], { cwd: repoRoot, encoding: 'utf8' });
+  const files = out.split('\0').filter(Boolean);
+  const manifestDirs = [];
+  for (const file of files) {
+    const parts = file.split('/');
+    if (parts[parts.length - 1] !== 'package.json') continue;
+    if (parts.includes('node_modules')) continue;
+    manifestDirs.push(parts.length === 1 ? '.' : parts.slice(0, -1).join('/'));
   }
-  return out;
+  return manifestDirs;
 }
 
 function coveredPaths() {
@@ -74,16 +88,29 @@ if (cmd === 'list-apps') {
   }
   console.log(JSON.stringify({ key: arg, node_version: coverage.node_version, ...app }));
 } else if (cmd === 'validate-inventory') {
-  const discovered = discoverManifests(repoRoot).filter((p) => p !== '.');
+  // Two independent checks: (1) is the contract itself well-formed (every
+  // check/exception has the fields it claims to - round-5 QA finding F2:
+  // the gate used to trust an exception's metadata without validating it at
+  // all), and (2) does the contract's app/covered_elsewhere/excluded list
+  // actually reconcile against what's really tracked in git.
+  const contractProblems = validateContract(coverage);
+  if (contractProblems.length > 0) {
+    console.error(`ci-coverage.json fails contract validation (${contractProblems.length} problem(s)):`);
+    for (const p of contractProblems) console.error(`  - ${p}`);
+    process.exit(1);
+  }
+
+  const discovered = discoverManifests();
   const { apps, elsewhere, excluded } = coveredPaths();
   const known = new Set([...apps, ...elsewhere, ...excluded]);
   const unreconciled = discovered.filter((p) => !known.has(p));
 
   // Also detect the inverse drift: an "apps" entry pointing at a path that no
   // longer has a package.json on disk (stale coverage entry). covered_elsewhere
-  // entries are not checked here: they may legitimately point at a path with
-  // no package.json (e.g. integrations/webhook-framework, tested from the repo
-  // root per CLAUDE.md) or be covered by a mechanism outside this scan.
+  // and excluded entries are not checked here: they may legitimately point at
+  // a path with no package.json at all (e.g. integrations/webhook-framework,
+  // excluded because it has none) or one covered by a mechanism outside this
+  // scan (e.g. the root package.json, covered by build-test).
   const discoveredSet = new Set(discovered);
   const stale = apps.filter((p) => !discoveredSet.has(p));
 

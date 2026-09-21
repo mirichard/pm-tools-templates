@@ -3,13 +3,7 @@ name: Container Image Scan
 on:
   push:
     branches: [ main, staging, develop ]
-    paths:
-      - 'ai-insights/**'
-      - '.github/workflows/container-scan.yml'
   pull_request:
-    paths:
-      - 'ai-insights/**'
-      - '.github/workflows/container-scan.yml'
   workflow_dispatch:
 
 permissions:
@@ -20,8 +14,33 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  # Triggers on every push/PR (round-6 QA finding F3: a path-filtered
+  # *trigger* means this workflow never runs at all on an inapplicable PR,
+  # which leaves a required check permanently "waiting to be reported" -
+  # not the same as a job being skipped, which GitHub's required-checks
+  # logic treats as satisfied). Applicability is decided here as a job
+  # output instead, and scan-gate below always reports a real conclusion.
+  changes:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: read
+    outputs:
+      applicable: ${{ steps.filter.outputs.ai-insights }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          persist-credentials: false
+      - uses: dorny/paths-filter@ceb8a2b8f2d89434be7ff52d3de7ec3738c5cc9d # v4
+        id: filter
+        with:
+          filters: |
+            ai-insights: [ 'ai-insights/**', '.github/workflows/container-scan.yml' ]
+
   trivy:
     name: Scan ai-insights image
+    needs: changes
+    if: github.event_name == 'push' || needs.changes.outputs.applicable == 'true'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
@@ -31,7 +50,7 @@ jobs:
       - name: Build ai-insights image
         run: docker build -t ai-insights:scan ./ai-insights
 
-      # Root cause of the earlier failure, from this PR's own job logs (run
+      # Root cause of an earlier failure, from this PR's own job logs (run
       # 35618428368, job 106395074000): trivy-action@v0.33.1's own install
       # step ran `trivy/contrib/install.sh ... v0.65.0` and failed with
       # "aquasecurity/trivy crit unable to find 'v0.65.0'" - that action
@@ -42,7 +61,8 @@ jobs:
       # unrelated upstream issue reports). Fix: pin the action to its
       # current release (v0.36.0) and pass `version:` explicitly so this
       # step never again depends on an action release's undocumented
-      # default Trivy CLI version.
+      # default Trivy CLI version. Confirmed working end-to-end (run
+      # 35630381761): completed a real scan and found 4 real HIGH CVEs.
       - name: Scan image with Trivy
         uses: aquasecurity/trivy-action@ed142fd0673e97e23eac54620cfb913e5ce36c25 # v0.36.0
         with:
@@ -51,3 +71,36 @@ jobs:
           format: table
           severity: CRITICAL,HIGH
           exit-code: '1'
+
+  # The one required status check for this workflow. Always runs, and
+  # distinguishes three outcomes explicitly: legitimately not applicable
+  # (no ai-insights/** change, not a push) -> passes; change detection
+  # itself failed -> fails; the scan ran and found CRITICAL/HIGH findings,
+  # or never produced a result at all -> fails. A skipped `trivy` job is
+  # never silently treated as a pass here.
+  scan-gate:
+    name: Container scan gate
+    needs: [changes, trivy]
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - name: Evaluate
+        env:
+          CHANGES_RESULT: ${{ needs.changes.result }}
+          APPLICABLE: ${{ needs.changes.outputs.applicable }}
+          EVENT_NAME: ${{ github.event_name }}
+          TRIVY_RESULT: ${{ needs.trivy.result }}
+        run: |
+          if [[ "$CHANGES_RESULT" != "success" ]]; then
+            echo "::error::change detection failed (result: $CHANGES_RESULT) - cannot determine applicability."
+            exit 1
+          fi
+          if [[ "$APPLICABLE" != "true" && "$EVENT_NAME" != "push" ]]; then
+            echo "Not applicable to this PR (no ai-insights/** change); scan correctly skipped."
+            exit 0
+          fi
+          if [[ "$TRIVY_RESULT" != "success" ]]; then
+            echo "::error::container scan did not succeed (result: $TRIVY_RESULT) - either it found CRITICAL/HIGH vulnerabilities, or it produced no result at all."
+            exit 1
+          fi
+          echo "Container scan passed."

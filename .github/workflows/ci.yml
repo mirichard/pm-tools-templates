@@ -120,6 +120,7 @@ jobs:
         app: ${{ fromJSON(needs.changes.outputs.selected_apps) }}
     env:
       CHECK_RESULTS_DIR: ${{ github.workspace }}/health-reports/check-results
+      CHECK_LOGS_DIR: ${{ github.workspace }}/health-reports/check-logs
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
         with:
@@ -145,12 +146,14 @@ jobs:
       - name: Dependency audit
         if: ${{ !cancelled() }}
         run: node scripts/run-app-check.mjs '${{ matrix.app }}' audit
-      - name: Upload check results
+      - name: Upload check results and logs
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
           name: check-result-${{ matrix.app }}
-          path: health-reports/check-results/
+          path: |
+            health-reports/check-results/
+            health-reports/check-logs/
           if-no-files-found: warn
 
   # The one required status check: fails on a prerequisite job that didn't
