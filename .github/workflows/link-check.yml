@@ -20,7 +20,7 @@ jobs:
     
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v4
+      uses: actions/checkout@v7
       
     - name: Set up Python
       uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7
@@ -49,14 +49,14 @@ jobs:
         echo "Link Health Score: ${HEALTH_SCORE}% (${WORKING_LINKS}/${TOTAL_FILES} files)"
         
     - name: Upload link report
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v7
       with:
         name: link-health-report
         path: link_report.txt
         
     - name: Comment on PR with link health
       if: github.event_name == 'pull_request'
-      uses: actions/github-script@373c709c69115d41ff229c7e5df9f8788daa9553 # v9
+      uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9
       continue-on-error: true
       with:
         script: |
@@ -115,7 +115,7 @@ jobs:
         
     - name: Create issue on low link health (scheduled runs only)
       if: github.event_name == 'schedule' && steps.link_check.outputs.health_score < 90
-      uses: actions/github-script@373c709c69115d41ff229c7e5df9f8788daa9553 # v9
+      uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9
       with:
         script: |
           const healthScore = '${{ steps.link_check.outputs.health_score }}';

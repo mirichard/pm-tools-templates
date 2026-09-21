@@ -207,10 +207,10 @@ jobs:
 
     steps:
       - name: 📥 Checkout Repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: 📥 Download Discovery Results
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v8
         with:
           name: manage-artifacts-${{ github.run_number }}
 
@@ -448,7 +448,7 @@ jobs:
           EOF
 
       - name: 📤 Upload Storage Analysis
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: storage-analysis-${{ github.run_number }}
           path: |
@@ -469,10 +469,10 @@ jobs:
 
     steps:
       - name: 📥 Checkout Repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: 📥 Download Analysis Results
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v8
         with:
           name: manage-artifacts-${{ github.run_number }}
 
@@ -717,7 +717,7 @@ jobs:
           EOF
 
       - name: 📤 Upload Cleanup Results
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: cleanup-results-${{ github.run_number }}
           path: |
@@ -734,7 +734,7 @@ jobs:
 
     steps:
       - name: 📥 Checkout Repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: 📋 Analyze Retention Policy Effectiveness
         env:
@@ -968,7 +968,7 @@ jobs:
           EOF
 
       - name: 📤 Upload Policy Reports
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: retention-policy-reports-${{ github.run_number }}
           path: |
@@ -1164,7 +1164,7 @@ jobs:
             --label "artifact-lifecycle,storage,alert"
 
       - name: 📤 Upload Lifecycle Summary
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: lifecycle-summary-${{ github.run_number }}
           path: lifecycle-summary.md

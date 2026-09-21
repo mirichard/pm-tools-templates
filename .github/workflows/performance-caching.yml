@@ -42,7 +42,7 @@ jobs:
     
     steps:
       - name: 📥 Checkout Repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
         with:
           fetch-depth: 1
 
@@ -162,7 +162,7 @@ jobs:
     
     steps:
       - name: 📥 Checkout Repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: 🗄️ Cache Node.js Dependencies
         uses: actions/cache@v4
@@ -198,7 +198,7 @@ jobs:
     
     steps:
       - name: 📥 Checkout Repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: 🗄️ Cache Python Dependencies
         uses: actions/cache@v4
@@ -232,7 +232,7 @@ jobs:
     
     steps:
       - name: 📥 Checkout Repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: 🗄️ Cache Security Tools
         uses: actions/cache@v4
@@ -275,7 +275,7 @@ jobs:
     
     steps:
       - name: 📥 Checkout Repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: 🗄️ Cache Infrastructure Tools
         uses: actions/cache@v4
@@ -311,7 +311,7 @@ jobs:
     
     steps:
       - name: 📥 Checkout Repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: 🗜️ Cache Compression & Optimization
         run: |
@@ -474,7 +474,7 @@ jobs:
           echo "- Performance Status: ${{ needs.node-cache.result }} | ${{ needs.python-cache.result }} | ${{ needs.security-tools-cache.result }} | ${{ needs.infrastructure-tools-cache.result }}"
 
       - name: 📤 Upload Cache Reports
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: cache-performance-reports-${{ github.run_number }}
           path: |
@@ -492,7 +492,7 @@ jobs:
     
     steps:
       - name: 📥 Checkout Repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: 🏥 Cache Health Assessment
         run: |
@@ -570,7 +570,7 @@ jobs:
 
       - name: 📤 Upload Health Reports
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: cache-health-reports-${{ github.run_number }}
           path: cache-health-report.json
@@ -622,7 +622,7 @@ jobs:
           echo "📋 Cache maintenance completed successfully"
 
       - name: 📤 Upload Maintenance Reports
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: cache-maintenance-reports-${{ github.run_number }}
           path: cache-cleanup-report.md
