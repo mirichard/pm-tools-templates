@@ -84,8 +84,9 @@
         "build": { "command": null, "required": false, "status": "not_implemented", "note": "Express server app; no build step." },
         "test": {
           "command": "npm run ci",
+          "setup": "npx playwright install --with-deps chromium",
           "required": true,
-          "note": "Runs the app's own existing composite script (starts server, Playwright e2e, Lighthouse CI, stops server) rather than reimplementing it here. Fails on live CI with 2 genuine Playwright test failures (tests/e2e.spec.ts:5, tests/e2e.spec.ts:21); see #1296. Not excepted — exact failure text not yet captured precisely enough for a safe signature."
+          "note": "Runs the app's own existing composite script (starts server, Playwright e2e, Lighthouse CI, stops server) rather than reimplementing it here. #1296 was actually a missing browser-install step (no `setup`, unlike web-mvp/demo-288/demos-288-template-customization), not a genuine test-content failure as originally logged — job logs show `browserType.launch: Executable doesn't exist at .../chromium_headless_shell-1243/...`, the exact pattern F4 already fixed for the other two Playwright apps in this repo."
         },
         "audit": { "required": true }
       }
