@@ -11,8 +11,13 @@
  * @author PM Tools Templates
  */
 
+import { AsanaConnector, type PMTemplate, type AsanaProject } from './connector';
+import { AsanaSyncEngine } from './sync-engine';
+import { AsanaWebhookServer } from './webhook-server';
+import AsanaCLI from './cli';
+
 // Core Components
-export { 
+export {
   AsanaConnector,
   type AsanaConnectorConfig,
   type PMTemplate,
@@ -230,7 +235,7 @@ export async function quickSetup(options: {
   return {
     connector,
     syncEngine,
-    webhookServer
+    ...(webhookServer !== undefined ? { webhookServer } : {})
   };
 }
 
@@ -285,10 +290,10 @@ export async function createProjectFromTemplate(
   });
   
   return connector.createProjectFromTemplate(template, projectData.workspaceId, {
-    teamId: projectData.teamId,
+    ...(projectData.teamId !== undefined ? { teamId: projectData.teamId } : {}),
     projectData: {
       name: projectData.name,
-      description: projectData.description
+      ...(projectData.description !== undefined ? { description: projectData.description } : {})
     }
   });
 }

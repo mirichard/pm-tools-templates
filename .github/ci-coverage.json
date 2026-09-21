@@ -251,9 +251,9 @@
     "integrations-asana": {
       "path": "integrations/asana",
       "checks": {
-        "lint": { "command": "npm run lint", "required": true },
-        "build": { "command": "npm run build", "required": true },
-        "test": { "command": "npm test", "required": true },
+        "lint": { "command": "npm run lint", "required": true, "note": "Fixed: eslintConfig.extends used \"@typescript-eslint/recommended\" (missing the required plugin: prefix), so ESLint tried to resolve it as a package name and failed." },
+        "build": { "command": "npm run build", "required": true, "note": "Fixed: tsconfig include swept tests/ into the production build's rootDir=src program (TS6059); added a declare module 'asana' ambient declaration (the package ships no types); fixed several exactOptionalPropertyTypes violations and a node-cron v2→v4 API mismatch ({ scheduled: false } / .getNextDates() don't exist in the installed v4); added a missing modified_at field to AsanaTask that the code's own API calls already request via opt_fields." },
+        "test": { "command": "npm test", "required": true, "note": "13 of 18 tests (tests/basic.test.ts, tests/connector.test.ts) fail because the whole client layer (connector.ts, sync-engine.ts, cli.ts, index.ts) is written against asana@1.x's Client.create() API, but package.json pins asana@^2.0.3 - a fully incompatible auto-generated OpenAPI client with no Client export at all. Downgrading to asana@^1.0.5 does restore the expected API and passes the tests, but pulls in the deprecated `request` package (2 critical + 4 moderate real CVEs) and would break the currently-passing audit check - not an acceptable trade for a green test run. See #1312. tests/rate-limit.test.ts (5/5) is fixed: an unrelated bug where a redundant, inferior hand-rolled rate limiter shadowed a properly-configured express-rate-limit instance before it could set the Retry-After header; the redundant one was removed." },
         "audit": { "required": true }
       }
     },

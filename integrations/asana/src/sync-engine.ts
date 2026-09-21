@@ -88,14 +88,14 @@ export interface WebhookEvent {
  * Bi-directional synchronization engine for Asana integration
  */
 export class AsanaSyncEngine extends EventEmitter {
-  private client: Client;
+  private client: any;
   private syncJobs: Map<string, SyncJob> = new Map();
   private syncStates: Map<string, SyncState> = new Map();
   private webhookSecret: string;
   private isRunning: boolean = false;
 
   constructor(
-    client: Client,
+    client: any,
     webhookSecret: string
   ) {
     super();
@@ -139,7 +139,11 @@ export class AsanaSyncEngine extends EventEmitter {
         const cronExpression = this.intervalToCron(options.syncInterval);
         syncJob.cronJob = cron.schedule(cronExpression, async () => {
           await this.executeSyncJob(jobId);
-        }, { scheduled: false });
+        });
+        // node-cron v4's schedule() starts the task immediately, unlike the
+        // v2/v3 `{ scheduled: false }` option this code was written against;
+        // stop it here so it stays idle until explicitly started below.
+        syncJob.cronJob.stop();
       }
 
       // Perform initial sync
@@ -150,7 +154,8 @@ export class AsanaSyncEngine extends EventEmitter {
       if (syncJob.cronJob) {
         syncJob.cronJob.start();
         syncJob.status = 'running';
-        syncJob.nextSync = syncJob.cronJob.getNextDates().next().value;
+        const nextRun = syncJob.cronJob.getNextRun();
+        if (nextRun) syncJob.nextSync = nextRun;
       }
 
       this.syncJobs.set(jobId, syncJob);
@@ -272,9 +277,7 @@ export class AsanaSyncEngine extends EventEmitter {
       result.success = false;
       result.errors.push({
         type: 'api_error',
-        message: 'Sync execution failed',
-        taskId: undefined,
-        fieldName: undefined
+        message: 'Sync execution failed'
       });
 
       syncJob.stats.failedSyncs++;
@@ -292,8 +295,8 @@ export class AsanaSyncEngine extends EventEmitter {
     asanaTasks: AsanaTask[],
     options: SyncOptions,
     syncState: SyncState
-  ): Promise<Partial<SyncResult>> {
-    const result: Partial<SyncResult> = {
+  ): Promise<Pick<SyncResult, 'syncedTasks' | 'errors' | 'conflicts'>> {
+    const result: Pick<SyncResult, 'syncedTasks' | 'errors' | 'conflicts'> = {
       syncedTasks: 0,
       errors: [],
       conflicts: []
@@ -368,8 +371,8 @@ export class AsanaSyncEngine extends EventEmitter {
     templateTasks: TemplateTask[],
     options: SyncOptions,
     syncState: SyncState
-  ): Promise<Partial<SyncResult>> {
-    const result: Partial<SyncResult> = {
+  ): Promise<Pick<SyncResult, 'syncedTasks' | 'errors' | 'conflicts'>> {
+    const result: Pick<SyncResult, 'syncedTasks' | 'errors' | 'conflicts'> = {
       syncedTasks: 0,
       errors: [],
       conflicts: []

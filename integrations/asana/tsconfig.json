@@ -37,16 +37,14 @@
     }
   },
   "include": [
-    "src/**/*",
-    "examples/**/*.ts",
-    "tests/**/*.ts"
+    "src/**/*"
   ],
   "exclude": [
     "node_modules",
     "dist",
     "coverage",
-    "**/*.test.ts",
-    "**/*.spec.ts"
+    "examples",
+    "tests"
   ],
   "ts-node": {
     "esm": true,

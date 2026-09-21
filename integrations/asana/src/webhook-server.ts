@@ -153,37 +153,11 @@ export class AsanaWebhookServer extends EventEmitter {
       });
     }
 
-    // Rate limiting middleware
-    if (this.config.rateLimit) {
-      const rateLimitMap = new Map<string, { count: number; resetTime: number }>();
-      
-      this.app.use((req: Request, res: Response, next: NextFunction) => {
-        const clientIp = req.ip || req.connection.remoteAddress || 'unknown';
-        const now = Date.now();
-        const windowMs = this.config.rateLimit!.windowMs;
-        const maxRequests = this.config.rateLimit!.maxRequests;
-
-        const clientData = rateLimitMap.get(clientIp) || { count: 0, resetTime: now + windowMs };
-
-        if (now > clientData.resetTime) {
-          clientData.count = 1;
-          clientData.resetTime = now + windowMs;
-        } else {
-          clientData.count++;
-        }
-
-        rateLimitMap.set(clientIp, clientData);
-
-        if (clientData.count > maxRequests) {
-          res.status(429).json({ error: 'Too many requests' });
-          return;
-        }
-
-        next();
-      });
-    }
-
-    // Initialize webhook-specific rate limiter using express-rate-limit
+    // Initialize webhook-specific rate limiter using express-rate-limit.
+    // (This replaces an earlier hand-rolled, app-wide rate limiter that ran
+    // ahead of this one in middleware order and rejected requests with a
+    // bare 429 - no Retry-After header, no logging - before this properly
+    // configured limiter ever got a chance to handle them.)
     const windowMs = this.config.rateLimit?.windowMs ?? 60000;
     this.webhookRateLimiter = rateLimit({
       windowMs, // Use config or default to 1 minute
