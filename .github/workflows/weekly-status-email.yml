@@ -59,7 +59,7 @@ jobs:
 
     steps:
       - name: 📥 Checkout Repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: 📊 Collect Project Metrics
         id: metrics
@@ -362,7 +362,7 @@ jobs:
 
     steps:
       - name: 📥 Checkout Repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: 📧 Generate Email Content
         env:
@@ -503,7 +503,7 @@ jobs:
   #
   #   steps:
   #     - name: 📥 Checkout Repository
-  #       uses: actions/checkout@v4
+  #       uses: actions/checkout@v7
   #
   #     - name: 📧 Generate Email Content
   #       env:

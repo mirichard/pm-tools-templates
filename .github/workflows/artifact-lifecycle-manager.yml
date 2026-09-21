@@ -207,7 +207,7 @@ jobs:
 
     steps:
       - name: 📥 Checkout Repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: 📥 Download Discovery Results
         uses: actions/download-artifact@v4
@@ -469,7 +469,7 @@ jobs:
 
     steps:
       - name: 📥 Checkout Repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: 📥 Download Analysis Results
         uses: actions/download-artifact@v4
@@ -734,7 +734,7 @@ jobs:
 
     steps:
       - name: 📥 Checkout Repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: 📋 Analyze Retention Policy Effectiveness
         env:
