@@ -492,6 +492,9 @@ jobs:
   # Health Alerting System
   health-alerting:
     name: 🚨 Health Alerting
+    outputs:
+      alert_level: ${{ steps.alerts.outputs.alert_level }}
+      alert_message: ${{ steps.alerts.outputs.alert_message }}
     runs-on: ubuntu-latest
     needs: [collect-workflow-status, performance-analysis]
     if: always()

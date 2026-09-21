@@ -1169,7 +1169,7 @@ jobs:
   visual-report:
     name: 📊 Visual Regression Report
     runs-on: ubuntu-latest
-    needs: [visual-discovery, visual-capture, visual-comparison]
+    needs: [visual-discovery, template-rendering, visual-capture, visual-comparison]
     if: always() && needs.visual-discovery.outputs.total_tests > 0
     
     steps:
