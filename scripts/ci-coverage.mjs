@@ -6,7 +6,7 @@
 //   validate-inventory   -> discovers package.json manifests on disk and reconciles
 //                           them against apps / covered_elsewhere / excluded in the
 //                           coverage file; exits non-zero on any unreconciled manifest
-import { readFileSync, readdirSync, statSync } from 'node:fs';
+import { readFileSync, readdirSync } from 'node:fs';
 import { join, relative } from 'node:path';
 import { fileURLToPath } from 'node:url';
 

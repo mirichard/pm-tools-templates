@@ -7,7 +7,7 @@
 // check with no result at all (missing/incomplete — e.g. cancelled or timed
 // out mid-run), a required check that genuinely failed, or a tolerated
 // failure whose exception has expired.
-import { existsSync, readdirSync, readFileSync, appendFileSync } from 'node:fs';
+import { existsSync, readFileSync, appendFileSync } from 'node:fs';
 import { join } from 'node:path';
 
 const repoRoot = new URL('..', import.meta.url).pathname;
