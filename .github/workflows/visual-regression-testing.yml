@@ -397,7 +397,7 @@ jobs:
           echo "total_tests=$TOTAL_TESTS" >> $GITHUB_OUTPUT
 
       - name: 📤 Upload Discovery Results
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: visual-discovery-${{ github.run_number }}
           path: visual-discovery/
@@ -688,7 +688,7 @@ jobs:
           EOF
 
       - name: 📤 Upload Rendered Templates
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: rendered-templates-${{ github.run_number }}
           path: rendered-templates/
@@ -863,7 +863,7 @@ jobs:
           EOF
 
       - name: 📤 Upload Screenshots
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         if: always()
         with:
           name: screenshots-${{ matrix.browser }}-${{ matrix.resolution.name }}-${{ github.run_number }}
@@ -1150,7 +1150,7 @@ jobs:
           EOF
 
       - name: 📤 Upload Comparison Results
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         if: always()
         with:
           name: visual-comparison-results-${{ github.run_number }}
@@ -1159,7 +1159,7 @@ jobs:
 
       - name: 📤 Update Visual Baselines
         if: github.event.inputs.baseline_update == 'true'
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: visual-baselines-${{ github.run_number }}
           path: .github/visual-baselines/
@@ -1494,7 +1494,7 @@ jobs:
             });
 
       - name: 📤 Upload Visual Regression Report
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: visual-regression-report-${{ github.run_number }}
           path: |
