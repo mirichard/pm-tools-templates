@@ -2,13 +2,11 @@
 
 ## Supported Versions
 
-We actively maintain security for the following versions:
+This repository is a continuously updated content library, not a versioned software release. There is no parallel-maintained "old version" branch — the content on `main` is the only supported version. Named releases (e.g. `vNext`, listed under [Releases](https://github.com/mirichard/pm-tools-templates/releases)) mark delivery milestones, not separate maintenance tracks.
 
-| Version | Supported          |
-| ------- | ------------------ |
-| Latest  | :white_check_mark: |
-| 1.x.x   | :white_check_mark: |
-| < 1.0   | :x:                |
+Several sub-applications (`dashboard-mvp/`, `web-mvp/`, `analytics-platform/`, etc.) carry their own independent `package.json` versions and dependency trees. A vulnerability in one is scoped and patched within that sub-app and does not imply the same issue exists elsewhere in the repository.
+
+Legacy file paths from the ongoing content reorganization remain reachable per the [domain navigation and legacy-path compatibility policy](docs/domain-navigation-and-legacy-paths.md) — that is a navigation guarantee, not a security-support guarantee for unmaintained code.
 
 ## Reporting a Vulnerability
 
@@ -18,9 +16,8 @@ Instead, please report security vulnerabilities to us privately:
 
 ### How to Report
 
-1. **GitHub Security Advisory:** Use GitHub's private vulnerability reporting feature (preferred)
-2. **Email:** Send details to repository maintainers
-3. **Encrypted Communication:** PGP key available upon request
+1. **GitHub Security Advisory (preferred):** Use GitHub's [private vulnerability reporting feature](https://github.com/mirichard/pm-tools-templates/security/advisories/new). It reaches the maintainer directly and keeps the report private until a fix is available.
+2. **Email:** If you can't use GitHub, use the security contact listed in [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md#community-resources).
 
 ### What to Include
 
@@ -117,33 +114,20 @@ Please include the following information in your report:
    - Validate external links and references
    - Include security warnings where appropriate
 
-## Dependency Security
-
-- Dependabot is configured to monitor for security vulnerabilities
-- Security updates are prioritized and should be reviewed promptly
-- Dependencies are updated weekly via automated PRs
-- GitHub Security features (CodeQL, Secret Scanning) when enabled
-
 ## Compliance and Privacy
 
-### Data Protection
-- **GDPR Compliance:** Templates include privacy considerations
-- **Data Minimization:** Only collect necessary information
-- **User Consent:** Clear consent mechanisms in templates
-- **Data Retention:** Guidelines for data retention policies
+**This repository is a static content library and does not itself hold ISO 27001, SOC 2, NIST CSF, or GDPR certification.** The points below describe how the *templates* support teams operating under these frameworks — they are not a claim about this project's own security posture.
 
-### Industry Standards
-- **ISO 27001:** Information security management alignment
-- **NIST Framework:** Cybersecurity framework compliance
-- **SOC 2:** Security controls for service organizations
-- **Industry-Specific:** Compliance with sector regulations
+- Several templates (e.g. in [`industry-specializations/`](industry-specializations/) and [`business-stakeholder-suite/`](business-stakeholder-suite/README.md)) include fields for data classification, consent, and retention that teams can adapt to their own GDPR, ISO 27001, NIST CSF, or SOC 2 programs.
+- Templates are a starting point, not legal or compliance advice. Verify applicability with your organization's compliance function before use.
 
 ## Security Automation
 
-- **Dependabot:** Automated dependency updates
-- **Code Scanning:** GitHub Advanced Security (if enabled)
-- **Secret Scanning:** Prevents accidental credential commits
-- **Automated Testing:** Security validation in CI/CD pipeline
+- **Dependency updates:** [Dependabot](.github/dependabot.yml) checks GitHub Actions, npm, and pip dependencies weekly and opens PRs labeled `security`.
+- **Static analysis:** [CodeQL](.github/workflows/codeql.yml) scans JavaScript/TypeScript on every push and pull request. (Python source is not currently covered.)
+- **Document and secret scanning:** [`doc-sec-check.yml`](.github/workflows/doc-sec-check.yml) and [`scripts/detect-sensitive.sh`](scripts/detect-sensitive.sh) scan Markdown, scripts, and config files for leaked secrets and internal hostnames on every pull request that touches them; wrap an intentional example in `<!-- doc-sec-allow -->` to bypass a false positive.
+- **Additional scans:** [`security-scan.yml`](.github/workflows/security-scan.yml), [`sast-security.yml`](.github/workflows/sast-security.yml), and [`dependency-security.yml`](.github/workflows/dependency-security.yml) run further checks; see each workflow for scope.
+- **GitHub Secret Scanning:** enabled at the repository level (a GitHub platform feature, not configured in this repo's own files).
 
 ## Incident Response
 
@@ -201,7 +185,7 @@ We appreciate the security research community and responsible disclosure. Contri
 
 ---
 
-**Last Updated:** January 2025  
+**Last Updated:** September 2026  
 **Next Review:** Quarterly
 
 *This security policy is a living document and will be updated as our security posture evolves.*
