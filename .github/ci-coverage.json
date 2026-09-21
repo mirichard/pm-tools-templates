@@ -279,8 +279,8 @@
       "path": "PM Tools Templates - Q3 2025 Delivery Cycle/Implementation/template-selector",
       "checks": {
         "lint": { "command": null, "required": false, "status": "not_implemented" },
-        "build": { "command": "npm run build", "required": true, "note": "build/test produced no result on the first live run (install did not complete in time); see #1300 for follow-up." },
-        "test": { "command": "npm test", "required": true, "note": "Frontend's own test script (package.json's plain `test`); the nested backend/ is a separate npm project with its own dependency tree, covered independently as template-selector-backend." },
+        "build": { "command": "npm run build", "required": true, "note": "Root cause of the original install failure: cypress@^16.1.0 conflicted with cypress-axe@1.7.0's peer range (cypress ^10-^15, no newer cypress-axe exists yet); downgraded to cypress@^15.21.1. That surfaced two further real bugs: fuse.js used in src/hooks/useTemplates.ts but never declared as a dependency (added), and EnhancedTemplatePreview.tsx importing a EnhancedTemplatePreview.css that never existed (added, following sibling TemplatePreview.css's conventions)." },
+        "test": { "command": "npm test", "required": true, "note": "Frontend's own test script (package.json's plain `test`); the nested backend/ is a separate npm project with its own dependency tree, covered independently as template-selector-backend. tests/backend-integration.test.js required ../backend/server (and transitively express, only present in backend/'s own node_modules) - moved to backend/tests/ where it can actually resolve its dependencies." },
         "audit": { "required": true }
       }
     },
