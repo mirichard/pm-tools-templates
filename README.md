@@ -5,7 +5,7 @@
 
 # Project Management Tools & Templates
 
-Templates, examples, and guides for project and program managers working with traditional, Agile, and hybrid approaches. Use them to plan work, coordinate people, manage risks, and communicate progress.
+Templates, examples, and guides for project and program managers working with traditional, Agile, and hybrid approaches — 139 templates across six work domains. Use them to plan work, coordinate people, manage risks, and communicate progress.
 
 <!-- Compatibility anchors for existing README bookmarks. -->
 <a id="need-templates-now"></a>
@@ -29,11 +29,11 @@ Templates, examples, and guides for project and program managers working with tr
 <a id="quick-links"></a>
 <a id="find-a-template"></a>
 
-## Find what you need
+## Start here
 
-- **Know what you need?** [Browse the template catalog](TEMPLATE_INDEX.md) to find a template by name or path.
-- **Need help choosing?** [Read the template selection guide](docs/getting-started/template-selector.md) for suggestions based on your experience and responsibilities.
-- **Managing your first project?** [Open the first-time PM starter kit](quick-start-kits/first-time-pm-starter/README.md) for a small collection of simplified templates and instructions.
+- **New to project management, or running your first project?** Read the [getting-started guide](docs/getting-started/README.md) for orientation, then open the [first-time PM starter kit](quick-start-kits/first-time-pm-starter/README.md) — a small collection of simplified templates and instructions.
+- **Know what you need?** Search and filter all 139 templates in the [template browser](https://mirichard.github.io/pm-tools-templates/), or scan the plain-text [template catalog](TEMPLATE_INDEX.md) if you'd rather browse file paths directly.
+- **Not sure which template fits your situation?** Read the [template selection guide](docs/getting-started/template-selector.md) for suggestions based on your experience and responsibilities.
 
 <!-- Compatibility anchors for existing README bookmarks. -->
 <a id="core-template-collections"></a>
@@ -41,37 +41,10 @@ Templates, examples, and guides for project and program managers working with tr
 <a id="process-groups--key-templates"></a>
 <a id="-library-organization"></a>
 <a id="browse-by-performance-domain"></a>
-
-## Browse by area of work
-
-The library groups related resources into six performance domains. Choose the area closest to your task; each domain page explains its scope and links to starting resources.
-
-| Area | What you need to manage |
-| --- | --- |
-| [Stakeholder](domains/stakeholder/) | Stakeholder analysis, engagement, and communication |
-| [Team](domains/team/) | Team roles, collaboration, skills, and development |
-| [Delivery](domains/delivery/) | Execution, iterations, change control, and quality |
-| [Planning](domains/planning/) | Scope, schedule, budget, and resources |
-| [Uncertainty](domains/uncertainty/) | Risks, opportunities, issues, and contingency planning |
-| [Measurement](domains/measurement/) | Progress, performance, dashboards, and outcomes |
-
-<!-- Compatibility anchors for existing README bookmarks. -->
 <a id="implementation-process-frameworks"></a>
 <a id="getting-started"></a>
 <a id="getting-started-1"></a>
 <a id="use-a-template"></a>
-
-## Use a resource
-
-A **template** gives you a structure to adapt; an **example** illustrates how it can be filled in; a **guide** explains an approach or process.
-
-1. **Check the fit.** Read the purpose, applicability, and instructions. Check the file format and any software requirements before downloading.
-2. **Make a working copy.** For Markdown (`.md`), open the file's **Raw** view and copy the text into your editor, or download the raw file. Download other file types and open them in compatible software.
-3. **Adapt it to your project.** Replace sample content and placeholders, select the sections you need, and agree on ownership and review frequency. Follow related-resource links when you need supporting artifacts.
-
-Individual templates do not require installing the repository. To obtain the full collection, [download the repository ZIP](https://github.com/mirichard/pm-tools-templates/archive/refs/heads/main.zip). Available formats vary; a `.md` file is Markdown text, not an Office document.
-
-<!-- Compatibility anchors for existing README bookmarks. -->
 <a id="which-methodology"></a>
 <a id="executive-communication"></a>
 <a id="traditionaltraditional-templates"></a>
@@ -127,20 +100,26 @@ Individual templates do not require installing the repository. To obtain the ful
 <a id="popular-tool-integrations"></a>
 <a id="explore-collections-and-guides"></a>
 
-## Specialized resources
+## Explore further
 
-These collections and guides provide other ways to explore the library.
+Already found what you need above? You can stop there — everything below is the same library, reached a different way. Pick whichever grouping matches how you think about your work: by the domain you're managing, by a bundled kit for your situation, or by industry or methodology.
 
-| Your need | Resource |
-| --- | --- |
-| Templates grouped for a situation | [Browse quick-start kits](quick-start-kits/README.md) |
-| Resources for your responsibilities | [Browse role-based toolkits](role-based-toolkits/README.md) |
-| Traditional, Agile, or hybrid guidance | [Read the methodology selection guide](docs/getting-started/methodology-selector.md) |
-| Industry-specific resources | [Browse industry collections](industry_templates/) |
-| Executive communication and oversight | [Browse the business stakeholder suite](business-stakeholder-suite/README.md) |
-| Assessing a project in progress | [Open the project assessment suite](project-assessment-suite/README.md) |
-| Illustrations of template use | [Browse examples and case studies](examples/README.md) |
-| Connecting resources to your PM tools | [Read integration guides](integration_guides/README.md) |
+| Resource | Type | What it's for |
+| --- | --- | --- |
+| [Stakeholder](domains/stakeholder/) | Domain | Stakeholder analysis, engagement, and communication |
+| [Team](domains/team/) | Domain | Team roles, collaboration, skills, and development |
+| [Delivery](domains/delivery/) | Domain | Execution, iterations, change control, and quality |
+| [Planning](domains/planning/) | Domain | Scope, schedule, budget, and resources |
+| [Uncertainty](domains/uncertainty/) | Domain | Risks, opportunities, issues, and contingency planning |
+| [Measurement](domains/measurement/) | Domain | Progress, performance, dashboards, and outcomes |
+| [Quick-start kits](quick-start-kits/README.md) | Kit | Templates bundled for a specific project scenario |
+| [Role-based toolkits](role-based-toolkits/README.md) | Toolkit | Resources grouped by your responsibilities |
+| [Methodology selection guide](docs/getting-started/methodology-selector.md) | Guide | Traditional, Agile, or hybrid guidance |
+| [Industry collections](industry-specializations/) | Industry | Industry-specific resources |
+| [Business stakeholder suite](business-stakeholder-suite/README.md) | Toolkit | Executive communication and oversight |
+| [Project assessment suite](project-assessment-suite/README.md) | Guide | Assessing a project already in progress |
+| [Examples and case studies](examples/README.md) | Example | Illustrations of template use |
+| [Integration guides](integration-guides/README.md) | Guide | Connecting resources to your PM tools |
 
 <!-- Compatibility anchors for existing README bookmarks. -->
 <a id="need-ai-powered-insights"></a>
@@ -150,6 +129,16 @@ These collections and guides provide other ways to explore the library.
 <a id="-integration--tools"></a>
 <a id="automation-options"></a>
 <a id="optional-software-tools"></a>
+
+## Use a resource
+
+A **template** gives you a structure to adapt; an **example** illustrates how it can be filled in; a **guide** explains an approach or process.
+
+1. **Check the fit.** Read the purpose, applicability, and instructions. Check the file format and any software requirements before downloading.
+2. **Make a working copy.** The fastest way is the [template browser](https://mirichard.github.io/pm-tools-templates/): open a template there and use its preview or download option. Working from GitHub directly: for Markdown (`.md`) files, open the file's **Raw** view and copy the text into your editor, or download the raw file; download other file types and open them in compatible software.
+3. **Adapt it to your project.** Replace sample content and placeholders, select the sections you need, and agree on ownership and review frequency. Follow related-resource links when you need supporting artifacts.
+
+Individual templates do not require installing the repository. To obtain the full collection, [download the repository ZIP](https://github.com/mirichard/pm-tools-templates/archive/refs/heads/main.zip). Available formats vary; a `.md` file is Markdown text, not an Office document.
 
 ### Software requiring setup
 
@@ -183,7 +172,6 @@ These optional tools have separate installation instructions and prerequisites. 
 
 ## Help and project information
 
-- **Getting oriented:** [Read the getting started guide](docs/getting-started/README.md).
 - **Questions and shared practice:** [Ask in GitHub Discussions](https://github.com/mirichard/pm-tools-templates/discussions).
 - **Broken links, defects, or missing resources:** [Open an issue](https://github.com/mirichard/pm-tools-templates/issues/new/choose) and include the affected link and what you expected.
 - **Contributing:** [Read the contribution guidelines](CONTRIBUTING.md).
