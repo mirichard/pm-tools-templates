@@ -4,15 +4,11 @@ on:
   push:
     branches: [ main, staging, develop ]
     paths:
-      - 'ai-insights/Dockerfile'
-      - 'ai-insights/package.json'
-      - 'ai-insights/package-lock.json'
+      - 'ai-insights/**'
       - '.github/workflows/container-scan.yml'
   pull_request:
     paths:
-      - 'ai-insights/Dockerfile'
-      - 'ai-insights/package.json'
-      - 'ai-insights/package-lock.json'
+      - 'ai-insights/**'
       - '.github/workflows/container-scan.yml'
   workflow_dispatch:
 
@@ -29,21 +25,29 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          persist-credentials: false
 
       - name: Build ai-insights image
         run: docker build -t ai-insights:scan ./ai-insights
 
-      # v0.28.0 (my first fix attempt, correcting a missing "v" prefix) does
-      # resolve but pulls a broken nested dependency
-      # (aquasecurity/setup-trivy@v0.2.1, which itself doesn't resolve) -
-      # confirmed by actually running it, not by re-guessing from memory.
-      # v0.33.1 is confirmed to exist via
-      # https://github.com/aquasecurity/trivy-action/releases; verify this
-      # resolves cleanly via this push's CI before trusting it further.
+      # Root cause of the earlier failure, from this PR's own job logs (run
+      # 35618428368, job 106395074000): trivy-action@v0.33.1's own install
+      # step ran `trivy/contrib/install.sh ... v0.65.0` and failed with
+      # "aquasecurity/trivy crit unable to find 'v0.65.0'" - that action
+      # release's baked-in default Trivy CLI version does not exist in
+      # aquasecurity/trivy's own release list (confirmed against
+      # https://github.com/aquasecurity/trivy/releases and Docker Hub's
+      # aquasec/trivy tags, both checked directly, not inferred from
+      # unrelated upstream issue reports). Fix: pin the action to its
+      # current release (v0.36.0) and pass `version:` explicitly so this
+      # step never again depends on an action release's undocumented
+      # default Trivy CLI version.
       - name: Scan image with Trivy
-        uses: aquasecurity/trivy-action@v0.33.1
+        uses: aquasecurity/trivy-action@ed142fd0673e97e23eac54620cfb913e5ce36c25 # v0.36.0
         with:
           image-ref: ai-insights:scan
+          version: v0.74.0
           format: table
           severity: CRITICAL,HIGH
           exit-code: '1'
