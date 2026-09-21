@@ -3,6 +3,11 @@ on:
   push:
     branches: [ main, staging, develop ]
   pull_request:
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   build-test:
     runs-on: ubuntu-latest
@@ -12,8 +17,76 @@ jobs:
         with: { node-version: "20" }
       - run: npm ci
       - run: npm test -- --coverage
+      - run: npm run test:migration-post-check
+      - run: npm run validate:migration-post-check
+      - run: npm run validate:domain-navigation
+      - run: bash scripts/check-workflow-health.sh audit
       - uses: actions/upload-artifact@v4
         with:
           name: coverage
           path: coverage
+
+  changes:
+    runs-on: ubuntu-latest
+    outputs:
+      changes: ${{ steps.filter.outputs.changes }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dorny/paths-filter@v4
+        id: filter
+        with:
+          filters: |
+            dashboard-mvp: [ 'dashboard-mvp/**' ]
+            web-mvp: [ 'web-mvp/**' ]
+            site: [ 'site/**' ]
+            ai-insights: [ 'ai-insights/**' ]
+            analytics-platform: [ 'analytics-platform/**' ]
+            workflow-orchestration: [ 'workflow-orchestration/**' ]
+            backend: [ 'backend/**' ]
+            requirements-cli: [ 'tools/requirements-structuring-cli/**' ]
+            template-generator-cli: [ 'tools/template-generator-cli/**' ]
+            docs-site: [ 'docs/site/**' ]
+
+  # Runs each sub-app's own lint/build/test scripts (already present in their
+  # package.json, just never wired into CI before). Path-filtered on PRs so an
+  # unrelated change doesn't spin up all 10 jobs; full matrix runs on push to
+  # main/staging/develop. continue-on-error is intentional for this first pass:
+  # several of these apps have never been tested in CI and are expected to
+  # surface pre-existing breakage (see PR description) — flip to a hard gate
+  # once each app is green.
+  sub-app-checks:
+    needs: changes
+    if: needs.changes.outputs.changes != '[]' || github.event_name == 'push'
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    strategy:
+      fail-fast: false
+      matrix:
+        app: ${{ (github.event_name == 'push' && fromJSON('["dashboard-mvp","web-mvp","site","ai-insights","analytics-platform","workflow-orchestration","backend","requirements-cli","template-generator-cli","docs-site"]')) || fromJSON(needs.changes.outputs.changes) }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: "20" }
+      - name: Resolve app directory
+        id: dir
+        run: |
+          declare -A DIRS=(
+            [dashboard-mvp]=dashboard-mvp
+            [web-mvp]=web-mvp
+            [site]=site
+            [ai-insights]=ai-insights
+            [analytics-platform]=analytics-platform
+            [workflow-orchestration]=workflow-orchestration
+            [backend]=backend
+            [requirements-cli]=tools/requirements-structuring-cli
+            [template-generator-cli]=tools/template-generator-cli
+            [docs-site]=docs/site
+          )
+          echo "path=${DIRS[${{ matrix.app }}]}" >> "$GITHUB_OUTPUT"
+      - run: npm ci --prefix "${{ steps.dir.outputs.path }}"
+      - run: npm run lint --if-present --prefix "${{ steps.dir.outputs.path }}"
+      - run: npm run build --if-present --prefix "${{ steps.dir.outputs.path }}"
+      - run: npm test --if-present --prefix "${{ steps.dir.outputs.path }}"
+      - name: Dependency audit
+        run: bash scripts/check-workflow-health.sh audit "${{ steps.dir.outputs.path }}"
 

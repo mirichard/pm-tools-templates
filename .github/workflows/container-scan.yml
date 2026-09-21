@@ -1,0 +1,42 @@
+name: Container Image Scan
+
+on:
+  push:
+    branches: [ main, staging, develop ]
+    paths:
+      - 'ai-insights/Dockerfile'
+      - 'ai-insights/package.json'
+      - 'ai-insights/package-lock.json'
+      - '.github/workflows/container-scan.yml'
+  pull_request:
+    paths:
+      - 'ai-insights/Dockerfile'
+      - 'ai-insights/package.json'
+      - 'ai-insights/package-lock.json'
+      - '.github/workflows/container-scan.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: container-scan-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  trivy:
+    name: Scan ai-insights image
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build ai-insights image
+        run: docker build -t ai-insights:scan ./ai-insights
+
+      - name: Scan image with Trivy
+        uses: aquasecurity/trivy-action@0.28.0
+        with:
+          image-ref: ai-insights:scan
+          format: table
+          severity: CRITICAL,HIGH
+          exit-code: '1'
