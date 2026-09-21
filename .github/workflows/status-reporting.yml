@@ -10,9 +10,9 @@ on:
   workflow_dispatch:
     inputs:
       test_mode:
-        description: 'Run in test mode'
+        description: 'Preview only: do not commit reports or send email'
         required: false
-        default: 'true'
+        default: true
         type: boolean
       report_type:
         description: 'Type of status report'
@@ -290,7 +290,9 @@ jobs:
           }
           EOF
 
+      # Manual runs publish only when test_mode is explicitly false.
       - name: 💾 Commit Status Report
+        if: ${{ github.event_name == 'schedule' || (github.event_name == 'workflow_dispatch' && github.event.inputs.test_mode == 'false') }}
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "Status Reporting Automation"
@@ -305,6 +307,17 @@ jobs:
             git commit -m "📊 Generate ${{ github.event.inputs.report_type || 'weekly' }} status report - ${{ steps.metrics.outputs.completion_rate }}% complete"
             git push
           fi
+
+      - name: Upload status report preview
+        if: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.test_mode != 'false' }}
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: status-reporting-report-preview
+          path: |
+            reports/status/
+            metrics/status-data/
+          if-no-files-found: error
+          retention-days: 7
 
       - name: 📋 Status Summary
         env:
@@ -510,7 +523,8 @@ jobs:
           </html>
           EOF
 
-      - name: 💾 Commit Email Content (Test Mode)
+      - name: 💾 Commit Email Content
+        if: ${{ github.event_name == 'schedule' || (github.event_name == 'workflow_dispatch' && github.event.inputs.test_mode == 'false') }}
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "Email Test Automation"
@@ -526,9 +540,18 @@ jobs:
             git push
           fi
 
+      - name: Upload email preview
+        if: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.test_mode != 'false' }}
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: status-reporting-email-preview
+          path: email/monday-status.html
+          if-no-files-found: error
+          retention-days: 7
+
       - name: 📧 Send Status Email
-        # Only send email if EMAIL_USERNAME secret is configured
-        if: ${{ env.EMAIL_CONFIGURED == 'true' }}
+        id: send_email
+        if: ${{ env.EMAIL_CONFIGURED == 'true' && (github.event_name == 'schedule' || (github.event_name == 'workflow_dispatch' && github.event.inputs.test_mode == 'false')) }}
         uses: dawidd6/action-send-mail@v3
         with:
           server_address: smtp.gmail.com
@@ -541,15 +564,14 @@ jobs:
           from: ${{ secrets.EMAIL_FROM || env.MAIL_FROM }}
 
       - name: 📧 Email Status Summary
+        env:
+          PREVIEW_ONLY: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.test_mode != 'false' }}
+          DELIVERY_OUTCOME: ${{ steps.send_email.outcome }}
         run: |
-          if [ "${{ secrets.EMAIL_USERNAME }}" != "" ]; then
-            echo "📧 Email sent successfully to: ${{ secrets.EMAIL_RECIPIENTS || env.MAIL_RECIPIENTS }}"
+          if [ "$PREVIEW_ONLY" = "true" ]; then
+            echo "Preview complete; no reports committed and no email sent."
+          elif [ "$DELIVERY_OUTCOME" = "success" ]; then
+            echo "Email delivery action completed successfully."
           else
-            echo "⚠️  Email not sent - EMAIL_USERNAME secret not configured"
-            echo "To enable email delivery, add these GitHub secrets:"
-            echo "  - EMAIL_USERNAME (your email address)"
-            echo "  - EMAIL_PASSWORD (your email app password)"
-            echo "  - EMAIL_RECIPIENTS (comma-separated recipient emails)"
-            echo "  - EMAIL_FROM (optional - sender email address)"
+            echo "Email not sent; delivery was skipped. Check email configuration."
           fi
-
