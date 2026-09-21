@@ -1,3 +1,0 @@
-Temporary marker to trigger sub-app-checks for dashboard-mvp and verify
-the npm --prefix argument-order fix (F-5) in PR #1287 via live CI.
-Deleted in a follow-up commit once confirmed.
