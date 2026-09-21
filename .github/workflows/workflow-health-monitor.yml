@@ -4,9 +4,11 @@ on:
   schedule:
     # Monitor workflow health every 6 hours
     - cron: '0 */6 * * *'
-  workflow_run:
-    workflows: ["🔒 Dependency Security Scan", "🔍 Static Application Security Testing (SAST)", "🏗️ Infrastructure Security Analysis"]
-    types: [completed]
+  pull_request:
+    paths:
+      - '.github/workflows/workflow-health-monitor.yml'
+      - 'scripts/fetch-monitor-runs.py'
+      - 'tests/test_monitor_runs.py'
   workflow_dispatch:
     inputs:
       monitoring_scope:
@@ -30,6 +32,11 @@ on:
         default: true
         type: boolean
 
+# Coalesce scheduled/manual scans across branches; PR tests are isolated.
+concurrency:
+  group: workflow-health-monitor-${{ github.event_name == 'pull_request' && github.event.pull_request.number || 'scans' }}
+  cancel-in-progress: false
+
 env:
   HEALTH_THRESHOLD_CRITICAL: 60
   HEALTH_THRESHOLD_WARNING: 75
@@ -39,12 +46,21 @@ env:
 permissions:
   contents: read
   actions: read
-  issues: write
-  pull-requests: write
 
 jobs:
+  test-monitor-fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - run: python3 -m unittest discover -s tests -p test_monitor_runs.py -v
+
   # Workflow Status Collection
   collect-workflow-status:
+    timeout-minutes: 15
+    needs: test-monitor-fetch
+    if: github.event_name != 'pull_request'
     name: 📊 Collect Workflow Status
     runs-on: ubuntu-latest
     outputs:
@@ -63,25 +79,8 @@ jobs:
         run: |
           echo "📊 Collecting workflow status data..."
           
-          # Get recent workflow runs (last 50 runs)
-          RESPONSE=$(gh api repos/${{ github.repository }}/actions/runs --paginate --jq '.workflow_runs[] | select(.created_at > (now - 7*24*3600 | strftime("%Y-%m-%dT%H:%M:%SZ"))) | {
-            id: .id,
-            name: .name,
-            status: .status,
-            conclusion: .conclusion,
-            created_at: .created_at,
-            updated_at: .updated_at,
-            run_started_at: .run_started_at,
-            head_branch: .head_branch,
-            event: .event,
-            run_attempt: .run_attempt
-          }')
-          echo "$RESPONSE" > workflow_runs.json
-          if grep -q '<html' workflow_runs.json; then
-            echo "Error: Received HTML response. Possibly rate limited or authentication issue." >&2
-            exit 1
-          fi
-          
+          python3 scripts/fetch-monitor-runs.py --repository "$GITHUB_REPOSITORY" --days 7 --output workflow_runs.json
+
           # Get workflow files for analysis
           find .github/workflows -name "*.yml" -o -name "*.yaml" | while read workflow_file; do
             echo "Found workflow: $workflow_file"
@@ -97,11 +96,8 @@ jobs:
           from collections import defaultdict
           
           # Load workflow runs
-          try:
-              with open('workflow_runs.json', 'r') as f:
-                  runs = [json.loads(line) for line in f if line.strip()]
-          except:
-              runs = []
+          with open('workflow_runs.json', 'r') as f:
+              runs = [json.loads(line) for line in f if line.strip()]
           
           # Categorize workflows
           security_workflows = ['Dependency Security Scan', 'Static Application Security Testing', 'Infrastructure Security Analysis']
@@ -274,6 +270,7 @@ jobs:
 
   # Performance Metrics Analysis
   performance-analysis:
+    timeout-minutes: 15
     name: ⚡ Performance Analysis
     runs-on: ubuntu-latest
     needs: collect-workflow-status
@@ -288,22 +285,8 @@ jobs:
         run: |
           echo "⚡ Analyzing workflow performance metrics..."
           
-          # Get detailed timing data
-          PERF_RESPONSE=$(gh api repos/${{ github.repository }}/actions/runs --paginate --jq '.workflow_runs[] | select(.created_at > (now - 24*3600 | strftime("%Y-%m-%dT%H:%M:%SZ"))) | {
-            id: .id,
-            name: .name,
-            status: .status,
-            conclusion: .conclusion,
-            created_at: .created_at,
-            run_started_at: .run_started_at,
-            updated_at: .updated_at
-          }')
-          echo "$PERF_RESPONSE" > recent_runs.json
-          if grep -q '<html' recent_runs.json; then
-            echo "Warning: Received HTML response in performance analysis. Creating empty dataset." >&2
-            echo "[]" > recent_runs.json
-          fi
-          
+          python3 scripts/fetch-monitor-runs.py --repository "$GITHUB_REPOSITORY" --days 1 --output recent_runs.json
+
           python3 - << 'EOF'
           import json
           import statistics
@@ -311,11 +294,8 @@ jobs:
           from collections import defaultdict
           
           # Load recent runs
-          try:
-              with open('recent_runs.json', 'r') as f:
-                  runs = [json.loads(line) for line in f if line.strip()]
-          except:
-              runs = []
+          with open('recent_runs.json', 'r') as f:
+              runs = [json.loads(line) for line in f if line.strip()]
           
           # Performance analysis
           performance_data = defaultdict(list)
@@ -491,13 +471,16 @@ jobs:
 
   # Health Alerting System
   health-alerting:
+    permissions:
+      contents: read
+      issues: write
     name: 🚨 Health Alerting
     outputs:
       alert_level: ${{ steps.alerts.outputs.alert_level }}
       alert_message: ${{ steps.alerts.outputs.alert_message }}
     runs-on: ubuntu-latest
     needs: [collect-workflow-status, performance-analysis]
-    if: always()
+    if: success()
     
     steps:
       - name: 📥 Checkout Repository
@@ -736,6 +719,7 @@ jobs:
 
   # Historical Trend Analysis
   trend-analysis:
+    timeout-minutes: 15
     name: 📈 Trend Analysis
     runs-on: ubuntu-latest
     needs: [collect-workflow-status]
@@ -751,30 +735,16 @@ jobs:
         run: |
           echo "📈 Performing historical trend analysis..."
           
-          # Get extended historical data (last 30 days)
-          gh api repos/${{ github.repository }}/actions/runs \
-            --paginate \
-            --jq '.workflow_runs[] | select(.created_at > (now - 30*24*3600 | strftime("%Y-%m-%dT%H:%M:%SZ"))) | {
-              id: .id,
-              name: .name,
-              status: .status,
-              conclusion: .conclusion,
-              created_at: .created_at,
-              updated_at: .updated_at,
-              run_started_at: .run_started_at
-            }' > historical_runs.json
-          
+          python3 scripts/fetch-monitor-runs.py --repository "$GITHUB_REPOSITORY" --days 30 --output historical_runs.json
+
           python3 - << 'EOF'
           import json
           from datetime import datetime, timedelta
           from collections import defaultdict
           
           # Load historical data
-          try:
-              with open('historical_runs.json', 'r') as f:
-                  runs = [json.loads(line) for line in f if line.strip()]
-          except:
-              runs = []
+          with open('historical_runs.json', 'r') as f:
+              runs = [json.loads(line) for line in f if line.strip()]
           
           # Group by week for trend analysis
           weekly_data = defaultdict(lambda: {'total': 0, 'success': 0, 'failure': 0})
@@ -961,10 +931,14 @@ jobs:
     name: 📋 Monitoring Summary
     runs-on: ubuntu-latest
     needs: [collect-workflow-status, performance-analysis, health-alerting, trend-analysis]
-    if: always()
+    if: always() && github.event_name != 'pull_request'
     
     steps:
+      - name: Report unavailable monitoring data
+        if: needs.collect-workflow-status.result != 'success' || needs.performance-analysis.result != 'success'
+        run: echo "Monitoring data unavailable. No health conclusion can be drawn; inspect the failed collection or analysis job." >> "$GITHUB_STEP_SUMMARY"
       - name: 📋 Generate Monitoring Dashboard
+        if: needs.collect-workflow-status.result == 'success' && needs.performance-analysis.result == 'success'
         run: |
           echo "📋 Generating comprehensive monitoring dashboard..."
           
@@ -1022,6 +996,7 @@ jobs:
           echo "📋 Monitoring dashboard generated"
 
       - name: 📤 Upload Monitoring Dashboard
+        if: needs.collect-workflow-status.result == 'success' && needs.performance-analysis.result == 'success'
         uses: actions/upload-artifact@v4
         with:
           name: monitoring-dashboard-${{ github.run_number }}
@@ -1029,6 +1004,7 @@ jobs:
           retention-days: ${{ env.MONITORING_RETENTION_DAYS }}
 
       - name: 📊 Monitoring Summary
+        if: needs.collect-workflow-status.result == 'success' && needs.performance-analysis.result == 'success'
         run: |
           echo "📊 Workflow Health Monitoring Summary"
           echo "====================================="
