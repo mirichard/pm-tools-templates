@@ -1,0 +1,3 @@
+Temporary marker to trigger sub-app-checks for docs-site and verify the
+Node 22 fix (F-3) in PR #1287 via live CI. Deleted in a follow-up commit
+once confirmed.
