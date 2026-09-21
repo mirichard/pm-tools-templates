@@ -1,60 +1,34 @@
 name: Expert Review Process
 
 on:
+  pull_request:
+    types: [opened, synchronize, reopened]
   issues:
     types: [opened, labeled]
   issue_comment:
     types: [created]
 
+permissions:
+  contents: read
+
 jobs:
   automated-validation:
-    if: github.event_name == 'issues'
+    if: github.event_name == 'pull_request'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v7
         with:
-          fetch-depth: 1
-      - name: Run Template Validation
-        run: |
-          echo "Running comprehensive template validation..."
-          
-          # Run validation on changed template files (fallback to all md if diff not available)
-          CHANGED_FILES=$(git diff --name-only HEAD~1 HEAD | grep -E '\\.(md|markdown)$' || true)
-          if [ -z "$CHANGED_FILES" ]; then
-            CHANGED_FILES=$(git ls-files "**/*.md" "**/*.markdown" | head -n 50)
-          fi
-          
-          if [ -z "$CHANGED_FILES" ]; then
-            echo "No template files to validate."
-            exit 0
-          fi
-          
-          VALIDATION_FAILED=false
-          for file in $CHANGED_FILES; do
-            if [ -f "$file" ]; then
-              echo "Validating: $file"
-              # Basic lint: ensure file has a title and at least 50 chars
-              TITLE_OK=$(grep -E "^# " "$file" | head -n1 | wc -c | tr -d ' ')
-              SIZE_OK=$(wc -c < "$file")
-              if [ "${TITLE_OK:-0}" -eq 0 ] || [ "${SIZE_OK:-0}" -lt 50 ]; then
-                VALIDATION_FAILED=true
-                echo "❌ Validation failed for: $file (missing title or too short)"
-              else
-                echo "✅ Validation passed for: $file"
-              fi
-            fi
-          done
-          
-          if [ "$VALIDATION_FAILED" = true ]; then
-            echo "❌ One or more templates failed validation"
-            exit 1
-          else
-            echo "✅ All templates passed validation"
-            exit 0
-          fi
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Test changed-file validation
+        run: python3 -m unittest discover -s tests -p test_expert_review.py -v
+      - name: Validate changed Markdown
+        run: python3 scripts/validate-expert-review.py
 
   assign-peer-reviewers:
+    permissions:
+      issues: write
     if: github.event_name == 'issues' && github.event.action == 'labeled' && github.event.label.name == 'peer-review-needed'
     runs-on: ubuntu-latest
     steps:
@@ -72,6 +46,8 @@ jobs:
             });
 
   expert-review-assignment:
+    permissions:
+      issues: write
     if: >
       github.event_name == 'issues' && (
         github.event.action == 'opened' ||
@@ -136,8 +112,12 @@ jobs:
             });
 
   process-expert-reviews:
+    permissions:
+      issues: write
     if: >
-      github.event_name == 'issue_comment' && 
+      github.event_name == 'issue_comment' &&
+      !github.event.issue.pull_request &&
+      contains(fromJSON('["OWNER", "MEMBER", "COLLABORATOR"]'), github.event.comment.author_association) &&
       contains(github.event.issue.labels.*.name, 'expert-review-active')
     runs-on: ubuntu-latest
     steps:
@@ -158,7 +138,6 @@ jobs:
                 issue_number: issueNumber,
                 labels: ['expert-reviewed']
               });
-            }
               // Remove needs-expert-input label
               try {
                 await github.rest.issues.removeLabel({
@@ -168,6 +147,7 @@ jobs:
                   name: 'needs-expert-input'
                 });
               } catch (error) {
-                console.log('Label removal failed (may not exist):', error.message);
+                if (error.status !== 404) throw error;
+                console.log('needs-expert-input label is already absent.');
               }
             }
