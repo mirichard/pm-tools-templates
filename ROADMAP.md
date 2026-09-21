@@ -16,11 +16,12 @@ This roadmap summarizes released capabilities, outstanding follow-up, and future
 
 vNext's migration establishes canonical locations and cross-references for the migrated collection. Legacy paths remain supported through vNext and at least the next major release under the [compatibility policy](docs/domain-navigation-and-legacy-paths.md).
 
+Release acceptance and closeout are recorded in [#1266](https://github.com/mirichard/pm-tools-templates/issues/1266#issuecomment-5755321786), closed as completed on 09/21/2026 after verification of the release tag, final workflows, and announcement. Project-board status remains explicitly unverified in that record.
+
 ## Outstanding follow-up
 
 | Item | Current position | Next decision or action |
 | --- | --- | --- |
-| vNext release closeout | The release is published, but [closeout tracker #1266](https://github.com/mirichard/pm-tools-templates/issues/1266) remains open with earlier pending checklist entries | Reconcile the tracker with publication and final verification evidence; do not infer that every closeout check is complete from publication alone |
 | Catalog-domain export | Recorded as follow-up in the [domain-refactor reconciliation, #711](https://github.com/mirichard/pm-tools-templates/issues/711); excluded from the vNext delivery claim | Confirm remaining scope and tracking before scheduling; [PR #1188](https://github.com/mirichard/pm-tools-templates/pull/1188) was closed without merge |
 
 At this review, no GitHub milestones are open. The overall vNext and Sprint 15 milestones are closed. Some closed historical milestones still contain open issues, so their old dates should not be read as active commitments. No next-release date is committed in this roadmap.
