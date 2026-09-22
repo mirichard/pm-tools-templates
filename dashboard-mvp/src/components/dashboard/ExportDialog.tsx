@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Download, FileText, Table, Code, Calendar, CheckCircle, AlertCircle } from 'lucide-react';
+import { Download, FileText, Table, Code, CheckCircle, AlertCircle } from 'lucide-react';
 import { apiService } from '@/lib/api';
 
 interface ExportDialogProps {

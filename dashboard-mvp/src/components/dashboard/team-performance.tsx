@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { User, TrendingUp, Clock, CheckCircle, AlertTriangle, ExternalLink, Users } from 'lucide-react'
+import { TrendingUp, Clock, CheckCircle, AlertTriangle, ExternalLink } from 'lucide-react'
 import { useToast } from '@/components/ui/toast'
 
 const teamData = [
@@ -23,7 +23,7 @@ interface TeamPerformanceProps {
   teamMembers?: TeamMember[];
 }
 
-export function TeamPerformance({ teamMembers }: TeamPerformanceProps = {}) {
+export function TeamPerformance(_props: TeamPerformanceProps = {}) {
   const [hoveredMember, setHoveredMember] = useState<string | null>(null)
   const { addToast } = useToast()
   

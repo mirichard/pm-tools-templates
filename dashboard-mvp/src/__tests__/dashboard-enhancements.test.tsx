@@ -1,3 +1,4 @@
+import { apiService } from '@/lib/api'
 import { render, screen, fireEvent, waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { ToastProvider } from '@/components/ui/toast'
@@ -7,7 +8,7 @@ import { ExportDialog } from '@/components/dashboard/ExportDialog'
 import { MetricCard } from '@/components/dashboard/metric-card'
 import { ProgressChart } from '@/components/dashboard/progress-chart'
 import { TeamPerformance } from '@/components/dashboard/team-performance'
-import { TrendingUp, Clock } from 'lucide-react'
+import { TrendingUp } from 'lucide-react'
 
 // Mock Next.js router
 jest.mock('next/router', () => ({
@@ -382,8 +383,7 @@ describe('Dashboard Enhancements', () => {
 
   describe('Error Handling', () => {
     test('should handle export errors gracefully', async () => {
-      const mockApiService = require('@/lib/api').apiService
-      mockApiService.exportDashboard.mockRejectedValueOnce(new Error('Export failed'))
+      jest.mocked(apiService.exportDashboard).mockRejectedValueOnce(new Error('Export failed'))
       
       const user = userEvent.setup()
       render(
