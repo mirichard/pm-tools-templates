@@ -552,7 +552,7 @@ jobs:
       - name: 📧 Send Status Email
         id: send_email
         if: ${{ env.EMAIL_CONFIGURED == 'true' && (github.event_name == 'schedule' || (github.event_name == 'workflow_dispatch' && github.event.inputs.test_mode == 'false')) }}
-        uses: dawidd6/action-send-mail@v22
+        uses: dawidd6/action-send-mail@67ce3558d613188179559c61d3565140cf389968 # v22
         with:
           server_address: smtp.gmail.com
           server_port: 465
