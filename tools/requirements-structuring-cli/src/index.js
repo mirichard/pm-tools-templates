@@ -8,7 +8,7 @@
  * and Process-State Consistency Validation"
  */
 
-require('dotenv').config({ path: require('path').resolve(__dirname, '..', '.env') });
+require('dotenv').config({ quiet: true, path: require('path').resolve(__dirname, '..', '.env') });
 
 const { program } = require('commander');
 const chalk = require('chalk');
