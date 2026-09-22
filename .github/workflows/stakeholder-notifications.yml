@@ -73,7 +73,7 @@ jobs:
 
       - name: 📧 Send Weekly Notification
         if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
-        uses: dawidd6/action-send-mail@v3
+        uses: dawidd6/action-send-mail@67ce3558d613188179559c61d3565140cf389968 # v22
         with:
           server_address: smtp.gmail.com  # Gmail SMTP server
           server_port: 587
