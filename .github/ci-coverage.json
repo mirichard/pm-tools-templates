@@ -34,6 +34,31 @@
     "scripts/check-workflow-health.sh"
   ],
   "apps": {
+    "webhook-framework": {
+      "path": "integrations/webhook-framework",
+      "checks": {
+        "lint": {
+          "command": null,
+          "required": false,
+          "status": "not_implemented",
+          "note": "No ESLint configuration yet; this entry does not claim lint coverage."
+        },
+        "build": {
+          "command": null,
+          "required": false,
+          "status": "not_implemented",
+          "note": "Native Node.js ESM; no compilation step."
+        },
+        "test": {
+          "command": "npm test",
+          "required": true,
+          "note": "All five Jest suites, including signed HTTP requests and rate limiting."
+        },
+        "audit": {
+          "required": true
+        }
+      }
+    },
     "dashboard-mvp": {
       "path": "dashboard-mvp",
       "checks": {
@@ -256,9 +281,5 @@
     }
   ],
   "excluded": [
-    {
-      "path": "integrations/webhook-framework",
-      "reason": "Has no package.json of its own (git ls-files-based discovery only finds package.json manifests, so this never surfaces as a discovered entry to reconcile in the first place). CLAUDE.md documents it as \"tested via root npm run test:webhook\", but that script does not exist anywhere in the repo and no workflow references this directory - verified directly, not assumed from the documentation. Real Jest test files and a jest.config.webhook.js exist here, but root package.json has no jest dependency, so wiring this up is a real dependency addition, not pure CI wiring. Tracked in #1302, listed here explicitly as an honest gap rather than a false covered_elsewhere claim."
-    }
   ]
 }

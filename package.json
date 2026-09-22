@@ -4,6 +4,7 @@
   "description": "AI-Powered Project Management Templates with Interactive Onboarding",
   "main": "ecosystem-gateway.js",
   "scripts": {
+    "test:webhook": "npm --prefix integrations/webhook-framework test",
     "start": "node ecosystem-gateway.js",
     "onboard": "node onboarding/interactive-onboarding.js",
     "test": "echo 'Basic test passed' && exit 0",
