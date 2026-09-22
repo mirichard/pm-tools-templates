@@ -24,15 +24,16 @@ class AIInsightsClient {
         ...(this.apiKey && { 'X-API-Key': this.apiKey }),
         ...options.headers
       },
-      body: options.body ? JSON.stringify(options.body) : undefined,
-      ...options
+      ...options,
+      body: options.body ? JSON.stringify(options.body) : undefined
     };
 
     let lastError;
     for (let attempt = 1; attempt <= this.retries; attempt++) {
+      let timeoutId;
       try {
         const controller = new AbortController();
-        const timeoutId = setTimeout(() => controller.abort(), this.timeout);
+        timeoutId = setTimeout(() => controller.abort(), this.timeout);
         
         const response = await fetch(url, {
           ...config,
@@ -60,6 +61,8 @@ class AIInsightsClient {
         }
         
         throw error;
+      } finally {
+        clearTimeout(timeoutId);
       }
     }
     

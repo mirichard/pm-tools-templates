@@ -41,15 +41,13 @@ describe('AI Insights Integration Tests', () => {
     await aiEngine.initialize();
 
     // Start test server
-    server = new AIInsightsServer();
+    server = new AIInsightsServer({ port: 0 });
     serverInstance = await server.start();
     
-    // Give server time to fully start
-    await new Promise(resolve => setTimeout(resolve, 2000));
 
     // Initialize client
     client = new AIInsightsClient({
-      baseURL: 'http://localhost:3001/api/v1',
+      baseURL: `http://127.0.0.1:${serverInstance.address().port}/api/v1`,
       timeout: 30000,
       retries: 2
     });
@@ -291,16 +289,16 @@ describe('AI Insights Integration Tests', () => {
   });
 
   describe('Model Accuracy', () => {
-    test('should maintain consistent risk predictions', () => {
+    test('should maintain consistent risk predictions', async () => {
       const testCases = [
         { project: { ...sampleProject, complexity: 'low' }, expectedRisk: ['low', 'medium'] },
         { project: { ...sampleProject, complexity: 'high', teamSize: 15 }, expectedRisk: ['medium', 'high', 'critical'] }
       ];
       
-      testCases.forEach(async ({ project, expectedRisk }) => {
+      for (const { project, expectedRisk } of testCases) {
         const result = await aiEngine.predictRisk(project);
         expect(expectedRisk).toContain(result.riskLevel);
-      });
+      }
     });
 
     test('should provide meaningful confidence scores', async () => {
@@ -334,18 +332,8 @@ describe('AI Insights Integration Tests', () => {
       expect(summary.estimatedImpact).toBeDefined();
     });
   });
-});
 
-describe('Load Testing', () => {
-  let client;
-
-  beforeAll(() => {
-    client = new AIInsightsClient({
-      baseURL: 'http://localhost:3001/api/v1',
-      timeout: 30000
-    });
-  });
-
+  describe('Load Testing', () => {
   test('should handle sustained load', async () => {
     const concurrency = 10;
     const iterations = 5;
@@ -370,6 +358,8 @@ describe('Load Testing', () => {
       expect(result.confidence).toBeGreaterThan(0);
     });
   }, 60000);
+});
+
 });
 
 // Custom test helpers

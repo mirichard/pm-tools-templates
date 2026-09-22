@@ -19,9 +19,9 @@ import { apiMetrics } from '../middleware/metrics.js';
 dotenv.config();
 
 class AIInsightsServer {
-  constructor() {
+  constructor({ port = process.env.PORT || 3001 } = {}) {
     this.app = express();
-    this.port = process.env.PORT || 3001;
+    this.port = port;
     this.aiEngine = null;
     this.server = null;
   }
@@ -311,15 +311,11 @@ class AIInsightsServer {
     try {
       await this.initialize();
 
-      this.server = this.app.listen(this.port, () => {
-        logger.info(`🚀 AI Insights API Server running on port ${this.port}`);
-        logger.info(`📊 Health check: http://localhost:${this.port}/health`);
-        logger.info(`📚 API Documentation: http://localhost:${this.port}/api/v1/docs`);
+      await new Promise((resolve, reject) => {
+        this.server = this.app.listen(this.port, resolve);
+        this.server.once('error', reject);
       });
-
-      // Graceful shutdown
-      process.on('SIGTERM', () => this.shutdown());
-      process.on('SIGINT', () => this.shutdown());
+      return this.server;
 
     } catch (error) {
       logger.error('❌ Failed to start API server:', error);
@@ -331,9 +327,10 @@ class AIInsightsServer {
     logger.info('🔄 Shutting down AI Insights API Server...');
 
     if (this.server) {
-      this.server.close(() => {
-        logger.info('🛑 HTTP server closed');
+      await new Promise((resolve, reject) => {
+        this.server.close(error => error ? reject(error) : resolve());
       });
+      this.server = null;
     }
 
     if (this.aiEngine) {
@@ -341,13 +338,19 @@ class AIInsightsServer {
     }
 
     logger.info('✅ AI Insights API Server shutdown complete');
-    process.exit(0);
+
   }
 }
 
 // Start server if run directly
 if (import.meta.url === `file://${process.argv[1]}`) {
   const server = new AIInsightsServer();
+  for (const signal of ['SIGTERM', 'SIGINT']) {
+    process.once(signal, () => server.shutdown().catch(error => {
+      logger.error('Shutdown failed:', error);
+      process.exitCode = 1;
+    }));
+  }
   server.start().catch((error) => {
     logger.error('Fatal server error:', error);
     process.exit(1);

@@ -211,7 +211,7 @@ async function verifyDocumentation() {
     if (!pkg.scripts['start:api'] || !pkg.scripts['deploy:docker']) {
       throw new Error('Missing required npm scripts');
     }
-    if (!pkg.dependencies['@tensorflow/tfjs-node']) {
+    if (!pkg.dependencies['@tensorflow/tfjs']) {
       throw new Error('Missing TensorFlow dependency');
     }
   });

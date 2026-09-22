@@ -1,5 +1,10 @@
 # AI-Powered Project Insights
 
+
+> **Validation status:** The risk model currently creates a randomly initialized network; training and loading a validated model are not implemented. Its risk labels and confidence scores are not validated predictions. The resource, schedule, and quality modules also contain simulated calculations. The complete AI test suite remains a merge blocker.
+
+The runtime uses `@tensorflow/tfjs` with its pure JavaScript CPU backend, which runs without native TensorFlow bindings on the existing Node 24 Alpine image. Native CPU/GPU acceleration is not included. Model saving writes a standard TensorFlow.js `model.json` and weight file; a save/reload regression verifies the weights. Existing performance assertions remain enabled.
+
 **Enterprise-grade Machine Learning system for intelligent project management insights, risk prediction, and optimization recommendations.**
 
 ![AI Insights](https://img.shields.io/badge/AI-Powered-brightgreen) ![TensorFlow](https://img.shields.io/badge/TensorFlow-2.0+-orange) ![Node.js](https://img.shields.io/badge/Node.js-18+-green) ![Status](https://img.shields.io/badge/Status-Production%20Ready-blue)

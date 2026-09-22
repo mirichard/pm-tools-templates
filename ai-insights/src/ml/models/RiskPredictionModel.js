@@ -3,7 +3,9 @@
  * Machine Learning model for predicting project risks
  */
 
-import * as tf from '@tensorflow/tfjs-node';
+import * as tf from '@tensorflow/tfjs';
+import { mkdir, writeFile } from 'node:fs/promises';
+import { resolve, join } from 'node:path';
 import { logger } from '../../utils/logger.js';
 
 export class RiskPredictionModel {
@@ -114,7 +116,7 @@ export class RiskPredictionModel {
       projectData.stakeholders || 5,
       projectData.requirements || 20,
       projectData.features || 10,
-      projectData.teamExperience || 0.5,
+      projectData.teamExperience ?? 0.5,
       projectData.historicalData?.similarProjects || 10,
       projectData.historicalData?.successRate || 0.8,
       projectData.historicalData?.avgDelay || 0.1
@@ -361,8 +363,16 @@ export class RiskPredictionModel {
   }
 
   /**
-   * Train the model (for future implementation)
+   * Release resources owned by this model.
    */
+  dispose() {
+    this.model?.optimizer?.dispose();
+    this.model?.dispose();
+    this.model = null;
+    this.isInitialized = false;
+  }
+
+  /** Train the model (not implemented). */
   async train(trainingData) {
     // This would be implemented with real training data
     logger.info('🏋️ Training Risk Prediction Model...');
@@ -375,7 +385,23 @@ export class RiskPredictionModel {
    */
   async save(path = './data/models/risk-prediction') {
     if (this.model) {
-      await this.model.save(`file://${path}`);
+      const directory = resolve(path);
+      await mkdir(directory, { recursive: true });
+      await this.model.save(tf.io.withSaveHandler(async artifacts => {
+        const weights = artifacts.weightData instanceof ArrayBuffer
+          ? Buffer.from(artifacts.weightData)
+          : Buffer.concat(artifacts.weightData.map(data => Buffer.from(data)));
+        const modelJson = {
+          modelTopology: artifacts.modelTopology,
+          format: artifacts.format,
+          generatedBy: artifacts.generatedBy,
+          convertedBy: artifacts.convertedBy,
+          weightsManifest: [{ paths: ['weights.bin'], weights: artifacts.weightSpecs }],
+        };
+        await writeFile(join(directory, 'weights.bin'), weights);
+        await writeFile(join(directory, 'model.json'), JSON.stringify(modelJson));
+        return { modelArtifactsInfo: tf.io.getModelArtifactsInfoForJSON(artifacts) };
+      }));
       logger.info('💾 Risk Prediction Model saved');
     }
   }

@@ -3,7 +3,7 @@
  * Core machine learning service for project insights
  */
 
-import * as tf from '@tensorflow/tfjs-node';
+import * as tf from '@tensorflow/tfjs';
 import { logger } from '../utils/logger.js';
 import { RiskPredictionModel } from '../ml/models/RiskPredictionModel.js';
 import { ResourceOptimizationModel } from '../ml/models/ResourceOptimizationModel.js';
@@ -304,7 +304,10 @@ export class AIInsightsEngine {
     this.clearCache();
     
     // Dispose TensorFlow resources
-    tf.disposeVariables();
+    for (const model of Object.values(this.models)) {
+      model.dispose?.();
+    }
+    this.models = {};
     
     // Log final performance metrics
     logger.info('📊 Final Performance Metrics:', this.getPerformanceMetrics());
