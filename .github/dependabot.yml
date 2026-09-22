@@ -71,6 +71,9 @@ updates:
     labels: [ "dependencies", "security" ]
     commit-message: { prefix: "Security", include: "scope" }
     ignore:
+      # Match .github/ci-coverage.json Node 24; revisit with a runtime upgrade.
+      - dependency-name: "@types/node"
+        versions: [ ">=25" ]
       - dependency-name: "*"
         update-types: [ "version-update:semver-patch" ]
 
