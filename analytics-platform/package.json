@@ -46,7 +46,7 @@
     "@types/morgan": "^1.9.4",
     "@types/compression": "^1.7.2",
     "@types/jsonwebtoken": "^9.0.2",
-    "@types/uuid": "^9.0.2",
+    "@types/uuid": "^11.0.0",
     "@types/pg": "^8.10.2",
     "@types/jest": "^29.5.3",
     "@typescript-eslint/eslint-plugin": "^8.0.0",
