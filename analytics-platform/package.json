@@ -21,15 +21,15 @@
   "author": "PM Tools Templates Team",
   "license": "MIT",
   "devDependencies": {
-    "@types/node": "^24.13.6",
+    "@eslint/js": "^10.0.1",
     "@types/jest": "^30.0.0",
+    "@types/node": "^24.13.6",
     "@typescript-eslint/eslint-plugin": "^8.0.0",
     "@typescript-eslint/parser": "^8.0.0",
-    "typescript": "^5.1.6",
+    "eslint": "^10.11.0",
     "jest": "^30.5.2",
     "ts-jest": "^29.1.1",
-    "eslint": "^9.0.0",
-    "@eslint/js": "^9.0.0"
+    "typescript": "^5.1.6"
   },
   "engines": {
     "node": ">=18.0.0",

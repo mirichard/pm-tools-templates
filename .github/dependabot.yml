@@ -66,6 +66,14 @@ updates:
       - "/tools/requirements-structuring-cli"
       - "/tools/template-generator-cli"
       - "/docs/site"
+    groups:
+      eslint-toolchain:
+        patterns:
+          - "eslint"
+          - "@eslint/js"
+          - "@eslint/eslintrc"
+          - "eslint-config-next"
+          - "@typescript-eslint/*"
     schedule: { interval: "weekly", day: "monday" }
     open-pull-requests-limit: 5
     labels: [ "dependencies", "security" ]
