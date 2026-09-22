@@ -12,10 +12,12 @@
     "recharts": "^3.1.0"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --watchAll=false --passWithNoTests",
-    "eject": "react-scripts eject"
+    "start": "rsbuild dev",
+    "build": "rsbuild build",
+    "preview": "rsbuild preview",
+    "test": "jest --runInBand",
+    "audit:all": "npm audit --include=dev --audit-level=low",
+    "test:browser": "playwright test"
   },
   "browserslist": {
     "production": [
@@ -30,9 +32,20 @@
     ]
   },
   "devDependencies": {
+    "@babel/core": "^7.29.7",
+    "@babel/preset-env": "^7.29.7",
+    "@babel/preset-react": "^7.29.7",
+    "@playwright/test": "^1.63.0",
+    "@rsbuild/core": "^2.2.8",
+    "@rsbuild/plugin-react": "^2.1.0",
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "16.3.0",
-    "react-scripts": "^5.0.1",
+    "babel-jest": "^30.5.2",
+    "jest": "^30.5.2",
+    "jest-environment-jsdom": "^30.5.2",
     "react-test-renderer": "18.3.1"
+  },
+  "engines": {
+    "node": "^20.19.0 || >=22.12.0"
   }
 }
