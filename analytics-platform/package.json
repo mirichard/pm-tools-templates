@@ -40,7 +40,7 @@
     "winston": "^3.10.0"
   },
   "devDependencies": {
-    "@types/node": "^24.13.6",
+    "@types/node": "^26.6.2",
     "@types/express": "^5.0.6",
     "@types/cors": "^2.8.13",
     "@types/morgan": "^1.9.4",
