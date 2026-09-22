@@ -1,0 +1,39 @@
+name: Snowflake dependency audit
+
+on:
+  pull_request:
+    paths:
+      - 'Snowflake Demo/frontend/**'
+      - '.github/workflows/snowflake-dependency-audit.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'Snowflake Demo/frontend/**'
+      - '.github/workflows/snowflake-dependency-audit.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: '24'
+      - name: Audit runtime and development dependencies
+        working-directory: Snowflake Demo/frontend
+        run: npm run audit:all -- --package-lock-only --ignore-scripts
+      - name: Install dependencies
+        working-directory: Snowflake Demo/frontend
+        run: npm ci
+      - name: Install Chromium
+        working-directory: Snowflake Demo/frontend
+        run: npx playwright install --with-deps chromium
+      - name: Build and verify development and production pages
+        working-directory: Snowflake Demo/frontend
+        run: npm run build && npm run test:browser
