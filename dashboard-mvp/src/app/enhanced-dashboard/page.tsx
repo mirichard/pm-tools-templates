@@ -1,6 +1,6 @@
 'use client'
 
-import React from 'react';
+import React, { useState } from 'react';
 import { DashboardLayout } from '@/components/dashboard/layout';
 import { MetricCard } from '@/components/dashboard/metric-card';
 import { ProgressChart } from '@/components/dashboard/progress-chart';
@@ -24,6 +24,7 @@ import {
  * 6. Affordances - Clear indications of how elements can be used
  */
 export default function EnhancedDashboardPage() {
+  const [sampleTime] = useState(() => Date.now());
   const handleMetricClick = (metricName: string) => {
     console.log(`Clicked metric: ${metricName}`);
     // In a real app, this might navigate to detailed view or open a modal
@@ -63,7 +64,7 @@ export default function EnhancedDashboardPage() {
             icon={Calendar}
             color="red"
             priority="critical"
-            lastUpdated={new Date(Date.now() - 5 * 60000)} // 5 minutes ago
+            lastUpdated={new Date(sampleTime - 5 * 60000)} // 5 minutes ago
             onClick={() => handleMetricClick('Schedule Performance')}
             description="Current project schedule performance compared to baseline. Critical threshold breached - requires immediate attention."
           />
@@ -76,7 +77,7 @@ export default function EnhancedDashboardPage() {
             icon={Users}
             color="yellow"
             priority="high"
-            lastUpdated={new Date(Date.now() - 2 * 60000)} // 2 minutes ago
+            lastUpdated={new Date(sampleTime - 2 * 60000)} // 2 minutes ago
             onClick={() => handleMetricClick('Team Capacity')}
             description="Current team utilization rate. High utilization may lead to burnout if sustained."
           />
@@ -89,7 +90,7 @@ export default function EnhancedDashboardPage() {
             icon={CheckCircle}
             color="green"
             priority="low"
-            lastUpdated={new Date(Date.now() - 1 * 60000)} // 1 minute ago
+            lastUpdated={new Date(sampleTime - 1 * 60000)} // 1 minute ago
             onClick={() => handleMetricClick('Quality Score')}
             description="Overall quality metrics including test coverage, bug resolution rate, and code review scores."
           />
@@ -102,7 +103,7 @@ export default function EnhancedDashboardPage() {
             icon={Target}
             color="blue"
             priority="medium"
-            lastUpdated={new Date(Date.now() - 10 * 60000)} // 10 minutes ago
+            lastUpdated={new Date(sampleTime - 10 * 60000)} // 10 minutes ago
             onClick={() => handleMetricClick('Budget Variance')}
             description="Current budget variance from planned allocation. Negative variance indicates over-budget spending."
           />

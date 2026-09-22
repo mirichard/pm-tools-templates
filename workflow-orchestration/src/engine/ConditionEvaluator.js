@@ -91,7 +91,7 @@ export class ConditionEvaluator {
       return false;
 
     } catch (error) {
-      throw new Error(`Condition evaluation failed: ${error.message}`);
+      throw new Error(`Condition evaluation failed: ${error.message}`, { cause: error });
     }
   }
 
@@ -253,7 +253,7 @@ export class ConditionEvaluator {
       return func(...Object.values(safeContext));
       
     } catch (error) {
-      throw new Error(`Invalid expression: ${expression}`);
+      throw new Error(`Invalid expression: ${expression}`, { cause: error });
     }
   }
 
