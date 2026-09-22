@@ -2,44 +2,6 @@
 
 import { Calendar, Clock, CheckCircle, Circle } from 'lucide-react'
 
-const timelineData = [
-  {
-    id: 1,
-    title: 'Project Kickoff',
-    date: '2025-06-01',
-    status: 'completed',
-    description: 'Initial planning and team setup'
-  },
-  {
-    id: 2,
-    title: 'MVP Development',
-    date: '2025-06-15',
-    status: 'completed',
-    description: 'Core features implementation'
-  },
-  {
-    id: 3,
-    title: 'Beta Testing',
-    date: '2025-06-18',
-    status: 'current',
-    description: 'User testing and feedback collection'
-  },
-  {
-    id: 4,
-    title: 'Performance Optimization',
-    date: '2025-06-25',
-    status: 'upcoming',
-    description: 'Speed and efficiency improvements'
-  },
-  {
-    id: 5,
-    title: 'Final Release',
-    date: '2025-07-01',
-    status: 'upcoming',
-    description: 'Production deployment'
-  }
-]
-
 interface TimelineItem {
   title: string;
   date: string;

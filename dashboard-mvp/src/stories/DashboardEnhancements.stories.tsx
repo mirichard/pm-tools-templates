@@ -10,20 +10,12 @@ import { MetricCard } from '@/components/dashboard/metric-card'
 import { ProgressChart } from '@/components/dashboard/progress-chart'
 import { TeamPerformance } from '@/components/dashboard/team-performance'
 import { RiskHeatmap } from '@/components/dashboard/risk-heatmap'
-import { TrendingUp, Clock, Target, AlertTriangle, Users } from 'lucide-react'
+import { TrendingUp, AlertTriangle } from 'lucide-react'
 
 // Wrapper for components that need ToastProvider
 const ToastWrapper = ({ children }: { children: React.ReactNode }) => (
   <ToastProvider>{children}</ToastProvider>
 )
-
-// Mock API service for Storybook
-const mockApiService = {
-  exportDashboard: (format: string) => 
-    new Promise(resolve => 
-      setTimeout(() => resolve(new Blob()), 1000)
-    )
-}
 
 // Toast Notification System Stories
 const toastMeta: Meta<typeof ToastWrapper> = {
@@ -62,26 +54,6 @@ export const ToastSystem: StoryObj<typeof ToastWrapper> = {
 }
 
 // Enhanced Header Navigation Stories
-const headerMeta: Meta<typeof DashboardHeader> = {
-  title: 'Dashboard/Enhanced Header',
-  component: DashboardHeader,
-  parameters: {
-    layout: 'fullscreen',
-    docs: {
-      description: {
-        component: 'Enhanced header with improved navigation, feedback, and accessibility'
-      }
-    }
-  },
-  decorators: [
-    (Story) => (
-      <ToastWrapper>
-        <Story />
-      </ToastWrapper>
-    )
-  ]
-}
-
 export const EnhancedHeader: StoryObj<typeof DashboardHeader> = {
   render: () => (
     <DashboardHeader 
@@ -109,25 +81,6 @@ export const EnhancedHeader: StoryObj<typeof DashboardHeader> = {
 }
 
 // Enhanced Settings Dialog Stories
-const settingsMeta: Meta<typeof DashboardSettings> = {
-  title: 'Dashboard/Enhanced Settings',
-  component: DashboardSettings,
-  parameters: {
-    docs: {
-      description: {
-        component: 'Enhanced settings dialog with toast feedback and better UX'
-      }
-    }
-  },
-  decorators: [
-    (Story) => (
-      <ToastWrapper>
-        <Story />
-      </ToastWrapper>
-    )
-  ]
-}
-
 export const EnhancedSettings: StoryObj<typeof DashboardSettings> = {
   args: {
     isOpen: true,
@@ -155,18 +108,6 @@ export const EnhancedSettings: StoryObj<typeof DashboardSettings> = {
 }
 
 // Enhanced Export Dialog Stories
-const exportMeta: Meta<typeof ExportDialog> = {
-  title: 'Dashboard/Enhanced Export',
-  component: ExportDialog,
-  parameters: {
-    docs: {
-      description: {
-        component: 'Enhanced export dialog with improved visual hierarchy and format selection'
-      }
-    }
-  }
-}
-
 export const EnhancedExport: StoryObj<typeof ExportDialog> = {
   args: {
     isOpen: true,
@@ -192,18 +133,6 @@ export const EnhancedExport: StoryObj<typeof ExportDialog> = {
 }
 
 // Enhanced Metric Cards Stories
-const metricMeta: Meta<typeof MetricCard> = {
-  title: 'Dashboard/Enhanced Metric Cards',
-  component: MetricCard,
-  parameters: {
-    docs: {
-      description: {
-        component: 'Enhanced metric cards with hover effects, click interactions, and tooltips'
-      }
-    }
-  }
-}
-
 export const InteractiveMetricCard: StoryObj<typeof MetricCard> = {
   args: {
     title: 'Schedule Performance',
@@ -265,18 +194,6 @@ export const MetricCardVariants: StoryObj<typeof MetricCard> = {
 }
 
 // Enhanced Progress Chart Stories
-const chartMeta: Meta<typeof ProgressChart> = {
-  title: 'Dashboard/Enhanced Progress Chart',
-  component: ProgressChart,
-  parameters: {
-    docs: {
-      description: {
-        component: 'Enhanced progress chart with interactive legend and loading states'
-      }
-    }
-  }
-}
-
 export const InteractiveProgressChart: StoryObj<typeof ProgressChart> = {
   args: {
     loading: false
@@ -304,25 +221,6 @@ export const LoadingProgressChart: StoryObj<typeof ProgressChart> = {
 }
 
 // Enhanced Team Performance Stories
-const teamMeta: Meta<typeof TeamPerformance> = {
-  title: 'Dashboard/Enhanced Team Performance',
-  component: TeamPerformance,
-  parameters: {
-    docs: {
-      description: {
-        component: 'Enhanced team performance with status indicators and threshold alerts'
-      }
-    }
-  },
-  decorators: [
-    (Story) => (
-      <ToastWrapper>
-        <Story />
-      </ToastWrapper>
-    )
-  ]
-}
-
 export const InteractiveTeamPerformance: StoryObj<typeof TeamPerformance> = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
@@ -343,26 +241,7 @@ export const InteractiveTeamPerformance: StoryObj<typeof TeamPerformance> = {
 }
 
 // Enhanced Risk Heatmap Stories
-const riskMeta: Meta<typeof RiskHeatmap> = {
-  title: 'Dashboard/Enhanced Risk Heatmap',
-  component: RiskHeatmap,
-  parameters: {
-    docs: {
-      description: {
-        component: 'Enhanced risk heatmap with interactive elements and hover states'
-      }
-    }
-  }
-}
-
-export const InteractiveRiskHeatmap: StoryObj<typeof RiskHeatmap> = {
-  play: async ({ canvasElement }) => {
-    const canvas = within(canvasElement)
-    
-    // Test matrix interaction would go here
-    // (depends on implementation of matrix hover states)
-  }
-}
+export const InteractiveRiskHeatmap: StoryObj<typeof RiskHeatmap> = {}
 
 // Accessibility Stories
 export const AccessibilityDemo: StoryObj<typeof MetricCard> = {
@@ -433,8 +312,8 @@ export const ErrorHandlingDemo: StoryObj<typeof ExportDialog> = {
     const canvas = within(canvasElement)
     
     // Mock API failure
-    const originalApi = (window as any).apiService
-    ;(window as any).apiService = {
+    const originalApi = (window as Window & { apiService?: { exportDashboard: () => Promise<Blob> } }).apiService
+    ;(window as Window & { apiService?: { exportDashboard: () => Promise<Blob> } }).apiService = {
       exportDashboard: () => Promise.reject(new Error('Export failed'))
     }
     
@@ -445,6 +324,6 @@ export const ErrorHandlingDemo: StoryObj<typeof ExportDialog> = {
     await expect(canvas.getByText('Export failed. Please try again.')).toBeInTheDocument()
     
     // Restore original API
-    ;(window as any).apiService = originalApi
+    ;(window as Window & { apiService?: { exportDashboard: () => Promise<Blob> } }).apiService = originalApi
   }
 }

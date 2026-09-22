@@ -57,6 +57,17 @@ export function FeedbackProvider({
   const [notifications, setNotifications] = useState<Notification[]>([]);
   const timeoutRefs = useRef<Map<string, NodeJS.Timeout>>(new Map());
 
+  const removeNotification = useCallback((id: string) => {
+    setNotifications(prev => prev.filter(notification => notification.id !== id));
+
+    // Clear timeout if exists
+    const timeout = timeoutRefs.current.get(id);
+    if (timeout) {
+      clearTimeout(timeout);
+      timeoutRefs.current.delete(id);
+    }
+  }, []);
+
   const addNotification = useCallback((notification: Omit<Notification, 'id'>) => {
     const id = Math.random().toString(36).substring(2, 9);
     const newNotification: Notification = {
@@ -80,7 +91,7 @@ export function FeedbackProvider({
     }
 
     return id;
-  }, [maxNotifications]);
+  }, [maxNotifications, removeNotification]);
 
   const updateNotification = useCallback((id: string, updates: Partial<Notification>) => {
     setNotifications(prev => 
@@ -90,16 +101,6 @@ export function FeedbackProvider({
     );
   }, []);
 
-  const removeNotification = useCallback((id: string) => {
-    setNotifications(prev => prev.filter(notification => notification.id !== id));
-    
-    // Clear timeout if exists
-    const timeout = timeoutRefs.current.get(id);
-    if (timeout) {
-      clearTimeout(timeout);
-      timeoutRefs.current.delete(id);
-    }
-  }, []);
 
   const clearAllNotifications = useCallback(() => {
     setNotifications([]);
@@ -129,8 +130,9 @@ export function FeedbackProvider({
 
   // Cleanup timeouts on unmount
   useEffect(() => {
+    const timeouts = timeoutRefs.current;
     return () => {
-      timeoutRefs.current.forEach(timeout => clearTimeout(timeout));
+      timeouts.forEach(timeout => clearTimeout(timeout));
     };
   }, []);
 

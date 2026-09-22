@@ -39,19 +39,7 @@
       "checks": {
         "lint": {
           "command": "npm run lint",
-          "required": true,
-          "exception": {
-            "type": "waiver",
-            "execution": "diagnostic-only",
-            "scope_statement": "next lint does not exist in Next.js 16 (removed upstream); the command cannot evaluate any lint rule at all, so this check provides no coverage, not partial coverage.",
-            "issue": "https://github.com/mirichard/pm-tools-templates/issues/1292",
-            "owner": "mirichard",
-            "recorded": "2026-09-21",
-            "expires": "2026-12-21",
-            "failure_signature": "Invalid project directory provided",
-            "verified": "live-ci",
-            "removal_condition": "Remove once #1292 is fixed (next-lint-to-eslint-cli codemod applied) and lint passes on two consecutive runs."
-          }
+          "required": true
         },
         "build": { "command": "npm run build", "required": true },
         "test": { "command": "npm test", "required": true },

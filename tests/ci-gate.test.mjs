@@ -24,16 +24,25 @@ const PASSING_PREREQS = {
   SUB_APP_CHECKS_RESULT: 'success',
 };
 
-function run({ selectedApps = [], results = {}, env = {} } = {}) {
+function run({ selectedApps = [], results = {}, env = {}, contract } = {}) {
   const resultsDir = mkdtempSync(join(tmpdir(), 'ci-gate-results-'));
   for (const [name, content] of Object.entries(results)) {
     writeFileSync(join(resultsDir, `${name}.json`), JSON.stringify({ app: name.split('__')[0], check: name.split('__')[1], ...content }));
+  }
+  // Exercise the real gate with an isolated contract when testing waivers.
+  let gateScript = script;
+  if (contract) {
+    const fixtureRoot = join(resultsDir, 'repo');
+    mkdirSync(join(fixtureRoot, '.github'), {recursive: true});
+    cpSync(join(repoRoot, 'scripts'), join(fixtureRoot, 'scripts'), {recursive: true});
+    writeFileSync(join(fixtureRoot, '.github/ci-coverage.json'), JSON.stringify(contract));
+    gateScript = join(fixtureRoot, 'scripts/ci-gate.mjs');
   }
   let status = 0;
   let stdout = '';
   let stderr = '';
   try {
-    stdout = execFileSync('node', [script], {
+    stdout = execFileSync('node', [gateScript], {
       cwd: repoRoot,
       encoding: 'utf8',
       env: {
@@ -155,7 +164,16 @@ test('QA status-only waiver is rejected', () => {
 });
 
 function waiverFixture() {
-  const [appKey, app] = Object.entries(coverage.apps).find(([, app]) => Object.values(app.checks).some(c => c.exception));
+  const contract = structuredClone(coverage);
+  const appKey = 'backend';
+  const app = contract.apps[appKey];
+  app.checks.lint = {command: 'npm run lint', required: true, exception: {
+    type: 'waiver', execution: 'diagnostic-only',
+    scope_statement: 'fixture linter cannot run',
+    issue: 'https://github.com/example/repo/issues/1', owner: 'fixture',
+    recorded: '2026-06-01', expires: '2026-12-21',
+    failure_signature: 'fixture failure', removal_condition: 'repair fixture linter',
+  }};
   const results = {};
   for (const [name, check] of Object.entries(app.checks)) {
     if (check.required) results[`${appKey}__${name}`] = {status: 'passed', required: true};
@@ -163,13 +181,13 @@ function waiverFixture() {
   const [name, check] = Object.entries(app.checks).find(([, check]) => check.exception);
   const result = {status: 'waived', required: check.required, exit_code: 1, issue: check.exception.issue, expires: check.exception.expires};
   results[`${appKey}__${name}`] = result;
-  return {appKey, results, result, check};
+  return {appKey, results, result, check, contract};
 }
 
 test('a current contract waiver passes and an expired contract waiver fails', () => {
   const f = waiverFixture();
-  assert.equal(run({selectedApps: [f.appKey], results: f.results, env: {CI_GATE_TODAY: f.check.exception.recorded}}).status, 0);
-  const expired = run({selectedApps: [f.appKey], results: f.results, env: {CI_GATE_TODAY: '2099-01-01'}});
+  assert.equal(run({contract: f.contract, selectedApps: [f.appKey], results: f.results, env: {CI_GATE_TODAY: f.check.exception.recorded}}).status, 0);
+  const expired = run({contract: f.contract, selectedApps: [f.appKey], results: f.results, env: {CI_GATE_TODAY: '2099-01-01'}});
   assert.equal(expired.status, 1);
   assert.match(expired.stderr, /contract exception expired/);
 });
@@ -178,7 +196,7 @@ for (const patch of [{app: 'wrong'}, {check: 'wrong'}, {required: false}, {statu
   test(`reject inconsistent waiver ${JSON.stringify(patch)}`, () => {
     const f = waiverFixture();
     Object.assign(f.result, patch);
-    assert.equal(run({selectedApps: [f.appKey], results: f.results}).status, 1);
+    assert.equal(run({contract: f.contract, selectedApps: [f.appKey], results: f.results}).status, 1);
   });
 }
 
