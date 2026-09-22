@@ -273,7 +273,7 @@ This repo's CI is internal infrastructure for contributors and maintainers — i
 has no effect on template content or the docs site's user-facing behavior.
 
 **Runtime:** Node 24 (current Active LTS) for every sub-app's CI checks and for
-the `ai-insights` and Q3 2025 template-selector Docker images. Use the same
+the Q3 2025 template-selector Docker image. Use the same
 version locally (`nvm use 24` or equivalent) to reproduce a CI result.
 
 **What CI covers, and how:** `.github/ci-coverage.json` is the single source

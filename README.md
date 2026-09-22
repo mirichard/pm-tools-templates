@@ -147,7 +147,7 @@ These optional tools have separate installation instructions and prerequisites. 
 - [Template generator CLI](tools/template-generator-cli/README.md) — generate project templates from the command line.
 - [Requirements structuring CLI](tools/requirements-structuring-cli/README.md) — structure requirements from source material.
 - [Project health dashboard demo](docs/dashboard-mvp-demo.md) — set up and run the dashboard.
-- [AI insights documentation](ai-insights/README.md) — review the analytics implementation and setup.
+- AI insights is withdrawn pending reliability work; see the [development preservation record](docs/ai-insights-development.md).
 
 <!-- Compatibility anchors for existing README bookmarks. -->
 <a id="-documentation--reference"></a>
