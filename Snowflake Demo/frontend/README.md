@@ -4,15 +4,15 @@ This directory contains the React frontend for the PMO Dashboard demo.
 
 ## Setup
 
+Use Node.js 24 LTS (matching CI).
+
 1. Install dependencies:
 
    ```bash
-   npm install
+   npm ci
    ```
 
-2. Disable source map generation to suppress Plotly warnings (already configured in `.env`).
-
-3. Start the development server:
+2. Start the development server:
 
    ```bash
    npm start
@@ -37,3 +37,20 @@ npm run build
 
 The build artifacts will be output to the `build/` directory.
 
+
+## Tests and Security Validation
+
+```bash
+npm test
+npm run audit:all
+npx playwright install chromium
+npm run build && npm run test:browser
+```
+
+Jest runs the component tests. The full dependency audit includes development
+and build tooling and fails on low severity or higher findings. The Snowflake dependency audit workflow runs this full check on frontend changes and verifies dashboard rendering and filter reset in Chromium
+against both the development server and production build. The shared CI runtime audit remains separate.
+
+Rsbuild replaces the deprecated Create React App tooling. The existing React
+source files and HTML template are retained. Production source maps are disabled
+in `rsbuild.config.mjs`; CRA's `GENERATE_SOURCEMAP` setting is no longer used.
