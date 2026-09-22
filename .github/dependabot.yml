@@ -49,21 +49,6 @@ updates:
       prefix: "Security"
       include: "scope"
 
-  # Monitor the container image build for ai-insights, the one sub-app with a
-  # live Dockerfile.
-  - package-ecosystem: "docker"
-    directory: "/ai-insights"
-    schedule:
-      interval: "weekly"
-      day: "monday"
-    open-pull-requests-limit: 5
-    labels:
-      - "dependencies"
-      - "security"
-    commit-message:
-      prefix: "Security"
-      include: "scope"
-
   # Sub-applications each have their own dependency tree; previously only the
   # repo root was watched, so their npm dependencies were invisible here.
   # One entry with `directories:` (GA since mid-2024) instead of 10 separate
@@ -74,7 +59,6 @@ updates:
       - "/dashboard-mvp"
       - "/web-mvp"
       - "/site"
-      - "/ai-insights"
       - "/analytics-platform"
       - "/workflow-orchestration"
       - "/backend"

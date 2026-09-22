@@ -182,7 +182,7 @@ async function runInteractiveAssessment() {
     if (capabilities.aiInsights.available) {
       console.log(chalk.green('  ✅ AI Project Intelligence'));
     } else {
-      console.log(chalk.dim('  ⏳ AI Project Intelligence (coming soon)'));
+      console.log(chalk.dim('  ⏳ AI Project Intelligence (withdrawn pending validation)'));
     }
     
     if (capabilities.businessDashboards.available) {
