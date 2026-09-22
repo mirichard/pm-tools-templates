@@ -101,39 +101,8 @@ jobs:
           analyze_javascript() {
             if [ -f "./security-scan/package.json" ]; then
               echo "📦 Analyzing JavaScript dependencies..."
-              MAX_RETRIES=3
-              RETRY_COUNT=0
-              SUCCESS=false
-
-              while [ $RETRY_COUNT -lt $MAX_RETRIES ] && [ "$SUCCESS" != "true" ]; do
-                echo "Attempt $((RETRY_COUNT + 1)) of $MAX_RETRIES for JavaScript analysis..."
-
-                if [ -f "./security-scan/yarn.lock" ]; then
-                  if yarn audit --json > javascript-audit.json 2>/dev/null; then
-                    if jq -e '.' javascript-audit.json > /dev/null 2>&1; then
-                      SUCCESS=true
-                      echo "✅ JavaScript analysis completed successfully"
-                    fi
-                  fi
-                else
-                  if npm audit --json > javascript-audit.json 2>/dev/null; then
-                    if jq -e '.' javascript-audit.json > /dev/null 2>&1; then
-                      SUCCESS=true
-                      echo "✅ JavaScript analysis completed successfully"
-                    fi
-                  fi
-                fi
-
-                if [ "$SUCCESS" != "true" ]; then
-                  RETRY_COUNT=$((RETRY_COUNT + 1))
-                  [ $RETRY_COUNT -lt $MAX_RETRIES ] && sleep 5
-                fi
-              done
-
-              if [ "$SUCCESS" != "true" ]; then
-                echo "⚠️ Failed to analyze JavaScript dependencies after $MAX_RETRIES attempts"
-                echo '{"vulnerabilities":{}}' > javascript-audit.json
-              fi
+              python3 scripts/javascript-audit.py \
+                --directory ./security-scan --output javascript-audit.json
             fi
           }
 
@@ -173,12 +142,11 @@ jobs:
           from datetime import datetime
 
           def process_javascript_audit(file_path):
-              try:
-                  with open(file_path) as f:
-                      data = json.load(f)
-                  return len(data.get('vulnerabilities', {}))
-              except:
-                  return 0
+              with open(file_path) as f:
+                  data = json.load(f)
+              if data.get('status') != 'complete' or type(data.get('total_vulnerabilities')) is not int:
+                  raise ValueError('JavaScript audit did not complete successfully')
+              return data['total_vulnerabilities']
 
           def process_python_audit(file_path):
               try:
@@ -242,6 +210,7 @@ jobs:
           name: security-scan-${{ github.run_number }}
           path: |
             *.json
+            javascript-audit.attempt-*.stderr.log
             ./security-scan/
           retention-days: 30
 
@@ -374,6 +343,7 @@ jobs:
           HAS_NODE: ${{ steps.discover.outputs.has_node }}
           HAS_PYTHON: ${{ steps.discover.outputs.has_python }}
           VULN_THRESHOLD: ${{ env.VULNERABILITY_THRESHOLD }}
+          ANALYSIS_OUTCOME: ${{ steps.analyze.outcome }}
         run: |
           echo "🔒 Dependency Security Scan Summary"
           echo "=================================="
@@ -382,7 +352,9 @@ jobs:
           echo "- Node.js: $HAS_NODE"
           echo "- Python: $HAS_PYTHON"
           echo "Vulnerability Threshold: $VULN_THRESHOLD"
-          echo "Status: $([ $? -eq 0 ] && echo "✅ Passed" || echo "❌ Issues Found")"
+          echo "Analysis outcome: $ANALYSIS_OUTCOME"
           echo ""
-          echo "📋 Security scanning completed successfully!"
+          if [ "$ANALYSIS_OUTCOME" != "success" ]; then
+            echo "Security analysis did not complete successfully; results must not be treated as clean."
+          fi
           echo "🔍 Check artifacts for detailed results"
