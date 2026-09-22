@@ -300,7 +300,7 @@ describe('RiskPredictionModel', () => {
         duration: 1,
         complexity: 'low',
         methodology: 'agile',
-        budget: 1
+        budget: 1000
       };
 
       const result = await riskModel.predict(project);
@@ -311,14 +311,14 @@ describe('RiskPredictionModel', () => {
 
     test('should handle maximum enterprise project', async () => {
       const project = {
-        teamSize: 1000,
-        duration: 3650, // 10 years
+        teamSize: 100,
+        duration: 365, // Shared API limit
         complexity: 'high',
         methodology: 'waterfall',
-        budget: 1000000000,
-        stakeholders: 500,
-        requirements: 10000,
-        features: 5000
+        budget: 10000000,
+        stakeholders: 50,
+        requirements: 1000,
+        features: 500
       };
 
       const result = await riskModel.predict(project);
@@ -327,7 +327,7 @@ describe('RiskPredictionModel', () => {
       expect(result.riskLevel).toMatch(/^(low|medium|high|critical)$/);
     });
 
-    test('should handle zero budget projects', async () => {
+    test('should reject budgets below the shared API minimum', async () => {
       const project = {
         teamSize: 5,
         duration: 60,
@@ -336,10 +336,7 @@ describe('RiskPredictionModel', () => {
         budget: 0
       };
 
-      const result = await riskModel.predict(project);
-      
-      expect(result).toBeDefined();
-      expect(result.riskFactors).toContain('Zero or minimal budget');
+      await expect(riskModel.predict(project)).rejects.toThrow('budget');
     });
 
     test('should handle perfect team experience', async () => {

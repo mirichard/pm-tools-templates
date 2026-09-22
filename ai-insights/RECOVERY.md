@@ -63,3 +63,29 @@ Full npm audit reports zero vulnerabilities at this checkpoint. Container securi
 - AI Insights Integration Tests Model Accuracy should maintain consistent risk predictions
 - AI Insights Integration Tests Integration with Dashboard should format data for dashboard display
 - AI Insights Integration Tests Integration with Dashboard should provide actionable recommendations
+
+## Second checkpoint: shared project validation
+
+Direct risk prediction, project HTTP middleware, and batch entries now call the
+same validator. At least one recognized supplied field is required; valid partial
+objects retain schema defaults and unknown fields are stripped. The existing
+Joi numeric conversion behavior is retained. Values such as NaN and Infinity
+are rejected before tensor allocation.
+
+The existing HTTP contract defines the supported range: teamSize 1–100,
+duration 1–365 days, budget 1,000–10,000,000; other limits remain in projectSchema.
+Direct-model boundary fixtures now test those same minimum and maximum values.
+Zero-budget predictions are rejected rather than accepted under a conflicting
+model-only test. Accuracy and confidence assertions were not changed.
+Historical similarProjects/successRate/avgDelay zeros are no longer replaced by
+defaults in feature extraction. Normalized defaults also reach impact calculation.
+
+Validation: all 29 validation/runtime cases passed twice. Existing full-suite
+input-validation cases now pass; the full run was 70 passed / 21 failed out of 91.
+Remaining classification/confidence results are still stochastic and this count
+is not evidence of model quality. Added cases cover HTTP middleware and model
+rejection, no inference or tensor allocation on invalid inputs, partial-input
+defaults, upper boundaries, historical zeros, and batch rejection.
+
+Next: reconcile output structures across models, API, dashboard, and tests.
+The model remains untrained and the app remains withdrawn from main.

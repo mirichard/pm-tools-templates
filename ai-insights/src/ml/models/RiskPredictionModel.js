@@ -7,6 +7,7 @@ import * as tf from '@tensorflow/tfjs';
 import { mkdir, writeFile } from 'node:fs/promises';
 import { resolve, join } from 'node:path';
 import { logger } from '../../utils/logger.js';
+import { validateProjectInput } from '../../utils/validation.js';
 
 export class RiskPredictionModel {
   constructor() {
@@ -117,9 +118,9 @@ export class RiskPredictionModel {
       projectData.requirements || 20,
       projectData.features || 10,
       projectData.teamExperience ?? 0.5,
-      projectData.historicalData?.similarProjects || 10,
-      projectData.historicalData?.successRate || 0.8,
-      projectData.historicalData?.avgDelay || 0.1
+      projectData.historicalData?.similarProjects ?? 10,
+      projectData.historicalData?.successRate ?? 0.8,
+      projectData.historicalData?.avgDelay ?? 0.1
     ];
   }
 
@@ -131,6 +132,20 @@ export class RiskPredictionModel {
       if (!this.isInitialized || !this.model) {
         throw new Error('Risk Prediction Model not initialized');
       }
+
+      const { error, value } = validateProjectInput(projectData);
+      if (error) {
+        const labels = {
+          teamSize: 'Invalid team size. Team size must be positive',
+          duration: 'Invalid duration',
+          complexity: 'Invalid complexity level',
+          methodology: 'Invalid methodology',
+        };
+        throw new Error(error.details.map(detail =>
+          `${labels[detail.path[0]] || 'Invalid project data'}: ${detail.message}`
+        ).join('; '));
+      }
+      projectData = value;
 
       // Extract features
       const features = this.extractFeatures(projectData);

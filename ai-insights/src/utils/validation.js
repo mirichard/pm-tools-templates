@@ -29,6 +29,21 @@ const projectSchema = Joi.object({
   }).optional()
 });
 
+// Shared by HTTP middleware, batch validation, and direct risk predictions.
+// A supplied, recognized field is required before defaults are applied.
+const projectFields = new Set(Object.keys(projectSchema.describe().keys));
+export function validateProjectInput(data) {
+  const invalid = message => ({ error: { details: [{ path: [], message, context: {} }] } });
+  if (data == null) return invalid('Project data is required');
+  if (typeof data !== 'object' || Array.isArray(data)) return invalid('Project data must be an object');
+  if (!Object.keys(data).some(key => projectFields.has(key) && data[key] !== undefined)) {
+    return invalid('Required fields missing');
+  }
+  return projectSchema.validate(data, {
+    allowUnknown: true, stripUnknown: true, abortEarly: false,
+  });
+}
+
 // Sentiment analysis validation schema
 const sentimentSchema = Joi.object({
   text: Joi.string().min(1).max(10000).required(),
@@ -58,11 +73,7 @@ const historicalDataSchema = Joi.object({
  */
 export const validateProjectData = (req, res, next) => {
   try {
-    const { error, value } = projectSchema.validate(req.body, {
-      allowUnknown: true,
-      stripUnknown: true,
-      abortEarly: false
-    });
+    const { error, value } = validateProjectInput(req.body);
 
     if (error) {
       const details = error.details.map(detail => ({
@@ -193,10 +204,7 @@ export const validateBatchRequest = (req, res, next) => {
     const validatedProjects = [];
 
     for (let i = 0; i < projects.length; i++) {
-      const { error, value } = projectSchema.validate(projects[i], {
-        allowUnknown: true,
-        stripUnknown: true
-      });
+      const { error, value } = validateProjectInput(projects[i]);
 
       if (error) {
         validationErrors.push({
