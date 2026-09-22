@@ -109,53 +109,21 @@
       "checks": {
         "lint": {
           "command": "npm run lint",
-          "required": true,
-          "exception": {
-            "issue": "https://github.com/mirichard/pm-tools-templates/issues/1294",
-            "owner": "mirichard",
-            "recorded": "2026-09-21",
-            "expires": "2026-12-21",
-            "failure_signature": "couldn't find a configuration file",
-            "verified": "live-ci",
-            "type": "waiver",
-            "execution": "diagnostic-only",
-            "scope_statement": "ESLint has no config file to load in this directory; no file is evaluated by any rule, so this check provides no coverage, not partial coverage.",
-            "removal_condition": "Remove once #1294 is fixed (eslint config added) and lint passes on two consecutive runs."
-          }
+          "required": true
         },
         "build": {
           "command": "npm run build",
           "required": true,
-          "exception": {
-            "type": "waiver",
-            "execution": "diagnostic-only",
-            "scope_statement": "The build script's target file (scripts/build.js) does not exist; the command fails before any compilation step runs, so this check provides no coverage.",
-            "issue": "https://github.com/mirichard/pm-tools-templates/issues/1299",
-            "owner": "mirichard",
-            "recorded": "2026-09-21",
-            "expires": "2026-12-21",
-            "failure_signature": "Cannot find module '/home/runner/work/pm-tools-templates/pm-tools-templates/workflow-orchestration/scripts/build.js'",
-            "verified": "live-ci",
-            "removal_condition": "Remove once #1299 is fixed (scripts/build.js added or the build script corrected) and build passes on two consecutive runs."
-          }
+          "note": "Validates JavaScript syntax, stages native ESM in dist/, and imports the distribution entry point. Fails on invalid syntax or unresolved entry-point imports."
         },
         "test": {
           "command": "npm test",
           "required": true,
-          "exception": {
-            "type": "waiver",
-            "execution": "diagnostic-only",
-            "scope_statement": "Zero files match Jest's configured test pattern; no individual test ever executes, so this check provides no coverage.",
-            "issue": "https://github.com/mirichard/pm-tools-templates/issues/1299",
-            "owner": "mirichard",
-            "recorded": "2026-09-21",
-            "expires": "2026-12-21",
-            "failure_signature": "No tests found, exiting with code 1",
-            "verified": "live-ci",
-            "removal_condition": "Remove once #1299 is fixed by adding real test files. Do not close this by adding --passWithNoTests - that would report a pass without adding any actual test coverage, which does not close the underlying gap."
-          }
+          "note": "Jest ESM tests cover engine execution, validation, retries, HTTP integration, and build failure cases. No passWithNoTests bypass."
         },
-        "audit": { "required": true }
+        "audit": {
+          "required": true
+        }
       }
     },
     "backend": {

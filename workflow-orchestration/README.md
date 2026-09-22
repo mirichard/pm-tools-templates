@@ -637,3 +637,21 @@ For issues, questions, or contributions, please refer to the main PM Tools Templ
 
 **Advanced Workflow Orchestration Engine** - Empowering complex automation workflows with simplicity and flexibility.
 
+
+## Maintainer validation
+
+Run on the repository's Node 24 CI runtime:
+
+```sh
+npm ci
+npm run lint
+npm run build
+npm test -- --runInBand
+npm audit
+```
+
+Lint uses ESLint's recommended rules across source, build scripts, and tests, with zero warnings allowed. The native ESM build validates every source file, copies source into `dist/`, and verifies that `dist/index.js` imports successfully. A failed build removes the output directory. No transpilation is required.
+
+Jest runs real workflow-engine tests, including execution order, conditions, branches, parallel results, retries, error propagation, input validation, HTTP requests against a local server, HTTP timeouts, and rejected builds. These checks are required in `.github/ci-coverage.json`; the lint/build/test waivers from #1294 and #1299 have been removed.
+
+This validation covers the implemented engine and its three built-in actions (`http-request`, `delay`, and `log-message`). It does not establish functionality for the unimplemented API server or additional integrations described elsewhere in this document.

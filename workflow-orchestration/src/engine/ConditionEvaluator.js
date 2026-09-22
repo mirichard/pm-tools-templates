@@ -376,20 +376,19 @@ export class ConditionEvaluator {
       return;
     }
     
-    const keys = Object.keys(condition);
     
     if (condition.operator) {
       if (!this.operators[condition.operator]) {
         errors.push(`${path}: Unknown operator '${condition.operator}'`);
       }
       
-      if (!condition.hasOwnProperty('left')) {
+      if (!Object.hasOwn(condition, 'left')) {
         errors.push(`${path}: Operator conditions must have 'left' property`);
       }
       
       // Check if operator requires right operand
       const unaryOps = ['!', 'exists', 'notExists', 'isString', 'isNumber', 'isBoolean', 'isArray', 'isObject'];
-      if (!unaryOps.includes(condition.operator) && !condition.hasOwnProperty('right')) {
+      if (!unaryOps.includes(condition.operator) && !Object.hasOwn(condition, 'right')) {
         errors.push(`${path}: Operator '${condition.operator}' requires 'right' property`);
       }
     } else if (condition.and) {

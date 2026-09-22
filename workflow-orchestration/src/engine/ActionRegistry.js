@@ -256,10 +256,11 @@ export class ActionRegistry {
         continue;
       }
 
+      const valueType = typeof value;
+
       // Type validation
       if (paramDef.type) {
         const types = Array.isArray(paramDef.type) ? paramDef.type : [paramDef.type];
-        const valueType = typeof value;
         
         if (!types.includes(valueType)) {
           errors.push(`Parameter ${paramDef.name} must be of type ${types.join(' or ')}, got ${valueType}`);
