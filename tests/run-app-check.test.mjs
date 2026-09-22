@@ -8,7 +8,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { execFileSync } from 'node:child_process';
-import { mkdtempSync, readFileSync, rmSync, existsSync } from 'node:fs';
+import { mkdtempSync, readFileSync, rmSync, existsSync, mkdirSync, cpSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 
@@ -66,4 +66,31 @@ test('a not_implemented check records status not_implemented and exits 0', () =>
   assert.equal(result.status, 'not_implemented');
   assert.equal(result.required, false);
   rmSync(resultsDir, { recursive: true, force: true });
+});
+
+
+test('local execution rejects invalid contracts before running checks', () => {
+  const root = mkdtempSync(join(tmpdir(), 'runner-contract-'));
+  try {
+    cpSync(join(repoRoot, 'scripts'), join(root, 'scripts'), {recursive: true});
+    mkdirSync(join(root, '.github'));
+    const coverage = JSON.parse(readFileSync(join(repoRoot, '.github/ci-coverage.json')));
+    coverage.apps.backend.checks.audit.required = 'yes';
+    writeFileSync(join(root, '.github/ci-coverage.json'), JSON.stringify(coverage));
+    assert.throws(() => execFileSync('node', [join(root, 'scripts/run-app-check.mjs'), 'backend', 'audit'], {stdio: 'pipe'}), error => error.status === 2 && /Invalid coverage contract/.test(error.stderr));
+  } finally { rmSync(root, {recursive: true, force: true}); }
+});
+
+test('audit operational failures retain a distinct recorded status', () => {
+  const bin = mkdtempSync(join(tmpdir(), 'runner-npm-'));
+  let result;
+  try {
+    writeFileSync(join(bin, 'npm'), `#!/bin/sh\necho '{"auditReportVersion":"invalid","vulnerabilities":null,"error":{}}'\nexit 0\n`, {mode: 0o755});
+    result = run(['backend', 'audit'], {PATH: `${bin}:${process.env.PATH}`});
+    assert.equal(result.status, 1);
+    assert.equal(JSON.parse(readFileSync(join(result.resultsDir, 'backend__audit.json'))).status, 'operational_error');
+  } finally {
+    rmSync(bin, {recursive: true, force: true});
+    if (result) for (const path of [result.resultsDir, result.logsDir]) rmSync(path, {recursive: true, force: true});
+  }
 });

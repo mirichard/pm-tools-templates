@@ -1,4 +1,5 @@
 """Exercise the real health-check entrypoint, including failure propagation."""
+import json
 import os
 from pathlib import Path
 import subprocess
@@ -65,10 +66,10 @@ class WorkflowHealthTests(unittest.TestCase):
     # deliberately different JSON shapes: a real report always has both
     # `vulnerabilities` and `auditReportVersion`; an operational error has
     # neither.
-    CLEAN_REPORT = '{"auditReportVersion":2,"vulnerabilities":{},"metadata":{"vulnerabilities":{"total":0}}}'
+    CLEAN_REPORT = '{"auditReportVersion":2,"vulnerabilities":{},"metadata":{"vulnerabilities":{"total":0,"info":0,"low":0,"moderate":0,"high":0,"critical":0}}}'
     VULNERABLE_REPORT = (
         '{"auditReportVersion":2,"vulnerabilities":{"tar":{"severity":"high"}},'
-        '"metadata":{"vulnerabilities":{"total":1,"high":1}}}'
+        '"metadata":{"vulnerabilities":{"total":1,"info":0,"low":0,"moderate":0,"high":1,"critical":0}}}'
     )
     OPERATIONAL_ERROR = (
         '{"message":"403 Forbidden","method":"POST","statusCode":403,'
@@ -113,7 +114,7 @@ class WorkflowHealthTests(unittest.TestCase):
     def test_tool_or_network_failure_is_distinguished_from_a_finding(self):
         self.fake_npm(1, body=self.OPERATIONAL_ERROR)
         result = self.run_check("audit")
-        self.assertEqual(result.returncode, 1)
+        self.assertEqual(result.returncode, 2)
         self.assertNotIn("audit passed", result.stdout)
         self.assertIn("tool/registry/parse error", result.stderr)
         self.assertNotIn("found vulnerabilities", result.stderr)
@@ -121,7 +122,7 @@ class WorkflowHealthTests(unittest.TestCase):
     def test_malformed_report_is_detected(self):
         self.fake_npm(1, body="not valid json at all")
         result = self.run_check("audit")
-        self.assertEqual(result.returncode, 1)
+        self.assertEqual(result.returncode, 2)
         self.assertIn("tool/registry/parse error", result.stderr)
         self.assertIn("malformed", result.stderr)
 
@@ -132,6 +133,41 @@ class WorkflowHealthTests(unittest.TestCase):
         result = self.run_check("audit")
         self.assertNotEqual(result.returncode, 0)
         self.assertNotIn("audit passed", result.stdout)
+
+
+    def test_qa_malformed_error_report(self):
+        self.fake_npm(0, '{"auditReportVersion":"invalid","vulnerabilities":null,"error":{"message":"registry unavailable"}}')
+        self.assertEqual(self.run_check("audit").returncode, 2)
+
+    def test_error_plus_valid_report(self):
+        data = json.loads(self.CLEAN_REPORT)
+        data["error"] = {"message": "registry unavailable"}
+        self.fake_npm(0, json.dumps(data))
+        self.assertEqual(self.run_check("audit").returncode, 2)
+
+    def test_below_threshold_findings_pass(self):
+        self.fake_npm(0, self.VULNERABLE_REPORT.replace('"high"', '"low"').replace('"low":0,', '"high":0,'))
+        self.assertEqual(self.run_check("audit").returncode, 0)
+
+    def test_actionable_findings_with_zero_exit_fail_operationally(self):
+        self.fake_npm(0, self.VULNERABLE_REPORT)
+        self.assertEqual(self.run_check("audit").returncode, 2)
+
+    def test_clean_report_with_nonzero_exit_fails_operationally(self):
+        self.fake_npm(1, self.CLEAN_REPORT)
+        self.assertEqual(self.run_check("audit").returncode, 2)
+
+    def test_invalid_schema_variants(self):
+        for patch in ({"auditReportVersion": 3}, {"vulnerabilities": []}, {"metadata": None},
+                      {"vulnerabilities": {"tar": {"severity": "unknown"}}}):
+            with self.subTest(patch=patch):
+                data = json.loads(self.CLEAN_REPORT)
+                data.update(patch)
+                if (self.root / "bin/npm").exists():
+                    (self.root / "bin/npm").unlink()
+                    (self.root / "bin").rmdir()
+                self.fake_npm(0, json.dumps(data))
+                self.assertEqual(self.run_check("audit").returncode, 2)
 
     def test_missing_manifests_fail(self):
         result = self.run_check("audit")

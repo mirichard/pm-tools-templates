@@ -33,26 +33,42 @@ case "${1:-}" in
     npm_exit=0
     npm audit "${prefix_args[@]}" --package-lock-only --ignore-scripts --omit=dev --audit-level=moderate --json > "$report_path" || npm_exit=$?
 
-    # Distinguish a real audit report (has both `vulnerabilities` and
-    # `auditReportVersion`, whatever the finding counts are) from an
-    # operational error response or malformed/non-JSON output. npm's exit
-    # code alone conflates these: a >=moderate finding and a registry/tool
-    # error can both exit non-zero, with completely unrelated JSON shapes -
-    # confirmed directly by forcing a registry error and comparing its
-    # output to a clean report's output, not assumed from npm's docs alone.
-    shape=$(python3 -c "
+    # Validate the supported npm report schema and moderate-severity exit policy.
+    shape=$(python3 - "$report_path" "$npm_exit" <<'PYTHON'
 import json, sys
+def require(condition, message):
+    if not condition:
+        raise ValueError(message)
 try:
-    with open('$report_path') as f:
+    with open(sys.argv[1]) as f:
         data = json.load(f)
-except Exception as e:
-    print('malformed: ' + str(e))
-    sys.exit()
-if not isinstance(data, dict) or 'vulnerabilities' not in data or 'auditReportVersion' not in data:
-    print('operational_error')
-    sys.exit()
-print('report')
-" 2>&1)
+    require(isinstance(data, dict), 'report must be an object')
+    require('error' not in data and 'errors' not in data, 'operational error in report')
+    require(type(data.get('auditReportVersion')) is int and data['auditReportVersion'] == 2, 'unsupported report version')
+    findings = data.get('vulnerabilities')
+    require(isinstance(findings, dict), 'vulnerabilities must be an object')
+    levels = ('info', 'low', 'moderate', 'high', 'critical')
+    counts = dict.fromkeys(levels, 0)
+    for name, finding in findings.items():
+        require(isinstance(finding, dict) and finding.get('severity') in levels, 'invalid finding severity')
+        counts[finding['severity']] += 1
+    metadata = data.get('metadata')
+    require(isinstance(metadata, dict), 'metadata must be an object')
+    totals = metadata.get('vulnerabilities')
+    require(isinstance(totals, dict), 'missing vulnerability counts')
+    for level in (*levels, 'total'):
+        count = totals.get(level)
+        require(type(count) is int and count >= 0, 'invalid vulnerability count')
+        expected = len(findings) if level == 'total' else counts[level]
+        require(count == expected, 'inconsistent vulnerability counts')
+    actionable = any(counts[level] for level in ('moderate', 'high', 'critical'))
+    require(int(sys.argv[2]) == (1 if actionable else 0), 'exit status inconsistent with moderate severity policy')
+except (ValueError, OSError, TypeError) as error:
+    print('malformed/operational_error: ' + str(error))
+else:
+    print('report')
+PYTHON
+    )
 
     if [[ "$shape" == "report" ]]; then
       if [[ "$npm_exit" -eq 0 ]]; then
@@ -65,13 +81,8 @@ print('report')
     else
       cat "$report_path" >&2
       echo "Dependency audit for $target_dir could not produce a valid report ($shape) - this is a tool/registry/parse error, not a vulnerability finding; inspect $report_path." >&2
-      # An invalid report shape is never a pass, even if npm itself somehow
-      # exited 0 - force a non-zero exit in that case rather than propagate
-      # the misleading success code.
-      if [[ "$npm_exit" -ne 0 ]]; then
-        exit "$npm_exit"
-      fi
-      exit 1
+      # Reserved for operational failures; the runner records this separately.
+      exit 2
     fi
     ;;
   *)

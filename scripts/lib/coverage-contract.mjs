@@ -241,3 +241,26 @@ export function evaluateCheckResult(check, result, structuredFailures) {
 export function isExpired(exception, today) {
   return nonEmptyString(exception?.expires) && exception.expires < today;
 }
+
+// Validate transported results against the current contract, never artifact authority.
+export function validateRecordedResult(result, appKey, checkName, check, today) {
+  const problems = [];
+  if (!result || typeof result !== 'object' || Array.isArray(result)) return ['result must be an object'];
+  if (result.app !== appKey || result.check !== checkName) problems.push('result identity does not match app/check');
+  if (result.required !== check.required) problems.push('result.required does not match contract');
+  if (!['passed', 'failed', 'operational_error', 'not_implemented', 'waived', 'tolerated'].includes(result.status)) problems.push('invalid result status');
+  if (result.status === 'not_implemented' && (check.required || check.command !== null)) problems.push('check is implemented or required');
+  if (result.status === 'waived' || result.status === 'tolerated') {
+    const exc = check.exception;
+    const expectedType = result.status === 'waived' ? 'waiver' : 'signature';
+    if (!exc || (exc.type || 'waiver') !== expectedType) {
+      problems.push('exception is not authorized by the coverage contract');
+    } else {
+      problems.push(...validateExceptionObject(exc, `${appKey}/${checkName}`));
+      if (result.issue !== exc.issue || result.expires !== exc.expires) problems.push('exception metadata does not match contract');
+      if (isExpired(exc, today)) problems.push(`contract exception expired on ${exc.expires}`);
+    }
+    if (!Number.isInteger(result.exit_code) || result.exit_code <= 0) problems.push('exception requires a nonzero integer exit_code');
+  }
+  return problems;
+}

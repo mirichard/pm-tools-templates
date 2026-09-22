@@ -9,11 +9,12 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { execFileSync } from 'node:child_process';
-import { mkdtempSync, writeFileSync, rmSync } from 'node:fs';
+import { mkdtempSync, writeFileSync, rmSync, readFileSync, mkdirSync, cpSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 
 const repoRoot = new URL('..', import.meta.url).pathname;
+const coverage = JSON.parse(readFileSync(join(repoRoot, '.github/ci-coverage.json')));
 const script = join(repoRoot, 'scripts', 'ci-gate.mjs');
 
 const PASSING_PREREQS = {
@@ -26,7 +27,7 @@ const PASSING_PREREQS = {
 function run({ selectedApps = [], results = {}, env = {} } = {}) {
   const resultsDir = mkdtempSync(join(tmpdir(), 'ci-gate-results-'));
   for (const [name, content] of Object.entries(results)) {
-    writeFileSync(join(resultsDir, `${name}.json`), JSON.stringify(content));
+    writeFileSync(join(resultsDir, `${name}.json`), JSON.stringify({ app: name.split('__')[0], check: name.split('__')[1], ...content }));
   }
   let status = 0;
   let stdout = '';
@@ -100,11 +101,11 @@ test('a waived/tolerated result whose exception has expired fails the gate', () 
     },
   });
   assert.equal(status, 1);
-  assert.match(stderr, /backend\/audit: waived exception .* expired on 2026-01-01/);
+  assert.match(stderr, /exception is not authorized/);
 });
 
-test('a waived/tolerated result whose exception has not expired passes the gate', () => {
-  const { status, stdout } = run({
+test('an invented unexpired exception fails the gate', () => {
+  const { status, stderr } = run({
     selectedApps: ['backend'],
     results: {
       backend__audit: {
@@ -115,8 +116,8 @@ test('a waived/tolerated result whose exception has not expired passes the gate'
       },
     },
   });
-  assert.equal(status, 0);
-  assert.match(stdout, /CI gate passed/);
+  assert.equal(status, 1);
+  assert.match(stderr, /exception is not authorized/);
 });
 
 test('a failed result for a non-required check does not fail the gate, but the required check still must pass', () => {
@@ -144,4 +145,57 @@ test('all required checks passed is a straightforward pass', () => {
   });
   assert.equal(status, 0);
   assert.match(stdout, /CI gate passed/);
+});
+
+
+test('QA status-only waiver is rejected', () => {
+  const result = run({selectedApps: ['backend'], results: {backend__audit: {status: 'waived', app: undefined, check: undefined}}});
+  assert.equal(result.status, 1);
+  assert.match(result.stderr, /exception is not authorized/);
+});
+
+function waiverFixture() {
+  const [appKey, app] = Object.entries(coverage.apps).find(([, app]) => Object.values(app.checks).some(c => c.exception));
+  const results = {};
+  for (const [name, check] of Object.entries(app.checks)) {
+    if (check.required) results[`${appKey}__${name}`] = {status: 'passed', required: true};
+  }
+  const [name, check] = Object.entries(app.checks).find(([, check]) => check.exception);
+  const result = {status: 'waived', required: check.required, exit_code: 1, issue: check.exception.issue, expires: check.exception.expires};
+  results[`${appKey}__${name}`] = result;
+  return {appKey, results, result, check};
+}
+
+test('a current contract waiver passes and an expired contract waiver fails', () => {
+  const f = waiverFixture();
+  assert.equal(run({selectedApps: [f.appKey], results: f.results, env: {CI_GATE_TODAY: f.check.exception.recorded}}).status, 0);
+  const expired = run({selectedApps: [f.appKey], results: f.results, env: {CI_GATE_TODAY: '2099-01-01'}});
+  assert.equal(expired.status, 1);
+  assert.match(expired.stderr, /contract exception expired/);
+});
+
+for (const patch of [{app: 'wrong'}, {check: 'wrong'}, {required: false}, {status: 'tolerated'}, {issue: 'invented'}, {expires: '2099-01-01'}, {exit_code: 0}]) {
+  test(`reject inconsistent waiver ${JSON.stringify(patch)}`, () => {
+    const f = waiverFixture();
+    Object.assign(f.result, patch);
+    assert.equal(run({selectedApps: [f.appKey], results: f.results}).status, 1);
+  });
+}
+
+test('combined result/log artifact extracts to the gate lookup directory', () => {
+  const root = mkdtempSync(join(tmpdir(), 'ci-layout-'));
+  try {
+    // upload-artifact preserves paths relative to the common parent.
+    const workflow = readFileSync(join(repoRoot, '.github/workflows/ci.yml'), 'utf8');
+    const uploadPaths = [...workflow.matchAll(/^            (health-reports\/check-(?:results|logs)\/)$/gm)].map(m => m[1]);
+    assert.equal(uploadPaths.length, 2);
+    const destination = workflow.match(/pattern: check-result-\*\n\s+path: (.+)/)[1].trim();
+    for (const path of uploadPaths) {
+      mkdirSync(join(root, 'artifact', path.replace('health-reports/', '')), {recursive: true});
+    }
+    writeFileSync(join(root, 'artifact/check-results/backend__audit.json'), JSON.stringify({app: 'backend', check: 'audit', required: true, status: 'passed'}));
+    cpSync(join(root, 'artifact'), join(root, destination), {recursive: true});
+    const output = execFileSync('node', [script], {encoding: 'utf8', env: {...process.env, ...PASSING_PREREQS, SELECTED_APPS: '["backend"]', CHECK_RESULTS_DIR: join(root, 'health-reports/check-results')}});
+    assert.match(output, /CI gate passed/);
+  } finally { rmSync(root, {recursive: true, force: true}); }
 });

@@ -9,7 +9,7 @@
 // failure whose exception has expired.
 import { existsSync, readFileSync, appendFileSync } from 'node:fs';
 import { join } from 'node:path';
-import { validateContract, isExpired } from './lib/coverage-contract.mjs';
+import { validateContract, validateRecordedResult } from './lib/coverage-contract.mjs';
 
 const repoRoot = new URL('..', import.meta.url).pathname;
 const coverage = JSON.parse(readFileSync(join(repoRoot, '.github', 'ci-coverage.json'), 'utf8'));
@@ -69,24 +69,25 @@ for (const appKey of selectedApps) {
       summaryLines.push(`| ${appKey} | ${checkName} | **missing** |`);
       continue;
     }
-    const r = JSON.parse(readFileSync(resultPath, 'utf8'));
-    if (r.status === 'passed') {
+    let r;
+    try {
+      r = JSON.parse(readFileSync(resultPath, 'utf8'));
+    } catch {
+      problems.push(`${appKey}/${checkName}: malformed result JSON`);
+      continue;
+    }
+    const invalid = validateRecordedResult(r, appKey, checkName, check, today);
+    if (invalid.length) {
+      problems.push(`${appKey}/${checkName}: ${invalid.join('; ')}`);
+      summaryLines.push(`| ${appKey} | ${checkName} | **invalid result** |`);
+    } else if (r.status === 'passed') {
       summaryLines.push(`| ${appKey} | ${checkName} | passed |`);
     } else if (r.status === 'waived' || r.status === 'tolerated') {
-      // run-app-check.mjs already rejects an expired match at the source
-      // (never records 'waived'/'tolerated' for one), but the gate checks
-      // again independently rather than trust that artifact's own status
-      // field - see the contract re-validation above for the same reasoning.
-      const expired = isExpired({ expires: r.expires }, today);
-      if (expired) {
-        problems.push(`${appKey}/${checkName}: ${r.status} exception ${r.issue} expired on ${r.expires} — no longer excused.`);
-        summaryLines.push(`| ${appKey} | ${checkName} | **expired exception** (${r.issue}, expired ${r.expires}) |`);
-      } else {
-        summaryLines.push(`| ${appKey} | ${checkName} | ${r.status} (${r.issue}, expires ${r.expires}) |`);
-      }
+      const exc = check.exception;
+      summaryLines.push(`| ${appKey} | ${checkName} | ${r.status} (${exc.issue}, expires ${exc.expires}) |`);
     } else {
       problems.push(`${appKey}/${checkName} is required and failed (status: ${r.status}).`);
-      summaryLines.push(`| ${appKey} | ${checkName} | **failed** |`);
+      summaryLines.push(`| ${appKey} | ${checkName} | **${r.status}** |`);
     }
   }
 }

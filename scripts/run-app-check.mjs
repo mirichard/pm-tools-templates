@@ -23,7 +23,7 @@
 import { spawnSync } from 'node:child_process';
 import { existsSync, mkdirSync, readFileSync, writeFileSync, openSync, closeSync } from 'node:fs';
 import { join } from 'node:path';
-import { evaluateCheckResult, isExpired } from './lib/coverage-contract.mjs';
+import { evaluateCheckResult, isExpired, validateContract } from './lib/coverage-contract.mjs';
 import { readTail } from './lib/capture.mjs';
 
 const TAIL_BYTES = 65536; // read at most this much of a captured log for signature matching
@@ -36,6 +36,11 @@ if (!appKey || !checkName) {
 
 const repoRoot = new URL('..', import.meta.url).pathname;
 const coverage = JSON.parse(readFileSync(join(repoRoot, '.github', 'ci-coverage.json'), 'utf8'));
+const contractProblems = validateContract(coverage);
+if (contractProblems.length) {
+  console.error(`Invalid coverage contract: ${contractProblems.join('; ')}`);
+  process.exit(2);
+}
 const app = coverage.apps[appKey];
 if (!app) {
   console.error(`Unknown app key: ${appKey}`);
@@ -125,6 +130,11 @@ const exitCode = spawnResult.status ?? 1;
 // this tail) is what gets uploaded and is authoritative.
 const outputTail = readTail(logFile, TAIL_BYTES);
 process.stdout.write(outputTail);
+
+if (checkName === 'audit' && exitCode === 2) {
+  record('operational_error', { required: check.required, exit_code: exitCode, reason: 'invalid audit report or tool/registry error' });
+  process.exit(1);
+}
 
 const evaluation = evaluateCheckResult(
   check,
