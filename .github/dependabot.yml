@@ -56,6 +56,7 @@ updates:
   # rules) only needs to be made once instead of kept in sync across 10 copies.
   - package-ecosystem: "npm"
     directories:
+      - "/integrations/webhook-framework"
       - "/dashboard-mvp"
       - "/web-mvp"
       - "/site"
