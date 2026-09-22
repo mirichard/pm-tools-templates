@@ -2,8 +2,7 @@
 
 This directory currently implements a TypeScript event collection SDK. It does
 not contain an analytics API server, dashboard, database migrations, processing
-pipeline, or deployed service. Server-related dependencies in `package.json` are
-not evidence that those features exist.
+pipeline, or deployed service. The SDK uses Node built-ins and has no third-party runtime dependencies.
 
 ## What exists
 
