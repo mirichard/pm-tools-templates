@@ -69,3 +69,26 @@ test('saved model weights can be reloaded without the native backend', async () 
     await rm(directory, { recursive: true, force: true });
   }
 });
+
+
+test('failed inference releases its input tensor', async () => {
+  const model = new RiskPredictionModel();
+  model.isInitialized = true;
+  model.model = { predict() { throw new Error('inference failed'); } };
+  const before = tf.memory().numTensors;
+  await expect(model.predict({ teamSize: 5 })).rejects.toThrow('inference failed');
+  expect(tf.memory().numTensors).toBe(before);
+});
+
+test('failed prediction read releases both temporary tensors', async () => {
+  const model = new RiskPredictionModel();
+  model.isInitialized = true;
+  const before = tf.memory().numTensors;
+  model.model = { predict() {
+    const output = tf.zeros([1, 4]);
+    jest.spyOn(output, 'data').mockRejectedValue(new Error('transfer failed'));
+    return output;
+  } };
+  await expect(model.predict({ teamSize: 5 })).rejects.toThrow('transfer failed');
+  expect(tf.memory().numTensors).toBe(before);
+});

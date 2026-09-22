@@ -138,13 +138,16 @@ export class RiskPredictionModel {
       // Create tensor
       const inputTensor = tf.tensor2d([features]);
       
-      // Make prediction
-      const prediction = this.model.predict(inputTensor);
-      const probabilities = await prediction.data();
-      
-      // Clean up tensors
-      inputTensor.dispose();
-      prediction.dispose();
+      // Release temporary tensors even when inference or data transfer fails.
+      let prediction;
+      let probabilities;
+      try {
+        prediction = this.model.predict(inputTensor);
+        probabilities = await prediction.data();
+      } finally {
+        inputTensor.dispose();
+        prediction?.dispose();
+      }
 
       // Find the predicted class
       const maxProbIndex = probabilities.indexOf(Math.max(...probabilities));
