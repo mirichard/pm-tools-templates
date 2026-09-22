@@ -1,6 +1,6 @@
 'use client'
 
-import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
+import React, { createContext, useContext, useState, useEffect, useCallback, useSyncExternalStore, ReactNode } from 'react';
 
 // Responsive breakpoint system
 export const breakpoints = {
@@ -161,19 +161,13 @@ export function ResponsiveContainer({
 
 // Hook for responsive behavior
 export function useMediaQuery(query: string): boolean {
-  const [matches, setMatches] = useState(false);
-
-  useEffect(() => {
+  const subscribe = useCallback((notify: () => void) => {
     const mediaQuery = window.matchMedia(query);
-    setMatches(mediaQuery.matches);
-
-    const handler = (event: MediaQueryListEvent) => setMatches(event.matches);
-    mediaQuery.addEventListener('change', handler);
-    
-    return () => mediaQuery.removeEventListener('change', handler);
+    mediaQuery.addEventListener('change', notify);
+    return () => mediaQuery.removeEventListener('change', notify);
   }, [query]);
-
-  return matches;
+  const getSnapshot = useCallback(() => window.matchMedia(query).matches, [query]);
+  return useSyncExternalStore(subscribe, getSnapshot, () => false);
 }
 
 // Responsive text sizing utility

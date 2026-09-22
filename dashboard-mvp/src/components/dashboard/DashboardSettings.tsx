@@ -1,6 +1,7 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import { useSavedDashboardSettings } from '@/lib/use-saved-dashboard-settings';
+import React, { useState } from 'react';
 import { Settings, Layout, Bell, Download, Save, RotateCcw } from 'lucide-react';
 import { useToast } from '@/components/ui/toast';
 
@@ -69,22 +70,11 @@ const DEFAULT_SETTINGS: DashboardSettings = {
 };
 
 export function DashboardSettings({ isOpen, onClose, onSettingsChange }: DashboardSettingsProps) {
-  const [settings, setSettings] = useState<DashboardSettings>(DEFAULT_SETTINGS);
+  const savedSettings = useSavedDashboardSettings();
+  const [draft, setSettings] = useState<DashboardSettings | null>(null);
+  const settings = draft ?? { ...DEFAULT_SETTINGS, ...savedSettings };
   const [activeTab, setActiveTab] = useState<'general' | 'layout' | 'notifications' | 'export'>('general');
   const { addToast } = useToast();
-
-  useEffect(() => {
-    // Load settings from localStorage on component mount
-    const savedSettings = localStorage.getItem('dashboardSettings');
-    if (savedSettings) {
-      try {
-        const parsed = JSON.parse(savedSettings);
-        setSettings({ ...DEFAULT_SETTINGS, ...parsed });
-      } catch (error) {
-        console.warn('Failed to parse saved settings:', error);
-      }
-    }
-  }, []);
 
   const handleSaveSettings = () => {
     try {
@@ -122,7 +112,7 @@ export function DashboardSettings({ isOpen, onClose, onSettingsChange }: Dashboa
   };
 
   const updateSettings = (updates: Partial<DashboardSettings>) => {
-    setSettings(prev => ({ ...prev, ...updates }));
+    setSettings(prev => ({ ...(prev ?? settings), ...updates }));
   };
 
   const updateNestedSettings = <K extends keyof DashboardSettings>(
@@ -130,8 +120,8 @@ export function DashboardSettings({ isOpen, onClose, onSettingsChange }: Dashboa
     updates: Partial<DashboardSettings[K]>
   ) => {
     setSettings(prev => ({
-      ...prev,
-      [key]: { ...(prev[key] as object), ...updates }
+      ...(prev ?? settings),
+      [key]: { ...((prev ?? settings)[key] as object), ...updates }
     }));
   };
 
