@@ -43,7 +43,7 @@ jobs:
         echo "✅ Metrics collected: $total_issues total, $open_issues open, $completion_pct% complete"
     
     - name: 📧 Send Test Status Email
-      uses: dawidd6/action-send-mail@v3
+      uses: dawidd6/action-send-mail@v22
       with:
         server_address: smtp.gmail.com
         server_port: 587
