@@ -84,7 +84,7 @@ export default class HttpRequestAction {
   /**
    * Execute HTTP request
    */
-  async execute(parameters, context) {
+  async execute(parameters, _context) {
     const {
       url,
       method = 'GET',
@@ -277,7 +277,7 @@ export default class HttpRequestAction {
   /**
    * Check compatibility
    */
-  checkCompatibility(environment = {}) {
+  checkCompatibility(_environment = {}) {
     if (typeof fetch === 'undefined') {
       return {
         compatible: false,
