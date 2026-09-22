@@ -29,7 +29,7 @@
     "express-rate-limit": "^8.7.0",
     "jsonwebtoken": "^9.0.1",
     "bcryptjs": "^3.0.3",
-    "uuid": "^11.0.0",
+    "uuid": "^14.0.2",
     "pg": "^8.11.1",
     "knex": "^2.5.1",
     "redis": "^4.6.7",
