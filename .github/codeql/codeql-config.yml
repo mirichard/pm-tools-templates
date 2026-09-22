@@ -19,7 +19,6 @@ queries:
 # Paths to include in analysis
 paths:
   - src
-  - ai-insights
   - dashboard-mvp
   - tools
   - workflow-orchestration

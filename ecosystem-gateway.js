@@ -15,7 +15,7 @@ class EcosystemGateway {
         this.version = '2.0.0';
         this.features = {
             onboarding: true,
-            aiInsights: true,
+            aiInsights: false,
             workflowOrchestration: true,
             dashboards: true,
             analytics: false // Phase 2 upcoming
@@ -150,7 +150,7 @@ class EcosystemGateway {
 
 🔄 In Development (Phase 2):
    • Real-time Analytics
-   • AI-Powered Insights
+   • AI insights — withdrawn pending validation
    • Predictive Dashboards
    • Custom Dashboard Builder
 

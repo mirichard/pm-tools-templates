@@ -77,7 +77,6 @@ queries:
   - security-extended
 
 paths:
-  - ai-insights
   - dashboard-mvp
   - tools
   - workflow-orchestration

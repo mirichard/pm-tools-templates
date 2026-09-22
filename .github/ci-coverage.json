@@ -91,60 +91,6 @@
         "audit": { "required": true }
       }
     },
-    "ai-insights": {
-      "path": "ai-insights",
-      "checks": {
-        "lint": {
-          "command": "npm run lint",
-          "required": true,
-          "exception": {
-            "issue": "https://github.com/mirichard/pm-tools-templates/issues/1293",
-            "owner": "mirichard",
-            "recorded": "2026-09-21",
-            "expires": "2026-12-21",
-            "failure_signature": "couldn't find a configuration file",
-            "verified": "live-ci",
-            "type": "waiver",
-            "execution": "diagnostic-only",
-            "scope_statement": "ESLint has no config file to load in this directory; no file is evaluated by any rule, so this check provides no coverage, not partial coverage.",
-            "removal_condition": "Remove once #1293 is fixed (eslint config added) and lint passes on two consecutive runs."
-          }
-        },
-        "build": {
-          "command": "npm run build",
-          "required": true,
-          "exception": {
-            "type": "waiver",
-            "execution": "diagnostic-only",
-            "scope_statement": "tsc has no tsconfig.json to build against in this directory; it prints its own CLI usage text instead of compiling anything, so this check provides no coverage.",
-            "issue": "https://github.com/mirichard/pm-tools-templates/issues/1298",
-            "owner": "mirichard",
-            "recorded": "2026-09-21",
-            "expires": "2026-12-21",
-            "failure_signature": "tsc: The TypeScript Compiler - Version",
-            "verified": "live-ci",
-            "removal_condition": "Remove once #1298 is fixed (tsconfig.json added) and build passes on two consecutive runs."
-          }
-        },
-        "test": {
-          "command": "npm test",
-          "required": true,
-          "exception": {
-            "type": "waiver",
-            "execution": "diagnostic-only",
-            "scope_statement": "All 3 Jest suites fail to parse (ESM import syntax) before any individual test executes; zero tests run, so this check provides no coverage.",
-            "issue": "https://github.com/mirichard/pm-tools-templates/issues/1298",
-            "owner": "mirichard",
-            "recorded": "2026-09-21",
-            "expires": "2026-12-21",
-            "failure_signature": "Cannot use import statement outside a module",
-            "verified": "live-ci",
-            "removal_condition": "Remove once #1298 is fixed (Jest ESM config added) and test passes on two consecutive runs."
-          }
-        },
-        "audit": { "required": true }
-      }
-    },
     "analytics-platform": {
       "path": "analytics-platform",
       "checks": {
@@ -297,9 +243,9 @@
       "path": "Snowflake Demo/frontend",
       "checks": {
         "lint": { "command": null, "required": false, "status": "not_implemented" },
-        "build": { "command": "npm run build", "required": true, "note": "react-scripts was pinned to \"^0.0.0\" (a placeholder version that was never fixed), so it never actually installed - build failed with `react-scripts: not found`. Fixed to ^5.0.1 (latest/last CRA release, compatible with the app's react@18.3.1)." },
-        "test": { "command": "npm test", "required": true, "note": "Same root cause as build (react-scripts missing). The app already has 3 real test suites (13 tests) that all pass once react-scripts is actually installed." },
-        "audit": { "required": true, "note": "react-scripts@5.0.1's own build tooling (svgo, webpack-dev-server, postcss, etc., all build-time-only) carries 5 moderate + 14 high advisories that have never been resolved upstream (CRA is deprecated) - this is well-known, industry-wide CRA audit noise, not exploitable in the shipped production bundle. Moved react-scripts from dependencies to devDependencies (it's a build tool, not a runtime dependency of the shipped app - matches where @testing-library/* and react-test-renderer already were), which the audit's own --omit=dev correctly excludes: 0 vulnerabilities in the actual runtime dependency graph." }
+        "build": { "command": "npm run build", "required": true, "note": "Rsbuild production build; output remains in build/." },
+        "test": { "command": "npm test", "required": true, "note": "Jest component tests run independently of the build tool." },
+        "audit": { "required": true, "note": "Runtime dependency audit. npm run audit:all additionally checks development and build dependencies." }
       }
     },
     "demo-288": {
