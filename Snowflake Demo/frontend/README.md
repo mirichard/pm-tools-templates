@@ -37,7 +37,6 @@ npm run build
 
 The build artifacts will be output to the `build/` directory.
 
-
 ## Tests and Security Validation
 
 ```bash
@@ -48,8 +47,10 @@ npm run build && npm run test:browser
 ```
 
 Jest runs the component tests. The full dependency audit includes development
-and build tooling and fails on low severity or higher findings. The Snowflake dependency audit workflow runs this full check on frontend changes and verifies dashboard rendering and filter reset in Chromium
-against both the development server and production build. The shared CI runtime audit remains separate.
+and build tooling and fails on low severity or higher findings. The Snowflake
+dependency audit workflow runs this full check on frontend changes and verifies
+dashboard rendering and filter reset in Chromium against both the development
+server and production build. The shared CI runtime audit remains separate.
 
 Rsbuild replaces the deprecated Create React App tooling. The existing React
 source files and HTML template are retained. Production source maps are disabled
