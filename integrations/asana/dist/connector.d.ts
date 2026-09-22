@@ -76,6 +76,7 @@ export interface AsanaTask {
     };
     completed: boolean;
     due_date?: string;
+    modified_at?: string;
     custom_fields: Record<string, any>;
     dependencies: AsanaTaskDependency[];
     subtasks: AsanaTask[];
@@ -125,7 +126,7 @@ export interface SyncResult {
     lastSyncTime: Date;
 }
 export interface SyncError {
-    type: 'api_error' | 'mapping_error' | 'validation_error';
+    type: 'api_error' | 'mapping_error' | 'validation_error' | 'sync_error';
     message: string;
     taskId?: string;
     fieldName?: string;
@@ -168,7 +169,6 @@ export declare class AsanaConnector extends EventEmitter {
     private config;
     private workspaceConfigs;
     constructor(config: AsanaConnectorConfig);
-    private setupClientDefaults;
     /**
      * Configure workspace settings for template synchronization
      */

@@ -128,9 +128,11 @@ export function SchemaForm({ schema, value, onChange }: Props) {
     const m = byFieldRef();
     if (!m[fieldKey] || m[fieldKey].length === 0) return null;
     return (
-      <ul id={errId} className="error" role="alert" aria-live="polite">
-        {m[fieldKey].map((msg, i) => (<li key={i}>{msg}</li>))}
-      </ul>
+      <div id={errId} className="error" role="alert" aria-live="polite">
+        <ul>
+          {m[fieldKey].map((msg, i) => (<li key={i}>{msg}</li>))}
+        </ul>
+      </div>
     );
   }
   function byFieldRef(): Record<string, string[]> {

@@ -1,5 +1,8 @@
 # AI-Powered Project Insights - Production Dockerfile
-FROM node:18-alpine
+# Node 24 (Active LTS as of 2026-09-21, maintenance starts 2026-10-20, end
+# 2028-04-30 — verified against nodejs/Release's schedule.json) to match the
+# rest of the repo's CI runtime; node:18 (used previously) is end-of-life.
+FROM node:24-alpine
 
 # Set working directory
 WORKDIR /app
@@ -19,9 +22,10 @@ RUN apk add --no-cache \
 # Copy package files
 COPY package*.json ./
 
-# Install dependencies
-RUN npm ci --only=production && \
-    npm cache clean --force
+# Install dependencies, then remove the build-time npm toolchain from the runtime image.
+RUN npm ci --omit=dev && \
+    npm cache clean --force && \
+    rm -rf /usr/local/lib/node_modules/npm /usr/local/bin/npm /usr/local/bin/npx
 
 # Copy application code
 COPY . .
@@ -50,7 +54,7 @@ EXPOSE 3001
 ENTRYPOINT ["dumb-init", "--"]
 
 # Start the application
-CMD ["npm", "start"]
+CMD ["node", "src/index.js"]
 
 # Build information
 LABEL version="1.0.0" \

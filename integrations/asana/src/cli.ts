@@ -9,7 +9,7 @@ import dotenv from 'dotenv';
 import { AsanaConnector, PMTemplate } from './connector';
 import { AsanaSyncEngine } from './sync-engine';
 import { AsanaWebhookServer } from './webhook-server';
-import { Client } from 'asana';
+import { createAsanaClient } from './asana-client';
 
 // Load environment variables
 dotenv.config();
@@ -42,9 +42,12 @@ class AsanaCLI {
       }
 
       // Override with environment variables
-      this.config.asanaAccessToken = process.env.ASANA_ACCESS_TOKEN || this.config.asanaAccessToken;
-      this.config.defaultWorkspace = process.env.ASANA_DEFAULT_WORKSPACE || this.config.defaultWorkspace;
-      this.config.webhookSecret = process.env.ASANA_WEBHOOK_SECRET || this.config.webhookSecret;
+      const asanaAccessToken = process.env.ASANA_ACCESS_TOKEN || this.config.asanaAccessToken;
+      if (asanaAccessToken !== undefined) this.config.asanaAccessToken = asanaAccessToken;
+      const defaultWorkspace = process.env.ASANA_DEFAULT_WORKSPACE || this.config.defaultWorkspace;
+      if (defaultWorkspace !== undefined) this.config.defaultWorkspace = defaultWorkspace;
+      const webhookSecret = process.env.ASANA_WEBHOOK_SECRET || this.config.webhookSecret;
+      if (webhookSecret !== undefined) this.config.webhookSecret = webhookSecret;
       this.config.serverPort = parseInt(process.env.SERVER_PORT || '3000') || this.config.serverPort || 3000;
 
     } catch (error) {
@@ -70,7 +73,7 @@ class AsanaCLI {
     if (!this.connector) {
       this.connector = new AsanaConnector({
         accessToken: this.config.asanaAccessToken,
-        defaultWorkspace: this.config.defaultWorkspace
+        ...(this.config.defaultWorkspace !== undefined ? { defaultWorkspace: this.config.defaultWorkspace } : {})
       });
     }
 
@@ -79,7 +82,7 @@ class AsanaCLI {
 
   private async initializeSyncEngine(): Promise<AsanaSyncEngine> {
     if (!this.syncEngine) {
-      const client = Client.create().useAccessToken(this.config.asanaAccessToken!);
+      const client = createAsanaClient({ accessToken: this.config.asanaAccessToken! });
       this.syncEngine = new AsanaSyncEngine(client, this.config.webhookSecret || 'default-secret');
     }
 
@@ -134,7 +137,7 @@ class AsanaCLI {
   async listWorkspaces(): Promise<void> {
     try {
       await this.initializeConnector();
-      const client = Client.create().useAccessToken(this.config.asanaAccessToken!);
+      const client = createAsanaClient({ accessToken: this.config.asanaAccessToken! });
       
       console.log(chalk.blue('📋 Available Workspaces:'));
       

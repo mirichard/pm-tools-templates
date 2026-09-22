@@ -11,3 +11,11 @@ node_modules/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# Python bytecode cache
+__pycache__/
+*.pyc
+
+# Local output from scripts/check-workflow-health.sh (also produced as a
+# CI artifact by workflow-health-improvements.yml, not meant to be committed)
+health-reports/

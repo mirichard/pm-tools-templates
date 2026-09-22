@@ -13,7 +13,7 @@ const dotenv_1 = __importDefault(require("dotenv"));
 const connector_1 = require("./connector");
 const sync_engine_1 = require("./sync-engine");
 const webhook_server_1 = require("./webhook-server");
-const asana_1 = require("asana");
+const asana_client_1 = require("./asana-client");
 // Load environment variables
 dotenv_1.default.config();
 const program = new commander_1.Command();
@@ -30,9 +30,15 @@ class AsanaCLI {
                 this.config = JSON.parse(configFile);
             }
             // Override with environment variables
-            this.config.asanaAccessToken = process.env.ASANA_ACCESS_TOKEN || this.config.asanaAccessToken;
-            this.config.defaultWorkspace = process.env.ASANA_DEFAULT_WORKSPACE || this.config.defaultWorkspace;
-            this.config.webhookSecret = process.env.ASANA_WEBHOOK_SECRET || this.config.webhookSecret;
+            const asanaAccessToken = process.env.ASANA_ACCESS_TOKEN || this.config.asanaAccessToken;
+            if (asanaAccessToken !== undefined)
+                this.config.asanaAccessToken = asanaAccessToken;
+            const defaultWorkspace = process.env.ASANA_DEFAULT_WORKSPACE || this.config.defaultWorkspace;
+            if (defaultWorkspace !== undefined)
+                this.config.defaultWorkspace = defaultWorkspace;
+            const webhookSecret = process.env.ASANA_WEBHOOK_SECRET || this.config.webhookSecret;
+            if (webhookSecret !== undefined)
+                this.config.webhookSecret = webhookSecret;
             this.config.serverPort = parseInt(process.env.SERVER_PORT || '3000') || this.config.serverPort || 3000;
         }
         catch (error) {
@@ -56,14 +62,14 @@ class AsanaCLI {
         if (!this.connector) {
             this.connector = new connector_1.AsanaConnector({
                 accessToken: this.config.asanaAccessToken,
-                defaultWorkspace: this.config.defaultWorkspace
+                ...(this.config.defaultWorkspace !== undefined ? { defaultWorkspace: this.config.defaultWorkspace } : {})
             });
         }
         return this.connector;
     }
     async initializeSyncEngine() {
         if (!this.syncEngine) {
-            const client = asana_1.Client.create().useAccessToken(this.config.asanaAccessToken);
+            const client = (0, asana_client_1.createAsanaClient)({ accessToken: this.config.asanaAccessToken });
             this.syncEngine = new sync_engine_1.AsanaSyncEngine(client, this.config.webhookSecret || 'default-secret');
         }
         return this.syncEngine;
@@ -113,7 +119,7 @@ class AsanaCLI {
     async listWorkspaces() {
         try {
             await this.initializeConnector();
-            const client = asana_1.Client.create().useAccessToken(this.config.asanaAccessToken);
+            const client = (0, asana_client_1.createAsanaClient)({ accessToken: this.config.asanaAccessToken });
             console.log(chalk_1.default.blue('📋 Available Workspaces:'));
             const workspaces = await client.workspaces.getWorkspaces();
             workspaces.data.forEach((workspace, index) => {

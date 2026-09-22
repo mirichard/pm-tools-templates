@@ -3,7 +3,7 @@ const request = require('supertest');
 // Set test environment
 process.env.NODE_ENV = 'test';
 
-const app = require('../backend/server');
+const app = require('../server');
 
 describe('Backend API Integration Tests', () => {
   // No need to start server manually - supertest handles it

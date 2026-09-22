@@ -1,5 +1,8 @@
 # Multi-stage build for production
-FROM node:20-alpine AS builder
+# Node 24 (Active LTS as of 2026-09-21; node:20 is now past its end-of-life
+# date per nodejs/Release's schedule.json) to match the rest of the repo's
+# CI runtime.
+FROM node:24-alpine AS builder
 
 # Set working directory
 WORKDIR /app
@@ -36,7 +39,7 @@ HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
 CMD ["nginx", "-g", "daemon off;"]
 
 # Development stage
-FROM node:20-alpine AS development
+FROM node:24-alpine AS development
 
 WORKDIR /app
 

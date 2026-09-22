@@ -11,8 +11,13 @@
  * @author PM Tools Templates
  */
 
+import { AsanaConnector, type PMTemplate, type AsanaProject } from './connector';
+import { AsanaSyncEngine } from './sync-engine';
+import { AsanaWebhookServer } from './webhook-server';
+import AsanaCLI from './cli';
+
 // Core Components
-export { 
+export {
   AsanaConnector,
   type AsanaConnectorConfig,
   type PMTemplate,
@@ -210,8 +215,8 @@ export async function quickSetup(options: {
   });
   
   // Initialize sync engine
-  const { Client } = await import('asana');
-  const client = Client.create().useAccessToken(accessToken);
+  const { createAsanaClient } = await import('./asana-client');
+  const client = createAsanaClient({ accessToken });
   const syncEngine = new AsanaSyncEngine(client, webhookSecret || 'default-secret');
   
   let webhookServer: AsanaWebhookServer | undefined;
@@ -230,7 +235,7 @@ export async function quickSetup(options: {
   return {
     connector,
     syncEngine,
-    webhookServer
+    ...(webhookServer !== undefined ? { webhookServer } : {})
   };
 }
 
@@ -285,10 +290,10 @@ export async function createProjectFromTemplate(
   });
   
   return connector.createProjectFromTemplate(template, projectData.workspaceId, {
-    teamId: projectData.teamId,
+    ...(projectData.teamId !== undefined ? { teamId: projectData.teamId } : {}),
     projectData: {
       name: projectData.name,
-      description: projectData.description
+      ...(projectData.description !== undefined ? { description: projectData.description } : {})
     }
   });
 }

@@ -1,0 +1,362 @@
+{
+  "_readme": [
+    "Single source of truth for which code projects this repo's CI covers, how, and why.",
+    "Consumed by scripts/ci-coverage.mjs (list-apps / app-config / validate-inventory) and",
+    "by .github/workflows/ci.yml's sub-app-checks matrix. Do not duplicate this app list",
+    "anywhere else in workflow YAML.",
+    "",
+    "Each app's 'checks' entry may be: {command, required, exception?} for a real check,",
+    "or {command: null, required: false, status: 'not_implemented', note} where no real",
+    "check exists yet. An 'exception' records a specific, currently-tolerated failure:",
+    "{issue, owner, recorded, expires, failure_signature, removal_condition}. The CI",
+    "evaluator only tolerates a failure whose captured output contains failure_signature;",
+    "any other failure of that step is treated as real and fails the run regardless of",
+    "the exception's presence.",
+    "",
+    "Node runtime: all entries below run on the single node_version at the top of this",
+    "file. Verified against https://raw.githubusercontent.com/nodejs/Release/main/schedule.json",
+    "on 2026-09-21: v20 (Iron) end=2026-04-30, already past end of life; v22 (Jod)",
+    "maintenance since 2025-10-21, end=2027-04-30, still supported but past Active LTS;",
+    "v24 (Krypton) lts since 2025-10-28, still in Active LTS (maintenance starts",
+    "2026-10-20), end=2028-04-30. v24 is the current Active LTS and is used here; it also",
+    "satisfies docs/site's real toolchain requirement (Astro 7.3.2 needs >=22.12.0)."
+  ],
+  "node_version": "24",
+  "shared_paths": [
+    ".github/workflows/ci.yml",
+    ".github/ci-coverage.json",
+    "scripts/ci-coverage.mjs",
+    "scripts/run-app-check.mjs",
+    "scripts/ci-gate.mjs",
+    "scripts/lib/coverage-contract.mjs",
+    "scripts/lib/capture.mjs",
+    "scripts/applicability-gate.sh",
+    "scripts/check-workflow-health.sh"
+  ],
+  "apps": {
+    "dashboard-mvp": {
+      "path": "dashboard-mvp",
+      "checks": {
+        "lint": {
+          "command": "npm run lint",
+          "required": true,
+          "exception": {
+            "type": "waiver",
+            "execution": "diagnostic-only",
+            "scope_statement": "next lint does not exist in Next.js 16 (removed upstream); the command cannot evaluate any lint rule at all, so this check provides no coverage, not partial coverage.",
+            "issue": "https://github.com/mirichard/pm-tools-templates/issues/1292",
+            "owner": "mirichard",
+            "recorded": "2026-09-21",
+            "expires": "2026-12-21",
+            "failure_signature": "Invalid project directory provided",
+            "verified": "live-ci",
+            "removal_condition": "Remove once #1292 is fixed (next-lint-to-eslint-cli codemod applied) and lint passes on two consecutive runs."
+          }
+        },
+        "build": { "command": "npm run build", "required": true },
+        "test": { "command": "npm test", "required": true },
+        "audit": { "required": true }
+      }
+    },
+    "web-mvp": {
+      "path": "web-mvp",
+      "checks": {
+        "lint": {
+          "command": null,
+          "required": false,
+          "status": "not_implemented",
+          "note": "package.json's lint script is a placeholder stub (`echo 'add linter later'`); running it would only produce false confidence, so it is intentionally not invoked. Tracked as a real gap, not excused as passing."
+        },
+        "build": { "command": "npm run build", "required": true },
+        "test": {
+          "command": "npm run test:a11y",
+          "setup": "npx playwright install --with-deps chromium",
+          "required": true,
+          "note": "No plain `test` script exists; test:a11y (Playwright a11y spec) is the app's real, meaningful check."
+        },
+        "audit": { "required": true }
+      }
+    },
+    "site": {
+      "path": "site",
+      "checks": {
+        "lint": { "command": null, "required": false, "status": "not_implemented" },
+        "build": { "command": null, "required": false, "status": "not_implemented", "note": "Express server app; no build step." },
+        "test": {
+          "command": "npm run ci",
+          "setup": "npx playwright install --with-deps chromium",
+          "required": true,
+          "note": "Runs the app's own existing composite script (starts server, Playwright e2e, Lighthouse CI, stops server) rather than reimplementing it here. #1296 was actually a missing browser-install step (no `setup`, unlike web-mvp/demo-288/demos-288-template-customization), not a genuine test-content failure as originally logged — job logs show `browserType.launch: Executable doesn't exist at .../chromium_headless_shell-1243/...`, the exact pattern F4 already fixed for the other two Playwright apps in this repo."
+        },
+        "audit": { "required": true }
+      }
+    },
+    "ai-insights": {
+      "path": "ai-insights",
+      "checks": {
+        "lint": {
+          "command": "npm run lint",
+          "required": true,
+          "exception": {
+            "issue": "https://github.com/mirichard/pm-tools-templates/issues/1293",
+            "owner": "mirichard",
+            "recorded": "2026-09-21",
+            "expires": "2026-12-21",
+            "failure_signature": "couldn't find a configuration file",
+            "verified": "live-ci",
+            "type": "waiver",
+            "execution": "diagnostic-only",
+            "scope_statement": "ESLint has no config file to load in this directory; no file is evaluated by any rule, so this check provides no coverage, not partial coverage.",
+            "removal_condition": "Remove once #1293 is fixed (eslint config added) and lint passes on two consecutive runs."
+          }
+        },
+        "build": {
+          "command": "npm run build",
+          "required": true,
+          "exception": {
+            "type": "waiver",
+            "execution": "diagnostic-only",
+            "scope_statement": "tsc has no tsconfig.json to build against in this directory; it prints its own CLI usage text instead of compiling anything, so this check provides no coverage.",
+            "issue": "https://github.com/mirichard/pm-tools-templates/issues/1298",
+            "owner": "mirichard",
+            "recorded": "2026-09-21",
+            "expires": "2026-12-21",
+            "failure_signature": "tsc: The TypeScript Compiler - Version",
+            "verified": "live-ci",
+            "removal_condition": "Remove once #1298 is fixed (tsconfig.json added) and build passes on two consecutive runs."
+          }
+        },
+        "test": {
+          "command": "npm test",
+          "required": true,
+          "exception": {
+            "type": "waiver",
+            "execution": "diagnostic-only",
+            "scope_statement": "All 3 Jest suites fail to parse (ESM import syntax) before any individual test executes; zero tests run, so this check provides no coverage.",
+            "issue": "https://github.com/mirichard/pm-tools-templates/issues/1298",
+            "owner": "mirichard",
+            "recorded": "2026-09-21",
+            "expires": "2026-12-21",
+            "failure_signature": "Cannot use import statement outside a module",
+            "verified": "live-ci",
+            "removal_condition": "Remove once #1298 is fixed (Jest ESM config added) and test passes on two consecutive runs."
+          }
+        },
+        "audit": { "required": true }
+      }
+    },
+    "analytics-platform": {
+      "path": "analytics-platform",
+      "checks": {
+        "lint": { "command": "npm run lint", "required": true },
+        "build": {
+          "command": "npm run build",
+          "required": true,
+          "note": "#1295's ERESOLVE conflict (@typescript-eslint/eslint-plugin@7 vs eslint@9) fixed by bumping typescript-eslint to 8. Fixing install surfaced that this app had no eslint/tsc/jest config at all and most of its package.json scripts referenced an API server, dashboard, and DB migrations that were never written — see #1311. build/lint/test now run for real against what actually exists (src/sdk/)."
+        },
+        "test": { "command": "npm test", "required": true },
+        "audit": { "required": true }
+      }
+    },
+    "workflow-orchestration": {
+      "path": "workflow-orchestration",
+      "checks": {
+        "lint": {
+          "command": "npm run lint",
+          "required": true,
+          "exception": {
+            "issue": "https://github.com/mirichard/pm-tools-templates/issues/1294",
+            "owner": "mirichard",
+            "recorded": "2026-09-21",
+            "expires": "2026-12-21",
+            "failure_signature": "couldn't find a configuration file",
+            "verified": "live-ci",
+            "type": "waiver",
+            "execution": "diagnostic-only",
+            "scope_statement": "ESLint has no config file to load in this directory; no file is evaluated by any rule, so this check provides no coverage, not partial coverage.",
+            "removal_condition": "Remove once #1294 is fixed (eslint config added) and lint passes on two consecutive runs."
+          }
+        },
+        "build": {
+          "command": "npm run build",
+          "required": true,
+          "exception": {
+            "type": "waiver",
+            "execution": "diagnostic-only",
+            "scope_statement": "The build script's target file (scripts/build.js) does not exist; the command fails before any compilation step runs, so this check provides no coverage.",
+            "issue": "https://github.com/mirichard/pm-tools-templates/issues/1299",
+            "owner": "mirichard",
+            "recorded": "2026-09-21",
+            "expires": "2026-12-21",
+            "failure_signature": "Cannot find module '/home/runner/work/pm-tools-templates/pm-tools-templates/workflow-orchestration/scripts/build.js'",
+            "verified": "live-ci",
+            "removal_condition": "Remove once #1299 is fixed (scripts/build.js added or the build script corrected) and build passes on two consecutive runs."
+          }
+        },
+        "test": {
+          "command": "npm test",
+          "required": true,
+          "exception": {
+            "type": "waiver",
+            "execution": "diagnostic-only",
+            "scope_statement": "Zero files match Jest's configured test pattern; no individual test ever executes, so this check provides no coverage.",
+            "issue": "https://github.com/mirichard/pm-tools-templates/issues/1299",
+            "owner": "mirichard",
+            "recorded": "2026-09-21",
+            "expires": "2026-12-21",
+            "failure_signature": "No tests found, exiting with code 1",
+            "verified": "live-ci",
+            "removal_condition": "Remove once #1299 is fixed by adding real test files. Do not close this by adding --passWithNoTests - that would report a pass without adding any actual test coverage, which does not close the underlying gap."
+          }
+        },
+        "audit": { "required": true }
+      }
+    },
+    "backend": {
+      "path": "backend",
+      "checks": {
+        "lint": { "command": null, "required": false, "status": "not_implemented" },
+        "build": { "command": null, "required": false, "status": "not_implemented" },
+        "test": { "command": null, "required": false, "status": "not_implemented" },
+        "audit": { "required": true }
+      }
+    },
+    "requirements-cli": {
+      "path": "tools/requirements-structuring-cli",
+      "checks": {
+        "lint": { "command": null, "required": false, "status": "not_implemented" },
+        "build": { "command": null, "required": false, "status": "not_implemented" },
+        "test": { "command": "npm test", "required": true },
+        "audit": { "required": true }
+      }
+    },
+    "template-generator-cli": {
+      "path": "tools/template-generator-cli",
+      "checks": {
+        "lint": { "command": null, "required": false, "status": "not_implemented" },
+        "build": { "command": null, "required": false, "status": "not_implemented" },
+        "test": { "command": "npm test", "required": true },
+        "audit": { "required": true }
+      }
+    },
+    "docs-site": {
+      "path": "docs/site",
+      "checks": {
+        "lint": { "command": null, "required": false, "status": "not_implemented" },
+        "build": { "command": "npm run build", "required": true },
+        "test": { "command": null, "required": false, "status": "not_implemented" },
+        "audit": { "required": true }
+      }
+    },
+    "integrations-asana": {
+      "path": "integrations/asana",
+      "checks": {
+        "lint": { "command": "npm run lint", "required": true, "note": "Fixed: eslintConfig.extends used \"@typescript-eslint/recommended\" (missing the required plugin: prefix), so ESLint tried to resolve it as a package name and failed." },
+        "build": { "command": "npm run build", "required": true, "note": "Fixed: tsconfig include swept tests/ into the production build's rootDir=src program (TS6059); added a declare module 'asana' ambient declaration (the package ships no types); fixed several exactOptionalPropertyTypes violations and a node-cron v2→v4 API mismatch ({ scheduled: false } / .getNextDates() don't exist in the installed v4); added a missing modified_at field to AsanaTask that the code's own API calls already request via opt_fields." },
+        "test": { "command": "npm test", "required": true, "note": "SDK compatibility repaired in #1287: a shared adapter uses the installed Asana v2 callback API, request envelopes, response data, and query arrays. Tests exercise the real SDK against a local HTTP server, including authentication errors and bounded rate-limit retries. Tracks #1312." },
+        "audit": { "required": true }
+      }
+    },
+    "integrations-deployer-asana": {
+      "path": "integrations/deployer/asana",
+      "checks": {
+        "lint": { "command": null, "required": false, "status": "not_implemented" },
+        "build": { "command": null, "required": false, "status": "not_implemented", "note": "Runs TypeScript directly via tsx; no separate build step." },
+        "test": { "command": "npm test", "required": true },
+        "audit": { "required": true }
+      }
+    },
+    "integrations-deployer-jira": {
+      "path": "integrations/deployer/jira",
+      "checks": {
+        "lint": { "command": null, "required": false, "status": "not_implemented" },
+        "build": { "command": null, "required": false, "status": "not_implemented", "note": "Runs TypeScript directly via tsx; no separate build step." },
+        "test": { "command": "npm test", "required": true },
+        "audit": { "required": true }
+      }
+    },
+    "template-selector-mvp": {
+      "path": "PM Tools Templates - Q3 2025 Delivery Cycle/Implementation/template-selector",
+      "checks": {
+        "lint": { "command": null, "required": false, "status": "not_implemented" },
+        "build": { "command": "npm run build", "required": true, "note": "Root cause of the original install failure: cypress@^16.1.0 conflicted with cypress-axe@1.7.0's peer range (cypress ^10-^15, no newer cypress-axe exists yet); downgraded to cypress@^15.21.1. That surfaced two further real bugs: fuse.js used in src/hooks/useTemplates.ts but never declared as a dependency (added), and EnhancedTemplatePreview.tsx importing a EnhancedTemplatePreview.css that never existed (added, following sibling TemplatePreview.css's conventions)." },
+        "test": { "command": "npm test", "required": true, "note": "Frontend's own test script (package.json's plain `test`); the nested backend/ is a separate npm project with its own dependency tree, covered independently as template-selector-backend. tests/backend-integration.test.js required ../backend/server (and transitively express, only present in backend/'s own node_modules) - moved to backend/tests/ where it can actually resolve its dependencies." },
+        "audit": { "required": true }
+      }
+    },
+    "template-selector-backend": {
+      "path": "PM Tools Templates - Q3 2025 Delivery Cycle/Implementation/template-selector/backend",
+      "checks": {
+        "lint": { "command": "npm run lint", "required": true },
+        "build": { "command": null, "required": false, "status": "not_implemented", "note": "Plain Node server (server.js); no build step." },
+        "test": { "command": "npm test", "required": true },
+        "audit": { "required": true }
+      }
+    },
+    "snowflake-demo-frontend": {
+      "path": "Snowflake Demo/frontend",
+      "checks": {
+        "lint": { "command": null, "required": false, "status": "not_implemented" },
+        "build": { "command": "npm run build", "required": true, "note": "react-scripts was pinned to \"^0.0.0\" (a placeholder version that was never fixed), so it never actually installed - build failed with `react-scripts: not found`. Fixed to ^5.0.1 (latest/last CRA release, compatible with the app's react@18.3.1)." },
+        "test": { "command": "npm test", "required": true, "note": "Same root cause as build (react-scripts missing). The app already has 3 real test suites (13 tests) that all pass once react-scripts is actually installed." },
+        "audit": { "required": true, "note": "react-scripts@5.0.1's own build tooling (svgo, webpack-dev-server, postcss, etc., all build-time-only) carries 5 moderate + 14 high advisories that have never been resolved upstream (CRA is deprecated) - this is well-known, industry-wide CRA audit noise, not exploitable in the shipped production bundle. Moved react-scripts from dependencies to devDependencies (it's a build tool, not a runtime dependency of the shipped app - matches where @testing-library/* and react-test-renderer already were), which the audit's own --omit=dev correctly excludes: 0 vulnerabilities in the actual runtime dependency graph." }
+      }
+    },
+    "demo-288": {
+      "path": "demo/288",
+      "checks": {
+        "lint": { "command": null, "required": false, "status": "not_implemented" },
+        "build": { "command": "npm run build", "required": true },
+        "test": {
+          "command": "npm run test:a11y && npm run test:uat",
+          "setup": "npx playwright install --with-deps chromium",
+          "env": { "BASE_URL": "http://127.0.0.1:5179/" },
+          "required": true,
+          "note": "No plain `test` script; both Playwright suites (a11y + uat) are this app's real coverage. playwright.config.ts (added) starts the preview server itself via webServer, same pattern as web-mvp's already-working config. BASE_URL is set explicitly because this app's test files read process.env.BASE_URL directly (falling back to the wrong port, 5181) rather than Playwright's own baseURL mechanism."
+        },
+        "audit": { "required": true }
+      }
+    },
+    "demos-288-template-customization": {
+      "path": "demos/288-template-customization",
+      "checks": {
+        "lint": { "command": null, "required": false, "status": "not_implemented" },
+        "build": { "command": "npm run build", "required": true },
+        "test": {
+          "command": "npm run test:a11y && npm run test:uat",
+          "setup": "npx playwright install --with-deps chromium",
+          "required": true,
+          "note": "No plain `test` script; both Playwright suites (a11y + uat) are this app's real coverage. playwright.config.ts (added) starts the preview server itself via webServer, same pattern as web-mvp's already-working config. No BASE_URL override needed: this app's test files hardcode 127.0.0.1:5179 directly, which already matches the preview server's port."
+        },
+        "audit": { "required": true }
+      }
+    },
+    "examples-backend-services": {
+      "path": "examples/backend-services",
+      "checks": {
+        "lint": { "command": null, "required": false, "status": "not_implemented" },
+        "build": { "command": null, "required": false, "status": "not_implemented" },
+        "test": { "command": null, "required": false, "status": "not_implemented", "note": "Runnable sample service (start/extract/dev scripts) with no test suite defined." },
+        "audit": { "required": true }
+      }
+    }
+  },
+  "covered_elsewhere": [
+    {
+      "path": "integrations/jira-asana-sync",
+      "workflow": ".github/workflows/integration-oauth-check.yml",
+      "reason": "Already builds (npm run build) and tests (npm test) this exact path on push/PR to integrations/jira-asana-sync/**. Not duplicated in the sub-app-checks matrix to avoid two independent, potentially divergent checks of the same code."
+    },
+    {
+      "path": ".",
+      "workflow": ".github/workflows/ci.yml's build-test job",
+      "reason": "Root package.json/project; already covered by the pre-existing build-test job (npm ci, npm test, migration/navigation validation, audit) run directly against the repo root. Not part of the sub-app-checks matrix, which is for the sub-app directories specifically."
+    }
+  ],
+  "excluded": [
+    {
+      "path": "integrations/webhook-framework",
+      "reason": "Has no package.json of its own (git ls-files-based discovery only finds package.json manifests, so this never surfaces as a discovered entry to reconcile in the first place). CLAUDE.md documents it as \"tested via root npm run test:webhook\", but that script does not exist anywhere in the repo and no workflow references this directory - verified directly, not assumed from the documentation. Real Jest test files and a jest.config.webhook.js exist here, but root package.json has no jest dependency, so wiring this up is a real dependency addition, not pure CI wiring. Tracked in #1302, listed here explicitly as an honest gap rather than a false covered_elsewhere claim."
+    }
+  ]
+}

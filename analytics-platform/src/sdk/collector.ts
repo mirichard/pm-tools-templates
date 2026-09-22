@@ -17,7 +17,7 @@ export interface ConsentOptions {
 
 export interface AnalyticsEvent {
   type: string;
-  data: Record<string, any>;
+  data: Record<string, unknown>;
   timestamp: number;
   sessionId: string;
   userId?: string;
@@ -96,7 +96,7 @@ export class AnalyticsCollector {
   /**
    * Track a custom event
    */
-  track(eventType: string, data: Record<string, any> = {}): void {
+  track(eventType: string, data: Record<string, unknown> = {}): void {
     if (!this.hasConsent(eventType)) {
       return; // Respect user consent
     }
@@ -260,7 +260,7 @@ export class AnalyticsCollector {
     }
   }
 
-  private sanitizeData(data: Record<string, any>): Record<string, any> {
+  private sanitizeData(data: Record<string, unknown>): Record<string, unknown> {
     const sanitized = { ...data };
     
     // Remove potentially sensitive fields
@@ -364,7 +364,7 @@ export function getAnalytics(): AnalyticsCollector | null {
   return globalCollector;
 }
 
-export function trackEvent(eventType: string, data?: Record<string, any>): void {
+export function trackEvent(eventType: string, data?: Record<string, unknown>): void {
   globalCollector?.track(eventType, data);
 }
 

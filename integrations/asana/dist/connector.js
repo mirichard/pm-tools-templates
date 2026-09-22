@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AsanaConnector = void 0;
-const asana_1 = require("asana");
+const asana_client_1 = require("./asana-client");
 const events_1 = require("events");
 /**
  * Main Asana connector class for PM Tools Templates integration
@@ -11,18 +11,7 @@ class AsanaConnector extends events_1.EventEmitter {
         super();
         this.workspaceConfigs = new Map();
         this.config = config;
-        this.client = asana_1.Client.create({
-            defaultHeaders: {
-                'asana-enable': 'new_user_task_lists,new_project_templates'
-            }
-        }).useAccessToken(config.accessToken);
-        // Set up rate limiting and error handling
-        this.setupClientDefaults();
-    }
-    setupClientDefaults() {
-        // Configure default request options
-        this.client.dispatcher.options.retries = this.config.rateLimitRetries || 3;
-        this.client.dispatcher.options.timeout = this.config.requestTimeout || 30000;
+        this.client = (0, asana_client_1.createAsanaClient)(config);
     }
     /**
      * Configure workspace settings for template synchronization
@@ -144,7 +133,7 @@ class AsanaConnector extends events_1.EventEmitter {
         }
         // Check if field already exists
         const existingFields = await this.client.customFields.getCustomFieldsForWorkspace(workspaceId);
-        const existing = existingFields.data.find(f => f.name === mapping.asanaField);
+        const existing = existingFields.data.find((f) => f.name === mapping.asanaField);
         if (existing) {
             return existing;
         }
@@ -342,7 +331,7 @@ class AsanaConnector extends events_1.EventEmitter {
     async getWorkspaceTeams(workspaceId) {
         try {
             const teams = await this.client.teams.getTeamsForWorkspace(workspaceId);
-            return teams.data.map(team => ({
+            return teams.data.map((team) => ({
                 gid: team.gid,
                 name: team.name
             }));

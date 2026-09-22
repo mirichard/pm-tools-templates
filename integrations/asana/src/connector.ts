@@ -1,4 +1,4 @@
-import { Client } from 'asana';
+import { createAsanaClient } from './asana-client';
 import { EventEmitter } from 'events';
 
 // Type definitions for PM Templates integration
@@ -78,6 +78,7 @@ export interface AsanaTask {
   assignee?: { gid: string; name: string };
   completed: boolean;
   due_date?: string;
+  modified_at?: string;
   custom_fields: Record<string, any>;
   dependencies: AsanaTaskDependency[];
   subtasks: AsanaTask[];
@@ -124,7 +125,7 @@ export interface SyncResult {
 }
 
 export interface SyncError {
-  type: 'api_error' | 'mapping_error' | 'validation_error';
+  type: 'api_error' | 'mapping_error' | 'validation_error' | 'sync_error';
   message: string;
   taskId?: string;
   fieldName?: string;
@@ -167,27 +168,14 @@ export interface WorkspaceConfig {
  * Main Asana connector class for PM Tools Templates integration
  */
 export class AsanaConnector extends EventEmitter {
-  private client: Client;
+  private client: any;
   private config: AsanaConnectorConfig;
   private workspaceConfigs: Map<string, WorkspaceConfig> = new Map();
 
   constructor(config: AsanaConnectorConfig) {
     super();
     this.config = config;
-    this.client = Client.create({
-      defaultHeaders: {
-        'asana-enable': 'new_user_task_lists,new_project_templates'
-      }
-    }).useAccessToken(config.accessToken);
-    
-    // Set up rate limiting and error handling
-    this.setupClientDefaults();
-  }
-
-  private setupClientDefaults(): void {
-    // Configure default request options
-    this.client.dispatcher.options.retries = this.config.rateLimitRetries || 3;
-    this.client.dispatcher.options.timeout = this.config.requestTimeout || 30000;
+    this.client = createAsanaClient(config);
   }
 
   /**
@@ -352,7 +340,7 @@ export class AsanaConnector extends EventEmitter {
 
     // Check if field already exists
     const existingFields = await this.client.customFields.getCustomFieldsForWorkspace(workspaceId);
-    const existing = existingFields.data.find(f => f.name === mapping.asanaField);
+    const existing = existingFields.data.find((f: { name: string }) => f.name === mapping.asanaField);
     
     if (existing) {
       return existing as AsanaCustomField;
@@ -595,7 +583,7 @@ export class AsanaConnector extends EventEmitter {
   async getWorkspaceTeams(workspaceId: string): Promise<Array<{ gid: string; name: string }>> {
     try {
       const teams = await this.client.teams.getTeamsForWorkspace(workspaceId);
-      return teams.data.map(team => ({
+      return teams.data.map((team: { gid: string; name: string }) => ({
         gid: team.gid,
         name: team.name
       }));

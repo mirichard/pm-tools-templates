@@ -78,7 +78,11 @@ class AsanaSyncEngine extends events_1.EventEmitter {
                 const cronExpression = this.intervalToCron(options.syncInterval);
                 syncJob.cronJob = cron.schedule(cronExpression, async () => {
                     await this.executeSyncJob(jobId);
-                }, { scheduled: false });
+                });
+                // node-cron v4's schedule() starts the task immediately, unlike the
+                // v2/v3 `{ scheduled: false }` option this code was written against;
+                // stop it here so it stays idle until explicitly started below.
+                syncJob.cronJob.stop();
             }
             // Perform initial sync
             await this.initializeSyncState(templateId, asanaProjectId);
@@ -87,7 +91,9 @@ class AsanaSyncEngine extends events_1.EventEmitter {
             if (syncJob.cronJob) {
                 syncJob.cronJob.start();
                 syncJob.status = 'running';
-                syncJob.nextSync = syncJob.cronJob.getNextDates().next().value;
+                const nextRun = syncJob.cronJob.getNextRun();
+                if (nextRun)
+                    syncJob.nextSync = nextRun;
             }
             this.syncJobs.set(jobId, syncJob);
             this.emit('sync_job_started', {
@@ -183,9 +189,7 @@ class AsanaSyncEngine extends events_1.EventEmitter {
             result.success = false;
             result.errors.push({
                 type: 'api_error',
-                message: 'Sync execution failed',
-                taskId: undefined,
-                fieldName: undefined
+                message: 'Sync execution failed'
             });
             syncJob.stats.failedSyncs++;
             this.emit('sync_error', { jobId, error });

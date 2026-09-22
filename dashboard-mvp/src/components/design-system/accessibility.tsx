@@ -324,7 +324,7 @@ export function SkipNavigationLinks() {
 // Screen reader only content
 interface ScreenReaderOnlyProps {
   children: ReactNode;
-  as?: keyof JSX.IntrinsicElements;
+  as?: React.ElementType;
 }
 
 export function ScreenReaderOnly({ children, as: Component = 'span' }: ScreenReaderOnlyProps) {
