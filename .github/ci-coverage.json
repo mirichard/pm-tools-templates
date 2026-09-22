@@ -297,9 +297,9 @@
       "path": "Snowflake Demo/frontend",
       "checks": {
         "lint": { "command": null, "required": false, "status": "not_implemented" },
-        "build": { "command": "npm run build", "required": true, "note": "react-scripts was pinned to \"^0.0.0\" (a placeholder version that was never fixed), so it never actually installed - build failed with `react-scripts: not found`. Fixed to ^5.0.1 (latest/last CRA release, compatible with the app's react@18.3.1)." },
-        "test": { "command": "npm test", "required": true, "note": "Same root cause as build (react-scripts missing). The app already has 3 real test suites (13 tests) that all pass once react-scripts is actually installed." },
-        "audit": { "required": true, "note": "react-scripts@5.0.1's own build tooling (svgo, webpack-dev-server, postcss, etc., all build-time-only) carries 5 moderate + 14 high advisories that have never been resolved upstream (CRA is deprecated) - this is well-known, industry-wide CRA audit noise, not exploitable in the shipped production bundle. Moved react-scripts from dependencies to devDependencies (it's a build tool, not a runtime dependency of the shipped app - matches where @testing-library/* and react-test-renderer already were), which the audit's own --omit=dev correctly excludes: 0 vulnerabilities in the actual runtime dependency graph." }
+        "build": { "command": "npm run build", "required": true, "note": "Rsbuild production build; output remains in build/." },
+        "test": { "command": "npm test", "required": true, "note": "Jest component tests run independently of the build tool." },
+        "audit": { "required": true, "note": "Runtime dependency audit. npm run audit:all additionally checks development and build dependencies." }
       }
     },
     "demo-288": {

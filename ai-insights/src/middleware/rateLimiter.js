@@ -118,15 +118,15 @@ class RateLimiter {
 }
 
 // Create singleton instance
-const rateLimiter = new RateLimiter();
+const limiterInstance = new RateLimiter();
 
 /**
  * Default rate limiting middleware
  */
 export const defaultRateLimit = (req, res, next) => {
   try {
-    const limitInfo = rateLimiter.checkLimit(req, 'default');
-    rateLimiter.addHeaders(res, limitInfo);
+    const limitInfo = limiterInstance.checkLimit(req, 'default');
+    limiterInstance.addHeaders(res, limitInfo);
     next();
   } catch (error) {
     next(error);
@@ -138,8 +138,8 @@ export const defaultRateLimit = (req, res, next) => {
  */
 export const insightsRateLimit = (req, res, next) => {
   try {
-    const limitInfo = rateLimiter.checkLimit(req, 'insights');
-    rateLimiter.addHeaders(res, limitInfo);
+    const limitInfo = limiterInstance.checkLimit(req, 'insights');
+    limiterInstance.addHeaders(res, limitInfo);
     next();
   } catch (error) {
     next(error);
@@ -151,8 +151,8 @@ export const insightsRateLimit = (req, res, next) => {
  */
 export const batchRateLimit = (req, res, next) => {
   try {
-    const limitInfo = rateLimiter.checkLimit(req, 'batch');
-    rateLimiter.addHeaders(res, limitInfo);
+    const limitInfo = limiterInstance.checkLimit(req, 'batch');
+    limiterInstance.addHeaders(res, limitInfo);
     next();
   } catch (error) {
     next(error);
@@ -165,8 +165,8 @@ export const batchRateLimit = (req, res, next) => {
 export const createRateLimit = (limitType) => {
   return (req, res, next) => {
     try {
-      const limitInfo = rateLimiter.checkLimit(req, limitType);
-      rateLimiter.addHeaders(res, limitInfo);
+      const limitInfo = limiterInstance.checkLimit(req, limitType);
+      limiterInstance.addHeaders(res, limitInfo);
       next();
     } catch (error) {
       next(error);
@@ -185,15 +185,15 @@ export const rateLimiter = process.env.NODE_ENV === 'development'
  * Get rate limiter stats (for monitoring)
  */
 export const getRateLimiterStats = () => {
-  return rateLimiter.getStats();
+  return limiterInstance.getStats();
 };
 
 /**
  * Reset rate limits for emergency situations
  */
 export const resetRateLimit = (req, limitType) => {
-  rateLimiter.reset(req, limitType);
+  limiterInstance.reset(req, limitType);
 };
 
-export { rateLimiter as rateLimiterInstance };
+export { limiterInstance as rateLimiterInstance };
 
