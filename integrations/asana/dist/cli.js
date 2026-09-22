@@ -13,7 +13,7 @@ const dotenv_1 = __importDefault(require("dotenv"));
 const connector_1 = require("./connector");
 const sync_engine_1 = require("./sync-engine");
 const webhook_server_1 = require("./webhook-server");
-const asana_1 = require("asana");
+const asana_client_1 = require("./asana-client");
 // Load environment variables
 dotenv_1.default.config();
 const program = new commander_1.Command();
@@ -69,7 +69,7 @@ class AsanaCLI {
     }
     async initializeSyncEngine() {
         if (!this.syncEngine) {
-            const client = asana_1.Client.create().useAccessToken(this.config.asanaAccessToken);
+            const client = (0, asana_client_1.createAsanaClient)({ accessToken: this.config.asanaAccessToken });
             this.syncEngine = new sync_engine_1.AsanaSyncEngine(client, this.config.webhookSecret || 'default-secret');
         }
         return this.syncEngine;
@@ -119,7 +119,7 @@ class AsanaCLI {
     async listWorkspaces() {
         try {
             await this.initializeConnector();
-            const client = asana_1.Client.create().useAccessToken(this.config.asanaAccessToken);
+            const client = (0, asana_client_1.createAsanaClient)({ accessToken: this.config.asanaAccessToken });
             console.log(chalk_1.default.blue('📋 Available Workspaces:'));
             const workspaces = await client.workspaces.getWorkspaces();
             workspaces.data.forEach((workspace, index) => {

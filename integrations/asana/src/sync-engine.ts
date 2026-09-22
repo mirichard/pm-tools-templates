@@ -1,5 +1,5 @@
 import { EventEmitter } from 'events';
-import { Client } from 'asana';
+
 import * as cron from 'node-cron';
 import { createHash } from 'crypto';
 import { 

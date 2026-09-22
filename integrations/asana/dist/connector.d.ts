@@ -169,7 +169,6 @@ export declare class AsanaConnector extends EventEmitter {
     private config;
     private workspaceConfigs;
     constructor(config: AsanaConnectorConfig);
-    private setupClientDefaults;
     /**
      * Configure workspace settings for template synchronization
      */

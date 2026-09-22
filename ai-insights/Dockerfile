@@ -22,9 +22,10 @@ RUN apk add --no-cache \
 # Copy package files
 COPY package*.json ./
 
-# Install dependencies
-RUN npm ci --only=production && \
-    npm cache clean --force
+# Install dependencies, then remove the build-time npm toolchain from the runtime image.
+RUN npm ci --omit=dev && \
+    npm cache clean --force && \
+    rm -rf /usr/local/lib/node_modules/npm /usr/local/bin/npm /usr/local/bin/npx
 
 # Copy application code
 COPY . .
@@ -53,7 +54,7 @@ EXPOSE 3001
 ENTRYPOINT ["dumb-init", "--"]
 
 # Start the application
-CMD ["npm", "start"]
+CMD ["node", "src/index.js"]
 
 # Build information
 LABEL version="1.0.0" \

@@ -1,4 +1,4 @@
-import { Client } from 'asana';
+import { createAsanaClient } from './asana-client';
 import { EventEmitter } from 'events';
 
 // Type definitions for PM Templates integration
@@ -175,20 +175,7 @@ export class AsanaConnector extends EventEmitter {
   constructor(config: AsanaConnectorConfig) {
     super();
     this.config = config;
-    this.client = Client.create({
-      defaultHeaders: {
-        'asana-enable': 'new_user_task_lists,new_project_templates'
-      }
-    }).useAccessToken(config.accessToken);
-    
-    // Set up rate limiting and error handling
-    this.setupClientDefaults();
-  }
-
-  private setupClientDefaults(): void {
-    // Configure default request options
-    this.client.dispatcher.options.retries = this.config.rateLimitRetries || 3;
-    this.client.dispatcher.options.timeout = this.config.requestTimeout || 30000;
+    this.client = createAsanaClient(config);
   }
 
   /**

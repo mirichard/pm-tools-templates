@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AsanaConnector = void 0;
-const asana_1 = require("asana");
+const asana_client_1 = require("./asana-client");
 const events_1 = require("events");
 /**
  * Main Asana connector class for PM Tools Templates integration
@@ -11,18 +11,7 @@ class AsanaConnector extends events_1.EventEmitter {
         super();
         this.workspaceConfigs = new Map();
         this.config = config;
-        this.client = asana_1.Client.create({
-            defaultHeaders: {
-                'asana-enable': 'new_user_task_lists,new_project_templates'
-            }
-        }).useAccessToken(config.accessToken);
-        // Set up rate limiting and error handling
-        this.setupClientDefaults();
-    }
-    setupClientDefaults() {
-        // Configure default request options
-        this.client.dispatcher.options.retries = this.config.rateLimitRetries || 3;
-        this.client.dispatcher.options.timeout = this.config.requestTimeout || 30000;
+        this.client = (0, asana_client_1.createAsanaClient)(config);
     }
     /**
      * Configure workspace settings for template synchronization

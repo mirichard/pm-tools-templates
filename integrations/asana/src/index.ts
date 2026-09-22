@@ -215,8 +215,8 @@ export async function quickSetup(options: {
   });
   
   // Initialize sync engine
-  const { Client } = await import('asana');
-  const client = Client.create().useAccessToken(accessToken);
+  const { createAsanaClient } = await import('./asana-client');
+  const client = createAsanaClient({ accessToken });
   const syncEngine = new AsanaSyncEngine(client, webhookSecret || 'default-secret');
   
   let webhookServer: AsanaWebhookServer | undefined;

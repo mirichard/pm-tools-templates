@@ -9,7 +9,7 @@ import dotenv from 'dotenv';
 import { AsanaConnector, PMTemplate } from './connector';
 import { AsanaSyncEngine } from './sync-engine';
 import { AsanaWebhookServer } from './webhook-server';
-import { Client } from 'asana';
+import { createAsanaClient } from './asana-client';
 
 // Load environment variables
 dotenv.config();
@@ -82,7 +82,7 @@ class AsanaCLI {
 
   private async initializeSyncEngine(): Promise<AsanaSyncEngine> {
     if (!this.syncEngine) {
-      const client = Client.create().useAccessToken(this.config.asanaAccessToken!);
+      const client = createAsanaClient({ accessToken: this.config.asanaAccessToken! });
       this.syncEngine = new AsanaSyncEngine(client, this.config.webhookSecret || 'default-secret');
     }
 
@@ -137,7 +137,7 @@ class AsanaCLI {
   async listWorkspaces(): Promise<void> {
     try {
       await this.initializeConnector();
-      const client = Client.create().useAccessToken(this.config.asanaAccessToken!);
+      const client = createAsanaClient({ accessToken: this.config.asanaAccessToken! });
       
       console.log(chalk.blue('📋 Available Workspaces:'));
       

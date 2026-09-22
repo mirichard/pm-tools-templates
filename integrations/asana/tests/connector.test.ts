@@ -1,8 +1,8 @@
 import { AsanaConnector, PMTemplate, AsanaConnectorConfig, WorkspaceConfig } from '../src/connector';
-import { Client } from 'asana';
+import { createAsanaClient } from '../src/asana-client';
 
 // Mock the Asana client
-jest.mock('asana');
+jest.mock('../src/asana-client');
 
 describe('AsanaConnector', () => {
   let connector: AsanaConnector;
@@ -73,30 +73,26 @@ describe('AsanaConnector', () => {
 
     // Create mock client with all required methods
     mockClient = {
-      useAccessToken: jest.fn().mockReturnThis(),
-      dispatcher: {
-        options: {}
-      },
       workspaces: {
-        findById: jest.fn()
+        getWorkspace: jest.fn()
       },
       projects: {
-        create: jest.fn(),
+        createProject: jest.fn(),
         addCustomFieldSettingForProject: jest.fn()
       },
       customFields: {
-        findById: jest.fn(),
+        getCustomField: jest.fn(),
         getCustomFieldsForWorkspace: jest.fn(),
-        create: jest.fn()
+        createCustomField: jest.fn()
       },
       tasks: {
-        create: jest.fn(),
+        createTask: jest.fn(),
         addDependenciesForTask: jest.fn()
       }
     };
 
-    // Mock the Client.create method
-    (Client.create as jest.Mock).mockReturnValue(mockClient);
+    // Mock the createAsanaClient method
+    (createAsanaClient as jest.Mock).mockReturnValue(mockClient);
 
     connector = new AsanaConnector(config);
   });
@@ -107,14 +103,7 @@ describe('AsanaConnector', () => {
 
   describe('constructor', () => {
     it('should initialize with correct configuration', () => {
-      expect(Client.create).toHaveBeenCalledWith({
-        defaultHeaders: {
-          'asana-enable': 'new_user_task_lists,new_project_templates'
-        }
-      });
-      expect(mockClient.useAccessToken).toHaveBeenCalledWith('test-access-token');
-      expect(mockClient.dispatcher.options.retries).toBe(3);
-      expect(mockClient.dispatcher.options.timeout).toBe(30000);
+      expect(createAsanaClient).toHaveBeenCalledWith(config);
     });
   });
 
@@ -123,7 +112,7 @@ describe('AsanaConnector', () => {
       const workspaceId = 'test-workspace-id';
       const mockWorkspace = { gid: workspaceId, name: 'Test Workspace' };
       
-      mockClient.workspaces.findById.mockResolvedValue(mockWorkspace);
+      mockClient.workspaces.getWorkspace.mockResolvedValue(mockWorkspace);
 
       const workspaceConfig: Partial<WorkspaceConfig> = {
         teamMappings: { 'developer': 'team-123' },
@@ -135,7 +124,7 @@ describe('AsanaConnector', () => {
 
       await connector.configureWorkspace(workspaceId, workspaceConfig);
 
-      expect(mockClient.workspaces.findById).toHaveBeenCalledWith(workspaceId);
+      expect(mockClient.workspaces.getWorkspace).toHaveBeenCalledWith(workspaceId);
       expect(eventSpy).toHaveBeenCalledWith({
         workspaceId,
         workspace: 'Test Workspace'
@@ -146,7 +135,7 @@ describe('AsanaConnector', () => {
       const workspaceId = 'invalid-workspace';
       const error = new Error('Workspace not found');
       
-      mockClient.workspaces.findById.mockRejectedValue(error);
+      mockClient.workspaces.getWorkspace.mockRejectedValue(error);
 
       const errorSpy = jest.fn();
       connector.on('error', errorSpy);
@@ -166,7 +155,7 @@ describe('AsanaConnector', () => {
     beforeEach(async () => {
       // Set up workspace configuration
       const mockWorkspace = { gid: 'test-workspace-id', name: 'Test Workspace' };
-      mockClient.workspaces.findById.mockResolvedValue(mockWorkspace);
+      mockClient.workspaces.getWorkspace.mockResolvedValue(mockWorkspace);
       
       await connector.configureWorkspace('test-workspace-id', {
         teamMappings: { 'developer': 'team-123' },
@@ -197,11 +186,11 @@ describe('AsanaConnector', () => {
       const mockTask1 = { gid: 'task-123', name: 'Initial Setup' };
       const mockTask2 = { gid: 'task-456', name: 'Development' };
 
-      mockClient.projects.create.mockResolvedValue(mockProject);
+      mockClient.projects.createProject.mockResolvedValue(mockProject);
       mockClient.customFields.getCustomFieldsForWorkspace.mockResolvedValue({
         data: [mockCustomField]
       });
-      mockClient.tasks.create
+      mockClient.tasks.createTask
         .mockResolvedValueOnce(mockTask1)
         .mockResolvedValueOnce(mockTask2);
 
@@ -221,7 +210,7 @@ describe('AsanaConnector', () => {
       );
 
       expect(result).toEqual(mockProject);
-      expect(mockClient.projects.create).toHaveBeenCalledWith(
+      expect(mockClient.projects.createProject).toHaveBeenCalledWith(
         expect.objectContaining({
           name: 'My New Project',
           notes: 'A test project',
@@ -239,6 +228,7 @@ describe('AsanaConnector', () => {
 
     it('should handle missing workspace configuration', async () => {
       const unconfiguredConnector = new AsanaConnector(config);
+      unconfiguredConnector.on('error', jest.fn());
 
       await expect(unconfiguredConnector.createProjectFromTemplate(
         mockTemplate,
@@ -251,7 +241,7 @@ describe('AsanaConnector', () => {
 
     it('should handle project creation errors', async () => {
       const error = new Error('API Error');
-      mockClient.projects.create.mockRejectedValue(error);
+      mockClient.projects.createProject.mockRejectedValue(error);
 
       const errorSpy = jest.fn();
       connector.on('error', errorSpy);
@@ -278,7 +268,7 @@ describe('AsanaConnector', () => {
       const workspaceId = 'test-workspace-id';
       const mockWorkspace = { gid: workspaceId, name: 'Test Workspace' };
       
-      mockClient.workspaces.findById.mockResolvedValue(mockWorkspace);
+      mockClient.workspaces.getWorkspace.mockResolvedValue(mockWorkspace);
 
       const events: any[] = [];
       connector.on('workspace_configured', (data) => events.push({ type: 'workspace_configured', data }));
@@ -296,17 +286,11 @@ describe('AsanaConnector', () => {
   });
 
   describe('error handling', () => {
-    it('should handle rate limiting gracefully', () => {
-      // Test that the connector is configured with proper retry settings
-      expect(mockClient.dispatcher.options.retries).toBe(3);
-      expect(mockClient.dispatcher.options.timeout).toBe(30000);
-    });
-
     it('should handle invalid access token', async () => {
       const invalidConfig = { ...config, accessToken: 'invalid-token' };
       const invalidConnector = new AsanaConnector(invalidConfig);
 
-      expect(mockClient.useAccessToken).toHaveBeenCalledWith('invalid-token');
+      expect(createAsanaClient).toHaveBeenCalledWith(invalidConfig);
     });
   });
 });

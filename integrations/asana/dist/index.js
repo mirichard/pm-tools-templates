@@ -197,8 +197,8 @@ async function quickSetup(options) {
         }
     });
     // Initialize sync engine
-    const { Client } = await Promise.resolve().then(() => __importStar(require('asana')));
-    const client = Client.create().useAccessToken(accessToken);
+    const { createAsanaClient } = await Promise.resolve().then(() => __importStar(require('./asana-client')));
+    const client = createAsanaClient({ accessToken });
     const syncEngine = new sync_engine_1.AsanaSyncEngine(client, webhookSecret || 'default-secret');
     let webhookServer;
     // Initialize webhook server if secret provided
