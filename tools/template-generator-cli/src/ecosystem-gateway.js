@@ -65,22 +65,7 @@ class EcosystemGateway {
   }
 
   async checkAIInsightsAvailable() {
-    try {
-      const aiInsightsPath = this.ecosystemConnections.aiInsights;
-      const exists = await fs.pathExists(aiInsightsPath);
-      if (exists) {
-        // Check for AI components
-        const components = await fs.readdir(aiInsightsPath);
-        return {
-          available: true,
-          components: components.filter(c => c.endsWith('.js') || c.endsWith('.py')),
-          features: ['project-health-monitoring', 'predictive-analytics', 'risk-intelligence']
-        };
-      }
-      return { available: false, reason: 'AI insights system not found' };
-    } catch (error) {
-      return { available: false, reason: error.message };
-    }
+    return { available: false, reason: 'AI insights withdrawn pending validation' };
   }
 
   async checkBusinessSuiteAvailable() {
@@ -244,36 +229,23 @@ class AIInsightsConnector {
   constructor(rootPath) {
     this.aiInsightsPath = path.join(rootPath, 'ai-insights');
     this.aiServiceUrl = process.env.AI_SERVICE_URL || 'http://localhost:3001';
-    this.mockAIMode = !this.checkAIServiceAvailable();
+    this.mockAIMode = false;
   }
 
   async checkAIServiceAvailable() {
-    try {
-      const axios = require('axios');
-      await axios.get(`${this.aiServiceUrl}/api/ai/health`, { timeout: 1000 });
-      return true;
-    } catch (error) {
-      return false;
-    }
+    return false;
   }
 
   async getProjectIntelligence(assessment) {
-    console.log(chalk.dim('🧠 Analyzing project with AI insights...'));
-    
-    // Try real AI service first
-    const aiAvailable = await this.checkAIServiceAvailable();
-    
-    if (aiAvailable) {
-      try {
-        return await this.connectToRealAISystem(assessment);
-      } catch (error) {
-        console.log(chalk.yellow('AI service unavailable, falling back to local insights'));
-        return this.generateMockAIInsights(assessment);
-      }
-    }
-    
-    // Fallback to mock insights
-    return this.generateMockAIInsights(assessment);
+    return {
+      available: false,
+      reason: 'AI insights withdrawn pending validation',
+      aiConfidence: null,
+      riskPredictions: [],
+      resourceOptimization: null,
+      scheduleForecasting: null,
+      successFactors: [],
+    };
   }
 
   async connectToRealAISystem(assessment) {
