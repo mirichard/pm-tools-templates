@@ -26,6 +26,8 @@ jobs:
       - run: npm run validate:migration-post-check
       - run: npm run validate:domain-navigation
       - run: npm run test:ci-helpers
+      - name: Validate issue classification
+        run: node --test tests/issue-types.test.cjs tests/template-analytics.test.cjs
       - name: Validate release version consistency
         run: |
           python3 scripts/release_management.py

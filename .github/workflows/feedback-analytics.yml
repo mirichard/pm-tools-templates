@@ -276,7 +276,7 @@ jobs:
                     repo: context.repo.repo,
                     title: '📊 Community Feedback Analytics Tracking',
                     body: 'This issue tracks community feedback analytics and trends.\n\nWeekly analytics reports will be posted here automatically.',
-                    labels: ['analytics', 'community-feedback', 'documentation']
+                    labels: ['type:operational', 'analytics', 'community-feedback', 'documentation']
                   });
                 });
                 issueNumber = newIssue.data.number;

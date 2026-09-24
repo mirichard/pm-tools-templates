@@ -1,7 +1,7 @@
 name: 🚀 Feature Enhancement Request
 description: Request a new feature or enhancement to existing functionality
 title: "[FEATURE] "
-labels: ["enhancement", "needs-triage"]
+labels: ["type:candidate", "enhancement", "needs-triage"]
 body:
   - type: markdown
     attributes:

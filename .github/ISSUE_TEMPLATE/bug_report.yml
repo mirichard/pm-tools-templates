@@ -1,7 +1,7 @@
 name: Bug Report
 description: File a bug report to help us improve
-title: "[Bug]: "
-labels: ["bug", "needs-triage"]
+title: "Bug: "
+labels: ["type:bug", "bug", "needs-triage"]
 assignees:
   - mirichard
 

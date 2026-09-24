@@ -2,7 +2,7 @@
 name: Feature Request
 about: Suggest a new template or enhancement
 title: '[FEATURE] '
-labels: ['enhancement', 'needs-triage']
+labels: ["type:candidate", 'enhancement', 'needs-triage']
 assignees: ''
 
 ---

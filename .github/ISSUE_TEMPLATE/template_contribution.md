@@ -2,7 +2,7 @@
 name: Template Contribution
 about: Contribute a new template to the library
 title: '[TEMPLATE] '
-labels: ['contribution', 'template', 'needs-review']
+labels: ["type:candidate", 'contribution', 'template', 'needs-review']
 assignees: ''
 
 ---

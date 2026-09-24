@@ -197,7 +197,7 @@ jobs:
               repo: context.repo.repo,
               title: `📋 Weekly Triage Preparation - ${date}`,
               body: body,
-              labels: ['triage-preparation', 'process', 'weekly-automation']
+              labels: ['type:operational', 'triage-preparation', 'process', 'weekly-automation']
             });
 
       - name: Send notification to team

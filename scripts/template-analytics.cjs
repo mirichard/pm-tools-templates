@@ -94,7 +94,7 @@ async function upsertReport(github, repo, {label, marker, title, body, legacyTit
   // Reuse one legacy report deterministically without overwriting human issues.
   const existing = marked[0] || owned.filter(issue => (issue.title || '').startsWith(legacyTitle)).sort((a, b) => b.number - a.number)[0];
   if (existing) return github.rest.issues.update({...repo, issue_number: existing.number, title, body});
-  return github.rest.issues.create({...repo, title, body, labels: [label]});
+  return github.rest.issues.create({...repo, title, body, labels: [label, 'type:operational']});
 }
 
 async function reports({github, context, publish = false, now = new Date(), directory = 'analytics-reports'}) {

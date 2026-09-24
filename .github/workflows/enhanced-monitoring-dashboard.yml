@@ -494,7 +494,7 @@ jobs:
           
           gh issue create \
             --title "🚨 Workflow Health Alert: $HEALTH_STATUS (Score: $HEALTH_SCORE/100)" \
-            --label "critical,monitoring,workflow-health" \
+            --label "type:operational,critical,monitoring,workflow-health" \
             --body "## 🏥 Workflow Health Alert
           
           **Alert Level:** $HEALTH_STATUS
