@@ -45,8 +45,16 @@ class GitHub:
         command = ['gh', 'api', '--method', method, f'{self.prefix}/{path}']
         if payload is not None:
             command += ['--input', '-']
-        result = subprocess.run(command, input=json.dumps(payload) if payload is not None else None,
-                                text=True, capture_output=True, check=True)
+        try:
+            result = subprocess.run(command, input=json.dumps(payload) if payload is not None else None,
+                                    text=True, capture_output=True, check=True)
+        except subprocess.CalledProcessError as error:
+            detail = (error.stderr or '').strip() or f'gh exited with status {error.returncode}'
+            for key in ('GH_TOKEN', 'GITHUB_TOKEN'):
+                token = os.environ.get(key)
+                if token:
+                    detail = detail.replace(token, '[REDACTED]')
+            raise ValueError(f'GitHub {method} {path} failed: {detail}') from error
         return json.loads(result.stdout) if result.stdout.strip() else None
 
 

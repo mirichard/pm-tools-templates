@@ -50,4 +50,20 @@ Local validation: `python3 scripts/release_management.py`. With authenticated Gi
 
 Rollback: revert the automation change to stop subsequent updates. Do not move or delete published tags. Correct metadata through a reviewed manifest change and rerun the workflow. Existing release bodies are preserved except for the version heading and identity note; the generated draft body is regenerated on each run, so finalize editorial changes immediately before publication.
 
+### Recovery when the historical alias cannot be created
+
+The first post-merge run failed at `POST git/refs`, before changing the published release or draft. The original error handler omitted GitHub's response; the specific API rejection was not captured. Subsequent runs report the HTTP diagnostic with token redaction.
+
+GitHub can require workflow-write authorization when a new tag points to a historical commit whose workflow files differ from the default branch. See [GitHub's release API permission guidance](https://docs.github.com/en/rest/releases/releases). Do not move the tag to a newer commit or broaden routine automation permissions to avoid that restriction.
+
+If the diagnostic confirms that restriction, an authorized maintainer can create the one-time alias using an authenticated GitHub CLI session with the necessary repository/workflow permissions:
+
+```bash
+gh api --method POST repos/mirichard/pm-tools-templates/git/refs \
+  -f ref=refs/tags/v2.3.0 \
+  -f sha=febdf847cd8842fd3929973360b14d27b4513b81
+```
+
+Then rerun **Update Release Draft**. It validates the existing alias and completes the title/draft corrections. A conflicting existing tag must be investigated, never force-updated. This historical recovery command is specific to vNext; future versions remain governed by the manifest.
+
 For accepted vNext scope and limitations, see the [closeout record](vnext/release-closeout.md) and [final acceptance evidence](https://github.com/mirichard/pm-tools-templates/issues/1266#issuecomment-5755321786).
