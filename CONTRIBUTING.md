@@ -43,6 +43,14 @@ We organize content around **how PMs actually work**:
 - **Methodology-Agnostic**: Core templates work across Agile, Waterfall, and Hybrid
 - **Immediately Useful**: No extensive setup or learning curve required
 
+## Issue classification
+
+Use the [issue chooser](https://github.com/mirichard/pm-tools-templates/issues/new/choose).
+Every open issue needs exactly one approved `type:*` label. New proposals start
+as candidates; selecting a type does not schedule work. Resolve `needs-type`
+before delivery planning. See the [issue management policy](docs/issues-management.md)
+for definitions, CLI creation, title conventions and parent verification.
+
 ## 📝 Template Contribution Guidelines
 
 ### Template Quality Standards

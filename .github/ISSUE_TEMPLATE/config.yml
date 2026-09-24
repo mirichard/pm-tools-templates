@@ -1,4 +1,4 @@
-blank_issues_enabled: true
+blank_issues_enabled: false
 contact_links:
   - name: 💬 Main Community Feedback Hub
     url: https://github.com/mirichard/pm-tools-templates/issues/198

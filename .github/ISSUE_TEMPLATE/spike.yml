@@ -1,0 +1,37 @@
+name: Spike
+description: Investigate a question within an explicit timebox.
+title: 'Spike: '
+labels:
+- type:spike
+- spike
+- needs-triage
+body:
+- type: markdown
+  attributes:
+    value: Search existing issues first. Classification does not schedule work. A
+      parent URL records intent; maintainers must establish and verify the native
+      sub-issue relationship.
+- type: textarea
+  id: question
+  attributes:
+    label: Decision or question
+  validations:
+    required: true
+- type: textarea
+  id: timebox
+  attributes:
+    label: Timebox and stopping condition
+  validations:
+    required: true
+- type: textarea
+  id: acceptance
+  attributes:
+    label: Required evidence and decision output
+  validations:
+    required: true
+- type: textarea
+  id: parent
+  attributes:
+    label: Parent issue URL, or standalone rationale
+  validations:
+    required: true

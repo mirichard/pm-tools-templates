@@ -180,7 +180,7 @@ jobs:
                   repo,
                   title: `📦 Epic Breakdown Required: #${epic.number} - ${epic.title}`,
                   body: breakdownBody,
-                  labels: ['epic-breakdown-required', 'high-priority', 'process', 'automation'],
+                  labels: ['type:operational', 'epic-breakdown-required', 'high-priority', 'process', 'automation'],
                   assignees: [] // Add product owner username if known
                 });
                 

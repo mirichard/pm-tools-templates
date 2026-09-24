@@ -1,0 +1,31 @@
+name: Task
+description: Describe a concrete implementation or maintenance activity.
+title: 'Task: '
+labels:
+- type:task
+- task
+- needs-triage
+body:
+- type: markdown
+  attributes:
+    value: Search existing issues first. Classification does not schedule work. A
+      parent URL records intent; maintainers must establish and verify the native
+      sub-issue relationship.
+- type: textarea
+  id: scope
+  attributes:
+    label: Work and scope
+  validations:
+    required: true
+- type: textarea
+  id: acceptance
+  attributes:
+    label: Completion evidence
+  validations:
+    required: true
+- type: textarea
+  id: parent
+  attributes:
+    label: Parent issue URL, or standalone rationale
+  validations:
+    required: true

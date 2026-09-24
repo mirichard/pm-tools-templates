@@ -748,7 +748,7 @@ jobs:
         run: |
           gh issue create \
             --title "🚨 Critical SAST Security Findings Detected" \
-            --label "security,critical,sast" \
+            --label "type:operational,security,critical,sast" \
             --body "## 🔍 SAST Security Alert
           
           **Detection Date:** $(date)

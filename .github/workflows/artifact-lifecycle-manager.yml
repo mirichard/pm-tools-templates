@@ -1161,7 +1161,7 @@ jobs:
           gh issue create \
             --title "$ISSUE_TITLE" \
             --body "$ISSUE_BODY" \
-            --label "artifact-lifecycle,storage,alert"
+            --label "type:operational,artifact-lifecycle,storage,alert"
 
       - name: 📤 Upload Lifecycle Summary
         uses: actions/upload-artifact@v7

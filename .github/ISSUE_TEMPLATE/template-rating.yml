@@ -1,7 +1,7 @@
 name: ⭐ Template Rating & Review
 description: Rate a template and provide feedback to help other users
 title: "[RATING] Template: "
-labels: ["template-rating", "community-feedback"]
+labels: ["type:operational", "template-rating", "community-feedback"]
 body:
   - type: markdown
     attributes:

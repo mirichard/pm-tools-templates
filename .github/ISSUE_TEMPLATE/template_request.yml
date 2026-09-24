@@ -1,6 +1,6 @@
 name: 📝 Template Request
 description: Request a new template or improvement to existing template
-labels: ["enhancement", "template-request"]
+labels: ["type:candidate", "enhancement", "template-request"]
 body:
   - type: markdown
     attributes:

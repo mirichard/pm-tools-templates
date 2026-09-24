@@ -1,8 +1,8 @@
 ---
 name: Bug Report
 about: Report a problem with templates or documentation
-title: '[BUG] '
-labels: ['bug', 'needs-triage']
+title: "Bug: "
+labels: ["type:bug", 'bug', 'needs-triage']
 assignees: ''
 
 ---

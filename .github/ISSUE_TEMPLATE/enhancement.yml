@@ -1,7 +1,7 @@
 name: Enhancement Request
 description: Suggest an improvement to existing templates
 title: "[Enhancement]: "
-labels: ["enhancement", "needs-review"]
+labels: ["type:candidate", "enhancement", "needs-review"]
 assignees:
   - mirichard
 

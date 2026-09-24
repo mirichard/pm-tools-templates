@@ -1,7 +1,7 @@
 name: 🔧 Template Improvement Suggestion
 description: Suggest specific improvements to existing templates
 title: "[IMPROVEMENT] Template: "
-labels: ["enhancement", "template-improvement", "community-feedback"]
+labels: ["type:candidate", "enhancement", "template-improvement", "community-feedback"]
 body:
   - type: markdown
     attributes:

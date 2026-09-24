@@ -1,0 +1,41 @@
+name: Issue type validation
+
+on:
+  issues:
+    types: [opened, reopened, labeled, unlabeled]
+  schedule:
+    - cron: '23 7 * * *'
+  workflow_dispatch:
+    inputs:
+      preview:
+        description: Report classification gaps without changing issues
+        type: boolean
+        default: true
+
+permissions:
+  contents: read
+
+# Serialize writes, including the daily sweep. Superseded pending events are
+# covered by subsequent events or the sweep, which always reads current state.
+concurrency:
+  group: issue-type-validation
+  cancel-in-progress: false
+
+jobs:
+  classify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: read
+      issues: write
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          ref: ${{ github.event.repository.default_branch }}
+          persist-credentials: false
+      - uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9
+        with:
+          script: |
+            const preview = context.eventName === 'workflow_dispatch' &&
+              context.payload.inputs?.preview !== 'false';
+            await require('./scripts/issue-types.cjs').run({github, context, core, preview});

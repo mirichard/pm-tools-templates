@@ -1,5 +1,103 @@
 # Issues Management Guide
 
+## Current classification policy
+
+Every open issue must have exactly one approved `type:*` label. The definitions
+live in [issue-types.json](../.github/issue-types.json). Other labels describe
+priority, status, topic or compatibility; they do not replace the type.
+
+| Label | Purpose | Title convention |
+| --- | --- | --- |
+| `type:epic` | Coordinated outcome delivered through related work | `EPIC:` |
+| `type:story` | Bounded user outcome with acceptance criteria | `Story:` |
+| `type:task` | Concrete implementation or maintenance activity | `Task:` |
+| `type:bug` | Defect in existing behavior | `Bug:` |
+| `type:spike` | Timeboxed investigation supporting a decision | `Spike:` |
+| `type:candidate` | Uncommitted proposal requiring evaluation | Existing proposal prefixes are supported |
+| `type:operational` | Ongoing report, monitoring alert or administrative record | Preserve titles used by automation |
+
+Use the [issue chooser](https://github.com/mirichard/pm-tools-templates/issues/new/choose).
+Bug forms assign `type:bug`; proposals, enhancement requests and contributions
+start as `type:candidate`; template ratings are operational feedback records.
+Epic, Story, Task and Spike forms support planned work. A new candidate does not
+become a delivery commitment merely because it has a type.
+
+Templates retain legacy and topical labels consumed by existing workflows.
+Maintainers should keep title prefixes consistent when reclassifying work, but
+the validator uses labels as its authority and does not rename issues.
+
+## Validation and triage
+
+The Issue type validation workflow checks opened, reopened, labeled and unlabeled
+issues. A daily paginated sweep covers missed events and issues created with
+`GITHUB_TOKEN`, which do not trigger a second issue workflow. Known automated
+creators supply `type:operational` directly. Confirmed remediation work can be
+filed separately as a Bug or Task and linked to the originating report.
+
+Missing, multiple or unrecognized type labels receive `needs-type` and a single
+bot comment. Correct the labels to resolve the flag; the same comment is updated.
+The validator never selects a type from free text, replaces a parent, closes an
+issue, assigns a priority, or changes a project status. A successful workflow run
+means validation executed; consult its summary and the `needs-type` queue for
+outstanding gaps. API failures fail the run.
+
+```bash
+# Review issues requiring classification
+gh issue list --repo mirichard/pm-tools-templates --label needs-type
+
+# Create an issue through the CLI with an explicit type
+gh issue create --repo mirichard/pm-tools-templates \
+  --title 'Task: Describe the work' --label type:task --body-file issue.md
+```
+
+Changing types requires removing the old `type:*` label and adding the new one.
+Unknown or conflicting types require maintainer judgment; the bot does not guess.
+Blank intake is disabled for general contributors, but maintainers and API clients
+can bypass forms. This is validation after creation, not a server-side creation
+restriction.
+
+Before selecting an issue for delivery, maintainers verify its type, scope,
+acceptance criteria and dependencies. Establish and verify a native parent
+relationship where appropriate, or document why the issue is standalone.
+A parent URL in a form does not create a native relationship. Classification and
+parentage do not set priority or schedule work. Readiness is a **manual review
+requirement**; this workflow does not enforce GitHub Project status transitions.
+
+## Maintenance and rollout
+
+Run `node --test tests/issue-types.test.cjs tests/template-analytics.test.cjs`.
+CI checks the validator behavior, intake type coverage and the known automated
+creator syntax. Extend those checks when introducing a new creation mechanism;
+static checks are not a universal parser of arbitrary API clients.
+
+After merging to the default branch, run **Issue type validation** manually with
+`preview: true` to inspect the full backlog, then `preview: false` to reconcile it.
+Event and scheduled runs reconcile automatically once merged. Reconciliation
+creates missing approved labels and `needs-type`, without overwriting existing
+label descriptions or colors. Template labels must already exist to be applied
+at issue creation. The approved type labels were established during backlog
+cleanup; bootstrap also supports recovery if any are removed.
+
+Workflow changes are tested on pull requests without issue-write permissions.
+The mutation workflow checks out only the default branch, accepts issue content
+as data, and serializes its own runs. GitHub may replace pending concurrency runs;
+the daily sweep provides eventual reconciliation. Concurrent manual edits can
+also require a subsequent event or sweep.
+
+References: [issue form syntax](https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-issue-forms),
+[template configuration](https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests/configuring-issue-templates-for-your-repository),
+and [workflow triggering](https://docs.github.com/en/actions/how-tos/write-workflows/choose-when-workflows-run/trigger-a-workflow).
+
+## Historical issue inventory — June 17, 2025
+
+The material below is an archived snapshot, not current classifications,
+commitments, completion evidence or creation guidance. It is not automatically
+updated. Use the policy above, current GitHub issues and [ROADMAP.md](../ROADMAP.md)
+for current decisions. Historical phase and priority labels are not required.
+
+---
+
+
 **Comprehensive project management for PM Tools Templates repository**
 
 ## Overview
