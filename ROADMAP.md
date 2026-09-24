@@ -1,12 +1,14 @@
 # Roadmap
 
-**Last reviewed:** 09/21/2026
+**Last reviewed:** 09/24/2026
 
 This roadmap summarizes released capabilities, outstanding follow-up, and future candidates for PM Tools & Templates. Release notes describe what shipped; linked issues hold scope and acceptance evidence. An open issue is not, by itself, a delivery commitment.
 
 [Use the library](README.md) · [Release history](https://github.com/mirichard/pm-tools-templates/releases) · [Open work](https://github.com/mirichard/pm-tools-templates/issues?q=is%3Aissue%20is%3Aopen) · [Milestones](https://github.com/mirichard/pm-tools-templates/milestones)
 
 ## Released
+
+Repository and component versions follow separate histories. `vNext` is the latest published repository release; the existing `v2.2.0` tag has no published release entry and cannot be reused. See [release numbering and history](docs/release-versioning.md) for reconciliation and the next-version recommendation. No next release is scheduled.
 
 | Delivery | What it provides | Record |
 | --- | --- | --- |

@@ -1,5 +1,17 @@
 # Changelog
 
+Published releases and historical tags use several numbering schemes. See [release numbering and history](docs/release-versioning.md) for their scope and chronology; component versions are independent of repository versions. Earlier dated entries below are retained as historical change records.
+
+## vNext — 09/21/2026
+
+- Published the Value Delivery System Upgrade: benefits and value guidance, six performance domains, context-sensitive template selection, principles and applicability guidance, adaptive governance, and product/continuous-delivery practices.
+- Established the canonical migration baseline with legacy-path compatibility through vNext and at least the next major release.
+- Release commit: `febdf847cd8842fd3929973360b14d27b4513b81`. See the [published notes](https://github.com/mirichard/pm-tools-templates/releases/tag/vNext) and [acceptance evidence](https://github.com/mirichard/pm-tools-templates/issues/1266#issuecomment-5755321786) for validation and limitations.
+
+## Requirements CLI v1.2.0 — 09/18/2026
+
+Separately released component: nonfunctional-requirement generation, quality-attribute mapping, acceptance-criteria scaffolding, human-review gates, and classification evaluation. See the [release notes](https://github.com/mirichard/pm-tools-templates/releases/tag/v1.2.0-requirements-cli) and [component changelog](tools/requirements-structuring-cli/CHANGELOG.md).
+
 ## 2025-09-02
 
 ### Security Update
@@ -81,4 +93,3 @@ Summary: Terminology alignment and canonical link updates
 Notes:
 - Future work will continue consolidating duplicate index entries and normalizing naming conventions.
 - See CONTRIBUTING.md (Terminology and Standards References) for guidance on terminology usage.
-
