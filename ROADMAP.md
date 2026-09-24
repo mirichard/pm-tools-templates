@@ -51,7 +51,9 @@ Other open proposals include [documentation search](https://github.com/mirichard
 
 ## Historical proposals
 
-The [previous roadmap](https://github.com/mirichard/pm-tools-templates/blob/e8c7d6cee508bf612f4e8c71ed8e0ce0ba87269f/ROADMAP.md) remains available as a historical record. Its 2025–2026 phase schedules, speculative architecture, staffing and budgets, adoption and revenue targets, and blockchain/AR/VR proposals are not carried forward as current commitments. This update does not close or cancel the underlying backlog issues.
+The [previous roadmap](https://github.com/mirichard/pm-tools-templates/blob/e8c7d6cee508bf612f4e8c71ed8e0ce0ba87269f/ROADMAP.md) remains available as a historical record. Its 2025–2026 phase schedules, speculative architecture, staffing and budgets, adoption and revenue targets, and blockchain/AR/VR proposals are not carried forward as current commitments. The [legacy product backlog](backlog/roadmap-product-backlog.md) is retained as a historical reference.
+
+On 09/24/2026, the owner retired the following proposals as **not planned**: #321, #328, #331–#337, #339–#340, #342–#346, and overlapping stories #93–#96. The [retirement record](https://github.com/mirichard/pm-tools-templates/issues/321) and individual issue comments preserve the rationale. This is a scope decision, not a delivery claim. Existing software security and maintenance obligations, AI recovery [#1329](https://github.com/mirichard/pm-tools-templates/issues/1329), and the unscheduled research candidates above remain separately tracked. Other backlog proposals require their own disposition.
 
 ## Feedback
 
