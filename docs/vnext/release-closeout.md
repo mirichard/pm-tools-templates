@@ -1,4 +1,4 @@
-# vNext release closeout
+# v2.3.0 (vNext) release closeout
 
 Reconciled: 09/24/2026. Status: **accepted and published on 09/21/2026**.
 
@@ -20,7 +20,7 @@ All 15 nonvisual push workflows passed at the implementation baseline. The initi
 - The owner accepted the first-use timing criterion on 09/21/2026. No measured duration or independent novice trial is asserted.
 - Acceptance uses the agreed eight-epic scope and cross-cutting requirements. The owner confirmed there were no separate Project #9 release-level acceptance criteria.
 - Sprint 15 and the overall vNext milestone are closed. Project #9 board/item status remains unverified; no board-completion claim is made.
-- The [vNext release](https://github.com/mirichard/pm-tools-templates/releases/tag/vNext) and [announcement #1268](https://github.com/mirichard/pm-tools-templates/discussions/1268) were published. The automatic `v0.0.1` draft and root package version `2.0.0` do not identify this release. See [release numbering and history](../release-versioning.md) for the earlier `v2.1.0` release, existing `v2.2.0` tag, and separate component versions.
+- The [vNext release](https://github.com/mirichard/pm-tools-templates/releases/tag/vNext) and [announcement #1268](https://github.com/mirichard/pm-tools-templates/discussions/1268) were published. Version reconciliation assigns `v2.3.0` to this accepted baseline. The release workflow retains the original `vNext` tag and URL, adds the numeric alias, and updates the obsolete draft to the manifest’s next version. The historical root package version `2.0.0` does not identify the release. See [release numbering and history](../release-versioning.md) for the earlier `v2.1.0` release, existing `v2.2.0` tag, and separate component versions.
 
 ## Published release summary
 

@@ -2,8 +2,9 @@
 
 Published releases and historical tags use several numbering schemes. See [release numbering and history](docs/release-versioning.md) for their scope and chronology; component versions are independent of repository versions. Earlier dated entries below are retained as historical change records.
 
-## vNext — 09/21/2026
+## v2.3.0 (originally vNext) — 09/21/2026
 
+- Numeric identity assigned during the 09/24/2026 version reconciliation; the release workflow preserves the original snapshot and publication date.
 - Published the Value Delivery System Upgrade: benefits and value guidance, six performance domains, context-sensitive template selection, principles and applicability guidance, adaptive governance, and product/continuous-delivery practices.
 - Established the canonical migration baseline with legacy-path compatibility through vNext and at least the next major release.
 - Release commit: `febdf847cd8842fd3929973360b14d27b4513b81`. See the [published notes](https://github.com/mirichard/pm-tools-templates/releases/tag/vNext) and [acceptance evidence](https://github.com/mirichard/pm-tools-templates/issues/1266#issuecomment-5755321786) for validation and limitations.
