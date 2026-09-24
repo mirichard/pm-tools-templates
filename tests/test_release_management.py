@@ -3,8 +3,10 @@ import json
 from pathlib import Path
 import tempfile
 import unittest
+import subprocess
+from unittest.mock import patch
 
-from scripts.release_management import reconcile, validate, version, DRAFT_MARKER
+from scripts.release_management import reconcile, validate, version, DRAFT_MARKER, GitHub
 
 
 SHA = 'a' * 40
@@ -41,6 +43,20 @@ class FakeGitHub:
 
 
 class ReleaseTests(unittest.TestCase):
+    def test_api_failure_preserves_diagnostic_and_redacts_token(self):
+        error = subprocess.CalledProcessError(1, ['gh'], stderr='gh: Resource not accessible by integration (HTTP 403) secret-token')
+        with patch('scripts.release_management.subprocess.run', side_effect=error), patch.dict('os.environ', {'GH_TOKEN': 'secret-token'}):
+            with self.assertRaises(ValueError) as caught:
+                GitHub('owner/repo')('POST', 'git/refs', {'ref': 'refs/tags/v2.3.0'})
+        self.assertIn('GitHub POST git/refs failed', str(caught.exception))
+        self.assertIn('HTTP 403', str(caught.exception))
+        self.assertNotIn('secret-token', str(caught.exception))
+
+    def test_api_failure_without_stderr_reports_status(self):
+        with patch('scripts.release_management.subprocess.run', side_effect=subprocess.CalledProcessError(1, ['gh'])):
+            with self.assertRaisesRegex(ValueError, 'gh exited with status 1'):
+                GitHub('owner/repo')('GET', 'tags')
+
     def test_read_only_preflight(self):
         api = FakeGitHub()
         self.assertEqual(reconcile(CONFIG, api)['nextDraft'], 'v2.3.1')
