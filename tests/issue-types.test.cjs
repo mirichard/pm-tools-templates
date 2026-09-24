@@ -115,3 +115,66 @@ test('existing automated creator sites explicitly supply an approved type', () =
   }
   assert.ok(checked > 0);
 });
+
+test('sweep targets include more than one page and omit PRs', async () => {
+  const {targets} = require('../scripts/issue-types.cjs');
+  const f = fixture();
+  f.github.paginate = async (method, args) => {
+    assert.equal(method, f.api.listForRepo);
+    assert.equal(args.state, 'open');
+    return [...Array.from({length: 110}, (_, i) => ({number: i + 1})), {number: 111, pull_request: {}}];
+  };
+  assert.equal((await targets({github: f.github, context: {repo: f.args.repo, eventName: 'schedule'}})).length, 110);
+});
+test('event and manual targets select the expected scope', async () => {
+  const {targets} = require('../scripts/issue-types.cjs');
+  const f = fixture();
+  assert.deepEqual(await targets({github: f.github, context: {eventName: 'issues', payload: {issue: {number: 19}}}}), [19]);
+  assert.deepEqual(await targets({github: f.github, context: {eventName: 'workflow_dispatch', repo: f.args.repo}}), [7]);
+});
+test('matrix reconciliation cannot modify another issue', async () => {
+  const f = fixture();
+  f.api.get = async args => {assert.equal(args.issue_number, 7); return {data: f.issue};};
+  const results = await run({github: f.github, context: {repo: f.args.repo, eventName: 'schedule'},
+    core: {summary: {addHeading() {}, addRaw() {}, async write() {}}, setOutput() {}}, number: 7, preview: false, bootstrap: false});
+  assert.equal(results.length, 1);
+  assert.deepEqual(f.calls, ['add', 'comment']);
+});
+test('oversized sweeps fail explicitly instead of omitting backlog items', async () => {
+  const {targets} = require('../scripts/issue-types.cjs');
+  const f = fixture();
+  f.github.paginate = async () => Array.from({length: 257}, (_, i) => ({number: i + 1}));
+  await assert.rejects(targets({github: f.github, context: {eventName: 'schedule', repo: f.args.repo}}), /matrix limit/);
+});
+
+test('expert review requires a current explicit request; completion remains functional', async () => {
+  const vm = require('node:vm');
+  const workflow = fs.readFileSync('.github/workflows/expert-review.yml', 'utf8');
+  const scripts = [...workflow.matchAll(/script: \|\n((?:(?: {12}[^\n]*|[ \t]*)\n)+)/g)]
+    .map(match => match[1].split('\n').map(line => line.slice(12)).join('\n'));
+  const assignment = scripts.find(script => script.includes('expertCategories'));
+  const completion = scripts.find(script => script.includes('const comment ='));
+  assert.ok(assignment && completion);
+  const writes = [];
+  let labels = [];
+  const github = {rest: {issues: {
+    get: async () => ({data: {state: 'open', labels: labels.map(name => ({name}))}}),
+    createComment: async () => writes.push('comment'),
+    addLabels: async args => writes.push(...args.labels),
+    removeLabel: async () => writes.push('remove'),
+  }}};
+  const context = {repo: {owner: 'example', repo: 'repo'}, payload: {
+    issue: {number: 7, body: '', title: '', labels: []}, comment: {body: '## Expert Review: Complete'}
+  }};
+  const execute = script => vm.runInNewContext(`(async () => {${script}})()`, {github, context, console});
+  await execute(assignment);
+  assert.deepEqual(writes, []);
+  labels = ['expert-review-needed', 'expert-review-active'];
+  await execute(assignment);
+  assert.deepEqual(writes, []);
+  labels = ['expert-review-needed'];
+  await execute(assignment);
+  assert.deepEqual(writes, ['comment', 'expert-review-active']);
+  await execute(completion);
+  assert.deepEqual(writes.slice(-2), ['expert-reviewed', 'remove']);
+});

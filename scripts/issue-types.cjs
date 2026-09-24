@@ -67,9 +67,9 @@ async function reconcile({github, repo, number, preview}) {
   return {number, ...result};
 }
 
-async function run({github, context, core, preview = true}) {
-  if (!preview) await ensureLabels(github, context.repo);
-  const candidates = context.eventName === 'issues'
+async function run({github, context, core, preview = true, number, bootstrap = true}) {
+  if (!preview && bootstrap) await ensureLabels(github, context.repo);
+  const candidates = number ? [{number}] : context.eventName === 'issues'
     ? [context.payload.issue]
     : await github.paginate(github.rest.issues.listForRepo, {...context.repo, state: 'open', per_page: 100});
   const results = [];
@@ -86,4 +86,12 @@ async function run({github, context, core, preview = true}) {
   return results;
 }
 
-module.exports = {allowed, classify, ensureLabels, reconcile, run};
+async function targets({github, context}) {
+  const issues = context.eventName === 'issues' ? [context.payload.issue] :
+    await github.paginate(github.rest.issues.listForRepo, {...context.repo, state: 'open', per_page: 100});
+  const numbers = issues.filter(issue => !issue.pull_request).map(issue => issue.number);
+  if (numbers.length > 256) throw new Error('Issue sweep exceeds the matrix limit; batch targets before expanding coverage.');
+  return numbers;
+}
+
+module.exports = {allowed, classify, ensureLabels, reconcile, run, targets};

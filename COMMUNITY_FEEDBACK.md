@@ -23,12 +23,12 @@ For users who prefer email or have sensitive feedback:
 
 #### 🐛 **Bug Reports**
 For specific issues or bugs:
-- **Create Issue:** [Report a Bug](https://github.com/mirichard/pm-tools-templates/issues/new?assignees=&labels=bug&template=bug_report.md)
+- **Create Issue:** [Report a Bug](https://github.com/mirichard/pm-tools-templates/issues/new?assignees=&labels=bug&template=bug_report.yml)
 - **Quick reporting for technical issues**
 
 #### 💡 **Feature Requests**
 For new functionality ideas:
-- **Create Issue:** [Request a Feature](https://github.com/mirichard/pm-tools-templates/issues/new?assignees=&labels=enhancement&template=feature_request.md)
+- **Create Issue:** [Request a Feature](https://github.com/mirichard/pm-tools-templates/issues/new?assignees=&labels=enhancement&template=feature_enhancement.yml)
 - **Detailed templates for feature proposals**
 
 #### 📚 **Documentation Improvements**
