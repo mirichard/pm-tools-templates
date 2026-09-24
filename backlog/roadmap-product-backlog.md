@@ -2,7 +2,12 @@
 
 **Last Updated:** June 20, 2025
 **Version:** 1.0  
-**Status:** Active Development - 35 Revolutionary Enhancements
+**Status:** Historical / superseded — not an active delivery plan
+**Archived as historical:** 09/24/2026
+
+> The proposals, status labels, priorities, estimates, and target dates below are preserved from the historical backlog. They are not current commitments. Use the [current roadmap](../ROADMAP.md) for released capabilities, follow-up, and unscheduled candidates; individual issues contain current dispositions.
+>
+> On 09/24/2026, the owner retired 16 speculative platform issues and four overlapping stories as not planned. The [retirement record in #321](https://github.com/mirichard/pm-tools-templates/issues/321) documents the decision. This does not cancel all proposals in this document, existing software maintenance/security obligations, or the separately retained research candidates.
 
 ---
 
