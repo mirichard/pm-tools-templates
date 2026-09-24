@@ -17,6 +17,8 @@ priority, status, topic or compatibility; they do not replace the type.
 | `type:operational` | Ongoing report, monitoring alert or administrative record | Preserve titles used by automation |
 
 Use the [issue chooser](https://github.com/mirichard/pm-tools-templates/issues/new/choose).
+Choose **Product idea or enhancement — start here** for general proposals.
+Template Request and Template Improvement are specialized alternatives.
 Bug forms assign `type:bug`; proposals, enhancement requests and contributions
 start as `type:candidate`; template ratings are operational feedback records.
 Epic, Story, Task and Spike forms support planned work. A new candidate does not
@@ -79,10 +81,18 @@ at issue creation. The approved type labels were established during backlog
 cleanup; bootstrap also supports recovery if any are removed.
 
 Workflow changes are tested on pull requests without issue-write permissions.
-The mutation workflow checks out only the default branch, accepts issue content
-as data, and serializes its own runs. GitHub may replace pending concurrency runs;
-the daily sweep provides eventual reconciliation. Concurrent manual edits can
-also require a subsequent event or sweep.
+The mutation workflow checks out the event commit, accepts issue content as data,
+and serializes reconciliation per issue. Sweep and event jobs share that lock;
+activity on another issue cannot replace a pending correction. A superseding job
+for the same issue reads current state. Sweeps run at most four jobs concurrently
+and fail explicitly above 256 targets, requiring batching before further growth.
+A maintainer can dispatch a reviewed branch before merge; scheduled and issue
+runs use the default branch. Concurrent manual edits can require another event.
+
+`good first issue` is a manual maintainer decision after triage; keyword matching
+only adds topical labels. Expert review starts only when a maintainer applies
+`expert-review-needed`, not on every submission. New bug reports do not assign
+an owner automatically. Existing labels are not retroactively removed.
 
 References: [issue form syntax](https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-issue-forms),
 [template configuration](https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests/configuring-issue-templates-for-your-repository),
