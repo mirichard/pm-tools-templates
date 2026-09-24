@@ -1,27 +1,33 @@
 name: Update Release Draft
 
 on:
-  pull_request_target:
-    types: [closed]
+  push:
     branches: [main]
   workflow_dispatch:
 
 permissions:
   contents: write
 
+concurrency:
+  group: repository-release-metadata
+  cancel-in-progress: false
+
 jobs:
   update_release_draft:
-    if: github.event.pull_request.merged == true || github.event_name == 'workflow_dispatch'
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v7
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
         with:
-          fetch-depth: 1
+          ref: main
+          persist-credentials: false
 
-      - name: Update Release Draft
-        uses: release-drafter/release-drafter@v7
-        with:
-          config-name: release-drafter.yml
+      - name: Validate release management
+        run: |
+          python3 scripts/release_management.py
+          python3 -m unittest discover -s tests -p 'test_release_management.py' -v
+      - name: Reconcile release identity and draft
+        run: python3 scripts/release_management.py --apply
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

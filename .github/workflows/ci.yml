@@ -26,6 +26,10 @@ jobs:
       - run: npm run validate:migration-post-check
       - run: npm run validate:domain-navigation
       - run: npm run test:ci-helpers
+      - name: Validate release version consistency
+        run: |
+          python3 scripts/release_management.py
+          python3 -m unittest discover -s tests -p 'test_release_management.py' -v
       # actionlint is required by tests/test_workflow_health.py's lint-mode
       # cases; same pinned version/checksum as workflow-health-improvements.yml.
       - name: Install verified actionlint
