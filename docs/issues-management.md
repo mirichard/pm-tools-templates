@@ -65,6 +65,22 @@ A parent URL in a form does not create a native relationship. Classification and
 parentage do not set priority or schedule work. Readiness is a **manual review
 requirement**; this workflow does not enforce GitHub Project status transitions.
 
+## Roadmap alignment
+
+Use [ROADMAP.md](../ROADMAP.md), the [alignment register](../backlog/roadmap-alignment.md)
+and the [Product Roadmap project](https://github.com/users/mirichard/projects/11)
+for current outcomes and planning horizons. Keep `type:*`, native parentage,
+workflow status and horizon separate. Stories/tasks normally inherit their
+parent's outcome; document a standalone rationale or cross-cutting dependency
+instead of assigning competing parents. Legacy theme labels and closed milestones
+are historical metadata, not scheduling authority.
+
+New proposals stay in discovery until selected. Before promoting work, verify
+scope, acceptance criteria, dependencies, owner, access/data and available
+capacity. Operational reports support triage but do not count as delivered
+product increments. Update the issue, affected alignment row and project when a
+planning decision or evidence-backed closure changes the roadmap.
+
 ## Maintenance and rollout
 
 Run `node --test tests/issue-types.test.cjs tests/template-analytics.test.cjs`.
