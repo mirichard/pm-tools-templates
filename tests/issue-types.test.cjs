@@ -146,3 +146,35 @@ test('oversized sweeps fail explicitly instead of omitting backlog items', async
   f.github.paginate = async () => Array.from({length: 257}, (_, i) => ({number: i + 1}));
   await assert.rejects(targets({github: f.github, context: {eventName: 'schedule', repo: f.args.repo}}), /matrix limit/);
 });
+
+test('expert review requires a current explicit request; completion remains functional', async () => {
+  const vm = require('node:vm');
+  const workflow = fs.readFileSync('.github/workflows/expert-review.yml', 'utf8');
+  const scripts = [...workflow.matchAll(/script: \|\n((?:(?: {12}[^\n]*|[ \t]*)\n)+)/g)]
+    .map(match => match[1].split('\n').map(line => line.slice(12)).join('\n'));
+  const assignment = scripts.find(script => script.includes('expertCategories'));
+  const completion = scripts.find(script => script.includes('const comment ='));
+  assert.ok(assignment && completion);
+  const writes = [];
+  let labels = [];
+  const github = {rest: {issues: {
+    get: async () => ({data: {state: 'open', labels: labels.map(name => ({name}))}}),
+    createComment: async () => writes.push('comment'),
+    addLabels: async args => writes.push(...args.labels),
+    removeLabel: async () => writes.push('remove'),
+  }}};
+  const context = {repo: {owner: 'example', repo: 'repo'}, payload: {
+    issue: {number: 7, body: '', title: '', labels: []}, comment: {body: '## Expert Review: Complete'}
+  }};
+  const execute = script => vm.runInNewContext(`(async () => {${script}})()`, {github, context, console});
+  await execute(assignment);
+  assert.deepEqual(writes, []);
+  labels = ['expert-review-needed', 'expert-review-active'];
+  await execute(assignment);
+  assert.deepEqual(writes, []);
+  labels = ['expert-review-needed'];
+  await execute(assignment);
+  assert.deepEqual(writes, ['comment', 'expert-review-active']);
+  await execute(completion);
+  assert.deepEqual(writes.slice(-2), ['expert-reviewed', 'remove']);
+});
