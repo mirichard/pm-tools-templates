@@ -211,7 +211,9 @@ function renderRecord() {
   $('#coverage').textContent = `${counts.triggered} findings need attention · ${counts.not_triggered} checks found no issue · ${counts.not_assessed} checks not assessed. This is not approval of the whole plan.`;
   $('#result-identity').textContent = `${record.context.projectName} · Plan ${record.context.planVersion} · ${record.context.periodStart} to ${record.context.periodEnd} · Assessed ${new Date(record.assessment.assessedAt).toLocaleString()} · Review ${record.reviewId}`;
   $('#stale').hidden = false === record.inputsChanged;
-  if (previous) append($('#findings'), 'p', `Reassessment of ${previous.reviewId}. Download this review to retain both snapshots. Open issues must be checked individually.`);
+  if (previous) append($('#findings'), 'p', record.previousScopeMatches
+    ? `Reassessment of ${previous.reviewId}. Download this review to retain both snapshots. Open issues must be checked individually.`
+    : `The review scope or period changed. Previous review ${previous.reviewId} is included for reference only; actions were not carried forward.`);
   record.assessment.checks.forEach((check, index) => {
     const card = append($('#findings'), 'article', undefined, `finding ${check.status}`);
     append(card, 'p', { triggered: 'Needs attention', not_triggered: 'No issue detected in this check', not_assessed: 'Not assessed' }[check.status], 'badge');
@@ -227,7 +229,7 @@ function renderRecord() {
     append(card, 'p', `Evidence: ${check.evidenceReferences.join('; ') || 'Not supplied'}`);
     append(card, 'p', `Next: ${check.recommendation || (check.status === 'not_assessed' ? 'Ask the relevant owner for the missing or updated evidence, then reassess.' : 'Retain the supporting evidence and reassess when the plan or conditions change.')}`);
     append(card, 'p', `Rule ${check.ruleId} · version ${check.ruleVersion}`, 'hint');
-    const action = append(card, 'details'); action.open = check.status === 'triggered';
+    const action = append(card, 'details');
     action.dataset.actionKey = actionKey(check); action.dataset.actionTitle = title;
     append(action, 'summary', 'Record follow-up action');
     const fields = append(action, 'div', undefined, 'fields');
@@ -239,6 +241,9 @@ function renderRecord() {
 }
 form.addEventListener('submit', async event => {
   event.preventDefault();
+  if (step === 1) { if (validate()) show(2); return; }
+  if (step === 2) { $('#preview').click(); return; }
+  if (step !== 3) return;
   if (busy || !snapshot || snapshot.revision !== revision) { status.textContent = 'Inputs changed. Check readiness again before running.'; show(2); return; }
   captureActions();
   const prior = record ? structuredClone(record) : previous;
@@ -250,7 +255,8 @@ form.addEventListener('submit', async event => {
     const data = await request('review', snapshot.body);
     if (requestId !== sequence) return;
     previous = prior;
-    record = { ...data, inputsChanged: false, actions: structuredClone(prior?.actions || {}) };
+    const sameScope = prior && ['projectName', 'scope', 'periodStart', 'periodEnd'].every(key => data.context[key] === prior.context[key]);
+    record = { ...data, inputsChanged: false, previousScopeMatches: Boolean(sameScope), actions: structuredClone(sameScope ? prior.actions : {}) };
     renderRecord(); show(4); status.textContent = 'Review completed. Results and actions are session-only; download a record before leaving.';
   } catch (error) { if (requestId === sequence) { previous = prior; errors([{ message: error.message }]); status.textContent = 'Review failed. No new result is available.'; } }
   finally { setBusy(false); }

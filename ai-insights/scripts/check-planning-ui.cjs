@@ -44,10 +44,18 @@ module.exports = async function checkPlanning(browser, base, evidence) {
  assert.match(await page.locator('#findings').innerText(),/Shortfall: 40 person-hours/);
  assert.match(await page.locator('#findings').innerText(),/Second owner/);
  assert.match(await page.locator('#findings').innerText(),/INT-2/);
+ await page.locator('#findings details summary').first().click();
  await page.locator('#action-0-response').fill('Obtain qualified capacity and confirm allocation');
  await page.locator('#action-0-owner').fill('Resource manager');
  await page.locator('#action-0-due').fill('2026-09-30');
  await page.screenshot({path:path.join(evidence,'planning-findings.png'),fullPage:true});
+ await page.evaluate(()=>{window.print=()=>{};});
+ await page.getByRole('button',{name:'Print review',exact:true}).click();
+ await page.emulateMedia({media:'print'});
+ assert.equal(await page.locator('#results').isVisible(),false);
+ assert.equal(await page.locator('#print-record').isVisible(),true);
+ assert.match(await page.locator('#print-record').innerText(),/Resource manager/);
+ await page.emulateMedia({media:'screen'});
  const readablePromise=page.waitForEvent('download');
  await page.getByRole('button',{name:'Download review record',exact:true}).click();
  const readable=await readablePromise;
@@ -87,6 +95,15 @@ module.exports = async function checkPlanning(browser, base, evidence) {
   assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);
  }
  await page.screenshot({path:path.join(evidence,'planning-mobile.png'),fullPage:true});
+ await page.getByRole('button',{name:'Revise inputs and reassess'}).click();
+ await page.locator('#scope').fill('Different milestone');
+ await page.getByRole('button',{name:'Continue to evidence'}).click();
+ await page.getByRole('button',{name:'Check inputs and readiness'}).click();
+ await page.waitForFunction(()=>!document.querySelector('[data-step="3"]').hidden);
+ await page.getByRole('button',{name:'Run planning checks',exact:true}).click();
+ await page.waitForFunction(()=>!document.querySelector('#results').hidden);
+ assert.match(await page.locator('#findings').innerText(),/actions were not carried forward/);
+ assert.equal(await page.locator('#action-0-owner').inputValue(),'');
  await page.reload();
  assert.equal(await page.locator('#results').isVisible(),false);
  assert.equal(await page.locator('#projectName').inputValue(),'');
