@@ -104,8 +104,8 @@ npm install
 cp .env.example .env
 # Edit .env with your configuration
 
-# Run the system
-npm start
+# Run the recovery API (npm start runs the demonstration)
+npm run start:api
 ```
 
 ### Basic Usage
@@ -335,7 +335,7 @@ npm run lint
 export NODE_ENV=production
 
 # Start with PM2
-pm2 start src/index.js --name ai-insights
+pm2 start src/api/server.js --name ai-insights
 
 # Monitor
 <a id="monitoring"></a>

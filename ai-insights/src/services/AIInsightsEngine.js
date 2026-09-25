@@ -18,6 +18,7 @@ export class AIInsightsEngine {
     this.models = {};
     this.isInitialized = false;
     this.cache = new Map();
+    this.cacheVersion = 0;
     this.performance = {
       predictions: 0,
       totalTime: 0,
@@ -96,14 +97,17 @@ export class AIInsightsEngine {
       const cacheKey = `risk_${JSON.stringify(projectData)}`;
       if (this.cache.has(cacheKey)) {
         logger.debug('📋 Using cached risk prediction');
-        return this.cache.get(cacheKey);
+        return structuredClone(this.cache.get(cacheKey));
       }
 
       // Predict using ML model
+      const cacheVersion = this.cacheVersion;
       const prediction = await this.models.riskPrediction.predict(projectData);
       
       // Cache result
-      this.cache.set(cacheKey, prediction);
+      if (cacheVersion === this.cacheVersion) {
+        this.cache.set(cacheKey, structuredClone(prediction));
+      }
 
       // Log performance
       const duration = Date.now() - startTime;
@@ -290,6 +294,7 @@ export class AIInsightsEngine {
    * Cache Management
    */
   clearCache() {
+    this.cacheVersion++;
     this.cache.clear();
     logger.info('🗑️ Cache cleared');
   }

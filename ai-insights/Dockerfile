@@ -54,7 +54,7 @@ EXPOSE 3001
 ENTRYPOINT ["dumb-init", "--"]
 
 # Start the application
-CMD ["node", "src/index.js"]
+CMD ["node", "src/api/server.js"]
 
 # Build information
 LABEL version="1.0.0" \

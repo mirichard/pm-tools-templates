@@ -74,3 +74,17 @@ projection and unavailable sections using a deterministic risk fixture.
 `tests/integration.test.js` exercises real HTTP transport, current nested model
 shapes, concurrent requests and cache reuse/invalidation. Its model-accuracy
 assertions remain unchanged and may fail until trained-model evaluation is complete.
+
+## Recovery failure and concurrency behavior
+
+The dashboard hook requires host useState, useCallback and useRef hooks. Starting
+a request clears prior insights; only the latest request may update displayed
+results, error or loading state. Clearing results also invalidates pending display
+updates. Superseded calls still settle for their caller and do not cancel HTTP work.
+This is hook-state evidence; rendered host behavior still requires UAT.
+
+The insights client rejects malformed success envelopes. Its request timeout
+covers response-body consumption and native fetch network errors are retryable.
+Risk cache values are isolated from caller mutation. Clearing the cache prevents
+in-flight predictions from repopulating the cleared generation; those requests
+still return to their callers. Cache state is volatile and is lost on restart.
