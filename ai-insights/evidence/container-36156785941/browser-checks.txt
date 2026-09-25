@@ -1,0 +1,1 @@
+PASS: rendered baseline, evidenced shortfall, simulated failure, retry, reload clears history, narrow layout, no browser errors
