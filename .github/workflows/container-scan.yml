@@ -63,6 +63,30 @@ jobs:
       - name: Check container runtime
         run: bash ai-insights/scripts/container-smoke.sh '${{ steps.build.outputs.image_id }}' container-evidence
 
+      - name: Check rendered recovery dashboard
+        env:
+          IMAGE_ID: ${{ steps.build.outputs.image_id }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          npm install --prefix "$RUNNER_TEMP/uat-browser" --no-save --package-lock=false playwright@1.62.1
+          node "$RUNNER_TEMP/uat-browser/node_modules/playwright/cli.js" install --with-deps chromium
+          container=$(docker run -d -e ENABLE_RECOVERY_UAT=true -p 127.0.0.1::3001 "$IMAGE_ID")
+          cleanup() {
+            docker logs "$container" > container-evidence/uat-container.log 2>&1 || true
+            docker rm -f "$container" >/dev/null || true
+          }
+          trap cleanup EXIT
+          port=$(docker port "$container" 3001/tcp | sed 's/.*://')
+          export UAT_BASE_URL="http://127.0.0.1:$port"
+          export UAT_EVIDENCE="$PWD/container-evidence"
+          export NODE_PATH="$RUNNER_TEMP/uat-browser/node_modules"
+          for attempt in {1..60}; do
+            if curl --silent --fail "$UAT_BASE_URL/health" >/dev/null; then break; fi
+            sleep 1
+          done
+          node ai-insights/scripts/check-recovery-ui.cjs 2>&1 | tee container-evidence/browser-checks.log
+
       # Root cause of an earlier failure, from this PR's own job logs (run
       # 35618428368, job 106395074000): trivy-action@v0.33.1's own install
       # step ran `trivy/contrib/install.sh ... v0.65.0` and failed with

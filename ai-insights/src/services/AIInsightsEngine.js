@@ -95,7 +95,9 @@ export class AIInsightsEngine {
 
       // Generate cache key
       const cacheKey = `risk_${JSON.stringify(projectData)}`;
-      if (this.cache.has(cacheKey)) {
+      // Time-sensitive evidence must be reassessed on every request.
+      const cacheable = !projectData.planningAssessment;
+      if (cacheable && this.cache.has(cacheKey)) {
         logger.debug('📋 Using cached risk prediction');
         return structuredClone(this.cache.get(cacheKey));
       }
@@ -105,7 +107,7 @@ export class AIInsightsEngine {
       const prediction = await this.models.riskPrediction.predict(projectData);
       
       // Cache result
-      if (cacheVersion === this.cacheVersion) {
+      if (cacheable && cacheVersion === this.cacheVersion) {
         this.cache.set(cacheKey, structuredClone(prediction));
       }
 

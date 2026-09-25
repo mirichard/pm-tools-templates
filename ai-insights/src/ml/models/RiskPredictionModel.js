@@ -3,6 +3,7 @@
  * Machine Learning model for predicting project risks
  */
 
+import { assessPlanning } from '../../services/planningAssessment.js';
 import * as tf from '@tensorflow/tfjs';
 import { mkdir, writeFile } from 'node:fs/promises';
 import { resolve, join } from 'node:path';
@@ -176,6 +177,7 @@ export class RiskPredictionModel {
       const mitigationStrategies = this.generateMitigationStrategies(predictedRisk, riskFactors);
 
       return {
+        planningAssessment: assessPlanning(projectData),
         riskLevel: predictedRisk,
         confidence: parseFloat(confidence.toFixed(3)),
         probability: parseFloat(confidence.toFixed(3)),
