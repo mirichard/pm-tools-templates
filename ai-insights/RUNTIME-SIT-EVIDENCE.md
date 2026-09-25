@@ -55,12 +55,8 @@ Random untrained model outputs still make some failure counts variable.
 
 ## Remaining gates and handoff
 
-- Docker, Podman and Trivy are unavailable in this execution environment. Image
-  build, container health/security and Compose behavior were not executed. A
-  dependency audit is not a container scan. On a capable runner, build the image,
-  run health/request/shutdown checks, and scan its exact immutable digest with
-  the repository's required vulnerability policy. Do not mark this gate passed
-  from the Dockerfile edit or native-process test.
+- Container build/runtime and HIGH/CRITICAL scan now pass on GitHub Actions;
+  see the dated checkpoint below. Compose behavior remains unverified.
 - Saved-result persistence and automatic trained-artifact reload are not accepted.
   The cache is memory-only; declared Compose volumes do not establish persistence.
 - No accessible rendered dashboard host or UAT participant/access confirmation is
@@ -69,3 +65,34 @@ Random untrained model outputs still make some failure counts variable.
   tests prove bounded request association, not load capacity or performance SLAs.
 - Existing full-suite and trained-model gates remain unmet; #1372 stays open.
   No restoration to main or production deployment is authorized by this checkpoint.
+
+## Container checkpoint — 2026-09-25
+
+[Actions run 36154968749](https://github.com/mirichard/pm-tools-templates/actions/runs/36154968749)
+passed all container steps and the required Container scan gate.
+
+- PR #1378 head: `9d9970e649fa1b1c6b4842d5617ed7c4f3070043`.
+- Tested PR merge checkout: `5e6d4752a8feb0deffa7e5abb87182e8d57c5515`.
+- Image: `sha256:c07cc0fe38f6b1371c9f9fa6170ed426034a35eb3276f1f00cd31717773ae0b4`.
+- Base resolved to `node:24-alpine@sha256:ebfe2f90462722a7a4de65e91990e97fe0d401c70e0e762c5b53302f905ec1c1`.
+- Non-root process; API health/initialized engine; valid prediction disclosing
+  untrained status; invalid-input HTTP 400; declared Docker HEALTHCHECK; and
+  graceful stop with exit 0/no OOM all passed.
+- Trivy v0.74.0 reported zero HIGH/CRITICAL findings across Alpine 3.24.2 and
+  Node package results. This is a dated vulnerability scan, not a claim about
+  lower severities or all security properties. No ignore file or waiver added.
+- Full artifact `container-evidence-36154968749-1`, ID `10873615298`, expires
+  2026-10-25. Its ZIP SHA256 was verified against GitHub's artifact digest:
+  `d3ff82eff4e996abd688ae6e515bfa0067c69eaf281cf4d74e73bdd80adc970c`.
+- Durable extracted responses, identities, smoke result and scan summary are in
+  [evidence/container-36154968749](evidence/container-36154968749/).
+  The full package inventory and runner logs remain in the Actions artifact.
+  The post-stop inspection reports unhealthy because the process has stopped;
+  its last HEALTHCHECK exited 0, and the smoke script required healthy before stop.
+
+Continuation: retain full artifact before expiry if needed; rerun these checks
+when runtime/dependencies/base image change. Next resolve proposed risk-rule
+inputs/semantics, persistence expectations and dashboard/UAT access. This one
+successful container run does not satisfy the two complete green app suites,
+trained-model acceptance, persistence, load performance, Compose or UAT gates.
+Both draft PRs remain unmerged, and #1298/#1372/#1329 remain open.

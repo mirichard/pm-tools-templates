@@ -1,0 +1,14 @@
+{
+  "status": 400,
+  "body": {
+    "success": false,
+    "error": "Invalid project data",
+    "details": [
+      {
+        "field": "teamSize",
+        "message": "\"teamSize\" must be greater than or equal to 1",
+        "value": 0
+      }
+    ]
+  }
+}
