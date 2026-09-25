@@ -33,3 +33,13 @@ persisted manifests and provenance, add per-project reporting and a separate
 project-held-out evaluation, define model/tuning protocol and uncertainty reporting,
 and freeze criteria before opening the test results. There is no production
 promotion decision or new risk severity mapping in this prototype.
+
+## JOSSE retrospective benchmark
+
+JOSSE-PROTOCOL.md and josse-manifest.json were frozen before real-data scoring.
+josse_benchmark.py validates the pinned source, converts seconds to hours and
+evaluates three fixed baselines on disjoint project groups. JOSSE-RESULTS.md
+records the negative/inconclusive outcome and links the machine-readable results.
+The test set is now inspected and must not become a tuning set. The suite now
+contains 12 synthetic checks (seven preparation and five benchmark checks).
+No production risk model is trained or restored by this benchmark.

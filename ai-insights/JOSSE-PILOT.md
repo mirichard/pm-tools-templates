@@ -1,7 +1,9 @@
 # JOSSE replacement dataset assessment
 
 09/25/2026 · #1374 / PR #1378 · Selected for the separate exploratory effort-overrun
-pilot. SiP's maintainer response is no longer a prerequisite for this pilot's
+pilot. Baseline execution is now recorded in
+[the result report](experiments/effort-overrun/JOSSE-RESULTS.md); no improvement
+was established. SiP's maintainer response is no longer a prerequisite for this pilot's
 preparation. This selection does not validate the existing four-level risk model.
 
 ## Source and permitted use
@@ -73,10 +75,11 @@ Use estimate alone for the initial baseline; actual effort is an outcome only.
 The accompanying paper reports reviewing estimate changes for outcome leakage,
 but that does not supply row-level estimate timestamps in the SQLite export.
 
-Before reporting MAE in hours, reconcile numeric storage units against raw CSV
-and work logs. The converter copies numeric fields without conversion; paper prose
-mentions hours and a table mentions minutes. Do not assume either wording directly
-describes the stored numeric scale. Retain original numeric values in profiling.
+Unit reconciliation completed for the benchmark: the converter copies Jira numeric
+time fields in seconds. Historical Jira Server documentation specifies seconds for
+Original Estimate and Time Spent. Nine available raw files provided 850 exact
+numeric-pair matches; three zero/-1 missing-estimate differences were already
+excluded. Convert by 3,600 to hours. See JOSSE-PROTOCOL.md for sources and limits.
 
 Use a project-held-out retrospective benchmark if proceeding from SQLite alone.
 Do not fabricate dates or pass these records into the existing chronological
@@ -93,7 +96,7 @@ self-reported and the paired subset is selected; generalization is limited.
 | SiP | Keep optional inquiry open; terms remain unconfirmed, not known to prohibit use |
 | NASA/Maxwell-style effort datasets | Actual-effort estimation benchmarks alone do not establish a paired original-estimate overrun target |
 
-## Next steps
+## Initial next steps (execution update below)
 
 1. Reconcile stored units, raw-source count differences and missing source hosts;
    retain exclusions and their effect on project coverage.
@@ -108,3 +111,17 @@ self-reported and the paired subset is selected; generalization is limited.
 5. Continue #1374's separate representative-data, target-definition, calibration
    and reviewer prerequisites for the actual risk classifier. No restoration gate
    is closed by this dataset selection.
+
+## Execution checkpoint — 09/25/2026
+
+Protocol/manifest committed before scores at fbe2d0bfb5edcdfc60bd687f18ed6a3a87f90080.
+The project-held-out exploratory baseline has run on 3,914 eligible pairs.
+Median-ratio correction is 1.0 and adds no improvement; the constant three-hour
+baseline worsens task-level error and 30 of 39 test projects, with inconclusive
+project-macro improvement. No production promotion is supported.
+
+See experiments/effort-overrun/JOSSE-RESULTS.md for metrics and next steps.
+The holdout is now inspected; preserve it and avoid tuning to its results.
+Remaining data work includes the unexplained paper/archive count difference,
+missing provenance and prospective estimate/completion history. #1374's original
+classifier acceptance remains separate and unmet.
