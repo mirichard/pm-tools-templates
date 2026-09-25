@@ -99,36 +99,14 @@
           "required": true
         },
         "build": {
-          "command": "npm run build",
-          "required": true,
-          "exception": {
-            "type": "waiver",
-            "execution": "diagnostic-only",
-            "scope_statement": "tsc has no tsconfig.json to build against in this directory; it prints its own CLI usage text instead of compiling anything, so this check provides no coverage.",
-            "issue": "https://github.com/mirichard/pm-tools-templates/issues/1298",
-            "owner": "mirichard",
-            "recorded": "2026-09-21",
-            "expires": "2026-12-21",
-            "failure_signature": "tsc: The TypeScript Compiler - Version",
-            "verified": "live-ci",
-            "removal_condition": "Remove once #1298 is fixed (tsconfig.json added) and build passes on two consecutive runs."
-          }
+          "command": null,
+          "required": false,
+          "status": "not_implemented",
+          "note": "Native JavaScript ESM runs directly from src in Node and Docker; no TypeScript compilation or generated artifact is required. Source syntax and undefined names are enforced by required lint; runtime behavior by required tests. See #1298."
         },
         "test": {
           "command": "npm test",
-          "required": true,
-          "exception": {
-            "type": "waiver",
-            "execution": "diagnostic-only",
-            "scope_statement": "All 3 Jest suites fail to parse (ESM import syntax) before any individual test executes; zero tests run, so this check provides no coverage.",
-            "issue": "https://github.com/mirichard/pm-tools-templates/issues/1298",
-            "owner": "mirichard",
-            "recorded": "2026-09-21",
-            "expires": "2026-12-21",
-            "failure_signature": "Cannot use import statement outside a module",
-            "verified": "live-ci",
-            "removal_condition": "Remove once #1298 is fixed (Jest ESM config added) and test passes on two consecutive runs."
-          }
+          "required": true
         },
         "audit": { "required": true }
       }

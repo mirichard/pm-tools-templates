@@ -328,8 +328,8 @@ extractFeatures(projectData) {
 
 ### Production Deployment
 ```bash
-# Build for production
-npm run build
+# Validate native JavaScript sources (no compilation step)
+npm run lint
 
 # Set production environment
 export NODE_ENV=production

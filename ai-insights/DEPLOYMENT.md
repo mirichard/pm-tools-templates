@@ -99,8 +99,8 @@ npm run format
 # Linting
 npm run lint:fix
 
-# Type checking
-npm run build
+# Source validation (native JavaScript; no compilation step)
+npm run lint
 
 # Performance testing
 npm run benchmark

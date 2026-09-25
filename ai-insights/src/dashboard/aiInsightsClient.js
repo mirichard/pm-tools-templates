@@ -326,13 +326,16 @@ class AIInsightsResult {
    * Calculate overall impact score
    */
   calculateOverallImpact() {
+    // Recovery outputs have no validated causal impact or efficiency estimate.
+    if (this.data.metadata?.validationStatus !== 'validated') return null;
     const risk = this.data.riskPrediction;
     const resource = this.data.resourceOptimization;
     
     if (!risk || !resource) return null;
 
     const riskImpact = this.getRiskImpactScore(risk.riskLevel);
-    const resourceImprovement = resource.efficiency?.improvement || 0;
+    const resourceImprovement = resource.targetUtilization - resource.currentUtilization;
+    if (!Number.isFinite(resourceImprovement)) return null;
     
     return {
       riskReduction: riskImpact,
@@ -360,6 +363,9 @@ class AIInsightsResult {
       schedule: this.getScheduleAnalysis(),
       quality: this.getQualityPredictions(),
       metadata: {
+        contractVersion: this.data.metadata?.contractVersion,
+        validationStatus: this.data.metadata?.validationStatus ?? 'unvalidated',
+        simulatedSections: this.data.metadata?.simulatedSections ?? [],
         timestamp: this.timestamp,
         confidence: this.data.riskPrediction?.confidence,
         completeness: this.calculateCompleteness()
@@ -468,4 +474,3 @@ if (typeof module !== 'undefined' && module.exports) {
 
 // ES6 export
 export { AIInsightsClient, AIInsightsResult, AIInsightsError, useAIInsights };
-
