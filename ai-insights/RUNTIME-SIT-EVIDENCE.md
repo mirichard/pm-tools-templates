@@ -145,3 +145,36 @@ Durable extracted identity, smoke/browser outcomes and filtered scan summary:
 [evidence/container-36156785941](evidence/container-36156785941/).
 Full report, screenshots and logs remain in the Actions artifact. Retain them
 before expiry if required for final release review.
+
+## Guided planning redesign — 09/25/2026
+
+Runtime candidate: `d16564bd644a2669bd3a7c8fb20d8f9d73bb8d29`.
+Implementation: `80753f8272ac6f9a4d1c7160f2702344640bfbd6`, followed by print,
+progressive action disclosure and scope-isolation fixes. Guided entry:
+`/recovery-uat/uat/`; preserved experimental demo: `/recovery-uat/experimental/`.
+
+- Lint passes. Dedicated planning and recovery HTTP suites: 15/15 pass.
+- Complete local suite after the main redesign: 137 pass / 5 fail / 142 total,
+  13 suites. Failures remain untrained-model high/critical classification,
+  typical/unusual confidence and cross-instance consistency. Final follow-up
+  changes are browser/print/action behavior, verified in the browser run below.
+- [Actions run 36168904959](https://github.com/mirichard/pm-tools-templates/actions/runs/36168904959)
+  passes container runtime, both browser flows, Trivy and container gate.
+- Tested merge checkout: `9cd2ada247d0cbf74e3c237e8debcbcf56ea42d1`.
+- Image: `sha256:16ee9c1341be8f2ad7ddce365727bc3d4b39e54c06e65fbcbd75bcc37e6b423b`.
+- Artifact: `10878912461`, expires 10/25/2026; downloaded ZIP SHA256 verified as
+  `12426a7f451a6513abe4cee222fc31e4fd1c68a9c18fa71532167060ee71bddf`.
+- Trivy report: zero HIGH/CRITICAL findings. Compact evidence retained in
+  [container-36168904959](evidence/container-36168904959/browser-checks.txt).
+
+Browser assertions cover required-field corrections and focus, unknown capacity,
+repeatable evidence with separate owners/references, independent findings, readable
+HTML and JSON export, print layout, failure/retry, retained reassessment snapshots,
+no model requests, input labels/help, 320-pixel reflow, scope-change action isolation
+and session clearing. Preparation/results/mobile screenshots were inspected.
+
+Participant acceptance of the earlier demonstration is historical. This changed
+workflow requires new usability/acceptance evidence under #1375. Screen-reader,
+zoom and comprehensive WCAG conformance testing remain pending; the checks above
+are not an accessibility certification. Persistence remains session-only, with
+user-controlled downloads/printing. There is no import, write-back or saved history.

@@ -207,3 +207,19 @@ run checks; explain findings; enter an action and download its record; update
 capacity and reassess while other findings remain. Evaluate UX-01–UX-12 in the
 linked specification. Previous functional acceptance remains historical; this
 changed workflow requires new participant evidence.
+
+Verified guided-review candidate: `d16564bd644a2669bd3a7c8fb20d8f9d73bb8d29`.
+In the existing isolated UAT terminal, stop the server with Ctrl+C, then:
+
+```bash
+git fetch origin fix/1298-runtime-contracts &&
+git switch --detach d16564bd644a2669bd3a7c8fb20d8f9d73bb8d29 &&
+ENABLE_RECOVERY_UAT=true HOST=127.0.0.1 PORT=3001 npm run start:api
+```
+
+Open the existing forwarded address at `/recovery-uat/uat/`. Review the Prepare
+page before using the synthetic example. Confirm whether it explains what to gather,
+where to obtain it and what the checks can establish. Then follow the revised
+UX-01–UX-12 scenarios; record assistance needed rather than treating coached
+completion as independent usability. Downloads/print on iPad need participant
+confirmation. No new dependency installation is needed for this candidate.
