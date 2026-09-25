@@ -104,8 +104,8 @@ npm install
 cp .env.example .env
 # Edit .env with your configuration
 
-# Run the system
-npm start
+# Run the recovery API (npm start runs the demonstration)
+npm run start:api
 ```
 
 ### Basic Usage
@@ -328,14 +328,14 @@ extractFeatures(projectData) {
 
 ### Production Deployment
 ```bash
-# Build for production
-npm run build
+# Validate native JavaScript sources (no compilation step)
+npm run lint
 
 # Set production environment
 export NODE_ENV=production
 
 # Start with PM2
-pm2 start src/index.js --name ai-insights
+pm2 start src/api/server.js --name ai-insights
 
 # Monitor
 <a id="monitoring"></a>

@@ -4,6 +4,8 @@
  */
 
 import express from 'express';
+import { planningReviewHandler } from '../services/planningReview.js';
+import { fileURLToPath } from 'node:url';
 import cors from 'cors';
 import helmet from 'helmet';
 import compression from 'compression';
@@ -98,6 +100,24 @@ class AIInsightsServer {
 
     // API routes
     this.app.use('/api/v1', this.createAPIRoutes());
+
+    // Explicit opt-in, same-origin recovery UAT surface; never a production rollout.
+    if (process.env.ENABLE_RECOVERY_UAT === 'true') {
+      this.app.post('/api/v1/recovery-uat/planning/:operation', planningReviewHandler);
+      this.app.post('/api/v1/recovery-uat/missing-quality/insights/analyze', validateProjectData, async (req, res, next) => {
+        try {
+          const data = { ...await this.aiEngine.generateInsights(req.body) };
+          delete data.qualityPrediction;
+          res.setHeader('Cache-Control', 'no-store');
+          res.json({ success: true, data, fixture: 'missing-quality' });
+        } catch (error) {
+          next(error);
+        }
+      });
+      this.app.use('/recovery-uat', express.static(fileURLToPath(new URL('../dashboard', import.meta.url)), {
+        etag: false, maxAge: 0, setHeaders: res => res.setHeader('Cache-Control', 'no-store'),
+      }));
+    }
 
     // Documentation
     this.app.get('/', (req, res) => {
@@ -312,7 +332,7 @@ class AIInsightsServer {
       await this.initialize();
 
       await new Promise((resolve, reject) => {
-        this.server = this.app.listen(this.port, resolve);
+        this.server = this.app.listen(this.port, process.env.HOST || '0.0.0.0', resolve);
         this.server.once('error', reject);
       });
       return this.server;

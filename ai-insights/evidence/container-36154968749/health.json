@@ -1,0 +1,14 @@
+{
+  "status": "healthy",
+  "timestamp": "2026-09-25T15:34:26.243Z",
+  "version": "1.0.0",
+  "uptime": 1.194024936,
+  "memory": {
+    "rss": 117772288,
+    "heapTotal": 43888640,
+    "heapUsed": 31239720,
+    "external": 9494219,
+    "arrayBuffers": 1630784
+  },
+  "aiEngine": "initialized"
+}

@@ -10,6 +10,9 @@ function createHooks() {
       setters.push(setter);
       return [initial, setter];
     },
+    useRef(initial) {
+      return { current: initial };
+    },
     useCallback(callback) {
       return callback;
     },
@@ -41,7 +44,7 @@ describe('dashboard React hook integration', () => {
     await expect(state.generateInsights({ teamSize: 4 })).rejects.toBe(error);
     expect(hooks.setters[0]).toHaveBeenLastCalledWith(false);
     expect(hooks.setters[1]).toHaveBeenLastCalledWith(error);
-    expect(hooks.setters[2]).not.toHaveBeenCalled();
+    expect(hooks.setters[2]).toHaveBeenLastCalledWith(null);
   });
 
   test('supports the browser React global and rejects missing hooks clearly', () => {

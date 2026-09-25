@@ -76,9 +76,9 @@ describe('AI Insights Integration Tests', () => {
       expect(result.riskLevel).toMatch(/^(low|medium|high|critical)$/);
       expect(result.confidence).toBeGreaterThan(0);
       expect(result.confidence).toBeLessThanOrEqual(1);
-      expect(result.riskFactors).toBeInstanceOf(Array);
-      expect(result.mitigationStrategies).toBeInstanceOf(Array);
-      expect(result.timeline).toBeInstanceOf(Array);
+      expect(Array.isArray(result.riskFactors)).toBe(true);
+      expect(Array.isArray(result.mitigationStrategies)).toBe(true);
+      expect(Array.isArray(result.timeline)).toBe(true);
       expect(result.impact).toBeDefined();
     });
 
@@ -86,36 +86,38 @@ describe('AI Insights Integration Tests', () => {
       const result = await aiEngine.optimizeResources(sampleProject);
       
       expect(result).toBeDefined();
-      expect(result.efficiency).toBeDefined();
-      expect(result.recommendations).toBeInstanceOf(Array);
-      expect(result.utilization).toBeDefined();
+      expect(result.targetUtilization).toBeGreaterThanOrEqual(0);
+      expect(result.targetUtilization).toBeLessThanOrEqual(1);
+      expect(Array.isArray(result.recommendations)).toBe(true);
+      expect(result.currentUtilization).toBeGreaterThanOrEqual(0);
+      expect(result.currentUtilization).toBeLessThanOrEqual(1);
     });
 
     test('should analyze schedule', async () => {
       const result = await aiEngine.analyzeSchedule(sampleProject);
       
       expect(result).toBeDefined();
-      expect(result.criticalPath).toBeInstanceOf(Array);
-      expect(result.optimization).toBeDefined();
-      expect(result.bufferAnalysis).toBeDefined();
+      expect(Array.isArray(result.currentSchedule.criticalPath)).toBe(true);
+      expect(Array.isArray(result.optimizations)).toBe(true);
+      expect(result.currentSchedule.bufferTime).toBeGreaterThanOrEqual(0);
     });
 
     test('should predict quality', async () => {
       const result = await aiEngine.predictQuality(sampleProject);
       
       expect(result).toBeDefined();
-      expect(result.testCoverage).toBeDefined();
-      expect(result.defectRate).toBeDefined();
-      expect(result.codeQuality).toBeDefined();
+      expect(result.metrics.testCoverage.predicted).toEqual(expect.any(Number));
+      expect(result.metrics.defectRate.predicted).toEqual(expect.any(Number));
+      expect(result.metrics.codeQuality.predicted).toEqual(expect.any(Number));
     });
 
     test('should generate comprehensive insights', async () => {
       const result = await aiEngine.generateInsights(sampleProject);
       
       expect(result).toBeDefined();
-      expect(result.insights).toBeInstanceOf(Array);
-      expect(result.recommendations).toBeInstanceOf(Array);
-      expect(result.summary).toBeDefined();
+      expect(Array.isArray(result.insights)).toBe(true);
+      expect(Array.isArray(result.recommendations)).toBe(true);
+      expect(result.executiveSummary).toBeDefined();
       expect(result.riskPrediction).toBeDefined();
       expect(result.resourceOptimization).toBeDefined();
       expect(result.scheduleAnalysis).toBeDefined();
@@ -145,8 +147,14 @@ describe('AI Insights Integration Tests', () => {
       
       expect(result).toBeInstanceOf(Object);
       expect(result.data).toBeDefined();
-      expect(result.data.insights).toBeInstanceOf(Array);
-      expect(result.data.recommendations).toBeInstanceOf(Array);
+      expect(Array.isArray(result.data.insights)).toBe(true);
+      expect(Array.isArray(result.data.recommendations)).toBe(true);
+      expect(result.data.metadata).toMatchObject({
+        contractVersion: 'recovery-v1',
+        validationStatus: 'unvalidated',
+        simulatedSections: ['resourceOptimization', 'scheduleAnalysis', 'qualityPrediction'],
+      });
+      expect(result.toDisplayFormat().metadata.validationStatus).toBe('unvalidated');
     });
 
     test('should handle batch processing', async () => {
@@ -157,7 +165,7 @@ describe('AI Insights Integration Tests', () => {
       expect(result.total).toBe(2);
       expect(result.processed).toBe(2);
       expect(result.successful).toBeGreaterThan(0);
-      expect(result.results).toBeInstanceOf(Array);
+      expect(Array.isArray(result.results)).toBe(true);
     });
 
     test('should return performance metrics', async () => {
@@ -265,18 +273,19 @@ describe('AI Insights Integration Tests', () => {
 
   describe('Cache Functionality', () => {
     test('should cache predictions', async () => {
-      // First request
-      const start1 = Date.now();
-      const result1 = await client.predictRisk(sampleProject);
-      const duration1 = Date.now() - start1;
-      
-      // Second request (should be cached)
-      const start2 = Date.now();
-      const result2 = await client.predictRisk(sampleProject);
-      const duration2 = Date.now() - start2;
-      
-      expect(result1.riskLevel).toBe(result2.riskLevel);
-      expect(duration2).toBeLessThan(duration1); // Should be faster due to caching
+      await client.clearCache();
+      const predict = jest.spyOn(server.aiEngine.models.riskPrediction, 'predict');
+      try {
+        const result1 = await client.predictRisk(sampleProject);
+        const result2 = await client.predictRisk(sampleProject);
+        expect(result2).toEqual(result1);
+        expect(predict).toHaveBeenCalledTimes(1);
+        await client.clearCache();
+        await client.predictRisk(sampleProject);
+        expect(predict).toHaveBeenCalledTimes(2);
+      } finally {
+        predict.mockRestore();
+      }
     });
 
     test('should clear cache when requested', async () => {
@@ -327,9 +336,9 @@ describe('AI Insights Integration Tests', () => {
       const insights = await client.generateInsights(sampleProject);
       const summary = insights.getSummary();
       
-      expect(summary.keyInsights).toBeInstanceOf(Array);
-      expect(summary.priorityRecommendations).toBeInstanceOf(Array);
-      expect(summary.estimatedImpact).toBeDefined();
+      expect(Array.isArray(summary.keyInsights)).toBe(true);
+      expect(Array.isArray(summary.priorityRecommendations)).toBe(true);
+      expect(summary.estimatedImpact).toBeNull(); // Unvalidated outputs cannot establish impact.
     });
   });
 
@@ -386,8 +395,8 @@ const TestHelpers = {
 
   validateInsightStructure: (insights) => {
     expect(insights).toBeDefined();
-    expect(insights.insights).toBeInstanceOf(Array);
-    expect(insights.recommendations).toBeInstanceOf(Array);
+    expect(Array.isArray(insights.insights)).toBe(true);
+    expect(Array.isArray(insights.recommendations)).toBe(true);
     expect(insights.summary).toBeDefined();
     expect(insights.riskPrediction).toBeDefined();
     expect(insights.resourceOptimization).toBeDefined();
@@ -397,4 +406,3 @@ const TestHelpers = {
 };
 
 export { TestHelpers };
-

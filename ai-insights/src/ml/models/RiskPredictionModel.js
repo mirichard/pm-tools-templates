@@ -3,6 +3,7 @@
  * Machine Learning model for predicting project risks
  */
 
+import { assessPlanning } from '../../services/planningAssessment.js';
 import * as tf from '@tensorflow/tfjs';
 import { mkdir, writeFile } from 'node:fs/promises';
 import { resolve, join } from 'node:path';
@@ -176,6 +177,7 @@ export class RiskPredictionModel {
       const mitigationStrategies = this.generateMitigationStrategies(predictedRisk, riskFactors);
 
       return {
+        planningAssessment: assessPlanning(projectData),
         riskLevel: predictedRisk,
         confidence: parseFloat(confidence.toFixed(3)),
         probability: parseFloat(confidence.toFixed(3)),
@@ -185,6 +187,9 @@ export class RiskPredictionModel {
         timeline: this.predictRiskTimeline(projectData),
         impact: this.assessRiskImpact(predictedRisk, projectData),
         metadata: {
+          validationStatus: 'unvalidated',
+          trainingStatus: 'untrained',
+          factorMethod: 'heuristic',
           modelVersion: '1.0.0',
           predictionDate: new Date().toISOString(),
           features: this.features,
@@ -263,6 +268,15 @@ export class RiskPredictionModel {
   generateMitigationStrategies(riskLevel, riskFactors) {
     const strategies = [];
 
+    if (riskFactors.some(rf => rf.factor === 'Large Team Size')) {
+      strategies.push({
+        strategy: 'Communication Protocols',
+        priority: 'medium',
+        description: 'Implement clear communication protocols and coordination responsibilities',
+        timeframe: 'planning'
+      });
+    }
+
     if (riskLevel === 'high' || riskLevel === 'critical') {
       strategies.push({
         strategy: 'Enhanced Project Monitoring',
@@ -280,6 +294,12 @@ export class RiskPredictionModel {
     }
 
     if (riskFactors.some(rf => rf.factor === 'Low Team Experience')) {
+      strategies.push({
+        strategy: 'Team Training',
+        priority: 'medium',
+        description: 'Provide additional training in the skills required for the project',
+        timeframe: 'planning'
+      });
       strategies.push({
         strategy: 'Mentorship Program',
         priority: 'medium',
@@ -392,10 +412,7 @@ export class RiskPredictionModel {
 
   /** Train the model (not implemented). */
   async train(_trainingData) {
-    // This would be implemented with real training data
-    logger.info('🏋️ Training Risk Prediction Model...');
-    // Training implementation would go here
-    logger.info('✅ Risk Prediction Model training complete');
+    throw new Error('Risk model training is not implemented; no trained or validated model is available');
   }
 
   /**
@@ -424,4 +441,3 @@ export class RiskPredictionModel {
     }
   }
 }
-

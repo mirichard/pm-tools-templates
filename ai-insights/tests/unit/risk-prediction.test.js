@@ -6,6 +6,14 @@
 import { jest } from '@jest/globals';
 import { RiskPredictionModel } from '../../src/ml/models/RiskPredictionModel.js';
 
+const planningEvidence = () => ({
+  baselineId: 'plan-1', assessedAt: new Date(Date.now() - 60000).toISOString(),
+  reviewDue: new Date(Date.now() + 3600000).toISOString(),
+  schedule: { remainingEffortHours: 120, availableCapacityHours: 80,
+    assumptions: 'Net qualified capacity', evidenceReferences: ['capacity-plan-1'] },
+  integrations: [{ id: 'interface-1', owner: 'owner', status: 'blocked', issue: 'Test failed', evidenceReferences: ['test-1'] }],
+});
+
 describe('RiskPredictionModel', () => {
   let riskModel;
 
@@ -96,11 +104,14 @@ describe('RiskPredictionModel', () => {
 
       const result = await riskModel.predict(project);
       
-      expect(result.riskFactors).toContain('Large team size');
+      expect(result.riskFactors).toEqual(expect.arrayContaining([
+        expect.objectContaining({ factor: 'Large Team Size', severity: expect.any(String), description: expect.any(String), impact: expect.any(Number) })
+      ]));
     });
 
-    test('should identify tight timeline as risk factor', async () => {
+    test('should identify evidenced capacity shortfall', async () => {
       const project = {
+        baselineId: 'plan-1', planningAssessment: planningEvidence(),
         teamSize: 5,
         duration: 14, // 2 weeks
         complexity: 'high',
@@ -109,7 +120,9 @@ describe('RiskPredictionModel', () => {
 
       const result = await riskModel.predict(project);
       
-      expect(result.riskFactors).toContain('Tight timeline');
+      expect(result.planningAssessment.checks).toEqual(expect.arrayContaining([
+        expect.objectContaining({ ruleId: 'capacity', status: 'triggered', measurements: expect.objectContaining({ shortfallHours: 40 }) })
+      ]));
     });
 
     test('should identify inexperienced team as risk factor', async () => {
@@ -123,11 +136,14 @@ describe('RiskPredictionModel', () => {
 
       const result = await riskModel.predict(project);
       
-      expect(result.riskFactors).toContain('Low team experience');
+      expect(result.riskFactors).toEqual(expect.arrayContaining([
+        expect.objectContaining({ factor: 'Low Team Experience', severity: expect.any(String), description: expect.any(String), impact: expect.any(Number) })
+      ]));
     });
 
-    test('should identify complex technology stack as risk factor', async () => {
+    test('should identify documented integration exposure', async () => {
       const project = {
+        baselineId: 'plan-1', planningAssessment: planningEvidence(),
         teamSize: 5,
         duration: 60,
         complexity: 'high',
@@ -137,7 +153,9 @@ describe('RiskPredictionModel', () => {
 
       const result = await riskModel.predict(project);
       
-      expect(result.riskFactors).toContain('Complex technology stack');
+      expect(result.planningAssessment.checks).toEqual(expect.arrayContaining([
+        expect.objectContaining({ ruleId: 'integrations', status: 'triggered', evidenceReferences: ['test-1'] })
+      ]));
     });
   });
 
@@ -166,7 +184,7 @@ describe('RiskPredictionModel', () => {
         complexity: 'high',
         methodology: 'hybrid',
         teamExperience: 1.0,
-        budget: 10
+        budget: 1000 // Shared input schema minimum; confidence assertion remains unchanged.
       };
 
       const result = await riskModel.predict(project);
@@ -200,11 +218,14 @@ describe('RiskPredictionModel', () => {
 
       const result = await riskModel.predict(project);
       
-      expect(result.mitigationStrategies).toContain('Implement clear communication protocols');
+      expect(result.mitigationStrategies).toEqual(expect.arrayContaining([
+        expect.objectContaining({ strategy: 'Communication Protocols', priority: expect.any(String), description: expect.stringContaining('Implement clear communication protocols'), timeframe: expect.any(String) })
+      ]));
     });
 
-    test('should suggest timeline adjustments for tight schedules', async () => {
+    test('should recommend planning review for evidenced shortfall', async () => {
       const project = {
+        baselineId: 'plan-1', planningAssessment: planningEvidence(),
         teamSize: 5,
         duration: 15,
         complexity: 'high',
@@ -213,7 +234,9 @@ describe('RiskPredictionModel', () => {
 
       const result = await riskModel.predict(project);
       
-      expect(result.mitigationStrategies).toContain('Consider extending timeline');
+      expect(result.planningAssessment.checks).toEqual(expect.arrayContaining([
+        expect.objectContaining({ ruleId: 'capacity', recommendation: expect.stringContaining('Review scope, qualified capacity or delivery date') })
+      ]));
     });
 
     test('should suggest training for inexperienced teams', async () => {
@@ -227,7 +250,9 @@ describe('RiskPredictionModel', () => {
 
       const result = await riskModel.predict(project);
       
-      expect(result.mitigationStrategies).toContain('Provide additional training');
+      expect(result.mitigationStrategies).toEqual(expect.arrayContaining([
+        expect.objectContaining({ strategy: 'Team Training', priority: expect.any(String), description: expect.stringContaining('Provide additional training'), timeframe: expect.any(String) })
+      ]));
     });
   });
 
@@ -366,7 +391,9 @@ describe('RiskPredictionModel', () => {
       const result = await riskModel.predict(project);
       
       expect(result).toBeDefined();
-      expect(result.riskFactors).toContain('No team experience');
+      expect(result.riskFactors).toEqual(expect.arrayContaining([
+        expect.objectContaining({ factor: 'Low Team Experience', severity: expect.any(String), description: expect.any(String), impact: expect.any(Number) })
+      ]));
     });
   });
 

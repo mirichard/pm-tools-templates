@@ -34,10 +34,17 @@ export class InsightsGenerator {
         insights,
         recommendations,
         executiveSummary,
+        riskPrediction: analysisData.riskPrediction,
+        resourceOptimization: analysisData.resourceOptimization,
+        scheduleAnalysis: analysisData.scheduleAnalysis,
+        qualityPrediction: analysisData.qualityPrediction,
         confidence: this.calculateOverallConfidence(analysisData),
         riskLevel: riskPrediction.riskLevel,
         actionItems: this.prioritizeActionItems(recommendations),
         metadata: {
+          contractVersion: 'recovery-v1',
+          validationStatus: 'unvalidated',
+          simulatedSections: ['resourceOptimization', 'scheduleAnalysis', 'qualityPrediction'],
           modelsUsed: ['risk', 'resource', 'schedule', 'quality'],
           version: '1.0.0',
           processingTime: Date.now()
@@ -200,4 +207,3 @@ export class InsightsGenerator {
       }));
   }
 }
-

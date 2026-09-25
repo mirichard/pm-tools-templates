@@ -40,8 +40,6 @@ class AIInsightsClient {
           signal: controller.signal
         });
         
-        clearTimeout(timeoutId);
-
         if (!response.ok) {
           const errorData = await response.json().catch(() => ({}));
           throw new AIInsightsError(
@@ -75,6 +73,7 @@ class AIInsightsClient {
   isRetryableError(error) {
     return (
       error.name === 'AbortError' ||
+      error instanceof TypeError ||
       error.code === 'NETWORK_ERROR' ||
       (error.status >= 500 && error.status < 600) ||
       error.status === 429
@@ -97,6 +96,10 @@ class AIInsightsClient {
         body: projectData
       });
       
+      if (response?.success !== true || !response.data ||
+          typeof response.data !== 'object' || Array.isArray(response.data)) {
+        throw new AIInsightsError('Invalid insights response');
+      }
       return new AIInsightsResult(response.data);
     } catch (error) {
       throw new AIInsightsError(
@@ -326,13 +329,16 @@ class AIInsightsResult {
    * Calculate overall impact score
    */
   calculateOverallImpact() {
+    // Recovery outputs have no validated causal impact or efficiency estimate.
+    if (this.data.metadata?.validationStatus !== 'validated') return null;
     const risk = this.data.riskPrediction;
     const resource = this.data.resourceOptimization;
     
     if (!risk || !resource) return null;
 
     const riskImpact = this.getRiskImpactScore(risk.riskLevel);
-    const resourceImprovement = resource.efficiency?.improvement || 0;
+    const resourceImprovement = resource.targetUtilization - resource.currentUtilization;
+    if (!Number.isFinite(resourceImprovement)) return null;
     
     return {
       riskReduction: riskImpact,
@@ -360,6 +366,9 @@ class AIInsightsResult {
       schedule: this.getScheduleAnalysis(),
       quality: this.getQualityPredictions(),
       metadata: {
+        contractVersion: this.data.metadata?.contractVersion,
+        validationStatus: this.data.metadata?.validationStatus ?? 'unvalidated',
+        simulatedSections: this.data.metadata?.simulatedSections ?? [],
         timestamp: this.timestamp,
         confidence: this.data.riskPrediction?.confidence,
         completeness: this.calculateCompleteness()
@@ -416,31 +425,36 @@ class AIInsightsError extends Error {
 
 // Pass the host application's React hooks when consuming this module via ESM.
 function useAIInsights(client, hooks = globalThis.React) {
-  if (typeof hooks?.useState !== 'function' || typeof hooks?.useCallback !== 'function') {
-    throw new TypeError('useAIInsights requires React useState and useCallback hooks');
+  if (typeof hooks?.useState !== 'function' || typeof hooks?.useCallback !== 'function' || typeof hooks?.useRef !== 'function') {
+    throw new TypeError('useAIInsights requires React useState and useCallback hooks, plus useRef');
   }
-  const { useState, useCallback } = hooks;
+  const { useState, useCallback, useRef } = hooks;
+  const requestVersion = useRef(0);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [insights, setInsights] = useState(null);
 
   const generateInsights = useCallback(async (projectData) => {
+    const version = ++requestVersion.current;
     setLoading(true);
     setError(null);
+    setInsights(null);
     
     try {
       const result = await client.generateInsights(projectData);
-      setInsights(result);
+      if (version === requestVersion.current) setInsights(result);
       return result;
     } catch (err) {
-      setError(err);
+      if (version === requestVersion.current) setError(err);
       throw err;
     } finally {
-      setLoading(false);
+      if (version === requestVersion.current) setLoading(false);
     }
   }, [client]);
 
   const clearInsights = useCallback(() => {
+    requestVersion.current++;
+    setLoading(false);
     setInsights(null);
     setError(null);
   }, []);
@@ -468,4 +482,3 @@ if (typeof module !== 'undefined' && module.exports) {
 
 // ES6 export
 export { AIInsightsClient, AIInsightsResult, AIInsightsError, useAIInsights };
-

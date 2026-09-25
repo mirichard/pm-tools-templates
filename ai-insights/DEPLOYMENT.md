@@ -1,5 +1,9 @@
 # AI-Powered Project Insights - Production Deployment Guide
 
+> Recovery only: the app remains withdrawn. Image build/scanning and the #1329
+> restoration gates have not passed. Commands below are development references,
+> not production deployment approval. See RUNTIME-SIT-EVIDENCE.md.
+
 ## 🚀 Quick Deployment
 
 ### Prerequisites
@@ -99,8 +103,8 @@ npm run format
 # Linting
 npm run lint:fix
 
-# Type checking
-npm run build
+# Source validation (native JavaScript; no compilation step)
+npm run lint
 
 # Performance testing
 npm run benchmark

@@ -42,13 +42,50 @@ jobs:
     needs: changes
     if: github.event_name == 'push' || needs.changes.outputs.applicable == 'true'
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
         with:
           persist-credentials: false
 
       - name: Build ai-insights image
-        run: docker build -t ai-insights:scan ./ai-insights
+        id: build
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p container-evidence
+          git rev-parse HEAD > container-evidence/checkout-sha.txt
+          docker build --iidfile container-evidence/image-id.txt -t ai-insights:scan ./ai-insights 2>&1 | tee container-evidence/build.log
+          image_id=$(cat container-evidence/image-id.txt)
+          echo "image_id=$image_id" >> "$GITHUB_OUTPUT"
+          docker image inspect "$image_id" > container-evidence/image.json
+
+      - name: Check container runtime
+        run: bash ai-insights/scripts/container-smoke.sh '${{ steps.build.outputs.image_id }}' container-evidence
+
+      - name: Check rendered recovery dashboard
+        env:
+          IMAGE_ID: ${{ steps.build.outputs.image_id }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          npm install --prefix "$RUNNER_TEMP/uat-browser" --no-save --package-lock=false playwright@1.62.1
+          node "$RUNNER_TEMP/uat-browser/node_modules/playwright/cli.js" install --with-deps chromium
+          container=$(docker run -d -e ENABLE_RECOVERY_UAT=true -p 127.0.0.1::3001 "$IMAGE_ID")
+          cleanup() {
+            docker logs "$container" > container-evidence/uat-container.log 2>&1 || true
+            docker rm -f "$container" >/dev/null || true
+          }
+          trap cleanup EXIT
+          port=$(docker port "$container" 3001/tcp | sed 's/.*://')
+          export UAT_BASE_URL="http://127.0.0.1:$port"
+          export UAT_EVIDENCE="$PWD/container-evidence"
+          export NODE_PATH="$RUNNER_TEMP/uat-browser/node_modules"
+          for attempt in {1..60}; do
+            if curl --silent --fail "$UAT_BASE_URL/health" >/dev/null; then break; fi
+            sleep 1
+          done
+          node ai-insights/scripts/check-recovery-ui.cjs 2>&1 | tee container-evidence/browser-checks.log
 
       # Root cause of an earlier failure, from this PR's own job logs (run
       # 35618428368, job 106395074000): trivy-action@v0.33.1's own install
@@ -64,13 +101,24 @@ jobs:
       # default Trivy CLI version. Confirmed working end-to-end (run
       # 35630381761): completed a real scan and found 4 real HIGH CVEs.
       - name: Scan image with Trivy
+        if: always() && steps.build.outcome == 'success'
         uses: aquasecurity/trivy-action@ed142fd0673e97e23eac54620cfb913e5ce36c25 # v0.36.0
         with:
-          image-ref: ai-insights:scan
+          image-ref: ${{ steps.build.outputs.image_id }}
           version: v0.74.0
-          format: table
+          format: json
+          output: container-evidence/trivy.json
           severity: CRITICAL,HIGH
           exit-code: '1'
+
+      - name: Save container evidence
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: container-evidence-${{ github.run_id }}-${{ github.run_attempt }}
+          path: container-evidence/
+          if-no-files-found: error
+          retention-days: 30
 
   # The one required status check for this workflow. Always runs, and
   # distinguishes three outcomes explicitly: legitimately not applicable

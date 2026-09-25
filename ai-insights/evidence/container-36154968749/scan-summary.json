@@ -1,0 +1,20 @@
+{
+  "note": "Extracted from the full Trivy report; package inventory omitted. HIGH/CRITICAL filter only; zero findings does not imply zero lower-severity vulnerabilities.",
+  "fullReportSha256": "2e5c2d34b46542b1423452b8c35f4703c2d06a7f0e0d4c79bcc2b59c4b9f8ea9",
+  "artifactZipSha256": "d3ff82eff4e996abd688ae6e515bfa0067c69eaf281cf4d74e73bdd80adc970c",
+  "artifactId": 10873615298,
+  "scanTime": "2026-09-25T15:34:44.328457731Z",
+  "image": "sha256:c07cc0fe38f6b1371c9f9fa6170ed426034a35eb3276f1f00cd31717773ae0b4",
+  "results": [
+    {
+      "Target": "sha256:c07cc0fe38f6b1371c9f9fa6170ed426034a35eb3276f1f00cd31717773ae0b4 (alpine 3.24.2)",
+      "Class": "os-pkgs",
+      "Type": "alpine"
+    },
+    {
+      "Target": "Node.js",
+      "Class": "lang-pkgs",
+      "Type": "node-pkg"
+    }
+  ]
+}

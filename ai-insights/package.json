@@ -25,7 +25,6 @@
     "train": "node src/ml/train.js",
     "predict": "node src/ml/predict.js",
     "serve": "node src/api/server.js",
-    "build": "tsc",
     "build:docker": "docker build -t ai-insights:latest .",
     "deploy:docker": "docker-compose up -d",
     "deploy:prod": "docker-compose -f docker-compose.yml --profile monitoring up -d",

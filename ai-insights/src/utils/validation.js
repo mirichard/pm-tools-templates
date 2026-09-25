@@ -6,9 +6,41 @@
 import Joi from 'joi';
 import { logger } from './logger.js';
 
+const references = Joi.array().items(Joi.string().trim().min(1)).min(1);
+const checkEvidence = {
+  id: Joi.string().required(), owner: Joi.string(), evidenceReferences: references,
+};
+export const planningSchema = Joi.object({
+  baselineId: Joi.string(),
+  assessedAt: Joi.string().isoDate(),
+  reviewDue: Joi.string().isoDate(),
+  schedule: Joi.object({
+    remainingEffortHours: Joi.number().strict().min(0),
+    availableCapacityHours: Joi.number().strict().min(0),
+    assumptions: Joi.string(), evidenceReferences: references,
+    dependencies: Joi.array().items(Joi.object({
+      ...checkEvidence, neededAt: Joi.string().isoDate(), availableAt: Joi.string().isoDate(),
+    })),
+  }),
+  integrations: Joi.array().items(Joi.object({
+    ...checkEvidence, status: Joi.string().valid('verified', 'blocked', 'unknown'), issue: Joi.string(),
+  })),
+  skills: Joi.array().items(Joi.object({
+    ...checkEvidence, coverage: Joi.string().valid('confirmed', 'gap', 'unknown'),
+  })),
+}).custom((value, helpers) => {
+  if (value.assessedAt && new Date(value.assessedAt) > new Date()) return helpers.error('any.invalid');
+  if (value.assessedAt && value.reviewDue && new Date(value.reviewDue) <= new Date(value.assessedAt)) {
+    return helpers.error('any.invalid');
+  }
+  return value;
+});
+
 // Project data validation schema
 const projectSchema = Joi.object({
   id: Joi.string().optional(),
+  baselineId: Joi.string(),
+  planningAssessment: planningSchema,
   name: Joi.string().optional(),
   phase: Joi.string().valid('planning', 'development', 'testing', 'deployment', 'maintenance').optional(),
   teamSize: Joi.number().integer().min(1).max(100).default(4),
