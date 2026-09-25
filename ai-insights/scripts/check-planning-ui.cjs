@@ -9,6 +9,10 @@ module.exports = async function checkPlanning(browser, base, evidence) {
  page.on('request',request=>{if(request.method()==='POST') requests.push(request.url());});
  page.on('dialog',dialog=>dialog.accept());
  await page.goto(`${base}/recovery-uat/uat/`);
+ assert.equal(await page.locator('#source,input[type=file]').count(),0);
+ assert.match(await page.locator('header').innerText(),/what it needs/);
+ assert.match(await page.locator('[data-step="0"]').innerText(),/Use the results/);
+ assert.equal(/Excel|Smartsheet|MPP|interface|software/.test(await page.locator('#review-form').innerText()),false);
  await page.screenshot({path:path.join(evidence,'planning-prepare.png'),fullPage:true});
  await page.getByRole('button',{name:'Start preparing inputs'}).click();
  await page.getByRole('button',{name:'Continue to evidence'}).click();
@@ -16,18 +20,18 @@ module.exports = async function checkPlanning(browser, base, evidence) {
  await page.locator('#errors a').first().click();
  assert.equal(await page.locator('#projectName').evaluate(el=>el===document.activeElement),true);
  await page.getByRole('button',{name:'Back',exact:true}).click();
- await page.getByRole('button',{name:'Try a synthetic example'}).click();
+ await page.getByRole('button',{name:'Try a research-report example'}).click();
  await page.getByRole('button',{name:'Continue to evidence'}).click();
  await page.getByRole('button',{name:'Add prerequisite'}).click();
  const dep=page.locator('#dependencies .item').first();
- await dep.locator('[data-key=id]').fill('Environment');
- await dep.locator('[data-key=owner]').fill('Platform owner');
+ await dep.locator('[data-key=id]').fill('Participant consent');
+ await dep.locator('[data-key=owner]').fill('Research coordinator');
  await dep.locator('[data-key=reference]').fill('DEP-42');
  await dep.locator('[data-key=neededAt]').fill('2026-10-01T09:00');
  await dep.locator('[data-key=availableAt]').fill('2026-10-02T09:00');
- await page.getByRole('button',{name:'Add interface'}).click();
- const second=page.locator('#integrations .item').nth(1);
- await second.locator('[data-key=id]').fill('Second interface');
+ await page.getByRole('button',{name:'Add handoff'}).click();
+ const second=page.locator('#handoffs .item').nth(1);
+ await second.locator('[data-key=id]').fill('Reference notes to editor');
  await second.locator('[data-key=status]').selectOption('verified');
  await second.locator('[data-key=owner]').fill('Second owner');
  await second.locator('[data-key=reference]').fill('INT-2');
@@ -65,9 +69,9 @@ module.exports = async function checkPlanning(browser, base, evidence) {
  const downloadPromise=page.waitForEvent('download');
  await page.getByRole('button',{name:'Download data (JSON)'}).click();
  const downloaded=await downloadPromise; const first=JSON.parse(await fs.readFile(await downloaded.path(),'utf8'));
- assert.equal(first.context.scope,'Integration testing; excludes training');
+ assert.equal(first.context.scope,'Draft a research report; exclude publication');
  assert.equal(first.actions['["capacity",""]'].owner,'Resource manager');
- assert.equal(first.evidence.integrations[1].owner,'Second owner');
+ assert.equal(first.evidence.handoffs[1].owner,'Second owner');
  await page.getByRole('button',{name:'Revise inputs and reassess'}).click();
  await page.getByRole('button',{name:'Continue to evidence'}).click();
  await page.locator('#capacity').fill('160');
@@ -81,7 +85,7 @@ module.exports = async function checkPlanning(browser, base, evidence) {
  await page.getByRole('button',{name:'Run planning checks',exact:true}).click();
  await page.waitForFunction(()=>!document.querySelector('#results').hidden);
  assert.match(await page.locator('#findings').innerText(),/Shortfall: 0 person-hours/);
- assert.match(await page.locator('#findings').innerText(),/Documented critical integration issue/);
+ assert.match(await page.locator('#findings').innerText(),/A required handoff has a documented unresolved issue/);
  const nextDownload=page.waitForEvent('download');
  await page.getByRole('button',{name:'Download data (JSON)'}).click();
  const next=JSON.parse(await fs.readFile(await (await nextDownload).path(),'utf8'));
@@ -97,6 +101,8 @@ module.exports = async function checkPlanning(browser, base, evidence) {
  await page.screenshot({path:path.join(evidence,'planning-mobile.png'),fullPage:true});
  await page.getByRole('button',{name:'Revise inputs and reassess'}).click();
  await page.locator('#scope').fill('Different milestone');
+ // Excluded handoffs must not be treated as ready or passed, and require a rationale.
+
  await page.getByRole('button',{name:'Continue to evidence'}).click();
  await page.getByRole('button',{name:'Check inputs and readiness'}).click();
  await page.waitForFunction(()=>!document.querySelector('[data-step="3"]').hidden);
@@ -104,6 +110,30 @@ module.exports = async function checkPlanning(browser, base, evidence) {
  await page.waitForFunction(()=>!document.querySelector('#results').hidden);
  assert.match(await page.locator('#findings').innerText(),/actions were not carried forward/);
  assert.equal(await page.locator('#action-0-owner').inputValue(),'');
+ await page.getByRole('button',{name:'Revise inputs and reassess'}).click();
+ await page.getByRole('button',{name:'Continue to evidence'}).click();
+ await page.locator('#handoffs-choice').selectOption('not_applicable');
+ assert.equal(await page.locator('#handoffs-inputs').isVisible(),false);
+ await page.getByRole('button',{name:'Check inputs and readiness'}).click();
+ assert.match(await page.locator('#errors').innerText(),/Why does this check not apply/);
+ await page.locator('#handoffs-reason').fill('Independent work with no handoffs');
+ await page.locator('#skills-choice').selectOption('unknown');
+ await page.getByRole('button',{name:'Check inputs and readiness'}).click();
+ await page.waitForFunction(()=>!document.querySelector('[data-step="3"]').hidden);
+ assert.match(await page.locator('#readiness').innerText(),/Handoff — Not applicable/);
+ assert.match(await page.locator('#readiness').innerText(),/Required skill — Not assessable/);
+ await page.getByRole('button',{name:'Run planning checks',exact:true}).click();
+ await page.waitForFunction(()=>!document.querySelector('#results').hidden);
+ assert.match(await page.locator('#coverage').innerText(),/1 checks excluded as not applicable/);
+ assert.match(await page.locator('#findings').innerText(),/Independent work with no handoffs/);
+ const exclusionsDownload=page.waitForEvent('download');
+ await page.getByRole('button',{name:'Download data (JSON)'}).click();
+ const exclusions=JSON.parse(await fs.readFile(await (await exclusionsDownload).path(),'utf8'));
+ assert.equal(exclusions.applicability.handoffs.reason,'Independent work with no handoffs');
+ assert.equal(exclusions.context.source,undefined);
+ assert.equal(exclusions.evidence.handoffs,undefined);
+ await page.screenshot({path:path.join(evidence,'planning-generic-exclusions.png'),fullPage:true});
+
  await page.reload();
  assert.equal(await page.locator('#results').isVisible(),false);
  assert.equal(await page.locator('#projectName').inputValue(),'');

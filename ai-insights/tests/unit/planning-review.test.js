@@ -2,8 +2,9 @@ import { jest } from '@jest/globals';
 import AIInsightsServer from '../../src/api/server.js';
 
 const fixture = () => ({
-  context: { projectName: 'Plan', scope: 'Testing only', periodStart: '2026-09-25', periodEnd: '2026-10-09', asOf: '2026-09-25', timezone: 'America/New_York', decision: 'Commit milestone?', source: 'Plan.xlsx, Tasks', planVersion: 'v1', alignmentConfirmed: true },
-  evidence: { baselineId: 'v1', assessedAt: new Date(Date.now() - 60000).toISOString(), reviewDue: new Date(Date.now() + 86400000).toISOString(), schedule: { remainingEffortHours: 120, availableCapacityHours: 80, assumptions: 'Net qualified hours', evidenceReferences: ['plan-1'], dependencies: [{ id: 'Prerequisite', owner: 'Provider', evidenceReferences: ['D1'], neededAt: '2026-09-27T12:00:00.000Z', availableAt: '2026-09-28T12:00:00.000Z' }] }, integrations: [{ id: 'A', status: 'blocked', issue: 'Test failed', owner: 'Tech lead', evidenceReferences: ['I1'] }], skills: [{ id: 'Testing', coverage: 'gap', owner: 'Delivery lead', evidenceReferences: ['S1'] }] },
+  context: { projectName: 'Plan', scope: 'Testing only', periodStart: '2026-09-25', periodEnd: '2026-10-09', asOf: '2026-09-25', timezone: 'America/New_York', decision: 'Commit milestone?', planVersion: 'v1', alignmentConfirmed: true },
+  applicability: Object.fromEntries(['capacity', 'dependencies', 'handoffs', 'skills'].map(key => [key, { state: 'include' }])),
+  evidence: { baselineId: 'v1', assessedAt: new Date(Date.now() - 60000).toISOString(), reviewDue: new Date(Date.now() + 86400000).toISOString(), schedule: { remainingEffortHours: 120, availableCapacityHours: 80, assumptions: 'Net qualified hours', evidenceReferences: ['plan-1'], dependencies: [{ id: 'Prerequisite', owner: 'Provider', evidenceReferences: ['D1'], neededAt: '2026-09-27T12:00:00.000Z', availableAt: '2026-09-28T12:00:00.000Z' }] }, handoffs: [{ id: 'A', status: 'blocked', issue: 'Test failed', owner: 'Tech lead', evidenceReferences: ['I1'] }], skills: [{ id: 'Testing', coverage: 'gap', owner: 'Delivery lead', evidenceReferences: ['S1'] }] },
 });
 let server, base, previous;
 beforeAll(async () => {
@@ -52,7 +53,7 @@ test.each([
   ['reversed period', b => { b.context.periodEnd = '2026-09-01'; }],
   ['invalid calendar date', b => { b.context.periodStart = '2026-02-30'; }],
   ['missing scope', b => { delete b.context.scope; }],
-  ['duplicate items', b => { b.evidence.integrations.push({ ...b.evidence.integrations[0] }); }],
+  ['duplicate items', b => { b.evidence.handoffs.push({ ...b.evidence.handoffs[0] }); }],
   ['negative hours', b => { b.evidence.schedule.remainingEffortHours = -1; }],
   ['experimental input', b => { b.teamSize = 4; }],
 ])('rejects %s without producing a review', async (_name, change) => {
@@ -72,4 +73,26 @@ test('planning routes are absent without recovery opt-in', async () => {
     const response = await fetch(`http://127.0.0.1:${disabled.server.address().port}/api/v1/recovery-uat/planning/review`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(fixture()) });
     expect(response.status).toBe(404);
   } finally { await disabled.shutdown(); process.env.ENABLE_RECOVERY_UAT = 'true'; }
+});
+
+test('not applicable requires a reason and is never counted as a passing or unknown check', async () => {
+  const body = fixture();
+  body.applicability.handoffs = { state: 'not_applicable' };
+  expect((await post(body)).status).toBe(400);
+  body.applicability.handoffs.reason = 'Work is completed independently with no handoffs';
+  body.applicability.skills = { state: 'unknown' };
+  const result = await post(body);
+  expect(result.status).toBe(200);
+  expect(result.body.data.schemaVersion).toBe('planning-review-v2');
+  expect(result.body.data.assessment.checks.find(c => c.ruleId === 'handoffs')).toMatchObject({ status: 'not_applicable', reason: 'Excluded by you: Work is completed independently with no handoffs' });
+  expect(result.body.data.assessment.checks.find(c => c.ruleId === 'skills').status).toBe('not_assessed');
+  expect(result.body.data.assessment.checks[0].status).toBe('triggered');
+});
+test('generic handoff findings describe usable work, not software interfaces', async () => {
+  const result = await post(fixture());
+  const handoff = result.body.data.assessment.checks.find(c => c.ruleId === 'handoffs');
+  expect(handoff.status).toBe('triggered');
+  expect(handoff.reason).toContain('required handoff');
+  expect(JSON.stringify(handoff)).not.toMatch(/integration|compatibility|technical/);
+  expect(result.body.data.context).not.toHaveProperty('source');
 });

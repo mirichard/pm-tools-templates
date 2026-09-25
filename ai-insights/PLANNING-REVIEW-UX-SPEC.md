@@ -3,6 +3,40 @@
 Date: 09/25/2026. Status: proposed design specification for review; not implemented.
 Owner/decision maker: Michael. Implementation reference: `fe14a5fc7761cbe97970ec5a7599ae04526bb448`.
 
+## User-feedback corrections — 09/25/2026
+
+Michael rejected the first redesign's software-development bias and confusing file
+reference. The revised guided flow is source-neutral and applies to research,
+documentation, events, operational change and other work. Planning information may
+come from any tool, document, notes, observations or discussions. No file name,
+location or upload is requested; `context.source` is removed from the guided API.
+This supersedes the source-reference requirement and software-oriented examples
+in the original design dictionary below.
+
+The introduction explains why to enter information and what the user will receive:
+explained findings, preparation gaps, suggested actions and a downloadable record.
+Each question provides a definition/purpose and concrete generic examples. A
+supporting answer is a description of who confirmed something and how; it need
+not identify a file. Blank values remain unknown, never zero or an invented fact.
+
+Each check is explicitly included, undecided or excluded as not applicable.
+Exclusion requires a rationale; it is displayed/exported separately from “no issue
+found” and “not assessed.” Details are shown only for included checks. The handoff
+check concerns whether transferred work/information is usable by its recipient;
+it is distinct from the prerequisite date comparison. There is no assumption that
+an interface, software system or technical team is involved.
+
+Guided API contract: `planning-review-v2`, explicit applicability choices for
+capacity/dependencies/handoffs/skills, generic `evidence.handoffs` and no source
+field. Legacy experimental APIs and their historical test expectations remain
+separate. Arithmetic and date checks are reused; handoff wording/semantics and
+excluded states are explicit in the guided adapter. User acceptance is pending.
+
+Additional acceptance: source-neutral introduction; no source-file field anywhere
+in the ordinary flow; task examples understandable from a rough outline; no hidden
+excluded values submitted; missing exclusion rationale rejected; exclusion and
+unknown states retained in findings and exports; nontechnical example executable.
+
 ## Purpose and boundaries
 
 Help a project manager prepare evidence from an existing plan, check selected delivery

@@ -9,9 +9,9 @@ let record = null;
 let previous = null;
 let busy = false;
 let itemNumber = 0;
-const labels = { capacity: 'Capacity', dependencies: 'Prerequisite', integrations: 'Critical interface', skills: 'Required skill' };
-const contextLabels = { projectName: 'Project / workstream', scope: 'Scope and exclusions', periodStart: 'Period starts', periodEnd: 'Period ends', asOf: 'Plan status as of', timezone: 'Time zone', decision: 'Decision', source: 'Source plan', planVersion: 'Plan version', alignmentConfirmed: 'Scope and period alignment confirmed' };
-const evidenceLabels = { baselineId: 'Evidence plan version', assessedAt: 'Evidence confirmed', reviewDue: 'Evidence review due', schedule: 'Capacity and prerequisites', remainingEffortHours: 'Remaining effort (person-hours)', availableCapacityHours: 'Qualified capacity (person-hours)', assumptions: 'Preparation assumptions', evidenceReferences: 'Evidence reference(s)', dependencies: 'Prerequisites', integrations: 'Critical interfaces', skills: 'Required skills', id: 'Item', owner: 'Evidence owner', neededAt: 'Needed by', availableAt: 'Expected availability', status: 'Readiness', issue: 'Documented issue', coverage: 'Skill coverage' };
+const labels = { capacity: 'Capacity', dependencies: 'Prerequisite', handoffs: 'Handoff', skills: 'Required skill' };
+const contextLabels = { projectName: 'Project / workstream', scope: 'Scope and exclusions', periodStart: 'Period starts', periodEnd: 'Period ends', asOf: 'Plan status as of', timezone: 'Time zone', decision: 'Decision', planVersion: 'Plan version', alignmentConfirmed: 'Scope and period alignment confirmed' };
+const evidenceLabels = { baselineId: 'Evidence plan version', assessedAt: 'Evidence confirmed', reviewDue: 'Evidence review due', schedule: 'Capacity and prerequisites', remainingEffortHours: 'Remaining effort (person-hours)', availableCapacityHours: 'Qualified capacity (person-hours)', assumptions: 'Preparation assumptions', evidenceReferences: 'Evidence reference(s)', dependencies: 'Prerequisites', handoffs: 'Handoffs', skills: 'Required skills', id: 'Item', owner: 'Evidence owner', neededAt: 'Needed by', availableAt: 'Expected availability', status: 'Readiness', issue: 'Documented issue', coverage: 'Skill coverage' };
 const append = (parent, tag, text, className) => {
   const node = document.createElement(tag);
   if (text !== undefined) node.textContent = text;
@@ -48,13 +48,13 @@ function errors(messages) {
 }
 function validate(all = false) {
   clearErrors();
-  const controls = [...form.querySelectorAll('input,select,textarea')].filter(node => all || Number(node.closest('[data-step]').dataset.step) === step);
+  const controls = [...form.querySelectorAll('input,select,textarea')].filter(node => !node.disabled && (all || Number(node.closest('[data-step]').dataset.step) === step));
   controls.forEach(node => node.setCustomValidity(''));
   const start = $('#periodStart'), end = $('#periodEnd');
   if (start.value && end.value && end.value < start.value) end.setCustomValidity('Review end must be on or after the start.');
   if ($('#assessedAt').value && new Date($('#assessedAt').value) > new Date()) $('#assessedAt').setCustomValidity('Confirmation cannot be in the future.');
   if ($('#assessedAt').value && $('#reviewDue').value && $('#reviewDue').value <= $('#assessedAt').value) $('#reviewDue').setCustomValidity('Review due must be later than confirmation.');
-  for (const group of ['dependencies', 'integrations', 'skills']) {
+  for (const group of ['dependencies', 'handoffs', 'skills']) {
     const seen = new Set();
     document.querySelectorAll(`#${group} [data-key="id"]`).forEach(node => {
       const value = node.value.trim();
@@ -80,19 +80,19 @@ document.querySelectorAll('[data-next]').forEach(button => button.addEventListen
 document.querySelectorAll('[data-back]').forEach(button => button.addEventListener('click', () => { clearErrors(); show(step - 1); }));
 
 const itemFields = {
-  dependencies: [['id', 'Prerequisite / affected work', 'Example: Test environment for integration testing.', 'text', true], ['neededAt', 'Needed by (local time)', 'When receiving work needs the prerequisite.', 'datetime-local'], ['availableAt', 'Expected availability (local time)', 'Current provider-confirmed forecast; leave blank if unknown.', 'datetime-local']],
-  integrations: [['id', 'Critical interface', 'Example: Billing API required for this milestone.', 'text', true], ['status', 'Readiness', 'Verified needs evidence. Blocked needs an issue. Unknown is not assessed.', ['unknown', 'verified', 'blocked']], ['issue', 'Documented interface issue', 'Required to assess a blocked interface; cite the failed test or unresolved issue.', 'textarea']],
-  skills: [['id', 'Required skill', 'Example: Integration testing for the selected work.', 'text', true], ['coverage', 'Coverage', 'Confirm qualified support with the delivery lead; unknown is not assessed.', ['unknown', 'confirmed', 'gap']]],
+  dependencies: [['id', 'What must be available first?', 'Examples: participant consent before interviews, approved text before printing, or venue access before setup. Name the receiving work too.', 'text', true], ['neededAt', 'When is it needed? (local time)', 'Use the date the next task needs it. Example: the morning interviews begin. Leave unknown if not agreed.', 'datetime-local'], ['availableAt', 'When is it expected? (local time)', 'Ask the person providing it for the current expected date. A later date than needed creates a timing concern.', 'datetime-local']],
+  handoffs: [['id', 'What is being passed, and to whom?', 'Examples: interview notes to an analyst, a draft to a reviewer, or event materials to a coordinator.', 'text', true], ['status', 'Can the receiving person use it as needed?', 'Choose confirmed ready only after checking requirements with the recipient. A known problem needs a description; unknown remains unassessed.', ['unknown', 'verified', 'blocked']], ['issue', 'What is preventing the handoff?', 'Examples: consent details are missing from notes, a draft lacks citations, or materials use a format the recipient cannot use. Needed for a known problem.', 'textarea']],
+  skills: [['id', 'What skill or support is needed?', 'Examples: interviewing, analyzing findings, editing a report, translating guidance, or facilitating a workshop.', 'text', true], ['coverage', 'Is the needed skill or support available?', 'Confirm with the people doing the work. Available means qualified support is arranged; unknown is different from a confirmed gap.', ['unknown', 'confirmed', 'gap']]],
 };
 function addField(parent, prefix, key, label, hint, type = 'text', required = false) {
   const field = append(parent, 'div', undefined, 'field');
   const id = `${prefix}-${key}`;
-  const labelNode = append(field, 'label', `${label}${required ? ' (required for this item)' : ' (unknown allowed)'}`); labelNode.htmlFor = id;
+  const labelNode = append(field, 'label', `${label}${required ? ' (required for this item)' : (prefix.startsWith('action-') ? ' (optional)' : ' (leave unknown if not confirmed)')}`); labelNode.htmlFor = id;
   const help = append(field, 'p', hint, 'hint'); help.id = id + '-hint';
   const input = append(field, Array.isArray(type) ? 'select' : type === 'textarea' ? 'textarea' : 'input');
   input.id = id; input.dataset.key = key; input.required = required;
   input.setAttribute('aria-describedby', help.id);
-  if (Array.isArray(type)) type.forEach(value => { const option = append(input, 'option', { unknown: 'Unknown', verified: 'Verified', blocked: 'Blocked', confirmed: 'Confirmed coverage', gap: 'Confirmed gap' }[value] || value); option.value = value; });
+  if (Array.isArray(type)) type.forEach(value => { const option = append(input, 'option', { unknown: 'Unknown', verified: 'Confirmed ready', blocked: 'Known problem', confirmed: 'Confirmed available', gap: 'Confirmed gap' }[value] || value); option.value = value; });
   else if (type === 'textarea') { input.rows = 3; input.maxLength = 2000; }
   else { input.type = type; if (type === 'text') input.maxLength = 2000; }
   return input;
@@ -103,7 +103,7 @@ function addItem(group, values = {}) {
   const heading = append(item, 'h3', `${labels[group]} ${$('#' + group).children.length}`);
   item.setAttribute('role', 'group'); heading.id = prefix + '-heading'; item.setAttribute('aria-labelledby', heading.id);
   const fields = append(item, 'div', undefined, 'fields');
-  for (const args of [...itemFields[group], ['owner', 'Evidence owner', 'Person or role confirming this item. Missing owner means not assessed.'], ['reference', 'Supporting reference', 'Document, test, issue or forecast specific to this item.']]) {
+  for (const args of [...itemFields[group], ['owner', 'Who can confirm this?', 'A person or role, such as the researcher, editor or event coordinator. The check needs someone accountable for this information.'], ['reference', 'What supports this answer?', 'Describe the confirmation: for example, “Reviewer checked the draft today” or “Coordinator confirmed by phone.” No file is opened or retrieved.']]) {
     const input = addField(fields, prefix, ...args); if (values[args[0]] !== undefined) input.value = values[args[0]];
   }
   const remove = append(item, 'button', 'Remove this item', 'secondary'); remove.type = 'button';
@@ -111,6 +111,18 @@ function addItem(group, values = {}) {
   dirty(); return item;
 }
 document.querySelectorAll('[data-add]').forEach(button => button.addEventListener('click', () => addItem(button.dataset.add).querySelector('input').focus()));
+function updateApplicability(group) {
+  const state = $('#' + group + '-choice').value;
+  const body = $('#' + group + '-inputs'); body.hidden = state !== 'include';
+  body.querySelectorAll('input,select,textarea,button').forEach(node => { node.disabled = state !== 'include'; });
+  $('#' + group + '-exclusion').hidden = state !== 'not_applicable';
+  const anyIncluded = [...document.querySelectorAll('[data-choice]')].some(node => node.value === 'include');
+  $('#confirmation-inputs').hidden = !anyIncluded;
+  $('#confirmation-inputs').querySelectorAll('input').forEach(node => { node.disabled = !anyIncluded; });
+  const reason = $('#' + group + '-reason'); reason.disabled = state !== 'not_applicable'; reason.required = state === 'not_applicable';
+}
+document.querySelectorAll('[data-choice]').forEach(node => node.addEventListener('change', () => updateApplicability(node.dataset.choice)));
+
 function readItems(group) {
   return [...$('#' + group).children].map(item => {
     const value = {};
@@ -128,16 +140,21 @@ function payload() {
   for (const key of Object.keys(contextLabels)) {
     context[key] = key === 'timezone' ? Intl.DateTimeFormat().resolvedOptions().timeZone : key === 'alignmentConfirmed' ? $('#alignmentConfirmed').checked : $('#' + key).value.trim();
   }
+  const applicability = Object.fromEntries(['capacity', 'dependencies', 'handoffs', 'skills'].map(key => {
+    const state = $('#' + key + '-choice').value;
+    return [key, { state, ...(state === 'not_applicable' ? { reason: $('#' + key + '-reason').value.trim() } : {}) }];
+  }));
+  const included = key => applicability[key].state === 'include';
   const evidence = {}, schedule = {};
-  if ($('#evidenceVersion').value.trim()) evidence.baselineId = $('#evidenceVersion').value.trim();
-  for (const key of ['assessedAt', 'reviewDue']) if ($('#' + key).value) evidence[key] = new Date($('#' + key).value).toISOString();
-  for (const [id, key] of [['effort', 'remainingEffortHours'], ['capacity', 'availableCapacityHours']]) if ($('#' + id).value !== '') schedule[key] = Number($('#' + id).value);
-  if ($('#assumptions').value.trim()) schedule.assumptions = $('#assumptions').value.trim();
-  if ($('#reference').value.trim()) schedule.evidenceReferences = [$('#reference').value.trim()];
-  const dependencies = readItems('dependencies'); if (dependencies.length) schedule.dependencies = dependencies;
+  if (!$('#evidenceVersion').disabled && $('#evidenceVersion').value.trim()) evidence.baselineId = $('#evidenceVersion').value.trim();
+  for (const key of ['assessedAt', 'reviewDue']) if (!$('#' + key).disabled && $('#' + key).value) evidence[key] = new Date($('#' + key).value).toISOString();
+  for (const [id, key] of [['effort', 'remainingEffortHours'], ['capacity', 'availableCapacityHours']]) if (included('capacity') && $('#' + id).value !== '') schedule[key] = Number($('#' + id).value);
+  if (included('capacity') && $('#assumptions').value.trim()) schedule.assumptions = $('#assumptions').value.trim();
+  if (included('capacity') && $('#reference').value.trim()) schedule.evidenceReferences = [$('#reference').value.trim()];
+  const dependencies = included('dependencies') ? readItems('dependencies') : []; if (dependencies.length) schedule.dependencies = dependencies;
   if (Object.keys(schedule).length) evidence.schedule = schedule;
-  for (const group of ['integrations', 'skills']) { const items = readItems(group); if (items.length) evidence[group] = items; }
-  return { context, evidence };
+  for (const group of ['handoffs', 'skills']) { const items = included(group) ? readItems(group) : []; if (items.length) evidence[group] = items; }
+  return { context, applicability, evidence };
 }
 function listObject(parent, object, names) {
   const list = append(parent, 'dl', undefined, 'summary-list');
@@ -151,6 +168,8 @@ function listObject(parent, object, names) {
 }
 function inputSummary(parent, data) {
   parent.replaceChildren(); listObject(parent, data.context, contextLabels);
+  append(parent, 'h3', 'Checks you chose');
+  for (const [key, choice] of Object.entries(data.applicability)) append(parent, 'p', `${labels[key]}: ${{ include: 'Included', unknown: 'Not sure yet', not_applicable: 'Not applicable — excluded' }[choice.state]}${choice.reason ? '. Reason: ' + choice.reason : ''}`);
   const details = append(parent, 'details'); append(details, 'summary', 'Supporting evidence supplied');
   if (Object.keys(data.evidence).length) listObject(details, data.evidence, evidenceLabels);
   else append(details, 'p', 'No evidence supplied. Checks cannot be assessed.');
@@ -186,15 +205,15 @@ $('#preview').addEventListener('click', async () => {
     inputSummary($('#summary'), data); $('#readiness').replaceChildren();
     let ready = 0;
     data.assessment.checks.forEach(check => {
-      const assessed = check.status !== 'not_assessed'; if (assessed) ready++;
-      append($('#readiness'), 'p', `${labels[check.ruleId]}${check.subject ? ': ' + check.subject : ''} — ${assessed ? 'Ready to check' : 'Not assessable: ' + check.reason}`);
+      const assessed = ['triggered', 'not_triggered'].includes(check.status); if (assessed) ready++;
+      append($('#readiness'), 'p', `${labels[check.ruleId]}${check.subject ? ': ' + check.subject : ''} — ${assessed ? 'Ready to check' : check.status === 'not_applicable' ? 'Not applicable — ' + check.reason : 'Not assessable: ' + check.reason}`);
     });
     $('#run').textContent = ready ? 'Run planning checks' : 'Create preparation summary';
     show(3); status.textContent = `${ready} of ${data.assessment.checks.length} supplied checks have sufficient evidence to evaluate. Review inputs before continuing.`;
   } catch (error) { if (requestId === sequence) { errors([{ message: error.message }]); status.textContent = 'Readiness check failed. No new result is available.'; } }
   finally { setBusy(false); }
 });
-const actionFields = [['response', 'Proposed response', 'Explain the action or decision; update the source plan separately.'], ['owner', 'Action owner', 'Who is accountable for carrying this out?'], ['due', 'Action due date', 'Agree with the owner, before affected work needs it.', 'date'], ['approval', 'Approval needed', 'Who must approve the scope, resource or date change?'], ['sourceChange', 'Source-plan update', 'Identify the task, allocation, milestone or record to change.'], ['resolution', 'Resolution evidence', 'What will demonstrate that the issue is addressed?']];
+const actionFields = [['response', 'Proposed response', 'Describe your next step. Example: agree reduced scope or arrange additional qualified help.'], ['owner', 'Action owner', 'Name a person or role, such as the report author, coordinator or project lead.'], ['due', 'Action due date', 'Agree a completion date with the owner; for example, before the next review meeting.', 'date'], ['approval', 'Approval needed', 'Example: the sponsor approves a date change, or the team lead approves extra time.'], ['sourceChange', 'Planning update', 'Example: revise the outline, amend a task estimate, or confirm a new date with the team. Use your normal planning method.'], ['resolution', 'Resolution evidence', 'Example: the recipient confirms the revised draft is usable, or the lead confirms available hours.']];
 function actionKey(check) { return JSON.stringify([check.ruleId, check.subject || '']); }
 function captureActions() {
   if (!record) return;
@@ -206,9 +225,9 @@ function captureActions() {
 }
 function renderRecord() {
   $('#findings').replaceChildren();
-  const counts = { triggered: 0, not_triggered: 0, not_assessed: 0 };
+  const counts = { triggered: 0, not_triggered: 0, not_assessed: 0, not_applicable: 0 };
   record.assessment.checks.forEach(check => { counts[check.status]++; });
-  $('#coverage').textContent = `${counts.triggered} findings need attention · ${counts.not_triggered} checks found no issue · ${counts.not_assessed} checks not assessed. This is not approval of the whole plan.`;
+  $('#coverage').textContent = `${counts.triggered} findings need attention · ${counts.not_triggered} checks found no issue · ${counts.not_assessed} checks not assessed · ${counts.not_applicable} checks excluded as not applicable. This is not approval of the whole plan.`;
   $('#result-identity').textContent = `${record.context.projectName} · Plan ${record.context.planVersion} · ${record.context.periodStart} to ${record.context.periodEnd} · Assessed ${new Date(record.assessment.assessedAt).toLocaleString()} · Review ${record.reviewId}`;
   $('#stale').hidden = false === record.inputsChanged;
   if (previous) append($('#findings'), 'p', record.previousScopeMatches
@@ -216,7 +235,7 @@ function renderRecord() {
     : `The review scope or period changed. Previous review ${previous.reviewId} is included for reference only; actions were not carried forward.`);
   record.assessment.checks.forEach((check, index) => {
     const card = append($('#findings'), 'article', undefined, `finding ${check.status}`);
-    append(card, 'p', { triggered: 'Needs attention', not_triggered: 'No issue detected in this check', not_assessed: 'Not assessed' }[check.status], 'badge');
+    append(card, 'p', { triggered: 'Needs attention', not_triggered: 'No issue detected in this check', not_assessed: 'Not assessed', not_applicable: 'Not applicable — excluded by you' }[check.status], 'badge');
     const title = `${labels[check.ruleId]}${check.subject ? ' · ' + check.subject : ''}`;
     append(card, 'h3', title); append(card, 'p', check.reason);
     if (check.ruleId === 'capacity' && check.measurements.remainingEffortHours !== undefined) {
@@ -228,7 +247,7 @@ function renderRecord() {
     if (subject) listObject(card, subject, evidenceLabels);
     append(card, 'p', `Evidence: ${check.evidenceReferences.join('; ') || 'Not supplied'}`);
     append(card, 'p', `Next: ${check.recommendation || (check.status === 'not_assessed' ? 'Ask the relevant owner for the missing or updated evidence, then reassess.' : 'Retain the supporting evidence and reassess when the plan or conditions change.')}`);
-    append(card, 'p', `Rule ${check.ruleId} · version ${check.ruleVersion}`, 'hint');
+    if (check.status === 'not_applicable') return;
     const action = append(card, 'details');
     action.dataset.actionKey = actionKey(check); action.dataset.actionTitle = title;
     append(action, 'summary', 'Record follow-up action');
@@ -261,10 +280,10 @@ form.addEventListener('submit', async event => {
   } catch (error) { if (requestId === sequence) { previous = prior; errors([{ message: error.message }]); status.textContent = 'Review failed. No new result is available.'; } }
   finally { setBusy(false); }
 });
-$('#revise').addEventListener('click', () => { captureActions(); show(1); status.textContent = 'Revise your source plan and evidence, then check inputs and reassess.'; });
+$('#revise').addEventListener('click', () => { captureActions(); show(1); status.textContent = 'Revise your plan and supporting information, then check inputs and reassess.'; });
 function exportData() {
   captureActions();
-  return { ...record, previousReview: previous, exportedAt: new Date().toISOString(), limitations: 'User-supplied evidence; no prediction or complete-plan certification. Source plan is not updated. Session-only; retain this file externally.' };
+  return { ...record, previousReview: previous, exportedAt: new Date().toISOString(), limitations: 'User-supplied evidence; no prediction or complete-plan certification. Your planning information is not updated automatically. Session-only; retain this file externally.' };
 }
 function readableRecord(data) {
   const doc = document.implementation.createHTMLDocument('Planning review record');
@@ -279,6 +298,8 @@ function readableRecord(data) {
     append(doc.body, 'h2', heading);
     append(doc.body, 'p', `Review ${value.reviewId} · assessed ${value.assessment.assessedAt}`);
     listObject(doc.body, value.context, contextLabels);
+    append(doc.body, 'h3', 'Selected checks and exclusions');
+    listObject(doc.body, value.applicability, { ...labels, state: 'Selection', reason: 'Reason for exclusion' });
     append(doc.body, 'h3', 'Supporting evidence'); listObject(doc.body, value.evidence, evidenceLabels);
     value.assessment.checks.forEach(check => {
       const card = append(doc.body, 'article');
@@ -289,7 +310,7 @@ function readableRecord(data) {
       if (check.recommendation) append(card, 'p', check.recommendation);
     });
     append(doc.body, 'h3', 'Follow-up actions (including retained actions from prior findings)');
-    Object.values(value.actions).forEach(action => listObject(doc.body, action, { finding: 'Finding', response: 'Response', owner: 'Action owner', due: 'Due date', approval: 'Approval needed', sourceChange: 'Source-plan update', resolution: 'Resolution evidence', state: 'Progress' }));
+    Object.values(value.actions).forEach(action => listObject(doc.body, action, { finding: 'Finding', response: 'Response', owner: 'Action owner', due: 'Due date', approval: 'Approval needed', sourceChange: 'Planning update', resolution: 'Resolution evidence', state: 'Progress' }));
   };
   addSnapshot(data, 'Current exported assessment');
   if (data.previousReview) addSnapshot(data.previousReview, 'Previous assessment snapshot');
@@ -300,7 +321,7 @@ function download(contents, type, extension) {
   const link = document.createElement('a'); link.href = url;
   link.download = `planning-review-${record.reviewId}.${extension}`; link.click();
   setTimeout(() => URL.revokeObjectURL(url), 1000);
-  status.textContent = 'Review record download requested. Keep the file with your source plan; the tool does not save a copy.';
+  status.textContent = 'Review record download requested. Keep the file with your planning information; the tool does not save a copy.';
 }
 $('#download').addEventListener('click', () => {
   if (record) download('<!doctype html>\n' + readableRecord(exportData()).documentElement.outerHTML, 'text/html', 'html');
@@ -318,13 +339,14 @@ window.addEventListener('beforeunload', event => { if (revision || record) { eve
 window.addEventListener('pageshow', event => { if (event.persisted) location.reload(); });
 $('#example').addEventListener('click', () => {
   if (revision && !window.confirm('Replace entered inputs with a synthetic example? Download any current review first.')) return;
-  form.reset(); ['dependencies', 'integrations', 'skills'].forEach(group => $('#' + group).replaceChildren());
+  form.reset(); ['dependencies', 'handoffs', 'skills'].forEach(group => $('#' + group).replaceChildren());
   const localTime = date => new Date(date.getTime() - date.getTimezoneOffset() * 60000).toISOString().slice(0, 16);
   const today = localTime(new Date()).slice(0, 10);
-  const values = { projectName: 'Synthetic acceptance project', scope: 'Integration testing; excludes training', periodStart: today, periodEnd: localTime(new Date(Date.now() + 14 * 86400000)).slice(0, 10), asOf: today, planVersion: 'synthetic-v1', source: 'Synthetic plan, integration tasks', decision: 'Can we commit to the testing milestone?', evidenceVersion: 'synthetic-v1', assessedAt: localTime(new Date(Date.now() - 60000)), reviewDue: localTime(new Date(Date.now() + 86400000)), effort: 120, capacity: 80, assumptions: 'Qualified capacity after leave and other assignments; no duplicated tasks or people', reference: 'synthetic-capacity-plan' };
+  const values = { projectName: 'Synthetic acceptance project', scope: 'Draft a research report; exclude publication', periodStart: today, periodEnd: localTime(new Date(Date.now() + 14 * 86400000)).slice(0, 10), asOf: today, planVersion: 'synthetic-v1', decision: 'Can we finish the research draft within two weeks?', evidenceVersion: 'synthetic-v1', assessedAt: localTime(new Date(Date.now() - 60000)), reviewDue: localTime(new Date(Date.now() + 86400000)), effort: 120, capacity: 80, assumptions: 'Qualified capacity after leave and other assignments; no duplicated tasks or people', reference: 'Authors confirmed estimates and available hours in a planning discussion' };
   Object.entries(values).forEach(([key, value]) => { $('#' + key).value = value; });
-  addItem('integrations', { id: 'Synthetic interface', status: 'blocked', issue: 'Compatibility test failed', owner: 'Technical lead', reference: 'synthetic-test-1' });
-  addItem('skills', { id: 'Integration testing', coverage: 'gap', owner: 'Delivery lead', reference: 'synthetic-skills-1' });
+  addItem('handoffs', { id: 'Research notes to analyst', status: 'blocked', issue: 'Consent details are missing', owner: 'Research lead', reference: 'Analyst reviewed notes and reported missing consent details' });
+  addItem('skills', { id: 'Interview analysis', coverage: 'gap', owner: 'Project lead', reference: 'Team discussion confirmed no available analyst' });
+  for (const key of ['capacity', 'dependencies', 'handoffs', 'skills']) { $('#' + key + '-choice').value = 'include'; updateApplicability(key); }
   $('#alignmentConfirmed').checked = true; dirty(); clearErrors(); show(1);
   status.textContent = 'Synthetic example loaded. These are demonstration values, not your project data.';
 });
