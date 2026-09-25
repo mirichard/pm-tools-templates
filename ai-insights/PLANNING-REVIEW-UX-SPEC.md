@@ -232,3 +232,28 @@ issue completion state, model gate, branch protection or release approval.
 
 This is a task-specific design specification grounded in the implementation and
 Michael's stated workflow. It is not an external standards-compliance assessment.
+
+## Redesign implementation — 09/25/2026
+
+Michael authorized implementation after the standards comparison. The guided
+`/recovery-uat/uat/` flow now covers preparation, scope, independent evidence groups,
+input readiness, findings/actions, and explicit reassessment. The original model
+surface is preserved separately at `/recovery-uat/experimental/` for historical
+contract tests; its previous UAT acceptance does not transfer to this redesigned flow.
+
+The opt-in planning endpoints `/api/v1/recovery-uat/planning/preview` and `/review`
+validate a dedicated context/evidence contract and call only the evidence-based
+rule evaluator. They do not call the classifier or apply its defaults. The existing
+server still initializes the engine at startup. Scope alignment is explicitly
+confirmed by the user; it is not independently verified from source files.
+
+Each finding has optional action fields for response, owner, due date, approvals,
+source-plan change, resolution evidence and progress. Actions do not change rule
+results. Reassessment retains the immediately previous assessment and its action
+snapshot in memory; earlier history requires downloaded records. Readable HTML,
+structured JSON and print records include context, evidence, findings, rules and
+actions. Downloads are user-controlled; there is no server persistence or write-back.
+
+UX acceptance remains pending participant review. Automated API/browser evidence
+will be recorded on #1372/#1375; programmatic labels, focus and reflow checks do
+not establish full WCAG conformance or independent user comprehension.

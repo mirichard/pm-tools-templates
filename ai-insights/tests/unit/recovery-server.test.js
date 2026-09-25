@@ -66,7 +66,7 @@ test('planning evidence crosses HTTP without cache reuse and UAT serves session 
   try {
     await server.start();
     const base = `http://127.0.0.1:${server.server.address().port}`;
-    const page = await fetch(`${base}/recovery-uat/uat/`);
+    const page = await fetch(`${base}/recovery-uat/experimental/`);
     expect(page.status).toBe(200);
     expect(page.headers.get('cache-control')).toBe('no-store');
     expect(await page.text()).toContain('Results are not saved');

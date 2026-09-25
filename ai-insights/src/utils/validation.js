@@ -10,7 +10,7 @@ const references = Joi.array().items(Joi.string().trim().min(1)).min(1);
 const checkEvidence = {
   id: Joi.string().required(), owner: Joi.string(), evidenceReferences: references,
 };
-const planningSchema = Joi.object({
+export const planningSchema = Joi.object({
   baselineId: Joi.string(),
   assessedAt: Joi.string().isoDate(),
   reviewDue: Joi.string().isoDate(),

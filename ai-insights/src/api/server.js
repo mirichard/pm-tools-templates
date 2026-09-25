@@ -4,6 +4,7 @@
  */
 
 import express from 'express';
+import { planningReviewHandler } from '../services/planningReview.js';
 import { fileURLToPath } from 'node:url';
 import cors from 'cors';
 import helmet from 'helmet';
@@ -102,6 +103,7 @@ class AIInsightsServer {
 
     // Explicit opt-in, same-origin recovery UAT surface; never a production rollout.
     if (process.env.ENABLE_RECOVERY_UAT === 'true') {
+      this.app.post('/api/v1/recovery-uat/planning/:operation', planningReviewHandler);
       this.app.post('/api/v1/recovery-uat/missing-quality/insights/analyze', validateProjectData, async (req, res, next) => {
         try {
           const data = { ...await this.aiEngine.generateInsights(req.body) };

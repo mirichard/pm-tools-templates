@@ -191,3 +191,19 @@ defines preparation, field meanings, source evidence, assessment, actions and
 reassessment, with new UX-01–UX-12 criteria. These are unimplemented design
 requirements, not a retroactive claim that the accepted demonstration meets them.
 Next: review the specification and a low-fidelity walkthrough before implementation.
+
+### Guided planning redesign test route
+
+After Michael's implementation instruction, `/recovery-uat/uat/` is the guided
+planning-only review. The preserved experimental surface and missing-Quality fixture
+are now at `/recovery-uat/experimental/` and
+`/recovery-uat/experimental/?fixture=missing-quality`. Older instructions above
+refer to the historical candidate and should not be used to locate the model demo
+on the redesigned candidate.
+
+Redesign UAT: begin at Prepare; use a synthetic task/percent-complete plan to identify
+missing inputs; define scope/window/source; confirm evidence; inspect readiness;
+run checks; explain findings; enter an action and download its record; update
+capacity and reassess while other findings remain. Evaluate UX-01–UX-12 in the
+linked specification. Previous functional acceptance remains historical; this
+changed workflow requires new participant evidence.
