@@ -178,3 +178,28 @@ workflow requires new usability/acceptance evidence under #1375. Screen-reader,
 zoom and comprehensive WCAG conformance testing remain pending; the checks above
 are not an accessibility certification. Persistence remains session-only, with
 user-controlled downloads/printing. There is no import, write-back or saved history.
+
+## Source-neutral forms and applicability — 09/25/2026
+
+Runtime candidate `919f2de327cb81a4c28f84b5ab6f010a3cf618f6` responds to participant
+feedback. Guided contract is now planning-review-v2: no required source-file field,
+explicit per-check applicability and generic handoff readiness. Legacy experimental
+APIs and predictive assertions are unchanged.
+
+Lint and 17 focused HTTP tests pass. Complete local suite: 138 pass / 6 fail / 144
+total in 13 suites; remaining failures concern untrained classification, confidence
+and cross-instance consistency. No predictive acceptance is inferred.
+
+[Run 36172363589](https://github.com/mirichard/pm-tools-templates/actions/runs/36172363589)
+passed browser, runtime and Trivy checks. Browser assertions cover absence of a
+file-input/reference field, source-neutral introduction, research-report example,
+required exclusion reason, hidden non-applicable fields, independent unknown and
+excluded states, export retention, plus previous flow/regression checks. Preparation
+screenshot inspected. Accessibility and independent usability acceptance remain pending.
+
+Tested merge checkout: `da2766e3007dcf72bf6524e7b818900c4482c98e`.
+Image: `sha256:ab6ca99d242d565b4bfe2fb8d73aac8f50f7f927d29c0f22a86465ef44c1b111`.
+Trivy: zero HIGH/CRITICAL findings. Artifact `10881316966` expires 10/25/2026;
+downloaded ZIP verified against SHA256
+`d78db16b187b83ee72f2ec6c756389994277e69464f71b79a240d04969033398`.
+Compact evidence: [container-36172363589](evidence/container-36172363589/browser-checks.txt).

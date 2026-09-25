@@ -223,3 +223,29 @@ where to obtain it and what the checks can establish. Then follow the revised
 UX-01–UX-12 scenarios; record assistance needed rather than treating coached
 completion as independent usability. Downloads/print on iPad need participant
 confirmation. No new dependency installation is needed for this candidate.
+
+### Source-neutral revision after participant feedback
+
+The first guided redesign was not accepted as sufficiently user-centered. Michael
+requested generic project language/examples, no source-file question or assumed
+planning tool, explicit purpose/outcomes and support for different planning-detail
+levels. Runtime candidate `919f2de327cb81a4c28f84b5ab6f010a3cf618f6` implements those
+corrections plus include/unknown/not-applicable choices and required exclusion reasons.
+
+After Ctrl+C, the Codespaces restart command below explicitly selects the app
+folder. The earlier command omitted that step and failed with Missing script when
+run from the repository root. No dependency changes require another npm install.
+
+```bash
+cd /workspaces/pm-tools-templates/ai-insights &&
+git fetch origin fix/1298-runtime-contracts &&
+git switch --detach 919f2de327cb81a4c28f84b5ab6f010a3cf618f6 &&
+ENABLE_RECOVERY_UAT=true HOST=127.0.0.1 PORT=3001 npm run start:api
+```
+
+Resume at `/recovery-uat/uat/`. First review the purpose and expected outputs, then
+try a research/documentation/other project at the user's actual planning-detail
+level. Confirm no file reference is requested. Choose relevant checks and explain
+an exclusion; distinguish an unknown from an exclusion and from a finding. Verify
+examples, results and downloadable record. Record any assistance needed and do
+not infer acceptance from engineering tests. Existing model/restoration gates remain.
