@@ -1,0 +1,502 @@
+{
+  "tasks": [
+    {
+      "name": "Site Notice to Proceed",
+      "duration": 0,
+      "line": 20
+    },
+    {
+      "name": "Site Survey",
+      "duration": 10,
+      "line": 21
+    },
+    {
+      "name": "Envelope Installation",
+      "duration": 3,
+      "line": 24
+    },
+    {
+      "name": "Systems Rough-In",
+      "duration": 3,
+      "line": 25
+    },
+    {
+      "name": "Ground Preparation",
+      "duration": 9,
+      "line": 27
+    },
+    {
+      "name": "Punch Walk Prep",
+      "duration": 1,
+      "line": 28
+    },
+    {
+      "name": "Warranty Package Review",
+      "duration": 3,
+      "line": 29
+    },
+    {
+      "name": "Owner Orientation",
+      "duration": 7,
+      "line": 30
+    },
+    {
+      "name": "Interior Fit-Out",
+      "duration": 10,
+      "line": 33
+    },
+    {
+      "name": "Material Staging",
+      "duration": 9,
+      "line": 46
+    },
+    {
+      "name": "Weather Protection Setup",
+      "duration": 3,
+      "line": 48
+    },
+    {
+      "name": "Closeout Audit",
+      "duration": 10,
+      "line": 49
+    },
+    {
+      "name": "Waste Removal Planning",
+      "duration": 5,
+      "line": 50
+    },
+    {
+      "name": "Mobilization Planning",
+      "duration": 7,
+      "line": 52
+    },
+    {
+      "name": "Closeout Packaging",
+      "duration": 2,
+      "line": 53
+    },
+    {
+      "name": "Inspection Coordination",
+      "duration": 7,
+      "line": 54
+    },
+    {
+      "name": "Final Handover",
+      "duration": 0,
+      "line": 55
+    },
+    {
+      "name": "coordination",
+      "duration": 2,
+      "line": 56
+    },
+    {
+      "name": "As-Built Compilation",
+      "duration": 2,
+      "line": 57
+    },
+    {
+      "name": "Permit Review",
+      "duration": 8,
+      "line": 59
+    },
+    {
+      "name": "Temporary Power Review",
+      "duration": 4,
+      "line": 60
+    },
+    {
+      "name": "Turnover Meeting",
+      "duration": 3,
+      "line": 63
+    },
+    {
+      "name": "Safety Walkthrough",
+      "duration": 9,
+      "line": 64
+    },
+    {
+      "name": "Commissioning Prep",
+      "duration": 7,
+      "line": 66
+    },
+    {
+      "name": "Structural Framing",
+      "duration": 6,
+      "line": 67
+    },
+    {
+      "name": "Utility Marking",
+      "duration": 5,
+      "line": 74
+    },
+    {
+      "name": "Material Receiving",
+      "duration": 2,
+      "line": 77
+    },
+    {
+      "name": "Client Inspection",
+      "duration": 8,
+      "line": 79
+    },
+    {
+      "name": "Traffic Control Setup",
+      "duration": 8,
+      "line": 82
+    },
+    {
+      "name": "Punch List Review",
+      "duration": 10,
+      "line": 83
+    },
+    {
+      "name": "Foundation Layout",
+      "duration": 6,
+      "line": 85
+    },
+    {
+      "name": "Final Cleaning Review",
+      "duration": 7,
+      "line": 86
+    }
+  ],
+  "edges": [
+    {
+      "from": "Systems Rough-In",
+      "to": "Closeout Packaging",
+      "line": 22,
+      "type": "FS",
+      "lag": 0
+    },
+    {
+      "from": "Site Survey",
+      "to": "Systems Rough-In",
+      "line": 23,
+      "type": "FS",
+      "lag": 0
+    },
+    {
+      "from": "Material Receiving",
+      "to": "Weather Protection Setup",
+      "line": 26,
+      "type": "FS",
+      "lag": 0
+    },
+    {
+      "from": "Commissioning Prep",
+      "to": "Mobilization Planning",
+      "line": 31,
+      "type": "FS",
+      "lag": 0
+    },
+    {
+      "from": "coordination",
+      "to": "Ground Preparation",
+      "line": 32,
+      "type": "FS",
+      "lag": 0
+    },
+    {
+      "from": "coordination",
+      "to": "Envelope Installation",
+      "line": 32,
+      "type": "FS",
+      "lag": 0
+    },
+    {
+      "from": "coordination",
+      "to": "Safety Walkthrough",
+      "line": 32,
+      "type": "FS",
+      "lag": 0
+    },
+    {
+      "from": "Site Notice to Proceed",
+      "to": "Material Receiving",
+      "line": 34,
+      "type": "FS",
+      "lag": 0
+    },
+    {
+      "from": "Site Notice to Proceed",
+      "to": "Waste Removal Planning",
+      "line": 34,
+      "type": "FS",
+      "lag": 0
+    },
+    {
+      "from": "Site Notice to Proceed",
+      "to": "Traffic Control Setup",
+      "line": 34,
+      "type": "FS",
+      "lag": 0
+    },
+    {
+      "from": "Inspection Coordination",
+      "to": "Commissioning Prep",
+      "line": 35,
+      "type": "FS",
+      "lag": 0
+    },
+    {
+      "from": "Foundation Layout",
+      "to": "Material Staging",
+      "line": 36,
+      "type": "FS",
+      "lag": 0
+    },
+    {
+      "from": "Warranty Package Review",
+      "to": "Foundation Layout",
+      "line": 37,
+      "type": "FS",
+      "lag": 0
+    },
+    {
+      "from": "Warranty Package Review",
+      "to": "Structural Framing",
+      "line": 37,
+      "type": "FS",
+      "lag": 0
+    },
+    {
+      "from": "Utility Marking",
+      "to": "Final Handover",
+      "line": 38,
+      "type": "FS",
+      "lag": 0
+    },
+    {
+      "from": "Client Inspection",
+      "to": "Closeout Packaging",
+      "line": 39,
+      "type": "FS",
+      "lag": 0
+    },
+    {
+      "from": "Closeout Packaging",
+      "to": "Final Handover",
+      "line": 40,
+      "type": "FS",
+      "lag": 0
+    },
+    {
+      "from": "Permit Review",
+      "to": "Envelope Installation",
+      "line": 41,
+      "type": "FS",
+      "lag": 0
+    },
+    {
+      "from": "Temporary Power Review",
+      "to": "Structural Framing",
+      "line": 42,
+      "type": "FS",
+      "lag": 0
+    },
+    {
+      "from": "Temporary Power Review",
+      "to": "Systems Rough-In",
+      "line": 42,
+      "type": "FS",
+      "lag": 0
+    },
+    {
+      "from": "Temporary Power Review",
+      "to": "Mobilization Planning",
+      "line": 42,
+      "type": "FS",
+      "lag": 0
+    },
+    {
+      "from": "Mobilization Planning",
+      "to": "Final Handover",
+      "line": 43,
+      "type": "FS",
+      "lag": 0
+    },
+    {
+      "from": "Interior Fit-Out",
+      "to": "Punch List Review",
+      "line": 45,
+      "type": "FS",
+      "lag": 0
+    },
+    {
+      "from": "Punch Walk Prep",
+      "to": "Site Survey",
+      "line": 47,
+      "type": "FS",
+      "lag": 0
+    },
+    {
+      "from": "Punch Walk Prep",
+      "to": "Ground Preparation",
+      "line": 47,
+      "type": "FS",
+      "lag": 0
+    },
+    {
+      "from": "Owner Orientation",
+      "to": "Warranty Package Review",
+      "line": 51,
+      "type": "FS",
+      "lag": 0
+    },
+    {
+      "from": "Owner Orientation",
+      "to": "Final Cleaning Review",
+      "line": 51,
+      "type": "FS",
+      "lag": 0
+    },
+    {
+      "from": "Owner Orientation",
+      "to": "Inspection Coordination",
+      "line": 51,
+      "type": "FS",
+      "lag": 0
+    },
+    {
+      "from": "Punch List Review",
+      "to": "Mobilization Planning",
+      "line": 58,
+      "type": "FS",
+      "lag": 0
+    },
+    {
+      "from": "Turnover Meeting",
+      "to": "Closeout Audit",
+      "line": 61,
+      "type": "FS",
+      "lag": 0
+    },
+    {
+      "from": "Turnover Meeting",
+      "to": "Utility Marking",
+      "line": 61,
+      "type": "FS",
+      "lag": 0
+    },
+    {
+      "from": "Ground Preparation",
+      "to": "Systems Rough-In",
+      "line": 65,
+      "type": "FS",
+      "lag": 0
+    },
+    {
+      "from": "Waste Removal Planning",
+      "to": "Punch Walk Prep",
+      "line": 69,
+      "type": "FS",
+      "lag": 0
+    },
+    {
+      "from": "Waste Removal Planning",
+      "to": "Turnover Meeting",
+      "line": 69,
+      "type": "FS",
+      "lag": 0
+    },
+    {
+      "from": "Safety Walkthrough",
+      "to": "Client Inspection",
+      "line": 71,
+      "type": "FS",
+      "lag": 0
+    },
+    {
+      "from": "Closeout Audit",
+      "to": "Interior Fit-Out",
+      "line": 72,
+      "type": "FS",
+      "lag": 0
+    },
+    {
+      "from": "Traffic Control Setup",
+      "to": "Owner Orientation",
+      "line": 73,
+      "type": "FS",
+      "lag": 0
+    },
+    {
+      "from": "Traffic Control Setup",
+      "to": "coordination",
+      "line": 73,
+      "type": "FS",
+      "lag": 0
+    },
+    {
+      "from": "Final Cleaning Review",
+      "to": "Permit Review",
+      "line": 75,
+      "type": "FS",
+      "lag": 0
+    },
+    {
+      "from": "Final Cleaning Review",
+      "to": "Interior Fit-Out",
+      "line": 75,
+      "type": "FS",
+      "lag": 0
+    },
+    {
+      "from": "Final Cleaning Review",
+      "to": "Material Staging",
+      "line": 75,
+      "type": "FS",
+      "lag": 0
+    },
+    {
+      "from": "Structural Framing",
+      "to": "Utility Marking",
+      "line": 76,
+      "type": "FS",
+      "lag": 0
+    },
+    {
+      "from": "Material Staging",
+      "to": "Client Inspection",
+      "line": 78,
+      "type": "FS",
+      "lag": 0
+    },
+    {
+      "from": "As-Built Compilation",
+      "to": "Commissioning Prep",
+      "line": 80,
+      "type": "FS",
+      "lag": 0
+    },
+    {
+      "from": "Weather Protection Setup",
+      "to": "Temporary Power Review",
+      "line": 81,
+      "type": "FS",
+      "lag": 0
+    },
+    {
+      "from": "Weather Protection Setup",
+      "to": "As-Built Compilation",
+      "line": 81,
+      "type": "FS",
+      "lag": 0
+    },
+    {
+      "from": "Envelope Installation",
+      "to": "Punch List Review",
+      "line": 84,
+      "type": "FS",
+      "lag": 0
+    },
+    {
+      "from": "Envelope Installation",
+      "to": "Client Inspection",
+      "line": 84,
+      "type": "FS",
+      "lag": 0
+    }
+  ]
+}

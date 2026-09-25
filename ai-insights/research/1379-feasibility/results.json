@@ -1,0 +1,37 @@
+{
+  "instance_id": 1,
+  "source_instance": "j3010_8.sm",
+  "tasks": 32,
+  "assistant_edges": 48,
+  "parser_edges": 48,
+  "assistant_only": [],
+  "parser_only": [],
+  "unresolved_parser_lines": [],
+  "source_span_checks": "passed (existence, not independent semantic validation)",
+  "precedence_only_lower_bound": 50,
+  "parser_lower_bound": 50,
+  "same_earliest_starts": true,
+  "critical_path": [
+    "Site Notice to Proceed",
+    "Traffic Control Setup",
+    "Owner Orientation",
+    "Final Cleaning Review",
+    "Permit Review",
+    "Envelope Installation",
+    "Punch List Review",
+    "Mobilization Planning"
+  ],
+  "independent_calculation": "topological pass matches iterative relaxation; fork/join fixture passed",
+  "failure_guards": {
+    "cycle": "rejected",
+    "unknown_activity": "rejected",
+    "missing_duration": "rejected"
+  },
+  "resource_constraints_enforced": false,
+  "limitations": [
+    "One development case; assistant extraction is not an independently measured model run.",
+    "Shared task inventory; edge parser authored after seeing case; no held-out accuracy or timing result.",
+    "All dependencies are explicit; no inference of missing dependencies or PM comparison.",
+    "CPM result is an unlimited-resource lower bound, not a feasible RCPSP schedule or comparison to bks."
+  ]
+}
