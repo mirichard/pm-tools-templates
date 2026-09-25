@@ -89,3 +89,35 @@ defaults, upper boundaries, historical zeros, and batch rejection.
 
 Next: reconcile output structures across models, API, dashboard, and tests.
 The model remains untrained and the app remains withdrawn from main.
+
+## Sprint 1: effective lint coverage (09/25/2026)
+
+Issue #1293 now has an app-local `.eslintrc.cjs` compatible with the locked
+ESLint 8.57.1. `npm run lint` recursively checks all 18 JavaScript sources with
+`eslint:recommended` and zero allowed warnings. Browser globals apply only to
+the dashboard client; its optional CommonJS export is explicitly declared.
+Unused contract parameters are named with a leading underscore; unused local
+variables and undefined names remain errors. Stub implementations still need
+the model/output reliability work required by #1329.
+
+The dashboard hook previously referenced undefined `useState`/`useCallback`.
+ESM consumers now supply their host React hooks, for example
+`useAIInsights(client, { useState, useCallback })`; browser consumers may use
+`globalThis.React`. Missing hooks fail with an explicit error. Hook regression
+tests cover successful responses, service failure, and both integration modes.
+
+Validation on Node 24.19.0 / npm 11.9.0 after clean `npm ci`:
+- The repository check runner passed `ai-insights lint` twice consecutively.
+- ESLint API results covered all 18 sources; undefined-name canaries were
+  detected at the root, nested model and browser paths.
+- Dashboard hook/security suites: four tests passed.
+- Complete suite: 68 passed / 26 failed out of 94. A fresh unchanged-base run
+  at `5b00c8d7` produced 69 passed / 22 failed out of 91. Random untrained-model
+  assertions and timing-sensitive cache checks still vary; these runs do not
+  establish full-suite acceptance or predictive reliability.
+
+Only the recovery inventory's lint waiver is removed. Build/test repair (#1298),
+SIT (#1372), UAT planning (#1373), and the remaining #1329 restoration gates
+remain open. This change targets the recovery branch; it does not restore the
+app to main. ESLint 8 is end-of-life; this bounded repair uses the existing
+lockfile, and dependency modernization remains a restoration consideration.

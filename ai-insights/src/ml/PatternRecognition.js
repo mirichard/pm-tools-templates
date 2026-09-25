@@ -31,7 +31,7 @@ export class PatternRecognition {
     }
   }
 
-  identifySuccessPatterns(data) {
+  identifySuccessPatterns(_data) {
     return [
       {
         pattern: 'Team Size Sweet Spot',
@@ -48,7 +48,7 @@ export class PatternRecognition {
     ];
   }
 
-  identifyRiskPatterns(data) {
+  identifyRiskPatterns(_data) {
     return [
       {
         pattern: 'Scope Creep Indicator',
@@ -65,7 +65,7 @@ export class PatternRecognition {
     ];
   }
 
-  identifySeasonalPatterns(data) {
+  identifySeasonalPatterns(_data) {
     return [
       {
         pattern: 'Holiday Season Impact',
@@ -76,7 +76,7 @@ export class PatternRecognition {
     ];
   }
 
-  identifyTeamPatterns(data) {
+  identifyTeamPatterns(_data) {
     return [
       {
         pattern: 'Experience Mix Optimization',
@@ -87,7 +87,7 @@ export class PatternRecognition {
     ];
   }
 
-  generatePatternInsights(patterns) {
+  generatePatternInsights(_patterns) {
     return [
       {
         category: 'Team Optimization',

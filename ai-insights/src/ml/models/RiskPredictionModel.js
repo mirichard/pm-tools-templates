@@ -201,7 +201,7 @@ export class RiskPredictionModel {
   /**
    * Analyze risk factors contributing to the prediction
    */
-  analyzeRiskFactors(projectData, features) {
+  analyzeRiskFactors(projectData, _features) {
     const riskFactors = [];
 
     // Team size risk
@@ -391,7 +391,7 @@ export class RiskPredictionModel {
   }
 
   /** Train the model (not implemented). */
-  async train(trainingData) {
+  async train(_trainingData) {
     // This would be implemented with real training data
     logger.info('🏋️ Training Risk Prediction Model...');
     // Training implementation would go here

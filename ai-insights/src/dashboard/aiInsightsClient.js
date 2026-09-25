@@ -248,7 +248,7 @@ class AIInsightsResult {
    */
   sanitizeData(data) {
     if (typeof data === 'string') {
-      return data.replace(/[<>\"'&]/g, (match) => {
+      return data.replace(/[<>"'&]/g, (match) => {
         const escapeMap = {
           '<': '&lt;',
           '>': '&gt;',
@@ -414,8 +414,12 @@ class AIInsightsError extends Error {
   }
 }
 
-// React Hook for easy integration
-function useAIInsights(client) {
+// Pass the host application's React hooks when consuming this module via ESM.
+function useAIInsights(client, hooks = globalThis.React) {
+  if (typeof hooks?.useState !== 'function' || typeof hooks?.useCallback !== 'function') {
+    throw new TypeError('useAIInsights requires React useState and useCallback hooks');
+  }
+  const { useState, useCallback } = hooks;
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [insights, setInsights] = useState(null);
