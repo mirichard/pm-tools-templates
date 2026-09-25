@@ -20,10 +20,7 @@ export class InsightsGenerator {
     try {
       const {
         projectData,
-        riskPrediction,
-        resourceOptimization,
-        scheduleAnalysis,
-        qualityPrediction
+        riskPrediction
       } = analysisData;
 
       const insights = await this.synthesizeInsights(analysisData);
@@ -113,7 +110,7 @@ export class InsightsGenerator {
     return insights;
   }
 
-  async generateRecommendations(data) {
+  async generateRecommendations(_data) {
     const recommendations = [];
 
     // High-priority recommendations

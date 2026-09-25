@@ -96,19 +96,7 @@
       "checks": {
         "lint": {
           "command": "npm run lint",
-          "required": true,
-          "exception": {
-            "issue": "https://github.com/mirichard/pm-tools-templates/issues/1293",
-            "owner": "mirichard",
-            "recorded": "2026-09-21",
-            "expires": "2026-12-21",
-            "failure_signature": "couldn't find a configuration file",
-            "verified": "live-ci",
-            "type": "waiver",
-            "execution": "diagnostic-only",
-            "scope_statement": "ESLint has no config file to load in this directory; no file is evaluated by any rule, so this check provides no coverage, not partial coverage.",
-            "removal_condition": "Remove once #1293 is fixed (eslint config added) and lint passes on two consecutive runs."
-          }
+          "required": true
         },
         "build": {
           "command": "npm run build",

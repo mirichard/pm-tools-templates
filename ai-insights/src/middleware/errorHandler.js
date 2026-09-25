@@ -8,7 +8,7 @@ import { logger } from '../utils/logger.js';
 /**
  * Global error handler middleware
  */
-export const errorHandler = (error, req, res, next) => {
+export const errorHandler = (error, req, res, _next) => {
   // Log the error
   logger.error('API Error:', {
     message: error.message,
