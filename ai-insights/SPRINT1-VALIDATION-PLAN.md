@@ -77,3 +77,34 @@ Before UAT execution confirm participant and decision owner, availability, acces
 scenario review and pass/fail criteria. Before #1373 closure record that approval
 and link it here. Do not close #1372 until its required execution evidence passes.
 Plan approval does not close #1375 or override trained-model/security gates.
+
+## Persistence and UAT decision package — 09/25/2026
+
+Status: recommendation awaiting product decision, not accepted behavior.
+Code review at `19ef6d507836c94289dcf61845b1f1f8b5f8d8ba` confirms an in-memory
+engine cache, disabled trained-model loading, and a dashboard client module with
+no rendered host in src/dashboard. Passing container checks do not close these gaps.
+
+| Decision | Recommendation | Acceptance consequence |
+| --- | --- | --- |
+| Saved results | Session-only results for initial recovery; no saved history or automatic regeneration represented as history | On page reload/reopen, explain that results are not saved and require a new explicit request; disclose this before the first request |
+| API restart | Cache is disposable; a fresh service has no cached predictions | Existing visible results remain visibly dated previous results; new requests are identified separately |
+| Model artifact | A future accepted trained artifact must load by pinned version/hash on startup and fail explicitly if missing/incompatible | This remains required under #1374/#1329; session-only results do not waive model persistence |
+| UAT surface | Prepare a minimal isolated dashboard using the existing client, synthetic fixtures and explicit unvalidated/simulated labels | Exercise U1–U6 in a browser; no restoration to main or production rollout implied |
+| Acceptance owner | Michael as product decision owner and proposed UAT participant, subject to confirmation | Prepare access first; actual user execution and recorded decision remain necessary |
+
+The session-only recommendation narrows supported behavior. Approve it explicitly
+before updating S6/U5 expectations or representing persistence as accepted. If
+saved history is required, instead specify retention, storage ownership, deletion
+and result/model identity, and implement durable storage before U5 execution.
+
+After approval, implement disclosure and unavailable states, prepare the rendered
+host and record its tested commit and access route. Do not assume access from
+Michael's iPad to a local runner URL. Confirm access with a real browser session
+before scheduling user execution; no participant response or sign-off is inferred.
+
+Continuation mapping: #1298 owns implementation; #1372 verifies schema/API/rules
+and restart behavior; #1373 records scenario/owner approval; #1375 records actual
+UAT execution; #1374 retains model loading/evaluation; #1329 retains final gates.
+The three rule scenarios and six other failures from the last full suite remain
+open until evidenced repairs. No acceptance checkbox changes in this package.
