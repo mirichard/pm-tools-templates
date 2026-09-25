@@ -95,3 +95,41 @@ test('planning evidence crosses HTTP without cache reuse and UAT serves session 
     else process.env.ENABLE_RECOVERY_UAT = previous;
   }
 }, 15000);
+
+test('missing-quality fixture is opt-in, validates input and leaves normal responses intact', async () => {
+  const previous = process.env.ENABLE_RECOVERY_UAT;
+  const endpoint = '/api/v1/recovery-uat/missing-quality/insights/analyze';
+  try {
+    for (const enabled of [false, true]) {
+      process.env.ENABLE_RECOVERY_UAT = String(enabled);
+      const server = new AIInsightsServer({ port: 0 });
+      try {
+        await server.start();
+        const base = `http://127.0.0.1:${server.server.address().port}`;
+        const request = (route, teamSize = 4) => fetch(`${base}${route}`, {
+          method: 'POST', headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ name: 'Synthetic fixture project', teamSize }),
+        });
+        const response = await request(endpoint);
+        expect(response.status).toBe(enabled ? 200 : 404);
+        if (!enabled) continue;
+        expect(response.headers.get('cache-control')).toBe('no-store');
+        const partial = await response.json();
+        expect(partial.fixture).toBe('missing-quality');
+        expect(partial.data).not.toHaveProperty('qualityPrediction');
+        for (const key of ['riskPrediction', 'resourceOptimization', 'scheduleAnalysis']) {
+          expect(partial.data[key]).toBeDefined();
+        }
+        expect((await request(endpoint, 0)).status).toBe(400);
+        const normal = await (await request('/api/v1/insights/analyze')).json();
+        expect(normal.data.qualityPrediction).toBeDefined();
+        expect(normal).not.toHaveProperty('fixture');
+      } finally {
+        await server.shutdown();
+      }
+    }
+  } finally {
+    if (previous === undefined) delete process.env.ENABLE_RECOVERY_UAT;
+    else process.env.ENABLE_RECOVERY_UAT = previous;
+  }
+}, 15000);

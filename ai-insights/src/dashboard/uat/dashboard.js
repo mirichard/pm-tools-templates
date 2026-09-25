@@ -1,5 +1,13 @@
 import { AIInsightsClient } from '../aiInsightsClient.js';
-const client = new AIInsightsClient({ baseURL: `${location.origin}/api/v1`, retries: 1 });
+const missingQualityFixture = new URLSearchParams(location.search).get('fixture') === 'missing-quality';
+const basePath = missingQualityFixture ? '/api/v1/recovery-uat/missing-quality' : '/api/v1';
+const client = new AIInsightsClient({ baseURL: `${location.origin}${basePath}`, retries: 1 });
+if (missingQualityFixture) {
+  const notice = document.createElement('aside');
+  notice.id = 'fixture-notice';
+  notice.textContent = 'Controlled UAT fixture: the API intentionally omits the Quality section. Other sections use the normal demonstration response.';
+  document.querySelector('header').after(notice);
+}
 const form = document.querySelector('#project');
 const output = document.querySelector('#results');
 const status = document.querySelector('#status');

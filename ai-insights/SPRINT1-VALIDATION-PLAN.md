@@ -158,3 +158,26 @@ Resume U1–U6 on the recorded candidate and record each result/defect and final
 user decision on #1375. #1373 remains open until its full acceptance criteria are
 reconciled; this approval alone is not issue closure. Two complete green suites,
 trained-model acceptance and all #1329 restoration gates remain required.
+
+### U6 controlled missing-section check — 09/25/2026
+
+The opt-in UAT server exposes a separate, validated endpoint at
+`/api/v1/recovery-uat/missing-quality/insights/analyze`. It returns the normal
+aggregate demonstration response with `qualityPrediction` omitted and an explicit
+`fixture: missing-quality` marker. It does not modify the ordinary endpoint or
+cached results. Without `ENABLE_RECOVERY_UAT=true`, the fixture route is absent.
+
+With the updated recovery checkout running, open
+`/recovery-uat/uat/?fixture=missing-quality` on the same forwarded address.
+Confirm the controlled-fixture notice, then select **Request insights**. Expected:
+request completes; Quality displays **Unavailable**; Resources and Schedule retain
+simulation labels; estimated benefit remains unavailable. Capture the result.
+Remove the query string to return to normal UAT. No input changes are needed.
+The automated browser check verifies both the omitted API field and rendered
+unavailability, then checks the ordinary page still receives Quality.
+
+Participant checkpoint: U4 offline failure/retry and U5 reload/close/reopen are
+recorded on #1375 (comments 5836069753, 5836130101, 5836158877). U6 missing-section
+execution and explicit scoped final acceptance remain pending. Earlier successful
+checks are not repeated merely because this isolated fixture was added. Trained
+model acceptance and required complete green suites remain separate gates.
