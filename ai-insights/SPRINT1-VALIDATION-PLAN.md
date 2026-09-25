@@ -181,3 +181,13 @@ recorded on #1375 (comments 5836069753, 5836130101, 5836158877). U6 missing-sect
 execution and explicit scoped final acceptance remain pending. Earlier successful
 checks are not repeated merely because this isolated fixture was added. Trained
 model acceptance and required complete green suites remain separate gates.
+
+## Subsequent workflow design — 09/25/2026
+
+Michael accepted the demonstrated behavior at 1:02 PM ET (#1375, comment
+5836291026), then requested a separate usability/design review. The proposed
+[planning-review input and workflow specification](PLANNING-REVIEW-UX-SPEC.md)
+defines preparation, field meanings, source evidence, assessment, actions and
+reassessment, with new UX-01–UX-12 criteria. These are unimplemented design
+requirements, not a retroactive claim that the accepted demonstration meets them.
+Next: review the specification and a low-fidelity walkthrough before implementation.
