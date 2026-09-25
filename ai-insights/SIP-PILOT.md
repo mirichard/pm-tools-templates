@@ -113,7 +113,10 @@ These counts describe file structure, not eligible training examples or model qu
 4. Freeze the evaluation manifest and run the approved pilot.
 5. Review findings before proposing any production scope or acceptance changes.
 
-No outreach has been sent. The source owner needs to clarify the dataset's license
-and whether it covers training and distribution of model artifacts. If permission
+License clarification requested on 09/25/2026 in
+[Derek-Jones/SiP_dataset#2](https://github.com/Derek-Jones/SiP_dataset/issues/2).
+The request covers training, commercial reuse, aggregate findings, model/data
+redistribution, attribution and restrictions. Training remains blocked pending
+clarification of applicable reuse terms. If permission
 cannot be established, select an explicitly licensed dataset with observed effort
 outcomes; requirements-risk labels are not a substitute for this target.
