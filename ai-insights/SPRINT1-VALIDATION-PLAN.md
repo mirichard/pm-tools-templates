@@ -124,13 +124,30 @@ failures clear successful output; missing sections display unavailable; simulate
 sections and the untrained label are identified at use. It writes no browser
 storage. Browser automation is engineering evidence, not Michael's UAT sign-off.
 
-From an isolated checkout of fix/1298-runtime-contracts:
+Create an isolated checkout of the recovery branch; do not run the old app
+files from main. These commands preserve the existing working directory and
+stop if any setup step fails. The temporary directory is disposable, not result
+storage. Recreate it after a Codespace rebuild.
 
 ```bash
-cd ai-insights
-npm ci
+cd /workspaces/pm-tools-templates &&
+git fetch origin fix/1298-runtime-contracts &&
+uat_dir=$(mktemp -d /tmp/ai-insights-uat.XXXXXX) &&
+git worktree add --detach "$uat_dir" FETCH_HEAD &&
+cd "$uat_dir/ai-insights" &&
+npm ci &&
 ENABLE_RECOVERY_UAT=true HOST=127.0.0.1 PORT=3001 npm run start:api
 ```
+
+Record the checkout SHA with `git rev-parse HEAD` from this checkout in a second
+terminal. Leave the server terminal running. If startup fails, retain the first
+error and checkout SHA; do not modify the old main-branch copy to make it run.
+
+Access correction, 09/25/2026: the initial instructions omitted the checkout
+commands. Michael ran from main and encountered a duplicate rateLimiter declaration.
+The recovery source uses limiterInstance and passes the Node syntax check;
+this main-checkout failure is not a failure of the tested recovery image.
+Participant access remains pending until this corrected procedure succeeds.
 
 In Codespaces, forward port 3001 with Private visibility. Open the forwarded URL
 and append `/recovery-uat/uat/`. No public deployment or authenticated user access
