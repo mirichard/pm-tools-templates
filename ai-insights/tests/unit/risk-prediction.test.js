@@ -96,7 +96,9 @@ describe('RiskPredictionModel', () => {
 
       const result = await riskModel.predict(project);
       
-      expect(result.riskFactors).toContain('Large team size');
+      expect(result.riskFactors).toEqual(expect.arrayContaining([
+        expect.objectContaining({ factor: 'Large Team Size', severity: expect.any(String), description: expect.any(String), impact: expect.any(Number) })
+      ]));
     });
 
     test('should identify tight timeline as risk factor', async () => {
@@ -109,7 +111,9 @@ describe('RiskPredictionModel', () => {
 
       const result = await riskModel.predict(project);
       
-      expect(result.riskFactors).toContain('Tight timeline');
+      expect(result.riskFactors).toEqual(expect.arrayContaining([
+        expect.objectContaining({ factor: 'Tight Timeline', severity: expect.any(String), description: expect.any(String), impact: expect.any(Number) })
+      ]));
     });
 
     test('should identify inexperienced team as risk factor', async () => {
@@ -123,7 +127,9 @@ describe('RiskPredictionModel', () => {
 
       const result = await riskModel.predict(project);
       
-      expect(result.riskFactors).toContain('Low team experience');
+      expect(result.riskFactors).toEqual(expect.arrayContaining([
+        expect.objectContaining({ factor: 'Low Team Experience', severity: expect.any(String), description: expect.any(String), impact: expect.any(Number) })
+      ]));
     });
 
     test('should identify complex technology stack as risk factor', async () => {
@@ -137,7 +143,9 @@ describe('RiskPredictionModel', () => {
 
       const result = await riskModel.predict(project);
       
-      expect(result.riskFactors).toContain('Complex technology stack');
+      expect(result.riskFactors).toEqual(expect.arrayContaining([
+        expect.objectContaining({ factor: 'Complex Technology Stack', severity: expect.any(String), description: expect.any(String), impact: expect.any(Number) })
+      ]));
     });
   });
 
@@ -166,7 +174,7 @@ describe('RiskPredictionModel', () => {
         complexity: 'high',
         methodology: 'hybrid',
         teamExperience: 1.0,
-        budget: 10
+        budget: 1000 // Shared input schema minimum; confidence assertion remains unchanged.
       };
 
       const result = await riskModel.predict(project);
@@ -200,7 +208,9 @@ describe('RiskPredictionModel', () => {
 
       const result = await riskModel.predict(project);
       
-      expect(result.mitigationStrategies).toContain('Implement clear communication protocols');
+      expect(result.mitigationStrategies).toEqual(expect.arrayContaining([
+        expect.objectContaining({ strategy: 'Communication Protocols', priority: expect.any(String), description: expect.stringContaining('Implement clear communication protocols'), timeframe: expect.any(String) })
+      ]));
     });
 
     test('should suggest timeline adjustments for tight schedules', async () => {
@@ -213,7 +223,9 @@ describe('RiskPredictionModel', () => {
 
       const result = await riskModel.predict(project);
       
-      expect(result.mitigationStrategies).toContain('Consider extending timeline');
+      expect(result.mitigationStrategies).toEqual(expect.arrayContaining([
+        expect.objectContaining({ strategy: 'Timeline Review', priority: expect.any(String), description: expect.stringContaining('Consider extending timeline'), timeframe: expect.any(String) })
+      ]));
     });
 
     test('should suggest training for inexperienced teams', async () => {
@@ -227,7 +239,9 @@ describe('RiskPredictionModel', () => {
 
       const result = await riskModel.predict(project);
       
-      expect(result.mitigationStrategies).toContain('Provide additional training');
+      expect(result.mitigationStrategies).toEqual(expect.arrayContaining([
+        expect.objectContaining({ strategy: 'Team Training', priority: expect.any(String), description: expect.stringContaining('Provide additional training'), timeframe: expect.any(String) })
+      ]));
     });
   });
 
@@ -366,7 +380,9 @@ describe('RiskPredictionModel', () => {
       const result = await riskModel.predict(project);
       
       expect(result).toBeDefined();
-      expect(result.riskFactors).toContain('No team experience');
+      expect(result.riskFactors).toEqual(expect.arrayContaining([
+        expect.objectContaining({ factor: 'Low Team Experience', severity: expect.any(String), description: expect.any(String), impact: expect.any(Number) })
+      ]));
     });
   });
 

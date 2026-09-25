@@ -156,3 +156,32 @@ confidence/calibration and cross-instance determinism. Do not make up training
 or evaluation evidence, tune output to fixtures, or exclude these failed tests.
 #1372 still requires complete supported-path acceptance evidence; no task is
 closed and no restoration to main is authorized by this checkpoint.
+
+## Sprint 1: risk-factor contract and training-status repair (09/25/2026)
+
+Structured factor/mitigation assertions now match recovery-v1. Existing factor
+thresholds are unchanged; zero experience is represented by Low Team Experience.
+Large-team and low-experience factors now produce the coordination and training
+advice expected by the existing scenarios, independently of random classification.
+The unusual-project confidence fixture uses the shared schema's minimum budget;
+its confidence threshold is unchanged. Unsupported timeline/technology assertions
+remain active as structured-object requirements.
+
+Direct predictions disclose untrained/unvalidated status and heuristic factors.
+The empty training method now rejects instead of logging a false success.
+`MODEL-VALIDATION-READINESS.md` records target/label definitions, authorized
+representative data, evaluation/calibration criteria and missing heuristic rules
+needed for further acceptance work. The synthetic generator's random outcomes
+are not a representative training or evaluation dataset.
+
+Validation on Node 24.19.0 / npm 11.9.0:
+- Required lint passes. Four new deterministic contract/status tests pass;
+  three fail on the unchanged baseline (advice, training guard, status metadata).
+- Two full runs: 91 passed / 9 failed and 92 passed / 8 failed (100 total).
+- Three stable unresolved cases concern tight-timeline factor, technology-stack
+  factor and timeline-extension advice. Other failures are classification,
+  confidence and cross-instance predictions from random weights; the second run
+  also failed an integration model-accuracy assertion.
+
+No suites or acceptance assertions are skipped or waived. Full-suite acceptance
+is still unmet; #1298/#1372/#1329 remain open and both recovery PRs remain draft.

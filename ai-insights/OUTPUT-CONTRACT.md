@@ -38,6 +38,29 @@ Missing sections remain unavailable and reduce the dashboard's completeness
 percentage. Completeness counts available sections, not scientific validity.
 Estimated impact is unavailable (`null`) for unvalidated results.
 
+## Risk-factor and mitigation objects
+
+`riskFactors` entries contain `factor`, `severity`, `description`, and `impact`.
+`mitigationStrategies` entries contain `strategy`, `priority`, `description`, and
+`timeframe`. They are object arrays, not arrays of display strings.
+
+Existing heuristic conditions remain unchanged: team size >10, duration >180
+days, budget >$100,000, high complexity, and team experience <0.5. Zero experience
+is included in `Low Team Experience`; there is no separate zero-only factor.
+These are inherited development rules, not empirically validated cutoffs.
+Their impact values are heuristic scores, not probabilities or calibrated causal
+effects. Boundary tests preserve the conditions without claiming validation.
+
+Large-team factors now produce Communication Protocols advice. Low-experience
+factors produce Team Training and the existing Mentorship Program advice. These
+recommendations depend on those factors regardless of the random classification.
+
+Direct risk responses identify `trainingStatus: untrained`,
+`validationStatus: unvalidated`, and `factorMethod: heuristic` in metadata.
+The unimplemented `train` method rejects rather than logging successful training.
+Tight-timeline factors, technology-stack factors, and timeline-extension advice
+remain unresolved; their tests stay active. See `MODEL-VALIDATION-READINESS.md`.
+
 ## Execution and evidence
 
 The app is native JavaScript ESM. Node and Docker execute `src` directly;
