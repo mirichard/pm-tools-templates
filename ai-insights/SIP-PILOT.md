@@ -1,7 +1,9 @@
 # SiP effort-overrun pilot
 
 Checkpoint: 09/25/2026. Related work: #1298, #1374, #1329.
-Status: scope accepted; source inspection complete; training blocked on dataset reuse terms.
+Status: optional candidate; explicit reuse terms unconfirmed. JOSSE is the selected
+replacement for pilot preparation; see JOSSE-PILOT.md. Awaiting SiP does not block
+that work. Unconfirmed terms are not a finding that research use is prohibited.
 
 ## Scope
 
@@ -26,7 +28,8 @@ Only source/schema inspection and structural counts have been performed. No data
 or upstream analysis code is included in this repository; no model has been fit.
 Before training or distributing derived artifacts, obtain documented terms covering
 analysis, model training, publication of aggregate findings and model artifacts,
-commercial reuse where applicable, and any redistribution of source data.
+any redistribution of source data. The intended project is free and MIT-licensed;
+commercial use is not a pilot requirement.
 Retain the grant, required attribution and permitted uses with the source manifest.
 This is an unresolved provenance prerequisite, not a finding that reuse is prohibited.
 
@@ -116,7 +119,8 @@ These counts describe file structure, not eligible training examples or model qu
 License clarification requested on 09/25/2026 in
 [Derek-Jones/SiP_dataset#2](https://github.com/Derek-Jones/SiP_dataset/issues/2).
 The request covers training, commercial reuse, aggregate findings, model/data
-redistribution, attribution and restrictions. Training remains blocked pending
-clarification of applicable reuse terms. If permission
+redistribution, attribution and restrictions. That original inquiry included
+commercial reuse, but our intended work is free, MIT-licensed research/development.
+No SiP training has been performed; explicit terms remain unconfirmed. If permission
 cannot be established, select an explicitly licensed dataset with observed effort
 outcomes; requirements-risk labels are not a substitute for this target.

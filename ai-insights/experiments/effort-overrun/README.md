@@ -2,8 +2,11 @@
 
 Standalone Python standard-library prototype. Not imported by the application.
 No SiP files, upstream code, model weights or real-data results are included.
-Reuse clarification: https://github.com/Derek-Jones/SiP_dataset/issues/2.
-Protocol: ../../SIP-PILOT.md. Do not train on SiP until reuse terms are resolved.
+Selected replacement: ../../JOSSE-PILOT.md. The pinned profile_josse.py performs
+read-only source checks; the chronological pipeline is not yet a JOSSE adapter.
+
+Optional SiP reuse clarification: https://github.com/Derek-Jones/SiP_dataset/issues/2.
+Protocol: ../../SIP-PILOT.md. SiP terms remain unconfirmed; pilot preparation now proceeds using JOSSE.
 
 From repository root:
 
