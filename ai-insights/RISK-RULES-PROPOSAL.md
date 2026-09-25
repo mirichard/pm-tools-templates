@@ -1,8 +1,8 @@
 # Schedule and technology risk rules — proposal
 
-09/25/2026 · #1298 / #1329 · Decision status: proposed, not implemented or accepted.
+09/25/2026 · #1298 / #1329 · Decision status: approved by Michael on 09/25/2026; implemented for recovery verification.
 These are transparent planning checks, not a trained classifier or calibrated risk scores.
-The existing failing scenarios remain active until an agreed contract is implemented.
+The three rule scenarios now assert the approved evidence-based contract; model assertions remain unchanged.
 
 ## Schedule feasibility
 
@@ -51,15 +51,11 @@ evidence references, reason and status (triggered / not triggered / not assessed
 
 ## Contract and approval needed
 
-This would require a versioned schema extension and display handling for
-not-assessed results. Unknown fields are currently stripped by the shared schema;
-adding fixture fields alone would not implement these rules. No extension is made
-in this proposal. Keep the 11-feature model input unchanged pending model work.
+The implementation adds a versioned schema extension and display handling for
+not-assessed results. Other unknown fields remain stripped by the shared schema. The approved extension is now implemented as planning-v1. Keep the 11-feature model input unchanged pending model work.
 
-Review decisions: accept the evidence inputs and output statuses; define evidence
-freshness per planning cadence; choose whether these checks belong in restoration
-scope or a separate enhancement; name the decision owner. Issue assignment is not
-acceptance. Approve before replacing existing scenario expectations.
+Michael approved the evidence inputs, output statuses, freshness rule and recovery
+scope below. Issue assignment alone is not acceptance. Approval was recorded before replacing the three affected scenario expectations.
 
 Acceptance examples after approval: insufficient capacity triggers a documented
 shortfall; identical duration with sufficient capacity does not; missing capacity
@@ -69,7 +65,7 @@ evidence is not equivalent to a confirmed skills gap.
 
 ## Recommended decision — 09/25/2026
 
-Status: ready for Michael's product decision; not yet approved. Review based on
+Status: approved by Michael ("Confirmed", 09/25/2026 at 11:40 AM ET). Review based on
 `19ef6d507836c94289dcf61845b1f1f8b5f8d8ba` and the controlling #1329 criteria.
 
 Recommend implementing the evidence-based checks above in recovery scope, with
@@ -106,7 +102,25 @@ finite ratio; equal effort/capacity; negative/nonfinite inputs; missing evidence
 expired/mismatched baseline; future evidence; one blocked critical interface;
 many verified tools; missing skill evidence versus a confirmed coverage gap.
 
-Decision to record: accept this recovery scope, output contract and freshness rule,
-or revise the specific row before implementation. Michael is the proposed product
-decision owner; no assignment or prior instruction to continue is recorded as
-acceptance of these newly specified choices.
+Decision recorded: Michael explicitly confirmed this recovery scope, output
+contract and freshness rule on 09/25/2026 before implementation.
+
+
+## Implementation checkpoint
+
+Code commit: `bcf54fda0569f95d3cc21640d2ce7ba1ee8d598f`.
+`baselineId` identifies the current plan. Optional `planningAssessment` carries
+baselineId, assessedAt, reviewDue, schedule (remainingEffortHours,
+availableCapacityHours, assumptions, evidenceReferences, dependencies), critical
+integrations and required skills. Integrations use verified/blocked/unknown;
+skills use confirmed/gap/unknown. Item IDs are required; missing owner/references
+or incomplete readiness evidence returns not_assessed. Supplied invalid values
+fail shared validation. Timestamp strings are normalized to ISO UTC.
+
+The direct risk output and aggregate riskPrediction retain planningAssessment
+with schemaVersion planning-v1, checked timestamp and per-rule evidence/reason.
+Evidence requests bypass the risk cache, so freshness is reassessed every time.
+Missing or empty check lists are not_assessed, never evidence of safety.
+The dashboard exposes these results separately from the untrained model label.
+The existing risk model still lacks accepted training/evaluation; this feature
+makes no predictive-accuracy claim and does not close #1298 or #1329.

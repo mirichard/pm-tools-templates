@@ -1,0 +1,20 @@
+{
+  "artifactId": 10873424707,
+  "artifactZipSha256": "d05e88d7ece80601be163f4edc44441b4140590f060ea4001a00327f3eecb3c4",
+  "fullReportSha256": "93c7d53c3c91e36674ada59e58bd953f7111f2284968abe1d19854011b3752c9",
+  "note": "HIGH/CRITICAL filtered report; package inventory omitted.",
+  "image": "sha256:2e570181cde82ac013c5a0257207418ea365004c0305f33a431237345886e9ab",
+  "scanTime": "2026-09-25T15:51:20.789483673Z",
+  "results": [
+    {
+      "Target": "sha256:2e570181cde82ac013c5a0257207418ea365004c0305f33a431237345886e9ab (alpine 3.24.2)",
+      "Class": "os-pkgs",
+      "Type": "alpine"
+    },
+    {
+      "Target": "Node.js",
+      "Class": "lang-pkgs",
+      "Type": "node-pkg"
+    }
+  ]
+}

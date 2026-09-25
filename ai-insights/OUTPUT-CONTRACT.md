@@ -88,3 +88,14 @@ covers response-body consumption and native fetch network errors are retryable.
 Risk cache values are isolated from caller mutation. Clearing the cache prevents
 in-flight predictions from repopulating the cleared generation; those requests
 still return to their callers. Cache state is volatile and is lost on restart.
+
+
+## Approved additive planning contract — 09/25/2026
+
+Optional planning-v1 evidence is accepted by the shared schema and returned in
+riskPrediction.planningAssessment (planningAssessment on direct risk results).
+See RISK-RULES-PROPOSAL.md for fields, status meanings and freshness rules.
+It does not change the 11 model features, classifier thresholds or accuracy claims.
+The recovery UAT dashboard has session-only results, no saved history and no
+browser storage. Reload/reopen requires a new request; model artifact loading is
+still an unmet restoration requirement. No durable result retrieval API is claimed.

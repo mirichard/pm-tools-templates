@@ -96,3 +96,52 @@ inputs/semantics, persistence expectations and dashboard/UAT access. This one
 successful container run does not satisfy the two complete green app suites,
 trained-model acceptance, persistence, load performance, Compose or UAT gates.
 Both draft PRs remain unmerged, and #1298/#1372/#1329 remain open.
+
+## Approved planning checks and UAT implementation — 09/25/2026
+
+Michael confirmed the rule/session-only/UAT-owner decisions at 11:40 AM ET.
+Implementation commit `bcf54fda0569f95d3cc21640d2ce7ba1ee8d598f` adds planning-v1
+schema/evaluator, HTTP/aggregate propagation, freshness-aware cache bypass and
+an explicitly enabled session-only dashboard. Only the three approved legacy
+rule expectations changed; classifier/confidence/determinism assertions remain.
+
+- Effective lint: passed, zero warnings.
+- Focused planning, real HTTP, hook, output-contract and failure-path tests:
+  35 passed across five suites.
+- Complete app suite: 123 passed / 7 failed / 130 total across 12 suites.
+  Failures: low/critical classification; typical/unusual/edge-case confidence;
+  cross-instance and integration prediction consistency. Random untrained weights
+  still vary which model assertions fail; this is not an accuracy measurement.
+- Local rendered-browser attempt could not start: Chromium absent; installation
+  returned invalid/truncated archives. No local visual or UAT pass claimed.
+- Actions run 36156785941 builds the new image and attempts container smoke,
+  rendered browser checks/screenshots and the HIGH/CRITICAL scan. Its outcome must
+  be recorded separately; the earlier passing image does not verify changed code.
+
+UAT access instructions and approved S6/U5 expectations are in
+SPRINT1-VALIDATION-PLAN.md. The host is opt-in and uses synthetic data. Actual
+participant access and sign-off remain pending. Model artifact persistence,
+performance acceptance, complete green suites and final restoration remain open.
+
+### Actions result for the approved implementation
+
+Run [36156785941](https://github.com/mirichard/pm-tools-templates/actions/runs/36156785941)
+passed build, container smoke, rendered browser checks and Trivy scan.
+Head `bcf54fda0569f95d3cc21640d2ce7ba1ee8d598f`; tested merge checkout
+`21da44c39ff487480b5d2a06dc620b7325191299`; image
+`sha256:2e570181cde82ac013c5a0257207418ea365004c0305f33a431237345886e9ab`.
+Trivy's filtered Alpine and Node results contained zero HIGH/CRITICAL findings.
+
+Browser checks verified baseline missing-evidence results, synthetic 40-person-hour
+shortfall, forced service failure clearing results, successful retry, reload
+clearing results, no horizontal overflow at 390px, and no page-script errors.
+Desktop/mobile screenshots were downloaded and visually inspected: readable labels,
+visible limitations and no overlapping layout. This is Chromium engineering
+verification, not Safari/iPad access confirmation or user acceptance.
+
+Artifact `10873424707` expires 10/25/2026; downloaded ZIP SHA256 matched
+`d05e88d7ece80601be163f4edc44441b4140590f060ea4001a00327f3eecb3c4`.
+Durable extracted identity, smoke/browser outcomes and filtered scan summary:
+[evidence/container-36156785941](evidence/container-36156785941/).
+Full report, screenshots and logs remain in the Actions artifact. Retain them
+before expiry if required for final release review.

@@ -1,7 +1,7 @@
 # Sprint 1 SIT and UAT preparation
 
 09/25/2026 · #1372 / #1373 · Authority: #1329.
-Status: prepared for review; this is not execution evidence or acceptance.
+Status: scenarios and ownership approved by Michael on 09/25/2026; execution/sign-off remain separate.
 Application remains withdrawn. PR #1378 is stacked on #1377 and both remain draft.
 
 ## Common setup and evidence
@@ -11,7 +11,7 @@ commit recorded. No production data or credentials in fixtures/evidence. Start
 from ai-insights with npm ci and npm run start:api; record actual bind address and
 port from startup. Confirm /health before using /api/v1 endpoints. Use a separately
 identified dashboard host for user tests; the client module is not itself a
-rendered application. Dashboard access and host deployment are not yet confirmed.
+rendered application. The opt-in host is implemented; participant access is not yet confirmed.
 
 Safe baseline F1: {"name":"Synthetic acceptance project","teamSize":4,"duration":60,
 "budget":50000,"complexity":"medium","teamExperience":0.5}.
@@ -37,7 +37,7 @@ AIInsightsClient / AIInsightsResult → host dashboard rendering.
 | S3 | Submit numeric min/max boundaries, F3, F4, null and nonfinite direct inputs | Valid bounds accepted; invalid requests rejected before inference; HTTP 400 for invalid JSON project values | Existing validation tests; rerun on acceptance candidate |
 | S4 | Render valid result; then force HTTP failure and malformed/missing section response | Explicit failure/unavailable state; previous result not presented as fresh success | Needs host failure-path execution |
 | S5 | Start fresh; run concurrent requests; repeat same request and invalidate cache | Correct request/result association; no shared state contamination; cache reuse/invalidation evidenced by inference calls | Integration coverage exists; repeatable runtime evidence needed |
-| S6 | Stop/restart intended runtime; reload results and model artifact | Document persistence contract; correct artifact/version and result identity, or explicit unavailable state | Trained artifact and persistence contract blocked |
+| S6 | Stop/restart intended runtime; reload results and model artifact | Document persistence contract; correct artifact/version and result identity, or explicit unavailable state | Session-only contract approved; trained artifact blocked |
 | S7 | Run required lint/full suite and record security/runtime gates | Two complete green runs and all #1329 gates; no excluded failures | Full suite remains failing; no acceptance claimed |
 
 Commands from ai-insights: npm run lint; npm test -- --runInBand.
@@ -49,8 +49,8 @@ points, not proof that dashboard rendering or persistence is complete.
 
 Common preconditions: confirmed participant, accessible isolated dashboard host,
 known commit, service health, baseline F1 and evidence template. No participant
-has yet confirmed availability or access. Michael is the proposed decision owner,
-subject to explicit confirmation; executor/representative remains unassigned.
+has yet confirmed availability or access. Michael confirmed the decision-owner role; participant availability/access remain
+unverified.
 
 | ID / user outcome | Additional precondition and steps | Expected observable result |
 | --- | --- | --- |
@@ -61,7 +61,7 @@ subject to explicit confirmation; executor/representative remains unassigned.
 | U5 Reopen results | Record project/result identity; navigate away and reopen; restart service and repeat | Persisted result retains identity/version, or explicit unavailability; no silent regenerated result portrayed as saved history |
 | U6 Recognize limitations | Inspect resource, schedule and quality sections and estimated impact; exercise a missing section | Simulation labels visible at use; missing sections unavailable; no quantified benefit from unvalidated results |
 
-U5 is blocked until persistence behavior is agreed and implemented. U2/U6 may
+U5 now tests the approved session-only behavior: no saved history; reload/reopen requires a new explicit request. U2/U6 may
 reveal presentation defects even though metadata exists in the API. Record those
 as defects; metadata presence alone is insufficient for user acceptance.
 
@@ -80,7 +80,7 @@ Plan approval does not close #1375 or override trained-model/security gates.
 
 ## Persistence and UAT decision package — 09/25/2026
 
-Status: recommendation awaiting product decision, not accepted behavior.
+Status: approved by Michael ("Confirmed", 09/25/2026 at 11:40 AM ET).
 Code review at `19ef6d507836c94289dcf61845b1f1f8b5f8d8ba` confirms an in-memory
 engine cache, disabled trained-model loading, and a dashboard client module with
 no rendered host in src/dashboard. Passing container checks do not close these gaps.
@@ -93,13 +93,13 @@ no rendered host in src/dashboard. Passing container checks do not close these g
 | UAT surface | Prepare a minimal isolated dashboard using the existing client, synthetic fixtures and explicit unvalidated/simulated labels | Exercise U1–U6 in a browser; no restoration to main or production rollout implied |
 | Acceptance owner | Michael as product decision owner and proposed UAT participant, subject to confirmation | Prepare access first; actual user execution and recorded decision remain necessary |
 
-The session-only recommendation narrows supported behavior. Approve it explicitly
-before updating S6/U5 expectations or representing persistence as accepted. If
+The session-only decision narrows supported behavior and is approved. S6/U5 test
+that behavior; successful execution must still be recorded. If
 saved history is required, instead specify retention, storage ownership, deletion
 and result/model identity, and implement durable storage before U5 execution.
 
-After approval, implement disclosure and unavailable states, prepare the rendered
-host and record its tested commit and access route. Do not assume access from
+Disclosure, unavailable states and the opt-in rendered host are implemented;
+record its tested commit and verify participant access. Do not assume access from
 Michael's iPad to a local runner URL. Confirm access with a real browser session
 before scheduling user execution; no participant response or sign-off is inferred.
 
@@ -108,3 +108,36 @@ and restart behavior; #1373 records scenario/owner approval; #1375 records actua
 UAT execution; #1374 retains model loading/evaluation; #1329 retains final gates.
 The three rule scenarios and six other failures from the last full suite remain
 open until evidenced repairs. No acceptance checkbox changes in this package.
+
+
+## Approved execution contract and access
+
+Michael confirmed the evidence-based rule scope, session-only results and role as
+acceptance owner. Actual participant availability and access have not been tested.
+S6: restart clears volatile cache; no saved result is silently regenerated. Trained
+artifact loading remains a separate unmet requirement. U5: reload/reopen clears
+results, displays no-history disclosure and requires an explicit new request.
+
+An opt-in dashboard is implemented at `/recovery-uat/uat/`. It uses the existing
+client and real aggregate API. Session-only disclosure appears before submission;
+failures clear successful output; missing sections display unavailable; simulated
+sections and the untrained label are identified at use. It writes no browser
+storage. Browser automation is engineering evidence, not Michael's UAT sign-off.
+
+From an isolated checkout of fix/1298-runtime-contracts:
+
+```bash
+cd ai-insights
+npm ci
+ENABLE_RECOVERY_UAT=true HOST=127.0.0.1 PORT=3001 npm run start:api
+```
+
+In Codespaces, forward port 3001 with Private visibility. Open the forwarded URL
+and append `/recovery-uat/uat/`. No public deployment or authenticated user access
+is established by this command; Michael must confirm the page opens on his device.
+Use only synthetic projects. The page is disabled unless explicitly enabled.
+
+Resume U1–U6 on the recorded candidate and record each result/defect and final
+user decision on #1375. #1373 remains open until its full acceptance criteria are
+reconciled; this approval alone is not issue closure. Two complete green suites,
+trained-model acceptance and all #1329 restoration gates remain required.
