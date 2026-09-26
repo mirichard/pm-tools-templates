@@ -2,7 +2,11 @@
 
 Generated; do not edit by hand. [Policy](../docs/roadmap-sync.md) · [Decision register](roadmap-alignment.md).
 
-Snapshot fingerprint: `c6ddb59c6e92998ffe0ad0a174ccb07a84477c346e07dbe28d6c70e2b6102c4f`. Values are copied from issues and Projects, not inferred acceptance or release claims.
+Snapshot updated at: 2026-09-26T19:08:10.692Z (UTC).
+
+[Latest synchronization checks](https://github.com/mirichard/pm-tools-templates/actions/workflows/roadmap-sync.yml) — includes successful checks with no data changes. A check does not publish to main until its PR is merged.
+
+Snapshot fingerprint: `5509ca59725d494b53b46ab762078d011d1f093f6d1a37a5a52d6f432e630921`. Values are copied from issues and Projects, not inferred acceptance or release claims.
 
 ## Drift requiring review
 
@@ -92,4 +96,4 @@ Snapshot fingerprint: `c6ddb59c6e92998ffe0ad0a174ccb07a84477c346e07dbe28d6c70e2b
 | [#1376](https://github.com/mirichard/pm-tools-templates/issues/1376) — Task: Reconcile AI recovery restoration gates and release acceptance | Open | [#1329](https://github.com/mirichard/pm-tools-templates/issues/1329) | O7 - Use trustworthy AI insights | Now | Todo | — | Blocked |
 | [#1379](https://github.com/mirichard/pm-tools-templates/issues/1379) — &#91;Research candidate&#93;&#91;AI Insights&#93; Establish planning-review value beyond experienced PM judgment | Open | [#523](https://github.com/mirichard/pm-tools-templates/issues/523) | — | — | Todo | — | — |
 | [#1383](https://github.com/mirichard/pm-tools-templates/issues/1383) — Story: Define community participation and roadmap feedback scope | Open | [#319](https://github.com/mirichard/pm-tools-templates/issues/319) | — | — | Todo | — | — |
-| [#1384](https://github.com/mirichard/pm-tools-templates/issues/1384) — Story: Keep repository roadmap documentation and planning views synchronized | Open | [#319](https://github.com/mirichard/pm-tools-templates/issues/319) | O4 - Contribute and influence priorities | Now | In Progress | Sprint 1 | In Progress |
+| [#1384](https://github.com/mirichard/pm-tools-templates/issues/1384) — Story: Keep repository roadmap documentation and planning views synchronized | Closed (completed) | [#319](https://github.com/mirichard/pm-tools-templates/issues/319) | O4 - Contribute and influence priorities | Now | Done | Sprint 1 | Done |
