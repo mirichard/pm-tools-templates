@@ -10,7 +10,7 @@ This register maps the groomed backlog to repository outcomes. The issue retains
 
 | Horizon | Meaning | Selected preparation or existing work |
 | --- | --- | --- |
-| Now | Work already authorized or awaiting acceptance; not a new release promise | #78 bounded roadmap acceptance in Sprint 1; #75 and #1367 accepted and Done. Legacy recovery remains retained but paused, outside Sprint 1 |
+| Now | Work already authorized or awaiting acceptance; not a new release promise | #1384 repository-wide documentation/usability synchronization added to Sprint 1 on 09/26; #75/#78/#1367 accepted and Done. Legacy recovery remains retained but paused, outside Sprint 1 |
 | Next | Ordered preparation queue; implementation needs an owner, capacity and accepted scope | #57/#58 are Sprint 1 reserves only; #63 needs policy resolution; then #59/#60/#62 and decision spike #61 |
 | Later | Retained scope requiring refinement or a dependency/overlap decision | Other epics/stories and #64; no dates |
 | Unscheduled | Discovery options not selected for delivery | #1159–#1162 |
@@ -19,6 +19,8 @@ This register maps the groomed backlog to repository outcomes. The issue retains
 Equal queue ranks do not imply simultaneous delivery. Select one bounded product item at a time until actual capacity is recorded. #523 → #1379 is separate plan-review research, not a Sprint 1 product-delivery commitment. #1329 recovery is paused pending explicit reuse selection and does not block that research. Parent horizons summarize child preparation, not active implementation of the whole epic.
 
 ## Outcome register
+
+This is the curated decision register, reviewed 09/26/2026. Historical Horizon and Lane/readiness columns below are retained as a dated baseline, not current workflow status. See the [generated current register](roadmap-status.md) for issue and Project values. Edit the decision narrative only when the underlying scope or priority decision changes.
 
 ### O1: Find and customize templates
 
@@ -65,11 +67,13 @@ Equal queue ranks do not imply simultaneous delivery. Select one bounded product
 | --- | --- | --- | --- | --- | --- |
 | [#63](https://github.com/mirichard/pm-tools-templates/issues/63) — Task: Complete the repository-native template contribution workflow | task | [#319](https://github.com/mirichard/pm-tools-templates/issues/319) | Next | Product; Needs selection | Resolve contribution branching policy, repair links and validate a sample contribution. |
 | [#77](https://github.com/mirichard/pm-tools-templates/issues/77) — Story: Usage Analytics & Feedback Loop Platform - Data-Driven Insights | story | [#319](https://github.com/mirichard/pm-tools-templates/issues/319) | Later | Product; Needs refinement | Inventory existing feedback reports; define consent, retention, deletion and minimal data needs before new telemetry. |
-| [#78](https://github.com/mirichard/pm-tools-templates/issues/78) — Story: Roadmap Publication & Community Engagement Platform | story | [#319](https://github.com/mirichard/pm-tools-templates/issues/319) | Now | Product; In progress | Reconcile published mapping, Sprint 1 status and AI direction; merge and accept the reconciliation before marking the bounded slice complete. Retain broader community scope explicitly. |
+| [#78](https://github.com/mirichard/pm-tools-templates/issues/78) — Story: Roadmap Publication & Community Engagement Platform | story | [#319](https://github.com/mirichard/pm-tools-templates/issues/319) | Now | Product; Done (Sprint 1) | Accepted and closed through PR #1382; residual community scope transferred to #1383 under #319. |
 | [#198](https://github.com/mirichard/pm-tools-templates/issues/198) — 💬 Community Feedback: Help Us Improve PM Tools & Templates | operational | Standalone | Ongoing | Operations; Monitoring | Ongoing feedback intake; triage actionable findings into separate linked work. |
 | [#319](https://github.com/mirichard/pm-tools-templates/issues/319) — EPIC: Community & Feedback Ecosystem | epic | Standalone | Next | Product; Rollup / refine | Roll up #78 roadmap mapping and #63 contribution repairs; refine analytics separately. |
 | [#1313](https://github.com/mirichard/pm-tools-templates/issues/1313) — 📊 Template Analytics Report | operational | Standalone | Ongoing | Operations; Monitoring | Ongoing rating report; submitted ratings are not adoption or verified quality. |
 | [#1314](https://github.com/mirichard/pm-tools-templates/issues/1314) — 💎 Template Review Candidates | operational | Standalone | Ongoing | Operations; Monitoring | Ongoing review shortlist; this is not marketplace delivery scope. |
+| [#1383](https://github.com/mirichard/pm-tools-templates/issues/1383) — Story: Define community participation and roadmap feedback scope | story | [#319](https://github.com/mirichard/pm-tools-templates/issues/319) | Unscheduled | Product; Needs refinement | Inventory existing feedback channels and reconcile #63/#77 before proposing bounded scope; retains #78 historical targets without claiming achievement. |
+| [#1384](https://github.com/mirichard/pm-tools-templates/issues/1384) — Story: Keep repository roadmap documentation and planning views synchronized | story | [#319](https://github.com/mirichard/pm-tools-templates/issues/319) | Now | Product; In Progress (Sprint 1 scope addition) | Implement generated status, drift controls and source-ownership guidance; configure read-only Project access and verify live workflow before acceptance. |
 
 ### O5: Make traceable value decisions
 
@@ -150,7 +154,7 @@ The 09/24/2026 baseline contained **30 epics, 10 stories, 9 tasks, 3 bugs, 1 spi
 
 Seventeen child epics under #365 roll up to O6, even where their capabilities also support other outcomes. Cross-cutting relationships are dependencies, avoiding competing parents. Count accepted leaf deliverables separately from epic rollups; issue counts do not establish effort or capacity.
 
-At the baseline review, sixteen open issues retained **closed historical milestones**. Those dates are not active commitments and are excluded from this planning view. Legacy `theme-*`, phase and priority labels are not the authority for outcome or horizon. No release date is assigned here. Sprint 1 commitments are #75, #1367 and the bounded #78 slice; #57/#58 remain reserves.
+At the baseline review, sixteen open issues retained **closed historical milestones**. Those dates are not active commitments and are excluded from this planning view. Legacy `theme-*`, phase and priority labels are not the authority for outcome or horizon. No release date is assigned here. Sprint 1 commitments are completed #75/#1367/#78 plus added scope #1384; #57/#58 remain reserves.
 
 ## Project use and maintenance
 
@@ -158,7 +162,7 @@ Use the linked project for open work and keep the historical delivery projects c
 
 During grooming, check new items for one type, a primary outcome, correct parent or standalone rationale, one next decision and duplicate/dependency conflicts. Candidates enter discovery; new items do not inherit a delivery commitment merely because they are added to the project. Before implementation, confirm the owner, available capacity, supported scope, acceptance fixtures and needed access/data. Before closure, record merged evidence and disposition of residual scope, then update the issue, project and roadmap together.
 
-This is a dated inventory, not an automatic synchronization claim. Update affected rows when scope or disposition changes; reconcile project items against all open issues at each planning review. #78 tracks acceptance of the public roadmap/project experience; this mapping alone does not close its broader historical community requirements.
+This is a dated decision inventory. Current states are generated separately to avoid maintaining duplicate status tables. #78 was accepted and closed on 09/26/2026; #1383 now tracks its residual community requirements under #319.
 
 ## #78 Sprint 1 acceptance and continuation
 
@@ -171,4 +175,4 @@ The selected slice reconciles the existing public roadmap and GitHub Projects ex
 | Timelines | Sprint dates are planning boundaries; closed milestone dates and historical proposals are not release forecasts | Publish a release forecast only when separately agreed |
 | Broader community engagement | Dedicated voting/engagement features and historical targets (500 votes, 80% satisfaction, 30% community-driven priorities, 200% engagement growth) have no acceptance evidence or current commitment | Retain under #78/#319 for explicit scope and measurement decisions; do not mark them delivered by this documentation change |
 
-Owner/acceptance authority: Michael Richard. #78 remains open until the bounded slice is accepted and its residual scope is explicitly disposed of or separately tracked. The reconciliation PR must reference #78 without automatically closing it. No broader community requirement is waived here.
+Owner/acceptance authority: Michael Richard. Accepted on 09/26/2026 after PR #1382 merged. #78 is closed and Done in Sprint 1. The table above preserves the pre-acceptance checks; their evidence is recorded in #78. Residual community scope is separately tracked in #1383 under #319; no broader community requirement was waived.
