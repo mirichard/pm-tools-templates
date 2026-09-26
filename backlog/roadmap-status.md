@@ -2,21 +2,17 @@
 
 Generated; do not edit by hand. [Policy](../docs/roadmap-sync.md) · [Decision register](roadmap-alignment.md).
 
-Snapshot updated at: 2026-09-26T21:13:20.492Z (UTC).
+Snapshot updated at: 2026-09-26T21:14:29.883Z (UTC).
 
 [Latest synchronization checks](https://github.com/mirichard/pm-tools-templates/actions/workflows/roadmap-sync.yml) — includes successful checks with no data changes. A check does not publish to main until its PR is merged.
 
-Snapshot fingerprint: `8e87d91962d40973ffff23aed87b834ae14d90a9cfdda6622f3d672d8cf0e08b`. Values are copied from issues and Projects, not inferred acceptance or release claims.
+Snapshot fingerprint: `abe27f36fe5b69cb4bfdb776d59d7ab3a5f3d6fd1c9612c424bcd2b177f9c6bc`. Values are copied from issues and Projects, not inferred acceptance or release claims.
 
 ## Drift requiring review
 
 - #75: closed issue / Roadmap In Progress
 - #75: board statuses differ (In Progress / Done)
-- #1293: board statuses differ (In Progress / Paused)
-- #1298: board statuses differ (In Progress / Paused)
-- #1329: board statuses differ (Todo / Paused)
 - #1372: missing Outcome or Horizon
-- #1372: board statuses differ (Todo / Paused)
 - #1373: missing Outcome or Horizon
 - #1373: open issue / Roadmap Done; acceptance review required
 - #1373: board statuses differ (Done / Paused)
@@ -87,13 +83,13 @@ Snapshot fingerprint: `8e87d91962d40973ffff23aed87b834ae14d90a9cfdda6622f3d672d8
 | [#1160](https://github.com/mirichard/pm-tools-templates/issues/1160) — &#91;Research candidate&#93;&#91;Requirements&#93; Requirements extraction from elicitation transcripts | Open | Standalone | O2 - Apply practical PM guidance | Unscheduled | Todo | — | — |
 | [#1161](https://github.com/mirichard/pm-tools-templates/issues/1161) — &#91;Research candidate&#93;&#91;Risk&#93; Risk register with deterministic scoring engine | Open | Standalone | O5 - Make traceable value decisions | Unscheduled | Todo | — | — |
 | [#1162](https://github.com/mirichard/pm-tools-templates/issues/1162) — &#91;Research candidate&#93;&#91;Stakeholders&#93; Stakeholder register with sentiment analysis | Open | Standalone | O7 - Use trustworthy AI insights | Unscheduled | Todo | — | — |
-| [#1293](https://github.com/mirichard/pm-tools-templates/issues/1293) — Bug: AI insights lacks effective lint configuration | Open | [#1329](https://github.com/mirichard/pm-tools-templates/issues/1329) | O7 - Use trustworthy AI insights | Now | In Progress | — | Paused |
-| [#1298](https://github.com/mirichard/pm-tools-templates/issues/1298) — Bug: AI insights build configuration and remaining test failures | Open | [#1329](https://github.com/mirichard/pm-tools-templates/issues/1329) | O7 - Use trustworthy AI insights | Now | In Progress | — | Paused |
+| [#1293](https://github.com/mirichard/pm-tools-templates/issues/1293) — Bug: AI insights lacks effective lint configuration | Open | [#1329](https://github.com/mirichard/pm-tools-templates/issues/1329) | O7 - Use trustworthy AI insights | Now | Paused | — | Paused |
+| [#1298](https://github.com/mirichard/pm-tools-templates/issues/1298) — Bug: AI insights build configuration and remaining test failures | Open | [#1329](https://github.com/mirichard/pm-tools-templates/issues/1329) | O7 - Use trustworthy AI insights | Now | Paused | — | Paused |
 | [#1313](https://github.com/mirichard/pm-tools-templates/issues/1313) — 📊 Template Analytics Report | Open | Standalone | O4 - Contribute and influence priorities | Ongoing | Todo | — | — |
 | [#1314](https://github.com/mirichard/pm-tools-templates/issues/1314) — 💎 Template Review Candidates | Open | Standalone | O4 - Contribute and influence priorities | Ongoing | Todo | — | — |
-| [#1329](https://github.com/mirichard/pm-tools-templates/issues/1329) — EPIC: Restore AI insights after reliability validation | Open | Standalone | O7 - Use trustworthy AI insights | Now | Todo | — | Paused |
+| [#1329](https://github.com/mirichard/pm-tools-templates/issues/1329) — EPIC: Restore AI insights after reliability validation | Open | Standalone | O7 - Use trustworthy AI insights | Now | Paused | — | Paused |
 | [#1367](https://github.com/mirichard/pm-tools-templates/issues/1367) — Bug: Resolve intake and validation gaps found in issue-management UAT | Closed (completed) | Standalone | M1 - Maintain repository reliability | Now | Done | Sprint 1 | Done |
-| [#1372](https://github.com/mirichard/pm-tools-templates/issues/1372) — Task: AI recovery SIT for model, API and dashboard contracts | Open | [#1329](https://github.com/mirichard/pm-tools-templates/issues/1329) | O7 - Use trustworthy AI insights | — | Todo | — | Paused |
+| [#1372](https://github.com/mirichard/pm-tools-templates/issues/1372) — Task: AI recovery SIT for model, API and dashboard contracts | Open | [#1329](https://github.com/mirichard/pm-tools-templates/issues/1329) | O7 - Use trustworthy AI insights | — | Paused | — | Paused |
 | [#1373](https://github.com/mirichard/pm-tools-templates/issues/1373) — Task: Define AI recovery UAT scenarios and acceptance ownership | Open | [#1329](https://github.com/mirichard/pm-tools-templates/issues/1329) | O7 - Use trustworthy AI insights | — | Done | — | Paused |
 | [#1374](https://github.com/mirichard/pm-tools-templates/issues/1374) — Task: Evaluate AI recovery risk model against agreed accuracy and calibration gates | Open | [#1329](https://github.com/mirichard/pm-tools-templates/issues/1329) | O7 - Use trustworthy AI insights | — | Todo | — | Paused |
 | [#1375](https://github.com/mirichard/pm-tools-templates/issues/1375) — Task: Execute AI recovery UAT and record user acceptance evidence | Open | [#1329](https://github.com/mirichard/pm-tools-templates/issues/1329) | O7 - Use trustworthy AI insights | Now | Todo | — | Paused |
