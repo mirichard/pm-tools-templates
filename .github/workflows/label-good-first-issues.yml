@@ -14,42 +14,13 @@ jobs:
       issues: write
     runs-on: ubuntu-latest
     steps:
-      - name: Classify issue topics
-        uses: actions/github-script@v9
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
         with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+          persist-credentials: false
+      - name: Classify explicit issue topics
+        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9
+        with:
           script: |
-            const issue = context.payload.issue;
-            const issueBody = issue.body || '';
-            const issueTitle = issue.title || '';
-            const issueAuthor = issue.user.login;
-            
-            // Readiness and good-first-issue suitability are maintainer decisions.
-            // This workflow only applies topical labels; it never invites work.
-            // Also add labels based on content
-            const labels = [];
-            
-            if (/template/i.test(issueTitle + ' ' + issueBody)) {
-              labels.push('template-related');
-            }
-            
-            if (/documentation|readme/i.test(issueTitle + ' ' + issueBody)) {
-              labels.push('documentation');
-            }
-            
-            if (/bug|error|broken|not.*work/i.test(issueTitle + ' ' + issueBody)) {
-              labels.push('bug');
-            }
-            
-            if (/feature.*request|enhancement|improve/i.test(issueTitle + ' ' + issueBody)) {
-              labels.push('enhancement');
-            }
-            
-            if (labels.length > 0) {
-              await github.rest.issues.addLabels({
-                owner: context.repo.owner,
-                repo: context.repo.repo,
-                issue_number: issue.number,
-                labels: labels
-              });
-            }
+            await require('./scripts/issue-label-policy.cjs').labelTopics({
+              github, repo: context.repo, number: context.issue.number
+            });

@@ -2,7 +2,7 @@ name: 📦 Epic Size Monitor
 
 on:
   issues:
-    types: [opened, edited, labeled, unlabeled]
+    types: [opened, edited, labeled, unlabeled, closed, reopened]
   schedule:
     # Daily check at 9 AM EST (14:00 UTC)
     - cron: '0 14 * * *'
@@ -12,6 +12,10 @@ permissions:
   issues: write
   contents: read
 
+concurrency:
+  group: epic-size-monitor-${{ github.repository }}
+  cancel-in-progress: false
+
 jobs:
   monitor-epic-sizes:
     runs-on: ubuntu-latest
@@ -19,40 +23,37 @@ jobs:
     
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v7
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          persist-credentials: false
 
       - name: Monitor epic sizes
-        uses: actions/github-script@v9
+        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9
         with:
           script: |
             const { owner, repo } = context.repo;
+            const policy = require('./scripts/issue-label-policy.cjs');
             
             // Fetch all open epics
-            const epics = await github.rest.issues.listForRepo({
+            const epics = await github.paginate(github.rest.issues.listForRepo, {
               owner,
               repo,
               state: 'open',
-              labels: 'epic',
+              labels: 'type:epic',
               per_page: 100
             });
             
-            console.log(`Found ${epics.data.length} open epics to monitor`);
+            console.log(`Found ${epics.length} open epics to monitor`);
             
             const oversizedEpics = [];
             const nearLimitEpics = [];
             
-            for (const epic of epics.data) {
+            for (const epic of epics) {
               try {
-                // Count related issues by searching for epic references
-                const relatedIssues = await github.rest.search.issuesAndPullRequests({
-                  q: `repo:${owner}/${repo} is:open is:issue "#${epic.number}" -label:epic`
-                });
-                
-                const issueCount = relatedIssues.data.total_count;
-                console.log(`Epic #${epic.number}: ${issueCount} related issues`);
-                
-                // PMI PMBOK® 5.4.2.1 - Work packages should be manageable and measurable
-                // Scrum Alliance - Large backlog items should be broken down for Sprint Planning
+                const issueCount = await policy.openChildCount(github, context.repo, epic.number);
+                console.log(`Epic #${epic.number}: ${issueCount} open direct child issues`);
+
+                // Repository planning thresholds, not externally mandated limits.
                 if (issueCount > 20) {
                   oversizedEpics.push({
                     number: epic.number,
@@ -70,9 +71,7 @@ jobs:
                 }
                 
                 // Add size label to epic for easy identification
-                const sizeLabel = issueCount > 20 ? 'epic-oversized' : 
-                                 issueCount >= 15 ? 'epic-large' : 
-                                 issueCount >= 8 ? 'epic-medium' : 'epic-small';
+                const sizeLabel = policy.sizeLabel(issueCount);
                 
                 // Remove existing size labels
                 const currentLabels = epic.labels.map(label => label.name);
@@ -90,7 +89,7 @@ jobs:
                         name: labelToRemove
                       });
                     } catch (error) {
-                      console.log(`Label ${labelToRemove} not found on epic #${epic.number}`);
+                      if (error.status !== 404) throw error;
                     }
                   }
                 }
@@ -106,7 +105,7 @@ jobs:
                 }
                 
               } catch (error) {
-                console.error(`Error processing epic #${epic.number}:`, error.message);
+                core.setFailed(`Error processing epic #${epic.number}: ${error.message}`);
               }
             }
             
@@ -136,11 +135,11 @@ jobs:
                 ### Option 1: Split into Multiple Epics
                 - [ ] Identify logical groupings within the epic
                 - [ ] Create 2-3 smaller epics (10-15 issues each)
-                - [ ] Reassign related issues to new epics
+                - [ ] Reassign open direct child issues to new epics
                 - [ ] Update epic descriptions and acceptance criteria
                 
                 ### Option 2: Prioritize and Close Low-Value Issues
-                - [ ] Review all related issues for current relevance
+                - [ ] Review all open direct child issues for current relevance
                 - [ ] Close outdated or duplicate issues
                 - [ ] Move nice-to-have features to separate epic
                 - [ ] Focus epic on core value delivery
@@ -156,13 +155,13 @@ jobs:
                 - [ ] **Stakeholder Input:** Confirm priority of epic components
                 
                 ## Related Issues
-                Use GitHub search to find all related issues:
+                Use the native sub-issue list on the epic to inspect its children:
                 \`\`\`
-                repo:${owner}/${repo} is:open is:issue "#${epic.number}" -label:epic
+                https://github.com/${owner}/${repo}/issues/${epic.number}
                 \`\`\`
                 
                 ## Success Criteria
-                - [ ] Epic contains ≤20 related issues
+                - [ ] Epic contains ≤20 open direct child issues
                 - [ ] All child issues have clear acceptance criteria
                 - [ ] Epic scope is well-defined and achievable
                 - [ ] Sprint planning can effectively use epic issues
@@ -191,7 +190,7 @@ jobs:
                   issue_number: epic.number,
                   body: `🚨 **Epic Size Limit Exceeded**
                   
-                  This epic currently has **${epic.count} related issues**, which exceeds our limit of 20 issues per epic.
+                  This epic currently has **${epic.count} open direct child issues**, which exceeds our limit of 20 issues per epic.
                   
                   **Why this matters:**
                   - **PMI PMBOK® 5.4.2.1**: Work packages should be manageable and measurable
@@ -235,7 +234,7 @@ jobs:
                   issue_number: epic.number,
                   body: `⚠️ **Epic Size Warning**
                   
-                  This epic currently has **${epic.count} related issues** and is approaching our limit of 20 issues per epic.
+                  This epic currently has **${epic.count} open direct child issues** and is approaching our limit of 20 issues per epic.
                   
                   **Consider:**
                   - Reviewing the scope to ensure it remains focused
@@ -269,14 +268,14 @@ jobs:
                 });
               } catch (error) {
                 if (error.status !== 422) { // 422 means label already exists
-                  console.error(`Error creating label ${labelDef.name}:`, error.message);
+                  core.setFailed(`Error creating label ${labelDef.name}: ${error.message}`);
                 }
               }
             }
             
             // Summary
             console.log(`Epic size monitoring complete:`);
-            console.log(`- Total epics monitored: ${epics.data.length}`);
+            console.log(`- Total epics monitored: ${epics.length}`);
             console.log(`- Oversized epics (>20 issues): ${oversizedEpics.length}`);
             console.log(`- Near-limit epics (15-20 issues): ${nearLimitEpics.length}`);
             
@@ -285,7 +284,7 @@ jobs:
             }
             
             return {
-              totalEpics: epics.data.length,
+              totalEpics: epics.length,
               oversizedCount: oversizedEpics.length,
               nearLimitCount: nearLimitEpics.length,
               oversizedEpics: oversizedEpics
