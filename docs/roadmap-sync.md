@@ -49,3 +49,11 @@ Missing credentials produce an explicit failure, not a partial issue-only report
 `node --test tests/roadmap-sync.test.cjs` covers pagination, incomplete reads, closure distinctions, drift, escaping, marker preservation and publication lifecycle. Pull requests run these tests without secrets or write permissions. Live activation remains a separate acceptance step.
 
 GitHub references: [Projects authentication](https://docs.github.com/en/issues/planning-and-tracking-with-projects/automating-your-project/automating-projects-using-actions), [workflow triggers](https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows), [GITHUB_TOKEN behavior](https://docs.github.com/en/actions/concepts/security/github_token).
+
+## Freshness indicators
+
+- **Editorial review date** is maintained by a human reviewing the narrative; synchronization does not change it.
+- **Snapshot updated at** is the UTC capture time first recorded for the current source-data fingerprint. It is not a merge/publication time. It changes with source data and is retained for identical data on main or the pending automation branch. Existing snapshots without a timestamp receive one at the next reconciliation; earlier capture times are not guessed.
+- **Latest synchronization checks** links to workflow history, where run time, trigger, result and the reconciliation summary establish whether a check found changes. Successful unchanged checks do not create documentation commits. Preview runs do not publish, and a changed snapshot reaches main only after its PR is merged.
+
+The links deliberately show failures and pending runs as well as successes; they are not a claim that the latest check succeeded. Neither freshness indicator establishes acceptance.

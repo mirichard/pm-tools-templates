@@ -147,21 +147,46 @@ async function publish(github, contents, report, baseSha) {
     title: 'docs(roadmap): synchronize issue and project status', body})).data.html_url;
 }
 
+// Reuse the capture time for identical source data, including an unmerged proposal.
+function snapshotTime(digest, candidates, now = new Date().toISOString()) {
+  for (const text of candidates) {
+    if (!text.includes(`Snapshot fingerprint: \`${digest}\``)) continue;
+    const match = text.match(/^Snapshot updated at: (\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\.\d{3}Z) \(UTC\)\.$/m);
+    if (match && !Number.isNaN(Date.parse(match[1]))) return match[1];
+  }
+  return now;
+}
+
 async function run({github, graphql, core, preview = true}) {
   const snapshot = await collect(github, graphql);
   const report = render(snapshot);
   const [owner, repo] = config.repository.split('/');
   // Read one immutable main commit; do not publish from an arbitrary dispatched branch.
   const baseSha = (await github.rest.repos.getBranch({owner, repo, branch: config.defaultBranch})).data.commit.sha;
-  const contents = {};
-  let changed = false;
+  const originals = {};
   for (const path of files) {
     const data = (await github.rest.repos.getContent({owner, repo, path, ref: baseSha})).data;
     if (data.type !== 'file' || data.encoding !== 'base64') throw new Error(`Cannot read ${path}`);
-    const original = Buffer.from(data.content, 'base64').toString('utf8');
-    contents[path] = path === 'ROADMAP.md' ? replaceBlock(original, report.summary) : report.register;
-    changed ||= contents[path] !== original;
+    originals[path] = Buffer.from(data.content, 'base64').toString('utf8');
   }
+  const candidates = [originals['backlog/roadmap-status.md']];
+  // A pending PR must retain its timestamp across unchanged runs before merge.
+  try {
+    const data = (await github.rest.repos.getContent({owner, repo,
+      path: 'backlog/roadmap-status.md', ref: config.branch})).data;
+    if (data.type !== 'file' || data.encoding !== 'base64') throw new Error('Cannot read pending snapshot');
+    candidates.push(Buffer.from(data.content, 'base64').toString('utf8'));
+  } catch (error) { if (error.status !== 404) throw error; }
+  const updatedAt = snapshotTime(report.digest, candidates);
+  const freshness = `Snapshot updated at: ${updatedAt} (UTC).\n\n` +
+    `[Latest synchronization checks](https://github.com/${config.repository}/actions/workflows/roadmap-sync.yml) — includes successful checks with no data changes. A check does not publish to main until its PR is merged.\n\n`;
+  report.summary = freshness + report.summary;
+  report.register = report.register.replace('Snapshot fingerprint:', freshness + 'Snapshot fingerprint:');
+  const contents = {
+    'ROADMAP.md': replaceBlock(originals['ROADMAP.md'], report.summary),
+    'backlog/roadmap-status.md': report.register
+  };
+  const changed = files.some(path => contents[path] !== originals[path]);
   fs.mkdirSync('roadmap-sync-preview', {recursive: true});
   fs.writeFileSync('roadmap-sync-preview/roadmap.md', contents['ROADMAP.md']);
   fs.writeFileSync('roadmap-sync-preview/status.md', report.register);
@@ -178,4 +203,4 @@ async function run({github, graphql, core, preview = true}) {
   return {changed, warnings: report.warnings};
 }
 
-module.exports = {cell, replaceBlock, projectItems, collect, render, publish, run};
+module.exports = {snapshotTime, cell, replaceBlock, projectItems, collect, render, publish, run};

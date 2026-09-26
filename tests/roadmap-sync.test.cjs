@@ -1,7 +1,7 @@
 'use strict';
 const {test} = require('node:test');
 const assert = require('node:assert/strict');
-const {cell, replaceBlock, projectItems, collect, render, publish} = require('../scripts/roadmap-sync.cjs');
+const {snapshotTime, cell, replaceBlock, projectItems, collect, render, publish} = require('../scripts/roadmap-sync.cjs');
 const fixture = () => ({issues: [
   {number: 78, title: 'Roadmap', state: 'closed', reason: 'completed', parent: 319, types: ['type:story']},
   {number: 1383, title: 'Residual', state: 'open', reason: null, parent: 319, types: ['type:story']}
@@ -104,4 +104,47 @@ test('human branch or foreign PR is not overwritten', async () => {
     const x=publisher(options);await assert.rejects(publish(x.github,x.contents,{warnings:[],digest:'digest'},'base'));
     assert.equal(x.calls.length,0);
   }
+});
+
+test('freshness preserves main and pending timestamps but advances for changed data', () => {
+  const old = '2026-09-26T18:05:00.000Z', now = '2026-09-26T20:05:00.000Z';
+  const record = digest => `Snapshot updated at: ${old} (UTC).\nSnapshot fingerprint: \`${digest}\``;
+  assert.equal(snapshotTime('same', [record('same')], now), old);
+  assert.equal(snapshotTime('same', [record('older'), record('same')], now), old);
+  assert.equal(snapshotTime('changed', [record('same')], now), now);
+  assert.equal(snapshotTime('same', ['Snapshot fingerprint: `same`'], now), now);
+  assert.equal(snapshotTime('same', [record('same').replace(old, 'invalid')], now), now);
+});
+
+test('reconciliation retains identical output before and after snapshot merge', async () => {
+  const {run} = require('../scripts/roadmap-sync.cjs');
+  const fs = require('node:fs');
+  const os = require('node:os');
+  const path = require('node:path');
+  const cwd = process.cwd(), dir = fs.mkdtempSync(path.join(os.tmpdir(), 'roadmap-freshness-'));
+  const original = {'ROADMAP.md':'Narrative\n<!-- roadmap-sync:start -->\nold\n<!-- roadmap-sync:end -->',
+    'backlog/roadmap-status.md':'old'};
+  let pending;
+  const github = {paginate:async()=>[],rest:{issues:{listForRepo:()=>{},get:async()=>({data:{
+    title:'Issue',state:'open',labels:[{name:'type:story'}]}})},repos:{
+    getBranch:async()=>({data:{commit:{sha:'base'}}}),
+    getContent:async({ref,path})=>{
+      if(ref!=='base' && !pending) throw Object.assign(Error('missing'),{status:404});
+      return {data:{type:'file',encoding:'base64',content:Buffer.from((ref==='base'?original:pending)[path]).toString('base64')}};
+    }}}};
+  const core = {summary:{addRaw(){return this;},async write(){}}};
+  const args = {github,graphql:async(q,a)=>page(a.number===11?78:75),core,preview:true};
+  try {
+    process.chdir(dir);
+    assert.equal((await run(args)).changed,true);
+    const read = () => ({'ROADMAP.md':fs.readFileSync('roadmap-sync-preview/roadmap.md','utf8'),
+      'backlog/roadmap-status.md':fs.readFileSync('roadmap-sync-preview/status.md','utf8')});
+    pending = read();
+    assert.match(pending['ROADMAP.md'], /Snapshot updated at: .*Z \(UTC\)/);
+    assert.equal((await run(args)).changed,true);
+    assert.deepEqual(read(),pending);
+    Object.assign(original,pending);
+    assert.equal((await run(args)).changed,false);
+    assert.deepEqual(read(),pending);
+  } finally { process.chdir(cwd); fs.rmSync(dir,{recursive:true,force:true}); }
 });
