@@ -2,11 +2,11 @@
 
 Generated; do not edit by hand. [Policy](../docs/roadmap-sync.md) · [Decision register](roadmap-alignment.md).
 
-Snapshot updated at: 2026-09-26T21:14:29.883Z (UTC).
+Snapshot updated at: 2026-09-26T21:34:50.781Z (UTC).
 
 [Latest synchronization checks](https://github.com/mirichard/pm-tools-templates/actions/workflows/roadmap-sync.yml) — includes successful checks with no data changes. A check does not publish to main until its PR is merged.
 
-Snapshot fingerprint: `abe27f36fe5b69cb4bfdb776d59d7ab3a5f3d6fd1c9612c424bcd2b177f9c6bc`. Values are copied from issues and Projects, not inferred acceptance or release claims.
+Snapshot fingerprint: `e475bb2c1ecb3da961323d1cf437b61aa13ed28ed74b9ad1410d12c26e82d666`. Values are copied from issues and Projects, not inferred acceptance or release claims.
 
 ## Drift requiring review
 
@@ -14,12 +14,7 @@ Snapshot fingerprint: `abe27f36fe5b69cb4bfdb776d59d7ab3a5f3d6fd1c9612c424bcd2b17
 - #75: board statuses differ (In Progress / Done)
 - #1372: missing Outcome or Horizon
 - #1373: missing Outcome or Horizon
-- #1373: open issue / Roadmap Done; acceptance review required
-- #1373: board statuses differ (Done / Paused)
 - #1374: missing Outcome or Horizon
-- #1374: board statuses differ (Todo / Paused)
-- #1375: board statuses differ (Todo / Paused)
-- #1376: board statuses differ (Todo / Paused)
 - #1379: missing Outcome or Horizon
 - #1383: missing Outcome or Horizon
 - #1384: open issue / Roadmap Done; acceptance review required
@@ -90,10 +85,10 @@ Snapshot fingerprint: `abe27f36fe5b69cb4bfdb776d59d7ab3a5f3d6fd1c9612c424bcd2b17
 | [#1329](https://github.com/mirichard/pm-tools-templates/issues/1329) — EPIC: Restore AI insights after reliability validation | Open | Standalone | O7 - Use trustworthy AI insights | Now | Paused | — | Paused |
 | [#1367](https://github.com/mirichard/pm-tools-templates/issues/1367) — Bug: Resolve intake and validation gaps found in issue-management UAT | Closed (completed) | Standalone | M1 - Maintain repository reliability | Now | Done | Sprint 1 | Done |
 | [#1372](https://github.com/mirichard/pm-tools-templates/issues/1372) — Task: AI recovery SIT for model, API and dashboard contracts | Open | [#1329](https://github.com/mirichard/pm-tools-templates/issues/1329) | O7 - Use trustworthy AI insights | — | Paused | — | Paused |
-| [#1373](https://github.com/mirichard/pm-tools-templates/issues/1373) — Task: Define AI recovery UAT scenarios and acceptance ownership | Open | [#1329](https://github.com/mirichard/pm-tools-templates/issues/1329) | O7 - Use trustworthy AI insights | — | Done | — | Paused |
-| [#1374](https://github.com/mirichard/pm-tools-templates/issues/1374) — Task: Evaluate AI recovery risk model against agreed accuracy and calibration gates | Open | [#1329](https://github.com/mirichard/pm-tools-templates/issues/1329) | O7 - Use trustworthy AI insights | — | Todo | — | Paused |
-| [#1375](https://github.com/mirichard/pm-tools-templates/issues/1375) — Task: Execute AI recovery UAT and record user acceptance evidence | Open | [#1329](https://github.com/mirichard/pm-tools-templates/issues/1329) | O7 - Use trustworthy AI insights | Now | Todo | — | Paused |
-| [#1376](https://github.com/mirichard/pm-tools-templates/issues/1376) — Task: Reconcile AI recovery restoration gates and release acceptance | Open | [#1329](https://github.com/mirichard/pm-tools-templates/issues/1329) | O7 - Use trustworthy AI insights | Now | Todo | — | Paused |
+| [#1373](https://github.com/mirichard/pm-tools-templates/issues/1373) — Task: Define AI recovery UAT scenarios and acceptance ownership | Open | [#1329](https://github.com/mirichard/pm-tools-templates/issues/1329) | O7 - Use trustworthy AI insights | — | Paused | — | Paused |
+| [#1374](https://github.com/mirichard/pm-tools-templates/issues/1374) — Task: Evaluate AI recovery risk model against agreed accuracy and calibration gates | Open | [#1329](https://github.com/mirichard/pm-tools-templates/issues/1329) | O7 - Use trustworthy AI insights | — | Paused | — | Paused |
+| [#1375](https://github.com/mirichard/pm-tools-templates/issues/1375) — Task: Execute AI recovery UAT and record user acceptance evidence | Open | [#1329](https://github.com/mirichard/pm-tools-templates/issues/1329) | O7 - Use trustworthy AI insights | Now | Paused | — | Paused |
+| [#1376](https://github.com/mirichard/pm-tools-templates/issues/1376) — Task: Reconcile AI recovery restoration gates and release acceptance | Open | [#1329](https://github.com/mirichard/pm-tools-templates/issues/1329) | O7 - Use trustworthy AI insights | Now | Paused | — | Paused |
 | [#1379](https://github.com/mirichard/pm-tools-templates/issues/1379) — &#91;Research candidate&#93;&#91;AI Insights&#93; Establish planning-review value beyond experienced PM judgment | Open | [#523](https://github.com/mirichard/pm-tools-templates/issues/523) | — | — | Todo | — | — |
 | [#1383](https://github.com/mirichard/pm-tools-templates/issues/1383) — Story: Define community participation and roadmap feedback scope | Open | [#319](https://github.com/mirichard/pm-tools-templates/issues/319) | — | — | Todo | — | — |
 | [#1384](https://github.com/mirichard/pm-tools-templates/issues/1384) — Story: Keep repository roadmap documentation and planning views synchronized | Open | [#319](https://github.com/mirichard/pm-tools-templates/issues/319) | O4 - Contribute and influence priorities | Now | Done | Sprint 1 | In Progress |
