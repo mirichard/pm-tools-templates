@@ -85,16 +85,16 @@ Legacy recovery remains documented under [#1329](https://github.com/mirichard/pm
 ## Current delivery snapshot
 
 <!-- roadmap-sync:start -->
-Snapshot fingerprint: `974efcca7ca3d63e5c9b46c2d443f08d3c609bb6a4206fffb6ef0537037de18f`. Values are copied from issues and Projects, not inferred acceptance or release claims.
+Snapshot fingerprint: `c6ddb59c6e92998ffe0ad0a174ccb07a84477c346e07dbe28d6c70e2b6102c4f`. Values are copied from issues and Projects, not inferred acceptance or release claims.
 
 | Sprint | Issue | Issue state | Board status |
 | --- | --- | --- | --- |
 | Sprint 1 | [#75](https://github.com/mirichard/pm-tools-templates/issues/75) — Story: Complete the browser-based template customization workflow | Closed (completed) | Done |
 | Sprint 1 | [#78](https://github.com/mirichard/pm-tools-templates/issues/78) — Story: Roadmap Publication &amp; Community Engagement Platform | Closed (completed) | Done |
 | Sprint 1 | [#1367](https://github.com/mirichard/pm-tools-templates/issues/1367) — Bug: Resolve intake and validation gaps found in issue-management UAT | Closed (completed) | Done |
-| Sprint 1 | [#1384](https://github.com/mirichard/pm-tools-templates/issues/1384) — Story: Keep repository roadmap documentation and planning views synchronized | Open | Blocked |
+| Sprint 1 | [#1384](https://github.com/mirichard/pm-tools-templates/issues/1384) — Story: Keep repository roadmap documentation and planning views synchronized | Open | In Progress |
 
-[Full status and drift report](backlog/roadmap-status.md). 16 drift flag(s) require review.
+[Full status and drift report](backlog/roadmap-status.md). 14 drift flag(s) require review.
 
 <!-- roadmap-sync:end -->
 
