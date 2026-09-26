@@ -87,7 +87,11 @@ Legacy recovery remains documented under [#1329](https://github.com/mirichard/pm
 The editorial date above applies to human-reviewed narrative. Snapshot capture time is maintained separately by synchronization; older snapshots without a recorded time gain one on the next reconciliation. [Latest synchronization checks](https://github.com/mirichard/pm-tools-templates/actions/workflows/roadmap-sync.yml) show run times and outcomes, including checks that found no changes.
 
 <!-- roadmap-sync:start -->
-Snapshot fingerprint: `c6ddb59c6e92998ffe0ad0a174ccb07a84477c346e07dbe28d6c70e2b6102c4f`. Values are copied from issues and Projects, not inferred acceptance or release claims.
+Snapshot updated at: 2026-09-26T19:15:46.772Z (UTC).
+
+[Latest synchronization checks](https://github.com/mirichard/pm-tools-templates/actions/workflows/roadmap-sync.yml) — includes successful checks with no data changes. A check does not publish to main until its PR is merged.
+
+Snapshot fingerprint: `5165a5086f97ee020c02557dfb4d7c9bdb897374643e2ee034f3e7cb369156c7`. Values are copied from issues and Projects, not inferred acceptance or release claims.
 
 | Sprint | Issue | Issue state | Board status |
 | --- | --- | --- | --- |
@@ -96,7 +100,7 @@ Snapshot fingerprint: `c6ddb59c6e92998ffe0ad0a174ccb07a84477c346e07dbe28d6c70e2b
 | Sprint 1 | [#1367](https://github.com/mirichard/pm-tools-templates/issues/1367) — Bug: Resolve intake and validation gaps found in issue-management UAT | Closed (completed) | Done |
 | Sprint 1 | [#1384](https://github.com/mirichard/pm-tools-templates/issues/1384) — Story: Keep repository roadmap documentation and planning views synchronized | Open | In Progress |
 
-[Full status and drift report](backlog/roadmap-status.md). 14 drift flag(s) require review.
+[Full status and drift report](backlog/roadmap-status.md). 16 drift flag(s) require review.
 
 <!-- roadmap-sync:end -->
 
