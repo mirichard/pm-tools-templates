@@ -5,6 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Epic 288 Demo</title>
     <style>
+      * { box-sizing: border-box; }
+      .panel, fieldset { min-width: 0; }
+      fieldset { margin: 12px 0; padding: 10px; border: 1px solid #ccc; }
+      .version-controls { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; max-width: 100%; }
+      input[type=radio] { width: auto; }
+      .panel { overflow-wrap: anywhere; }
+      .panel table { display: block; overflow-x: auto; }
       body { margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; }
       .container { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; padding: 16px; }
       @media (max-width: 960px) { .container { grid-template-columns: 1fr; } }
