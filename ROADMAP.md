@@ -27,7 +27,7 @@ These records distinguish merged work from published releases. A merged change i
 | --- | --- | --- |
 | Browser-based template customization — #75 | Completed and accepted in Sprint 1: draft retention, save/reopen recovery, validation and export across five editors | [Merged PR #1381](https://github.com/mirichard/pm-tools-templates/pull/1381) · [Acceptance record](demos/288-template-customization/ACCEPTANCE.md) · [Closed issue #75](https://github.com/mirichard/pm-tools-templates/issues/75) |
 | Issue-management intake and validation — #1367 | Completed in Sprint 1 after external UAT and an actual successful scheduled issue-type sweep | [Merged PR #1368](https://github.com/mirichard/pm-tools-templates/pull/1368) · [Scheduled run](https://github.com/mirichard/pm-tools-templates/actions/runs/36241475787) · [Closed issue #1367](https://github.com/mirichard/pm-tools-templates/issues/1367) |
-| Outcome roadmap and backlog mapping | Initial mapping published; #78 retains acceptance reconciliation and separate community scope | [Merged PR #1371](https://github.com/mirichard/pm-tools-templates/pull/1371) · [Issue #78](https://github.com/mirichard/pm-tools-templates/issues/78) |
+| Outcome roadmap and backlog mapping | Mapping and reconciliation accepted; #78 completed; residual community scope retained in #1383 | [Merged PR #1382](https://github.com/mirichard/pm-tools-templates/pull/1382) · [Issue #78](https://github.com/mirichard/pm-tools-templates/issues/78) |
 | README entry-point redesign | Catalog, selection-guide and beginner-kit routes; resource-use instructions and separate software prerequisites | [Merged PR #1269](https://github.com/mirichard/pm-tools-templates/pull/1269) |
 
 ## Outstanding follow-up
@@ -49,7 +49,7 @@ The 09/24/2026 baseline mapped 60 then-open issues to seven product outcomes and
 | **O1 — Find and customize templates** | Discovery #323 → #69/#104; onboarding #284 → #103; standalone customization #75 | #75 is completed and accepted through PR #1381; refine search/navigation/tutorial gaps separately. |
 | **O2 — Apply practical PM guidance** | Role suites #47/#49/#50; bounded content work #57/#58/#64 | Repair Design Thinking and Lean Startup journeys; reconcile existing assets before expanding suites. |
 | **O3 — Use supported integrations** | #318 → #325 and guide tasks #59/#60/#62; #325 → #61/#76/#290; #290 → #385/#386 | Validate retained guides and one consumer/API contract; resolve overlapping sync scope before execution. |
-| **O4 — Contribute and influence priorities** | #319 → #63/#77/#78; feedback/reporting records provide operational context | Reconcile #78 roadmap/project acceptance in Sprint 1; retain contribution repairs and privacy-aware analytics for later selection. |
+| **O4 — Contribute and influence priorities** | #319 → #63/#77/#78/#1383/#1384; feedback/reporting records provide operational context | #78 accepted and completed; retain #1383 community participation scope, contribution repairs and privacy-aware analytics for later selection. |
 | **O5 — Make traceable value decisions** | #320 → #341 | Reuse benefits/reporting guidance; define one bounded outcome with reproducible calculations. |
 | **O6 — Automate bounded PM workflows** | #365 → #367–#383 | Validate the SOW/Charter input contract and choose one complete workflow; the full environment remains uncommitted. |
 | **O7 — Use trustworthy AI insights** | Research #523 → #1379; deferred #92/#105; retained recovery #1329 → #1293/#1298/#1372–#1376 | Test whether AI-assisted plan review supports defensible PM decisions with less total effort and adequate coverage. Legacy recovery is paused pending reuse; it is not a prerequisite for this research. |
@@ -57,12 +57,14 @@ The 09/24/2026 baseline mapped 60 then-open issues to seven product outcomes and
 
 The [alignment register](backlog/roadmap-alignment.md#outcome-register) links every issue, including discovery candidates and operational records, to its current next action. Outcome identifiers are navigation/grouping keys, not new epics or a replacement for native parents.
 
-## Now, Next and Later
+## Planning decisions
+
+The table below records the agreed 09/26/2026 disposition. It is a decision record, not a live status feed. Current issue and board values are maintained in the generated snapshot below; neither automation nor a closed issue establishes release or acceptance evidence.
 
 | Horizon | Work | Boundary |
 | --- | --- | --- |
-| **Sprint 1 — active** | #78: reconcile published roadmap, project status and acceptance evidence | Bounded documentation/project acceptance; broader community engagement remains unscheduled. |
-| **Sprint 1 — Done** | #75 template customization; #1367 issue-management acceptance | Accepted leaf work; completion does not close parent epics or create a release. |
+| **Sprint 1 — added scope** | [#1384](https://github.com/mirichard/pm-tools-templates/issues/1384): repository-wide documentation/usability synchronization | Explicitly added by Michael on 09/26/2026; implementation and live activation require acceptance. |
+| **Sprint 1 — Done** | #75 template customization; #1367 issue-management acceptance; #78 roadmap reconciliation | Accepted leaf work; completion does not close parent epics or create a release. |
 | **Next / sprint reserves** | #57 and #58 content navigation; #63 contribution workflow remains in the preparation queue | #57/#58 are reserves, not Sprint 1 commitments. Select scope and capacity before starting. |
 | **Next — integration preparation** | #59, #60, #62: guidance validation; #61: bounded API decision spike | A spike recommendation does not authorize a new service. |
 | **Research — separate from Sprint 1 delivery** | #523 → #1379 AI-assisted sponsor-approval review | Evidence-gathering only; no AI benefit or product readiness claim. |
@@ -79,6 +81,12 @@ The [alignment register](backlog/roadmap-alignment.md#outcome-register) links ev
 The synthetic review runs demonstrate test mechanics only. Before comparative evaluation, resolve the recorded protocol gaps, independently check case realism, admit an authentic case, assign participants/adjudication and freeze the comparison and decision criteria. See the [readiness audit](https://github.com/mirichard/pm-tools-templates/blob/162ff1ba235960ca574ae48734058d2fee9845af/research/1379-sponsor-approval/readiness-audit-2026-09-26.md). No authentic case or participant cohort is yet confirmed in that record.
 
 Legacy recovery remains documented under [#1329](https://github.com/mirichard/pm-tools-templates/issues/1329). Draft #1377 retains bounded lint work; mixed draft #1378 is frozen for component-level reuse assessment. Predictive-model gates apply if predictive claims are selected, not as a prerequisite for plan-review research. Paused work is not completed or waived.
+
+## Current delivery snapshot
+
+<!-- roadmap-sync:start -->
+Synchronization has not yet run. [Live Sprint board](https://github.com/users/mirichard/projects/12) · [Current issue register](backlog/roadmap-status.md).
+<!-- roadmap-sync:end -->
 
 ## Unscheduled candidates
 
@@ -100,7 +108,7 @@ Other open proposals include [documentation search](https://github.com/mirichard
 - **Outstanding follow-up:** a documented gap or reconciliation item; inclusion does not assign a delivery date.
 - **Unscheduled candidate:** retained for evaluation, without an approved delivery commitment.
 - Record approved scope, acceptance criteria, dependencies, and scheduling in the relevant issue or milestone before presenting a candidate as planned delivery.
-- Update this page, the affected alignment row and the linked project when scope, horizon or acceptance changes. Keep release evidence in releases and issues; count leaf delivery separately from epic rollups. New issues require triage before joining Now or Next.
+- Issues own scope, acceptance and native relationships; Projects own planning fields. The [synchronization workflow](docs/roadmap-sync.md) proposes changes to generated status sections and reports drift. Maintainers approve strategy, priority, acceptance and residual-scope decisions. New issues require triage before joining Now or Next.
 
 ## Historical proposals
 
