@@ -1,6 +1,6 @@
 # Roadmap
 
-**Last reviewed:** 09/26/2026
+**Editorial review date:** 09/26/2026
 
 This roadmap summarizes released capabilities, outstanding follow-up, and future candidates for PM Tools & Templates. Release notes describe what shipped; linked issues hold scope and acceptance evidence. An open issue is not, by itself, a delivery commitment.
 
@@ -83,6 +83,8 @@ The synthetic review runs demonstrate test mechanics only. Before comparative ev
 Legacy recovery remains documented under [#1329](https://github.com/mirichard/pm-tools-templates/issues/1329). Draft #1377 retains bounded lint work; mixed draft #1378 is frozen for component-level reuse assessment. Predictive-model gates apply if predictive claims are selected, not as a prerequisite for plan-review research. Paused work is not completed or waived.
 
 ## Current delivery snapshot
+
+The editorial date above applies to human-reviewed narrative. Snapshot capture time is maintained separately by synchronization; older snapshots without a recorded time gain one on the next reconciliation. [Latest synchronization checks](https://github.com/mirichard/pm-tools-templates/actions/workflows/roadmap-sync.yml) show run times and outcomes, including checks that found no changes.
 
 <!-- roadmap-sync:start -->
 Snapshot fingerprint: `c6ddb59c6e92998ffe0ad0a174ccb07a84477c346e07dbe28d6c70e2b6102c4f`. Values are copied from issues and Projects, not inferred acceptance or release claims.
