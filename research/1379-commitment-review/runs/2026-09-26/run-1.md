@@ -1,0 +1,71 @@
+# DEV-SSH-01 compatibility review — condition C, development run 1
+
+No supported conflict is established within the deliverable preparation, review and submission boundary. The two records describe compatible production stages and cumulative delay controls. Two points need clarification before the documents can be used as an unambiguous operational approval baseline: D1.1's version identity and the relationship between its approval delegate and D1.2's partner and board approval/review provisions.
+
+Classification: C = supported conflict; S = consistent; V = valid revision/different scope; U = unresolved. An unresolved point is not a finding that incompatible obligations operated simultaneously. No actual compliance, project health, feasibility or outcome is assessed.
+
+## 1. U — establish the applicable document baseline
+
+**Evidence and locations.** SSH-11, original PDF p.1, cover, identifies version v1.3, actual submission 26/06/19 and EC approval 18 November 2019. Its p.2 History includes v1.4, 05/06/2019, “Second review”, and v1.5, 30/06/2019, “Final version”; its running headers still identify v1.3. SSH-11 p.3, Executive Summary, calls the management plan a living document. SSH-12A p.1 identifies v1.2, submission 19/12/2019 and EC approval 3 November 2020; p.2 History associates v1.2 with final review comments addressed and submission. SSH-12A p.4, Executive Summary, says it operates in conjunction with D1.1; p.7, Introduction, describes D1.1 as the general overview and D1.2 as the reference for everyday implementation. SSH-12A p.16, §3.1, says plan updates will be published through the evolving SSHOC Guidelines.
+
+**Entity, commitments, scope and version.** The Coordinator and partners need a shared baseline for the project-wide deliverable procedures in SSH-11 §4 and SSH-12A §3.5. This review concerns the supplied SSH-11 file labelled v1.3, with the inconsistent history noted above, and SSH-12A v1.2. The different EC approval dates do not establish either simultaneous commencement or wholesale supersession.
+
+**Interpretation and reasoning.** The D1.1 cover/history discrepancy leaves its precise revision identity unresolved. The documents nevertheless expressly support a complementary relationship, not an inference that the later plan cancels the earlier one. The supplied text does not settle the effective dates of individual procedural changes or identify the operational Guidelines snapshot for a particular deliverable. This is a baseline clarification, not evidence that the production requirements conflict.
+
+**Potential decision consequence.** A PM cannot confidently cite a particular D1.1 revision or decide that an earlier control ceased to apply solely from these covers. It would be unjustified to invalidate an actual deliverable decision on that basis.
+
+**Specific follow-up.** The Coordinator/document owner should reconcile the D1.1 cover, history and approved file; identify the applicable revision and effective procedural baseline for the deliverable being reviewed; and point to any relevant approved update or dated Guidelines entry. The referenced records may exist but were not supplied.
+
+## 2. S — preparation, review and submission stages align
+
+**Evidence and locations.** SSH-11 p.11, §4, requires preparation four weeks before the deadline, commencement of internal review three weeks before, transmission of the final reviewed draft to the Coordinator two weeks before, and Coordinator generation/upload of the PDF at the deadline. SSH-12A p.22, §3.5.1, Figure 3, visually shows the same four-weeks/three-weeks/two-weeks/deadline sequence. Its responsibility row assigns the preparation stage to the responsible partner listed in the GA, review to the appointed reviewer, revision/final editing to “Coordinator & author”, and the deadline column to the Coordinator. The figure also specifies Word preparation/shared Google Drive, informing reviewers, and sending the Word version to CESSDA MO. SSH-12A pp.22–23, §3.5.1, requires contributor inputs to be merged, reviewed, sent to the Coordinator as an open Word document, consolidated by CESSDA MO for final formatting/English checking, uploaded as PDF to the EC portal and stored as both open and PDF versions.
+
+**Entity, commitments, scope and version.** Responsible partners, reviewers, authors, the Coordinator and CESSDA MO participate in successive stages of general deliverable production. The comparison uses SSH-11's supplied labelled-v1.3 procedures and SSH-12A v1.2, subject to finding 1's baseline qualification.
+
+**Interpretation and reasoning.** The Figure 3 sequence is material evidence: D1.2 does not replace the four-week process with an incompatible timeline. Completion of preparation is not the same as completion of review and final editing. A Word handoff, subsequent PDF submission and retention of both versions are compatible. Coordinator responsibility and the management office's consolidation work can coexist; the latter is not an exclusive reassignment of submission authority. Neither text establishes competing exclusive owners for the same act.
+
+**Potential decision consequence.** These passages support one staged workback plan; they do not justify choosing one timeline over the other or treating a Word handoff as portal submission.
+
+**Specific follow-up.** The deliverable responsible, with the WP leader and Coordinator, should record the named preparer, reviewer, revision participants, Word handoff and Coordinator submission owner in the existing deliverable tracking/process sheet, using the applicable deadline. No revised deadline is inferred here.
+
+## 3. U — clarify the approval gate; reviewer requirements themselves are compatible
+
+**Evidence and locations.** SSH-11 p.12, §4 continuation, requires at least one reviewer, permits more, specifies a peer reviewer from an organisation other than those responsible for the deliverable, and says the approval delegate is usually the WP leader. SSH-12A p.22, §3.5.1, says the WP leader normally acts as “Deliverable responsible”, while allowing roles to be defined differently. It requires appointed reviewers to check consistency with project plans and give feedback and/or approval; iteration continues until “all involved partners give approval”, after which a final draft is sent to the Coordinator. SSH-12A pp.8–9, §2.2.1, assigns the PMB responsibility for quality of final results, including final editorial review of all outcomes and ensuring WP leaders assign expert reviewers with Task Leaders and members. SSH-12A p.10, Table 2, assigns deliverable production/finalising to the DoA beneficiary and review to the selected project partner. SSH-12A pp.22–23, §3.5.1 and Table 4, retain Coordinator/management-office finishing stages and reference both D1.1 and D1.2 as review guidance.
+
+**Entity, commitments, scope and version.** WP leaders/approval delegates, deliverable-responsible partners, involved partners, reviewers, PMB and the Coordinator are implicated in approval before submission. These are general provisions in the supplied SSH-11 and SSH-12A versions, not named appointments for an individual deliverable.
+
+**Interpretation and reasoning.** A selected reviewer can satisfy D1.1's independence and minimum-number requirements; D1.2's silence about those details does not waive them. Likewise, a WP approval delegate can record or implement an approval reached by involved partners, and PMB editorial responsibility can coexist with Coordinator/MO finishing work. No clause says any one of these roles has exclusive approval authority. However, the supplied records do not define “all involved partners”, show how their approval is evidenced, or specify how PMB final editorial review is discharged within the depicted handoff sequence. They do not settle whether the usual WP delegate alone can authorise the handoff in any given deliverable case. This is an unresolved operational relationship, not a supported contradiction.
+
+**Potential decision consequence.** The team could interpret readiness for Coordinator handoff differently: a WP delegate's assent may or may not evidence all required approvals and editorial review. The documents alone cannot establish that any actual handoff was premature or invalid.
+
+**Specific follow-up.** The deliverable responsible and WP leader should identify the contributing/approving partners and independent reviewer(s) in the referenced process sheet. The Coordinator and PMB should confirm how partner assent, the approval delegate and PMB editorial review are evidenced, who confirms completion before the two-week handoff, and whether an existing delegation or procedure already resolves this. Seek the relevant record rather than assume none exists.
+
+## 4. S — delay notification and reporting commitments can be cumulative
+
+**Evidence and locations.** SSH-11 p.12, §4 continuation, calls for advance communication of delays to the WP leader and Coordinator and plausible explanations to the EC with the final-version upload. SSH-12A pp.23–24, §3.5.2, requires the WP leader to email the Coordinator a detailed explanation at least three weeks before the deadline, for communication with the Project Officer. Following consultation, the Coordinator informs PMB and responsible partners of the result. The explanation must also appear in the next official Periodic report; the prescribed format identifies the deliverable, due date, requested extension, reasons and consequences.
+
+**Entity, commitments, scope and version.** The WP leader, Coordinator, responsible partners, PMB and Project Officer participate in handling possible deliverable delay under the two supplied plan versions.
+
+**Interpretation and reasoning.** Three weeks is a more specific advance-notification requirement, not an incompatible alternative to advance notice. PO consultation, explanation accompanying the final upload and inclusion in the next Periodic report occur at different stages and can all be fulfilled. Neither plan says its reporting channel is exclusive. D1.2 does not establish that requesting an extension automatically approves it. No particular delay or approved extension is evidenced here.
+
+**Potential decision consequence.** A PM should not treat the Periodic-report requirement as replacing the final-upload explanation, or a requested extension as a revised authorised deadline.
+
+**Specific follow-up.** For a possible delay, the WP leader should provide the required explanation to the Coordinator; the Coordinator should record the PO consultation result, notify PMB/responsible partners and link the explanation to the final upload and next Periodic report. Confirm any governing update before dropping an earlier reporting step.
+
+## Scope distinctions and review limits
+
+SSH-12A p.23, §3.5.1 note, explicitly requires a simplified Word description with means of verification and location for non-written deliverables (DEM, DEC, OTHER). This is **V — different scope**, compatible with handling a written submission description; it does not require the underlying software, demonstrator or website itself to become a Word report. The responsible beneficiary should use the correct submission representation and include its verification/location information. Treating every deliverable as an ordinary report could otherwise lead to the wrong submission package.
+
+SSH-11 p.12's website publication after EC approval is a later stage than portal submission. SSH-12A p.13, §2.2.4, distinguishes pending EC approval from the later approved cover status. Their difference does not establish a review/submission conflict. Actual submission dates and review-history entries are not treated as proof of noncompliance with the general workback procedure.
+
+The DoA/GA, Consortium Agreement, tracking sheet, preliminary process sheet, Guidelines history, individual sign-off records and later outcomes were not supplied. Their omission is not evidence that the project lacked those controls. No external sources or project links were opened.
+
+## Inspection and run record
+
+- Sources: source-packet.md; DEV-SSH-01-source-only.pdf; permitted full originals SSH-11.pdf and SSH-12A.pdf. Attribution remains with the creators named in source-packet.md; both records are identified there as CC BY 4.0. No endorsement is implied.
+- Packet text: all nine packet pages extracted and reviewed. Original page references above follow the packet's mapping.
+- Figure access: visually inspected supplied page-7.png, including SSH-12A original p.22 Figure 3 and its responsibility/timeline rows. Visually inspected page-3.png, including SSH-11 original p.11 Figure 1. The latter's fine individual schedule entries were not used to infer obligations or dates. Also visually checked page-2.png, page-6.png and page-8.png for the histories and deliverable-review/delay provisions.
+- Extra full-document context: full-text extraction was requested for SSH-11 pp.1–19 and SSH-12A pp.1–35. Thus extra pages exposed or requested beyond the packet were SSH-11 pp.3–10 and 13–19; SSH-12A pp.3–21 and 25–35. The broad tool output was truncated/omitted in the displayed response. Targeted re-reads covered SSH-11 p.8 and SSH-12A pp.3–10 and 12–18. Substantive extra context relied upon is SSH-11 p.3 (living plan) and SSH-12A pp.4, 7–10, 13 and 16 (relationship/scope, roles, approval status and updates). No claim of complete visual review of the originals is made.
+- Tools used: PDF skill via skills__read; exec_command with Poppler pdftotext for extraction; view_image for supplied renders; apply_patch to save this report; functions.exec orchestration. No browsing, issue comments, comparator, protocol or other run reports were used. No subagents were spawned by this run.
+- Failures/limitations: no file-access or extraction-command failure; broad extraction output truncation/omission as noted above, addressed for relied-upon context by targeted reads. No unsupported fine-detail reading of the small Figure 1 schedule.
+- Exposed configuration: assistant identity Codex, based on GPT; exact model identifier: null; reasoning-effort setting: null; condition: C; development run: 1. Token usage: null; cost: null; human time: null. No independent scoring performed.
