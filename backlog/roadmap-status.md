@@ -2,11 +2,11 @@
 
 Generated; do not edit by hand. [Policy](../docs/roadmap-sync.md) · [Decision register](roadmap-alignment.md).
 
-Snapshot updated at: 2026-09-27T17:12:20.999Z (UTC).
+Snapshot updated at: 2026-09-27T17:32:23.092Z (UTC).
 
 [Latest synchronization checks](https://github.com/mirichard/pm-tools-templates/actions/workflows/roadmap-sync.yml) — includes successful checks with no data changes. A check does not publish to main until its PR is merged.
 
-Snapshot fingerprint: `b31d1a7c26d660281a0bba68c2850cdf66e754c7d8d321b774d06d229d85e09c`. Values are copied from issues and Projects, not inferred acceptance or release claims.
+Snapshot fingerprint: `84bec6b2417ff41af5f62c4bd76f606bafaa16acc0c8a23e267af49f46d257bc`. Values are copied from issues and Projects, not inferred acceptance or release claims.
 
 ## Drift requiring review
 
@@ -19,8 +19,8 @@ No issue/Project state or mapping gaps detected. This does not validate acceptan
 | [#47](https://github.com/mirichard/pm-tools-templates/issues/47) — EPIC: 1.10: Program Management Template Suite Implementation | Open | Standalone | O2 - Apply practical PM guidance | Later | Todo | — | — |
 | [#49](https://github.com/mirichard/pm-tools-templates/issues/49) — EPIC: 1.11: Product Owner Role Template Suite | Open | Standalone | O2 - Apply practical PM guidance | Later | Todo | — | — |
 | [#50](https://github.com/mirichard/pm-tools-templates/issues/50) — EPIC: 1.12: Release Manager Role Template Suite | Open | Standalone | O2 - Apply practical PM guidance | Later | Todo | — | — |
-| [#57](https://github.com/mirichard/pm-tools-templates/issues/57) — Task: Complete Design Thinking template navigation and acceptance | Open | Standalone | O2 - Apply practical PM guidance | Next | Todo | — | — |
-| [#58](https://github.com/mirichard/pm-tools-templates/issues/58) — Task: Complete Lean Startup kit navigation and acceptance | Open | Standalone | O2 - Apply practical PM guidance | Next | Todo | — | — |
+| [#57](https://github.com/mirichard/pm-tools-templates/issues/57) — Task: Complete Design Thinking template navigation and acceptance | Open | Standalone | O2 - Apply practical PM guidance | Next | Todo | Sprint 2 | Todo |
+| [#58](https://github.com/mirichard/pm-tools-templates/issues/58) — Task: Complete Lean Startup kit navigation and acceptance | Open | Standalone | O2 - Apply practical PM guidance | Next | Todo | Sprint 2 | Todo |
 | [#59](https://github.com/mirichard/pm-tools-templates/issues/59) — Task: Reconcile Power Automate guide coverage and validation | Open | [#318](https://github.com/mirichard/pm-tools-templates/issues/318) | O3 - Use supported integrations | Next | Todo | — | — |
 | [#60](https://github.com/mirichard/pm-tools-templates/issues/60) — Task: Reconcile Zapier guide coverage and validation | Open | [#318](https://github.com/mirichard/pm-tools-templates/issues/318) | O3 - Use supported integrations | Next | Todo | — | — |
 | [#61](https://github.com/mirichard/pm-tools-templates/issues/61) — Spike: Define the minimum template connectivity API contract | Open | [#325](https://github.com/mirichard/pm-tools-templates/issues/325) | O3 - Use supported integrations | Next | Todo | — | — |
