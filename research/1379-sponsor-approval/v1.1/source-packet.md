@@ -8,7 +8,9 @@ It is 09/28/2026. You are the PM preparing a recommendation to the Community Pro
 
 Do not use external information. The packet defines the exercise's available evidence. Records not supplied may exist; request them when material rather than assume they do not.
 
-## S1 — sponsor brief, version 1.0, approved 09/15/2026
+## S1 — sponsor brief, version 1.1, clarification dated 09/27/2026
+
+Fictional revision note: the 09/15/2026 approval rules remain in force; v1.1 enumerates A6's existing obligations without changing the authorization conditions.
 
 The project will evaluate access to three existing community services and recommend improvements for the next annual planning cycle. It will deliver a findings report, a comparison of options and a sponsor presentation by 12/04/2026. Implementing recommendations is outside scope.
 
@@ -48,7 +50,9 @@ Effort: PM 80 hours; analyst 160 hours; interviewer 100 hours; service leads 12 
 
 Method: twelve interviews per service plus service records. The plan does not explain how participants will be selected or how differing service populations affect interpretation.
 
-## S3 — capacity and access note, version 1.0, 09/25/2026
+## S3 — capacity and access note, version 1.1, clarification dated 09/27/2026
+
+Fictional revision note: names clarify the 09/25/2026 commitments; quantities and pending requests are unchanged.
 
 Morgan Vale (PM) commits 80 hours and Ellis Rowan (interviewer) commits 100 hours. Service leads Harper Stone, Jules Marin and Casey Lee each commit 12 hours for their respective services. Analyst manager Dana Moss commits Priya Shah (analyst) for 120 hours. A request to Dana for Priya's remaining 40 hours is pending, with a response expected 10/02/2026. These named commitments do not authorize substituting a different person or role for the unconfirmed analyst hours.
 
