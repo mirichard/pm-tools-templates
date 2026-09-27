@@ -1,5 +1,7 @@
 # Authentic public approval-case screening — 09/27/2026
 
+**Later checkpoint on 09/27/2026:** [qualification follow-up](qualification-follow-up-2026-09-27.md) supersedes the Haringey selection below. All eight public attachments were retrieved; visual inspection confirms material cost/risk redactions. The public package is rejected for the intended comparison. The following screening remains the earlier decision record.
+
 Issue #1379. Desk screening of primary publisher records. **No authentic package admitted for comparative execution.** Public access is not a license to redistribute. Do not place original PDFs, extracted full text, or later decisions in this MIT repository or reviewer packet. Source links and short factual metadata below are a curator inventory.
 
 ## Candidate comparison
