@@ -1,0 +1,83 @@
+name: Roadmap synchronization
+
+on:
+  issues:
+    types: [opened, edited, closed, reopened, labeled, unlabeled, transferred, deleted]
+  pull_request_target:
+    types: [closed]
+  pull_request:
+    paths:
+      - 'scripts/roadmap-sync.cjs'
+      - 'tests/roadmap-sync.test.cjs'
+      - '.github/roadmap-sync.json'
+      - '.github/workflows/roadmap-sync.yml'
+  schedule:
+    - cron: '41 */6 * * *'
+  repository_dispatch:
+    types: [roadmap-project-changed]
+  workflow_dispatch:
+    inputs:
+      preview:
+        description: Generate a report without creating or updating a PR
+        type: boolean
+        default: true
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: '24'
+      - run: node --test tests/roadmap-sync.test.cjs
+
+  reconcile:
+    if: github.event_name != 'pull_request' && (github.event_name != 'pull_request_target' || github.event.pull_request.merged == true)
+    needs: test
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    concurrency:
+      group: roadmap-sync-${{ github.repository }}
+      cancel-in-progress: false
+    permissions:
+      contents: write
+      issues: read
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          # Never execute PR code with write permissions or the Projects token.
+          ref: ${{ github.event.repository.default_branch }}
+          persist-credentials: false
+      - name: Generate snapshot and propose reconciliation
+        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9
+        env:
+          PROJECT_TOKEN: ${{ secrets.ROADMAP_PROJECT_TOKEN }}
+          PREVIEW: ${{ github.event_name == 'workflow_dispatch' && inputs.preview }}
+        with:
+          script: |
+            if (!process.env.PROJECT_TOKEN) {
+              core.setFailed('ROADMAP_PROJECT_TOKEN is required for read-only user Project access. See docs/roadmap-sync.md. No synchronization was performed.');
+              return;
+            }
+            const graphql = github.graphql.defaults({headers: {
+              authorization: `token ${process.env.PROJECT_TOKEN}`
+            }});
+            await require('./scripts/roadmap-sync.cjs').run({
+              github, graphql, core, preview: process.env.PREVIEW === 'true'
+            });
+      - name: Retain preview and drift report
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: roadmap-sync-preview
+          path: roadmap-sync-preview/
+          if-no-files-found: ignore
+          retention-days: 14
