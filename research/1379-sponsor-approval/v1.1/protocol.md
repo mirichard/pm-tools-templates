@@ -4,7 +4,7 @@ Research authority: #1379, agreed direction on 09/26/2026. SYN-APP-01 is an open
 
 ## Conditions
 
-Every participant receives this v1.1 source-packet.md, task, output template, time-recording rules and common permitted non-AI tools. Only C receives AI. Do not mix packet revisions within a comparison. Do not provide curator-notes.md or earlier outputs.
+Every participant receives this v1.1 source-packet.md and rubric.md, task, output template, time-recording rules and common permitted non-AI tools. Only C receives AI. Do not mix packet revisions within a comparison. Do not provide any curator notes, qualification records, issue discussions or earlier outputs.
 
 A — normal non-AI PM review: use ordinary review practice and familiar non-AI tools.
 B — checklist-assisted non-AI review: use the fixed sequence below.
