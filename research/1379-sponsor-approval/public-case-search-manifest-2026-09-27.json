@@ -1,0 +1,63 @@
+{
+  "verified_on": "2026-09-27",
+  "documents": [
+    {
+      "id": "draft",
+      "url": "https://parkplanning.nps.gov/showFile.cfm?projectID=121701&sfid=711601",
+      "bytes": 793654,
+      "sha256": "207aa73c2c35f451ed04c8ae2a87bb37852d7a1a0c7d3db090dc5d070307a411",
+      "noaa_url": "https://gulfspillrestoration.noaa.gov/media/document/2024-03-al-rp3supplemental",
+      "noaa_sha256": "207aa73c2c35f451ed04c8ae2a87bb37852d7a1a0c7d3db090dc5d070307a411",
+      "pages": 35,
+      "candidate": "alabama"
+    },
+    {
+      "id": "final",
+      "url": "https://gulfspillrestoration.noaa.gov/media/document/supplemental-rpii-ea-mmsn-extension-final07182024508",
+      "bytes": 1331200,
+      "sha256": "fd4a1a98e2d08e79deffa2324131a6fc11e4287be6772c22e74e1044999fd83d",
+      "pages": 51,
+      "candidate": "alabama"
+    },
+    {
+      "id": "baseline2018",
+      "url": "https://www.gulfspillrestoration.noaa.gov/media/document/2018-09-al-rp-ii-ea-and-appendices091318pdf",
+      "bytes": 42289550,
+      "sha256": "69c9f23a3f31803476128a9ed61b0aca4592f80eb1984dc52fc4998454c6c20c",
+      "pages": 1218,
+      "candidate": "alabama"
+    },
+    {
+      "id": "s50113577",
+      "url": "https://councillors.herefordshire.gov.uk/documents/s50113577/Review%20and%20comparison%20of%20full%20business%20cases%20for%20both%20the%20Shirehall%20and%20Maylord%20Orchards%20as%20location.pdf",
+      "bytes": 365596,
+      "sha256": "40e37619e0d13b2ee744d02eae1be2345b90c05c19e4adf02ee41d2ca551eb47",
+      "pages": 15,
+      "candidate": "hereford"
+    },
+    {
+      "id": "s50113579",
+      "url": "https://councillors.herefordshire.gov.uk/documents/s50113579/Appendix%201%20for%20Review%20of%20the%20full%20business%20case%20for%20the%20Shirehall%20as%20a%20location%20for%20the%20future%20of%20He.pdf",
+      "bytes": 3689898,
+      "sha256": "bf1e976f3f4afb2112b4b319df3140fcb95e2c49b256e2f2c7fbe7bc687e1dfb",
+      "pages": 79,
+      "candidate": "hereford"
+    },
+    {
+      "id": "s50113578",
+      "url": "https://councillors.herefordshire.gov.uk/documents/s50113578/Appendices%20for%20the%20Shirehall%20FBC.pdf",
+      "bytes": 12994541,
+      "sha256": "8368880e95f97d6c3c2ef9db271db56733f654b12a2db280ff6dc94f25684eee",
+      "pages": 124,
+      "candidate": "hereford"
+    },
+    {
+      "id": "s50113580",
+      "url": "https://councillors.herefordshire.gov.uk/documents/s50113580/Appendix%202%20FBC%20Maylord%20Orchards.pdf",
+      "bytes": 3271658,
+      "sha256": "b4d8318084500aca375fc5359e2878e2ec06b009b60dd4cdf3296fb52cf5ac6b",
+      "pages": 73,
+      "candidate": "hereford"
+    }
+  ]
+}

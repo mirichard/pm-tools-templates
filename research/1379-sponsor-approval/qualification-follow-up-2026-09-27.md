@@ -1,5 +1,7 @@
 # Public-case qualification follow-up — 09/27/2026
 
+**Later search checkpoint:** [Alabama case selection](public-case-selection-2026-09-27.md) supersedes the no-qualified-case status below. PUB-ALMMSN-01 is provisionally qualified for independent PM review; no comparative packet is admitted. Earlier findings are retained.
+
 Curator-only record for #1379 / PR #1389. This follow-up supersedes the earlier recommendation to prioritize Haringey for a public-only approval exercise. **Reject the currently published Haringey package for the intended sponsor-approval comparison. No authentic case has qualified.** This is a case-admission judgment, not a finding that either energy project was improperly planned or approved.
 
 ## Verified Haringey inventory
