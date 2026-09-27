@@ -12,7 +12,7 @@ Scope: research preparation under #1379. Original v1.0 packet, rubric, protocol,
 
 ## Reviewer boundary and status
 
-Distribute only `v1.1/source-packet.md`, `v1.1/rubric.md` and `v1.1/protocol.md` for a **development mechanics** exercise. Keep this change log, `curator-notes-v1.1.md`, original v1.0 curator notes, audit, issue comments and public-case screening out of reviewer inputs. No mechanics result may be described as real-world AI value. The independent realism and reference review still must precede comparative execution.
+Use `v1.1/protocol.md` as operator instructions to assemble separate A/B/C handouts for a **development mechanics** exercise; do not distribute the whole protocol. The source packet, rubric, common task/output and timing rules go to all; only B/C receive the checklist and only C receives the AI instruction. Keep this change log, `curator-notes-v1.1.md`, original v1.0 curator notes, audit, issue comments and public-case screening out of reviewer inputs. No mechanics result may be described as real-world AI value. The independent realism and reference review still must precede comparative execution.
 ## Follow-up author review — 09/27/2026
 
 Aligned S1/S3 internal revision labels with the v1.1 packet and made common rubric distribution explicit. See [author review](preparation-author-review-2026-09-27.md) for the consistency checks and [qualification follow-up](qualification-follow-up-2026-09-27.md) for verified public-source gaps. The public Haringey package is now rejected for the current evaluation because material next-stage cost/risk content is redacted; all eight public attachments were retrieved and hashed. No source binary was republished and no case was admitted.
