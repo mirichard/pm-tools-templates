@@ -4,6 +4,8 @@ Research authority: #1379, agreed direction on 09/26/2026. SYN-APP-01 is an open
 
 ## Conditions
 
+Operator distribution: do not give participants this entire protocol. Give A only the common source packet, rubric, decision task, output template and recording instructions. B receives those plus the fixed checklist; C receives B's materials plus the AI instruction. The rubric defines reporting/scoring semantics, not a mandated review sequence. Keep the checklist and AI instruction out of A's handout and the AI instruction out of B's handout. Freeze those separate handouts before allocation.
+
 Every participant receives this v1.1 source-packet.md and rubric.md, task, output template, time-recording rules and common permitted non-AI tools. Only C receives AI. Do not mix packet revisions within a comparison. Do not provide any curator notes, qualification records, issue discussions or earlier outputs.
 
 A — normal non-AI PM review: use ordinary review practice and familiar non-AI tools.
