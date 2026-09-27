@@ -105,10 +105,24 @@ and fail explicitly above 256 targets, requiring batching before further growth.
 A maintainer can dispatch a reviewed branch before merge; scheduled and issue
 runs use the default branch. Concurrent manual edits can require another event.
 
-`good first issue` is a manual maintainer decision after triage; keyword matching
-only adds topical labels. Expert review starts only when a maintainer applies
+`good first issue` is a manual maintainer decision after triage. Topic automation
+uses an unambiguous `type:bug` label or an explicit documentation, template request,
+template improvement, feature request or enhancement title prefix. Incidental
+words in issue bodies do not classify work. Expert review starts only when a maintainer applies
 `expert-review-needed`, not on every submission. New bug reports do not assign
 an owner automatically. Existing labels are not retroactively removed.
+
+Epic size automation selects `type:epic` issues and counts their open, direct
+native sub-issues, including child epics. References in prose and dependency links
+do not count; closed children and grandchildren do not count. Repository thresholds
+are small (0–7), medium (8–14), large (15–20), and oversized (21+). Pagination is
+required, and a failed child lookup leaves that epic's size label unchanged and
+fails the run. Relationship changes are reconciled by the daily sweep or a manual
+dispatch; issue events also trigger reconciliation.
+
+Sprint board status is separate from issue type and review readiness. `Blocked`
+means continuation awaits a documented dependency or decision. Partial completion
+does not imply `Done`, and removing a stale review label does not approve the work.
 
 References: [issue form syntax](https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-issue-forms),
 [template configuration](https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests/configuring-issue-templates-for-your-repository),
@@ -345,4 +359,3 @@ gh issue list --search "SECURITY" --state all
 ---
 
 *This document is automatically updated as issues are created, modified, or completed. For real-time status, use the GitHub CLI commands provided above.*
-
