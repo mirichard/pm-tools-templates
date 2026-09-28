@@ -2,7 +2,7 @@
 
 **Status:** Proposed implementation; not activated. **Prepared:** 09/28/2026.
 **Decision authority:** repo owner acting as Product Owner.
-**Benchmark:** [Approved product goal and candidate rubric](../backlog/product-goal.md).
+**Benchmark:** [Approved Product Vision and candidate rubric](../backlog/product-goal.md).
 
 ## Purpose and boundaries
 
@@ -30,7 +30,7 @@ Revise the existing Epic form to support uncommitted opportunities as well as co
 | Epic form input | Required at intake | Guidance / OCM example |
 | --- | --- | --- |
 | Problem and intended users | Yes | Describe the observation, not a presumed solution. PMs may omit adoption activities from plans. |
-| Goal contribution | Yes | Explain expected contribution to capability, project/program success or meaningful outcomes. This is a hypothesis until supported. |
+| Vision contribution | Yes | Explain expected contribution to capability, project/program success or meaningful outcomes. This is a hypothesis until supported. |
 | Evidence available | Yes; “not yet collected” allowed | Link the audit or experience; distinguish personal observation from representative research. |
 | Existing resources / related issues | Yes; “not yet checked” allowed | Link known OCM resources or state that inventory is needed. |
 | Possible scope and exclusions | Optional | Explore change-planning support; do not presume an entire tool suite. |
