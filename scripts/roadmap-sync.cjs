@@ -65,16 +65,17 @@ async function collect(github, graphql) {
     if (data.pull_request) throw new Error(`Expected issue #${number}, received PR`);
     issues.push({number, title: data.title, state: data.state, reason: data.state_reason,
       parent: data.parent_issue_url ? Number(data.parent_issue_url.split('/').pop()) : null,
+      milestone: data.milestone ? {number: data.milestone.number, title: data.milestone.title, state: data.milestone.state} : null,
       types: data.labels.map(x => x.name).filter(x => x.startsWith('type:')).sort()});
   }
   return {issues, roadmap, sprint};
 }
 
-function render(snapshot) {
+function render(snapshot, nextVersion) {
   const roadmap = new Map(snapshot.roadmap.map(x => [x.number, x]));
   const sprint = new Map(snapshot.sprint.map(x => [x.number, x]));
   const issues = [...snapshot.issues].sort((a, b) => a.number - b.number);
-  const canonical = {issues, roadmap: [...snapshot.roadmap].sort((a,b) => a.number-b.number),
+  const canonical = {nextVersion: nextVersion ?? null, issues, roadmap: [...snapshot.roadmap].sort((a,b) => a.number-b.number),
     sprint: [...snapshot.sprint].sort((a,b) => a.number-b.number)};
   const digest = crypto.createHash('sha256').update(JSON.stringify(canonical)).digest('hex');
   const warnings = [];
@@ -93,18 +94,25 @@ function render(snapshot) {
       if (issue.state === 'open' && item.Status === 'Done') warnings.push(`#${issue.number}: open issue / ${name} Done; acceptance review required`);
     }
     if (r && s && r.Status !== s.Status) warnings.push(`#${issue.number}: board statuses differ (${r.Status || 'unset'} / ${s.Status || 'unset'})`);
+    if (s?.Sprint && !s.archived && !issue.milestone) warnings.push(`#${issue.number}: assigned sprint has no release milestone`);
+    if (issue.state === 'open' && issue.milestone?.state === 'closed') warnings.push(`#${issue.number}: open issue in closed milestone ${issue.milestone.number}`);
+    const version = issue.milestone?.title.match(/^v(\d+\.\d+\.\d+)(?:\s|$)/)?.[1];
+    if (issue.state === 'open' && s && !s.archived && issue.milestone?.state === 'open' && version && nextVersion && version !== nextVersion) {
+      warnings.push(`#${issue.number}: release milestone v${version} differs from manifest nextVersion v${nextVersion}; review release intent`);
+    }
+    const release = issue.milestone ? `[${cell(issue.milestone.title)}](https://github.com/${config.repository}/milestone/${issue.milestone.number})` : '—';
     const state = issue.state === 'closed' ? `Closed (${issue.reason || 'unspecified'})` : 'Open';
-    rows.push(`| ${link(issue.number)} — ${cell(issue.title)} | ${cell(state)} | ${issue.parent ? link(issue.parent) : 'Standalone'} | ${cell(r?.Outcome)} | ${cell(r?.Horizon)} | ${cell(r?.Status)} | ${cell(s?.Sprint)} | ${cell(s?.Status)} |`);
-    if (s?.Sprint && !s.archived) commitments.push(`| ${cell(s.Sprint)} | ${link(issue.number)} — ${cell(issue.title)} | ${cell(state)} | ${cell(s.Status)} |`);
+    rows.push(`| ${link(issue.number)} — ${cell(issue.title)} | ${cell(state)} | ${issue.parent ? link(issue.parent) : 'Standalone'} | ${cell(r?.Outcome)} | ${cell(r?.Horizon)} | ${cell(r?.Status)} | ${cell(s?.Sprint)} | ${cell(s?.Status)} | ${release} |`);
+    if (s?.Sprint && !s.archived) commitments.push(`| ${cell(s.Sprint)} | ${link(issue.number)} — ${cell(issue.title)} | ${cell(state)} | ${cell(s.Status)} | ${release} |`);
   }
   const note = `Snapshot fingerprint: \`${digest}\`. Values are copied from issues and Projects, not inferred acceptance or release claims.\n\n`;
   const alerts = warnings.length ? warnings.map(x => `- ${cell(x)}`).join('\n') : 'No issue/Project state or mapping gaps detected. This does not validate acceptance evidence or narrative decisions.';
-  const summary = note + '| Sprint | Issue | Issue state | Board status |\n| --- | --- | --- | --- |\n' +
-    (commitments.join('\n') || '| — | No assigned sprint items | — | — |') +
+  const summary = note + '| Sprint | Issue | Issue state | Board status | Release milestone |\n| --- | --- | --- | --- | --- |\n' +
+    (commitments.join('\n') || '| — | No assigned sprint items | — | — | — |') +
     `\n\n[Full status and drift report](backlog/roadmap-status.md). ${warnings.length} drift flag(s) require review.\n`;
   const register = '# Current roadmap status\n\nGenerated; do not edit by hand. [Policy](../docs/roadmap-sync.md) · [Decision register](roadmap-alignment.md).\n\n' + note +
     '## Drift requiring review\n\n' + alerts + '\n\n## Issue and Project values\n\n' +
-    '| Issue | Issue state | Parent | Outcome | Horizon | Roadmap status | Sprint | Sprint status |\n| --- | --- | --- | --- | --- | --- | --- | --- |\n' + rows.join('\n') + '\n';
+    '| Issue | Issue state | Parent | Outcome | Horizon | Roadmap status | Sprint | Sprint status | Release milestone |\n| --- | --- | --- | --- | --- | --- | --- | --- | --- |\n' + rows.join('\n') + '\n';
   return {summary, register, warnings, digest};
 }
 
@@ -159,10 +167,14 @@ function snapshotTime(digest, candidates, now = new Date().toISOString()) {
 
 async function run({github, graphql, core, preview = true}) {
   const snapshot = await collect(github, graphql);
-  const report = render(snapshot);
   const [owner, repo] = config.repository.split('/');
   // Read one immutable main commit; do not publish from an arbitrary dispatched branch.
   const baseSha = (await github.rest.repos.getBranch({owner, repo, branch: config.defaultBranch})).data.commit.sha;
+  const manifestFile = (await github.rest.repos.getContent({owner, repo, path: 'release.json', ref: baseSha})).data;
+  if (manifestFile.type !== 'file' || manifestFile.encoding !== 'base64') throw new Error('Cannot read release manifest');
+  const manifest = JSON.parse(Buffer.from(manifestFile.content, 'base64').toString('utf8'));
+  if (!/^\d+\.\d+\.\d+$/.test(manifest.nextVersion || '')) throw new Error('Invalid release nextVersion');
+  const report = render(snapshot, manifest.nextVersion);
   const originals = {};
   for (const path of files) {
     const data = (await github.rest.repos.getContent({owner, repo, path, ref: baseSha})).data;
