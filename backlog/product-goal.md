@@ -39,6 +39,10 @@ A narrower, time-bound product goal can focus a planning period under this repos
 
 Candidate-specific evaluation might examine whether a manager can apply a practice appropriately, make a supported decision, or achieve an agreed stakeholder outcome. These are examples, not mandatory metrics. Distinguish what the tool directly demonstrates from wider project outcomes affected by other factors.
 
+## Workflow implementation proposal
+
+The [Product Owner workflow specification](../docs/product-owner-workflow-spec.md) defines proposed intake, decision queues, reminders, delivery handoffs, and an OCM acceptance walkthrough. It is not an activated workflow or an approved scoring model.
+
 ## Maintenance and traceability
 
 This document is the canonical goal and assessment reference. The [README](../README.md), [roadmap](../ROADMAP.md), and [backlog alignment register](roadmap-alignment.md) link here. Product Roadmap board guidance should link here when next updated. Record later goal changes and repo owner approval here; assess candidate implications explicitly rather than automatically changing priorities.
