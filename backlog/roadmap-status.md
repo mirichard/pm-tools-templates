@@ -2,15 +2,15 @@
 
 Generated; do not edit by hand. [Policy](../docs/roadmap-sync.md) · [Decision register](roadmap-alignment.md).
 
-Snapshot updated at: 2026-09-28T17:13:07.735Z (UTC).
+Snapshot updated at: 2026-09-28T17:40:14.821Z (UTC).
 
 [Latest synchronization checks](https://github.com/mirichard/pm-tools-templates/actions/workflows/roadmap-sync.yml) — includes successful checks with no data changes. A check does not publish to main until its PR is merged.
 
-Snapshot fingerprint: `83ef9c7f5da0bfe984def9a20bef386678b1c42a62342a76ae0df20b7a06342a`. Values are copied from issues and Projects, not inferred acceptance or release claims.
+Snapshot fingerprint: `c70f28bc0b285b52f0c1916f9596f5b79f8d2e3982993a0cc02cc9ca784830ed`. Values are copied from issues and Projects, not inferred acceptance or release claims.
 
 ## Drift requiring review
 
-- #1393: missing Outcome or Horizon
+No issue/Project state or mapping gaps detected. This does not validate acceptance evidence or narrative decisions.
 
 ## Issue and Project values
 
@@ -84,4 +84,4 @@ Snapshot fingerprint: `83ef9c7f5da0bfe984def9a20bef386678b1c42a62342a76ae0df20b7
 | [#1379](https://github.com/mirichard/pm-tools-templates/issues/1379) — &#91;Research candidate&#93;&#91;AI Insights&#93; Establish planning-review value beyond experienced PM judgment | Open | [#523](https://github.com/mirichard/pm-tools-templates/issues/523) | O7 - Use trustworthy AI insights | Unscheduled | Todo | — | — |
 | [#1383](https://github.com/mirichard/pm-tools-templates/issues/1383) — Story: Define community participation and roadmap feedback scope | Open | [#319](https://github.com/mirichard/pm-tools-templates/issues/319) | O4 - Contribute and influence priorities | Unscheduled | Todo | — | — |
 | [#1384](https://github.com/mirichard/pm-tools-templates/issues/1384) — Story: Keep repository roadmap documentation and planning views synchronized | Closed (completed) | [#319](https://github.com/mirichard/pm-tools-templates/issues/319) | O4 - Contribute and influence priorities | Now | Done | Sprint 1 | Done |
-| [#1393](https://github.com/mirichard/pm-tools-templates/issues/1393) — Task: Validate and publish v2.4.0 release | Open | Standalone | — | — | Todo | — | — |
+| [#1393](https://github.com/mirichard/pm-tools-templates/issues/1393) — Task: Validate and publish v2.4.0 release | Open | Standalone | M1 - Maintain repository reliability | Now | In Progress | — | In Progress |

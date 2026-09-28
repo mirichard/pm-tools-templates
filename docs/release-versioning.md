@@ -27,7 +27,7 @@ Dates below are GitHub publication dates, except where explicitly identified as 
 
 - Use `vMAJOR.MINOR.PATCH` for future repository releases. Choose the increment from the accepted changes: major for incompatible changes, minor for compatible additions, patch for compatible fixes.
 - Preserve existing tags and their commits. In particular, do not reuse `v2.2.0` or relabel `vNext` as that version. Existing release and download links must continue to identify their original snapshots.
-- Assign `v2.3.0` to the compatible additions delivered as vNext, above the already-used `v2.2.0`. The next maintenance draft is `v2.3.1`; change `nextVersion` through review if its scope requires a minor or major increment. No next-release date is scheduled.
+- Assign `v2.3.0` to the compatible additions delivered as vNext, above the already-used `v2.2.0`. The next planned release is `v2.4.0`, tracked in [Now Epics Sprints 1–3](https://github.com/mirichard/pm-tools-templates/milestone/35), targeting 11/29/2026 subject to release readiness and repo owner acceptance. This compatible-additions release supersedes the unpublished `v2.3.1` draft target; the existing managed draft is updated after this change merges. Sprint 3 scope remains to be selected. Reassess the increment if accepted scope introduces incompatible changes.
 - Keep Requirements CLI and other component releases separate. Their release titles and tags must identify the component; their versions do not advance the repository sequence.
 - Treat `vNext` as the fixed historical release published on 09/21/2026, not a moving tag for future work. Preserve its legacy-path compatibility commitment through at least the next major release.
 
