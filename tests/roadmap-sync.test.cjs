@@ -3,7 +3,7 @@ const {test} = require('node:test');
 const assert = require('node:assert/strict');
 const {snapshotTime, cell, replaceBlock, projectItems, collect, render, publish} = require('../scripts/roadmap-sync.cjs');
 const fixture = () => ({issues: [
-  {number: 78, title: 'Roadmap', state: 'closed', reason: 'completed', parent: 319, types: ['type:story']},
+  {number: 78, title: 'Roadmap', state: 'closed', reason: 'completed', parent: 319, milestone: {number:35,title:'v2.4.0',state:'open'}, types: ['type:story']},
   {number: 1383, title: 'Residual', state: 'open', reason: null, parent: 319, types: ['type:story']}
 ], roadmap: [{number:78, Status:'Done', Outcome:'O4', Horizon:'Now'},
   {number:1383, Status:'Todo', Outcome:'O4', Horizon:'Unscheduled'}],
@@ -122,7 +122,7 @@ test('reconciliation retains identical output before and after snapshot merge', 
   const os = require('node:os');
   const path = require('node:path');
   const cwd = process.cwd(), dir = fs.mkdtempSync(path.join(os.tmpdir(), 'roadmap-freshness-'));
-  const original = {'ROADMAP.md':'Narrative\n<!-- roadmap-sync:start -->\nold\n<!-- roadmap-sync:end -->',
+  const original = {'release.json': JSON.stringify({nextVersion:'2.4.0'}), 'ROADMAP.md':'Narrative\n<!-- roadmap-sync:start -->\nold\n<!-- roadmap-sync:end -->',
     'backlog/roadmap-status.md':'old'};
   let pending;
   const github = {paginate:async()=>[],rest:{issues:{listForRepo:()=>{},get:async()=>({data:{
@@ -147,4 +147,33 @@ test('reconciliation retains identical output before and after snapshot merge', 
     assert.equal((await run(args)).changed,false);
     assert.deepEqual(read(),pending);
   } finally { process.chdir(cwd); fs.rmSync(dir,{recursive:true,force:true}); }
+});
+
+ test('release gaps are reported without assigning or changing milestones', () => {
+  const data=fixture(); delete data.issues[0].milestone;
+  data.issues[1].milestone={number:1,title:'Historical',state:'closed'};
+  const before=JSON.stringify(data), report=render(data,'2.4.0');
+  assert.ok(report.warnings.some(x=>x.includes('no release milestone')));
+  assert.ok(report.warnings.some(x=>x.includes('open issue in closed milestone')));
+  assert.equal(JSON.stringify(data),before);
+});
+test('version mismatch includes release-level tasks but not historical completed releases', () => {
+  const data=fixture(); data.sprint.push({number:1383,Status:'Todo'});
+  data.issues[1].milestone={number:35,title:'v2.4.0 — Release',state:'open'};
+  assert.ok(render(data,'2.3.1').warnings.some(x=>x.includes('nextVersion')));
+  assert.ok(!render(data,'2.4.0').warnings.some(x=>x.includes('nextVersion')));
+  assert.notEqual(render(data,'2.3.1').digest,render(data,'2.4.0').digest);
+  assert.match(render(data,'2.4.0').register,/milestone\/35/);
+});
+test('unscheduled research and archived sprint items need no release assignment', () => {
+  const data=fixture(); delete data.issues[0].milestone; data.sprint[0].archived=true;
+  assert.ok(!render(data,'2.4.0').warnings.some(x=>x.includes('no release milestone')));
+});
+
+test('invalid or unavailable manifest stops reconciliation before publication', async () => {
+  const {run}=require('../scripts/roadmap-sync.cjs');
+  for (const content of ['{}', '{broken']) {
+    const github={paginate:async()=>[],rest:{issues:{listForRepo:()=>{},get:async()=>({data:{title:'Issue',state:'open',labels:[]}})},repos:{getBranch:async()=>({data:{commit:{sha:'base'}}}),getContent:async()=>({data:{type:'file',encoding:'base64',content:Buffer.from(content).toString('base64')}})}}};
+    await assert.rejects(run({github,graphql:async(q,a)=>page(a.number),core:{},preview:false}));
+  }
 });
