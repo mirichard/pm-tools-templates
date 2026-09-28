@@ -6,6 +6,10 @@
 
 This register maps the groomed backlog to repository outcomes. The issue retains its scope and acceptance evidence; the project carries the working planning view. Mapping an epic does not approve every feature in its historical proposal. The baseline mapping did not assign delivery commitments. The 09/26 update records the subsequently approved Sprint 1 scope and AI research direction, and retains completed rows for traceability.
 
+## Product candidate benchmark — 09/28/2026
+
+Use the approved [repository goal and candidate assessment](product-goal.md) when refining any product candidate. Record its contribution, evidence, evaluation needs, and separate selection rationale in the existing issue. Unknown evidence does not mean zero value. The historical mappings below remain dated decision records, not a new ranking.
+
 ## Planning decisions
 
 | Horizon | Meaning | Selected preparation or existing work |
