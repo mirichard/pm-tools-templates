@@ -57,3 +57,16 @@ GitHub references: [Projects authentication](https://docs.github.com/en/issues/p
 - **Latest synchronization checks** links to workflow history, where run time, trigger, result and the reconciliation summary establish whether a check found changes. Successful unchanged checks do not create documentation commits. Preview runs do not publish, and a changed snapshot reaches main only after its PR is merged.
 
 The links deliberately show failures and pending runs as well as successes; they are not a claim that the latest check succeeded. Neither freshness indicator establishes acceptance.
+
+## Release and sprint alignment
+
+Projects manage priority, readiness and sprint execution. The issue milestone records the approved release; parent epics may span releases. Use the same issues in the relevant project views, with Milestone, Sprint, Status and linked PRs visible. Keep research and paused work without a release commitment until explicitly selected.
+
+During sprint planning and closeout, reconcile each selected deliverable's milestone. Moving between sprints does not automatically move an issue between releases. Record release additions, removals and deferrals as repo owner decisions. Use one release-readiness issue for validation, approval, publication and post-release checks; do not duplicate these as separate sprint or testing milestones. For v2.4.0, see [milestone 35](https://github.com/mirichard/pm-tools-templates/milestone/35) and [release-readiness issue #1393](https://github.com/mirichard/pm-tools-templates/issues/1393).
+
+The report includes native issue milestone links and flags:
+- Non-archived sprint assignments without a milestone.
+- Open issues in closed milestones, including legacy assignments that require review.
+- Open issues in the sprint project whose open, numeric repository release milestone differs from `release.json`'s `nextVersion`.
+
+Version mismatches are review prompts: an intentionally later release can be valid. Component-specific tags are excluded from the repository-version comparison. The manifest is read from the same immutable default-branch revision as the generated targets; unavailable or invalid data stops synchronization before output or publication. Milestone values and the manifest version participate in the snapshot fingerprint. These checks never assign milestones, move sprints, change priorities or establish acceptance. Milestone completion counts do not measure release readiness, effort or unselected future scope.
