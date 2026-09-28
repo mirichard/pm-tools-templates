@@ -40,7 +40,7 @@ At the 09/24/2026 baseline review, no GitHub milestones were open. The overall v
 
 ## Current outcome map
 
-**Product benchmark — approved 09/28/2026:** All product candidates are assessed against the [repository goal and evidence guidance](backlog/product-goal.md). The outcome map below organizes contributions to that goal; alignment alone does not establish benefit, priority, or delivery commitment.
+**Product benchmark — approved 09/28/2026:** All product candidates are assessed against the [Product Vision and evidence guidance](backlog/product-goal.md). The outcome map below organizes contributions to that vision; alignment alone does not establish benefit, priority, or delivery commitment.
 
 [Product Roadmap project](https://github.com/users/mirichard/projects/11) · [Complete backlog alignment](backlog/roadmap-alignment.md)
 
