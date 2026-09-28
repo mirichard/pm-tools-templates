@@ -172,6 +172,8 @@ These optional tools have separate installation instructions and prerequisites. 
 
 ## Help and project information
 
+[Product Vision and candidate assessment](backlog/product-goal.md) defines the approved benchmark for product proposals: professional capability, project and program success, and meaningful outcomes.
+
 - **Questions and shared practice:** [Ask in GitHub Discussions](https://github.com/mirichard/pm-tools-templates/discussions).
 - **Broken links, defects, or missing resources:** [Open an issue](https://github.com/mirichard/pm-tools-templates/issues/new/choose) and include the affected link and what you expected.
 - **Contributing:** [Read the contribution guidelines](CONTRIBUTING.md).

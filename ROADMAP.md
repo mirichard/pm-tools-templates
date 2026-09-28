@@ -40,6 +40,8 @@ At the 09/24/2026 baseline review, no GitHub milestones were open. The overall v
 
 ## Current outcome map
 
+**Product benchmark — approved 09/28/2026:** All product candidates are assessed against the [Product Vision and evidence guidance](backlog/product-goal.md). The outcome map below organizes contributions to that vision; alignment alone does not establish benefit, priority, or delivery commitment.
+
 [Product Roadmap project](https://github.com/users/mirichard/projects/11) · [Complete backlog alignment](backlog/roadmap-alignment.md)
 
 The 09/24/2026 baseline mapped 60 then-open issues to seven product outcomes and repository maintenance. The affected rows below reflect the 09/26/2026 Sprint 1 and AI-direction decisions; the baseline count is not a current open-issue count. Native epic/story/task relationships remain intact. Planning horizon, workflow status and sprint commitment are separate.
