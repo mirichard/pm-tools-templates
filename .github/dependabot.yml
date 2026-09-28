@@ -6,6 +6,9 @@ updates:
   # Monitor GitHub Actions for security updates
   - package-ecosystem: "github-actions"
     directory: "/"
+    groups:
+      codeql-actions:
+        patterns: ["github/codeql-action/*"]
     schedule:
       interval: "weekly"
       day: "monday"
