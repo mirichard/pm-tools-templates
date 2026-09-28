@@ -8,7 +8,7 @@ This register maps the groomed backlog to repository outcomes. The issue retains
 
 ## Product candidate benchmark — 09/28/2026
 
-Use the approved [repository goal and candidate assessment](product-goal.md) when refining any product candidate. Record its contribution, evidence, evaluation needs, and separate selection rationale in the existing issue. Unknown evidence does not mean zero value. The historical mappings below remain dated decision records, not a new ranking.
+Use the approved [Product Vision and candidate assessment](product-goal.md) when refining any product candidate. Record its contribution, evidence, evaluation needs, and separate selection rationale in the existing issue. Unknown evidence does not mean zero value. The historical mappings below remain dated decision records, not a new ranking.
 
 ## Planning decisions
 
