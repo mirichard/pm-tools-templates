@@ -18,7 +18,7 @@
 
 ## Active branch and latest pushed commit
 - Active branch: `research/1161-readiness-corrections`
-- Latest pushed commit: `3fcea781504ed1a7f40fd8cab39bc32e9662a10c`
+- Latest pushed commit: this checkpoint commit
 
 ## Completed tasks with evidence
 1. Verified contamination and current PR state.
@@ -50,26 +50,35 @@
    - Recorded DOI/MDPI/Scholar HTTP 403 failures as access failures, not absence evidence.
 10. Began phase 3 packet finalization:
    - Removed obsolete `PUBLICATION_INSTRUCTIONS.md` from replacement branch.
+11. Completed phase 4 verification and handoff updates:
+   - Re-fetched `origin/main` and confirmed clean-base SHA unchanged.
+   - Verified merge-base diff scope contains only research packet files.
+   - Ran `git diff --check` with no whitespace/conflict-marker findings.
+   - Updated PR #1413 description to match corrected scope, limitations, and validation.
+   - Posted status comment on #1161 with replacement PR link, disposition, completed corrections, unresolved research, and continuation steps.
 
 ## Incomplete tasks and exact next action
-- Incomplete: phase 3 checkpoint commit/push; phase 4 validation suite and PR/issue status updates.
-- Exact next action: run scope/quality validation (`git diff --check`, merge-base file-scope checks, markdown/link checks), then update PR #1413 description and post a concise status comment on issue #1161.
+- Incomplete: none in this assignment scope.
+- Exact next action: repo owner reviews PR #1413 and decides whether to defer/decline or authorize additional research gates (source verification path, method-definition criteria, user-value evidence criteria).
 
 ## Changed files in this clean branch (current)
 - `research/1161-risk-scoring-engine/README.md`
 - `research/1161-risk-scoring-engine/evidence.md`
 - `research/1161-risk-scoring-engine/scope-and-acceptance.md`
 - `research/1161-risk-scoring-engine/CONTINUATION.md`
-- `research/1161-risk-scoring-engine/PUBLICATION_INSTRUCTIONS.md` (deleted in working tree; not yet committed)
+- `research/1161-risk-scoring-engine/PUBLICATION_INSTRUCTIONS.md` (deleted)
 
 ## Validation results
 - Completed:
   - `git fetch origin main research/1161-risk-scoring-engine refs/pull/1412/head`
   - `gh pr view 1412 --json ...` inventory capture
   - `gh pr view 1413 --json files ...` scope check confirms only research directory changes
+  - `git fetch --no-tags origin main` re-check before finalization (main unchanged at `12784bd89f21fcbcc6fb91322fd3e324dd0b8b04`)
+  - `git diff --name-only origin/main...HEAD` -> only `research/1161-risk-scoring-engine/*`
+  - `git diff --check origin/main...HEAD` -> no findings
+  - Non-mutating run of `check_anchor_links_filtered.py` over repo root -> baseline report: files checked 1357, broken links 5, suggestions 16282
 - Pending:
-  - merge-base scope re-check after phase 2/3 edits
-  - markdown/link checks after research corrections
+  - none
 
 ## Access failures and unresolved questions
 - Access failures observed: HTTP 403 from Google Scholar query, DOI resolver endpoint, and MDPI article endpoint in this environment.
