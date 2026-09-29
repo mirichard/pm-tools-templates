@@ -56,6 +56,10 @@
    - Ran `git diff --check` with no whitespace/conflict-marker findings.
    - Updated PR #1413 description to match corrected scope, limitations, and validation.
    - Posted status comment on #1161 with replacement PR link, disposition, completed corrections, unresolved research, and continuation steps.
+12. Applied final wording/scope corrections requested after publication:
+   - Stated consistently that paper-derived taxonomy/method claims require examination of relevant source content and reuse terms; metadata alone is insufficient.
+   - Clarified that the repo owner may approve a different research direction, but cannot waive verification while retaining paper-derived claims.
+   - Kept `CONTINUATION.md` final-diff file list to the four files present in PR #1413.
 
 ## Incomplete tasks and exact next action
 - Incomplete: none in this assignment scope.
@@ -81,7 +85,7 @@
 
 ## Access failures and unresolved questions
 - Access failures observed: HTTP 403 from Google Scholar query, DOI resolver endpoint, and MDPI article endpoint in this environment.
-- Unresolved: full-paper access and rights interpretation for taxonomy reuse details; institutional-path checks remain outstanding.
+- Unresolved: full-paper access and rights interpretation for taxonomy reuse details; metadata alone is insufficient for paper-derived claims, and institutional-path checks remain outstanding.
 
 ## Approved scope vs proposals
 - Approved scope for this assignment: corrective research documentation only.
