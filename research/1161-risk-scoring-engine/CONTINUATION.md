@@ -9,7 +9,7 @@
 ## Links
 - Issue: https://github.com/mirichard/pm-tools-templates/issues/1161
 - Original draft PR (preserved): https://github.com/mirichard/pm-tools-templates/pull/1412
-- Replacement draft PR: pending creation on branch `research/1161-readiness-corrections`
+- Replacement draft PR: https://github.com/mirichard/pm-tools-templates/pull/1413
 
 ## Source and base revisions
 - Verified source revision: `4751154c6c1ab7a18741534b4ef9d8b7a452ac53`
@@ -18,7 +18,7 @@
 
 ## Active branch and latest pushed commit
 - Active branch: `research/1161-readiness-corrections`
-- Latest pushed commit: not pushed yet (local worktree checkpoint in progress)
+- Latest pushed commit: `de24deb0f763a29d0d29ee5612fa151a49cc6b47`
 
 ## Completed tasks with evidence
 1. Verified contamination and current PR state.
@@ -33,10 +33,17 @@
    - `evidence.md`
    - `scope-and-acceptance.md`
    - `PUBLICATION_INSTRUCTIONS.md`
+5. Committed and pushed clean phase-1 checkpoint from `origin/main`.
+   - Commit: `de24deb0f763a29d0d29ee5612fa151a49cc6b47`
+6. Opened replacement draft PR and cross-linked #1412.
+   - Replacement PR: #1413 (draft)
+   - Comment posted on #1412 instructing that it must not be merged due to unrelated app/CI/dependency changes.
+7. Verified scope isolation for replacement PR.
+   - `gh pr view 1413 --json files` shows changes only under `research/1161-risk-scoring-engine/`.
 
 ## Incomplete tasks and exact next action
-- Incomplete: commit/push phase-1 checkpoint, open replacement draft PR, and post cross-links/comments.
-- Exact next action: commit current clean-branch snapshot (`research/1161-risk-scoring-engine/*`) and push `research/1161-readiness-corrections` to `origin`.
+- Incomplete: Phase 2 corrective rewrite of README/evidence/scope docs; phase 3 packet finalization; phase 4 validation and handoff comments.
+- Exact next action: rewrite `research/1161-risk-scoring-engine/evidence.md` to a strict claim/source ledger with explicit search outcomes and limitations, then reconcile README and scope documents to that evidence.
 
 ## Changed files in this clean branch (current)
 - `research/1161-risk-scoring-engine/README.md`
@@ -49,8 +56,9 @@
 - Completed:
   - `git fetch origin main research/1161-risk-scoring-engine refs/pull/1412/head`
   - `gh pr view 1412 --json ...` inventory capture
+  - `gh pr view 1413 --json files ...` scope check confirms only research directory changes
 - Pending:
-  - merge-base scope check after edits
+  - merge-base scope re-check after phase 2/3 edits
   - markdown/link checks after research corrections
 
 ## Access failures and unresolved questions
