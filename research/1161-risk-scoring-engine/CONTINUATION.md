@@ -18,7 +18,7 @@
 
 ## Active branch and latest pushed commit
 - Active branch: `research/1161-readiness-corrections`
-- Latest pushed commit: `de24deb0f763a29d0d29ee5612fa151a49cc6b47`
+- Latest pushed commit: `3fcea781504ed1a7f40fd8cab39bc32e9662a10c`
 
 ## Completed tasks with evidence
 1. Verified contamination and current PR state.
@@ -40,17 +40,27 @@
    - Comment posted on #1412 instructing that it must not be merged due to unrelated app/CI/dependency changes.
 7. Verified scope isolation for replacement PR.
    - `gh pr view 1413 --json files` shows changes only under `research/1161-risk-scoring-engine/`.
+8. Corrected research content in place (phase 2):
+   - Rewrote `evidence.md` as claim/source ledger with explicit search outcome types and limitations.
+   - Rewrote `README.md` with corrected disposition and acceptance matrix (`Met/Not met/Unknown` only).
+   - Rewrote `scope-and-acceptance.md` to preserve uncertainty and mark all stories as gated proposals.
+9. Performed external/source checks:
+   - Retrieved #1161/#1160/#1162 issue bodies and #1161 historical comments.
+   - Retrieved Crossref/OpenAlex records for DOI `10.3390/make8010001`.
+   - Recorded DOI/MDPI/Scholar HTTP 403 failures as access failures, not absence evidence.
+10. Began phase 3 packet finalization:
+   - Removed obsolete `PUBLICATION_INSTRUCTIONS.md` from replacement branch.
 
 ## Incomplete tasks and exact next action
-- Incomplete: Phase 2 corrective rewrite of README/evidence/scope docs; phase 3 packet finalization; phase 4 validation and handoff comments.
-- Exact next action: rewrite `research/1161-risk-scoring-engine/evidence.md` to a strict claim/source ledger with explicit search outcomes and limitations, then reconcile README and scope documents to that evidence.
+- Incomplete: phase 3 checkpoint commit/push; phase 4 validation suite and PR/issue status updates.
+- Exact next action: run scope/quality validation (`git diff --check`, merge-base file-scope checks, markdown/link checks), then update PR #1413 description and post a concise status comment on issue #1161.
 
 ## Changed files in this clean branch (current)
 - `research/1161-risk-scoring-engine/README.md`
 - `research/1161-risk-scoring-engine/evidence.md`
 - `research/1161-risk-scoring-engine/scope-and-acceptance.md`
-- `research/1161-risk-scoring-engine/PUBLICATION_INSTRUCTIONS.md`
 - `research/1161-risk-scoring-engine/CONTINUATION.md`
+- `research/1161-risk-scoring-engine/PUBLICATION_INSTRUCTIONS.md` (deleted in working tree; not yet committed)
 
 ## Validation results
 - Completed:
@@ -62,8 +72,8 @@
   - markdown/link checks after research corrections
 
 ## Access failures and unresolved questions
-- No API access failure encountered so far.
-- Unresolved: whether external bibliographic sources are fully accessible from this environment; will log explicitly during Phase 2 search updates.
+- Access failures observed: HTTP 403 from Google Scholar query, DOI resolver endpoint, and MDPI article endpoint in this environment.
+- Unresolved: full-paper access and rights interpretation for taxonomy reuse details; institutional-path checks remain outstanding.
 
 ## Approved scope vs proposals
 - Approved scope for this assignment: corrective research documentation only.
