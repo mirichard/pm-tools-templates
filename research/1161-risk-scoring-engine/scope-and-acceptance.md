@@ -4,6 +4,8 @@
 
 This document keeps usable scenario framing while preserving uncertainty. Stories here are proposals only, not approved implementation instructions.
 
+If any future option retains paper-derived taxonomy/method claims, those claims require examination of relevant source content and reuse terms. Metadata-only matching is insufficient. The repo owner may approve a different research direction, but cannot waive that verification while retaining paper-derived claims.
+
 ## 1) Fictional user journeys (illustrative only)
 
 ### Journey A (technology program context)
@@ -127,7 +129,7 @@ These are planning placeholders, not approved work instructions.
 ## 7) What still requires explicit repo-owner decision
 
 1. Whether to continue research on this candidate now.
-2. Whether source-paper verification is mandatory before any taxonomy claims.
+2. Whether to continue with paper-derived claims or switch to a different research direction; if paper-derived claims are retained, source-content/reuse-term verification is mandatory and not waivable.
 3. Whether to authorize method-definition work, and under what evidence standard.
 4. Whether user-value research should be performed before any implementation planning.
 

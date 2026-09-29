@@ -17,6 +17,7 @@ Observed evidence confirms all of the following at once:
 - Historical comments in #1161 include unsupported commitments and internally inconsistent scoring details.
 - The contaminated PR #1412 mixed research with unrelated application and CI changes.
 - Bibliographic records for the cited Geamanu paper can be located via Crossref/OpenAlex metadata, but direct DOI/MDPI fetches failed (403) in this environment.
+- Metadata alone is insufficient for paper-derived taxonomy or method claims; those claims require examination of relevant source content and reuse terms.
 - Synthetic-data limitations are explicitly stated and must be preserved if this candidate is ever pursued.
 
 Given these conditions, the only supportable disposition in this packet is:
@@ -30,6 +31,7 @@ Given these conditions, the only supportable disposition in this packet is:
 | “GO approval” and schedule/staffing commitments | Treated as historical comments, not current authorization |
 | “No dependencies” or “blocked by #1160/#1162” certainty | Reframed as: no explicit blocking relationship identified in inspected issue bodies; dependency status still requires explicit delivery-level confirmation |
 | Source paper not found anywhere | Corrected: bibliographic records located; some endpoints inaccessible from this environment |
+| Paper-derived taxonomy/method claims can proceed from metadata only | Rejected: retaining paper-derived claims requires source-content and reuse-term verification |
 | PMBOK/ISO formula endorsement | Marked unverified without direct clause-level sources |
 | Proposed scoring contract as settled | Withdrawn to “historical/unvalidated proposal under audit” |
 | Planned mitigation modeled as proven reduction | Corrected to separate planned, implemented, and verified effects |
@@ -48,7 +50,7 @@ Status values are restricted to **Met / Not met / Unknown**.
 | COR-06 | Correction assignment | Historical scoring contract contradictions documented without replacement method | Met | `evidence.md` Section 3 |
 | COR-07 | Correction assignment | Reproducible inventory replaces “25+ templates” shorthand | Met | `evidence.md` Section 4 |
 | COR-08 | Correction assignment | Continuation checkpoint exists with restart instructions and next action | Met | `CONTINUATION.md` |
-| RDY-01 | Implementation readiness | Source-research applicability/licensing details verified from full paper | Unknown | Direct DOI/MDPI access failed in this run |
+| RDY-01 | Implementation readiness | Source-research applicability/licensing details verified from relevant source content and reuse terms | Unknown | Direct DOI/MDPI access failed in this run; metadata alone is insufficient |
 | RDY-02 | Implementation readiness | Method specification approved (inputs, bounds, thresholds, override rules) | Not met | No approved replacement method in this packet |
 | RDY-03 | Implementation readiness | User-value evidence for this candidate in real PM contexts | Not met | No user-study evidence in repository artifacts inspected in this run |
 | RDY-04 | Implementation readiness | Delivery scope selection (guidance only vs calculation aid vs further research) | Unknown | Repo-owner decision pending |
@@ -56,7 +58,7 @@ Status values are restricted to **Met / Not met / Unknown**.
 ## Next actions (research only)
 
 1. Decide whether to continue candidate research or defer/decline further product development.
-2. If continuing, secure a source-validation path (full-paper access and reuse constraints) before claiming paper-derived taxonomy specifics.
+2. If continuing with paper-derived claims, secure a source-validation path (relevant source content + reuse constraints) before claiming paper-derived taxonomy/method specifics. This verification cannot be waived while retaining paper-derived claims.
 3. If method work is authorized, approve a method-definition process before any implementation planning.
 4. If user-value validation is authorized, define an evidence standard for usefulness (not just arithmetic consistency).
 

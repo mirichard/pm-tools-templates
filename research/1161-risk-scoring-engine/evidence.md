@@ -22,7 +22,7 @@
 | Synthetic data limitation is explicitly stated for the source research. | #1161 issue body and Crossref abstract for DOI `10.3390/make8010001` | Issue body states synthetic/rule-based limitation; Crossref abstract says “validate the modelling pipeline” and “should not be interpreted as real-world predictive accuracy.” | Limitation confirmed in both places. | Supported | Abstract-level evidence; full-paper methodological appraisal is still pending. |
 | Repository has existing risk scoring guidance based on ordinal prioritization. | `templates/traditional/Traditional/Templates/risk_register_template.md`@`12784bd...` | Line with “ordinal scores prioritize attention; their product is not an expected monetary loss.” | Confirmed caution language in template. | Supported | Repository practice is not proof of PMBOK/ISO requirements. |
 | #1160/#1162 do not explicitly declare blocking dependency for #1161. | https://github.com/mirichard/pm-tools-templates/issues/1160 and /issues/1162 | Both issue bodies state unscheduled deprioritized candidates; no explicit block relationship in those bodies. | No explicit blocker found in inspected issues. | Supported (narrowly) | Absence of explicit blocker is not proof of independence in delivery planning. |
-| Claimed source paper identity can be bibliographically matched. | Crossref API and OpenAlex by DOI `10.3390/make8010001` | Title, journal, date, and author match candidate description at high level. | Bibliographic record located. | Supported | This does not verify reuse rights for derived taxonomy details beyond metadata and abstract context. |
+| Claimed source paper identity can be bibliographically matched. | Crossref API and OpenAlex by DOI `10.3390/make8010001` | Title, journal, date, and author match candidate description at high level. | Bibliographic record located. | Supported | Metadata matching alone is insufficient for paper-derived taxonomy/method claims; those require examination of relevant source content and reuse terms. |
 
 ## 2) Search record (actual outcomes)
 
@@ -49,6 +49,12 @@ Outcome types used:
 - Full-text access through DOI/MDPI endpoints failed from this environment (403).
 - Institutional-access-only checks were not completed in this run.
 - Therefore, full-paper verification of taxonomy semantics, domain limits, and reuse constraints remains open.
+
+### Verification requirement for paper-derived claims
+
+If a future proposal retains paper-derived taxonomy or method claims, verification of relevant source content and reuse terms is required. Metadata-only confirmation is insufficient.
+
+The repo owner may approve a different research direction (for example, custom/internal taxonomy work). However, verification cannot be waived while retaining paper-derived claims.
 
 ## 3) Historical scoring contract under audit (not approved specification)
 

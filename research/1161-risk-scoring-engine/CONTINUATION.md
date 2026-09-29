@@ -49,7 +49,7 @@
    - Retrieved Crossref/OpenAlex records for DOI `10.3390/make8010001`.
    - Recorded DOI/MDPI/Scholar HTTP 403 failures as access failures, not absence evidence.
 10. Began phase 3 packet finalization:
-   - Removed obsolete `PUBLICATION_INSTRUCTIONS.md` from replacement branch.
+   - Removed obsolete `PUBLICATION_INSTRUCTIONS.md` as an intermediate replacement-branch step (not a deletion from `main`; final PR diff remains four added research files).
 11. Completed phase 4 verification and handoff updates:
    - Re-fetched `origin/main` and confirmed clean-base SHA unchanged.
    - Verified merge-base diff scope contains only research packet files.
@@ -66,7 +66,6 @@
 - `research/1161-risk-scoring-engine/evidence.md`
 - `research/1161-risk-scoring-engine/scope-and-acceptance.md`
 - `research/1161-risk-scoring-engine/CONTINUATION.md`
-- `research/1161-risk-scoring-engine/PUBLICATION_INSTRUCTIONS.md` (deleted)
 
 ## Validation results
 - Completed:
