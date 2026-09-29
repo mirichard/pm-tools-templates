@@ -1,160 +1,121 @@
-# Issue #1161: Evidence Audit and Research Findings
+# Issue #1161 Evidence Ledger and Audit
 
-**Analysis Date:** 2026-09-29  
-**Base Commit:** 919f2de3 (2026-09-25)  
-**Analyst Role:** Product discovery analyst / Project-risk practitioner  
-**Access Date:** 2026-09-29T14:19:32Z
+**Disposition used across this packet:** Further research required; not ready for Sprint 3 commitment.
 
----
+**Scope of this document:** traceable evidence only. This is not implementation authorization.
 
-## Part 1: Historical Claim Audit
+- Issue: https://github.com/mirichard/pm-tools-templates/issues/1161
+- Original draft PR (preserved): https://github.com/mirichard/pm-tools-templates/pull/1412
+- Replacement draft PR: https://github.com/mirichard/pm-tools-templates/pull/1413
+- Clean base commit: `12784bd89f21fcbcc6fb91322fd3e324dd0b8b04`
+- Verified source revision used for preservation: `4751154c6c1ab7a18741534b4ef9d8b7a452ac53`
+- Access date: 2026-09-29
 
-### Background
+## 1) Claim / source ledger
 
-Issue #1161 contains two spike decision comments dated 2026-09-18:
-1. Spike #1161 Complete — Executive summary, research findings, prototype results
-2. Q4 Roadmap Decision — GO approval, Priority 2, resource allocation
+| Claim | Source (URL or repo path@commit) | Relevant passage / observation | Evidence observed | Status | Limitation |
+|---|---|---|---|---|---|
+| #1161 is currently unscheduled and deprioritized. | https://github.com/mirichard/pm-tools-templates/issues/1161 | Issue body starts with “Status: Unscheduled, deprioritized research-derived product candidate.” | Confirmed in live issue body. | Supported | Issue status text is policy/context, not technical proof of feasibility. |
+| #1412 includes unrelated changes. | https://github.com/mirichard/pm-tools-templates/pull/1412 ; local command `gh pr view 1412 --json files,commits` | Files list included `.github/*` and many `ai-insights/*` files; commit count 30; file count 84. | Confirmed contamination scope. | Supported | Count can change if #1412 is updated later. |
+| Historical “GO / timeline / staffing” assertions exist in #1161 comments. | https://github.com/mirichard/pm-tools-templates/issues/1161#issuecomment-5734731299 | Comment states “APPROVED FOR GO”, dates, and “~7.5 FTE-weeks”. | Confirmed statements exist. | Supported (as historical claims) | Historical comments are not current authorization. |
+| Historical scoring contract is internally inconsistent. | https://github.com/mirichard/pm-tools-templates/issues/1161#issuecomment-5733934379 | Same comment states factor bounds and examples using out-of-range mitigation factors and conflicting labels. | See Section 3 arithmetic audit. | Supported | This proves inconsistency, not a replacement method. |
+| Synthetic data limitation is explicitly stated for the source research. | #1161 issue body and Crossref abstract for DOI `10.3390/make8010001` | Issue body states synthetic/rule-based limitation; Crossref abstract says “validate the modelling pipeline” and “should not be interpreted as real-world predictive accuracy.” | Limitation confirmed in both places. | Supported | Abstract-level evidence; full-paper methodological appraisal is still pending. |
+| Repository has existing risk scoring guidance based on ordinal prioritization. | `templates/traditional/Traditional/Templates/risk_register_template.md`@`12784bd...` | Line with “ordinal scores prioritize attention; their product is not an expected monetary loss.” | Confirmed caution language in template. | Supported | Repository practice is not proof of PMBOK/ISO requirements. |
+| #1160/#1162 do not explicitly declare blocking dependency for #1161. | https://github.com/mirichard/pm-tools-templates/issues/1160 and /issues/1162 | Both issue bodies state unscheduled deprioritized candidates; no explicit block relationship in those bodies. | No explicit blocker found in inspected issues. | Supported (narrowly) | Absence of explicit blocker is not proof of independence in delivery planning. |
+| Claimed source paper identity can be bibliographically matched. | Crossref API and OpenAlex by DOI `10.3390/make8010001` | Title, journal, date, and author match candidate description at high level. | Bibliographic record located. | Supported | This does not verify reuse rights for derived taxonomy details beyond metadata and abstract context. |
 
-The current issue body (most recent update 2026-09-24) describes #1161 as "Unscheduled, deprioritized research-derived product candidate" with mandatory limitations. This document audits the historical spike claims against the current issue statement and available evidence.
+## 2) Search record (actual outcomes)
 
-### Claim Audit Summary
+Outcome types used:
+1. Search completed and results inspected
+2. Request failed or timed out
+3. Access unavailable
+4. Source located and content examined
 
-| # | Claim | Classification | Finding | Status |
-|---|-------|-----------------|---------|--------|
-| 1 | PMBOK 5×5 matrix standard | FACT (with caveat) | Existing templates use matrix; industry-standard concept | VERIFIED; note: specific thresholds vary |
-| 2 | ISO 31000 supports formula-based scoring | HYPOTHESIS | ISO supports likelihood×consequence; does not prescribe formulas | CONTRADICTED; spike overstates guidance |
-| 3 | Mitigation factor 0.5-1.0 range | HYPOTHESIS | Examples use 0.28, 0.145 (outside range); conversion undefined | CONTRADICTED; requires clarification |
-| 4 | Risk #2 score 10.08 = HIGH | HYPOTHESIS | Score would fall in MEDIUM (6-11) per stated thresholds (12+ is HIGH) | CONTRADICTED; examples/thresholds inconsistent |
-| 5 | Domain expert consensus | HYPOTHESIS | No expert names, dates, or feedback provided | UNVERIFIED; assertion without evidence |
-| 6 | 80-85% accuracy | HYPOTHESIS | No baseline, measurement method, or validation data | UNVERIFIED; undefined and unmeasured |
-| 7 | MVP 1 week | HYPOTHESIS | No task breakdown or resource assignment | UNVERIFIED; depends on scope and decisions |
-| 8 | Optional ML upgrade path available | CONTRADICTED | Current issue #1161 restricts to deterministic rules only | OUT OF SCOPE; historical proposal superseded |
-| 9 | Dependencies: #1160/#1162 blocking | HYPOTHESIS | Both are unscheduled research candidates; no actual blocking identified | VERIFIED AS NOT BLOCKING; can proceed independently |
-| 10 | Q4 Oct 17-Nov 7 timeline commitment | CONTRADICTED | Current status is "Unscheduled, deprioritized" | SUPERSEDED; old proposal outdated |
-| 11 | 7.5 FTE-weeks effort estimate | HYPOTHESIS | No task breakdown; estimate basis unknown | UNVERIFIED; highly uncertain |
-| 12 | Geamanu et al. 27-variable taxonomy exists | HYPOTHESIS | Paper not located after multiple search attempts | UNVERIFIED; paper accessibility unknown |
+| Service | Query / request | Date | Outcome type | Result |
+|---|---|---:|---:|---|
+| GitHub issue/comments | #1161 body + comments, #1160, #1162 | 2026-09-29 | 4 | Source text examined directly via API/tooling. |
+| GitHub PR API | `gh pr view 1412 --json files,commits` | 2026-09-29 | 4 | 84 files / 30 commits; contamination confirmed. |
+| Google Scholar | `Geamanu Machine Learning and Knowledge Extraction risk` | 2026-09-29 | 2 | HTTP 403 request failure from this environment; not evidence of absence. |
+| DOI resolver | `https://doi.org/10.3390/make8010001` | 2026-09-29 | 2 | HTTP 403 in this environment. |
+| MDPI article page | `https://www.mdpi.com/2504-4990/8/1/1` | 2026-09-29 | 2 | HTTP 403 in this environment. |
+| Crossref | `https://api.crossref.org/works/10.3390/make8010001` | 2026-09-29 | 4 | Record located; abstract includes synthetic-data limitation and 27 input variables. |
+| Crossref query | `query.author=Geamanu&query.container-title=Machine Learning and Knowledge Extraction` | 2026-09-29 | 4 | Returned one matching item: DOI `10.3390/make8010001`. |
+| OpenAlex | `works/https://doi.org/10.3390/make8010001` | 2026-09-29 | 4 | Record located; publication metadata aligns with Crossref. |
+| Web index query | Author variant wording (`Geamanu` / `Geamănu`) | 2026-09-29 | 1 | No additional distinct candidate record identified in inspected index results. |
 
----
+### What is still unresolved from search/access
 
-## Part 2: Repository Risk Management Inventory
+- Full-text access through DOI/MDPI endpoints failed from this environment (403).
+- Institutional-access-only checks were not completed in this run.
+- Therefore, full-paper verification of taxonomy semantics, domain limits, and reuse constraints remains open.
 
-The repository contains 25+ risk management resources across methodologies and industries:
+## 3) Historical scoring contract under audit (not approved specification)
 
-**Core Templates:**
-- risk_register_template.md (5×5 matrix, 1-25 scale, PMBOK-aligned)
-- Simple Risk Register (3×3 matrix, 1-9 scale, beginner-friendly)
-- Risk Management Plan (comprehensive enterprise template)
+The historical comment in #1161 provided these factor bounds:
+- Probability: 1–5
+- Impact: 1–5
+- Mitigation factor: 0.5–1.0
+- Time factor: 0.8–1.2
+- Dependency factor: 1.0–1.5
 
-**Specialized Variants:**
-- Program Risk Management (multi-project aggregation)
-- Agile Risk Board (ROAM-based continuous surfacing)
-- 25+ industry-specific templates (Construction, Healthcare, IT, Financial Services, etc.)
+### Internal arithmetic checks
 
-**Existing Scoring:**
-- Probability × Impact (simple multiplication)
-- No modifiers for mitigation effectiveness, time sensitivity, or dependencies
-- Repository caution (line 141): "ordinal scores prioritize attention; their product is not an expected monetary loss"
+- Minimum raw score from stated bounds: `1 × 1 × 0.5 × 0.8 × 1.0 = 0.4`
+- Maximum raw score from stated bounds: `5 × 5 × 1.0 × 1.2 × 1.5 = 45`
 
-**Gap:** Deterministic engine with configurable modifiers, 0-100 scale, audit trail not present.
+This conflicts with historical wording that implied a raw maximum of 30 before normalization.
 
----
+A different section in the prior packet used a time factor upper bound of 1.5. Under that variant:
+- Maximum raw score becomes `5 × 5 × 1.0 × 1.5 × 1.5 = 56.25`
 
-## Part 3: Geamanu et al. Paper Search
+Additional inconsistency in historical examples:
+- Example score `10.08` was described as moving toward HIGH while the same historical threshold table listed HIGH as 12+.
+- Historical mitigation examples included factors (`0.28`, `0.145`) outside the stated mitigation range (`0.5–1.0`).
 
-**Accessibility Status:** NOT LOCATED
+**Conclusion:** contradictory ranges and labels are confirmed. No replacement formula is approved in this packet.
 
-**Search Methods Performed:**
-1. Web search (Google Scholar) — Request timed out; no results returned
-2. Repository search — No local copy or reference found
-3. Institutional access — No access path available to analyzer
+## 4) Reproducible inventory replacing the “25+ templates” claim
 
-**Search Terms Used:**
-- "Geamanu et al. 2025 risk taxonomy"
-- "Geamanu Machine Learning Knowledge Extraction Dec 2025"
-- "Geamanu risk scoring 27-variable"
+Inventory method at commit `12784bd89f21fcbcc6fb91322fd3e324dd0b8b04`:
 
-**Results:**
-- No published paper found in public academic indexes
-- Paper may be: in preparation, in restricted access, or title/author details may be inaccurate
-- **Cannot verify:** 27-variable taxonomy, domain applicability, reuse licensing, cited results
+- Source of truth: `templates/templates.json`
+- Selection rule used for dedicated risk paths: regex `(^|[/_-])risk([/_-]|$)` against catalog path (`canonical_path || path`)
 
-**Implication:** 
-If proceeding with this research direction, repo must either:
-- **Option A:** Locate paper through institutional library or author contact (timeline unknown; may take 1-3 weeks)
-- **Option B:** Authorize development of custom taxonomy based on existing repo templates and risk management literature (no delay; loses "research-based" credibility but enables progress)
+Command logic executed (Python over catalog) produced these dedicated risk paths:
 
----
+1. `domains/delivery/industry-specializations/healthcare-pharmaceutical/regulatory/compliance_risk_assessment_template.md`
+2. `domains/delivery/project-lifecycle/02-planning/risk-management/agile-risk-board-template.md`
+3. `domains/measurement/industry-specializations/information-technology/cybersecurity/risk_assessment_template.md`
+4. `domains/measurement/project-assessment-suite/risk-management-assessment-template.md`
+5. `domains/measurement/project-lifecycle/02-planning/risk-management/risk-management-plan-template.md`
+6. `domains/uncertainty/project-lifecycle/02-planning/risk-management/enterprise-risk-assessment-template.md`
+7. `domains/uncertainty/project-lifecycle/02-planning/risk-management/risk-register-template.md`
 
-## Part 4: Standards Research
+Duplicate checks on this dedicated set:
+- Duplicate basenames: none
+- Duplicate full-file-content groups (SHA-256): none
 
-### PMBOK Risk Scoring
-- 5×5 matrix widely accepted in industry
-- Repository already uses this approach
-- Spike thresholds (20/12/6 cutoffs) reasonable but not universally standard
+Note: a broader risk-keyword match across titles/tags/paths returns many more catalog items (115 in this run), including assets where risk is not the primary purpose. The list above is the stricter dedicated-path subset.
 
-### ISO 31000 Risk Management
-- Supports likelihood × consequence concept
-- Does NOT prescribe specific formulas, scales, or modifiers
-- **Spike overstates guidance:** ISO 31000 is principle-based, not formula-prescriptive
+## 5) Standards assertions status (PMBOK / ISO)
 
----
+- This packet does **not** claim that repository templates verify PMBOK or ISO prescriptions.
+- In this run, no full-text PMBOK or ISO 31000 standard clause was retrieved and quoted as direct support for any specific thresholds/modifiers.
+- Therefore, any statement that PMBOK/ISO prescribe this specific modifier formula or thresholds remains **unverified** here.
 
-## Part 5: Alternatives Comparison
+## 6) Alternatives and discriminating evidence needed
 
-| Approach | User Value | Effort | Recommendation |
-|----------|-----------|--------|---|
-| Use existing template | Immediate, proven | None | Best for <20 risks |
-| Template + optional modifiers | Moderate | 1-2 days | Good light enhancement |
-| Deterministic engine (full #1161) | High consistency | 7.5 FTE-weeks | High effort; needs validation |
-| Probability-adjusted impact | Slight | 3-5 days | Lower-cost alternative |
+No ranking here is final. Evidence required to distinguish options is listed explicitly.
 
-## Part 5: Custom Taxonomy as Alternative Scope Proposal
+| Alternative | What it is | Evidence needed to choose it |
+|---|---|---|
+| A. Improve existing risk guidance/calibration | Clarify and strengthen current templates and scoring instructions only | User pain evidence that current ambiguity causes material decision problems; review burden compared with status quo |
+| B. Add transparent calculation aid using an approved method | Spreadsheet/template helper with auditable arithmetic | Approved scoring specification first; usability evidence that the aid improves consistency without false reassurance |
+| C. Continue investigating source-research-derived proposal | Keep researching provenance/rights/method constraints from cited paper | Full-paper access or equivalent authoritative metadata + rights clarity + documented applicability limits |
+| D. Defer/decline further product development | No new deterministic scoring productization now | Evidence that opportunity cost outweighs expected benefit, or unresolved method/value uncertainty remains too high |
 
-If Geamanu et al. paper remains inaccessible and repo owner decides to proceed without it:
+## 7) Explicit limitations
 
-**Custom Risk Taxonomy Development Scope:**
-- Develop 20-27 variable risk categories based on existing repository templates
-- Map to existing project methodology frameworks (Traditional, Agile, Hybrid)
-- Define modifier framework (mitigation effectiveness, time sensitivity, dependencies)
-- Test taxonomy across 2-3 project domain examples
-- Document taxonomy rationale and derivation
-
-**Effort Estimate:** 2-3 FTE-weeks (higher than spike's 1-week claim, but realistic)
-
-**Disclosure Language:** Documentation would state "Risk taxonomy inspired by existing PM literature and repository template experience; not derived from specific published research. Deterministic scoring mechanism is custom-developed."
-
-**Requires:** Explicit approval from repo owner to proceed without academic paper reference
-
-**Advantages:**
-- Maintains control over taxonomy scope and wording
-- Can tailor to repository's existing methodologies
-- Allows integration with existing template frameworks
-
-**Disadvantages:**
-- Loses academic credibility
-- More effort than spike estimated
-- Must be internally validated rather than research-verified
-
----
-
-| Approach | Effort | Credibility | Dependency | Recommendation (If Pursuing) |
-|----------|--------|------------|-----------|---|
-| **Locate original paper** | Unknown; may take 1-3 weeks | High; research-verified | Paper availability | Try first; if 2 weeks pass, fall back to custom |
-| **Develop custom taxonomy** | 2-3 FTE-weeks | Medium; self-developed | Repo owner approval | Fallback; enables progress if paper unavailable |
-| **Abandon deterministic approach** | Minimal | High; aligns with existing templates | None | Option if user validation shows no demand |
-
----
-
-## Part 6: Blockers and Unresolved Gaps
-
-| Gap | Impact | Blocker? | Resolution |
-|-----|--------|----------|-----------|
-| Research paper location / custom taxonomy decision | Cannot proceed without resolved taxonomy source | YES (CRITICAL) | Locate paper within 1-2 weeks OR authorize custom development |
-| Scoring formula and threshold validation | Cannot build engine without defensible formula | YES (CRITICAL) | Clarify conversion formula; justify thresholds; provide corrected examples |
-| User validation of consistency problem | Cannot justify effort without confirming real need | YES (HIGH) | Interview 5-10 PMs; document whether inconsistency causes actual problems |
-| MVP scope definition (template only vs. tool) | Effort estimate depends on scope | YES (MEDIUM) | Repo owner decides deliverable; effort follows from decision |
-| Dependencies #1160/#1162 verification | May impact scheduling | NO | Verified: both are independent research candidates; no blocking relationship |
-
----
-
-**Recommendation:** This research is not ready for implementation planning. Blockers must be resolved before proceeding. Recommend deferral to future sprint with dedicated research allocation.
+- This packet does not authorize merge, implementation, sprint assignment, or release commitment.
+- Any future implementation requires separate repo-owner decisions on method, scope, and validation approach.
