@@ -118,7 +118,7 @@ No ranking here is final. Evidence required to distinguish options is listed exp
 |---|---|---|
 | A. Improve existing risk guidance/calibration | Clarify and strengthen current templates and scoring instructions only | User pain evidence that current ambiguity causes material decision problems; review burden compared with status quo |
 | B. Add transparent calculation aid using an approved method | Spreadsheet/template helper with auditable arithmetic | Approved scoring specification first; usability evidence that the aid improves consistency without false reassurance |
-| C. Continue investigating source-research-derived proposal | Keep researching provenance/rights/method constraints from cited paper | Full-paper access or equivalent authoritative metadata + rights clarity + documented applicability limits |
+| C. Continue investigating source-research-derived proposal | Keep researching provenance/rights/method constraints from cited paper | Examination of relevant source content and reuse terms, with documented applicability limits; metadata alone is insufficient. |
 | D. Defer/decline further product development | No new deterministic scoring productization now | Evidence that opportunity cost outweighs expected benefit, or unresolved method/value uncertainty remains too high |
 
 ## 7) Explicit limitations
