@@ -17,7 +17,7 @@ Issue changes and merged PRs trigger reconciliation. User-owned Project field ch
 
 The workflow reads the complete paginated project inventory and all open repository issues, plus issues retained in either Project or the small historical-retention list. Draft items and foreign-repository items are outside this repository's snapshot. Archived open roadmap items are reported as gaps. Authentication errors, missing projects, truncated field pages and unavailable issues fail the run without publishing partial data.
 
-Only the generated ROADMAP.md block and backlog/roadmap-status.md are written on reserved branch `automation/roadmap-status`. One PR is created or refreshed. Identical snapshots do not create new content or timestamp churn. Concurrent runs are serialized, branch updates are fast-forward only, and unrecognized branch commits require manual reconciliation. Do not edit the automation branch; change source records or the generator in a separate PR.
+Only the generated ROADMAP.md block and backlog/roadmap-status.md are written on reserved branch `automation/roadmap-status-v2`. One PR is created or refreshed. Identical snapshots do not create new content or timestamp churn. Concurrent runs are serialized, branch updates are fast-forward only, and unrecognized branch commits require manual reconciliation. Do not edit the automation branch; change source records or the generator in a separate PR.
 
 Drift flags cover missing Outcome/Horizon/type/status, open issues missing from the roadmap, closed issues with non-Done board status, open issues marked Done, and conflicting board statuses. Flags are review findings, not permission to alter a board or close an issue. Parentless items are shown as Standalone; no parent is guessed. Untracked residual scope is a human closeout check because free-text intent cannot reliably establish that relationship.
 
@@ -70,3 +70,18 @@ The report includes native issue milestone links and flags:
 - Open issues in the sprint project whose open, numeric repository release milestone differs from `release.json`'s `nextVersion`.
 
 Version mismatches are review prompts: an intentionally later release can be valid. Component-specific tags are excluded from the repository-version comparison. The manifest is read from the same immutable default-branch revision as the generated targets; unavailable or invalid data stops synchronization before output or publication. Milestone values and the manifest version participate in the snapshot fingerprint. These checks never assign milestones, move sprints, change priorities or establish acceptance. Milestone completion counts do not measure release readiness, effort or unselected future scope.
+
+## Reserved-branch recovery — 09/29/2026
+
+Publication from [run 36601868130](https://github.com/mirichard/pm-tools-templates/actions/runs/36601868130) stopped because the old reserved branch head, `2271084f3349bdef221bcae1e76fe0628ce7d2ab`, is a `Merge branch 'main' into automation/roadmap-status` commit rather than a recognized generator commit. The saved preview reports zero drift flags after source reconciliation; the publication failure does not undo those source corrections.
+
+The configured reserved branch is now `automation/roadmap-status-v2`. Preserve `automation/roadmap-status` and PR #1391 as historical evidence. Do not reset, force-push, delete, or merge the old branch. The generator's unrecognized-commit and non-fast-forward protections remain unchanged.
+
+After the repo owner merges this recovery configuration:
+
+1. Inspect the merge-triggered Roadmap synchronization run, or dispatch the existing workflow on main with preview disabled if needed. Let the generator create the new reserved branch and replacement PR.
+2. Verify only the generated ROADMAP.md section and backlog/roadmap-status.md changed. Recheck the live drift report; zero drift is not delivery or release acceptance.
+3. Once the replacement exists, close #1391 as superseded with reciprocal links and retain its branch/history. Do not close it before a replacement is available.
+4. Approve/run the replacement PR's applicable checks and verify the exact final revision. Repo owner retains merge approval.
+
+Never use GitHub's Update branch action or a manual main-merge on the reserved branch. The generator brings in the current main tree through its own publication process. If branch protection requires an update, rerun synchronization; do not bypass its ownership check.
