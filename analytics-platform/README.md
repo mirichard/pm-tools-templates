@@ -28,6 +28,22 @@ The build produces CommonJS `dist/index.js` and TypeScript declarations. There
 is no server to start or dashboard URL to open. The [development guide](docs/development.md)
 includes a local example that needs no external service.
 
+## Compiler compatibility
+
+Build and type-check commands invoke TypeScript 7 explicitly through the
+`@typescript/native` npm alias. The `typescript` dependency aliases
+`@typescript/typescript6` for ESLint and ts-jest, which still require the
+JavaScript compiler API. The lockfile currently resolves that API to 6.0.3.
+This follows the [TypeScript dual-compiler guidance](https://devblogs.microsoft.com/typescript/announcing-typescript-7-0/).
+Use the npm scripts rather than bare `tsc`: the compatibility dependency can
+also install a `tsc` executable.
+
+Node16 module resolution preserves this package's CommonJS output. ts-jest
+uses isolated transforms for this module mode; `npm test` first runs the full
+TypeScript 7 check of source and tests through `tsconfig.test.json`, then runs
+Jest. `test:watch` runs Jest only; use `npm test` for the complete validation.
+No lint rules or CI gates are relaxed. Track remaining migration work in #1406.
+
 ## Documentation
 
 - [SDK API and outbound request format](docs/api.md)
