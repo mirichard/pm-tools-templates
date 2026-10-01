@@ -2,15 +2,15 @@
 
 Generated; do not edit by hand. [Policy](../docs/roadmap-sync.md) · [Decision register](roadmap-alignment.md).
 
-Snapshot updated at: 2026-09-30T01:41:15.095Z (UTC).
+Snapshot updated at: 2026-10-01T19:46:20.519Z (UTC).
 
 [Latest synchronization checks](https://github.com/mirichard/pm-tools-templates/actions/workflows/roadmap-sync.yml) — includes successful checks with no data changes. A check does not publish to main until its PR is merged.
 
-Snapshot fingerprint: `3af31dba04d9bb7f102ee92bbece8ebe17faad4494422de2774582955ec037d6`. Values are copied from issues and Projects, not inferred acceptance or release claims.
+Snapshot fingerprint: `87b218d0fc88b3f66f05a11f129c851222959a612b6ff4cf8394a672b931bd08`. Values are copied from issues and Projects, not inferred acceptance or release claims.
 
 ## Drift requiring review
 
-No issue/Project state or mapping gaps detected. This does not validate acceptance evidence or narrative decisions.
+- #1406: open issue / Roadmap Done; acceptance review required
 
 ## Issue and Project values
 
@@ -85,4 +85,4 @@ No issue/Project state or mapping gaps detected. This does not validate acceptan
 | [#1383](https://github.com/mirichard/pm-tools-templates/issues/1383) — Story: Define community participation and roadmap feedback scope | Open | [#319](https://github.com/mirichard/pm-tools-templates/issues/319) | O4 - Contribute and influence priorities | Unscheduled | Todo | — | — | — |
 | [#1384](https://github.com/mirichard/pm-tools-templates/issues/1384) — Story: Keep repository roadmap documentation and planning views synchronized | Closed (completed) | [#319](https://github.com/mirichard/pm-tools-templates/issues/319) | O4 - Contribute and influence priorities | Now | Done | Sprint 1 | Done | [v2.4.0 — Now Epics Sprints 1–3](https://github.com/mirichard/pm-tools-templates/milestone/35) |
 | [#1393](https://github.com/mirichard/pm-tools-templates/issues/1393) — Task: Validate and publish v2.4.0 release | Open | Standalone | M1 - Maintain repository reliability | Now | In Progress | — | In Progress | [v2.4.0 — Now Epics Sprints 1–3](https://github.com/mirichard/pm-tools-templates/milestone/35) |
-| [#1406](https://github.com/mirichard/pm-tools-templates/issues/1406) — Task: Resolve TypeScript 7 toolchain compatibility blockers | Closed (completed) | Standalone | M1 - Maintain repository reliability | Unscheduled | Done | — | — | — |
+| [#1406](https://github.com/mirichard/pm-tools-templates/issues/1406) — Task: Resolve TypeScript 7 toolchain compatibility blockers | Open | Standalone | M1 - Maintain repository reliability | Unscheduled | Done | — | — | — |
