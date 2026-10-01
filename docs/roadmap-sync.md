@@ -34,6 +34,8 @@ This workflow is not operational until merged and configured. For these user-own
 
 Allow GitHub Actions to create pull requests in repository settings. If organization/repository policy prevents that, the run fails visibly; do not widen credentials or bypass policy automatically. PR-triggered checks created by GITHUB_TOKEN may require approval; inspect and approve required runs before merging. No auto-merge is enabled.
 
+Optional `ROADMAP_PR_TOKEN`: the repository's Actions approval policy holds runs started by a non-collaborator actor, which includes `github-actions[bot]`, until a maintainer approves them. When the repository owner sets this secret, the PR-publishing step uses it instead of GITHUB_TOKEN, so the generated commit and PR are authored by the token's owner (a collaborator) and their checks start without the approval wait. Use a fine-grained personal access token limited to this repository with **Contents** and **Pull requests** set to read and write, set an expiry, and rotate it. The repository owner creates it and sets the secret (`gh secret set ROADMAP_PR_TOKEN`); never paste it into an issue, PR or chat. This widens the credential used for repository writes, so it is optional: without the secret the workflow falls back to GITHUB_TOKEN and the approval step above still applies. Main stays protected (required checks and strict status checks), so the token cannot publish to main directly.
+
 After merge:
 
 1. Configure the secret and PR-creation setting.

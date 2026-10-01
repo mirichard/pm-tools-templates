@@ -62,6 +62,10 @@ jobs:
           PROJECT_TOKEN: ${{ secrets.ROADMAP_PROJECT_TOKEN }}
           PREVIEW: ${{ github.event_name == 'workflow_dispatch' && inputs.preview }}
         with:
+          # Optional: a token owned by a repository collaborator makes the generated PR's checks run
+          # without the Actions approval wait that github-actions[bot] PRs trigger. Falls back to
+          # GITHUB_TOKEN when the secret is not set. See docs/roadmap-sync.md.
+          github-token: ${{ secrets.ROADMAP_PR_TOKEN || github.token }}
           script: |
             if (!process.env.PROJECT_TOKEN) {
               core.setFailed('ROADMAP_PROJECT_TOKEN is required for read-only user Project access. See docs/roadmap-sync.md. No synchronization was performed.');
