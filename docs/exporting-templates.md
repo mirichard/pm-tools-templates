@@ -33,3 +33,5 @@ pandoc source.md -t pptx -o slides.pptx
 ```
 
 You can script these commands to batch convert multiple templates. See `scripts/generate_template_index.js` for a list of template paths.
+
+> Visual e2e test line (throwaway; DO NOT MERGE).
