@@ -1,16 +1,12 @@
 name: 👁️ Visual Regression Testing
 
+# Pull requests: capture only the pages the PR changed, once on the PR and once on its
+# base commit, and compare the two. No stored baselines exist or are needed; approving
+# the PR accepts intentional visual changes. Incomplete capture fails the check; visual
+# differences are reported for review and do not fail it.
+# Schedule/manual runs: capture everything as a health check (capture integrity only).
+
 on:
-  push:
-    branches: [main, develop]
-    paths:
-      - 'templates/**'
-      - 'docs/**'
-      - 'assets/**'
-      - 'styles/**'
-      - 'themes/**'
-      - 'tests/test_visual_workflow.py'
-      - '.github/workflows/visual-regression-testing.yml'
   pull_request:
     branches: [main, develop]
     paths:
@@ -38,11 +34,6 @@ on:
           - themes-only
           - critical-only
           - custom
-      baseline_update:
-        description: 'Legacy input; baseline acceptance requires repo owner review'
-        required: false
-        default: false
-        type: boolean
       test_resolution:
         description: 'Screen resolutions to test'
         required: false
@@ -63,7 +54,6 @@ on:
 env:
   # Visual Testing Configuration
   VISUAL_DIFF_THRESHOLD: ${{ github.event.inputs.diff_threshold || '2' }}
-  BASELINE_BRANCH: 'main'
   SCREENSHOT_TIMEOUT: 30000
   PARALLEL_WORKERS: 4
   IMAGE_QUALITY: 90
@@ -73,6 +63,10 @@ env:
   CHROMIUM_VERSION: '119.0.6045.105'
   FIREFOX_VERSION: '119.0'
   WEBKIT_VERSION: '17.0'
+
+concurrency:
+  group: visual-regression-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
 
 permissions:
   contents: read
@@ -87,9 +81,10 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       test_targets: ${{ steps.discover.outputs.test_targets }}
-      baseline_exists: ${{ steps.discover.outputs.baseline_exists }}
       test_matrix: ${{ steps.discover.outputs.test_matrix }}
       total_tests: ${{ steps.discover.outputs.total_tests }}
+      mode: ${{ steps.discover.outputs.mode }}
+      sides: ${{ steps.discover.outputs.sides }}
     
     steps:
       - name: 📥 Checkout Repository
@@ -99,6 +94,9 @@ jobs:
 
       - name: 🔍 Discover Visual Test Targets
         id: discover
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          PR_BASE_SHA: ${{ github.event.pull_request.base.sha }}
         run: |
           echo "👁️ Discovering visual test targets..."
           
@@ -109,6 +107,7 @@ jobs:
           import json
           import glob
           import yaml
+          import subprocess
           from pathlib import Path
           
           def discover_visual_targets():
@@ -349,8 +348,30 @@ jobs:
           targets = discover_visual_targets()
           test_matrix = generate_test_matrix()
           
-          # Check if baselines exist
-          baseline_exists = os.path.exists('.github/visual-baselines') or os.environ.get('GITHUB_EVENT_INPUTS_BASELINE_UPDATE') == 'true'
+          # Pull requests are compared with their base commit, so only pages the PR changed
+          # need capturing. Full runs (schedule/manual) capture everything.
+          mode = 'pr_diff' if os.environ.get('EVENT_NAME') == 'pull_request' else 'full'
+          if mode == 'pr_diff':
+              base_sha = os.environ['PR_BASE_SHA']
+              changed = set(subprocess.run(
+                  ['git', 'diff', '--name-only', '--diff-filter=ACMR', base_sha, 'HEAD'],
+                  capture_output=True, text=True, check=True).stdout.splitlines())
+              selected = {}
+              for target in targets:
+                  if target['type'] == 'theme':
+                      # A changed stylesheet affects the templates it is heuristically linked to.
+                      if target['path'] in changed:
+                          for affected in target.get('affected_templates', []):
+                              selected.setdefault(affected, {
+                                  'type': 'template', 'path': affected, 'name': Path(affected).stem,
+                                  'category': get_template_category(affected),
+                                  'priority': get_priority(affected),
+                                  'test_scenarios': get_test_scenarios(affected)})
+                  elif target['path'] in changed:
+                      selected[target['path']] = target
+              targets = list(selected.values())
+              print(f"Pull request mode: {len(changed)} changed files, {len(targets)} visual targets")
+          sides = ['head', 'base'] if mode == 'pr_diff' else ['head']
           
           # Generate summary
           summary = {
@@ -359,7 +380,8 @@ jobs:
               'by_category': {},
               'by_priority': {},
               'test_matrix_size': len(test_matrix),
-              'baseline_exists': baseline_exists
+              'mode': mode,
+              'sides': sides
           }
           
           for target in targets:
@@ -381,7 +403,7 @@ jobs:
           print(f"  Categories: {summary['by_category']}")
           print(f"  Priorities: {summary['by_priority']}")
           print(f"  Test matrix: {summary['test_matrix_size']} combinations")
-          print(f"  Baseline exists: {summary['baseline_exists']}")
+          print(f"  Mode: {summary['mode']} (sides: {summary['sides']})")
           
           # Save results
           with open('visual-discovery/targets.json', 'w') as f:
@@ -398,12 +420,14 @@ jobs:
           
           # Set outputs for subsequent jobs
           TEST_TARGETS=$(jq -c '.' visual-discovery/targets.json)
-          BASELINE_EXISTS=$(jq -r '.baseline_exists' visual-discovery/summary.json)
+          MODE=$(jq -r '.mode' visual-discovery/summary.json)
+          SIDES=$(jq -c '.sides' visual-discovery/summary.json)
           TEST_MATRIX=$(jq -c '.' visual-discovery/test_matrix.json)
           TOTAL_TESTS=$(jq -r '.total_targets' visual-discovery/summary.json)
           
           echo "test_targets=$TEST_TARGETS" >> $GITHUB_OUTPUT
-          echo "baseline_exists=$BASELINE_EXISTS" >> $GITHUB_OUTPUT
+          echo "mode=$MODE" >> $GITHUB_OUTPUT
+          echo "sides=$SIDES" >> $GITHUB_OUTPUT
           echo "test_matrix=$TEST_MATRIX" >> $GITHUB_OUTPUT
           echo "total_tests=$TOTAL_TESTS" >> $GITHUB_OUTPUT
 
@@ -420,10 +444,16 @@ jobs:
     runs-on: ubuntu-latest
     needs: visual-discovery
     if: needs.visual-discovery.outputs.total_tests > 0
+    strategy:
+      matrix:
+        side: ${{ fromJSON(needs.visual-discovery.outputs.sides) }}
+      fail-fast: false
     
     steps:
       - name: 📥 Checkout Repository
         uses: actions/checkout@v7
+        with:
+          ref: ${{ matrix.side == 'base' && github.event.pull_request.base.sha || github.sha }}
 
       - name: 📥 Download Discovery Results
         uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
@@ -451,6 +481,8 @@ jobs:
           echo "✅ Rendering environment ready"
 
       - name: 📄 Render Templates to HTML
+        env:
+          VISUAL_SIDE: ${{ matrix.side }}
         run: |
           echo "📄 Rendering templates to HTML for visual testing..."
           
@@ -668,7 +700,13 @@ jobs:
           # Render all markdown templates
           rendered_files = []
           
+          side = os.environ.get('VISUAL_SIDE', 'head')
           for target in targets:
+              if not os.path.exists(target['path']):
+                  if side == 'base':
+                      print(f"  New page, absent at the base commit: {target['path']}")
+                      continue
+                  raise FileNotFoundError(target['path'])
               if target['type'] in ['template', 'documentation'] and target['path'].endswith('.md'):
                   output_file = render_markdown_to_html(target['path'], 'rendered-templates')
                   if output_file:
@@ -692,7 +730,7 @@ jobs:
                       'test_scenarios': target['test_scenarios']
                   })
           
-          if not rendered_files:
+          if not rendered_files and side != 'base':
               raise RuntimeError("No templates rendered")
           if len({f["rendered"] for f in rendered_files}) != len(rendered_files):
               raise RuntimeError("Duplicate rendered output paths")
@@ -707,7 +745,7 @@ jobs:
       - name: 📤 Upload Rendered Templates
         uses: actions/upload-artifact@v7
         with:
-          name: rendered-templates-${{ github.run_number }}
+          name: rendered-templates-${{ matrix.side }}-${{ github.run_number }}
           path: rendered-templates/
           retention-days: 7
 
@@ -725,6 +763,7 @@ jobs:
           { width: 375, height: 667, name: 'mobile' },
           { width: 1366, height: 768, name: 'desktop' }
         ]
+        side: ${{ fromJSON(needs.visual-discovery.outputs.sides) }}
       fail-fast: false
     
     steps:
@@ -739,7 +778,7 @@ jobs:
       - name: 📥 Download Rendered Templates
         uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
         with:
-          name: rendered-templates-${{ github.run_number }}
+          name: rendered-templates-${{ matrix.side }}-${{ github.run_number }}
           path: rendered-templates/
 
       - name: 🛠️ Setup Playwright
@@ -767,7 +806,7 @@ jobs:
               // Load rendered files manifest
               const manifest = JSON.parse(fs.readFileSync('rendered-templates/manifest.json', 'utf8'));
               
-              if (!manifest.length) throw new Error('Empty render manifest');
+              if (!manifest.length && '${{ matrix.side }}' !== 'base') throw new Error('Empty render manifest');
               const expected = manifest.flatMap(file => {
                   const id = createHash('sha256').update(file.original).digest('hex');
                   return [`${id}.png`, ...((file.test_scenarios || []).includes('dark_theme') ? [`${id}_dark.png`] : [])];
@@ -899,10 +938,10 @@ jobs:
         uses: actions/upload-artifact@v7
         if: always()
         with:
-          name: screenshots-${{ matrix.browser }}-${{ matrix.resolution.name }}-${{ github.run_number }}
+          name: screenshots-${{ matrix.side }}-${{ matrix.browser }}-${{ matrix.resolution.name }}-${{ github.run_number }}
           path: screenshots/
           if-no-files-found: error
-          retention-days: 30
+          retention-days: 7
 
   # Visual Comparison and Regression Detection
   visual-comparison:
@@ -917,28 +956,20 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: 📥 Download All Screenshots
+      - name: Download PR Screenshots
         uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
         with:
-          pattern: "screenshots-*-${{ github.run_number }}"
+          pattern: "screenshots-head-*-${{ github.run_number }}"
           merge-multiple: true
           path: screenshots/
 
-      - name: 📥 Download Baseline Screenshots (if available)
-        if: needs.visual-discovery.outputs.baseline_exists == 'true'
-        continue-on-error: true
-        run: |
-          echo "📥 Attempting to download baseline screenshots..."
-          
-          # Try to checkout baseline from main branch
-          git fetch origin ${{ env.BASELINE_BRANCH }}:baseline-branch || true
-          
-          if git show-ref --verify --quiet refs/heads/baseline-branch; then
-            git checkout baseline-branch -- .github/visual-baselines/ || echo "No baselines found in baseline branch"
-          fi
-          
-          # Also check for baselines in artifacts from previous runs
-          # This would require additional logic to download from previous successful runs
+      - name: Download Base Screenshots (pull requests)
+        if: needs.visual-discovery.outputs.mode == 'pr_diff'
+        uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
+        with:
+          pattern: "screenshots-base-*-${{ github.run_number }}"
+          merge-multiple: true
+          path: baseline-screenshots/
 
       - name: 🛠️ Setup Image Comparison Tools
         run: |
@@ -949,7 +980,7 @@ jobs:
           sudo apt-get install -y imagemagick
           
           # Install Python image processing libraries
-          pip install Pillow numpy opencv-python scikit-image PyYAML
+          pip install Pillow numpy opencv-python scikit-image PyYAML markdown python-frontmatter
           
           echo "✅ Image comparison tools ready"
 
@@ -957,6 +988,8 @@ jobs:
         run: python3 -m unittest discover -s tests -p test_visual_workflow.py
 
       - name: 🔍 Perform Visual Comparison
+        env:
+          VISUAL_MODE: ${{ needs.visual-discovery.outputs.mode }}
         run: |
           echo "🔍 Performing visual comparison and regression detection..."
           
@@ -983,7 +1016,13 @@ jobs:
                   # Ensure images are the same size
                   if current.size != baseline.size:
                       print(f"  ⚠️ Size mismatch: {current.size} vs {baseline.size}")
-                      raise ValueError("Screenshot dimensions differ from accepted baseline")
+                      return {
+                          'diff_percentage': 100.0,
+                          'threshold_exceeded': True,
+                          'dimensions_changed': True,
+                          'current_size': list(current.size),
+                          'baseline_size': list(baseline.size)
+                      }
                   
                   # Convert to numpy arrays
                   current_array = np.array(current)
@@ -1019,8 +1058,8 @@ jobs:
                   except:
                       font = ImageFont.load_default()
                   
-                  draw.text((10, 10), "BASELINE", fill='black', font=font)
-                  draw.text((width + 10, 10), "CURRENT", fill='black', font=font)
+                  draw.text((10, 10), "BASE", fill='black', font=font)
+                  draw.text((width + 10, 10), "THIS PR", fill='black', font=font)
                   draw.text((width * 2 + 10, 10), f"DIFF ({diff_percentage:.2f}%)", fill='red' if diff_percentage > threshold_percent else 'green', font=font)
                   
                   # Save comparison
@@ -1056,26 +1095,19 @@ jobs:
               return screenshot_files
           
           def find_baseline_files():
-              """Find baseline screenshot files"""
+              """Screenshots captured from the pull request's base commit"""
               baseline_files = {}
-              baseline_dir = '.github/visual-baselines'
-              
-              if os.path.exists(baseline_dir):
-                  # Find all baseline directories
-                  baseline_dirs = glob.glob(f"{baseline_dir}/screenshots-*")
-                  
-                  for baseline_dir_path in baseline_dirs:
-                      browser_resolution = os.path.basename(baseline_dir_path).replace('screenshots-', '')
-                      baseline_files[browser_resolution] = glob.glob(f"{baseline_dir_path}/*.png")
-              
+              for directory in glob.glob('baseline-screenshots/*'):
+                  if os.path.isdir(directory):
+                      baseline_files[os.path.basename(directory)] = glob.glob(f"{directory}/*.png")
               return baseline_files
           
           # Main comparison process
           threshold_percent = float(os.environ.get('VISUAL_DIFF_THRESHOLD', '2'))
-          update_baseline = os.environ.get('GITHUB_EVENT_INPUTS_BASELINE_UPDATE') == 'true'
+          mode = os.environ.get('VISUAL_MODE', 'full')
           
           print(f"Visual comparison threshold: {threshold_percent}%")
-          print(f"Update baseline: {update_baseline}")
+          print(f"Visual mode: {mode}")
           
           # Find current screenshots
           current_screenshots = find_screenshot_files()
@@ -1098,7 +1130,22 @@ jobs:
 
           # Find baseline screenshots
           baseline_screenshots = find_baseline_files()
-          print(f"Found baseline sets: {list(baseline_screenshots.keys())}")
+          print(f"Found base sets: {list(baseline_screenshots.keys())}")
+
+          # In pull request mode the base capture must be just as complete as the PR capture.
+          if mode == 'pr_diff':
+              for resolution in ('chromium_mobile', 'chromium_desktop'):
+                  try:
+                      with open(f'baseline-screenshots/{resolution}/manifest.json') as f:
+                          expected_base = json.load(f)['expected']
+                      actual_base = {os.path.basename(p) for p in baseline_screenshots.get(resolution, [])}
+                      if len(set(expected_base)) != len(expected_base) or set(expected_base) != actual_base:
+                          capture_errors.append(f'{resolution} (base): incomplete or duplicate captures')
+                      for path in baseline_screenshots.get(resolution, []):
+                          with Image.open(path) as image:
+                              image.verify()
+                  except (OSError, ValueError, KeyError, TypeError) as error:
+                      capture_errors.append(f'{resolution} (base): {error}')
           
           comparison_results = []
           total_comparisons = 0
@@ -1148,8 +1195,7 @@ jobs:
           summary = {
               'capture_errors': capture_errors,
               'status': ('incomplete' if capture_errors or not comparison_results else
-                         'failed' if regressions_found else
-                         'needs_baseline_review' if total_comparisons != len(comparison_results) else 'passed'),
+                         'changes_for_review' if regressions_found else 'passed'),
               'timestamp': datetime.now().isoformat(),
               'threshold_percent': threshold_percent,
               'total_screenshots': sum(len(files) for files in current_screenshots.values()),
@@ -1158,7 +1204,7 @@ jobs:
               'new_screenshots': len(comparison_results) - total_comparisons,
               'regression_rate': round((regressions_found / max(total_comparisons, 1)) * 100, 2),
               'browser_resolutions': list(current_screenshots.keys()),
-              'baseline_update_requested': update_baseline
+              'mode': mode
           }
           
           print(f"\n📊 Visual Comparison Summary:")
@@ -1175,11 +1221,12 @@ jobs:
           with open('visual-comparison-results/summary.json', 'w') as f:
               json.dump(summary, f, indent=2)
           
-          # Captures are candidates only. Baseline acceptance belongs to the repo owner.
-          if summary['status'] != 'passed':
-              print(f"Visual check did not pass: {summary['status']}; {capture_errors}")
+          # Capture integrity is the gate. Visual differences are reported for review
+          # (approving the PR accepts them) and do not fail the check.
+          if summary['status'] == 'incomplete':
+              print(f"Visual check incomplete: {capture_errors}")
               exit(1)
-          print("Visual comparison passed with complete capture and baseline coverage")
+          print(f"Visual comparison finished: {summary['status']}")
           EOF
 
       - name: 📤 Upload Comparison Results
@@ -1188,7 +1235,7 @@ jobs:
         with:
           name: visual-comparison-results-${{ github.run_number }}
           path: visual-comparison-results/
-          retention-days: 30
+          retention-days: 7
 
   # Visual Regression Report
   visual-report:
@@ -1243,7 +1290,6 @@ jobs:
           **Generated:** {datetime.now().isoformat()}
           **Repository:** ${{ github.repository }}
           **Test Scope:** ${{ github.event.inputs.test_scope || 'comprehensive' }}
-          **Baseline Update:** ${{ github.event.inputs.baseline_update || 'false' }}
           **Diff Threshold:** {summary.get('threshold_percent', 2)}%
           
           ## 📊 Executive Summary
@@ -1265,7 +1311,9 @@ jobs:
                   report += '\nCapture errors: ' + '; '.join(summary['capture_errors']) + '\n'
 
               # Determine overall status
-              if summary.get('status') != 'passed':
+              if summary.get('status') == 'changes_for_review':
+                  status = "🟡 Visual changes detected: review the diff images; approving this PR accepts them"
+              elif summary.get('status') != 'passed':
                   status = '🔴 Visual verification did not pass: ' + summary.get('status', 'incomplete')
               elif summary.get('regressions_found', 0) > 0:
                   if summary.get('regression_rate', 0) > 10:
@@ -1387,15 +1435,15 @@ jobs:
               
               if summary.get('regressions_found', 0) > 0:
                   recommendations.append("Review visual regressions to determine if changes are intentional")
-                  recommendations.append("If changes are intentional, update visual baselines")
+                  recommendations.append("If changes are intentional, approving this PR accepts them (no stored baselines to update)")
                   recommendations.append("If changes are unintentional, investigate and fix the root cause")
               
               if summary.get('new_screenshots', 0) > 0:
                   recommendations.append("Review new screenshots for visual consistency")
-                  recommendations.append("Consider updating baselines to include new content")
+                  recommendations.append("New pages have no base version, so there is nothing to compare them with")
               
               if summary.get('total_comparisons', 0) == 0:
-                  recommendations.append("Obtain repo owner acceptance of candidate screenshots before adding baselines")
+                  recommendations.append("Full runs only verify capture integrity; pull requests compare changed pages with their base commit")
                   recommendations.append("Ensure templates are rendering correctly")
               
               if summary.get('status') == 'incomplete':
@@ -1412,7 +1460,7 @@ jobs:
           ### 🔄 Next Steps
           
           1. **Review Results:** Examine any visual regressions or new screenshots
-          2. **Baseline Review:** Repo owner reviews candidate screenshots before baseline acceptance
+          2. **Accept or fix:** Approving the PR accepts intentional visual changes
           3. **Fix Issues:** Address any unintended visual changes
           4. **Monitor Trends:** Set up regular visual regression testing
           5. **Optimize Thresholds:** Adjust diff threshold based on your quality requirements
@@ -1421,7 +1469,6 @@ jobs:
           
           - **Test Scope:** ${{ github.event.inputs.test_scope || 'comprehensive' }}
           - **Diff Threshold:** {summary.get('threshold_percent', 2)}%
-          - **Baseline Update:** ${{ github.event.inputs.baseline_update || 'false' }}
           - **Test Resolution:** ${{ github.event.inputs.test_resolution || 'standard' }}
           - **Screenshot Timeout:** {os.environ.get('SCREENSHOT_TIMEOUT', 30000)}ms
           - **Image Quality:** {os.environ.get('IMAGE_QUALITY', 90)}%
@@ -1471,6 +1518,7 @@ jobs:
 
       - name: 💬 Comment on Pull Request
         if: github.event_name == 'pull_request'
+        continue-on-error: true
         uses: actions/github-script@v9
         with:
           script: |
@@ -1490,7 +1538,7 @@ jobs:
               };
             }
             
-            const statusEmoji = summary.status === 'passed' ? '✅' : '🚨';
+            const statusEmoji = summary.status === 'passed' ? '✅' : summary.status === 'changes_for_review' ? '🟡' : '🚨';
             
             const regressionRate = summary.total_comparisons > 0 ? 
               Math.round((summary.regressions_found / summary.total_comparisons) * 100) : 0;
@@ -1498,7 +1546,7 @@ jobs:
             const commentBody = `## 👁️ Visual Regression Testing Results
             
             ### 📊 Visual Testing Summary
-            ${statusEmoji} **Status:** ${summary.status === 'passed' ? 'All Tests Passing' : 'Not passing: ' + summary.status}
+            ${statusEmoji} **Status:** ${summary.status === 'passed' ? 'No visual changes beyond the threshold' : summary.status === 'changes_for_review' ? 'Visual changes detected (review below)' : 'Not passing: ' + summary.status}
             
             | Metric | Count | Rate |
             |--------|-------|------|
@@ -1514,8 +1562,9 @@ jobs:
             - **Comparison Method:** Pixel differences
             
             ### 📋 Next Steps
-            ${summary.status === 'passed' ? 'Complete comparisons passed.' :
-              'Action required: review capture errors, missing baselines, or regressions. Baseline acceptance belongs to the repo owner.'}
+            ${summary.status === 'passed' ? 'Captures complete; no changes beyond the threshold.' :
+              summary.status === 'changes_for_review' ? 'Review the diff images in the run artifacts (visual-comparison-results). Approving this PR accepts the visual changes.' :
+              'Action required: capture or comparison evidence is incomplete.'}
             
             📄 [View Detailed Report](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }})
             `;
@@ -1534,7 +1583,7 @@ jobs:
           path: |
             visual-regression-report.md
             visual-testing-summary.json
-          retention-days: 30
+          retention-days: 7
 
       - name: 📊 Visual Testing Summary
         run: |
@@ -1544,9 +1593,7 @@ jobs:
           TEST_SCOPE="${{ github.event.inputs.test_scope || 'comprehensive' }}"
           echo "Repository: $GITHUB_REPO"
           echo "Test Scope: $TEST_SCOPE"
-          BASELINE_UPDATE="${{ github.event.inputs.baseline_update || 'false' }}"
           DIFF_THRESHOLD="${{ github.event.inputs.diff_threshold || '2' }}"
-          echo "Baseline Update: $BASELINE_UPDATE"
           echo "Diff Threshold: $DIFF_THRESHOLD%"
           echo ""
           echo "📋 Results:"
@@ -1570,4 +1617,4 @@ jobs:
           echo "📊 Check artifacts for detailed reports and diff images"
           test "${{ needs.visual-capture.result }}" = success
           test "${{ needs.visual-comparison.result }}" = success
-          jq -e '.status == "passed" and .total_comparisons > 0' visual-testing-summary.json
+          jq -e '.status == "passed" or .status == "changes_for_review"' visual-testing-summary.json
