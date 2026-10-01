@@ -12,7 +12,7 @@ on:
       - 'tests/test_visual_workflow.py'
       - '.github/workflows/visual-regression-testing.yml'
   pull_request:
-    branches: [main, develop, fix/repository-security-baseline]
+    branches: [main, develop]
     paths:
       - 'templates/**'
       - 'docs/**'
