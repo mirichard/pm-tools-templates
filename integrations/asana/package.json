@@ -151,5 +151,8 @@
   },
   "publishConfig": {
     "access": "public"
+  },
+  "overrides": {
+    "@babel/cli": "^8.0.6"
   }
 }
