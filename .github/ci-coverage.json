@@ -172,7 +172,17 @@
         "lint": { "command": null, "required": false, "status": "not_implemented" },
         "build": { "command": "npm run build", "required": true },
         "test": { "command": null, "required": false, "status": "not_implemented" },
-        "audit": { "required": true }
+        "audit": {
+          "required": true,
+          "exception": {
+            "issue": "https://github.com/mirichard/pm-tools-templates/issues/1454",
+            "owner": "mirichard",
+            "recorded": "2026-10-06",
+            "expires": "2026-11-05",
+            "failure_signature": "GHSA-ch52-4w7c-c8xp",
+            "removal_condition": "A patched http-cache-semantics release (or an astro release that no longer depends on a vulnerable version) is available; remove this exception and re-run the audit."
+          }
+        }
       }
     },
     "integrations-asana": {
