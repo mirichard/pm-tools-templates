@@ -2,15 +2,18 @@
 
 Generated; do not edit by hand. [Policy](../docs/roadmap-sync.md) · [Decision register](roadmap-alignment.md).
 
-Snapshot updated at: 2026-10-01T19:46:20.519Z (UTC).
+Snapshot updated at: 2026-10-06T14:51:58.750Z (UTC).
 
 [Latest synchronization checks](https://github.com/mirichard/pm-tools-templates/actions/workflows/roadmap-sync.yml) — includes successful checks with no data changes. A check does not publish to main until its PR is merged.
 
-Snapshot fingerprint: `87b218d0fc88b3f66f05a11f129c851222959a612b6ff4cf8394a672b931bd08`. Values are copied from issues and Projects, not inferred acceptance or release claims.
+Snapshot fingerprint: `d8ca3ca7556c470968b845809c7fafe5af34445a976b434bae66ea1946fd1c14`. Values are copied from issues and Projects, not inferred acceptance or release claims.
 
 ## Drift requiring review
 
 - #1406: open issue / Roadmap Done; acceptance review required
+- #1454: missing or archived roadmap item
+- #1454: missing Outcome or Horizon
+- #1454: expected exactly one type label
 
 ## Issue and Project values
 
@@ -86,3 +89,4 @@ Snapshot fingerprint: `87b218d0fc88b3f66f05a11f129c851222959a612b6ff4cf8394a672b
 | [#1384](https://github.com/mirichard/pm-tools-templates/issues/1384) — Story: Keep repository roadmap documentation and planning views synchronized | Closed (completed) | [#319](https://github.com/mirichard/pm-tools-templates/issues/319) | O4 - Contribute and influence priorities | Now | Done | Sprint 1 | Done | [v2.4.0 — Now Epics Sprints 1–3](https://github.com/mirichard/pm-tools-templates/milestone/35) |
 | [#1393](https://github.com/mirichard/pm-tools-templates/issues/1393) — Task: Validate and publish v2.4.0 release | Open | Standalone | M1 - Maintain repository reliability | Now | In Progress | — | In Progress | [v2.4.0 — Now Epics Sprints 1–3](https://github.com/mirichard/pm-tools-templates/milestone/35) |
 | [#1406](https://github.com/mirichard/pm-tools-templates/issues/1406) — Task: Resolve TypeScript 7 toolchain compatibility blockers | Open | Standalone | M1 - Maintain repository reliability | Unscheduled | Done | — | — | — |
+| [#1454](https://github.com/mirichard/pm-tools-templates/issues/1454) — Track: docs/site audit exception for http-cache-semantics (GHSA-ch52-4w7c-c8xp, no patch) | Open | Standalone | — | — | — | — | — | — |
