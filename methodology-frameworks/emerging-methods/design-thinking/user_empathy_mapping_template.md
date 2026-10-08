@@ -1,3 +1,13 @@
+---
+title: "User Empathy Mapping Template"
+methodology: "universal"
+complexity: "advanced"
+owner: "mirichard"
+updated: "2026-10-08"
+domain: "Stakeholder"
+tags: ["design-thinking", "empathy-mapping", "user-research", "stakeholder-management"]
+---
+
 # User Empathy Mapping Template
 
 ## Overview

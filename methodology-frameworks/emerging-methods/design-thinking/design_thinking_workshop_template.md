@@ -1,3 +1,13 @@
+---
+title: "Design Thinking Workshop Template"
+methodology: "universal"
+complexity: "advanced"
+owner: "mirichard"
+updated: "2026-10-08"
+domain: "Delivery"
+tags: ["design-thinking", "workshop", "innovation", "human-centered-design"]
+---
+
 # Design Thinking Workshop Template
 
 ## Overview
