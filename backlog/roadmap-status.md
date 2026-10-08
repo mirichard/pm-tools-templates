@@ -2,21 +2,18 @@
 
 Generated; do not edit by hand. [Policy](../docs/roadmap-sync.md) · [Decision register](roadmap-alignment.md).
 
-Snapshot updated at: 2026-10-08T13:42:58.699Z (UTC).
+Snapshot updated at: 2026-10-08T15:01:23.305Z (UTC).
 
 [Latest synchronization checks](https://github.com/mirichard/pm-tools-templates/actions/workflows/roadmap-sync.yml) — includes successful checks with no data changes. A check does not publish to main until its PR is merged.
 
-Snapshot fingerprint: `bf6fa5dba5384d425ada7555163f059e9bf2ed07a9b36b7372d66d037b881d46`. Values are copied from issues and Projects, not inferred acceptance or release claims.
+Snapshot fingerprint: `d7650ab0360ce6794f3a42d8adda1957b4e44a29b992388b644206d4f5986ac5`. Values are copied from issues and Projects, not inferred acceptance or release claims.
 
 ## Drift requiring review
 
-- #57: board statuses differ (Todo / In Progress)
 - #1406: open issue / Roadmap Done; acceptance review required
 - #1454: missing Outcome or Horizon
 - #1454: expected exactly one type label
 - #1469: missing Outcome or Horizon
-- #1472: missing Outcome or Horizon
-- #1474: missing Outcome or Horizon
 
 ## Issue and Project values
 
@@ -25,7 +22,7 @@ Snapshot fingerprint: `bf6fa5dba5384d425ada7555163f059e9bf2ed07a9b36b7372d66d037
 | [#47](https://github.com/mirichard/pm-tools-templates/issues/47) — EPIC: 1.10: Program Management Template Suite Implementation | Open | Standalone | O2 - Apply practical PM guidance | Later | Todo | — | — | — |
 | [#49](https://github.com/mirichard/pm-tools-templates/issues/49) — EPIC: 1.11: Product Owner Role Template Suite | Open | Standalone | O2 - Apply practical PM guidance | Later | Todo | — | — | — |
 | [#50](https://github.com/mirichard/pm-tools-templates/issues/50) — EPIC: 1.12: Release Manager Role Template Suite | Open | Standalone | O2 - Apply practical PM guidance | Later | Todo | — | — | — |
-| [#57](https://github.com/mirichard/pm-tools-templates/issues/57) — Task: Complete Design Thinking template navigation and acceptance | Open | Standalone | O2 - Apply practical PM guidance | Next | Todo | Sprint 2 | In Progress | [v2.4.0 — Now Epics Sprints 1–3](https://github.com/mirichard/pm-tools-templates/milestone/35) |
+| [#57](https://github.com/mirichard/pm-tools-templates/issues/57) — Task: Complete Design Thinking template navigation and acceptance | Open | Standalone | O2 - Apply practical PM guidance | Next | In Progress | Sprint 2 | In Progress | [v2.4.0 — Now Epics Sprints 1–3](https://github.com/mirichard/pm-tools-templates/milestone/35) |
 | [#58](https://github.com/mirichard/pm-tools-templates/issues/58) — Task: Complete Lean Startup kit navigation and acceptance | Open | Standalone | O2 - Apply practical PM guidance | Next | Todo | Sprint 2 | Todo | [v2.4.0 — Now Epics Sprints 1–3](https://github.com/mirichard/pm-tools-templates/milestone/35) |
 | [#59](https://github.com/mirichard/pm-tools-templates/issues/59) — Task: Reconcile Power Automate guide coverage and validation | Open | [#318](https://github.com/mirichard/pm-tools-templates/issues/318) | O3 - Use supported integrations | Next | Todo | — | — | — |
 | [#60](https://github.com/mirichard/pm-tools-templates/issues/60) — Task: Reconcile Zapier guide coverage and validation | Open | [#318](https://github.com/mirichard/pm-tools-templates/issues/318) | O3 - Use supported integrations | Next | Todo | — | — | — |
@@ -94,5 +91,5 @@ Snapshot fingerprint: `bf6fa5dba5384d425ada7555163f059e9bf2ed07a9b36b7372d66d037
 | [#1406](https://github.com/mirichard/pm-tools-templates/issues/1406) — Task: Resolve TypeScript 7 toolchain compatibility blockers | Open | Standalone | M1 - Maintain repository reliability | Unscheduled | Done | — | — | — |
 | [#1454](https://github.com/mirichard/pm-tools-templates/issues/1454) — Track: docs/site audit exception for http-cache-semantics (GHSA-ch52-4w7c-c8xp, no patch) | Open | Standalone | — | — | Todo | — | — | — |
 | [#1469](https://github.com/mirichard/pm-tools-templates/issues/1469) — 📋 Weekly Triage Preparation - 2026-10-06 | Open | Standalone | — | — | Todo | — | — | — |
-| [#1472](https://github.com/mirichard/pm-tools-templates/issues/1472) — Bug: Link-check CI gates do not detect broken file-path links | Open | Standalone | — | — | Todo | — | — | — |
-| [#1474](https://github.com/mirichard/pm-tools-templates/issues/1474) — Design Thinking, Lean Startup and Innovation templates are uncatalogued and unclassified | Open | Standalone | — | — | In Progress | — | — | — |
+| [#1472](https://github.com/mirichard/pm-tools-templates/issues/1472) — Bug: Link-check CI gates do not detect broken file-path links | Open | Standalone | M1 - Maintain repository reliability | Next | Todo | — | — | — |
+| [#1474](https://github.com/mirichard/pm-tools-templates/issues/1474) — Design Thinking, Lean Startup and Innovation templates are uncatalogued and unclassified | Open | Standalone | O1 - Find and customize templates | Next | In Progress | — | — | — |

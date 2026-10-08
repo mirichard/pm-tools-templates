@@ -1,3 +1,13 @@
+---
+title: "User Empathy Mapping Template"
+methodology: "universal"
+complexity: "advanced"
+owner: "mirichard"
+updated: "2026-10-08"
+domain: "Stakeholder"
+tags: ["design-thinking", "empathy-mapping", "user-research", "stakeholder-management"]
+---
+
 # User Empathy Mapping Template
 
 ## Overview
@@ -941,13 +951,10 @@ long_term_impact_metrics:
 
 ### Template Ecosystem Connections
 - [Design Thinking Workshop Template](./design_thinking_workshop_template.md) - Complete workshop framework
-- [Innovation Project Template](../../organizational-frameworks/innovation-management/innovation_project_template.md) - Innovation project management
-- [User Story Templates](../../agile/templates/user_story_template.md) - Agile user story integration
-- [Stakeholder Analysis Templates](../../traditional/process_groups/initiating/stakeholder_register_template.md) - Stakeholder management
-
-### Tool Integration Guides
-- [Miro Empathy Mapping Setup](../../integration_guides/collaboration_tools/miro_setup.md) - Digital tool configuration
-- [User Research Integration](../../integration_guides/research_tools/) - Research tool workflows
+- [Innovation Project Template](../../../organizational-frameworks/innovation-management/innovation_project_template.md) - Innovation project management
+- [User Story Template](../../../domains/uncertainty/role-based-toolkits/product-owner/user-story-template.md) - Agile user story integration
+- [Stakeholder Register Template](../../../domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/stakeholder-register-template.md) - Stakeholder management
+- [Design Thinking Walkthrough Example](../../../examples/design-thinking/design-thinking-walkthrough.md) - Worked end-to-end example
 
 ---
 

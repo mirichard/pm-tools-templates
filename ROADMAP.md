@@ -89,11 +89,11 @@ Legacy recovery remains documented under [#1329](https://github.com/mirichard/pm
 The editorial date above applies to human-reviewed narrative. Snapshot capture time is maintained separately by synchronization; older snapshots without a recorded time gain one on the next reconciliation. [Latest synchronization checks](https://github.com/mirichard/pm-tools-templates/actions/workflows/roadmap-sync.yml) show run times and outcomes, including checks that found no changes.
 
 <!-- roadmap-sync:start -->
-Snapshot updated at: 2026-10-08T13:42:58.699Z (UTC).
+Snapshot updated at: 2026-10-08T15:01:23.305Z (UTC).
 
 [Latest synchronization checks](https://github.com/mirichard/pm-tools-templates/actions/workflows/roadmap-sync.yml) — includes successful checks with no data changes. A check does not publish to main until its PR is merged.
 
-Snapshot fingerprint: `bf6fa5dba5384d425ada7555163f059e9bf2ed07a9b36b7372d66d037b881d46`. Values are copied from issues and Projects, not inferred acceptance or release claims.
+Snapshot fingerprint: `d7650ab0360ce6794f3a42d8adda1957b4e44a29b992388b644206d4f5986ac5`. Values are copied from issues and Projects, not inferred acceptance or release claims.
 
 | Sprint | Issue | Issue state | Board status | Release milestone |
 | --- | --- | --- | --- | --- |
@@ -104,7 +104,7 @@ Snapshot fingerprint: `bf6fa5dba5384d425ada7555163f059e9bf2ed07a9b36b7372d66d037
 | Sprint 1 | [#1367](https://github.com/mirichard/pm-tools-templates/issues/1367) — Bug: Resolve intake and validation gaps found in issue-management UAT | Closed (completed) | Done | [v2.4.0 — Now Epics Sprints 1–3](https://github.com/mirichard/pm-tools-templates/milestone/35) |
 | Sprint 1 | [#1384](https://github.com/mirichard/pm-tools-templates/issues/1384) — Story: Keep repository roadmap documentation and planning views synchronized | Closed (completed) | Done | [v2.4.0 — Now Epics Sprints 1–3](https://github.com/mirichard/pm-tools-templates/milestone/35) |
 
-[Full status and drift report](backlog/roadmap-status.md). 7 drift flag(s) require review.
+[Full status and drift report](backlog/roadmap-status.md). 4 drift flag(s) require review.
 
 <!-- roadmap-sync:end -->
 
