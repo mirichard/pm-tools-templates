@@ -2,16 +2,15 @@
 
 Generated; do not edit by hand. [Policy](../docs/roadmap-sync.md) · [Decision register](roadmap-alignment.md).
 
-Snapshot updated at: 2026-10-08T19:41:09.908Z (UTC).
+Snapshot updated at: 2026-10-08T19:51:47.897Z (UTC).
 
 [Latest synchronization checks](https://github.com/mirichard/pm-tools-templates/actions/workflows/roadmap-sync.yml) — includes successful checks with no data changes. A check does not publish to main until its PR is merged.
 
-Snapshot fingerprint: `71b0f2466ccd444394fed9931bfccbe08dcce24e6e5e5f082e69f1494cc358c6`. Values are copied from issues and Projects, not inferred acceptance or release claims.
+Snapshot fingerprint: `da424a0100b2a94871e3be4a3d114d820da2c31a5269547eb6ce07973f3f3c14`. Values are copied from issues and Projects, not inferred acceptance or release claims.
 
 ## Drift requiring review
 
 - #319: missing Outcome or Horizon
-- #325: missing or archived roadmap item
 - #325: missing Outcome or Horizon
 - #1406: open issue / Roadmap Done; acceptance review required
 - #1454: missing Outcome or Horizon
@@ -50,7 +49,7 @@ Snapshot fingerprint: `71b0f2466ccd444394fed9931bfccbe08dcce24e6e5e5f082e69f1494
 | [#319](https://github.com/mirichard/pm-tools-templates/issues/319) — EPIC: Community &amp; Feedback Ecosystem | Open | Standalone | — | — | Todo | Sprint 3 | Todo | [v2.4.0 — Now Epics Sprints 1–3](https://github.com/mirichard/pm-tools-templates/milestone/35) |
 | [#320](https://github.com/mirichard/pm-tools-templates/issues/320) — EPIC: Executive &amp; Enterprise Platform | Open | Standalone | O5 - Make traceable value decisions | Later | Todo | — | — | — |
 | [#323](https://github.com/mirichard/pm-tools-templates/issues/323) — EPIC: Advanced Template Discovery &amp; Selection System | Open | Standalone | O1 - Find and customize templates | Later | Todo | — | — | — |
-| [#325](https://github.com/mirichard/pm-tools-templates/issues/325) — EPIC: Universal PM Tool Integration Platform | Open | [#318](https://github.com/mirichard/pm-tools-templates/issues/318) | — | — | — | Sprint 3 | Todo | [v2.4.0 — Now Epics Sprints 1–3](https://github.com/mirichard/pm-tools-templates/milestone/35) |
+| [#325](https://github.com/mirichard/pm-tools-templates/issues/325) — EPIC: Universal PM Tool Integration Platform | Open | [#318](https://github.com/mirichard/pm-tools-templates/issues/318) | — | — | Todo | Sprint 3 | Todo | [v2.4.0 — Now Epics Sprints 1–3](https://github.com/mirichard/pm-tools-templates/milestone/35) |
 | [#341](https://github.com/mirichard/pm-tools-templates/issues/341) — EPIC: ROI &amp; Value Tracking System | Open | [#320](https://github.com/mirichard/pm-tools-templates/issues/320) | O5 - Make traceable value decisions | Later | Todo | — | — | — |
 | [#365](https://github.com/mirichard/pm-tools-templates/issues/365) — EPIC: Smart Program Management Environment | Open | Standalone | O6 - Automate bounded PM workflows | Later | Todo | — | — | — |
 | [#367](https://github.com/mirichard/pm-tools-templates/issues/367) — EPIC: Traditional Template Mapping Engine | Open | [#365](https://github.com/mirichard/pm-tools-templates/issues/365) | O6 - Automate bounded PM workflows | Later | Todo | — | — | — |
