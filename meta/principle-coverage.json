@@ -1,24 +1,24 @@
 {
   "version": 1,
-  "catalog_commit": "9749b3e483ecd4df0bf0d1fc5ab641de123f6ad7",
-  "catalog_sha256": "1d47df78ed2163396ed59829e785c997da76a69f92baecdd1912a08641ec71ff",
+  "catalog_commit": "ec1ccd8d9428252984bdfa934eccbdcb9968d811",
+  "catalog_sha256": "f45ee7c70b9928406278415116ed33f88f8574b51dcee2722692a30e3cea46c7",
   "schema_sha256": "16c22874616d0e1c0edcf77567fd28d79898e6205329fa48eb408a3363d3c08b",
-  "catalog_records": 139,
-  "denominator": 139,
-  "annotated": 139,
+  "catalog_records": 148,
+  "denominator": 148,
+  "annotated": 148,
   "coverage_percent": 100.0,
   "exclusions": [],
   "principle_counts": {
-    "adaptability": 39,
-    "collaborative-leadership": 29,
-    "continuous-learning": 26,
-    "evidence-based-decisions": 78,
-    "quality-by-design": 48,
-    "risk-optimization": 44,
-    "stakeholder-engagement": 30,
-    "stewardship": 62,
-    "systems-thinking": 46,
-    "value-focus": 34
+    "adaptability": 46,
+    "collaborative-leadership": 30,
+    "continuous-learning": 28,
+    "evidence-based-decisions": 85,
+    "quality-by-design": 50,
+    "risk-optimization": 48,
+    "stakeholder-engagement": 33,
+    "stewardship": 63,
+    "systems-thinking": 49,
+    "value-focus": 39
   },
   "templates": [
     {
@@ -1817,6 +1817,131 @@
         "risk-optimization"
       ],
       "principle_rationale": "Defines bounded test coverage, entry and exit criteria and execution evidence so acceptance reflects the quality risks being evaluated."
+    },
+    {
+      "path": "methodology-frameworks/emerging-methods/design-thinking/design_thinking_workshop_template.md",
+      "sha256": "ee90a4dd2968f859b6c883af15bea3809777eaa07b7e5b592f65ddb859525fef",
+      "annotation_lines": 3,
+      "primary_principles": [
+        "stakeholder-engagement",
+        "collaborative-leadership"
+      ],
+      "secondary_principles": [
+        "adaptability",
+        "value-focus"
+      ],
+      "principle_rationale": "Facilitates collaborative problem framing with users and teams so workshop outputs drive adaptable value-focused delivery decisions."
+    },
+    {
+      "path": "methodology-frameworks/emerging-methods/design-thinking/user_empathy_mapping_template.md",
+      "sha256": "6b89de5ced5e92347e43f655cdf6c9204e4f01e01352f8239d962859f5d133d0",
+      "annotation_lines": 3,
+      "primary_principles": [
+        "stakeholder-engagement",
+        "systems-thinking"
+      ],
+      "secondary_principles": [
+        "evidence-based-decisions"
+      ],
+      "principle_rationale": "Converts user research signals into a shared system view that strengthens stakeholder understanding and evidence-backed choices."
+    },
+    {
+      "path": "methodology-frameworks/emerging-methods/lean-startup/build-measure-learn-cycle.md",
+      "sha256": "52f65ef8e587b9c91d44630e4fca4cc35b60b485803070c79f454ea751987de4",
+      "annotation_lines": 3,
+      "primary_principles": [
+        "evidence-based-decisions",
+        "adaptability"
+      ],
+      "secondary_principles": [
+        "continuous-learning",
+        "value-focus"
+      ],
+      "principle_rationale": "Links rapid delivery loops to measured outcomes so teams learn continuously and adapt toward demonstrable value."
+    },
+    {
+      "path": "methodology-frameworks/emerging-methods/lean-startup/customer-validation-framework.md",
+      "sha256": "962407949d9f38235bd227f2c023ae516401c54a6f82ae58d1c3d373cd6695f5",
+      "annotation_lines": 3,
+      "primary_principles": [
+        "stakeholder-engagement",
+        "evidence-based-decisions"
+      ],
+      "secondary_principles": [
+        "value-focus",
+        "adaptability"
+      ],
+      "principle_rationale": "Uses direct customer evidence to validate demand and align product decisions with stakeholder needs and value outcomes."
+    },
+    {
+      "path": "methodology-frameworks/emerging-methods/lean-startup/experiment-design-template.md",
+      "sha256": "df8e464f11bac95b493c7dc96be9e7eb34437b9082a3455c9157c75bbfa7c5f6",
+      "annotation_lines": 3,
+      "primary_principles": [
+        "evidence-based-decisions",
+        "risk-optimization"
+      ],
+      "secondary_principles": [
+        "quality-by-design",
+        "continuous-learning"
+      ],
+      "principle_rationale": "Defines controlled tests with explicit metrics and risks so learning quality supports reliable product and investment decisions."
+    },
+    {
+      "path": "methodology-frameworks/emerging-methods/lean-startup/hypothesis-driven-planning.md",
+      "sha256": "27d998ee4aa55b274601e65c99e746e90597cd1ce40d9a85575662329142d609",
+      "annotation_lines": 3,
+      "primary_principles": [
+        "risk-optimization",
+        "evidence-based-decisions"
+      ],
+      "secondary_principles": [
+        "adaptability",
+        "systems-thinking"
+      ],
+      "principle_rationale": "Prioritizes uncertain assumptions for evidence-led testing so strategy can adapt while managing cross-model risk exposure."
+    },
+    {
+      "path": "methodology-frameworks/emerging-methods/lean-startup/lean-canvas-template.md",
+      "sha256": "ce048af10b3e6b89d4f4211d825336cd0e595732892db0a4a523c1a4c9826fcf",
+      "annotation_lines": 3,
+      "primary_principles": [
+        "value-focus",
+        "systems-thinking"
+      ],
+      "secondary_principles": [
+        "adaptability",
+        "risk-optimization"
+      ],
+      "principle_rationale": "Maps the business model as an interconnected system to focus teams on value assumptions and adaptive risk-aware planning."
+    },
+    {
+      "path": "methodology-frameworks/emerging-methods/lean-startup/mvp-planning-template.md",
+      "sha256": "a5bf9367b9d096a378e7526f6480278ac53c858dcd5a5adbd05a3e839e4d421f",
+      "annotation_lines": 3,
+      "primary_principles": [
+        "value-focus",
+        "adaptability"
+      ],
+      "secondary_principles": [
+        "quality-by-design",
+        "evidence-based-decisions"
+      ],
+      "principle_rationale": "Scopes minimum delivery for validated learning so teams protect quality while adapting quickly toward customer value."
+    },
+    {
+      "path": "methodology-frameworks/emerging-methods/lean-startup/pivot-decision-framework.md",
+      "sha256": "bd814b09954eef5afce8ffe3fa3af3b58b952c2f9ee71fcd7bc73dfbd721783c",
+      "annotation_lines": 3,
+      "primary_principles": [
+        "adaptability",
+        "evidence-based-decisions"
+      ],
+      "secondary_principles": [
+        "risk-optimization",
+        "stewardship"
+      ],
+      "principle_rationale": "Structures pivot decisions around measured signals so organizations adapt responsibly while managing risk and resource accountability."
     },
     {
       "path": "templates/universal/benefits-review-template.md",

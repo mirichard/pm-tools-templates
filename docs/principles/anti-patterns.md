@@ -260,6 +260,15 @@ Use this guide alongside template-level applicability guidance. Each pattern des
 - [Safe Program Increment Planning Template](../../domains/delivery/methodology-frameworks/agile-scrum/scaling-frameworks/safe/safe_program_increment_planning_template.md).
 - [Technical Design Document Template](../../domains/measurement/industry-specializations/information-technology/software-development/technical_design_document_template.md).
 - [Work Breakdown Structure Template](../../domains/delivery/templates/traditional/Traditional/Process_Groups/Planning/work_breakdown_structure_template.md).
+- [Design Thinking Workshop Template](../../methodology-frameworks/emerging-methods/design-thinking/design_thinking_workshop_template.md).
+- [User Empathy Mapping Template](../../methodology-frameworks/emerging-methods/design-thinking/user_empathy_mapping_template.md).
+- [Build-Measure-Learn Cycle Template](../../methodology-frameworks/emerging-methods/lean-startup/build-measure-learn-cycle.md).
+- [Customer Validation Framework](../../methodology-frameworks/emerging-methods/lean-startup/customer-validation-framework.md).
+- [Experiment Design Template](../../methodology-frameworks/emerging-methods/lean-startup/experiment-design-template.md).
+- [Hypothesis-Driven Planning Template](../../methodology-frameworks/emerging-methods/lean-startup/hypothesis-driven-planning.md).
+- [Lean Canvas Template](../../methodology-frameworks/emerging-methods/lean-startup/lean-canvas-template.md).
+- [MVP Planning Template](../../methodology-frameworks/emerging-methods/lean-startup/mvp-planning-template.md).
+- [Pivot Decision Framework](../../methodology-frameworks/emerging-methods/lean-startup/pivot-decision-framework.md).
 
 <a id="self-approval"></a>
 
