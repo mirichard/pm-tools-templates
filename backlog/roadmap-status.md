@@ -2,11 +2,11 @@
 
 Generated; do not edit by hand. [Policy](../docs/roadmap-sync.md) · [Decision register](roadmap-alignment.md).
 
-Snapshot updated at: 2026-10-08T13:24:46.536Z (UTC).
+Snapshot updated at: 2026-10-08T13:42:58.699Z (UTC).
 
 [Latest synchronization checks](https://github.com/mirichard/pm-tools-templates/actions/workflows/roadmap-sync.yml) — includes successful checks with no data changes. A check does not publish to main until its PR is merged.
 
-Snapshot fingerprint: `53ce71b50d25a1e76ab43fac27dc0afc67519de9fbc16e965e5f186a26b356ed`. Values are copied from issues and Projects, not inferred acceptance or release claims.
+Snapshot fingerprint: `bf6fa5dba5384d425ada7555163f059e9bf2ed07a9b36b7372d66d037b881d46`. Values are copied from issues and Projects, not inferred acceptance or release claims.
 
 ## Drift requiring review
 
@@ -95,4 +95,4 @@ Snapshot fingerprint: `53ce71b50d25a1e76ab43fac27dc0afc67519de9fbc16e965e5f186a2
 | [#1454](https://github.com/mirichard/pm-tools-templates/issues/1454) — Track: docs/site audit exception for http-cache-semantics (GHSA-ch52-4w7c-c8xp, no patch) | Open | Standalone | — | — | Todo | — | — | — |
 | [#1469](https://github.com/mirichard/pm-tools-templates/issues/1469) — 📋 Weekly Triage Preparation - 2026-10-06 | Open | Standalone | — | — | Todo | — | — | — |
 | [#1472](https://github.com/mirichard/pm-tools-templates/issues/1472) — Bug: Link-check CI gates do not detect broken file-path links | Open | Standalone | — | — | Todo | — | — | — |
-| [#1474](https://github.com/mirichard/pm-tools-templates/issues/1474) — Design Thinking, Lean Startup and Innovation templates are uncatalogued and unclassified | Open | Standalone | — | — | Todo | — | — | — |
+| [#1474](https://github.com/mirichard/pm-tools-templates/issues/1474) — Design Thinking, Lean Startup and Innovation templates are uncatalogued and unclassified | Open | Standalone | — | — | In Progress | — | — | — |
