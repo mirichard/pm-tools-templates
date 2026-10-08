@@ -1210,13 +1210,10 @@ Organizational Metrics:
 
 ### Template Ecosystem Integration
 - [User Empathy Mapping Template](./user_empathy_mapping_template.md) - Detailed empathy mapping process
-- [Innovation Project Management Template](../../organizational-frameworks/innovation-management/innovation_project_template.md) - Innovation project lifecycle
-- [Agile User Story Templates](../../agile/templates/) - User story integration with DT insights
-- [Hybrid Project Management Templates](../../hybrid/templates/) - Combining DT with traditional PM
-
-### Tool Integration Guides
-- [Design Thinking + Jira Integration](../../integration_guides/design_thinking_tools/) - Tool workflow setup
-- [Miro/Figma Workshop Templates](../../integration_guides/collaboration_tools/) - Digital workshop setup
+- [Innovation Project Management Template](../../../organizational-frameworks/innovation-management/innovation_project_template.md) - Innovation project lifecycle
+- [User Story Template](../../../domains/uncertainty/role-based-toolkits/product-owner/user-story-template.md) - User story integration with DT insights
+- [Hybrid Project Management Templates](../../../Hybrid/Templates/) - Combining DT with traditional PM
+- [Design Thinking Walkthrough Example](../../../examples/design-thinking/design-thinking-walkthrough.md) - Worked end-to-end example
 
 ---
 
