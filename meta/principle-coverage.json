@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "catalog_commit": "ec1ccd8d9428252984bdfa934eccbdcb9968d811",
+  "catalog_commit": "b12b8bb237b7270334803ba8f764824f90f6356e",
   "catalog_sha256": "f45ee7c70b9928406278415116ed33f88f8574b51dcee2722692a30e3cea46c7",
   "schema_sha256": "16c22874616d0e1c0edcf77567fd28d79898e6205329fa48eb408a3363d3c08b",
   "catalog_records": 148,
@@ -1820,7 +1820,7 @@
     },
     {
       "path": "methodology-frameworks/emerging-methods/design-thinking/design_thinking_workshop_template.md",
-      "sha256": "ee90a4dd2968f859b6c883af15bea3809777eaa07b7e5b592f65ddb859525fef",
+      "sha256": "12281bf2a5a5cb66a7dbc951ed418011c756b62e929527d4a449fefb5c60b367",
       "annotation_lines": 3,
       "primary_principles": [
         "stakeholder-engagement",
@@ -1834,7 +1834,7 @@
     },
     {
       "path": "methodology-frameworks/emerging-methods/design-thinking/user_empathy_mapping_template.md",
-      "sha256": "6b89de5ced5e92347e43f655cdf6c9204e4f01e01352f8239d962859f5d133d0",
+      "sha256": "7afa28a75e329080e690448bf440d08c79b05d97fa873e28b12126e5a7b95f99",
       "annotation_lines": 3,
       "primary_principles": [
         "stakeholder-engagement",
