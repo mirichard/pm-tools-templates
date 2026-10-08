@@ -2,11 +2,11 @@
 
 Generated; do not edit by hand. [Policy](../docs/roadmap-sync.md) · [Decision register](roadmap-alignment.md).
 
-Snapshot updated at: 2026-10-08T12:35:25.779Z (UTC).
+Snapshot updated at: 2026-10-08T12:39:13.012Z (UTC).
 
 [Latest synchronization checks](https://github.com/mirichard/pm-tools-templates/actions/workflows/roadmap-sync.yml) — includes successful checks with no data changes. A check does not publish to main until its PR is merged.
 
-Snapshot fingerprint: `b462d2f7754a1d738f941a5b2ccd867d1b065e3448359ce44f395a7b6213daa4`. Values are copied from issues and Projects, not inferred acceptance or release claims.
+Snapshot fingerprint: `67e21327ac9611545a73269606a796592bf7bc2cb9ca9145df0616ab59a19b18`. Values are copied from issues and Projects, not inferred acceptance or release claims.
 
 ## Drift requiring review
 
@@ -16,6 +16,7 @@ Snapshot fingerprint: `b462d2f7754a1d738f941a5b2ccd867d1b065e3448359ce44f395a7b6
 - #1454: expected exactly one type label
 - #1469: missing Outcome or Horizon
 - #1472: missing Outcome or Horizon
+- #1474: missing Outcome or Horizon
 
 ## Issue and Project values
 
@@ -94,3 +95,4 @@ Snapshot fingerprint: `b462d2f7754a1d738f941a5b2ccd867d1b065e3448359ce44f395a7b6
 | [#1454](https://github.com/mirichard/pm-tools-templates/issues/1454) — Track: docs/site audit exception for http-cache-semantics (GHSA-ch52-4w7c-c8xp, no patch) | Open | Standalone | — | — | Todo | — | — | — |
 | [#1469](https://github.com/mirichard/pm-tools-templates/issues/1469) — 📋 Weekly Triage Preparation - 2026-10-06 | Open | Standalone | — | — | Todo | — | — | — |
 | [#1472](https://github.com/mirichard/pm-tools-templates/issues/1472) — Bug: Link-check CI gates do not detect broken file-path links | Open | Standalone | — | — | Todo | — | — | — |
+| [#1474](https://github.com/mirichard/pm-tools-templates/issues/1474) — Design Thinking and Lean Startup templates are outside the domain taxonomy and uncatalogued | Open | Standalone | — | — | Todo | — | — | — |
