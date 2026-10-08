@@ -89,11 +89,11 @@ Legacy recovery remains documented under [#1329](https://github.com/mirichard/pm
 The editorial date above applies to human-reviewed narrative. Snapshot capture time is maintained separately by synchronization; older snapshots without a recorded time gain one on the next reconciliation. [Latest synchronization checks](https://github.com/mirichard/pm-tools-templates/actions/workflows/roadmap-sync.yml) show run times and outcomes, including checks that found no changes.
 
 <!-- roadmap-sync:start -->
-Snapshot updated at: 2026-10-08T20:39:36.445Z (UTC).
+Snapshot updated at: 2026-10-08T23:06:37.740Z (UTC).
 
 [Latest synchronization checks](https://github.com/mirichard/pm-tools-templates/actions/workflows/roadmap-sync.yml) — includes successful checks with no data changes. A check does not publish to main until its PR is merged.
 
-Snapshot fingerprint: `4dc6e8b50f6d44fc27568f4631bf81a873d058366f33b68cb19977333597506d`. Values are copied from issues and Projects, not inferred acceptance or release claims.
+Snapshot fingerprint: `6a1f00e26d37295397c232a7701303042af845505ac6aa3dff8e4a8f0103ff2d`. Values are copied from issues and Projects, not inferred acceptance or release claims.
 
 | Sprint | Issue | Issue state | Board status | Release milestone |
 | --- | --- | --- | --- | --- |
