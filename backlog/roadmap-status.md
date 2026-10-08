@@ -2,11 +2,11 @@
 
 Generated; do not edit by hand. [Policy](../docs/roadmap-sync.md) · [Decision register](roadmap-alignment.md).
 
-Snapshot updated at: 2026-10-08T19:12:08.954Z (UTC).
+Snapshot updated at: 2026-10-08T19:12:43.892Z (UTC).
 
 [Latest synchronization checks](https://github.com/mirichard/pm-tools-templates/actions/workflows/roadmap-sync.yml) — includes successful checks with no data changes. A check does not publish to main until its PR is merged.
 
-Snapshot fingerprint: `9bd2592e60f507ef2ea360f6b70512d2ef214a237d7e7a480a2485be2c696ce1`. Values are copied from issues and Projects, not inferred acceptance or release claims.
+Snapshot fingerprint: `a61812f2681d2ca892ab26ce8c995d76dc9678b6b740997df05d058ca9183d0f`. Values are copied from issues and Projects, not inferred acceptance or release claims.
 
 ## Drift requiring review
 
@@ -17,7 +17,6 @@ Snapshot fingerprint: `9bd2592e60f507ef2ea360f6b70512d2ef214a237d7e7a480a2485be2
 - #1454: missing Outcome or Horizon
 - #1454: expected exactly one type label
 - #1469: missing Outcome or Horizon
-- #1481: missing Outcome or Horizon
 
 ## Issue and Project values
 
@@ -98,4 +97,4 @@ Snapshot fingerprint: `9bd2592e60f507ef2ea360f6b70512d2ef214a237d7e7a480a2485be2
 | [#1472](https://github.com/mirichard/pm-tools-templates/issues/1472) — Bug: Link-check CI gates do not detect broken file-path links | Open | Standalone | M1 - Maintain repository reliability | Next | Todo | — | — | — |
 | [#1474](https://github.com/mirichard/pm-tools-templates/issues/1474) — Design Thinking, Lean Startup and Innovation templates are uncatalogued and unclassified | Closed (completed) | Standalone | O1 - Find and customize templates | Next | Done | — | — | — |
 | [#1480](https://github.com/mirichard/pm-tools-templates/issues/1480) — EPIC: Opt-in Template Usage Analytics | Open | Standalone | O4 - Contribute and influence priorities | Later | Todo | — | — | — |
-| [#1481](https://github.com/mirichard/pm-tools-templates/issues/1481) — EPIC: Community Participation Enhancements — Discovery and Selected Delivery | Open | Standalone | — | Later | Todo | — | — | — |
+| [#1481](https://github.com/mirichard/pm-tools-templates/issues/1481) — EPIC: Community Participation Enhancements — Discovery and Selected Delivery | Open | Standalone | O4 - Contribute and influence priorities | Later | Todo | — | — | — |
