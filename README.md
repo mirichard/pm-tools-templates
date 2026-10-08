@@ -113,12 +113,14 @@ Already found what you need above? You can stop there — everything below is th
 | [Uncertainty](domains/uncertainty/) | Domain | Risks, opportunities, issues, and contingency planning |
 | [Measurement](domains/measurement/) | Domain | Progress, performance, dashboards, and outcomes |
 | [Quick-start kits](quick-start-kits/README.md) | Kit | Templates bundled for a specific project scenario |
+| [Startup project kit](quick-start-kits/startup-project-kit/README.md) | Kit | Lean Startup canvas-to-validation navigation path |
 | [Role-based toolkits](role-based-toolkits/README.md) | Toolkit | Resources grouped by your responsibilities |
 | [Methodology selection guide](docs/getting-started/methodology-selector.md) | Guide | Traditional, Agile, or hybrid guidance |
 | [Industry collections](industry-specializations/) | Industry | Industry-specific resources |
 | [Business stakeholder suite](business-stakeholder-suite/README.md) | Toolkit | Executive communication and oversight |
 | [Project assessment suite](project-assessment-suite/README.md) | Guide | Assessing a project already in progress |
 | [Examples and case studies](examples/README.md) | Example | Illustrations of template use |
+| [Lean Startup walkthrough](examples/lean-startup/lean-startup-canvas-to-validation-walkthrough.md) | Example | Worked flow from canvas to customer validation |
 | [Integration guides](integration-guides/README.md) | Guide | Connecting resources to your PM tools |
 
 <!-- Compatibility anchors for existing README bookmarks. -->
