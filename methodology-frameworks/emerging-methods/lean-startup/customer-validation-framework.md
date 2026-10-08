@@ -1,3 +1,13 @@
+---
+title: "Customer Validation Framework"
+methodology: "universal"
+complexity: "advanced"
+owner: "mirichard"
+updated: "2026-10-08"
+domain: "Stakeholder"
+tags: ["lean-startup", "customer-validation", "product-market-fit", "user-research"]
+---
+
 # Customer Validation Framework
 
 ## Overview

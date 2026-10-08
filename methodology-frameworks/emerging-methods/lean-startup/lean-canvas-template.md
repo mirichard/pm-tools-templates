@@ -1,3 +1,13 @@
+---
+title: "Lean Canvas Template"
+methodology: "universal"
+complexity: "advanced"
+owner: "mirichard"
+updated: "2026-10-08"
+domain: "Planning"
+tags: ["lean-startup", "lean-canvas", "business-model", "planning"]
+---
+
 # Lean Canvas Template
 
 ## Overview

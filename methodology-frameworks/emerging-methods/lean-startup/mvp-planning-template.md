@@ -1,3 +1,13 @@
+---
+title: "MVP Planning Template"
+methodology: "universal"
+complexity: "advanced"
+owner: "mirichard"
+updated: "2026-10-08"
+domain: "Planning"
+tags: ["lean-startup", "mvp", "product-planning", "validated-learning"]
+---
+
 # MVP Planning Template
 
 ## Definition

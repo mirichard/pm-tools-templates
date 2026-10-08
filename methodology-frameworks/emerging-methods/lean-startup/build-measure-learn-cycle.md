@@ -1,3 +1,13 @@
+---
+title: "Build-Measure-Learn Cycle Template"
+methodology: "universal"
+complexity: "advanced"
+owner: "mirichard"
+updated: "2026-10-08"
+domain: "Delivery"
+tags: ["lean-startup", "build-measure-learn", "validated-learning", "iteration"]
+---
+
 # Build-Measure-Learn Cycle Template
 
 ## Overview

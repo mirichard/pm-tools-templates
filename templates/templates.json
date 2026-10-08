@@ -1,6 +1,6 @@
 {
   "generated": "2025-08-05T20:56:32.142Z",
-  "totalTemplates": 139,
+  "totalTemplates": 148,
   "templates": [
     {
       "path": "templates/universal/benefits-review-template.md",
@@ -13422,6 +13422,736 @@
         "templates/traditional/Traditional/Process_Groups/Planning/work_breakdown_structure_template.md"
       ],
       "domain": "Delivery"
+    },
+    {
+      "path": "methodology-frameworks/emerging-methods/design-thinking/design_thinking_workshop_template.md",
+      "title": "Design Thinking Workshop Template",
+      "methodology": "universal",
+      "complexity": "advanced",
+      "owner": "mirichard",
+      "updated": "2026-10-08",
+      "description": "This template provides a comprehensive framework for conducting design thinking workshops that integrate with project management practices. It combines human-centered design principles with structured...",
+      "tags": [
+        "design-thinking",
+        "workshop",
+        "innovation",
+        "human-centered-design"
+      ],
+      "size": 39322,
+      "lastModified": "2026-10-08",
+      "qualityScore": 100,
+      "qualityIssues": [],
+      "relatedTemplates": [
+        {
+          "path": "methodology-frameworks/emerging-methods/design-thinking/user_empathy_mapping_template.md",
+          "title": "User Empathy Mapping Template",
+          "methodology": "universal",
+          "tags": [
+            "design-thinking",
+            "empathy-mapping",
+            "user-research",
+            "stakeholder-management"
+          ],
+          "similarity": 57
+        },
+        {
+          "path": "methodology-frameworks/emerging-methods/lean-startup/build-measure-learn-cycle.md",
+          "title": "Build-Measure-Learn Cycle Template",
+          "methodology": "universal",
+          "tags": [
+            "lean-startup",
+            "build-measure-learn",
+            "validated-learning",
+            "iteration"
+          ],
+          "similarity": 50
+        },
+        {
+          "path": "methodology-frameworks/emerging-methods/lean-startup/customer-validation-framework.md",
+          "title": "Customer Validation Framework",
+          "methodology": "universal",
+          "tags": [
+            "lean-startup",
+            "customer-validation",
+            "product-market-fit",
+            "user-research"
+          ],
+          "similarity": 50
+        },
+        {
+          "path": "methodology-frameworks/emerging-methods/lean-startup/experiment-design-template.md",
+          "title": "Experiment Design Template",
+          "methodology": "universal",
+          "tags": [
+            "lean-startup",
+            "experiment-design",
+            "hypothesis-testing",
+            "validated-learning"
+          ],
+          "similarity": 50
+        },
+        {
+          "path": "methodology-frameworks/emerging-methods/lean-startup/hypothesis-driven-planning.md",
+          "title": "Hypothesis-Driven Planning Template",
+          "methodology": "universal",
+          "tags": [
+            "lean-startup",
+            "hypothesis-driven",
+            "assumptions",
+            "risk-management"
+          ],
+          "similarity": 50
+        }
+      ],
+      "domain": "Delivery"
+    },
+    {
+      "path": "methodology-frameworks/emerging-methods/design-thinking/user_empathy_mapping_template.md",
+      "title": "User Empathy Mapping Template",
+      "methodology": "universal",
+      "complexity": "advanced",
+      "owner": "mirichard",
+      "updated": "2026-10-08",
+      "description": "This template provides a structured approach to creating empathy maps that help teams understand users' thoughts, feelings, actions, and motivations. Empathy mapping is a core design thinking tool tha...",
+      "tags": [
+        "design-thinking",
+        "empathy-mapping",
+        "user-research",
+        "stakeholder-management"
+      ],
+      "size": 34817,
+      "lastModified": "2026-10-08",
+      "qualityScore": 100,
+      "qualityIssues": [],
+      "relatedTemplates": [
+        {
+          "path": "domains/measurement/industry-specializations/information-technology/infrastructure/infrastructure_assessment_template.md",
+          "title": "Infrastructure Assessment Template",
+          "methodology": "universal",
+          "tags": [
+            "risk-management",
+            "stakeholder-management",
+            "monitoring"
+          ],
+          "similarity": 58
+        },
+        {
+          "path": "methodology-frameworks/emerging-methods/design-thinking/design_thinking_workshop_template.md",
+          "title": "Design Thinking Workshop Template",
+          "methodology": "universal",
+          "tags": [
+            "design-thinking",
+            "workshop",
+            "innovation",
+            "human-centered-design"
+          ],
+          "similarity": 57
+        },
+        {
+          "path": "methodology-frameworks/emerging-methods/lean-startup/customer-validation-framework.md",
+          "title": "Customer Validation Framework",
+          "methodology": "universal",
+          "tags": [
+            "lean-startup",
+            "customer-validation",
+            "product-market-fit",
+            "user-research"
+          ],
+          "similarity": 57
+        },
+        {
+          "path": "domains/measurement/project-lifecycle/02-planning/business-requirements/business_requirements_document_template.md",
+          "title": "Business Requirements Document Template",
+          "methodology": "universal",
+          "tags": [
+            "risk-management",
+            "stakeholder-management",
+            "communication",
+            "monitoring"
+          ],
+          "similarity": 57
+        },
+        {
+          "path": "domains/stakeholder/business-stakeholder-suite/executive-dashboards/powerbi-integration/executive-dashboard-template.md",
+          "title": "Executive Dashboard Template",
+          "methodology": "universal",
+          "tags": [
+            "technology",
+            "risk-management",
+            "stakeholder-management",
+            "monitoring"
+          ],
+          "similarity": 57
+        }
+      ],
+      "domain": "Stakeholder"
+    },
+    {
+      "path": "methodology-frameworks/emerging-methods/lean-startup/build-measure-learn-cycle.md",
+      "title": "Build-Measure-Learn Cycle Template",
+      "methodology": "universal",
+      "complexity": "advanced",
+      "owner": "mirichard",
+      "updated": "2026-10-08",
+      "description": "The Build-Measure-Learn feedback loop is the core component of the Lean Startup methodology. This template guides you through each phase of the cycle to maximize validated learning.",
+      "tags": [
+        "lean-startup",
+        "build-measure-learn",
+        "validated-learning",
+        "iteration"
+      ],
+      "size": 3462,
+      "lastModified": "2026-10-08",
+      "qualityScore": 100,
+      "qualityIssues": [],
+      "relatedTemplates": [
+        {
+          "path": "methodology-frameworks/emerging-methods/lean-startup/experiment-design-template.md",
+          "title": "Experiment Design Template",
+          "methodology": "universal",
+          "tags": [
+            "lean-startup",
+            "experiment-design",
+            "hypothesis-testing",
+            "validated-learning"
+          ],
+          "similarity": 67
+        },
+        {
+          "path": "methodology-frameworks/emerging-methods/lean-startup/mvp-planning-template.md",
+          "title": "MVP Planning Template",
+          "methodology": "universal",
+          "tags": [
+            "lean-startup",
+            "mvp",
+            "product-planning",
+            "validated-learning"
+          ],
+          "similarity": 67
+        },
+        {
+          "path": "methodology-frameworks/emerging-methods/lean-startup/customer-validation-framework.md",
+          "title": "Customer Validation Framework",
+          "methodology": "universal",
+          "tags": [
+            "lean-startup",
+            "customer-validation",
+            "product-market-fit",
+            "user-research"
+          ],
+          "similarity": 57
+        },
+        {
+          "path": "methodology-frameworks/emerging-methods/lean-startup/hypothesis-driven-planning.md",
+          "title": "Hypothesis-Driven Planning Template",
+          "methodology": "universal",
+          "tags": [
+            "lean-startup",
+            "hypothesis-driven",
+            "assumptions",
+            "risk-management"
+          ],
+          "similarity": 57
+        },
+        {
+          "path": "methodology-frameworks/emerging-methods/lean-startup/lean-canvas-template.md",
+          "title": "Lean Canvas Template",
+          "methodology": "universal",
+          "tags": [
+            "lean-startup",
+            "lean-canvas",
+            "business-model",
+            "planning"
+          ],
+          "similarity": 57
+        }
+      ],
+      "domain": "Delivery"
+    },
+    {
+      "path": "methodology-frameworks/emerging-methods/lean-startup/customer-validation-framework.md",
+      "title": "Customer Validation Framework",
+      "methodology": "universal",
+      "complexity": "advanced",
+      "owner": "mirichard",
+      "updated": "2026-10-08",
+      "description": "Customer validation is the process of testing whether customers actually want your product and will pay for it. This framework provides systematic approaches to validate your customer assumptions and ...",
+      "tags": [
+        "lean-startup",
+        "customer-validation",
+        "product-market-fit",
+        "user-research"
+      ],
+      "size": 9580,
+      "lastModified": "2026-10-08",
+      "qualityScore": 100,
+      "qualityIssues": [],
+      "relatedTemplates": [
+        {
+          "path": "methodology-frameworks/emerging-methods/design-thinking/user_empathy_mapping_template.md",
+          "title": "User Empathy Mapping Template",
+          "methodology": "universal",
+          "tags": [
+            "design-thinking",
+            "empathy-mapping",
+            "user-research",
+            "stakeholder-management"
+          ],
+          "similarity": 57
+        },
+        {
+          "path": "methodology-frameworks/emerging-methods/lean-startup/build-measure-learn-cycle.md",
+          "title": "Build-Measure-Learn Cycle Template",
+          "methodology": "universal",
+          "tags": [
+            "lean-startup",
+            "build-measure-learn",
+            "validated-learning",
+            "iteration"
+          ],
+          "similarity": 57
+        },
+        {
+          "path": "methodology-frameworks/emerging-methods/lean-startup/experiment-design-template.md",
+          "title": "Experiment Design Template",
+          "methodology": "universal",
+          "tags": [
+            "lean-startup",
+            "experiment-design",
+            "hypothesis-testing",
+            "validated-learning"
+          ],
+          "similarity": 57
+        },
+        {
+          "path": "methodology-frameworks/emerging-methods/lean-startup/hypothesis-driven-planning.md",
+          "title": "Hypothesis-Driven Planning Template",
+          "methodology": "universal",
+          "tags": [
+            "lean-startup",
+            "hypothesis-driven",
+            "assumptions",
+            "risk-management"
+          ],
+          "similarity": 57
+        },
+        {
+          "path": "methodology-frameworks/emerging-methods/lean-startup/lean-canvas-template.md",
+          "title": "Lean Canvas Template",
+          "methodology": "universal",
+          "tags": [
+            "lean-startup",
+            "lean-canvas",
+            "business-model",
+            "planning"
+          ],
+          "similarity": 57
+        }
+      ],
+      "domain": "Stakeholder"
+    },
+    {
+      "path": "methodology-frameworks/emerging-methods/lean-startup/experiment-design-template.md",
+      "title": "Experiment Design Template",
+      "methodology": "universal",
+      "complexity": "advanced",
+      "owner": "mirichard",
+      "updated": "2026-10-08",
+      "description": "This template helps you design and execute systematic experiments to validate business hypotheses using the scientific method. Proper experiment design ensures reliable results and actionable insights...",
+      "tags": [
+        "lean-startup",
+        "experiment-design",
+        "hypothesis-testing",
+        "validated-learning"
+      ],
+      "size": 12984,
+      "lastModified": "2026-10-08",
+      "qualityScore": 100,
+      "qualityIssues": [],
+      "relatedTemplates": [
+        {
+          "path": "methodology-frameworks/emerging-methods/lean-startup/build-measure-learn-cycle.md",
+          "title": "Build-Measure-Learn Cycle Template",
+          "methodology": "universal",
+          "tags": [
+            "lean-startup",
+            "build-measure-learn",
+            "validated-learning",
+            "iteration"
+          ],
+          "similarity": 67
+        },
+        {
+          "path": "methodology-frameworks/emerging-methods/lean-startup/mvp-planning-template.md",
+          "title": "MVP Planning Template",
+          "methodology": "universal",
+          "tags": [
+            "lean-startup",
+            "mvp",
+            "product-planning",
+            "validated-learning"
+          ],
+          "similarity": 67
+        },
+        {
+          "path": "methodology-frameworks/emerging-methods/lean-startup/customer-validation-framework.md",
+          "title": "Customer Validation Framework",
+          "methodology": "universal",
+          "tags": [
+            "lean-startup",
+            "customer-validation",
+            "product-market-fit",
+            "user-research"
+          ],
+          "similarity": 57
+        },
+        {
+          "path": "methodology-frameworks/emerging-methods/lean-startup/hypothesis-driven-planning.md",
+          "title": "Hypothesis-Driven Planning Template",
+          "methodology": "universal",
+          "tags": [
+            "lean-startup",
+            "hypothesis-driven",
+            "assumptions",
+            "risk-management"
+          ],
+          "similarity": 57
+        },
+        {
+          "path": "methodology-frameworks/emerging-methods/lean-startup/lean-canvas-template.md",
+          "title": "Lean Canvas Template",
+          "methodology": "universal",
+          "tags": [
+            "lean-startup",
+            "lean-canvas",
+            "business-model",
+            "planning"
+          ],
+          "similarity": 57
+        }
+      ],
+      "domain": "Uncertainty"
+    },
+    {
+      "path": "methodology-frameworks/emerging-methods/lean-startup/hypothesis-driven-planning.md",
+      "title": "Hypothesis-Driven Planning Template",
+      "methodology": "universal",
+      "complexity": "advanced",
+      "owner": "mirichard",
+      "updated": "2026-10-08",
+      "description": "Hypothesis-driven planning transforms assumptions into testable hypotheses that can be validated or invalidated through experiments. This approach reduces risk by testing the riskiest assumptions firs...",
+      "tags": [
+        "lean-startup",
+        "hypothesis-driven",
+        "assumptions",
+        "risk-management"
+      ],
+      "size": 11779,
+      "lastModified": "2026-10-08",
+      "qualityScore": 100,
+      "qualityIssues": [],
+      "relatedTemplates": [
+        {
+          "path": "domains/uncertainty/role-based-toolkits/product-owner/user-story-template.md",
+          "title": "User Story Template",
+          "methodology": "universal",
+          "tags": [
+            "technology",
+            "risk-management"
+          ],
+          "similarity": 60
+        },
+        {
+          "path": "domains/delivery/industry-specializations/healthcare-pharmaceutical/validation/cleaning_validation_protocol_template.md",
+          "title": "Cleaning Validation Protocol Template",
+          "methodology": "universal",
+          "tags": [
+            "healthcare",
+            "risk-management",
+            "quality"
+          ],
+          "similarity": 58
+        },
+        {
+          "path": "domains/measurement/industry-specializations/information-technology/infrastructure/infrastructure_assessment_template.md",
+          "title": "Infrastructure Assessment Template",
+          "methodology": "universal",
+          "tags": [
+            "risk-management",
+            "stakeholder-management",
+            "monitoring"
+          ],
+          "similarity": 58
+        },
+        {
+          "path": "domains/uncertainty/industry-specializations/information-technology/software-development/user_story_mapping_template.md",
+          "title": "User Story Mapping Template",
+          "methodology": "universal",
+          "tags": [
+            "technology",
+            "risk-management",
+            "planning"
+          ],
+          "similarity": 58
+        },
+        {
+          "path": "methodology-frameworks/emerging-methods/lean-startup/build-measure-learn-cycle.md",
+          "title": "Build-Measure-Learn Cycle Template",
+          "methodology": "universal",
+          "tags": [
+            "lean-startup",
+            "build-measure-learn",
+            "validated-learning",
+            "iteration"
+          ],
+          "similarity": 57
+        }
+      ],
+      "domain": "Uncertainty"
+    },
+    {
+      "path": "methodology-frameworks/emerging-methods/lean-startup/lean-canvas-template.md",
+      "title": "Lean Canvas Template",
+      "methodology": "universal",
+      "complexity": "advanced",
+      "owner": "mirichard",
+      "updated": "2026-10-08",
+      "description": "The Lean Canvas is a 1-page business model that helps you deconstruct your idea into its key assumptions. It's adapted from Alex Osterwalder's Business Model Canvas for the Lean Startup methodology.",
+      "tags": [
+        "lean-startup",
+        "lean-canvas",
+        "business-model",
+        "planning"
+      ],
+      "size": 7087,
+      "lastModified": "2026-10-08",
+      "qualityScore": 100,
+      "qualityIssues": [],
+      "relatedTemplates": [
+        {
+          "path": "domains/measurement/methodology-frameworks/emerging-methods/devops/infrastructure_as_code_template.md",
+          "title": "Infrastructure As Code Template",
+          "methodology": "universal",
+          "tags": [
+            "communication",
+            "planning",
+            "monitoring"
+          ],
+          "similarity": 58
+        },
+        {
+          "path": "domains/uncertainty/industry-specializations/information-technology/software-development/user_story_mapping_template.md",
+          "title": "User Story Mapping Template",
+          "methodology": "universal",
+          "tags": [
+            "technology",
+            "risk-management",
+            "planning"
+          ],
+          "similarity": 58
+        },
+        {
+          "path": "methodology-frameworks/emerging-methods/lean-startup/build-measure-learn-cycle.md",
+          "title": "Build-Measure-Learn Cycle Template",
+          "methodology": "universal",
+          "tags": [
+            "lean-startup",
+            "build-measure-learn",
+            "validated-learning",
+            "iteration"
+          ],
+          "similarity": 57
+        },
+        {
+          "path": "methodology-frameworks/emerging-methods/lean-startup/customer-validation-framework.md",
+          "title": "Customer Validation Framework",
+          "methodology": "universal",
+          "tags": [
+            "lean-startup",
+            "customer-validation",
+            "product-market-fit",
+            "user-research"
+          ],
+          "similarity": 57
+        },
+        {
+          "path": "methodology-frameworks/emerging-methods/lean-startup/experiment-design-template.md",
+          "title": "Experiment Design Template",
+          "methodology": "universal",
+          "tags": [
+            "lean-startup",
+            "experiment-design",
+            "hypothesis-testing",
+            "validated-learning"
+          ],
+          "similarity": 57
+        }
+      ],
+      "domain": "Planning"
+    },
+    {
+      "path": "methodology-frameworks/emerging-methods/lean-startup/mvp-planning-template.md",
+      "title": "MVP Planning Template",
+      "methodology": "universal",
+      "complexity": "advanced",
+      "owner": "mirichard",
+      "updated": "2026-10-08",
+      "description": "A Minimum Viable Product (MVP) is the version of a new product that allows a team to collect the maximum amount of validated learning about customers with the least effort.",
+      "tags": [
+        "lean-startup",
+        "mvp",
+        "product-planning",
+        "validated-learning"
+      ],
+      "size": 5325,
+      "lastModified": "2026-10-08",
+      "qualityScore": 100,
+      "qualityIssues": [],
+      "relatedTemplates": [
+        {
+          "path": "methodology-frameworks/emerging-methods/lean-startup/build-measure-learn-cycle.md",
+          "title": "Build-Measure-Learn Cycle Template",
+          "methodology": "universal",
+          "tags": [
+            "lean-startup",
+            "build-measure-learn",
+            "validated-learning",
+            "iteration"
+          ],
+          "similarity": 67
+        },
+        {
+          "path": "methodology-frameworks/emerging-methods/lean-startup/experiment-design-template.md",
+          "title": "Experiment Design Template",
+          "methodology": "universal",
+          "tags": [
+            "lean-startup",
+            "experiment-design",
+            "hypothesis-testing",
+            "validated-learning"
+          ],
+          "similarity": 67
+        },
+        {
+          "path": "methodology-frameworks/emerging-methods/lean-startup/customer-validation-framework.md",
+          "title": "Customer Validation Framework",
+          "methodology": "universal",
+          "tags": [
+            "lean-startup",
+            "customer-validation",
+            "product-market-fit",
+            "user-research"
+          ],
+          "similarity": 57
+        },
+        {
+          "path": "methodology-frameworks/emerging-methods/lean-startup/hypothesis-driven-planning.md",
+          "title": "Hypothesis-Driven Planning Template",
+          "methodology": "universal",
+          "tags": [
+            "lean-startup",
+            "hypothesis-driven",
+            "assumptions",
+            "risk-management"
+          ],
+          "similarity": 57
+        },
+        {
+          "path": "methodology-frameworks/emerging-methods/lean-startup/lean-canvas-template.md",
+          "title": "Lean Canvas Template",
+          "methodology": "universal",
+          "tags": [
+            "lean-startup",
+            "lean-canvas",
+            "business-model",
+            "planning"
+          ],
+          "similarity": 57
+        }
+      ],
+      "domain": "Planning"
+    },
+    {
+      "path": "methodology-frameworks/emerging-methods/lean-startup/pivot-decision-framework.md",
+      "title": "Pivot Decision Framework",
+      "methodology": "universal",
+      "complexity": "advanced",
+      "owner": "mirichard",
+      "updated": "2026-10-08",
+      "description": "A pivot is a structured course correction designed to test a new fundamental hypothesis about the product, strategy, and engine of growth. This framework helps you determine when to pivot and what typ...",
+      "tags": [
+        "lean-startup",
+        "pivot",
+        "decision-making",
+        "strategy"
+      ],
+      "size": 13806,
+      "lastModified": "2026-10-08",
+      "qualityScore": 100,
+      "qualityIssues": [],
+      "relatedTemplates": [
+        {
+          "path": "methodology-frameworks/emerging-methods/lean-startup/build-measure-learn-cycle.md",
+          "title": "Build-Measure-Learn Cycle Template",
+          "methodology": "universal",
+          "tags": [
+            "lean-startup",
+            "build-measure-learn",
+            "validated-learning",
+            "iteration"
+          ],
+          "similarity": 57
+        },
+        {
+          "path": "methodology-frameworks/emerging-methods/lean-startup/customer-validation-framework.md",
+          "title": "Customer Validation Framework",
+          "methodology": "universal",
+          "tags": [
+            "lean-startup",
+            "customer-validation",
+            "product-market-fit",
+            "user-research"
+          ],
+          "similarity": 57
+        },
+        {
+          "path": "methodology-frameworks/emerging-methods/lean-startup/experiment-design-template.md",
+          "title": "Experiment Design Template",
+          "methodology": "universal",
+          "tags": [
+            "lean-startup",
+            "experiment-design",
+            "hypothesis-testing",
+            "validated-learning"
+          ],
+          "similarity": 57
+        },
+        {
+          "path": "methodology-frameworks/emerging-methods/lean-startup/hypothesis-driven-planning.md",
+          "title": "Hypothesis-Driven Planning Template",
+          "methodology": "universal",
+          "tags": [
+            "lean-startup",
+            "hypothesis-driven",
+            "assumptions",
+            "risk-management"
+          ],
+          "similarity": 57
+        },
+        {
+          "path": "methodology-frameworks/emerging-methods/lean-startup/lean-canvas-template.md",
+          "title": "Lean Canvas Template",
+          "methodology": "universal",
+          "tags": [
+            "lean-startup",
+            "lean-canvas",
+            "business-model",
+            "planning"
+          ],
+          "similarity": 57
+        }
+      ],
+      "domain": "Uncertainty"
     }
   ],
   "statistics": {

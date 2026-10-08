@@ -1,3 +1,13 @@
+---
+title: "Experiment Design Template"
+methodology: "universal"
+complexity: "advanced"
+owner: "mirichard"
+updated: "2026-10-08"
+domain: "Uncertainty"
+tags: ["lean-startup", "experiment-design", "hypothesis-testing", "validated-learning"]
+---
+
 # Experiment Design Template
 
 ## Overview

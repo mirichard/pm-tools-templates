@@ -1,3 +1,13 @@
+---
+title: "Pivot Decision Framework"
+methodology: "universal"
+complexity: "advanced"
+owner: "mirichard"
+updated: "2026-10-08"
+domain: "Uncertainty"
+tags: ["lean-startup", "pivot", "decision-making", "strategy"]
+---
+
 # Pivot Decision Framework
 
 ## Overview

@@ -1,3 +1,13 @@
+---
+title: "Hypothesis-Driven Planning Template"
+methodology: "universal"
+complexity: "advanced"
+owner: "mirichard"
+updated: "2026-10-08"
+domain: "Uncertainty"
+tags: ["lean-startup", "hypothesis-driven", "assumptions", "risk-management"]
+---
+
 # Hypothesis-Driven Planning Template
 
 ## Overview
