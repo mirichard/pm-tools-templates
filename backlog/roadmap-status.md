@@ -2,11 +2,11 @@
 
 Generated; do not edit by hand. [Policy](../docs/roadmap-sync.md) · [Decision register](roadmap-alignment.md).
 
-Snapshot updated at: 2026-10-08T19:08:58.105Z (UTC).
+Snapshot updated at: 2026-10-08T19:10:44.087Z (UTC).
 
 [Latest synchronization checks](https://github.com/mirichard/pm-tools-templates/actions/workflows/roadmap-sync.yml) — includes successful checks with no data changes. A check does not publish to main until its PR is merged.
 
-Snapshot fingerprint: `af221dde847c54bce0b630ab6f29fca2cc36d6495e8042e603cd3e580753c90a`. Values are copied from issues and Projects, not inferred acceptance or release claims.
+Snapshot fingerprint: `1ee1661050df3602e79378d17282779be19fa732d5a17f2ec02fec7e2a0328bd`. Values are copied from issues and Projects, not inferred acceptance or release claims.
 
 ## Drift requiring review
 
@@ -38,7 +38,7 @@ Snapshot fingerprint: `af221dde847c54bce0b630ab6f29fca2cc36d6495e8042e603cd3e580
 | [#69](https://github.com/mirichard/pm-tools-templates/issues/69) — Story: Navigation Structure Optimization - Collapsible Template Organization | Open | [#323](https://github.com/mirichard/pm-tools-templates/issues/323) | O1 - Find and customize templates | Later | Todo | — | — | — |
 | [#75](https://github.com/mirichard/pm-tools-templates/issues/75) — Story: Complete the browser-based template customization workflow | Closed (completed) | Standalone | O1 - Find and customize templates | Now | Done | Sprint 1 | Done | [v2.4.0 — Now Epics Sprints 1–3](https://github.com/mirichard/pm-tools-templates/milestone/35) |
 | [#76](https://github.com/mirichard/pm-tools-templates/issues/76) — Story: Enhanced Tool Integrations Platform - Bi-Directional PM Tool Sync | Open | [#325](https://github.com/mirichard/pm-tools-templates/issues/325) | O3 - Use supported integrations | Later | Todo | — | Todo | — |
-| [#77](https://github.com/mirichard/pm-tools-templates/issues/77) — Story: Usage Analytics &amp; Feedback Loop Platform - Data-Driven Insights | Open | [#319](https://github.com/mirichard/pm-tools-templates/issues/319) | O4 - Contribute and influence priorities | Later | Todo | — | Todo | — |
+| [#77](https://github.com/mirichard/pm-tools-templates/issues/77) — Story: Usage Analytics &amp; Feedback Loop Platform - Data-Driven Insights | Open | [#1480](https://github.com/mirichard/pm-tools-templates/issues/1480) | O4 - Contribute and influence priorities | Later | Todo | — | Todo | — |
 | [#78](https://github.com/mirichard/pm-tools-templates/issues/78) — Story: Roadmap Publication &amp; Community Engagement Platform | Closed (completed) | [#319](https://github.com/mirichard/pm-tools-templates/issues/319) | O4 - Contribute and influence priorities | Now | Done | Sprint 1 | Done | [v2.4.0 — Now Epics Sprints 1–3](https://github.com/mirichard/pm-tools-templates/milestone/35) |
 | [#92](https://github.com/mirichard/pm-tools-templates/issues/92) — Story: AI-Driven Stakeholder Sentiment Monitor | Open | [#523](https://github.com/mirichard/pm-tools-templates/issues/523) | O7 - Use trustworthy AI insights | Later | Todo | — | — | — |
 | [#103](https://github.com/mirichard/pm-tools-templates/issues/103) — Story: UX-101: Interactive Getting Started Tutorial | Open | [#284](https://github.com/mirichard/pm-tools-templates/issues/284) | O1 - Find and customize templates | Later | Todo | — | — | — |
