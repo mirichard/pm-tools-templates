@@ -2,11 +2,11 @@
 
 Generated; do not edit by hand. [Policy](../docs/roadmap-sync.md) · [Decision register](roadmap-alignment.md).
 
-Snapshot updated at: 2026-10-08T19:12:43.892Z (UTC).
+Snapshot updated at: 2026-10-08T19:41:09.908Z (UTC).
 
 [Latest synchronization checks](https://github.com/mirichard/pm-tools-templates/actions/workflows/roadmap-sync.yml) — includes successful checks with no data changes. A check does not publish to main until its PR is merged.
 
-Snapshot fingerprint: `a61812f2681d2ca892ab26ce8c995d76dc9678b6b740997df05d058ca9183d0f`. Values are copied from issues and Projects, not inferred acceptance or release claims.
+Snapshot fingerprint: `71b0f2466ccd444394fed9931bfccbe08dcce24e6e5e5f082e69f1494cc358c6`. Values are copied from issues and Projects, not inferred acceptance or release claims.
 
 ## Drift requiring review
 
@@ -17,6 +17,7 @@ Snapshot fingerprint: `a61812f2681d2ca892ab26ce8c995d76dc9678b6b740997df05d058ca
 - #1454: missing Outcome or Horizon
 - #1454: expected exactly one type label
 - #1469: missing Outcome or Horizon
+- #1482: missing Outcome or Horizon
 
 ## Issue and Project values
 
@@ -98,3 +99,4 @@ Snapshot fingerprint: `a61812f2681d2ca892ab26ce8c995d76dc9678b6b740997df05d058ca
 | [#1474](https://github.com/mirichard/pm-tools-templates/issues/1474) — Design Thinking, Lean Startup and Innovation templates are uncatalogued and unclassified | Closed (completed) | Standalone | O1 - Find and customize templates | Next | Done | — | — | — |
 | [#1480](https://github.com/mirichard/pm-tools-templates/issues/1480) — EPIC: Opt-in Template Usage Analytics | Open | Standalone | O4 - Contribute and influence priorities | Later | Todo | — | — | — |
 | [#1481](https://github.com/mirichard/pm-tools-templates/issues/1481) — EPIC: Community Participation Enhancements — Discovery and Selected Delivery | Open | Standalone | O4 - Contribute and influence priorities | Later | Todo | — | — | — |
+| [#1482](https://github.com/mirichard/pm-tools-templates/issues/1482) — Validate contributor and maintainer journeys after unit testing and before UAT | Open | Standalone | — | — | Todo | — | — | — |
