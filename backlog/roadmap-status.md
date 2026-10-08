@@ -2,11 +2,11 @@
 
 Generated; do not edit by hand. [Policy](../docs/roadmap-sync.md) · [Decision register](roadmap-alignment.md).
 
-Snapshot updated at: 2026-10-08T19:51:47.897Z (UTC).
+Snapshot updated at: 2026-10-08T20:21:35.048Z (UTC).
 
 [Latest synchronization checks](https://github.com/mirichard/pm-tools-templates/actions/workflows/roadmap-sync.yml) — includes successful checks with no data changes. A check does not publish to main until its PR is merged.
 
-Snapshot fingerprint: `da424a0100b2a94871e3be4a3d114d820da2c31a5269547eb6ce07973f3f3c14`. Values are copied from issues and Projects, not inferred acceptance or release claims.
+Snapshot fingerprint: `54e3844ed6c3c077b3c759505fe09ba8d98d16045a67e08f4a8e118113333089`. Values are copied from issues and Projects, not inferred acceptance or release claims.
 
 ## Drift requiring review
 
@@ -17,6 +17,7 @@ Snapshot fingerprint: `da424a0100b2a94871e3be4a3d114d820da2c31a5269547eb6ce07973
 - #1454: expected exactly one type label
 - #1469: missing Outcome or Horizon
 - #1482: missing Outcome or Horizon
+- #1483: missing Outcome or Horizon
 
 ## Issue and Project values
 
@@ -99,3 +100,4 @@ Snapshot fingerprint: `da424a0100b2a94871e3be4a3d114d820da2c31a5269547eb6ce07973
 | [#1480](https://github.com/mirichard/pm-tools-templates/issues/1480) — EPIC: Opt-in Template Usage Analytics | Open | Standalone | O4 - Contribute and influence priorities | Later | Todo | — | — | — |
 | [#1481](https://github.com/mirichard/pm-tools-templates/issues/1481) — EPIC: Community Participation Enhancements — Discovery and Selected Delivery | Open | Standalone | O4 - Contribute and influence priorities | Later | Todo | — | — | — |
 | [#1482](https://github.com/mirichard/pm-tools-templates/issues/1482) — Validate contributor and maintainer journeys after unit testing and before UAT | Open | Standalone | — | — | Todo | — | — | — |
+| [#1483](https://github.com/mirichard/pm-tools-templates/issues/1483) — Validate reusable-plan imports into Jira and Asana before custom development | Open | Standalone | — | — | Todo | — | — | — |
