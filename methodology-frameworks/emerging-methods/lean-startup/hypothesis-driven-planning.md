@@ -5,6 +5,9 @@ complexity: "advanced"
 owner: "mirichard"
 updated: "2026-10-08"
 domain: "Uncertainty"
+primary_principles: ["risk-optimization", "evidence-based-decisions"]
+secondary_principles: ["adaptability", "systems-thinking"]
+principle_rationale: "Prioritizes uncertain assumptions for evidence-led testing so strategy can adapt while managing cross-model risk exposure."
 tags: ["lean-startup", "hypothesis-driven", "assumptions", "risk-management"]
 ---
 
@@ -13,6 +16,23 @@ tags: ["lean-startup", "hypothesis-driven", "assumptions", "risk-management"]
 ## Overview
 Hypothesis-driven planning transforms assumptions into testable hypotheses that can be validated or invalidated through experiments. This approach reduces risk by testing the riskiest assumptions first.
 
+
+
+## When to Use
+- Use during early planning when teams need to convert assumptions into testable hypotheses with explicit validation criteria.
+- Apply before funding, roadmap, or staffing commitments when uncertainty is high and learning order matters.
+- Run this approach when decision-makers require a transparent registry of hypotheses, status, and risk-weighted priority.
+
+## When NOT to Use
+- Do not use as a documentation ritual where hypotheses are written but never linked to actual validation experiments.
+- Do not assume template completion equals sound judgment without contextual adaptation and accountable decisions (see [Template as substitute for judgment](../../../docs/principles/anti-patterns.md#template-judgment)).
+- Do not keep invalidated hypotheses active in planning artifacts without explicit rationale and replanning.
+
+## Pairs Well With
+- [Experiment Design Template](experiment-design-template.md)
+- [Lean Canvas Template](lean-canvas-template.md)
+
+Decision context model reference: 800-801-context-assessment-model.md
 ## Hypothesis Framework
 
 ### Hypothesis Structure

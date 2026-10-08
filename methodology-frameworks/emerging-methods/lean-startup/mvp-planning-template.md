@@ -5,6 +5,9 @@ complexity: "advanced"
 owner: "mirichard"
 updated: "2026-10-08"
 domain: "Planning"
+primary_principles: ["value-focus", "adaptability"]
+secondary_principles: ["quality-by-design", "evidence-based-decisions"]
+principle_rationale: "Scopes minimum delivery for validated learning so teams protect quality while adapting quickly toward customer value."
 tags: ["lean-startup", "mvp", "product-planning", "validated-learning"]
 ---
 
@@ -13,6 +16,23 @@ tags: ["lean-startup", "mvp", "product-planning", "validated-learning"]
 ## Definition
 A Minimum Viable Product (MVP) is the version of a new product that allows a team to collect the maximum amount of validated learning about customers with the least effort.
 
+
+
+## When to Use
+- Use when teams must define the minimum releasable scope that can test the core value hypothesis with real users.
+- Apply when resource constraints require explicit trade-offs between learning value, time, and implementation effort.
+- Run this template before build kickoff to align success metrics, validation method, and pivot triggers.
+
+## When NOT to Use
+- Do not use to justify skipping essential controls such as security, safety, or legal obligations in regulated contexts.
+- Do not remove critical safeguards without documenting retained controls and authority for the tailoring decision (see [Tailoring by omission](../../../docs/principles/anti-patterns.md#tailoring-omission)).
+- Do not declare MVP success solely from shipping completion when customer outcomes are still unknown.
+
+## Pairs Well With
+- [Lean Canvas Template](lean-canvas-template.md)
+- [Build-Measure-Learn Cycle Template](build-measure-learn-cycle.md)
+
+Decision context model reference: 800-801-context-assessment-model.md
 ## MVP Planning Framework
 
 ### 1. Problem Definition

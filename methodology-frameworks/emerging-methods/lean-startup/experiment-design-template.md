@@ -5,6 +5,9 @@ complexity: "advanced"
 owner: "mirichard"
 updated: "2026-10-08"
 domain: "Uncertainty"
+primary_principles: ["evidence-based-decisions", "risk-optimization"]
+secondary_principles: ["quality-by-design", "continuous-learning"]
+principle_rationale: "Defines controlled tests with explicit metrics and risks so learning quality supports reliable product and investment decisions."
 tags: ["lean-startup", "experiment-design", "hypothesis-testing", "validated-learning"]
 ---
 
@@ -13,6 +16,23 @@ tags: ["lean-startup", "experiment-design", "hypothesis-testing", "validated-lea
 ## Overview
 This template helps you design and execute systematic experiments to validate business hypotheses using the scientific method. Proper experiment design ensures reliable results and actionable insights.
 
+
+
+## When to Use
+- Use when a high-risk assumption requires controlled testing with defined variables, sample boundaries, and decision thresholds.
+- Apply before running A/B tests, interviews, or pilot experiments that need traceable metrics and reproducible setup choices.
+- Run this template when multiple teams contribute to one experiment and ownership, timing, and analysis criteria must be explicit.
+
+## When NOT to Use
+- Do not use when success conditions are retrofitted after seeing results instead of fixed before execution.
+- Do not report precise findings without source clarity, measurement method, and uncertainty context (see [Metric without source](../../../docs/principles/anti-patterns.md#metric-source)).
+- Do not run concurrent scope changes that invalidate the control assumptions used by the experiment design.
+
+## Pairs Well With
+- [Hypothesis-Driven Planning Template](hypothesis-driven-planning.md)
+- [Pivot Decision Framework](pivot-decision-framework.md)
+
+Decision context model reference: 800-801-context-assessment-model.md
 ## Experiment Planning Framework
 
 ### 1. Experiment Definition

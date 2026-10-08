@@ -5,6 +5,9 @@ complexity: "advanced"
 owner: "mirichard"
 updated: "2026-10-08"
 domain: "Uncertainty"
+primary_principles: ["adaptability", "evidence-based-decisions"]
+secondary_principles: ["risk-optimization", "stewardship"]
+principle_rationale: "Structures pivot decisions around measured signals so organizations adapt responsibly while managing risk and resource accountability."
 tags: ["lean-startup", "pivot", "decision-making", "strategy"]
 ---
 
@@ -13,6 +16,23 @@ tags: ["lean-startup", "pivot", "decision-making", "strategy"]
 ## Overview
 A pivot is a structured course correction designed to test a new fundamental hypothesis about the product, strategy, and engine of growth. This framework helps you determine when to pivot and what type of pivot to make.
 
+
+
+## When to Use
+- Use when repeated learning cycles show material underperformance and the team needs a structured pivot-versus-persevere decision.
+- Apply when executives require evidence-backed change options tied to metrics, hypotheses, and operational constraints.
+- Run this framework when selecting pivot type and sequencing execution to preserve momentum and stakeholder confidence.
+
+## When NOT to Use
+- Do not use as a reaction to short-term noise before trend quality and measurement stability are established.
+- Do not rewrite baselines to mask variance before evaluating whether a strategic pivot is actually required (see [Rebaseline to green](../../../docs/principles/anti-patterns.md#baseline-green)).
+- Do not proceed without explicit owner accountability for the decision, transition plan, and revalidation checkpoints.
+
+## Pairs Well With
+- [Build-Measure-Learn Cycle Template](build-measure-learn-cycle.md)
+- [Customer Validation Framework](customer-validation-framework.md)
+
+Decision context model reference: 800-801-context-assessment-model.md
 ## What is a Pivot?
 
 ### Definition

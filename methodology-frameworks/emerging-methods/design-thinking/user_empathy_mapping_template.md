@@ -5,6 +5,9 @@ complexity: "advanced"
 owner: "mirichard"
 updated: "2026-10-08"
 domain: "Stakeholder"
+primary_principles: ["stakeholder-engagement", "systems-thinking"]
+secondary_principles: ["evidence-based-decisions"]
+principle_rationale: "Converts user research signals into a shared system view that strengthens stakeholder understanding and evidence-backed choices."
 tags: ["design-thinking", "empathy-mapping", "user-research", "stakeholder-management"]
 ---
 
@@ -13,6 +16,23 @@ tags: ["design-thinking", "empathy-mapping", "user-research", "stakeholder-manag
 ## Overview
 This template provides a structured approach to creating empathy maps that help teams understand users' thoughts, feelings, actions, and motivations. Empathy mapping is a core design thinking tool that transforms user research into actionable insights for product and project development.
 
+
+
+## When to Use
+- Use when interview or observation data exists and the team needs a single synthesis artifact for user needs, constraints, and motivations.
+- Apply before prioritization when product, design, and delivery leads disagree on which user outcomes matter most.
+- Run this when preparing discovery readouts that must convert qualitative research into actionable delivery hypotheses.
+
+## When NOT to Use
+- Do not use with fabricated or second-hand assumptions when no primary research evidence has been collected.
+- Do not mistake one-way status updates for stakeholder understanding; use structured feedback loops instead (see [Stakeholder broadcast](../../../docs/principles/anti-patterns.md#stakeholder-broadcast)).
+- Do not freeze the map as permanent truth when user behavior is changing across segments or journey stages.
+
+## Pairs Well With
+- [Design Thinking Workshop Template](design_thinking_workshop_template.md)
+- [Customer Validation Framework](../lean-startup/customer-validation-framework.md)
+
+Decision context model reference: 800-801-context-assessment-model.md
 ## Template Information
 - **Methodology:** Design Thinking - Empathize Stage
 - **Purpose:** Synthesize user research into empathy maps for deeper understanding

@@ -5,6 +5,9 @@ complexity: "advanced"
 owner: "mirichard"
 updated: "2026-10-08"
 domain: "Planning"
+primary_principles: ["value-focus", "systems-thinking"]
+secondary_principles: ["adaptability", "risk-optimization"]
+principle_rationale: "Maps the business model as an interconnected system to focus teams on value assumptions and adaptive risk-aware planning."
 tags: ["lean-startup", "lean-canvas", "business-model", "planning"]
 ---
 
@@ -13,6 +16,23 @@ tags: ["lean-startup", "lean-canvas", "business-model", "planning"]
 ## Overview
 The Lean Canvas is a 1-page business model that helps you deconstruct your idea into its key assumptions. It's adapted from Alex Osterwalder's Business Model Canvas for the Lean Startup methodology.
 
+
+
+## When to Use
+- Use at concept stage to capture a business model on one page and expose the highest-risk assumptions for immediate testing.
+- Apply when comparing multiple opportunity options and teams need a consistent structure for problem, segment, value, and economics.
+- Run this template before detailed delivery planning to prevent premature investment in unvalidated model components.
+
+## When NOT to Use
+- Do not use as a one-time artifact that is never updated after customer evidence changes key assumptions.
+- Do not confuse activity volume with realized value without explicit benefit evidence and ownership (see [Value equals output](../../../docs/principles/anti-patterns.md#value-output)).
+- Do not use as a substitute for compliance, architecture, or operational planning where those controls are mandatory.
+
+## Pairs Well With
+- [Hypothesis-Driven Planning Template](hypothesis-driven-planning.md)
+- [MVP Planning Template](mvp-planning-template.md)
+
+Decision context model reference: 800-801-context-assessment-model.md
 ## Canvas Structure
 
 ### 1. PROBLEM
