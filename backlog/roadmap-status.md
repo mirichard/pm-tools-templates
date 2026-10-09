@@ -2,11 +2,11 @@
 
 Generated; do not edit by hand. [Policy](../docs/roadmap-sync.md) · [Decision register](roadmap-alignment.md).
 
-Snapshot updated at: 2026-10-08T20:39:36.445Z (UTC).
+Snapshot updated at: 2026-10-08T23:06:37.740Z (UTC).
 
 [Latest synchronization checks](https://github.com/mirichard/pm-tools-templates/actions/workflows/roadmap-sync.yml) — includes successful checks with no data changes. A check does not publish to main until its PR is merged.
 
-Snapshot fingerprint: `4dc6e8b50f6d44fc27568f4631bf81a873d058366f33b68cb19977333597506d`. Values are copied from issues and Projects, not inferred acceptance or release claims.
+Snapshot fingerprint: `6a1f00e26d37295397c232a7701303042af845505ac6aa3dff8e4a8f0103ff2d`. Values are copied from issues and Projects, not inferred acceptance or release claims.
 
 ## Drift requiring review
 
@@ -100,4 +100,4 @@ Snapshot fingerprint: `4dc6e8b50f6d44fc27568f4631bf81a873d058366f33b68cb19977333
 | [#1480](https://github.com/mirichard/pm-tools-templates/issues/1480) — EPIC: Opt-in Template Usage Analytics | Open | Standalone | O4 - Contribute and influence priorities | Later | Todo | — | — | — |
 | [#1481](https://github.com/mirichard/pm-tools-templates/issues/1481) — EPIC: Community Participation Enhancements — Discovery and Selected Delivery | Open | Standalone | O4 - Contribute and influence priorities | Later | Todo | — | — | — |
 | [#1482](https://github.com/mirichard/pm-tools-templates/issues/1482) — Validate contributor and maintainer journeys after unit testing and before UAT | Open | Standalone | — | — | Todo | — | — | — |
-| [#1483](https://github.com/mirichard/pm-tools-templates/issues/1483) — Validate reusable-plan imports into Jira and Asana before custom development | Open | Standalone | — | — | Todo | Sprint 3 | Todo | [v2.4.0 — Now Epics Sprints 1–3](https://github.com/mirichard/pm-tools-templates/milestone/35) |
+| [#1483](https://github.com/mirichard/pm-tools-templates/issues/1483) — Validate reusable-plan imports into Jira and Asana before custom development | Open | [#325](https://github.com/mirichard/pm-tools-templates/issues/325) | — | — | Todo | Sprint 3 | Todo | [v2.4.0 — Now Epics Sprints 1–3](https://github.com/mirichard/pm-tools-templates/milestone/35) |
