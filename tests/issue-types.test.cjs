@@ -109,7 +109,7 @@ test('content submissions require public sanitized files and rights attestations
 
   const improvement = fs.readFileSync('.github/ISSUE_TEMPLATE/template-improvement.yml', 'utf8');
   assert.match(improvement, /type: upload[\s\S]*?required: false/);
-  assert.match(improvement, /Only upload sanitized files/);
+  assert.match(improvement, /Only upload sanitized\s+files/);
 });
 
 test('request intake and receipt acknowledgement make no file or service promises', () => {

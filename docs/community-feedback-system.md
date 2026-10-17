@@ -176,22 +176,8 @@ Test the live system by:
 
 ## Monitoring & Analytics
 
-### Workflow Runs
-- Monitor in GitHub Actions: `/actions`
-- Look for "Community Feedback Processor" workflows
-- Check run status and logs for issues
-
-### Processing Metrics
-- Analytics data stored as workflow artifacts
-- Retention: 30 days
-- Format: JSON Lines (.jsonl)
-
-### Key Metrics Tracked
-- Processing time per feedback item
-- Classification accuracy
-- Category distribution
-- Priority breakdown
-- Author engagement patterns
+The workflows and metrics described in this historical document are not active.
+Do not infer artifact storage or retention practices from this document.
 
 ## Troubleshooting
 
