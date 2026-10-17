@@ -98,6 +98,41 @@ test('all intake templates supply one approved type', () => {
     assert.equal(classify(labels).valid, true, name);
   }
 });
+
+test('content submissions require public sanitized files and rights attestations', () => {
+  const content = fs.readFileSync('.github/ISSUE_TEMPLATE/content_submission.yml', 'utf8');
+  assert.match(content, /This issue and every attachment are public/);
+  assert.match(content, /restricted transfer channel is not currently configured/);
+  assert.match(content, /type: upload[\s\S]*?required: true/);
+  assert.match(content, /removed personal, confidential, proprietary, and identifying information/);
+  assert.match(content, /later removal cannot guarantee erasure from Git history/);
+
+  const improvement = fs.readFileSync('.github/ISSUE_TEMPLATE/template-improvement.yml', 'utf8');
+  assert.match(improvement, /type: upload[\s\S]*?required: false/);
+  assert.match(improvement, /Only upload sanitized files/);
+});
+
+test('request intake and receipt acknowledgement make no file or service promises', () => {
+  const request = fs.readFileSync('.github/ISSUE_TEMPLATE/template_request.yml', 'utf8');
+  assert.doesNotMatch(request, /type: upload/);
+  assert.match(request, /Acceptance does not set a\s+delivery date/);
+
+  const receipt = fs.readFileSync('.github/workflows/automated-feedback-ack.yml', 'utf8');
+  assert.match(receipt, /contains\(github\.event\.issue\.labels\.\*\.name, 'security'\)/);
+  assert.match(receipt, /confirms receipt only/);
+  assert.doesNotMatch(receipt, /will review and respond|soon|within \d+/i);
+
+  for (const workflow of [
+    'feedback-processor.yml',
+    'feedback-analytics.yml',
+    'community-voting.yml',
+    'process-template-ratings.yml',
+    'contributor-recognition.yml',
+  ]) {
+    assert.equal(fs.existsSync(path.join('.github/workflows', workflow)), false, workflow);
+  }
+});
+
 test('existing automated creator sites explicitly supply an approved type', () => {
   const files = fs.readdirSync('.github/workflows').filter(name => /\.ya?ml$/.test(name)).map(name => `.github/workflows/${name}`);
   files.push('scripts/template-analytics.cjs');

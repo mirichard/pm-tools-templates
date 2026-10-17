@@ -1,5 +1,11 @@
 # Community Feedback Processing System
 
+> **Superseded historical document:** The automated classification, routing, analytics,
+> voting, and rating workflows described below are not the current process and have
+> been deactivated. Do not use this document to submit feedback or infer service
+> commitments. See the current [submission handling guide](community/submission-handling.md)
+> for available routes, privacy limits, and maintainer-owned triage.
+
 ## Overview
 
 The Community Feedback Processing System is an automated GitHub Actions workflow that intelligently processes, classifies, and routes community feedback to the appropriate development teams and epics. The system uses AI-powered classification to analyze feedback content and automatically assign labels, priorities, and routing decisions.
