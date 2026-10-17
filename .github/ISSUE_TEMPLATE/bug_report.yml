@@ -8,9 +8,11 @@ labels:
 body:
 - type: markdown
   attributes:
-    value: 'Thanks for taking the time to fill out this bug report!
-
-      '
+    value: |
+      Thanks for taking the time to report a problem. This issue is public; do
+      not include confidential, personal, proprietary, or security-sensitive
+      information. Report vulnerabilities using the private route in
+      SECURITY.md, not this form.
 - type: input
   id: template
   attributes:
@@ -22,11 +24,15 @@ body:
 - type: textarea
   id: what-happened
   attributes:
-    label: What happened?
-    description: Also tell us, what did you expect to happen?
-    placeholder: Tell us what you see!
+    label: Expected and observed behavior
+    description: What did you expect, and what happened instead?
   validations:
     required: true
+- type: input
+  id: affected-version
+  attributes:
+    label: Affected version or revision (optional)
+    description: Include the template version, release, or commit if known.
 - type: dropdown
   id: methodology
   attributes:
@@ -54,7 +60,7 @@ body:
 
       '
   validations:
-    required: true
+    required: false
 - type: textarea
   id: additional-context
   attributes:
