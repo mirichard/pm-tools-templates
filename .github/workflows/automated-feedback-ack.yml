@@ -1,36 +1,32 @@
-name: Automated Feedback Acknowledgment
+name: Submission Receipt
 
 on:
   issues:
     types: [opened]
 
-permissions:
-  contents: read
-
 jobs:
   automated-response:
+    if: ${{ !contains(github.event.issue.labels.*.name, 'security') }}
     permissions:
-      contents: read
       issues: write
     runs-on: ubuntu-latest
     steps:
-      - name: Acknowledge Feedback
+      - name: Post receipt
         uses: actions/github-script@v9
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
             const issueNumber = context.payload.issue.number;
-            const acknowledgments = ['Thank you for your valuable feedback!', 'We appreciate your insights and will review them.', 'Your feedback helps us improve!', 'Thanks for contributing your thoughts!'];
-            const randomIndex = Math.floor(Math.random() * acknowledgments.length);
-            const selectedAck = acknowledgments[randomIndex];
             const acknowledgmentComment = `
-            ## 🙏 Feedback Received
-            
-            ${selectedAck}
-            
-            Our team will review and respond to your input soon.
-            
-            *Automated acknowledgment from the Community Feedback System.*
+            ## Submission received
+
+            This confirms receipt only; it does not confirm acceptance, priority,
+            scheduling, or publication. A maintainer will record a disposition
+            and next action when triage is complete.
+
+            This issue is public. Do not add confidential, personal, proprietary,
+            or identifying information. Read the
+            [submission handling guide](https://github.com/mirichard/pm-tools-templates/blob/main/docs/community/submission-handling.md).
             `;
             
             await github.rest.issues.createComment({
@@ -39,5 +35,3 @@ jobs:
               issue_number: issueNumber,
               body: acknowledgmentComment
             });
-
-

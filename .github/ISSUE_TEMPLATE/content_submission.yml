@@ -1,0 +1,76 @@
+name: Submit template content
+description: Submit a new or corrected template from your browser; Git is not required.
+title: "Contribution: "
+labels:
+  - type:candidate
+  - contribution
+  - needs-review
+body:
+  - type: markdown
+    attributes:
+      value: |
+        This issue and every attachment are public. Do not upload confidential,
+        personal, proprietary, identifying, or otherwise unsanitized material.
+        A restricted transfer channel is not currently configured. If you cannot
+        safely sanitize the original first, stop and ask a maintainer about an
+        approved private route without sending the file.
+
+        You do not need to convert your file. Maintainers assess its format and
+        may convert or retain it. Publication follows review of the exact
+        sanitized revision; opening this issue does not mean the content is
+        accepted or scheduled.
+  - type: dropdown
+    id: contribution-kind
+    attributes:
+      label: What are you submitting?
+      options:
+        - New template or content
+        - Correction or improvement to existing content
+    validations:
+      required: true
+  - type: input
+    id: target
+    attributes:
+      label: Existing template and version (for a correction)
+      description: Link or path and version, if applicable.
+  - type: textarea
+    id: intended-use
+    attributes:
+      label: What does this content help someone do?
+      description: Describe the intended users and outcome. No finished proposal is required.
+    validations:
+      required: true
+  - type: upload
+    id: contribution-files
+    attributes:
+      label: Sanitized files
+      description: Upload the file or mixed package you have. The files become public with this issue; do not upload unsanitized originals.
+    validations:
+      required: true
+  - type: input
+    id: format-notes
+    attributes:
+      label: Format or functionality notes (optional)
+      description: Note anything maintainers should know, such as workbook formulas or intended native format.
+  - type: dropdown
+    id: attribution
+    attributes:
+      label: Attribution preference
+      description: Required credit and rights are reviewed before publication.
+      options:
+        - Credit me by my GitHub username
+        - Use the attribution I specify in a follow-up
+        - I prefer no personal attribution
+    validations:
+      required: true
+  - type: checkboxes
+    id: rights-and-visibility
+    attributes:
+      label: Rights and public visibility
+      options:
+        - label: I created this content or have permission to submit it.
+          required: true
+        - label: I have removed personal, confidential, proprietary, and identifying information from every file, including metadata and hidden content.
+          required: true
+        - label: I understand this issue and its files are public and that later removal cannot guarantee erasure from Git history.
+          required: true

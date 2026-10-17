@@ -1,7 +1,14 @@
 # Community Feedback Processing System
 **Design Document v1.0**
 
-**Status:** Active Development  
+> **Superseded historical proposal:** The automated classification, routing,
+> analytics, voting, and rating workflows described below are not the current
+> process and have been deactivated. Do not use this proposal as an operating
+> specification or infer service commitments from it. See the current
+> [submission handling guide](../community/submission-handling.md) for available
+> routes, privacy limits, and maintainer-owned triage.
+
+**Status:** Superseded  
 **Issue Reference:** #198  
 **Q3 Delivery Cycle Integration:** ✅ Active  
 **Leading Practices Alignment:** ITIL, Agile/DevOps, Community Management
