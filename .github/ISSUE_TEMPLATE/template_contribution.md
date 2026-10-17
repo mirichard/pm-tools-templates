@@ -93,6 +93,13 @@ assignees: ''
 - [ ] No proprietary or confidential information included
 - [ ] Understand this becomes part of the open-source library
 
+> Issues, comments, pull requests, and attachments are public. Submit only
+> content sanitized for public release. Do not attach an unsanitized original.
+> Contributors do not need to convert file formats; maintainers assess,
+> convert, or retain them as appropriate. A restricted transfer channel is not
+> currently configured. Read the [submission handling guide](../../docs/community/submission-handling.md)
+> before sharing files.
+
 **Attribution:**
 - [ ] I'd like to be credited as the original author
 - [ ] I prefer to contribute anonymously
@@ -141,4 +148,3 @@ assignees: ''
 4. We'll conduct final review and testing before merging
 
 **Thank you for contributing to the PM community!** 🙌
-

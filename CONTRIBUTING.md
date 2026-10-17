@@ -51,6 +51,18 @@ as candidates; selecting a type does not schedule work. Resolve `needs-type`
 before delivery planning. See the [issue management policy](docs/issues-management.md)
 for definitions, CLI creation, title conventions and parent verification.
 
+### Submission privacy and files
+
+Issues, comments, pull requests, and their attachments are public. Submit only
+content you have the right to share and have sanitized for public release.
+Contributors do not need to convert files; maintainers assess and convert or
+retain formats as appropriate. Do not upload unsanitized personal, confidential,
+proprietary, or identifying files. A restricted transfer route is not yet
+configured; if the original cannot safely be sanitized, ask for a private
+transfer arrangement without attaching it and wait for a maintainer to confirm
+an approved channel. See the [submission handling guide](docs/community/submission-handling.md)
+for file controls, roles, retention, review, and escalation.
+
 ## 📝 Template Contribution Guidelines
 
 ### Template Quality Standards
