@@ -65,13 +65,11 @@ arrangement.
 
 Keep originals and identity mappings only while needed to assess, clean, and
 verify a submission. Delete them promptly after verification and before public
-publication, or promptly after a submission is declined or withdrawn. If a
-submission remains unresolved for 30 days, delete the staged original and
-identity mapping, record that action without sensitive details, and request a
-fresh transfer only after an approved channel is confirmed. Do not extend
-retention without repository-owner approval and a recorded reason. Retain only
-the sanitized approved revision, required attribution, and nonsensitive
-decision/evidence links in public repository history.
+publication, or promptly after a submission is declined or withdrawn. The
+repository owner must approve and publish a retention schedule before any
+restricted originals are accepted; no fixed retention period is currently
+approved. Retain only the sanitized approved revision, required attribution,
+and nonsensitive decision/evidence links in public repository history.
 
 ## Route status and decisions
 
@@ -79,10 +77,17 @@ Maintain the issue or pull request as the traceable public record. Keep issue
 type separate from workflow state and scheduling. For each route, record
 receipt, current state, next responsible role, clarification or revision
 requests, duplicate links, decision rationale, and links to resulting work.
-Use route-appropriate outcomes: requests may be accepted, deferred, declined,
-or marked duplicate; ratings may be acknowledged without entering a publication
-lifecycle; content changes require review and publication; problem reports link
-to resolution and verification when available.
+
+| Route | Statuses and completion evidence |
+| --- | --- |
+| New contribution or correction | Received → In review → Changes requested or Approved → Published. Approved records identify the exact revision; Published requires a working catalog/download link and version. Declined, duplicate, withdrawn, and failed-publication paths include a reason and next action. |
+| Template/capability request | Received → Under consideration → Accepted, Deferred, Declined, or Duplicate. Accepted requests link delivery work but do not imply scheduling. |
+| Problem report | Received → Triaged → Routed; link resolution and verification when available. Duplicate, incomplete, and sensitive/security reports receive the appropriate next action. Intake closure does not require fixing the reported problem. |
+| Rating or general feedback | Received → Acknowledged → Reviewed or Linked to related work. Ratings do not enter a publication lifecycle or count as verified adoption/quality evidence. |
+
+These are issue-record conventions, not existing GitHub Project fields or
+automation. Use comments and links to preserve transitions; do not represent an
+unrecorded state as complete.
 
 Do not promise response times or implementation dates unless the repository
 owner has approved them. Acceptance of a request is not a schedule commitment.
@@ -105,8 +110,9 @@ with a recovery owner and next action, and must never be shown as Published.
 ## Current operational limitation
 
 The repository does not yet identify a restricted transfer provider, named
-operators, or provider-specific size limits. Public, sanitized submissions and
-text-only intake can continue under this guide. Unsanitized originals must
-remain on hold until the repository owner records the provider, access roles,
-per-transfer limits, and owner/backup coverage. This limitation is not a
-request for contributors to convert or silently discard their original files.
+operators, provider-specific size limits, or an approved retention period.
+Public, sanitized submissions and text-only intake can continue under this
+guide. Unsanitized originals must remain on hold until the repository owner
+records the provider, access roles, per-transfer limits, retention schedule, and
+owner/backup coverage. This limitation is not a request for contributors to
+convert or silently discard their original files.
