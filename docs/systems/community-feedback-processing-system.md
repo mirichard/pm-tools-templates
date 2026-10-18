@@ -8,7 +8,7 @@
 > [submission handling guide](../community/submission-handling.md) for available
 > routes, privacy limits, and maintainer-owned triage.
 
-**Status:** Superseded  
+**Status:** Superseded
 **Issue Reference:** #198  
 **Q3 Delivery Cycle Integration:** ✅ Active  
 **Leading Practices Alignment:** ITIL, Agile/DevOps, Community Management
