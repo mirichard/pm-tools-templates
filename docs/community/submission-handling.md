@@ -38,6 +38,14 @@ assessment when tools cannot process a format. Stop publication for unreadable,
 encrypted, unsafe, or fidelity-compromised files until the issue is resolved.
 Never silently omit a file or publish an unverified conversion.
 
+Copy this table into the maintainer's review record and add one row per submitted
+file. Record only public, sanitized filenames and evidence; do not include
+restricted originals or identity mappings:
+
+| Public file or PR path | Actual file type | Intended use | Retain/convert decision and rationale | Cleanup performed | Verification result |
+| --- | --- | --- | --- | --- | --- |
+|  |  |  |  |  |  |
+
 Treat files as untrusted input. Use an approved transfer provider's published
 size and file limits; explain those limits before transfer and arrange a
 confirmed restricted alternative if the primary channel cannot carry a file.

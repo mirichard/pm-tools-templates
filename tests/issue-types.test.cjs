@@ -134,6 +134,8 @@ test('unsafe public uploads have a stop-and-escalate path and intake lifecycle i
   ]) assert.ok(lowerGuide.includes(state), `missing route disposition: ${state}`);
   assert.match(guide, /maintainer-assisted\s+assessment/);
   assert.match(guide, /unreadable,[\s\S]*?encrypted, unsafe, or fidelity-compromised/);
+  assert.match(guide, /Public file or PR path \| Actual file type \| Intended use/);
+  assert.match(guide, /one row per submitted\s+file/);
   for (const field of [
     'Route / current disposition:',
     'Next responsible party:',
@@ -153,7 +155,7 @@ test('legacy contribution intake URL points to the no-Git browser contribution r
   const contributing = fs.readFileSync('CONTRIBUTING.md', 'utf8');
   assert.match(contributing, /branch from the repository's default branch \(`main`\)/);
   assert.match(contributing, /pull request targeting `main`/);
-  assert.doesNotMatch(contributing, /Create branches from `develop`/);
+  assert.doesNotMatch(contributing, /\bdevelop\b/i);
 });
 
 test('receipt workflow posts only an acknowledgement, not a disposition', async () => {

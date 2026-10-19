@@ -137,11 +137,11 @@ branch or treat a draft pull request as approved.
    cd pm-tools-templates
    ```
 
-2. **Create a Feature Branch from Develop**
+2. **Create a Feature Branch from Main**
    ```bash
-   git checkout develop
-   git pull origin develop
-   git checkout -b feat/your-template-name
+   git switch main
+   git pull --ff-only origin main
+   git switch -c feat/your-template-name
    ```
 
 3. **Choose the Right Location**
