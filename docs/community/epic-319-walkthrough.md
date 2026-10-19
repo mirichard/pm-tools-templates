@@ -14,8 +14,8 @@ Use only the fictional files in
 [`tests/fixtures/epic-319`](../../tests/fixtures/epic-319/). They are intended
 for this walkthrough, not for the production template catalog. GitHub issues,
 comments, and attachments are public. Do not upload real project files,
-confidential material, or unsanitized originals. Do not submit the forms below
-until the repository owner authorizes creation of public synthetic test issues.
+confidential material, or unsanitized originals. The owner must authorize
+creation of public synthetic test issues before anyone submits the forms below.
 No restricted-file transfer route is configured.
 
 ## Links
@@ -38,6 +38,11 @@ Do not mark a route complete until its next owner, action, rationale, related
 work, and outcome are recorded. If the UI differs or asks for real information,
 stop and report **I don’t see that option**; do not guess or use real data.
 
+The repository owner can authorize the test by replying on #1482:
+“I authorize creation of the fictional public test issues listed in the Epic
+#319 walkthrough. Do not publish any fixture to the production catalog.”
+Without that authorization, stop before submitting any form.
+
 The maintainer should use the status fields in
 [`submission-handling.md`](submission-handling.md). For content files, record
 one manifest row per file, assess the actual type, decide retain/convert,
@@ -51,19 +56,24 @@ workflow.
 understand the public-file and review process.
 
 1. Open the [new contribution form](https://github.com/mirichard/pm-tools-templates/issues/new?template=content_submission.yml).
-2. Use `01-new-contribution.md` for the fictional content and
-   `09-sanitized-tracker.xlsx` for the spreadsheet example. For a mixed package,
-   use `11-mixed-synthetic-package.zip`.
-3. Use this intended-use text: “A fictional project team can track milestones,
-   owners, dates, and status.”
-4. Select the attribution choice “I prefer no personal attribution” if the
-   form offers it; complete the rights and public-visibility confirmations
-   truthfully for these synthetic files.
-5. Before submitting, confirm the issue and attachments will be public. Submit
-   only if public synthetic test issues have been authorized.
-6. On the resulting issue, check for receipt. A receipt is not triage,
+2. Enter title: `Contribution: Blue Lantern Migration (synthetic UAT)`.
+3. Select “New template or content.”
+4. In “What does this content help someone do?”, enter: “A fictional project
+   team can track milestones, owners, dates, and status.”
+5. Attach `11-mixed-synthetic-package.zip` and
+   `10-sanitized-legacy.xls`. The package contains fictional Markdown, Word,
+   and Excel files; the separate `.xls` covers legacy Excel. Download the
+   [mixed package](../../tests/fixtures/epic-319/11-mixed-synthetic-package.zip)
+   and [legacy spreadsheet](../../tests/fixtures/epic-319/10-sanitized-legacy.xls).
+6. In format notes, enter: “Fictional test files only. The Excel workbook
+   contains a simple SUM formula.”
+7. Choose “I prefer no personal attribution.” Check the rights and public
+   visibility confirmations for these synthetic files.
+8. Confirm the issue and attachments will be public. Submit only after the
+   owner has authorized public synthetic test issues.
+9. On the resulting issue, check for receipt. A receipt is not triage,
    acceptance, or publication.
-7. In a nonproduction review record, have a maintainer assess each file,
+10. In a nonproduction review record, have a maintainer assess each file,
    record a manifest, and decide whether to retain or convert. Verify any
    converted output and exact revision. Do not publish to the production
    catalog.
@@ -78,15 +88,20 @@ only if all steps are evidenced; otherwise **Fail** or **Blocked**.
 target and revision and require renewed review after material changes.
 
 1. Open the [correction form](https://github.com/mirichard/pm-tools-templates/issues/new?template=template-improvement.yml).
-2. For the text-only case, identify “Blue Lantern Migration template,
-   revision 0.1, section Milestone tracking.” Use the observed and proposed
-   change in `02-text-correction.md`; leave the optional file empty.
-3. For the attachment case, use the same target and attach
-   `07-sanitized-correction.docx`. Complete the rights/public visibility and
-   attribution fields using only the synthetic test context.
-4. In the review record, exercise a clarification, duplicate/version conflict,
+2. Enter title: `Correction: Blue Lantern Migration (synthetic UAT)`.
+3. In “Affected template and version,” enter: “Blue Lantern Migration
+   template, revision 0.1, section Milestone tracking.”
+4. In “What is wrong or missing?”, enter: “The completion field is ambiguous.”
+5. In “Proposed correction,” enter: “Rename it Status and document allowed
+   values: Planned, Active, Complete.”
+6. For the text-only case, leave the optional attachment empty. For the
+   attachment case, attach
+   [`07-sanitized-correction.docx`](../../tests/fixtures/epic-319/07-sanitized-correction.docx).
+   Confirm the rights/public-visibility fields using only the synthetic test
+   context.
+7. In the review record, exercise a clarification, duplicate/version conflict,
    material revision, renewed approval, and withdrawal using
-   `06-lifecycle-cases.md`.
+   [`06-lifecycle-cases.md`](../../tests/fixtures/epic-319/06-lifecycle-cases.md).
 
 **Expected:** Text-only corrections need no file processing; optional files
 reuse J1 handling. The final disposition and reviewed revision are traceable.
@@ -97,8 +112,14 @@ reuse J1 handling. The final disposition and reviewed revision are traceable.
 unsupported delivery-date promise.
 
 1. Open the [capability request form](https://github.com/mirichard/pm-tools-templates/issues/new?template=template_request.yml).
-2. Paste the request from `03-capability-request.md` into the relevant fields.
-3. In the review record, link a duplicate if one exists; record any
+2. In “What need are you trying to meet?”, enter: “A fictional project team
+   needs to see milestone dependencies.”
+3. In “Who would use this and what would they accomplish?”, enter: “Project
+   coordinators would identify predecessor milestones before updating plans.”
+4. In “Example outcome,” enter: “A clear dependency view for each milestone.”
+5. In “Existing template, workaround, or related request,” enter: “The current
+   fictional workaround is to list predecessor IDs in a notes column.”
+6. In the review record, link a duplicate if one exists; record any
    clarification, the accepted/deferred/declined outcome, rationale, next
    owner, and related work.
 
@@ -111,12 +132,19 @@ does not promise a delivery date.
 provide a private route for security issues.
 
 1. Open the [problem report form](https://github.com/mirichard/pm-tools-templates/issues/new?template=bug_report.yml).
-2. Use `04-problem-report.md` as the fictional report. Do not attach other
-   evidence.
-3. In the review record, repeat with an incomplete version and a duplicate;
+2. Enter title: `Bug: Blue Lantern Migration synthetic sample`.
+3. In “Affected component or URL,” enter: “Blue Lantern Migration sample
+   spreadsheet (synthetic fixture; no production URL).”
+4. In “Expected and observed behavior,” enter: “Expected: the status total
+   updates when a row changes. Observed: the fictional test copy displays a
+   stale total.”
+5. In “Steps to reproduce,” enter: “Change a status cell in a temporary copy
+   and recalculate. No production file is involved.”
+6. Do not attach other evidence.
+7. In the review record, repeat with an incomplete version and a duplicate;
    record component owner, clarification or duplicate link, investigation,
    verification, and communicated outcome.
-4. Confirm a suspected vulnerability is directed to the private route in
+8. Confirm a suspected vulnerability is directed to the private route in
    [SECURITY.md](../../SECURITY.md), not posted in a public issue.
 
 **Expected:** Each report has a safe next action and accountable route; closing
@@ -128,8 +156,10 @@ intake does not claim the underlying problem is fixed.
 automatic score change.
 
 1. Open the [rating form](https://github.com/mirichard/pm-tools-templates/issues/new?template=template-rating.yml).
-2. Submit the rating-only example in `05-rating-and-actionable-feedback.md`.
-3. Submit the actionable-feedback example separately, or use the [general
+2. Enter template: “Blue Lantern Migration (synthetic fixture).” Select
+   “Good” and leave feedback empty for the rating-only case.
+3. For actionable feedback, enter: “Please explain the allowed status values
+   beside the table.” Submit that as a separate rating-form issue or use the [general
    feedback form](https://github.com/mirichard/pm-tools-templates/issues/new?template=community-feedback.md).
 4. In the review record, acknowledge receipt, then separately document review,
    disposition, and any related correction/request/defect link.
@@ -153,13 +183,39 @@ rationale, related work, and final disposition.
 **Expected:** A reader can tell who acts next and what happened. A failed
 publication remains pending and is not described as published.
 
+## Simple browser and keyboard check
+
+Use the issue chooser on a desktop browser. Move through one form using only
+the Tab, Shift+Tab, Space, and Enter keys. Confirm the current field and required
+questions are understandable. If an iPad is available, repeat the contribution
+form there; otherwise record **Not tested on iPad**. Do not install software or
+change device settings. Report **Passed**, **Failed**, **Blocked**, or **Not
+tested**, and say what appeared instead if it failed.
+
+## Evidence matrix
+
+The following is the current status before a human walkthrough. Automated tests
+and local fixture checks are not owner UAT.
+
+| Journey | Current evidence | Walkthrough | Owner UAT result | Remaining blocker |
+| --- | --- | --- | --- | --- |
+| J1 — Contribution | 44 related tests passed; synthetic DOCX/XLSX/XLS and mixed-package fixtures validated locally | Not performed | Not tested | Owner authorization for public test issues; maintainer assessment and publication behavior |
+| J2 — Correction | Form contract checked; synthetic text and DOCX fixtures prepared | Not performed | Not tested | Public test issue authorization; revision/review/disposition |
+| J3 — Request | Request form contract checked | Not performed | Not tested | Public test issue authorization; recorded route decision |
+| J4 — Problem report | Problem form and private-report guidance contract checked | Not performed | Not tested | Public test issue authorization; actual routing and verification |
+| J5 — Feedback | Receipt behavior simulated in tests; form contracts checked | Not performed | Not tested | Public test issue authorization; actual review and disposition |
+| J6 — Decisions/status | Documented status fields checked | Not performed | Not tested | Real issue records covering transitions and final outcomes |
+
 ## Owner recording and cleanup
 
 For each journey, reply on [#1482](https://github.com/mirichard/pm-tools-templates/issues/1482)
 with **Passed**, **Failed**, **Blocked**, or **I don’t see that option**, plus
-the created issue links and any confusion or assistance needed. Do not include
-private details in public comments. Record actual owner responses; do not
-pre-fill acceptance or call agent fixture checks a human walkthrough.
+the created issue links and any confusion or assistance needed. If something
+differs, stop and report the journey ID and what appeared instead; do not
+troubleshoot. Do not include private details in public comments. Record actual
+owner responses; do not pre-fill acceptance or call agent fixture checks a
+human walkthrough. The form submissions and brief status replies should take
+about 5–10 minutes per journey, excluding any maintainer review or waiting.
 
 The agent has not created public test issues and cannot clean up records that
 do not exist. After an authorized test, keep only the evidence needed for
