@@ -5,7 +5,7 @@ human walkthrough or acceptance has occurred.
 
 ## Current evidence and safety
 
-At revision `f73119ef97c5e12fe438a377f81823cd39eda2c2`, the related automated
+At revision `7715fe7f530a2873cb82777363e614c4d877bcac`, the related automated
 issue tests passed 44/44. They cover selected form and workflow contracts, not
 the end-to-end journeys below. Browser interaction, public issue submission,
 maintainer processing, publication, and owner UAT have not been demonstrated.
@@ -73,10 +73,11 @@ understand the public-file and review process.
    owner has authorized public synthetic test issues.
 9. On the resulting issue, check for receipt. A receipt is not triage,
    acceptance, or publication.
-10. In a nonproduction review record, have a maintainer assess each file,
-   record a manifest, and decide whether to retain or convert. Verify any
-   converted output and exact revision. Do not publish to the production
-   catalog.
+10. In a maintainer comment on the synthetic issue, identify it as a test and
+   assess each file using the per-file manifest in
+   [`submission-handling.md`](submission-handling.md). Record the retain or
+   convert decision and verify the exact revision. Do not publish to the
+   production catalog.
 
 **Expected:** The contributor can submit without Git or converting files; the
 maintainer can account for every file and record a review decision. **Pass**
@@ -94,12 +95,13 @@ target and revision and require renewed review after material changes.
 4. In “What is wrong or missing?”, enter: “The completion field is ambiguous.”
 5. In “Proposed correction,” enter: “Rename it Status and document allowed
    values: Planned, Active, Complete.”
-6. For the text-only case, leave the optional attachment empty. For the
-   attachment case, attach
+6. Submit one text-only correction with the optional attachment empty. Submit a
+   second correction with
    [`07-sanitized-correction.docx`](../../tests/fixtures/epic-319/07-sanitized-correction.docx).
    Confirm the rights/public-visibility fields using only the synthetic test
    context.
-7. In the review record, exercise a clarification, duplicate/version conflict,
+7. In comments on the synthetic issue, exercise a clarification,
+   duplicate/version conflict,
    material revision, renewed approval, and withdrawal using
    [`06-lifecycle-cases.md`](../../tests/fixtures/epic-319/06-lifecycle-cases.md).
 
@@ -119,7 +121,7 @@ unsupported delivery-date promise.
 4. In “Example outcome,” enter: “A clear dependency view for each milestone.”
 5. In “Existing template, workaround, or related request,” enter: “The current
    fictional workaround is to list predecessor IDs in a notes column.”
-6. In the review record, link a duplicate if one exists; record any
+6. In comments on the synthetic issue, link a duplicate if one exists; record any
    clarification, the accepted/deferred/declined outcome, rationale, next
    owner, and related work.
 
@@ -141,7 +143,7 @@ provide a private route for security issues.
 5. In “Steps to reproduce,” enter: “Change a status cell in a temporary copy
    and recalculate. No production file is involved.”
 6. Do not attach other evidence.
-7. In the review record, repeat with an incomplete version and a duplicate;
+7. In comments on the synthetic issue, repeat with an incomplete version and a duplicate;
    record component owner, clarification or duplicate link, investigation,
    verification, and communicated outcome.
 8. Confirm a suspected vulnerability is directed to the private route in
@@ -161,7 +163,7 @@ automatic score change.
 3. For actionable feedback, enter: “Please explain the allowed status values
    beside the table.” Submit that as a separate rating-form issue or use the [general
    feedback form](https://github.com/mirichard/pm-tools-templates/issues/new?template=community-feedback.md).
-4. In the review record, acknowledge receipt, then separately document review,
+4. In comments on the synthetic issue, acknowledge receipt, then separately document review,
    disposition, and any related correction/request/defect link.
 
 **Expected:** Receipt is not a disposition; no automatic catalog rating,
@@ -174,7 +176,7 @@ rationale, related work, and final disposition.
 
 1. Reuse the J1–J5 test records; do not create extra issues just for this step.
 2. Record clarification, duplicate, revision, withdrawal, rejection, and
-   failed-publication/recovery cases in the review record. Use
+   failed-publication/recovery cases in comments. Use
    `06-lifecycle-cases.md` for sample text.
 3. For each record, confirm the status comment identifies the current
    disposition, next responsible party, next action, decision rationale,
@@ -217,7 +219,6 @@ owner responses; do not pre-fill acceptance or call agent fixture checks a
 human walkthrough. The form submissions and brief status replies should take
 about 5–10 minutes per journey, excluding any maintainer review or waiting.
 
-The agent has not created public test issues and cannot clean up records that
-do not exist. After an authorized test, keep only the evidence needed for
-traceability. Do not promise erasure from GitHub history. No synthetic
-content is approved for production publication.
+The agent has not created public test issues. After an authorized test, keep
+only the evidence needed for traceability. Do not promise erasure from GitHub
+history. No synthetic content is approved for production publication.
