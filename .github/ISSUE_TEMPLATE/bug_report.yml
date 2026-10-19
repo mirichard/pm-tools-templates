@@ -68,6 +68,13 @@ body:
   validations:
     required: false
 - type: textarea
+  id: evidence
+  attributes:
+    label: Sanitized evidence or public reference (optional)
+    description: Link to public evidence or describe the relevant observation. Do not link confidential files or include sensitive content.
+  validations:
+    required: false
+- type: textarea
   id: additional-context
   attributes:
     label: Additional context

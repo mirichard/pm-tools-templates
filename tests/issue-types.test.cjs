@@ -115,6 +115,7 @@ test('content submissions require public sanitized files and rights attestations
   assert.match(improvement, /Rights and public visibility/);
   assert.match(improvement, /have permission to share it/);
   assert.match(improvement, /attached files are sanitized/);
+  assert.match(improvement, /Attribution preference if the correction is published/);
 });
 
 test('unsafe public uploads have a stop-and-escalate path and intake lifecycle is traceable', () => {
@@ -123,7 +124,16 @@ test('unsafe public uploads have a stop-and-escalate path and intake lifecycle i
   assert.match(guide, /Do not download, copy, quote,\s+reproduce, or link the content elsewhere/);
   assert.match(guide, /Privately alert the repository owner/);
   assert.match(guide, /GitHub's report-content mechanism/);
-  assert.match(guide, /do not represent an unrecorded state as complete/);
+  assert.match(guide, /do not represent an\s+unrecorded state as complete/);
+  const lowerGuide = guide.toLowerCase();
+  for (const state of [
+    'received', 'in review', 'changes requested', 'approved', 'published',
+    'declined', 'duplicate', 'withdrawn', 'failed-publication',
+    'under consideration', 'accepted', 'deferred', 'triaged', 'routed',
+    'acknowledged', 'reviewed', 'linked to related work',
+  ]) assert.ok(lowerGuide.includes(state), `missing route disposition: ${state}`);
+  assert.match(guide, /maintainer-assisted\s+assessment/);
+  assert.match(guide, /unreadable,[\s\S]*?encrypted, unsafe, or fidelity-compromised/);
   for (const field of [
     'Route / current disposition:',
     'Next responsible party:',
@@ -132,24 +142,45 @@ test('unsafe public uploads have a stop-and-escalate path and intake lifecycle i
     'Related duplicate, issue, or PR:',
     'Outcome or verification evidence:',
   ]) assert.ok(guide.includes(field), `missing shared status field: ${field}`);
-  assert.match(guide, /closing a problem report does not imply that the underlying problem was fixed/);
+  assert.match(guide, /does not imply that the underlying problem was fixed/);
 });
 
-test('legacy contribution intake redirects to the no-Git browser contribution route', () => {
-  const legacy = fs.readFileSync('.github/ISSUE_TEMPLATE/template_contribution.md', 'utf8');
-  assert.match(legacy, /legacy form is no longer used/i);
-  assert.match(legacy, /issues\/new\?template=content_submission\.yml/);
-  assert.doesNotMatch(legacy, /submit the actual template files via pull request/i);
+test('legacy contribution intake URL points to the no-Git browser contribution route', () => {
+  assert.equal(fs.existsSync('.github/ISSUE_TEMPLATE/template_contribution.md'), false);
+  const archive = fs.readFileSync('docs/archive/README-20250611.md', 'utf8');
+  assert.match(archive, /issues\/new\?template=content_submission\.yml/);
+  assert.doesNotMatch(archive, /issues\/new\?template=template_contribution\.md/);
   const contributing = fs.readFileSync('CONTRIBUTING.md', 'utf8');
   assert.match(contributing, /branch from the repository's default branch \(`main`\)/);
   assert.match(contributing, /pull request targeting `main`/);
   assert.doesNotMatch(contributing, /Create branches from `develop`/);
 });
 
+test('receipt workflow posts only an acknowledgement, not a disposition', async () => {
+  const vm = require('node:vm');
+  const workflow = fs.readFileSync('.github/workflows/automated-feedback-ack.yml', 'utf8');
+  const scriptMatch = workflow.match(/          script: \|\n((?:(?: {12}[^\n]*|[ \t]*)\n)+)/);
+  assert.ok(scriptMatch, 'receipt script exists');
+  const script = scriptMatch[1].split('\n').map(line => line.slice(12)).join('\n');
+  const comments = [];
+  const github = {rest: {issues: {
+    createComment: async args => comments.push(args),
+  }}};
+  const context = {repo: {owner: 'example', repo: 'repo'}, payload: {issue: {number: 42}}};
+  await vm.runInNewContext(`(async () => {${script}})()`, {github, context});
+  assert.equal(comments.length, 1);
+  assert.equal(comments[0].issue_number, 42);
+  assert.match(comments[0].body, /confirms receipt only/);
+  assert.doesNotMatch(comments[0].body, /accepted|scheduled|published/i);
+  assert.match(workflow, /!contains\(github\.event\.issue\.labels\.\*\.name, 'security'\)/);
+});
+
 test('request intake and receipt acknowledgement make no file or service promises', () => {
   const request = fs.readFileSync('.github/ISSUE_TEMPLATE/template_request.yml', 'utf8');
   assert.doesNotMatch(request, /type: upload/);
   assert.match(request, /Acceptance does not set a\s+delivery date/);
+  assert.match(request, /What need are you trying to meet/);
+  assert.match(request, /Existing template, workaround, or related request/);
 
   const receipt = fs.readFileSync('.github/workflows/automated-feedback-ack.yml', 'utf8');
   assert.match(receipt, /contains\(github\.event\.issue\.labels\.\*\.name, 'security'\)/);
@@ -200,6 +231,21 @@ test('event and manual targets select the expected scope', async () => {
   const f = fixture();
   assert.deepEqual(await targets({github: f.github, context: {eventName: 'issues', payload: {issue: {number: 19}}}}), [19]);
   assert.deepEqual(await targets({github: f.github, context: {eventName: 'workflow_dispatch', repo: f.args.repo}}), [7]);
+});
+
+test('problem and feedback forms collect safe route-relevant details', () => {
+  const bug = fs.readFileSync('.github/ISSUE_TEMPLATE/bug_report.yml', 'utf8');
+  assert.match(bug, /Affected component or URL/);
+  assert.match(bug, /Expected and observed behavior/);
+  assert.match(bug, /Steps to reproduce/);
+  assert.match(bug, /Sanitized evidence or public reference/);
+  assert.match(bug, /private route in/);
+
+  const rating = fs.readFileSync('.github/ISSUE_TEMPLATE/template-rating.yml', 'utf8');
+  assert.match(rating, /not\s+verified evidence of adoption or template quality/);
+  const feedback = fs.readFileSync('.github/ISSUE_TEMPLATE/community-feedback.md', 'utf8');
+  assert.match(feedback, /communicate a disposition when available/);
+  assert.match(feedback, /does not promise\s+implementation or a response time/);
 });
 test('matrix reconciliation cannot modify another issue', async () => {
   const f = fixture();
