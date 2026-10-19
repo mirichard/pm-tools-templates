@@ -47,6 +47,28 @@ served, and do not execute macros or embedded active content. If scanning,
 isolation, or secure transfer is unavailable, stop and escalate rather than
 process the file.
 
+### If unsafe content is uploaded publicly
+
+If a public issue, pull request, comment, or attachment contains content that
+should not be public:
+
+1. Stop ordinary triage and file processing. Do not download, copy, quote,
+   reproduce, or link the content elsewhere.
+2. Privately alert the repository owner with only the public record URL and a
+   brief description of the exposure; do not repeat the exposed content. Use
+   the private vulnerability-reporting route in [SECURITY.md](../../SECURITY.md)
+   if the exposure is a suspected vulnerability. For other sensitive exposure,
+   use the confidential community contact in [CODE_OF_CONDUCT.md](../../CODE_OF_CONDUCT.md#reporting).
+3. Use GitHub's report-content mechanism for the affected public material and
+   follow the owner's direction on any further action. Do not treat editing or
+   deleting a public issue or attachment as guaranteed removal from GitHub
+   history, caches, notifications, or copies.
+4. Keep the submission on hold. Resume only after the owner confirms the
+   exposure has been handled and the remaining material is safe to process.
+
+The contributor-facing forms must tell submitters not to re-upload or quote
+unsafe material and how to alert maintainers if it is uploaded accidentally.
+
 ## Access, retention, and roles
 
 | Responsibility | Minimum operating rule |
@@ -88,6 +110,45 @@ requests, duplicate links, decision rationale, and links to resulting work.
 These are issue-record conventions, not existing GitHub Project fields or
 automation. Use comments and links to preserve transitions; do not represent an
 unrecorded state as complete.
+
+### Maintainer triage and status update
+
+For every new public intake, a maintainer should:
+
+1. Confirm its route and record receipt. Do not interpret an automated receipt
+   as triage or acceptance.
+2. Check for required context, likely duplicates, and (for reports) the
+   affected component and reproduction evidence. Ask a focused clarification
+   question when needed; do not guess missing details.
+3. Assign the accountable maintainer when known. If ownership is unclear or
+   authority is needed, route the decision to the repository owner and state
+   that the item is waiting for that decision.
+4. Add or update one maintainer comment with the applicable fields below.
+   Keep issue type, GitHub open/closed state, Project scheduling, and route
+   disposition distinct.
+
+Use this compact comment structure; omit revision fields for text-only
+requests, reports, ratings, and feedback:
+
+```text
+Route / current disposition:
+Next responsible party:
+Next action:
+Decision and rationale:
+Related duplicate, issue, or PR:
+Exact revision reviewed (content only):
+Outcome or verification evidence:
+```
+
+Keep an item active while clarification, contributor revision, investigation,
+or publication recovery is pending. Link duplicates to the canonical item and
+communicate the reason. A content decision is not Published until the exact
+approved revision is merged or otherwise published and its destination is
+verified. A failed publication stays pending with an owner and next action.
+Close an issue only after recording and communicating its final route
+disposition; closing a request does not schedule accepted work, and closing a
+problem report does not imply that the underlying problem was fixed. Reopen or
+link a follow-up when new information requires more work.
 
 Do not promise response times or implementation dates unless the repository
 owner has approved them. Acceptance of a request is not a schedule commitment.

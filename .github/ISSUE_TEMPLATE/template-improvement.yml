@@ -47,3 +47,24 @@ body:
     id: related-work
     attributes:
       label: Related or duplicate issue (optional)
+  - type: checkboxes
+    id: rights-and-visibility
+    attributes:
+      label: Rights and public visibility
+      options:
+        - label: I created the proposed correction or have permission to share it.
+          required: true
+        - label: Any attached files are sanitized for public release, including hidden content and metadata.
+          required: true
+        - label: I understand this issue and its attachments are public and later removal cannot guarantee erasure from GitHub history.
+          required: true
+  - type: dropdown
+    id: attribution
+    attributes:
+      label: Attribution preference if the correction is published
+      options:
+        - Credit me by my GitHub username
+        - Use attribution I specify in a follow-up
+        - I prefer no personal attribution
+    validations:
+      required: true

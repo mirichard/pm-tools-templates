@@ -15,6 +15,13 @@ body:
         safely sanitize the original first, stop and ask a maintainer about an
         approved private route without sending the file.
 
+        If you upload unsafe material by mistake, do not re-upload or quote it.
+        Stop and alert a maintainer using the confidential contact in
+        [CODE_OF_CONDUCT.md](https://github.com/mirichard/pm-tools-templates/blob/main/CODE_OF_CONDUCT.md).
+        Maintainers will follow the submission handling guide's escalation
+        steps; edits or deletion cannot guarantee removal from GitHub history
+        or copies.
+
         You do not need to convert your file. Maintainers assess its format and
         may convert or retain it. Publication follows review of the exact
         sanitized revision; opening this issue does not mean the content is

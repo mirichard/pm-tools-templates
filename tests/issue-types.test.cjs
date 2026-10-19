@@ -103,6 +103,8 @@ test('content submissions require public sanitized files and rights attestations
   const content = fs.readFileSync('.github/ISSUE_TEMPLATE/content_submission.yml', 'utf8');
   assert.match(content, /This issue and every attachment are public/);
   assert.match(content, /restricted transfer channel is not currently configured/);
+  assert.match(content, /If you upload unsafe material by mistake/);
+  assert.match(content, /do not re-upload or quote it/);
   assert.match(content, /type: upload[\s\S]*?required: true/);
   assert.match(content, /removed personal, confidential, proprietary, and identifying information/);
   assert.match(content, /later removal cannot guarantee erasure from Git history/);
@@ -110,6 +112,38 @@ test('content submissions require public sanitized files and rights attestations
   const improvement = fs.readFileSync('.github/ISSUE_TEMPLATE/template-improvement.yml', 'utf8');
   assert.match(improvement, /type: upload[\s\S]*?required: false/);
   assert.match(improvement, /Only upload sanitized\s+files/);
+  assert.match(improvement, /Rights and public visibility/);
+  assert.match(improvement, /have permission to share it/);
+  assert.match(improvement, /attached files are sanitized/);
+});
+
+test('unsafe public uploads have a stop-and-escalate path and intake lifecycle is traceable', () => {
+  const guide = fs.readFileSync('docs/community/submission-handling.md', 'utf8');
+  assert.match(guide, /If unsafe content is uploaded publicly/);
+  assert.match(guide, /Do not download, copy, quote,\s+reproduce, or link the content elsewhere/);
+  assert.match(guide, /Privately alert the repository owner/);
+  assert.match(guide, /GitHub's report-content mechanism/);
+  assert.match(guide, /do not represent an unrecorded state as complete/);
+  for (const field of [
+    'Route / current disposition:',
+    'Next responsible party:',
+    'Next action:',
+    'Decision and rationale:',
+    'Related duplicate, issue, or PR:',
+    'Outcome or verification evidence:',
+  ]) assert.ok(guide.includes(field), `missing shared status field: ${field}`);
+  assert.match(guide, /closing a problem report does not imply that the underlying problem was fixed/);
+});
+
+test('legacy contribution intake redirects to the no-Git browser contribution route', () => {
+  const legacy = fs.readFileSync('.github/ISSUE_TEMPLATE/template_contribution.md', 'utf8');
+  assert.match(legacy, /legacy form is no longer used/i);
+  assert.match(legacy, /issues\/new\?template=content_submission\.yml/);
+  assert.doesNotMatch(legacy, /submit the actual template files via pull request/i);
+  const contributing = fs.readFileSync('CONTRIBUTING.md', 'utf8');
+  assert.match(contributing, /branch from the repository's default branch \(`main`\)/);
+  assert.match(contributing, /pull request targeting `main`/);
+  assert.doesNotMatch(contributing, /Create branches from `develop`/);
 });
 
 test('request intake and receipt acknowledgement make no file or service promises', () => {

@@ -121,25 +121,11 @@ template-name/
 
 ## 🌿 Branching Strategy
 
-### Branch Creation
-- Create branches from `develop`
-- Use naming convention: `feat/<ticket-id>-slug`, `fix/<ticket-id>-slug`, or `chore/<task>`
-
-### Workflow
-1. Push immediately and open a Draft PR to `develop`
-2. Ensure CI passes
-3. Squash-merge; branch auto-deletes
-4. Nightly job promotes `develop` → `staging` → `main`
-
-> **Note:** as of 2026-09-21, `develop` had drifted thousands of commits
-> behind `main`, and at least one active PR (#1287, this CI-infrastructure
-> work) was retargeted to `main` directly for that reason, at the
-> maintainer's direction. That is a stated exception for that PR, not a
-> change to the policy above — new contributions should still branch from
-> and target `develop` unless a maintainer says otherwise. If `develop` stays
-> the primary integration branch going forward, it should be resynced with
-> `main`; if `main`-targeting becomes the norm instead, this section should
-> be rewritten rather than left inconsistent with actual practice.
+Create a topic branch from the repository's default branch (`main`) and open a
+pull request targeting `main`. Use a descriptive branch name such as
+`feat/<ticket-id>-slug`, `fix/<ticket-id>-slug`, or `chore/<task>`. Required
+checks and review controls apply; do not push directly to the protected default
+branch or treat a draft pull request as approved.
 
 ## 🚀 Submission Process
 
