@@ -8,9 +8,17 @@ labels:
 body:
 - type: markdown
   attributes:
-    value: 'Thanks for taking the time to fill out this bug report!
+    value: |
+      Thanks for taking the time to report a problem. This issue is public; do
+      not include confidential, personal, proprietary, or security-sensitive
+      information. Report vulnerabilities using the private route in
+      [SECURITY.md](https://github.com/mirichard/pm-tools-templates/blob/main/SECURITY.md), not this form.
 
-      '
+      If you accidentally post sensitive or identifying material, do not repeat
+      or re-upload it. Stop and alert a maintainer using the confidential
+      contact in
+      [CODE_OF_CONDUCT.md](https://github.com/mirichard/pm-tools-templates/blob/main/CODE_OF_CONDUCT.md).
+      Do not assume editing or deleting the issue removes copies or history.
 - type: input
   id: template
   attributes:
@@ -22,11 +30,15 @@ body:
 - type: textarea
   id: what-happened
   attributes:
-    label: What happened?
-    description: Also tell us, what did you expect to happen?
-    placeholder: Tell us what you see!
+    label: Expected and observed behavior
+    description: What did you expect, and what happened instead?
   validations:
     required: true
+- type: input
+  id: affected-version
+  attributes:
+    label: Affected version or revision (optional)
+    description: Include the template version, release, or commit if known.
 - type: dropdown
   id: methodology
   attributes:
@@ -54,7 +66,14 @@ body:
 
       '
   validations:
-    required: true
+    required: false
+- type: textarea
+  id: evidence
+  attributes:
+    label: Sanitized evidence or public reference (optional)
+    description: Link to public evidence or describe the relevant observation. Do not link confidential files or include sensitive content.
+  validations:
+    required: false
 - type: textarea
   id: additional-context
   attributes:
