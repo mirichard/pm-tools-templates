@@ -236,9 +236,9 @@ function renderRecord() {
     ? `Reassessment of ${previous.reviewId}. Download this review to retain both snapshots. Open issues must be checked individually.`
     : `The review scope or period changed. Previous review ${previous.reviewId} is included for reference only; actions were not carried forward.`);
   record.assessment.checks.forEach((check, index) => {
-    const state = normalizeAssessmentState(check.status);
-    const card = append($('#findings'), 'article', undefined, `finding ${state}`);
-    append(card, 'p', { triggered: 'Needs attention', not_triggered: 'No issue detected in this check', not_assessed: 'Not assessed', not_applicable: 'Not applicable — excluded by you' }[state], 'badge');
+    const statusKey = normalizeAssessmentState(check.status);
+    const card = append($('#findings'), 'article', undefined, `finding ${statusKey}`);
+    append(card, 'p', { triggered: 'Needs attention', not_triggered: 'No issue detected in this check', not_assessed: 'Not assessed', not_applicable: 'Not applicable — excluded by you' }[statusKey], 'badge');
     const title = `${labels[check.ruleId]}${check.subject ? ' · ' + check.subject : ''}`;
     append(card, 'h3', title); append(card, 'p', check.reason);
     if (check.ruleId === 'capacity' && check.measurements.remainingEffortHours !== undefined) {
@@ -249,8 +249,8 @@ function renderRecord() {
     const subject = check.ruleId === 'dependencies' ? record.evidence.schedule?.dependencies?.find(item => item.id === check.subject) : record.evidence[check.ruleId]?.find(item => item.id === check.subject);
     if (subject) listObject(card, subject, evidenceLabels);
     append(card, 'p', `Evidence: ${check.evidenceReferences.join('; ') || 'Not supplied'}`);
-    append(card, 'p', `Next: ${check.recommendation || (state === 'not_assessed' ? 'Ask the relevant owner for the missing or updated evidence, then reassess.' : 'Retain the supporting evidence and reassess when the plan or conditions change.')}`);
-    if (state === 'not_applicable') return;
+    append(card, 'p', `Next: ${check.recommendation || (statusKey === 'not_assessed' ? 'Ask the relevant owner for the missing or updated evidence, then reassess.' : 'Retain the supporting evidence and reassess when the plan or conditions change.')}`);
+    if (statusKey === 'not_applicable') return;
     const action = append(card, 'details');
     action.dataset.actionKey = actionKey(check); action.dataset.actionTitle = title;
     append(action, 'summary', 'Record follow-up action');
