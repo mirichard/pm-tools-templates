@@ -1,0 +1,10 @@
+node_modules
+.git
+.env
+.env.*
+!.env.example
+data
+coverage
+*.log
+experiments
+__pycache__

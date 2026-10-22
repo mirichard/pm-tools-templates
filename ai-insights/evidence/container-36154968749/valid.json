@@ -1,0 +1,101 @@
+{
+  "status": 200,
+  "body": {
+    "success": true,
+    "data": {
+      "riskLevel": "critical",
+      "confidence": 0.761,
+      "probability": 0.761,
+      "riskScore": 86.7,
+      "riskFactors": [],
+      "mitigationStrategies": [
+        {
+          "strategy": "Enhanced Project Monitoring",
+          "priority": "high",
+          "description": "Implement daily standups and weekly risk reviews",
+          "timeframe": "immediate"
+        },
+        {
+          "strategy": "Risk-Based Testing",
+          "priority": "high",
+          "description": "Focus testing efforts on highest-risk components",
+          "timeframe": "1-2 weeks"
+        }
+      ],
+      "timeline": [
+        {
+          "phase": "Planning & Setup",
+          "timeframe": "Days 1-12",
+          "riskTypes": [
+            "Requirements clarity",
+            "Team formation",
+            "Tool setup"
+          ],
+          "severity": "medium"
+        },
+        {
+          "phase": "Development",
+          "timeframe": "Days 12-48",
+          "riskTypes": [
+            "Technical challenges",
+            "Scope creep",
+            "Resource constraints"
+          ],
+          "severity": "high"
+        },
+        {
+          "phase": "Integration & Delivery",
+          "timeframe": "Days 48-60",
+          "riskTypes": [
+            "Integration issues",
+            "Quality concerns",
+            "Delivery pressure"
+          ],
+          "severity": "high"
+        }
+      ],
+      "impact": {
+        "schedule": {
+          "delayProbability": 0.5,
+          "estimatedDelay": 30,
+          "description": "Potential delay of 30 days"
+        },
+        "budget": {
+          "overrunProbability": 0.4,
+          "estimatedOverrun": 20000,
+          "description": "Potential budget overrun of $20,000"
+        },
+        "quality": {
+          "degradationRisk": 0.35,
+          "description": "35% chance of quality issues"
+        }
+      },
+      "metadata": {
+        "validationStatus": "unvalidated",
+        "trainingStatus": "untrained",
+        "factorMethod": "heuristic",
+        "modelVersion": "1.0.0",
+        "predictionDate": "2026-09-25T15:34:26.289Z",
+        "features": [
+          "teamSize",
+          "duration",
+          "budget",
+          "complexity",
+          "stakeholders",
+          "requirements",
+          "features",
+          "teamExperience",
+          "similarProjects",
+          "historicalSuccessRate",
+          "avgDelay"
+        ],
+        "probabilities": [
+          0.092,
+          0.014,
+          0.133,
+          0.761
+        ]
+      }
+    }
+  }
+}
