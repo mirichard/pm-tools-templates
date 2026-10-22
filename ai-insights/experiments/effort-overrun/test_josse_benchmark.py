@@ -33,9 +33,8 @@ class JosseBenchmarkTests(unittest.TestCase):
         rows = fixture()
         manifest = make_manifest(rows, [])
         changed = copy.deepcopy(manifest)
-        changed['groups'][rows[0]['group']] = 'test'
-        if changed == manifest:
-            changed['groups'][rows[0]['group']] = 'train'
+        original_split = changed['groups'][rows[0]['group']]
+        changed['groups'][rows[0]['group']] = 'test' if original_split != 'test' else 'train'
         with self.assertRaises(ValueError):
             evaluate(rows, [], changed)
         with self.assertRaises(ValueError):

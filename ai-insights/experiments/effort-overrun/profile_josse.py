@@ -1,6 +1,7 @@
 """Profile the pinned JOSSE archive database without fitting or copying issue text."""
 import argparse
 from collections import Counter
+import hmac
 import hashlib
 import json
 import math
@@ -15,7 +16,7 @@ SOURCE_SHA256 = '38f9ed6021889d99a322a62f878d202eed8dad278144807a4cd74ff58943a30
 def profile(path):
     path = Path(path).resolve(strict=True)
     digest = hashlib.sha256(path.read_bytes()).hexdigest()
-    if digest != SOURCE_SHA256:
+    if not hmac.compare_digest(digest, SOURCE_SHA256):
         raise ValueError('Database does not match the reviewed Zenodo 7022735 snapshot')
     with sqlite3.connect(path.as_uri() + '?mode=ro', uri=True) as connection:
         if connection.execute('PRAGMA integrity_check').fetchone() != ('ok',):

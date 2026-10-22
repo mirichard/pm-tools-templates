@@ -36,7 +36,7 @@ test('container withdrawal gate passes absence and rejects restored tracked file
     execFileSync('git', ['init', '-q', directory]);
     assert.equal(spawnSync('bash', ['-e', '-c', script], { cwd: directory }).status, 0);
     fs.mkdirSync(path.join(directory, 'ai-insights'));
-    fs.writeFileSync(path.join(directory, 'ai-insights/package.json'), '{}');
+    fs.writeFileSync(path.join(directory, 'ai-insights/Dockerfile'), 'FROM scratch\n');
     execFileSync('git', ['add', 'ai-insights'], { cwd: directory });
     assert.equal(spawnSync('bash', ['-e', '-c', script], { cwd: directory }).status, 1);
   } finally {

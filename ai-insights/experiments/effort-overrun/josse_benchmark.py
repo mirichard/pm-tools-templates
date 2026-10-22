@@ -1,6 +1,7 @@
 """Pinned, retrospective project-held-out effort baselines; no production model."""
 import argparse
 from collections import Counter, defaultdict
+import hmac
 import hashlib
 import json
 import math
@@ -30,7 +31,8 @@ PROTOCOL = {
 
 def load_rows(path):
     path = Path(path).resolve(strict=True)
-    if hashlib.sha256(path.read_bytes()).hexdigest() != SOURCE_SHA256:
+    digest = hashlib.sha256(path.read_bytes()).hexdigest()
+    if not hmac.compare_digest(digest, SOURCE_SHA256):
         raise ValueError('Unexpected source database hash')
     with sqlite3.connect(path.as_uri() + '?mode=ro', uri=True) as conn:
         if conn.execute('pragma integrity_check').fetchone() != ('ok',):
@@ -125,7 +127,10 @@ def comparisons(scores):
 
 def evaluate(rows, excluded, manifest):
     # Recreate assignments and membership digests; reject changed protocol/source membership.
-    if make_manifest(rows, excluded) != manifest:
+    current_manifest = make_manifest(rows, excluded)
+    current_manifest_sha = stable_hash(json.dumps(current_manifest, sort_keys=True))
+    requested_manifest_sha = stable_hash(json.dumps(manifest, sort_keys=True))
+    if not hmac.compare_digest(current_manifest_sha, requested_manifest_sha):
         raise ValueError('Frozen manifest does not match inputs or protocol')
     splits = {s: [r for r in rows if manifest['groups'][r['group']] == s]
               for s in ('train', 'validation', 'test')}
