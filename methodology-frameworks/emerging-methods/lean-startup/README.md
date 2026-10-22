@@ -27,10 +27,17 @@ The Lean Startup methodology provides a scientific approach to creating and mana
 
 ## Quick Start
 
-1. Begin with the [Lean Canvas Template](lean-canvas-template.md) to outline your business model
-2. Use the [MVP Planning Template](mvp-planning-template.md) to define your minimum viable product
-3. Apply the [Build-Measure-Learn Cycle Template](build-measure-learn-cycle.md) for iterative development
-4. Validate assumptions using the [Customer Validation Framework](customer-validation-framework.md)
+1. Begin with the [Lean Canvas Template](lean-canvas-template.md) to outline your business model assumptions
+2. Convert assumptions into testable statements with the [Hypothesis-Driven Planning Template](hypothesis-driven-planning.md)
+3. Define minimum scope and learning goals in the [MVP Planning Template](mvp-planning-template.md)
+4. Set metrics, thresholds, and controls with the [Experiment Design Template](experiment-design-template.md)
+5. Validate demand and evidence quality using the [Customer Validation Framework](customer-validation-framework.md)
+6. Run iterative loops through the [Build-Measure-Learn Cycle Template](build-measure-learn-cycle.md), then use the [Pivot Decision Framework](pivot-decision-framework.md) when outcomes underperform
+
+## Worked Example
+
+- [Lean Startup Canvas-to-Validation Walkthrough](../../../examples/lean-startup/lean-startup-canvas-to-validation-walkthrough.md)
+- [Startup Project Kit](../../../quick-start-kits/startup-project-kit/README.md)
 
 ## Integration with Traditional PM
 

@@ -26,15 +26,17 @@ quick-start-kits/
 ├── agile-transformation/      # Organization agile adoption
 ├── executive-reporting/       # Executive dashboard and reporting
 ├── less-adoption/            # Large-scale agile transformation
+├── startup-project-kit/       # Lean Startup canvas-to-validation flow
 └── [Additional kits as they develop]
 ```
 
 ### **🚀 Available Quick Start Kits:**
-- **First-Time PM Starter** - Complete project setup for new project managers
-- **Remote Team Setup** - Distributed team collaboration and communication
-- **Agile Transformation** - Organizational agile methodology adoption
-- **Executive Reporting** - High-level dashboard and stakeholder communication
-- **LeSS Adoption** - Large-scale Scrum implementation framework
+- **[First-Time PM Starter](first-time-pm-starter/README.md)** - Complete project setup for new project managers
+- **[Remote Team Setup](remote-team-setup/README.md)** - Distributed team collaboration and communication
+- **[Agile Transformation](agile-transformation/README.md)** - Organizational agile methodology adoption
+- **[Executive Reporting](executive-reporting/README.md)** - High-level dashboard and stakeholder communication
+- **[LeSS Adoption](less-adoption/README.md)** - Large-scale Scrum implementation framework
+- **[Startup Project Kit](startup-project-kit/README.md)** - Lean Startup journey from canvas to customer validation
 
 ---
 
@@ -196,6 +198,23 @@ quick-start-kits/
 
 ---
 
+## 🚀 **Startup Project Kit**
+
+### **Scenario:** Launching a new venture using Lean Startup principles
+### **Timeline:** 1-2 days to define and validate the first hypothesis cycle
+
+### **Start Here:**
+- **[Startup Project Kit](startup-project-kit/README.md)** - Main kit entry point
+- **[Lean Startup Canvas-to-Validation Walkthrough](../examples/lean-startup/lean-startup-canvas-to-validation-walkthrough.md)** - End-to-end worked example
+- **[Lean Startup Methodology Framework](../methodology-frameworks/emerging-methods/lean-startup/README.md)** - Supporting template set
+
+### **Best For:**
+- Founders and product leads testing a new business model
+- Teams needing a structured canvas -> hypothesis -> MVP -> experiment -> validation flow
+- Early-stage efforts that need evidence-driven continue/pivot decisions
+
+---
+
 ## 🎓 **Quick Start Kit Selection Guide**
 
 ### **🔍 Choosing the Right Kit**
@@ -323,7 +342,7 @@ quick-start-kits/
 
 *🚀 Ready to accelerate your project launch? Choose your scenario, download the appropriate kit, and transform hours of setup work into minutes of focused customization.*
 
-**Last Updated:** August 2025  
-**Total Kits Available:** 5+ scenario-specific bundles  
-**Average Setup Time:** 4 hours (reduced from 2-3 days)  
+**Last Updated:** August 2025
+**Total Kits Available:** 6+ scenario-specific bundles
+**Average Setup Time:** 4 hours (reduced from 2-3 days)
 **Success Rate:** 92% of projects using Quick Start Kits meet their initial objectives

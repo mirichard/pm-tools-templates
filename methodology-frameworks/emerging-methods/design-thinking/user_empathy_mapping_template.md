@@ -1,8 +1,38 @@
+---
+title: "User Empathy Mapping Template"
+methodology: "universal"
+complexity: "advanced"
+owner: "mirichard"
+updated: "2026-10-08"
+domain: "Stakeholder"
+primary_principles: ["stakeholder-engagement", "systems-thinking"]
+secondary_principles: ["evidence-based-decisions"]
+principle_rationale: "Converts user research signals into a shared system view that strengthens stakeholder understanding and evidence-backed choices."
+tags: ["design-thinking", "empathy-mapping", "user-research", "stakeholder-management"]
+---
+
 # User Empathy Mapping Template
 
 ## Overview
 This template provides a structured approach to creating empathy maps that help teams understand users' thoughts, feelings, actions, and motivations. Empathy mapping is a core design thinking tool that transforms user research into actionable insights for product and project development.
 
+
+
+## When to Use
+- Use when interview or observation data exists and the team needs a single synthesis artifact for user needs, constraints, and motivations.
+- Apply before prioritization when product, design, and delivery leads disagree on which user outcomes matter most.
+- Run this when preparing discovery readouts that must convert qualitative research into actionable delivery hypotheses.
+
+## When NOT to Use
+- Do not use with fabricated or second-hand assumptions when no primary research evidence has been collected.
+- Do not mistake one-way status updates for stakeholder understanding; use structured feedback loops instead (see [Stakeholder broadcast](../../../docs/principles/anti-patterns.md#stakeholder-broadcast)).
+- Do not freeze the map as permanent truth when user behavior is changing across segments or journey stages.
+
+## Pairs Well With
+- [Design Thinking Workshop Template](design_thinking_workshop_template.md)
+- [Customer Validation Framework](../lean-startup/customer-validation-framework.md)
+
+Decision context model reference: 800-801-context-assessment-model.md
 ## Template Information
 - **Methodology:** Design Thinking - Empathize Stage
 - **Purpose:** Synthesize user research into empathy maps for deeper understanding
@@ -941,13 +971,10 @@ long_term_impact_metrics:
 
 ### Template Ecosystem Connections
 - [Design Thinking Workshop Template](./design_thinking_workshop_template.md) - Complete workshop framework
-- [Innovation Project Template](../../organizational-frameworks/innovation-management/innovation_project_template.md) - Innovation project management
-- [User Story Templates](../../agile/templates/user_story_template.md) - Agile user story integration
-- [Stakeholder Analysis Templates](../../traditional/process_groups/initiating/stakeholder_register_template.md) - Stakeholder management
-
-### Tool Integration Guides
-- [Miro Empathy Mapping Setup](../../integration_guides/collaboration_tools/miro_setup.md) - Digital tool configuration
-- [User Research Integration](../../integration_guides/research_tools/) - Research tool workflows
+- [Innovation Project Template](../../../organizational-frameworks/innovation-management/innovation_project_template.md) - Innovation project management
+- [User Story Template](../../../domains/uncertainty/role-based-toolkits/product-owner/user-story-template.md) - Agile user story integration
+- [Stakeholder Register Template](../../../domains/stakeholder/project-lifecycle/01-initiation/stakeholder-analysis/stakeholder-register-template.md) - Stakeholder management
+- [Design Thinking Walkthrough Example](../../../examples/design-thinking/design-thinking-walkthrough.md) - Worked end-to-end example
 
 ---
 

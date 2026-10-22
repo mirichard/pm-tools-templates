@@ -11,8 +11,6 @@ import {
   Calendar,
   Download,
   RefreshCw,
-  CheckCircle,
-  AlertCircle
 } from 'lucide-react'
 import { useToast } from '@/components/ui/toast'
 
@@ -50,7 +48,7 @@ export function DashboardHeader({ onExportClick, onSettingsClick }: DashboardHea
           duration: 5000
         })
       }
-    } catch (error) {
+    } catch {
       addToast({
         type: 'error',
         title: 'Refresh failed',

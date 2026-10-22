@@ -1,8 +1,38 @@
+---
+title: "Design Thinking Workshop Template"
+methodology: "universal"
+complexity: "advanced"
+owner: "mirichard"
+updated: "2026-10-08"
+domain: "Delivery"
+primary_principles: ["stakeholder-engagement", "collaborative-leadership"]
+secondary_principles: ["adaptability", "value-focus"]
+principle_rationale: "Facilitates collaborative problem framing with users and teams so workshop outputs drive adaptable value-focused delivery decisions."
+tags: ["design-thinking", "workshop", "innovation", "human-centered-design"]
+---
+
 # Design Thinking Workshop Template
 
 ## Overview
 This template provides a comprehensive framework for conducting design thinking workshops that integrate with project management practices. It combines human-centered design principles with structured project execution to drive innovation and solve complex problems.
 
+
+
+## When to Use
+- Run a cross-functional framing workshop when a problem is ambiguous and teams need a shared problem statement before committing delivery scope.
+- Use this format when you need structured facilitation from empathy through prototype testing within a defined project window.
+- Apply it when stakeholder alignment is weak and you need observable workshop outputs (insights, concepts, and next experiments).
+
+## When NOT to Use
+- Do not use as a substitute for delivery governance after execution has already started and committed controls are in place.
+- Do not treat workshop artifacts as implementation evidence without contextual tailoring and accountable follow-through (see [Template as substitute for judgment](../../../docs/principles/anti-patterns.md#template-judgment)).
+- Do not run this as a single-team exercise when the decision depends on customers, operations, and compliance inputs.
+
+## Pairs Well With
+- [User Empathy Mapping Template](user_empathy_mapping_template.md)
+- [Experiment Design Template](../lean-startup/experiment-design-template.md)
+
+Decision context model reference: 800-801-context-assessment-model.md
 ## Template Information
 - **Methodology:** Design Thinking Integration
 - **Purpose:** Facilitate human-centered problem solving and innovation
@@ -1210,13 +1240,10 @@ Organizational Metrics:
 
 ### Template Ecosystem Integration
 - [User Empathy Mapping Template](./user_empathy_mapping_template.md) - Detailed empathy mapping process
-- [Innovation Project Management Template](../../organizational-frameworks/innovation-management/innovation_project_template.md) - Innovation project lifecycle
-- [Agile User Story Templates](../../agile/templates/) - User story integration with DT insights
-- [Hybrid Project Management Templates](../../hybrid/templates/) - Combining DT with traditional PM
-
-### Tool Integration Guides
-- [Design Thinking + Jira Integration](../../integration_guides/design_thinking_tools/) - Tool workflow setup
-- [Miro/Figma Workshop Templates](../../integration_guides/collaboration_tools/) - Digital workshop setup
+- [Innovation Project Management Template](../../../organizational-frameworks/innovation-management/innovation_project_template.md) - Innovation project lifecycle
+- [User Story Template](../../../domains/uncertainty/role-based-toolkits/product-owner/user-story-template.md) - User story integration with DT insights
+- [Hybrid Project Management Templates](../../../Hybrid/Templates/) - Combining DT with traditional PM
+- [Design Thinking Walkthrough Example](../../../examples/design-thinking/design-thinking-walkthrough.md) - Worked end-to-end example
 
 ---
 

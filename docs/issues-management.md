@@ -1,5 +1,143 @@
 # Issues Management Guide
 
+## Current classification policy
+
+Every open issue must have exactly one approved `type:*` label. The definitions
+live in [issue-types.json](../.github/issue-types.json). Other labels describe
+priority, status, topic or compatibility; they do not replace the type.
+
+| Label | Purpose | Title convention |
+| --- | --- | --- |
+| `type:epic` | Coordinated outcome delivered through related work | `EPIC:` |
+| `type:story` | Bounded user outcome with acceptance criteria | `Story:` |
+| `type:task` | Concrete implementation or maintenance activity | `Task:` |
+| `type:bug` | Defect in existing behavior | `Bug:` |
+| `type:spike` | Timeboxed investigation supporting a decision | `Spike:` |
+| `type:candidate` | Uncommitted proposal requiring evaluation | Existing proposal prefixes are supported |
+| `type:operational` | Ongoing report, monitoring alert or administrative record | Preserve titles used by automation |
+
+Use the [issue chooser](https://github.com/mirichard/pm-tools-templates/issues/new/choose).
+Choose **Product idea or enhancement — start here** for general proposals.
+Template Request and Template Improvement are specialized alternatives.
+Bug forms assign `type:bug`; proposals, enhancement requests and contributions
+start as `type:candidate`; template ratings are operational feedback records.
+Epic, Story, Task and Spike forms support planned work. A new candidate does not
+become a delivery commitment merely because it has a type.
+
+Templates retain legacy and topical labels consumed by existing workflows.
+Maintainers should keep title prefixes consistent when reclassifying work, but
+the validator uses labels as its authority and does not rename issues.
+
+## Validation and triage
+
+The Issue type validation workflow checks opened, reopened, labeled and unlabeled
+issues. A daily paginated sweep covers missed events and issues created with
+`GITHUB_TOKEN`, which do not trigger a second issue workflow. Known automated
+creators supply `type:operational` directly. Confirmed remediation work can be
+filed separately as a Bug or Task and linked to the originating report.
+
+Missing, multiple or unrecognized type labels receive `needs-type` and a single
+bot comment. Correct the labels to resolve the flag; the same comment is updated.
+The validator never selects a type from free text, replaces a parent, closes an
+issue, assigns a priority, or changes a project status. A successful workflow run
+means validation executed; consult its summary and the `needs-type` queue for
+outstanding gaps. API failures fail the run.
+
+```bash
+# Review issues requiring classification
+gh issue list --repo mirichard/pm-tools-templates --label needs-type
+
+# Create an issue through the CLI with an explicit type
+gh issue create --repo mirichard/pm-tools-templates \
+  --title 'Task: Describe the work' --label type:task --body-file issue.md
+```
+
+Changing types requires removing the old `type:*` label and adding the new one.
+Unknown or conflicting types require maintainer judgment; the bot does not guess.
+Blank intake is disabled for general contributors, but maintainers and API clients
+can bypass forms. This is validation after creation, not a server-side creation
+restriction.
+
+Before selecting an issue for delivery, maintainers verify its type, scope,
+acceptance criteria and dependencies. Establish and verify a native parent
+relationship where appropriate, or document why the issue is standalone.
+A parent URL in a form does not create a native relationship. Classification and
+parentage do not set priority or schedule work. Readiness is a **manual review
+requirement**; this workflow does not enforce GitHub Project status transitions.
+
+## Roadmap alignment
+
+Use [ROADMAP.md](../ROADMAP.md), the [alignment register](../backlog/roadmap-alignment.md)
+and the [Product Roadmap project](https://github.com/users/mirichard/projects/11)
+for current outcomes and planning horizons. Keep `type:*`, native parentage,
+workflow status and horizon separate. Stories/tasks normally inherit their
+parent's outcome; document a standalone rationale or cross-cutting dependency
+instead of assigning competing parents. Legacy theme labels and closed milestones
+are historical metadata, not scheduling authority.
+
+New proposals stay in discovery until selected. Before promoting work, verify
+scope, acceptance criteria, dependencies, owner, access/data and available
+capacity. Operational reports support triage but do not count as delivered
+product increments. Update the issue, affected alignment row and project when a
+planning decision or evidence-backed closure changes the roadmap.
+
+## Maintenance and rollout
+
+Run `node --test tests/issue-types.test.cjs tests/template-analytics.test.cjs`.
+CI checks the validator behavior, intake type coverage and the known automated
+creator syntax. Extend those checks when introducing a new creation mechanism;
+static checks are not a universal parser of arbitrary API clients.
+
+After merging to the default branch, run **Issue type validation** manually with
+`preview: true` to inspect the full backlog, then `preview: false` to reconcile it.
+Event and scheduled runs reconcile automatically once merged. Reconciliation
+creates missing approved labels and `needs-type`, without overwriting existing
+label descriptions or colors. Template labels must already exist to be applied
+at issue creation. The approved type labels were established during backlog
+cleanup; bootstrap also supports recovery if any are removed.
+
+Workflow changes are tested on pull requests without issue-write permissions.
+The mutation workflow checks out the event commit, accepts issue content as data,
+and serializes reconciliation per issue. Sweep and event jobs share that lock;
+activity on another issue cannot replace a pending correction. A superseding job
+for the same issue reads current state. Sweeps run at most four jobs concurrently
+and fail explicitly above 256 targets, requiring batching before further growth.
+A maintainer can dispatch a reviewed branch before merge; scheduled and issue
+runs use the default branch. Concurrent manual edits can require another event.
+
+`good first issue` is a manual maintainer decision after triage. Topic automation
+uses an unambiguous `type:bug` label or an explicit documentation, template request,
+template improvement, feature request or enhancement title prefix. Incidental
+words in issue bodies do not classify work. Expert review starts only when a maintainer applies
+`expert-review-needed`, not on every submission. New bug reports do not assign
+an owner automatically. Existing labels are not retroactively removed.
+
+Epic size automation selects `type:epic` issues and counts their open, direct
+native sub-issues, including child epics. References in prose and dependency links
+do not count; closed children and grandchildren do not count. Repository thresholds
+are small (0–7), medium (8–14), large (15–20), and oversized (21+). Pagination is
+required, and a failed child lookup leaves that epic's size label unchanged and
+fails the run. Relationship changes are reconciled by the daily sweep or a manual
+dispatch; issue events also trigger reconciliation.
+
+Sprint board status is separate from issue type and review readiness. `Blocked`
+means continuation awaits a documented dependency or decision. Partial completion
+does not imply `Done`, and removing a stale review label does not approve the work.
+
+References: [issue form syntax](https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-issue-forms),
+[template configuration](https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests/configuring-issue-templates-for-your-repository),
+and [workflow triggering](https://docs.github.com/en/actions/how-tos/write-workflows/choose-when-workflows-run/trigger-a-workflow).
+
+## Historical issue inventory — June 17, 2025
+
+The material below is an archived snapshot, not current classifications,
+commitments, completion evidence or creation guidance. It is not automatically
+updated. Use the policy above, current GitHub issues and [ROADMAP.md](../ROADMAP.md)
+for current decisions. Historical phase and priority labels are not required.
+
+---
+
+
 **Comprehensive project management for PM Tools Templates repository**
 
 ## Overview
@@ -221,4 +359,3 @@ gh issue list --search "SECURITY" --state all
 ---
 
 *This document is automatically updated as issues are created, modified, or completed. For real-time status, use the GitHub CLI commands provided above.*
-

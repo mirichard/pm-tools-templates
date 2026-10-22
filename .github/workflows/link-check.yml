@@ -144,6 +144,6 @@ jobs:
             
             This issue was created automatically by the link health monitoring system.
             `,
-            labels: ['maintenance', 'documentation', 'link-health']
+            labels: ['type:operational', 'maintenance', 'documentation', 'link-health']
           });
 

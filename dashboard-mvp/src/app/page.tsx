@@ -1,6 +1,7 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import { useSavedDashboardSettings } from '@/lib/use-saved-dashboard-settings';
+import React, { useState } from 'react';
 import { DashboardHeader } from '@/components/dashboard/header';
 import { MetricCard } from '@/components/dashboard/metric-card';
 import { ProgressChart } from '@/components/dashboard/progress-chart';
@@ -18,19 +19,10 @@ export default function Dashboard() {
   const { data, loading, error } = useDashboardData();
   const [settingsOpen, setSettingsOpen] = useState(false);
   const [exportOpen, setExportOpen] = useState(false);
-  const [dashboardSettings, setDashboardSettings] = useState<DashboardSettingsType | null>(null);
+  const savedSettings = useSavedDashboardSettings();
+  const [changedSettings, setDashboardSettings] = useState<DashboardSettingsType | null>(null);
 
-  useEffect(() => {
-    // Load settings from localStorage
-    const savedSettings = localStorage.getItem('dashboardSettings');
-    if (savedSettings) {
-      try {
-        setDashboardSettings(JSON.parse(savedSettings));
-      } catch (error) {
-        console.warn('Failed to parse dashboard settings:', error);
-      }
-    }
-  }, []);
+  const dashboardSettings = changedSettings ?? savedSettings;
 
   const handleSettingsChange = (settings: DashboardSettingsType) => {
     setDashboardSettings(settings);

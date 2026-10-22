@@ -1,8 +1,38 @@
+---
+title: "Customer Validation Framework"
+methodology: "universal"
+complexity: "advanced"
+owner: "mirichard"
+updated: "2026-10-08"
+domain: "Stakeholder"
+primary_principles: ["stakeholder-engagement", "evidence-based-decisions"]
+secondary_principles: ["value-focus", "adaptability"]
+principle_rationale: "Uses direct customer evidence to validate demand and align product decisions with stakeholder needs and value outcomes."
+tags: ["lean-startup", "customer-validation", "product-market-fit", "user-research"]
+---
+
 # Customer Validation Framework
 
 ## Overview
 Customer validation is the process of testing whether customers actually want your product and will pay for it. This framework provides systematic approaches to validate your customer assumptions and product-market fit.
 
+
+
+## When to Use
+- Use before scaling delivery when you must verify that target customers recognize the problem and prefer your proposed solution.
+- Apply when teams need a repeatable interview and evidence model to test willingness to pay and adoption intent.
+- Run this framework when go/no-go decisions depend on direct customer proof instead of internal opinion.
+
+## When NOT to Use
+- Do not use as a sales script designed to confirm a predetermined answer from prospects.
+- Do not treat broad announcement reach as validation quality; require direct evidence and explicit response patterns (see [Stakeholder broadcast](../../../docs/principles/anti-patterns.md#stakeholder-broadcast)).
+- Do not advance to scale decisions when contradictory interview signals remain unresolved across segments.
+
+## Pairs Well With
+- [Build-Measure-Learn Cycle Template](build-measure-learn-cycle.md)
+- [MVP Planning Template](mvp-planning-template.md)
+
+Decision context model reference: 800-801-context-assessment-model.md
 ## Validation Stages
 
 ### Stage 1: Problem Validation

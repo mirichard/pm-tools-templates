@@ -1,6 +1,6 @@
 'use client'
 
-import React from 'react';
+import React, { useState } from 'react';
 import { DashboardLayout } from '@/components/dashboard/layout';
 import { MetricCard } from '@/components/dashboard/metric-card';
 import { ProgressChart } from '@/components/dashboard/progress-chart';
@@ -45,6 +45,7 @@ import {
 
 // Main dashboard content component
 function DashboardContent() {
+  const [sampleTime] = useState(() => Date.now());
   const { isMobile, isTablet } = useResponsive();
   const { addNotification } = useFeedback();
   const [showAccessibilityPanel, setShowAccessibilityPanel] = React.useState(false);
@@ -165,7 +166,7 @@ function DashboardContent() {
               icon={Users}
               color="green"
               priority="high"
-              lastUpdated={new Date(Date.now() - 2 * 60000)}
+              lastUpdated={new Date(sampleTime - 2 * 60000)}
               onClick={() => handleMetricClick('User Engagement')}
               description="Current user engagement rate shows excellent user satisfaction and system usability."
             />
@@ -180,7 +181,7 @@ function DashboardContent() {
               icon={Zap}
               color="blue"
               priority="medium"
-              lastUpdated={new Date(Date.now() - 5 * 60000)}
+              lastUpdated={new Date(sampleTime - 5 * 60000)}
               onClick={() => handleMetricClick('Response Time')}
               description="Average system response time. Lower values indicate better performance."
             />
@@ -195,7 +196,7 @@ function DashboardContent() {
               icon={Award}
               color="purple"
               priority="low"
-              lastUpdated={new Date(Date.now() - 1 * 60000)}
+              lastUpdated={new Date(sampleTime - 1 * 60000)}
               onClick={() => handleMetricClick('Accessibility Score')}
               description="WCAG 2.1 AA compliance score showing excellent accessibility standards."
             />
@@ -210,7 +211,7 @@ function DashboardContent() {
               icon={Star}
               color="indigo"
               priority="medium"
-              lastUpdated={new Date(Date.now() - 3 * 60000)}
+              lastUpdated={new Date(sampleTime - 3 * 60000)}
               onClick={() => handleMetricClick('Mobile Usage')}
               description="Percentage of users accessing the dashboard from mobile devices."
             />

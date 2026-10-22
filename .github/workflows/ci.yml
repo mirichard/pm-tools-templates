@@ -18,7 +18,7 @@ jobs:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
         with:
           persist-credentials: false
-      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with: { node-version: "24" }
       - run: npm ci
       - run: npm test -- --coverage
@@ -26,6 +26,12 @@ jobs:
       - run: npm run validate:migration-post-check
       - run: npm run validate:domain-navigation
       - run: npm run test:ci-helpers
+      - name: Validate issue classification
+        run: node --test tests/issue-types.test.cjs tests/template-analytics.test.cjs tests/issue-label-policy.test.cjs
+      - name: Validate release version consistency
+        run: |
+          python3 scripts/release_management.py
+          python3 -m unittest discover -s tests -p 'test_release_management.py' -v
       # actionlint is required by tests/test_workflow_health.py's lint-mode
       # cases; same pinned version/checksum as workflow-health-improvements.yml.
       - name: Install verified actionlint
@@ -63,7 +69,7 @@ jobs:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
         with:
           persist-credentials: false
-      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with: { node-version: "24" }
       - name: Generate path filters from ci-coverage.json
         id: gen
@@ -112,7 +118,7 @@ jobs:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
         with:
           persist-credentials: false
-      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with: { node-version: "24" }
       - run: node scripts/ci-coverage.mjs validate-inventory
 
@@ -140,7 +146,7 @@ jobs:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
         with:
           persist-credentials: false
-      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with: { node-version: "24" }
       - name: Resolve app directory
         id: dir
@@ -183,11 +189,11 @@ jobs:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
         with:
           persist-credentials: false
-      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with: { node-version: "24" }
       - name: Download check results
         if: needs.changes.outputs.selected_apps != '[]'
-        uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
+        uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
         with:
           pattern: check-result-*
           path: health-reports/

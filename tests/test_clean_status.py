@@ -108,6 +108,7 @@ class LegacyReportingSafetyTests(unittest.TestCase):
                     mail = step.get('uses', '').startswith('dawidd6/action-send-mail@')
                     mutation = bool(re.search(r'\bgit\s+(?:commit|push)\b', step.get('run', '')))
                     preview = step.get('uses', '').startswith('actions/upload-artifact@')
+                    report_artifact = preview and step['with']['name'] == 'weekly-status-email-report'
                     if not (mail or mutation or preview):
                         continue
                     mutation_count += int(mail or mutation)
@@ -126,12 +127,27 @@ class LegacyReportingSafetyTests(unittest.TestCase):
                                     'env': {'EMAIL_CONFIGURED': configured},
                                 },
                             })
-                            expected.append(want_preview if preview else publish and (not mail or configured == 'true'))
-            self.assertEqual(mutation_count, 3 if filename == 'status-reporting.yml' else 2)
+                            if report_artifact:
+                                expected.append(event in ('schedule', 'workflow_dispatch'))
+                            else:
+                                expected.append(want_preview if preview else publish and (not mail or configured == 'true'))
+            self.assertEqual(mutation_count, 3 if filename == 'status-reporting.yml' else 1)
             self.assertEqual(preview_count, 2)
             result = subprocess.run(['node', '-e', evaluator], input=json.dumps(cases),
                                     text=True, capture_output=True, check=True)
             self.assertEqual(json.loads(result.stdout), expected, filename)
+
+    def test_weekly_reports_are_artifacts_not_main_branch_pushes(self):
+        workflow = yaml.safe_load((WORKFLOW.parent / 'weekly-status-email.yml').read_text())
+        job = workflow['jobs']['status-reporting']
+        self.assertEqual(job['permissions']['contents'], 'read')
+        self.assertFalse(any(re.search(r'\bgit\s+(?:commit|push)\b', step.get('run', ''))
+                             for step in job['steps']))
+        report = next(step for step in job['steps']
+                      if step.get('with', {}).get('name') == 'weekly-status-email-report')
+        self.assertEqual(report['with']['retention-days'], 90)
+        self.assertIn('reports/status/', report['with']['path'])
+        self.assertIn('metrics/status-data/', report['with']['path'])
 
     def test_email_summary_does_not_claim_skipped_delivery_succeeded(self):
         for filename in ('status-reporting.yml', 'weekly-status-email.yml'):

@@ -1,0 +1,19 @@
+{
+  "name": "@pm-tools/webhook-framework",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "start": "node src/server.mjs",
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js --config jest.config.webhook.js --runInBand"
+  },
+  "dependencies": {
+    "express": "^5.2.1",
+    "express-rate-limit": "^8.7.0"
+  },
+  "devDependencies": {
+    "jest": "^30.0.4"
+  },
+  "engines": {
+    "node": ">=24"
+  }
+}

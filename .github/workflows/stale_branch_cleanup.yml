@@ -1,18 +1,151 @@
 name: Stale Branch Cleanup
+
+# Deletes generated and fully merged branches. In-repo logic only: no third-party
+# actions. Safe by default:
+#   - Scheduled runs are DRY RUNS unless the repository variable
+#     STALE_BRANCH_CLEANUP_LIVE is set to "true".
+#   - Manual runs default to dry_run=true.
+# Deleted branch names and SHAs are written to the job summary so any branch can be
+# restored with: git push origin <sha>:refs/heads/<name>
+
 on:
   schedule:
-    - cron: "0 3 * * *"   # Daily 03:00 UTC
+    - cron: "0 3 * * 1" # Mondays 03:00 UTC
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Report what would be deleted without deleting"
+        type: boolean
+        default: true
+      max_deletions:
+        description: "Maximum branches to delete in this run"
+        type: string
+        default: "100"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: stale-branch-cleanup
+  cancel-in-progress: false
+
 jobs:
   cleanup:
+    name: cleanup
     runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: write # delete refs
+      pull-requests: read # skip branches with open PRs
     steps:
-      - uses: phpdroid/remove-stale-branches@v3
+      - name: Find and delete stale branches
+        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9
+        env:
+          DRY_RUN: ${{ github.event_name == 'workflow_dispatch' && format('{0}', inputs.dry_run) || format('{0}', vars.STALE_BRANCH_CLEANUP_LIVE != 'true') }}
+          MAX_DELETIONS: ${{ inputs.max_deletions || '100' }}
         with:
-          days-before-stale: 30
-          days-before-delete: 14
-          ignore: |
-            main
-            staging
-            develop
-            chore/branch-governance-setup
+          script: |
+            const { owner, repo } = context.repo;
+            const dryRun = process.env.DRY_RUN !== 'false';
+            const maxDeletions = Math.max(0, parseInt(process.env.MAX_DELETIONS, 10) || 100);
+            const DAY = 86400000;
+            const AUTO_MAX_AGE_DAYS = 30;     // auto/* generated branches
+            const MERGED_MAX_AGE_DAYS = 14;   // fully merged branches
+            const UNMERGED_REPORT_DAYS = 180; // reported only, never deleted
+            const now = Date.now();
 
+            const { data: repoInfo } = await github.rest.repos.get({ owner, repo });
+            const defaultBranch = repoInfo.default_branch;
+            const protectedNames = new Set([defaultBranch, 'main', 'develop', 'staging', 'vnext']);
+            const protectedPrefixes = ['preserve/', 'research/'];
+
+            // All branches with last commit date (GraphQL, paginated).
+            const branches = [];
+            let cursor = null;
+            do {
+              const res = await github.graphql(
+                `query($owner:String!,$repo:String!,$cursor:String){
+                  repository(owner:$owner,name:$repo){
+                    refs(refPrefix:"refs/heads/",first:100,after:$cursor){
+                      pageInfo{hasNextPage endCursor}
+                      nodes{name target{... on Commit{oid committedDate}}}
+                    }
+                  }
+                }`, { owner, repo, cursor });
+              const refs = res.repository.refs;
+              for (const n of refs.nodes) {
+                if (n.target) branches.push({ name: n.name, sha: n.target.oid, date: new Date(n.target.committedDate) });
+              }
+              cursor = refs.pageInfo.hasNextPage ? refs.pageInfo.endCursor : null;
+            } while (cursor);
+
+            // Branches that are the head of an open same-repo PR are never touched.
+            const openPrs = await github.paginate(github.rest.pulls.list, { owner, repo, state: 'open', per_page: 100 });
+            const openHeads = new Set(
+              openPrs.filter(p => p.head.repo && p.head.repo.full_name === `${owner}/${repo}`).map(p => p.head.ref));
+
+            const toDelete = [];
+            const unmergedStale = [];
+            const skipped = { protectedBranch: 0, openPr: 0, tooYoung: 0 };
+            branches.sort((a, b) => a.date - b.date);
+            for (const b of branches) {
+              const ageDays = Math.floor((now - b.date.getTime()) / DAY);
+              if (protectedNames.has(b.name) || protectedPrefixes.some(p => b.name.startsWith(p))) { skipped.protectedBranch++; continue; }
+              if (openHeads.has(b.name)) { skipped.openPr++; continue; }
+              if (b.name.startsWith('auto/') && ageDays > AUTO_MAX_AGE_DAYS) {
+                toDelete.push({ ...b, ageDays, reason: `auto/* older than ${AUTO_MAX_AGE_DAYS} days` });
+                continue;
+              }
+              if (ageDays > MERGED_MAX_AGE_DAYS) {
+                let ahead = null;
+                try {
+                  const cmp = await github.rest.repos.compareCommitsWithBasehead({ owner, repo, basehead: `${defaultBranch}...${b.sha}` });
+                  ahead = cmp.data.ahead_by;
+                } catch (error) {
+                  core.warning(`Could not compare ${b.name}: ${error.message}; leaving it alone.`);
+                }
+                if (ahead === 0) {
+                  toDelete.push({ ...b, ageDays, reason: `fully merged into ${defaultBranch}, older than ${MERGED_MAX_AGE_DAYS} days` });
+                  continue;
+                }
+                if (ahead !== null && ageDays > UNMERGED_REPORT_DAYS) unmergedStale.push({ ...b, ageDays, ahead });
+                continue;
+              }
+              skipped.tooYoung++;
+            }
+
+            const batch = toDelete.slice(0, maxDeletions);
+            const deferred = toDelete.length - batch.length;
+            const deleted = [];
+            const failed = [];
+            if (!dryRun) {
+              for (const b of batch) {
+                try {
+                  await github.rest.git.deleteRef({ owner, repo, ref: `heads/${b.name}` });
+                  deleted.push(b);
+                } catch (error) {
+                  failed.push({ ...b, error: error.message });
+                }
+              }
+            }
+
+            const mode = dryRun ? 'DRY RUN (nothing deleted)' : 'LIVE';
+            const lines = (items, fmt) => items.map(fmt).join('\n');
+            core.summary
+              .addHeading(`Stale branch cleanup: ${mode}`, 2)
+              .addRaw(`Total branches: ${branches.length}. Candidates: ${toDelete.length}. ` +
+                `This run ${dryRun ? 'would delete' : 'deleted'}: ${dryRun ? batch.length : deleted.length} ` +
+                `(cap ${maxDeletions}, deferred ${deferred}). Failed: ${failed.length}. ` +
+                `Skipped: ${skipped.protectedBranch} protected, ${skipped.openPr} with open PR, ${skipped.tooYoung} too young.\n\n`)
+              .addHeading(dryRun ? 'Would delete (name, last commit SHA, age, reason)' : 'Deleted (name, last commit SHA, age, reason)', 3)
+              .addCodeBlock(lines(dryRun ? batch : deleted, b => `${b.name}  ${b.sha}  ${b.ageDays}d  ${b.reason}`) || '(none)', 'text')
+              .addHeading(`Unmerged and older than ${UNMERGED_REPORT_DAYS} days (report only, never deleted)`, 3)
+              .addCodeBlock(lines(unmergedStale, b => `${b.name}  ${b.sha}  ${b.ageDays}d  ahead of ${defaultBranch} by ${b.ahead}`) || '(none)', 'text');
+            if (failed.length) {
+              core.summary.addHeading('Failed deletions', 3)
+                .addCodeBlock(lines(failed, b => `${b.name}: ${b.error}`), 'text');
+            }
+            await core.summary.write();
+
+            core.info(`${mode}: candidates=${toDelete.length}, batch=${batch.length}, deleted=${deleted.length}, failed=${failed.length}, unmergedStale=${unmergedStale.length}`);
+            if (failed.length) core.setFailed(`${failed.length} branch deletions failed; see job summary.`);

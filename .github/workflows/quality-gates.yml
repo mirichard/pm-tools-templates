@@ -294,7 +294,7 @@ jobs:
           # Create issue for quality failures
           gh issue create \
             --title "🔍 Quality Gate Failures Detected" \
-            --label "quality,bug,high-priority" \
+            --label "type:operational,quality,bug,high-priority" \
             --body "## Quality Gate Failures
 
           **Detection Date:** $(date)

@@ -113,12 +113,14 @@ Already found what you need above? You can stop there — everything below is th
 | [Uncertainty](domains/uncertainty/) | Domain | Risks, opportunities, issues, and contingency planning |
 | [Measurement](domains/measurement/) | Domain | Progress, performance, dashboards, and outcomes |
 | [Quick-start kits](quick-start-kits/README.md) | Kit | Templates bundled for a specific project scenario |
+| [Startup project kit](quick-start-kits/startup-project-kit/README.md) | Kit | Lean Startup canvas-to-validation navigation path |
 | [Role-based toolkits](role-based-toolkits/README.md) | Toolkit | Resources grouped by your responsibilities |
 | [Methodology selection guide](docs/getting-started/methodology-selector.md) | Guide | Traditional, Agile, or hybrid guidance |
 | [Industry collections](industry-specializations/) | Industry | Industry-specific resources |
 | [Business stakeholder suite](business-stakeholder-suite/README.md) | Toolkit | Executive communication and oversight |
 | [Project assessment suite](project-assessment-suite/README.md) | Guide | Assessing a project already in progress |
 | [Examples and case studies](examples/README.md) | Example | Illustrations of template use |
+| [Lean Startup walkthrough](examples/lean-startup/lean-startup-canvas-to-validation-walkthrough.md) | Example | Worked flow from canvas to customer validation |
 | [Integration guides](integration-guides/README.md) | Guide | Connecting resources to your PM tools |
 
 <!-- Compatibility anchors for existing README bookmarks. -->
@@ -147,7 +149,7 @@ These optional tools have separate installation instructions and prerequisites. 
 - [Template generator CLI](tools/template-generator-cli/README.md) — generate project templates from the command line.
 - [Requirements structuring CLI](tools/requirements-structuring-cli/README.md) — structure requirements from source material.
 - [Project health dashboard demo](docs/dashboard-mvp-demo.md) — set up and run the dashboard.
-- [AI insights documentation](ai-insights/README.md) — review the analytics implementation and setup.
+- AI insights is withdrawn pending reliability work; see the [development preservation record](docs/ai-insights-development.md).
 
 <!-- Compatibility anchors for existing README bookmarks. -->
 <a id="-documentation--reference"></a>
@@ -172,9 +174,11 @@ These optional tools have separate installation instructions and prerequisites. 
 
 ## Help and project information
 
+[Product Vision and candidate assessment](backlog/product-goal.md) defines the approved benchmark for product proposals: professional capability, project and program success, and meaningful outcomes.
+
 - **Questions and shared practice:** [Ask in GitHub Discussions](https://github.com/mirichard/pm-tools-templates/discussions).
 - **Broken links, defects, or missing resources:** [Open an issue](https://github.com/mirichard/pm-tools-templates/issues/new/choose) and include the affected link and what you expected.
-- **Contributing:** [Read the contribution guidelines](CONTRIBUTING.md).
-- **Project updates:** [Read releases](https://github.com/mirichard/pm-tools-templates/releases) or [view the roadmap](ROADMAP.md).
+- **Contributing:** [Read the contribution guidelines](CONTRIBUTING.md) and [submission privacy and file-handling guidance](docs/community/submission-handling.md).
+- **Project updates:** [Read releases](https://github.com/mirichard/pm-tools-templates/releases), [view the roadmap](ROADMAP.md), or [check release numbering](docs/release-versioning.md). The latest published repository release is [v2.3.0 (vNext)](https://github.com/mirichard/pm-tools-templates/releases/tag/vNext); the Requirements CLI is versioned separately.
 
 Maintained by **Michael Richard, PMP**. Free to use and adapt under the [MIT license](LICENSE).

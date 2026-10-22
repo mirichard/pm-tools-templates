@@ -7,7 +7,7 @@ const chalk = require('chalk');
 const WebSocket = require('ws');
 const { createServer } = require('http');
 const cron = require('node-cron');
-require('dotenv').config();
+require('dotenv').config({ quiet: true });
 
 // Sanitize function for log injection prevention
 function sanitizeForLogging(input) {

@@ -6,6 +6,9 @@ updates:
   # Monitor GitHub Actions for security updates
   - package-ecosystem: "github-actions"
     directory: "/"
+    groups:
+      codeql-actions:
+        patterns: ["github/codeql-action/*"]
     schedule:
       interval: "weekly"
       day: "monday"
@@ -49,21 +52,6 @@ updates:
       prefix: "Security"
       include: "scope"
 
-  # Monitor the container image build for ai-insights, the one sub-app with a
-  # live Dockerfile.
-  - package-ecosystem: "docker"
-    directory: "/ai-insights"
-    schedule:
-      interval: "weekly"
-      day: "monday"
-    open-pull-requests-limit: 5
-    labels:
-      - "dependencies"
-      - "security"
-    commit-message:
-      prefix: "Security"
-      include: "scope"
-
   # Sub-applications each have their own dependency tree; previously only the
   # repo root was watched, so their npm dependencies were invisible here.
   # One entry with `directories:` (GA since mid-2024) instead of 10 separate
@@ -71,21 +59,32 @@ updates:
   # rules) only needs to be made once instead of kept in sync across 10 copies.
   - package-ecosystem: "npm"
     directories:
+      - "/integrations/webhook-framework"
       - "/dashboard-mvp"
       - "/web-mvp"
       - "/site"
-      - "/ai-insights"
       - "/analytics-platform"
       - "/workflow-orchestration"
       - "/backend"
       - "/tools/requirements-structuring-cli"
       - "/tools/template-generator-cli"
       - "/docs/site"
+    groups:
+      eslint-toolchain:
+        patterns:
+          - "eslint"
+          - "@eslint/js"
+          - "@eslint/eslintrc"
+          - "eslint-config-next"
+          - "@typescript-eslint/*"
     schedule: { interval: "weekly", day: "monday" }
     open-pull-requests-limit: 5
     labels: [ "dependencies", "security" ]
     commit-message: { prefix: "Security", include: "scope" }
     ignore:
+      # Match .github/ci-coverage.json Node 24; revisit with a runtime upgrade.
+      - dependency-name: "@types/node"
+        versions: [ ">=25" ]
       - dependency-name: "*"
         update-types: [ "version-update:semver-patch" ]
 

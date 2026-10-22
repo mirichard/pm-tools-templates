@@ -1,5 +1,10 @@
 ## 📋 Pull Request Summary
 
+> Pull requests and files are public. Submit only content sanitized for public
+> release and content you have the right to share. Maintainers assess original
+> formats; contributor conversion is not required. See the
+> [submission handling guide](../docs/community/submission-handling.md).
+
 **Type of Contribution:**
 - [ ] New template
 - [ ] Template enhancement/improvement
@@ -285,4 +290,3 @@ Briefly describe your contribution and its purpose.
 **Thank you for contributing to PM Tools & Templates!** 🎉
 
 *Your contribution helps thousands of project managers worldwide improve their practice.*
-

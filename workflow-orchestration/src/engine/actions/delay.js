@@ -36,7 +36,7 @@ export default class DelayAction {
   /**
    * Execute delay
    */
-  async execute(parameters, context) {
+  async execute(parameters, _context) {
     const { duration, message } = parameters;
 
     if (message) {

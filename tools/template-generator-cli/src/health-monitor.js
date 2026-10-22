@@ -8,7 +8,7 @@ const express = require('express');
 const { exec } = require('child_process');
 const util = require('util');
 const execAsync = util.promisify(exec);
-require('dotenv').config();
+require('dotenv').config({ quiet: true });
 
 /**
  * Enterprise Health Monitoring System

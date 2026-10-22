@@ -1,11 +1,11 @@
-blank_issues_enabled: true
+blank_issues_enabled: false
 contact_links:
   - name: 💬 Main Community Feedback Hub
     url: https://github.com/mirichard/pm-tools-templates/issues/198
-    about: Join our main feedback discussion with templates and examples
-  - name: 📚 Detailed Feedback Guide
-    url: https://github.com/mirichard/pm-tools-templates/blob/main/COMMUNITY_FEEDBACK.md
-    about: Comprehensive guide with multiple feedback channels and templates
+    about: Share text-only feedback; issue content and attachments are public
+  - name: 🔒 Submission privacy and file handling
+    url: https://github.com/mirichard/pm-tools-templates/blob/main/docs/community/submission-handling.md
+    about: Read before sharing files; no restricted transfer channel is currently configured
   - name: 🔍 Browse Templates
     url: https://github.com/mirichard/pm-tools-templates/tree/main
     about: Explore our collection of project management tools and templates

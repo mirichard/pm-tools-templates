@@ -384,9 +384,10 @@ export function AccessibleModal({
   useEffect(() => {
     const handleEscape = () => onClose();
     
-    if (isOpen && modalRef.current) {
-      modalRef.current.addEventListener('escape', handleEscape);
-      return () => modalRef.current?.removeEventListener('escape', handleEscape);
+    const modal = modalRef.current;
+    if (isOpen && modal) {
+      modal.addEventListener('escape', handleEscape);
+      return () => modal.removeEventListener('escape', handleEscape);
     }
   }, [isOpen, onClose]);
 

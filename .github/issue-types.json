@@ -1,0 +1,11 @@
+{
+  "types": {
+    "epic": "A coordinated outcome delivered through related work.",
+    "story": "A bounded user outcome with acceptance criteria.",
+    "task": "A concrete implementation or maintenance activity.",
+    "bug": "A defect in existing behavior.",
+    "spike": "Timeboxed investigation supporting a decision.",
+    "candidate": "An uncommitted proposal requiring evaluation.",
+    "operational": "An ongoing report, monitoring alert or administrative record."
+  }
+}

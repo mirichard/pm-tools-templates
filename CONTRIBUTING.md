@@ -43,6 +43,26 @@ We organize content around **how PMs actually work**:
 - **Methodology-Agnostic**: Core templates work across Agile, Waterfall, and Hybrid
 - **Immediately Useful**: No extensive setup or learning curve required
 
+## Issue classification
+
+Use the [issue chooser](https://github.com/mirichard/pm-tools-templates/issues/new/choose).
+Every open issue needs exactly one approved `type:*` label. New proposals start
+as candidates; selecting a type does not schedule work. Resolve `needs-type`
+before delivery planning. See the [issue management policy](docs/issues-management.md)
+for definitions, CLI creation, title conventions and parent verification.
+
+### Submission privacy and files
+
+Issues, comments, pull requests, and their attachments are public. Submit only
+content you have the right to share and have sanitized for public release.
+Contributors do not need to convert files; maintainers assess and convert or
+retain formats as appropriate. Do not upload unsanitized personal, confidential,
+proprietary, or identifying files. A restricted transfer route is not yet
+configured; if the original cannot safely be sanitized, ask for a private
+transfer arrangement without attaching it and wait for a maintainer to confirm
+an approved channel. See the [submission handling guide](docs/community/submission-handling.md)
+for file controls, roles, retention, review, and escalation.
+
 ## 📝 Template Contribution Guidelines
 
 ### Template Quality Standards
@@ -101,25 +121,11 @@ template-name/
 
 ## 🌿 Branching Strategy
 
-### Branch Creation
-- Create branches from `develop`
-- Use naming convention: `feat/<ticket-id>-slug`, `fix/<ticket-id>-slug`, or `chore/<task>`
-
-### Workflow
-1. Push immediately and open a Draft PR to `develop`
-2. Ensure CI passes
-3. Squash-merge; branch auto-deletes
-4. Nightly job promotes `develop` → `staging` → `main`
-
-> **Note:** as of 2026-09-21, `develop` had drifted thousands of commits
-> behind `main`, and at least one active PR (#1287, this CI-infrastructure
-> work) was retargeted to `main` directly for that reason, at the
-> maintainer's direction. That is a stated exception for that PR, not a
-> change to the policy above — new contributions should still branch from
-> and target `develop` unless a maintainer says otherwise. If `develop` stays
-> the primary integration branch going forward, it should be resynced with
-> `main`; if `main`-targeting becomes the norm instead, this section should
-> be rewritten rather than left inconsistent with actual practice.
+Create a topic branch from the repository's default branch (`main`) and open a
+pull request targeting `main`. Use a descriptive branch name such as
+`feat/<ticket-id>-slug`, `fix/<ticket-id>-slug`, or `chore/<task>`. Required
+checks and review controls apply; do not push directly to the protected default
+branch or treat a draft pull request as approved.
 
 ## 🚀 Submission Process
 
@@ -131,11 +137,11 @@ template-name/
    cd pm-tools-templates
    ```
 
-2. **Create a Feature Branch from Develop**
+2. **Create a Feature Branch from Main**
    ```bash
-   git checkout develop
-   git pull origin develop
-   git checkout -b feat/your-template-name
+   git switch main
+   git pull --ff-only origin main
+   git switch -c feat/your-template-name
    ```
 
 3. **Choose the Right Location**
@@ -273,7 +279,7 @@ This repo's CI is internal infrastructure for contributors and maintainers — i
 has no effect on template content or the docs site's user-facing behavior.
 
 **Runtime:** Node 24 (current Active LTS) for every sub-app's CI checks and for
-the `ai-insights` and Q3 2025 template-selector Docker images. Use the same
+the Q3 2025 template-selector Docker image. Use the same
 version locally (`nvm use 24` or equivalent) to reproduce a CI result.
 
 **What CI covers, and how:** `.github/ci-coverage.json` is the single source

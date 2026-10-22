@@ -31,7 +31,7 @@ interface QualityMetricsProps {
   metrics?: QualityMetricsData;
 }
 
-export function QualityMetrics({ metrics }: QualityMetricsProps = {}) {
+export function QualityMetrics(_props: QualityMetricsProps = {}) {
   const totalBugs = Object.values(qualityData.bugs).reduce((a, b) => a + b, 0)
   
   return (

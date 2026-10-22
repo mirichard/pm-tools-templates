@@ -1,6 +1,6 @@
 'use client'
 
-import React, { createContext, useContext, useState, useEffect, ReactNode, useCallback } from 'react';
+import React, { createContext, useContext, useState, ReactNode, useCallback } from 'react';
 import { useRouter, usePathname } from 'next/navigation';
 import { Home, BarChart3, Users, Calendar, Settings, HelpCircle } from 'lucide-react';
 
@@ -88,24 +88,24 @@ interface NavigationProviderProps {
 export function NavigationProvider({ children }: NavigationProviderProps) {
   const router = useRouter();
   const pathname = usePathname();
-  const [activeItem, setActiveItem] = useState<string | null>(null);
+  const [selection, setSelection] = useState<{ pathname: string; id: string } | null>(null);
   const [openSubmenus, setOpenSubmenus] = useState<Set<string>>(new Set());
 
-  // Determine active item based on current route
-  useEffect(() => {
-    const findActive = (items: NavItem[]): string | null => {
-      for (const item of items) {
-        if (item.href === pathname) return item.id;
-        if (item.children) {
-          const activeChild = findActive(item.children);
-          if (activeChild) return item.id;
-        }
-      }
-      return null;
-    };
-    
-    setActiveItem(findActive(primaryNavigation));
-  }, [pathname]);
+  // Clear manual selection when the route changes, before rendering children.
+  const [previousPathname, setPreviousPathname] = useState(pathname);
+  if (previousPathname !== pathname) {
+    setPreviousPathname(pathname);
+    setSelection(null);
+  }
+  const findActive = (items: NavItem[]): string | null => {
+    for (const item of items) {
+      if (item.href === pathname) return item.id;
+      if (item.children && findActive(item.children)) return item.id;
+    }
+    return null;
+  };
+  const activeItem = selection?.pathname === pathname ? selection.id : findActive(primaryNavigation);
+  const setActiveItem = (id: string) => setSelection({ pathname, id });
 
   // Programmatic navigation for accessibility and consistency
   const navigate = useCallback((href: string, isExternal?: boolean) => {

@@ -1,4 +1,4 @@
-import { ReactNode, useState } from 'react'
+import { useState } from 'react'
 import { TrendingUp, TrendingDown, LucideIcon, Info, ExternalLink } from 'lucide-react'
 import { cn } from '@/lib/utils'
 

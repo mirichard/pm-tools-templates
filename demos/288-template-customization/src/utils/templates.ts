@@ -8,10 +8,10 @@ export const schemas = {
   charter: {
     title: 'Project Charter', type: 'object',
     properties: {
-      projectName: { type: 'string', title: 'Project Name' },
+      projectName: { type: 'string', minLength: 1, title: 'Project Name' },
       sponsor: { type: 'string', title: 'Sponsor' },
-      purpose: { type: 'string', title: 'Purpose' },
-      scope: { type: 'string', title: 'Scope' },
+      purpose: { type: 'string', minLength: 1, title: 'Purpose' },
+      scope: { type: 'string', minLength: 1, title: 'Scope' },
       successCriteria: { type: 'string', title: 'Success Criteria' }
     },
     required: ['projectName', 'purpose', 'scope']
@@ -19,11 +19,11 @@ export const schemas = {
   risk: {
     title: 'Risk Register', type: 'object',
     properties: {
-      risks: { type: 'array', items: {
+      risks: { type: 'array', minItems: 1, items: {
         type: 'object', properties: {
           id: { type: 'string', title: 'ID' },
-          description: { type: 'string', title: 'Description' },
-          probability: { type: 'number', title: 'Probability' },
+          description: { type: 'string', minLength: 1, title: 'Description' },
+          probability: { type: 'number', minimum: 0, maximum: 1, title: 'Probability (0–1)' },
           impact: { type: 'string', enum: ['Low','Medium','High'] },
           mitigation: { type: 'string', title: 'Mitigation' },
           owner: { type: 'string', title: 'Owner' }
@@ -34,10 +34,10 @@ export const schemas = {
   stakeholder: {
     title: 'Stakeholder Communication Plan', type: 'object',
     properties: {
-      stakeholders: { type: 'array', items: {
+      stakeholders: { type: 'array', minItems: 1, items: {
         type: 'object', properties: {
-          name: { type: 'string', title: 'name' },
-          role: { type: 'string', title: 'role' },
+          name: { type: 'string', minLength: 1, title: 'name' },
+          role: { type: 'string', minLength: 1, title: 'role' },
           contact: { type: 'string', title: 'contact' },
           infoNeeds: { type: 'string', title: 'Information Needs' },
           frequency: { type: 'string', enum: ['Daily','Weekly','Biweekly','Monthly','Quarterly'] },
@@ -49,13 +49,13 @@ export const schemas = {
   sprint: {
     title: 'Sprint Planning', type: 'object',
     properties: {
-      sprintName: { type: 'string', title: 'sprintName' },
-      startDate: { type: 'string', title: 'startDate' },
-      endDate: { type: 'string', title: 'endDate' },
+      sprintName: { type: 'string', minLength: 1, title: 'sprintName' },
+      startDate: { type: 'string', minLength: 1, title: 'startDate' },
+      endDate: { type: 'string', minLength: 1, title: 'endDate' },
       goals: { type: 'array', items: { type: 'string' } },
       stories: { type: 'array', items: { type: 'object', properties: {
         id: { type: 'string', title: 'id' },
-        title: { type: 'string', title: 'title' },
+        title: { type: 'string', minLength: 1, title: 'title' },
         estimate: { type: 'number', title: 'estimate' }
       }, required: ['title'] } }
     }, required: ['sprintName','startDate','endDate']
@@ -63,7 +63,7 @@ export const schemas = {
   executive: {
     title: 'Executive Status Report', type: 'object',
     properties: {
-      reportingPeriod: { type: 'string', title: 'Reporting Period' },
+      reportingPeriod: { type: 'string', minLength: 1, title: 'Reporting Period' },
       overallHealth: { type: 'string', enum: ['Green','Yellow','Red'], title: 'Overall Health' },
       schedule: { type: 'string', enum: ['On Track','At Risk','Off Track'], title: 'Schedule' },
       budget: { type: 'string', enum: ['On Track','At Risk','Off Track'], title: 'Budget' },

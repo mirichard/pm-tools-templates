@@ -94,7 +94,7 @@ jobs:
           # Create escalation issue for critical risks
           gh issue create \
             --title "🚨 CRITICAL: Risk Escalation Required - Score: ${{ steps.risk-scoring.outputs.total_risk_score }}" \
-            --label "critical,risk,escalation,high-priority" \
+            --label "type:operational,critical,risk,escalation,high-priority" \
             --body "## 🚨 Critical Risk Escalation
 
           **Risk Assessment Date:** $(date)

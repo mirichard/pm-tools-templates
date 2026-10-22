@@ -1,8 +1,8 @@
-# vNext release closeout
+# v2.3.0 (vNext) release closeout
 
-Review date: 09/20/2026. Status: **acceptance pending; not a release announcement**.
+Reconciled: 09/24/2026. Status: **accepted and published on 09/21/2026**.
 
-The authoritative gate record is [issue #1266](https://github.com/mirichard/pm-tools-templates/issues/1266). The reviewed implementation baseline is `36cef8c30661fbaf5efd4430ebe1a07c739f0a7f`; documentation changes after that baseline require their own merge verification.
+The authoritative acceptance record is [issue #1266](https://github.com/mirichard/pm-tools-templates/issues/1266#issuecomment-5755321786), closed as completed on 09/21/2026. The reviewed implementation baseline is `36cef8c30661fbaf5efd4430ebe1a07c739f0a7f`. PR #1267 integrated the final walkthrough and closeout documentation as `febdf847cd8842fd3929973360b14d27b4513b81`, the commit identified by the published `vNext` tag.
 
 ## Scope and evidence
 
@@ -12,17 +12,17 @@ Historical acceptance for the audit, value layer, decision engine, and entry exp
 
 At the implementation baseline, all 83 focused tests passed. Principles validation covered 139/139 current canonical templates with no exclusions or errors. Freshness checks passed for 137/137 migrated templates with no age warnings; migration post-check reported 137 executed and zero remaining. These counts describe the tested baseline, not a permanent repository-wide template count.
 
-All 15 nonvisual push workflows passed. [Visual regression](https://github.com/mirichard/pm-tools-templates/actions/runs/35544277516) was still capturing screenshots at review time; no visual acceptance is claimed. See #1266 for the latest disposition.
+All 15 nonvisual push workflows passed at the implementation baseline. The initially pending [visual regression](https://github.com/mirichard/pm-tools-templates/actions/runs/35544277516) subsequently passed. Final closure evidence records all 17 latest push-triggered workflows passing on the release commit, including [visual regression](https://github.com/mirichard/pm-tools-templates/actions/runs/35547061404), CodeQL, and SAST. This is historical workflow evidence, not a new test run or manual screenshot-baseline approval.
 
-## Remaining acceptance
+## Acceptance disposition
 
-- Merge and verify the restored first-template walkthrough and these documentation corrections.
-- Record an actual first-use trial against that revision: start at the README, follow Getting Started, customize and save a first template. Record elapsed time, device/browser, assistance, and problems. The original criterion is under five minutes; historical link checks do not prove it. Any exception requires explicit owner acceptance.
-- Resolve the final visual result or explicitly accept a documented exception.
-- Record final release acceptance, then close Sprint 15, the overall milestone, and project board 9. Preserve planned dates and record actual completion separately.
-- Choose the release tag and publish reviewed notes. The automatic `v0.0.1` draft, root package version `2.0.0`, and general published release `v0.4.0` are not a consistent release-version decision.
+- The first-template walkthrough and documentation corrections merged through PR #1267; its 18 PR workflows passed, followed by the final release-commit checks above.
+- The owner accepted the first-use timing criterion on 09/21/2026. No measured duration or independent novice trial is asserted.
+- Acceptance uses the agreed eight-epic scope and cross-cutting requirements. The owner confirmed there were no separate Project #9 release-level acceptance criteria.
+- Sprint 15 and the overall vNext milestone are closed. Project #9 board/item status remains unverified; no board-completion claim is made.
+- The [vNext release](https://github.com/mirichard/pm-tools-templates/releases/tag/vNext) and [announcement #1268](https://github.com/mirichard/pm-tools-templates/discussions/1268) were published. Version reconciliation assigns `v2.3.0` to this accepted baseline. The release workflow retains the original `vNext` tag and URL, adds the numeric alias, and updates the obsolete draft to the manifest’s next version. The historical root package version `2.0.0` does not identify the release. See [release numbering and history](../release-versioning.md) for the earlier `v2.1.0` release, existing `v2.2.0` tag, and separate component versions.
 
-## Release notes prepared for publication
+## Published release summary
 
 ### vNext — Value Delivery System Upgrade
 
@@ -43,4 +43,4 @@ vNext connects template selection, project execution, governance, and ongoing de
 
 **Boundaries:** Legacy migration paths remain supported through vNext and at least the next major release. The catalog does not export all domain classifications; use the reviewed domain mapping where applicable. Release automation (#373), status-generator work (#369), and the separately released Requirements CLI are not claimed as new vNext deliverables. Automated checks do not establish regulatory certification or an independent repository-wide security audit.
 
-Publish this section only after the acceptance gates above have been dispositioned; record the release tag and final commit in #1266.
+The published notes and final acceptance evidence are linked above. This summary retains the accepted scope and boundaries; it does not announce a new release.

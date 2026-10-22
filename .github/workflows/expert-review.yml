@@ -49,10 +49,8 @@ jobs:
     permissions:
       issues: write
     if: >
-      github.event_name == 'issues' && (
-        github.event.action == 'opened' ||
-        (github.event.action == 'labeled' && github.event.label.name == 'expert-review-needed')
-      )
+      github.event_name == 'issues' &&
+      github.event.action == 'labeled' && github.event.label.name == 'expert-review-needed'
     runs-on: ubuntu-latest
     steps:
       - name: Assign Expert Reviewers
@@ -61,6 +59,12 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
             const issueNumber = context.payload.issue.number;
+            const {data: current} = await github.rest.issues.get({
+              ...context.repo, issue_number: issueNumber
+            });
+            if (current.state !== 'open' ||
+                !current.labels.some(label => label.name === 'expert-review-needed') ||
+                current.labels.some(label => label.name === 'expert-review-active')) return;
             const issueBody = context.payload.issue.body || '';
             const issueTitle = context.payload.issue.title || '';
             
@@ -128,7 +132,6 @@ jobs:
           script: |
             const comment = context.payload.comment.body;
             const issueNumber = context.payload.issue.number;
-            
             // Check if this is an expert review comment
             if (comment.includes('## Expert Review:')) {
               // Extract fields (optional)

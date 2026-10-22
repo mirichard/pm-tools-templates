@@ -1,4 +1,6 @@
-# Issue Alignment Summary - Roadmap Theme Mapping
+# Historical Issue Alignment Summary — June 2025
+
+> Archived snapshot. Its themes, completion claims and dates are not current commitments. Use the [current alignment](roadmap-alignment.md) and [roadmap](../ROADMAP.md).
 
 **Date:** June 18, 2025  
 **Status:** Complete - All 62 open issues aligned to roadmap themes  
