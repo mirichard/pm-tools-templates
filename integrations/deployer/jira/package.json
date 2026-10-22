@@ -12,9 +12,8 @@
     "node-fetch": "^3.3.2"
   },
   "devDependencies": {
+    "@types/node": "^24.19.2",
     "tsx": "^4.16.2",
-    "vitest": "^5.0.1",
-    "@types/node": "^20.11.30"
+    "vitest": "^5.0.5"
   }
 }
-
