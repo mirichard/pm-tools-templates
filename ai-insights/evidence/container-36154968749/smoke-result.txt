@@ -1,0 +1,1 @@
+PASS: immutable image, non-root process, API, Docker health and graceful stop

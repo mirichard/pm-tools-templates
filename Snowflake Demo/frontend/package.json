@@ -47,5 +47,10 @@
   },
   "engines": {
     "node": "^20.19.0 || >=22.12.0"
+  },
+  "overrides": {
+    "js-yaml": "^4.1.1",
+    "argparse": "^2.0.1",
+    "sprintf-js": "^1.1.3"
   }
 }

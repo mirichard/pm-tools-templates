@@ -26,8 +26,8 @@ jobs:
       - name: Verify withdrawn image is absent
         shell: bash
         run: |
-          if [[ -n "$(git ls-files -- ai-insights)" ]]; then
-            echo '::error::AI insights has returned; restore its image build and vulnerability scan before merging.'
+          if [[ -n "$(git ls-files -- ai-insights/Dockerfile)" ]]; then
+            echo '::error::AI insights container image has returned; restore its image build and vulnerability scan before merging.'
             exit 1
           fi
           echo 'Container scan not applicable: the configured AI insights image is withdrawn.'

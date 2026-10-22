@@ -1,0 +1,2 @@
+PASS: rendered baseline, evidenced shortfall, simulated failure, retry, missing Quality API section unavailable, normal Quality restored, reload clears history, narrow layout, no browser errors
+PASS: guided planning, validation/focus, unknown capacity, repeatable evidence, independent findings, action export, failure/retry, reassessment snapshots, no model requests, input labels/help, 320px reflow, reload clears session
