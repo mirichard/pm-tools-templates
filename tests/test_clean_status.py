@@ -79,6 +79,21 @@ class CleanStatusTests(unittest.TestCase):
 class LegacyReportingSafetyTests(unittest.TestCase):
     """Check actual workflow guards across dispatch, schedule, and missing inputs."""
 
+    def test_scheduled_reports_use_a_reviewable_branch(self):
+        workflow = yaml.safe_load((WORKFLOW.parent / 'status-reporting.yml').read_text())
+        job = workflow['jobs']['status-reporting']
+        self.assertEqual(job['permissions']['pull-requests'], 'write')
+
+        commit = next(step for step in job['steps'] if step.get('id') == 'commit')
+        self.assertEqual(commit['env']['REPORT_BRANCH'], 'status-report-${{ github.run_id }}')
+        self.assertIn('git push --force origin "HEAD:refs/heads/$REPORT_BRANCH"', commit['run'])
+        self.assertNotRegex(commit['run'], r'git push\s*$')
+
+        proposal = next(step for step in job['steps'] if step['name'] == '📬 Propose Status Report')
+        self.assertEqual(proposal['with']['github-token'],
+                         '${{ secrets.STATUS_REPORT_PR_TOKEN || github.token }}')
+        self.assertIn('github.rest.pulls.create', proposal['with']['script'])
+
     def test_delivery_and_preview_conditions(self):
         # These conditions use the common JS/GitHub subset (strings, ==, &&, ||).
         # Evaluate the expressions from YAML, not a second copy of the policy.
