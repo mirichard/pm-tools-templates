@@ -89,11 +89,11 @@ Legacy recovery remains documented under [#1329](https://github.com/mirichard/pm
 The editorial date above applies to human-reviewed narrative. Snapshot capture time is maintained separately by synchronization; older snapshots without a recorded time gain one on the next reconciliation. [Latest synchronization checks](https://github.com/mirichard/pm-tools-templates/actions/workflows/roadmap-sync.yml) show run times and outcomes, including checks that found no changes.
 
 <!-- roadmap-sync:start -->
-Snapshot updated at: 2026-10-20T01:10:08.773Z (UTC).
+Snapshot updated at: 2026-10-23T18:44:20.875Z (UTC).
 
 [Latest synchronization checks](https://github.com/mirichard/pm-tools-templates/actions/workflows/roadmap-sync.yml) — includes successful checks with no data changes. A check does not publish to main until its PR is merged.
 
-Snapshot fingerprint: `c30283f363063901443fc4c3cd46feea364bea7c102f22379512c3c0d4d3e650`. Values are copied from issues and Projects, not inferred acceptance or release claims.
+Snapshot fingerprint: `b9d25c34ba7ed9330904455026dcd2fc3acd5a1d276117e24cd09744efb917b9`. Values are copied from issues and Projects, not inferred acceptance or release claims.
 
 | Sprint | Issue | Issue state | Board status | Release milestone |
 | --- | --- | --- | --- | --- |
@@ -102,12 +102,12 @@ Snapshot fingerprint: `c30283f363063901443fc4c3cd46feea364bea7c102f22379512c3c0d
 | Sprint 1 | [#75](https://github.com/mirichard/pm-tools-templates/issues/75) — Story: Complete the browser-based template customization workflow | Closed (completed) | Done | [v2.4.0 — Now Epics Sprints 1–3](https://github.com/mirichard/pm-tools-templates/milestone/35) |
 | Sprint 1 | [#78](https://github.com/mirichard/pm-tools-templates/issues/78) — Story: Roadmap Publication &amp; Community Engagement Platform | Closed (completed) | Done | [v2.4.0 — Now Epics Sprints 1–3](https://github.com/mirichard/pm-tools-templates/milestone/35) |
 | Sprint 3 | [#319](https://github.com/mirichard/pm-tools-templates/issues/319) — EPIC: Community &amp; Feedback Ecosystem | Closed (completed) | Done | [v2.4.0 — Now Epics Sprints 1–3](https://github.com/mirichard/pm-tools-templates/milestone/35) |
-| Sprint 3 | [#325](https://github.com/mirichard/pm-tools-templates/issues/325) — EPIC: Universal PM Tool Integration Platform | Open | Todo | [v2.4.0 — Now Epics Sprints 1–3](https://github.com/mirichard/pm-tools-templates/milestone/35) |
+| Sprint 3 | [#325](https://github.com/mirichard/pm-tools-templates/issues/325) — EPIC: Universal PM Tool Integration Platform | Closed (not_planned) | Done | [v2.4.0 — Now Epics Sprints 1–3](https://github.com/mirichard/pm-tools-templates/milestone/35) |
 | Sprint 1 | [#1367](https://github.com/mirichard/pm-tools-templates/issues/1367) — Bug: Resolve intake and validation gaps found in issue-management UAT | Closed (completed) | Done | [v2.4.0 — Now Epics Sprints 1–3](https://github.com/mirichard/pm-tools-templates/milestone/35) |
 | Sprint 1 | [#1384](https://github.com/mirichard/pm-tools-templates/issues/1384) — Story: Keep repository roadmap documentation and planning views synchronized | Closed (completed) | Done | [v2.4.0 — Now Epics Sprints 1–3](https://github.com/mirichard/pm-tools-templates/milestone/35) |
-| Sprint 3 | [#1483](https://github.com/mirichard/pm-tools-templates/issues/1483) — Validate reusable-plan imports into Jira and Asana before custom development | Open | Todo | [v2.4.0 — Now Epics Sprints 1–3](https://github.com/mirichard/pm-tools-templates/milestone/35) |
+| Sprint 3 | [#1483](https://github.com/mirichard/pm-tools-templates/issues/1483) — Validate reusable-plan imports into Jira and Asana before custom development | Closed (not_planned) | Done | [v2.4.0 — Now Epics Sprints 1–3](https://github.com/mirichard/pm-tools-templates/milestone/35) |
 
-[Full status and drift report](backlog/roadmap-status.md). 7 drift flag(s) require review.
+[Full status and drift report](backlog/roadmap-status.md). 5 drift flag(s) require review.
 
 <!-- roadmap-sync:end -->
 
