@@ -45,6 +45,7 @@ jobs:
     if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
     outputs:
       report_file: ${{ steps.report_path.outputs.path }}
+      report_branch: ${{ steps.commit.outputs.branch }}
       completion_rate: ${{ steps.metrics.outputs.completion_rate }}
       strategic_progress: ${{ steps.metrics.outputs.strategic_progress }}
       critical_risks: ${{ steps.metrics.outputs.critical_risks }}
@@ -54,12 +55,15 @@ jobs:
     permissions:
       contents: write
       issues: read
-      pull-requests: read
+      pull-requests: write
       actions: read
 
     steps:
       - name: 📥 Checkout Repository
         uses: actions/checkout@v7
+        with:
+          token: ${{ secrets.STATUS_REPORT_PR_TOKEN || github.token }}
+          ref: ${{ github.event.repository.default_branch }}
 
       - name: 📊 Collect Project Metrics
         id: metrics
@@ -291,8 +295,19 @@ jobs:
           EOF
 
       # Manual runs publish only when test_mode is explicitly false.
+      - name: 📝 Set Report Path
+        id: report_path
+        env:
+          REPORT_TYPE: ${{ github.event.inputs.report_type || 'weekly' }}
+        run: |
+          REPORT_FILE="reports/status/${REPORT_TYPE}-status-$(date +%Y-%m-%d).md"
+          echo "path=$REPORT_FILE" >> "$GITHUB_OUTPUT"
+
       - name: 💾 Commit Status Report
+        id: commit
         if: ${{ github.event_name == 'schedule' || (github.event_name == 'workflow_dispatch' && github.event.inputs.test_mode == 'false') }}
+        env:
+          REPORT_BRANCH: status-report-${{ github.run_id }}
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "Status Reporting Automation"
@@ -300,13 +315,54 @@ jobs:
           # Add the generated reports
           git add reports/status/ metrics/status-data/
 
-          # Commit if there are changes
+          # Commit and publish changes on a dedicated branch for review.
           if git diff --staged --quiet; then
             echo "No changes to commit"
+            echo "branch=${{ github.event.repository.default_branch }}" >> "$GITHUB_OUTPUT"
+            echo "changed=false" >> "$GITHUB_OUTPUT"
           else
+            echo "branch=$REPORT_BRANCH" >> "$GITHUB_OUTPUT"
             git commit -m "📊 Generate ${{ github.event.inputs.report_type || 'weekly' }} status report - ${{ steps.metrics.outputs.completion_rate }}% complete"
-            git push
+            git push --force origin "HEAD:refs/heads/$REPORT_BRANCH"
+            echo "changed=true" >> "$GITHUB_OUTPUT"
           fi
+
+      - name: 📬 Propose Status Report
+        if: ${{ steps.commit.outputs.changed == 'true' }}
+        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9
+        env:
+          REPORT_BRANCH: ${{ steps.commit.outputs.branch }}
+          REPORT_FILE: ${{ steps.report_path.outputs.path }}
+        with:
+          # Set STATUS_REPORT_PR_TOKEN to a collaborator-owned token to trigger required PR checks.
+          github-token: ${{ secrets.STATUS_REPORT_PR_TOKEN || github.token }}
+          script: |
+            const { owner, repo } = context.repo;
+            const head = `${owner}:${process.env.REPORT_BRANCH}`;
+            const base = context.payload.repository.default_branch;
+            const { data: existing } = await github.rest.pulls.list({
+              owner, repo, head, base, state: 'open'
+            });
+
+            if (existing.length > 0) {
+              core.info(`Updated status report pull request #${existing[0].number}.`);
+              return;
+            }
+
+            await github.rest.pulls.create({
+              owner,
+              repo,
+              head: process.env.REPORT_BRANCH,
+              base,
+              title: `📊 Generate status report - ${process.env.REPORT_FILE}`,
+              body: [
+                'This pull request contains the generated project status report.',
+                '',
+                `Report: \`${process.env.REPORT_FILE}\``,
+                '',
+                'Please review and merge to publish the report.'
+              ].join('\n')
+            });
 
       - name: Upload status report preview
         if: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.test_mode != 'false' }}
@@ -340,14 +396,6 @@ jobs:
           echo "Critical Risks: $CRITICAL_RISKS"
           echo "Recent Completions: ${{ steps.metrics.outputs.recent_closed }}"
 
-      - name: 📝 Set Report Path
-        id: report_path
-        env:
-          REPORT_TYPE: ${{ github.event.inputs.report_type || 'weekly' }}
-        run: |
-          REPORT_FILE="reports/status/${REPORT_TYPE}-status-$(date +%Y-%m-%d).md"
-          echo "path=$REPORT_FILE" >> $GITHUB_OUTPUT
-
   monday-email:
     name: 📧 Generate Email Content (Test)
     needs: status-reporting
@@ -359,6 +407,7 @@ jobs:
       STRATEGIC_PROGRESS: ${{ needs.status-reporting.outputs.strategic_progress }}
       CRITICAL_RISKS: ${{ needs.status-reporting.outputs.critical_risks }}
       HIGH_PRIORITY: ${{ needs.status-reporting.outputs.high_priority }}
+      REPORT_BRANCH: ${{ needs.status-reporting.outputs.report_branch || github.event.repository.default_branch }}
 
     steps:
       - name: 📥 Checkout Repository
@@ -509,7 +558,7 @@ jobs:
             <div class="action-items">
               <h2>📋 This Week's Action Items</h2>
               <ol>
-                <li>Review detailed metrics in the <a href="https://github.com/${{ github.repository }}/blob/main/${{ needs.status-reporting.outputs.report_file }}">full status report</a></li>
+                <li>Review detailed metrics in the <a href="https://github.com/${{ github.repository }}/blob/${{ env.REPORT_BRANCH }}/${{ needs.status-reporting.outputs.report_file }}">full status report</a></li>
                 <li>Join the daily standup at 10 AM for detailed updates</li>
                 <li>Update your task status before EOD</li>
               </ol>
@@ -523,28 +572,11 @@ jobs:
           </html>
           EOF
 
-      - name: 💾 Commit Email Content
-        if: ${{ github.event_name == 'schedule' || (github.event_name == 'workflow_dispatch' && github.event.inputs.test_mode == 'false') }}
-        run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "Email Test Automation"
-
-          # Add the generated email content
-          git add email/
-
-          # Commit if there are changes
-          if git diff --staged --quiet; then
-            echo "No changes to commit"
-          else
-            git commit -m "📧 Generate test email content - $(date +"%B %d, %Y")"
-            git push
-          fi
-
-      - name: Upload email preview
-        if: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.test_mode != 'false' }}
+      - name: Upload email content
+        if: ${{ github.event_name == 'schedule' || github.event_name == 'workflow_dispatch' }}
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         with:
-          name: status-reporting-email-preview
+          name: status-reporting-email
           path: email/monday-status.html
           if-no-files-found: error
           retention-days: 7
