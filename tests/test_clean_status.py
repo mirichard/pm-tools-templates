@@ -84,6 +84,12 @@ class LegacyReportingSafetyTests(unittest.TestCase):
         job = workflow['jobs']['status-reporting']
         self.assertEqual(job['permissions']['pull-requests'], 'write')
 
+        checkout = next(step for step in job['steps'] if step['name'] == '📥 Checkout Repository')
+        self.assertEqual(checkout['with']['token'],
+                         '${{ secrets.STATUS_REPORT_PR_TOKEN || github.token }}')
+        self.assertEqual(checkout['with']['ref'], '${{ github.event.repository.default_branch }}')
+        self.assertEqual(job['outputs']['report_branch'], '${{ steps.commit.outputs.branch }}')
+
         commit = next(step for step in job['steps'] if step.get('id') == 'commit')
         self.assertEqual(commit['env']['REPORT_BRANCH'], 'status-report-${{ github.run_id }}')
         self.assertIn('git push --force origin "HEAD:refs/heads/$REPORT_BRANCH"', commit['run'])
@@ -93,6 +99,18 @@ class LegacyReportingSafetyTests(unittest.TestCase):
         self.assertEqual(proposal['with']['github-token'],
                          '${{ secrets.STATUS_REPORT_PR_TOKEN || github.token }}')
         self.assertIn('github.rest.pulls.create', proposal['with']['script'])
+
+        email_job = workflow['jobs']['monday-email']
+        email_steps = email_job['steps']
+        self.assertEqual(email_job['env']['REPORT_BRANCH'],
+                         '${{ needs.status-reporting.outputs.report_branch || github.event.repository.default_branch }}')
+        self.assertFalse(any(re.search(r'\bgit\s+(?:commit|push)\b', step.get('run', ''))
+                             for step in email_steps))
+        email_generator = next(step for step in email_steps if step['name'] == '📧 Generate Email Content')
+        self.assertIn('blob/${{ env.REPORT_BRANCH }}/${{ needs.status-reporting.outputs.report_file }}',
+                      email_generator['run'])
+        email_artifact = next(step for step in email_steps if step['name'] == 'Upload email content')
+        self.assertEqual(email_artifact['if'], '${{ github.event_name == \'schedule\' || github.event_name == \'workflow_dispatch\' }}')
 
     def test_delivery_and_preview_conditions(self):
         # These conditions use the common JS/GitHub subset (strings, ==, &&, ||).
@@ -124,6 +142,7 @@ class LegacyReportingSafetyTests(unittest.TestCase):
                     mutation = bool(re.search(r'\bgit\s+(?:commit|push)\b', step.get('run', '')))
                     preview = step.get('uses', '').startswith('actions/upload-artifact@')
                     report_artifact = preview and step['with']['name'] == 'weekly-status-email-report'
+                    status_email_artifact = preview and step.get('name') == 'Upload email content'
                     if not (mail or mutation or preview):
                         continue
                     mutation_count += int(mail or mutation)
@@ -142,11 +161,11 @@ class LegacyReportingSafetyTests(unittest.TestCase):
                                     'env': {'EMAIL_CONFIGURED': configured},
                                 },
                             })
-                            if report_artifact:
+                            if report_artifact or status_email_artifact:
                                 expected.append(event in ('schedule', 'workflow_dispatch'))
                             else:
                                 expected.append(want_preview if preview else publish and (not mail or configured == 'true'))
-            self.assertEqual(mutation_count, 3 if filename == 'status-reporting.yml' else 1)
+            self.assertEqual(mutation_count, 2 if filename == 'status-reporting.yml' else 1)
             self.assertEqual(preview_count, 2)
             result = subprocess.run(['node', '-e', evaluator], input=json.dumps(cases),
                                     text=True, capture_output=True, check=True)
