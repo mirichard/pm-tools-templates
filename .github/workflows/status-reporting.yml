@@ -54,7 +54,7 @@ jobs:
     permissions:
       contents: write
       issues: read
-      pull-requests: read
+      pull-requests: write
       actions: read
 
     steps:
@@ -291,8 +291,19 @@ jobs:
           EOF
 
       # Manual runs publish only when test_mode is explicitly false.
+      - name: 📝 Set Report Path
+        id: report_path
+        env:
+          REPORT_TYPE: ${{ github.event.inputs.report_type || 'weekly' }}
+        run: |
+          REPORT_FILE="reports/status/${REPORT_TYPE}-status-$(date +%Y-%m-%d).md"
+          echo "path=$REPORT_FILE" >> "$GITHUB_OUTPUT"
+
       - name: 💾 Commit Status Report
+        id: commit
         if: ${{ github.event_name == 'schedule' || (github.event_name == 'workflow_dispatch' && github.event.inputs.test_mode == 'false') }}
+        env:
+          REPORT_BRANCH: status-report-${{ github.run_id }}
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "Status Reporting Automation"
@@ -300,13 +311,54 @@ jobs:
           # Add the generated reports
           git add reports/status/ metrics/status-data/
 
-          # Commit if there are changes
+          echo "branch=$REPORT_BRANCH" >> "$GITHUB_OUTPUT"
+
+          # Commit and publish changes on a dedicated branch for review.
           if git diff --staged --quiet; then
             echo "No changes to commit"
+            echo "changed=false" >> "$GITHUB_OUTPUT"
           else
             git commit -m "📊 Generate ${{ github.event.inputs.report_type || 'weekly' }} status report - ${{ steps.metrics.outputs.completion_rate }}% complete"
-            git push
+            git push --force origin "HEAD:refs/heads/$REPORT_BRANCH"
+            echo "changed=true" >> "$GITHUB_OUTPUT"
           fi
+
+      - name: 📬 Propose Status Report
+        if: ${{ steps.commit.outputs.changed == 'true' }}
+        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9
+        env:
+          REPORT_BRANCH: ${{ steps.commit.outputs.branch }}
+          REPORT_FILE: ${{ steps.report_path.outputs.path }}
+        with:
+          # Set STATUS_REPORT_PR_TOKEN to a collaborator-owned token to trigger required PR checks.
+          github-token: ${{ secrets.STATUS_REPORT_PR_TOKEN || github.token }}
+          script: |
+            const { owner, repo } = context.repo;
+            const head = `${owner}:${process.env.REPORT_BRANCH}`;
+            const base = context.payload.repository.default_branch;
+            const { data: existing } = await github.rest.pulls.list({
+              owner, repo, head, base, state: 'open'
+            });
+
+            if (existing.length > 0) {
+              core.info(`Updated status report pull request #${existing[0].number}.`);
+              return;
+            }
+
+            await github.rest.pulls.create({
+              owner,
+              repo,
+              head: process.env.REPORT_BRANCH,
+              base,
+              title: `📊 Generate status report - ${process.env.REPORT_FILE}`,
+              body: [
+                'This pull request contains the generated project status report.',
+                '',
+                `Report: \`${process.env.REPORT_FILE}\``,
+                '',
+                'Please review and merge to publish the report.'
+              ].join('\n')
+            });
 
       - name: Upload status report preview
         if: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.test_mode != 'false' }}
@@ -339,14 +391,6 @@ jobs:
           echo "High Priority: $HIGH_PRIORITY"
           echo "Critical Risks: $CRITICAL_RISKS"
           echo "Recent Completions: ${{ steps.metrics.outputs.recent_closed }}"
-
-      - name: 📝 Set Report Path
-        id: report_path
-        env:
-          REPORT_TYPE: ${{ github.event.inputs.report_type || 'weekly' }}
-        run: |
-          REPORT_FILE="reports/status/${REPORT_TYPE}-status-$(date +%Y-%m-%d).md"
-          echo "path=$REPORT_FILE" >> $GITHUB_OUTPUT
 
   monday-email:
     name: 📧 Generate Email Content (Test)
