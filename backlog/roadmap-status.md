@@ -2,11 +2,11 @@
 
 Generated; do not edit by hand. [Policy](../docs/roadmap-sync.md) · [Decision register](roadmap-alignment.md).
 
-Snapshot updated at: 2026-10-23T18:45:57.448Z (UTC).
+Snapshot updated at: 2026-10-24T01:08:52.531Z (UTC).
 
 [Latest synchronization checks](https://github.com/mirichard/pm-tools-templates/actions/workflows/roadmap-sync.yml) — includes successful checks with no data changes. A check does not publish to main until its PR is merged.
 
-Snapshot fingerprint: `e3921119e731a66f814dee0d5d5bffa7186a23ede17ae074ec3647634b9a8097`. Values are copied from issues and Projects, not inferred acceptance or release claims.
+Snapshot fingerprint: `3f61582f5dd09924e6cbcaa193e32b284a6178d07c0ad4edd92036f6f8c848a4`. Values are copied from issues and Projects, not inferred acceptance or release claims.
 
 ## Drift requiring review
 
@@ -47,7 +47,7 @@ Snapshot fingerprint: `e3921119e731a66f814dee0d5d5bffa7186a23ede17ae074ec3647634
 | [#319](https://github.com/mirichard/pm-tools-templates/issues/319) — EPIC: Community &amp; Feedback Ecosystem | Closed (completed) | Standalone | — | — | Done | Sprint 3 | Done | [v2.4.0 — Now Epics Sprints 1–3](https://github.com/mirichard/pm-tools-templates/milestone/35) |
 | [#320](https://github.com/mirichard/pm-tools-templates/issues/320) — EPIC: Executive &amp; Enterprise Platform | Open | Standalone | O5 - Make traceable value decisions | Later | Todo | — | — | — |
 | [#323](https://github.com/mirichard/pm-tools-templates/issues/323) — EPIC: Advanced Template Discovery &amp; Selection System | Open | Standalone | O1 - Find and customize templates | Later | Todo | — | — | — |
-| [#325](https://github.com/mirichard/pm-tools-templates/issues/325) — EPIC: Universal PM Tool Integration Platform | Closed (not_planned) | [#318](https://github.com/mirichard/pm-tools-templates/issues/318) | — | — | Done | Sprint 3 | Done | [v2.4.0 — Now Epics Sprints 1–3](https://github.com/mirichard/pm-tools-templates/milestone/35) |
+| [#325](https://github.com/mirichard/pm-tools-templates/issues/325) — EPIC: Universal PM Tool Integration Platform | Closed (not_planned) | [#318](https://github.com/mirichard/pm-tools-templates/issues/318) | — | — | Done | — | Done | — |
 | [#341](https://github.com/mirichard/pm-tools-templates/issues/341) — EPIC: ROI &amp; Value Tracking System | Open | [#320](https://github.com/mirichard/pm-tools-templates/issues/320) | O5 - Make traceable value decisions | Later | Todo | — | — | — |
 | [#365](https://github.com/mirichard/pm-tools-templates/issues/365) — EPIC: Smart Program Management Environment | Open | Standalone | O6 - Automate bounded PM workflows | Later | Todo | — | — | — |
 | [#367](https://github.com/mirichard/pm-tools-templates/issues/367) — EPIC: Traditional Template Mapping Engine | Open | [#365](https://github.com/mirichard/pm-tools-templates/issues/365) | O6 - Automate bounded PM workflows | Later | Todo | — | — | — |
@@ -97,4 +97,4 @@ Snapshot fingerprint: `e3921119e731a66f814dee0d5d5bffa7186a23ede17ae074ec3647634
 | [#1480](https://github.com/mirichard/pm-tools-templates/issues/1480) — EPIC: Opt-in Template Usage Analytics | Open | Standalone | O4 - Contribute and influence priorities | Later | Todo | — | — | — |
 | [#1481](https://github.com/mirichard/pm-tools-templates/issues/1481) — EPIC: Community Participation Enhancements — Discovery and Selected Delivery | Open | Standalone | O4 - Contribute and influence priorities | Later | Todo | — | — | — |
 | [#1482](https://github.com/mirichard/pm-tools-templates/issues/1482) — Validate contributor and maintainer journeys after unit testing and before UAT | Open | Standalone | — | — | Todo | — | — | — |
-| [#1483](https://github.com/mirichard/pm-tools-templates/issues/1483) — Validate reusable-plan imports into Jira and Asana before custom development | Closed (not_planned) | [#325](https://github.com/mirichard/pm-tools-templates/issues/325) | — | — | Done | Sprint 3 | Done | [v2.4.0 — Now Epics Sprints 1–3](https://github.com/mirichard/pm-tools-templates/milestone/35) |
+| [#1483](https://github.com/mirichard/pm-tools-templates/issues/1483) — Validate reusable-plan imports into Jira and Asana before custom development | Closed (not_planned) | [#325](https://github.com/mirichard/pm-tools-templates/issues/325) | — | — | Done | Sprint 3 | Done | [None](https://github.com/mirichard/pm-tools-templates/milestone/37) |
