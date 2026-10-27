@@ -112,6 +112,26 @@ class LegacyReportingSafetyTests(unittest.TestCase):
         email_artifact = next(step for step in email_steps if step['name'] == 'Upload email content')
         self.assertEqual(email_artifact['if'], '${{ github.event_name == \'schedule\' || github.event_name == \'workflow_dispatch\' }}')
 
+    def test_risk_reports_use_a_reviewable_branch(self):
+        workflow = yaml.safe_load((WORKFLOW.parent / 'risk-management.yml').read_text())
+        job = workflow['jobs']['risk-management']
+        self.assertEqual(job['permissions']['pull-requests'], 'write')
+
+        checkout = next(step for step in job['steps'] if step['name'] == '📥 Checkout Repository')
+        self.assertEqual(checkout['with']['token'],
+                         '${{ secrets.STATUS_REPORT_PR_TOKEN || github.token }}')
+        self.assertEqual(checkout['with']['ref'], '${{ github.event.repository.default_branch }}')
+
+        commit = next(step for step in job['steps'] if step.get('id') == 'commit')
+        self.assertEqual(commit['env']['RISK_REPORT_BRANCH'], 'risk-report-${{ github.run_id }}')
+        self.assertIn('git push --force origin "HEAD:refs/heads/$RISK_REPORT_BRANCH"', commit['run'])
+        self.assertNotRegex(commit['run'], r'git push\s*$')
+
+        proposal = next(step for step in job['steps'] if step['name'] == '📬 Propose Risk Report')
+        self.assertEqual(proposal['with']['github-token'],
+                         '${{ secrets.STATUS_REPORT_PR_TOKEN || github.token }}')
+        self.assertIn('github.rest.pulls.create', proposal['with']['script'])
+
     def test_delivery_and_preview_conditions(self):
         # These conditions use the common JS/GitHub subset (strings, ==, &&, ||).
         # Evaluate the expressions from YAML, not a second copy of the policy.
@@ -208,6 +228,7 @@ class LegacyReportingSafetyTests(unittest.TestCase):
         for event in ('pull_request', 'push'):
             for filename in ('status-reporting.yml', 'weekly-status-email.yml'):
                 self.assertIn('.github/workflows/' + filename, trigger[event]['paths'])
+            self.assertIn('.github/workflows/risk-management.yml', trigger[event]['paths'])
         commands = '\n'.join(s.get('run', '') for j in workflow['jobs'].values() for s in j['steps'])
         self.assertIn('test_clean_status.py', commands)
 
