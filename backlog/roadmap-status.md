@@ -2,11 +2,11 @@
 
 Generated; do not edit by hand. [Policy](../docs/roadmap-sync.md) · [Decision register](roadmap-alignment.md).
 
-Snapshot updated at: 2026-10-24T01:08:52.531Z (UTC).
+Snapshot updated at: 2026-10-27T23:59:15.581Z (UTC).
 
 [Latest synchronization checks](https://github.com/mirichard/pm-tools-templates/actions/workflows/roadmap-sync.yml) — includes successful checks with no data changes. A check does not publish to main until its PR is merged.
 
-Snapshot fingerprint: `3f61582f5dd09924e6cbcaa193e32b284a6178d07c0ad4edd92036f6f8c848a4`. Values are copied from issues and Projects, not inferred acceptance or release claims.
+Snapshot fingerprint: `1d75a5d784b354418f9c46254e01636326ccd4b25c4bc34e134866b37290f6b9`. Values are copied from issues and Projects, not inferred acceptance or release claims.
 
 ## Drift requiring review
 
@@ -14,7 +14,6 @@ Snapshot fingerprint: `3f61582f5dd09924e6cbcaa193e32b284a6178d07c0ad4edd92036f6f
 - #1454: missing Outcome or Horizon
 - #1454: expected exactly one type label
 - #1469: missing Outcome or Horizon
-- #1482: missing Outcome or Horizon
 
 ## Issue and Project values
 
@@ -96,5 +95,5 @@ Snapshot fingerprint: `3f61582f5dd09924e6cbcaa193e32b284a6178d07c0ad4edd92036f6f
 | [#1474](https://github.com/mirichard/pm-tools-templates/issues/1474) — Design Thinking, Lean Startup and Innovation templates are uncatalogued and unclassified | Closed (completed) | Standalone | O1 - Find and customize templates | Next | Done | — | — | — |
 | [#1480](https://github.com/mirichard/pm-tools-templates/issues/1480) — EPIC: Opt-in Template Usage Analytics | Open | Standalone | O4 - Contribute and influence priorities | Later | Todo | — | — | — |
 | [#1481](https://github.com/mirichard/pm-tools-templates/issues/1481) — EPIC: Community Participation Enhancements — Discovery and Selected Delivery | Open | Standalone | O4 - Contribute and influence priorities | Later | Todo | — | — | — |
-| [#1482](https://github.com/mirichard/pm-tools-templates/issues/1482) — Validate contributor and maintainer journeys after unit testing and before UAT | Open | Standalone | — | — | Todo | — | — | — |
+| [#1482](https://github.com/mirichard/pm-tools-templates/issues/1482) — Validate contributor and maintainer journeys after unit testing and before UAT | Closed (completed) | Standalone | — | — | Done | — | — | — |
 | [#1483](https://github.com/mirichard/pm-tools-templates/issues/1483) — Validate reusable-plan imports into Jira and Asana before custom development | Closed (not_planned) | [#325](https://github.com/mirichard/pm-tools-templates/issues/325) | — | — | Done | Sprint 3 | Done | [None](https://github.com/mirichard/pm-tools-templates/milestone/37) |
