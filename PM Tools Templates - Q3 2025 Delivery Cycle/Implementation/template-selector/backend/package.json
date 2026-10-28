@@ -42,5 +42,8 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/mirichard/pm-tools-templates.git"
+  },
+  "overrides": {
+    "deepmerge": "4.1.1"
   }
 }

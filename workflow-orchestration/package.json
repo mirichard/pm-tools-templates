@@ -57,5 +57,8 @@
   "bugs": {
     "url": "https://github.com/mirichard/pm-tools-templates/issues"
   },
-  "homepage": "https://github.com/mirichard/pm-tools-templates/tree/main/workflow-orchestration"
+  "homepage": "https://github.com/mirichard/pm-tools-templates/tree/main/workflow-orchestration",
+  "overrides": {
+    "deepmerge": "4.1.1"
+  }
 }
