@@ -99,21 +99,30 @@ jobs:
               }
             }
             
-            return {
+            const summarize = ({ number, title, updated_at }) => ({ number, title, updated_at });
+            const triageData = {
               newIssues: newIssues.data.length,
-              newIssuesList: newIssues.data.slice(0, 10), // First 10 for summary
+              newIssuesList: newIssues.data.slice(0, 10).map(summarize), // First 10 for summary
               untriagedCount: untriagedIssues.data.length,
-              untriagedList: untriagedIssues.data.slice(0, 10),
+              untriagedList: untriagedIssues.data.slice(0, 10).map(summarize),
               staleCount: staleIssues.length,
-              staleList: staleIssues.slice(0, 10),
+              staleList: staleIssues.slice(0, 10).map(summarize),
               oversizedEpics: oversizedEpics
             };
+            // Keep issue data out of action inputs/outputs and the process environment.
+            const fs = require('node:fs');
+            const path = require('node:path');
+            fs.writeFileSync(path.join(process.env.RUNNER_TEMP, 'weekly-triage-data.json'),
+              JSON.stringify(triageData), { encoding: 'utf8', mode: 0o600 });
 
       - name: Create triage preparation issue
         uses: actions/github-script@v9
         with:
           script: |
-            const triageData = ${{ steps.triage-data.outputs.result }};
+            const fs = require('node:fs');
+            const path = require('node:path');
+            const triageData = JSON.parse(fs.readFileSync(
+              path.join(process.env.RUNNER_TEMP, 'weekly-triage-data.json'), 'utf8'));
             const date = '${{ steps.date.outputs.date }}';
             
             const body = `# 📋 Weekly Triage Preparation - ${date}
@@ -214,7 +223,10 @@ jobs:
         uses: actions/github-script@v9
         with:
           script: |
-            const triageData = ${{ steps.triage-data.outputs.result }};
+            const fs = require('node:fs');
+            const path = require('node:path');
+            const triageData = JSON.parse(fs.readFileSync(
+              path.join(process.env.RUNNER_TEMP, 'weekly-triage-data.json'), 'utf8'));
             
             for (const issue of triageData.staleList) {
               await github.rest.issues.addLabels({
