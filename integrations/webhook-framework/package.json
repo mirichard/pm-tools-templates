@@ -15,5 +15,8 @@
   },
   "engines": {
     "node": ">=24"
+  },
+  "overrides": {
+    "deepmerge": "4.1.1"
   }
 }

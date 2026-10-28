@@ -41,5 +41,8 @@
     "type": "git",
     "url": "https://github.com/mirichard/pm-tools-templates.git",
     "directory": "analytics-platform"
+  },
+  "overrides": {
+    "deepmerge": "4.1.1"
   }
 }
