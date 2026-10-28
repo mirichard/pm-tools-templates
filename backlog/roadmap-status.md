@@ -2,11 +2,11 @@
 
 Generated; do not edit by hand. [Policy](../docs/roadmap-sync.md) · [Decision register](roadmap-alignment.md).
 
-Snapshot updated at: 2026-10-27T23:59:15.581Z (UTC).
+Snapshot updated at: 2026-10-28T00:00:01.154Z (UTC).
 
 [Latest synchronization checks](https://github.com/mirichard/pm-tools-templates/actions/workflows/roadmap-sync.yml) — includes successful checks with no data changes. A check does not publish to main until its PR is merged.
 
-Snapshot fingerprint: `1d75a5d784b354418f9c46254e01636326ccd4b25c4bc34e134866b37290f6b9`. Values are copied from issues and Projects, not inferred acceptance or release claims.
+Snapshot fingerprint: `414441c9620ea83d0525a36b3ea77651fe42f1f612e221add069563a6979cc4e`. Values are copied from issues and Projects, not inferred acceptance or release claims.
 
 ## Drift requiring review
 
@@ -39,7 +39,7 @@ Snapshot fingerprint: `1d75a5d784b354418f9c46254e01636326ccd4b25c4bc34e134866b37
 | [#103](https://github.com/mirichard/pm-tools-templates/issues/103) — Story: UX-101: Interactive Getting Started Tutorial | Open | [#284](https://github.com/mirichard/pm-tools-templates/issues/284) | O1 - Find and customize templates | Later | Todo | — | — | — |
 | [#104](https://github.com/mirichard/pm-tools-templates/issues/104) — Story: UX-201: Unified Search Across All Documentation | Open | [#323](https://github.com/mirichard/pm-tools-templates/issues/323) | O1 - Find and customize templates | Later | Todo | — | — | — |
 | [#105](https://github.com/mirichard/pm-tools-templates/issues/105) — Story: AI-101: Monte Carlo Schedule Forecasting Engine | Open | [#523](https://github.com/mirichard/pm-tools-templates/issues/523) | O7 - Use trustworthy AI insights | Later | Todo | — | — | — |
-| [#198](https://github.com/mirichard/pm-tools-templates/issues/198) — 💬 Community Feedback: Help Us Improve PM Tools &amp; Templates | Open | Standalone | O4 - Contribute and influence priorities | Ongoing | Todo | — | — | — |
+| [#198](https://github.com/mirichard/pm-tools-templates/issues/198) — 💬 Community Feedback: Help Us Improve PM Tools &amp; Templates | Closed (completed) | Standalone | O4 - Contribute and influence priorities | Ongoing | Done | — | — | — |
 | [#284](https://github.com/mirichard/pm-tools-templates/issues/284) — EPIC: Interactive Template Onboarding System | Open | Standalone | O1 - Find and customize templates | Later | Todo | — | — | — |
 | [#290](https://github.com/mirichard/pm-tools-templates/issues/290) — Story: Integration Enhancement - Jira/Asana Bi-directional Sync | Closed (not_planned) | [#325](https://github.com/mirichard/pm-tools-templates/issues/325) | O3 - Use supported integrations | Later | Done | — | Done | — |
 | [#318](https://github.com/mirichard/pm-tools-templates/issues/318) — EPIC: Integration &amp; Automation Platform | Open | Standalone | O3 - Use supported integrations | Next | Todo | — | — | — |
