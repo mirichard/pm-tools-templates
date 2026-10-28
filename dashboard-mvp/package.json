@@ -41,5 +41,8 @@
     "jest-environment-jsdom": "^30.5.2",
     "tailwindcss": "^4",
     "typescript": "^6"
+  },
+  "overrides": {
+    "deepmerge": "4.1.1"
   }
 }
