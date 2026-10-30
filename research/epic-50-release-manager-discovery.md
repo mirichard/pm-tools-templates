@@ -193,4 +193,13 @@ The available GitHub tools in this session were read-only for issue comments, an
 
 > Discovery results: [PR #1571](https://github.com/mirichard/pm-tools-templates/pull/1571) adds the [#50 discovery report](https://github.com/mirichard/pm-tools-templates/blob/copilot/release-manager-role-template-suite/research/epic-50-release-manager-discovery.md), linked to the #1566 research track. Recommendation: proceed, revise, or defer Candidate 1—connect the existing canonical release guidance and evidence into one accountable journey; do not create a 12-template suite or treat #373 automation as delivered. Owner decision needed: confirm the audience and emergency-release scope, then name the delivery owner, resolve dependencies, and confirm capacity before backlog/sprint promotion. #1482 remains accepted and is not repeated. No release, deployment, workflow change, or acceptance was performed; #50 remains open.
 
-**PR handling note:** PR #1571 is a draft. Its current auto-generated body includes `Fixes #50`, which would close the epic if merged. Replace that text with `Refs #50 and #1566 — research only; does not close or accept #50` before any merge. The available tools did not expose a PR-description edit operation; do not merge until the auto-close wording is corrected.
+**PR handling note:** Use non-closing references to #50 and #1566. Research acceptance is separate from delivery acceptance.
+
+
+## Consolidation of parallel discovery
+
+PR #1572 investigated the same file and outcome; this PR retains its useful distinctions without maintaining a competing report. Its alternate packaging—a short standalone role guide instead of an addition to the canonical template—is an owner-review option, not a second approved delivery. The shared recommendation is to connect maintained assets; neither implementation format is selected here.
+
+Additional source leads from #1572 are [Azure Pipelines approvals](https://learn.microsoft.com/en-us/azure/devops/pipelines/process/approvals?view=azure-devops), [Argo Rollouts analysis](https://argo-rollouts.readthedocs.io/en/stable/features/analysis/), and [AWS CodeDeploy rollback](https://docs.aws.amazon.com/codedeploy/latest/userguide/deployments-rollback-and-redeploy.html). These were surfaced in search, not directly retrieved in that investigation; their current details remain unverified. They illustrate candidate comparisons for stage gates, canary analysis and recovery, not validated capabilities of this repository.
+
+The source investigation remains available at [PR #1572](https://github.com/mirichard/pm-tools-templates/pull/1572). Research consolidation does not accept or close #50. All proposed scope/target dispositions require an owner decision.
