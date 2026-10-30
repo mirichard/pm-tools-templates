@@ -2,11 +2,11 @@
 
 Generated; do not edit by hand. [Policy](../docs/roadmap-sync.md) · [Decision register](roadmap-alignment.md).
 
-Snapshot updated at: 2026-10-30T18:05:47.350Z (UTC).
+Snapshot updated at: 2026-10-30T18:15:57.911Z (UTC).
 
 [Latest synchronization checks](https://github.com/mirichard/pm-tools-templates/actions/workflows/roadmap-sync.yml) — includes successful checks with no data changes. A check does not publish to main until its PR is merged.
 
-Snapshot fingerprint: `f1c0d8fda1901e0b3efde540e57934cd825740511ce316e3042b3851f21a7797`. Values are copied from issues and Projects, not inferred acceptance or release claims.
+Snapshot fingerprint: `ab6396f89cd39ebfec0622e8c994c771afd60ee5881056e4cfebee3c032fa852`. Values are copied from issues and Projects, not inferred acceptance or release claims.
 
 ## Drift requiring review
 
@@ -27,7 +27,7 @@ Snapshot fingerprint: `f1c0d8fda1901e0b3efde540e57934cd825740511ce316e3042b3851f
 | Issue | Issue state | Parent | Outcome | Horizon | Roadmap status | Sprint | Sprint status | Release milestone |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | [#47](https://github.com/mirichard/pm-tools-templates/issues/47) — EPIC: 1.10: Program Management Template Suite Implementation | Open | Standalone | O2 - Apply practical PM guidance | Later | In Progress |  | — | — |
-| [#49](https://github.com/mirichard/pm-tools-templates/issues/49) — EPIC: 1.11: Product Owner Role Template Suite | Open | Standalone | O2 - Apply practical PM guidance | Later | Todo |  | — | — |
+| [#49](https://github.com/mirichard/pm-tools-templates/issues/49) — EPIC: 1.11: Product Owner Role Template Suite | Open | Standalone | O2 - Apply practical PM guidance | Later | In Progress |  | — | — |
 | [#50](https://github.com/mirichard/pm-tools-templates/issues/50) — EPIC: 1.12: Release Manager Role Template Suite | Open | Standalone | O2 - Apply practical PM guidance | Later | In Progress |  | — | — |
 | [#57](https://github.com/mirichard/pm-tools-templates/issues/57) — Task: Complete Design Thinking template navigation and acceptance | Closed (completed) | Standalone | O2 - Apply practical PM guidance | Next | Done | Sprint 2 | Done | [v2.4.0 — Now Epics Sprints 1–3](https://github.com/mirichard/pm-tools-templates/milestone/35) |
 | [#58](https://github.com/mirichard/pm-tools-templates/issues/58) — Task: Complete Lean Startup kit navigation and acceptance | Closed (completed) | Standalone | O2 - Apply practical PM guidance | Next | Done | Sprint 2 | Done | [v2.4.0 — Now Epics Sprints 1–3](https://github.com/mirichard/pm-tools-templates/milestone/35) |
