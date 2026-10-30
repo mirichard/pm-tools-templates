@@ -2,14 +2,15 @@
 
 Generated; do not edit by hand. [Policy](../docs/roadmap-sync.md) · [Decision register](roadmap-alignment.md).
 
-Snapshot updated at: 2026-10-30T15:13:58.519Z (UTC).
+Snapshot updated at: 2026-10-30T15:56:06.993Z (UTC).
 
 [Latest synchronization checks](https://github.com/mirichard/pm-tools-templates/actions/workflows/roadmap-sync.yml) — includes successful checks with no data changes. A check does not publish to main until its PR is merged.
 
-Snapshot fingerprint: `ef3579d53f96ede8ce037abb38a6adf4793ddd4fa5c4dd1fe412e76b55b44a87`. Values are copied from issues and Projects, not inferred acceptance or release claims.
+Snapshot fingerprint: `a528b8d2022c7c7fcd2e6666fa7d1943d50d22efa57a3cee2d8fcf524713e09c`. Values are copied from issues and Projects, not inferred acceptance or release claims.
 
 ## Drift requiring review
 
+- #1393: release milestone v2.4.0 differs from manifest nextVersion v2.4.1; review release intent
 - #1406: open issue / Roadmap Done; acceptance review required
 - #1454: missing Outcome or Horizon
 - #1454: expected exactly one type label
