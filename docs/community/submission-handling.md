@@ -1,5 +1,9 @@
 # Community submission handling
 
+## Approved release boundary — October 30, 2026
+
+The repository owner approved **already-sanitized files and text-only intake for v2.4**. Restricted-original handling is explicitly deferred beyond this release in [#1546](https://github.com/mirichard/pm-tools-templates/issues/1546); its controls remain requirements for future enablement, not v2.4 acceptance gates. No contributor format conversion is required. The completed [#1482](https://github.com/mirichard/pm-tools-templates/issues/1482) walkthrough remains accepted and must not be repeated solely for this scope reconciliation. See [#319](https://github.com/mirichard/pm-tools-templates/issues/319) for retained journey acceptance and [#1393](https://github.com/mirichard/pm-tools-templates/issues/1393) for release readiness.
+
 This guide defines the minimum safe handling for content, corrections, requests,
 problem reports, ratings, and general feedback. Public GitHub issues, comments,
 pull requests, and their attachments are public. Do not put confidential,
@@ -78,6 +82,8 @@ The contributor-facing forms must tell submitters not to re-upload or quote
 unsafe material and how to alert maintainers if it is uploaded accidentally.
 
 ## Access, retention, and roles
+
+Restricted-original custodian, transfer and deletion requirements below are retained for deferred #1546. Ordinary sanitized-file assessment, verification, review and publication responsibilities still apply in v2.4.
 
 | Responsibility | Minimum operating rule |
 | --- | --- |
