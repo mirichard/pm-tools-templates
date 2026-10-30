@@ -8,7 +8,7 @@ This roadmap summarizes released capabilities, outstanding follow-up, and future
 
 ## Released
 
-Repository and component versions follow separate histories. The latest repository release is **v2.4.0**, published October 30, 2026 with explicit owner authorization ahead of the former November 29 target. See [release numbering and history](docs/release-versioning.md). The next draft target, v2.4.1, is a patch placeholder, not an approved scope or scheduled release.
+Repository and component versions follow separate histories. The latest repository release is **v2.4.0**, published October 30, 2026 with explicit owner authorization ahead of the former November 29 target. See [release numbering and history](docs/release-versioning.md). The approved next release direction is **v2.5.0**, targeting January 22, 2027 subject to readiness. Detailed scope and capacity remain provisional; see [#1556](https://github.com/mirichard/pm-tools-templates/issues/1556).
 
 | Delivery | What it provides | Record |
 | --- | --- | --- |
@@ -37,7 +37,7 @@ The records below are included in v2.4.0 where accepted. #57/#58 and the bounded
 | --- | --- | --- |
 | Catalog-domain export | Recorded as follow-up in the [domain-refactor reconciliation, #711](https://github.com/mirichard/pm-tools-templates/issues/711); excluded from the vNext delivery claim | Confirm remaining scope and tracking before scheduling; [PR #1188](https://github.com/mirichard/pm-tools-templates/pull/1188) was closed without merge |
 
-At the 09/24/2026 baseline review, no GitHub milestones were open. The overall vNext and Sprint 15 milestones are closed. Some closed historical milestones still contain open issues, so their old dates should not be read as active commitments. No next-release date is committed in this roadmap.
+At the 09/24/2026 baseline review, no GitHub milestones were open. The overall vNext and Sprint 15 milestones are closed. Some closed historical milestones still contain open issues, so their old dates should not be read as active commitments. The current v2.5.0 planning target is recorded below.
 
 ## Current outcome map
 
@@ -60,7 +60,25 @@ The 09/24/2026 baseline mapped 60 then-open issues to seven product outcomes and
 
 The [alignment register](backlog/roadmap-alignment.md#outcome-register) links every issue, including discovery candidates and operational records, to its current next action. Outcome identifiers are navigation/grouping keys, not new epics or a replacement for native parents.
 
-## Planning decisions
+## Approved v2.5.0 direction — October 30, 2026
+
+**Product Goal:** Help a PM find an appropriate template and successfully apply it to a real project.
+
+Target **January 22, 2027**, subject to readiness. [Release plan #1556](https://github.com/mirichard/pm-tools-templates/issues/1556) · [Milestone](https://github.com/mirichard/pm-tools-templates/milestone/38) · [Sprint project](https://github.com/users/mirichard/projects/12).
+
+| Sprint | Dates | Candidate outcome |
+| --- | --- | --- |
+| Sprint 4 | Nov 9–22, 2026 | #104 / #323: relevant search across an agreed content boundary |
+| Sprint 5 | Nov 30–Dec 13, 2026 | #103 / #284: guided selection, completion and download |
+| Sprint 6 | Jan 4–17, 2027 | Combined journey acceptance, defects, accessibility/mobile and release preparation |
+
+The owner approved direction and candidate allocation; refinement must still establish maintained-asset reuse, supported scope, explicit disposition of existing acceptance requirements, dependencies and capacity. Parent epics are not accepted in full by selecting their children. #62 is reserve only. #1482 remains accepted and #1546 remains deferred.
+
+Parallel discovery: #523/#1379 resolves the remaining review/participant/control gates while preserving accepted source sufficiency; #365 verifies reusable components and the SOW/Charter contract to propose one bounded workflow. Discovery does not block v2.5.0 and does not automatically promote work to delivery. #1329 remains paused.
+
+Project 12 retains the original `Sprint` calendar for v2.4 history. Its `v2.5 Sprint` calendar holds the approved overlapping planning dates; generated snapshots read both and report conflicting assignments. Planning approval is not publication authorization.
+
+## Historical planning decisions
 
 The table below records the agreed 09/26/2026 disposition. It is a decision record, not a live status feed. Current issue and board values are maintained in the generated snapshot below; neither automation nor a closed issue establishes release or acceptance evidence.
 
@@ -75,7 +93,7 @@ The table below records the agreed 09/26/2026 disposition. It is a decision reco
 | **Later** | Remaining epic/story proposals and #64 | Refine outcomes, resolve overlap and confirm dependencies before promotion. |
 | **Discovery / ongoing** | Research candidates below; #198/#1313/#1314 operational records | Neither category is a delivery commitment or product-throughput measure. |
 
-[Now Epic Sprints](https://github.com/users/mirichard/projects/12) records Sprint 1 (09/25–10/18/2026). These are the sprint's planning dates, not a forecast for a release. No next-release scope or date is committed. Parent epics summarize their children; completing a child does not establish that the whole epic is delivered.
+[Now Epic Sprints](https://github.com/users/mirichard/projects/12) records Sprint 1 (09/25–10/18/2026). These are the sprint's planning dates, not a forecast for a release. The later v2.5.0 planning decision below supersedes this historical no-next-release position. Parent epics summarize their children; completing a child does not establish that the whole epic is delivered.
 
 ### AI research decision and resumption conditions
 
@@ -90,11 +108,11 @@ Legacy recovery remains documented under [#1329](https://github.com/mirichard/pm
 The editorial date above applies to human-reviewed narrative. Snapshot capture time is maintained separately by synchronization; older snapshots without a recorded time gain one on the next reconciliation. [Latest synchronization checks](https://github.com/mirichard/pm-tools-templates/actions/workflows/roadmap-sync.yml) show run times and outcomes, including checks that found no changes.
 
 <!-- roadmap-sync:start -->
-Snapshot updated at: 2026-10-30T15:13:58.519Z (UTC).
+Snapshot updated at: 2026-10-30T15:58:15.913Z (UTC).
 
 [Latest synchronization checks](https://github.com/mirichard/pm-tools-templates/actions/workflows/roadmap-sync.yml) — includes successful checks with no data changes. A check does not publish to main until its PR is merged.
 
-Snapshot fingerprint: `ef3579d53f96ede8ce037abb38a6adf4793ddd4fa5c4dd1fe412e76b55b44a87`. Values are copied from issues and Projects, not inferred acceptance or release claims.
+Snapshot fingerprint: `3be3afbc917da2916fdaf0bb1948ddf680694ae359ca646fe903f02e74c46412`. Values are copied from issues and Projects, not inferred acceptance or release claims.
 
 | Sprint | Issue | Issue state | Board status | Release milestone |
 | --- | --- | --- | --- | --- |
