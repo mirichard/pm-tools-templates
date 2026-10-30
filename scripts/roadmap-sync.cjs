@@ -84,6 +84,10 @@ function render(snapshot, nextVersion) {
   const link = n => `[#${n}](https://github.com/${config.repository}/issues/${n})`;
   for (const issue of issues) {
     const r = roadmap.get(issue.number), s = sprint.get(issue.number);
+    const sprintAssignments = Object.entries(s || {}).filter(([name, value]) =>
+      value && (name === 'Sprint' || /^v\d+\.\d+ Sprint$/.test(name)));
+    const sprintTitle = sprintAssignments.map(([, value]) => value).join(' / ');
+    if (sprintAssignments.length > 1) warnings.push(`#${issue.number}: multiple sprint calendars assigned; review planning intent`);
     if (issue.state === 'open' && (!r || r.archived)) warnings.push(`#${issue.number}: missing or archived roadmap item`);
     if (issue.state === 'open' && (!r?.Outcome || !r?.Horizon)) warnings.push(`#${issue.number}: missing Outcome or Horizon`);
     if (issue.types.length !== 1) warnings.push(`#${issue.number}: expected exactly one type label`);
@@ -94,7 +98,7 @@ function render(snapshot, nextVersion) {
       if (issue.state === 'open' && item.Status === 'Done') warnings.push(`#${issue.number}: open issue / ${name} Done; acceptance review required`);
     }
     if (r && s && r.Status !== s.Status) warnings.push(`#${issue.number}: board statuses differ (${r.Status || 'unset'} / ${s.Status || 'unset'})`);
-    if (s?.Sprint && !s.archived && !issue.milestone) warnings.push(`#${issue.number}: assigned sprint has no release milestone`);
+    if (sprintTitle && !s.archived && !issue.milestone) warnings.push(`#${issue.number}: assigned sprint has no release milestone`);
     if (issue.state === 'open' && issue.milestone?.state === 'closed') warnings.push(`#${issue.number}: open issue in closed milestone ${issue.milestone.number}`);
     const version = issue.milestone?.title.match(/^v(\d+\.\d+\.\d+)(?:\s|$)/)?.[1];
     if (issue.state === 'open' && s && !s.archived && issue.milestone?.state === 'open' && version && nextVersion && version !== nextVersion) {
@@ -102,8 +106,8 @@ function render(snapshot, nextVersion) {
     }
     const release = issue.milestone ? `[${cell(issue.milestone.title)}](https://github.com/${config.repository}/milestone/${issue.milestone.number})` : '—';
     const state = issue.state === 'closed' ? `Closed (${issue.reason || 'unspecified'})` : 'Open';
-    rows.push(`| ${link(issue.number)} — ${cell(issue.title)} | ${cell(state)} | ${issue.parent ? link(issue.parent) : 'Standalone'} | ${cell(r?.Outcome)} | ${cell(r?.Horizon)} | ${cell(r?.Status)} | ${cell(s?.Sprint)} | ${cell(s?.Status)} | ${release} |`);
-    if (s?.Sprint && !s.archived) commitments.push(`| ${cell(s.Sprint)} | ${link(issue.number)} — ${cell(issue.title)} | ${cell(state)} | ${cell(s.Status)} | ${release} |`);
+    rows.push(`| ${link(issue.number)} — ${cell(issue.title)} | ${cell(state)} | ${issue.parent ? link(issue.parent) : 'Standalone'} | ${cell(r?.Outcome)} | ${cell(r?.Horizon)} | ${cell(r?.Status)} | ${cell(sprintTitle)} | ${cell(s?.Status)} | ${release} |`);
+    if (sprintTitle && !s.archived) commitments.push(`| ${cell(sprintTitle)} | ${link(issue.number)} — ${cell(issue.title)} | ${cell(state)} | ${cell(s.Status)} | ${release} |`);
   }
   const note = `Snapshot fingerprint: \`${digest}\`. Values are copied from issues and Projects, not inferred acceptance or release claims.\n\n`;
   const alerts = warnings.length ? warnings.map(x => `- ${cell(x)}`).join('\n') : 'No issue/Project state or mapping gaps detected. This does not validate acceptance evidence or narrative decisions.';

@@ -62,6 +62,8 @@ The links deliberately show failures and pending runs as well as successes; they
 
 ## Release and sprint alignment
 
+The generator reads the legacy `Sprint` iteration field and release-specific fields named `v<major>.<minor> Sprint` (currently `v2.5 Sprint`). It preserves all assigned titles and flags multiple calendar assignments instead of silently choosing one. The separate v2.5 calendar preserves the v2.4 planning history where its original dates overlap the newly approved cycle.
+
 Projects manage priority, readiness and sprint execution. The issue milestone records the approved release; parent epics may span releases. Use the same issues in the relevant project views, with Milestone, Sprint, Status and linked PRs visible. Keep research and paused work without a release commitment until explicitly selected.
 
 During sprint planning and closeout, reconcile each selected deliverable's milestone. Moving between sprints does not automatically move an issue between releases. Record release additions, removals and deferrals as repo owner decisions. Use one release-readiness issue for validation, approval, publication and post-release checks; do not duplicate these as separate sprint or testing milestones. For v2.4.0, see [milestone 35](https://github.com/mirichard/pm-tools-templates/milestone/35) and [release-readiness issue #1393](https://github.com/mirichard/pm-tools-templates/issues/1393).
