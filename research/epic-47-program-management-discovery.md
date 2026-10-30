@@ -1,6 +1,6 @@
 # Epic #47 — Program Management Discovery
 
-**Research snapshot:** 2026-10-30  
+**Research snapshot:** 2026-10-30
 **Status:** Recommendation for owner review; not a delivery or sprint commitment.
 
 ## Decision brief
@@ -144,10 +144,20 @@ No product popularity, adoption, or claimed efficiency was used as evidence of q
 - [Canonical-path and legacy-path contract](../docs/domain-navigation-and-legacy-paths.md#L1-L24)
 - Canonical source registry: [`templates/templates.json`](../templates/templates.json); generated site copies and `TEMPLATE_INDEX.md` are not treated as source assets.
 
-## Research limitations and requested issue comment
+## Research limitations and requested GitHub updates
 
 External research was partially limited by network/DNS access: PMI and direct web fetches failed; five GitHub Projects workflow pages were reported by a research subagent but could not be fetched again in the main session. No independent user interviews or usage data were available. The only observed evidence for the communication/lifecycle gaps is the maintained repository content itself. No estimate, staffing, user validation, owner approval, sprint, milestone, or release commitment is represented as confirmed.
 
-The available GitHub tool surface did not expose creation of a new issue comment. **Proposed concise comment for #47** (not posted):
+The available GitHub tool surface did not expose PR title/body editing or creation of a new issue comment; the public browser was signed out. The existing draft PR body still has an inherited auto-appended `Fixes #47` directive. Do not merge it with that directive intact: it conflicts with the instruction to leave #47 open. **Proposed PR title and description** (not applied):
+
+**Title:** `[WIP] Research: Epic #47 Program Management Discovery`
+
+> This PR adds an evidence-backed discovery record for [#47](https://github.com/mirichard/pm-tools-templates/issues/47), coordinated with discovery tracker [#1566](https://github.com/mirichard/pm-tools-templates/issues/1566). It inventories maintained assets, compares options, and proposes two independently testable candidate scopes, with Candidate 1 recommended for owner review.
+>
+> Discovery only: no implementation, issue closure, readiness/status change, owner assignment, sprint, milestone, release, or delivery commitment is requested. Owner decision: approve, revise, or defer Candidate 1 and confirm whether cross-project decision/escalation is the first uncovered program-manager outcome.
+>
+> This PR must not include an auto-close directive for #47. Keep the epic open until the owner records a separate closeout decision and accepted evidence.
+
+**Proposed concise comment for #47** (not posted):
 
 > Research results are in draft PR [#1570](https://github.com/mirichard/pm-tools-templates/pull/1570), with discovery tracked under [#1566](https://github.com/mirichard/pm-tools-templates/issues/1566). Recommendation: refine a bounded, manual cross-project dependency-to-decision/escalation brief using existing assets; defer new suite/automation work. Owner decision requested: approve, revise, or defer Candidate 1 and confirm whether this is the first uncovered program-manager outcome. No sprint, milestone, or Done/readiness status is proposed.
