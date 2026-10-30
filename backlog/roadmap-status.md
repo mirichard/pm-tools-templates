@@ -2,11 +2,11 @@
 
 Generated; do not edit by hand. [Policy](../docs/roadmap-sync.md) · [Decision register](roadmap-alignment.md).
 
-Snapshot updated at: 2026-10-30T17:02:29.536Z (UTC).
+Snapshot updated at: 2026-10-30T17:23:00.373Z (UTC).
 
 [Latest synchronization checks](https://github.com/mirichard/pm-tools-templates/actions/workflows/roadmap-sync.yml) — includes successful checks with no data changes. A check does not publish to main until its PR is merged.
 
-Snapshot fingerprint: `4ff771d436cef31533e21fffcfb626134850ab3905b38857d5585ef8023192ac`. Values are copied from issues and Projects, not inferred acceptance or release claims.
+Snapshot fingerprint: `53be0b7052e0531daf2885f50d682f18f70034bb2c739f5757c4ae79fa35272b`. Values are copied from issues and Projects, not inferred acceptance or release claims.
 
 ## Drift requiring review
 
@@ -20,6 +20,7 @@ Snapshot fingerprint: `4ff771d436cef31533e21fffcfb626134850ab3905b38857d5585ef80
 - #1562: missing Outcome or Horizon
 - #1563: missing Outcome or Horizon
 - #1564: missing Outcome or Horizon
+- #1566: missing Outcome or Horizon
 
 ## Issue and Project values
 
@@ -111,3 +112,4 @@ Snapshot fingerprint: `4ff771d436cef31533e21fffcfb626134850ab3905b38857d5585ef80
 | [#1562](https://github.com/mirichard/pm-tools-templates/issues/1562) — Task: Implement and validate the guided first-template journey | Open | Standalone | — | — | Todo | Sprint 5 | Todo | [v2.5.0 — Find and apply a template](https://github.com/mirichard/pm-tools-templates/milestone/38) |
 | [#1563](https://github.com/mirichard/pm-tools-templates/issues/1563) — Task: Validate v2.5 combined journey and resolve release defects | Open | Standalone | — | — | Todo | Sprint 6 | Todo | [v2.5.0 — Find and apply a template](https://github.com/mirichard/pm-tools-templates/milestone/38) |
 | [#1564](https://github.com/mirichard/pm-tools-templates/issues/1564) — Task: Prepare v2.5 release notes, checks and approval package | Open | Standalone | — | — | Todo | Sprint 6 | Todo | [v2.5.0 — Find and apply a template](https://github.com/mirichard/pm-tools-templates/milestone/38) |
+| [#1566](https://github.com/mirichard/pm-tools-templates/issues/1566) — Task: Advance discovery portfolio alongside v2.5 — Sprints 4–6 | Open | Standalone | — | — | Todo |  | — | — |
