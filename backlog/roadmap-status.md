@@ -2,17 +2,17 @@
 
 Generated; do not edit by hand. [Policy](../docs/roadmap-sync.md) · [Decision register](roadmap-alignment.md).
 
-Snapshot updated at: 2026-10-30T14:40:50.818Z (UTC).
+Snapshot updated at: 2026-10-30T14:41:30.552Z (UTC).
 
 [Latest synchronization checks](https://github.com/mirichard/pm-tools-templates/actions/workflows/roadmap-sync.yml) — includes successful checks with no data changes. A check does not publish to main until its PR is merged.
 
-Snapshot fingerprint: `76cf7f821e14f2bb2574d627cedab990afd6c75d52e49fe245325834ff406705`. Values are copied from issues and Projects, not inferred acceptance or release claims.
+Snapshot fingerprint: `ed9ad7e0bb9680abebd0906e704f5dcb69abb07ca6a11f0aed21b51d85328560`. Values are copied from issues and Projects, not inferred acceptance or release claims.
 
 ## Drift requiring review
 
 - #319: missing Outcome or Horizon
 - #319: open issue / Roadmap Done; acceptance review required
-- #319: open issue / Sprint Done; acceptance review required
+- #319: board statuses differ (Done / In Progress)
 - #1406: open issue / Roadmap Done; acceptance review required
 - #1454: missing Outcome or Horizon
 - #1454: expected exactly one type label
@@ -47,7 +47,7 @@ Snapshot fingerprint: `76cf7f821e14f2bb2574d627cedab990afd6c75d52e49fe245325834f
 | [#284](https://github.com/mirichard/pm-tools-templates/issues/284) — EPIC: Interactive Template Onboarding System | Open | Standalone | O1 - Find and customize templates | Later | Todo | — | — | — |
 | [#290](https://github.com/mirichard/pm-tools-templates/issues/290) — Story: Integration Enhancement - Jira/Asana Bi-directional Sync | Closed (not_planned) | [#325](https://github.com/mirichard/pm-tools-templates/issues/325) | O3 - Use supported integrations | Later | Done | — | Done | — |
 | [#318](https://github.com/mirichard/pm-tools-templates/issues/318) — EPIC: Integration &amp; Automation Platform | Open | Standalone | O3 - Use supported integrations | Next | Todo | — | — | — |
-| [#319](https://github.com/mirichard/pm-tools-templates/issues/319) — EPIC: Community &amp; Feedback Ecosystem | Open | Standalone | — | — | Done | Sprint 3 | Done | [v2.4.0 — Now Epics Sprints 1–3](https://github.com/mirichard/pm-tools-templates/milestone/35) |
+| [#319](https://github.com/mirichard/pm-tools-templates/issues/319) — EPIC: Community &amp; Feedback Ecosystem | Open | Standalone | — | — | Done | Sprint 3 | In Progress | [v2.4.0 — Now Epics Sprints 1–3](https://github.com/mirichard/pm-tools-templates/milestone/35) |
 | [#320](https://github.com/mirichard/pm-tools-templates/issues/320) — EPIC: Executive &amp; Enterprise Platform | Open | Standalone | O5 - Make traceable value decisions | Later | Todo | — | — | — |
 | [#323](https://github.com/mirichard/pm-tools-templates/issues/323) — EPIC: Advanced Template Discovery &amp; Selection System | Open | Standalone | O1 - Find and customize templates | Later | Todo | — | — | — |
 | [#325](https://github.com/mirichard/pm-tools-templates/issues/325) — EPIC: Universal PM Tool Integration Platform | Closed (not_planned) | [#318](https://github.com/mirichard/pm-tools-templates/issues/318) | — | — | Done | — | Done | — |
