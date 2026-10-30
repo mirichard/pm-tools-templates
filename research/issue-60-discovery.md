@@ -1,7 +1,7 @@
 # Issue #60 discovery: Zapier guide coverage and validation
 
-**Research date:** 2026-10-30  
-**Accountable owner:** Michael Richard (@mirichard)  
+**Research date:** 2026-10-30
+**Accountable owner:** Michael Richard (@mirichard)
 **Disposition:** Research only; #60 remains an unscheduled backlog task under #318. This report is not delivery acceptance.
 
 ## Decision brief
@@ -31,6 +31,7 @@ Repository links below pin the inspected guide revision. **Recipe** means instru
 - Related draft PRs at review: [#1577](https://github.com/mirichard/pm-tools-templates/pull/1577) for #60 and [#1576](https://github.com/mirichard/pm-tools-templates/pull/1576) for sibling #59. They were open drafts at inspection; they are not validation evidence or accepted delivery.
 - The [v2.5 discovery plan](v2.5-discovery-plan.md) places #318 in a Sprint 6 discovery portfolio and explicitly says planning is not a release commitment. It requires owner disposition and confirmed capacity before selection. It preserves completed #1482 validation and #1379 source-sufficiency evidence; neither is repeated or reinterpreted here. #1482 is completed, while #1379’s accepted source sufficiency does not imply unrelated Zapier evidence or acceptance.
 - Product sources attempted on 2026-10-30: [Zapier Help Center](https://help.zapier.com/hc/en-us/) and [Zapier pricing](https://zapier.com/pricing). DNS resolution failed in this environment. No product-specific plan limits, connector availability, required permission scopes, task semantics, or retry/replay claims are inferred from those sources. Recheck the relevant official app/help pages when external access is available.
+- **PR metadata correction still required:** the existing draft PR #1577 has an agent-generated `Fixes #60` suffix despite the requested non-closing reference. The available progress tool updates the checklist but does not remove that suffix, and no PR-body editing operation is available in this session. Before any merge, a maintainer must replace the closing suffix so the PR references #60 with `Refs #60` only. The PR remains open and draft; it has not been merged or auto-merged.
 
 ## Proposed synthetic validation fixture — not executed
 
