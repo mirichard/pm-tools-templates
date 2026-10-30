@@ -93,6 +93,8 @@ Direct issue-comment creation is not available in the tools exposed for this tas
 
 No Project 13 or roadmap field update is proposed: #105 remains unscheduled, and this assignment does not authorize changing its stage.
 
+**PR-reference caveat:** The agent tool generated a `Fixes #105` suffix in PR #1584 despite the requested `Refs #105` reference. GitHub is unauthenticated in the browser session and exposes no issue/PR write form, so I could not remove that automatic suffix. PR #1584 remains open and draft, and issue #105 remains open. Before any merge, a maintainer should replace the closing suffix with `Refs #105`; this report does not authorize closing the issue.
+
 > Research report: [draft research PR #1584](https://github.com/mirichard/pm-tools-templates/pull/1584). Recommendation: keep #105 unscheduled and revise before selection; a bounded Monte Carlo simulator does not inherently require TensorFlow or historical training data. The checked-in schedule/risk documents are guidance, not evidence of an operating engine; preserved AI recovery evidence marks schedule outputs simulated and #1329 remains paused. The report includes a reproducible synthetic CPM/P80 comparison, proposed tests, a conditional bounded candidate, and calibration/“70% accuracy” gaps. Michael’s decision is required on whether to retain/select the standalone forecast outcome, its assumptions, and whether to replace or retire the undefined 70% criterion. No implementation, acceptance, or promotion is claimed.
 
 ## Four-point owner decision brief
