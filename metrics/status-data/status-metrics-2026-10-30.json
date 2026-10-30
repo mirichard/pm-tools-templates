@@ -1,0 +1,24 @@
+{
+  "report_date": "2026-10-30T16:10:04+00:00",
+  "report_type": "weekly",
+  "methodology": "agile",
+  "metrics": {
+    "total_issues": 30,
+    "open_issues": 30,
+    "closed_issues": 30,
+    "completion_rate": 100,
+    "high_priority": 0,
+    "bugs": 3,
+    "strategic_open": 8,
+    "strategic_progress": 73,
+    "critical_risks": 0,
+    "blockers": 0,
+    "recent_closed": 4
+  },
+  "flow_metrics": null,
+  "health_indicators": {
+    "overall_health": "green",
+    "risk_level": "low",
+    "progress_trend": "positive"
+  }
+}
