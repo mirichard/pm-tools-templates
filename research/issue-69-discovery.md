@@ -1,0 +1,174 @@
+# #69 discovery: collapsible template organization
+
+Research snapshot: **October 30, 2026**. Refs mirichard/pm-tools-templates#69.
+Accountable owner: **Michael Richard (@mirichard)**; Copilot prepares research only.
+Disposition: **revise the navigation contract; defer implementation and selection**.
+
+## Decision brief
+
+Keep #69 unselected for v2.5. Recommend comparing the current flat entry points with shallow, independently expandable domain sections, retaining visible search and direct domain links. Do not prescribe an accordion implementation until the owner selects the supported surface: GitHub-rendered documentation, the published browser, or the separate preview app.
+
+Pinned source inspection finds three different experiences: the root README offers short routing links and a domain table; the Pages browser renders a filtered card grid without collapsible categories; the separate preview app already creates native disclosure groups, but opens every group on each render and hides the default disclosure marker. Favorites persistence is not navigation-state persistence. A bounded public-browser check at two narrow viewports found no native disclosures and small sampled controls, but did not establish the deployment revision, accessibility conformance or user performance.
+
+Reuse #104's search definition task #1559 for shared corpus, destinations and mobile/keyboard fixtures; do not create another search story or implement #1560. Link ongoing epic/search research rather than duplicating it.
+
+Uncertainty remains about users' category vocabulary, the best initial open state, supported browser/assistive-technology combinations and whether collapsing improves discovery. Historical completion, timing, preference and usability targets have no measurements in this investigation.
+
+**Owner decision requested:** retain the unscheduled disposition, choose one navigation surface and bounded category set, approve or revise the proposed persistence/accessibility contract, and decide whether to authorize a later usability study. No outreach, implementation, acceptance, release commitment or gate waiver follows from this report.
+
+## Authority, provenance and coordination
+
+- [#69](https://github.com/mirichard/pm-tools-templates/issues/69): live body, comments and native parent read October 30. Open; assignees are `mirichard` and `Copilot`; no comments returned. Native parent is [#323](https://github.com/mirichard/pm-tools-templates/issues/323), not historical #98. Parent sub-issue read returned #69 and #104.
+- [#323](https://github.com/mirichard/pm-tools-templates/issues/323) explicitly selects only #104 for v2.5 refinement, not #69. All 296 parent comments were retrieved in three pages; they are repeated automated feedback-routing notices, not evidence that these navigation criteria passed.
+- [#104](https://github.com/mirichard/pm-tools-templates/issues/104) has no comments returned; its newer Sprint 4 planning direction supersedes the older unscheduled text for **search only**. Reuse [#1559](https://github.com/mirichard/pm-tools-templates/issues/1559) (definition) and [#1560](https://github.com/mirichard/pm-tools-templates/issues/1560) (later implementation); this report does not execute either.
+- Related active research: [search PR #1583](https://github.com/mirichard/pm-tools-templates/pull/1583), head `a51a96340bfe8c437b1cac45509a2f8888e4facc`, and [epic PR #1587](https://github.com/mirichard/pm-tools-templates/pull/1587), head `e4221bff84fd0725f95456f368ef469e928380f8`. Both file lists were empty when read; no completed findings are claimed. Coordinate the shared fixture contract through these PRs; their later reports remain authoritative for their own scope.
+- [#1566](https://github.com/mirichard/pm-tools-templates/issues/1566) and the [pinned discovery plan](https://github.com/mirichard/pm-tools-templates/blob/abe2c5e37a919cf1acc16ee9760c445ed3e5ce94/research/v2.5-discovery-plan.md#L3-L34) require bounded promotion decisions, at most two active investigations and confirmed capacity. Its sole returned comment is a receipt acknowledgment. The 8–12 research / 18–29 delivery person-day scenarios are not staffing commitments. Coordinate this completed packet with the portfolio owner; do not start extra investigations. Project 13's workflow-credential access limitation is not evidence of an empty queue; no project fields were changed here.
+- Preserve [#1482](https://github.com/mirichard/pm-tools-templates/issues/1482)'s completed owner-accepted walkthrough; do not repeat it or infer navigation acceptance from it. Preserve [#1379](https://github.com/mirichard/pm-tools-templates/issues/1379)'s accepted PUB-ALMMSN-01 source sufficiency at `0dc4f6b071eaffa46a6458c3ac034acadd857f2a`. Its independent-reference/study-control decisions remain separate; no AI restoration or new source qualification is proposed.
+
+All repository source links below pin inspection revision **`abe2c5e37a919cf1acc16ee9760c445ed3e5ce94`**. This is the checkout revision, not a proven deployed build. Instructions read from [repository guidance](https://github.com/mirichard/pm-tools-templates/blob/abe2c5e37a919cf1acc16ee9760c445ed3e5ce94/.github/copilot-instructions.md).
+
+## Capability, evidence and gap matrix
+
+Dispositions are recommendations, not owner-approved changes to acceptance criteria.
+
+| Capability / asset | Evidence at pinned revision | Gap, dependency and disposition |
+|---|---|---|
+| Current GitHub entry navigation | [README routing](https://github.com/mirichard/pm-tools-templates/blob/abe2c5e37a919cf1acc16ee9760c445ed3e5ce94/README.md#L32-L36) and [domain/resource table](https://github.com/mirichard/pm-tools-templates/blob/abe2c5e37a919cf1acc16ee9760c445ed3e5ce94/README.md#L103-L124) are ordinary links, not disclosure sections. Compatibility anchors precede these sections. | **Retain** direct links/bookmarks. **Revise** “all major sections” into an enumerated surface/section contract; no evidence that collapsing this already-short route helps users. GitHub rendering cannot be assumed to support custom persistence scripts. Owner chooses surface. |
+| Published-browser source and deployment boundary | [Pages workflow](https://github.com/mirichard/pm-tools-templates/blob/abe2c5e37a919cf1acc16ee9760c445ed3e5ce94/.github/workflows/build-deploy-site.yml#L85-L121) builds and uploads the Astro site; [page entry](https://github.com/mirichard/pm-tools-templates/blob/abe2c5e37a919cf1acc16ee9760c445ed3e5ce94/docs/site/src/pages/index.astro#L1-L9) loads its React browser. [Browser controls and grid](https://github.com/mirichard/pm-tools-templates/blob/abe2c5e37a919cf1acc16ee9760c445ed3e5ce94/docs/site/src/components/TemplateBrowser.tsx#L55-L194) contain no category disclosure. | **Retain** the actual Pages source as the browser investigation target, not a similarly named app. **Defer** adding grouping until surface/category decisions. Workflow configuration is not proof of the current production SHA. |
+| Preview-app collapsible groups | [Separate app](https://github.com/mirichard/pm-tools-templates/blob/abe2c5e37a919cf1acc16ee9760c445ed3e5ce94/site/src/app.js#L47-L94) groups file paths by first directory and creates native `details`/`summary`. Every render sets `open = true`; [filtering](https://github.com/mirichard/pm-tools-templates/blob/abe2c5e37a919cf1acc16ee9760c445ed3e5ce94/site/src/app.js#L134-L147) rebuilds the list. | **Retain** as reusable implementation evidence, not proof #69 is delivered on Pages. **Revise** grouping: top-level path names do not equal reviewed performance domains. Existing collapsed state is lost on filtering by source logic; no reload persistence for groups is implemented here. |
+| Expanded-state indicators | Preview [CSS](https://github.com/mirichard/pm-tools-templates/blob/abe2c5e37a919cf1acc16ee9760c445ed3e5ce94/site/src/styles.css#L7-L16) removes list/default WebKit markers; summary text contains group name and count, no alternate state icon in inspected code. | **Retain** the visual-indicator requirement; **revise** to test indicator/state agreement in both states, forced colors and zoom. A count is not an expanded-state indicator. Native semantic state still needs browser/AT verification; do not add redundant ARIA by default. |
+| Mobile layout and touch targets | Preview [900px breakpoint](https://github.com/mirichard/pm-tools-templates/blob/abe2c5e37a919cf1acc16ee9760c445ed3e5ce94/site/src/styles.css#L25-L33) allocates a 200px navigation row. Astro [control CSS](https://github.com/mirichard/pm-tools-templates/blob/abe2c5e37a919cf1acc16ee9760c445ed3e5ce94/docs/site/src/layouts/Layout.astro#L192-L235) and [768px breakpoint](https://github.com/mirichard/pm-tools-templates/blob/abe2c5e37a919cf1acc16ee9760c445ed3e5ce94/docs/site/src/layouts/Layout.astro#L370-L392) specify a stacked mobile layout. | **Retain** mobile touch requirement; CSS padding alone does not establish rendered size. **Revise** into measured target/spacing and overflow fixtures, including CSS delivery verification. Live observations below are not pinned-source build results. |
+| Keyboard, focus and screen readers | Astro has associated search/methodology labels and native controls; [favorite buttons](https://github.com/mirichard/pm-tools-templates/blob/abe2c5e37a919cf1acc16ee9760c445ed3e5ce94/docs/site/src/components/TemplateBrowser.tsx#L159-L172) use star text and a `title`. Preview [selection](https://github.com/mirichard/pm-tools-templates/blob/abe2c5e37a919cf1acc16ee9760c445ed3e5ce94/site/src/app.js#L96-L132) sets `aria-current`, focuses preview content and sets busy state; [focus CSS](https://github.com/mirichard/pm-tools-templates/blob/abe2c5e37a919cf1acc16ee9760c445ed3e5ce94/site/src/styles.css#L29-L32) supplies a skip link/file-item outline. | **Retain** semantic controls. **Revise** to named disclosure, focus-order, hidden-content and AT-announcement fixtures. An accessibility-tree snapshot or source attribute is not a screen-reader test. Search results/focus behavior belongs in shared #1559 fixtures. |
+| Persistence | Astro [state initialization and storage](https://github.com/mirichard/pm-tools-templates/blob/abe2c5e37a919cf1acc16ee9760c445ed3e5ce94/docs/site/src/components/TemplateBrowser.tsx#L16-L49) persists favorites under `pmtt_favs`, not search, methodology or section state. Preview storage concerns [telemetry consent](https://github.com/mirichard/pm-tools-templates/blob/abe2c5e37a919cf1acc16ee9760c445ed3e5ce94/site/src/app.js#L8-L16), not groups. | **Retain** between-page-load state intent; **revise** to explicit scope/lifetime/reset/error behavior below. Do not conflate favorites/consent with navigation state. No telemetry activation or new storage is performed. GitHub-only persistence would require an explicit acceptance disposition. |
+| Catalog, generated copies and legacy paths | [Navigation contract](https://github.com/mirichard/pm-tools-templates/blob/abe2c5e37a919cf1acc16ee9760c445ed3e5ce94/docs/domain-navigation-and-legacy-paths.md#L1-L24): six maintained domains, canonical catalog paths, aliases preserved. [Site loader](https://github.com/mirichard/pm-tools-templates/blob/abe2c5e37a919cf1acc16ee9760c445ed3e5ce94/scripts/lib/site-template-catalog.mjs#L11-L36) reads catalog, prefers canonical paths, rejects pointers and creates basename IDs; it does not export domain on the card. | **Retain** canonical identity and aliases. **Revise** a future domain-navigation data contract without inferring domain from directory. Generated `TEMPLATE_INDEX.md` and built site output are not independent evidence/copy-edit targets. |
+| Other discovery assets | [Supported alternative HTML browser](https://github.com/mirichard/pm-tools-templates/blob/abe2c5e37a919cf1acc16ee9760c445ed3e5ce94/templates/index.html#L43-L70) fetches catalog and renders flat cards; [filtering](https://github.com/mirichard/pm-tools-templates/blob/abe2c5e37a919cf1acc16ee9760c445ed3e5ce94/templates/index.html#L144-L173) is title/description metadata filtering. Separate Q3 selector components/tests also exist, but are not the Astro Pages entry point. | **Retain** as inventory/reuse references, not deployment or participant evidence. **Defer** wizard, personalization and AI scope to #323; no draft/wireframe or independent-app test result is counted as #69 acceptance. |
+| Search handoff | Astro filtering matches title/description; preview filtering matches paths. Neither observation establishes unified full-document search. #104 / #1559 explicitly own corpus, relevance, snippets and workload definition. | **Retain** visible search access while browsing. **Defer** search architecture, performance/relevance research and implementation to existing tasks. Share stable destinations and reset cases only; do not duplicate query research. |
+
+## Three information-architecture options
+
+These are **analyst hypotheses**, not participant preferences or delivered designs.
+Use identical canonical destinations/content in each comparison; keep search behavior fixed.
+
+| Option | Concrete task fit | Tradeoff / proposed disposition |
+|---|---|---|
+| A. Current flat README links / browser cards | Known-name “budget template” can use existing search; domain links offer a short route for browsing. | Baseline; no new state burden. Retain as control. Long card lists may still require scrolling; do not assume the README has the same problem. |
+| B. Six independent domain disclosures with visible top-level domain links and search | “Track team effort” can expose Measurement starting assets without traversing directory hierarchy; “assess project risks” can expose Uncertainty. | Recommended comparison candidate, not selected delivery. At most one shallow level; multiple sections can stay open. Labels, counts, cross-domain cases and return state need validation. |
+| C. Single-open methodology accordion (traditional / agile / hybrid / universal) | Useful hypothesis for a user explicitly seeking a hybrid charter; less obvious for risk or effort tracking independent of methodology. | Defer unless study evidence favors it. Mutual exclusion impedes comparing categories; methodology is not the maintained domain taxonomy. Do not reorganize canonical paths to fit it. |
+
+### Official method references
+
+Read through the browser **October 30, 2026**; direct fetch initially failed DNS resolution, but browser access succeeded. These are pattern/criterion references, not evidence of this product's usability.
+
+1. [W3C APG disclosure pattern](https://www.w3.org/WAI/ARIA/apg/patterns/disclosure/): Enter/Space activation and expanded-state semantics inform a custom disclosure contract. Native `details` semantics require platform checks rather than blindly adding custom roles.
+2. [W3C disclosure navigation with top-level links](https://www.w3.org/WAI/ARIA/apg/patterns/disclosure/examples/disclosure-navigation-hybrid/): useful example for option B's separate destination link and disclosure control. Ordinary navigation need not use ARIA `menu`; example code is illustrative, not production certification. Its dropdown Escape behavior is relevant only if that interaction is selected.
+3. [W3C accordion pattern](https://www.w3.org/WAI/ARIA/apg/patterns/accordion/): comparison for option C; heading buttons, Tab sequence, panel associations and single/multiple-open choices must be explicit. The form example is not direct evidence for template findability.
+4. [WCAG 2.2 target-size minimum explanation](https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html): 24×24 CSS-pixel minimum with spacing/equivalent/inline/user-agent/essential exceptions. Proposed 44×44 disclosure hit areas below are a design choice, not a claim that 44 or 48 is this criterion's minimum. Assess applicable exceptions before declaring a failure.
+
+## Synthetic observations and proposed evidence fixtures
+
+### Executed observations — not user acceptance
+
+- Read-only source inspection at the pinned revision above, including the three navigation surfaces, catalog loader, deployment configuration and related issue/PR snapshots.
+- Public URL: `https://mirichard.github.io/pm-tools-templates/`, title “Template Browser”; headless Chromium **155.0.0.0**, Linux, October 30. Opened without submitting feedback, toggling favorites or enabling telemetry.
+- At **390×844**, `document.documentElement.scrollWidth` was **390**; zero `details` elements. The search input was **185×21**, methodology select **128×19**, Show All button approximately **87.47×21**, sampled favorite buttons approximately **27.95×21** CSS pixels. The search input had an associated “Search templates” label; lack of `aria-label` alone is not a missing-name finding.
+- Starting from page-body focus, one **Tab** focused “My Favorites (0)”. This is one keyboard observation, not a complete focus-order test. Browser storage keys were empty when inspected; none were cleared or populated.
+- Resized the same page/session to **320×568**: document width **320**, search input **185×21**, still zero native disclosures. This does not rule out all overflow states, prove adequate touch spacing, or test zoom.
+- The deployed SHA was not exposed by these checks. Sampled sizes differ from what one might expect from the source padding; cause is **uninvestigated**, not an asserted CSS defect. No local build, reload/back persistence exercise, real touch-device test, actual screen reader, usability timing or participant study was executed.
+
+### Synthetic worked task map — source trace only
+
+The following paths are existing domain-page links, not observed human click paths or timed results. Opening the named correct canonical asset is the proposed success endpoint; category arrival is a separate intermediate event.
+
+| Task prompt | Option B proposed category / retained destination | Why include |
+|---|---|---|
+| T1: “I need to track the team's time spent.” | Measurement → [timesheet tracking](https://github.com/mirichard/pm-tools-templates/blob/abe2c5e37a919cf1acc16ee9760c445ed3e5ce94/domains/delivery/role-based-toolkits/project-manager/essential-templates/timesheet-tracking-template.md), linked by the [Measurement landing page](https://github.com/mirichard/pm-tools-templates/blob/abe2c5e37a919cf1acc16ee9760c445ed3e5ce94/domains/measurement/README.md#L9-L16). | Reviewed classification differs from preserved `delivery` directory; tests against naive path grouping. |
+| T2: “I need a project risk assessment.” | Uncertainty → [enterprise risk assessment](https://github.com/mirichard/pm-tools-templates/blob/abe2c5e37a919cf1acc16ee9760c445ed3e5ce94/domains/uncertainty/project-lifecycle/02-planning/risk-management/enterprise-risk-assessment-template.md), from [Uncertainty](https://github.com/mirichard/pm-tools-templates/blob/abe2c5e37a919cf1acc16ee9760c445ed3e5ce94/domains/uncertainty/README.md#L13-L20). | Outcome vocabulary versus methodology vocabulary. Owner must confirm acceptable alternatives. |
+| T3: “Help me start a hybrid project charter.” | Planning → [hybrid charter](https://github.com/mirichard/pm-tools-templates/blob/abe2c5e37a919cf1acc16ee9760c445ed3e5ce94/domains/planning/templates/hybrid/Hybrid/Templates/hybrid_project_charter_template.md), from [Planning](https://github.com/mirichard/pm-tools-templates/blob/abe2c5e37a919cf1acc16ee9760c445ed3e5ce94/domains/planning/README.md#L9-L15). | Tests methodology-specific intent without replacing domain entry points. |
+
+### Proposed reproducible technical fixture — not executed
+
+Freeze one supported surface, commit SHA, catalog hash, category/ID manifest and build artifact before comparison. Serve that artifact locally with telemetry disabled and no live submissions/integrations. Record OS, browser/version, device-pixel ratio, zoom, font scaling and CSS-load success; do not compare an unpinned live deployment with a pinned prototype.
+
+| Fixture | Reproduction / proposed observable result |
+|---|---|
+| Viewports | CSS pixels: 320×568, 390×844, 768×1024, 1280×800; DPR 1 and 100% zoom for baseline. Separately test 200% zoom, landscape and forced colors. Record scroll width, clipping, target rectangles/spacing, visible focus and header occlusion in each state. Propose ≥44×44 disclosure hit areas; evaluate all other targets against the agreed criterion/exceptions. |
+| Keyboard | From fresh body focus, Tab/Shift+Tab through search, domain links, disclosure controls and visible child links. Enter and Space toggle each control once; focus stays on it; hidden descendants leave the tab sequence; expanded descendants become reachable; no trap or unexpected page navigation. Keep direct domain links distinct from toggle actions. For a chosen popup variant, specify/test Escape return behavior separately. |
+| Names and states | Each category control has a meaningful name, an exposed expanded/collapsed state and a matching visible non-color-only indicator. Native semantics or custom `aria-expanded`/panel associations must agree with actual visibility. Test repeated toggling, zero-result categories and result-count changes without losing focus. |
+| Assistive technology | Proposed desktop Firefox + NVDA and iOS Safari + VoiceOver, exact versions recorded before execution. Verify heading/link navigation, category name/state announcements and hidden-content exclusion on real supported combinations. Neither an automated scanner nor headless Chromium substitutes for these checks. Availability/owner approval is missing. |
+| Clean reset | Use an isolated local test-browser profile. Clear only test-origin navigation keys, reload without fragment/query, restore default filters and scroll to top. Record initial section state. Do not clear real user favorites or consent. Baseline default proposed: all category summaries visible, panels closed, direct links/search always available. Owner must approve. |
+| Reload / return | Open Measurement and Planning, close Planning, open a template, Back, reload, then open a second same-origin page. Proposed state: Measurement remains open; Planning stays closed; no forced focus jump. Record full reload versus browser-history restoration separately. Search filtering must not overwrite remembered browse state. |
+| Persistence failure/reset | Proposed versioned browser-local open-section-ID set; no account sync, task/query text, tracking or sensitive data. “Reset navigation” returns defaults without erasing favorites/consent. Test missing/malformed/stale keys, renamed/removed categories and blocked storage: ignore invalid state and retain usable defaults, no crash. Decide lifetime/cross-tab behavior before implementation. This is infeasible to promise for GitHub Markdown without revising scope or acceptance. |
+| Search interaction | Use #1559's agreed corpus/destination fixture. Keep search visible; after temporary filtering or no results, clearing the query restores browsing and its remembered sections. Confirm links still resolve to the same canonical asset; query relevance/ranking/performance remains #104's responsibility. |
+
+Suggested evidence record per run: fixture ID, SHA/artifact/catalog hash, environment, reset procedure, initial state, action sequence, expected/actual state, target sizes, focus/announcement observations, defect link and reviewer disposition. Preserve failures, not just screenshots of successful states.
+
+## Proposed usability study and historical target disposition
+
+**Proposal only; no participants contacted, recruited or tested.** The functional user story is evidence of intended need, not measured evidence that current scrolling prevents discovery.
+
+After separate authorization, propose a small formative round with **6–8 volunteers** spanning unfamiliar/experienced PMs and relevant touch/keyboard/AT use. This analyst-sized sample can identify confusion; it cannot establish a population 95% success claim. Owner must confirm participant availability, consent/privacy/retention rules, facilitator, accessibility coverage, task-answer adjudicator and capacity before any outreach.
+
+Compare A/B first; add C only if vocabulary evidence warrants it. Use equal content and fixed search functionality; counterbalance condition order and equivalent task variants to reduce learning. Freeze correct destinations/acceptable alternatives before sessions, including genuinely ambiguous tasks. Separate known-name search and unknown-name browsing trials so search does not mask navigation differences. Start timing at task reveal on a reset page, record category arrival and correct-template opening separately, and stop at success, abandonment or the agreed 120-second threshold. Record failures/timeouts/assistance, wrong-category entries, backtracking and whether search was used. No telemetry is needed; propose consented manual, de-identified notes in an approved location, not this public report.
+
+| Historical requirement | Explicit proposed disposition and measurement |
+|---|---|
+| All major sections collapsible | **Revise**, not waive: owner enumerates which navigation categories on which surface. Retain search/help/critical destination access; do not silently interpret “all” as every page heading. |
+| Touch targets / visible state / reload persistence | **Retain** intent, with technical fixtures above. Surface, state lifetime, initial state and browser support remain undecided; no boxes are marked complete. |
+| 95%+ discovery completion within two minutes | **Retain as unverified outcome hypothesis; defer acceptance evaluation.** Numerator: unassisted correct-template opens within 120s; denominator: all assigned task attempts, including failures/timeouts. Report participant/task counts and uncertainty, not only pooled successes. Agree a larger sampling/analysis plan before claiming 95%; formative sessions cannot substantiate it. |
+| 90% reduction in category-finding time | **Defer claim pending owner-approved baseline and measurement.** Compare same category endpoint/workload between A and candidate, not category time versus full-template time. Report absolute times and paired reduction `(baseline − candidate) / baseline`, distributions and failed attempts; address order effects and baseline-zero cases. No baseline is measured here. |
+| 80% preference for organized versus flat | **Retain as unverified hypothesis**, not delivery acceptance. After equivalent exposure ask a neutral, fixed question with organized / flat / no preference options; denominator includes all respondents. Record counts, uncertainty and reasons. The small formative sample is not a population preference estimate. |
+| Mobile navigation usability score ≥4.5 | **Revise measurement definition before evaluation**: owner confirms scale, question, anchors and summary statistic. Proposed 1–5 ease-of-navigation item after each task, reported with distribution and assistance context; do not label it a validated usability instrument or invent a current score. |
+| Historical 5 points / Must Have / Q3 2025 | **Defer as obsolete commitment evidence** under the September 24 and October 30 owner directions. Re-estimate only a selected bounded slice; no milestone, sprint or priority changes here. |
+
+Human acceptance remains an explicit owner decision after agreed evidence review. Synthetic checks can demonstrate mechanics, not completion rates, preference or business benefit.
+
+## Conditional readiness and reuse package
+
+No new delivery issues are created. These are bounded drafts for owner review, not additional commitments or duplicate search packages. Ranges are **analyst assumptions in focused person-days**, not validated estimates; waiting for people/approval is additional.
+
+### P1 — Define one supported navigation contract under #69
+
+- **User outcome:** mobile users can identify a category route without needing repository-directory knowledge.
+- **Scope/exclusions:** pick GitHub documentation OR Pages OR preview app; enumerate major categories, direct links, initial/open/reset state, indicators and supported environments. Reuse domain classification and existing destinations. Exclude taxonomy rewrites, canonical-path moves, new search/index infrastructure, AI, telemetry and production implementation.
+- **Observable acceptance:** owner-reviewed surface/category manifest; T1–T3 correct destinations and acceptable alternatives; explicit disposition of every original #69 criterion and outcome target; versioned viewport/keyboard/persistence fixture and A/B comparison plan; shared handoff linked to #1559.
+- **Validation:** desk trace against the pinned catalog/domain pages and joint fixture review with #104/#323; do not rerun their corpus/relevance investigation.
+- **Dependency/owner gaps:** Michael Richard chooses surface and acceptance dispositions; technical reviewer/study facilitator and real user problem evidence are unconfirmed.
+- **Effort:** **1–2 days**, assuming one surface, existing six-domain labels, no content reclassification and accessible reviewers. This research report is input, not completion of those owner decisions.
+
+### P2 — Conditional single-surface disclosure validation slice
+
+- **User outcome:** browse chosen categories on mobile, distinguish expanded state and return without losing chosen sections.
+- **Scope/exclusions:** only after P1 and separate implementation approval, reuse the selected surface's existing controls/catalog; implement/test one shallow grouping and its agreed persistence/reset contract. No changes to other apps, search ranking/corpus, canonical destinations, integrations or analytics.
+- **Observable acceptance:** all enumerated groups can independently open/close; visible and exposed state agree; agreed hit areas/spacing, viewport and keyboard fixtures pass; hidden descendants are not focusable; approved reload/Back/storage-failure cases pass; agreed real-browser/AT findings have recorded dispositions. Provide exact build evidence, not a broad WCAG-conformance claim.
+- **Validation:** use existing tests belonging to the selected app plus the agreed manual device/AT fixture. Reuse #1559's shared mobile/search cases and link defects rather than creating duplicate search tasks. Owner reviews the technical evidence; a merged PR is not acceptance.
+- **Dependency/owner gaps:** P1, data-contract review (Astro cards currently omit domain), supported browser/AT access, implementer/reviewer, and separate selection/capacity approval. If GitHub Markdown is chosen, resolve persistence feasibility before estimating this slice.
+- **Effort:** **3–6 days**, assuming the Pages surface, six groups, existing catalog domain data, no search changes and available test environments. Not additive to #1560 where shared work is already counted. Re-estimate or defer if assumptions fail.
+
+Study execution is a separately authorized follow-up to these packets, **not included** in the ranges and not a third implicit delivery commitment.
+
+## Promotion and proposed issue/project updates
+
+| Gate | Required evidence | Present disposition |
+|---|---|---|
+| Backlog-ready | Defined problem with user evidence, supported surface, bounded outcome/exclusions, feasible option, acceptance/measurement plan, dependencies, estimate and recorded owner disposition. | This packet supplies inventory/options/proposed fixtures; user evidence, surface selection and owner dispositions are still missing. Do not infer readiness from report completion. |
+| Sprint-ready | Named delivery owner/reviewer, leaf-sized scope, approved testable criteria, resolved/sequenced dependencies, estimate and recorded readiness decision. | Not satisfied; no implementation authorization, finalized state contract or supported-device/AT access. |
+| Owner-selected | Explicit selection tied to sprint goal and confirmed capacity after research allocation. | Not selected for v2.5. #104's approval does not select #69 or the whole #323 epic. |
+
+**Publication/access boundary:** this session uses the existing focused research PR, not a newly created PR. Available tools do not provide general issue/project mutation or a new top-level issue-comment operation; no issue/project update or comment publication is claimed. Preserve Michael Richard and Copilot as co-assignees. Use this exact proposed owner-facing comment:
+
+> Research for #69 is prepared in PR #1579: navigation inventory, three IA options, synthetic mobile observations, proposed keyboard/state/AT fixtures and conditional readiness packets. Recommend refining one supported surface while keeping #69 unscheduled and unselected for v2.5. Search definition remains #104/#1559; coordinate with research PRs #1583/#1587. No participant results, implementation or acceptance are claimed. Michael Richard: choose the surface/category set, disposition persistence and historical targets, and decide whether to authorize a later study.
+
+Proposed project update, only through authorized owner/manual maintenance: retain existing backlog/research state and assignments; next action “Owner chooses supported navigation surface and dispositions state/measurement contract; reuse #1559 shared fixtures.” Do not set Done, sprint-ready, a new milestone or a selected sprint.
+
+PR description must use **Refs mirichard/pm-tools-templates#69**, with links to related research, not a closing keyword. Do not auto-merge or close the issue. If GitHub retains a closing association after description replacement, owner must remove it before merge.
+
+## Artifact validation
+
+Documentation-only change, confined to this report. No production code, dependencies, catalog paths or generated index changed; app builds/tests and metadata migration checks are not applicable. Executed the existing anchor checker's `LinkHealthChecker.check_file` API scoped to this file: **zero broken same-file anchors**, nine advisory special-character heading suggestions. This does not validate external links; the tracked repository-wide report was not regenerated. Source/destination links are pinned and inspected; availability of every linked external URL is not asserted. `git diff --check` passed. Secret scan and final staged-diff review are required before commit.
+
+## Owner handoff
+
+- **Recommended next step:** refine P1; keep #69 unselected.
+- **Research completed:** source/decision inventory, IA comparison, bounded synthetic browser observations and proposed evidence fixtures.
+- **Remaining gaps:** user evidence, pinned deployed build, complete device/keyboard/AT/state testing, study authorization and measured outcomes.
+- **Owner decision required:** supported surface/categories, persistence/target dispositions, and whether to authorize later validation.
