@@ -68,9 +68,13 @@ Target **January 22, 2027**, subject to readiness. [Release plan #1556](https://
 
 | Sprint | Dates | Candidate outcome |
 | --- | --- | --- |
-| Sprint 4 | Nov 9–22, 2026 | #104 / #323: relevant search across an agreed content boundary |
-| Sprint 5 | Nov 30–Dec 13, 2026 | #103 / #284: guided selection, completion and download |
-| Sprint 6 | Jan 4–17, 2027 | Combined journey acceptance, defects, accessibility/mobile and release preparation |
+| Sprint 4 | Nov 9–29, 2026 | #104 / #323: relevant search across an agreed content boundary |
+| Sprint 5 | Nov 30–Dec 20, 2026 | #103 / #284: guided selection, completion and download |
+| Sprint 6 | Dec 21, 2026–Jan 10, 2027 | Combined journey acceptance, defects, accessibility/mobile and release preparation |
+
+The owner corrected the cadence to three consecutive three-week sprints. Separate [Sprint 4](https://github.com/users/mirichard/projects/12/views/6), [Sprint 5](https://github.com/users/mirichard/projects/12/views/7) and [Sprint 6](https://github.com/users/mirichard/projects/12/views/8) boards replace the shared view. January 11–22 is contingency, not extra committed feature capacity.
+
+Six delivery packages decompose the two selected stories and release tracker: search #1559/#1560 (8–12 focused person-days), onboarding #1561/#1562 (6–10), and integration/release #1563/#1564 (4–7). The 18–29-day total is a provisional analyst estimate, not measured team velocity; do not double-count parent issues. Parallel discovery has a separate proposed 4–6-day allowance. Actual staffing, holiday availability, acceptance decisions and measurement lead times remain unresolved; [#1556](https://github.com/mirichard/pm-tools-templates/issues/1556) records the capacity scenario. Extra backlog is not committed merely to fill nine weeks.
 
 The owner approved direction and candidate allocation; refinement must still establish maintained-asset reuse, supported scope, explicit disposition of existing acceptance requirements, dependencies and capacity. Parent epics are not accepted in full by selecting their children. #62 is reserve only. #1482 remains accepted and #1546 remains deferred.
 
@@ -108,11 +112,11 @@ Legacy recovery remains documented under [#1329](https://github.com/mirichard/pm
 The editorial date above applies to human-reviewed narrative. Snapshot capture time is maintained separately by synchronization; older snapshots without a recorded time gain one on the next reconciliation. [Latest synchronization checks](https://github.com/mirichard/pm-tools-templates/actions/workflows/roadmap-sync.yml) show run times and outcomes, including checks that found no changes.
 
 <!-- roadmap-sync:start -->
-Snapshot updated at: 2026-10-30T16:56:55.947Z (UTC).
+Snapshot updated at: 2026-10-30T17:02:29.536Z (UTC).
 
 [Latest synchronization checks](https://github.com/mirichard/pm-tools-templates/actions/workflows/roadmap-sync.yml) — includes successful checks with no data changes. A check does not publish to main until its PR is merged.
 
-Snapshot fingerprint: `da30aa7090903a5bfdf0d92302cc2b5b7b7eaabf5b65074742b7eaefb725e48a`. Values are copied from issues and Projects, not inferred acceptance or release claims.
+Snapshot fingerprint: `4ff771d436cef31533e21fffcfb626134850ab3905b38857d5585ef8023192ac`. Values are copied from issues and Projects, not inferred acceptance or release claims.
 
 | Sprint | Issue | Issue state | Board status | Release milestone |
 | --- | --- | --- | --- | --- |
@@ -127,7 +131,12 @@ Snapshot fingerprint: `da30aa7090903a5bfdf0d92302cc2b5b7b7eaabf5b65074742b7eaefb
 | Sprint 1 | [#1384](https://github.com/mirichard/pm-tools-templates/issues/1384) — Story: Keep repository roadmap documentation and planning views synchronized | Closed (completed) | Done | [v2.4.0 — Now Epics Sprints 1–3](https://github.com/mirichard/pm-tools-templates/milestone/35) |
 | Sprint 3 | [#1483](https://github.com/mirichard/pm-tools-templates/issues/1483) — Validate reusable-plan imports into Jira and Asana before custom development | Closed (not_planned) | Done | [None](https://github.com/mirichard/pm-tools-templates/milestone/37) |
 | Sprint 6 | [#1556](https://github.com/mirichard/pm-tools-templates/issues/1556) — Task: Plan, validate and release v2.5.0 — Find and apply a template | Open | Todo | [v2.5.0 — Find and apply a template](https://github.com/mirichard/pm-tools-templates/milestone/38) |
+| Sprint 4 | [#1559](https://github.com/mirichard/pm-tools-templates/issues/1559) — Task: Define unified-search corpus, query fixtures and acceptance measures | Open | Todo | [v2.5.0 — Find and apply a template](https://github.com/mirichard/pm-tools-templates/milestone/38) |
+| Sprint 4 | [#1560](https://github.com/mirichard/pm-tools-templates/issues/1560) — Task: Implement and validate unified documentation and template search | Open | Todo | [v2.5.0 — Find and apply a template](https://github.com/mirichard/pm-tools-templates/milestone/38) |
+| Sprint 5 | [#1561](https://github.com/mirichard/pm-tools-templates/issues/1561) — Task: Define first-use tutorial, progress behavior and acceptance measures | Open | Todo | [v2.5.0 — Find and apply a template](https://github.com/mirichard/pm-tools-templates/milestone/38) |
+| Sprint 5 | [#1562](https://github.com/mirichard/pm-tools-templates/issues/1562) — Task: Implement and validate the guided first-template journey | Open | Todo | [v2.5.0 — Find and apply a template](https://github.com/mirichard/pm-tools-templates/milestone/38) |
 | Sprint 6 | [#1563](https://github.com/mirichard/pm-tools-templates/issues/1563) — Task: Validate v2.5 combined journey and resolve release defects | Open | Todo | [v2.5.0 — Find and apply a template](https://github.com/mirichard/pm-tools-templates/milestone/38) |
+| Sprint 6 | [#1564](https://github.com/mirichard/pm-tools-templates/issues/1564) — Task: Prepare v2.5 release notes, checks and approval package | Open | Todo | [v2.5.0 — Find and apply a template](https://github.com/mirichard/pm-tools-templates/milestone/38) |
 
 [Full status and drift report](backlog/roadmap-status.md). 10 drift flag(s) require review.
 
