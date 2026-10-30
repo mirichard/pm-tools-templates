@@ -108,11 +108,11 @@ Legacy recovery remains documented under [#1329](https://github.com/mirichard/pm
 The editorial date above applies to human-reviewed narrative. Snapshot capture time is maintained separately by synchronization; older snapshots without a recorded time gain one on the next reconciliation. [Latest synchronization checks](https://github.com/mirichard/pm-tools-templates/actions/workflows/roadmap-sync.yml) show run times and outcomes, including checks that found no changes.
 
 <!-- roadmap-sync:start -->
-Snapshot updated at: 2026-10-30T16:38:17.979Z (UTC).
+Snapshot updated at: 2026-10-30T16:56:17.070Z (UTC).
 
 [Latest synchronization checks](https://github.com/mirichard/pm-tools-templates/actions/workflows/roadmap-sync.yml) — includes successful checks with no data changes. A check does not publish to main until its PR is merged.
 
-Snapshot fingerprint: `dc714c90ce3cb966046884a849e70c400815f26905fc66996b18bd6362b9ce10`. Values are copied from issues and Projects, not inferred acceptance or release claims.
+Snapshot fingerprint: `97751160439404505b67f911b60eda77d6376f8436145913aa5810e3c3b4e602`. Values are copied from issues and Projects, not inferred acceptance or release claims.
 
 | Sprint | Issue | Issue state | Board status | Release milestone |
 | --- | --- | --- | --- | --- |
@@ -128,7 +128,7 @@ Snapshot fingerprint: `dc714c90ce3cb966046884a849e70c400815f26905fc66996b18bd636
 | Sprint 3 | [#1483](https://github.com/mirichard/pm-tools-templates/issues/1483) — Validate reusable-plan imports into Jira and Asana before custom development | Closed (not_planned) | Done | [None](https://github.com/mirichard/pm-tools-templates/milestone/37) |
 | Sprint 6 | [#1556](https://github.com/mirichard/pm-tools-templates/issues/1556) — Task: Plan, validate and release v2.5.0 — Find and apply a template | Open | Todo | [v2.5.0 — Find and apply a template](https://github.com/mirichard/pm-tools-templates/milestone/38) |
 
-[Full status and drift report](backlog/roadmap-status.md). 4 drift flag(s) require review.
+[Full status and drift report](backlog/roadmap-status.md). 10 drift flag(s) require review.
 
 <!-- roadmap-sync:end -->
 

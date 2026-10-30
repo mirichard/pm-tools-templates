@@ -2,11 +2,11 @@
 
 Generated; do not edit by hand. [Policy](../docs/roadmap-sync.md) · [Decision register](roadmap-alignment.md).
 
-Snapshot updated at: 2026-10-30T16:38:17.979Z (UTC).
+Snapshot updated at: 2026-10-30T16:56:17.070Z (UTC).
 
 [Latest synchronization checks](https://github.com/mirichard/pm-tools-templates/actions/workflows/roadmap-sync.yml) — includes successful checks with no data changes. A check does not publish to main until its PR is merged.
 
-Snapshot fingerprint: `dc714c90ce3cb966046884a849e70c400815f26905fc66996b18bd6362b9ce10`. Values are copied from issues and Projects, not inferred acceptance or release claims.
+Snapshot fingerprint: `97751160439404505b67f911b60eda77d6376f8436145913aa5810e3c3b4e602`. Values are copied from issues and Projects, not inferred acceptance or release claims.
 
 ## Drift requiring review
 
@@ -14,6 +14,12 @@ Snapshot fingerprint: `dc714c90ce3cb966046884a849e70c400815f26905fc66996b18bd636
 - #1454: missing Outcome or Horizon
 - #1454: expected exactly one type label
 - #1469: missing Outcome or Horizon
+- #1559: missing Outcome or Horizon
+- #1560: missing Outcome or Horizon
+- #1561: missing Outcome or Horizon
+- #1562: missing Outcome or Horizon
+- #1563: missing Outcome or Horizon
+- #1564: missing Outcome or Horizon
 
 ## Issue and Project values
 
@@ -99,3 +105,9 @@ Snapshot fingerprint: `dc714c90ce3cb966046884a849e70c400815f26905fc66996b18bd636
 | [#1483](https://github.com/mirichard/pm-tools-templates/issues/1483) — Validate reusable-plan imports into Jira and Asana before custom development | Closed (not_planned) | [#325](https://github.com/mirichard/pm-tools-templates/issues/325) | — | — | Done | Sprint 3 | Done | [None](https://github.com/mirichard/pm-tools-templates/milestone/37) |
 | [#1546](https://github.com/mirichard/pm-tools-templates/issues/1546) — Task: Establish restricted-original intake and handling (deferred beyond v2.4) | Open | Standalone | O4 - Contribute and influence priorities | Later | Todo |  | — | — |
 | [#1556](https://github.com/mirichard/pm-tools-templates/issues/1556) — Task: Plan, validate and release v2.5.0 — Find and apply a template | Open | Standalone | O1 - Find and customize templates | Next | Todo | Sprint 6 | Todo | [v2.5.0 — Find and apply a template](https://github.com/mirichard/pm-tools-templates/milestone/38) |
+| [#1559](https://github.com/mirichard/pm-tools-templates/issues/1559) — Task: Define unified-search corpus, query fixtures and acceptance measures | Open | Standalone | — | — | Todo |  | — | [v2.5.0 — Find and apply a template](https://github.com/mirichard/pm-tools-templates/milestone/38) |
+| [#1560](https://github.com/mirichard/pm-tools-templates/issues/1560) — Task: Implement and validate unified documentation and template search | Open | Standalone | — | — | Todo |  | — | [v2.5.0 — Find and apply a template](https://github.com/mirichard/pm-tools-templates/milestone/38) |
+| [#1561](https://github.com/mirichard/pm-tools-templates/issues/1561) — Task: Define first-use tutorial, progress behavior and acceptance measures | Open | Standalone | — | — | Todo |  | — | [v2.5.0 — Find and apply a template](https://github.com/mirichard/pm-tools-templates/milestone/38) |
+| [#1562](https://github.com/mirichard/pm-tools-templates/issues/1562) — Task: Implement and validate the guided first-template journey | Open | Standalone | — | — | Todo |  | — | [v2.5.0 — Find and apply a template](https://github.com/mirichard/pm-tools-templates/milestone/38) |
+| [#1563](https://github.com/mirichard/pm-tools-templates/issues/1563) — Task: Validate v2.5 combined journey and resolve release defects | Open | Standalone | — | — | Todo |  | — | [v2.5.0 — Find and apply a template](https://github.com/mirichard/pm-tools-templates/milestone/38) |
+| [#1564](https://github.com/mirichard/pm-tools-templates/issues/1564) — Task: Prepare v2.5 release notes, checks and approval package | Open | Standalone | — | — | Todo |  | — | [v2.5.0 — Find and apply a template](https://github.com/mirichard/pm-tools-templates/milestone/38) |
