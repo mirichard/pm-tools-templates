@@ -1,9 +1,9 @@
 # Discovery portfolio synthesis — issue #1566
 
-**Research snapshot:** 2026-10-30  
-**Repository source snapshot:** [`main` at `8078fdd24db8e9d274a5922c1db00c051f708663`](https://github.com/mirichard/pm-tools-templates/commit/8078fdd24db8e9d274a5922c1db00c051f708663)  
-**Accountable decision owner:** Michael Richard  
-**Status:** Research synthesis for owner review. No delivery, sprint, release, acceptance, or closure decision is made here.
+- **Research snapshot:** 2026-10-30
+- **Repository source snapshot:** [`main` at `8078fdd24db8e9d274a5922c1db00c051f708663`](https://github.com/mirichard/pm-tools-templates/commit/8078fdd24db8e9d274a5922c1db00c051f708663)
+- **Accountable decision owner:** Michael Richard
+- **Status:** Research synthesis for owner review. No delivery, sprint, release, acceptance, or closure decision is made here.
 
 ## Decision brief
 
@@ -112,8 +112,10 @@ The three ranges above describe candidate delivery content only. They are **not*
 | Backlog candidate → sprint-ready | No leaf issue selected, named delivery owner, confirmed data/source policy, validated dependency order, team estimate, or test evidence. | **Not sprint-ready.** |
 | Sprint selection | No sprint goal, confirmed capacity after research allocation, or owner selection. | **Not selected.** |
 
-**Executed in this synthesis:** repository/issue/PR inventory, source-path existence checks at the pinned commit, and simple arithmetic reproduction above.  
-**Proposed, not executed:** template edit, path/link validation on a changed artifact, zero/missing/mismatched-input fixtures, any user exercise, and formal owner review.  
+**Executed in this synthesis:** repository/issue/PR inventory, source-path existence checks at the pinned commit, and simple arithmetic reproduction above.
+
+**Proposed, not executed:** template edit, path/link validation on a changed artifact, zero/missing/mismatched-input fixtures, any user exercise, and formal owner review.
+
 **Human acceptance:** none; only Michael can record the disposition and any readiness/selection decision.
 
 ## Promotion and sequencing policy
@@ -127,9 +129,11 @@ The three ranges above describe candidate delivery content only. They are **not*
 
 ## Exact proposed updates (write access unavailable)
 
-No Project 13 read/write operation or issue-comment creation tool was available in this session. The exact proposed comment for #1566 is:
+The configured GitHub issue/PR tools are read-only, and the browser session is unauthenticated. I could not update Project 13, edit the PR description, or post the issue comment. The exact proposed comment for #1566 is:
 
 > Research synthesis: [PR #1597](https://github.com/mirichard/pm-tools-templates/pull/1597) inventories all 30 open discovery epics and links their issue-specific research. It recommends keeping #367/#49 as the proposed next pair only after owner/capacity confirmation; three bounded candidate packets are summarized in the report. Project 13 remains unreadable to the current workflow credential, so live queue/WIP and per-epic stage are unverified—not empty. Please confirm the two active investigations, reconcile overlapping #50 reports, and record proceed/revise/defer/stop and any capacity decision. This research is not delivery acceptance or sprint selection.
+
+**PR description correction required before merge:** replace the existing generated suffix `- Fixes #1566` with `- Refs #1566`. The current PR still contains the closing keyword because this session cannot edit it; keep the issue open and do not merge until the suffix is corrected.
 
 **Safe Project 13 update:** keep the already-recorded `#367` and `#49` stages at **Prioritized for discovery**; do not set other per-epic stages based on this report because their live values could not be read. Add a visible access note that Project 13 coverage is unavailable to the workflow credential and manual upkeep is required. Do not mark any candidate In Progress, backlog-ready, sprint-ready, Done, or selected without an owner/Project 13 read-back. The proposed issue comment/report reference must be `Refs #1566`, never a closing keyword.
 
