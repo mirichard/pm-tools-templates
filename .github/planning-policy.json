@@ -1,0 +1,38 @@
+{
+  "repository": "mirichard/pm-tools-templates",
+  "projectOwner": "mirichard",
+  "projects": {"backlog": 11, "delivery": 12, "discovery": 13},
+  "decisionOwners": ["mirichard"],
+  "release": "2.5.0",
+  "milestone": 38,
+  "iterationField": "v2.5 Sprint",
+  "sprintDays": 21,
+  "sprints": [
+    {"title": "Sprint 4", "start": "2026-11-09", "goal": "Find relevant documentation and templates", "issues": [1559,1560], "capacityDays": null, "view": 6},
+    {"title": "Sprint 5", "start": "2026-11-30", "goal": "Complete a guided first-template journey", "issues": [1561,1562], "capacityDays": null, "view": 7},
+    {"title": "Sprint 6", "start": "2026-12-21", "goal": "Accept the integrated journey and prepare the release", "issues": [1563,1564], "capacityDays": null, "view": 8}
+  ],
+  "candidates": {
+    "1559": {"parent":104,"estimateDays":[2,3]},
+    "1560": {"parent":104,"estimateDays":[6,9]},
+    "1561": {"parent":103,"estimateDays":[1,2]},
+    "1562": {"parent":103,"estimateDays":[5,8]},
+    "1563": {"parent":1556,"estimateDays":[3,5]},
+    "1564": {"parent":1556,"estimateDays":[1,2]}
+  },
+  "readinessDecisions": {},
+  "acceptanceDecisions": {},
+  "preservedAcceptance": {"1482":"Owner-confirmed completed walkthrough; do not repeat for planning."},
+  "discovery": {
+    "planningAllowanceDays": [8,12],
+    "activeInvestigationLimit": 2,
+    "waves": [
+      {"checkpoint":"2026-11-29","focus":[365,367,379,380,381,49],"output":"Full portfolio disposition plus one template-generation candidate packet; product-owner toolkit gap decision"},
+      {"checkpoint":"2026-12-20","focus":[372,373,50,368,369,370,371,377],"output":"UAT/release candidate packet and status-reporting contract; select the next bounded slice"},
+      {"checkpoint":"2027-01-10","focus":[318,374,376,378,382,47,320,341,1480,1481,375,383],"output":"Integration/value/privacy feasibility dispositions and promotion review of strongest packets"}
+    ],
+    "independentDecisionTrack": [523,1379],
+    "preservePaused": [1329],
+    "deliveryRefinement": [323,284]
+  }
+}

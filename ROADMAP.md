@@ -68,9 +68,13 @@ Target **January 22, 2027**, subject to readiness. [Release plan #1556](https://
 
 | Sprint | Dates | Candidate outcome |
 | --- | --- | --- |
-| Sprint 4 | Nov 9–22, 2026 | #104 / #323: relevant search across an agreed content boundary |
-| Sprint 5 | Nov 30–Dec 13, 2026 | #103 / #284: guided selection, completion and download |
-| Sprint 6 | Jan 4–17, 2027 | Combined journey acceptance, defects, accessibility/mobile and release preparation |
+| Sprint 4 | Nov 9–29, 2026 | #104 / #323: relevant search across an agreed content boundary |
+| Sprint 5 | Nov 30–Dec 20, 2026 | #103 / #284: guided selection, completion and download |
+| Sprint 6 | Dec 21, 2026–Jan 10, 2027 | Combined journey acceptance, defects, accessibility/mobile and release preparation |
+
+The owner corrected the cadence to three consecutive three-week sprints. Separate [Sprint 4](https://github.com/users/mirichard/projects/12/views/6), [Sprint 5](https://github.com/users/mirichard/projects/12/views/7) and [Sprint 6](https://github.com/users/mirichard/projects/12/views/8) boards replace the shared view. January 11–22 is contingency, not extra committed feature capacity.
+
+Six delivery packages decompose the two selected stories and release tracker: search #1559/#1560 (8–12 focused person-days), onboarding #1561/#1562 (6–10), and integration/release #1563/#1564 (4–7). The 18–29-day total is a provisional analyst estimate, not measured team velocity; do not double-count parent issues. Parallel discovery has a separate proposed 4–6-day allowance. Actual staffing, holiday availability, acceptance decisions and measurement lead times remain unresolved; [#1556](https://github.com/mirichard/pm-tools-templates/issues/1556) records the capacity scenario. Extra backlog is not committed merely to fill nine weeks.
 
 The owner approved direction and candidate allocation; refinement must still establish maintained-asset reuse, supported scope, explicit disposition of existing acceptance requirements, dependencies and capacity. Parent epics are not accepted in full by selecting their children. #62 is reserve only. #1482 remains accepted and #1546 remains deferred.
 
