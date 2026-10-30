@@ -2,15 +2,14 @@
 
 Generated; do not edit by hand. [Policy](../docs/roadmap-sync.md) · [Decision register](roadmap-alignment.md).
 
-Snapshot updated at: 2026-10-30T15:56:06.993Z (UTC).
+Snapshot updated at: 2026-10-30T15:58:15.913Z (UTC).
 
 [Latest synchronization checks](https://github.com/mirichard/pm-tools-templates/actions/workflows/roadmap-sync.yml) — includes successful checks with no data changes. A check does not publish to main until its PR is merged.
 
-Snapshot fingerprint: `a528b8d2022c7c7fcd2e6666fa7d1943d50d22efa57a3cee2d8fcf524713e09c`. Values are copied from issues and Projects, not inferred acceptance or release claims.
+Snapshot fingerprint: `3be3afbc917da2916fdaf0bb1948ddf680694ae359ca646fe903f02e74c46412`. Values are copied from issues and Projects, not inferred acceptance or release claims.
 
 ## Drift requiring review
 
-- #1393: release milestone v2.4.0 differs from manifest nextVersion v2.4.1; review release intent
 - #1406: open issue / Roadmap Done; acceptance review required
 - #1454: missing Outcome or Horizon
 - #1454: expected exactly one type label
@@ -88,7 +87,7 @@ Snapshot fingerprint: `a528b8d2022c7c7fcd2e6666fa7d1943d50d22efa57a3cee2d8fcf524
 | [#1379](https://github.com/mirichard/pm-tools-templates/issues/1379) — &#91;Research candidate&#93;&#91;AI Insights&#93; Establish planning-review value beyond experienced PM judgment | Open | [#523](https://github.com/mirichard/pm-tools-templates/issues/523) | O7 - Use trustworthy AI insights | Unscheduled | Todo | — | — | [AI-assisted PM review — feasibility decision](https://github.com/mirichard/pm-tools-templates/milestone/36) |
 | [#1383](https://github.com/mirichard/pm-tools-templates/issues/1383) — Story: Define community participation and roadmap feedback scope | Closed (completed) | [#319](https://github.com/mirichard/pm-tools-templates/issues/319) | O4 - Contribute and influence priorities | Unscheduled | Done | — | Done | — |
 | [#1384](https://github.com/mirichard/pm-tools-templates/issues/1384) — Story: Keep repository roadmap documentation and planning views synchronized | Closed (completed) | [#319](https://github.com/mirichard/pm-tools-templates/issues/319) | O4 - Contribute and influence priorities | Now | Done | Sprint 1 | Done | [v2.4.0 — Now Epics Sprints 1–3](https://github.com/mirichard/pm-tools-templates/milestone/35) |
-| [#1393](https://github.com/mirichard/pm-tools-templates/issues/1393) — Task: Validate and publish v2.4.0 release | Open | Standalone | M1 - Maintain repository reliability | Now | In Progress | — | In Progress | [v2.4.0 — Now Epics Sprints 1–3](https://github.com/mirichard/pm-tools-templates/milestone/35) |
+| [#1393](https://github.com/mirichard/pm-tools-templates/issues/1393) — Task: Validate and publish v2.4.0 release | Closed (completed) | Standalone | M1 - Maintain repository reliability | Now | Done | — | Done | [v2.4.0 — Now Epics Sprints 1–3](https://github.com/mirichard/pm-tools-templates/milestone/35) |
 | [#1406](https://github.com/mirichard/pm-tools-templates/issues/1406) — Task: Resolve TypeScript 7 toolchain compatibility blockers | Open | Standalone | M1 - Maintain repository reliability | Unscheduled | Done | — | — | — |
 | [#1454](https://github.com/mirichard/pm-tools-templates/issues/1454) — Track: docs/site audit exception for http-cache-semantics (GHSA-ch52-4w7c-c8xp, no patch) | Open | Standalone | — | — | Todo | — | — | — |
 | [#1469](https://github.com/mirichard/pm-tools-templates/issues/1469) — 📋 Weekly Triage Preparation - 2026-10-06 | Open | Standalone | — | — | Todo | — | — | — |
