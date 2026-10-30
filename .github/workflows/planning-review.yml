@@ -1,0 +1,54 @@
+name: Planning review engine
+on:
+  workflow_call:
+    inputs:
+      preview:
+        type: boolean
+        default: true
+      issue_number:
+        type: string
+        default: ''
+    secrets:
+      ROADMAP_PROJECT_TOKEN:
+        required: true
+permissions:
+  contents: read
+  issues: write
+concurrency:
+  group: planning-decision-digest
+  cancel-in-progress: false
+jobs:
+  review:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          ref: ${{ github.event.repository.default_branch }}
+          persist-credentials: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: '24'
+      - name: Test deterministic planning rules
+        run: node --test tests/planning-automation.test.cjs
+      - name: Collect projects and prepare decision digest
+        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9
+        env:
+          PROJECT_TOKEN: ${{ secrets.ROADMAP_PROJECT_TOKEN }}
+          PREVIEW: ${{ inputs.preview }}
+          ISSUE_NUMBER: ${{ inputs.issue_number }}
+        with:
+          script: |
+            if (!process.env.PROJECT_TOKEN) throw new Error('Read-only ROADMAP_PROJECT_TOKEN required; no report published');
+            const input = process.env.ISSUE_NUMBER;
+            if (input && !/^[1-9][0-9]*$/.test(input)) throw new Error('Invalid issue number');
+            const graphql = github.graphql.defaults({headers: {authorization: `token ${process.env.PROJECT_TOKEN}`}});
+            await require('./scripts/planning-automation.cjs').run({github, graphql, core,
+              preview: process.env.PREVIEW !== 'false', issueNumber: input ? Number(input) : null});
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
+        if: always()
+        with:
+          name: planning-preview-${{ github.run_id }}
+          path: planning-preview/
+          if-no-files-found: ignore
+          retention-days: 14
