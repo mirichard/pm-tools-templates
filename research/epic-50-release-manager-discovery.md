@@ -1,6 +1,7 @@
 # Epic #50 — Release Manager discovery
 
-**Research date:** 2026-10-30  
+**Research date:** 2026-10-30
+
 **Status:** Discovery recommendation only; no delivery, acceptance, release, or sprint commitment.
 
 ## Decision brief
