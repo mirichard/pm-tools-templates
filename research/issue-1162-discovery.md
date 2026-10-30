@@ -1,8 +1,10 @@
 # Issue #1162 discovery — stakeholder register and sentiment support
 
-**Research date:** 2026-10-30  
-**Status:** Research preparation only; #1162 remains an unscheduled, standalone candidate.  
-**Accountable decision owner:** @mirichard.  
+**Research date:** 2026-10-30
+
+**Status:** Research preparation only; #1162 remains an unscheduled, standalone candidate.
+
+**Accountable decision owner:** @mirichard.
 **Related work:** [#92](https://github.com/mirichard/pm-tools-templates/issues/92), [#1566](https://github.com/mirichard/pm-tools-templates/issues/1566), [portfolio research PR #1597](https://github.com/mirichard/pm-tools-templates/pull/1597), [this issue's focused research PR #1622](https://github.com/mirichard/pm-tools-templates/pull/1622).
 
 ## Decision brief
@@ -99,6 +101,8 @@ The browser session is unauthenticated and GitHub MCP provides read-only issue o
 > Research for #1162 is documented in [PR #1622](https://github.com/mirichard/pm-tools-templates/pull/1622). Recommendation: retain/review manual concern tracking in the existing register and defer sentiment/stance implementation. The cited WorldCIST chapter could not be retrieved here, and historical accuracy, ROI, early-warning, cost, and delivery claims remain unverified—not acceptance criteria or commitments. No real communications were collected. Please decide whether to revise the manual scope, preserve #92 as a conditional evaluation candidate, and retire or define a permissioned measurement plan for the old numerical targets. No project stage, sprint, milestone, release, or acceptance change is proposed; this research does not close #1162 or select delivery.
 
 **Project update:** None proposed; leave project fields and current assignments unchanged pending the owner's decision.
+
+**PR metadata limitation:** The progress tool regenerated the PR description suffix as `- Fixes #1162` despite the requested `Refs #1162` checklist text. The browser session is unauthenticated, and no PR-edit action is available here. The PR remains open and draft, so it has not closed #1162; no merge or auto-merge was performed. Exact requested correction: replace the generated `- Fixes #1162` suffix with `- Refs #1162` (or remove the closing reference).
 
 ## Four-point closeout
 
