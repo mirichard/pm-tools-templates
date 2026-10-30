@@ -1,8 +1,10 @@
 # Release versions and history
 
-Verified: 09/24/2026.
+Verified: 10/30/2026.
 
-The latest published repository release is [vNext — Value Delivery System Upgrade](https://github.com/mirichard/pm-tools-templates/releases/tag/vNext), published 09/21/2026 at commit `febdf847cd8842fd3929973360b14d27b4513b81`. The version manifest assigns **v2.3.0** to this same baseline. After this change merges, the release workflow adds the numeric tag and updates the existing release title and notes while retaining the `vNext` tag, release URL, and original publication date. Workflow success and its read-back checks establish completion of that external reconciliation. The repository's historical identifiers mix semantic versions, date-based versions, component versions, and a release name; sorting them numerically does not establish release chronology.
+The previous repository release is [vNext — Value Delivery System Upgrade](https://github.com/mirichard/pm-tools-templates/releases/tag/vNext), published 09/21/2026 at commit `febdf847cd8842fd3929973360b14d27b4513b81`. The version manifest assigns **v2.3.0** to this same baseline. After this change merges, the release workflow adds the numeric tag and updates the existing release title and notes while retaining the `vNext` tag, release URL, and original publication date. Workflow success and its read-back checks establish completion of that external reconciliation. The repository's historical identifiers mix semantic versions, date-based versions, component versions, and a release name; sorting them numerically does not establish release chronology.
+
+The latest repository release is [v2.4.0 — Template workflows, community intake and delivery reliability](https://github.com/mirichard/pm-tools-templates/releases/tag/v2.4.0), published October 30, 2026 at `b82b8eef56ba304ceb54a2fc340de0168f3ebbb3` after explicit owner authorization to release immediately. [Closeout and limitations](releases/v2.4.0-closeout.md). The former November 29 target is superseded.
 
 ## Reconciled identifiers
 
@@ -27,7 +29,8 @@ Dates below are GitHub publication dates, except where explicitly identified as 
 
 - Use `vMAJOR.MINOR.PATCH` for future repository releases. Choose the increment from the accepted changes: major for incompatible changes, minor for compatible additions, patch for compatible fixes.
 - Preserve existing tags and their commits. In particular, do not reuse `v2.2.0` or relabel `vNext` as that version. Existing release and download links must continue to identify their original snapshots.
-- Assign `v2.3.0` to the compatible additions delivered as vNext, above the already-used `v2.2.0`. The next planned release is `v2.4.0`, tracked in [Now Epics Sprints 1–3](https://github.com/mirichard/pm-tools-templates/milestone/35), targeting 11/29/2026 subject to release readiness and repo owner acceptance. This compatible-additions release supersedes the unpublished `v2.3.1` draft target; the existing managed draft is updated after this change merges. Sprint 3 selects Epic #319. On October 30, 2026, Michael approved already-sanitized files/text-only intake for v2.4 and explicitly deferred restricted-original handling to [#1546](https://github.com/mirichard/pm-tools-templates/issues/1546). The completed #1482 walkthrough remains accepted; retained-scope acceptance and release-candidate gates remain tracked in [#1393](https://github.com/mirichard/pm-tools-templates/issues/1393). This scope decision does not authorize publication. Reassess the increment if accepted scope introduces incompatible changes.
+- `v2.3.0` identifies the historical vNext baseline. `v2.4.0` delivered the accepted Sprint 1–3 scope with already-sanitized files/text-only intake. Restricted-original handling remains deferred to [#1546](https://github.com/mirichard/pm-tools-templates/issues/1546); #1482 validation remains accepted. Owner approval and publication evidence are in [#1393](https://github.com/mirichard/pm-tools-templates/issues/1393).
+- `nextVersion` is now `2.4.1`, a patch-draft placeholder with no scope/date commitment. Reassess the increment in a reviewed PR when further work is selected.
 - Keep Requirements CLI and other component releases separate. Their release titles and tags must identify the component; their versions do not advance the repository sequence.
 - Treat `vNext` as the fixed historical release published on 09/21/2026, not a moving tag for future work. Preserve its legacy-path compatibility commitment through at least the next major release.
 
@@ -42,9 +45,10 @@ Dates below are GitHub publication dates, except where explicitly identified as 
 ## Release procedure
 
 1. Select the next version based on accepted scope. Update `nextVersion` in a reviewed PR; inspect **Update Release Draft** after merge. Do not publish a draft while that workflow is failing.
-2. Review generated notes and choose the accepted release commit. Preserve existing tag identities and check both tags and published releases for collisions. The next comparison starts at `vNext` (the same baseline assigned `v2.3.0`), excluding work already shipped there.
+2. Review generated notes and choose the accepted release commit. Preserve existing tag identities and check both tags and published releases for collisions. The next comparison starts at the manifest’s current tag (`v2.4.0` after this closeout), excluding already shipped work.
 3. Publish the reviewed draft at the accepted commit. In the release closeout PR, update `current` to the published version, numeric tag, commit, and title; advance `nextVersion`; align root package and lockfile versions; update the changelog, README, and roadmap. A draft updater encountering the newly published next version stops until this closeout merges.
-4. Verify the workflow's read-back checks, published notes, and tag commit. Component releases follow their own version histories and do not change this manifest.
+4. Publish a concise notice in GitHub Discussions → Announcements, linking the release, user-facing improvements, getting-started routes, and material limits, following #1268. GitHub release/discussion notifications follow subscriber preferences; publication is not evidence of individual email or push delivery.
+5. Verify the workflow's read-back checks, published notes, and tag commit. Component releases follow their own version histories and do not change this manifest.
 
 Local validation: `python3 scripts/release_management.py`. With authenticated GitHub CLI access and `GITHUB_REPOSITORY=mirichard/pm-tools-templates`, add `--remote` for a read-only remote preflight or `--apply` to reconcile and verify release metadata and the draft. **Update Release Draft** also supports manual execution on `main`.
 
