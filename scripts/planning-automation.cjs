@@ -33,8 +33,15 @@ function validatePolicy(p) {
 
 async function collect(github, graphql, p = policy) {
   const [owner, repo] = p.repository.split('/');
-  const boards = {};
-  for (const [name, number] of Object.entries(p.projects)) boards[name] = await projectItems(graphql, number);
+  const boards = {}, collectionWarnings = [];
+  for (const [name, number] of Object.entries(p.projects)) {
+    try { boards[name] = await projectItems(graphql, number); }
+    catch (error) {
+      if (name !== 'discovery' || !String(error.message).includes('Could not resolve to a ProjectV2')) throw error;
+      boards[name] = [];
+      collectionWarnings.push('Research project #13 unavailable to workflow credential: live discovery stage/promotion checks NOT performed. Use #1566 for the recorded plan; do not infer an empty research queue.');
+    }
+  }
   // Full pagination and explicit PR exclusion are essential to correct metrics.
   const open = (await github.paginate(github.rest.issues.listForRepo, {owner, repo, state:'open', per_page:100})).filter(x => !x.pull_request);
   const numbers = new Set([...open.map(x => x.number), ...boards.delivery.map(x => x.number), ...Object.keys(p.candidates).map(Number)]);
@@ -58,7 +65,7 @@ async function collect(github, graphql, p = policy) {
   if (!connection || connection.pageInfo.hasNextPage) throw new Error('Incomplete iteration field inventory');
   const iteration = connection.nodes.find(x => x.name === p.iterationField);
   if (!iteration) throw new Error('Configured iteration field missing');
-  return {issues:[...byNumber.values()].filter(x => !x.pull_request).sort((a,b)=>a.number-b.number),boards,children,parents,iterations:[...iteration.configuration.iterations,...iteration.configuration.completedIterations]};
+  return {collectionWarnings,issues:[...byNumber.values()].filter(x => !x.pull_request).sort((a,b)=>a.number-b.number),boards,children,parents,iterations:[...iteration.configuration.iterations,...iteration.configuration.completedIterations]};
 }
 
 function decisionValid(d, p) {
@@ -103,7 +110,7 @@ function acceptanceFlags(snapshot, p = policy) {
 function buildReport(snapshot, p = policy, now = new Date()) {
   validatePolicy(p);
   const issues = snapshot.issues, byNumber = new Map(issues.map(i=>[i.number,i]));
-  const warnings = acceptanceFlags(snapshot,p);
+  const warnings = [...(snapshot.collectionWarnings || []), ...acceptanceFlags(snapshot,p)];
   const open = issues.filter(i=>i.state==='open' && !labels(i).includes('type:operational'));
   const recent = open.filter(i=>Date.parse(i.created_at) >= +now-7*day && Date.parse(i.created_at)<=+now);
   const untriaged = open.filter(i=>labels(i).includes('needs-triage'));

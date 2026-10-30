@@ -8,7 +8,7 @@ Three entry points use one deterministic engine, `scripts/planning-automation.cj
 | Weekly Triage Automation | Tuesday 14:00 | Reviews new, untriaged and aging active work using full pagination |
 | Sprint Management | Monday 09:00 | Checks actual iteration dates, leaf work, dependencies, owner decisions, estimates and capacity |
 
-Manual dispatch defaults to preview. Each run retains the snapshot and Markdown report for 14 days and writes its Actions summary. Scheduled runs update one marked `planning-digest` operational issue, never a new weekly duplicate. A closed digest is not reopened. Missing project access or incomplete collection fails before publication. The existing `ROADMAP_PROJECT_TOKEN` reads Projects 11–13; the job's repository token writes only the digest and its label. No new access grant is required.
+Manual dispatch defaults to preview. Each run retains the snapshot and Markdown report for 14 days and writes its Actions summary. Scheduled runs update one marked `planning-digest` operational issue, never a new weekly duplicate. A closed digest is not reopened. Missing backlog/delivery access or incomplete collection fails before publication. If Project 13 cannot be resolved, the digest explicitly reports research-stage checks as unavailable while continuing acceptance/backlog/sprint checks. The existing `ROADMAP_PROJECT_TOKEN` currently reads Projects 11–12 but cannot resolve Project 13; the job's repository token writes only the digest and its label. Live discovery-stage checks require separate resolution of that access limitation; no new access is granted by this implementation.
 
 ## Owner decisions
 
