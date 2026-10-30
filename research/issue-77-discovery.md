@@ -1,7 +1,9 @@
 # Issue #77 — usage analytics discovery
 
-**Research snapshot:** October 30, 2026  
-**Decision owner:** Michael Richard  
+**Research snapshot:** October 30, 2026
+
+**Decision owner:** Michael Richard
+
 **Current disposition:** #77 remains a Later-backlog child of #1480. This report authorizes no collection, implementation, sprint selection, or change to project state.
 
 ## Decision brief
@@ -107,7 +109,8 @@ These are illustrative values, not repository analytics or user evidence. They c
 
 ## Conditional candidate package — refine existing #77, do not duplicate
 
-**Candidate title:** Optional aggregate template download-intent measurement  
+**Candidate title:** Optional aggregate template download-intent measurement
+
 **User outcome:** Maintainers can decide whether to place a maintained template into a human documentation-review queue using a clearly bounded, voluntary aggregate signal.
 
 **Scope:** One explicitly approved question; one event type; canonical template-path validation; opt-in-before-event behavior; one selected aggregation/deletion model; documented data flow, retention, access, withdrawal, and limits; synthetic fixtures and a verified report. The initial measure is download intent only.
@@ -158,9 +161,9 @@ Privacy design questions for the owner/reviewer: jurisdiction and parties; purpo
 
 **Proposed concise issue comment (not posted):**
 
-> Research report: [issue-77-discovery.md](https://github.com/mirichard/pm-tools-templates/blob/REPLACE_WITH_MERGED_REVISION/research/issue-77-discovery.md). Recommendation: keep #77 under #1480 in Later and do not activate telemetry. The only bounded candidate is opt-in download-intent counts by maintained template path to inform a human documentation-review queue; this is not use, completion, or effectiveness evidence. The SDK has no receiver/dashboard and does not implement remote export/deletion. Official privacy sites were unreachable during research; owner selection of the data/deletion model and qualified review remain prerequisites. No project status or acceptance changed.
+> Research report: [PR #1580](https://github.com/mirichard/pm-tools-templates/pull/1580/files). Recommendation: keep #77 under #1480 in Later and do not activate telemetry. The only bounded candidate is opt-in download-intent counts by maintained template path to inform a human documentation-review queue; this is not use, completion, or effectiveness evidence. The SDK has no receiver/dashboard and does not implement remote export/deletion. Official privacy sites were unreachable during research; owner selection of the data/deletion model and qualified review remain prerequisites. No project status or acceptance changed.
 
-Replace `REPLACE_WITH_MERGED_REVISION` with the report commit before posting. No Project field update is proposed.
+No Project field update is proposed.
 
 ## Four-point owner summary
 
