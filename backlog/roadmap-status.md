@@ -2,11 +2,11 @@
 
 Generated; do not edit by hand. [Policy](../docs/roadmap-sync.md) · [Decision register](roadmap-alignment.md).
 
-Snapshot updated at: 2026-10-30T15:58:15.913Z (UTC).
+Snapshot updated at: 2026-10-30T16:17:02.416Z (UTC).
 
 [Latest synchronization checks](https://github.com/mirichard/pm-tools-templates/actions/workflows/roadmap-sync.yml) — includes successful checks with no data changes. A check does not publish to main until its PR is merged.
 
-Snapshot fingerprint: `3be3afbc917da2916fdaf0bb1948ddf680694ae359ca646fe903f02e74c46412`. Values are copied from issues and Projects, not inferred acceptance or release claims.
+Snapshot fingerprint: `da74d62476d630f15c6929a7107a90cc34c7b643689f04474b69193d2d2c375d`. Values are copied from issues and Projects, not inferred acceptance or release claims.
 
 ## Drift requiring review
 
@@ -14,6 +14,7 @@ Snapshot fingerprint: `3be3afbc917da2916fdaf0bb1948ddf680694ae359ca646fe903f02e7
 - #1454: missing Outcome or Horizon
 - #1454: expected exactly one type label
 - #1469: missing Outcome or Horizon
+- #1556: missing Outcome or Horizon
 
 ## Issue and Project values
 
@@ -98,3 +99,4 @@ Snapshot fingerprint: `3be3afbc917da2916fdaf0bb1948ddf680694ae359ca646fe903f02e7
 | [#1482](https://github.com/mirichard/pm-tools-templates/issues/1482) — Validate contributor and maintainer journeys after unit testing and before UAT | Closed (completed) | Standalone | — | — | Done | — | — | — |
 | [#1483](https://github.com/mirichard/pm-tools-templates/issues/1483) — Validate reusable-plan imports into Jira and Asana before custom development | Closed (not_planned) | [#325](https://github.com/mirichard/pm-tools-templates/issues/325) | — | — | Done | Sprint 3 | Done | [None](https://github.com/mirichard/pm-tools-templates/milestone/37) |
 | [#1546](https://github.com/mirichard/pm-tools-templates/issues/1546) — Task: Establish restricted-original intake and handling (deferred beyond v2.4) | Open | Standalone | O4 - Contribute and influence priorities | Later | Todo | — | — | — |
+| [#1556](https://github.com/mirichard/pm-tools-templates/issues/1556) — Task: Plan, validate and release v2.5.0 — Find and apply a template | Open | Standalone | — | — | Todo | — | — | — |
