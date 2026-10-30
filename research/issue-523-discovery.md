@@ -1,8 +1,8 @@
 # Issue #523 discovery — sponsor-approval research synthesis
 
-**Prepared:** 2026-10-30  
-**Disposition:** Retain the bounded #1379 research; no implementation or release selection  
-**Accountable owner:** Michael Richard  
+**Prepared:** 2026-10-30
+**Disposition:** Retain the bounded #1379 research; no implementation or release selection
+**Accountable owner:** Michael Richard
 **Scope:** Parent-level synthesis. Child-level evidence and review instructions remain in #1379; this report does not repeat case qualification or the independent-review study.
 
 ## Decision brief
