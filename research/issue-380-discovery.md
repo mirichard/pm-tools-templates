@@ -102,9 +102,11 @@ The “95%+” extraction target, stakeholder-specific visibility, real-time sta
 
 Issue/project write access for posting this comment or changing planning fields was not available through the tools used for this research. No issue status, project stage, sprint, milestone, or release was changed.
 
+**PR relationship correction required before merge:** the generated draft PR description currently ends with `Fixes #380`. Replace that closing reference with exactly `Refs #380`; do not merge while the closing keyword remains. The available GitHub tools can read the PR and push this report but cannot edit the PR description, and the browser session is signed out. The exact requested replacement is `Refs #380`.
+
 ## Four-point closeout
 
 - **Recommended next step:** Michael Richard reviews the conditional CSV slice and decides select, revise, or defer.
 - **Research completed:** issue hierarchy/state, active research coordination, maintained scope/WBS evidence, and a proposed synthetic fixture were checked.
-- **Remaining gaps:** verified #366 contract, user evidence, schema/owner assignments, acceptance fixtures, confirmed estimate, and target measurement.
+- **Remaining gaps:** verified #366 contract, user evidence, schema/owner assignments, acceptance fixtures, confirmed estimate, target measurement, and the PR reference correction above.
 - **Owner decision required:** whether to pursue this bounded slice and who owns its input contract and acceptance.
