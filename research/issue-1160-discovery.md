@@ -103,7 +103,7 @@ The spike comment also proposed `<30s` processing, `>85%` precision, `>60%` adop
 
 > Research report prepared in [PR #1620](https://github.com/mirichard/pm-tools-templates/pull/1620). Recommendation: retain #1160 as an unscheduled candidate, but treat the historical GO and spaCy performance claims as unverified pending full-text appraisal and a reproducible evaluation. The maintained CLI starts from structured Markdown requirements; it has source-line traceability, not transcript ingestion or transcript-level extraction validation. The report proposes a synthetic-only, source-anchored candidate fixture and a conditional prototype scope. No implementation, release, schedule, or target threshold is approved. Michael Richard's decision is requested on whether to retain this bounded candidate and whether to keep, revise, or withdraw the historical accuracy/adoption/time-saving targets. #1482 acceptance and #1379 source-sufficiency evidence are preserved; no project stage change is proposed.
 
-**Proposed PR relationship:** replace any tool-generated `Fixes #1160` / `Closes #1160` reference with `Refs #1160`; do not close the issue. No project field or stage update is proposed.
+**Write-access status (checked 2026-10-30):** GitHub MCP access here is read-only for issue/PR metadata, and the browser page is unauthenticated. The progress tool can push this branch and update its checklist, but no available tool can edit the PR relationship suffix or post an issue comment. The current PR body has a generated `Fixes #1160` suffix. **Required PR edit:** replace that suffix with `Refs #1160`; do not merge or close the issue. The exact proposed issue comment is above. No project field or stage update is proposed.
 
 ## Verification record
 
