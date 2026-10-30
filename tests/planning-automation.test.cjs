@@ -50,3 +50,7 @@ test('single digest is idempotent and never reopens a closed decision record',as
  github.paginate=async()=>[old,old];await assert.rejects(publishDigest(github,body),/Multiple/);
  await assert.rejects(publishDigest(github,'x'.repeat(60001)),/safe issue size/);
 });
+test('unavailable discovery is a visible limitation, never an empty-queue success',()=>{
+ const s=fixture();s.collectionWarnings=['Research project #13 unavailable: checks NOT performed'];
+ const r=buildReport(s,policy(),now);assert.match(r.body,/Research project #13 unavailable: checks NOT performed/);assert.equal(r.warnings.length,1);
+});
