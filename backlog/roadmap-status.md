@@ -2,11 +2,11 @@
 
 Generated; do not edit by hand. [Policy](../docs/roadmap-sync.md) · [Decision register](roadmap-alignment.md).
 
-Snapshot updated at: 2026-10-30T17:23:00.373Z (UTC).
+Snapshot updated at: 2026-10-30T18:05:47.350Z (UTC).
 
 [Latest synchronization checks](https://github.com/mirichard/pm-tools-templates/actions/workflows/roadmap-sync.yml) — includes successful checks with no data changes. A check does not publish to main until its PR is merged.
 
-Snapshot fingerprint: `53be0b7052e0531daf2885f50d682f18f70034bb2c739f5757c4ae79fa35272b`. Values are copied from issues and Projects, not inferred acceptance or release claims.
+Snapshot fingerprint: `f1c0d8fda1901e0b3efde540e57934cd825740511ce316e3042b3851f21a7797`. Values are copied from issues and Projects, not inferred acceptance or release claims.
 
 ## Drift requiring review
 
@@ -26,9 +26,9 @@ Snapshot fingerprint: `53be0b7052e0531daf2885f50d682f18f70034bb2c739f5757c4ae79f
 
 | Issue | Issue state | Parent | Outcome | Horizon | Roadmap status | Sprint | Sprint status | Release milestone |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| [#47](https://github.com/mirichard/pm-tools-templates/issues/47) — EPIC: 1.10: Program Management Template Suite Implementation | Open | Standalone | O2 - Apply practical PM guidance | Later | Todo |  | — | — |
+| [#47](https://github.com/mirichard/pm-tools-templates/issues/47) — EPIC: 1.10: Program Management Template Suite Implementation | Open | Standalone | O2 - Apply practical PM guidance | Later | In Progress |  | — | — |
 | [#49](https://github.com/mirichard/pm-tools-templates/issues/49) — EPIC: 1.11: Product Owner Role Template Suite | Open | Standalone | O2 - Apply practical PM guidance | Later | Todo |  | — | — |
-| [#50](https://github.com/mirichard/pm-tools-templates/issues/50) — EPIC: 1.12: Release Manager Role Template Suite | Open | Standalone | O2 - Apply practical PM guidance | Later | Todo |  | — | — |
+| [#50](https://github.com/mirichard/pm-tools-templates/issues/50) — EPIC: 1.12: Release Manager Role Template Suite | Open | Standalone | O2 - Apply practical PM guidance | Later | In Progress |  | — | — |
 | [#57](https://github.com/mirichard/pm-tools-templates/issues/57) — Task: Complete Design Thinking template navigation and acceptance | Closed (completed) | Standalone | O2 - Apply practical PM guidance | Next | Done | Sprint 2 | Done | [v2.4.0 — Now Epics Sprints 1–3](https://github.com/mirichard/pm-tools-templates/milestone/35) |
 | [#58](https://github.com/mirichard/pm-tools-templates/issues/58) — Task: Complete Lean Startup kit navigation and acceptance | Closed (completed) | Standalone | O2 - Apply practical PM guidance | Next | Done | Sprint 2 | Done | [v2.4.0 — Now Epics Sprints 1–3](https://github.com/mirichard/pm-tools-templates/milestone/35) |
 | [#59](https://github.com/mirichard/pm-tools-templates/issues/59) — Task: Reconcile Power Automate guide coverage and validation | Open | [#318](https://github.com/mirichard/pm-tools-templates/issues/318) | O3 - Use supported integrations | Next | Todo |  | — | — |
@@ -51,10 +51,10 @@ Snapshot fingerprint: `53be0b7052e0531daf2885f50d682f18f70034bb2c739f5757c4ae79f
 | [#290](https://github.com/mirichard/pm-tools-templates/issues/290) — Story: Integration Enhancement - Jira/Asana Bi-directional Sync | Closed (not_planned) | [#325](https://github.com/mirichard/pm-tools-templates/issues/325) | O3 - Use supported integrations | Later | Done |  | Done | — |
 | [#318](https://github.com/mirichard/pm-tools-templates/issues/318) — EPIC: Integration &amp; Automation Platform | Open | Standalone | O3 - Use supported integrations | Next | Todo |  | — | — |
 | [#319](https://github.com/mirichard/pm-tools-templates/issues/319) — EPIC: Community &amp; Feedback Ecosystem | Closed (completed) | Standalone | — | — | Done | Sprint 3 | Done | [v2.4.0 — Now Epics Sprints 1–3](https://github.com/mirichard/pm-tools-templates/milestone/35) |
-| [#320](https://github.com/mirichard/pm-tools-templates/issues/320) — EPIC: Executive &amp; Enterprise Platform | Open | Standalone | O5 - Make traceable value decisions | Later | Todo |  | — | — |
+| [#320](https://github.com/mirichard/pm-tools-templates/issues/320) — EPIC: Executive &amp; Enterprise Platform | Open | Standalone | O5 - Make traceable value decisions | Later | In Progress |  | — | — |
 | [#323](https://github.com/mirichard/pm-tools-templates/issues/323) — EPIC: Advanced Template Discovery &amp; Selection System | Open | Standalone | O1 - Find and customize templates | Next | Todo |  | — | — |
 | [#325](https://github.com/mirichard/pm-tools-templates/issues/325) — EPIC: Universal PM Tool Integration Platform | Closed (not_planned) | [#318](https://github.com/mirichard/pm-tools-templates/issues/318) | — | — | Done |  | Done | — |
-| [#341](https://github.com/mirichard/pm-tools-templates/issues/341) — EPIC: ROI &amp; Value Tracking System | Open | [#320](https://github.com/mirichard/pm-tools-templates/issues/320) | O5 - Make traceable value decisions | Later | Todo |  | — | — |
+| [#341](https://github.com/mirichard/pm-tools-templates/issues/341) — EPIC: ROI &amp; Value Tracking System | Open | [#320](https://github.com/mirichard/pm-tools-templates/issues/320) | O5 - Make traceable value decisions | Later | In Progress |  | — | — |
 | [#365](https://github.com/mirichard/pm-tools-templates/issues/365) — EPIC: Smart Program Management Environment | Open | Standalone | O6 - Automate bounded PM workflows | Later | Todo |  | — | — |
 | [#367](https://github.com/mirichard/pm-tools-templates/issues/367) — EPIC: Traditional Template Mapping Engine | Open | [#365](https://github.com/mirichard/pm-tools-templates/issues/365) | O6 - Automate bounded PM workflows | Later | Todo |  | — | — |
 | [#368](https://github.com/mirichard/pm-tools-templates/issues/368) — EPIC: Automated Workstream Update Collector | Open | [#365](https://github.com/mirichard/pm-tools-templates/issues/365) | O6 - Automate bounded PM workflows | Later | Todo |  | — | — |
