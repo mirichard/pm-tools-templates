@@ -118,3 +118,9 @@ Recommended project/issue state remains **unscheduled, deprioritized, research c
 - **Research completed:** Reconciled current status and historical comments; inspected CLI traceability/process checks and preserved adjacent accepted evidence.
 - **Remaining gaps:** Direct paper/reuse review, user/problem evidence, approved mapping/conflict semantics, and fixture execution.
 - **Owner decision required:** Whether any follow-on work is selected; no implementation, estimate, or schedule is authorized by this report.
+
+### Proposed concise comment for issue #1159
+
+> The issue-specific research packet is available in draft PR #1588 (`Refs #1159`). It recommends keeping #1159 deferred: the CLI has one-way traceability and narrow deterministic process checks, but no reverse test-edit propagation; the cited primary papers and demand evidence still need review. The proposed next step is a synthetic, reviewable change-proposal fixture only if selected. No implementation, estimate, priority, sprint, or acceptance is authorized. #1482 acceptance and #1379 source-sufficiency evidence remain preserved. Michael, please decide whether to retain, stop, or explicitly select a bounded follow-on; no project stage change is proposed.
+
+Issue-comment creation is not available in this session's GitHub tools; the text above is included here for owner use and has not been posted.
