@@ -2,11 +2,11 @@
 
 Generated; do not edit by hand. [Policy](../docs/roadmap-sync.md) · [Decision register](roadmap-alignment.md).
 
-Snapshot updated at: 2026-10-28T00:00:01.154Z (UTC).
+Snapshot updated at: 2026-10-30T14:40:11.123Z (UTC).
 
 [Latest synchronization checks](https://github.com/mirichard/pm-tools-templates/actions/workflows/roadmap-sync.yml) — includes successful checks with no data changes. A check does not publish to main until its PR is merged.
 
-Snapshot fingerprint: `414441c9620ea83d0525a36b3ea77651fe42f1f612e221add069563a6979cc4e`. Values are copied from issues and Projects, not inferred acceptance or release claims.
+Snapshot fingerprint: `47a49a3532bcc005dc97b37d688bb2535db97e3c20b4374f613bc59477f8dceb`. Values are copied from issues and Projects, not inferred acceptance or release claims.
 
 ## Drift requiring review
 
@@ -14,6 +14,7 @@ Snapshot fingerprint: `414441c9620ea83d0525a36b3ea77651fe42f1f612e221add069563a6
 - #1454: missing Outcome or Horizon
 - #1454: expected exactly one type label
 - #1469: missing Outcome or Horizon
+- #1546: missing Outcome or Horizon
 
 ## Issue and Project values
 
@@ -97,3 +98,4 @@ Snapshot fingerprint: `414441c9620ea83d0525a36b3ea77651fe42f1f612e221add069563a6
 | [#1481](https://github.com/mirichard/pm-tools-templates/issues/1481) — EPIC: Community Participation Enhancements — Discovery and Selected Delivery | Open | Standalone | O4 - Contribute and influence priorities | Later | Todo | — | — | — |
 | [#1482](https://github.com/mirichard/pm-tools-templates/issues/1482) — Validate contributor and maintainer journeys after unit testing and before UAT | Closed (completed) | Standalone | — | — | Done | — | — | — |
 | [#1483](https://github.com/mirichard/pm-tools-templates/issues/1483) — Validate reusable-plan imports into Jira and Asana before custom development | Closed (not_planned) | [#325](https://github.com/mirichard/pm-tools-templates/issues/325) | — | — | Done | Sprint 3 | Done | [None](https://github.com/mirichard/pm-tools-templates/milestone/37) |
+| [#1546](https://github.com/mirichard/pm-tools-templates/issues/1546) — Task: Establish restricted-original intake and handling (deferred beyond v2.4) | Open | Standalone | — | — | Todo | — | — | — |
