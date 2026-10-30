@@ -1,0 +1,34 @@
+{
+  "report_date": "2026-10-30T18:46:10.950024+00:00",
+  "report_type": "weekly",
+  "methodology": "agile",
+  "repository": "mirichard/pm-tools-templates",
+  "metric_scope": "repository_issue_inventory_all_closure_reasons",
+  "metrics": {
+    "total_issues": 688,
+    "open_issues": 67,
+    "closed_issues": 621,
+    "completion_rate": 90,
+    "high_priority": 2,
+    "bugs": 3,
+    "strategic_open": 8,
+    "strategic_progress": 74,
+    "critical_risks": 0,
+    "blockers": 0,
+    "recent_closed": 6
+  },
+  "flow_metrics": null,
+  "health_indicators": {
+    "overall_health": "not_assessed",
+    "risk_level": "not_assessed",
+    "progress_trend": "not_assessed"
+  },
+  "recent_closed_numbers": [
+    63,
+    198,
+    319,
+    1383,
+    1393,
+    1482
+  ]
+}
