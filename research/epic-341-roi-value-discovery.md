@@ -1,6 +1,6 @@
 # Epic #341: ROI & Value Tracking Discovery
 
-**Status:** Research for owner review; no delivery or release commitment  
+**Status:** Research for owner review; no delivery or release commitment
 **Scope:** ROI/value-tracking child outcome of [#320](https://github.com/mirichard/pm-tools-templates/issues/320). Preserve the native parent relationship. [#47](https://github.com/mirichard/pm-tools-templates/issues/47) remains an independent benefits-management epic.
 
 ## Decision brief
