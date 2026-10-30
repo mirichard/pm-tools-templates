@@ -179,6 +179,6 @@ These optional tools have separate installation instructions and prerequisites. 
 - **Questions and shared practice:** [Ask in GitHub Discussions](https://github.com/mirichard/pm-tools-templates/discussions).
 - **Broken links, defects, or missing resources:** [Open an issue](https://github.com/mirichard/pm-tools-templates/issues/new/choose) and include the affected link and what you expected.
 - **Contributing:** [Read the contribution guidelines](CONTRIBUTING.md) and [submission privacy and file-handling guidance](docs/community/submission-handling.md).
-- **Project updates:** [Read releases](https://github.com/mirichard/pm-tools-templates/releases), [view the roadmap](ROADMAP.md), or [check release numbering](docs/release-versioning.md). The latest published repository release is [v2.3.0 (vNext)](https://github.com/mirichard/pm-tools-templates/releases/tag/vNext); the Requirements CLI is versioned separately.
+- **Project updates:** [Read releases](https://github.com/mirichard/pm-tools-templates/releases), [view the roadmap](ROADMAP.md), or [check release numbering](docs/release-versioning.md). The latest published repository release is [v2.4.0 — Template workflows, community intake and delivery reliability](https://github.com/mirichard/pm-tools-templates/releases/tag/v2.4.0); the Requirements CLI is versioned separately. [Release announcement](https://github.com/mirichard/pm-tools-templates/discussions/1552).
 
 Maintained by **Michael Richard, PMP**. Free to use and adapt under the [MIT license](LICENSE).

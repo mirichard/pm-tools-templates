@@ -1,6 +1,6 @@
 # Roadmap
 
-**Editorial review date:** 09/26/2026
+**Editorial review date:** 10/30/2026
 
 This roadmap summarizes released capabilities, outstanding follow-up, and future candidates for PM Tools & Templates. Release notes describe what shipped; linked issues hold scope and acceptance evidence. An open issue is not, by itself, a delivery commitment.
 
@@ -8,10 +8,11 @@ This roadmap summarizes released capabilities, outstanding follow-up, and future
 
 ## Released
 
-Repository and component versions follow separate histories. `v2.3.0` is assigned to the latest published repository release, `vNext`; the existing `v2.2.0` tag has no published release entry and cannot be reused. See [release numbering and history](docs/release-versioning.md) for the manifest, automated consistency checks, and release procedure. No next release is scheduled.
+Repository and component versions follow separate histories. The latest repository release is **v2.4.0**, published October 30, 2026 with explicit owner authorization ahead of the former November 29 target. See [release numbering and history](docs/release-versioning.md). The next draft target, v2.4.1, is a patch placeholder, not an approved scope or scheduled release.
 
 | Delivery | What it provides | Record |
 | --- | --- | --- |
+| v2.4.0 — Template workflows, community intake and delivery reliability | Browser customization, Design Thinking/Lean Startup kits, sanitized-file/text contribution and feedback, and delivery/security maintenance | [Published release — 10/30/2026](https://github.com/mirichard/pm-tools-templates/releases/tag/v2.4.0) |
 | v2.3.0 (vNext) — Value Delivery System Upgrade | Benefits and value-delivery guidance; six performance domains; context-sensitive template selection; principles and applicability guidance; adaptive governance; product and continuous-delivery practices | [Published release — 09/21/2026](https://github.com/mirichard/pm-tools-templates/releases/tag/vNext) |
 | Requirements CLI v1.2 | Nonfunctional-requirement generation, quality-attribute mapping, acceptance-criteria scaffolding, human-review gates, and classification evaluation | [Published release — 09/18/2026](https://github.com/mirichard/pm-tools-templates/releases/tag/v1.2.0-requirements-cli) |
 
@@ -21,13 +22,13 @@ Release acceptance and closeout are recorded in [#1266](https://github.com/miric
 
 ## Merged changes and accepted work
 
-These records distinguish merged work from published releases. A merged change is not a new release or deployment.
+The records below are included in v2.4.0 where accepted. #57/#58 and the bounded #319 contribution/feedback scope are also accepted and published; #63/#1383 are completed. Restricted-original handling remains explicitly deferred in #1546 (O4 / Later), and #1480/#1481 remain later work. See [release closeout](docs/releases/v2.4.0-closeout.md).
 
 | Work | Acceptance / current position | Evidence |
 | --- | --- | --- |
 | Browser-based template customization — #75 | Completed and accepted in Sprint 1: draft retention, save/reopen recovery, validation and export across five editors | [Merged PR #1381](https://github.com/mirichard/pm-tools-templates/pull/1381) · [Acceptance record](demos/288-template-customization/ACCEPTANCE.md) · [Closed issue #75](https://github.com/mirichard/pm-tools-templates/issues/75) |
 | Issue-management intake and validation — #1367 | Completed in Sprint 1 after external UAT and an actual successful scheduled issue-type sweep | [Merged PR #1368](https://github.com/mirichard/pm-tools-templates/pull/1368) · [Scheduled run](https://github.com/mirichard/pm-tools-templates/actions/runs/36241475787) · [Closed issue #1367](https://github.com/mirichard/pm-tools-templates/issues/1367) |
-| Outcome roadmap and backlog mapping | Mapping and reconciliation accepted; #78 completed; residual community scope retained in #1383 | [Merged PR #1382](https://github.com/mirichard/pm-tools-templates/pull/1382) · [Issue #78](https://github.com/mirichard/pm-tools-templates/issues/78) |
+| Outcome roadmap and backlog mapping | Mapping and reconciliation accepted; #78 and bounded #1383 completed in v2.4.0 | [Merged PR #1382](https://github.com/mirichard/pm-tools-templates/pull/1382) · [Issue #78](https://github.com/mirichard/pm-tools-templates/issues/78) |
 | README entry-point redesign | Catalog, selection-guide and beginner-kit routes; resource-use instructions and separate software prerequisites | [Merged PR #1269](https://github.com/mirichard/pm-tools-templates/pull/1269) |
 
 ## Outstanding follow-up
@@ -49,9 +50,9 @@ The 09/24/2026 baseline mapped 60 then-open issues to seven product outcomes and
 | Outcome | Epic ownership and retained scope | Next decision |
 | --- | --- | --- |
 | **O1 — Find and customize templates** | Discovery #323 → #69/#104; onboarding #284 → #103; standalone customization #75 | #75 is completed and accepted through PR #1381; refine search/navigation/tutorial gaps separately. |
-| **O2 — Apply practical PM guidance** | Role suites #47/#49/#50; bounded content work #57/#58/#64 | Repair Design Thinking and Lean Startup journeys; reconcile existing assets before expanding suites. |
+| **O2 — Apply practical PM guidance** | Role suites #47/#49/#50; bounded content work #57/#58/#64 | Design Thinking and Lean Startup journeys (#57/#58) are accepted and released in v2.4.0; select further suite work separately. |
 | **O3 — Use supported integrations** | #318 → #325 and guide tasks #59/#60/#62; #325 → #61/#76/#290; #290 → #385/#386 | Validate retained guides and one consumer/API contract; resolve overlapping sync scope before execution. |
-| **O4 — Contribute and influence priorities** | #319 → #63/#77/#78/#1383/#1384; feedback/reporting records provide operational context | #78 accepted and completed; retain #1383 community participation scope, contribution repairs and privacy-aware analytics for later selection. |
+| **O4 — Contribute and influence priorities** | #319 → #63/#77/#78/#1383/#1384; feedback/reporting records provide operational context | #319 bounded sanitized-file/text scope, #63/#78/#1383 are accepted and released; restricted originals (#1546), participation enhancements (#1481), and opt-in analytics (#1480) remain deferred. |
 | **O5 — Make traceable value decisions** | #320 → #341 | Reuse benefits/reporting guidance; define one bounded outcome with reproducible calculations. |
 | **O6 — Automate bounded PM workflows** | #365 → #367–#383 | Validate the SOW/Charter input contract and choose one complete workflow; the full environment remains uncommitted. |
 | **O7 — Use trustworthy AI insights** | Research #523 → #1379; deferred #92/#105; retained recovery #1329 → #1293/#1298/#1372–#1376 | Test whether AI-assisted plan review supports defensible PM decisions with less total effort and adequate coverage. Legacy recovery is paused pending reuse; it is not a prerequisite for this research. |
