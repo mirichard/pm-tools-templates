@@ -1,35 +1,20 @@
-name: 🚀 Sprint Management Automation
-
+name: Sprint Planning Preparation
 on:
   schedule:
-    # Run every Monday at 9 AM UTC (start of sprint week)
     - cron: '0 9 * * 1'
   workflow_dispatch:
     inputs:
-      action:
-        description: 'Sprint action to perform'
-        required: false
-        default: 'status'
-        type: choice
-        options:
-          - status
-          - metrics
-
+      preview:
+        description: 'Preview dates, capacity and readiness without updating the digest'
+        type: boolean
+        default: true
+permissions:
+  contents: read
+  issues: write
 jobs:
-  sprint-automation:
-    name: Sprint Management
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: 📥 Checkout Repository
-        uses: actions/checkout@v7
-
-      - name: 📊 Sprint Status Check
-        run: |
-          echo "🚀 Sprint Management System"
-          echo "Action: ${{ github.event.inputs.action }}"
-          echo "Date: $(date +%Y-%m-%d)"
-          echo "Status: Operational"
-          echo "✅ Sprint management workflow completed successfully"
-
-
+  prepare-sprint:
+    uses: ./.github/workflows/planning-review.yml
+    with:
+      preview: ${{ github.event_name == 'workflow_dispatch' && inputs.preview }}
+    secrets:
+      ROADMAP_PROJECT_TOKEN: ${{ secrets.ROADMAP_PROJECT_TOKEN }}
