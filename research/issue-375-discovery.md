@@ -112,6 +112,8 @@ Search results surfaced these primary/official materials, but direct page fetche
 
 The available GitHub write tools can update the existing PR but do not expose issue-comment creation; the exact proposed comment is included here for posting by an authorized maintainer.
 
+**PR footer action before merge:** PR #1607 still has a platform-generated `Fixes #375` footer. The available progress tool preserves this footer, and the browser session is signed out; no PR-body edit action is available. An authorized maintainer must replace it with `Refs #375` before merging so this research PR cannot close the issue.
+
 ## Four-point owner brief
 
 - **Recommended next step:** Michael selects/revises/defers the bounded deterministic exception slice and decides whether it belongs in #369.
