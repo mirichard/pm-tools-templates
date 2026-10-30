@@ -1,0 +1,116 @@
+# UX-101 first-template journey — discovery
+
+**Research date:** 2026-10-30
+**Scope:** Issue [#103](https://github.com/mirichard/pm-tools-templates/issues/103), feeding definition task [#1561](https://github.com/mirichard/pm-tools-templates/issues/1561). Michael Richard remains the accountable owner. This is research and preparation, not delivery acceptance.
+
+## Decision brief
+
+**Recommend a single first-use path:** select one Project Charter, enter a small set of required fields using a clearly synthetic example, review validation and the generated Markdown, download it, then open it and identify one next action. Use the maintained five-editor v2.4 demo as the editing/export capability, not the legacy CLI or the broader ten-template onboarding proposal. Define the journey as a useful draft, not a complete or approved charter; the current getting-started guide already makes that distinction.
+
+The v2.4.0 tag (`b82b8eef56ba304ceb54a2fc340de0168f3ebbb3`) and release notes confirm a five-editor save/download workflow. Its maintained source and acceptance record document local named versions, draft recovery, validation and download behavior. The accepted walkthrough on #1482 is complete and should not be repeated; it covered a different contributor/maintainer journey and does not prove this tutorial's usability or timing.
+
+The main gaps are a defined handoff from #104, explicit tutorial-step/reload behavior, owner-approved boundaries for the original outcome metrics, and human acceptance. No participant study, telemetry, release-path runtime check, or ten-minute test was conducted for this report. Historical percentages remain unmeasured. Owner approval is needed for the exact entry point, persistence policy, metric definitions and any later participant or telemetry plan. Existing task #1561 should capture those decisions; #1562 remains the implementation package and is not undertaken here.
+
+## Evidence and capability/gap matrix
+
+The source revision for the released browser customization demo is the exact v2.4.0 tag commit `b82b8eef56ba304ceb54a2fc340de0168f3ebbb3`, verified from the repository tag. Links below pin to that revision unless otherwise noted.
+
+| Capability / evidence | What the source establishes | Gap, dependency and disposition |
+| --- | --- | --- |
+| **Five-editor browser editor** — [source App](https://github.com/mirichard/pm-tools-templates/blob/b82b8eef56ba304ceb54a2fc340de0168f3ebbb3/demos/288-template-customization/src/ui/App.tsx), [picker](https://github.com/mirichard/pm-tools-templates/blob/b82b8eef56ba304ceb54a2fc340de0168f3ebbb3/demos/288-template-customization/src/ui/TemplatePicker.tsx), [schemas/rendering](https://github.com/mirichard/pm-tools-templates/tree/b82b8eef56ba304ceb54a2fc340de0168f3ebbb3/demos/288-template-customization/src) | Project Charter, Risk, Stakeholder, Sprint and Executive editors; schema validation, required-field completion percentage and live Markdown preview. | **Retain** the reusable editor, but support only one selected template in this journey. The exact user-facing route and the handoff contract from #104 remain undefined. |
+| **Save, reload and download** — [toolbar](https://github.com/mirichard/pm-tools-templates/blob/b82b8eef56ba304ceb54a2fc340de0168f3ebbb3/demos/288-template-customization/src/ui/Toolbar.tsx), [demo guidance](https://github.com/mirichard/pm-tools-templates/blob/b82b8eef56ba304ceb54a2fc340de0168f3ebbb3/demos/288-template-customization/README.md), [acceptance record](https://github.com/mirichard/pm-tools-templates/blob/b82b8eef56ba304ceb54a2fc340de0168f3ebbb3/demos/288-template-customization/ACCEPTANCE.md) | Explicitly named versions are kept in browser-local storage; user can reload and restore a saved version. Incomplete/invalid exports are labeled `DRAFT`. Storage errors retain the current draft and provide recovery guidance. Drafts are retained per template during the current visit. | **Retain** these editor capabilities and explain that local versions are not account/server backups. **Revise** tutorial progress separately: the editor's saved versions are not an onboarding stepper or tutorial-resume feature. Exit warnings are best effort; do not promise durable unsaved drafts. |
+| **Released verification** — [v2.4.0 release](https://github.com/mirichard/pm-tools-templates/releases/tag/v2.4.0), [#1381](https://github.com/mirichard/pm-tools-templates/pull/1381), [tagged acceptance record](https://github.com/mirichard/pm-tools-templates/blob/b82b8eef56ba304ceb54a2fc340de0168f3ebbb3/demos/288-template-customization/ACCEPTANCE.md) | Release notes say browser customization preserves drafts and supports the verified five-editor save/download workflow. The tagged record reports 25 Chromium tests, including all-editor download-content checks, reload/restore, error handling, keyboard and narrow-layout cases. | **Retain** as v2.4 evidence. It is not a tutorial timing study, a screen-reader/iPad acceptance, or a claim that the first-use path passed human UAT. Do not repeat #1482 for planning. |
+| **Getting-started guidance and canonical simple charter** — [getting-started guide](https://github.com/mirichard/pm-tools-templates/blob/b82b8eef56ba304ceb54a2fc340de0168f3ebbb3/docs/getting-started/README.md), [starter kit](https://github.com/mirichard/pm-tools-templates/tree/b82b8eef56ba304ceb54a2fc340de0168f3ebbb3/quick-start-kits/first-time-pm-starter) | The guide recommends a short first draft: project name, one sentence describing the work, one sentence explaining why, save, and leave unknowns for follow-up. It explicitly says the goal is not a complete or approved charter. | **Retain** this useful-draft boundary. **Revise** only the interactive path and explicit selection handoff; avoid requiring the full charter or all fields in the starter-kit document. |
+| **Legacy interactive onboarding CLI** — [script](https://github.com/mirichard/pm-tools-templates/blob/b82b8eef56ba304ceb54a2fc340de0168f3ebbb3/onboarding/interactive-onboarding.js), [README](https://github.com/mirichard/pm-tools-templates/blob/b82b8eef56ba304ceb54a2fc340de0168f3ebbb3/onboarding/README.md), [index](https://github.com/mirichard/pm-tools-templates/blob/b82b8eef56ba304ceb54a2fc340de0168f3ebbb3/onboarding/template-index.json), [small selection wizard](https://github.com/mirichard/pm-tools-templates/blob/b82b8eef56ba304ceb54a2fc340de0168f3ebbb3/onboarding/template-selection-wizard.js) | The main CLI collects multiple profile answers and can create a project structure; the smaller wizard recommends catalog entries. The main script declares progress and metric fields, but the inspected source only initializes them; it does not demonstrate a visual, persisted stepper. The index lists 25 entries and estimates 30 minutes for “Project Charter (Simple).” | **Defer** the multi-answer CLI/setup flow as the tutorial implementation. Its broad recommendation and analytics claims are documentation/source claims, not validated tutorial outcomes. Reuse at most concise selection language. The 30-minute estimate concerns template work, not the proposed guided-session clock; owner must confirm the under-ten-minute scope. |
+| **Other editor copy / generated output** — [`web-mvp/src`](https://github.com/mirichard/pm-tools-templates/tree/b82b8eef56ba304ceb54a2fc340de0168f3ebbb3/web-mvp/src), [`web-mvp/dist`](https://github.com/mirichard/pm-tools-templates/tree/b82b8eef56ba304ceb54a2fc340de0168f3ebbb3/web-mvp/dist) | A separate tracked editor source and generated bundle are also present. The v2.4 release's acceptance record specifically identifies `demos/288-template-customization`, not the separate `demo/288` implementation. | **Defer** selecting the second copy as the tutorial route unless the owner confirms it is the maintained/deployed entry point. Use source files, not generated bundles, for implementation evidence. |
+| **Worked examples** — [completed software-charter example](https://github.com/mirichard/pm-tools-templates/blob/b82b8eef56ba304ceb54a2fc340de0168f3ebbb3/examples/completed-templates/project-charter-software-example.md), [simple charter](https://github.com/mirichard/pm-tools-templates/blob/b82b8eef56ba304ceb54a2fc340de0168f3ebbb3/quick-start-kits/first-time-pm-starter/project-charter-simple.md) | The completed example demonstrates a full charter structure, measurable objectives, scope, risks and next steps. It includes named people, contact details and precise company/project figures. | **Retain** structure as a reference only; do not copy those particulars into the tutorial or claim the existing example has been cleared as sanitized. Use the synthetic fixture below, with no real people, contact data or sensitive project inputs. |
+| **Related search and scope** — [#104](https://github.com/mirichard/pm-tools-templates/issues/104), [#1556](https://github.com/mirichard/pm-tools-templates/issues/1556), [plan](https://github.com/mirichard/pm-tools-templates/blob/main/research/v2.5-discovery-plan.md) | #104 is the selected Sprint 4 search refinement; #103 is the Sprint 5 first-template candidate. #1556 says detailed implementation scope/capacity remain provisional and that the #104/#103 boundary needs refinement. | **Revise/sequence**: #1561 must define a stable, single-template handoff (selected template identity and destination) with #104. Do not make all-document search, analytics, all ten templates, or parent #284 acceptance a prerequisite. |
+| **Accepted walkthrough** — [#1482](https://github.com/mirichard/pm-tools-templates/issues/1482), [#1497](https://github.com/mirichard/pm-tools-templates/pull/1497) | #1482 is closed with its contributor/maintainer validation criteria checked. Its walkthrough covered receipt, conversion/review, iPad/browser and keyboard use, synthetic-data safety, and recovery in a different intake journey. | **Retain** its accepted status and boundaries; **defer** applying its results as proof of tutorial usability. No repeat walkthrough is required solely for this research. |
+
+### One supported journey and state contract (proposal)
+
+1. **Select:** From the agreed #104 result/entry point, choose **Project Charter** for a small first project. Provide a clear alternative link to the simple charter guidance. Do not present a multi-template bundle.
+2. **Complete:** Explain that the aim is a useful draft. Enter the three required editor fields (project name, purpose, scope); optional success criteria may be left blank. Keep the current editor's validation and completion indicator visible.
+3. **Review:** Preview the generated Markdown. Explain that `DRAFT` means required information is missing/invalid and that a downloaded document is not approval.
+4. **Download and use:** Download Markdown, open the file, locate the entered purpose/scope, and identify the documented next action. A button click alone is not evidence that the file was saved or used.
+
+**Progress/reload proposal:** Use a visible, keyboard-operable linear step indicator with current/completed states. Persist only the selected template and tutorial step in tab-scoped session state; do not silently persist form content or send usage events. After reload, offer **Resume** or **Restart** from the saved step. The editor's explicit **Save Version** remains the way to keep form data locally across reload; disclose its browser/site-origin scope and provide a reset/clear path. Unsaved editor work can be lost on reload, and existing browser-exit warnings are best effort. This storage boundary needs owner approval before implementation.
+
+**Error/recovery fixtures:** (a) blank required fields show associated validation and cannot be described as a completed/approved charter; an incomplete download remains explicitly `DRAFT`; (b) changing template does not silently discard unsaved work; (c) malformed or unavailable saved-version storage retains the current draft and exposes recovery/retry; (d) a blocked/failed download is recorded as incomplete, with a retry/help path; (e) reload with no session step starts at Welcome, while an available step offers Resume/Restart; (f) reset clears only tutorial state unless the user separately confirms clearing saved editor versions.
+
+## Labeled synthetic fixture and validation plan
+
+**Synthetic example — proposed, not executed or user-validated**
+
+| Field | Fictional value |
+| --- | --- |
+| Template | Project Charter |
+| Project name | Community Tool-Library Booking Pilot |
+| Purpose | Let residents check availability and reserve shared tools without coordinating each request by email. |
+| Scope | A four-week pilot for a fictional volunteer-run tool library; list 20 reusable items and support reservation requests. Exclude payment processing and collection of resident personal data in this tutorial fixture. |
+| Optional success criterion | During the fictional pilot, every listed item has an availability state and a reservation request can be recorded. This is a proposed objective, not an observed result. |
+
+This example contains no real organization, person, email, address, original file, or actual project outcome. The app's required schema fields are `projectName`, `purpose`, and `scope` at the cited v2.4 source revision. The example is a test fixture only, not a template approval or a claim that three fields constitute a complete project charter.
+
+**Proposed under-ten-minute protocol (not run):**
+
+- Recruit/authorize a small formative group of first-time PMs with no prior use of this editor; do not treat a small formative sample as evidence for population percentages. Define a statistically suitable sample only after the owner sets the decision threshold, confidence/precision and eligible-user denominator.
+- Start the clock when the first tutorial screen is available. Include selection, reading, entry, preview, download and opening/identifying the artifact's next action; record facilitator help and interruptions separately, but do not subtract ordinary task time. Stop only when the participant has opened the downloaded file and identified the draft's purpose/scope and next action, or at 10 minutes/failure.
+- Record outcome per participant: completed under 10 minutes (yes/no), time, assistance, validation/recovery errors, download file/content verified (yes/no), basic-use check (yes/no), and separately consented feedback. No results exist yet. Do not add analytics or outreach through this report.
+- Run a scripted non-user check of empty/invalid fields, download content and draft labeling, explicit save/reload/restore, template-switch protection, storage failure, Resume/Restart and Reset. Then perform human keyboard/mobile acceptance.
+
+**Mobile/accessibility fixture (proposed):** Exercise 320×640 and 390×844 CSS-pixel viewports, portrait and landscape, browser zoom, and no horizontal page overflow. Complete all steps by keyboard (Tab/Shift+Tab, arrow/Space for template choice, Enter for actions); verify visible focus, meaningful labels, announced step changes and errors, logical focus order, and a way to return to the current editor preview. The tagged v2.4 acceptance evidence covers Chromium keyboard/narrow-layout checks but explicitly does not claim iPad/Safari or screen-reader acceptance. These proposed checks are not a WCAG conformance claim.
+
+**Evidence status:** Source/tag, release notes, and issue/PR records were inspected; this report did not run the application, repeat #1482, conduct a user test, test a real mobile device, or validate any outcome percentage. Attempted retrieval of the W3C WCAG 2.2 primary page was blocked by the research runtime's DNS/network access; no external accessibility-method claim is used here. The concrete fixtures above are proposals based on the maintained editor and its tagged acceptance record.
+
+## Original criteria and outcome-target disposition
+
+No value below is a measured result. “Retain” preserves a criterion for later decision; “revise” means clarify its measurement definition, not silently lower the numerical target; “defer” means no measurement is authorized or feasible in this research.
+
+| Original criterion/target | Disposition for the selected journey |
+| --- | --- |
+| Tutorial in **under 10 minutes** | **Retain; revise the boundary** to the timed select → required-field draft → preview → downloaded file opened/basic-use check above. The existing 30-minute catalog estimate is for completing template work, not evidence that this guided test takes under 10 minutes. |
+| Covers **selection, download and basic usage** | **Retain** as the observable end-to-end task. Require the file/content check and one basic-use check, not merely a download-button click. |
+| **Interactive step-by-step guidance** | **Retain; revise** to the single linear Project Charter journey. The old CLI questionnaire is not evidence of an implemented browser tutorial. |
+| **Visual progress tracking** | **Retain; revise** to a visible current/completed step indicator plus the proposed session-state Resume/Restart/Reset behavior. Owner must approve whether tutorial step state is sufficient progress tracking. |
+| Mobile-responsive design | **Retain** with the proposed viewport/orientation fixture. Human mobile acceptance remains open. |
+| **90%+ satisfaction** (DoD) | **Retain, unmeasured; definition required.** Clarify whether this means a proportion above a satisfaction threshold or an average rating; keep it separate from the 4.5+ feedback score. Require a defined question, eligible/responding denominator, sample and window. |
+| **70% reduction in first-visit abandonment** | **Retain as a historical target; defer measurement** pending an agreed comparable baseline, abandonment event/denominator, time window, and explicit telemetry/privacy approval. No telemetry is authorized here. |
+| **90% tutorial completion rate** | **Retain, unmeasured; revise the event definition** to a started tutorial with the defined download-and-basic-use completion event. Set denominator, time window and sample method before measurement; do not infer completion from page visits. |
+| **80% download and use a template in the first session** | **Retain, unmeasured; define “use”** as opening the downloaded artifact and completing the specified basic-use check; define first-session boundaries and cohort. A moderated fixture can check this behavior but cannot establish a population adoption rate. |
+| **Feedback score 4.5+** | **Retain, unmeasured; define** scale, aggregation (for example mean vs another statistic), response denominator, sample and window. Feedback collection/outreach requires separate authorization. |
+
+## Reuse package — no duplicate delivery issues
+
+The existing work packages already cover this story; this report creates no candidate issue.
+
+### #1561 — tutorial and acceptance definition
+
+- **Outcome:** An approved, testable definition for one first-time PM selecting, completing and downloading one supported template.
+- **Reuse/scope:** Map the v2.4 demo, legacy onboarding assets and starter examples; choose the entry point; settle selection-to-editor handoff, three-field example, step/progress and reload/reset policy, error cases, under-ten-minute protocol, keyboard/mobile fixtures and each target disposition.
+- **Exclude:** Production implementation, ten-template coverage, broader #284 acceptance, telemetry activation, participant outreach, live integrations and release publication.
+- **Validation:** Confirm every proposed test maps to source behavior or a clearly new behavior; record missing owners/approvals and revised estimate. The existing estimate of 1–2 focused person-days is provisional, not validated velocity or a commitment.
+- **Dependencies/gaps:** #104 must supply or agree the single-template selection/handoff contract. Owner must decide local step-state policy and metric definitions; capacity remains provisional.
+
+### #1562 — guided journey implementation and validation
+
+- **Outcome:** Implement the owner-approved guided journey using existing v2.4 editor/download behavior rather than rebuilding it.
+- **Scope/acceptance proposal:** One selected editor journey; stepper and agreed Resume/Restart/Reset; safe, reviewed synthetic fixture; form validation, draft labeling, download-content verification; changed-behavior checks for mobile/keyboard, reload and error recovery; user guidance updated. Preserve #1482 and its acceptance.
+- **Exclude:** All ten templates, analytics/telemetry, collecting restricted/original files, broad #284 scope, AI restoration, publication or user-outcome claims without approved evidence.
+- **Validation:** Existing automated checks plus targeted tests for changed behavior; a timed first-time-user protocol and later owner-authorized human acceptance. Automated accessibility findings do not substitute for assistive-technology/human review.
+- **Dependencies/gaps:** Approved #1561 definition, #104 interface contract, named implementation/acceptance owners and confirmed capacity. Existing planning estimate of 5–8 focused person-days is provisional and must be re-estimated after definition.
+
+Related work to coordinate rather than duplicate: [#104 research PR #1583](https://github.com/mirichard/pm-tools-templates/pull/1583), [parent #284 research PR #1585](https://github.com/mirichard/pm-tools-templates/pull/1585), [portfolio task #1566/PR #1597](https://github.com/mirichard/pm-tools-templates/pull/1597), and this issue's focused [PR #1582](https://github.com/mirichard/pm-tools-templates/pull/1582). The sibling reports are active research, not yet accepted findings.
+
+## Promotion criteria
+
+- **Backlog-ready:** The report is linked to #103/#1561; maintained source and accepted evidence are distinguished from claims; one bounded user outcome and exclusions are recorded; a synthetic fixture, error/mobile/accessibility cases, dependencies, all target dispositions and unresolved measurement/owner gaps are visible. This report supplies research input, not owner approval.
+- **Sprint-ready:** #1561 resolves the editor/entry-point contract with #104, owner selects the progress/reload and measurement boundaries, observable acceptance and validation are agreed, dependencies are sequenced, delivery owner and estimate are confirmed, and capacity is checked against the three-week plan. Unsatisfied criteria remain open rather than waived.
+- **Owner-selected:** Michael Richard explicitly selects the leaf work for a sprint after capacity review and confirms acceptance decisions. The milestone/candidate direction and a research PR do not themselves establish selection, delivery acceptance, telemetry approval or release authorization.
+
+## Four-point owner brief
+
+- **Recommended next step:** Complete #1561 using this evidence, then obtain owner decisions before #1562 implementation.
+- **Research completed:** Inventoried the v2.4 editor, CLI/tutorial, examples, release evidence, #104 dependency, #1482 boundary and all original targets.
+- **Remaining gaps:** Search handoff, persistence choice, metric definitions/approval, capacity and human timing/accessibility evidence.
+- **Owner decision required:** Confirm the one-template route, whether session-only step persistence is acceptable, and which original outcomes can be measured under an approved plan.
