@@ -64,12 +64,12 @@ The issue’s 95% response, 70% reduction in PM intervention, extraction accurac
 
 **Title:** Define and validate the minimal workstream-update schema and source contract
 
-- **User outcome:** A PM can obtain comparable, manually sourced updates for a named workstream/reporting period, with an explicit incomplete/unknown state and enough provenance for review; downstream work can validate the record before integration.
+- **User outcome:** A PM’s manually supplied update can be represented as a comparable, versioned record for a named workstream/reporting period, with an explicit incomplete/unknown state and enough provenance for review; downstream work can validate it before integration.
 - **Scope:** Define one versioned manual-source record contract and synthetic examples; agree required/optional/unknown fields; specify provenance and duplicate/conflict rules; record how `as_of` and missing/stale state are represented; map the contract assumptions to #366/#367 evidence before any integration.
 - **Exclusions:** Intake UI, language extraction, Slack/Teams/email/GitHub/Jira ingestion, prompts/reminders, escalation notifications, risk/sentiment prediction, analytics, project timeline synchronization, external/internal summaries, telemetry and production or sensitive-source data.
 - **Observable acceptance criteria (proposed):**
   1. Owner-approved schema distinguishes required, optional and unknown fields and includes workstream, reporting period, `as_of`, submission time, submitter/source type and contract version.
-  2. A manual-only synthetic example validates against the selected JSON Schema draft; missing required values remain incomplete/unknown and are never inferred as zero or “on track.”
+  2. A manual-only synthetic example validates against JSON Schema Draft 7; missing required values remain incomplete/unknown and are never inferred as zero or “on track.”
   3. The contract documents the duplicate key, conflict preservation/reconciliation, and how staleness is represented; its stale threshold and resolution authority are owner-approved rather than guessed.
   4. A source/dependency note identifies the exact #366 input-contract artifact and records which #367 assumptions/findings are reused; unavailable evidence remains an explicit open dependency before integration.
   5. Owner-approved source-use, notice/consent and retention/deletion boundaries are documented before any real content is processed; the schema/examples use only synthetic data.
@@ -81,10 +81,10 @@ The issue’s 95% response, 70% reduction in PM intervention, extraction accurac
 ## Promotion criteria and current gaps
 
 - **Backlog-ready candidate:** problem/user evidence; one bounded outcome and exclusions; existing-asset inventory; feasible option; acceptance and validation; dependencies/risks; estimate assumptions; linked evidence; recorded owner disposition. This report prepares the decision but does not establish user validation or promote the epic.
-- **Sprint-ready:** a leaf-sized selected issue, named accountable owner, chosen app/data surface, resolved or explicitly sequenced dependencies, observable acceptance and test method, refined estimate, and recorded owner readiness decision. Sprint selection also needs a sprint goal and confirmed capacity after research allocation, per #1566.
+- **Sprint-ready:** a leaf-sized selected issue, named accountable owner, chosen contract scope and available validation method, resolved or explicitly sequenced dependencies, observable acceptance and test method, refined estimate, and recorded owner readiness decision. An application/data surface is required before integration work, not assumed for this schema-first candidate. Sprint selection also needs a sprint goal and confirmed capacity after research allocation, per #1566.
 - **Owner-selected:** Michael explicitly chooses the candidate for a sprint after readiness and capacity review. A research PR, checklist, issue assignment or report does not make that choice.
 
-**Missing prerequisites:** actual user/problem validation; owner-approved field and status contract; consent/source/retention decision; stale threshold and conflict authority; application/data owner; dependency sequencing; refined estimate and confirmed capacity. No project stage, priority, milestone or sprint commitment was changed.
+**Missing prerequisites:** actual user/problem validation; owner-approved field and status contract; consent/source/retention decision; stale threshold and conflict authority; exact #366/#367 evidence; validator/tooling choice; dependency sequencing; refined estimate and confirmed capacity. An application/data owner is needed before integration work. No project stage, priority, milestone or sprint commitment was changed.
 
 ## Exact proposed updates (not posted)
 
@@ -92,9 +92,11 @@ Direct issue-comment and Project 13 write operations were unavailable through th
 
 **Proposed issue comment**
 
-> Research is recorded in [PR #1600](https://github.com/mirichard/pm-tools-templates/pull/1600) and `research/issue-368-discovery.md`. Recommendation: consider a manual-only structured update record as the first bounded candidate; defer language extraction, channel bots (#376) and reminders/escalation (#377) pending explicit owner decisions. Existing repository assets are reporting templates, not a validated collector. No live collection, outreach, stage change, delivery commitment or acceptance is claimed. Michael: please decide whether to promote the candidate and confirm required fields, source/privacy/retention rules, stale threshold, conflict owner and first app surface. #1482 remains accepted; #1379 source sufficiency remains unchanged.
+> Research is recorded in [PR #1600](https://github.com/mirichard/pm-tools-templates/pull/1600) and `research/issue-368-discovery.md`. Recommendation: consider a manual-only structured update contract as the first bounded candidate; defer language extraction, channel bots (#376) and reminders/escalation (#377) pending explicit owner decisions. Existing repository assets are reporting templates, not a validated collector. No live collection, outreach, stage change, delivery commitment or acceptance is claimed. Michael: please decide whether to promote the candidate and confirm required fields, source/privacy/retention rules, stale threshold and conflict owner. #1482 remains accepted; #1379 source sufficiency remains unchanged.
 
-**Proposed Project 13 next-action text only (no stage/priority change):** “Review #368 discovery packet; decide whether to promote the manual-only update-record candidate. Resolve field contract, source/retention and consent boundary, stale/conflict policy, application owner, dependencies and estimate before any sprint-readiness decision.” Project 13 state was not independently read in this research; verify its current value before applying this text.
+**Proposed non-closing PR description replacement (not applied):** “Research report: `research/issue-368-discovery.md`. Recommendation: consider a manual-only structured update contract; defer language extraction, channel bots (#376) and reminders/escalation (#377). Related research: #1566 / PR #1597, #367 / PR #1599, #376 / PR #1608, #377 / PR #1609. **Refs #368.** Research only; no delivery or owner acceptance is implied.” The current draft PR body still has an automatically supplied `Fixes #368` footer. Direct PR editing is unavailable in this session; replace that footer with the text above before merge so the issue is not closed by the PR.
+
+**Proposed Project 13 next-action text only (no stage/priority change):** “Review #368 discovery packet; decide whether to promote the manual-only update-contract candidate. Resolve field contract, source/retention and consent boundary, stale/conflict policy, dependencies, validator/tooling and estimate before any sprint-readiness decision; select an application/data surface before integration work.” Project 13 state was not independently read in this research; verify its current value before applying this text.
 
 ## Four-point owner decision brief
 
