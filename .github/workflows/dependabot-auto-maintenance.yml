@@ -23,7 +23,7 @@ jobs:
 
             async function listDependabotPRs(page = 1) {
               const res = await github.rest.pulls.list({ owner, repo, state: 'open', per_page: 50, page });
-              const prs = res.data.filter(pr => pr.user && (pr.user.login === 'dependabot[bot]' || pr.user.type === 'Bot'));
+              const prs = res.data.filter(pr => pr.user && pr.user.login === 'dependabot[bot]');
               if (res.data.length === 50) {
                 return prs.concat(await listDependabotPRs(page + 1));
               }

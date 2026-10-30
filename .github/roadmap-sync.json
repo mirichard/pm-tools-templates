@@ -3,7 +3,7 @@
   "projectOwner": "mirichard",
   "roadmapProject": 11,
   "sprintProject": 12,
-  "branch": "automation/roadmap-status-v2",
+  "branch": "automation/roadmap-status-v3",
   "defaultBranch": "main",
   "retainedIssues": [75, 78, 1367, 1383]
 }
