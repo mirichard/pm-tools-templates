@@ -2,11 +2,11 @@
 
 Generated; do not edit by hand. [Policy](../docs/roadmap-sync.md) · [Decision register](roadmap-alignment.md).
 
-Snapshot updated at: 2026-10-30T16:56:17.070Z (UTC).
+Snapshot updated at: 2026-10-30T16:56:55.947Z (UTC).
 
 [Latest synchronization checks](https://github.com/mirichard/pm-tools-templates/actions/workflows/roadmap-sync.yml) — includes successful checks with no data changes. A check does not publish to main until its PR is merged.
 
-Snapshot fingerprint: `97751160439404505b67f911b60eda77d6376f8436145913aa5810e3c3b4e602`. Values are copied from issues and Projects, not inferred acceptance or release claims.
+Snapshot fingerprint: `da30aa7090903a5bfdf0d92302cc2b5b7b7eaabf5b65074742b7eaefb725e48a`. Values are copied from issues and Projects, not inferred acceptance or release claims.
 
 ## Drift requiring review
 
@@ -109,5 +109,5 @@ Snapshot fingerprint: `97751160439404505b67f911b60eda77d6376f8436145913aa5810e3c
 | [#1560](https://github.com/mirichard/pm-tools-templates/issues/1560) — Task: Implement and validate unified documentation and template search | Open | Standalone | — | — | Todo |  | — | [v2.5.0 — Find and apply a template](https://github.com/mirichard/pm-tools-templates/milestone/38) |
 | [#1561](https://github.com/mirichard/pm-tools-templates/issues/1561) — Task: Define first-use tutorial, progress behavior and acceptance measures | Open | Standalone | — | — | Todo |  | — | [v2.5.0 — Find and apply a template](https://github.com/mirichard/pm-tools-templates/milestone/38) |
 | [#1562](https://github.com/mirichard/pm-tools-templates/issues/1562) — Task: Implement and validate the guided first-template journey | Open | Standalone | — | — | Todo |  | — | [v2.5.0 — Find and apply a template](https://github.com/mirichard/pm-tools-templates/milestone/38) |
-| [#1563](https://github.com/mirichard/pm-tools-templates/issues/1563) — Task: Validate v2.5 combined journey and resolve release defects | Open | Standalone | — | — | Todo |  | — | [v2.5.0 — Find and apply a template](https://github.com/mirichard/pm-tools-templates/milestone/38) |
+| [#1563](https://github.com/mirichard/pm-tools-templates/issues/1563) — Task: Validate v2.5 combined journey and resolve release defects | Open | Standalone | — | — | Todo | Sprint 6 | Todo | [v2.5.0 — Find and apply a template](https://github.com/mirichard/pm-tools-templates/milestone/38) |
 | [#1564](https://github.com/mirichard/pm-tools-templates/issues/1564) — Task: Prepare v2.5 release notes, checks and approval package | Open | Standalone | — | — | Todo |  | — | [v2.5.0 — Find and apply a template](https://github.com/mirichard/pm-tools-templates/milestone/38) |

@@ -108,11 +108,11 @@ Legacy recovery remains documented under [#1329](https://github.com/mirichard/pm
 The editorial date above applies to human-reviewed narrative. Snapshot capture time is maintained separately by synchronization; older snapshots without a recorded time gain one on the next reconciliation. [Latest synchronization checks](https://github.com/mirichard/pm-tools-templates/actions/workflows/roadmap-sync.yml) show run times and outcomes, including checks that found no changes.
 
 <!-- roadmap-sync:start -->
-Snapshot updated at: 2026-10-30T16:56:17.070Z (UTC).
+Snapshot updated at: 2026-10-30T16:56:55.947Z (UTC).
 
 [Latest synchronization checks](https://github.com/mirichard/pm-tools-templates/actions/workflows/roadmap-sync.yml) — includes successful checks with no data changes. A check does not publish to main until its PR is merged.
 
-Snapshot fingerprint: `97751160439404505b67f911b60eda77d6376f8436145913aa5810e3c3b4e602`. Values are copied from issues and Projects, not inferred acceptance or release claims.
+Snapshot fingerprint: `da30aa7090903a5bfdf0d92302cc2b5b7b7eaabf5b65074742b7eaefb725e48a`. Values are copied from issues and Projects, not inferred acceptance or release claims.
 
 | Sprint | Issue | Issue state | Board status | Release milestone |
 | --- | --- | --- | --- | --- |
@@ -127,6 +127,7 @@ Snapshot fingerprint: `97751160439404505b67f911b60eda77d6376f8436145913aa5810e3c
 | Sprint 1 | [#1384](https://github.com/mirichard/pm-tools-templates/issues/1384) — Story: Keep repository roadmap documentation and planning views synchronized | Closed (completed) | Done | [v2.4.0 — Now Epics Sprints 1–3](https://github.com/mirichard/pm-tools-templates/milestone/35) |
 | Sprint 3 | [#1483](https://github.com/mirichard/pm-tools-templates/issues/1483) — Validate reusable-plan imports into Jira and Asana before custom development | Closed (not_planned) | Done | [None](https://github.com/mirichard/pm-tools-templates/milestone/37) |
 | Sprint 6 | [#1556](https://github.com/mirichard/pm-tools-templates/issues/1556) — Task: Plan, validate and release v2.5.0 — Find and apply a template | Open | Todo | [v2.5.0 — Find and apply a template](https://github.com/mirichard/pm-tools-templates/milestone/38) |
+| Sprint 6 | [#1563](https://github.com/mirichard/pm-tools-templates/issues/1563) — Task: Validate v2.5 combined journey and resolve release defects | Open | Todo | [v2.5.0 — Find and apply a template](https://github.com/mirichard/pm-tools-templates/milestone/38) |
 
 [Full status and drift report](backlog/roadmap-status.md). 10 drift flag(s) require review.
 
