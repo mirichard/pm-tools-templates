@@ -2,11 +2,11 @@
 
 Generated; do not edit by hand. [Policy](../docs/roadmap-sync.md) · [Decision register](roadmap-alignment.md).
 
-Snapshot updated at: 2026-10-30T20:07:31.421Z (UTC).
+Snapshot updated at: 2026-10-30T20:09:00.700Z (UTC).
 
 [Latest synchronization checks](https://github.com/mirichard/pm-tools-templates/actions/workflows/roadmap-sync.yml) — includes successful checks with no data changes. A check does not publish to main until its PR is merged.
 
-Snapshot fingerprint: `5711404b43f4da4abd83f99c0ad0b0c2d8f2dd65410c47cd4d17756384e038cd`. Values are copied from issues and Projects, not inferred acceptance or release claims.
+Snapshot fingerprint: `2f5d802cea299e18aad9fa0e3e090fde08d252a2ead44f1b51725fdb28ea6833`. Values are copied from issues and Projects, not inferred acceptance or release claims.
 
 ## Drift requiring review
 
@@ -75,7 +75,7 @@ Snapshot fingerprint: `5711404b43f4da4abd83f99c0ad0b0c2d8f2dd65410c47cd4d1775638
 | [#385](https://github.com/mirichard/pm-tools-templates/issues/385) — Task: &#91;#290&#93; OAuth 2.0 for Jira/Asana with Secure Token Management | Closed (not_planned) | [#290](https://github.com/mirichard/pm-tools-templates/issues/290) | O3 - Use supported integrations | Later | Done |  | Done | — |
 | [#386](https://github.com/mirichard/pm-tools-templates/issues/386) — Task: &#91;#290&#93; Field Mapping + Delta Sync (Jira/Asana) with Idempotency | Closed (not_planned) | [#290](https://github.com/mirichard/pm-tools-templates/issues/290) | O3 - Use supported integrations | Later | Done |  | Done | — |
 | [#523](https://github.com/mirichard/pm-tools-templates/issues/523) — EPIC: AI Data Science Enhancements - Phase 2 | Open | Standalone | O7 - Use trustworthy AI insights | Later | In Progress |  | — | — |
-| [#1159](https://github.com/mirichard/pm-tools-templates/issues/1159) — &#91;Research candidate&#93;&#91;Requirements&#93; Bidirectional consistency and process-state validation | Open | Standalone | O2 - Apply practical PM guidance | Unscheduled | In Progress |  | — | — |
+| [#1159](https://github.com/mirichard/pm-tools-templates/issues/1159) — &#91;Research candidate&#93;&#91;Requirements&#93; Bidirectional consistency and process-state validation | Closed (not_planned) | Standalone | O2 - Apply practical PM guidance | Unscheduled | Done |  | — | — |
 | [#1160](https://github.com/mirichard/pm-tools-templates/issues/1160) — &#91;v2.5.0&#93; Requirements extraction from elicitation transcripts | Open | Standalone | O2 - Apply practical PM guidance | Unscheduled | In Progress |  | — | [v2.5.0 — Find and apply a template](https://github.com/mirichard/pm-tools-templates/milestone/38) |
 | [#1161](https://github.com/mirichard/pm-tools-templates/issues/1161) — &#91;Research candidate&#93;&#91;Risk&#93; Risk register with deterministic scoring engine | Open | Standalone | O5 - Make traceable value decisions | Unscheduled | In Progress |  | — | — |
 | [#1162](https://github.com/mirichard/pm-tools-templates/issues/1162) — &#91;v2.5.0&#93; Stakeholder register with optional sentiment and stance analysis | Open | Standalone | O7 - Use trustworthy AI insights | Unscheduled | In Progress |  | — | [v2.5.0 — Find and apply a template](https://github.com/mirichard/pm-tools-templates/milestone/38) |
