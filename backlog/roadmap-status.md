@@ -2,11 +2,11 @@
 
 Generated; do not edit by hand. [Policy](../docs/roadmap-sync.md) · [Decision register](roadmap-alignment.md).
 
-Snapshot updated at: 2026-10-28T00:00:01.154Z (UTC).
+Snapshot updated at: 2026-10-30T15:13:58.519Z (UTC).
 
 [Latest synchronization checks](https://github.com/mirichard/pm-tools-templates/actions/workflows/roadmap-sync.yml) — includes successful checks with no data changes. A check does not publish to main until its PR is merged.
 
-Snapshot fingerprint: `414441c9620ea83d0525a36b3ea77651fe42f1f612e221add069563a6979cc4e`. Values are copied from issues and Projects, not inferred acceptance or release claims.
+Snapshot fingerprint: `ef3579d53f96ede8ce037abb38a6adf4793ddd4fa5c4dd1fe412e76b55b44a87`. Values are copied from issues and Projects, not inferred acceptance or release claims.
 
 ## Drift requiring review
 
@@ -28,7 +28,7 @@ Snapshot fingerprint: `414441c9620ea83d0525a36b3ea77651fe42f1f612e221add069563a6
 | [#60](https://github.com/mirichard/pm-tools-templates/issues/60) — Task: Reconcile Zapier guide coverage and validation | Open | [#318](https://github.com/mirichard/pm-tools-templates/issues/318) | O3 - Use supported integrations | Next | Todo | — | — | — |
 | [#61](https://github.com/mirichard/pm-tools-templates/issues/61) — Spike: Define the minimum template connectivity API contract | Closed (not_planned) | [#325](https://github.com/mirichard/pm-tools-templates/issues/325) | O3 - Use supported integrations | Next | Done | — | Done | — |
 | [#62](https://github.com/mirichard/pm-tools-templates/issues/62) — Task: Validate and scope the existing Excel automation starter | Open | [#318](https://github.com/mirichard/pm-tools-templates/issues/318) | O3 - Use supported integrations | Next | Todo | — | — | — |
-| [#63](https://github.com/mirichard/pm-tools-templates/issues/63) — Task: Complete the repository-native template contribution workflow | Open | [#319](https://github.com/mirichard/pm-tools-templates/issues/319) | O4 - Contribute and influence priorities | Next | Todo | — | Todo | — |
+| [#63](https://github.com/mirichard/pm-tools-templates/issues/63) — Task: Complete the repository-native template contribution workflow | Closed (completed) | [#319](https://github.com/mirichard/pm-tools-templates/issues/319) | O4 - Contribute and influence priorities | Next | Done | — | Done | — |
 | [#64](https://github.com/mirichard/pm-tools-templates/issues/64) — Task: Complete industry adaptation guidance against existing templates | Open | Standalone | O2 - Apply practical PM guidance | Later | Todo | — | — | — |
 | [#69](https://github.com/mirichard/pm-tools-templates/issues/69) — Story: Navigation Structure Optimization - Collapsible Template Organization | Open | [#323](https://github.com/mirichard/pm-tools-templates/issues/323) | O1 - Find and customize templates | Later | Todo | — | — | — |
 | [#75](https://github.com/mirichard/pm-tools-templates/issues/75) — Story: Complete the browser-based template customization workflow | Closed (completed) | Standalone | O1 - Find and customize templates | Now | Done | Sprint 1 | Done | [v2.4.0 — Now Epics Sprints 1–3](https://github.com/mirichard/pm-tools-templates/milestone/35) |
@@ -85,7 +85,7 @@ Snapshot fingerprint: `414441c9620ea83d0525a36b3ea77651fe42f1f612e221add069563a6
 | [#1375](https://github.com/mirichard/pm-tools-templates/issues/1375) — Task: Execute AI recovery UAT and record user acceptance evidence | Open | [#1329](https://github.com/mirichard/pm-tools-templates/issues/1329) | O7 - Use trustworthy AI insights | Now | Paused | — | Paused | — |
 | [#1376](https://github.com/mirichard/pm-tools-templates/issues/1376) — Task: Reconcile AI recovery restoration gates and release acceptance | Open | [#1329](https://github.com/mirichard/pm-tools-templates/issues/1329) | O7 - Use trustworthy AI insights | Now | Paused | — | Paused | — |
 | [#1379](https://github.com/mirichard/pm-tools-templates/issues/1379) — &#91;Research candidate&#93;&#91;AI Insights&#93; Establish planning-review value beyond experienced PM judgment | Open | [#523](https://github.com/mirichard/pm-tools-templates/issues/523) | O7 - Use trustworthy AI insights | Unscheduled | Todo | — | — | [AI-assisted PM review — feasibility decision](https://github.com/mirichard/pm-tools-templates/milestone/36) |
-| [#1383](https://github.com/mirichard/pm-tools-templates/issues/1383) — Story: Define community participation and roadmap feedback scope | Open | [#319](https://github.com/mirichard/pm-tools-templates/issues/319) | O4 - Contribute and influence priorities | Unscheduled | Todo | — | Todo | — |
+| [#1383](https://github.com/mirichard/pm-tools-templates/issues/1383) — Story: Define community participation and roadmap feedback scope | Closed (completed) | [#319](https://github.com/mirichard/pm-tools-templates/issues/319) | O4 - Contribute and influence priorities | Unscheduled | Done | — | Done | — |
 | [#1384](https://github.com/mirichard/pm-tools-templates/issues/1384) — Story: Keep repository roadmap documentation and planning views synchronized | Closed (completed) | [#319](https://github.com/mirichard/pm-tools-templates/issues/319) | O4 - Contribute and influence priorities | Now | Done | Sprint 1 | Done | [v2.4.0 — Now Epics Sprints 1–3](https://github.com/mirichard/pm-tools-templates/milestone/35) |
 | [#1393](https://github.com/mirichard/pm-tools-templates/issues/1393) — Task: Validate and publish v2.4.0 release | Open | Standalone | M1 - Maintain repository reliability | Now | In Progress | — | In Progress | [v2.4.0 — Now Epics Sprints 1–3](https://github.com/mirichard/pm-tools-templates/milestone/35) |
 | [#1406](https://github.com/mirichard/pm-tools-templates/issues/1406) — Task: Resolve TypeScript 7 toolchain compatibility blockers | Open | Standalone | M1 - Maintain repository reliability | Unscheduled | Done | — | — | — |
@@ -97,3 +97,4 @@ Snapshot fingerprint: `414441c9620ea83d0525a36b3ea77651fe42f1f612e221add069563a6
 | [#1481](https://github.com/mirichard/pm-tools-templates/issues/1481) — EPIC: Community Participation Enhancements — Discovery and Selected Delivery | Open | Standalone | O4 - Contribute and influence priorities | Later | Todo | — | — | — |
 | [#1482](https://github.com/mirichard/pm-tools-templates/issues/1482) — Validate contributor and maintainer journeys after unit testing and before UAT | Closed (completed) | Standalone | — | — | Done | — | — | — |
 | [#1483](https://github.com/mirichard/pm-tools-templates/issues/1483) — Validate reusable-plan imports into Jira and Asana before custom development | Closed (not_planned) | [#325](https://github.com/mirichard/pm-tools-templates/issues/325) | — | — | Done | Sprint 3 | Done | [None](https://github.com/mirichard/pm-tools-templates/milestone/37) |
+| [#1546](https://github.com/mirichard/pm-tools-templates/issues/1546) — Task: Establish restricted-original intake and handling (deferred beyond v2.4) | Open | Standalone | O4 - Contribute and influence priorities | Later | Todo | — | — | — |
