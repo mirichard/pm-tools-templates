@@ -1,7 +1,6 @@
 # Issue #1298 — AI insights build configuration and remaining test failures
 
-**Research status:** Conditional reuse/readiness package; implementation remains paused.  
-**Decision owner:** Michael Richard.  
+**Research status:** Conditional reuse/readiness package; implementation remains paused. | **Decision owner:** Michael Richard.
 **Scope:** Build/ESM/test/runtime/security evidence for the withdrawn AI Insights app. This report does not authorize implementation, restoration, waiver, or acceptance.
 
 ## Decision brief
