@@ -1,8 +1,8 @@
 # Issue #1379 discovery — remaining case review and study gates
 
-**Prepared:** 2026-10-30  
-**Disposition:** Revise/hold for independent review; preparation only  
-**Accountable owner:** Michael Richard  
+**Prepared:** 2026-10-30
+**Disposition:** Revise/hold for independent review; preparation only
+**Accountable owner:** Michael Richard
 **Research scope:** Continue from the accepted PUB-ALMMSN-01 evidence-sufficiency finding. This report does not select implementation, authorize outreach or execute a comparison.
 
 ## Decision brief
