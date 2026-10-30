@@ -1,7 +1,7 @@
 # Issue #372 — UAT Planning Toolkit discovery
 
-**Research snapshot:** 2026-10-30  
-**Repository source revision:** [`8078fdd24db8e9d274a5922c1db00c051f708663`](https://github.com/mirichard/pm-tools-templates/tree/8078fdd24db8e9d274a5922c1db00c051f708663) (main snapshot); this report is prepared on branch revision `67348f1a7e41068299e5721cbcbc6868f28cc18d`.  
+**Research snapshot:** 2026-10-30
+**Repository source revision:** [`8078fdd24db8e9d274a5922c1db00c051f708663`](https://github.com/mirichard/pm-tools-templates/tree/8078fdd24db8e9d274a5922c1db00c051f708663) (main snapshot); this report is prepared on branch revision `67348f1a7e41068299e5721cbcbc6868f28cc18d`.
 **Decision owner:** Michael Richard. This report is research only; it does not select, schedule, or accept delivery.
 
 ## Decision brief
