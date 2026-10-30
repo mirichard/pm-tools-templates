@@ -1,5 +1,44 @@
 # Epic #319 contributor and maintainer walkthrough
 
+## Accepted validation — October 30, 2026
+
+The repository owner confirmed that the walkthrough **was completed**.
+[PR #1497](https://github.com/mirichard/pm-tools-templates/pull/1497) records the passed walkthrough and
+[#1482](https://github.com/mirichard/pm-tools-templates/issues/1482) is closed as completed with its acceptance criteria checked.
+Preserve that acceptance. Do not rerun the walkthrough merely because the
+historical preparation guide below says it had not yet been performed.
+
+This is completed development validation, performed after relevant unit tests
+and before formal UAT. It does not by itself authorize production publication,
+establish restricted-original controls, or certify a later release candidate.
+Detailed per-journey observations are not reproduced here; do not invent them.
+Use the existing accepted evidence first and validate only genuine gaps or changed behavior.
+
+## Approved v2.4 intake boundary
+
+On October 30, Michael approved already-sanitized files and text-only intake
+for v2.4 and explicitly deferred restricted-original handling to
+[#1546](https://github.com/mirichard/pm-tools-templates/issues/1546). No contributor format conversion is required.
+Unsanitized originals remain on hold. Synthetic fixtures are not approved for
+publication in the production catalog.
+
+The current J1–J6 evidence/disposition matrix is in
+[#319](https://github.com/mirichard/pm-tools-templates/issues/319). Retained content acceptance is coordinated through
+[#63](https://github.com/mirichard/pm-tools-templates/issues/63); request, problem-report, feedback and tracking
+acceptance through [#1383](https://github.com/mirichard/pm-tools-templates/issues/1383).
+Release gates and separate publication approval remain in
+[#1393](https://github.com/mirichard/pm-tools-templates/issues/1393).
+
+<details>
+<summary>Historical walkthrough preparation and scenarios — preserved for reference, not current completion status</summary>
+
+The following records what was prepared before the accepted walkthrough.
+Its “not performed,” “not tested,” and authorization-pending entries are dated
+pre-execution statements, superseded by the owner's completion confirmation above.
+They are not outstanding tasks or an instruction to repeat the walkthrough.
+
+# Epic #319 contributor and maintainer walkthrough
+
 This guide prepares the #1482 walkthrough and owner UAT. It does not claim a
 human walkthrough or acceptance has occurred.
 
@@ -222,3 +261,5 @@ about 5–10 minutes per journey, excluding any maintainer review or waiting.
 The agent has not created public test issues. After an authorized test, keep
 only the evidence needed for traceability. Do not promise erasure from GitHub
 history. No synthetic content is approved for production publication.
+
+</details>
