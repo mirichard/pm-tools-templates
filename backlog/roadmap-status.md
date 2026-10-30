@@ -2,11 +2,11 @@
 
 Generated; do not edit by hand. [Policy](../docs/roadmap-sync.md) · [Decision register](roadmap-alignment.md).
 
-Snapshot updated at: 2026-10-30T19:11:41.606Z (UTC).
+Snapshot updated at: 2026-10-30T20:01:41.743Z (UTC).
 
 [Latest synchronization checks](https://github.com/mirichard/pm-tools-templates/actions/workflows/roadmap-sync.yml) — includes successful checks with no data changes. A check does not publish to main until its PR is merged.
 
-Snapshot fingerprint: `d261a5c0e964bf577bd2a136cd7f75015fc3605eb6baab8196ea5a1c3e41be41`. Values are copied from issues and Projects, not inferred acceptance or release claims.
+Snapshot fingerprint: `3b7b98fb5e91559a4cb8de8d82e12342672b36c4bb94f7b2c78bcbd50caa3ba5`. Values are copied from issues and Projects, not inferred acceptance or release claims.
 
 ## Drift requiring review
 
@@ -78,7 +78,7 @@ Snapshot fingerprint: `d261a5c0e964bf577bd2a136cd7f75015fc3605eb6baab8196ea5a1c3
 | [#1159](https://github.com/mirichard/pm-tools-templates/issues/1159) — &#91;Research candidate&#93;&#91;Requirements&#93; Bidirectional consistency and process-state validation | Open | Standalone | O2 - Apply practical PM guidance | Unscheduled | In Progress |  | — | — |
 | [#1160](https://github.com/mirichard/pm-tools-templates/issues/1160) — &#91;Research candidate&#93;&#91;Requirements&#93; Requirements extraction from elicitation transcripts | Open | Standalone | O2 - Apply practical PM guidance | Unscheduled | In Progress |  | — | — |
 | [#1161](https://github.com/mirichard/pm-tools-templates/issues/1161) — &#91;Research candidate&#93;&#91;Risk&#93; Risk register with deterministic scoring engine | Open | Standalone | O5 - Make traceable value decisions | Unscheduled | In Progress |  | — | — |
-| [#1162](https://github.com/mirichard/pm-tools-templates/issues/1162) — &#91;Research candidate&#93;&#91;Stakeholders&#93; Stakeholder register with sentiment analysis | Open | Standalone | O7 - Use trustworthy AI insights | Unscheduled | In Progress |  | — | — |
+| [#1162](https://github.com/mirichard/pm-tools-templates/issues/1162) — &#91;v2.5.0&#93; Stakeholder register with optional sentiment and stance analysis | Open | Standalone | O7 - Use trustworthy AI insights | Unscheduled | In Progress |  | — | [v2.5.0 — Find and apply a template](https://github.com/mirichard/pm-tools-templates/milestone/38) |
 | [#1293](https://github.com/mirichard/pm-tools-templates/issues/1293) — Bug: AI insights lacks effective lint configuration | Open | [#1329](https://github.com/mirichard/pm-tools-templates/issues/1329) | O7 - Use trustworthy AI insights | Now | In Progress |  | In Progress | — |
 | [#1298](https://github.com/mirichard/pm-tools-templates/issues/1298) — Bug: AI insights build configuration and remaining test failures | Open | [#1329](https://github.com/mirichard/pm-tools-templates/issues/1329) | O7 - Use trustworthy AI insights | Now | In Progress |  | In Progress | — |
 | [#1313](https://github.com/mirichard/pm-tools-templates/issues/1313) — 📊 Template Analytics Report | Open | Standalone | O4 - Contribute and influence priorities | Ongoing | Todo |  | — | — |
