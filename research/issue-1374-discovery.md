@@ -1,7 +1,7 @@
 # Issue #1374 — conditional predictive-evaluation discovery
 
-**Research checkpoint:** October 30, 2026  
-**Disposition:** Deferred; no sprint assignment, acceptance result, or selected predictive capability.  
+**Research checkpoint:** October 30, 2026
+**Disposition:** Deferred; no sprint assignment, acceptance result, or selected predictive capability.
 **Decision owner:** Michael Richard. Independent evaluation reviewer: not assigned.
 
 ## Decision brief
