@@ -34,6 +34,7 @@ test('Done requires issue-specific criteria and revision; preserves accepted wal
 test('new uses creation date; aging excludes deliberate Later and Paused',()=>{
  const s=fixture();s.issues[0].updated_at='2026-10-29';s.issues[1].created_at='2026-10-29';
  for(const [idx,fields] of [[2,{Horizon:'Later'}],[3,{Status:'Paused'}]]){s.issues[idx].updated_at='2025-01-01';s.boards.backlog.push({number:s.issues[idx].number,...fields});}
+ s.issues[4].labels=['type:candidate'];s.issues[4].updated_at='2025-01-01';
  assert.deepEqual(buildReport(s,policy(),now).counts,{new:1,untriaged:0,aging:0});
 });
 test('capacity unknown is not commitment; mismatched calendar and double assignment are visible',()=>{
