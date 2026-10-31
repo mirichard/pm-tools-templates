@@ -59,6 +59,7 @@
   },
   "homepage": "https://github.com/mirichard/pm-tools-templates/tree/main/workflow-orchestration",
   "overrides": {
-    "deepmerge": "4.1.1"
+    "deepmerge": "4.1.1",
+    "minimatch": "11.0.1"
   }
 }

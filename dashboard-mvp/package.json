@@ -43,6 +43,7 @@
     "typescript": "^6"
   },
   "overrides": {
-    "deepmerge": "4.1.1"
+    "deepmerge": "4.1.1",
+    "minimatch": "11.0.1"
   }
 }
