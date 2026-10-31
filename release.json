@@ -1,10 +1,10 @@
 {
   "current": {
-    "version": "2.3.0",
-    "tag": "vNext",
-    "commit": "febdf847cd8842fd3929973360b14d27b4513b81",
-    "title": "Value Delivery System Upgrade"
+    "version": "2.4.0",
+    "tag": "v2.4.0",
+    "commit": "b82b8eef56ba304ceb54a2fc340de0168f3ebbb3",
+    "title": "Template workflows, community intake and delivery reliability"
   },
-  "nextVersion": "2.4.0",
+  "nextVersion": "2.5.0",
   "legacyDraftTag": "v0.0.1"
 }

@@ -2,6 +2,14 @@
 
 Published releases and historical tags use several numbering schemes. See [release numbering and history](docs/release-versioning.md) for their scope and chronology; component versions are independent of repository versions. Earlier dated entries below are retained as historical change records.
 
+## v2.4.0 — 10/30/2026
+
+- Published browser customization/draft recovery, Design Thinking and Lean Startup kit improvements, and the accepted community contribution/feedback journeys.
+- Intake supports already-sanitized files and text only. Restricted-original handling is explicitly deferred to #1546; the completed #1482 walkthrough remains accepted.
+- Includes dependency/security fixes, stronger delivery checks, reporting repairs, and isolated Dependabot maintenance with recovered roadmap synchronization.
+- Release commit: `b82b8eef56ba304ceb54a2fc340de0168f3ebbb3`. [Release notes and downloads](https://github.com/mirichard/pm-tools-templates/releases/tag/v2.4.0) · [Acceptance and verification](https://github.com/mirichard/pm-tools-templates/issues/1393).
+- AI insights remains withdrawn/unsupported; the existing narrow development-dependency exception and documented coverage gaps remain disclosed in the release notes.
+
 ## v2.3.0 (originally vNext) — 09/21/2026
 
 - Numeric identity assigned during the 09/24/2026 version reconciliation; the release workflow preserves the original snapshot and publication date.

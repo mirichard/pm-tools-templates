@@ -1,0 +1,25 @@
+name: Planning automation regression tests
+on:
+  pull_request:
+    paths:
+      - 'scripts/planning-automation.cjs'
+      - 'scripts/roadmap-sync.cjs'
+      - 'tests/planning-automation.test.cjs'
+      - '.github/planning-policy.json'
+      - '.github/workflows/planning-*.yml'
+      - '.github/workflows/sprint-management.yml'
+      - '.github/workflows/weekly-triage-automation.yml'
+      - '.github/workflows/verify-completion-claims.yml'
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: '24'
+      - run: node --test tests/planning-automation.test.cjs tests/roadmap-sync.test.cjs tests/weekly-triage.test.cjs

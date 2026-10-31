@@ -1,6 +1,6 @@
 # Roadmap
 
-**Editorial review date:** 09/26/2026
+**Editorial review date:** 10/30/2026
 
 This roadmap summarizes released capabilities, outstanding follow-up, and future candidates for PM Tools & Templates. Release notes describe what shipped; linked issues hold scope and acceptance evidence. An open issue is not, by itself, a delivery commitment.
 
@@ -8,10 +8,11 @@ This roadmap summarizes released capabilities, outstanding follow-up, and future
 
 ## Released
 
-Repository and component versions follow separate histories. `v2.3.0` is assigned to the latest published repository release, `vNext`; the existing `v2.2.0` tag has no published release entry and cannot be reused. See [release numbering and history](docs/release-versioning.md) for the manifest, automated consistency checks, and release procedure. No next release is scheduled.
+Repository and component versions follow separate histories. The latest repository release is **v2.4.0**, published October 30, 2026 with explicit owner authorization ahead of the former November 29 target. See [release numbering and history](docs/release-versioning.md). The approved next release direction is **v2.5.0**, targeting January 22, 2027 subject to readiness. Detailed scope and capacity remain provisional; see [#1556](https://github.com/mirichard/pm-tools-templates/issues/1556).
 
 | Delivery | What it provides | Record |
 | --- | --- | --- |
+| v2.4.0 — Template workflows, community intake and delivery reliability | Browser customization, Design Thinking/Lean Startup kits, sanitized-file/text contribution and feedback, and delivery/security maintenance | [Published release — 10/30/2026](https://github.com/mirichard/pm-tools-templates/releases/tag/v2.4.0) |
 | v2.3.0 (vNext) — Value Delivery System Upgrade | Benefits and value-delivery guidance; six performance domains; context-sensitive template selection; principles and applicability guidance; adaptive governance; product and continuous-delivery practices | [Published release — 09/21/2026](https://github.com/mirichard/pm-tools-templates/releases/tag/vNext) |
 | Requirements CLI v1.2 | Nonfunctional-requirement generation, quality-attribute mapping, acceptance-criteria scaffolding, human-review gates, and classification evaluation | [Published release — 09/18/2026](https://github.com/mirichard/pm-tools-templates/releases/tag/v1.2.0-requirements-cli) |
 
@@ -21,13 +22,13 @@ Release acceptance and closeout are recorded in [#1266](https://github.com/miric
 
 ## Merged changes and accepted work
 
-These records distinguish merged work from published releases. A merged change is not a new release or deployment.
+The records below are included in v2.4.0 where accepted. #57/#58 and the bounded #319 contribution/feedback scope are also accepted and published; #63/#1383 are completed. Restricted-original handling remains explicitly deferred in #1546 (O4 / Later), and #1480/#1481 remain later work. See [release closeout](docs/releases/v2.4.0-closeout.md).
 
 | Work | Acceptance / current position | Evidence |
 | --- | --- | --- |
 | Browser-based template customization — #75 | Completed and accepted in Sprint 1: draft retention, save/reopen recovery, validation and export across five editors | [Merged PR #1381](https://github.com/mirichard/pm-tools-templates/pull/1381) · [Acceptance record](demos/288-template-customization/ACCEPTANCE.md) · [Closed issue #75](https://github.com/mirichard/pm-tools-templates/issues/75) |
 | Issue-management intake and validation — #1367 | Completed in Sprint 1 after external UAT and an actual successful scheduled issue-type sweep | [Merged PR #1368](https://github.com/mirichard/pm-tools-templates/pull/1368) · [Scheduled run](https://github.com/mirichard/pm-tools-templates/actions/runs/36241475787) · [Closed issue #1367](https://github.com/mirichard/pm-tools-templates/issues/1367) |
-| Outcome roadmap and backlog mapping | Mapping and reconciliation accepted; #78 completed; residual community scope retained in #1383 | [Merged PR #1382](https://github.com/mirichard/pm-tools-templates/pull/1382) · [Issue #78](https://github.com/mirichard/pm-tools-templates/issues/78) |
+| Outcome roadmap and backlog mapping | Mapping and reconciliation accepted; #78 and bounded #1383 completed in v2.4.0 | [Merged PR #1382](https://github.com/mirichard/pm-tools-templates/pull/1382) · [Issue #78](https://github.com/mirichard/pm-tools-templates/issues/78) |
 | README entry-point redesign | Catalog, selection-guide and beginner-kit routes; resource-use instructions and separate software prerequisites | [Merged PR #1269](https://github.com/mirichard/pm-tools-templates/pull/1269) |
 
 ## Outstanding follow-up
@@ -36,7 +37,7 @@ These records distinguish merged work from published releases. A merged change i
 | --- | --- | --- |
 | Catalog-domain export | Recorded as follow-up in the [domain-refactor reconciliation, #711](https://github.com/mirichard/pm-tools-templates/issues/711); excluded from the vNext delivery claim | Confirm remaining scope and tracking before scheduling; [PR #1188](https://github.com/mirichard/pm-tools-templates/pull/1188) was closed without merge |
 
-At the 09/24/2026 baseline review, no GitHub milestones were open. The overall vNext and Sprint 15 milestones are closed. Some closed historical milestones still contain open issues, so their old dates should not be read as active commitments. No next-release date is committed in this roadmap.
+At the 09/24/2026 baseline review, no GitHub milestones were open. The overall vNext and Sprint 15 milestones are closed. Some closed historical milestones still contain open issues, so their old dates should not be read as active commitments. The current v2.5.0 planning target is recorded below.
 
 ## Current outcome map
 
@@ -49,9 +50,9 @@ The 09/24/2026 baseline mapped 60 then-open issues to seven product outcomes and
 | Outcome | Epic ownership and retained scope | Next decision |
 | --- | --- | --- |
 | **O1 — Find and customize templates** | Discovery #323 → #69/#104; onboarding #284 → #103; standalone customization #75 | #75 is completed and accepted through PR #1381; refine search/navigation/tutorial gaps separately. |
-| **O2 — Apply practical PM guidance** | Role suites #47/#49/#50; bounded content work #57/#58/#64 | Repair Design Thinking and Lean Startup journeys; reconcile existing assets before expanding suites. |
+| **O2 — Apply practical PM guidance** | Role suites #47/#49/#50; bounded content work #57/#58/#64 | Design Thinking and Lean Startup journeys (#57/#58) are accepted and released in v2.4.0; select further suite work separately. |
 | **O3 — Use supported integrations** | #318 → #325 and guide tasks #59/#60/#62; #325 → #61/#76/#290; #290 → #385/#386 | Validate retained guides and one consumer/API contract; resolve overlapping sync scope before execution. |
-| **O4 — Contribute and influence priorities** | #319 → #63/#77/#78/#1383/#1384; feedback/reporting records provide operational context | #78 accepted and completed; retain #1383 community participation scope, contribution repairs and privacy-aware analytics for later selection. |
+| **O4 — Contribute and influence priorities** | #319 → #63/#77/#78/#1383/#1384; feedback/reporting records provide operational context | #319 bounded sanitized-file/text scope, #63/#78/#1383 are accepted and released; restricted originals (#1546), participation enhancements (#1481), and opt-in analytics (#1480) remain deferred. |
 | **O5 — Make traceable value decisions** | #320 → #341 | Reuse benefits/reporting guidance; define one bounded outcome with reproducible calculations. |
 | **O6 — Automate bounded PM workflows** | #365 → #367–#383 | Validate the SOW/Charter input contract and choose one complete workflow; the full environment remains uncommitted. |
 | **O7 — Use trustworthy AI insights** | Research #523 → #1379; deferred #92/#105; retained recovery #1329 → #1293/#1298/#1372–#1376 | Test whether AI-assisted plan review supports defensible PM decisions with less total effort and adequate coverage. Legacy recovery is paused pending reuse; it is not a prerequisite for this research. |
@@ -59,7 +60,29 @@ The 09/24/2026 baseline mapped 60 then-open issues to seven product outcomes and
 
 The [alignment register](backlog/roadmap-alignment.md#outcome-register) links every issue, including discovery candidates and operational records, to its current next action. Outcome identifiers are navigation/grouping keys, not new epics or a replacement for native parents.
 
-## Planning decisions
+## Approved v2.5.0 direction — October 30, 2026
+
+**Product Goal:** Help a PM find an appropriate template and successfully apply it to a real project.
+
+Target **January 22, 2027**, subject to readiness. [Release plan #1556](https://github.com/mirichard/pm-tools-templates/issues/1556) · [Milestone](https://github.com/mirichard/pm-tools-templates/milestone/38) · [Sprint project](https://github.com/users/mirichard/projects/12).
+
+| Sprint | Dates | Candidate outcome |
+| --- | --- | --- |
+| Sprint 4 | Nov 9–29, 2026 | #104 / #323: relevant search across an agreed content boundary |
+| Sprint 5 | Nov 30–Dec 20, 2026 | #103 / #284: guided selection, completion and download |
+| Sprint 6 | Dec 21, 2026–Jan 10, 2027 | Combined journey acceptance, defects, accessibility/mobile and release preparation |
+
+The owner corrected the cadence to three consecutive three-week sprints. Separate [Sprint 4](https://github.com/users/mirichard/projects/12/views/6), [Sprint 5](https://github.com/users/mirichard/projects/12/views/7) and [Sprint 6](https://github.com/users/mirichard/projects/12/views/8) boards replace the shared view. January 11–22 is contingency, not extra committed feature capacity.
+
+Six delivery packages decompose the two selected stories and release tracker: search #1559/#1560 (8–12 focused person-days), onboarding #1561/#1562 (6–10), and integration/release #1563/#1564 (4–7). The 18–29-day total is a provisional analyst estimate, not measured team velocity; do not double-count parent issues. Parallel discovery has a separate proposed 4–6-day allowance. Actual staffing, holiday availability, acceptance decisions and measurement lead times remain unresolved; [#1556](https://github.com/mirichard/pm-tools-templates/issues/1556) records the capacity scenario. Extra backlog is not committed merely to fill nine weeks.
+
+The owner approved direction and candidate allocation; refinement must still establish maintained-asset reuse, supported scope, explicit disposition of existing acceptance requirements, dependencies and capacity. Parent epics are not accepted in full by selecting their children. #62 is reserve only. #1482 remains accepted and #1546 remains deferred.
+
+Parallel discovery: #523/#1379 resolves the remaining review/participant/control gates while preserving accepted source sufficiency; #365 verifies reusable components and the SOW/Charter contract to propose one bounded workflow. Discovery does not block v2.5.0 and does not automatically promote work to delivery. #1329 remains paused.
+
+Project 12 retains the original `Sprint` calendar for v2.4 history. Its `v2.5 Sprint` calendar holds the approved overlapping planning dates; generated snapshots read both and report conflicting assignments. Planning approval is not publication authorization.
+
+## Historical planning decisions
 
 The table below records the agreed 09/26/2026 disposition. It is a decision record, not a live status feed. Current issue and board values are maintained in the generated snapshot below; neither automation nor a closed issue establishes release or acceptance evidence.
 
@@ -74,7 +97,7 @@ The table below records the agreed 09/26/2026 disposition. It is a decision reco
 | **Later** | Remaining epic/story proposals and #64 | Refine outcomes, resolve overlap and confirm dependencies before promotion. |
 | **Discovery / ongoing** | Research candidates below; #198/#1313/#1314 operational records | Neither category is a delivery commitment or product-throughput measure. |
 
-[Now Epic Sprints](https://github.com/users/mirichard/projects/12) records Sprint 1 (09/25–10/18/2026). These are the sprint's planning dates, not a forecast for a release. No next-release scope or date is committed. Parent epics summarize their children; completing a child does not establish that the whole epic is delivered.
+[Now Epic Sprints](https://github.com/users/mirichard/projects/12) records Sprint 1 (09/25–10/18/2026). These are the sprint's planning dates, not a forecast for a release. The later v2.5.0 planning decision below supersedes this historical no-next-release position. Parent epics summarize their children; completing a child does not establish that the whole epic is delivered.
 
 ### AI research decision and resumption conditions
 
@@ -89,11 +112,11 @@ Legacy recovery remains documented under [#1329](https://github.com/mirichard/pm
 The editorial date above applies to human-reviewed narrative. Snapshot capture time is maintained separately by synchronization; older snapshots without a recorded time gain one on the next reconciliation. [Latest synchronization checks](https://github.com/mirichard/pm-tools-templates/actions/workflows/roadmap-sync.yml) show run times and outcomes, including checks that found no changes.
 
 <!-- roadmap-sync:start -->
-Snapshot updated at: 2026-10-24T01:08:52.531Z (UTC).
+Snapshot updated at: 2026-10-30T15:58:15.913Z (UTC).
 
 [Latest synchronization checks](https://github.com/mirichard/pm-tools-templates/actions/workflows/roadmap-sync.yml) — includes successful checks with no data changes. A check does not publish to main until its PR is merged.
 
-Snapshot fingerprint: `3f61582f5dd09924e6cbcaa193e32b284a6178d07c0ad4edd92036f6f8c848a4`. Values are copied from issues and Projects, not inferred acceptance or release claims.
+Snapshot fingerprint: `3be3afbc917da2916fdaf0bb1948ddf680694ae359ca646fe903f02e74c46412`. Values are copied from issues and Projects, not inferred acceptance or release claims.
 
 | Sprint | Issue | Issue state | Board status | Release milestone |
 | --- | --- | --- | --- | --- |
@@ -106,7 +129,7 @@ Snapshot fingerprint: `3f61582f5dd09924e6cbcaa193e32b284a6178d07c0ad4edd92036f6f
 | Sprint 1 | [#1384](https://github.com/mirichard/pm-tools-templates/issues/1384) — Story: Keep repository roadmap documentation and planning views synchronized | Closed (completed) | Done | [v2.4.0 — Now Epics Sprints 1–3](https://github.com/mirichard/pm-tools-templates/milestone/35) |
 | Sprint 3 | [#1483](https://github.com/mirichard/pm-tools-templates/issues/1483) — Validate reusable-plan imports into Jira and Asana before custom development | Closed (not_planned) | Done | [None](https://github.com/mirichard/pm-tools-templates/milestone/37) |
 
-[Full status and drift report](backlog/roadmap-status.md). 5 drift flag(s) require review.
+[Full status and drift report](backlog/roadmap-status.md). 4 drift flag(s) require review.
 
 <!-- roadmap-sync:end -->
 

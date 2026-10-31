@@ -17,7 +17,7 @@ Issue changes and merged PRs trigger reconciliation. User-owned Project field ch
 
 The workflow reads the complete paginated project inventory and all open repository issues, plus issues retained in either Project or the small historical-retention list. Draft items and foreign-repository items are outside this repository's snapshot. Archived open roadmap items are reported as gaps. Authentication errors, missing projects, truncated field pages and unavailable issues fail the run without publishing partial data.
 
-Only the generated ROADMAP.md block and backlog/roadmap-status.md are written on reserved branch `automation/roadmap-status-v2`. One PR is created or refreshed. Identical snapshots do not create new content or timestamp churn. Concurrent runs are serialized, branch updates are fast-forward only, and unrecognized branch commits require manual reconciliation. Do not edit the automation branch; change source records or the generator in a separate PR.
+Only the generated ROADMAP.md block and backlog/roadmap-status.md are written on reserved branch `automation/roadmap-status-v3`. One PR is created or refreshed. Identical snapshots do not create new content or timestamp churn. Concurrent runs are serialized, branch updates are fast-forward only, and unrecognized branch commits require manual reconciliation. Do not edit the automation branch; change source records or the generator in a separate PR.
 
 Drift flags cover missing Outcome/Horizon/type/status, open issues missing from the roadmap, closed issues with non-Done board status, open issues marked Done, and conflicting board statuses. Flags are review findings, not permission to alter a board or close an issue. Parentless items are shown as Standalone; no parent is guessed. Untracked residual scope is a human closeout check because free-text intent cannot reliably establish that relationship.
 
@@ -62,6 +62,8 @@ The links deliberately show failures and pending runs as well as successes; they
 
 ## Release and sprint alignment
 
+The generator reads the legacy `Sprint` iteration field and release-specific fields named `v<major>.<minor> Sprint` (currently `v2.5 Sprint`). It preserves all assigned titles and flags multiple calendar assignments instead of silently choosing one. The separate v2.5 calendar preserves the v2.4 planning history where its original dates overlap the newly approved cycle.
+
 Projects manage priority, readiness and sprint execution. The issue milestone records the approved release; parent epics may span releases. Use the same issues in the relevant project views, with Milestone, Sprint, Status and linked PRs visible. Keep research and paused work without a release commitment until explicitly selected.
 
 During sprint planning and closeout, reconcile each selected deliverable's milestone. Moving between sprints does not automatically move an issue between releases. Record release additions, removals and deferrals as repo owner decisions. Use one release-readiness issue for validation, approval, publication and post-release checks; do not duplicate these as separate sprint or testing milestones. For v2.4.0, see [milestone 35](https://github.com/mirichard/pm-tools-templates/milestone/35) and [release-readiness issue #1393](https://github.com/mirichard/pm-tools-templates/issues/1393).
@@ -87,3 +89,10 @@ After the repo owner merges this recovery configuration:
 4. Approve/run the replacement PR's applicable checks and verify the exact final revision. Repo owner retains merge approval.
 
 Never use GitHub's Update branch action or a manual main-merge on the reserved branch. The generator brings in the current main tree through its own publication process. If branch protection requires an update, rerun synchronization; do not bypass its ownership check.
+
+
+## Reserved-branch recovery — October 30, 2026
+
+During v2.4 preparation, Dependabot Auto-Maintenance selected every bot-authored PR, merged main into reserved branch v2 at `21abdd04b109e033d1e1a6e0f442cdd0280ad3d5`, and enabled auto-merge on #1547. Reconciliation [41077091588](https://github.com/mirichard/pm-tools-templates/actions/runs/41077091588) correctly refused that unrecognized commit.
+
+Maintenance now selects only `dependabot[bot]`. A regression test runs the workflow script with mixed bot/human PRs and verifies that only Dependabot receives updates, rebase comments or auto-merge requests. The generator uses `automation/roadmap-status-v3`; its ownership and fast-forward protections remain intact. Preserve v2 and #1547 as historical evidence, disable its automatic merge, and close #1547 as superseded only after the replacement PR exists. Review and check the replacement before merging. Do not manually edit, merge main into, reset or delete either reserved branch.

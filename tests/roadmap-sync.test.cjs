@@ -177,3 +177,22 @@ test('invalid or unavailable manifest stops reconciliation before publication', 
     await assert.rejects(run({github,graphql:async(q,a)=>page(a.number),core:{},preview:false}));
   }
 });
+
+test('release-specific sprint calendars render alongside retained legacy history', () => {
+  const data = fixture();
+  data.issues[1].milestone = {number:38,title:'v2.5.0',state:'open'};
+  data.sprint.push({number:1383,Status:'Todo','v2.5 Sprint':'Sprint 4'});
+  const before = JSON.stringify(data), result = render(data, '2.5.0');
+  assert.match(result.summary, /Sprint 1.*Closed/);
+  assert.match(result.summary, /Sprint 4.*Residual/);
+  assert.deepEqual(result.warnings, []);
+  assert.equal(JSON.stringify(data), before);
+});
+test('release-specific calendar still checks milestones and exposes conflicting assignments', () => {
+  const data = fixture();
+  data.sprint.push({number:1383,Status:'Todo',Sprint:'Sprint 3','v2.5 Sprint':'Sprint 4'});
+  const result = render(data);
+  assert.ok(result.warnings.some(x=>x.includes('assigned sprint has no release milestone')));
+  assert.ok(result.warnings.some(x=>x.includes('multiple sprint calendars')));
+  assert.match(result.summary, /Sprint 3 \/ Sprint 4/);
+});

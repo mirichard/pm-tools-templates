@@ -54,6 +54,5 @@
     "sprintf-js": "^1.1.3",
     "deepmerge": "4.1.1",
     "minimatch": "11.0.1",
-    "follow-redirects": "1.16.2"
-  }
+    "follow-redirects": "1.16.2"  }
 }
