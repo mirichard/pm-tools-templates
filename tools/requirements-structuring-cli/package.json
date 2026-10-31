@@ -56,5 +56,8 @@
     "type": "git",
     "url": "https://github.com/mirichard/pm-tools-templates.git",
     "directory": "tools/requirements-structuring-cli"
+  },
+  "overrides": {
+    "follow-redirects": "1.16.2"
   }
 }
