@@ -58,5 +58,8 @@
     "type": "git",
     "url": "https://github.com/mirichard/pm-tools-templates.git",
     "directory": "tools/template-generator-cli"
+  },
+  "overrides": {
+    "follow-redirects": "1.16.2"
   }
 }

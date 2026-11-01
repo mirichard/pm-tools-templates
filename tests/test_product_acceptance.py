@@ -41,7 +41,12 @@ class ProductAcceptanceTests(unittest.TestCase):
         for filename in ('status-reporting.yml', 'weekly-status-email.yml'):
             body = (ROOT / '.github/workflows' / filename).read_text()
             with self.subTest(producer=filename):
-                self.assertEqual(body.count('"flow_metrics": null,'), 1)
+                if filename == 'status-reporting.yml':
+                    self.assertIn('python3 scripts/status_report.py', body)
+                    body = (ROOT / 'scripts/status_report.py').read_text()
+                    self.assertEqual(body.count('"flow_metrics": None,'), 1)
+                else:
+                    self.assertEqual(body.count('"flow_metrics": null,'), 1)
                 self.assertIn('"recent_closed":', body)
                 self.assertIn('"health_indicators":', body)
 
