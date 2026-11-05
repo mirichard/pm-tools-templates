@@ -7,6 +7,18 @@
 
 Templates, examples, and guides for project and program managers working with traditional, Agile, and hybrid approaches — 139 templates across six work domains. Use them to plan work, coordinate people, manage risks, and communicate progress.
 
+## Planning
+
+[Open the planning decision digest](https://github.com/mirichard/pm-tools-templates/issues/1629) for decisions, follow-ups and supporting evidence from the latest review.
+
+| Role | Live project view |
+| --- | --- |
+| Product owner | [Discovery by stage](https://github.com/users/mirichard/projects/13) · [Discovery insights](https://github.com/users/mirichard/projects/13/insights) |
+| Project manager | [Delivery by sprint](https://github.com/users/mirichard/projects/12/views/10?groupedBy%5BcolumnId%5D=435820345) |
+| Scrum master | [Recorded blockers](https://github.com/users/mirichard/projects/12/views/9) — open delivery issues with a recorded blocking dependency. Open the dependency to check its current state. |
+
+Project views use your GitHub project access.
+
 <!-- Compatibility anchors for existing README bookmarks. -->
 <a id="need-templates-now"></a>
 <a id="table-of-contents"></a>
