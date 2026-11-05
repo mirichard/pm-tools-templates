@@ -1,5 +1,23 @@
 # Backlog, sprint and acceptance preparation
 
+## Interactive planning review
+
+Open [Planning review](https://mirichard.github.io/pm-tools-templates/planning-review/) from the template website or the top of the recurring digest issue. Product owner, project manager and scrum master views emphasize different decisions and follow-ups over the same collected evidence.
+
+The default view leads with relevant findings and recommended actions. Repeated disposition conflicts are grouped. Expand a finding for observed facts and direct issue links. The supporting inventory is collapsed by default. Filters cover focus, work type, sprint, release, discovery stage and issue or keyword. Copy view link preserves the role, filters and selected finding in the URL.
+
+Recommendations come from explicit evidence rules, including documented definition decisions, entry-record gaps, blocked or untriaged issues, superseded policy references and research stages. They do not establish research quality, owner approval, accepted delivery or a release commitment. Research stage counts identify epic/candidate records and can include overlapping parent rollups. Missing structured entry records require reconciliation with existing issue decisions before asking for additional decisions or validation.
+
+Each collection writes `review.json` beside the detailed Markdown and raw snapshot. Only the reduced review model is eligible for website publication. Raw issue bodies, request metadata and credentials are excluded. The initial website edition uses the verified November 5 preview as an explicitly labeled baseline.
+
+The existing Pages workflow refreshes after the three planning entry points complete and on a normal site deployment. A separate publication-data job uses repository Actions read access only on the trusted default branch. It retrieves an eligible artifact, validates its repository, workflow, run ID and revision, and accepts only output marked for publication. Pull-request builds have no cross-run Actions access and use the already public baseline. Preview artifacts cannot replace a published edition. The previous website edition supplies the comparison baseline. No comparison is inferred for the first edition or a discovery stage whose previous coverage was unavailable.
+
+The page shows recorded state, stage, sprint and disposition changes, absence from the current inventory, and findings no longer flagged by their evidence rule. These observations are distinct from acceptance. A site rebuild of the same edition preserves its original comparison baseline. Newer publications cannot be replaced by older runs.
+
+Failed planning attempts are shown alongside the retained successful edition. Failed website preparation or deployment leaves the previous site in place. Its original review time remains visible and a warning appears after 72 hours. The source run and last attempted refresh provide verification paths. The website deployment verifies that the expected edition and page are accessible before reporting publication success.
+
+Website changes run the planning model, filter and publication regression tests plus the existing site build and canonical-content checks. Collection failures remain fail-closed except the existing narrowly reported discovery lookup limitation. No project stages, issue dispositions, priorities or owner decisions are automatically changed.
+
 Three entry points use one deterministic engine, `scripts/planning-automation.cjs`:
 
 | Workflow | Schedule (UTC) | Result |

@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Evidence-backed planning decisions for product owners, project managers and scrum masters.">
+  <title>Planning review · PM Tools &amp; Templates</title>
+  <link rel="stylesheet" href="./review.css">
+  <script type="module" src="./review.mjs"></script>
+</head>
+<body>
+  <a class="skip-link" href="#findings">Skip to findings</a>
+  <header class="site-header">
+    <a class="brand" href="../">PM Tools &amp; Templates</a>
+    <nav aria-label="Site"><a href="../">Templates</a><a href="https://github.com/mirichard/pm-tools-templates/issues/1629">Digest record</a></nav>
+  </header>
+  <main>
+    <div class="review-heading"><div><h1>Planning review</h1><p id="edition">Loading the latest published review…</p></div><button id="share" type="button">Copy view link</button></div>
+    <p id="share-status" role="status"></p><input id="share-url" aria-label="Link to this view" readonly hidden>
+    <div id="health" class="health" role="status">Checking collection coverage.</div>
+    <noscript><p>This interactive review requires JavaScript. <a href="https://github.com/mirichard/pm-tools-templates/issues/1629">Read the digest record</a>.</p></noscript>
+    <section class="role-section" aria-label="Review perspective">
+      <div class="role-controls" role="group" aria-label="Role">
+        <button type="button" data-role="product-owner" aria-pressed="true">Product owner</button>
+        <button type="button" data-role="project-manager" aria-pressed="false">Project manager</button>
+        <button type="button" data-role="scrum-master" aria-pressed="false">Scrum master</button>
+      </div>
+      <p id="role-purpose">Prioritization, scope decisions and evidence-backed backlog candidates.</p>
+    </section>
+    <section class="brief" aria-labelledby="brief-heading"><h2 id="brief-heading">Attention this review</h2><p id="brief-text">Loading findings.</p><p id="research-signal"></p></section>
+    <section class="filters" aria-label="Filter this review">
+      <label>Focus<select id="focus" aria-label="Focus"><option value="all">All findings</option><option value="decision">Needs a decision</option><option value="changed">Changed since last review</option><option value="blocked">Blocked or missing evidence</option></select></label>
+      <label>Work type<select id="stream" aria-label="Work type"><option value="all">All work</option><option value="delivery">Delivery</option><option value="backlog">Backlog</option><option value="discovery">Discovery</option></select></label>
+      <label class="search-label">Issue or keyword<input id="q" aria-label="Issue or keyword" type="search" placeholder="Search a title, finding or issue number"></label>
+      <details class="more-filters" id="more-filters"><summary id="more-filters-label">Sprint, release and stage filters</summary><div class="secondary-filters">
+        <label>Sprint<select id="sprint" aria-label="Sprint"><option value="all">All sprints</option></select></label>
+        <label>Release<select id="release" aria-label="Release"><option value="all">All releases</option></select></label>
+        <label>Discovery stage<select id="stage" aria-label="Discovery stage"><option value="all">All stages</option></select></label>
+      </div></details>
+      <button id="reset" type="button">Clear filters</button>
+    </section>
+    <section id="changes-section" aria-labelledby="changes-heading"><h2 id="changes-heading">Material changes</h2><p id="comparison"></p><ul id="changes" class="change-list"></ul></section>
+    <section id="findings" aria-labelledby="findings-heading"><div class="section-heading"><h2 id="findings-heading">Findings and recommended actions</h2><span id="result-count" aria-live="polite"></span></div><div id="finding-list"></div></section>
+    <details class="inventory"><summary id="inventory-summary">Supporting work inventory</summary><p>Source records for investigation. A stage or status alone does not establish acceptance or selection.</p><div class="table-scroll"><table><caption class="visually-hidden">Work matching this view</caption><thead><tr><th scope="col">Issue</th><th scope="col">Work type</th><th scope="col">Status / discovery stage</th><th scope="col">Sprint</th></tr></thead><tbody id="inventory"></tbody></table></div></details>
+    <footer><p>Findings describe collected facts. Recommended actions require an owner decision. Source records remain authoritative.</p><div id="coverage"></div><a id="source-run" href="https://github.com/mirichard/pm-tools-templates/actions">View source run</a></footer>
+  </main>
+</body>
+</html>

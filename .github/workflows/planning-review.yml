@@ -30,7 +30,7 @@ jobs:
         with:
           node-version: '24'
       - name: Test deterministic planning rules
-        run: node --test tests/planning-automation.test.cjs
+        run: node --test tests/planning-automation.test.cjs tests/planning-review-model.test.cjs
       - name: Collect projects and prepare decision digest
         uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9
         env:
@@ -50,5 +50,5 @@ jobs:
         with:
           name: planning-preview-${{ github.run_id }}
           path: planning-preview/
-          if-no-files-found: ignore
+          if-no-files-found: error
           retention-days: 14

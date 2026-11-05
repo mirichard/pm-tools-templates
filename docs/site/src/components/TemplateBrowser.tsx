@@ -56,12 +56,15 @@ const TemplateBrowser: React.FC<Props> = ({ templates }) => {
     <div>
       {/* Header */}
       <header className="header">
-        <div className="header-content">
+        <div className="header-content" style={{ flexWrap: 'wrap', gap: '1rem' }}>
           <div className="logo">
             <div className="logo-icon">PM</div>
             <span className="logo-text">Template Library</span>
           </div>
-          <nav>
+          <nav style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
+            <a href="/pm-tools-templates/planning-review/" className="btn btn-secondary">
+              Planning review
+            </a>
             <a href="/pm-tools-templates/favorites" className="btn btn-secondary">
               ⭐ My Favorites ({favorites.length})
             </a>

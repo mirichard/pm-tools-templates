@@ -44,7 +44,16 @@ def main():
             raise ValueError(f'{identity}: preview differs from canonical content')
         if f'/pm-tools-templates/downloads/{identity}.md' not in preview.downloads:
             raise ValueError(f'{identity}: canonical download link missing')
-    print(f"Verified {len(catalog['templates'])} canonical previews and downloads.")
+    planning = output / 'planning-review'
+    for filename in ['index.html', 'review.css', 'review.mjs', 'review-view.mjs', 'data.json']:
+        if not (planning / filename).is_file() or not (planning / filename).stat().st_size:
+            raise ValueError(f'Planning review output missing: {filename}')
+    review = json.loads((planning / 'data.json').read_text())
+    if review.get('schemaVersion') != 1 or review.get('repository') != 'mirichard/pm-tools-templates':
+        raise ValueError('Planning review identity mismatch')
+    if not isinstance(review.get('findings'), list) or not isinstance(review.get('inventory'), list):
+        raise ValueError('Planning review evidence model missing')
+    print(f"Verified {len(catalog['templates'])} canonical previews and downloads, and the planning review page.")
 
 
 if __name__ == '__main__':

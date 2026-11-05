@@ -3,6 +3,12 @@ on:
   pull_request:
     paths:
       - 'scripts/planning-automation.cjs'
+      - 'scripts/planning-review-model.cjs'
+      - 'scripts/prepare-planning-site.cjs'
+      - 'tests/planning-review-model.test.cjs'
+      - 'tests/planning-review-view.test.mjs'
+      - 'tests/prepare-planning-site.test.cjs'
+      - 'docs/site/public/planning-review/**'
       - 'scripts/roadmap-sync.cjs'
       - 'tests/planning-automation.test.cjs'
       - '.github/planning-policy.json'
@@ -22,4 +28,4 @@ jobs:
       - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with:
           node-version: '24'
-      - run: node --test tests/planning-automation.test.cjs tests/roadmap-sync.test.cjs tests/weekly-triage.test.cjs
+      - run: node --test tests/planning-automation.test.cjs tests/roadmap-sync.test.cjs tests/weekly-triage.test.cjs tests/planning-review-model.test.cjs tests/planning-review-view.test.mjs tests/prepare-planning-site.test.cjs

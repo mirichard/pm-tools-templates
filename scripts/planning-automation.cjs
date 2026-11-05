@@ -44,7 +44,10 @@ async function collect(github, graphql, p = policy) {
   }
   // Full pagination and explicit PR exclusion are essential to correct metrics.
   const open = (await github.paginate(github.rest.issues.listForRepo, {owner, repo, state:'open', per_page:100})).filter(x => !x.pull_request);
-  const numbers = new Set([...open.map(x => x.number), ...boards.delivery.map(x => x.number), ...Object.keys(p.candidates).map(Number)]);
+  const planningReferences = [...p.discovery.independentDecisionTrack, ...p.discovery.preservePaused,
+    ...p.discovery.deliveryRefinement, ...p.discovery.waves.flatMap(wave => wave.focus)];
+  const numbers = new Set([...open.map(x => x.number), ...boards.delivery.map(x => x.number),
+    ...Object.keys(p.candidates).map(Number), ...planningReferences]);
   const byNumber = new Map(open.map(x => [x.number,x]));
   for (const n of [...numbers].sort((a,b) => a-b)) {
     if (!byNumber.has(n)) byNumber.set(n, (await github.rest.issues.get({owner,repo,issue_number:n})).data);
@@ -172,9 +175,23 @@ async function publishDigest(github, body, p = policy) {
 async function run({github,graphql,core,preview=true,issueNumber=null}){
   const snapshot=await collect(github,graphql);
   const report=buildReport(snapshot);
+  const {buildReview,validateReview,reviewUrl}=require('./planning-review-model.cjs');
+  const review=buildReview(snapshot,policy,{
+    sourceRunId:process.env.GITHUB_RUN_ID,sourceRevision:process.env.GITHUB_SHA,publishRequested:!preview
+  });
+  validateReview(review,policy.repository);
+  const detailBody=report.body.slice((marker+'\n# Planning decision digest\n').length);
+  const brief=review.findings.filter(finding=>finding.roles.includes('product-owner')).slice(0,5);
+  report.body=[marker,'# Planning decision digest','',
+    `[Open the interactive planning review](${reviewUrl(policy.repository)}) — role views, linked evidence and shareable filters.`,
+    '',`As of ${review.generatedAt}. ${preview?'Preview output':'Website refresh follows successful completion of this run'}.`,
+    '', '## Decisions and follow-ups','',
+    ...brief.map(finding=>`- **${cell(finding.title)}** — ${cell(finding.recommendation)} ${finding.sources.map(source=>link(source.number)).join(', ')}`),
+    '', '<details><summary>Detailed planning records</summary>','',detailBody,'','</details>',''].join('\n');
   fs.mkdirSync('planning-preview',{recursive:true});
   fs.writeFileSync('planning-preview/report.md',report.body);
   fs.writeFileSync('planning-preview/snapshot.json',JSON.stringify(snapshot,null,2));
+  fs.writeFileSync('planning-preview/review.json',JSON.stringify(review,null,2));
   if(issueNumber!==null){
     if(!Number.isSafeInteger(issueNumber)||issueNumber<1) throw new Error('Invalid issue number');
     const issue=snapshot.issues.find(i=>i.number===issueNumber);
