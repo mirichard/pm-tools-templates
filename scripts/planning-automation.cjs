@@ -148,6 +148,27 @@ function buildReport(snapshot, p = policy, now = new Date()) {
     lines.push(`- ${link(issue.number)} ${cell(issue.title)} — ${cell(item['Discovery stage']||'stage missing')}; ${p.discovery.preservePaused.includes(issue.number)?'preserve pause': 'promote bounded leaf work only after problem evidence, scope, acceptance, dependencies, estimate and owner decision'}.`);
   }
   lines.push('','Decisions: approve/revise scope and capacity; select candidates; record acceptance against the issue/revision; disposition research as proceed/revise/defer/stop. No automatic carryover, stale closure, telemetry activation or release publication.');
+  const brief = [...(snapshot.collectionWarnings || []).map(w => '- **Coverage:** ' + cell(w))];
+  const portfolio = byNumber.get(1566);
+  const proposal = portfolio?.state === 'open' && portfolio.body?.split(/<details\b/i)[0].match(/most concrete additional refinement candidates are ([^\n]+)/i)?.[1];
+  if (proposal) {
+    const numbers = [...new Set([...proposal.matchAll(/#(\d+)/g)].map(match => Number(match[1])))];
+    if (numbers.length > 0 && numbers.length <= 4 && numbers.every(n => byNumber.get(n)?.state === 'open')) {
+      brief.push(`- **Product owner:** ${link(1566)} proposes ${numbers.map(link).join(', ')} for refinement. Check the research evidence and record which bounded slice to refine, defer or stop.`);
+    }
+  }
+  for (const issue of open.filter(i => p.candidates[i.number])) {
+    const scope = issue.body?.split(/<details\b/i)[0].match(/\*\*Decisions still needed:\*\*\s*([^\n]+)/i)?.[1];
+    if (scope) brief.push(`- **Delivery decision:** ${link(issue.number)} records an open decision: ${cell(scope.slice(0, 600))}`);
+  }
+  const nextSprint = p.sprints.find(s => Date.parse(s.start) + p.sprintDays * day > +now);
+  if (nextSprint) {
+    const gaps = nextSprint.issues.filter(n => readiness(byNumber.get(n), snapshot, p).length);
+    if (gaps.length) brief.push(`- **Scrum master:** Reconcile ${cell(nextSprint.title)} entry records for ${gaps.map(link).join(', ')} with their issue decisions before sprint selection. See the checks below for each missing field.`);
+  }
+  const start = lines.indexOf('## Acceptance and status exceptions');
+  lines.splice(start, 0, '## Decisions and follow-ups', '', ...brief, '', '[Discovery by stage](https://github.com/users/mirichard/projects/13) · [Delivery by sprint](https://github.com/users/mirichard/projects/12/views/10?groupedBy%5BcolumnId%5D=435820345) · [Recorded blockers](https://github.com/users/mirichard/projects/12/views/9) · [Discovery insights](https://github.com/users/mirichard/projects/13/insights)', '', '<details>', '<summary>Supporting evidence and complete planning checks</summary>', '');
+  lines.push('', '</details>');
   return {body:lines.join('\n')+'\n',warnings,counts:{new:recent.length,untriaged:untriaged.length,aging:aging.length}};
 }
 
