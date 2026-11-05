@@ -248,6 +248,11 @@ function validateReview(review, repository) {
   const keysOnly = (value, allowed) => {
     if (!value || typeof value !== 'object' || Object.keys(value).some(key => !allowed.includes(key))) throw new Error('Unexpected nested planning data; refusing publication');
   };
+  keysOnly(review.comparison, ['available','baselineAt','baselineUrl']);
+  keysOnly(review.research, ['available','active','prioritized','activeLimit']);
+  for (const item of review.coverage) keysOnly(item, ['name','available','count']);
+  for (const item of review.sprints) keysOnly(item, ['title','start','end']);
+  if (review.latestAttempt) keysOnly(review.latestAttempt, ['at','conclusion','url','checkedAt']);
   for (const item of review.inventory) keysOnly(item, ['number','title','url','state','stateReason','stream','stage','status','sprint','milestone','release','horizon']);
   for (const item of review.changes) keysOnly(item, ['number','title','url','stream','stage','sprint','release','kind','details']);
   for (const finding of review.findings) {

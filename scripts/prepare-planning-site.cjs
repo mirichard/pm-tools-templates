@@ -2,7 +2,6 @@
 
 const fs = require('node:fs');
 const path = require('node:path');
-const os = require('node:os');
 const { spawnSync } = require('node:child_process');
 const { compareReviews, validateReview, reviewUrl } = require('./planning-review-model.cjs');
 
@@ -29,17 +28,21 @@ function eligibleRun(run) {
 }
 
 function readReviewArchive(bytes) {
-  const directory = fs.mkdtempSync(path.join(os.tmpdir(), 'planning-review-'));
-  const archive = path.join(directory, 'review.zip');
-  try {
-    fs.writeFileSync(archive, bytes);
-    const result = spawnSync('unzip', ['-p', archive, 'review.json'], { encoding: 'utf8', maxBuffer: 2 * 1024 * 1024 });
-    if (result.status === 11) return null;
-    if (result.status !== 0) throw new Error('Cannot read planning review artifact');
-    return JSON.parse(result.stdout);
-  } finally {
-    fs.rmSync(directory, { recursive: true, force: true });
-  }
+  // Read only the exact model entry in memory: never extract archive paths or persist downloads.
+  const program = `import io, sys, zipfile
+with zipfile.ZipFile(io.BytesIO(sys.stdin.buffer.read())) as archive:
+    matches = [entry for entry in archive.infolist() if entry.filename == 'review.json']
+    if not matches: sys.exit(11)
+    if len(matches) != 1 or matches[0].file_size > 2 * 1024 * 1024: sys.exit(12)
+    with archive.open(matches[0]) as entry:
+        data = entry.read(2 * 1024 * 1024 + 1)
+        if len(data) > 2 * 1024 * 1024: sys.exit(12)
+        sys.stdout.buffer.write(data)
+`;
+  const result = spawnSync('python3', ['-c', program], { input: bytes, maxBuffer: 2 * 1024 * 1024 });
+  if (result.status === 11) return null;
+  if (result.status !== 0) throw new Error('Cannot read planning review artifact');
+  return JSON.parse(result.stdout.toString('utf8'));
 }
 
 async function prepare({ token, fetcher = fetch, destination = dataFile, now = new Date() }) {
@@ -83,13 +86,14 @@ async function prepare({ token, fetcher = fetch, destination = dataFile, now = n
     checkedAt: now.toISOString()
   } : null;
   validateReview(output, repository);
-  fs.writeFileSync(destination, JSON.stringify(output, null, 2) + '\n');
-  console.log(`Planning review prepared from run ${output.sourceRunId}; ${output.findings.length} findings; ${foundPublished ? 'published workflow output' : 'retained verified edition'}`);
+  console.error(`Planning review prepared from run ${output.sourceRunId}; ${output.findings.length} findings; ${foundPublished ? 'published workflow output' : 'retained verified edition'}`);
   return output;
 }
 
 if (require.main === module) {
-  prepare({ token: process.env.GITHUB_TOKEN }).catch(() => {
+  prepare({ token: process.env.GITHUB_TOKEN }).then(output => {
+    process.stdout.write(JSON.stringify(output, null, 2) + '\n');
+  }).catch(() => {
     console.error('Planning review publication preparation failed; the previous deployed website remains the last published edition.');
     process.exitCode = 1;
   });

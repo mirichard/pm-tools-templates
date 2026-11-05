@@ -4,14 +4,14 @@ const fs = require('node:fs');
 const os = require('node:os');
 const path = require('node:path');
 const { spawnSync } = require('node:child_process');
-const { prepare, eligibleRun, requestJson } = require('../scripts/prepare-planning-site.cjs');
+const { prepare, eligibleRun, requestJson, readReviewArchive } = require('../scripts/prepare-planning-site.cjs');
 const repository = 'mirichard/pm-tools-templates';
 function model(id, publishRequested = true) {
   return { schemaVersion: 1, repository, release: '2.5.0', generatedAt: `2026-11-05T12:0${id}:00Z`, sourceRunId: id, sourceRevision: 'a'.repeat(40), sourceUrl: `https://github.com/${repository}/actions/runs/${id}`, publishRequested,
     comparison: { available: false, baselineAt: null, baselineUrl: null }, changes: [], coverage: [], research: { available: true, active: 0, prioritized: 0, activeLimit: 2 }, sprints: [], findings: [], inventory: [] };
 }
 function archive(review) {
-  const result = spawnSync('python3', ['-c', 'import sys,zipfile,io; b=io.BytesIO(); z=zipfile.ZipFile(b,"w"); z.writestr("review.json",sys.stdin.read()); z.close(); sys.stdout.buffer.write(b.getvalue())'], { input: JSON.stringify(review) });
+  const result = spawnSync('python3', ['-c', 'import sys,zipfile,io; b=io.BytesIO(); z=zipfile.ZipFile(b,"w"); z.writestr("review.json",sys.stdin.read()); z.close(); sys.stdout.buffer.write(b.getvalue())'], { input: JSON.stringify(review), maxBuffer: 8 * 1024 * 1024 });
   assert.equal(result.status, 0);
   return result.stdout;
 }
@@ -63,6 +63,19 @@ test('untrusted upstream runs and credential destinations are rejected', async (
   assert.equal(eligibleRun({ ...run(2), head_branch: 'feature' }), false);
   assert.equal(eligibleRun({ ...run(2), repository: { full_name: 'other/repo' } }), false);
   await assert.rejects(requestJson('https://example.com', 'secret'), /outside GitHub API/);
+});
+
+test('archive reader rejects malformed and oversized models without extracting paths', () => {
+  assert.throws(() => readReviewArchive(Buffer.from('invalid zip')), /Cannot read/);
+  assert.throws(() => readReviewArchive(archive('x'.repeat(2 * 1024 * 1024))), /Cannot read/);
+  const result = spawnSync('python3', ['-c', 'import sys,zipfile,io; b=io.BytesIO(); z=zipfile.ZipFile(b,"w"); z.writestr("../review.json","{}"); z.close(); sys.stdout.buffer.write(b.getvalue())']);
+  assert.equal(readReviewArchive(result.stdout), null);
+});
+
+test('publication rejects unexpected nested data', async () => {
+  const untrusted = model(2);
+  untrusted.research.raw = { body: 'must never publish' };
+  await assert.rejects(scenario(untrusted, run(2)), /Unexpected nested/);
 });
 
 test('cross-run artifact access is confined to a trusted default-branch publication job', () => {

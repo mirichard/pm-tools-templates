@@ -73,7 +73,9 @@ jobs:
       - name: Prepare published planning review
         env:
           GITHUB_TOKEN: ${{ github.token }}
-        run: node scripts/prepare-planning-site.cjs
+        run: |
+          node scripts/prepare-planning-site.cjs > "$RUNNER_TEMP/planning-data.json"
+          mv "$RUNNER_TEMP/planning-data.json" docs/site/public/planning-review/data.json
       - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
         with:
           name: planning-site-data-${{ github.run_id }}
