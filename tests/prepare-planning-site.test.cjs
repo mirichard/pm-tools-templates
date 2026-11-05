@@ -76,6 +76,9 @@ test('publication rejects unexpected nested data', async () => {
   const untrusted = model(2);
   untrusted.research.raw = { body: 'must never publish' };
   await assert.rejects(scenario(untrusted, run(2)), /Unexpected nested/);
+  const nested = model(2);
+  nested.coverage = [{ name: { body: 'must never publish' }, available: true, count: 1 }];
+  await assert.rejects(scenario(nested, run(2)), /Unexpected nested/);
 });
 
 test('cross-run artifact access is confined to a trusted default-branch publication job', () => {

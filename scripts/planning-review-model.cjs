@@ -248,6 +248,20 @@ function validateReview(review, repository) {
   const keysOnly = (value, allowed) => {
     if (!value || typeof value !== 'object' || Object.keys(value).some(key => !allowed.includes(key))) throw new Error('Unexpected nested planning data; refusing publication');
   };
+  const scalarValues = (value, exceptions = []) => {
+    if (Object.entries(value).some(([key, entry]) => !exceptions.includes(key) && entry !== null && !['string','number','boolean'].includes(typeof entry))) throw new Error('Unexpected nested planning value; refusing publication');
+  };
+  scalarValues(review, ['comparison','research','coverage','sprints','findings','inventory','changes','latestAttempt']);
+  for (const value of [review.comparison, review.research, ...review.coverage, ...review.sprints, ...review.inventory, ...(review.latestAttempt ? [review.latestAttempt] : [])]) scalarValues(value);
+  for (const item of review.changes) {
+    scalarValues(item, ['details']);
+    if (!Array.isArray(item.details) || !item.details.every(detail => typeof detail === 'string')) throw new Error('Invalid planning change details');
+  }
+  for (const finding of review.findings) {
+    scalarValues(finding, ['roles','facts','sources','roleActions']);
+    if (finding.roleActions) scalarValues(finding.roleActions);
+    for (const source of finding.sources) scalarValues(source);
+  }
   keysOnly(review.comparison, ['available','baselineAt','baselineUrl']);
   keysOnly(review.research, ['available','active','prioritized','activeLimit']);
   for (const item of review.coverage) keysOnly(item, ['name','available','count']);
