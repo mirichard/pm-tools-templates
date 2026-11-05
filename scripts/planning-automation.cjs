@@ -181,7 +181,8 @@ async function run({github,graphql,core,preview=true,issueNumber=null}){
   });
   validateReview(review,policy.repository);
   const detailBody=report.body.slice((marker+'\n# Planning decision digest\n').length);
-  const brief=review.findings.filter(finding=>finding.roles.includes('product-owner')).slice(0,5);
+  const {selectFindings,defaults}=await import('../docs/site/public/planning-review/review-view.mjs');
+  const brief=selectFindings(review,defaults).slice(0,5);
   report.body=[marker,'# Planning decision digest','',
     `[Open the interactive planning review](${reviewUrl(policy.repository)}) — role views, linked evidence and shareable filters.`,
     '',`As of ${review.generatedAt}. ${preview?'Preview output':'Website refresh follows successful completion of this run'}.`,
