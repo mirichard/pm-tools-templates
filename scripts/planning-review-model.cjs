@@ -5,6 +5,7 @@ const day = 86400000;
 const issueLabels = issue => (issue.labels || []).map(label => typeof label === 'string' ? label : label.name);
 const issueUrl = (repository, number) => `https://github.com/${repository}/issues/${number}`;
 const reviewUrl = repository => `https://${repository.split('/')[0]}.github.io/${repository.split('/')[1]}/planning-review/`;
+const currentBody = issue => (issue?.body || '').split(/<details\b/i)[0];
 
 function buildReview(snapshot, policy, options = {}) {
   const { readiness, acceptanceFlags } = require('./planning-automation.cjs');
@@ -50,7 +51,7 @@ function buildReview(snapshot, policy, options = {}) {
       return readiness(issue, snapshot, policy).map(gap => `#${number}: ${gap}`);
     });
     if (gaps.length) {
-      const hasDocumentedDefinitionDecision = sprint.issues.some(number => /\*\*Decisions still needed:\*\*/i.test(issues.get(number)?.body || ''));
+      const hasDocumentedDefinitionDecision = sprint.issues.some(number => /\*\*Decisions still needed:\*\*/i.test(currentBody(issues.get(number))));
       add({ id: `readiness-${sprint.title.replace(/\s+/g, '-').toLowerCase()}`,
         title: `${sprint.title} entry records need reconciliation`, stream: 'delivery', sprint: sprint.title, release: policy.release,
         roles: hasDocumentedDefinitionDecision ? ['project-manager', 'scrum-master'] : roles,
@@ -105,12 +106,25 @@ function buildReview(snapshot, policy, options = {}) {
         recommendation: 'Reconcile the policy reference with the recorded stop decision. Preserve the historical research and rationale.', sources: sourcesFor([number]) });
     }
   }
+  const portfolio = issues.get(1566);
+  const portfolioProposal = portfolio?.state === 'open' && currentBody(portfolio).match(/most concrete additional refinement candidates are ([^\n]+)/i)?.[1];
+  if (portfolioProposal) {
+    const candidates = [...new Set([...portfolioProposal.matchAll(/#([0-9]+)/g)].map(match => Number(match[1])))];
+    if (candidates.length > 0 && candidates.length <= 4 && candidates.every(number => issues.get(number)?.state === 'open')) {
+      add({ id: 'portfolio-refinement-candidates', title: 'Decide which proposed research slices merit refinement',
+        roles: ['product-owner', 'project-manager'], stream: 'discovery', severity: 'review', decisionRequired: true,
+        facts: [`The portfolio record proposes ${portfolioProposal}`],
+        impact: 'A portfolio decision would determine which of these proposed slices merits bounded backlog refinement.',
+        recommendation: 'Review the proposed slices and their linked evidence, then record refine, defer or stop. Confirm problem evidence and scope before selecting delivery work.',
+        sources: sourcesFor([portfolio.number, ...candidates]) });
+    }
+  }
   for (const issue of snapshot.issues.filter(item => item.state === 'open')) {
     const entry = inventory.find(item => item.number === issue.number);
     const labels = issueLabels(issue);
-    const decisionText = issue.body?.match(/\*\*Decisions still needed:\*\*\s*([^\n]+)/i)?.[1];
+    const decisionText = currentBody(issue).match(/\*\*Decisions still needed:\*\*\s*([^\n]+)/i)?.[1];
     if (decisionText) {
-      const gatedNumber = Number(issue.body.match(/#(\d+)\s+remains gated/i)?.[1]);
+      const gatedNumber = Number(currentBody(issue).match(/#(\d+)\s+remains gated/i)?.[1]);
       const topic = issue.title.replace(/^Task:\s*Define\s*/i, '').replace(/^Task:\s*/i, '');
       const decisionScope = decisionText.split(/\.\s+(?=#|No repeat|The accepted)/)[0];
       add({ id: `documented-decision-${issue.number}`, title: `Decide ${topic.charAt(0).toLowerCase() + topic.slice(1)}`,

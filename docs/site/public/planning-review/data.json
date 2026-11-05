@@ -296,6 +296,48 @@
     {
       "roles": [
         "product-owner",
+        "project-manager"
+      ],
+      "release": "",
+      "sprint": "",
+      "stage": "",
+      "changed": false,
+      "id": "portfolio-refinement-candidates",
+      "title": "Decide which proposed research slices merit refinement",
+      "stream": "discovery",
+      "severity": "review",
+      "decisionRequired": true,
+      "facts": [
+        "The portfolio record proposes #47 (dependency decision brief), #50 (release-manager journey using existing assets), and #341 (ROI worksheet/example). Their recommendations do not yet establish owner selection, validated demand or sprint readiness."
+      ],
+      "impact": "A portfolio decision would determine which of these proposed slices merits bounded backlog refinement.",
+      "recommendation": "Review the proposed slices and their linked evidence, then record refine, defer or stop. Confirm problem evidence and scope before selecting delivery work.",
+      "sources": [
+        {
+          "number": 1566,
+          "title": "Task: Advance discovery portfolio alongside v2.5 — Sprints 4–6",
+          "url": "https://github.com/mirichard/pm-tools-templates/issues/1566"
+        },
+        {
+          "number": 47,
+          "title": "EPIC: 1.10: Program Management Template Suite Implementation",
+          "url": "https://github.com/mirichard/pm-tools-templates/issues/47"
+        },
+        {
+          "number": 50,
+          "title": "EPIC: 1.12: Release Manager Role Template Suite",
+          "url": "https://github.com/mirichard/pm-tools-templates/issues/50"
+        },
+        {
+          "number": 341,
+          "title": "EPIC: ROI & Value Tracking System",
+          "url": "https://github.com/mirichard/pm-tools-templates/issues/341"
+        }
+      ]
+    },
+    {
+      "roles": [
+        "product-owner",
         "scrum-master"
       ],
       "release": "",

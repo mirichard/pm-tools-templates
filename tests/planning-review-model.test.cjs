@@ -107,3 +107,18 @@ test('resolved entry-record flags appear as rule changes without claiming delive
   assert.equal(compared.changes.filter(item => item.kind === 'no-longer-flagged').length, 2);
   assert.ok(compared.changes.every(item => item.details[0].includes('evidence rule no longer flags')));
 });
+
+test('research refinement follows explicit current portfolio recommendations and preserves closed or historical decisions', () => {
+  const { snapshot, policy, options } = fixture();
+  snapshot.issues.push({ number: 47, title: 'Dependency brief', state: 'open', labels: ['type:epic'] },
+    { number: 1566, title: 'Portfolio', state: 'open', labels: [], body: 'The most concrete additional refinement candidates are #47 (dependency decision brief). Owner selection remains open.' });
+  let review = buildReview(snapshot, policy, options);
+  const finding = review.findings.find(item => item.id === 'portfolio-refinement-candidates');
+  assert.deepEqual(finding.sources.map(item => item.number), [1566,47]);
+  assert.equal(finding.release, '');
+  snapshot.issues.find(item => item.number === 47).state = 'closed';
+  snapshot.issues[0].body = '<details><summary>Historical</summary>**Decisions still needed:** obsolete decision</details>';
+  review = buildReview(snapshot, policy, options);
+  assert.ok(!review.findings.some(item => item.id === 'portfolio-refinement-candidates'));
+  assert.ok(!review.findings.some(item => item.id === 'documented-decision-' + snapshot.issues[0].number));
+});
