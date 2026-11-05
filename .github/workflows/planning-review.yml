@@ -42,7 +42,7 @@ jobs:
             if (!process.env.PROJECT_TOKEN) throw new Error('Read-only ROADMAP_PROJECT_TOKEN required; no report published');
             const input = process.env.ISSUE_NUMBER;
             if (input && !/^[1-9][0-9]*$/.test(input)) throw new Error('Invalid issue number');
-            const graphql = github.graphql.defaults({headers: {authorization: `token ${process.env.PROJECT_TOKEN}`}});
+            const graphql = getOctokit(process.env.PROJECT_TOKEN).graphql;
             await require('./scripts/planning-automation.cjs').run({github, graphql, core,
               preview: process.env.PREVIEW !== 'false', issueNumber: input ? Number(input) : null});
       - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
