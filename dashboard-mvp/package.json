@@ -43,7 +43,19 @@
     "typescript": "^6"
   },
   "overrides": {
+    "@jest/reporters": {
+      "glob": "14.0.2"
+    },
     "deepmerge": "4.1.1",
-    "minimatch": "11.0.1"
+    "jest-config": {
+      "glob": "14.0.2"
+    },
+    "jest-runtime": {
+      "glob": "14.0.2"
+    },
+    "minimatch": "11.0.1",
+    "test-exclude": {
+      "glob": "14.0.2"
+    }
   }
 }
