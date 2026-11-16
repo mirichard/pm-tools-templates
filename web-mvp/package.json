@@ -21,7 +21,7 @@
     "yjs": "^13.6.18"
   },
   "devDependencies": {
-    "@axe-core/playwright": "^4.9.1",
+    "@axe-core/playwright": "^4.14.0",
     "@playwright/test": "^1.62.1",
     "@types/diff": "^5.2.1",
     "@types/react": "^18.2.66",
