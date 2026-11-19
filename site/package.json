@@ -21,7 +21,7 @@
     "qs": "^6.15.2",
     "ws": "^8.21.0",
     "xlsx": "^0.18.5",
-    "basic-ftp": "5.3.1",
+    "basic-ftp": "^6.2.4",
     "tar-fs": "^3.0.6",
     "nth-check": "^2.1.1",
     "cookie": "^0.7.0",
@@ -42,8 +42,8 @@
     "joi": "18.3.1"
   },
   "devDependencies": {
-    "@axe-core/playwright": "^4.13.0",
-    "@lhci/cli": "^0.13.0",
+    "@axe-core/playwright": "^4.14.0",
+    "@lhci/cli": "^0.16.1",
     "@playwright/test": "^1.63.0",
     "lighthouse": "^13.5.0",
     "wait-on": "^9.5.1"
