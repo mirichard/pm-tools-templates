@@ -2,11 +2,11 @@
 
 Generated; do not edit by hand. [Policy](../docs/roadmap-sync.md) · [Decision register](roadmap-alignment.md).
 
-Snapshot updated at: 2026-11-02T12:46:27.286Z (UTC).
+Snapshot updated at: 2026-11-19T18:44:58.409Z (UTC).
 
 [Latest synchronization checks](https://github.com/mirichard/pm-tools-templates/actions/workflows/roadmap-sync.yml) — includes successful checks with no data changes. A check does not publish to main until its PR is merged.
 
-Snapshot fingerprint: `3a2de172ae5bce8d9d527a9af8984b5d013cac388257280bff3a88909b600173`. Values are copied from issues and Projects, not inferred acceptance or release claims.
+Snapshot fingerprint: `17066fbb555d4d30c039d5ab550a1c2802714d866eabbf46cc8ad6a9e3d58fdd`. Values are copied from issues and Projects, not inferred acceptance or release claims.
 
 ## Drift requiring review
 
@@ -21,6 +21,8 @@ Snapshot fingerprint: `3a2de172ae5bce8d9d527a9af8984b5d013cac388257280bff3a88909
 - #1564: missing Outcome or Horizon
 - #1566: missing Outcome or Horizon
 - #1629: missing Outcome or Horizon
+- #1669: missing Outcome or Horizon
+- #1669: expected exactly one type label
 
 ## Issue and Project values
 
@@ -114,3 +116,4 @@ Snapshot fingerprint: `3a2de172ae5bce8d9d527a9af8984b5d013cac388257280bff3a88909
 | [#1564](https://github.com/mirichard/pm-tools-templates/issues/1564) — Task: Prepare v2.5 release notes, checks and approval package | Open | Standalone | — | — | Todo | Sprint 6 | Todo | [v2.5.0 — Find and apply a template](https://github.com/mirichard/pm-tools-templates/milestone/38) |
 | [#1566](https://github.com/mirichard/pm-tools-templates/issues/1566) — Task: Advance discovery portfolio alongside v2.5 — Sprints 4–6 | Open | Standalone | — | — | In Progress |  | — | — |
 | [#1629](https://github.com/mirichard/pm-tools-templates/issues/1629) — Planning decision digest — backlog, sprints and discovery | Open | Standalone | — | — | Todo |  | — | — |
+| [#1669](https://github.com/mirichard/pm-tools-templates/issues/1669) — Dependabot user-facing updates — squash-merge checkpoint | Open | Standalone | — | — | Todo |  | — | — |
