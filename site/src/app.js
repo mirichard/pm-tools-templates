@@ -81,8 +81,8 @@ function renderList(files) {
       const btn = document.createElement('button');
       btn.className = 'file-item';
       btn.type = 'button';
-      btn.setAttribute('aria-label', `Preview ${f}`);
-      btn.innerHTML = `<span class="title">${humanizeTitle(f)}</span><span class="path">${f}</span>`;
+      const title = humanizeTitle(f);
+      btn.innerHTML = `<span class="title">${title}</span><span class="path">${f}</span>`;
       btn.addEventListener('click', () => loadFile(f, btn));
       li.appendChild(btn);
       ul.appendChild(li);
